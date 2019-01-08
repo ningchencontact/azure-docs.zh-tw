@@ -1,5 +1,5 @@
 ---
-title: 教學課程：電腦視覺 API Java
+title: 教學課程：執行影像作業 - Java
 titlesuffix: Azure Cognitive Services
 description: 探索使用「Azure 認知服務」中「電腦視覺 API」的基本 Java Swing 應用程式。 在影像中執行 OCR、建立縮圖，以及處理視覺特徵。
 services: cognitive-services
@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
+ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f039e85ab3fccfc36b704f06d9fcfa3b4cfed758
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340251"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584542"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>教學課程：電腦視覺 API Java
 

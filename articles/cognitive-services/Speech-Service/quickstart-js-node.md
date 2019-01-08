@@ -1,0 +1,126 @@
+---
+title: 快速入門：使用語音服務 SDK 在 Node.js 中以 JavaScript 辨識語音
+titleSuffix: Azure Cognitive Services
+description: 了解如何使用語音服務 SDK 在 Node.js 中以 JavaScript 辨識語音
+services: cognitive-services
+author: fmegen
+manager: cgronlun
+ms.service: cognitive-services
+ms.component: speech-service
+ms.topic: quickstart
+ms.date: 12/18/2018
+ms.author: fmegen
+ms.openlocfilehash: 35652b169067bc545fa0d1fcc977bbaee79ec3aa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724420"
+---
+# <a name="quickstart-recognize-speech-in-javascript-in-nodejs-using-the-speech-service-sdk"></a>快速入門：使用語音服務 SDK 在 Node.js 中以 JavaScript 辨識語音
+
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+
+在本文中，您將了解如何使用認知服務語音 SDK 的 JavaScript 繫結來建立 Node.js 專案，以將語音轉譯為文字。
+該應用程式是以 Microsoft [認知服務語音 SDK](https://aka.ms/csspeech/npmpackage) \(英文\) 為基礎。
+
+## <a name="prerequisites"></a>必要條件
+
+* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
+* 目前版本的 [Node.js](https://nodejs.org) \(英文\)。
+
+## <a name="create-a-new-project-folder"></a>建立新專案資料夾
+
+建立新的空資料夾，並將它初始化為新的 JavaScript 和 Node.js 專案。
+
+```sh
+npm init -f
+```
+
+這將會以預設值初始化 package.json 檔案。 您後續應該會再度編輯此檔案。
+
+## <a name="install-the-speech-sdk-for-javascript-into-that-folder"></a>將適用於 JavaScript 的語音 SDK 安裝到該資料夾
+
+透過 `npm install microsoft-cognitiveservices-speech-sdk` 將語音 SDK 新增到您的 Node.js 專案。
+
+這將會從 npmjs 下載並安裝最新版本的語音 SDK，以及任何所需的必要條件。 SDK 將會被安裝到您專案資料夾的 `node_modules` 目錄中。
+
+## <a name="using-the-speech-sdk"></a>使用語音 SDK
+
+在資料夾中建立名為 `index.js` 的新檔案，並使用文字編輯器開啟此檔案。
+
+> [!NOTE]
+> 請注意，在 Node.js 中，語音 SDK 並不支援麥克風或 File 檔案類型。 只有在瀏覽器上才支援這兩者。 因此，請改為使用針對語音 SDK 的 Stream 介面，這可透過 `AudioInputStream.createPushStream()` 或 `AudioInputStream.createPullStream()`來達成。
+
+在此範例中，我們會使用 `PushAudioInputStream` 介面。
+
+新增下列 JavaScript 程式碼：
+
+[!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
+
+## <a name="running-the-sample-from-command-line"></a>從命令列執行範例
+
+若要啟動應用程式，請將 `YourSubscriptionKey`、`YourServiceRegion` 及 `YourAudioFile.wav` 納入您的設定。 您可以呼叫下列命令來執行它：
+
+```sh
+node index.js
+```
+
+它將會使用所提供的檔案名稱觸發辨識，然後在主控台上顯示輸出。
+
+以下是在更新訂用帳戶金鑰並使用檔案 `whatstheweatherlike.wav` 後執行 `index.js` 的範例輸出。
+
+```json
+SpeechRecognitionResult {
+  "privResultId": "9E30EEBD41AC4571BB77CF9164441F46",
+  "privReason": 3,
+  "privText": "What's the weather like?",
+  "privDuration": 15900000,
+  "privOffset": 300000,
+  "privErrorDetails": null,
+  "privJson": {
+    "RecognitionStatus": "Success",
+    "DisplayText": "What's the weather like?",
+    "Offset": 300000,
+    "Duration": 15900000
+  },
+  "privProperties": null
+}
+```
+
+## <a name="running-the-sample-from-visual-studio-code"></a>從 Visual Studio Code 執行範例
+
+您也可以從 Visual Studio Code 執行範例。 請遵循這些步驟來安裝、開啟及執行快速入門：
+
+1. 啟動 Visual Studio Code 並按一下 [開啟資料夾]，然後瀏覽到快速入門資料夾
+
+   ![[開啟資料夾] 的螢幕擷取畫面](media/sdk/qs-js-node-01-open_project.png)
+
+1. 在 Visual Studio Code 中開啟終端機
+
+   ![終端機視窗的螢幕擷取畫面](media/sdk/qs-js-node-02_open_terminal.png)
+
+1. 執行 npm 以安裝相依性
+
+   ![npm 安裝的螢幕擷取畫面](media/sdk/qs-js-node-03-npm_install.png)
+
+1. 現在您已準備好開啟 `index.js` 並設定中斷點
+
+   ![在行 16 上具有中斷點之 index.js 的螢幕擷取畫面](media/sdk/qs-js-node-04-setup_breakpoint.png)
+
+1. 若要開始進行偵錯，請按 F5 或從功能表選取 [偵錯]/[開始偵錯]
+
+   ![[偵錯] 功能表的螢幕擷取畫面](media/sdk/qs-js-node-05-start_debugging.png)
+
+1. 到達中斷點時，您便可以檢查呼叫堆疊和變數
+
+   ![偵錯工具的螢幕擷取畫面](media/sdk/qs-js-node-06-hit_breakpoint.png)
+
+1. 所有輸出都會顯示於 [偵錯主控台] 視窗中
+
+   ![[偵錯主控台] 的螢幕擷取畫面](media/sdk/qs-js-node-07-debug_output.png)
+
+## <a name="next-steps"></a>後續步驟
+
+> [!div class="nextstepaction"]
+> [探索 GitHub 上的 Node.js 範例](https://aka.ms/csspeech/samples) \(英文\)

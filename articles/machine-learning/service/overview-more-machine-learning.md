@@ -1,5 +1,6 @@
 ---
-title: 比較 Microsoft 的機器學習產品選項
+title: 比較機器學習服務產品選項
+titleSuffix: Microsoft
 description: 比較 Microsoft 各種用來建置、部署及管理機器學習模型的不同產品。 決定您要為解決方案選擇哪些產品。
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: b2d7888234a05c82f1245bd58b98f505989d7f2d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274103"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557881"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft 有哪些機器學習產品？
 
@@ -37,7 +38,7 @@ Microsoft 提供了多種用來建置、部署及管理機器學習模型的產�
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning 服務
 
-[Azure Machine Learning 服務](overview-what-is-azure-ml.md)是完全受控的雲端服務，可用來大規模地訓練、部署及管理 ML 模型。 此服務可完整支援開放原始碼技術，因此您可以使用數以萬計的開放原始碼 Python 套件，例如 TensorFlow、PyTorch 與 scikit-learn。 此外也有齊備的工具 (例如 [Azure Notebooks](https://notebooks.azure.com/)、[Jupyter Notebooks](http://jupyter.org) 或[適用於 Visual Studio Code 的 Azure Machine Learning](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) 擴充功能) 可供您輕鬆地瀏覽和轉換資料，然後訓練和部署模型。 Azure Machine Learning 服務包含自動產生模型的功能，並可讓您輕鬆、有效率且正確地進行調整。
+[Azure Machine Learning 服務](overview-what-is-azure-ml.md)是完全受控的雲端服務，可用來大規模地訓練、部署及管理 ML 模型。 此服務可完整支援開放原始碼技術，因此您可以使用數以萬計的開放原始碼 Python 套件，例如 TensorFlow、PyTorch 與 scikit-learn。 此外也有齊備的工具 (例如 [Azure Notebooks](https://notebooks.azure.com/)、[Jupyter Notebooks](http://jupyter.org) 或[適用於 Visual Studio Code 的 Azure Machine Learning](https://aka.ms/vscodetoolsforai) 擴充功能) 可供您輕鬆地瀏覽和轉換資料，然後訓練和部署模型。 Azure Machine Learning 服務包含自動產生模型的功能，並可讓您輕鬆、有效率且正確地進行調整。
 
 使用 Azure Machine Learning 服務，可利用 Python 和 CLI 在雲端上大規模地訓練、部署及管理 ML 模型。
 

@@ -1,36 +1,36 @@
 ---
-title: 適用於 MongoDB API 的 Azure Cosmos DB 全域散發教學課程
-description: 了解如何使用 MongoDB API 來設定 Azure Cosmos DB 全域散發。
+title: 使用適用於 MongoDB 的 Azure Cosmos DB API 的全域散發教學課程
+description: 了解如何使用適用於 MongoDB 的 Azure Cosmos DB API 來設定全域散發。
 services: cosmos-db
 keywords: 全域散發, MongoDB
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: mvc
-ms.openlocfilehash: 27fa9849c13de151f6922e829514cc8838f295ea
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a5bcfcac891a80807a15657a91eb44df1921f7ee
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874752"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787184"
 ---
-# <a name="set-up-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>使用 MongoDB API 來設定 Azure Cosmos DB 全域散發
+# <a name="set-up-global-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>使用適用於 MongoDB 的 Azure Cosmos DB API 來設定全域散發的資料庫
 
-在本文中，我們會說明如何使用 Azure 入口網站來設定 Azure Cosmos DB 全域散發，然後使用 MongoDB API 來進行連線。
+在本文中，我們將示範如何使用 Azure 入口網站，利用適用於 MongoDB 的 Azure Cosmos DB API 來設定全域散發的資料庫並與之連線。
 
 本文涵蓋下列工作： 
 
 > [!div class="checklist"]
 > * 使用 Azure 入口網站來設定全域散發
-> * 使用 [MongoDB API](mongodb-introduction.md) 來設定全域散發
+> * 使用[適用於 MongoDB 的 Azure Cosmos DB API](mongodb-introduction.md) 來設定全域散發
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>使用 MongoDB API 來確認您的區域設定
-若要在 API for MongoDB 內仔細檢查檢查您的全球組態，最簡單的方法就是從 Mongo 殼層執行 *isMaster()* 命令。
+## <a name="verifying-your-regional-setup"></a>驗證您的區域設定 
+使用適用於 MongoDB 的 Azure Cosmos DB API 來檢查全域設定的最簡單方式就是從 Mongo 殼層執行 *isMaster()* 命令。
 
 從您的 Mongo 殼層︰
 
@@ -64,9 +64,9 @@ ms.locfileid: "52874752"
       }
    ```
 
-## <a name="connecting-to-a-preferred-region-using-the-mongodb-api"></a>使用 MongoDB API 來連線到慣用的區域
+## <a name="connecting-to-a-preferred-region"></a>連線到慣用的區域 
 
-MongoDB API 可讓您針對全域分散式資料庫，指定集合的讀取喜好設定。 為了兼顧低延遲讀取和全球高可用性，建議將集合的讀取喜好設定設為 [最接近]。 [最接近] 讀取喜好設定會設定為從最近的區域讀取。
+適用於 MongoDB 的 Azure Cosmos DB API 可讓您針對全域散發的資料庫，指定集合的讀取喜好設定。 為了兼顧低延遲讀取和全球高可用性，建議將集合的讀取喜好設定設為 [最接近]。 [最接近] 讀取喜好設定會設定為從最近的區域讀取。
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -96,9 +96,9 @@ collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode
 
 > [!div class="checklist"]
 > * 使用 Azure 入口網站來設定全域散發
-> * 使用 SQL API 來設定全域散發
+> * 使用適用於 MongoDB 的 Cosmos DB API 來設定全域散發
 
 您現在可以繼續進行到下一個教學課程，以了解如何使用 Azure Cosmos DB 本機模擬器在本機進行開發。
 
 > [!div class="nextstepaction"]
-> [使用模擬器在本機進行開發](local-emulator.md)
+> [使用 Azure Cosmos DB 模擬器在本機開發](local-emulator.md)

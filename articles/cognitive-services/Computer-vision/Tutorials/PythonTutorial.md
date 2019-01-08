@@ -1,5 +1,5 @@
 ---
-title: 教學課程：電腦視覺 API Python
+title: 教學課程：執行影像作業 - Python
 titlesuffix: Azure Cognitive Services
 description: 了解如何透過使用 Jupyter Notebook，將「電腦視覺 API」與 Python 搭配使用。 使用常用的程式庫以視覺方式呈現您的結果。
 services: cognitive-services
@@ -8,24 +8,25 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: kefre
-ms.openlocfilehash: 16054d19c1ce6f211ebd3e2f0bbc4d152a255dda
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: 55e5168c36eb16944142c2deaae9bc94d60d2fe4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51276962"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582009"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>教學課程：電腦視覺 API Python
 
-本教學課程說明如何使用以 Python 撰寫的「電腦視覺 API」，以及如何使用常用的程式庫將您的結果以視覺化方式呈現。 您將使用 Jupyter 來執行教學課程。 若要了解如何開始使用互動式 Jupyter Notebook，請參閱 [Jupyter 文件](http://jupyter.readthedocs.io/en/latest/index.html)。
+本教學課程說明如何使用以 Python 撰寫的「電腦視覺 API」，以及如何使用常用的程式庫將您的結果以視覺化方式呈現。 您將使用 Jupyter 來執行教學課程。 若要了解如何開始使用互動式 Jupyter Notebook，請參閱 [Jupyter 文件](https://jupyter.readthedocs.io/en/latest/index.html)。
 
 ## <a name="prerequisites"></a>必要條件
 
 - [Python 2.7+ 或 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/) 工具
-- 已安裝 [Jupyter Notebook](http://jupyter.org/install)
+- 已安裝 [Jupyter Notebook](https://jupyter.org/install)
 
 ## <a name="open-the-tutorial-notebook-in-jupyter"></a>在 Jupyter 中開啟教學課程 Notebook 
 

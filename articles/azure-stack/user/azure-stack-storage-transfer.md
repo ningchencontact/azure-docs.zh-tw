@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 45bf9bbffdbba22336da08c81df069ce0267686f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 40df81d496e04ab2d549923cc0645afb8eddaf57
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092655"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724448"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 儲存體的資料傳輸工具
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 Microsoft Azure Stack 提供磁碟、Blob、資料表、佇列和帳戶管理功能適用的一組儲存體服務。 如果您要管理資料、將資料移動至 Azure Stack 儲存體，或從 Azure Stack 儲存體移動資料，就可以使用一組 Azure 儲存體工具。 本文提供可用工具的概觀。
 
@@ -48,7 +48,7 @@ Microsoft Azure Stack 提供磁碟、Blob、資料表、佇列和帳戶管理功
 
     Azure Blob 儲存體的虛擬檔案系統驅動程式，能讓您透過 Linux 檔案系統存取儲存體帳戶中現有的區塊 Blob 資料。 
 
-由於 Azure 和 Azure Stack 的儲存體服務有所不同，因此下列各節所述的各項工具可能會有一些特定的需求。 如需 Azure Stack 儲存體和 Azure 儲存體之間的比較，請參閱 [Azure Stack 儲存體：差異與注意事項](azure-stack-acs-differences.md)。
+由於 Azure 和 Azure Stack 的儲存體服務有所不同，因此下列各節所述的各項工具可能會有一些特定的需求。 如需 Azure Stack 儲存體與 Azure 儲存體之間的比較，請參閱 [Azure Stack 儲存體：差異與注意事項](azure-stack-acs-differences.md)。
 
 ## <a name="azcopy"></a>AzCopy
 
@@ -56,16 +56,17 @@ AzCopy 是一個命令列公用程式，可以使用簡單命令高效率地將�
 
 ### <a name="download-and-install-azcopy"></a>下載並安裝 AzCopy
 
-AzCopy 公用程式有兩個版本：Windows 上的 AzCopy 和 Linux 上的 AzCopy。
+AzCopy 公用程式有兩個版本：「Windows 上的 AzCopy」和「Linux 上的 AzCopy」。
 
  - **AzCopy on Windows**
-    - 下載 Azure Stack 支援的 AzCopy 版本。 在 Azure Stack 和在 Azure 上安裝與使用 AzCopy 的方式一樣。 若要進一步了解，請參閱 [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)。
-        - 如果是 1802 更新或更新版本，請[下載 AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417)。
-        - 如果是舊版，請[下載 AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20170417)。
+    - 下載 Azure Stack 支援的 AzCopy 版本。 在 Azure Stack 和在 Azure 上安裝與使用 AzCopy 的方式一樣。 如需詳細資訊，請參閱 [Windows 上的 AzCopy](../../storage/common/storage-use-azcopy.md)。
+        - 如果是 1811 更新或更新版本，請[下載 AzCopy 7.3.0](https://aka.ms/azcopyforazurestack20171109)。
+        - 如果是舊版 (1802 到 1809 更新)，請[下載 AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417)。
 
  - **AzCopy on Linux**
 
-    - AzCopy on Linux 支援 Azure Stack 1802 更新或更新版本。 在 Azure Stack 和在 Azure 上安裝與使用 AzCopy 的方式一樣。 如需深入了解，請參閱 [AzCopy on Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)。
+    - 在 Azure Stack 和在 Azure 上安裝與使用 AzCopy 的方式一樣。 如需詳細資訊，請參閱 [inux 上的 AzCopy](../../storage/common/storage-use-azcopy-linux.md)。
+    - 如果是舊版 (1802 到 1809 更新)，請參閱 [AzCopy 7.1 和更早版本的安裝步驟](../../storage/common/storage-use-azcopy-linux.md#installation-steps-for-azcopy-71-and-earlier-versions)。
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>資料傳輸適用的 AzCopy 命令範例
 
@@ -75,36 +76,36 @@ AzCopy 公用程式有兩個版本：Windows 上的 AzCopy 和 Linux 上的 AzCo
 
 **Windows**
 
-````AzCopy
+```shell
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
-````
+```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source https://myaccount.blob.local.azurestack.external/mycontainer \
     --destination /mnt/myfiles \
     --source-key <key> \
     --recursive
-````
+```
 
 ### <a name="upload-single-file-to-virtual-directory"></a>上傳單一檔案到虛擬目錄
 
 **Windows**
 
-```AzCopy
+```shell
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source /mnt/myfiles/abc.txt \
     --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
     --dest-key <key>
-````
+```
 
 ### <a name="move-data-between-azure-and-azure-stack-storage"></a>在 Azure 和 Azure Stack 儲存體之間移動資料
 
@@ -112,13 +113,13 @@ azcopy \
 
 **Windows**
 
-````AzCopy
+```shell
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-````
+```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
     --destination https://myaccount2.blob.core.windows.net/myContainer/ \
@@ -126,7 +127,7 @@ azcopy \
     --dest-key <key2> \
     --include "abc.txt" \
     --sync-copy
-````
+```
 
 ### <a name="azcopy-known-issues"></a>Azcopy 的已知問題
 
@@ -217,28 +218,27 @@ New-Item -Path $DestinationFolder -ItemType Directory -Force
 $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 # end
-````
+```
 
 ### <a name="powershell-known-issues"></a>PowerShell 的已知問題
 
 Azure Stack 目前相容的 Azure PowerShell 模組版本是 1.2.11 (供使用者作業使用)。 此版本與最新版的 Azure PowerShell 不同。 此差異會影響儲存體服務作業：
 
-* `Get-AzureRmStorageAccountKey` 在 1.2.11 版的傳回值格式有兩個屬性：`Key1` 和 `Key2`，而目前的 Azure 版本則會傳回包含所有帳戶金鑰的陣列。
+`Get-AzureRmStorageAccountKey` 在 1.2.11 版的傳回值格式有兩個屬性：`Key1` 和 `Key2`，而目前的 Azure 版本則會傳回包含所有帳戶金鑰的陣列。
 
-   ```
-   # This command gets a specific key for a storage account, 
-   # and works for Azure PowerShell version 1.4, and later versions.
-   (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
-   -AccountName "MyStorageAccount").Value[0]
+```powershell
+# This command gets a specific key for a storage account, 
+# and works for Azure PowerShell version 1.4, and later versions.
+(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+-AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a storage account, 
-   # and works for Azure PowerShell version 1.3.2, and previous versions.
-   (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
-   -AccountName "MyStorageAccount").Key1
+# This command gets a specific key for a storage account, 
+# and works for Azure PowerShell version 1.3.2, and previous versions.
+(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+-AccountName "MyStorageAccount").Key1
+```
 
-   ```
-
-   如需詳細資訊，請參閱 [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0)。
+如需詳細資訊，請參閱 [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey)。
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -265,7 +265,7 @@ Azure Stack 需要有 Azure CLI 2.0 版或更新版本。 如需有關安裝和�
 4. 如有必要，請將指令碼標示為可執行檔︰`chmod +x my_storage_sample.sh`
 5. 執行指令碼。 例如，在 Bash 中：`./my_storage_sample.sh`
 
-```bash
+```azurecli
 #!/bin/bash
 # A simple Azure Stack storage example script
 
@@ -296,7 +296,7 @@ echo "Downloading the file..."
 az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --account-name $AZURESTACK_STORAGE_ACCOUNT_NAME --name $AZURESTACK_STORAGE_BLOB_NAME --file $DESTINATION_FILE --output table
 
 echo "Done"
-````
+```
 
 ## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure 儲存體總管
 
@@ -317,20 +317,20 @@ Microsoft Azure 儲存體總管是 Windows 提供的獨立應用程式。 此工
 
 請注意 accountKey 和 sasToken 一次只能設定一個。 指定儲存體帳戶金鑰時，認證組態檔採用下列格式： 
 
-```text  
-    accountName myaccount 
-    accountKey myaccesskey== 
-    containerName mycontainer 
-    blobEndpoint myaccount.blob.local.azurestack.external
+```
+accountName myaccount 
+accountKey myaccesskey== 
+containerName mycontainer 
+blobEndpoint myaccount.blob.local.azurestack.external
 ```
 
 指定共用存取權杖時，認證組態檔採用下列格式：
 
-```text  
-    accountName myaccount 
-    sasToken ?mysastoken 
-    containerName mycontainer 
-    blobEndpoint myaccount.blob.local.azurestack.external
+```  
+accountName myaccount 
+sasToken ?mysastoken 
+containerName mycontainer 
+blobEndpoint myaccount.blob.local.azurestack.external
 ```
 
 ## <a name="next-steps"></a>後續步驟

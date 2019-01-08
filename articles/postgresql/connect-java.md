@@ -1,27 +1,24 @@
 ---
 title: 使用 Java 連線至適用於 PostgreSQL 的 Azure 資料庫
 description: 本快速入門提供 Java 程式碼範例，您可用於從 Azure Database for PostgreSQL 連線及查詢資料。
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 5c55adec1471b28880f7a24a736cf25df2c8bd3f
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: c8216c67a912beb9a735c3757520684cc837e989
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29686838"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544646"
 ---
-# <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Azure Database for PostgreSQL︰使用 Java 連線及查詢資料
+# <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>適用於 PostgreSQL 的 Azure 資料庫：使用 Java 連線並查詢資料
 本快速入門示範如何使用 Java 應用程式來連線到 Azure Database for PostgreSQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文中的步驟假設您已熟悉使用 Java 進行開發，但不熟悉適用於 PostgreSQL 的 Azure 資料庫。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
 - [建立 DB - 入口網站](quickstart-create-server-database-portal.md)
 - [建立 DB - Azure CLI](quickstart-create-server-database-azure-cli.md)

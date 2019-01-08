@@ -9,24 +9,24 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: bbd06ae8927e6c21607ac1c997f1e5cf37f092bf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a85e7c46aa41309bc031f59ed841dc8149d878b3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667231"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723955"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>使用 Terraform 來佈建具有 Azure 部署位置的基礎結構
 
-您可以使用 [Azure 部署位置](/azure/app-service/web-sites-staged-publishing)在不同版本的應用程式之間交換。 這項功能可協助您將中斷部署的影響降到最低。 
+您可以使用 [Azure 部署位置](/azure/app-service/deploy-staging-slots)在不同版本的應用程式之間交換。 這項功能可協助您將中斷部署的影響降到最低。 
 
 本文逐步引導您透過 GitHub 和 Azure 部署兩個應用程式，以說明部署位置的使用範例。 一個應用程式會裝載在生產位置中。 第二個應用程式會裝載在預備位置中。 (「生產」和「預備」這兩個名稱都是隨意的名稱，可以是您想代表您的案例的任何事物。)設定部署位置後，您可視需要使用 Terraform 來交換兩個位置。
 
 ## <a name="prerequisites"></a>必要條件
 
-- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
 
-- **GitHub 帳戶**：您需要 [GitHub](http://www.github.com) 帳戶才能派生和使用測試 GitHub 存放庫。
+- **GitHub 帳戶**：您需要有 [GitHub](http://www.github.com) 帳戶，才能派生和使用測試 GitHub 存放庫。
 
 ## <a name="create-and-apply-the-terraform-plan"></a>建立和套用 Terraform 計劃
 

@@ -3,25 +3,25 @@ title: 什麼是 Azure 應用程式閘道
 description: 了解如何使用 Azure 應用程式閘道來管理應用程式的網路流量。
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068089"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714742"
 ---
 # <a name="what-is-azure-application-gateway"></a>什麼是 Azure 應用程式閘道？
 
-Azure 應用程式閘道是網路流量負載平衡器，可讓您管理 Web 應用程式的流量。 
+Azure 應用程式閘道是網路流量負載平衡器，可讓您管理 Web 應用程式的流量。 傳統負載平衡器會在傳輸層 (OSI 層 4 - TCP 和 UDP) 上運作，並根據來源 IP 位址和連接埠，將流量路由傳送到目的地 IP 位址和連接埠。
 
-傳統負載平衡器會在傳輸層 (OSI 層 4 - TCP 和 UDP) 上運作，並根據來源 IP 位址和連接埠，將流量路由傳送到目的地 IP 位址和連接埠。 但是使用應用程式閘道可讓作業變得更明確。 例如，您可以根據傳入 URL 路由傳送流量。 因此，如果 `/images` 在傳入的 URL 中，您可以將流量路由傳送至一組針對影像設定的特定伺服器 (也稱為集區)。 如果 `/video` 在此 URL 中，該流量就會路由傳送至另一個針對影片最佳化的集區。
+![應用程式閘道概念](media/overview/figure1-720.png)
+
+但是使用應用程式閘道可讓作業變得更明確。 例如，您可以根據傳入 URL 路由傳送流量。 因此，如果 `/images` 在傳入的 URL 中，您可以將流量路由傳送至一組針對影像設定的特定伺服器 (也稱為集區)。 如果 `/video` 在此 URL 中，該流量就會路由傳送至另一個針對影片最佳化的集區。
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
@@ -45,6 +45,10 @@ Azure 應用程式閘道包含下列功能︰
 
 如需應用程式閘道公開預覽版功能的詳細資訊，請參閱[自動調整和區域備援應用程式閘道 (公開預覽)](application-gateway-autoscaling-zone-redundant.md)。
 
+## <a name="secure-sockets-layer-ssl-termination"></a>安全通訊端層 (SSL) 終止
+
+應用程式閘道支援在閘道上終止 SSL，之後流量通常會以未加密狀態流至後端伺服器。 這項功能可讓 Web 伺服器不必再負擔昂貴的加密和解密成本。 不過，有時候無法對伺服器進行未加密的通訊。 可能是因為安全性需求、合規性需求，或應用程式可能只接受安全連線。 對於這些應用程式，應用程式閘道可支援端對端 SSL 加密。
+
 ## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Azure Kubernetes Service (AKS) 輸入控制器預覽 
 
 應用程式閘道輸入控制器會以 Pod 的形式在 AKS 叢集中運作，並允許應用程式閘道作為 AKS 叢集的輸入。 
@@ -59,10 +63,6 @@ Azure 應用程式閘道包含下列功能︰
 應用程式閘道可讓您建立自訂的錯誤頁面，而不是顯示預設的錯誤頁面。 您可以使用自訂錯誤頁面來搭配您自己的商標和版面配置。
 
 如需詳細資訊，請參閱[建立應用程式閘道的自訂錯誤頁面](custom-error.md)。
-
-## <a name="secure-sockets-layer-ssl-termination"></a>安全通訊端層 (SSL) 終止
-
-應用程式閘道支援在閘道上終止 SSL，之後流量通常會以未加密狀態流至後端伺服器。 這項功能可讓 Web 伺服器不必再負擔昂貴的加密和解密成本。 不過，有時候無法對伺服器進行未加密的通訊。 可能是因為安全性需求、合規性需求，或應用程式可能只接受安全連線。 對於這類應用程式，應用程式閘道可支援端對端 SSL 加密。
 
 ## <a name="web-application-firewall"></a>Web 應用程式防火牆
 
@@ -96,22 +96,23 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 - 路徑式重新導向。 這類型的重新導向只允許在特定網站區域上進行 HTTP 至 HTTPS 重新導向，例如以 `/cart/*` 表示的購物車區域。
 - 重新導向至外部網站。
 
-
-
 ## <a name="session-affinity"></a>工作階段親和性
 
 當您想要在同一個後端保留使用者工作階段時，以 Cookie 為基礎的工作階段親和性非常有用。 使用受閘道管理的 Cookie，應用程式閘道即可將來自使用者工作階段的後續流量導向至同一部伺服器進行處理。 當使用者工作階段的工作階段狀態儲存在伺服器本機時，這項功能很重要。
 
-
-
-
 ## <a name="websocket-and-http2-traffic"></a>Websocket 和 HTTP/2 流量
 
 應用程式閘道可對 WebSocket 和 HTTP/2 通訊協定提供原生支援。 使用者無法進行設定來選擇要啟用或停用 WebSocket 支援。 可以使用 Azure PowerShell 來啟用 HTTP/2 支援。
- 
+
 WebSocket 和 HTTP/2 通訊協定都可透過長時間執行的 TCP 連線，讓伺服器與用戶端之間能進行全雙工通訊。 此功能可讓網頁伺服器和用戶端之間進行互動性更高的通訊，此通訊可以是雙向的，而不需要像 HTTP 型實作所要求的進行輪詢。 不同於 HTTP，這些通訊協定的負荷很低，而且可以對多個要求/回應重複使用相同的 TCP 連線，進而提升資源使用效率。 這些通訊協定設計為透過傳統 HTTP 連接埠 80 和 443 進行運作。
 
+## <a name="rewrite-http-headers-public-preview"></a>重新撰寫 HTTP 標頭 (公開預覽)
 
+HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。 重新撰寫這些 HTTP 標頭可幫助您完成數個重要的狀況，例如新增與安全性相關的標頭欄位 (例如 HSTS/ X-XSS-Protection) 或刪除可能會揭露機密資訊 (例如後端伺服器的名稱) 的回應標頭欄位。 
+
+應用程式閘道現在支援重新撰寫內送 HTTP 要求以及外送 HTTP 回應之標頭的能力。 當要求/回應封包在用戶端與後端集區之間移動時，您將能夠新增、移除或更新 HTTP 要求和回應標頭。 您可以重新撰寫這兩個標準 (定義於 [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt) \(英文\) 中) 以及非標準的標頭欄位。  
+
+如需此公開預覽功能的詳細資訊，請參閱[重新撰寫 HTTP 標頭](rewrite-http-headers.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

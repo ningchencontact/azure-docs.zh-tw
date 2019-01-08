@@ -8,29 +8,27 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/05/2018
+ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 171d6c6a972d6fa3eb2e96ceacb75dd2fce1eb92
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f5b33f0710070ff71ab52a1798773fe97965ef34
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074890"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719059"
 ---
-# <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>快速入門：使用語音 SDK 和 .NET Framework (Windows) 來辨識和轉譯語音
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>快速入門：使用適用於 .NET Framework (Windows) 的語音 SDK 來辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 您可以使用本指南，透過 .NET Framework for Windows 和語音 SDK 建立語音轉換文字的主控台應用程式。 完成之後，您可以使用電腦的麥克風將語音即時轉譯為文字。
-
-本快速入門需要已啟用 Microsoft 語音的 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 如果您還沒有帳戶，可以使用[免費試用](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started)來取得訂用帳戶金鑰。
 
 ## <a name="prerequisites"></a>必要條件
 
 若要完成此專案，您需要：
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* 語音服務的訂用帳戶金鑰
+* 適用於語音服務的訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 * 能夠存取電腦的麥克風
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
@@ -63,16 +61,12 @@ ms.locfileid: "53074890"
 
     ![成功辨識後主控台輸出的螢幕擷取畫面](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "成功辨識後的主控台輸出")
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-此程式碼可從 `quickstart/csharp-dotnet-windows` 資料夾中取得。
-
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用適用於 C# 的語音 SDK 從語音辨識意圖](how-to-recognize-intents-from-speech-csharp.md)
+> [探索 GitHub 上的 C# 範例](https://aka.ms/csspeech/samples) \(英文\)
 
 ## <a name="see-also"></a>另請參閱
 
-- [轉譯語音](how-to-translate-speech-csharp.md)
 - [自訂原音模型](how-to-customize-acoustic-models.md)
 - [自訂語言模型](how-to-customize-language-model.md)

@@ -1,5 +1,5 @@
 ---
-title: 快速入門：辨識語音，.NET Core (Windows) - 語音服務
+title: 快速入門：辨識語音，C# (.NET Core Windows) - 語音服務
 titleSuffix: Azure Cognitive Services
 description: 了解如何使用語音服務 SDK 在 Windows 上根據 .NET Core 以 C# 辨識語音
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: e82e39eb3fc6c7ebaf4798ad10038bfd2fa9a41b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a5a04fdede498d404a00d666e4042337b4dc675b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085479"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727831"
 ---
-# <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 上根據 .NET Core 以 C# 辨識語音
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>快速入門：使用適用於 .NET Core 的語音 SDK 來辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -28,35 +28,17 @@ ms.locfileid: "53085479"
 
 您需要語音服務訂用帳戶金鑰，才能完成本快速入門。 您可以免費取得一個金鑰。 如需詳細資訊，請參閱[免費試用語音服務](get-started.md)。
 
+## <a name="prerequisites"></a>必要條件
+
+本快速入門需要：
+
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* 語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 
-1. 啟動 Visual Studio 2017。
-
-1. 請確定 **.NET 跨平台開發**工作負載可用。 從 Visual Studio 功能表列選擇 [工具]  >  [取得工具和功能]，以開啟 Visual Studio 安裝程式。 如果已啟用此工作負載，請關閉對話方塊。
-
-    ![Visual Studio 安裝程式的螢幕擷取畫面，其中 [工作負載] 索引標籤已醒目提示](media/sdk/vs-enable-net-core-workload.png)
-
-    否則，選取 [.NET Core 跨平台開發] 旁邊的方塊，然後選取對話方塊右下角的 [修改]。 安裝新功能需要一些時間。
-
-1. 建立新的 Visual C# .NET Core 主控台應用程式。 在 [新增專案] 對話方塊中，從左窗格展開 [已安裝]  >  [Visual C#]  >  [.NET Core]。 然後選取 [主控台應用程式 (.NET Core)]。 針對專案名稱，請輸入 *helloworld*。
-
-    ![[新增專案] 對話方塊的螢幕擷取畫面](media/sdk/qs-csharp-dotnetcore-windows-01-new-console-app.png "建立 Visual C# 主控台應用程式 (.NET Core)")
-
-1. 安裝並參考 [Speech SDK NuGet 封裝](https://aka.ms/csspeech/nuget)。 在 [方案總管] 中，以滑鼠右鍵按一下解決方案，然後選取 [管理解決方案的 NuGet 套件]。
-
-    ![方案總管的螢幕擷取畫面，其中 [管理解決方案的 NuGet 套件] 選項已醒目提示](media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png "管理解決方案的 NuGet 套件")
-
-1. 在右上角的 [套件來源] 欄位中，選取 [nuget.org]。搜尋 `Microsoft.CognitiveServices.Speech` 套件，然後將它安裝到 **helloworld** 專案。
-
-    ![管理解決方案套件對話方塊的螢幕擷取畫面](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "安裝 NuGet 套件")
-
-1. 接受顯示的授權，才會開始安裝 NuGet 套件。
-
-    ![接受授權對話方塊的螢幕擷取畫面](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "接受授權")
-
-安裝套件之後，[套件管理員] 主控台上會出現確認訊息。
-
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
 
 ## <a name="add-sample-code"></a>新增範例程式碼
 
@@ -84,16 +66,14 @@ ms.locfileid: "53085479"
 
     ![成功辨識後主控台輸出的螢幕擷取畫面](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "成功辨識後的主控台輸出")
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-在 `quickstart/csharp-dotnetcore-windows` 資料夾中尋找此範例。
-
 ## <a name="next-steps"></a>後續步驟
 
+在 GitHub 上可取得其他範例，例如如何讀取音訊檔案中的語音。
+
 > [!div class="nextstepaction"]
-> [使用適用於 C# 的語音 SDK 從語音辨識意圖](how-to-recognize-intents-from-speech-csharp.md)
+> [瀏覽 GitHub 上的 C# 範例](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>另請參閱
 
-- [轉譯語音](how-to-translate-speech-csharp.md)
 - [自訂原音模型](how-to-customize-acoustic-models.md)
 - [自訂語言模型](how-to-customize-language-model.md)

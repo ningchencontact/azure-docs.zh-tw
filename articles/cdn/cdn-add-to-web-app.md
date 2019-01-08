@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: db4a9a43a971f66870c2079762b9c62802122baa
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093318"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602812"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>教學課程：將 Azure CDN 新增至 Azure App Service Web 應用程式
 
-本教學課程說明如何將 [Azure 內容傳遞網路 (CDN)](cdn-overview.md) 新增至 [Azure App Service 中的 Web 應用程式](../app-service/app-service-web-overview.md)。 Web 應用程式是用來裝載 Web 應用程式、REST API 和行動後端的服務。 
+本教學課程說明如何將 [Azure 內容傳遞網路 (CDN)](cdn-overview.md) 新增至 [Azure App Service 中的 Web 應用程式](../app-service/overview.md)。 Web 應用程式是用來裝載 Web 應用程式、REST API 和行動後端的服務。 
 
 以下是您將使用的範例靜態 HTML 網站首頁︰
 

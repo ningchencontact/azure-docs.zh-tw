@@ -1,22 +1,20 @@
 ---
-title: 教學課程：使用 Azure 入口網站設計適用於 MariaDB 的 Azure 資料庫
+title: 教學課程：使用 Azure 入口網站來設計適用於 MariaDB 的 Azure 資料庫
 description: 本教學課程說明如何使用「Azure 入口網站」來建立和管理「適用於 MariaDB 的 Azure 資料庫」伺服器和資料庫。
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 20714bed5c36cd93d11cb4ade6640798775f5055
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 23af00b8a8e061056e9b7ad8ea2c999414783ad6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322051"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538101"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站設計適用於 MariaDB 的 Azure 資料庫
+# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站來設計「適用於 MariaDB 的 Azure 資料庫」資料庫
 
 適用於 MariaDB 的 Azure 資料庫是一個受控服務，您可用來在雲端執行、管理及調整高可用性 MySQL 資料庫。 使用 Azure 入口網站，您可以輕鬆管理伺服器和設計資料庫。
 
@@ -56,7 +54,7 @@ ms.locfileid: "49322051"
     資源群組 | **myresourcegroup** | 輸入新的資源群組名稱，或選取現有資源群組。
     選取來源 | 空白 | 選取 [空白]，以建立新的伺服器。 (如果您要從現有「適用於 MariaDB 的 Azure 資料庫」伺服器的異地備份建立伺服器，請選取 [備份])。
     伺服器管理員登入 | myadmin | 連線至伺服器時所要使用的登入帳戶。 系統管理員登入名稱不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
-    密碼 | 您的選擇 | 為伺服器管理帳戶輸入新密碼。 其必須包含 8 到 128 個字元。 您的密碼必須包含下列三個類別的字元：英文大寫字母、英文小寫字母、數字 (0-9) 和非英數字元 (!、$、#、% 等等)。
+    密碼 | 您的選擇 | 為伺服器管理帳戶輸入新密碼。 其必須包含 8 到 128 個字元。 您的密碼必須包含下列類別中三種類別的字元：英文大寫字母、英文小寫字母、數字 (0-9) 及非英數字元 (!、$、#、% 等等)。
     確認密碼 | 您的選擇| 確認管理帳戶密碼。
     位置 | 最接近使用者的區域| 選取最靠近使用者或其他 Azure 應用程式的位置。
     版本 | 最新版本| 最新版本 (除非您有使用不同版本的特定需求)。
@@ -171,10 +169,10 @@ SELECT * FROM inventory;
    
    ![還原表單](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **還原點**：在所列的時間範圍內，選取您想要還原的時間點。 務必將您的當地時區轉換成 UTC。
-   - **還原到新伺服器**︰輸入要作為還原目的地的新伺服器名稱。
-   - **位置**︰此區域與來源伺服器相同，無法加以變更。
-   - **定價層**︰此定價層與來源伺服器相同，無法加以變更。
+   - **還原點**：從所列的時間範圍中，選取您想要還原的時間點。 務必將您的當地時區轉換成 UTC。
+   - **還原到新的伺服器**：輸入要作為還原目的地的新伺服器名稱。
+   - **位置**：此區域與來源伺服器相同且無法變更。
+   - **定價層**：此定價層與來源伺服器相同且無法變更。
    
 3. 選取 [確定]，將伺服器還原到資料表刪除之前的時間點[還原至某個時間點](./howto-restore-server-portal.md)。 還原伺服器可在您選取的時間點建立伺服器的新複本。 
 

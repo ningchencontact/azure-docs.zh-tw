@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 IntelliJ 為 Azure HDInsight 上的 Spark 建立 Scala Maven 應用程式
+title: 教學課程：使用 IntelliJ 為 Azure HDInsight 中的 Spark 建立 Scala Maven 應用程式
 description: 建立以 Scala 撰寫的 Spark 應用程式，搭配 Apache Maven 作為建置系統，以及由 IntelliJ IDEA 提供之適用於 Scala 的現有 Maven 原型。
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: d83c04946b67dd25bae306c2fa41a0864287bfc8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: eef755c01a6703976383ee31b52bde14d32f0110
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499313"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604060"
 ---
-# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>教學課程：使用 IntelliJ 為 HDInsight 上的 Apache Spark 建立 Scala Maven 應用程式
+# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>教學課程：使用 IntelliJ 為 HDInsight 中的 Apache Spark 建立 Scala Maven 應用程式
 
 在本教學課程中，您將了解如何使用 [Apache Maven](https://maven.apache.org/) 與 IntelliJ IDEA 建立以 [Scala](https://www.scala-lang.org/) 撰寫的 [Apache Spark](https://spark.apache.org/) 應用程式。 本文以 Apache Maven 作為建置系統，並且以 IntelliJ IDEA 為 Scala 提供的現有 Maven 原型作為起始點。  要在 IntelliJ IDEA 中建立 Scala 應用程式，必須執行下列步驟：
 
@@ -26,7 +26,7 @@ ms.locfileid: "52499313"
 * 產生可提交至 HDInsight Spark 叢集的 jar 檔案。
 * 使用 Livy 在 Spark 叢集上執行應用程式。
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight 也提供 IntelliJ IDEA 外掛程式工具，可簡化建立和提交應用程式至 Linux 上之 HDInsight Spark 叢集的程序。 如需詳細資訊，請參閱 [使用 IntelliJ IDEA 的 HDInsight Tools 外掛程式來建立和提交 Apache Spark 應用程式](apache-spark-intellij-tool-plugin.md)。
 > 
 

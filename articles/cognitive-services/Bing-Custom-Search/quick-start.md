@@ -1,7 +1,7 @@
 ---
-title: 快速入門：建立第一個 Bing 自訂搜尋執行個體
+title: 快速入門：建立第一個 Bing 自訂搜尋執行個體 | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: 若要使用 Bing 自訂搜尋，必須建立可定義檢視或網路配量的自訂搜尋執行個體。 執行個體包含指定您要 Bing 搜尋的公用網域、子網站和網頁的設定，以及任何順位調整。
+description: 使用本文建立可以搜尋您定義之網域和網頁的自訂 Bing 執行個體。
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,37 +10,46 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2017
 ms.author: aahi
-ms.openlocfilehash: c9b37486d664920bbc4b85a0715ce7f5ea910365
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: ba1444b3115ffd2c73e1773aa926d11fed81f830
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161529"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556113"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>快速入門：建立您的第一個 Bing 自訂搜尋執行個體
-若要使用 Bing 自訂搜尋，必須建立可定義檢視或網路配量的自訂搜尋執行個體。 執行個體包含指定您要 Bing 搜尋的公用網域、網站和網頁的設定，以及任何順位調整。 若要建立執行個體，請使用 Bing 自訂搜尋[入口網站](https://customsearch.ai)。 
+
+若要使用 Bing 自訂搜尋，必須建立可定義檢視或網路配量的自訂搜尋執行個體。 此執行個體包含您要搜尋的公用網域、網站和網頁，以及您可能需要的任何順位調整。 
+
+若要建立執行個體，請使用 [Bing 自訂搜尋入口網站](https://customsearch.ai)。 
+
+![Bing 自訂搜尋入口網站的圖片](media/blockedCustomSrch.png)
+
+## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## <a name="create-a-custom-search-instance"></a>建立自訂搜尋執行個體
 
 建立 Bing 自訂搜尋執行個體：
 
-1.  取得自訂搜尋 API 的金鑰。 請參閱[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)。
-2.  按一下 [登入] 按鈕並使用 Microsoft 帳戶 (MSA) 登入入口網站。 
-    - 如果您沒有 MSA，請按一下 [建立 Microsoft 帳戶]。 入口網站會要求您提供存取資料的權限。 按一下 [是] 。
-    - 同意認知服務的條款。 選取 [我同意] 並按一下 [同意]。  
-3.  登入之後，按一下 [新執行個體]，並為執行個體命名。 使用有意義的名稱，且名稱能夠描述搜尋傳回的內容類型。 您可以隨時變更名稱。 
-4.  在 [搜尋體驗] 的 [使用中] 索引標籤下，輸入您要在搜尋中包括的一或多個網站的 URL。
-5.  若要確認您的執行個體會傳回結果，請在右邊的預覽窗格中輸入查詢。 如果沒有任何結果，請指定新網站。 Bing 只會針對已編製索引的公用網站傳回結果。
-6.  按一下 [發佈]，將設定變更發佈至生產環境。 出現提示時，請按一下 [發佈] 確認。
-7.  按一下 [生產] > [端點]，複製 [自訂組態識別碼]。 您需要這個識別碼，才能呼叫自訂搜尋 API。
+1. 按一下 [Bing 自訂搜尋入口網站](https://customsearch.ai)網頁上的 [開始使用]，並使用您的 Microsoft 帳戶登入。
+
+2. 按一下 [新執行個體]，然後輸入描述性名稱。 您可以隨時變更執行個體的名稱。
+ 
+3. 在 [搜尋體驗] 的 [使用中] 索引標籤下，輸入您要在搜尋中包括的一或多個網站的 URL。 
+
+    > [!NOTE]
+    > Bing 自訂搜尋執行個體只會傳回公用且經過 Bing 編製索引之網域和網頁的結果。
+
+4. 您可以使用 Bing 自訂搜尋入口網站的右側輸入查詢，並檢查搜尋執行個體所傳回的搜尋結果。 如果未傳回任何結果，請嘗試輸入其他 URL。  
+
+5. 按一下 [發佈]，將變更發佈至生產環境中，並更新執行個體的端點。
+
+6.  按一下 [生產] 索引標籤的 [端點] 下方，複製您的**自訂組態識別碼**。 您需要將此識別碼附加到呼叫中的 `customconfig=` 查詢參數，藉此呼叫自訂搜尋 API。
+
 
 ## <a name="next-steps"></a>後續步驟
 
-依照下列使用說明指南中的指示，繼續使用您剛才建立的自訂搜尋執行個體：
-
-- [設定您的自訂搜尋體驗](./define-your-custom-view.md)
-- [呼叫您的自訂搜尋](./search-your-custom-view.md)
-- [共用您的自訂搜尋](./share-your-custom-search.md)
-- [設定託管的 UI 體驗](./hosted-ui.md)
-- [使用裝飾標記醒目提示文字](./hit-highlighting.md)
-- [頁面網頁](./page-webpages.md)
+> [!div class="nextstepaction"]
+> [快速入門：呼叫 Bing 自訂搜尋端點](./call-endpoint-csharp.md)

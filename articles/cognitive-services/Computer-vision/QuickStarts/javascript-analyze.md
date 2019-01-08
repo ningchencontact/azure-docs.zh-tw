@@ -1,5 +1,5 @@
 ---
-title: 快速入門：分析遠端影像 - REST、JavaScript - 電腦視覺
+title: 快速入門：分析遠端影像 - REST、JavaScript
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用電腦視覺 API 搭配 JavaScript 分析影像。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: acfaed619aa8d6e90060b31023e0ae0f33709d73
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 573e65f8f1a6e092da6d46d6a98fb89b1a476179
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853025"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581125"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 與 JavaScript 分析遠端影像
 
@@ -25,7 +26,7 @@ ms.locfileid: "51853025"
 
 ## <a name="prerequisites"></a>必要條件
 
-您必須具有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+您必須有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
 
 ## <a name="create-and-run-the-sample"></a>建立並執行範例
 

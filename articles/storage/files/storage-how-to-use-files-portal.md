@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 12e6b3a3fe790183a35c71fbb87243890ad22236
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: f295245cc14000e48cb3db55dc291edf02bb660e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944833"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634383"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立及管理 Azure 檔案共用 
+# <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>快速入門：使用 Azure 入口網站來建立及管理 Azure 檔案共用 
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows、Linux 和 macOS 中掛接。 本指南會逐步說明透過 [Azure 入口網站](https://portal.azure.com/)來使用 Azure 檔案共用的基本概念。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
@@ -45,7 +45,7 @@ Azure 檔案服務提供兩個在 Azure 檔案共用中使用檔案和資料夾�
 - [macOS](storage-how-to-use-files-mac.md)
 
 ### <a name="using-an-azure-file-share-from-the-azure-portal"></a>從 Azure 入口網站使用 Azure 檔案共用
-透過 Azure 入口網站提出的所有要求都是使用 REST API 進行，讓您不需 SMB 存取權，即可在用戶端上建立、修改及刪除檔案和目錄。 您可以直接使用檔案 REST 通訊協定 (也就是您自己製作 HTTP REST 呼叫)，但最常見的方式 (除了 Azure 入口網站以外) 是使用 [AzureRM PowerShell](storage-how-to-use-files-powershell.md) 模組、[Azure CLI](storage-how-to-use-files-cli.md) 或 Azure儲存體 SDK，這些都能以您選擇的指令碼/程式設計語言提供檔案 REST 通訊協定的良好包裝函式。 
+透過 Azure 入口網站提出的所有要求都是使用 REST API 進行，讓您不需 SMB 存取權，即可在用戶端上建立、修改及刪除檔案和目錄。 您可以直接使用 File REST 通訊協定 (也就是自己製作 REST HTTP 呼叫)，但最常見的 File REST 通訊協定使用方式 (除了使用 Azure 入口網站之外) 是使用 [Azure PowerShell 模組](storage-how-to-use-files-powershell.md)、[Azure CLI](storage-how-to-use-files-cli.md) 或「Azure儲存體 SDK」，這些都能以您選擇的指令碼/程式設計語言為 File REST 通訊協定提供良好的包裝函式。 
 
 我們預期人們使用 Azure 檔案服務時，都會想透過 SMB 通訊協定來與 Azure 檔案共用搭配使用，因為這可讓他們使用預期能使用的現有應用程式和工具，但使用檔案 REST API 比使用 SMB 好的原因有很多個，例如：
 

@@ -10,19 +10,19 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: f8b6f4d39ce4dc65d691ec6a0e3d0734abb19734
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b6add6ac94e45789033cfe9913ec64e69f394f45
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087910"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715132"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>快速入門：使用語音服務 SDK 在瀏覽器中以 JavaScript 辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在此文章中，您將了解如何使用認知服務語音 SDK 的 JavaScript 繫結，將語音謄寫為文字以建立網站。
-應用程式是以「Microsoft 認知服務語音 SDK ([下載版本 1.1.0](https://aka.ms/csspeech/jsbrowserpackage))」為基礎。
+該應用程式是以 Microsoft 認知服務語音 SDK 為基礎 ([下載 1.2.0 版](https://aka.ms/csspeech/jsbrowserpackage))。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -40,8 +40,8 @@ ms.locfileid: "53087910"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-下載 [.zip 套件](https://aka.ms/csspeech/jsbrowserpackage)形式的語音 SDK，並將它解壓縮到新建立的資料夾。 這應該會使得兩個檔案解壓縮，亦即 `microsoft.cognitiveservices.speech.sdk.bundle.js` 與 `microsoft.cognitiveservices.speech.sdk.bundle.js.map`。
-第二個檔案是選擇性的，可在必要時用來協助針對 SDK 程式碼進行偵錯。
+下載 [.zip 套件](https://aka.ms/csspeech/jsbrowserpackage)形式的語音 SDK，並將它解壓縮到新建立的資料夾。 這會解壓縮出兩個檔案，`microsoft.cognitiveservices.speech.sdk.bundle.js` 和 `microsoft.cognitiveservices.speech.sdk.bundle.js.map`。
+第二個檔案是選擇性的，並適用於對 SDK 程式碼進行偵錯。
 
 ## <a name="create-an-indexhtml-page"></a>建立 index.html 網頁
 
@@ -103,10 +103,7 @@ ms.locfileid: "53087910"
 
 若要啟動應用程式，請開啟您最愛的網頁瀏覽器並指向資料夾裝載所在的公用 URL，輸入您的[地區](regions.md)，並使用麥克風觸發辨識。 如果已設定，它將會從您的權杖來源取得權杖。
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-在 `quickstart/js-browser` 資料夾中尋找此範例。
-
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [取得我們的範例](speech-sdk.md#get-the-samples)
+> [探索 GitHub 上的 JavaScript 範例](https://aka.ms/csspeech/samples) \(英文\)

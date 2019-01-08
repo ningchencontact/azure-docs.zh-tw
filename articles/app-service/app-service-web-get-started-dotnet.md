@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 70c24b8aef1672696c0e7d7289e23b98b6b49dfe
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2762a81c9f366ad4a5d0d6d87cf04490fc10b23c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341434"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630579"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>在 Azure 中建立 ASP.NET Core Web 應用程式
 
@@ -28,7 +28,7 @@ ms.locfileid: "53341434"
 > 本文會將應用程式部署至 Windows 上的 App Service。 若要部署至 _Linux_ 上的 App Service，請參閱[在 Linux 上的 App Service 中建立 NET Core Web 應用程式](./containers/quickstart-dotnetcore.md)。 
 >
 
-[Azure Web Apps](app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。  本快速入門會顯示如何將第一個 ASP.NET Core Web 應用程式部署至 Azure Web Apps。 當您完成時，您會有已部署 Web 應用程式的資源群，其中包含 App Service 方案和 Azure Web 應用程式。
+[Azure App Service](overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。  本快速入門會顯示如何將第一個 ASP.NET Core Web 應用程式部署至 Azure App Service。 當您完成時，您會有已部署 Web 應用程式的資源群，其中包含 App Service 方案和 App Service 應用程式。
 
 ![](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
@@ -147,13 +147,13 @@ ms.locfileid: "53341434"
 
 ![Azure 中已更新的 ASP.NET Web 應用程式](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
-## <a name="manage-the-azure-web-app"></a>管理 Azure Web 應用程式
+## <a name="manage-the-azure-app"></a>管理 Azure 應用程式
 
 請移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理 Web 應用程式。
 
-從左側功能表，選取 [應用程式服務]，然後選取 Azure Web 應用程式的名稱。
+從左側功能表，選取 [應用程式服務]，然後選取 Azure 應用程式的名稱。
 
-![入口網站瀏覽至 Azure Web 應用程式](./media/app-service-web-get-started-dotnet/access-portal.png)
+![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-get-started-dotnet/access-portal.png)
 
 您會看到 Web 應用程式的 [概觀] 頁面。 您可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 
 

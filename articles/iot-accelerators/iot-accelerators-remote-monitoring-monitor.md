@@ -1,5 +1,5 @@
 ---
-title: 從 Azure 解決方案監視 IoT 裝置的教學課程 | Microsoft Docs
+title: 從 Azure 解決方案監視 IoT 裝置的教學課程 - Azure | Microsoft Docs
 description: 在本教學課程中，您會了解如何使用遠端監視解決方案加速器來監視 IoT 裝置。
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d8afe474f88f0881de5b0e7b132009c6e03ac2af
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7dd7612817f83fe713759965fc28f6f86a0d624a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824739"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602523"
 ---
-# <a name="tutorial-monitor-your-iot-devices"></a>教學課程：監視 IoT 裝置
+# <a name="tutorial-monitor-your-iot-devices"></a>教學課程：監視您的 IoT 裝置
 
 在本教學課程中，您會使用遠端監視解決方案加速器來監視已連線的 IoT 裝置。 您可使用解決方案儀表板來檢視遙測、裝置資訊、警示和 KPI。
 

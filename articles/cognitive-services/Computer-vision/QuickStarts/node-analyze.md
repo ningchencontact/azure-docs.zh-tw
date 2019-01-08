@@ -1,5 +1,5 @@
 ---
-title: 快速入門：分析遠端影像 - REST、Node.js - 電腦視覺
+title: 快速入門：分析遠端影像 - REST、Node.js
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用電腦視覺 API 搭配 Node.js 分析影像。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 22497d07133a9ab717d319524c3e2825c832ddaa
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 58f25d4ac37498c56728b5526ead3ae97b9843d8
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342581"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583325"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 搭配 Node.js 分析遠端影像
 

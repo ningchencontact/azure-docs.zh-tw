@@ -12,16 +12,16 @@ ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 12/07/2018
-ms.openlocfilehash: 34b3ee54c48040eaa6f7b7569921678869baa84b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f86312ee1d11e5ac4c7626f5fd4c8223dac8b52
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092361"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744695"
 ---
-# <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>快速入門：使用 Go 查詢 Azure SQL 資料庫
+# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>快速入門：使用 Golang 查詢 Azure SQL 資料庫
 
-此快速入門示範如何使用 [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) 程式設計語言連線至 Azure SQL 資料庫，並執行 Transact-SQL 陳述式來查詢和修改資料。 [Go](https://golang.org/) 是一種開放原始碼程式設計語言，可輕鬆建置簡單、可靠又有效的軟體。  
+在此快速入門中，您將使用 [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) 程式設計語言來連線至 Azure SQL 資料庫。 然後，執行 Transact-SQL 陳述式來查詢和修改資料。 [Golang](https://golang.org/) 是一種開放原始碼程式設計語言，可輕鬆建置簡單、可靠又有效的軟體。  
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -31,17 +31,17 @@ ms.locfileid: "53092361"
 
 - 為電腦的公用 IP 位址設定[伺服器層級防火牆規則](sql-database-get-started-portal-firewall.md)。
 
-- 安裝適用於您作業系統的 Go 和相關軟體：
+- 安裝適用於您作業系統的 Golang 和相關軟體：
 
-    - **MacOS**：安裝 Homebrew 和 GoLang。 請參閱[步驟 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/)。
-    - **Ubuntu**：安裝 GoLang。 請參閱[步驟 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/)。
-    - **Windows**：安裝 GoLang。 請參閱[步驟 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/)。    
+    - **MacOS**：安裝 Homebrew 和 Golang。 請參閱[步驟 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/)。
+    - **Ubuntu**：安裝 Golang。 請參閱[步驟 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/)。
+    - **Windows**：安裝 Golang。 請參閱[步驟 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/)。    
 
 ## <a name="sql-server-connection-information"></a>SQL Server 連線資訊
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-## <a name="create-go-project-and-dependencies"></a>建立 Go 專案和相依性
+## <a name="create-golang-project-and-dependencies"></a>建立 Golang 專案和相依性
 
 1. 從終端機建立名為 **SqlServerSample** 的新專案資料夾。 
 
@@ -49,7 +49,7 @@ ms.locfileid: "53092361"
    mkdir SqlServerSample
    ```
 
-2. 將目錄變更為 **SqlServerSample**，然後安裝適用於 Go 的 SQL Server 驅動程式。
+2. 瀏覽至 **SqlServerSample**，然後安裝適用於 Go 的 SQL Server 驅動程式。
 
    ```bash
    cd SqlServerSample
@@ -59,7 +59,7 @@ ms.locfileid: "53092361"
 
 ## <a name="create-sample-data"></a>建立範例資料
 
-1. 在您慣用的文字編輯器中，於 **SqlServerSample** 資料夾中建立名為 **CreateTestData.sql** 的檔案。 在檔案中，複製和貼上下列 T-SQL 程式碼，這會建立結構描述、資料表，並插入幾個資料列。
+1. 在文字編輯器中，於 **SqlServerSample** 資料夾中建立名為 **CreateTestData.sql** 的檔案。 在檔案中，複製和貼上下列 T-SQL 程式碼，這會建立結構描述、資料表，並插入幾個資料列。
 
    ```sql
    CREATE SCHEMA TestSchema;
@@ -85,14 +85,14 @@ ms.locfileid: "53092361"
 2. 使用 `sqlcmd` 連線到資料庫，並執行新建立的 SQL 指令碼。 將您的伺服器、資料庫、使用者和密碼取代為適當的值。
 
    ```bash
-   sqlcmd -S your_server.database.windows.net -U your_username -P your_password -d your_database -i ./CreateTestData.sql
+   sqlcmd -S <your_server>.database.windows.net -U <your_username> -P <your_password> -d <your_database> -i ./CreateTestData.sql
    ```
 
 ## <a name="insert-code-to-query-sql-database"></a>插入程式碼以查詢 SQL 資料庫
 
 1. 在 **SqlServerSample** 資料夾中建立名為 **sample.go** 的檔案。
 
-2. 開啟該檔案，並貼上下列程式碼。 為您的伺服器、資料庫、使用者和密碼新增適當的值。 本範例會使用 GoLang Context 方法，以確保與資料庫伺服器的連線是作用中狀態。
+2. 在檔案中，貼上此程式碼。 為您的伺服器、資料庫、使用者和密碼新增值。 本範例會使用 Golang [context 方法](https://golang.org/pkg/context/)，以確保有作用中的資料庫伺服器連線。
 
    ```go
    package main
@@ -108,11 +108,11 @@ ms.locfileid: "53092361"
 
    var db *sql.DB
 
-   var server = "your_server.database.windows.net"
+   var server = "<your_server.database.windows.net>"
    var port = 1433
-   var user = "your_username"
-   var password = "your_password"
-   var database = "your_database"
+   var user = "<your_username>"
+   var password = "<your_password>"
+   var database = "<your_database>"
 
    func main() {
        // Build connection string
@@ -311,6 +311,6 @@ ms.locfileid: "53092361"
 ## <a name="next-steps"></a>後續步驟
 
 - [設計您的第一個 Azure SQL Database](sql-database-design-first-database.md)
-- [Go Driver for Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
+- [適用於 Microsoft SQL Server 的 Golang 驅動程式](https://github.com/denisenkom/go-mssqldb)
 - [回報問題或發問](https://github.com/denisenkom/go-mssqldb/issues)
 

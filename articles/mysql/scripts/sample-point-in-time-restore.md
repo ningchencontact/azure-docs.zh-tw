@@ -1,22 +1,19 @@
 ---
 title: Azure CLI 指令碼 - 還原適用於 MySQL 的 Azure 資料庫伺服器
 description: 此範例 Azure CLI 指令碼示範如何將「適用於 MySQL 的 Azure 資料庫」伺服器及其資料庫還原至先前的時間點。
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 9017732eb880ff88b041073ca9cb7aca97f9b693
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7bc4b1533da272bed9b7b7b8a0abe9b509e02386
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581029"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545105"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 還原「適用於 MySQL 的 Azure 資料庫」伺服器
 此範例 CLI 指令碼會將單一「適用於 MySQL 的 Azure 資料庫」伺服器還原至先前的時間點。
@@ -44,5 +41,5 @@ ms.locfileid: "52581029"
 | [az group delete](/cli/azure/group#az-group-delete) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
-- 了解 Azure CLI 的詳細資訊：[Azure CLI 文件](/cli/azure)。
-- 嘗試其他指令碼：[「適用於 MySQL 的 Azure 資料庫」的 Azure CLI 範例](../sample-scripts-azure-cli.md)
+- 閱讀更多有關 Azure CLI 的資訊：[Azure CLI 文件](/cli/azure)。
+- 嘗試額外的指令碼：[Azure Database for MySQL 的 Azuer CLI 範例](../sample-scripts-azure-cli.md)

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 型遠端監視解決方案中偵測裝置問題的教學課程 | Microsoft Docs
+title: 偵測遠端監視解決方案中裝置問題的教學課程 - Azure | Microsoft Docs
 description: 本教學課程會示範如何使用規則和動作，來自動偵測遠端監視解決方案中的閾值型裝置問題。
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7ebe81565bc6bd28747f3a251b39a3c010493307
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819095"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598667"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>教學課程：偵測與監視解決方案連線的裝置問題
 

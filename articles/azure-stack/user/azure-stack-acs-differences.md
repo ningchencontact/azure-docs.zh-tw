@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 1d1811549978d78a8dddad8e89895fdf605ed02b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1393dd32aea8cb6d348092ea1fc56752f659beab
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341893"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717866"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 儲存體：差異與注意事項
 
@@ -34,8 +34,8 @@ ms.locfileid: "53341893"
 | 功能 | Azure (全域) | Azure Stack |
 | --- | --- | --- |
 |檔案儲存體|支援雲端式 SMB 檔案共用|尚不支援
-|待用資料的 Azure 儲存體服務加密|256 位元 AES 加密|BitLocker 128 位元 AES 加密
-|儲存體帳戶類型|一般用途和 Azure Blob 儲存體帳戶|僅限一般用途。
+|待用資料的 Azure 儲存體服務加密|256 位元 AES 加密。 支援使用 Key Vault 中客戶管理的金鑰進行加密。|BitLocker 128 位元 AES 加密。 不支援使用客戶管理的金鑰進行加密。
+|儲存體帳戶類型|一般用途 V1、V2 及 Blob 儲存體帳戶|僅限一般用途 V1。
 |複寫選項|本地備援儲存體、異地備援儲存體、讀取權限異地備援儲存體，以及區域備援儲存體|本地備援儲存體。
 |進階儲存體|完全支援|可佈建，但無效能限制或保證。
 |受控磁碟|支援進階和標準|支援 1808 版或更新版本。
@@ -44,11 +44,14 @@ ms.locfileid: "53341893"
 |分頁 blob 快照集複製|不支援對連結至執行中 VM 的 Azure 非受控 VM 進行備份|尚不支援。
 |分頁 Blob 增量快照複製|支援進階和標準 Azure 分頁 Blob|尚不支援。
 |Blob 儲存體的儲存層|經常性存取、非經常性存取和封存儲存層。|尚不支援。
-Blob 儲存體的虛刪除|預覽|尚不支援。
+|Blob 儲存體的虛刪除|正式運作|尚不支援。
 |分頁 Blob 大小上限|8 TB|1 TB
 |分頁 Blob 分頁大小|512 個位元組|4 KB
 |資料表分割區索引鍵和資料列索引鍵大小|1,024 個字元 (2,048 個位元組)|400 個字元 (800 個位元組)
-|Blob 快照集|一個 blob 的快照集數目沒有上限。|一個 blob 的快照集數目上限為 1,000。|
+|Blob 快照集|一個 blob 的快照集數目沒有上限。|一個 blob 的快照集數目上限為 1,000。
+|適用於儲存體的 Azure AD 驗證|預覽狀態|尚不支援。
+|固定 Blob|正式運作|尚不支援。
+|適用於儲存體的防火牆與虛擬網路規則|正式運作|尚不支援。|
 
 儲存體計量也有些差異：
 
@@ -61,7 +64,17 @@ Blob 儲存體的虛刪除|預覽|尚不支援。
 
 Azure 儲存體服務 API：
 
-1802 更新或更新版本：
+1811 更新或更新版本：
+
+ - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+ - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
+ - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+
+1802 更新到 1809 更新：
 
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
@@ -79,6 +92,12 @@ Azure 儲存體服務管理 API：
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
+舊版：
+
+ - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ 
 ## <a name="sdk-versions"></a>SDK 版本
 
 Azure Stack 儲存體支援下列用戶端程式庫：

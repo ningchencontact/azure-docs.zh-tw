@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 4b5f884fe6e1f1fdc12d7993418f7a10614a4cbe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 76a509c1cb9277ac72f99ec9ebfc239bfd71390c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602950"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969177"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>匯入 Logic App 作為 API
 
@@ -31,10 +31,10 @@ ms.locfileid: "38602950"
 > * 在 Azure 入口網站中測試 API
 > * 在開發人員入口網站中測試 API
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-+ 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)
-+ 確定您的訂用帳戶中有 Logic App。 如需詳細資訊，請參閱[建立您的第一個 Logic App](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)
+* 確定您的訂用帳戶中有一個邏輯應用程式會公開 HTTP 端點。 如需詳細資訊，請參閱[透過 HTTP 端點觸發工作流程](../logic-apps/logic-apps-http-endpoint.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -44,7 +44,7 @@ ms.locfileid: "38602950"
 2. 從 [加入新的 API] 清單選取 [Logic App]。
 
     ![邏輯應用程式](./media/import-logic-app-as-api/logic-app-api.png)
-3. 按 [瀏覽] 以查看您訂用帳戶中的 Logic Apps 清單。
+3. 按 [瀏覽] 以查看您訂用帳戶中可呼叫的 Logic Apps 清單。
 4. 選取應用程式。 APIM 會尋找與所選取應用程式相關聯的 Swagger，擷取並匯入它。 
 5. 新增 API URL 尾碼。 此尾碼是用來在這個 APIM 執行個體中識別此特定 API 的名稱。 它在這個 APIM 執行個體中必須是唯一的。
 6. 透過將 API 關聯至某個產品來發佈 API。 在本案例中，我們使用「無限制」的產品。  如果您想要發佈 API 以供開發人員使用，請將它新增至產品。 您可以在 API 建立期間執行此動作，或稍後設定它。

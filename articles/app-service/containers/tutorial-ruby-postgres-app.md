@@ -1,5 +1,5 @@
 ---
-title: 在 Linux 上建置搭配 Postgres 的 Ruby Web 應用程式 - Azure App Service | Microsoft Docs
+title: 在 Linux 上建置搭配 Postgres 的 Ruby 應用程式 - Azure App Service | Microsoft Docs
 description: 了解如何取得在 Azure 中運作的 Ruby 應用程式，並連線至 Azure 中的 PostgreSQL 資料庫。
 services: app-service\web
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 247c4f24869901f0f50b081d8f57b7e3841a8e8a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e42d9592d74e845410441097fa6082cfb3f4ac5e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271023"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713874"
 ---
-# <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 Ruby 和 Postgres Web 應用程式
+# <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 Ruby 和 Postgres 應用程式
 
-[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程示範如何建立 Ruby Web 應用程式，並將它連線到 PostgreSQL 資料庫。 完成後，Linux 上將有一個在 App Service 上執行的 [Ruby on Rails](https://rubyonrails.org/) 應用程式。
+[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程示範如何建立 Ruby 應用程式，並將它連線至 PostgreSQL 資料庫。 完成後，Linux 上將有一個在 App Service 上執行的 [Ruby on Rails](https://rubyonrails.org/) 應用程式。
 
 ![在 Azure App Service 中執行的 Ruby on Rails 應用程式](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -162,7 +162,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 ```
 
 > [!TIP] 
-> [僅使用您的應用程式所用的輸出 IP 位址](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)，讓您的防火牆規則更具限制性。
+> [僅使用您的應用程式所用的輸出 IP 位址](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)，讓您的防火牆規則更具限制性。
 >
 
 ### <a name="connect-to-production-postgres-server-locally"></a>在本機連線到生產環境 Postgres 伺服器
@@ -357,7 +357,7 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>瀏覽至 Azure Web 應用程式
+### <a name="browse-to-the-azure-app"></a>瀏覽至 Azure 應用程式
 
 瀏覽至 `http://<app_name>.azurewebsites.net` 並將幾項工作新增至清單。
 
@@ -470,21 +470,21 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-完成 `git push` 之後，瀏覽至 Azure Web 應用程式，然後測試新功能。
+完成 `git push` 之後，巡覽至 Azure 應用程式，然後測試新功能。
 
 ![發佈至 Azure 的模型和資料庫變更](media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
 如果您新增任何工作，它們會保留在資料庫中。 對資料結構描述進行的更新，現有資料會原封不動。
 
-## <a name="manage-the-azure-web-app"></a>管理 Azure Web 應用程式
+## <a name="manage-the-azure-app"></a>管理 Azure 應用程式
 
-請移至 [Azure 入口網站](https://portal.azure.com)，以管理您所建立的 Web 應用程式。
+移至 [Azure 入口網站](https://portal.azure.com)，以管理您所建立的應用程式。
 
-按一下左側功能表中的 [應用程式服務]，然後按一下 Azure Web 應用程式的名稱。
+按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
 
-![入口網站瀏覽至 Azure Web 應用程式](./media/tutorial-php-mysql-app/access-portal.png)
+![入口網站瀏覽至 Azure 應用程式](./media/tutorial-php-mysql-app/access-portal.png)
 
-您會看到 Web 應用程式的 [概觀] 頁面。 您可以在這裡執行基本管理工作，像是停止、啟動、重新啟動、瀏覽、刪除。
+您會看到應用程式的 [概觀] 頁面。 您可以在這裡執行基本管理工作，像是停止、啟動、重新啟動、瀏覽、刪除。
 
 左側功能表提供的頁面可用來設定您的應用程式。
 
@@ -506,7 +506,7 @@ git push azure master
 > * 來自 Azure 的串流診斷記錄
 > * 在 Azure 入口網站中管理應用程式
 
-前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至 Web 應用程式。
+前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至應用程式。
 
 > [!div class="nextstepaction"]
-> [將現有的自訂 DNS 名稱對應至 Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
+> [將現有的自訂 DNS 名稱對應至 Azure App Service](../app-service-web-tutorial-custom-domain.md)

@@ -52,12 +52,9 @@
 ## [SAP HANA 檔案層級備份](sap-hana-backup-file-level.md)
 ## [SAP HANA 儲存體快照備份](sap-hana-backup-storage-snapshots.md)
 # Azure 虛擬機器上的 SAP NetWeaver 與 Business One
-## [Azure 虛擬機器上的 SAP Business One](business-one-azure.md)
-## [SAP IDES on Windows/SQL Server SAP CAL 部署指南](cal-ides-erp6-erp7-sp3-sql.md)
-## [Azure Linux VM 上的 SAP NetWeaver](suse-quickstart.md)
+## [SAP 工作負載規劃和部署檢查清單](sap-deployment-checklist.md)
 ## [在 Azure 上規劃並實作 SAP NetWeaver](planning-guide.md)
 ## [SAP NetWeaver 部署指南](deployment-guide.md)
-## [適用於 Azure 的 SAP LaMa 連接器](lama-installation.md)
 ## 適用於 SAP 工作負載的 DBMS 部署指南
 ### [適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署](dbms_guide_general.md)
 ### [適用於 SAP 工作負載的 SQL Server Azure 虛擬機器 DBMS 部署](dbms_guide_sqlserver.md)
@@ -69,6 +66,10 @@
 ### [Azure 中的 SAP HANA 可用性概觀](sap-hana-availability-overview.md)
 ### [Azure 中的 SAP HANA 在單一 Azure 區域中的可用性概觀](sap-hana-availability-one-region.md)
 ### [Azure 中的 SAP HANA 跨多個 Azure 區域中的可用性概觀](sap-hana-availability-across-regions.md)
+## [Azure 虛擬機器上的 SAP Business One](business-one-azure.md)
+## [SAP IDES on Windows/SQL Server SAP CAL 部署指南](cal-ides-erp6-erp7-sp3-sql.md)
+## [Azure Linux VM 上的 SAP NetWeaver](suse-quickstart.md)
+## [適用於 Azure 的 SAP LaMa 連接器](lama-installation.md)
 ## Windows 和 Linux 上的高可用性 (HA)
 ### [概觀](sap-high-availability-guide-start.md)
 ### 高可用性架構

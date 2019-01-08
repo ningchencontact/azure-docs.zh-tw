@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 解決方案中以 Edge 偵測異常狀況的教學課程 | Microsoft Docs
+title: 偵測解決方案中邊緣異常狀況的教學課程 - Azure | Microsoft Docs
 description: 在本教學課程中，您將了解如何使用遠端監視解決方案加速器來監視 IoT Edge 裝置。
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 329bc41555f2def0e2b7001a7b445cd3de16d439
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 2f6e8b40907d02e62ede95a44fa10168f7590bd5
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51826294"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606243"
 ---
-# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>教學課程：使用遠端監視解決方案加速器來偵測異常狀況
+# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>教學課程：使用遠端監視解決方案加速器來偵測邊緣異常狀況
 
 在本教學課程中，您會設定遠端監視解決方案，以因應 IoT Edge 裝置所偵測到的異常狀況。 IoT Edge 裝置可讓您在 Edge 處理遙測資料，以減少傳送至解決方案的遙測資料數量，並加快對裝置事件的回應速度。 若要深入了解 Edge 處理的優點，請參閱[什麼是 Azure IoT Edge](../iot-edge/about-iot-edge.md)。
 
@@ -24,16 +24,26 @@ ms.locfileid: "51826294"
 
 Contoso 想要將智慧型 Edge 模組部署到油泵機，以偵測溫度異常狀況。 另一個 Edge 模組會將警示傳送至遠端監視解決方案。 在收到警示時，Contoso 操作員可派遣維修技術人員前往處理。 Contoso 也可以設定會在解決方案收到警示時執行的自動化動作，例如傳送電子郵件。
 
-本教學課程將使用您的本機 Windows 開發電腦作為 IoT Edge 裝置。 您將安裝 Edge 模組來模擬油泵機裝置，並偵測溫度異常狀況。
+下圖顯示教學課程案例的主要元件：
+
+![概觀](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 在本教學課程中，您：
 
 >[!div class="checklist"]
 > * 將 IoT Edge 裝置新增至解決方案
 > * 建立 Edge 資訊清單
-> * 匯入套件以定義要在裝置上執行的模組
+> * 匯入資訊清單作為套件，以定義要在裝置上執行的模組
 > * 將套件部署到您的 IoT Edge 裝置
 > * 從裝置檢視警示
+
+在 IoT Edge 裝置上：
+
+* 執行階段會收到套件並安裝模組。
+* 串流分析模組會偵測幫浦的溫度異常狀況，並傳送命令以解決此問題。
+* 串流分析模組會將已篩選的資料轉送到解決方案加速器。
+
+本教學課程會使用 Linux 虛擬機器作為 IoT Edge 裝置。 您也安裝了 Edge 模組來模擬油料幫浦千斤頂裝置。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -111,54 +121,23 @@ Edge 裝置需要安裝 Edge 執行階段。 在本教學課程中，您將在 A
     az vm create \
       --resource-group IoTEdgeDevices \
       --name EdgeVM \
-      --image Canonical:UbuntuServer:16.04-LTS:latest \
+      --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest \
       --admin-username azureuser \
       --generate-ssh-keys \
       --size Standard_B1ms
     ```
 
-    記下公用 IP 位址，您在下一個步驟中使用 SSH 進行連線時將用到此位址。
-
-1. 若要使用 SSH 連線至 VM，請在 Cloud Shell 中執行下列命令：
+1. 若要使用裝置連接字串設定 Edge 執行階段，請使用您先前記下的裝置連接字串來執行下列命令：
 
     ```azurecli-interactive
-    ssh azureuser@{vm IP address}
+    az vm run-command invoke \
+      --resource-group IoTEdgeDevices \
+      --name EdgeVM \
+      --command-id RunShellScript \
+      --scripts 'sudo /etc/iotedge/configedge.sh "YOUR_DEVICE_CONNECTION_STRING"'
     ```
 
-1. 當您連線至 VM 時，請執行下列命令在 VM 中設定存放庫：
-
-    ```azurecli-interactive
-    curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-    ```
-
-1. 若要在 VM 中安裝容器和 Edge 執行階段，請執行下列命令：
-
-    ```azurecli-interactive
-    sudo apt-get update
-    sudo apt-get install moby-engine
-    sudo apt-get install moby-cli
-    sudo apt-get update
-    sudo apt-get install iotedge
-    ```
-
-1. 若要使用裝置連接字串設定 Edge 執行階段，請編輯組態檔：
-
-    ```azurecli-interactive
-    sudo nano /etc/iotedge/config.yaml
-    ```
-
-    將您的裝置連接字串指派給 **device_connection_string** 變數，並在儲存變更後結束編輯器。
-
-1. 重新啟動 Edge 執行階段以使用新的組態：
-
-    ```azurecli-interactive
-    sudo systemctl restart iotedge
-    ```
-
-1. 現在，您可以結束 SSH 工作階段並關閉 Cloud Shell。
+    請務必將連接字串包含在雙引號內。
 
 您現已在 Linux 裝置上安裝並設定 IoT Edge 執行階段。 在本教學課程的後續步驟中，您將使用遠端監視解決方案將 IoT Edge 模組部署至此裝置。
 

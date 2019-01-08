@@ -1,20 +1,21 @@
 ---
-title: 使用 Azure Digital Twins 監視空間 | Microsoft Docs
+title: 教學課程：使用 Azure Digital Twins 監視空間 | Microsoft Docs
 description: 了解如何依照本教學課程中的步驟，使用 Azure Digital Twins 來佈建空間資源及監視運作狀況。
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: a9784860cbc0b6d58f63fb22b7ad676048c8aee6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584191"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556096"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>教學課程：使用 Azure Digital Twins 佈建建築物及監視運作狀況
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>教學課程：使用 Azure Digital Twins 來佈建建築物及監視運作狀況
 
 本教學課程會示範如何使用 Azure Digital Twins 來監視您的空間是否有所需的溫度條件和舒適程度。 [設定範例建築物](tutorial-facilities-setup.md)後，您可以佈建您的建築物，並且依照本教學課程中的步驟對感應器資料執行自訂函式。
 

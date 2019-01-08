@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 1c2a61ba936fa86bb3acb560909b29cda762693c
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 44ad80732d1e874ccec4ecc376b9ce9b513a3aa9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166569"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652365"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教學課程：在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka
 
@@ -37,9 +37,9 @@ ms.locfileid: "53166569"
 
 * 熟悉如何建立 Kafka 主題。 如需詳細資訊，請參閱 [HDInsight 上的 Kafka 快速入門](./kafka/apache-kafka-get-started.md)文件。
 
-* 熟悉如何建置和部署 Storm 解決方案 (拓撲)。 具體來說，即使用 [Flux](https://storm.apache.org/releases/current/flux.html) 架構的拓撲。 如需詳細資訊，請參閱[以 Java 建立 Storm 拓撲](./storm/apache-storm-develop-java-topology.md)文件。
+* 熟悉如何建置和部署 Storm 解決方案 (拓撲)。 具體來說，即使用 [Apache Storm Flux](https://storm.apache.org/releases/current/flux.html) 架構的拓撲。 如需詳細資訊，請參閱[以 Java 建立 Apache Storm 拓撲](./storm/apache-storm-develop-java-topology.md)文件。
 
-* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 或更新版本。 HDInsight 3.5 或更新版本需要 Java 8。
+* [Java JDK 1.8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 或更新版本。 HDInsight 3.5 或更新版本需要 Java 8。
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -54,7 +54,7 @@ ms.locfileid: "53166569"
     * `JAVA_HOME\bin` (或對等的路徑)。
     * 已安裝 Maven 的目錄。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 在本文件的步驟中，Azure 資源群組必須包含 HDInsight 上的 Storm 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Storm 叢集直接與 Kafka 叢集通訊。
 > 
 > 為了方便您使用，本文件會連結至可建立所有必要 Azure 資源的範本。 
@@ -124,7 +124,7 @@ Apache Storm 提供數個用來處理 Apache Kafka 的元件。 在本教學課�
 
 * Kafka 讀取器：從 Kafka 讀取資料，然後將其儲存至 Storm 叢集中與 HDFS 相容的檔案存放區。
 
-    > [!WARNING] 
+    > [!WARNING]  
     > 若要讓 Storm 能夠使用 HDInsight 所使用的 HDFS 相容儲存體，必須執行指令碼動作。 此指令碼會將數個 jar 檔案安裝到 Storm 的 `extlib` 路徑。 本教學課程中的範本會在叢集建立期間自動使用此指令碼。
     >
     > 如果您未使用此文件中的範本建立 Storm 叢集，則必須手動將指令碼動作套用至您的叢集。
@@ -141,7 +141,7 @@ Apache Storm 提供數個用來處理 Apache Kafka 的元件。 在本教學課�
 
 * `${kafka.zookeeper.hosts}`：Kafka 叢集中 Zookeeper 執行所在的主機。
 
-* `${hdfs.url}`：HDFSBolt 元件的檔案系統 URL。 指出資料會寫入至 Azure 儲存體帳戶還是 Azure Data Lake Store。
+* `${hdfs.url}`：HDFSBolt 元件的檔案系統 URL。 指出資料會寫入至「Azure 儲存體」帳戶還是 Azure Data Lake Storage。
 
 * `${hdfs.write.dir}`：寫入資料的目標目錄。
 
@@ -373,7 +373,7 @@ streams:
 | `kafka.broker.hosts` | Kafka 代理程式主機 (背景工作節點)。 |
 | `kafka.topic` | 拓撲所使用的 Kafka 主題。 |
 | `hdfs.write.dir` | Kafka 讀取器拓撲寫入的目標目錄。 |
-| `hdfs.url` | Storm 叢集所使用的檔案系統。 對於 Azure 儲存體帳戶，請使用 `wasb:///` 值。 對於 Azure Data Lake Store，請使用 `adl:///` 值。 |
+| `hdfs.url` | Storm 叢集所使用的檔案系統。 對於 Azure 儲存體帳戶，請使用 `wasb:///` 值。 對於 Azure Data Lake Storage，請使用 `adl:///` 值。 |
 
 ## <a name="create-the-clusters"></a>建立叢集
 
@@ -383,7 +383,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 ![Azure 虛擬網路中的 Storm 和 Kafka 叢集圖表](./media/hdinsight-apache-storm-with-kafka/storm-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > 叢集上的其他服務 (例如 SSH 和 [Apache Ambari](https://ambari.apache.org/)) 可以透過網際網路存取。 如需有關適用於 HDInsight 的公用連接埠詳細資訊，請參閱 [HDInsight 所使用的連接埠和 URI](hdinsight-hadoop-port-settings-for-services.md)。
 
 若要建立 Azure 虛擬網路，然後在其中建立 Kafka 和 Storm 叢集，請使用下列步驟：
@@ -400,7 +400,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
     * HDInsight 版本 3.6 上的 Kafka (三個背景工作角色節點)
     * HDInsight 版本 3.6 上的 Storm (三個背景工作角色節點)
 
-  > [!WARNING]
+  > [!WARNING]  
   > 若要保證 Kafka 在 HDInsight 上的可用性，您的叢集必須包含至少三個背景工作角色節點。 此範本會建立包含三個背景工作角色節點的 Kafka 叢集。
 
 2. 使用下列指引來填入 [自訂部署] 區段上的項目︰
@@ -425,7 +425,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 4. 最後，核取 [釘選到儀表板]，然後選取 [購買]。
 
-> [!NOTE]
+> [!NOTE]  
 > 建立叢集可能需要 20 分鐘的時間。
 
 ## <a name="build-the-topology"></a>建置拓撲
@@ -463,7 +463,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
     ($brokerHosts -join ":9092,") + ":9092"
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 下列 Bash 範例假設 `$CLUSTERNAME` 包含 __Kafka__ 叢集的名稱。 它同時假設已安裝 [jq](https://stedolan.github.io/jq/) 1.5 版或更新版本。 出現提示時，輸入叢集登入帳戶的密碼。
 
     ```bash
@@ -474,7 +474,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
         wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 雖然叢集可能有兩個以上的訊息代理程式主機，您並不需要提供客戶端完整的主機名單。 列出一兩個主機便已足夠。
 
 2. 使用下列其中一種方法來探索 HDInsight 叢集上 __Kafka__ 的 Zookeeper 主機：
@@ -490,7 +490,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
     ($zookeeperHosts -join ":2181,") + ":2181"
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 下列 Bash 範例假設 `$CLUSTERNAME` 包含 __Kafka__ 叢集的名稱。 它也假設已安裝 [jq](https://stedolan.github.io/jq/)。 出現提示時，輸入叢集登入帳戶的密碼。
 
     ```bash
@@ -501,7 +501,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
         zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 雖然可能有兩個以上的 Zookeeper 節點，您並不需要提供客戶端完整的主機名單。 列出一兩個主機便已足夠。
 
     儲存這個值以便稍後使用。
@@ -512,8 +512,8 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
         kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
         kafka.topic: stormtopic
 
-    > [!IMPORTANT]
-    > 為使用 Azure 儲存體帳戶的叢集設定 `hdfs.url` 項目。 若要將此拓撲用於使用 Data Lake Store 的 Storm 叢集，請將此值從 `wasb` 變更為 `adl`。
+    > [!IMPORTANT]  
+    > 為使用 Azure 儲存體帳戶的叢集設定 `hdfs.url` 項目。 若要使用此拓撲搭配使用 Data Lake Storage 的 Storm 叢集，請將此值從 `wasb` 變更為 `adl`。
 
 4. 儲存 `dev.properties` 檔案，然後使用下列命令將它上傳至 **Storm** 叢集：
 
@@ -630,7 +630,7 @@ Kafka 會將資料儲存到_主題_中。 在啟動 Storm 拓撲之前，您必�
 2. 找出要刪除的資源群組，然後以滑鼠右鍵按一下清單右側的 [更多] 按鈕 (...)。
 3. 選取 [刪除資源群組]，並加以確認。
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。
 > 
 > 刪除 HDInsight 叢集上的 Kafka，也會刪除 Kafka 中儲存的任何資料。

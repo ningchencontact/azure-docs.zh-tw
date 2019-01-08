@@ -1,5 +1,5 @@
 ---
-title: 快速入門：產生縮圖 - REST、JavaScript - 電腦視覺
+title: 快速入門：產生縮圖 - REST、JavaScript
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用電腦視覺 API 搭配 JavaScript，從影像產生縮圖。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 9d66e6cf7e858a28d3f78398f83228a7ccf7e5a7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 9d3d712afedf20c155b3d010f865a238d00ed90a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970997"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579136"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-javascript-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 JavaScript 來產生縮圖
 
@@ -25,7 +26,7 @@ ms.locfileid: "52970997"
 
 ## <a name="prerequisites"></a>必要條件
 
-您必須具有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+您必須有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
 
 ## <a name="create-and-run-the-sample"></a>建立並執行範例
 

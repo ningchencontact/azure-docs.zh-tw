@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fb2ec4802ad2ecf25a8fca031553c8209dc4267d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427517"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791314"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>教學課程：連接 Azure 資料箱的纜線並且連線
 
@@ -69,7 +69,7 @@ ms.locfileid: "52427517"
 執行下列步驟，以使用本機 Web UI 和入口網站 UI 設定您的裝置。
 
 1. 使用靜態 IP 位址 192.168.100.5 和子網路 255.255.255.0，在您要用來連接到裝置的膝上型電腦上設定乙太網路介面卡。 
-2. 連接到裝置的 MGMT 連接埠，並經由 https://192.168.100.10 存取其本機 Web UI。 在開啟裝置後，此作業最多可能需耗時 5 分鐘。
+2. 連接到裝置的 MGMT 連接埠，並經由 https\://192.168.100.10 存取其本機 Web UI。 在開啟裝置後，此作業最多可能需耗時 5 分鐘。
 3. 按一下 [詳細資料]，然後按一下 [繼續瀏覽網頁]。
 
    ![連線至本機 Web UI](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 

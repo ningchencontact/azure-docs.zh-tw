@@ -1,7 +1,7 @@
 ---
-title: 快速入門：使用 Node.js 呼叫端點 - Bing 自訂搜尋
+title: 快速入門：使用 Node.js 來呼叫您的 Bing 自訂搜尋端點 | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: 本快速入門說明如何使用 Node.js 呼叫自訂的 Bing 搜尋端點，以從您的自訂搜尋執行個體要求搜尋結果。
+description: 使用本快速入門以運用 Node.js 來開始向「Bing 自訂搜尋」執行個體要求搜尋結果
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,77 +10,71 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: c0c97dd52f8fc3ff590c86f32f794beeb00f4b05
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3af35a9aea9115971d1fbd251da3fbaddb011c5f
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310230"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555790"
 ---
-# <a name="quickstart-call-bing-custom-search-endpoint-nodejs"></a>快速入門：呼叫 Bing 自訂搜尋端點 (Node.js)
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>快速入門：使用 Node.js 來呼叫您的 Bing 自訂搜尋端點
 
-本快速入門說明如何使用 Node.js 呼叫自訂的 Bing 搜尋端點，以從您的自訂搜尋執行個體要求搜尋結果。 
+您可以使用本快速入門來開始向「Bing 自訂搜尋」執行個體要求搜尋結果。 雖然此應用程式是以 JavaScript 撰寫的，但「Bing 自訂搜尋 API」是一種與大多數程式設計語言都相容的 RESTful Web 服務。 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js) 上有此範例的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本快速入門，您需要：
+- 「Bing 自訂搜尋」執行個體。 請參閱[快速入門：建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)，以取得詳細資訊。
 
-- 已經可以使用的自訂搜尋執行個體。 請參閱[建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)。
-- 已安裝 [Node.js](https://www.nodejs.org/)。
-- 訂用帳戶金鑰。 您可以在啟用[免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)時取得訂用帳戶金鑰，或者可以從 Azure 儀表板使用付費訂用帳戶金鑰 (請參閱[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account))。   另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
+- [Node.js](https://www.nodejs.org/)
 
-## <a name="run-the-code"></a>執行程式碼
+- [JavaScript 要求程式庫](https://github.com/request/request)
 
-若要執行此範例，請遵循下列步驟：
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
-1. 建立程式碼的資料夾。  
-  
-2. 從命令提示字元或終端機，瀏覽至您剛剛建立的資料夾。  
-  
-3. 安裝**要求**節點模組：
-    <pre>
-    npm install request
-    </pre>  
-    
-4. 在您建立的資料夾中建立名為 BingCustomSearch.js 的檔案，然後將下列程式碼複製到檔案中。 將 **YOUR-SUBSCRIPTION-KEY** 與 **YOUR-CUSTOM-CONFIG-ID** 取代為您的訂用帳戶金鑰與設定識別碼。  
-  
-    ``` javascript
+## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
+
+1. 在您最愛的 IDE 或編輯器中建立新的 JavaScript 檔案，然後為要求程式庫新增 `require()` 陳述式。 為您的訂用帳戶金鑰、「自訂設定識別碼」及搜尋字詞建立變數。 
+
+    ```javascript
     var request = require("request");
     
     var subscriptionKey = 'YOUR-SUBSCRIPTION-KEY';
     var customConfigId = 'YOUR-CUSTOM-CONFIG-ID';
     var searchTerm = 'microsoft';
-    
-    var options = {
+    ```
+
+## <a name="send-and-receive-a-search-request"></a>傳送及接收搜尋要求 
+
+1. 建立變數以儲存在您要求中傳送的資訊。 將搜尋字詞附加至 `q=` 查詢參數，並將搜尋執行個體的「自訂設定識別碼」附加至 `customconfig=`，以建構要求 URL。 使用 `&` 字元來分隔參數。 
+
+    ```javascript
+    var info = {
         url: 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 
-          'q=' + searchTerm + 
-          '&customconfig=' + customConfigId,
+            'q=' + searchTerm + "&" +
+            'customconfig=' + customConfigId,
         headers: {
             'Ocp-Apim-Subscription-Key' : subscriptionKey
         }
     }
-    
-    request(options, function(error, response, body){
-        var searchResponse = JSON.parse(body);
-        for(var i = 0; i < searchResponse.webPages.value.length; ++i){
-            var webPage = searchResponse.webPages.value[i];
-            console.log('name: ' + webPage.name);
-            console.log('url: ' + webPage.url);
-            console.log('displayUrl: ' + webPage.displayUrl);
-            console.log('snippet: ' + webPage.snippet);
-            console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
-            console.log();
-        }
-    })
-    ```  
-  
-6. 使用下列命令來執行程式碼：  
-  
-    ```    
-    node BingCustomSearch.js
-    ``` 
+    ```
+
+1. 使用「JavaScript 要求程式庫」將搜尋要求傳送給「Bing 自訂搜尋」執行個體，並印出結果的相關資訊，包括其名稱、URL 及上次搜耙網頁的日期。
+
+    ```javascript
+    request(info, function(error, response, body){
+            var searchResponse = JSON.parse(body);
+            for(var i = 0; i < searchResponse.webPages.value.length; ++i){
+                var webPage = searchResponse.webPages.value[i];
+                console.log('name: ' + webPage.name);
+                console.log('url: ' + webPage.url);
+                console.log('displayUrl: ' + webPage.displayUrl);
+                console.log('snippet: ' + webPage.snippet);
+                console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
+                console.log();
+            }
+    ```
 
 ## <a name="next-steps"></a>後續步驟
-- [設定託管的 UI 體驗](./hosted-ui.md)
-- [使用裝飾標記醒目提示文字](./hit-highlighting.md)
-- [頁面網頁](./page-webpages.md)
+
+> [!div class="nextstepaction"]
+> [建置自訂搜尋 Web 應用程式](./tutorials/custom-search-web-page.md)

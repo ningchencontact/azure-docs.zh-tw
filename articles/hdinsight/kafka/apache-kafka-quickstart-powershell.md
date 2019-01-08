@@ -9,14 +9,14 @@ ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 8ac288a3b62b305ca45ba8ef2dcc6cdaf6aaf6bd
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 1dd80cffe64e6c93a0681400d067182f1a74afff
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309636"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581847"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入門：在 HDInsight 叢集上建立 Apache Kafka 叢集
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入門：在 HDInsight 叢集上建立 Apache Kafka
 
 [Apache Kafka](https://kafka.apache.org/) 是一個開放原始碼的分散式串流平台。 它通常會用來作為訊息代理程式，因為可以提供類似「發佈-訂閱」訊息佇列的功能。 
 
@@ -24,7 +24,7 @@ ms.locfileid: "52309636"
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Kafka API 只能由同一個虛擬網路中的資源來存取。 在本快速入門中，您會使用 SSH 直接存取叢集。 若要將其他服務、網路或虛擬機器連線到 Kafka，您必須先建立虛擬網路，然後建立網路中的資源。
 >
 > 如需詳細資訊，請參閱[使用虛擬網路連線到 Apache Kafka](apache-kafka-connect-vpn-gateway.md) 文件。
@@ -43,7 +43,7 @@ ms.locfileid: "52309636"
 
     * 安裝[適用於 Linux 的 Windows 子系統](https://docs.microsoft.com/windows/wsl/install-win10) \(英文\)。 可透過 Microsoft Store 取得的 Linux 發行版本會提供 `ssh` 命令。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 本文件中的步驟假設您使用上述其中一個 SSH 用戶端。 如果您使用不同的 SSH 用戶端並遇到問題，請參閱您的 SSH 用戶端文件。
     >
     > 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
@@ -132,16 +132,16 @@ New-AzureRmHDInsightCluster `
         -DisksPerWorkerNode $disksPerNode
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > 建立 HDInsight 叢集最多可能需要 20 分鐘。
 
-> [!TIP]
+> [!TIP]  
 > `-DisksPerWorkerNode` 參數會設定 HDInsight 上 Kafka 的延展性。 HDInsight 上的 Kafka 會在叢集中使用虛擬機器的本機磁碟來儲存資料。 Kafka 的 I/O 非常大量，因此會使用 [Azure 受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)來提供高輸送量，並為每個節點提供更多儲存空間。 
 >
 > 受控磁碟的類型可以是__標準__ (HDD) 或__進階__ (SSD)。 磁碟類型取決於背景工作節點 (Kafka 代理程式) 所使用的 VM 大小。 進階磁碟會自動與 DS 和 GS 系列的 VM 搭配使用。 所有其他的 VM 類型是使用標準磁碟。 您可以使用 `-WorkerNodeSize` 參數來設定 VM 類型。 如需參數的詳細資訊，請參閱 [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster) 文件。
 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 如果您規劃使用 32 個以上的背景工作節點 (在建立叢集時或在建立後調整叢集規模時)，則必須使用 `-HeadNodeSize` 參數來指定具有至少 8 個核心和 14 GB RAM 的 VM 大小。
 >
 > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
@@ -169,7 +169,7 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 83 packages can be updated.
 37 updates are security updates.
@@ -210,7 +210,7 @@ ssuhuser@hn0-mykafk:~$
 
     出現提示時，輸入叢集登入帳戶 (不是 SSH 帳戶) 的密碼。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 此命令會擷取所有的 Zookeeper 主機，然後只傳回前兩個項目。 這是因為考量備援之故，以防某一部主機無法連線。
 
 4. 若要確認是否已正確設定環境變數，請使用下列命令：
@@ -257,14 +257,14 @@ Kafka 會將資料串流儲存於「主題」中。 您可以使用 `kafka-topic
 
     * 每個分割區都會在叢集中的三個背景工作節點之間進行複寫。
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > 如果您已在 Azure 區域中建立叢集來提供三個容錯網域，請使用複寫因子 3。 否則，使用複寫因子 4。
         
         在具有三個容錯網域的區域中，複寫因子 3 可讓複本散佈於容錯網域中。 在具有兩個容錯網域的區域中，複寫因子 4 會在網域中平均散佈複本。
         
         如需區域中的容錯網域數目的資訊，請參閱 [Linux 虛擬機器的可用性](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文件。
 
-        > [!IMPORTANT] 
+        > [!IMPORTANT]   
         > Kafka 不知道 Azure 容錯網域。 為主題建立副本時，可能無法正確發散副本以實現高可用性。
 
         若要確保高可用性，請使用 [Apache Kafka 分割重新平衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。 您必須從連往 Kafka 叢集前端節點的 SSH 連線來執行此工具。
@@ -291,7 +291,7 @@ Kafka 會將資料串流儲存於「主題」中。 您可以使用 `kafka-topic
 
     此命令會刪除名為 `topicname` 的主題。
 
-    > [!WARNING]
+    > [!WARNING]  
     > 如果您刪除先前建立的 `test` 主題，則必須加以重新建立。 本文件稍後的步驟會用到此主題。
 
 如需 `kafka-topics.sh` 公用程式可用命令的詳細資訊，請使用下列命令：
@@ -324,7 +324,7 @@ Kafka 會在主題中儲存「記錄」。 記錄是由「產生者」產生，�
    
     此命令會擷取主題中的記錄並加以顯示。 使用 `--from-beginning` 告知取用者從串流的開頭開始，所以會擷取所有的記錄。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 如果您使用舊版 Kafka，請以 `--zookeeper $KAFKAZKHOSTS` 取代 `--bootstrap-server $KAFKABROKERS`。
 
 4. 使用 __Ctrl + C__ 來停止取用者。
@@ -339,7 +339,7 @@ Kafka 會在主題中儲存「記錄」。 記錄是由「產生者」產生，�
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。
 > 
 > 刪除 HDInsight 叢集上的 Kafka，也會刪除 Kafka 中儲存的任何資料。

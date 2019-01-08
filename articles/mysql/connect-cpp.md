@@ -1,24 +1,21 @@
 ---
 title: 從 C++ 連線到適用於 MySQL 的 Azure 資料庫
 description: 本快速入門提供 C++ 程式碼範例，您可用於從 Azure Database for MySQL 連線及查詢資料。
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
-ms.devlang: C++
+ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 04/12/2018
-ms.openlocfilehash: 6d9deba8c7e6317ab349f86d5a1730f05288ea35
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: b262359b91a2545682e7611c44cfccd2b08da0c1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987659"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544187"
 ---
-# <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Connector/C++ 來連線及查詢資料
+# <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>適用於 MySQL 的 Azure 資料庫：使用連接器/C++ 連線並查詢資料
 本快速入門示範如何使用 C++ 應用程式來連線到適用於 MySQL 的 Azure 資料庫。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 C++ 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>必要條件
@@ -41,10 +38,10 @@ ms.locfileid: "49987659"
    2. 執行安裝程式並依照安裝提示來完成安裝。
 
 ### <a name="configure-visual-studio"></a>**設定 Visual Studio**
-1. 從 Visual Studio 的專案 -> 屬性 -> 連結器 -> 一般 > 其他程式庫目錄，新增 C++ 連接器的 "\lib\opt" 目錄 (也就是 C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt)。
+1. 從 Visual Studio 的專案 -> 屬性 -> 連結器 -> 一般 > 其他程式庫目錄，新增 C++ 連接器的 "\lib\opt" 目錄 (也就是：C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt)。
 2. 從 Visual Studio 的專案 -> 屬性 -> C/C++ -> 一般 -> 其他 Include 目錄：
-   - 新增 c++ 連接器的 "\include" 目錄 (也就是 C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\)。
-   - 新增 Boost 程式庫的根目錄 (也就是 C:\boost_1_64_0\)。
+   - 新增 C++ 連接器的 "\include" 目錄 (也就是：C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\)。
+   - 新增 Boost 程式庫的根目錄 (也就是：C:\boost_1_64_0\)。
 3. 從 Visual Studio 的專案 -> 屬性 -> 連結器 -> 輸入 > 其他相依性，將 **mysqlcppconn.lib** 新增到文字欄位。
 4. 從步驟 3 的 C++ 連接器程式庫資料夾將 mysqlcppconn.dll 複製到與應用程式可執行檔相同的目錄，或將它新增至環境變數，您的應用程式便可找到它。
 

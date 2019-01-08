@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 上試用雲端式 IoT 遠端監視解決方案 | Microsoft Docs
+title: 試用雲端式 IoT 遠端監視解決方案 - Azure | Microsoft Docs
 description: 在本快速入門中，您會部署遠端監視 Azure IoT 解決方案加速器，然後登入和使用解決方案儀表板。
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3f30b46138fc7753a1a4282497cbb06b6a4defbc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824773"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608352"
 ---
-# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>快速入門：嘗試雲端式遠端監視解決方案
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>快速入門：試用雲端式遠端監視解決方案
 
 本快速入門說明如何部署 Azure IoT 遠端監視解決方案加速器。 在此雲端式解決方案中，您會使用 [儀表板] 頁面在地圖上以視覺化方式呈現模擬裝置，以及使用 [維護] 頁面以回應模擬冷卻器裝置的壓力警示。 您可以使用這個解決方案加速器，作為您自己實作的起點，或是作為學習工具。
 
@@ -142,4 +142,4 @@ ms.locfileid: "51824773"
 如需有關使用模擬裝置的解決方案加速器詳細資訊，請繼續下列教學課程。
 
 > [!div class="nextstepaction"]
-> [教學課程：監視 IoT 裝置](iot-accelerators-remote-monitoring-monitor.md)
+> [教學課程：監視您的 IoT 裝置](iot-accelerators-remote-monitoring-monitor.md)

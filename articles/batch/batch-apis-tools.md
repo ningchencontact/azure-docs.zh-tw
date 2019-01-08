@@ -1,19 +1,20 @@
 ---
-title: 適用於開發人員的 Azure Batch API 和工具 | Microsoft Docs
+title: 適用於開發人員的 API 和工具 - Azure Batch | Microsoft Docs
 description: 了解可搭配 Azure Batch 服務用來開發解決方案的 API 和工具。
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 06/18/2018
-ms.author: danlep
-ms.openlocfilehash: c6715242ab1a2fd60f876ee97558715ed54c5e18
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 7335a5c61b46fab2da4054fdc0b8c9bbe05a148a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239605"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537472"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API 和工具的概觀
 
@@ -59,16 +60,16 @@ ms.locfileid: "51239605"
 
 這些命令列工具可提供與 Batch 服務和 Batch 管理 API 相同的功能︰ 
 
-* [Batch PowerShell Cmdlet][batch_ps]：[Azure PowerShell](/powershell/azure/overview) 模組中的 Batch PowerShell Cmdlet 可讓您使用 PowerShell 來管理 Batch 資源。
-* [Azure CLI](/cli/azure)：Azure CLI 是跨平台工具組，可提供用來與許多 Azure 服務 (包括 Batch 服務和 Batch 管理服務) 互動的殼層命令。 如需搭配使用 Azure CLI 與 Batch 的詳細資訊，請參閱[使用 Azure CLI 管理 Batch 資源](batch-cli-get-started.md)。
+* [Batch PowerShell Cmdlet][batch_ps]：[Azure PowerShell](/powershell/azure/overview) 模組中的 Azure Batch Cmdlet 可讓您使用 PowerShell 來管理 Batch 資源。
+* [Azure CLI](/cli/azure)：Azure CLI 是一個跨平台工具組，可提供用來與許多 Azure 服務 (包括 Batch 服務和 Batch Management 服務) 互動的殼層命令。 如需搭配使用 Azure CLI 與 Batch 的詳細資訊，請參閱[使用 Azure CLI 管理 Batch 資源](batch-cli-get-started.md)。
 
 ## <a name="other-tools-for-application-development"></a>其他用於應用程式開發的工具
 
 以下是其他一些可能有助於建置及偵錯 Batch 應用程式和服務的工具︰
 
-* [Azure 入口網站][portal]︰您可以在 Azure 入口網站中建立、監視和刪除 Batch 集區、作業和工作。 您可以在執行作業時檢視上述和其他資源的狀態資訊，甚至從您集區中的計算節點下載檔案。 例如，您可以在進行疑難排解時下載失敗的工作 `stderr.txt`。 您也可以下載可用來登入計算節點的遠端桌面 (RDP) 檔案。
-* [Azure Batch Explorer][batch_labs]：Batch Explorer (先前稱為 BatchLabs) 是免費、功能豐富、獨立用戶端的工具，可協助您建立、偵錯及監視 Azure Batch 應用程式。 下載適用於 Mac、Linux 或 Windows 的[安裝套件](https://azure.github.io/BatchExplorer/)。
-* [Microsoft Azure 儲存體總管][storage_explorer]：嚴格來說，雖然儲存體總管不算是 Azure Batch 工具，但卻是您開發和偵錯 Batch 解決方案時的另一個很實用的工具。
+* [Azure 入口網站][portal]：您可以在 Azure 入口網站建立、監視和刪除 Batch 集區、作業和工作。 您可以在執行作業時檢視上述和其他資源的狀態資訊，甚至從您集區中的計算節點下載檔案。 例如，您可以在進行疑難排解時下載失敗的工作 `stderr.txt`。 您也可以下載可用來登入計算節點的遠端桌面 (RDP) 檔案。
+* [Azure Batch Explorer][batch_labs]：Batch Explorer (先前稱為 BatchLabs) 是一個免費且功能豐富的獨立用戶端工具，可協助您建立、偵錯及監視 Azure Batch 應用程式。 下載適用於 Mac、Linux 或 Windows 的[安裝套件](https://azure.github.io/BatchExplorer/)。
+* [Microsoft Azure 儲存體總管][storage_explorer]：嚴格來說，雖然儲存體總管不算是 Azure Batch 工具，但卻是您開發和偵錯 Batch 解決方案時另一個很實用的工具。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -85,8 +86,8 @@ ms.locfileid: "51239605"
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: /java/api/overview/azure/batch
 [api_java_mgmt]: /java/api/overview/azure/batch/managementapi
-[api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
-[api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
+[api_java_jar]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
+[api_java_mgmt_jar]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_net]: /dotnet/api/overview/azure/batch/
 [api_net_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [api_rest_mgmt]: /rest/api/batchmanagement/
@@ -109,5 +110,5 @@ ms.locfileid: "51239605"
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [batch_labs]: https://azure.github.io/BatchExplorer/
-[storage_explorer]: http://storageexplorer.com/
+[storage_explorer]: https://storageexplorer.com/
 [portal]: https://portal.azure.com

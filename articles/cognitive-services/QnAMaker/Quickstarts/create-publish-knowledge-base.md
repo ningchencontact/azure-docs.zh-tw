@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: c57edd897797d4352706283072aa19444948436b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4b4f208524f18b98d44dc3d34e05359445fb2f17
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644780"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598305"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>建立、訓練及發佈您的 QnA Maker 知識庫
 
@@ -57,9 +57,7 @@ ms.locfileid: "49644780"
 
 11. 在右上方，選取 [儲存並定型] 來儲存您的編輯內容並將 QnA Maker 模型定型。 除非儲存編輯內容，否則不會保留。
 
-   ![儲存並定型](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
-
-12. 在右上方，選取 [測試] 來測試您所做的變更生效。 在方塊中輸入 **hi there**，然後選取 Enter。 您應會看到您所建立的回答成為回應。
+12. 在右上方，選取 [測試] 來測試您所做的變更生效。 在方塊中輸入 `hi there`，然後選取 Enter。 您應會看到您所建立的回答成為回應。
 
 13. 選取 [檢查]，更詳細地檢查回應。 測試視窗用來測試您對 KB 所做的變更，然後加以發佈。
 

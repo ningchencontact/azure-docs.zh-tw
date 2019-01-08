@@ -1,27 +1,24 @@
 ---
 title: 教學課程：使用 Azure 入口網站來設計適用於 PostgreSQL 的 Azure 資料庫
-description: 此教學課程說明如何使用 Azure 入口網站來設計您的第一個「適用於 PostgreSQL 的 Azure 資料庫」。
-services: postgresql
+description: 本教學課程說明如何使用 Azure 入口網站來設計您的第一個「適用於 PostgreSQL 的 Azure 資料庫」。
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 6a3241e15cc72d1d50862a9dec14c23712ec4226
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 441b56aa683ac01566d2fd2877b9b8b912194f3a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406377"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536520"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站來設計適用於 PostgreSQL 的 Azure 資料庫
 
 「適用於 PostgreSQL 的 Azure 資料庫」是一個受控服務，可讓您在雲端執行、管理及調整高可用性 PostgreSQL 資料庫。 使用 Azure 入口網站，您可以輕鬆管理伺服器和設計資料庫。
 
-在此教學課程中，您將使用 Azure 入口網站來學習如何：
+在本教學課程中，您將使用 Azure 入口網站來學習如何：
 > [!div class="checklist"]
 > * 建立適用於 PostgreSQL 的 Azure 資料庫伺服器
 > * 設定伺服器防火牆
@@ -31,7 +28,7 @@ ms.locfileid: "47406377"
 > * 更新資料
 > * 還原資料
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
@@ -58,9 +55,9 @@ ms.locfileid: "47406377"
     - PostgreSQL 版本
 
    > [!IMPORTANT]
-   > 必須要有您在此處指定的伺服器系統管理員登入和密碼，稍後在此教學課程中才能登入伺服器及其資料庫。 請記住或記錄此資訊，以供稍後使用。
+   > 必須要有您在此處指定的伺服器系統管理員登入和密碼，稍後在本教學課程中才能登入伺服器及其資料庫。 請記住或記錄此資訊，以供稍後使用。
 
-4.  按一下 [定價層] 以指定新伺服器的定價層。 此教學課程中，選取 [一般用途]、[Gen 4] 計算世代，2 個 [虛擬核心]，5 GB 的 [儲存體]，以及 7 天的 [備份保留期限]。 在備份備援選項中選取 [異地備援]，將您伺服器的自動備份儲存在異地備援儲存體。
+4.  按一下 [定價層] 以指定新伺服器的定價層。 本教學課程中，選取 [一般用途]、[Gen 4] 計算世代，2 個 [虛擬核心]，5 GB 的 [儲存體]，以及 7 天的 [備份保留期限]。 在備份備援選項中選取 [異地備援]，將您伺服器的自動備份儲存在異地備援儲存體。
  ![適用於 PostgreSQL 的 Azure 資料庫 - 挑選定價層](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
 
 5.  按一下 [確定] 。
@@ -195,14 +192,14 @@ SELECT * FROM inventory;
 
    ![Azure 入口網站 - 還原表單選項](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
 
-   - **還原點**：選取在變更伺服器之前的時間點
-   - **目標伺服器**︰提供要作為還原目的地的新伺服器名稱
-   - **位置**︰您無法選取區域，預設是與來源伺服器相同的區域
-   - **定價層**︰還原伺服器時，您無法變更此值。 它與來源伺服器相同。 
+   - **還原點**：選取在伺服器發生變更前的時間點
+   - **目標伺服器**：提供要作為還原目的地的新伺服器名稱
+   - **位置**：您無法選取區域，預設是與來源伺服器相同的區域
+   - **定價層**：還原伺服器時，您無法變更此值。 它與來源伺服器相同。 
 3.  按一下 [確定] 以[將伺服器還原到刪除資料表之前的時間點](./howto-restore-server-portal.md)。 如果將伺服器還原到不同的時間點，將會從您指定的時間點 (前提是此時間點在您[定價層](./concepts-pricing-tiers.md)的保留期限內) 開始，建立重複的新伺服器作為原始伺服器。
 
 ## <a name="next-steps"></a>後續步驟
-在此教學課程中，您已了解如何使用 Azure 入口網站和其他公用程式來：
+在本教學課程中，您已了解如何使用 Azure 入口網站和其他公用程式來：
 > [!div class="checklist"]
 > * 建立適用於 PostgreSQL 的 Azure 資料庫伺服器
 > * 設定伺服器防火牆

@@ -1,21 +1,19 @@
 ---
 title: Azure CLI 指令碼 - 調整適用於 MariaDB 的 Azure 資料庫伺服器
 description: 此範例 CLI 指令碼會在查詢計量之後，將「適用於 MariaDB 的 Azure 資料庫」伺服器調整為不同的效能等級。
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: e5f6364992987e5aeb6cb1ccd2055823efae607e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ef01c38dddee0a74477ef331f935bda2787866df
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585140"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546364"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mariadb-server-using-azure-cli"></a>使用 Azure CLI 監視和調整適用於 MariaDB 的 Azure 資料庫伺服器
 此範例 CLI 指令碼會在查詢計量之後，將單一「適用於 MariaDB 的 Azure 資料庫」伺服器調整為不同的效能等級。
@@ -42,6 +40,6 @@ ms.locfileid: "52585140"
 | [az group delete](/cli/azure/group#az-group-delete) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
-- 了解 Azure CLI 的詳細資訊：[Azure CLI 文件](/cli/azure)。
-- 嘗試其他指令碼：[「適用於 MariaDB 的 Azure 資料庫」的 Azure CLI 範例](../sample-scripts-azure-cli.md)
+- 閱讀更多有關 Azure CLI 的資訊：[Azure CLI 文件](/cli/azure)。
+- 嘗試額外的指令碼：[「適用於 MariaDB 的 Azure 資料庫」的 Azure CLI 範例](../sample-scripts-azure-cli.md)
 - 如需有關調整的詳細資訊，請參閱 [定價層](../concepts-pricing-tiers.md。

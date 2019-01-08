@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 14dbd723772caa0045e9744ddb726060e3a1b8cf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ffa6e44a4be8813b74dc707f161bd5c17f72f350
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257772"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720045"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式
 
-[Azure Web Apps](app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。 本教學課程示範如何在 Azure 中開發資料導向的 ASP.NET Web 應用程式，並且將它連線到 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)。 完成時，您的 ASP.NET 應用程式將會在 Azure 中執行，並已連線到 SQL Database。
+[Azure App Service](overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 本教學課程示範如何在 App Service 中開發資料驅動的 ASP.NET 應用程式，並將它連線到[Azure SQL Database](../sql-database/sql-database-technical-overview.md)。 完成時，您的 ASP.NET 應用程式將會在 Azure 中執行，並已連線到 SQL Database。
 
-![已在 Azure Web 應用程式中發佈的 ASP.NET 應用程式](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![已在 Azure App Service 中發佈的 ASP.NET 應用程式](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 在本教學課程中，您了解如何：
 
@@ -65,7 +65,7 @@ ms.locfileid: "53257772"
 
 測試 [編輯]、[詳細資料] 和 [刪除] 連結。
 
-應用程式會使用資料庫內容，與資料庫連線。 在這個範例中，資料庫內容會使用名為 `MyDbConnection` 的連接字串。 連接字串是在 Web.config 檔案中設定，並在 Models/MyDatabaseContext.cs 檔案中進行參考。 稍後會在教學課程中使用連接字串名稱，將 Azure Web 應用程式連線到 Azure SQL Database。 
+應用程式會使用資料庫內容，與資料庫連線。 在這個範例中，資料庫內容會使用名為 `MyDbConnection` 的連接字串。 連接字串是在 Web.config 檔案中設定，並在 Models/MyDatabaseContext.cs 檔案中進行參考。 稍後會在本教學課程中使用此連接字串名稱，將 Azure 應用程式連線到 Azure SQL Database。 
 
 ## <a name="publish-to-azure-with-sql-database"></a>發佈至含有 SQL Database 的 Azure
 
@@ -77,7 +77,7 @@ ms.locfileid: "53257772"
 
 ![從專案概觀頁面發佈](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-發佈會開啟 [建立 App Service] 對話方塊，協助您建立在 Azure 中執行 ASP.NET Web 應用程式所需的所有 Azure 資源。
+發佈會開啟 [建立應用程式服務] 對話方塊，協助您建立在 Azure 中執行 ASP.NET 應用程式所需的所有 Azure 資源。
 
 ### <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -118,7 +118,7 @@ ms.locfileid: "53257772"
 
 | 設定  | 建議的值 | 取得詳細資訊 |
 | ----------------- | ------------ | ----|
-|**App Service 方案**| myAppServicePlan | [App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
+|**App Service 方案**| myAppServicePlan | [App Service 方案](../app-service/overview-hosting-plans.md) |
 |**位置**| 西歐 | [Azure 區域](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**大小**| 免費 | [定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
@@ -139,7 +139,7 @@ ms.locfileid: "53257772"
 請記住這個使用者名稱和密碼。 您稍後需要它們以便管理邏輯伺服器執行個體。
 
 > [!IMPORTANT]
-> 即使您在連接字串中的密碼已經遮罩處理 (在 Visual Studio 以及 App Service 中)，但是它於某處受到維護的事實增加了您應用程式受到攻擊的可能性。 App Service 可以使用[受控服務識別](app-service-managed-service-identity.md)來降低此風險，方法是完全免除在您的程式碼或應用程式組態中維護祕密的需求。 如需詳細資訊，請參閱[後續步驟](#next-steps)。
+> 即使您在連接字串中的密碼已經遮罩處理 (在 Visual Studio 以及 App Service 中)，但是它於某處受到維護的事實增加了您應用程式受到攻擊的可能性。 App Service 可以使用[受控服務識別](overview-managed-identity.md)來降低此風險，方法是完全免除在您的程式碼或應用程式組態中維護祕密的需求。 如需詳細資訊，請參閱[後續步驟](#next-steps)。
 
 ![建立 SQL Server 執行個體](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
@@ -163,7 +163,7 @@ ms.locfileid: "53257772"
 
 新增幾個待辦事項項目。
 
-![已在 Azure Web 應用程式中發佈的 ASP.NET 應用程式](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![已在 Azure 應用程式中發佈的 ASP.NET 應用程式](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 恭喜！ 您的資料導向 ASP.NET 應用程式正在 Azure App Service 中執行。
 
@@ -189,7 +189,7 @@ Visual Studio 可讓您在 [SQL Server 物件總管] 中，輕鬆地探索和管
 
 ### <a name="allow-client-connection-from-your-computer"></a>允許來自您電腦的用戶端連接
 
-[建立新的防火牆規則] 對話方塊即會開啟。 根據預設，您的 SQL Database 執行個體僅允許來自 Azure 服務 (例如 Azure Web 應用程式) 的連線。 若要連線到您的資料庫，請在 SQL Database 執行個體中建立防火牆規則。 防火牆規則允許本機電腦的公用 IP 位址。
+[建立新的防火牆規則] 對話方塊即會開啟。 根據預設，您的 SQL Database 執行個體僅允許來自 Azure 服務 (例如 Azure 應用程式) 的連線。 若要連線到您的資料庫，請在 SQL Database 執行個體中建立防火牆規則。 防火牆規則允許本機電腦的公用 IP 位址。
 
 對話方塊中已經填入您的電腦公用 IP 位址。
 
@@ -207,7 +207,7 @@ Visual Studio 可讓您在 [SQL Server 物件總管] 中，輕鬆地探索和管
 
 ## <a name="update-app-with-code-first-migrations"></a>使用 Code First 移轉更新應用程式
 
-您可以使用 Visual Studio 中熟悉的工具來更新您在 Azure 中的資料庫與 Web 應用程式。 在此步驟中，您會使用 Entity Framework 中的 Code First 移轉來變更資料庫結構描述，然後將它發佈至 Azure。
+您可以使用 Visual Studio 中熟悉的工具，來更新您在 Azure 中的資料庫與應用程式。 在此步驟中，您會使用 Entity Framework 中的 Code First 移轉來變更資料庫結構描述，然後將它發佈至 Azure。
 
 如需有關使用 Entity Framework Code First 移轉的詳細資訊，請參閱[使用 MVC 5 開始使用 Entity Framework 6 Code First](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)。
 
@@ -301,7 +301,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 ### <a name="enable-code-first-migrations-in-azure"></a>啟用 Azure 中的 Code First 移轉
 
-您的程式碼變更會立即運作 (包括資料庫移轉)，您也可以將它發佈至 Azure Web 應用程式，然後使用 Code First 移轉來更新您的 SQL Database。
+您的程式碼變更會立即運作 (包括資料庫移轉)，您也可以將它發佈至 Azure 應用程式，然後使用 Code First 移轉來更新您的 SQL Database。
 
 就像之前一樣，以滑鼠右鍵按一下專案，然後選取 [發佈]。
 
@@ -315,40 +315,40 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 選取 [執行 Code First 移轉 (在應用程式啟動時執行)] ，然後按一下 [儲存]。
 
-![在 Azure Web 應用程式中啟用 Code First 移轉](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
+![在 Azure 應用程式中啟用 Code First 移轉](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
 
 ### <a name="publish-your-changes"></a>發佈您的變更
 
-現在，您已在 Azure Web 應用程式中啟用 Code First 移轉，只需發佈您的程式碼變更即可。
+現在，您已在 Azure 應用程式中啟用 Code First 移轉，請發佈您的程式碼變更。
 
 在發佈頁面中，按一下 [發佈]。
 
 嘗試再次新增待辦事項，然後選取 [完成]，而它們應該會在您的首頁中顯示為已完成的項目。
 
-![Code First 移轉之後的 Azure Web 應用程式](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Code First 移轉之後的 Azure 應用程式](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 仍會顯示您現有的所有待辦事項項目。 當您重新發佈 ASP.NET 應用程式時，您 SQL Database 中現有的資料不會遺失。 此外，Code First 移轉只會變更資料結構描述，並讓現有的資料保持不變。
 
 
 ## <a name="stream-application-logs"></a>資料流應用程式記錄
 
-您可以將追蹤訊息從 Azure Web 應用程式直接資料流處理到 Visual Studio。
+您可以將追蹤訊息從 Azure 應用程式直接串流處理到 Visual Studio。
 
 開啟 _Controllers\TodosController.cs_。
 
-每個動作都是以 `Trace.WriteLine()` 方法開始。 新增此程式碼的用意是，示範如何將追蹤訊息新增至 Azure Web 應用程式。
+每個動作都是以 `Trace.WriteLine()` 方法開始。 新增此程式碼的用意是示範如何將追蹤訊息新增至 Azure 應用程式。
 
 ### <a name="open-server-explorer"></a>開啟伺服器總管
 
-從 [檢視] 功能表選取 [伺服器總管]。 您可以在 [伺服器總管] 中設定 Azure Web 應用程式的記錄。 
+從 [檢視] 功能表選取 [伺服器總管]。 您可以在 [伺服器總管] 中設定 Azure 應用程式的記錄。 
 
 ### <a name="enable-log-streaming"></a>啟用記錄資料流
 
 在 [伺服器總管] 中，展開 [Azure] > [App Service]。
 
-展開 [myResourceGroup] 資源群組，這是您在第一次建立 Azure Web 應用程式時所建立的資源群組。
+展開 [myResourceGroup] 資源群組，這是您在第一次建立 Azure 應用程式時所建立的資源群組。
 
-以滑鼠右鍵按一下您的 Azure Web 應用程式，然後選取 [檢視資料流記錄]。
+以滑鼠右鍵按一下您的 Azure 應用程式，然後選取 [檢視串流記錄]。
 
 ![啟用記錄資料流](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
@@ -356,13 +356,13 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 ![[輸出] 視窗中的記錄資料流](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
 
-不過，您還不會看到任何追蹤訊息。 這是因為當您第一次選取 [檢視資料流記錄] 時，您的 Azure Web 應用程式會將追蹤層級設定為 `Error`，這只會記錄錯誤事件 (使用 `Trace.TraceError()` 方法)。
+不過，您還不會看到任何追蹤訊息。 這是因為當您第一次選取 [檢視串流記錄] 時，您的 Azure 應用程式會將追蹤層級設定為 `Error`，這只會記錄錯誤事件 (使用 `Trace.TraceError()` 方法)。
 
 ### <a name="change-trace-levels"></a>變更追蹤層級
 
 若要變更追蹤層級以輸出其他追蹤訊息，請返回 [伺服器總管]。
 
-再次以滑鼠右鍵按一下您的 Azure Web 應用程式，然後選取 [檢視設定]。
+再次以滑鼠右鍵按一下您的 Azure 應用程式，然後選取 [檢視設定]。
 
 在 [應用程式記錄 (檔案系統)] 下拉式清單中，選取 [詳細資訊]。 按一下 [檔案] 。
 
@@ -373,7 +373,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 >
 >
 
-在您的瀏覽器中，再次巡覽至位於 *http://&lt;your app name>.azurewebsites.net* 的您的 Web 應用程式，然後在 Azure 中嘗試按一按待辦事項清單應用程式。 追蹤訊息現在會資料流處理到 Visual Studio 的 [輸出] 視窗中。
+在瀏覽器中，再次巡覽至您位於 *http://&lt;您的應用程式名稱>.azurewebsites.net* 的應用程式，然後試著在 Azure 中按一下待辦事項清單應用程式。 追蹤訊息現在會資料流處理到 Visual Studio 的 [輸出] 視窗中。
 
 ```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
@@ -390,17 +390,17 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 ![停止記錄資料流](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
-## <a name="manage-your-azure-web-app"></a>管理您的 Azure Web 應用程式
+## <a name="manage-your-azure-app"></a>管理您的 Azure 應用程式
 
-請移至 [Azure 入口網站](https://portal.azure.com)，以查看您所建立的 Web 應用程式。 
+移至 [Azure 入口網站](https://portal.azure.com)，以查看您所建立的應用程式。 
 
 
 
-按一下左側功能表中的 [App Service]，然後按一下 Azure Web 應用程式的名稱。
+按一下左側功能表中的 [App Service]，然後按一下 Azure 應用程式的名稱。
 
-![入口網站瀏覽至 Azure Web 應用程式](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
+![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 
-您已來到 Web 應用程式的分頁。 
+您已來到應用程式的頁面。 
 
 根據預設，入口網站會顯示 [概觀] 分頁。 此頁面可讓您檢視應用程式的執行方式。 您也可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 分頁左側的索引標籤會顯示您可開啟的各種設定分頁。 
 

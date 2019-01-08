@@ -1,6 +1,6 @@
 ---
-title: 使用 Spark 以 Azure Databricks 存取 Azure Data Lake Storage Gen2 預覽版資料 | Microsoft Docs
-description: 了解如何在 Azure Databricks 叢集上執行 Spark 查詢，以存取 Azure Data Lake Storage Gen2 儲存體帳戶中的資料。
+title: 教學課程：使用 Spark 以 Azure Databricks 存取 Azure Data Lake Storage Gen2 預覽版資料 | Microsoft Docs
+description: 本教學課程說明如何在 Azure Databricks 叢集上執行 Spark 查詢，以存取 Azure Data Lake Storage Gen2 儲存體帳戶中的資料。
 services: storage
 author: dineshmurthy
 ms.component: data-lake-storage-gen2
@@ -8,56 +8,62 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: dineshm
-ms.openlocfilehash: 88a05eb8fa59740012ca6c7a8d8508d565854dc7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b0382d31f9d16228ca3447ace9c7d4f171b206f6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974154"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548981"
 ---
-# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>教學課程：使用 Spark 以 Azure Databricks 存取 Azure Data Lake Storage Gen2 Preview 資料
+# <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>教學課程：使用 Spark 以 Azure Databricks 存取 Data Lake Storage Gen2 預覽版資料
 
-在此教學課程中，您會了解如何在 Azure Databricks 叢集上執行 Spark 查詢，以在具有 Azure Data Lake Storage Gen2 預覽版功能的 Azure 儲存體帳戶中查詢資料。
+本教學課程說明如何將 Azure Databricks 叢集連線至已啟用 Azure Data Lake Storage Gen2 (預覽) 功能之 Azure 儲存體帳戶中所儲存的資料。 此連線可讓您以原生方式從叢集對資料執行查詢和分析。
+
+在本教學課程中，您將：
 
 > [!div class="checklist"]
 > * 建立 Databricks 叢集
 > * 將非結構化的資料內嵌到儲存體帳戶
 > * 在 Blob 儲存體中對資料執行分析
 
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+
 ## <a name="prerequisites"></a>必要條件
 
-本教學課程示範如何取用及查詢航班資料 (來源為[美國運輸部](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time))。 下載至少兩年份的航線資料 (選取所有欄位)，並將結果儲存至機器。 請務必記下所下載資料的檔案名稱與路徑；稍後的步驟需要這項資訊。
+本教學課程示範如何取用及查詢航班資料 (來源為[美國運輸部](https://transtats.bts.gov/DL_SelectFields.asp))。 
 
-> [!NOTE]
-> 按一下 [預先壓縮的檔案] 核取方塊來選取所有資料欄位。 所下載的資料會有數 GB 的大小，但必須有這麼大量的資料才能進行分析。
+1. 選取 [Prezipped file] \(預先壓縮的檔案\) 核取方塊以選取所有資料欄位。
+2. 選取 [下載]，然後將結果儲存到您的機器。
+3. 記下所下載資料的檔案名稱與路徑；在稍後的步驟中，您將需要此資訊。
 
-## <a name="create-an-azure-storage-account-with-analytic-capabilities"></a>建立 Azure 儲存體帳戶與分析功能
+若要完成本教學課程，您需要有一個具有分析功能的儲存體帳戶。 建議您完成該主題的相關[快速入門](data-lake-storage-quickstart-create-account.md)以建立一個帳戶。 在您建立帳戶之後，請瀏覽至該儲存體帳戶來擷取組態設定。
 
-若要開始，請建立新的[儲存體帳戶與分析功能](data-lake-storage-quickstart-create-account.md)，並對此帳戶賦予唯一的名稱。 然後瀏覽至儲存體帳戶，以擷取組態設定。
-
-1. 按一下 [設定] 下的 [存取金鑰]。
-2. 按一下 [key1] 旁的 [複製] 按鈕以複製金鑰值。
+1. 在 [設定] 底下，選取 [存取金鑰]。
+2. 選取 [key1] 旁邊的 [複製] 按鈕以複製金鑰值。
 
 本教學課程的後續步驟需要用到帳戶名稱和金鑰。 請開啟文字編輯器，並設定帳戶名稱和金鑰以供日後參考。
 
 ## <a name="create-a-databricks-cluster"></a>建立 Databricks 叢集
 
-下一個步驟是建立 [Databricks 叢集](https://docs.azuredatabricks.net/)以建立資料工作區。
+下一個步驟是建立 Databricks 叢集以建立資料工作區。
 
-1. 建立 [Databricks 服務](https://ms.portal.azure.com/#create/Microsoft.Databricks)，並將其命名為 **myFlightDataService** (請務必在建立服務時勾選 [釘選到儀表板] 核取方塊)。
-2. 按一下 [啟動工作區] 以在新的瀏覽器視窗中開啟工作區。
-3. 按一下左側瀏覽列中的 [叢集]。
-4. 按一下 [建立叢集]。
-5. 在 [叢集名稱] 欄位中，輸入 *myFlightDataCluster*。
-6. 在 [背景工作類型] 欄位中選取 [Standard_D8s_v3]。
-7. 將 [背景工作數下限] 值變更為 [4]。
-8. 按一下頁面頂端的 [建立叢集] (此程序最多可能需要 5 分鐘才能完成)。
-9. 程序完成時，選取瀏覽列左上角的 [Azure Databricks]。
-10. 在頁面下半部的 [新增] 區段下選取 [Notebook]。
-11. 在 [名稱] 欄位中輸入您所選擇的名稱，然後選取 [Python] 作為語言。
-12. 其他所有欄位可保留其預設值。
-13. 選取 [建立] 。
-14. 將下列程式碼貼到 [Cmd 1] 資料格中。 請記得使用您自己的值取代範例中括號內的預留位置：
+1. 從 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源]。
+2. 在搜尋欄位中輸入 **Azure Databricks**。
+3. 選取 [Azure Databricks] 刀鋒視窗上的 [建立]。
+4. 將 Databricks 服務命名為 **myFlightDataService**(請務必在建立服務時勾選 [釘選到儀表板] 核取方塊)。
+5. 選取 [啟動工作區] 以在新的瀏覽器視窗中開啟工作區。
+6. 選取左側導覽列中的 [叢集]。
+7. 選取 [建立叢集]。
+8. 在 [叢集名稱] 欄位中，輸入 **myFlightDataCluster**。
+9. 在 [背景工作類型] 欄位中選取 [Standard_D8s_v3]。
+10. 將 [背景工作數下限] 值變更為 [4]。
+11. 選取頁面頂端的 [建立叢集]。 (此程序可能最多需要 5 分鐘的時間來完成)。
+12. 當此程序完成時，選取導覽列左上方的 [Azure Databricks]。
+13. 在頁面下半部的 [新增] 區段下選取 [Notebook]。
+14. 在 [名稱] 欄位中輸入您所選擇的名稱，然後選取 [Python] 作為語言。
+15. 其他所有欄位可保留其預設值。
+16. 選取 [建立] 。
+17. 將下列程式碼貼到 [Cmd 1] 資料格中。 請以您自己的值取代範例中括號內顯示的預留位置：
 
     ```scala
     %python%
@@ -72,13 +78,13 @@ ms.locfileid: "52974154"
         mount_point = "/mnt/flightdata",
         extra_configs = configs)
     ```
-15. 按 **SHIFT + ENTER** 以執行程式碼單元。
+18. 按 **SHIFT + ENTER** 以執行程式碼單元。
 
 ## <a name="ingest-data"></a>擷取資料
 
 ### <a name="copy-source-data-into-the-storage-account"></a>將來源資料複製到儲存體帳戶
 
-下一個工作是使用 AzCopy 將資料從 .csv 檔案複製到 Azure 儲存體。 開啟命令提示字元視窗，並輸入下列命令。 請務必要將預留位置 `<DOWNLOAD_FILE_PATH>` 和 `<ACCOUNT_KEY>` 取代為您在上一個步驟中保留的對應值。
+下一個工作是使用 AzCopy 將資料從 .csv 檔案複製到 Azure 儲存體。 開啟命令提示字元視窗，並輸入下列命令。 請務必以您在上一個步驟中保留的對應值取代 `<DOWNLOAD_FILE_PATH>``<ACCOUNT_NAME>` 及 `<ACCOUNT_KEY>` 預留位置。
 
 ```bash
 set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -90,12 +96,12 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 
 在瀏覽器中重新開啟 Databricks，然後執行下列步驟：
 
-1. 選取瀏覽列左上角的 [Azure Databricks]。
+1. 選取導覽列左上方的 [Azure Databricks]。
 2. 在頁面下半部的 [新增] 區段下選取 [Notebook]。
 3. 在 [名稱] 欄位中輸入 **CSV2Parquet**。
 4. 其他所有欄位可保留其預設值。
 5. 選取 [建立] 。
-6. 在 **Cmd 1** 資料格中貼入下列程式碼 (此程式碼會自動儲存到編輯器中)。
+6. 將下列程式碼貼到 [Cmd 1] 資料格中。 (此程式碼會在編輯器中自動儲存)。
 
     ```python
     # Use the previously established DBFS mount point to read the data
@@ -106,11 +112,11 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
     print("Done")
     ```
 
-## <a name="explore-data-using-hadoop-distributed-file-system"></a>使用 Hadoop 分散式檔案系統探索資料
+## <a name="explore-data"></a>探索資料
 
-返回 Databricks 工作區，然後按一下左側瀏覽列中的 [最近] 圖示。
+返回 Databricks 工作區，然後選取左側導覽列中的 [最近] 圖示。
 
-1. 按一下 [航班資料分析] Notebook。
+1. 選取 [Flight Data Analytics] \(航班資料分析\) Notebook。
 2. 按 **Ctrl + Alt + N** 來建立新的資料格。
 
 在 **Cmd 1** 中輸入下列每個程式碼區塊，然後按 **Cmd + Enter** 來執行 Python 指令碼。
@@ -137,7 +143,7 @@ dbutils.fs.ls("/mnt/flightdata/temp/parquet/flights")
 
 接下來，您可以開始查詢您上傳到儲存體帳戶的資料。 在 **Cmd 1** 中輸入下列每個程式碼區塊，然後按 **Cmd + Enter** 來執行 Python 指令碼。
 
-### <a name="simple-queries"></a>範例查詢
+### <a name="run-simple-queries"></a>執行簡單查詢
 
 若要建立資料來源的資料框架，請執行下列指令碼：
 
@@ -198,7 +204,8 @@ print('Airports in Texas: ', out.show(100))
 out1 = spark.sql("SELECT distinct(Carrier) FROM FlightTable WHERE OriginStateName='Texas'")
 print('Airlines that fly to/from Texas: ', out1.show(100, False))
 ```
-### <a name="complex-queries"></a>複雜的查詢
+
+### <a name="run-complex-queries"></a>執行複雜查詢
 
 若要執行下列更複雜的查詢，請在 Notebook 中一次執行一個區段，並檢查結果。
 
@@ -241,6 +248,12 @@ output.show(10, False)
 display(output)
 ```
 
+## <a name="clean-up-resources"></a>清除資源
+
+當已不再需要資源時，請刪除資源群組及所有相關資源。 若要這麼做，請選取儲存體帳戶的資源群組，然後選取 [刪除]。
+
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料](data-lake-storage-tutorial-extract-transform-load-hive.md)
+[!div class="nextstepaction"] 
+> [使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料](data-lake-storage-tutorial-extract-transform-load-hive.md)
+

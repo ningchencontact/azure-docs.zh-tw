@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc34411cc27870dbd9c707a34ebf34b96c7253dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3ebf450f4e84fed572307a18f20f36013e32c7a5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986112"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630694"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>教學課程：使用 Azure 檔案同步擴充 Windows 檔案伺服器
 在本教學課程中，我們會示範使用 Azure 檔案同步來擴充 Windows Server 儲存體容量的基本步驟。雖然我們會在本教學課程中使用 Windows Server Azure VM，但一般來說，您也可以對內部部署伺服器進行此程序。 如果您已準備好在自己的環境中部署 Azure 檔案同步，請改為使用[部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)一文。
@@ -163,14 +163,14 @@ ms.locfileid: "49986112"
 
 1. 關閉 **Explorer** 和**伺服器管理員**。
 
-### <a name="download-the-azurerm-powershell-module"></a>下載 AzureRM PowerShell 模組
-接下來，在 **Windows Server 2016 Datacenter** VM 中，於伺服器上安裝 **AzureRM PowerShell 模組**。
+### <a name="download-the-azure-powershell-module"></a>下載 Azure PowerShell 模組
+接下來，在 **Windows Server 2016 Datacenter** VM 中，於伺服器上安裝 **Azure PowerShell 模組**。
 
 1. 在 VM 中，開啟已提升權限的 PowerShell 視窗
 1. 執行以下命令：
 
    ```powershell
-   Install-Module -Name AzureRM -AllowClobber
+   Install-Module -Name Az -AllowClobber
    ```
 
    > [!NOTE]
@@ -189,7 +189,7 @@ ms.locfileid: "49986112"
 
 1. 請回答 `Yes` 或 `Yes to All` 以繼續安裝。
 
-`AzureRM` 模組是 Azure PowerShell Cmdlet 的彙總套件模組。 安裝此項目會下載所有可用的 Azure Resource Manager 模組，並使這些模組的 Cmdlet 可供使用。
+`Az` 模組是 Azure PowerShell Cmdlet 的彙總套件模組。 安裝此項目會下載所有可用的 Azure Resource Manager 模組，並使這些模組的 Cmdlet 可供使用。
 
 此時，您已完成教學課程的環境設定，並已準備好開始部署**儲存體同步服務**。
 

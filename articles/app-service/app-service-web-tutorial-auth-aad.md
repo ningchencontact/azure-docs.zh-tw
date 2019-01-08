@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7c1e07d73d110d5ef7f681486479ec65ff436b19
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408842"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716407"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>教學課程：在 Azure App Service 中對使用者進行端對端驗證和授權
 
-[Azure App Service](app-service-web-overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 此外，App Service 具有[使用者驗證和授權](app-service-authentication-overview.md)的內建支援。 本教學課程說明如何使用 App Service 驗證和授權來保護您的應用程式。 它會搭配使用 ASP.NET Core 應用程式與 Angular.js 前端，但僅供範例之用。 App Service 驗證和授權支援所有語言執行階段，且您可以透過本教學課程了解如何將其套用至您偏好的語言。
+[Azure App Service](overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 此外，App Service 具有[使用者驗證和授權](overview-authentication-authorization.md)的內建支援。 本教學課程說明如何使用 App Service 驗證和授權來保護您的應用程式。 它會搭配使用 ASP.NET Core 應用程式與 Angular.js 前端，但僅供範例之用。 App Service 驗證和授權支援所有語言執行階段，且您可以透過本教學課程了解如何將其套用至您偏好的語言。
 
 本教學課程使用範例應用程式說明如何保護獨立應用程式中 (在[啟用後端應用程式的驗證和授權](#enable-authentication-and-authorization-for-back-end-app)中)。
 
@@ -105,7 +105,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="push-to-azure-from-git"></a>從 Git 推送至 Azure
 
-回到_本機終端機視窗_，執行下列 Git 命令，以部署至後端應用程式。 將 _&lt;deploymentLocalGitUrl-of-back-end-app>_ 取代為您從[建立 Azure 資源](#create-azure-resources)儲存之 Git 遠端的 URL。 當 Git 認證管理員提示您輸入認證時，請務必輸入[您的部署認證](app-service-deployment-credentials.md)，而不是您用來登入 Azure 入口網站的認證。
+回到_本機終端機視窗_，執行下列 Git 命令，以部署至後端應用程式。 將 _&lt;deploymentLocalGitUrl-of-back-end-app>_ 取代為您從[建立 Azure 資源](#create-azure-resources)儲存之 Git 遠端的 URL。 當 Git 認證管理員提示您輸入認證時，請務必輸入[您的部署認證](deploy-configure-credentials.md)，而不是您用來登入 Azure 入口網站的認證。
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -119,7 +119,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-web-apps"></a>瀏覽至 Azure Web 應用程式
+### <a name="browse-to-the-apps"></a>瀏覽至應用程式
 
 在瀏覽器中瀏覽至下列 URL，並確認兩個應用程式都在運作中。
 
@@ -446,4 +446,4 @@ az group delete --name myAuthResourceGroup
 前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至 Web 應用程式。
 
 > [!div class="nextstepaction"]
-> [將現有的自訂 DNS 名稱對應至 Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [將現有的自訂 DNS 名稱對應至 Azure App Service](app-service-web-tutorial-custom-domain.md)

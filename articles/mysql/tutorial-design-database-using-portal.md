@@ -1,23 +1,20 @@
 ---
-title: 教學課程：使用 Azure 入口網站設計適用於 MySQL 的 Azure 資料庫
-description: 本教學課程說明如何使用「Azure 入口網站」來建立和管理「適用於 MySQL 的 Azure 資料庫」伺服器。
-services: mysql
+title: 教學課程：使用 Azure 入口網站來設計適用於 MySQL 的 Azure 資料庫
+description: 本教學課程說明如何使用「Azure 入口網站」來建立和管理「適用於 MySQL 的 Azure 資料庫」伺服器和資料庫。
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 395ebbe3879660ce31abd570e936a010536db4de
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: bf46b047af69dcd1a751661a701b1eb9b7f75563
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266528"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537717"
 ---
-# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站設計適用於 MySQL 的 Azure 資料庫
+# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站來設計「適用於 MySQL 的 Azure 資料庫」資料庫
 「適用於 MySQL 的 Azure 資料庫」是一個受控服務，可讓您在雲端執行、管理及調整高可用性 MySQL 資料庫。 使用 Azure 入口網站，您可以輕鬆管理伺服器和設計資料庫。
 
 在本教學課程中，您將使用 Azure 入口網站來學習如何：
@@ -52,7 +49,7 @@ ms.locfileid: "35266528"
     資源群組 | *myresourcegroup* | 提供新的或現有的資源群組名稱。    資源群組|*myresourcegroup*| 新的資源群組名稱，或您訂用帳戶中現有的資源群組名稱。
     選取來源 | 空白 | 選取 [空白]，從頭開始建立新的伺服器。 (如果您要從現有「適用於 MySQL 的 Azure 資料庫」伺服器的異地備份建立伺服器，請選取 [備份])。
     伺服器管理員登入 | myadmin | 當您連線至伺服器時所要使用的登入帳戶。 系統管理員登入名稱不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
-    密碼 | 您的選擇 | 為伺服器管理帳戶提供新密碼。 此密碼必須包含 8 到 128 個字元。 您的密碼必須包含下列三個類別的字元：英文大寫字母、英文小寫字母、數字 (0-9) 和非英數字元 (!、$、#、% 等等)。
+    密碼 | 您的選擇 | 為伺服器管理帳戶提供新密碼。 此密碼必須包含 8 到 128 個字元。 您的密碼必須包含下列類別中三種類別的字元：英文大寫字母、英文小寫字母、數字 (0-9) 及非英數字元 (!、$、#、% 等等)。
     確認密碼 | 您的選擇| 確認管理帳戶密碼。
     位置 | *最接近使用者的區域*| 選擇最靠近您的使用者或其他 Azure 應用程式的位置。
     版本 | *最新版本*| 最新版本 (除非您有需要另一個版本的特定需求)。
@@ -151,10 +148,10 @@ SELECT * FROM inventory;
    
    ![10-2 還原表單](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **還原點**：在所列的時間範圍內，選取您想要還原的時間點。 務必將您的當地時區轉換成 UTC。
-   - **還原到新伺服器**︰提供要作為還原目的地的新伺服器名稱。
-   - **位置**︰此區域與來源伺服器相同，無法加以變更。
-   - **定價層**︰此定價層與來源伺服器相同，無法加以變更。
+   - **還原點**：從所列的時間範圍中，選取您想要還原的時間點。 務必將您的當地時區轉換成 UTC。
+   - **還原到新的伺服器**：提供要作為還原目的地的新伺服器名稱。
+   - **位置**：此區域與來源伺服器相同且無法變更。
+   - **定價層**：此定價層與來源伺服器相同且無法變更。
    
 3. 按一下 [確定]，將伺服器[還原到資料表刪除之前的時間點](./howto-restore-server-portal.md)。 還原伺服器可建立伺服器的新複本 (自您指定的時間點起)。 
 

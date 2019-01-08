@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8ebaab260d38a3fe4f492f2545c5ec8b07990235
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409382"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715234"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>教學課程：在 Linux 上的 Azure App Service 中對使用者進行端對端驗證和授權
 
-[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 此外，App Service 具有[使用者驗證和授權](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)的內建支援。 本教學課程說明如何使用 App Service 驗證和授權來保護您的應用程式。 它會搭配使用 ASP.NET Core 應用程式與 Angular.js 前端，但僅供範例之用。 App Service 驗證和授權支援所有語言執行階段，且您可以透過本教學課程了解如何將其套用至您偏好的語言。
+[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 此外，App Service 具有[使用者驗證和授權](../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)的內建支援。 本教學課程說明如何使用 App Service 驗證和授權來保護您的應用程式。 它會搭配使用 ASP.NET Core 應用程式與 Angular.js 前端，但僅供範例之用。 App Service 驗證和授權支援所有語言執行階段，且您可以透過本教學課程了解如何將其套用至您偏好的語言。
 
 本教學課程使用範例應用程式說明如何保護獨立應用程式中 (在[啟用後端應用程式的驗證和授權](#enable-authentication-and-authorization-for-back-end-app)中)。
 
@@ -86,7 +86,7 @@ dotnet run
 
 ### <a name="create-azure-resources"></a>建立 Azure 資源
 
-在 Cloud Shell 中執行下列命令，以建立兩個 Web 應用程式。 將 _&lt;front\_end\_app\_name>_ 和 _&lt;back\_end\_app\_name>_ 取代為兩個全域唯一的應用程式名稱 (有效的字元為 `a-z`、`0-9` 和 `-`)。 如需每個命令的詳細資訊，請參閱[在 Linux 上的 App Service 中建立 NET Core Web 應用程式](quickstart-dotnetcore.md)。
+在 Cloud Shell 中，執行下列命令以建立兩個 App Service 應用程式。 將 _&lt;front\_end\_app\_name>_ 和 _&lt;back\_end\_app\_name>_ 取代為兩個全域唯一的應用程式名稱 (有效的字元為 `a-z`、`0-9` 和 `-`)。 如需每個命令的詳細資訊，請參閱[在 Linux 上的 App Service 中建立 .NET Core 應用程式](quickstart-dotnetcore.md)。
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
@@ -129,7 +129,7 @@ git commit -m "add CORS to back end"
 
 ### <a name="push-to-azure-from-git"></a>從 Git 推送至 Azure
 
-在本機終端機視窗中，執行下列 Git 命令以部署至後端應用程式。 將 _&lt;deploymentLocalGitUrl-of-back-end-app>_ 取代為您從[建立 Azure 資源](#create-azure-resources)儲存之 Git 遠端的 URL。 當 Git 認證管理員提示您輸入認證時，請務必輸入[您的部署認證](../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，而不是您用來登入 Azure 入口網站的認證。
+在本機終端機視窗中，執行下列 Git 命令以部署至後端應用程式。 將 _&lt;deploymentLocalGitUrl-of-back-end-app>_ 取代為您從[建立 Azure 資源](#create-azure-resources)儲存之 Git 遠端的 URL。 當 Git 認證管理員提示您輸入認證時，請務必輸入[您的部署認證](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，而不是您用來登入 Azure 入口網站的認證。
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -143,7 +143,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-web-apps"></a>瀏覽至 Azure Web 應用程式
+### <a name="browse-to-the-azure-apps"></a>瀏覽至 Azure 應用程式
 
 在瀏覽器中瀏覽至下列 URL，並確認兩個應用程式都在運作中。
 
@@ -453,7 +453,7 @@ az group delete --name myAuthResourceGroup
 > * 從伺服器程式碼使用存取權杖
 > * 從用戶端 (瀏覽器) 程式碼使用存取權杖
 
-前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至 Web 應用程式。
+前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至應用程式。
 
 > [!div class="nextstepaction"]
-> [將現有的自訂 DNS 名稱對應至 Azure Web Apps](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+> [將現有的自訂 DNS 名稱對應至 Azure App Service](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

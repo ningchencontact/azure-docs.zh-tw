@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c7d01d4c079eacfd2af1ebad4ac41d70f792a0bb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ae37befe2ae2220feaf17ae4354b6fc780147f7e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253559"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634230"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>在 Azure 中建立靜態 HTML Web 應用程式
 
-[Azure Web Apps](app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。 本快速入門顯示如何將基本 HTML+CSS 網站部署至 Azure Web Apps。 您將會在 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 中完成本快速入門，但您也可以在本機使用 [Azure CLI](/cli/azure/install-azure-cli) 來執行這些命令。
+[Azure App Service](overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 本快速入門顯示如何將基本 HTML+CSS 網站部署至 Azure App Service。 您將會在 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 中完成本快速入門，但您也可以在本機使用 [Azure CLI](/cli/azure/install-azure-cli) 來執行這些命令。
 
 ![範例應用程式首頁](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -84,7 +84,7 @@ az webapp up --location westeurope --name <app_name>
 
 - 建立具有所指定名稱的應用程式。
 
-- [以 Zip 檔進行部署](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip)，將目前工作目錄中的檔案部署到 Web 應用程式。
+- [以 Zip 檔進行部署](https://docs.microsoft.com/azure/app-service/deploy-zip)，將目前工作目錄中的檔案部署到 Web 應用程式。
 
 此命令可能會花數分鐘執行。 執行上述命令時，會顯示類似下列範例的資訊：
 
@@ -106,7 +106,7 @@ az webapp up --location westeurope --name <app_name>
 
 ## <a name="browse-to-the-app"></a>瀏覽至應用程式
 
-在瀏覽器中，移至 Azure Web 應用程式 URL：`http://<app_name>.azurewebsites.net`。
+在瀏覽器中，移至應用程式 URL：`http://<app_name>.azurewebsites.net`。
 
 此頁面目前作為 Azure App Service Web 應用程式執行。
 
@@ -132,13 +132,13 @@ az webapp up --location westeurope --name <app_name>
 
 ![已更新的範例應用程式首頁](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
-## <a name="manage-your-new-azure-web-app"></a>管理新的 Azure Web 應用程式
+## <a name="manage-your-new-azure-app"></a>管理新的 Azure 應用程式
 
 請移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理您所建立的 Web 應用程式。
 
-按一下左側功能表中的 [應用程式服務]，然後按一下 Azure Web 應用程式的名稱。
+按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
 
-![入口網站瀏覽至 Azure Web 應用程式](./media/app-service-web-get-started-html/portal1.png)
+![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-get-started-html/portal1.png)
 
 您會看到 Web 應用程式的 [概觀] 頁面。 您可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。
 

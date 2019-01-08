@@ -1,5 +1,5 @@
 ---
-title: 範例：呼叫電腦視覺 API
+title: 範例：呼叫分析影像 API - 電腦視覺
 titlesuffix: Azure Cognitive Services
 description: 了解如何使用「Azure 認知服務」中的 REST 呼叫電腦視覺 API。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: e8297fbe59ebe2dea9caf112ebea4517447cf9e0
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 9520d4bcec0e170700aacc5ef4bc69100e333af1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981740"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581703"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>範例：如何呼叫電腦視覺 API
 
@@ -26,9 +27,9 @@ ms.locfileid: "45981740"
 
 ### <a name="Prerequisites">先決條件</a> 
 在本機儲存影像的影像 URL 或路徑。
-  * 支援的輸入方法：應用程式/八位元資料流或影像 URL 形式的原始影像二進位檔
+  * 支援的輸入法：應用程式/八位元資料流或影像 URL 形式的原始影像二進位檔
   * 支援的影像格式：JPEG、PNG、GIF、BMP
-  * 影像檔案大小：小於 4 MB
+  * 影像檔大小：小於 4MB
   * 影像尺寸：大於 50 x 50 像素
   
 下面的範例會示範下列功能：
@@ -39,7 +40,7 @@ ms.locfileid: "45981740"
 功能細分如下：
 
   * **選項一：** 特定範圍分析 - 只分析指定的模型
-  * **選項二︰** 強化分析 - 使用 [86 個類別的分類法](../Category-Taxonomy.md)分析，提供其他詳細資料
+  * **選項二：** 強化分析 - 使用 [86 個類別的分類法](../Category-Taxonomy.md)分析，提供其他詳細資料
   
 ### <a name="Step1">步驟 1：授權 API 呼叫</a> 
 每次呼叫電腦視覺 API 時，都需要訂用帳戶金鑰。 這個金鑰必須透過查詢字串參數傳遞，或是在要求標頭中指定。 
@@ -109,7 +110,7 @@ var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celeb
 GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models 
 var models = await visionClient.ListModelsAsync();
 ```
-**選項二︰** 強化分析 - 使用 [86 個類別的分類法](../Category-Taxonomy.md)分析，提供其他詳細資料
+**選項二：** 強化分析 - 使用 [86 個類別的分類法](../Category-Taxonomy.md)分析，提供其他詳細資料
 
 除了一或多個特定領域模型中的詳細資料之外，針對您還想要取得一般影像分析的應用程式，我們使用模型查詢參數來擴充 v1 API。
 ```
@@ -179,7 +180,7 @@ description.captions[].confidence   | number    | 片語的信賴度。
   }
 ```
 
-**選項二︰** 強化分析 - 使用 86 個類別的分類法分析，提供其他詳細資料
+**選項二：** 強化分析 - 使用 86 個類別的分類法分析，提供其他詳細資料
 
 針對使用「選項二 (強化分析)」的特定領域模型，會擴充類別傳回類型。 範例如下：
 ```

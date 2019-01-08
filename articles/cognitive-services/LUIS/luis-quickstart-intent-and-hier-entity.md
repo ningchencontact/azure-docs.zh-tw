@@ -9,32 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: a79c0091220e2980101471abaaa0aaf4c0a898ca
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 91a9646e88adbfaf6d3c3fc0b06b341c647e773f
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104402"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753688"
 ---
-# <a name="tutorial-5-extract-contextually-related-data"></a>教學課程 5：擷取內容相關的資料
-在本教學課程中，根據內容尋找相關的資料片段。 例如，從一個建築物和辦公室移到另一個建築物和辦公室的實體移動原點和目的地位置會相關。 若要產生一份工單，則需要這兩個資料片段，而且兩者彼此相關。  
+# <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>教學課程：從語句擷取內容相關的資料
 
-此應用程式會判斷員工是否要從原點位置 (建築物和辦公室) 移到目的地位置 (建築物和辦公室)。 它會使用階層式實體來判斷語句中的位置。 **階層式**實體的目的是根據內容尋找語句內的相關資料。 
-
-階層式實體適用於此類型資料，因為這兩個資料片段是：
-
-* 簡單的實體。
-* 在語句的內容中彼此相關。
-* 使用特定文字來表示每個位置。 這些字的範例包括：from/to、leaving/headed to、away from/toward。
-* 這兩個位置通常會在相同的語句中。 
-* 需要由用戶端應用程式當作一個資訊單位進行分組和處理。
+在本教學課程中，根據內容尋找相關的資料片段。 例如，從某個城市前往另一個城市的出發地和目的地位置。 可能會需要這兩個資料片段，且這兩者彼此相關。  
 
 **在本教學課程中，您將了解如何：**
 
 > [!div class="checklist"]
-> * 使用現有的教學課程應用程式
+> * 建立新的應用程式
 > * 新增意圖 
 > * 新增具有出發地和目的地子系的位置階層式實體
 > * 定型
@@ -43,47 +34,47 @@ ms.locfileid: "53104402"
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>使用現有的應用程式
-以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
+## <a name="hierarchical-data"></a>階層式資料
 
-如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
+此應用程式會判斷要將員工從出發地城市移至目的地城市的何處。 它會使用階層式實體來判斷語句中的位置。 
 
-1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json)。
+階層式實體適用於此類型資料，因為這兩個資料片段 (子位置) 是：
 
-2. 將 JSON 匯入新的應用程式中。
+* 簡單的實體。
+* 在語句的內容中彼此相關。
+* 使用特定文字來表示每個實體。 這些字的範例包括：from/to、leaving/headed to、away from/toward。
+* 這兩個子系通常會在相同的語句中。 
+* 需要由用戶端應用程式當作一個資訊單位進行分組和處理。
 
-3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `hier`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。 
+## <a name="create-a-new-app"></a>建立新的應用程式
 
-## <a name="remove-prebuilt-number-entity-from-app"></a>從應用程式中移除預先建立的數字實體
-若要查看整個語句並標記階層式子系，請[暫時移除預先建立的數字實體](luis-prebuilt-entities.md#marking-entities-containing-a-prebuilt-entity-token)。 
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+
+## <a name="create-an-intent-to-move-employees-between-cities"></a>建議意圖來在城市之間移動員工
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. 從左側功能表中選取 [實體]。
+1. 選取 [Create new intent] \(建立新意圖\)。 
 
-3. 選取清單中數字實體左邊的核取方塊。 選取 [刪除] 。 
+1. 在快顯對話方塊方塊中輸入 `MoveEmployeeToCity`，然後選取 [完成]。 
 
-## <a name="add-utterances-to-moveemployee-intent"></a>將語句新增至 MoveEmployee 意圖
+    ![建立新意圖對話方塊的螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/create-new-intent-move-employee-to-city.png)
 
-1. 選取左功能表中的 [意圖]。
-
-2. 從意圖清單中選取 [MoveEmployee]。
-
-3. 新增下列範例語句：
+1. 將語句範例新增至意圖。
 
     |範例語句|
     |--|
-    |Move John W. Smith **to** a-2345|
-    |Direct Jill Jones **to** b-3499|
-    |Organize the move of x23456 **from** hh-2345 **to** e-0234|
-    |Begin paperwork to set x12345 **leaving** a-3459 **headed to** f-34567|
-    |Displace 425-555-0000 **away from** g-2323 **toward** hh-2345|
+    |move John W. Smith leaving Seattle headed to Dallas|
+    |transfer Jill Jones from Seattle to Cairo|
+    |Place John Jackson away from Tampa, coming to Atlanta |
+    |move Debra Doughtery to Tulsa from Dallas|
+    |mv Jill Jones leaving Cairo headed to Tampa|
+    |Shift Alice Anderson to Oakland from Redmond|
+    |Carl Chamerlin from San Francisco to Redmond|
+    |Transfer Steve Standish from San Diego toward Bellevue |
+    |lift Tanner Thompson from Kansas city and shift to Chicago|
 
     [ ![MoveEmployee 意圖中有新語句的 LUIS 螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
-
-    在[清單實體](luis-quickstart-intent-and-list-entity.md)教學課程中，會依照名稱、電子郵件地址、電話分機、行動電話號碼或美國聯邦社會安全號碼指定員工。 這些員工編號會使用於語句中。 先前的範例語句包含不同的方式可記下原點和目的地位置 (以粗體顯示標記)。 有些語句特意只有目的地。 這有助於 LUIS 了解如何在未指定原點時將這些位置放在語句中。     
-
-    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>建立位置實體
 LUIS 必須藉由在語句中標記原點和目的地，進而了解位置為何。 如果您需要在語彙基元 (原始) 檢視中查看語句，請在導覽列中選取標示為 [實體檢視] 的語句上方的切換鍵。 切換參數之後，控制項會標示為 [語彙基元檢視]。
@@ -91,170 +82,104 @@ LUIS 必須藉由在語句中標記原點和目的地，進而了解位置為何
 請考慮使用下列語句：
 
 ```json
-mv Jill Jones from a-2349 to b-1298
+move John W. Smith leaving Seattle headed to Dallas
 ```
 
-此語句已指定兩個位置：`a-2349` 和 `b-1298`。 假設字母會對應至建築物名稱，而數字則表示該建築物內的辦公室。 兩者都群組為階層式實體 (`Locations`) 的子系是合理的，因為必須從語句中擷取這兩個資料片段，才能在用戶端應用程式中完成要求，而且兩者彼此相關。 
+此語句已指定兩個位置：`Seattle` 和 `Dallas`。 兩者皆被分組為階層式實體 `Location` 的子系，因為必須從語句中擷取這兩個資料片段才能完成用戶端應用程式中的要求，且這兩者彼此相關。 
  
 如果只有一個階層式實體的子系 (出發或目的地位置) 存在，仍然會進行擷取。 只要擷取一個或部分子系時，不需要找到所有子系。 
 
-1. 在 `Displace 425-555-0000 away from g-2323 toward hh-2345` 語句中，選取 `g-2323` 這個字。 隨即出現頂端有文字方塊的下拉式功能表。 在文字方塊中輸入實體名稱 `Locations`，然後在下拉式功能表中選取 [建立新的實體]。 
+1. 在 `move John W. Smith leaving Seattle headed to Dallas` 語句中，選取 `Seattle` 這個字。 隨即出現頂端有文字方塊的下拉式功能表。 在文字方塊中輸入實體名稱 `Location`，然後在下拉式功能表中選取 [建立新的實體]。 
 
-    [![在意圖頁面上建立新實體的螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "在意圖頁面上建立新實體的螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
+    [![在意圖頁面上建立新實體的螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png "在意圖頁面上建立新實體的螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png#lightbox)
 
-2. 在快顯視窗中，選取 [階層式] 實體類型，並使用 `Origin` 和 `Destination` 作為子實體。 選取 [完成] 。
+1. 在快顯視窗中，選取 [階層式] 實體類型，並使用 `Origin` 和 `Destination` 作為子實體。 選取 [完成] 。
 
     ![適用於新位置實體的實體建立快顯對話方塊螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "適用於新位置實體的實體建立快顯對話方塊螢幕擷取畫面")
 
-3. `g-2323` 的標籤標示為 `Locations`，因為 LUIS 不知道該字詞是出發或目的地位置，或兩者皆非。 選取 `g-2323`，然後選取 [位置]，接著遵循右側功能表並選取 `Origin`。
+1. `Seattle` 的標籤標示為 `Location`，因為 LUIS 不知道該字詞是出發或目的地位置，或兩者皆非。 選取 `Seattle`，然後選取 [Location] \(位置\)，接著選取右側功能表上的 `Origin`。
 
-    [![用於變更位置實體子系的實體標籤快顯對話方塊螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "用於變更位置實體子系的實體標籤快顯對話方塊螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
+    [![用於變更位置實體子系的實體標籤快顯對話方塊螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png "用於變更位置實體子系的實體標籤快顯對話方塊螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png#lightbox)
 
-5. 選取語句中的建築物和辦公室，然後選取 [位置]，並遵循右側功能表來選取 `Origin` 或 `Destination`以標示所有其他語句中的其他位置。 標示所有位置後，[語彙基元檢視] 中的語句就開始看起來像是一個模式。 
+1. 標記所有其他語句中的其他位置。 標示所有位置後，語句就會開始看起來像是一個模式。 
 
-    [![在語句上標示的位置實體螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "在語句上標示的位置實體螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
+    [![在語句上標示的位置實體螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/all-intents-marked-with-origin-and-destination-location.png "在語句上標示的位置實體螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/all-intents-marked-with-origin-and-destination-location.png#lightbox)
 
-## <a name="add-prebuilt-number-entity-to-app"></a>將預先建立的數字實體新增至應用程式
-將預先建立的數字實體新增回應用程式。
+    紅色底線表示 LUIS 對於實體不具信心。 定型將能解決此問題。 
 
-1. 從左側導覽功能表中選取 [Entities] \(實體\)。
+## <a name="add-example-utterances-to-the-none-intent"></a>將範例語句新增至 None 意圖 
 
-2. 選取 [新增預先建置的實體] 按鈕。
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-3. 從預先建立的實體清單中選取 [數字]，然後選取 [完成]。
-
-    ![預先建置的實體對話方塊中已選取 number 的螢幕擷取畫面](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
-
-## <a name="train-the-luis-app"></a>進行 LUIS 應用程式定型
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>對應用程式進行定型以測試對意圖的變更 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>發佈應用程式以取得端點 URL
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>發佈應用程式以允許從端點查詢已定型的模型
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>使用不同的語句來查詢端點
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>從端點取得意圖和實體預測
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-2. 移至位址中的 URL 尾端並輸入 `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何已標記的語句都不同，因此這是一個良好的測試，而應該會將 `MoveEmployee` 意圖與所擷取的階層式實體一起傳回。
+1. 移至位址中的 URL 尾端並輸入 `Please move Carl Chamerlin from Tampa to Portland`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何已標記的語句都不同，因此這是一個良好的測試，而應該會將 `MoveEmployee` 意圖與所擷取的階層式實體一起傳回。
 
     ```json
     {
-      "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
+      "query": "Please move Carl Chamerlin from Tampa to Portland",
       "topScoringIntent": {
-        "intent": "MoveEmployee",
-        "score": 0.9966052
+        "intent": "MoveEmployeeToCity",
+        "score": 0.979823351
       },
       "intents": [
         {
-          "intent": "MoveEmployee",
-          "score": 0.9966052
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.0325253047
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.006137873
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.00462633232
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.00415637763
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.00382325822
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00249120337
+          "intent": "MoveEmployeeToCity",
+          "score": 0.979823351
         },
         {
           "intent": "None",
-          "score": 0.00130756292
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00119622645
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 1.26910036E-05
+          "score": 0.0156363435
         }
       ],
       "entities": [
         {
-          "entity": "jill - jones @ mycompany . com",
-          "type": "Employee",
-          "startIndex": 18,
-          "endIndex": 41,
-          "resolution": {
-            "values": [
-              "Employee-45612"
-            ]
-          }
+          "entity": "portland",
+          "type": "Location::Destination",
+          "startIndex": 41,
+          "endIndex": 48,
+          "score": 0.6044041
         },
         {
-          "entity": "x - 2345",
-          "type": "Locations::Origin",
-          "startIndex": 48,
-          "endIndex": 53,
-          "score": 0.8520272
-        },
-        {
-          "entity": "g - 23456",
-          "type": "Locations::Destination",
-          "startIndex": 58,
-          "endIndex": 64,
-          "score": 0.974032
-        },
-        {
-          "entity": "-2345",
-          "type": "builtin.number",
-          "startIndex": 49,
-          "endIndex": 53,
-          "resolution": {
-            "value": "-2345"
-          }
-        },
-        {
-          "entity": "-23456",
-          "type": "builtin.number",
-          "startIndex": 59,
-          "endIndex": 64,
-          "resolution": {
-            "value": "-23456"
-          }
+          "entity": "tampa",
+          "type": "Location::Origin",
+          "startIndex": 32,
+          "endIndex": 36,
+          "score": 0.739491045
         }
       ]
     }
     ```
     
-    已預測正確的意圖，而且實體陣列在對應的 **entity** 屬性中具有原點和目的地值。
+    已預測正確的意圖，而且實體陣列在對應的 **entity** 屬性中具有出發地和目的地值。
     
-
-## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>是否已針對每個位置使用規則運算式？
-是，使用原點和目的地角色建立規則運算式實體，並在模式中使用它。
-
-此範例中的位置 (例如 `a-1234`) 會遵循特定格式：一或兩個子母加上破折號，後面接著一系列 4 或 5 個數字。 此資料的描述為每個位置各有一個角色的規則運算式實體。 這些角色僅適用於模式。 您可以根據這些語句建立模式，然後建立位置格式的規則運算式，並將它新增至模式。 
-
 ## <a name="clean-up-resources"></a>清除資源
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="hierarchical-entities-versus-roles"></a>階層式實體與角色
+## <a name="related-information"></a>相關資訊
 
-如需詳細資訊，請參閱[角色與階層式實體](luis-concept-roles.md#roles-versus-hierarchical-entities)。
+* [階層式實體](luis-concept-entity-types.md)概念資訊
+* [如何定型](luis-how-to-train.md)
+* [發佈方法](luis-how-to-publish-app.md)
+* [如何在 LUIS 入口網站中測試](luis-interactive-test.md)
+* [角色與階層式實體](luis-concept-roles.md#roles-versus-hierarchical-entities)
+* [透過模式改善預測](luis-concept-patterns.md)
 
 ## <a name="next-steps"></a>後續步驟
-本教學課程建立了新意圖，並針對原點和目的地位置的內容學習資料新增了範例語句。 應用程式一旦經過訓練並發佈，用戶端應用程式即可使用該資訊來建立包含相關資訊的移動票證。
+
+本教學課程建立了新意圖，並針對出發地和目的地位置的內容相關學習資料新增了範例語句。 應用程式一旦經過訓練並發佈，用戶端應用程式即可使用該資訊來建立包含相關資訊的移動票證。
 
 > [!div class="nextstepaction"] 
 > [了解如何新增複合實體](luis-tutorial-composite-entity.md) 

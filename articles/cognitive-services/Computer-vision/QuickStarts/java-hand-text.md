@@ -1,5 +1,5 @@
 ---
-title: 快速入門：擷取手寫文字 - REST、Java - 電腦視覺
+title: 快速入門：擷取手寫文字 - REST、Java
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將搭配使用電腦視覺 API 與 Java 來擷取影像中的手寫文字。
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 271a37ffc4ae60bf7bfc1605c36b6b29d358118a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 1eb74c7901318e7568ffcd96ea96ba5709744e61
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852260"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583233"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-java-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Java 擷取手寫文字
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-java-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 與 Java 擷取手寫文字
 
-在本快速入門中，您將使用電腦視覺 API 的 REST API 來擷取影像中的手寫文字。 您可以使用[辨識文字](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)與[取得辨識文字作業結果](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201)方法來偵測影像中的手寫文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
+在此快速入門中，您將使用電腦視覺 API 的 REST API 來擷取影像中的手寫文字。 您可以使用[辨識文字](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)與[取得辨識文字作業結果](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201)方法來偵測影像中的手寫文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
 
 > [!IMPORTANT]
 > 不同於 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法，[辨識文字](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)方法會以非同步方式執行。 這個方法不會在成功回應的主體中傳回任何資訊。 「辨識文字」方法會改為在 `Operation-Content` 回應標頭欄位的值中傳回 URI。 您接著可以呼叫這個 URI (它代表[取得辨識文字作業結果](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201)方法) 來檢查狀態，並傳回「辨識文字」方法呼叫的結果。

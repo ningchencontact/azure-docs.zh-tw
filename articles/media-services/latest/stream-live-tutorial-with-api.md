@@ -1,6 +1,6 @@
 ---
 title: 透過 Azure 媒體服務 v3 進行即時串流 | Microsoft Docs
-description: 本教學課程將逐步解說透過媒體服務 v3 使用 .NET Core 進行即時串流的步驟。
+description: 本教學課程將逐步解說使用 .NET Core 透過媒體服務 v3 進行即時串流的步驟。
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 12/28/2018
 ms.author: juliako
-ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 858c062c2b3d61b38247e323bf70d2768d33b257
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613387"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969330"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>教學課程：透過媒體服務 v3 使用 API 進行即時串流
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>教學課程：使用 API 透過媒體服務 v3 進行即時串流
 
 在 Azure 媒體服務中，[LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) 會負責處理即時串流內容。 LiveEvent 會提供輸入端點 (內嵌 URL)，接著您再提供給即時編碼器。 LiveEvent 會從即時編碼器接收即時輸入資料流，再透過一或多個 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) 進行串流處理。 LiveEvent 也會提供預覽端點 (預覽 URL)，您可在進一步處理和傳遞之前先用來預覽及驗證您的資料流。 本教學課程說明如何使用 .NET Core 建立即時事件的**傳遞**類型。 
 
@@ -89,7 +89,7 @@ ms.locfileid: "51613387"
 
 ### <a name="create-a-live-event"></a>建立即時事件
 
-本節說明如何建立**傳遞**類型的 LiveEvent (LiveEventEncodingType 設定為 [無])。 如果您想要建立為即時編碼啟用的 LiveEvent，請將 LiveEventEncodingType 設定為 [基本]。 
+本節說明如何建立**傳遞**類型的 LiveEvent (LiveEventEncodingType 設定為 [無])。 如果您想要建立已啟用即時編碼功能的 LiveEvent，請將 LiveEventEncodingType 設定為 Standard。 
 
 您在建立即時事件時也可以進行下列指定：
 
@@ -107,7 +107,7 @@ ms.locfileid: "51613387"
 
 ### <a name="get-ingest-urls"></a>取得內嵌 URL
 
-建立通道之後，即可取得您提供給即時編碼器的內嵌 URL。 編碼器會使用這些 URL 來輸入即時串流。
+建立 LiveEvent 之後，您即可取得將提供給即時編碼器的內嵌 URL。 編碼器會使用這些 URL 來輸入即時串流。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 

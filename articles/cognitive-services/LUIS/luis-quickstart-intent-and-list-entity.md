@@ -9,34 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 5706e0b124bb9ceaf1abf7228faf088dc4e510ce
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bf4fd5d2a3a9bb06882dcd1b4674ccdf8ad894ee
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096684"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971404"
 ---
-# <a name="tutorial-4-extract-exact-text-matches"></a>教學課程 4：擷取完全相符的文字項目
-在本教學課程中，了解如何取得與預先定義的項目清單相符的資料。 清單上的每個項目可以包含同義字清單。 在人力資源應用程式中，員工的識別可以透過數個關鍵資訊來實現，例如姓名、電子郵件、電話號碼和美國聯邦稅務識別碼。 
+# <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>教學課程：從語句取得完全相符的文字項目資料
 
-人力資源應用程式必須判斷哪些員工會在不同大樓間移動。 針對關於員工移動的語句，LUIS 會判斷意圖並擷取員工，讓用戶端應用程式可以建立用來移動員工的標準順序。
-
-此應用程式會使用清單實體來擷取員工。 使用姓名、公司電話分機號碼、行動電話號碼、電子郵件或美國聯邦社會安全號碼即可參考員工。 
-
-在下列情況下，清單實體是這類資料的好選擇：
-
-* 資料值是一組已知的值。
-* 此組合不會超過此實體類型的最大 LUIS [界限](luis-boundaries.md)。
-* 語句中的文字是與同義字或正式名稱完全相符的項目。 
+在本教學課程中，了解如何取得與預先定義的項目清單相符的實體資料。 
 
 **在本教學課程中，您將了解如何：**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * 使用現有的教學課程應用程式
-> * 新增 MoveEmployee 意圖
+> * 建立應用程式
+> * 新增意圖
 > * 新增清單實體 
 > * 定型 
 > * 發佈
@@ -44,25 +35,31 @@ ms.locfileid: "53096684"
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>使用現有的應用程式
-以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
+## <a name="what-is-a-list-entity"></a>什麼是清單實體？
 
-如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
+清單實體是和語句中的文字完全相符的文字項目。 
 
-1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json)。
+清單上的每個項目可以包含同義字清單。 針對人力資源應用程式，可以透過數個關鍵資訊片段來識別公司部門，例如正式名稱、常見縮略字，以及計費部門代碼。 
 
-2. 將 JSON 匯入新的應用程式中。
+人力資源應用程式需要判斷要將員工轉調至哪一個部門。 
 
-3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `list`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。 
+在下列情況下，清單實體是這類資料的好選擇：
 
+* 資料值是一組已知的值。
+* 此組合不會超過此實體類型的最大 LUIS [界限](luis-boundaries.md)。
+* 語句中的文字是與同義字或正式名稱完全相符的項目。 LUIS 不會將清單用於完全相符之文字項目以外的範圍。 詞幹分析、複數及其他變化無法僅透過清單實體來解析。 若要管理變化，請考慮使用[模式](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance)並搭配選擇性的文字語法。 
 
-## <a name="moveemployee-intent"></a>MoveEmployee 意圖
+## <a name="create-a-new-app"></a>建立新的應用程式
+
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+
+## <a name="create-an-intent-to-transfer-employees-to-a-different-department"></a>建立意圖來將員工轉調至不同的部門
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 選取 [Create new intent] \(建立新意圖\)。 
 
-3. 在快顯對話方塊方塊中輸入 `MoveEmployee`，然後選取 [完成]。 
+3. 在快顯對話方塊方塊中輸入 `TransferEmployeeToDepartment`，然後選取 [完成]。 
 
     ![建立新意圖對話方塊的螢幕擷取畫面](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-ddl.png)
 
@@ -70,205 +67,122 @@ ms.locfileid: "53096684"
 
     |範例語句|
     |--|
-    |move John W. Smith from B-1234 to H-4452|
-    |mv john.w.smith@mycompany.com from office b-1234 to office h-4452|
-    |shift x12345 to h-1234 tomorrow|
-    |place 425-555-1212 in HH-2345|
-    |move 123-45-6789 from A-4321 to J-23456|
-    |mv Jill Jones from D-2345 to J-23456|
-    |shift jill-jones@mycompany.com to M-12345|
-    |x23456 to M-12345|
-    |425-555-0000 to h-4452|
-    |234-56-7891 to hh-2345|
+    |move John W. Smith to the accounting department|
+    |transfer Jill Jones from to R&D|
+    |Dept 1234 has a new member named Bill Bradstreet|
+    |Place John Jackson in Engineering |
+    |move Debra Doughtery to Inside Sales|
+    |mv Jill Jones to IT|
+    |Shift Alice Anderson to DevOps|
+    |Carl Chamerlin to Finance|
+    |Steve Standish to 1234|
+    |Tanner Thompson to 3456|
 
-    [ ![醒目提示新語句的意圖頁面螢幕擷取畫面](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
-
-    請記住，先前的教學課程中已新增 number 和 datetimeV2，系統會將任何語句範例中所找到的這兩個項目自動標記。
+    [![具有範例語句之意圖的螢幕擷取畫面](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "具有範例語句之意圖的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
-## <a name="employee-list-entity"></a>員工清單實體
-現在 **MoveEmployee** 意圖已具有語句範例，LUIS 接著必須了解員工是什麼。 
+## <a name="department-list-entity"></a>「部門」清單實體
 
-每個項目的主要「正式」名稱都是員工編號。 在此領域中，每個正式名稱同義字的範例如下： 
+現在 **TransferEmployeeToDepartment** 意圖已具有範例語句，LUIS 接著必須了解「部門」是什麼。 
 
-|同義字用途|同義字值|
+每個項目的主要「正式」名稱都是部門名稱。 每個正式名稱同義字的範例如下： 
+
+|正式名稱|同義字|
 |--|--|
-|Name|John W. Smith|
-|電子郵件地址|john.w.smith@mycompany.com|
-|電話分機|x12345|
-|個人行動電話號碼|425-555-1212|
-|美國聯邦社會安全碼|123-45-6789|
-
+|會計|acct<br>accting<br>3456|
+|開發作業|Devops<br>4949|
+|工程|eng<br>enging<br>4567|
+|財務|fin<br>2020|
+|資訊技術|IT<br>2323|
+|內部銷售|isale<br>insale<br>1414|
+|研究與開發|R&D<br>1234|
 
 1. 在左側面板中選取 [實體]。
 
-2. 選取 [Create new entity] \(建立新實體\)。
+1. 選取 [Create new entity] \(建立新實體\)。
 
-3. 在實體快顯對話方塊中，輸入 `Employee` 作為實體名稱，以及輸入 [清單] 作為實體類型。 選取 [完成] 。  
+1. 在實體快顯對話方塊中，輸入 `Department` 作為實體名稱，以及輸入 [清單] 作為實體類型。 選取 [完成] 。  
 
-    [![建立新實體快顯對話方塊的螢幕擷取畫面](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "建立新實體快顯對話方塊的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
+    [![建立新實體快顯對話方塊的螢幕擷取畫面](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "建立新實體快顯對話方塊的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 
-4. 在 [員工實體] 頁面上，輸入 `Employee-24612` 作為新值。
+1. 在 [Department] \(部門\) 實體頁面上，輸入 `Accounting` 作為新值。
 
     [![輸入值的螢幕擷取畫面](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "輸入值的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
-5. 針對 [同義字]，新增下列值：
-
-    |同義字用途|同義字值|
-    |--|--|
-    |Name|John W. Smith|
-    |電子郵件地址|john.w.smith@mycompany.com|
-    |電話分機|x12345|
-    |個人行動電話號碼|425-555-1212|
-    |美國聯邦社會安全碼|123-45-6789|
+1. 針對同義字，請新增來自先前表格的同義字。
 
     [![輸入同義字的螢幕擷取畫面](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "輸入同義字的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
-6. 輸入 `Employee-45612` 作為新值。
+1. 繼續新增所有正式名稱及其同義字。 
 
-7. 針對 [同義字]，新增下列值：
+## <a name="add-example-utterances-to-the-none-intent"></a>將範例語句新增至 None 意圖 
 
-    |同義字用途|同義字值|
-    |--|--|
-    |Name|Jill Jones|
-    |電子郵件地址|jill-jones@mycompany.com|
-    |電話分機|x23456|
-    |個人行動電話號碼|425-555-0000|
-    |美國聯邦社會安全碼|234-56-7891|
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train"></a>定型
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>對應用程式進行定型以測試對意圖的變更 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>發佈
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>發佈應用程式以允許從端點查詢已定型的模型
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>從端點取得意圖和實體
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>從端點取得意圖和實體預測
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. 移至位址中的 URL 結尾並輸入 `shift 123-45-6789 from Z-1242 to T-54672`。 最後一個 querystring 參數是 `q`，也就是 **q**uery 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回 `MoveEmployee` 意圖及所擷取的 `Employee`。
+1. 移至位址中的 URL 結尾並輸入 `shift Joe Smith to IT`。 最後一個 querystring 參數是 `q`，也就是 **q**uery 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回 `TransferEmployeeToDepartment` 意圖及所擷取的 `Department`。
 
   ```json
-  {
-    "query": "shift 123-45-6789 from Z-1242 to T-54672",
-    "topScoringIntent": {
-      "intent": "MoveEmployee",
-      "score": 0.9882801
-    },
-    "intents": [
-      {
-        "intent": "MoveEmployee",
-        "score": 0.9882801
+    {
+      "query": "shift Joe Smith to IT",
+      "topScoringIntent": {
+        "intent": "TransferEmployeeToDepartment",
+        "score": 0.9775754
       },
-      {
-        "intent": "FindForm",
-        "score": 0.016044287
-      },
-      {
-        "intent": "GetJobInformation",
-        "score": 0.007611245
-      },
-      {
-        "intent": "ApplyForJob",
-        "score": 0.007063288
-      },
-      {
-        "intent": "Utilities.StartOver",
-        "score": 0.00684710965
-      },
-      {
-        "intent": "None",
-        "score": 0.00304174074
-      },
-      {
-        "intent": "Utilities.Help",
-        "score": 0.002981
-      },
-      {
-        "intent": "Utilities.Confirm",
-        "score": 0.00212222221
-      },
-      {
-        "intent": "Utilities.Cancel",
-        "score": 0.00191026414
-      },
-      {
-        "intent": "Utilities.Stop",
-        "score": 0.0007461446
-      }
-    ],
-    "entities": [
-      {
-        "entity": "123 - 45 - 6789",
-        "type": "Employee",
-        "startIndex": 6,
-        "endIndex": 16,
-        "resolution": {
-          "values": [
-            "Employee-24612"
-          ]
+      "intents": [
+        {
+          "intent": "TransferEmployeeToDepartment",
+          "score": 0.9775754
+        },
+        {
+          "intent": "None",
+          "score": 0.0154493852
         }
-      },
-      {
-        "entity": "123",
-        "type": "builtin.number",
-        "startIndex": 6,
-        "endIndex": 8,
-        "resolution": {
-          "value": "123"
+      ],
+      "entities": [
+        {
+          "entity": "it",
+          "type": "Department",
+          "startIndex": 19,
+          "endIndex": 20,
+          "resolution": {
+            "values": [
+              "Information Technology"
+            ]
+          }
         }
-      },
-      {
-        "entity": "45",
-        "type": "builtin.number",
-        "startIndex": 10,
-        "endIndex": 11,
-        "resolution": {
-          "value": "45"
-        }
-      },
-      {
-        "entity": "6789",
-        "type": "builtin.number",
-        "startIndex": 13,
-        "endIndex": 16,
-        "resolution": {
-          "value": "6789"
-        }
-      },
-      {
-        "entity": "-1242",
-        "type": "builtin.number",
-        "startIndex": 24,
-        "endIndex": 28,
-        "resolution": {
-          "value": "-1242"
-        }
-      },
-      {
-        "entity": "-54672",
-        "type": "builtin.number",
-        "startIndex": 34,
-        "endIndex": 39,
-        "resolution": {
-          "value": "-54672"
-        }
-      }
-    ]
-  }
+      ]
+    }
   ```
-
-  找到員工並以 `Employee` 類型傳回，其解析值是 `Employee-24612`。
 
 ## <a name="clean-up-resources"></a>清除資源
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
+## <a name="related-information"></a>相關資訊
+
+* [清單實體](luis-concept-entity-types.md#list-entity)概念資訊
+* [如何定型](luis-how-to-train.md)
+* [發佈方法](luis-how-to-publish-app.md)
+* [如何在 LUIS 入口網站中測試](luis-interactive-test.md)
+
+
 ## <a name="next-steps"></a>後續步驟
 本教學課程已建立新的意圖、新增語句範例，接著建立了清單實體以從語句中擷取完全相符的文字項目。 定型和發佈應用程式之後，端點的查詢識別了意圖並傳回擷取的資料。
+
+繼續搭配此應用程式執行，並[新增複合實體](luis-tutorial-composite-entity.md)。
 
 > [!div class="nextstepaction"]
 > [在應用程式中新增階層式實體](luis-quickstart-intent-and-hier-entity.md)

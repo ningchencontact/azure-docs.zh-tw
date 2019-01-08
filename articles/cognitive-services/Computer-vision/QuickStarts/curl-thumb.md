@@ -1,5 +1,5 @@
 ---
-title: 快速入門：產生縮圖 - REST、cURL - 電腦視覺
+title: 快速入門：產生縮圖 - REST、cURL
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將搭配使用電腦視覺 API 與 cURL，從影像產生縮圖。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 9d748afa67b2925445fdc59f684daa94c5bc8c7d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 9931737cde1b6c13f3edb9772d0080cd4431aa39
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962363"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579748"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 cURL 來產生縮圖
 

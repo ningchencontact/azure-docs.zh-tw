@@ -1,7 +1,7 @@
 ---
-title: 迴歸模型教學課程：自動為模型定型
+title: 迴歸模型教學課程：自動化 ML
 titleSuffix: Azure Machine Learning service
-description: 了解如何使用自動化機器學習產生 ML 模型。  Azure Machine Learning 可以自動化方式為您執行資料前置處理、演算法選擇和超參數選擇。 接著可以使用 Azure Machine Learning 服務來部署最終模型。
+description: 了解如何使用自動化機器學習來產生機器學習模型。 Azure Machine Learning 可以用自動化方式，為您執行資料前處理、演算法選擇及超參數選擇。 然後使用 Azure Machine Learning 服務來部署最終模型。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,40 +11,40 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6bbc2d44ab128aec032ead29bf247cd834f932b6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5bd6649b063521853864d4da423372ae181cf977
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315191"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580513"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>教學課程：使用自動機器學習建置迴歸模型
 
 本教學課程是**兩部分教學課程系列的第二部分**。 在上一個教學課程中，您[已備妥 NYC 計程車資料來建立迴歸模型](tutorial-data-prep.md)。
 
-現在，您已可以開始使用 Azure Machine Learning 服務來建置模型。 在教學課程的這個部分，您將使用已備妥的資料來自動產生迴歸模型，以預測計程車的收費。 若使用服務的自動化 ML 功能，您將定義機器學習目標和條件約束、啟動自動化機器學習程序，然後讓其為您選取演算法和微調超參數。 自動化 ML 技術會逐一嘗試演算法和超參數的多種組合，直到根據您的準則找到最佳模型為止。
+現在，您已準備好使用 Azure Machine Learning 服務來開始建置模型。 在教學課程的這個部分，您將使用已備妥的資料並自動產生迴歸模型，以預測計程車的車資。 您可以藉由使用此服務的自動化機器學習功能，定義機器學習目標和條件約束。 您需啟動自動化機器學習程序。 然後允許為您進行演算法選擇和超參數調整。 自動化機器學習技術會逐一嘗試演算法和超參數的多種組合，直到根據您的準則找到最佳模型為止。
 
 ![流程圖](./media/tutorial-auto-train-models/flow2.png)
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解下列工作：
 
 > [!div class="checklist"]
-> * 設定 Python 環境並匯入 SDK 套件
-> * 設定 Azure Machine Learning 服務工作區
-> * 自動定型迴歸模型
-> * 使用自訂參數在本機執行模型
-> * 探索結果
-> * 註冊最佳模型
+> * 設定 Python 環境並匯入 SDK 套件。
+> * 設定 Azure Machine Learning 服務工作區。
+> * 自動將迴歸模型定型。
+> * 使用自訂參數在本機執行模型。
+> * 探索結果。
+> * 註冊最佳模型。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
 
 >[!NOTE]
-> 本文中的程式碼使用 Azure Machine Learning SDK 1.0.0 版進行測試
+> 本文中的程式碼已使用 Azure Machine Learning SDK 1.0.0 版進行測試。
 
 ## <a name="prerequisites"></a>必要條件
 
 > * [執行資料準備教學課程](tutorial-data-prep.md)。
-> * 已設定自動化機器學習的環境，例如 Azure Notebooks、本機 Python 環境或資料科學虛擬機器。 [設定](samples-notebooks.md)自動化機器學習。
+> * 一個已設定自動化機器學習的環境。 例如 Azure Notebooks、本機 Python 環境或「資料科學虛擬機器」。 [設定自動化機器學習](samples-notebooks.md)。
 
 ## <a name="get-the-notebook"></a>取得 Notebook
 
@@ -52,8 +52,8 @@ ms.locfileid: "53315191"
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
-## <a name="import-packages"></a>匯入封裝
-匯入本教學課程中所需的 Python 套件。
+## <a name="import-packages"></a>匯入套件
+匯入本教學課程中所需的 Python 套件：
 
 
 ```python
@@ -68,9 +68,11 @@ import os
 
 ## <a name="configure-workspace"></a>設定工作區
 
-從現有的工作區建立工作區物件。 `Workspace` 是接受您 Azure 訂用帳戶和資源資訊的類別，並且會建立雲端資源來監視及追蹤您的模型執行。 `Workspace.from_config()` 會讀取檔案 **aml_config/config.json**，並將詳細資料載入到名為 `ws` 的物件。  `ws` 用於本教學課程的其餘程式碼。
+從現有的工作區建立工作區物件。 `Workspace` 是會接受您 Azure 訂用帳戶和資源資訊的類別。 它也會建立雲端資源來監視及追蹤您的模型執行。 
 
-具有工作區物件之後，請指定實驗名稱，並建立本機目錄且向工作區註冊。 所有執行歷程記錄會記錄在指定的實驗下和 [Azure 入口網站](https://portal.azure.com)中。
+`Workspace.from_config()` 會讀取檔案 **aml_config/config.json**，並將詳細資料載入到名為 `ws` 的物件。  `ws` 用於本教學課程的其餘程式碼。
+
+在您有工作區物件之後，請為實驗指定一個名稱。 請建立一個本機目錄並向工作區註冊該目錄。 所有執行的歷程記錄都會記錄在指定的實驗下及 [Azure 入口網站](https://portal.azure.com)中。
 
 
 ```python
@@ -93,7 +95,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## <a name="explore-data"></a>探索資料
 
-利用上一個教學課程中建立的資料流程物件。 開啟並執行資料流程，然後檢閱結果。
+請使用在上一個教學課程中建立的資料流程物件。 開啟並執行資料流程，然後檢閱結果：
 
 
 ```python
@@ -581,16 +583,16 @@ dflow_prepared.get_profile()
   </tbody>
 </table>
 
-您可以藉由將資料行新增至 `dflow_x` 來準備實驗用的資料，以作為建立模型的特徵。 您可以將 `dflow_y` 定義為我們的預測值；成本。
+您可以藉由將資料行新增至 `dflow_x` 來準備實驗用的資料，以作為建立模型的特徵。 您可以將 `dflow_y` 定義為我們的預測值 **cost**：
 
 ```python
 dflow_X = dflow_prepared.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
-### <a name="split-data-into-train-and-test-sets"></a>將資料分成訓練集和測試集
+### <a name="split-the-data-into-train-and-test-sets"></a>將資料分成定型集和測試集
 
-現在您可以使用 `sklearn` 程式庫中的 `train_test_split` 函式，將資料分割成訓練集和測試集。 此函式會將資料分為用於模型定型的 x (功能) 資料集，以及用於測試的 y (要預測的值) 資料集。 `test_size` 參數會決定要配置給測試的資料百分比。 `random_state` 參數會設定隨機產生器的種子，讓您的訓練-測試分割一律具有確定性。
+現在您可以使用 `sklearn` 程式庫中的 `train_test_split` 函式，將資料分割成定型集和測試集。 此函式會將資料分為用於模型定型的資料集 x (**功能**)，以及用於測試的資料集 y (**要預測的值**)。 `test_size` 參數會決定要配置給測試的資料百分比。 `random_state` 參數會設定隨機產生器的種子，讓您的「訓練-測試」分割一律具有確定性：
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -603,27 +605,27 @@ x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 y_train.values.flatten()
 ```
 
-您現在已有必要的套件和資料，可以進行模型的自動定型。
+您現在已備妥進行模型自動定型所需的套件和資料。
 
-## <a name="automatically-train-a-model"></a>自動為模型定型
+## <a name="automatically-train-a-model"></a>自動將模型定型
 
-若要自動為模型定型：
-1. 定義實驗執行的設定
-1. 提交實驗來微調模型
+若要自動將模型定型，請執行下列步驟：
+1. 定義用於實驗執行的設定。
+1. 提交實驗來調整模型。
 
-### <a name="define-settings-for-autogeneration-and-tuning"></a>定義自動產生和微調的設定
+### <a name="define-settings-for-autogeneration-and-tuning"></a>定義用於自動產生和調整的設定
 
-定義用於自動產生和微調的實驗參數及模型設定。 檢視[設定](how-to-configure-auto-train.md)的完整清單。
+定義用於自動產生和調整的實驗參數與模型設定。 檢視[設定](how-to-configure-auto-train.md)的完整清單。
 
 
 |屬性| 本教學課程中的值 |說明|
 |----|----|---|
-|**iteration_timeout_minutes**|10|每次反覆運算的時間限制 (分鐘)|
-|**反覆運算次數**|30|反覆運算次數。 在每次反覆運算中，會使用具有特定管線的資料來定型模型|
+|**iteration_timeout_minutes**|10|每次反覆運算的時間限制 (分鐘)。|
+|**反覆運算次數**|30|反覆運算次數。 在每次反覆運算中，會透過特定管線使用資料將模型定型。|
 |**primary_metric**| spearman_correlation | 您想要最佳化的度量。|
-|**preprocess**| True | True 會啟用實驗，以對輸入執行前置處理。|
+|**preprocess**| True | 藉由使用 **True**，實驗便可對輸入進行前處理。|
 |**verbosity**| logging.INFO | 控制記錄層級。|
-|**n_cross_validationss**|5|交叉驗證分割數目
+|**n_cross_validationss**|5|交叉驗證分割數目。|
 
 
 
@@ -651,9 +653,9 @@ automated_ml_config = AutoMLConfig(task = 'regression',
                              **automl_settings)
 ```
 
-### <a name="train-the-automatic-regression-model"></a>定型自動迴歸模型
+### <a name="train-the-automatic-regression-model"></a>將自動迴歸模型定型
 
-開始在本機執行實驗。 將已定義的 `automated_ml_config` 物件傳遞至實驗，並將輸出設定為 `True` 以檢視實驗期間的進度。
+開始在本機執行實驗。 將已定義的 `automated_ml_config` 物件傳遞給實驗。 將輸出設定為 `True` 以在實驗期間檢視進度：
 
 
 ```python
@@ -709,7 +711,7 @@ local_run = experiment.submit(automated_ml_config, show_output=True)
 
 ### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>選項 1：新增 Jupyter 小工具以查看結果
 
-如果您使用 Jupyter Notebook，使用此 Jupyter Notebook 小工具可查看所有結果的圖表和資料表。
+如果您使用 Jupyter Notebook，請使用此 Jupyter Notebook 小工具來查看所有結果的圖表和資料表：
 
 
 ```python
@@ -722,7 +724,7 @@ RunDetails(local_run).show()
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>選項 2：在 Python 中取得並檢查所有執行的反覆項目
 
-或者，您可以擷取每個實驗的歷程記錄，並瀏覽每個反覆項目執行的個別計量。
+您也可以擷取每個實驗的歷程記錄，然後探索每個反覆項目執行的個別計量：
 
 ```python
 children = list(local_run.get_children())
@@ -1071,7 +1073,7 @@ rundata
 
 ## <a name="retrieve-the-best-model"></a>擷取最佳模型
 
-從我們的反覆項目中選取最佳管線。 `automl_classifier` 上的 `get_output` 方法會傳回最佳執行和上一個配適引動過程的已配適模型。 `get_output` 上的多載可讓您擷取最佳執行，和適用於任何記錄計量或特定反覆項目的配適模型。
+從我們的反覆項目中選取最佳管線。 `automl_classifier` 上的 `get_output` 方法會傳回最佳執行和上一個配適引動過程的已配適模型。 藉由在 `get_output` 上使用多載，您便可以針對任何已記錄的計量或特定的反覆項目，擷取最佳執行和配適模型：
 
 ```python
 best_run, fitted_model = local_run.get_output()
@@ -1081,7 +1083,7 @@ print(fitted_model)
 
 ## <a name="register-the-model"></a>註冊模型
 
-在 Azure Machine Learning 服務工作區中註冊模型。
+在 Azure Machine Learning 服務工作區中註冊模型：
 
 
 ```python
@@ -1093,14 +1095,14 @@ local_run.model_id # Use this id to deploy the model as a web service in Azure
 
 ## <a name="test-the-best-model-accuracy"></a>測試最佳模型的精確度
 
-使用最佳模型在測試資料集上執行預測。 此 `predict` 函式會使用最佳模型，並從 `x_test` 資料集預測 y 值 (旅行成本)。 從 `y_predict` 列印前 10 個預測成本值。
+使用最佳模型在測試資料集上執行預測。 `predict` 函式會使用最佳模型，並從 `x_test` 資料集預測 y 值 (**行程成本**)。 從 `y_predict` 列印前 10 個預測成本值：
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-建立散佈圖，以視覺化方式呈現預測成本值與實際成本值的比較。 下列程式碼會使用 `distance` 功能作為 x 軸，使用車程 `cost` 作為 y 軸。 前 100 個預測與實際成本值會建立為個別序列，以便比較預測成本在每個車程距離值的變異數。 檢查繪圖會顯示距離/成本近似線性關係，而且預測的成本值在大部分情況下都非常接近相同車程距離的實際成本值。
+建立散佈圖，以視覺化方式呈現預測成本值與實際成本值的比較。 下列程式碼使用 `distance` 特徵作為 x 軸，以及行程 `cost` 作為 y 軸。 為了比較每個行程距離值之預測成本的變化，會將前 100 個預測成本值和實際成本值建立成個別的序列。 檢查繪圖會發現距離/成本具有近似線性的關聯性。 而預測的成本值在大部分情況下都非常接近相同行程距離的實際成本值。
 
 ```python
 import matplotlib.pyplot as plt
@@ -1125,7 +1127,7 @@ plt.show()
 
 ![預測散佈圖](./media/tutorial-auto-train-models/automl-scatter-plot.png)
 
-計算結果的 `root mean squared error`。 使用 `y_test` 資料框架，並將其轉換為要與預測值比較的清單。 `mean_squared_error` 函式會採用兩個值陣列，並計算這兩個陣列之間的均方誤差。 以相同單位作為 y 變數 (成本) 來取得結果的平方根時會產生誤差，並指出您的預測與實際值的大致距離。
+計算結果的 `root mean squared error`。 使用 `y_test` 資料框架。 將其轉換為要與預測值比較的清單。 `mean_squared_error` 函式會採用兩個值陣列，並計算這兩個陣列之間的均方誤差。 取結果的平方根會產生與 y 變數 (**成本**) 相同單位的誤差。 它概略指出了您的預測與實際值的差距：
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1137,7 +1139,7 @@ rmse
 
     3.2204936862688798
 
-執行下列程式碼，以使用完整的 `y_actual` 和 `y_predict` 資料集來計算 MAPE (平均絕對百分比誤差)。 此計量會計算每個預測值與實際值之間的絕對差異、加總所有差異，然後再以實際值總和的百分比表示該總和。
+請執行下列程式碼，以使用完整的 `y_actual` 和 `y_predict` 資料集來計算平均絕對百分比誤差 (MAPE)。 此計量會計算每個預測值與實際值之間的絕對差異，並加總所有差異。 然後再以實際值總計的百分比來表示該總和：
 
 ```python
 sum_actuals = sum_errors = 0
@@ -1170,12 +1172,12 @@ print(1 - mean_abs_percent_error)
 
 ## <a name="next-steps"></a>後續步驟
 
-在此自動化機器學習教學課程中，您已：
+在此自動化機器學習教學課程中，您已執行下列工作：
 
 > [!div class="checklist"]
-> * 設定工作區和備妥實驗資料
-> * 使用自訂參數在本機以自動化迴歸模型進行定型
-> * 瀏覽及檢閱訓練結果
-> * 註冊最佳模型
+> * 設定工作區和備妥用於實驗的資料。
+> * 搭配自訂參數在本機使用自動化迴歸模型來進行定型。
+> * 瀏覽及檢閱定型結果。
+> * 註冊最佳模型。
 
 使用 Azure Machine Learning [部署模型](tutorial-deploy-models-with-aml.md)。

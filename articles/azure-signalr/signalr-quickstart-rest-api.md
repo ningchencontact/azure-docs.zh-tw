@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: fdbdbe77c6541d62acef0d23d599d9687f5301b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1443508985c7c7fef313a7eea3f622e7759a71ef
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251856"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540091"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>快速入門：從主控台應用程式廣播即時訊息
 
@@ -129,13 +129,13 @@ Azure SignalR 服務可讓第三方服務與系統整合。
 
 API | `1.0-preview` | `1.0`
 --- | --- | ---
-[廣播到所有目標](#broadcast) | :heavy_check_mark: | :heavy_check_mark:
-[廣播到群組](#broadcast-group) | :heavy_check_mark: | :heavy_check_mark:
-廣播到部分群組 | :heavy_check_mark:(已被取代) | `N / A`
-[傳送給特定使用者](#send-user) | :heavy_check_mark: | :heavy_check_mark:
-傳送給部分使用者 | :heavy_check_mark:(已被取代) | `N / A`
-[將使用者新增至群組](#add-user-to-group) | `N / A` | :heavy_check_mark:
-[從群組中移除使用者](#remove-user-from-group) | `N / A` | :heavy_check_mark:
+[廣播到所有目標](#broadcast) | **&#x2713;** | **&#x2713;**
+[廣播到群組](#broadcast-group) | **&#x2713;** | **&#x2713;**
+廣播到部分群組 | **&#x2713;** (已取代) | `N / A`
+[傳送給特定使用者](#send-user) | **&#x2713;** | **&#x2713;**
+傳送給部分使用者 | **&#x2713;** (已取代) | `N / A`
+[將使用者新增至群組](#add-user-to-group) | `N / A` | **&#x2713;**
+[從群組中移除使用者](#remove-user-from-group) | `N / A` | **&#x2713;**
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>廣播給所有人

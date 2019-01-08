@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 57046b9e199fbe5e88d0ea7fa25248641693508a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: cdd73c46d87ec09439188024945bd60299bb1d57
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256990"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629742"
 ---
-# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教學課程：將現有的自訂 SSL 憑證繫結至 Azure Web Apps
+# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>教學課程：將現有的自訂 SSL 憑證繫結至 Azure App Service
 
-Azure Web Apps 提供可高度擴充、自我修復的 Web 主機服務。 本教學課程會示範如何將您從受信任憑證授權單位購買的自訂 SSL 憑證繫結至 [Azure Web Apps](app-service-web-overview.md)。 當您完成時，將可以在自訂 DNS 網域的 HTTPS 端點存取 web 應用程式。
+Azure App Service 提供可高度擴充、自我修復的 Web 裝載服務。 本教學課程示範如何將您向受信任憑證授權單位購買的自訂 SSL 憑證繫結至 [Azure App Service](overview.md)。 當您完成時，將可在自訂 DNS 網域的 HTTPS 端點存取您的應用程式。
 
 ![Web 應用程式與自訂 SSL 憑證](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -39,14 +39,14 @@ Azure Web Apps 提供可高度擴充、自我修復的 Web 主機服務。 本�
 > * 使用指令碼將 TLS 管理自動化
 
 > [!NOTE]
-> 如果您需要自訂 SSL 憑證，可以直接在 Azure 入口網站取得，並將它繫結至 web 應用程式。 遵循 [App Service 憑證教學課程](web-sites-purchase-ssl-web-site.md)。
+> 如果您需要取得自訂的 SSL 憑證，可以直接在 Azure 入口網站取得，並將它繫結至您的應用程式。 遵循 [App Service 憑證教學課程](web-sites-purchase-ssl-web-site.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程：
 
 - [建立 App Service 應用程式](/azure/app-service/)
-- [將自訂 DNS 名稱對應至 Web 應用程式](app-service-web-tutorial-custom-domain.md)
+- [將自訂 DNS 名稱對應至 App Service 應用程式](app-service-web-tutorial-custom-domain.md)
 - 取得受信任憑證授權單位所核發的 SSL 憑證
 - 具備您用來簽署 SSL 憑證要求的私密金鑰
 
@@ -70,7 +70,7 @@ Azure Web Apps 提供可高度擴充、自我修復的 Web 主機服務。 本�
 
 ## <a name="bind-your-ssl-certificate"></a>繫結 SSL 憑證
 
-您已準備好將 SSL 憑證上傳至您的 web 應用程式。
+您已準備好將 SSL 憑證上傳至您的應用程式。
 
 ### <a name="merge-intermediate-certificates"></a>合併中繼憑證
 
@@ -114,7 +114,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ### <a name="upload-your-ssl-certificate"></a>上傳 SSL 憑證
 
-若要上傳 SSL 憑證，請按一下 Web 應用程式左側導覽列中的 [SSL 設定]。
+若要上傳 SSL 憑證，請按一下應用程式左側導覽中的 [SSL 設定]。
 
 按一下 [上傳憑證]。 
 
@@ -154,24 +154,24 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ## <a name="remap-a-record-for-ip-ssl"></a>將 IP SSL 的 A 記錄重新對應
 
-如果您不使用 web 應用程式中以 IP 為基礎的 SSL，請跳至[測試自訂網域的 HTTPS](#test)。
+如果您未在應用程式中使用以 IP 為主的 SSL，請跳至[測試自訂網域的 HTTPS](#test)。
 
-根據預設，web 應用程式會使用共用的公用 IP 位址。 當您將以 IP 為基礎的 SSL 與憑證繫結時，App Service 會為 Web 應用程式建立新的專用 IP 位址。
+根據預設，您的應用程式會使用共用的公用 IP 位址。 當您將憑證與以 IP 為主的 SSL 繫結時，App Service 會為您的應用程式建立新的專用 IP 位址。
 
-如果您已將 A 記錄對應至 web 應用程式，請使用這個新的專用 IP 位址來更新您的網域登錄。
+如果您已將 A 記錄對應至應用程式，請使用這個新的專用 IP 位址來更新網域登錄。
 
-已將 Web 應用程式的**自訂網域**頁面更新為新的專用 IP 位址。 [複製此 IP 位址](app-service-web-tutorial-custom-domain.md#info)，然後[將 A 記錄重新對應](app-service-web-tutorial-custom-domain.md#map-an-a-record)到這個新的 IP 位址。
+應用程式的 [自訂網域] 頁面即會使用新的專用 IP 位址加以更新。 [複製此 IP 位址](app-service-web-tutorial-custom-domain.md#info)，然後[將 A 記錄重新對應](app-service-web-tutorial-custom-domain.md#map-an-a-record)到這個新的 IP 位址。
 
 <a name="test"></a>
 
 ## <a name="test-https"></a>測試 HTTPS
 
-現在只剩下確定 HTTPS 是否能用在您的自訂網域。 在各種瀏覽器中，瀏覽至 `https://<your.custom.domain>` 以查看它是否能提供您的 web 應用程式。
+現在只剩下確定 HTTPS 是否能用在您的自訂網域。 在各種瀏覽器中，瀏覽至 `https://<your.custom.domain>` 以查看它是否能提供您的應用程式。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
 > [!NOTE]
-> 如果您的 web 應用程式出現憑證驗證錯誤，您可能使用了自我簽署憑證。
+> 如果您的應用程式出現憑證驗證錯誤，您可能使用了自我簽署憑證。
 >
 > 如果不是，在您將憑證匯出為 PFX 檔案時，可能遺漏了中繼憑證。
 
@@ -187,9 +187,9 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ## <a name="enforce-https"></a>強制使用 HTTPS
 
-根據預設，任何人仍可以使用 HTTP 存取您的 Web 應用程式。 您可以將所有 HTTP 要求重新都導向至 HTTPS 連接埠。
+根據預設，所有人都仍能使用 HTTP 來存取您的應用程式。 您可以將所有 HTTP 要求重新都導向至 HTTPS 連接埠。
 
-在 Web 應用程式頁面的左側導覽列中，選取 [SSL 設定]。 然後，在 [僅限 HTTPS] 中選取 [開啟]。
+在應用程式頁面的左側導覽中，選取 [SSL 設定]。 然後，在 [僅限 HTTPS] 中選取 [開啟]。
 
 ![強制使用 HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -203,7 +203,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 根據預設，您的應用程式會允許 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2，此為業界標準 (例如 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)) 建議的 TLS 層級。 若要強制使用不同的 TLS 版本，請遵循下列步驟：
 
-在 Web 應用程式頁面的左側導覽列中，選取 [SSL 設定]。 然後，在 [TLS 版本] 中，選取您想要的最低 TLS 版本。 此設定只會控制內送的呼叫。 
+在應用程式頁面的左側導覽中，選取 [SSL 設定]。 然後，在 [TLS 版本] 中，選取您想要的最低 TLS 版本。 此設定只會控制內送的呼叫。 
 
 ![強制使用 TLS 1.1 或 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
@@ -211,7 +211,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ## <a name="automate-with-scripts"></a>使用指令碼進行自動化
 
-您可以使用 [Azure CLI](/cli/azure/install-azure-cli) 或 [Azure PowerShell](/powershell/azure/overview)，透過指令碼將 web 應用程式的 SSL 繫結自動化。
+您可以使用 [Azure CLI](/cli/azure/install-azure-cli) 或 [Azure PowerShell](/powershell/azure/overview)，透過指令碼將應用程式的 SSL 繫結自動化。
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -260,9 +260,9 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>公開憑證 (選擇性)
-如果應用程式需要以用戶端的身分存取遠端資源，且遠端資源需要驗證憑證，您可以將[公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)上傳至 Web 應用程式。 為應用程式進行 SSL 繫結時，則不需要公開憑證。
+如果應用程式需要以用戶端身分存取遠端資源，而且遠端資源需要驗證憑證，您可以將[公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) \(英文\) 上傳至您的應用程式。 為應用程式進行 SSL 繫結時，則不需要公開憑證。
 
-如需關於在應用程式中載入及使用公開憑證的詳細資訊，請參閱[在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load)。 您也可以在 App Service Environment 中對應用程式使用公開憑證。 如果您需要將憑證儲存在 LocalMachine 憑證存放區中，就必須使用 App Service Environment 上的 Web 應用程式。 如需詳細資訊，請參閱[如何設定 Web 應用程式的公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)。
+如需關於在應用程式中載入及使用公開憑證的詳細資訊，請參閱[在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證](app-service-web-ssl-cert-load.md)。 您也可以在 App Service Environment 中對應用程式使用公開憑證。 如果您需要將憑證儲存於 LocalMachine 憑證存放區，就必須使用 App Service 環境上的應用程式。 如需詳細資訊，請參閱[如何設定 App Service 應用程式的公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) \(英文\)。
 
 ![上傳公開憑證](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

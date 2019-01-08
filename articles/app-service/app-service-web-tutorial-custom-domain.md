@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 89852e30929cc26aa0cbe63ed4e334c4e878b90b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270258"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714333"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>教學課程：將現有的自訂 DNS 名稱對應至 Azure Web Apps
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>教學課程：將現有的自訂 DNS 名稱對應至 Azure App Service
 
-[Azure Web Apps](app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。 本教學課程會示範如何將現有的自訂 DNS 名稱對應至 Azure Web 應用程式。
+[Azure App Service](overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 本教學課程示範如何將現有的自訂 DNS 名稱對應至 Azure App Service。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
@@ -48,7 +48,7 @@ ms.locfileid: "53270258"
   例如，若要為 `contoso.com` 和 `www.contoso.com` 新增 DNS 項目，您必須有權設定 `contoso.com` 根網域的 DNS 設定。
 
   > [!NOTE]
-  > 如果您沒有現有的網域名稱，請考慮[使用 Azure 入口網站購買網域](custom-dns-web-site-buydomains-web-app.md)。 
+  > 如果您沒有現有的網域名稱，請考慮[使用 Azure 入口網站購買網域](manage-custom-dns-buy-domain.md)。 
 
 ## <a name="prepare-the-app"></a>準備應用程式
 
@@ -156,7 +156,7 @@ ms.locfileid: "53270258"
 ![CNAME 記錄已新增](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> 若要新增 SSL 繫結，請參閱[將現有的自訂 SSL 憑證繫結至 Azure Web Apps](app-service-web-tutorial-custom-ssl.md)。
+> 若要新增 SSL 繫結，請參閱[將現有的自訂 SSL 憑證繫結至 Azure App Service](app-service-web-tutorial-custom-ssl.md)。
 
 如果稍早錯過某個步驟，或在某處打錯字，您在頁面底部會看到驗證錯誤。
 
@@ -231,7 +231,7 @@ ms.locfileid: "53270258"
 ![A 記錄已新增](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> 若要新增 SSL 繫結，請參閱[將現有的自訂 SSL 憑證繫結至 Azure Web Apps](app-service-web-tutorial-custom-ssl.md)。
+> 若要新增 SSL 繫結，請參閱[將現有的自訂 SSL 憑證繫結至 Azure App Service](app-service-web-tutorial-custom-ssl.md)。
 
 如果稍早錯過某個步驟，或在某處打錯字，您在頁面底部會看到驗證錯誤。
 
@@ -286,7 +286,7 @@ ms.locfileid: "53270258"
 ![CNAME 記錄已新增](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> 若要新增 SSL 繫結，請參閱[將現有的自訂 SSL 憑證繫結至 Azure Web Apps](app-service-web-tutorial-custom-ssl.md)。
+> 若要新增 SSL 繫結，請參閱[將現有的自訂 SSL 憑證繫結至 Azure App Service](app-service-web-tutorial-custom-ssl.md)。
 
 ## <a name="test-in-browser"></a>在瀏覽器中測試
 
@@ -305,7 +305,7 @@ ms.locfileid: "53270258"
 
 ## <a name="migrate-an-active-domain"></a>移轉作用中的網域
 
-若要將即時網站及其 DNS 網域名稱遷移至 App Service 而不要停機，請參閱[將作用中的 DNS 名稱遷移至 Azure App Service](app-service-custom-domain-name-migrate.md)。
+若要將即時網站及其 DNS 網域名稱遷移至 App Service 而不要停機，請參閱[將作用中的 DNS 名稱遷移至 Azure App Service](manage-custom-dns-migrate-domain.md)。
 
 ## <a name="redirect-to-a-custom-directory"></a>重新導向至自訂目錄
 
@@ -334,7 +334,7 @@ az webapp config hostname add \
     --hostname <fully_qualified_domain_name> 
 ``` 
 
-如需詳細資訊，請參閱[將自訂網域對應至 Web 應用程式](scripts/app-service-cli-configure-custom-domain.md)。 
+如需詳細資訊，請參閱[將自訂網域對應至 Web 應用程式](scripts/cli-configure-custom-domain.md)。 
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
@@ -347,7 +347,7 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-如需詳細資訊，請參閱[將自訂網域指派給 Web 應用程式](scripts/app-service-powershell-configure-custom-domain.md)。
+如需詳細資訊，請參閱[將自訂網域指派給 Web 應用程式](scripts/powershell-configure-custom-domain.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -363,4 +363,4 @@ Set-AzureRmWebApp `
 前進到下一個教學課程，以了解如何將自訂 SSL 憑證繫結至 Web 應用程式。
 
 > [!div class="nextstepaction"]
-> [將現有的自訂 SSL 憑證繫結至 Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
+> [將現有的自訂 SSL 憑證繫結至 Azure App Service](app-service-web-tutorial-custom-ssl.md)

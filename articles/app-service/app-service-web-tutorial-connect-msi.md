@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b7d8a9b0ef48f7daed74fb15263e516d820a6a38
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6af6eb0dd6473b9fe947f7cc4939da4e0cbc77cb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259064"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718474"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教學課程：使用受控識別保護來自 App Service 的 Azure SQL Database 連線
 
-[App Service](app-service-web-overview.md) 可在 Azure 中提供可高度擴充、自我修復的 Web 主控服務。 它也為您的應用程式提供[受控識別](app-service-managed-service-identity.md)，這是用於保護 [Azure SQL Database](/azure/sql-database/) 和其他 Azure 服務存取權的周全解決方案。 App Service 中的受控識別可藉由從應用程式刪除祕密 (例如連接字串中的認證)，讓應用程式更加安全。 在本教學課程中，您會將受控識別新增至您在[教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式](app-service-web-tutorial-dotnet-sqldatabase.md)中建立的範例 ASP.NET Web 應用程式。 當您完成時，範例應用程式不需要使用者名稱和密碼，即可安全地連線到 SQL Database。
+[App Service](overview.md) 可在 Azure 中提供可高度擴充、自我修復的 Web 主控服務。 它也為您的應用程式提供[受控識別](overview-managed-identity.md)，這是用於保護 [Azure SQL Database](/azure/sql-database/) 和其他 Azure 服務存取權的周全解決方案。 App Service 中的受控識別可藉由從應用程式刪除祕密 (例如連接字串中的認證)，讓應用程式更加安全。 在本教學課程中，您會將受控識別新增至您在[教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式](app-service-web-tutorial-dotnet-sqldatabase.md)中建立的範例 ASP.NET Web 應用程式。 當您完成時，範例應用程式不需要使用者名稱和密碼，即可安全地連線到 SQL Database。
 
 > [!NOTE]
 > 目前只有 .NET Framework 4.6 和以上版本支援此案例，但 [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows) 不提供支援。 [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) 支援此案例，但是尚未包含在 App Service 的預設映像中。 
@@ -123,7 +123,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-這個建構函式會設定自訂 SqlConnection 物件，以便從 App Service 使用 Azure SQL Database 的存取權杖。 有了存取權杖，您的 App Service 應用程式可利用其受控識別向 Azure SQL Database 進行驗證。 如需詳細資訊，請參閱[取得 zure 資源的權杖](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources)。 `if` 陳述式可讓您繼續使用 LocalDB 在本機測試應用程式。
+這個建構函式會設定自訂 SqlConnection 物件，以便從 App Service 使用 Azure SQL Database 的存取權杖。 有了存取權杖，您的 App Service 應用程式可利用其受控識別向 Azure SQL Database 進行驗證。 如需詳細資訊，請參閱[取得 zure 資源的權杖](overview-managed-identity.md#obtaining-tokens-for-azure-resources)。 `if` 陳述式可讓您繼續使用 LocalDB 在本機測試應用程式。
 
 > [!NOTE]
 > 目前只有.NET Framework 4.6 和以上版本，以及 [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) 支援 `SqlConnection.AccessToken` ，而 [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows) 不提供支援。
@@ -147,7 +147,7 @@ private MyDatabaseContext db = new MyDatabaseContext(new System.Data.SqlClient.S
 
 在發佈頁面中，按一下 [發佈]。 當新的網頁顯示待辦事項清單時，表示應用程式正使用受控識別連線到資料庫。
 
-![Code First 移轉之後的 Azure Web 應用程式](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Code First 移轉之後的 Azure 應用程式](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 您現在應該能夠如以往一樣編輯待辦事項清單。
 
@@ -211,4 +211,4 @@ GO
 前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至 Web 應用程式。
 
 > [!div class="nextstepaction"]
-> [將現有的自訂 DNS 名稱對應至 Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [將現有的自訂 DNS 名稱對應至 Azure App Service](app-service-web-tutorial-custom-domain.md)

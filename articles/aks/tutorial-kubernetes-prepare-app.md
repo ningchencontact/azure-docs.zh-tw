@@ -3,22 +3,21 @@ title: Azure 上的 Kubernetes 教學課程 - 準備應用程式
 description: 在本 Azure Kubernetes Service (AKS) 教學課程中，您將了解如何透過 Docker Compose 來準備和建置後續可部署至 AKS 的多容器應用程式。
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 20a57a0d528fa6a291aa66f91ff6ddd71053f478
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b529af1db6d72d87abc25eb37f2f1c39216a0ba4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297055"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724159"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>教學課程：準備 Azure Kubernetes Service (AKS) 的應用程式
 
-在此教學課程 (七個章節的第一部分) 中，多容器應用程式已準備好用於 Kubernetes。 使用現有的開發工具 (例如 Docker Compose) 在本機建置和測試應用程式。 您會了解如何：
+在本教學課程 (七個章節的第一部分) 中，多容器應用程式已準備好用於 Kubernetes。 使用現有的開發工具 (例如 Docker Compose) 在本機建置和測試應用程式。 您會了解如何：
 
 > [!div class="checklist"]
 > * 從 GitHub 複製範例應用程式來源
@@ -29,11 +28,11 @@ ms.locfileid: "46297055"
 
 ![Azure 上 Kubernetes 叢集的影像](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-在後續的教學課程中，此容器映像會上傳至 Azure Container Registry，然後部署到 AKS 叢集中。
+在其他教學課程中，會將此容器映像上傳至 Azure Container Registry，然後部署到 AKS 叢集。
 
 ## <a name="before-you-begin"></a>開始之前
 
-此教學課程假設使用者對核心 Docker 概念有基本認識，例如容器、容器映像和 `docker` 命令。 如需容器基本概念的入門參考資料，請參閱[開始使用 Docker][docker-get-started]。
+本教學課程假設使用者對核心 Docker 概念有基本認識，例如容器、容器映像和 `docker` 命令。 如需容器基本概念的入門參考資料，請參閱[開始使用 Docker][docker-get-started]。
 
 若要完成此教學課程，您需要一個執行 Linux 容器的本機 Docker 開發環境。 Docker 提供可在 [Mac][docker-for-mac]、[Windows][docker-for-windows] 或 [Linux][docker-for-linux] 系統上設定 Docker 的套件。
 
@@ -41,7 +40,7 @@ Azure Cloud Shell 不含完成這些教學課程中各個步驟所需的 Docker 
 
 ## <a name="get-application-code"></a>取得應用程式程式碼
 
-此教學課程中使用的範例應用程式是基本投票應用程式。 應用程式是由前端 Web 元件和後端 Redis 執行個體所組成。 Web 元件會封裝至自訂容器映像。 Redis 執行個體會從 Docker Hub 使用未修改的映像。
+本教學課程中使用的範例應用程式是基本投票應用程式。 應用程式是由前端 Web 元件和後端 Redis 執行個體所組成。 Web 元件會封裝至自訂容器映像。 Redis 執行個體會從 Docker Hub 使用未修改的映像。
 
 使用 [git][] 將範例應用程式複製到您的開發環境：
 
@@ -49,7 +48,7 @@ Azure Cloud Shell 不含完成這些教學課程中各個步驟所需的 Docker 
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-變更目錄以從複製的目錄操作。
+變更為複製的目錄。
 
 ```console
 cd azure-voting-app-redis
@@ -108,7 +107,7 @@ docker-compose down
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，應用程式已經過測試並已建立應用程式的容器映像。 您已了解如何︰
+在本教學課程中，應用程式已經過測試並已建立應用程式的容器映像。 您已了解如何︰
 
 > [!div class="checklist"]
 > * 從 GitHub 複製範例應用程式來源

@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc94e309db3fd0e97e06b5be5884a0b6e7337cea
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 236a4e4f79e6da89154e1e52bb9f45daf3a54d59
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158970"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632038"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>快速入門：使用 Azure CLI 建立及管理 Azure 檔案共用
+# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>快速入門：使用 Azure CLI 來建立及管理 Azure 檔案共用
 本指南會逐步說明透過 Azure CLI 來使用 [Azure 檔案共用](storage-files-introduction.md)的基本概念。 Azure 檔案共用與其他檔案共用類似，但它儲存在雲端中，並且由 Azure 平台支援。 Azure 檔案共用支援業界標準 SMB 通訊協定，並可在多個機器、應用程式及執行個體上啟用檔案共用。 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
@@ -87,7 +87,7 @@ Azure 檔案服務提供兩個在 Azure 檔案共用中使用檔案和資料夾�
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>透過檔案 REST 通訊協定使用 Azure 檔案共用 
-您可以直接使用檔案 REST 通訊協定 (也就是您自己製作 HTTP REST 呼叫)，但最常見的方式是使用 Azure CLI、[AzureRM PowerShell 模組](storage-how-to-use-files-powershell.md)、或 Azure儲存體 SDK，這些都能以您選擇的指令碼/程式設計語言提供檔案 REST 通訊協定的良好包裝函式。  
+您可以直接使用 File REST 通訊協定 (也就是自己製作 REST HTTP 呼叫)，但最常見的 File REST 通訊協定使用方式是使用 Azure CLI、[Azure PowerShell 模組](storage-how-to-use-files-powershell.md) 或「Azure儲存體 SDK」，這些都能以您選擇的指令碼/程式設計語言為 File REST 通訊協定提供良好的包裝函式。  
 
 我們預期人們使用 Azure 檔案服務時，都會想透過 SMB 通訊協定來與 Azure 檔案共用搭配使用，因為這可讓他們使用預期能使用的現有應用程式和工具，但使用檔案 REST API 比使用 SMB 好的原因有很多個，例如：
 
@@ -95,7 +95,7 @@ Azure 檔案服務提供兩個在 Azure 檔案共用中使用檔案和資料夾�
 - 您需要從無法掛接 SMB 共用的用戶端執行指令碼或應用程式，例如未將連接埠 445 解除封鎖的內部部署用戶端。
 - 您要利用無伺服器資源，例如 [Azure Functions](../../azure-functions/functions-overview.md)。 
 
-下列範例會示範如何透過檔案 REST 通訊協定，來使用 AzureRM PowerShell 模組操作 Azure 檔案共用。 
+下列範例示範如何搭配 File REST 通訊協定使用 Azure CLI，來操作 Azure 檔案共用。 
 
 ### <a name="create-a-directory"></a>建立目錄
 若要在 Azure 檔案共用的根目錄建立名為 *myDirectory* 的新目錄，請使用 [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create) 命令：

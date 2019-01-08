@@ -9,18 +9,36 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8b66895e1ae37947c995ffc643505d466c42b93b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094401"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753110"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>教學課程 4：擷取內容相關的模式
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>教學課程：使用角色擷取內容相關的模式
 
 在本教學課程中，使用模式來從正確格式的語句範本擷取資料。 語句範本會使用簡單的實體和角色來擷取相關資料，例如原始位置和目的地位置。  使用模式時，需要針對意圖使用較少的範例語句。
+
+
+**在本教學課程中，您將了解如何：**
+
+> [!div class="checklist"]
+> * 匯入範例應用程式
+> * 建立新實體
+> * 建立新意圖
+> * 定型
+> * 發佈
+> * 從端點取得意圖和實體
+> * 使用角色建立模式
+> * 建立城市的片語清單
+> * 從端點取得意圖和實體
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-roles-in-patterns"></a>在模式中使用角色
 
 角色的用途是在語句中擷取內容相關的實體。 在 `Move new employee Robert Williams from Sacramento and San Francisco` 語句中，來源城市與目的地城市的值彼此相關，並使用通用語言來表示每個位置。 
 
@@ -37,27 +55,12 @@ ms.locfileid: "53094401"
 
 如果您因為簡單實體是名稱 (例如城市) 而難以偵測簡單實體，請考慮新增類似值的片語清單。 這可藉由為 LUIS 提供關於該類型字組或片語的其他信號，來協助偵測城市名稱。 片語清單只能藉由協助偵測實體來為模式提供協助，對於要比對的模式而言，實體偵測是必要的。 
 
-**在本教學課程中，您將了解如何：**
-
-> [!div class="checklist"]
-> * 使用現有的教學課程應用程式
-> * 建立新實體
-> * 建立新意圖
-> * 定型
-> * 發佈
-> * 從端點取得意圖和實體
-> * 使用角色建立模式
-> * 建立城市的片語清單
-> * 從端點取得意圖和實體
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>使用現有的應用程式
+## <a name="import-example-app"></a>匯入範例應用程式
 以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
 
-如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
+請使用下列步驟：
 
-1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json)。
+1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json)。
 
 2. 將 JSON 匯入新的應用程式中。
 

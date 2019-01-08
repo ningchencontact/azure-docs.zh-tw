@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/13/2018
+ms.date: 12/17/2018
 ms.author: b-juche
-ms.openlocfilehash: 8fc76c33055f7131444a073d2f8560e136c0701d
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 937ff9cf4c099f229df28070be07ba76339704e0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413236"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583988"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>建立適用於 Azure NetApp Files 的磁碟區
 
@@ -62,7 +62,7 @@ ms.locfileid: "53413236"
         指定要用於磁碟區的子網路。  
         您指定的子網路必須委派給 Azure NetApp Files。 
         
-        如果您尚未委派子網路，您可以按一下 [建立磁碟區] 頁面上的 [新建]。 在 [建立子網路] 頁面上指定子網路資訊，然後選取 [Microsoft.NetApp/volumes] 以委派 Azure NetApp Files 的子網路。    
+        如果您尚未委派子網路，您可以按一下 [建立磁碟區] 頁面上的 [新建]。 在 [建立子網路] 頁面上指定子網路資訊，然後選取 [Microsoft.NetApp/volumes] 以委派 Azure NetApp Files 的子網路。 請注意，在每個 Vnet 中，都只有一個子網路可委派給 Azure NetApp Files。   
  
         ![新增磁碟區](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     

@@ -9,12 +9,12 @@ ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 53be0f36e79d5691d8531c46bf7f554c53f641ee
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f099d280615607382bd424063d39bb26cdeea793
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342818"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557849"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>教學課程：開發 Java IoT Edge 模組並部署至模擬裝置
 
@@ -36,8 +36,8 @@ ms.locfileid: "53342818"
 
 Azure IoT Edge 裝置：
 
-* 您可以遵循 [Linux](quickstart-linux.md) 快速入門中的步驟，使用開發電腦或虛擬機器作為邊緣裝置。
-* 適用於 IoT Edge 的 Java 模組不支援 Windows 裝置。
+* 您可以依循 [Linux](quickstart-linux.md) 或 [Windows](quickstart.md) 快速入門中的步驟來設定 IoT Edge 裝置。
+* 就 Windows 裝置上的 IoT Edge 而言，1.0.5 版不支援 Java 模組。 如需詳細資訊，請參閱 [1.0.5 版本資訊](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)。 如需有關如何安裝特定版本的步驟，請參閱[更新 IoT Edge 安全性精靈和執行階段](how-to-update-iot-edge.md)。
 
 雲端資源：
 
@@ -70,7 +70,7 @@ Azure IoT Edge 裝置：
    | ----- | ----- |
    | 登錄名稱 | 提供唯一名稱。 |
    | 訂用帳戶 | 從下拉式清單中選取訂用帳戶。 |
-   | 資源群組 | 建議您對於在 IoT Edge 快速入門和教學課程中建立的所有測試資源，使用相同的資源群組。 例如 **IoTEdgeResources**。 |
+   | 資源群組 | 為了簡化管理，請針對您在 IoT Edge 快速入門和教學課程期間建立的所有測試資源，使用相同的資源群組。 例如 **IoTEdgeResources**。 |
    | 位置 | 選擇接近您的位置。 |
    | 管理員使用者 | 設定為 [已啟用]。 |
    | SKU | 選取 [基本]。 | 
@@ -82,7 +82,7 @@ Azure IoT Edge 裝置：
 7. 複製 [登入伺服器]、[使用者名稱] 及 [密碼] 的值。 稍後在本教學課程中，您會使用這些值來提供容器登錄的存取權。 
 
 ## <a name="create-an-iot-edge-module-project"></a>建立 IoT Edge 模組專案
-下列步驟會使用 Visual Studio Code 和 Azure IoT Edge 擴充功能，建立以 Azure IoT Edge maven 範本套件和 Azure IoT Java 裝置 SDK 為基礎的 IoT Edge 模組專案。
+下列步驟會建立一個 IoT Edge 模組專案，此專案會以 Azure IoT Edge maven 範本套件和 Azure IoT Java 裝置 SDK 為基礎。 您需使用 Visual Studio Code 和 Azure IoT Edge 延伸模組來建立此專案。
 
 ### <a name="create-a-new-solution"></a>建立新解決方案
 
@@ -90,7 +90,7 @@ Azure IoT Edge 裝置：
 
 1. 在 Visual Studio Code 中，選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。 
 
-2. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge:New IoT Edge solution**。 依照命令選擇區中的提示建立解決方案。
+2. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge:**[新增 IoT Edge 解決方案]。 依照命令選擇區中的提示建立解決方案。
 
    | 欄位 | 值 |
    | ----- | ----- |
@@ -103,7 +103,7 @@ Azure IoT Edge 裝置：
  
    ![提供 Docker 映像存放庫](./media/tutorial-java-module/repository.png)
    
-如果是第一次建立 Java 模組，可能需要幾分鐘的時間下載 maven 套件。 之後，VS Code 視窗會載入您的 IoT Edge 解決方案工作區。 解決方案工作區包含五個最上層元件。 **modules** 資料夾包含您的模組所需的 Java 程式碼，以及用來將模組建置成容器映像的 Dockerfile。 **\.env** 檔案會儲存您的容器登錄認證。 **Deployment.template.json** 檔案包含 IoT Edge 執行階段用來在裝置上部署模組的資訊。 而 **deployment.debug.template.json** 檔案包含模組的偵錯版本。 您在本教學課程中將不會編輯 **\.vscode** 資料夾或 **\.gitignore** 檔案。 
+如果是第一次建立 Java 模組，可能需要幾分鐘的時間下載 maven 套件。 之後，VS Code 視窗會載入您的 IoT Edge 解決方案工作區。 解決方案工作區包含五個最上層元件。 [modules] 資料夾包含您模組所需的 Java 程式碼，以及用來將模組建置成容器映像的 Docker 檔案。 **\.env** 檔案會儲存您的容器登錄認證。 **Deployment.template.json** 檔案包含 IoT Edge 執行階段用來在裝置上部署模組的資訊。 而 **deployment.debug.template.json** 檔案包含模組的偵錯版本。 您在本教學課程中將不會編輯 **\.vscode** 資料夾或 **\.gitignore** 檔案。 
 
 如果您在建立解決方案時未指定容器登錄，但接受了預設的 localhost:5000 值，則不會有 \.env 檔案。 
 
@@ -136,7 +136,7 @@ Azure IoT Edge 裝置：
     import com.microsoft.azure.sdk.iot.device.DeviceTwin.TwinPropertyCallBack;
     ```
 
-5. 將下列定義新增至 **App** 類別。 此變數會設定在將資料傳送至 IoT 中樞之前，測量的溫度必須超過的值。 
+5. 將下列定義新增至 **App** 類別。 此變數會設定溫度閾值。 所測得的機器溫度在超出此值之後才會回報給「IoT 中樞」。 
 
     ```java
     private static final String TEMP_THRESHOLD = "TemperatureThreshold";
@@ -175,7 +175,7 @@ Azure IoT Edge 裝置：
         }
     ```
 
-8. 將下列兩個靜態內部類別新增至 **App** 類別。 這些類別會從模組對應項接收所需屬性的更新，並將  **tempThreshold** 變數更新為一致。 所有模組都具有自己的模組對應項，這可讓您直接從雲端設定於模組內執行的程式碼。
+8. 將下列兩個靜態內部類別新增至 **App** 類別。 這些類別會在模組對應項的預期屬性變更時更新 tempThreshold 變數。 所有模組都具有自己的模組對應項，這可讓您直接從雲端設定於模組內執行的程式碼。
 
     ```java
     protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
@@ -240,9 +240,9 @@ Azure IoT Edge 裝置：
 
 ## <a name="build-your-iot-edge-solution"></a>建置 IoT Edge 解決方案
 
-在上一節中，您已建立 IoT Edge 解決方案，並將程式碼新增至 **JavaModule**，以篩選掉報告的機器溫度低於可接受閾值的訊息。 現在，您需要建置容器映像形式的解決方案，並將它推送到容器登錄。 
+在上一節中，您已建立 IoT Edge 解決方案，並將程式碼新增至 **JavaModule**，以篩選掉所回報機器溫度低於可接受限制的訊息。 現在，請將解決方案建置成容器映像，並將其推送到容器登錄。 
 
-1. 透過在 Visual Studio Code 整合式終端機中輸入下列命令，來登入 Docker。 接著，您可以將模組映像推送到您的 Azure 容器登錄。
+1. 在 Visual Studio Code 終端機中輸入下列命令來登入 Docker。 接著，您可以將模組映像推送到您的 Azure 容器登錄。
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -281,7 +281,7 @@ Azure IoT Edge 裝置：
 
 您可以使用 Visual Studio Code 總管的 [Azure IoT 中樞裝置] 區段，檢視 IoT Edge 裝置的狀態。 請展開裝置的詳細資料，以查看已部署且執行中的模組清單。 
 
-在 IoT Edge 裝置本身之中，您可以使用 `iotedge list` 命令查看部署模組的狀態。 您應該會看到四個模組：兩個 IoT Edge 執行階段模組、tempSensor 和您在本教學課程中建立的自訂模組。 啟動所有模組可能需要幾分鐘的時間，因此若您一開始未看到所有模組，請重新執行命令。 
+在 IoT Edge 裝置上，您可以使用 `iotedge list` 命令來查看部署模組的狀態。 您應該會看到四個模組：兩個 IoT Edge 執行階段模組、tempSensor 和您在本教學課程中建立的自訂模組。 啟動所有模組可能需要幾分鐘的時間，因此若您一開始未看到所有模組，請重新執行命令。 
 
 若要檢視任何模組所產生的訊息，請使用 `iotedge logs <module name>` 命令。 
 

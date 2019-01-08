@@ -8,20 +8,20 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
-ms.openlocfilehash: e26190b46a79d581e5996e51bfd104f1d4beb6f6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d741550fc64ef7544e33304f8608ad6e6ee3426e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094027"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723635"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Linux 上以 C++ 辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-在本文中，您會建立適用於 Ubuntu Linux 16.04 的 C++ 主控台應用程式。 您使用認知服務[語音 SDK](speech-sdk.md)，即時從電腦的麥克風將語音轉譯為文字。 此應用程式是使用[適用於 Linux 的語音 SDK](https://aka.ms/csspeech/linuxbinary) 和 Linux 散發套件的 C++ 編譯器 (例如 `g++`) 所建置。
+在本文中，您會建立適用於 Ubuntu Linux 16.04 或 18.04 的 C++ 主控台應用程式。 您將使用認知服務[語音 SDK](speech-sdk.md)，即時從電腦的麥克風將語音轉譯為文字。 此應用程式是使用[適用於 Linux 的語音 SDK](https://aka.ms/csspeech/linuxbinary) 和 Linux 散發套件的 C++ 編譯器 (例如 `g++`) 所建置。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -31,7 +31,7 @@ ms.locfileid: "53094027"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `1.1.0`。
+認知服務語音 SDK 目前的版本為 `1.2.0`。
 
 適用於 Linux 的語音 SDK 可用來建置 64 位元和 32 位元應用程式。 您可從 https://aka.ms/csspeech/linuxbinary 以 tar 檔案格式下載必要的程式庫和標頭檔。
 
@@ -129,16 +129,12 @@ ms.locfileid: "53094027"
    We recognized: What's the weather like?
    ```
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-在 `quickstart/cpp-linux` 資料夾中尋找此範例。
-
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用適用於 C++ 的語音 SDK 從語音辨識意圖](how-to-recognize-intents-from-speech-cpp.md)
+> [探索 GitHub 上的 C++ 範例](https://aka.ms/csspeech/samples) \(英文\)
 
 ## <a name="see-also"></a>另請參閱
 
-- [轉譯語音](how-to-translate-speech-csharp.md)
 - [自訂原音模型](how-to-customize-acoustic-models.md)
 - [自訂語言模型](how-to-customize-language-model.md)

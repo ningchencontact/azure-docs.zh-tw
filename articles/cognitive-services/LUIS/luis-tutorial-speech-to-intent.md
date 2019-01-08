@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8e664e26a2cafc2f0b32ebea0f019918426d956c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162626"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714573"
 ---
-# <a name="integrate-speech-service"></a>整合語音服務
+# <a name="integrate-speech-service-with-your-language-understanding-app"></a>將語音服務與您的 Language Understanding 應用程式整合
 [語音服務](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)可讓您使用單一要求接收音訊並傳回 LUIS 預測 JSON 物件。 在本文中，您將在 Visual Studio 中下載與使用 C# 專案，對麥克風說話，並接收 LUIS 預測資訊。 該專案會使用語音 [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 封裝 (已隨附提供參考)。 
 
 為了操作本文的作業，您需要免費的 [LUIS][LUIS] 網站帳戶才能匯入應用程式。
@@ -27,7 +27,7 @@ ms.locfileid: "53162626"
 在 Azure 入口網站中，[建立 ](luis-how-to-azure-subscription.md#create-luis-endpoint-key)**Language Understanding** (LUIS) 金鑰。 
 
 ## <a name="import-human-resources-luis-app"></a>匯入 Human Resources LUIS 應用程式
-本文中的意圖和語句皆來自 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) GitHub 存放庫中所提供的 Human Resources LUIS 應用程式。 下載 [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) 檔案、以 `.json` 副檔名儲存該檔案，然後將它[匯入](luis-how-to-start-new-app.md#import-new-app) LUIS。 
+本文中的意圖和語句皆來自 [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding) \(英文\) GitHub 存放庫中所提供的 Human Resources LUIS 應用程式。 下載 [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json) 檔案、以 `.json` 副檔名儲存該檔案，然後將它[匯入](luis-how-to-start-new-app.md#import-new-app) LUIS。 
 
 此應用程式具有與人力資源領域相關的意圖、實體和語句。 語句範例包括：
 
@@ -62,7 +62,7 @@ ms.locfileid: "53162626"
 本文將需要您使用電腦上的音訊裝置。 像是有麥克風的耳機，或是內建的音訊裝置。 檢查音訊輸入量，以了解您得音量是否應該比平常說話大聲，才能讓音訊裝置偵測到您的語音。 
 
 ## <a name="download-the-luis-sample-project"></a>下載 LUIS Sample 專案
- 複製或下載 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) 存放庫。 透過 Visual Studio 開啟[語音轉意圖專案](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition)，然後還原 NuGet 封裝。 VS 解決方案檔案位於 .\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln 中。
+ 複製或下載 [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding) \(英文\) 存放庫。 透過 Visual Studio 開啟[語音轉意圖專案](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-speech-intent-recognition)，然後還原 NuGet 封裝。 VS 解決方案檔案為 documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln。
 
 已隨附語音 SDK 供參考。 
 
@@ -93,7 +93,7 @@ ms.locfileid: "53162626"
 ## <a name="clean-up-resources"></a>清除資源
 若不再需要 LUIS HumanResources 應用程式，請予以刪除。 若要這樣做，請選取應用程式，然後在清單上方的內容相關工具列中，選取 [刪除]。 在 [Delete app?] \(刪除應用程式?\) 快顯對話方塊上，選取 [Ok] \(確定\)。
 
-用完範例程式碼後，請記得刪除 LUIS-Samples 目錄。
+使用完範例程式碼後，請記得刪除目錄。
 
 ## <a name="next-steps"></a>後續步驟
 

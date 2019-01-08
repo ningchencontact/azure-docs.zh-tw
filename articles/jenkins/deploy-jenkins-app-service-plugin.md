@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 98e69c7759f736c132601305156290f7a43eeaf9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319348"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537574"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>使用 Jenkins 外掛程式來部署到 Azure App Service 
 
@@ -55,7 +55,7 @@ sudo apt-get install -y maven
 您必須要有 Azure 服務主體，才能部署到 Azure。 
 
 
-1. 若要建立 Azure 服務主體，請使用 [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 或 [Azure 入口網站](/azure/azure-resource-manager/resource-group-create-service-principal-portal)。
+1. 若要建立 Azure 服務主體，請使用 [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 或 [Azure 入口網站](/azure/azure-resource-manager/resource-group-create-service-principal-portal)。
 2. 在 Jenkins 儀表板上，選取 [Credentials] \(認證\) > [System] \(系統\)。 然後，選取 [Global credentials(unrestricted)] \(全域認證 (不受限)\)。
 3. 若要新增 Microsoft Azure 服務主體，請選取 [新增認證]。 為 [訂用帳戶 ID]、[用戶端識別碼]、[用戶端密碼] 及 [OAuth 2.0 權杖端點] 欄位輸入值。 將 [識別碼] 欄位設定為 **mySp**。 我們會在本文的後續步驟中用到此識別碼。
 
@@ -64,9 +64,9 @@ sudo apt-get install -y maven
 
 若要將專案部署到 Web Apps，您可以透過檔案上傳來上傳組建成品。 Azure App Service 支援多個部署選項。 Azure App Service Jenkins 外掛程式可讓您輕鬆使用根據檔案類型所衍生的部署選項。 
 
-* 若為 Java EE 應用程式，會使用 [WAR 部署](/azure/app-service/app-service-deploy-zip#deploy-war-file)。
-* 若為 Java SE 應用程式，會使用 [ZIP 部署](/azure/app-service/app-service-deploy-zip#deploy-zip-file)。
-* 若為其他語言，則會使用 [Git 部署](/azure/app-service/app-service-deploy-local-git)。
+* 若為 Java EE 應用程式，會使用 [WAR 部署](/azure/app-service/deploy-zip#deploy-war-file)。
+* 若為 Java SE 應用程式，會使用 [ZIP 部署](/azure/app-service/deploy-zip#deploy-zip-file)。
+* 若為其他語言，則會使用 [Git 部署](/azure/app-service/deploy-local-git)。
 
 在於 Jenkins 中設定作業之前，您必須要有 Azure App Service 方案和 Web 應用程式，才能執行 Java 應用程式。
 
@@ -161,7 +161,7 @@ Linux 上的 Web Apps 也支援 Git 和檔案上傳等傳統部署方法，但�
     az acr credential show -n <yourRegistry>
     ```
 
-10. [進階] 索引標籤中的 Docker 映像名稱和標記值是選擇性的值。 預設會從您在 Azure 入口網站的 [Docker 容器] 設定中 中設定的映像名稱，取得映像名稱的值。 標記會從 $BUILD_NUMBER 產生。
+10. [進階] 索引標籤中的 Docker 映像名稱和標記值是選擇性的值。 預設會從您在 Azure 入口網站的 [Docker 容器] 設定中 中設定的映像名稱，取得映像名稱的值。 標記會從 $BUILD_NUMBER 產生。
     > [!NOTE]
     > 請務必在 Azure 入口網站中指定映像名稱，或是在 [進階] 索引標籤中提供 [Docker 映像] 值。針對此範例，請將 [Docker 映像] 值設定為 &lt;your_Registry>.azurecr.io/calculator，並將 [Docker 映像標記] 值保留空白。
 

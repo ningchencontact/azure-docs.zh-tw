@@ -2,27 +2,21 @@
 title: Azure Cosmos DB 全域散發
 description: 了解如何在 Azure 入口網站中使用 Azure Cosmos DB 進行全域資料複寫
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 03/26/2018
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: fb9418d47d2888467e1c1c40862833029111b75b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 751571820d52c003a7e740bd63af8c9d9e071c7a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38747514"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53796108"
 ---
-您可以透過下列影片了解 Azure Cosmos DB 全域散發；在此影片中，Azure Cosmos DB 專案經理 Andrew Liu 會逐步解說全域散發功能。
-
->[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
-
-如需有關 Azure Cosmos DB 中全域資料庫複寫運作方式的詳細資訊，請參閱[使用 Cosmos DB 來全域散發資料](../articles/cosmos-db/distribute-data-globally.md)。
-
 ## <a id="addregion"></a>使用 Azure 入口網站新增全球資料庫區域
-全球所有的 [Azure 區域][azureregions]均可使用 Azure Cosmos DB。 選取資料庫帳戶的預設一致性層級之後，您可以關聯一或多個區域 (取決於您對於預設一致性層級和全球發佈需求的選擇)。
+全球所有 [Azure 區域][azureregions]都有提供 Azure Cosmos DB。 選取資料庫帳戶的預設一致性層級之後，您可以關聯一或多個區域 (取決於您對於預設一致性層級和全球發佈需求的選擇)。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的左列中，按一下 [Azure Cosmos DB]。
 2. 在 [Azure Cosmos DB] 頁面中，選取要修改的資料庫帳戶。

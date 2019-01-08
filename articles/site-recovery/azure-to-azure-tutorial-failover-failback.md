@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 93928d7eb84ce986c8a9322188183e4c3dd76d99
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1866a5d86d3ee47371a5eb6e14c2976798d2b4da
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847859"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787836"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>在 Azure 區域之間容錯移轉及容錯回復 Azure VM
 
@@ -44,9 +44,9 @@ ms.locfileid: "52847859"
 
 2. 在 [容錯移轉] 中，選取要容錯移轉的目標**復原點**。 您可以使用下列其中一個選項：
 
-   * **最新** (預設值)：這個選項可在 Site Recovery 服務中處理所有資料，並提供最低的復原點目標 (RPO)。
-   * **最新處理**︰這個選項會將虛擬機器回復到 Site Recovery 服務所處理的最新復原點。
-   * **自訂**：使用這個選項來容錯移轉至特定復原點。 此選項適合用於執行測試容錯移轉。
+   * **最新** (預設值)：此選項可在 Site Recovery 服務中處理所有資料，並提供最低的「復原點目標」(RPO)。
+   * **最近處理**：此選項會將虛擬機器還原到 Site Recovery 服務已處理的最新復原點。
+   * **自訂**：若要容錯移轉至特定復原點，請使用此選項。 此選項適合用於執行測試容錯移轉。
 
 3. 如果想在觸發容錯移轉之前，讓 Site Recovery 嘗試將來源虛擬機器關機，請選取 [先將機器關機再開始容錯移轉]。 即使關機失敗，仍會繼續容錯移轉。
 

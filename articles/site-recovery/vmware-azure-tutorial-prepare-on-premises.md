@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: da5643f707a2f891fcf6663ec88f5a5dff40ac86
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 505acdde07c23654ddd3875fa600046a67e04aea
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846635"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970809"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>準備內部部署 VMware 伺服器以進行 Azure 的災害復原
 
@@ -67,8 +67,8 @@ Site Recovery 需要存取 VMware 伺服器才能：
 
 準備有權限可以在 VM 上安裝的網域或本機帳戶。
 
-- **Windows VMs**：若要在 Windows VM 上安裝，如果您不使用網域帳戶，請停用本機電腦上的遠端使用者存取控制。 若要執行此動作，請在登錄的 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** 下，新增 DWORD 登錄 **LocalAccountTokenFilterPolicy**，其值為 1。
-- **Linux VMs**：若要在 Linux VM 上安裝，請在來源 Linux 伺服器上準備根帳戶。
+- **Windows VM**：在 Windows VM 上安裝時，如果您不是使用網域帳戶，請停用本機電腦上的「遠端使用者存取」控制。 若要執行此動作，請在登錄的 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** 下，新增 DWORD 登錄 **LocalAccountTokenFilterPolicy**，其值為 1。
+- **Linux VM**：若要在 Linux VM 上安裝，請在來源 Linux 伺服器上準備根帳戶。
 
 
 ## <a name="check-vmware-requirements"></a>檢查 VMware 需求
@@ -80,6 +80,7 @@ Site Recovery 需要存取 VMware 伺服器才能：
 3. 檢查內部部署[網路](vmware-physical-azure-support-matrix.md#network)和[儲存體](vmware-physical-azure-support-matrix.md#storage)支援。 
 4. 檢查在容錯移轉之後，[Azure 網路](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)、[儲存體](vmware-physical-azure-support-matrix.md#azure-storage)和[計算](vmware-physical-azure-support-matrix.md#azure-compute)支援的項目。
 5. 您複寫到 Azure 的內部部署 VM 必須符合 [Azure VM 需求](vmware-physical-azure-support-matrix.md#azure-vm-requirements)。
+6. 在 Linux 虛擬機器中，裝置名稱或掛接點名稱應該要是唯一名稱。 請確定沒有任何兩個裝置/掛接點的名稱僅有大小寫之別。 例如，不允許將相同虛擬機器的兩個裝置命名為 *device1* 和 *Device1*。
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>準備在容錯移轉後連接到 Azure VM

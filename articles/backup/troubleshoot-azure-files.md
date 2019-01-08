@@ -8,36 +8,37 @@ ms.author: raynew
 ms.date: 10/23/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: faf229d67a5b4a7a15774d6e01af1c5706d18058
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 4806ca77bda1d380d3c5f1d958a335bceddc7f16
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023146"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787438"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>針對備份 Azure 檔案共用的問題進行疑難排解
 您可以使用下列表格中所列的資訊，針對使用 Azure 檔案共用備份時所發生的問題和錯誤進行疑難排解。
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>預覽期間的 Azure 檔案共用備份限制
-Azure 檔案共用的備份處於預覽狀態。 Azure 檔案共用不支援下列備份案例︰
+Azure 檔案共用的備份處於預覽狀態。 支援一般用途 v1 和一般用途 v2 儲存體帳戶中的 Azure 檔案共用。 Azure 檔案共用不支援下列備份案例︰
 - 您無法使用[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能，保護儲存體帳戶中的 Azure 檔案共用*。
 - 您無法在已啟用虛擬網路或防火牆的儲存體帳戶中保護 Azure 檔案共用。
-- 無法透過 PowerShell 或 CLI 使用 Azure 備份來保護 Azure 檔案。
+- 無法透過 CLI 使用 Azure 備份來保護 Azure 檔案。
 - 每天的排程備份次數上限為 1 次。
 - 每天的隨選備份次數上限為 4 次。
 - 在儲存體帳戶上使用[資源鎖定](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)，以防止在您的復原服務保存庫中意外刪除備份。
 - 請勿刪除 Azure 備份所建立的快照集。 刪除快照集可能會導致遺失復原點和/或還原失敗。
+- 請勿刪除由 Azure 備份所保護的檔案共用。 目前的解決方案會在刪除檔案共用後，刪除 Azure 備份使用的所有快照集，並因此失去所有還原點
 
 \*儲存體帳戶中的 Azure 檔案共用以[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能作為 GRS，並以 GRS 價格計費。
 
-在儲存體帳戶中使用[區域備援儲存體](../storage/common/storage-redundancy-zrs.md) (ZRS) 複寫功能備份 Azure 檔案共用，目前僅適用於美國中部 (CUS)、美國東部 2 (EUS2)、北歐 (NE)、東南亞 (SEA) 和西歐 (WE)。
+在儲存體帳戶中使用[區域備援儲存體](../storage/common/storage-redundancy-zrs.md) (ZRS) 複寫功能來備份 Azure 檔案共用，目前僅適用於美國中部 (CUS)、美國東部 (EUS)、美國東部 2 (EUS2)、北歐 (NE)、東南亞 (SEA)、西歐 (WE) 和西歐 2 (WUS2)。
 
 ## <a name="configuring-backup"></a>設定備份
 下表適用於設定備份：
 
 | 設定備份 | 因應措施或解決方案祕訣 |
 | ------------------ | ----------------------------- |
-| 找不到可用來設定 Azure 檔案共用備份的儲存體帳戶 | <ul><li>請等候探索完成。 <li>檢查是否已使用另一個復原服務保存庫來保護儲存體帳戶中的任何檔案共用。 **請注意**：只能在一個復原服務保存庫之下保護儲存體帳戶中的所有檔案共用。 <li>請確定檔案共用不是存在於任何不支援的儲存體帳戶中。|
+| 找不到可用來設定 Azure 檔案共用備份的儲存體帳戶 | <ul><li>請等候探索完成。 <li>檢查是否已使用另一個復原服務保存庫來保護儲存體帳戶中的任何檔案共用。 **注意**：一個儲存體帳戶中的所有檔案共用只能在一個復原服務保存庫之下加以保護。 <li>請確定檔案共用不是存在於任何不支援的儲存體帳戶中。|
 | 入口網站中的錯誤陳述儲存體帳戶探索失敗。 | 如果您的訂用帳戶是夥伴 (已啟用 CSP)，請忽略此錯誤。 如果您的訂用帳戶未啟用 CSP，而且找不到儲存體帳戶，請連絡支援人員。|
 | 選取的儲存體帳戶驗證或註冊失敗。| 請重試此作業。若問題持續發生，請連絡支援人員。|
 | 無法在選取的儲存體帳戶中列出或尋找檔案共用。 | <ul><li> 確定儲存體帳戶存在於資源群組中 (而且上次在保存庫中驗證/註冊之後並未遭到刪除或移動)。<li>確定您想要保護的檔案共用尚未遭到刪除。 <li>確定儲存體帳戶是檔案共用備份支援的儲存體帳戶。<li>請檢查檔案共用是否已在相同的復原服務保存庫中受到保護。|

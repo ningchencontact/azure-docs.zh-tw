@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 6e7f6499a78b21ad81af5d541966e18090467532
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887503"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787625"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>教學課程：對在本機開發叢集中執行的 Service Fabric Mesh 應用程式進行偵錯
 
@@ -93,8 +93,8 @@ git clone https://github.com/azure-samples/service-fabric-mesh
 ### <a name="debug-in-visual-studio"></a>在 Visual Studio 中偵錯
 
 當您對 Visual Studio 中的 Service Fabric Mesh 應用程式進行偵錯時，您會使用本機 Service Fabric 開發叢集。 若要查看從後端服務擷取待辦事項項目的情形，請對 OnGet() 方法進行偵錯。
-1. 在 **WebFrontEnd** 專案中，開啟 [頁面] > [Index.cshtml] > [Index.cshtml.cs]，然後在 **Get** 方法中 (第 17 行) 設定中斷點。
-2. 在 **ToDoService** 專案中開啟 **TodoController.cs**，然後在 **OnGet** 方法中 (第 15 行) 設定中斷點。
+1. 在 **WebFrontEnd** 專案中，開啟 [頁面] > [Index.cshtml] > [Index.cshtml.cs]，然後在 **OnGet** 方法 (第 17 行) 中設定中斷點。
+2. 在 **ToDoService** 專案中，開啟 **TodoController.cs**，然後在 **Get** 方法 (第 15 行) 中設定中斷點。
 3. 回到瀏覽器並重新整理頁面。 您會在 Web 前端 `OnGet()` 方法中叫用中斷點。 您可以檢查 `backendUrl` 變數，以查看您在 **service.yaml** 檔案中定義的環境變數如何結合到用來聯繫後端服務的 URL 中。
 4. 逐步執行 (F10) `client.GetAsync(backendUrl).GetAwaiter().GetResult())` 呼叫，您將會叫用控制器的 `Get()` 中斷點。 在此方法中，您可以查看從記憶體內部清單擷取待辦事項項目清單的方式。
 5. 完成作業後，請按 **Shift+F5**，以停止對 Visual Studio 中的專案進行偵錯。

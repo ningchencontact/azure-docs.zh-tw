@@ -1,5 +1,5 @@
 ---
-title: 快速入門：擷取手寫文字 - REST、JavaScript - 電腦視覺
+title: 快速入門：擷取手寫文字 - JavaScript
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用電腦視覺 API 搭配 JavaScript 擷取影像中的手寫文字。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 21ff210ad46b4add2d3f639d8e68bf2784f5acd8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: a917d7c778d74e7381d7e2897c644173703e7864
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852430"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579459"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-javascript-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 與 JavaScript 擷取手寫文字
 
@@ -28,7 +29,7 @@ ms.locfileid: "51852430"
 
 ## <a name="prerequisites"></a>必要條件
 
-您必須具有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+您必須有電腦視覺的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](../Vision-API-How-to-Topics/HowToSubscribe.md)。
 
 ## <a name="create-and-run-the-sample"></a>建立並執行範例
 

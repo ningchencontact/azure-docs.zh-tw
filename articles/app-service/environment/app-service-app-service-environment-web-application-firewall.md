@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 6bc354ef3451862e3567adbe5ff8ee6da0eacaf6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314868"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631493"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>設定 App Service 環境的 Web 應用程式防火牆 (WAF)
 ## <a name="overview"></a>概觀
@@ -74,12 +74,12 @@ Barracuda WAF 使用 TCP 連接埠 8000，以透過其管理入口網站進行�
 
 ![管理儀表板][ManagementDashboard]
 
-按一下 [服務] 索引標籤可讓您設定所保護服務的 WAF。 如需設定 Barracuda WAF 的詳細資訊，請參閱[其文件](https://techlib.barracuda.com/waf/getstarted1) \(英文\)。 在下列範例中，已設定處理 HTTP 和 HTTPS 流量的 Azure Web 應用程式。
+按一下 [服務] 索引標籤可讓您設定所保護服務的 WAF。 如需設定 Barracuda WAF 的詳細資訊，請參閱[其文件](https://techlib.barracuda.com/waf/getstarted1) \(英文\)。 在下列範例中，已設定要處理 HTTP 和 HTTPS 流量的 App Service 應用程式。
 
 ![管理加入服務][ManagementAddServices]
 
 > [!NOTE]
-> 根據應用程式的設定方式與 App Service 環境中正在使用的功能而定，您需要轉送非 80 和 443 之 TCP 連接埠的流量 (例如，如果您為 Web 應用程式設定 IP SSL)。 如需 App Service 環境中所使用網路連接埠的清單，請參閱[控制輸入流量文件](app-service-app-service-environment-control-inbound-traffic.md)的＜網路連接埠＞一節。
+> 根據應用程式的設定方式與 App Service 環境中正在使用的功能而定，您需要轉送非 80 和 443 之 TCP 連接埠的流量 (例如，如果您為 App Service 應用程式設定了 IP SSL)。 如需 App Service 環境中所使用網路連接埠的清單，請參閱[控制輸入流量文件](app-service-app-service-environment-control-inbound-traffic.md)的＜網路連接埠＞一節。
 > 
 > 
 

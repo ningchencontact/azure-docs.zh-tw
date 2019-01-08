@@ -1,18 +1,19 @@
 ---
-title: 擷取來自 Azure Digital Twins 空間的事件 | Microsoft Docs
+title: 教學課程：擷取來自 Azure Digital Twins 空間的事件 | Microsoft Docs
 description: 了解如何使用本教學課程中的步驟，藉由整合 Azure Digital Twins 與 Logic Apps，接收來自空間的通知。
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a52a3be8c3023893569e95b566a18c032be26459
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583256"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556011"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>教學課程：使用 Logic Apps 接收來自 Azure Digital Twins 空間的通知
 
@@ -174,7 +175,7 @@ ms.locfileid: "52583256"
 
    c. 在 [收件者] 方塊中，輸入要用來接收通知的電子郵件識別碼。 在 [主旨] 中，輸入文字：**空間中空氣品質不佳的 Digital Twins 通知**。 然後從 [剖析 JSON] 的 [動態內容] 中選取 [TopologyObjectId]。
 
-   d. 在相同視窗的 [主體] 底下，輸入如下文字：「房間內所偵測到的空氣品質不良，且需要調整溫度」。 您可以使用 [動態內容] 清單中的元素，任意地加上詳細說明。
+   d. 在相同視窗中的 [本文] 底下，輸入如下的文字：**房間內所偵測到的空氣品質不良，且需要調整溫度**。 您可以使用 [動態內容] 清單中的元素，任意地加上詳細說明。
 
    ![Logic Apps 的「傳送電子郵件」選取項目](./media/tutorial-facilities-events/logic-app-send-email.png)
 

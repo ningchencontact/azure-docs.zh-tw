@@ -3,7 +3,7 @@ title: Azure SQL Database 連線和查詢快速入門 | Microsoft Docs
 description: Azure SQL Database 快速入門說明如何連線及查詢 Azure SQL 資料庫。
 services: sql-database
 ms.service: sql-database
-ms.subservice: scenario
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 11/01/2018
-ms.openlocfilehash: ab1f96b2348c24a746aaa7bdd670f396884ee3f5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 613b4cf2b08269259a4608a6960b815777cd0ae9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870192"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608029"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>快速入門：Azure SQL Database 連線和查詢
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: beaedf754df2b1c4739c5dfb2abcdc40c163dc81
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: be44a233c2b09aa91ec04b5a64b523a2d0b00db1
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254117"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599854"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>教學課程：Azure SignalR 服務驗證
 
@@ -378,7 +378,7 @@ ms.locfileid: "53254117"
 
 ## <a name="deploy-the-app-to-azure"></a>將應用程式部署至 Azure
 
-在本節中，您會從 Azure Cloud Shell 使用 Azure 命令列介面 (CLI) 來建立新的 [Azure Web 應用程式](https://docs.microsoft.com/azure/app-service/)，以在 Azure 中裝載您的 ASP.NET 應用程式。 您會將 Web 應用程式設定為使用本機 Git 部署。 您也會使用您的 SignalR 連接字串、GitHub OAuth 應用程式祕密和部署使用者來設定 Web 應用程式。
+在本節中，您將從 Azure Cloud Shell 使用 Azure 命令列介面 (CLI)，在 [Azure App Service](https://docs.microsoft.com/azure/app-service/) 中建立新的 Web 應用程式，以在 Azure 中裝載您的 ASP.NET 應用程式。 您會將 Web 應用程式設定為使用本機 Git 部署。 您也會使用您的 SignalR 連接字串、GitHub OAuth 應用程式祕密和部署使用者來設定 Web 應用程式。
 
 本節中的步驟會使用適用於 Azure CLI 的 signalr 擴充功能。 執行下列命令以安裝適用於 Azure CLI 的 signalr 擴充功能：
 

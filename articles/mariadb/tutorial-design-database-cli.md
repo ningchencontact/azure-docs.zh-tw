@@ -1,24 +1,21 @@
 ---
-title: 教學課程：使用 Azure CLI 設計適用於 MariaDB 的 Azure 資料庫
-description: 本教學課程說明如何使用 Azure CLI 從命令列建立和管理適用於 MariaDB 的 Azure 資料庫伺服器和資料庫。
-services: mariadb
+title: 教學課程：使用 Azure CLI 來設計適用於 MariaDB 的 Azure 資料庫
+description: 本教學課程說明如何使用 Azure CLI 從命令列建立和管理「適用於 MariaDB 的 Azure 資料庫」伺服器和資料庫。
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 2d715f89b56af822c2c1174cca0f2a9c1b847fc0
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: fa056dad052914e771251585cb426c70591aa235
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516326"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541186"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>教學課程：使用 Azure CLI 設計適用於 MariaDB 的 Azure 資料庫
+# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>教學課程：使用 Azure CLI 來設計適用於 MariaDB 的 Azure 資料庫
 
 「適用於 MariaDB 的 Azure 資料庫」是 Microsoft 雲端中以 MariaDB Community Edition 資料庫引擎為基礎的關聯式資料庫服務。 在本教學課程中，您將使用 Azure CLI (命令列介面) 及其他公用程式來學習如何：
 
@@ -175,10 +172,10 @@ SELECT * FROM inventory;
 
 若要進行還原，您需要下列資訊︰
 
-- 還原點：選取在變更伺服器之前的時間點。 必須大於或等於來源資料庫的最舊備份值。
-- 目標伺服器︰提供要作為還原目的地的新伺服器名稱
-- 來源伺服器︰提供要作為還原來源的伺服器名稱
-- 位置︰您無法選取區域，預設是與來源伺服器相同的區域
+- 還原點：選取在伺服器發生變更前的時間點。 必須大於或等於來源資料庫的最舊備份值。
+- 目標伺服器：提供要作為還原目的地的新伺服器名稱
+- 來源伺服器：提供要作為還原來源的伺服器名稱
+- 位置：您無法選取區域，預設是與來源伺服器相同的區域
 
 ```azurecli-interactive
 az mariadb server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver

@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 814d558efee4a72a25d956828e0db237424cab24
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 12/17/2018
+ms.openlocfilehash: aea95c245b86905b7bef0a35ffaa6c5e00567111
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409763"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558629"
 ---
 # <a name="tutorial-secure-a-single-database-in-azure-sql-database"></a>教學課程：保護 Azure SQL Database 中的單一資料庫
 
@@ -136,6 +136,9 @@ Azure 的防火牆會保護 SQL Database。 依預設，伺服器與其內部資
     ![choose-ad](./media/sql-database-aad-authentication/8choose-ad.png)
 
 2. 在 [SQL Server] 頁面上選取 [Active Directory 系統管理員]，並在 [Active Directory 系統管理員] 頁面上選取 [設定系統管理員]。![選取 Active Directory](./media/sql-database-aad-authentication/select-active-directory.png)  
+
+   > [!IMPORTANT]
+   > 您必須是「公司系統管理員」或「全域管理員」，才能執行此工作。
 
 3. 在 [新增系統管理員] 頁面中，搜尋使用者，選取要成為系統管理員的使用者或群組，然後選取 [選取]。 [Active Directory 系統管理員] 頁面會顯示您 Active Directory 的所有成員和群組。 呈現灰色的使用者或群組無法選取，因為他們不受支援成為 Azure AD 系統管理員。 (請在[利用 SQL Database 或 SQL 資料倉儲使用 Azure Active Directory 驗證來驗證](sql-database-aad-authentication.md)的＜Azure AD 功能和限制＞節中參閱支援的系統管理員清單。)以角色為基礎的存取控制 (RBAC) 只會套用至入口網站，並且不會傳播至 SQL Server。
     ![選取系統管理員](./media/sql-database-aad-authentication/select-admin.png)  

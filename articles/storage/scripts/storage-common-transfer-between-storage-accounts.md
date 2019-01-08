@@ -13,20 +13,20 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
 ms.author: rogarana
-ms.openlocfilehash: 58e2275398216f29764d54d1a230959e86eda0b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2c83526ac5fd6fb6c757bffab08414d940694998
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253256"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635420"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>在 Windows 上使用 AzCopy 在儲存體帳戶間移轉 blob
 
 這個範例會將所有 blob 物件從使用者提供的來源儲存體帳戶，複製到使用者提供的目標儲存體帳戶。 
 
-這是藉由使用 `Get-AzureStorageContainer` 命令來完成，該命令會列出儲存體帳戶中的所有容器。 此範例接著會發出 AzCopy 命令，將每個容器從來源儲存體帳戶複製到目的地儲存體帳戶。 如果發生任何失敗，此範例會重試 $retryTimes 次 (預設值為 3，而且可以使用 `-RetryTimes` 參數修改)。 如果每次重試都發生失敗，使用者可以重新執行指令碼，方法是使用 `-LastSuccessContainerName` 參數，提供具有最後成功複製容器的範例。 此範例接著會繼續從該點複製容器。
+這是藉由使用 `Get-AzStorageContainer` 命令來完成，該命令會列出儲存體帳戶中的所有容器。 此範例接著會發出 AzCopy 命令，將每個容器從來源儲存體帳戶複製到目的地儲存體帳戶。 如果發生任何失敗，此範例會重試 $retryTimes 次 (預設值為 3，而且可以使用 `-RetryTimes` 參數修改)。 如果每次重試都發生失敗，使用者可以重新執行指令碼，方法是使用 `-LastSuccessContainerName` 參數，提供具有最後成功複製容器的範例。 此範例接著會繼續從該點複製容器。
 
-此範例需要 Azure PowerShell 儲存體模組 **4.0.2** 版或更新版本。 您可以使用 `Get-Module -ListAvailable Azure.storage` 檢查已安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 
+此範例需要 Azure PowerShell 儲存體模組 **0.7** 版或更新版本。 您可以使用 `Get-Module -ListAvailable Az.storage` 檢查已安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -68,8 +68,8 @@ AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
 
 | 命令 | 注意 |
 |---|---|
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | 傳回與儲存體帳戶關聯的容器。 |
-| [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | 建立 Azure 儲存體內容。 |
+| [Get-AzStorageContainer](/powershell/module/azure.storage/Get-AzStorageContainer) | 傳回與儲存體帳戶關聯的容器。 |
+| [New-AzStorageContext](/powershell/module/azure.storage/New-AzStorageContext) | 建立 Azure 儲存體內容。 |
 
 ## <a name="next-steps"></a>後續步驟
 

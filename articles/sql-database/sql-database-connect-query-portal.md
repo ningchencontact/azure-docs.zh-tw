@@ -13,16 +13,16 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: fa46260fdd5623ba32da9979aaea8470139096b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86120e65ad6a3b7fab2a5db78a338bed0e277cb8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091385"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651942"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>快速入門：使用 Azure 入口網站的 SQL 查詢編輯器進行連線並查詢資料
 
-SQL 查詢編輯器是 Azure 入口網站瀏覽器工具，提供簡單的方法在您的 Azure SQL Database 或 Azure SQL 資料倉儲上執行 SQL 查詢。 此快速入門會示範如何使用查詢編輯器連線至 SQL Database，然後使用 Transact-SQL 陳述式查詢、插入、更新及刪除資料。
+SQL 查詢編輯器是 Azure 入口網站瀏覽器工具，提供簡單的方法在您的 Azure SQL Database 或 Azure SQL 資料倉儲上執行 SQL 查詢。 在此快速入門中，您將使用查詢編輯器連線至 SQL 資料庫，然後使用 Transact-SQL 陳述式查詢、插入、更新及刪除資料。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -92,7 +92,7 @@ SQL 查詢編輯器是 Azure 入口網站瀏覽器工具，提供簡單的方法
 
 ## <a name="insert-data"></a>插入資料
 
-使用以下 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 陳述式在 `SalesLT.Product` 資料表中加入新產品。
+執行以下 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 陳述式在 `SalesLT.Product` 資料表中加入新產品。
 
 1. 使用此查詢取代先前的查詢。
 
@@ -117,12 +117,12 @@ SQL 查詢編輯器是 Azure 入口網站瀏覽器工具，提供簡單的方法
    ```
 
 
-2. 選取 [執行] 以在 Product 資料表中插入新資料列。 [訊息] 窗格會顯示**成功的查詢：受影響的資料列：1**。
+2. 選取 [執行] 以在 `Product` 資料表中插入新資料列。 [訊息] 窗格會顯示**成功的查詢：受影響的資料列：1**。
 
 
 ## <a name="update-data"></a>更新資料
 
-使用以下 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 陳述式修改您的新產品。
+執行以下 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 陳述式修改您的新產品。
 
 1. 使用此查詢取代先前的查詢。
 
@@ -132,11 +132,11 @@ SQL 查詢編輯器是 Azure 入口網站瀏覽器工具，提供簡單的方法
    WHERE Name = 'myNewProduct';
    ```
 
-2. 選取 [執行] 以在 Product 資料表中更新指定的資料列。 [訊息] 窗格會顯示**成功的查詢：受影響的資料列：1**。
+2. 選取 [執行] 以在 `Product` 資料表中更新指定的資料列。 [訊息] 窗格會顯示**成功的查詢：受影響的資料列：1**。
 
 ## <a name="delete-data"></a>刪除資料
 
-使用以下 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 陳述式移除您的新產品。
+執行以下 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 陳述式移除您的新產品。
 
 1. 使用此查詢取代先前的查詢：
 
@@ -145,7 +145,7 @@ SQL 查詢編輯器是 Azure 入口網站瀏覽器工具，提供簡單的方法
    WHERE Name = 'myNewProduct';
    ```
 
-2. 選取 [執行] 以在 Product 資料表中刪除指定的資料列。 [訊息] 窗格會顯示**成功的查詢：受影響的資料列：1**。
+2. 選取 [執行] 以在 `Product` 資料表中刪除指定的資料列。 [訊息] 窗格會顯示**成功的查詢：受影響的資料列：1**。
 
 
 ## <a name="query-editor-considerations"></a>查詢編輯器考量
@@ -156,7 +156,7 @@ SQL 查詢編輯器是 Azure 入口網站瀏覽器工具，提供簡單的方法
 
 * 按下 F5 可重新整理查詢編輯器頁面，而且任何正在進行的查詢都會遺失。
 
-* 查詢編輯器不支援連線到主要資料庫。
+* 查詢編輯器不支援連線到 `master` 資料庫。
 
 * 查詢執行的逾時時間是 5 分鐘。
 

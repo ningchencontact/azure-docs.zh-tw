@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 上試用雲端式 IoT 預測性維護解決方案 | Microsoft Docs
+title: 試用雲端式 IoT 預測性維護解決方案 - Azure | Microsoft Docs
 description: 在本快速入門中，您會部署預測性維護 Azure IoT 解決方案加速器，然後登入和使用解決方案儀表板。
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: c56bdb5968b5f5ada902aa9212282c3cfebe2eaf
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 22f0eae805ad112c5a6a7746897dac7e37d90028
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139834"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604332"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>快速入門：嘗試以雲端式解決方案對我的連線裝置執行預測性維護分析
 

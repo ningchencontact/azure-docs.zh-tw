@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 上試用解決方案以管理我的工業用 IoT 裝置 | Microsoft Docs
+title: 試用解決方案以管理我的工業用 IoT 裝置 - Azure | Microsoft Docs
 description: 在本快速入門中，您將部署連線工廠的 Azure IoT 解決方案加速器，然後登入和使用解決方案儀表板。
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138990"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602642"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>快速入門：嘗試以雲端式解決方案管理我的工業用 IoT 裝置
 
@@ -76,7 +76,7 @@ ms.locfileid: "50138990"
 
 [![整體設備效率](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
-OEE 會使用生產相關作業參數來評比製造程序的效率。 OEE 是一種業界標準量值，其計算方式是將可用率、效能率和品質率相乘︰OEE = 可用項 x 效能 x 品質。
+OEE 會使用生產相關作業參數來評比製造程序的效率。 OEE 業界標準量值，計算方式是將可用率、效能率和品質率相乘：OEE = 可用性 x 效能 x 品質。
 
 您可以進一步分析階層資料中任何層級的 OEE。 請按一下 OEE、可用性、效能或品質百分比刻度盤。 內容面板會隨即出現，並顯示不同時間範圍的資料視覺效果：
 

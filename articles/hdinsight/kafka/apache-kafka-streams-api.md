@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 8319376c597f16a5bfe1a357d74c59453b797e51
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: cb959bd74322534573f83c2b3258ff28d4c324ff
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495135"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584151"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>教學課程：Apache Kafka 串流 API
 
@@ -22,7 +22,7 @@ ms.locfileid: "52495135"
 
 本教學課程中使用的應用程式是串流字數統計程式。 它會讀取 Kafka 主題中的文字資料、擷取個別文字，然後將文字和字數儲存到另一個 Kafka 主題中。
 
-> [!NOTE]
+> [!NOTE]  
 > Kafka 串流處理通常會使用 Apache Spark 或 Apache Storm 來完成。 Kafka 0.10.0 版 (在 HDInsight 3.5 和 3.6 中) 導入了 Kafka 串流 API。 此 API 可讓您轉換輸入和輸出主題之間的資料流。 在某些情況下，這可能是建立 Spark 或 Storm 串流解決方案的替代方案。 
 >
 > 如需有關 Kafka 串流的詳細資訊，請參閱 Apache.org 上的[串流簡介](https://kafka.apache.org/10/documentation/streams/)文件。
@@ -48,7 +48,7 @@ ms.locfileid: "52495135"
 
 * [Java JDK 8](https://aka.ms/azure-jdks) 或同等功能版本，例如 OpenJDK。
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * SSH 用戶端和 `scp` 命令。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
 
@@ -63,7 +63,7 @@ ms.locfileid: "52495135"
 
 在 `pom.xml` 檔案中務必要了解的事項包括：
 
-* 相依性：此專案依存於 `kafka-clients` 套件所提供的 Kafka 串流 API。 下列 XML 程式碼會定義此相依性：
+* 相依性：此專案依存於 `kafka-clients` 套件所提供的「Kafka 串流 API」。 下列 XML 程式碼會定義此相依性：
 
     ```xml
     <!-- Kafka client for producer/consumer operations -->
@@ -74,7 +74,7 @@ ms.locfileid: "52495135"
     </dependency>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > `${kafka.version}` 項目會在 `pom.xml` 的 `<properties>..</properties>` 區段中進行宣告，並設定為 HDInsight 叢集的 Kafka 版本。
 
 * 外掛程式：Maven 外掛程式可提供多種功能。 在此專案中，會使用下列外掛程式：
@@ -184,7 +184,7 @@ public class Stream
 
 4. 若要建立串流作業所使用的主題，請使用下列命令：
 
-    > [!NOTE]
+    > [!NOTE]  
     > 您可能會收到指出 `test` 主題已存在的錯誤。 這是正常的，因為該主題可能已在「Producer 和 Consumer API」教學課程中建立。
 
     ```bash
@@ -204,7 +204,7 @@ public class Stream
     * `RekeyedIntermediateTopic`：此主題可在 `countByKey` 運算子更新計數時用來重新分割資料。
     * `wordcount-example-Counts-changelog`：此主題是 `countByKey` 作業所使用的狀態存放區
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > HDInsight 上的 Kafka 也可設定為自動建立主題。 如需詳細資訊，請參閱[設定自動建立主題功能](apache-kafka-auto-create-topics.md)文件。
 
 ## <a name="run-the-code"></a>執行程式碼
@@ -215,8 +215,8 @@ public class Stream
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]
-    > 您可能會收到關於 log4j 的警告。 您可以忽略此警告。
+    > [!NOTE]  
+    > 您可能會收到關於 Apache log4j 的警告。 您可以忽略此警告。
 
 2. 若要將記錄傳送至 `test` 主題，請使用下列命令啟動產生器應用程式：
 
@@ -230,7 +230,7 @@ public class Stream
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > `--property` 參數會告知主控台取用者列印索引鍵 (字組) 和計數 (值)。 這個參數也會設定從 Kafka 讀取這些值時要使用的還原序列化。
 
     輸出大致如下：
@@ -248,7 +248,7 @@ public class Stream
         jumped  13640
         jumped  13641
    
-    > [!NOTE]
+    > [!NOTE]  
     > 參數 `--from-beginning` 會設定讓取用者從主題中儲存的記錄開頭處開始執行。 每遇到一個字，字數就會增加一個，因此主題中會包含每個字的多個項目，且計數會遞增。
 
 7. 使用 __Ctrl + C__ 來結束產生者。 繼續使用 __Ctrl + C__ 來結束應用程式和取用者。

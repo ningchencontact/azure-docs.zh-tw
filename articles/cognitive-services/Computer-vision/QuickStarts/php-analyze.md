@@ -1,5 +1,5 @@
 ---
-title: 快速入門：分析遠端影像 - REST、PHP - 電腦視覺
+title: 快速入門：分析遠端影像 - REST、PHP
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用電腦視覺 API 搭配 PHP 分析影像。
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: d9e65b5fa42cc9026f8b1e3f18901f988c38cc46
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 8af75c05d3c30fd8a3f2808cf81de840b7df2d6c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340999"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584287"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-php-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 與 PHP 分析遠端影像
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-php-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 PHP 分析遠端影像
 
 在此快速入門中，您將使用電腦視覺的 REST API，來分析遠端儲存的影像以擷取視覺功能。 您可以使用[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法，根據影像內容來擷取視覺功能。
 
@@ -33,7 +34,7 @@ ms.locfileid: "49340999"
 
 若要建立並執行範例，請執行下列步驟：
 
-1. 安裝 PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) 套件。
+1. 安裝 PHP5 [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) 套件。
    1. 以系統管理員身分開啟 [命令提示字元] 視窗。
    1. 執行以下命令：
 

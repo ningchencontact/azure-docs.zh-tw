@@ -1,7 +1,7 @@
 ---
-title: 快速入門：建立圖像式搜尋查詢 (Python) - Bing 圖像式搜尋
+title: 快速入門：使用 Bing 圖像式搜尋 REST API 和 Python 取得影像見解
 titleSuffix: Azure Cognitive Services
-description: 示範如何將影像上傳到 Bing 圖像式搜尋 API，並取回影像的相關見解。
+description: 了解如何將影像上傳到 Bing 圖像式搜尋 API 並取得其見解。
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,18 +10,18 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 3a0d92e42eed097e244118a60ec0a4223c9cedf5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3930de4d8d1f50c0ba6908ea642fc152c29b7371
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52440936"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744797"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>快速入門：使用 Python 的第一個 Bing 圖像式搜尋查詢
 
-Bing 圖像式搜尋 API 會傳回您所提供影像的相關資訊。 您可以使用影像的 URL、見解權杖，或上傳影像來提供影像。 如需這些選項的資訊，請參閱[什麼是 Bing 圖像式搜尋 API？](../overview.md) 本文將示範如何上傳影像。 在拍攝知名地標的照片並取回其相關資訊的行動裝置案例中，上傳影像可能很有用。 例如，見解可能包含關於地標的雜項。 
+使用本快速入門來進行您對 Bing 圖像式搜尋 API 的第一次呼叫並檢視搜尋結果。 這個簡單的 JavaScript 應用程式會將影像上傳至 API，並顯示傳回的相關資訊。 雖然此應用程式是以 JavaScript 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
-若您上傳本機影像，以下會顯示您必須包含在 POST 本文中的表單資料。 表單資料必須包含 Content-Disposition 標頭。 其 `name` 參數必須設定為 "image"，而 `filename` 參數可以設定為任何字串。 表單的內容是影像的二進位檔案。 您可以上傳的影像大小上限為 1 MB。 
+上傳本機影像時，POST 表單資料必須包含 Content-Disposition 標頭。 其 `name` 參數必須設定為 "image"，而 `filename` 參數可以設定為任何字串。 表單的內容是影像的二進位檔案。 您可以上傳的影像大小上限為 1 MB。
 
 ```
 --boundary_1234-abcd
@@ -32,85 +32,67 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-本文包含簡單的主控台應用程式，它會傳送 Bing 圖像式搜尋 API 要求，並顯示 JSON 搜尋結果。 雖然此應用程式是以 Python 撰寫，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。 
-
 ## <a name="prerequisites"></a>必要條件
 
-您需要 [Python 3](https://www.python.org/) 以執行此程式碼。
-
-為使用本快速入門，您必須在 S9 定價層上啟用訂用帳戶，如[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/) 中所示。 
-
-若要在 Azure 入口網站中啟用訂用帳戶：
-1. 在 Azure 入口網站頂端顯示 `Search resources, services, and docs` 的文字方塊中輸入 'BingSearchV7'。  
-2. 在下拉式清單中的 Marketplace 下選取 `Bing Search v7`。
-3. 輸入新資源的 `Name`。
-4. 選取 `Pay-As-You-Go` 訂用帳戶。
-5. 選取 `S9` 定價層。
-6. 按一下 `Enable` 來啟用訂用帳戶。
-
-## <a name="running-the-walkthrough"></a>執行逐步解說
-
-若要執行此應用程式，請遵循下列步驟：
-
-1. 在您最愛的 IDE 或編輯器中，建立新的 Python 專案。
-2. 建立名為 visualsearch.py 的檔案，並新增本快速入門中所示的程式碼。
-3. 以您的訂用帳戶金鑰取代 `SUBSCRIPTION_KEY` 值。
-3. 以要上傳之影像的路徑取代 `imagePath` 值。
-4. 執行程式。
+* [Python 3.x](https://www.python.org/)
 
 
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-以下示範如何使用 Python 中的多部分表單資料來傳送訊息。
+## <a name="initialize-the-application"></a>初始化應用程式
 
-```python
-"""Bing Visual Search upload image example"""
+1. 在您慣用的 IDE 或編輯器中建立新的 Python 專案，以及新增下列匯入陳述式。
 
-# Download and install Python at https://www.python.org/
-# Run the following in a command console window
-# pip3 install requests
+    ```python
+    import requests, json
+    ```
 
-import requests, json
+2. 為您的訂用帳戶金鑰、端點，以及您上傳影像的路徑，建立變數。
 
+    ```python
 
-BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
+    BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
+    SUBSCRIPTION_KEY = 'your-subscription-key'
+    imagePath = 'your-image-path'
+    ```
 
-SUBSCRIPTION_KEY = '<yoursubscriptionkeygoeshere>'
+3. 建立字典物件來保存您要求的標頭資訊。 將您的訂用帳戶金鑰繫結到字串 `Ocp-Apim-Subscription-Key` 中，如下所示。
 
-HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
+    ```python
+    HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
+    ```
 
-imagePath = '<pathtoyourimagetouploadgoeshere>'
+4. 建立包含您影像的另一個字典，這將會在您傳送要求時開啟並上傳。 
 
-file = {'image' : ('myfile', open(imagePath, 'rb'))}
+    ```python
+    file = {'image' : ('myfile', open(imagePath, 'rb'))}
+    ```
 
-def main():
-    
+## <a name="parse-the-json-response"></a>剖析 JSON 回應
+
+1. 建立一個稱為 `print_json()` 的方法，以便在 API 回應中採用並列印 JSON。
+
+    ```python
+    def print_json(obj):
+        """Print the object as json"""
+        print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
+    ```
+
+## <a name="send-the-request"></a>傳送要求
+
+1. 使用 `requests.post()` 將要求傳送至 Bing 圖像式搜尋 API。 包含您端點、標頭和檔案資訊的字串。 使用 `print_json()` 列印 `response.json()`
+
+    ```python
     try:
         response = requests.post(BASE_URI, headers=HEADERS, files=file)
         response.raise_for_status()
         print_json(response.json())
-
+    
     except Exception as ex:
         raise ex
-
-
-def print_json(obj):
-    """Print the object as json"""
-    print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
-
-
-
-# Main execution
-if __name__ == '__main__':
-    main()
-```
-
+    ```
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用見解權杖取得影像的相關見解](../use-insights-token.md)  
-[Bing 圖像式搜尋影像上傳教學課程](../tutorial-visual-search-image-upload.md)
-[Bing 圖像式搜尋單頁應用程式教學課程](../tutorial-bing-visual-search-single-page-app.md)  
-[Bing 圖像式搜尋概觀](../overview.md)  
-[試試看](https://aka.ms/bingvisualsearchtryforfree)  
-[取得免費試用的存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing 圖像式搜尋 API 參考](https://aka.ms/bingvisualsearchreferencedoc)
+> [!div class="nextstepaction"]
+> [建置自訂搜尋 Web 應用程式](../tutorial-bing-visual-search-single-page-app.md)

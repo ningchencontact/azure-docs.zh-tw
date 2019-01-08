@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用領域模型 - REST、PHP - 電腦視覺
+title: 快速入門：網域專屬的影像內容 - REST、PHP
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將搭配使用電腦視覺 API 與 PHP，使用領域模型來識別影像中的地標。
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 176e11615fe2f2c1b58b7608dfd5cbd349f9e547
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 19aa1874a93c4a52f6fc5ff75848c1ca6815db1e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340064"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581329"
 ---
-# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-php-in-computer-vision"></a>快速入門：在電腦視覺中利用 REST API 和 PHP 來使用領域模型
+# <a name="quickstart-recognize-domain-specific-content-using-the-rest-api-and-php-with-computer-vision"></a>快速入門：使用 REST API 和 PHP 搭配電腦視覺，辨識網域專屬的內容
 
 在本快速入門中，您將利用電腦視覺的 REST API，使用領域模型來識別遠端儲存之影像中的地標或名人 (選擇性)。 使用[辨識特定領域內容](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) \(英文\) 方法，您可以套用特定領域的模型來辨識影像中的內容。
 
@@ -33,7 +34,7 @@ ms.locfileid: "49340064"
 
 若要建立並執行範例，請執行下列步驟：
 
-1. 安裝 PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) 套件。
+1. 安裝 PHP5 [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) 套件。
    1. 以系統管理員身分開啟 [命令提示字元] 視窗。
    1. 執行以下命令：
 

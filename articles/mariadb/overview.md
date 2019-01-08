@@ -3,22 +3,20 @@ title: 「適用於 MariaDB 的 Azure 資料庫」關聯式資料庫服務的概
 description: 「適用於 MariaDB 的 Azure 資料庫」關聯式資料庫服務的概觀。
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/14/2018
-ms.openlocfilehash: ed4c05afdc5b061c7779a0b1ca34975f8b06ad7d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/03/2018
+ms.openlocfilehash: 507425a6cffc6f3b49e117ebf5a604bf0d252164
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686009"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542011"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>什麼是適用於 MariaDB 的 Azure 資料？
 
-「適用於 MariaDB 的 Azure 資料庫」是 Microsoft 雲端中的關聯式資料庫服務。 「適用於 MariaDB 的 Azure 資料庫」以 [MariaDB Community Edition](https://mariadb.org/download/) 資料庫引擎 (10.2 版) 作為基礎。 此服務目前為公開預覽狀態。 
+「適用於 MariaDB 的 Azure 資料庫」是 Microsoft 雲端中的關聯式資料庫服務。 「適用於 MariaDB 的 Azure 資料庫」以 [MariaDB Community Edition](https://mariadb.org/download/) 資料庫引擎 (10.2 版) 作為基礎。
 
 「適用於 MariaDB 的 Azure 資料庫」提供：
 
@@ -43,7 +41,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>在幾秒之內即可調整效能和規模
 
-在預覽中，「適用於 MariaDB 的 Azure 資料庫」服務提供了多個服務層：基本、一般用途和記憶體最佳化。 每個服務層提供不同的效能和功能，以支援輕量到重量級的資料庫工作負載。 您可以在小型資料庫中建置第一個應用程式，一個月只需少許花費，然後調整規模以滿足解決方案的需求。 動態延展性可協助資料庫以透明的方式回應快速變化的資源需求。 有資源需求時，您才需要就所需資源支付費用。 如需詳細資訊，請參閱 [定價層](concepts-pricing-tiers.md)。
+「適用於 MariaDB 的 Azure 資料庫」服務提供了多個服務層：「基本」、「一般用途」及「記憶體最佳化」。 每個服務層提供不同的效能和功能，以支援輕量到重量級的資料庫工作負載。 您可以在小型資料庫中建置第一個應用程式，一個月只需少許花費，然後調整規模以滿足解決方案的需求。 動態延展性可協助資料庫以透明的方式回應快速變化的資源需求。 有資源需求時，您才需要就所需資源支付費用。 如需詳細資訊，請參閱 [定價層](concepts-pricing-tiers.md)。
 
 ## <a name="monitoring-and-alerting"></a>監視和警示
 
@@ -51,7 +49,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="keep-your-app-and-business-running"></a>讓您的應用程式和業務持續運作
 
-Azure 領先業界的 99.99% 可用性 SLA (公開預覽期間不提供)，並由受 Microsoft 管理之資料中心的全球網路提供支援。 此網路可協助讓應用程式 24 小時全年無休地運作。 您可從「適用於 MariaDB 的 Azure 資料庫」內建的安全性、容錯及資料保護獲益。 使用「適用於 MariaDB 的 Azure 資料庫」，您可以使用時間點還原將伺服器回復成先前的狀態，最久可至 35 天前。
+Azure 領先業界的 99.99% 可用性 SLA，並由受 Microsoft 管理之資料中心的全球網路提供支援。 此網路可協助讓應用程式 24 小時全年無休地運作。 您可從「適用於 MariaDB 的 Azure 資料庫」內建的安全性、容錯及資料保護獲益。 使用「適用於 MariaDB 的 Azure 資料庫」，您可以使用時間點還原將伺服器回復成先前的狀態，最久可至 35 天前。
 
 ## <a name="secure-your-data"></a>保護您的資料
 

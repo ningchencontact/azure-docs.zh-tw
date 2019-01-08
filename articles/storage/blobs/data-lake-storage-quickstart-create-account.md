@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 914dcf6d19ca0791c5914e7d605e48f15a610d62
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d093dbe50cb76faedc463603edc459b22dda4fba
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099506"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628233"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>快速入門：建立 Azure Data Lake Storage Gen2 儲存體帳戶
 
@@ -116,21 +116,11 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 
 ### <a name="upgrade-your-powershell-module"></a>升級 PowerShell 模組
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 若要使用 PowerShell 和 Data Lake Storage Gen2 互動，需要安裝模組 Az.Storage **0.7** 版或更新版本。
 
 從以提高的權限開啟 PowerShell 工作階段作為開始。
-
-然後判斷是否已安裝 AzureRM.Storage 模組。
-
-```powershell
-Get-Module -ListAvailable AzureRM.Storage
-```
-
-如果顯示模組，請將它解除安裝。
-
-```powershell
-Uninstall-Module AzureRM.Storage -Force
-```
 
 安裝 Az.Storage 模組
 
@@ -138,28 +128,20 @@ Uninstall-Module AzureRM.Storage -Force
 Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
 ```
 
-針對 AzureRM 啟用相容性模式。
-
-```powershell
-Enable-AzureRMAlias
-```
-
-相容性模式代表即使您已經將 AzureRM.Storage 模組解除安裝，使用 AzureRM.Storage 模組的任何指令碼仍將會繼續運作。
-
 > [!NOTE]
-> Azure Powershell Az 模組是在 Powershell 中與 Azure 服務搭配使用的慣用模組。 若要進一步了解，請參閱[新的 Azure PowerShell Az 模組簡介](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0)。
+> Azure Powershell Az 模組是在 Powershell 中與 Azure 服務搭配使用的慣用模組。 若要進一步了解，請參閱[新的 Azure PowerShell Az 模組簡介](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)。
 
 ### <a name="log-in-to-your-azure-subscription"></a>登入 Azure 訂用帳戶
 
-請使用 `Login-AzureRmAccount` 命令並遵循畫面上的指示進行驗證。
+請使用 `Login-AzAccount` 命令並遵循畫面上的指示進行驗證。
 
 ```powershell
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-若要使用 PowerShell 建立新的資源群組，請使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 命令： 
+若要使用 PowerShell 建立新的資源群組，請使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 命令： 
 
 > [!NOTE]
 > 階層命名空間目前可在所有公用區域中使用。 其目前無法在主權雲端中使用。
@@ -169,17 +151,17 @@ Login-AzureRmAccount
 # without hardcoding it repeatedly
 $resourceGroup = "storage-quickstart-resource-group"
 $location = "westus2"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>建立一般用途的 v2 儲存體帳戶
 
-若要從 PowerShell 建立具有本地備援儲存體 (LRS) 的一般用途 v2 儲存體帳戶，請使用 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 命令：
+若要從 PowerShell 建立具有本地備援儲存體 (LRS) 的一般用途 v2 儲存體帳戶，請使用 [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) 命令：
 
 ```powershell
 $location = "westus2"
 
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
@@ -189,10 +171,10 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 ### <a name="clean-up-resources"></a>清除資源
 
-若要移除資源群組及其相關聯的資源，包括新的儲存體帳戶，請使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令： 
+若要移除資源群組及其相關聯的資源，包括新的儲存體帳戶，請使用 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 命令： 
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="create-an-account-using-azure-cli"></a>使用 Azure CLI 建立帳戶

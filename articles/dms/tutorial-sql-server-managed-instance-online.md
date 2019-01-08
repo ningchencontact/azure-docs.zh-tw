@@ -5,24 +5,21 @@ services: dms
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/04/2018
-ms.openlocfilehash: 030cd89bbd6407cd2e83a9b56942adbf419e069b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/19/2018
+ms.openlocfilehash: f23b297acdd8de0c26bf5fc02bc2d5415845b828
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956698"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718175"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>教學課程：使用 DMS 在線上將 SQL Server 遷移至 Azure SQL Database 受控執行個體
 您可以使用 Azure 資料庫移轉服務，以最短停機時間將內部部署 SQL Server 執行個體的資料庫遷移至 [Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance.md)。 如需其他可能需要手動操作的方法，請參閱[將 SQL Server 執行個體遷移至 Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance-migrate.md)一文。
-
->[!IMPORTANT]
->在線上將專案從 SQL Server 移轉至 Azure SQL Database 受控執行個體目前為預覽狀態，而且必須遵循 [Microsoft Azure 預覽補充使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 在本教學課程中，您要使用 Azure 資料庫移轉服務，以最短停機時間將 **Adventureworks2012** 資料庫從內部部署 SQL Server 執行個體遷移至 Azure SQL Database 受控執行個體。
 
@@ -34,7 +31,7 @@ ms.locfileid: "52956698"
 > * 在您準備好時進行完全移轉。
 
 > [!NOTE]
-> 使用 Azure 資料庫移轉服務來執行線上移轉，需要根據進階 (預覽) 定價層來建立執行個體。
+> 若要使用「Azure 資料庫移轉服務」來執行線上移轉，必須根據「進階」定價層建立執行個體。
 
 > [!IMPORTANT]
 > 為了獲得最佳的移轉體驗，Microsoft 建議在目標資料庫所在的同一個 Azure 區域中，建立 Azure 資料庫移轉服務的執行個體。 跨區域或地理位置移動資料可能使移轉程序變慢，並產生錯誤。
@@ -95,10 +92,10 @@ ms.locfileid: "52956698"
 
     如需其他詳細資訊，請參閱[了解使用 Azure 資料庫移轉服務進行 Azure SQL DB 受控執行個體移轉的網路拓樸](https://aka.ms/dmsnetworkformi)一文。
 
-6. 從「業務關鍵 (預覽)」定價層中選取 SKU。
+6. 從「進階」定價層選取 SKU。
 
     > [!NOTE]
-    > 僅在使用「業務關鍵 (預覽)」層時才支援線上移轉。 
+    > 只有在使用「進階」層的情況下，才支援線上移轉。 
    
     如需成本和定價層的詳細資訊，請參閱[定價分頁](https://aka.ms/dms-pricing)。
    
@@ -118,7 +115,7 @@ ms.locfileid: "52956698"
  
 3. 選取 [+ 新增移轉專案]。
 
-4. 在 [新增移轉專案] 畫面上指定專案名稱、在 [來源伺服器類型] 文字方塊中選取 [SQL Server]、在 [目標伺服器類型] 文字方塊中選取 [Azure SQL Database 受控執行個體]，然後針對 [選擇活動類型]，選取 [線上資料移轉 (預覽)]。
+4. 在 [新增移轉專案] 畫面上指定專案名稱、在 [來源伺服器類型] 文字方塊中選取 [SQL Server]、在 [目標伺服器類型] 文字方塊中選取 [Azure SQL Database 受控執行個體]，然後針對 [選擇活動類型]，選取 [連線資料移轉]。
 
    ![建立 DMS 專案](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
 

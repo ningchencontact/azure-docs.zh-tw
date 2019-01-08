@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: c22d75b4eb058942da5a3b0699cbb4a23eec42f3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec2c7a25c5108ee3c6f861defd8403ff40113075
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634926"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722212"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>比較 Flow、Logic Apps、Functions 和 WebJob
 
@@ -26,7 +26,7 @@ ms.locfileid: "52634926"
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
-* [Azure App Service WebJobs](../app-service/web-sites-create-web-jobs.md)
+* [Azure App Service WebJobs](../app-service/webjobs-create.md)
 
 所有這些服務都可以解決整合問題，以及自動化商業流程。 它們全都可以定義輸入、動作、條件和輸出。 您可以在排程或觸發程序上執行上述各項服務。 不過，各服務都有獨特的優點，本文將說明這些差異。
 
@@ -70,7 +70,7 @@ Functions 和 Logic Apps 都是可啟用無伺服器工作負載的 Azure 服務
 
 ## <a name="compare-functions-and-webjobs"></a>比較 Functions 和 Webjob
 
-如同 Azure Functions，搭配 WebJobs SDK 的 Azure App Service WebJobs 是針對開發人員所設計的 Code First 整合服務。 兩者皆以 [Azure App Service](../app-service/app-service-web-overview.md) 為基礎，並支援[原始檔控制整合](../app-service/app-service-continuous-deployment.md)、[驗證](../app-service/app-service-authentication-overview.md)和[使用 Application Insights 整合進行監視](functions-monitoring.md)等功能。
+如同 Azure Functions，搭配 WebJobs SDK 的 Azure App Service WebJobs 是針對開發人員所設計的 Code First 整合服務。 兩者皆以 [Azure App Service](../app-service/overview.md) 為基礎，並支援[原始檔控制整合](../app-service/deploy-continuous-deployment.md)、[驗證](../app-service/overview-authentication-authorization.md)和[使用 Application Insights 整合進行監視](functions-monitoring.md)等功能。
 
 ### <a name="webjobs-and-the-webjobs-sdk"></a>WebJob 和 WebJob SDK
 

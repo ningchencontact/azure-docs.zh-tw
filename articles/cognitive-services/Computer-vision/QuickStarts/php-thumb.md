@@ -1,5 +1,5 @@
 ---
-title: 快速入門：產生縮圖 - REST、PHP - 電腦視覺
+title: 快速入門：產生縮圖 - REST、PHP
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將搭配使用電腦視覺 API 與 PHP，從影像產生縮圖。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 171893dd3017d46c405d2269506fe37896155e55
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 1527f57a1d300f730222d100bc9caf2001098fea
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964504"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579340"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 PHP 來產生縮圖
 
@@ -33,7 +34,7 @@ ms.locfileid: "52964504"
 
 若要建立並執行範例，請執行下列步驟：
 
-1. 安裝 PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) 套件。
+1. 安裝 PHP5 [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) 套件。
    1. 以系統管理員身分開啟 [命令提示字元] 視窗。
    1. 執行以下命令：
 

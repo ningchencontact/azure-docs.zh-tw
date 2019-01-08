@@ -1,5 +1,5 @@
 ---
-title: 在 Linux 上建立 Node.js Web 應用程式 - Azure App Service | Microsoft Docs
+title: 在 Linux 上建立 Node.js 應用程式 - Azure App Service | Microsoft Docs
 description: 短短幾分鐘內在 Linux 上的 Azure App Service 中部署第一個 Node.js Hello World。
 services: app-service\web
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 22a022b12e931fd4edf139038eb7506e69422f8e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c739aa4fb510bd5ebe9e3ffff67f93a2dd49cf0c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253560"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631527"
 ---
-# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建立 Node.js Web 應用程式
+# <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建立 Node.js 應用程式
 
 > [!NOTE]
-> 本文會將應用程式部署至 Linux 上的 App Service。 若要在 _Windows_ 上部署 App Service，請參閱[在 Azure 中建立 Node.js Web 應用程式](../app-service-web-get-started-nodejs.md)。
+> 本文會將應用程式部署至 Linux 上的 App Service。 若要在 _Windows_ 上部署至 App Service，請參閱[在 Azure 中建立 Node.js 應用程式](../app-service-web-get-started-nodejs.md)。
 >
 
 [Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門會說明如何使用 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)，將 Node.js 應用程式部署至 Linux 上的 App Service。
@@ -136,17 +136,17 @@ All done.
 
 - 建立具有所指定名稱的應用程式。
 
-- [以 Zip 檔進行部署](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip)，將目前工作目錄中的檔案部署到 Web 應用程式。
+- [以 Zip 檔進行部署](https://docs.microsoft.com/azure/app-service/deploy-zip)，將目前工作目錄中的檔案部署到應用程式。
 
 ## <a name="browse-to-the-app"></a>瀏覽至應用程式
 
-使用 web 瀏覽器瀏覽至已部署的應用程式。 以您的 Web 應用程式名稱取代 <app_name>。
+使用 web 瀏覽器瀏覽至已部署的應用程式。 以您的應用程式名稱取代 <app_name>。
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Node.js 範例程式碼正在具有內建映像的 Web 應用程式中執行。
+具有內建映像的 Node.js 程式碼範例正在 Linux 上的 App Service 中執行。
 
 ![在 Azure 中執行的範例應用程式](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -166,7 +166,7 @@ response.end("Hello Azure!");
 
 儲存您的變更並結束 nano。 使用 `^O` 命令進行儲存，以及使用 `^X` 來結束作業。
 
-您現在將重新部署應用程式。 使用 Web 應用程式替代 `<app_name>`。
+您現在將重新部署應用程式。 使用應用程式替代 `<app_name>`。
 
 ```bash
 az webapp up -n <app_name>
@@ -176,15 +176,15 @@ az webapp up -n <app_name>
 
 ![在 Azure 中執行的已更新範例應用程式](media/quickstart-nodejs/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>管理新的 Azure Web 應用程式
+## <a name="manage-your-new-azure-app"></a>管理新的 Azure 應用程式
 
-請移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理您所建立的 Web 應用程式。
+移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理您所建立的應用程式。
 
-按一下左側功能表中的 [應用程式服務]，然後按一下 Azure Web 應用程式的名稱。
+按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
 
-![入口網站瀏覽至 Azure Web 應用程式](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
+![入口網站瀏覽至 Azure 應用程式](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
 
-您會看到 Web 應用程式的 [概觀] 頁面。 您可以在這裡完成基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。
+您會看到應用程式的 [概觀] 頁面。 您可以在這裡完成基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。
 
 ![Azure 入口網站中的 App Service 頁面](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
 

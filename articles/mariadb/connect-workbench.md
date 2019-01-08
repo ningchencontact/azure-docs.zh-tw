@@ -3,20 +3,18 @@ title: 從 MySQL Workbench 連線到適用於 MariaDB 的 Azure 資料庫
 description: 本快速入門提供的步驟，可讓您使用 MySQL Workbench 連線及查詢來自「適用於 MariaDB 的 Azure 資料庫」的資料。
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 45c1207ab6ab2a7a649efcd355bcab06ea79e149
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 121766a312db1970981b7ffb1c718f27c9f5d3d1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49317597"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538737"
 ---
-# <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>適用於 MariaDB 的 Azure 資料庫︰使用 MySQL Workbench 來連線及查詢資料
+# <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>適用於 MariaDB 的 Azure 資料庫：使用 MySQL Workbench 連線並查詢資料
 
 本快速入門示範如何使用 MySQL Workbench 連線到適用於 MariaDB 的 Azure 資料庫執行個體。 
 
@@ -60,7 +58,7 @@ ms.locfileid: "49317597"
     | 主機名稱 | 伺服器名稱 | 指定您建立適用於 MariaDB 的 Azure 資料庫執行個體時所使用的伺服器名稱值。 範例伺服器是 **mydemoserver.mariadb.database.azure.com**。 使用完整網域名稱 (\*.mariadb.database.azure.com)，如範例所示。 如果您不記得伺服器名稱，請完成上一節中的步驟以取得連線資訊。  |
     | Port | **3306** | 連線到適用於 MariaDB 的 Azure 資料庫時，請一律使用連接埠 3306。 |
     | 使用者名稱 |  伺服器管理員登入名稱 | 輸入您建立適用於 MariaDB 的 Azure 資料庫執行個體時所使用的伺服器管理員登入使用者名稱。 我們的範例使用者名稱為 **myadmin@mydemoserver**。 如果您不記得伺服器管理員登入名稱，請完成上一節中的步驟以取得連線資訊。 格式為 *username@servername*。
-    | 密碼 | *您的密碼* | 若要儲存密碼，請選取 [儲存在保存庫]。 |
+    | 密碼 | 您的密碼 | 若要儲存密碼，請選取 [儲存在保存庫]。 |
 
     ![設定新的連線](./media/connect-workbench/2-setup-new-connection.png)
 

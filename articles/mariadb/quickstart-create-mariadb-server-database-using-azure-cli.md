@@ -3,19 +3,17 @@ title: 快速入門：建立適用於 MariaDB 的 Azure 資料庫伺服器 - Azu
 description: 本快速入門說明如何使用 Azure CLI，在 Azure 資源群組中建立適用於 MariaDB 的 Azure 資料庫伺服器。
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: bc32cde7e4b4cf68b12b100eb402237098459aae
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 19c1952a25e6a6db9b81b74f79bdcd2970cb2c78
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566443"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538733"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>使用 Azure CLI 建立適用於 MariaDB 的 Azure 資料庫伺服器
 
@@ -59,7 +57,7 @@ ssl-enforcement | **已啟用** | 是否應針對此伺服器啟用 SSL。 允�
 storage-size | **51200** | 伺服器的儲存體容量 (單位為 MB)。 有效的儲存體大小為 5120 MB (最小值)，並以 1024 MB 的增量增加。 如需儲存體大小限制的詳細資訊，請參閱[定價層](./concepts-pricing-tiers.md)。 
 version | **10.2** | MariaDB 主要引擎版本。
 admin-user | myadmin | 適用於系統管理員登入的使用者名稱。 **admin-user** 參數不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
-admin-password | 您的密碼 | 系統管理員使用者的密碼。 您的密碼必須包含 8 到 128 個字元。 其中必須包含下列三個類別的字元：英文大寫字母、英文小寫字母、數字與非英數字元。
+admin-password | 您的密碼 | 系統管理員使用者的密碼。 您的密碼必須包含 8 到 128 個字元。 它必須包含下列類別中三種類別的字元：英文大寫字母、英文小寫字母、數字及非英數字元。
 
 **sku-name** 參數值會遵循慣例 *pricing tier*\_*compute generation*\_*vCores*，如下列範例所示：
 + `--sku-name B_Gen5_4` 會對應至基本定價層、 第 5 代計算世代及 4 個 vCore。

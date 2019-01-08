@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/13/2018
 ms.author: chlandsi
-ms.openlocfilehash: eaa44f942082c6bd062599dbdd0401fe4505daf4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 75411ebd50448c5f490a1f03fbbf25a61dbffaf8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090192"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718107"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>快速入門：使用語音服務 SDK 在 iOS 上以 Objective-C 辨識語音
 
@@ -35,7 +35,7 @@ ms.locfileid: "53090192"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `1.1.0`。
+認知服務語音 SDK 目前的版本為 `1.2.0`。
 
 適用於 Mac 和 iOS 的認知服務語音 SDK 目前以 Cocoa Framework 的形式散發。
 您可以從 https://aka.ms/csspeech/iosbinary 加以下載。 請將檔案下載到您的主目錄。
@@ -49,7 +49,7 @@ ms.locfileid: "53090192"
 
 1. 專案選項對話方塊
     1. 輸入快速入門應用程式的名稱，例如 `helloworld`。
-    1. 如果您已有 Apple 開發人員帳戶，請輸入適當的組織名稱和組織識別碼。 基於測試用途，您可以直接挑選類似於 `testorg` 的任何名稱。 為了簽署應用程式，您也需要適當的佈建設定檔。 如需詳細資訊，請參閱 [Apple 開發人員網站](https://developer.apple.com/)。
+    1. 如果您已有 Apple 開發人員帳戶，請輸入適當的組織名稱和組織識別碼。 基於測試用途，您可以直接挑選類似於 `testorg` 的任何名稱。 若要簽署應用程式，您需要適當的佈建設定檔。 如需詳細資訊，請參閱 [Apple 開發人員網站](https://developer.apple.com/)。
     1. 確定已選擇 Objective-C 作為專案的語言。
     1. 停用測試和核心資料的所有核取方塊。
     ![專案設定](media/sdk/qs-objectivec-project-settings.png)
@@ -57,7 +57,7 @@ ms.locfileid: "53090192"
     1. 選擇用來放置專案的主目錄。 這會在您的主目錄中建立 `helloworld` 目錄，其中包含 Xcode 專案檔的所有檔案。
     1. 停用為此範例專案建立 Git 存放庫的功能。
     1. 在 [專案設定] 中調整 SDK 的路徑。
-        1. 在 [內嵌的二進位檔] 標頭下方的 [一般] 索引標籤中，新增 SDK 程式庫作為架構：[新增內嵌的二進位檔] > [新增其他...] > 瀏覽至您的主目錄，然後選擇檔案 `MicrosoftCognitiveServicesSpeech.framework`。 這也會自動將 SDK 程式庫新增至 [連結的架構和程式庫] 標頭。
+        1. 在 [內嵌的二進位檔] 標頭下方的 [一般] 索引標籤中，新增 SDK 程式庫作為架構：[新增內嵌的二進位檔] > [新增其他...] > 瀏覽至您的主目錄，然後選擇檔案 `MicrosoftCognitiveServicesSpeech.framework`。 這會將 SDK 程式庫自動加入**連結的架構和程式庫**標頭。
         ![新增的架構](media/sdk/qs-objectivec-framework.png)
         1. 移至 [組建設定] 索引標籤，然後啟動 [所有] 設定。
         1. 將目錄 `$(SRCROOT)/..` 新增至 [搜尋路徑] 標題下方的 [架構搜尋路徑]。
@@ -68,7 +68,7 @@ ms.locfileid: "53090192"
 範例應用程式將提供一個非常簡單的 UI：以檔案或是麥克風輸入啟動語音辨識的兩個按鈕，以及顯示結果的文字標籤。
 此 UI 可在專案的 `Main.storyboard` 部分中設定。
 以滑鼠右鍵按一下專案樹狀結構的 `Main.storyboard` 項目，然後選取 [開啟形式...] > [原始程式碼]，以開啟分鏡腳本的 XML 檢視。
-請將自動產生的 XML 取代為下列內容：
+請將自動產生的 XML 取代為此程式碼：
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/Base.lproj/Main.storyboard)]
 
@@ -81,7 +81,7 @@ ms.locfileid: "53090192"
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
 1. 將字串 `YourSubscriptionKey` 取代為您的訂用帳戶金鑰。
 1. 以與您的訂用帳戶 (例如，免費試用訂用帳戶的 `westus`) 相關聯的[區域](regions.md)取代 `YourServiceRegion` 字串。
-1. 將麥克風存取的要求。 以滑鼠右鍵按一下專案樹狀結構的 `Info.plist` 項目，然後選取 [開啟形式...] > [原始程式碼]。 將以下幾行新增至 `<dict>` 區段中，然後儲存檔案。
+1. 將麥克風存取的要求。 以滑鼠右鍵按一下專案樹狀結構的 `Info.plist` 項目，然後選取 [Open As...] \(開啟為\) > [Source Code] \(原始程式碼\)。 將以下幾行新增至 `<dict>` 區段中，然後儲存檔案。
     ```xml
     <key>NSMicrophoneUsageDescription</key>
     <string>Need microphone access for speech recognition from microphone.</string>
@@ -99,10 +99,7 @@ ms.locfileid: "53090192"
 
 1. 按一下應用程式中的 [辨識 (麥克風)] 按鈕，並說出幾個字後，應該會在螢幕的下半部看到說出的文字。
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-在 `quickstart/objectivec-ios` 資料夾中尋找此範例。
-
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [取得我們的範例](speech-sdk.md#get-the-samples)
+> [瀏覽 GitHub 上的 Objective-C 範例](https://aka.ms/csspeech/samples)

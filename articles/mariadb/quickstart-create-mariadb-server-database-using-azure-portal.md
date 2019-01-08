@@ -3,18 +3,16 @@ title: 快速入門：建立適用於 MariaDB 的 Azure 資料庫伺服器 - Azu
 description: 本文說明如何使用 Azure 入口網站在五分鐘內快速建立「適用於 MariaDB 的 Azure 資料庫」範例伺服器。
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 721cd87dcf58a2b5a7a8fd32fdfa8b2d65453b24
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: fb02cfd2419d1c98a92d1eae8b59256499d017a8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321932"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541382"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>使用 Azure 入口網站建立適用於 MariaDB 的 Azure 資料庫伺服器
 
@@ -49,7 +47,7 @@ ms.locfileid: "49321932"
     資源群組 | **myresourcegroup** | 輸入新的資源群組名稱，或選取現有資源群組。 
     選取來源 | 空白 | 選取 [空白]，從頭開始建立新的伺服器。 (如果您要從現有「適用於 MariaDB 的 Azure 資料庫」伺服器的異地備份建立伺服器，請選取 [備份])。
     伺服器管理員登入 | myadmin | 當您連線至伺服器時所要使用的登入帳戶。 系統管理員登入名稱不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
-    密碼 | 您的選擇 | 為伺服器管理帳戶輸入新密碼。 其必須包含 8 到 128 個字元。 您的密碼必須包含下列三個類別的字元：英文大寫字母、英文小寫字母、數字 (0-9) 和非英數字元 (!、$、#、% 等等)。
+    密碼 | 您的選擇 | 為伺服器管理帳戶輸入新密碼。 其必須包含 8 到 128 個字元。 您的密碼必須包含下列類別中三種類別的字元：英文大寫字母、英文小寫字母、數字 (0-9) 及非英數字元 (!、$、#、% 等等)。
     確認密碼 | 您的選擇| 確認管理帳戶密碼。
     位置 | 最接近使用者的區域| 選擇最靠近使用者或其他 Azure 應用程式的位置。
     版本 | 最新版本| 最新版本 (除非您有使用不同版本的特定需求)。
@@ -154,7 +152,7 @@ ms.locfileid: "49321932"
     > [!TIP]
     > 如果未將防火牆設定為允許 Azure Cloud Shell 的 IP 位址，就會發生下列錯誤：
     >
-    >   ERROR 2003 (28000)：不允許 IP 位址為 123.456.789.0 的用戶端存取伺服器。
+    >   錯誤 2003 (28000)：不允許 IP 位址 123.456.789.0 的用戶端存取伺服器。
     >
     > 若要解決此錯誤，請確定伺服器組態符合[設定伺服器層級防火牆規則](#configure-firewall-rule)所述的步驟。
 

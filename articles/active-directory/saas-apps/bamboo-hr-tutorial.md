@@ -4,126 +4,132 @@ description: 了解如何設定 Azure Active Directory 與 BambooHR 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: f826b5d2-9c64-47df-bbbf-0adf9eb0fa71
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/18/2018
+ms.topic: tutorial
+ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: dc6664321588d383b4656199c3e8ea79159ca850
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: df61a1b9efafab327b243c3874ac23572350a20c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437670"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808361"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>教學課程：Azure Active Directory 與 BambooHR 整合
 
 在本教學課程中，您會了解如何將 BambooHR 與 Azure Active Directory (Azure AD) 整合。
+將 BambooHR 與 Azure AD 整合可提供下列優點：
 
-將 BambooHR 與 Azure AD 整合提供下列優點：
+* 您可以在 Azure AD 中控制可存取 BambooHR 的人員。
+* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 BambooHR (單一登入)。
+* 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-- 您可以在 Azure AD 中控制可存取 BambooHR 的人員。
-- 您可以讓使用者搭配他們的 Azure AD 帳戶使用單一登入 (SSO) 自動登入 BambooHR。
-- 您可以在 Azure 入口網站中集中管理您的帳戶。
-
-如需 SaaS 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)。
+若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 BambooHR 的整合，您需要下列項目：
 
-- Azure AD 訂用帳戶
-- 已啟用 BambooHR SSO 的訂用帳戶
-
-> [!NOTE]
-> 當您測試本教學課程中的步驟時，建議您不要使用生產環境。
-
-若要測試本教學課程中的步驟，請遵循下列建議：
-
-- 除非必要，否則請勿使用生產環境。
-- 如果您沒有 Azure AD 試用環境，您可以[申請一個月免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
+* 已啟用 BambooHR 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 
 
-本教學課程中說明的案例由二個主要構成要素組成：
+在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-1. 從資源庫新增 BambooHR
-1. 設定並測試 Azure AD 單一登入
+* BambooHR 支援 **SP** 起始的 SSO
 
-## <a name="add-bamboohr-from-the-gallery"></a>從資源庫新增 BambooHR
-若要設定將 BambooHR 整合到 Azure AD 中，請執行下列操作，將 BambooHR 從資源庫新增到受控 SaaS 應用程式清單：
+## <a name="adding-bamboohr-from-the-gallery"></a>從資源庫新增 BambooHR
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的左側窗格中，選取 [Azure Active Directory]。 
+若要設定將 BambooHR 整合到 Azure AD 中，您需要從資源庫將 BambooHR 新增到受控 SaaS 應用程式清單。
 
-    ![Azure Active Directory 按鈕][1]
+**若要從資源庫新增 BambooHR，請執行下列步驟：**
 
-1. 選取 [企業應用程式] > [所有應用程式]。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
-    ![[企業應用程式] 窗格][2]
-    
-1. 若要新增應用程式，請選取 [新增應用程式]。
+    ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-    ![[新增應用程式] 按鈕][3]
+2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
 
-1. 在搜尋方塊中，輸入 **BambooHR**。 在結果清單中，選取 [BambooHR]，然後選取 [新增]。
+    ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-    ![結果清單中的 BambooHR](./media/bamboo-hr-tutorial/tutorial_bamboohr_addfromgallery.png)
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+
+    ![新增應用程式按鈕](common/add-new-app.png)
+
+4. 在搜尋方塊中，輸入 **BambooHR**，從結果面板中選取 [BambooHR]，然後按一下 [新增] 按鈕以新增應用程式。
+
+     ![結果清單中的 BambooHR](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會使用測試使用者 "Britta Simon" 來設定及測試與 BambooHR 搭配運作的 Azure AD SSO。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 BambooHR 設定和測試 Azure AD 單一登入。
+若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 BambooHR 中相關使用者之間的連結關聯性。
 
-若要讓 SSO 能夠運作，Azure AD 必須知道它在 BambooHR 中互相對應的使用者。 換句話說，您必須在 Azure AD 使用者與 BambooHR 中的相關使用者之間建立連結關聯性。
+若要設定及測試與 BambooHR 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
-若要在 BambooHR 中建立此連結關聯性，請指派 Azure AD **使用者名稱**值作為 BambooHR [Username] \(使用者名稱\) 值。
-
-若要設定及測試與 BambooHR 搭配運作的 Azure AD SSO，請完成接下來五個小節中的構成要素。
+1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
+2. **[設定 BambooHR 單一登入](#configure-bamboohr-single-sign-on)** - 在應用程式端設定單一登入設定。
+3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+5. **[建立 BambooHR 測試使用者](#create-bamboohr-test-user)** - 使 BambooHR 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在本節中，您會執行下列操作，在 Azure 入口網站中啟用 Azure AD SSO，並在 BambooHR 應用程式中設定 SSO：
+在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-1. 在 Azure 入口網站的 [BambooHR] 應用程式整合頁面上，選取 [單一登入]。
+若要使用 BambooHR 設定 Azure AD 單一登入，請執行下列步驟：
 
-    ![設定單一登入連結][4]
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [BambooHR] 應用程式整合頁面上，選取 [單一登入]。
 
-1. 在 [單一登入] 視窗的 [模式] 下拉式清單中，選取 [SAML 登入]。
- 
-    ![[單一登入] 視窗](./media/bamboo-hr-tutorial/tutorial_bamboohr_samlbase.png)
+    ![設定單一登入連結](common/select-sso.png)
 
-1. 在 [BambooHR 網域及 URL] 底下，執行下列操作：
+2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
 
-    ![[BambooHR 網域及 URL] 區段](./media/bamboo-hr-tutorial/tutorial_bamboohr_url.png)
+    ![單一登入選取模式](common/select-saml-option.png)
 
-    a. 在 [登入 URL] 方塊中，以下列格式輸入 URL︰`https://<company>.bamboohr.com`。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
 
-    b. 在 [識別碼] 方塊中，輸入值：`BambooHR-SAML`。
+    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-    > [!NOTE] 
-    > [登入 URL] 的值不是真正的值。 請使用您的實際登入 URL 來更新此值。 若要取得此值，請連絡 [BambooHR 用戶端支援小組](https://www.bamboohr.com/contact.php) \(英文\)。 
- 
-1. 在 [SAML 簽署憑證] 下，選取 [憑證 (Base64)]，然後將憑證檔案儲存到您的電腦。
+4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![憑證下載連結](./media/bamboo-hr-tutorial/tutorial_bamboohr_certificate.png) 
+    ![BambooHR 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-1. 選取 [ **儲存**]。
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<company>.bamboohr.com`
 
-    ![[儲存] 按鈕](./media/bamboo-hr-tutorial/tutorial_general_400.png)
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`BambooHR-SAML`。
 
-1. 在 [BambooHR 設定] 區段底下，選取 [設定 BambooHR] 以開啟 [設定登入] 視窗。 在 [快速參考] 區段中，複製 [SAML 單一登入服務 URL] 供稍後使用。
+    > [!NOTE]
+    > [登入 URL] 的值不是真正的值。 使用實際的登入 URL 來更新此值。 請連絡 [BambooHR 用戶端支援小組](https://www.bamboohr.com/contact.php)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-    ![BambooHR 設定](./media/bamboo-hr-tutorial/tutorial_bamboohr_configure.png) 
+4. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
+
+    ![憑證下載連結](common/certificatebase64.png)
+
+6. 在 [設定 BambooHR] 區段上，依據您的需求複製適當的 URL。
+
+    ![複製組態 URL](common/copy-configuration-urls.png)
+
+    a. 登入 URL
+
+    b. Azure AD 識別碼
+
+    c. 登出 URL
+
+### <a name="configure-bamboohr-single-sign-on"></a>設定 BambooHR 單一登入
 
 1. 在新視窗中，以系統管理員身分登入您的 BambooHR 公司網站。
 
-1. 在首頁上，執行下列操作：
+2. 在首頁上，執行下列操作：
    
     ![BambooHR 單一登入頁面](./media/bamboo-hr-tutorial/ic796691.png "單一登入")   
 
@@ -133,129 +139,99 @@ ms.locfileid: "39437670"
    
     c. 選取 [SAML Single Sign-On] \(SAML 單一登入\)。
 
-1. 在 [SAML Single Sign-On] \(SAML 單一登入\) 窗格中，執行下列操作：
+3. 在 [SAML Single Sign-On] \(SAML 單一登入\) 窗格中，執行下列操作：
    
     ![[SAML Single Sign-On] \(SAML 單一登入\) 窗格](./media/bamboo-hr-tutorial/IC796692.png "SAML 單一登入")
    
-    a. 在 [SSO Login Url] \(SSO 登入 URL\) 方塊中，貼上您在步驟 6 中從 Azure 入口網站複製的 **SAML 單一登入服務 URL**。
+    a. 在 [SSO Login Url] \(SSO 登入 URL\) 方塊中，貼上您在步驟 6 中從 Azure 入口網站複製的**登入 URL**。
       
     b. 在「記事本」中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，複製其內容，然後貼到 [X.509 Certificate] \(X.509 憑證\) 方塊中。
    
     c. 選取 [ **儲存**]。
 
-> [!TIP]
-> 當您設定此應用程式時，可以在 [Azure 入口網站](https://portal.azure.com)中閱讀這些指示的簡要版本。 從 [Active Directory] > [企業應用程式] 區段新增應用程式之後，只要選取 [單一登入] 索引標籤，即可透過底部的 [設定] 區段存取內嵌的文件。 如需相關資訊，請參閱 [Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)。
-> 
+### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
-### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
+本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-本節的目標是要在 Azure 入口網站中建立一個名為 "Britta Simon" 的測試使用者。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
-   ![建立 Azure AD 測試使用者 Britta Simon][100]
+    ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-若要在 Azure AD 中建立測試使用者，請執行下列動作：
+2. 在畫面頂端選取 [新增使用者]。
 
-1. 在 Azure 入口網站的左側窗格中，選取 [Azure Active Directory]。
+    ![[新增使用者] 按鈕](common/new-user.png)
 
-    ![Azure Active Directory 按鈕](./media/bamboo-hr-tutorial/create_aaduser_01.png)
+3. 在 [使用者] 屬性中，執行下列步驟。
 
-1. 若要顯示使用者清單，請移至 [使用者和群組]，然後選取 [所有使用者]。
+    ![[使用者] 對話方塊](common/user-properties.png)
 
-    ![[使用者和群組] 與 [所有使用者] 連結](./media/bamboo-hr-tutorial/create_aaduser_02.png)
-
-1. 在 [所有使用者] 窗格頂端，選取 [新增]。
-
-    ![[新增] 按鈕](./media/bamboo-hr-tutorial/create_aaduser_03.png)
-
-1. 在 [使用者] 視窗中，執行下列操作：
-
-    ![[使用者] 視窗](./media/bamboo-hr-tutorial/create_aaduser_04.png)
-
-    a. 在 [名稱] 方塊中，輸入 **BrittaSimon**。
-
-    b. 在 [使用者名稱] 方塊中，輸入使用者 Britta Simon 的電子郵件地址。
+    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 選取 [建立] 。
- 
-### <a name="create-a-bamboohr-test-user"></a>建立 BambooHR 測試使用者
+    d. 按一下頁面底部的 [新增] 。
+
+### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
+
+在本節中，您會將 BambooHR 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [BambooHR]。
+
+    ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
+
+2. 在應用程式清單中，輸入 **BambooHR** 並加以選取。
+
+    ![應用程式清單中的 BambooHR 連結](common/all-applications.png)
+
+3. 在左側功能表中，選取 [使用者和群組]。
+
+    ![[使用者和群組] 連結](common/users-groups-blade.png)
+
+4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+
+    ![[新增指派] 窗格](common/add-assign-user.png)
+
+5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+
+6. 如果您預期使用 SAML 判斷提示中的任何角色值，請在 [選取角色] 對話方塊的清單中選取適當使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+
+7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
+
+### <a name="create-bamboohr-test-user"></a>建立 BambooHR 測試使用者
 
 若要讓 Azure AD 使用者能夠登入 BambooHR，請執行下列操作，在 BambooHR 中手動設定這些使用者：
 
 1. 以系統管理員身分登入您的 **BambooHR** 網站。
 
-1. 在頂端的工具列中，選取 [Settings] \(設定\)。
+2. 在頂端的工具列中，選取 [Settings] \(設定\)。
    
     ![[Settings] \(設定\) 按鈕](./media/bamboo-hr-tutorial/IC796694.png "設定")
 
-1. 選取 [概觀]。
+3. 選取 [概觀]。
 
-1. 在左側窗格中，選取 [Security] \(安全性\) > [Users] \(使用者\)。
+4. 在左側窗格中，選取 [Security] \(安全性\) > [Users] \(使用者\)。
 
-1. 輸入您想要設定之有效 Azure AD 帳戶的使用者名稱、密碼及電子郵件地址。
+5. 輸入您想要設定之有效 Azure AD 帳戶的使用者名稱、密碼及電子郵件地址。
 
-1. 選取 [ **儲存**]。
+6. 選取 [ **儲存**]。
         
 >[!NOTE]
 >若要設定 Azure AD 使用者帳戶，您也可以使用 BambooHR 使用者帳戶建立工具或 API。
 
-### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
+### <a name="test-single-sign-on"></a>測試單一登入 
 
-請將 BambooHR 的存取權授與 Britta Simon 來讓她能夠使用 Azure SSO。
+在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-![指派使用者角色][200] 
-
-若要將使用者 Britta Simon 指派給 BambooHR，請執行下列操作：
-
-1. 在 Azure 入口網站中，開啟 [應用程式] 檢視、移至 [目錄] 檢視，然後選取 [企業應用程式] > [所有應用程式]。
-
-    ![指派使用者][201] 
-
-1. 在 [企業應用程式] 清單中，選取 [BambooHR]。
-
-    ![[企業應用程式] 清單中的 [BambooHR] 連結](./media/bamboo-hr-tutorial/tutorial_bamboohr_app.png)  
-
-1. 在左側窗格中，選取 [使用者和群組]。
-
-    ![[使用者和群組] 連結][202]
-
-1. 選取 [新增] 按鈕，然後在 [新增指派] 窗格中，選取 [使用者和群組]。
-
-    ![[新增指派] 窗格][203]
-
-1. 在 [使用者和群組] 視窗的 [使用者] 清單中，選取 [Britta Simon]。
-
-1. 選取 [選取] 按鈕。
-
-1. 在 [新增指派] 視窗中，選取 [指派] 按鈕。
-    
-### <a name="test-single-sign-on"></a>測試單一登入
-
-請使用「存取面板」來測試您的 Azure AD SSO 設定。
-
-當您在「存取面板」中選取 [BambooHR] 圖格時，應該會自動登入您的 BambooHR 應用程式。
-
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+當您在存取面板中按一下 [BambooHR] 圖格時，應該會自動登入您設定 SSO 的 BambooHR。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 
-* [整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
+- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/bamboo-hr-tutorial/tutorial_general_01.png
-[2]: ./media/bamboo-hr-tutorial/tutorial_general_02.png
-[3]: ./media/bamboo-hr-tutorial/tutorial_general_03.png
-[4]: ./media/bamboo-hr-tutorial/tutorial_general_04.png
-
-[100]: ./media/bamboo-hr-tutorial/tutorial_general_100.png
-
-[200]: ./media/bamboo-hr-tutorial/tutorial_general_200.png
-[201]: ./media/bamboo-hr-tutorial/tutorial_general_201.png
-[202]: ./media/bamboo-hr-tutorial/tutorial_general_202.png
-[203]: ./media/bamboo-hr-tutorial/tutorial_general_203.png
+- [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,5 +1,5 @@
 ---
-title: 教學課程：電腦視覺 API JavaScript
+title: 教學課程：執行影像作業 - JavaScript
 titlesuffix: Azure Cognitive Services
 description: 探索使用「Azure 認知服務」中「電腦視覺 API」的基本 JavaScript 應用程式。 在影像中執行 OCR、建立縮圖，以及處理視覺特徵。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: c024e517eb59c7d3b61408e477c94004ccb01a54
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 46d992fc44a0c3b2d355861d5753aa6f8c22215e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341305"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581362"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>教學課程：電腦視覺 API JavaScript
 

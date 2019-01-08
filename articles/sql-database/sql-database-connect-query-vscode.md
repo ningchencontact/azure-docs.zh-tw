@@ -4,7 +4,7 @@ description: 了解如何使用 Visual Studio Code 在 Azure 上連接到 SQL Da
 keywords: 連線到 SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/06/2018
-ms.openlocfilehash: 786b4fab42fb49cd44c1985bfa04ce33e77cadf0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 994f7d300b1e9a76e109e73467a2e7f0d4c1584d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098979"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652110"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>快速入門：使用 Visual Studio Code 連接及查詢 Azure SQL Database
 
-[Visual Studio Code](https://code.visualstudio.com/docs) 是 Linux、macOS 及 Windows 適用的圖形化程式碼編輯器。 它支援擴充功能，包括可供查詢 Microsoft SQL Server、Azure SQL Database 和 SQL 資料倉儲的 [mssql 擴充功能](https://aka.ms/mssql-marketplace)。 此快速入門示範如何使用 Visual Studio Code 連線至 Azure SQL 資料庫，然後執行 Transact-SQL 陳述式來查詢、插入、更新和刪除資料。
+[Visual Studio Code](https://code.visualstudio.com/docs) 是 Linux、macOS 及 Windows 適用的圖形化程式碼編輯器。 它支援擴充功能，包括可供查詢 Microsoft SQL Server、Azure SQL Database 和 SQL 資料倉儲的 [mssql 擴充功能](https://aka.ms/mssql-marketplace)。 在此快速入門中，您將使用 Visual Studio Code 連線至 Azure SQL 資料庫，然後執行 Transact-SQL 陳述式來查詢、插入、更新和刪除資料。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -66,7 +66,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 1. 開啟新的 Visual Studio Code 視窗。 
 
-2. 按 **CTRL**+**N**。 此時會開啟新的純文字檔。 
+2. 按 **Ctrl**+**N**。 此時會開啟新的純文字檔。 
 
 3. 選取狀態列右下角的 [純文字]。
 
@@ -82,11 +82,11 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 1. 在 Visual Studio Code 中，按 **Ctrl+Shift+P** (或 **F1**) 以開啟命令選擇區。
 
-2. 選取 [MS SQL: 連線] 然後按 **Enter**。
+2. 選取 [MS SQL: 連線] 然後選擇 **Enter**。
 
 3. 選取 [建立連線設定檔]。
 
-4. 請依照提示指定新設定檔的連線屬性。 指定每個值之後，按 **ENTER** 繼續。 
+4. 請依照提示指定新設定檔的連線屬性。 指定每個值之後，選擇 **ENTER** 繼續。 
 
    | 屬性       | 建議的值 | 說明 |
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -102,7 +102,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 ## <a name="query-data"></a>查詢資料
 
-使用以下 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 陳述式來依照類別查詢前 20 項產品。
+執行以下 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 陳述式來依照類別查詢前 20 項產品。
 
 1. 在 [編輯器] 視窗中，貼上下列 SQL 查詢。
 
@@ -119,7 +119,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 ## <a name="insert-data"></a>插入資料
 
-使用以下 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 陳述式在 `SalesLT.Product` 資料表中加入新產品。
+執行以下 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 陳述式在 `SalesLT.Product` 資料表中加入新產品。
 
 1. 使用此查詢取代先前的查詢。
 
@@ -147,7 +147,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 ## <a name="update-data"></a>更新資料
 
-使用以下 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 陳述式更新加入的產品。
+執行以下 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 陳述式更新加入的產品。
 
 1. 使用此查詢取代先前的查詢：
 
@@ -161,7 +161,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 ## <a name="delete-data"></a>刪除資料
 
-使用以下 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 陳述式移除新產品。
+執行以下 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 陳述式移除新產品。
 
 1. 使用此查詢取代先前的查詢：
 

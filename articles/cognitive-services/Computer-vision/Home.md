@@ -1,5 +1,5 @@
 ---
-title: 什麼是電腦視覺 API？
+title: 什麼是電腦視覺 API？ - 電腦視覺
 titlesuffix: Azure Cognitive Services
 description: 電腦視覺服務可供開發人員存取進階演算法，以處理影像及傳回資訊。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: c5340599bc4ed400ce11ea8ba997d03c4df7cc05
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 4c952c847aa56b385065a878b664b3d1d98763f4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963210"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584015"
 ---
 # <a name="what-is-computer-vision"></a>什麼是電腦視覺？
 

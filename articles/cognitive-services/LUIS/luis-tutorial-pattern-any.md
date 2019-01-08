@@ -9,18 +9,32 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 4551968cc446bb949d0b18cb77211808169cb907
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 58a62a5a882c6883c6fed31a7b95d949247e1bf1
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103467"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752600"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>教學課程 5：擷取自由格式的資料
+# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>教學課程：搭配 Pattern.any 實體擷取自由格式的資料
 
 在此教學課程中，您將針對語句已正確格式化，但資料結尾可能會因為語句中其餘字組而容易造成混淆的語句，使用 pattern.any 實體來從中擷取資料。 
+
+**在本教學課程中，您將了解如何：**
+
+> [!div class="checklist"]
+> * 匯入範例應用程式
+> * 將範例語句新增至現有實體
+> * 建立 Pattern.any 實體
+> * 建立模式
+> * 定型
+> * 測試新模式
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-patternany-entity"></a>使用 Pattern.any 實體
 
 Pattern.any 實體可讓您尋找自由格式的資料，其中實體的用字方式使其很難從語句的剩餘部分判斷實體的結尾。 
 
@@ -50,24 +64,12 @@ Pattern.any 實體可讓您尋找自由格式的資料，其中實體的用字�
 |{FormName} 的作者是誰[?]|
 |{FormName} 是以法文發行的嗎[?]|
 
-**在本教學課程中，您將了解如何：**
-
-> [!div class="checklist"]
-> * 使用現有的教學課程應用程式
-> * 將範例語句新增至現有實體
-> * 建立 Pattern.any 實體
-> * 建立模式
-> * 定型
-> * 測試新模式
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>使用現有的應用程式
+## <a name="import-example-app"></a>匯入範例應用程式
 以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
 
-如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
+請使用下列步驟：
 
-1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json)。
+1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json)。
 
 2. 將 JSON 匯入新的應用程式中。
 

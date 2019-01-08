@@ -1,252 +1,123 @@
 ---
-title: 教學課程：電子商務目錄仲裁 - Content Moderator
+title: 教學課程：仲裁電子商務產品影像 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 使用機器學習和 AI 自動產生合適的電子商務目錄。
+description: 設定應用程式分析產品影像，並使用指定的標籤加以分類 (使用 Azure 電腦視覺和自訂視覺)，然後標記令人反感的影像以供進一步地審核 (使用 Azure Content Moderator)。
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: sajagtap
-ms.openlocfilehash: 285590435a7e3c31d45d5d154d4e430ed3252838
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.author: pafarley
+ms.openlocfilehash: 209fb3bba2b5462caad53d809c46eba0ebf4d836
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256225"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547893"
 ---
-# <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>教學課程：使用機器學習產生合適的電子商務目錄
+# <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>教學課程：使用 Azure Content Moderator 仲裁電子商務產品影像
 
-在本教學課程中，我們會了解如何結合機器輔助 AI 技術和人力合適性做法來實作機器學習型智慧電子商務目錄合適性機制，以提供智慧型目錄系統。
+在本教學課程中，您將了解如何使用 Azure 認知服務 (包括 Content Moderator)，將產品影像有效地分類並加以仲裁，以供電子商務案例使用。 您會使用電腦視覺和自訂視覺，將各種不同的標記 (標籤) 套用至影像，然後建立小組審核 (結合 Content Moderator 的機器學習式技術和人工審核小組)，提供智慧型的仲裁系統。
 
-![經過分類的產品影像](images/tutorial-ecommerce-content-moderator.PNG)
+本教學課程說明如何：
 
-## <a name="business-scenario"></a>商務案例
+> [!div class="checklist"]
+> * 註冊 Content Moderator，並建立審核小組。
+> * 使用「內容仲裁」的影像 API 來掃描可能的成人和猥褻內容。
+> * 使用電腦視覺服務掃描名人內容 (或其他電腦視覺可偵測的標記)。
+> * 使用自訂視覺服務掃描國旗、玩具和筆 (或其他自訂標記) 是否存在。
+> * 提出合併的掃描結果以進行人工審核並做出最終決策。
 
-使用機器輔助技術來將產品影像分為下列合適類別：
+GitHub 上的[範例電子商務目錄仲裁](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)存放庫會提供完整的範例程式碼。
 
-1. 成人 (裸露)
-2. 猥褻 (性暗示)
-3. 名人
-4. 美國國旗
-5. 玩具
-6. 筆
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="tutorial-steps"></a>教學課程步驟
+## <a name="prerequisites"></a>必要條件
 
-本教學課程會引導您完成下列步驟：
+- Content Moderator 訂用帳戶金鑰。 請依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示，訂閱 Content Moderator 服務並取得金鑰。
+- 電腦視覺訂用帳戶金鑰 (與上述相同的指示)。
+- 任何 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/) 版本。
+- 自訂視覺分類器將會用於每個標籤的一組影像 (在此案例為玩具、筆與美國國旗)。
 
-1. 註冊並建立「內容仲裁」小組。
-2. 針對可能的名人和國旗內容設定合適性標記 (標籤)。
-3. 使用「內容仲裁」的影像 API 來掃描可能的成人和猥褻內容。
-4. 使用電腦視覺 API 來掃描可能的名人。
-5. 使用自訂視覺服務來掃描可能出現的國旗。
-6. 提出細微掃描結果以進行人工審核和做出最終決策。
+## <a name="create-a-review-team"></a>建立檢閱小組
 
-## <a name="create-a-team"></a>建立小組
+如需有關如何註冊 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)並建立審核小組的指示，請參閱[熟悉 Content Moderator](quick-start.md) 快速入門。 請記下 [認證] 頁面上的 [小組識別碼] 值。
 
-請參閱[快速入門](quick-start.md)頁面，以註冊「內容仲裁」並建立小組。 請記下 [認證] 頁面中的 [小組識別碼]。
+## <a name="create-custom-moderation-tags"></a>建立自訂仲裁標記
 
-
-## <a name="define-custom-tags"></a>定義自訂標記
-
-請參閱[標記](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags)一文以新增自訂標記。 除了內建的**成人**和**猥褻**標記，新標記可讓檢閱工具顯示標記的描述性名稱。
-
-在我們的案例中，我們會定義這些自訂標記 (**名人**、**國旗**、**美國**、**玩具**、**筆**)：
+接下來，在審核工具中建立自訂標記 (如果您需要協助進行此程序，請參閱[標記](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags)一文)。 在此情況下，我們將新增下列標記：**名人**、**美國**、**國旗**、**玩具**以及**筆**。 請注意，並非所有標記都必須是電腦視覺中可偵測的類別 (例如**名人**)；只要您將自訂視覺分類器定型以便在稍後加以偵測，就可以新增您自己的自訂標記。
 
 ![設定自訂標記](images/tutorial-ecommerce-tags2.PNG)
 
-## <a name="list-your-api-keys-and-endpoints"></a>列出 API 金鑰與端點
+## <a name="create-visual-studio-project"></a>建立 Visual Studio 專案
 
-1. 本教學課程會使用三個 API 和對應的金鑰與 API 端點。
-2. API 端點會隨訂用帳戶區域與內容仲裁檢閱小組識別碼而不同。
+1. 在 Visual Studio 中，開啟 [新增專案] 對話方塊。 依序展開 [已安裝] 和 [Visual C#]，然後選取 [主控台應用程式 (.NET Framework)]。
+1. 將應用程式命名為 **EcommerceModeration**，然後按一下 [確定]。
+1. 如果您將此專案新增至現有的方案中，選取此專案作為單一啟始專案。
 
-> [!NOTE]
-> 本教學課程依設計會使用下列端點中可見區域的訂用帳戶金鑰。 請務必讓 API 金鑰與區域 Uri 相符，否則，金鑰可能不適用於下列端點：
+本教學課程將會反白顯示專案的核心程式碼，但是將不會涵蓋所需的每一行程式碼。 將 _Program.cs_ 的完整內容從範例專案 ([範例電子商務目錄仲裁](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)) 複製到新專案的 _Program.cs_ 檔案。 接著，逐步執行下列各節以了解專案的運作方式以及如何自行使用該專案。
 
-         // Your API keys
-        public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
-        public const string ComputerVisionKey = "XXXXXXXXXXXXXXXXXXXX";
-        public const string CustomVisionKey = "XXXXXXXXXXXXXXXXXXXX";
+## <a name="define-api-keys-and-endpoints"></a>定義 API 金鑰與端點
 
-        // Your end points URLs will look different based on your region and Content Moderator Team ID.
-        public const string ImageUri = "https://westus.api.cognitive.microsoft.com/contentmoderator/moderate/v1.0/ProcessImage/Evaluate";
-        public const string ReviewUri = "https://westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0/teams/YOURTEAMID/reviews";
-        public const string ComputerVisionUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0";
-        public const string CustomVisionUri = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/XXXXXXXXXXXXXXXXXXXX/url";
+如上所述，本教學課程使用三個認知服務，因此，它需要三個對應的金鑰和 API 端點。 查看 **Program** 類別中的下列欄位： 
 
-## <a name="scan-for-adult-and-racy-content"></a>掃描成人和猥褻內容
+[!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
-1. 此函式會以影像 URL 和金鑰值組陣列作為參數。
-2. 它會呼叫「內容仲裁」的影像 API 來取得成人和猥褻分數。
-3. 如果分數大於 0.4 (範圍從 0 到 1)，它便會將 **ReviewTags** 陣列中的值設定為 **True**。
-4. **ReviewTags** 陣列可用來醒目提示檢閱工具中的對應標記。
+您將需要以訂用帳戶金鑰 (您稍後將會取得 `CustomVisionKey`) 的值更新 `___Key` 欄位，而且可能需要變更 `___Uri` 欄位，使其包含正確的區域識別碼。 使用您稍早建立之審核小組的識別碼填入 `ReviewUri` 欄位的 `YOURTEAMID` 部分。 您稍後將會填入 `CustomVisionUri` 欄位的最後一個部分。
 
-        public static bool EvaluateAdultRacy(string ImageUrl, ref KeyValuePair[] ReviewTags)
-        {
-            float AdultScore = 0;
-            float RacyScore = 0;
+## <a name="primary-method-calls"></a>主要方法呼叫
 
-            var File = ImageUrl;
-            string Body = $"{{\"DataRepresentation\":\"URL\",\"Value\":\"{File}\"}}";
+請參閱 **Main** 方法中的下列程式碼，此方法會對影像 URL 的清單執行迴圈。 它會使用三個不同的服務分析每個影像、記錄 **ReviewTags** 陣列中套用的標記，然後針對人力仲裁者建立審核 (將影像傳送至 Content Moderator 審核工具)。 您將在接下來的幾節中探索這些方法。 請注意，在這裡，如果您想要，可以控制要傳送哪些影像以供審核，方法是，在條件陳述式中使用 **ReviewTags** 陣列檢查已套用的標記。
 
-            HttpResponseMessage response = CallAPI(ImageUri, ContentModeratorKey, CallType.POST,
-                                                   "Ocp-Apim-Subscription-Key", "application/json", "", Body);
+[!code-csharp[Main: evaluate each image and create review](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=53-70)]
 
-            if (response.IsSuccessStatusCode)
-            {
-                // {“answers”:[{“answer”:“Hello”,“questions”:[“Hi”],“score”:100.0}]}
-                // Parse the response body. Blocking!
-                GetAdultRacyScores(response.Content.ReadAsStringAsync().Result, out AdultScore, out RacyScore);
-            }
+## <a name="evaluateadultracy-method"></a>EvaluateAdultRacy 方法
 
-            ReviewTags[0] = new KeyValuePair();
-            ReviewTags[0].Key = "a";
-            ReviewTags[0].Value = "false";
-            if (AdultScore > 0.4)
-            {
-                ReviewTags[0].Value = "true";
-            }
+請參閱 **Program** 類別中的 **EvaluateAdultRacy** 方法。 此方法會採用影像 URL 和金鑰值組陣列作為參數。 它會呼叫 Content Moderator 的影像 API (使用 REST) 來取得成人和猥褻的影像分數。 如果任一個分數大於 0.4 (範圍從 0 到 1)，它便會將 **ReviewTags** 陣列中對應的值設定為 **True**。
 
-            ReviewTags[1] = new KeyValuePair();
-            ReviewTags[1].Key = "r";
-            ReviewTags[1].Value = "false";
-            if (RacyScore > 0.3)
-            {
-                ReviewTags[1].Value = "true";
-            }
-            return response.IsSuccessStatusCode;
-        }
+[!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
-## <a name="scan-for-celebrities"></a>掃描名人
+## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags 方法
 
-1. 註冊[電腦視覺 API](https://azure.microsoft.com/services/cognitive-services/computer-vision/) 的[免費試用](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)。
-2. 按一下 [取得 API 金鑰] 按鈕。
-3. 接受條款。
-4. 若要登入，請從可用的網際網路帳戶清單中選擇。
-5. 請記下服務頁面上顯示的 API 金鑰。
-    
-   ![電腦視覺 API 金鑰](images/tutorial-computer-vision-keys.PNG)
-    
-6. 請參閱專案的原始程式碼，以取得會使用電腦視覺 API 掃描影像的函式。
+下一個方法會採用影像 URL 和您的電腦視覺訂用帳戶資訊，並分析影像中是否存在名人。 如果找到一個或多個名人，它會將 **ReviewTags** 陣列中對應的值設為 **True**。 
 
-         public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
-        {
-            var File = ImageUrl;
-            string Body = $"{{\"URL\":\"{File}\"}}";
+[!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
-            HttpResponseMessage Response = CallAPI(ComputerVisionUri, ComputerVisionKey, CallType.POST,
-                                                   "Ocp-Apim-Subscription-Key", "application/json", "", Body);
+## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags 方法
 
-            if (Response.IsSuccessStatusCode)
-            {
-                ReviewTags[2] = new KeyValuePair();
-                ReviewTags[2].Key = "cb";
-                ReviewTags[2].Value = "false";
+接下來，請參閱 **EvaluateCustomVisionTags** 方法，將實際的產品分類，&mdash;在此案例中為國旗、玩具和筆。 請依照[如何建置分類器](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)指南中的指示，建置您自己的自訂影像分類器，以偵測影像中是否存在國旗、玩具和筆 (或您選擇作為自訂標記的任何標記)。
 
-                ComputerVisionPrediction CVObject = JsonConvert.DeserializeObject<ComputerVisionPrediction>(Response.Content.ReadAsStringAsync().Result);
+![自訂視覺網頁，其中包含筆、玩具和國旗的定型影像](images/tutorial-ecommerce-custom-vision.PNG)
 
-                if ((CVObject.categories[0].detail != null) && (CVObject.categories[0].detail.celebrities.Count() > 0))
-                {                 
-                    ReviewTags[2].Value = "true";
-                }
-            }
+一旦您將分類器定型之後，請取得預測金鑰和預測端點 URL (如果您需要協助擷取它們，請參閱[取得 URL 和預測金鑰](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key))，然後將這些值分別指派給您的 `CustomVisionKey` 和 `CustomVisionUri` 欄位。 此方法會使用這些值查詢分類器。 如果分類器在影像中找到一個或多個自訂標記，則此方法會將 **ReviewTags** 陣列中對應的值設為 **True**。 
 
-            return Response.IsSuccessStatusCode;
-        }
+[!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 
-## <a name="classify-into-flags-toys-and-pens"></a>分類為國旗、玩具和筆
+## <a name="create-reviews-for-review-tool"></a>為審核工具建立審核
 
-1. [登入](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)至[自訂視覺 API 預覽版](https://www.customvision.ai/)。
-2. 使用[快速入門](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)來建置自訂分類器，以偵測可能出現的國旗、玩具和筆。
-   ![自訂視覺訓練影像](images/tutorial-ecommerce-custom-vision.PNG)
-3. 針對自訂分類器[取得預測端點 URL](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api)。
-4. 請參閱專案的原始程式碼，以查看會呼叫自訂分類器預測端點以掃描影像的函式。
+在前面幾節中，您注意到掃描傳入影像中是否有成人和猥褻內容 (Content Moderator)、名人 (電腦視覺) 以及各種其他物件 (自訂視覺) 的方法。 接下來，請參閱 **CreateReview** 方法，它會將影像及其套用的所有標記 (當作_中繼資料_傳入) 上傳到 Content Moderator 審核工具，使其可用於人工審核。 
 
-        public static bool EvaluateCustomVisionTags(string ImageUrl, string CustomVisionUri, string CustomVisionKey, ref KeyValuePair[] ReviewTags)
-        {
-            var File = ImageUrl;
-            string Body = $"{{\"URL\":\"{File}\"}}";
+[!code-csharp[define CreateReview method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=173-196)]
 
-            HttpResponseMessage response = CallAPI(CustomVisionUri, CustomVisionKey, CallType.POST,
-                                                   "Prediction-Key", "application/json", "", Body);
+這些影像將會顯示在 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)的 [審核] 索引標籤中。
 
-            if (response.IsSuccessStatusCode)
-            {
-                // Parse the response body. Blocking!
-                SaveCustomVisionTags(response.Content.ReadAsStringAsync().Result, ref ReviewTags);
-            }
-            return response.IsSuccessStatusCode;
-        }       
- 
-## <a name="reviews-for-human-in-the-loop"></a>人機互動檢閱
+![Content Moderator 審核工具的螢幕擷取畫面，其中包含數個影像及其反白顯示的標記](images/tutorial-ecommerce-content-moderator.PNG)
 
-1. 在前面幾節中，您掃描了傳入的影像中是否有成人和猥褻 (內容仲裁)、名人 (電腦視覺) 和國旗 (自訂版本)。
-2. 根據每個掃描的相符閾值，在檢閱工具中讓細微的案例可供進行人工檢閱。
-        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata) {
+## <a name="submit-a-list-of-test-images"></a>提交測試影像的清單
 
-            ReviewCreationRequest Review = new ReviewCreationRequest();
-            Review.Item[0] = new ReviewItem();
-            Review.Item[0].Content = ImageUrl;
-            Review.Item[0].Metadata = new KeyValuePair[MAXTAGSCOUNT];
-            Metadata.CopyTo(Review.Item[0].Metadata, 0);
+如同您在 **Main** 方法中所見，此程式會尋找包含 _Urls.txt_ 檔案的 "C:Test" 目錄，其中包含映像 URL 的清單。 建立此種檔案和目錄，或將路徑變更為指向您的文字檔案，然後將您想要測試之影像的 URL 填入此檔案。
 
-            //SortReviewItems(ref Review);
+[!code-csharp[Main: set up test directory, read lines](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=38-51)]
 
-            string Body = JsonConvert.SerializeObject(Review.Item);
+## <a name="run-the-program"></a>執行程式
 
-            HttpResponseMessage response = CallAPI(ReviewUri, ContentModeratorKey, CallType.POST,
-                                                   "Ocp-Apim-Subscription-Key", "application/json", "", Body);
-
-            return response.IsSuccessStatusCode;
-        }
-
-## <a name="submit-batch-of-images"></a>提交一批影像
-
-1. 本教學課程會假設有一個 "C:Test" 目錄，以及一個有影像 Url 清單的文字檔。
-2. 下列程式碼會檢查該檔案是否存在，並將所有 Url 讀入記憶體。
-            // 檢查測試目錄中是否有內含所要掃描影像 URL 清單的文字檔，var topdir = @"C:\test\"; var Urlsfile = topdir + "Urls.txt";
-
-            if (!Directory.Exists(topdir))
-                return;
-
-            if (!File.Exists(Urlsfile))
-            {
-                return;
-            }
-
-            // Read all image URLs in the file
-            var Urls = File.ReadLines(Urlsfile);
-
-## <a name="initiate-all-scans"></a>起始所有掃描
-
-1. 這個最上層函式會對先前所述文字檔中的所有影像 URL 執行迴圈。
-2. 它會使用每個 API 來掃描 URL，如果相符可信度落在條件內，則會建立人工仲裁審核。
-             // for each image URL in the file... foreach (var Url in Urls) { // Initiatize a new review tags array ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
-
-                // Evaluate for potential adult and racy content with Content Moderator API
-                EvaluateAdultRacy(Url, ref ReviewTags);
-
-                // Evaluate for potential presence of celebrity (ies) in images with Computer Vision API
-                EvaluateComputerVisionTags(Url, ComputerVisionUri, ComputerVisionKey, ref ReviewTags);
-
-                // Evaluate for potential presence of custom categories other than Marijuana
-                EvaluateCustomVisionTags(Url, CustomVisionUri, CustomVisionKey, ref ReviewTags);
-
-                // Create review in the Content Moderator review tool
-                CreateReview(Url, ReviewTags);
-            }
-
-## <a name="license"></a>授權
-
-所有 Microsoft 認知服務 SDK 和範例都是透過 MIT 授權來獲得授權的。 如需詳細資料，請參閱[授權](https://microsoft.mit-license.org/) \(英文\)。
-
-## <a name="developer-code-of-conduct"></a>開發人員行為準則
-
-使用「認知服務」(包括此用戶端程式庫和範例) 的開發人員應當遵守 http://go.microsoft.com/fwlink/?LinkId=698895 中的「Microsoft 認知服務的開發人員行為準則」。
+如果您已遵循上述所有步驟進行，此程式應該會處理每個影像 (查詢所有三個服務中的相關標記)，然後將包含標記資訊的影像上傳至 Content Moderator 審核工具。
 
 ## <a name="next-steps"></a>後續步驟
 
-使用 GitHub 上的[專案原始程式檔](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) \(英文\) 來建置和延伸本教學課程。
+在本教學課程中，您設定程式來分析產品影像，以便依產品類型加以標記，並允許審核小組對內容仲裁做出明智的決策。 接下來，請深入了解影像仲裁的詳細資料。
+
+> [!div class="nextstepaction"]
+> [審查已仲裁的影像](./review-tool-user-guide/review-moderated-images.md)

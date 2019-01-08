@@ -1,5 +1,5 @@
 ---
-title: 在 Linux 上建置搭配 PostgreSQL 的 Python Web 應用程式 - Azure App Service | Microsoft Docs
+title: 在 Linux 上建置搭配 PostgreSQL 的 Python 應用程式 - Azure App Service | Microsoft Docs
 description: 了解如何在 Azure 中連線至 PostgreSQL 資料庫，以執行資料驅動的 Python 應用程式。
 services: app-service\web
 documentationcenter: python
@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8846ec386ad1776172ae1949b5e0f26e03ddf1df
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c70c7e8b893c511aae36f122c5983fd0958eac8e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337983"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975384"
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>在 Azure App Service 中建置 Python 和 PostgreSQL Web 應用程式
+# <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>在 Azure App Service 中建置 Python 和 PostgreSQL 應用程式
 
-[Linux 上的 App Service](app-service-linux-intro.md) 提供可高度擴充、自我修復的 Web 主機服務。 本教學課程說明如何以 PostgreSQL 作為資料庫後端，建立資料驅動 Python Web 應用程式。 完成之後，您就會有在 Linux 上的 App Service 中執行的 Django 應用程式。
+[Linux 上的 App Service](app-service-linux-intro.md) 提供可高度擴充、自我修復的 Web 主機服務。 本教學課程示範如何使用 PostgreSQL 作為資料庫後端，來建立資料驅動的 Python 應用程式。 完成之後，您就會有在 Linux 上的 App Service 中執行的 Django 應用程式。
 
 ![Linux 上的 App Service 中的 Python Django 應用程式](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
@@ -203,9 +203,9 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 ```
 
 > [!NOTE]
-> 此設定允許來自 Azure 網路內所有 IP 的網路連線。 針對生產用途，請嘗試[僅使用您應用程式所用的輸出 IP 位址](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)，來設定可能最嚴格的防火牆規則。
+> 此設定允許來自 Azure 網路內所有 IP 的網路連線。 針對生產用途，請嘗試[僅使用您應用程式所用的輸出 IP 位址](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)，來設定可能最嚴格的防火牆規則。
 
-在 Cloud Shell 中，將 *\<您的 IP 位址>* 取代為[您的本機 IPv4 IP 位址](https://www.whatsmyip.org/)並再次執行命令，以允許從您的本機電腦進行存取。
+在 Cloud Shell 中，將 *\<您的 IP 位址>* 取代為[您的本機 IPv4 IP 位址](http://www.whatsmyip.org/)並再次執行命令，以允許從您的本機電腦進行存取。
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
@@ -371,9 +371,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 App Service 部署伺服器會在存放庫的根目錄看到 requirements.txt，並在 `git push` 之後自動執行 Python 套件管理。
 
-### <a name="browse-to-the-azure-web-app"></a>瀏覽至 Azure Web 應用程式
+### <a name="browse-to-the-azure-app"></a>瀏覽至 Azure 應用程式
 
-瀏覽至已部署的 Web 應用程式。 它需要一些時間才能啟動，因為在第一次要求應用程式時必須下載並執行容器。 如果頁面逾時或顯示錯誤訊息，請稍候幾分鐘並重新整理頁面。
+瀏覽至已部署的應用程式。 它需要一些時間才能啟動，因為在第一次要求應用程式時必須下載並執行容器。 如果頁面逾時或顯示錯誤訊息，請稍候幾分鐘並重新整理頁面。
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -403,15 +403,15 @@ az webapp log config --name <app_name> --resource-group myResourceGroup --docker
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-## <a name="manage-your-web-app-in-the-azure-portal"></a>在 Azure 入口網站管理您的 Web 應用程式
+## <a name="manage-your-app-in-the-azure-portal"></a>在 Azure 入口網站管理您的應用程式
 
-請移至 [Azure 入口網站](https://portal.azure.com)，以查看您所建立的 Web 應用程式。
+移至 [Azure 入口網站](https://portal.azure.com)，以查看您所建立的應用程式。
 
-按一下左側功能表中的 [應用程式服務]，然後按一下 Azure Web 應用程式的名稱。
+按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
 
-![入口網站瀏覽至 Azure Web 應用程式](./media/tutorial-python-postgresql-app/app-resource.png)
+![入口網站瀏覽至 Azure 應用程式](./media/tutorial-python-postgresql-app/app-resource.png)
 
-根據預設，入口網站會顯示 Web 應用程式的 [概觀] 分頁。 此頁面可讓您檢視應用程式的執行方式。 您也可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 分頁左側的索引標籤會顯示您可開啟的各種設定分頁。
+根據預設，入口網站會顯示應用程式的 [概觀] 頁面。 此頁面可讓您檢視應用程式的執行方式。 您也可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 分頁左側的索引標籤會顯示您可開啟的各種設定分頁。
 
 ![Azure 入口網站中的 App Service 頁面](./media/tutorial-python-postgresql-app/app-mgmt.png)
 
@@ -428,10 +428,10 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 > * 檢視診斷記錄
 > * 在 Azure 入口網站中管理應用程式
 
-前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至 Web 應用程式。
+前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至應用程式。
 
 > [!div class="nextstepaction"]
-> [將現有的自訂 DNS 名稱對應至 Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
+> [將現有的自訂 DNS 名稱對應至 Azure App Service](../app-service-web-tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
 > [設定內建 Python 映像並針對錯誤進行疑難排解](how-to-configure-python.md)

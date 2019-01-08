@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/18/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 586e60316ba8bf4f485a151e77015fa3ed104df7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 60ecf08d7f0c40a04472b3e2bf5ef739e51c32e8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317410"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794425"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>設定 Azure VM 到次要 Azure 區域的災害復原
 
@@ -148,12 +148,12 @@ Site Recovery 會設定目標區域的預設設定和複寫原則。 您可以�
       >如果您使用啟用防火牆的快取儲存體帳戶，請確定您「允許信任的 Microsoft 服務」。 [深入了解。](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
       >
 
-    - **目標儲存體帳戶 (如果來源 VM 未使用受控磁碟)**：根據預設，Site Recovery 會在目標區域中建立新的儲存體帳戶，以反映來源 VM 儲存體帳戶。
+    - **目標儲存體帳戶 (如果來源 VM 不使用受控磁碟)**：根據預設，Site Recovery 會在目標區域中建立新的儲存體帳戶，以反映來源 VM 儲存體帳戶。
       >[!NOTE]
       >如果您使用啟用防火牆的來源或目標儲存體帳戶，請確定您「允許信任的 Microsoft 服務」。 [深入了解。](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
       >
 
-    - **複本受控磁碟 (如果來源 VM 使用受控磁碟)**：根據預設，Site Recovery 會在目標區域中建立複本受控磁碟，將來源 VM 的受控磁碟相同儲存類型 (標準或進階) 鏡映為來源 VM 的受控磁碟。
+    - **複本受控磁碟 (如果來源 VM 使用受控磁碟)**：根據預設，Site Recovery 會在目標區域中建立與來源 VM 受控磁碟具有相同儲存體類型 (標準或進階) 的複本受控磁碟，以反映來源 VM 的受控磁碟。
     - **目標可用性設定組**：根據預設，Azure Site Recovery 會針對來源區域的可用性設定組中的 VM，在目標區域中建立名稱尾碼為 "asr" 的新可用性設定組。 如果 Azure Site Recovery 建立的可用性設定組已經存在，則會重複使用。
     - **目標可用性區域**：根據預設，如果目標區域支援可用性區域，則 Site Recovery 會在目標區域中指派與來源區域相同的區域編號。 
 
@@ -166,9 +166,9 @@ Site Recovery 會設定目標區域的預設設定和複寫原則。 您可以�
 4. 若要自訂複寫原則設定，請按一下 [複寫原則] 旁的 [自訂]，並根據需求修改下列設定：
 
     - **複寫原則名稱**：原則名稱。
-    - **復原點保留**：根據預設，Site Recovery 會保留復原點 24 小時。 您可以設定介於 1 與 72 小時之間的值。
-    - **應用程式一致快照頻率**：根據預設，Site Recovery 會每隔 4 小時建立一份應用程式一致快照集。 您可以設定介於 1 與 12 小時之間的任何值。 應用程式一致快照集是 VM 內應用程式資料的時間點快照集。 磁碟區陰影複製服務 (VSS) 可確保在建立快照集時，VM 上的應用程式處於一致狀態。
-    - **複寫群組**：如果您的應用程式需要 VM 之間的多部 VM 具有一致性，您可以建立這些 VM 的複寫群組。 根據預設，選取的 VM 不屬於任何複寫群組。
+    - **復原點保留**：Site Recovery 預設會保留復原點 24 小時。 您可以設定介於 1 與 72 小時之間的值。
+    - **應用程式一致的快照頻率**：Site Recovery 預設會每隔 4 小時建立一份應用程式一致快照集。 您可以設定介於 1 與 12 小時之間的任何值。 應用程式一致快照集是 VM 內應用程式資料的時間點快照集。 磁碟區陰影複製服務 (VSS) 可確保在建立快照集時，VM 上的應用程式處於一致狀態。
+    - **複寫群組**：如果您的應用程式需要 VM 之間的多部 VM 具有一致性，您可以為這些 VM 建立複寫群組。 根據預設，選取的 VM 不屬於任何複寫群組。
 
 5. 如果您想要將 VM 新增至新的或現有的複寫群組，請在 [自訂] 中的多部 VM 一致性上選取 [是]。 好讓 VM 成為複寫群組的一部分。 然後按一下 [確定] 。
 

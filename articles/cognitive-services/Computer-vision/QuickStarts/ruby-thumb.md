@@ -1,5 +1,5 @@
 ---
-title: 快速入門：產生縮圖 - REST、Ruby - 電腦視覺
+title: 快速入門：產生縮圖 - REST、Ruby
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將搭配使用電腦視覺 API 與 Ruby，從影像產生縮圖。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 2ddd2417a1e2a7548be641eca8e72b7967ace685
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: e666c9371b4f38f20c5835b06d7b9959ad5718ad
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958606"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53578700"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-ruby-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 Ruby 來產生縮圖
 

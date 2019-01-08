@@ -1,5 +1,5 @@
 ---
-title: 在 Linux 上建立 .NET Core Web 應用程式 - Azure App Service | Microsoft Docs
+title: 在 Linux 上建立 .NET Core 應用程式 - Azure App Service | Microsoft Docs
 description: 將您的第一個 .NET Core Hello World 應用程式部署到 Linux 上的 App Service，只要幾分鐘。
 keywords: azure app service, Web 應用程式, dotnet, core, linux, oss
 services: app-service
@@ -16,20 +16,20 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: f074c6184652ced133a7253bee3cc7a8a556c574
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 047ed6026412cac7fc7c51135e1837a20decd910
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251788"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633924"
 ---
-# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立.NET Core Web 應用程式
+# <a name="create-a-net-core-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立 .NET Core 應用程式
 
 > [!NOTE]
-> 本文會將應用程式部署至 Linux 上的 App Service。 若要在 _Windows_ 上部署 App Service，請參閱[在 Azure 中建立 ASP.NET Core Web 應用程式](../app-service-web-get-started-dotnet.md)。
+> 本文會將應用程式部署至 Linux 上的 App Service。 若要在 _Windows_ 上部署 App Service，請參閱[在 Azure 中建立 ASP.NET Core 應用程式](../app-service-web-get-started-dotnet.md)。
 >
 
-[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門示範如何在 Linux 上的 App Service上建立 [.NET Core](https://docs.microsoft.com/aspnet/core/) 應用程式。 您可使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)建立 Web 應用程式，而且使用 Git 將 .NET Core 程式碼部署至 Web 應用程式。
+[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門示範如何在 Linux 上的 App Service上建立 [.NET Core](https://docs.microsoft.com/aspnet/core/) 應用程式。 您可使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 建立應用程式，而且使用 Git 將 .NET Core 程式碼部署至應用程式。
 
 ![在 Azure 中執行的範例應用程式](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -53,7 +53,7 @@ md hellodotnetcore
 cd hellodotnetcore
 ```
 
-建立新的.NET Core Web 應用程式。
+建立新的 .NET Core 應用程式。
 
 ```bash
 dotnet new web
@@ -95,15 +95,15 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-瀏覽至您剛建立的 Web 應用程式。 以您的 Web 應用程式名稱取代 _&lt;app name>_。
+瀏覽至您剛建立的應用程式。 以您的應用程式名稱取代 _&lt;app name>_。
 
 ```bash
 http://<app name>.azurewebsites.net
 ```
 
-新的 Web 應用程式看起來應該像這樣：
+新的應用程式看起來應該像這樣：
 
-![空的 Web 應用程式頁面](media/quickstart-dotnetcore/dotnet-browse-created.png)
+![空白應用程式頁面](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -144,7 +144,7 @@ To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
 http://<app_name>.azurewebsites.net
 ```
 
-.NET Core 範例程式碼在具有內建映像的 Web 應用程式中執行。
+具有內建映像的 .NET Core 程式碼範例正在 Linux 上的 App Service 中執行。
 
 ![在 Azure 中執行的範例應用程式](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -169,15 +169,15 @@ git push azure master
 
 ![在 Azure 中執行的已更新範例應用程式](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
 
-## <a name="manage-your-new-azure-web-app"></a>管理新的 Azure Web 應用程式
+## <a name="manage-your-new-azure-app"></a>管理新的 Azure 應用程式
 
-請移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理您所建立的 Web 應用程式。
+移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理您所建立的應用程式。
 
-按一下左側功能表中的 [應用程式服務]，然後按一下 Azure Web 應用程式的名稱。
+按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
 
-![入口網站瀏覽至 Azure Web 應用程式](./media/quickstart-dotnetcore/portal-app-service-list.png)
+![入口網站瀏覽至 Azure 應用程式](./media/quickstart-dotnetcore/portal-app-service-list.png)
 
-您會看到 Web 應用程式的 [概觀] 頁面。 您可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 
+您會看到應用程式的 [概觀] 頁面。 您可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 
 
 ![Azure 入口網站中的 App Service 頁面](media/quickstart-dotnetcore/portal-app-overview.png)
 
@@ -188,4 +188,4 @@ git push azure master
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式](tutorial-dotnetcore-sqldb-app.md)
+> [在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database 應用程式](tutorial-dotnetcore-sqldb-app.md)

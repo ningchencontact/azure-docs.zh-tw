@@ -1,5 +1,5 @@
 ---
-title: 範例：使用電腦視覺 API 進行即時影片分析
+title: 範例：即時影片分析 - 電腦視覺
 titlesuffix: Azure Cognitive Services
 description: 了解如何使用電腦視覺 API，針對從即時影片資料流中擷取的畫面，執行近乎即時的分析。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: 058f2ad58665a88d2d3cf3ce20b43ac0fad30000
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 140e45270cf29eec48df260efa29b8aacac2d855
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983190"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580462"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>如何即時分析影片
 本指南將示範如何在從即時視訊資料流擷取的畫面上，執行近乎即時的分析。 這類系統中的基本元件如下：
@@ -68,13 +69,13 @@ while (true)
 ```CSharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
-     
+     
 // Producer thread. 
 while (true)
 {
     // Grab a frame. 
     Frame f = GrabFrame();
- 
+ 
     // Decide whether to analyze the frame. 
     if (ShouldAnalyze(f))
     {
@@ -106,10 +107,10 @@ while (true)
 {
     // Get the oldest task. 
     Task<ResultWrapper> analysisTask = taskQueue.Take();
- 
+ 
     // Await until the task is completed. 
     var output = await analysisTask;
-     
+     
     // Consume the exception or result. 
     if (output.Exception != null)
     {
@@ -134,7 +135,7 @@ using System;
 using VideoFrameAnalyzer;
 using Microsoft.ProjectOxford.Face;
 using Microsoft.ProjectOxford.Face.Contract;
-     
+     
 namespace VideoFrameConsoleApplication
 {
     class Program
@@ -177,7 +178,7 @@ namespace VideoFrameConsoleApplication
 
 在大多數模式中，左側即時影片與右側視覺化分析之間會有明顯的延遲。 此延遲是進行 API 呼叫所需的時間。 此延遲現象有個例外，就是 "EmotionsWithClientFaceDetect" 模式。此模式會先使用 OpenCV 在用戶端電腦本機上執行臉部偵測，然後才將任何影像提交給「認知服務」。 藉由這個做法，我們便可立即以視覺方式呈現所偵測到的臉部，然後再於稍後 API 呼叫返回時更新表情。 這示範了一個「混合式」方法的可能性，其中可以在用戶端上執行一些簡單的處理，然後再視需要使用「認知服務 API」，以更進階的分析加強這個處理。
 
-![HowToAnalyzeVideo](../../Video/Images/FramebyFrame.jpg)
+![LiveCameraSample 應用程式的螢幕擷取畫面，其中顯示已顯示標記的影像](../../Video/Images/FramebyFrame.jpg)
 
 ### <a name="integrating-into-your-codebase"></a>整合至程式碼基底
 若要開始使用此範例，請按照以下步驟執行：
@@ -189,7 +190,7 @@ namespace VideoFrameConsoleApplication
 2. 複製 [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) \(英文\) GitHub 存放庫
 
 3. 在 Visual Studio 2015 中開啟範例，然後建置並執行範例應用程式：
-    - 就 BasicConsoleSample 而言，「臉部 API」金鑰會直接以硬式編碼編寫在 [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs) \(英文\) 中。
+    - 就 BasicConsoleSample 而言，「臉部 API」金鑰會直接以硬式編碼編寫在  [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs) 中。
     - 就 LiveCameraSample 而言，應該在應用程式的 [設定] 窗格中輸入金鑰。 這些金鑰會以使用者資料的形式跨工作階段保存。
         
 
@@ -207,5 +208,5 @@ VideoFrameAnalyzer 的影像、語音、影片或文字理解功能會使用「A
 ## <a name="summary"></a>總結
 在本指南中，您已了解如何使用「臉部」、「電腦視覺」和「表情」API，在即時視訊資料流上執行近乎即時的分析，以及如何使用我們的範例程式碼來開始設計程式。 您可以使用 [Microsoft 認知服務註冊頁面](https://azure.microsoft.com/try/cognitive-services/)的免費 API 金鑰來開始建置應用程式。 
 
-歡迎您在 [GitHub 存放庫](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) \(英文\) 中提供意見反應和建議。若要提供更多廣泛的 API 意見反應，請到我們的 [UserVoice 網站](https://cognitive.uservoice.com/) \(英文\)。
+歡迎您在 [GitHub 存放庫](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) 中提供意見反應和建議。若要提供更廣泛的 API 意見反應，請到我們的  [UserVoice 網站](https://cognitive.uservoice.com/)。
 

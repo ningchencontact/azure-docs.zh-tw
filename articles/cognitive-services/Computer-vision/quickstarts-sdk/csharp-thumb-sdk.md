@@ -1,5 +1,5 @@
 ---
-title: 快速入門：產生縮圖 - SDK、C# - 電腦視覺
+title: 快速入門：產生縮圖 - SDK、C#
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您會使用電腦視覺 Windows C# 用戶端程式庫，從影像產生縮圖。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: a4a6dac4ca42f98bd03da022aaed79db094a9ed6
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.custom: seodec18
+ms.openlocfilehash: 03659278adf9bfe1af23a147633a72bd8f425601
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413280"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53578609"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>快速入門：使用電腦視覺 SDK 和 C# 來產生縮圖
 

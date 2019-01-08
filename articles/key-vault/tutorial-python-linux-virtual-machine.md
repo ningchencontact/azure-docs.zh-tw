@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 5f56022be7968d3be65fd06fef791d859acf14c0
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f5d74c2283d25d5774bd46bb9fe94795ff98fe9b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585179"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720557"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>教學課程：如何在 Python 中搭配使用 Azure Key Vault 與 Azure Linux 虛擬機器
 
 Azure Key Vault 可協助您保護秘密，例如存取您的應用程式、服務和 IT 資源所需的 API 金鑰和資料庫連接字串。
 
-在本教學課程中，您將執行讓 Azure Web 應用程式使用 Azure 資源的受控識別從 Azure Key Vault 讀取資訊所需的步驟。 本教學課程以 [Azure Web Apps](../app-service/app-service-web-overview.md) 為基礎。 在後續內容中，您將了解如何：
+在本教學課程中，您將執行讓 Azure Web 應用程式使用 Azure 資源的受控識別從 Azure Key Vault 讀取資訊所需的步驟。 在後續內容中，您將了解如何：
 
 > [!div class="checklist"]
 > * 建立金鑰保存庫。
@@ -160,7 +160,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## <a name="create-and-run-sample-python-app"></a>建立和執行 Python 應用程式範例
 
-以下是是名為 "Sample.py" 的檔案範例。 此檔案會使用[要求](http://docs.python-requests.org/master/)程式庫來發出 HTTP GET 呼叫。
+以下是是名為 "Sample.py" 的檔案範例。 此檔案會使用[要求](https://pypi.org/project/requests/2.7.0/)程式庫來發出 HTTP GET 呼叫。
 
 ## <a name="edit-samplepy"></a>編輯 Sample.py
 建立 Sample.py 後，請開啟檔案並複製下列程式碼
@@ -189,7 +189,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
     print(kvSecret.json()["value"])
 ```
 
-在執行期間，您應該會看到祕密值 
+執行下列命令後，您應會看到祕密值 
 
 ```
 python Sample.py

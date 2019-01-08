@@ -1,5 +1,5 @@
 ---
-title: 使用 MongoB API 的 Node.Js、Angular 應用程式 (第 4 部分)
+title: 使用適用於 MongoDB 的 Azure Cosmos DB API 建立 Angular 應用程式 - 建立 Cosmos 帳戶
 titleSuffix: Azure Cosmos DB
 description: 本教學課程系列的第 4 部分，有關使用您用於 MongoDB 的完全相同 API，以 Azure Cosmos DB 上的 Angular 和 Node 建立 MongoDB 應用程式
 author: johnpapa
@@ -10,22 +10,22 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: d6119186bd8ffbda4fa3bb2c432dd58d851992ea
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d85183f0104d9066f93adc73c09c76406128700d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136217"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787795"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 4 部分：建立 Azure Cosmos DB 帳戶
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>使用適用於 MongoDB 的 Azure Cosmos DB API 建立 Angular 應用程式 - 建立 Cosmos 帳戶
 
-此多部分的教學課程示範如何使用 Express、Angular 和您的 Azure Cosmos DB 資料庫，建立以 Node.js 撰寫的新 [MongoDB API](mongodb-introduction.md) 應用程式。
+這個多部分的教學課程示範如何使用 Express 和 Angular 來建立以 Node.js 撰寫的新應用程式，然後將它連線至[使用適用於 MongoDB 的 Cosmos DB API 設定的 Cosmos 帳戶](mongodb-introduction.md)。
 
 本教學課程的第 4 部分是以[第 3 部分](tutorial-develop-mongodb-nodejs-part3.md)為基礎並涵蓋下列工作：
 
 > [!div class="checklist"]
 > * 使用 Azure CLI 建立 Azure 資源群組
-> * 使用 Azure CLI 建立 Azure Cosmos DB 帳戶
+> * 使用 Azure CLI 建立 Cosmos 帳戶
 
 ## <a name="video-walkthrough"></a>影片逐步解說
 

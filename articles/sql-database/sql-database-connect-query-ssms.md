@@ -4,7 +4,7 @@ description: 了解如何使用 SQL Server Management Studio (SSMS) 在 Azure �
 keywords: 連接到 sql database,sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: b3342164aec49967e819c316827dca9a65f2674f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 636adcf15479fe8e072b833b59ddc78b5f820550
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098924"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745069"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>快速入門：使用 SQL Server Management Studio 連線和查詢 Azure SQL Database
 
-您可以使用 [SQL Server Management Studio][ssms-install-latest-84g] (SSMS)，來管理任何 SQL 基礎結構，範圍從 Microsoft Windows 的 SQL Server 到 SQL Database。 此快速入門示範如何使用 SSMS 來連線至 Azure SQL Database，然後執行 Transact-SQL 陳述式來查詢、插入、更新和刪除資料。 
+在本快速入門中，您將使用 [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) 來連線到 Azure SQL 資料庫。 接著，您將執行 Transact-SQL 陳述式來查詢、插入、更新和刪除資料。 您可以使用 SSMS 來管理任何 SQL 基礎結構，範圍從 Microsoft Windows 的 SQL Server 到 SQL Database。  
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -75,11 +75,11 @@ ms.locfileid: "53098924"
 
 ## <a name="query-data"></a>查詢資料
 
-使用以下 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 程式碼，依照類別查詢前 20 項產品。
+執行此 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 程式碼，依照類別查詢前 20 項產品。
 
-1. 在 [物件總管] 中，於 **mySampleDatabase** 上按一下滑鼠右鍵，然後選取 [新增查詢]。 隨即開啟已連線到您資料庫的空白查詢視窗。
+1. 在 [物件總管] 中，於 **mySampleDatabase** 上按一下滑鼠右鍵，然後選取 [新增查詢]。 連線到您資料庫的新查詢視窗將會開啟。
 
-1. 在查詢視窗中，貼上此 SQL 查詢。
+2. 在查詢視窗中，貼上此 SQL 查詢。
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -90,11 +90,11 @@ ms.locfileid: "53098924"
 
 3. 在工具列上，選取 [執行] 以擷取 `Product` 和 `ProductCategory` 資料表中的資料。
 
-    ![從 2 個資料表擷取資料的查詢](./media/sql-database-connect-query-ssms/query2.png)
+    ![從兩個資料表擷取資料的查詢](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>插入資料
 
-使用以下 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 程式碼，以在 `SalesLT.Product` 資料表中建立新產品。
+執行此 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 程式碼，以在 `SalesLT.Product` 資料表中建立新產品。
 
 1. 使用此查詢取代先前的查詢。
 
@@ -117,7 +117,7 @@ ms.locfileid: "53098924"
            ,GETDATE() );
    ```
 
-2. 選取 [執行] 以在「產品」資料表中插入新資料列。 [訊息] 窗格會顯示 [(1 個資料列受影響)]。
+2. 選取 [執行] 以在 `Product` 資料表中插入新資料列。 [訊息] 窗格會顯示 [(1 個資料列受影響)]。
 
 ## <a name="view-the-result"></a>檢視結果
 
@@ -134,7 +134,7 @@ ms.locfileid: "53098924"
  
 ## Update data
 
-Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify the new product you just added.
+Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
 
 1. Replace the previous query with this one.
 
@@ -144,11 +144,11 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. 選取 [執行] 以在「產品」資料表中更新指定的資料列。 [訊息] 窗格會顯示 [(1 個資料列受影響)]。
+2. 選取 [執行] 以在 `Product` 資料表中更新指定的資料列。 [訊息] 窗格會顯示 [(1 個資料列受影響)]。
 
 ## <a name="delete-data"></a>刪除資料
 
-使用下列 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 程式碼，刪除您先前新增的新產品。
+執行此 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 程式碼以移除新產品。
 
 1. 使用此查詢取代先前的查詢。
 
@@ -157,7 +157,7 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. 選取 [執行] 以在「產品」資料表中刪除指定的資料列。 [訊息] 窗格會顯示 [(1 個資料列受影響)]。
+2. 選取 [執行] 以在 `Product` 資料表中刪除指定的資料列。 [訊息] 窗格會顯示 [(1 個資料列受影響)]。
 
 ## <a name="next-steps"></a>後續步驟
 

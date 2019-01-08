@@ -10,21 +10,21 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: ce90c5f691a0a8a333161f3135856d720d1de310
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6409011c1a7c125dd03bb706f49ccad1a1fd49a4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226580"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538866"
 ---
-# <a name="quickstart-create-reviews-using-net"></a>快速入門：使用 .NET 建立審核項目
+# <a name="quickstart-create-reviews-using-net"></a>快速入門：使用 .NET 來建立審核項目
 
 本文提供資訊和範例程式碼，可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 來執行下列操作：
  
 - 為人工審核者建立一組審核項目
 - 為人工審核者取得現有審核項目的狀態
 
-一般而言，在為內容安排人工審核之前，該內容會經過一些自動審核。 本文僅說明如何為人工審核建立審核項目。 如需更完整的案例，請參閱 [Facebook 內容審核](facebook-post-moderation.md)和[電子商務目錄審核](ecommerce-retail-catalog-moderation.md)教學課程。
+一般而言，在為內容安排人工審核之前，該內容會經過一些自動審核。 本文僅說明如何為人工審核建立審核項目。 如需更完整的案例，請參閱 [Facebook 內容審核](facebook-post-moderation.md)和[審核電子商務產品影像](ecommerce-retail-catalog-moderation.md)教學課程。
 
 本文假設您已經熟悉 Visual Studio 和 C#。
 

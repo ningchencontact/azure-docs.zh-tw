@@ -1,7 +1,7 @@
 ---
-title: 快速入門：使用 Bing 圖像式搜尋 SDK (C#)
+title: 快速入門：使用適用於 C# 的 Bing 圖像式搜尋 SDK 取得影像見解
 titleSuffix: Azure Cognitive Services
-description: 設定圖像式搜尋 SDK C# 主控台應用程式。
+description: 了解如何使用 Bing 圖像式搜尋 SDK 上傳影像並取得其見解。
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,517 +10,90 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 25b01de47767e335d614aa0a8cf32c344c7305d8
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: c589cc14fd429385dd47aad489e827804916d406
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442841"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741212"
 ---
-# <a name="quickstart-bing-visual-search-sdk-c"></a>快速入門：Bing 圖像式搜尋 SDK C#
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing 圖像式搜尋 SDK 取得影像見解
 
-Bing 圖像式搜尋 SDK 使用 Web 要求和剖析結果的 REST API 功能。
-[C# Bing 圖像式搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch)可從 Git Hub 取得。
-
-程式碼案例記錄在下列標題下：
-* [圖像式搜尋用戶端](#client)
-* [完成主控台應用程式](#complete)
-* [包含 cropArea 的影像二進位檔發佈](#binary-crop)
-* [KnowledgeRequest 參數](#knowledge-req)
-* [標記、動作和 actionType](#tags-actions)
-* [標記數目、動作數目和第一個 actionType](#num-tags-actions)
+使用本快速入門，開始使用 C# SDK 從 Bing 圖像式搜尋服務取得影像見解。 雖然 Bing 圖像式搜尋具有與大部分程式設計語言相容的 REST API，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch) 上找到。
 
 ## <a name="prerequisites"></a>必要條件
 
-* Visual Studio 2017。 如有需要，您可從下列位置下載免費的社群版本： https://www.visualstudio.com/vs/community/。
-* 為使用本快速入門，您必須在 S9 定價層上啟用訂用帳戶，如[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/) 中所示。 
+* 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+* 如果您使用 Linux/MacOS，則可以使用 [Mono](http://www.mono-project.com/)來執行此應用程式。
+* NuGet 圖像式搜尋套件。 
+    - 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下專案，然後從功能表選取 `Manage NuGet Packages`。 安裝 `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 套件。 安裝 NuGet 套件也會安裝：
+        - Microsoft.Rest.ClientRuntime
+        - Microsoft.Rest.ClientRuntime.Azure
+        - Newtonsoft.Json
 
-若要在 Azure 入口網站中啟用訂用帳戶：
-1. 在 Azure 入口網站頂端顯示 `Search resources, services, and docs` 的文字方塊中輸入 'BingSearchV7'。  
-2. 在下拉式清單中的 Marketplace 下選取 `Bing Search v7`。
-3. 輸入新資源的 `Name`。
-4. 選取 `Pay-As-You-Go` 訂用帳戶。
-5. 選取 `S9` 定價層。
-6. 按一下 `Enable` 來啟用訂用帳戶。
 
-* 能夠執行 .NET Core SDK，也就是 .NET Core 1.1 應用程式。 您可以從下列位置取得 CORE、架構和執行階段： https://www.microsoft.com/net/download/。
-
-## <a name="application-dependencies"></a>應用程式相依性
-
-若要使用 Bing Web 搜尋 SDK 來設定主控台應用程式，請在 Visual Studio 中瀏覽至 [方案總管] 中的 `Manage NuGet Packages` 選項。  新增 `Microsoft.Azure.CognitiveServices.Search.VisualSearch` 套件。
-
-安裝 [NuGet Web 搜尋 SDK 套件](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VisualSearch/1.0)也會安裝相依性，包括：
-* Microsoft.Rest.ClientRuntime
-* Microsoft.Rest.ClientRuntime.Azure
-* Newtonsoft.Json
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 <a name="client"></a>
 
-## <a name="visual-search-client"></a>圖像式搜尋用戶端
-若要建立 `VisualSearchAPI` 用戶端的執行個體，請新增 using 指示詞：
+## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
 
-```csharp
-using Microsoft.Azure.CognitiveServices.Search.VisualSearch;
-using Microsoft.Azure.CognitiveServices.Search.VisualSearch.Models;
-```
+1. 在 Visual Studio 中，建立新專案。 接著，新增下列指示詞。
+    
+    ```csharp
+    using Microsoft.Azure.CognitiveServices.Search.VisualSearch;
+    using Microsoft.Azure.CognitiveServices.Search.VisualSearch.Models;
+    ```
 
-然後，將用戶端具現化：
+2. 使用訂用帳戶金鑰具現化用戶端。
+    
+    ```csharp
+    var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+    ```
+    
+## <a name="send-a-search-request"></a>傳送搜尋要求 
 
-```csharp
-var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
-```
+1. 在影像中建立 `FileStream` (在此案例中為 `TestImages/image.jpg`)。 接著，使用用戶端透過 `client.Images.VisualSearchMethodAsync()` 傳送搜尋要求。 
+    
+    ```csharp
+     System.IO.FileStream stream = new FileStream(Path.Combine("TestImages", "image.jpg"), FileMode.Open;
+     // The knowledgeRequest parameter is not required if an image binary is passed in the request body
+     var visualSearchResults = client.Images.VisualSearchMethodAsync(image: stream, knowledgeRequest: (string)null).Result;
+    ```
+    
+2. 剖析先前查詢的結果：
 
-使用用戶端來搜尋影像：
-
-```csharp
- System.IO.FileStream stream = new FileStream(Path.Combine("TestImages", "image.jpg"), FileMode.Open;
- // The knowledgeRequest parameter is not required if an image binary is passed in the request body
- var visualSearchResults = client.Images.VisualSearchMethodAsync(image: stream, knowledgeRequest: (string)null).Result;
-```
-
-剖析先前查詢的結果：
-
-```csharp
-// Visual Search results
-if (visualSearchResults.Image?.ImageInsightsToken != null)
-{
-    Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
-}
-else
-{
-    Console.WriteLine("Couldn't find image insights token!");
-}
-
-// List of tags
-if (visualSearchResults.Tags.Count > 0)
-{
-    var firstTagResult = visualSearchResults.Tags.First();
-    Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
-
-    // List of actions in first tag
-    if (firstTagResult.Actions.Count > 0)
+    ```csharp
+    // Visual Search results
+    if (visualSearchResults.Image?.ImageInsightsToken != null)
     {
-        var firstActionResult = firstTagResult.Actions.First();
-        Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
-        Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
+        Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
     }
     else
     {
-        Console.WriteLine("Couldn't find tag actions!");
+        Console.WriteLine("Couldn't find image insights token!");
     }
-```
-
-<a name="complete"></a> 
-
-## <a name="complete-console-application"></a>完成主控台應用程式
-
-下列主控台應用程式會執行先前定義的查詢和剖析結果：
-
-```csharp
-using Microsoft.Azure.CognitiveServices.Search.VisualSearch;
-using Microsoft.Azure.CognitiveServices.Search.VisualSearch.Models;
-using System;
-using System.IO;
-using System.Linq;
-
-namespace VisualSrchSDK
-{
-    class Program
+    
+    // List of tags
+    if (visualSearchResults.Tags.Count > 0)
     {
-        static void Main(string[] args)
+        var firstTagResult = visualSearchResults.Tags.First();
+        Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
+    
+        // List of actions in first tag
+        if (firstTagResult.Actions.Count > 0)
         {
-            String subKey = "YOUR-SUBSCRIPTION-KEY";
-
-            VisualSearchImageBinary(subKey);
-            //VisualSearchImageBinaryWithCropArea(subKey);
-            //VisualSearchUrlWithFilters(subKey);
-            //VisualSearchInsightsTokenWithCropArea(subKey);
-            //VisualSearchUrlWithJson(subKey);
-
-            Console.WriteLine("\r\nAny key to quit...");
-            Console.ReadKey();
-        }
-
-
-        // This will send an image binary in the body of the post request and print out the imageInsightsToken, 
-        //  the number of tags, the number of actions, and the first actionType.
-
-        public static void VisualSearchImageBinary(string subscriptionKey)
-        {
-            var client = new VisualSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
-
-            try
-            {
-                using (System.IO.FileStream stream = new FileStream(Path.Combine("TestImages", "image.jpg"), FileMode.Open))
-                {
-                    // The knowledgeRequest parameter is not required if an image binary is passed in the request body
-                    var visualSearchResults = client.Images.VisualSearchMethodAsync(image: stream, knowledgeRequest: (string)null).Result;
-                    Console.WriteLine("\r\nVisual search request with binary of image");
-
-                    if (visualSearchResults == null)
-                    {
-                        Console.WriteLine("No visual search result data.");
-                    }
-                    else
-                    {
-                        // Visual Search results
-                        if (visualSearchResults.Image?.ImageInsightsToken != null)
-                        {
-                            Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find image insights token!");
-                        }
-
-                        // List of tags
-                        if (visualSearchResults.Tags.Count > 0)
-                        {
-                            var firstTagResult = visualSearchResults.Tags.First();
-                            Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
-
-                            // List of actions in first tag
-                            if (firstTagResult.Actions.Count > 0)
-                            {
-                                var firstActionResult = firstTagResult.Actions.First();
-                                Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
-                                Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Couldn't find tag actions!");
-                            }
-
-                        }
-                        else
-                        {
-                            Console.WriteLine("Couldn't find image tags!");
-                        }
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-        }
-    }
-}
-```
-
-Bing 搜尋範例會示範 SDK 的各種功能。  將下列函式新增至先前定義的 `VisualSrchSDK` 類別。
-
-<a name="binary-crop"></a>
-
-## <a name="image-binary-post-with-croparea"></a>包含 cropArea 的影像二進位檔發佈
-
-下列程式碼會將影像二進位檔傳送至 Post 要求的內容，並且包含 cropArea 物件。  然後輸出 imageInsightsToken、標記數目、動作數目和第一個 actionType。
-
-```csharp
-public static void VisualSearchImageBinaryWithCropArea(string subscriptionKey)
-{
-    var client = new VisualSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
-
-    try
-    {
-        using (FileStream stream = new FileStream(Path.Combine("TestImages", "image.jpg"), FileMode.Open))
-        {
-            // The ImageInfo struct contains a crop area specifying a region to crop in the uploaded image
-            CropArea CropArea = new CropArea(top: (float)0.1, bottom: (float)0.5, left: (float)0.1, right: (float)0.9);
-            ImageInfo ImageInfo = new ImageInfo(cropArea: CropArea);
-            VisualSearchRequest VisualSearchRequest = new VisualSearchRequest(imageInfo: ImageInfo);
-
-            // The knowledgeRequest here holds additional information about the image, which is passed in in binary form
-            var visualSearchResults = client.Images.VisualSearchMethodAsync(image: stream, knowledgeRequest: VisualSearchRequest).Result;
-            Console.WriteLine("\r\nVisual search request with binary of image with knowledgeRequest of CropArea");
-
-            if (visualSearchResults == null)
-            {
-                Console.WriteLine("No visual search result data.");
-            }
-            else
-            {
-                // Visual Search results
-                if (visualSearchResults.Image?.ImageInsightsToken != null)
-                {
-                    Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
-                }
-                else
-                {
-                    Console.WriteLine("Couldn't find image insights token!");
-                }
-
-                // List of tags
-                if (visualSearchResults.Tags.Count > 0)
-                {
-                    var firstTagResult = visualSearchResults.Tags.First();
-                    Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
-
-                    // List of actions in first tag
-                    if (firstTagResult.Actions.Count > 0)
-                    {
-                        var firstActionResult = firstTagResult.Actions.First();
-                        Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
-                        Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find tag actions!");
-                    }
-
-                }
-                else
-                {
-                    Console.WriteLine("Couldn't find image tags!");
-                }
-            }
-        }
-    }
-
-    catch (Exception ex)
-    {
-        Console.WriteLine("Encountered exception. " + ex.Message);
-    }
-}
-```
-
-<a name="knowledge-req"></a>
-
-## <a name="knowledgerequest-parameter"></a>KnowledgeRequest 參數
-
-下列程式碼會將影像 URL 傳送至 `knowledgeRequest` 參數中，並且包含 \"site:pinterest.com\" 篩選。  然後，它會列出 `imageInsightsToken`、標記數目、動作數目和第一個 actionType。
-
-```csharp
-public static void VisualSearchUrlWithFilters(string subscriptionKey)
-{
-    var client = new VisualSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
-
-    try
-    {
-        // The image can be specified via URL, in the ImageInfo object
-        var ImageUrl = "https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80";
-        ImageInfo ImageInfo = new ImageInfo(url: ImageUrl);
-
-        // Optional filters inside the knowledgeRequest will restrict similar products and images to certain domains
-        Filters Filters = new Filters(site: "pinterest.com");
-        KnowledgeRequest KnowledgeRequest = new KnowledgeRequest(filters: Filters);
-
-        // An image binary is not necessary here, as the image is specified via URL
-        VisualSearchRequest VisualSearchRequest = new VisualSearchRequest(imageInfo: ImageInfo, knowledgeRequest: KnowledgeRequest);
-        var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: VisualSearchRequest).Result;
-        Console.WriteLine("\r\nVisual search request with url of image and knowledgeRequest based on filters");
-
-        if (visualSearchResults == null)
-        {
-            Console.WriteLine("No visual search result data.");
+            var firstActionResult = firstTagResult.Actions.First();
+            Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
+            Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
         }
         else
         {
-            // Visual Search results
-            if (visualSearchResults.Image?.ImageInsightsToken != null)
-            {
-                Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
-            }
-            else
-            {
-                Console.WriteLine("Couldn't find image insights token!");
-            }
-
-            // List of tags
-            if (visualSearchResults.Tags.Count > 0)
-            {
-                var firstTagResult = visualSearchResults.Tags.First();
-                Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
-
-                // List of actions in first tag
-                if (firstTagResult.Actions.Count > 0)
-                {
-                    var firstActionResult = firstTagResult.Actions.First();
-                    Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
-                    Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
-                }
-                else
-                {
-                    Console.WriteLine("Couldn't find tag actions!");
-                }
-
-            }
-            else
-            {
-                Console.WriteLine("Couldn't find image tags!");
-            }
+            Console.WriteLine("Couldn't find tag actions!");
         }
-    }
-
-    catch (Exception ex)
-    {
-        Console.WriteLine("Encountered exception. " + ex.Message);
-    }
-}
-```
-
-<a name="tags-actions"></a>
-
-## <a name="tags-actions-and-actiontype"></a>標記、動作和 actionType
-
-下列程式碼會將影像見解權杖傳送至 knowledgeRequest 參數中，並且包含 cropArea 物件。  然後輸出 imageInsightsToken、標記數目、動作數目和第一個 actionType。
-
-```csharp
-public static void VisualSearchInsightsTokenWithCropArea(string subscriptionKey)
-{
-    var client = new VisualSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
-
-    try
-    {
-        // The image can be specified via an insights token, in the ImageInfo object
-        var ImageInsightsToken = "bcid_CA6BDBEA28D57D52E0B9D4B254F1DF0D*ccid_6J+8V1zi*thid_R.CA6BDBEA28D57D52E0B9D4B254F1DF0D";
-
-        // An optional crop area can be passed in to define a region of interest in the image
-        CropArea CropArea = new CropArea(top: (float)0.1, bottom: (float)0.5, left: (float)0.1, right: (float)0.9);
-        ImageInfo ImageInfo = new ImageInfo(imageInsightsToken: ImageInsightsToken, cropArea: CropArea);
-
-        // An image binary is not necessary here, as the image is specified via insights token
-        VisualSearchRequest VisualSearchRequest = new VisualSearchRequest(imageInfo: ImageInfo);
-        var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: VisualSearchRequest).Result;
-        Console.WriteLine("\r\nVisual search request with ImageInsightsToken and knowledgeRequest based on imageInfo of cropArea");
-
-        if (visualSearchResults == null)
-        {
-            Console.WriteLine("No visual search result data.");
-        }
-        else
-        {
-            // Visual Search results
-            if (visualSearchResults.Image?.ImageInsightsToken != null)
-            {
-                Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
-            }
-            else
-            {
-                Console.WriteLine("Couldn't find image insights token!");
-            }
-
-            // List of tags
-            if (visualSearchResults.Tags.Count > 0)
-            {
-                var firstTagResult = visualSearchResults.Tags.First();
-                Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
-
-                // List of actions in first tag
-                if (firstTagResult.Actions.Count > 0)
-                {
-                    var firstActionResult = firstTagResult.Actions.First();
-                    Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
-                    Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
-                }
-                else
-                {
-                    Console.WriteLine("Couldn't find tag actions!");
-                }
-
-            }
-            else
-            {
-                Console.WriteLine("Couldn't find image tags!");
-            }
-        }
-    }
-
-    catch (Exception ex)
-    {
-        Console.WriteLine("Encountered exception. " + ex.Message);
-    }
-}
-```
-
-<a name="num-tags-actions"></a>
-
-## <a name="number-of-tags-number-of-actions-and-first-actiontype"></a>標記數目、動作數目和第一個 actionType
-
-下列程式碼會將影像 URL 傳送至 knowledgeRequest 參數中，並且包含裁剪區域。  然後，列出 imageInsightsToken、標記數目、動作數目和第一個 actionType。
-
-```csharp
-public static void VisualSearchUrlWithJson(string subscriptionKey)
-{
-    var client = new VisualSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
-
-    try
-    {
-
-        //The visual search request can be passed in as a JSON string
-        //The image is specified via URL in the ImageInfo object, along with a crop area as shown below:
-        
-        //     "imageInfo": {
-        //         "url": "https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80",
-        //     "cropArea": {
-        //           "top": 0.1,
-        //           "bottom": 0.5,
-        //           "left": 0.1,
-        //           "right": 0.9
-        //         }
-        //     },
-        //     "knowledgeRequest": {
-        //        "filters": {
-        //            "site": "pinterest.com"
-        //        }              
-        //     }
-
-        var VisualSearchRequestJSON = "{\"imageInfo\":{\"url\":\"https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80\",\"cropArea\":{\"top\":0.1,\"bottom\":0.5,\"left\":0.1,\"right\":0.9}},\"knowledgeRequest\":{\"filters\":{\"site\":\"pinterest.com\"}}}";
-
-        // An image binary is not necessary here, as the image is specified by URL in JSON text
-        var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: VisualSearchRequestJSON).Result;
-        Console.WriteLine("\r\nVisual search request with image url specified by JSON text");
-
-        if (visualSearchResults == null)
-        {
-            Console.WriteLine("No visual search result data.");
-        }
-        else
-        {
-            // Visual Search results
-            if (visualSearchResults.Image?.ImageInsightsToken != null)
-            {
-                Console.WriteLine($"Uploaded image insights token: {visualSearchResults.Image.ImageInsightsToken}");
-            }
-            else
-            {
-                Console.WriteLine("Couldn't find image insights token!");
-            }
-
-            // List of tags
-            if (visualSearchResults.Tags.Count > 0)
-            {
-                var firstTagResult = visualSearchResults.Tags.First();
-                Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
-
-                // List of actions in first tag
-                if (firstTagResult.Actions.Count > 0)
-                {
-                    var firstActionResult = firstTagResult.Actions.First();
-                    Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
-                    Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
-                }
-                else
-                {
-                    Console.WriteLine("Couldn't find tag actions!");
-                }
-
-            }
-            else
-            {
-                Console.WriteLine("Couldn't find image tags!");
-            }
-        }
-    }
-
-    catch (Exception ex)
-    {
-        Console.WriteLine("Encountered exception. " + ex.Message);
-    }
-}
-```
+    ```
 
 ## <a name="next-steps"></a>後續步驟
 
-[認知服務 .NET SDK 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)。
+> [!div class="nextstepaction"]
+> [建置單頁 Web 應用程式](tutorial-bing-visual-search-single-page-app.md)

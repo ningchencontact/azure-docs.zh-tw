@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ea372b4363ce506b926a37686b85cb36e51546eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 03b8dd9bd0a7acc63fdae66330904142384429a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833446"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794204"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>將 Hyper-V VM 容錯移轉及容錯回復至 Azure
 
@@ -40,8 +40,8 @@ ms.locfileid: "52833446"
 容錯移轉和容錯回復有三個階段：
 
 1. **容錯移轉至 Azure**：從內部部署網站將 Hyper-V VM 容錯移轉至 Azure。
-2. **容錯回復至內部部署**：在內部部署網站可供使用時，將 Azure VM 容錯回復至內部部署網站。 它會開始將資料從 Azure 同步處理至內部部署，並在完成時，於內部部署上啟動 VM。  
-3. **反向複寫內部部署 VM**：容錯回復至內部部署之後，請反向複寫內部部署 VM，以開始將這些 VM 複寫至 Azure。
+2. **容錯回復至內部部署環境**：在內部部署網站可供使用時，將 Azure VM 容錯移轉至內部部署網站。 它會開始將資料從 Azure 同步處理至內部部署，並在完成時，於內部部署上啟動 VM。  
+3. **反向複寫內部部署 VM**：在容錯回復至內部部署環境之後，反向複寫內部部署 VM，以開始將這些 VM 複寫至 Azure。
 
 ## <a name="verify-vm-properties"></a>驗證 VM 屬性
 
@@ -65,7 +65,7 @@ ms.locfileid: "52833446"
 4. 驗證容錯移轉之後，請按一下 [認可]。 這會刪除所有可用的復原點。
 
 > [!WARNING]
-> **請勿取消進行中的容錯移轉**：如果您在進行時取消，容錯移轉會停止，但 VM 不會再次複寫。
+> **請勿取消正在進行中的容錯移轉**：如果您在進行中取消，容錯移轉會停止，但 VM 不會再次複寫。
 
 ## <a name="failback-azure-vm-to-on-premises-and-reverse-replicate-the-on-premises-vm"></a>將 Azure VM 容錯回復至內部部署並反向複寫內部部署 VM
 

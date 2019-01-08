@@ -1,24 +1,21 @@
 ---
 title: 從 C# 連線至適用於 PostgreSQL 的 Azure 資料庫
 description: 本快速入門提供 C# (.NET) 程式碼範例，可讓您連線至 Azure Database for PostgreSQL 來查詢資料。
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 34c9825347ffe9246f6d5d0b500e8b592b8421ee
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d30963d5430db9ce5f734981c6a9c74276a15299
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987693"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537394"
 ---
-# <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>Azure Database for PostgreSQL︰使用 .NET (C#) 連線及查詢資料
+# <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>適用於 PostgreSQL 的 Azure 資料庫：使用 .NET (C#) 連線並查詢資料
 本快速入門示範如何使用 C# 應用程式來連線到 Azure Database for PostgreSQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文中的步驟假設您已熟悉使用 C# 進行開發，但不熟悉 Azure Database for PostgreSQL。
 
 ## <a name="prerequisites"></a>必要條件

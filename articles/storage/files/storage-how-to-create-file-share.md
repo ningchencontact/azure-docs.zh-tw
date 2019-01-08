@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 83829264f16fb295a1f5fa4f2efc74d8b35ec6eb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 318ecf03853e151040622ef0863f4c6986a96bd2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309186"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628505"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>在 Azure 檔案服務中建立檔案共用
 您可以使用  [Azure 入口網站](https://portal.azure.com/)、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。 在本教學課程中，您將了解：
@@ -36,12 +36,15 @@ ms.locfileid: "52309186"
 
 4. **檢視新的檔案共用**：![檢視新的檔案共用](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
 
-5. **上傳檔案**![上傳檔案](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
+5. **上傳檔案**：![上傳檔案](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
 
 6. **瀏覽至檔案共用並管理您的目錄和檔案**：![瀏覽檔案共用](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
 
 
 ## <a name="create-file-share-through-powershell"></a>透過 PowerShell 建立檔案共用
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 若要準備使用 PowerShell，請下載並安裝 Azure PowerShell Cmdlet。 如需安裝點和安裝指示的詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) 。
 
 > [!Note]  
@@ -50,13 +53,13 @@ ms.locfileid: "52309186"
 1. **建立儲存體帳戶和金鑰的內容** 內容包含儲存體帳戶名稱和帳戶金鑰。 如需從  [Azure 入口網站](https://portal.azure.com/)複製帳戶金鑰的指示，請參閱 [儲存體帳戶存取金鑰](../common/storage-account-manage.md#access-keys)。
 
     ```powershell
-    $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
+    $storageContext = New-AzStorageContext <storage-account-name> <storage-account-key>
     ```
     
 2. **建立新的檔案共用**：    
     
     ```powershell
-    $share = New-AzureStorageShare logs -Context $storageContext
+    $share = New-AzStorageShare logs -Context $storageContext
     ```
 
 > [!Note]  

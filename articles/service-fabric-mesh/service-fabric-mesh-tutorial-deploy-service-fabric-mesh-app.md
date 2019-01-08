@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 467484824ec3a3ceffb6dfa692953406ed6acc1b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec282bc1159e8a8cf21b88b8430bbf3067686528
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963316"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788611"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>教學課程：部署 Service Fabric Mesh 應用程式
 
@@ -113,10 +113,10 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 此時，您的應用程式已完成部署。 您可以使用 `app show` 命令來檢查其狀態。 
 
-教學課程應用程式的應用程式名稱是 `ServiceMeshApp`。 請使用下列命令來收集應用程式的詳細資料：
+教學課程應用程式的應用程式名稱是 `todolistapp`。 請使用下列命令來收集應用程式的詳細資料：
 
 ```azurecli-interactive
-az mesh app show --resource-group $rg --name ServiceMeshApp
+az mesh app show --resource-group $rg --name todolistapp
 ```
 
 ## <a name="see-all-applications-currently-deployed-to-your-subscription"></a>查看目前已部署至您的訂用帳戶的所有應用程式

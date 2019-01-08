@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 8/2/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b0d920c1a41ff679c3dedcb6745e250b77cb769a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878290"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631149"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 備份中的功能概觀
 Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料的 Azure 服務。 Azure 備份將以一個可靠、安全及具成本競爭力的雲端架構解決方案，取代您現有的內部部署或異地備份解決方案。 Azure 備份提供多個元件，您可以下載並部署在適當的電腦、伺服器或雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份的元件 (無論您要保護的是內部部署或雲端資料) 都可以將資料備份至 Azure 中的復原服務保存庫。 請參閱 [Azure 備份元件資料表](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (稍後於本文提及) 以取得該使用哪個元件來保護特定資料、應用程式或工作負載的資訊。
@@ -80,15 +80,15 @@ Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料�
 ## <a name="linux-support"></a>支援 Linux
 下表顯示支援 Linux 的 Azure 備份元件。  
 
-| 元件 | Linux (Azure 背書) 支援 |
-| --- | --- |
-| Azure 備份 (MARS) 代理程式 |否 (僅限 Windows 代理程式) |
-| System Center DPM |<li> Hyper-V 和 VMWare 上 Linux 來賓 VM 的檔案一致性備份<br/> <li> Hyper-V 和 VMWare Linux 來賓 VM 的 VM 還原 </br> </br>  *不適用於 Azure VM 的檔案一致性備份* <br/> |
-| Azure 備份伺服器 |<li>Hyper-V 和 VMWare 上 Linux 來賓 VM 的檔案一致性備份<br/> <li> Hyper-V 和 VMWare Linux 來賓 VM 的 VM 還原 </br></br> *不適用於 Azure VM 的檔案一致性備份*  |
-| Azure IaaS VM 備份 |使用[前置指令碼和後置指令碼架構](backup-azure-linux-app-consistent.md)的應用程式一致備份<br/> [細微檔案復原](backup-azure-restore-files-from-vm.md)<br/> [還原所有的 VM 磁碟](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM 還原](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
+**元件** | **Linux (Azure 背書)**
+--- | --- 
+Azure 備份 (MARS) 代理程式 | 否 (僅限 Windows 代理程式) 
+System Center DPM | Hyper-V 和 VMWare 上 Linux 來賓 VM 的檔案一致性備份<br/><br/> Hyper-V 和 VMWare Linux 來賓 VM 的 VM 還原</br></br> 不適用於 Azure VM 的檔案一致性備份
+Azure 備份伺服器 | Hyper-V 和 VMWare 上 Linux 來賓 VM 的檔案一致性備份<br/><br/> Hyper-V 和 VMWare Linux 來賓 VM 的 VM 還原</br></br> 不適用於 Azure VM 的檔案一致性備份 
+Azure IaaS VM 備份 | 使用[前置指令碼和後置指令碼架構](backup-azure-linux-app-consistent.md)的應用程式一致備份<br/><br/> [檔案層級復原](backup-azure-restore-files-from-vm.md)<br/><br/> [從還原的磁碟建立 VM](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [從復原點還原檔案](backup-azure-arm-restore-vms.md#create-new-create-a-vm)。
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>使用進階儲存體 VM 與 Azure 備份
-Azure 備份可保護進階儲存體 VM。 Azure 進階儲存體是一個以固態硬碟 (SSD) 為基礎的儲存體產品，專門設計用來支援需大量 I/O 的工作負載。 進階儲存體非常適合用於虛擬機器 (VM) 工作負載。 如需有關進階儲存體的詳細資訊，請參閱此文章：[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../virtual-machines/windows/premium-storage.md)。
+Azure 備份可保護進階儲存體 VM。 Azure 進階儲存體是一個以固態硬碟 (SSD) 為基礎的儲存體產品，專門設計用來支援需大量 I/O 的工作負載。 進階儲存體非常適合用於虛擬機器 (VM) 工作負載。 如需進階儲存體的詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../virtual-machines/windows/premium-storage.md)一文。
 
 ### <a name="back-up-premium-storage-vms"></a>備份進階儲存體 VM
 在備份進階儲存體 VM 時，備份服務會在進階儲存體帳戶中建立臨時預備位置，名為 "AzureBackup-"。 預備位置的大小等於復原點快照集的大小。 請確定進階儲存體帳戶有適當的可用空間可容納暫存的預備位置。 如需詳細資訊，請參閱[進階儲存體限制](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)一文。 備份作業完成後，就會刪除預備位置。 用於預備位置之儲存體的價格在所有 [進階儲存體價格](../virtual-machines/windows/premium-storage.md#pricing-and-billing)中皆一致。
@@ -209,7 +209,7 @@ Azure 備份每個*受保護的執行個體*上限為 9999 個復原點 (也稱�
 受保護執行個體的常見範例是虛擬機器、應用程式伺服器、資料庫，以及執行 Windows 作業系統的個人電腦。 例如︰
 
 * 執行 Hyper-V 或 Azure IaaS Hypervisor 網狀架構的虛擬機器。 虛擬機器的客體作業系統可以是 Windows Server 或 Linux。
-* 應用程式伺服器︰應用程式伺服器可以是需要備份其資料，且執行 Windows Server 和工作負載的實體或虛擬機器。 一般工作負載為 Microsoft SQL Server、Microsoft Exchange Server、Microsoft SharePoint Server 及 Windows Server 的檔案伺服器角色。 若要備份這些工作負載，您需要 System Center Data Protection Manager (DPM) 或 Azure 備份伺服器。
+* 應用程式伺服器：應用程式伺服器可以是需要備份其資料，且執行 Windows Server 和工作負載的實體或虛擬機器。 一般工作負載為 Microsoft SQL Server、Microsoft Exchange Server、Microsoft SharePoint Server 及 Windows Server 的檔案伺服器角色。 若要備份這些工作負載，您需要 System Center Data Protection Manager (DPM) 或 Azure 備份伺服器。
 * 執行 Windows 作業系統的個人電腦、工作站或膝上型電腦。
 
 

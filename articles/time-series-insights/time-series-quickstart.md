@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - Azure 時間序列深入解析總管 | Microsoft Docs
+title: 快速入門：Azure 時間序列深入解析總管 | Microsoft Docs
 description: 本快速入門會示範如何開始使用網頁瀏覽器中的 Azure 時間序列深入解析來視覺化大量的 IoT 資料。 在示範環境中導覽主要功能。
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 11/15/2017
-ms.openlocfilehash: 6b2a21cf50c03c8e44794540074dabf90049bc7c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 32ed0ec178f7a0064fae88357011197e71604885
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275511"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555535"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>快速入門：探索 Azure 時間序列深入解析
 本快速入門會示範如何在可用的示範環境中開始使用 Azure 時間序列深入解析。 您會了解如何使用網頁瀏覽器將大量的 IoT 資料視覺化，並導覽時間序列深入解析的主要功能。 

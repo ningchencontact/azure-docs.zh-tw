@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2480aa92dec8d8e8879db813b1cfcddc26f77b7e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582412"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792521"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>什麼是 Azure 物聯網 (IoT)？
 
@@ -109,15 +109,15 @@ Azure 中有數個與 IoT 相關的服務，因此，您可能會不曉得要使
 
 3. [**IoT 中樞**](/azure/iot-hub/)：此服務可讓您從裝置連線到 IoT 中樞，並監視及控制數十億個 IoT 裝置。 如果您需要讓 IoT 裝置與您的後端進行雙向通訊，這會特別實用。 這是 IoT Central 和 IoT 解決方案加速器的基礎服務。 
 
-4. [**IoT 中樞裝置佈建服務**](/azure/iot-dps/)：這是 IoT 中樞的協助程式服務，可用來安全地將裝置佈建到 IoT 中樞。 若使用此服務，您可以輕鬆且快速地佈建數百萬個裝置，而不是逐一佈建這些裝置。 
+4. [**IoT 中樞裝置佈建服務**](/azure/iot-dps/)：這是您可用來安全地將裝置佈建到 IoT 中樞的 IoT 中樞協助程式服務。 若使用此服務，您可以輕鬆且快速地佈建數百萬個裝置，而不是逐一佈建這些裝置。 
 
-5. [**IoT Edge**](/azure/iot-edge/)：此服務會建立在 IoT 中樞之上。 可用來分析 IoT 裝置上的資料 (並非雲端中的資料)。 藉由將部分工作負載移到邊緣裝置，您就只需將較少的訊息傳送至雲端。 
+5. [**IoT Edge**](/azure/iot-edge/)：此服務建立在 IoT 中樞之上。 可用來分析 IoT 裝置上的資料 (並非雲端中的資料)。 藉由將部分工作負載移到邊緣裝置，您就只需將較少的訊息傳送至雲端。 
 
 6. [**Azure Digital Twins**](../digital-twins/index.yml)：此服務可讓您建立完整的實體環境模型。 您可以為人員、空間和裝置之間的關聯性和互動方式建立模型。 例如，您可以預測工廠的維修需求、分析輸電網路的即時能源需求，或最佳化辦公室的可用空間利用。
 
 7. [**時間序列深入解析**](/azure/time-series-insights)：此服務可讓您儲存、視覺化及查詢 IoT 裝置所產生的大量時間序列資料。 您可以搭配 IoT 中樞來使用此服務。 
 
-8. [**Azure 地圖服務**](/azure/azure-maps)：此服務會將地理資訊提供給 Web 和行動應用程式。 此服務有一組完整的 REST API 和 Web 型 JavaScript 控制項，可用來建立有彈性的應用程式，並且適用於 Apple 和 Windows 裝置的桌面或行動應用程式。
+8. [**Azure 地圖服務**](/azure/azure-maps)：此服務提供地理資訊給 Web 和行動應用程式。 此服務有一組完整的 REST API 和 Web 型 JavaScript 控制項，可用來建立有彈性的應用程式，並且適用於 Apple 和 Windows 裝置的桌面或行動應用程式。
 
 ## <a name="next-steps"></a>後續步驟
 

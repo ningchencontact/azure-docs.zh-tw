@@ -12,16 +12,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 471d2b0b8d98651d4b9ef4e88df0e863715b0c88
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5f2c8c2a9a2b21a15aa997ff0cc98860ceec76cc
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341774"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744831"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>快速入門：使用 .NET Core (C#) 查詢 Azure SQL 資料庫
 
-此快速入門示範如何使用 [.NET Core](https://www.microsoft.com/net/) 和 C# 程式碼連線至 Azure SQL 資料庫，並執行 Transact-SQL 陳述式來查詢資料。
+在此快速入門中，您將使用 [.NET Core](https://www.microsoft.com/net/) 和 C# 程式碼來連線至 Azure SQL 資料庫。 然後，您將使用 Transact-SQL 陳述式來查詢資料。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -53,14 +53,14 @@ ms.locfileid: "53341774"
   
 ## <a name="create-a-new-net-core-project"></a>建立新的 .NET Core 專案
 
-1. 開啟命令提示字元，並建立名為 sqltest 的資料夾。 瀏覽至此資料夾並執行以下命令。
+1. 開啟命令提示字元，並建立名為 sqltest 的資料夾。 瀏覽至此資料夾並執行此命令。
 
     ```cmd
     dotnet new console
     ```
-    這會建立新的應用程式專案檔案，包括最初的 C# 程式碼檔案 (**Program.cs**)、XML 組態檔 (**sqltest.csproj**)，以及所需的二進位檔。
+    此命令會建立新的應用程式專案檔案，包括最初的 C# 程式碼檔案 (**Program.cs**)、XML 組態檔 (**sqltest.csproj**)，以及所需的二進位檔。
 
-2. 在文字編輯器中，開啟 **sqltest.csproj** 並在 `<Project>` 標記之間貼上以下 XML。 這會將 `System.Data.SqlClient` 新增為相依性。
+2. 在文字編輯器中，開啟 **sqltest.csproj** 並在 `<Project>` 標記之間貼上以下 XML。 此 XML 會將 `System.Data.SqlClient` 新增為相依性。
 
     ```xml
     <ItemGroup>
@@ -173,7 +173,7 @@ namespace sqltest
 
    Done. Press enter.
    ```
-3. 按 **Enter** 關閉應用程式視窗。
+3. 選擇 **Enter** 關閉應用程式視窗。
 
 ## <a name="next-steps"></a>後續步驟
 

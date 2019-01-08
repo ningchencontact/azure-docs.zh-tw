@@ -1,5 +1,5 @@
 ---
-title: Azure IoT 解決方案加速器簡介 | Microsoft Docs
+title: IoT 解決方案加速器簡介 - Azure | Microsoft Docs
 description: 了解 Azure IoT 解決方案加速器。 IoT 解決方案加速器是完整、端對端、隨時可部署的 IoT 解決方案。
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 79c8f0f1c987de6320770416641300f3b8bb7c1d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824535"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607196"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 解決方案加速器是什麼？
 
@@ -34,7 +34,7 @@ IoT 解決方案加速器是完整且可立即部署的 IoT 解決方案，可�
 
 ### <a name="remote-monitoring"></a>遠端監視
 
-使用此解決方案加速器可從遠端裝置收集遙測資料，以及控制這些裝置。 裝置範例包括客戶營業場所內所安裝的冷卻系統，或是遠端抽水站內所安裝的閥門。
+使用[遠端監視解決方案加速器](iot-accelerators-remote-monitoring-sample-walkthrough.md)可控制遠端裝置，並從它們收集遙測資料。 裝置範例包括客戶營業場所內所安裝的冷卻系統，或是遠端抽水站內所安裝的閥門。
 
 您可以使用遠端監視儀表板來檢視已連線裝置傳來的遙測資料、佈建新裝置，或升級已連線裝置的韌體：
 
@@ -42,7 +42,7 @@ IoT 解決方案加速器是完整且可立即部署的 IoT 解決方案，可�
 
 ### <a name="connected-factory"></a>連線的處理站
 
-使用此解決方案加速器可使用 [OPC 統一架構](https://opcfoundation.org/about/opc-technologies/opc-ua/)介面收集工業資產所傳來的遙測資料以及控制這些資產。 工業資產可能包含工廠生產線內的組裝台和測試台。
+使用[連線的工廠解決方案加速器](iot-accelerators-connected-factory-sample-walkthrough.md)可使用 [OPC 統一架構](https://opcfoundation.org/about/opc-technologies/opc-ua/)介面收集工業資產所傳來的遙測資料以及控制這些資產。 工業資產可能包含工廠生產線內的組裝台和測試台。
 
 您可以使用連線工廠儀表板來監視及管理您的工業裝置：
 
@@ -50,7 +50,7 @@ IoT 解決方案加速器是完整且可立即部署的 IoT 解決方案，可�
 
 ### <a name="predictive-maintenance"></a>預測性維護
 
-使用此解決方案加速器可預測遠端裝置應該會在什麼時候故障，以便在裝置故障之前先進行維護。 此解決方案加速器會使用機器學習演算法，透過裝置的遙測資料來預測故障。 裝置範例可能是飛機引擎或電梯。
+使用[預測性維護解決方案加速器](iot-accelerators-predictive-walkthrough.md)可預測遠端裝置應該會在什麼時候故障，以便在裝置故障之前先進行維護。 此解決方案加速器會使用機器學習演算法，透過裝置的遙測資料來預測故障。 裝置範例可能是飛機引擎或電梯。
 
 您可以使用預測性維護儀表板來檢視預測性維護分析：
 
@@ -58,7 +58,7 @@ IoT 解決方案加速器是完整且可立即部署的 IoT 解決方案，可�
 
 ### <a name="device-simulation"></a>裝置模擬
 
-使用此解決方案加速器可執行會產生實際遙測資料的模擬裝置。 您可以使用此解決方案加速器來測試其他解決方案加速器的行為，也可以用它來測試您自己的自訂 IoT 解決方案。
+使用[裝置模擬解決方案加速器](iot-accelerators-device-simulation-overview.md)可執行會產生真實遙測資料的模擬裝置。 您可以使用此解決方案加速器來測試其他解決方案加速器的行為，也可以用它來測試您自己的自訂 IoT 解決方案。
 
 您可以使用裝置模擬 Web 應用程式來設定及執行模擬作業：
 
@@ -85,7 +85,7 @@ IoT 解決方案加速器是完整且可立即部署的 IoT 解決方案，可�
 | 連線的處理站      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | 裝置模擬      | 微服務 | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-若要了解微服務架構的詳細資訊，請參閱 [.NET 應用程式架構](https://www.microsoft.com/net/learn/architecture)和[微服務︰採用雲端技術的應用程式革命](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)。
+若要深入了解微服務架構，請參閱 [Azure IoT 參考架構簡介](iot-accelerators-architecture-overview.md)。
 
 ## <a name="deployment-options"></a>部署選項
 

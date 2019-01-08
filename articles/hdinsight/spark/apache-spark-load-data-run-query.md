@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: f279d7ca40eac1764ec5549aecec36b0f62034e8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4dd9634d5d5e6ce749a4ee563903b07e22bc45ee
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495785"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652327"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢
 
@@ -58,7 +58,7 @@ ms.locfileid: "52495785"
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > 透過使用 PySpark 核心來建立 Notebook，當您執行第一個程式碼儲存格時，系統便會自動為您建立 `spark` 工作階段。 您不需要明確建立工作階段。
 
 
@@ -87,7 +87,7 @@ ms.locfileid: "52495785"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-使用 HDInsight 時，資料和 Jupyter Notebook 會儲存於 Azure 儲存體或 Azure Data Lake Store 中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如果您打算立即進行下一個教學課程，則可能想要保留叢集。
+使用 HDInsight 時，資料和 Jupyter Notebook 會儲存於「Azure 儲存體」或 Azure Data Lake Storage 中，以便您在叢集未處於使用中時安全地將其刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如果您打算立即進行下一個教學課程，則可能想要保留叢集。
 
 在 Azure 入口網站中開啟叢集，然後選取 [刪除]。
 
