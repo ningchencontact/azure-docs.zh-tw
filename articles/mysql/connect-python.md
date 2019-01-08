@@ -1,24 +1,21 @@
 ---
 title: 從 Python 連線到適用於 MySQL 的 Azure 資料庫
 description: 本快速入門提供數個 Python 程式碼範例，您可用於從 Azure Database for MySQL 連線和查詢資料。
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 54b25aa141da15224d5d8034ba54783d3633f5be
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 3adfe85be46c338bcdb0eb429d7e81b8787cf12e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914731"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539631"
 ---
-# <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Python 連線和查詢資料
+# <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>適用於 MySQL 的 Azure 資料庫：使用 Python 連線並查詢資料
 本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for MySQL。 它會使用 SQL 陳述式查詢、插入、更新和刪除 Mac OS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本主題假設您已熟悉使用 Python 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>必要條件
@@ -33,7 +30,7 @@ ms.locfileid: "50914731"
 > 本快速入門會使用原始 SQL 查詢方法連線至 MySQL，以執行查詢。 如果您使用 Web 架構，請為這些架構使用建議的連接器。 例如，對於 Django，建議使用 [mysqlclient](https://pypi.org/project/mysqlclient/)。
 >
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 1. 從 [python.org](https://www.python.org/downloads/windows/) 下載並安裝 Python 2.7。 
 2. 啟動命令提示字元，以檢查 Python 安裝。 執行使用大寫 V 切換參數的 `C:\python27\python.exe -V` 命令，來查看版本號碼。
 3. 從對應至您 Python 版本的 [mysql.com](https://dev.mysql.com/downloads/connector/python/) 安裝 MySQL 的 Python 連接器。

@@ -1,24 +1,21 @@
 ---
 title: 使用 Ruby 連線至適用於 PostgreSQL 的 Azure 資料庫
 description: 本快速入門提供 Ruby 程式碼範例，您可用於從 Azure Database for PostgreSQL 連線及查詢資料。
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 2d132ba1b901c45df79507a974ee8d4786c6311d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 6748f168624a20e17491a2f84b63b966ce5ad4c6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985024"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539280"
 ---
-# <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Azure Database for PostgreSQL︰使用 Ruby 連線及查詢資料
+# <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>適用於 PostgreSQL 的 Azure 資料庫：使用 Ruby 連線並查詢資料
 本快速入門示範如何使用 [Ruby](https://www.ruby-lang.org) 應用程式來連線到 Azure Database for PostgreSQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文中的步驟假設您已熟悉使用 Ruby 進行開發，但不熟悉適用於 PostgreSQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>必要條件
@@ -29,7 +26,7 @@ ms.locfileid: "49985024"
 ## <a name="install-ruby"></a>安裝 Ruby
 在自己的電腦上安裝 Ruby。 
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 - 下載並安裝最新版的 [Ruby](https://rubyinstaller.org/downloads/)。
 - 在 MSI 安裝程式的完成畫面上，核取表示「執行 'ridk install' 以安裝 MSYS2 和開發工具鏈」的方塊。 然後按一下 [完成] 以啟動下一個安裝程式。
 - RubyInstaller2 for Windows 安裝程式隨即啟動。 輸入 2 以安裝 MSYS2 存放庫更新。 在完成並返回安裝提示之後，請關閉命令視窗。
