@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b6c04c5b167eb963e9b2befa57e270ac454f5d74
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9c44e2564c26a16d632a16195d3e53b8ce83d735
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344273"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629878"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>建立及使用內部負載平衡器與 App Service Environment #
 
@@ -78,7 +78,7 @@ ms.locfileid: "53344273"
 
     * &lt;asename&gt;.p.azurewebsites.net
 
-   有一項名為自訂網域名稱的功能，可讓您將現有的 DNS 名稱對應至 Web 應用程式。 您可以閱讀[將現有的 DNS 名稱對應至 Web 應用程式][customdomain]一文，以深入了解該功能。 應用程式使用的自訂網域名稱，與您的 ASE 使用的網域名稱不可重疊。 若 ILB ASE 的網域名稱為 contoso.com，則您的應用程式不能使用像這樣的自訂網域名稱：
+   您可以[將現有的 DNS 名稱對應至您的應用程式][customdomain]。 應用程式使用的自訂網域名稱，與您的 ASE 使用的網域名稱不可重疊。 若 ILB ASE 的網域名稱為 contoso.com，則您的應用程式不能使用像這樣的自訂網域名稱：
 
     * www.contoso.com
 
@@ -88,7 +88,7 @@ ms.locfileid: "53344273"
 
    如果您知道您的應用程式自訂網域名稱，請為 ILB ASE 選擇不會與這些自訂網域名稱相衝突的網域。 在此範例中，您可以為您的 ASE 使用類似 contoso internal.com 的網域，因為不會與 contoso.com結尾的自訂網域名稱衝突。
 
-1. 選取 [確定]，然後選取 [建立]。
+8. 選取 [確定]，然後選取 [建立]。
 
     ![ASE 建立][1]
 
@@ -160,23 +160,23 @@ ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您需要管理�
 
 1. 取得 ASE 的 ILB 位址。 選取 [ASE]  >  [屬性]  >  [虛擬 IP 位址]。
 
-1. 建立您的 ASE 後，在 ASE 中建立 Web 應用程式。
+2. 建立您的 ASE 後，在 ASE 中建立應用程式。
 
-1. 如果您在該 VNet 中還沒有 VM，則建立 VM。
+3. 如果您在該 VNet 中還沒有 VM，則建立 VM。
 
     > [!NOTE] 
     > 請勿嘗試在與 ASE 相同的子網路中建立此 VM，因為會失敗或造成問題。
     >
 
-1. 設定 ASE 網域的 DNS。 您可以在您的 DNS 中使用萬用字元搭配您的網域。 若要執行一些簡單測試，請編輯 VM 上的主機檔案來將 Web 應用程式名稱設定為 VIP IP 位址：
+4. 設定 ASE 網域的 DNS。 您可以在您的 DNS 中使用萬用字元搭配您的網域。 若要執行一些簡單測試，請編輯 VM 上的主機檔案來將應用程式名稱設定為 VIP IP 位址：
 
-    a. 如果您的 ASE 網域名稱為 .ilbase.com，且您建立名為 mytestapp 的 Web 應用程式，則它將定址為 mytestapp.ilbase.com。 然後，您設定 mytestapp.ilbase.com 以解析 ILB 位址。 (在 Windows 上，主機檔案位於 _C:\Windows\System32\drivers\etc\_。)
+    a. 如果您的 ASE 網域名稱為 .ilbase.com，且您建立名為 mytestapp 的應用程式，則它將定址為 mytestapp.ilbase.com。 然後，您設定 mytestapp.ilbase.com 以解析 ILB 位址。 (在 Windows 上，主機檔案位於 _C:\Windows\System32\drivers\etc\_。)
 
     b. 若要測試 Web 部署發佈或存取進階主控台，建立 mytestapp.scm.ilbase.com 的記錄。
 
-1. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。 (或移至任何名稱含您的網域的 Web 應用程式。)
+5. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。 (或移至任何名稱含您的網域的應用程式。)
 
-1. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。 如果您使用自我簽署憑證，就必須接受安全性不足。
+6. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。 如果您使用自我簽署憑證，就必須接受安全性不足。
 
     您的 ILB IP 位址列在 [IP 位址] 底下。 此清單中也有外部 VIP 使用的 IP 位址以及用於輸入管理流量的 IP 位址。
 
@@ -237,7 +237,7 @@ Azure App Service 提供許多安全性措施來保護您的系統。 它們也�
 [NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
-[webapps]: ../app-service-web-overview.md
+[webapps]: ../overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/

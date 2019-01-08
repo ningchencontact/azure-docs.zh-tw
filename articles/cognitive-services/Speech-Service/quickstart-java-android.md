@@ -8,21 +8,21 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: afe0cfe61779e95fc9a65a1f4928ddae4b7af267
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e77ee61e3d318b355b978ce21031f3f55a26feca
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090103"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724615"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Android 上以 Java 辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-在本文中，您將了解如何使用認知服務語音 SDK 將語音轉譯成文字，建立適用於 Android 的 Java 應用程式。
-應用程式以 Microsoft 認知服務語音 SDK Maven 套件 1.1.0 版和 Android Studio 3.1 為基礎。
+在本文中，您將了解如何使用認知服務語音 SDK 將語音轉譯成文字，以開發適用於 Android 的 Java 應用程式。
+該應用程式會以 Microsoft 認知服務語音 SDK Maven 套件 1.2.0 版和 Android Studio 3.1 為基礎。
 語音 SDK 目前與使用 32/64 位元 ARM 和 Intel x86/x64 相容處理器的 Android 裝置相容。
 
 > [!NOTE]
@@ -58,9 +58,9 @@ Android Studio 需要一些時間來準備您新的 Android 專案。 接著，�
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `1.1.0`。
+認知服務語音 SDK 目前的版本為 `1.2.0`。
 
-適用於 Android 的語音 SDK 封裝成 [AAR (Android 程式庫)](https://developer.android.com/studio/projects/android-library)，其中包含必要的程式庫，以及使用它的必要 Android 權限。
+適用於 Android 的語音 SDK 會封裝成 [AAR (Android 程式庫)](https://developer.android.com/studio/projects/android-library) \(英文\)，其中包含必要的程式庫及所需的 Android 權限。
 它會裝載在位於 https://csspeechstorage.blob.core.windows.net/maven/ 的 Maven 存放庫中。
 
 將您的專案設定為使用語音 SDK。 從 Android Studio 功能表列中選擇 [檔案] > [專案結構]，以開啟 [專案結構] 視窗。 在 [專案結構] 視窗中，進行下列變更：
@@ -73,7 +73,7 @@ Android Studio 需要一些時間來準備您新的 Android 專案。 接著，�
 
    ![專案結構視窗的螢幕擷取畫面](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. 在出現的視窗中，輸入適用於 Android 之語音 SDK 的名稱和版本 `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0`。 然後選取 [確定]。
+1. 在出現的視窗中，輸入適用於 Android 之語音 SDK 的名稱和版本 `com.microsoft.cognitiveservices.speech:client-sdk:1.2.0`。 然後選取 [確定]。
    語音 SDK 現在應該會加入至相依性的清單，如下所示：
 
    ![專案結構視窗的螢幕擷取畫面](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
@@ -86,7 +86,7 @@ Android Studio 需要一些時間來準備您新的 Android 專案。 接著，�
 
 ## <a name="create-user-interface"></a>建立使用者介面
 
-我們將建立應用程式的基本使用者介面。 編輯您主要活動的版面配置 `activity_main.xml`。 最初，版面配置會有一個標題列包含您的應用程式名稱，以及包含 "Hello World!" 等字的 TextView
+我們將建立應用程式的基本使用者介面。 編輯您主要活動的版面配置 `activity_main.xml`。 最初，版面配置會包含具有您應用程式名稱的標題列，以及包含 "Hello World!" 文字的 TextView。
 
 * 按一下 TextView 元素。 在 `hello` 的右上角，變更其 ID 屬性。
 
@@ -98,7 +98,7 @@ Android Studio 需要一些時間來準備您新的 Android 專案。 接著，�
 
   ![魔術棒圖示的螢幕擷取畫面](media/sdk/qs-java-android-10-infer-layout-constraints.png)
 
-UI 的文字和圖形化表示法現在應會顯示如下。
+UI 的文字和圖形化表示法現在應會顯示如下：
 
 <table>
 <tr>
@@ -141,16 +141,12 @@ UI 的文字和圖形化表示法現在應會顯示如下。
 
 ![Android 應用程式的螢幕擷取畫面](media/sdk/qs-java-android-13-gui-on-device.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-在 `quickstart/java-android` 資料夾中尋找此範例。
-
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用適用於 Java 的語音 SDK 從語音辨識意圖](how-to-recognize-intents-from-speech-java.md)
+> [探索 GitHub 上的 Java 範例](https://aka.ms/csspeech/samples) \(英文\)
 
 ## <a name="see-also"></a>另請參閱
 
-- [轉譯語音](how-to-translate-speech-csharp.md)
 - [自訂原音模型](how-to-customize-acoustic-models.md)
 - [自訂語言模型](how-to-customize-language-model.md)

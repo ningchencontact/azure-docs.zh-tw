@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Digital Twins (C#) 尋找空閒會議室 | Microsoft Docs
+title: 尋找空閒會議室 - Azure Digital Twins | Microsoft Docs
 description: 在本快速入門中，您會執行兩個 .NET Core 應用程式範例，將模擬的動作和二氧化碳遙測資料傳送至 Azure Digital Twins 中的空間。 我們的目標是要在計算雲端中的處理能力後，從管理 API 尋找有新鮮空氣的空閒會議室。
 author: alinamstanciu
 manager: bertvanhoof
@@ -7,25 +7,25 @@ ms.service: digital-twins
 services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 11/7/2018
+ms.custom: mvc seodec18
+ms.date: 12/17/2018
 ms.author: alinast
-ms.openlocfilehash: ab1e879a7c145699779f6af3a97cef0ee6b5d219
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d2588090ced3e82e63397a416245ca69204f3d87
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105507"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583080"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>快速入門：使用 Azure Digital Twins 尋找空閒會議室
 
-Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 然後，您可以收到環境事件通知，並自訂關於通知的回應。 
+Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 然後，您可以收到環境事件通知，並自訂關於通知的回應。
 
 本快速入門會使用[一組 .NET 範例](https://github.com/Azure-Samples/digital-twins-samples-csharp)將虛構辦公大樓數位化。 文中會示範如何尋找該大樓內的空閒會議室。 使用 Digital Twins，便可將許多感應器關聯至環境。 您還可以借助於模擬的二氧化碳感應器，來了解空閒會議室的空氣品質是否理想。 其中一個應用程式範例會產生隨機的感應器資料，以協助您將此案例視覺化。
 
 下列影片將摘要說明快速入門的設定：
 
-> [!VIDEO https://www.youtube.com/embed/1izK266tbMI]
+>[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -33,8 +33,7 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 
 1. 您在此快速入門中執行的兩個主控台應用程式是使用 C# 所撰寫的。 在開發電腦上安裝 [.NET Core SDK 2.1.403 版或更新版本](https://www.microsoft.com/net/download)。 如果您已安裝 .NET Core SDK，請確認開發電腦上目前的 C# 版本。 在命令提示字元中執行 `dotnet --version`。
 
-1. 下載[範例 C# 專案](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip)。 將 digital-twins-samples-csharp-master.zip 封存檔解壓縮。 
-
+1. 下載[範例 C# 專案](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip)。 將 digital-twins-samples-csharp-master.zip 封存檔解壓縮。
 
 ## <a name="create-a-digital-twins-instance"></a>建立 Digital Twins 執行個體
 
@@ -44,19 +43,18 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 
 ## <a name="set-permissions-for-your-app"></a>設定應用程式的權限
 
-本節會向 Azure Active Directory (Azure AD) 註冊應用程式範例，讓此範例可以存取 Digital Twins 執行個體。 如果您已經有一個 Azure AD 應用程式註冊，請將它重複使用於您的範例。 請確定其設定和本節所述相同。 
+本節會向 Azure Active Directory (Azure AD) 註冊應用程式範例，讓此範例可以存取 Digital Twins 執行個體。 如果您已經有一個 Azure AD 應用程式註冊，請將它重複使用於您的範例。 請確定其設定和本節所述相同。
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
-
 
 ## <a name="build-application"></a>建置應用程式
 
 遵循下列步驟來建置會議室使用情形應用程式。
 
-1. 開啟命令提示字元。 移至 digital-twins-samples-csharp-master.zip 檔案解壓縮所在的資料夾。
+1. 開啟命令提示字元。 移至 `digital-twins-samples-csharp-master.zip` 檔案解壓縮到的資料夾。
 1. 執行 `cd occupancy-quickstart/src`。
 1. 執行 `dotnet restore`。
-1. 編輯 appSettings.json 以更新下列變數：
+1. 編輯 [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) 以更新下列變數：
     - **ClientId**：輸入 Azure AD 應用程式註冊的應用程式識別碼，其記載於上一節。
     - **Tenant**：輸入 Azure AD 租用戶的目錄識別碼，其同樣記載於上一節。
     - **BaseUrl**：Digital Twins 執行個體的管理 API URL 所用的格式為 `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`。 將此 URL 中的預留位置替換為執行個體在上一節的值。
@@ -64,22 +62,21 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 ## <a name="provision-graph"></a>佈建圖形
 
 此步驟會佈建含有下列項目的 Digital Twins 空間圖形：
- 
+
 - 數個空間。
 - 一個裝置。
-- 兩個感應器。 
-- 一個自訂函式。 
+- 兩個感應器。
+- 一個自訂函式。
 - 一個角色指派。
- 
-此空間圖形會使用 [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) 檔案來加以佈建。 
+
+此空間圖形會使用 [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) 檔案來加以佈建。
 
 1. 執行 `dotnet run ProvisionSample`。
     >[!NOTE]
     >裝置登入 Azure CLI 工具可用來對 Azure AD 驗證使用者。 使用者必須輸入指定代碼，才能使用 [Microsoft 登入](https://microsoft.com/devicelogin)頁面來進行驗證。 輸入代碼後，請遵循相關步驟來進行驗證。 當工具執行時，使用者必須進行驗證。
-    
+
     >[!TIP]
     > 如果您在執行此步驟時出現下列錯誤訊息，請確定所複製的變數是否正確：`EXIT: Unexpected error: The input is not a valid Base-64 string ...`
-
 
 1. 佈建步驟可能需要進行幾分鐘的時間。 它也會在 Digital Twins 執行個體內佈建 IoT 中樞。 這個過程會一直循環進行，直到 IoT 中樞顯示狀態為 `Running`。
 
@@ -99,7 +96,7 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 1. 開啟新的命令提示字元。 移至您下載到 digital-twins-samples-csharp-master 資料夾中的專案。
 1. 執行 `cd device-connectivity`。
 1. 執行 `dotnet restore`。
-1. 編輯 appsettings.json 以使用先前的 `ConnectionString` 來更新 DeviceConnectionString。
+1. 編輯 [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) 以使用先前的 `ConnectionString` 來更新 DeviceConnectionString。
 1. 執行 `dotnet run` 來開始傳送感應器資料。 您會看到資料傳送到 Digital Twins，如下圖所示。
 
      ![裝置連線能力][2]
@@ -115,7 +112,7 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 
 1. 開啟用來執行先前佈建步驟的命令提示字元。
 1. 執行 `dotnet run GetAvailableAndFreshSpaces`。
-1. 查看這個命令提示字元和並排顯示的感應器資料命令提示字元。 
+1. 查看這個命令提示字元和並排顯示的感應器資料命令提示字元。
 
     一個命令提示字元會每隔五秒將模擬的動作和二氧化碳資料傳送至 Digital Twins。 另一個命令會即時讀取圖形，以根據隨機的模擬資料來找出有新鮮空氣的空閒會議室。 它會根據最後一次傳送的感應器資料，近乎即時地顯示下列其中一個情況：
     - 有新鮮空氣的空閒會議室。
@@ -144,26 +141,25 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 ## <a name="clean-up-resources"></a>清除資源
 
-教學課程會詳細說明如何： 
+教學課程會詳細說明如何：
 
-- 建置應用程式讓設施管理員提高設施是否有人使用的辨別能力。 
+- 建置應用程式讓設施管理員提高設施是否有人使用的辨別能力。
 - 更有效率地管理大樓。
 
 若要繼續進行教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，請刪除本快速入門建立的所有資源。
 
 1. 刪除下載存放庫範例時所建立的資料夾。
 1. 從 [Azure 入口網站](http://portal.azure.com)左側的功能表中，選取 [所有資源]。 然後，選取 Digital Twins 資源。 在 [所有資源] 窗格的頂端，選取 [刪除]。
-   
+
     > [!TIP]
     > 如果您在刪除 Digital Twins 執行個體時遇到問題，已推出的服務更新中具有修正程式。 請重試刪除執行個體。
-
 
 ## <a name="next-steps"></a>後續步驟
 
 本快速入門使用一個簡單案例，讓您了解如何尋找有良好工作條件的會議室。 若要深入分析此案例，請參閱本教學課程：
 
-> [!div class="nextstepaction"]
-> [教學課程：部署 Azure Digital Twins 及設定空間圖形](tutorial-facilities-setup.md)
+>[!div class="nextstepaction"]
+>[教學課程：部署 Azure Digital Twins 及設定空間圖形](tutorial-facilities-setup.md)
 
 <!-- Images -->
 [1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png
