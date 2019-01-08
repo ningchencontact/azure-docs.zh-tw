@@ -22,7 +22,7 @@ ms.lasthandoff: 06/27/2018
 ms.locfileid: "37054631"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Hana 移動資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](data-factory-sap-hana-connector.md)
 > * [第 2 版 (目前的版本)](../connector-sap-hana.md)
 
