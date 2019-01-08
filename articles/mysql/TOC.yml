@@ -40,7 +40,7 @@ items:
       href: tutorial-design-database-using-portal.md
     - name: Azure CLI
       href: tutorial-design-database-using-cli.md
-    - name: Azure 資源管理員範本
+    - name: Azure Resource Manager 範本
       href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
   - name: 2 - 建立 Web 應用程式
     items:
@@ -236,9 +236,9 @@ items:
     href: partners-migration-mysql.md
   - name: 資料庫移轉指南
     href: https://datamigration.microsoft.com/
-ms.openlocfilehash: 79f8e21c9f81d2d10f7afdc5e2c31a8d0936846f
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8322ca7687a0a124c1f535cbac1c0c98f4ff6250
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002445"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074252"
