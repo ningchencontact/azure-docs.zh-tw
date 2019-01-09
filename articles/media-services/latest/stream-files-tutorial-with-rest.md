@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 媒體服務執行上傳、編碼和串流 - REST | Microsoft Docs
-description: 遵循此教學課程的步驟，使用 Azure 媒體服務和 REST 來上傳檔案、編碼視訊及串流處理內容。
+title: 使用 Azure 媒體服務來編碼以 URL 為基礎的遠端檔案及串流處理 - REST | Microsoft Docs
+description: 遵循此教學課程的步驟，透過使用 REST 的 Azure 媒體服務來編碼以 URL 為基礎的檔案及串流處理內容。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 12/19/2018
 ms.author: juliako
-ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cd020566b61dac7da37b24f10eebfc69b19073cb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615767"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720946"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>教學課程：使用 REST 上傳、編碼和串流處理視訊
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>教學課程：編碼以 URL 為基礎的遠端檔案及串流處理影片 - REST
 
 Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽器和裝置上播放的格式。 例如，您可能會想要串流處理 Apple 的 HLS 或 MPEG DASH 格式的內容。 在進行串流處理之前，您應先編碼高品質數位媒體檔案。 如需編碼指引，請參閱[編碼概念](encoding-concept.md)。
 
-本教學課程說明如何搭配使用 REST 與 Azure 媒體服務來上傳、編碼和串流處理視訊檔案。 
+本教學課程說明如何透過使用 REST 的 Azure 媒體服務來編碼以 URL 為基礎的檔案及串流處理影片。 
 
 ![播放影片](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -52,7 +52,7 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 
 - 安裝 [Postman](https://www.getpostman.com/) \(英文\) REST 用戶端，來執行在某些 AMS REST 教學課程中所示範的 REST API。 
 
-    我們使用的是 **Postman**，但任何 REST 工具都適用。 其他替代方案為：搭配 REST 外掛程式的 **Visual Studio Code**，或 **Telerik Fiddler**。 
+    我們使用的是 **Postman**，但任何 REST 工具都適用。 其他替代方式為：搭配 REST 外掛程式的 **Visual Studio Code**，或 **Telerik Fiddler**。 
 
 ## <a name="download-postman-files"></a>下載 Postman 檔案
 
@@ -111,7 +111,7 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 
 ### <a name="get-azure-ad-token"></a>取得 Azure AD 權杖 
 
-1. 在 Postman 的左側視窗中，選取 [步驟 1：取得 AAD 驗證權杖]。
+1. 在 Postman 的左側視窗中，選取 [步驟 1:取得 AAD 驗證權杖]。
 2. 然後，選取 [取得服務主體驗證的 Azure AD 權杖]。
 3. 按 [傳送]。
 
@@ -174,7 +174,7 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
         ```json
         {
             "properties": {
-                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "description": "Standard Transform using an Adaptive Streaming encoding preset from the library of built-in Standard Encoder presets",
                 "outputs": [
                     {
                     "onError": "StopProcessingJob",
