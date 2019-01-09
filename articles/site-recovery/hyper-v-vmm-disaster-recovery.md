@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 040d0dae7bb16e0c2a79640812b18ad75754ca3e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cccfc3d028cb2da9346e629a5aca080bedd7fee9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846601"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794510"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>設定從 Hyper-V VM 到次要內部部署網站的災害復原
 
@@ -65,7 +65,7 @@ ms.locfileid: "52846601"
 
 選取您要複寫的項目以及您要複寫到的位置。
 
-1. 按一下 [Site Recovery] > [步驟 1: 準備基礎結構] > [保護目標]。
+1. 按一下 [Site Recovery] > [步驟 1:準備基礎結構] > [保護目標]。
 2. 選取 [到復原網站]，然後選取 [是，利用 Hyper-V]。
 3. 選取 [是]，表示您使用 VMM 來管理 Hyper-V 主機。
 4. 如果您有次要 VMM 伺服器，請選取 [是]。 如果您要在單一 VMM 伺服器上的雲端之間部署複寫，請按一下 [否] 。 然後按一下 [確定] 。

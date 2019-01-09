@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: dd47976bca75569142f1912eee06c66061e92fa6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4c17c972a39cd336ab33f6be8bd3db5b8f0f2c92
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097660"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808412"
 ---
 # <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>佈建 Azure Cosmos DB 容器的輸送量
 
@@ -47,7 +47,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-如果您要佈建 MongoDB API 帳戶的輸送量，請使用 '/myShardKey' 作為分割區索引鍵路徑，而在佈建 Cassandra API 帳戶的輸送量時，請使用 '/myPrimaryKey' 作為分割區索引鍵路徑。
+如果您要為使用 Azure Cosmos DB MongoDB API 所設定的 Cosmos 帳戶佈建輸送量，請使用 '/myShardKey' 作為分割區索引鍵路徑，而在為設定用於 Cassandra API 的 Cosmos 帳戶佈建輸送量時，則請使用 '/myPrimaryKey' 作為分割區索引鍵路徑。
 
 ## <a name="provision-throughput-using-net-sdk"></a>使用 .NET SDK 佈建輸送量
 

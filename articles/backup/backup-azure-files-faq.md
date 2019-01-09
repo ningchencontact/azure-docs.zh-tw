@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 9ef3525d7867d0ef01b6f17035039d4a4e6def93
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 51952196bd2c44ba79e96266436860106a0753c4
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874537"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793507"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 本文提供有關備份 Azure 檔案服務的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -39,31 +39,34 @@ ms.locfileid: "52874537"
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>我可以在哪些地區備份 Azure 檔案共用 <br/>
 Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列地區： 
--   澳洲東部 (AE) 
+- 澳洲東部 (AE) 
 - 澳大利亞東南部 (ASE) 
 - 巴西南部 (BRS)
 - 加拿大中部 (CNC)
--   加拿大東部 (CE)
--   美國中部 (CUS)
--   東亞 (EA)
--   美國東部 (EUS)
--   美國東部 2 (EUS2)
+- 加拿大東部 (CE)
+- 美國中部 (CUS)
+- 東亞 (EA)
+- 美國東部 (EUS)
+- 美國東部 2 (EUS2)
 - 日本東部 (JPE)
 - 日本西部 (JPW)
--   印度中部 (INC) 
+- 印度中部 (INC) 
 - 印度南部 (INS)
 - 南韓中部 (KRC)
 - 南韓 (KRS)
--   美國中北部 (NCUS) 
--   北歐 (NE) 
--   美國中南部 (SCUS) 
--   東南亞 (SEA)
--   英國南部 (UKS) 
--   英國西部 (UKW) 
--   西歐 (WE) 
--   美國西部 (WUS)
--   美國中西部 (WCUS)
--   美國西部 2 (WUS 2)
+- 美國中北部 (NCUS) 
+- 北歐 (NE) 
+- 美國中南部 (SCUS) 
+- 東南亞 (SEA)
+- 英國南部 (UKS) 
+- 英國西部 (UKW) 
+- 西歐 (WE) 
+- 美國西部 (WUS)
+- 美國中西部 (WCUS)
+- 美國西部 2 (WUS 2)
+- US Gov 亞利桑那州 (UGA)
+- US Gov 德克薩斯州 (UGT)
+- US Gov 維吉尼亞州 (UGV)
 
 如果您在未列於上方的特定地區中需要使用該功能，請寫信送至 [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com)。
 
@@ -71,7 +74,7 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 在預覽期間，您在每個保存庫中最多可以保護 50 個儲存體帳戶的 Azure 檔案共用。 此外，您在單一保存庫中最多可保護 200 個檔案共用。
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>可以將相同儲存體帳戶中的兩個不同檔案共用放入不同的保存庫中保護？
-否。 一個儲存體帳戶中的所有檔案共用只能由相同的保存庫保護。
+沒有。 一個儲存體帳戶中的所有檔案共用只能由相同的保存庫保護。
 
 ## <a name="backup"></a>Backup 
 

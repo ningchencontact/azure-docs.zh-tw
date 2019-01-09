@@ -11,27 +11,29 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3ab55cec4b8483cf254ec3d9fe68521baca9cdf5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: da84d6361d80db8aea797827ed3d7bc612e2eda3
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268492"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999045"
 ---
-# <a name="quickstart-use-python-sdk-to-get-started-with-azure-machine-learning"></a>快速入門：使用 Python SDK 來開始使用 Azure Machine Learning
+# <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>快速入門：使用 Python SDK 開始使用 Azure Machine Learning
 
-在此快速入門中，您會使用適用於 Python 的 Azure Machine Learning 來建立及使用 Machine Learning 服務[工作區](concept-azure-machine-learning-architecture.md)。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。 在本快速入門中，您會先設定自己的 Python 環境和 Jupyter Notebook 伺服器。 若要在未安裝的情況下執行，請參閱[快速入門：利用 Azure 入口網站開始使用 Azure Machine Learning](quickstart-get-started.md)。
+在本文中，您將使用適用於 Python 的 Azure Machine Learning SDK 來建立及使用 Azure Machine Learning 服務[工作區](concept-azure-machine-learning-architecture.md)。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎。 
+
+首先，您會設定自己的 Python 環境和 Jupyter Notebook 伺服器。 若要在未安裝的情況下執行，請參閱[快速入門：利用 Azure 入口網站開始使用 Azure Machine Learning](quickstart-get-started.md)。
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
-在本教學課程中，您會安裝 Python SDK，以及：
-
+在本文章中，您將：
+* 安裝 Python SDK。
 * 在您的 Azure 訂用帳戶中建立工作區。
 * 建立該工作區的組態檔，稍後在其他 Notebook 和指令碼中會用到。
 * 撰寫程式碼來記錄工作區內的值。
 * 在工作區中檢視記錄的值。
 
-在本快速入門中，您會建立工作區和組態檔。 您可以使用它們作為其他 Azure Machine Learning 教學課程和操作說明文章的必要條件。 如同使用其他 Azure 服務，Machine Learning 也有一些相關限制和配額。 [深入了解配額及如何要求更多配額。](how-to-manage-quotas.md)
+您會建立工作區和組態檔，作為其他 Machine Learning 教學課程和操作說明文章的必要條件。 如同其他 Azure 服務，Machine Learning 也有其相關的特定限制和配額。 [深入了解配額及如何要求更多配額。](how-to-manage-quotas.md)
 
 下列 Azure 資源可在區域內取得時，就會自動新增至您的工作區：
  
@@ -44,111 +46,108 @@ ms.locfileid: "53268492"
 
 ## <a name="install-the-sdk"></a>安裝 SDK
 
->[!NOTE]
-> 本文中的程式碼需要使用 Azure Machine Learning SDK 1.0.2 版或更新版本。 
+> [!IMPORTANT]
+> 如果您使用 2018 年 9 月 27 日之後建立的資料科學虛擬機器，請略過本節。
+> 在此日期之後建立的資料科學虛擬機器，會隨附預先安裝的 Python SDK。
 
-*如果您使用 2018 年 9 月 27 日之後建立的資料科學虛擬機器，請略過本節。* 這些資料科學虛擬機器會隨附預先安裝的 Python SDK。
+本文中的程式碼需要使用 Azure Machine Learning SDK 1.0.2 版或更新版本。
 
-安裝 SDK 之前，我們建議您先建立獨立的 Python 環境。 雖然本快速入門使用 [Miniconda](https://conda.io/docs/user-guide/install/index.html)，但您也可以使用已安裝的完整 [Anaconda](https://www.anaconda.com/) 或 [Python virtualenv](https://virtualenv.pypa.io/en/stable/)。
+安裝 SDK 之前，我們建議您先建立獨立的 Python 環境。 雖然本文使用 [Miniconda](https://conda.io/docs/user-guide/install/index.html)，但您也可以使用已安裝的完整 [Anaconda](https://www.anaconda.com/) 或 [Python virtualenv](https://virtualenv.pypa.io/en/stable/)。
 
 ### <a name="install-miniconda"></a>安裝 Miniconda
 
-
-[下載](https://conda.io/miniconda.html)並安裝 Miniconda。 選取 Python 3.7 版或更新版本。 請勿選取 Python 2.x 版。
+[下載並安裝 Miniconda](https://conda.io/miniconda.html)。 選取 Python 3.7 或更新版本。 請勿選取 Python 2.x。
 
 ### <a name="create-an-isolated-python-environment"></a>建立獨立的 Python 環境 
 
-開啟命令列視窗。 然後使用 Python 3.6 建立名為 `myenv` 的新 Conda 環境。
+1. 開啟命令列視窗，然後使用 Python 3.6 建立名為 *myenv* 的新 Conda 環境。
 
-```shell
-conda create -n myenv -y Python=3.6
-```
+    ```shell
+    conda create -n myenv -y Python=3.6
+    ```
 
-啟用環境。
+1. 啟用環境。
 
-  ```shell
-  conda activate myenv
-  ```
+    ```shell
+    conda activate myenv
+    ```
 
 ### <a name="install-the-sdk"></a>安裝 SDK
 
 在已啟用的 Conda 環境中安裝 SDK。 此程式碼會安裝 Machine Learning SDK 的核心元件。 它也會在 conda 環境中安裝 Jupyter Notebook 伺服器。 完成安裝需要幾分鐘的時間，視您的電腦組態而定。
 
 ```sh
-# install Jupyter
+# Install Jupyter
 conda install nb_conda
 
-# install the base SDK and Jupyter Notebook
+# Install the base SDK and Jupyter Notebook
 pip install azureml-sdk[notebooks]
-
 ```
 
-您也可以使用其他「額外」關鍵字來安裝 SDK 的其他元件。
+您可以使用其他關鍵字來安裝 SDK 的其他元件：
 
 ```sh
-# install the base SDK and auto ml components
+# Install the base SDK and auto ml components
 pip install azureml-sdk[automl]
 
-# install the base SDK and model explainability component
+# Install the base SDK and the model explainability component
 pip install azureml-sdk[explain]
 
-# install the base SDK and experimental components
+# Install the base SDK and experimental components
 pip install azureml-sdk[contrib]
 ```
 
-在 Databricks 環境中，改為使用此安裝。
+在 Azure Databricks 環境中，請改用下列安裝命令：
 
 ```
-# install the base SDK and automl components in Azure Databricks environment
-# read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
+# Install the base SDK and automl components in the Azure Databricks environment.
+# For more information, see https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks.
 pip install azureml-sdk[databricks]
 ```
 
 
 ## <a name="create-a-workspace"></a>建立工作區
 
-若要啟動 Jupyter Notebook，請輸入下列命令。
-```shell
-jupyter notebook
-```
+1. 若要啟動 Jupyter Notebook，請輸入下列命令：
 
-在瀏覽器視窗中，使用預設 `Python 3` 核心建立新的 Notebook。 
+    ```shell
+    jupyter notebook
+    ```
 
-若要顯示 SDK 版本，請在 Notebook 資料格中輸入下列 Python 程式碼並加以執行。
+1. 在瀏覽器視窗中，使用預設 `Python 3` 核心建立新的 Notebook。 
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
+1. 若要顯示 SDK 版本，請在 Notebook 資料格中輸入並執行下列 Python 程式碼：
 
-建立新的 Azure 資源群組和新的工作區。
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
 
-在 [Azure 入口網站的訂用帳戶清單](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中尋找 `<azure-subscription-id>` 的值。 使用您在其中是擁有者或參與者角色的任何訂用帳戶。
+1. 在 [Azure 入口網站的訂用帳戶清單](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中尋找 `<azure-subscription-id>` 參數的值。 使用您在其中是擁有者或參與者角色的任何訂用帳戶。
 
-```python
-from azureml.core import Workspace
-ws = Workspace.create(name='myworkspace',
-                      subscription_id='<azure-subscription-id>',    
-                      resource_group='myresourcegroup',
-                      create_resource_group=True,
-                      location='eastus2' # or other supported Azure region  
-                     )
-```
+   ```python
+   from azureml.core import Workspace
+   ws = Workspace.create(name='myworkspace',
+                         subscription_id='<azure-subscription-id>', 
+                         resource_group='myresourcegroup',
+                         create_resource_group=True,
+                         location='eastus2' # Or other supported Azure region   
+                        )
+   ```
 
-執行上述程式碼可能會觸發新的瀏覽器視窗，讓您登入 Azure 帳戶。 登入之後，會在本機快取驗證權杖。
+   當您執行程式碼時，系統可能會提示您登入 Azure 帳戶。 登入之後，會在本機快取驗證權杖。
 
-若要查看工作區詳細資料，例如相關聯的儲存體、容器登錄和金鑰保存庫，請輸入下列程式碼。
+1. 若要檢視工作區詳細資料，例如相關聯的儲存體、容器登錄和金鑰保存庫，請輸入下列程式碼：
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
+    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
 
 
 ## <a name="write-a-configuration-file"></a>寫入組態檔
 
-將組態檔中的工作區詳細資料儲存到目前的目錄。 此檔案稱為 'aml_config\config.json'。  
+將組態檔中的工作區詳細資料儲存到目前的目錄。 此檔案稱為 *aml_config\config.json*。  
 
-此工作區組態檔可讓您稍後輕鬆地載入這同一個工作區。 您可以使用相同目錄或子目錄中的其他 Notebook 和指令碼來載入它。 
+此工作區組態檔可讓您稍後輕鬆地載入相同的工作區。 您可以使用相同目錄或子目錄中的其他 Notebook 和指令碼來載入它。 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
-
-`write_config()` API 呼叫會在目前的目錄中建立組態檔。 `config.json` 檔案包含下列指令碼。
+`write_config()` API 呼叫會在目前的目錄中建立組態檔。 *config.json* 檔案包含下列指令碼：
 
 ```json
 {
@@ -164,9 +163,8 @@ ws = Workspace.create(name='myworkspace',
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=useWs)]
 
-
 ## <a name="view-logged-results"></a>檢視記錄的值
-執行完成時，您可以在 Azure 入口網站中檢視實驗執行。 使用下列程式碼可列印上一個執行結果的 URL。
+執行完成時，您可以在 Azure 入口網站中檢視實驗執行。 若要列印會瀏覽至前次執行結果的 URL，請使用下列程式碼：
 
 ```python
 print(run.get_portal_url())
@@ -174,25 +172,24 @@ print(run.get_portal_url())
 
 使用此連結，即可透過瀏覽器在 Azure 入口網站中檢視記錄的值。
 
-![入口網站中記錄的值](./media/quickstart-create-workspace-with-python/logged-values.png)
+![Azure 入口網站中已記錄的值](./media/quickstart-create-workspace-with-python/logged-values.png)
 
 ## <a name="clean-up-resources"></a>清除資源 
 >[!IMPORTANT]
->您所建立的資源可用來作為其他 Machine Learning 教學課程和操作說明文章的先決條件。
+>您可以使用在此處建立的資源，作為其他 Machine Learning 教學課程和操作說明文章的必要條件。
 
-如果您不打算使用您在此建立的資源，請刪除它們，以免產生任何費用。
+如果您不打算繼續使用您在本文中建立的資源，請加以刪除，以避免產生費用。
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=delete)]
 
-
 ## <a name="next-steps"></a>後續步驟
 
-您已建立了進行實驗和部署模型所需的資源。 您也在 Notebook 中執行了程式碼。 而且在雲端的工作區中探索了該程式碼的執行歷程記錄。
+在本文中，您已建立進行實驗和部署模型所需的資源。 您在 Notebook 中執行了程式碼，並且在雲端的工作區中探索了該程式碼的執行歷程記錄。
 
-您的環境中需要多一點套件，才能搭配 Machine Learning 教學課程使用該環境：
+若要將程式碼用於 Machine Learning 教學課程，您的環境中還需要若干套件。
 
 1. 在瀏覽器中關閉 Notebook。
-1. 在命令列視窗中，使用 `Ctrl`+`C` 停止 Notebook 伺服器。
+1. 在命令列視窗中選取 Ctrl+C，以停止 Jupyter Notebook 伺服器。
 1. 安裝其他套件。
 
     ```shell
@@ -200,8 +197,7 @@ print(run.get_portal_url())
     pip install azureml-sdk[automl]
     ```
 
-
-安裝這些套件後，請遵循教學課程來定型和部署模型。 
+安裝這些套件後，請繼續進行教學課程以定型和部署模型。 
 
 > [!div class="nextstepaction"]
 > [教學課程：將影像分類模型定型](tutorial-train-models-with-aml.md)

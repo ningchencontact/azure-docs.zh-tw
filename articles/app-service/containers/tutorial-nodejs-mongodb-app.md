@@ -15,27 +15,27 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 59173550c0cdff44931e0b686308b39e985dddcf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 44f5ea606efafbb310e4740d75cbf86b7069e7ca
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254950"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722510"
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 Node.js 和 MongoDB Web 應用程式
+# <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 Node.js 和 MongoDB 應用程式
 
 > [!NOTE]
-> 本文會將應用程式部署至 Linux 上的 App Service。 若要在 Windows 上部署至 App Service，請參閱[在 Azure 中建置 Node.js 和 MongoDB Web 應用程式](../app-service-web-tutorial-nodejs-mongodb-app.md)。
+> 本文會將應用程式部署至 Linux 上的 App Service。 若要在 Windows 上部署至 App Service，請參閱[在 Azure 中建置 Node.js 和 MongoDB 應用程式](../app-service-web-tutorial-nodejs-mongodb-app.md)。
 >
 
-[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程會示範如何建立 Node.js Web 應用程式，將其連線至 MongoDB 資料庫本機，然後使用 MongoDB API 部署至連線至 CosmosDB 資料庫的 Azure。 完成之後，您的 MEAN 應用程式 (MongoDB、Express、AngularJS 及 Node.js) 將會在 Linux 上的 App Service 中執行。 為了簡單起見，範例應用程式會使用 [MEAN.js web 架構](https://meanjs.org/)。
+[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程會示範如何建立 Node.js 應用程式，將其連線至本機 MongoDB 資料庫，然後部署為適用於 MongoDB API 的 Azure CosmosDB 資料庫。 完成之後，您的 MEAN 應用程式 (MongoDB、Express、AngularJS 及 Node.js) 將會在 Linux 上的 App Service 中執行。 為了簡單起見，範例應用程式會使用 [MEAN.js web 架構](https://meanjs.org/)。
 
 ![在 Azure App Service 中執行的 MEAN.js 應用程式](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 您會了解如何：
 
 > [!div class="checklist"]
-> * 在 Azure 中使用 MongoDB API 建立 CosmosDB 資料庫
+> * 使用適用於 MongoDB 的 Azure Cosmos DB API 建立資料庫
 > * 將 Node.js 應用程式連線至 MongoDB
 > * 將應用程式部署至 Azure
 > * 將資料模型更新並將應用程式重新部署
@@ -121,9 +121,7 @@ MEAN.js 範例應用程式會將使用者資料儲存於資料庫中。 如果�
 
 ## <a name="create-production-mongodb"></a>建立生產環境 MongoDB
 
-在此步驟中，您要在 Azure 中建立 MongoDB 資料庫。 當您的應用程式部署至 Azure 時，它會使用此雲端資料庫。
-
-針對 MongoDB，本教學課程使用 [Azure Cosmos DB](/azure/documentdb/)。 Cosmos DB 支援 MongoDB 用戶端連線。
+在此步驟中，您會在 Azure 中建立使用 MongoDB API 設定的 Cosmos 資料庫。 當您的應用程式部署至 Azure 時，它會使用此雲端資料庫。
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
@@ -159,7 +157,7 @@ az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kin
 }
 ```
 
-## <a name="connect-app-to-production-mongodb"></a>將應用程式連線至生產環境 MongoDB
+## <a name="connect-app-to-production-cosmos-db-configured-with-mongodb-api"></a>將應用程式連線到使用 MongoDB API 設定的生產 Cosmos DB
 
 在此步驟中，您要使用 MongoDB 連接字串，將 MEAN.js 範例應用程式連線至您剛才建立的 Cosmos DB 資料庫。
 
@@ -239,7 +237,7 @@ MEAN.JS version: 0.5.0
 
 ## <a name="deploy-app-to-azure"></a>將應用程式部署到 Azure
 
-在此步驟中，您要將已與 MongoDB 連接的 Node.js 應用程式部署至 Azure App Service。
+在此步驟中，您會將 Node.js 應用程式部署至 Azure App Service。
 
 ### <a name="configure-local-git-deployment"></a>設定本機 git 部署
 
@@ -257,11 +255,11 @@ MEAN.JS version: 0.5.0
 
 ### <a name="configure-an-environment-variable"></a>設定環境變數
 
-根據預設，MEAN.js 專案會將 _config/env/local-production.js_ 屏除在 Git 存放庫之外。 因此針對您的 Azure Web 應用程式，使用應用程式設定來定義 MongoDB 連接字串。
+根據預設，MEAN.js 專案會將 _config/env/local-production.js_ 屏除在 Git 存放庫之外。 因此針對您的 Azure 應用程式，使用應用程式設定來定義 MongoDB 連接字串。
 
 若要設定應用程式的設定，請在 Cloud Shell 中使用 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。
 
-下列範例會在 Azure Web 應用程式中設定 `MONGODB_URI` 應用程式設定。 取代 \<app_name>、\<cosmosdb_name> 和 \<primary_master_key> 預留位置。
+下列範例會在 Azure 應用程式中設定 `MONGODB_URI` 應用程式設定。 取代 \<app_name>、\<cosmosdb_name> 和 \<primary_master_key> 預留位置。
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -307,11 +305,11 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 - _.deployment_ - 此檔案會告訴 App Service，執行 `bash deploy.sh` 以作為自訂部署指令碼。
 - _deploy.sh_ - 自訂部署指令碼。 如果您檢閱檔案，您將看到它會在 `npm install` 和 `bower install` 之後執行 `gulp prod`。
 
-您可以使用這種方法，將任何步驟新增至您的 Git 部署。 如果您在任一時間點重新啟動 Azure Web 應用程式，App Service 並不會重新執行這些自動化工作。
+您可以使用這種方法，將任何步驟新增至您的 Git 部署。 如果您在任一時間點重新啟動 Azure 應用程式，App Service 並不會重新執行這些自動化工作。
 
-### <a name="browse-to-the-azure-web-app"></a>瀏覽至 Azure Web 應用程式
+### <a name="browse-to-the-azure-app"></a>瀏覽至 Azure 應用程式
 
-使用 Web 瀏覽器，瀏覽至已部署的 Web 應用程式。
+使用 Web 瀏覽器，瀏覽至已部署的應用程式。
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -319,7 +317,7 @@ http://<app_name>.azurewebsites.net
 
 按一下上層功能表中的 [註冊]，然後建立一位虛擬使用者。
 
-如果成功且應用程式會自動登入已建立的使用者，則您在 Azure 中的 MEAN.js 應用程式就已連線到 Cosmos DB 資料庫 MongoDB API。
+如果成功且應用程式自動登入已建立的使用者，則您在 Azure 中的 MEAN.js 應用程式就已連線到適用於 MongoDB API 的 Azure Cosmos DB。
 
 ![在 Azure App Service 中執行的 MEAN.js 應用程式](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -447,21 +445,21 @@ git commit -am "added article comment"
 git push azure master
 ```
 
-完成 `git push` 之後，瀏覽至 Azure Web 應用程式，然後嘗試執行新功能。
+完成 `git push` 之後，瀏覽至 Azure 應用程式，然後嘗試執行新功能。
 
 ![發佈至 Azure 的模型和資料庫變更](media/tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 如果您先前已新增任何文章，您仍然可以看到它們。 Cosmos DB 中的現有資料不會遺失。 此外，您的變更會更新至資料結構描述，並讓現有資料保留不變。
 
-## <a name="manage-your-azure-web-app"></a>管理您的 Azure Web 應用程式
+## <a name="manage-your-azure-app"></a>管理您的 Azure 應用程式
 
-請移至 [Azure 入口網站](https://portal.azure.com)，以查看您所建立的 Web 應用程式。
+請移至 [Azure 入口網站](https://portal.azure.com)，以查看您所建立的應用程式。
 
-按一下左側功能表中的 [應用程式服務]，然後按一下 Azure Web 應用程式的名稱。
+按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
 
-![入口網站瀏覽至 Azure Web 應用程式](./media/tutorial-nodejs-mongodb-app/access-portal.png)
+![入口網站瀏覽至 Azure 應用程式](./media/tutorial-nodejs-mongodb-app/access-portal.png)
 
-根據預設，入口網站會顯示 Web 應用程式的 [概觀] 分頁。 此頁面可讓您檢視應用程式的執行方式。 您也可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 分頁左側的索引標籤會顯示您可開啟的各種設定分頁。
+根據預設，入口網站會顯示應用程式的 [概觀] 分頁。 此頁面可讓您檢視應用程式的執行方式。 您也可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 分頁左側的索引標籤會顯示您可開啟的各種設定分頁。
 
 ![Azure 入口網站中的 App Service 頁面](./media/tutorial-nodejs-mongodb-app/web-app-blade.png)
 
@@ -474,14 +472,14 @@ git push azure master
 您已了解如何︰
 
 > [!div class="checklist"]
-> * 在 Azure 中使用 MongoDB API 建立 CosmosDB 資料庫
-> * 將 Node.js 應用程式連線至 MongoDB
+> * 使用適用於 MongoDB 的 Azure Cosmos DB API 建立資料庫
+> * 將 Node.js 應用程式連線至資料庫
 > * 將應用程式部署至 Azure
 > * 將資料模型更新並將應用程式重新部署
 > * 將記錄從 Azure 串流到終端機
 > * 在 Azure 入口網站中管理應用程式
 
-前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至 Web 應用程式。
+前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至應用程式。
 
 > [!div class="nextstepaction"]
-> [將現有的自訂 DNS 名稱對應至 Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
+> [將現有的自訂 DNS 名稱對應至 Azure App Service](../app-service-web-tutorial-custom-domain.md)

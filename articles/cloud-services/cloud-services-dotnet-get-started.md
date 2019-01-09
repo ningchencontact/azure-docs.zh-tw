@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242121"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716101"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
 
@@ -35,8 +35,8 @@ ms.locfileid: "51242121"
 
 此應用程式會使用 [以佇列為中心的工作模式](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) ，將建立縮圖的 CPU 密集工作轉變為後端程序。
 
-## <a name="alternative-architecture-web-apps-and-webjobs"></a>替代架構：Web Apps 和 WebJob
-本教學課程示範如何在 Azure 雲端服務中執行前端與後端。 替代方式是在 [Azure Web Apps](/azure/app-service/) 中執行前端，並且將 [WebJob](https://go.microsoft.com/fwlink/?LinkId=390226) 功能用於後端。 如需使用 WebJob 的教學課程，請參閱 [開始使用 Azure WebJob SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)。 如需如何選擇最符合您的案例之服務的詳細資訊，請參閱 [Azure 網站、雲端服務和虛擬機器比較](../app-service/choose-web-site-cloud-service-vm.md)。
+## <a name="alternative-architecture-app-service-and-webjobs"></a>替代架構：App Service 和 WebJobs
+本教學課程示範如何在 Azure 雲端服務中執行前端與後端。 替代方式是在 [Azure App Service](/azure/app-service/) 中執行前端，並且將 [WebJob](https://go.microsoft.com/fwlink/?LinkId=390226) 功能用於後端。 如需使用 WebJob 的教學課程，請參閱 [開始使用 Azure WebJob SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)。 如需如何選擇最符合您的案例之服務的詳細資訊，請參閱 [Azure App Service、雲端服務和虛擬機器比較](../app-service/overview-compare.md)。
 
 ## <a name="what-youll-learn"></a>您將學到什麼
 * 如何安裝 Azure SDK 好讓電腦適合用於進行 Azure 開發。
@@ -391,7 +391,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 8. 繼續在 [ **ContosoAdsWorker [Role]** ] 屬性視窗中，加入另一個連接字串：
 
    * 名稱：ContosoAdsDbConnectionString
-   * 類型：字串
+   * 輸入：字串
    * 值：貼上用於 Web 角色專案的相同連接字串。 (下列範例適用於 Visual Studio 2013。 如果您複製此範例且您是使用 Visual Studio 2015 或更新版本，請記得變更資料來源。)
 
        ```
@@ -407,9 +407,9 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 2. 在 ContosoAdsWeb 專案中，從所下載的專案加入下列檔案。
 
    * *Global.asax.cs*。  
-   * 在 Views\Shared 資料夾中：\_Layout.cshtml 檔案。
-   * 在 Views\Home 資料夾中：Index.cshtml。
-   * 在 Controllers 資料夾中，新增檔案︰AdController.cs。
+   * 在 Views\Shared 資料夾中：*\_Layout.cshtml*。
+   * 在 Views\Home 資料夾中：*Index.cshtml*。
+   * 在 *Controllers* 資料夾中：*AdController.cs*。
    * 在 Views\Ad 資料夾中 (請先建立此資料夾)：五個 .cshtml 檔案。
 3. 在 ContosoAdsWorker 專案中，從所下載的專案加入 *WorkerRole.cs* 。
 

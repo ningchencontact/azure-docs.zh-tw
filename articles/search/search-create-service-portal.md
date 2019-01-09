@@ -6,19 +6,23 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/09/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2055ad9baff0c6acc05c9287ca1b8fb08731f8bc
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5165dd16b77a242ca83d3e5864b6e60f3e12a567
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315973"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002632"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務
 
-了解如何在入口網站中建立或佈建 Azure 搜尋服務。 
+Azure 搜尋服務是一項可用來將搜尋體驗新增至自訂應用程式的獨立資源。 雖然 Azure 搜尋服務可與許多其他 Azure 服務輕易整合，但您也可以單獨加以使用、將其與網路伺服器上裝載的應用程式搭配使用，或與其他雲端平台上執行的軟體搭配使用。 
+
+在本文中，請了解如何在 [Azure 入口網站](https://portal.azure.com/)中建立 Azure 搜尋服務資源。 
+
+![入口網站中的 Azure 搜尋服務資源](media/search-create-service-portal/azure-search-resource-label.png)
 
 是否偏好使用 PowerShell？ 請使用 Azure Resource Manager [服務範本](https://azure.microsoft.com/resources/templates/101-azure-search-create/)。 如需入門說明，請參閱[使用 PowerShell 管理 Azure 搜尋服務](search-manage-powershell.md)，以獲得背景知識。
 
@@ -31,13 +35,15 @@ ms.locfileid: "53315973"
 ## <a name="find-azure-search"></a>尋找 Azure 搜尋服務
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下左上角的加號 (「+ 建立資源」)。
-3. 選取 [Web] > [Azure 搜尋服務]。
+3. 使用搜尋列尋找「Azure 搜尋服務」，或透過 [Web] > [Azure 搜尋服務] 瀏覽至資源。
 
 ![](./media/search-create-service-portal/find-search3.png)
 
 ## <a name="name-the-service-and-url-endpoint"></a>為服務和 URL 端點命名
 
-服務名稱是 URL 端點的一部分，API 呼叫是根據此端點所發出：`https://your-service-name.search.windows.net`。 在 [URL] 欄位中輸入您的服務名稱。 
+服務名稱是 URL 端點的一部分，API 呼叫是根據此端點所發出：`https://your-service-name.search.windows.net`。 在 [URL] 欄位中輸入您的服務名稱。
+
+例如，如果您所需的端點是 `https://my-app-name-01.search.windows.net`，則應輸入 `my-app-name-01`。
 
 服務名稱需求：
    * 此名稱在 search.windows.net 命名空間中必須是唯一名稱
@@ -51,6 +57,8 @@ ms.locfileid: "53315973"
 
 ## <a name="select-a-resource-group"></a>選取資源群組
 資源群組是一起使用之 Azure 服務和資源的集合。 例如，如果您使用 Azure 搜尋服務來編製 SQL 資料庫的索引，則這兩個服務應該屬於同一個資源群組。
+
+如果您不想將資源結合成單一群組，或現有的資源群組中有許多資源用於不相關的解決方案中，請為您的 Azure 搜尋服務資源建立專屬的新資源群組。
 
 > [!TIP]
 > 刪除資源群組也會刪除其中的服務。 針對使用多個服務的原型專案，將它們全部放入同一個資源群組，在專案結束之後就能更容易清除。 
@@ -109,7 +117,7 @@ ms.locfileid: "53315973"
 不需要第二個服務即可獲得高可用性。 當您在同一個服務中使用 2 個或更多的複本，查詢就會達到高可用性。 複本更新是循序的，這表示當服務更新推出時，至少會有一個複本是可運作的。如需執行時間的詳細資訊，請參閱[服務等級協定](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。
 
 ## <a name="next-steps"></a>後續步驟
-佈建 Azure 搜尋服務之後，您就可以[定義索引](search-what-is-an-index.md)，以便上傳和搜尋您的資料。 
+佈建 Azure 搜尋服務之後，您可以繼續在入口網站中建立第一個索引。
 
 > [!div class="nextstepaction"]
-> [如何以 .NET 使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)
+> [教學課程：在入口網站中匯入資料、編製索引並執行查詢](search-get-started-portal.md)

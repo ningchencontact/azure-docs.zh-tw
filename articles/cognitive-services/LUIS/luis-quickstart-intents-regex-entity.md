@@ -9,19 +9,34 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 58fa0c36f8c3f630ae7f349bd0f54a497a38f19d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135571"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976778"
 ---
-# <a name="tutorial-3-extract-well-formatted-data"></a>教學課程 3：擷取已正確格式化的資料
-在本教學課程中，修改人力資源應用程式，使其使用**規則運算式**實體來從語句擷取格式一致的資料。
+# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>教學課程：從語句取得格式正確的資料
+在本教學課程中，您將建立應用程式，以使用**規則運算式**實體從語句中擷取格式一致的資料。
 
-實體的目的是要擷取語句中包含的重要資料。 此應用程式會使用規則運算式實體來提取語句中的格式化人力資源 (HR) 表單編號。 雖然語句的意圖一定會由機器學習決定，但此特定實體類型不會進行機器學習。 
+**在本教學課程中，您將了解如何：**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * 建立新的應用程式 
+> * 新增意圖
+> * 新增規則運算式實體 
+> * 定型
+> * 發佈
+> * 從端點取得意圖和實體
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="regular-expression-entities"></a>規則運算式實體
+
+此應用程式會使用規則運算式實體來提取語句中格式正確的人力資源 (HR) 表單編號。 雖然語句的意圖一定會由機器學習決定，但此特定實體類型不會進行機器學習。 
 
 **語句範例包括：**
 
@@ -37,41 +52,22 @@ ms.locfileid: "53135571"
 
 * 資料的格式正確。
 
-**在本教學課程中，您將了解如何：**
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * 使用現有的教學課程應用程式
-> * 新增 FindForm 意圖
-> * 新增規則運算式實體 
-> * 定型
-> * 發佈
-> * 從端點取得意圖和實體
+## <a name="create-a-new-app"></a>建立新的應用程式
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-## <a name="use-existing-app"></a>使用現有的應用程式
-以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
-
-如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
-
-1. 下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-prebuilts-HumanResources.json)。
-
-2. 將 JSON 匯入新的應用程式中。
-
-3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `regex`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。 
-
-## <a name="findform-intent"></a>FindForm 意圖
+## <a name="create-intent-for-finding-form"></a>建立尋找表單的意圖
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. 選取 [Create new intent] \(建立新意圖\)。 
+1. 選取 [Create new intent] \(建立新意圖\)。 
 
-3. 在快顯對話方塊方塊中輸入 `FindForm`，然後選取 [完成]。 
+1. 在快顯對話方塊方塊中輸入 `FindForm`，然後選取 [完成]。 
 
     ![搜尋方塊中有公用程式的建立新意圖對話方塊螢幕擷取畫面](./media/luis-quickstart-intents-regex-entity/create-new-intent-ddl.png)
 
-4. 將語句範例新增至意圖。
+1. 將語句範例新增至意圖。
 
     |範例語句|
     |--|
@@ -88,11 +84,9 @@ ms.locfileid: "53135571"
 
     [ ![醒目提示新語句的意圖頁面螢幕擷取畫面](./media/luis-quickstart-intents-regex-entity/findform-intent.png) ](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
 
-    應用程式有從上一個教學課程中新增的預先建置編號實體，因此每個表單編號都已加上標記。 這對您的用戶端應用程式而言可能已足夠，但編號不會標示編號類型。 以適當的名稱建立新實體，可讓用戶端應用程式正確地處理 LUIS 所傳回的實體。
-
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
-## <a name="regular-expression-entity"></a>規則運算式實體 
+## <a name="use-the-regular-expression-entity-for-well-formatted-data"></a>將規則運算式用於格式正確的資料
 要比對表單編號的規則運算式實體為 `hrf-[0-9]{6}`。 此規則運算式會比對常值字元 `hrf-`，但會忽略大小寫和文化特性造成的差異。 它會完全符合 0-9 的 6 位數數字。
 
 HRF 代表 `human resources form`。
@@ -103,27 +97,31 @@ HRF 代表 `human resources form`。
 
 1. 在左側面板中選取 [實體]。
 
-2. 選取 [實體] 頁面上的 [建立新實體]按鈕。 
+1. 選取 [實體] 頁面上的 [建立新實體]按鈕。 
 
-3. 在快顯對話方塊中，輸入新的實體名稱 `HRF-number`，選取 **RegEx** 作為實體類型，然後輸入 `hrf-[0-9]{6}` 作為 [Regex] 值，最後選取 [完成]。
+1. 在快顯對話方塊中，輸入新的實體名稱 `HRF-number`，選取 **RegEx** 作為實體類型，然後輸入 `hrf-[0-9]{6}` 作為 [Regex] 值，最後選取 [完成]。
 
     ![設定新實體屬性的快顯對話方塊螢幕擷取畫面](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
 
-4. 從左側功能表選取 [意圖]，然後選取 [FindForm] 意圖，以查看語句中標示的規則運算式。 
+1. 從左側功能表選取 [意圖]，然後選取 [FindForm] 意圖，以查看語句中標示的規則運算式。 
 
     [![以現有實體和 RegEx 模式標示語句的螢幕擷取畫面](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png)](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png#lightbox)
 
-    因為實體不是機器學習的實體，標籤建立時即會套用到語句，並顯示在 LUIS 網站中。
+    因為實體不是機器學習的實體，實體在建立時即會套用到語句，並顯示在 LUIS 網站中。
 
-## <a name="train"></a>定型
+## <a name="add-example-utterances-to-the-none-intent"></a>將範例語句新增至 None 意圖 
+
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
+
+## <a name="train-the-app-before-testing-or-publishing"></a>在測試或發佈之前訓練應用程式
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>發佈
+## <a name="publish-the-app-to-query-from-the-endpoint"></a>發佈應用程式以從端點進行查詢
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>從端點取得意圖和實體
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>從端點取得意圖和實體預測
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -134,63 +132,19 @@ HRF 代表 `human resources form`。
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {
         "intent": "FindForm",
-        "score": 0.9993477
+        "score": 0.9988884
       },
       "intents": [
         {
           "intent": "FindForm",
-          "score": 0.9993477
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.0206110049
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.00533067342
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.004215215
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00209096959
+          "score": 0.9988884
         },
         {
           "intent": "None",
-          "score": 0.0017655947
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.00109490135
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.0005704638
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.000525338168
+          "score": 0.00204812363
         }
       ],
       "entities": [
-        {
-          "entity": "last year",
-          "type": "builtin.datetimeV2.daterange",
-          "startIndex": 53,
-          "endIndex": 61,
-          "resolution": {
-            "values": [
-              {
-                "timex": "2017",
-                "type": "daterange",
-                "start": "2017-01-01",
-                "end": "2018-01-01"
-              }
-            ]
-          }
-        },
         {
           "entity": "hrf-123456",
           "type": "HRF-number",
@@ -202,35 +156,24 @@ HRF 代表 `human resources form`。
           "type": "HRF-number",
           "startIndex": 25,
           "endIndex": 34
-        },
-        {
-          "entity": "-123456",
-          "type": "builtin.number",
-          "startIndex": 13,
-          "endIndex": 19,
-          "resolution": {
-            "value": "-123456"
-          }
-        },
-        {
-          "entity": "-234567",
-          "type": "builtin.number",
-          "startIndex": 28,
-          "endIndex": 34,
-          "resolution": {
-            "value": "-234567"
-          }
         }
       ]
     }
     ```
 
-    語句中的數字傳回兩次，一次作為新的實體 `hrf-number`，一次作為預先建置的實體 `number`。 語句可以有多個實體和多個相同類型的實體，如此範例所示。 藉由使用規則運算式實體，LUIS 會擷取具名的資料，這樣更能以程式設計方式協助用戶端應用程式接收 JSON 回應。
+    藉由使用規則運算式實體，LUIS 會擷取具名的資料，這樣更能以程式設計方式協助用戶端應用程式接收 JSON 回應。
 
 
 ## <a name="clean-up-resources"></a>清除資源
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="related-information"></a>相關資訊
+
+* [規則運算式](luis-concept-entity-types.md#regular-expression-entity)實體概念
+* [如何訓練](luis-how-to-train.md)
+* [發佈方法](luis-how-to-publish-app.md)
+* [如何在 LUIS 入口網站中測試](luis-interactive-test.md)
 
 ## <a name="next-steps"></a>後續步驟
 本教學課程已建立新的意圖、新增語句範例，接著建立了規則運算式實體以從語句中擷取格式正確的資料。 定型和發佈應用程式之後，端點的查詢識別了意圖並傳回擷取的資料。

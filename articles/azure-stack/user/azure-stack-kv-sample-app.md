@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: ed02174247de1a99f3d9a4880fd0afa60f867552
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: b17f6301a41dbb1f64edf9d027dff0f57c09282c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050444"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808769"
 ---
 # <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>使用金鑰保存庫中儲存之金鑰和密碼的範例應用程式
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-請依照本文中的步驟執行範例應用程式 (HelloKeyVault)，以從 Azure Stack 中的金鑰保存庫擷取金鑰和密碼。
+請依照本文中的步驟執行範例應用程式 (名為 **HelloKeyVault**)，以從 Azure Stack 中的金鑰保存庫擷取金鑰和密碼。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -46,7 +46,7 @@ ms.locfileid: "43050444"
 >[!NOTE]
 >依預設，PowerShell 指令碼會在 Active Directory 中建立新的應用程式。 不過，您可以註冊其中一個現有的應用程式。
 
- 在執行下列指令碼之前，請確實提供 `aadTenantName` 和 `applicationPassword` 變數的值。 若未指定 `applicationPassword` 的值，此指令碼將會產生隨機密碼。
+在執行下列指令碼之前，請確實提供 `aadTenantName` 和 `applicationPassword` 變數的值。 若未指定 `applicationPassword` 的值，此指令碼將會產生隨機密碼。
 
 ```powershell
 $vaultName           = 'myVault'
@@ -69,7 +69,7 @@ Function GenerateSymmetricKey()
 Write-Host 'Please log into your Azure Stack user environment' -foregroundcolor Green
 
 $tenantARM = "https://management.local.azurestack.external"
-$aadTenantName = "PLEASE FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
+$aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
 
 # Configure the Azure Stack operator’s PowerShell environment.
 Add-AzureRMEnvironment `
@@ -134,10 +134,9 @@ Write-Host "Paste the following settings into the app.config file for the HelloK
 '<add key="AuthClientId" value="' + $servicePrincipal.ApplicationId + '"/>'
 '<add key="AuthClientSecret" value="' + $applicationPassword + '"/>'
 Write-Host
-
 ```
 
-下一個螢幕擷取畫面顯示用來建立金鑰保存庫之指令碼的輸出：
+下圖顯示用來建立金鑰保存庫之指令碼的輸出：
 
 ![具有存取金鑰的金鑰保存庫](media/azure-stack-kv-sample-app/settingsoutput.png)
 
@@ -145,19 +144,19 @@ Write-Host
 
 ## <a name="download-and-configure-the-sample-application"></a>下載並設定範例應用程式
 
-下載 Azure [金鑰保存庫用戶端範例](https://www.microsoft.com/en-us/download/details.aspx?id=45343)頁面所提供的金鑰保存庫範例。 將 .zip 檔的內容解壓縮至您的開發工作站。 範例資料夾中有兩個應用程式，本文使用 HelloKeyVault。
+下載 Azure [金鑰保存庫用戶端範例](https://www.microsoft.com/download/details.aspx?id=45343)頁面所提供的金鑰保存庫範例。 將 .zip 檔的內容解壓縮至您的開發工作站。 範例資料夾中有兩個應用程式。 本文使用 **HelloKeyVault**。
 
-若要載入 HelloKeyVault 範例：
+若要載入 **HelloKeyVault** 範例：
 
 * 瀏覽至 **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** 資料夾。
-* 在 Visual Studio 中開啟 HelloKeyVault 應用程式。
+* 在 Visual Studio 中開啟 **HelloKeyVault** 應用程式。
 
 ### <a name="configure-the-sample-application"></a>設定範例應用程式
 
 在 Visual Studio 中：
 
 * 開啟 HelloKeyVault\App.config 檔案，然後找出 &lt;**appSettings**&gt; 元素。
-* 以用來建立金鑰保存庫的傳回值更新 **VaultUrl**、**AuthClientId** 和 **AuthClientSecret** 金鑰。 (依預設，App.config 檔案會包含 *AuthCertThumbprint* 的預留位置。 請將此預留位置取代為 *AuthClientSecret*。)
+* 以用來建立金鑰保存庫的項目所傳回的值更新 **VaultUrl**、**AuthClientId** 和 **AuthClientSecret** 金鑰。 依預設，App.config 檔案會有 `AuthCertThumbprint` 的預留位置。 請將此預留位置取代為 `AuthClientSecret`。
 
   ![應用程式設定](media/azure-stack-kv-sample-app/appconfig.png)
 
@@ -170,10 +169,9 @@ Write-Host
 您可以使用 HelloKeyVault 範例來：
 
 * 執行基本作業，例如，對金鑰和密碼執行建立、加密、包裝和刪除等作業。
-* 將 *encrypt* 和 *decrypt* 之類的參數傳至 HelloKeyVault，並將指定的變更套用至金鑰保存庫。
+* 將 `encrypt` 和 `decrypt` 之類的參數傳至 HelloKeyVault，並將指定的變更套用至金鑰保存庫。
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用金鑰保存庫密碼部署 VM](azure-stack-kv-deploy-vm-with-secret.md)
-
-[使用 Key Vault 憑證部署 VM](azure-stack-kv-push-secret-into-vm.md)
+- [使用金鑰保存庫密碼部署 VM](azure-stack-kv-deploy-vm-with-secret.md)
+- [使用 Key Vault 憑證部署 VM](azure-stack-kv-push-secret-into-vm.md)

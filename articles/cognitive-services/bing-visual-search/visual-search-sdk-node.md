@@ -1,7 +1,7 @@
 ---
-title: 快速入門：Bing 圖像式搜尋 SDK (節點)
+title: 快速入門：使用適用於 Node.js 的 Bing 圖像式搜尋 SDK 來取得影像見解
 titleSuffix: Azure Cognitive Services
-description: 設定圖像式搜尋 SDK Node 主控台應用程式。
+description: 使用 Bing 圖像式搜尋 SDK 上傳影像並取得其見解。
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,332 +10,104 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: cca39fb16c47eb13887f6198833dafc64974d301
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 1dba0f3aacd0e51a9e4d8017a93f18928fd6b2ea
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444453"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744288"
 ---
-# <a name="quickstart-bing-visual-search-sdk-node"></a>快速入門：Bing 圖像式搜尋 SDK 節點 
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的 Bing 圖像式搜尋 SDK 來取得影像見解
 
-Bing 圖像式搜尋 SDK 使用 Web 要求和剖析結果的 REST API 功能。
-[節點圖像式搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js)可從 Git Hub 取得。
-
-程式碼案例記錄在下列標題底下：
-* [圖像式搜尋用戶端](#client)
-* [完成主控台應用程式](#complete)
+使用本快速入門，開始使用 Node.js SDK 從 Bing 圖像式搜尋服務取得影像見解。 雖然 Bing 圖像式搜尋具有與大部分程式設計語言相容的 REST API，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。 此範例的原始程式碼位於 [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js)。 
 
 ## <a name="prerequisites"></a>必要條件
+* [Node.js](https://www.nodejs.org/)
+* 適用於 Node.js 的 Bing 圖像式搜尋 SDK
+    * 若要使用 Bing 圖像式搜尋 SDK 來設定主控台應用程式，請執行下列命令：
+        1. `npm install ms-rest-azure`
+        2. `npm install azure-cognitiveservices-search-visualSearch` 。
 
-* 為使用本快速入門，您必須在 S9 定價層上啟用訂用帳戶，如[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/) 中所示。 
 
-若要在 Azure 入口網站中啟用訂用帳戶：
-1. 在 Azure 入口網站頂端顯示 `Search resources, services, and docs` 的文字方塊中輸入 'BingSearchV7'。  
-2. 在下拉式清單中的 Marketplace 下選取 `Bing Search v7`。
-3. 輸入新資源的 `Name`。
-4. 選取 `Pay-As-You-Go` 訂用帳戶。
-5. 選取 `S9` 定價層。
-6. 按一下 `Enable` 來啟用訂用帳戶。
-
-## <a name="application-dependencies"></a>應用程式相依性
-
-若要使用 Bing 圖像式搜尋 SDK 來設定主控台應用程式：
-* 執行 `npm install ms-rest-azure`
-* 執行 `npm install azure-cognitiveservices-search-visualSearch`。
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 <a name="client"></a>
-## <a name="visual-search-client"></a>圖像式搜尋用戶端
-若要建立 `VisualSearchAPI` 用戶端的執行個體，請新增 using 指示詞：
-```
-const Search = require('azure-cognitiveservices-visualsearch');
-const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 
-```
-然後，將用戶端具現化：
-```
-let keyVar = 'YOUR-VISUAL-SEARCH-ACCESS-KEY';
-let credentials = new CognitiveServicesCredentials(keyVar);
-let visualSearchApiClient = new Search.VisualSearchAPIClient(credentials);
+## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
 
-```
-使用用戶端來搜尋影像：
-```
-let fileStream = fs.createReadStream('../Data/image.jpg');
-let visualSearchRequest = JSON.stringify({});
-let visualSearchResults;
-try {
-    visualSearchResults = await visualSearchApiClient.images.visualSearch({
-        image: fileStream,
-        knowledgeRequest: visualSearchRequest
-    });
-    console.log("Search visual search request with binary of image");
-} catch (err) {
-    console.log("Encountered exception. " + err.message);
-}
+1. 在您最愛的 IDE 或編輯器中建立新的 JavaScript 檔案，然後新增下列需求。 接著為您的訂用帳戶金鑰、自訂組態識別碼，以及您要上傳影像的檔案路徑，建立變數。 
 
-```
-剖析先前查詢的結果：
-```
-// Visual Search results
-if (visualSearchResults.image.imageInsightsToken) {
-    console.log(`Uploaded image insights token: ${visualSearchResults.image.imageInsightsToken}`);
-}
-else {
-    console.log("Couldn't find image insights token!");
-}
+    ```javascript
+    const os = require("os");
+    const async = require('async');
+    const fs = require('fs');
+    const Search = require('azure-cognitiveservices-visualsearch');
+    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    
+    let keyVar = 'YOUR-VISUAL-SEARCH-ACCESS-KEY';
+    let credentials = new CognitiveServicesCredentials(keyVar);
+    let filePath = "../Data/image.jpg";
+    ```
 
-// List of tags
-if (visualSearchResults.tags.length > 0) {
-    let firstTagResult = visualSearchResults.tags[0];
-    console.log(`Visual search tag count: ${visualSearchResults.tags.length}`);
+2. 具現化用戶端。
 
-    // List of actions in first tag
-    if (firstTagResult.actions.length > 0) {
-        let firstActionResult = firstTagResult.actions[0];
-        console.log(`First tag action count: ${firstTagResult.actions.length}`);
-        console.log(`First tag action type: ${firstActionResult.actionType}`);
+    ```javascript
+    let visualSearchApiClient = new Search.VisualSearchAPIClient(credentials);
+    ```
+
+## <a name="search-for-images"></a>搜尋影像
+
+1. 使用 `fs.createReadStream()` 來讀入您的影像檔案，以及為您的搜尋要求和結果建立變數。 然後使用用戶端來搜尋影像。
+
+    ```javascript
+    let fileStream = fs.createReadStream(filePath);
+    let visualSearchRequest = JSON.stringify({});
+    let visualSearchResults;
+    try {
+        visualSearchResults = await visualSearchApiClient.images.visualSearch({
+            image: fileStream,
+            knowledgeRequest: visualSearchRequest
+        });
+        console.log("Search visual search request with binary of image");
+    } catch (err) {
+        console.log("Encountered exception. " + err.message);
+    }
+    ```
+
+2. 剖析先前查詢的結果：
+
+    ```javascript
+    // Visual Search results
+    if (visualSearchResults.image.imageInsightsToken) {
+        console.log(`Uploaded image insights token: ${visualSearchResults.image.imageInsightsToken}`);
     }
     else {
-        console.log("Couldn't find tag actions!");
+        console.log("Couldn't find image insights token!");
     }
-
-}
-else {
-    console.log("Couldn't find image tags!");
-}
-
-```
-<a name="complete"></a>
-## <a name="complete-console-application"></a>完成主控台應用程式
-
-下列主控台應用程式會執行先前的程式碼、其他案例及剖析結果：
-```
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * Licensed under the MIT License. See License.txt in the project root for
- * license information.
- */
-'use strict';
-
-const os = require("os");
-const async = require('async');
-const fs = require('fs');
-const Search = require('azure-cognitiveservices-visualsearch');
-const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-
-
-let keyVar = 'YOUR-VISUAL-SEARCH-ACCESS-KEY';
-
-let credentials = new CognitiveServicesCredentials(keyVar);
-let visualSearchApiClient = new Search.VisualSearchAPIClient(credentials);
-let visualModels = visualSearchApiClient.models;
-sample();
-
-function sample() {
-    async.series([
-        async function () {
-            let fileStream = fs.createReadStream('../Data/image.jpg');
-            let visualSearchRequest = JSON.stringify({});
-            let visualSearchResults;
-            try {
-                visualSearchResults = await visualSearchApiClient.images.visualSearch({
-                    image: fileStream,
-                    knowledgeRequest: visualSearchRequest
-                });
-                console.log("Visual search request with binary of dog image");
-            } catch (err) {
-                console.log("Encountered exception. " + err.message);
-            }
-            if (!visualSearchResults) {
-                console.log("No visual search result data. ");
-            } else {
-                    // Visual Search results
-                    if (visualSearchResults.image.imageInsightsToken) {
-                        console.log(`Uploaded image insights token: ${visualSearchResults.image.imageInsightsToken}`);
-                    }
-                else {
-                    console.log("Couldn't find image insights token!");
-                }
-
-                // List of tags
-                if (visualSearchResults.tags.length > 0) {
-                    let firstTagResult = visualSearchResults.tags[0];
-                    console.log(`Visual search tag count: ${visualSearchResults.tags.length}`);
-
-                    // List of actions in first tag
-                    if (firstTagResult.actions.length > 0) {
-                        let firstActionResult = firstTagResult.actions[0];
-                        console.log(`First tag action count: ${firstTagResult.actions.length}`);
-                        console.log(`First tag action type: ${firstActionResult.actionType}`);
-                    }
-                    else {
-                        console.log("Couldn't find tag actions!");
-                    }
-
-                }
-                else {
-                    console.log("Couldn't find image tags!");
-                }
-            }
-        },
-        async function () {
-            let fileStream = fs.createReadStream('../Data/image.jpg');
-            let cropArea = { top: 0.1, bottom: 0.5, left: 0.1, right: 0.9 };
-            let imageInfo = { cropArea: cropArea };
-            let visualSearchRequest = JSON.stringify({ imageInfo: imageInfo });
-            let visualSearchResults;
-            try {
-                visualSearchResults = await visualSearchApiClient.images.visualSearch({
-                    image: fileStream,
-                    knowledgeRequest: visualSearchRequest
-                });
-                console.log("\r\nVisual search request with binary of image with JSON info of cropArea");
-                if (!visualSearchResults) {
-                    console.log("No visual search result data.");
-                }
-                else {
-                    // Visual Search results
-                    if (visualSearchResults.image.imageInsightsToken) {
-                        console.log(`Uploaded image insights token: ${visualSearchResults.image.imageInsightsToken}`);
-                    }
-                    else {
-                        console.log("Couldn't find image insights token!");
-                    }
-
-                    // List of tags
-                    if (visualSearchResults.tags.length > 0) {
-                        var firstTagResult = visualSearchResults.tags[0];
-                        console.log(`Visual search tag count: ${visualSearchResults.tags.length}`);
-
-                        // List of actions in first tag
-                        if (firstTagResult.actions.length > 0) {
-                            var firstActionResult = firstTagResult.actions[0];
-                            console.log(`First tag action count: ${firstTagResult.actions.length}`);
-                            console.log(`First tag action type: ${firstActionResult.actionType}`);
-                        }
-                        else {
-                            console.log("Couldn't find tag actions!");
-                        }
-
-                    }
-                    else {
-                        console.log("Couldn't find image tags!");
-                    }
-                }
-            } catch (err) {
-                console.log("Encountered exception. " + err.message);
-            }
-        },
-        async function () {
-            let imageInfo = { url: "https://images.unsplash.com/photo-1512546148165-e50d714a565a?w=600&q=80" };
-            let filters = { site: "pinterest.com" };
-            let knowledgeRequest = { filters: filters };
-            let visualSearchRequest = JSON.stringify({ imageInfo: imageInfo, knowledgeRequest: knowledgeRequest });
-            let visualSearchResults;
-            try {
-                visualSearchResults = await visualSearchApiClient.images.visualSearch({
-                    knowledgeRequest: visualSearchRequest
-                });
-                console.log("\r\nSearch visual search request with imageInfo and filters in JSON text");
-                if (!visualSearchResults) {
-                    console.log("No visual search result data.");
-                }
-                else {
-                    // Visual Search results
-                    if (visualSearchResults.image.imageInsightsToken) {
-                        console.log(`Uploaded image insights token: ${visualSearchResults.image.imageInsightsToken}`);
-                    }
-                    else {
-                        console.log("Couldn't find image insights token!");
-                    }
-
-                    // List of tags
-                    if (visualSearchResults.tags.length > 0) {
-                        var firstTagResult = visualSearchResults.tags[0];
-                        console.log(`Visual search tag count: ${visualSearchResults.tags.length}`);
-
-                        // List of actions in first tag
-                        if (firstTagResult.actions.length > 0) {
-                            var firstActionResult = firstTagResult.actions[0];
-                            console.log(`First tag action count: ${firstTagResult.actions.length}`);
-                            console.log(`First tag action type: ${firstActionResult.actionType}`);
-                        }
-                        else {
-                            console.log("Couldn't find tag actions!");
-                        }
-
-                    }
-                    else {
-                        console.log("Couldn't find image tags!");
-                    }
-                }
-            } catch (err) {
-                console.log("Encountered exception. " + err.message);
-            }
-        },
-        async function () {
-            var imageInsightsToken = "bcid_CA6BDBEA28D57D52E0B9D4B254F1DF0D*ccid_6J+8V1zi*thid_R.CA6BDBEA28D57D52E0B9D4B254F1DF0D";
-            let cropArea = { top: 0.1, bottom: 0.5, left: 0.1, right: 0.9 };
-            let imageInfo = { imageInsightsToken: imageInsightsToken, cropArea: cropArea };
-            let visualSearchRequest = JSON.stringify({ imageInfo: imageInfo });
-            let visualSearchResults;
-            try {
-                visualSearchResults = await visualSearchApiClient.images.visualSearch({
-                    knowledgeRequest: visualSearchRequest
-                });
-                console.log("\r\nVisual search request with ImageInsightsToken and crop area of image");
-                if (!visualSearchResults) {
-                    console.log("No visual search result data.");
-                }
-                else {
-                    // Visual Search results
-                    if (visualSearchResults.image.imageInsightsToken) {
-                        console.log(`Uploaded image insights token: ${visualSearchResults.image.imageInsightsToken}`);
-                    }
-                    else {
-                        console.log("Couldn't find image insights token!");
-                    }
-
-                    // List of tags
-                    if (visualSearchResults.tags.length > 0) {
-                        var firstTagResult = visualSearchResults.tags[0];
-                        console.log(`Visual search tag count: ${visualSearchResults.tags.length}`);
-
-                        // List of actions in first tag
-                        if (firstTagResult.actions.length > 0) {
-                            var firstActionResult = firstTagResult.actions[0];
-                            console.log(`First tag action count: ${firstTagResult.actions.length}`);
-                            console.log(`First tag action type: ${firstActionResult.actionType}`);
-                        }
-                        else {
-                            console.log("Couldn't find tag actions!");
-                        }
-
-                    }
-                    else {
-                        console.log("Couldn't find image tags!");
-                    }
-                }
-            } catch (err) {
-                console.log("Encountered exception. " + err.message);
-            }
-        },
-        function () {
-            return new Promise((resolve) => {
-                console.log(os.EOL);
-                console.log("Finished running Visual-Search sample.");
-                resolve();
-            })
+    
+    // List of tags
+    if (visualSearchResults.tags.length > 0) {
+        let firstTagResult = visualSearchResults.tags[0];
+        console.log(`Visual search tag count: ${visualSearchResults.tags.length}`);
+    
+        // List of actions in first tag
+        if (firstTagResult.actions.length > 0) {
+            let firstActionResult = firstTagResult.actions[0];
+            console.log(`First tag action count: ${firstTagResult.actions.length}`);
+            console.log(`First tag action type: ${firstActionResult.actionType}`);
         }
-    ], (err) => {
-        throw (err);
-        });
-}
-
-exports.sample = sample;
-```
+        else {
+            console.log("Couldn't find tag actions!");
+        }
+    
+    }
+    else {
+        console.log("Couldn't find image tags!");
+    }
+    
+    ```
 
 ## <a name="next-steps"></a>後續步驟
 
-[認知服務 .NET SDK 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)。
+> [!div class="nextstepaction"]
+> [建置單頁 Web 應用程式](tutorial-bing-visual-search-single-page-app.md)

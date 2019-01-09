@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9bbff92b7706fd207894616b83580c4ddf85e5eb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: a130351131f59511ef4f60b579197da96f9334e6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444779"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720723"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>教學課程：使用 Application Insights 監視和診斷 Service Fabric 上的 ASP.NET Core 應用程式
 
@@ -191,11 +191,11 @@ ConfigureServices(services => services
 
 ![AI 追蹤詳細資料](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
-「應用程式對應」可協助您更充分了解應用程式拓撲，特別是當您開始新增多個一起運作的不同服務時。 另外也提供要求成功率的基本資料，還可協助您診斷失敗的要求，以查明可能出錯的地方。 若要深入了解使用應用程式對應，請參閱 [Application Insights 中的應用程式對應](../application-insights/app-insights-app-map.md)。
+「應用程式對應」可協助您更充分了解應用程式拓撲，特別是當您開始新增多個一起運作的不同服務時。 另外也提供要求成功率的基本資料，還可協助您診斷失敗的要求，以查明可能出錯的地方。 若要深入了解使用應用程式對應，請參閱 [Application Insights 中的應用程式對應](../azure-monitor/app/app-map.md)。
 
 ## <a name="add-custom-instrumentation-to-your-application"></a>將自訂檢測新增至應用程式
 
-雖然 Application Insights 提供許多立即可用的遙測資料，但建議您新增進一步的自訂檢測。 這可能是基於業務需求，或在應用程式出錯時為了改善診斷。 Application Insights 有一個 API 可內嵌自訂事件和計量，您可以在[這裡](../application-insights/app-insights-api-custom-events-metrics.md)深入了解此 API。
+雖然 Application Insights 提供許多立即可用的遙測資料，但建議您新增進一步的自訂檢測。 這可能是基於業務需求，或在應用程式出錯時為了改善診斷。 Application Insights 有一個 API 可內嵌自訂事件和計量，您可以在[這裡](../azure-monitor/app/api-custom-events-metrics.md)深入了解此 API。
 
 讓我們將一些自訂事件新增至 *VoteDataController.cs* (在 *VotingData* > *Controllers* 下)，以追蹤基礎 *votesDictionary* 中何時新增和刪除選票。
 

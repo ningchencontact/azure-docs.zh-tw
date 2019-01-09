@@ -4,15 +4,15 @@ description: 提供 Azure Migrate 服務的概觀。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fcf26b8a5eff407d6dde092ae645084fb20a14a8
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c511ef8fc4ae580f869ef90da3e2c8764a146881
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250564"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969126"
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -37,8 +37,9 @@ Azure Migrate 可協助您：
 -  您只能在下列地理位置建立 Azure Migrate 專案。 不過，這不會限制您建立其他目標 Azure 位置評量的能力。
     **地理位置** | **儲存位置**
     --- | ---
-    美國 | 美國中西部或美國東部
     Azure Government | 美國政府維吉尼亞州
+    歐洲 | 北歐或西歐
+    美國 | 美國東部或美國中西部
 
     與移轉專案相關聯的地理位置會用來儲存在內部部署環境中發現的中繼資料。 中繼資料會根據針對移轉專案指定的地理位置，儲存在其中一個區域。 如果您藉由建立新的 Log Analytics 工作區來使用相依性視覺效果，則會在與專案相同的區域中建立工作區。
 - 在 Azure Government 中無法使用相依性視覺效果功能。

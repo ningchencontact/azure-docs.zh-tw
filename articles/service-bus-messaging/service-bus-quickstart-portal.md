@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: be08be43269dfb332dca1d5f62ce661940d311cc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bfe6c48b2e83c1ebbbad446f79cebd1f513db57e
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259372"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002666"
 ---
-# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>快速入門：使用 Azure 入口網站和 .NET 傳送和接收訊息
+# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>快速入門：使用 Azure 入口網站和 .NET 來傳送和接收訊息
 
 Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提供安全的傳訊和絕對的可靠性。 典型的服務匯流排案例通常會牽涉到將兩個或更多應用程式、服務或程序彼此分開處理，以及傳輸狀態或資料變更。 此類案例可能牽涉到在另一個應用程式或服務中排程多個批次作業，或觸發訂單履行。 例如，零售公司可能會將其銷售點資料傳送至後端辦公室或區域配送中心，以進行補貨和庫存更新。 在此案例中，用戶端應用程式會對服務匯流排佇列傳送及接收訊息。  
 
@@ -59,7 +59,7 @@ Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提�
 1.  按一下 [所有資源]，然後按一下新建立的命名空間名稱。
 2. 在命名空間視窗中，按一下 [共用存取原則]。
 3. 在 [共用存取原則] 畫面中，按一下 **RootManageSharedAccessKey**。
-4. 在 [原則: RootManageSharedAccessKey] 視窗中，按一下 [主要連接字串] 旁邊的 [複製] 按鈕，將連接字串複製到剪貼簿以供後續使用。 將此值貼到記事本或一些其他暫存位置。 
+4. 在 [原則：RootManageSharedAccessKey] 視窗中，按一下 [主要連接字串] 旁邊的 [複製] 按鈕，將連接字串複製到剪貼簿以供後續使用。 將此值貼到記事本或一些其他暫存位置。 
 
     ![connection-string][connection-string]
 5. 重複前一個步驟，複製 [主要金鑰] 的值並貼到暫存位置以供後續使用。
@@ -77,7 +77,7 @@ Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提�
 
 ## <a name="send-and-receive-messages"></a>傳送及接收訊息
 
-佈建命名空間和佇列，且您已擁有必要的認證之後，您即可傳送和接收訊息。 您可以在[此 GitHub 範例資料夾](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-jms)中查看程式碼。
+佈建命名空間和佇列，且您已擁有必要的認證之後，您即可傳送和接收訊息。 您可以在[此 GitHub 範例資料夾](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters)中查看程式碼。
 
 若要執行程式碼，請執行下列動作：
 

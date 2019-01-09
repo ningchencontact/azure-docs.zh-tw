@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd3229773b19b9f6c4d9ff76402f1841a4810bc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851123"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793065"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>將 Amazon Web Services (AWS) VM 移轉至 Azure
 
@@ -101,7 +101,7 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 
 在 Azure 入口網站的保存庫頁面上，於 [使用者入門] 區段中選取 [Site Recovery]，然後選取 [準備基礎結構]。 完成下列步驟。
 
-### <a name="1-protection-goal"></a>1：保護目標
+### <a name="1-protection-goal"></a>1:保護目標
 
 在 [保護目標] 頁面上，選取下列值：
 
@@ -136,7 +136,7 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
     11. [安裝進度] 會顯示安裝程序相關資訊。 完成時，選取 [完成]。 視窗會顯示重新開機的相關訊息。 選取 [確定] 。 接下來，視窗會顯示有關組態伺服器連線複雜密碼的訊息。 將複雜密碼複製到剪貼簿，並將它儲存在安全的位置。
 6. 在 VM 上，執行 cspsconfigtool.exe，以在設定伺服器上建立一或多個管理帳戶。 在您想要移轉的 EC2 執行個體上，請確定管理帳戶具有系統管理員權限。
 
-組態伺服器設定完成時，請回到入口網站，並選取您剛才針對 [組態伺服器] 建立的伺服器。 選取 [確定]，前往「3：準備目標」。
+組態伺服器設定完成時，請回到入口網站，並選取您剛才針對 [組態伺服器] 建立的伺服器。 選取 [確定] 以前往 3：準備目標。
 
 ### <a name="3-prepare-target"></a>3：準備目標
 
@@ -169,8 +169,8 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 
 1. 移至 [Azure 入口網站](htts://portal.azure.com)。
 1. 在保存庫頁面的 [使用者入門] 下，選取 [Site Recovery]。
-2. 在 [內部部署電腦與 Azure VM] 下，選取 [步驟 1: 複寫應用程式]。 以下列資訊完成精靈頁面。 完成時在每個頁面上選取 [確定]：
-    - 1：設定來源
+2. 在 [內部部署電腦與 Azure VM] 下，選取 [步驟 1:複寫應用程式]。 以下列資訊完成精靈頁面。 完成時在每個頁面上選取 [確定]：
+    - 1:設定來源
 
     |  |  |
     |-----|-----|
@@ -223,7 +223,7 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 1. 在保存庫的頁面上，移至 [受保護的項目] > [複寫的項目]。 選取 VM，然後選取 [測試容錯移轉]。
 2. 選取要用於容錯移轉的復原點：
     - **最近處理**：將 VM 容錯移轉到 Site Recovery 所處理的最新復原點。 隨即顯示時間戳記。 使用此選項時，無須花費時間處理資料，因此它會提供低復原時間目標 (RTO)。
-    - **最近的應用程式一致**：此選項會將所有 VM 容錯移轉到最新的應用程式一致復原點。 隨即顯示時間戳記。
+    - **最新應用程式一致**：此選項會將所有 VM 容錯移轉到最新的應用程式一致復原點。 隨即顯示時間戳記。
     - **自訂**：選取任何復原點。
 
 3. 在 [測試容錯移轉] 中，選取 Azure VM 在容錯移轉之後要連線的目標 Azure 網路。 這應該是您在[準備 Azure 資源](#prepare-azure-resources)中所建立的網路。

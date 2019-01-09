@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 314f1c1656485f93942eb23f928cc66720a12565
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622529"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753535"
 ---
 # <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>快速入門：安裝 Azure Active Directory Power BI 內容套件
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) 的 Power BI 內容套件可讓您以視覺化
 
 * Power BI 帳戶。 這是與您 O365 或 Azure AD 帳戶相同的帳戶。 
 * 您的 Azure AD 租用戶識別碼。 這是從 Azure 入口網站[內容頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)取得的**目錄識別碼**。
-* Azure AD Premium (P1/P2) 授權。 
+* Azure AD Premium (P1/P2) 授權。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 來升級 Azure Active Directory 版本。
 
 ## <a name="install-azure-ad-power-bi-content-pack"></a>安裝 Azure AD Power BI 內容套件 
 

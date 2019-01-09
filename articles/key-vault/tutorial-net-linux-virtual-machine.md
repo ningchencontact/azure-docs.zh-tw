@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 如何在 .NET 中搭配使用 Azure Key Vault 與 Azure Linux 虛擬機器 | Microsoft Docs
+title: 教學課程 - 如何在 .NET 中搭配使用 Azure Key Vault 與 Azure Linux 虛擬機器 - Azure Key Vault | Microsoft Docs
 description: 教學課程：設定 ASP.NET Core 應用程式，以從 Key Vault 讀取祕密
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: key-vault
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 928339a245525933ae142a5d73137ce699cf1f7c
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 68a788205917e87469b432de435e296dcabc350c
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712325"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001680"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>教學課程：如何在 .NET 中搭配使用 Azure Key Vault 與 Azure Linux 虛擬機器
 
 Azure Key Vault 可協助您保護秘密，例如存取您的應用程式、服務和 IT 資源所需的 API 金鑰和資料庫連接字串。
 
-在本教學課程中，您會執行一些必要步驟，讓主控台應用程式能使用 Azure 資源的受控識別從 Azure Key Vault 讀取資訊。 本教學課程以 [Azure Web Apps](../app-service/app-service-web-overview.md) 為基礎。 在後續內容中，您將了解如何：
+在本教學課程中，您會執行一些必要步驟，讓主控台應用程式能使用 Azure 資源的受控識別從 Azure Key Vault 讀取資訊。 在後續內容中，您將了解如何：
 
 > [!div class="checklist"]
 > * 建立金鑰保存庫。
@@ -34,7 +34,7 @@ Azure Key Vault 可協助您保護秘密，例如存取您的應用程式、服�
 > * 授與主控台應用程式從金鑰保存庫讀取資料所需的權限。
 > * 從 Key Vault 擷取祕密
 
-在我們繼續之前，請閱讀[基本概念](key-vault-whatis.md#basic-concepts)。
+在進一步討論之前，請先閱讀[基本概念](key-vault-whatis.md#basic-concepts)。
 
 ## <a name="prerequisites"></a>必要條件
 * 所有平台：
@@ -45,6 +45,7 @@ Azure Key Vault 可協助您保護秘密，例如存取您的應用程式、服�
 本教學課程會使用受控服務識別
 
 ## <a name="what-is-managed-service-identity-and-how-does-it-work"></a>什麼是受控服務識別？其運作方式為何？
+
 我們要先了解 MSI，再繼續進行其他深入討論。 Azure Key Vault 可安全地儲存認證，因此認證不會在您的程式碼中，而是必須向 Azure Key Vault 進行驗證，才可加以擷取。 若要向 Key Vault 進行驗證，您必須要有認證！ 這是典型的啟動程序問題。 透過 Azure 和 Azure AD 的強大功能，MSI 可提供「啟動程序身分識別」，讓您更輕鬆地開始執行工作。
 
 其運作方式如下！ 當您為 Azure 服務 (例如虛擬機器、App Service 或 Functions) 啟用 MSI 時，Azure 會在 Azure Active Directory 中建立服務執行個體的[服務主體](key-vault-whatis.md#basic-concepts)，並將服務主體的認證插入服務執行個體中。 
@@ -54,7 +55,7 @@ Azure Key Vault 可協助您保護秘密，例如存取您的應用程式、服�
 接下來，您的程式碼會呼叫 Azure 資源上可用的本機中繼資料服務，以取得存取權杖。
 您的程式碼會使用從本機 MSI_ENDPOINT 取得的存取權杖，向 Azure Key Vault 服務進行驗證。 
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
 若要使用 Azure CLI 登入 Azure，請輸入：
 
@@ -132,13 +133,14 @@ az vm create \
 請注意 VM 輸出中您自己的 `publicIpAddress`。 後續步驟會使用此位址來存取 VM。
 
 ## <a name="assign-identity-to-virtual-machine"></a>將身分識別指派給虛擬機器
+
 在此步驟中，我們會藉由執行下列命令，來對虛擬機器建立系統指派的身分識別
 
 ```
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-請注意如下所示的 systemAssignedIdentity。 上述命令的輸出會是 
+請注意以下顯示的 systemAssignedIdentity。 上述命令的輸出會是 
 
 ```
 {
@@ -148,13 +150,14 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 ```
 
 ## <a name="give-vm-identity-permission-to-key-vault"></a>對 Key Vault 授與 VM 身分識別權限
+
 現在，我們可以執行下列命令，來對 Key Vault 授與上面所建立的身分識別權限
 
 ```
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="login-to-the-virtual-machine"></a>登入虛擬機器
+## <a name="sign-in-to-the-virtual-machine"></a>登入虛擬機器
 
 現在，使用終端機來登入虛擬機器
 
@@ -163,6 +166,7 @@ ssh azureuser@<PublicIpAddress>
 ```
 
 ## <a name="install-dot-net-core-on-linux"></a>在 Linux 上安裝 .NET Core
+
 ### <a name="register-the-microsoft-product-key-as-trusted-run-the-following-two-commands"></a>將 Microsoft 產品金鑰註冊為可信任。 執行下列兩個命令
 
 ```
@@ -171,6 +175,7 @@ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 ```
 
 ### <a name="set-up-desired-version-host-package-feed-based-on-operating-system"></a>根據作業系統設定所需的版本裝載套件饋送
+
 ```
 # Ubuntu 17.10
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -209,6 +214,7 @@ dotnet run
 ```
 
 ## <a name="edit-console-app"></a>編輯主控台應用程式
+
 開啟 Program.cs 檔案並新增這些套件
 ```
 using System;
@@ -218,7 +224,9 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
-然後變更類別檔案，以包含下列程式碼。 這個程序有 2 個步驟。 
+
+然後變更類別檔案，以包含下列程式碼。 此程序包含兩個步驟。
+
 1. 從 VM 上的本機 MSI 端點擷取權杖，進而從 Azure Active Directory 擷取權杖
 2. 將權杖傳遞給 Key Vault 並擷取祕密 
 
@@ -268,7 +276,6 @@ using Newtonsoft.Json.Linq;
 ```
 
 上述程式碼會示範如何在 Azure Linux 虛擬機器中使用 Azure Key Vault 執行作業。 
-
 
 ## <a name="next-steps"></a>後續步驟
 

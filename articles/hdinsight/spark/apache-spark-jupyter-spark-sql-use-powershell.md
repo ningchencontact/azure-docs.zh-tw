@@ -9,19 +9,19 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: fcc25449d4e65dc36be0eb2f13cb35bf23ae6f00
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d05d8c39ae393d62969967c2ce09a97ec6a6710f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498048"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791705"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>快速入門：使用 PowerShell 在 HDInsight 中建立 Apache Spark 叢集
 了解如何在 Azure HDInsight 中建立 [Apache Spark](https://spark.apache.org/) 叢集，以及如何對 [Apache Hive](https://hive.apache.org/) 資料表執行 Spark SQL 查詢。 Apache Spark 能夠運用記憶體內部處理，使得資料分析及叢集運算更為快速。 如需 Spark on HDInsight 相關資訊，請參閱[概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。
 
 在本快速入門中，您會使用 Azure PowerShell 來建立 HDInsight Spark 叢集。 叢集會使用 Azure 儲存體 Blob 作為叢集存放區。 如需有關如何使用 Data Lake Storage Gen2 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 不論使用與否，HDInsight 叢集都是按分鐘計費。 請務必在使用完叢集後將其刪除。 如需詳細資訊，請參閱本文的[清除資源](#clean-up-resources)一節。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
@@ -31,7 +31,7 @@ ms.locfileid: "52498048"
 建立 HDInsight 叢集，包括建立下列 Azure 物件和資源：
 
 - Azure 資源群組。 Azure 資源群組是一個適用於 Azure 資源的容器。 
-- Azure 儲存體帳戶或 Azure Data Lake Store。  每個 HDInsight 叢集都需要相依的資料儲存體。 在本快速入門中，您會建立儲存體帳戶。
+- Azure 儲存體帳戶或 Azure Data Lake Storage。  每個 HDInsight 叢集都需要相依的資料儲存體。 在本快速入門中，您會建立儲存體帳戶。
 - 不同叢集類型的 HDInsight 叢集。  在本快速入門中，您會建立 Spark 2.3 叢集。
 
 您會使用 PowerShell 指令碼來建立資源。  當您執行指令碼時，系統會提示您輸入下列值：
@@ -116,7 +116,7 @@ ms.locfileid: "52498048"
     ```
 大約需要 20 分鐘的時間來建立叢集。 您必須先建立叢集，才能繼續前往下一個工作階段。
 
-如果您在建立 HDInsight 叢集時遇到問題，可能是您沒有這麼做的適當權限。 如需詳細資訊，請參閱[存取控制需求](../hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果您在建立 HDInsight 叢集時遇到問題，可能是您沒有這麼做的適當權限。 如需詳細資訊，請參閱[存取控制需求](../hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="create-a-jupyter-notebook"></a>建立 Jupyter Notebook
 
@@ -173,7 +173,7 @@ SQL (結構化查詢語言) 是最常見且廣泛使用的語言，可用於查�
 2. 從 Notebook 的 [檔案] 功能表中，選取 [關閉並終止]。 關閉 Notebook 可釋出叢集資源。
 
 ## <a name="clean-up-resources"></a>清除資源
-HDInsight 會將您的資料儲存於 Azure 儲存體或 Azure Data Lake Store 中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如果您打算立即進行[後續步驟](#next-steps)中所列的教學課程，則建議保留叢集。
+HDInsight 會將您的資料儲存於 Azure 儲存體或 Azure Data Lake Storage 中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如果您打算立即進行[後續步驟](#next-steps)中所列的教學課程，則建議保留叢集。
 
 切換回 Azure 入口網站，然後選取 [刪除]。
 

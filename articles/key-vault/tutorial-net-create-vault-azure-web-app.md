@@ -1,5 +1,5 @@
 ---
-title: 教學課程：在 .NET 中透過 Azure Web 應用程式使用 Azure Key Vault | Microsoft Docs
+title: 教學課程：在 .NET 中透過 Azure Web 應用程式使用 Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: 教學課程 - 設定 ASP.NET Core 應用程式，以從 Key Vault 讀取祕密
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b6dbae0f721983920c2073927fff74100528678e
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322136"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998790"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>教學課程：在 .NET 中透過 Azure Web 應用程式使用 Azure Key Vault
 
 Azure Key Vault 可協助您保護秘密，例如 API 金鑰和資料庫連接字串。 它可供您存取您的應用程式、服務和 IT 資源。
 
-在本教學課程中，您會了解如何建立可從 Azure 金鑰保存庫讀取資訊的 Azure Web 應用程式。 此程序會使用 Azure 資源的受控識別。 如需有關 Azure Web 應用程式的詳細資訊，請參閱 [Azure Web Apps](../app-service/app-service-web-overview.md)。
+在本教學課程中，您會了解如何建立可從 Azure 金鑰保存庫讀取資訊的 Azure Web 應用程式。 此程序會使用 Azure 資源的受控識別。 如需有關 Azure Web 應用程式的詳細資訊，請參閱 [Azure App Service](../app-service/overview.md)。
 
 本文將說明如何：
 
@@ -56,7 +56,7 @@ Azure Key Vault 可協助您保護秘密，例如 API 金鑰和資料庫連接�
 
 Azure Key Vault 可安全地儲存認證，因此認證不在您的程式碼中。 不過，您需要向 Azure Key Vault 驗證才能擷取您的金鑰。 若要向 Key Vault 進行驗證，您必須要有認證。 這是典型的啟動程序難題。 受控服務識別 (MSI) 可藉由提供可簡化此程序的「啟動程序身分識別」來解決此問題。
 
-當您針對 Azure 服務 (例如：虛擬機器、App Service 或 Functions) 啟用 MSI 時，Azure 會建立[服務主體](key-vault-whatis.md#basic-concepts)。 MSI 會在 Azure Active Directory (Azure AD) 中為服務執行個體執行此作業，並將服務主體的認證插入該執行個體中。
+當您對 Azure 服務 (例如：虛擬機器、App Service 或 Functions) 啟用 MSI 時，Azure 會建立[服務主體](key-vault-whatis.md#basic-concepts)。 MSI 會在 Azure Active Directory (Azure AD) 中為服務執行個體執行此作業，並將服務主體的認證插入該執行個體中。
 
 ![MSI 圖表](media/MSI.png)
 
@@ -256,4 +256,4 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 ## <a name="next-steps"></a>後續步驟
 
 >[!div class="nextstepaction"]
->[Azure Key Vault 開發人員指南](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide)
+>[Azure Key Vault 開發人員指南](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)

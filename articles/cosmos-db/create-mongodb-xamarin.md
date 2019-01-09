@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB：使用 .NET 和 MongoDB API 建置 Xamarin.Forms 應用程式
-description: 提供 Xamarin.Forms 程式碼範例，您可用來連線及查詢 Azure Cosmos DB MongoDB API
+title: 使用 .NET 和 Azure Cosmos DB 的 MongoDB API 建置 Xamarin.Forms 應用程式
+description: 提供 Xamarin 程式碼範例，以供您用來連線及查詢 Azure Cosmos DB 的 MongoDB API
 services: cosmos-db
 author: codemillmatt
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: ece6780803809829e69fccc320ae65a0c7b0f94b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 456d35666e1475379b7ec90e8683ed47a1946f67
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089253"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808956"
 ---
-# <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>快速入門：使用 .NET 和 Azure 入口網站建置 MongoDB API Xamarin.Forms 應用程式
+# <a name="quickstart-quickstart-build-a-xamarinforms-app-with-net-and-azure-cosmos-dbs-api-for-mongodb"></a>快速入門：快速入門：使用 .NET 和 Azure Cosmos DB 的 MongoDB API 建置 Xamarin.Forms 應用程式
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -30,7 +30,7 @@ ms.locfileid: "53089253"
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。
 
-此快速入門示範如何使用 Azure 入口網站建立 Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 帳戶、文件資料庫和集合。 然後，您將使用 [MongoDB.NET 驅動程式](https://docs.mongodb.com/ecosystem/drivers/csharp/)建置 ToDo 應用程式的 Xamarin.Forms 應用程式。
+此快速入門示範如何使用 Azure 入口網站建立[使用 Azure Cosmos DB MongoDB API 所設定的 Cosmos 帳戶](mongodb-introduction.md)、文件資料庫和集合。 然後，您將使用 [MongoDB.NET 驅動程式](https://docs.mongodb.com/ecosystem/drivers/csharp/)建置 ToDo 應用程式的 Xamarin.Forms 應用程式。
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>執行範例應用程式的必要條件
 
@@ -52,7 +52,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="clone-the-sample-app"></a>複製範例應用程式
 
-首先，從 GitHub 下載 MongoDB API 範例應用程式。 它會使用 MongoDB 的文件儲存體模型實作 ToDo 應用程式。
+首先，從 GitHub 下載應用程式範例。 它會使用 MongoDB 的文件儲存體模型實作 ToDo 應用程式。
 
 1. 開啟命令提示字元，建立名為 git-samples 的新資料夾，然後關閉命令提示字元。
 
@@ -126,7 +126,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     }
     ```
 
-* 建立工作，並將其插入到 MongoDB 集合。
+* 建立工作並將其插入集合中。
     ```cs
     public async Task CreateTask(MyTask task)
     {
@@ -134,7 +134,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     }
     ```
 
-* 更新 MongoDB 集合中的工作。
+* 更新集合中的工作。
     ```cs
     public async Task UpdateTask(MyTask task)
     {
@@ -142,7 +142,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     }
     ```
 
-* 刪除 MongoDB 集合中的工作。
+* 刪除集合中的工作。
     ```cs
     public async Task DeleteTask(MyTask task)
     {
@@ -194,4 +194,4 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 在本快速入門中，您已了解如何建立 Azure Cosmos DB 帳戶，以及如何使用適用於 MongoDB 的 API 來執行 Xamarin.Forms 應用程式。 您現在可以將其他資料匯入到 Cosmos DB 帳戶。
 
 > [!div class="nextstepaction"]
-> [將資料匯入 MongoDB API 的 Azure Cosmos DB](mongodb-migrate.md)
+> [將資料匯入到使用 Azure Cosmos DB MongoDB API 所設定的 Azure Cosmos DB](mongodb-migrate.md)

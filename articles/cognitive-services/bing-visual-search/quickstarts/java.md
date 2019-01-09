@@ -1,7 +1,7 @@
 ---
-title: 快速入門：建立圖像式搜尋查詢 (Java) - Bing 圖像式搜尋
+title: 快速入門：使用 Bing 圖像式搜尋 REST API 和 Java 來取得影像見解
 titleSuffix: Azure Cognitive Services
-description: 如何將影像上傳到 Bing 圖像式搜尋 API，並取得影像的深入解析。
+description: 了解如何將影像上傳到 Bing 圖像式搜尋 API 並取得其見解。
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,18 +10,18 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: c1b63b12a48f5ccfb1a396ffa9282249b03893fe
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 148d145dae01fffdf7a4c650a0e2b20f8387295a
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445169"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742179"
 ---
-# <a name="quickstart-your-first-bing-visual-search-query-in-java"></a>快速入門：使用 Java 的第一個 Bing 圖像式搜尋查詢
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>快速入門：使用 Bing 圖像式搜尋 REST API 和 Java 來取得影像見解
 
-Bing 圖像式搜尋 API 會傳回您所提供影像的相關資訊。 您可以使用影像的 URL、見解權杖，或上傳影像來提供影像。 如需這些選項的資訊，請參閱[什麼是 Bing 圖像式搜尋 API？](../overview.md) 本文將示範如何上傳影像。 在拍攝知名地標的照片並取回其相關資訊的行動裝置案例中，上傳影像可能很有用。 例如，見解可能包含關於地標的雜項。 
+使用本快速入門來進行您對 Bing 圖像式搜尋 API 的第一次呼叫並檢視搜尋結果。 這個簡單的 C# 應用程式會將影像上傳至 API，並顯示傳回的相關資訊。 雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
-若您上傳本機影像，以下會顯示您必須包含在 POST 本文中的表單資料。 表單資料必須包含 Content-Disposition 標頭。 其 `name` 參數必須設定為 "image"，而 `filename` 參數可以設定為任何字串。 表單的內容是影像的二進位檔案。 您可以上傳的影像大小上限為 1 MB。 
+上傳本機影像時，表單資料必須包含 Content-Disposition 標頭。 其 `name` 參數必須設定為 "image"，而 `filename` 參數可以設定為任何字串。 表單的內容是影像的二進位檔案。 您可以上傳的影像大小上限為 1 MB。
 
 ```
 --boundary_1234-abcd
@@ -32,132 +32,102 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-本文包含簡單的主控台應用程式，它會傳送 Bing 圖像式搜尋 API 要求，並顯示 JSON 搜尋結果。 雖然此應用程式是以 Java 撰寫，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。 
-
-
 ## <a name="prerequisites"></a>必要條件
-為使用本快速入門，您必須在 S9 定價層上啟用訂用帳戶，如[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/) 中所示。 
 
-若要在 Azure 入口網站中啟用訂用帳戶：
-1. 在 Azure 入口網站頂端顯示 `Search resources, services, and docs` 的文字方塊中輸入 'BingSearchV7'。  
-2. 在下拉式清單中的 Marketplace 下選取 `Bing Search v7`。
-3. 輸入新資源的 `Name`。
-4. 選取 `Pay-As-You-Go` 訂用帳戶。
-5. 選取 `S9` 定價層。
-6. 按一下 `Enable` 來啟用訂用帳戶。
+* [Java 開發套件 (JDK) 7 或 8](https://aka.ms/azure-jdks)
+* [Gson 程式庫](https://github.com/google/gson)
+* [Apache HttpComponents](http://hc.apache.org/downloads.cgi)
 
-您將需要有 [JDK 7 或 8](https://aka.ms/azure-jdks)，才能編譯和執行此程式碼。 若您有特別喜愛的 Java IDE 也可以使用，但是文字編輯器就夠了。
 
-## <a name="running-the-application"></a>執行應用程式
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-以下示範如何使用 Java 中的 MultipartEntityBuilder 來上傳影像。
+## <a name="create-and-initialize-a-project"></a>建立專案並將其初始化
 
-若要執行此應用程式，請遵循下列步驟：
+1. 在您最愛的 IDE 或編輯器中建立新的 Java 專案，並匯入下列程式庫。
 
-1. 下載或安裝 [gson 程式庫](https://github.com/google/gson)。 您也可以透過 Maven 取得。
-2. 在您愛用的 IDE 或編輯器中建立新的 Java 專案。
-3. 在名為 `VisualSearch.java` 的檔案中新增提供的程式碼。
-4. 以您的訂用帳戶金鑰取代 `subscriptionKey` 值。
-4. 以要上傳之影像的路徑取代 `imagePath` 值。
-5. 執行程式。
+    ```java
+    import java.util.*;
+    import java.io.*;
+    import com.google.gson.Gson;
+    import com.google.gson.GsonBuilder;
+    import com.google.gson.JsonObject;
+    import com.google.gson.JsonParser;
+    
+    // HttpClient libraries
+    
+    import org.apache.http.HttpEntity;
+    import org.apache.http.HttpResponse;
+    import org.apache.http.client.methods.HttpPost;
+    import org.apache.http.entity.ContentType;
+    import org.apache.http.entity.mime.MultipartEntityBuilder;
+    import org.apache.http.impl.client.CloseableHttpClient;
+    import org.apache.http.impl.client.HttpClientBuilder;
+    ```
 
+2. 為您的 API 端點、訂用帳戶金鑰以及您影像的路徑，建立變數。 
+
+    ```java
+    static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
+    static String subscriptionKey = "your-key-here";
+    static String imagePath = "path-to-your-image";
+    ```
+
+## <a name="create-the-json-parser"></a>建立 JSON 剖析器
+
+建立一個方法，讓來自 API 的 JSON 回應更容易使用 `JsonParser` 閱讀。
+
+    ```java
+    public static String prettify(String json_text) {
+            JsonParser parser = new JsonParser();
+            JsonObject json = parser.parse(json_text).getAsJsonObject();
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            return gson.toJson(json);
+        }
+    ```
+
+## <a name="construct-the-search-request-and-query"></a>建構搜尋要求和查詢
+
+1. 在應用程式的 Main 方法中，使用 `HttpClientBuilder.create().build();` 建立 Http 用戶端。
+
+    ```java
+    CloseableHttpClient httpClient = HttpClientBuilder.create().build();
+    ```
+
+2. 建立 `HttpEntity` 以將影像上傳至 API。
+
+    ```java
+    HttpEntity entity = MultipartEntityBuilder
+        .create()
+        .addBinaryBody("image", new File(imagePath))
+        .build();
+    ```
+
+3. 建立您端點的 `httpPost` 物件，並設定要使用您訂用帳戶金鑰的標頭。
+
+    ```java
+    HttpPost httpPost = new HttpPost(endpoint);
+    httpPost.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+    httpPost.setEntity(entity);
+    ```
+
+## <a name="receive-and-process-the-json-response"></a>接收及處理 JSON 回應
+
+1. 使用 `HttpClient.execute()` 將要求傳送至 API，並且在 `InputStream` 物件中儲存回應。
+    
+    ```java
+    HttpResponse response = httpClient.execute(httpPost);
+    InputStream stream = response.getEntity().getContent();
+    ```
+
+2. 儲存 JSON 字串並印出回應。
 
 ```java
-package uploadimage;
-
-import java.util.*;
-import java.io.*;
-
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.2
- *
- * Once you have compiled or downloaded gson-2.8.2.jar, assuming you have placed it in the
- * same folder as this file (BingImageSearch.java), you can compile and run this program at
- * the command line as follows.
- *
- * javac BingImageSearch.java -classpath .;gson-2.8.2.jar -encoding UTF-8
- * java -cp .;gson-2.8.2.jar BingImageSearch
- */
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-// http://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-
-
-public class UploadImage2 {
-
-    static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
-    static String subscriptionKey = "<yoursubscriptionkeygoeshere";
-    static String imagePath = "<pathtoyourimagetouploadgoeshere>";
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
-        CloseableHttpClient httpClient = HttpClientBuilder.create().build();
-        
-        try {
-            HttpEntity entity = MultipartEntityBuilder
-                .create()
-                .addBinaryBody("image", new File(imagePath))
-                .build();
-
-            HttpPost httpPost = new HttpPost(endpoint);
-            httpPost.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-            httpPost.setEntity(entity);
-            HttpResponse response = httpClient.execute(httpPost);
-
-            InputStream stream = response.getEntity().getContent();
-            String json = new Scanner(stream).useDelimiter("\\A").next();
-
-            System.out.println("\nJSON Response:\n");
-            System.out.println(prettify(json));
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace(System.out);
-            System.exit(1);
-        }
-        catch (Exception e) {
-            e.printStackTrace(System.out);
-            System.exit(1);
-        }
-    }
-    
-    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-    
-}
+String json = new Scanner(stream).useDelimiter("\\A").next();
+System.out.println("\nJSON Response:\n");
+System.out.println(prettify(json));
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用見解權杖取得影像的相關見解](../use-insights-token.md)  
-[Bing 圖像式搜尋影像上傳教學課程](../tutorial-visual-search-image-upload.md)
-[Bing 圖像式搜尋單頁應用程式教學課程](../tutorial-bing-visual-search-single-page-app.md)  
-[Bing 圖像式搜尋概觀](../overview.md)  
-[試試看](https://aka.ms/bingvisualsearchtryforfree)  
-[取得免費試用的存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing 圖像式搜尋 API 參考](https://aka.ms/bingvisualsearchreferencedoc)
-
+> [!div class="nextstepaction"]
+> [建置自訂搜尋 Web 應用程式](../tutorial-bing-visual-search-single-page-app.md)

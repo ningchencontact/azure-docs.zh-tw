@@ -3,35 +3,34 @@ title: Azure 上的 Kubernetes 教學課程 - 調整應用程式
 description: 在本 Azure Kubernetes Service (AKS) 教學課程中，您將了解如何在 Kubernetes 中調整節點和 Pod，以及實作水平 Pod 自動調整。
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2ba61ada16c922dc89d9d6c9aa6a0fce8b0941
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8d07c87a1849a25738c433b7a4c2753b51661947
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414169"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722714"
 ---
-# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>教學課程：在 Azure Kubernetes Service (AKS) 中調整應用程式
+# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>教學課程：調整 Azure Kubernetes Service (AKS) 中的應用程式
 
-如果您一直都依照教學課程操作，就會在 AKS 中有一個正常運作的 Kubernetes 叢集，並已部署「Azure 投票」應用程式。 在本教學課程中 (七個章節的第五部分)，您會將應用程式中的 Pod 相應放大，然後嘗試進行 Pod 自動調整。 您也會了解如何調整 Azure VM 節點的數目，以變更叢集裝載工作負載的容量。 您會了解如何：
+如果您已依照教學課程操作，就會在 AKS 中有一個正常運作的 Kubernetes 叢集，並已部署範例 Azure 投票應用程式。 在本教學課程中 (七個章節的第五部分)，您會將應用程式中的 Pod 相應放大，然後嘗試進行 Pod 自動調整。 您也會了解如何調整 Azure VM 節點的數目，以變更叢集裝載工作負載的容量。 您會了解如何：
 
 > [!div class="checklist"]
 > * 調整 Kubernetes 節點
 > * 手動調整執行應用程式的 Kubernetes Pod
 > * 設定執行應用程式前端的自動調整 Pod
 
-在後續的教學課程中，Azure 投票應用程式會更新為新版本。
+在其他教學課程中，Azure 投票應用程式會更新為新版本。
 
 ## <a name="before-you-begin"></a>開始之前
 
-在先前的教學課程中，已將應用程式封裝成容器映像、將此映像上傳至 Azure Container Registry，並已建立 Kubernetes 叢集。 該應用程式接著便在 Kubernetes 叢集上執行。 如果您尚未完成這些步驟，而想要跟著做，請回到[教學課程 1 – 建立容器映像][aks-tutorial-prepare-app]。
+在先前的教學課程中，已將應用程式封裝為容器映像。 此映像已上傳至 Azure Container Registry，而您已建立 AKS 叢集。 接著已將應用程式部署至 AKS 叢集。 如果您尚未完成這些步驟，而且想要跟著做，請從[教學課程 1 – 建立容器映像][aks-tutorial-prepare-app]開始。
 
-在本教學課程中，您必須執行 Azure CLI 2.0.38 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
+在本教學課程中，您必須執行 Azure CLI 2.0.53 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 ## <a name="manually-scale-pods"></a>手動調整 Pod
 
@@ -55,7 +54,7 @@ azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-再次執行 [kubectl get pods][kubectl-get]，以確認 Kubernetes 是否建立了其他 Pod。 大約一分鐘後，其他 Pod 就會成為叢集中的可用項目：
+再次執行 [kubectl get pods][kubectl-get]，以確認 AKS 是否建立其他 Pod。 大約一分鐘後，其他 Pod 就會成為叢集中的可用項目：
 
 ```console
 $ kubectl get pods
@@ -77,14 +76,14 @@ Kubernetes 支援[水平 Pod 自動調整][kubernetes-hpa]，可根據 CPU 使�
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-如果您的 AKS 叢集低於 *1.10* 版，請安裝計量伺服器，否則請略過此步驟。 複製 `metrics-server` GitHub 存放庫並安裝範例資源定義。 若要檢視這些 YAML 定義的內容，請參閱[Kuberenetes 1.8+ 的計量伺服器][metrics-server-github]。
+如果您的 AKS 叢集低於 *1.10* 版，請安裝計量伺服器，否則請略過此步驟。 若要安裝，請複製 `metrics-server` GitHub 存放庫並安裝範例資源定義。 若要檢視這些 YAML 定義的內容，請參閱[Kuberenetes 1.8+ 的計量伺服器][metrics-server-github]。
 
 ```console
 git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-若要使用自動調整程式，必須為您的 Pod 定義 CPU 要求和限制。 在 `azure-vote-front` 部署中，前端容器會要求 0.25 個 CPU，限制為 0.5 個 CPU。 設定看起來會像這樣：
+若要使用自動調整程式，必須為您的 Pod 定義 CPU 要求和限制。 在 `azure-vote-front` 部署中，前端容器已經要求 0.25 個 CPU，限制為 0.5 個 CPU。 這些資源要求和限制定義如下列範例程式碼片段所示：
 
 ```yaml
 resources:
@@ -94,7 +93,7 @@ resources:
      cpu: 500m
 ```
 
-下列範例會使用 [kubectl autoscale][kubectl-autoscale] 命令自動調整 *azure-vote-front* 部署中的 Pod 數目。 如果 CPU 使用率超過 50%，自動調整程式就會增加 Pod，最多可達 10 個執行個體：
+下列範例會使用 [kubectl autoscale][kubectl-autoscale] 命令自動調整 *azure-vote-front* 部署中的 Pod 數目。 如果 CPU 使用率超過 50%，自動調整程式就會增加 Pod，最多可達 10 個執行個體。 然後，為此部署定義最少 3 個執行個體：
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -121,7 +120,7 @@ azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 ```
 
-輸出如下：
+成功調整叢集後，輸出會類似下列範例：
 
 ```
 "agentPoolProfiles": [
@@ -144,9 +143,9 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 在本教學課程中，您已在 Kubernetes 叢集中使用不同的調整功能。 您已了解如何︰
 
 > [!div class="checklist"]
-> * 調整 Kubernetes 節點
 > * 手動調整執行應用程式的 Kubernetes Pod
 > * 設定執行應用程式前端的自動調整 Pod
+> * 手動調整 Kubernetes 節點
 
 請繼續進行下一個教學課程，以了解如何更新 Kubernetes 中的應用程式。
 

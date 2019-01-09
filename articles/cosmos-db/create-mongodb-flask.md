@@ -1,23 +1,23 @@
 ---
-title: Azure Cosmos DB：使用 Python 和 Azure Cosmos DB MongoDB API 建置 Flask Web 應用程式
-description: 提供 Python Flask 程式碼範例，可讓您用來連線及查詢 Azure Cosmos DB MongoDB API
+title: 使用 Azure Cosmos DB 適用於 MongoDB 的 API 和 Python SDK 建置 Flask Web 應用程式
+description: 呈現 Python Flask 程式碼範例，您可使用 Azure Cosmos DB 適用於 MongoDB 的 API 進行連線及查詢。
 services: cosmos-db
-author: slyons
-ms.author: sclyon
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc, seodec18
+ms.custom: quickstart
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/02/2017
-ms.openlocfilehash: 09c19f57a2993c0faad3dca708f67526f99d13df
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.date: 12/26/2018
+ms.openlocfilehash: 78fa871deb36b9f3596632976ce5a17b2f4d71fa
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165107"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792244"
 ---
-# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB：使用 MongoDB API 建置 Flask 應用程式
+# <a name="build-a-flask-app-using-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 適用於 MongoDB 的 API 建置 Flask 應用程式
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -28,9 +28,9 @@ ms.locfileid: "53165107"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。
+Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Cosmos DB 核心的全域散發和水平調整功能。
 
-此快速入門指南會使用下列 [Flask 範例](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample)，並示範如何使用 [Azure Cosmos DB 模擬器](local-emulator.md)和 Azure Cosmos DB [MongoDB API](mongodb-introduction.md) (而不是 MongoDB) 來建置簡單的待辦事項 Flask 應用程式。
+此快速入門指南會使用下列 [Flask 範例](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample)，並示範如何使用 [Azure Cosmos DB 模擬器](local-emulator.md)和 Azure Cosmos DB 適用於 MongoDB 的 API 來建置簡單的待辦事項 Flask 應用程式。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -46,7 +46,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="clone-the-sample-application"></a>複製範例應用程式
 
-現在讓我們從 GitHub 複製 Flask-MongoDB API 應用程式、設定連接字串，然後執行它。 您會看到，以程式設計方式來處理資料有多麼的容易。
+現在讓我們從 GitHub 複製 Flask-MongoDB 應用程式、設定連接字串，然後執行它。 您會看到，以程式設計方式來處理資料有多麼的容易。
 
 1. 開啟命令提示字元，建立名為 git-samples 的新資料夾，然後關閉命令提示字元。
 
@@ -118,9 +118,9 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="update-your-connection-string"></a>更新您的連接字串
 
-如果您想要針對即時 Azure Cosmos DB 帳戶測試程式碼，請移至 Azure 入口網站以建立帳戶，並取得您的連接字串資訊。 接著將它複製到應用程式。
+如果您想要針對即時 Cosmos 帳戶測試程式碼，請移至 Azure 入口網站以建立帳戶，並取得您的連接字串資訊。 接著將它複製到應用程式。
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，於您 Azure Cosmos DB 帳戶的左側瀏覽區中，按一下 [連接字串]，然後按一下 [讀寫金鑰]。 在下一個步驟中，您將使用畫面右側的複製按鈕，將使用者名稱、密碼和主機複製到 Dal.cs 檔案中。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，於您 Cosmos 帳戶的左側瀏覽區中，按一下 [連接字串]，然後按一下 [讀寫金鑰]。 在下一個步驟中，您將使用畫面右側的複製按鈕，將使用者名稱、密碼和主機複製到 Dal.cs 檔案中。
 
 2. 開啟根目錄中的 **app.py** 檔案。
 
@@ -130,11 +130,11 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 5. 最後，從入口網站複製您的 [密碼] 值，並使它成為 **app.py** 檔案中的 **password** 值。
 
-您現已更新應用程式，使其具有與 Azure Cosmos DB 通訊所需的所有資訊。 您可以使用與之前相同的方式執行它。
+您現已更新應用程式，使其具有與 Cosmos DB 通訊所需的所有資訊。 您可以使用與之前相同的方式執行它。
 
 ## <a name="deploy-to-azure"></a>部署至 Azure
 
-若要部署此應用程式，您可以在 Azure 中建立新的 Web 應用程式，並搭配此 GitHub 存放庫的分支啟用持續部署。 請遵循此[教學課程](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)，在 Azure 中搭配 GitHub 設定持續部署。
+若要部署此應用程式，您可以在 Azure 中建立新的 Web 應用程式，並搭配此 GitHub 存放庫的分支啟用持續部署。 請遵循此[教學課程](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)，在 Azure 中搭配 GitHub 設定持續部署。
 
 部署至 Azure 時，您應該移除應用程式金鑰，並確定以下區段未註解化：
 
@@ -165,7 +165,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已了解如何建立 Azure Cosmos DB 帳戶，以及使用適用於 MongoDB 的 API 來執行 Flask 應用程式。您現已可以將其他資料匯入 Cosmos DB 帳戶。
+在本快速入門中，您已了解如何建立 Cosmos 帳戶及執行 Flask 應用程式。 您現在可以將其他資料匯入到 Cosmos 資料庫。 
 
 > [!div class="nextstepaction"]
-> [將資料匯入 MongoDB API 的 Azure Cosmos DB](mongodb-migrate.md)
+> [將 MongoDB 資料匯入到 Azure Cosmos DB](mongodb-migrate.md)

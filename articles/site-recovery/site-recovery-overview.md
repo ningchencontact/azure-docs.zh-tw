@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5942f27313cf8bb6a9ed8bf0a5cc4fb556693065
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2cd9e89c92b2bed75c52654d779f4f7d8c17596e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832219"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975316"
 ---
 # <a name="about-site-recovery"></a>關於 Site Recovery
 
@@ -24,7 +24,7 @@ ms.locfileid: "52832219"
 Azure 復原服務會以下列方式參與您的 BCDR 策略：
 
 - **Site Recovery 服務**：Site Recovery 可協助確保商務持續性，方法是在中斷期間讓商務應用程式和工作負載保持執行狀態。 Site Recovery 會將實體和虛擬機器 (VM) 上執行的工作負載從主要站台複寫到次要位置。 當您的主要站台發生中斷時，您會容錯移轉到次要位置，並且從該處存取應用程式。 在主要位置再次執行之後，您就可以容錯回復。  
-- **備份服務**：[Azure 備份](https://docs.microsoft.com/azure/backup/)服務會將您的資料備份至 Azure，維持資料安全且更容易復原。
+- **備份服務**：[Azure 備份](https://docs.microsoft.com/azure/backup/)服務會將您的資料備份至 Azure，以維持資料安全且更容易復原。
 
 Site Recovery 可以管理複寫：
 

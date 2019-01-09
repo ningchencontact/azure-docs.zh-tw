@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 12/31/2018
 ms.author: tamram
 ms.custom: seodec18
-ms.openlocfilehash: d007f7f1aeee2b4397e5b9e68c0e48108772fb32
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: eb472465c0d35150f2a13563058905751219411d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110298"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976455"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -54,7 +54,7 @@ ms.locfileid: "53110298"
 1. 選取 [已啟用] 以啟用儲存體帳戶的靜態網站代管功能。
 1. 在 [索引文件名稱] 欄位中，指定預設的索引頁面 *index.html*。 當使用者瀏覽至您靜態網站的根目錄時，就會顯示此預設索引頁面。  
 1. 在 [文件路徑發生錯誤] 欄位中，指定預設的錯誤頁面 *404.html*。 當使用者嘗試瀏覽至您靜態網站中所沒有的網頁時，就會顯示此預設錯誤頁面。
-1. 按一下 [儲存]。 Azure 入口網站現在即會顯示您的靜態網站端點。 
+1. 按一下 [檔案] 。 Azure 入口網站現在即會顯示您的靜態網站端點。 
 
     ![啟用儲存體帳戶的靜態網站代管功能](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -78,7 +78,7 @@ ms.locfileid: "53110298"
     ```
 
 1. 建立預設錯誤檔案，然後將其命名為 *404.html*。
-1. 在編輯器中開啟 *error.html*，將下列文字貼到檔案中，然後儲存檔案：
+1. 在編輯器中開啟 *404.html*，然後將下列文字貼到檔案中，並加以儲存：
 
     ```
     <h1>404</h1>

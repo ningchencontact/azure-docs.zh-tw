@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault 概觀 | Microsoft Docs
+title: Azure Key Vault 概觀 - Azure Key Vault | Microsoft Docs
 description: Azure Key Vault 是一項雲端服務，可作為安全的祕密存放區。
 services: key-vault
 author: barclayn
@@ -12,18 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 07/17/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: aae7836448ff27b4c80d7bb53e108034ee52db1c
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 80a740e13f5c3a13b7533d75e386a9afa2855085
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586286"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002241"
 ---
 # <a name="what-is-azure-key-vault"></a>什麼是 Azure 金鑰保存庫？
 
-Azure Key Vault 可協助您解決下列問題
+Azure Key Vault 可協助您解決下列問題：
+
 - **祕密管理** - Azure Key Vault 可用來安全地儲存權杖、密碼、憑證、API 金鑰和其他祕密，並嚴密控制其存取
 - **金鑰管理** - Azure Key Vault 也可作為金鑰管理解決方案。 Azure Key Vault 可讓您輕鬆地建立和控制用來加密資料的加密金鑰。 
 - **憑證管理** - Azure Key Vault 也是一項服務，可讓您輕鬆地佈建、管理及部署 Azure 和您內部連線的資源所使用的公用和私人安全通訊端層/傳輸層安全性 (SSL/TLS) 憑證。 
@@ -33,9 +34,9 @@ Azure Key Vault 可協助您解決下列問題
 
 ### <a name="centralize-application-secrets"></a>集中儲存應用程式祕密
 
-在 Azure Key Vault 中集中儲存應用程式祕密，可讓您控制其散發。 Key Vault 可大幅降低不小心洩露祕密的風險。 使用 Key Vault 時，應用程式開發人員不再需要在其應用程式中儲存安全性資訊。 這樣就不需要讓此資訊成為程式碼的一部分。 例如，應用程式可能需要連線到資料庫。 在 Key Vault 中妥善保存連接字串，而不用在應用程式程式碼中儲存連接字串。
+在 Azure Key Vault 中集中儲存應用程式祕密，可讓您控制其散發。 Key Vault 可大幅降低不小心洩露祕密的風險。 使用 Key Vault 時，應用程式開發人員不再需要在其應用程式中儲存安全性資訊。 不需將安全性資訊儲存在應用程式中，就不需要讓此資訊成為程式碼的一部分。 例如，應用程式可能需要連線到資料庫。 您可以在 Key Vault 中妥善儲存連接字串，而不用在應用程式程式碼中儲存連接字串。
 
-您的應用程式可以使用 URI 安全地存取所需的資訊，而在應用程式的金鑰或祕密儲存在 Azure Key Vault 之後，URI 可讓它們能擷取特定的祕密版本。 發生這種情況，不需要撰寫自訂程式碼來保護任何祕密資訊。
+您的應用程式可以使用 URI 安全地存取其所需的資訊。 這些 URI 可讓應用程式擷取特定版本的祕密。 您不需要撰寫自訂程式碼來保護任何儲存在 Key Vault 中的祕密資訊。
 
 ### <a name="securely-store-secrets-and-keys"></a>安全地儲存秘密和金鑰
 
@@ -51,7 +52,7 @@ Azure Key Vault 可能受軟體或硬體 HSM 保護。 在您需要加強保證�
 
 ### <a name="monitor-access-and-use"></a>監視存取和使用
 
-在您建立一些 Key Vault 之後，您會想要監視存取金鑰和祕密的方式和時機。 您可以啟用 Key Vault 的記錄功能來達成目的。 您可以如下設定 Azure Key Vault：
+在您建立一些 Key Vault 之後，您會想要監視存取金鑰和祕密的方式和時機。 您可以藉由啟用保存庫的記錄來監視活動。 您可以如下設定 Azure Key Vault：
 
 - 封存至儲存體帳戶。
 - 串流至事件中樞。
@@ -61,11 +62,11 @@ Azure Key Vault 可能受軟體或硬體 HSM 保護。 在您需要加強保證�
 
 ### <a name="simplified-administration-of-application-secrets"></a>簡化應用程式祕密的管理
 
-在儲存珍貴資料時，您必須採取幾個步驟。 安全性資訊必須受到保護，它必須遵循生命週期，同時必須保持高可用性。 Azure Key Vault 簡化此作業的方式如下：
+在儲存珍貴資料時，您必須採取幾個步驟。 安全性資訊必須受到保護，它必須遵循生命週期，同時必須保持高可用性。 Azure Key Vault 可藉由下列功能，簡化符合這些需求的程序：
 
 - 無須具備硬體安全性模組的內部知識
 - 在短時間內相應增加，以符合組織的使用尖峰。
-- 將區域內的 Key Vault 內容複寫到次要區域。 這可確保高可用性，並免除管理員採取任何動作來觸發容錯移轉的需求。
+- 將區域內的 Key Vault 內容複寫到次要區域。 資料複寫可確保高可用性，並可讓管理員無須執行任何動作來觸發容錯移轉。
 - 透過入口網站、Azure CLI 和 PowerShell 提供標準 Azure 系統管理選項。
 - 自動對向公開 CA 購買的憑證執行一些作業，例如註冊或續約。
 
@@ -73,7 +74,12 @@ Azure Key Vault 可能受軟體或硬體 HSM 保護。 在您需要加強保證�
 
 ### <a name="integrate-with-other-azure-services"></a>與其他 Azure 服務整合
 
-Key Vault 是 Azure 中的安全存放區，可用來簡化 [Azure 磁碟加密](../security/azure-security-disk-encryption.md)、SQL 伺服器和 Azure SQL Database 中的[一律加密]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)功能、[Azure Web 應用程式]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site)等案例。 Key Vault 本身可與儲存體帳戶、事件中樞和記錄分析整合。
+Key Vault 是 Azure 中的安全存放區，常用來簡化如下的案例：
+-  [Azure 磁碟加密](../security/azure-security-disk-encryption.md)
+-  SQL Server 和 Azure SQL Database 中的 [Always Encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 功能
+- [Azure App Service]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site)。 
+
+Key Vault 本身可與儲存體帳戶、事件中樞和記錄分析整合。
 
 ## <a name="next-steps"></a>後續步驟
 

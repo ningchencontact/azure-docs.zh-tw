@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 92e10b1f4ec8be1dc67ff449df32ef76e365b5f2
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3a16c87e96a94fcf95694d3cbfd6f8f07adedb74
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162659"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717067"
 ---
 # <a name="quickstart-get-intent-using-nodejs"></a>快速入門：使用 Node.js 取得意圖
 
@@ -34,7 +34,7 @@ ms.locfileid: "53162659"
 
 
 > [!NOTE] 
-> 從 [**LUIS-Samples** GitHub 存放庫](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node)可取得完整的 Node.js 解決方案。
+> 從 [**Azure-Samples** GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/analyze-text/node)可取得完整的 Node.js 解決方案。
 
 ## <a name="get-luis-key"></a>取得 LUIS 金鑰
 

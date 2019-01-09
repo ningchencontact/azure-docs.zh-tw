@@ -13,16 +13,18 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5f355604e2bff1c3f03c8237f30cbe41ce7e5810
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: b50609449d6144d2bb013d82e2eb29e94b5b01be
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616142"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754113"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>教學課程：使用 Resource Manager 範本建立多個資源執行個體
 
 了解如何在您的 Azure Resource Manager 範本中逐一查看以建立 Azure 資源的多個執行個體。 在本教學課程中，您將修改範本以建立三個儲存體帳戶執行個體。
+
+本教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
 > * 開啟快速入門範本
@@ -120,14 +122,14 @@ ms.locfileid: "51616142"
 
 若要列出全部三個儲存體帳戶，請省略 --name 參數：
 
-# <a name="clitabcli"></a>[CLI](#tab/CLI)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -149,7 +151,7 @@ Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已學到如何建立多個儲存體帳戶執行個體。 到目前為止，您已建立一個儲存體帳戶或多個儲存體帳戶執行個體。 在下一個教學課程中，您會開發具有多個資源與多個資源類型的的範本。 某些資源有相依的資源。
+在此教學課程中，您已學到如何建立多個儲存體帳戶執行個體。 在下一個教學課程中，您將了解如何將資源從某個資源群組移動到另一個資源群組。
 
 > [!div class="nextstepaction"]
-> [建立相依資源](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [移動資源](./resource-manager-tutorial-move-resources.md)

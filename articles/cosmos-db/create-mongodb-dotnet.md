@@ -1,23 +1,23 @@
 ---
-title: Azure Cosmos DB：使用 .NET 和 MongoDB API 建置 Web 應用程式
-description: 提供 .NET 程式碼範例，您可用來連線及查詢 Azure Cosmos DB MongoDB API
+title: 使用 Azure Cosmos DB 適用於 MongoDB 的 API 和 .NET SDK 建置 Web 應用程式
+description: 呈現 .NET 程式碼範例，您可使用 Azure Cosmos DB 適用於 MongoDB 的 API 進行連線及查詢。
 services: cosmos-db
-author: slyons
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quickstart
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/22/2018
-ms.author: sclyon
-ms.openlocfilehash: 170f3132084da07ccf98a0dfed651bbfd7220615
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: c6ae9fa46e9dd3abc1a526d5c7121c86d6e9a08c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081025"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791212"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB：使用 .NET 和 Azure 入口網站建置 MongoDB API Web 應用程式
+# <a name="build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-net-sdk"></a>使用 Azure Cosmos DB 適用於 MongoDB 的 API 和 .NET SDK 建置 Web 應用程式
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -28,13 +28,13 @@ ms.locfileid: "53081025"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
+Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Cosmos DB 核心的全域散發和水平調整功能。 
 
-此快速入門示範如何使用 Azure 入口網站建立 Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 帳戶、文件資料庫和集合。 您會接著建置和部署以 [MongoDB .NET 驅動程式](https://docs.mongodb.com/ecosystem/drivers/csharp/)為基礎的工作清單 Web 應用程式。
+本快速入門示範如何使用 [Azure Cosmos DB 適用於 MongoDB 的 API](mongodb-introduction.md) 來建立 Cosmos 帳戶。 您會接著建置和部署使用 [MongoDB .NET 驅動程式](https://docs.mongodb.com/ecosystem/drivers/csharp/)建置的工作清單 Web 應用程式。
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>執行範例應用程式的必要條件
 
-若要執行範例，您將需要 [Visual Studio](https://www.visualstudio.com/downloads/) 和有效的 Azure CosmosDB 帳戶。
+若要執行範例，您將需要 [Visual Studio](https://www.visualstudio.com/downloads/) 和有效的 Azure Cosmos DB 帳戶。
 
 如果您還沒有 Visual Studio，請下載 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)，其在安裝時會一併安裝 **ASP.NET 及 Web 開發**工作負載。
 
@@ -49,7 +49,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="clone-the-sample-app"></a>複製範例應用程式
 
-首先，從 GitHub 下載 MongoDB API 範例應用程式。 它會使用 MongoDB 的文件儲存體模型實作工作清單。
+首先，從 GitHub 下載應用程式範例。 
 
 1. 開啟命令提示字元，建立名為 git-samples 的新資料夾，然後關閉命令提示字元。
 
@@ -77,7 +77,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 下列程式碼片段皆取自 DAL 目錄中的 Dal.cs 檔案。
 
-* 初始化 Mongo 用戶端。
+* 初始化用戶端。
 
     ```cs
         MongoClientSettings settings = new MongoClientSettings();
@@ -110,7 +110,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     collection.Find(new BsonDocument()).ToList();
     ```
 
-* 建立工作，並將其插入到 MongoDB 集合
+建立工作並將其插入集合中
 
    ```csharp
     public void CreateTask(MyTask task)
@@ -132,7 +132,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，於您 Azure Cosmos DB 帳戶的左側瀏覽區中，按一下 [連接字串]，然後按一下 [讀寫金鑰]。 在下一個步驟中，您將使用畫面右側的複製按鈕，將使用者名稱、密碼和主機複製到 Dal.cs 檔案中。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，於您 Cosmos 帳戶的左側瀏覽區中，按一下 [連接字串]，然後按一下 [讀寫金鑰]。 在下一個步驟中，您將使用畫面右側的複製按鈕，將使用者名稱、密碼和主機複製到 Dal.cs 檔案中。
 
 2. 開啟 **DAL** 目錄中的 **Dal.cs** 檔案。 
 
@@ -142,7 +142,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 5. 最後從入口網站複製您的 **password** 值，並使它成為 **Dal.cs** 檔案中的 **password** 值。 
 
-您現已更新應用程式，使其具有與 Azure Cosmos DB 通訊所需的所有資訊。 
+您現已更新應用程式，使其具有與 Cosmos DB 通訊所需的所有資訊。 
     
 ## <a name="run-the-web-app"></a>執行 Web 應用程式
 
@@ -166,8 +166,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已了解如何建立 Azure Cosmos DB 帳戶，以及如何使用適用於 MongoDB 的 API 來執行 Web 應用程式。 您現在可以將其他資料匯入到 Cosmos DB 帳戶。 
+在本快速入門中，您已了解如何建立 Cosmos 帳戶、建立集合，以及執行主控台應用程式。 您現在可以將其他資料匯入到 Cosmos 資料庫。 
 
 > [!div class="nextstepaction"]
-> [將資料匯入 MongoDB API 的 Azure Cosmos DB](mongodb-migrate.md)
-
+> [將 MongoDB 資料匯入到 Azure Cosmos DB](mongodb-migrate.md)

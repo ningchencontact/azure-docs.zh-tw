@@ -4,17 +4,17 @@ description: 開始使用 Azure Stack 儲存體開發工具的指引
 services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a218cf9b3d89236128c83d8b879691940e432a55
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 56814cc44874fe0c169e5fb51dc6cbff5a225231
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341553"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727848"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>開始使用 Azure Stack 儲存體開發工具
 
@@ -29,9 +29,9 @@ Microsoft Azure Stack 提供一組儲存體服務，包括 Blob、資料表和�
 
 ## <a name="azure-client-libraries"></a>Azure 用戶端程式庫
 
-Azure Stack 儲存體支援的 REST API 版本包括適用於 1802 更新或更新版本的 2017-04-17、2016-05-31、2015-12-11、2015-07-08、2015-04-05，以及適用於舊版的 2015-04-05。 Azure Stack 端點不同於於最新版的 Azure 儲存體 REST API。 對於儲存體用戶端程式庫，您需要知道與 REST API 相容的版本。
+對於儲存體用戶端程式庫，請留意與 REST API 相容的版本。 您也必須在程式碼中指定 Azure Stack 端點。
 
-### <a name="1802-update-or-newer-versions"></a>1802 更新或更新版本
+### <a name="1811-update-or-newer-versions"></a>1811 更新或更新版本
 
 | 用戶端程式庫 | Azure Stack 支援的版本 | 連結 | 端點規格 |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -49,18 +49,18 @@ Azure Stack 儲存體支援的 REST API 版本包括適用於 1802 更新或更�
 
 1. 在專案的根目錄中，使用下列程式碼建立一個名為 **composer.json** 的檔案：
 
-  ```php
+    ```json
     {
       "require": {
-      "Microsoft/azure-storage-blob":"1.0.0"
+      "Microsoft/azure-storage-blob":"1.2.0"
       }
     }
-  ```
+    ```
 
 2. 將 [composer.phar](http://getcomposer.org/composer.phar) 下載到專案根目錄中。
 3. 執行：`php composer.phar install`。
 
-### <a name="previous-versions"></a>舊版
+### <a name="previous-versions-1802-to-1809-update"></a>舊版 (1802 至 1809 更新)
 
 |用戶端程式庫|Azure Stack 支援的版本|連結|端點規格|
 |---------|---------|---------|---------|
@@ -74,15 +74,15 @@ Azure Stack 儲存體支援的 REST API 版本包括適用於 1802 更新或更�
 
 #### <a name="install-php-client-via-composer---previous"></a>透過編輯器安裝 PHP 用戶端 - 先前
 
-透過編輯器安裝：
+若要透過編輯器安裝：(以 Blob 為例)。
 
 1. 在專案的根目錄中，使用下列程式碼建立一個名為 **composer.json** 的檔案：
 
-  ```php
+  ```json
     {
-          "require":{
-          "Microsoft/azure-storage":"0.15.0"
-          }
+      "require": {
+      "Microsoft/azure-storage-blob":"1.0.0"
+      }
     }
   ```
 
@@ -101,7 +101,7 @@ Azure Stack 端點包含兩個部分：區域的名稱和 Azure Stack 網域。
 
 若是 Azure Stack，在 app.config 檔案中會指定端點尾碼：
 
-```
+```xml
 <add key="StorageConnectionString"
 value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=local.azurestack.external;" />
@@ -111,7 +111,7 @@ EndpointSuffix=local.azurestack.external;" />
 
 若是 Azure Stack，在連接字串設定中會指定端點尾碼：
 
-```
+```java
 public static final String storageConnectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
@@ -123,7 +123,7 @@ public static final String storageConnectionString =
 
 若是 Azure Stack，在宣告執行個體中會指定端點尾碼：
 
-```
+```nodejs
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
@@ -132,7 +132,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 
 若是 Azure Stack，在連接字串設定中會指定端點尾碼：
 
-```
+```cpp
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;
 AccountName=your_storage_account;
 AccountKey=your_storage_account_key;
@@ -143,7 +143,7 @@ EndpointSuffix=local.azurestack.external"));
 
 若是 Azure Stack，在連接字串設定中會指定端點尾碼：
 
-```
+```php
 $connectionString = 'BlobEndpoint=http://<storage account name>.blob.local.azurestack.external/;
 QueueEndpoint=http:// <storage account name>.queue.local.azurestack.external/;
 TableEndpoint=http:// <storage account name>.table.local.azurestack.external/;
@@ -154,7 +154,7 @@ AccountName=<storage account name>;AccountKey=<storage account key>'
 
 若是 Azure Stack，在宣告執行個體中會指定端點尾碼：
 
-```
+```python
 block_blob_service = BlockBlobService(account_name='myaccount',
 account_key='mykey',
 endpoint_suffix='local.azurestack.external')
@@ -164,7 +164,7 @@ endpoint_suffix='local.azurestack.external')
 
 若是 Azure Stack，在連接字串設定中會指定端點尾碼：
 
-```
+```ruby
 set
 AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;
 AccountName=myaccount;

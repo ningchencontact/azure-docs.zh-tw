@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 67621cb95cbf5072ab7b72770f43c0b68785c78e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b9bcba78600e90c28f95c4ea842bf4b25b1c0da7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092095"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722783"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>教學課程：將自訂網域新增至 Azure CDN 端點
 本教學課程說明如何將自訂網域新增至 Azure 內容傳遞網路 (CDN) 端點。 使用 CDN 端點來傳遞內容時，如果您想要在 CDN URL 中顯示您自己的網域名稱，則需要自訂網域。 有可見的網域名稱對您的客戶而言較為方便，並且也有助於宣傳商標。 
@@ -38,7 +38,7 @@ ms.locfileid: "49092095"
 
 您必須先建立 CDN 設定檔和至少一個 CDN 端點，才能完成本教學課程中的步驟。 如需詳細資訊，請參閱[快速入門：建立 Azure CDN 設定檔和端點](cdn-create-new-endpoint.md)。
 
-如果您還沒有自訂網域，必須先向網域提供者購買。 如需範例，請參閱[購買自訂網域名稱](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app)。
+如果您還沒有自訂網域，必須先向網域提供者購買。 如需範例，請參閱[購買自訂網域名稱](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain)。
 
 如果您使用 Azure 來裝載您的 [DNS 網域](https://docs.microsoft.com/azure/dns/dns-overview)，必須將網域提供者的網域名稱系統 (DNS) 委派給 Azure DNS。 如需詳細資訊，請參閱[將網域委派給 Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)。 反之，如果您使用網域提供者來處理 DNS 網域，請繼續執行[建立 CNAME DNS 記錄](#create-a-cname-dns-record)。
 
@@ -70,7 +70,7 @@ ms.locfileid: "49092095"
 
     - 來源：以下列格式輸入您的自訂網域名稱 (包括 cdnverify 子網域)：cdnverify._&lt;自訂網域名稱&gt;。 例如 cdnverify.www.contoso.com。
 
-    - 類型：輸入 *CNAME*。
+    - 輸入：輸入 CNAME。
 
     - 目的地：以下列格式輸入您的 CDN 端點主機名稱 (包括 cdnverify 子網域)：cdnverify._&lt;端點名稱&gt;_.azureedge.net。 例如 cdnverify.contoso.azureedge.net。
 
@@ -90,7 +90,7 @@ ms.locfileid: "49092095"
 
     ![CNAME 項目](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
 
-    - 類型：保留已選取的 [CNAME]。
+    - 輸入：保留已選取的 [CNAME]。
 
     - 主機：輸入要使用的自訂網域的子網域，包括 cdnverify 子網域名稱。 例如 cdnverify.www。
 
@@ -164,7 +164,7 @@ ms.locfileid: "49092095"
 
     - 來源：輸入您的自訂網域名稱 (例如 www.contoso.com)。
 
-    - 類型：輸入 *CNAME*。
+    - 輸入：輸入 CNAME。
 
     - 目的地：輸入您的 CDN 端點主機名稱。 此名稱必須是下列格式：_&lt;端點名稱&gt;_.azureedge.net。 例如 contoso.azureedge.net。
 
@@ -188,7 +188,7 @@ ms.locfileid: "49092095"
 
     ![CNAME 項目](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
-    - 類型：保留已選取的 [CNAME]。
+    - 輸入：保留已選取的 [CNAME]。
 
     - 主機：輸入要使用的自訂網域的子網域。 例如 www 或 cdn。
 

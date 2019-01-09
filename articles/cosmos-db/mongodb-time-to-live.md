@@ -1,23 +1,23 @@
 ---
 title: Azure Cosmos DB 中的 MongoDB 個別文件 TTL 功能
-description: 了解如何為透過 MongoDB API 建立的 Azure Cosmos DB 文件設定存留時間值，以在經過一段時間之後自動從系統中清除文件。
+description: 了解如何使用 Azure Cosmos DB 適用於 MongoDB 的 API 為文件設定存留時間值，以在經過一段時間之後自動從系統中清除文件。
 services: cosmos-db
-author: orestis-ms
-ms.author: orkostak
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 08/10/2018
-ms.openlocfilehash: 547ee489581b7e7e9203151fbfcdaad45dca8ea1
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.openlocfilehash: d7c811dba3ad9b894fd5dae47e898f51ec4d05e5
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868748"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790090"
 ---
-# <a name="expire-data-in-azure-cosmos-db-mongodb-api"></a>讓 Azure Cosmos DB MongoDB API 中的資料到期
+# <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 適用於 MongoDB 的 API 讓資料過期
 
-存留時間 (TTL) 功能可讓資料庫的資料自動到期。 MongoDB API 會使用 Azure Cosmos DB 的 TTL 功能。 支援的模式有兩種：設定整個集合的預設 TTL 值，以及為每份文件設定個別的 TTL 值。 在 MongoDB API 中控管 TTL 索引和個別文件 TTL 值的邏輯[與 Azure Cosmos DB 相同](../cosmos-db/mongodb-indexing.md)。
+存留時間 (TTL) 功能可讓資料庫的資料自動到期。 Azure Cosmos DB 適用於 MongoDB 的 API 會使用 Cosmos DB 的核心 TTL 功能。 支援的模式有兩種：設定整個集合的預設 TTL 值，以及為每份文件設定個別的 TTL 值。 在 Cosmos DB 適用於 MongoDB 的 API 中控管 TTL 索引和個別文件 TTL 值的邏輯[與 Azure Cosmos DB 相同](../cosmos-db/mongodb-indexing.md)。
 
 ## <a name="ttl-indexes"></a>TTL 索引
 若要對整個集合啟用 TTL，必須建立[「TTL 索引」(存留時間索引)](../cosmos-db/mongodb-indexing.md)。 TTL 索引是 _ts 欄位上具有 "expireAfterSeconds" 值的索引。
@@ -72,10 +72,11 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 ``` 
 
 ## <a name="how-to-activate-the-per-document-ttl-feature"></a>如何啟動個別文件 TTL 功能
-個別文件 TTL 功能可在 Azure 入口網站中透過 MongoDB API 帳戶的 [預覽功能] 索引標籤來啟動。
+
+使用 Azure Cosmos DB 適用於 MongoDB 的 API 可以啟用個別文件的 TTL 功能。
 
 ![在入口網站中啟動個別文件 TTL 功能的螢幕擷取畫面](./media/mongodb-ttl/mongodb_portal_ttl.png) 
 
 ## <a name="next-steps"></a>後續步驟
-* [利用存留時間讓 Azure Cosmos DB 集合中的資料自動過期](../cosmos-db/time-to-live.md)
-* [Azure Cosmos DB MongoDB API 中的索引功能](../cosmos-db/mongodb-indexing.md)
+* [利用存留時間讓 Azure Cosmos DB 中的資料自動過期](../cosmos-db/time-to-live.md)
+* [為使用 Azure Cosmos DB 適用於 MongoDB 的 API 設定的 Cosmos 資料庫編製索引](../cosmos-db/mongodb-indexing.md)

@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: ec73083d1bb66e7c7735a2bee8e89eeb56cf7620
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 70bbade2877b62c3d211600f69e1825677f12040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282488"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721864"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>將市集項目從 Azure 下載到 Azure Stack
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 雲端操作者可從 Azure Marketplace 下載項目，並讓這些項目可在 Azure Stack 中使用。 您可以選擇的項目來自 Azure Marketplace 項目策劃清單，這些項目已預先測試並支援搭配 Azure Stack 運作。 其他項目會不斷新增到此清單中，因此請繼續回來查看是否有新內容。 
 
@@ -90,6 +90,8 @@ ms.locfileid: "51282488"
 
 - 市集摘要整合工具會在第一個程序期間下載。 
 
+- 您可以安裝 [AzCopy](../storage/common/storage-use-azcopy.md) 以獲取最佳下載效能，但並非必要。
+
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>使用市集摘要整合工具來下載市集項目
 
 1. 在具有網際網路連線的電腦上，以系統管理員身分開啟 PowerShell 主控台。
@@ -126,10 +128,7 @@ ms.locfileid: "51282488"
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem 
-      -Destination "Destination folder path in quotes" `
-      -AzureTenantID $AzureContext.Tenant.TenantId ` 
-      -AzureSubscriptionId $AzureContext.Subscription.Id 
+   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
    ```
 
 6. 當工具執行時，您應會看到如下圖所示的畫面，其中包含可用的市集項目清單：
@@ -144,7 +143,35 @@ ms.locfileid: "51282488"
 
 9. 下載所需的時間取決於項目的大小。 下載完成之後，在您於指令碼中指定的資料夾中可取得項目。 下載包含 VHD 檔案 (用於虛擬機器) 或 .zip 檔案 (用於虛擬機器擴充功能)。 其中也可能包含 .azpkg 格式的資源庫套件 (僅是一個 .zip 檔案)。
 
-### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>匯入下載並發佈至 Azure Stack Marketplace
+10. 如果下載失敗，重新執行下列 PowerShell Cmdlet 即可再試一次：
+
+    ```powershell
+    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes”
+    ```
+
+    重試之前，請移除發生下載失敗的產品資料夾。 例如，如果下載指令碼在下載到 `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` 時失敗，請移除 `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` 資料夾，然後重新執行 Cmdlet。
+ 
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher"></a>匯入下載並發佈至 Azure Stack Marketplace (1811 和更高版本)
+
+1. 您必須在本機移動[先前下載](#use-the-marketplace-syndication-tool-to-download-marketplace-items)的檔案，使其可供您的 Azure Stack 環境使用。 Marketplace 摘要整合工具也必須可供您的 Azure Stack 環境使用，因為您必須使用此工具來執行匯入作業。
+
+   下圖顯示資料夾結構範例。 `D:\downloadfolder` 包含所有已下載的 Marketplace 項目。 每個子資料夾都是 Marketplace 項目 (例如 `microsoft.custom-script-linux-arm-2.0.3`)，並且依產品識別碼命名。 每個子資料夾都內含 Marketplace 項目的下載內容。
+
+   [ ![Marketplace 下載目錄結構](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace 下載目錄結構") ](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+
+2. 請依照[這篇文章](azure-stack-powershell-configure-admin.md)中的指示來設定 Azure Stack 操作者的 PowerShell 工作階段。 
+
+3. 匯入摘要整合模組，然後執行下列指令碼來啟動 Marketplace 摘要整合工具：
+
+   ```PowerShell
+   $credential = Get-Credential -Message "Enter the azure stack operator credential:"
+   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
+   ```
+   `-AzsCredential` 是選用參數。 該參數用來更新存取權杖 (若已過期)。 如果未指定 `-AzsCredential` 參數且權杖過期，您會收到輸入操作者認證的提示。
+
+4. 指令碼順利完成之後，應可在 Azure Stack Marketplace 中取得項目。
+
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1809-and-lower"></a>匯入下載並發佈至 Azure Stack Marketplace (1809 和更低版本)
 
 1. 您[先前下載的](#use-the-marketplace-syndication-tool-to-download-marketplace-items)虛擬機器映像檔案或解決方案範本檔案，必須可在本機提供給您的 Azure Stack 環境使用。  
 
@@ -168,10 +195,10 @@ ms.locfileid: "51282488"
 
    您可以從與 AZPKG 檔案一起下載的文字檔案中，取得映像的 publisher、offer 和 sku 值。 文字檔案會儲存在目的地位置。 version 值是在上一個程序中從 Azure 下載項目時所記下的版本。 
  
-   下列範例指令碼中會使用 Windows Server 2016 Datacenter - Server Core 虛擬機器的值。 -Osuri 的值是項目的 Blob 儲存體位置路徑範例。 
+   下列範例指令碼中會使用 Windows Server 2016 Datacenter - Server Core 虛擬機器的值。 -Osuri 的值是項目的 Blob 儲存體位置路徑範例。
 
    除了此指令碼外，您也可以使用[本文說明的程序](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal)，使用 Azure 入口網站匯入 VHD 映像。
- 
+
    ```PowerShell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
@@ -181,7 +208,7 @@ ms.locfileid: "51282488"
     -Version "2016.127.20171215" `
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
-   
+
    **關於解決方案範本：** 某些範本可以包含名稱為 **fixed3.vhd** 的小型 3 MB .VHD 檔案。 您不需要將該檔案匯入到 Azure Stack。 Fixed3.vhd。  這個檔案隨附於一些解決方案範本，以符合 Azure Marketplace 的發佈需求。
 
    檢閱範本描述並下載，然後匯入其他需求，例如使用解決方案範本所需的 VHD。  

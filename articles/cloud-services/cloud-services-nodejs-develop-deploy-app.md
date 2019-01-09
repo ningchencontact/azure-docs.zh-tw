@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7af18272c335c835a2aa406fc635f3e7afda2a3a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 182dada35e0bea7101cc58ff62fde76fbcb8971e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003447"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722272"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>建立 Node.js 應用程式並部署到 Azure 雲端服務
 
@@ -60,7 +60,7 @@ ms.locfileid: "39003447"
 
     Cmdlet 會建立下列檔案：
 
-   * **ServiceConfiguration.Cloud.cscfg**、**ServiceConfiguration.Local.cscfg** 和 **ServiceDefinition.csdef**：是發佈應用程式時需使用的 Azure 特定檔案。 如需詳細資訊，請參閱 [雲端服務]。
+   * **ServiceConfiguration.Cloud.cscfg**、**ServiceConfiguration.Local.cscfg** 和 **ServiceDefinition.csdef**：發佈應用程式時所需的 Azure 特定檔案。 如需詳細資訊，請參閱 [雲端服務]。
    * **deploymentSettings.json**：儲存 Azure PowerShell 部署 Cmdlet 使用的本機設定。
 4. 輸入下列命令以新增 Web 角色：
 
@@ -164,7 +164,7 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 
 <!-- URL List -->
 
-[Azure 網站、雲端服務與虛擬機器的比較]: ../app-service/choose-web-site-cloud-service-vm.md
+[Azure 網站、雲端服務與虛擬機器的比較]: ../app-service/overview-compare.md
 [使用輕量型 Web 應用程式]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178

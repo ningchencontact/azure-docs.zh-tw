@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 Azure DevOps Projects 將 ASP.NET Core 應用程式部署至 Azure Kubernetes Service (AKS)
+title: 教學課程：使用 Azure DevOps Projects 將 ASP.NET Core 應用程式部署至 Azure Kubernetes Service
 description: Azure DevOps Projects 可讓您輕鬆地開始使用 Azure。 藉由使用 DevOps Projects，您可以用幾個步驟就快速地將 ASP.NET Core 應用程式部署至 Azure Kubernetes Service (AKS)。
 ms.author: mlearned
 ms.manager: douge
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 6e2b53e51d7da117a7f690cb676d0ec096bcb1cd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 2aa103b36f60a84aaafc47f03a6cf6d5b6b66160
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165540"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993770"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-kubernetes-service-aks-by-using-azure-devops-projects"></a>教學課程：使用 Azure DevOps Projects 將 ASP.NET Core 應用程式部署至 Azure Kubernetes Service (AKS)
+# <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>教學課程：使用 Azure DevOps Projects 將 ASP.NET Core 應用程式部署至 Azure Kubernetes Service
 
 Azure DevOps Projects 提供簡化的體驗，讓您可以自備現有程式碼和 Git 存放庫，或者選擇一個範例應用程式，在 Azure 中建立持續整合 (CI) 和持續傳遞 (CD) 管線。 
 
@@ -24,6 +24,7 @@ DevOps Projects 也可用於：
 * 自動建立 Azure 資源，例如 Azure Kubernetes Service (AKS)。
 * 在設定 CI/CD 組建和發行管線的 Azure DevOps 中建立並設定發行管線。
 * 建立用於監視的 Azure Application Insights 資源。
+* 啟用[適用於容器的 Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)，以監視 AKS 叢集上容器工作負載的效能
 
 在本教學課程中，您將：
 
@@ -116,7 +117,7 @@ DevOps Projects 會在 Azure DevOps 組織中自動設定 CI/CD 管線。 您可
     DevOps Projects 會自動建立 CI 觸發程序，且每次對存放庫的認可都會啟動新的建置。 您可以選擇性地選擇要在 CI 程序中包含還是排除分支。
 
 1. 選取 [保留期]。  
-    根據您的案例，您可以指定原則來保留或移除特定數目的組建。
+    根據案例，您可以指定原則來保留或移除特定數目的組建。
 
 ## <a name="examine-the-cd-release-pipeline"></a>檢查 CD 發行管線
 
@@ -125,18 +126,18 @@ DevOps Projects 會自動建立並設定必要的步驟，以從 Azure DevOps �
 1. 選取 [建置及發行]，然後選取 [版本]。  
     DevOps Projects 會建立發行管線來管理 Azure 的部署。
 
-1. 選取您發行管線旁邊的省略符號 (...)，然後選取 [編輯]。  
+1. 選取發行管線旁邊的省略符號 (...)，然後選取 [編輯]。  
     發行管線中包含 [管線]，它會定義發行程序。
 
 1. 在 [成品] 下，選取 [置放]。  
     您在先前步驟中檢查的建置管線會產生用於成品的輸出。 
 
 1. 在 [置放] 圖示的右側，選取 [持續部署觸發程序]。  
-    這個發行管線已啟用 CD 觸發程序，每次有新的建置成品可用時，它就會執行部署。 您可以選擇性地停用觸發程序，因此您的部署需要手動執行。 
+    這個發行管線已啟用 CD 觸發程序，每次有新的建置成品可用時，它就會執行部署。 您可以選擇性地停用觸發程序，因此需要手動執行部署。 
 
 1. 從右側選取 [檢視版本]，以顯示版本的歷程記錄。
 
-1. 選取您發行旁邊的省略符號 (...)，然後選取 [開啟]。  
+1. 選取發行旁邊的省略符號 (...)，然後選取 [開啟]。  
     您可以瀏覽數個功能表，例如版本摘要、相關聯的工作項目及測試。
 
 1. 選取 [認可]。  
@@ -161,11 +162,11 @@ DevOps Projects 會自動建立並設定必要的步驟，以從 Azure DevOps �
 1. 在右上方選取 [認可]，然後再次選取 [認可]來推送您的變更。  
     不久之後，會在 Azure DevOps 中開始建置並執行發行以部署變更。 在 DevOps Projects 儀表板上或在瀏覽器中使用您的 Azure DevOps 組織監視建置狀態。
 
-1. 發行完成之後，請重新整理您的應用程式，以確認您的變更。
+1. 發行完成之後，請重新整理應用程式，以確認您的變更。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您要測試，您可以清除資源，以避免產生費用。 如果不再需要，您可以刪除在此教學課程中建立的 AKS 叢集和相關資源。 若要這樣做，請使用 DevOps Projects 儀表板上的 [刪除] 功能。
+如果要進行測試，您可以清除資源，以避免產生費用。 如果不再需要，您可以刪除在此教學課程中建立的 AKS 叢集和相關資源。 若要這樣做，請使用 DevOps Projects 儀表板上的 [刪除] 功能。
 
 > [!IMPORTANT]
 > 下列程序會永久刪除資源。 「刪除」功能會終結 Azure DevOps Projects 專案在 Azure 和 Azure DevOps 中建立的資料，而且您將無法再擷取這些資料。 請務必在仔細閱讀提示之後，再使用此程序。
@@ -190,4 +191,4 @@ DevOps Projects 會自動建立並設定必要的步驟，以從 Azure DevOps �
 若要深入了解如何使用 Kubernetes 儀表板，請參閱：
 
 > [!div class="nextstepaction"]
-> [使用 Kubernetes 儀表板](https://docs.microsoft.com/en-us/azure/aks/kubernetes-dashboard)
+> [使用 Kubernetes 儀表板](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)

@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.topic: hero-article
 ms.date: 09/17/2018
-ms.openlocfilehash: 4d4f7bf9c77dad21f9e66ab0fa023a4898163f1f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fb3fba7fa86027d753be21e028109a5d7ef03efb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989161"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722476"
 ---
 # <a name="what-is-azure-scheduler"></a>何謂 Azure 排程器？
 
@@ -26,7 +26,7 @@ ms.locfileid: "46989161"
 
 雖然您可以使用排程器來建立、維護和執行已排程的工作負載，但排程器並不會裝載工作負載或執行程式碼。 此服務只會叫用裝載於其他位置的服務或程式碼，例如在 Azure、內部部署或另一個提供者中。 排成器可透過 HTTP、HTTPS、儲存體佇列、服務匯流排佇列或服務匯流排主題執行叫用。 若要建立、管理和排程作業，您可以使用 [Azure 入口網站](../scheduler/scheduler-get-started-portal.md)、程式碼、[排程器 REST API](https://docs.microsoft.com/rest/api/scheduler/) 或 [Azure 排程器 PowerShell Cmdlet 參考](scheduler-powershell-reference.md)。 例如，您可以使用指令碼和 Azure 入口網站，以程式設計方式建立、檢視、更新、管理或刪除作業和[工作集合](../scheduler/scheduler-concepts-terms.md)。
 
-此外也有其他 Azure 排程功能會在背景中使用排程器，例如 [Azure WebJobs](../app-service/web-sites-create-web-jobs.md)，這是 Azure App Service 中的一項 [Web Apps](https://azure.microsoft.com/services/app-service/web/) 功能。 您可以利用[排程器 REST API](https://docs.microsoft.com/rest/api/scheduler/) 來管理這些動作的通訊。
+此外也有其他 Azure 排程功能會在背景中使用排程器，例如 [Azure WebJobs](../app-service/webjobs-create.md)，這是 Azure App Service 中的一項 [Web Apps](https://azure.microsoft.com/services/app-service/web/) 功能。 您可以利用[排程器 REST API](https://docs.microsoft.com/rest/api/scheduler/) 來管理這些動作的通訊。
 
 以下排程器可派上用場的一些案例：
 

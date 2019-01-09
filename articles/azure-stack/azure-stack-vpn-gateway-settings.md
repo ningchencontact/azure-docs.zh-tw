@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: a770c88b294de24eb9e0f482681038e4d36b1d6f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 05f198aa869bbff121d438688aaee89a292516c1
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874595"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807959"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 閘道組態設定
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-VPN 閘道是一種虛擬網路閘道，可在 Azure Stack 中的虛擬網路與遠端 VPN 閘道之間傳送加密流量。 遠端 VPN 閘道可位於 Azure 中、您資料中心的裝置中或另一個網站的裝置中。  如果兩個端點之間有網路連線，您可以在這兩個網路之間建立安全的站對站 (S2S) VPN 連線。
+VPN 閘道是一種虛擬網路閘道，可在 Azure Stack 中的虛擬網路與遠端 VPN 閘道之間傳送加密流量。 遠端 VPN 閘道可位於 Azure 中、您資料中心的裝置中或另一個網站的裝置中。 如果兩個端點之間有網路連線，您可以在這兩個網路之間建立安全的站對站 (S2S) VPN 連線。
 
-VPN 閘道連線依賴多個資源的設定，每一個都包含可設定的設定值。 本文針對您在 Resource Manager 部署模型中建立的虛擬網路，討論其 VPN 閘道的相關資源和設定。 您可以在[關於 Azure Stack 的 VPN 閘道](azure-stack-vpn-gateway-about-vpn-gateways.md)中找到每個連線解決方案的描述和拓撲圖。
+VPN 閘道連線依賴多個資源的設定，每一個都包含可設定的設定值。 本文針對您在 Resource Manager 部署模型中建立的虛擬網路，說明其 VPN 閘道的相關資源和設定。 您可以在[關於 Azure Stack 的 VPN 閘道](azure-stack-vpn-gateway-about-vpn-gateways.md)中找到每個連線解決方案的描述和拓撲圖。
 
 ## <a name="vpn-gateway-settings"></a>VPN 閘道設定
 
@@ -35,7 +35,7 @@ VPN 閘道連線依賴多個資源的設定，每一個都包含可設定的設�
 
 每個 Azure Stack 虛擬網路都支援單一虛擬網路閘道，其類型必須是 **Vpn**。  這項支援不同於 Azure，後者可支援其他類型。  
 
-在建立虛擬網路閘道時，您必須確定組態的閘道類型是正確的。 VPN 閘道需要 `-GatewayType Vpn`，例如：
+在建立虛擬網路閘道時，您必須確定組態的閘道類型是正確的。 VPN 閘道需要 `-GatewayType Vpn` 旗標，例如：
 
 ```PowerShell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -57,7 +57,7 @@ Azure Stack 會提供下表中顯示的 VPN 閘道 SKU。
 
 ### <a name="resizing-gateway-skus"></a>調整閘道 SKU 的大小
 
-Azure Stack 不支援在支援的舊版 SKU 之間調整 SKU 大小。
+Azure Stack 不支援在所支援的舊版 SKU 之間調整 SKU 大小。
 
 同樣地，Azure Stack 不支援將大小從支援的舊版 SKU (基本、標準和高效能) 調整為 Azure 所支援的新版 SKU (VpnGw1、VpnGw2 和 VpnGw3)。
 
@@ -65,11 +65,11 @@ Azure Stack 不支援在支援的舊版 SKU 之間調整 SKU 大小。
 
 #### <a name="azure-stack-portal"></a>Azure Stack 入口網站
 
-如果您使用 Azure Stack 入口網站來建立 Resource Manager 虛擬網路閘道，可以使用下拉式清單來選取閘道 SKU。 您看到的選項會對應於您所選取的閘道類型和 VPN 類型。
+如果您使用 Azure Stack 入口網站來建立 Resource Manager 虛擬網路閘道，可以使用下拉式清單來選取閘道 SKU。 選項會對應於您所選取的閘道類型和 VPN 類型。
 
 #### <a name="powershell"></a>PowerShell
 
-下列 PowerShell 範例將 **-GatewaySku** 指定為 VpnGw1。
+下列 PowerShell 範例將 **-GatewaySku** 指定為 `VpnGw1`：
 
 ```PowerShell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -83,31 +83,31 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 * IPsec
 
-下列 PowerShell 範例會建立需要 IPsec 連線類型的 S2S 連線。
+   下列 PowerShell 範例會建立需要 IPsec 連線類型的 S2S 連線：
 
-```PowerShell
-New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
--Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
--ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-```
+   ```PowerShell
+   New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
+   -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
+   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   ```
 
 ### <a name="vpn-types"></a>VPN 類型
 
-當您為 VPN 閘道組態建立虛擬網路閘道時，必須指定 VPN 類型。 您所選擇的 VPN 類型取決於您想要建立的連線拓撲。  VPN 類型也取決於您所使用的硬體。 S2S 組態需要 VPN 裝置。 有些 VPN 裝置僅支援特定 VPN 類型。
+當您為 VPN 閘道組態建立虛擬網路閘道時，必須指定 VPN 類型。 您所選擇的 VPN 類型取決於您想要建立的連線拓撲。 VPN 類型也取決於您所使用的硬體。 S2S 組態需要 VPN 裝置。 有些 VPN 裝置僅支援特定 VPN 類型。
 
 > [!IMPORTANT]  
 > 目前，Azure Stack 僅支援路由式 VPN 類型。 如果您的裝置僅支援原則式 VPN，則不支援從 Azure Stack 連線至這些裝置。  
 >
 > 此外，Azure Stack 目前並不支援將原則式流量選取器用於路由式閘道，因為自訂 IPSec/IKE 原則組態不受支援。
 
-* **原則式**：原則式 VPN 會根據使用內部部署網路與 Azure Stack VNet 之間的位址首碼組合所設定的 IPsec 原則，透過 IPsec 通道來加密和導向封包。 原則 (或流量選取器) 通常為 VPN 裝置組態中的存取清單。
+* **原則式**︰原則式 VPN 會根據使用內部部署網路與 Azure Stack VNet 之間的位址首碼組合所設定的 IPsec 原則，透過 IPsec 通道來加密和導向封包。 原則 (或流量選取器) 通常為 VPN 裝置組態中的存取清單。
 
   >[!NOTE]
-  >原則式在 Azure 中受到支援，但在 Azure Stack 中則不受支援。
+  >**原則式**在 Azure 中受到支援，但在 Azure Stack 中則不受支援。
 
-* **路由式**：路由式 VPN 會使用在 IP 轉送或路由表中設定的路由，將封包導向至其對應的通道介面。 然後，通道介面會加密或解密輸入和輸出通道的封包。 路由式 VPN 的原則 (或流量選取器) 會設定為任何對任何 (或使用萬用字元)。根據預設，這些設定無法變更。 路由式 VPN 類型的值是路由式。
+* **路由式**：路由式 VPN 會使用在 IP 轉送或路由表中設定的路由，將封包導向至其對應的通道介面。 然後，通道介面會加密或解密輸入和輸出通道的封包。 **路由式** VPN 的原則 (或流量選取器) 會設定為任何對任何 (或使用萬用字元)。根據預設，這些設定無法變更。 **路由式** VPN 類型的值是**路由式**。
 
-下列 PowerShell 範例將 **-VpnType** 指定為 RouteBased。 在建立閘道時，您必須確定用於組態的 **-VpnType** 是正確的。
+下列 PowerShell 範例將 **-VpnType** 指定為**路由式**。 在建立閘道時，您必須確定用於組態的 **-VpnType** 是正確的。
 
 ```PowerShell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -128,7 +128,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 ### <a name="gateway-subnet"></a>閘道器子網路
 
-建立 VPN 閘道之前，您必須先建立閘道子網路。 閘道子網路含有虛擬網路閘道 VM 與服務所使用的 IP 位址。 建立虛擬網路閘道時，會將閘道 VM 部署到閘道子網路，並為 VM 設定必要的 VPN 閘道設定。 **請勿**將任何其他項目 (例如其他 VM) 部署到閘道子網路。
+建立 VPN 閘道之前，您必須先建立閘道子網路。 閘道子網路含有虛擬網路閘道 VM 與服務所使用的 IP 位址。 建立虛擬網路閘道時，會將閘道 VM 部署到閘道子網路，並為 VM 設定必要的 VPN 閘道設定。 請勿將任何其他項目 (例如其他 VM) 部署到閘道子網路。
 
 >[!IMPORTANT]
 >此閘道子網路必須命名為 **GatewaySubnet** 才能正常運作。 Azure Stack 會使用此名稱來識別虛擬網路閘道 VM 和服務所要部署到的子網路。
@@ -137,14 +137,14 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 此外，您應確定閘道子網路有足夠的 IP 位址可處理未來的額外組態。 雖然您可以建立像 /29 這麼小的閘道子網路，但仍建議您建立 /28 或更大 (/28、/27、/26 等) 的閘道子網路。如此，如果您在未來新增功能，就不須卸除閘道然後刪除並重新建立閘道子網路，以提供更多的 IP 位址。
 
-下列 Resource Manager PowerShell 範例顯示名為 GatewaySubnet 的閘道子網路。 您可以看到 CIDR 標記法指定 /27，這可提供足以供大多數現有組態使用的 IP 位址。
+下列 Resource Manager PowerShell 範例顯示名為 **GatewaySubnet** 的閘道子網路。 您可以看到 CIDR 標記法指定 /27，這可提供足以供大多數現有組態使用的 IP 位址。
 
 ```PowerShell
 Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
 > [!IMPORTANT]
-> 使用閘道子網路時，避免將網路安全性群組 (NSG) 與閘道子網路產生關聯。 將網路安全性群組與此子網路產生關聯，可能會導致您的 VPN 閘道如預期般停止運作。 如需有關網路安全性群組的詳細資訊，請參閱[什麼是網路安全性群組？](/azure/virtual-network/virtual-networks-nsg)。
+> 使用閘道子網路時，避免將網路安全性群組 (NSG) 與閘道子網路產生關聯。 將網路安全性群組與此子網路產生關聯，可能會導致您的 VPN 閘道如預期般停止運作。 如需有關網路安全性群組的詳細資訊，請參閱[什麼是網路安全性群組？](../virtual-network/virtual-networks-nsg.md)。
 
 ### <a name="local-network-gateways"></a>區域網路閘道
 
@@ -159,11 +159,11 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
-有時，您會需要修改區域網路閘道設定。 例如，當您新增或修改位址範圍時，或 VPN 裝置的 IP 位址變更時。 請參閱[使用 PowerShell 修改區域網路閘道設定](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway)。
+有時，您會需要修改區域網路閘道設定；例如，當您新增或修改位址範圍時，或 VPN 裝置的 IP 位址變更時。 請參閱[使用 PowerShell 修改區域網路閘道設定](../vpn-gateway/vpn-gateway-modify-local-network-gateway.md)。
 
 ## <a name="ipsecike-parameters"></a>IPsec/IKE 參數
 
-當您在 Azure Stack 中設定 VPN 連線時，您需要在兩端設定連線。  如果您要設定 Azure Stack 與硬體裝置 (例如作為 VPN 閘道的交換器或路由器) 之間的 VPN 連線，則該裝置可能會要求您進行其他設定。
+當您在 Azure Stack 中設定 VPN 連線時，您必須在兩端設定連線。 如果您要設定 Azure Stack 與硬體裝置 (例如作為 VPN 閘道的交換器或路由器) 之間的 VPN 連線，則該裝置可能會要求您進行其他設定。
 
 不同於可支援多個供應項目同時作為啟動程式和回應程式的 Azure，Azure Stack 只支援一個供應項目。
 
@@ -193,4 +193,4 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用 ExpressRoute 連線](azure-stack-connect-expressroute.md)
+- [使用 ExpressRoute 連線](azure-stack-connect-expressroute.md)

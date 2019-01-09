@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 1d2be579dda9f90f06897f11d62ccd08076f892e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fbfb6a030d4979f9bd6a27f4c5b6908e62ffd9ab
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413565"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001748"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>教學課程：使用 CLI 和主題/訂用帳戶來更新庫存
 
@@ -126,7 +126,7 @@ connectionString=$(az servicebus namespace authorization-rule keys list \
 
 ## <a name="create-filter-rules-on-subscriptions"></a>在訂用帳戶上建立篩選規則
 
-佈建命名空間和主題/訂用帳戶，且您已擁有必要的認證之後，您即可在訂用帳戶上建立篩選規則，然後傳送和接收訊息。 您可以在[此 GitHub 範例資料夾](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/tutorial-topics-subscriptions-filters-java/src/main/java/com/microsoft/azure/)中查看程式碼。
+佈建命名空間和主題/訂用帳戶，且您已擁有必要的認證之後，您即可在訂用帳戶上建立篩選規則，然後傳送和接收訊息。 您可以在[此 GitHub 範例資料夾](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters)中查看程式碼。
 
 ## <a name="send-and-receive-messages"></a>傳送及接收訊息
 

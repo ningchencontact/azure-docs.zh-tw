@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 44b5702aa765b0e821850f6a390432563126482d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839903"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810690"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>設定 Hyper-V VM 至 Azure 的災害復原
 
@@ -81,8 +81,24 @@ ms.locfileid: "52839903"
 5. 在 [Proxy 設定] 中，選取 [不使用 Proxy 而直接連線到 Azure Site Recovery]。
 6. 在保存庫中註冊伺服器之後，請於 [註冊] 中按一下 [完成]。
 
-Azure Site Recovery 會取出來自 Hyper-V 伺服器的中繼資料，而該伺服器會顯示在 [Site Recovery 基礎結構] > [Hyper-V 主機] 中。 此程序可能需要 30 分鐘的時間。
+Azure Site Recovery 會取出來自 Hyper-V 伺服器的中繼資料，而該伺服器會顯示在 [Site Recovery 基礎結構] > [Hyper-V 主機] 中。 此程序可能需要 30 分鐘的時間。        
 
+如果您使用 Hyper-V 核心伺服器，請在如[這裡](#set-up-the-source-environment)所述下載提供者與保存庫認證後，遵循下列步驟來進行
+
+1. 藉由執行下列命令，從 AzureSiteRecoveryProvider.exe 解壓縮檔案
+
+    ``AzureSiteRecoveryProvider.exe /x:. /q``
+ 
+    這會將檔案解壓縮至本機目錄。
+ 
+2.  執行 ``.\setupdr.exe /i ``
+
+    結果會記錄到 %Programdata%\ASRLogs\DRASetupWizard.log
+
+3.  使用命令註冊伺服器：
+
+``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+ 
 
 ## <a name="set-up-the-target-environment"></a>設定目標環境
 

@@ -1,39 +1,39 @@
 ---
-title: 適用於 MongoDB 的 Azure Cosmos DB 功能支援
-description: 了解 Azure Cosmos DB MongoDB API 為 MongoDB 3.4 提供的功能支援。
+title: 使用 Azure Cosmos DB 適用於 MongoDB 的 API 功能支援
+description: 了解 Azure Cosmos DB 適用於 MongoDB 的 API 為 MongoDB 3.4 提供的功能支援。
 services: cosmos-db
-author: alekseys
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: overview
-ms.date: 11/15/2017
-ms.author: alekseys
-ms.openlocfilehash: 01e8af08ff5059867cc49cb9d55ae92f2ae21cdc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: bb25cf6ed60317dd5d7266e2f4750c2bb9f4859d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879659"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790278"
 ---
-# <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB 功能和語法的 MongoDB API 支援
+# <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>使用 Azure Cosmos DB 適用於 MongoDB 的 API 支援 MongoDB 功能和語法
 
-Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以透過任何開放原始碼 MongoDB 用戶端[驅動程式](https://docs.mongodb.org/ecosystem/drivers)與資料庫的 DocumentDB API 通訊。 MongoDB API 藉由遵循 MongoDB [有線通訊協定](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)，來使用現有用戶端驅動程式。
+Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以使用任何開放原始碼 MongoDB 用戶端[驅動程式](https://docs.mongodb.org/ecosystem/drivers)來與 Azure Cosmos DB 適用於 MongoDB 的 API 通訊。 Azure Cosmos DB 適用於 MongoDB 的 API 需遵循 MongoDB [有線通訊協定](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)，才能使用現有的用戶端驅動程式。
 
-藉由使用 Azure Cosmos DB MongoDB API，您除了可享有慣用的 MongoDB API 權益外，還可使用 Azure Cosmos DB 提供的所有企業功能：[全域發佈](distribute-data-globally.md)、[自動分區](partition-data.md)、可用性和延遲保證、每個欄位的自動編製索引、待用加密、備份等功能。
+藉由使用 Azure Cosmos DB 適用於 MongoDB 的 API，您除了可享有慣用的 MongoDB 權益外，還可使用 Cosmos DB 提供的所有企業功能：[全域發佈](distribute-data-globally.md)、[自動分區](partition-data.md)、可用性和延遲保證、每個欄位的自動編製索引、待用加密、備份等功能。
 
 ## <a name="mongodb-protocol-support"></a>MongoDB 通訊協定支援
 
-Azure Cosmos DB MongoDB API 預設會與 MongoDB 伺服器 **3.2** 版相容。 以下列出支援的運算子及任何限制或例外狀況。 目前只有在預覽功能中，才提供 MongoDB **3.4** 版中新增的功能或查詢運算子。 能解析這些通訊協定的任何用戶端驅動程式，都應該能夠使用 MongoDB API 連線到 Cosmos DB。
+Azure Cosmos DB 適用於 MongoDB 的 API 預設會與 MongoDB 伺服器 **3.2** 版相容。 以下列出支援的運算子及任何限制或例外狀況。 目前只有在預覽功能中，才提供 MongoDB **3.4** 版中新增的功能或查詢運算子。 任何能解析這些通訊協定的用戶端驅動程式，都應該能夠連線到 Azure Cosmos DB 適用於 MongoDB 的 API。
 
 目前只在另一個預覽功能中，也提供了 [MongoDB 彙總管線](#aggregation-pipeline)。
 
 ## <a name="mongodb-query-language-support"></a>MongoDB 查詢語言支援
 
-Azure Cosmos DB MongoDB API 可完整支援 MongoDB 查詢語言建構。 目前支援的作業、運算子、階段、命令和選項詳細清單如下所示。
+Azure Cosmos DB 適用於 MongoDB 的 API 可完整支援 MongoDB 查詢語言結構。 目前支援的作業、運算子、階段、命令和選項詳細清單如下所示。
 
 ## <a name="database-commands"></a>資料庫命令
 
-Azure Cosmos DB 支援在所有 MongoDB API 帳戶上使用下列資料庫命令。
+Azure Cosmos DB 適用於 MongoDB 的 API 支援下列資料庫命令：
 
 ### <a name="query-and-write-operation-commands"></a>查詢和寫入作業命令
 - delete
@@ -73,7 +73,7 @@ Azure Cosmos DB 支援在所有 MongoDB API 帳戶上使用下列資料庫命令
 
 ## <a name="aggregation-pipelinea"></a>彙總管線 </a>
 
-Azure Cosmos DB 支援公開預覽中的彙總管線。 請參閱 [Azure 部落格](https://aka.ms/mongodb-aggregation)，以取得如何開始使用公開預覽版的指示。
+Cosmos DB 支援公開預覽中的彙總管線。 請參閱 [Azure 部落格](https://aka.ms/mongodb-aggregation)，以取得如何開始使用公開預覽版的指示。
 
 ### <a name="aggregation-commands"></a>彙總命令
 - aggregate
@@ -308,32 +308,34 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | 不會傳回沒有排�
 
 ## <a name="unique-indexes"></a>唯一索引
 
-Azure Cosmos DB 會為文件中預設寫入資料庫的每個欄位編制索引。 唯一索引可確保集合中所有文件的特定欄位沒有重複值，類似於預設 "_id" 索引鍵上會保留唯一性的方式。 現在，您可以使用 createIndex 命令 (包括 'unique’ 限制式) 在 Azure Cosmos DB 中建立自訂索引。
+Cosmos DB 會為文件中預設寫入資料庫的每個欄位編制索引。 唯一索引可確保集合中所有文件的特定欄位沒有重複值，類似於預設 "_id" 索引鍵上會保留唯一性的方式。 您可以使用 createIndex 命令 (包括 'unique’ 限制式) 在 Cosmos DB 中建立自訂索引。
 
-唯一索引可用於所有 MongoDB API 帳戶。
+使用 Azure Cosmos DB 適用於 MongoDB 的 API，唯一索引即可供所有 Cosmos 帳戶使用。
 
 ## <a name="time-to-live-ttl"></a>存留時間 (TTL)
 
-Azure Cosmos DB 支援以文件時間戳記為基礎的相對存留時間 (TTL)。 您可以透過 [Azure 入口網站](https://portal.azure.com)，為 MongoDB API 集合啟用 TTL。
+Cosmos DB 支援以文件時間戳記為基礎的存留時間 (TTL)。 前往 [Azure 入口網站](https://portal.azure.com)即可為集合啟用 TTL。
 
 ## <a name="user-and-role-management"></a>使用者和角色管理
 
-Azure Cosmos DB 尚不支援使用者和角色。 Azure Cosmos DB 支援角色型存取控制 (RBAC) 及讀寫和唯讀密碼/金鑰，其可透過 [Azure 入口網站](https://portal.azure.com)取得 (連接字串頁面)。
+Cosmos DB 尚不支援使用者和角色。 不過，Cosmos DB 支援角色型存取控制 (RBAC) 及讀寫和唯讀密碼/金鑰，其可透過 [Azure 入口網站](https://portal.azure.com)取得 (連接字串頁面)。
 
 ## <a name="replication"></a>複寫
 
-Azure Cosmos DB 支援最低層級的自動、原生複寫。 此邏輯也可延伸至達到低延遲且全域的複寫。 Azure Cosmos DB 不支援手動複寫命令。
+Cosmos DB 支援最低層級的自動、原生複寫。 此邏輯也可延伸至達到低延遲且全域的複寫。 Cosmos DB 不支援手動複寫命令。
 
 ## <a name="write-concern"></a>寫入考量
 
-指定[寫入考量](https://docs.mongodb.com/manual/reference/write-concern/)的特定 MongoDB API 支援，會指定寫入作業期間所需的回應數目。 由於 Cosmos DB 在背景中處理複寫的方式，所有的寫入依預設全部都會自動仲裁。 用戶端程式碼所指定的任何寫入考量都會受到忽略。 深入了解[使用一致性層級將可用性和效能最大化](consistency-levels.md)。
+有些應用程式依賴[寫入考量](https://docs.mongodb.com/manual/reference/write-concern/)，其會指定寫入作業期間所需的回應數目。 由於 Cosmos DB 在背景中處理複寫的方式，所有的寫入依預設全部都會自動仲裁。 用戶端程式碼所指定的任何寫入考量都會受到忽略。 深入了解[使用一致性層級將可用性和效能最大化](consistency-levels.md)。
 
 ## <a name="sharding"></a>分區化
 
-Azure Cosmos DB 支援自動與伺服器端的分區化。 Azure Cosmos DB 不支援手動分區化命令。
+Cosmos DB 支援自動與伺服器端的分區化。 Cosmos DB 不支援手動分區化命令。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何[使用 Studio 3T](mongodb-mongochef.md) 和 MongoDB 資料庫 API。
-- 了解如何[使用 Robo 3T](mongodb-robomongo.md) 和 MongoDB 資料庫 API。
-- 探索具有 MongoDB 通訊協定支援的 Azure Cosmos DB [範例](mongodb-samples.md)。
+- 了解如何[使用 Studio 3T](mongodb-mongochef.md) 搭配 Azure Cosmos DB 適用於 MongoDB 的 API。
+- 了解如何[使用 Robo 3T](mongodb-robomongo.md) 搭配 Azure Cosmos DB 適用於 MongoDB 的 API。
+- 使用 Azure Cosmos DB 適用於 MongoDB 的 API 瀏覽 Cosmos DB [範例](mongodb-samples.md)。
+
+<sup>注意：本文說明一項 Azure Cosmos DB 功能，該功能可提供與 MongoDB 資料庫的通訊協定相容性。Microsoft 不會執行 MongoDB 資料庫來提供這項服務。Azure Cosmos DB 並未與 MongoDB, Inc. 聯盟</sup>

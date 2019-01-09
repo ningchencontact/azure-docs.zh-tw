@@ -9,23 +9,23 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 05af52ab492fcfe509b547efdd182a366642b9ed
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075517"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754402"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>教學課程 3：新增通用的語句格式
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>教學課程：新增通用模式範本語句格式
 
 在本教學課程中，您將在提供較少的語句範例時，使用模式來提升意圖和實體預測使用模式。 模式可透過範本語句範例的方式來提供，其中包含用來識別實體及可忽略文字的語法。 模式是運算式比對與機器學習的組合。  範本語句範例搭配意圖語句，可讓 LUIS 更容易理解哪些語句符合意圖。 
 
 **在本教學課程中，您將了解如何：**
 
 > [!div class="checklist"]
-> * 使用現有的教學課程應用程式 
+> * 匯入範例應用程式 
 > * 建立意圖
 > * 定型
 > * 發佈
@@ -37,13 +37,13 @@ ms.locfileid: "53075517"
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>使用現有的應用程式
+## <a name="import-example-app"></a>匯入範例應用程式
 
 以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
 
-如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
+請使用下列步驟：
 
-1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json)。
+1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json)。
 
 2. 將 JSON 匯入新的應用程式中。
 

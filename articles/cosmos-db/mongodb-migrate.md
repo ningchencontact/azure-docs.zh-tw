@@ -1,183 +1,196 @@
 ---
-title: 使用 mongoimport 和 mongorestore 搭配適用於 MongoDB 的 Azure Cosmos DB API
-description: 了解如何使用 mongoimport 和 mongorestore 將資料匯入適用於 MongoDB 的 API 帳戶
+title: 使用 mongoimport 和 mongorestore 將 MongoDB 資料遷移至 Azure Cosmos DB
+description: 您會了解如何使用 mongoimport 和 mongorestore 將資料匯入到 Cosmos DB。
 keywords: mongoimport, mongorestore
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
+ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/07/2018
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: mvc
-ms.openlocfilehash: 50bb34d86780dec003c63b5ff0a3884049dd47c1
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+Customer intent: As a developer, I want to migrate the data from my existing MongoDB to Cosmos DB.
+ms.openlocfilehash: 4cd30c7981cd6807113729292db403a80cbddef0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870999"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793745"
 ---
-# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>教學課程：將您的資料移轉至 Azure Cosmos DB MongoDB API 帳戶
+# <a name="migrate-your-mongodb-data-to-azure-cosmos-db"></a>將 MongoDB 資料遷移至 Azure Cosmos DB
 
-本教學課程提供將儲存在 MongoDB 中的資料移轉至 Azure Cosmos DB MongoDB API 帳戶的指示。 如果您從 MongoDB 匯入資料，而且想要將這些資料用於 Azure Cosmos DB SQL API，則必須使用[資料移轉工具](import-data.md)匯入資料。
+ 本教學課程會提供相關指示，讓您了解如何將 MongoDB 中儲存的資料，遷移至 Azure Cosmos DB (設定為使用 Cosmos DB 的 MongoDB API)。 如果您從 MongoDB 匯入資料，而且想要將這些資料用於 Azure Cosmos DB SQL API，請使用[資料移轉工具](import-data.md)匯入資料。
 
-本教學課程涵蓋下列工作：
+在本教學課程中，您將：
 
 > [!div class="checklist"]
-> * 為移轉做規劃
-> * 移轉的必要條件
-> * 使用 mongoimport 移轉資料
-> * 使用 mongorestore 移轉資料
+> * 準備移轉計劃。
+> * 使用 mongoimport 遷移資料。
+> * 使用 mongorestore 遷移資料。
 
-將資料移轉至 MongoDB API 帳戶之前，請確定您有一些範例 MongoDB 資料。 如果您沒有範例 MongoDB 資料庫，您可以下載並安裝 [MongoDB 社群伺服器](https://www.mongodb.com/download-center)、建立範例資料庫，並使用 mongoimport.exe 或 mongorestore.exe 來上傳範例資料。 
+如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="plan-for-migration"></a>為移轉做規劃
+## <a name="prerequisites"></a>必要條件
 
-1. 預先建立並調整您的集合：
-        
-   * 根據預設，Azure Cosmos DB 會佈建含每秒 1,000 個要求單位 (RU/秒) 的新 MongoDB 集合。 使用 mongoimport 或 mongorestore 開始進行移轉之前，請先從 [Azure 入口網站](https://portal.azure.com)或 MongoDB 驅動程式與工具預先建立您的所有集合。 如果資料大小超過 10 GB，請務必使用適當的分區索引鍵建立[分割集合](partition-data.md)。 MongoDB 建議在集合中儲存實體資料。 您可以在 Azure Cosmos 資料庫層級共置可比較大小和佈建輸送量的實體。
+在開始移轉之前，請先檢閱並完成下列先決條件。
 
-   * 在 [Azure 入口網站](https://portal.azure.com)中，僅針對移轉期間的需求增加集合的輸送量，單一分割區集合從 1,000 RU/秒起，分區集合則從 2,500 RU/秒起。 藉由較高的輸送量，您可以避免速率限制，並花費較少的時間進行移轉。 您可以在移轉之後立即減少輸送量，以節省成本。
+### <a name="plan-for-the-migration"></a>規劃移轉
 
-   * 除了佈建集合層級的 Ru/秒，您也可以為一組集合佈建父資料庫層級的 RU/秒。 這必須預先建立資料庫和集合，並定義每個集合的分區索引鍵。
+本節說明如何規劃資料移轉作業。 我們會預估 RU 費用、判斷機器到雲端服務的延遲，並計算批次大小和插入背景工作角色的數目。
 
-   * 您可以透過您慣用的工具、驅動程式或 SDK 來建立分區化集合。 在此範例中，我們使用 Mongo 殼層來建立分區化集合：
 
-        ```bash
-        db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
-        ```
+#### <a name="pre-create-and-scale-your-collections"></a>預先建立並調整您的集合
+
+使用 mongoimport 或 mongorestore 開始遷移之前，請先從 [Azure 入口網站](https://portal.azure.com)或 MongoDB 驅動程式與工具預先建立您的所有集合。 
+
+從 [Azure 入口網站](https://portal.azure.com)增加您的集合用於移轉的輸送量。 藉由較高的輸送量，您可以避免速率受限，並花費較少的時間進行移轉。 您可以在移轉之後立即減少輸送量，以節省成本。
+
+除了在集合層級佈建輸送量，您也可以在資料庫層級佈建輸送量，以供一組集合共用所佈建的輸送量。 您需要預先建立資料庫和集合，並為所共用輸送量資料庫中的每個集合定義分區索引鍵。
+
+您可以使用慣用的工具、驅動程式或 SDK 來建立分區化集合。 在此範例中，我們使用 Mongo 殼層來建立分區化集合：
+
+```bash
+db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+```
     
-        結果：
+此命令會傳回下列結果：
 
-        ```JSON
-        {
-            "_t" : "ShardCollectionResponse",
-            "ok" : 1,
-            "collectionsharded" : "admin.people"
-        }
-        ```
+```JSON
+{
+    "_t" : "ShardCollectionResponse",
+    "ok" : 1,
+    "collectionsharded" : "admin.people"
+}
+```
 
-1. 估算單一文件消耗的 RU：
+#### <a name="calculate-the-approximate-ru-charge-for-a-single-document-write"></a>計算單一文件寫入大約需要的 RU 費用
 
-   a. 從 MongoDB 殼層連線至您的 Azure Cosmos DB MongoDB API 帳戶。 您可以在[將 MongoDB 應用程式連接到 Azure Cosmos DB](connect-mongodb-account.md) 中找到指示。
-    
-   b. 從 MongoDB 殼層使用其中一個範例文件來執行範例插入命令：
+從 MongoDB 殼層連線至 Cosmos 帳戶，該帳戶已設定為使用 Cosmos DB 的 MongoDB API。 您可以在[將 MongoDB 應用程式連線至 Cosmos DB](connect-mongodb-account.md) 中找到指示。
+
+接下來，使用其中一個範例文件來執行範例插入命令：
    
-      ```bash
-      db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })
-      ```
+```bash
+db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })
+```
         
-   c. 執行 ```db.runCommand({getLastRequestStatistics: 1})```，您將會收到如下的回應：
+執行命令 `db.runCommand({getLastRequestStatistics: 1})`。
+
+您會收到類似下列輸出的回應：
      
-      ```bash
-        globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
-        {
-            "_t": "GetRequestStatisticsResponse",
-            "ok": 1,
-            "CommandName": "insert",
-            "RequestCharge": 10,
-            "RequestDurationInMilliSeconds": NumberLong(50)
-        }
-      ```
+```bash
+globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
+{
+    "_t": "GetRequestStatisticsResponse",
+    "ok": 1,
+    "CommandName": "insert",
+    "RequestCharge": 10,
+    "RequestDurationInMilliSeconds": NumberLong(50)
+}
+```
         
-    d. 記下要求費用。
+記下要求費用。
     
-1. 判斷從您的電腦到 Azure Cosmos DB 雲端服務的延遲：
+#### <a name="determine-the-latency-from-your-machine-to-cosmos-db"></a>判斷從機器到 Cosmos DB 的延遲
     
-    a. 從 MongoDB 殼層使用此命令，以啟用詳細資訊記錄：```setVerboseShell(true)```
+從 MongoDB 殼層使用 `setVerboseShell(true)` 命令啟用詳細資訊記錄。
     
-    b. 對資料庫執行簡單的查詢：```db.coll.find().limit(1)```。 您將會收到如下的回應：
+使用 `db.coll.find().limit(1)` 命令對資料庫執行基本查詢。
 
-       ```bash
-       Fetched 1 record(s) in 100(ms)
-       ```
+您會收到類似下列輸出的回應：
+
+```bash
+Fetched 1 record(s) in 100(ms)
+```
         
-1. 移轉之前請先移除插入的文件，以確保不會有重複的文件。 您可以使用此命令來移除文件：```db.coll.remove({})```
+執行移轉之前，請先移除插入的文件，以確保沒有重複的文件。 您可以使用 `db.coll.remove({})` 命令來移除文件。
 
-1. 估算 *batchSize* 和 *numInsertionWorkers* 值：
+#### <a name="calculate-the-approximate-values-for-the-batchsize-and-numinsertionworkers-properties"></a>計算 batchSize 和 numInsertionWorkers 屬性的約略值
 
-    * *batchSize* 的算法是將總佈建的 RU 數，除以步驟 3 中寫入單一文件所花費的 RU 數。
+針對 **batchSize** 屬性，請將所佈建的總輸送量 (RU/秒) 除以單一文件寫入所取用的 RU，如＜判斷從機器到 Cosmos DB 的延遲＞一節所完成的作業。 如果計算所得的值小於或等於 24，請使用該數字作為屬性值。 如果計算所得的值大於 24，則將屬性值設定為 24。
     
-    * 如果算出的 *batchSize* <= 24，請使用該數字做為您的 *batchSize* 值。
-    
-    * 如果算出的 *batchSize* > 24，則將 *batchSize* 的值設為 24。
-    
-    * *numInsertionWorkers* 的算法是使用此方程式：*numInsertionWorkers =  (佈建輸送量 * 延遲秒數) / (批次大小 * 單一寫入花費的 RU 數)*。
-        
-    |屬性|值|
-    |--------|-----|
-    |batchSize| 24 |
-    |佈建的 RU | 10000 |
-    |Latency | 0.100 秒 |
-    |寫入 1 個文件花費的 RU | 10 RU |
-    |numInsertionWorkers | ? |
-    
-    *numInsertionWorkers = (10000 RU x 0.1 s) / (24 x 10 RU) = 4.1666*
+針對 **numInsertionWorkers** 屬性的值，請使用此方程式：
 
-1. 執行移轉命令。 用來移轉資料的選項將於後續章節說明。
+`numInsertionWorkers = (Provisioned RUs throughput * Latency in seconds) / (batchSize * Consumed RUs for a single write)`
 
-   ```bash
-   mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
-   ```
-   或使用 mongorestore (請確定所有集合的輸送量都設定為等於或大於先前計算中使用的 RU 數目)：
+我們可以使用下列值來計算 **numInsertionWorkers** 屬性的值：
+
+| 屬性 | 值 |
+|--------|-----|
+| **batchSize** | 24 |
+| 所佈建的 RU | 10,000 |
+| Latency | 0.100 秒 |
+| 所取用的 RU | 10 RU |
+| **numInsertionWorkers** | (10,000 RUs x 0.100 s) / (24 x 10 RUs) = **4.1666** |
+
+執行 **monogoimport** 移轉命令。 本文稍後會說明這些命令參數。
+
+```bash
+mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
+```
+
+您也可以使用 **monogorestore** 命令。 請確定所有集合的輸送量都設定為等於或大於先前計算中使用的 RU 數目。
    
-   ```bash
-   mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
-   ```
+```bash
+mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
+```
 
-## <a name="prerequisites-for-migration"></a>移轉的必要條件
+### <a name="complete-the-prerequisites"></a>完成先決條件
 
-* **增加輸送量︰** 資料移轉的時間長短取決於您為個別集合或一組集合設定的輸送量。 針對較大資料移轉，請務必增加輸送量。 完成移轉之後，再降低輸送量以節省成本。 如需在 [Azure 入口網站](https://portal.azure.com)增加輸送量的詳細資訊，請參閱 [Azure Cosmos DB 中的效能等級和定價層](performance-levels.md)。
+在規劃移轉之後，請完成下列步驟： 
 
-* **啟用 SSL：** Azure Cosmos DB 具有嚴格的安全性需求和標準。 與您的帳戶互動時，請務必啟用 SSL。 本文其他部分的程序包括如何針對 mongoimport 和 mongorestore 啟用 SSL。
+* **取得範例資料**：在開始移轉之前，請先確定您有一些範例資料。 
 
-* **建立 Azure Cosmos DB 資源：** 在您開始遷移資料之前，請先從 Azure 入口網站預先建立所有集合。 如果您要遷移至具有資料庫層級輸送量的 Azure Cosmos DB 帳戶，請務必在建立 Azure Cosmos DB 集合時提供分割區索引鍵。
+* **增加輸送量**：資料移轉的持續時間長短取決於您為個別集合或資料庫所佈建的輸送量。 針對較大資料移轉，請務必增加輸送量。 完成移轉之後，再降低輸送量以節省成本。 
 
-## <a name="get-your-connection-string"></a>取得您的連接字串 
+* **啟用 SSL**：Cosmos DB 有嚴格的安全性需求和標準。 與您的 Cosmos 帳戶互動時，請務必啟用 SSL。 本文中的程序包括如何針對 mongoimport 和 mongorestore 命令啟用 SSL。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的左窗格中，按一下 [Azure Cosmos DB] 項目。
-1. 在 [訂用帳戶] 窗格中，選取您的帳戶名稱。
-1. 在 [連接字串] 刀鋒視窗中，按一下 [連接字串]。
+* **建立 Cosmos DB 資源**：在開始移轉之前，請先從 Azure 入口網站預先建立所有集合。 如果您遷移至具有資料庫層級佈建輸送量的 Cosmos 帳戶，請在建立集合時提供分割區索引鍵。
 
-   右窗格中有您成功連接到您的帳戶所需的所有資訊。
+* **取得連接字串**：在 [Azure 入口網站](https://portal.azure.com)中，選取左邊的 [Azure Cosmos DB] 項目。 在 [訂用帳戶] 底下，選取您的帳戶名稱。 在 [連接字串] 底下，選取 [連接字串]。 入口網站右側會顯示要連線至帳戶所需的資訊：
 
-   ![[連接字串] 刀鋒視窗](./media/mongodb-migrate/ConnectionStringBlade.png)
+    ![連接字串資訊](./media/mongodb-migrate/ConnectionStringBlade.png)
 
-## <a name="migrate-data-by-using-mongoimport"></a>使用 mongoimport 移轉資料
+## <a name="use-mongoimport"></a>使用 mongoimport
 
-若要將資料匯入您的 Azure Cosmos DB 帳戶，請使用下列範本。 填寫專屬於您的帳戶的 [主機]、[使用者名稱]、[密碼] 值。  
-
-範本：
+若要將資料匯入 Cosmos 帳戶，請使用下列範本。
 
 ```bash
 mongoimport.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file "C:\sample.json"
 ```
 
-範例：  
+將 \<your_hostname>、\<your_username> 和 \<your_password> 參數替換為您帳戶特有的值。 在下列範例中，我們會使用 **sampleDB** 作為 \<your_database> 的值，並使用 **sampleColl** 作為 \<your_collection> 的值：
 
 ```bash
 mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file "C:\Users\admin\Desktop\*.json"
 ```
 
-## <a name="migrate-data-by-using-mongorestore"></a>使用 mongorestore 移轉資料
+## <a name="use-mongorestore"></a>使用 mongorestore
 
-若要將資料還原至適用於 MongoDB 的 API 帳戶，請使用下列範本執行匯入。 填寫專屬於您的帳戶的 [主機]、[使用者名稱]、[密碼] 值。
-
-範本：
+若要將資料還原至 Cosmos 帳戶 (設定了 Cosmos DB 的 MongoDB API)，請使用下列範本來執行匯入。
 
 ```bash
 mongorestore.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
 ```
 
-範例：
+將 \<your_hostname>、\<your_username> 和 \<your_password> 參數替換為您帳戶特有的值。 在下列範例中，我們會使用 **./dumps/dump-2016-12-07** 作為 \<path_to_backup> 的值：
 
 ```bash
-mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
+mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --db mydatabase --collection mycollection --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
 ```
+
+## <a name="clean-up-resources"></a>清除資源
+
+若不再需要這些資源，您可以刪除資源群組、Cosmos 帳戶和所有相關資源。 使用下列步驟來刪除資源群組：
+
+1. 移至您在其中建立 Cosmos 帳戶的資源群組。
+1. 選取 [刪除資源群組]。
+1. 確認要刪除的資源群組名稱，然後選取 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 
-您可以繼續進行下一個教學課程，了解如何使用 Azure Cosmos DB 查詢 MongoDB 資料。 
+繼續進行下一個教學課程，以了解如何使用 Azure Cosmos DB 的 MongoDB API 來查詢資料。 
 
 > [!div class="nextstepaction"]
->[如何查詢 MongoDB 資料？](../cosmos-db/tutorial-query-mongodb.md)
+> [如何查詢 MongoDB 資料](../cosmos-db/tutorial-query-mongodb.md)

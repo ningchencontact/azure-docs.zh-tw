@@ -9,26 +9,26 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.custom: mvc
-ms.openlocfilehash: 370503cc463fd3683f47fe0b573ad83daa0b9d14
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5833571bc1c1ac2674723abf286437c3e5e0a5ae
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584548"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791858"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 HDInsight 中建立 Apache Spark 叢集
 了解如何在 Azure HDInsight 中建立 Apache Spark 叢集，以及如何對 Hive 資料表執行 Spark SQL 查詢。 Apache Spark 能夠運用記憶體內部處理，使得資料分析及叢集運算更為快速。 如需 Spark on HDInsight 相關資訊，請參閱[概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。
 
 在本快速入門中，您會使用 Azure 入口網站來建立 HDInsight Spark 叢集。 叢集會使用 Azure 儲存體 Blob 作為叢集存放區。 如需有關如何使用 Data Lake Storage Gen2 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 不論使用與否，HDInsight 叢集都是按分鐘計費。 請務必在使用完叢集後將其刪除。 如需詳細資訊，請參閱本文的[清除資源](#clean-up-resources)一節。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>建立 HDInsight Spark 叢集
 
-1. 在 Azure 入口網站中，選取 [建立資源] > [資料 + 分析] > [HDInsight]。 
+1. 在 Azure 入口網站中，選取 [建立資源] > [分析] > [HDInsight]。 
 
     ![Azure 入口網站上的 HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster.png "Azure 入口網站上的 HDInsight")
 2. 在 [基本] 下方，提供下列值：
@@ -37,7 +37,7 @@ ms.locfileid: "52584548"
     |---------|---------|
     |**叢集名稱**     | 提供 HDInsight Spark 叢集的名稱。 針對本快速入門所使用的叢集名稱是 **myspark20180403**。|
     |**訂用帳戶**     | 從下拉式清單中，選取用於此叢集的 Azure 訂用帳戶。 針對本快速入門所使用的訂用帳戶是 **&lt;Azure 訂用帳戶**。 |
-    |**叢集類型**| 展開此項目，然後選取 [Spark] 作為叢集類型，並指定 Spark 叢集版本。 <br/> <img src="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-type.png" alt = "Slect HDInsight clsuter type" /> |
+    |**叢集類型**| 展開此項目，然後選取 [Spark] 作為叢集類型，並指定 Spark 叢集版本。 <br/> <img src="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-type.png" alt = "Select HDInsight cluster type" /> |
     |**叢集登入使用者名稱**| 輸入叢集登入使用者名稱。  預設名稱為 *admin*。您稍後會在本快速入門中使用此帳戶來登入 Jupyter Notebook。 |
     |**叢集登入密碼**| 輸入叢集登入密碼。 |
     |**安全殼層 (SSH) 使用者名稱**| 輸入 SSH 使用者名稱。 針對本快速入門所使用的 SSH 使用者名稱是 **sshuser**。 根據預設，此帳戶會共用與「叢集登入使用者名稱」帳戶相同的密碼。 |
@@ -53,7 +53,7 @@ ms.locfileid: "52584548"
 
     ![建立 HDInsight Spark 叢集存放區設定](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "建立 HDInsight 中 Spark 叢集的存放區設定")
 
-    > [!NOTE] 
+    > [!NOTE]  
     > 在螢幕擷取畫面上，它會顯示 [選取現有的]。 連結會在 [建立新的] 和 [選取現有的] 之間切換。
 
     **預設容器**具有預設名稱。  您可以任意變更此名稱。
@@ -63,7 +63,7 @@ ms.locfileid: "52584548"
 
 3. 在 [摘要] 上，選取 [建立]。 大約需要 20 分鐘的時間來建立叢集。 您必須先建立叢集，才能繼續前往下一個工作階段。
 
-如果您在建立 HDInsight 叢集時遇到問題，可能是您沒有這麼做的適當權限。 如需詳細資訊，請參閱[存取控制需求](../hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果您在建立 HDInsight 叢集時遇到問題，可能是您沒有這麼做的適當權限。 如需詳細資訊，請參閱[存取控制需求](../hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="create-a-jupyter-notebook"></a>建立 Jupyter Notebook
 

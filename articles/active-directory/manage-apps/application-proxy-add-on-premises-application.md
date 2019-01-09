@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 444fb5576ed6886e5919202cf7f22ef14e1255b5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8f76c53964d062db76ea7d40cdb0ced2d015fc79
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321404"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716002"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教學課程：新增內部部署應用程式以便透過 Azure Active Directory 中的應用程式 Proxy 進行遠端存取
 
@@ -39,9 +39,9 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 * 應用程式系統管理員帳戶。
 
 ### <a name="windows-server"></a>Windows 伺服器
-由於您要新增的應用程式位於內部部署環境，因此您需要執行 Windows Server 2012 R2 或更新版本的 Windows 伺服器，以便能夠在該伺服器上安裝「應用程式 Proxy」連接器。 此連接器伺服器需要連線至 Azure 中的「應用程式 Proxy」服務，以及您打算發佈的內部部署應用程式。
+若要使用應用程式 Proxy，您需要執行 Windows Server 2012 R2 或更新版本的 Windows 伺服器。 您會在伺服器上安裝應用程式 Proxy 連接器。 此連接器伺服器需要連線至 Azure 中的「應用程式 Proxy」服務，以及您打算發佈的內部部署應用程式。
 
-若要在生產環境中實現高可用性，建議您準備多個 Windows 伺服器。  在本教學課程中，一部 Windows 伺服器就已足夠。
+若要在生產環境中實現高可用性，建議您準備多個 Windows 伺服器。 在本教學課程中，一部 Windows 伺服器就已足夠。
 
 **針對連接器伺服器的建議**
 
@@ -89,11 +89,11 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 | URL | 使用方式 |
 | --- | --- |
-| \*.msappproxy.net<br>servicebus.windows.net | 連接器和應用程式 Proxy 雲端服務之間的通訊 |
+| \*.msappproxy.net<br>\*.servicebus.windows.net | 連接器和應用程式 Proxy 雲端服務之間的通訊 |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure 會使用這些 URL 來確認憑證 |
 | login.windows.net<br>login.microsoftonline.com | 連接器會在註冊程序進行期間使用這些 URL。 |
 
-如果您的防火牆或 Proxy 允許建立 DNS 允許清單，您可以建立 msappProxy.net 和 servicebus.windows.net 的允許清單連線。 如果不是，您需要允許對每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)的存取。
+如果您的防火牆或 Proxy 允許建立 DNS 允許清單，您可以建立 \*.msappProxy.net 和 \*.servicebus.windows.net 的允許清單連線。 若非如此，您需要允許存取 [Azure 資料中心的 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 IP 範圍會每週更新。
 
 ## <a name="install-and-register-a-connector"></a>安裝並註冊連接器
 若要使用應用程式 Proxy，您必須在選擇與應用程式 Proxy 服務搭配使用的每一部 Windows 伺服器上安裝連接器。 連接器會作為代理程式來管理從內部部署應用程式伺服器到 Azure AD 中應用程式 Proxy 的輸出連線。 在同時安裝了其他驗證代理程式 (例如，Azure AD Connect) 的伺服器上，您也可以安裝連接器。
@@ -119,7 +119,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 如需有關連接器、容量規劃以及其如何保持最新狀態的相關資訊，請參閱[了解 Azure AD 應用程式 Proxy 連接器](application-proxy-connectors.md)。 
 
-如果應用程式使用 WebSocket 進行連線，請確定您已安裝最新的連接器。  WebSocket 支援用於 1.5.612.0 版或更新版本的連接器。
+如果您使用 Qlik Sense 應用程式，則一律安裝最新的連接器。 Qlik Sense 會使用 WebSockets，其僅在連接器 1.5.612.0 版或更新版本提供支援。
 
 
 ## <a name="verify-the-connector-installed-and-registered-correctly"></a>確認連接器的安裝和註冊是否正確
@@ -162,7 +162,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
     ![新增您自己的應用程式](./media/application-proxy-publish-azure-portal/add-your-own.png)
 
-4. 提供您的應用程式的下列資訊：
+4. 在 [新增自己的內部部署應用程式] 刀鋒視窗中，提供您應用程式的下列資訊：
 
     ![設定您的應用程式](./media/application-proxy-publish-azure-portal/configure-app.png)
 
@@ -171,20 +171,18 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
     | **名稱** | 會出現在存取面板上和 Azure 入口網站的應用程式名稱。 |
     | **內部 URL** | 用於從私用網路內部存取應用程式的 URL。 您可以提供後端伺服器上要發佈的特定路徑，而伺服器的其餘部分則不發佈。 如此一來，您可以在相同的伺服器上將不同網站發佈為不同應用程式，並給予各自的名稱和存取規則。<br><br>如果您發佈路徑，請確定其中包含您的應用程式的所有必要映像、指令碼和樣式表。 例如，如果您的應用程式位於 https://yourapp/app 並使用位於 https://yourapp/media 的映像，您應該發佈 https://yourapp/ 作為路徑。 此內部 URL 不一定是您使用者所看見的登陸頁面。 如需詳細資訊，請參閱[針對發佈應用程式設定自訂的首頁](application-proxy-configure-custom-home-page.md)。 |
     | **外部 URL** | 可讓使用者從網路外部存取應用程式的位址。 如果您不想使用預設的應用程式 Proxy 網域，請閱讀 [Azure AD Application Proxy 中的自訂網域](application-proxy-configure-custom-domain.md)。|
-    | **預先驗證** | 應用程式 Proxy 在給予您的應用程式存取權前，用來驗證使用者的方式。<br><br>**Azure Active Directory** - 應用程式 Proxy 會重新導向使用者以使用 Azure AD 登入，進而驗證目錄和應用程式的權限。 建議您將這個選項保持為預設值，讓您可以利用諸如條件式存取以及 Multi-Factor Authentication 等 Azure AD 安全性功能。<br><br>**即時通行** - 使用者不必向 Azure Active Directory 進行驗證即可存取應用程式。 您還是可以在後端設定驗證需求。 |
+    | **預先驗證** | 應用程式 Proxy 在給予您的應用程式存取權前，用來驗證使用者的方式。<br><br>**Azure Active Directory** - 應用程式 Proxy 會重新導向使用者以使用 Azure AD 登入，進而驗證目錄和應用程式的權限。 建議您將這個選項保持為預設值，讓您可以利用諸如條件式存取以及 Multi-Factor Authentication 等 Azure AD 安全性功能。 利用 Microsoft Cloud Application Security 監視應用程式時需要 **Azure Active Directory**。<br><br>**即時通行** - 使用者不必向 Azure Active Directory 進行驗證即可存取應用程式。 您還是可以在後端設定驗證需求。 |
     | **連接器群組** | 連接器會處理針對應用程式的遠端存取，連接器群組可協助您依區域、網路或用途組織連接器和應用程式。 如果您尚未建立任何連接器群組，您的應用程式就會指派給 [預設]。<br><br>如果應用程式使用 WebSocket 進行連線，群組中的所有連接器必須是 1.5.612.0 版或更新版本。|
 
-5. 如有必要，請設定其他設定。 對於大部分的應用程式，您應該在其預設狀態中保留這些設定。 
-
-    ![設定您的應用程式](./media/application-proxy-publish-azure-portal/additional-settings.png)
+5. 如有必要，請設定 [其他設定]。 對於大部分的應用程式，您應該在其預設狀態中保留這些設定。 
 
     | 欄位 | 說明 |
     | :---- | :---------- |
     | **後端應用程式逾時** | 只有當您的應用程式太慢而無法驗證和連線時，才將此值設定為 [長]。 |
-    | **使用僅限 HTTP Cookie** | 將此值設定為 [是]，讓應用程式 Proxy Cookie 在 HTTP 回應標頭中包含 HTTPOnly 旗標。 如果使用遠端桌面服務，請將此欄位設定為 [否]。|
-    | **使用安全的 Cookie**| 請將此值設定為 [是]，以確保 Cookie 只會透過安全的通道傳輸，例如加密的 HTTPS 要求。
+    | **使用僅限 HTTP Cookie** | 將此值設定為 [是]，讓應用程式 Proxy Cookie 在 HTTP 回應標頭中包含 HTTPOnly 旗標。 如果使用遠端桌面服務，請將此值設定為 [否]。|
+    | **使用安全的 Cookie**| 將此值設定為 [是]，以透過安全的通道 (例如加密的 HTTPS 要求) 傳輸 Cookie。
     | **轉譯標頭中的 URL** | 除非您的應用程式需要驗證要求中的原始主機標頭，否則請將此值保留為 [是]。 |
-    | **轉譯應用程式主體中的 URL** | 除非您有其他內部部署應用程式的硬式編碼 HTML 連結，且未使用自訂網域，否則請將此值保留為 [否]。 如需詳細資訊，請參閱[使用應用程式 Proxy 連結轉譯](application-proxy-configure-hard-coded-link-translation.md)。 |
+    | **轉譯應用程式主體中的 URL** | 除非您有其他內部部署應用程式的硬式編碼 HTML 連結，且未使用自訂網域，否則請將此值保留為 [否]。 如需詳細資訊，請參閱[使用應用程式 Proxy 連結轉譯](application-proxy-configure-hard-coded-link-translation.md)。<br><br>如果您打算使用 Microsoft Cloud App Security (MCAS) 監視此應用程式，請將此值設定為 [是]。 如需詳細資訊，請參閱[使用 Microsoft Cloud App Security 與 Azure Active Directory 設定即時應用程式存取監視](application-proxy-integrate-with-microsoft-cloud-application-security.md) |
    
 
 
@@ -192,7 +190,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 ## <a name="test-the-application"></a>測試應用程式
 
-若要測試應用程式是否已正確新增，請將使用者帳戶新增至應用程式，然後嘗試登入。 
+您準備好測試應用程式是否已正確新增。 在下列步驟中，您會將使用者帳戶新增至應用程式，然後嘗試登入。
 
 ### <a name="add-a-user-for-testing"></a>新增測試使用者
 在將使用者新增至應用程式之前，請確認使用者帳戶已經有權限可存取公司網路內部的應用程式。
@@ -215,14 +213,15 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 若要測試能否登入應用程式：
 
 1. 在瀏覽器中瀏覽至您在發行步驟所設定的外部 URL。 
-2. 您應該會看到開始畫面，且能夠使用您設定的測試帳戶登入。
+2. 您應會看見開始畫面。
+3. 嘗試以您在上一節中建立的使用者身分登入。
 
     ![測試已發佈的應用程式](./media/application-proxy-publish-azure-portal/test-app.png)
 
 如需疑難排解，請參閱[針對應用程式 Proxy 問題和錯誤訊息進行疑難排解](application-proxy-troubleshoot.md)。
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已讓內部部署環境準備好與應用程式 Proxy 搭配運作，然後安裝並註冊了應用程式 Proxy 連接器。 接下來，您又將應用程式新增至 Azure AD 租用戶，並使用 Azure AD 帳戶登入應用程式而確認其可正常運作。
+在本教學課程中，您已讓內部部署環境準備好與應用程式 Proxy 搭配運作，然後安裝並註冊了應用程式 Proxy 連接器。 接下來，您將應用程式新增至 Azure AD 租用戶。 您已確認使用者可以使用 Azure AD 帳戶登入應用程式。
 
 您進行了下列事項：
 > [!div class="checklist"]
@@ -232,7 +231,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 > * 將內部部署應用程式新增至 Azure AD 租用戶
 > * 確認測試使用者可以使用 Azure AD 帳戶登入應用程式。
 
-現在，您可以為應用程式設定單一登入。 單一登入方法有很多種，請根據應用程式進行驗證的方式來選擇最佳方法。 下列連結可協助您為應用程式找出適當的單一登入教學課程。
+您可以為應用程式設定單一登入。 使用下列連結來選擇單一登入方法，以及尋找單一登入教學課程。 
 
 > [!div class="nextstepaction"]
 >[設定單一登入](what-is-single-sign-on.md#choosing-a-single-sign-on-method)

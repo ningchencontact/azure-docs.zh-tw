@@ -11,20 +11,20 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c215a3947069e572f73692ea54010c77d78ae4fd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 14c500d77cc0e67aaade5e6be490f599f39bfad5
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273556"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807715"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>快速入門：利用 Azure 入口網站開始使用 Azure Machine Learning
 
-在本快速入門中，您會使用 Azure 入口網站來建立 Azure Machine Learning 工作區。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。 本快速入門使用雲端資源，因此不需要安裝。 若要改為設定您自己的 Jupyter 筆記本伺服器，請參閱[快速入門：使用 Python 來開始使用 Azure Machine Learning](quickstart-create-workspace-with-python.md)。
-
+在本快速入門中，您會使用 Azure 入口網站來建立 Azure Machine Learning 工作區。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。 本快速入門使用雲端資源，因此不需要安裝。 若要改為設定您自己的 Jupyter Notebook 伺服器，請參閱[快速入門：使用 Python 來開始使用 Azure Machine Learning](quickstart-create-workspace-with-python.md)。  
+ 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
-在本快速入門中，您將：
+在本快速入門中，您會執行下列動作：
 
 * 在您的 Azure 訂用帳戶中建立工作區。
 * 試著在 Azure Notebook 中使用 Python 並記錄多個反覆項目中的值。
@@ -37,23 +37,23 @@ ms.locfileid: "53273556"
   - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
   - [Azure 金鑰保存庫](https://azure.microsoft.com/services/key-vault/)
 
-您所建立的資源可用來作為其他 Machine Learning 服務教學課程和操作說明文章的必要條件。 如同使用其他 Azure 服務，對於與 Machine Learning 相關聯的特定資源有一些限制，例如計算叢集大小。 深入了解[預設限制及如何增加配額](how-to-manage-quotas.md)。
+您所建立的資源可用來作為其他 Machine Learning 服務教學課程和操作說明文章的必要條件。 如同使用其他 Azure 服務，對於與 Machine Learning 相關聯的特定資源有一些限制。 例如，計算叢集大小。 深入了解[預設限制及如何增加配額](how-to-manage-quotas.md)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
 
 
 ## <a name="create-a-workspace"></a>建立工作區 
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-在工作區頁面上，選取 `Explore your Azure Machine Learning service workspace`。
+在工作區頁面上，選取 `Explore your Azure Machine Learning service Workspace`。
 
  ![探索工作區](./media/quickstart-get-started/explore_aml.png)
 
 
 ## <a name="use-the-workspace"></a>使用工作區
 
-現在會看到工作區如何協助您管理機器學習服務指令碼。 在本節中，您可：
+現在會看到工作區如何協助您管理機器學習服務指令碼。 在本節中，您會執行下列步驟：
 
 * 在 Azure Notebooks 中開啟 Notebook。
 * 執行程式碼來建立一些記錄的值。
@@ -71,7 +71,7 @@ Azure Notebooks 會為 Jupyter Notebook 提供免費的雲端平台，其會利�
 
 您的組織可能需要[系統管理員的同意](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent)，您才能登入。
 
-登入之後，即會開啟新索引標籤並出現 `Clone Library` 提示。 選取 `Clone`。
+使用您用來登入 Azure 入口網站的相同帳戶來登入 Azure Notebooks。  登入之後，即會開啟新索引標籤並出現 `Clone Library` 提示。 選取 `Clone`。
 
 
 ### <a name="run-the-notebook"></a>執行 Notebook
@@ -80,7 +80,7 @@ Azure Notebooks 會為 Jupyter Notebook 提供免費的雲端平台，其會利�
 
 選取 `01.run-experiment.ipynb` 來開啟 Notebook。
 
-若要一次執行一個資料格，請使用 `Shift`+`Enter`。 或者選取 `Cells` > `Run All` 來執行整個 Notebook。 當您在資料格旁邊看到 [*] 時，表示它正在執行中。 該資料格的程式碼完成後，就會出現一個數字。 
+一次執行一個資料格 (Shift + Enter)。 或者選取 `Cells` > `Run All` 來執行整個 Notebook。 當您在資料格旁邊看到星號 __*__ 時，表示它正在執行中。 該資料格的程式碼完成後，就會出現一個數字。 
 
 在 Notebook 中的所有資料格都執行完成後，您可以在工作區中檢視記錄的值。
 
@@ -96,7 +96,7 @@ Azure Notebooks 會為 Jupyter Notebook 提供免費的雲端平台，其會利�
 
 選取 `my-first-experiment`。
 
-查看您剛執行的執行相關資訊。 向下捲動頁面以找出執行表格。 選取執行號碼連結。
+查看您剛才進行的執行相關資訊。 向下捲動頁面以找出執行表格。 選取執行號碼連結。
 
  ![執行歷程記錄連結](./media/quickstart-get-started/report.png)
 
@@ -116,7 +116,7 @@ Azure Notebooks 會為 Jupyter Notebook 提供免費的雲端平台，其會利�
 
 您已建立了進行實驗和部署模型所需的資源。 您也在 Notebook 中執行了一些程式碼。 而且在雲端的工作區中探索了該程式碼的執行歷程記錄。
 
-如需深入的工作流程體驗，請按照 Machine Learning 教學課程來定型和部署模型。  
+如需深入的工作流程體驗，請按照 Machine Learning 教學課程來定型和部署模型：  
 
 > [!div class="nextstepaction"]
 > [教學課程：將影像分類模型定型](tutorial-train-models-with-aml.md)

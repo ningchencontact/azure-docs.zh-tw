@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 545d60207bbd1941920bc0e70096417c35486634
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0fe4a9f05e0f6d1abed7b906cc5cd89854885ae5
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634581"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53992850"
 ---
 # <a name="what-is-text-analytics"></a>什麼是文字分析？
 
@@ -31,7 +31,7 @@ ms.locfileid: "51634581"
 |-----------|-------------|------|
 |[**情感分析**](how-tos/text-analytics-how-to-sentiment-analysis.md) | 藉由分析原始文字而獲得有關於正面或負面情感的線索，以了解客戶對您的品牌或主題有何看法。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。<br /> 分析模型會使用大量文字主體和 Microsoft 的自然語言技術預先定型。 針對[選取的語言](text-analytics-supported-languages.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。 | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package)  |
 |[**關鍵片語擷取**](how-tos/text-analytics-how-to-keyword-extraction.md) | 自動擷取關鍵片語，以快速識別重點。 例如，若輸入文字為 "The food was delicious and there were wonderful staff"，API 即會傳回主要討論要點："food" 和 "wonderful staff"。  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
-|[**語言偵測**](how-tos/text-analytics-how-to-language-detection.md) | 偵測輸入文字是以何種語言撰寫的，並針對要求所提交的每份文件回報單一語言代碼，最多可達 120 種語言。 語言代碼各配有一個分數，表示分數的強度。 | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br />  [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) | 
+|[**語言偵測**](how-tos/text-analytics-how-to-language-detection.md) | 偵測輸入文字是以何種語言撰寫的，並針對要求所提交的每份文件回報單一語言代碼，最多可達 120 種語言。 語言代碼各配有一個分數，表示分數的強度。 | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br />  [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
 |[**實體辨識 (預覽)**](how-tos/text-analytics-how-to-entity-linking.md) | 識別文字中的實體並分類為人員、位置、組織、日期/時間、數量、百分比、貨幣等等。 已知的實體也會辨識出來，並連結至網路上的其他資訊。 | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) |
 
 ## <a name="use-containers"></a>使用容器
@@ -76,7 +76,7 @@ ms.locfileid: "51634581"
 
 ## <a name="unicode-encoding"></a>Unicode 編碼
 
-針對文字表示法和字元計數計算，文字分析 API 會使用 Unicode 編碼。 要求可使用 UTF-8 和 UTF-16 來提交，兩者的字元計數並沒有明顯差異。 Unicode 字碼指標會作為字元長度的啟發學習法，且會被視為等同於文字分析資料限制的用途。 如果您使用 `String.Length` 取得字元計數，您所使用就是我們用來測量資料大小的相同方法。
+針對文字表示法和字元計數計算，文字分析 API 會使用 Unicode 編碼。 要求可使用 UTF-8 和 UTF-16 來提交，兩者的字元計數並沒有明顯差異。 Unicode 字碼指標會作為字元長度的啟發學習法，且會被視為等同於文字分析資料限制的用途。 如果您使用 [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) 取得字元計數，您所使用就是我們用來測量資料大小的相同方法。
 
 ## <a name="next-steps"></a>後續步驟
 

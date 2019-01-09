@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 775d7595e80c02bcfbc1c3d6abc687d5e335d7da
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0b4549323b64b0f6210a228ea6cb5ca301839ec8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261002"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721847"
 ---
-# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>教學課程：在 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式
+# <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>教學課程：在 Azure App Service 中建置 .NET Core 和 SQL Database 應用程式
 
 > [!NOTE]
-> 本文會將應用程式部署至 Windows 上的 App Service。 若要在 _Linux_ 上部署至 App Service，請參閱[在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式](./containers/tutorial-dotnetcore-sqldb-app.md)。
+> 本文會將應用程式部署至 Windows 上的 App Service。 若要在 _Linux_ 上部署至 App Service，請參閱[在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database 應用程式](./containers/tutorial-dotnetcore-sqldb-app.md)。
 >
 
-[App Service](app-service-web-overview.md) 可在 Azure 中提供可高度擴充、自我修復的 Web 主控服務。 本教學課程示範如何建立 .NET Core Web 應用程式，並將它連線到 SQL Database。 當您完成時，您就會有在 App Service 中執行的 .NET Core MVC 應用程式。
+[App Service](overview.md) 可在 Azure 中提供可高度擴充、自我修復的 Web 主控服務。 本教學課程示範如何建立 .NET Core 應用程式，並將它連線到 SQL Database。 當您完成時，您就會有在 App Service 中執行的 .NET Core MVC 應用程式。
 
 ![在 App Service 中執行的應用程式](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
@@ -135,7 +135,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 ```
 
 > [!TIP] 
-> [僅使用您的應用程式所用的輸出 IP 位址](app-service-ip-addresses.md#find-outbound-ips)，讓您的防火牆規則更具限制性。
+> [僅使用您的應用程式所用的輸出 IP 位址](overview-inbound-outbound-ips.md#find-outbound-ips)，讓您的防火牆規則更具限制性。
 >
 
 ### <a name="create-a-database"></a>建立資料庫
@@ -182,7 +182,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 接下來，將 `ASPNETCORE_ENVIRONMENT` 應用程式設定設為_生產_。 此設定可讓您知道您是否正在 Azure 中執行，因為您針對本機開發環境使用 SQLite，針對 Azure 環境使用 SQL Database。
 
-下列範例會在 Azure Web 應用程式中設定 `ASPNETCORE_ENVIRONMENT` 應用程式設定。 取代 \<app_name> 預留位置。
+下列範例會在 Azure 應用程式中設定 `ASPNETCORE_ENVIRONMENT` 應用程式設定。 取代 \<app_name> 預留位置。
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -257,9 +257,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>瀏覽至 Azure Web 應用程式
+### <a name="browse-to-the-azure-app"></a>瀏覽至 Azure 應用程式
 
-使用 Web 瀏覽器，瀏覽至已部署的 Web 應用程式。
+使用 Web 瀏覽器，瀏覽至已部署的應用程式。
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -361,21 +361,21 @@ git commit -m "added done field"
 git push azure master
 ```
 
-完成 `git push` 之後，瀏覽至 Azure Web 應用程式，然後嘗試執行新功能。
+完成 `git push` 之後，瀏覽至 App Service 應用程式，然後嘗試執行新功能。
 
-![Code First 移轉之後的 Azure Web 應用程式](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
+![Code First 移轉之後的 Azure 應用程式](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
 仍會顯示您現有的所有待辦事項項目。 當您重新發佈 .NET Core 應用程式時，您 SQL Database 中現有的資料不會遺失。 此外，Entity Framework Code 移轉只會變更資料結構描述，並讓現有的資料保持不變。
 
-## <a name="manage-your-azure-web-app"></a>管理您的 Azure Web 應用程式
+## <a name="manage-your-azure-app"></a>管理您的 Azure 應用程式
 
-請移至 [Azure 入口網站](https://portal.azure.com)，以查看您所建立的 Web 應用程式。
+請移至 [Azure 入口網站](https://portal.azure.com)，以查看您所建立的應用程式。
 
-按一下左側功能表中的 [應用程式服務]，然後按一下 Azure Web 應用程式的名稱。
+按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
 
-![入口網站瀏覽至 Azure Web 應用程式](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
+![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-根據預設，入口網站會顯示 Web 應用程式的 [概觀] 分頁。 此頁面可讓您檢視應用程式的執行方式。 您也可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 分頁左側的索引標籤會顯示您可開啟的各種設定分頁。
+根據預設，入口網站會顯示應用程式的 [概觀] 頁面。 此頁面可讓您檢視應用程式的執行方式。 您也可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 分頁左側的索引標籤會顯示您可開啟的各種設定分頁。
 
 ![Azure 入口網站中的 App Service 頁面](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 
@@ -394,7 +394,7 @@ git push azure master
 > * 將記錄從 Azure 串流到終端機
 > * 在 Azure 入口網站中管理應用程式
 
-前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至 Web 應用程式。
+前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至應用程式。
 
 > [!div class="nextstepaction"]
-> [將現有的自訂 DNS 名稱對應至 Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [將現有的自訂 DNS 名稱對應至 Azure App Service](app-service-web-tutorial-custom-domain.md)

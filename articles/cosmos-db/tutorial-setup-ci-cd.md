@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 8b64142a7d693e8e48e1739a61978abbab740e3d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 83178abab84679dcfb36a361950097f9224eda81
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875207"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810629"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>使用 Azure Cosmos DB 模擬器建置工作在 Azure DevOps 中設定 CI/CD 管線
 
@@ -81,7 +81,7 @@ Azure Cosmos DB 模擬器提供了一個模擬 Azure Cosmos DB 服務的本機�
 </RunSettings>
 ```
 
-如果您要為使用 Azure Cosmos DB MongoDB API 的應用程式設定 CI/CD 管線，MongoDB 連接字串會預設包含連接埠號碼 10255。 不過，此連接埠目前未開放，您應改為使用連接埠 10250 來建立連線。 除非支援的連接埠號碼是 10250 而不是 10255，否則 MongoDB API 連接字串會維持不變。
+如果您要為使用 Azure Cosmos DB MongoDB API 的應用程式設定 CI/CD 管線，MongoDB 連接字串會預設包含連接埠號碼 10255。 不過，此連接埠目前未開放，您應改為使用連接埠 10250 來建立連線。 除非支援的連接埠號碼是 10250 而不是 10255，否則 Azure Cosmos DB MongoDB API 連接字串會維持不變。
 
 這些參數 `TestRunParameters` 會透過應用程式測試專案中的 `TestContext` 屬性進行參考。 以下是針對 Cosmos DB 執行測試的範例。
 

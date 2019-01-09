@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9a35c1205c0b564c8d0db1fbd0535d41bb9c84a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989901"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001459"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>使用 Azure Functions 建立無伺服器 API
 
@@ -46,7 +46,7 @@ ms.locfileid: "46989901"
     | 允許的 HTTP 方法 | 選取的方法 | 決定哪些 HTTP 方法可用來叫用此函式 |
     | 選取的 HTTP 方法 | GET | 只允許使用選取的 HTTP 方法來叫用此函式 |
     | 路由範本 | /hello | 決定使用什麼路由來叫用此函式 |
-    | 授權層級 | 匿名 | 選擇性：讓您的函式不需要 API 金鑰即可存取 |
+    | 授權層級 | 匿名 | 選用：讓您的函式不需要 API 金鑰即可存取 |
 
     > [!NOTE] 
     > 請注意，您並未在路由範本中包含 `/api` 基底路徑前置詞，因為這是由全域設定來處理。
@@ -71,7 +71,7 @@ ms.locfileid: "46989901"
 
 Proxy 可以指向任何 HTTP 資源，例如︰
 - Azure Functions 
-- [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview) 中的 API 應用程式
+- [Azure App Service](https://docs.microsoft.com/azure/app-service/overview) 中的 API 應用程式
 - [Linux 上的 App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro) 中的 Docker 容器
 - 其他任何裝載 API
 
@@ -104,7 +104,7 @@ Proxy 可以指向任何 HTTP 資源，例如︰
     | 欄位 | 範例值 | 說明 |
     |---|---|---|
     | 名稱 | HelloProxy | 僅用於管理的易記名稱 |
-    | 路由範本 | /api/hello | 決定使用什麼路由來叫用此 Proxy |
+    | 路由範本 | /api/remotehello | 決定使用什麼路由來叫用此 Proxy |
     | 後端 URL | https://%HELLO_HOST%/api/hello | 指定端點，而其要求應該透過代理 |
     
 1. 請注意，Proxy 不提供 `/api` 基底路徑前置詞，這必須加入路由範本中。
@@ -112,9 +112,9 @@ Proxy 可以指向任何 HTTP 資源，例如︰
 1. 按一下頁面底部的 [新增] 。
 1. 您可以複製 Proxy URL，然後在瀏覽器或您最愛的 HTTP 用戶端測試，以試驗新的 Proxy。
     1. 針對匿名函式使用：
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"`
     1. 針對具有授權的函式使用：
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"`
 
 ## <a name="create-a-mock-api"></a>建立模擬 API
 
@@ -132,7 +132,7 @@ Proxy 可以指向任何 HTTP 資源，例如︰
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         }
@@ -148,7 +148,7 @@ Proxy 可以指向任何 HTTP 資源，例如︰
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         },

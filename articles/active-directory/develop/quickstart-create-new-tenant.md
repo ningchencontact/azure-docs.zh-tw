@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 731b68e3f7dbb46f2fa51a18cb5b3da6b4626fa6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 57c207af3a48eb03b9d526197aed85d7755ad370
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963929"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975945"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>快速入門：設定開發環境
 
-Microsoft 身分識別平台可讓開發人員建置以各種自訂 Microsoft 365 環境與身分識別為目標的應用程式。 若要開始使用 Microsoft 身分識別平台，您將存取一個環境 (也稱為 Azure AD 租用戶)，在該環境中註冊及管理應用程式、存取 Microsoft 365 的資料，以及部署自訂條件式存取與租用戶限制。 
+Microsoft 身分識別平台可讓開發人員建置以各種自訂 Microsoft 365 環境與身分識別為目標的應用程式。 若要開始使用 Microsoft 身分識別平台，您將須存取一個環境 (也稱為 Azure AD 租用戶)，在該環境中註冊及管理應用程式、存取 Microsoft 365 的資料，以及部署自訂條件式存取與租用戶限制。
 
-租用戶是組織的代表。 它是組織或應用程式開發人員在與 Microsoft 建立關係 (例如註冊 Azure、Microsoft Intune 或 Microsoft 365) 時收到的 Azure AD 專屬執行個體。 
+租用戶是組織的代表。 它是組織或應用程式開發人員在與 Microsoft 建立關係 (例如註冊 Azure、Microsoft Intune 或 Microsoft 365) 時收到的 Azure AD 專屬執行個體。
 
-每個 Azure AD 租用戶都與其他 Azure AD 租用戶截然不同，並且具有自己的公司與學校身分識別、消費者身分識別 (如果它是 Azure AD B2C 租用戶) 與應用程式註冊。 租用戶內部的應用程式註冊，只能允許來自您的租用戶或所有租用戶內的帳戶進行驗證。 
+每個 Azure AD 租用戶都與其他 Azure AD 租用戶截然不同，並且具有自己的公司與學校身分識別、消費者身分識別 (如果它是 Azure AD B2C 租用戶) 與應用程式註冊。 租用戶內部的應用程式註冊，只能允許來自您的租用戶或所有租用戶內的帳戶進行驗證。
 
 ## <a name="determining-environment-type"></a>決定環境類型
 
@@ -69,7 +69,7 @@ Microsoft 身分識別平台可讓開發人員建置以各種自訂 Microsoft 36
 
 ## <a name="social-and-local-accounts"></a>社交與本機帳戶
 
-若要開始建置登入社交與本機帳戶的應用程式，您必須建立 Azure AD B2C 租用戶。 若要開始，請依照[建立 Azure AD B2C 租用戶](../../active-directory-b2c/tutorial-create-tenant.md)中的步驟執行。 
+若要開始建置登入社交與本機帳戶的應用程式，您必須建立 Azure AD B2C 租用戶。 若要開始，請依照[建立 Azure AD B2C 租用戶](../../active-directory-b2c/tutorial-create-tenant.md)中的步驟執行。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,18 +9,36 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: e8a1575527f906fab130e08cda715f6c8e904275
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c0c79e3d85a8ced2b868c9fa7741a14105c1de05
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166263"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753042"
 ---
-# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>教學課程 7：使用簡單實體和片語清單來擷取名稱
+# <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>教學課程：使用簡單實體和片語清單來擷取名稱
 
 在本教學課程中，使用**簡單**實體從語句中擷取雇用職位名稱的機器學習資料。 若要增加擷取精確度，請新增簡單實體特有的字詞片語清單。
+
+簡單實體會偵測字組或片語中包含的單一資料概念。
+
+**在本教學課程中，您將了解如何：**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * 匯入範例應用程式
+> * 新增簡單實體 
+> * 新增可提升訊號字組的片語清單
+> * 定型 
+> * 發佈 
+> * 從端點取得意圖和實體
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+
+## <a name="simple-entity"></a>簡單實體
 
 本教學課程會新增用來擷取職位名稱的簡單實體。 在這個 LUIS 應用程式中，簡單實體的用途是要教導 LUIS 何謂職位名稱，以及職位名稱位於語句何處。 視字組選擇與語句長度而定，每個語句中屬於職位名稱的部分各不相同。 LUIS 需要使用職位名稱的所有意圖中的職位名稱範例。  
 
@@ -31,34 +49,6 @@ ms.locfileid: "53166263"
 * 資料不常見，例如電話號碼或資料的預先建置實體。
 * 資料未完全符合已知字組清單，例如清單實體。
 * 資料不包含其他資料項目，例如複合實體或階層式實體。
-
-**在本教學課程中，您將了解如何：**
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * 使用現有的教學課程應用程式
-> * 新增會從應用程式擷取職位的簡單實體
-> * 新增可提升職位字組訊號的片語清單
-> * 定型 
-> * 發佈 
-> * 從端點取得意圖和實體
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>使用現有的應用程式
-
-以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
-
-如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
-
-1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json)。
-
-2. 將 JSON 匯入新的應用程式中。
-
-3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `simple`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
-
-## <a name="simple-entity"></a>簡單實體
-簡單實體會偵測字組或片語中包含的單一資料概念。
 
 請考慮下列來自聊天機器人的語句：
 
@@ -87,25 +77,38 @@ ms.locfileid: "53166263"
 
 標示範例語句中的實體後，請務必新增片語清單，以提升簡單實體的訊號。 片語清單**不會**作為完全相符項目，而且不必是您預期的每個可能值。 
 
+## <a name="import-example-app"></a>匯入範例應用程式
+
+1.  從「意圖」教學課程下載並儲存[應用程式 JSON 檔案](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/intentonly.json)。
+
+2. 將 JSON 匯入新的應用程式中。
+
+3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `simple`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
+
+## <a name="mark-entities-in-example-utterances-of-an-intent"></a>在意圖的範例語句中標示實體
+
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. 在 [意圖] 頁面上，選取 [ApplyForJob] 意圖。 
+1. 在 [意圖] 頁面上，選取 [ApplyForJob] 意圖。 
 
-3. 在語句 `I want to apply for the new accounting job` 中選取 [`accounting`]，於快顯功能表最上面的欄位中輸入 `Job`，然後選取快顯功能表中的 [建立新實體]。 
+1. 在語句 `I want to apply for the new accounting job` 中選取 [`accounting`]，於快顯功能表最上面的欄位中輸入 `Job`，然後選取快顯功能表中的 [建立新實體]。 
 
     [![針對 'ApplyForJob' 意圖使用已醒目提示之建立實體步驟的 LUIS 螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "針對 'ApplyForJob' 意圖使用已醒目提示之建立實體步驟的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
-4. 在快顯視窗中，確認實體名稱和類型，然後選取 [完成]。
+1. 在快顯視窗中，確認實體名稱和類型，然後選取 [完成]。
 
     ![建立簡單實體快顯強制回應對話方塊與職位名稱和簡單類型](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. 在語句 `Submit resume for engineering position` 中，將 `engineering` 這個字組標記為 [職位] 實體。 選取 `engineering` 字組，然後從快顯功能表中選取 [職位]。 
+1. 在其餘的語句中，選取字組或片語，然後從快顯功能表選取 [工作]，以 [工作] 實體標示工作相關字組。 
 
     [![標示已醒目提示之職位實體的 LUIS 螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "標示已醒目提示之職位實體的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
-    所有語句都會加上標籤，但只有五個語句不足以讓 LUIS 認識職位相關字組和片語。 使用編號值的職位會使用規則運算式實體，因此不需要更多範例。 屬於字組或片語的職位需要至少 15 個以上的範例。 
 
-6. 新增更多語句，並將職位字組或片語標記為**職位**實體。 職位是就業服務的通用就業類型。 如果您想讓職位與特定產業相關聯，職位字組就應該反映這一點。 
+## <a name="add-more-example-utterances-and-mark-entity"></a>新增更多語句及標示實體
+
+簡單實體需要許多範例，才能取得高信度預測。 
+ 
+1. 新增更多語句，並將職位字組或片語標記為**職位**實體。 
 
     |語句|職位實體|
     |:--|:--|
@@ -126,100 +129,64 @@ ms.locfileid: "53166263"
     |已隨附我的生物學教授履歷。|生物學教授|
     |我想要應徵攝影方面的職位。|攝影|git 
 
-## <a name="label-entity-in-example-utterances"></a>標記範例語句中的實體
-
-藉由標記或「標示」，實體可顯示在範例語句中找到實體的 LUIS。
+## <a name="mark-job-entity-in-other-intents"></a>標示其他意圖中的工作實體
 
 1. 選取左功能表中的 [意圖]。
 
-2. 從意圖清單中選取 [GetJobInformation]。 
+1. 從意圖清單中選取 [GetJobInformation]。 
 
-3. 將語句範例中的職位加上標籤：
+1. 將語句範例中的工作加上標籤
 
-    |語句|職位實體|
-    |:--|:--|
-    |資料庫中是否有任何工作？|資料庫|
-    |尋找會計職責方面的新局面|會計|
-    |有哪些適合資深工程師的職位？|資深工程師|
+    如果一個意圖有比另一個意圖還多的範例語句，則該意圖成為最高預測意圖的可能性更高。 
 
-    尚有其他語句範例，但這些語句未包含職位字組。
-
-## <a name="train"></a>定型
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>訓練應用程式，因此可以測試意圖的變更 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>發佈
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>發佈應用程式，因此可以從端點查詢已定型的模型
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>從端點取得意圖和實體 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>從端點取得意圖和實體預測 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. 移至位址中的 URL 結尾並輸入 `Here is my c.v. for the programmer job`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回 `ApplyForJob` 語句。
+2. 移至位址中的 URL 結尾並輸入 `Here is my c.v. for the engineering job`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回 `ApplyForJob` 語句。
 
     ```json
     {
-      "query": "Here is my c.v. for the programmer job",
+      "query": "Here is my c.v. for the engineering job",
       "topScoringIntent": {
         "intent": "ApplyForJob",
-        "score": 0.9826467
+        "score": 0.98052007
       },
       "intents": [
         {
           "intent": "ApplyForJob",
-          "score": 0.9826467
+          "score": 0.98052007
         },
         {
           "intent": "GetJobInformation",
-          "score": 0.0218927357
-        },
-        {
-          "intent": "MoveEmployee",
-          "score": 0.007849265
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.00349470088
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00348804821
+          "score": 0.03424581
         },
         {
           "intent": "None",
-          "score": 0.00319909188
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.00222647213
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00211193133
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.00172086991
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00138010911
+          "score": 0.0015820954
         }
       ],
       "entities": [
         {
-          "entity": "programmer",
+          "entity": "engineering",
           "type": "Job",
           "startIndex": 24,
-          "endIndex": 33,
-          "score": 0.5230502
+          "endIndex": 34,
+          "score": 0.668959737
         }
       ]
     }
     ```
     
-    LUIS 找到了正確的意圖 **ApplyForJob**，並擷取正確的實體 **Job**，其值為 `programmer`。
+    LUIS 找到了正確的意圖 **ApplyForJob**，並擷取正確的實體 **Job**，其值為 `engineering`。
 
 
 ## <a name="names-are-tricky"></a>名稱很棘手
@@ -229,51 +196,23 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 
 ```json
 {
-  "query": "This is the lead welder paperwork.",
+  "query": "This is the lead welder paperwork",
   "topScoringIntent": {
     "intent": "ApplyForJob",
-    "score": 0.468558252
+    "score": 0.860295951
   },
   "intents": [
     {
       "intent": "ApplyForJob",
-      "score": 0.468558252
+      "score": 0.860295951
     },
     {
       "intent": "GetJobInformation",
-      "score": 0.0102701457
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.009442534
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00639619166
+      "score": 0.07265678
     },
     {
       "intent": "None",
-      "score": 0.005859333
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.005087704
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00315379258
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00259344373
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00193389168
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.000420796918
+      "score": 0.00482481951
     }
   ],
   "entities": []
@@ -282,94 +221,76 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 
 由於名稱可以是任何字組，LUIS 若有可提升訊號的字組片語清單，就能更正確地預測實體。
 
-## <a name="to-boost-signal-add-phrase-list"></a>若要提升訊號，請新增片語清單
+## <a name="to-boost-signal-of-the-job-related-words-add-a-phrase-list-of-job-related-words"></a>若要提升工作相關字組的訊號，請新增工作相關字組的片語清單
 
-從 LUIS-Samples GitHub 存放庫開啟 [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv)。 此清單有超過一千個職位字組和片語。 請看一下清單以找出對您有意義的職位字組清單。 如果清單中沒有您的字組或片語，請自行新增。
+從 Azure-Samples GitHub 存放庫開啟 [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv)。 此清單有超過 1,000 工作字組和片語。 請看一下清單以找出對您有意義的職位字組清單。 如果清單中沒有您的字組或片語，請自行新增。
 
 1. 在 LUIS 應用程式的 [建置] 區段中，選取 [提升應用程式效能] 功能表底下的 [片語清單]。
 
-2. 選取 [建立新的片語清單]。 
+1. 選取 [建立新的片語清單]。 
 
-3. 將新的片語清單命名為 `Job`，然後將 jobs-phrase-list.csv 中的清單複製到 [值] 文字方塊。 選取 Enter 鍵。 
+1. 將新的片語清單命名為 `JobNames`，然後將 jobs-phrase-list.csv 中的清單複製到 [值] 文字方塊。 選取 Enter 鍵。 
 
     [![建立新的片語清單對話方塊快顯的螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "建立新的片語清單對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     如果您想在片語清單中新增更多字組，請檢閱**相關值**，並新增相關字組。 
 
-4. 選取 [儲存] 以啟動該片語清單。
+1. 選取 [儲存] 以啟動該片語清單。
 
     [![使用片語清單值方塊中的字組來建立新的片語清單對話方塊快顯的螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "使用片語清單值方塊中的字組來建立新的片語清單對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. 重新[訓練](#train)並[發行](#publish)應用程式以使用片語清單。
+1. 重新[訓練](#train)並[發行](#publish)應用程式以使用片語清單。
 
-6. 在端點使用相同語句重新查詢：`This is the lead welder paperwork.`
+1. 在端點使用相同語句重新查詢：`This is the lead welder paperwork.`
 
     JSON 回應包含所擷取的實體：
 
     ```json
-    {
-        "query": "This is the lead welder paperwork.",
-        "topScoringIntent": {
-            "intent": "ApplyForJob",
-            "score": 0.920025647
+      {
+      "query": "This is the lead welder paperwork.",
+      "topScoringIntent": {
+        "intent": "ApplyForJob",
+        "score": 0.983076453
+      },
+      "intents": [
+        {
+          "intent": "ApplyForJob",
+          "score": 0.983076453
         },
-        "intents": [
-            {
-            "intent": "ApplyForJob",
-            "score": 0.920025647
-            },
-            {
-            "intent": "GetJobInformation",
-            "score": 0.003800706
-            },
-            {
-            "intent": "Utilities.StartOver",
-            "score": 0.00299335527
-            },
-            {
-            "intent": "MoveEmployee",
-            "score": 0.0027167045
-            },
-            {
-            "intent": "None",
-            "score": 0.00259556063
-            },
-            {
-            "intent": "FindForm",
-            "score": 0.00224019377
-            },
-            {
-            "intent": "Utilities.Stop",
-            "score": 0.00200693542
-            },
-            {
-            "intent": "Utilities.Cancel",
-            "score": 0.00195913855
-            },
-            {
-            "intent": "Utilities.Help",
-            "score": 0.00162656687
-            },
-            {
-            "intent": "Utilities.Confirm",
-            "score": 0.0002851904
-            }
-        ],
-        "entities": [
-            {
-            "entity": "lead welder",
-            "type": "Job",
-            "startIndex": 12,
-            "endIndex": 22,
-            "score": 0.8295959
-            }
-        ]
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0120766377
+        },
+        {
+          "intent": "None",
+          "score": 0.00248388131
+        }
+      ],
+      "entities": [
+        {
+          "entity": "lead welder",
+          "type": "Job",
+          "startIndex": 12,
+          "endIndex": 22,
+          "score": 0.8373154
+        }
+      ]
     }
     ```
 
 ## <a name="clean-up-resources"></a>清除資源
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="related-information"></a>相關資訊
+
+* [沒有實體的意圖教學課程](luis-quickstart-intents-only.md)
+* [簡單實體](luis-concept-entity-types.md)概念資訊
+* [片語清單](luis-concept-feature.md)概念資訊
+* [如何訓練](luis-how-to-train.md)
+* [發佈方法](luis-how-to-publish-app.md)
+* [如何在 LUIS 入口網站中測試](luis-interactive-test.md)
+
 
 ## <a name="next-steps"></a>後續步驟
 

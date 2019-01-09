@@ -4,17 +4,17 @@ description: 在本快速入門中，了解如何建立 IoT Edge 裝置，然後
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/02/2018
+ms.date: 12/31/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 941d5d8f356fbd1477b4559f1475511165c01341
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2295ed6d3d1b22d70f95d0c9ac4542b59c7ddc09
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340091"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972085"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Windows 裝置 - 預覽
 
@@ -59,14 +59,11 @@ ms.locfileid: "53340091"
 IoT Edge 裝置：
 
 * 可當作您 IoT Edge 裝置的 Windows 電腦或虛擬機器。 使用支援的 Windows 版本：
-  * Windows 10 或更新版本
-  * Windows Server 2016 或更新版本
-* 如果是 Windows 電腦，請檢查其是否符合 Hyper-V 的[系統需求](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)。
-* 如果使用虛擬機器，請啟用[巢狀虛擬化](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)並配置至少 2GB 的記憶體。
-* 安裝[適用於 Windows 的 Docker](https://docs.docker.com/docker-for-windows/install/) 並確定它正在執行。
-
-> [!TIP]
-> 在 Docker 安裝期間，會有使用 Windows 容器或 Linux 容器的選項。 本快速入門會說明如何設定要與 Linux 容器搭配使用的 IoT Edge 執行階段。
+  * 具有 2018 年 10 月更新的 Windows 10 或 IoT 核心版 (組建 17763)
+  * Windows Server 2019
+* 啟用虛擬化，使您的裝置可以裝載容器
+   * 如果是 Windows 電腦，請啟用容器功能。 在開始列中，瀏覽至 [開啟或關閉 Windows 功能]，並勾選 [容器] 旁的核取方塊。
+   * 如果使用虛擬機器，請啟用[巢狀虛擬化](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)並配置至少 2GB 的記憶體。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -107,7 +104,9 @@ IoT Edge 裝置：
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. 複製連接字串，並加以儲存。 您將在下一節中使用此值設定 IoT Edge 執行階段。
+3. 從 JSON 輸出中複製連接字串，並加以儲存。 您將在下一節中使用此值設定 IoT Edge 執行階段。
+
+   ![從 CLI 輸出中擷取連接字串](./media/quickstart/retrieve-connection-string.png)
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>安裝並啟動 IoT Edge 執行階段
 
@@ -116,13 +115,15 @@ IoT Edge 裝置：
 
 IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件。 **IoT Edge 安全性精靈**會在每次 Edge 裝置開機時啟動，並藉由啟動 IoT Edge 代理程式來啟動該裝置。 **IoT Edge 代理程式**有助於在 IoT Edge 裝置 (包括 IoT Edge 中樞) 上部署及監視模組。 **IoT Edge 中樞**會管理 IoT Edge 裝置上的模組通訊，以及裝置與 IoT 中樞之間的通訊。
 
+安裝指令碼也包含名為 Moby 的容器引擎，可用來管理 IoT Edge 裝置上的容器映像。 
+
 在執行階段安裝期間，系統會要求您提供裝置連接字串。 請使用您從 Azure CLI 擷取到的字串。 這個字串會讓實體裝置與 Azure 中的 IoT Edge 裝置身分識別建立關聯。
 
-本節中的指示會設定 Linux 容器的 IoT Edge 執行階段。 如果您想要使用 Windows 容器，請參閱[在 Windows 上安裝要用於 Windows 容器的 Azure IoT Edge 執行階段](how-to-install-iot-edge-windows-with-windows.md)。
+本節中的指示會設定 Windows 容器的 IoT Edge 執行階段。 如果您想要使用 Linux 容器，請參閱[在 Windows 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-windows-with-linux.md)，以取得必要條件和安裝步驟。
 
 ### <a name="connect-to-your-iot-edge-device"></a>連線到 IoT Edge 裝置
 
-本節中的步驟全都在 IoT Edge 裝置上進行。 如果您使用自己的機器作為 IoT Edge 裝置，則可略過這個部分。 如果您使用虛擬機器或次要硬體，您會想要立即連線到該機器。 
+本節中的步驟全都在 IoT Edge 裝置上進行。 如果您使用虛擬機器或次要硬體，您可以透過 SSH 或遠端桌面立即連線到該機器。 如果您使用自己的機器作為 IoT Edge 裝置，則可以繼續進行下一節。 
 
 ### <a name="download-and-install-the-iot-edge-service"></a>下載並安裝 IoT Edge 服務
 
@@ -134,7 +135,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Manual -ContainerOs Linux
+   Install-SecurityDaemon -Manual -ContainerOs Windows
    ```
 
 3. 當系統提示您提供 **DeviceConnectionString** 時，請提供上一節所複製的字串。 請勿在連接字串兩側加上引號。
@@ -191,13 +192,16 @@ iotedge list
 
    ![在您的裝置上檢視三個模組](./media/quickstart/iotedge-list-2.png)
 
-檢視從 tempSensor 模組傳送至雲端的訊息。
+檢視從溫度感應器模組傳送至雲端的訊息。
 
 ```powershell
-iotedge logs tempSensor -f
+iotedge logs SimulatedTemperatureSensor -f
 ```
 
-  ![從您的模組中檢視資料](./media/quickstart/iotedge-logs.png)
+   >[!TIP]
+   >IoT Edge 命令在在參考模組名稱時會區分大小寫。
+
+   ![從您的模組中檢視資料](./media/quickstart/iotedge-logs.png)
 
 您也可以使用[適用於 Visual Studio Code 的 Azure IoT 中樞工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (先前稱為 Azure IoT 工具組擴充功能)，查看送達 IoT 中樞的訊息。 
 
@@ -217,39 +221,30 @@ iotedge logs tempSensor -f
 
 ### <a name="remove-the-iot-edge-runtime"></a>移除 IoT Edge 執行階段
 
-如果您預計要在未來的測試中繼續使用 IoT Edge 裝置，但想要在未使用時停止 tempSensor 模組傳送資料至 IoT 中樞，請使用下列命令停止 IoT Edge 服務。 
-
-   ```powershell
-   Stop-Service iotedge -NoWait
-   ```
-
-當您準備好再次開始測試時，請使用下列命令重新啟動服務。
-
-   ```powershell
-   Start-Service iotedge
-   ```
-
 如果您想要從裝置移除這些安裝，請使用下列命令。  
 
-移除 IoT Edge 執行階段。
+移除 IoT Edge 執行階段。 如果您打算重新安裝 IoT Edge，請省略 `-DeleteConfig` 和 `-DeleteMobyDataRoot` 參數，以便使用您剛設定的相同組態重新安裝。
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Uninstall-SecurityDaemon
+   Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
    ```
 
 IoT Edge 執行階段移除後，它所建立的容器隨即停止，但仍會存在於您的裝置上。 檢視所有容器。
 
    ```powershell
-   docker ps -a
+   docker -H npipe:////./pipe/iotedge_moby_engine ps -a
    ```
 
-刪除 IoT Edge 執行階段在您的裝置上建立的容器。 如果您將 tempSensor 容器命名為其他名稱，請變更其名稱。
+   >[!TIP]
+   >Docker 命令中的 **-H** (主機) 旗標會指向隨著 IoT Edge 執行階段安裝的 Moby 引擎。 如果您在相同的機器上使用 Docker 和 Moby，主機旗標將可讓您指定特定命令所使用的引擎。 如果您只想要使用 Moby，您可以將 **DOCKER_HOST** 環境變數設為指向 npipe:////./pipe/iotedge_moby_engine。
+
+刪除 IoT Edge 執行階段在您的裝置上建立的容器。 
 
    ```powershell
-   docker rm -f tempSensor
-   docker rm -f edgeHub
-   docker rm -f edgeAgent
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f SimulatedTemperatureSensor
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeHub
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeAgent
    ```
    
 ## <a name="next-steps"></a>後續步驟

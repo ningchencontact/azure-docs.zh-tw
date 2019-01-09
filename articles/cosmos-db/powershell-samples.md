@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.date: 10/16/2017
 ms.author: sngun
-ms.openlocfilehash: c2bd1ac165e6b17d1bd9604fb1203ae47214278f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 480bccd73a049d2f181d5acf906882b2f9b6ccdb
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871025"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808395"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>適用於 Azure Cosmos DB 的 Azure PowerShell 範例
 
@@ -23,11 +23,11 @@ ms.locfileid: "52871025"
 | |  |
 |---|---|
 |**建立 Azure Cosmos DB 帳戶**||
-|[建立 SQL API 帳戶](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立單一 Azure Cosmos DB 帳戶，以便搭配 SQL API 使用。 |
-|[建立 MongoDB API 帳戶](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立單一 Azure Cosmos DB 帳戶，以便搭配 MongoDB API 使用。 |
-|[建立 Gremlin API 帳戶](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立單一 Azure Cosmos DB 帳戶，以便搭配 Gremlin API 使用。 |
-|[建立 Cassandra API 帳戶](scripts/create-and-configure-cassandra-database.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立與 Cassandra API 搭配使用的單一 Azure Cosmos DB 帳戶。 |
-|[建立資料表 API 帳戶](scripts/create-table-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立與資料表 API 搭配使用的單一 Azure Cosmos DB 帳戶。 |
+|[使用 SQL API 建立及設定 Cosmos 帳戶](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立單一 Azure Cosmos DB 帳戶，以便搭配 SQL API 使用。 |
+|[使用 Azure Cosmos DB 的 MongoDB API 建立和設定 Cosmos 帳戶](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 使用 Azure Cosmos DB 的 MongoDB API 建立單一 Cosmos 帳戶。 |
+|[使用 Gremlin API 建立及設定 Cosmos 帳戶](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立單一 Azure Cosmos DB 帳戶，以便搭配 Gremlin API 使用。 |
+|[使用 Cassandra API 建立及設定 Cosmos 帳戶](scripts/create-and-configure-cassandra-database.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立與 Cassandra API 搭配使用的單一 Azure Cosmos DB 帳戶。 |
+|[使用資料表 API 建立及設定 Cosmos 帳戶](scripts/create-table-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 建立與資料表 API 搭配使用的單一 Azure Cosmos DB 帳戶。 |
 |**調整 Azure Cosmos DB**||
 |[複寫多個區域中的 Azure Cosmos DB 帳戶和設定容錯移轉優先順序](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|使用指定的容錯移轉優先順序，將帳戶資料複寫到全球多個區域中。|
 |**保護 Azure Cosmos DB**||

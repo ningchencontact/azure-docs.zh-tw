@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 9853e84ffd2de8a1dfd6d9c4f32f58bb36b16403
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 581c47d84466f37d7c7c3ad3e98ae1749f8d9524
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164427"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608642"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>教學課程：透過 QnA Maker 入口網站建立知識庫然後回答問題
 
@@ -83,9 +83,9 @@ ms.locfileid: "53164427"
 
 1. 從資料表底部選取問題和答案的最後一個頁面。 此頁面會顯示閒聊特質中的問題和答案。 
 
-1. 在問題和答案清單上方的工具列中，選取齒輪。 這會顯示每個問題和答案的篩選條件。 閒聊問題具有已設定的**編輯：閒聊**篩選條件。 此篩選條件會連同選取的答案傳回至用戶端應用程式。 用戶端應用程式 (例如聊天機器人) 可使用此篩選條件來決定其他處理或與使用者的互動。
+1. 在問題和答案清單上方的工具列中，選取中繼資料圖示。 這會顯示每個問題和答案的中繼資料標記。 閒聊問題已經設定**編輯：閒聊**中繼資料。 此中繼資料會連同選取的答案傳回至用戶端應用程式。 用戶端應用程式 (例如聊天機器人) 可使用此經果篩選的中繼資料來決定其他處理或與使用者的互動。
 
-    ![檢視篩選條件](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![檢視中繼資料標記](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. 在頂端功能表列中選取 [儲存並訓練]。
 
@@ -171,7 +171,7 @@ ms.locfileid: "53164427"
    
     ```
 
-    由於 `Thank you` 的問題完全符合閒聊問題，因此QnA Maker 完全信賴 100 這個分數。 QnA Maker 也會傳回所有相關問題，以及包含閒聊篩選資訊的中繼資料屬性。  
+    由於 `Thank you` 的問題完全符合閒聊問題，因此QnA Maker 完全信賴 100 這個分數。 QnA Maker 也會傳回所有相關問題，以及包含閒聊中繼資料標記的中繼資料屬性。  
 
 ## <a name="use-curl-to-query-for-the-default-answer"></a>使用 Curl 查詢預設答案
 

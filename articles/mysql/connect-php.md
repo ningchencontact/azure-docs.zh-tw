@@ -1,23 +1,20 @@
 ---
 title: 從 PHP 連線到適用於 MySQL 的 Azure 資料庫
 description: 本快速入門提供數個 PHP 程式碼範例，您可用於從 Azure Database for MySQL 連線及查詢資料。
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 7fa9272a8609d933a3f12abb0f33e78c4bdc1b12
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 76d721ca102ae0affeba23c46d5da9fd44743f5b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984803"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608761"
 ---
-# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 PHP 來連線及查詢資料
+# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>適用於 MySQL 的 Azure 資料庫：使用 PHP 進行連線並查詢資料
 本快速入門示範如何使用 [PHP](https://secure.php.net/manual/intro-whatis.php) 應用程式來連線到 Azure Database for MySQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 PHP 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>必要條件
@@ -26,7 +23,7 @@ ms.locfileid: "49984803"
 - [使用 Azure CLI 建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-php"></a>安裝 PHP
-在自己的伺服器上安裝 PHP，或建立 Azure [Web 應用程式](../app-service/app-service-web-overview.md) (包括 PHP)。
+在自己的伺服器上安裝 PHP，或建立 Azure [Web 應用程式](../app-service/overview.md) (包括 PHP)。
 
 ### <a name="macos"></a>MacOS
 - 下載 [PHP 7.1.4 版本](https://secure.php.net/downloads.php)。
@@ -36,7 +33,7 @@ ms.locfileid: "49984803"
 - 下載 [PHP 7.1.4 非執行緒安全 (x64) 版本](https://secure.php.net/downloads.php)。
 - 安裝 PHP 並參考 [PHP 手冊](https://secure.php.net/manual/install.unix.php)以便進一步設定。
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 - 下載 [PHP 7.1.4 非執行緒安全 (x64) 版本](https://windows.php.net/download#php-7.1)。
 - 安裝 PHP 並參考 [PHP 手冊](https://secure.php.net/manual/install.windows.php)以便進一步設定。
 

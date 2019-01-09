@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 94a3282451a0efcc9209c4aac3d316e40560495f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 13003f671e479217d73d1c611be36987b3bda7bc
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972117"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793575"
 ---
 # <a name="back-up-azure-file-shares"></a>備份 Azure 檔案共用
 本文說明如何使用 Azure 入口網站來備份和還原 [Azure 檔案共用](../storage/files/storage-files-introduction.md)。
@@ -34,7 +34,7 @@ ms.locfileid: "52972117"
 Azure 檔案共用的備份處於預覽狀態。 支援一般用途 v1 和一般用途 v2 儲存體帳戶中的 Azure 檔案共用。 Azure 檔案共用不支援下列備份案例︰
 - 您無法使用[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能，保護儲存體帳戶中的 Azure 檔案共用*。
 - 您無法在已啟用虛擬網路或防火牆的儲存體帳戶中保護 Azure 檔案共用。
-- 無法透過 PowerShell 或 CLI 使用 Azure 備份來保護 Azure 檔案。
+- 無法透過 CLI 使用 Azure 備份來保護 Azure 檔案服務。
 - 每天的排程備份次數上限為 1 次。
 - 每天的隨選備份次數上限為 4 次。
 - 在儲存體帳戶上使用[資源鎖定](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)，以防止在您的復原服務保存庫中意外刪除備份。

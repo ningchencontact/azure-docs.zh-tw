@@ -2,8 +2,7 @@
 title: 教學課程：使用 Azure 串流分析作業來執行 Azure Functions | Microsoft Docs
 description: 在本教學課程中，您將了解如何設定 Azure Functions 作為串流分析作業的輸出接收。
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
@@ -11,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 818c75feffc5dcf09421b22d82b8b0c767cbed7f
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164155"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993003"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>從 Azure 串流分析作業執行 Azure Functions 
 
@@ -152,7 +151,7 @@ ms.locfileid: "53164155"
 
 1. 在 Azure 入口網站上，開啟您的串流分析作業。  
 
-2. 瀏覽至您的函式，並選取 [概觀] > [輸出] > [新增]。 若要新增輸出，請對於接收選項選取 **Azure Function**。 新的 Functions 輸出配接器可搭配下列屬性使用：  
+2. 瀏覽至您的函式，並選取 [概觀] > [輸出] > [新增]。 若要新增輸出，請對於接收選項選取 **Azure Function**。 新的 Functions 輸出配接器具有下列屬性：  
 
    |**屬性名稱**|**說明**|
    |---|---|
@@ -160,7 +159,7 @@ ms.locfileid: "53164155"
    |匯入選項| 您可以使用目前訂用帳戶的函式，如果函式位於另一個訂用帳戶中，也可以手動提供設定。 |
    |函式應用程式| Functions 應用程式的名稱。 |
    |函式| 您的 Functions 應用程式中的函式名稱 (您的 run.csx 函式名稱)。|
-   |批次大小上限|設定每個輸出批次 (傳送至您的函式) 的最大大小。 此值預設會設定為 256 KB。|
+   |批次大小上限|設定每個輸出批次 (傳送至您的函式) 的大小上限 (以位元組為單位)。 預設值為 262,144 位元組 (256 KB)。|
    |批次計數上限|傳送至函式的每個批次中的事件數上限。 預設值是 100。 這是選用屬性。|
    |Key|可讓您使用其他訂用帳戶中的函式。 提供存取您函式的索引鍵值。 這是選用屬性。|
 

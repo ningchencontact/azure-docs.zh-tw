@@ -1,7 +1,7 @@
 ---
 title: 檢閱端點語句
 titleSuffix: Azure Cognitive Services
-description: 藉由驗證或更正透過 LUIS 不確定的 LUIS HTTP 端點所收到的語句來改善應用程式的預測。 有些語句可能會針對意圖進行驗證，而其他語句則可能需要針對實體進行驗證。 您應該在排定的 LUIS 維護中定期檢閱端點語句。
+description: 藉由驗證或更正透過 LUIS 不確定的 LUIS HTTP 端點所收到的語句來改善應用程式的預測。 有些語句可能會針對意圖進行驗證，而其他語句則可能需要針對實體進行驗證。
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: bc641732d74dac4f566420ada6338362932df4d7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6cbeb44e5dfca84bc85a6be4c4b44cb59bad783a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080447"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755116"
 ---
-# <a name="tutorial-1-fix-unsure-predictions"></a>教學課程 1：修正不確定的預測
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>教學課程：檢閱端點語句以修正不確定的預測
 在本教學課程中，藉由驗證或更正透過 LUIS 不確定的 LUIS HTTPS 端點所收到的語句來改善應用程式的預測。 有些語句可能必須針對意圖進行驗證，而其他語句則可能需要針對實體進行驗證。 您應該在排定的 LUIS 維護中定期檢閱端點語句。 
 
 此檢閱程序是 LUIS 用來了解應用程式領域的另一種方法。 LUIS 選取了檢閱清單中顯示的語句。 此清單是：
@@ -33,7 +33,7 @@ ms.locfileid: "53080447"
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * 使用現有的教學課程應用程式
+> * 匯入範例應用程式
 > * 檢閱端點語句
 > * 更新片語清單
 > * 訓練應用程式
@@ -42,19 +42,19 @@ ms.locfileid: "53080447"
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>使用現有的應用程式
+## <a name="import-example-app"></a>匯入範例應用程式
 
 以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
 
-如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
+請使用下列步驟：
 
-1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json)。
+1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json)。
 
 2. 將 JSON 匯入新的應用程式中。
 
 3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `review`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
 
-    如果您使用本教學課程作為新的已匯入應用程式，則您也需要訓練和發佈端點，然後將語句新增至具有[指令碼](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js)的端點，或從瀏覽器中的端點新增語句。 要新增的語句為：
+    如果您使用本教學課程作為新的已匯入應用程式，則您也需要訓練和發佈端點，然後將語句新增至具有[指令碼](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js)的端點，或從瀏覽器中的端點新增語句。 要新增的語句為：
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 

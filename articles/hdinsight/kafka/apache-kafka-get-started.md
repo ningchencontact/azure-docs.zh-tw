@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 5b1768978425d3153f775e20a1a4c44a39794779
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 76f09af66e362fb6b03346b43a6be1a3ec7cf681
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315949"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976761"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入門：在 HDInsight 叢集上建立 Apache Kafka 叢集
 
@@ -23,7 +23,7 @@ Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Apache Kafka API 只能由同一個虛擬網路中的資源來存取。 在本快速入門中，您會使用 SSH 直接存取叢集。 若要將其他服務、網路或虛擬機器連線到 Apache Kafka，您必須先建立虛擬網路，然後建立網路中的資源。
 >
 > 如需詳細資訊，請參閱[使用虛擬網路連線到 Apache Kafka](apache-kafka-connect-vpn-gateway.md) 文件。
@@ -40,7 +40,7 @@ Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用
 
     * 安裝[適用於 Linux 的 Windows 子系統](https://docs.microsoft.com/windows/wsl/install-win10) \(英文\)。 可透過 Microsoft Store 取得的 Linux 發行版本會提供 `ssh` 命令。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 本文件中的步驟假設您使用上述其中一個 SSH 用戶端。 如果您使用不同的 SSH 用戶端並遇到問題，請參閱您的 SSH 用戶端文件。
     >
     > 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
@@ -49,7 +49,13 @@ Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用
 
 若要在 HDInsight 叢集上建立 Apache Kafka，請使用下列步驟：
 
-1. 從 [Azure 入口網站](https://portal.azure.com)，選取 [+ 建立資源]、[資料 + 分析]，然後選取 [HDInsight]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+
+1. 在左側功能表中，選取 [+ 建立資源]。
+
+1. 在 [Azure Marketplace] 下方，選取 [分析]。
+
+1. 在 [精選] 下方，選取 [HDInsight]。
    
     ![建立 HDInsight 叢集](./media/apache-kafka-get-started/create-hdinsight.png)
 
@@ -85,7 +91,7 @@ Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用
     | 資源群組 | 在其中建立叢集的資源群組。 |
     | 位置 | 在其中建立叢集的 Azure 區域。 |
 
-    > [!TIP]
+    > [!TIP]  
     > 每個 Azure 區域 (位置) 提供_容錯網域_。 容錯網域是 Azure 資料中心內基礎硬體的邏輯群組。 每個容錯網域會共用通用電源和網路交換器。 實作 HDInsight 叢集內節點的虛擬機器和受控磁碟會分散於這些容錯網域。 此架構會限制實體硬體故障的潛在影響。
     >
     > 若要獲得高度資料可用性，請選取包含「三個容錯網域」的區域 (位置)。 如需區域中的容錯網域數目的資訊，請參閱 [Linux 虛擬機器的可用性](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文件。
@@ -108,10 +114,10 @@ Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用
 
 8. 從 [叢集大小] 中選取 [下一步]，以使用預設設定繼續進行。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 若要保證 HDInsight 上的 Apache Kafka 可用性，則必須將 [背景工作節點數] 項目設為 3 或更高。 預設值為 4。
     
-    > [!TIP]
+    > [!TIP]  
     > [每個背景工作角色節點的磁碟數] 項目會設定 HDInsight 上 Apache Kafka 的延展性。 HDInsight 上的 Apache Kafka 會在叢集中使用虛擬機器的本機磁碟來儲存資料。 Apache Kafka 的 I/O 非常大量，因此會使用 [Azure 受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)來提供高輸送量，並為每個節點提供更多儲存空間。 受控磁碟的類型可以是__標準__ (HDD) 或__進階__ (SSD)。 磁碟類型取決於背景工作節點 (Apache Kafka 代理程式) 所使用的 VM 大小。 進階磁碟會自動與 DS 和 GS 系列的 VM 搭配使用。 所有其他的 VM 類型是使用標準磁碟。
 
    ![設定 Apache Kafka 叢集大小](./media/apache-kafka-get-started/kafka-cluster-size.png)
@@ -127,7 +133,7 @@ Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用
 
 ## <a name="connect-to-the-cluster"></a>連接到叢集
 
-1. 若要連線到 Apache Kafka 叢集的主要前端節點，請使用下列命令。 將 `sshuser` 取代為 SSH 使用者名稱。 將 `mykafka` 取代為您的 Apache Kafka 叢集名稱
+1. 若要連線到 Apache Kafka 叢集的主要前端節點，請使用下列命令。 將 `sshuser` 取代為 SSH 使用者名稱。 將 `mykafka` 取代為您的 Apache Kafka 叢集名稱。
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net
@@ -148,7 +154,7 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 83 packages can be updated.
 37 updates are security updates.

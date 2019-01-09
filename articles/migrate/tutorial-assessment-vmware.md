@@ -4,15 +4,15 @@ description: 說明如何使用 Azure Migrate 服務，探索及評估要移轉�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 04bc43093a6edc66cdbb661a94989f5980445027
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 8971bba1e25a8e87ed57463dcc9b013fea56a0ff
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257806"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976829"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>探索及評估要移轉到 Azure 的內部部署 VMware VM
 
@@ -58,8 +58,9 @@ Azure Migrate 需要存取 VMware 伺服器，才能自動探索 VM 以進行評
 
 **地理位置** | **儲存位置**
 --- | ---
-美國 | 美國中西部或美國東部
 Azure Government | 美國政府維吉尼亞州
+歐洲 | 北歐或西歐
+美國 | 美國東部或美國中西部
 
 ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
@@ -253,7 +254,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 
 #### <a name="confidence-rating"></a>信賴評等
 
-Azure Migrate 中的每個效能型評量會與信賴評等相關聯，信賴評等的範圍從 1 顆星到 5 顆星 (1 顆星最低，5 顆星最高)。 根據計算評量所需的資料點可用性，每個評量都會指派信賴評等。 評量的信賴評等可協助您評估 Azure Migrate 提供的大小建議之可靠性。 信賴評等不適用內部部署評估。
+Azure Migrate 中的每個效能型評量會與信賴評等相關聯，信賴評等的範圍從 1 顆星到 5 顆星 (1 顆星最低，5 顆星最高)。 根據計算評量所需的資料點可用性，每個評量都會指派信賴評等。 評量的信賴評等可協助您評估 Azure Migrate 提供的大小建議之可靠性。 信賴評等不適用於「現狀」的內部部署評估。
 
 對於以效能為基礎的大小調整，Azure Migrate 需要 VM 的 CPU、記憶體使用量資料。 此外，對於連結至 VM 的每個磁碟，它都需要磁碟 IOPS 和輸送量資料。 同樣地，對於連接至虛擬機器的每個網路介面卡，Azure Migrate 需要輸入/輸出網路以進行以效能為基礎的大小調整。 如果上述的任何使用量數字在 vCenter Server 中無法取得，則 Azure Migrate 所完成的大小建議可能不可靠。 根據可用資料點的百分比提供評量的信賴評等如下：
 

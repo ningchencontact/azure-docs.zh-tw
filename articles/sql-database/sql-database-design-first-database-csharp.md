@@ -4,20 +4,18 @@ description: 了解如何設計您的第一個 Azure SQL Database，並透過 C#
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
-ms.date: 11/01/2018
-ms.openlocfilehash: 82cf0303019d2cbb620c442fd6f750f733930f84
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/10/2018
+ms.openlocfilehash: cf180f6e2970ac4435602f1cceeb98a4dd9e8724
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912334"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727160"
 ---
 # <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>教學課程：設計 Azure SQL Database 並連接 C&#x23; 和 ADO.NET
 
@@ -35,7 +33,7 @@ Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 
 ## <a name="prerequisites"></a>必要條件
 
-安裝 [Visual Studio Community 2017、Visual Studio Professional 2017 或 Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/)。
+[Visual Studio 2017](https://www.visualstudio.com/downloads/) 的安裝
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -51,16 +49,16 @@ And it starts with a ## H2.
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解基本的資料庫工作，例如建立資料庫和資料表、載入和查詢資料，以及將資料庫還原至先前的時間點。 您已了解如何︰
+在本教學課程中，您已了解基本的資料庫工作，例如建立資料庫和資料表、連線至資料庫、載入資料，以及執行查詢。 您已了解如何︰
+
 > [!div class="checklist"]
 > * 建立資料庫
 > * 設定防火牆規則
 > * 使用 [Visual Studio 和 C#](sql-database-connect-query-dotnet-visual-studio.md) 連線到資料庫
 > * 建立資料表
-> * 插入、更新和刪除資料
-> * 查詢資料
+> * 插入、更新、刪除及查詢資料
 
-請前進到下一個教學課程，以了解如何移轉資料。
+請前進到下一個教學課程，以了解資料移轉。
 
 > [!div class="nextstepaction"]
-> [將 SQL Server Database 移轉至 Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+> [使用 DMS 在離線狀態下將 SQL Server 遷移至 Azure SQL Database](../dms/tutorial-sql-server-to-azure-sql.md)

@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: d27491d84d4df1757f77a403cd754496bbff6887
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0c72318f6c80563d138d9c885ea5984a22c5c7fa
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252604"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653895"
 ---
-# <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>快速入門：在 Linux 上的 App Service 中建立 Java Web 應用程式
+# <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>快速入門：在 Linux 上的 App Service 中建立 Java 應用程式
 
-[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門說明如何使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 搭配[適用於 Azure Web Apps 的 Maven 外掛程式 (預覽)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)，部署 Java Web 應用程式的網頁封存 (WAR) 檔案。
+[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門說明如何使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 搭配[適用於 Azure Web Apps 的 Maven 外掛程式 (預覽)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)，部署 Java Web 封存 (WAR) 檔案。
 
 ![在 Azure 中執行的範例應用程式](media/quickstart-java/java-hello-world-in-browser.png)
 
@@ -34,7 +34,7 @@ ms.locfileid: "53252604"
 
 ## <a name="create-a-java-app"></a>建立 Java 應用程式
 
-在 Cloud Shell 提示字元中執行下列 Maven 命令，以建立名為 `helloworld` 的新 Web 應用程式：
+在 Cloud Shell 提示字元中執行下列 Maven 命令，以建立名為 `helloworld` 的新應用程式：
 
 ```bash
 mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
@@ -62,12 +62,12 @@ code pom.xml
         <version>1.4.0</version>
         <configuration>
    
-            <!-- Web App information -->
+            <!-- App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
    
-            <!-- Java Runtime Stack for Web App on Linux-->
+            <!-- Java Runtime Stack for App on Linux-->
             <linuxRuntime>tomcat 8.5-jre8</linuxRuntime>
    
         </configuration>
@@ -84,9 +84,9 @@ code pom.xml
 
 | Placeholder | 說明 |
 | ----------- | ----------- |
-| `RESOURCEGROUP_NAME` | 要在其中建立 Web 應用程式的新資源群組名稱。 將應用程式的所有資源放在群組中，藉此同時管理。 例如，刪除資源群組會刪除所有與應用程式相關聯的資源。 使用唯一的新資源群組名稱來更新此值，例如 TestResources。 您在下一節中會使用此資源群組名稱來清除所有的 Azure 資源。 |
-| `WEBAPP_NAME` | 應用程式名稱會成為 Web 應用程式在部署至 Azure 時的部分主機名稱 (WEBAPP_NAME.azurewebsites.net)。 將此值更新為新 Azure Web 應用程式的唯一名稱 (例如 contoso)，它將會主控您的 Java 應用程式。 |
-| `REGION` | 託管 Web 應用程式的 Azure 區域，例如 `westus2`。 您可以使用 `az account list-locations` 命令，從 Cloud Shell 或 CLI 取得區域清單。 |
+| `RESOURCEGROUP_NAME` | 容納新建立應用程式的新資源群組名稱。 將應用程式的所有資源放在群組中，藉此同時管理。 例如，刪除資源群組會刪除所有與應用程式相關聯的資源。 使用唯一的新資源群組名稱來更新此值，例如 TestResources。 您在下一節中會使用此資源群組名稱來清除所有的 Azure 資源。 |
+| `WEBAPP_NAME` | 應用程式名稱會成為應用程式在部署至 Azure 時的部分主機名稱 (WEBAPP_NAME.azurewebsites.net)。 將此值更新為新 App Service 應用程式的唯一名稱 (例如 contoso)，它將會主控您的 Java 應用程式。 |
+| `REGION` | 託管應用程式的 Azure 區域，例如 `westus2`。 您可以使用 `az account list-locations` 命令，從 Cloud Shell 或 CLI 取得區域清單。 |
 
 ## <a name="deploy-the-app"></a>部署應用程式
 
@@ -108,7 +108,7 @@ mvn package azure-webapp:deploy
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已使用 Maven 建立 Java Web 應用程式、設定[適用於 Azure Web Apps 的 Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)，然後將以網頁封存封裝的 Java 應用程式部署至 Linux 上的 App Service。 如需在 Linux 上的 App Service 中裝載 Java 應用程式的詳細資訊，請參閱下列教學課程和操作說明文章。
+在本快速入門中，您已使用 Maven 建立 Java 應用程式、設定[適用於 Azure Web Apps 的 Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)，然後將以網頁封存封裝的 Java 應用程式部署至 Linux 上的 App Service。 如需在 Linux 上的 App Service 中裝載 Java 應用程式的詳細資訊，請參閱下列教學課程和操作說明文章。
 
 - [教學課程：使用 PostgreSQL 部署 Java Enterprise 應用程式](tutorial-java-enterprise-postgresql-app.md)
 - [設定 Tomcat 資料來源](app-service-linux-java.md#connecting-to-data-sources)
