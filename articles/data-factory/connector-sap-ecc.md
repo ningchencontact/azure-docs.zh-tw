@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: f9f6d2e43fff9a3e57145f39863f66eed64869b2
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ab9d28212e471a9fe3d59ff30a8225b7440655d7
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048578"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022490"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP ECC 複製資料
 
@@ -34,7 +33,7 @@ ms.locfileid: "37048578"
 - 從 SAP ECC OData 服務 (例如 SAP 資料表/檢視表、BAPI、資料擷取器等) 所公開的任何物件複製資料，或複製傳送至 SAP PI 而可透過相對配接器以 OData 的形式接收的資料/IDOC。
 - 使用基本驗證來複製資料。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 一般而言，SAP ECC 會透過 OData 服務經由 SAP 閘道公開實體。 若要使用此 SAP ECC 連接器，您必須：
 
@@ -54,8 +53,8 @@ ms.locfileid: "37048578"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為：**SapEcc** | yes |
-| url | SAP ECC OData 服務的 URL。 | yes |
+| type | 類型屬性必須設定為：**SapEcc** | 是 |
+| url | SAP ECC OData 服務的 URL。 | 是 |
 | username | 用來連線至 SAP ECC 的使用者名稱。 | 否 |
 | password | 用來連線至 SAP ECC 的純文字密碼。 | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
@@ -91,7 +90,7 @@ ms.locfileid: "37048578"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| path | SAP ECC OData 實體的路徑。 | yes |
+| path | SAP ECC OData 實體的路徑。 | 是 |
 
 **範例**
 
@@ -121,7 +120,7 @@ ms.locfileid: "37048578"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設為：**SapEccSource** | yes |
+| type | 複製活動來源的類型屬性必須設定為：**SapEccSource** | 是 |
 | query | 用來篩選資料的 OData 查詢選項。 Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC 連接器會從合併的 URL 複製資料：(連結服務中指定的 URL)/(資料集中指定的路徑)?(複製活動來源中指定的查詢)。 請參考 [OData URL 元件](http://www.odata.org/documentation/odata-version-3-0/url-conventions/) \(英文\)。 | 否 |
 
 **範例：**

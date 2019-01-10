@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 10e73cf7fde019b4b4fe54d23f02c5afc0c582c9
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976846"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155162"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery 可以保護哪些工作負載？
 
@@ -48,7 +48,7 @@ Site Recovery 可複寫在支援的機器上執行的任何應用程式。 此�
 | Active Directory、DNS |Y |Y |Y |Y |Y|
 | Web 應用程式 (IIS、SQL) |Y |Y |Y |Y |Y|
 | System Center Operations Manager |Y |Y |Y |Y |Y|
-| Sharepoint |Y |Y |Y |Y |Y|
+| SharePoint |Y |Y |Y |Y |Y|
 | SAP<br/><br/>將 SAP 網站複寫至非叢集的 Azure |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試) |Y (由 Microsoft 測試)|
 | Exchange (非 DAG) |Y |Y |Y |Y |Y|
 | 遠端桌面/VDI |Y |Y |Y |Y |Y|

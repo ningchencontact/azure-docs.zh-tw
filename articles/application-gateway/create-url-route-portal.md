@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: e106094ce94b7f232fd5687988af2bd11b971e3f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 227e09ad087f1ac06f0dbb5b731c68f7c0a6980e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001950"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159769"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 URL 路徑型路由規則的應用程式閘道
 
@@ -123,7 +123,7 @@ ms.locfileid: "53001950"
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>建立包含虛擬機器的後端集區
 
 1. 按一下 [所有資源]，然後按一下 [myAppGateway]。
-2. 按一下 [後端集區]。 已使用應用程式閘道自動建立預設集區。 按一下 [appGateayBackendPool]。
+2. 按一下 [後端集區]。 已自動建立具有應用程式閘道的預設集區。 按一下 [appGatewayBackendPool]。
 3. 按一下 [新增目標] 將 myVM1 新增至 appGatewayBackendPool。
 
     ![新增後端伺服器](./media/create-url-route-portal/application-gateway-backend.png)

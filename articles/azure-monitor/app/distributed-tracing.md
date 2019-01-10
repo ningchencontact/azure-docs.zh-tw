@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e68e236c54083862bbe1524ec2f7fc3ee6c52ef2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bc04748f2a5b8caa8f589140dd46f0650b7b390
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002207"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102970"
 ---
 # <a name="what-is-distributed-tracing"></a>什麼是分散式追蹤？
 
-新式雲端和[微服務](http://azure.com/microservices)架構的問世，造就了可獨立部署的簡單服務，協助您降低成本，同時提高可用性和輸送量。 這些變動雖然整體上讓個別服務更容易了解，但是讓整體系統更難以理解和偵錯。
+新式雲端和[微服務](https://azure.com/microservices)架構的問世，造就了可獨立部署的簡單服務，協助您降低成本，同時提高可用性和輸送量。 這些變動雖然整體上讓個別服務更容易了解，但是讓整體系統更難以理解和偵錯。
 
 在單體式架構中，我們已習慣透過呼叫堆疊進行偵錯。 呼叫堆疊是很出色的工具，可用來顯示執行的流程 (方法 A 呼叫方法 B，方法 B 呼叫方法 C)，以及有關每個呼叫的詳細資料和參數。 非常適合於在單一程序中執行的單體或服務，但我們如何在呼叫跨越程序界限 (不只限於本機堆疊上的參考) 時進行偵錯？ 
 
@@ -59,4 +59,4 @@ OpenCensus 網站會維護 [Python](https://opencensus.io/api/python/trace/usage
 
 * [OpenCensus Python 使用指南](https://opencensus.io/api/python/trace/usage.html)
 * [應用程式對應](./../../azure-monitor/app/app-map.md)
-* [端對端效能監視](./../../application-insights/app-insights-tutorial-performance.md)
+* [端對端效能監視](./../../azure-monitor/learn/tutorial-performance.md)

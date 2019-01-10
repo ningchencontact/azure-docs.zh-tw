@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 814c3ebec326ab1c17f4fea7f11b2bacaa6b42d9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997618"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159412"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>使用 Azure 入口網站設定包含 SSL 終止的應用程式閘道
 
@@ -148,7 +148,7 @@ Export-PfxCertificate \
 ### <a name="add-backend-servers"></a>新增後端伺服器
 
 3. 按一下 [所有資源]，然後按一下 [myAppGateway]。
-4. 按一下 [後端集區]。 已使用應用程式閘道自動建立預設集區。 按一下 [appGateayBackendPool]。
+4. 按一下 [後端集區]。 已自動建立具有應用程式閘道的預設集區。 按一下 [appGatewayBackendPool]。
 5. 按一下 [新增目標]，將您所建立的每個虛擬機器新增至後端集區。
 
     ![新增後端伺服器](./media/create-ssl-portal/application-gateway-backend.png)

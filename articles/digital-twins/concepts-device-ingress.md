@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 374a27b10b3928838b10e4fba24e1f36721c162a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6d95d44dbfe2d66189be5103552d841ccbdf690
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433648"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117413"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>裝置連線能力與遙測輸入
 
@@ -80,4 +80,4 @@ YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解 Azure Digital Twins 的資料處理和使用者定義函式功能，請閱讀 [Azure Digital Twins 資料處理和使用者定義函式](concepts-user-defined-functions.md)。
+- 若要深入了解 Azure Digital Twins 的資料處理和使用者定義函式功能，請閱讀 [Azure Digital Twins 資料處理和使用者定義函式](concepts-user-defined-functions.md)。

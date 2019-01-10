@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8afe994f2441e736d660a306746508e9c6d13691
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 58eaec32fee149c845dc77a83763f2fcd8133a06
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001833"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120779"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>使用串流分析來處理從 Application Insights 匯出的資料
 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)是處理[從 Application Insights 匯出](export-telemetry.md)之資料的理想工具。 串流分析可以從各種來源提取資料。 它可以轉換和篩選資料，然後將它路由傳送至各種接收。
@@ -25,7 +25,7 @@ ms.locfileid: "54001833"
 在此範例中，將建立配接器，以從 Application Insights 取得資料、重新命名與處理某些欄位，以及透過管線將它傳送到 Power BI。
 
 > [!WARNING]
-> [在 Power BI 中顯示 Application Insights 資料的建議方式](../../application-insights/app-insights-export-power-bi.md)更好也更容易。 這裡所述的路徑只是說明如何處理所匯出資料的範例。
+> [在 Power BI 中顯示 Application Insights 資料的建議方式](../../azure-monitor/app/export-power-bi.md )更好也更容易。 這裡所述的路徑只是說明如何處理所匯出資料的範例。
 > 
 > 
 
@@ -198,7 +198,7 @@ ms.locfileid: "54001833"
 
 ## <a name="see-results-in-power-bi"></a>在 Power BI 中查看結果
 > [!WARNING]
-> [在 Power BI 中顯示 Application Insights 資料的建議方式](../../application-insights/app-insights-export-power-bi.md)更好也更容易。 這裡所述的路徑只是說明如何處理所匯出資料的範例。
+> [在 Power BI 中顯示 Application Insights 資料的建議方式](../../azure-monitor/app/export-power-bi.md )更好也更容易。 這裡所述的路徑只是說明如何處理所匯出資料的範例。
 > 
 > 
 
@@ -223,5 +223,5 @@ Noam Ben Zeev 示範如何使用串流分析來處理匯出的資料。
 ## <a name="next-steps"></a>後續步驟
 * [連續匯出](export-telemetry.md)
 * [屬性類型和值的詳細資料模型參考。](export-data-model.md)
-* [Application Insights](../../application-insights/app-insights-overview.md)
+* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 

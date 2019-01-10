@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 82b5e175f0340aae7e35b177d9faa4831982984c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999052"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189604"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>管理 Avere vFXT 叢集
 
@@ -63,11 +63,11 @@ Avere 控制台會設定資料完整性的優先順序，因此它會嘗試在�
 > [!NOTE] 
 > 當作用中節點的數目變更時，IP 位址可能會在叢集節點之間移動。
 
-如需詳細資訊，請閱讀 Avere 叢集設定指南中的[叢集 > FXT 節點](<http://library.averesystems.com/ops_guide/4_7/gui_fxt_nodes.html#gui-fxt-nodes>)。
+如需詳細資訊，請閱讀 Avere 叢集設定指南中的[叢集 > FXT 節點](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>)。
 
 ### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>使用 Avere 控制台停止或重新啟動叢集
 
-[系統維護] 設定頁面提供重新啟動叢集服務、重新啟動叢集，或安全地關閉叢集的命令。 如需詳細資訊，請閱讀[管理 > 系統維護](<http://library.averesystems.com/ops_guide/4_7/gui_system_maintenance.html#gui-system-maintenance>) (在 Avere 叢集設定指南中)。
+[系統維護] 設定頁面提供重新啟動叢集服務、重新啟動叢集，或安全地關閉叢集的命令。 如需詳細資訊，請閱讀[管理 > 系統維護](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (在 Avere 叢集設定指南中)。
 
 當叢集正在關閉時，它會先將訊息張貼至 [儀表板] 索引標籤。 幾分鐘之後，Avere 控制台工作階段將會停止回應，這表示叢集已經關閉。
 

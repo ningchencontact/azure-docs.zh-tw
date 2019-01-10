@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: a0bf8543338043d9a1990fd2be33a65a478af721
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fd5e62138d47622417bde658bf0d05308594d64e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021251"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104143"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>如何針對 Azure Redis 快取問題進行疑難排解
 本文提供下列類別的「Azure Redis 快取」問題疑難排解指引。
@@ -142,7 +142,7 @@ ms.locfileid: "53021251"
 2. Redis 遇到高度記憶體分散情形，儲存大型物件時最常造成此現象 (Redis 最適合小型物件，如需詳細資訊，請參閱 [Redis 的理想值大小範圍為何？100 KB 是否會太大？](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)文章)。 
 
 #### <a name="measurement"></a>測量
-Redis 會公開兩個可協助您識別此問題的度量。 第一個是 `used_memory`，另一個是 `used_memory_rss`。 [這些度量](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)可在 Azure 入口網站中或透過 [Redis INFO](http://redis.io/commands/info) 命令來取得。
+Redis 會公開兩個可協助您識別此問題的度量。 第一個是 `used_memory`，另一個是 `used_memory_rss`。 [這些度量](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)可在 Azure 入口網站中或透過 [Redis INFO](https://redis.io/commands/info) 命令來取得。
 
 #### <a name="resolution"></a>解決方案
 您可以進行幾項可能的變更，以協助讓記憶體使用量保持良好狀況︰
@@ -227,9 +227,9 @@ StackExchange.Redis 使用名為 `synctimeout` 的組態設定來進行預設值
    
    * 確認您是否在用戶端上受到 CPU 限制，而可能造成要求未在 `synctimeout` 間隔內進行處理，進而導致逾時。 改用較大的用戶端或分散負載有助於控制此問題。 
    * 確認您是否在伺服器上受到 CPU 限制，方法是監視 `CPU` [快取效能度量](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)。 如果要求在 Redis 受到 CPU 限制時傳入，則可能會造成這些要求逾時。 若要解決此狀況，您可以將負載分散在高階快取的多個分區中，或升級至較大的大小或定價層。 如需詳細資訊，請參閱 [超過伺服器端頻寬](#server-side-bandwidth-exceeded)。
-5. 伺服器上是否有命令需要很長的處理時間？ Redis 伺服器上處理時間很長的長時間執行命令可能會導致逾時。 長時間執行之命令的部分範例包括有大量金鑰的 `mget`、`keys *` 或編寫得不好的 lua 指令碼。 您可以使用 redis-cli 用戶端來連線到「Azure Redis 快取」執行個體，或使用 [Redis 主控台](cache-configure.md#redis-console)並執行 [SlowLog](http://redis.io/commands/slowlog) 命令，以查看是否有要求花費的時間超出預期。 Redis 伺服器和 StackExchange.Redis 最適合許多小型要求，而非少數幾個大型要求。 將資料分割成較小的區塊可以改善這些問題。 
+5. 伺服器上是否有命令需要很長的處理時間？ Redis 伺服器上處理時間很長的長時間執行命令可能會導致逾時。 長時間執行之命令的部分範例包括有大量金鑰的 `mget`、`keys *` 或編寫得不好的 lua 指令碼。 您可以使用 redis-cli 用戶端來連線到「Azure Redis 快取」執行個體，或使用 [Redis 主控台](cache-configure.md#redis-console)並執行 [SlowLog](https://redis.io/commands/slowlog) 命令，以查看是否有要求花費的時間超出預期。 Redis 伺服器和 StackExchange.Redis 最適合許多小型要求，而非少數幾個大型要求。 將資料分割成較小的區塊可以改善這些問題。 
    
-    如需有關使用 redis-cli 和 stunnel 來連線到「Azure Redis 快取」SSL 端點的資訊，請參閱[宣佈適用於 Redis 預覽版的 ASP.NET 工作階段狀態提供者](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) \(英文\) 部落格文章。 如需詳細資訊，請參閱 [SlowLog](http://redis.io/commands/slowlog)。
+    如需有關使用 redis-cli 和 stunnel 來連線到「Azure Redis 快取」SSL 端點的資訊，請參閱[宣佈適用於 Redis 預覽版的 ASP.NET 工作階段狀態提供者](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) \(英文\) 部落格文章。 如需詳細資訊，請參閱 [SlowLog](https://redis.io/commands/slowlog)。
 6. 高 Redis 伺服器負載可能會導致逾時。 您可以藉由監視 `Redis Server Load` [快取效能度量](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)來監視伺服器負載。 伺服器負載為 100 (最大值) 表示 Redis 伺服器正忙碌處理要求，並沒有閒置的時間。 若要確認特定要求是否會佔用所有伺服器功能，請執行 SlowLog 命令，如上一段所述。 如需詳細資訊，請參閱 [高 CPU 使用率/伺服器負載](#high-cpu-usage-server-load)。
 7. 用戶端上是否有其他任何事件可能導致網路問題？ 檢查用戶端 (Web、背景工作角色或 Iaas VM) 上是否有用戶端執行個體數目相應增加或相應減少，或部署新版用戶端或已啟用自動調整之類的事件？我們在測試中發現，自動調整或相應增加/相應減少可能會導致輸出網路連線中斷幾秒鐘。 StackExchange.Redis 程式碼對於這類事件具有復原能力，因此將會重新連線。 在重新連線的這段時間內，佇列中的任何要求都會逾時。
 8. 針對「Azure Redis 快取」，在數個小型要求之前是否有大型要求已逾時？ 錯誤訊息中的參數 `qs` 會告訴您有多少要求已從用戶端傳送到伺服器，但尚未處理回應。 這個值會不斷成長，因為 StackExchange.Redis 使用單一 TCP 連線，而且一次只能讀取一個回應。 即使第一項作業已逾時，它也不會停止傳送資料到伺服器/從伺服器傳出資料，在大型要求完成之前，其他要求都會遭到封鎖，因而導致逾時。 有一個解決方案是確保快取足以容納工作負載，並將較大的值分割成較小的區塊，以將逾時的機會降到最低。 另一個可能的解決方案是在用戶端中使用 `ConnectionMultiplexer` 物件集區，並在傳送新要求時選擇最少負載的 `ConnectionMultiplexer`。 這應該就能防止單一逾時造成其他要求也逾時。

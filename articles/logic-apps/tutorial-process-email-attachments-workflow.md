@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 93894f9c45ac8b2cfcec23cf6a9ccd4d8e6f6824
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140501"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121714"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>教學課程：使用 Azure Logic Apps 自動處理電子郵件和附件
 
@@ -145,7 +145,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
    | **主控方案** | 取用方案 | 此設定會決定如何配置和調整執行函式應用程式所需的資源，例如運算能力。 請參閱[主控方案比較](../azure-functions/functions-scale.md)。 | 
    | **位置** | 美國西部 | 您先前使用的相同區域 | 
    | **儲存體** | cleantextfunctionstorageacct | 為您的函式應用程式建立儲存體帳戶。 請一律使用小寫字母和數字。 <p>**附註：** 此儲存體帳戶包含您的函式應用程式，且不同於您先前為電子郵件附件建立的儲存體帳戶。 | 
-   | **Application Insights** | 關閉 | 可開啟 [Application Insights](../application-insights/app-insights-overview.md) 的應用程式監視功能，但在此教學課程中，請選擇 [關閉] 設定。 | 
+   | **Application Insights** | 關閉 | 可開啟 [Application Insights](../azure-monitor/app/app-insights-overview.md) 的應用程式監視功能，但在此教學課程中，請選擇 [關閉] 設定。 | 
    |||| 
 
    如果函式應用程式未在部署之後自動開啟，請在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中尋找您的應用程式。 在主要 Azure 功能表上選取 [函式應用程式]，然後選取您的函式應用程式。 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 862380a35dcc4d50dce8d709bd1dbea1aa38e37a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728341"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54049957"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>將來自 Azure 監視器的資料視覺化
 本文會概要介紹用以將儲存在 Azure 監視器中的記錄和計量資料視覺化的可用方法。
@@ -71,7 +71,7 @@ ms.locfileid: "53728341"
 
 
 ## <a name="application-insights-workbooks"></a>Application Insights 活頁簿
-[活頁簿](../application-insights/app-insights-usage-workbooks.md)是互動式的文件，可以提供對團隊內部的資料、調查和共同作業的深入解析。 顯見活頁簿實用性的具體範例，在於疑難排解指南和事件事後分析。
+[活頁簿](../azure-monitor/app/usage-workbooks.md)是互動式的文件，可以提供對團隊內部的資料、調查和共同作業的深入解析。 顯見活頁簿實用性的具體範例，在於疑難排解指南和事件事後分析。
 
 ![活頁簿](media/visualizations/workbook.png)
 
@@ -140,7 +140,7 @@ ms.locfileid: "53728341"
 - 了解 [ Azure 監視器收集的資料](platform/data-collection.md)。
 - 了解 [Azure 儀表板](../azure-portal/azure-portal-dashboards.md)。
 - 了解 [Azure 監視器中的檢視](platform/view-designer.md)。
-- 了解 [Application Insights 中的活頁簿](../application-insights/app-insights-usage-workbooks.md)。
+- 了解 [Application Insights 中的活頁簿](../azure-monitor/app/usage-workbooks.md)。
 - 了解[將記錄資料匯入 Power BI](../azure-monitor/platform/powerbi.md)。
 - 了解 [Grafana Azure 監視器資料來源外掛程式](../azure-monitor/platform/grafana-plugin.md)。
 

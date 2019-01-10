@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: cff742688c307becf4bf87cced15036b25fa10c8
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: f47b1d35ada061601233506222903742393c6830
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554617"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101746"
 ---
 # <a name="quickstart-how-to-use-azure-cache-for-redis-with-nodejs"></a>快速入門：如何搭配使用 Azure Cache for Redis 與 Node.js
 
@@ -42,7 +42,7 @@ Azure Cache for Redis 可讓您存取由 Microsoft 所管理的安全、專用 A
 
     npm install redis
 
-本教學課程使用 [node_redis](https://github.com/mranney/node_redis)。 如需使用其他 Node.js 用戶端的範例，請參閱列在 [Node.js Redis 用戶端](http://redis.io/clients#nodejs)之 Node.js 用戶端的個別文件。
+本教學課程使用 [node_redis](https://github.com/mranney/node_redis)。 如需使用其他 Node.js 用戶端的範例，請參閱列在 [Node.js Redis 用戶端](https://redis.io/clients#nodejs)之 Node.js 用戶端的個別文件。
 
 
 ## <a name="create-a-cache"></a>建立快取
@@ -77,7 +77,7 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
 
 建立名為 redistest.js 的新指令檔。
 
-在檔案中新增下列 JavaScript 範例。 此程式碼示範如何使用快取主機名稱和金鑰環境變數來連線至 Azure Cache for Redis 執行個體。 此程式碼也會將字串值儲存到快取中，以及擷取其中的字串值。 `PING` 和 `CLIENT LIST` 命令也會執行。 如需更多搭配使用 Redis 與 [node_redis](https://github.com/mranney/node_redis) 用戶端的範例，請參閱 [http://redis.js.org/](http://redis.js.org/)。
+在檔案中新增下列 JavaScript 範例。 此程式碼示範如何使用快取主機名稱和金鑰環境變數來連線至 Azure Cache for Redis 執行個體。 此程式碼也會將字串值儲存到快取中，以及擷取其中的字串值。 `PING` 和 `CLIENT LIST` 命令也會執行。 如需更多搭配使用 Redis 與 [node_redis](https://github.com/mranney/node_redis) 用戶端的範例，請參閱 [https://redis.js.org/](https://redis.js.org/)。
 
 ```js
 var redis = require("redis");

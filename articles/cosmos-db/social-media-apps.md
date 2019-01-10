@@ -1,19 +1,17 @@
 ---
 title: Azure Cosmos DB 設計模式：社交媒體應用程式
 description: 了解具有 Azure Cosmos DB 與其他 Azure 服務之儲存體彈性的社交網路設計模式。
-keywords: 社交媒體應用程式
-services: cosmos-db
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 494566cc7d49d502fd0bd864e70b338b8d6e0788
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 8d6dfa292bd597c2e37f7111e3a068010dc4653c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726777"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042678"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 跨足社交
 

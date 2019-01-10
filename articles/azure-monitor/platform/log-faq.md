@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 8d062108dbb27095e978b4973cb7bc5172a4d814
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a2213ac9b31623aed18855ce87e7e00870b05247
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186271"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107218"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常見問題集
 此 Microsoft 常見問題集是 Microsoft Azure 中 Log Analytics 常見問題的清單。 若您有任何關於 Log Analytics 的其他問題，請前往[討論論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
@@ -45,7 +45,7 @@ Azure 入口網站中的新 [Logs] 體驗是以進階分析入口網站為基礎
 
 答：目前傳統記錄體驗才支援自訂欄位擷取。 
 
-### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>問： 在新的記錄中哪裡可以找到 [清單] 檢視？ 
+### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>問： 在新的 Logs 中哪裡可以找到 [清單] 檢視？ 
 
 答：新的記錄中無法使用 [清單] 檢視。 結果表格中的每筆記錄左邊會有一個箭號。 按一下此箭號就能開啟特定記錄的詳細資料。 
 
@@ -69,7 +69,7 @@ Azure 入口網站中的新 [Logs] 體驗是以進階分析入口網站為基礎
 答：記錄中的「檢視設計工具」僅適用於獲派「參與者」權限或更高權限的使用者。
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>問： 我仍可在 Azure 外部使用 Analytics 入口網站嗎？
-答： 是，Azure 中的 [Logs] 頁面和進階分析入口網站是以相同的程式碼為基礎。 Log Analytics 會整合為 Azure 監視器中的功能，以提供更加統一的監視體驗。 您仍然可以使用以下 URL 存取 Analytics 入口網站： https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}。
+A. 是，Azure 中的 [Logs] 頁面和進階分析入口網站是以相同的程式碼為基礎。 Log Analytics 會整合為 Azure 監視器中的功能，以提供更加統一的監視體驗。 您仍然可以使用以下 URL 存取 Analytics 入口網站： https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}。
 
 
 
@@ -106,7 +106,7 @@ Azure 入口網站中的新 [Logs] 體驗是以進階分析入口網站為基礎
 
 ### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>問：Log Analytics 是否有內部部署版本？
 
-答：否。 Log Analytics 是一個可擴充的雲端服務，可處理並儲存大量資料。 
+答：沒有。 Log Analytics 是一個可擴充的雲端服務，可處理並儲存大量資料。 
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>問： 如何針對 Log Analytics 不再收集資料的問題進行疑難排解？
 
@@ -152,23 +152,23 @@ Log Analytics 使用 UTC 時間，而且每天從午夜 UTC 開始。 如果工�
 ## <a name="configuration"></a>組態
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>問： 可以變更用來從 Azure 診斷 (WAD) 讀取的資料表/Blob 容器的名稱嗎？
 
-答： 不可以，目前無法讀取 Azure 儲存體中的任意資料表或容器。
+A. 不可以，目前無法讀取 Azure 儲存體中的任意資料表或容器。
 
 ### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>問： Log Analytics 服務使用哪些 IP 位址？ 如何確保我的防火牆只允許對 Log Analytics 服務的流量？
 
-答： Log Analytics 服務以 Azure 為建置基礎。 Log Analytics IP 位址位於 [Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)內。
+A. Log Analytics 服務以 Azure 為建置基礎。 Log Analytics IP 位址位於 [Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)內。
 
 進行服務部署時，Log Analytics 服務的實際 IP 位址會變更。 允許通過防火牆的 DNS 名稱會記載於[網路需求](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)中。
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>問： 我可以使用 ExpressRoute 連接到 Azure。 我的 Log Analytics 流量是否會使用我的 ExpressRoute 連線？
 
-答： [ExpressRoute 文件](../../expressroute/expressroute-faqs.md#supported-services)中描述不同類型的 ExpressRoute 流量。
+A. [ExpressRoute 文件](../../expressroute/expressroute-faqs.md#supported-services)中描述不同類型的 ExpressRoute 流量。
 
 通往 Log Analytics 的流量都會使用公用互連 ExpressRoute 電路。
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>問： 有簡單且輕鬆的方法，可將現有的 Log Analytics 工作區移至另一個 Log Analytics 工作區/Azure 訂用帳戶嗎？
 
-答： `Move-AzureRmResource` Cmdlet 可讓您將 Log Analytics 工作區及自動化帳戶從一個 Azure 訂用帳戶移至另一個 Azure 訂用帳戶。 如需詳細資訊，請參閱 [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx)。
+A. `Move-AzureRmResource` Cmdlet 可讓您將 Log Analytics 工作區及自動化帳戶從一個 Azure 訂用帳戶移至另一個 Azure 訂用帳戶。 如需詳細資訊，請參閱 [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx)。
 
 這項變更也可在 Azure 入口網站進行。
 
@@ -215,19 +215,19 @@ Log Analytics 使用 UTC 時間，而且每天從午夜 UTC 開始。 如果工�
 
 ## <a name="agent-data"></a>代理程式資料
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>問： 我可以透過代理程式傳送多少資料到 Log Analytics？ 是否有每位客戶最大的資料量？
-答： 免費方案每個工作區的每日容量設定為 500 MB。 標準和進階計畫對於所上傳的資料量沒有限制。 作為一項雲端服務，Log Analytics 的設計可自動相應增加，以處理來自客戶的資料量，即使是每日數 TB。
+A. 免費方案每個工作區的每日容量設定為 500 MB。 標準和進階計畫對於所上傳的資料量沒有限制。 作為一項雲端服務，Log Analytics 的設計可自動相應增加，以處理來自客戶的資料量，即使是每日數 TB。
 
 Log Analytics 代理程式的設計是為了確保它的使用量很小。 資料量會視您啟用的解決方案而不同。 您可以在[使用量](../../azure-monitor/platform/data-usage.md)頁面中找到有關資料量的詳細資訊，並依解決方案查看細目。
 
-如需詳細資訊，您可以閱讀[客戶部落格](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) \(英文\)，其中顯示評估 OMS 代理程式的資源使用率 (使用量) 之後的結果。
+如需詳細資訊，您可以閱讀[客戶部落格](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) \(英文\)，其中顯示評估 OMS 代理程式的資源使用率 (使用量) 之後的結果。
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>問： 傳送資料到 Log Analytics 時，Microsoft 管理代理程式 (MMA) 使用多少網路頻寬？
 
-答： 頻寬是關於傳送的資料量的功能。 透過網路傳送資料時，會壓縮資料。
+A. 頻寬是關於傳送的資料量的功能。 透過網路傳送資料時，會壓縮資料。
 
 ### <a name="q-how-much-data-is-sent-per-agent"></a>問： 每個代理程式會傳送多少資料？
 
-答： 每個代理程式所傳送的資料量取決於：
+A. 每個代理程式所傳送的資料量取決於：
 
 * 您已啟用的解決方案
 * 記錄檔和要收集之效能計數器的數目

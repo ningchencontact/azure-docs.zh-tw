@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: f733a321470321b5b0f8bce48b4ac7978027fab7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 095ecdccde930db20ee858bfce7fc0811163cdd9
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973463"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038257"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>在 Application Insights SDK 中篩選及前置處理遙測
 
 
 您可以針對 Application Insights SDK 撰寫與設定外掛程式，以自訂在遙測傳送至 Application Insights 服務之前，擷取與處理它的方式。
 
-* [取樣](../../application-insights/app-insights-sampling.md) 可減少遙測的量而不會影響統計資料。 它可將相關資料點寶持放在一起，因此您診斷問題時，能夠在資料點之間瀏覽。 在入口網站中將乘以總計數，以補償取樣。
+* [取樣](../../azure-monitor/app/sampling.md) 可減少遙測的量而不會影響統計資料。 它可將相關資料點寶持放在一起，因此您診斷問題時，能夠在資料點之間瀏覽。 在入口網站中將乘以總計數，以補償取樣。
 * 使用 [ASP.NET](#filtering) 或 [Java](../../azure-monitor/app/java-filter-telemetry.md) 適用的遙測處理器進行篩選，可讓您先在 SDK 中選取或修改遙測，再將遙測傳送到伺服器。 例如，您可以從傀儡程式中排除要求來減少遙測量。 但和取樣相比，篩選是減少流量更基本的方法。 它可讓您更充分掌握傳輸內容，但是您必須注意，它會影響統計資料 (例如，若您要篩選所有成功的要求)。
 * [遙測初始設定式會新增屬性](#add-properties) 至任何從應用程式傳送出來的遙測，包括從標準模組傳送出來的遙測。 例如，您可以新增計算好的值，或是用來在入口網站中篩選資料的版本號碼。
 * [SDK API](../../azure-monitor/app/api-custom-events-metrics.md) 可用來傳送自訂事件和計量。
@@ -43,7 +43,7 @@ ms.locfileid: "53973463"
 > [!WARNING]
 > 篩選傳送自使用處理器的 SDK 的遙測可能會曲解您在入口網站中看到的統計資料，並且難以追蹤相關的項目。
 >
-> 請考慮改用 [取樣](../../application-insights/app-insights-sampling.md)。
+> 請考慮改用 [取樣](../../azure-monitor/app/sampling.md)。
 >
 >
 
@@ -371,5 +371,5 @@ void initialize(Telemetry telemetry); }
 
 ## <a name="next"></a>接續步驟
 * [搜尋事件和記錄檔](../../azure-monitor/app/diagnostic-search.md)
-* [取樣](../../application-insights/app-insights-sampling.md)
-* [疑難排解](../../application-insights/app-insights-troubleshoot-faq.md)
+* [取樣](../../azure-monitor/app/sampling.md)
+* [疑難排解](../../azure-monitor/app/troubleshoot-faq.md)

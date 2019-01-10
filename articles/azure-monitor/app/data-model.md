@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 9d7266e75d863ab5c024217e137566c109e79f70
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 749b4077b457eff836ec515f21d97e892e663156
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997891"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120660"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Application Insights 遙測資料模型
 
-[Azure Application Insights](../../application-insights/app-insights-overview.md) 會將遙測從您的 Web 應用程式傳送到 Azure 入口網站，以便您可以分析應用程式的效能和使用量。 遙測模型已經過標準化，如此就可以建立平台與無關語言的監視。 
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 會將遙測從您的 Web 應用程式傳送到 Azure 入口網站，以便您可以分析應用程式的效能和使用量。 遙測模型已經過標準化，如此就可以建立平台與無關語言的監視。 
 
 Application Insights 所收集的資料會建立一般應用程式執行模式的模型︰
 
@@ -55,5 +55,5 @@ Application Insights 資料模型是簡單且基本但功能強大的方式，�
 
 - [撰寫自訂遙測](../../azure-monitor/app/api-custom-events-metrics.md)
 - 了解如何[擴充和篩選遙測](../../azure-monitor/app/api-filtering-sampling.md)。
-- 使用[取樣](../../application-insights/app-insights-sampling.md)，根據資料模型將遙測量降到最低。
+- 使用[取樣](../../azure-monitor/app/sampling.md)，根據資料模型將遙測量降到最低。
 - 查看 Application Insights 支援的[平台](../../azure-monitor/app/platforms.md)。
