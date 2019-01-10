@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: be44a233c2b09aa91ec04b5a64b523a2d0b00db1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd872e7aa9ada8c46b0af897b4d7ad137b767514
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599854"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103786"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>教學課程：Azure SignalR 服務驗證
 
@@ -547,7 +547,7 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 您需要執行的最後一件事是將 GitHub OAuth 應用程式的**首頁 URL** 和**授權回呼 URL** 更新為指向新裝載的應用程式。
 
-1. 在瀏覽器中開啟 [http://github.com](http://github.com)，然後瀏覽至您帳戶的 [設定] > [開發人員設定] > [Oauth應用程式]。
+1. 在瀏覽器中開啟 [https://github.com](https://github.com)，然後瀏覽至您帳戶的 [設定] > [開發人員設定] > [Oauth應用程式]。
 
 2. 按一下您的驗證應用程式，然後更新**首頁 URL** 和**授權回呼 URL**，如下所示：
 

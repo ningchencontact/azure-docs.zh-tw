@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/21/2018
 ms.author: mbullwin
 ms.custom: include file
-ms.openlocfilehash: 1efddb605422f00575cc0e44592315b725c838e3
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 6b9b40c457766573be0d72cb7f4ebe2328a070f5
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002768"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026259"
 ---
 每個應用程式 (亦即每個檢測金鑰) 都有一些度量和事件的數目限制。 限制取決於您選擇的[定價方案](https://azure.microsoft.com/pricing/details/application-insights/)。
 
@@ -28,7 +28,7 @@ ms.locfileid: "54002768"
 | 屬性值字串長度 | 8,192 | 請參閱[類型結構描述](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)。
 | 追蹤和例外狀況訊息長度 | 10 K | 請參閱[類型結構描述](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)。
 | 每個應用程式的[可用性測試](../articles/azure-monitor/app/monitor-web-app-availability.md)計數 | 100 |
-| [分析工具](../articles/application-insights/app-insights-profiler.md)資料保留期 | 5 天 |
-| 每天傳送的[分析工具](../articles/application-insights/app-insights-profiler.md)資料 | 10 GB |
+| [分析工具](../articles/azure-monitor/app/profiler.md)資料保留期 | 5 天 |
+| 每天傳送的[分析工具](../articles/azure-monitor/app/profiler.md)資料 | 10 GB |
 
 如需詳細資訊，請參閱[關於 Application Insights 中的價格和配額](../articles/azure-monitor/app/pricing.md)。

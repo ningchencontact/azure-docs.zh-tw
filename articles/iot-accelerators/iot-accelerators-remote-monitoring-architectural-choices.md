@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20af014e5a59cb526d5b96e543b10d5b2b6d6937
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 9140739e1c9610cb4cbefb611546fe9588512d06
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679591"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050586"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>遠端監視架構選擇
 
@@ -51,7 +51,7 @@ Azure IoT 中樞可作為遠端監視解決方案雲端閘道。 [IoT 中樞](ht
 
 對於 IoT 裝置連線，您可以使用：
 
-- [IoT 中樞裝置 SDK](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) 可為您的裝置實作原生用戶端應用程式。 此 SDK 會提供包裝 IoT 中樞 REST API 的包裝函式，並處理重試之類的案例。
+- [IoT 中樞裝置 SDK](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) 可為您的裝置實作原生用戶端應用程式。 此 SDK 會提供包裝 IoT 中樞 REST API 的包裝函式，並處理重試之類的案例。
 - 與 Azure IoT Edge 整合，可部署及管理在您裝置上的容器中執行的自訂模組。
 - 與 IoT 中樞的自動裝置管理整合，以管理大量連線的裝置。
 

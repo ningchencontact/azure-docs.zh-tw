@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0470c12f7965ec5d7e151bb6b03163d6946b83e6
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e3259cb2fce9b5ec1725b200bcd53d9a8b33e908
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743233"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050246"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 PHP 和 MySQL 應用程式
 
@@ -194,7 +194,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > [僅使用您的應用程式所用的輸出 IP 位址](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)，讓您的防火牆規則更具限制性。
 >
 
-在 Cloud Shell 中，將 *\<您的 IP 位址>* 取代為[您的本機 IPv4 IP 位址](https://www.whatsmyip.org/)並再次執行命令，以允許從您的本機電腦進行存取。
+在 Cloud Shell 中，將 *\<您的 IP 位址>* 取代為[您的本機 IPv4 IP 位址](http://www.whatsmyip.org/)並再次執行命令，以允許從您的本機電腦進行存取。
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
@@ -566,7 +566,7 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-完成 `git push` 之後，瀏覽至 Azure 應用程式，然後測試新功能。
+完成 `git push` 之後，巡覽至 Azure 應用程式，然後測試新功能。
 
 ![發佈至 Azure 的模型和資料庫變更](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -574,7 +574,7 @@ git push azure master
 
 ## <a name="manage-the-azure-app"></a>管理 Azure 應用程式
 
-請移至 [Azure 入口網站](https://portal.azure.com)，以管理您所建立的應用程式。
+移至 [Azure 入口網站](https://portal.azure.com)，以管理您所建立的應用程式。
 
 按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
 

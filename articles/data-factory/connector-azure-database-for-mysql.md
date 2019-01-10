@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: e254c9b18d86debad7ba914a0a4d41369795bc58
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: cbf8a70dae566dcc22b5c5caa84d0781dc2467f9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050009"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022167"
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>使用 Azure Data Factory 從適用於 MySQL 的 Azure 資料庫複製資料
 
@@ -42,8 +41,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設為：**AzureMySql** | yes |
-| connectionString | 指定連線到適用於 MySQL 的 Azure 資料庫執行個體所需的資訊。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
+| type | 類型屬性必須設定為：**AzureMySql** | 是 |
+| connectionString | 指定連線到適用於 MySQL 的 Azure 資料庫執行個體所需的資訊。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 一般的連接字串為 `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`。 您可以根據您的案例設定更多屬性：
@@ -82,7 +81,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的 type 屬性必須設定為：**AzureMySqlTable** | yes |
+| type | 資料集的類型屬性必須設定為：**AzureMySqlTable** | 是 |
 | tableName | MySQL 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
@@ -113,8 +112,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為：**AzureMyTableSource** | yes |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
+| type | 複製活動來源的類型屬性必須設定為：**AzureMySqlSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
 

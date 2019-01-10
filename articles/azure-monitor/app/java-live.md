@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: 4510c66dc0a64f65de9f9ee57563b847e20e25de
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5d0866bdd96a1b0f626c369cfd646f6249a4da54
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000473"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121374"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>適用於使用中 Java Web 應用程式的 Application Insights
 
-如果您有 Web 應用程式已在 J2EE 伺服器上執行，您可以使用 [Application Insights](../../application-insights/app-insights-overview.md) 開始監視它，不需要變更程式碼或重新編譯您的專案。 使用此選項可以取得傳送至您伺服器的 HTTP 要求、未處理的例外狀況和效能計數器的相關資訊。
+如果您有 Web 應用程式已在 J2EE 伺服器上執行，您可以使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 開始監視它，不需要變更程式碼或重新編譯您的專案。 使用此選項可以取得傳送至您伺服器的 HTTP 要求、未處理的例外狀況和效能計數器的相關資訊。
 
 您將需要 [Microsoft Azure](https://azure.com)訂用帳戶。
 

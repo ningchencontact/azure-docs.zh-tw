@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d4a51551fb0f9067929df1fdf074e7286938004b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187356"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187700"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>在流量管理員中設定多值路由方法
 
@@ -47,9 +47,9 @@ ms.locfileid: "53187356"
     | 訂用帳戶            | 選取您的訂用帳戶。                          |
     | 資源群組          | 選取 [myResourceGroupTM1]。 |
     | 位置                | 這項設定是指資源群組的位置，完全不影響將部署到全球的流量管理員設定檔。                              |
-    
+   |        |           | 
   
-    ![建立流量管理員設定檔](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+  ![建立流量管理員設定檔](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>新增流量管理員端點
 
@@ -69,7 +69,7 @@ ms.locfileid: "53187356"
 4. 重複步驟 2 和 3 以新增名為 *myEndpoint2* 的其他端點；至於**完整網域名稱 (FQDN) 或 IP**，則輸入第二個端點的公用 IP 位址。
 5.  這兩個端點新增完畢後，它們會顯示在 [流量管理員設定檔] 中，而且監視狀態是 [線上]。
 
-    ![新增流量管理員端點](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
+   ![新增流量管理員端點](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  
 ## <a name="next-steps"></a>後續步驟
 

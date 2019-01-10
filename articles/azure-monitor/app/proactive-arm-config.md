@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: fe675a39abfd1ddc70ecdb21496b7197962ca368
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b1f4d278079b81b4a224dc4712426d1f078de110
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004446"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020399"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Application Insights 智慧偵測規則
 
@@ -159,6 +159,6 @@ ms.locfileid: "54004446"
 
 深入了解自動偵測：
 
-- [失敗的異常](../../application-insights/app-insights-proactive-failure-diagnostics.md)
-- [記憶體流失](../../application-insights/app-insights-proactive-potential-memory-leak.md)
-- [效能異常](../../application-insights/app-insights-proactive-performance-diagnostics.md)
+- [失敗的異常](../../azure-monitor/app/proactive-failure-diagnostics.md)
+- [記憶體流失](../../azure-monitor/app/proactive-potential-memory-leak.md)
+- [效能異常](../../azure-monitor/app/proactive-performance-diagnostics.md)

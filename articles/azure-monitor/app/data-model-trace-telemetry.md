@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: a80c96891f3d91a920519db2915932742bd84d72
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: df85aafc81b199610c02f0faecb06e804fda24bb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002292"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118059"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>追蹤遙測：Application Insights 資料模型
 
-追蹤遙測 (在 [Application Insights](../../application-insights/app-insights-overview.md) 中) 代表以文字搜尋的 `printf` 樣式追蹤陳述式。 `Log4Net`、`NLog`和其他以文字為基礎的記錄檔項目會轉譯成此類型的執行個體。 追蹤沒有作為擴充性的度量。
+追蹤遙測 (在 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中) 代表以文字搜尋的 `printf` 樣式追蹤陳述式。 `Log4Net`、`NLog`和其他以文字為基礎的記錄檔項目會轉譯成此類型的執行個體。 追蹤沒有作為擴充性的度量。
 
 ## <a name="message"></a>訊息
 

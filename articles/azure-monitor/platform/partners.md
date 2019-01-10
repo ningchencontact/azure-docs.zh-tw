@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 95e4140125f064d4e279c90f60b390c4762e8cf8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6ed8bae2e1571722f7a9a0030a48e64c4f7fbc60
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580207"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106659"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 監視器合作夥伴整合
 | 合作夥伴 |  |  |
@@ -126,7 +126,7 @@ PagerDuty 是業界領先的事件管理解決方案，針對 Azure 度量警示
 [請移至文件。][pagerduty-doc]
 
 ## <a name="qradar"></a>QRadar
-Microsoft Azure DSM 與 Microsoft Azure 事件中樞通訊協定均可從 [IBM 支援網站](http://www.ibm.com/support)下載。 您可以[從這裡深入了解與 Azure 的整合][qradar-doc]。
+Microsoft Azure DSM 與 Microsoft Azure 事件中樞通訊協定均可從 [IBM 支援網站](https://www.ibm.com/support)下載。 您可以[從這裡深入了解與 Azure 的整合][qradar-doc]。
 
 ## <a name="sciencelogic"></a>ScienceLogic
 ScienceLogic 提供新一代 IT 服務保證平台，可在任何位置管理任何技術。 ScienceLogic 可以為簡化管理 IT 資源、服務和應用程式的工作提供級別、安全性、自動化和恢復功能。 ScienceLogic 平台會使用 Azure API 做為 Microsoft Azure 的介面。 ScienceLogic 可讓您即時掌握您的 Azure 服務和資源。 您就能在某個項目無法運作時得知，並且更快修正。 您也可以與其他雲端和資料中心系統和服務管理 Azure。
@@ -230,8 +230,8 @@ Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric 簡介。"
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
-[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix 簡介。"
-[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog 文件。"
+[cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "CloudMonix 簡介。"
+[datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Datadog 文件。"
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace 文件。"
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic 文件。"
 [grafana-doc]: ./grafana-plugin.md "Azure 監視器 Grafana 整合。"

@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 343af57cc8f3e63965dc1fe1827b2945009ea8bf
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e004dc6b7d78849705f8d3fa3545efe7318d3911
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045777"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022796"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>以程式設計方式監視 Azure Data Factory
 本文說明如何使用不同的軟體開發套件 (SDK) 來監視資料處理站中的管線。 

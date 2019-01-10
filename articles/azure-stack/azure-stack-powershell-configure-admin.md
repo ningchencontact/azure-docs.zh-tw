@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 1f9d5325522f8ec40af99059651a00f6cdc0e8e0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7a744520fe2a3b53b1306d4c80a5eca7d86258a7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089611"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104534"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>以操作員的身分使用 PowerShell 連線到 Azure Stack
 
@@ -39,6 +39,9 @@ ms.locfileid: "53089611"
 使用 PowerShell 來設定 Azure Stack 操作員環境。 執行下列其中一個指令碼：請將 Azure Active Directory (Azure AD) tenantName 和 Azure Resource Manager 端點值取代為您自己的環境設定。 <!-- GraphAudience endpoint -->
 
 ```PowerShell  
+    # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
+Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+
     # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
     $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"

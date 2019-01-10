@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: b2204ca4c3f98bcd0ee353a8f5d4d76cb5ec3df7
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1b2e1300c200619f5d1177e9761ad948c62c1239
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999079"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013803"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Application Insights for Java 的疑難排解和問答集
 [Java 中的 Azure Application Insights][java] 疑問或問題？ 以下是一些秘訣。
@@ -48,7 +48,7 @@ ms.locfileid: "53999079"
 * 正在尋找適當的 AI 資源嗎？ 請比對應用程式的 iKey 與您預期遙測的資源。 它們應該相同。
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>我並沒有看到預期的所有資料
-* 開啟 [使用量和估計成本] 頁面，並檢查[取樣](../../application-insights/app-insights-sampling.md)是否正在運作。 (100% 傳輸表示目前未進行取樣。)Application Insights 服務可以設定為只接受來自您的應用程式的一小部分遙測。 這有助於您維持在每月的遙測配額內。
+* 開啟 [使用量和估計成本] 頁面，並檢查[取樣](../../azure-monitor/app/sampling.md)是否正在運作。 (100% 傳輸表示目前未進行取樣。)Application Insights 服務可以設定為只接受來自您的應用程式的一小部分遙測。 這有助於您維持在每月的遙測配額內。
 * 您是否已開啟 SDK 取樣？ 如果是，則應該會針對所有適用的類型以指定的速率進行資料取樣。
 * 您正在執行較舊版本的 Java SDK？ 從 2.0.1 版開始，我們引進容錯機制來處理間歇性的網路和後端失敗，以及本機磁碟上的資料持續性。
 * 是否因為過多的遙測而遭到節流？ 如果您開啟 INFO 記錄，將會看到記錄訊息「應用程式已節流」。 我們目前的限制為每秒 32,000 個遙測項目。

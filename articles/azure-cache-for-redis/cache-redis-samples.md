@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: c9a2d569641ab0f8f6aa1d7234da1d3cbb0ab147
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e14e76be50fc71738779e0196b2034ca4f8e0097
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744984"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103872"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Azure Cache for Redis 範例
 本主題提供「Azure Redis 快取」範例清單，其中涵蓋下列這類案例：連線至快取、對快取進行資料讀取和寫入，以及使用 ASP.NET「Azure Redis 快取」提供者。 有些範例是可下載的專案，有些則提供逐步指導並包括程式碼片段，但沒有可下載專案的連結。
@@ -47,7 +47,7 @@ ms.locfileid: "53744984"
 [使用快取中的 .NET 物件](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) 說明一種將 .NET 物件序列化的方式，以便您能夠對「Azure Redis 快取」執行個體讀取和寫入這些物件。 
 
 ## <a name="use-azure-cache-for-redis-as-a-scale-out-backplane-for-aspnet-signalr"></a>使用 Azure Redis 快取作為 ASP.NET SignalR 的向外延展後擋板
-[使用 Azure Redis 快取作為 ASP.NET SignalR 的向外延展後擋板](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane)範例示範如何使用「Azure Redis 快取」作為 SignalR 後擋板。 如需後擋板的詳細資訊，請參閱 [使用 Redis 的 SignalR 向外延展](http://www.asp.net/signalr/overview/performance/scaleout-with-redis)。
+[使用 Azure Redis 快取作為 ASP.NET SignalR 的向外延展後擋板](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane)範例示範如何使用「Azure Redis 快取」作為 SignalR 後擋板。 如需後擋板的詳細資訊，請參閱 [使用 Redis 的 SignalR 向外延展](https://www.asp.net/signalr/overview/performance/scaleout-with-redis)。
 
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Azure Redis 快取客戶查詢範例
 本範例示範如何比較從快取中存取資料與從持續性儲存體中存取資料之間的效能。 此範例有兩個專案。
