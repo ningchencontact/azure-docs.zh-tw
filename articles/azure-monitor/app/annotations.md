@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 126c0d63a7d59b76361a25844575ee6556a475b1
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8536cce8de79f396b5d60058dd41f733d2627c87
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002071"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119130"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights 中度量圖表上的註解
 
 [計量瀏覽器](../../azure-monitor/app/metrics-explorer.md)圖表上的註解會顯示您在哪裡部署了新的組建，或是其他重要事件。 註解可讓您輕鬆查看變更是否對應用程式的效能有任何影響。 [Azure DevOps Services 建置系統](https://docs.microsoft.com/azure/devops/pipelines/tasks/)可以自動建立這些註解。 您也可以[從 PowerShell 建立註解](#create-annotations-from-powershell)來標幟您想要的任何事件。
 
 > [!NOTE]
-> 本文反映已被取代的**傳統計量體驗**。 註解目前僅適用於傳統經驗和**[活頁簿](../../application-insights/app-insights-usage-workbooks.md)** 中。 若要深入了解目前的計量體驗，您可以查閱[這篇文章](../../azure-monitor/platform/metrics-charts.md)。
+> 本文反映已被取代的**傳統計量體驗**。 註解目前僅適用於傳統經驗和**[活頁簿](../../azure-monitor/app/usage-workbooks.md)** 中。 若要深入了解目前的計量體驗，您可以查閱[這篇文章](../../azure-monitor/platform/metrics-charts.md)。
 
 ![註解範例，其會顯示與伺服器回應時間的相互關聯](./media/annotations/00.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "54002071"
 
 您必須為每個 Azure DevOps Services 發行範本取得個別的 API 金鑰。
 
-1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)，然後開啟監視您應用程式的 Application Insights 資源。 (或如果您尚未建立該資源，請[立即建立一個](../../application-insights/app-insights-overview.md))。
+1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)，然後開啟監視您應用程式的 Application Insights 資源。 (或如果您尚未建立該資源，請[立即建立一個](../../azure-monitor/app/app-insights-overview.md))。
 2. 開啟 [API 存取]、[Application Insights 識別碼]。
    
     ![在 portal.azure.com 中，開啟您的 Application Insights 資源然後選擇 [設定]。 開啟 [API 存取]。 複製應用程式識別碼](./media/annotations/20.png)

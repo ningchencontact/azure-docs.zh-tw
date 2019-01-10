@@ -5,21 +5,22 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 657800c6f96560c68e690ccbd1dfb166c5034812
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 51a0f560a0e4b6ff791d5ed3f9f221eb2eeb9b4d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430131"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191338"
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 的高可用性
+
 本文說明如何確保 Azure Analysis Services 伺服器的高可用性。 
 
-
 ## <a name="assuring-high-availability-during-a-service-disruption"></a>在服務中斷期間確保高可用性
+
 雖然很罕見，但 Azure 資料中心也可能會有中斷的時候。 發生中斷時，業務可能只會中斷幾分鐘，也可能會持續幾小時。 高可用性最常透過伺服器備援來實現。 使用 Azure Analysis Services，您就可以藉由在一或多個區域建立其他的次要伺服器來實現備援。 在建立備援伺服器時，為了確保這些伺服器上的資料和中繼資料會與區域中已離線的伺服器同步，您可以︰
 
 * 將模型部署到其他區域的備援伺服器。 此方法需要平行處理主要伺服器和備援伺服器的資料，以確保所有伺服器保持同步。
@@ -31,6 +32,7 @@ ms.locfileid: "49430131"
 若要避免需要變更報告用戶端上的連接字串，您可以為主要伺服器建立伺服器[別名](analysis-services-server-alias.md)。 當主要伺服器關閉時，您可以變更別名以指向其他區域中的備援伺服器。 您可以藉由編碼主要伺服器上的端點健康情況檢查，以自動設定伺服器名稱的別名。 如果健康情況檢查失敗，相同的端點即可導向至其他區域中的備援伺服器。 
 
 ## <a name="related-information"></a>相關資訊
+
 [備份與還原](analysis-services-backup.md)   
 [管理 Azure Analysis Services](analysis-services-manage.md)   
 [伺服器名稱別名](analysis-services-server-alias.md) 

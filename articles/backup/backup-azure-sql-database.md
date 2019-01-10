@@ -2,25 +2,18 @@
 title: 將 SQL Server 資料庫備份至 Azure | Microsoft Docs
 description: 本教學課程說明如何將 SQL Server 備份至 Azure。 本文也將說明 SQL Server 復原。
 services: backup
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/02/2018
-ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: e2e6742fb3eda0523c7333451e836beb069e57ca
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.topic: tutorial
+ms.date: 12/21/2018
+ms.author: raynew
+ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410358"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790154"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>將 SQL Server 資料庫備份到 Azure
 
@@ -44,9 +37,9 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 - SQL 虛擬機器 (VM) 需要網際網路連線才能存取 Azure 公用 IP 位址。 如需詳細資訊，請參閱[建立網路連線](backup-azure-sql-database.md#establish-network-connectivity)。
 - 在一個復原服務保存庫中保護多達 2,000 個 SQL 資料庫。 額外的 SQL 資料庫應該儲存在不同的復原服務保存庫中。
 - [分散式可用性群組備份](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017)具有限制。
-- 不支援 SQL Server Always On 容錯移轉叢集執行個體 (FCI)。
+- 不支援備份 SQL Server Always On 容錯移轉叢集執行個體 (FCI)。
 - 請使用 Azure 入口網站設定 Azure 備份以保護 SQL Server 資料庫。 目前不支援 Azure PowerShell、Azure CLI 和 REST API。
-- 不支援鏡像資料庫、資料庫快照集以及 FCI 下資料庫的備份/還原作業。
+- 不支援 FCI 鏡像資料庫、資料庫快照集及資料庫的備份/還原作業。
 - 無法保護內有大量檔案的資料庫。 支援檔案數量上限並不是個非常明確的數字，因為上限數字不但需視檔案數量，還取決於檔案路徑的長度。 但是，這種情況並不常見。 我們會建立解決方案來處理這種情形。
 
 如需支援/不支援案例的詳細資訊，請參閱[常見問題集](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq)一節。
@@ -136,7 +129,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>設定非 Marketplace SQL VM 的權限
 
-若要備份虛擬機器，Azure 備份需要安裝 **AzureBackupWindowsWorkload** 延伸模組。 如果您使用 Azure Marketplace 虛擬機器，請繼續前往[探索 SQL Server 資料庫](backup-azure-sql-database.md#discover-sql-server-databases)。 如果裝載 SQL 資料庫的虛擬機器不是從 Azure Marketplace 建立的，請完成下列程序來安裝延伸模組並設定適當的權限。 除了 **AzureBackupWindowsWorkload** 延伸模組，Azure 備份還需要 SQL 系統管理員權限才能保護 SQL 資料庫。 為了探索虛擬機器上的資料庫，Azure 備份會建立帳戶 **NT Service\AzureWLBackupPluginSvc**。 此帳戶用於備份和還原，且必須具有 SQL 系統管理員權限。 此外，Azure 備份會利用 **NT AUTHORITY\SYSTEM** 帳戶進行資料庫探索/查詢，因此該帳戶必須在 SQL 上公開登入。
+若要備份虛擬機器，Azure 備份需要安裝 **AzureBackupWindowsWorkload** 延伸模組。 如果您使用 Azure Marketplace 虛擬機器，請繼續前往[探索 SQL Server 資料庫](backup-azure-sql-database.md#discover-sql-server-databases)。 如果裝載 SQL 資料庫的虛擬機器不是從 Azure Marketplace 建立的，請完成下列程序來安裝延伸模組並設定適當的權限。 除了 **AzureBackupWindowsWorkload** 延伸模組，Azure 備份還需要 SQL 系統管理員權限才能保護 SQL 資料庫。 為了探索虛擬機器上的資料庫，Azure 備份會建立帳戶 **NT SERVICE\AzureWLBackupPluginSvc**。 此帳戶用於備份和還原，且必須具有 SQL 系統管理員權限。 此外，Azure 備份會利用 **NT AUTHORITY\SYSTEM** 帳戶進行資料庫探索/查詢，因此該帳戶必須在 SQL 上公開登入。
 
 若要設定權限：
 
@@ -182,7 +175,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
     ![在 [登入 - 新增] 對話方塊中，選取 [搜尋]](./media/backup-azure-sql-database/new-login-search.png)
 
-3. Windows 虛擬服務帳戶**NT Service\AzureWLBackupPluginSvc** 已於虛擬機器註冊期間和 SQL 探索階段建立。 請輸入 [輸入要選取的物件名稱] 方塊中所顯示的帳戶名稱。 選取 [檢查名稱] 以解析名稱。
+3. Windows 虛擬服務帳戶 **NT SERVICE\AzureWLBackupPluginSvc** 已於虛擬機器註冊期間和 SQL 探索階段建立。 請輸入 [輸入要選取的物件名稱] 方塊中所顯示的帳戶名稱。 選取 [檢查名稱] 以解析名稱。
 
     ![選取 [檢查名稱] 以解析未知的服務名稱](./media/backup-azure-sql-database/check-name.png)
 
@@ -819,19 +812,19 @@ backup_size AS BackupSizeInBytes
 4. 在 SQL Server 執行個體上，開啟 [工作管理員]。 重新啟動 **AzureWLBackupCoordinatorSvc** 服務。
 
 ### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>是否可以從次要複本執行完整備份？
-否。 不支援此功能。
+沒有。 不支援此功能。
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>成功的備份作業是否會建立警示？
 
-否。 成功的備份作業不會產生警示。 只有失敗的備份作業會傳送警示。
+沒有。 成功的備份作業不會產生警示。 只有失敗的備份作業會傳送警示。
 
 ### <a name="can-i-see-details-for-scheduled-backup-jobs-in-the-jobs-menu"></a>是否可以在 [作業] 功能表中看到已排程備份作業的詳細資料？
 
-否。 [備份作業] 功能表會顯示臨機操作工作的詳細資訊，但不會顯示已排程的備份作業。 如果已排程的備份作業失敗，則可以在失敗的作業警示中取得詳細資料。 若要監視所有已排程與臨機操作備份作業，請使用 [SQL Server Management Studio](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs)。
+沒有。 [備份作業] 功能表會顯示臨機操作工作的詳細資訊，但不會顯示已排程的備份作業。 如果已排程的備份作業失敗，則可以在失敗的作業警示中取得詳細資料。 若要監視所有已排程與臨機操作備份作業，請使用 [SQL Server Management Studio](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs)。
 
 ### <a name="when-i-select-a-sql-server-instance-are-future-databases-automatically-added"></a>當我選取 SQL Server 執行個體時，系統是否會自動新增之後的資料庫？
 
-否。 在為 SQL Server 執行個體設定保護時，如果您選取伺服器層級選項，系統會新增所有資料庫。 如果在設定保護之後將資料庫新增至 SQL Server 執行個體，則必須手動新增新的資料庫來加以保護。 資料庫不會自動包含在已設定的保護中。
+沒有。 在為 SQL Server 執行個體設定保護時，如果您選取伺服器層級選項，系統會新增所有資料庫。 如果在設定保護之後將資料庫新增至 SQL Server 執行個體，則必須手動新增新的資料庫來加以保護。 資料庫不會自動包含在已設定的保護中。
 
 ### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>如果我變更復原模式，要如何重新啟動保護？
 
@@ -839,7 +832,7 @@ backup_size AS BackupSizeInBytes
 
 ### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>我是否可以保護主要複本位於內部部署的 SQL Always On 可用性群組？
 
-否。 Azure 備份會保護在 Azure 中執行的 SQL Server。 如果可用性群組 (AG) 分散在 Azure 與內部部署機器之間，則只有當主要複本是在 Azure 中執行時，才可保護 AG。 此外，Azure 備份只會保護與復原服務保存庫位於相同 Azure 區域中的執行中節點。
+沒有。 Azure 備份會保護在 Azure 中執行的 SQL Server。 如果可用性群組 (AG) 分散在 Azure 與內部部署機器之間，則只有當主要複本是在 Azure 中執行時，才可保護 AG。 此外，Azure 備份只會保護與復原服務保存庫位於相同 Azure 區域中的執行中節點。
 
 ### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>我是否可以保護散佈在各個 Azure 區域的 SQL Always On 可用性群組？
 
@@ -858,7 +851,7 @@ backup_size AS BackupSizeInBytes
 
 否，如果從已受自動保護的執行個體中卸除資料庫，仍會在該資料庫上嘗試進行備份。 這表示已刪除的資料庫會開始在 [備份項目] 下方顯示為狀況不良，且仍被視為受到保護。
 
-停止保護此資料庫的唯一方式，是暫時在執行個體上停用 [[自動保護](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)]，然後在該資料庫的 [備份項目] 下方，選擇 [停止備份] 選項。 您現在可以針對此執行個體重新啟用自動保護。
+停止保護此資料庫的唯一方式，是暫時在執行個體上停用 [自動保護](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)，然後在該資料庫的 [備份項目] 下方，選擇 [停止備份] 選項。 您現在可以針對此執行個體重新啟用自動保護。
 
 ###  <a name="why-cant-i-see-the-newly-added-database-to-an-auto-protected-instance-under-the-protected-items"></a>為什麼我在受保護的項目下方看不到新增至已受自動保護之執行個體的資料庫？
 

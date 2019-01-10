@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 33f8547721f499ed7b9a81088681fc2ade2d030c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 47abb191383bd1ec1000c9fd1e0803a7d900c9bf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723530"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117634"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>分析 Azure 監視器中的 Log Analytics 資料
 
@@ -95,7 +95,7 @@ union Update, workspace("contoso-workspace").Update
 ## <a name="how-log-analytics-data-is-organized"></a>Log Analytics 資料的組織方式
 當您建置查詢時，從判斷哪些資料表具有您要尋找的資料開始。 不同類型的資料會分別存放到各個 [Log Analytics 工作區](../../azure-monitor/learn/quick-create-workspace.md)的專用資料表中。  不同資料來源的文件包含它所建立之資料類型的名稱，及其每個屬性的描述。  許多查詢只需要單一資料表的資料，但是其他查詢可能會使用各種不同的選項以包含來自多個資料表的資料。
 
-雖然 [Application Insights](../../application-insights/app-insights-overview.md) 會將要求、例外狀況、追蹤和使用情形等應用程式資料存放在 Log Analytics 中，但這項資料會儲存與其他記錄資料不同的分割區中。 您可以使用相同的查詢語言來存取這項資料，但必須使用 [Application Insights 主控台](../../azure-monitor/app/analytics.md)或 [Application Insights REST API](https://dev.applicationinsights.io/) 來存取此資料。 您可以使用[跨資源查詢](../../azure-monitor/log-query/cross-workspace-query.md)，將 Application Insights 資料與其他資料結合到 Log Analytics 中。
+雖然 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 會將要求、例外狀況、追蹤和使用情形等應用程式資料存放在 Log Analytics 中，但這項資料會儲存與其他記錄資料不同的分割區中。 您可以使用相同的查詢語言來存取這項資料，但必須使用 [Application Insights 主控台](../../azure-monitor/app/analytics.md)或 [Application Insights REST API](https://dev.applicationinsights.io/) 來存取此資料。 您可以使用[跨資源查詢](../../azure-monitor/log-query/cross-workspace-query.md)，將 Application Insights 資料與其他資料結合到 Log Analytics 中。
 
 
 ![資料表](media/log-query-overview/queries-tables.png)

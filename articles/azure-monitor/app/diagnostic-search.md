@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a9c9ac9ada6dfab051deda14cddb4ba6c07f48df
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998892"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119165"
 ---
 # <a name="using-search-in-application-insights"></a>在 Application Insights 中使用搜尋
-「搜尋」是 [Application Insights](../../application-insights/app-insights-overview.md) 的一項功能，可用來尋找及探索個別遙測項目，例如頁面檢視、例外狀況或 Web 要求。 而您可以檢視所編寫的記錄追蹤和事件。
+「搜尋」是 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 的一項功能，可用來尋找及探索個別遙測項目，例如頁面檢視、例外狀況或 Web 要求。 而您可以檢視所編寫的記錄追蹤和事件。
 
 (若要對您的資料執行更複雜的查詢，請使用[分析](../../azure-monitor/log-query/get-started-portal.md)。)
 
@@ -129,7 +129,7 @@ ms.locfileid: "53998892"
 ## <a name="sampling"></a>取樣
 如果您的應用程式會產生大量遙測 (且您使用 ASP.NET SDK 版本 2.0.0-beta3 或更新版本)，則調適性取樣模組會只傳送事件代表性片段，自動減少傳送至入口網站的資料量。 不過，同一個要求相關的事件是以整組方式來選取或取消選取，方便您切換瀏覽相關事件。 
 
-[了解取樣](../../application-insights/app-insights-sampling.md)。
+[了解取樣](../../azure-monitor/app/sampling.md)。
 
 ## <a name="create-work-item"></a>建立工作項目
 您可以利用來自任何遙測項目的詳細資料，在 GitHub 或 Azure DevOps 中建立 Bug。 
@@ -166,4 +166,4 @@ ms.locfileid: "53998892"
 * [在分析中撰寫複雜的查詢](../../azure-monitor/log-query/get-started-portal.md)
 * [將記錄和自訂遙測傳送至 Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [設定可用性和回應性測試](../../azure-monitor/app/monitor-web-app-availability.md)
-* [疑難排解](../../application-insights/app-insights-troubleshoot-faq.md)
+* [疑難排解](../../azure-monitor/app/troubleshoot-faq.md)

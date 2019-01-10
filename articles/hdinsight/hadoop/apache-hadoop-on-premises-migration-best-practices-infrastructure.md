@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6b0b047e74496fb9e58df05dc6118c5f376cb99d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1a8c0ec8a7926d443963075fec576b9e2168d41f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437515"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052622"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 基礎結構最佳做法
 
@@ -205,7 +205,7 @@ HDInsight 支援[虛擬網路服務端點](../../virtual-network/virtual-network
 如需詳細資訊，請參閱下列文章：
 
 - [虛擬網路服務端點](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [使用服務端點增強 HDInsight 安全性](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/.md)
+- [使用服務端點增強 HDInsight 安全性](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>將 HDInsight 連線至內部部署網路
 

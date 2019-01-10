@@ -4,16 +4,16 @@ description: 了解如何使用 Azure Cosmos DB 中的資料分割圖表。 本�
 author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7fc6068ccdc0c089b222fc8282063d526e862a38
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f1e486a302b440d819e15ef86f8d76ea5e50d201
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139430"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036319"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的資料分割圖表
 
@@ -29,7 +29,7 @@ Azure Cosmos DB 中的 Gremlin API 的主要功能之一，是能夠透過水平
 
 - **頂點和邊緣會儲存為 JSON 文件**。
 
-- **端點需要資料分割金鑰**。 此金鑰會決定頂點將透過雜湊演算法儲存在哪個資料分割中。 此分割區金鑰名稱，是不含空格或特殊字元的單一字詞字串。 建立新容器時，定義分割區金鑰，而且其格式為：`/partitioning-key-name`。
+- **端點需要資料分割索引鍵**。 此索引鍵會決定頂點將透過雜湊演算法儲存在哪個資料分割中。 此分割區金鑰名稱，是不含空格或特殊字元的單一字詞字串。 建立新容器時，定義分割區金鑰，而且其格式為：`/partitioning-key-name`。
 
 - **邊緣將會連同其來源頂點一起儲存**。 換句話說，對每個頂點而言，其分割區金鑰將會定義其本身及其外傳邊緣的儲存位置。 之所以這麼做，是為了避免在圖形查詢中使用 `out()` 基數時出現跨資料分割的查詢。
 

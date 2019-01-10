@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ced0ae62bcccadafd090964daae4e7828c05ce2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 075f08f89e0bbdefa76623a284971f46a1b3966a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004437"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119793"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>使用 Application Insights 監視 Node.js 服務和應用程式
 
-[Azure Application Insights](../../application-insights/app-insights-overview.md) 會在您部署後端服務和元件之後加以監視，協助您[探索並快速診斷效能和其他問題](../../azure-monitor/app/detect-triage-diagnose.md)。 您可以對在資料中心、在 Azure 虛擬機器和 Web 應用程式，和甚至其他公用雲端中託管的 Node.js 服務使用 Application Insights。
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 會在您部署後端服務和元件之後加以監視，協助您[探索並快速診斷效能和其他問題](../../azure-monitor/app/detect-triage-diagnose.md)。 您可以對在資料中心、在 Azure 虛擬機器和 Web 應用程式，和甚至其他公用雲端中託管的 Node.js 服務使用 Application Insights。
 
 若要接收、儲存和探索您的監視資料，請在您的程式碼中包含 SDK，然後在 Azure 中設定對應的 Application Insights 資源。 SDK 會將資料傳送至該資源，進行進一步的分析和探索。
 
@@ -216,5 +216,5 @@ server.on("listening", () => {
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../../application-insights/app-insights-troubleshoot-faq.md
+[FAQ]: ../../azure-monitor/app/troubleshoot-faq.md
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: f8ea270e5a41c094b29fb2dbb6df4bd325b66b32
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f41d54f97861a4df7d50cb3b4f0f99970de354cc
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999963"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121493"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>設定 ASP.NET 網站的 Application Insights
 
-此程序會設定 ASP.NET web 應用程式以將遙測傳送至 [Azure Application Insights](../../application-insights/app-insights-overview.md) 服務。 這適用於在您擁有的內部部署 IIS 伺服器或雲端中託管的 ASP.NET 應用程式。 取得圖表和功能強大的查詢語言可幫助您了解您應用程式的效能以及人員如何使用它，再加上發生失敗或效能問題時的自動警示。 許多開發人員發現這些功能本身就很棒，但是您也可以視需要擴充和自訂遙測。
+此程序會設定 ASP.NET web 應用程式以將遙測傳送至 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 服務。 這適用於在您擁有的內部部署 IIS 伺服器或雲端中託管的 ASP.NET 應用程式。 取得圖表和功能強大的查詢語言可幫助您了解您應用程式的效能以及人員如何使用它，再加上發生失敗或效能問題時的自動警示。 許多開發人員發現這些功能本身就很棒，但是您也可以視需要擴充和自訂遙測。
 
 在 Visual Studio 中只需按幾下滑鼠即可進行安裝。 您可以選擇限制遙測的磁碟區來避免產生費用。 這可讓您實驗和偵錯，或使用不多的使用者監視網站。 當您決定要繼續監視您的生產網站時，很容易在稍後提升限制。
 
@@ -84,7 +84,7 @@ Application Insights 設定畫面：
 > [!Tip]
 > 如果您沒有看到任何資料，請確定時間範圍正確，然後按一下 [搜尋] 圖示。
 
-[深入了解 Visual Studio 中的 Application Insights 工具](../../application-insights/app-insights-visual-studio.md)。
+[深入了解 Visual Studio 中的 Application Insights 工具](../../azure-monitor/app/visual-studio.md)。
 
 <a name="monitor"></a>
 ### <a name="see-telemetry-in-web-portal"></a>請參閱 web 入口網站中的遙測
@@ -106,10 +106,10 @@ Application Insights 設定畫面：
 
 您的遙測會累積在 Application Insights 入口網站，您可以在此監視計量，搜尋您的遙測，以及設定[儀表板](../../azure-monitor/app/app-insights-dashboards.md)。 您也可以使用功能強大的 [Log Analytics 查詢語言](https://aka.ms/LogAnalyticsLanguage)，分析使用狀況和效能或尋找特定事件。
 
-您也可以繼續在 [Visual Studio](../../application-insights/app-insights-visual-studio.md) 中，以診斷搜尋和[趨勢](../../application-insights/app-insights-visual-studio-trends.md)等工具來分析您的遙測。
+您也可以繼續在 [Visual Studio](../../azure-monitor/app/visual-studio.md) 中，以診斷搜尋和[趨勢](../../azure-monitor/app/visual-studio-trends.md)等工具來分析您的遙測。
 
 > [!NOTE]
-> 如果應用程式傳送足夠的遙測資料達到[節流限制](../../azure-monitor/app/pricing.md#limits-summary)，則會切換為自動[取樣](../../application-insights/app-insights-sampling.md)。 取樣可減少從應用程式傳送的遙測數量，同時為供診斷之用保留相互關聯的資料。
+> 如果應用程式傳送足夠的遙測資料達到[節流限制](../../azure-monitor/app/pricing.md#limits-summary)，則會切換為自動[取樣](../../azure-monitor/app/sampling.md)。 取樣可減少從應用程式傳送的遙測數量，同時為供診斷之用保留相互關聯的資料。
 >
 >
 
@@ -147,14 +147,14 @@ Application Insights 設定畫面：
 
 ### <a name="analysis"></a>分析
 
-* **[在 Visual Studio 中使用 Application Insights](../../application-insights/app-insights-visual-studio.md)**<br/>包括使用遙測來偵錯、診斷搜尋及鑽研程式碼的相關資訊。
+* **[在 Visual Studio 中使用 Application Insights](../../azure-monitor/app/visual-studio.md)**<br/>包括使用遙測來偵錯、診斷搜尋及鑽研程式碼的相關資訊。
 * **[使用 Application Insights 入口網站](../../azure-monitor/app/app-insights-dashboards.md)**<br/> 包括儀表板、功能強大的診斷和分析工具、警示、即時的應用程式相依性對應，以及遙測匯出的相關資訊。
 * **[分析 - ](../../azure-monitor/log-query/get-started-portal.md)** - 功能強大的查詢語言。
 
 ### <a name="alerts"></a>警示
 
 * [可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)：建立測試，以確保網路上看得見您的網站。
-* [智慧型診斷](../../application-insights/app-insights-proactive-diagnostics.md)︰這些測試會自動執行，您不需要採取任何動作來設定它們。 它們會讓您知道應用程式是否有不尋常的失敗要求率。
+* [智慧型診斷](../../azure-monitor/app/proactive-diagnostics.md)︰這些測試會自動執行，您不需要採取任何動作來設定它們。 它們會讓您知道應用程式是否有不尋常的失敗要求率。
 * [計量警示](../../azure-monitor/app/alerts.md)：設定這些警示，當計量超出臨界值時警告您。 您可以在撰寫於程式碼中的自訂度量上設定它們。
 
 ### <a name="automation"></a>自動化

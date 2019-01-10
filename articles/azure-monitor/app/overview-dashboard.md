@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4bc1d72cd08d47e9699acf8c20b03307dbda97af
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 47c83e6bc700f972e6dff83e4d067e61218c04bd
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004502"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035248"
 ---
 # <a name="application-insights-overview-dashboard"></a>Azure Application Insights 概觀儀表板
 
@@ -62,7 +62,7 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [漏斗圖](../../application-insights/usage-funnels.md)
-- [保留](../../application-insights/app-insights-usage-retention.md)
-- [使用者流程](../../application-insights/app-insights-usage-flows.md)
+- [漏斗圖](../../azure-monitor/app/usage-funnels.md)
+- [保留](../../azure-monitor/app/usage-retention.md)
+- [使用者流程](../../azure-monitor/app/usage-flows.md)
 - [儀表板](../../azure-monitor/app/app-insights-dashboards.md)

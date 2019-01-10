@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: a9af97bcd85833a140d6c668fe4c757c85d7447a
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 23faf3b88584f8031b4a2fdbc6d94ac2ae861431
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337167"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104449"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>搭配 Azure ExpressRoute 之 PowerApps 的 App Service 環境網路設定詳細資料
 
@@ -41,7 +41,7 @@ ms.locfileid: "53337167"
 
 * 在連接埠 80 和 443 上透過網路連出至全球「Azure 儲存體」端點的能力。 這些端點位於與「App Service 環境」相同的區域中，也位於其他 Azure 區域中。 「Azure 儲存體」端點會在下列 DNS 網域下解析：table.core.windows.net、blob.core.windows.net、queue.core.windows.net 及 file.core.windows.net。  
 
-* 在連接埠 445 上透過網路連出至「Azure 檔案」服務的能力。
+* 位於連接埠 445 的 Azure 檔案服務的輸出網路連線
 
 * 透過網路連出至位於與「App Service 環境」相同區域之 Azure SQL Database 端點的能力。 SQL Database 端點會在 database.windows.net 網域下解析，這需要連接埠 1433、11000-11999 及 14000-14999 的開放存取權。 如需有關 SQL Database V12 連接埠使用方式的詳細資料，請參閱 [ADO.NET 4.5 超過 1433 以外的連接埠](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md)。
 
@@ -51,7 +51,7 @@ ms.locfileid: "53337167"
 
 * 虛擬網路的 DNS 設定必須能夠解析本文中所提及的所有端點和網域。 如果無法解析端點，建立「App Service 環境」時就會失敗。 所有現有的「App Service 環境」都會標示為狀況不良。
 
-* 需要有連接埠 53 的連出存取，才能與 DNS 伺服器通訊。
+* 需要有連接埠 53 的輸出存取，才能與 DNS 伺服器通訊。
 
 * 如果 VPN 閘道的另一端有自訂 DNS 伺服器存在，則必須可從包含「App Service 環境」的子網路連線至該 DNS 伺服器。 
 
@@ -156,7 +156,7 @@ ms.locfileid: "53337167"
 [requiredports]: app-service-app-service-environment-control-inbound-traffic.md
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
-<!-- Old link -- [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ --> [UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md [AzureDownloads]: https://azure.microsoft.com/downloads/ [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
+<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ --> [UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md [AzureDownloads]: https://azure.microsoft.com/downloads/ [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md [NewPortal]:  https://portal.azure.com
 
 

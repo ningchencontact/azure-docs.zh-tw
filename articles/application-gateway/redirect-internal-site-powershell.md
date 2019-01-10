@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: 47780b9c1d6a83dfedb9607dee3ac4c89b443f93
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a47c355401b829bdacd145e0a82a2ec496212f12
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054823"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157780"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>使用 Azure PowerShell 來建立具有內部重新導向的應用程式閘道
 
@@ -294,7 +294,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-在瀏覽器的網址列中輸入您的網域名稱。 例如，http://www.contoso.com。
+在瀏覽器的網址列中輸入您的網域名稱。 例如， http://www.contoso.com。
 
 ![在應用程式閘道中測試 contoso 網站](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 

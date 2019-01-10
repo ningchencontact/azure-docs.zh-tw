@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 81bfd5e0354fefea4690e6871dd5e846f41dc6d8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981551"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015517"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>在 Java Web 應用程式中篩選遙測
 
@@ -31,7 +31,7 @@ ms.locfileid: "53981551"
 
 > [!NOTE]
 > 篩選器會扭曲您應用程式的計量。 例如，您可能會決定，為了診斷緩慢回應，您將設定一個篩選器來捨棄快速回應時間。 但是，您必須留意，Application Insights 所回報的平均回應時間會比真實的速度慢，而且要求計數會小於實際計數。
-> 如果有此疑慮，請改用[取樣](../../application-insights/app-insights-sampling.md)。
+> 如果有此疑慮，請改用[取樣](../../azure-monitor/app/sampling.md)。
 
 ## <a name="setting-filters"></a>設定篩選器
 
@@ -262,4 +262,4 @@ ms.locfileid: "53981551"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [取樣](../../application-insights/app-insights-sampling.md) - 請考慮以取樣做為替代方式，因為它不會扭曲計量。
+* [取樣](../../azure-monitor/app/sampling.md) - 請考慮以取樣做為替代方式，因為它不會扭曲計量。

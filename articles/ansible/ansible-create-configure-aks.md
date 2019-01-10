@@ -3,17 +3,17 @@ title: 使用 Ansible 在 Azure 中建立並設定 Azure Kubernetes Service 叢�
 description: 了解如何使用 Ansible 在 Azure 中建立並管理 Azure Kubernetes Service 叢集
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, 劇本, aks, 容器, Kubernetes
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: f17998957db6fca5b109b5a05aa624e238af8dca
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: be9de3c10fdfd040b249dd8da568259c599d7215
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257534"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050382"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>使用 Ansible 在 Azure 中建立並設定 Azure Kubernetes Service 叢集
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 來管理 Azure Kubernetes Service (AKS)。 本文說明如何使用 Ansible 建立並設定 Azure Kubernetes Service 叢集。

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7cde9fa0849729ba9db9b604dd0ad26cf362a484
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 48e20df61844d83deb8ac992f783cf227e658aaf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969857"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119980"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>設定 Application Insights：相依性追蹤
-「相依性」  是由應用程式呼叫的外部元件。 這通常是使用 HTTP 呼叫的服務，或資料庫，或檔案系統。 [Application Insights](../../application-insights/app-insights-overview.md) 會測量您應用程式等待相依性所花費的時間，以及相依性呼叫失敗的頻率。 您可以調查特定的呼叫，然後將它們與要求和例外狀況建立關聯。
+「相依性」  是由應用程式呼叫的外部元件。 這通常是使用 HTTP 呼叫的服務，或資料庫，或檔案系統。 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 會測量您應用程式等待相依性所花費的時間，以及相依性呼叫失敗的頻率。 您可以調查特定的呼叫，然後將它們與要求和例外狀況建立關聯。
 
 預設的相依性監視目前會回報這些相依性類型的呼叫：
 
@@ -121,7 +121,7 @@ ms.locfileid: "53969857"
 
 ### <a name="profile-your-live-site"></a>剖析您的即時網站
 
-不清楚時間花在哪裡嗎？ [Application Insights 分析工具](../../application-insights/app-insights-profiler.md)會追蹤對您即時站台發出的 HTTP 呼叫，並顯示您程式碼中哪些函式花費的時間最長。
+不清楚時間花在哪裡嗎？ [Application Insights 分析工具](../../azure-monitor/app/profiler.md)會追蹤對您即時站台發出的 HTTP 呼叫，並顯示您程式碼中哪些函式花費的時間最長。
 
 ## <a name="failed-requests"></a>失敗的要求
 失敗的要求可能也會與失敗的相依性呼叫關聯。 同樣地，我們可以逐一點選來追蹤問題。

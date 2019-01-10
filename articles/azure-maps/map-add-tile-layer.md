@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 57cde41bf65c370f86ebc57a39e917b95721ca81
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: a9decacc3b22676d94726e3cf979198b3486d270
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892908"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104636"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>將圖格圖層新增至地圖
 
@@ -24,7 +24,7 @@ ms.locfileid: "52892908"
 
 * X、Y、縮放標記法 - 以縮放層級為基礎，在圖格格線中的圖格上，x 是資料行位置，而 y 是資料列位置。
 * Quadkey 標記法 - 將 x、y、縮放資訊結合成單一字串值，以作為圖格的唯一識別碼。
-* 週框方塊 - 週框方塊座標可用來以 `{west},{south},{east},{north}` 格式指定影像，[Web 地圖服務 (WMS)](http://www.opengeospatial.org/standards/wms) 常使用此格式。
+* 週框方塊 - 週框方塊座標可用來以 `{west},{south},{east},{north}` 格式指定影像，[Web 地圖服務 (WMS)](https://www.opengeospatial.org/standards/wms) 常使用此格式。
 
 > [!TIP]
 > [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) 是視覺化地圖上大型資料集的好方法。 不只可以從影像產生圖格圖層，向量資料也可轉譯為圖格圖層。 藉由將向量資料轉譯為圖格圖層，地圖控制項就只需載入圖層，而這可能比向量資料所表示的檔案大小小很多。 對於需要轉譯地圖上數百萬個資料列的許多人，他們都會使用這項技術。
@@ -40,7 +40,7 @@ ms.locfileid: "52892908"
 
 ## <a name="add-a-tile-layer"></a>新增圖格圖層
 
- 此範例示範如何建立圖格圖層，而此圖格圖層會指向一組使用 x、y、縮放圖格系統的圖格。 此圖格圖層的來源是天氣雷達覆疊圖，資料來源：[愛荷華州立大學的愛荷華州環境氣象網 (Iowa Environmental Mesonet of Iowa State University)](http://mesonet.agron.iastate.edu/ogc/)。
+ 此範例示範如何建立圖格圖層，而此圖格圖層會指向一組使用 x、y、縮放圖格系統的圖格。 此圖格圖層的來源是天氣雷達覆疊圖，資料來源：[愛荷華州立大學的愛荷華州環境氣象網 (Iowa Environmental Mesonet of Iowa State University)](https://mesonet.agron.iastate.edu/ogc/)。
 
 <br/>
 

@@ -3,17 +3,17 @@ title: 使用 Ansible 搭配 Azure
 description: 簡介使用 Ansible 自動佈建雲端、進行組態管理和應用程式部署。
 ms.service: ansible
 keywords: ansible, azure, devops, 概觀, 雲端佈建, 組態管理, 應用程式部署, ansible 模組, ansible 腳本
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/02/2018
 ms.topic: article
-ms.openlocfilehash: 22eeb3993cd408a8369236683da3db466a348a30
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d684c4238a7550ca3ec34629fffdc9791db55954
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956747"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052695"
 ---
 # <a name="ansible-with-azure"></a>Ansible 搭配 Azure
 

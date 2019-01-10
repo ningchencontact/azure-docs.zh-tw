@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8ed645066eef93ae02722858381af77854d7d1eb
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 502ccf15fe3e2f803febb711d4ea8850abbaea85
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001871"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116580"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>逐步解說：使用串流分析從 Application Insights 匯出至 SQL
 本文將說明如何使用[連續匯出][export]和 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)，將您的遙測資料從 [Azure Application Insights][start] 移入 Azure SQL Database。 
@@ -249,7 +249,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 
 ## <a name="related-articles"></a>相關文章
-* [使用串流分析匯出至 PowerBI](../../application-insights/app-insights-export-power-bi.md)
+* [使用串流分析匯出至 PowerBI](../../azure-monitor/app/export-power-bi.md )
 * [屬性類型和值的詳細資料模型參考。](../../azure-monitor/app/export-data-model.md)
 * [Application Insights 中的連續匯出](../../azure-monitor/app/export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -260,5 +260,5 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 [export]: ../../azure-monitor/app/export-telemetry.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [portal]: https://portal.azure.com/
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

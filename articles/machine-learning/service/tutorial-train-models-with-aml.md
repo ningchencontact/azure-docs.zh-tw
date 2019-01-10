@@ -11,18 +11,18 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 117934c83d54cb5454f476ffb3b1a1437c0fd30b
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 5008aebfea8fc284b1b85797f0523bc4fb11c7bd
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811472"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075935"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>教學課程：使用 Azure Machine Learning 服務將映像分類模型定型
 
 在本教學課程中，您會在本機和遠端計算資源，將機器學習模型定型。 您會在 Python Jupyter Notebook 中使用 Azure Machine Learning 服務的定型和部署工作流程。 然後，您可以使用 Notebook 作為範本，以自己的資料將您自己的機器學習服務模型定型。 本教學課程是**兩部分教學課程系列的第一部分**。  
 
-本教學課程會搭配 Azure Machine Learning 服務使用 [MNIST](https://yann.lecun.com/exdb/mnist/) 資料集和 [scikit-learn](https://scikit-learn.org) 來進行簡單的羅吉斯迴歸定型。 MNIST 是熱門的資料集，由 70,000 個灰階影像所組成。 每個影像都是 28 x 28 像素的手寫數字，代表 0 到 9 的數字。 目標是要建立多類別分類器，以識別特定影像所代表的數字。 
+本教學課程會搭配 Azure Machine Learning 服務使用 [MNIST](http://yann.lecun.com/exdb/mnist/) 資料集和 [scikit-learn](https://scikit-learn.org) 來進行簡單的羅吉斯迴歸定型。 MNIST 是熱門的資料集，由 70,000 個灰階影像所組成。 每個影像都是 28 x 28 像素的手寫數字，代表 0 到 9 的數字。 目標是要建立多類別分類器，以識別特定影像所代表的數字。 
 
 了解如何執行下列動作：
 
@@ -333,9 +333,9 @@ shutil.copy('utils.py', script_folder)
 ```
 
 
-### <a name="create-an-estimator"></a>建立估算器
+### <a name="create-an-estimator"></a>建立估計工具
 
-估算器物件可用來提交執行。 請執行下列程式碼來定義下列項目，以建立您的估算器：
+估計工具物件用來提交執行。 請執行下列程式碼來定義下列項目，以建立您的估算器：
 
 * 估算器物件的名稱 (`est`)。
 * 包含指令碼的目錄。 在此目錄中的所有檔案都會上傳到叢集節點以便執行。 

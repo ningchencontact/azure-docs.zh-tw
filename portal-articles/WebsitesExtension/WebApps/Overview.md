@@ -8,18 +8,18 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 50e6b714bc28ce383f06580d0e35b0b0e4066835
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432218"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606464"
 ---
 # <a name="app-service-documentation"></a>App Service 文件
 Azure App Service 可讓您以選定的程式設計語言來建置並裝載 Web 應用程式，無需管理基礎結構或是語言或 Web Framework 執行階段。 它提供自動調整功能與高度可用性，支援 Windows 與 Linux，而且可讓您從 GitHub、Azure DevOps Services 或任何 Git 存放庫進行自動部署。 了解如何透過我們的快速入門、教學課程和範例使用 Azure App Service。
 
 ## <a name="windows-linux-and-docker"></a>Windows、Linux 和 Docker
-[Web 應用程式](/app-service/app-service-web-overview)是 App Service 的主要供應項目，用以建置和裝載使用 Windows 環境的 Web 應用程式。 慣用 Linux 環境的開發人員可以選擇[適用於 Linux 的 App Service](/app-service/containers/app-service-linux-intro)。 開發人員也可以將 Docker 映像直接部署到適用於 Linux 的 App Service 中，以部署自訂的執行階段/架構。
+[Web 應用程式](/app-service/overview)是 App Service 的主要供應項目，用以建置和裝載使用 Windows 環境的 Web 應用程式。 慣用 Linux 環境的開發人員可以選擇[適用於 Linux 的 App Service](/app-service/containers/app-service-linux-intro)。 開發人員也可以將 Docker 映像直接部署到適用於 Linux 的 App Service 中，以部署自訂的執行階段/架構。
 
 ## <a name="5-minute-quickstarts"></a>5 分鐘快速入門
 
@@ -54,7 +54,7 @@ Azure App Service 可讓您以選定的程式設計語言來建置並裝載 Web 
 尋找指令碼來管理常見工作。
 
 - [Azure CLI](/azure/app-service/app-service-cli-sample)
-- [Azure PowerShell](/azure/app-service/app-service-powershell-samples)
+- [Azure PowerShell](/azure/app-service/samples-powershell)
 
 ## <a name="more"></a>更多資訊
 

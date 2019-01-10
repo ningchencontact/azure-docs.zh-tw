@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: wesmc
-ms.openlocfilehash: 4cefae50482547b910c6468854a251b0f61ce558
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 68c533235480ec49e3c561d99095d5722f6f69a4
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021227"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106319"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>如何搭配使用 Redis 命令列工具與 Azure Redis 快取
 
@@ -26,7 +26,7 @@ ms.locfileid: "53021227"
 
 如果使用 Windows 平台，可下載[適用於 Windows 的 Redis 命令列工具](https://github.com/MSOpenTech/redis/releases/)使用此工具。 
 
-如果您想要在另一個平台上執行此命令列工具，請從 [http://redis.io/download](https://redis.io/download) 下載「Azure Redis 快取」。
+如果您想要在另一個平台上執行此命令列工具，請從 [https://redis.io/download](https://redis.io/download) 下載「Azure Redis 快取」。
 
 ## <a name="gather-cache-access-information"></a>收集快取存取資訊
 

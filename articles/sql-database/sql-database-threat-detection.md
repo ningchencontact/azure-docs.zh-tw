@@ -11,23 +11,24 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 10/25/2018
-ms.openlocfilehash: 91b5fa521b1513f86bb9112138cf10fdb31badca
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 01/03/2019
+ms.openlocfilehash: 3f4a120e2aaf2925805bec26f721d5cfb4194bf1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997316"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041538"
 ---
 # <a name="azure-sql-database-threat-detection-for-single-database"></a>適用於單一資料庫的 Azure SQL Database 威脅偵測
 
-適用於 [SQL Database](sql-database-threat-detection-overview.md) 單一資料庫的 Azure SQL [威脅偵測](sql-database-technical-overview.md)會偵測意圖存取或惡意探索資料庫，並可能會造成損害的異常活動。 威脅偵測可識別**潛在 SQL 插入式攻擊**、**來自不尋常位置或資料中心的存取**、**來自不熟悉主體或疑似有害應用程式的存取**及**暴力 SQL 認證** - 請參閱[威脅偵測警示](sql-database-threat-detection.md#azure-sql-database-threat-detection-alerts)以取得更多詳細資料。
+適用於 [SQL Database](sql-database-threat-detection-overview.md) 單一資料庫的 Azure SQL [威脅偵測](sql-database-technical-overview.md)會偵測意圖存取或惡意探索資料庫，並可能會造成損害的異常活動。 威脅偵測可識別**潛在 SQL 插入式攻擊**、**來自不尋常位置或資料中心的存取**、**來自不熟悉主體或疑似有害應用程式的存取**及**暴力 SQL 認證** - 請參閱[威脅偵測警示](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts)以取得更多詳細資料。
 
-您可以透過[電子郵件通知](sql-database-threat-detection.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event)或 [Azure 入口網站](sql-database-threat-detection.md#explore-threat-detection-alerts-for-your-database-in-the-Azure-portal)接收偵測到威脅的通知
+您可以透過[電子郵件通知](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event)或 [Azure 入口網站](sql-database-threat-detection.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)接收偵測到威脅的通知
 
 [威脅偵測](sql-database-threat-detection-overview.md)是 [SQL 進階威脅防護](sql-advanced-threat-protection.md) (ATP) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 威脅偵測可以透過中央 SQL ATP 入口網站存取及管理。 威脅偵測服務的費用是每部邏輯伺服器每月 15$，前 30 天免費。
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>使用 Azure 入口網站為資料庫設定威脅偵測
+
 1. 在 [https://portal.azure.com](https://portal.azure.com) 上啟動 Azure 入口網站。
 2. 瀏覽至所要保護的 Azure SQL Database 伺服器的組態頁面。 在 [安全性] 設定中，選取 [進階威脅防護]。
 3. 在 [進階威脅防護] 組態頁面上：
@@ -43,9 +44,9 @@ ms.locfileid: "52997316"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解[威脅偵測](sql-database-threat-detection-overview.md)。
-* 深入了解[受控執行個體中的威脅偵測](sql-database-managed-instance-threat-detection.md)。  
-* 深入了解 [SQL 進階威脅防護](sql-advanced-threat-protection.md)。 
-* 深入了解 [Azure SQL Database 稽核](sql-database-auditing.md)
-* 深入了解 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* 如需有關價格的詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)  
+- 深入了解[威脅偵測](sql-database-threat-detection-overview.md)。
+- 深入了解[受控執行個體中的威脅偵測](sql-database-managed-instance-threat-detection.md)。  
+- 深入了解 [SQL 進階威脅防護](sql-advanced-threat-protection.md)。
+- 深入了解 [Azure SQL Database 稽核](sql-database-auditing.md)
+- 深入了解 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- 如需有關價格的詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)  

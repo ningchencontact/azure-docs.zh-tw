@@ -1,18 +1,17 @@
 ---
 title: 在 Azure Cosmos DB SQL API 帳戶中使用地理空間資料
 description: 了解如何使用 Azure Cosmos DB 和 SQL API 建立與查詢空間物件，以及為其編製索引。
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 29bb495bbbd56ab39964b34db35fb4d222a60179
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5f096d016b2fa82e3b340a4a6b6c7e1fd6420216
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074690"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037186"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>透過 Azure Cosmos DB SQL API 帳戶使用地理空間和 GeoJSON 位置資料
 

@@ -3,17 +3,17 @@ title: 使用 Ansible 來管理 Azure 動態清查
 description: 了解如何使用 Ansible 來管理 Azure 動態清查
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, 動態清查
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 1f19d5918d81acb76936edf8989a556335a3c0df
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bdaf53728fb54114a41f9454fa3f6057ae042136
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261250"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053988"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>使用 Ansible 來管理 Azure 動態清查
 您可以使用 Ansible 從各種來源 (包括如 Azure 等雲端來源) 將清查資訊提取至動態清查。 在本文中，您使用 [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) 來設定 Ansible Azure 動態清查，並在其中建立兩部虛擬機器、標記其中一部虛擬機器，然後在已標記的虛擬機器上安裝 Nginx。

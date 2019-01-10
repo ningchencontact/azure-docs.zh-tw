@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: aaa34d27e73c1691e69ea2f6860226639217f0c6
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 752f28eed3a6be5f7f136999c66e405bf7785a42
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004443"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120966"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>在 Application Insights 中探索度量
 [Application Insights][start] 中的度量為從您的應用程式傳送的遙測中的測量值和事件計數。 它們幫助您偵測效能問題，並觀察使用應用程式方式的趨勢。 標準度量的範圍很廣泛，而您也可以建立自己的自訂度量和事件。
@@ -193,18 +193,18 @@ ms.locfileid: "54004443"
 
     如果您想要在不同的圖表上設定不同的篩選，請在不同的刀鋒視窗中建立圖表，將它們儲存為個別的最愛圖表。 如果想要，您可以將這些圖表釘選到儀表板，以便並排查看兩者。
 * 如果您依據計量上未定義的屬性將圖表分組，則圖表上不會有任何資料。 請嘗試清除 [分組依據]，或選擇不同的群組屬性。
-* 效能資料 (CPU、IO 速率等等) 適用於 Java Web 服務、Windows 傳統型應用程式、[IIS Web 應用程式和服務 (若您安裝狀態監視器)](../../azure-monitor/app/monitor-performance-live-website-now.md) 和 [Azure 雲端服務](../../application-insights/app-insights-overview.md)。 它不適用於 Azure 網站。
+* 效能資料 (CPU、IO 速率等等) 適用於 Java Web 服務、Windows 傳統型應用程式、[IIS Web 應用程式和服務 (若您安裝狀態監視器)](../../azure-monitor/app/monitor-performance-live-website-now.md) 和 [Azure 雲端服務](../../azure-monitor/app/app-insights-overview.md)。 它不適用於 Azure 網站。
 
 ## <a name="video"></a>影片
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>後續步驟
-* [使用 Application Insights 監視使用情況](../../application-insights/app-insights-usage-overview.md)
+* [使用 Application Insights 監視使用情況](../../azure-monitor/app/usage-overview.md)
 * [使用診斷搜尋](../../azure-monitor/app/diagnostic-search.md)
 
 <!--Link references-->
 
 [alerts]: ../../azure-monitor/app/alerts.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 [track]: ../../azure-monitor/app/api-custom-events-metrics.md

@@ -1,21 +1,19 @@
 ---
 title: 使用 Gremlin API 建置 Azure Cosmos DB Node.js 應用程式
 description: 提供可用來連線及查詢 Azure Cosmos DB 的 Node.js 程式碼範例。
-services: cosmos-db
 author: luisbosquez
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 58fca9e66b0be12992d7762824df4ceb9a22e614
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 11eec492501f7ead639aa928fe0ddaafb2f1d1bc
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073409"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033667"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB：使用 Gremlin API 建置 Node.js 應用程式
 

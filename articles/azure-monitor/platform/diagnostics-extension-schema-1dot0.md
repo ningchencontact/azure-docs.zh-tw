@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 333fec5b9459979d7735f0dd292d7367d86353fe
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7c5bfa96e7f9ef7812b8487c479b34d926633287
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325356"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105911"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure 診斷 1.0 組態結構描述
 > [!NOTE]
@@ -25,7 +25,7 @@ Azure 診斷要與 Azure 監視器、Application Insights 和 Log Analytics 等�
 
 Azure 診斷組態檔會定義用來初始化診斷監視器的值。 在診斷監視器啟動時，會使用此檔案來初始化診斷組態設定。  
 
- 根據預設，Azure 診斷組態結構描述檔案是安裝於 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` 目錄中。 請使用安裝的 [Azure SDK](http://www.windowsazure.com/develop/downloads/) 版本來取代 `<version>`。  
+ 根據預設，Azure 診斷組態結構描述檔案是安裝於 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` 目錄中。 請使用安裝的 [Azure SDK](https://www.windowsazure.com/develop/downloads/) 版本來取代 `<version>`。  
 
 > [!NOTE]
 >  診斷組態檔通常會與啟動工作搭配使用，這類啟動工作需要在啟動程序前期收集診斷資料。 如需使用 Azure 診斷的詳細資訊，請參閱[使用 Azure 診斷收集記錄資料](assetId:///83a91c23-5ca2-4fc9-8df3-62036c37a3d7)。  

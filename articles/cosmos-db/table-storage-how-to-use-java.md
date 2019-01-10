@@ -1,20 +1,19 @@
 ---
 title: 如何從 Java 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API
 description: 使用 Azure 資料表儲存體或 Azure Cosmos DB 資料表 API 將結構化資料儲存在雲端。
-services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
 ms.date: 04/05/2018
-ms.author: sngun
-ms.openlocfilehash: e6bae31f0e3558f274ee638c380e69c15b7c3889
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+author: wmengmsft
+ms.author: wmeng
+ms.openlocfilehash: 62e94d1551efed5acc8dbd93bc941a4f9aeceb25
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079308"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044683"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>如何從 Java 使用 Azure 資料表儲存體或 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]

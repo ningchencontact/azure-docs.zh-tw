@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6b725d7912fa4b0d6b46acb35eda80ae66e4a38c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726212"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121408"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector 管理解決方案 (預覽)
 
@@ -27,7 +27,7 @@ ms.locfileid: "53726212"
 >[!NOTE]
 > 因為[跨資源查詢](../../azure-monitor/log-query/cross-workspace-query.md)的支援，已不再需要 Application Insights 連接器管理解決方案，此方案將遭到取代。 從 7 月開始，您將無法從新的 Application Insights 資源連結到 Log Analytics 工作區。 現有的連結和儀表板將會繼續運作到 2018 年 11 月為止。 如需詳細資訊，請參閱[移至 Azure 的 OMS 入口網站](../../azure-monitor/platform/oms-portal-transition.md)。
 
-Applications Insights Connector 解決方案可協助您診斷效能問題，以及了解使用者如何使用 [Application Insights](../../application-insights/app-insights-overview.md) 監視您的應用程式。 在 Log Analytics 中可使用開發人員在 Application Insights 中看見的相同應用程式遙測檢視。 不過，在整合 Application Insights 應用程式與 Log Analytics 時，將作業與應用程式資料放在一個地方可提高您應用程式的可見性。 具有相同的檢視，可協助您與您的應用程式開發人員共同作業。 常見的檢視可協助減少偵測及解決應用程式和平台問題的時間。
+Applications Insights Connector 解決方案可協助您診斷效能問題，以及了解使用者如何使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 監視您的應用程式。 在 Log Analytics 中可使用開發人員在 Application Insights 中看見的相同應用程式遙測檢視。 不過，在整合 Application Insights 應用程式與 Log Analytics 時，將作業與應用程式資料放在一個地方可提高您應用程式的可見性。 具有相同的檢視，可協助您與您的應用程式開發人員共同作業。 常見的檢視可協助減少偵測及解決應用程式和平台問題的時間。
 
 當您使用解決方案時，您可以：
 
@@ -142,7 +142,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 ### <a name="sample-corrected-data"></a>取樣更正資料
 
-Application Insights 提供*[取樣更正](../../application-insights/app-insights-sampling.md)* 來協助減少遙測流量。 當您在 Application Insights 應用程式上啟用取樣功能時，您取得之 Application Insights 和 Log Analytics 中儲存的項目數會減少。 雖然資料一致性會保留在 [Application Insights Connector] 頁面和檢視方塊中，您應針對您的自訂查詢手動更正取樣的資料。
+Application Insights 提供*[取樣更正](../../azure-monitor/app/sampling.md)* 來協助減少遙測流量。 當您在 Application Insights 應用程式上啟用取樣功能時，您取得之 Application Insights 和 Log Analytics 中儲存的項目數會減少。 雖然資料一致性會保留在 [Application Insights Connector] 頁面和檢視方塊中，您應針對您的自訂查詢手動更正取樣的資料。
 
 在記錄搜尋查詢中取樣更正的範例如下：
 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: e31f35aadfa7e46426a1779cdc057691bef91336
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ad490630d3ce5d625bce05c75c20fa71a7aa2d29
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965542"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014535"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
@@ -172,7 +171,7 @@ END
 5. 選取 Data Factory 的 [位置]  。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 6. 選取 [釘選到儀表板]。     
 7. 按一下頁面底部的 [新增] 。      
-8. 在儀表板上，您會看到狀態如下的下列圖格︰**部署資料處理站**。 
+8. 在儀表板上，您會看到狀態如下的下列圖格︰**部署 Data Factory**。 
 
     ![部署資料處理站圖格](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
 9. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。

@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 監視器中收集並分析效能計數器 | Microsoft Docs
-description: Azure 監視器會收集效能計數器以分析 Windows 和 Linux 代理程式的效能。  本文說明如何設定 Windows 和 Linux 代理程式的效能計數器收集、儲存在工作區中的相關詳細資料，以及如何在 Azure 入口網站中分析這些資料。
+title: 在 Log Analytics 中收集並分析效能計數器 | Microsoft Docs
+description: Log Analytics 會收集效能計數器以分析 Windows 和 Linux 代理程式的效能。  本文說明如何設定 Windows 和 Linux 代理程式的效能計數器收集、儲存在工作區中的相關詳細資料，以及如何在 Azure 入口網站中分析這些資料。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018l
 ms.author: magoedte
-ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8359dda2521773145f9e3e870c3c21db1546004b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438365"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103701"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure 監視器中的 Windows 和 Linux 效能資料來源
-Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業系統及應用程式的效能。  Azure 監視器可收集效能計數器，以頻繁間隔進行接近即時 (NRT) 的分析，並彙總較長期分析和報告所需的效能資料。
+# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log Analytics 中的 Windows 和 Linux 效能資料來源
+Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業系統及應用程式的效能。  Log Analytics 可收集效能計數器，以頻繁間隔進行接近即時 (NRT) 的分析，並彙總較長期分析和報告所需的效能資料。
 
 ![效能計數器](media/data-sources-performance-counters/overview.png)
 
@@ -88,7 +88,7 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 | interval | 物件計數器的收集頻率。 |
 
 
-下表列出您可以在組態檔中指定的物件和計數器。  還有其他計數器適用於特定應用程式，如[在 Azure 監視器中收集 Linux 應用程式的效能計數器](data-sources-linux-applications.md)中所述。
+下表列出您可以在組態檔中指定的物件和計數器。  還有其他計數器適用於特定應用程式，如[在 Log Analytics 中收集 Linux 應用程式的效能計數器](data-sources-linux-applications.md)中所述。
 
 | 物件名稱 | 計數器名稱 |
 |:--|:--|
@@ -182,7 +182,7 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
     </source>
 
 ## <a name="data-collection"></a>資料收集
-只要代理程式有安裝相關計數器，Azure 監視器就會依照其指定的取樣間隔時間，收集全部代理程式上所有指定的效能計數器。  資料不彙總，在訂用帳戶所指定的期間，所有記錄查詢檢視中都會提供未經處理資料。
+只要代理程式有安裝相關計數器，Log Analytics 就會依照其指定的取樣間隔時間，收集全部代理程式上所有指定的效能計數器。  資料不彙總，在訂用帳戶所指定的期間，所有記錄查詢檢視中都會提供未經處理資料。
 
 ## <a name="performance-record-properties"></a>效能記錄屬性
 效能記錄都具有 **Perf** 類型以及下表中的屬性。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 0186882183ed0848fd8b14d186b55ad1a5ff58ea
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 746e1c082d370cdcf1fca6597923b0e38b9a6d62
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021306"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105231"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Cache for Redis
 > [!div class="op_single_selector"]
@@ -148,11 +148,11 @@ ms.locfileid: "53021306"
 | maxmemory-reserved |設定非快取程序的 [保留記憶體](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) |標準和進階 |
 | maxmemory-policy |設定快取的 [收回原則](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) |所有定價層 |
 | notify-keyspace-events |設定 [Keyspace 通知](cache-configure.md#keyspace-notifications-advanced-settings) |標準和進階 |
-| hash-max-ziplist-entries |設定小型彙總資料類型的 [記憶體最佳化](http://redis.io/topics/memory-optimization) |標準和進階 |
-| hash-max-ziplist-value |設定小型彙總資料類型的 [記憶體最佳化](http://redis.io/topics/memory-optimization) |標準和進階 |
-| set-max-intset-entries |設定小型彙總資料類型的 [記憶體最佳化](http://redis.io/topics/memory-optimization) |標準和進階 |
-| zset-max-ziplist-entries |設定小型彙總資料類型的 [記憶體最佳化](http://redis.io/topics/memory-optimization) |標準和進階 |
-| zset-max-ziplist-value |設定小型彙總資料類型的 [記憶體最佳化](http://redis.io/topics/memory-optimization) |標準和進階 |
+| hash-max-ziplist-entries |設定小型彙總資料類型的 [記憶體最佳化](https://redis.io/topics/memory-optimization) |標準和進階 |
+| hash-max-ziplist-value |設定小型彙總資料類型的 [記憶體最佳化](https://redis.io/topics/memory-optimization) |標準和進階 |
+| set-max-intset-entries |設定小型彙總資料類型的 [記憶體最佳化](https://redis.io/topics/memory-optimization) |標準和進階 |
+| zset-max-ziplist-entries |設定小型彙總資料類型的 [記憶體最佳化](https://redis.io/topics/memory-optimization) |標準和進階 |
+| zset-max-ziplist-value |設定小型彙總資料類型的 [記憶體最佳化](https://redis.io/topics/memory-optimization) |標準和進階 |
 | 資料庫 |設定資料庫數目。 這個屬性僅可以在建立快取時設定。 |標準和進階 |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>建立 Azure Cache for Redis
@@ -237,7 +237,7 @@ ms.locfileid: "53021306"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 若要使用預設參數建立快取，請執行下列命令。
 
@@ -317,7 +317,7 @@ ms.locfileid: "53021306"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 `Set-AzureRmRedisCache` Cmdlet 可用來更新屬性，例如 `Size`、`Sku`、`EnableNonSslPort` 和 `RedisConfiguration` 的值。 
 
@@ -421,7 +421,7 @@ ms.locfileid: "53021306"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 若要傳回目前訂用帳戶中所有快取的相關資訊，請不帶任何參數執行 `Get-AzureRmRedisCache`。
 
@@ -488,7 +488,7 @@ ms.locfileid: "53021306"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 若要擷取您快取的金鑰，請呼叫 `Get-AzureRmRedisCacheKey` Cmdlet，並傳入快取的名稱以及包含快取的資源群組名稱。
 
@@ -533,7 +533,7 @@ ms.locfileid: "53021306"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 若要重新產生快取的主要或次要金鑰，請呼叫 `New-AzureRmRedisCacheKey` Cmdlet，並傳入名稱、資源群組，且針對 `KeyType` 參數指定 `Primary` 或 `Secondary`。 在下列範例中，會重新產生快取的次要存取金鑰。
 
@@ -584,7 +584,7 @@ ms.locfileid: "53021306"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 在下列範例中，會移除名為 `myCache` 的快取。
 
@@ -648,7 +648,7 @@ ms.locfileid: "53021306"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 以下命令可將資料從 SAS URI 所指定的 Blob 匯入 Azure Cache for Redis 中。
@@ -707,7 +707,7 @@ ms.locfileid: "53021306"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 以下命令可將資料從 Azure Cache for Redis 執行個體匯出到 SAS URI 所指定的容器中。
@@ -768,7 +768,7 @@ ms.locfileid: "53021306"
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 以下命令會重新啟動指定快取的兩個節點。
@@ -785,5 +785,5 @@ ms.locfileid: "53021306"
 * [使用資源群組來管理您的 Azure 資源](../azure-resource-manager/resource-group-template-deploy-portal.md)：了解如何在 Azure 入口網站中建立和管理資源群組。
 * [Azure 部落格](https://azure.microsoft.com/blog/)：了解 Azure 的新功能。
 * [Windows PowerShell 部落格](https://blogs.msdn.com/powershell)：了解 Windows PowerShell 的新功能。
-* ["Hey, Scripting Guy!"部落格](http://blogs.technet.com/b/heyscriptingguy/)：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
+* ["Hey, Scripting Guy!"部落格](https://blogs.technet.com/b/heyscriptingguy/)：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
 

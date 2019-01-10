@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 12ef6447e53ba0da3fbd3d56749d7798c49a2cfe
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b368ef3b5503d90b0eb928113e8154aabca9c04a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993961"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157134"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 Web 應用程式防火牆的應用程式閘道
 
@@ -119,7 +119,7 @@ ms.locfileid: "52993961"
 ### <a name="add-backend-servers"></a>新增後端伺服器
 
 1. 按一下 [所有資源]，然後按一下 [myAppGateway]。
-2. 按一下 [後端集區]。 已使用應用程式閘道自動建立預設集區。 按一下 [appGateayBackendPool]。
+2. 按一下 [後端集區]。 已自動建立具有應用程式閘道的預設集區。 按一下 [appGatewayBackendPool]。
 3. 按一下 [新增目標]，將您所建立的每個虛擬機器新增至後端集區。
 
     ![新增後端伺服器](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)

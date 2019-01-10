@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: e1d210b329c02a0b01402a46e1c7f223995cb175
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0aee18115f34c86e84054f1aeddcc99d563f5f64
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004522"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116512"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>開發人員分析：程式語言、平台和整合
-這些項目是我們曾聽過的 [Application Insights](../../application-insights/app-insights-overview.md) 實作，包括一些協力廠商提供的實作。
+這些項目是我們曾聽過的 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 實作，包括一些協力廠商提供的實作。
 
 ## <a name="languages---officially-supported-by-application-insights-team"></a>程式語言 - Application Insights 團隊正式支援
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
@@ -40,7 +40,7 @@ ms.locfileid: "54004522"
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET - 適用於即時應用程式](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
-* [Android](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
+* [Android](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
@@ -48,7 +48,7 @@ ms.locfileid: "54004522"
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](../../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-* [iOS](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
+* [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center)
 * [J2EE](../../azure-monitor/app/java-get-started.md)
@@ -57,9 +57,9 @@ ms.locfileid: "54004522"
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE 堆疊](https://safe-stack.github.io/docs/template-azure-ai/)
 * [Spring](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
-* [通用 Windows app](../../application-insights/app-insights-mobile-center-quickstart.md) (App Center)
+* [通用 Windows app](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-* [Windows 桌面應用程式、服務和背景工作角色](../../application-insights/app-insights-windows-desktop.md)
+* [Windows 桌面應用程式、服務和背景工作角色](../../azure-monitor/app/windows-desktop.md)
 * [任何其他項目](#projects)
 
 ## <a name="logging-frameworks"></a>記錄架構
@@ -77,13 +77,13 @@ ms.locfileid: "54004522"
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 * [Orchard](https://azure.microsoft.com/blog/integrating-application-insights-into-a-modular-cms-and-a-multi-tenant-public-saas/preview/)
-* [SharePoint](../../application-insights/app-insights-sharepoint.md)
+* [SharePoint](../../azure-monitor/app/sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
 ## <a name="export-and-data-analysis"></a>匯出和資料分析
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
-* [串流分析](../../application-insights/app-insights-export-power-bi.md)
+* [串流分析](../../azure-monitor/app/export-power-bi.md )
 
 ## <a name="projects"></a> 建置您自己的 SDK
 如果還沒有適合您程式語言或平台使用的 SDK，您會想要建置一個嗎？ 查看 [GitHub 上之 Application Insights SDK 專案](https://github.com/Microsoft/AppInsights-Home)中列出的現有 SDK 程式碼。

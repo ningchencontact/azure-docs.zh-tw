@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 63cd7935a649973ae72e074d546f48c7d316e388
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: d0fc922191dbcdf35e3f9d1dee4af32e50dd27a7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706733"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076683"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell 的功能和工具
 
@@ -57,7 +57,7 @@ Cloud Shell 包含預先設定的驗證，可用於開放原始碼工具，例�
 
 ## <a name="tools"></a>工具
 
-|類別   |名稱   |
+|類別   |Name   |
 |---|---|
 |Linux 工具            |Bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Azure 工具            |[Azure CLI](https://github.com/Azure/azure-cli) 和 [Azure 傳統 CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
@@ -76,7 +76,7 @@ Cloud Shell 包含預先設定的驗證，可用於開放原始碼工具，例�
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.1.0](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.1.1](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 和 3.5 (預設)|
 
 ## <a name="next-steps"></a>後續步驟

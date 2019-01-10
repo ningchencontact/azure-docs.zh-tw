@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: a37ed044275abfca23c83e7d17012b9afdc78f6c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 92c1e706d3cbcff8bb0d66ddf4f2e73362a96af6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906454"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064520"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>使用 PowerShell 透過網路安全性群組篩選網路流量
 
@@ -302,4 +302,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 在本文中，您已建立網路安全性群組，並將其與虛擬網路子網路產生關聯。 若要深入了解網路安全性群組，請參閱[網路安全性群組概觀](security-overview.md)和[管理網路安全性群組](manage-network-security-group.md)。
 
-Azure 依預設會路由傳送子網路之間的流量。 您可以改採其他方式，例如，透過作為防火牆的 VM 路由傳送子網路之間的流量。 Azure 依預設會路由傳送子網路之間的流量。 您可以改採其他方式，例如，透過作為防火牆的 VM 路由傳送子網路之間的流量。 若要了解操作方式，請參閱[建立路由表](tutorial-create-route-table-powershell.md)。
+Azure 依預設會路由傳送子網路之間的流量。 您可以改採其他方式，例如，透過作為防火牆的 VM 路由傳送子網路之間的流量。 若要了解操作方式，請參閱[建立路由表](tutorial-create-route-table-powershell.md)。

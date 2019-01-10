@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/07/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: fae5ad4a9045115c0e7a68b0164593f639824073
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 984ccfa9bad99281418ba891ce188536ae13d8e5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141487"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106761"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>使用 PowerShell 將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型
 
@@ -48,8 +48,8 @@ ms.locfileid: "53141487"
 3. 匯入 Azure 和 ExpressRoute 的 PowerShell 模組。
 
   ```powershell
-  Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-  Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
   ```
 
 4. 使用下列 Cmdlet 來取得所有 ExpressRoute 電路的服務金鑰。 在取得金鑰之後，請複製電路的「服務金鑰」，這個電路就是您想要移至 Resource Manager 部署模型的電路。

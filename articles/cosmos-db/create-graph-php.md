@@ -1,21 +1,19 @@
 ---
 title: 快速入門：Gremlin API 搭配 PHP - Azure Cosmos DB
 description: 本快速入門說明如何使用 Azure Cosmos DB Gremlin API，並搭配 Azure 入口網站與 PHP，以建立主控台應用程式
-services: cosmos-db
 author: luisbosquez
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: f6ff46f391ce03f67619ef685f841dcf95a1fd92
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f13f8878f24309330db8143eb0f5cf3ae890d2fe
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089461"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039141"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB：使用 PHP 和 Azure 入口網站建立圖形資料庫
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4abed1718d77c93e864fe5bb1d39aba5e5272f10
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081535"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074465"
 ---
 # <a name="determine-your-publishing-option"></a>決定您的發佈選項
 您為供應項目選擇的發佈選項，與資格需求和市集 GTM 權益直接相關。 更重要的是，Cloud Partner 入口網站中發佈選項和供應項目類型的選取項目，會定義使用者與市集供應項目互動的方式。
@@ -62,7 +62,7 @@ ms.locfileid: "53081535"
 
 ## <a name="choose-a-publishing-option"></a>選擇發佈選項
 
-可用的發佈選項會提供差異化客戶參與，同時給予您潛在客戶共用和[進入市場權益](https://partner.microsoft.com/en-US/reach-customers/gtm)的存取權。 在使用 Cloud Partner 入口網站建立市集供應項目之前，請從三個可行的發佈選項中選取。 請注意與發佈選項對應的呼籲行動：
+可用的發佈選項會提供差異化客戶參與，同時給予您潛在客戶共用和[進入市場權益](https://partner.microsoft.com/reach-customers/gtm)的存取權。 在使用 Cloud Partner 入口網站建立市集供應項目之前，請從三個可行的發佈選項中選取。 請注意與發佈選項對應的呼籲行動：
 
 | **發行選項**    | **說明**  |
 | :------------------- | :-------------------|

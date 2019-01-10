@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 83da24acfb339405c24bc1eed020736e6d4cef14
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 690822848fa2c6524f98c9bbd32e6d2890e4a9c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000167"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118757"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>沒有要進行疑難排解的資料 - Application Insights for .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>我遺失了部分遙測
 *在 Application Insights 中，我只會看到我的應用程式所產生的一小部分事件。*
 
-* 如果您持續看到同一個部分，可能是因為調適性 [取樣](../../application-insights/app-insights-sampling.md)所導致。 若要確認這一點，開啟 [搜尋] \(從 [概觀] 刀鋒視窗)，並查看要求或其他事件的執行個體。 按一下 [屬性] 區段底部的 [...]，以取得完整的屬性詳細資料。 如果要求計數 > 1，則表示取樣正在運作中。 
+* 如果您持續看到同一個部分，可能是因為調適性 [取樣](../../azure-monitor/app/sampling.md)所導致。 若要確認這一點，開啟 [搜尋] \(從 [概觀] 刀鋒視窗)，並查看要求或其他事件的執行個體。 按一下 [屬性] 區段底部的 [...]，以取得完整的屬性詳細資料。 如果要求計數 > 1，則表示取樣正在運作中。 
 * 否則，有可能是您已達到定價方案的 [資料速率限制](../../azure-monitor/app/pricing.md#limits-summary) 。 每分鐘都會套用這些限制。
 
 ## <a name="no-data-from-my-server"></a>沒有來自我的伺服器的資料
@@ -34,12 +34,12 @@ ms.locfileid: "54000167"
 
 *我已在 Web 伺服器上[安裝狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md)來監視現有的應用程式。我沒有看到任何結果。*
 
-* 請參閱 [疑難排解狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)。 
+* 請參閱 [疑難排解狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot)。 
 
 ## <a name="q01"></a>在 Visual Studio 中沒有「新增 Application Insights」選項
 當我以滑鼠右鍵按一下 [方案總管] 中的現有專案時，沒有看到任何 Application Insights 選項。
 
-* 工具並非支援所有類型的 .NET 專案。 支援 Web 和 WCF 專案。 對於其他像是傳統型或服務應用程式的專案類型，您仍然可以 [手動將 Application Insights SDK 新增至您的專案](../../application-insights/app-insights-windows-desktop.md)。
+* 工具並非支援所有類型的 .NET 專案。 支援 Web 和 WCF 專案。 對於其他像是傳統型或服務應用程式的專案類型，您仍然可以 [手動將 Application Insights SDK 新增至您的專案](../../azure-monitor/app/windows-desktop.md)。
 * 請確定您有 [Visual Studio 2013 Update 3 或更新版本](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs)。 它會預先安裝開發人員分析工具，這些工具提供 Application Insights SDK。
 * 選取 [工具]、[擴充功能和更新]，檢查 [開發人員分析工具] 是否已安裝並啟用。 如果是，按一下 [更新]  以查看是否有可用的更新。
 * 開啟 [新增專案] 對話方塊，並且選擇 [ASP.NET Web 應用程式]。 如果您在那裡看到 Application Insights 選項，則工具已安裝。 如果沒有，請嘗試解除安裝 Application Insights Tools，再重新安裝。
@@ -51,14 +51,14 @@ ms.locfileid: "54000167"
 
 * 與 Application Insights 入口網站通訊失敗；或者
 * 您的 Azure 帳戶發生問題；
-* 您只具備 [您嘗試建立新資源之訂用帳戶或群組的讀取權限](../../application-insights/app-insights-resources-roles-access-control.md)。
+* 您只具備 [您嘗試建立新資源之訂用帳戶或群組的讀取權限](../../azure-monitor/app/resources-roles-access-control.md)。
 
 修正：
 
 * 請檢查您為正確的 Azure 帳戶提供登入認證。 
 * 在瀏覽器中，檢查您是否可以存取 [Azure 入口網站](https://portal.azure.com)。 開啟 [設定] 並查看是否有任何限制。
 * [將 Application Insights 新增至您現有的專案](../../azure-monitor/app/asp-net.md)：在 [方案總管] 中以滑鼠右鍵按一下您的專案，並選擇 [新增 Application Insights]。
-* 如果仍然無法運作，請依照下列 [手動程序](../../application-insights/app-insights-windows-services.md) ，在入口網站中加入資源，然後將 SDK 加入至您的專案。 
+* 如果仍然無法運作，請依照下列 [手動程序](../../azure-monitor/app/windows-services.md) ，在入口網站中加入資源，然後將 SDK 加入至您的專案。 
 
 ## <a name="emptykey"></a>我收到「檢測金鑰不能是空白」的錯誤
 可能是您在安裝 Application Insights 或記錄配接器時發生問題。
@@ -95,7 +95,7 @@ ms.locfileid: "54000167"
 * 您有一個以上的 Microsoft 帳戶 - 可能是工作和個人 Microsoft 帳戶？ 您上一次在預設瀏覽器上使用的登入，是與具有 [將 Application Insights 新增至專案](../../azure-monitor/app/asp-net.md)的存取權的帳戶不同的帳戶。 
   
   * 修正：按一下瀏覽器視窗右上方的您的名稱並且登出。然後以具有存取權的帳戶登入。 然後在左側的導覽列中，按一下 [Application Insights]，並選取您的應用程式。
-* 其他人將 Application Insights 新增至專案，且他們忘記為您提供所建立的 [資源群組的存取權](../../application-insights/app-insights-resources-roles-access-control.md) 。 
+* 其他人將 Application Insights 新增至專案，且他們忘記為您提供所建立的 [資源群組的存取權](../../azure-monitor/app/resources-roles-access-control.md) 。 
   
   * 修正：如果他們使用組織帳戶，他們可以將您加入小組；或者，他們可以授與您資源群組的個別存取權。
 
@@ -154,7 +154,7 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 請參閱[相依性遙測](../../azure-monitor/app/asp-net-dependencies.md)和[例外狀況遙測](asp-net-exceptions.md)。
 
 ## <a name="no-performance-data"></a>沒有效能資料
-效能資料 (CPU、IO 速率等等) 適用於 [Java Web 服務](../../azure-monitor/app/java-collectd.md)、[Windows 傳統型應用程式](../../application-insights/app-insights-windows-desktop.md)、[IIS Web 應用程式和服務 (若您安裝狀態監視器)](../../azure-monitor/app/monitor-performance-live-website-now.md) 和 [Azure 雲端服務](../../application-insights/app-insights-overview.md)。 您將會在 [設定]、[伺服器] 之下看到該資料。
+效能資料 (CPU、IO 速率等等) 適用於 [Java Web 服務](../../azure-monitor/app/java-collectd.md)、[Windows 傳統型應用程式](../../azure-monitor/app/windows-desktop.md)、[IIS Web 應用程式和服務 (若您安裝狀態監視器)](../../azure-monitor/app/monitor-performance-live-website-now.md) 和 [Azure 雲端服務](../../azure-monitor/app/app-insights-overview.md)。 您將會在 [設定]、[伺服器] 之下看到該資料。
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>我發佈應用程式到我的伺服器之後卻沒有 (伺服器) 資料
 * 請確認您實際上已複製所有 Microsoft. ApplicationInsights DLL 到伺服器，並且連帶 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll ApplicationInsights Dll 一併複製。
@@ -167,7 +167,7 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 * 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。 請參閱 [定價配置](https://azure.microsoft.com/pricing/details/application-insights/)。
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>我並沒有看到預期的所有資料
-如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則 [調適性取樣](../../application-insights/app-insights-sampling.md) 功能可能會運作，並只傳送一部分的遙測資料。 
+如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則 [調適性取樣](../../azure-monitor/app/sampling.md) 功能可能會運作，並只傳送一部分的遙測資料。 
 
 您可以停用它，但是這不是建議的作法。 取樣經過設計，以便能正確傳輸相關的遙測，供診斷之用。 
 

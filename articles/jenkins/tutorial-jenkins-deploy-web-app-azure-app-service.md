@@ -3,17 +3,17 @@ title: 教學課程 - 使用 Jenkins 從 GitHub 部署至 Azure App Service
 description: 設定 Jenkins 以進行 Java Web 應用程式從 GitHub 的持續整合 (CI) 以及對 Azure App Service 的持續部署 (CD)
 services: jenkins
 ms.service: jenkins
-author: tomarcher
+author: tomarchermsft
 ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: b65972b79fd16b912abfbd2e35642ef5d9f5adc4
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 786fc427e4cb631c4aedd0f795daebebd9fb15bc
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438467"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077431"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>教學課程：使用 Jenkins 持續整合和部署從 GitHub 部署至 Azure App Service
 

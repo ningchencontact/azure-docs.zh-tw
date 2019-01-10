@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 15548e801777a99dfb78de0067abb633a2587ee6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879344"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053188"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 平台支援
 
@@ -20,9 +20,9 @@ ms.locfileid: "52879344"
 
 Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C SDK 加以擴充。 其中有部分受到小組的正式支援，並分組為各層，代表使用者可預期的支援程度。 「完全支援的平台」意味著 Microsoft 會：
 
-    * 持續建置並執行對主機的端對端測試和 LTS 支援版本。  若要在不同版本之間提供測試涵蓋範圍，我們一般會針對最新的 LTS 版本與最受歡迎的版本來進行測試。  相同平台的其他版本或許可以透過平台版本相容性來提供支援。
-    * 提供適用的安裝指導方針或套件。
-    * 完全支援 GitHub 上的平台。
+- 持續建置並執行對主機的端對端測試和 LTS 支援版本。  若要在不同版本之間提供測試涵蓋範圍，我們一般會針對最新的 LTS 版本與最受歡迎的版本來進行測試。  相同平台的其他版本或許可以透過平台版本相容性來提供支援。
+- 提供適用的安裝指導方針或套件。
+- 完全支援 GitHub 上的平台。
 
 此外，合作夥伴清單已將我們的 C SDK 移轉至更多平台，且這些平台保有平台抽象層 (PAL)。 [Azure IoT 認證裝置目錄](https://catalog.azureiotsolutions.com/)也提供已測試過各種 SDK 的作業系統平台清單。 SDK 也會在這些平台上定期建置，並進行有限的測試和支援：
 

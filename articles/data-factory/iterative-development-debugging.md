@@ -11,13 +11,12 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.openlocfilehash: 610f0c8691714bf30415347dd2775b6fa3625c11
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c80b67ac5575360a6556befd3fd2a6a5c8e562c0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391087"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015758"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>透過 Azure Data Factory 的反覆式開發與偵錯
 
@@ -59,7 +58,7 @@ Azure Data Factory 可讓您反覆地開發和偵錯 Data Factory 管線。
 
 ## <a name="setting-breakpoints-for-debugging"></a>設定偵錯的中斷點
 
-Data Factory 也可讓您進行偵錯，直到您到達管線畫布上的特定活動為止。 只要將中斷點放在您要測試時的活動，然後選取 [偵錯]。 Data Factory 可確保測試回合只會進行到管線畫布上的中斷點活動。 如果您不想測試整個管線，而只想測試管線內的部分活動，此 [偵錯直到] 功能很實用。
+Data Factory 也可讓您進行偵錯，直到您到達管線畫布上的特定活動為止。 只要將中斷點放在您要測試時的活動，然後選取 [偵錯]。 Data Factory 可確保測試回合只會進行到管線畫布上的中斷點活動。 如果您不想測試整個管線，而只想測試管線內的部分活動，這項 [偵錯直到] 功能很實用。
 
 ![管線畫布上的中斷點](media/iterative-development-debugging/iterative-development-image4.png)
 

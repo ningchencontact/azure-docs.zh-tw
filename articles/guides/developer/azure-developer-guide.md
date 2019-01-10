@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 84d8d3838740ec5d448b14b5c4539f7d78c96b5e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7c4eefa09f0a70d42601a5b1fe8694500b5c6be2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714350"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118246"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 開發人員開始使用指南
 
@@ -178,7 +178,7 @@ Azure 提供數種方式，以在應用程式中使用容器。
 
 -   **Visual Studio Application Insights**：Azure 裝載的可延伸分析服務，可與 Visual Studio 整合以監視即時 Web 應用程式。 它會提供持續改善應用程式效能和可用性所需的資料，而不論它們是否裝載於 Azure 上。
 
-    >**開始使用**：依照 [Application Insights 教學課程](../../application-insights/app-insights-overview.md)進行操作。
+    >**開始使用**：依照 [Application Insights 教學課程](../../azure-monitor/app/app-insights-overview.md)進行操作。
 
 -   **Azure 監視器**：一種服務，可協助您以視覺化方式檢視、查詢、路由傳送、封存以及處理 Azure 基礎結構與資源所產生的計量和記錄。 監視器提供您在 Azure 入口網站中看到的資料檢視，而且是用於監視 Azure 資源的單一來源。
  

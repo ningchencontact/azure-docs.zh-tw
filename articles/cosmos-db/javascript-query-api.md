@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 00ad005fff54940dbec468e0fde105e936579378
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 1fff32896ef794a26f223cae4ae491a2995d9acf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411242"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191134"
 ---
 # <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>透過 Azure Cosmos DB 使用 JavaScript Language-integrated Query (LINQ) API
 
@@ -64,7 +64,7 @@ ms.locfileid: "53411242"
 
 進一步了解更多相關概念，以及如何在 Azure Cosmos DB 中寫入和使用預存程序、觸發程序和使用者定義的函式：
 
-- [如何使用 Javascript 查詢 API 寫入預存程序和觸發程序](how-to-write-javascript-query-api.md#)
+- [如何使用 Javascript 查詢 API 寫入預存程序和觸發程序](how-to-write-javascript-query-api.md)
 - [使用 Azure Cosmos DB 預存程序、觸發程序及使用者定義函數](stored-procedures-triggers-udfs.md) (英文)
 - [如何在 Azure Cosmos DB 中註冊和使用預存程序、觸發程序和使用者定義函式](how-to-use-stored-procedures-triggers-udfs.md)
 - [Azure Cosmos DB JavaScript 伺服器端 API 參考](https://azure.github.io/azure-cosmosdb-js-server) \(英文\)

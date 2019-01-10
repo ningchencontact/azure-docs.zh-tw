@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 30eb458b9d0584b467479163d8312d7bd5456be1
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409729"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157323"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何針對 Azure Mobile Apps 使用受控用戶端
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -651,7 +651,7 @@ InvokeApiAsync() 方法會在您想要呼叫的 API 前面加上 '/api/'，除�
 您可以使用 Active Directory Authentication Library (ADAL)，從使用 Azure Active Directory 驗證的用戶端起始使用者驗證。
 
 1. 依照[如何針對 Active Directory 登入設定 App Service]教學課程的說明，設定您的行動應用程式後端來進行 AAD 登入。 請務必完成註冊原生用戶端應用程式的選擇性步驟。
-2. 在 Visual Studio 或 Xamarin Studio 中，開啟您的專案，然後新增對 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 封裝的參考。 搜尋時，包含發行前版本。
+2. 在 Visual Studio 或 Xamarin Studio 中，開啟您的專案，然後新增對 `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet 封裝的參考。 搜尋時，包含發行前版本。
 3. 根據您使用的平台，將下列程式碼新增至您的應用程式。 在每個程式碼中，進行下列取代：
 
    * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應為 https://login.microsoftonline.com/contoso.onmicrosoft.com。 您可以從 [Azure 入口網站]之 Azure Active Directory 的 [網域] 索引標籤中複製這個值。
