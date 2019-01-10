@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b6264d47c7627d72b8746c79e7e050fd468171de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582706"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105112"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>如何監視 Azure Cache for Redis
 Azure Cache for Redis 使用 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)提供數個選項來監視您的快取執行個體。 您可以檢視度量、將度量圖表釘選到「開始面板」、自訂監視圖表的日期和時間範圍、新增和移除圖表中的度量，以及設定符合特定條件時的警示。 這些工具可讓您監視 Azure Cache for Redis 執行個體的健康情況，並協助您管理快取應用程式。
 
-Azure Cache for Redis 執行個體的計量使用 Redis [INFO](http://redis.io/commands/info) 命令每分鐘收集兩次，自動儲存 30 天 (請參閱[匯出快取計量](#export-cache-metrics)來設定不同的保留原則)，以便其顯示在計量圖表中並依警示規則評估。 如需用於每個快取度量的不同 INFO 值詳細資訊，請參閱 [可用度量和報告間隔](#available-metrics-and-reporting-intervals)。
+Azure Cache for Redis 執行個體的計量使用 Redis [INFO](https://redis.io/commands/info) 命令每分鐘收集兩次，自動儲存 30 天 (請參閱[匯出快取計量](#export-cache-metrics)來設定不同的保留原則)，以便其顯示在計量圖表中並依警示規則評估。 如需用於每個快取度量的不同 INFO 值詳細資訊，請參閱 [可用度量和報告間隔](#available-metrics-and-reporting-intervals)。
 
 <a name="view-cache-metrics"></a>
 
@@ -98,7 +98,7 @@ Azure Cache for Redis 執行個體的計量使用 Redis [INFO](http://redis.io/c
 
 | 計量 | 說明 |
 | --- | --- |
-| 快取點擊 |所指定報告間隔期間的成功金鑰查閱數目。 這會對應至 Redis [INFO](http://redis.io/commands/info) 命令的 `keyspace_hits` 。 |
+| 快取點擊 |所指定報告間隔期間的成功金鑰查閱數目。 這會對應至 Redis [INFO](https://redis.io/commands/info) 命令的 `keyspace_hits` 。 |
 | 快取延遲 (預覽) | 根據快取的內部節點延遲計算的快取延遲。 此計量會以微秒測量，並有三個維度：「平均」、「最小」和「最大」，分別代表在指定的報告間隔期間內快取的平均、最小和最大延遲。 |
 | 快取遺漏 |所指定報告間隔期間的失敗金鑰查閱數目。 這會對應至 Redis INFO 命令的 `keyspace_misses` 。 快取遺漏不一定表示快取發生問題。 例如，使用另行快取程式設計模式時，應用程式會先在快取中尋找項目。 如果項目不存在 (快取遺漏)，項目會從資料庫中擷取，並在下次新增至快取中。 快取遺漏是另行快取程式設計模式的正常行為。 如果快取遺漏數目高於預期，請檢查可填入且讀取自快取的應用程式邏輯。 如果因記憶體壓力而正在收回快取中的項目，則可能會有一些快取遺漏，但監視記憶體壓力的較佳度量是 `Used Memory` 或 `Evicted Keys`。 |
 | 快取讀取 |所指定報告間隔期間，從快取讀取的資料量 (以 MB/s 為單位)。 這個值衍生自網路介面卡，而網路介面卡支援裝載快取且非 Redis 特有的虛擬機器。 **這個值對應於此快取所使用的網路頻寬。如果您想要設定伺服器端網路頻寬限制的警示，則可使用此 `Cache Read` 計數器加以建立。如需所觀察到適用於各種快取定價層和大小的頻寬限制，請參閱[這個表格](cache-faq.md#cache-performance)。** |

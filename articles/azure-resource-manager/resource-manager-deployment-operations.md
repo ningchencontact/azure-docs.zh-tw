@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9320e3089e02e1ca6b6bcce0287946baaf0558d9
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 8fee1e29ab3a267d77e4e43beb2c42587da5314d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452032"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103854"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>使用 Azure Resource Manager 來檢視部署作業
 
 您可以透過 Azure 入口網站檢視部署的作業。 當您在部署期間收到錯誤時，您可能對於檢視作業最感興趣，所以此文章著重於檢視失敗的作業。 入口網站提供介面，讓您輕鬆地找到錯誤並判斷可能的修正方法。
 
-您可以透過查看稽核記錄檔或部署作業來針對您的部署進行疑難排解。 此文章示範這兩種方法。 如需解決特定部署錯誤的說明，請參閱 [針對使用 Azure Resource Manager 將資源部署至 Azure 時常見的錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。
+您可以藉由查看稽核記錄檔或部署作業來疑難排解您的部署。 本文章示範這兩種方法。 如需解決特定部署錯誤的說明，請參閱 [針對使用 Azure Resource Manager 將資源部署至 Azure 時常見的錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。
 
 ## <a name="portal"></a>入口網站
 若要查看部署作業，請使用下列步驟 ︰
@@ -77,7 +77,7 @@ ms.locfileid: "47452032"
   Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
   ```
 
-    以下列格式傳回多個作業︰
+    以下列格式傳回多項作業︰
 
   ```powershell
   Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
@@ -173,7 +173,7 @@ ms.locfileid: "47452032"
       "correlationId":"d5062e45-6e9f-4fd3-a0a0-6b2c56b15757",
       ...
       "error":{
-        "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see http://aka.ms/arm-debug for usage details.",
+        "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.",
         "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
       }  
     }

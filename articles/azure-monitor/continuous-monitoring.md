@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 2d58a39efca8733902d157083489e59bf22ef161
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a7b91bfdc616e19fde9f74246d05cf14ecbd335e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002275"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117260"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>使用 Azure 監視器持續監視
 
@@ -32,9 +32,9 @@ ms.locfileid: "54002275"
 若要取得整個環境的可檢視性，您需要對所有 Web 應用程式和服務啟用監視。 這可讓您輕鬆地將跨所有元件的端對端交易和連線以視覺化方式呈現。
 
 - [Azure DevOps Projects](../devops-project/overview.md) 為您提供了現有程式碼和 Git 存放庫的簡化體驗，或者從其中一個範例應用程式中進行選擇，以在 Azure 中建立持續整合 (CI) 和持續傳遞 (CD) 管線。
-- [DevOps 發行管線中的持續監視](../application-insights/app-insights-vsts-continuous-monitoring.md)允許您根據監視資料對部署進行閘道設定或復原。
+- [DevOps 發行管線中的持續監視](../azure-monitor/app/continuous-monitoring.md)允許您根據監視資料對部署進行閘道設定或復原。
 - [狀態監視器](../azure-monitor/app/monitor-performance-live-website-now.md)允許您使用 Azure Application Insights 在 Windows 上檢測即時 .NET 應用程式，而不需修改或重新部署您的程式碼。
-- 如果您有權存取應用程式的程式碼，則透過為[.NET](../application-insights/quick-monitor-portal.md)、[Java](../application-insights/app-insights-java-quick-start.md)、[Node.js](../application-insights/app-insights-nodejs-quick-start.md) 或[任何其他程式設計語言](../azure-monitor/app/platforms.md)安裝 Azure Monitor Application Insights SDK，啟用 [Application Insights](../application-insights/app-insights-overview.md) 的完全監視。 這允許您指定與您的應用程式和業務相關的自訂事件、計量或頁面檢視。
+- 如果您有權存取應用程式的程式碼，則透過為[.NET](../azure-monitor/learn/quick-monitor-portal.md)、[Java](../azure-monitor/learn/java-quick-start.md)、[Node.js](../azure-monitor/learn/nodejs-quick-start.md) 或[任何其他程式設計語言](../azure-monitor/app/platforms.md)安裝 Azure Monitor Application Insights SDK，啟用 [Application Insights](../azure-monitor/app/app-insights-overview.md) 的完全監視。 這允許您指定與您的應用程式和業務相關的自訂事件、計量或頁面檢視。
 
 
 
@@ -64,7 +64,7 @@ Azure 上的一般應用程式包含多個資源，例如 VM 和應用程式服�
 
 - 使用 [Azure 管線](/azure/devops/pipelines)來實作持續部署，並根據您的 CI/CD 測試，自動化從程式碼認可到生產環境的整個程序。
 - 使用[品質閘門](/devops/pipelines/release/approvals/gates)將監視整合到部署前或部署後。 這可確保您在應用程式從開發階段移至生產環境時符合主要的健康情況/效能計量 (KPI)，並且基礎結構環境或規模中的任何差異都不會對您的 KPI 造成負面影響。
-- 在不同的部署環境 (如 Dev、Test，Canary 和 Prod) 之間[維護個別的監視執行個體](../application-insights/app-insights-separate-resources.md)。這可確保收集的資料與相關聯的應用程式和基礎結構相關。 如果需要跨環境將資料相互關聯，可以[在計量瀏覽器中使用多資源圖表](../azure-monitor/platform/metrics-charts.md)，或[在 Log Analytics 中建立跨資源查詢](log-query/cross-workspace-query.md)。
+- 在不同的部署環境 (如 Dev、Test，Canary 和 Prod) 之間[維護個別的監視執行個體](../azure-monitor/app/separate-resources.md)。這可確保收集的資料與相關聯的應用程式和基礎結構相關。 如果需要跨環境將資料相互關聯，可以[在計量瀏覽器中使用多資源圖表](../azure-monitor/platform/metrics-charts.md)，或[在 Log Analytics 中建立跨資源查詢](log-query/cross-workspace-query.md)。
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>使用動作建立可採取動作的警示
@@ -79,17 +79,17 @@ Azure 上的一般應用程式包含多個資源，例如 VM 和應用程式服�
 ## <a name="prepare-dashboards-and-workbooks"></a>準備儀表板和活頁簿
 確保您的開發和作業可以存取相同的遙測資料和工具，使它們能夠檢視整個環境中的模式，並將平均偵測時間 (MTTD) 和平均還原時間 (MTTR)　降到最低。
 
-- 根據組織中不同角色的常用計量和記錄準備[自訂儀表板](../application-insights/app-insights-tutorial-dashboards.md)。 儀表板可以結合來自所有 Azure 資源的資料。
-- 準備[活頁簿](../application-insights/app-insights-usage-workbooks.md)以確保開發與作業之間的知識共享。 這些可以準備為包含計量圖表和記錄查詢的動態報告，或者甚至作為開發人員準備的疑難排解指引，協助客戶支援或作業處理基本問題。
+- 根據組織中不同角色的常用計量和記錄準備[自訂儀表板](../azure-monitor/learn/tutorial-app-dashboards.md)。 儀表板可以結合來自所有 Azure 資源的資料。
+- 準備[活頁簿](../azure-monitor/app/usage-workbooks.md)以確保開發與作業之間的知識共享。 這些可以準備為包含計量圖表和記錄查詢的動態報告，或者甚至作為開發人員準備的疑難排解指引，協助客戶支援或作業處理基本問題。
 
 ## <a name="continuously-optimize"></a>持續最佳化
  監視是熱門「建置-測量-學習」理念的基本層面之一，其建議持續追蹤您的 KPI 和使用者行為計量，然後透過計劃反覆項目來努力最佳化 KPI。 Azure 監視器可協助您收集與業務相關的計量和記錄，並根據需要在下一個部署中新增新的資料點。
 
-- 使用 Application Insights 中的工具[追蹤使用者行為和參與度](../application-insights/app-insights-tutorial-users.md)。
-- 使用[影響分析](../application-insights/app-insights-usage-impact.md)來協助您排定要關注哪些領域的優先順序，以推動重要的 KPI。
+- 使用 Application Insights 中的工具[追蹤使用者行為和參與度](../azure-monitor/learn/tutorial-users.md)。
+- 使用[影響分析](../azure-monitor/app/usage-impact.md)來協助您排定要關注哪些領域的優先順序，以推動重要的 KPI。
 
 
 ## <a name="next-steps"></a>後續步驟
 
 - 了解 [Azure 監視器](overview.md)的差異元件。
-- [將連續監視新增至您的發行管線](../application-insights/app-insights-vsts-continuous-monitoring.md)。
+- [將連續監視新增至您的發行管線](../azure-monitor/app/continuous-monitoring.md)。

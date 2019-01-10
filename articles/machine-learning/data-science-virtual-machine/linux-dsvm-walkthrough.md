@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: fafa680f877060f1e7d96c60f52e3033eeb38553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190630"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157168"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>在 Azure 上搭配 Linux 資料科學虛擬機器來運用資料科學
 本逐步解說示範如何使用 Linux 資料科學 VM 執行數個常見的資料科學工作。 Linux 資料科學虛擬機器 (DSVM) 是 Azure 提供的虛擬機器映像，其中預先安裝了一組常用於執行資料分析和機器學習服務的工具。 重要的軟體元件可在 [佈建 Linux 資料科學虛擬機器](linux-dsvm-intro.md) 主題中找到明細。 VM 映像可讓使用者輕鬆地在幾分鐘內開始執行資料科學，而不需要個別安裝和設定每個工具。 您可以在需要時輕鬆地相應增加 VM，並在不使用時加以停止。 因此，這項資源既有彈性，又符合成本效益。
@@ -101,7 +101,7 @@ ms.locfileid: "53190630"
 
     data$spam <- as.factor(data$spam)
 
-若要進行一些探勘分析，請使用 [ggplot2](http://ggplot2.org/) 封裝，這是已安裝在 VM 上的適用於 R 的熱門圖形庫。 請注意，在稍早顯示的摘要資料中，我們擁有關於驚嘆號字元出現頻率的摘要統計資料。 在此，讓我們使用下列命令繪製這些頻率︰
+若要進行一些探勘分析，請使用 [ggplot2](https://ggplot2.tidyverse.org/) 封裝，這是已安裝在 VM 上的適用於 R 的熱門圖形庫。 請注意，在稍早顯示的摘要資料中，我們擁有關於驚嘆號字元出現頻率的摘要統計資料。 在此，讓我們使用下列命令繪製這些頻率︰
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)

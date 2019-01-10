@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: d261fe78bc6902558e2714d9fe4e66d991a7bd09
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 403906a60d16a478dffd313b45aa1ce24e42196a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004497"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119208"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流：以 1 秒的延遲進行監視與診斷
 
-使用 [Application Insights](../../application-insights/app-insights-overview.md) 中的即時計量資料流，探查您即時生產環境 Web 應用程式中的活動訊號。 選取並篩選要即時監看的計量和效能計數器，而不會對您的服務造成任何干擾。 檢查失敗要求和例外狀況範例中的堆疊追蹤。 即時計量資料流可搭配[分析工具](../../application-insights/app-insights-profiler.md)、[快照集偵錯工具](../../application-insights/app-insights-snapshot-debugger.md)和[效能測試](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests)，為您的即時網站提供強大且非侵入性的診斷工具。
+使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的即時計量資料流，探查您即時生產環境 Web 應用程式中的活動訊號。 選取並篩選要即時監看的計量和效能計數器，而不會對您的服務造成任何干擾。 檢查失敗要求和例外狀況範例中的堆疊追蹤。 即時計量資料流可搭配[分析工具](../../azure-monitor/app/profiler.md)、[快照集偵錯工具](../../azure-monitor/app/snapshot-debugger.md)和[效能測試](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests)，為您的即時網站提供強大且非侵入性的診斷工具。
 
 您可以使用即時計量資料流：
 
@@ -38,7 +38,7 @@ ms.locfileid: "54004497"
 
 ## <a name="get-started"></a>開始使用
 
-1. 如果您尚未在 ASP.NET Web 應用程式或 [Windows Server 應用程式](../../application-insights/app-insights-windows-services.md)中[安裝 Application Insights](../../azure-monitor/app/asp-net.md)，請立即安裝。 
+1. 如果您尚未在 ASP.NET Web 應用程式或 [Windows Server 應用程式](../../azure-monitor/app/windows-services.md)中[安裝 Application Insights](../../azure-monitor/app/asp-net.md)，請立即安裝。 
 2. **更新至最新版本**的 Application Insights 套件。 在 Visual Studio 中，以滑鼠右鍵按一下專案，然後選擇 [管理 Nuget 套件]。 開啟 [更新] 索引標籤，核取 [包含發行前版本]，然後選取所有 Microsoft.ApplicationInsights.* 套件。
 
     重新部署您的應用程式。
@@ -202,7 +202,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 
 
 ## <a name="next-steps"></a>後續步驟
-* [使用 Application Insights 監視使用情況](../../application-insights/app-insights-usage-overview.md)
+* [使用 Application Insights 監視使用情況](../../azure-monitor/app/usage-overview.md)
 * [使用診斷搜尋](../../azure-monitor/app/diagnostic-search.md)
-* [分析工具](../../application-insights/app-insights-profiler.md)
-* [快照集偵錯工具](../../application-insights/app-insights-snapshot-debugger.md)
+* [分析工具](../../azure-monitor/app/profiler.md)
+* [快照集偵錯工具](../../azure-monitor/app/snapshot-debugger.md)

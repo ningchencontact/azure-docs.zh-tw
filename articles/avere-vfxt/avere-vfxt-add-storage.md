@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001961"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190816"
 ---
 # <a name="configure-storage"></a>設定儲存體
 
@@ -38,7 +38,7 @@ ms.locfileid: "53001961"
 
 ## <a name="create-a-core-filer"></a>建立核心檔案管理工具
 
-「核心檔案管理工具」是一個 vFXT 詞彙，代表後端儲存體系統。 此儲存體可以是硬體 NAS 設備 (例如 NetApp 或 Isilon)，也可以是雲端物件存放區。 如需有關核心檔案管理工具的詳細資訊，請參閱 [Avere 叢集設定指南](http://library.averesystems.com/ops_guide/4_7/settings_overview.html#managing-core-filers)。
+「核心檔案管理工具」是一個 vFXT 詞彙，代表後端儲存體系統。 此儲存體可以是硬體 NAS 設備 (例如 NetApp 或 Isilon)，也可以是雲端物件存放區。 如需有關核心檔案管理工具的詳細資訊，請參閱 [Avere 叢集設定指南](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers)。
 
 若要新增核心檔案管理工具，請選擇兩個主要類型的核心檔案管理工具其中之一：
 
@@ -70,7 +70,7 @@ NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可�
   
    * 按 [Next] \(下一步\)，然後選擇快取原則。 
    * 按一下 [Add Filer] \(新增檔案管理工具\)。
-   * 如需更多詳細資訊，請參閱 Avere 叢集設定指南中的[新增 NAS 核心檔案管理工具](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) \(英文\)。
+   * 如需更多詳細資訊，請參閱 Avere 叢集設定指南中的[新增 NAS 核心檔案管理工具](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) \(英文\)。
 
 接著，繼續進行[建立連接點](#create-a-junction)。  
 
@@ -156,7 +156,7 @@ NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可�
    * 視需要將 [Encryption type] \(加密類型\) 設定為 [None] \(無\)。  「Azure 儲存體」預設會經過加密。
    * 按一下 [Add Filer] \(新增檔案管理工具\)。
 
-  如需更多詳細資訊，請參閱 Avere 叢集設定指南中的[新增雲端核心檔案管理工具](<http://library.averesystems.com/ops_guide/4_7/new_core_filer_cloud.html>) \(英文\)。 
+  如需更多詳細資訊，請參閱 Avere 叢集設定指南中的[新增雲端核心檔案管理工具](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) \(英文\)。 
 
 頁面將會重新整理，或是您也可以重新整理頁面來顯示您的新核心檔案管理工具。
 
@@ -168,7 +168,7 @@ NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可�
 
 例如，您可以建立 `/avere/files` 來對應至您的 NetApp 核心檔案管理工具 `/vol0/data` 匯出項和 `/project/resources` 子目錄。
 
-如需有關連接點的詳細資訊，請參閱 [Avere 叢集設定指南的命名空間小節](http://library.averesystems.com/ops_guide/4_7/gui_namespace.html) \(英文\)。
+如需有關連接點的詳細資訊，請參閱 [Avere 叢集設定指南的命名空間小節](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) \(英文\)。
 
 請依照「Avere 控制台」設定介面中的這些步驟進行操作：
 

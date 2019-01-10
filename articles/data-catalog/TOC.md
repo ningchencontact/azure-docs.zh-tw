@@ -12,7 +12,6 @@
 ## [常見問題集](data-catalog-frequently-asked-questions.md)
 
 # 作法
-
 ## [註冊資料來源](data-catalog-how-to-register.md)
 ## [探索資料來源](data-catalog-how-to-discover.md)
 ## [註解資料來源](data-catalog-how-to-annotate.md)
@@ -29,6 +28,7 @@
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
+## [Resource Manager 範本](/azure/templates/microsoft.datacatalog/catalogs)
 ## [搜尋語法參考](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [開發人員概念](data-catalog-developer-concepts.md)
 

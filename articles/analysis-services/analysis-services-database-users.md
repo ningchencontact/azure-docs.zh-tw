@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ab238e31ba022427dc55fec842f3e89e72fa530a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238874"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189791"
 ---
 # <a name="manage-database-roles-and-users"></a>管理資料庫角色和使用者
 
@@ -63,6 +63,7 @@ ms.locfileid: "50238874"
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssms"></a>在 SSMS 中新增或管理角色和使用者
+
 若要將角色和使用者新增至已部署的模型資料庫，您必須以伺服器管理員身分連線到伺服器，或已經是具有系統管理員權限的資料庫角色。
 
 1. 在 [物件總館] 中，以滑鼠右鍵按一下 [角色] > [新增角色]。
@@ -83,6 +84,7 @@ ms.locfileid: "50238874"
 5. 如果您建立的角色具有「讀取」權限，您可以使用 DAX 公式來新增資料列篩選條件。 按一下 [資料列篩選條件]，選取資料表，然後在 [DAX 篩選條件] 欄位中輸入 DAX 公式。 
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>使用 TMSL 指令碼新增角色和使用者
+
 您可以在 SSMS 中 或使用 PowerShell，在 XMLA 視窗中執行 TMSL 指令碼。 使用 [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) 命令和 [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl) 物件。
 
 **TMSL 指令碼範例**
@@ -116,6 +118,7 @@ ms.locfileid: "50238874"
 ```
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>使用 PowerShell 新增角色和使用者
+
 [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) 模組提供特定工作的資料庫管理 Cmdlet，以及可接受表格式模型指令碼語言 (TMSL) 查詢或指令碼的一般用途 Invoke-ASCmd Cmdlet。 下列 Cmdlet 用來管理資料庫角色和使用者。
   
 |Cmdlet|說明|
@@ -125,6 +128,7 @@ ms.locfileid: "50238874"
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|執行 TMSL 指令碼。|
 
 ## <a name="row-filters"></a>資料列篩選條件  
+
 資料列篩選條件定義特定角色的成員可以查詢資料表中的哪些資料列。 使用 DAX 公式，針對模型中的每個資料表定義資料列篩選條件。  
   
 只能針對具有「讀取」和「讀取和處理」權限的角色定義資料列篩選條件。 根據預設，如果未針對特定資料表定義資料列篩選條件，則成員可以查詢資料表中的所有資料列，除非從另一個資料表套用交叉篩選。
@@ -144,6 +148,7 @@ ms.locfileid: "50238874"
  您可以使用 =FALSE() 篩選條件，拒絕存取整個資料表的所有資料列。
 
 ## <a name="next-steps"></a>後續步驟
+
   [管理伺服器管理員](analysis-services-server-admins.md)   
   [使用 PowerShell 管理 Azure Analysis Services](analysis-services-powershell.md)  
   [表格式模型指令碼語言 (TMSL) 參考](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

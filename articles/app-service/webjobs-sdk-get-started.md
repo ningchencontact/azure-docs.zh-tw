@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 9f3d84b1f2e179d265c811faf2d35bd55bc1410f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 913b23946f70500ace7ab7e4ff7b5cd2858492fc
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606976"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121651"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>開始使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -292,7 +292,7 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 ## <a name="add-application-insights-logging"></a>新增 Application Insights 記錄
 
-當專案在 Azure 中執行時，您無法藉由檢視主控台輸出來監視函式執行。 我們建議的監視解決方案為 [Application Insights](../application-insights/app-insights-overview.md)。 如需詳細資訊，請參閱[監視 Azure Functions](../azure-functions/functions-monitoring.md)。
+當專案在 Azure 中執行時，您無法藉由檢視主控台輸出來監視函式執行。 我們建議的監視解決方案為 [Application Insights](../azure-monitor/app/app-insights-overview.md)。 如需詳細資訊，請參閱[監視 Azure Functions](../azure-functions/functions-monitoring.md)。
 
 在這一節中，您可執行下列工作，以在部署至 Azure 之前設定 Application Insights 記錄：
 
@@ -304,9 +304,9 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 1. 如果您還沒有可以使用的 App Service 應用程式，請[建立一個](app-service-web-get-started-dotnet-framework.md)。
 
-1. 如果您還沒有可以使用的 Application Insights 資源，請[建立一個](../application-insights/app-insights-create-new-resource.md)。 將 [應用程式類型] 設定為 [一般]，並略過 [複製檢測金鑰] 後面的各節。
+1. 如果您還沒有可以使用的 Application Insights 資源，請[建立一個](../azure-monitor/app/create-new-resource.md )。 將 [應用程式類型] 設定為 [一般]，並略過 [複製檢測金鑰] 後面的各節。
 
-1. 如果您已經有想要使用的 Application Insights 資源，請[複製檢測金鑰](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key)。
+1. 如果您已經有想要使用的 Application Insights 資源，請[複製檢測金鑰](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key)。
 
 ### <a name="configure-app-settings"></a>進行應用程式設定 
 

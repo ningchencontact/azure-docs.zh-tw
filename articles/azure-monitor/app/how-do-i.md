@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: c8ff6abe72a55be24b35b254a4bfc2a446b13c0b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999676"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074201"
 ---
 # <a name="how-do-i--in-application-insights"></a>我如何在 Application Insights 中...？
 ## <a name="get-an-email-when-"></a>... 時收到電子郵件
@@ -83,18 +83,18 @@ ms.locfileid: "53999676"
 ## <a name="separate-telemetry-from-different-versions"></a>區分不同版本的遙測
 
 * 在一個應用程式中檢視多個角色：使用單一 Application Insights 資源，並依據 [cloud_Rolename](../../azure-monitor/app/app-map.md) 進行篩選。
-* 區分開發、測試和發行版本：使用不同的 Application Insights 資源。 從 web.config 挑選檢測金鑰。[深入了解](../../application-insights/app-insights-separate-resources.md)
-* 報告組建版本：使用遙測初始設定式新增屬性。 [深入了解](../../application-insights/app-insights-separate-resources.md)
+* 區分開發、測試和發行版本：使用不同的 Application Insights 資源。 從 web.config 挑選檢測金鑰。[深入了解](../../azure-monitor/app/separate-resources.md)
+* 報告組建版本：使用遙測初始設定式新增屬性。 [深入了解](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>監視後端伺服器與桌面應用程式
-[使用 Windows Server SDK 模組](../../application-insights/app-insights-windows-desktop.md)。
+[使用 Windows Server SDK 模組](../../azure-monitor/app/windows-desktop.md)。
 
 ## <a name="visualize-data"></a>顯現資料
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>具有來自多個 App 之計量的儀表板
 * 在 [計量總管](../../azure-monitor/app/metrics-explorer.md)中，自訂圖表並將它儲存為我的最愛。 將它釘選到 Azure 儀表板。
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>資料來自其他來源和 Application Insights 的儀表板
-* [將遙測匯出至 Power Bi](../../application-insights/app-insights-export-power-bi.md)。
+* [將遙測匯出至 Power Bi](../../azure-monitor/app/export-power-bi.md )。
 
 或
 

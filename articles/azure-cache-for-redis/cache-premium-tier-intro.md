@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: wesmc
-ms.openlocfilehash: 0978e906467fd5b16f25bd2e053980dda4510127
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 906ab6c433df7cf452d1f5ab4660abce8d4674fc
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021339"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107507"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Azure Cache for Redis 進階層簡介
 Azure Cache for Redis 是一種分散式受控快取，可提供超快速的資料存取，藉此協助您建置具高度延展性且快速回應的應用程式。 
@@ -34,7 +34,7 @@ Azure Cache for Redis 是一種分散式受控快取，可提供超快速的資�
 如需進階快取的大小、輸送量和頻寬的詳細資訊，請參閱 [Azure Cache for Redis 常見問題集](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 ## <a name="redis-data-persistence"></a>Redis 資料永續性
-高階層可讓您將快取資料保存在 Azure 儲存體帳戶中。 在基本/標準快取中，所有資料都只儲存在記憶體中。 如果基礎結構發生問題，資料可能會遺失。 建議您使用高階層中的 Redis 資料永續性功能，以增加資料遺失時的復原能力。 Azure Cache for Redis 在 [Redis 持續性](http://redis.io/topics/persistence)中提供 RDB 和 AOF (即將推出) 選項。 
+高階層可讓您將快取資料保存在 Azure 儲存體帳戶中。 在基本/標準快取中，所有資料都只儲存在記憶體中。 如果基礎結構發生問題，資料可能會遺失。 建議您使用高階層中的 Redis 資料永續性功能，以增加資料遺失時的復原能力。 Azure Cache for Redis 在 [Redis 持續性](https://redis.io/topics/persistence)中提供 RDB 和 AOF (即將推出) 選項。 
 
 如需設定持續性的相關指示，請參閱 [如何設定進階 Azure Cache for Redis 的持續性](cache-how-to-premium-persistence.md)。
 

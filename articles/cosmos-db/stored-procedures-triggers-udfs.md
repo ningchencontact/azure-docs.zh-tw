@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 172714b3a58d1620b896e089194a797a9e1e7b1b
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 14cb821152e6a380de1be4fddef76aa2edec4a8f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411323"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042252"
 ---
 # <a name="working-with-azure-cosmos-db-stored-procedures-triggers-and-user-defined-functions"></a>使用 Azure Cosmos DB 預存程序、觸發程序及使用者定義函數
 

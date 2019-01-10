@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.author: mbullwin
-ms.openlocfilehash: c71ace039c8b8b7ec89c5a38ef203399f5af82aa
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 219ba632d7688f1a428378309828b689698d2fe5
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004425"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019469"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>使用 Azure 診斷與 Azure Application Insights 的整合對 Azure 雲端服務的問題發出警示
 
@@ -120,7 +120,7 @@ EventLogs
 
 深入了解自動偵測：
 
-[失敗異常](../../application-insights/app-insights-proactive-failure-diagnostics.md)
-[記憶體流失](../../application-insights/app-insights-proactive-potential-memory-leak.md)
-[效能異常](../../application-insights/app-insights-proactive-performance-diagnostics.md)
+[失敗異常](../../azure-monitor/app/proactive-failure-diagnostics.md)
+[記憶體流失](../../azure-monitor/app/proactive-potential-memory-leak.md)
+[效能異常](../../azure-monitor/app/proactive-performance-diagnostics.md)
 

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 83bf45c93648ca768243a2208f6a91cc9011a919
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1b0c991c09d1235215dc9b930c529a219d492a8c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002513"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117072"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Application Insights 入口網站中的導覽與儀表板
-[在您的專案上設定 Application Insights](../../application-insights/app-insights-overview.md) 之後，有關應用程式效能和使用情況的遙測資料會出現在 [Azure 入口網站](https://portal.azure.com)之專案的 Application Insights 資源中。
+[在您的專案上設定 Application Insights](../../azure-monitor/app/app-insights-overview.md) 之後，有關應用程式效能和使用情況的遙測資料會出現在 [Azure 入口網站](https://portal.azure.com)之專案的 Application Insights 資源中。
 
 ## <a name="find-your-telemetry"></a>尋找遙測
 登入 [Azure 入口網站](https://portal.azure.com)，並瀏覽至您為應用程式建立的 Application Insights 資源。
@@ -34,7 +34,7 @@ ms.locfileid: "54002513"
 您可以自訂任何圖表和格線，並將它們釘選到儀表板。 如此一來，您就可以在中央儀表板上結合來自不同應用程式的重要遙測資料。
 
 ## <a name="dashboards"></a>儀表板
-您登入 [Microsoft Azure 入口網站](https://portal.azure.com) 之後最先看到的是儀表板。 您可以在這裡將所有 Azure 資源中對您最重要的圖表結合在一起，包括來自 [Azure Application Insights](../../application-insights/app-insights-overview.md) 的遙測。
+您登入 [Microsoft Azure 入口網站](https://portal.azure.com) 之後最先看到的是儀表板。 您可以在這裡將所有 Azure 資源中對您最重要的圖表結合在一起，包括來自 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 的遙測。
 
 ![自訂的儀表板。](./media/app-insights-dashboards/31.png)
 
@@ -96,7 +96,7 @@ ms.locfileid: "54002513"
 
 ![在儀表板標題中按一下 [共用]](./media/app-insights-dashboards/41.png)
 
-深入了解 [角色和存取控制](../../application-insights/app-insights-resources-roles-access-control.md)。
+深入了解 [角色和存取控制](../../azure-monitor/app/resources-roles-access-control.md)。
 
 ## <a name="create-dashboards-programmatically"></a>以程式設計方式建立儀表板
 您可以使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) 與簡單的 JSON 編輯器，將建立儀表板自動化。
@@ -113,28 +113,28 @@ ms.locfileid: "54002513"
 * [**搜尋**](../../azure-monitor/app/diagnostic-search.md) - 調查事件的特定執行個體，例如要求、例外狀況或記錄檔案追蹤。
 * [**分析**](../../azure-monitor/app/analytics.md) - 遙測的強大查詢。
 * **時間範圍** - 調整刀鋒視窗上所有圖表所顯示的範圍。
-* **刪除** - 刪除此應用程式的 Application Insights 資源。 您應該也從您的應用程式程式碼中移除 Application Insights 套件，或編輯您應用程式中的[檢測金鑰](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key)，將遙測導向至不同的 Application Insights 資源。
+* **刪除** - 刪除此應用程式的 Application Insights 資源。 您應該也從您的應用程式程式碼中移除 Application Insights 套件，或編輯您應用程式中的[檢測金鑰](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key)，將遙測導向至不同的 Application Insights 資源。
 
 ### <a name="essentials-tab"></a>Essentials 索引標籤
-* [檢測金鑰](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) - 識別此應用程式資源。
+* [檢測金鑰](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) - 識別此應用程式資源。
 
 ### <a name="app-navigation-bar"></a>應用程式導覽列
 ![左導覽列](./media/app-insights-dashboards/app-left-nav-bar.png)
 
 * **概觀** - 返回應用程式概觀刀鋒視窗。
 * **活動記錄檔** - 警示與 Azure 系統管理事件。
-* [**存取控制**](../../application-insights/app-insights-resources-roles-access-control.md) - 將存取權提供給小組成員和其他人。
+* [**存取控制**](../../azure-monitor/app/resources-roles-access-control.md) - 將存取權提供給小組成員和其他人。
 * [**標籤**](../../azure-resource-manager/resource-group-using-tags.md) - 使用標籤將您的應用程式與其他應用程式分組。
 
 調查
 
 * [**應用程式對應**](app-map.md) - 顯示應用程式元件的使用中對應，其衍生自相依性資訊。
-* [**智慧型偵測**](../../application-insights/app-insights-proactive-diagnostics.md) - 檢閱最近的效能警示。
+* [**智慧型偵測**](../../azure-monitor/app/proactive-diagnostics.md) - 檢閱最近的效能警示。
 * [**即時串流**](../../azure-monitor/app/live-stream.md) - 一組固定且幾近即時的計量，在部署新組建或偵錯時非常實用。
 * [**可用性 / Web 測試**](../../azure-monitor/app/monitor-web-app-availability.md) - 從世界各地將一般要求傳送至您的 Web 應用程式。*
-* [**失敗、效能**](../../application-insights/app-insights-web-monitor-performance.md) - 對您的應用程式提出的要求和您的應用程式對[相依項目](../../azure-monitor/app/asp-net-dependencies.md)提出的要求，其例外狀況、失敗率和回應時間。
-* [**效能**](../../application-insights/app-insights-web-monitor-performance.md) - 回應時間、相依性回應時間。
-* [伺服器](../../application-insights/app-insights-web-monitor-performance.md) - 效能計數器。 當您 [安裝狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md)時適用。
+* [**失敗、效能**](../../azure-monitor/app/web-monitor-performance.md) - 對您的應用程式提出的要求和您的應用程式對[相依項目](../../azure-monitor/app/asp-net-dependencies.md)提出的要求，其例外狀況、失敗率和回應時間。
+* [**效能**](../../azure-monitor/app/web-monitor-performance.md) - 回應時間、相依性回應時間。
+* [伺服器](../../azure-monitor/app/web-monitor-performance.md) - 效能計數器。 當您 [安裝狀態監視器](../../azure-monitor/app/monitor-performance-live-website-now.md)時適用。
 * **瀏覽器** - 頁面檢視和 AJAX 效能。 當您 [檢測網頁](../../azure-monitor/app/javascript.md)時適用。
 * **使用量** - 頁面檢視、使用者和工作階段計數。 當您 [檢測網頁](../../azure-monitor/app/javascript.md)時適用。
 
@@ -145,7 +145,7 @@ ms.locfileid: "54002513"
 * [警示](../../azure-monitor/app/alerts.md) - 計量警示組態。
 * [連續匯出](../../azure-monitor/app/export-telemetry.md) - 設定將遙測匯出至 Azure 儲存體。
 * [效能測試](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests) - 設定您的網站上的模擬負載。
-* [配額和價格](../../azure-monitor/app/pricing.md)和[擷取取樣](../../application-insights/app-insights-sampling.md)。
+* [配額和價格](../../azure-monitor/app/pricing.md)和[擷取取樣](../../azure-monitor/app/sampling.md)。
 * **API 存取** - 建立[版本註解](annotations.md)以及資料存取 API。
 * [**工作項目**](../../azure-monitor/app/diagnostic-search.md#create-work-item) - 連線到工作追蹤系統，讓您可以在檢查遙測時建立 Bug。
 

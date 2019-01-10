@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 46f94a512ea78016a327357a3d0ee25a91ad607e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 009fbd3b86518758e9654fab547bab99bec369de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021286"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105197"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>如何調整 Azure Redis 快取的規模
 「Azure Redis 快取」具有各種不同的快取供應項目，可讓您彈性選擇快取大小和功能。 建立快取之後，如果您應用程式的需求改變，您可以調整快取的大小和定價層。 本文說明如何使用 Azure 入口網站和 Azure PowerShell 與 Azure CLI 之類的工具來調整快取。
@@ -136,7 +136,7 @@ ms.locfileid: "53021286"
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>我是否會在調整期間遺失快取中的資料？
 * **基本** 快取調整為新的大小時，會遺失所有資料，且無法在調整作業期間使用快取。
 * **基本**快取調整為**標準**快取時，通常會保留快取中的資料。
-* 當**標準**快取調整為較大的大小或層，或者**進階**快取調整為較大的大小時，通常會保留所有資料。 當**標準**或**進階**快取向下調整為較小大小時，根據調整時快取中與新大小相關的資料量，資料可能會遺失。 如果縮小時遺失資料，則會使用 [allkeys-lru](http://redis.io/topics/lru-cache) 收回原則來收回金鑰。 
+* 當**標準**快取調整為較大的大小或層，或者**進階**快取調整為較大的大小時，通常會保留所有資料。 當**標準**或**進階**快取向下調整為較小大小時，根據調整時快取中與新大小相關的資料量，資料可能會遺失。 如果縮小時遺失資料，則會使用 [allkeys-lru](https://redis.io/topics/lru-cache) 收回原則來收回金鑰。 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>我的自訂資料庫設定在調整期間會受到影響嗎？
 如果您在快取建立期間為 `databases` 設定設定了自訂值，請記住某些定價層具有不同的[資料庫限制](cache-configure.md#databases)。 以下是在此案例中進行調整時的一些考量：

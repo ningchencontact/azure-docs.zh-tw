@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 1/08/2019
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 6d28eea434b081602f0e2455b22fcc58022a800e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343838"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117108"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>管理 Azure Stack 中的租用戶註冊
 
-「適用於：Azure Stack 整合系統」
+*適用於：Azure Stack 整合式系統*
 
 本文涵蓋註冊作業的相關詳細資料。 透過這些作業，您可以：
 - 管理租用戶註冊
@@ -59,7 +59,7 @@ ms.locfileid: "49343838"
 
 ### <a name="powershell"></a>PowerShell
 
-使用 New-AzureRmResource Cmdlet 來更新註冊資源。 使用初始註冊所用的帳戶來登入 Azure (`Add-AzureRmAccount`)。 以下是如何新增租用戶的範例：
+使用 New-AzureRmResource Cmdlet 來更新註冊資源。 以下是如何新增租用戶的範例：
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -70,7 +70,7 @@ ms.locfileid: "49343838"
 **作業**：PUT  
 **RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**回應**：201 已建立  
+**回應**：201 Created  
 **回應本文**：空白  
 
 ## <a name="list-all-registered-tenants"></a>列出所有已註冊的租用戶
@@ -149,7 +149,7 @@ api-version=2017-06-01 HTTP/1.1`
 
 您可以使用 DELETE 作業移除租用戶對應。
 
-**作業**：DELETE  
+**作業**：刪除  
 **RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  

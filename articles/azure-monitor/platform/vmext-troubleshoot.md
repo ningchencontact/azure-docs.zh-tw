@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: 72a24175b93057bf774810517f4d6c5e4b6c41eb
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f2f50144e188a297468ac8ea8fc8891d2e4ec145
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183313"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106465"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>針對 Log Analytics VM 擴充功能進行疑難排解
 本文可協助您針對在使用執行 Microsoft Azure 之 Windows 與 Linux 虛擬機器的 Log Analytics VM 擴充功能時可能遇到的錯誤進行疑難排解，並建議可能的解決方法。
 
 若要確認擴充功能的狀態，請從 Azure 入口網站執行下列步驟。
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中，輸入**虛擬機器**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [虛擬機器]。
 3. 在虛擬機器清單中，尋找目標虛擬機器並加以選取。
 3. 在虛擬機器上，按一下 [擴充功能]。

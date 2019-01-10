@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: e0c50046cd3cdb4db7c9e7e3961124b891b3c0a4
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 44b25263dbeb0d787120ae3a86076b2f888ed46f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021231"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107475"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>如何設定進階 Azure Redis 快取的 Redis 叢集功能
 「Azure Redis 快取」有不同的快取供應項目，可讓您彈性選擇快取大小和功能，包括叢集功能、持續性及虛擬網路支援等「進階」層功能。 本文說明如何在進階「Azure Redis 快取」執行個體中設定叢集功能。
@@ -27,7 +27,7 @@ ms.locfileid: "53021231"
 如需有關其他進階快取功能的資訊，請參閱 [Azure Redis 快取進階層簡介](cache-premium-tier-intro.md)。
 
 ## <a name="what-is-redis-cluster"></a>Redis 叢集是什麼？
-「Azure Redis 快取」提供的 Redis 叢集與 [Redis 中所實作](http://redis.io/topics/cluster-tutorial)的相同。 使用 Redis 叢集有下列優點： 
+「Azure Redis 快取」提供的 Redis 叢集與 [Redis 中所實作](https://redis.io/topics/cluster-tutorial)的相同。 使用 Redis 叢集有下列優點： 
 
 * 能夠自動分割您在多個節點之間的資料集。 
 * 當節點的子集發生故障或無法與叢集的其餘部分通訊時，可以繼續作業。 
@@ -101,7 +101,7 @@ ms.locfileid: "53021231"
 ### <a name="do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering"></a>我需要對我的用戶端應用程式進行任何變更才能使用叢集嗎？
 * 啟用叢集時，只可以使用資料庫 0。 如果用戶端應用程式使用多個資料庫，並嘗試讀取或寫入至 0 以外的資料庫，就會擲回下列例外狀況。 `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
   
-  如需詳細資訊，請參閱 [Redis 叢集規格 - 實作的子集](http://redis.io/topics/cluster-spec#implemented-subset)。
+  如需詳細資訊，請參閱 [Redis 叢集規格 - 實作的子集](https://redis.io/topics/cluster-spec#implemented-subset)。
 * 如果您使用 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)，則必須使用 1.0.481 或更新版本。 您可以使用與連接未啟用叢集的快取時所用的相同 [端點、連接埠和金鑰](cache-configure.md#properties) 來連接快取。 唯一的差別在於必須在資料庫 0 上完成所有的讀取和寫入。
   
   * 其他用戶端可能有不同的需求。 請參閱 [所有 Redis 用戶端都支援叢集嗎？](#do-all-redis-clients-support-clustering)
@@ -109,14 +109,14 @@ ms.locfileid: "53021231"
 * 如果您使用 Redis ASP.NET 工作階段狀態提供者，則必須使用 2.0.1 或更高版本。 請參閱 [我可以將叢集使用於 Redis ASP.NET 工作階段狀態和輸出快取提供者嗎？](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 ### <a name="how-are-keys-distributed-in-a-cluster"></a>如何在叢集中散發索引鍵？
-依據 Redis [金鑰散發模型](http://redis.io/topics/cluster-spec#keys-distribution-model) 文件︰金鑰空間會分割成 16384 個位置。 每個索引鍵都會雜湊並指派給上述的其中一個位置，而這些位置散發於叢集的各個節點。 您可以設定哪個部分的索引鍵會雜湊，以確保多個索引鍵位於使用主題標籤的相同分區中。
+依據 Redis [金鑰散發模型](https://redis.io/topics/cluster-spec#keys-distribution-model) 文件︰金鑰空間會分割成 16384 個位置。 每個索引鍵都會雜湊並指派給上述的其中一個位置，而這些位置散發於叢集的各個節點。 您可以設定哪個部分的索引鍵會雜湊，以確保多個索引鍵位於使用主題標籤的相同分區中。
 
-* 具有主題標籤的金鑰 - 如果金鑰的任何部分被括在 `{` 和 `}` 中，則只有該部分的金鑰會為了判斷金鑰的主題標籤位置而進行雜湊。 例如，下列 3 個金鑰會位於相同的分區︰`{key}1`、`{key}2` 和 `{key}3`，因為只會雜湊名稱的 `key` 部分。 如需索引鍵主題標籤規格的完整清單，請參閱[索引鍵主題標籤](http://redis.io/topics/cluster-spec#keys-hash-tags)。
+* 具有主題標籤的金鑰 - 如果金鑰的任何部分被括在 `{` 和 `}` 中，則只有該部分的金鑰會為了判斷金鑰的主題標籤位置而進行雜湊。 例如，下列 3 個金鑰會位於相同的分區︰`{key}1`、`{key}2` 和 `{key}3`，因為只會雜湊名稱的 `key` 部分。 如需索引鍵主題標籤規格的完整清單，請參閱[索引鍵主題標籤](https://redis.io/topics/cluster-spec#keys-hash-tags)。
 * 沒有主題標籤的索引鍵 - 整個索引鍵名稱都用於主題標籤。 這會導致以統計方式平均散發於快取的各個分區。
 
 如需最佳的效能和輸送量，我們建議平均散發索引鍵。 如果您使用具有主題標籤的索引鍵，則應用程式必須負責確保平均散發索引鍵。
 
-如需詳細資訊，請參閱[金鑰散發模型](http://redis.io/topics/cluster-spec#keys-distribution-model)、[Redis 叢集資料分區化](http://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding)和[金鑰主題標籤](http://redis.io/topics/cluster-spec#keys-hash-tags)。
+如需詳細資訊，請參閱[金鑰散發模型](https://redis.io/topics/cluster-spec#keys-distribution-model)、[Redis 叢集資料分區化](https://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding)和[金鑰主題標籤](https://redis.io/topics/cluster-spec#keys-hash-tags)。
 
 如需搭配 StackExchange.Redis 用戶端使用叢集，並尋找相同分區中之金鑰的範例程式碼，請參閱 [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 範例的 [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 部分。
 
@@ -124,7 +124,7 @@ ms.locfileid: "53021231"
 最大的進階快取大小為 53 GB。 您最多可以建立 10 個分區，等於最大大小為 530 GB。 如果您需要較大的大小，可以 [要求更多](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)。 如需詳細資訊，請參閱 [Azure Redis 快取價格](https://azure.microsoft.com/pricing/details/cache/)。
 
 ### <a name="do-all-redis-clients-support-clustering"></a>所有 Redis 用戶端都支援叢集嗎？ 
-現階段，並非所有用戶端都支援 Redis 叢集。 StackExchange.Redis 就是不支援的其中一例。 如需其他用戶端的詳細資訊，請參閱 [Redis 叢集教學課程](http://redis.io/topics/cluster-tutorial)的 [試用叢集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)一節。 
+現階段，並非所有用戶端都支援 Redis 叢集。 StackExchange.Redis 就是不支援的其中一例。 如需其他用戶端的詳細資訊，請參閱 [Redis 叢集教學課程](https://redis.io/topics/cluster-tutorial)的 [試用叢集](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster)一節。 
 
 Redis 叢集通訊協定要求每個用戶端直接以叢集模式連線到每個分區。 嘗試使用不支援叢集的用戶端可能會產生大量的[移動重新導向例外狀況](https://redis.io/topics/cluster-spec#moved-redirection)。
 
@@ -137,7 +137,7 @@ Redis 叢集通訊協定要求每個用戶端直接以叢集模式連線到每�
 您可以使用與連接未啟用叢集的快取時所用的相同 [端點](cache-configure.md#properties)、[連接埠](cache-configure.md#properties)和[金鑰](cache-configure.md#access-keys)來連接快取。 Redis 會管理後端上的叢集，因此您不需從用戶端進行管理。
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>我可以直接連接到我的快取的個別分區嗎？
-叢集通訊協定需要用戶端進行正確的分區連線。 因此，用戶端應該正確地為您執行此操作。 如前所述，每個分區都包含一個主要/複本快取組，統稱為快取執行個體。 您可以使用 GitHub 中 Redis 存放庫[不穩定](http://redis.io/download)分支內的 redis-cli 公用程式，連線到這些快取執行個體。 使用 `-c` 參數啟用這個版本時，會實作基本支援。 如需詳細資訊，請參閱 [http://redis.io](http://redis.io) 上 [Redis 叢集教學課程](http://redis.io/topics/cluster-tutorial)中的[試用叢集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)。
+叢集通訊協定需要用戶端進行正確的分區連線。 因此，用戶端應該正確地為您執行此操作。 如前所述，每個分區都包含一個主要/複本快取組，統稱為快取執行個體。 您可以使用 GitHub 中 Redis 存放庫[不穩定](https://redis.io/download)分支內的 redis-cli 公用程式，連線到這些快取執行個體。 使用 `-c` 參數啟用這個版本時，會實作基本支援。 如需詳細資訊，請參閱 [https://redis.io](https://redis.io) 上 [Redis 叢集教學課程](https://redis.io/topics/cluster-tutorial)中的[試用叢集](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster)。
 
 如為非 SSL，請使用下列命令。
 
@@ -167,7 +167,7 @@ Redis 叢集通訊協定要求每個用戶端直接以叢集模式連線到每�
 ## <a name="next-steps"></a>後續步驟
 了解如何使用更多進階快取功能。
 
-* [Azure Redis Cache 進階層簡介](cache-premium-tier-intro.md)
+* [Azure Cache for Redis 進階層簡介](cache-premium-tier-intro.md)
 
 <!-- IMAGES -->
 

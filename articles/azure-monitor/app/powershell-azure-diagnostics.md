@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
-ms.openlocfilehash: 6016d8a8b5a7b50561e703a29bdd76ef89770463
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f929c58d38cbae4ba5f8aea73a2acf30d8bbe7d2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004517"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121425"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>使用 PowerShell 為 Azure Web 應用程式設定 Application Insights
-[Microsoft Azure](https://azure.com) 可以[設定為傳送 Azure 診斷](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)至 [Azure Application Insights](../../application-insights/app-insights-overview.md)。 診斷與 Azure 雲端服務和 Azure VM 相關。 可輔助您從應用程式使用 Application Insights SDK 傳送的遙測資料。 在 Azure 中自動建立新資源的程序中，您可以使用 PowerShell 設定診斷。
+[Microsoft Azure](https://azure.com) 可以[設定為傳送 Azure 診斷](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)至 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)。 診斷與 Azure 雲端服務和 Azure VM 相關。 可輔助您從應用程式使用 Application Insights SDK 傳送的遙測資料。 在 Azure 中自動建立新資源的程序中，您可以使用 PowerShell 設定診斷。
 
 ## <a name="azure-template"></a>Azure 範本
 如果 Web 應用程式位於 Azure 內，而且您使用 Azure Resource Manager 範本建立資源，您可以透過將以下內容新增到資源節點來設定 Application Insights：

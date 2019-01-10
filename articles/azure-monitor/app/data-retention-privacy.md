@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8b2d409ceb6f659a078f48ba71f0f4c72663f6f0
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 812478c13ef39b369471a731c52dc38ba6a4368c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002088"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119742"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的資料收集、保留和儲存
 
@@ -87,7 +87,7 @@ Application Insights SDK 可用於多種應用程式類型：裝載於您自己�
 
 彙總的資料 (也就是您在計量瀏覽器中看到的計數、平均和其他統計資料) 在 1 分鐘的資料粒度中保存 90 天。
 
-[偵錯快照集](../../application-insights/app-insights-snapshot-debugger.md)會儲存 7 天。 此保留原則會就個別的應用程式而設定。 如果您需要增加此值，您可以在 Azure 入口網站中建立支援案例，以提出增加的要求。
+[偵錯快照集](../../azure-monitor/app/snapshot-debugger.md)會儲存 7 天。 此保留原則會就個別的應用程式而設定。 如果您需要增加此值，您可以在 Azure 入口網站中建立支援案例，以提出增加的要求。
 
 ## <a name="who-can-access-the-data"></a>誰可以存取資料？
 您和您的小組成員 (如果您有組織帳戶) 可以看到資料。 
@@ -202,7 +202,7 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 |.NET | 支援，設定會因版本不同而有所差異。 | 如需 .NET 4.7 和更早版本的詳細設定資訊，請參閱[這些指示](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)。  |
 |狀態監視器 | 支援，需要設定 | 狀態監視須依賴 [OS 組態](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET 組態](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)來支援 TLS 1.2。
 |Node.js |  支援，可能需要對 v10.5.0 進行設定。 | 使用[官方 Node.js TLS/SSL 文件](https://nodejs.org/api/tls.html)以了解任何應用程式專屬的設定。 |
-|Java | 支援，[JDK 6 更新 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) 和 [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html) 中已新增 TLS 1.2 的 JDK 支援。 | JDK 8 會使用[預設的 TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default)。  |
+|Java | 支援，[JDK 6 更新 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) 和 [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html) 中已新增 TLS 1.2 的 JDK 支援。 | JDK 8 會使用[預設的 TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default)。  |
 |Linux | Linux 發行版本通常會依賴 [OpenSSL](https://www.openssl.org) 來取得 TLS 1.2 支援。  | 請檢查 [OpenSSL 變更記錄](https://www.openssl.org/news/changelog.html)來確認支援的 OpenSSL 版本。|
 | Windows 8.0 - 10 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)。  |
 | Windows Server 2012 - 2016 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
@@ -297,5 +297,5 @@ openssl s_client -connect bing.com:443 -tls1_2
 [platforms]: ../../azure-monitor/app/platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: bc556991cc304aa8c5edc04dba1d333dc77ad230
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850970"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073402"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>在 Azure 中使用 Azure Active Directory 驗證登入 Linux 虛擬機器 (預覽)
 
@@ -150,7 +150,7 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 
 ## <a name="sudo-and-aad-login"></a>Sudo 和 AAD 登入
 
-首次執行 sudo 時，系統將會要求您進行第二次的驗證。 如果您不想再次進行驗證以執行 sudo，您可以編輯 sudoers 檔案 `/aad/etc/sudoers.d/aad_admins` 並取代這一行：
+首次執行 sudo 時，系統將會要求您進行第二次的驗證。 如果您不想再次進行驗證以執行 sudo，您可以編輯 sudoers 檔案 `/etc/sudoers.d/aad_admins` 並取代這一行：
 
 ```bash
 %aad_admins ALL=(ALL) ALL

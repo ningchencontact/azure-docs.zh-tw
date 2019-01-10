@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 5a3fe90da0b469707c67c852784468455bbec95d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999181"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117685"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>計量遙測：Application Insights 資料模型
 
-[Application Insights](../../application-insights/app-insights-overview.md) 支援兩種類型的計量遙測：單一測量和預先彙總的計量。 單一度量只有名稱與值。 預先彙總的計量會指定彙總間隔中計量的最小值和最大值以及它的標準差。
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) 支援兩種類型的計量遙測：單一測量和預先彙總的計量。 單一度量只有名稱與值。 預先彙總的計量會指定彙總間隔中計量的最小值和最大值以及它的標準差。
 
 預先彙總的計量遙測會假設該彙總期間為一分鐘。
 

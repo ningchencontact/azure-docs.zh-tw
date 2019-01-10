@@ -3,7 +3,7 @@ title: 新增適用於 Azure Stack ADFS 的使用者 | Microsoft Docs
 description: 了解如何新增適用於 Azure Stack 之 ADFS 部署的使用者
 services: azure-stack
 documentationcenter: ''
-author: patricka
+author: PatAltimore
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: patricka
 ms.reviewer: unknown
-ms.openlocfilehash: f8abacbcb05d1346931b5c2e1097660cfbd8e594
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ee571ec14a93653b524401d1d304021178ecd794
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344161"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120807"
 ---
 # <a name="add-azure-stack-users-in-ad-fs"></a>在 AD FS 中新增 Azure Stack 使用者
 您可以使用 [Active Directory 使用者和電腦] 嵌入式管理單元，將其他使用者新增到運用 AD FS 做為其身分識別提供者的 Azure Stack 環境。

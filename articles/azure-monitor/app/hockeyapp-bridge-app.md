@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 73e1fac5ba9fbb981c92ff8d32064f7d34729ef7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 4115ec5add9ac523852b4c60c4f9d750bc430a37
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53813267"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121442"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>在 Application Insights 中探索 HockeyApp 資料
 
 > [!NOTE]
-> HockeyApp 不再適用於新的應用程式。 現有的 HockeyApp 部署將會繼續運作。 Visual Studio App Center 現在是 Microsoft 中建議用來監視最新行動應用程式的服務。 [了解如何使用 App Center 和 Application Insights 設定您的應用程式](../../application-insights/app-insights-mobile-center-quickstart.md)。
+> HockeyApp 不再適用於新的應用程式。 現有的 HockeyApp 部署將會繼續運作。 Visual Studio App Center 現在是 Microsoft 中建議用來監視最新行動應用程式的服務。 [了解如何使用 App Center 和 Application Insights 設定您的應用程式](../../azure-monitor/learn/mobile-center-quickstart.md)。
 
-[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) 是監視即時桌面和行動應用程式的服務。 您可以從 HockeyApp 傳送自訂和追蹤遙測，以便監視使用情況和協助診斷 (除了取得損毀資料以外)。 使用 [Azure Application Insights](../../application-insights/app-insights-overview.md) 的強大[分析](../../azure-monitor/app/analytics.md)功能，即可查詢此遙測資料流。 此外，您可以 [匯出自訂和追蹤遙測](export-telemetry.md)。 若要啟用這些功能，您可設定橋接器，以將 HockeyApp 自訂資料轉送至 Application Insights。
+[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) 是監視即時桌面和行動應用程式的服務。 您可以從 HockeyApp 傳送自訂和追蹤遙測，以便監視使用情況和協助診斷 (除了取得損毀資料以外)。 使用 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 的強大[分析](../../azure-monitor/app/analytics.md)功能，即可查詢此遙測資料流。 此外，您可以 [匯出自訂和追蹤遙測](export-telemetry.md)。 若要啟用這些功能，您可設定橋接器，以將 HockeyApp 自訂資料轉送至 Application Insights。
 
 ## <a name="the-hockeyapp-bridge-app"></a>HockeyApp 橋接器應用程式
 HockeyApp 橋接器應用程式是一項核心功能，可讓您透過分析和連續匯出功能來存取 Application Insights 中的 HockeyApp 自訂和追蹤遙測。 經由上述這些功能，可以存取 HockeyApp 在 HockeyApp 橋接器應用程式建立後所收集的自訂和追蹤事件。 我們一起看看如何設定其中一個橋接器應用程式。
@@ -33,7 +33,7 @@ HockeyApp 橋接器應用程式是一項核心功能，可讓您透過分析和�
 
 ![取得 HockeyApp API 權杖](./media/hockeyapp-bridge-app/01.png)
 
-開啟 Microsoft Azure 入口網站並 [建立 Application Insights 資源](../../application-insights/app-insights-create-new-resource.md)。 將應用程式類型設定為「HockeyApp 橋接器應用程式」：
+開啟 Microsoft Azure 入口網站並 [建立 Application Insights 資源](../../azure-monitor/app/create-new-resource.md )。 將應用程式類型設定為「HockeyApp 橋接器應用程式」：
 
 ![新增 Application Insights 資源](./media/hockeyapp-bridge-app/02.png)
 
