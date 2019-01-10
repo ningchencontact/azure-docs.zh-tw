@@ -1,19 +1,18 @@
 ---
 title: 使用 Azure Cosmos DB 適用於 MongoDB 的 API 功能支援
 description: 了解 Azure Cosmos DB 適用於 MongoDB 的 API 為 MongoDB 3.4 提供的功能支援。
-services: cosmos-db
-author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: bb25cf6ed60317dd5d7266e2f4750c2bb9f4859d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+author: sivethe
+ms.author: sivethe
+ms.openlocfilehash: 7bf8258524b0b5e73c1a499fb6d3578098a0821e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790278"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039158"
 ---
 # <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>使用 Azure Cosmos DB 適用於 MongoDB 的 API 支援 MongoDB 功能和語法
 
@@ -338,4 +337,4 @@ Cosmos DB 支援自動與伺服器端的分區化。 Cosmos DB 不支援手動�
 - 了解如何[使用 Robo 3T](mongodb-robomongo.md) 搭配 Azure Cosmos DB 適用於 MongoDB 的 API。
 - 使用 Azure Cosmos DB 適用於 MongoDB 的 API 瀏覽 Cosmos DB [範例](mongodb-samples.md)。
 
-<sup>注意：本文說明一項 Azure Cosmos DB 功能，該功能可提供與 MongoDB 資料庫的通訊協定相容性。Microsoft 不會執行 MongoDB 資料庫來提供這項服務。Azure Cosmos DB 並未與 MongoDB, Inc. 聯盟</sup>
+<sup>注意：本文描述 Azure Cosmos DB 的功能，該功能提供對 MongoDB 資料庫的 Wire Protocol 相容性。Microsoft 不會執行 MongoDB 資料庫來提供這項服務。Azure Cosmos DB 與 MongoDB, Inc. 沒有附屬關係</sup>
