@@ -22,7 +22,7 @@ ms.lasthandoff: 07/10/2018
 ms.locfileid: "37047038"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署檔案系統來回複製資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](data-factory-onprem-file-system-connector.md)
 > * [第 2 版 (目前的版本)](../connector-file-system.md)
 

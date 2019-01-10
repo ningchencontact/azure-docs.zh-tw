@@ -22,7 +22,7 @@ ms.lasthandoff: 06/27/2018
 ms.locfileid: "37054304"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署的 Cassandra 資料庫移動資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](data-factory-onprem-cassandra-connector.md)
 > * [第 2 版 (目前的版本)](../connector-cassandra.md)
 
