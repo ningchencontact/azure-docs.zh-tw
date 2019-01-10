@@ -4,16 +4,17 @@ description: 了解如何在災害復原期間使用 Azure Site Recovery，將 V
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 517355a32fc7a549370aed2c7a8408c3a0887e13
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e17ddb45143e03023c30b69ed314270ed97dc039
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838016"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973160"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>將複寫的 VMware VM 和實體伺服器容錯移轉及容錯回復至 Azure
 
@@ -43,9 +44,9 @@ ms.locfileid: "52838016"
 容錯移轉和容錯回復有四個階段：
 
 1. **容錯移轉至 Azure**：將機器從內部部署網站容錯移轉至 Azure。
-2. **重新保護 Azure VM**：重新保護 Azure VM，使其開始複寫回到內部部署 VMware VM。 內部部署 VM 會在重新保護期間關閉。 這有助於確保資料在複寫期間的一致性。
+2. **重新保護 Azure VM**：重新保護 Azure VM，使其開始複寫回內部部署 VMware VM。 內部部署 VM 會在重新保護期間關閉。 這有助於確保資料在複寫期間的一致性。
 3. **容錯移轉至內部部署環境**：執行容錯移轉，以從 Azure 失敗容錯回復。
-4. **重新保護內部部署 VM**：在資料容錯回復之後，請重新保護已容錯回復到的內部部署 VM，使其開始複寫至 Azure。
+4. **重新保護內部部署 VM**：在資料容錯回復之後，請重新保護作為容錯回復目標的內部部署 VM，使其開始複寫至 Azure。
 
 ## <a name="verify-vm-properties"></a>驗證 VM 屬性
 
@@ -68,7 +69,7 @@ ms.locfileid: "52838016"
 2. 在 [容錯移轉] 中，選取要容錯移轉的目標**復原點**。 您可以使用下列其中一個選項：
    - **最新**：此選項會先處理所有傳送至 Site Recovery 的資料。 它會提供最低的 RPO (復原點目標)，因為在容錯移轉後建立的 Azure VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
    - **最近處理**：此選項會將 VM 容錯移轉到 Site Recovery 所處理的最新復原點。 此選項提供低 RTO (復原時間目標)，因為無須花費時間處理未處理的資料。
-   - **最新應用程式一致**：此選項會將 VM 容錯移轉到 Site Recovery 所處理的最近應用程式一致復原點。
+   - **最新應用程式一致**：此選項會將 VM 容錯移轉到 Site Recovery 所處理的最新應用程式一致復原點。
    - **自訂**：指定任何復原點。
 
 3. 選取 [先將機器關機再開始容錯移轉]，以在觸發容錯移轉之前，嘗試將來源虛擬機器關機。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
@@ -76,7 +77,7 @@ ms.locfileid: "52838016"
 在某些情況下，容錯移轉需要額外的處理，這會耗費約 8 到 10 分鐘的時間來完成。 對於使用 9.8 以前版本行動服務的 VMware 虛擬機器、實體伺服器、VMware Linux 虛擬機器、受保護作為實體伺服器的 Hyper-V 虛擬機器、未啟用 DHCP 服務的 VMware VM，以及不包含下列開機驅動程式的 VMware VM：storvsc、vmbus、storflt、intelide、atapi，您可能會發現**測試容錯移轉時間較長**。
 
 > [!WARNING]
-> **不要取消正在進行的容錯移轉**：在啟動容錯移轉之前，已停止 VM 複寫。
+> **請勿取消正在進行中的容錯移轉**：在啟動容錯移轉之前，已停止 VM 複寫。
 > 如果您取消正在進行的容錯移轉，容錯移轉會停止，但 VM 不會再次複寫。
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>連線到 Azure 中的容錯移轉虛擬機器
