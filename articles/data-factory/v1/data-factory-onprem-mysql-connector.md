@@ -22,7 +22,7 @@ ms.lasthandoff: 06/27/2018
 ms.locfileid: "37046879"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>使用 Azure Data Factory 從 MySQL 移動資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](data-factory-onprem-mysql-connector.md)
 > * [第 2 版 (目前的版本)](../connector-mysql.md)
 
