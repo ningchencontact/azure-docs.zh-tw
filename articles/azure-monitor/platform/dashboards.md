@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.openlocfilehash: 613001c8495ba6c6a259063b8d8d3bce21b66960
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 46d113d06ee9d59cd3c3143b87c9166c9bd09fdc
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336409"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101798"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>建立用於 Log Analytics 中的自訂儀表板
 
@@ -31,7 +31,7 @@ ms.locfileid: "53336409"
 
 您在 OMS 入口網站中建立的所有自訂儀表板，也都可在 OMS 行動應用程式中使用。 如需應用程式的詳細資訊，請參閱下列頁面。
 
-* [Microsoft Store 中的 OMS 行動應用程式](http://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+* [Microsoft Store 中的 OMS 行動應用程式](https://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
 * [Apple iTunes 中的 OMS 行動應用程式](https://itunes.apple.com/app/microsoft-operations-management/id1042424859?mt=8)
 
 ![行動儀表板](./media/dashboards/oms-search-mobile.png)

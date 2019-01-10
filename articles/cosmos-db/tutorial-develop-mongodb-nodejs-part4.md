@@ -4,18 +4,19 @@ titleSuffix: Azure Cosmos DB
 description: 本教學課程系列的第 4 部分，有關使用您用於 MongoDB 的完全相同 API，以 Azure Cosmos DB 上的 Angular 和 Node 建立 MongoDB 應用程式
 author: johnpapa
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: d85183f0104d9066f93adc73c09c76406128700d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.reviewer: sngun
+ms.openlocfilehash: 8320204f75e583dae0449f83e7c38f6638371c2a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787795"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035109"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>使用適用於 MongoDB 的 Azure Cosmos DB API 建立 Angular 應用程式 - 建立 Cosmos 帳戶
 

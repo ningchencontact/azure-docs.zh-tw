@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 946d0895ff25509a0e35695fe27c783b3c50784b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a6937b5b6b3b85dd51d80a928de02a00c361cc0e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999572"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117600"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
-在微服務的世界裡，每個邏輯作業都需要在服務的各種元件中完成工作。 每個元件都可分別使用 [Application Insights](../../application-insights/app-insights-overview.md) 監視。 Web 應用程式元件會與驗證提供者元件進行通訊以驗證使用者認證，並透過 API 元件取得視覺效果的資料。 API 元件本身可以查詢其他服務中的資料，並使用快取提供者元件及向計費元件通知這個呼叫。 Application Insights 支援分散式遙測相互關聯。 它可讓您偵測造成失敗或效能衰退的元件。
+在微服務的世界裡，每個邏輯作業都需要在服務的各種元件中完成工作。 每個元件都可分別使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 監視。 Web 應用程式元件會與驗證提供者元件進行通訊以驗證使用者認證，並透過 API 元件取得視覺效果的資料。 API 元件本身可以查詢其他服務中的資料，並使用快取提供者元件及向計費元件通知這個呼叫。 Application Insights 支援分散式遙測相互關聯。 它可讓您偵測造成失敗或效能衰退的元件。
 
 本文說明 Application Insights 所使用的資料模型，以關聯多個元件所傳送的遙測。 它涵蓋內容傳播技巧和通訊協定。 它還包括實作不同語言和平台上的相互關聯概念。
 

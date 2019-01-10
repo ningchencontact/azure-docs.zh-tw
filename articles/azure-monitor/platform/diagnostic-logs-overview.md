@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 50eb70799506ecd5203ff4fd0c2649726658b3e4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 08ad8964fee2d94677832fa664ed2e18cb9f772c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550800"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104976"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>收集並取用來自 Azure 資源的記錄資料
 
@@ -83,7 +83,7 @@ ms.locfileid: "53550800"
 
 您可以在建立資源之後，於 Azure 入口網站中移至特定資源或巡覽至 Azure 監視器，來啟用資源診斷記錄的收集。 若要透過 Azure 監視器來啟用此作業：
 
-1. 在 [Azure 入口網站](http://portal.azure.com)中，巡覽至 Azure 監視器，然後按一下 [診斷設定]
+1. 在 [Azure 入口網站](https://portal.azure.com)中，巡覽至 Azure 監視器，然後按一下 [診斷設定]
 
     ![Azure 監視器的監視區段](media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 

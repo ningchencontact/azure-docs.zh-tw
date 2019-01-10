@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: adamab
-ms.openlocfilehash: 8ac3bb2c95420eb4a608f003f3d937e3a47c272b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: cwatson
+ms.openlocfilehash: ed3737b2f64fb4aad3f1418f08e909bf720b42f3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448225"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103837"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>以程式設計方式建立 Azure Dashboards
 
@@ -100,7 +100,7 @@ Azure 可讓您協調多個資源的部署。 您可建立部署範本表示要�
 ```json
 
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualMachineName": {
@@ -386,7 +386,7 @@ __這份文件的結尾有提供完整的可行範本。__
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualMachineName": {

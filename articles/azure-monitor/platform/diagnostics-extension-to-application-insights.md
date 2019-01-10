@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: c22c97efed7c70b554acd449ed15c6641e377b6a
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2580d49fb7ab0779f81f1315b9765a0dc4745cb6
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788492"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078213"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>將雲端服務、虛擬機器或 Service Fabric 診斷資料傳送至 Application Insights
 雲端服務、虛擬機器、虛擬機器擴展集和 Service Fabric 全都使用 Azure 診斷擴充功能來收集資料。  Azure 診斷會將資料傳送至 Azure 儲存體資料表。  不過，您也可以使用 Azure 診斷擴充功能 1.5 或更新版本，將所有資料或一部分資料傳送至其他位置。
@@ -61,7 +61,7 @@ Application Insights 的接收器組態範例：
 - **Sink** name 屬性是可唯一識別接收器的字串值。
 
 - **ApplicationInsights** 元素指定 Azure 診斷資料送出的 Application Insights 資源的檢測金鑰。
-    - 如果您沒有現有的 Application Insights 資源，請參閱[建立新的 Application Insights 資源](../../application-insights/app-insights-create-new-resource.md)，以取得建立資源及取得檢測金鑰的詳細資訊。
+    - 如果您沒有現有的 Application Insights 資源，請參閱[建立新的 Application Insights 資源](../../azure-monitor/app/create-new-resource.md )，以取得建立資源及取得檢測金鑰的詳細資訊。
     - 如果您以 Azure SDK 2.8 和更新版本開發雲端服務，則會自動填入此檢測金鑰。 這個值是根據封裝雲端服務專案時的 **APPINSIGHTS_INSTRUMENTATIONKEY** 服務組態設定。 請參閱[使用含雲端服務的 Application Insights](../../azure-monitor/app/cloudservices.md)。
 
 - **Channels** 元素包含一個或多個 **Channel** 元素。

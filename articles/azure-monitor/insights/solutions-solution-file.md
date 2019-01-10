@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae310ac35afed06881eb85fabc92d68e256ca5e7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6511eb7a4651f0b95b7821e1959ba7e4130c2d6e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189763"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105792"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中建立管理解決方案檔 (預覽)
 > [!NOTE]
@@ -42,7 +42,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 管理解決方案檔案與[資源管理員範本](../../azure-resource-manager/resource-group-authoring-templates.md#template-format)的基本結構相同，如下所示。  下列各節說明最上層元素及其在解決方案中的內容。  
 
     {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0",
        "parameters": {  },
        "variables": {  },

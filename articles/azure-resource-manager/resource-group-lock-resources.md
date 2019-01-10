@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4d00da4adf3069069a66c02e391f0a1a3298ac29
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: c1081200954d74ae5bcebd02f4abeb7d493a82a5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299668"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102766"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>鎖定資源以防止非預期的變更 
 
@@ -49,7 +49,7 @@ Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "hostingPlanName": {

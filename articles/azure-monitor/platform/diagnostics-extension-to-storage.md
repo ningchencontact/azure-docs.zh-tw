@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.component: diagnostic-extension
-ms.openlocfilehash: 616738b60f4a26b15c8245136860692f84349cc4
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: f0d1a51a3c787bd4d9602eeaad9ac92eda7bacb7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325393"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103735"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>在 Azure 儲存體中儲存和檢視診斷資料
 除非您將診斷資料傳輸至 Microsoft Azure 儲存體模擬器或 Azure 儲存體，否則不會永久儲存診斷資料。 一旦位於儲存體，即可利用其中一個可用的工具進行檢視。
@@ -75,7 +75,7 @@ ms.locfileid: "53325393"
 
 * Visual Studio 中的伺服器總管 - 如果您已安裝 Azure Tools for Microsoft Visual Studio，您可以在伺服器總管中使用 Azure 儲存體節點，從您的 Azure 儲存體帳戶檢視唯讀的 Blob 和資料表資料。 您可以從您的本機儲存體模擬器帳戶顯示資料，也可以從您為 Azure 建立的儲存體帳戶顯示資料。 如需詳細資訊，請參閱 [使用伺服器總管瀏覽和管理儲存體資源](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)。
 * [Microsoft Azure 儲存體 Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、OSX 和 Linux 上輕鬆使用 Azure 儲存體資料。
-* [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) 包含 Azure 診斷管理員，可讓您檢視、下載及管理在 Azure 上執行的應用程式所收集的診斷資料。
+* [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) 包含 Azure 診斷管理員，可讓您檢視、下載及管理在 Azure 上執行的應用程式所收集的診斷資料。
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Azure 診斷追蹤雲端服務應用程式中的流程](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)

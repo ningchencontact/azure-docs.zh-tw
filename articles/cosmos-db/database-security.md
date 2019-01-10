@@ -1,19 +1,17 @@
 ---
 title: 資料庫安全性 - Azure Cosmos DB
 description: 了解 Azure Cosmos DB 如何為您的資料提供資料庫保護和資料安全性。
-keywords: nosql 資料庫安全性, 資訊安全性, 資料安全性, 資料庫加密, 資料庫保護, 安全性原則, 安全性測試
-services: cosmos-db
 author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: 0ffd07269570b26b527286f1a0b5a57a6b5c6018
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5fcf04c57f957b670d813de8ffe2d945f70cb3c5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093415"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038767"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 資料庫安全性
 

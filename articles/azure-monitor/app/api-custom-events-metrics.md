@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 289818f0377fdc28b116a8c154a919dc02ed8052
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: aac5010ca6b0ed958a849bf203f1d2f80bcdb81c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000068"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119812"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
 
-在您的應用程式中插入幾行程式碼，以了解使用者對它進行的動作或協助診斷問題。 您可以從裝置和桌面應用程式、Web 用戶端以及 Web 伺服器傳送遙測。 使用 [Azure Application Insights](../../application-insights/app-insights-overview.md) 核心遙測 API 來傳送自訂的事件和度量，以及您自己的標準遙測版本。 這個 API 與標準 Application Insights 資料收集器所使用的 API 相同。
+在您的應用程式中插入幾行程式碼，以了解使用者對它進行的動作或協助診斷問題。 您可以從裝置和桌面應用程式、Web 用戶端以及 Web 伺服器傳送遙測。 使用 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 核心遙測 API 來傳送自訂的事件和度量，以及您自己的標準遙測版本。 這個 API 與標準 Application Insights 資料收集器所使用的 API 相同。
 
 > [!NOTE]
 > `TrackMetric()` 不再是針對 .NET 型應用程式傳送自訂計量的慣用方法。 [2.60-beta 3 版](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3)的 Application Insights .NET SDK 中引進了新方法 [`TelemetryClient.GetMetric()`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)。 從 Application Insights .NET SDK [2.72 版](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)起，這項功能現在屬於穩定的版本。
@@ -153,7 +153,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 [Application Insights 分析](analytics.md)的 `customEvents` 資料表中有提供遙測資料。 每個資料列各代表應用程式中的一個 `trackEvent(..)` 呼叫。
 
-如果[取樣](../../application-insights/app-insights-sampling.md)運作中，itemCount 屬性會顯示大於 1 的值。 例如，itemCount==10 表示在 trackEvent() 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得正確的自訂事件計數，您應該使用程式碼，例如 `customEvents | summarize sum(itemCount)`。
+如果[取樣](../../azure-monitor/app/sampling.md)運作中，itemCount 屬性會顯示大於 1 的值。 例如，itemCount==10 表示在 trackEvent() 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得正確的自訂事件計數，您應該使用程式碼，例如 `customEvents | summarize sum(itemCount)`。
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -440,7 +440,7 @@ using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operati
 
 在 [Application Insights 分析](analytics.md)中，要求會顯示在 `requests` 資料表中。
 
-如果[取樣](../../application-insights/app-insights-sampling.md)運作中，itemCount 屬性將會顯示大於 1 的值。 例如，itemCount==10 表示在 trackRequest() 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得依要求名稱分割的正確要求計數和平均持續時間，請使用類似如下的程式碼：
+如果[取樣](../../azure-monitor/app/sampling.md)運作中，itemCount 屬性將會顯示大於 1 的值。 例如，itemCount==10 表示在 trackRequest() 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得依要求名稱分割的正確要求計數和平均持續時間，請使用類似如下的程式碼：
 
 ```kusto
 requests
@@ -522,7 +522,7 @@ SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 Tra
 
 在 [Application Insights 分析](analytics.md)中，例外狀況會顯示在 `exceptions` 資料表中。
 
-如果[取樣](../../application-insights/app-insights-sampling.md)運作中，`itemCount` 屬性會顯示大於 1 的值。 例如，itemCount==10 表示在 trackException() 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得依例外狀況類型分割的正確例外狀況計數，請使用類似如下的程式碼：
+如果[取樣](../../azure-monitor/app/sampling.md)運作中，`itemCount` 屬性會顯示大於 1 的值。 例如，itemCount==10 表示在 trackException() 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得依例外狀況類型分割的正確例外狀況計數，請使用類似如下的程式碼：
 
 ```kusto
 exceptions
@@ -603,7 +603,7 @@ telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties
 
 在 [Application Insights 分析](analytics.md)中，TrackTrace 的呼叫會顯示在 `traces` 資料表中。
 
-如果[取樣](../../application-insights/app-insights-sampling.md)運作中，itemCount 屬性會顯示大於 1 的值。 例如，itemCount==10 表示在 `trackTrace()` 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得正確的追蹤呼叫計數，您應該使用程式碼，例如 `traces | summarize sum(itemCount)`。
+如果[取樣](../../azure-monitor/app/sampling.md)運作中，itemCount 屬性會顯示大於 1 的值。 例如，itemCount==10 表示在 `trackTrace()` 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得正確的追蹤呼叫計數，您應該使用程式碼，例如 `traces | summarize sum(itemCount)`。
 
 ## <a name="trackdependency"></a>TrackDependency
 
@@ -678,7 +678,7 @@ finally
 
 在 [Application Insights 分析](analytics.md)中，trackDependency 呼叫會顯示在 `dependencies` 資料表中。
 
-如果[取樣](../../application-insights/app-insights-sampling.md)運作中，itemCount 屬性會顯示大於 1 的值。 例如，itemCount==10 表示在 trackDependency() 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得依目標元件分割的正確相依性計數，請使用類似如下的程式碼：
+如果[取樣](../../azure-monitor/app/sampling.md)運作中，itemCount 屬性會顯示大於 1 的值。 例如，itemCount==10 表示在 trackDependency() 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得依目標元件分割的正確相依性計數，請使用類似如下的程式碼：
 
 ```kusto
 dependencies
@@ -897,7 +897,7 @@ requests
 請注意：
 
 * 當您從 customDimensions 或 customMeasurements JSON 中擷取值時，其類型為動態，因此您必須將它轉換成 `tostring` 或 `todouble`。
-* 考量到[取樣](../../application-insights/app-insights-sampling.md)的可能性，您應該使用 `sum(itemCount)`，而不是 `count()`。
+* 考量到[取樣](../../azure-monitor/app/sampling.md)的可能性，您應該使用 `sum(itemCount)`，而不是 `count()`。
 
 ## <a name="timed"></a> 計時事件
 
@@ -1076,7 +1076,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 ## <a name="dynamic-ikey"></a> 動態檢測金鑰
 
-若要避免混合來自開發、測試和實際執行環境的遙測，您可以[建立個別的 Application Insights 資源](../../application-insights/app-insights-create-new-resource.md)，並且依據環境變更其金鑰。
+若要避免混合來自開發、測試和實際執行環境的遙測，您可以[建立個別的 Application Insights 資源](../../azure-monitor/app/create-new-resource.md )，並且依據環境變更其金鑰。
 
 而不是從組態檔取得檢測金鑰，您可以在程式碼中設定。 在初始化方法中設定金鑰，例如 ASP.NET 服務中的 global.aspx.cs：
 
@@ -1141,7 +1141,7 @@ telemetry.Context.Operation.Name = "MyOperationName";
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
-若要避免達到資料速率限制，請使用[取樣](../../application-insights/app-insights-sampling.md)。
+若要避免達到資料速率限制，請使用[取樣](../../azure-monitor/app/sampling.md)。
 
 若要決定資料的保留時間，請參閱[資料保留和隱私權](../../azure-monitor/app/data-retention-privacy.md)。
 
@@ -1170,9 +1170,9 @@ telemetry.Context.Operation.Name = "MyOperationName";
     無。 您不需要將它們包裝在 try-catch 子句中。 如果 SDK 發生問題，它會在偵錯主控台輸出以及 (若訊息得以傳輸過去) 診斷搜尋中記錄訊息。
 * *是否有 REST API 可供從入口網站中取得資料？*
 
-    是，[資料存取 API](https://dev.applicationinsights.io/)。 其他擷取資料的方法包括[從分析匯出至 Power BI](../../application-insights/app-insights-export-power-bi.md) 和[連續匯出](../../azure-monitor/app/export-telemetry.md)。
+    是，[資料存取 API](https://dev.applicationinsights.io/)。 其他擷取資料的方法包括[從分析匯出至 Power BI](../../azure-monitor/app/export-power-bi.md ) 和[連續匯出](../../azure-monitor/app/export-telemetry.md)。
 
 ## <a name="next"></a>接續步驟
 
 * [搜尋事件和記錄](../../azure-monitor/app/diagnostic-search.md)
-* [疑難排解](../../application-insights/app-insights-troubleshoot-faq.md)
+* [疑難排解](../../azure-monitor/app/troubleshoot-faq.md)

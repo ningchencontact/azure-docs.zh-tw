@@ -11,18 +11,18 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: a5abc90f5a40911538b6516622203f595adfed5c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 140fc870500054d0652b48bc602706398371fa8e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091810"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039045"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>在 Azure 中建立您的第一個 Python 函式 (預覽)
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
-本快速入門文章會逐步解說如何使用 Azure CLI 建立第一個在 Linux 上執行的[無伺服器](https://azure.microsoft.com/overview/serverless-computing/) Python 函式應用程式。 您可以使用 [Azure Functions Core Tools](functions-run-local.md) 在本機建立函式程式碼，然後將其部署至 Azure。 若要深入了解在 Linux 上執行函式應用程式的預覽版本注意事項，請參閱[這篇在 Linux 上的 Functions 文章](https://aka.ms/funclinux)。
+本快速入門文章會逐步解說如何使用 Azure CLI 建立第一個在 Linux 上執行的[無伺服器](https://azure.com/serverless) Python 函式應用程式。 您可以使用 [Azure Functions Core Tools](functions-run-local.md) 在本機建立函式程式碼，然後將其部署至 Azure。 若要深入了解在 Linux 上執行函式應用程式的預覽版本注意事項，請參閱[這篇在 Linux 上的 Functions 文章](https://aka.ms/funclinux)。
 
 下列步驟適用於 Mac、Windows 或 Linux 電腦。
 

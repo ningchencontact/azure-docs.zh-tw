@@ -9,17 +9,16 @@ ms.assetid: e07d55cf-8051-4203-9966-bdfa1035104b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5345ca3a9c2f35b45669a3a54ecb42ca627cde32
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb7d6531da330bcfbf6de786ffb19984cfd1964e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259814"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017424"
 ---
 # <a name="use-case---customer-profiling"></a>使用案例 - 客戶分析
 Azure Data Factory 是許多服務之一，可用來實作解決方案加速器的 Cortana Intelligence 套件。  如需 Cortana Intelligence 的詳細資訊，請瀏覽 [Cortana Intelligence 套件](https://www.microsoft.com/cortanaanalytics)。 在本文中，我們會說明簡單的使用案例，以幫助您開始著手了解 Azure Data Factory 如何解決常見的分析問題。

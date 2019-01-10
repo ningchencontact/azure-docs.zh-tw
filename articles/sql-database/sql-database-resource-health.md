@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: 5b0543b28117d349ceaef173a1201574cf2b3682
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/03/2019
+ms.openlocfilehash: 36a448a861bdfdcd85e532578383b14e56f54b1a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604543"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039090"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>使用資源健康情況對 Azure SQL Database 的連線問題進行疑難排解
 
@@ -77,6 +77,6 @@ Azure 基礎結構會定期執行規劃的維護 – 資料中心的軟硬體元
 
 - 深入了解[暫時性錯誤的重試邏輯](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
 - [排解、診斷和防止 SQL 連線錯誤](./sql-database-connectivity-issues.md)
-- 深入了解如何[設定資源健康情況警示](/articles/service-health/resource-health-alert-arm-template-guide.md)
-- 取得[資源健康情況](/articles/service-health/resource-health-overview.md)的概觀
-- [資源健康情況常見問題集](/articles/service-health/resource-health-faq.md)
+- 深入了解如何[設定資源健康情況警示](../service-health/resource-health-alert-arm-template-guide.md)
+- 取得[資源健康情況](../service-health/resource-health-overview.md)的概觀
+- [資源健康情況常見問題集](../service-health/resource-health-faq.md)

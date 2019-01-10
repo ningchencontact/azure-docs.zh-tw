@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1ddadcf17a5733767e24505b970b2ac21c8d7fa8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325329"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103939"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 診斷疑難排解
 本文說明有關使用 Azure 診斷的疑難排解資訊。 如需有關 Azure 診斷的詳細資訊，請參閱 [Azure 診斷概觀](diagnostics-extension-overview.md)。
@@ -118,7 +118,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 #### <a name="is-the-host-generating-data"></a>主機是否正在產生資料？
 - **效能計數器**：開啟 Perfmon 並檢查計數器。
 
-- **追蹤記錄檔**：從遠端存取 VM，並將 TextWriterTraceListener 新增至應用程式的組態檔。  請參閱 http://msdn.microsoft.com/library/sk36c28t.aspx 設定文字接聽程式。  確定 `<trace>` 元素具有 `<trace autoflush="true">`。<br />
+- **追蹤記錄檔**：從遠端存取 VM，並將 TextWriterTraceListener 新增至應用程式的組態檔。  請參閱 https://msdn.microsoft.com/library/sk36c28t.aspx 設定文字接聽程式。  確定 `<trace>` 元素具有 `<trace autoflush="true">`。<br />
 如果未看見正在產生追蹤記錄檔，請參閱[關於遺漏追蹤記錄檔的詳細資訊](#more-about-trace-logs-missing)。
 
 - **ETW 追蹤**：從遠端存取 VM 並安裝 PerfView。  在 PerfView 中執行 [File] \(檔案\) > [User Command] \(使用者命令\) > [Listen etwprovder1] \(接聽 etwprovder1\) > [etwprovider2]，依此類推。 **Listen** 命令會區分大小寫，而且在以逗號區隔的 ETW 提供者清單之間不能有空格。 如果命令執行失敗，您可以選取 Perfview 工具右下方的 [Log] \(記錄\) 按鈕，即可查看已嘗試執行的動作與執行結果。  如果輸入正確，就會跳出新的視窗。 在幾秒鐘內，就會開始看到 ETW 追蹤。
@@ -217,9 +217,9 @@ Azure 儲存體中保存 ETW 事件的表格使用以下程式碼來命名：
 
 不論使用何種方式，都可以搜尋 **Microsoft.Azure.Diagnostics**，然後搜尋 **xmlCfg** 或 **WadCfg** 欄位。
 
-如果是在虛擬機器上搜尋，且出現 **WadCfg** 欄位，表示組態為 JSON 格式。 如果出現 **xmlCfg** 欄位，表示組態為 XML 格式且以 base64 編碼。 您必須將它[解碼](http://www.bing.com/search?q=base64+decoder)，才能查看診斷載入的 XML。
+如果是在虛擬機器上搜尋，且出現 **WadCfg** 欄位，表示組態為 JSON 格式。 如果出現 **xmlCfg** 欄位，表示組態為 XML 格式且以 base64 編碼。 您必須將它[解碼](https://www.bing.com/search?q=base64+decoder)，才能查看診斷載入的 XML。
 
-針對雲端服務角色，如果是從磁碟挑選組態，則資料會以 base64 編碼，因此需要[將資料解碼](http://www.bing.com/search?q=base64+decoder)，才能查看診斷所載入的 XML。
+針對雲端服務角色，如果是從磁碟挑選組態，則資料會以 base64 編碼，因此需要[將資料解碼](https://www.bing.com/search?q=base64+decoder)，才能查看診斷所載入的 XML。
 
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Azure 診斷外掛程式結束代碼
 外掛程式會傳回下列結束代碼：

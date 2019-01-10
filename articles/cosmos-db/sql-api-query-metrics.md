@@ -1,20 +1,18 @@
 ---
 title: 適用於 Azure Cosmos DB SQL API 的 SQL 查詢計量
 description: 了解如何檢測和偵錯 Azure Cosmos DB 要求的 SQL 查詢效能。
-keywords: sql 語法, sql 查詢, sql 查詢, json 查詢語言, 資料庫概念和 sql 查詢, 彙總函式
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 02f5cf7159847d6f67ee3d8e92805f785a58e959
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e6d16c31b8975036202fe77906e2d729391b5c59
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142485"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038070"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 調整查詢效能
 

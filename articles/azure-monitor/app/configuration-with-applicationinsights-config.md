@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: be572e068b0dd08f3af60701c4f5aa39646ac1fc
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3c7b855588b45cd61bb13848720d6e926bbecba4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000388"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121102"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>使用 ApplicationInsights.config 或 .xml 設定 Application Insights SDK
 Application Insights .NET SDK 是由數個 NuGet 封裝所組成。 [核心封裝](https://www.nuget.org/packages/Microsoft.ApplicationInsights) 提供 API，用於傳送遙測至 Application Insights。 [其他套件](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)提供遙測*模組*和*初始設定式*，用於自動從您的應用程式和其內容追蹤遙測。 您可以藉由調整組態檔，來啟用或停用遙測模組和初始設定式，並為其設定一些參數。
@@ -154,7 +154,7 @@ Microsoft.ApplicationInsights 封裝提供 SDK 的 [核心 API](https://msdn.mic
 
 參數會提供演算法嘗試要達成的目標。 每個 SDK 執行個體都獨立運作，因此如果您的伺服器是數個機器的叢集，遙測的實際數量會隨之加乘。
 
-[深入了解取樣](../../application-insights/app-insights-sampling.md)。
+[深入了解取樣](../../azure-monitor/app/sampling.md)。
 
 #### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>固定取樣遙測處理器 (自 2.0.0-beta1 起)
 還有一種標準的 [取樣遙測處理器](../../azure-monitor/app/api-filtering-sampling.md) (自 2.0.1 起)：
@@ -382,6 +382,6 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: ../../azure-monitor/app/asp-net-exceptions.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
-[new]: ../../application-insights/app-insights-create-new-resource.md
+[new]: ../../azure-monitor/app/create-new-resource.md 
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
