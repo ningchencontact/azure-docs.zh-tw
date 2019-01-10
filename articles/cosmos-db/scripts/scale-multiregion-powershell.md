@@ -1,20 +1,20 @@
 ---
 title: Azure PowerShell 指令碼 - Azure Cosmos DB 的多區域複寫
 description: Azure PowerShell 指令碼範例 - Azure Cosmos DB 的多區域複寫
-services: cosmos-db
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
-ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 05/10/2017
-ms.openlocfilehash: 8bc2b44f240327d8272af8a20c117c770377421f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: sngun
+ms.openlocfilehash: 832f22e969fbec51390792105df51a6af2a71851
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52954563"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037883"
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-powershell"></a>使用 PowerShell 複寫多個區域中的 Azure Cosmos DB 資料庫帳戶和設定容錯移轉優先順序
 

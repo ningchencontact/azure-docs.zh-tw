@@ -1,20 +1,18 @@
 ---
 title: 適用於 MongoDB 的 Azure Cosmos DB API 簡介
 description: 了解如何使用適用於 MongoDB 的 Azure Cosmos DB API 以 Azure Cosmos DB 來儲存及查詢大量資料。
-keywords: 適用於 MongoDB 的 Azure Cosmos DB API
-services: cosmos-db
-author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: f17d8f46bc14297c70c21919abe236fc544facfa
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+author: sivethe
+ms.author: sivethe
+ms.openlocfilehash: d0f61afaba094a1e499a91f9937a31554438759e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787608"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042167"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>適用於 MongoDB 的 Azure Cosmos DB API
 

@@ -13,16 +13,16 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b3cfd57ff0e4b881352c07081d71bb9ba80fd11e
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d5cba3b21ff6099a4132a7ebfab38d1ead9afded
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000178"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118077"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps 適用的 Application Insights 概觀
 
-透過 [Application Insights](../../application-insights/app-insights-overview.md)，您可以迅速瞭解您的應用程式在作用中時如何執行和使用。 如果發生問題，它可讓您了解、協助您評估影響，以及協助您判斷原因。
+透過 [Application Insights](../../azure-monitor/app/app-insights-overview.md)，您可以迅速瞭解您的應用程式在作用中時如何執行和使用。 如果發生問題，它可讓您了解、協助您評估影響，以及協助您判斷原因。
 
 以下是某個開發 Web 應用程式的小組的敘述：
 
@@ -61,7 +61,7 @@ Marcela Markova 是 OBS 小組的資深開發人員，主導線上效能監視�
 但更重要的是，任何失敗的相關警示會以電子郵件方式寄送給開發小組。 以該方式，他們幾乎可在所有客戶之前便得知該情況。
 
 ## <a name="monitor-performance"></a>監視效能
-在 Application Insights 中的概觀頁面上，有一個顯示各種[重要度量](../../application-insights/app-insights-web-monitor-performance.md)的圖表。
+在 Application Insights 中的概觀頁面上，有一個顯示各種[重要度量](../../azure-monitor/app/web-monitor-performance.md)的圖表。
 
 ![概觀效能 KPI 圖表的螢幕擷取畫面](./media/detect-triage-diagnose/overview-graphs.png)
 
@@ -151,7 +151,7 @@ TrackException 用來報告例外狀況，因為它會傳送堆疊的副本。 T
 
 
 ## <a name="monitor-proactively"></a>主動監視
-Marcela 不會無所事事等候警示。 在每次重新部署之後，她都會立即查看[回應時間](../../application-insights/app-insights-web-monitor-performance.md) - 除了例外狀況計數之外，也查看整體數據和最緩慢的要求表。  
+Marcela 不會無所事事等候警示。 在每次重新部署之後，她都會立即查看[回應時間](../../azure-monitor/app/web-monitor-performance.md) - 除了例外狀況計數之外，也查看整體數據和最緩慢的要求表。  
 
 ![回應時間圖及伺服器回應時間格線。](./media/detect-triage-diagnose/response-time.png)
 
@@ -175,20 +175,20 @@ Marcela 不會無所事事等候警示。 在每次重新部署之後，她都�
 ## <a name="diagnose-issues"></a>診斷問題
 診斷與偵測不太一樣。 開始追蹤程式碼之前，您應該對問題的原因、位置和發生時機有約略的構念。
 
-**發生時機為何？**  事件和度量圖表提供的歷程檢視可讓您輕鬆將影響與可能原因產生相互關聯。 如果回應時間或例外狀況率中有間歇性的尖峰，請查看要求計數：如果尖峰是在相同時間，則可能是資源問題。 您需要指派更多 CPU 或記憶體嗎？ 或者它是無法管理負載的相依性？
+**發生時機為何？** 事件和度量圖表提供的歷程檢視可讓您輕鬆將影響與可能原因產生相互關聯。 如果回應時間或例外狀況率中有間歇性的尖峰，請查看要求計數：如果尖峰是在相同時間，則可能是資源問題。 您需要指派更多 CPU 或記憶體嗎？ 或者它是無法管理負載的相依性？
 
-**問題在於我們嗎？**   如果特定類型的要求效能突然下降 - 例如客戶想要對帳單時 - 則可能是外部子系統而非 Web 應用程式有問題。 在「計量瀏覽器」中，選取相依性失敗率和相依性期間率，並將其過去幾個小時或幾天的歷程記錄與您偵測到的問題比較。 如果有相互關聯的變更，則外部子系統可能是原因所在。  
+**問題在於我們嗎？**  如果特定類型的要求效能突然下降 - 例如客戶想要對帳單時 - 則可能是外部子系統而非 Web 應用程式有問題。 在「計量瀏覽器」中，選取相依性失敗率和相依性期間率，並將其過去幾個小時或幾天的歷程記錄與您偵測到的問題比較。 如果有相互關聯的變更，則外部子系統可能是原因所在。  
 
 
 ![相依性失敗和對相依性呼叫期間的圖表](./media/detect-triage-diagnose/11-dependencies.png)
 
 有些緩慢相依性的問題是地理位置問題。 Fabrikam 銀行使用 Azure virtual 機器，並發現他們誤將 Web 伺服器和帳戶伺服器放置在不同國家/地區。 透過移轉其中一部伺服器獲得明顯的改善。
 
-**我們做了什麼？**  如果問題似乎不在於相依性，而且如果不是持續有問題，則可能是由於最近的變更而導致。 度量和事件圖表提供的歷史觀點讓您輕鬆將任何突然的變更與部署產生相互關聯。 它可縮小問題的搜尋範圍。 若要識別應用程式程式碼中哪些行讓效能變慢，請啟用 Application Insights Profiler。 請參閱[使用 Application Insights 來即時分析 Azure Web Apps](./../../application-insights/app-insights-profiler.md)。 啟用分析工具之後，您會看到類似下列的追蹤。 在此範例中，很容易就能注意到是方法 *GetStorageTableData* 造成問題。  
+**我們做了什麼？** 如果問題似乎不在於相依性，而且如果不是持續有問題，則可能是由於最近的變更而導致。 度量和事件圖表提供的歷史觀點讓您輕鬆將任何突然的變更與部署產生相互關聯。 它可縮小問題的搜尋範圍。 若要識別應用程式程式碼中哪些行讓效能變慢，請啟用 Application Insights Profiler。 請參閱[使用 Application Insights 來即時分析 Azure Web Apps](./../../azure-monitor/app/profiler.md)。 啟用分析工具之後，您會看到類似下列的追蹤。 在此範例中，很容易就能注意到是方法 *GetStorageTableData* 造成問題。  
 
 ![App Insights Profiler 追蹤](./media/detect-triage-diagnose/AppInsightsProfiler.png)
 
-**發生什麼？**  有些問題很少發生，而且透過離線測試可能難以追蹤。 我們能做的是嘗試在問題發生時擷取錯誤。 您可以在例外狀況報告中檢查堆疊傾印。 此外，您可以使用喜好的記錄架構或使用 TrackTrace() 或 TrackEvent() 來編寫追蹤呼叫。  
+**發生什麼？** 有些問題很少發生，而且透過離線測試可能難以追蹤。 我們能做的是嘗試在問題發生時擷取錯誤。 您可以在例外狀況報告中檢查堆疊傾印。 此外，您可以使用喜好的記錄架構或使用 TrackTrace() 或 TrackEvent() 來編寫追蹤呼叫。  
 
 Fabrikam 的帳戶間轉送發生間歇性問題，但只有某些帳戶類型有此情況。 為了更加了解發生的情況，他們在程式碼中的重要點插入了 TrackTrace() 呼叫，附加帳戶類型作為每個呼叫的內容。 那使得要在診斷搜尋中僅篩選掉這些追蹤更為輕鬆。 他們也將參數值附加為追蹤呼叫的屬性和測量。
 
@@ -215,7 +215,7 @@ Application Insights 也可以用來了解使用者在應用程式內執行的�
 
 團隊一直都有使用者活動的相關資訊。 只是現在，每當設計出一個新功能時，就要思考如何取得其使用方式的意見反應。 團隊如果從一開始就在功能中設計追蹤呼叫， 就可以使用意見反應在每個開發週期中改進功能。
 
-[深入了解如何追蹤使用量](../../application-insights/app-insights-usage-overview.md)。
+[深入了解如何追蹤使用量](../../azure-monitor/app/usage-overview.md)。
 
 ## <a name="apply-the-devops-cycle"></a>套用 DevOps 週期
 以上就是一個小組如何使用 Application Insights 來不只是修正個別問題，還改善其開發週期的情況。 希望這已提供您一些概念，讓您了解 Application Insights 如何協助您在自己的應用程式中進行應用程式效能管理。
@@ -230,6 +230,6 @@ Application Insights 也可以用來了解使用者在應用程式內執行的�
 * [ASP.NET Web 應用程式](../../azure-monitor/app/asp-net.md)
 * [Java Web 應用程式](../../azure-monitor/app/java-get-started.md)
 * [Node.js Web 應用程式](../../azure-monitor/app/nodejs.md)
-* 裝載於 [IIS](../../azure-monitor/app/monitor-web-app-availability.md)、[J2EE](../../azure-monitor/app/java-live.md) 或 [Azure](../../application-insights/app-insights-overview.md) 上的已部署應用程式。
+* 裝載於 [IIS](../../azure-monitor/app/monitor-web-app-availability.md)、[J2EE](../../azure-monitor/app/java-live.md) 或 [Azure](../../azure-monitor/app/app-insights-overview.md) 上的已部署應用程式。
 * [網頁](../../azure-monitor/app/javascript.md) - 單頁應用程式或一般網頁 - 單獨使用此選項或作為任何伺服器選項以外的附加選項。
 * 可從公用網際網路測試您應用程式的[可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)。
