@@ -1,21 +1,19 @@
 ---
 title: 使用 Azure Cosmos DB 進行 Java 應用程式開發教學課程
 description: 本 Java Web 應用程式教學課程示範如何使用 Azure Cosmos DB 和 SQL API，來儲存和存取 Azure 網站上所託管的 Java 應用程式資料。
-keywords: 應用程式開發, 資料庫教學課程, java 應用程式, java web 應用程式教學課程, azure, Microsoft azure
-services: cosmos-db
 author: tknandu
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: bdfe390314f2d2174a26e9b321022a3589a06467
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3add2b6800463cf9320d2fcfdd87897d2e38d32d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086534"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039804"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 來建置 Java Web 應用程式
 

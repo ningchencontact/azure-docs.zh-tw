@@ -1,21 +1,19 @@
 ---
 title: 快速入門：搭配 Node.js 的 Cassandra API - Azure Cosmos DB
 description: 本快速入門示範如何使用 Azure Cosmos DB Cassandra API，以使用 Node.js 建立設定檔應用程式
-services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: e1015331af3b31fa34170db6c1729b8e38bcbd04
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e6128a9bbdba058068057c202595508cef69fbb3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251042"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037900"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>快速入門：使用 Node.js 和 Azure Cosmos DB 建置 Cassandra 應用程式
 

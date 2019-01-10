@@ -1,18 +1,17 @@
 ---
 title: 了解如何在 Azure Cosmos DB 中管理區域之間的衝突
 description: 了解如何在 Azure Cosmos DB 中管理衝突
-services: cosmos-db
 author: christopheranderson
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 6b44e08fc1dce489e703bea1cbef2a7e94ae0f2a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1f06b27868547dd448e3da547dd61b861db913d2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961014"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034772"
 ---
 # <a name="manage-conflicts-between-regions"></a>管理區域之間的衝突
 
@@ -83,9 +82,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-with-stored-procedure"></a>使用預存程序建立自訂衝突解決原則
+## <a name="create-a-custom-conflict-resolution-policy-with-a-stored-procedure"></a>使用預存程序建立自訂衝突解決原則
 
-這些範例示範如何使用預存程序來設定自訂衝突解決原則的容器，以解決衝突。 除非預存程序有錯誤，否則以下衝突**不會**顯示在衝突摘要中。
+這些範例示範如何使用預存程序來設定自訂衝突解決原則的容器，以解決衝突。 除非預存程序有錯誤，否則以下衝突不會顯示在衝突摘要中。
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
@@ -102,7 +101,7 @@ DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-您必須在建立容器之後，建立 `resolver` 預存程序。
+建立容器之後，您必須建立 `resolver` 預存程序。
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Async SDK
 
@@ -114,7 +113,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-您必須在建立容器之後，建立 `resolver` 預存程序。
+建立容器之後，您必須建立 `resolver` 預存程序。
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java Sync SDK
 
@@ -127,7 +126,7 @@ udpCollection.setConflictResolutionPolicy(udpPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
 ```
 
-您必須在建立容器之後，建立 `resolver` 預存程序。
+建立容器之後，您必須建立 `resolver` 預存程序。
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -146,7 +145,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-您必須在建立容器之後，建立 `resolver` 預存程序。
+建立容器之後，您必須建立 `resolver` 預存程序。
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
 
@@ -154,11 +153,11 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 
 ```
 
-您必須在建立容器之後，建立 `resolver` 預存程序。
+建立容器之後，您必須建立 `resolver` 預存程序。
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>建立最後寫入為準衝突解決原則
 
-這些範例示範如何設定最後寫入為準衝突解決原則的容器。 如果未設定路徑或者無效，它就會預設為 `_ts` 屬性 (時間戳記欄位)。 以下衝突**不會**顯示在衝突摘要中。
+這些範例示範如何設定最後寫入為準衝突解決原則的容器。 如果未設定路徑或者無效，它就會預設為 `_ts` 屬性。 這個屬性是時間戳記欄位。 以下衝突不會顯示在衝突摘要中。
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -277,8 +276,8 @@ while conflict:
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在可以繼續了解下列 Cosmos DB 概念：
+深入了解下列 Azure Cosmos DB 概念：
 
 * [資料分割和散佈](partition-data.md)
-* [在 Cosmos DB 中編製索引](indexing-policies.md)
+* [Azure Cosmos DB 中的編製索引](indexing-policies.md)
 

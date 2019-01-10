@@ -1,21 +1,19 @@
 ---
 title: 使用 Java 建立 Azure Cosmos DB 文件資料庫
 description: 提供 Java 程式碼範例，您可用來連線及查詢 Azure Cosmos DB SQL API
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc, devcenter
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/24/2018
-ms.author: moderakh
-ms.openlocfilehash: 5f66623c8e37f0663da7defc10d87d89bd0ad99d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.author: sngun
+ms.openlocfilehash: 70aa5c62afb6706fa9084d1ed081f70517d8d89e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105773"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039430"
 ---
 # <a name="create-and-manage-resources-of-an-azure-cosmos-db-sql-api-account-using-a-java-application"></a>使用 Java 應用程式來建立和管理 Azure Cosmos DB SQL API 帳戶的資源
 

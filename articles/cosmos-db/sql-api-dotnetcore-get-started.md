@@ -3,18 +3,18 @@ title: 教學課程：建置 .NET Core 應用程式來管理 Azure Cosmos DB 的
 description: 本教學課程會使用 Azure Cosmos DB 的 SQL API .NET Core SDK，建立線上資料庫和 C# 主控台應用程式。
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a .NET Core application to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities that Azure Cosmos DB offers.
-ms.openlocfilehash: 2dbfa4264fb9d1bd1b7f976a9a067e0ab741cbe4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1aad68a3248561c86e195b55c1d509ab7a15964e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969273"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035673"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-data-stored-in-a-sql-api-account"></a>教學課程：建置 .NET Core 應用程式來管理 SQL API 帳戶中儲存的資料
 

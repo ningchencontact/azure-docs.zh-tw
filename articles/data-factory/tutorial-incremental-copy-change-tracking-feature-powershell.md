@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: be08740024e87179a48f3dfd6f8406fa6a2bbca6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 11de58a64f956bd7dd1cc9c4ca8498de8c0b9d05
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963516"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023952"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>使用變更追蹤資訊，以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體 
 在本教學課程中，您會建立一個 Azure Data Factory 並讓其具有管線，以根據來源 Azure SQL Database 中的**變更追蹤**資訊，將差異資料載入到 Azure Blob 儲存體。  
@@ -233,7 +232,7 @@ ms.locfileid: "52963516"
 ### <a name="create-azure-sql-database-linked-service"></a>建立 Azure SQL Database 連結服務。
 在此步驟中，您會將您的 Azure SQL Database 連結到您的 Data Factory。
 
-1. 使用下列內容，在 **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 資料夾中建立名為 **AzureSQLDatabaseLinkedService.json** 的 JSON 檔案：儲存檔案之前，以您的 Azure SQL Server 名稱、資料庫名稱、使用者識別碼和密碼，取代 **&lt;server&gt;、&lt;database name **、&lt;user id&gt; 和 &lt;password&gt;**。 
+1. 使用下列內容，在 **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 資料夾中建立名為 **AzureSQLDatabaseLinkedService.json** 的 JSON 檔案：儲存檔案之前，以您的 Azure SQL Server 名稱、資料庫名稱、使用者識別碼和密碼，取代 server、database name **、&lt;user id&gt; 和 &lt;password&gt;**。 
 
     ```json
     {
