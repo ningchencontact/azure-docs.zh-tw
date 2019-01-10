@@ -1,22 +1,18 @@
 ---
-title: 適用於 SQL API 的 Azure Cosmos DB 全域散發教學課程 | Microsoft Docs
+title: 適用於 SQL API 的 Azure Cosmos DB 全域散發教學課程
 description: 了解如何使用 SQL API 來設定 Azure Cosmos DB 全域散發。
-services: cosmos-db
-keywords: 全域散發
-author: rafats
-manager: kfile
+author: rimman
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: rafats
-ms.custom: mvc
-ms.openlocfilehash: 624c5e78287fac57b06f6b5112d2523e31256ae0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.author: rimman
+ms.reviewer: sngun
+ms.openlocfilehash: 19e0dd8a60155272f2e338c760db409d20a9f755
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049763"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157236"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>使用 SQL API 來設定 Azure Cosmos DB 全域散發
 
@@ -96,7 +92,7 @@ await docClient.OpenAsync().ConfigureAwait(false);
 
 以下是 NodeJS/Javascript 程式碼範例。 Python 和 Java 都將遵循相同模式。
 
-```java
+```JavaScript
 // Creating a ConnectionPolicy object
 var connectionPolicy = new DocumentBase.ConnectionPolicy();
 

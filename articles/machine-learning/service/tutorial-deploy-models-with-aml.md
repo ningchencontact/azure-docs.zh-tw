@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: d93eadd1053cfbc88b2d0748f2f22e359694baa7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: a5f13bfa4d0e9962622565cc5ac9c80372b50123
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579646"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107679"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>教學課程：在 Azure 容器執行個體中部署映像分類模型
 
@@ -87,7 +87,7 @@ import os
 os.stat('./sklearn_mnist_model.pkl')
 ```
 
-## <a name="test-the-model-locally"></a>在本機測試模型
+## <a name="test-the-model-locally"></a>於本機測試模型
 
 在部署之前，請確定您的模型在本機正常運作：
 * 載入測試資料。
@@ -342,8 +342,6 @@ plt.show()
 以下結果來自其中一個隨機的測試影像範例：
 
 ![顯示結果的圖形](./media/tutorial-deploy-models-with-aml/results.png)
-
-![結果](./media/tutorial-deploy-models-with-aml/results.png)
 
 您也可以傳送原始 HTTP 要求來測試 Web 服務：
 

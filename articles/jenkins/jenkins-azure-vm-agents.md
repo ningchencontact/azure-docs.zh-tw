@@ -3,17 +3,17 @@ title: 使用 Azure VM 代理程式調整 Jenkins 部署。
 description: 使用有 Jenkins Azure VM 代理程式外掛程式的 Azure 虛擬機器，增加 Jenkins 管線的容量。
 ms.service: jenkins
 keywords: jenkins, azure, devops, 虛擬機器, 代理程式
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 46710b3a669b6a00dc1826c55e8d35fe700f312f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5cfece551f99a0925099b6ef936703e72f078985
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106218"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074660"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>使用 Azure VM 代理程式調整 Jenkins 部署以滿足需求
 

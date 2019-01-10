@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4db494de87993a6434eaf5dbf441094578d72ea4
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 9bf168a0f06d662526d172687e54327b55d50bd8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165959"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104262"
 ---
 # <a name="what-is-azure-maps"></a>什麼是 Azure 地圖服務？
 
@@ -62,7 +62,7 @@ Azure 地圖服務是由下列六個服務組成，可以為 Azure 應用程式�
 
 ### <a name="time-zone-service"></a>時區服務
 
-時區服務可讓您使用其中經緯度或 [IANA 識別碼](http://www.iana.org/)，查詢目前、過去及未來的時區資訊。 時區服務也可將 Microsoft Windows 時區識別碼轉換為 IANA 時區、擷取 UTC 的時區位移，以及取得各自時區中的目前時間。 時區服務查詢的典型 JSON 回應如以下範例所示：
+時區服務可讓您使用其中經緯度或 [IANA 識別碼](https://www.iana.org/)，查詢目前、過去及未來的時區資訊。 時區服務也可將 Microsoft Windows 時區識別碼轉換為 IANA 時區、擷取 UTC 的時區位移，以及取得各自時區中的目前時間。 時區服務查詢的典型 JSON 回應如以下範例所示：
 
 ```JSON
 {
@@ -109,7 +109,7 @@ Azure 地圖服務是針對行動性而建置，可以為跨平台的應用程�
 
 ## <a name="usage"></a>使用量
 
-存取地圖服務時須瀏覽至 [Azure 入口網站](http://portal.azure.com)，並建立 Azure 地圖服務帳戶。
+存取地圖服務時須瀏覽至 [Azure 入口網站](https://portal.azure.com)，並建立 Azure 地圖服務帳戶。
 
 Azure 地圖服務會使用金鑰型驗證結構描述。 您的帳戶隨附預先為您產生的兩個金鑰。 透過使用任一金鑰並建立對 Azure Maps 服務的要求，以從整合這些位置功能到您的應用程式開始。
 
