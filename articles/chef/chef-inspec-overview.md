@@ -3,17 +3,17 @@ title: 針對 Azure 基礎結構的合規性自動化使用 InSpec
 description: 了解如何使用 InSpec 來偵測 Azure 部署中的問題
 keywords: azure, chef, devops, 虛擬機器, 概觀, 自動化, inspce
 ms.service: virtual-machines-linux
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 4193b7fdb3932cbffa2b56b5d7eee6f3b573bd99
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9256a4daf6564761553b495e559805a46e4eae32
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259532"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050722"
 ---
 # <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>針對 Azure 基礎結構的合規性自動化使用 InSpec
 [InSpec](https://www.chef.io/inspec/) 是免費的開放原始碼架構，可以用來對應用程式和基礎結構進行測試和稽核。 InSpec 的運作方式是將您系統的實際狀態，與您在方便讀取和方便寫入的 InSpec 程式碼中所表示的理想狀態兩者進行比較。 InSpec 會偵測違規，並且以報告形式顯示調查結果，但可讓您控制補救措施。 您可以使用 InSpec 來驗證您在 Azure 中執行的虛擬機器狀態。 您也可以使用 InSpec 來掃描及驗證訂用帳戶內資源和資源群組的狀態。

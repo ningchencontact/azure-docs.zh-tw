@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: ee483c19aa59ca98226f77a5e56b1ee4eb4dede5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e80eaf8e2ab1cf001e06aac1b5f23c7714c9013b
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543405"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117006"
 ---
 # <a name="monitor-batch-solutions"></a>監視 Batch 解決方案
 
@@ -55,7 +55,7 @@ Azure 與 Batch 服務提供一系列服務、工具和 API 來監視您的 Batc
 
 ## <a name="vm-performance-counters-and-application-monitoring"></a>VM 效能計數器和應用程式監視
 
-* [Application Insights](../application-insights/app-insights-overview.md) 是一種 Azure 服務，可用來以程式設計方式監視 Batch 作業和工作的可用性、效能和使用情形。 輕鬆從計算節點 (VM) 取得效能計數器和自訂 VM 工作的資訊。 
+* [Application Insights](../azure-monitor/app/app-insights-overview.md) 是一種 Azure 服務，可用來以程式設計方式監視 Batch 作業和工作的可用性、效能和使用情形。 輕鬆從計算節點 (VM) 取得效能計數器和自訂 VM 工作的資訊。 
 
   如需範例，請參閱[使用 Application Insights 監視 Batch .NET 應用程式並進行偵錯](monitor-application-insights.md)，以及隨附的[程式碼範例](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)。
 

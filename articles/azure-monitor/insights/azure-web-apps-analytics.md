@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 57cc1d25f38c1aec7495a3ea542a7b467829dc41
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1ebe0b9d3cbe14bf35e05db3349a5aebb11b5716
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184707"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120099"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>檢視所有 Azure Web 應用程式資源之間的計量分析資料
 
@@ -28,4 +28,4 @@ ms.locfileid: "53184707"
 > Azure Web 應用程式分析解決方案已移至社群支援。  
 >- 解決方案已無法再從 Azure Marketplace 取得，但您可以從社群支援的 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-webappazure-oms-monitoring/)進行安裝。
 >- 已安裝解決方案的客戶可以透過執行變更以繼續使用。  
->- Microsoft 建議您使用 [Application Insights](../../application-insights/app-insights-overview.md) 來監視 Web 應用程式。
+>- Microsoft 建議您使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 來監視 Web 應用程式。

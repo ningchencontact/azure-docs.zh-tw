@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: fc2b5a5badcf38f7bc94a876f9f0a21af4f558b7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53813030"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015469"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>遙測內容：Application Insights 資料模型
 
@@ -84,7 +84,7 @@ ms.locfileid: "53813030"
 
 匿名使用者識別碼。代表應用程式的終端使用者。 從服務傳送遙測時，使用者內容與服務中起始作業的使用者相關。
 
-[取樣](../../application-insights/app-insights-sampling.md)是將收集的遙測量降到最低的其中一個方法。 取樣演算法會嘗試取樣輸入或輸出所有相互關聯的遙測。 匿名使用者識別碼可用於產生取樣分數。 因此匿名使用者識別碼應該為足夠隨機的值。 
+[取樣](../../azure-monitor/app/sampling.md)是將收集的遙測量降到最低的其中一個方法。 取樣演算法會嘗試取樣輸入或輸出所有相互關聯的遙測。 匿名使用者識別碼可用於產生取樣分數。 因此匿名使用者識別碼應該為足夠隨機的值。 
 
 使用匿名使用者識別碼儲存使用者名稱是濫用欄位的做法。 使用已驗證的使用者識別碼。
 

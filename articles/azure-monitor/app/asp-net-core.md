@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 19830ade92e5d2a046abc8a2ad00c086a5bf62ec
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972782"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054838"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core 的 Application Insights
 
@@ -62,7 +62,7 @@ Azure Application Insights 可提供程式碼層級的深入 Web 應用程式監
    ![Visual Studio Application Insights 搜尋的螢幕擷取畫面](./media/asp-net-core/006-search.png)
 
 > [!NOTE]
-> 若要深入了解 Visual Studio 如何強化本機的 [Application Insights 搜尋](../../application-insights/app-insights-visual-studio.md)和 [CodeLens](../../application-insights/app-insights-visual-studio-codelens.md) 功能，請在您將 Application Insights 新增至 ASP.NET Core 專案前參閱[繼續 Application Insights 搜尋](#application-insights-search-continued)。
+> 若要深入了解 Visual Studio 如何強化本機的 [Application Insights 搜尋](../../azure-monitor/app/visual-studio.md)和 [CodeLens](../../azure-monitor/app/visual-studio-codelens.md) 功能，請在您將 Application Insights 新增至 ASP.NET Core 專案前參閱[繼續 Application Insights 搜尋](#application-insights-search-continued)。
 
 ## <a name="add-application-insights-telemetry"></a>新增 Application Insights 遙測
 
@@ -404,7 +404,7 @@ CoreCLR 仍然會載入 _Microsoft.AspNetCore.ApplicationInsights.HostingStartup
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 ## <a name="next-steps"></a>後續步驟
-* [瀏覽使用者流程](../../application-insights/app-insights-usage-flows.md)來了解使用者如何瀏覽您的應用程式。
+* [瀏覽使用者流程](../../azure-monitor/app/usage-flows.md)來了解使用者如何瀏覽您的應用程式。
 * [設定快照集集合](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)，以查看擲回例外狀況時原始程式碼和變數的狀態。
 * [使用 API](../../azure-monitor/app/api-custom-events-metrics.md) 可傳送您自己的事件和計量，以取得您的應用程式效能和使用方式的更詳細檢視。
 * 使用[可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)持續從世界各地檢查您的應用程式。

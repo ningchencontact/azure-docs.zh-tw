@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c93b23e3b06afe754ea1ca2472806d26c70f4c92
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973259"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076768"
 ---
 # <a name="export-telemetry-from-application-insights"></a>從 Application Insights 匯出遙測
 想要讓遙測保留比標準保留期限還久的時間？ 或以某些特殊方式處理它？ 連續匯出很適合此用途。 在 Application Insights 入口網站中看見的事件，可以使用 JSON 格式匯出到 Microsoft Azure 中的儲存體。 從那裡，您可以下載資料並編寫處理所需的任何程式碼。  
@@ -27,7 +27,7 @@ ms.locfileid: "53973259"
 * 計量或搜尋刀鋒視窗頂端的 [匯出] 按鈕，可讓您傳送資料表和圖表到 Excel 試算表。
 
 * [分析](../../azure-monitor/app/analytics.md) 可提供功能強大的遙測查詢語言。 它也可以匯出結果。
-* 如果您想要 [在 Power BI 中探索資料](../../application-insights/app-insights-export-power-bi.md)，不需要用到「連續匯出」也可以這麼做。
+* 如果您想要 [在 Power BI 中探索資料](../../azure-monitor/app/export-power-bi.md )，不需要用到「連續匯出」也可以這麼做。
 * [資料存取 REST API](https://dev.applicationinsights.io/) 可讓您以程式設計方式存取您的遙測。
 * 您也可以[透過 Powershell 存取連續匯出設定](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0)。
 
@@ -71,14 +71,14 @@ ms.locfileid: "53973259"
 ## <a name="analyze"></a> 您取得什麼事件？
 匯出的資料是我們從您的應用程式接收的原始遙測，只不過我們加入了從用戶端 IP 位址計算的位置資料。
 
-[取樣](../../application-insights/app-insights-sampling.md) 已捨棄的資料不會包含在匯出的資料中。
+[取樣](../../azure-monitor/app/sampling.md) 已捨棄的資料不會包含在匯出的資料中。
 
 未包含其他計算的度量。 例如，我們不會匯出平均 CPU 使用率，但我們會匯出用以計算平均的原始遙測。
 
 該資料也包含您曾設定之 [可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md) 的任何結果。
 
 > [!NOTE]
-> **取樣** 如果應用程式會傳送大量資料，取樣功能或許會運作，並只傳送一小部分產生的遙測。 [深入了解取樣。](../../application-insights/app-insights-sampling.md)
+> **取樣** 如果應用程式會傳送大量資料，取樣功能或許會運作，並只傳送一小部分產生的遙測。 [深入了解取樣。](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -194,4 +194,4 @@ Where
 <!--Link references-->
 
 [exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md

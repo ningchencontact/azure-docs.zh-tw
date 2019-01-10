@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4fcb692d7189c84e32f55995538ffc692cb67dd6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078224"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064707"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Azure Active Directory Premium P2 授權功能檢查清單
 
@@ -84,7 +84,7 @@ ms.locfileid: "53078224"
 - 全面管理使用者生命週期
    - Azure AD 具備管理身分識別生命週期的方法
    - 從您員工帳戶的生命週期移除手動步驟，以防止未經授權的存取：
-      - 將真實來源 (HR系統) 中的身分識別同步至 Azure AD。 連結至支援的 HR 系統)
+      - 將真實來源 (HR系統) 中的身分識別同步至 Azure AD。
       - [使用動態群組，根據 HR (或您的真實來源) 的屬性自動將使用者指派至群組，例如部門、標題、區域和其他屬性。](../users-groups-roles/groups-dynamic-membership.md)
       - [使用群組型存取管理佈建，為 SaaS 應用程式自動佈建使用者。](../manage-apps/what-is-access-management.md)
 

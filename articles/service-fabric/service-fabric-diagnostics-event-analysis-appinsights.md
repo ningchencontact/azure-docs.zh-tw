@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 25e8d0aafc8593c9c759dd8ac1d7d1d495c9e026
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: efcd2e279d1bf387bc11c238a0592ecee6545cc4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001765"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053614"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>使用 Application Insights 進行事件分析和視覺效果
 
@@ -127,4 +127,4 @@ Application Insights 有用於查詢所有傳入資訊的指定檢視。 按一�
 ## <a name="next-steps"></a>後續步驟
 
 * [在 AI 中設定警示](../azure-monitor/app/alerts.md)以收到效能或使用方式的變更通知
-* [Application Insights 的智慧偵測](../application-insights/app-insights-proactive-diagnostics.md)會對傳送至 Application Insights 的遙測資料執行主動式分析，對可能的效能問題提出警告
+* [Application Insights 的智慧偵測](../azure-monitor/app/proactive-diagnostics.md)會對傳送至 Application Insights 的遙測資料執行主動式分析，對可能的效能問題提出警告

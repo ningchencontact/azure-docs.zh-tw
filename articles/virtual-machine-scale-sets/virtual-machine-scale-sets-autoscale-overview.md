@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18be454c93c32e0902a55a08748045c26d649ce7
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a5386e56bffd9a9789fe431aae8ed13df8ffae13
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322034"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117430"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>使用 Azure 虛擬機器擴展集自動調整的概觀
 Azure 虛擬機器擴展集可以自動增加或減少執行您的應用程式的 VM 執行個體數目。 這個自動化和彈性的行為會降低監視和最佳化應用程式效能的管理額外負荷。 您可以建立規則，用以定義對於正面客戶體驗可接受的效能水準。 符合那些定義的閾值時，自動調整規則就會採取動作來調整擴展集的容量。 您也可以排定事件，以在固定時間自動增加或減少擴展集的容量。 本文提供可用效能計量以及可執行的自動調整動作的概觀。
@@ -122,7 +122,7 @@ Azure 診斷擴充功能是在 VM 執行個體內部執行的代理程式。 代
 ## <a name="application-level-metrics-with-app-insights"></a>使用 App Insights 的應用程式層級計量
 若要取得應用程式效能的更多可見性，您可以使用 Application Insights。 您可以在應用程式中安裝可監視應用程式並將遙測傳送至 Azure 的小型檢測套件。 您可以監視計量，例如應用程式的回應時間、頁面載入效能和工作階段計數。 這些應用程式計量可以用來以細微和內嵌層級建立自動調整規則，因為您會以可能影響客戶體驗的可採取動作深入資訊來觸發規則。
 
-如需 App Insights 的詳細資訊，請參閱[什麼是 Application Insights](../application-insights/app-insights-overview.md)。
+如需 App Insights 的詳細資訊，請參閱[什麼是 Application Insights](../azure-monitor/app/app-insights-overview.md)。
 
 
 ## <a name="scheduled-autoscale"></a>排定的自動調整

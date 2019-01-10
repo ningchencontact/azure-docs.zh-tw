@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a39d497c90f49f8699b9d27be175e501973804c5
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7225bc8121ddab8809ebb1c409a3af59dbcc42f2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811506"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118382"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>將 Azure 監視資料串流至事件中樞以供外部工具取用
 
@@ -26,7 +26,7 @@ Azure 監視器有提供單一管道以存取 Azure 環境的所有監視資料�
 Azure 環境內有數個「層級」的監視資料，而存取每一層資料的方法都略有不同。 一般而言，針對各層的描述如下：
 
 - **應用程式監視資料：** 您所撰寫並在 Azure 上執行之程式碼的效能和功能相關資料。 應用程式監視資料的範例包括效能追蹤、應用程式記錄，以及使用者遙測。 應用程式監視資料通常會以下列其中一種方式收集：
-  - 透過使用 [Application Insights SDK](../../application-insights/app-insights-overview.md) 之類的 SDK 來檢測程式碼。
+  - 透過使用 [Application Insights SDK](../../azure-monitor/app/app-insights-overview.md) 之類的 SDK 來檢測程式碼。
   - 透過執行會在執行應用程式的電腦上接聽新應用程式記錄的監視代理程式，例如 [Windows Azure 診斷代理程式](./../../azure-monitor/platform/diagnostics-extension-overview.md)或 [Linux Azure 診斷代理程式](../../virtual-machines/extensions/diagnostics-linux.md)。
 - **來賓 OS 監視資料：** 有關應用程式執行所在作業系統的資料。 客體 OS 監視資料的範例為 Linux syslog 或 Windows 系統事件。 若要收集這類資料，您必須安裝像是 [Windows Azure 診斷代理程式](./../../azure-monitor/platform/diagnostics-extension-overview.md)或 [Linux Azure 診斷代理程式](../../virtual-machines/extensions/diagnostics-linux.md) 這類的代理程式。
 - **Azure 資源監視資料：** 有關 Azure 資源操作的資料。 針對某些 Azure 資源類型 (例如虛擬機器)，在該 Azure 服務內會有要監視的客體 OS 與應用程式。 針對其他 Azure 資源 (例如網路安全性群組)，資源監視資料是最高層級的可用資料 (因為在那些資源中沒有執行任何客體 OS 或應用程式)。 這類資料可使用[資源診斷設定](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)來收集。
@@ -98,7 +98,7 @@ Azure 資源會發出兩種監視資料：
 
 ## <a name="application-monitoring-data"></a>應用程式監視資料
 
-應用程式監視資料要求您的程式碼需搭配 SDK 進行檢測，因此沒有一般的解決方案可將應用程式監視資料路由至 Azure 中的事件中樞。 不過，[Azure Application Insights](../../application-insights/app-insights-overview.md) 是可以用來收集 Azure 應用程式層級資料的其中一個服務。 如果您是使用 Application Insights，便執行下列動作來將監視資料串流至事件中樞：
+應用程式監視資料要求您的程式碼需搭配 SDK 進行檢測，因此沒有一般的解決方案可將應用程式監視資料路由至 Azure 中的事件中樞。 不過，[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 是可以用來收集 Azure 應用程式層級資料的其中一個服務。 如果您是使用 Application Insights，便執行下列動作來將監視資料串流至事件中樞：
 
 1. 針對儲存體帳戶[設定連續匯出](../../azure-monitor/app/export-telemetry.md) Application Insights 資料。
 
@@ -108,7 +108,7 @@ Azure 資源會發出兩種監視資料：
 
 使用 Azure 監視器將監視資料路由至事件中樞，可讓您輕鬆與夥伴 SIEM 和監視工具整合。 大部分工具皆需要事件中樞連接字串和 Azure 訂用帳戶的特定權限，才能讀取事件中樞的資料。 可與 Azure 監視器整合的部分工具清單如下：
 
-* **IBM QRadar** - Microsoft Azure DSM 與 Microsoft Azure 事件中樞通訊協定均可從 [IBM 支援網站](http://www.ibm.com/support) \(英文\) 下載。 您可以[從這裡深入了解與 Azure 的整合](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) \(英文\)。
+* **IBM QRadar** - Microsoft Azure DSM 與 Microsoft Azure 事件中樞通訊協定均可從 [IBM 支援網站](https://www.ibm.com/support) \(英文\) 下載。 您可以[從這裡深入了解與 Azure 的整合](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) \(英文\)。
 * **Splunk** -根據您的 Splunk 安裝程式而定，共有兩種方法：
     1. [適用於 Splunk 的 Azure 監視器附加元件](https://splunkbase.splunk.com/app/3534/) \(英文\) 可從 Splunkbase 和開放原始碼專案中取得。 [文件在此](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk) \(英文\)。
     2. 如果您無法在 Splunk 執行個體中安裝附加元件 (例如， 如果使用 Proxy 或在 Splunk Cloud 上執行)，您可以使用[由事件中樞中的新訊息觸發的這個功能](https://github.com/Microsoft/AzureFunctionforSplunkVS)，將這些事件轉寄給 Splunk HTTP Event Collector。

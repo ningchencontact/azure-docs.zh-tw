@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3ed4039ae17828959f00de27c839454b63a7be6d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: fe63813220d526536a31efb48b6ec29b6ae383e8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998263"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121136"
 ---
 # <a name="set-alerts-in-application-insights"></a>在 Application Insights 中設定警示
 [Azure Application Insights][start] 可在 Web 應用程式中發生效能或使用量計量變更時對您發出警示。 
@@ -29,7 +29,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
 * **計量警示**會在計量超出某些期間的臨界值 (例如回應時間、例外狀況計數、CPU 使用量或頁面檢視) 的時候通知您。 
 * [**Web 測試**][availability]會在您的網站無法在網際網路上使用或回應速度很慢時通知您。 [深入了解][availability]。
-* [**主動診斷**](../../application-insights/app-insights-proactive-diagnostics.md)會自動設定成通知您異常的效能模式。
+* [**主動診斷**](../../azure-monitor/app/proactive-diagnostics.md)會自動設定成通知您異常的效能模式。
 
 在本文中，我們著重於計量警示。
 
@@ -41,7 +41,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 * 設定其他屬性之前的資源。 **選擇 "(元件)" 資源** 。
 * 您提供的警示名稱必須為資源群組 (不只是您的應用程式) 中的唯一名稱。
 * 請小心注意系統要求您輸入臨界值時所使用的單位。
-* 如果您勾選 [電子郵件擁有者] 方塊，系統會透過電子郵件，將警示傳給每個可以存取此資源群組的人員。 若要展開這一組人員，請將他們新增至 [資源群組或訂用帳戶](../../application-insights/app-insights-resources-roles-access-control.md) (而非資源)。
+* 如果您勾選 [電子郵件擁有者] 方塊，系統會透過電子郵件，將警示傳給每個可以存取此資源群組的人員。 若要展開這一組人員，請將他們新增至 [資源群組或訂用帳戶](../../azure-monitor/app/resources-roles-access-control.md) (而非資源)。
 * 如果您指定 [其他電子郵件]，系統會將警示傳送給這些人員或群組 (無論您是否核取 [電子郵件擁有者] 方塊)。 
 * 如果您已設定回應通知的 Web 應用程式，請設定 [Webhook 位址](../../azure-monitor/platform/alerts-webhooks.md)。 系統會在警示啟動和解決時加以呼叫。 (不過請注意，查詢參數目前不會當作 Webhook 屬性傳遞)。
 * 您可以停用或啟用警示：請參閱位於刀鋒視窗頂端的按鈕。
@@ -51,7 +51,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 * 您是否使用組織帳戶？ 如果您有這個應用程式資源的擁有者或參與者存取權，您可以設定警示。 請看一下 [存取控制] 刀鋒視窗。 [深入了解存取控制][roles]。
 
 > [!NOTE]
-> 在 [警示] 刀鋒視窗中，您會看到已經設定警示︰[主動式診斷](../../application-insights/app-insights-proactive-failure-diagnostics.md)。 自動警示會監視要求失敗率這一個特定度量。 除非您決定要停用主動警示，否則不需要設定自己的要求失敗率警示。 
+> 在 [警示] 刀鋒視窗中，您會看到已經設定警示︰[主動式診斷](../../azure-monitor/app/proactive-failure-diagnostics.md)。 自動警示會監視要求失敗率這一個特定度量。 除非您決定要停用主動警示，否則不需要設定自己的要求失敗率警示。 
 > 
 > 
 
@@ -89,7 +89,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 * Web 應用程式伺服器端的**伺服器回應時間**。 以及設定警示，注意這些計量，以查看高要求率時的差異是否不成比例：差異可能表示您的應用程式資源不足。 
 * **伺服器例外狀況** - 若要查看它們，您只需要進行一些 [額外設定](../../azure-monitor/app/asp-net-exceptions.md)。
 
-別忘了，[主動失敗率診斷](../../application-insights/app-insights-proactive-failure-diagnostics.md)會自動監視應用程式以失敗碼回應要求的速率。 
+別忘了，[主動失敗率診斷](../../azure-monitor/app/proactive-failure-diagnostics.md)會自動監視應用程式以失敗碼回應要求的速率。 
 
 ## <a name="automation"></a>自動化
 * [使用 PowerShell 自動設定警示](../../azure-monitor/app/powershell-alerts.md)
@@ -102,13 +102,13 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 ## <a name="see-also"></a>另請參閱
 * [可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md)
 * [自動化設定警示](../../azure-monitor/app/powershell-alerts.md)
-* [主動診斷](../../application-insights/app-insights-proactive-diagnostics.md) 
+* [主動診斷](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [client]: ../../azure-monitor/app/javascript.md
 [platforms]: ../../azure-monitor/app/platforms.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
-[start]: ../../application-insights/app-insights-overview.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

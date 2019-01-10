@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a4e4ca1ca4878a2a405b12413e4378a2cb79aef6
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3ea7d6562965debda2c146fedab2ea9ab19f6cc8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999113"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077448"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>在 Application Insights 中監視 Docker 應用程式
 
@@ -36,9 +36,9 @@ ms.locfileid: "53999113"
 
 ## <a name="set-up-your-application-insights-resource"></a>設定您的 Application Insights 資源
 
-1. 登入 [Microsoft Azure 入口網站](https://azure.com)，然後開啟您應用程式的 Application Insights 資源；或[建立新的資源](../../application-insights/app-insights-create-new-resource.md)。 
+1. 登入 [Microsoft Azure 入口網站](https://azure.com)，然後開啟您應用程式的 Application Insights 資源；或[建立新的資源](../../azure-monitor/app/create-new-resource.md )。 
    
-    *我應該使用哪種資源？* 如果您在主機上執行的應用程式是由其他人所開發，則您需要[建立新的 Application Insights 資源](../../application-insights/app-insights-create-new-resource.md)。 這是您檢視及分析遙測的位置 (針對應用程式類型選取 [一般])。
+    *我應該使用哪種資源？* 如果您在主機上執行的應用程式是由其他人所開發，則您需要[建立新的 Application Insights 資源](../../azure-monitor/app/create-new-resource.md )。 這是您檢視及分析遙測的位置 (針對應用程式類型選取 [一般])。
    
     但如果您是應用程式的開發人員，我們希望您 [將 Application Insights SDK 加入](../../azure-monitor/app/java-live.md) 每個應用程式中。 如果這些應用程式其實全部都是單一商務應用程式的元件，則您可能會設定所有應用程式將遙測資料傳送至一個資源，再使用該相同的資源來顯示 Docker 週期和效能資料。 
    
