@@ -21,7 +21,7 @@ ms.lasthandoff: 08/02/2018
 ms.locfileid: "39412843"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](v1/data-factory-usql-activity.md)
 > * [目前的版本](transform-data-using-data-lake-analytics.md)
 
