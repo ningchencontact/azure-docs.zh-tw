@@ -20,7 +20,7 @@ ms.lasthandoff: 06/27/2018
 ms.locfileid: "37049310"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop Pig 活動轉換資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](v1/data-factory-pig-activity.md)
 > * [目前的版本](transform-data-using-hadoop-pig.md)
 
