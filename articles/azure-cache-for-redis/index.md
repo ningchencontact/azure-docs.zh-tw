@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: efd21341254708f0dc2020d3d2b98326f462bd7d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9204e12abbbdfdf9ac303497b828ebc39a629f37
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105707"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198321"
 ---
 # <a name="azure-cache-for-redis-documentation"></a>Azure Cache for Redis 文件
 
@@ -219,7 +219,7 @@ ms.locfileid: "54105707"
                     <div class="cardText">
                         <h3>語言</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.redis">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.redis._redis_cache">Java</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.redis.rediscache">Java</a></p>
                         <p><a href="https://redis.io/clients">Redis 用戶端</a></p>
                         <p><a href="https://redis.io/commands#">Redis 命令</a></p>
                    </div>

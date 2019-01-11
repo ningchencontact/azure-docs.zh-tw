@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 77d3bdd755e7c8d68115e12c6bee318fda652b09
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 38f20f74f8c553c134a6ef91151aa49b99ad45b5
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972196"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213496"
 documentType: LandingData
 title: Azure 儲存體文件
 metadata:
@@ -67,9 +67,9 @@ sections:
       - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
     - title: Data Lake Storage Gen2
       values:
-      - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-the-azure-portal
-      - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-powershell
-      - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-azure-cli
+      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-the-azure-portal
+      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-powershell
+      - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-azure-cli
       - href: 
       - href: 
       - href: 
@@ -83,7 +83,7 @@ sections:
     - title: Blob
       html: <p>在雲端上傳和處理映像資料</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">在雲端上傳和擷取映像資料</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">觸發 Azure Functions 來處理 Blob</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">保護應用程式資料</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">進行儲存體的監視和疑難排解</a></li></ul><p>針對高可用性設計應用程式</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">讓您的應用程式資料保持高可用性</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">模擬存取讀取權限備援儲存體時失敗</a></li></ul><p><a href="/azure/storage/blobs/storage-unstructured-search">搜尋 Azure 儲存體中的非結構化資料</a></p>
     - title: Data Lake Storage Gen2
-      html: <p><a href="/azure/storage/blobs/handle-data-using-databricks">使用 Azure Databrick 擷取、轉換和載入資料</a></p><p><a href="/azure/storage/blobs/data-lake-storage-use-databricks-spark">使用 Spark 以 DataBricks 存取 Azure Data Lake Storage Gen2 資料</a></p><p><a href="/azure/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive">使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料</a></p>
+      html: <p><a href="/azure/storage/blobs/data-lake-storage-handle-data-using-databricks">使用 Azure Databrick 擷取、轉換和載入資料</a></p><p><a href="/azure/storage/blobs/data-lake-storage-use-databricks-spark">使用 Spark 以 DataBricks 存取 Azure Data Lake Storage Gen2 資料</a></p><p><a href="/azure/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive">使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料</a></p>
 - title: 範例
   items:
   - type: paragraph
