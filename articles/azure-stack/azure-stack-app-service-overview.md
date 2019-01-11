@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: 3015755d8046f72c03cd1a1485d90a7f720a8909
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b1b4ea5775a661712838c1495ef0025a83b8c518
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353013"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607938"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 概觀上的 App Service
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 Azure App Service on Azure Stack 是 Microsoft Azure 的平台即服務 (PaaS) 供應項目，提供給 Azure Stack 使用。 此服務可讓您的內部或外部客戶為任何平台或裝置建立 Web、API 和 Azure Functions 應用程式。 他們可以將您的應用程式與內部部署應用程式整合，並將其商務程序自動化。 Azure Stack 雲端操作員可以使用所選的共用 VM 資源或專用的 VM，在完全受控的虛擬機器 (VM) 上執行客戶應用程式。
 
@@ -33,16 +33,16 @@ Azure App Service 可讓您自動執行商務程序及裝載雲端 API。 Azure 
 
 以下是 App Service 的一些重要功能和能力︰
 
-- **多種語言和架構**：App Service 有 ASP.NET、Node.js、Java、PHP 和 Python 的頂級支援。 您也可以在 App Service VM 上執行 Windows PowerShell 和其他指令碼或可執行檔。
-- **DevOps 最佳化**：使用 GitHub、本機 Git 或 BitBucket 設定連續整合和部署。 您可以透過測試和預備環境將更新升級，以及使用 Azure PowerShell 或跨平台命令列介面 (CLI)，在 App Service 中管理您的應用程式。
-- **Visual Studio 整合**：Visual Studio 中的專用工具可簡化建立和部署應用程式。
+- **多種語言和架構**：App Service 提供 ASP.NET、Node.js、Java、PHP 和 Python 的一流支援。 您也可以在 App Service VM 上執行 Windows PowerShell 和其他指令碼或可執行檔。
+- **DevOps 最佳化**：使用 GitHub、本機 Git 或 BitBucket 來設定連續整合和部署。 您可以透過測試和預備環境將更新升級，以及使用 Azure PowerShell 或跨平台命令列介面 (CLI)，在 App Service 中管理您的應用程式。
+- **Visual Studio 整合**：Visual Studio 中的專用工具可簡化建立和部署應用程式的工作。
 
 ## <a name="app-types-in-app-service"></a>App Service 中的應用程式類型
 
 App Service 提供數個「應用程式類型」，而每個類型主要裝載特定工作負載：
 
-- [Web Apps](../app-service/app-service-web-overview.md) 用於裝載網站和 Web 應用程式。
-- [API Apps](../app-service/app-service-web-overview.md) 用於裝載 REST API。
+- [Web Apps](../app-service/overview.md) 用於裝載網站和 Web 應用程式。
+- [API Apps](../app-service/overview.md) 用於裝載 REST API。
 - Azure Functions 用於託管活動導向的無伺服器工作負載。
 
 「應用程式」一詞是指專門用來執行工作負載的裝載資源。 以「Web 應用程式」為例，您可能已習慣將 Web 應用程式視為可一起提供瀏覽器功能的計算資源和應用程式程式碼。 在 App Service 中，Web 應用程式是 Azure Stack 提供用來裝載應用程式程式碼的計算資源。

@@ -11,22 +11,22 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b61c66dbb152914fcacb9020deab0cc4b76a6bc0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9e22299a508810cabaa9361d764fd2a8e1ecdee8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139413"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975979"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>在 Azure HDInsight 上使用 Spark 的資料科學概觀
 
-這組主題說明如何使用 HDInsight Spark 來完成常見的資料科學工作，例如資料擷取、特徵工程、模型化和模型評估。 所使用的資料是 2013 NYC 計程車車程和費用資料集的抽樣樣本。 建立的模型包括羅吉斯和線性迴歸、隨機樹系和漸層停駐推進式決策樹。 這些主題也會說明如何將這些模型儲存至 Azure Blob 儲存體 (WASB)，以及如何評分及評估模型的預測效能。 更進階的主題會討論如何使用交叉驗證和超參數掃掠來訓練模型。 此概觀主題也參考說明了如何設定所需的 Spark 叢集，以完成逐步解說中的步驟的主題。 
+這組主題說明如何使用 HDInsight Spark 來完成常見的資料科學工作，例如資料擷取、特徵工程、模型化和模型評估。 所使用的資料是 2013 NYC 計程車車程和費用資料集的抽樣樣本。 建立的模型包括羅吉斯和線性迴歸、隨機樹系和漸層停駐推進式決策樹。 這些主題也會說明如何將這些模型儲存至 Azure Blob 儲存體 (WASB)，以及如何評分及評估模型的預測效能。 更進階的主題會討論如何使用交叉驗證和超參數掃掠來訓練模型。 此概觀主題也參考說明了如何設定所需的 Spark 叢集，以完成逐步解說中的步驟的主題。
 
 ## <a name="spark-and-mllib"></a>Spark 及 MLlib
-[Spark](http://spark.apache.org/) 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。 Spark 處理引擎是專為速度、易用性及精密分析打造的產品。 Spark 的記憶體內分散式計算功能，使其成為機器學習和圖表計算中所使用反覆演算法的絕佳選擇。 [MLlib](http://spark.apache.org/mllib/) 是將演算法模型化功能引進此分散式環境的 Spark 可調整機器學習程式庫。 
+[Spark](http://spark.apache.org/) 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。 Spark 處理引擎是專為速度、易用性及精密分析打造的產品。 Spark 的記憶體內分散式計算功能，使其成為機器學習和圖表計算中所使用反覆演算法的絕佳選擇。 [MLlib](http://spark.apache.org/mllib/) 是將演算法模型化功能引進此分散式環境的 Spark 可調整機器學習程式庫。
 
 ## <a name="hdinsight-spark"></a>HDInsight Spark
-[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) 是開放原始碼 Spark 的 Azure 託管供應項目。 它也支援 Spark 叢集上的 **Jupyter PySpark notebooks**，可執行 Spark SQL 互動式查詢以轉換、篩選和視覺化 Azure Blob (WASB) 中儲存的資料。 PySpark 是適用於 Spark 的 Python API。 程式碼片段提供了解決方案，並且顯示相關的繪圖，進而將安裝在 Spark 叢集上的 Jupyter Notebook 資料加以視覺化。 這些主題中的模型化步驟包括程式碼，以示範如何訓練、評估、儲存和使用各類模型。 
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) 是開放原始碼 Spark 的 Azure 託管供應項目。 它也支援 Spark 叢集上的 **Jupyter PySpark notebooks**，可執行 Spark SQL 互動式查詢以轉換、篩選和視覺化 Azure Blob (WASB) 中儲存的資料。 PySpark 是適用於 Spark 的 Python API。 程式碼片段提供了解決方案，並且顯示相關的繪圖，進而將安裝在 Spark 叢集上的 Jupyter Notebook 資料加以視覺化。 這些主題中的模型化步驟包括程式碼，以示範如何訓練、評估、儲存和使用各類模型。
 
 ## <a name="setup-spark-clusters-and-jupyter-notebooks"></a>設定：Spark 叢集和 Jupyter Notebook
 此逐步解說所提供的設定步驟和程式碼適用於使用 HDInsight Spark 1.6。 不過 Jupyter Notebook 可供 HDInsight Spark 1.6 版和 Spark 2.0 叢集兩者使用。 Notebook 的描述及它們的連結已在包含它們的 GitHub 儲存機制的 [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) 中提供。 此外，此處及連結的 Notebook 內的程式碼皆屬泛型程式碼，而且應該能在任何 Spark 叢集上運作。 若您不是使用 HDInsight Spark，叢集設定和管理步驟可能與這裡顯示的稍有不同。 為了方便起見，以下是可讓 Spark 1.6 版 (在 Jupyter Notebook 伺服器的 pySpark 核心中執行) 和 Spark 2.0 版 (在 Jupyter Notebook 伺服器的 pySpark3 核心中執行) 的 Jupyter Notebook 連結：
@@ -41,9 +41,9 @@ ms.locfileid: "53139413"
 ### <a name="spark-20-notebooks"></a>Spark 2.0 Notebook
 這些 Notebook 是在 Jupyter Notebook 伺服器的 pySpark3 核心中執行。
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)：此檔案使用在[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)描述的 NYC 計程車車程和費用資料集，提供如何在 Spark 2.0 叢集中執行資料瀏覽、模型化和評分的相關資訊。 Notebook 可能是很好的起點，可快速瀏覽我們針對 Spark 2.0 所提供的程式碼。 如需更多分析 NYC 計程車資料的 Notebook 詳細資訊，請參閱這份清單中的下一個 Notebook。 請參閱此清單之後比較這些 Notebook 的附註。 
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb)：這個檔案會顯示如何使用[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)所述的 NYC 計程車車程和費用資料集，執行資料整頓 (Spark SQL 和資料框架作業)、瀏覽、模型化和評分。
-- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb)：這個檔案會顯示如何使用從 2011 和 2012 年的知名航空公司準時起飛資料集，執行資料整頓 (Spark SQL 和資料框架作業)、瀏覽、模型化和評分。 我們在模型化之前將航班資料集與機場天氣資料 (例如風速、溫度、高度等等) 整合，因此可以在模型中包含這些天氣功能。
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)：此檔案使用[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)所述的 NYC 計程車車程和費用資料集，來提供如何在 Spark 2.0 叢集中執行資料探索、模型化和評分的相關資訊。 Notebook 可能是很好的起點，可快速瀏覽我們針對 Spark 2.0 所提供的程式碼。 如需更多分析 NYC 計程車資料的 Notebook 詳細資訊，請參閱這份清單中的下一個 Notebook。 請參閱此清單之後比較這些 Notebook 的附註。
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb)：此檔案使用[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)所述的 NYC 計程車車程和費用資料集，來示範如何執行資料整頓 (Spark SQL 和資料架構作業)、探索、模型化和評分。
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb)：此檔案使用 2011 和 2012 年的知名航空公司準時起飛資料集，來示範如何執行資料整頓 (Spark SQL 和資料架構作業)、探索、模型化和評分。 我們在模型化之前將航班資料集與機場天氣資料 (例如風速、溫度、高度等等) 整合，因此可以在模型中包含這些天氣功能。
 
 <!-- -->
 
@@ -52,27 +52,28 @@ ms.locfileid: "53139413"
 
 >- 航班準時出發資料：[http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
 
->- 機場天氣資料：[https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
-> 
-> 
+>- 機場天氣資料：[https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
+>
+>
 
 <!-- -->
 
 <!-- -->
 
 > [!NOTE]
-NYC 計程車和飛行航班延遲資料集上的 Spark 2.0 Notebook 需要 10 分鐘或更久 (取決於 HDI 叢集的大小) 才能執行。 在上述清單中的第一個筆記本顯示資料探索、視覺效果和 筆記本中 ML 模型訓練的許多層面，使用預先加入計程車和車資檔案的縮減取樣 NYC 資料集，讓所執行的時間更短：[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) 此筆記本的完成時間較短 (2-3 分鐘)，而且可能是一個很好的起點，讓您能快速瀏覽我們針對 Spark 2.0 所提供的程式碼。 
+NYC 計程車和飛行航班延遲資料集上的 Spark 2.0 Notebook 需要 10 分鐘或更久 (取決於 HDI 叢集的大小) 才能執行。 上述清單中的第一個 Notebook 會顯示 Notebook 中資料探索、視覺效果和 ML 模型定型的許多層面，使用預先聯結之計程車和車資檔案的縮減取樣 NYC 資料集，讓執行時間更短：[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)。 此 Notebook 能夠大幅縮短完成時間 (只要 2-3 分鐘)，而且可能是很好的起點，可快速瀏覽我們針對 Spark 2.0 所提供的程式碼。
 
 <!-- -->
 
 如需 Spark 2.0 模型和評分的模型耗用量實際運作的相關指引，請參閱[有關耗用量的 Spark 1.6 文件](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb)，以取得概述所需步驟的範例。 若要在 Spark 2.0 上使用此檔案，將使用[這個檔案](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py)來取代 Python 程式碼。
 
 ### <a name="prerequisites"></a>必要條件
-下列程序與 Spark 1.6 相關。 對於 Spark 2.0 版本，請使用先前說明和連結的 Notebook。 
+
+下列程序與 Spark 1.6 相關。 對於 Spark 2.0 版本，請使用先前說明和連結的 Notebook。
 
 1. 您必須擁有 Azure 訂用帳戶。 如果還沒有訂用帳戶，請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-2. 您需要 Spark 1.6 叢集才能完成這個逐步解說。 若要建立該項目，請參閱 [開始使用：在 Azure HDInsight 上建立 Apache Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)所提供的指示。 叢集類型和版本是由 [選取叢集類型]  功能表來指定。 
+2. 您需要 Spark 1.6 叢集才能完成這個逐步解說。 若要建立該項目，請參閱 [開始使用：在 Azure HDInsight 上建立 Apache Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)所提供的指示。 叢集類型和版本是由 [選取叢集類型]  功能表來指定。
 
 ![設定叢集](./media/spark-overview/spark-cluster-on-portal.png)
 
@@ -80,14 +81,14 @@ NYC 計程車和飛行航班延遲資料集上的 Spark 2.0 Notebook 需要 10 �
 
 > [!NOTE]
 > 如需示範如何使用 Scala 而非 Python 完成端對端資料科學程序工作的主題，請參閱 [在 Azure 上使用 Spark 與 Spark 的資料科學](scala-walkthrough.md)。
-> 
-> 
+>
+>
 
 <!-- -->
 
 > [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
-> 
-> 
+>
+>
 
 ## <a name="the-nyc-2013-taxi-data"></a>NYC 2013 計程車資料
 「NYC 計程車車程」資料大約是 20GB 以逗號分隔值 (CSV) 的壓縮檔 (未壓縮時可達 48GB)，其中包含超過 1 億 7300 萬筆個別車程及針對每趟車程支付的費用。 每趟車程記錄包括上車和下車的位置與時間、匿名的計程車司機駕照號碼，以及圓形徽章 (計程車的唯一識別碼) 號碼。 資料涵蓋 2013 年的所有車程，並且每月會在下列兩個資料集中加以提供：
@@ -152,12 +153,12 @@ NYC 計程車和飛行航班延遲資料集上的 Spark 2.0 Notebook 需要 10 �
 
 選取 [PySpark] 來查看包含一些預先封裝 Notebook 範例的目錄，這些範例使用了 PySpark API。適用於這組 Spark 主題的 Notebook (包含程式碼範例) 可在 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) 上找到。
 
-您可以將 Notebook 直接從 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) 上傳至 Spark 叢集上的 Jupyter Notebook 伺服器。 在您的 Jupyter 首頁，按一下螢幕右側的 [上傳]  按鈕。 [檔案總管] 隨即開啟。 您可以在這裡貼上 Notebook 的 GitHub (原始內容) URL，然後按一下 [開啟]。 
+您可以將 Notebook 直接從 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) 上傳至 Spark 叢集上的 Jupyter Notebook 伺服器。 在您的 Jupyter 首頁，按一下螢幕右側的 [上傳]  按鈕。 [檔案總管] 隨即開啟。 您可以在這裡貼上 Notebook 的 GitHub (原始內容) URL，然後按一下 [開啟]。
 
 您會在 Jupyter 檔案清單上看到檔案名稱，並重新出現 [上傳]  按鈕。 按一下此 [上傳]  按鈕。 現在您已匯入 Notebook。 重複這些步驟，使用此逐步解說上傳其他 Notebook。
 
 > [!TIP]
-> 您可以用滑鼠右鍵按一下瀏覽器上的下列連結，然後選取 [複製連結] 取得 Github 原始內容 URL。 您可以將此 URL 貼到 Jupyter 的 [上傳] 檔案總管對話方塊。
+> 您可以用滑鼠右鍵按一下瀏覽器上的下列連結，然後選取 [複製連結] 取得 GitHub 原始內容 URL。 您可以將此 URL 貼到 Jupyter 的 [上傳] 檔案總管對話方塊。
 > 
 > 
 
@@ -170,17 +171,17 @@ NYC 計程車和飛行航班延遲資料集上的 Spark 2.0 Notebook 需要 10 �
 
 > [!TIP]
 > PySpark 核心會將 SQL (HiveQL) 查詢的輸出自動視覺化。 在 Notebook 內使用 [類型]  功能表按鈕，系統提供您幾種不同類型的視覺效果 (資料表、圓形圖、折線圖、區域圖或橫條圖) 可選擇。
-> 
-> 
+>
+>
 
 ![泛型方法的羅吉斯迴歸 ROC 曲線](./media/spark-overview/pyspark-jupyter-autovisualization.png)
 
 ## <a name="whats-next"></a>後續步驟
-現在您已使用 HDInsight Spark 叢集進行設定，並已上傳 Jupyter 筆記本，您已準備要逐步執行對應至這三個 PySpark Notebook 的主題。 這些主題示範如何瀏覽資料、建立和取用模型。 進階的資料探索和模型化 Notebook 顯示如何包括交叉驗證、超參數清除和模型評估。 
+現在您已使用 HDInsight Spark 叢集進行設定，並已上傳 Jupyter 筆記本，您已準備要逐步執行對應至這三個 PySpark Notebook 的主題。 這些主題示範如何瀏覽資料、建立和取用模型。 進階的資料探索和模型化 Notebook 顯示如何包括交叉驗證、超參數清除和模型評估。
 
 **使用 Spark 進行資料探索和模型化：** 遵循[使用 Spark MLlib 工具組來建立資料的二進位分類和迴歸模型](spark-data-exploration-modeling.md)主題的內容，來探索資料集，以及建立、評分、評估 Machine Learning 模型。
 
 **模型耗用量：** 若要瞭解如何評分本主題中所建立的分類和迴歸模型，請參閱[評分及評估 Spark 建置機器學習服務模型](spark-model-consumption.md)。
 
-**交叉驗證和超參數掃掠**：如需如何使用交叉驗證和超參數掃掠，訓練模型的相關資訊，請參閱[使用 Spark 進階資料探索和模型化](spark-advanced-data-exploration-modeling.md)
+**交叉驗證和超參數掃掠**：如需如何使用交叉驗證和超參數掃掠來將模型定型的相關資訊，請參閱[使用 Spark 執行進階資料探索和模型化](spark-advanced-data-exploration-modeling.md)
 

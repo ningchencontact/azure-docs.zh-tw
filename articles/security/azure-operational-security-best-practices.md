@@ -1,6 +1,6 @@
 ---
 title: Azure 作業安全性最佳做法 | Microsoft Docs
-description: 此文章提供一組 Azure 作業安全性的最佳做法。
+description: 本文提供一組 Azure 作業安全性的最佳做法。
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
-ms.openlocfilehash: ae6eeb2506eb82160c68e15e17eeb95c1e2ec046
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 7c6d373fd294645605815d8a8d380259982d90e7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853604"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118178"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 作業安全性最佳做法
 Azure 作業安全性是指使用者可在 Azure 中用來保護其資料、應用程式和其他資產的服務、控制措施與功能。 Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有功能獲得的知識，包括[安全性開發週期 (SDL)](https://www.microsoft.com/sdl)、[Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) 方案，以及對網路安全性威脅型態的深層認知。
@@ -32,7 +32,7 @@ Azure 作業安全性是指使用者可在 Azure 中用來保護其資料、應�
 -   如果無法啟用最佳作法，結果可能為何
 - 如何學習啟用最佳作法
 
-這篇＜Azure 作業安全性最佳做法＞文章是以共識意見以及 Azure 平台功能和特性集 (因為在撰寫此文章時已存在) 作為基礎。 意見和技術會隨著時間改變，這篇文章將會定期進行更新以反映這些變更。
+這篇＜Azure 作業安全性最佳做法＞文章是以共識意見以及 Azure 平台功能和特性集 (因為在撰寫本文時已存在) 作為基礎。 意見和技術會隨著時間改變，這篇文章將會定期進行更新以反映這些變更。
 
 ## <a name="monitor-storage-services-for-unexpected-changes-in-behavior"></a>監視儲存體服務在行為上是否有非預期的變更
 與傳統環境相比，在雲端環境託管的分散式應用程式一旦發生問題，無論要為其進行診斷或疑難排解，都更加複雜。 應用程式可以在 PaaS 或 IaaS 基礎架構、內部部署環境、行動裝置或是這幾種環境的組合上部署。 您應用程式的網路流量可能會周遊公用及私人網路，而且您的應用程式可能會使用多個儲存技術。
@@ -58,7 +58,7 @@ Azure 作業安全性是指使用者可在 Azure 中用來保護其資料、應�
 **最佳做法**：利用封包擷取自動化遠端網路監視作業。  
 **詳細資料**：使用網路監看員無須登入您的 VM，就能監視及診斷網路問題。 您可以設定警示來觸發[封包擷取](../network-watcher/network-watcher-alert-triggered-packet-capture.md)，並能存取封包層級的即時效能資訊。 當您發現問題時，可以詳加調查，從而進行更好的診斷。
 
-**最佳做法**：使用流量記錄獲取對網路流量的見解。  
+**最佳做法**：使用流量記錄獲取您網路流量的見解。  
 **詳細資料**：使用[網路安全性群組流量記錄](../network-watcher/network-watcher-nsg-flow-logging-overview.md)，更深入了解您的網路流量模式。 流量記錄中的資訊可協助您收集合規性資料，並稽核及監視您的網路安全性設定檔。
 
 **最佳做法**：診斷 VPN 連線問題。  
@@ -67,16 +67,16 @@ Azure 作業安全性是指使用者可在 Azure 中用來保護其資料、應�
 ## <a name="secure-deployment-by-using-proven-devops-tools"></a>使用經證實的 DevOps 工具進行安全的部署
 使用下列 DevOps 最佳做法以確保您企業和團隊的生產力與效率。
 
-**最佳做法**：自動建置及部署服務。  
-**詳細資料**：[基礎架構即程式碼](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)是一組技術和實作，可協助 IT 專業人員減輕每日建置及管理模組化基礎架構的負擔。 它可讓 IT 專業人員建置並維護其新式伺服器環境，就像是軟體開發人員建置並維護應用程式程式碼一樣。
+**最佳做法**：自動化服務的建置及部署。  
+**詳細資料**：[基礎架構即程式碼](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) \(英文\) 是一組技術和實作，可協助 IT 專業人員減輕每日建置及管理模組化基礎架構的負擔。 它可讓 IT 專業人員建置並維護其新式伺服器環境，就像是軟體開發人員建置並維護應用程式程式碼一樣。
 
 您可以使用 [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) 搭配宣告式範本佈建應用程式。 在單一的範本中，您可以部署多個服務及其相依性。 您可以使用相同的範本，在應用程式生命週期的每個階段重複部署應用程式。
 
 **最佳做法**：自動建置並部署至 Azure Web 應用程式或雲端服務。  
-**詳細資料**：您可以使用 Azure Pipelines [自動建置並部署](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts)至 Azure Web 應用程式或雲端服務。 Azure Pipelines 會在對 Azure 執行組建之後，將二進位檔自動部署至每個程式碼簽入後面。 套件建置程序等同於 Visual Studio 中的 [套件] 命令，而發佈步驟等同於 Visual Studio 中的 [發佈] 命令。
+**詳細資料**：您可以使用 Azure Pipelines [自動建置並部署](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) \(英文\) 至 Azure Web 應用程式或雲端服務。 Azure Pipelines 會在對 Azure 執行組建之後，將二進位檔自動部署至每個程式碼簽入後面。 套件建置程序等同於 Visual Studio 中的 [套件] 命令，而發佈步驟等同於 Visual Studio 中的 [發佈] 命令。
 
 **最佳做法**：使用持續部署。  
-**詳細資料**：[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) 是用於自動化多階段部署及管理發行程序的解決方案。 建立受控持續部署管線以快速、輕鬆且經常發行。 您可以使用 Azure Pipelines，將發行程序自動化，而且可以擁有預先定義的核准工作流程。 在內部部署及部署至雲端、擴充，並視需要自訂。
+**詳細資料**：[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) \(英文\) 是用於自動化多階段部署及管理發行程序的解決方案。 建立受控持續部署管線以快速、輕鬆且經常發行。 您可以使用 Azure Pipelines，將發行程序自動化，而且可以擁有預先定義的核准工作流程。 在內部部署及部署至雲端、擴充，並視需要自訂。
 
 **最佳做法**：在您啟動應用程式或將更新部署至生產環境之前，請先檢查該應用程式的效能。  
 **詳細資料**：使用 Azure Test Plans 執行雲端式[負載測試](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts)，以：
@@ -87,7 +87,7 @@ Azure 作業安全性是指使用者可在 Azure 中用來保護其資料、應�
 - 確定您的應用程式可以處理後續上市或行銷活動的流量。
 
 **最佳做法**：監視應用程式效能。  
-**詳細資料**：[Azure Application Insights](../application-insights/app-insights-overview.md) 是多個平台上的 Web 開發人員所適用的可延伸「應用程式效能管理」(APM) 服務。 使用 Application Insights 監視您的即時 Web 應用程式。 它會自動偵測效能異常。 其中包括分析工具可協助您診斷問題，並了解使用者實際如何運用您的應用程式。 它是設計來協助您持續改善效能和可用性。
+**詳細資料**：[Azure Application Insights](../azure-monitor/app/app-insights-overview.md) 是多個平台上的 Web 開發人員所適用的可延伸應用程式效能管理 (APM) 服務。 使用 Application Insights 監視您的即時 Web 應用程式。 它會自動偵測效能異常。 其中包括分析工具可協助您診斷問題，並了解使用者實際如何運用您的應用程式。 它是設計來協助您持續改善效能和可用性。
 
 ## <a name="mitigate-and-protect-against-ddos"></a>減少並防範 DDoS
 分散式阻斷服務 (DDoS) 是一種嘗試耗盡應用程式資源的攻擊類型。 目標是影響應用程式的可用性，及其處理合法要求的能力。 這些攻擊會變得越來越複雜，而且大小和影響越來越大。 它們可以鎖定可透過網際網路公開觸達的任何端點。
@@ -101,15 +101,15 @@ Azure 作業安全性是指使用者可在 Azure 中用來保護其資料、應�
 
 確保應用程式有足夠的彈性，能夠處理以應用程式本身為目標的阻斷服務，至關重要。 從[安全性開發週期 (SDL)](https://www.microsoft.com/en-us/sdl) 開始，安全性和隱私權便會內建於 Azure 平台之中。 SDL 會在每個開發階段處理安全性，並確保 Azure 會持續更新以使其更為安全。
 
-**最佳做法**：將應用程式設計為可[水平調整](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)以滿足放大負載的需求，遭遇 DDoS 攻擊時尤其需要。 如果您的應用程式相依於服務的單一執行個體，它會建立單一失敗點。 佈建多個執行個體可讓系統更有彈性且更具延展性。  
-**詳細資料**：若是 [Azure App Service](../app-service/app-service-value-prop-what-is.md)，選取可提供多個執行個體的 [App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
+**最佳做法**：將您的應用程式設計為可[水平調整](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)以滿足放大負載的需求，遭遇 DDoS 攻擊時尤其需要。 如果您的應用程式相依於服務的單一執行個體，它會建立單一失敗點。 佈建多個執行個體可讓系統更有彈性且更具延展性。  
+**詳細資料**：對於 Azure App Service，請選擇可提供多個執行個體的 [App Service 方案](../app-service/overview-hosting-plans.md)。
 
 對於 Azure 雲端服務，設定您的每個角色以使用[多個執行個體](../cloud-services/cloud-services-choose-me.md)。
 
 對於 [Azure 虛擬機器](../virtual-machines/windows/overview.md)，確保 VM 架構包含多個 VM，而且每個 VM 都包含於[可用性設定組](../virtual-machines/virtual-machines-windows-manage-availability.md)中。 建議您使用虛擬機器擴展集，自動調整功能。
 
 **最佳做法**：將應用程式中的安全性防禦分層，可降低成功攻擊的機會。 使用 Azure 平台的內建功能，為您的應用程式實作安全設計。  
-**詳細資料**：攻擊的風險會隨著應用程式大小 (介面區) 而提高。 您可以使用白名單來關閉負載平衡器 ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) 和 [Azure 應用程式閘道](../application-gateway/application-gateway-create-probe-portal.md)) 上不需要的公開 IP 位址空間和接聽連接埠，來減少介面區。
+**詳細資料**：攻擊的風險會隨著應用程式大小 (介面區) 而提高。 您可以使用允許清單來關閉負載平衡器 ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) 和 [Azure 應用程式閘道](../application-gateway/application-gateway-create-probe-portal.md)) 上不需要的公開 IP 位址空間和接聽連接埠，來減少介面區。
 
 [網路安全性群組](../virtual-network/security-overview.md)是減少攻擊面的另一種方法。 您可以使用[服務標記](../virtual-network/security-overview.md#service-tags)和[應用程式安全性群組](../virtual-network/security-overview.md#application-security-groups)，將建立安全性規則與設定網路安全性的複雜性近可能降低，直到成為應用程式結構的自然延伸。
 

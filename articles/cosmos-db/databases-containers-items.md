@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6757f887376e1b399d6af18f114e203991c16a67
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409536"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807681"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>使用 Azure Cosmos 資料庫、容器和項目
 
@@ -24,7 +24,7 @@ ms.locfileid: "53409536"
 
 您可以在自己的帳戶下建立一或多個 Azure Cosmos 資料庫。 資料庫相當於命名空間，它是一組 Azure Cosmos 容器的管理單位。 下表說明 Azure Cosmos 資料庫如何對應至各種 API 特定實體：
 
-| **Azure Cosmos 實體** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **資料表 API** |
+| **Azure Cosmos 實體** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API** | **資料表 API** |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos 資料庫 | 資料庫 | keyspace | 資料庫 | 資料庫 | NA |
 
@@ -35,7 +35,7 @@ ms.locfileid: "53409536"
 
 您可以使用以下 Azure Cosmos API 與 Azure Cosmos 資料庫互動：
 
-| **作業** | **Azure CLI**|**SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **資料表 API** |
+| **作業** | **Azure CLI**|**SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API** | **資料表 API** |
 | --- | --- | --- | --- | --- | --- | --- |
 |列舉所有資料庫| 是 | 是 | 是 (資料庫會對應至 keyspace) | 是 | NA | NA |
 |讀取資料庫| 是 | 是 | 是 (資料庫會對應至 keyspace) | 是 | NA | NA |
@@ -67,7 +67,7 @@ Azure Cosmos 容器是與結構描述無關的項目容器。 容器內的項目
 
 Azure Cosmos 容器會特製化成 API 特定實體，如下所示：
 
-| **Azure Cosmos 實體** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **資料表 API** |
+| **Azure Cosmos 實體** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API** | **資料表 API** |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos 容器 | 集合 | 資料表 | 集合 | 圖形 | 資料表 |
 
@@ -75,7 +75,7 @@ Azure Cosmos 容器會特製化成 API 特定實體，如下所示：
 
 Azure Cosmos 容器都有一組系統定義的屬性。 根據選擇的 API 不同，其中部分屬性可能不會直接公開。 下表描述所支援系統定義屬性的清單：
 
-| **系統定義屬性** | **系統產生或可由使用者設定** | **用途** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **資料表 API** |
+| **系統定義屬性** | **系統產生或可由使用者設定** | **用途** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API** | **資料表 API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |__rid | 由系統產生 | 容器的唯一識別碼 | 是 | 否 | 否 | 否 | 否 |
 |__etag | 由系統產生 | 適用於開放式並行存取控制的實體標記 | 是 | 否 | 否 | 否 | 否 |
@@ -91,7 +91,7 @@ Azure Cosmos 容器都有一組系統定義的屬性。 根據選擇的 API 不�
 
 Azure Cosmos 容器支援下列使用任一 Azure Cosmos API 的作業。
 
-| **作業** | **Azure CLI** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **資料表 API** |
+| **作業** | **Azure CLI** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API** | **資料表 API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 列舉資料庫中的容器 | 是* | 是 | 是 | 是 | NA | NA |
 | 讀取容器 | 是 | 是 | 是 | 是 | NA | NA |
@@ -103,7 +103,7 @@ Azure Cosmos 容器支援下列使用任一 Azure Cosmos API 的作業。
 
 Azure Cosmos 項目可以根據選擇的 API，分別代表集合中的文件、資料表中的資料列，或圖形中的節點/邊緣。 下表顯示 API 特定實體與 Azure Cosmos 項目之間的對應：
 
-| **Cosmos 實體** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **資料表 API** |
+| **Cosmos 實體** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API** | **資料表 API** |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos 項目 | 文件 | 資料列 | 文件 | 節點或邊緣 | Item |
 
@@ -111,7 +111,7 @@ Azure Cosmos 項目可以根據選擇的 API，分別代表集合中的文件、
 
 每個 Azure Cosmos 項目都有以下系統定義屬性。 根據選擇的 API 不同，其中部分屬性可能不會直接公開。
 
-|**系統定義屬性** | **系統產生或可由使用者設定**| **用途** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **資料表 API** |
+|**系統定義屬性** | **系統產生或可由使用者設定**| **用途** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API** | **資料表 API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |__id | 由系統產生 | 項目的唯一識別碼 | 是 | 否 | 否 | 否 | 否 |
 |__etag | 由系統產生 | 適用於開放式並行存取控制的實體標記 | 是 | 否 | 否 | 否 | 否 |
@@ -124,7 +124,7 @@ Azure Cosmos 項目可以根據選擇的 API，分別代表集合中的文件、
 
 Azure Cosmos 項目支援下列可使用任一 Azure Cosmos API 執行的作業。
 
-| **作業** | **Azure CLI** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **資料表 API** |
+| **作業** | **Azure CLI** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API** | **資料表 API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 插入、取代、刪除、更新插入、讀取 | 否 | yes | 是 | 是 | 是 | 是 |
 

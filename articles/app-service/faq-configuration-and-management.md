@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 266c9df095e9153533dbd89b4cd557d12ddcdc66
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408879"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971302"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的設定和管理常見問題集
 
@@ -39,7 +39,7 @@ ms.locfileid: "53408879"
 
 ## <a name="how-do-i-purchase-a-new-custom-domain-for-my-web-app"></a>如何為 Web 應用程式購買新的自訂網域？
 
-若要深入了解如何購買並設定 App Service Web 應用程式的自訂網域，請參閱[購買自訂網域名稱並且在 App Service 中設定](custom-dns-web-site-buydomains-web-app.md)。
+若要深入了解如何購買並設定 App Service Web 應用程式的自訂網域，請參閱[購買自訂網域名稱並且在 App Service 中設定](manage-custom-dns-buy-domain.md)。
 
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>如何上傳及設定 Web 應用程式的現有 SSL 憑證？
@@ -72,9 +72,11 @@ ms.locfileid: "53408879"
     * 值 = 您想要的時區
 3. 選取 [ **儲存**]。
 
+請參閱[預設時區](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) \(英文\) 一文中的**時區**欄，以取得接受的值。
+
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>為什麼我的持續 WebJobs 有時候會失敗？
 
-根據預設，Web 應用程式如果閒置一段時間，就會卸載。 此舉有助於系統保留資源。 在「基本」和「標準」方案中，您可以開啟 [永遠開啟] 設定，讓 Web 應用程式隨時保持載入。 如果您的 Web 應用程式會執行持續的 WebJobs，就應該開啟 [永遠開啟]，否則 WebJobs 可能無法可靠地執行。 如需詳細資訊，請參閱[建立持續執行 WebJob](web-sites-create-web-jobs.md#CreateContinuous)。
+根據預設，Web 應用程式如果閒置一段時間，就會卸載。 此舉有助於系統保留資源。 在「基本」和「標準」方案中，您可以開啟 [永遠開啟] 設定，讓 Web 應用程式隨時保持載入。 如果您的 Web 應用程式會執行持續的 WebJobs，就應該開啟 [永遠開啟]，否則 WebJobs 可能無法可靠地執行。 如需詳細資訊，請參閱[建立持續執行 WebJob](webjobs-create.md#CreateContinuous)。
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>如何取得 Web 應用程式的輸出 IP 位址？
 
@@ -124,7 +126,7 @@ PCI DSS 3.1 版憑證需要停用傳輸層安全性 (TLS) 1.0。 目前，停用
 
 在 [標準] 或 [進階] App Service 方案中，當您將 Web 應用程式部署至 App Service 時，可以部署到個別的部署位置，而不是預設的生產位置。 部署位置是具有專屬主機名稱的即時 Web 應用程式。 兩個部署位置 (包括生產位置) 之間的 Web 應用程式內容與設定項目可以互相交換。
 
-如需有關使用部署位置的詳細資訊，請參閱[在 App Service 中設定預備環境](web-sites-staged-publishing.md)。
+如需有關使用部署位置的詳細資訊，請參閱[在 App Service 中設定預備環境](deploy-staging-slots.md)。
 
 ## <a name="how-do-i-access-and-review-webjob-logs"></a>如何存取及檢閱 WebJob 記錄？
 
@@ -248,7 +250,7 @@ Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provi
     {month} {day of the week}" }
     ```
 
-如需已排程 WebJobs 的詳細資訊，請參閱[使用 Cron 運算式來建立已排程 WebJob](web-sites-create-web-jobs.md#CreateScheduledCRON)。
+如需已排程 WebJobs 的詳細資訊，請參閱[使用 Cron 運算式來建立已排程 WebJob](webjobs-create.md#CreateScheduledCRON)。
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>如何執行 App Service 應用程式的滲透測試？
 

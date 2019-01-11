@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: cshoe
-ms.openlocfilehash: 90eac2fda46dc5fbfff791e1fc0afb9858aa27a4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 19a5dee53bee20438098d1aaeb773ebf08f252d4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408029"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993445"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中測試程式碼的策略
 
@@ -43,8 +43,9 @@ ms.locfileid: "53408029"
 1. [建立新的 Functions 應用程式](./functions-create-first-azure-function.md)，並將它命名為 *Functions*
 2. [從範本建立 HTTP 函式](./functions-create-first-azure-function.md)，並將它命名為 *HttpTrigger*。
 3. [從範本建立計時器函式](./functions-create-scheduled-function.md)，並將它命名為 *TimerTrigger*。
-4. [建立 xUnit 測試應用程式](https://xunit.github.io/docs/getting-started-dotnet-core)，並將它命名為 *Functions.Test*。
-5. 從 *Functions.Test* 應用程式[參考 *Functions* 應用程式](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017)。
+4. 在 Visual Studio 中按一下 [檔案] > [新增] > [專案] > [Visual C#] > [.NET Core] > [xUnit 測試專案] 來[建立 xUnit 測試應用程式](https://xunit.github.io/docs/getting-started-dotnet-core)，並將它命名為 *Functions.Test*。 
+5. 使用 Nuget，從測試應用程式將參考新增至 [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/) 和 [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+6. 從 *Functions.Test* 應用程式[參考 *Functions* 應用程式](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017)。
 
 ### <a name="create-test-classes"></a>建立測試類別
 
@@ -203,7 +204,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -212,7 +213,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 
@@ -220,7 +221,7 @@ namespace Functions.Tests
         public void Timer_should_log_message()
         {
             var logger = (ListLogger)TestFactory.CreateLogger(LoggerTypes.List);
-            TimerFunction.Run(null, logger);
+            TimerTrigger.Run(null, logger);
             var msg = logger.Logs[0];
             Assert.Contains("C# Timer trigger function executed at", msg);
         }

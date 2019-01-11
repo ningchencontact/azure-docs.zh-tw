@@ -10,17 +10,20 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e32e62a050b54334a37b09f001798b9a62e2e6b5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7a40ded3ff6af1c519400c755d1ee6d9bd73ba9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637103"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602285"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>透過自訂原則將存取權杖傳遞到 Azure Active Directory B2C 中的應用程式
 
 > [!NOTE]
 > 此功能目前為公開預覽狀態。
+
+> [!Important]
+> 此公開預覽功能暫時無法供使用。
 
 Azure Active Directory (Azure AD) B2C 中的[自訂原則](active-directory-b2c-get-started-custom.md)為您的應用程式使用者提供了註冊或使用識別提供者登入的機會。 當發生這種情況時，Azure AD B2C 會從識別提供者處收到[存取權杖](active-directory-b2c-reference-tokens.md)。 Azure AD B2C 會使用該權杖來擷取使用者的相關資訊。 您將宣告類型和輸出宣告新增到自訂原則，以將權杖傳遞至您在 Azure AD B2C 中註冊的應用程式。 
 

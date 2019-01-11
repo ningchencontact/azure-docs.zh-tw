@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 70f9ccbbe737bad4d6f88365e804d4421c418d28
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: edd5da35d33aa7e79fc3e972f3ea1cfe2ef40973
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164002"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631408"
 ---
 # <a name="implement-the-device-model-behavior"></a>實作裝置模型行為
 
@@ -21,6 +21,9 @@ ms.locfileid: "53164002"
 
 - **State**：JavaScript 檔案，可在固定的間隔執行，以更新裝置的內部狀態。
 - **Method**：JavaScript 檔案，可當方案在裝置上叫用方法時執行。
+
+> [!NOTE]
+> 裝置模型行為只適用於裝載於裝置模擬服務中的模擬裝置。 如果您想要建立實體裝置，請參閱[將裝置連線到遠端監視解決方案加速器](iot-accelerators-connecting-devices.md)。
 
 在本文中，您將了解：
 

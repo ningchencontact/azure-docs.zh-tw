@@ -9,16 +9,22 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 491f60b55843957bf9ec904f7310ef67219ba3c5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: dff24fb28a4129aa7f29d5f9ed1db10d533d005e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438637"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53578847"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>了解更新管理中的 Linux 代理程式檢查結果
 
 您的機器在 [更新管理] 中未顯示為 [就緒] 的原因有很多。 在「更新管理」中，您可以檢查「混合式背景工作角色」代理程式的健康情況，以判斷根本問題。 本文探討如何以 Azure 入口網站與非 Azure 機器在[離線情況](#troubleshoot-offline)下執行 Azure 機器的疑難排解員。
+
+下列清單是機器可具備的三種整備狀態：
+
+* **就緒**：更新代理程式已部署且上次出現時間不超過 1 小時。
+* **已中斷連線**：更新代理程式已部署且上次出現時間已超過 1 小時。
+* **未設定**：找不到更新代理程式或尚未完成上線。
 
 ## <a name="start-the-troubleshooter"></a>啟動疑難排解員
 
@@ -45,7 +51,7 @@ OS 檢查會確認「混合式 Runbook 背景工作角色」是否正在執行�
 
 |作業系統  |注意  |
 |---------|---------|
-|CentOS 6 (x86/x64) 和 7 (x64)      | Linux 代理程式必須能夠存取更新存放庫。 分類型修補需要 'yum' 來傳回 CentOS 未內建的安全性資料。         |
+|CentOS 6 (x86/x64) 和 7 (x64)      | Linux 代理程式必須能夠存取更新存放庫。 分類型修補需要 'yum' 才能傳回 CentOS 未內建的安全性資料。         |
 |Red Hat Enterprise 6 (x86/x64) 和 7 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
 |SUSE Linux Enterprise Server 11 (x86/x64) 和 12 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
 |Ubuntu 14.04 LTS、16.04 LTS 和 18.04 LTS (x86/x64)      |Linux 代理程式必須能夠存取更新存放庫。         |

@@ -4,19 +4,19 @@ description: 了解如何使用 Azure PowerShell 從內部部署 SQL Server 移�
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 64d77a17241c44c9d450b9e7602222cdb89482b7
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c4ccbe8a6f1e1923e83d2bdcbeb2d61429083aee
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247151"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724193"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>使用 Azure PowerShell 將 SQL Server 內部部署移轉至 Azure SQL Database 受控執行個體
 在本文中，您會使用 Microsoft Azure PowerShell，將已還原至內部部署 SQL Server 2005 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉至 Azure SQL Database 受控執行個體。 您可以使用 Microsoft Azure PowerShell 中的 `AzureRM.DataMigration` 模組，將資料庫從內部部署 SQL Server 執行個體移轉至 Azure SQL Database 受控執行個體。
@@ -176,7 +176,7 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 ```
 
 ### <a name="select-logins"></a>選取登入
-依照下列範例的說明建立要進行移轉的登入清單：請注意，DMS 目前僅支援移轉 SQL 登入。 
+建立要移轉的登入清單，如下列範例所示：請注意，DMS 目前僅支援移轉 SQL 登入。 
 
 ```powershell
 $selectedLogins = @("user1", "user2")

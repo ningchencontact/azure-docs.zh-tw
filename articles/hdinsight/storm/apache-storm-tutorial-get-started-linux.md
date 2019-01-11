@@ -10,20 +10,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 900180c9991932f4efaa07f9881e9f3f897cd99e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8981f6a2b2d42627530fb8bf820ff8373e8f50b0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498270"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971660"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>使用 storm-starter 範例在 HDInsight 上開始使用 Apache Storm
 
-了解如何使用 storm-starter 範例，在 HDInsight 中使用 [Apache Storm](http://storm.apache.org/)。
+了解如何使用 storm-starter 範例，在 HDInsight 中使用 [Apache Storm](https://storm.apache.org/)。
 
 Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運算系統。 在 Storm on Azure HDInsight 中，您可以建立雲端式 Storm 叢集，以執行即時的巨量資料分析。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="prerequisites"></a>必要條件
@@ -38,15 +38,17 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
 請使用下列步驟建立 Storm on HDInsight 叢集：
 
-1. 從 [Azure 入口網站](https://portal.azure.com)，選取 [+ 建立資源]、[資料 + 分析]，然後選取 [HDInsight]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+
+1. 瀏覽至 [+ 建立資源] > [分析] > [HDInsight]。
 
     ![建立 HDInsight 叢集](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
 2. 從 [基本概念] 區段中，輸入下列資訊：
 
-    * **叢集名稱**︰HDInsight 叢集的名稱。
-    * **訂用帳戶**：選取要使用的訂用帳戶。
-    * **叢集登入使用者名稱**和**叢集登入密碼**：透過 HTTPS 存取叢集時使用的登入資訊。 您會使用這些認證來存取例如 Ambari Web UI 或 REST API 等服務。
+    * **叢集名稱**：HDInsight 叢集的名稱。
+    * 訂用帳戶：選取要使用的訂用帳戶。
+    * **叢集登入使用者名稱**和**叢集登入密碼**：透過 HTTPS 存取叢集時的登入。 您會使用這些認證來存取例如 Ambari Web UI 或 REST API 等服務。
     * **安全殼層 (SSH) 使用者名稱**：透過 SSH 存取叢集時使用的登入資訊。 依預設，密碼要與叢集登入密碼相同。
     * **資源群組**：在其中建立叢集的資源群組。
     * **位置**：在其中建立叢集的 Azure 區域。
@@ -84,10 +86,10 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    > [!TIP]
+    > [!TIP]  
     > 您的 SSH 用戶端可能會說無法建立主機的真確性。 若是如此，輸入 `yes` 繼續作業。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 如果您已經使用密碼保護您 SSH 使用者帳戶的安全，系統會提示您輸入密碼。 如果您使用的是公開金鑰，您需要使用 `-i` 參數來指定對應的私密金鑰。 例如： `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`。
 
     如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
@@ -98,7 +100,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
     這個命令會在叢集上啟動範例 WordCount 拓撲。 此拓撲會產生隨機的句子並計算單字出現的次數。 拓撲的易記名稱為 `wordcount`。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 將您自己的拓撲提交至叢集時，必須先複製包含叢集的 jar 檔案，再使用 `storm` 命令。 使用 `scp` 命令來複製檔案。 例如， `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
     > WordCount 範例和其他 storm-starter 範例都已經包含在叢集中，位置是 `/usr/hdp/current/storm-client/contrib/storm-starter/`。
@@ -113,7 +115,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 1. 若要顯示 Storm UI，開啟網頁瀏覽器並前往 `https://CLUSTERNAME.azurehdinsight.net/stormui`。 將 **CLUSTERNAME** 取代為您叢集的名稱。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 如果要求您提供使用者名稱和密碼，請輸入叢集系統管理員 (admin) 和建立叢集時使用的密碼。
 
 2. 在 [拓撲摘要] 下，選取 [名稱] 欄中的 [wordcount] 項目。 關於拓撲的詳細資訊隨即顯示。
@@ -124,7 +126,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
     * **拓撲統計資料 (Topology stats)** ：拓撲效能的基本資訊，已整理為時間範圍。
 
-        > [!NOTE]
+        > [!NOTE]  
         > 選取特定的時間範圍，可以變更頁面中其他區段所顯示之資訊的時間範圍。
 
     * **Spouts** ：spout 的基本資訊，包括每個 spout 傳回的最後一個錯誤。
@@ -139,7 +141,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
     * **停用** ：暫停執行中拓撲。
 
-    * **重新平衡** ：調整拓撲的平行處理原則。 變更叢集中的節點數目之後，您應該重新平衡執行中拓撲。 重新平衡調整平行處理原則，以彌補叢集中增加/減少的節點數目。 如需詳細資訊，請參閱 [Understanding the parallelism of an Apache Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (了解 Apache Storm 拓撲的平行處理原則)。
+    * **重新平衡** ：調整拓撲的平行處理原則。 變更叢集中的節點數目之後，您應該重新平衡執行中拓撲。 重新平衡調整平行處理原則，以彌補叢集中增加/減少的節點數目。 如需詳細資訊，請參閱 [Understanding the parallelism of an Apache Storm topology](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (了解 Apache Storm 拓撲的平行處理原則)。
 
     * **終止 (Kill)** ：在指定的逾時之後終止 Storm 拓撲。
 
@@ -151,7 +153,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
     * **Spout/Bolt 統計資料 (Spout/Bolt stats)** ：元件效能的基本資訊，已整理為時間範圍。
 
-        > [!NOTE]
+        > [!NOTE]  
         > 選取特定的時間範圍，可以變更頁面中其他區段所顯示之資訊的時間範圍。
 
     * **輸入統計資料 (Input stats)** (僅 bolt)：提供的資訊是關於產生 bolt 所使用之資料的元件。
@@ -183,7 +185,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](../hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](../hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a id="next"></a>接續步驟
 
@@ -198,7 +200,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 * [Apache Storm on HDInsight 的範例拓撲](apache-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
-[stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
+[stormdocs]: https://storm.incubator.apache.org/documentation/Documentation.html
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

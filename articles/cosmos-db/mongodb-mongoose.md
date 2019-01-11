@@ -1,26 +1,26 @@
 ---
 title: 將 Node.js Mongoose 應用程式連線至 Azure Cosmos DB
 description: 了解如何使用 Mongoose 架構來儲存和管理 Azure Cosmos DB 中的資料。
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: seodec18
-ms.openlocfilehash: ec47c265c3d6f826bc1b7e7d8038e284c6981b7a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: a6d5a11163cca67a524bdb886249d42a938024a4
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134925"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810843"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>將 Node.js Mongoose 應用程式連線至 Azure Cosmos DB
 
-本教學課程示範在 Azure Cosmos DB 中儲存資料時如何使用 [Mongoose 架構](https://mongoosejs.com/) \(英文\)。 此逐步解說針對 Azure Cosmos DB 使用 MongoDB API。 對於不熟悉的你們而言，Mongoose 是 Node.js 中適用於 MongoDB 的物件模型建構架構，提供簡單、以結構描述為基礎的解決方案來為您的應用程式資料建立模型。
+本教學課程示範在 Cosmos DB 中儲存資料時如何使用 [Mongoose 架構](https://mongoosejs.com/) \(英文\)。 我們會針對此逐步解說使用適用於 MongoDB 的 Azure Cosmos DB API。 對於不熟悉的你們而言，Mongoose 是 Node.js 中適用於 MongoDB 的物件模型建構架構，提供簡單、以結構描述為基礎的解決方案來為您的應用程式資料建立模型。
 
-Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。
+Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Cosmos DB 核心的全域散發和水平調整功能。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -30,9 +30,9 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 [Node.js](https://nodejs.org/) v0.10.29 版或更高版本。
 
-## <a name="create-an-azure-cosmos-db-account"></a>建立 Azure Cosmos DB 帳戶
+## <a name="create-a-cosmos-account"></a>建立 Cosmos 帳戶
 
-讓我們來建立 Azure Cosmos DB 帳戶。 如果您已經擁有想要使用的帳戶，就可以直接跳到[設定您的 Node.js 應用程式](#SetupNode)。 如果您是使用「Azure Cosmos DB 模擬器」，請依照 [Azure Cosmos DB 模擬器](local-emulator.md)的步驟來設定模擬器，然後直接跳到[設定您的 Node.js 應用程式](#SetupNode)。
+讓我們建立一個 Cosmos 帳戶。 如果您已經擁有想要使用的帳戶，就可以直接跳到[設定您的 Node.js 應用程式](#SetupNode)。 如果您是使用「Azure Cosmos DB 模擬器」，請依照 [Azure Cosmos DB 模擬器](local-emulator.md)的步驟來設定模擬器，然後直接跳到[設定您的 Node.js 應用程式](#SetupNode)。
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
@@ -73,7 +73,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     COSMOSDB_PASSWORD=cosmos-secret
     ```
 
-1. 將下列程式碼加入到 index.js 結尾，以使用 Mongoose 架構連線到 Azure Cosmos DB。
+1. 將下列程式碼加入到 index.js 結尾，以使用 Mongoose 架構連線到 Cosmos DB。
     ```JavaScript
     mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb", {
       auth: {
@@ -89,9 +89,9 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     一旦您連線到 Azure Cosmos DB，就可以在 Mongoose 中立即開始設定物件模型。
 
-## <a name="caveats-to-using-mongoose-with-azure-cosmos-db"></a>使用 Mongoose 搭配 Azure Cosmos DB 的注意事項
+## <a name="caveats-to-using-mongoose-with-cosmos-db"></a>使用 Mongoose 搭配 Cosmos DB 的注意事項
 
-對於您建立的每個模型，基本上 Mongoose 會建立新的 MongoDB 集合。 不過，考慮到 Azure Cosmos DB 的按集合計費模型，如果您有多個以稀疏方式填入的物件模型，它可能不是最具成本效益的方式。
+對於您建立的每個模型，Mongoose 會建立新的集合。 不過，考慮到 Cosmos DB 的按集合計費模型，如果您有多個以稀疏方式填入的物件模型，它可能不是最具成本效益的方式。
 
 本逐步解說涵蓋兩種模型。 首先我們會逐步解說每個集合儲存一種類型的資料。 這是 Mongoose 的實際行為。
 
@@ -101,7 +101,7 @@ Mongoose 也有稱為[鑑別子](https://mongoosejs.com/docs/discriminators.html
 
 ### <a name="one-collection-per-object-model"></a>每個物件模型一個集合
 
-預設的 Mongoose 行為是在每次您建立物件模型時建立一個 MongoDB 集合。 本節探討如何使用適用於 Azure Cosmos DB 的 MongoDB 達成這個目的。 當您的物件模型含有大量資料時，這是建議使用於 Azure Cosmos DB 的方法。 這是 Mongoose 的預設操作模型，因此，如果您精通 Mongoose，您可能已很熟悉。
+預設的 Mongoose 行為是在每次您建立物件模型時建立一個 MongoDB 集合。 本節探討如何使用適用於 MongoDB 的 Azure Cosmos DB API 達成這個目的。 當您的物件模型含有大量資料時，建議使用此方法。 這是 Mongoose 的預設操作模型，因此，如果您精通 Mongoose，您可能已很熟悉。
 
 1. 再次開啟您的 ```index.js```。
 
@@ -152,7 +152,7 @@ Mongoose 也有稱為[鑑別子](https://mongoosejs.com/docs/discriminators.html
     });
     ```
 
-1. 最後，我們將物件儲存到 Azure Cosmos DB。 基本上，這會建立集合。
+1. 最後，讓我們將物件儲存到 Cosmos DB。 基本上，這會建立集合。
 
     ```JavaScript
     family.save((err, saveFamily) => {
@@ -181,11 +181,11 @@ Mongoose 也有稱為[鑑別子](https://mongoosejs.com/docs/discriminators.html
     });
     ```
 
-1. 現在，移至 Azure 入口網站，您會發現 Azure Cosmos DB 中建立了兩個集合。
+1. 現在，移至 Azure 入口網站，您會發現 Cosmos DB 中建立了兩個集合。
 
     ![Node.js 教學課程 - Azure 入口網站的螢幕擷取畫面，其中顯示 Azure Cosmos DB 帳戶，並反白顯示多個集合名稱 - 節點資料庫][mutiple-coll]
 
-1. 最後，我們要從 Azure Cosmos DB 讀取資料。 由於我們使用的是預設的 Mongoose 作業模型，讀取作業會和 Mongoose 的其他讀取作業相同。
+1. 最後，讓我們從 Cosmos DB 讀取資料。 由於我們使用的是預設的 Mongoose 作業模型，讀取作業會和 Mongoose 的其他讀取作業相同。
 
     ```JavaScript
     Family.find({ 'children.gender' : "male"}, function(err, foundFamily){
@@ -195,7 +195,7 @@ Mongoose 也有稱為[鑑別子](https://mongoosejs.com/docs/discriminators.html
 
 ### <a name="using-mongoose-discriminators-to-store-data-in-a-single-collection"></a>使用 Mongoose 鑑別子在單一集合中儲存資料
 
-在這種方法中，我們使用 [Mongoose 鑑別子](https://mongoosejs.com/docs/discriminators.html) \(英文\) 以協助最佳化每個 Azure Cosmos DB 集合的成本。 鑑別子可讓您定義區分用的「索引鍵」，它可讓您儲存、區別和篩選不同的物件模型。
+在這種方法中，我們使用 [Mongoose 鑑別子](https://mongoosejs.com/docs/discriminators.html) \(英文\) 以協助將每個集合的成本最佳化。 鑑別子可讓您定義區分用的「索引鍵」，它可讓您儲存、區別和篩選不同的物件模型。
 
 此處，我們建立一個基底物件模型、定義區分用的索引鍵，並將 'Family' 和 'VacationDestinations' 做為擴充加入到基底模型。
 
@@ -300,7 +300,7 @@ Mongoose 也有稱為[鑑別子](https://mongoosejs.com/docs/discriminators.html
     });
     ```
 
-如您所見，使用 Mongoose 鑑別子很容易。 因此，如果您有使用 Mongoose 架構的應用程式，本教學課程是讓您的應用程式在 Azure Cosmos DB 的 MongoDB API 上開始執行的方法，而且不需要太多變更。
+如您所見，使用 Mongoose 鑑別子很容易。 因此，如果您的應用程式使用 Mongoose 架構，本教學課程就是讓您能夠使用適用於 MongoDB 的 Azure Cosmos API 來啟動應用程式並加以執行的方法，而且不需要太多變更。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -308,7 +308,9 @@ Mongoose 也有稱為[鑑別子](https://mongoosejs.com/docs/discriminators.html
 
 ## <a name="next-steps"></a>後續步驟
 
-在 [MongoDB 功能和語法的 MongoDB API 支援](mongodb-feature-support.md)中深入了解 Azure Cosmos DB MongoDB API 支援的 MongoDB 作業、運算子、階段、命令和選項。
+- 了解如何[使用 Studio 3T](mongodb-mongochef.md) 搭配 Azure Cosmos DB 的 MongoDB API。
+- 了解如何[使用 Robo 3T](mongodb-robomongo.md) 搭配 Azure Cosmos DB 的 MongoDB API。
+- 使用適用於 MongoDB 的 Azure Cosmos DB API 探索 MongoDB [範例](mongodb-samples.md)。
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
 [mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png

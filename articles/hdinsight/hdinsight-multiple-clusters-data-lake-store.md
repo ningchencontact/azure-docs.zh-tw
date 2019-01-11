@@ -1,6 +1,6 @@
 ---
-title: 利用一個 Azure Data Lake Store 帳戶使用多個 HDInsight 叢集 - Azure
-description: 了解如何利用單一 Data Lake Store 帳戶來使用多個 HDInsight 叢集
+title: 透過一個 Azure Data Lake Storage 帳戶使用多個 HDInsight 叢集 - Azure
+description: 了解如何透過單一 Data Lake Storage 帳戶使用多個 HDInsight 叢集
 keywords: hdinsight 儲存體,hdfs,結構化資料,非結構化資料, data lake store
 services: hdinsight,storage
 author: hrasheed-msft
@@ -10,29 +10,29 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6b835dc300808453240dd3b9fe47957bd5feab9b
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 982e92d02e17aaefe0b197562013704636e3065f
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435220"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743693"
 ---
-# <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>利用一個 Azure Data Lake Store 帳戶使用多個 HDInsight 叢集
+# <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>透過一個 Azure Data Lake Storage 帳戶使用多個 HDInsight 叢集
 
-從 HDInsight 3.5 版開始，您可以使用 Azure Data Lake Store 帳戶建立 HDInsight 叢集，作為預設檔案系統。
-Data Lake Store 支援無限制的儲存空間，不僅適合裝載大量資料，也適合裝載多個共用單一 Data Lake Store 帳戶的 HDInsight 叢集。 如需有關如何使用 Data Lake Storage 建立 HDInsight 叢集作為儲存體的指示，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+從 HDInsight 3.5 版開始，您可以使用 Azure Data Lake Storage 帳戶來建立 HDInsight 叢集，以作為預設檔案系統。
+Data Lake Storage 支援無限制的儲存體，使其不僅適合裝載大量資料，也適合裝載多個共用單一 Data Lake Storage 帳戶的 HDInsight 叢集。 如需如何建立 HDInsight 叢集並以 Data Lake Storage 作為儲存體的相關指示，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
-本文提供建議給 Data Lake Store 管理員來設定單一共用的 Data Lake Store 帳戶，此帳戶可以跨多個**作用中的** HDInsight 叢集使用。 這些建議適用於將多個安全和不安全的 Apache Hadoop 叢集裝載於共用的 Data Lake Store 帳戶上。
+本文提供建議給 Data Lake Storage 管理員來設定單一共用的 Data Lake Storage 帳戶，此帳戶可以跨多個**作用中的** HDInsight 叢集使用。 這些建議適用於將多個安全和不安全的 Apache Hadoop 叢集裝載於一個共用的 Data Lake Storage 帳戶上。
 
 
-## <a name="data-lake-store-file-and-folder-level-acls"></a>Data Lake Store 檔案和資料夾等級 ACL
+## <a name="data-lake-storage-file-and-folder-level-acls"></a>Data Lake Storage 檔案和資料夾等級 ACL
 
-本文的其餘部分假設您了解 Azure Data Lake Store 中的檔案和資料夾等級 ACL，這在 [Azure Data Lake Store 中的存取控制](../data-lake-store/data-lake-store-access-control.md)中有詳細的說明。
+本文的其餘部分假設您已了解 Azure Data Lake Storage 中的檔案和資料夾等級 ACL，詳細說明請參閱 [Azure Data Lake Storage 中的存取控制](../data-lake-store/data-lake-store-access-control.md)。
 
-## <a name="data-lake-store-setup-for-multiple-hdinsight-clusters"></a>多個 HDInsight 叢集的 Data Lake Store 設定
-讓我們以兩層的資料夾階層為例子，說明利用一個 Data Lake Store 帳戶來使用多個 HDInsight 叢集時的建議。 假設您具有 Data Lake Store 帳戶，而資料夾結構為 **/clusters/finance**。 在此結構中，財務組織所需的所有叢集都可以使用 /clusters/finance 作為儲存位置。 未來，如果有另一個組織 (假設是「行銷」) 需要使用同一個 Data Lake Store 帳戶建立 HDInsight 叢集，他們將會建立 /clusters/marketing。 現在，我們只要使用 **/clusters/finance** 即可。
+## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>適用於多個 HDInsight 叢集的 Data Lake Storage 設定
+讓我們以兩層的資料夾階層為例，來說明透過一個 Data Lake Storage 帳戶使用多個 HDInsight 叢集的建議。 假設您具有一個 Data Lake Storage 帳戶，而資料夾結構為 **/clusters/finance**。 在此結構中，財務組織所需的所有叢集都可以使用 /clusters/finance 作為儲存位置。 未來，如果有另一個組織 (假設是「行銷」) 想要使用同一個 Data Lake Storage 帳戶來建立 HDInsight 叢集，他們將會建立 /clusters/marketing。 現在，我們只要使用 **/clusters/finance** 即可。
 
-為了讓 HDInsight 叢集有效利用此資料夾結構，Data Lake Store 管理員必須指派適當的權限，如下表所述。 表格中顯示的權限對應至「存取 ACL」，而不是「預設 ACL」。 
+為了讓 HDInsight 叢集有效使用此資料夾結構，Data Lake Storage 管理員必須指派適當的權限，如下表所述。 表格中顯示的權限對應至「存取 ACL」，而不是「預設 ACL」。 
 
 
 |資料夾  |權限  |擁有使用者  |擁有群組  | 具名使用者 | 具名使用者權限 | 具名群組 | 具名群組權限 |
@@ -43,7 +43,7 @@ Data Lake Store 支援無限制的儲存空間，不僅適合裝載大量資料�
 
 在表格中，
 
-- **admin** 是 Data Lake Store 帳戶的建立者和管理員。
+- **admin** 是 Data Lake Storage 帳戶的建立者和管理員。
 - **服務主體**是與帳戶相關聯的 Azure Active Directory (AAD) 服務主體。
 - **FINGRP** 是 AAD 中建立的使用者群組，內含來自財務組織的使用者。
 
@@ -51,7 +51,7 @@ Data Lake Store 支援無限制的儲存空間，不僅適合裝載大量資料�
 
 需要考慮的一些重要事項。
 
-- 在叢集上使用儲存體帳戶**之前**，Data Lake Store 管理員必須以適當權限建立和佈建兩層的資料夾結構 (**/clusters/finance/**)。 建立叢集時不會自動建立此結構。
+- 使用叢集的儲存體帳戶**之前**，Data Lake Storage 管理員必須使用適當權限來建立和佈建兩層的資料夾結構 (**/clusters/finance/**)。 建立叢集時不會自動建立此結構。
 - 上述範例建議將擁有群組 **/clusters/finance** 設為 **FINGRP**，並允許 **r-x** 讓 FINGRP 從根目錄開始存取整個資料夾階層。 這可確保 FINGRP 的成員可以從根目錄開始瀏覽資料夾結構。
 - 當不同的 AAD 服務主體可以在 **/clusters/finance** 下建立叢集時，黏著位元 (在 **finance** 資料夾上設定時) 可確保一個服務主體所建立的資料夾無法被其他服務主體刪除。
 - 當資料夾結構和權限都備妥後，HDInsight 叢集建立程序就會在 **/clusters/finance/** 下建立特定的儲存位置。 例如，名稱為 fincluster01 之叢集的儲存體可能是 **/clusters/finance/fincluster01**。 下表顯示 HDInsight 叢集所建立之資料夾的擁有權和權限。
@@ -68,7 +68,7 @@ Data Lake Store 支援無限制的儲存空間，不僅適合裝載大量資料�
 
 ## <a name="limit-on-clusters-sharing-a-single-storage-account"></a>共用單一儲存體帳戶的叢集所受的限制
 
-可共用單一 Data Lake Store 帳戶的叢集數目上限，取決於這些叢集上執行的工作負載。 如果共用儲存體帳戶的叢集太多，或工作負載非常繁重，可能會導致對儲存體帳戶的輸入/輸出進行節流。
+可共用單一 Data Lake Storage 帳戶的叢集數目上限，取決於在那些叢集上執行的工作負載。 如果共用儲存體帳戶的叢集太多，或工作負載非常繁重，可能會導致對儲存體帳戶的輸入/輸出進行節流。
 
 ## <a name="support-for-default-acls"></a>預設 ACL 的支援
 
@@ -76,11 +76,11 @@ Data Lake Store 支援無限制的儲存空間，不僅適合裝載大量資料�
 
 ## <a name="known-issues-and-workarounds"></a>已知問題和因應措施
 
-本節列出搭配 Data Lake Store 使用 HDInsight 的已知問題及其因應措施。
+本節列出透過 Data Lake Storage 使用 HDInsight 的已知問題及其因應措施。
 
 ### <a name="publicly-visible-localized-apache-hadoop-yarn-resources"></a>公開可見的當地語系化 Apache Hadoop YARN 資源
 
-建立新的 Azure Data Lake Store 帳戶時，將會自動佈建根目錄並將存取 ACL 權限位元設為 770。 根資料夾的擁有使用者會設為帳戶建立使用者 (Data Lake Store 管理員)，而擁有群組會設為帳戶建立使用者的主要群組。 不會提供存取權給「其他人」。
+建立新的 Azure Data Lake Storage 帳戶時，會自動佈建根目錄並將存取 ACL 權限位元設為 770。 根資料夾的擁有使用者會設定為建立帳戶的使用者 (Data Lake Storage 管理員)，而擁有群組會設定為建立帳戶之使用者的主要群組。 不會提供存取權給「其他人」。
 
 已知這些設定會影響 [YARN 247](https://hwxmonarch.atlassian.net/browse/YARN-247) 中記錄的一個特定 HDInsight 使用案例。 作業提交會失敗，錯誤訊息如下︰
 
@@ -94,5 +94,4 @@ Data Lake Store 支援無限制的儲存空間，不僅適合裝載大量資料�
 ## <a name="see-also"></a>另請參閱
 
 * [快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-
 

@@ -1,17 +1,17 @@
 ---
 title: 在 Azure Cosmos DB 中最佳化開發與測試
-description: 本文說明 Cosmos DB 如何免費提供多個對服務進行開發與測試的選項。
+description: 本文說明 Azure Cosmos DB 如何免費提供多個對服務進行開發與測試的選項。
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: rimman
-ms.openlocfilehash: e6ccf70a085950ebd6b520fa4991220981e4f018
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7e75ee6e7c9cd30911dd00a81cdd50b688346985
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263643"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036472"
 ---
 # <a name="optimizing-for-development-and-testing-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化開發與測試
 
@@ -19,11 +19,11 @@ ms.locfileid: "53263643"
 
 ## <a name="azure-cosmos-db-emulator-locally-downloadable-version"></a>Azure Cosmos DB 模擬器 (可下載的本機版)
 
-[Azure Cosmos DB 模擬器](local-emulator.md)是能模擬 Azure Cosmos DB 雲端服務的可下載本機版。 即使沒有網路連線，您也可以撰寫及測試使用 Azure Cosmos DB API 的程式碼，且不會產生任何費用。 Azure Cosmos DB 模擬器能提供可供開發之用，且能夠精確模擬雲端服務的本機環境。 您可以在本機開發及測試應用程式，而不需建立 Azure 訂用帳戶。 當您準備好將應用程式部署到雲端時，只需要更新連接字串來連線到雲端中的 Azure Cosmos DB 端點，而不需要做其他修改。 您也可以使用 Azure DevOps 中的 [Cosmos DB 模擬器建置工作來設定 CI/CD 管線](tutorial-setup-ci-cd.md)以執行測試。 若要開始使用，請參閱 [Cosmos DB 模擬器](local-emulator.md)一文。
+[Azure Cosmos DB 模擬器](local-emulator.md)是能模擬 Azure Cosmos DB 雲端服務的可下載本機版。 即使沒有網路連線，您也可以撰寫及測試使用 Azure Cosmos DB API 的程式碼，且不會產生任何費用。 Azure Cosmos DB 模擬器能提供可供開發之用，且能夠精確模擬雲端服務的本機環境。 您可以在本機開發及測試應用程式，而不需建立 Azure 訂用帳戶。 當您準備好將應用程式部署到雲端時，只需要更新連接字串來連線到雲端中的 Azure Cosmos DB 端點，而不需要做其他修改。 您也可以使用 Azure DevOps 中的 [Azure Cosmos DB 模擬器建置工作來設定 CI/CD 管線](tutorial-setup-ci-cd.md)以執行測試。 若要開始使用，請參閱 [Azure Cosmos DB 模擬器](local-emulator.md)一文。
 
 ## <a name="try-azure-cosmos-db-for-free"></a>免費試用 Azure Cosmos DB
 
-[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) 為可讓您在雲端中建立資料庫與集合，並對 Azure Cosmos DB 進行實驗的免費體驗。 您不需要註冊 Azure 或支付任何費用。 「試用 Azure Cosmos DB」帳戶可於有限的時間內使用，目前為 30 天。 您可以隨時更新它們。 「試用 Azure Cosmos DB」帳戶可讓您輕鬆評估 Azure Cosmos DB，並使用快速入門或教學課程來建置及測試應用程式。 您可以在不產生任何費用的情況下建立示範或執行單元測試。 透過使用「免費試用 Azure Cosmos DB」帳戶，您可以免費評估 Cosmos DB 的進階功能，包括周全全域散發、SLA，以及一致性模型。 您可以建立具有最多 25 個 Azure Cosmos 容器和 10,000 RU/s 輸送量的資料庫。 您可以在不註冊 Azure 帳戶或使用信用卡的情況下執行範例應用程式。 透過「免費試用 Azure Cosmos DB」，只要幾分鐘的時間，您便可以建立多重區域的 Azure Cosmos 帳戶並在其上方執行應用程式。 若要開始使用，請參閱[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) 頁面。
+[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) 為可讓您在雲端中建立資料庫與集合，並對 Azure Cosmos DB 進行實驗的免費體驗。 您不需要註冊 Azure 或支付任何費用。 「試用 Azure Cosmos DB」帳戶可於有限的時間內使用，目前為 30 天。 您可以隨時更新它們。 「試用 Azure Cosmos DB」帳戶可讓您輕鬆評估 Azure Cosmos DB，並使用快速入門或教學課程來建置及測試應用程式。 您可以在不產生任何費用的情況下建立示範或執行單元測試。 藉由使用「免費試用 Azure Cosmos DB」帳戶，您可以免費評估 Azure Cosmos DB 的進階功能，包括周全全域散發、SLA，以及一致性模型。 您可以建立具有最多 25 個 Azure Cosmos 容器和 10,000 RU/s 輸送量的資料庫。 您可以在不註冊 Azure 帳戶或使用信用卡的情況下執行範例應用程式。 透過「免費試用 Azure Cosmos DB」，只要幾分鐘的時間，您便可以建立多重區域的 Azure Cosmos 帳戶並在其上執行應用程式。 若要開始使用，請參閱[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) 頁面。
 
 ## <a name="azure-free-account"></a>Azure 免費帳戶
 

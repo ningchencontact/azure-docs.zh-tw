@@ -1,5 +1,5 @@
 ---
-title: 使用端對端金鑰輪替和稽核設定 Azure 金鑰保存庫 | Microsoft Docs
+title: 使用端對端金鑰輪替和稽核設定 Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: 使用此操作說明可協助您使用金鑰輪替和監視金鑰保存庫記錄檔來進行設定。
 services: key-vault
 documentationcenter: ''
@@ -10,16 +10,15 @@ ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: bf3aba431e7b417b2213bc3410fd7722d7888d15
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4dbfd993a8464c569d30f11e305d4bae000a778f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302012"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077703"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>使用金鑰輪替和稽核設定 Azure Key Vault
 
@@ -270,7 +269,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id
 
 若要建立 Azure 函式，請選擇 [建立資源]，在市集中搜尋 [函式應用程式]，然後按一下 [建立]。 在建立期間，您可以使用現有的主控方案，或建立新的方案。 您也可以選擇動態主控。 如需函式主控選項的詳細資訊，請參閱[如何調整 Azure Functions](../azure-functions/functions-scale.md)。
 
-建立 Azure 函式後，請瀏覽到該函式並選擇計時器函式和 C\#。 然後按一下 [建立此函式]。
+建立 Azure 函式後，請瀏覽到該函式並選擇計時器函式和 C\#。 然後按一下 [建立此函式]**。
 
 ![Azure Functions 啟動刀鋒視窗](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
@@ -414,7 +413,7 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 
 在 [儲存] 時，Azure Functions 會下載所需的二進位檔。
 
-切換至 [整合]  索引標籤，然後為計時器參數提供有意義的名稱以在函式內使用。 前面的程式碼預期計時器名稱為 myTimer。 依下列方式為計時器指定 [CRON 運算式](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON)︰0 \* \* \* \* \*，這會讓函式每分鐘執行一次。
+切換至 [整合]  索引標籤，然後為計時器參數提供有意義的名稱以在函式內使用。 前面的程式碼預期計時器名稱為 myTimer。 指定 [CRON 運算式](../app-service/webjobs-create.md#CreateScheduledCRON)，如下所示：0 \* \* \* \* \*，這會讓函式每分鐘執行一次。
 
 在同一個 [整合] 索引標籤上，新增 [Azure Blob 儲存體] 類型的輸入。 這會指向包含函式所查看之最後一個事件的時間戳記的 sync.txt 檔案。 這會在函式中依參數名稱提供。 在前面的程式碼中，Azure Blob 儲存體輸入預期參數名稱為 inputBlob。 選擇 sync.txt 檔案所位於的儲存體帳戶 (可能是相同或不同的儲存體帳戶)。 在 [路徑] 欄位中，以 {container-name}/path/to/sync.txt 格式提供檔案所在位置的路徑。
 

@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: ef61ee9f15253c6a270cd4089625776a458df2ee
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 715e536d7356a4e37f512027a23236b1fd37cbac
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499331"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651294"
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>安裝已發佈的應用程式 - Cask 資料應用程式平台 (CDAP)
 
-本文說明如何在 Azure HDInsight 上安裝及執行 [CDAP](http://cask.co/products/cdap/) 已發佈的 [Apache Hadoop](https://hadoop.apache.org/) 應用程式。 如需 HDInsight 應用程式平台的概觀，以及可用獨立軟體廠商 (ISV) 已發佈的應用程式清單，請參閱[安裝第三方 Apache Hadoop 應用程式](hdinsight-apps-install-applications.md)。 如需您自己的應用程式的安裝指示，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
+本文說明如何在 Azure HDInsight 上安裝及執行 [CDAP](https://cask.co/products/cdap/) 已發佈的 [Apache Hadoop](https://hadoop.apache.org/) 應用程式。 如需 HDInsight 應用程式平台的概觀，以及可用獨立軟體廠商 (ISV) 已發佈的應用程式清單，請參閱[安裝第三方 Apache Hadoop 應用程式](hdinsight-apps-install-applications.md)。 如需您自己的應用程式的安裝指示，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
 
 ## <a name="about-cdap"></a>關於 CDAP
 
@@ -30,7 +30,7 @@ Cask 資料應用程式平台 (CDAP) 是巨量資料的整合平台。 CDAP 可�
 
 CDAP 使用開發人員熟悉的高階概念和抽象概念。 這些抽象概可隱藏內部系統的複雜性，並促進重複使用解決方案。
 
-名為 [Cask Hydrator](http://cask.co/products/hydrator/) 的 CDAP 延伸模組提供了使用者介面供您開發和管理資料管線。 資料管線是由各種 *外掛程式組成，這些外掛程式會執行資料擷取、轉換、分析和執行後作業等工作。
+名為 [Cask Hydrator](https://cask.co/products/hydrator/) 的 CDAP 延伸模組提供了使用者介面供您開發和管理資料管線。 資料管線是由各種 *外掛程式組成，這些外掛程式會執行資料擷取、轉換、分析和執行後作業等工作。
 
 每個 CDAP 外掛程式都具有定義完善的介面，評估不同的技術時只要使用另一個外掛程式來取代原本的外掛程式，而不需要動到應用程式的其餘部分。
 
@@ -42,7 +42,7 @@ CDAP 管線可提供應用程式中資料的高階圖示流程。 此視覺效�
 
 此端對端管線是使用 **Cask Hydrator UI** 進行建置的，可使用其外掛程式介面和拖放功能以在每個階段之間建立連線。 您可以個別地隔離及修改每個外掛程式的功能。 使用 CDAP，即可在數小時內建置及驗證類似管線。 在典型的 Hadoop 世界中，建構這類解決方案可能需要好幾天的時間。
 
-CDAP 也會提供名為 [Cask Tracker](http://cask.co/products/tracker/) 的延伸模組，可在資料流經應用程式時以視覺化方式進行追蹤。 Cask Tracker 會將「資料控管」新增至系統，讓整個應用程式的資料資產正式受到管理。 您可以追蹤每個資料點的歷程、收集相關計量，以及稽核整個程序的資料軌跡。
+CDAP 也會提供名為 [Cask Tracker](https://cask.co/products/tracker/) 的延伸模組，可在資料流經應用程式時以視覺化方式進行追蹤。 Cask Tracker 會將「資料控管」新增至系統，讓整個應用程式的資料資產正式受到管理。 您可以追蹤每個資料點的歷程、收集相關計量，以及稽核整個程序的資料軌跡。
 
 以下是資料如何在上述管線中流動的圖例：
 
@@ -53,7 +53,7 @@ CDAP 也會提供名為 [Cask Tracker](http://cask.co/products/tracker/) 的延�
 若要在新的 HDInsight 叢集或現有叢集上安裝此應用程式，您必須具有下列設定：
 
 * 叢集層：標準
-* 叢集類型：HBase
+* 叢集類型：hbase
 * 叢集版本：3.4、3.5
 
 ## <a name="install-the-cdap-published-application"></a>安裝 CDAP 已發佈的應用程式
@@ -126,9 +126,9 @@ CDAP 也會提供名為 [Cask Tracker](http://cask.co/products/tracker/) 的延�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Cask 文件](http://cask.co/resources/documentation/)。
-* [安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)︰了解如何將未發佈的 HDInsight 應用程式部署到 HDInsight。
-* [發佈 HDInsight 應用程式](hdinsight-apps-publish-applications.md)︰了解如何將自訂 HDInsight 應用程式發佈至 Azure Marketplace。
-* [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)︰了解如何定義 HDInsight 應用程式。
+* [Cask 文件](https://cask.co/resources/documentation/)。
+* [安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)：了解如何將未發佈的 HDInsight 應用程式部署到 HDInsight。
+* [發佈 HDInsight 應用程式](hdinsight-apps-publish-applications.md)：了解如何將自訂 HDInsight 應用程式發佈到 Azure Marketplace。
+* [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定義 HDInsight 應用程式。
 * [使用指令碼動作自訂以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用指令碼動作來安裝其他應用程式。
-* [在 HDInsight 中使用空白邊緣節點](hdinsight-apps-use-edge-node.md)︰了解如何使用空白邊緣節點來存取 HDInsight 叢集，以及測試和裝載 HDInsight 應用程式。
+* [在 HDInsight 中使用空白邊緣節點](hdinsight-apps-use-edge-node.md)：了解如何使用空白邊緣節點來存取 HDInsight 叢集，以及測試和裝載 HDInsight 應用程式。

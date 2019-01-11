@@ -9,15 +9,18 @@ ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a518d00a50c0fc6ec83626852f30f739d64b18ea
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 5b87d04466a2c94ed233edf4069ec1a30b10d03a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283280"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634315"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure 自動化的 Runbook 和模組資源庫
 您可以存取各種已由 Microsoft 和社群建置的案例，而不是在 Azure 自動化中建立您自己的 Runbook 和模組。  您可以不加修改地使用這些案例，或者使用它們做為起點並針對您的特定需求進行編輯。
+
+> [!NOTE]
+> Azure 自動化不支援新的 [Azure PowerShell Az 模組](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0)。 使用這些 Cmdlet 從 PowerShell 資源庫下載的任何指令碼將無法在 Azure 自動化中運作。
 
 您可以從 [Runbook 資源庫](#runbooks-in-runbook-gallery)取得 Runbook，從 [PowerShell 資源庫](#modules-in-powerShell-gallery)取得模組。  您也可以藉由共用您開發的案例來參與社群，請參閱[將 Runbook 新增至資源庫](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)
 

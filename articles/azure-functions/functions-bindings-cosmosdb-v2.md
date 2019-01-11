@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 362a8f6108ad035c66fe76dae09cf7711dafd070
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 6748998e87de7f0d5ea41a10ba16600aa7b31505
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344341"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972034"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 Azure Cosmos DB 繫結
 
-> [!div class="op_single_selector" title1="選擇您正在使用的 Azure Functions 運行時的版本: "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [第 1 版](functions-bindings-cosmosdb.md)
 > * [第 2 版](functions-bindings-cosmosdb-v2.md)
 
@@ -274,8 +274,9 @@ namespace CosmosDBSamplesV2
 |**leaseAcquireInterval**| **LeaseAcquireInterval**| (選擇性) 如果設定，將會以毫秒為單位定義啟動工作以計算分割區是否平均分散到已知主機執行個體的間隔。 預設值為 13000 (13 秒)。
 |**leaseExpirationInterval**| **LeaseExpirationInterval**| (選擇性) 如果設定，將會以毫秒為單位定義租用代表分割區的間隔。 未在此間隔內更新的租用將會過期，且分割區的擁有權會移轉給另一個執行個體。 預設值為 60000 (60 秒)。
 |**leaseRenewInterval**| **LeaseRenewInterval**| (選擇性) 如果設定，將會以毫秒為單位定義目前由執行個體保有之分割區的所有租用所適用的更新間隔。 預設值為 17000 (17 秒)。
-|**checkpointFrequency**| **CheckpointFrequency**| (選擇性) 如果設定，將會以毫秒為單位定義租用檢查點的間隔。 預設值為一律在成功呼叫函式之後。
+|**checkpointFrequency**| **CheckpointFrequency**| (選擇性) 如果設定，將會以毫秒為單位定義租用檢查點的間隔。 預設皆為各函式呼叫後。
 |**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (選擇性) 如果設定，將會自訂每個函式呼叫所接收的項目數量上限。
+|**startFromBeginning**| **StartFromBeginning**| (選擇性) 設定時，它會告訴觸發程序從集合記錄的開頭 (而非當前的時間) 開始讀取變更。 這只會在觸發程序第一次啟動時運作，因為在後續執行時，檢查點已經儲存。 若已經建立租用，將此設為 `true` 則不會有任何作用。
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -384,6 +385,10 @@ namespace CosmosDBSamplesV2
 #### <a name="http-trigger-look-up-id-from-query-string-c"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 (C#)
 
 下列範例示範會顯示擷取單一文件的 [C# 函式](functions-dotnet-class-library.md)。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 `ToDoItem` 文件。
+
+>[!NOTE]
+>HTTP 查詢字串參數會區分大小寫。
+>
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -1446,29 +1451,253 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList):
 
 ### <a name="input---java-examples"></a>輸入 - Java 範例
 
-下列範例示範會擷取單一文件的 Java 函式。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，擷取 ToDoItem 文件。
+本區段包含下列範例：
 
-以下是 Java 程式碼：
+* [HTTP 觸發程序，從查詢字串中查閱識別碼 - 字串參數](#http-trigger-look-up-id-from-query-string---string-parameter-java)
+* [HTTP 觸發程序，從查詢字串中查閱識別碼 - POJO 參數](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)
+* [HTTP 觸發程序，從路由資料中查閱識別碼](#http-trigger-look-up-id-from-route-data-java)
+* [HTTP 觸發程序，使用 SqlQuery 從路由資料中查閱識別碼](#http-trigger-look-up-id-from-route-data-using-sqlquery-java)
+* [HTTP 觸發程序，使用 SqlQuery 從路由資料中取得多份文件](#http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java)
+
+範例會參考簡單的 `ToDoItem` 類型：
 
 ```java
-@FunctionName("getItem")
-public String cosmosDbQueryById(
-    @HttpTrigger(name = "req",
-                  methods = {HttpMethod.GET},
-                  authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> dummy,
-    @CosmosDBInput(name = "database",
-                      databaseName = "ToDoList",
-                      collectionName = "Items",
-                      leaseCollectionName = "",
-                      id = "{Query.id}"
-                      connectionStringSetting = "AzureCosmosDBConnection") Optional<String> item,
-    final ExecutionContext context
- ) {
-    return item.orElse("Not found");
- }
+public class ToDoItem {
+
+  private String id;
+  private String description;  
+
+  public String getId() {
+    return id;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+  
+  @Override
+  public String toString() {
+    return "ToDoItem={id=" + id + ",description=" + description + "}";
+  }
+}
+```
+
+#### <a name="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 - 字串參數 (Java)
+
+下列範例示範會擷取單一文件的 Java 函式。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中，以字串形式擷取文件。
+
+```java
+public class DocByIdFromQueryString {
+
+    @FunctionName("DocByIdFromQueryString")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET, HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS) 
+            HttpRequestMessage<Optional<String>> request,        
+            @CosmosDBInput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              id = "{Query.id}",
+              partitionKey = "{Query.id}",
+              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            Optional<String> item,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+        context.getLogger().info("String from the database is " + (item.isPresent() ? item.get() : null));
+
+        // Convert and display
+        if (!item.isPresent()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from Cosmos. Alternatively, we can parse the JSON string 
+            // and return an enriched JSON object.
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(item.get())
+                          .build();
+        }
+    }
+}
  ```
 
 在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Cosmos DB 的函式參數使用 `@CosmosDBInput` 註釋。  此註釋可以搭配原生 Java 類型、POJO 或使用「選擇性」<T>的可為 Null 值一起使用。
+
+#### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>HTTP 觸發程序，從查詢字串中查閱識別碼 - POJO 參數 (Java)
+
+下列範例示範會擷取單一文件的 Java 函式。 函式會由 HTTP 要求觸發，該 HTTP 要求會使用查詢字串指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中擷取文件。 該文件接著會轉換為先前建立之 ```ToDoItem``` POJO 的執行個體，並當成引數傳遞到函式。
+
+```java
+public class DocByIdFromQueryStringPojo {
+
+    @FunctionName("DocByIdFromQueryStringPojo")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET, HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS) 
+            HttpRequestMessage<Optional<String>> request,        
+            @CosmosDBInput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              id = "{Query.id}",
+              partitionKey = "{Query.id}",
+              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            ToDoItem item,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+        context.getLogger().info("Item from the database is " + item);
+
+        // Convert and display
+        if (item == null) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(item)
+                          .build();
+        }
+    }
+}
+ ```
+
+#### <a name="http-trigger-look-up-id-from-route-data-java"></a>HTTP 觸發程序，從路由資料中查閱識別碼 (Java)
+
+下列範例示範會擷取單一文件的 Java 函式。 此函式會由 HTTP 要求所觸發，該 HTTP 要求會使用路由參數來指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中擷取文件，並以 ```Optional<String>``` 傳回該文件。
+
+```java
+public class DocByIdFromRoute {
+
+    @FunctionName("DocByIdFromRoute")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET, HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS,
+              route = "todoitems/{id}")
+            HttpRequestMessage<Optional<String>> request,        
+            @CosmosDBInput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              id = "{id}",
+              partitionKey = "{id}",
+              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            Optional<String> item,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+        context.getLogger().info("String from the database is " + (item.isPresent() ? item.get() : null));
+
+        // Convert and display
+        if (!item.isPresent()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from Cosmos. Alternatively, we can parse the JSON string 
+            // and return an enriched JSON object.
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(item.get())
+                          .build();
+        }
+    }
+}
+ ```
+
+#### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>HTTP 觸發程序，使用 SqlQuery 從路由資料中查閱識別碼 (Java)
+
+下列範例示範會擷取單一文件的 Java 函式。 此函式會由 HTTP 要求所觸發，該 HTTP 要求會使用路由參數來指定要查閱的識別碼。 該識別碼會用來從指定的資料庫和集合中擷取文件，並將結果集轉換為 ```ToDoItem[]```，因為根據查詢準則而定，可能會傳回許多文件。
+
+```java
+public class DocByIdFromRouteSqlQuery {
+
+    @FunctionName("DocByIdFromRouteSqlQuery")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET, HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS,
+              route = "todoitems2/{id}") 
+            HttpRequestMessage<Optional<String>> request,        
+            @CosmosDBInput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              sqlQuery = "select * from Items r where r.id = {id}",
+              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            ToDoItem[] item,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+        context.getLogger().info("Items from the database are " + item);
+
+        // Convert and display
+        if (item == null) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(item)
+                          .build();
+        }
+    }
+}
+ ```
+
+#### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>HTTP 觸發程序，使用 SqlQuery 從路由資料中取得多份文件 (Java)
+
+下列範例示範會取得多份文件的 Java 函式。 此函式會由 HTTP 要求所觸發，該 HTTP 要求會使用路由參數 ```desc``` 來指定要在 ```description``` 欄位中搜尋的字串。 搜尋字詞會用來從指定的資料庫和集合中擷取文件集合，並將結果集轉換為 ```ToDoItem[]```，然後將其當成引數傳遞到函式。
+
+```java
+public class DocsFromRouteSqlQuery {
+
+    @FunctionName("DocsFromRouteSqlQuery")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET}, 
+              authLevel = AuthorizationLevel.ANONYMOUS,
+              route = "todoitems3/{desc}")
+            HttpRequestMessage<Optional<String>> request,        
+            @CosmosDBInput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              sqlQuery = "select * from Items r where contains(r.description, {desc})",
+              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            ToDoItem[] items,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+        context.getLogger().info("Number of items from the database is " + (items == null ? 0 : items.length));
+
+        // Convert and display
+        if (items == null) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("No documents found.")
+                          .build();
+        } 
+        else {
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(items)
+                          .build();
+        }
+    }
+}
+ ```
 
 ## <a name="input---attributes"></a>輸入 - 屬性
 
@@ -1511,7 +1740,7 @@ Azure Cosmos DB 輸出繫結可讓您使用 SQL API，將新的文件寫入 Azur
 * [C#](#output---c-examples)
 * [C# 指令碼 (.csx)](#output---c-script-examples)
 * [F#](#output---f-examples)
-* [Java](#output---java-example)
+* [Java](#output---java-examples)
 * [JavaScript](#output---javascript-examples)
 
 另請參閱使用 `DocumentClient` 的[輸入範例](#input---c-examples)。
@@ -1884,20 +2113,163 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 
 ### <a name="output---java-examples"></a>輸出 - Java 範例
 
+* [佇列觸發程序，透過傳回值將訊息儲存至資料庫](#queue-trigger-save-message-to-database-via-return-value-java)
+* [HTTP 觸發程序，透過傳回值將一份文件儲存至資料庫](#http-trigger-save-one-document-to-database-via-return-value-java)
+* [HTTP 觸發程序，透過 OutputBinding 將一份文件儲存至資料庫](#http-trigger-save-one-document-to-database-via-outputbinding-java)
+* [HTTP 觸發程序，透過 OutputBinding 將多份文件儲存至資料庫](#http-trigger-save-multiple-documents-to-database-via-outputbinding-java)
+
+
+#### <a name="queue-trigger-save-message-to-database-via-return-value-java"></a>佇列觸發程序，透過傳回值將訊息儲存至資料庫 (Java)
+
 下列範例示範的 Java 函式使用佇列儲存體中的訊息資料，將文件新增至資料庫。
 
 ```java
 @FunctionName("getItem")
-@CosmosDBOutput(name = "database", databaseName = "ToDoList", collectionName = "Items", connectionStringSetting = "AzureCosmosDBConnection")
+@CosmosDBOutput(name = "database", 
+  databaseName = "ToDoList", 
+  collectionName = "Items", 
+  connectionStringSetting = "AzureCosmosDBConnection")
 public String cosmosDbQueryById(
-     @QueueTrigger(name = "msg", queueName = "myqueue-items", connection = "AzureWebJobsStorage") String message,
-     final ExecutionContext context
-)  {
-     return "{ id: " + System.currentTimeMillis() + ", Description: " + message + " }";
+    @QueueTrigger(name = "msg", 
+      queueName = "myqueue-items", 
+      connection = "AzureWebJobsStorage") 
+    String message,
+    final ExecutionContext context)  {
+     return "{ id: \"" + System.currentTimeMillis() + "\", Description: " + message + " }";
    }
 ```
 
-在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對即將寫入至 Cosmos DB 的參數使用 `@CosmosDBOutput` 註釋。  註解參數類型應該是 OutputBinding<T>，其中 T 是原生 Java 類型或 POJO。
+#### <a name="http-trigger-save-one-document-to-database-via-return-value-java"></a>HTTP 觸發程序，透過傳回值將一份文件儲存至資料庫 (Java)
+
+下列範例所示範的 Java 函式，其簽章會加上 ```@CosmosDBOutput``` 的標註並具有 ```String``` 類型的傳回值。 函式所傳回的 JSON 文件將會自動寫入至對應的 CosmosDB 集合。
+
+```java
+    @FunctionName("WriteOneDoc")
+    @CosmosDBOutput(name = "database", 
+      databaseName = "ToDoList",
+      collectionName = "Items", 
+      connectionStringSetting = "Cosmos_DB_Connection_String")
+    public String run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET, HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS) 
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+
+        // Parse query parameter        
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Generate random ID
+        final int id = Math.abs(new Random().nextInt());
+
+        // Generate document
+        final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                    "\"description\": \"" + name + "\"}";
+
+        context.getLogger().info("Document to be saved: " + jsonDocument);
+
+        return jsonDocument;
+    }
+```
+
+#### <a name="http-trigger-save-one-document-to-database-via-outputbinding-java"></a>HTTP 觸發程序，透過 OutputBinding 將一份文件儲存至資料庫 (Java)
+
+下列範例所示範的 Java 函式，會透過 ```OutputBinding<T>``` 輸出參數將一份文件寫入至 CosmosDB。 請注意，在此設定中，它是必須以 ```@CosmosDBOutput``` 標註的 ```outputItem``` 參數，而非函式簽章。 使用 ```OutputBinding<T>``` 可讓您的函式利用繫結來將文件寫入至 CosmosDB，同時又能將不同的值傳回給函式呼叫端，例如 JSON 或 XML 文件。
+
+```java
+    @FunctionName("WriteOneDocOutputBinding")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET, HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS) 
+            HttpRequestMessage<Optional<String>> request,
+            @CosmosDBOutput(name = "database", 
+              databaseName = "ToDoList", 
+              collectionName = "Items", 
+              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            OutputBinding<String> outputItem,
+            final ExecutionContext context) {
+  
+        // Parse query parameter
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+      
+        // Generate random ID
+        final int id = Math.abs(new Random().nextInt());
+
+        // Generate document
+        final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                    "\"description\": \"" + name + "\"}";
+
+        context.getLogger().info("Document to be saved: " + jsonDocument);
+
+        // Set outputItem's value to the JSON document to be saved
+        outputItem.setValue(jsonDocument);
+
+        // return a different document to the browser or calling client.
+        return request.createResponseBuilder(HttpStatus.OK)
+                      .body("Document created successfully.")
+                      .build();
+    }
+```
+
+#### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>HTTP 觸發程序，透過 OutputBinding 將多份文件儲存至資料庫 (Java)
+
+下列範例所示範的 Java 函式，會透過 ```OutputBinding<T>``` 輸出參數將多份文件寫入至 CosmosDB。 請注意，在此設定中，它是必須以 ```@CosmosDBOutput``` 標註的 ```outputItem``` 參數，而非函式簽章。 輸出參數 ```outputItem``` 有一份 ```ToDoItem``` 物件清單作為其範本參數類型。 使用 ```OutputBinding<T>``` 可讓您的函式利用繫結來將多份文件寫入至 CosmosDB，同時又能將不同的值傳回給函式呼叫端，例如 JSON 或 XML 文件。
+
+```java
+    @FunctionName("WriteMultipleDocsOutputBinding")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET, HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS) 
+            HttpRequestMessage<Optional<String>> request,
+            @CosmosDBOutput(name = "database", 
+              databaseName = "ToDoList", 
+              collectionName = "Items", 
+              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            OutputBinding<List<ToDoItem>> outputItem,
+            final ExecutionContext context) {
+  
+        // Parse query parameter
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+      
+        // Generate documents
+        List<ToDoItem> items = new ArrayList<>();
+
+        for (int i = 0; i < 5; i ++) {
+          // Generate random ID
+          final int id = Math.abs(new Random().nextInt());
+
+          // Create ToDoItem
+          ToDoItem item = new ToDoItem(String.valueOf(id), name);
+          
+          items.add(item);
+        }
+
+        // Set outputItem's value to the list of POJOs to be saved
+        outputItem.setValue(items);
+        context.getLogger().info("Document to be saved: " + items);
+
+        // return a different document to the browser or calling client.
+        return request.createResponseBuilder(HttpStatus.OK)
+                      .body("Documents created successfully.")
+                      .build();
+    }
+```
+
+在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對即將寫入至 Cosmos DB 的參數使用 `@CosmosDBOutput` 註釋。  註釋參數類型應該是 ```OutputBinding<T>```，其中 T 是原生 Java 類型或 POJO。
 
 
 ## <a name="output---attributes"></a>輸出 - 屬性

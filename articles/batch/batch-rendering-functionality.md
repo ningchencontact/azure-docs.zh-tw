@@ -1,17 +1,17 @@
 ---
-title: Batch 轉譯功能
+title: 轉譯功能 - Azure Batch
 description: Azure Batch 中的特定轉譯功能
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6d79cdf279022320f654fbbeadb870f82db88cab
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: a1408720a5387d044416ded377189e4539f782a7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392772"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543031"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 轉譯功能
 
@@ -25,7 +25,7 @@ ms.locfileid: "47392772"
 
 只有在需要使用預先安裝的應用程式時，才能在集區設定中指定 Azure Marketplace 轉譯 VM 映像。
 
-目前提供 Windows 2016 映像和 CentOS 映像。  您可以在 [Azure Marketplace](https://azuremarketplace.microsoft.com) 中，透過搜尋「batch 轉譯」來找到 VM 映像。
+目前提供 Windows 2016 映像和 CentOS 映像。  您可以在 [Azure Marketplace](https://azuremarketplace.microsoft.com) 中，藉由搜尋「batch 轉譯」來找到 VM 映像。
 
 如需範例集區設定，請參閱 [Azure CLI 轉譯教學課程](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)。  Azure 入口網站和 Batch Explorer 提供 GUI 工具，讓您在建立集區時選取轉譯 VM 映像。  如果使用 Batch API，則在建立集區時指定 [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) 的下列屬性值：
 
@@ -39,7 +39,7 @@ ms.locfileid: "47392772"
 * 以標準 Marketplace 映像為基礎的自訂映像：
   * 使用此選項，可以為您的虛擬機器設定所需要的確切應用程式與特定版本。 如需詳細資訊，請參閱[使用自訂映像來建立虛擬機器的集區](https://docs.microsoft.com/azure/batch/batch-custom-images)。 Autodesk 和 Chaos Group 已分別修改 Arnold 和 V-Ray，以驗證 Azure Batch 授權服務。 請確定您的應用程式版本具有此支援，否則按使用次數付費授權將無法運作。 目前版本的 Maya 或 3ds Max 在執行無周邊 (以批次/命令列模式) 時不需要授權伺服器。 如果您不確定如何繼續使用此選項，請連絡 Azure 支援。
 * [應用程式套件](https://docs.microsoft.com/azure/batch/batch-application-packages)：
-  * 將使用一或多個 ZIP 檔案的應用程式檔案套件、透過 Azure 入口網站上傳，然後在集區設定中指定套件。 建立集區 VM 時，會下載 ZIP 檔案並將檔案解壓縮。
+  * 將使用一或多個 ZIP 檔案的應用程式檔案封裝、透過 Azure 入口網站上傳，然後在集區設定中指定套件。 建立集區 VM 時，會下載 ZIP 檔案並將檔案解壓縮。
 * 資源檔：
   * 應用程式檔案會上傳至 Azure Blob 儲存體，而且您要在[集區啟動工作](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) \(英文\) 中指定檔案參考。 建立集區 VM 時，會將資源檔下載到每個 VM。
 

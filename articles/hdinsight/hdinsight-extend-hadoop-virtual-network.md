@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 308527bce2048921c2af65aa78a12d8ef2c2bed2
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0119e05ce5cb8d1c2e27936dc44896b7acef9312
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497778"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725961"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -27,10 +27,10 @@ ms.locfileid: "52497778"
 
 * 直接存取無法透過網際網路公開使用的 [Apache Hadoop](https://hadoop.apache.org/) 服務。 例如，[Apache Kafka](https://kafka.apache.org/) API 或 [Apache HBase](https://hbase.apache.org/) Java API。
 
-> [!WARNING]
+> [!WARNING]  
 > 本文件中的資訊需要了解 TCP/IP 網路。 如果您不熟悉 TCP/IP 網路，則應該與之前在生產網路中修改的人員合作。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 如果您要尋找使用 Azure 虛擬網路將 HDInsight 連線到內部部署網路的逐步指引，請參閱[將 HDInsight 連線至內部部署網路](connect-on-premises-network.md)文件。
 
 ## <a name="planning"></a>規劃
@@ -53,7 +53,7 @@ ms.locfileid: "52497778"
 
 使用本節中的步驟，以了解如何將新的 HDInsight 新增至現有 Azure 虛擬網路。
 
-> [!NOTE]
+> [!NOTE]  
 > 您無法在虛擬網路中新增現有的 HDInsight 叢集。
 
 1. 您要使用虛擬網路的傳統或 Resource Manager 部署模型嗎？
@@ -88,7 +88,7 @@ ms.locfileid: "52497778"
 
         如需詳細資訊，請參閱[為網路安全性群組疑難排解](../virtual-network/diagnose-network-traffic-filter-problem.md)文件。
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > 會根據規則優先順序依序套用網路安全性群組規則。 會套用第一個符合流量模式的規則，而且未針對該流量套用其他規則。 排序從最寬鬆到最嚴格權限的規則。 如需詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](../virtual-network/security-overview.md)文件。
 
     * 使用者定義的路由
@@ -112,7 +112,7 @@ ms.locfileid: "52497778"
     * [使用 Azure 傳統 CLI 建立 HDInsight](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [使用 Azure Resource Manager 範本建立 HDInsight](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > 將 HDInsight 新增至虛擬網路是選擇性的設定步驟。 請務必在設定叢集時選取虛擬網路。
 
 ## <a id="multinet"></a>連線多個網路
@@ -132,7 +132,7 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
 預設名稱解析「不」允許 HDInsight 解析加入虛擬網路之網路中的資源名稱。 例如，通常會將內部部署網路加入虛擬網路。 只使用預設名稱解析，HDInsight 無法透過名稱存取內部部署網路中的資源。 反之亦然，內部部署網路中的資源無法透過名稱存取虛擬網路中的資源。
 
-> [!WARNING]
+> [!WARNING]  
 > 您必須建立自訂 DNS 伺服器，並設定虛擬網路使用它，再建立 HDInsight 叢集。
 
 若要啟用虛擬網路與所加入網路中資源之間的名稱解析，您必須執行下列動作：
@@ -141,7 +141,7 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
 2. 將虛擬網路設定為使用自訂 DNS 伺服器。
 
-3. 尋找虛擬網路的 Azure 指派 DNS 尾碼。 此值與 `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` 類似。 如需尋找 DNS 尾碼的資訊，請參閱[範例：自訂 DNS](#example-dns) 一節。
+3. 尋找虛擬網路的 Azure 指派 DNS 尾碼。 此值與 `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` 類似。 如需尋找 DNS 尾碼的相關資訊，請參閱[範例：自訂 DNS](#example-dns) 一節。
 
 4. 設定 DNS 伺服器之間的轉送。 設定取決於遠端網路類型。
 
@@ -153,7 +153,7 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
             * 將所有其他要求轉送至內部部署 DNS 伺服器。 內部部署 DNS 會處理所有其他名稱解析要求，即使是網際網路資源 (例如 Microsoft.com) 的要求也是一樣。
 
-        * 內部部署 DNS：將虛擬網路 DNS 尾碼的要求轉送至自訂 DNS 伺服器。 自訂 DNS 伺服器接著會轉送至 Azure 遞迴解析程式。
+        * __內部部署 DNS__：將虛擬網路 DNS 尾碼的要求轉送至自訂 DNS 伺服器。 自訂 DNS 伺服器接著會轉送至 Azure 遞迴解析程式。
 
         此設定會將完整網域名稱包含虛擬網路 DNS 尾碼的要求路由傳送至自訂 DNS 伺服器。 內部部署 DNS 伺服器會處理所有其他要求 (即使是針對公用網際網路位址)。
 
@@ -201,7 +201,7 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
     在所傳回的節點清單中，尋找前端節點的 FQDN 並使用這些 FQDN 來連線至 Ambari 和其他 Web 服務。 例如，使用 `http://<headnode-fqdn>:8080` 存取 Ambari。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 前端節點上裝載的某些服務一次只會在一個節點上作用。 如果您嘗試在一個前端節點上存取服務，但傳回 404 錯誤，請切換至其他的前端節點。
 
 2. 若要判斷可提供服務的節點和連接埠，請參閱 [Hadoop 服務在 HDInsight 上所使用的連接埠](./hdinsight-hadoop-port-settings-for-services.md)文件。
@@ -212,7 +212,7 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 
 * **網路安全性群組** (NSG) 可讓您篩選輸入和輸出網路流量。 如需詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](../virtual-network/security-overview.md)文件。
 
-    > [!WARNING]
+    > [!WARNING]  
     > HDInsight 不支援限制輸出流量。 應該允許所有輸出流量。
 
 * **使用者定義路由** (UDR) 定義流量在網路中的資源之間如何流動。 如需詳細資訊，請參閱[使用者定義路由和 IP 轉送](../virtual-network/virtual-networks-udr-overview.md)文件。
@@ -234,7 +234,7 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 3. 建立或修改您要安裝 HDInsight 之子網路的網路安全性群組或使用者定義路由。
 
     * __網路安全性群組__：允許連接埠 __443__ 上來自 IP 位址的「輸入」流量。 這可確保 HDI 管理服務可從 VNET 外部觸達叢集。
-    * __使用者定義路由__：如果您打算使用 UDR，建立每個 IP 位址的路由，並將 [下一個躍點類型] 設定為 [網際網路]。 您也應該無限制地允許 VNET 的任何其他輸出流量。 例如，您可以將所有其他流量路由傳送至 Azure 防火牆或網路虛擬設備 (裝載於 Azure 中) 進行監視，但不應封鎖傳出流量。
+    * __使用者定義的路由__：如果您打算使用 UDR，請建立每個 IP 位址的路由，並將 [下一個躍點類型] 設定為 [網際網路]。 您也應該無限制地允許 VNET 的任何其他輸出流量。 例如，您可以將所有其他流量路由傳送至 Azure 防火牆或網路虛擬設備 (裝載於 Azure 中) 進行監視，但不應封鎖傳出流量。
 
 如需網路安全性群組或使用者定義路由的詳細資訊，請參閱下列文件：
 
@@ -248,7 +248,7 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 
 ## <a id="hdinsight-ip"></a> 所需的 IP 位址
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Azure 健康狀態和管理服務必須能夠與 HDInsight 通訊。 如果您使用網路安全性群組或使用者定義的路由，請允許來自這些服務之 IP 位址的流量到達 HDInsight。
 >
 > 如果您未使用網路安全性群組或使用者定義的路由來控制流量，可以忽略這個章節。
@@ -266,7 +266,7 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 
 2. 如果您的 HDInsight 叢集是位於下列其中一個區域中，就必須允許來自針對區域所列的 IP 位址之流量：
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 如果未列出您使用的 Azure 區域，就只能使用步驟 1 中的四個 IP 位址。
 
     | 國家 (地區) | 區域 | 允許的 IP 位址 | 允許的連接埠 | 方向 |
@@ -330,14 +330,14 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 
 * [部署安全的 Azure 虛擬網路和 HDInsight Hadoop 叢集](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 使用下列 PowerShell 指令碼建立限制輸入流量的虛擬網路，並允許來自北歐區域之 IP 位址的流量。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
 
 ```powershell
@@ -435,7 +435,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 $vnet | Set-AzureRmVirtualNetwork
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 此範例示範如何新增規則，以允許所需 IP 位址上的輸入流量。 它不會包含可限制其他來源之輸入存取的規則。
 >
 > 下列範例示範如何啟用從網際網路進行 SSH 存取：
@@ -458,7 +458,7 @@ $vnet | Set-AzureRmVirtualNetwork
 
 2. 使用下列將規則新增至新的網路安全性群組，這些規則允許從 Azure HDInsight 健康狀態和管理服務透過連接埠 443 的輸入通訊。 將 **RESOURCEGROUPNAME** 取代為包含 Azure 虛擬網路的資源群組名稱。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
 
     ```azurecli
@@ -490,7 +490,7 @@ $vnet | Set-AzureRmVirtualNetwork
 
     此命令完成之後，您可以將 HDInsight 安裝至虛擬網路。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 這些步驟只會開啟 Azure 雲端上 HDInsight 健康狀態和管理服務的存取權。 任何其他來自虛擬網路外部之對 HDInsight 叢集的存取都會遭到封鎖。 若要允許從外部虛擬網路存取，您必須新增額外的網路安全性群組規則。
 >
 > 下列範例示範如何啟用從網際網路進行 SSH 存取：
@@ -499,7 +499,7 @@ $vnet | Set-AzureRmVirtualNetwork
 > az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 > ```
 
-## <a id="example-dns"></a> 範例：DNS 設定
+## <a id="example-dns"></a> 範例：DNS 組態
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>虛擬網路與已連線內部部署網路之間的名稱解析
 
@@ -580,7 +580,7 @@ $vnet | Set-AzureRmVirtualNetwork
 
 4. 將條件式轉寄站新增至內部部署 DNS 伺服器。 設定條件式轉寄站，以將步驟 1 中之 DNS 尾碼的要求傳送至自訂 DNS 伺服器。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 如需如何新增條件式轉寄站的詳細資訊，請參閱 DNS 軟體的文件。
 
 完成這些步驟之後，您可以使用完整網域名稱 (FQDN) 連線至任一虛擬網路中的資源。 您現在可以將 HDInsight 安裝至虛擬網路。

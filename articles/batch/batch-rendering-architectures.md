@@ -1,18 +1,19 @@
 ---
-title: Azure 轉譯 - 參考架構
+title: Azure 轉譯參考架構 - Azure Batch
 description: 使用 Azure Batch 和其他 Azure 服務，藉由高載至雲端來擴充內部部署轉譯伺服器陣列的架構
 services: batch
 author: davefellows
 manager: jeconnoc
-ms.author: danlep
+ms.author: lahugh
 ms.date: 08/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0fe101ee6eb88094034b90c4d39f06ba509c9512
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.custom: seodec18
+ms.openlocfilehash: d5102ba94e2b7808a457df00a87b35ef7022c454
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099646"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543490"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Azure 轉譯的參考架構
 
@@ -26,7 +27,7 @@ ms.locfileid: "40099646"
 
 * **網路** - 內部部署：Azure ExpressRoute 或 VPN。 Azure：Azure VNet。
 
-* **儲存體** - 輸入和輸出檔案：使用 Azure VM 的 NFS 或 CFS，可透過「Azure 檔案同步」或 RSync 與內部部署儲存體同步處理。
+* **儲存體** - 輸入和輸出檔案：使用 Azure VM 的 NFS 或 CFS，可透過 Azure 檔案同步或 RSync 來與內部部署儲存體同步處理。
 
   ![雲端高載 - 混合使用 NFS 或 CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs.png)
 

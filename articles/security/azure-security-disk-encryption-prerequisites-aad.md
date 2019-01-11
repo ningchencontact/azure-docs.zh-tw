@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/13/2018
+ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9beb782496c9234a93f17ffc825e9b4501f2296
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 071f07e9d485a5fab5f2ce3d23a383e974001143
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342403"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158006"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure 磁碟加密必要條件 (舊版)
 
@@ -23,8 +23,9 @@ ms.locfileid: "53342403"
 
 針對 [Azure 磁碟加密概觀](azure-security-disk-encryption-overview.md)一文中所討論的支援案例，當您在 Azure IaaS VM 上啟用 Azure 磁碟加密之前，請務必先備妥先決條件。 
 
-> [!NOTE]
-> 某些建議可能會增加資料、網路或計算資源的使用量，導致額外的授權或訂用帳戶成本。 您必須擁有有效的作用中 Azure 訂用帳戶，才能在 Azure 支援的區域中建立資源。
+> [!WARNING]
+> - 某些建議可能會增加資料、網路或計算資源的使用量，導致額外的授權或訂用帳戶成本。 您必須擁有有效的作用中 Azure 訂用帳戶，才能在 Azure 支援的區域中建立資源。
+> - 如果您先前曾使用 [Azure 磁碟加密搭配 Azure AD 應用程式](azure-security-disk-encryption-prerequisites-aad.md)來加密此 VM，則必須繼續使用此選項來加密 VM。 您無法在此加密的 VM 上使用 [Azure 磁碟加密](azure-security-disk-encryption-prerequisites.md)，因為這不是支援的案例，表示尚未對此加密的 VM 支援從 AAD 應用程式離開。 
 
 
 ## <a name="bkmk_OSs"></a> 受支援的作業系統
@@ -79,11 +80,10 @@ ms.locfileid: "53342403"
 [Azure PowerShell](/powershell/azure/overview) 提供了一組 Cmdlet，它們會使用 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 模型來管理 Azure 資源。 您可以在瀏覽器中將它與 [Azure Cloud Shell](../cloud-shell/overview.md) 搭配使用，也可以使用下列指示將它安裝在本機電腦上，以在任何 PowerShell 工作階段中使用它。 如果您已將它安裝在本機上，請確定您是使用最新版的 Azure PowerShell SDK 版本來設定 Azure 磁碟加密。 下載最新版的 [Azure PowerShell 版本](https://github.com/Azure/azure-powershell/releases)。
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>安裝 Azure PowerShell 以便在本機電腦上使用 (選擇性)：  
-1. 遵循作業系統所適用連結內的指示，然後繼續完成下列其餘步驟。      
-    - [安裝並設定適用於 Windows 的 Azure PowerShell](/powershell/azure/install-azurerm-ps)。 
+1. 遵循作業系統所適用連結內的指示，然後繼續完成下列其餘步驟。
+    - [安裝並設定適用於 Windows 的 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)。 
         - 安裝 PowerShellGet、Azure PowerShell，並載入 AzureRM 模組。 
-    - [在 macOS 與 Linux 上安裝和設定 Azure PowerShell](/powershell/azure/install-azurermps-maclinux)。
-        -  安裝 .NET Core 版本之 PowerShell Core 和 Azure PowerShell，並載入 Az 模組。
+
 2. 安裝 [Azure Active Directory PowerShell 模組](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module)。 
 
      ```powershell
@@ -159,7 +159,7 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 
 
 >[!WARNING]
->為了確保加密祕密不會跨出區域界限，Azure 磁碟加密需要讓 Key Vault 和 VM 共置於相同區域中。 請在與所要加密 VM 相同的區域中建立並使用 Key Vault。 
+>為了確保加密祕密不會跨出區域界限，Azure 磁碟加密需要讓 Key Vault 和 VM 共置於相同區域中。 請在和所要加密 VM 相同的區域中建立並使用 Key Vault。 
 
 
 ### <a name="bkmk_KVPSH"></a> 使用 PowerShell 建立金鑰保存庫
@@ -343,7 +343,7 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 
 1. 選取金鑰保存庫，移至 [存取原則]，然後**按一下以顯示進階存取原則**。
 2. 選取標示為**為磁碟區加密啟用對 Azure 磁碟加密的存取**的方塊。
-3. 視需要選取 [為部署啟用對 Azure 虛擬機器的存取] 和/或 [為範本部署啟用對 Azure Resource Manager 的存取]。 
+3. 視需要選取 [為部署啟用對 Azure 虛擬機器的存取] 及/或 [為範本部署啟用對 Azure Resource Manager 的存取]。 
 4. 按一下 [檔案] 。
 
 ![Azure 金鑰保存庫進階存取原則](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
@@ -489,7 +489,7 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 
 ## <a name="bkmk_CertKEK"></a> 憑證式驗證和 KEK (選擇性)
 
-如果您想要使用憑證驗證，並以 KEK 包裝加密金鑰，您可以使用下面的指令碼作為範例。 在使用 PowerShell 指令碼之前，請先熟悉所有先前的 Azure 磁碟加密先決條件，以了解指令碼中的步驟。 範例指令碼可能需要隨環境加以變更。
+如果您想要使用憑證驗證，並以 KEK 包裝加密金鑰，您可以使用下列指令碼作為範例。 在使用 PowerShell 指令碼之前，請先熟悉所有先前的 Azure 磁碟加密先決條件，以了解指令碼中的步驟。 範例指令碼可能需要隨環境加以變更。
 
 > [!IMPORTANT]
 > Linux VM 目前不支援 Azure AD 憑證式驗證。

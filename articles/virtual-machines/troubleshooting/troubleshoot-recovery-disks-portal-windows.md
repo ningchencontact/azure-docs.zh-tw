@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: c68febc7bd6aac0262c41cc8b33602f8496eb215
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0b6ade7a6031b957f2405e525d61c9ca1d2dac3d
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436395"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809092"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>使用 Azure 入口網站將 OS 磁碟連結至復原 VM，以針對 Windows VM 進行疑難排解
 如果 Azure 中的 Windows 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是應用程式更新無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure 入口網站將虛擬硬碟連接至另一個 Windows VM，以修正任何錯誤，然後重新建立原始 VM。
@@ -133,7 +133,7 @@ ms.locfileid: "53436395"
     請稍候，等待 VM 成功將資料磁碟中斷連結再繼續。
 
 ## <a name="create-vm-from-original-hard-disk"></a>從原始硬碟建立 VM
-若要從原始虛擬硬碟建立 VM，請使用[這個 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet)。 此範本會使用來自先前命令的 VHD URL，將 VM 部署至現有的虛擬網路。 按一下 [部署至 Azure] 按鈕，如下所示︰
+若要從原始虛擬硬碟建立 VM，請使用[這個 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet)。 此範本會使用來自先前命令的 VHD URL，將 VM 部署至現有的虛擬網路或新的虛擬網路。 按一下 [部署至 Azure] 按鈕，如下所示︰
 
 ![從來自 GitHub 的範本部署 VM](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
 

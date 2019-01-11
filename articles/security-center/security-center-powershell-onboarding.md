@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ecfab15860ffc690d341069b626e5d7579c00da4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 03a73d672aefc1b8203f3df5cf2301e94e322129
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340363"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159939"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>使用 PowerShell 自動化上架 Azure 資訊安全中心
 
@@ -49,37 +49,31 @@ ms.locfileid: "53340363"
 1.  以系統管理員身分執行 PowerShell。
 2.  在 PowerShell 中執行下列命令：
       
-        Install-Module -Name PowerShellGet -Force
         Set-ExecutionPolicy -ExecutionPolicy AllSigned
-        Import-Module PowerShellGet
-6.  重新啟動 PowerShell
-
-7. 在 PowerShell 中，執行下列命令：
-
-         Install-Module -Name AzureRM.Security -AllowPrerelease -Force
+        Install-Module -Name Az.Security -Force
 
 ## <a name="onboard-security-center-using-powershell"></a>使用 PowerShell 上架資訊安全中心
 
 1.  將您的訂用帳戶註冊到資訊安全中心資源提供者：
 
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.Security' 
+        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+        Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
 2.  選用：設定訂用帳戶的涵蓋範圍等級 (定價層) (如果未定義，則定價層設定為「免費」)：
 
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Set-AzureRmSecurityPricing -Name "default" -PricingTier "Standard"
+        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+        Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
 
 3.  設定代理程式將向其回報的 Log Analytics 工作區。 您必須擁有已建立的 Log Analytics 工作區，訂用帳戶的 VM 將向其回報。 您可以定義多個訂用帳戶，向相同的工作區回報。 如果未定義，就會使用預設工作區。
 
-        Set-AzureRmSecurityWorkspaceSetting -Name "default" -Scope
+        Set-AzSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
 
 4.  在您的 Azure VM 上自動佈建 Microsoft Monitoring Agent 的安裝：
     
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     
-        Set-AzureRmSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
+        Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
 
     > [!NOTE]
     > 建議您啟用自動佈建，以確定 Azure 資訊安全中心會自動保護您的 Azure 虛擬機器。
@@ -87,13 +81,13 @@ ms.locfileid: "53340363"
 
 5.  選用：強烈建議您定義上架之訂用帳戶的安全性連絡人詳細資料，這些訂用帳戶將作為資訊安全中心所產生之警示和通知的收件者：
 
-        Set-AzureRmSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertsAdmin -NotifyOnAlert 
+        Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
 
 6.  指派預設資訊安全中心原則計畫：
 
-        Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-        $Policy = Get-AzureRmPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
-        New-AzureRmPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
+        Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
+        $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
+        New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
 
 您現在已成功使用 PowerShell 上架 Azure 資訊安全中心！
 
@@ -107,7 +101,7 @@ ms.locfileid: "53340363"
 ## <a name="see-also"></a>另請參閱
 若要深入了解如何使用 PowerShell 來自動化上架到資訊安全中心的相關資訊，請參閱下列文章：
 
-* [AzureRM.Security](https://www.powershellgallery.com/packages/AzureRM.Security/0.2.0-preview)。
+* [Az.Security](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Security/Commands.Security/help/Az.Security.md)。
 
 如要深入了解資訊安全中心，請參閱下列文章：
 

@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: e448b367e574b044762fb1ee7eaa30e1bb3e1f8b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011727"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652485"
 ---
-# <a name="use-sqoop-with-hadoop-in-hdinsight"></a>在 HDInsight 上將 Sqoop 與 Hadoop 搭配使用
+# <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>搭配使用 Apache Sqoop 與 HDInsight 中的 Hadoop
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
 了解如何在 HDInsight 上使用 Apache Sqoop，以進行 HDInsight 叢集與 Azure SQL Database 或 SQL Server Database 之間的匯入和匯出作業。
 
 雖然在處理非結構化資料和半結構化資料時 (例如記錄和檔案)，很自然地會選擇 Apache Hadoop，但有時也需要處理儲存在關聯式資料庫中的結構化資料。
 
-[Apache Sqoop][sqoop-user-guide-1.4.4] 是一種可在 Hadoop 叢集和關聯式資料庫之間傳送資料的工具。 此工具可讓您從 SQL Server、MySQL 或 Oracle 等關聯式資料庫管理系統 (RDBMS)，將資料匯入 Hadoop 分散式檔案系統 (HDFS)，使用 MapReduce 或 Hive 轉換 Hadoop 中的資料，然後將資料匯回 RDBMS。 在本教學課程中，您將使用 SQL Server Database 做為關聯式資料庫。
+[Apache Sqoop][sqoop-user-guide-1.4.4] 是一種可在 Hadoop 叢集和關聯式資料庫之間傳送資料的工具。 此工具可讓您從 SQL Server、MySQL 或 Oracle 等關聯式資料庫管理系統 (RDBMS)，將資料匯入至 Hadoop 分散式檔案系統 (HDFS)，使用 MapReduce 或 Apache Hive 轉換 Hadoop 中的資料，然後將資料匯回 RDBMS。 在本教學課程中，您將使用 SQL Server Database 做為關聯式資料庫。
 
 如需 HDInsight 叢集所支援的 Sqoop 版本，請參閱 [HDInsight 所提供叢集版本的新功能][hdinsight-versions]。
 
@@ -31,7 +31,7 @@ ms.locfileid: "53011727"
 
 HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 
-* 位於 */example/data/sample.log*的 log4j 記錄檔。 下列記錄擷取自此檔案：
+* 位於 */example/data/sample.log* 的 Apache Log4j 記錄檔。 下列記錄擷取自此檔案：
   
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -65,7 +65,7 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 
 如果您想要使用 Azure PowerShell 來建立叢集與 SQL Database，請參閱[附錄 A](#appendix-a---a-powershell-sample)。
 
-> [!NOTE]
+> [!NOTE]  
 > 使用範本或 Azure 入口網站匯入的方式只支援從 Azure Blob 儲存體匯入 BACPAC 檔案。
 
 **若要使用資源管理範本設定環境**
@@ -101,32 +101,29 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 
 * **Azure SQL 資料庫**：您必須設定 Azure SQL 資料庫伺服器的防火牆規則，以允許從您的工作站存取。 如需關於建立 Azure SQL Database 和設定防火牆的指示，請參閱[開始使用 Azure SQL Database][sqldatabase-get-started]。 
   
-  > [!NOTE]
+  > [!NOTE]  
   > 根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。 如果停用此防火牆設定，則您必須在 Azure 入口網站中加以啟用。 如需關於建立 Azure SQL Database 和設定防火牆規則的指示，請參閱[建立和設定 SQL Database][sqldatabase-create-configure]。
-  > 
-  > 
+
 * **SQL Server**：如果您的 HDInsight 叢集與 SQL Server 位於同一個 Azure 虛擬網路上，您可以使用本文中的步驟在 SQL Server Database 上匯入和匯出資料。
   
-  > [!NOTE]
+  > [!NOTE]  
   > HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。
-  > 
-  > 
+
   
   * 若要建立和設定虛擬網路，請參閱[使用 Azure 入口網站建立虛擬網路](../../virtual-network/quick-create-portal.md)。
     
     * 在您的資料中心裡使用 SQL Server 時，必須將虛擬網路設定為「站對站」或「點對站」。
       
-      > [!NOTE]
+      > [!NOTE]  
       > 使用**點對站**虛擬網路時，SQL Server 必須執行 VPN 用戶端組態應用程式；您可從 Azure 虛擬網路組態的 [儀表板] 存取此應用程式。
-      > 
-      > 
+
+
     * 在 Azure 虛擬機器中使用 SQL Server 時，只要主控 SQL Server 的虛擬機器與 HDInsight 在同一個虛擬網路中，即可使用任何虛擬網路組態。
-  * 若要在虛擬網路上建立 HDInsight 叢集，請參閱 [使用自訂選項在 HDInsight 中建立 Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)
+  * 若要在虛擬網路上建立 HDInsight 叢集，請參閱[使用自訂選項在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)
     
-    > [!NOTE]
+    > [!NOTE]  
     > SQL Server 也必須允許驗證。 您必須使用 SQL Server 登入來完成本文中的步驟。
-    > 
-    > 
+
 
 **若要驗證設定**
 
@@ -158,8 +155,8 @@ HDInsight 可以使用各種方法執行 Sqoop 工作。 請使用下表決定�
 ## <a name="next-steps"></a>後續步驟
 現在，您已了解如何使用 Sqoop。 若要深入了解，請參閱：
 
-* [〈搭配 HDInsight 使用 Hivet〉](../hdinsight-use-hive.md)
-* [搭配 HDInsight 使用 Pig](../hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 Apache Hive](../hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Apache Pig](../hdinsight-use-pig.md)
 * [將資料上傳至 HDInsight][hdinsight-upload-data]：尋找其他方法將資料上傳至 HDInsight/Azure Blob 儲存體。
 
 ## <a name="appendix-a---a-powershell-sample"></a>附錄 A - PowerShell 範例
@@ -211,7 +208,7 @@ HDInsight 可以使用各種方法執行 Sqoop 工作。 請使用下表決定�
    
     來源檔案為 tutorials/usesqoop/data/sample.log。 將資料匯至其中的資料表稱為 log4jlogs。
    
-   > [!NOTE]
+   > [!NOTE]  
    > 除了連接字串資訊以外，本節中的步驟應該可運用在 Azure SQL Database 或 SQL Server 上。 這些步驟已使用下列組態進行測試：
    > 
    > * **Azure 虛擬網路點對站組態**：在私人資料中心裡將 HDInsight 叢集連接到 SQL Server 的虛擬網路。 如需詳細資訊，請參閱 [使用管理入口網站設定點對站 VPN](../../vpn-gateway/vpn-gateway-point-to-site-create.md) 。
@@ -260,7 +257,7 @@ $sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServerName.database.wind
 $sqlDatabaseMaxSizeGB = 10
 
 # Used for retrieving external IP address and creating firewall rules
-$ipAddressRestService = "http://bot.whatismyipaddress.com"
+$ipAddressRestService = "https://bot.whatismyipaddress.com"
 $fireWallRuleName = "UseSqoop"
 
 # Used for creating tables and clustered indexes

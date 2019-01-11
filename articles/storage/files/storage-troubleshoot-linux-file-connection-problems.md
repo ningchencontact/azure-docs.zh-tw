@@ -9,18 +9,40 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d5dd2e2943d78291fc9c4903c15fb4d3767edbea
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: b8f77f404a8e5d2d1625a327a1e50c0e169b6135
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442007"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744423"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>針對 Linux 中的 Azure 檔案服務問題進行疑難排解
 
-本文列出當您從 Linux 用戶端連線時，與 Microsoft Azure 檔案服務相關的常見問題。 文中也會提供這些問題的可能原因和解決方案。 
+本文會列出當您從 Linux 用戶端連線時，與 Azure 檔案服務相關的常見問題。 文中也會提供這些問題的可能原因和解決方案。 
 
 除了本文中的疑難排解步驟外，您還可以使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) 來確保 Windows 用戶端環境具備正確的必要條件。 AzFileDiagnostics 會自動偵測本文提及的大部分徵兆。 它可協助設定您的環境，以取得最佳效能。 您也可以在 [Azure 檔案共用疑難排解員](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)中找到這項資訊。 疑難排解員提供的步驟有助您處理連接、對應以及掛接 Azure 檔案共用的問題。
+
+<a id="mounterror13"></a>
+## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>嘗試掛接 Azure 檔案共用時會顯示「掛接錯誤 (13):使用權限被拒」
+
+### <a name="cause-1-unencrypted-communication-channel"></a>原因 1：通訊通道未加密
+
+基於安全考量，如果通訊通道未加密，而且未從 Azure 檔案共用所在的相同資料中心進行連線嘗試，與 Azure 檔案共用的連線就會遭到封鎖。 如果儲存體帳戶上啟用[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定，則也可能會封鎖相同資料中心內未加密的連線。 唯有當使用者的用戶端 OS 支援 SMB 加密時，系統才會提供加密的通訊通道。
+
+若要深入了解，請參閱[以 Linux 和 cifs-utils 套件掛接 Azure 檔案共用的必要條件](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package)。 
+
+### <a name="solution-for-cause-1"></a>原因 1 的解決方案
+
+1. 從支援 SMB 加密的用戶端，或從與用於 Azure 檔案共用的 Azure 儲存體帳戶相同資料中心中的虛擬機器進行連線。
+2. 如果用戶端不支援 SMB 加密，請確認儲存體帳戶上的[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定已經停用。
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>原因 2：在儲存體帳戶上已啟用虛擬網路或防火牆規則 
+
+如果在儲存體帳戶上設定虛擬網路 (VNET) 和防火牆規則，網路流量將會被拒絕存取，除非用戶端 IP 位址或虛擬網路獲准存取。
+
+### <a name="solution-for-cause-2"></a>原因 2 的解決方案
+
+確認已經在儲存體帳戶上正確設定虛擬網路和防火牆規則。 若要測試虛擬網路或防火牆規則是否造成問題，請暫時將儲存體帳戶上的設定變更為 [允許來自所有網路的存取]。 若要深入了解，請參閱[設定 Azure 儲存體防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)。
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>當您嘗試開啟檔案時，「[使用權限被拒] 超出磁碟配額」
@@ -47,7 +69,7 @@ ms.locfileid: "52442007"
     - 在內部部署電腦上的檔案共用之間，使用 [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) \(英文\)。
 
 <a id="error112"></a>
-## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>因連線逾時而發生「掛接錯誤 (112)：主機已關機」
+## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>因重新連線逾時而發生「掛接錯誤 (112):主機已關機」
 
 當用戶端閒置很長時間時，Linux 用戶端上發生「112」掛接錯誤。 加長閒置時間之後，用戶端中斷連線且連線逾時。  
 
@@ -64,7 +86,7 @@ ms.locfileid: "52442007"
 
 - [修正重新連線在通訊端重新連線許久之後不會延遲 SMB3 工作階段重新連線 (英文)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
 - [在通訊端重新連線之後立即呼叫 Echo 服務 (英文)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
-- [CIFS：修正重新連線期間可能發生的記憶體損毀 (英文)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS：修正重新連線期間可能發生的記憶體損毀](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) \(英文\)
 - [CIFS：修正重新連線期間可能發生的 Mutex 雙重鎖定 (針對核心 4.9 版與更新版本)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) \(英文\)
 
 但是，這些變更可能尚未移植到所有 Linux 發行版本。 下列常見 Linux 核心中已有此修正和其他重新連線修正：4.4.40、4.8.16 和 4.9.1。 您可以升級至其中一個建議的核心版本，以完成此修正。
@@ -76,7 +98,7 @@ ms.locfileid: "52442007"
 如果您無法升級至最新的核心版本，您可以使用下列因應措施解決此問題：在 Azure 檔案共用中保留一個每 30 秒 (或更短時間) 就會寫入的檔案。 這必須是寫入作業，例如重寫檔案的建立或修改日期。 否則，您可能會取得快取的結果，而您的作業可能不會觸發重新連線。
 
 <a id="error115"></a>
-## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>當您使用 SMB 3.0 掛接 Azure 檔案服務時，發生「掛接錯誤 (115)：作業進行中」
+## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>當您使用 SMB 3.0 掛接 Azure 檔案服務時，發生「掛接錯誤 (115):作業進行中」
 
 ### <a name="cause"></a>原因
 
@@ -87,6 +109,27 @@ ms.locfileid: "52442007"
 Linux 4.11 核心已推出 SMB 3.0 適用的加密功能。 此功能讓您可從內部部署或不同 Azure 區域的 Azure 檔案共用進行掛接。 發佈時，這項功能已向前移植到 Ubuntu 17.04 和 Ubuntu 16.10。 
 
 如果您的 Linux SMB 用戶端不支援加密，請從位於檔案共用相同資料中心的 Azure Linux VM 使用 SMB 2.1 來掛接 Azure 檔案服務。 驗證儲存體帳戶上已停用[需要安全傳輸]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定。 
+
+<a id="accessdeniedportal"></a>
+## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>瀏覽至入口網站中的 Azure 檔案共用時發生「拒絕存取」錯誤
+
+當您瀏覽至入口網站中的 Azure 檔案共用時，可能會接收到下列錯誤：
+
+拒絕存取  
+您沒有存取權  
+您似乎沒有此內容的存取權。 若要取得存取權，請連絡擁有者。  
+
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>原因 1：您的使用者帳戶沒有該儲存體帳戶的存取權
+
+### <a name="solution-for-cause-1"></a>原因 1 的解決方案
+
+瀏覽至 Azure 檔案共用所在的儲存體帳戶，按一下 [存取控制 (IAM)]，並確認您的使用者帳戶擁有該儲存體帳戶的存取權。 若要深入了解，請參閱[如何使用角色型存取控制 (RBAC) 保護儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac)。
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>原因 2：在儲存體帳戶上已啟用虛擬網路或防火牆規則
+
+### <a name="solution-for-cause-2"></a>原因 2 的解決方案
+
+確認已經在儲存體帳戶上正確設定虛擬網路和防火牆規則。 若要測試虛擬網路或防火牆規則是否造成問題，請暫時將儲存體帳戶上的設定變更為 [允許來自所有網路的存取]。 若要深入了解，請參閱[設定 Azure 儲存體防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)。
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>掛接在 Linux VM 上的 Azure 檔案共用效能變慢
@@ -163,11 +206,11 @@ COPYFILE 中的強制旗標 **f** 會導致在 Unix 上執行 **cp -p -f**。 �
 * 提供自行修正的規範指引。
 * 收集診斷追蹤。
 
-## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls：無法存取 '&lt;path&gt;'：輸入/輸出錯誤
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: 無法存取 '&lt;path&gt;':輸入/輸出錯誤
 
 當您嘗試使用 ls 命令列出 Azure 檔案共用中的檔案時，命令會在列出檔案時停滯， 而您會收到下列錯誤：
 
-**ls：無法存取 '&lt;path&gt;'：輸入/輸出錯誤**
+**ls: 無法存取 '&lt;path&gt;':輸入/輸出錯誤**
 
 
 ### <a name="solution"></a>解決方法
@@ -178,7 +221,7 @@ COPYFILE 中的強制旗標 **f** 會導致在 Unix 上執行 **cp -p -f**。 �
 - 4.12.11+
 - 4.13 (含) 以上的所有版本
 
-## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>無法建立符號連結 - ln：無法建立符號連結 't'：不支援作業
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>無法建立符號連結 - ln: 無法建立符號連結 't':不支援作業
 
 ### <a name="cause"></a>原因
 根據預設，使用 CIFS 在 Linux 上掛接 Azure 檔案共用，並不會啟用對符號連結的支援。 您會看到類似以下錯誤：

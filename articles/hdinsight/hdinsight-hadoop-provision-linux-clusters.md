@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: e760b67c1b971613de6b21102687c8ffeb556ed8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ce39b431adfd333db1e771913ed28881a193b327
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386871"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790827"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他工具在 HDInsight 中設定叢集
 
@@ -107,12 +107,12 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 
 ## <a name="storage-endpoints-for-clusters"></a>叢集的儲存體端點
 
-內部部署安裝的 Hadoop 叢集使用 Hadoop 分散式檔案系統 (HDFS) 作為叢集上的儲存體，但在雲端中，您可以使用已連接到叢集的儲存體端點。 HDInsight 叢集會使用 [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) 或 [Azure 儲存體中的 Blob](hdinsight-hadoop-use-blob-storage.md)。 使用 Azure 儲存體或 Data Lake Store 表示您可以放心地刪除用於計算的 HDInsight 叢集，但您的資料仍會留存。 
+內部部署安裝的 Hadoop 叢集使用 Hadoop 分散式檔案系統 (HDFS) 作為叢集上的儲存體，但在雲端中，您可以使用已連接到叢集的儲存體端點。 HDInsight 叢集會使用 [Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md) 或 [Azure 儲存體中的 Blob](hdinsight-hadoop-use-blob-storage.md)。 使用 Azure 儲存體或 Data Lake Storage 表示您可以放心地刪除用於計算的 HDInsight 叢集，同時仍會留存您的資料。 
 
 > [!WARNING]  
 > 不支援在與 HDInsight 叢集不同的位置中使用其他儲存體帳戶。
 
-在設定期間，您要為預設儲存體端點指定 Azure 儲存體帳戶的 Blob 容器或 Data Lake Store。 預設儲存體包含應用程式與系統記錄檔。 您也可以選擇指定叢集可存取的其他已連結 Azure 儲存體帳戶和 Data Lake Store 帳戶。 HDInsight 叢集與相依的儲存體帳戶必須位於相同的 Azure 位置。
+在設定期間，您要為預設儲存體端點指定 Azure 儲存體帳戶的 Blob 容器或 Data Lake Storage。 預設儲存體包含應用程式與系統記錄檔。 您也可以選擇指定叢集可存取的其他已連結 Azure 儲存體帳戶和 Data Lake Storage 帳戶。 HDInsight 叢集與相依的儲存體帳戶必須位於相同的 Azure 位置。
 
 ![叢集儲存體設定：HDFS 相容儲存體端點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
@@ -247,7 +247,7 @@ HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定�
 
 ## <a name="troubleshoot-access-control-issues"></a>針對存取控制問題進行疑難排解
 
-如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

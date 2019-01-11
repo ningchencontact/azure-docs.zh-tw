@@ -5,19 +5,19 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/20/2018
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: daa3a140e749700665427a011292f48ac8f163d2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 8932f8aa1dd950693378e9fc58c79838fad6166b
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388249"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741754"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure 監視器計量瀏覽器
 
-Azure 監視器計量瀏覽器是 Microsoft Azure 入口網站的一個元件，它可讓您繪製圖表、以視覺方式串連趨勢，以及調查計量值中的突增值與突降值。 計量瀏覽器是調查由 Azure 裝載或由 Azure 監視服務監視之應用程式與基礎結構中各種效能與可用性問題的起點。 
+Azure 監視器計量瀏覽器是 Microsoft Azure 入口網站的一個元件，它可讓您繪製圖表、以視覺方式串連趨勢，以及調查計量值中的突增值與突降值。 計量瀏覽器是調查由 Azure 裝載或由 Azure 監視服務監視之應用程式與基礎結構中各種效能與可用性問題的起點。
 
 ## <a name="metrics-in-azure"></a>Azure 中的計量
 
@@ -28,11 +28,11 @@ Microsoft Azure 中的計量是隨時間收集並儲存的一系列度量與計�
 1. 開啟 Azure 入口網站
 2. 瀏覽至新的 [監視器] 索引標籤，然後選取 [計量]。
 
-   ![計量影像](./media/metrics-charts/0001.png)
+   ![計量影像](./media/metrics-charts/00001.png)
 
 3. 系統將會自動為您開啟計量選取器。 從清單選擇資源以檢視其關聯計量。 清單中只會顯示具有計量的資源。
 
-   ![計量影像](./media/metrics-charts/0002.png)
+   ![計量影像](./media/metrics-charts/00002.png)
 
    > [!NOTE]
    >若您有多個 Azure 訂用帳戶，計量瀏覽器會提取 [入口網站設定] > [依訂用帳戶篩選] 清單中選取之所有訂用帳戶的資源。 若要變更它，請按一下畫面頂端的入口網站設定齒輪圖示，然後選取您要使用的訂用帳戶。
@@ -41,15 +41,15 @@ Microsoft Azure 中的計量是隨時間收集並儲存的一系列度量與計�
 
    例如，每個 Azure 儲存體都有子服務「Blob」、「檔案」、「佇列」與「資料表」(這些都是儲存體帳戶的一部分) 的計量。 不過，「佇列訊息計數」計量本質上即適用於「佇列」子服務，而非任何其他儲存體帳戶子服務。
 
-   ![計量影像](./media/metrics-charts/0003.png)
+   ![計量影像](./media/metrics-charts/00003.png)
 
 5. 從清單選取計量。 若您知道您要尋找之計量的部分名稱，您可以開始輸入以查看已篩選的可用計量清單：
 
-   ![計量影像](./media/metrics-charts/0004.png)
+   ![計量影像](./media/metrics-charts/00004.png)
 
 6. 選取計量之後，圖表將會以所選計量的預設彙總來呈現。 此時，您只能按一下計量選取器以外的位置以將它關閉。 您也可以將圖表切換為不同的彙總。 針對某些計量，切換彙總可讓您選擇要在圖表上看到的值。 例如，您可以在平均、最小值與最大值之間切換。 
 
-7. 透過按一下 [加入計量] 圖示 ![計量圖示](./media/metrics-charts/icon001.png) 並重複步驟 3-6 即可在相同圖表上加入更多計量。
+7. 藉由按一下 [新增計量] 並重複執行步驟 3-6，即可在相同圖表上新增更多計量。
 
    > [!NOTE]
    > 您一般不會想要有具有不同計量單位的計量 (例如「毫秒」與 “KB”) 或其刻度在單一圖表上會呈現大幅差異的計量。 如果是這樣，您應該考慮使用多個圖表。 按一下 [新增圖表] 按鈕以在計量瀏覽器中建立多個圖表。
@@ -60,19 +60,19 @@ Microsoft Azure 中的計量是隨時間收集並儲存的一系列度量與計�
 
 ### <a name="to-add-a-filter"></a>加入篩選條件
 
-1. 按一下 [加入篩選] 圖示 ![篩選器圖示](./media/metrics-charts/icon002.png) (位於圖表上方)
+1. 選取圖表上方的 [新增篩選器]
 
 2. 選取您要篩選的維度 (屬性)
 
-   ![計量影像](./media/metrics-charts/0006.png)
+   ![計量影像](./media/metrics-charts/00006.png)
 
 3. 選取當繪製圖表時要包括的維度值 (此範例會顯示篩選出成功的交易)：
 
-   ![計量影像](./media/metrics-charts/0007.png)
+   ![計量影像](./media/metrics-charts/00007.png)
 
 4. 選取篩選器值之後，請按一下 [篩選器選取器] 以外的位置以將它關閉。 現在圖表會顯示失敗的儲存體交易數目：
 
-   ![計量影像](./media/metrics-charts/0008.png)
+   ![計量影像](./media/metrics-charts/00008.png)
 
 5. 您可以重複步驟 1-4 以將多個篩選器套用到相同的圖表。
 
@@ -82,23 +82,37 @@ Microsoft Azure 中的計量是隨時間收集並儲存的一系列度量與計�
 
 ### <a name="to-segment-a-chart"></a>將圖表劃分為不同的區段
 
-1. 按一下 [加入群組] 圖示  ![計量影像](./media/metrics-charts/icon003.png) (位於圖表上方)。
+1. 按一下圖表上方的 [套用分割]。
  
    > [!NOTE]
-   > 一個圖表上可以有多個篩選器，但只能有一個分組。
+   > 任何單一圖表上均可有多個篩選器，但只能有一個分割/劃分值。
 
-2. 選擇要據以將圖表分割為不同區段的維度： 
+2. 選擇要據以將圖表分割為不同區段的維度：
 
-   ![計量影像](./media/metrics-charts/0010.png)
+   ![計量影像](./media/metrics-charts/00010.png)
 
    現在圖表會顯示多行，每個維度區段一行：
 
-   ![計量影像](./media/metrics-charts/0012.png)
+   ![計量影像](./media/metrics-charts/00012.png)
 
 3. 按一下 [分組選取器] 以外的位置以將它關閉。
 
    > [!NOTE]
-   > 在相同維度上同時使用篩選與分組，以隱藏與您的案例不相關的區段，讓圖表更容易閱讀。
+   > 在相同維度上同時使用篩選與分割，以隱藏與您的案例不相關的區段，讓圖表更容易閱讀。
+
+### <a name="new-alert-rule"></a>新增警示規則
+
+您也可以使用已設定的準則來將計量視覺化，以作為計量型警示規則之基礎邏輯的基礎。 
+
+如果您按一下 [新增警示規則]
+
+![以紅色強調顯示的[新增警示規則] 按鈕](./media/metrics-charts/015.png)
+
+您將會進入警示規則建立窗格，其中已預先填入來自圖表的基礎計量維度，讓您能夠更輕鬆地產生自訂警示規則。
+
+![建立警示規則](./media/metrics-charts/016.png)
+
+若要深入了解如何設定計量警示，請查看這篇[文章](alerts-metric.md)。
 
 ## <a name="lock-boundaries-of-chart-y-axis"></a>鎖定圖表 y 軸的界限
 
@@ -110,20 +124,20 @@ Microsoft Azure 中的計量是隨時間收集並儲存的一系列度量與計�
 
 若要控制 y 軸範圍，請使用 [...] 圖表功能表，然後選取**編輯圖表**存取進階圖表設定。 修改 [y 軸範圍] 區段中的值，或使用**自動**按鈕還原為預設值。
 
-![計量影像](./media/metrics-charts/0014-manually-set-granularity.png)
+![計量影像](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > 鎖定圖表的 y 軸界限可追蹤一段時間的各種計算或加總，因此 (使用計數、加總、最小或最大彙總) 通常需要指定固定時間細微性，而不依賴自動預設值。 因為使用者調整瀏覽器視窗的大小，或從一個螢幕解析度變換為另一個螢幕解析度時，時間細微性經過修改，會導致圖表上的值變更，因此這有其必要性。 時間細微性中產生的變更會影響圖表的外觀，導致目前選取的 y 軸範圍無效。
 
 ## <a name="pin-charts-to-dashboards"></a>將圖表釘選到儀表板
 
-設定圖表之後，您可以將它加入到儀表板，以便您可以在其他監視遙測情況下重新檢視它，或與您的小組共用。 
+設定圖表之後，您可以將它加入到儀表板，以便您可以在其他監視遙測情況下重新檢視它，或與您的小組共用。
 
 將已設定的圖表釘選到儀表板：
 
 設定您的圖表之後，按一下圖表右上角的 [圖表動作] 功能表，然後按一下 [釘選到儀表板]。
 
-![計量影像](./media/metrics-charts/0013.png)
+![計量影像](./media/metrics-charts/00013.png)
 
 ## <a name="next-steps"></a>後續步驟
 

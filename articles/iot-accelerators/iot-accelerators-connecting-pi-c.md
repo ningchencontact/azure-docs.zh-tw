@@ -8,18 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: c20b1d5f3a84e950e37a3236272256db620a5985
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 838a33fd390b28fec609c42487dca225ddc6eaa8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831095"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628199"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>將 Raspberry Pi 裝置連線到遠端監視解決方案加速器 (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-本教學課程示範如何將實體裝置連線到遠端監視解決方案加速器。 如同大部分在受條件約束裝置上執行的內嵌應用程式，Raspberry Pi 裝置應用程式的用戶端程式碼是以 C 撰寫的。在此教學課程中，您要在執行 Raspbian OS 的 Raspberry Pi 上建置應用程式。
+本教學課程示範如何將真實裝置連線到遠端監視解決方案加速器。 如同大部分在受條件約束裝置上執行的內嵌應用程式，Raspberry Pi 裝置應用程式的用戶端程式碼是以 C 撰寫的。在此教學課程中，您要在執行 Raspbian OS 的 Raspberry Pi 上建置應用程式。
+
+如果您偏好模擬裝置，請參閱[建立及測試新模擬裝置](iot-accelerators-remote-monitoring-create-simulated-device.md)。
 
 ### <a name="required-hardware"></a>必要的硬體
 
@@ -36,7 +38,7 @@ ms.locfileid: "48831095"
 
 您需要透過桌上型電腦上的 SSH 用戶端，才能從遠端存取 Raspberry Pi 上的命令列。
 
-- Windows 不包含 SSH 用戶端。 我們建議使用 [PuTTY](http://www.putty.org/)。
+- Windows 不包含 SSH 用戶端。 我們建議使用 [PuTTY](https://www.putty.org/)。
 - 大部分的 Linux 散發套件和 Mac OS 都包含命令列 SSH 公用程式。 如需詳細資訊，請參閱[使用 Linux 或 Mac OS 的 SSH](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md)。
 
 ### <a name="required-raspberry-pi-software"></a>必要的 Raspberry Pi 軟體

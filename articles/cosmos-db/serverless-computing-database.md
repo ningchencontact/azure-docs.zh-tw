@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: f0f0308233334e2662704e818c765c625a80019d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d013f2cdd9f33f55d579638386355e5cbaccb7e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878292"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714945"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>使用 Azure Cosmos DB 和 Azure Functions 的無伺服器資料庫計算
 
@@ -29,7 +29,7 @@ Azure Cosmos DB 與 Azure Functions 可讓您以下列方式整合資料庫與�
 * 使用**輸出繫結**將函式繫結至 Azure Cosmos DB 容器。 函式完成時，輸出繫結會將資料寫入容器。
 
 > [!NOTE]
-> 目前，Azure Cosmos DB 觸發程序、輸入繫結及輸出繫結僅支援搭配 SQL API 使用。 對於其他所有的 Azure Cosmos DB API，您應對您的 API 使用靜態用戶端，以從函式存取資料庫，包括 MongoDB API、Cassandra API、Gremlin API 和資料表 API。
+> 目前，Azure Cosmos DB 觸發程序、輸入繫結及輸出繫結僅支援搭配 SQL API 使用。 對於其他所有的 Azure Cosmos DB API，您應對您的 API 使用靜態用戶端，以從函式存取資料庫。
 
 
 下圖逐一說明這三個整合： 

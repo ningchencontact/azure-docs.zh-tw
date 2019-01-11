@@ -4,12 +4,12 @@ ms.service: application-insights
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3986b77cfad167134bf8ada1e3cbb73ad64dd3ca
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 91141e314bf276d9138157c8a9d85d5262ac5907
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571891"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728977"
 ---
 自訂度量的集合。 使用此集合以報告與遙測項目相關聯的具名度量。 一般使用案例如下：
 - 相依性遙測承載大小
@@ -25,6 +25,6 @@ customEvents
 ```
 
  > [!NOTE]
- > 自訂度量會與其所屬的遙測項目相關聯。 系統會使用包含這些自訂度量的遙測項目來進行取樣。 若要追蹤其值獨立於其他遙測類型的度量，請使用[計量遙測](../articles/application-insights/app-insights-api-custom-events-metrics.md)。
+ > 自訂度量會與其所屬的遙測項目相關聯。 系統會使用包含這些自訂度量的遙測項目來進行取樣。 若要追蹤其值獨立於其他遙測類型的度量，請使用[計量遙測](../articles/azure-monitor/app/api-custom-events-metrics.md)。
 
 最大金鑰長度︰150

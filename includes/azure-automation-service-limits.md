@@ -5,16 +5,18 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: include
-ms.date: 11/07/2018
+ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 70cdd5a9d0482c24dfeb2037ae56b86cd9339fcf
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f3ae2289112948dea7d2649c4fad6b1cafb3804b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285766"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444023"
 ---
+#### <a name="process-automation"></a>程序自動化
+
 | 資源 | 上限 |注意|
 | --- | --- |---|
 | 每個自動化帳戶每隔 30 秒可以送出的新作業數量上限 (非排程作業) |100 |達到此限制時，後續的建立作業要求會失敗。 用戶端會收到錯誤回應。|
@@ -33,5 +35,19 @@ ms.locfileid: "51285766"
 | Runbook 參數上限   | 50|您可以將 JSON 或 XML 字串傳遞至參數，並，如果達到 50 個參數限制，則使用 Runbook 進行剖析|
 | Webhook 裝載大小上限 |  512 kb|
 | 保留作業資料的最大天數|30 天|
+| PowerShell 工作流程狀態的大小上限 |5 MB| 適用於檢查點檢查工作流程時的 PowerShell 工作流程 Runbook。|
 
 **<sup>1</sup>** 沙箱是共用的環境，可以讓多個作業使用，使用相同沙箱的作業受限於沙箱的資源限制。
+
+#### <a name="change-tracking-and-inventory"></a>變更追蹤與詳細目錄
+
+下表顯示對於變更追蹤所追蹤的每個機器項目限制。
+
+| **Resource** | **限制**| **注意事項** |
+|---|---|---|
+|檔案|500||
+|登錄|250||
+|Windows 軟體|250|不包含軟體更新|
+|Linux 套件|1250||
+|服務|250||
+|精靈|250||

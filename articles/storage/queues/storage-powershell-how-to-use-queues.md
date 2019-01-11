@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: b89c2607a1b21b999e5f95224e4aefc97e321f14
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fef6858383028d62a16472bd530bf456d01ee7d3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251350"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634417"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 執行 Azure 佇列儲存體作業
 
@@ -27,16 +27,18 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 > * 刪除訊息 
 > * 刪除佇列
 
-本做法需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+本做法需要 Azure PowerShell 模組 Az 0.7 版或更新版本。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
 
 沒有任何適用於佇列資料層的 PowerShell Cmdlet。 若要執行資料層作業 (例如新增訊息、讀取訊息，以及刪除訊息)，您必須使用 PowerShell 中公開的 .NET 儲存體用戶端程式庫。 您可以建立訊息物件，然後使用 AddMessage 這類命令對該訊息執行作業。 本文示範如何執行這項作業。
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+使用 `Connect-AzAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>擷取位置清單
@@ -44,28 +46,28 @@ Connect-AzureRmAccount
 如果您不知道要使用哪一個位置，您可以列出可用的位置。 當清單顯示之後，尋找您想要使用的位置。 這個練習將使用 **eastus**。 將其儲存於變數 **location** 中供未來使用。
 
 ```powershell
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "eastus"
 ```
 
 ## <a name="create-resource-group"></a>建立資源群組
 
-使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 命令建立資源群組。 
+使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 命令來建立資源群組。 
 
 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 在變數中儲存資源群組名稱供日後使用。 在此範例中，會在 *eastus* 區域中建立名為 *howtoqueuesrg* 的資源群組。
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
-New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
+New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
 ## <a name="create-storage-account"></a>建立儲存體帳戶
 
-搭配使用本地備援儲存體 (LRS) 與 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 來建立標準的一般用途儲存體帳戶。 取得儲存體帳戶內容，定義要使用的儲存體帳戶。 使用儲存體帳戶時，會參考內容而非重複提供認證。
+使用 [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) 來建立具有本地備援儲存體 (LRS) 的標準一般用途儲存體帳戶。 取得儲存體帳戶內容，定義要使用的儲存體帳戶。 使用儲存體帳戶時，會參考內容而非重複提供認證。
 
 ```powershell
 $storageAccountName = "howtoqueuestorage"
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName Standard_LRS
@@ -75,27 +77,27 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>建立佇列
 
-下列範例會先使用儲存體帳戶內容建立 Azure 儲存體的連線，其中包含儲存體帳戶名稱及其存取金鑰 。 接著，它會呼叫 [New-AzureStorageQueue (英文)](/powershell/module/azure.storage/new-azurestoragequeue) Cmdlet 以建立名為 'queuename' 的佇列。
+下列範例會先使用儲存體帳戶內容建立 Azure 儲存體的連線，其中包含儲存體帳戶名稱及其存取金鑰 。 接著，它會呼叫 [New-AzStorageQueue](/powershell/module/azure.storage/new-AzStoragequeue) Cmdlet 以建立名為 'queuename' 的佇列。
 
 ```powershell
 $queueName = "howtoqueue"
-$queue = New-AzureStorageQueue –Name $queueName -Context $ctx
+$queue = New-AzStorageQueue –Name $queueName -Context $ctx
 ```
 
 如需 Azure 佇列服務命名慣例的資訊，請參閱 [為佇列和中繼資料命名](https://msdn.microsoft.com/library/azure/dd179349.aspx)。
 
 ## <a name="retrieve-a-queue"></a>擷取佇列
 
-您可以查詢與擷取儲存體帳戶中的特定佇列或所有佇列清單。 下列範例示範如何擷取儲存體帳戶中的所有佇列和特定的佇列；這兩個命令使用 [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) cmdlet。
+您可以查詢與擷取儲存體帳戶中的特定佇列或所有佇列清單。 下列範例示範如何擷取儲存體帳戶中的所有佇列，以及一個特定的佇列；這兩個命令都會使用 [Get-AzStorageQueue](/powershell/module/azure.storage/get-AzStoragequeue) Cmdlet。
 
 ```powershell
 # Retrieve a specific queue
-$queue = Get-AzureStorageQueue –Name $queueName –Context $ctx
+$queue = Get-AzStorageQueue –Name $queueName –Context $ctx
 # Show the properties of the queue
 $queue
 
 # Retrieve all queues and show their names
-Get-AzureStorageQueue -Context $ctx | select Name
+Get-AzStorageQueue -Context $ctx | select Name
 ```
 
 ## <a name="add-a-message-to-a-queue"></a>將訊息新增至佇列
@@ -157,11 +159,11 @@ $queue.CloudQueue.DeleteMessage($queueMessage)
 ```
 
 ## <a name="delete-a-queue"></a>刪除佇列
-若要刪除佇列及其內含的所有訊息，請呼叫 Remove-AzureStorageQueue Cmdlet。 下列範例示範如何使用 Remove-AzureStorageQueue Cmdlet 來刪除本練習所使用的特定佇列。
+若要刪除佇列及其內含的所有訊息，請呼叫 Remove-AzStorageQueue Cmdlet。 下列範例示範如何使用 Remove-AzStorageQueue Cmdlet 來刪除本練習所使用的特定佇列。
 
 ```powershell
 # Delete the queue 
-Remove-AzureStorageQueue –Name $queueName –Context $ctx
+Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
 ## <a name="clean-up-resources"></a>清除資源
@@ -169,7 +171,7 @@ Remove-AzureStorageQueue –Name $queueName –Context $ctx
 若要移除您在這個練習中建立的所有資產，請移除此資源群組。 這會同時刪除群組內含的所有資源。 在本例中，它會移除建立的儲存體帳戶和資源群組本身。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>後續步驟
@@ -185,7 +187,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 > * 刪除佇列
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell 儲存體 Cmdlet
-* [儲存體 PowerShell Cmdlet](/powershell/module/azurerm.storage#storage)
+* [儲存體 PowerShell Cmdlet](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure 儲存體總管
 * [Microsoft Azure 儲存體總管](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 是一個免費的獨立應用程式，可讓您在 Windows、MacOS 和 Linux 上以視覺化方式處理 Azure 儲存體資料。

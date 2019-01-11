@@ -1,20 +1,18 @@
 ---
 title: 「適用於 MySQL 的 Azure 資料庫」關聯式資料庫服務的概觀
 description: Azure Database for MySQL 關聯式資料庫服務的概觀。
-services: mysql
 ms.service: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.custom: mvc
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2018
-ms.openlocfilehash: 4d0d78b978f6454170b52a95f538f143b9f24505
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9385ccf61f8cb8de0b3a459ac00c05b32d2630e4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684790"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536877"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>什麼是 Azure Database for MySQL？
 適用於 MySQL 的 Azure 資料庫是 Microsoft 雲端中以 [MySQL Community Edition](https://www.mysql.com/products/community/) 資料庫引擎 5.6 和 5.7 版為基礎的關聯式資料庫服務。 Azure Database for MySQL 提供：
@@ -38,7 +36,7 @@ ms.locfileid: "51684790"
 - [Azure Database for MySQL 的 Azuer CLI 範例](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>在幾秒之內即可調整效能和規模
-適用於 MySQL 的 Azure 資料庫服務提供了多個服務層：基本、一般用途和記憶體最佳化。 每個服務層提供不同的效能和功能，以支援輕量到重量級的資料庫工作負載。 您可以在小型資料庫中建置第一個應用程式，一個月只需少許花費，然後調整規模以滿足解決方案的需求。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求。 您只需支付您所需的資源費用。 如需詳細資訊，請參閱 [定價層](concepts-service-tiers.md)。
+「適用於 MySQL 的 Azure 資料庫」服務提供了多個服務層：「基本」、「一般用途」及「記憶體最佳化」。 每個服務層提供不同的效能和功能，以支援輕量到重量級的資料庫工作負載。 您可以在小型資料庫中建置第一個應用程式，一個月只需少許花費，然後調整規模以滿足解決方案的需求。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求。 您只需支付您所需的資源費用。 如需詳細資訊，請參閱 [定價層](concepts-service-tiers.md)。
 
 ## <a name="monitoring-and-alerting"></a>監視和警示
 如何決定何時應增加或減少？ 您可以使用內建的效能監視和警示功能，加上以虛擬核心為基礎的效能分級。 透過這些工具，您可以根據目前或計畫中的效能需求，快速評估相應增加或減少虛擬核心的影響。 如需詳細資訊，請參閱[警示](howto-alert-on-metric.md)。

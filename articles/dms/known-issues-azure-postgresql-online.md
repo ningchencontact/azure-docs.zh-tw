@@ -4,19 +4,19 @@ description: 深入了解線上移轉到適用於 MySQL 的 Azure 資料庫已�
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282871"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724128"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>線上移轉到適用於 PostgreSQL 的 Azure DB 的已知問題/移轉限制
 
@@ -78,18 +78,18 @@ ms.locfileid: "52282871"
 
 - **限制**：如果來源 PostgreSQL 資料庫中有 ENUM 資料類型，移轉在持續同步期間將會失敗。
 
-    **因應措施**：將 ENUM 資料類型修改成與適用於 PostgreSQL 的 Azure 資料庫中不同的字元。
+    **因應措施**：將 ENUM 資料類型修改為與適用於 PostgreSQL 的 Azure 資料庫中不同的字元。
 
-- **限制**：如果資料表中沒有主索引鍵，持續同步會失敗。
+- **限制**：如果資料表上沒有主索引鍵，持續同步將會失敗。
 
-    **因應措施**：暫時為資料表設定主索引鍵來讓移轉繼續。 您可以在資料移轉完成之後，移除主索引鍵。
+    **因應措施**：暫時設定資料表的主索引鍵，讓移轉繼續進行。 您可以在資料移轉完成之後，移除主索引鍵。
 
 ## <a name="lob-limitations"></a>LOB 限制
 大型物件 (LOB) 資料行是可能會變大的資料行。 針對 PostgreSQL，LOB 資料類型的範例包括 XML、JSON、IMAGE、TEXT 等等。
 
-- **限制**：如果 LOB 資料類型作為主索引鍵，移轉將會失敗。
+- **限制**：如果 LOB 資料類型會用來作為主索引鍵，則移轉將會失敗。
 
-    **因應措施**：使用不是 LOB 的其他資料類型或資料行來取代主索引鍵。
+    **因應措施**：使用 LOB 以外的其他資料類型或資料行來取代主索引鍵。
 
 - **限制**：如果大型物件 (LOB) 資料行的長度大於 32 KB，目標的資料可能會遭到截斷。 您可以使用以下查詢，檢查 LOB 資料行的長度：
 
@@ -97,11 +97,11 @@ ms.locfileid: "52282871"
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **因應措施**：如果您有大於 32 KB 的 LOB 物件，請連絡工程小組：[dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)。
+    **因應措施**：如果您的 LOB 物件大於 32 KB，請連絡工程小組：[dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)。
 
-- **限制**：如果資料表中有 LOB 資料行，且沒有為資料表設定主索引鍵，則系統可能不會針對此資料表移轉資料。
+- **限制**：如果資料表中有 LOB 資料行，而且並未針對資料表設定主索引鍵，則系統可能不會針對此資料表移轉資料。
 
-    **因應措施**：暫時為資料表設定主索引鍵來讓移轉繼續。 您可以在資料移轉完成之後，移除主索引鍵。
+    **因應措施**：暫時設定資料表的主索引鍵，讓移轉繼續進行。 您可以在資料移轉完成之後，移除主索引鍵。
 
 ## <a name="postgresql10-workaround"></a>PostgreSQL10 因應措施
 由於 PostgreSQL 10.x 針對 pg_xlog 資料夾名稱做出數個變更，因而造成移轉沒有如預期般執行。 如果您要從 PostgreSQL 10.x 移轉到適用於 PostgreSQL 10.3 的 Azure 資料庫，請在來源 PostgreSQL 資料庫上執行下列指令碼，以在 pg_xlog 函式周圍建立包裝函式。

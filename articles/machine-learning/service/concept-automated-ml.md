@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 12/04/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7e55304fb02078c71b91b2904475a4bee4bcc018
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9e3297b2493ea12f9da50556e4fc9e72d625fd25
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436954"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583444"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -65,9 +65,10 @@ ms.locfileid: "53436954"
 ## <a name="next-steps"></a>後續步驟
 
 查看範例並了解如何使用自動化機器學習服務來建置模型：
++ [範例：使用 Jupyter Notebook 探索 Azure Machine Learning 服務](samples-notebooks.md#automated-ml-setup)
 
 + [教學課程：使用自動化的 Azure Machine Learning 自動將分類模型定型](tutorial-auto-train-models.md)
 
-+ [設定自動定型的設定](how-to-configure-auto-train.md)
++ [在遠端資源使用自動定型](how-to-auto-train-remote.md)
 
-+ [在遠端資源使用自動定型](how-to-auto-train-remote.md) 
++ [設定自動定型的設定](how-to-configure-auto-train.md)

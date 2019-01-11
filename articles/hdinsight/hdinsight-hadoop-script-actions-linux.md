@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 768dc4f555ade9483e11c3aec0f4622fe6b441c1
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9dafe7df3c488dbc6d0c2f27a6265e86eebad41c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384187"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718923"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 開發指令碼動作
 
@@ -134,7 +134,7 @@ fi
 
 ### <a name="bPS6"></a>設定自訂元件來使用 Azure Blob 儲存體
 
-您安裝在叢集上的元件可能預設設定是使用 Apache Hadoop 分散式檔案系統 (HDFS) 儲存體。 HDInsight 使用 Azure 儲存體或 Data Lake Store 作為預設儲存體。 兩者都提供 HDFS 相容的檔案系統，即使刪除叢集，也能保存資料。 您可能需要將您所安裝的元件設定為使用 WASB 或 ADL，而非 HDFS。
+您安裝在叢集上的元件可能預設設定是使用 Apache Hadoop 分散式檔案系統 (HDFS) 儲存體。 HDInsight 使用 Azure 儲存體或 Data Lake Storage 作為預設儲存體。 兩者都提供 HDFS 相容的檔案系統，即使刪除叢集，也能保存資料。 您可能需要將您所安裝的元件設定為使用 WASB 或 ADL，而非 HDFS。
 
 對於大部分作業，您不需要指定檔案系統。 例如，以下會將 giraph-examples.jar 檔案從本機檔案系統複製到叢集儲存體：
 
@@ -142,7 +142,7 @@ fi
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-在此範例中，`hdfs` 命令會自動使用預設叢集儲存體。 對於某些作業，您可能需要指定 URI。 例如，Data Lake Store 的 `adl:///example/jars`，或 Azure 儲存體的 `wasb:///example/jars`。
+在此範例中，`hdfs` 命令會自動使用預設叢集儲存體。 對於某些作業，您可能需要指定 URI。 例如，適用於 Data Lake Storage 的 `adl:///example/jars` 或適用於 Azure 儲存體的 `wasb:///example/jars`。
 
 ### <a name="bPS7"></a>將資訊寫入至 STDOUT 和 STDERR
 
@@ -163,7 +163,7 @@ echo "Getting ready to install Foo"
 >&2 echo "An error occurred installing Foo"
 ```
 
-這會將寫入 STDOUT 的資訊改為重新導向至 STDERR (2)。 如需 IO 重新導向的詳細資訊，請參閱 [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html)。
+這會將寫入 STDOUT 的資訊改為重新導向至 STDERR (2)。 如需 IO 重新導向的詳細資訊，請參閱 [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html)。
 
 如需檢視指令碼動作記錄之資訊的詳細資訊，請參閱 [使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
@@ -278,17 +278,17 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 * __可公開讀取的 URI__。 例如，在 OneDrive、Dropbox 或其他檔案裝載服務上儲存之資料的 URL。
 
-* 與 HDInsight 叢集相關聯的 __Azure Data Lake Store 帳戶__。 如需有關搭配 HDInsight 使用 Azure Data Lake Store 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+* 與 HDInsight 叢集相關聯的 __Azure Data Lake Storage 帳戶__。 如需搭配 HDInsight 使用 Azure Data Lake Storage 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
     > [!NOTE]  
-    > 用來存取 Data Lake Store 的服務主體 HDInsight 必須具有指令碼的讀取權限。
+    > HDInsight 用來存取 Data Lake Storage 的服務主體必須具有指令碼的讀取存取權。
 
 指令碼所使用的資源也必須可公開使用。
 
-將檔案儲存在 Azure 儲存體帳戶或 Azure Data Lake Store 中可快速存取，因為兩者都在 Azure 網路內。
+將檔案儲存於 Azure 儲存體帳戶或 Azure Data Lake Storage 可提供快速存取，因為這兩者均位於 Azure 網路內。
 
 > [!NOTE]  
-> 用來參考指令碼的 URI 格式會隨所使用的服務而有所不同。 若為與 HDInsight 叢集相關聯的儲存體帳戶，請使用 `wasb://` 或 `wasbs://`。 若為可公開讀取的 URI，請使用 `http://` 或 `https://`。 若為 Data Lake Store，請使用 `adl://`。
+> 用來參考指令碼的 URI 格式會隨所使用的服務而有所不同。 若為與 HDInsight 叢集相關聯的儲存體帳戶，請使用 `wasb://` 或 `wasbs://`。 若為可公開讀取的 URI，請使用 `http://` 或 `https://` 。 若為 Data Lake Storage，請使用 `adl://`。
 
 ### <a name="checking-the-operating-system-version"></a>檢查作業系統版本
 

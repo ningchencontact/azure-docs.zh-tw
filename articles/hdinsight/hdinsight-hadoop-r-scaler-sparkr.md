@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: a8b0884486f86f66ae02c7e7a82fecee43d5ffed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c92a55ec1d56b83457167fc2db0bd7897a447852
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386889"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974840"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>在 HDInsight 中結合 ScaleR 與 SparkR
 
@@ -21,7 +21,7 @@ ms.locfileid: "53386889"
 
 雖然這兩個封裝會在 Apache Hadoop 的 Spark 執行引擎上執行，但它們無法共用記憶體內部資料，因為它們需要自己個別的 Spark 工作階段。 在後續的 ML Server 版本處理此問題之前，其因應措施是維護不重疊的 Spark 工作階段，並透過中繼檔案交換資料。 此處的指示說明這些需求是可直接達成的。
 
-此範例最初是在 Mario Inchiosa 和 Roni Burd 於 Strata 2016 的談話中分享出來的。 您可以在[使用 R 建置可擴充的資料科學平台](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio)中找到此談話。
+此範例最初是在 Mario Inchiosa 和 Roni Burd 於 Strata 2016 的談話中分享出來的。 您可以在[使用 R 建置可擴充的資料科學平台](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio)中找到此談話。
 
 程式碼原先是針對 Azure HDInsight 叢集中 Spark 上所執行的 ML Server 所編寫。 但是，以一個指令碼混合使用 SparkR 和 ScaleR 的概念在內部部署環境的內容中同樣有效。
 
@@ -29,9 +29,9 @@ ms.locfileid: "53386889"
 
 ## <a name="the-airline-and-weather-datasets"></a>航線和天氣資料集
 
-您可以從[美國政府檔案庫](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236)取得班機資料。 也可以從 [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip) 中取得其 zip 檔。
+您可以從[美國政府檔案庫](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236)取得班機資料。 也可以從 [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip) 中取得其 zip 檔。
 
-您可以依照月份從[美國國家海洋與大氣層管理局存放庫](http://www.ncdc.noaa.gov/orders/qclcd/)下載天氣資料 (未經處理格式的 zip 檔案)。 針對此範例，請下載 2007 年 5 月 – 2012 年 12 月的資料。 使用每個 zip 內的每小時資料檔案和 `YYYYMMMstation.txt` 檔案。 
+您可以依照月份從[美國國家海洋與大氣層管理局存放庫](https://www.ncdc.noaa.gov/orders/qclcd/)下載天氣資料 (未經處理格式的 zip 檔案)。 針對此範例，請下載 2007 年 5 月 – 2012 年 12 月的資料。 使用每個 zip 內的每小時資料檔案和 `YYYYMMMstation.txt` 檔案。 
 
 ## <a name="setting-up-the-spark-environment"></a>設定 Spark 環境
 
@@ -41,7 +41,7 @@ ms.locfileid: "53386889"
 workDir        <- '~'  
 myNameNode     <- 'default' 
 myPort         <- 0
-inputDataDir   <- 'wasb://hdfs@myAzureAcccount.blob.core.windows.net'
+inputDataDir   <- 'wasb://hdfs@myAzureAccount.blob.core.windows.net'
 hdfsFS         <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
 # create a persistent Spark session to reduce startup times 
@@ -535,7 +535,7 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="next-steps-and-more-information"></a>後續步驟和更多資訊
 
-- 如需在 Apache Spark 上使用 Machine Learning Server 的詳細資訊，請參閱[入門指南](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- 如需在 Apache Spark 上使用 Machine Learning Server 的詳細資訊，請參閱[快速入門指南](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started) \(英文\)。
 
 - 如需 ML Server 的一般資訊，請參閱[開始使用 R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) 一文。
 
@@ -543,6 +543,6 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 如需使用 SparkR 的詳細資訊，請參閱：
 
-- [Apache SparkR 文件](https://spark.apache.org/docs/2.1.0/sparkr.html)
+- [Apache SparkR 文件](https://spark.apache.org/docs/2.1.0/sparkr.html) \(英文\)。
 
-- Databricks 提供的 [SparkR 概觀](https://docs.databricks.com/spark/latest/sparkr/overview.html)
+- Databricks 提供的 [SparkR 概觀](https://docs.databricks.com/spark/latest/sparkr/overview.html) \(英文\)。

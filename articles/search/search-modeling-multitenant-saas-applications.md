@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 搜尋服務中建立多租用戶模型 | Microsoft Docs
+title: 單一服務中內容隔離的模型化多租用戶 - Azure 搜尋服務
 description: 了解使用「Azure 搜尋服務」時常見的多租用戶 SaaS 應用程式設計模式。
 manager: jlembicz
 author: LiamCavanagh
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 1da9756df4fa05b367665a5fe024528939f22578
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 58d7ca65a14f9f774b19796c9beae2a7c84102ad
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313032"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632920"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>多租用戶 SaaS 應用程式與 Azure 搜尋服務的設計模式
 多租用戶應用程式是為不能查看或共用任何其他租用戶之資料的租用戶提供相同服務和功能的應用程式，其中租用戶的數目並無限制。 本文件將討論以「Azure 搜尋服務」建置的多租用戶應用程式的租用戶隔離策略。

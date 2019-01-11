@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c3e4ab9dc03afe1c4a19e738804e6400b0830291
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b9c8f1af612c220534e45c5c66651f0ad8600826
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634408"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628181"
 ---
 # <a name="analyze-sensor-data-using-the-apache-hive-query-console-on-apache-hadoop-in-hdinsight"></a>在 HDInsight 的 Apache Hadoop 上使用 Apache Hive 查詢主控台分析感應器資料
 
-了解如何使用 Hive 查詢主控台搭配 HDInsight (Apache Hadoop) 分析感應器資料，然後在 Microsoft Excel 中使用 Power View 將資料視覺化。
+了解如何使用 Apache Hive 查詢主控台搭配 HDInsight (Apache Hadoop) 來分析感應器資料，然後在 Microsoft Excel 中使用 Power View 來將資料視覺化。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 本文件的步驟只適用於 Windows HDInsight 叢集。 Windows 上的 HDInsight 只提供低於 HDInsight 3.4 的版本。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 
@@ -35,10 +35,10 @@ ms.locfileid: "51634408"
 
 ## <a name="prerequisites"></a>必要條件
 
-* HDInsight (Hadoop) 叢集：如需建立叢集的相關資訊，請參閱 [在 HDInsight 中建立 Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
+* HDInsight (Hadoop) 叢集：如需建立叢集的相關資訊，請參閱[在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
 * Microsoft Excel 2013
 
-  > [!NOTE]
+  > [!NOTE]  
   > Microsoft Excel 用於搭配 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US)進行資料視覺化。
 
 * [Microsoft Hive ODBC 驅動程式](https://www.microsoft.com/download/details.aspx?id=40886)

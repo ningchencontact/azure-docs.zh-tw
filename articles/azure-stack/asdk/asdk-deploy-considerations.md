@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 22032f9d2e60d3c51546c32df8b98f9633c95535
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864973"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726528"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署規劃考量
 在部署 Azure Stack 開發套件 (ASDK) 前，請確定您的開發套件主機電腦符合本文中所述的需求。
@@ -29,12 +29,12 @@ ms.locfileid: "52864973"
 ## <a name="hardware"></a>硬體
 | 元件 | 最小值 | 建議 |
 | --- | --- | --- |
-| 磁碟機：作業系統 |1 個 OS 磁碟 (SSD 或 HDD)，最少有 200 GB 供系統磁碟分割使用 |1 個 OS 磁碟 (SSD 或 HDD)，最少有 200 GB 供系統磁碟分割使用 |
-| 磁碟機：一般開發套件資料<sup>*</sup>  |4 個磁碟。 每個磁碟 (SSD 或 HDD) 提供最少 140 GB 的容量。 會使用所有可用的磁碟。 |4 個磁碟。 每個磁碟 (SSD 或 HDD) 至少提供 250 GB 的容量。 會使用所有可用的磁碟。 |
-| 計算：CPU |雙插槽：12 個實體核心 (總計) |雙插槽：16 個實體核心 (總計) |
-| 計算：記憶體 |96 GB RAM |128 GB RAM (這是支援 PaaS 資源提供者的下限)。|
+| 磁碟機：作業系統 |1 個至少有 200 GB 可供系統磁碟分割使用的作業系統磁碟 (SSD 或 HDD) |1 個至少有 200 GB 可供系統磁碟分割使用的 OS 磁碟 (SSD 或 HDD) |
+| 磁碟機：一般開發套件資料<sup>*</sup>  |4 個磁碟。 每個磁碟 (SSD 或 HDD) 至少提供 240 GB 的容量。 會使用所有可用的磁碟。 |4 個磁碟。 每個磁碟 (SSD 或 HDD) 至少提供 400 GB 的容量。 會使用所有可用的磁碟。 |
+| 計算：CPU |雙插槽：16 個實體核心 (總計) |雙插槽：20 個實體核心 (總計) |
+| 計算：記憶體 |192 GB RAM |256 GB RAM |
 | 計算：BIOS |啟用 Hyper-V (支援 SLAT) |啟用 Hyper-V (支援 SLAT) |
-| 網路：NIC |NIC 所需的 Windows Server 2012 R2 憑證；不需特殊的功能 |NIC 所需的 Windows Server 2012 R2 憑證；不需特殊的功能 |
+| 網路：NIC |Windows Server 2012 R2 認證。 不需要有任何特殊功能 |Windows Server 2012 R2 認證。 不需要有任何特殊功能 |
 | HW 標誌憑證 |[Windows Server 2012 R2 認證](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2016 認證](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup>如果您打算從 Azure 新增許多[市集項目](asdk-marketplace-item.md)，則您所需的容量會比這個建議的容量多。

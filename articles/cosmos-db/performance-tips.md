@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: d4d730fe6c72b55a01f7c5f1f95cbd94ff145fba
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f8045153482cdd8b9a13c0a6f2ebdb26627d44e4
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873745"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811404"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 和 .NET 的效能祕訣
 
@@ -27,7 +27,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
 如果您詢問「如何改善我的資料庫效能？ 」，請考慮下列選項：
 
-## <a name="networking"></a>網路
+## <a name="networking"></a>網路功能
 <a id="direct-connection"></a>
 
 1. **連線原則︰使用直接連接模式**
@@ -45,7 +45,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
     * TCP
     * HTTPS
 
-    使用閘道模式時，Azure Cosmos DB 會使用連接埠 443，而 MongoDB API 則會使用 10250、10255 和 10256 連接埠。 10250 連接埠會直接對應至預設 Mongodb 執行個體而不使用異地複寫，10255/10256 連接埠則會使用異地複寫功能對應至 Mongodb 執行個體。 在直接模式下使用 TCP 時，除了「閘道」連接埠之外，您還務必要開啟 10000 到 20000 之間的連接埠範圍，因為 Azure Cosmos DB 使用動態 TCP 連接埠。 如果未開啟這些連接埠而您嘗試使用 TCP，您就會收到「503 服務無法使用」錯誤。 下表顯示不同 API 的可用連線模式，以及每個 API 的服務連接埠使用者：
+    使用閘道模式時，Cosmos DB 會在使用適用於 MongoDB 的 Azure Cosmos DB API 時，使用連接埠 443 與連接埠 10250、10255 及 10256。 10250 連接埠會對應至預設 MongoDB 執行個體而不使用異地複寫，10255/10256 連接埠則會使用異地複寫功能對應至 MongoDB 執行個體。 在直接模式下使用 TCP 時，除了「閘道」連接埠之外，您還務必要開啟 10000 到 20000 之間的連接埠範圍，因為 Azure Cosmos DB 使用動態 TCP 連接埠。 如果未開啟這些連接埠而您嘗試使用 TCP，您就會收到「503 服務無法使用」錯誤。 下表顯示不同 API 的可用連線模式，以及每個 API 的服務連接埠使用者：
 
     |連線模式  |支援的通訊協定  |支援的 SDK  |API/服務連接埠  |
     |---------|---------|---------|---------|

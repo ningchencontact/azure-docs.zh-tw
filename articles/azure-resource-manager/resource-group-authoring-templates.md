@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 96dcb584ac23a2298463524add1aeb971f29e24b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7d6b942ea8b2bf61bee472811648e5089f280354
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725876"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102409"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 本文說明 Azure Resource Manager 範本的結構。 它會呈現範本的不同區段，以及這些區段中可用的屬性。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。 如需建立範本的逐步教學課程，請參閱[建立第一個 Azure Resource Manager 範本](resource-manager-create-first-template.md)。
@@ -28,7 +28,7 @@ ms.locfileid: "53725876"
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
@@ -40,7 +40,7 @@ ms.locfileid: "53725876"
 
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
-| $schema |是 |JSON 結構描述檔案的位置，說明範本語言的版本。<br><br> 針對資源群組部署，請使用 `http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`。<br><br>針對訂用帳戶部署，則使用 `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| $schema |是 |JSON 結構描述檔案的位置，說明範本語言的版本。<br><br> 針對資源群組部署，請使用 `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`。<br><br>針對訂用帳戶部署，則使用 `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |是 |範本版本 (例如 1.0.0.0)。 您可以為此元素提供任何值。 使用此值在範本中記載重大變更。 使用範本部署資源時，這個值可用來確定使用的是正確的範本。 |
 | parameters |否 |執行部署以自訂資源部署時所提供的值。 |
 | variables |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
@@ -52,7 +52,7 @@ ms.locfileid: "53725876"
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "",
     "parameters": {  
         "<parameter-name>" : {

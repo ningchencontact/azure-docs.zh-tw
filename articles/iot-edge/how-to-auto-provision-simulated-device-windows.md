@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a251eb3915ee3043ab4b69e0cd4cef8fa2170486
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1ad8435626b35859968bdf93589f22dc81e74e02
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101597"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557694"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>在 Windows 上建立及佈建模擬 TPM Edge 裝置
 
@@ -61,14 +61,13 @@ Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動�
 
 完成上一節後，您應該會看到新裝置在 IoT 中樞內列為 IoT Edge 裝置。 現在，您必須在裝置上安裝 IoT Edge 執行階段。 
 
-IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容器中執行，並可讓您將其他容器部署到裝置，以便您在 Edge 上執行程式碼。 在執行 Windows 的裝置上，您可以選擇使用 Windows 容器或 Linux 容器。 選擇您要使用的容器類型，並遵循步驟。 請務必將 IoT Edge 執行階段設定為自動佈建，而不是手動佈建。 
+IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容器中執行，並可讓您將其他容器部署到裝置，以便您在 Edge 上執行程式碼。  
 
-請依照指示，在執行模擬 TPM (已在上一節中建立) 的裝置上安裝 IoT Edge 執行階段。 
+請依照指示，在執行模擬 TPM (已在上一節中建立) 的裝置上安裝 IoT Edge 執行階段。 請務必將 IoT Edge 執行階段設定為自動佈建，而不是手動佈建。
 
-開始閱讀下列文件之前，請先了解您的 DPS **識別碼範圍**和裝置的**註冊識別碼**。 
+在裝置上安裝 IoT Edge 之前，請先了解您的 DPS **識別碼範圍**和裝置的**註冊識別碼**。 
 
-* [Windows 容器](how-to-install-iot-edge-windows-with-windows.md)
-* [Linux 容器](how-to-install-iot-edge-windows-with-linux.md)
+[安裝並自動佈建 IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>確認安裝成功
 

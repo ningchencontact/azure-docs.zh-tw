@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
+ms.date: 12/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5e13f21971c7babaeaebc9714fe2a040229eebb2
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 780a4c5cd590b4fa1b4dd5b29fab738cb9a8bb6a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278673"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608438"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -36,6 +36,17 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 所需的權限 | 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](reference-connect-accounts-permissions.md#upgrade)。
 
 下載 | [下載 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)。
+
+## <a name="12700"></a>1.2.70.0
+
+### <a name="release-status"></a>發行狀態
+
+2018/12/18：已發行可供下載
+
+### <a name="fixed-issues"></a>已修正的問題
+
+此組建更新隨附於 Azure AD Connect 的非標準連接器 (例如 Generic LDAP Connector 和 Generic SQL Connector)。 如需適用之連接器的詳細資訊，請參閱[連接器版本發行歷程記錄](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history)中的 1.1.911.0 版。
+
 
 ## <a name="12690"></a>1.2.69.0
 

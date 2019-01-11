@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 9dec4314bb99b2cb32d62f40b76591ecb03e4d56
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/28/2018
+ms.author: mayg
+ms.openlocfilehash: 5de8bc9acd97016b401bd1c2bcce46f5ab851430
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838734"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811557"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>針對 VMware 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery Deployment Planner 使用者指南。
@@ -138,6 +138,9 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 ## <a name="generate-report"></a>產生報告
 此工具會產生啟用巨集的 Microsoft Excel 檔案 (XLSM) 做為報告輸出，其中摘要說明所有的部署建議。 此報告的名稱為 DeploymentPlannerReport_<unique numeric identifier>.xlsm 且置於指定的目錄中。
 
+>[!NOTE]
+>該報告要求將小數符號設定為 "." 以在執行部署規劃工具的伺服器上產生成本估計。 如果您在 Windows 電腦上設定了 "," 作為小數點符號，請移至 [控制台] 中的 [變更日期、時間或數字格式]，然後移至 [其他設定] 將小數點符號更改為 "."。
+
 分析完成後，您可以在報告產生模式中執行工具。 下表包含要在報告產生模式中執行之必要和選用工具參數的清單。
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
@@ -160,7 +163,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 | -EndDate | (選用) 採用 MM-DD-YYYY:HH:MM 格式 (24 小時制) 的結束日期和時間。 EndDate 必須與 StartDate 一起指定。 若已指定 EndDate，則會針對在 StartDate 與 EndDate 之間收集的剖析資料產生報告。 |
 | -GrowthFactor | (選用) 以百分比表示的成長因子。 預設值為 30%。 |
 | -UseManagedDisks | (選擇性) UseManagedDisks - 是/否。 預設值為 [是]。 計算可以放入單一儲存體帳戶的虛擬機器數目時，請考慮在受控磁碟而不是非受控磁碟上進行虛擬機器的容錯移轉/測試容錯移轉。 |
-|-SubscriptionId |(選用) 訂用帳戶 GUID。 使用這個參數來產生成本估計報告，其中包含以您的訂用帳戶為基礎的最新價格 (以指定的貨幣計價)，與您的訂用帳戶相關聯的供應項目，以及適用於您特定目標 Azure 區域的供應項目。|
+|-SubscriptionId |(選用) 訂用帳戶 GUID。 請注意，當您需要產生成本估計報告時需要此參數，其中包含以您的訂用帳戶為基礎的最新價格 (以**指定的貨幣**計價)，與您的訂用帳戶相關聯的供應項目，以及適用於您特定目標 Azure 區域的供應項目。|
 |-TargetRegion|(選用) 複寫的目標 Azure 區域。 因為 Azure 在每個區域有不同的成本，若要產生特定目標 Azure 區域的報告，請使用此參數。<br>預設值是 WestUS2 或上次使用的目標區域。<br>請參閱[支援的目標區域](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions)清單。|
 |-OfferId|(選用) 與指定訂用帳戶相關聯的供應項目。 預設值為 MS-AZR-0003P (預付型方案)。|
 |-Currency|(選用) 在所產生的報告中用於顯示成本的貨幣。 預設值是美元 ($) 或上次使用的貨幣。<br>請參閱[支援的貨幣](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)清單。|
@@ -204,6 +207,8 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 ```
 
 #### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>範例 7：使用印度盧比和特定供應項目識別碼，產生南印度 Azure 區域的報告
+
+請注意，訂用帳戶 ID 是產生特定貨幣的成本報告所必需的。
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```

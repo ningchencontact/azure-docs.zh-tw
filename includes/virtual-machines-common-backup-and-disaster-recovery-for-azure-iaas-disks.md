@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39485906"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53638818"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure IaaS 磁碟的備份和災害復原
 
@@ -63,9 +63,9 @@ Azure 平台對當地語系化失敗的內建保護，在發生導致大規模�
 
 您的 DR 考量可能包括下列層面：
 
-- 高可用性：可讓應用程式繼續在狀況良好狀態下執行，而不需要長期停機。 「狀況良好狀態」這個狀態是指應用程式有回應，而且使用者可以連線到應用程式並與其互動。 某些任務關鍵性應用程式和資料庫可能必須永遠可供使用，即使平台發生失敗也一樣。 針對這些工作負載，您可能需要規劃應用程式及資料的備援。
+- 高可用性：可讓應用程式繼續在狀況良好的狀態下執行，而不需要長期停機。 「狀況良好狀態」這個狀態是指應用程式有回應，而且使用者可以連線到應用程式並與其互動。 某些任務關鍵性應用程式和資料庫可能必須永遠可供使用，即使平台發生失敗也一樣。 針對這些工作負載，您可能需要規劃應用程式及資料的備援。
 
-- 資料持久性：在某些情況下，主要考量是確保發生災害時會保留資料。 因此，您可能需要在不同的網站上有資料備份。 針對這類工作負載，您可能不需要對應用程式進行完整備援，而只要定期備份磁碟。
+- 資料耐久性：在某些情況下，主要考量是確保發生災害時會保留資料。 因此，您可能需要在不同的網站上有資料備份。 針對這類工作負載，您可能不需要對應用程式進行完整備援，而只要定期備份磁碟。
 
 ## <a name="backup-and-dr-scenarios"></a>備份和 DR 案例
 
@@ -152,7 +152,7 @@ Azure 備份在排定的時間起始備份工作時，會觸發 VM 中所安裝�
 
 1.  設定備份原則，然後從相同的 UI 中選取 VM。
 
-1.  確認已在 VM 上安裝備份代理程式。 如果使用 Azure 資源庫映像建立 VM，則已安裝備份代理程式。 否則 (也就是，如果您使用自訂映像)，請使用相關指示[在虛擬機器上安裝 VM 代理程式](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine)。
+1.  確認已在 VM 上安裝備份代理程式。 如果使用 Azure 資源庫映像建立 VM，則已安裝備份代理程式。 否則 (也就是，如果您使用自訂映像)，請使用相關指示[在虛擬機器上安裝 VM 代理程式](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent)。
 
 1.  確定 VM 允許網路連線，備份服務才能運作正常。 請遵循[網路連線](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity)的指示。
 

@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0ac9b98a9dfe06492775481cd590bfb4d0db4b55
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 8af8e4b7844feb785600ef683891642ea89bccaf
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542577"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556895"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>逐步解說︰將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>逐步解說：將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為對使用者輸入的驗證
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -30,7 +30,7 @@ IEF 會在宣告中傳送資料，並在宣告中收到傳回的資料。 與 AP
 - 可設計為 REST API 宣告交換，或作為在協調流程步驟內發生的驗證設定檔。
 - 通常會驗證使用者的輸入。 如果系統拒絕使用者輸入的值，使用者可再次試著輸入有效值，但系統可能會傳回錯誤訊息。
 
-您也可以將互動設計為協調流程步驟。 如需詳細資訊，請參閱[逐步解說︰將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為協調流程步驟](active-directory-b2c-rest-api-step-custom.md)。
+您也可以將互動設計為協調流程步驟。 如需詳細資訊，請參閱[逐步解說：將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為協調流程步驟](active-directory-b2c-rest-api-step-custom.md)。
 
 至於驗證設定檔範例，我們將使用入門套件檔案 ProfileEdit.xml 中的設定檔編輯使用者旅程圖。
 
@@ -75,7 +75,7 @@ return request.CreateResponse(HttpStatusCode.OK);
 
 IEF 預期 Azure 函式會傳回 `userMessage` 宣告。 如果驗證失敗，即會以字串形式為使用者呈現此宣告，例如，當上述範例中傳回 409 衝突狀態時。
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>步驟 2：在 TrustFrameworkExtensions.xml 檔案中，將 RESTful API 宣告交換設為技術設定檔
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>步驟 2：在 TrustFrameworkExtensions.xml 檔案中，將 RESTful API 宣告交換設定為技術設定檔
 
 技術設定檔是 RESTful 服務所需之交換的完整設定。 開啟 TrustFrameworkExtensions.xml 檔案，然後在 `<ClaimsProviders>` 元素內加入下列 XML 程式碼片段。
 
@@ -93,6 +93,7 @@ IEF 預期 Azure 函式會傳回 `userMessage` 宣告。 如果驗證失敗，�
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="playerTag" />
@@ -110,7 +111,7 @@ IEF 預期 Azure 函式會傳回 `userMessage` 宣告。 如果驗證失敗，�
 
 `InputClaims` 元素會定義將從 IEF 傳送至 REST 服務的宣告。 在此範例中，會將 `givenName` 宣告的內容傳送至 REST 服務以作為 `playerTag`。 在此範例中，IEF 不會預期傳回的宣告。 相反地，它會等待來自 REST 服務的回應，並根據它接收的狀態碼採取動作。
 
-## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>步驟 3：在您想要用來驗證使用者輸入的自我判斷技術設定檔中加入 RESTful 服務宣告交換
+## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>步驟 3：在您想要用來驗證使用者輸入的自我判斷技術設定檔中納入 RESTful 服務宣告交換
 
 驗證步驟最常用於與使用者互動。 使用者應該在其中提供輸入的所有互動就是「自我判斷的技術設定檔」。 在此範例中，我們會將此驗證新增到 Self-Asserted-ProfileUpdate 技術設定檔。 這是信賴憑證者 (RP) 原則檔案 `Profile Edit` 使用的技術設定檔。
 

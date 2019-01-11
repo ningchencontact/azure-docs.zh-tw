@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: a522d436328a3aeb1ed365baa2ec1e3b9d3387ed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4b6eb0aa7011226fda667370f3e854081b795ae6
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385018"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744865"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>從 Windows 電腦在 HDInsight 上的 Apache Hadoop 生態系統中作業
 
@@ -26,9 +26,9 @@ Azure PowerShell 是一種指令碼環境，可讓您從 Windows 在 HDInsight �
 
 您可以使用 PowerShell 執行的工作範例︰
 
-* [使用 PowerShell 建立叢集](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [使用 PowerShell 執行 Apache Hive 查詢](hadoop/apache-hadoop-use-hive-powershell.md)
-* [使用 PowerShell 管理叢集](hdinsight-administer-use-powershell.md)
+* [使用 PowerShell 建立叢集](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)。
+* [使用 PowerShell 執行 Apache Hive 查詢](hadoop/apache-hadoop-use-hive-powershell.md)。
+* [使用 PowerShell 管理叢集](hdinsight-administer-use-powershell.md)。
 
 請遵循步驟來[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 以取得最新的版本。 如果您需要修改指令碼才能使用適用於 Azure Resource Manager 的新 Cmdlet，請參閱[移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)](hdinsight-hadoop-development-using-azure-resource-manager.md)。
 
@@ -54,11 +54,11 @@ Azure PowerShell 是一種指令碼環境，可讓您從 Windows 在 HDInsight �
 您可以使用 Visual Studio 搭配 .NET SDK 來管理叢集和開發巨量資料應用程式。 您可以將其他 IDE 用於下列工作，但範例顯示在 Visual Studio 中。
 
 您可以在 Visual Studio 中使用 .NET SDK 執行的工作範例︰
-* [從 .NET Framework 應用程式在 HDInsight 中建立和使用叢集](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-* [使用 .NET SDK 執行 Apache Hive 查詢](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [在 Apache Hadoop 上搭配使用 C# 使用者定義函數與 Apache Hive 和 Apache Pig 串流處理](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [從 .NET Framework 應用程式在 HDInsight 中建立和使用叢集](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)。
+* [使用 .NET SDK 執行 Apache Hive 查詢](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。
+* [在 Apache Hadoop 上搭配使用 C# 使用者定義函式與 Apache Hive 和 Apache Pig 串流處理](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)。
 
-> 秘訣   
+> [!TIP]
 > 如果您執行的 .NET 解決方案是搭配 Windows 型 HDInsight 叢集，現在就是規劃移轉至 Linux 型叢集的好時機。 如需詳細資訊，請參閱[將以 Windows 為基礎的 HDInsight 適用的 .NET 方案移轉至以 Linux 為基礎的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)。
 
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>適用於 Spark 叢集的 Intellij IDEA 和 Eclipse IDE
@@ -85,7 +85,7 @@ HDInsight 中的 Apache Spark 叢集包含可與 Jupyter Notebook 搭配使用�
 
 * **Windows 10 上的 Bash (Beta 版)** 在 Windows 上提供 Linux 子系統。 Bash 可讓您直接執行 Linux 公用程式，而不必維護專用的 Linux 安裝。 [在 Windows 10 上安裝和執行 Bash Beta 版](https://msdn.microsoft.com/commandline/wsl/install_guide)
 * **Docker for Windows** 可供存取許多以 Linux 為基礎的工具，並可以直接從 Windows 執行。 例如，您可以使用 Docker 直接從 Windows 執行 Hive 適用的 Beeline 用戶端。 您也可以使用 Docker 來執行本機 Jupyter Notebook，並從遠端連線到 HDInsight 上的 Spark。 [開始使用 Docker for Windows](https://docs.docker.com/docker-for-windows/)
-* **[MobaXTerm](http://mobaxterm.mobatek.net/)** 可讓您透過 SSH 連線，以圖形方式瀏覽叢集檔案系統。
+* **[MobaXTerm](https://mobaxterm.mobatek.net/)** 可讓您透過 SSH 連線，以圖形方式瀏覽叢集檔案系統。
 
 ## <a name="next-steps"></a>後續步驟
 如果您不熟悉使用以 Linux 為基礎的叢集，請參閱下列文章︰

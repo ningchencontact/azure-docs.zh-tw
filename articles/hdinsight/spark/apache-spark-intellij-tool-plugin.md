@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: maxluk
-ms.openlocfilehash: b2bf79d90c741e09c683e4520b05b31ba2fee1da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 621d41c5c9558b5cb17d2a1e5a03d68f8af0df19
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582762"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600636"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>使用 Azure Toolkit for IntelliJ 為 HDInsight 叢集建立 Apache Spark 應用程式
 
@@ -26,7 +26,7 @@ ms.locfileid: "52582762"
 
 若要建立您的專案，請觀看 [Create Apache Spark Applications with the Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) (使用 Azure Toolkit for IntelliJ 建立 Apache Spark 應用程式) 影片。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 您可以使用此外掛程式僅針對 Linux 上的 HDInsight Spark 叢集建立並提交應用程式。
 > 
 
@@ -180,22 +180,22 @@ ms.locfileid: "52582762"
 
     * 從 IntelliJ 專案中選取構件，或從硬碟中選取一個。
 
-    * **主要類別名稱**欄位：預設值是所選檔案中的主要類別。 選取省略符號 (**...**) 並選擇另一個類別，即可變更類別。   
+    * **主類別名稱**欄位：預設值是來自所選取檔案的主類別。 選取省略符號 (**...**) 並選擇另一個類別，即可變更類別。   
 
-    * **作業組態**欄位：預設值的設定如上圖所示。 您可以為您的作業提交作業，變更此值或新增索引鍵/值。 如需詳細資訊：[Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)
+    * **作業設定**欄位：預設值的設定如上圖所示。 您可以為您的作業提交作業，變更此值或新增索引鍵/值。 其他資訊：[Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html) \(英文\)
 
       ![[提交 Spark] 對話方塊的作業設定說明](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
 
-    * **命令列引數**欄位：如有需要，您可以為主要類別輸入以空格分割的引數值。
+    * **命令列引數**欄位：如有需要，您可以為主類別輸入以空格分割的引數值。
 
-    * **參考 Jar** 和**參考檔案**欄位：您可以輸入所參考 Jar 和檔案 (如果有的話) 的路徑。 如需詳細資訊：[Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) (Apache Spark 設定) 
+    * **參考的 Jar** 和**參考的檔案**欄位：您可以輸入參考的 Jar 和檔案的路徑 (如果有的話)。 其他資訊：[Apache Spark 設定](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 
 
       ![[提交 Spark] 對話方塊的 jar 檔案說明](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
 
-       > [!NOTE]
+       > [!NOTE]  
        > 若要上傳參考的 JAR 和參考的檔案，請參閱：[如何將資源上傳至叢集](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
                          
-    * **上傳路徑**：您可以指定 Jar 或 Scala 專案資源提交的儲存位置。 支援的儲存體類型有三種：**Azure Blob**、[使用 Spark 互動式工作階段來上傳成品] 和 [使用叢集預設儲存體帳戶]，以及 [ADLS Gen1]。 以下螢幕擷取畫面是 Azure Blob 的範例。
+    * **上傳路徑**：您可以指定 Jar 或 Scala 專案資源提交的儲存位置。 支援的儲存體類型有三種：**Azure Blob**、**使用 Spark 互動式工作階段來上傳成品**和**使用叢集預設儲存體帳戶**，以及 **ADLS Gen1**。 以下螢幕擷取畫面是 Azure Blob 的範例。
 
         ![[提交 Spark] 對話方塊](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-types.png)
 
@@ -350,25 +350,25 @@ ms.locfileid: "52582762"
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>示範
-* 建立 Scala 專案 (影片)：[Create Apache Spark Scala Applications](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) (建立 Apache Spark Scala 應用程式)
-* 遠端偵錯 (影片)：[Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely on HDInsight Cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) (使用 Azure Toolkit for IntelliJ 遠端偵錯 HDInsight 叢集上的 Apache Spark 應用程式)
+* 建立 Scala 專案 (影片)：[建立 Apache Spark Scala 應用程式](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) \(英文\)
+* 遠端偵錯 (影片)：[使用 Azure Toolkit for IntelliJ 對 HDInsight 叢集上的 Apache Spark 應用程式進行遠端偵錯](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) \(英文\)
 
 ### <a name="scenarios"></a>案例
-* [Apache Spark 和 BI：在 HDInsight 中搭配 BI 工具使用 Spark 執行互動式資料分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 和機器學習服務：在 HDInsight 中利用 HVAC 資料使用 Spark 分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 搭配 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>建立和執行應用程式
 * [使用 Scala 建立獨立應用程式](apache-spark-create-standalone-application.md)
-* [使用 Livy 遠端執行 Apache Spark 叢集上的作業](apache-spark-livy-rest-interface.md)
+* [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和擴充功能
 * [使用 Azure Toolkit for IntelliJ 透過 VPN 遠端偵錯 Apache Spark 應用程式](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [使用 Azure Toolkit for IntelliJ 透過 SSH 遠端偵錯 Apache Spark 應用程式](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 * [透過 Hortonworks 沙箱使用 HDInsight Tools for IntelliJ](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [使用 Azure Toolkit for Eclipse 中的 HDInsight 工具建立 Apache Spark 應用程式](apache-spark-eclipse-tool-plugin.md)
-* [在 HDInsight 上搭配 Apache Spark 叢集使用 Apache Zeppelin Notebook](apache-spark-zeppelin-notebook.md)
+* [在 HDInsight 上搭配使用 Apache Zeppelin Notebook 和 Apache Spark 叢集](apache-spark-zeppelin-notebook.md)
 * [HDInsight Apache Spark 叢集中 Jupyter Notebook 的可用核心](apache-spark-jupyter-notebook-kernels.md)
 * [搭配 Jupyter Notebook 使用外部套件](apache-spark-jupyter-notebook-use-external-packages.md)
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](apache-spark-jupyter-notebook-install-locally.md)

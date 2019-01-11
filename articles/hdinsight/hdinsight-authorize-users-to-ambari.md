@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: d2e7077e1196ab862d9f610f242fe30dde18ded4
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 976bb44ae81a6c002d2503407a4d74d513a76042
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496887"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725264"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>授權 Apache Ambari 檢視的使用者
 
 [啟用企業安全性套件 (ESP) 的 HDInsight 叢集](./domain-joined/apache-domain-joined-introduction.md)可提供企業級功能，包括以 Azure Active Directory 為基礎的驗證。 您可以將已新增至已獲得存取權之 Azure AD 群組的[新使用者同步](hdinsight-sync-aad-users-to-cluster.md)至叢集，讓這些特定使用者能夠執行特定動作。 ESP HDInsight 叢集和標準 HDInsight 叢集都支援在 [Apache Ambari](https://ambari.apache.org/) 中運用使用者、群組及權限。
 
-Active Directory 使用者可以使用其網域認證來登入叢集節點。 他們也可以使用其網域認證來驗證叢集與其他已核准之端點 (例如 [Hue](http://gethue.com/)、Ambari 檢視、ODBC、JDBC、PowerShell 和 REST API) 的互動。
+Active Directory 使用者可以使用其網域認證來登入叢集節點。 他們也可以使用其網域認證來驗證叢集與其他已核准之端點 (例如 [Hue](https://gethue.com/)、Ambari 檢視、ODBC、JDBC、PowerShell 和 REST API) 的互動。
 
-> [!WARNING]
+> [!WARNING]  
 > 請勿變更以 Linux 為基礎之 HDInsight 叢集上的 Ambari 看門狗 (hdinsightwatchdog) 密碼。 變更密碼會破壞在叢集上使用指令碼動作或執行調整作業的能力。
 
 如果您尚未這麼做，請依照[這些指示](./domain-joined/apache-domain-joined-configure.md)來佈建新 ESP 叢集。
@@ -100,7 +100,7 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 
 ![[角色] 功能表連結](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png)
 
-在此頁面上，有兩個不同的檢視，可供您用來管理使用者和群組的角色：[Block] \(區塊\) 和 [List] \(清單\)。
+在此頁面上，有兩個不同的檢視，可供您用來管理使用者和群組的角色：[區塊] 和 [清單]。
 
 ### <a name="block-view"></a>[區塊] 檢視
 
@@ -110,7 +110,7 @@ Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://t
 
 ### <a name="list-view"></a>[清單] 檢視
 
-[List] \(清單\) 檢視提供快速編輯功能，分成兩個類別：[Users] \(使用者\) 和 [Groups] \(群組\)。
+[清單] 檢視會在兩個類別中提供快速編輯功能：[使用者] 和 [群組]。
 
 * [List] \(清單\) 檢視的 [Users] \(使用者\) 類別會顯示所有使用者的清單，可讓您從下拉式清單中選取每個使用者的角色。
 

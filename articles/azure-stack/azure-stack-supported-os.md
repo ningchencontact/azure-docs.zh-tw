@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: be4d9b3ea7e5715d7c3a4df11b7e8bab4d1d4ca5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 056c44de4f89b04149c275b1508c7ea8f397d6e6
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405592"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810774"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack 上的支援客體作業系統
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a> Windows
 
 Azure Stack 支援下表所列的 Windows 客體作業系統：
 
@@ -71,11 +71,11 @@ Marketplace 中有 Datacenter 版本可供下載；客戶可以自備包括其�
 | Ubuntu 16.04-LTS | 64 位元 | Canonical | 是 |
 | Ubuntu 18.04-LTS | 64 位元 | Canonical | 是 |
 
-如需 Red Hat Enterprise Linux 支援資訊，請參閱 [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531) (Red Hat 和 Azure Stack：常見問題集)。
+如需 Red Hat Enterprise Linux 支援資訊，請參閱 [Red Hat 和 Azure Stack：常見問題集](https://access.redhat.com/articles/3413531) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
 
 如需關於 Azure Stack Marketplace 的詳細資訊，請參閱下列文章：
 
-[下載 Marketplace 項目](azure-stack-download-azure-marketplace-item.md)  
-[建立及發佈 Marketplace 項目](azure-stack-create-and-publish-marketplace-item.md)
+- [下載 Marketplace 項目](azure-stack-download-azure-marketplace-item.md)  
+- [建立及發佈 Marketplace 項目](azure-stack-create-and-publish-marketplace-item.md)

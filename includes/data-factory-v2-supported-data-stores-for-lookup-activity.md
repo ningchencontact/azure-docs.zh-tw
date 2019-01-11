@@ -5,28 +5,31 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 11/28/2018
+ms.date: 12/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: a5959e19c7d6470abe5487fe7c8f08ccb543fa35
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 38b630b14a7425b4f8854ea88d6ba7e7a4335bea
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111611"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54069868"
 ---
 | 類別 | 資料存放區 |
 |:--- |:--- |
 | **Azure** |[Azure Blob 儲存體](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
+| &nbsp; |[Azure Cosmos DB (MongoDB API)](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
+| &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |
+| &nbsp; |[適用於 MariaDB 的 Azure 資料庫](../articles/data-factory/connector-azure-database-for-mariadb.md) |
 | &nbsp; |[適用於 MySQL 的 Azure 資料庫](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[適用於 PostgreSQL 的 Azure 資料庫](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Azure 檔案](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
 | &nbsp; |[Azure SQL Database 受控執行個體](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |
 | &nbsp; |[Azure SQL 資料倉儲](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
-| &nbsp; |[Azure 表格儲存體](../articles/data-factory/connector-azure-table-storage.md) |
+| &nbsp; |[Azure 資料表儲存體](../articles/data-factory/connector-azure-table-storage.md) |
 | **資料庫** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
 | &nbsp; |[Drill (預覽)](../articles/data-factory/connector-drill.md) |
@@ -57,11 +60,13 @@ ms.locfileid: "53111611"
 | **檔案** |[Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |
 | &nbsp; |[檔案系統](../articles/data-factory/connector-file-system.md) |
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |
+| &nbsp; |[Google Cloud Storage](../articles/data-factory/connector-google-cloud-storage.md) |
 | &nbsp; |[HDFS](../articles/data-factory/connector-hdfs.md) |
 | &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |
 | **一般通訊協定** |[一般 HTTP](../articles/data-factory/connector-http.md) |
 | &nbsp; |[泛型 OData](../articles/data-factory/connector-odata.md) |
 | &nbsp; |[一般 ODBC](../articles/data-factory/connector-odbc.md) |
+| &nbsp; |[一般 REST](../articles/data-factory/connector-rest.md) |
 | **服務和應用程式** |[Amazon Marketplace Web Service (預覽)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
 | &nbsp; |[應用程式的常見資料服務](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓
 | &nbsp; |[Concur (預覽)](../articles/data-factory/connector-concur.md) |

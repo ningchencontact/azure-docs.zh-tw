@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: cfebbdb9b88a1de6a05f06e6ed72ebc9cddddcf6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 20e96ad7a99fdb8c90f3b7990965d7225aef8be0
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074446"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555008"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>在 Azure Stack 中搭配使用 API 版本設定檔與 .NET
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-適用於 Azure Stack Resource Manager 的 .NET SDK 會提供工具來協助您建置及管理基礎結構。 SDK 中的資源提供者包括計算、網路、儲存體、應用程式服務和 [KeyVault](../../key-vault/key-vault-whatis.md)。 .NET SDK 包含 14 個會合併設定檔資訊的 NuGet 套件，且每次都必須下載到專案解決方案中。 不過，您可以具體下載要用於 2018-03-01-hybrid 或 2017-03-09-profile 的資源提供者，以將應用程式的記憶體最佳化。 每個套件都包含資源提供者、個別的 API 版本和其所屬的 API 設定檔。 .NET SDK 中的 API 設定檔透過協助您在全域 Azure 資源和 Azure Stack 的資源來回切換，提供混合式雲端開發功能。
+適用於 Azure Stack Resource Manager 的 .NET SDK 會提供工具來協助您建置及管理基礎結構。 SDK 中的資源提供者包括計算、網路、儲存體、應用程式服務和 [KeyVault](../../key-vault/key-vault-whatis.md)。 .NET SDK 包含 14 個 NuGet 套件。 每次都必須將這些套件下載到您的專案解決方案中，以合併設定檔資訊。 不過，您可以具體下載要用於 2018-03-01-hybrid 或 2017-03-09-profile 的資源提供者，以將應用程式的記憶體最佳化。 每個套件都包含資源提供者、個別的 API 版本和其所屬的 API 設定檔。 .NET SDK 中的 API 設定檔透過協助您在全域 Azure 資源和 Azure Stack 的資源來回切換，提供混合式雲端開發功能。
 
 ## <a name="net-and-api-version-profiles"></a>.NET 和 API 版本設定檔
 
@@ -44,7 +44,7 @@ API 設定檔是資源提供者和 API 版本的組合。 您可以使用 API �
 
 -   若要使用特定資源提供者中某個資源類型的特定 API 版本，請使用套件內所定義的特定 API 版本。
 
-請注意，您可以組合相同應用程式中的所有選項。
+您可以在相同應用程式中組合所有選項。
 
 ## <a name="install-the-azure-net-sdk"></a>安裝 Azure .NET SDK
 
@@ -62,7 +62,7 @@ API 設定檔是資源提供者和 API 版本的組合。 您可以使用 API �
 
 5.  如果無法使用，請建立訂用帳戶，並儲存訂用帳戶識別碼供後續使用。 如需訂用帳戶的建立指示，請參閱[在 Azure Stack 中建立供應項目的訂用帳戶][]。
 
-6.  建立服務主體，並儲存用戶端識別碼和用戶端密碼。 如需如何建立 Azure Stack 服務主體的指示，請參閱[為 Azure Stack 提供應用程式存取][]。 請注意，在建立服務主體時，用戶端識別碼也稱為應用程式識別碼。
+6.  建立服務主體，並儲存用戶端識別碼和用戶端密碼。 如需如何建立 Azure Stack 服務主體的指示，請參閱[為 Azure Stack 提供應用程式存取][]。 建立服務主體時，「用戶端識別碼」也稱為「應用程式識別碼」。
 
 7.  確保服務主體在訂用帳戶中擁有參與者/擁有者角色。 如需如何對服務主體指派角色的指示，請參閱[為 Azure Stack 提供應用程式存取][]。
 
@@ -77,8 +77,9 @@ API 設定檔是資源提供者和 API 版本的組合。 您可以使用 API �
 | 訂用帳戶識別碼           | AZURE_SUBSCRIPTION_ID | [*訂用帳戶識別碼*][]是您存取 Azure Stack 中供應項目的方式。                                                      |
 | 用戶端密碼             | AZURE_CLIENT_SECRET   | 建立服務主體時所儲存的服務主體應用程式祕密。                                      |
 | Resource Manager 端點 | ARM_ENDPOINT           | 請參閱 [*Azure Stack Resource Manager 端點*][]。                                                                    |
+| 位置                  | RESOURCE_LOCATION     | Azure Stack 的位置。
 
-若要尋找 Azure Stack 的租用戶識別碼，請遵循[此處](../azure-stack-csp-ref-operations.md)所提供的指示。 若要設定環境變數，請執行下列作業：
+若要尋找 Azure Stack 的租用戶識別碼，請遵循[此處](../azure-stack-csp-ref-operations.md)所提供的指示。 若要設定環境變數，請執行下列步驟：
 
 ### <a name="microsoft-windows"></a>Microsoft Windows
 
@@ -135,148 +136,63 @@ Microsoft Azure Resource Manager 是可讓系統管理員進行部署、管理�
 
 ## <a name="azure-net-sdk-api-profile-usage"></a>Azure .NET SDK API 設定檔使用方式
 
-請使用下列程式碼將設定檔用戶端具現化。 只有 Azure Stack 或其他私人雲端才需要此參數。 全域 Azure 預設已經有這些設定。
-
-需要有下列程式碼才能在 Azure Stack 上驗證服務主體。 其會依據租用戶識別碼和驗證基底 (專屬於 Azure Stack) 來建立權杖。
+以下是應該用來將資源管理用戶端具現化的程式碼。 類似的程式碼可用來將其他資源提供者 (例如計算、網路及儲存體) 用戶端具現化。 
 
 ```csharp
-public class CustomLoginCredentials : ServiceClientCredentials
+var client = new ResourceManagementClient(armEndpoint, credentials)
 {
-    private string clientId;
-    private string clientSecret;
-    private string resourceId;
-    private string tenantId;
-
-    private const string authenticationBase = "https://login.windows.net/{0}";
-
-    public CustomLoginCredentials(string servicePrincipalId, string servicePrincipalSecret, string azureEnvironmentResourceId, string azureEnvironmentTenandId)
-    {
-        clientId = servicePrincipalId;
-        clientSecret = servicePrincipalSecret;
-        resourceId = azureEnvironmentResourceId;
-        tenantId = azureEnvironmentTenandId;
-    }
+    SubscriptionId = subscriptionId
+};
 ```
 
-這可讓您使用 API 設定檔 NuGet 套件，將應用程式成功地部署至 Azure Stack。
-
-## <a name="define-azure-stack-environment-setting-functions"></a>定義 Azure Stack 環境設定功能
-
-若要向 Azure Stack 環境驗證服務主體，請使用下列程式碼：
+上方程式碼中的 `credentials` 參數是將用戶端具現化的必要參數。 下列程式碼會依租用戶識別碼和服務主體來產生驗證權杖。
 
 ```csharp
-private string AuthenticationToken { get; set; }
-public override void InitializeServiceClient<T>(ServiceClient<T> client)
+var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
+var credentials = ApplicationTokenProvider.LoginSilentAsync(tenantId, servicePrincipalId, servicePrincipalSecret, azureStackSettings).GetAwaiter().GetResult();
+```
+程式碼中的 `getActiveDirectoryServiceSettings` 呼叫會從中繼資料端點中擷取 Azure Stack 端點。 它會從發出的呼叫中指出環境變數： 
+
+```csharp
+public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(string armEndpoint)
 {
-    var authenticationContext = new AuthenticationContext(String.Format(authenticationBase, tenantId));
-    var credential = new ClientCredential(clientId, clientSecret);
-    var result = authenticationContext.AcquireTokenAsync(resource: resourceId,
-    clientCredential: credential).Result;
-    if (result == null)
+    var settings = new ActiveDirectoryServiceSettings();
+    try
     {
-        throw new InvalidOperationException("Failed to obtain the JWT token");
+        var request = (HttpWebRequest)HttpWebRequest.Create(string.Format("{0}/metadata/endpoints?api-version=1.0", armEndpoint));
+        request.Method = "GET";
+        request.UserAgent = ComponentName;
+        request.Accept = "application/xml";
+        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+        {
+            using (StreamReader sr = new StreamReader(response.GetResponseStream()))
+            {
+                var rawResponse = sr.ReadToEnd();
+                var deserialized = JObject.Parse(rawResponse);
+                var authenticationObj = deserialized.GetValue("authentication").Value<JObject>();
+                var loginEndpoint = authenticationObj.GetValue("loginEndpoint").Value<string>();
+                var audiencesObj = authenticationObj.GetValue("audiences").Value<JArray>();
+                settings.AuthenticationEndpoint = new Uri(loginEndpoint);
+                settings.TokenAudience = new Uri(audiencesObj[0].Value<string>());
+                settings.ValidateAuthority = loginEndpoint.TrimEnd('/').EndsWith("/adfs", StringComparison.OrdinalIgnoreCase) ? false : true;
+            }
+        }
     }
-    AuthenticationToken = result.AccessToken;
+    catch (Exception ex)
+    {
+        Console.WriteLine(String.Format("Could not get AD service settings. Exception: {0}", ex.Message));
+    }
+    return settings;
 }
 ```
-
-這會覆寫向 Azure Stack 驗證的初始化服務用戶端。
+這可讓您使用 API 設定檔 NuGet 套件，將應用程式成功地部署至 Azure Stack。
 
 ## <a name="samples-using-api-profiles"></a>使用 API 設定檔的範例
 
-您可以使用 GitHub 存放庫中所提供的下列範例，作為使用 .NET 和 Azure Stack API 設定檔來建立解決方案的參考。
-
--   [虛擬機器的測試專案、vNet、資源群組和儲存體帳戶][]
--   使用 .NET 管理虛擬機器
-
-### <a name="sample-unit-test-project"></a>單元測試專案範例 
-
-1.  使用下列命令來複製存放庫：
-
-    ```shell
-    git clone https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm.git
-    ```
-
-2.  建立 Azure 服務主體並指派用以存取訂用帳戶的角色。 如需建立服務主體的指示，請參閱[使用 Azure PowerShell 建立具有憑證的服務主體][]。
-
-3.  擷取下列必要值：
-
-    1.  租用戶識別碼
-    2.  用戶端識別碼
-    3.  用戶端密碼
-    4.  訂用帳戶識別碼
-    5.  Resource Manager 端點
-
-4.  在使用命令提示字元所建立的服務主體中，以從中擷取的資訊設定下列環境變數：
-
-    1.  export AZURE_TENANT_ID={您的租用戶識別碼}
-    2.  export AZURE_CLIENT_ID={您的用戶端識別碼}
-    3.  export AZURE_CLIENT_SECRET={您的用戶端密碼}
-    4.  export AZURE_SUBSCRIPTION_ID = {您的訂用帳戶識別碼}
-    5.  export ARM_ENDPOINT={您的 Azure Stack Resource Manager URL}
-
-   在 Windows 上，請使用 **set** 而非 **export**。
-
-5.  確定位置變數已設定為 AzureStack 的位置。 例如，LOCAL = "local"。
-
-6.  設定可讓您向 Azure Stack 驗證的自訂登入認證。 請注意，這部分的程式碼會包含在此範例的 [授權] 資料夾中。
-
-   ```csharp
-   public class CustomLoginCredentials : ServiceClientCredentials
-   {
-       private string clientId;
-       private string clientSecret;
-       private string resourceId;
-       private string tenantId;
-       private const string authenticationBase = "https://login.windows.net/{0}";
-       public CustomLoginCredentials(string servicePrincipalId, string servicePrincipalSecret, string azureEnvironmentResourceId, string azureEnvironmentTenandId)
-       {
-           clientId = servicePrincipalId;
-           clientSecret = servicePrincipalSecret;
-           resourceId = azureEnvironmentResourceId;
-           tenantId = azureEnvironmentTenandId;
-       }
-   private string AuthenticationToken { get; set; }
-   ```
-
-7.  如果您要使用 Azure Stack 覆寫向 Azure Stack 驗證的初始化服務用戶端，請新增下列程式碼。 請注意，部分程式碼已包含在此範例的 [授權] 資料夾中。
-
-   ```csharp
-   public override void InitializeServiceClient<T>(ServiceClient<T> client)
-   {
-      var authenticationContext = new AuthenticationContext(String.Format(authenticationBase, tenantId));
-      var credential = new ClientCredential(clientId, clientSecret);
-      var result = authenticationContext.AcquireTokenAsync(resource: resourceId,
-                clientCredential: credential).Result;
-      if (result == null)
-      {
-          throw new InvalidOperationException("Failed to obtain the JWT token");
-      }
-      AuthenticationToken = result.AccessToken;
-   }
-   ```
- 
-8.  使用 NuGet 套件管理員、搜尋 "2018-03-01-hybrid"，然後安裝與此設定檔相關聯的計算、網路、儲存體、KeyVault 和 App Services 資源提供者適用套件。
-
-2.  在 .cs 檔案的每個工作中，設定要使用 Azure Stack 所需的參數。 工作 `CreateResourceGroupTest` 的範例如下所示：
-
-   ```csharp
-   var location = Environment.GetEnvironmentVariable("AZURE_LOCATION");
-   var baseUriString = Environment.GetEnvironmentVariable("AZURE_BASE_URL");
-   var resourceGroupName = Environment.GetEnvironmentVariable("AZURE_RESOURCEGROUP");
-   var servicePrincipalId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID");
-   var servicePrincipalSecret = Environment.GetEnvironmentVariable("AZURE_CLIENT_SECRET");
-   var azureResourceId = Environment.GetEnvironmentVariable("AZURE_RESOURCE_ID");
-   var tenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID");
-   var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
-   var credentials = new CustomLoginCredentials(servicePrincipalId, servicePrincipalSecret, azureResourceId, tenantId);
-   ```
-
-1.  以滑鼠右鍵按一下每個工作，然後選取 [執行測試]。
-
-    1.  側邊窗格視窗上的綠色核取記號會提醒您，系統已成功地根據指定參數建立每個工作。 請檢查 Azure Stack 訂用帳戶，以確定資源已成功建立。
-
-    2.  如需如何執行單元測試的詳細資訊，請參閱[使用測試總管執行單元測試。][]
+若要使用 .NET 和 Azure Stack API 設定檔來建立解決方案，可以使用下列範例作為參考。
+- [管理資源群組](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
+- [管理儲存體帳戶](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
+- [管理虛擬機器](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm)
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -292,8 +208,8 @@ public override void InitializeServiceClient<T>(ServiceClient<T> client)
   [為 Azure Stack 提供應用程式存取]: ../azure-stack-create-service-principals.md
   [租用戶識別碼]: ../azure-stack-identity-overview.md
   [訂用帳戶識別碼]: ../azure-stack-plan-offer-quota-overview.md#subscriptions
-  [Azure Stack Resource Manager 端點]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
+  [*Azure Stack Resource Manager 端點*]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
   [API 設定檔的摘要]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
-  [虛擬機器的測試專案、vNet、資源群組和儲存體帳戶]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
-  [使用 Azure PowerShell 建立具有憑證的服務主體]: ../azure-stack-create-service-principals.md
-  [使用測試總管執行單元測試。]: /visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017
+  [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
+  [Use Azure PowerShell to create a service principal with a certificate]: ../azure-stack-create-service-principals.md
+  [Run unit tests with Test Explorer.]: /visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017

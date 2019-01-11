@@ -9,34 +9,34 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 027c8155c84959ca429eb9b093a155ac22aaf324
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 85d95354d24a3f107fc518b367ab1187da43269d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582203"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633754"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>使用 HDInsight 上的 Apache Storm 處理 Azure 事件中樞的事件 (C#)
 
-了解如何從 HDInsight 上的 [Apache Storm](http://storm.apache.org/) 使用 Azure 事件中樞。 本文件使用 C# Storm 拓撲從事件中樞讀取和寫入資料
+了解如何從 HDInsight 上的 [Apache Storm](https://storm.apache.org/) 使用 Azure 事件中樞。 本文件使用 C# Storm 拓撲從事件中樞讀取和寫入資料
 
-> [!NOTE]
+> [!NOTE]  
 > 如需本專案的 Java 版本，請參閱[使用 HDInsight 上的 Apache Storm 處理 Azure 事件中樞的事件 (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)。
 
 ## <a name="scpnet"></a>SCP.NET
 
 本文件中的步驟使用 SCP.NET，其為 NuGet 套件，可方便您建立 C# 拓撲和元件來與 Storm on HDInsight 搭配使用。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 雖然本文件中的步驟依賴 Windows 開發環境與 Visual Studio，但已編譯的專案可以提交到使用 Linux 之 HDInsight 叢集上的 Storm。 只有在 2016 年 10 月 28 日之後所建立之以 Linux 為基礎的叢集可支援 SCP.NET 拓撲。
 
-HDInsight 3.4 和更高版本使用單聲道來執行 C# 拓撲。 本文件中使用的範例會使用 HDInsight 3.6。 如果您打算針對 HDInsight 來建立您自己的 .NET 解決方案，請參閱 [Mono 相容性](http://www.mono-project.com/docs/about-mono/compatibility/)文件，以了解可能不相容之處。
+HDInsight 3.4 和更高版本使用單聲道來執行 C# 拓撲。 本文件中使用的範例會使用 HDInsight 3.6。 如果您打算針對 HDInsight 來建立您自己的 .NET 解決方案，請參閱 [Mono 相容性](https://www.mono-project.com/docs/about-mono/compatibility/)文件，以了解可能不相容之處。
 
 ### <a name="cluster-versioning"></a>叢集版本控制
 
 用於專案的 Microsoft.SCP.Net.SDK NuGet 套件必須符合安裝在 HDInsight 上的 Storm 主要版本。 HDInsight 3.5 版及 3.6 版使用 Storm 1.x 版，因此您必須搭配使用 SCP.NET 1.0.x.x 版與這些叢集。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 本文件中的範例預期使用 HDInsight 3.5 或 3.6 叢集。
 >
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -47,13 +47,13 @@ C# 拓撲也必須以 .NET 4.5 為目標。
 
 Microsoft 提供一組可用來從 Storm 拓撲與事件中樞通訊的 Java 元件。 您可以在 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) 上找到包含這些元件的 HDInsight 3.6 相容版本的 Java 封存檔案 (JAR)。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 雖然元件是以 Java 所撰寫，您可以輕鬆地從 C# 拓撲使用它們。
 
 在此範例中會使用下列元件：
 
 * __EventHubSpout__：從事件中樞讀取資料。
-* __EventHubBolt__：將資料寫入事件中樞。
+* __EventHubBolt__：將資料寫入至事件中樞。
 * __EventHubSpoutConfig__：用來設定 EventHubSpout。
 * __EventHubBoltConfig__：用來設定 EventHubBolt。
 
@@ -99,7 +99,7 @@ topologyBuilder.SetJavaBolt(
         .shuffleGrouping("Spout");
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 這個範例會使用以字串傳遞的 Clojure 運算式，而不是如 Spout 範例一樣使用 **JavaComponentConstructor** 來建立 **EventHubBoltConfig**。 兩種方法均可。 使用覺得較適合您的方法。
 
 ## <a name="download-the-completed-project"></a>下載完成的專案
@@ -110,7 +110,7 @@ topologyBuilder.SetJavaBolt(
 
 * [Apache Storm on HDInsight 叢集 3.5 或 3.6 版](apache-storm-tutorial-get-started-linux.md)。
 
-    > [!WARNING]
+    > [!WARNING]  
     > 此文件中所使用的範例需要 Storm on HDInsight version 3.5 或 3.6 版。 由於重大類別名稱變更，這不適用舊版的 HDInsight。 如需這個範例適用於較舊叢集的版本，請參閱 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases)。
 
 * [Azure 事件中樞](../../event-hubs/event-hubs-create.md)。
@@ -136,7 +136,7 @@ topologyBuilder.SetJavaBolt(
 
 1. 在建立事件中樞之後，檢視 Azure 入口網站中的 [事件中樞] 設定，然後選取 [共用存取原則]。 選取 [+ 新增] 連結來新增下列原則︰
 
-   | 名稱 | 權限 |
+   | Name | 權限 |
    | --- | --- |
    | 寫入器 |傳送 |
    | 讀取器 |接聽 |

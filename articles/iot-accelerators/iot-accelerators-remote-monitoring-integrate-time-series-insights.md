@@ -1,5 +1,5 @@
 ---
-title: 整合 Azure 時間序列見解與遠端監視 | Microsoft Docs
+title: 整合時間序列深入解析與遠端監視 - Azure | Microsoft Docs
 description: 在此操作說明中，您將學習如何為尚未包含時間序列見解的現有遠端監視解決方案設定時間序列見解。
 author: aditidugar
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: e6dcbf9d185b45c18261e47e9d575adf40812611
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 655d65ebfbb0141acd829a64414d9ba20dd2c697
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253811"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633733"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>整合 Azure 時間序列深入解析與遠端監視
 
@@ -49,7 +49,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 接下來，以額外資源的形式將時間序列見解部署到遠端監視解決方案，並將其連線到 IoT 中樞。
 
-1. 登入 [Azure 入口網站](http://portal.azure.com/)。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 1. 選取 [建立資源] > [物聯網] > [時間序列深入解析]。
 
@@ -164,12 +164,13 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 .NET： 
 
-```
+```cmd/sh
 docker pull azureiotpcs/asa-manager-dotnet:1.0.2
 ```
 
 Java：
-```
+
+```cmd/sh
 docker pull azureiotpcs/asa-manager-java:1.0.2
 ```
 
@@ -178,13 +179,14 @@ docker pull azureiotpcs/asa-manager-java:1.0.2
 請在命令提示字元中鍵入下列命令，以提取最新的遙測微服務：
 
 .NET：
-```
+
+```cmd/sh
 docker pull azureiotpcs/telemetry-dotnet:1.0.2
 ```
 
 Java：
 
-```
+```cmd/sh
 docker pull azureiotpcs/telemetry-java:1.0.2
 ```
 
@@ -192,7 +194,7 @@ docker pull azureiotpcs/telemetry-java:1.0.2
 
 若要在時間序列見解總管中輕鬆地檢視資料，建議您自訂 UI 以輕鬆地連結至環境。 為此，請使用下列命令將最新變更提取至 Web UI ：
 
-```
+```cmd/sh
 docker pull azureiotpcs/pcs-remote-monitoring-webui:1.0.2
 ```
 
@@ -220,7 +222,7 @@ docker pull azureiotpcs/pcs-remote-monitoring-webui:1.0.2
 
 1. 將下列環境變數新增至 docker compose yaml 檔案中每個微服務和 VM 中的 `env-setup` 指令碼：
 
-    ```
+    ```sh
     PCS_TELEMETRY_STORAGE_TYPE=tsi
     PCS_TSI_FQDN={TSI Data Access FQDN}
     PCS_AAD_TENANT={AAD Tenant Id}
@@ -244,7 +246,7 @@ docker pull azureiotpcs/pcs-remote-monitoring-webui:1.0.2
 
 1. 尋找設定對應來為 TSI 新增下列新環境變數：
 
-    ```
+    ```yaml
     telemetry.storage.type: "tsi"
     telemetry.tsi.fqdn: "{TSI Data Access FQDN}"
     security.auth.serviceprincipal.secret: "{AAD application service principal secret}"
@@ -252,7 +254,7 @@ docker pull azureiotpcs/pcs-remote-monitoring-webui:1.0.2
 
 4. 編輯遙測服務 Pod 的 yaml 檔案範本：
 
-    ```
+    ```yaml
     - name: PCS_AAD_TENANT
         valueFrom:
         configMapKeyRef:
@@ -282,7 +284,7 @@ docker pull azureiotpcs/pcs-remote-monitoring-webui:1.0.2
 
 5. 編輯 ASA 管理員服務 Pod 的 yaml 檔案範本：
 
-    ```
+    ```yaml
     - name: PCS_TELEMETRY_STORAGE_TYPE
         valueFrom:
         configMapKeyRef:

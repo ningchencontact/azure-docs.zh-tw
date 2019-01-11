@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 6355a7ce203f2bf75b5c93d225502f961deeee43
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c1d9047de814b7a80210fe2502d219921f5829a4
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032071"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976897"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>快速入門：在 Azure VM 上手動安裝單一執行個體 SAP HANA
 ## <a name="introduction"></a>簡介
@@ -69,10 +69,10 @@ ms.locfileid: "47032071"
 
 如需關於 SAP HANA 和不同 Linux 作業系統的其他 SAP 文件，請參閱：
 
-* [SAP 支援附註 #171356 - 在 Linux 上的 SAP 軟體︰一般資訊](https://launchpad.support.sap.com/#/notes/1984787)
+* [SAP 支援附註 #171356 – 在 Linux 上的 SAP 軟體︰一般資訊](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP 支援附註 #1944799 - SLES 作業系統安裝的 SAP HANA 指南](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 * [SAP 支援附註 #2205917 - 針對 SLES 12 for SAP 應用程式的 SAP HANA DB 建議作業系統設定](https://launchpad.support.sap.com/#/notes/2205917/E)
-* [SAP 支援附註 #1984787 - SUSE Linux Enterprise Server 12：安裝注意事項](https://launchpad.support.sap.com/#/notes/1984787)
+* [SAP 支援附註 #1984787 – SUSE Linux Enterprise Server 12：安裝注意事項](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP 支援附註 #1391070 - Linux UUID 解決方案](https://launchpad.support.sap.com/#/notes/1391070)
 * [SAP 支援附註 #2009879 - 適用於 Red Hat Enterprise Linux (RHEL) 作業系統的 SAP HANA 指南](https://launchpad.support.sap.com/#/notes/2009879)
 * [2292690 - SAP HANA DB：適用於 RHEL 7 的建議作業系統設定](https://launchpad.support.sap.com/#/notes/2292690/E)
@@ -404,7 +404,7 @@ SLES for SAP Applications 12 GA 和 SLES for SAP Applications 12 SP1 具有一�
 如需有關 HANA HDBLCM 工具的詳細資訊，請參閱：
 
 * [為您的工作選擇正確的 SAP HANA HDBLCM](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
-* [SAP HANA 生命週期管理工具](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
+* [SAP HANA 生命週期管理工具](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)
 * [SAP HANA 伺服器安裝與更新指南](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 為了避免 `\<HANA SID\>adm user` (由 HDBLCM 工具建立) 的預設群組識別碼設定發生問題，請在透過 HDBLCM 安裝 SAP HANA 之前，先使用群組識別碼 `1001` 定義名為 `sapsys` 的新群組：

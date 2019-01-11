@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: efccea36dd94120934b1a9729f583e0596316bc7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a222e66b896886d724572982626fd0bc2c277a8
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338561"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809959"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
@@ -446,7 +446,7 @@ Blob 觸發程序會在內部使用佇列，因此並行函式叫用數上限由
 
 [取用方案](functions-scale.md#how-the-consumption-plan-works)會限制一個虛擬機器 (VM) 上的一個函式應用程式可使用 1.5 GB 的記憶體。 每個並行執行的函式執行個體和函式執行階段本身都會使用記憶體。 如果 Blob 觸發的函式將整個 Blob 載入記憶體中，則該函式用於 Blob 的記憶體上限為 24 * Blob 大小上限。 例如，若某個函式應用程式有三個 Blob 觸發的函式，則預設的每一 VM 並行存取上限將是 3 * 24 = 72 個函式叫用。
 
-JavaScript 函式會將整個 Blob 載入記憶體中，而 C# 函式則會在您繫結至 `string`、`Byte[]` 或 POCO 時有此行為。
+JavaScript 和 Java 函式會將整個 Blob 載入記憶體中，而 C# 函式則會在您繫結至 `string`、`Byte[]` 或 POCO 時有此行為。
 
 ## <a name="trigger---polling"></a>觸發程序 - 輪詢
 
@@ -462,7 +462,7 @@ JavaScript 函式會將整個 Blob 載入記憶體中，而 C# 函式則會在�
 
 * [C#](#input---c-example)
 * [C# 指令碼 (.csx)](#input---c-script-example)
-* [Java](#input---java-example)
+* [Java](#input---java-examples)
 * [JavaScript](#input---javascript-example)
 * [Python](#input---python-example)
 
@@ -630,22 +630,61 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
     return inputblob
 ```
 
-### <a name="input---java-example"></a>輸入 - Java 範例
+### <a name="input---java-examples"></a>輸入 - Java 範例
 
-下列範例是使用一個佇列觸發程序和一個輸入 Blob 繫結的 Java 函式。 佇列訊息包含 Blob 的名稱，而函式會記錄 Blob 的大小。
+本區段包含下列範例：
+
+* [HTTP 觸發程序，從查詢字串中查閱 Blob 名稱](#http-trigger-look-up-blob-name-from-query-string-java)
+* [佇列觸發程序，接收來自佇列訊息的 Blob 名稱](#queue-trigger-receive-blob-name-from-queue-message-java)
+
+#### <a name="http-trigger-look-up-blob-name-from-query-string-java"></a>HTTP 觸發程序，從查詢字串中查閱 Blob 名稱 (Java)
+
+ 下列範例示範使用 ```HttpTrigger``` 註解接收參數 (其中包含 Blob 儲存體容器中的檔案名稱) 的 Java 函式。 ```BlobInput``` 註解接著會讀取檔案，並將其內容傳遞給函式做為 ```byte[]```。
 
 ```java
-@FunctionName("getBlobSize")
-@StorageAccount("AzureWebJobsStorage")
-public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-items") String filename,
-                    @BlobInput(name = "file", dataType = "binary", path = "samples-workitems/{queueTrigger") byte[] content,
-       final ExecutionContext context) {
+  @FunctionName("getBlobSizeHttp")
+  @StorageAccount("Storage_Account_Connection_String")
+  public HttpResponseMessage blobSize(
+    @HttpTrigger(name = "req", 
+      methods = {HttpMethod.GET}, 
+      authLevel = AuthorizationLevel.ANONYMOUS) 
+    HttpRequestMessage<Optional<String>> request,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{Query.file}") 
+    byte[] content,
+    final ExecutionContext context) {
+      // build HTTP response with size of requested blob
+      return request.createResponseBuilder(HttpStatus.OK)
+        .body("The size of \"" + request.getQueryParameters().get("file") + "\" is: " + content.length + " bytes")
+        .build();
+  }
+```
+
+#### <a name="queue-trigger-receive-blob-name-from-queue-message-java"></a>佇列觸發程序，接收來自佇列訊息的 Blob 名稱 (Java)
+
+ 下列範例示範使用 ```QueueTrigger``` 註解接收訊息 (其中包含 Blob 儲存體容器中的檔案名稱) 的 Java 函式。 ```BlobInput``` 註解接著會讀取檔案，並將其內容傳遞給函式做為 ```byte[]```。
+
+```java
+  @FunctionName("getBlobSize")
+  @StorageAccount("Storage_Account_Connection_String")
+  public void blobSize(
+    @QueueTrigger(
+      name = "filename", 
+      queueName = "myqueue-items-sample") 
+    String filename,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{queueTrigger}") 
+    byte[] content,
+    final ExecutionContext context) {
       context.getLogger().info("The size of \"" + filename + "\" is: " + content.length + " bytes");
- }
- ```
+  }
+```
 
-  在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Blob 的參數使用 `@BlobInput` 註釋。  此註釋可以搭配原生 Java 類型、POJO 或使用 `Optional<T>` 的可為 Null 值使用。
-
+在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Blob 的參數使用 `@BlobInput` 註釋。  此註釋可以搭配原生 Java 類型、POJO 或使用 `Optional<T>` 的可為 Null 值使用。
 
 ## <a name="input---attributes"></a>輸入 - 屬性
 
@@ -728,7 +767,7 @@ public static void Run(
 
 * [C#](#output---c-example)
 * [C# 指令碼 (.csx)](#output---c-script-example)
-* [Java](#output---java-example)
+* [Java](#output---java-examples)
 * [JavaScript](#output---javascript-example)
 * [Python](#output---python-example)
 
@@ -915,23 +954,72 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
     outputblob.set(inputblob)
 ```
 
-### <a name="output---java-example"></a>輸出 - Java 範例
+### <a name="output---java-examples"></a>輸出 - Java 範例
 
-下列範例顯示 Java 函式中的 Blob 輸入和輸出繫結。 此函式會建立文字 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 {originalblobname}-Copy
+本區段包含下列範例：
+
+* [HTTP 觸發程序，使用 OutputBinding](#http-trigger-using-outputbinding-java)
+* [佇列觸發程序，使用函式傳回值](#queue-trigger-using-function-return-value-java)
+
+#### <a name="http-trigger-using-outputbinding-java"></a>HTTP 觸發程序，使用 OutputBinding (Java)
+
+ 下列範例示範使用 ```HttpTrigger``` 註解接收參數 (其中包含 Blob 儲存體容器中的檔案名稱) 的 Java 函式。 ```BlobInput``` 註解接著會讀取檔案，並將其內容傳遞給函式做為 ```byte[]```。 ```BlobOutput``` 註釋會繫結至 ```OutputBinding outputItem```，函式接著會用來將輸入 Blob 的內容寫入到設定的儲存體容器中。
 
 ```java
-@FunctionName("copyTextBlob")
-@StorageAccount("AzureWebJobsStorage")
-@BlobOutput(name = "target", path = "samples-workitems/{queueTrigger}-Copy")
-public String blobCopy(
-    @QueueTrigger(name = "filename", queueName = "myqueue-items") String filename,
-    @BlobInput(name = "source", path = "samples-workitems/{queueTrigger}") String content ) {
+  @FunctionName("copyBlobHttp")
+  @StorageAccount("Storage_Account_Connection_String")
+  public HttpResponseMessage copyBlobHttp(
+    @HttpTrigger(name = "req", 
+      methods = {HttpMethod.GET}, 
+      authLevel = AuthorizationLevel.ANONYMOUS) 
+    HttpRequestMessage<Optional<String>> request,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{Query.file}") 
+    byte[] content,
+    @BlobOutput(
+      name = "target", 
+      path = "myblob/{Query.file}-CopyViaHttp")
+    OutputBinding<String> outputItem,
+    final ExecutionContext context) {
+      // Save blob to outputItem
+      outputItem.setValue(new String(content, StandardCharsets.UTF_8));
+
+      // build HTTP response with size of requested blob
+      return request.createResponseBuilder(HttpStatus.OK)
+        .body("The size of \"" + request.getQueryParameters().get("file") + "\" is: " + content.length + " bytes")
+        .build();
+  }
+```
+
+#### <a name="queue-trigger-using-function-return-value-java"></a>佇列觸發程序，使用函式傳回值 (Java)
+
+ 下列範例示範使用 ```QueueTrigger``` 註解接收訊息 (其中包含 Blob 儲存體容器中的檔案名稱) 的 Java 函式。 ```BlobInput``` 註解接著會讀取檔案，並將其內容傳遞給函式做為 ```byte[]```。 ```BlobOutput``` 註釋會繫結至函式傳回值，執行階段接著會用來將輸入 Blob 的內容寫入到設定的儲存體容器中。
+
+```java
+  @FunctionName("copyBlobQueueTrigger")
+  @StorageAccount("Storage_Account_Connection_String")
+  @BlobOutput(
+    name = "target", 
+    path = "myblob/{queueTrigger}-Copy")
+  public String copyBlobQueue(
+    @QueueTrigger(
+      name = "filename", 
+      dataType = "string",
+      queueName = "myqueue-items") 
+    String filename,
+    @BlobInput(
+      name = "file", 
+      path = "samples-workitems/{queueTrigger}") 
+    String content,
+    final ExecutionContext context) {
+      context.getLogger().info("The content of \"" + filename + "\" is: " + content);
       return content;
- }
- ```
+  }
+```
 
  在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值要寫入至 Blob 儲存體中物件的函式參數使用 `@BlobOutput` 註釋。  參數類型應為 `OutputBinding<T>`，其中 T 是任何原生 Java 類型的 POJO。
-
 
 ## <a name="output---attributes"></a>輸出 - 屬性
 

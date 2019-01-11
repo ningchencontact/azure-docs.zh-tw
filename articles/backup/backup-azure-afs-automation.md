@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 90623981f67bbed15ade743192525676e58a0a83
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 30fc36f29a7602e2bc3f192b445474bfc50e9434
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318379"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632630"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>使用 PowerShell 備份和還原 Azure 檔案共用
 
@@ -34,11 +34,11 @@ ms.locfileid: "53318379"
 ## <a name="setup-and-registration"></a>設定和註冊
 
 > [!NOTE]
-> 如[這裡](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0)所述，AzureRM 模組中新功能的支援於 2018 年 11 月結束。 因此，我們使用新的 'Az' PS 模組，為 Azure 檔案共用的備份提供支援。 我們也正在計畫將 Az 模組上架成為正式上市版本。
+> 如[這裡](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0)所述，AzureRM 模組中新功能的支援於 2018 年 11 月結束。 因此，我們現在會在 GA 中使用新的 'Az' PS 模組，為 Azure 檔案共用的備份提供支援。
 
 開始：
 
-1. [下載最新版本的'Az' PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (所需的最低版本為：0.7.0)
+1. [下載最新版本的'Az' PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (所需的最低版本為：1.0.0)
 
 2. 輸入下列命令，以找到可用的 Azure 備份 PowerShell Cmdlet：
 
@@ -158,6 +158,8 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 ----                 ------------       -------------------- ----------                ----------
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2017 1:30:00 AM
 ```
+
+'NewAFSPolicy' 會進行每日備份，並將它保留 30 天。
 
 ### <a name="enable-protection"></a>啟用保護。
 

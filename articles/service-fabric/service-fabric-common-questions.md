@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 54ce1d9ab6216f1d757d7076cb95362d55ea9d9c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164632"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537615"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 的常見問題
 
@@ -64,9 +64,16 @@ ms.locfileid: "53164632"
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Service Fabric 叢集的大小下限為何？ 為什麼無法更小？
 
-執行生產工作負載的 Service Fabric 叢集所支援的大小下限為五個節點。 針對開發/測試案例，我們支援三個節點的叢集。
+執行生產工作負載的 Service Fabric 叢集所支援的大小下限為五個節點。 針對開發人員案例，我們支援一個節點 (已針對在 Visual Studio 中提供快速開發體驗最佳化) 和五個節點的叢集。
 
-之所以會有這些最低限制，是因為 Service Fabric 叢集會執行一組可設定狀態的系統服務，包括命名服務及容錯移轉管理員。 這些服務會根據強式一致性，追蹤哪些服務已經部署至叢集，以及它們目前的裝載位置。 該強式一致性接著會根據取得「仲裁」的能力，提供任何指定的更新給那些服務的狀態，其中仲裁代表指定之服務的特定多數複本 (N/2 + 1)。
+因為下列三個原因，我們要求生產環境叢集至少有 5 個節點：
+1. 即使未執行任何使用者服務，Service Fabric 叢集仍會執行一組具設定狀態的系統服務，包括命名服務及容錯移轉管理員服務。 這些系統服務對於維持叢集的運作是不可或缺的。
+2. 我們一律會針對每個節點放置一個服務複本，因此叢集大小是服務 (實際上是分割區) 可以擁有的複本數量上限。
+3. 由於叢集升級將會至少讓一個節點停機，我們希望擁有至少一個節點的緩衝，因此我們希望生產環境叢集在最低限度以外能有至少兩個節點。 最低限度是系統服務的仲裁大小，其說明如下。  
+
+我們希望叢集在面臨兩個節點同時失敗時仍然可用。 若要使 Service Fabric 叢集可用，則系統服務必須可供使用。 具狀態服務 (例如命名服務和容錯移轉管理員服務) 會根據強式一致性，追蹤哪些服務已經部署至叢集，以及它們目前的裝載位置。 該強式一致性接著會根據取得「仲裁」的能力，提供任何指定的更新給那些服務的狀態，其中仲裁代表指定之服務的特定多數複本 (N/2 + 1)。 因此，如果我們需要針對兩個節點同時中斷 (因此同時中斷系統服務的兩個複本) 的復原性，我們必須要讓 ClusterSize - QuorumSize >= 2，這會讓下限強制成為五。 若要達成這個結果，請考慮讓有 N 個節點的叢集有 N 個系統服務複本，亦即每個節點上都有一個。 系統服務的仲裁大小為 (N/2 + 1)。 上述的不等式看起來會像這樣：N - (N/2 + 1) >= 2。 有兩種情況要考量：當 N 是偶數和 N 是奇數。 如果 N 是偶數，假設 N = 2\*m，而 m >= 1，則不等式看起來會像這樣：2\*m - (2\*m/2 + 1) >= 2 或 m >= 3。 N 的最小值是 6，這是在 m = 3 時達成。 相反地，如果 N 是奇數，假設 N = 2\*m+1，而 m >= 1，則不等式看起來會像這樣：2\*m+1 - ( (2\*m+1)/2 + 1 ) >= 2 或 2\*m+1 - (m+1) >= 2 或 m >= 2。 N 的最小值是 5，這是在 m = 2 時達成。 因此，上述滿足不等式 ClusterSize - QuorumSize >= 2 的所有 N 值，其最小值為 5。
+
+請注意，在上述引數中我們已假設每個節點都有系統服務的複本，因此仲裁大小是根據叢集中的節點數量計算而來。 不過，藉由變更 *TargetReplicaSetSize*，我們可以讓仲裁大小小於 (N/2+1)，這可能會讓您認為我們能夠有小於 5 個節點的叢集，且仍然有 2 個額外節點高於仲裁大小。 例如，在有 4 個節點的叢集中，如果我們將 TargetReplicaSetSize 設為 3，基於 TargetReplicaSetSize 的仲裁大小會是 (3/2 + 1) 或 2，因此我們得出 CluserSize - QuorumSize = 4-2 >= 2。 不過，如果我們同時遺失任一組節點 (可能是裝載兩個複本的兩個節點)，就無法保證系統服務能達到或高於仲裁，而讓系統服務進入仲裁遺失 (僅剩擁有單一複本)，且將會變為無法使用。
 
 了解該背景後，讓我們來檢查一些可能的叢集組態：
 
@@ -74,9 +81,13 @@ ms.locfileid: "53164632"
 
 **兩個節點**︰跨兩個節點 (N = 2) 部署的服務，仲裁為 2 (2/2 + 1 = 2)。 當單一複本遺失時，就無法建立仲裁。 由於執行服務升級時需要暫時關閉複本，因此這不是有用的組態。
 
-**三個節點**︰使用三個節點 (N=3)，建立仲裁的需求仍然是兩個節點 (3/2 + 1 = 2)。 這表示您可以遺失一個單一節點，並且仍維持仲裁。
+**三個節點**︰使用三個節點 (N=3)，建立仲裁的需求仍然是兩個節點 (3/2 + 1 = 2)。 這表示您可能遺失個別節點，而仍然能維持仲裁，但兩個節點同時失敗將會導致系統服務進入仲裁遺失，且會造成叢集變為無法使用。
 
-開發/測試可支援三節點叢集組態，因為您可以安全地執行更新，而且只要那些節點不要同時發生失敗，就能在個別節點失敗時維持叢集。 針對生產工作負載，您必須能夠從這類同時失敗復原，因此必須有五個節點。
+**四個節點**︰使用四個節點 (N=4)，建立仲裁的需求是三個節點 (4/2 + 1 = 3)。 這表示您可能遺失個別節點，而仍然能維持仲裁，但兩個節點同時失敗將會導致系統服務進入仲裁遺失，且會造成叢集變為無法使用。
+
+**五個節點**︰使用五個節點 (N=5)，建立仲裁的需求仍然是三個節點 (5/2 + 1 = 3)。 這表示您可以在同一時間遺失兩個節點，並仍然維持系統服務的仲裁。
+
+對於生產環境工作負載，您必須要有至少兩個節點同時失敗的復原性 (例如，一個由於叢集升級，而另一個因為其他理由)，因此需要五個節點。
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>我能否在晚上/週末關閉叢集以節省成本？
 
@@ -93,7 +104,7 @@ ms.locfileid: "53164632"
 是。  如需詳細資訊，請參閱[使用已連結的資料磁碟建立叢集](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks)、[加密磁碟 (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md)，以及[加密磁碟 (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md)。
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>如何在叢集節點類型 (虛擬機器擴展集) 中使用低優先順序的 VM？
-否。 不支援低優先順序的 VM。 
+沒有。 不支援低優先順序的 VM。 
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>當我在叢集中執行防毒程式時需要排除哪些目錄和處理序？
 

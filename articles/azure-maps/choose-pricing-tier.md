@@ -3,17 +3,17 @@ title: 選擇 Azure 地圖服務的正確定價層 | Microsoft Docs
 description: 深入了解 Azure 地圖服務提供的定價層
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ee277867f449afddeb89c3fd73b5b577a68a4497
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 028a227eefb319d19c9274082626a007bd9161de
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998372"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993955"
 ---
 # <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>在 Azure 地圖服務中選擇正確的定價層
 
@@ -53,9 +53,8 @@ S0 和 S1 定價層可處理不同的資料輸送量。 選擇 Azure 地圖服�
 
 | 定價層  |        目標客戶                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>S0 定價層適用於中小型企業的客戶。 如果您預期不會有大量的並行使用者，而且下表所示的核心地理空間 API 可符合您服務的需求，則這是適合您的定價層。 此層級已正式推出，而且適用於所有生產階段中的應用程式，從概念證明開發和測試早期階段到應用程式的生產和部署皆適用。<p>|
+| S0            |    <p>S0 定價層適用於中小型企業的客戶。 如果您預期不會有大量的並行使用者，而且如上表所述的核心地理空間 API 可符合您的服務需求，則這是適合您的定價層。 此層級已正式推出，而且適用於所有生產階段中的應用程式，從概念證明開發和測試早期階段到應用程式的生產和部署皆適用。<p>|
 | S1            |    <p>S1 定價層適用於需要大型企業任務關鍵性應用程式支援、並行使用者人數眾多，或需要進階地理空間服務的客戶。</p>|
-
 
 ## <a name="next-steps"></a>後續步驟
 

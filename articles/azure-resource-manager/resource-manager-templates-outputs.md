@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 85aab429fd59afd36cd026e6d8aef2b7e6f6e122
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9a46d813f2e50831240303ba47380da39e2cb6af
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140450"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725802"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure Resource Manager 範本中的 Outputs 區段
 在輸出區段中，您可以指定從部署傳回的值。 例如，您可以傳回 URI 以存取所部署的資源。
@@ -81,25 +81,8 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 | type |是 |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 |
 | value |是 |評估並傳回做為輸出值的範本語言運算式。 |
 
-## <a name="recommendations"></a>建議
-
-如果您使用範本來建立公用 IP 位址，請包含 outputs 區段，以傳回 IP 位址和完整網域名稱 (FQDN) 的詳細資料。 您可以使用輸出值，輕鬆在部署後擷取公用 IP 位址和 FQDN 的相關詳細資料。
-
-```json
-"outputs": {
-    "fqdn": {
-        "value": "[reference(parameters('publicIPAddresses_name')).dnsSettings.fqdn]",
-        "type": "string"
-    },
-    "ipaddress": {
-        "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]",
-        "type": "string"
-    }
-}
-```
 
 ## <a name="example-templates"></a>範本的範例
-
 
 |範本  |說明  |
 |---------|---------|
@@ -111,5 +94,4 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 ## <a name="next-steps"></a>後續步驟
 * 若要檢視許多不同類型解決方案的完整範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)。
 * 如需您可以在範本內使用哪些函式的詳細資料，請參閱 [Azure Resource Manager 範本函式](resource-group-template-functions.md)。
-* 若要在部署期間合併多個範本，請參閱 [透過 Azure Resource Manager 使用連結的範本](resource-group-linked-templates.md)。
-* 您可能需要使用不同資源群組內的資源。 這案例常見於使用多個資源群組之間所共用的儲存體帳戶或虛擬網路時。 如需詳細資訊，請參閱 [resourceId 函式](resource-group-template-functions-resource.md#resourceid)。
+* 如需建立範本的建議，請參閱 [Azure Resource Manager 範本最佳做法](template-best-practices.md)。

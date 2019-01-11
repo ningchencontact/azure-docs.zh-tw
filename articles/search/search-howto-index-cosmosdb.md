@@ -11,12 +11,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
 ms.custom: seodec2018
-ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 99f19f6595f2e3105c4b30a7c2e7ef1e296fad6e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311808"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724844"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>使用索引子連接 Cosmos DB 與 Azure 搜尋服務
 
@@ -38,7 +38,7 @@ ms.locfileid: "53311808"
 <a name="supportedAPIs"></a>
 ## <a name="supported-api-types"></a>支援的 API 類型
 
-雖然 Azure Cosmos DB 支援各種不同的資料模型和 API，但是 Azure 搜尋服務索引子的生產環境支援只會延伸至 SQL API。 MongoDB API 支援目前處於公開預覽狀態。  
+雖然 Azure Cosmos DB 支援各種不同的資料模型和 API，但是 Azure 搜尋服務索引子的生產環境支援只會延伸至 SQL API。 適用於 MongoDB API 的 Azure Cosmos DB 支援目前處於公開預覽狀態。  
 
 即將推出其他 API 的支援。 若要協助我們設定要先支援哪些項目的優先順序，請在 User Voice 網站上投票：
 

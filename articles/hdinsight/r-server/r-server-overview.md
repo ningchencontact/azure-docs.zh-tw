@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 1f53d87d6de76c0ff6954c9bd38d95e05981d822
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a07f052cf89da039bb9fe091f1cd997c19d2fcc7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499475"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584525"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight 上的 ML 服務與開放原始碼 R 功能簡介
 
-> [!NOTE]
+> [!NOTE]  
 > 在 2017 年 9 月，Microsoft R Server 以全新的 **Microsoft Machine Learning Server** 或 ML Server 名稱發行。 因此，HDInsight 上的 R 伺服器叢集現在稱為 HDInsight 上的**機器學習服務**或 **ML 服務**叢集。 如需 R 伺服器名稱變更的相關資訊，請參閱 [Microsoft R 伺服器現為 Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server)。
 
 在 Azure 中建立 HDInsight 叢集時，可選擇 Microsoft Machine Learning Server 作為部署選項。 提供此選項的叢集類型稱為 **ML 服務**。 這項功能可讓資料科學家、統計學家以及 R 程式設計人員隨其所需存取 HDInsight 上可調整大小的分散式分析方法。
@@ -29,7 +29,7 @@ HDInsight 上的 ML 服務所提供的最新功能，適用於幾乎任何大小
 
 叢集的邊緣節點提供便利的地方，以便連線到叢集以及執行 R 指令碼。 有了邊緣節點之後，即可選擇跨邊緣節點伺服器的核心，執行 ScaleR 的平行分散式函數。 您也可以使用 ScaleR 的 Hadoop Map Reduce 或 Apache Spark 計算內容，跨越叢集的節點來執行這些函數。
 
-可以下載分析所產生的模型或預測，以便在內部部署使用。 它們也可以在 Azure 中的其他地方實際運作，特別是透過 [Azure Machine Learning Studio](http://studio.azureml.net) [Web 服務](../../machine-learning/studio/publish-a-machine-learning-web-service.md)。
+可以下載分析所產生的模型或預測，以便在內部部署使用。 它們也可以在 Azure 中的其他地方實際運作，特別是透過 [Azure Machine Learning Studio](https://studio.azureml.net) [Web 服務](../../machine-learning/studio/publish-a-machine-learning-web-service.md)。
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>開始使用 HDInsight 上的 ML 服務
 
@@ -72,7 +72,7 @@ HDInsight 上的 ML 服務包含下列功能。
 
 ## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>HDInsight 上適用於 ML 服務的資料儲存體選項
 
-HDInsight 叢集 HDFS 檔案系統的預設儲存體可以與 Azure 儲存體帳戶或 Azure Data Lake Store 關聯。 此關聯可確保在分析期間，上傳至叢集儲存體的任何資料皆保有永續性，而且即使刪除叢集之後還是可以取用資料。 有各種工具可用於處理將資料傳輸到您所選儲存體選項的作業，包括儲存體帳戶的入口網站型上傳工具，以及 [AzCopy](../../storage/common/storage-use-azcopy.md) 公用程式。
+HDInsight 叢集之 HDFS 檔案系統的預設儲存體可以與 Azure 儲存體帳戶或 Azure Data Lake Storage 產生關聯。 此關聯可確保在分析期間，上傳至叢集儲存體的任何資料皆保有永續性，而且即使刪除叢集之後還是可以取用資料。 有各種工具可用於處理將資料傳輸到您所選儲存體選項的作業，包括儲存體帳戶的入口網站型上傳工具，以及 [AzCopy](../../storage/common/storage-use-azcopy.md) 公用程式。
 
 不論使用中的儲存體選項為何，您都可以選擇在叢集佈建程序期間，啟用其他 Blob 和 Data Lake 儲存體的存取權。 如需有關新增其他帳戶存取權的詳細資訊，請參閱[開始使用 HDInsight 上的 ML 服務](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started)。 若要深入了解如何使用多個儲存體帳戶，請參閱[適用於 HDInsight 上 ML 服務的 Azure 儲存體選項](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage)文章。
 

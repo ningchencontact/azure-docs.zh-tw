@@ -1,5 +1,5 @@
 ---
-title: Azure 時間序列深入解析 - 時間序列模型 | Microsoft Docs
+title: Azure 時間序列深入解析預覽中的時間序列模型 | Microsoft Docs
 description: 了解 Azure 時間序列深入解析時間序列模型。
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2ead7a9a71c0afe72736bef8796107cae42009f1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a6eb142cf607c286ccce1282bb5c67a30c040c62
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278180"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716577"
 ---
 # <a name="time-series-model"></a>時間序列模型
 
@@ -136,7 +136,7 @@ ms.locfileid: "53278180"
  H1 = [“building”, “floor”, “room”]
 ```
 
-依「執行個體欄位」而定，階層屬性和值會顯示如下表中所示： 
+依「執行個體欄位」而定，階層屬性和值會顯示如下表中所示：
 
 | 時間序列識別碼 | 執行個體欄位 |
 | --- | --- |
@@ -144,9 +144,9 @@ ms.locfileid: "53278180"
 | ID2 | "building" = "1000", "room" = "55" |
 | ID3 | "floor" = "10" |
 | ID4 | "building" = "1000", "floor" = "10"  |
-| ID5 | |
+| ID5 | 未設定 “building”、“floor” 或 “room” |
 
-在上述範例中，ID1 在 UI/UX 中顯示為階層 H1 的一部分，而其餘的則分類在「無上層的執行個體」下，因為它們不符合指定的資料階層。
+在上述範例中，ID1 和 ID4 在 Azure 時間序列深入解析總管中顯示為階層 H1 的一部分，而其餘的則被分類在「無上層的執行個體」下，因為它們不符合指定的資料階層。
 
 ## <a name="time-series-model-instances"></a>時間序列模型執行個體
 

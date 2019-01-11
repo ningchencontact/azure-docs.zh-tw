@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 796cbcfc7ab905c54b878a5ccc866efbf9242fb6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583208"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652076"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Apache Spark 串流概觀
 
@@ -203,7 +203,7 @@ Spark 串流應用程式是長時間執行的應用程式，其會接收來自�
 
 ## <a name="checkpointing"></a>檢查點
 
-為了提供備援和容錯，Spark 串流會藉由檢查點來確保串流處理即使在發生節點錯誤時，也能夠持續而不中斷。 在 HDInsight 中，Spark 會在可靠的儲存體 (Azure 儲存體或 Data Lake Store) 上建立檢查點。 這些檢查點會儲存有關串流應用程式的中繼資料，例如組態、由應用程式定義的作業，以及任何在佇列中尚未處理的批次。 在某些情況下，檢查點也包括儲存 RDD 中的資料，以便更快速地從 Spark 所管理的 RDD 中現有內容重建資料狀態。
+為了提供備援和容錯，Spark 串流會藉由檢查點來確保串流處理即使在發生節點錯誤時，也能夠持續而不中斷。 在 HDInsight 中，Spark 會在耐久的儲存體 (Azure 儲存體或 Data Lake Storage) 上建立檢查點。 這些檢查點會儲存有關串流應用程式的中繼資料，例如組態、由應用程式定義的作業，以及任何在佇列中尚未處理的批次。 在某些情況下，檢查點也包括儲存 RDD 中的資料，以便更快速地從 Spark 所管理的 RDD 中現有內容重建資料狀態。
 
 ## <a name="deploying-spark-streaming-applications"></a>部署 Spark 串流處理應用程式
 

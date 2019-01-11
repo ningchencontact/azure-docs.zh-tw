@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: b5083a2af335bd40dc55f7f325ac0a4ad125b682
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 03b4cc919086ff2a8eb038ad9c4f45200e9a6246
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384220"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715099"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>使用 Apache Ambari REST API 來管理 HDInsight 叢集
 
@@ -26,7 +26,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
 ## <a id="whatis"></a>什麼是 Apache Ambari
 
-[Apache Ambari](http://ambari.apache.org) 會提供 Web UI 以供用來管理及監視 Hadoop 叢集。 開發人員可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)將這些功能整合到應用程式。
+[Apache Ambari](https://ambari.apache.org) 會提供 Web UI 以供用來管理及監視 Hadoop 叢集。 開發人員可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)將這些功能整合到應用程式。
 
 以 Linux 為基礎的 HDInsight 叢集預設會提供 Ambari。
 
@@ -232,7 +232,7 @@ foreach($item in $respObj.items) {
 
 ## <a name="example-get-the-default-storage"></a>範例：取得預設儲存體
 
-建立 HDInsight 叢集時，您必須使用 Azure 儲存體帳戶或 Data Lake Store 做為叢集的預設儲存體。 在建立叢集之後，您可以使用 Ambari 來擷取這項資訊。 例如，如果您想要讀取/寫入資料至 HDInsight 以外的容器。
+建立 HDInsight 叢集時，您必須使用 Azure 儲存體帳戶或 Data Lake Storage 作為叢集的預設儲存體。 在建立叢集之後，您可以使用 Ambari 來擷取這項資訊。 例如，如果您想要讀取/寫入資料至 HDInsight 以外的容器。
 
 下列範例會從叢集擷取預設儲存體組態：
 
@@ -255,9 +255,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 * `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - 這個值表示叢集是使用 Azure 儲存體帳戶做為預設儲存體。 `ACCOUNTNAME` 值是儲存體帳戶的名稱。 `CONTAINER` 部分是儲存體帳戶中 blob 容器的名稱。 容器是叢集的 HDFS 相容儲存體的根目錄。
 
-* `adl://home` - 這個值表示叢集是使用 Azure Data Lake Store 做為預設儲存體。
+* `adl://home` - 這個值表示叢集會使用 Azure Data Lake Storage 作為預設儲存體。
 
-    若要尋找 Data Lake Store 帳戶名稱，請使用下列範例︰
+    若要尋找 Data Lake Storage 帳戶名稱，請使用下列範例：
 
     ```bash
     curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -271,9 +271,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $respObj.items.configurations.properties.'dfs.adls.home.hostname'
     ```
 
-    傳回值類似 `ACCOUNTNAME.azuredatalakestore.net`，其中 `ACCOUNTNAME` 是 Data Lake Store 帳戶的名稱。
+    傳回值類似 `ACCOUNTNAME.azuredatalakestore.net`，其中 `ACCOUNTNAME` 是 Data Lake Storage 帳戶的名稱。
 
-    若要尋找包含叢集儲存體的 Data Lake Store 內的目錄，請使用下列範例︰
+    若要在包含叢集儲存體的 Data Lake Storage 內尋找此目錄，請使用下列範例：
 
     ```bash
     curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -287,7 +287,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $respObj.items.configurations.properties.'dfs.adls.home.mountpoint'
     ```
 
-    傳回值類似 `/clusters/CLUSTERNAME/`。 這個值是 Data Lake Store 帳戶內的路徑。 這個路徑是叢集的 HDFS 相容檔案系統的根目錄。 
+    傳回值類似 `/clusters/CLUSTERNAME/`。 這個值是 Data Lake Storage 帳戶內的路徑。 這個路徑是叢集的 HDFS 相容檔案系統的根目錄。 
 
 > [!NOTE]  
 > [Azure PowerShell](/powershell/azure/overview) 提供的 `Get-AzureRmHDInsightCluster` Cmdlet 也會傳回叢集的儲存體資訊。

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f26ec6f1743a72a4a396ba245d80227f6f75913
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: cf258637311cd22964723da6bad3451dff6cccf6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584276"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632004"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 開發 Apache Storm 的 C# 拓撲
 
@@ -22,7 +22,7 @@ ms.locfileid: "52584276"
 
 您也會學習如何建立使用 C# 和 Java 元件的混合式拓撲。
 
-> [!NOTE]
+> [!NOTE]  
 > 雖然本文件中的步驟依賴 Windows 開發環境與 Visual Studio，但已編譯的專案可以提交到以 Linux 或 Windows 為基礎的 HDInsight 叢集。 只有在 2016 年 10 月 28 日之後所建立之以 Linux 為基礎的叢集可支援 SCP.NET 拓撲。
 
 若要搭配使用 C# 拓撲與以 Linux 為基礎的叢集，您必須將專案使用的 Microsoft.SCP.Net.SDK NuGet 套件更新為 0.10.0.6 版或更新版本。 套件版本也必須符合 HDInsight 上安裝的 Storm 主要版本。
@@ -34,8 +34,8 @@ ms.locfileid: "52584276"
 | 3.5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
-> [!IMPORTANT]
-> 在以 Linux 為基礎之叢集上的 C# 拓撲必須使用 .NET 4.5，並使用 Mono 以在 HDInsight 叢集上執行。 查看 [Mono 相容性](http://www.mono-project.com/docs/about-mono/compatibility/) \(英文\) 以了解可能的不相容情形。
+> [!IMPORTANT]  
+> 在以 Linux 為基礎之叢集上的 C# 拓撲必須使用 .NET 4.5，並使用 Mono 以在 HDInsight 叢集上執行。 查看 [Mono 相容性](https://www.mono-project.com/docs/about-mono/compatibility/) \(英文\) 以了解可能的不相容情形。
 
 ## <a name="install-visual-studio"></a>安裝 Visual Studio
 
@@ -57,7 +57,7 @@ ms.locfileid: "52584276"
 
 當您從 Visual Studio 提交 Storm 拓撲時，SCP.NET 會產生包含拓撲及相依性的 ZIP 檔案。 系統會使用 Java 來建立這些 ZIP 檔案，因為它所使用的格式和以 Linux 為基礎的叢集更具相容性。
 
-1. 在您的開發環境上安裝 Java Developer Kit (JDK) 7 或更新版本。 您可以從 [Oracle](https://aka.ms/azure-jdks) \(英文\) 取得 Oracle JDK。 您也可以使用[其他 Java 發佈](http://openjdk.java.net/) \(英文\)。
+1. 在您的開發環境上安裝 Java Developer Kit (JDK) 7 或更新版本。 您可以從 [Oracle](https://aka.ms/azure-jdks) \(英文\) 取得 Oracle JDK。 您也可以使用[其他 Java 發佈](https://openjdk.java.net/) \(英文\)。
 
 2. `JAVA_HOME` 環境變數必須指向包含 Java 的目錄。
 
@@ -114,8 +114,8 @@ Data Lake Tools for Visual Studio 提供下列範本：
 | Storm 混合式範例 |如何使用 Java 元件。 |
 | Storm 範例 |基本的字數統計拓撲。 |
 
-> [!WARNING]
-> 並非所有範本都能與以 Linux 為基礎的 HDInsight 搭配運作。 範本所使用的 NuGet 套件可能無法與 Mono 相容。 請查看 [Mono 相容性](http://www.mono-project.com/docs/about-mono/compatibility/)文件，並使用 [.NET Portability Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) 來找出潛在問題。
+> [!WARNING]  
+> 並非所有範本都能與以 Linux 為基礎的 HDInsight 搭配運作。 範本所使用的 NuGet 套件可能無法與 Mono 相容。 請查看 [Mono 相容性](https://www.mono-project.com/docs/about-mono/compatibility/)文件，並使用 [.NET Portability Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) 來找出潛在問題。
 
 在這份文件的步驟中，您會使用基本 Storm 應用程式專案類型來建立拓撲。
 
@@ -125,7 +125,7 @@ HBase 讀取器和寫入器範本會使用 HBase REST API (而不是 HBase Java 
 
 ### <a name="eventhub-templates-notes"></a>EventHub 範本注意事項
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 包含在 EventHub Reader 讀取器範本中，以 Java 為基礎的 EventHub Spout 元件可能無法與 Storm on HDInsight 3.5 版或更新版本搭配使用。 此元件的更新版本可在 [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib) \(英文\) 取得。
 
 如需使用此元件和搭配 Storm on HDInsight 3.5 使用的範例拓撲，請參閱 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub) \(英文\)。
@@ -144,7 +144,7 @@ HBase 讀取器和寫入器範本會使用 HBase REST API (而不是 HBase Java 
 
    * **Spout.cs**：發出亂數的範例 Spout。
 
-   * **Bolt.cs**：保留 Spout 所發出數字之計數的範例 Bolt。
+   * **Bolt.cs**：保留 Spout 所發出之數字計數的範例 Bolt。
 
      當您建立專案時，NuGet 會下載最新的 [SCP.NET 套件](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) \(英文\)。
 
@@ -156,11 +156,11 @@ HBase 讀取器和寫入器範本會使用 HBase REST API (而不是 HBase Java 
 
    * **NextTuple**：允許 Spout 發出新的 Tuple 時，由 Storm 所呼叫。
 
-   * **Ack** (僅限交易式拓撲)：針對從 Spout 傳送的 Tuple，處理拓撲中其他元件所起始的認可。 認可 Tuple 可讓 Spout 知道下游元件已順利處理 Tuple。
+   * **Ack** (僅限交易式拓撲)：針對從 Spout 傳送的 Tuple，處理拓撲中其他元件所起始的通知。 認可 Tuple 可讓 Spout 知道下游元件已順利處理 Tuple。
 
-   * **Fail** (僅限交易式拓撲)：處理無法處理拓撲中之其他元件的 Tuple。 實作 Fail 方法可讓您重新發出 Tuple，以便再次處理它。
+   * **Fail** (僅限交易式拓撲)：處理無法處理拓撲中其他元件的 Tuple。 實作 Fail 方法可讓您重新發出 Tuple，以便再次處理它。
 
-2. 將 **Spout** 類別的內容取代為下列文字：這個 Spout 會隨機發出句子到拓撲。
+2. 將 **Spout** 類別的內容取代為下列文字：此 spout 會將句子隨機發出至拓撲。
 
     ```csharp
     private Context ctx;
@@ -226,11 +226,11 @@ HBase 讀取器和寫入器範本會使用 HBase REST API (而不是 HBase Java 
 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選取 [新增] > [新項目]。 從清單中，選取 [Storm Bolt]，並輸入 **Splitter.cs** 做為名稱。 重複此程序，以建立名為 **Counter.cs** 的第二個 Bolt。
 
-   * **Splitter.cs**：實作會將句子分成個別單字，並發出一串新文字的 Bolt。
+   * **Splitter.cs**：實作會將句子分割為個別字組，並發出新的一串字組的 Bolt。
 
-   * **Counter.cs**：實作會計算每個單字的數目，並發出一串新文字和每個單字計數的 Bolt。
+   * **Counter.cs**：實作會計算每個字組數目，並發出新的一串字組和每個字組計數的 Bolt。
 
-     > [!NOTE]
+     > [!NOTE]  
      > 這些 Bolt 會讀取和寫入資料流，但是您也可以使用 Bolt 與資料庫或服務等來源進行通訊。
 
 3. 開啟 **Splitter.cs**。 它預設只有一個方法：**Execute**。 這是在 Bolt 收到要處理的 Tuple 時所呼叫的執行方法。 此時，您可以讀取和處理內送 Tuple，以及發出輸出 Tuple。
@@ -408,21 +408,21 @@ return topologyBuilder;
 
 1. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，然後選取 [提交至 Storm on HDInsight]。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 如果出現提示，請輸入您 Azure 訂用帳戶的認證。 如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
 
 2. 從 [Storm 叢集] 下拉式清單中選取 Storm on HDInsight 叢集，然後選取 [提交]。 您可以使用 [輸出]  視窗監視提交是否成功。
 
 3. 順利提交拓撲時，應該會出現叢集的 [Storm 拓撲]  。 從清單中選取 [WordCount]  拓撲，以檢視執行中拓撲的詳細資訊。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 您也可以從 [伺服器總管] 檢視 [Storm 拓撲]。 展開 [Azure] > [HDInsight]，以滑鼠右鍵按一下 Storm on HDInsight 叢集，然後選取 [檢視 Storm 拓撲]。
 
     若要檢視拓撲中元件的相關資訊，請按兩下圖表中的元件。
 
 4. 從 [拓撲摘要] 檢視中，按一下 [終止] 停止拓撲。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 除非停用 Storm 拓撲或刪除叢集，否則 Storm 拓撲會繼續執行。
 
 ## <a name="transactional-topology"></a>交易式拓撲
@@ -431,11 +431,11 @@ return topologyBuilder;
 
 交易式拓撲會實作下列項目來支援重新執行資料：
 
-* **中繼資料快取**：Spout 必須儲存所發出資料的中繼資料，這樣一來，於失敗時就可以重新擷取和發出資料。 此範例所發出的資料太少，因此為了重新執行，每個 Tuple 的原始資料都會儲存在字典中。
+* **中繼資料快取**：Spout 必須儲存關於所發出資料的中繼資料，如此就能在發生失敗時重新擷取並發出資料。 此範例所發出的資料太少，因此為了重新執行，每個 Tuple 的原始資料都會儲存在字典中。
 
-* **Ack**：拓撲中的每個 Bolt 都可以呼叫 `this.ctx.Ack(tuple)` 來認可它已順利處理 Tuple。 所有 Bolt 都已認可 Tuple 之後，即會叫用 Spout 的 `Ack` 方法。 `Ack` 方法可讓 Spout 移除快取以重新執行的資料。
+* **Ack**：拓撲中的每個 Bolt 都可以呼叫 `this.ctx.Ack(tuple)` 來確認它已成功處理 Tuple。 所有 Bolt 都已認可 Tuple 之後，即會叫用 Spout 的 `Ack` 方法。 `Ack` 方法可讓 Spout 移除快取以重新執行的資料。
 
-* **Fail**：每個 Bolt 都可以呼叫 `this.ctx.Fail(tuple)`，以指出 Tuple 的處理失敗。 這項失敗會傳播至 Spout 的 `Fail` 方法，在其中，可以使用快取的中繼資料來重新執行 Tuple。
+* **Fail**：每個 Bolt 都可呼叫 `this.ctx.Fail(tuple)`，以指出 Tuple 處理失敗。 這項失敗會傳播至 Spout 的 `Fail` 方法，在其中，可以使用快取的中繼資料來重新執行 Tuple。
 
 * **序列識別碼**：發出 Tuple 時，可以指定唯一的序列識別碼。 這個值可識別用於重新執行 (Ack 和 Fail) 處理的 Tuple。 例如，發出資料時，[Storm 範例]  專案中的 Spout 會使用下列項目：
 
@@ -459,13 +459,13 @@ return topologyBuilder;
 
     * 交易式版本定義於 **HybridTopologyTx_csharpSpout_javaBolt**。
 
-  > [!NOTE]
+  > [!NOTE]  
   > 這個版本也會示範如何使用文字檔中的 Clojure 程式碼做為 Java 元件。
 
 
 若要切換為提交專案時所使用的拓撲，請在提交至叢集之前，將 `[Active(true)]` 陳述式移至您要使用的拓撲即可。
 
-> [!NOTE]
+> [!NOTE]  
 > 在 **JavaDependency** 資料夾中，所需的所有 Java 檔案都會提供為此專案的一部分。
 
 當您建立和提交混合式拓撲時，請考慮下列項目：
@@ -480,11 +480,11 @@ return topologyBuilder;
 
 SCP.NET 0.9.4.203 版引進了專用於事件中樞 Spout (從事件中樞讀取的 Java Spout) 的新類別和方法。 當您建立採用事件中樞 Spout 的拓撲時，請使用下列方法：
 
-* **EventHubSpoutConfig** 類別：建立一個物件，其中包含 Spout 元件的設定。
+* **EventHubSpoutConfig** 類別：建立包含 Spout 元件設定的物件。
 
-* **TopologyBuilder.SetEventHubSpout** 方法：將事件中樞 Spout 元件加入至拓撲。
+* **TopologyBuilder.SetEventHubSpout** 方法：將事件中樞 Spout 元件新增至拓撲。
 
-> [!NOTE]
+> [!NOTE]  
 > 您仍然必須使用 **CustomizedInteropJSONSerializer** 來序列化 Spout 所產生的資料。
 
 ## <a id="configurationmanager"></a>使用 ConfigurationManager
@@ -532,7 +532,7 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 2. 從封裝管理員，選取 [更新] 。 如果有可用的更新，它會列出。 按一下套件的 [更新] 來安裝它。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 如果您的專案是利用未使用 NuGet 的舊版 SCP.NET 建立，您必須執行下列步驟更新為新的版本：
 >
 > 1. 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]。
@@ -562,7 +562,7 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 雖然很容易就可以將拓撲部署至叢集，但是在某些情況下，您可能需要在本機測試拓撲。 使用下列步驟，在開發環境上以本機執行和測試本教學課程中的範例拓撲。
 
-> [!WARNING]
+> [!WARNING]  
 > 本機測試只適用於僅限 C# 的基本拓撲。 您不得將本機測試使用於混合式拓撲或使用多個資料流的拓撲。
 
 1. 在**方案總管**中，於專案上按一下滑鼠右鍵，然後選取 [屬性]。 在專案屬性中，將 [輸出類型] 變更為 [主控台應用程式]。
@@ -684,12 +684,12 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 2. 儲存變更，然後按一下 **F5** 或選取 [偵錯] > [開始偵錯] 來啟動專案。 應該會出現主控台視窗，並記錄測試進行的狀態。 出現 [測試已完成]  時，請按任意鍵關閉視窗。
 
-3. 使用 [Windows 檔案總管] 找出包含您專案的目錄。 例如：**C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**。 在此目錄中，開啟 [Bin]，然後按一下 [偵錯]。 您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。 開啟每個文字檔，並檢查資料。
+3. 使用 [Windows 檔案總管] 找出包含您專案的目錄。 例如︰**C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**。 在此目錄中，開啟 [Bin]，然後按一下 [偵錯]。 您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。 開啟每個文字檔，並檢查資料。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 字串資料會在這些檔案中保存為十進位值的陣列。 例如，**splitter.txt** 檔案中的 \[[97,103,111]] 是 *and* 這個單字。
 
-> [!NOTE]
+> [!NOTE]  
 > 請一定要先將 [專案類型] 設回 [類別庫]，再部署至 Storm on HDInsight 叢集。
 
 ### <a name="log-information"></a>記錄資訊
@@ -702,7 +702,7 @@ Context.Logger.Info("Component started");
 
 您可以從 **[Hadoop 服務記錄]** \(位於**伺服器總管中**) 檢視記錄的資訊。 展開 Storm on HDInsight 叢集的項目，然後展開 [Hadoop 服務記錄]。 最後，選取要檢視的記錄檔。
 
-> [!NOTE]
+> [!NOTE]  
 > 記錄會儲存在您叢集所使用的 Azure 儲存體帳戶中。 若要在 Visual Studio 中檢視記錄檔，您必須登入至擁有儲存體帳戶的 Azure 訂用帳戶。
 
 ### <a name="view-error-information"></a>檢視錯誤資訊

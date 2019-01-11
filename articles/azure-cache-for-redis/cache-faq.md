@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 311a576381927536386f5852336c3713fca5c3bf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: aee91f6d9b8d16db7f14bbc2372d7c465377ce28
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260747"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971523"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis 常見問題集
 了解 Azure Redis 快取常見問題、模式及最佳做法的解答。
@@ -83,7 +83,7 @@ ms.locfileid: "53260747"
 * [我適合使用哪個 Azure 快取服務？](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-cache-for-redis"></a>什麼是 Azure Redis 快取？
-「Azure Redis 快取」以熱門的開放原始碼 [Azure Redis 快取](http://redis.io)為基礎。 它可讓您從 Azure 內的任何應用程式，存取由 Microsoft 管理的安全、專用「Azure Redis 快取」。 如需更詳細的概觀，請參閱 Azure.com 上的 [Azure Redis 快取](https://azure.microsoft.com/services/cache/)產品頁面。
+Azure Cache for Redis 會以廣受使用的開放原始碼軟體 [Redis](https://redis.io/) 為基礎。 它可讓您從 Azure 內的任何應用程式，存取由 Microsoft 管理的安全、專用「Azure Redis 快取」。 如需更詳細的概觀，請參閱 Azure.com 上的 [Azure Redis 快取](https://azure.microsoft.com/services/cache/)產品頁面。
 
 ### <a name="how-can-i-get-started-with-azure-cache-for-redis"></a>如何開始使用 Azure Redis 快取？
 有數種方式可讓您開始使用「Azure Redis 快取」。
@@ -153,7 +153,7 @@ ms.locfileid: "53260747"
 
 <a name="cache-region"></a>
 
-### <a name="in-what-region-should-i-locate-my-cache"></a>我應該將快取放在哪個區域？
+### <a name="in-what-region-should-i-locate-my-cache"></a>我應該在哪個區域找到快取？
 為獲得最佳效能和最低延遲，請將「Azure Redis 快取」放在與快取用戶端應用程式相同的區域中。
 
 <a name="cache-billing"></a>
@@ -174,7 +174,7 @@ ms.locfileid: "53260747"
 如需深入了解搭配其他雲端使用「Azure Redis 快取」的考量，請參閱下列連結。
 
 - [Azure Government 資料庫 - Azure Redis 快取](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Azure 中國雲端 - Azure Redis 快取](https://www.azure.cn/documentation/services/azure-cache-for-redis/)
+- [Azure 中國雲端 - Azure Redis 快取](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure (德國)](https://azure.microsoft.com/overview/clouds/germany/)
 
 如需有關在「Azure Government 雲端」、「Azure 中國雲端」及「Microsoft Azure 德國」中搭配 PowerShell 使用「Azure Redis 快取」的資訊，請參閱[如何連線到其他雲端 - Azure Redis 快取 PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)。

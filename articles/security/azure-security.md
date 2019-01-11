@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2dd6ebb9e2f35eccae3b267402a4ef9b0e1b2dbe
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a00f3d2ea4e191bb7860b88d39ff0ccaa338e0ff
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567157"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714231"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性簡介
 ## <a name="overview"></a>概觀
@@ -53,7 +53,7 @@ Azure 的基礎結構設計涵蓋設備與應用程式，可同時裝載數以�
 ## <a name="summary-azure-security-capabilities"></a>Azure 安全性功能摘要
 下表提供 Microsoft 實作來保護 Azure 基礎結構、客戶資料和安全應用程式之安全性功能的簡短描述。
 ### <a name="security-features-implemented-to-secure-the-azure-platform"></a>實作來保護 Azure 平台的安全性功能：
-您可以檢閱下列功能，以保證會透過安全的方式來管理 Azure 平台。 其中提供了連結，讓您可以進一步深入了解 Microsoft 如何在下列四個領域中處理客戶信任問題：安全的平台、隱私權與控制、合規性及透明度。
+您可以檢閱下列功能，以保證會透過安全的方式來管理 Azure 平台。 以下提供進一步向下切入的連結，以了解 Microsoft 如何解決四個方面的客戶信任問題：安全平台、隱私權與控制權、合規性及透明度。
 
 
 | [安全的平台](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [隱私權與控制](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[合規性](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [透明度](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
@@ -69,7 +69,7 @@ Azure 的基礎結構設計涵蓋設備與應用程式，可同時裝載數以�
 ### <a name="security-features-offered-by-azure-to-secure-data-and-application"></a>Azure 提供來保護資料和應用程式的安全性功能
 負責管理應用程式或服務安全性之人員應負的責任會根據雲端服務模型而不同。 Azure 平台中提供一些功能，可協助您透過內建功能，以及透過可部署到 Azure 訂用帳戶的協力廠商解決方案，來達成這些職責。
 
-內建功能分成六 (6) 個功能領域︰作業、應用程式、儲存體、網路功能、計算及身分識別。 在這六 (6) 個領域中，適用於 Azure 平台之特性與功能的其他詳細資料，會透過摘要資訊來提供。
+內建功能分為六 (6) 個方面的功能：作業、應用程式、儲存體、網路、計算及身分識別。 在這六 (6) 個領域中，適用於 Azure 平台之特性與功能的其他詳細資料，會透過摘要資訊來提供。
 
 ## <a name="operations"></a>作業
 本節提供關於安全性作業中主要功能的其他資訊，以及這些功能的摘要資訊。
@@ -110,7 +110,7 @@ Log Analytics 在鑑識和其他安全性分析方面是一個非常實用的工
 本節提供關於應用程式安全性中主要功能的其他資訊，以及這些功能的摘要資訊。
 
 ### <a name="web-application-vulnerability-scanning"></a>Web 應用程式弱點掃描
-開始測試您 [App Service 應用程式](https://docs.microsoft.com/azure/app-service/app-service-web-overview)上是否有弱點的最簡單方式之一是使用[與 Tinfoil Security 的整合 (英文)](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)，以在您的應用程式上執行單鍵弱點掃描。 您可以在容易了解的報告中檢視測試結果，並且了解如何以逐步指示修正每個弱點。
+開始測試您 [App Service 應用程式](https://docs.microsoft.com/azure/app-service/overview)上是否有弱點的最簡單方式之一是使用[與 Tinfoil Security 的整合 (英文)](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)，以在您的應用程式上執行單鍵弱點掃描。 您可以在容易了解的報告中檢視測試結果，並且了解如何以逐步指示修正每個弱點。
 
 ### <a name="penetration-testing"></a>滲透測試
 如果您想要執行專屬的滲透測試，或想要使用另一個掃描器套件或提供者，您必須依照 [Azure 滲透測試核准程序](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) 並取得先前核准，才能執行所需的滲透測試。
@@ -119,13 +119,13 @@ Log Analytics 在鑑識和其他安全性分析方面是一個非常實用的工
 [Azure 應用程式閘道](https://azure.microsoft.com/services/application-gateway/)中的 Web 應用程式防火牆 (WAF) 可協助保護 Web 應用程式，以免於常見的 Web 型攻擊，例如 SQL 插入式攻擊、跨網站指令碼攻擊和工作階段攔截。 其已預先設定 [Open Web Application Security Project (OWASP) 認定為前 10 大常見漏洞](https://msdn.microsoft.com/library/)的威脅防護。
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證與授權
-[App Service 驗證/授權](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)是可讓應用程式接受使用者登入的一種功能，而不需要您在應用程式後端變更程式碼。 它提供簡單的方法來保護您的應用程式，以及使用每位使用者的資料。
+[App Service 驗證/授權](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)是可讓應用程式接受使用者登入的一種功能，而不需要您在應用程式後端變更程式碼。 它提供簡單的方法來保護您的應用程式，以及使用每位使用者的資料。
 
 ### <a name="layered-security-architecture"></a>分層式安全性架構
 由於 [App Service 環境](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro)提供部署至 [Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)的隔離執行階段環境，因此開發人員能夠建立分層式安全性架構，針對每個應用程式層提供不同層級的網路存取。 常見的需求之一，是要隱藏對 API 後端的一般網際網路存取，而只允許由上游 Web 應用程式呼叫 API。 [網路安全性群組 (NSG)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) 可用於包含 App Service 環境的 Azure 虛擬網路子網路，以限制對 API 應用程式的公用存取。
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>Web 伺服器診斷和應用程式診斷
-App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提供診斷功能。 這些資訊邏輯上可區分為 [Web 伺服器診斷](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)與[應用程式診斷](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx)。 Web 伺服器在針對網站和應用程式進行診斷及疑難排解方面包含了兩個重大進展。
+App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提供診斷功能。 這些資訊邏輯上可區分為 [Web 伺服器診斷](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)與[應用程式診斷](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx)。 Web 伺服器在針對網站和應用程式進行診斷及疑難排解方面包含了兩個重大進展。
 
 第一個新功能是關於應用程式集區、背景工作處理序、網站、應用程式定義域和執行中要求的即時狀態資訊。 第二個新優點是詳細的追蹤事件，可在整個完成要求與回應程序中追蹤要求。
 
@@ -141,7 +141,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 -   Web 伺服器記錄：使用 W3C 擴充記錄檔格式的 HTTP 交易相關資訊。 當您需要判斷整體網站指標 (例如，處理的要求數量，或者有多少要求來自特定的 IP 位址) 時，這非常實用。
 
 #### <a name="application-diagnostics"></a>應用程式診斷
-[應用程式診斷](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)可讓您擷取 Web 應用程式所產生的資訊。 ASP.NET 應用程式會使用 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) 類別將資訊記錄到應用程式診斷記錄。 在應用程式診斷中，有兩種主要的事件類型：與應用程式效能相關的類型，以及與應用程式失敗和錯誤相關的類型。 失敗和錯誤可進一步細分為連線、安全性和失敗問題。 失敗問題通常與應用程式程式碼的問題有關。
+[應用程式診斷](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)可讓您擷取 Web 應用程式所產生的資訊。 ASP.NET 應用程式會使用 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) 類別將資訊記錄到應用程式診斷記錄。 在應用程式診斷中，有兩種主要的事件類型：與應用程式效能相關的類型，以及與應用程式失敗和錯誤相關的類型。 失敗和錯誤可進一步細分為連線、安全性和失敗問題。 失敗問題通常與應用程式程式碼的問題有關。
 
 在應用程式診斷中，您可以檢視以下列方式分組的事件：
 
@@ -289,7 +289,7 @@ Microsoft [Azure 流量管理員](https://docs.microsoft.com/azure/traffic-manag
 [網域名稱系統](https://technet.microsoft.com/library/bb629410.aspx) (或 DNS) 負責將網站或服務名稱轉譯 (或解析) 為其 IP 位址。 [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構提供名稱解析。 只要將您的網域裝載於 Azure，就可以像管理其他 Azure 服務一樣，使用相同的認證、API、工具和計費方式來管理 DNS 記錄。 DNS 支援 “CIA” 安全性三部曲的可用性層面。
 ### <a name="log-analytics-nsgs"></a>Log Analytics NSG
 您可以啟用下列 NSG 的診斷記錄類別︰
--   事件︰包含要將 NSG 規則套用到以 MAC 位址為基礎的 VM 和執行個體角色的項目。 每隔 60 秒會收集一次這些規則的狀態。
+-   事件︰包含 NSG 規則會套用到以 MAC 位址為基礎的 VM 和執行個體角色的項目。 每隔 60 秒會收集一次這些規則的狀態。
 
 -   規則計數器：包含套用每個 NSG 規則以拒絕或允許流量之次數的項目。
 

@@ -1,19 +1,20 @@
 ---
 title: 如何在 Azure Digital Twins 中設定監視 | Microsoft Docs
-description: 如何在 Azure Digital Twins 中設定監視
+description: 如何在 Azure Digital Twins 中設定監視。
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 12/26/2018
 ms.author: adgera
-ms.openlocfilehash: 1c8f1931a29ae9769f7d8ad57a184e3240105a1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.custom: seodec18
+ms.openlocfilehash: 2749a5c6c4e6003c51523d83c46b48d3b55b3d45
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945807"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807579"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中設定監視
 
@@ -23,7 +24,7 @@ Azure Digital Twins 支援強固的記錄、監視與分析功能。 解決方�
 
 ## <a name="review-activity-logs"></a>檢閱活動記錄
 
-Azure [活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)提供 Azure 每個服務執行個體之訂用帳戶層級事件與作業歷程記錄的快速見解。
+Azure [活動記錄](../azure-monitor/platform/activity-logs-overview.md)提供 Azure 每個服務執行個體之訂用帳戶層級事件與作業歷程記錄的快速見解。
 
 訂用帳戶層級事件包括：
 
@@ -54,7 +55,7 @@ Azure Digital Twins 的活動記錄預設會啟用，而且可以透過下列方
 
 ## <a name="enable-customer-diagnostic-logs"></a>啟用客戶診斷記錄
 
-您可以為每個 Azure 執行個體設定 Azure [診斷設定](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)以彌補活動記錄的不足。 雖然活動記錄與訂用帳戶層級事件有關， 但診斷記錄提供資源本身作業歷程記錄的見解。
+您可以為每個 Azure 執行個體設定 Azure [診斷設定](../azure-monitor/platform/diagnostic-logs-overview.md)以彌補活動記錄的不足。 雖然活動記錄與訂用帳戶層級事件有關， 但診斷記錄提供資源本身作業歷程記錄的見解。
 
 診斷記錄的範例包括：
 
@@ -74,7 +75,7 @@ Azure Digital Twins 的活動記錄預設會啟用，而且可以透過下列方
 
     ![診斷設定二][5]
 
-    診斷記錄通常使用 [Azure 檔案儲存體](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide)儲存並與 [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)共用。 您可以同時選取這兩個選項。
+    診斷記錄通常使用 [Azure 檔案儲存體](../storage/files/storage-files-deployment-guide.md)儲存並與 [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md)共用。 您可以同時選取這兩個選項。
 
 >[!TIP]
 >使用**診斷記錄**來取得對資源作業的見解。
@@ -91,7 +92,7 @@ IoT 應用程式會將不同的資源、裝置、位置與資料整合在一起�
 * 查看多個使用者定義函式的記錄
 * 顯示特定時段內二或多個服務的記錄
 
-完整記錄查詢是透過 [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries) 所提供。 設定這些強大的功能：
+完整記錄查詢是透過 [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) 所提供。 設定這些強大的功能：
 
 1. 在 Azure 入口網站中搜尋 **Log Analytics**。
 1. 您將會看到可用的 **Log Analytics** 執行個體。 選擇一個並選取 [記錄] 以查詢：
@@ -106,7 +107,7 @@ IoT 應用程式會將不同的資源、裝置、位置與資料整合在一起�
 
    ![記錄管理][8]
 
-如需有關強大的查詢作業的詳細資訊，請參閱[開始使用查詢](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)。
+如需有關強大的查詢作業的詳細資訊，請參閱[開始使用查詢](../azure-monitor/log-query/get-started-queries.md)。
 
 > [!NOTE]
 > 當您第一次傳送事件到 **Log Analytics** 時，可能會經歷 5 分鐘的延遲。
@@ -120,15 +121,15 @@ Azure Log Analytics 也提供功能強大的錯誤與警示通知服務，您可
 
 ## <a name="other-options"></a>其他選項
 
-Azure Digital Twins 也支援應用程式特定記錄與安全性稽核。 如需可供您的 Azure Digital Twins 執行個體使用之所有 Azure 記錄選項的全面資訊，請參閱 [Azure 記錄稽核](https://docs.microsoft.com/azure/security/azure-log-audit)一文。
+Azure Digital Twins 也支援應用程式特定記錄與安全性稽核。 如需可供您的 Azure Digital Twins 執行個體使用之所有 Azure 記錄選項的全面資訊，請參閱 [Azure 記錄稽核](../security/azure-log-audit.md)一文。
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解 Azure [活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)。
+- 深入了解 Azure [活動記錄](../azure-monitor/platform/activity-logs-overview.md)。
 
-透過閱讀[診斷記錄概觀](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)以深入了解 Azure 診斷設定。
+- 透過閱讀[診斷記錄概觀](../azure-monitor/platform/diagnostic-logs-overview.md)以深入了解 Azure 診斷設定。
 
-深入了解 [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)。
+- 深入了解 [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md)。
 
 <!-- Images -->
 [1]: media/how-to-configure-monitoring/activity-log.png

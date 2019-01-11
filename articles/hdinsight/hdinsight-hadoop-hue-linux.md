@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: 5df494904dd756ca7ef3a36a48da2224ab2bca81
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e0e25a9a1e70575d862374da0fb3097408b002e7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386004"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714622"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Hue
 
@@ -37,13 +37,13 @@ Hue 是一組用來與 Apache Hadoop 叢集進行互動的 Web 應用程式。 �
 > [!WARNING]  
 > 透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務將協助釐清與解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，像是：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如：[Hadoop](http://hadoop.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，像是：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[https://stackoverflow.com](https://stackoverflow.com)。 此外，Apache 專案在 [https://apache.org](https://apache.org) 上也有專案網站，例如：[Hadoop](https://hadoop.apache.org/)。
 >
 >
 
 ## <a name="install-hue-using-script-actions"></a>使用指令碼動作安裝 Hue
 
-您可以從 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh \(英文\) 取得可在 Linux 型 HDInsight 叢集上安裝 Hue 的指令碼。您可以使用這個指令碼在叢集上安裝色調，並以 Azure 儲存體 Blob (WASB) 或 Azure Data Lake Store 做為預設儲存體。
+您可以從 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh \(英文\) 取得可在 Linux 型 HDInsight 叢集上安裝 Hue 的指令碼。您可以使用這個指令碼在叢集上安裝 Hue，並以 Azure 儲存體 Blob (WASB) 或 Azure Data Lake Storage 作為預設儲存體。
 
 本節提供如何在使用 Azure 入口網站佈建叢集時使用指令碼的指示。
 

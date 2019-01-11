@@ -15,18 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 5b21ec36215dfde964b845a1ee28c02b562e1dd7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4e136d4a0a60838af7d2b1a111982b0c16b06dd2
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340669"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975146"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure 服務的虛擬網路整合
 
 透過將 Azure 服務整合到 Azure 虛擬網路，可以啟用從虛擬機器或虛擬網路中的計算資源對服務進行私下存取。
-您可以使用下列選項，在虛擬網路中整合 Azure 服務：將服務的專用執行個體直接部署至虛擬網路。 然後，在虛擬網路和內部部署網路中，可以私下存取這些服務。
-透過服務端點將虛擬網路擴充至服務。 服務端點可保障虛擬網路使用得到個別服務資源。
+您可以使用下列選項，在虛擬網路中整合 Azure 服務：
+- 將服務的專用執行個體部署至虛擬網路。 然後，在虛擬網路和內部部署網路中，可以私下存取這些服務。
+- 透過服務端點將虛擬網路擴充至服務。 服務端點可保障虛擬網路使用得到個別服務資源。
 
 若要將多個 Azure 服務整合到您的虛擬網路，您可以結合上述一或多種模式。 例如，您可以將 HDInsight 部署到您的虛擬網路，並透過服務端點保護 HDInsight 子網路的儲存體帳戶。
  

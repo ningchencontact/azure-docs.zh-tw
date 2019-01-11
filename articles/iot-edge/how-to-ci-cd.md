@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a714cec5ce05473887f9f06d47c75563bf878081
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386820"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582910"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 的持續整合與持續部署
 
@@ -40,7 +40,7 @@ ms.locfileid: "53386820"
 
 3. 現在您的範例 IoT Edge 解決方案已準備就緒。 預設 C# 模組會作為管道訊息模組。 在 `deployment.template.json` 中，您將看到此解決方案包含兩個模組。 訊息將會從 `tempSensor` 模組產生，並將透過 `FilterModule` 直接進行管道傳送，然後傳送至您的 IoT 中樞。
 
-4. 儲存這些專案，然後將其認可到您的 Azure Repos 中。
+4. 儲存這些專案，然後將其認可到您的 Azure Repos 存放庫中。
     
 > [!NOTE]
 > 如需使用 Azure Repos 的詳細資訊，請參閱[與 Visual Studio 和 Azure Repos 共用程式碼](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)。
@@ -69,11 +69,11 @@ ms.locfileid: "53386820"
     
     * 如果您想要在 amd64 平台中建置適用於 Linux 容器的模組，請選擇 [裝載的 Ubuntu 1604]
     * 如果您想要在 amd64 平台中建置適用於 Windows 容器的模組，請選擇 [裝載的 VS2017] 
-    * 如果您想在 arm32v7 平台中建置適用於 Linux 容器的模組，您必須按一下 [管理] 按鈕來建立自己的組建代理程式。
+    * 如果您想在 arm32v7 平台中建置適用於 Linux 容器的模組，您必須按一下 [管理] 按鈕來設定自己的組建代理程式。
     
     ![設定組建代理程式集區](./media/how-to-ci-cd/configure-env.png)
 
-1. 在代理程式作業中，按一下 [+]，在組建管線中新增三個工作。 前兩個來自 **Azure IoT Edge**。 而第三個則來自**發行組建成品**
+1. 在代理程式作業中，開啟「+」，在組建管線中新增三個工作。 前兩個來自 **Azure IoT Edge**。 而第三個則來自**發行組建成品**
     
     ![將工作新增至組建管線](./media/how-to-ci-cd/add-tasks.png)
 
@@ -93,13 +93,13 @@ ms.locfileid: "53386820"
 
     ![開啟持續整合觸發程序](./media/how-to-ci-cd/configure-trigger.png)
 
-    儲存新的組建管線。 按一下 [儲存]  按鈕。
+    使用 [儲存] 按鈕儲存新的組建管線。
 
 
 ## <a name="configure-azure-pipelines-for-continuous-deployment"></a>針對持續部署設定 Azure Pipelines
 在本節中，您會建立一個組建管線，並將其設定為在您的組建管線置放成品時自動執行，而且它也會在 Azure Pipelines 中顯示部署記錄。
 
-1. 在 [發行] 索引標籤中，選擇 [+ 新增管線]。 或者，如果您已經有組建管線，請選擇 [+ 新增] 按鈕，並按一下 [+ 新增發行管線]。  
+1. 在 [發行] 索引標籤中，選擇 [+ 新增管線]。 或者，如果您已經有發行管線，請選擇 [+ 新增] 按鈕，然後選取 [+ 新增發行管線]。  
 
     ![新增發行管線](./media/how-to-ci-cd/add-release-pipeline.png)
 
@@ -115,7 +115,7 @@ ms.locfileid: "53386820"
 
     ![新增成品](./media/how-to-ci-cd/add-artifacts.png)  
     
-    在 [新增成品] 頁面中，選擇來源類型 [組建]。 接著選取您建立的專案和組建管線。 然後按一下 [新增]。
+    在 [新增成品] 頁面中，選擇來源類型 [組建]。 接著選取您建立的專案和組建管線。 然後選取 [新增]。
 
     ![新增組建成品](./media/how-to-ci-cd/add-an-artifact.png)
 
@@ -127,7 +127,7 @@ ms.locfileid: "53386820"
 
     ![設定 QA 工作](./media/how-to-ci-cd/view-stage-tasks.png)
 
-   部署工作是不區分大小寫的平台，這表示您可以選擇 [代理程式集區] 中的 [裝載的 VS2017] 或 [裝載的 Ubuntu 1604] (或您自己管理的任何其他代理程式)。 按一下 [+] 並新增一個工作。
+   部署工作是不區分大小寫的平台，這表示您可以選擇 [代理程式集區] 中的 [裝載的 VS2017] 或 [裝載的 Ubuntu 1604] (或您自己管理的任何其他代理程式)。 選取 [+] 並新增一個工作。
 
     ![新增 QA 的工作](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -135,13 +135,13 @@ ms.locfileid: "53386820"
 
     ![部署至 QA](./media/how-to-ci-cd/deploy-to-qa.png)
 
-    儲存新的發行管線。 按一下 [儲存]  按鈕。 然後，按一下 [管線] 以回到管線。
+    使用 [儲存] 按鈕儲存新的發行管線。 然後，選取 [管線] 以回到管線。
 
 6. 第二個階段是針對生產環境。 若要新增新的階段 "PROD"，您可以複製階段 "QA"，並將複製的階段重新命名為 **PROD**。
 
     ![複製階段](./media/how-to-ci-cd/clone-stage.png)
 
-7. 針對生產環境設定工作。 假設您有數個 IoT Edge 裝置已標記為 'prod'，在工作設定中，請將 [目標條件] 更新為 "prod"，然後將進階設定中的部署識別碼設為 "deploy-prod"。 按一下 [儲存]  按鈕。 然後，按一下 [管線] 以回到管線。
+7. 針對生產環境設定工作。 假設您有數個 IoT Edge 裝置已標記為 'prod'，在工作設定中，請將 [目標條件] 更新為 "prod"，然後將進階設定中的部署識別碼設為 "deploy-prod"。 使用 [儲存] 按鈕加以儲存。 然後，選取 [管線] 以回到管線。
     
     ![部署至生產環境](./media/how-to-ci-cd/deploy-to-prod.png)
 
@@ -151,7 +151,7 @@ ms.locfileid: "53386820"
 
         ![開啟部署前的條件](./media/how-to-ci-cd/pre-deploy-conditions.png)    
 
-    2. 在 [部署前核准] 中設定 [啟用]。 然後填寫 [核准者] 輸入。 然後按一下 [儲存] 。
+    2. 在 [部署前核准] 中設定 [啟用]。 然後填寫 [核准者] 輸入。 接著，使用 [儲存] 按鈕加以儲存。
     
         ![設定條件](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
@@ -165,7 +165,7 @@ ms.locfileid: "53386820"
 
 在本節中，您將觸發組建來使 CI/CD 管線運作。 接著驗證部署是否成功。
 
-1. 若要觸發組建作業，您可以推送認可至原始程式碼存放庫，或是手動觸發。 您可以按一下 [佇列] 按鈕來觸發組建管線中的組建作業，如下列螢幕擷取畫面所示。
+1. 若要觸發組建作業，您可以推送認可至原始程式碼存放庫，或是手動觸發。 您可以選取 [佇列] 按鈕來觸發組建管線中的組建作業，如下列螢幕擷取畫面所示。
 
     ![手動觸發](./media/how-to-ci-cd/manual-trigger.png)
 

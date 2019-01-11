@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database JSON 功能 | Microsoft Docs
+title: 在 Azure SQL 資料庫中使用 JSON 資料 | Microsoft Docs
 description: Azure SQL Database 可讓您剖析、查詢及格式化採用「JavaScript 物件標記法」(JSON) 的資料。
 services: sql-database
 ms.service: sql-database
@@ -11,27 +11,20 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: c3f1cb7499be57be94cc387eb40d37c1710f2f75
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/17/2018
+ms.openlocfilehash: bc4e27f45b905e00c1c809a781a5cf034a0da8ca
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230524"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543783"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>開始使用 Azure SQL Database 中的 JSON 功能
-Azure SQL Database 可讓您剖析及查詢以「JavaScript 物件標記法」 [(JSON)](http://www.json.org/) 格式表示的資料，然後將您的關聯式資料匯出成 JSON 文字。
-
-JSON 是一種用於在新式的 Web 與行動應用程式中交換資料的常用資料格式。 JSON 也用於將半結構化的資料儲存在記錄檔或 NoSQL 資料庫 (例如 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)) 中。 許多 REST Web 服務都會傳回採用 JSON 文字格式的結果，或是接受採用 JSON 格式的資料。 大多數 Azure 服務 (例如 [Azure 搜尋服務](https://azure.microsoft.com/services/search/)、[Azure 儲存體](https://azure.microsoft.com/services/storage/)、[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)) 都有會傳回或取用 JSON 的 REST 端點。
-
-Azure SQL Database 可讓您輕鬆使用 JSON 資料，並將資料庫與新式服務整合。
-
-## <a name="overview"></a>概觀
-Azure SQL Database 提供下列可與 JSON 資料搭配使用的函數：
-
-![JSON 函數](./media/sql-database-json-features/image_1.png)
-
-如果您有 JSON 文字，您可以透過使用內建的函式 [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx)、[JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx) 及 [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx)，從 JSON 擷取資料或確認 JSON 的格式是否正確。 [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) 函式可讓您更新 JSON 文字內的值。 針對更進階的查詢和分析， [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) 函數可以將 JSON 物件陣列轉換成一組資料列。 您可以在傳回的結果集上執行任何 SQL 查詢。 最後，還有 [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) 子句，此子句可讓您將儲存在關聯式資料表中的資料格式化為 JSON 文字。
+Azure SQL Database 可讓您剖析及查詢以「JavaScript 物件標記法」 [(JSON)](http://www.json.org/) 格式表示的資料，然後將您的關聯式資料匯出成 JSON 文字。 Azure SQL 資料庫中可用的 JSON 案例如下：
+- 使用 `FOR JSON` 子句[以 JSON 格式將關聯式資料格式化](#formatting-relational-data-in-json-format)。
+- [使用 JSON 資料](#working-with-json-data)
+- 使用 JSON 純量函式[查詢 JSON 資料](#querying-json-data)。
+- 使用 `OPENJSON` 函式[將 JSON 轉換成表格式格式](#transforming-json-into-tabular-format)。
 
 ## <a name="formatting-relational-data-in-json-format"></a>以 JSON 格式將關聯式資料格式化
 如果您有會從資料庫層擷取資料並以 JSON 格式提供回應的 Web 服務，或是有會接受以 JSON 格式化之資料的用戶端 JavaScript 架構或程式庫，您就可以直接在 SQL 查詢中將資料庫內容格式化為 JSON。 您不再需要撰寫應用程式程式碼以將來自 Azure SQL Database 的結果格式化為 JSON，或包含一些 JSON 序列化程式庫來轉換表格式查詢結果，然後將物件序列化為 JSON 格式。 取得代之的是，您可以在 Azure SQL Database 中使用 FOR JSON 子句將 SQL 查詢結果格式化為 JSON，然後直接在您的應用程式中使用它。
@@ -79,7 +72,7 @@ FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 
 在此範例中，我們透過指定 [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) 選項，傳回了單一 JSON 物件而不是陣列。 如果您知道您要傳回單一物件來作為查詢結果，就可以使用此選項。
 
-FOR JSON 子句的主要價值在於，它可讓您從資料庫傳回格式化為巢狀 JSON 物件或陣列的複雜階層式資料。 下列範例說明如何將屬於 Customer 的 Orders 納入成為巢狀 Orders 陣列：
+FOR JSON 子句的主要價值在於，它可讓您從資料庫傳回格式化為巢狀 JSON 物件或陣列的複雜階層式資料。 下列範例說明如何將屬於 `Customer` 之 `Orders` 資料表中的資料列包含為 `Orders` 的巢狀陣列：
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,

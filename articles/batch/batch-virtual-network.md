@@ -1,19 +1,20 @@
 ---
-title: 在虛擬網路中佈建 Azure Batch 集區 | Microsoft Docs
+title: 在虛擬網路中佈建集區 - Azure Batch | Microsoft Docs
 description: 如何在 Azure 虛擬網路中建立 Batch 集區，以便計算節點可以與網路中的其他 VM (例如，檔案伺服器) 安全地通訊。
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: danlep
-ms.openlocfilehash: ef37d482e86e4ae05d3f14c78404dc395792b236
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 840c9f4115c13052c65e5975ed22aab7737ea2fe
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091947"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543900"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>在虛擬網路中建立 Azure Batch 集區
 
@@ -37,7 +38,7 @@ Azure Batch 集區有設定可讓計算節點彼此通訊，以便 (舉例來說
 
 ## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>在入口網站中建立具有 VNet 的集區
 
-在建立了 VNet 並為其指派子網路後，您可以建立具有該 VNet 的 Batch 集區。 請遵循下列步驟，從 Azure 入口網站建立集區： 
+在建立了 VNet 並為其指派子網路後，您可以建立具有該 VNet 的 Batch 集區。 請遵循下列步驟，從 Azure 入口網站建立集區： 
 
 1. 在 Azure 入口網站中瀏覽至您的 Batch 帳戶。 此帳戶必須位於與您要使用之 VNet 所在的資源群組相同的訂用帳戶和區域中。 
 2. 在左側的 [設定] 視窗中，選取 [集區] 功能表項目。

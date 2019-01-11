@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8a9fc299f620c7df87544b467cf52535addfe313
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847519"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651498"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack 中使用虛擬機器的考量
 
@@ -39,6 +39,7 @@ Azure Stack 虛擬機器提供隨選、可調整的計算資源。 部署虛擬�
 | 虛擬機器儲存體 | 支援[受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)。 | Azure Stack 版本 1808 和更新版本可支援受控磁碟。 |
 | 虛擬機器磁碟效能 | 取決於磁碟類型和大小。 | 取決於磁碟所連結 VM 的 VM 大小，請參閱 [Azure Stack 中支援的虛擬機器大小](azure-stack-vm-sizes.md)一文。
 | API 版本 | Azure 一律會有所有虛擬機器功能的最新 API 版本。 | Azure Stack 支援特定的 Azure 服務及這些服務的特定 API 版本。 若要檢視支援的 API 版本清單，請參考此文章的 [API 版本](#api-versions)一節。 |
+| Azure 執行個體中繼資料服務 | Azure 執行個體中繼資料服務提供執行可用於管理和設定虛擬機器之虛擬機器執行個體的相關資訊。  | Azure Stack 不支援執行個體中繼資料服務。 |
 |虛擬機器可用性設定組|多個容錯網域 (每一區域 2 或 3 個)<br>多個更新網域<br>受控磁碟支援|多個容錯網域 (每一區域 2 或 3 個)<br>多個更新網域 (最多 20 個)<br>無受控磁碟支援|
 |虛擬機器擴展集|支援自動調整|不支援自動調整。<br>使用入口網站、Resource Manager 範本或 PowerShell 將更多執行個體新增到擴展集。
 

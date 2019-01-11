@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 964f91f412645e141ca003d511480f6f6eb438a3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343278"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536044"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database 受控執行個體連線架構
 
@@ -113,7 +113,10 @@ Azure SQL Database 受控執行個體的虛擬叢集包含 Microsoft 用來管�
 
   > [!Note]
   > 雖然必要的輸入的安全性規則允許連接埠 9000、9003、1438、1440、1452 的_任何_來源流量，但是這些連接埠受到內建防火牆的保護。 這篇[文章](sql-database-managed-instance-find-management-endpoint-ip-address.md)說明如何探索管理端點 IP 位址並確認防火牆規則。 
-
+  
+  > [!Note]
+  > 如果您在受控執行個體中使用異動複寫，並且受控執行個體中的任何資料庫都作為發行者或散發者使用，則還需要在子網路的安全性規則中開啟連接埠 445 (TCP 輸出) 以存取 Azure 檔案共用。
+  
 ## <a name="next-steps"></a>後續步驟
 
 - 如需概觀，請參閱 [受控執行個體是什麼](sql-database-managed-instance.md)。

@@ -12,17 +12,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2018
+ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 78315409c5d83a98321e16913b1090e8996ed8ce
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3e390763255878384e7a767158210d0515b09958
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230279"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653539"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 應用程式和服務資訊清單
 本文說明如何使用 ApplicationManifest.xml 和 ServiceManifest.xml 檔案來定義 Service Fabric 應用程式和服務及設定其版本。  如需更詳細的範例，請參閱[應用程式和服務資訊清單範例](service-fabric-manifest-examples.md)。  這些資訊清單檔的 XML 結構描述記載於 [ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)中。
+
+> [!WARNING]
+> 資訊清單 XML 檔案結構描述會強制修正子元素順序。  部分的因應措施是在 Visual Studio 中開啟 "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd"，然後撰寫或修改任何的 Service Fabric 資訊清單。 這會讓您能夠檢查子元素的順序，並提供 Intelli-sense。
 
 ## <a name="describe-a-service-in-servicemanifestxml"></a>在 ServiceManifest.xml 中描述服務
 服務資訊清單以宣告方式定義服務類型和版本。 它會指定如服務類型的服務中繼資料、健康狀態屬性、負載平衡度量、服務二進位檔和組態檔。  換句話說，它會描述組成服務封裝的程式碼、組態和資料封裝，以支援一或多個服務類型。 服務資訊清單可以包含多個程式碼、組態和資料套件，而這些套件可以獨立設定版本。 以下是[投票範例應用程式](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)之 ASP.NET Core Web 前端服務的服務資訊清單 (這裡有一些[更詳細的範例](service-fabric-manifest-examples.md))：

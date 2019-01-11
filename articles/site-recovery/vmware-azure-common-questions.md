@@ -4,15 +4,16 @@ description: 本文摘錄了使用 Azure Site Recovery 設定從內部部署 VMw
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 12/11/2018
+services: site-recovery
+ms.date: 12/31/2018
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: d7b3919d0f970190238dbc5899a20f2d9e7d8cd4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.author: rayne
+ms.openlocfilehash: 920ae8ff09cb8e936a1ba70b2c862bd9bc076046
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256500"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974687"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -74,7 +75,7 @@ ms.locfileid: "53256500"
 Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure 儲存體，或使用 ExpressRoute 公用對等互連進行複寫。 不支援透過站對站 VPN 網路的複寫。
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>是否可透過 ExpressRoute 複寫至 Azure？
-是的，ExpressRoute 可用來將 VM 複寫至 Azure。 Site Recovery 可透過公用端點將資料複寫到 Azure 儲存體帳戶，而您必須設定 Site Recovery 複寫所需的[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)。 VM 容錯移轉至 Azure 虛擬網路之後，您可以使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)加以存取。
+是的，ExpressRoute 可用來將 VM 複寫至 Azure。 Site Recovery 會透過公用端點，將資料複寫到 Azure 儲存體帳戶。 您必須設定[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)或 [Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)，以使用 Site Recovery 複寫的 ExpressRoute。 Microsoft 對等互連是建議用於複寫的路由網域。 請確認也符合[網路需求](vmware-azure-configuration-server-requirements.md#network-requirements)以進行複寫。 VM 容錯移轉至 Azure 虛擬網路之後，您可以使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)加以存取。
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>為何我無法透過 VPN 進行複寫？
@@ -129,7 +130,7 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 建議您使用最新版的 OVF 範本來[建立組態伺服器 VM](vmware-azure-deploy-configuration-server.md)。 如果您因故無法這麼做 (例如您沒有 VMware 伺服器的存取權)，您可以從入口網站[下載統一安裝檔案](physical-azure-set-up-source.md)，並在 VM 上執行。
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>組態伺服器是否可複寫到多個區域？
-否。 若要這麼做，您必須在每個區域中設定組態伺服器。
+沒有。 若要這麼做，您必須在每個區域中設定組態伺服器。
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>是否可將組態伺服器裝載在 Azure 中？
 雖然可行，但執行組態伺服器的 Azure VM 將需要與您的內部部署 VMware 基礎結構和 VM 通訊。 這會加入延遲，並影響進行中的複寫。
@@ -153,7 +154,7 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 否，您應該設定全新的組態伺服器以避免註冊問題。
 
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>是否可變更組態伺服器中註冊的保存庫？
-否。 保存庫在組態伺服器中註冊後，即無法變更。 檢閱[這篇文章](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault)了解重新註冊步驟。
+沒有。 保存庫在組態伺服器中註冊後，即無法變更。 檢閱[這篇文章](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault)了解重新註冊步驟。
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>是否可將相同的組態伺服器用於 VMware VM 和實體伺服器的災害復原
 是，但請注意，實體機器只能容錯回復到 VMware VM。

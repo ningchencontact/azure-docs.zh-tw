@@ -1,5 +1,5 @@
 ---
-title: Azure Batch 的計量、警示和診斷記錄 | Microsoft Docs
+title: 計量、警示和診斷記錄 - Azure Batch | Microsoft Docs
 description: 記錄並分析 Azure Batch 帳戶資源 (如集區和工作) 的診斷記錄事件。
 services: batch
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: 8efa8088bca3eb6221c49ec5f14334342149795d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.custom: seodec18
+ms.openlocfilehash: cd3e671a00f7f8b0a13ed95bfd43795a24244a66
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438433"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537098"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用於診斷評估和監視的 Batch 計量、警示和記錄
 
  
-本文說明如何使用 [Azure 監視器](../azure-monitor/overview.md)的功能來監視 Batch 帳戶。 Azure 監視器會收集您 Batch 帳戶中的資源[計量](../azure-monitor/platform/data-collection.md#metrics)和[診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 透過各種方式收集及使用此資料，以監視您的 Batch 帳戶和診斷問題。 您也可以設定[計量警示](../azure-monitor/platform/alerts-overview.md)，在計量達到指定值時接收通知。 
+本文說明如何使用 [Azure 監視器](../azure-monitor/overview.md)的功能來監視 Batch 帳戶。 Azure 監視器會收集您 Batch 帳戶中的資源[計量](../azure-monitor/platform/data-collection.md#metrics)和[診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)。 透過各種方式收集及使用此資料，以監視您的 Batch 帳戶和診斷問題。 您也可以設定[計量警示](../azure-monitor/platform/alerts-overview.md)，在計量達到指定值時接收通知。 
 
 ## <a name="batch-metrics"></a>Batch 計量
 
@@ -109,7 +109,7 @@ ms.locfileid: "53438433"
 
     ![Batch 診斷](media/batch-diagnostics/diagnostics-portal.png)
 
-啟用記錄收集的其他選項包括：使用入口網站中的 Azure 監視器設定診斷設定、使用 [Resource Manager 範本](../azure-monitor/platform/diagnostic-logs-stream-template.md)或使用 Azure PowerShell 或 Azure CLI。 請參閱[收集並取用來自 Azure 資源的記錄資料](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)。
+啟用記錄收集的其他選項包括：使用入口網站中的 Azure 監視器設定診斷設定、使用 [Resource Manager 範本](../azure-monitor/platform/diagnostic-logs-stream-template.md)或使用 Azure PowerShell 或 Azure CLI。 請參閱[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs)。
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>存取儲存體中的診斷記錄

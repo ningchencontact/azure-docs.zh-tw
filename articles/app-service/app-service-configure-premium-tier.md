@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ac0a3500956cc81e264c8743d44aa06f018b1a45
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 991748c33eae607e97b3916a913b111af7b3b75a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258894"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714469"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>設定 Azure App Service 的 PremiumV2 層
 
@@ -29,7 +29,7 @@ ms.locfileid: "53258894"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要將 Web 應用程式相應增加為 **PremiumV2**，您必須讓 Azure App Service 中的 Web 應用程式在低於 **PremiumV2** 的定價層中執行，而且 Web 應用程式必須在支援 PremiumV2 的 App Service 部署中執行。
+若要將應用程式相應增加為 **PremiumV2**，您必須讓 Azure App Service 應用程式在低於 **PremiumV2** 的定價層中執行，而且該應用程式必須在支援 PremiumV2 的 App Service 部署中執行。
 
 <a name="availability"></a>
 
@@ -47,7 +47,7 @@ az appservice list-locations --sku P1V2
 
 ## <a name="create-an-app-in-premiumv2-tier"></a>在 PremiumV2 層中建立應用程式
 
-App Service 應用程式的定價層會定義在其執行所在的 [App Service 方案](azure-web-sites-web-hosting-plans-in-depth-overview.md)中。 您可以獨自建立 App Service 方案，或在建立 Web 應用程式時順便建立。
+App Service 應用程式的定價層會定義在其執行所在的 [App Service 方案](overview-hosting-plans.md)中。 您可以單獨建立 App Service 方案，或在應用程式建立期間加以建立。
 
 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中設定 App Service 方案時，請選取 [定價層]。 
 
@@ -88,7 +88,7 @@ App Service 應用程式的定價層會定義在其執行所在的 [App Service 
 
 如果您的應用程式在無法使用 **PremiumV2** 的 App Service 部署中執行；或是，如果您的應用程式在目前不支援 **PremiumV2** 的區 域中執行，則您必須重新部署應用程式，才能利用 **PremiumV2** 的優勢。  您有兩個選擇：
 
-- 建立**新的**資源群組，然後在**新的**資源群組中建立**新的** Web 應用程式和 App Service 方案，並且在建立程序期間選擇需要的 Azure 區域。  您**必須**在建立新的 App Service 方案時選取 **PremiumV2** 方案。  這可確保資源群組、App Service 方案及 Azure 區域組合產生的 App Service 方案會建立在支援 **PremiumV2** 的 App Service 部署中。  然後將應用程式的程式碼部署到新建立的應用程式和 App Service 方案中。 如有需要，您之後可以從 **PremiumV2** 相應縮小 App Service 方案來節省成本，而未來仍可再使用 **PremiumV2** 成功地進行相應增加。
+- 建立**新的**資源群組，然後在**新的**資源群組中建立**新的**應用程式和 App Service 方案，並且在建立程序期間選擇所需的 Azure 區域。  您**必須**在建立新的 App Service 方案時選取 **PremiumV2** 方案。  這可確保資源群組、App Service 方案及 Azure 區域組合產生的 App Service 方案會建立在支援 **PremiumV2** 的 App Service 部署中。  然後將應用程式的程式碼部署到新建立的應用程式和 App Service 方案中。 如有需要，您之後可以從 **PremiumV2** 相應縮小 App Service 方案來節省成本，而未來仍可再使用 **PremiumV2** 成功地進行相應增加。
 - 如果應用程式已在現有的**進階**層執行，則可以將應用程式與所有應用程式設定、連接字串和部署組態複製到使用 **PremiumV2** 的新 App Service 方案中。
 
     ![](media/app-service-configure-premium-tier/clone-app.png)

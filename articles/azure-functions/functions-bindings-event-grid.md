@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: e5c5c7f667959426f015e207cd32d716c493e31e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 78290f6d1b31788c3f2de99996739cc8e7b20419
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995038"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810929"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions 的 Event Grid 觸發程序
 
@@ -48,7 +48,7 @@ Event Grid 是一項 Azure 服務，會傳送 HTTP 要求通知您「發行者�
 
 * [C#](#c-example)
 * [C# 指令碼 (.csx)](#c-script-example)
-* [Java](#trigger---java-example)
+* [Java](#trigger---java-examples)
 * [JavaScript](#javascript-example)
 * [Python](#python-example)
 
@@ -221,9 +221,14 @@ def main(event: func.EventGridEvent):
     logging.info("  Data: %s", event.get_json())
 ```
 
-### <a name="trigger---java-example"></a>觸發程序 - Java 範例
+### <a name="trigger---java-examples"></a>觸發程序 - Java 範例
 
-下列範例示範 function.json 檔案中的觸發程序繫結，以及使用此繫結並輸出事件的 [Java 函式](functions-reference-java.md)。
+本區段包含下列範例：
+
+* [事件格線觸發程序，字串參數](#event-grid-trigger-string-parameter-java)
+* [事件格線觸發程序，POJO 參數](#event-grid-trigger-pojo-parameter-java)
+
+下列範例會在 *function.json* 檔案中顯示觸發程序繫結，以及使用該繫結並印出事件的 [Java 函式](functions-reference-java.md)，其會將第一次接收事件當作 ```String```，並將第二次當作 POJO。
 
 ```json
 {
@@ -237,16 +242,60 @@ def main(event: func.EventGridEvent):
 }
 ```
 
-以下是 Java 程式碼：
+#### <a name="event-grid-trigger-string-parameter-java"></a>事件格線觸發程序，字串參數 (Java)
 
 ```java
-@FunctionName("eventGridMonitor")
+  @FunctionName("eventGridMonitorString")
   public void logEvent(
-     @EventGridTrigger(name = "event") String content,
-      final ExecutionContext context
-  ) {
-      context.getLogger().info(content);
-    }
+    @EventGridTrigger(
+      name = "event"
+    ) 
+    String content, 
+    final ExecutionContext context) {
+      // log 
+      context.getLogger().info("Event content: " + content);      
+  }
+```
+
+#### <a name="event-grid-trigger-pojo-parameter-java"></a>事件格線觸發程序，POJO 參數 (Java)
+
+此範例會使用下列 POJO 來代表事件格線事件的最上層屬性：
+
+```java
+import java.util.Date;
+import java.util.Map;
+
+public class EventSchema {
+
+  public String topic;
+  public String subject;
+  public String eventType;
+  public Date eventTime;
+  public String id;
+  public String dataVersion;
+  public String metadataVersion;
+  public Map<String, Object> data;
+
+}
+```
+
+抵達時，會將事件的 JSON 承載還原序列化為 ```EventSchema``` POJO，以供函式使用。 這可讓函式以物件導向方式存取事件的屬性。
+
+```java
+  @FunctionName("eventGridMonitor")
+  public void logEvent(
+    @EventGridTrigger(
+      name = "event"
+    ) 
+    EventSchema event, 
+    final ExecutionContext context) {
+      // log 
+      context.getLogger().info("Event content: ");
+      context.getLogger().info("Subject: " + event.subject);
+      context.getLogger().info("Time: " + event.eventTime); // automatically converted to Date by the runtime
+      context.getLogger().info("Id: " + event.id);
+      context.getLogger().info("Data: " + event.data);
+  }
 ```
 
 在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自事件方格的參數使用 `EventGridTrigger` 註釋。 具有這些附註的參數會使得函式在事件抵達時執行。  此註釋可以搭配原生 Java 類型、POJO 或使用 `Optional<T>` 的可為 Null 值使用。

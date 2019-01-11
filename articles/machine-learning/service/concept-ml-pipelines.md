@@ -1,5 +1,5 @@
 ---
-title: 管線：將 ML 最佳化以加快速度、取得可攜性並重複使用
+title: 管線：最佳化機器學習服務工作流程
 titleSuffix: Azure Machine Learning service
 description: 在本文中，您將深入了解機器學習管線 (使用適用於 Python 的 Azure Machine Learning 來建置)，以及了解使用管線的優點。 資料科學家會使用機器學習 (ML) 管線來建置、最佳化及管理他們的機器學習工作流程。
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 11/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e2874c4a40a2347fd47e93c99fdec7ff5e81aec1
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e8532e9821501c7b10fbb47c531228e439a8b289
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308194"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556868"
 ---
 # <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務建置機器學習管線
 

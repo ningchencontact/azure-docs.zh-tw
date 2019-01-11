@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 24efb8490afdf67b96d531802362f88bef7d13de
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: dc93d0b44d6d99e8418d4333ca8698bc9ebf3a96
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166484"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629674"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Apache Hive 查詢
 
@@ -23,7 +23,7 @@ ms.locfileid: "53166484"
 
 如需使用 HDInsight 的詳細資訊，請參閱 [HDInsight 簡介](../hdinsight-hadoop-introduction.md)和[開始使用 HDInsight](apache-hadoop-linux-tutorial-get-started.md)。 
 
-如需連線到 Storm 叢集的詳細資訊，請參閱[使用 Visual Studio 開發 HDInsight 上 Apache Storm 的 C# 拓撲](../storm/apache-storm-develop-csharp-visual-studio-topology.md)。
+如需連線到 Apache Storm 叢集的詳細資訊，請參閱[使用 Visual Studio 開發 HDInsight 上 Apache Storm 的 C# 拓撲](../storm/apache-storm-develop-csharp-visual-studio-topology.md)。
 
 您可以使用 Data Lake Tools for Visual Studio 來存取 Azure Data Lake Analytics 和 HDInsight。 如需 Data Lake Tools 的相關資訊，請參閱[使用 Data Lake Tools for Visual Studio 開發 U-SQL 指令碼](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md)。
 
@@ -31,13 +31,12 @@ ms.locfileid: "53166484"
 
 若要完成本教學課程並使用 Data Lake Tools for Visual Studio，您需要下列項目：
 
-* Azure HDInsight 叢集。 若要建立 HDInsight 叢集，請參閱[在 Azure HDInsight 中開始使用 Hadoop](apache-hadoop-linux-tutorial-get-started.md)。 若要執行互動式 Hive 查詢，您需要 [HDInsight 互動式查詢](../interactive-query/apache-interactive-query-get-started.md)叢集。
+* Azure HDInsight 叢集。 若要建立 HDInsight 叢集，請參閱[在 Azure HDInsight 中開始使用 Apache Hadoop](apache-hadoop-linux-tutorial-get-started.md)。 若要執行互動式 Apache Hive 查詢，您需要 [HDInsight 互動式查詢](../interactive-query/apache-interactive-query-get-started.md)叢集。
 * 已安裝 Visual Studio 2017、2015 或 2013 的電腦。
     
     > [!NOTE]
     > Data Lake Tools for Visual Studio 目前只有英文版。
-    > 
-    > 
+
 
 ## <a name="install-or-update-data-lake-tools-for-visual-studio"></a>安裝或更新 Data Lake Tools for Visual Studio
 
@@ -66,8 +65,7 @@ ms.locfileid: "53166484"
 
 > [!NOTE]
 > 如需連線到一般 Hadoop 叢集的相關資訊，請參閱[使用 Visual Studio 撰寫和提交 Hive 查詢](https://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx)。
-> 
-> 
+
 
 若要連線到您的 Azure 訂用帳戶：
 
@@ -77,8 +75,7 @@ ms.locfileid: "53166484"
    
    > [!NOTE]
    > 此時 [HDInsight 工作清單] 視窗應會開啟。 如果您沒看到該視窗，請在 [檢視] 功能表上選取 [其他視窗]，然後選取 [HDInsight 工作清單視窗]。  
-   > 
-   > 
+
 4. 輸入您的 Azure 訂用帳戶認證，然後選取 [登入]。 只有您從未在此電腦上從 Visual Studio 連線到 Azure 訂用帳戶時，才需要驗證。
 5. 在 [伺服器總管] 中，現有 HDInsight 叢集的清單隨即出現。 如果您沒有任何叢集，可以使用 Azure 入口網站、Azure PowerShell 或 HDInsight SDK 來建立一個。 如需詳細資訊，請參閱[建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
    
@@ -106,13 +103,12 @@ ms.locfileid: "53166484"
 
 ![伺服器總管中 Data Lake Tools for Visual Studio Blob 作業的螢幕擷取畫面](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png "在伺服器總管中更新、刪除和下載 Blob")
 
-## <a name="run-interactive-hive-queries"></a>執行互動式 Hive 查詢
-[Apache Hive](https://hive.apache.org) 是以 Hadoop 為基礎的資料倉儲基礎結構。 Hive 用於進行資料彙整、查詢及分析。 您可以使用 Data Lake Tools for Visual Studio 從 Visual Studio 執行 Hive 查詢。 如需 Hive 的詳細資訊，請參閱[使用 Hive 搭配 HDInsight](hdinsight-use-hive.md)。
+## <a name="run-interactive-apache-hive-queries"></a>執行互動式 Apache Hive 查詢
+[Apache Hive](https://hive.apache.org) 是以 Hadoop 為基礎的資料倉儲基礎結構。 Hive 用於進行資料彙整、查詢及分析。 您可以使用 Data Lake Tools for Visual Studio 從 Visual Studio 執行 Hive 查詢。 如需有關 Hive 的詳細資訊，請參閱[將 Apache Hive 與 HDInsight 搭配使用](hdinsight-use-hive.md)。
 
-[互動式查詢](../interactive-query/apache-interactive-query-get-started.md)在 Apache Hive 2.1 中使用 [LLAP 上的 Hive](https://cwiki.apache.org/confluence/display/Hive/LLAP)。 互動式查詢可將互動功能整合到已儲存的大型資料集上的複雜資料倉儲樣式查詢。 相較於傳統的 Hive 批次作業，在互動式查詢上執行 Hive 查詢比較快速。 如需詳細資訊，請參閱[執行 Hive 批次作業](#run-hive-batch-jobs)。
+[互動式查詢](../interactive-query/apache-interactive-query-get-started.md)在 Apache Hive 2.1 中使用 [LLAP 上的 Hive](https://cwiki.apache.org/confluence/display/Hive/LLAP)。 互動式查詢可將互動功能整合到已儲存的大型資料集上的複雜資料倉儲樣式查詢。 相較於傳統的 Hive 批次作業，在互動式查詢上執行 Hive 查詢比較快速。 如需詳細資訊，請參閱[執行 Apache Hive 批次作業](#run-hive-batch-jobs)。
 
-> [!NOTE]
->
+> [!NOTE]  
 > 只有在您連線到 [HDInsight 互動式查詢](../interactive-query/apache-interactive-query-get-started.md)叢集時，您才可以執行互動式 Hive 查詢。
 
 您也可以使用 Data Lake Tools for Visual Studio 來查看 Hive 作業的內容。 Data Lake Tools for Visual Studio 會收集和呈現特定 Hive 作業的 Yarn 記錄。
@@ -132,7 +128,7 @@ ms.locfileid: "53166484"
    ![HDInsight Hive Visual Studio 結構描述查詢的螢幕擷取畫面](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.hive.schema.png "Hive 查詢結果")
 
 ### <a name="create-hive-tables"></a>建立 Hive 資料表
-若要建立 Hive 資料表，您可以使用 GUI 或使用 Hive 查詢。 如需使用 Hive 查詢的相關資訊，請參閱 [執行 Hive 查詢](#run.queries)。
+若要建立 Hive 資料表，您可以使用 GUI 或使用 Hive 查詢。 如需使用 Hive 查詢的相關資訊，請參閱[執行 Apache Hive 查詢](#run.queries)。
 
 若要建立 Hive 資料表：
 
@@ -163,7 +159,7 @@ ms.locfileid: "53166484"
    
    > [!NOTE]
    > IntelliSense 只建議 HDInsight 工具列中已選取的叢集中繼資料。
-   > 
+
    
 4. (選擇性) 若要檢查指令碼語法錯誤，請選取 [驗證指令碼]。
    
@@ -205,7 +201,8 @@ ms.locfileid: "53166484"
     ![HDInsight Visual Studio Tools 檢視 Hive 作業視窗的螢幕擷取畫面](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "檢視 Hive 作業")
 
 ### <a name="faster-path-hive-execution-via-hiveserver2"></a>透過 HiveServer2 的更快速路徑 Hive 執行
-> [!NOTE]
+
+> [!NOTE]  
 > 此功能只適用於 HDInsight 3.2 版或更新版本中的叢集。
  
 Data Lake Tools for Visual Studio 用來透過 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (也稱為 Templeton) 提交 Hive 作業。 用於提交 Hive 作業的這個方法傳回作業詳細資料和錯誤資訊所需的時間很長。
@@ -236,11 +233,11 @@ Data Lake Tools for Visual Studio 用來透過 [WebHCat](https://cwiki.apache.or
 | 關閉視窗 |透過 HiveServer2 執行是「同步進行的」。 如果關閉視窗，則會取消查詢執行。 |透過 WebHCat 提交是「非同步進行的」。 您可以透過 WebHCat 提交查詢，然後關閉 Visual Studio。 您隨時可以回來查看結果。 |
 
 ### <a name="tez-hive-job-performance-graph"></a>Tez Hive 工作效能圖表
-在 Data Lake Tools for Visual Studio 中，您可以查看效能圖表，其中顯示 Tez 執行引擎所執行的 Hive 作業。 如需啟用 Tez 的相關資訊，請參閱[在 HDInsight 中使用 Hive](hdinsight-use-hive.md)。 
+在 Data Lake Tools for Visual Studio 中，您可以查看效能圖表，其中顯示 Tez 執行引擎所執行的 Hive 作業。 如需啟用 Tez 的相關資訊，請參閱[在 HDInsight 中使用 Apache Hive](hdinsight-use-hive.md)。 
 
 您在 Visual Studio 中提交 Hive 作業之後，Visual Studio 會在作業完成時顯示圖表。 您可能需要選取 [重新整理] 按鈕，才能檢視最新的作業狀態。
 
-> [!NOTE]
+> [!NOTE]  
 > 此功能只適用於 HDInsight 3.2.4.593 版或更新版本中的叢集。 此功能只適用於已完成的作業。 您也必須透過 WebHCat 提交作業，才能使用這項功能。 當您透過 HiveServer2 執行查詢時會出現下列影像： 
 > 
 > ![Hadoop Hive Tez 效能圖表的螢幕擷取畫面](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png "作業狀態")
@@ -259,7 +256,7 @@ Data Lake Tools for Visual Studio 用來透過 [WebHCat](https://cwiki.apache.or
 
 若要深入了解如何執行 Hive 批次作業，請參閱[執行互動式 Hive 查詢](#run-interactive-hive-queries)。 該節中的資訊適用於長時間執行 Hive 批次作業。
 
-## <a name="run-pig-scripts"></a>執行 Pig 指令碼
+## <a name="run-apache-pig-scripts"></a>執行 Apache Pig 指令碼
 您可以使用 Data Lake Tools for Visual Studio 來建立 Pig 指令碼並提交至 HDInsight 叢集。 首先，從範本建立 Pig 專案。 然後，將指令碼提交至 HDInsight 叢集。
 
 ## <a name="feedback-and-known-issues"></a>意見反應和已知問題
@@ -271,7 +268,7 @@ Data Lake Tools for Visual Studio 用來透過 [WebHCat](https://cwiki.apache.or
 在本文中，您已了解如何使用 Data Lake Tools for Visual Studio 套件從 Visual Studio 連線到 HDInsight 叢集。 您也了解如何執行 Hive 查詢。 如需詳細資訊，請參閱這些文章：
 
 * [在 HDInsight 中使用 Hadoop Hive](hdinsight-use-hive.md)
-* [開始在 HDInsight 中使用 Hadoop](apache-hadoop-linux-tutorial-get-started.md)
-* [在 HDInsight 上提交 Hadoop 工作](submit-apache-hadoop-jobs-programmatically.md)
-* [在 HDInsight 中使用 Hadoop 分析 Twitter 資料](../hdinsight-analyze-twitter-data.md)
+* [開始使用 HDInsight 中的 Apache Hadoop](apache-hadoop-linux-tutorial-get-started.md)
+* [在 HDInsight 中提交 Apache Hadoop 作業](submit-apache-hadoop-jobs-programmatically.md)
+* [在 HDInsight 中使用 Apache Hadoop 分析 Twitter 資料](../hdinsight-analyze-twitter-data.md)
 

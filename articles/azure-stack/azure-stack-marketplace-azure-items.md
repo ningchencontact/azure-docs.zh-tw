@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: e4f15da8464c2103b5f6540d342cb7c741a67c5f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 05a0e0d88f09853274d6bc6b65f66cf66369f77d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994850"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044190"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 可用的 Azure Marketplace 項目
 
@@ -234,7 +234,9 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [Commvault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | 這是一項全方位解決方案，可用於備份與復原、將應用程式和 VM 移轉至 Azure Stack，並以單一解決方案對 Azure Stack 環境進行災害復原。 | Commvault |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 輕鬆而有自信地控制、監視及加密 VM。 **下載所有 CloudLink SecureVM 項目。** | Dell EMC |
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM 是一個完整的安全性平台，能提供進階安全性工具，具備可供稽核的合規性功能。 | EventTracker |
+| ![Exivity - 混合式雲端計費解決方案](media/azure-stack-marketplace-azure-items/exivity.png) | [Exivity - 混合式雲端計費解決方案](https://azuremarketplace.microsoft.com/marketplace/apps/exivity.exivity-vm)  | 一個能夠滿足幾乎所有 IT 服務交付模型需求的計費工具，不論服務是部署在內部部署環境、公用雲端還是混合式環境都適用。 | Exivity |
 | ![f5](media/azure-stack-marketplace-azure-items/f5.png) | [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | 進階的負載平衡、GSLB、網路防火牆、DNS、WAF 和應用程式存取。 | F5 Networks |
+| ![FortiGate 新一代防火牆](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [FortiGate 新一代防火牆](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | 此防火牆技術提供完整的內容和網路保護，且包含一組綜合安全性功能。 應用程式控制、防毒、IPS、網站篩選功能和 VPN，與進階弱點管理等功能共同合作，以識別及減輕最新的複雜安全性威脅。 | Fortinet |
 | ![Hortonworks Data Platform (HDP) Sandbox](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) 沙箱](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | 由 HDP 2.5 所提供的 100% 開放原始碼平台，適用於 Hadoop、Spark、Storm、HBase、Kafka、Hive、Ambari。 | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky Hybrid Cloud Security 可支援能夠順暢地協調且具彈性的網路安全性生態系統。 | Kaspersky 實驗室 |
 | ![KEMP LoadMaster 負載平衡器 ADC 內容切換](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster 負載平衡器 ADC 內容切換](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 第 4-7 層應用程式傳遞控制器 (ADC) 負載平衡器、內容切換和流量管理員。 | KEMP Technologies Inc. |

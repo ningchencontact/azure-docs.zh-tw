@@ -1,24 +1,21 @@
 ---
-title: 初步了解：使用復原服務保存庫保護 Azure VM
-description: 使用復原服務保存庫保護 Azure VM。 使用 Resource Manager 部署的 VM、傳統部署的 VM 和進階儲存體 VM、已在受控磁碟中加密 VM 的備份來保護您的資料。 建立和註冊復原服務保存庫。 在 Azure 中註冊 VM、建立原則和保護 VM。
+title: 使用 Azure 備份服務備份 Azure VM
+description: 了解如何使用 Azure 備份服務備份 Azure VM
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/17/2018
 ms.author: raynew
-ms.custom: H1Hack27Feb2017
-keywords: 備份; VM 備份
-ms.openlocfilehash: 2c6b881e5717c0f4600b4e3c2f47c19b5d2dae51
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869923"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631578"
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>將 Azure 虛擬機器備份到復原服務保存庫
+# <a name="back-up-azure-vms-with-the-azure-backup-service"></a>使用 Azure 備份服務備份 Azure VM
 
 本文說明如何從虛擬機器作業功能表或復原服務保存庫設定虛擬機器的保護。 復原服務保存庫可保護︰
 
@@ -32,12 +29,12 @@ ms.locfileid: "52869923"
 
 如需保護進階儲存體 VM 的詳細資訊，請參閱[備份和還原進階儲存體 VM](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup)一文。 如需受控磁碟 VM 支援的詳細資訊，請參閱[備份及還原受控磁碟上的 VM](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)。 如需有關 Linux VM 備份之前置和後置指令碼架構的詳細資訊，請參閱[使用前置指令碼和後置指令碼的應用程式一致 Linux VM 備份](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)。
 
-若要深入了解可備份和無法備份哪些項目，請參閱[預備好備份 Azure VM 的環境](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)。
+若要深入了解可備份和無法備份哪些項目，請參閱[預備好備份 Azure VM 的環境](backup-azure-arm-vms-prepare.md#before-you-start)。
 
 > [!NOTE]
 > 備份服務會建立與 VM 資源群組不同的資源群組，來儲存還原點集合。 建議客戶請勿鎖定建立給備份服務使用的資源群組。
-備份服務建立的資源群組命名格式為：AzureBackupRG_`<Geo>`_`<number>` 例如：AzureBackupRG_northeurope_1
-<br>Eg: AzureBackupRG_northeurope_1
+備份服務建立的資源群組命名格式為：AzureBackupRG_`<Geo>`_`<number>`
+<br>例如：AzureBackupRG_northeurope_1
 >
 >
 
@@ -337,7 +334,9 @@ ms.locfileid: "52869923"
 如果您在完成本文中的某些工作時遇到問題，請參閱 [疑難排解指引](backup-azure-vms-troubleshoot.md)。
 
 ## <a name="pricing"></a>價格
-備份 Azure VM 的成本是根據受保護執行個體的數目。 如需受保護執行個體的定義，請參閱[什麼是受保護執行個體](backup-introduction-to-azure-backup.md#what-is-a-protected-instance)。 如需計算備份虛擬機器成本的範例，請參閱[如何計算受保護執行個體](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances)。 請參閱 Azure 備份定價頁面以取得[備份定價](https://azure.microsoft.com/pricing/details/backup/)的相關資訊。
+備份 Azure VM 的成本是根據受保護執行個體的數目。 如需受保護執行個體的定義，請參閱[什麼是受保護執行個體](backup-introduction-to-azure-backup.md#what-is-a-protected-instance)。 請參閱 Azure 備份定價頁面以取得[備份定價](https://azure.microsoft.com/pricing/details/backup/)的相關資訊。
 
-## <a name="questions"></a>有疑問嗎？
-如果您有問題，或希望我們加入任何功能，請 [傳送意見反應給我們](https://aka.ms/azurebackup_feedback)。
+## <a name="next-steps"></a>後續步驟
+
+[管理](backup-azure-manage-vms.md)您的備份。
+

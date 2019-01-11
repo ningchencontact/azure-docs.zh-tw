@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e979930ed504dafe330b774725f4193f1c15ed17
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301011"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793983"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Microsoft Graph 繫結
 
@@ -63,7 +63,7 @@ Microsoft Graph 繫結可透過_繫結擴充功能_提供。 繫結擴充功能�
 
 ### <a name="configuring-authentication--authorization"></a>設定驗證/授權
 
-本文中概述的繫結需要使用身分識別。 這可讓 Microsoft Graph 強制執行權限和稽核互動。 識別可以是使用者存取您的應用程式或應用程式本身。 若要設定這個身分識別，請使用 Azure Active Directory 來設定 [App Service 驗證/授權](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)。 您也必須要求函式所需的任何資源權限。
+本文中概述的繫結需要使用身分識別。 這可讓 Microsoft Graph 強制執行權限和稽核互動。 識別可以是使用者存取您的應用程式或應用程式本身。 若要設定這個身分識別，請使用 Azure Active Directory 來設定 [App Service 驗證/授權](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)。 您也必須要求函式所需的任何資源權限。
 
 > [!Note] 
 > Microsoft Graph 擴充功能僅支援 Azure AD 驗證。 使用者必須使用公司或學校帳戶登入。
@@ -226,7 +226,8 @@ module.exports = function (context, req) {
 
 一律會向程式碼顯示權杖作為字串。
 
-
+> [!Note]
+> 在本機使用 `userFromId`、`userFromToken` 或 `userFromRequest` 選項進行開發時，您可以[手動取得](https://github.com/Azure/azure-functions-microsoftgraph-extension/issues/54#issuecomment-392865857) \(英文\) 必要的權杖，並指定於呼叫用戶端應用程式的 `X-MS-TOKEN-AAD-ID-TOKEN` 要求標頭中。
 
 
 <a name="excel-input"></a>

@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 35929d820ac6f72b83d6c3f25547255ca3423fc8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1edb4818ff7fda170d123ea8b81e6df9d620f354
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138441"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713568"
 ---
 # <a name="infrastructure-backup-service-reference"></a>基礎結構備份服務的參考
 
 ## <a name="azure-backup-infrastructure"></a>Azure 備份基礎結構
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 Azure Stack 是由許多服務所組成，包含入口網站、Azure Resource Manager 和基礎結構管理體驗。 Azure Stack 類似設備的管理體驗，著重於降低解決方案操作員所需要面對的操作複雜性。
 
@@ -87,9 +87,16 @@ Azure Stack 是由許多服務所組成，包含入口網站、Azure Resource Ma
 
 基礎結構備份控制器會隨選備份資料。 建議一天至少備份兩次，並保留最多七天份的備份。 
 
+**1811 和更新版本**
 | 環境規模 | 預估的備份大小 | 所需的空間總容量 |
 |-------------------|--------------------------|--------------------------------|
-| 4-16 個節點        | 10 GB                     | 140 GB                          |
+| 4-16 個節點        | 20 GB                    | 280 GB                        |
+| ASDK              | 10 GB                    | 140 GB                        |
+
+**1811 之前的版本**
+| 環境規模 | 預估的備份大小 | 所需的空間總容量 |
+|-------------------|--------------------------|--------------------------------|
+| 4-16 個節點，ASDK  | 10 GB                     | 140 GB                        |
 
 ### <a name="network-requirements"></a>網路需求
 | 儲存位置                                                                 | 詳細資料                                                                                                                                                                                 |
@@ -109,7 +116,7 @@ Azure Stack 是由許多服務所組成，包含入口網站、Azure Resource Ma
 | 限制識別碼                                                 | 限制        | 註解                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | 備份類型                                                      | 僅限完整備份    | 基礎結構備份控制器只支援完整備份。 不支援支援增量備份。                                          |
-| 排定的備份                                                | 僅限手動備份  | 備份控制器目前只支援隨選備份                                                                                 |
+| 排定的備份                                                | 已排定和手動  | 備份控制器支援已排定的備份和隨選備份                                                                                 |
 | 並行備份作業的數目上限                                   | 1            | 備份控制器的每個執行個體只支援一個作用中的備份作業。                                                                  |
 | 網路交換器設定                                     | 不在範圍中 | 系統管理員必須使用 OEM 工具來備份網路交換器設定。 請參閱各 OEM 廠商所提供的 Azure Stack 文件。 |
 | 硬體生命週期主機                                          | 不在範圍中 | 系統管理員必須使用 OEM 工具來備份硬體生命週期主機。 請參閱各 OEM 廠商所提供的 Azure Stack 文件。      |

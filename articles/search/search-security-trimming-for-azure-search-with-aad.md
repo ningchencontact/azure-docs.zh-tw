@@ -1,5 +1,5 @@
 ---
-title: 使用 Active Directory 身分識別進行安全性篩選以調整結果 - Azure 搜尋服務
+title: 使用 Active Directory 進行安全性篩選以調整結果 - Azure 搜尋服務
 description: 在 Azure 搜尋服務內容上使用安全性篩選和 Azure Active Directory (AAD) 身分識別進行存取控制。
 author: brjohnstmsft
 manager: jlembicz
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 2d1ac36341ef47ac95317c583005b675f31f1265
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 1cd862c59154f9da766b5df1ab8fb8d61e15d054
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308816"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628284"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>使用 Active Directory 身分識別進行安全性篩選以調整 Azure 搜尋服務結果
 

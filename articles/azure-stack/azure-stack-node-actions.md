@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 中的縮放單位節點動作 | Microsoft Docs
-description: 了解如何檢視節點狀態和在 Azure Stack 整合系統上使用開啟電源、關閉電源、清空和繼續節點動作。
+description: 了解如何在 Azure Stack 整合式系統上檢視節點狀態，以及使用開啟電源、關閉電源停用及繼續等節點動作。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -9,143 +9,144 @@ editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a792bc083c3a2c78b24d5895c34420b86b0863bb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ced6e2edb570e12b17d14e0552030902161b5d53
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959762"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725247"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的縮放單位節點動作
 
 *適用於：Azure Stack 整合式系統*
 
-本文說明如何檢視縮放單位及其相關聯節點的狀態，以及如何使用可用的節點動作。 節點動作包括開啟電源、關閉電源、清空、繼續和修復。 一般而言，您可以於現場更換組件期間，或針對節點復原案例使用這些節點動作。
+本文說明如何檢視縮放單位的狀態。 您可以檢視單位的節點。 您可以執行節點動作，例如開啟電源、關閉電源、關機、清空、繼續及修復。 一般而言，您會在於現場進行組件更換時，或協助將節點復原時，使用這些節點動作。
 
 > [!Important]  
-> 本文中說明的所有節點動作都應該一次以一個節點為目標。
-
+> 本文所述的所有節點動作應該都一次以一個節點為目標。
 
 ## <a name="view-the-node-status"></a>檢視節點狀態
 
-在管理員入口網站中，您可以輕鬆地檢視縮放單位和其相關聯節點的狀態。
+在系統管理員入口網站中，您可以檢視縮放單位及其相關節點的狀態。
 
 若要檢視縮放單位的狀態：
 
 1. 在 [區域管理] 圖格上，選取區域。
 2. 在左側的 [基礎結構資源] 下，選取 [縮放單位]。
 3. 在結果中，選取縮放單位。
- 
-您可以在此處檢視下列資訊：
+4. 從左側的 [一般] 底下，選取 [節點]。
 
-- 區域名稱。 在 PowerShell 模組中，會使用 **-Location** 來參考區域名稱。
-- 系統類型
-- 邏輯核心數總計
-- 記憶體總計
-- 個別節點的清單及其狀態 (**正在執行**或**已停止**)
+  檢視下列資訊：
 
-![顯示每個節點執行狀態的縮放單位圖格](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
+  - 個別節點的清單
+  - 操作狀態 (請參閱下方清單)
+  - 電源狀態 (例如執行中或已停止)
+  - 伺服器模型
+  - 基礎板管理控制器 (BMC) 的 IP 位址
+  - 核心總數
+  - 記憶體量總計
 
-## <a name="view-node-information"></a>詳細節點資訊
+![縮放單位的狀態](media/azure-stack-node-actions/multinodeactions.png)
 
-如果您選取個別節點，您可以檢視下列資訊：
+### <a name="node-operational-states"></a>節點操作狀態
 
-- 區域名稱
-- 伺服器模型
-- 基礎板管理控制器 (BMC) 的 IP 位址
-- 操作狀態
-- 核心總數
-- 記憶體量總計
- 
-![顯示每個節點執行狀態的縮放單位圖格](media/azure-stack-node-actions/NodeActions.PNG)
-
-您也可以從這裡執行縮放單位節點動作。
+| 狀態 | 說明 |
+|----------------------|-------------------------------------------------------------------|
+| 執行中 | 節點正有效參與縮放單位。 |
+| 已停止 | 節點無法使用。 |
+| 新增中 | 節點正在新增至縮放單位。 |
+| 修復中 | 正在修復節點。 |
+| 維護  | 節點已暫停，且沒有作用中的使用者工作負載正在執行。 |
+| 需要補救 | 偵測到需要修復節點的錯誤。 |
 
 ## <a name="scale-unit-node-actions"></a>縮放單位節點動作
 
 當您檢視縮放單位節點的相關資訊時，您也可以執行節點動作，例如：
-
-- 清空與繼續
-- 修復
+ - 啟動和停止 (視目前的電源狀態而定)
+ - 停用和繼續 (視作業狀態而定)
+ - 修復
+ - Shutdown
 
 節點的作業狀態會決定哪些選項可供使用。
 
-### <a name="power-off"></a>關閉電源
+您將必須安裝 Azure Stack PowerShell 模組。 這些 Cmdlet 位於 **Azs.Fabric.Admin** 模組中。 若要安裝或確認「適用於 Azure Stack 的 PowerShell」安裝，請參閱[安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 
-[關閉電源] 動作會將節點關閉。 它與按下電源按鈕相同。 它**不會**傳送關機信號到作業系統。 針對計劃的關機作業，請確定您先清空縮放單位節點。
+## <a name="stop"></a>停止
+
+**停止**動作會關閉節點電源。 此動作就像您按下電源按鈕一樣。 它不會傳送關機信號給作業系統。 針對計劃性停止作業，請一律先嘗試關機作業。 
 
 當節點處於擱置狀態，而且不再回應要求，通常會使用此動作。
 
-> [!Important] 
-> 此功能只可透過 PowerShell 取得。 之後將會在 Azure Stack 系統管理員入口網站中再度提供。
+若要執行停止動作，請開啟已提升權限的 PowerShell 提示字元，然後執行下列 Cmdlet：
 
-
-若要透過 PowerShell 執行關閉電源動作：
-
-````PowerShell
+```PowerShell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-```` 
+```
 
-在關閉電源動作無法運作的罕見情況下，請改用 BMC Web 介面。
+在停止動作無法運作的罕見情況下，請重試作業，如果第二次也失敗，請改用 BMC Web 介面。
 
-### <a name="power-on"></a>開啟電源
+如需詳細資訊，請參閱[Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode)。
 
-[開啟電源] 動作會將節點關閉。 它與按下電源按鈕相同。 
+## <a name="start"></a>啟動
 
-> [!Important] 
-> 此功能只可透過 PowerShell 取得。 之後將會在 Azure Stack 系統管理員入口網站中再度提供。
+**啟動**動作會開啟節點電源。 此動作就像您按下電源按鈕一樣。 
+ 
+若要執行啟動動作，請開啟已提升權限的 PowerShell 提示字元，然後執行下列 Cmdlet：
 
-若要透過 PowerShell 執行開啟電源動作：
-
-````PowerShell
+```PowerShell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-````
+```
 
-在開啟電源動作無法運作的罕見情況下，請改用 BMC Web 介面。
+在啟動動作無法運作的罕見情況下，請重試作業，如果第二次也失敗，請改用 BMC Web 介面。
 
-### <a name="drain"></a>清空
+如需詳細資訊，請參閱[Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode)。
 
-[清空] 動作會撤除所有作用中的工作負載，方法是將它們分散在該特定縮放單位的其餘節點之間。
+## <a name="drain"></a>清空
+
+**清空**動作會將所有作用中工作負載移至該特定縮放單位中的其餘節點。
 
 這個動作通常用於現場更換組件期間，例如，更換整個節點。
 
-> [!IMPORTANT]  
-> 確定您只在已通知使用者、計劃性的維護期間清空節點。 在某些情況下，使用中的工作負載可能會導致中斷。
+> [!Important]
+> 請確定您是在計劃性維護時段且已通知使用者的情況下，在節點上使用清空作業。 在某些情況下，使用中的工作負載可能會導致中斷。
 
-若要透過 PowerShell 執行清空動作：
+若要執行清空動作，請開啟已提升權限的 PowerShell 提示字元，然後執行下列 Cmdlet：
 
-  ````PowerShell
+```PowerShell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-  ````
+```
 
-### <a name="resume"></a>繼續
+如需詳細資訊，請參閱 [Disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode)。
 
-[繼續] 動作會繼續已清空的節點，並且將其標示為使用中以進行工作負載放置。 先前已在節點上執行的工作負載不會容錯回復。 (如果您清空節點然後關機，當您重新開啟節點的電源時，不會將它標示為使用中以進行工作負載放置。 準備就緒時，您必須使用繼續動作將節點標記為使用中。)
+## <a name="resume"></a>繼續
 
-若要透過 PowerShell 執行繼續動作：
+**繼續**動作會將已停用的節點繼續執行，並將其標示為可供放置工作負載。 先前已在節點上執行的工作負載不會容錯回復。 (如果您在節點上使用清空作業，請務必關閉電源)。 當您重新開啟節點的電源時，系統不會將它標示為可供放置工作負載。 準備就緒時，您必須使用繼續動作將節點標記為使用中。)
 
-  ````PowerShell
+若要執行繼續動作，請開啟已提升權限的 PowerShell 提示字元，然後執行下列 Cmdlet：
+
+```PowerShell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-  ````
+```
 
-### <a name="repair"></a>修復
+如需詳細資訊，請參閱 [Enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode)。
 
-[修復] 動作會修復節點。 只針對下列其中一個案例使用它：
+## <a name="repair"></a>修復
 
-- 完整節點更換 (不論有無新資料磁碟)
-- 硬體元件失敗並取代之後 (如果現場可更換單元 (FRU) 文件中有建議)。
+**修復**動作會修復節點。 只針對下列其中一個案例使用它：
+ - 完整節點更換 (不論有無新資料磁碟)
+ - 硬體元件失敗並取代之後 (如果現場可更換單元 (FRU) 文件中有建議)。
 
-> [!IMPORTANT]  
-> 需要更換節點或個別硬體元件時，請參閱 FRU OEM 硬體廠商的文件，以了解確切步驟。 FRU 文件會指定在更換硬體元件之後是否需要執行修復動作。  
+> [!Important]  
+> 當您需要更換節點或個別硬體元件時，請參閱 OEM 硬體廠商的 FRU 文件，以了解確切的步驟。 FRU 文件會指定在更換硬體元件之後是否需要執行修復動作。 
 
 執行修復動作時，您需要指定 BMC IP 位址。 
 
-若要透過 PowerShell 執行修復動作：
+若要執行修復動作，請開啟已提升權限的 PowerShell 提示字元，然後執行下列 Cmdlet：
 
   ````PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>

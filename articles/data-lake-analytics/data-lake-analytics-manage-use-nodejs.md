@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 0603a60ea73d47dd6107ee80afc5c776ff8c83bc
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3b5b11b148910e9bd1348b20a25fa8383fc2ec9c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047106"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974670"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>使用 Node.js 的 Azure SDK 管理 Azure 資料湖分析
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "43047106"
 本文說明如何使用以 Azure SDK for Node.js 所撰寫的應用程式，來管理 Azure Data Lake Analytics 帳戶、資料來源、使用者和作業。 
 
 支援的版本如下：
-* **Node.js 版本：0.10.0 或更高版本**
+* **Node.js 版本：0.10.0 或更新版本**
 * **帳戶的 REST API 版本：2015-10-01-preview**
 * **目錄的 REST API 版本：2015-10-01-preview**
 * **作業的 REST API 版本：2016-03-20-preview**
@@ -49,7 +49,7 @@ npm install azure-arm-datalake-analytics
 ## <a name="create-the-data-lake-analytics-client"></a>建立 Data Lake Analytics 用戶端
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
-var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
+var accountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
 var jobClient = new adlaManagement.DataLakeAnalyticsJobClient(credentials, 'azuredatalakeanalytics.net');
 var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credentials, 'azuredatalakeanalytics.net');
 ```

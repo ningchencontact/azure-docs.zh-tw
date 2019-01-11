@@ -1,5 +1,5 @@
 ---
-title: Azure 時間序列深入解析預覽總管 - 在 Azure 時間序列深入解析預覽總管中將資料視覺化 | Microsoft Docs
+title: 在 Azure 時間序列深入解析預覽總管中將資料視覺化 | Microsoft Docs
 description: 本文描述 Azure 時間序列深入解析預覽總管 Web 應用程式中的各種功能和可用選項。
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5372a36291ee13966d497bdae83a6e214dce99b9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d5c18521f39b1b57b5f94a54bb3131e05abba745
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272332"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556640"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>在總管中將資料視覺化 (預覽)
 

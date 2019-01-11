@@ -1,20 +1,17 @@
 ---
 title: 使用 Azure 入口網站建立和管理適用於 MySQL 的 Azure 資料庫伺服器
 description: 本文說明如何使用 Azure 入口網站，快速建立新的「適用於 MySQL 的 Azure 資料庫」伺服器和管理伺服器。
-services: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-manager: kfile
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 065eb708a1d80b0eac618bd9039a859db6ef1340
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 39ffe1b71fb002658110c63c825e0515f38e2b9e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265579"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537319"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>使用 Azure 入口網站建立和管理適用於 MySQL 的 Azure 資料庫伺服器
 本主題說明如何快速建立新的適用於 MySQL 的 Azure 資料庫伺服器。 它也包含有關如何使用 Azure 入口網站來管理伺服器的資訊。 伺服器管理包括檢視伺服器詳細資料和資料庫、重設密碼、調整資源及刪除伺服器。

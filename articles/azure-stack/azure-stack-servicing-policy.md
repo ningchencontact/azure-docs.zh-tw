@@ -12,18 +12,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 0bbe2ee7436cc03a3780da096a498769d66eb505
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 49d49553a9375baa92160d9d9a89936acc7dd461
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277931"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102613"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服務原則
+
 本文說明 Azure Stack 整合系統的服務原則，以及必須如何做才能將狀態保持在支援的狀態。 
+
+## <a name="download-update-packages-for-integrated-systems"></a>下載適用於整合式系統的更新套件類型
+
+Microsoft 除了發行 Hotfix 套件來解決特定問題之外，也會發行完整的每月更新套件。 
+
+每月更新套件裝載在安全的 Azure 端點中。 您可以使用 [Azure Stack 更新下載程式工具](https://aka.ms/azurestackupdatedownload)來下載它們。 如果您的縮放單位已連線，更新就會自動在系統管理員入口網站中顯示為「已有可用的更新」。 完整的每月更新套件會詳細記載於每個版本。 如需有關每個版本的詳細資訊，您可以從本文的[更新套件發行頻率](#update-package-release-cadence)一節中按一下任何一個版本。
+
+Hotfix 更新套件裝載在相同的安全 Azure 端點中。 您可以使用個別 Hotfix 知識庫文章中內嵌的連結 (例如 [Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)) 來手動下載它們。 與完整的每月更新套件類似，Azure Stack 操作員可以下載 .xml、.bin 及 .exe 檔案，然後使用[在 Azure Stack 中套用更新](azure-stack-apply-updates.md)中的程序來匯入這些檔案。 Azure Stack 操作員如果具有已連線的縮放單位，就會看到 Hotfix 自動出現在系統管理員入口網站中並顯示「已有可用的更新」訊息。
+
+如果您的縮放單位未連線，而您想要收到每個 Hotfix 版本的通知，請訂閱每個版本中註明的 [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) 或 [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) 摘要。  
 
 ## <a name="update-package-types"></a>更新封裝類型
 
@@ -51,7 +62,7 @@ Microsoft 預期每月發行軟體更新封裝。 不過，可能一個月內發
 
 
 ## <a name="keep-your-system-under-support"></a>維持系統獲得支援
-若要繼續獲得支援，您必須將 Azure Stack 部署維持在最新狀態。 更新的延期原則是：若要讓 Azure Stack 開發持續獲得支援，它必須執行最新發行的更新版本，或是執行最新版之前的兩個更新版本其中之一。 Hotfix 並不被視為主要更新版本。 如果您的 Azure Stack 雲端落後*不只兩個更新*，就會被視為不符合規範，而必須更新至最低支援版本才能獲得支援。 
+若要繼續獲得支援，您必須將 Azure Stack 部署維持在最新狀態。 更新的延期原則是：若要讓 Azure Stack 部署持續獲得支援，它必須執行最新發行的更新版本，或是執行最新版之前的兩個更新版本其中之一。 Hotfix 並不被視為主要更新版本。 如果您的 Azure Stack 雲端落後*不只兩個更新*，就會被視為不符合規範，而必須更新至最低支援版本才能獲得支援。 
 
 例如，如果最新可用更新版本是 1805，而前兩個更新套件的版本為 1804 和 1803，則 1804 和 1803 都可持續獲得支援。 不過，1802 則不在支援之列。 此原則在持續一或兩個月沒有任何發行版本的情況下仍然成立。 例如，如果最新發行版本為 1805，但並沒有 1804 發行版本，則前兩個更新套件 1803 和 1802 會持續獲得支援。
 

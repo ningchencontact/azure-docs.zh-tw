@@ -1,21 +1,18 @@
 ---
 title: 使用 Azure CLI 建立和管理適用於 MariaDB 的 Azure 資料庫防火牆規則
 description: 本文描述如何使用 Azure CLI 命令列，建立和管理適用於 MariaDB 的 Azure 資料庫防火牆規則。
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 1dba4b99dc50d1908b7b3d0488ba6ebf2f85c2a4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: a2f0d775f061ab221092c9354d9d04b9241c9430
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516460"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543881"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>使用 Azure CLI 建立和管理適用於 MariaDB 的 Azure 資料庫防火牆規則
 伺服器層級的防火牆規則可讓系統管理員從指定的 IP 位址或 IP 位址範圍，管理適用於 MariaDB 的 Azure 資料庫伺服器的存取。 透過方便的 Azure CLI 命令，您可以建立、更新、刪除、列出及顯示防火牆規則，以管理您的伺服器。 如需「適用於 MariaDB 的 Azure 資料庫」防火牆的概觀，請參閱[適用於 MariaDB 的 Azure 資料庫伺服器防火牆規則](./concepts-firewall-rules.md)
@@ -28,11 +25,11 @@ ms.locfileid: "51516460"
 **az mariadb server firewall-rule** 命令是從 Azure CLI 中用來建立、刪除、列出、顯示及更新防火牆規則。
 
 命令：
-- **create**︰建立 Azure MariaDB 伺服器防火牆規則。
-- **delete**︰刪除 Azure MariaDB 伺服器防火牆規則。
+- **create**：建立 Azure MariaDB 伺服器防火牆規則。
+- **delete**：刪除 Azure MariaDB 伺服器防火牆規則。
 - **list**：列出 Azure MariaDB 伺服器防火牆規則。
-- **show**︰顯示 Azure MariaDB 伺服器防火牆規則的詳細資料。
-- **update**︰更新 Azure MariaDB 伺服器防火牆規則。
+- **show**：顯示 Azure MariaDB 伺服器防火牆規則的詳細資料。
+- **update**：更新 Azure MariaDB 伺服器防火牆規則。
 
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>登入 Azure 並列出適用於 MariaDB 的 Azure 資料庫伺服器
 使用 **az login** 命令，安全地連接 Azure CLI 與 Azure 帳戶。

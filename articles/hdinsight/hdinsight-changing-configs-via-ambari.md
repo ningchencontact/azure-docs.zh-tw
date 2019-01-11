@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: abb80bb0877f99dfb1623e320078e935f581d833
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498674"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722918"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Apache Ambari 將 HDInsight 叢集設定最佳化
 
-HDInsight 提供大規模資料處理應用程式的 [Apache Hadoop](https://hadoop.apache.org/) 叢集。 管理、監視和最佳化這些複雜的多節點叢集相當有挑戰性。 [Apache Ambari](http://ambari.apache.org/) 是管理和監視 HDInsight Linux 叢集的 Web 介面。  若為 Windows 叢集，請使用 [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)。
+HDInsight 提供大規模資料處理應用程式的 [Apache Hadoop](https://hadoop.apache.org/) 叢集。 管理、監視和最佳化這些複雜的多節點叢集相當有挑戰性。 [Apache Ambari](https://ambari.apache.org/) 是管理和監視 HDInsight Linux 叢集的 Web 介面。  若為 Windows 叢集，請使用 [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)。
 
 如需使用 Ambari Web UI 的簡介，請參閱[使用 Apache Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
 
@@ -68,7 +68,7 @@ NameNode Java 堆積大小取決於許多因素，例如叢集的負載、檔案
 
 ### <a name="set-the-hive-execution-engine"></a>設定 Hive 執行引擎
 
-Hive 提供兩個執行引擎：[Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 和 [Apache TEZ](https://tez.apache.org/)。 Tez 比 MapReduce 更快。 HDInsight Linux 叢集有 Tez 做為預設執行引擎。 變更執行引擎：
+Hive 提供兩個執行引擎：[Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)\(英文\)和 [Apache TEZ](https://tez.apache.org/) \(英文\)。 Tez 比 MapReduce 更快。 HDInsight Linux 叢集有 Tez 做為預設執行引擎。 變更執行引擎：
 
 1. 在 Hive [設定] 索引標籤的 [篩選] 方塊中，輸入**執行引擎**。
 
@@ -82,8 +82,8 @@ Hive 提供兩個執行引擎：[Apache Hadoop MapReduce](https://hadoop.apache.
 
 Hadoop 會嘗試將單一檔案分割 (*對應*) 為多個檔案，並且平行處理產生的檔案。 對應程式的數目取決於分割的數目。 下列兩個組態參數會影響 Tez 執行引擎的分割數目：
 
-* `tez.grouping.min-size`：群組分割大小下限，預設值是 16 MB (16777216 位元組)。
-* `tez.grouping.max-size`：群組分割大小上限，預設值為 1 GB (1,073,741,824 位元組)。
+* `tez.grouping.min-size`：已群組的分割大小下限，預設值是 16 MB (16,777,216 位元組)。
+* `tez.grouping.max-size`：已群組的分割大小上限，預設值為 1 GB (1,073,741,824 位元組)。
 
 根據效能的經驗法則，降低這兩個參數可改善延遲、增加更多輸送量。
 
@@ -189,7 +189,7 @@ Hadoop 工作通常出現 I/O 瓶頸。 壓縮資料可以加快 I/O 和整體�
 
     ![Hive exec 壓縮中繼](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > 若要壓縮中繼檔案，即使轉碼器沒有高壓縮輸出，也請選擇較低 CPU 成本的壓縮轉碼器。
 
 1. 若要設定中繼壓縮轉碼器，請將自訂屬性 `mapred.map.output.compression.codec` 新增至 `hive-site.xml` 或 `mapred-site.xml` 檔案。
@@ -210,7 +210,7 @@ Hadoop 工作通常出現 I/O 瓶頸。 壓縮資料可以加快 I/O 和整體�
 
     這會使用 Snappy 壓縮來壓縮中繼檔案。 新增屬性後，屬性會出現在 [自訂 Hive 網站] 窗格中。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 此程序會修改 `$HADOOP_HOME/conf/hive-site.xml` 檔案。
 
 ### <a name="compress-final-output"></a>壓縮最終輸出
@@ -299,12 +299,12 @@ Hive 的預設聯結類型是*隨機聯結*。 在 Hive 中，特殊對應程式
 
     ![進階 pig 屬性](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
-> [!NOTE]
+> [!NOTE]  
 > 任何工作階段層級設定都會覆寫 `pig.properties` 檔案中的屬性值。
 
 ### <a name="tune-execution-engine"></a>調整執行引擎
 
-兩個執行引擎可用來執行 Pig 指令碼：MapReduce 和 Tez。 Tez 是最佳化引擎，速度比 MapReduce 更快。
+有兩個執行引擎可用來執行 Pig 指令碼：MapReduce 和 Tez。 Tez 是最佳化引擎，速度比 MapReduce 更快。
 
 1. 若要修改執行引擎，請在 [進階 pig 屬性] 窗格中找出屬性 `exectype`。
 
@@ -333,18 +333,18 @@ Pig 會將 UDF 需要的 JAR 檔案複製到分散式快取，以供工作節點
 
 下列記憶體設定有助於將 Pig 指令碼效能最佳化。
 
-* `pig.cachedbag.memusage`：配置於包的記憶體數量。 包是元組的集合。 元組是欄位的排序集合，欄位則是一段資料。 如果包中的資料超出配置的記憶體，則會溢出到磁碟。 預設值為 0.2，這表示可用記憶體的 20%。 這個記憶體由應用程式中的所有包共用。
+* `pig.cachedbag.memusage`：配置給包的記憶體數量。 包是元組的集合。 元組是欄位的排序集合，欄位則是一段資料。 如果包中的資料超出配置的記憶體，則會溢出到磁碟。 預設值為 0.2，這表示可用記憶體的 20%。 這個記憶體由應用程式中的所有包共用。
 
-* `pig.spill.size.threshold`：大於此溢出大小臨界值 (單位為位元組) 的包會溢出到磁碟。 預設值是 5 MB。
+* `pig.spill.size.threshold`：大於此溢出大小閾值 (以位元組為單位) 的包會溢出到磁碟。 預設值是 5 MB。
 
 
 ### <a name="compress-temporary-files"></a>壓縮暫存檔
 
 Pig 會在作業執行期間產生暫存檔。 壓縮暫存檔會提升在磁碟中讀取或寫入檔案的效能。 下列設定可用來壓縮暫存檔。
 
-* `pig.tmpfilecompression`：若為 true，啟用暫存檔壓縮。 預設值為 False。
+* `pig.tmpfilecompression`：若為 True，啟用暫存檔壓縮。 預設值為 False。
 
-* `pig.tmpfilecompression.codec`：壓縮轉碼器用來壓縮暫存檔。 為了降低 CPU 使用率，建議的壓縮轉碼器是 [LZO](https://www.oberhumer.com/opensource/lzo/) 和 Snappy。
+* `pig.tmpfilecompression.codec`：用來壓縮暫存檔的壓縮轉碼器。 為了降低 CPU 使用率，建議的壓縮轉碼器是 [LZO](https://www.oberhumer.com/opensource/lzo/) 和 Snappy。
 
 ### <a name="enable-split-combining"></a>啟用分割合併
 
@@ -395,9 +395,9 @@ HBase 堆積大小會指定*區域*和*主要*伺服器將使用的堆積最大�
 
 所有的編輯均儲存於稱為 *Memstore* 的記憶體緩衝區。 這會增加在單一作業中可以寫入磁碟的資料量總計，而且可加快最近編輯的後續存取速度。 Memstore 大小是由下列兩個參數所定義：
 
-* `hbase.regionserver.global.memstore.UpperLimit`：定義合併的 Memstore 可使用的區域伺服器百分比上限。
+* `hbase.regionserver.global.memstore.UpperLimit`：定義已合併之 Memstore 可使用的區域伺服器百分比上限。
 
-* `hbase.regionserver.global.memstore.LowerLimit`：定義合併的 Memstore 可使用的區域伺服器百分比下限。
+* `hbase.regionserver.global.memstore.LowerLimit`：定義已合併之 Memstore 可使用的區域伺服器百分比下限。
 
 若要將隨機讀取最佳化，可以減少 Memstore 上限和下限。
 
@@ -408,7 +408,7 @@ HBase 堆積大小會指定*區域*和*主要*伺服器將使用的堆積最大�
 
 ![擷取資料列的 HBase 數目](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 請勿將該值設定過高，以免造成掃描器引動 next 方法的相隔時間大於掃描程式逾時。 掃描器逾時持續期間是由 `hbase.regionserver.lease.period` 屬性所定義。
 
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1cef5f8f77a11dad605d9758296c9632f5d30ab8
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0b3b3cd1c9c0410c4cc0ffda8887b40123c1ac7a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409015"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718473"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 安全性與合規性藍圖：適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載
 
@@ -102,17 +102,17 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 #### <a name="azure-app-service"></a>Azure App Service
 
-Azure Web Apps 可為以 Java、PHP、Node.js Python、HTML 和 C# 開發的 Web 應用程式，提供完全受控的 Web 裝載環境，而不必管理基礎結構。 它提供自動調整及高度可用性，支援 Windows 和 Linux，並可從 [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/)或任何 Git 存放庫啟用自動部署。
+App Service 可為以 Java、PHP、Node.js Python、HTML 和 C# 開發的 Web 應用程式，提供完全受控的 Web 裝載環境，而不必管理基礎結構。 它提供自動調整及高度可用性，支援 Windows 和 Linux，並可從 [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/)或任何 Git 存放庫啟用自動部署。
 
 App Service 符合 [ISO、SOC 和 PCI 規範](https://www.microsoft.com/TrustCenter/)並可使用 [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) 或社交登入 ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)、[Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook)、[Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter) 和 [Microsoft 驗證](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)來驗證使用者。
 
-基本、標準和進階方案適用於生產工作負載，並會在專用虛擬機器執行個體上執行。 每個執行個體均可支援多個應用程式和網域。 App services 也支援 [IP 位址限制](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)來保護受信任的 IP 位址流量 (如有需要)，也支援[Azure 資源的受控識別](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)以便安全連線至其他 PaaS 服務，例如 [Key Vault](https://azure.microsoft.com/services/key-vault/) 和 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)。 如果需要額外的安全性，隔離式方案會在私人專用 Azure 環境中裝載您的應用程式，適合需要與內部部署網路安全連線或額外效能和規模的應用程式使用。
+基本、標準和進階方案適用於生產工作負載，並會在專用虛擬機器執行個體上執行。 每個執行個體均可支援多個應用程式和網域。 App services 也支援 [IP 位址限制](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)來保護受信任的 IP 位址流量 (如有需要)，也支援[Azure 資源的受控識別](https://docs.microsoft.com/azure/app-service/overview-managed-identity)以便安全連線至其他 PaaS 服務，例如 [Key Vault](https://azure.microsoft.com/services/key-vault/) 和 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)。 如果需要額外的安全性，隔離式方案會在私人專用 Azure 環境中裝載您的應用程式，適合需要與內部部署網路安全連線或額外效能和規模的應用程式使用。
 
 此範本會部署下列 App Service 實體：
 
-- [標準](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) App Service 方案層次
-- 多個 Web 應用程式[部署位置](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing)：Dev、Preview、QA、UAT 以及 Production (預設位置)。
-- 以 [Azure 資源的受控識別](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)連線到 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (這也可供存取 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
+- [標準](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) App Service 方案層次
+- 多個 App Service [部署位置](https://docs.microsoft.com/azure/app-service/deploy-staging-slots)：Dev、Preview、QA、UAT 以及 Production (預設位置)。
+- 以 [Azure 資源的受控識別](https://docs.microsoft.com/azure/app-service/overview-managed-identity)連線到 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (這也可供存取 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - 與 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) 整合以監視效能
 - [診斷記錄檔](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
 - 度量[警示](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
@@ -163,7 +163,7 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 #### <a name="azure-key-vault-in-this-blueprint"></a>此藍圖中的 Azure Key Vault
 
-- 保留儲存體存取金鑰，並將讀取權限授與給客戶面向 Web 應用程式的[受控識別](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)
+- 保留儲存體存取金鑰，並將讀取權限授與給客戶面向 Web 應用程式的[受控識別](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
 - 保留 SQL Server DBA 密碼 (在個別的保存庫中)
 - 診斷記錄
 

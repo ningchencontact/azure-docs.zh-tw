@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 9d1acabd07e7c01445c55a57be9b0c9a36140aa5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: b8ff1ae2f4c07dc59bd1ffb631378817493b96b0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163764"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995035"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>針對移轉到 Azure 之工作負載評估成本及調整大小的最佳做法
 
@@ -94,7 +94,7 @@ Azure 提供數種儲存體資料類型。
 
 **資料類型** | **詳細資料** | **使用量** 
 --- | --- |  ---
-**Blobs** | 經最佳化以儲存大量非結構化物件，例如文字或二進位資料<br/><br/> | 透過 HTTP/HTTPS 從任意位置存取資料。 | 針對串流與隨機存取案例使用。 例如，直接將影像與文件提供給瀏覽器、串流視訊與音訊，以及存放備份與災害復原資料。
+**Blobs (英文)** | 經最佳化以儲存大量非結構化物件，例如文字或二進位資料<br/><br/> | 透過 HTTP/HTTPS 從任意位置存取資料。 | 針對串流與隨機存取案例使用。 例如，直接將影像與文件提供給瀏覽器、串流視訊與音訊，以及存放備份與災害復原資料。
 **檔案** | 透過 SMB 3.0 存取受控檔案共用 | 當移轉內部部署檔案共用時使用，並提供檔案資料的多個存取/連線。
 **磁碟** | 以分頁 Blob 為基礎。<br/><br/> 磁碟類型 (速度)：標準 (HDD 或 SSD) 或進階 (SSD)。<br/><br/>磁碟管理：非受控 (您負責管理磁碟設定與儲存體) 或受控 (您選取磁碟類型而 Azure 負責為您管理磁碟)。 | 為 VM 使用進階磁碟。 使用受控磁碟來獲得簡單的管理與規模調整。
 **佇列** | 存放及擷取大量訊息 (透過已驗 (HTTP 或 HTTPS) 存取) | 使用非同步訊息佇列連結應用程式元件。
@@ -117,7 +117,7 @@ Azure 提供數種儲存體帳戶類型與效能層級。
 
 **帳戶類型** | **詳細資料** | **使用量**
 --- | --- | ---
-**一般用途 v2 標準** | 支援 Blob (區塊、分頁、附加)、檔案、磁碟、佇列與資料表。<br/><br/> 支援經常性、非經常性與封存存取層。 支援 ZRS。 | 用於大部分案例與大部分類型的資料。 標準儲存體帳戶可以是 HHD 型或 SSD 型。
+**一般用途 v2 標準** | 支援 Blob (區塊、分頁、附加)、檔案、磁碟、佇列與資料表。<br/><br/> 支援經常性、非經常性與封存存取層。 支援 ZRS。 | 用於大部分案例與大部分類型的資料。 標準儲存體帳戶可以是 HDD 型或 SSD 型。
 **一般用途 v2 進階** | 支援 Blob 儲存體資料 (分頁 Blob)。 支援經常性、非經常性與封存存取層。 支援 ZRS。<br/><br/> 存放在 SSD 上。 | Microsoft 建議為所有 VM 使用。
 **一般用途 v1** | 不支援存取分層。 不支援 ZRS | 在應用程式需要 Azure 傳統部署時使用。
 **Blob** | 用於存取非結構化物件的特殊化儲存體帳戶。 提供區塊 Blob 並只附加 Blob (不附加檔案、佇列、資料表或磁碟儲存體服務)。 提供與一般用途 v2 相同的持久性、可用性、延展性與效能。 | 您無法將分頁 blob 儲存在這些帳戶中，因此無法儲存 VHD 檔案。 您可以將存取層設定為經常性或非經常性。
@@ -248,7 +248,7 @@ Microsoft 提供 Azure 成本管理來協助您追蹤費用，如下所示：
 **深入了解：**
 - 取得 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview) 與 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) 概觀。
 - [取得](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations) Advisor 成本建議。
-- [了解如何[從建議最佳化成本](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json)，以及[防止非預期的費用](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started)。
+- [了解如何[從建議最佳化成本](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json)，以及[防止非預期的費用](https://docs.microsoft.com/azure/billing/billing-getting-started)。
 - [了解](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit/) Azure 資源最佳化 (ARO) 工具組
 
 ## <a name="best-practice-implement-resource-group-budgets"></a>最佳做法：實作資源群組預算

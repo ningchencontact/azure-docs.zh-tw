@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7103557d19b367be0b9f0aa6f4a4642800c14558
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2f9800deedb2e8d55362920fed2493a42290e764
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314822"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555841"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh 的常見問題
 
@@ -79,7 +79,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 ## <a name="supported-container-os-images"></a>支援的容器 OS 映像
 
-如果您是在 Windows Fall Creators Update (1709 版) 機器上進行開發，則只能使用 Windows 1709 版 Docker 的 Docker 映像。
+如果您是在 Windows Fall Creators Update (1709 版) 機器上進行開發，則只能使用 Windows 1709 版 Docker 映像。
 
 如果您是在 Windows 10 April 2018 update (1803 版) 機器上進行開發，則可以使用 Windows 1709 版或 Windows 1803 版的 Docker 映像。
 
@@ -101,7 +101,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 - 如果只有服務名稱時無法運作，請嘗試完整名稱：ServiceName.ApplicationName。
 - 在您服務的 Docker 檔案中新增 `EXPOSE <port>`，其中的 port 是您公開服務的連接埠。 例如︰
 
-```
+```DockerFile
 EXPOSE 80
 ```
 
@@ -115,7 +115,7 @@ Azure Mesh 目前不支援跨應用程式的 DNS 解析。
 
 對於在 Windows 10 上執行 Service Fabric 開發叢集的其他已知 DNS 問題，請參閱：[對 Windows 容器進行偵錯](/azure/service-fabric/service-fabric-how-to-debug-windows-containers)和[已知 DNS 問題](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues)。
 
-### <a name="networking"></a>網路
+### <a name="networking"></a>網路功能
 
 在本機電腦上執行應用程式時，ServiceFabric 網路 NAT 可能會消失。 若要診斷是否發生此問題，請從命令提示字元執行以下命令：
 

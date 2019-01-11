@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 38d73f38a5e04a42ee15c9206ce760936e3e10c9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 42635852bb5c6e7b388d4dc58b9d5bfaa6212438
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980299"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725843"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 開發人員指南
 在 Azure Functions 中，不論您使用何種語言或繫結，特定函式都會共用一些核心技術概念和元件。 閱讀指定語言或繫結特有的詳細資料之前，請務必詳閱這份適用於所有語言或繫結的概觀。
@@ -76,7 +76,7 @@ Azure Functions 執行階段 (或指令碼主機) 是基礎主機，可接聽事
 ## <a id="fileupdate"></a> 如何更新函式應用程式檔案
 Azure 入口網站內建的函式編輯器可讓您更新「function.json」  檔案和函式的程式碼檔案。 若要上傳或更新其他檔案 (例如 *package.json*、*project.json* 或相依項目)，您必須使用其他部署方法。
 
-函式應用程式建置於 App Service 之上，因此[標準 Web 應用程式可用的部署選項](../app-service/app-service-deploy-local-git.md)也可供函式應用程式使用。 以下是一些您可以用來上傳或更新函式應用程式檔案的方法。 
+函式應用程式建置於 App Service 之上，因此[標準 Web 應用程式可用的部署選項](../app-service/deploy-local-git.md)也可供函式應用程式使用。 以下是一些您可以用來上傳或更新函式應用程式檔案的方法。 
 
 #### <a name="use-local-tools-and-publishing"></a>使用本機工具與發佈
 您可以使用多種工具來製作及發佈函數應用程式，包括 [Visual Studio](./functions-develop-vs.md)、[Visual Studio Code](functions-create-first-function-vs-code.md)、[IntelliJ](./functions-create-maven-intellij.md)、[Eclipse](./functions-create-maven-eclipse.md) 與 [Azure Functions 核心工具](./functions-develop-local.md)。 如需詳細資訊，請參閱[如何在本機撰寫 Azure Functions 程式碼並進行測試](./functions-develop-local.md)。
@@ -87,7 +87,7 @@ Azure 入口網站內建的函式編輯器可讓您更新「function.json」  �
 請依照 [Azure Functions 的持續部署](functions-continuous-deployment.md)主題中的指示進行。
 
 ## <a name="parallel-execution"></a>平行執行
-發生速度比單一執行緒函數執行階段快的多個觸發事件可以處理它們時，執行階段可能會平行多次叫用函數。  如果函式應用程式使用[取用主控方案](functions-scale.md#how-the-consumption-plan-works)，則函式應用程式可以自動相應放大。  不論應用程式是在取用主控方案還是一般 [App Service 主控方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)上執行，函式應用程式的每個執行個體可能都會使用多個執行緒平行處理並行函式引動。  每個函式應用程式執行個體中的並行函式叫用次數上限，根據使用的觸發程序類型及函式應用程式內其他函式所使用的資源而有所不同。
+發生速度比單一執行緒函數執行階段快的多個觸發事件可以處理它們時，執行階段可能會平行多次叫用函數。  如果函式應用程式使用[取用主控方案](functions-scale.md#how-the-consumption-plan-works)，則函式應用程式可以自動相應放大。  不論應用程式是在取用主控方案還是一般 [App Service 主控方案](../app-service/overview-hosting-plans.md)上執行，函式應用程式的每個執行個體可能都會使用多個執行緒平行處理並行函式引動。  每個函式應用程式執行個體中的並行函式叫用次數上限，根據使用的觸發程序類型及函式應用程式內其他函式所使用的資源而有所不同。
 
 ## <a name="functions-runtime-versioning"></a>Functions 執行階段版本設定
 
@@ -120,5 +120,5 @@ Azure Functions 的程式碼是開放原始碼，儲存於 GitHub 儲存機制�
 * [Azure Functions F# 開發人員參考](functions-reference-fsharp.md)
 * [Azure Functions NodeJS 開發人員參考](functions-reference-node.md)
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
-* [Azure Functions︰Azure App Service 團隊部落格上的旅程](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) 。 Azure Functions 的開發歷史。
+* [Azure Functions：旅程圖](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) \(英文\)，位於 Azure App Service 小組部落格上。 Azure Functions 的開發歷史。
 

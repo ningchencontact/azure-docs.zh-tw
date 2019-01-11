@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
-ms.openlocfilehash: f36d89fb01e7892ef10576b7f5f0b5fa86d8a21b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b7c94fd2372f1d995c50439b2bd5eaefb237e175
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314246"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651396"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
 
-[Apache Phoenix](http://phoenix.apache.org/) 是 [Apache HBase](apache-hbase-overview.md) 上的開放原始碼、大規模平行關聯式資料庫。 Phoenix 可讓您透過 SSH 工具 (例如 [SQLLine](apache-hbase-phoenix-squirrel-linux.md))，搭配 HBase 使用類似 SQL 的查詢。 Phoenix 也提供一個名為 Phoenix Query Server (PQS) 的 HTTP 伺服器，這是一個精簡型用戶端，可支援兩種用戶端通訊傳輸機制：JSON 和 Protocol Buffers。 Protocol Buffers 是預設機制，可提供比 JSON 更有效率的通訊。
+[Apache Phoenix](https://phoenix.apache.org/) 是 [Apache HBase](apache-hbase-overview.md) 上的開放原始碼、大規模平行關聯式資料庫。 Phoenix 可讓您透過 SSH 工具 (例如 [SQLLine](apache-hbase-phoenix-squirrel-linux.md))，搭配 HBase 使用類似 SQL 的查詢。 Phoenix 也提供一部名為 Phoenix Query Server (PQS) 的 HTTP 伺服器，這是一個精簡型用戶端，可支援兩種用戶端通訊傳輸機制：JSON 和 Protocol Buffers。 Protocol Buffers 是預設機制，可提供比 JSON 更有效率的通訊。
 
 本文說明如何使用 PQS REST SDK，藉由 SQL 陳述式來建立資料表、個別或大量更新插入資料列，以及選取資料。 範例會使用[適用於 Apache Phoenix Query Server 的 Microsoft .NET 驅動程式](https://www.nuget.org/packages/Microsoft.Phoenix.Client) \(英文\)。 此 SDK 建置在 [Apache Calcite 的 Avatica](https://calcite.apache.org/avatica/) \(英文\) API 上，這些 API 完全使用 Protocol Buffers 作為序列化格式。
 

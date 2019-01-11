@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 349d3a6eacf22a0ce3f842dd30df19964cdf7f23
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d9e6678cb931b61b89a668a35cc7ce4fa79563e3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337320"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809568"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 OData 來源複製資料
 
@@ -35,7 +35,7 @@ ms.locfileid: "53337320"
 具體而言，這個 OData 連接器支援：
 
 - OData 3.0 和 4.0 版。
-- 使用下列其中一種驗證來複製資料︰**匿名**、**基本**、**Windows**、**AAD 服務主體**及**受控服務識別**。
+- 使用下列其中一種驗證來複製資料︰**匿名**、**基本**、**Windows**、**AAD 服務主體**及**適用於 Azure 資源的受控識別**。
 
 ## <a name="get-started"></a>開始使用
 
@@ -114,7 +114,7 @@ ms.locfileid: "53337320"
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "Windows",
             "userName": "<domain>\\<user>",
             "password": {
@@ -138,7 +138,7 @@ ms.locfileid: "53337320"
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
             "aadServicePrincipalCredentialType": "ServicePrincipalKey",
@@ -147,7 +147,7 @@ ms.locfileid: "53337320"
                 "value": "<service principal key>"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
-            "aadResourceId": "<AAD resource>"
+            "aadResourceId": "<AAD resource URL>"
         }
     },
     "connectVia": {
@@ -165,7 +165,7 @@ ms.locfileid: "53337320"
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
             "aadServicePrincipalCredentialType": "ServicePrincipalCert",

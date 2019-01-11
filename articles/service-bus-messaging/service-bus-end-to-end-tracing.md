@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 4584104e9c9833b5f3f586581dd5a58f420fe0bd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 12f9f55544f46bc9c88cab7234f78ad7ee7de2d2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165334"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790889"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>透過服務匯流排傳訊進行分散式追蹤與相互關聯
 
@@ -45,9 +45,9 @@ Microsoft Azure 服務匯流排傳訊已定義產生者與取用者應用來傳�
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) 能提供豐富的效能監視功能，包括自動要求和相依性追蹤。
 
 請根據您的專案類型安裝 Application Insights SDK：
-- [ASP.NET](../application-insights/app-insights-asp-net.md) - 安裝 2.5-beta2 版或更新版本
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) - 安裝 2.2.0-beta2 版或更新版本。
-這些連結提供安裝 SDK、建立資源及設定 SDK (若有需要) 的詳細資料。 針對非 ASP.NET 應用程式，請參閱[適用於主控台應用程式的 Azure Application Insights](../application-insights/application-insights-console.md) 一文。
+- [ASP.NET](../azure-monitor/app/asp-net.md) - 安裝 2.5-beta2 版或更新版本
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) - 安裝 2.2.0-beta2 版或更新版本。
+這些連結提供安裝 SDK、建立資源及設定 SDK (若有需要) 的詳細資料。 針對非 ASP.NET 應用程式，請參閱[適用於主控台應用程式的 Azure Application Insights](../azure-monitor/app/console.md) 一文。
 
 如果您使用[訊息處理常式模式](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)來處理訊息，便無需採取任何動作，系統會自動追蹤由您的服務所完成的所有服務匯流排呼叫，並將它們與其他遙測項目相互關聯。 否則，請參考下列範例以進行手動的訊息處理追蹤。
 
@@ -83,7 +83,7 @@ async Task ProcessAsync(Message message)
 在此範例中，系統會針對每個已處理的訊息回報 `RequestTelemetry`，並具有時間戳記、持續期間及結果 (成功)。 遙測也具有相互關聯屬性的集合。
 於訊息處理期間回報的巢狀追蹤和例外狀況，也會具有相互關聯屬性的戳記，以代表它們是 `RequestTelemetry` 的「子系」。
 
-如果您在訊息處理期間對支援的外部元件進行呼叫，系統也會自動對它們進行追蹤及相互關聯。 請參閱[使用 Application Insights .NET SDK 追蹤自訂作業](../application-insights/application-insights-custom-operations-tracking.md)以了解手動追蹤及相互關聯。
+如果您在訊息處理期間對支援的外部元件進行呼叫，系統也會自動對它們進行追蹤及相互關聯。 請參閱[使用 Application Insights .NET SDK 追蹤自訂作業](../azure-monitor/app/custom-operations-tracking.md)以了解手動追蹤及相互關聯。
 
 ### <a name="tracking-without-tracing-system"></a>在沒有追蹤系統下進行追蹤
 如果您的追蹤系統不支援自動「服務匯流排」呼叫追蹤，您可以研究如何將該支援新增至追蹤系統或應用程式中。 本節說明由服務匯流排 .NET 用戶端所傳送的診斷事件。  
@@ -227,6 +227,6 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Application Insights 相互關聯](../application-insights/application-insights-correlation.md)
-* [Application Insights 監視相依性](../application-insights/app-insights-asp-net-dependencies.md) 以查看 REST、SQL 或其他外部資源是否會降低您的效能。
-* [使用 Application Insights .NET SDK 追蹤自訂作業](../application-insights/application-insights-custom-operations-tracking.md)
+* [Application Insights 相互關聯](../azure-monitor/app/correlation.md)
+* [Application Insights 監視相依性](../azure-monitor/app/asp-net-dependencies.md) 以查看 REST、SQL 或其他外部資源是否會降低您的效能。
+* [使用 Application Insights .NET SDK 追蹤自訂作業](../azure-monitor/app/custom-operations-tracking.md)

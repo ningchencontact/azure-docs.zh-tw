@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251023"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794349"
 ---
 # <a name="deploy-a-configuration-server"></a>部署設定伺服器
 
@@ -97,7 +97,7 @@ OVA 範本隨附的授權是有效期為 180 天的評估授權。 在此期間�
 
 ### <a name="configure-settings"></a>配置設定
 
-1. 在設定伺服器管理精靈中，選取 [設定連線]，然後選取 NIC，處理序伺服器會用其來接收來自虛擬機器的複寫流量。 然後選取 [儲存]。 在設定後，您便無法變更此設定。
+1. 在設定伺服器管理精靈中，選取 [設定連線]，然後選取 NIC，處理序伺服器會用其來接收來自虛擬機器的複寫流量。 然後選取 [儲存]。 在設定後，您便無法變更此設定。 強烈建議不要變更設定伺服器的 IP 位址。 請確定指派到設定伺服器的 IP 是靜態 IP 並不是 DHCP IP。
 2. 在 [選取復原服務保存庫] 中，登入 Microsoft Azure，選取您的 Azure 訂用帳戶，以及相關的資源群組和保存庫。
 
     > [!NOTE]
@@ -150,7 +150,11 @@ OVA 範本隨附的授權是有效期為 180 天的評估授權。 在此期間�
     在 [復原服務保存庫] 的 [管理] > [Site Recovery Infrastructure] \(Site Recovery 基礎結構\) > [設定伺服器] 中。 在 [伺服器] 中，選取 [下載註冊金鑰] 以下載保存庫認證檔案。
 8. 是否可以複製現有的設定伺服器並將它用於複寫協調流程？
 
-    **否**，不支援使用複製的設定伺服器元件。 
+    **否**，不支援使用複製的設定伺服器元件。
+
+9. 我可以變更設定伺服器的 IP 嗎？
+
+    **否**，強烈建議不要變更設定伺服器的 IP 位址。 請確定指派到設定伺服器的所有 IP 都是靜態 IP 而不是 DHCP IP。
 
 ## <a name="troubleshoot-deployment-issues"></a>為部署問題進行疑難排解
 

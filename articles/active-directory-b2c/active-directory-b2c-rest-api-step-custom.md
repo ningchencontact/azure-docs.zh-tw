@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dddb42f53d4bb59113df937799bd4de10d31491c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5102f2b43819c279d0087754b29a616812e5a5f2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338774"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556555"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>逐步解說︰將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為協調流程步驟
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>逐步解說：將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為協調流程步驟
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -33,7 +33,7 @@ IEF 會在宣告中傳送資料，並在宣告中收到傳回的資料。 REST A
 
 您稍後可以使用接收的宣告來變更執行流程。
 
-您也可以將互動設計成驗證設定檔。 如需詳細資訊，請參閱[逐步解說︰將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證](active-directory-b2c-rest-api-validation-custom.md)。
+您也可以將互動設計成驗證設定檔。 如需詳細資訊，請參閱[逐步解說：將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為對使用者輸入的驗證](active-directory-b2c-rest-api-validation-custom.md)。
 
 有個案例是，當使用者執行設定檔編輯時，我們想要：
 
@@ -45,7 +45,7 @@ IEF 會在宣告中傳送資料，並在宣告中收到傳回的資料。 REST A
 
 - 如[開始使用](active-directory-b2c-get-started-custom.md)所述，設定為完成本機帳戶註冊/登入的 Azure AD B2C 租用戶。
 - 要互動的 REST API 端點。 本逐步解說使用簡單的 Azure 函式應用程式 Webhook 作為範例。
-- *建議*︰完成 [REST API 宣告交換逐步解說以作為驗證步驟](active-directory-b2c-rest-api-validation-custom.md)。
+- *建議*：完成 [REST API 宣告交換逐步解說以作為驗證步驟](active-directory-b2c-rest-api-validation-custom.md)。
 
 ## <a name="step-1-prepare-the-rest-api-function"></a>步驟 1：準備 REST API 函式
 
@@ -79,7 +79,7 @@ return request.CreateResponse<ResponseContent>(
 
 Azure 函式應用程式可讓您輕鬆地取得函式 URL，此 URL 中包含特定函式的識別碼。 在此案例中，URL 是： https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==。 您可以使用它來測試。
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>步驟 2：在 TrustFrameworExtensions.xml 檔案中，將 RESTful API 宣告交換設為技術設定檔
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>步驟 2：在 TrustFrameworkExtensions.xml 檔案中，將 RESTful API 宣告交換設定為技術設定檔
 
 技術設定檔是 RESTful 服務所需之交換的完整設定。 開啟 TrustFrameworkExtensions.xml 檔案，然後在 `<ClaimsProvider>` 元素內加入下列 XML 程式碼片段。
 
@@ -97,6 +97,7 @@ Azure 函式應用程式可讓您輕鬆地取得函式 URL，此 URL 中包含�
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
@@ -114,7 +115,7 @@ Azure 函式應用程式可讓您輕鬆地取得函式 URL，此 URL 中包含�
 
 `<OutputClaims>` 元素會定義 IEF 預期要從 REST 服務收到的宣告。 不論收到多少宣告，IEF 只會使用這裡所識別的宣告。 在此範例中，以 `city` 形式收到的宣告會對應到名為 `city` 的 IEF 宣告。
 
-## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>步驟 3：將新的宣告 `city` 新增至 TrustFrameworkExtensions.xml 檔案的結構描述
+## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>步驟 3：將新的 `city` 宣告新增至 TrustFrameworkExtensions.xml 檔案的結構描述
 
 宣告 `city` 尚未在結構描述的其他地方加以定義。 因此，請在元素 `<BuildingBlocks>` 內部新增定義。 您可以在 TrustFrameworkExtensions.xml 檔案開頭處找到此元素。
 
@@ -211,7 +212,7 @@ Azure 函式應用程式可讓您輕鬆地取得函式 URL，此 URL 中包含�
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>步驟 5：將宣告 `city` 新增至您的信賴憑證者原則檔案，以便將宣告傳送至您的應用程式
+## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>步驟 5：將 `city` 宣告新增至您的信賴憑證者原則檔案，以便將宣告傳送給您的應用程式
 
 請編輯您的 ProfileEdit.xml 信賴憑證者 (RP) 檔案，並修改 `<TechnicalProfile Id="PolicyProfile">` 元素以新增下列內容︰`<OutputClaim ClaimTypeReferenceId="city" />`。
 
@@ -228,12 +229,12 @@ Azure 函式應用程式可讓您輕鬆地取得函式 URL，此 URL 中包含�
 </TechnicalProfile>
 ```
 
-## <a name="step-6-upload-your-changes-and-test"></a>步驟 6：上傳您的變更和測試
+## <a name="step-6-upload-your-changes-and-test"></a>步驟 6：上傳您的變更並測試
 
 覆寫現有的原則版本。
 
-1.  (選擇性：) 繼續之前，請先儲存擴充檔案的現有版本 (透過下載)。 建議您不要上傳多個擴充檔案版本，以免一開始的複雜性太高。
-2.  (選擇性：) 藉由變更 `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`，來為原則編輯檔案重新命名原則識別碼的新版本。
+1.  (選擇性：)繼續進行之前，先儲存延伸模組檔案的現有版本 (透過下載)。 建議您不要上傳多個擴充檔案版本，以免一開始的複雜性太高。
+2.  (選擇性：)藉由變更 `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`，為原則編輯檔案重新命名原則識別碼的新版本。
 3.  上傳擴充檔案。
 4.  上傳原則編輯 RP 檔案。
 5.  使用 [立即執行] 來測試原則。 檢閱 IEF 傳回給應用程式的權杖。

@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 833f240572b10e9d07da0ded27f5848822a70f46
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435543"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744324"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>HDInsight 中的 Apache Phoenix
 
-[Apache Phoenix](http://phoenix.apache.org/) (英文) 是一個建置在 [Apache HBase](hbase/apache-hbase-overview.md) 上的開放原始碼、大規模平行關聯式資料庫層。 Phoenix 可讓您透過 HBase 使用類似 SQL 的查詢。 Phoenix 使用下方的 JDBC 驅動程式，讓使用者建立、刪除及更改 SQL 資料表、索引、檢視表和序列，以及個別或大量更新插入資料列。 Phoenix 使用 noSQL 原生編譯而不是使用 MapReduce 來編譯查詢，以便在 HBase 上建立低延遲的應用程式。 Phoenix 新增了協同處理器，可支援在伺服器的位址空間中執行用戶端提供的程式碼，執行與資料共置的程式碼。 這個方法可將用戶端/伺服器資料轉送降到最低。
+[Apache Phoenix](https://phoenix.apache.org/) (英文) 是一個建置在 [Apache HBase](hbase/apache-hbase-overview.md) 上的開放原始碼、大規模平行關聯式資料庫層。 Phoenix 可讓您透過 HBase 使用類似 SQL 的查詢。 Phoenix 使用下方的 JDBC 驅動程式，讓使用者建立、刪除及更改 SQL 資料表、索引、檢視表和序列，以及個別或大量更新插入資料列。 Phoenix 使用 noSQL 原生編譯而不是使用 MapReduce 來編譯查詢，以便在 HBase 上建立低延遲的應用程式。 Phoenix 新增了協同處理器，可支援在伺服器的位址空間中執行用戶端提供的程式碼，執行與資料共置的程式碼。 這個方法可將用戶端/伺服器資料轉送降到最低。
 
-Apache Phoenix 會對非開發人員 (他可以使用類似 SQL 的語法而不是程式設計) 開啟巨量資料查詢。 Phoenix 已針對 HBase 高度最佳化，不同於 [Hive](hadoop/hdinsight-use-hive.md) 和 Apache Spark SQL 等其他工具。 開發人員的優勢是可以使用較少的程式碼寫入較高效能的查詢。
+Apache Phoenix 會對非開發人員 (他可以使用類似 SQL 的語法而不是程式設計) 開啟巨量資料查詢。 Phoenix 已針對 HBase 高度最佳化，不同於 [Apache Hive](hadoop/hdinsight-use-hive.md) 和 Apache Spark SQL 等其他工具。 開發人員的優勢是可以使用較少的程式碼寫入較高效能的查詢。
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 當您提交 SQL 查詢時，Phoenix 會將查詢編譯至 HBase 原生呼叫，並且以平行方式執行掃描 (或計劃) 以獲得最佳化。 這個抽象層可以讓開發人員免於寫入 MapReduce 作業，轉而將焦點放在 Phoenix 巨量資料儲存體周圍應用程式的商務邏輯和工作流程。
@@ -70,17 +70,17 @@ WHERE metric_type = 'm';
 
 ### <a name="skip-scan"></a>略過掃描
 
-略過掃描會使用一或多個複合式索引的資料行來尋找相異值。 不同於範圍掃描，略過掃描會實作資料列內部掃描，產生[更佳的效能](http://phoenix.apache.org/performance.html#Skip-Scan)。 當掃描時，第一個相符值會略過，同時略過索引，直到找到下一個值。
+略過掃描會使用一或多個複合式索引的資料行來尋找相異值。 不同於範圍掃描，略過掃描會實作資料列內部掃描，產生[更佳的效能](https://phoenix.apache.org/performance.html#Skip-Scan)。 當掃描時，第一個相符值會略過，同時略過索引，直到找到下一個值。
 
 略過掃描會使用 HBase 篩選的 `SEEK_NEXT_USING_HINT` 列舉。 略過掃描會使用 `SEEK_NEXT_USING_HINT`，追蹤每個資料行中搜尋的索引鍵集合或索引鍵範圍。 然後略過掃描會取用在篩選評估期間傳遞給它的索引鍵，並且判斷它是否為其中一個組合。 如果不是，略過掃描會評估下一個最高索引鍵，並跳至該處。
 
 ### <a name="transactions"></a>交易
 
-HBase 提供資料列層級交易，而 Phoenix 會與 [Tephra](http://tephra.io/) 整合，以使用完整 [ACID](https://en.wikipedia.org/wiki/ACID) 語意新增跨資料列和跨資料表交易支援。
+HBase 提供資料列層級交易，而 Phoenix 會與 [Tephra](https://tephra.io/) 整合，以使用完整 [ACID](https://en.wikipedia.org/wiki/ACID) 語意新增跨資料列和跨資料表交易支援。
 
 使用傳統 SQL 交易時，透過 Phoenix 交易管理員提供的交易，可讓您確保不可部分完成的資料單位已成功 upsert，而且，如果在任何已啟用交易的資料表上 upsert 作業失敗，您可以復原交易。
 
-若要啟用 Phoenix 交易，請參閱 [Apache Phoenix 交易文件](http://phoenix.apache.org/transactions.html)。
+若要啟用 Phoenix 交易，請參閱 [Apache Phoenix 交易文件](https://phoenix.apache.org/transactions.html)。
 
 若要建立已啟用交易的新資料表，在 `CREATE` 陳述式中將 `TRANSACTIONAL` 屬性設為 `true`：
 
@@ -94,7 +94,7 @@ CREATE TABLE my_table (k BIGINT PRIMARY KEY, v VARCHAR) TRANSACTIONAL=true;
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 您無法將交易式資料表切換回非交易式。
 
 ### <a name="salted-tables"></a>以 Salt 處理的資料表

@@ -4,17 +4,17 @@ description: 了解哪些作業系統可以執行 Azure IoT Edge 精靈和執行
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c75f50e40f83a4dc6765ae422fbb2458f40d770
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6443260de0a8bd8531edb303fa581d281034fef3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100171"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555603"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 支援的系統
 
@@ -41,12 +41,14 @@ Azure IoT Edge 可以在能夠執行容器的大部分作業系統上執行，�
 | Ubuntu Server 16.04 | 是 | 否 |
 | Ubuntu Server 18.04 | 是 | 否 |
 
-公開預覽
+公開預覽版
 | 作業系統 | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Windows 10 IoT 核心版 (2018 年 4 月份更新) | 是 | 否 |
-| Windows 10 IoT 企業版 (2018 年 4 月份更新) | 是 | 否 |
-| Windows 10 Server 1803 | 是 | 否 |
+| Windows 10 IoT Core 組建 17763 | 是 | 否 |
+| 適用於 Windows 容器的 Windows 10 組建 17763<br><br>適用於 Linux 容器的 Windows 10 組建 14393 或更新版本\* | 是 | 否 |
+| 適用於 Windows 容器的 Windows Server 2019<br><br>適用於 Linux 容器的 Windows Server 2016 或更新版本\* | 是 | 否 |
+
+\* Microsoft 會在 Windows 裝置上提供適用於 Linux 容器的安裝套件，僅供開發及測試之用。 這不是用於實際執行環境的支援設定。 
 
 ### <a name="tier-2"></a>第 2 層
 第 2 層系統可以認定為與 Azure IoT Edge 相容，並且可以相對輕鬆地使用。 這表示：

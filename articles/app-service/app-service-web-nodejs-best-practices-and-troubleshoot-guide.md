@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 5a8760bc67125f857998f23ca33733a62a0d8fb5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: db412d3fd0af84d528ad0c83d86cc5d055359914
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315718"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632682"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows 上節點應用程式的最佳作法和疑難排解指南
 
-在本文中，您可以了解在 Azure Web Apps 上執行之[節點應用程式](app-service-web-get-started-nodejs.md)的最佳作法和疑難排解步驟 (透過 [iisnode](https://github.com/azure/iisnode))。
+在本文中，您可以了解在 Azure App Service 上執行之[節點應用程式](app-service-web-get-started-nodejs.md)的最佳做法和疑難排解步驟 (透過 [iisnode](https://github.com/azure/iisnode))。
 
 > [!WARNING]
 > 請小心在您的生產網站上使用疑難排解步驟。 建議在非生產安裝 (例如您的預備位置) 上對應用程式進行疑難排解，而當問題修正後，請切換您的預備位置與生產位置。
@@ -44,18 +44,18 @@ ms.locfileid: "53315718"
 
 ### <a name="maxconcurrentrequestsperprocess"></a>maxConcurrentRequestsPerProcess
 
-此設定會控制 iisnode 傳送給每個 node.exe 的並行要求數目上限。 在 Azure Web Apps 上，預設值為 [無限]。 若不是裝載在 Azure Web Apps 上，則預設值為 1024。 您可以視您應用程式收到的要求數目以及您應用程式處理每個要求的速度而定，來設定此值。
+此設定會控制 iisnode 傳送給每個 node.exe 的並行要求數目上限。 Azure App Service 上的預設值為 [無限]。 您可以視您應用程式收到的要求數目以及您應用程式處理每個要求的速度而定，來設定此值。
 
 ### <a name="maxnamedpipeconnectionretry"></a>maxNamedPipeConnectionRetry
 
-為了將要求傳送至 node.exe，此設定會控制 iisnode 在具名管道上重試連線的次數上限。 此設定結合 namedPipeConnectionRetryDelay 一起使用，可決定 iisnode 內每個要求的總逾時。 Azure Web Apps 上的預設值為 200。 總逾時 (秒) = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
+為了將要求傳送至 node.exe，此設定會控制 iisnode 在具名管道上重試連線的次數上限。 此設定結合 namedPipeConnectionRetryDelay 一起使用，可決定 iisnode 內每個要求的總逾時。 Azure App Service 上的預設值為 200。 總逾時 (秒) = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
 ### <a name="namedpipeconnectionretrydelay"></a>namedPipeConnectionRetryDelay
 
 此設定控制 iisnode 在每次重試透過具名管道將要求傳送到 node.exe 之間所要等待的時間量 (毫秒)。 預設值為 250 毫秒。
 總逾時 (秒) = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
-在 Azure Web Apps 上，iisnode 的總逾時預設為 200 \* 250 毫秒 = 50 秒。
+在 Azure App Service 上，iisnode 的總逾時預設為 200 \* 250 毫秒 = 50 秒。
 
 ### <a name="logdirectory"></a>logDirectory
 
@@ -128,7 +128,7 @@ IIS 的預設行為是在排清之前或直到回應結束時 (取決於何者�
 
 許多應用程式想要在其定期作業中進行輸出連線。 例如，當要求傳入時，節點應用程式會想連絡別處的 REST API，並取得一些資訊來處理要求。 您想要在進行 http 或 https 呼叫時使用保持連線代理程式。 您可以在進行這些輸出呼叫時，使用 agentkeepalive 模組作為您的保持連線代理程式。
 
-agentkeepalive 模組可確保通訊端會在您的 Azure webapp VM 上重複使用。 在每一個輸出要求上建立新通訊端會增加應用程式的負擔。 讓應用程式重複使用輸出要求的通訊端，可確保您的應用程式不會超過每個 VM 配置的 maxSockets。 對於 Azure Web Apps 的建議是將 agentKeepAlive maxSockets 值設為每個 VM 總計有 160 個通訊端 (4 個 node.exe 執行個體 \* 40 個 maxSockets/執行個體)。
+agentkeepalive 模組可確保通訊端會在您的 Azure webapp VM 上重複使用。 在每一個輸出要求上建立新通訊端會增加應用程式的負擔。 讓應用程式重複使用輸出要求的通訊端，可確保您的應用程式不會超過每個 VM 配置的 maxSockets。 對於 Azure App Service 的建議是將 agentKeepAlive maxSockets 值設為每個 VM 總計有 160 個通訊端 (4 個 node.exe 執行個體 \* 40 個 maxSockets/執行個體)。
 
 範例 [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) 設定：
 
@@ -147,10 +147,10 @@ var keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>我的節點應用程式目前耗用太多 CPU
 
-您可能會在您的入口網站上收到 Azure Web Apps 建議的高 CPU 耗用量。 您也可以設定監視器以監看某些[計量](web-sites-monitor.md)。 在 [Azure 入口網站儀表板](../application-insights/app-insights-web-monitor-performance.md)上檢查 CPU 使用量時，請檢查 CPU 的 MAX 值，您才不會錯過尖峰值。
+您可能會在入口網站上收到 Azure App Service 建議的高 CPU 耗用量。 您也可以設定監視器以監看某些[計量](web-sites-monitor.md)。 在 [Azure 入口網站儀表板](../application-insights/app-insights-web-monitor-performance.md)上檢查 CPU 使用量時，請檢查 CPU 的 MAX 值，您才不會錯過尖峰值。
 在您認為應用程式耗用太多 CPU，但您無法解釋原因的情況下，您可以剖析節點應用程式以找出原因。
 
-#### <a name="profiling-your-node-application-on-azure-web-apps-with-v8-profiler"></a>在 Azure Web Apps 上使用 V8 分析工具剖析節點應用程式
+#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>在 Azure App Service 上使用 V8 分析工具剖析節點應用程式
 
 例如，假設您擁有想要剖析的 hello world 應用程式，如下所示︰
 
@@ -220,7 +220,7 @@ http.createServer(function (req, res) {
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>我的節點應用程式目前耗用太多記憶體
 
-如果您的應用程式耗用太多記憶體，則會在入口網站上看到來自 Azure Web Apps 的通知，說明關於高記憶體的耗用。 您可以設定監視器以監看某些[計量](web-sites-monitor.md)。 在 [Azure 入口網站儀表板](../application-insights/app-insights-web-monitor-performance.md)上檢查記憶體使用量時，務必檢查記憶體的 MAX 值，才不會錯過尖峰值。
+如果您的應用程式耗用太多記憶體，則會在入口網站上看到來自 Azure App Service 的通知，說明關於高記憶體耗用量。 您可以設定監視器以監看某些[計量](web-sites-monitor.md)。 在 [Azure 入口網站儀表板](../application-insights/app-insights-web-monitor-performance.md)上檢查記憶體使用量時，務必檢查記憶體的 MAX 值，才不會錯過尖峰值。
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>node.js 的流失偵測和堆積區分
 
@@ -249,12 +249,12 @@ http.createServer(function (req, res) {
 
 ### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>我的節點應用程式花太多時間啟動 (冷啟動)
 
-造成應用程式啟動時間過長的常見原因是 node\_modules 中有大量檔案。 應用程式會嘗試在啟動時載入大部分檔案。 根據預設，因為您的檔案會儲存在 Azure Web Apps 的網路共用上，所以載入太多檔案可能需要一些時間。
+造成應用程式啟動時間過長的常見原因是 node\_modules 中有大量檔案。 應用程式會嘗試在啟動時載入大部分檔案。 根據預設，因為您的檔案會儲存在 Azure App Service 的網路共用上，所以載入多個檔案可能需要一些時間。
 讓處理程序速度變快的解決方式如下︰
 
 1. 藉由使用 npm3 來安裝您的模組，確定您有扁平相依性結構，而且沒有重複的相依性。
 2. 試著延遲載入您的 node\_modules，而不要在應用程式啟動時載入所有的模組。 若要延遲載入模組，應在函數中確實需要模組時，於第一次執行模組程式碼之前執行 require('module') 呼叫。
-3. Azure Web Apps 會提供稱為本機快取的功能。 這項功能會將您的內容從網路共用複製到 VM 上的本機磁碟。 因為這些檔案都在本機，node\_modules 的載入時間快很多。
+3. Azure App Service 會提供稱為本機快取的功能。 這項功能會將您的內容從網路共用複製到 VM 上的本機磁碟。 因為這些檔案都在本機，node\_modules 的載入時間快很多。
 
 ## <a name="iisnode-http-status-and-substatus"></a>IISNODE http 狀態和子狀態
 
@@ -274,7 +274,7 @@ http.createServer(function (req, res) {
 | 503 |1002 |檢查 win32 錯誤碼的實際原因 – 無法將要求分派至 node.exe。 |
 | 503 |1003 |具名管道太忙 – 檢查 node.exe 是否正耗用大量的 CPU |
 
-NODE.exe 具有稱為 `NODE_PENDING_PIPE_INSTANCES` 的設定。 根據預設，如果不是部署在 Azure Web 應用程式，則這個值會是 4。 這表示該 node.exe 在具名管道上一次只能接受四個要求。 在 Azure Web Apps 上，此值設為 5000。 這個值應足以滿足大部分在 Azure Web Apps 上執行的節點應用程式。 您不應該在 Azure Web Apps 上看見 503.1003，因為 `NODE_PENDING_PIPE_INSTANCES` 的值較高
+NODE.exe 具有稱為 `NODE_PENDING_PIPE_INSTANCES` 的設定。 在 Azure App Service 上，此值會設為 5000。 這表示該 node.exe 在具名管道上一次能接受 5000 個要求。 這個值應足以滿足大部分在 Azure App Service 上執行的節點應用程式。 您應該不會在 Azure App Service 上看見 503.1003，因為 `NODE_PENDING_PIPE_INSTANCES` 的值較高
 
 ## <a name="more-resources"></a>其他資源
 

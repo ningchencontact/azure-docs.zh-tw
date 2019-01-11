@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 146ea6431516f7b78d23cd4b36aff43110639e83
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e91ca12c06a1582b9bb715031a9c379b1a47b04b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633090"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713454"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>針對 Service Fabric 的常見案例進行診斷
 
-本文說明使用者在 Service Fabric 的監視和診斷領域所經常遇到的案例。 所提供的案例涵蓋了服務網狀架構的所有 (共 3 個) 層級：應用程式、叢集和基礎結構。 每個解決方案會使用 Application Insights 和 Log Analytics (Azure 的監視工具) 來完成每個案例。 每個解決方案中的步驟都會為使用者介紹該如何在 Service Fabric 的內容中使用 Application Insights 和 Log Analytics。
+本文說明使用者在 Service Fabric 的監視和診斷領域所經常遇到的案例。 呈現的案例涵蓋所有 3 個 Service Fabric 層級：應用程式、叢集和基礎結構。 每個解決方案會使用 Application Insights 和 Log Analytics (Azure 的監視工具) 來完成每個案例。 每個解決方案中的步驟都會為使用者介紹該如何在 Service Fabric 的內容中使用 Application Insights 和 Log Analytics。
 
 ## <a name="prerequisites-and-recommendations"></a>先決條件和建議
 
@@ -56,7 +56,7 @@ ms.locfileid: "52633090"
 
     ![AI 應用程式對應刀鋒視窗](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI 應用程式對應](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
-    如需應用程式對應的詳細資訊，請瀏覽[應用程式對應文件](../application-insights/app-insights-app-map.md)
+    如需應用程式對應的詳細資訊，請瀏覽[應用程式對應文件](../azure-monitor/app/app-map.md)
 
 ## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>如何在節點故障時建立警示
 
@@ -139,7 +139,7 @@ ms.locfileid: "52633090"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 AI 中設定警示](../application-insights/app-insights-alerts.md)以收到效能或使用方式的變更通知
+* [在 AI 中設定警示](../azure-monitor/app/alerts.md)以收到效能或使用方式的變更通知
 * [Application Insights 的智慧偵測](../application-insights/app-insights-proactive-diagnostics.md)會對傳送至 AI 的遙測資料執行主動式分析，對可能的效能問題提出警告。
 * 深入了解 Log Analytics [警示](../log-analytics/log-analytics-alerts.md)，以協助偵測和診斷。
 * 針對內部部署叢集，Log Analytics 提供可用於將資料傳送至 Log Analytics 的閘道 (HTTP 正向 Proxy)。 如需詳細資訊，請參閱[在無網際網路存取下使用 Log Analytics 閘道將電腦連線到 Log Analytics](../azure-monitor/platform/gateway.md)

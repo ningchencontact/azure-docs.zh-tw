@@ -9,48 +9,47 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: adfb30b73bbc9929bbfe3b07bd830d3f278bcc27
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d42b6b857f04c191ebdfb1687c8ee2adcad95d26
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723683"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054278"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Web 活動
-使用 Web 活動可以從 Data Factory 管線呼叫自訂的 REST 端點。 您可以傳遞資料集和連結服務，以供活動取用和存取。 
+使用 Web 活動可以從 Data Factory 管線呼叫自訂的 REST 端點。 您可以傳遞資料集和連結服務，以供活動取用和存取。
 
 ## <a name="syntax"></a>語法
 
 ```json
-{  
+{
    "name":"MyWebActivity",
    "type":"WebActivity",
-   "typeProperties":{  
+   "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
-      "headers":{  
+      "headers":{
          "Content-Type":"application/json"
       },
-      "authentication":{  
-         "type":"ClientCertificate",  
+      "authentication":{
+         "type":"ClientCertificate",
          "pfx":"****",
          "password":"****"
       },
-      "datasets":[  
-         {  
+      "datasets":[
+         {
             "referenceName":"<ConsumedDatasetName>",
             "type":"DatasetReference",
-            "parameters":{  
+            "parameters":{
                ...
             }
          }
       ],
-      "linkedServices":[  
-         {  
+      "linkedServices":[
+         {
             "referenceName":"<ConsumedLinkedServiceName>",
             "type":"LinkedServiceReference"
          }
@@ -93,10 +92,10 @@ linkedServices | 傳遞至端點的連結服務清單。 | 連結服務參考的
 如果不需要驗證，請勿包含 authentication 屬性。
 
 ### <a name="basic"></a>基本
-指定要搭配基本驗證使用的使用者名稱和密碼。 
+指定要搭配基本驗證使用的使用者名稱和密碼。
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"Basic",
    "username":"****",
    "password":"****"
@@ -104,12 +103,12 @@ linkedServices | 傳遞至端點的連結服務清單。 | 連結服務參考的
 ```
 
 ### <a name="client-certificate"></a>用戶端憑證
-指定以 base64 編碼的 PFX 檔案和密碼內容。 
+指定以 base64 編碼的 PFX 檔案和密碼內容。
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"ClientCertificate",
-   "pfx":"****",   
+   "pfx":"****",
    "password":"****"
 }
 ```
@@ -126,7 +125,7 @@ linkedServices | 傳遞至端點的連結服務清單。 | 連結服務參考的
 ```
 
 ## <a name="request-payload-schema"></a>要求承載結構描述
-當您使用 POST/PUT 方法時，主體屬性代表傳送至端點的承載。 您可以將連結服務和資料集傳遞為承載的一部分。 以下是承載的結構描述： 
+當您使用 POST/PUT 方法時，主體屬性代表傳送至端點的承載。 您可以將連結服務和資料集傳遞為承載的一部分。 以下是承載的結構描述：
 
 ```json
 {
@@ -145,11 +144,11 @@ linkedServices | 傳遞至端點的連結服務清單。 | 連結服務參考的
             }
         }]
     }
-} 
+}
 ```
 
 ## <a name="example"></a>範例
-在此範例中，管線中的 Web 活動會呼叫 REST 端點。 它會將 Azure SQL 連結服務和 Azure SQL 資料集傳遞至端點。 REST 端點使用 Azure SQL 連接字串連接到 Azure SQL Server，並傳回 SQL Server 執行個體的名稱。 
+在此範例中，管線中的 Web 活動會呼叫 REST 端點。 它會將 Azure SQL 連結服務和 Azure SQL 資料集傳遞至端點。 REST 端點使用 Azure SQL 連接字串連接到 Azure SQL Server，並傳回 SQL Server 執行個體的名稱。
 
 ### <a name="pipeline-definition"></a>管線定義
 
@@ -243,7 +242,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>後續步驟
-請參閱 Data Factory 支援的其他控制流程活動： 
+請參閱 Data Factory 支援的其他控制流程活動：
 
 - [執行管線活動](control-flow-execute-pipeline-activity.md)
 - [For Each 活動](control-flow-for-each-activity.md)

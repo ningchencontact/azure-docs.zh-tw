@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/17/2018
 ms.author: juliako
-ms.openlocfilehash: 5cc670a94958b123ac71b49cbf25661d567e4629
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 32b9664d12d6fe3a44329665c730dbc8709430f2
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083406"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650836"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>使用媒體服務 REST API 建立篩選器
 
@@ -31,12 +31,13 @@ ms.locfileid: "53083406"
 若要完成此主題中所述的步驟，您必須：
 
 - 檢閱[篩選器與動態資訊清單](filters-dynamic-manifest-overview.md)。
-- [建立媒體服務帳戶](create-account-cli-how-to.md)。 請務必記住資源群組名稱和「媒體服務」帳戶名稱。 
 - [設定 Postman 以進行 Azure 媒體服務 REST API 呼叫](media-rest-apis-with-postman.md)。
+
+    請務必遵循本[取得 Azure AD 權杖](media-rest-apis-with-postman.md#get-azure-ad-token)主題的最後一個步驟。 
 
 ## <a name="define-a-filter"></a>定義篩選器  
 
-下面提 **要求本文**範例，它定義新增到資訊清單的曲目選取條件。 此篩選器包括語言為英文且具有 EC-3 的任何音訊曲目，以及位元速率介於 0-1000000 範圍之間的任何視訊曲目。
+下面提 **要求本文**範例，它定義新增到資訊清單的曲目選取條件。 此篩選器包括語言為具有 EC-3 的任何音訊曲目，以及位元速率介於 0-1000000 範圍之間的任何視訊曲目。
 
 ```json
 {
@@ -50,14 +51,9 @@ ms.locfileid: "53083406"
                         "operation": "Equal"
                     },
                     {
-                        "property": "Language",
-                        "value": "en",
-                        "operation": "Equal"
-                    },
-                    {
                         "property": "FourCC",
                         "value": "EC-3",
-                        "operation": "NotEqual"
+                        "operation": "Equal"
                     }
                 ]
             },
@@ -86,7 +82,9 @@ ms.locfileid: "53083406"
 
 **PUT** HTTP 要求方法類似：
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/accountFilters/{filterName}?api-version=2018-07-01
+```
 
 選取 [本文] 索引標籤，並貼上您[稍早定義的 json 程式碼](#define-a-filter)。
 
@@ -98,11 +96,13 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-asset-filters"></a>建立資產篩選器  
 
-在您下載的 "Media Services v3" Postman 集合中，選取 [資產]->**[建立或更新資產篩選器]。
+在您下載的 "Media Services v3" Postman 集合中，選取 [資產]->[建立或更新資產篩選器]。
 
 **PUT** HTTP 要求方法類似：
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}/assetFilters/{filterName}?api-version=2018-07-01
+```
 
 選取 [本文] 索引標籤，並貼上您[稍早定義的 json 程式碼](#define-a-filter)。
 

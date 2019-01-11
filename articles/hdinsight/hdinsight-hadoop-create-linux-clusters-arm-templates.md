@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1a053f92433b6091f0d77439399e8419a58df185
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 028d00f579e266c92b4a6d00d5ebb5b0ef7b1b60
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495148"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787533"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 範本在 HDInsight 中建立 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -31,8 +31,8 @@ ms.locfileid: "52495148"
 
 ### <a name="resource-manager-templates"></a>Resource Manager 範本
 Resource Manager 範本可讓您輕鬆地在單一、協調的作業中為您的應用程式建立下列資源：
-* HDInsight 叢集和其相依資源 (例如預設的儲存體帳戶)
-* 其他資源 (例如，使用 [Apache Sqoop](http://sqoop.apache.org/) 的 Azure SQL Database)
+* HDInsight 叢集及其相依資源 (例如，預設儲存體帳戶)。
+* 其他資源 (例如，使用 [Apache Sqoop](https://sqoop.apache.org/) \(英文\) 的 Azure SQL Database)。
 
 在範本中，您會定義應用程式所需的資源。 您也可以指定部署參數，以便為不同的環境輸入值。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。
 
@@ -74,14 +74,14 @@ Resource Manager 可讓您使用不同工具，從您的訂用帳戶中現有的
 
 ## <a name="troubleshoot"></a>疑難排解
 
-如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="next-steps"></a>後續步驟
 在本文中，您學到幾種建立 HDInsight 叢集的方法。 若要深入了解，請參閱下列文章：
 
 * 如需其他 HDInsight 相關範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=hdinsight)。
 * 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱[使用 .NET 程式庫與範本部署資源](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
-* 如需部署應用程式的深入範例，請參閱 [透過可預測方式在 Azure 中佈建和部署微服務](../app-service/app-service-deploy-complex-application-predictably.md)。
+* 如需部署應用程式的深入範例，請參閱 [透過可預測方式在 Azure 中佈建和部署微服務](../app-service/deploy-complex-application-predictably.md)。
 * 如需將您的方案部署到不同環境的指引，請參閱 [Microsoft Azure 中的開發和測試環境](../solution-dev-test-environments.md)。
 * 若要了解 Azure Resource Manager 範本的區段，請參閱 [編寫範本](../azure-resource-manager/resource-group-authoring-templates.md)。
 * 如需可在 Azure Resource Manager 範本中使用的函式清單，請參閱 [範本函式](../azure-resource-manager/resource-group-template-functions.md)。

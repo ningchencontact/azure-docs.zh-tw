@@ -9,32 +9,30 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 0d78ae294cea383fbe59a1f7968d8bf18b1942d1
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ac0c727e41ad9b361ea9f558a97f16446c12ef0e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422951"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793371"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>使用 Azure 入口網站來還原虛擬機器
 於定義的間隔進行資料快照，來保護您的資料。 這些快照稱為復原點，而且儲存在復原服務保存庫中。 如果需要修復或重新建立虛擬機器 (VM)，您可以從任何已儲存的復原點還原 VM。 當您還原復原點時，您可以：
 
-* 建立新的 VM，作為已備份 VM 的時間點表示。
-* 還原磁碟，並使用程序隨附的範本來自訂還原的 VM，或進行個別檔案復原。
+* 建立新的 VM：從備份 VM 的時間點復原點。
+* 還原磁碟：使用程序隨附的範本來自訂還原的 VM，或進行個別檔案復原。
 
-此文章說明如何將 VM 還原至新的 VM，或還原所有已備份的磁碟。 關於個別檔案復原，請參閱[從 Azure VM 備份復原檔案](backup-azure-restore-files-from-vm.md)。
+本文說明如何將 VM 還原至新的 VM，或還原所有已備份的磁碟。 關於個別檔案復原，請參閱[從 Azure VM 備份復原檔案](backup-azure-restore-files-from-vm.md)。
 
 ![三種可從 VM 備份還原的方式](./media/backup-azure-arm-restore-vms/azure-vm-backup-restore.png)
 
-> [!NOTE]
-> Azure 有兩種用來建立和使用資源的部署模型：[Azure Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 此文章提供的資訊和程序可用來還原使用 Resource Manager 模型部署的 VM。
->
->
 
 從 VM 備份還原一個 VM 或所有磁碟需要兩個步驟︰
 
 * 選取要還原的還原點。
-* 選取還原類型、建立新的 VM 或還原磁碟，並指定必要的參數。
+* 選取還原類型
+    - 選項 1：建立新的 VM
+    - 選項 2：還原磁碟。
 
 ## <a name="select-a-restore-point-for-restore"></a>選取要還原的還原點
 1. 登入 [Azure 入口網站](http://portal.azure.com/)。
@@ -62,104 +60,82 @@ ms.locfileid: "52422951"
 7. 從清單中選取 VM，以開啟儀表板。 VM 儀表板會開啟至包含 [復原點] 圖格的 [監視] 區域。 所有 VM 層級的作業 (例如 [立即備份]、[檔案復原]、[停止備份]) 都可以從這個刀鋒視窗中執行。
 從此刀鋒視窗中執行還原有很多種方式。 請注意，此刀鋒視窗只會列出過去 30 天的復原點。
 
-    a) 以滑鼠右鍵按一下此刀鋒視窗中的復原點 (低於 30 天)，並起始 [還原 VM]。
-
-    b) 若要還原大於 30 天的復原點，可以使用刀鋒視窗中提供的 [按一下這裡]。
-
-    c) 功能表標頭中的 [還原 VM] 會提供選項，可依偏好在自訂日期中列出並篩選 VM。
-
-    使用 [篩選] 變更所顯示還原點的時間範圍。 根據預設，系統會顯示所有一致性的還原點。 修改 [所有還原點] 篩選器，可選取特定的還原點一致性。 如需每種還原點類型的詳細資訊，請參閱[資料一致性](backup-azure-vms-introduction.md#data-consistency)。
-
-    還原點一致性選項：
-    - 當機時保持一致還原點
-    - 應用程式保持一致還原點
-    - 系統檔案保持一致還原點
-    - 所有還原點
+    - 若要使用來自過去 30 天的還原點進行還原，以滑鼠右鍵按一下 VM > [還原 VM]。
+    - 若要使用過去 30 天以前的還原點進行還原，可按一下 [還原點] 底下的連結。
+    - 若要使用自訂的日期列出並篩選 VM，可按一下功能表中的 [還原 VM]。 使用篩選條件來變更所顯示還原點的時間範圍。 您也可以篩選不同類型的資料一致性。
+8. 檢閱還原點設定：
+    - 資料一致性會在復原點中顯示[一致性類型](backup-azure-vms-introduction.md#consistency-types)。
+    - **復原類型**會顯示儲存復原點的位置 (位於保存庫、儲存體帳戶或兩者)。 [深入了解](https://azure.microsoft.com/blog/large-disk-support/)立即復原點。
 
   ![還原點](./media/backup-azure-arm-restore-vms/vm-blade1.png)
+9. 選取還原點。
 
-    >  [!NOTE]
-    > 復原類型可表示還原點是位在客戶儲存體帳戶、保存庫或兩者之中。 深入了解[立即復原點](https://azure.microsoft.com/blog/large-disk-support/)。
-
-8. 在 [還原] 刀鋒視窗中，選取 [還原點]。
-
-    ![選取還原點](./media/backup-azure-arm-restore-vms/select-recovery-point1.png)
-
-    按一下 [確定]後，[還原] 刀鋒視窗會顯示還原點已設定完成。
-9. 如果您尚未到達該位置，請移至 [還原] 刀鋒視窗。 確定[已選取還原點](#select-a-restore-point-for-restore)，然後選取**還原組態**。 [還原組態] 刀鋒視窗隨即開啟。
+10. 選取 [還原設定]。 [還原組態] 刀鋒視窗隨即開啟。
 
 ## <a name="choose-a-vm-restore-configuration"></a>選擇 VM 還原組態
 在選取還原點之後，請選擇 VM 還原組態。 若要設定還原的 VM，您可以使用 Azure 入口網站或 PowerShell。
 
-1. 如果您尚未到達該位置，請移至 [還原] 刀鋒視窗。 確定[已選取還原點](#select-a-restore-point-for-restore)，然後選取**還原組態**。 [還原組態] 刀鋒視窗隨即開啟。
-2. 此刀鋒視窗中目前有兩個選項，一個是 [新建]，這是預設值，而另一個是 [取代現有]，也就是就地還原，以取代僅保留現有設定和擴充功能的磁碟。
+### <a name="restore-options"></a>還原選項
+
+**選項** | **詳細資料**
+--- | ---
+**新建- 建立 VM** | 相當於快速建立 VM。 從還原點啟動基本 VM 並加以執行。<br/><br/> VM 設定可在還原過程中加以修改。
+**新建 - 還原磁碟** | 建立您可在還原過程中自訂的 VM。<br/><br/> 此選項會將 VHD 複製到您指定的儲存體帳戶。<br/><br/> - 儲存體帳戶應該與保存庫位於相同位置。<br/><br/> 如果您沒有適當的儲存體帳戶，則需建立一個。<br/><br/> 儲存體帳戶複寫類型會顯示在括號中。 不支援區域備援儲存體 (ZRS)。<br/><br/> 從儲存體帳戶中，您可以將還原的磁碟連結到現有的 VM，或使用 PowerShell 從還原的磁碟 建立新的 VM。
+**取代現有的** | 使用此選項，您不需要建立 VM。<br/><br/> 目前的 VM 必須存在。 如果已刪除，則無法使用這個選項。<br/><br/> Azure 備份會取得現有 VM 的快照集，並將它儲存於指定的暫存位置。 接著使用選取的還原點來取代連線到 VM 的現有磁碟。 先前建立的快照集會複製到保存庫，並根據您的備份保留原則儲存為復原點。<br/><br/> 針對未加密的受控 VM 支援取代現有的項目。 不支援非受控磁碟、[一般化的 VM](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) 或[使用自訂映像建立的](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/) \(英文\) VM。<br/><br/> 如果還原點中的磁碟數目多於或少於目前的 VM，則還原點中的磁碟數目只會反映該 VM。
 
 > [!NOTE]
-> 我們正努力在未來的幾個月將整個 VM 取代為磁碟、網路設定、組態和擴充功能。
->
->
+> 如果您想要使用進階網路設定還原 VM (例如，如果它們由內部或外部負載平衡器所管理，或有多個 NIC 或多個保留的 IP 位址)，請使用 PowerShell 進行還原。 [深入了解](#restore-vms-with-special-network-configurations)。
+> 如果 Windows VM 使用[中樞授權](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，請使用 [新建 - 還原磁碟] 選項，然後使用 PowerShell 或還原範本來建立 VM 並將 [授權類型] 設為 [Windows_Server]。 此設定也可以在建立 VM 之後套用。
 
- 在將資料還原至新 VM 或新磁碟的 [新建] 選項中，您有兩個選擇：
 
- ![還原組態精靈](./media/backup-azure-arm-restore-vms/restore-configuration-create-new.png)
+指定還原設定，如下所示：
 
- - **建立虛擬機器**
- - **還原磁碟**
+1. 在 [還原] 中，選取[還原點](#select-a-restore-point-for-restore) > [還原設定]。
+2. 在 [還原設定] 中，根據上表所摘要的設定，選取您想要還原的 VM。
 
-![還原組態精靈](./media/backup-azure-arm-restore-vms/restore-configuration-create-new1.png)
+    ![還原組態精靈](./media/backup-azure-arm-restore-vms/restore-configuration-create-new1.png)
 
-入口網站提供還原 VM 專用的 [快速建立] 選項。 若要自訂 VM 組態或在建立新的 VM 選項時所建立之資源的名稱，請使用 PowerShell 或入口網站來還原備份的磁碟。 使用 PowerShell 命令，將它們連結至您所選擇的 VM 組態。 或者，您也可以使用還原的磁碟所隨附的範本，來自訂還原的 VM 。 如需有關如何還原具有多個 NIC 或在負載平衡器管理下之 VM 的相關資訊，請參閱[使用特殊網路組態還原 VM](#restore-vms-with-special-network-configurations)。 如果您的 Windows VM 使用[中樞授權](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，請還原磁碟並使用此文章所指定的 PowerShell/範本建立 VM。 請確定您在建立 VM 時將 [授權類型] 指定為 "Windows_Server"，以在還原的 VM 上利用中樞優點。 請注意，這也可以在稍後建立 VM 之後完成。
 
-## <a name="create-a-new-vm-from-a-restore-point"></a>從還原點建立新的 VM
-1. 在前一節中所述的 [還原組態] 刀鋒視窗上，輸入或選取下列各欄位的值︰
+## <a name="create-new-create-a-vm"></a>新建 - 建立 VM
 
-    a. **還原類型**。 建立虛擬機器。
-
-    b. **虛擬機器名稱**。 輸入不存在於訂用帳戶中的 VM 名稱。
-
-    c. **資源群組**。 使用現有的資源群組或建立新群組。 如果您要還原傳統 VM，請使用此欄位來指定新雲端服務的名稱。 如果您是建立新的資源群組/雲端服務，此名稱必須是全域唯一的名稱。 一般來說，雲端服務名稱會與公眾對應 URL 相關聯：例如，[cloudservice].cloudapp.net。 如果您嘗試使用已經使用的雲端資源群組/雲端服務名稱，Azure 會指派給資源群組/雲端服務與 VM 相同的名稱。 Azure 會顯示未與任何同質群組相關聯的資源群組/雲端服務和 VM。 如需詳細資訊，請參閱[如何從同質群組移轉至區域虛擬網路](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)。
-
-    d. **虛擬網路**。 在建立 VM 時，請選取虛擬網路。 此欄位提供與訂用帳戶相關聯的所有虛擬網路。 顯示的 VM 資源群組會以括號括住。
-
-    e. **子網路**。 如果虛擬網路有子網路，預設會選取第一個子網路。 如果有其他子網路，請選取您需要的子網路。
-
-    f. **儲存位置**。 儲存體帳戶是預備環境位置。 此功能表會列出與復原服務保存庫位於相同位置的儲存體帳戶。 不支援區域備援的儲存體帳戶。 如果沒有與復原服務保存庫相同位置的儲存體帳戶，您必須在開始還原作業之前，建立一個儲存體帳戶。 儲存體帳戶的複寫類型會顯示在括號中。
+1. 在 [還原設定] > [新建] > [還原類型] 中，選取 [建立虛擬機器]。
+2. 在 [虛擬機器名稱] 中，指定訂用帳戶中不存在的 VM。
+3. 在 [資源群組] 中，選取新 VM 的現有資源群組，或使用全域的唯一名稱來建立新的資源群組。 如果您指派已經存在的名稱，Azure 就會為群組指派與 VM 相同的名稱。
+4. 在 [虛擬網路] 中，選取將放置 VM 的 VNet。 與訂用帳戶相關聯的所有 VNet 均會顯示。 選取子網路。 預設會選取第一個子網路。
+5. 在 [儲存體位置] 中，指定針對 VM 所使用的儲存體類型。
 
     ![還原組態精靈](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
-    > [!NOTE]
-    > * 虛擬網路對於傳統 VM 是選擇性的，但對於部署 Resource Manager 的 VM 則為必要。
+6. 在 [還原設定] 中，選取 [確定]。 在 [還原] 中，按一下 [還原] 以觸發還原作業。
 
-    > * 預備環境位置中儲存體帳戶所提供的儲存體類型 (進階或標準) 會決定還原磁碟儲存體類型。 我們目前不支援在還原時使用混合的磁碟模式。
-    >
-    >
 
-2. 在 [還原組態] 刀鋒視窗上，選取 [確定] 完成還原組態。 在 [還原] 刀鋒視窗上，選取 [還原] 以觸發還原作業。
 
-## <a name="restore-backed-up-disks"></a>還原備份的磁碟
-若 [還原組態] 刀鋒視窗中的還原類型值為 [還原磁碟]，則可允許使用自訂組態來建立 VM。 在還原磁碟時，選取的儲存體帳戶應與復原服務保存庫位於相同的位置。 如果沒有與復原服務保存庫相同位置的儲存體帳戶，您必須建立一個儲存體帳戶。 不支援 ZRS 儲存體帳戶。 儲存體帳戶的複寫類型會顯示在括號中。
+## <a name="create-new-restore-disks"></a>新建 - 還原磁碟
 
-在還原作業之後，請使用下列項目：
-* [使用範本自訂還原的 VM](#use-templates-to-customize-restore-vm)
-* [使用還原的磁碟連結至現有 VM](../virtual-machines/windows/attach-managed-disk-portal.md)
-* [使用 PowerShell 從還原的磁碟建立新的 VM](./backup-azure-vms-automation.md#restore-an-azure-vm)
+1. 在 [還原設定] > [新建] > [還原類型] 中，選取 [還原磁碟]。
+2. 在 [資源群組] 中，選取已還原磁碟的現有資源群組，或使用全域的唯一名稱來建立新的資源群組。
+3. 在 [儲存體帳戶] 中，指定要將 VHD 複製到其中的帳戶。 請確定該帳戶位於與保存庫相同的區域。
 
-在 [還原組態] 刀鋒視窗上，選取 [確定] 完成還原組態。 在 [還原] 刀鋒視窗上，選取 [還原] 以觸發還原作業。
+    ![已完成復原設定](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
-![已完成復原設定](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
+4. 在 [還原設定] 中，選取 [確定]。 在 [還原] 中，按一下 [還原] 以觸發還原作業。
+5. 還原磁碟之後，您可以執行下列任何動作來完成 VM 還原作業。
 
-透過索引標籤 [取代現有] 完成 [就地還原]。
+    - 使用還原作業期間所產生的範本來自訂設定，並觸發 VM 部署。 您會編輯預設範本設定，並提交範本以進行 VM 部署。
+    - 您可以[將還原的磁碟連結](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)至現有 VM。
+    - 您可以使用 PowerShell，從還原的磁碟[建立新的 VM](backup-azure-vms-automation.md#restore-an-azure-vm)。
 
-## <a name="replace-existing-disks-from-a-restore-point"></a>從還原點取代現有磁碟
-[取代現有] 選項可協助將目前 VM 中的現有磁碟取代為選取的還原點。 僅當目前的 VM 存在時才能執行此作業。 如果因任何原因而刪除 VM，則無法執行此作業；或者，建議您 [新建] VM 或磁碟，以繼續進行還原作業。 在此作業期間，我們會在起始取代磁碟作業之前先備份資料，以防患未然。 這會建立快照集，也會在保存庫中建立復原點，而保留期間與已設定之備份原則中所排定的一樣。 如果還原點中的磁碟多/少於目前的 VM，則還原點中的磁碟數目只會反映在 VM 中。 目前僅支援非受控磁碟和加密 VM 的 [取代現有] 選項。 對於[一般化 VM](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) 以及使用[自訂映像](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/)建立的 VM，也不支援此功能。  
 
- 在 [還原組態] 刀鋒視窗中，唯一需要選取的輸入是 [預備環境位置]。
+## <a name="replace-existing-disks"></a>取代現有的磁碟
+
+使用此選項，將目前 VM 中的現有磁碟取代為選取的還原點。
+
+1. 在 [還原設定] 中，按一下 [取代現有的]。
+2. 在 [還原類型] 中，選取 [取代磁碟] (將取代一或多個現有 VM 磁碟的還原點)。
+3. 在 [暫存位置] 中，指定應儲存目前受控磁碟快照集的位置。
 
    ![還原組態精靈取代現有的](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
- a. **還原類型**。 取代磁碟代表所選取的還原點將會取代現有 VM 中的磁碟。
-
- b. **預備環境位置**。 儲存體帳戶是受控磁碟的預備環境位置。 此功能表會列出與復原服務保存庫位於相同位置的儲存體帳戶。 不支援區域備援的儲存體帳戶。 如果沒有與復原服務保存庫相同位置的儲存體帳戶，您必須在開始還原作業之前，建立一個儲存體帳戶。 儲存體帳戶的複寫類型會顯示在括號中。
 
 ## <a name="track-the-restore-operation"></a>追蹤還原作業
 在觸發還原作業之後，備份服務會建立一個作業以便追蹤還原作業。 備份服務也會建立，並會在入口網站的 [通知] 區域暫時顯示通知。 如果您沒看到通知，請選取 [通知] 符號以檢視您的通知。
@@ -171,6 +147,15 @@ ms.locfileid: "52422951"
 [備份作業] 刀鋒視窗會開啟並顯示作業的清單。
 
 ![保存庫中的 VM 清單](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
+
+[還原詳細資料] 刀鋒視窗中現在已提供 [進度列]。 [還原詳細資料] 刀鋒視窗可藉由按一下任何狀態為**進行中**的還原作業來開啟。 [進度列] 適用於還原的所有變體，例如**新建**、**還原磁碟**及**取代現有的**。 還原進度列所提供的詳細資料為**估計的還原時間**、**還原百分比**及**已傳輸的位元組數目**。
+
+還原進度列詳細資料如下：
+
+- **估計的還原時間**一開始會提供完成還原作業所花費的時間。 作業進行時，所花費的時間會減少，並在還原作業完成時到達 0。
+- **還原百分比**會提供資料完成還原作業的百分比。
+- **已傳輸的位元組數目**會在透過 [建立新的 VM] 進行還原時於子工作中提供。 這會根據要傳輸的位元組數目來提供已傳輸了多少位元組數目的詳細資料。
+
 
 ## <a name="use-templates-to-customize-a-restored-vm"></a>使用範本自訂還原的 VM
 [還原磁碟作業完成](#Track-the-restore-operation)之後，請使用還原作業進行過程中所產生的範本，來建立具有不同於備份組態之組態的新 VM。 您也可以使用它來自訂在從還原點建立新 VM 的程序期間所建立之資源的名稱。

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: fd9094d646b917cf811c28c9770fc2427a404ab4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0df548d6b3639ce2ce3c7c72695bb96cc6d0dc3d
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309033"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581023"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>使用 MirrorMaker，透過 HDInsight 上的 Kafka 來複寫 Apache Kafka 主題
 
@@ -22,7 +22,7 @@ ms.locfileid: "52309033"
 
 在此範例中，會使用鏡像來複寫兩個 HDInsight 叢集之間的主題。 這兩個叢集是位於相同區域中的 Azure 虛擬網路。
 
-> [!WARNING]
+> [!WARNING]  
 > 但不能將鏡像功能視為達成容錯的方法。 主題中的項目位移在來源與目的地叢集之間有所不同，所以用戶端無法交替使用這兩者。
 >
 > 如果您很擔心容錯，您應該為叢集內的主題設定複寫。 如需詳細資訊，請參閱 [開始使用 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md)。
@@ -47,11 +47,11 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
 * **閘道**：網路必須能夠在 TCPIP 層級進行通訊。
 
-* **名稱解析**︰每個網路中的 Kafka 叢集必須能夠使用主機名稱彼此連接。 這可能會要求每個網路中的網域名稱系統 (DNS) 伺服器設定成將要求轉送到其他網路。
+* **名稱解析**：每個網路中的 Kafka 叢集都必須能夠使用主機名稱彼此連線。 這可能會要求每個網路中的網域名稱系統 (DNS) 伺服器設定成將要求轉送到其他網路。
 
     建立 Azure 虛擬網路 (而不是使用網路提供的自動 DNS) 時，您必須指定自訂 DNS 伺服器和伺服器的 IP 位址。 建立虛擬網路之後，您就必須建立使用該 IP 位址的 Azure 虛擬機器，然後在其上安裝和設定 DNS 軟體。
 
-    > [!WARNING]
+    > [!WARNING]  
     > 先建立和設定自訂 DNS 伺服器，然後再將 HDInsight 安裝到虛擬網路中。 HDInsight 不需要進行其他設定，即可使用針對虛擬網路設定的 DNS 伺服器。
 
 如需有關如何連接兩個 Azure 虛擬網路的詳細資訊，請參閱[設定 VNet 對 VNet 連線](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
@@ -66,7 +66,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
    
     Azure Resource Manager 範本位於 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**。
 
-    > [!WARNING]
+    > [!WARNING]  
     > 若要保證 Kafka 在 HDInsight 上的可用性，您的叢集必須包含至少三個背景工作角色節點。 此範本會建立包含三個背景工作角色節點的 Kafka 叢集。
 
 2. 使用下列資訊來填入 [自訂部署] 刀鋒視窗上的項目︰
@@ -75,15 +75,15 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
     
     * **資源群組**：建立群組或選取現有的群組。 此群組包含 HDInsight 叢集。
 
-    * **位置**：選取在地理上靠近您的位置。
+    * **位置**：選取靠近您的地理位置。
      
-    * **基底叢集名稱**︰此值會做為 Kafka 叢集的基底名稱。 例如，輸入 **hdi** 可建立名為 **source-hdi** 和 **dest-hdi** 的叢集。
+    * **基底叢集名稱**︰此值會用來作為 Kafka 叢集的基底名稱。 例如，輸入 **hdi** 可建立名為 **source-hdi** 和 **dest-hdi** 的叢集。
 
-    * **叢集登入使用者名稱**：來源和目的地 Kafka 叢集的系統管理員使用者名稱。
+    * **叢集登入使用者名稱**：來源和目的地 Kafka 叢集的管理員使用者名稱。
 
-    * **叢集登入密碼**：來源和目的地 Kafka 叢集的系統管理員使用者密碼。
+    * **叢集登入密碼**：來源和目的地 Kafka 叢集的管理員使用者密碼。
 
-    * **SSH 使用者名稱**：建立來源和目的地 Kafka 叢集的 SSH 使用者。
+    * **SSH 使用者名稱**：要針對來源和目的地 Kafka 叢集建立的 SSH 使用者。
 
     * **SSH 密碼**：來源和目的地 Kafka 叢集的 SSH 使用者密碼。
 
@@ -91,7 +91,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
 4. 最後，核取 [釘選到儀表板]，然後選取 [購買]。 大約需要 20 分鐘的時間來建立叢集。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight 叢集的名稱是 **source-BASENAME** 和 **dest-BASENAME**，其中 BASENAME 是您提供給範本的名稱。 連接到叢集時，您會在稍後步驟中使用這些名稱。
 
 ## <a name="create-topics"></a>建立主題
@@ -218,7 +218,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
 7. HDInsight 上 Kafka 的預設組態不允許自動建立主題。 您必須先使用下列其中一個選項，才能啟動鏡像程序：
 
-    * **在目的地叢集上建立主題**：這個選項也可讓您設定分割數目和複寫因子。
+    * **在目的地叢集上建立主題**：此選項也可讓您設定分割區數目和複寫因數。
 
         您可以使用下列命令提前建立主題：
 
@@ -228,7 +228,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
         將 `testtopic` 取代為要建立的主題名稱。
 
-    * **設定可供自動建立主題的叢集**：此選項可讓 MirrorMaker 自動建立主題，但它可能使用與來源主題不同的分割數目或複寫因子建立主題。
+    * **設定可供自動建立主題的叢集**：此選項可讓 MirrorMaker 自動建立主題，但它可能使用與來源主題不同的分割區數目或複寫因數來建立主題。
 
         若要設定目的地叢集來自動建立主題，請執行下列步驟：
 
@@ -250,13 +250,13 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
     此範例中使用的參數：
 
-    * **--consumer.config**︰指定包含取用者屬性的檔案。 這些屬性用來建立可從*來源* Kafka 叢集讀取資料的取用者。
+    * **--consumer.config**：指定包含取用者屬性的檔案。 這些屬性用來建立可從*來源* Kafka 叢集讀取資料的取用者。
 
-    * **--producer.config**︰指定包含產生者屬性的檔案。 這些屬性用來建立可寫入*目的地* Kafka 叢集的產生者。
+    * **--producer.config**：指定包含產生者屬性的檔案。 這些屬性用來建立可寫入*目的地* Kafka 叢集的產生者。
 
     * **--whitelist**：MirrorMaker 從來源叢集複寫至目的地的主題清單。
 
-    * **--num.streams**︰要建立的取用者執行緒數目。
+    * **--num.streams**：要建立的取用者執行緒數目。
 
  啟動時，MirrorMaker 會傳回類似以下文字的資訊：
 

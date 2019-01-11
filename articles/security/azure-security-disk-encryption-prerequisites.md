@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/17/2018
+ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 57136ac267af078068f33df6ee85dfccd287606a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: efb8c885daf78ad279a229257492a34c6dbf1c6a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537693"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156505"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure 磁碟加密的先決條件
 
@@ -67,12 +67,10 @@ ms.locfileid: "53537693"
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>安裝 Azure PowerShell 以便在本機電腦上使用 (選擇性)： 
 1. 遵循作業系統所適用連結內的指示，然後繼續完成下列其餘步驟。      
-    - [安裝並設定適用於 Windows 的 Azure PowerShell](/powershell/azure/install-azurerm-ps)。 
+    - [安裝並設定適用於 Windows 的 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)。 
         - 安裝 PowerShellGet、Azure PowerShell，並載入 AzureRM 模組。 
-    - [在 macOS 與 Linux 上安裝和設定 Azure PowerShell](/powershell/azure/install-azurermps-maclinux)。
-        -  安裝 .NET Core 版本之 PowerShell Core 和 Azure PowerShell，並載入 Az 模組。
 
-2. 確認已安裝的 AzureRM 模組版本。 如有需要，[更新 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module)。
+2. 確認已安裝的 AzureRM 模組版本。 如有需要，[更新 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0#update-the-azure-powershell-module)。
     -  AzureRM 模組版本必須是 6.0.0 或更新版本。
     - 建議使用最新的 AzureRM 模組版本。
 

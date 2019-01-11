@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8b0f1cfe56923cbd8a5b1c517cfdc3b174088715
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5634d812b3fbd4e904516767b008f63104b3d7b7
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086134"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632733"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Apache Storm 進行疑難排解
 
@@ -54,7 +54,7 @@ lib 資料夾的 .jar 檔案包含匯出/匯入作業的實作。 bash 資料夾
 
 從 ZooKeeper 節點執行 [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) 指令碼以匯出再匯入資料。 將指令碼更新為正確的 Hortonworks Data Platform (HDP) 版本。 (我們正致力於讓這些指令碼在 HDInsight 中成為泛型。 泛型指令碼可以從叢集的任何節點執行，不需要使用者修改。)
 
-匯出命令會將中繼資料寫入您設定位置的 Apache Hadoop 分散式檔案系統 (HDFS) 路徑 (Azure Blob 儲存體或 Azure Data Lake Store 存放區中)。
+匯出命令會將中繼資料寫入至您設定之位置上的 Apache Hadoop 分散式檔案系統 (HDFS) 路徑 (位於 Azure Blob 儲存體或 Azure Data Lake Storage)。
 
 ### <a name="examples"></a>範例
 
@@ -87,7 +87,7 @@ lib 資料夾的 .jar 檔案包含匯出/匯入作業的實作。 bash 資料夾
  
 /usr/hdp 中可能會有特定 HDP 版本的多個二進位檔 (例如 /usr/hdp/2.5.0.1233/storm)。 /usr/hdp/current/storm-client 資料夾是以符號連結至叢集上執行的最新版本。
 
-如需詳細資訊，請參閱[使用 SSH 連線到 HDInsight 叢集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)和 [Storm](http://storm.apache.org/)。
+如需詳細資訊，請參閱[使用 SSH 連線到 HDInsight 叢集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)和 [Apache Storm](https://storm.apache.org/) \(英文\)。
  
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>如何判斷 Storm 叢集的部署拓撲？
 首先，找出所有與 HDInsight Storm 一起安裝的元件。 Storm 叢集包含四個節點類別：

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0b8d408482f1f6e2bcd25182208a46d28f7b4f7a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 3cd34bf67b0d796af71036e7d14834a061803973
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633027"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628078"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>在 HDInsight 中使用 .NET SDK for Apache Hadoop 執行 Apache Sqoop 作業
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -24,12 +24,11 @@ ms.locfileid: "51633027"
 
 > [!NOTE]
 > 雖然本文中的程序可與以 Windows 為基礎或以 Linux 為基礎的 HDInsight 叢集搭配使用，不過，這些程序只能從 Windows 用戶端運作。 若要選擇其他方法，您可使用本文頂端的索引標籤選取器。
-> 
 
 ## <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前，您必須具備下列項目：
 
-* HDInsight 中的 Hadoop 叢集。 如需詳細資訊，請參閱[建立叢集和 SQL 資料庫](hdinsight-use-sqoop.md#create-cluster-and-sql-database)。
+* HDInsight 中的 Apache Hadoop 叢集。 如需詳細資訊，請參閱[建立叢集和 SQL 資料庫](hdinsight-use-sqoop.md#create-cluster-and-sql-database)。
 
 ## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>使用 .NET SDK 在 HDInsight 叢集上使用 Sqoop
 HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使用 HDInsight 叢集。 在本節中，您會建立 C# 主控台應用程式，將 hivesampletable 匯出至您稍早在本教學課程中建立的 Azure SQL Database 資料表。
@@ -113,12 +112,12 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 * 大量匯出：用來將資料匯出至 Microsoft SQL Server 或 Azure SQL Database 的 Sqoop 連接器目前不支援大量插入。
 
-* 批次處理：執行插入時若使用 `-batch` 參數，Sqoop 將會執行多個插入，而不是將插入作業批次處理。
+* 批次處理：藉由使用 `-batch` 參數，Sqoop 會執行多個插入，而不是對插入作業進行批次處理。
 
 ## <a name="next-steps"></a>後續步驟
 現在，您已了解如何使用 Sqoop。 若要深入了解，請參閱：
 
-* [搭配 HDInsight 使用 Oozie](../hdinsight-use-oozie.md)：在 Oozie 工作流程中使用 Sqoop 動作。
-* [使用 HDInsight 分析航班延誤資料](../hdinsight-analyze-flight-delay-data.md)：使用 Hive 分析航班誤點資料，然後使用 Sqoop 將資料匯出至 Azure SQL Database。
-* [將資料上傳至 HDInsight](../hdinsight-upload-data.md)：尋找其他方法將資料上傳至 HDInsight 或 Azure Blob 儲存體。
+* [使用 Apache Oozie 搭配 HDInsight](../hdinsight-use-oozie.md)：在 Oozie 工作流程中使用 Sqoop 動作。
+* [使用 HDInsight 分析航班延誤資料](../hdinsight-analyze-flight-delay-data.md)：使用 Apache Hive 來分析航班誤點資料，然後使用 Sqoop 將資料匯出至 Azure SQL 資料庫。
+* [將資料上傳至 HDInsight](../hdinsight-upload-data.md)：尋找其他方法以將資料上傳至 HDInsight 或 Azure Blob 儲存體。
 

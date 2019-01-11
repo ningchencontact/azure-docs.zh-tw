@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/02/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58dfb3f02b338d62fcfb10e4d8c1bc492cdacbda
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890546"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002479"
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 
@@ -300,15 +300,20 @@ Run: get-azurestackstampinformation
 
 ## <a name="verify-azure-stack-registration"></a>驗證 Azure Stack 註冊
 
-使用下列步驟確認 Azure Stack 已成功向 Azure 註冊。
+您可以使用 [Region management] \(區域管理\) 圖格來確認 Azure Stack 註冊是否已成功。 此圖格位於系統管理員入口網站中的預設儀表板上。 狀態可以是已註冊或未註冊。 如果是已註冊，則會一併顯示您用來註冊 Azure Stack 的 Azure 訂用帳戶 ID，以及註冊資源群組和名稱。
 
-1. 登入 Azure Stack [系統管理入口網站](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal)：https&#58;//adminportal.*&lt;region>.&lt;fqdn>*。
-2. 選取 [所有服務]，然後在 [系統管理] 分類下，選取 [Marketplace 管理]  >  [從 Azure 新增]。
+1. 登入 [Azure Stack 系統管理入口網站](https://adminportal.local.azurestack.external)。
 
-如果您看到 Azure 提供的項目清單 (例如 WordPress)，則表示啟用已成功。 不過，在已中斷連線的環境中，您不會在Azure Stack 市集中看到 Azure 市集項目。
+2. 從儀表板中，選取 [Region management] \(區域管理\)。
 
-> [!Note]  
-> 註冊完成後，就不會再出現未註冊的作用中警告。
+    [ ![[Region management] \(區域管理\) 圖格](media/azure-stack-registration/admin1sm.png "[Region management] \(區域管理\) 圖格") ](media/azure-stack-registration/admin1.png#lightbox)
+
+3. 選取 [屬性] 。 此刀鋒視窗會顯示您環境的狀態和詳細資料。 狀態可以是 [已註冊] 或 [未註冊]。 如果是已註冊，則會一併顯示您用來註冊 Azure Stack 的 Azure 訂用帳戶 ID，以及註冊資源群組和名稱。
+
+或者，您也可以使用 Marketplace 管理功能來確認註冊是否已成功。 如果您在 [Marketplace Management] \(Marketplace 管理\) 刀鋒視窗中看到 Marketplace 項目清單，即表示您的註冊已成功。 不過，在已中斷連線的環境中，您則無法在 Marketplace 管理中看到 Marketplace 項目。 不過，您可以使用離線工具來確認註冊情況。
+
+> [!NOTE]
+> 註冊完成後，就不會再出現未註冊的作用中警告。 在已中斷連線的情況下，即使您已成功註冊，在 Marketplace 管理中，仍然會看到要求您註冊並啟用 Azure Stack 的訊息。
 
 ## <a name="renew-or-change-registration"></a>續訂或變更註冊
 

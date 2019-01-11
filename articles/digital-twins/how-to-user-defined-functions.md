@@ -1,29 +1,32 @@
 ---
-title: 如何在 Azure Digital Twins 中使用使用者定義函數 | Microsoft Docs
+title: 如何在 Azure Digital Twins 中建立使用者定義函式 | Microsoft Docs
 description: 有關如何使用 Azure Digital Twins 建立使用者定義函數、比對器和角色指派的指導方針。
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/27/2018
 ms.author: alinast
-ms.openlocfilehash: 6a757dca48dc3ff41adfe6f8802fad40e7a4ca81
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.custom: seodec18
+ms.openlocfilehash: 91c0b5700fbc648f1fcd1355a438694cecc07a04
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636827"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993396"
 ---
-# <a name="how-to-use-user-defined-functions-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中使用使用者定義函數
+# <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中建立使用者定義函式
 
-[使用者定義函式](./concepts-user-defined-functions.md) (UDF) 可讓使用者對傳入遙測訊息和空間圖表中繼資料執行自訂邏輯。 然後使用者可以將事件傳送至預先定義的端點。 本指南逐步引導您進行有關溫度事件的範例，以偵測超過特定溫度的任何讀數並發出警示。
+[使用者定義函式](./concepts-user-defined-functions.md)可讓使用者將自訂邏輯設定為從傳入遙測訊息和空間圖表中繼資料中執行。 使用者也可以將事件傳送至預先定義的[端點](./how-to-egress-endpoints.md)。
+
+本指南將在範例中逐步示範如何從所接收的溫度事件中偵測超過特定溫度的任何讀數並發出警示。
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## <a name="client-library-reference"></a>用戶端程式庫參考
 
-使用者定義函式執行階段中可作為協助程式方法的函式，會列在[用戶端參考](#Client-Reference)一節中。
+使用者定義函式執行階段中可作為協助程式方法的函式，會列在[用戶端參考](./reference-user-defined-functions-client-library.md)文件中。
 
 ## <a name="create-a-matcher"></a>建立比對器
 
@@ -41,10 +44,15 @@ ms.locfileid: "51636827"
   - `SensorDevice`
   - `SensorSpace`
 
-下列比對器範例在資料類型值為 `"Temperature"` 的任何感應器遙測事件上會評估為 True。 您可以在使用者定義函式上建立多個比對器：
+下列比對器範例在資料類型值為 `"Temperature"` 的任何感應器遙測事件上會評估為 True。 您可以藉由提出已驗證的 HTTP POST 要求，在使用者定義函式上建立多個比對器：
 
 ```plaintext
-POST YOUR_MANAGEMENT_API_URL/matchers
+YOUR_MANAGEMENT_API_URL/matchers
+```
+
+使用 JSON 主體：
+
+```JSON
 {
   "Name": "Temperature Matcher",
   "Conditions": [
@@ -63,26 +71,23 @@ POST YOUR_MANAGEMENT_API_URL/matchers
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | 裝載您執行個體的伺服器區域 |
 
-## <a name="create-a-user-defined-function-udf"></a>建立使用者定義函式 (UDF)
+## <a name="create-a-user-defined-function"></a>建立使用者定義的函式
 
-建立比對器之後，使用下列 **POST** 呼叫來上傳函式程式碼片段：
-
-> [!IMPORTANT]
-> - 在標頭中，設定下列內容：`Content-Type: multipart/form-data; boundary="userDefinedBoundary"`。
-> - 主體是由多個部分組成的：
->   - 第一個部分是 UDF 所需的相關中繼資料。
->   - 第二個部分是 JavaScript 計算邏輯。
-> - 在 **USER_DEFINED_BOUNDARY** 區段中，取代 **SpaceId** 和 **Machers** 值。
+建立比對器之後，使用下列已驗證的 HTTP **POST** 要求來上傳函式程式碼片段：
 
 ```plaintext
-POST YOUR_MANAGEMENT_API_URL/userdefinedfunctions with Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
+YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
-| 參數值 | 更換為 |
-| --- | --- |
-| *USER_DEFINED_BOUNDARY* | 多部分內容界限名稱 |
+> [!IMPORTANT]
+> - 確認標頭包含：`Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`。
+> - 提供的主體為多部分項目：
+>   - 第一個部分包含必要的 UDF 中繼資料。
+>   - 第二個部分包含 JavaScript 計算邏輯。
+> - 在 **USER_DEFINED_BOUNDARY** 區段中，取代 **spaceId** (`YOUR_SPACE_IDENTIFIER`) 和 **matchers**(`YOUR_MATCHER_IDENTIFIER`) 值。
+> - 請注意 JavaScript UDF 會以 `Content-Type: text/javascript` 形式提供。
 
-### <a name="body"></a>body
+使用下列 JSON 主體：
 
 ```plaintext
 --USER_DEFINED_BOUNDARY
@@ -90,10 +95,10 @@ Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
 {
-  "SpaceId": "YOUR_SPACE_IDENTIFIER",
-  "Name": "User Defined Function",
-  "Description": "The contents of this udf will be executed when matched against incoming telemetry.",
-  "Matchers": ["YOUR_MATCHER_IDENTIFIER"]
+  "spaceId": "YOUR_SPACE_IDENTIFIER",
+  "name": "User Defined Function",
+  "description": "The contents of this udf will be executed when matched against incoming telemetry.",
+  "matchers": ["YOUR_MATCHER_IDENTIFIER"]
 }
 --USER_DEFINED_BOUNDARY
 Content-Disposition: form-data; name="contents"; filename="userDefinedFunction.js"
@@ -108,6 +113,7 @@ function process(telemetry, executionContext) {
 
 | 值 | 更換為 |
 | --- | --- |
+| USER_DEFINED_BOUNDARY | 多部分內容界限名稱 |
 | YOUR_SPACE_IDENTIFIER | 空間識別碼  |
 | YOUR_MATCHER_IDENTIFIER | 您想要使用之比對器的識別碼 |
 
@@ -180,476 +186,69 @@ function process(telemetry, executionContext) {
 }
 ```
 
-如需更複雜的 UDF 程式碼範例，[請使用新鮮空氣 UDF 檢查可用空間](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)。
+如需更複雜的使用者定義函式程式碼範例，請參閱[佔用量快速入門](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)。
 
 ## <a name="create-a-role-assignment"></a>建立角色指派
 
-我們需要建立角色指派，讓使用者定義函式可在其下方執行。 如果不這樣做，使用者定義函式就沒有能與管理 API 互動的適當權限，也無法在圖表物件上執行動作。 使用者定義函式所執行的動作仍須遵循 Azure Digital Twins 管理 API 內的角色型存取控制。 您可以藉由指定特定角色或特定存取控制路徑來限制這些動作的範圍。 如需詳細資訊，請參閱[角色型存取控制](./security-role-based-access-control.md)文件。
+建立角色指派，讓使用者定義函式可在其下執行。 如果沒有適用於使用者定義函式的角色指派，它將不具適當權限來與管理 API 互動或有權在圖形物件上執行動作。使用者定義函式可能執行的動作可以透過 Azure Digital Twins 管理 API 中的角色型存取控制來指定和定義。 例如，您可以藉由指定特定角色或特定存取控制路徑來限制使用者定義函式的範圍。 如需詳細資訊，請參閱[角色型存取控制](./security-role-based-access-control.md)文件。
 
-1. 查詢角色，並針對您想要指派至 UDF 的角色取得其識別碼。 將它傳遞給 **RoleId**：
-
-    ```plaintext
-    GET YOUR_MANAGEMENT_API_URL/system/roles
-    ```
-
-1. **ObjectId** 就是稍早建立的 UDF 識別碼。
-1. 藉由使用 `fullpath` 查詢您的空間來找到 **Path** 的值。
-1. 複製傳回的 `spacePaths` 值。 您會在下列程式碼中使用它：
+1. 針對所有角色[查詢系統 API](./security-create-manage-role-assignments.md#all)，以取得您想要指派給 UDF 的角色識別碼。 提出已驗證的 HTTP GET 要求來達成此目的：
 
     ```plaintext
-    GET YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
+    YOUR_MANAGEMENT_API_URL/system/roles
+    ```
+   保留所需的角色識別碼。 它將會以下方的 JSON 主體屬性 **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) 來傳遞。
+
+1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) 將會是稍早建立的 UDF 識別碼。
+1. 藉由使用 `fullpath` 查詢您的空間來尋找 **path** (`YOUR_ACCESS_CONTROL_PATH`) 的值。
+1. 複製傳回的 `spacePaths` 值。 您將會在下方用到該值。 提出已驗證的 HTTP GET 要求：
+
+    ```plaintext
+    YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | 參數值 | 更換為 |
+    | 值 | 更換為 |
     | --- | --- |
-    | *YOUR_SPACE_NAME* | 想要使用的空間名稱 |
+    | YOUR_SPACE_NAME | 想要使用的空間名稱 |
 
-1. 將傳回的 `spacePaths` 值貼上至 **Path**，以建立 UDF 角色指派：
+1. 將傳回的 `spacePaths` 值貼至 **path**，藉由提出已驗證的 HTTP POST 要求來建立 UDF 角色指派：
 
     ```plaintext
-    POST YOUR_MANAGEMENT_API_URL/roleassignments
+    YOUR_MANAGEMENT_API_URL/roleassignments
+    ```
+    使用 JSON 主體：
+
+    ```JSON
     {
-      "RoleId": "YOUR_DESIRED_ROLE_IDENTIFIER",
-      "ObjectId": "YOUR_USER_DEFINED_FUNCTION_ID",
-      "ObjectIdType": "YOUR_USER_DEFINED_FUNCTION_TYPE_ID",
-      "Path": "YOUR_ACCESS_CONTROL_PATH"
+      "roleId": "YOUR_DESIRED_ROLE_IDENTIFIER",
+      "objectId": "YOUR_USER_DEFINED_FUNCTION_ID",
+      "objectIdType": "YOUR_USER_DEFINED_FUNCTION_TYPE_ID",
+      "path": "YOUR_ACCESS_CONTROL_PATH"
     }
     ```
 
-    | 您的值 | 更換為 |
+    | 值 | 更換為 |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | 所需角色的識別碼 |
     | YOUR_USER_DEFINED_FUNCTION_ID | 要使用的 UDF 識別碼 |
     | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | 指定 UDF 類型的識別碼 |
     | YOUR_ACCESS_CONTROL_PATH | 存取控制路徑 |
 
+>[!TIP]
+> 請參閱[如何建立和管理角色指派](./security-create-manage-role-assignments.md)一文，以取得 UDF 相關的管理 API 作業和端點詳細資訊。
+
 ## <a name="send-telemetry-to-be-processed"></a>傳送要處理的遙測
 
-圖表中描述的感應器所產生的遙測資料，觸發已上傳之使用者定義函式的執行。 資料處理器取用遙測資料。 然後針對使用者定義函式的引動，建立執行計劃。
+空間智慧圖形中所定義的感應器會傳送遙測。 接著，遙測會觸發已上傳的使用者定義函式執行。 資料處理器取用遙測資料。 然後針對使用者定義函式的引動，建立執行計畫。
 
 1. 針對產生讀數的感應器擷取比對器。
 1. 根據評估成功的比對器，擷取相關聯的使用者定義函式。
-1. 執行每個使用者定義函式。
-
-## <a name="client-reference"></a>用戶端參考
-
-### <a name="getspacemetadataid--space"></a>getSpaceMetadata(id) ⇒ `space`
-
-此函式根據指定的空間識別碼，從圖表擷取空間。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ---------- | ------------------- | ------------ |
-| *id*  | `guid` | 空間識別碼 |
-
-### <a name="getsensormetadataid--sensor"></a>getSensorMetadata(id) ⇒ `sensor`
-
-此函式根據指定的感應器識別碼，從圖表擷取感應器。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ---------- | ------------------- | ------------ |
-| *id*  | `guid` | 感應器識別碼 |
-
-### <a name="getdevicemetadataid--device"></a>getDeviceMetadata(id) ⇒ `device`
-
-此函式根據指定的裝置識別碼，從圖表擷取裝置。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| *id* | `guid` | 裝置識別碼 |
-
-### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue(sensorId, dataType) ⇒ `value`
-
-此函式根據指定的感應器識別碼和其資料類型，擷取該感應器的目前值。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| sensorId  | `guid` | 感應器識別碼 |
-| dataType  | `string` | 感應器資料類型 |
-
-### <a name="getspacevaluespaceid-valuename--value"></a>getSpaceValue(spaceId, valueName) ⇒ `value`
-
-此函式根據指定的空間識別碼和值的名稱，擷取該空間屬性的目前值。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| spaceId  | `guid` | 空間識別碼 |
-| valueName | `string` | 空間屬性名稱 |
-
-### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues(sensorId, dataType) ⇒ `value[]`
-
-此函式根據指定的感應器識別碼和其資料類型，擷取該感應器的歷史值。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| sensorId | `guid` | 感應器識別碼 |
-| dataType | `string` | 感應器資料類型 |
-
-### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>getSpaceHistoryValues(spaceId, dataType) ⇒ `value[]`
-
-此函式根據指定的空間識別碼和值的名稱，擷取空間上該屬性的歷史值。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| spaceId | `guid` | 空間識別碼 |
-| valueName | `string` | 空間屬性名稱 |
-
-### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
-
-此函式根據指定的空間識別碼，擷取該父空間的子空間。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| spaceId | `guid` | 空間識別碼 |
-
-### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors(spaceId) ⇒ `sensor[]`
-
-此函式根據指定的空間識別碼，擷取該父空間的子感應器。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| spaceId | `guid` | 空間識別碼 |
-
-### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices(spaceId) ⇒ `device[]`
-
-此函式根據指定的空間識別碼，擷取該父空間的子裝置。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| spaceId | `guid` | 空間識別碼 |
-
-### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors(deviceId) ⇒ `sensor[]`
-
-此函式根據指定的裝置識別碼，擷取該父裝置的子感應器。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| deviceId | `guid` | 裝置識別碼 |
-
-### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
-
-此函式根據指定的空間識別碼，擷取其父空間。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| childSpaceId | `guid` | 空間識別碼 |
-
-### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace(childSensorId) ⇒ `space`
-
-此函式根據指定的感應器識別碼，擷取其父空間。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| childSensorId | `guid` | 感應器識別碼 |
-
-### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace(childDeviceId) ⇒ `space`
-
-此函式根據指定的裝置識別碼，擷取其父空間。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| childDeviceId | `guid` | 裝置識別碼 |
-
-### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice(childSensorId) ⇒ `space`
-
-此函式根據指定的感應器識別碼，擷取其父裝置。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| childSensorId | `guid` | 感應器識別碼 |
-
-### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>getSpaceExtendedProperty(spaceId, propertyName) ⇒ `extendedProperty`
-
-此函式根據指定的空間識別碼，從該空間擷取屬性和其值。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| spaceId | `guid` | 空間識別碼 |
-| propertyName | `string` | 空間屬性名稱 |
-
-### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty(sensorId, propertyName) ⇒ `extendedProperty`
-
-此函式根據指定的感應器識別碼，從該感應器擷取屬性和其值。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| sensorId | `guid` | 感應器識別碼 |
-| propertyName | `string` | 感應器屬性名稱 |
-
-### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>getDeviceExtendedProperty(deviceId, propertyName) ⇒ `extendedProperty`
-
-此函式根據指定的裝置識別碼，從該裝置擷取屬性和其值。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| deviceId | `guid` | 裝置識別碼 |
-| propertyName | `string` | 裝置屬性名稱 |
-
-### <a name="setsensorvaluesensorid-datatype-value"></a>setSensorValue(sensorId, dataType, value)
-
-此函式在具有指定資料類型的感應器物件上設定值。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| sensorId | `guid` | 感應器識別碼 |
-| dataType  | `string` | 感應器資料類型 |
-| *value*  | `string` | 值 |
-
-### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue(spaceId, dataType, value)
-
-此函式在具有指定資料類型的空間物件上設定值。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| spaceId | `guid` | 空間識別碼 |
-| dataType | `string` | 資料類型 |
-| *value* | `string` | 值 |
-
-### <a name="logmessage"></a>log(message)
-
-此函式記錄使用者定義函式中的下列訊息。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| *message* | `string` | 要記錄的訊息 |
-
-### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification(topologyObjectId, topologyObjectType, payload)
-
-此函式傳送出要分派的自訂通知。
-
-**種類**：全域函式
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| topologyObjectId  | `guid` | 圖表物件識別碼。 範例如空間、感應器和裝置識別碼。|
-| topologyObjectType  | `string` | 範例如感應器和裝置。|
-| payload  | `string` | 與通知一起傳送的 JSON 承載。 |
-
-## <a name="return-types"></a>傳回類型
-
-下列模型描述來自上述用戶端參考的傳回物件。
-
-### <a name="space"></a>空白字元
-
-```JSON
-{
-  "Id": "00000000-0000-0000-0000-000000000000",
-  "Name": "Space",
-  "FriendlyName": "Conference Room",
-  "TypeId": 0,
-  "ParentSpaceId": "00000000-0000-0000-0000-000000000001",
-  "SubtypeId": 0
-}
-```
-
-### <a name="space-methods"></a>空間方法
-
-#### <a name="parent--space"></a>Parent() ⇒ `space`
-
-此函式傳回目前空間的父空間。
-
-#### <a name="childsensors--sensor"></a>ChildSensors() ⇒ `sensor[]`
-
-此函式傳回目前空間的子感應器。
-
-#### <a name="childdevices--device"></a>ChildDevices() ⇒ `device[]`
-
-此函式傳回目前空間的子裝置。
-
-#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
-
-此函式傳回目前空間的擴充屬性和其值。
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| propertyName | `string` | 擴充屬性的名稱 |
-
-#### <a name="valuevaluename--value"></a>Value(valueName) ⇒ `value`
-
-此函式傳回目前空間的值。
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| valueName | `string` | 值的名稱 |
-
-#### <a name="historyvaluename--value"></a>History(valueName) ⇒ `value[]`
-
-此函式傳回目前空間的歷史值。
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| valueName | `string` | 值的名稱 |
-
-#### <a name="notifypayload"></a>Notify(payload)
-
-此函式傳送具有指定承載的通知。
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| payload | `string` | 要包含在通知中的 JSON 承載 |
-
-### <a name="device"></a>裝置
-
-```JSON
-{
-  "Id": "00000000-0000-0000-0000-000000000002",
-  "Name": "Device",
-  "FriendlyName": "Temperature Sensing Device",
-  "Description": "This device contains a sensor that captures temperature readings.",
-  "Type": "None",
-  "Subtype": "None",
-  "TypeId": 0,
-  "SubtypeId": 0,
-  "HardwareId": "ABC123",
-  "GatewayId": "ABC",
-  "SpaceId": "00000000-0000-0000-0000-000000000000"
-}
-```
-
-### <a name="device-methods"></a>裝置方法
-
-#### <a name="parent--space"></a>Parent() ⇒ `space`
-
-此函式傳回目前裝置的父空間。
-
-#### <a name="childsensors--sensor"></a>ChildSensors() ⇒ `sensor[]`
-
-此函式傳回目前裝置的子感應器。
-
-#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
-
-此函式傳回目前裝置的擴充屬性和其值。
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| propertyName | `string` | 擴充屬性的名稱 |
-
-#### <a name="notifypayload"></a>Notify(payload)
-
-此函式傳送具有指定承載的通知。
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| payload | `string` | 要包含在通知中的 JSON 承載 |
-
-### <a name="sensor"></a>感應器
-
-```JSON
-{
-  "Id": "00000000-0000-0000-0000-000000000003",
-  "Port": "30",
-  "PollRate": 3600,
-  "DataType": "Temperature",
-  "DataSubtype": "None",
-  "Type": "Classic",
-  "PortType": "None",
-  "DataUnitType": "FahrenheitTemperature",
-  "SpaceId": "00000000-0000-0000-0000-000000000000",
-  "DeviceId": "00000000-0000-0000-0000-000000000001",
-  "PortTypeId": 0,
-  "DataUnitTypeId": 0,
-  "DataTypeId": 0,
-  "DataSubtypeId": 0,
-  "TypeId": 0  
-}
-```
-
-### <a name="sensor-methods"></a>感應器方法
-
-#### <a name="space--space"></a>Space() ⇒ `space`
-
-此函式傳回目前感應器的父空間。
-
-#### <a name="device--device"></a>Device() ⇒ `device`
-
-此函式傳回目前感應器的父裝置。
-
-#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
-
-此函式傳回目前感應器的擴充屬性和其值。
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| propertyName | `string` | 擴充屬性的名稱 |
-
-#### <a name="value--value"></a>Value() ⇒ `value`
-
-此函式傳回目前感應器的值。
-
-#### <a name="history--value"></a>History() ⇒ `value[]`
-
-此函式傳回目前感應器的歷史值。
-
-#### <a name="notifypayload"></a>Notify(payload)
-
-此函式傳送具有指定承載的通知。
-
-| 參數  | 類型                | 說明  |
-| ------ | ------------------- | ------------ |
-| payload | `string` | 要包含在通知中的 JSON 承載 |
-
-### <a name="value"></a>值
-
-```JSON
-{
-  "DataType": "Temperature",
-  "Value": "70",
-  "CreatedTime": ""
-}
-```
-
-### <a name="extended-property"></a>擴充的屬性
-
-```JSON
-{
-  "Name": "OccupancyStatus",
-  "Value": "Occupied"
-}
-```
+1. 擷取每個使用者定義函式。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何[建立 Azure Digital Twins 端點](how-to-egress-endpoints.md)以傳送事件。
+- 了解如何[建立 Azure Digital Twins 端點](./how-to-egress-endpoints.md)以傳送事件。
 
-- 如需 Azure Digital Twins 端點的詳細資訊，請[深入了解端點](concepts-events-routing.md)。
+- 如需 Azure Digital Twins 中路由的詳細資訊，請參閱[路由事件和訊息](./concepts-events-routing.md)。
+
+- 檢閱[用戶端程式庫參考文件](./reference-user-defined-functions-client-library.md)。

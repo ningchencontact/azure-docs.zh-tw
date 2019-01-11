@@ -3,18 +3,17 @@ title: Azure 串流分析中常見的查詢模式
 description: 本文說明一些常見的查詢模式和設計，在 Azure 串流分析作業中很實用。
 services: stream-analytics
 author: jseb225
-manager: kfile
 ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 7f171fa1eb8c91b55119d0308b57fe3d3e70261b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: ffcf81ee8637c2ce01b3a7822d179609bd9dbfaa
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578886"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794527"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>一般串流分析使用模式的查詢範例
 
@@ -49,6 +48,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 
 **解決方案**：
 
+```SQL
     SELECT
         Make,
         SUM(CAST(Weight AS BIGINT)) AS Weight
@@ -57,11 +57,12 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
     GROUP BY
         Make,
         TumblingWindow(second, 10)
+```
 
-**說明**：在 [Weight]\(加權\) 欄位中使用 **CAST** 陳述式來指定其資料類型。 請參閱[資料類型 (Azure 串流分析)](https://msdn.microsoft.com/library/azure/dn835065.aspx) 中的支援資料類型清單。
+**說明**：使用 [Weight] 欄位中的 **CAST** 陳述式來指定其資料類型。 請參閱[資料類型 (Azure 串流分析)](https://msdn.microsoft.com/library/azure/dn835065.aspx) 中的支援資料類型清單。
 
 ## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>查詢範例：使用 Like/Not like 進行模式比對
-**描述**：檢查事件的欄位值是否符合特定模式。
+**描述**：檢查事件上的欄位值是否符合特定模式。
 例如，檢查結果是否會傳回開頭為 A 且結尾為 9 的車牌。
 
 **輸入**：
@@ -81,17 +82,19 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 
 **解決方案**：
 
+```SQL
     SELECT
         *
     FROM
         Input TIMESTAMP BY Time
     WHERE
         LicensePlate LIKE 'A%9'
+```
 
 **說明**：使用 **LIKE** 陳述式檢查 [LicensePlate] 欄位值。 開頭應該為 A，接著是長度為零或更多字元的字串，並以 9 結尾。 
 
-## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>查詢範例：為不同的案例/值指定邏輯 (CASE 陳述式)
-**描述**：根據特定準則，提供不同的欄位計算方式。
+## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>查詢範例：針對不同的案例/值指定邏輯 (CASE 陳述式)
+**描述**：根據特定準則，針對欄位提供不同的計算方式。
 例如，針對通過的相同廠牌汽車中有多少部符合 1 的特殊情況提供字串描述。
 
 **輸入**：
@@ -111,6 +114,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 
 **解決方案**：
 
+```SQL
     SELECT
         CASE
             WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
@@ -122,11 +126,12 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
     GROUP BY
         Make,
         TumblingWindow(second, 10)
+```
 
 **說明**：**CASE** 運算式會比較運算式和一組簡單運算式來決定結果。 在此範例中，計數為 1 的車輛傳回的字串描述與計數並非為 1 的車輛所傳回者不同。 
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>查詢範例：將資料傳送至多個輸出
-**描述**：將資料從單一工作傳送到多個輸出目標。
+**描述**：將資料從單一作業傳送到多個輸出目標。
 例如，分析臨界值警示的資料，並將所有事件封存到 Blob 儲存體。
 
 **輸入**：
@@ -157,6 +162,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 
 **解決方案**：
 
+```SQL
     SELECT
         *
     INTO
@@ -177,6 +183,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
         TumblingWindow(second, 10)
     HAVING
         [Count] >= 3
+```
 
 **說明**：**INTO** 子句會告訴串流分析要從此陳述式將資料寫入哪個輸出。
 第一個查詢將接收到的資料傳遞至名稱為 **ArchiveOutput** 的輸出。
@@ -185,6 +192,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 請注意，您也可以在多個輸出陳述式中重複使用通用資料表運算式 (CTE) 的結果 (例如 **WITH** 陳述式)。 此選項多了一項優點，就是對輸入來源開放的讀取器較少。
 例如︰ 
 
+```SQL
     WITH AllRedCars AS (
         SELECT
             *
@@ -195,9 +203,10 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
     )
     SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
     SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
+```
 
 ## <a name="query-example-count-unique-values"></a>查詢範例：計算唯一值
-**描述**：計算某個時間範圍內在串流中所出現唯一欄位值的數目。
+**描述**：計算在某個時間範圍內於串流中出現之唯一欄位值的數目。
 例如，在 2 秒鐘時間範圍內有多少部某一獨特廠牌的汽車通過收費亭？
 
 **輸入**：
@@ -219,14 +228,14 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 若�
 
 **解決方案：**
 
-````
+```SQL
 SELECT
      COUNT(DISTINCT Make) AS CountMake,
      System.TIMESTAMP AS TIME
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
-````
+```
 
 
 **說明：**
@@ -251,6 +260,7 @@ GROUP BY
 
 **解決方案**：
 
+```SQL
     SELECT
         Make,
         Time
@@ -258,11 +268,12 @@ GROUP BY
         Input TIMESTAMP BY Time
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
+```
 
 **說明**：使用 **LAG** 查看前一個事件的輸入資料流，並取得 **Make** 值。 然後將其和目前事件中的 **Make** 值比較，並且在兩者不同時輸出事件。
 
 ## <a name="query-example-find-the-first-event-in-a-window"></a>查詢範例：尋找時間範圍內的第一個事件
-**描述**：是否要每隔 10 分鐘尋找第一輛車。
+**描述**：每隔 10 分鐘尋找該時間範圍內的第一輛車。
 
 **輸入**：
 
@@ -285,6 +296,7 @@ GROUP BY
 
 **解決方案**：
 
+```SQL
     SELECT 
         LicensePlate,
         Make,
@@ -293,6 +305,7 @@ GROUP BY
         Input TIMESTAMP BY Time
     WHERE 
         IsFirst(minute, 10) = 1
+```
 
 現在讓我們來變更問題，每隔 10 分鐘尋找特定廠牌的第一輛車。
 
@@ -306,6 +319,7 @@ GROUP BY
 
 **解決方案**：
 
+```SQL
     SELECT 
         LicensePlate,
         Make,
@@ -314,9 +328,10 @@ GROUP BY
         Input TIMESTAMP BY Time
     WHERE 
         IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
+```
 
-## <a name="query-example-find-the-last-event-in-a-window"></a>查詢範例：尋找時間範圍內的上一個事件
-**描述**：每隔 10 分鐘尋找上一輛車。
+## <a name="query-example-find-the-last-event-in-a-window"></a>查詢範例：尋找時間範圍內的最後一個事件
+**描述**：每隔 10 分鐘尋找該時間範圍內的最後一輛車。
 
 **輸入**：
 
@@ -339,6 +354,7 @@ GROUP BY
 
 **解決方案**：
 
+```SQL
     WITH LastInWindow AS
     (
         SELECT 
@@ -357,10 +373,11 @@ GROUP BY
         INNER JOIN LastInWindow
         ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
         AND Input.Time = LastInWindow.LastEventTime
+```
 
 **說明**：查詢中有兩個步驟。 第一個步驟會尋找 10 分鐘時間範圍內最新的時間戳記。 第二個步驟會將第一個查詢的結果與原始串流聯結在一起，在每個時間範圍內尋找符合最後一個時間戳記的事件。 
 
-## <a name="query-example-detect-the-absence-of-events"></a>查詢範例：偵測到事件不存在
+## <a name="query-example-detect-the-absence-of-events"></a>查詢範例：偵測不存在的事件
 **描述**：檢查串流中是否沒有和特定準則相符的值。
 例如，在最後的 90 秒內連續有 2 部相同廠牌的車輛進入收費道路？
 
@@ -381,6 +398,7 @@ GROUP BY
 
 **解決方案**：
 
+```SQL
     SELECT
         Make,
         Time,
@@ -391,10 +409,11 @@ GROUP BY
         Input TIMESTAMP BY Time
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
+```
 
 **說明**：使用 **LAG** 查看前一個事件的輸入資料流，並取得 **Make** 值。 將該值和目前事件中的 **MAKE** 值比較，如果相同則輸出該事件。 您也可以使用 **LAG** 取得上一輛車的相關資料。
 
-## <a name="query-example-detect-the-duration-between-events"></a>查詢範例：偵測事件與事件之間的持續時間
+## <a name="query-example-detect-the-duration-between-events"></a>查詢範例：偵測事件之間的持續時間
 **描述**：尋找指定事件的持續時間。 例如，指定某一網頁點選流，以判斷在某一功能上花費的時間。
 
 **輸入**：  
@@ -412,18 +431,18 @@ GROUP BY
 
 **解決方案**：
 
-````
+```SQL
     SELECT
         [user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
     FROM input TIMESTAMP BY Time
     WHERE
         Event = 'end'
-````
+```
 
-**說明**：當事件類型為 **Start** 時，使用 **LAST** 函式取出最後一個 **TIME** 值。 **LAST** 函式使用 **PARTITION BY [user]** 來表達會為個別使用者分別計算結果。 查詢的 **Start** 與 **Stop** 事件之間時間差的上限為 1 小時，但該值可以在必要時變更 **(LIMIT DURATION(hour, 1)**。
+**說明**：使用 **LAST** 函式來擷取事件類型為 **Start** 時的最後一個 **TIME** 值。 **LAST** 函式使用 **PARTITION BY [user]** 來表達會為個別使用者分別計算結果。 查詢的 **Start** 與 **Stop** 事件之間時間差的上限為 1 小時，但該值可以在必要時變更 **(LIMIT DURATION(hour, 1)**。
 
-## <a name="query-example-detect-the-duration-of-a-condition"></a>查詢範例：偵測某個情況的持續時間
-**描述**：找出某個情況的持續時間。
+## <a name="query-example-detect-the-duration-of-a-condition"></a>查詢範例：偵測某個條件的持續時間
+**描述**：找出某個條件的持續時間。
 例如，假設有個錯誤導致所有車輛的重量不正確 (超過 20,000 磅)，而且必須計算該錯誤的持續時間。
 
 **輸入**：
@@ -447,7 +466,7 @@ GROUP BY
 
 **解決方案**：
 
-````
+```SQL
     WITH SelectPreviousEvent AS
     (
     SELECT
@@ -464,12 +483,12 @@ GROUP BY
     WHERE
         [weight] < 20000
         AND previousWeight > 20000
-````
+```
 
-**說明**：使用 **LAG** 來檢視 24 小時內的輸入資料流，並尋找其中的 **StartFault** 和 **StopFault** 被 weight < 20000 合併的執行個體。
+**說明**：使用 **LAG** 來檢視 24 小時內的輸入資料流，並尋找其中 **StartFault** 和 **StopFault** 介於 weight (重量) < 20000 的案例。
 
 ## <a name="query-example-fill-missing-values"></a>查詢範例：填入遺漏值
-**描述**：對於有遺漏值的事件串流，以固定間隔產生事件串流。
+**描述**：針對有遺漏值的事件串流，產生具有固定間隔的事件串流。
 例如，每隔 5 秒產生事件，報告最近所見的資料點。
 
 **輸入**：
@@ -500,19 +519,20 @@ GROUP BY
 
 **解決方案**：
 
+```SQL
     SELECT
         System.Timestamp AS windowEnd,
         TopOne() OVER (ORDER BY t DESC) AS lastEvent
     FROM
         input TIMESTAMP BY t
     GROUP BY HOPPINGWINDOW(second, 300, 5)
+```
+
+**說明**：此查詢會每隔 5 秒產生事件，並輸出先前所收到的最後一個事件。 [跳動視窗](https://msdn.microsoft.com/library/dn835041.aspx "跳動視窗 - Azure 串流分析")持續時間會決定查詢回溯到多久之前以找出最新的事件 (在此範例中為 300 秒)。
 
 
-**說明**：此查詢會每隔 5 秒產生事件，並且會輸出之前收到的最後一個事件。 [跳動視窗](https://msdn.microsoft.com/library/dn835041.aspx "跳動視窗 - Azure 串流分析")持續時間會決定查詢回溯到多久之前以找出最新的事件 (在此範例中為 300 秒)。
-
-
-## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>查詢範例：將相同串流中的兩個事件類型相互關聯
-**描述**：有時需要根據特定時間範圍內發生的多種事件類型來產生警示。
+## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>查詢範例：將相同串流內的兩個事件類型相互關聯
+**描述**：有時會需要根據在特定時間範圍內發生的多個事件類型來產生警示。
 例如，在家用烤爐的 IoT 案例中，風扇溫度低於 40 且過去 3 分鐘的最大功率低於 10 時，必須發出警示。
 
 **輸入**：
@@ -546,7 +566,7 @@ GROUP BY
 
 **解決方案**：
 
-````
+```SQL
 WITH max_power_during_last_3_mins AS (
     SELECT 
         System.TimeStamp AS windowTime,
@@ -580,12 +600,12 @@ WHERE
     t1.sensorName = 'temp'
     AND t1.value <= 40
     AND t2.maxPower > 10
-````
+```
 
-**說明**：第一個查詢 `max_power_during_last_3_mins` 會使用[滑動時間範圍](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics)來尋找過去 3 分鐘內每個裝置的功率感應器最大值。 系統會將第二個查詢加入第一個查詢，以找出目前事件最近相關時間範圍內的功率值。 然後，假如條件符合，就會針對裝置產生警示。
+**說明**：第一個查詢 `max_power_during_last_3_mins` 會使用[滑動視窗](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) \(英文\) 來尋找過去 3 分鐘內每個裝置的功率感應器最大值。 系統會將第二個查詢加入第一個查詢，以找出目前事件最近相關時間範圍內的功率值。 然後，假如條件符合，就會針對裝置產生警示。
 
-## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>查詢範例：與裝置時鐘誤差 (子串流) 無關的處理事件
-**描述**：事件會由於事件產生器之間的時鐘誤差、分割之間的時鐘誤差或網路延遲而晚發生或順序錯誤。 在下列範例中，TollID 2 的裝置時鐘比 TollID 1 晚 10 秒，而且 TollID 3 的裝置時鐘比 TollID 1 晚 5 秒。 
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>查詢範例：獨立於裝置時鐘誤差 (子串流) 的處理事件
+**描述**：事件會因事件產生器之間的時鐘誤差、分割之間的時鐘誤差或網路延遲，而導致延遲發生或順序錯誤。 在下列範例中，TollID 2 的裝置時鐘比 TollID 1 晚 10 秒，而且 TollID 3 的裝置時鐘比 TollID 1 晚 5 秒。 
 
 
 **輸入**：
@@ -612,18 +632,62 @@ WHERE
 
 **解決方案**：
 
-````
+```SQL
 SELECT
       TollId,
       COUNT(*) AS Count
 FROM input
       TIMESTAMP BY Time OVER TollId
 GROUP BY TUMBLINGWINDOW(second, 5), TollId
+```
 
-````
+**說明**：[TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) \(英文\) 子句會使用子串流個別查看每個裝置時間軸。 計算時會產生每個 TollID 的輸出事件，這表示事件的順序均與每個 TollID 有關，而不會重新排列順序，就像所有裝置都依據同一個時鐘一般。
 
-**說明**：[TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) 子句會使用子串流個別查看每個裝置時間軸。 計算時會產生每個 TollID 的輸出事件，這表示事件的順序均與每個 TollID 有關，而不會重新排列順序，就像所有裝置都依據同一個時鐘一般。
+## <a name="query-example-remove-duplicate-events-in-a-window"></a>查詢範例：移除時間範圍內的重複事件
+**描述**：執行如計算指定時間範圍內事件平均值的作業時，應該要將重複的事件篩選出來。
 
+**輸入**：  
+
+| deviceId | 時間 | 屬性 | 值 |
+| --- | --- | --- | --- |
+| 1 |2018-07-27T00:00:01.0000000Z |溫度 |50 |
+| 1 |2018-07-27T00:00:01.0000000Z |溫度 |50 |
+| 2 |2018-07-27T00:00:01.0000000Z |溫度 |40 |
+| 1 |2018-07-27T00:00:05.0000000Z |溫度 |60 |
+| 2 |2018-07-27T00:00:05.0000000Z |溫度 |50 |
+| 1 |2018-07-27T00:00:10.0000000Z |溫度 |100 |
+
+**輸出**：  
+
+| AverageValue | deviceId |
+| --- | --- |
+| 70 | 1 |
+|45 | 2 |
+
+**解決方案**：
+
+```SQL
+With Temp AS (
+    SELECT
+        COUNT(DISTINCT Time) AS CountTime,
+        Value,
+        DeviceId
+    FROM
+        Input TIMESTAMP BY Time
+    GROUP BY
+        Value,
+        DeviceId,
+        SYSTEM.TIMESTAMP
+)
+
+SELECT
+    AVG(Value) AS AverageValue, DeviceId
+INTO Output
+FROM Temp
+GROUP BY DeviceId,TumblingWindow(minute, 5)
+```
+
+**說明**：[COUNT(DISTINCT Time)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics) 會傳回時間範圍內 Time 資料行中的相異值數目。 您可以接著使用此步驟的輸出，透過捨棄重複項目來計算每個裝置的平均值。
 
 ## <a name="get-help"></a>取得說明
 如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 2ff7221a3742f59cdef2c5c7c220cc80148b94d0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b8f7142b2bd8e07e4b92c37b7e06bc4fe09efb73
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721556"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580411"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>在 Azure Service Fabric 中定期備份和還原
 > [!div class="op_single_selector"]
@@ -146,6 +146,9 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
+> [!IMPORTANT]
+> 因為執行階段發生問題，請確定保留原則中的保留持續時間設定為小於 24 天，否則它會導致備份還原服務在複本容錯移轉後進入仲裁遺失狀態。
+
 ### <a name="enable-periodic-backup"></a>啟用定期備份
 定義可滿足應用程式資料保護需求的原則之後，應該將該備份原則與應用程式建立關聯。 視需求而定，備份原則可以與應用程式、服務或分割區建立關聯。
 
@@ -222,9 +225,13 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
+## <a name="known-issues"></a>已知問題
+- 請確定保留持續時間已設定為小於 24 天。 
+- 「備份還原」服務不會出現在小數點分隔符號不是 '.' 的地區設定上
+- 使用 gMSA 基礎安全性保護叢集時，「備份還原」服務無法啟動。
+
 ## <a name="limitation-caveats"></a>限制 / 注意事項
 - 沒有任何 Service Fabric 內建 PowerShell Cmdlet。
-- 不支援 Service Fabric CLI。
 - 不支援 Linux 上的 Service Fabric 叢集。
 
 ## <a name="next-steps"></a>後續步驟

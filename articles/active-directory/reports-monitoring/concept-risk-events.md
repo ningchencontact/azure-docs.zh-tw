@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6c1b9fabe89d254524006a21e3a422221791022d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4bca7ed2f10ce6b0231a260a9cf5b7468476343f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625261"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652144"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 風險事件
 
@@ -31,7 +31,9 @@ ms.locfileid: "51625261"
  - **Azure AD 報告** - 風險事件屬於 Azure AD 的安全性報表。 如需詳細資訊，請參閱[有風險的安全性報告上的使用者](concept-user-at-risk.md)和[有風險的登入安全性報告](concept-risky-sign-ins.md)。
 
  - **Azure AD Identity Protection** - 風險事件也屬於 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 的報告功能。
-    
+
+此外，您可以使用 [Identity Protection 風險事件 API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) 來透過 Microsoft Graph 以程式設計方式存取安全性偵測。 如需詳細資訊，請參閱[開始使用 Azure Active Directory Identity Protection 和 Microsoft Graph](../identity-protection/graph-get-started.md)。 
+
 Azure Active Directory 目前會偵測六種風險事件類型：
 
 - [認證外洩的使用者](#leaked-credentials) 
@@ -125,7 +127,7 @@ Identity Protection 偵測到來不熟悉位置的登入也適用於基本驗證
 
 例如， 
 
-* **高**：高信賴度和高嚴重性風險事件。 這些事件強烈指出使用者的身分識別已遭入侵，而且應該立即補救任何受影響的使用者帳戶。
+* **高**：信賴度和高嚴重性風險事件。 這些事件強烈指出使用者的身分識別已遭入侵，而且應該立即補救任何受影響的使用者帳戶。
 
 * **中**：高嚴重性，但信賴度較低的風險事件，或反之亦然。 這些事件具有潛在風險，而且應該補救任何受影響的使用者帳戶。
 

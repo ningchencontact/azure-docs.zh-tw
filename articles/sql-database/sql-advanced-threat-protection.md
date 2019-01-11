@@ -10,13 +10,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: ea7b4def23f766e6cda1e1e8e1d4e8dc7be302fe
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 12/16/2018
+ms.openlocfilehash: 40f6b6effa509fd2cfa40ecfc758ac37e0a66778
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997598"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538600"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL 資料庫的進階威脅防護
 
@@ -30,7 +30,7 @@ SQL 進階威脅防護 (ATP) 提供一組進階的 SQL 安全性功能，包括�
 - [弱點評估](sql-vulnerability-assessment.md)是容易設定的服務，可探索、追蹤及協助您修復潛在的資料庫弱點。 它可讓您檢視安全性狀態，且包含解決安全性問題和增強資料庫防護性的可行步驟。
 - [威脅偵測](sql-database-threat-detection-overview.md)可偵測異常活動，指出有不尋常及可能有害的活動試圖存取或惡意探索您的資料庫。 它會持續監視您的資料庫是否有可疑的活動，並在發現潛在弱點、SQL 插入式攻擊和異常資料庫存取模式時提供即時安全性警示。 威脅偵測警示會提供可疑活動的詳細資料，以及如何調查與降低威脅的建議。
 
-只要啟用 SQL ATP，其中包含的所有功能即會一併啟用。 只要按一下按鍵，即可對您的整個資料庫伺服器啟用 ATP，套用至伺服器上所有的資料庫。 
+只要啟用 SQL ATP，其中包含的所有功能即會一併啟用。 只要按一下按鍵，即可對您的整個資料庫伺服器啟用 ATP，套用至伺服器上所有的資料庫。 啟用或管理 ATP 設定需要屬於 [SQL 安全性管理員角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager)、SQL 資料庫系統管理員角色或 SQL Server 系統管理員角色。 
 
 ATP 的定價與 Azure 資訊安全中心標準層相同，每一個受保護的 SQL Database 伺服器計為一個節點。 新的受保護資源適用資訊安全中心標準層的免費試用。 如需詳細資訊，請參閱 [Azure 資訊安全中心定價頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 

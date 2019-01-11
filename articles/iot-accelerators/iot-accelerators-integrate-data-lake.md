@@ -1,5 +1,5 @@
 ---
-title: 整合遠端監視解決方案與 Azure Data Lake Store | Microsoft Docs
+title: 整合遠端監視解決方案與 Data Lake Store - Azure | Microsoft Docs
 description: 了解如何使用 Azure 串流分析作業來整合遠端監視解決方案與 Azure Data Lake Store。
 author: philmea
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: a918866ff5e206ea4d2dedde2711424924a478fe
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188059"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603924"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>整合遠端監視解決方案與 Azure Data Lake Store
 

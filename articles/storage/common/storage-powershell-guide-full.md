@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 35813573be9b069cc920f5ede813503ab1b99b4a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0db6cc02be385ab82d41ecef214c5b158892c415
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227209"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628129"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>搭配使用 Azure PowerShell 與 Azure 儲存體
 
@@ -34,7 +34,9 @@ Azure PowerShell 用來從 PowerShell 命令列或在指令碼中建立和管理
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-這個練習需要 Azure PowerShell 模組 4.4 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+這個練習需要 Azure PowerShell 模組 Az 0.7 版或更新版本。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 
 
 在此練習中，您可以將命令鍵入一般 PowerShell 視窗中，或者使用 [Windows PowerShell 整合指令碼環境 (ISE)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-)，並在編輯器中鍵入命令，然後在您瀏覽範例時一次測試一或多個命令。 您可以反白顯示您要執行的資料列，然後按一下 [執行選取項目] 只執行這些命令。
 
@@ -42,18 +44,18 @@ Azure PowerShell 用來從 PowerShell 命令列或在指令碼中建立和管理
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+使用 `Connect-AzAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>列出訂用帳戶中的儲存體帳戶
 
-執行 [Get-AzureRMStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) Cmdlet，來擷取目前訂用帳戶中的儲存體帳戶清單。 
+執行 [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) Cmdlet，來擷取目前訂用帳戶中的儲存體帳戶清單。 
 
 ```powershell
-Get-AzureRMStorageAccount | Select StorageAccountName, Location
+Get-AzStorageAccount | Select StorageAccountName, Location
 ```
 
 ## <a name="get-a-reference-to-a-storage-account"></a>取得儲存體帳戶的參考
@@ -62,13 +64,13 @@ Get-AzureRMStorageAccount | Select StorageAccountName, Location
 
 ### <a name="use-an-existing-storage-account"></a>使用現有儲存體帳戶 
 
-若要擷取現有儲存體帳戶，您需要資源群組名稱和儲存體帳戶名稱。 設定這兩個欄位的變數，然後使用 [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) Cmdlet。 
+若要擷取現有儲存體帳戶，您需要資源群組名稱和儲存體帳戶名稱。 設定那兩個欄位的變數，然後使用 [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) Cmdlet。 
 
 ```powershell
 $resourceGroup = "myexistingresourcegroup"
 $storageAccountName = "myexistingstorageaccount"
 
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName 
 ```
 
@@ -76,23 +78,23 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶 
 
-下列指令碼示範如何使用 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 建立一般用途儲存體帳戶。 在您建立帳戶之後，請擷取其內容，而此內容可以用於後續命令，而不是指定具有每個呼叫的驗證。
+下列指令碼示範如何使用 [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) 建立一般用途的儲存體帳戶。 在您建立帳戶之後，請擷取其內容，而此內容可以用於後續命令，而不是指定具有每個呼叫的驗證。
 
 ```powershell
 # Get list of locations and select one.
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "eastus"
 
 # Create a new resource group.
 $resourceGroup = "teststoragerg"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
+New-AzResourceGroup -Name $resourceGroup -Location $location 
 
 # Set the name of the storage account and the SKU name. 
 $storageAccountName = "testpshstorage"
 $skuName = "Standard_LRS"
     
 # Create the storage account.
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName $skuName
@@ -103,11 +105,11 @@ $ctx = $storageAccount.Context
 
 指令碼會使用下列 PowerShell Cmdlet： 
 
-*   [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) -- 擷取有效的位置清單。 這個範例使用 `eastus` 作為位置。
+*   [Get-AzLocation](/powershell/module/az.resources/get-azlocation) -- 擷取有效位置的清單。 這個範例使用 `eastus` 作為位置。
 
-*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) -- 建立新的資源群組。 資源群組是在其中部署和管理 Azure 資源的邏輯容器。 稱為 `teststoragerg`。 
+*   [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) -- 建立新的資源群組。 資源群組是在其中部署和管理 Azure 資源的邏輯容器。 稱為 `teststoragerg`。 
 
-*   [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) -- 建立儲存體帳戶。 這個範例使用 `testpshstorage`。
+*   [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) -- 建立儲存體帳戶。 這個範例使用 `testpshstorage`。
 
 SKU 名稱指出儲存體帳戶的複寫類型，例如 LRS (本地備援儲存體)。 如需複寫的詳細資訊，請參閱 [Azure 儲存體複寫](storage-redundancy.md)。
 
@@ -123,7 +125,7 @@ SKU 名稱指出儲存體帳戶的複寫類型，例如 LRS (本地備援儲存�
 
 ### <a name="storage-account-properties"></a>儲存體帳戶屬性
 
-若要變更儲存體帳戶的設定，請使用 [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount)。 雖然您無法變更儲存體帳戶或其所在資源群組的位置，但是可以變更許多其他屬性。 以下列出一些您可使用 PowerShell 變更的屬性。
+若要變更儲存體帳戶的設定，請使用 [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount)。 雖然您無法變更儲存體帳戶或其所在資源群組的位置，但是可以變更許多其他屬性。 以下列出一些您可使用 PowerShell 變更的屬性。
 
 * 指派給儲存體帳戶的**自訂網域**。
 
@@ -137,19 +139,19 @@ SKU 名稱指出儲存體帳戶的複寫類型，例如 LRS (本地備援儲存�
 
 ### <a name="manage-the-access-keys"></a>管理存取金鑰
 
-Azure 儲存體帳戶會隨附兩個帳戶金鑰。 若要擷取金鑰，請使用 [Get-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/Get-AzureRmStorageAccountKey)。 這個範例會擷取第一個金鑰。 若要擷取另一個金鑰，請使用 `Value[1]`，而非 `Value[0]`。
+Azure 儲存體帳戶會隨附兩個帳戶金鑰。 若要擷取金鑰，請使用 [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey)。 這個範例會擷取第一個金鑰。 若要擷取另一個金鑰，請使用 `Value[1]`，而非 `Value[0]`。
 
 ```powershell
 $storageAccountKey = `
-    (Get-AzureRmStorageAccountKey `
+    (Get-AzStorageAccountKey `
     -ResourceGroupName $resourceGroup `
     -Name $storageAccountName).Value[0]
 ```
 
-若要重新產生金鑰，請使用 [New-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccountKey)。 
+若要重新產生金鑰，請使用 [New-AzStorageAccountKey](/powershell/module/az.Storage/New-azStorageAccountKey)。 
 
 ```powershell
-New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
+New-AzStorageAccountKey -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -KeyName key1 
 ```
@@ -164,10 +166,10 @@ New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
 
 ### <a name="delete-a-storage-account"></a>刪除儲存體帳戶 
 
-若要刪除儲存體帳戶，請使用 [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount)。
+若要刪除儲存體帳戶，請使用 [Remove-AzStorageAccount](/powershell/module/az.storage/Remove-azStorageAccount)。
 
 ```powershell
-Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
+Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
 ```
 
 > [!IMPORTANT]
@@ -179,9 +181,9 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 任何可存取網際網路的網路預設都可以存取所有儲存體帳戶。 不過，您可以設定網路規則，只允許來自特定虛擬網路的應用程式存取儲存體帳戶。 如需詳細資訊，請參閱[設定 Azure 儲存體防火牆和虛擬網路](storage-network-security.md)。 
 
 本文示範如何使用下列 PowerShell Cmdlet 來管理這些設定：
-* [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
-* [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
-* [Remove-AzureRmStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.storage/remove-azurermstorageaccountnetworkrule?view=azurermps-6.8.1)
+* [Add-AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
+* [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
+* [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule) \(英文\)
 
 ## <a name="use-storage-analytics"></a>使用儲存體分析  
 
@@ -231,7 +233,7 @@ Azure Cosmos DB 資料表 API 提供資料表儲存體的高階功能，例如�
 如果您針對這個練習建立新的資源群組和儲存體帳戶，您可以藉由移除資源群組來移除您建立的所有資產。 這會同時刪除群組內含的所有資源。 在本例中，它會移除建立的儲存體帳戶和資源群組本身。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 ## <a name="next-steps"></a>後續步驟
 
@@ -248,6 +250,6 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 本文也提供數個其他文章的參考，例如如何管理資料物件、如何啟用儲存體分析，以及如何存取 Azure 獨立雲端 (例如中國雲端、德國雲端和政府雲端)。 以下是可供參考的一些其他相關文章和資源：
 
-* [Azure 儲存體控制層 PowerShell Cmdlet](/powershell/module/AzureRM.Storage/)
+* [Azure 儲存體控制層 PowerShell Cmdlet](/powershell/module/az.storage/)
 * [Azure 儲存體資料層 PowerShell Cmdlet](/powershell/module/azure.storage/)
 * [Windows PowerShell 參考](https://msdn.microsoft.com/library/ms714469.aspx)

@@ -13,14 +13,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2bba11cd8b0e90f7835872e496c790aa56fcddc8
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 47a89da808e2f53cf8dfc901c64eba3d78842d13
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276899"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652025"
 ---
-# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>操作說明：使用 Azure Active Directory 報告對登入錯誤進行疑難排解
+# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>作法：使用 Azure Active Directory 報告對登入錯誤進行疑難排解
 
 Azure Active Directory (Azure AD) 中的[登入報告](concept-sign-ins.md)可讓您找到組織中有關應用程式存取管理問題的答案，包括：
 
@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) 中的[登入報告](concept-sign-ins.md)可�
 
 您需要：
 
-* 具有進階 (P1/P2) 授權的 Azure AD 租用戶。 
+* 具有進階 (P1/P2) 授權的 Azure AD 租用戶。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 來升級 Azure Active Directory 版本。
 * 所擔任的租用戶角色為**全域系統管理員**、**安全性系統管理員**、**安全性讀取者**或**報告讀取者** 的使用者。 此外，任何使用者都可以存取自己的登入資訊。 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>使用登入報告對登入錯誤進行疑難排解

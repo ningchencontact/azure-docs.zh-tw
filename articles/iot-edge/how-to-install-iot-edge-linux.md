@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: beda9fa096dd8308822a5cd5a816b569712b8c05
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9945b0aad32fe9abc6a51132a287da10f1b28daa
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086082"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557745"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>在 Linux (x64) 上安裝 Azure IoT Edge 執行階段
 
@@ -206,7 +206,39 @@ sudo iotedge list
 
 如果您的網路具有 Proxy 伺服器，請遵循[設定您的 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)中的步驟。
 
+## <a name="uninstall-iot-edge"></a>解除安裝 IoT Edge
+
+如果您想要從 Linux 裝置中移除 IoT Edge 安裝，請在命令列中使用下列命令。 
+
+移除 IoT Edge 執行階段。 
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+IoT Edge 執行階段移除後，它所建立的容器隨即停止，但仍會存在於您的裝置上。 檢視所有容器以查看哪些容器保留下來。 
+
+```bash
+sudo docker ps -a
+```
+
+刪除您裝置中的容器，包括兩個執行階段容器。 
+
+```bash
+sudo docker rm -f <container name>
+```
+
+最後，移除裝置中的容器執行階段。 
+
+```bash 
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## <a name="next-steps"></a>後續步驟
+
+現在您已佈建 IoT Edge 裝置並安裝執行階段，接下來您可以[部署 IoT Edge 模組](how-to-deploy-modules-portal.md)。
 
 如果您有 Edge 執行階段是否正確安裝的問題，請參閱[疑難排解](troubleshoot.md)頁面。
 
+若要將現有安裝更新為最新版的 IoT Edge，請參閱[更新 IoT Edge 安全性精靈和執行階段](how-to-update-iot-edge.md)。

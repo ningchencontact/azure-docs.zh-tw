@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 1c99b7a3eecdd7938b4813647afb9e48fb0173a0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739272"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791042"
 ---
 # <a name="design-considerations-for-scale-sets"></a>擴展集的設計考量
 本文會討論虛擬機器擴展集的設計考量。 如需虛擬機器擴展集的相關資訊，請參閱 [虛擬機器擴展集概觀](virtual-machine-scale-sets-overview.md)。
@@ -71,7 +71,7 @@ ms.locfileid: "50739272"
 
 以使用者管理的儲存體設定的擴展集目前受限於 100 部 VM (且建議此擴展集有 5 個儲存體帳戶)。
 
-若以 Azure 受控磁碟進行設定，以自訂映像 (由您建立的映像) 為建置基礎的擴展集可以有多達 300 部 VM。 如果以使用者管理的儲存體帳戶設定擴展集，它必須在一個儲存體帳戶內建立所有的 OS 磁碟 VHD。 因此，在以自訂映像和使用者管理的儲存體為建置基礎的擴展集中建議 VM 數上限為 20。 如果關閉過度佈建，數目上限為 40。
+若以 Azure 受控磁碟進行設定，以自訂映像 (由您建立的映像) 為建置基礎的擴展集可以有多達 600 部 VM。 如果以使用者管理的儲存體帳戶設定擴展集，它必須在一個儲存體帳戶內建立所有的 OS 磁碟 VHD。 因此，在以自訂映像和使用者管理的儲存體為建置基礎的擴展集中建議 VM 數上限為 20。 如果關閉過度佈建，數目上限為 40。
 
 如果超出這些限制允許的 VM，您必須部署多個擴展集，如 [這個範本](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)中所示。
 

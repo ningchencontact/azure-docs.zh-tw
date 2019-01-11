@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: a7fe2cf151b79b02f4f8996ad938d8fc262a5f77
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b2733bed4418fdfcaefb20c04683cb6a229134e9
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400175"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594274"
 ---
 # <a name="enable-write-accelerator"></a>啟用寫入加速器
 
@@ -41,7 +41,7 @@ ms.locfileid: "49400175"
 針對 Azure 磁碟/VHD 使用寫入加速器時，適用以下限制：
 
 - 必須將進階磁碟快取設定為「無」或「唯讀」。 不支援所有其他的快取模式。
-- 尚不支援對已啟用寫入加速器的磁碟使用快照集。 這項限制會封鎖「Azure 備份服務」對虛擬機器的所有磁碟執行應用程式一致快照的能力。
+- 已啟用寫入加速器的磁碟目前不支援快照集。 在備份期間，Azure 備份服務會自動排除連接至 VM 之已啟用寫入加速器的磁碟。
 - 只有較小的 I/O 大小 (<=32 KiB) 會採用加速路徑。 在大量載入資料或在不同 DBMS 的交易記錄緩衝區保存到儲存體之前就達到較大填滿程度的工作負載情況下，寫入磁碟的 I/O 可能不會採用加速路徑。
 
 寫入加速器可以支援之每個 VM 的 Azure 進階儲存體 VHD 有其上限。 目前的上限是：

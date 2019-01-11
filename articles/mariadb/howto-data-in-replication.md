@@ -3,17 +3,15 @@ title: 設定資料輸入複寫，以將資料複寫至適用於 MariaDB 的 Azu
 description: 此文章將說明如何為適用於 MariaDB 的 Azure 資料庫設定資料輸入複寫。
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f75b3e33cbd5719211bb30b22ab8d53c344b5579
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212755"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548896"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>如何為適用於 MariaDB 的 Azure 資料庫設定資料輸入複寫
 

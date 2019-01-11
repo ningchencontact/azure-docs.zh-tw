@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 06/25/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6c648a9cb6b8d8dbfb60f1a5a6ebc386c57460b0
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: b4aec7ff560b0695175a18c9c7e429a8ab733345
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887241"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633703"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 
 本文說明用來執行 Azure Analysis Services 伺服器和資料庫管理工作的 PowerShell Cmdlet。 
 
-伺服器管理工作，例如建立或刪除伺服器、暫停或繼續伺服器作業，或是變更服務等級 (層級)，會使用 Azure Resource Manager (資源) Cmdlet 和 Analysis Services (伺服器) Cmdlet。 其他資料庫管理工作 (例如新增或移除角色成員、處理或資料分割) 會使用與 SQL Server Analysis Services 相同之 SqlServer 模組內含的 Cmdlet。
+伺服器管理工作 (例如建立或刪除伺服器、暫停或繼續伺服器作業，或是變更服務等級 (層級)) 會使用 Azure Resource Manager (資源) Cmdlet 和 Analysis Services (伺服器) Cmdlet。 其他資料庫管理工作 (例如新增或移除角色成員、處理或資料分割) 會使用與 SQL Server Analysis Services 相同之 SqlServer 模組內含的 Cmdlet。
 
 ## <a name="permissions"></a>權限
 大部分的 PowerShell 工作需要您在您管理的 Analysis Services 伺服器上具備系統管理員權限。 排定的 PowerShell 工作都是自動的作業。 執行排程器的帳戶和服務主體必須具有 Analysis Services 伺服器上的管理員權限。 
@@ -50,7 +50,7 @@ ms.locfileid: "42887241"
 |[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|新增已驗證的帳戶以用於 Azure Analysis Services 伺服器 Cmdlet 要求。| 
 |[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|從目前登入環境中之 Analysis Services 伺服器的執行個體匯出記錄，如 Add-AzureAnalysisServicesAccount 命令所指定|  
 |[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|在目前登入的環境中重新啟動 Analysis Services 伺服器的執行個體；在 Add-AzureAnalysisServicesAccount 命令中指定。|  
-|[Sync-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|將 Analysis Services 伺服器之指定執行個體上的指定資料庫，同步處理到目前登入環境中的所有查詢向外延展執行個體，如 Add-AzureAnalysisServicesAccount 命令所指定|  
+|[Sync-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|如 Add-AzureAnalysisServicesAccount 命令中所指定，將指定的 Analysis Services 伺服器執行個體上的指定資料庫，同步處理到目前登入環境中的所有查詢向外延展執行個體|  
 
 ## <a name="database-operations"></a>資料庫作業
 

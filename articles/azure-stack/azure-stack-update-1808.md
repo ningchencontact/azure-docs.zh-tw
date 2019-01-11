@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098085"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754538"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 更新
 
@@ -184,7 +184,7 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
 - 在系統管理員和使用者入口網站中，按一下入口網站設定，然後選取 [刪除所有設定和私人儀表板]，並未如預期運作。 錯誤通知隨即顯示。 
 
 <!-- 2930799 - IS ASDK --> 
-- 在系統管理員和使用者入口網站中，[所有服務] 底下的 [DDoS 保護計劃] 資產未正確列出。 實際上，它無法在 Azure Stack 中使用。 如果您嘗試建立它，則會顯示錯誤，表示入口網站無法建立 Marketplace 項目。 
+- 在系統管理員和使用者入口網站中，[所有服務] 底下的 [DDoS 保護計劃] 資產誤列出。 實際上，它無法在 Azure Stack 中使用。 如果您嘗試建立它，則會顯示錯誤，表示入口網站無法建立 Marketplace 項目。 
 
 <!-- 2930820 - IS ASDK --> 
 - 在系統管理員和使用者入口網站中，如果您搜尋 "Docker"，項目未正確傳回。 實際上，它無法在 Azure Stack 中使用。 如果您嘗試建立它，則會顯示具有錯誤指示的刀鋒視窗。 
@@ -253,7 +253,6 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
 <!-- 2368581 - IS. ASDK --> 
 - 身為 Azure Stack 操作員，如果您收到記憶體不足的警示，而且租用戶虛擬機器無法部署並出現「Fabric VM 建立錯誤」，則可能表示 Azure Stack 戳記的可用記憶體不足。 請使用 [Azure Stack 容量規劃工具](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)來充分了解可供工作負載使用的容量。
 
-
 ### <a name="compute"></a>計算
 
 <!-- 3164607 – IS, ASDK -->
@@ -293,7 +292,7 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
 <!--  2795678 – IS, ASDK --> 
 - 當您使用入口網站以進階 VM 大小 (DS、Ds_v2、FS、FSv2) 建立虛擬機器 (VM) 時，會在標準儲存體帳戶中建立 VM。 在標準儲存體帳戶中建立不會影響功能、IOP 或帳單。 
 
-   您可以放心地忽略警告，該警告指出：*「您已選擇在支援進階磁碟的大小上使用標準磁碟。這樣可能會影響作業系統效能，並不建議使用。請考慮改為使用進階儲存體 (SSD)。」*
+   您可以安心忽略指出下列訊息的警告：*您選擇在支援進階磁碟的大小上使用標準磁碟。這樣可能會影響作業系統效能，並不建議使用。請考慮改為使用進階儲存體 (SSD)。」*
 
 <!-- 2967447 - IS, ASDK --> 
 - 虛擬機器擴展集 (VMSS) 建立體驗會提供 CentOS 架構 7.2 作為部署選項。 因為該映像在 Azure Stack 上無法使用，所以請為您的部署選取其他作業系統，或使用 Azure Resource Manager 範本指定另一個 CentOS 映像，但操作員必須在部署之前已從市集下載該印象。  
@@ -315,9 +314,9 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
 
    若要尋找該 VM 的「CPU 百分比」圖表，請移至 [計量] 刀鋒視窗並顯示所有支援的 Windows VM 客體計量。
 
+- 所建立的 Ubuntu 18.04 VM 如果已啟用 SSH 授權，將不會允許您使用 SSH 金鑰來登入。 因應措施是，請在佈建後使用「適用於 Linux 的 VM 存取」延伸模組來實作 SSH 金鑰，或使用密碼型驗證。
 
-
-### <a name="networking"></a>網路  
+### <a name="networking"></a>網路功能  
 
 <!-- 1766332 - IS ASDK --> 
 - 如果您在 [網路] 下按一下 [建立 VPN 閘道] 來設定 VPN 連線，系統就會將 [原則式] 列為 VPN 類型。 請勿選取此選項。 Azure Stack 只支援 [路由式] 選項。
@@ -361,8 +360,10 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
 
 
 ## <a name="download-the-update"></a>下載更新
-您可以從[這裡](https://aka.ms/azurestackupdatedownload)下載 Azure Stack 1808 更新套件。
-  
+
+您可以從[這裡](https://aka.ms/azurestackupdatedownload)下載 Azure Stack 1808 更新套件。 
+
+Azure Stack 部署會定期檢查受保護的端點，並在有您雲端適用的更新時自動通知您，但僅限於已連線的情況下。 如需詳細資訊，請參閱[管理 Azure Stack 的更新](azure-stack-updates.md)。
 
 ## <a name="next-steps"></a>後續步驟
 - 若要檢閱 Azure Stack 整合式系統的服務原則，以及必須如何做才能將狀態保持在支援的狀態，請參閱 [Azure Stack 服務原則](azure-stack-servicing-policy.md)。  

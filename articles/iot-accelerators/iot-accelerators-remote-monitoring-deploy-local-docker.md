@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: cf3c30d33e618ae3fd9d4ad942c77d211a414e82
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288539"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601146"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>本機部署遠端監視解決方案加速器 - Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-本文會示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。 您可了解如何將微服務部署盪本機的 Docker 容器。 本機微服務部署使用下列雲端服務：雲端中的 IoT 中樞、Cosmos DB、Azure 串流分析及 Azure 時間序列深入解析服務。
+本文會示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。 您可了解如何將微服務部署盪本機的 Docker 容器。 本機微服務部署會使用下列雲端服務：IoT 中樞、Cosmos DB、Azure 串流分析，以及雲端中的 Azure 時間序列深入解析服務。
 
 如果您想要在本機電腦上執行 IDE 中的遠端監視解決方案加速器，請參閱[本機部署遠端監視解決方案加速器 - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md)。
 
@@ -27,7 +27,7 @@ ms.locfileid: "51288539"
 
 若要部署遠端監視解決方案加速器所使用的 Azure 服務，您需要一個有效的 Azure 訂用帳戶。
 
-如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ### <a name="machine-setup"></a>電腦設定
 
@@ -72,11 +72,11 @@ docker-compose up
 > [!TIP]
 > Microsoft 經常會發佈包含新功能的新 Docker 映像。 在您提取最新的映像之前，可以使用下列這組命令來清除本機 Docker 容器和對應的映像：
 
-    ```cmd/sh
-    docker list
-    docker rm <list_of_containers>
-    docker rmi <list_of_images>
-    ```
+```cmd/sh
+docker list
+docker rm <list_of_containers>
+docker rmi <list_of_images>
+```
 
 您可以使用個別殼層來檢視容器中的記錄。 請先使用 `docker ps` 命令來尋找容器識別碼。 然後使用 `docker logs {container-id} --tail 1000` 來檢視指定容器的最後 1000 個項目。
 

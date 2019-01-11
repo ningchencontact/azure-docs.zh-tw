@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4285c633062386657cbea478f327c9a1b088f16a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 785223f7da1f59288f4fca6e7a3955a6b3af41c0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383811"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974982"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Presto
 
@@ -31,9 +31,7 @@ HDInsight 也提供 Starburst Presto 應用程式，以供 Apache Hadoop 叢集�
 > [!WARNING]  
 > 透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務將協助釐清與解決這些元件的相關問題。
 > 
-> 自訂元件 (例如 Presto) 會獲得商務上合理的支援，協助您進一步針對問題進行疑難排解。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，像是：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如：[Hadoop](http://hadoop.apache.org/)。
-> 
-> 
+> 自訂元件 (例如 Presto) 會獲得商務上合理的支援，協助您進一步針對問題進行疑難排解。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，像是：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)、[https://stackoverflow.com](https://stackoverflow.com)。 此外，Apache 專案在 [https://apache.org](https://apache.org) 上也有專案網站，例如：[Hadoop](https://hadoop.apache.org/)。
 
 
 ## <a name="install-presto-using-script-action"></a>使用指令碼動作來安裝 Presto
@@ -44,7 +42,7 @@ HDInsight 也提供 Starburst Presto 應用程式，以供 Apache Hadoop 叢集�
 
     * 必須為隨附 HDInsight 3.6 版的 Hadoop 叢集。
 
-    * 它必須使用 Azure 儲存體作為資料存放區。 尚無法選擇在將 Azure Data Lake Store 作為儲存體選項的叢集上使用 Presto。
+    * 它必須使用 Azure 儲存體作為資料存放區。 尚無法選擇在使用 Azure Data Lake Storage 作為儲存體選項的叢集上使用 Presto。
 
     ![使用自訂選項建立 HDInsight 叢集](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
@@ -123,17 +121,23 @@ HDInsight 也提供 Starburst Presto 應用程式，以供 Apache Hadoop 叢集�
 
 5. 按一下 [購買]。
 
-6. 將變更套用到叢集設定後，您可以使用下列步驟來存取 Airpal web 介面。
+6. 將變更套用到叢集設定後，您可以從 [Azure 入口網站](https://portal.azure.com)使用下列步驟來存取 Airpal Web 介面：
 
-    1. 在叢集對話方塊中，按一下 [應用程式]。
+    1. 從左側功能表中選取 [所有服務]。
+
+    1. 在 [分析] 底下，選取 [HDInsight 叢集]。
+
+    1. 從清單中選取您的叢集，隨即將開啟預設檢視。
+
+    1. 從預設檢視中，在 [設定] 底下，選取 [應用程式]。
 
         ![HDInsight 在 Presto 叢集上啟動 Airpal](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
 
-    2. 在 [安裝應用程式] 區域中，針對 Airpal 按一下 [入口網站]。
+    1. 從 [已安裝的應用程式] 頁面中，找到 **airpal** 的資料表項目，然後選取 [入口網站]。
 
         ![HDInsight 在 Presto 叢集上啟動 Airpal](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
 
-    3. 出現提示時，輸入您在建立 HDInsight Hadoop 叢集時指定的系統管理員認證。
+    1. 出現提示時，輸入您在建立 HDInsight Hadoop 叢集時指定的系統管理員認證。
 
 ## <a name="customize-a-presto-installation-on-hdinsight-cluster"></a>在 HDInsight 叢集上自訂 Presto 安裝
 

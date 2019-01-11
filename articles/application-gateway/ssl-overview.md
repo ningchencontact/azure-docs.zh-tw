@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: amsriva
-ms.openlocfilehash: e7020ef5c1f7411c7226e7a2db489112ee6bf0a4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: fcb49f532d5dfcd340baf017bd55c69d4e81e0e6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945496"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630677"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>應用程式閘道端對端 SSL 的概觀
 
@@ -28,10 +28,10 @@ ms.locfileid: "49945496"
 
 ## <a name="end-to-end-ssl-and-whitelisting-of-certificates"></a>端對端 SSL 和憑證白名單
 
-應用程式閘道只會與已知的後端執行個體通訊，後者已將其憑證加入到應用程式閘道的允許清單。 若要啟用憑證允許清單，您必須將後端伺服器憑證的公開金鑰上傳至應用程式閘道 (不是根憑證)。 於是，只允許連接至已知和白名單中的後端。 其餘的後端會導致閘道錯誤。 自我簽署憑證僅供測試之用，並不建議用於生產工作負載。 這類憑證必須如先前步驟所述，加入應用程式閘道的白名單之中，才能使用。
+應用程式閘道只會與已知的後端執行個體通訊，後者已將其憑證加入到應用程式閘道的允許清單。 若要啟用憑證允許清單，您必須將後端伺服器憑證的公開金鑰上傳至應用程式閘道 (不是根憑證)。 於是，只允許連接至已知和白名單中的後端。 其餘的後端會導致閘道錯誤。 自我簽署憑證僅供測試之用，並不建議用於生產工作負載。 這類憑證必須如先前步驟所述，加入應用程式閘道的允許清單之中，才能使用。
 
 > [!NOTE]
-> 受信任的 Azure 服務 (例如 Azure Web Apps) 不需進行驗證憑證設定。
+> 受信任的 Azure 服務 (例如 Azure App Service) 不需進行驗證憑證設定。
 
 ## <a name="end-to-end-ssl-with-the-v2-sku"></a>v2 SKU 的端對端 SSL
 
@@ -39,7 +39,7 @@ ms.locfileid: "49945496"
 
 - 憑證如果是由 CN 與 HTTP 後端設定中主機名稱相符的已知 CA 授權單位所簽署，則無須執行任何其他步驟，端對端 SSL 就能運作。 
 
-   例如，如果後端憑證是由已知 CA 所簽發且 CN 為 contoso.com，而後端 HTTP 設定的主機欄位也設定為 contoso.com，便無須執行任何其他步驟。 您可以將後端 HTTP 設定通訊協定設定為 HTTPS，健康狀態探查和資料路徑就會都啟用 SSL。 如果您使用 Azure Web Apps 或其他 Azure Web 服務作為後端，則這些項目也會隱含地受到信任，而無須執行任何進一步的步驟，即可進行端對端 SSL。
+   例如，如果後端憑證是由已知 CA 所簽發且 CN 為 contoso.com，而後端 HTTP 設定的主機欄位也設定為 contoso.com，便無須執行任何其他步驟。 您可以將後端 HTTP 設定通訊協定設定為 HTTPS，健康狀態探查和資料路徑就會都啟用 SSL。 如果您使用 Azure App Service 或其他 Azure Web 服務作為後端，則這些項目也會隱含地受到信任，而無須執行任何進一步的步驟，即可進行端對端 SSL。
 - 如果憑證是自我簽署的，或由未知的媒介所簽署的，則若要在 v2 SKU 中啟用端對端 SSL，就必須定義受信任的根憑證。 「應用程式閘道」只會與符合下列條件的後端進行通訊：其伺服器憑證的根憑證符合與集區相關之後端 HTTP 設定中受信任根憑證清單內的其中一個憑證。
 - 除了根憑證相符之外，「應用程式閘道」也會驗證後端 HTTP 設定中所指定的「主機」設定是否符合後端伺服器 SSL 憑證所出示的通用名稱 (CN)。 嘗試與後端建立 SSL 連線時，「應用程式閘道」會將「伺服器名稱指示」(SNI) 延伸模組設定為後端 HTTP 設定中所指定的「主機」。
 - 如果選擇**從後端位址挑選主機名稱**，而不是從後端 HTTP 設定中的 [主機] 欄位挑選，則 SNI 標頭會一律設定為後端集區 FQDN，而後端伺服器 SSL 憑證上的 CN 必須符合其 FQDN。 此案例不支援具有 IP 的後端集區成員。

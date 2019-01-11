@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0f6075bcbaae14fc60df6f33f4e65cd4abcec731
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c9e31bdc2b526c442b4ac62d98725254a38e5967
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409457"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794544"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -23,6 +23,8 @@ ms.locfileid: "53409457"
 1. [Azure 儲存體論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)。
 2. [Azure 檔案服務 UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) \(英文\)。
 3. Microsoft 支援服務。 若要建立新的支援要求，在 Azure 入口網站的 [說明] 索引標籤上，選取 [說明 + 支援] 按鈕，然後選取 [新增支援要求]。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>我在伺服器上的 Azure 檔案同步有問題 (同步、雲端分層等)。 我是否應移除並重新建立伺服器端點？
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -468,15 +470,23 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **需要補救** | 是 |
 
-之所以發生此問題，常是因為伺服器時間不正確，或用於驗證的憑證已過期。 如果伺服器時間正確無誤，請執行下列步驟來更新過期的憑證：
+造成此錯誤的原因可能是：
 
-1. 開啟 [憑證 MMC 嵌入式管理單元]，選取 [電腦帳戶]，並瀏覽至 [憑證 (本機電腦)\個人\憑證]。
-2. 檢查用戶端驗證憑證是否已過期。 如果憑證已過期，請關閉憑證 MMC 嵌入式管理單元，並繼續執行其餘的步驟。 
-3. 確認已安裝 Azure 檔案同步代理程式版本 4.0.1.0 或更新版本。
-4. 在伺服器上執行下列 PowerShell 命令：
+- 伺服器時間不正確
+- 伺服器端點刪除失敗
+- 用於驗證的憑證已過期。 
+    若要檢查憑證是否已過期，請執行下列步驟：  
+    1. 開啟 [憑證 MMC 嵌入式管理單元]，選取 [電腦帳戶]，並瀏覽至 [憑證 (本機電腦)\個人\憑證]。
+    2. 檢查用戶端驗證憑證是否已過期。
+
+如果伺服器時間正確無誤，請執行下列步驟來解決問題：
+
+1. 確認已安裝 Azure 檔案同步代理程式版本 4.0.1.0 或更新版本。
+2. 在伺服器上執行下列 PowerShell 命令：
 
     ```PowerShell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Login-AzureRmStorageSync -SubscriptionID <guid> -TenantID <guid>
     Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 
@@ -562,14 +572,14 @@ PerItemErrorCount: 1006.
 
 ### <a name="common-troubleshooting-steps"></a>常用的疑難排解步驟
 <a id="troubleshoot-storage-account"></a>**確認儲存體帳戶確實存在。**  
-# <a name="portaltabportal"></a>[入口網站](#tab/portal)
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 1. 瀏覽至儲存體同步服務中的同步群組。
 2. 選取同步群組內的雲端端點。
 3. 記下開啟的窗格中顯示的 Azure 檔案共用名稱。
 4. 選取連結的儲存體帳戶。 如果此連結失敗，表示參考的儲存體帳戶已移除。
     ![此螢幕擷取畫面顯示有連結通往儲存體帳戶的雲端端點詳細資料窗格。](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
 # Variables for you to populate based on your configuration
 $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
@@ -583,20 +593,20 @@ Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
 
 # Log into the Azure account and put the returned account information
 # in a reference variable.
-$acctInfo = Connect-AzureRmAccount
+$acctInfo = Connect-AzAccount
 
 # this variable stores your subscription ID 
 # get the subscription ID by logging onto the Azure portal
 $subID = $acctInfo.Context.Subscription.Id
 
 # this variable holds your Azure Active Directory tenant ID
-# use Login-AzureRMAccount to get the ID from that context
+# use Login-AzAccount to get the ID from that context
 $tenantID = $acctInfo.Context.Tenant.Id
 
 # Check to ensure Azure File Sync is available in the selected Azure
 # region.
 $regions = [System.String[]]@()
-Get-AzureRmLocation | ForEach-Object { 
+Get-AzLocation | ForEach-Object { 
     if ($_.Providers -contains "Microsoft.StorageSync") { 
         $regions += $_.Location 
     } 
@@ -609,7 +619,7 @@ if ($regions -notcontains $region) {
 
 # Check to ensure resource group exists and create it if doesn't
 $resourceGroups = [System.String[]]@()
-Get-AzureRmResourceGroup | ForEach-Object { 
+Get-AzResourceGroup | ForEach-Object { 
     $resourceGroups += $_.ResourceGroupName 
 }
 
@@ -656,7 +666,7 @@ $cloudEndpoint = Get-AzureRmStorageSyncCloudEndpoint `
     -SyncGroupName $syncGroup
 
 # Get reference to storage account
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
     $_.Id -eq $cloudEndpoint.StorageAccountResourceId
 }
 
@@ -667,12 +677,12 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-network-rules"></a>**檢查並確定儲存體帳戶未包含任何網路規則。**  
-# <a name="portaltabportal"></a>[入口網站](#tab/portal)
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 1. 在進入儲存體帳戶後，選取位於儲存體帳戶左側的 [防火牆和虛擬網路]。
 2. 在儲存體帳戶中，應選取 [允許從所有網路存取] 選項按鈕。
     ![顯示已停用儲存體帳戶防火牆和網路規則的螢幕擷取畫面。](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
@@ -683,12 +693,12 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**確定 Azure 檔案共用確實存在。**  
-# <a name="portaltabportal"></a>[入口網站](#tab/portal)
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 1. 按一下位於目錄左側的 [概觀]，以返回主要儲存體帳戶頁面。
 2. 選取 [檔案]，以檢視檔案共用清單。
 3. 確認雲端端點所參考的檔案共用出現在檔案共用清單中 (您應已先前的步驟 1 中記下這項資料)。
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
 $fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
@@ -702,7 +712,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**確定 Azure 檔案同步具有儲存體帳戶的存取權。**  
-# <a name="portaltabportal"></a>[入口網站](#tab/portal)
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 1. 按一下左側目錄的 [存取控制 (IAM)]。
 1. 按一下 [角色指派] 索引標籤，列出可存取儲存體帳戶的使用者和應用程式 (*服務主體*)。
 1. 確認 [混合式檔案同步服務] 連同 [讀取者及資料存取] 角色出現在清單中。 
@@ -715,10 +725,10 @@ if ($fileShare -eq $null) {
     - 在 [角色] 欄位中，選取 [讀取者及資料存取]。
     - 在 [選取] 欄位中，輸入 [混合式檔案同步服務]，選取角色並按一下 [儲存]。
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell    
 $foundSyncPrincipal = $false
-Get-AzureRmRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
+Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
     if ($_.DisplayName -eq "Hybrid File Sync Service") {
         $foundSyncPrincipal = $true
         if ($_.RoleDefinitionName -ne "Reader and Data Access") {

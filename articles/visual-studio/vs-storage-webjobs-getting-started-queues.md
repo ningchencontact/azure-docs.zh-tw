@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 899792be583f3b2e2a16e42472fcdf87bf751893
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635487"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722901"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -182,7 +182,7 @@ public static void GracefulShutdownDemo(
 }
 ```
 
-**注意：** 儀表板可能不會正確顯示已關閉之函數的狀態與輸出。
+**附註：** 儀表板可能不會正確顯示已關閉之函數的狀態與輸出。
 
 如需詳細資訊，請參閱 [WebJobs 正常關機](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR)。   
 
@@ -477,7 +477,7 @@ static void Main(string[] args)
 }
 ```
 
-**注意：** 每次呼叫函式時，都會解析佇列、資料表及 Blob 名稱，但只有在應用程式啟動時才會解析 Blob 容器名稱。 您無法在執行工作時，變更 Blob 容器名稱。
+**附註：** 每次呼叫函式時，都會解析佇列、資料表及 Blob 名稱，但只有在應用程式啟動時才會解析 Blob 容器名稱。 您無法在執行工作時，變更 Blob 容器名稱。
 
 ## <a name="how-to-trigger-a-function-manually"></a>如何手動觸發函數
 若要手動觸發函數，請在 **JobHost** 物件上使用 **Call** 或 **CallAsync** 方法，和在函數上使用 **NoAutomaticTrigger** 屬性，如下列範例所示。
@@ -514,7 +514,7 @@ public class Program
 
 因為主控台屬於單一執行緒，無法同時執行許多工作函式，所以主控台輸出無法連結到特定的方法引動過程。 這就是 SDK 提供的每個函式引動過程都使用自己專屬的記錄寫入器物件的原因。
 
-若要寫入[應用程式追蹤記錄](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview)，使用 **Console.Out** (建立標示為 INFO 的記錄檔) 和 **Console.Error** (建立標示為 ERROR 的記錄檔)。 替代方法是使用 [Trace 或 TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)，除了資訊與錯誤之外，還能提供詳細資訊、警告及嚴重層級。 視您設定 Azure 網頁應用程式的方式而定，應用程式追蹤記錄檔會出現在網頁應用程式記錄檔、Azure 資料表或 Azure Blob 中。 所有主控台輸出的應用程式記錄檔裡最近的 100 筆記錄也同樣會顯示在 WebJob 的 [儀表板] 頁面，而不是函式引動過程的頁面。
+若要寫入[應用程式追蹤記錄](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview)，使用 **Console.Out** (建立標示為 INFO 的記錄檔) 和 **Console.Error** (建立標示為 ERROR 的記錄檔)。 替代方法是使用 [Trace 或 TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)，除了資訊與錯誤之外，還能提供詳細資訊、警告及嚴重層級。 視您設定 Azure 網頁應用程式的方式而定，應用程式追蹤記錄檔會出現在網頁應用程式記錄檔、Azure 資料表或 Azure Blob 中。 所有主控台輸出的應用程式記錄檔裡最近的 100 筆記錄也同樣會顯示在 WebJob 的 [儀表板] 頁面，而不是函式引動過程的頁面。
 
 只有當程式是以 Azure WebJob 執行時，主控台輸出才會顯示在儀表板，而不是在本機或在某些其他環境中執行時。
 

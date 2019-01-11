@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 12/05/2018
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 46618b76f43247199e85c2023a5391c5566f3394
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 711688b5b414e7b9a931190de3f7e6321d97ba3e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978776"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729334"
 ---
 ## <a name="quickstarts-and-tutorials"></a>快速入門與教學課程
 
@@ -39,6 +39,7 @@ ms.locfileid: "52978776"
     |------|-----|
     |[利用範本參考](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|利用範本參考文件來開發範本。 在本教學課程中，您會找到儲存體帳戶結構描述，並使用該資訊來建立已加密的儲存體帳戶。|
     |[建立多個執行個體](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|建立多個 Azure 資源執行個體。 在本教學課程中，您會建立多個儲存體帳戶執行個體。|
+    |[移動資源](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|將資源從某個資源群組移到另一個資源群組。 在本教學課程中，您可以執行現有的範本以建立兩個資源群組和一個儲存體帳戶，然後再執行 Azure PowerShell Cmdlet 以將儲存體帳戶移至另一個資源群組。|
     |[設定資源部署順序](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|定義資源相依性。 在本教學課程中，您會建立虛擬網路、虛擬機器及相依的 Azure 資源。 您會了解如何定義相依性。|
     |[使用條件](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|根據一些參數值來部署資源。 在本教學課程中，您會定義範本，以根據參數值建立新的儲存體帳戶或使用現有的儲存體帳戶。|
     |[整合金鑰保存庫](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|從 Azure Key Vault 擷取祕密/密碼。 在本教學課程中，您會建立虛擬機器。  虛擬機器系統管理員密碼會擷取自 Key Vault。|

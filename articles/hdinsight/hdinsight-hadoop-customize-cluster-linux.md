@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5ef7ddc068fea7703dad67b80b96c292bfd26943
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e655624a30332630c28cbd555dac26098adeb68b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870695"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976914"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用指令碼動作自訂 Linux 型 HDInsight 叢集
 
 HDInsight 提供一個稱為**指令碼動作**的設定方法，此方法會叫用自訂指令碼來自訂叢集。 這些指令碼可用來安裝其他元件和變更組態設定。 叢集建立期間或叢集建立之後，可以使用指令碼動作。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 只有以 Linux 為基礎的 HDInsight 叢集能夠在已在執行中的叢集上使用指令碼動作。
 >
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -53,12 +53,12 @@ HDInsight 提供一個稱為**指令碼動作**的設定方法，此方法會叫
 
 * 必須儲存在可從 HDInsight 叢集存取的 URI 上。 以下是可能的儲存位置：
 
-    * HDInsight 叢集可存取的 **Azure Data Lake Store** 帳戶。 如需有關使用 Azure Data Lake Store 與 HDInsight 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+    * HDInsight 叢集可存取的 **Azure Data Lake Storage** 帳戶。 如需搭配 HDInsight 使用 Azure Data Lake Storage 的相關資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
-        使用 Data Lake Store 中儲存的指令碼時，URI 格式為 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`。
+        使用 Data Lake Storage 中儲存的指令碼時，URI 格式為 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`。
 
-        > [!NOTE]
-        > 用來存取 Data Lake Store 的服務主體 HDInsight 必須具有指令碼的讀取權限。
+        > [!NOTE]  
+        > HDInsight 用來存取 Data Lake Storage 的服務主體必須具有指令碼的讀取存取權。
 
     * 本身是 HDInsight 叢集主要或其他儲存體帳戶之 **Azure 儲存體帳戶**中的 Blob。 在建立叢集期間，已將這兩種儲存體帳戶的存取權都授與 HDInsight。
 
@@ -66,7 +66,7 @@ HDInsight 提供一個稱為**指令碼動作**的設定方法，此方法會叫
 
         如需範例 URI，請參閱[範例指令碼動作指令碼](#example-script-action-scripts)一節。
 
-        > [!WARNING]
+        > [!WARNING]  
         > HDInsight 僅在標準效能層級的 Azure 儲存體帳戶支援 Blob。 
 
 * 可以限制為**只在特定節點類型上執行**，例如前端節點或背景工作節點。
@@ -75,12 +75,12 @@ HDInsight 提供一個稱為**指令碼動作**的設定方法，此方法會叫
 
     **持續性**指令碼可用來自訂透過調整規模作業新增至叢集的新背景工作節點。 持續性指令碼也可以在進行調整規模作業時，將變更套用至另一個節點類型，例如前端節點。
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > 持續性指令碼動作必須有唯一的名稱。
 
     **臨時性**指令碼不會持續留存。 在指令碼執行後，它們不會套用至新增至叢集的背景工作角色節點。 您可以在之後將臨時性指令碼升階為持續性指令碼，或將持續性指令碼降階為臨時性指令碼。
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > 建立叢集期間使用的指令碼動作會自動保存下來。
   >
   > 即使您特別指出應予保存，仍然不會保存失敗的指令碼。
@@ -93,7 +93,7 @@ HDInsight 提供一個稱為**指令碼動作**的設定方法，此方法會叫
 
 叢集會保留所有已執行指令碼的歷程記錄。 當您需要尋找升級或降級作業之指令碼的識別碼時，歷程記錄就很有用。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 沒有任何自動方式可復原指令碼動作所做的變更。 請手動回復變更，或提供可回復變更的指令碼。
 
 ### <a name="script-action-in-the-cluster-creation-process"></a>叢集建立程序中的指令碼動作
@@ -110,13 +110,13 @@ HDInsight 提供一個稱為**指令碼動作**的設定方法，此方法會叫
 
 設定 HDInsight 時會執行此指令碼。 指令碼會以平行方式在叢集中所有指定的節點上執行，並且在節點上以根權限執行。
 
-> [!NOTE]
+> [!NOTE]  
 > 您可以執行停止和啟動服務 (包括 Apache Hadoop 相關服務) 等作業。 如果您停止服務，就必須確保 Ambari 服務及其他 Hadoop 相關服務在指令碼完成前處於執行狀態。 這些服務必須在叢集建立時，成功地判斷叢集的健康情況和狀態。
 
 
 在叢集建立期間，您可以同時使用多個指令碼動作。 這些指令碼會以指定的順序叫用。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 指令碼動作必須在 60 分鐘內完成，否則就會逾時。 在叢集佈建期間，同時執行指令碼與其他安裝和組態程序。 與在您開發環境中的執行時間相較，爭用 CPU 時間和網路頻寬等資源可能會導致指令碼需要較長的時間才能完成。
 >
 > 若要讓執行指令碼所花費的時間降到最低，請避免從原始程式碼下載和編譯應用程式之類的工作。 預先編譯應用程式，並在 Azure 儲存體中儲存二進位檔。
@@ -126,7 +126,7 @@ HDInsight 提供一個稱為**指令碼動作**的設定方法，此方法會叫
 
 在已處於執行中狀態的叢集上執行的指令碼如果發生失敗，並不會自動導致叢集變成失敗狀態。 指令碼完成後，叢集應該會回到「執行中」狀態。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 即使叢集狀態為「執行中」，失敗的指令碼仍可能已造成問題。 例如，指令碼可能會刪除叢集所需的檔案。
 >
 > 指令碼動作會以根權限執行。 請先確定您了解指令碼的作用，再將它套用到您的叢集。
@@ -138,7 +138,7 @@ HDInsight 提供一個稱為**指令碼動作**的設定方法，此方法會叫
     EndTime           : 8/14/2017 7:41:05 PM
     Status            : Succeeded
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 如果您在叢集建立後變更叢集使用者 (管理員) 密碼，針對此叢集執行的指令碼動作可能會失敗。 如果您有任何以背景工作角色節點為目標的持續性指令碼動作，當您調整叢集的規模時，這些指令碼動作可能會失敗。
 
 ## <a name="example-script-action-scripts"></a>範例指令碼動作指令碼
@@ -242,16 +242,17 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal"></a>從 Azure 入口網站將指令碼動作套用到執行中的叢集
 
-1. 從 [Azure 入口網站](https://portal.azure.com)，選取您的 HDInsight 叢集。
+從 [Azure 入口網站](https://portal.azure.com)：
 
-2. 從 HDInsight 叢集概觀中，選取 [指令碼動作] 磚。
+1. 從左側功能表中選取 [所有服務]。
 
-    ![指令碼動作磚](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
+1. 在 [分析] 底下，選取 [HDInsight 叢集]。
 
-   > [!NOTE]
-   > 您也可以從 [設定] 區段中，依序選取 [所有設定] 和 [指令碼動作]。
+1. 從清單中選取您的叢集，隨即將開啟預設檢視。
 
-3. 從 [指令碼動作] 區段的頂端，選取 [送出新的]。
+1. 從預設檢視的 [設定] 底下，選取 [指令碼動作]。
+
+1. 從 [指令碼動作] 頁面上方，選取 [+ 送出新的]。
 
     ![將指令碼加入執行中的叢集](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
@@ -342,14 +343,15 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 ### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
 
-1. 從 [Azure 入口網站](https://portal.azure.com)，選取您的 HDInsight 叢集。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 從 HDInsight 叢集概觀中，選取 [指令碼動作] 磚。
+1. 從左側功能表中選取 [所有服務]。
 
-    ![指令碼動作磚](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
+1. 在 [分析] 底下，選取 [HDInsight 叢集]。
 
-   > [!NOTE]
-   > 您也可以從 [設定] 區段中，依序選取 [所有設定] 和 [指令碼動作]。
+1. 從清單中選取您的叢集，隨即將開啟預設檢視。
+
+1. 從預設檢視的 [設定] 底下，選取 [指令碼動作]。
 
 4. 此叢集的指令碼歷程記錄會顯示在 [指令碼動作] 區段。 此資訊包含持續性指令碼清單。 在以下的螢幕擷取畫面中，您可以看到 Solr 指令碼已在此叢集上執行。 此螢幕擷取畫面不會顯示任何持續性指令碼。
 
@@ -372,7 +374,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 | Set-AzureRmHDInsightPersistedScriptAction |將臨時性指令碼動作升級為持續性指令碼動作 |
 | Remove-AzureRmHDInsightPersistedScriptAction |將持續性指令碼動作降級為臨時性指令碼動作 |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 使用 `Remove-AzureRmHDInsightPersistedScriptAction` 無法復原指令碼執行的動作。 此 Cmdlet 只會移除持續性旗標。
 
 下列範例指令碼示範如何使用 Cmdlet 來升級而後降級指令碼。
@@ -390,14 +392,14 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 | `azure hdinsight script action persisted set <clustername> <scriptexecutionid>` |將臨時性指令碼動作升級為持續性指令碼動作 |
 | `azure hdinsight script-action persisted delete <clustername> <scriptname>` |將持續性指令碼動作降級為臨時性指令碼動作 |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 使用 `azure hdinsight script-action persisted delete` 無法復原指令碼執行的動作。 此 Cmdlet 只會移除持續性旗標。
 
 ### <a name="using-the-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK
 
 如需使用 .NET SDK 從叢集擷取指令碼歷程記錄、升級或降級指令碼的範例，請參閱 [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action)。
 
-> [!NOTE]
+> [!NOTE]  
 > 這個範例也示範如何使用 .NET SDK 安裝 HDInsight 應用程式。
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>支援在 HDInsight 叢集上使用開放原始碼軟體
@@ -409,10 +411,10 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 * **內建元件** - 這些元件預先安裝在 HDInsight 叢集上，並且提供叢集的核心功能。 例如，[Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager、Hive 查詢語言 ([HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)) 及 [Apache Mahout](https://mahout.apache.org/) 程式庫都屬於這個類別。 叢集元件的完整清單可於 [HDInsight 所提供 Hadoop 叢集版本的新功能](hdinsight-component-versioning.md)中取得。
 * **自訂元件** - 身為叢集使用者的您可以安裝社群中可用或是您建立的任何元件，或者在工作負載中使用。
 
-> [!WARNING]
+> [!WARNING]  
 > 對隨 HDInsight 叢集提供的元件會有完整支援。 Microsoft 支援服務可協助隔離和解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 Microsoft 支援服務可能可以解決問題，也可能要求您利用可用的開放原始碼技術管道，找到該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如：[Hadoop](http://hadoop.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 Microsoft 支援服務可能可以解決問題，也可能要求您利用可用的開放原始碼技術管道，找到該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)、[https://stackoverflow.com](https://stackoverflow.com)。 此外，Apache 專案在 [https://apache.org](https://apache.org) 上也有專案網站，例如：[Hadoop](https://hadoop.apache.org/)。
 
 HDInsight 服務提供數種方式以使用自訂元件。 無論元件如何使用或如何安裝在叢集上，都適用相同層級的支援。 下列清單描述自訂元件可用於 HDInsight 叢集之最常見方式：
 
@@ -474,7 +476,7 @@ HDInsight 服務提供數種方式以使用自訂元件。 無論元件如何使
 
 ### <a name="ambari-watchdog"></a>Ambari 看門狗
 
-> [!WARNING]
+> [!WARNING]  
 > 請勿變更以 Linux 為基礎之 HDInsight 叢集上的 Ambari 看門狗 (hdinsightwatchdog) 密碼。 變更此帳戶的密碼會破壞在 HDInsight 叢集上執行新指令碼動作的能力。
 
 ### <a name="cant-import-name-blobservice"></a>無法匯入名稱 BlobService

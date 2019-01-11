@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: db801acbed649c4baa039858ce1d097237c8e227
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622869"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971370"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 稽核活動參考
 
-透過 Azure Active Directory (Azure AD) 報告，您可以取得判斷您的環境執行狀況所需的資訊。
+透過 Azure Active Directory (Azure AD) 報告，您可以取得判斷環境執行狀況所需的資訊。
 
 Azure AD 中的報告架構包含下列元件：
 
@@ -515,10 +515,10 @@ Azure AD 中的報告架構包含下列元件：
 |群組管理|檢閱要求核准要求|
 |群組管理|更新存取權檢閱|
 |群組管理|更新存取權檢閱郵件通知設定|
-|群組管理|更新存取權檢閱週期計數設定|
-|群組管理|更新存取權檢閱週期持續時間 (以天為單位) 設定|
-|使用者管理|更新存取權檢閱週期結束類型設定|
-|使用者管理|更新存取權檢閱週期類型設定|
+|群組管理|更新存取權檢閱週期性計數設定|
+|群組管理|更新存取權檢閱週期性持續時間 (天) 設定|
+|使用者管理|更新存取權檢閱週期性結束類型設定|
+|使用者管理|更新存取權檢閱週期性類型設定|
 
 
 

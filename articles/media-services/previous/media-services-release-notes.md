@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 9370cdfc75995f36101804d2a9f7dc9cf275243c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: aa2a059dd470e671aa3483f2259bcf91796c070d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186305"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631663"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已知問題。
@@ -44,6 +44,10 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本歷程記錄
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
+
+## <a name="december-2018"></a>2018 年 12 月
+
+Azure 媒體服務的[媒體超縮時攝影預覽](media-services-hyperlapse-content.md)功能即將淘汰。 自 2018 年 12 月 19 日起，媒體服務將不再變更或改進媒體超縮時攝影功能。 它將會於 2019 年 3 月 29 日淘汰，並且不再提供使用。
 
 ## <a name="october-2018"></a>2018 年 10 月
 

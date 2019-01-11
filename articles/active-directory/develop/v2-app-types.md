@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/18/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 24a9b014028bf99673881904e17ec0911d0b5063
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 94a072d3c8bde9e4fb16342db1e0705bfc22cf77
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952047"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539580"
 ---
 # <a name="application-types-for-v20"></a>v2.0 的應用程式類型
 
@@ -121,7 +121,7 @@ Web API 可以從所有類型的應用程式接收存取權杖，包括 Web 伺�
 
 ## <a name="daemons-and-server-side-apps"></a>精靈和伺服器端應用程式
 
-應用程式如果含有長時間執行的程序，或其運作方式不需要與使用者互動，就也需要一個存取受保護資源 (例如 Web API) 的方法。 這些應用程式可以使用應用程式的身分識別 (而非使用者委派的身分識別) 搭配 OAuth 2.0 用戶端認證流程，來驗證及取得權杖。
+應用程式如果含有長時間執行的程序，或其運作方式不需要與使用者互動，就也需要一個存取受保護資源 (例如 Web API) 的方法。 這些應用程式可以使用應用程式的身分識別 (而非使用者委派的身分識別) 搭配 OAuth 2.0 用戶端認證流程，來驗證及取得權杖。 您可以使用用戶端密碼或憑證來提供應用程式的身分識別。 如需詳細資訊，請參閱[在精靈應用程式中使用憑證向 Azure AD 驗證](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/) \(英文\)。
 
 在此流程中，應用程式會直接與 `/token` 端點互動來取得端點：
 

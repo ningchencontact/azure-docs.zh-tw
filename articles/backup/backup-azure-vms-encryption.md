@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b269b8db59c4aeecf182b6ea11b92a3980a2cd6d
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 40f8f1e9470201292c9dee27187d2155c879e13b
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567412"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583063"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>使用 Azure 備份來備份及還原加密的虛擬機器
 本文討論使用 Azure 備份來備份和還原虛擬機器 (VM) 的步驟。 它也提供有關支援的案例、必要條件的詳細資料，以及的錯誤案例的疑難排解步驟。
@@ -27,6 +27,10 @@ ms.locfileid: "51567412"
    | --- | --- | --- |
    | **非受控 VM**  | 是 | 是  |
    | **受控 VM**  | 是 | 是  |
+
+   > [!NOTE]
+   > Azure 備份支援使用獨立金鑰加密的 VM。 目前不支援任何屬於用來加密 VM 之憑證的金鑰。
+   >   
 
 ## <a name="prerequisites"></a>必要條件
 * VM 是使用 [Azure 磁碟加密](../security/azure-security-disk-encryption.md)來加密。

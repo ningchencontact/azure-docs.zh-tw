@@ -8,16 +8,16 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: d02ae48bab6a17cbf5568996b30ccb39ccb81c59
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2cbfb21469df45f29a70b5d10d8c99ecd894c30c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994003"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755014"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>部署使用 GPU 資源的容器執行個體
 
-若要在 Azure 容器執行個體上執行某些計算密集工作負載，請將您的容器群組和「GPU 資源」一起部署。 容器執行個體可以存取一或多個 NVIDIA Tesla GPU，同時執行容器工作負載，例如 CUDA 和深度學習應用程式。
+若要在 Azure 容器執行個體上執行某些計算密集型工作負載，請部署包含「GPU 資源」的[容器群組](container-instances-container-groups.md)。 群組中的容器執行個體可以存取一或多個 NVIDIA Tesla GPU，同時執行容器工作負載，例如 CUDA 和深度學習應用程式。
 
 如本文中所示，您可以使用 [YAML 檔案](container-instances-multi-container-yaml.md)或 [Resource Manager 範本](container-instances-multi-container-group.md)，在部署容器群組時，加入 GPU 資源。
 
@@ -87,7 +87,7 @@ ms.locfileid: "52994003"
 
 ## <a name="yaml-example"></a>YAML 範例
 
-將下列 YAML 複製到名為 *gpu-deploy-aci.yaml* 的新檔案中，然後儲存檔案。 此 YAML 會建立名為 *gpucontainergroup* 的 容器群組，指定含 K80 GPU 的容器執行個體。 該執行個體執行範例 CUDA 向量加法應用程式。 資源要求足以執行工作負載。
+新增 GPU 資源的方法之一是使用 [YAML 檔案](container-instances-multi-container-yaml.md)部署容器群組。 將下列 YAML 複製到名為 *gpu-deploy-aci.yaml* 的新檔案中，然後儲存檔案。 此 YAML 會建立名為 *gpucontainergroup* 的 容器群組，指定含 K80 GPU 的容器執行個體。 該執行個體執行範例 CUDA 向量加法應用程式。 資源要求足以執行工作負載。
 
 ```YAML
 additional_properties: {}
@@ -134,7 +134,7 @@ Done
 
 ## <a name="resource-manager-template-example"></a>Resource Manager 範本範例
 
-由建立名為 `gpudeploy.json` 的檔案開始，並將下列 JSON 複製到該檔案中。 此範例會部署含 V100 GPU 的容器執行個體，此執行個體對 [MNIST 資料集](http://yann.lecun.com/exdb/mnist/) \(英文\) 執行 [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) \(英文\) 定型工作。 資源要求足以執行工作負載。
+部署包含 GPU 資源之容器群組的另一個方式是使用 [Resource Manager 範本](container-instances-multi-container-group.md)。 由建立名為 `gpudeploy.json` 的檔案開始，並將下列 JSON 複製到該檔案中。 此範例會部署含 V100 GPU 的容器執行個體，此執行個體對 [MNIST 資料集](http://yann.lecun.com/exdb/mnist/) \(英文\) 執行 [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) \(英文\) 定型工作。 資源要求足以執行工作負載。
 
 ```JSON
 {

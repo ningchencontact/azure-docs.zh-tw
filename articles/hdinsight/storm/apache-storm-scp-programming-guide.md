@@ -9,15 +9,15 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496874"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631816"
 ---
 # <a name="scp-programming-guide"></a>SCP 程式設計指南
-SCP 是一個用來建置即時、可靠、一致和高效能資料處理應用程式的平台。 建置在由 OSS 社群所設計的串流處理系統 [Apache Storm](http://storm.incubator.apache.org/) 之上。 Storm 由 Nathan Marz 所設計，由 Twitter 公開原始碼。 它採用 [Apache ZooKeeper](http://zookeeper.apache.org/)，這是另一個可發揮極可靠的分散式協調和狀態管理的 Apache 專案。 
+SCP 是一個用來建置即時、可靠、一致和高效能資料處理應用程式的平台。 建置在由 OSS 社群所設計的串流處理系統 [Apache Storm](https://storm.incubator.apache.org/) 之上。 Storm 由 Nathan Marz 所設計，由 Twitter 公開原始碼。 它採用 [Apache ZooKeeper](https://zookeeper.apache.org/)，這是另一個可發揮極可靠的分散式協調和狀態管理的 Apache 專案。 
 
 SCP 專案不僅將 Storm 移植到 Windows 上，此專案也為 Windows 生態系統加入擴充和自訂功能。 擴充功能包括 .NET 開發人員體驗和程式庫，自訂功能包括以 Windows 為基礎的部署。 
 
@@ -124,7 +124,7 @@ ISCPBatchBolt 為交易式 bolt 的介面。
 SCP.NET 也提供一組簡單的關鍵物件供開發人員在程式設計中使用。 包括 **Context**、**StateStore** 和 **SCPRuntime**。 本節其餘部分將討論這些物件。
 
 ### <a name="context"></a>Context
-Context 提供應用程式的執行環境。 每個 ISCPPlugin 執行個體 (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) 都有一個對應的 Context 執行個體。 Context 提供的功能分成兩部分：(1) 靜態部分，供整個 C\# 程序使用，(2) 動態部分，僅供特定的 Context 執行個體使用。
+Context 提供應用程式的執行環境。 每個 ISCPPlugin 執行個體 (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) 都有一個對應的 Context 執行個體。 Context 提供的功能可分成兩部分：(1) 靜態部分，供整個 C\# 程序使用，(2) 動態部分，僅供特定的 Context 執行個體使用。
 
 ### <a name="static-part"></a>靜態部分
     public static ILogger Logger = null;
@@ -309,7 +309,7 @@ SCPRuntime 提供下列兩個方法：
 
 一般而言，SCP 外掛程式可能在以下兩種模式中執行：
 
-1. 本機測試模式：在此模式中，SCP 外掛程式 (C\# 使用者程式碼) 在開發階段是在 Visual Studio 內執行。 `LocalContext` ，它提供方法將發出的 Tuple 序列化到本機檔案，再讀回到記憶體中。
+1. 本機測試模式：在此模式中，SCP 外掛程式 (C\# 使用者程式碼) 在開發階段會在 Visual Studio 內執行。 `LocalContext` ，它提供方法將發出的 Tuple 序列化到本機檔案，再讀回到記憶體中。
    
         public interface ILocalContext
         {
@@ -317,7 +317,7 @@ SCPRuntime 提供下列兩個方法：
             void WriteMsgQueueToFile(string filepath, bool append = false);  
             void ReadFromFileToMsgQueue(string filepath);                    
         }
-2. 標準模式：在此模式中，SCP 外掛程式由 storm java 程序啟動。
+2. 標準模式：在此模式中，SCP 外掛程式會由 Storm Java 程序啟動。
    
     以下是啟動 SCP 外掛程式的範例：
    
@@ -346,7 +346,7 @@ SCPRuntime 提供下列兩個方法：
         }
 
 ## <a name="topology-specification-language"></a>拓撲規格語言
-SCP 拓撲規格是特定領域的語言，用來描述和設定 SCP 拓撲。 它是以 Storm 為基礎的 Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) 並由 SCP 進行擴充。
+SCP 拓撲規格是特定領域的語言，用來描述和設定 SCP 拓撲。 它是以 Storm 為基礎的 Clojure DSL (<https://storm.incubator.apache.org/documentation/Clojure-DSL.html>) 並由 SCP 進行擴充。
 
 拓撲規格可透過 ***runspec*** 命令直接提交給 storm 叢集來執行。
 
@@ -594,7 +594,7 @@ SCP 元件包含 Java 和 C\# 端。 為了與原生 Java Spout/Bolt 互動，�
     }
 
 ### <a name="helloworldtx"></a>HelloWorldTx
-**HelloWorldTx** 範例示範如何實作交易式拓撲。 它有一個名為 **generator** 的 spout，一個名為 **partial-count** 的批次 bolt，以及一個名為 **count-sum** 的認可 bolt。 另外還有三個預先建立的 txt 檔案︰**DataSource0.txt**、**DataSource1.txt**、**DataSource2.txt**。
+**HelloWorldTx** 範例示範如何實作交易式拓撲。 它有一個名為 **generator** 的 spout，一個名為 **partial-count** 的批次 bolt，以及一個名為 **count-sum** 的認可 bolt。 另外還有三個預先建立的 txt 檔案：**DataSource0.txt**、**DataSource1.txt** 及 **DataSource2.txt**。
 
 在每個交易中，**generator** spout 會從預先建立的三個檔案中隨機選取兩個檔案，然後發出這兩個檔名給 **partial-count** bolt。 **partial-count** bolt 會先從收到的 Tuple 中取得檔名，然後開啟檔案並計算此檔案中的字數，最後再發出字數給 **count-sum** bolt。 **count-sum** bolt 將計算總數。
 

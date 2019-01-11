@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 10dc25740eca43c7cbd39b8ec783084e048d2af2
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 7f97b72dc7b3456488d97009bde590b0e29918e6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637596"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631426"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升級至一般用途 v2 儲存體帳戶
 
@@ -34,12 +34,14 @@ ms.locfileid: "49637596"
 
 ## <a name="upgrade-with-powershell"></a>使用 PowerShell 升級
 
-若要使用 PowerShell 將一般用途 v1 帳戶升級至一般用途 v2 帳戶，請先更新 PowerShell 以使用最新版的 **AzureRm.Storage** 模組。 如需安裝 PowerShell 的相關資訊，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+若要使用 PowerShell 將一般用途 v1 帳戶升級至一般用途 v2 帳戶，請先更新 PowerShell 以使用最新版的 **Az.Storage** 模組。 如需安裝 PowerShell 的相關資訊，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 
 
 接下來，請呼叫下列命令，並取代為您的資源群組與儲存體帳戶的名稱，以升級帳戶：
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
 ```
 
 ## <a name="upgrade-with-azure-cli"></a>使用 Azure CLI 升級
@@ -56,7 +58,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 一般用途 v2 帳戶能支援所有 Azure 儲存體服務與資料物件，但存取層僅適用於 Blob 儲存體中的區塊 Blob。 當您升級至一般用途 v2 儲存體帳戶時，您可以指定 Blob 資料的存取層。 
 
-存取層可讓您根據預期的使用模式，選擇最符合成本效益的儲存體。 區塊 Blob 可以儲存於經常性存取層、非經常性存取層或封存存取層。 如需存取層的詳細資訊，請參閱 [Azure Blob 儲存體︰經常性存取、非經常性存取和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
+存取層可讓您根據預期的使用模式，選擇最符合成本效益的儲存體。 區塊 Blob 可以儲存於經常性存取層、非經常性存取層或封存存取層。 如需存取層的詳細資訊，請參閱 [Azure Blob 儲存體：經常性存取、非經常性存取和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
 
 根據預設，系統會在經常性存取層中建立新的儲存體帳戶，而一般用途 v1 儲存體帳戶則會升級至經常性存取層。 如果您是在已升級的情況下決定要針對資料使用哪個存取層，請考慮您的案例。 有兩個適用於移轉至一般用途 v2 帳戶的典型使用者案例：
 
@@ -69,17 +71,17 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 ## <a name="pricing-and-billing"></a>價格和計費
 所有儲存體帳戶會對以每個 Blob 層為基礎的 Blob 儲存體使用價格模型。 使用儲存體帳戶時，需考量下列計費資訊：
 
-* **儲存成本**︰除了儲存的資料量以外，儲存資料的成本會因儲存層而異。 每 GB 的成本會隨著儲存層存取頻率降低而減少。
+* **儲存成本**：除了儲存的資料量以外，儲存資料的成本會因儲存層而異。 每 GB 的成本會隨著儲存層存取頻率降低而減少。
 
 * **資料存取成本**：資料存取費用會隨著儲存層存取頻率降低而增加。 對於非經常性存取與封存儲存層中的資料，您需支付讀取的每 GB 資料存取費用。
 
-* **交易成本**︰所有層都有每筆交易的費用，該費用會隨著儲存層存取頻率降低而增加。
+* **交易成本**：所有層都有每筆交易的費用，該費用會隨著儲存層存取頻率降低而增加。
 
-* **異地複寫資料傳輸成本**︰此費用適用於已設定異地複寫的帳戶，包括 GRS 和 RA-GRS。 異地複寫資料傳輸會產生每 GB 費用。
+* **異地複寫資料傳輸成本**：此費用適用於已設定異地複寫的帳戶，包括 GRS 和 RA-GRS。 異地複寫資料傳輸會產生每 GB 費用。
 
-* **輸出資料傳輸成本**︰輸出資料傳輸 (從 Azure 區域傳出的資料) 會產生每 GB 頻寬使用量費用，與一般用途的儲存體帳戶一致。
+* **輸出資料傳輸成本**：輸出資料傳輸 (從 Azure 區域傳出的資料) 會產生每 GB 頻寬使用量費用，與一般用途的儲存體帳戶一致。
 
-* **變更儲存層**︰將帳戶儲存層從非經常性存取變更為經常性存取時，會產生等於讀取儲存體帳戶中所有資料的費用。 不過，將帳戶儲存層從經常性存取變更為非經常性存取時，會產生等於將所有資料寫入非經常性存取層的費用 (僅限 GPv2 帳戶)。
+* **變更儲存層**︰將帳戶儲存層從非經常性儲存層變更為經常性儲存層，會產生相當於讀取儲存體帳戶中所有資料的費用。 不過，將帳戶儲存層從經常性存取變更為非經常性存取時，會產生等於將所有資料寫入非經常性存取層的費用 (僅限 GPv2 帳戶)。
 
 > [!NOTE]
 > 如需儲存體帳戶的定價模型詳細資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)頁面。 如需輸出資料傳輸費用的詳細資訊，請參閱[資料傳輸定價詳細資料](https://azure.microsoft.com/pricing/details/data-transfers/)頁面。

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 4663cb467d7d1d864425f4899c829b6618b9547c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c3d534392431e79feabe37fe940ea87f586c660
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584457"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051691"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>在 Batch 集區中使用 RDMA 或 GPU 執行個體
 
@@ -100,7 +100,7 @@ ms.locfileid: "53584457"
 
 若要在 Windows NC 節點所構成的集區上執行 CUDA 應用程式，您必須在安裝 NVDIA GPU 驅動程式。 下列範例步驟使用應用程式套件來安裝 NVIDIA GPU 驅動程式。 如果您的工作負載相依於特定 GPU 驅動程式版本，您可以選擇此選項。
 
-1. 從 [NVIDIA 網站](http://us.download.nvidia.com/Windows/)下載 Windows Server 2016 版 GPU 驅動程式的安裝套件 - 例如 [411.82 版](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe)。 使用 *GPUDriverSetup.exe* 之類的簡短名稱將檔案儲存在本機。
+1. 從 [NVIDIA 網站](https://www.nvidia.com/Download/index.aspx)下載 Windows Server 2016 版 GPU 驅動程式的安裝套件 - 例如 [411.82 版](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe)。 使用 *GPUDriverSetup.exe* 之類的簡短名稱將檔案儲存在本機。
 2. 建立該套件的 zip 檔案。
 3. 將套件上傳至您的 Batch 帳戶。 如需相關步驟，請參閱[應用程式套件](batch-application-packages.md)指引。 指定應用程式識別碼 (例如 *GPUDriver*) 和版本 (例如 *411.82*)。
 1. 使用 Batch API 或 Azure 入口網站，在虛擬機器設定中建立具有所需節點數目和規模大小的集區。 下表顯示使用啟動工作以無訊息方式安裝 NVIDIA GPU 驅動程式的範例設定：

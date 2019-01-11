@@ -4,17 +4,17 @@ description: 本文說明如何使用即時 Power BI 儀表板，以視覺化方
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/27/2017
-ms.openlocfilehash: e84903870110091d527e870600d9a67bdc9cc6e5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: d7f67015d4df20ea39c1225d52be36340b8f65d1
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418449"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556971"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>教學課程：串流分析及 Power BI：適用於串流資料的即時分析儀表板
 Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Microsoft Power BI](https://powerbi.com/)。 在本文中，您將了解如何使用 Power BI 作為 Azure 串流分析作業的輸出，以建立商業智慧工具。 您也將了解如何建立和使用即時儀表板。
@@ -24,7 +24,7 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
 您可以觀看此情節的[影片](https://www.youtube.com/watch?v=SGUpT-a99MA)。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前，請確定您具有下列項目：
 
@@ -44,23 +44,23 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
 
 4. 在 [接收] 下，選取 [Power BI]。
 
-   ![建立 Power BI 的輸出](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut.png)
+   ![建立 Power BI 的輸出](./media/stream-analytics-power-bi-dashboard/create-power-bi-ouptut.png)
 
 5. 按一下 [授權]。
 
     隨即會開啟視窗，讓您提供公司或學校帳戶的 Azure 認證。 
 
-    ![輸入用來存取 Power BI 的認證](./media/stream-analytics-power-bi-dashboard/authorize-area.png)
+    ![輸入用來存取 Power BI 的認證](./media/stream-analytics-power-bi-dashboard/power-bi-authorization-credentials.png)
 
 6. 輸入認證。 請注意，當您輸入認證時，也會賦予權限讓串流分析作業存取您的 Power BI 區域。
 
 7. 當您返回 [新輸出] 刀鋒視窗時，請輸入下列資訊：
 
     * **群組工作區**：在 Power BI 租用戶中，選取您要建立資料集的工作區。
-    * **資料集名稱**：輸入 `sa-dataset`。 您可以使用不同的名稱。 如果這樣做，請記下來供稍後使用。
-    * **資料表名稱**：輸入 `fraudulent-calls`。 目前，串流分析作業的 Power BI 輸出在資料集內只能有一個資料表。
+    * **資料集名稱**：輸入 `sa-dataset` 。 您可以使用不同的名稱。 如果這樣做，請記下來供稍後使用。
+    * **資料表名稱**：輸入 `fraudulent-calls` 。 目前，串流分析作業的 Power BI 輸出在資料集內只能有一個資料表。
 
-    ![PBI 工作區](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
+    ![Power BI 工作區資料集和資料表](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
 
     > [!WARNING]
     > 如果 Power BI 的資料集和資料表名稱與您在串流分析作業中所指定的名稱相同，則會覆寫現有的資料集和資料表。
@@ -71,8 +71,8 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
 
 系統會使用下列設定來建立資料集：
 
-* **defaultRetentionPolicy: BasicFIFO**：資料是 FIFO，最大資料列數 20 萬。
-* **defaultMode: pushStreaming**：資料集同時支援串流磚和傳統報表型視覺效果  (又稱為發送)。
+* **defaultRetentionPolicy:BasicFIFO**：資料為 FIFO，具有最多 200,000 個資料列。
+* **defaultMode: pushStreaming**：資料集同時支援串流磚和傳統報表型視覺效果 (又稱為發送)。
 
 您目前無法建立具有其他旗標的資料集。
 
@@ -90,6 +90,7 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
     >[!NOTE]
     >如果您在詐騙偵測教學課程中不是將輸入命名為 `CallStream`，請在查詢的 **FROM** 和 **JOIN** 子句中，用您的名稱取代 `CallStream`。
 
+        ```SQL
         /* Our criteria for fraud:
         Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
 
@@ -107,6 +108,7 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
         /* Where the switch location is different */
         WHERE CS1.SwitchNum != CS2.SwitchNum
         GROUP BY TumblingWindow(Duration(second, 1))
+        ```
 
 4. 按一下 [檔案] 。
 
@@ -120,7 +122,7 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
     * 移至 telcogenerator.exe 和修改的 telcodatagen.exe.config 檔案所在的資料夾。
     * 執行以下命令：
 
-            telcodatagen.exe 1000 .2 2
+       `telcodatagen.exe 1000 .2 2`
 
 2. 在 [查詢] 刀鋒視窗中，按一下 `CallStream` 輸入旁邊的點，然後選取 [來自輸入的範例資料]。
 
@@ -146,7 +148,7 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
 
 1. 移至 [Powerbi.com](https://powerbi.com)，然後使用公司或學校帳戶登入。 如果串流分析作業查詢有輸出結果，您會看到資料集已建立：
 
-    ![Power BI 中的串流資料集](./media/stream-analytics-power-bi-dashboard/streaming-dataset.png)
+    ![Power BI 中的串流資料集位置](./media/stream-analytics-power-bi-dashboard/stream-analytics-streaming-dataset.png)
 
 2. 在工作區中，按一下 [+&nbsp;建立]。
 
@@ -158,15 +160,15 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
 
 4. 在視窗的頂端，按一下 [新增磚]，選取 [自訂串流資料]，然後按 [下一步]。
 
-    ![自訂串流資料集](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
+    ![Power BI 中的自訂串流資料集磚](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
 5. 在 [您的資料集] 底下，選取資料集，然後按 [下一步]。
 
-    ![您的串流資料集](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
+    ![您在 Power BI 中的串流資料集](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
 6. 在 [視覺效果類型] 底下，選取 [卡]，然後在 [欄位] 清單中，選取 [fraudulentcalls]。
 
-    ![新磚的視覺效果詳細資料](./media/stream-analytics-power-bi-dashboard/add-fraud.png)
+    ![新磚的視覺效果詳細資料](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
 7. 按 [下一步] 。
 
@@ -178,7 +180,7 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
 
     您現在有一個詐騙計數器了！
 
-    ![詐騙計數器](./media/stream-analytics-power-bi-dashboard/fraud-counter.png)
+    ![Power BI 儀表板中的詐騙計數器](./media/stream-analytics-power-bi-dashboard/power-bi-fraud-counter-tile.png)
 
 8. 再次依照步驟來新增磚 (從步驟 4 開始)。 這次請執行下列動作：
 
@@ -187,7 +189,7 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
     * 新增值並選取 [fraudulentcalls]。
     * 在 [要顯示的時間範圍] 中，選取過去 10 分鐘。
 
-    ![建立折線圖的磚](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
+    ![在 Power BI 中建立適用於折線圖的磚](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
 9. 按 [下一步]，新增標題和副標題，然後按一下 [套用]。
 
@@ -210,7 +212,7 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
 
 您可以使用下列方程式，以秒為單位計算要提供給視窗的值：
 
-![Equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
+![以秒為單位計算要提供給視窗之值的方程式](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
 例如︰
 
@@ -220,10 +222,11 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
 
 因此，方程式會變成︰
 
-![Equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
+![以範例準則為依據的方程式](./media/stream-analytics-power-bi-dashboard/power-bi-example-equation.png)  
 
 根據此設定，您可以將原始查詢變更如下︰
 
+```SQL
     SELECT
         MAX(hmdt) AS hmdt,
         MAX(temp) AS temp,
@@ -235,7 +238,7 @@ Azure 串流分析可讓您使用其中一個頂尖的商業智慧工具：[Micr
     GROUP BY
         TUMBLINGWINDOW(ss,4),
         dspl
-
+```
 
 ### <a name="renew-authorization"></a>更新授權
 如果自從建立作業或上次驗證之後已變更密碼，則您需要重新驗證 Power BI 帳戶。 如果您在 Azure Active Directory (Azure AD) 租用戶上設定 Azure Multi-Factor Authentication，則也需要每 2 週更新一次 Power BI 授權。 如果未更新，作業記錄中會出現一些徵兆，例如缺乏作業輸出或 `Authenticate user error`。

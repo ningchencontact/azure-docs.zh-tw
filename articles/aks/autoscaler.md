@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 0f376d6b1108b784af37b5e50dab9edba63e5f76
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0b2e49bb0e269c91ed6a1bf7294565a729082db3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713090"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975129"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Azure Kubernetes Service (AKS) 上的叢集自動調整程式 - 預覽
 
@@ -382,7 +382,7 @@ Events:  <none>
 叢集自動調整程式狀態可讓您查看在兩個不同層級的叢集自動調整程式狀態：整個叢集，以及每個節點群組內。 AKS 目前只支援一個節點集區，因此這些計量都相同。
 
 * 健康情況表示節點的整體健康情況。 如果叢集自動調整程式努力建立或移除叢集中的節點，則此狀態會變更為「狀況不良」。 另外還有不同節點的狀態分解：
-    * "Ready" 表示節點已準備好在其上排定 pod。
+    * "Ready" 表示節點已準備好在其上排定 Pod。
     * "Unready" 表示節點在啟動之後失效。
     * "NotStarted" 表示節點尚未完全啟動。
     * "LongNotStarted" 表示節點無法在合理的限制內啟動。
@@ -398,7 +398,7 @@ Events:  <none>
     * 相應減少的候選項目是叢集自動調整程式判定可以移除的節點，而且不會影響叢集處理其工作負載的能力。 
     * 所提供的時間顯示上次檢查叢集是否有相應減少候選項目及其上次轉換時間的時間。
 
-最後，在 Events 之下，您可看見叢集自動調整程式已執行的所有相應增加或相應減少事件 (不論失敗或成功) 及其時間。
+最後，在 Events 底下，您可看見叢集自動調整程式已執行的所有相應增加或相應減少事件 (不論失敗或成功) 及其時間。
 
 ## <a name="next-steps"></a>後續步驟
 

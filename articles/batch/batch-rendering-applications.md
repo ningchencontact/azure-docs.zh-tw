@@ -1,17 +1,17 @@
 ---
-title: Batch 轉譯應用程式
+title: 轉譯應用程式 - Azure Batch
 description: 預先安裝的 Batch 轉譯應用程式
 services: batch
 author: laurenhughes
 ms.author: lahugh
 ms.date: 12/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7cc19c8def9e162c752efab776d0b6f5118bfde2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d17a740959f36a11835f6d4548b8f8bc1a5c5f80
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320943"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536316"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>在轉譯的 VM 映像上預先安裝的應用程式
 

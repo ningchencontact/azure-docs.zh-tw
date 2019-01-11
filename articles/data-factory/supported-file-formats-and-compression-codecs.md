@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b3498deb85b84c9c47544be1d8c3709c9fc78ae1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4c8fcc403b274d161893194109dee4bc8d0cb369
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100238"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974349"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
@@ -24,9 +24,9 @@ ms.locfileid: "53100238"
 
 * [文字格式](#text-format)
 * [JSON 格式](#json-format)
-* [Avro 格式](#avro-format)
-* [ORC 格式](#orc-format)
 * [Parquet 格式](#parquet-format)
+* [ORC 格式](#orc-format)
+* [Avro 格式](#avro-format)
 
 > [!TIP]
 > 請參閱[複製活動中的結構描述對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動將來源資料對應至接收的方式，其中包括中繼資料是如何根據您的檔案格式設定來決定，以及指定[資料集 `structure`](concepts-datasets-linked-services.md#dataset-structure) 區段的時機。
@@ -39,7 +39,7 @@ ms.locfileid: "53100238"
 | --- | --- | --- | --- |
 | columnDelimiter |用來分隔檔案中的資料行的字元。 您可以考慮使用資料中不太可能存在的罕見不可列印字元。 例如，指定 "\u0001"，這代表「標題開頭」(SOH)。 |只允許一個字元。 **預設值**是**逗號 (',')**。 <br/><br/>若要使用 Unicode 字元，請參考 [Unicode 字元 (英文)](https://en.wikipedia.org/wiki/List_of_Unicode_characters) 以取得其對應的代碼。 |否 |
 | rowDelimiter |用來分隔檔案中的資料列的字元。 |只允許一個字元。 **預設值**是下列任一個值：**["\r\n", "\r", "\n"]** (讀取時) 與 **"\r\n"** (寫入時)。 |否 |
-| escapeChar |用來逸出輸入檔內容中的資料行分隔符號的特殊字元。 <br/><br/>您無法同時為資料表指定 escapeChar 和 quoteChar。 |只允許一個字元。 沒有預設值。 <br/><br/>範例：如果以逗號 (',') 作為資料行分隔符號，但想要在文字中有逗號字元 (範例："Hello, world")，您可以定義 '$' 作為逸出字元，然後在來源中使用字串 "Hello$, world"。 |否 |
+| escapeChar |用來逸出輸入檔內容中的資料行分隔符號的特殊字元。 <br/><br/>您無法同時為資料表指定 escapeChar 和 quoteChar。 |只允許一個字元。 沒有預設值。 <br/><br/>範例：如果以逗號 (「,」) 做為資料行分隔符號，但想要在文字中使用逗號字元 (例如：「Hello, world」)，您可以將「$」定義為逸出字元，並在來源中使用字串「Hello$, world」。 |否 |
 | quoteChar |用來引用字串值的字元。 引號字元內的資料行和資料列分隔符號會被視為字串值的一部分。 這個屬性同時適用於輸入和輸出資料集。<br/><br/>您無法同時為資料表指定 escapeChar 和 quoteChar。 |只允許一個字元。 沒有預設值。 <br/><br/>例如，如果您以逗號 (',') 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：<Hello, world>)，您可以定義 " (雙引號) 做為引用字元，並在來源中使用字串 "Hello, world"。 |否 |
 | nullValue |用來代表 null 值的一個或多個字元。 |一或多個字元。 **預設值**為 **"\N" 和 "NULL"** (讀取時) 及 **"\N"** (寫入時)。 |否 |
 | encodingName |指定編碼名稱。 |有效的編碼名稱。 請參閱 [Encoding.EncodingName 屬性](https://msdn.microsoft.com/library/system.text.encoding.aspx)。 例如：windows-1250 或 shift_jis。 **預設值**為 **UTF-8**。 |否 |
@@ -91,8 +91,8 @@ ms.locfileid: "53100238"
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | filePattern |表示每個 JSON 檔案中儲存的資料模式。 允許的值為︰**setOfObjects** 和 **arrayOfObjects**。 **預設值**為 **setOfObjects**。 關於這些模式的詳細資訊，請參閱 [JSON 檔案模式](#json-file-patterns)一節。 |否 |
-| jsonNodeReference | 如果您想要逐一查看陣列欄位內相同模式的物件並擷取資料，請指定該陣列的 JSON 路徑。 從 JSON 檔案複製資料時，才支援這個屬性。 | 否 |
-| jsonPathDefinition | 指定 JSON 路徑運算式，以自訂資料行名稱來對應每個資料行 (開頭為小寫)。 從 JSON 檔案複製資料時，才支援這個屬性，您可以從物件或陣列中擷取資料。 <br/><br/> 如果是根物件下的欄位，請從根 $ 開始，如果是 `jsonNodeReference` 屬性所選陣列內的欄位，請從陣列元素開始。 關於如何設定，請參閱 [JsonFormat 範例](#jsonformat-example)一節。 | 否 |
+| jsonNodeReference | 如果您想要逐一查看陣列欄位內相同模式的物件並擷取資料，請指定該陣列的 JSON 路徑。 **從** JSON 檔案複製資料時，才支援這個屬性。 | 否 |
+| jsonPathDefinition | 指定 JSON 路徑運算式，以自訂資料行名稱來對應每個資料行 (開頭為小寫)。 **從** JSON 檔案複製資料時，才支援這個屬性，而您可以從物件或陣列中擷取資料。 <br/><br/> 如果是根物件下的欄位，請從根 $ 開始，如果是 `jsonNodeReference` 屬性所選陣列內的欄位，請從陣列元素開始。 關於如何設定，請參閱 [JsonFormat 範例](#jsonformat-example)一節。 | 否 |
 | encodingName |指定編碼名稱。 如需有效編碼名稱的清單，請參閱：[Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) 屬性。 例如：windows-1250 或 shift_jis。 **預設**值為：**UTF-8**。 |否 |
 | nestingSeparator |用來分隔巢狀層級的字元。 預設值為 '.' (點)。 |否 |
 
@@ -190,8 +190,6 @@ ms.locfileid: "53100238"
 ### <a name="jsonformat-example"></a>JsonFormat 範例
 
 **案例 1：從 JSON 檔案複製資料**
-
-從 JSON 檔案複製資料時，請參閱以下兩個範例。 一般注意事項：
 
 **範例 1︰從物件和陣列擷取資料**
 
@@ -405,67 +403,6 @@ ms.locfileid: "53100238"
 }
 ```
 
-## <a name="avro-format"></a>AVRO 格式
-
-如果您想要剖析 Avro 檔案，或以 Avro 格式寫入資料，請將 `format``type` 屬性設定為 **AvroFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例：
-
-```json
-"format":
-{
-    "type": "AvroFormat",
-}
-```
-
-若要在 Hive 資料表中使用 Avro 格式，您可以參考 [Apache Hive 的教學課程](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)。
-
-請注意下列幾點：
-
-* 不支援[複雜資料類型](http://avro.apache.org/docs/current/spec.html#schema_complex) (記錄、列舉、陣列、對應、等位和固定)。
-
-## <a name="orc-format"></a>ORC 格式
-
-如果您想要剖析 ORC 檔案，或以 ORC 格式寫入資料，請將 `format``type` 屬性設定為 **OrcFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例：
-
-```json
-"format":
-{
-    "type": "OrcFormat"
-}
-```
-
-> [!IMPORTANT]
-> 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 ORC 檔案，就需要在 IR 機器上安裝 JRE 8 (Java 執行階段環境)。 64 位元 IR 需要 64 位元 JRE。 您可以從 [這裡](https://go.microsoft.com/fwlink/?LinkId=808605)找到這兩個版本。
->
-
-請注意下列幾點：
-
-* 不支援複雜資料類型 (STRUCT、MAP、LIST、UNION)
-* ORC 檔案有 3 個[壓縮相關選項](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)︰NONE、ZLIB、SNAPPY。 Data Factory 支援以這些壓縮格式的任一項從 ORC 檔案讀取資料。 它會使用中繼資料裡的壓縮轉碼器來讀取資料。 不過，寫入 ORC 檔案時，Data Factory 會選擇 ZLIB，這是 ORC 的預設值。 目前沒有任何選項可覆寫這個行為。
-
-### <a name="data-type-mapping-for-orc-files"></a>ORC 檔案的資料類型對應
-
-| Data Factory 過渡期資料類型 | ORC 類型 |
-|:--- |:--- |
-| BOOLEAN | BOOLEAN |
-| SByte | Byte |
-| Byte | 簡短 |
-| Int16 | 簡短 |
-| UInt16 | int |
-| Int32 | int |
-| UInt32 | long |
-| Int64 | long |
-| UInt64 | 字串 |
-| 單一 | Float |
-| 兩倍 | 兩倍 |
-| 十進位 | 十進位 |
-| 字串 | 字串 |
-| Datetime | Timestamp |
-| DateTimeOffset | Timestamp |
-| 時間範圍 | Timestamp |
-| ByteArray | Binary |
-| Guid | 字串 |
-| Char | Char(1) |
-
 ## <a name="parquet-format"></a>Parquet 格式
 
 如果您想要剖析 Parquet 檔案，或以 Parquet 格式寫入資料，請將 `format``type` 屬性設定為 **ParquetFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例：
@@ -483,8 +420,9 @@ ms.locfileid: "53100238"
 
 請注意下列幾點：
 
-* 不支援複雜資料類型 (MAP、LIST)
-* Parquet 檔案有下列壓縮相關選項︰NONE、SNAPPY、GZIP 和 LZO。 Data Factory 支援以這些壓縮格式的任一項從 Parquet 檔案讀取資料。 它會使用中繼資料裡的壓縮轉碼器來讀取資料。 不過，寫入 Parquet 檔案時，Data Factory 會選擇 SNAPPY，這是 Parquet 格式的預設值。 目前沒有任何選項可覆寫這個行為。
+* 不支援複雜資料類型 (MAP、LIST)。
+* 不支援資料行名稱中的空白字元。
+* Parquet 檔案有下列壓縮相關選項︰NONE、SNAPPY、GZIP 和 LZO。 Data Factory 支援以這其中任一種壓縮格式從 Parquet 檔案中讀取資料，但 LZO 除外，它會在中繼資料內使用壓縮轉碼器來讀取資料。 不過，寫入 Parquet 檔案時，Data Factory 會選擇 SNAPPY，這是 Parquet 格式的預設值。 目前沒有任何選項可覆寫這個行為。
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Parquet 檔案的資料類型對應
 
@@ -510,6 +448,68 @@ ms.locfileid: "53100238"
 | Guid | Binary | Utf8 | Utf8 |
 | Char | Binary | Utf8 | Utf8 |
 | CharArray | 不支援 | N/A | N/A |
+
+## <a name="orc-format"></a>ORC 格式
+
+如果您想要剖析 ORC 檔案，或以 ORC 格式寫入資料，請將 `format``type` 屬性設定為 **OrcFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例：
+
+```json
+"format":
+{
+    "type": "OrcFormat"
+}
+```
+
+> [!IMPORTANT]
+> 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 ORC 檔案，就需要在 IR 機器上安裝 JRE 8 (Java 執行階段環境)。 64 位元 IR 需要 64 位元 JRE。 您可以從 [這裡](https://go.microsoft.com/fwlink/?LinkId=808605)找到這兩個版本。
+>
+
+請注意下列幾點：
+
+* 不支援複雜資料類型 (STRUCT、MAP、LIST、UNION)。
+* 不支援資料行名稱中的空白字元。
+* ORC 檔案有三種 [壓縮相關選項](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)︰NONE、ZLIB、SNAPPY。 Data Factory 支援以這些壓縮格式的任一項從 ORC 檔案讀取資料。 它會使用中繼資料裡的壓縮轉碼器來讀取資料。 不過，寫入 ORC 檔案時，Data Factory 會選擇 ZLIB，這是 ORC 的預設值。 目前沒有任何選項可覆寫這個行為。
+
+### <a name="data-type-mapping-for-orc-files"></a>ORC 檔案的資料類型對應
+
+| Data Factory 過渡期資料類型 | ORC 類型 |
+|:--- |:--- |
+| BOOLEAN | BOOLEAN |
+| SByte | Byte |
+| Byte | 簡短 |
+| Int16 | 簡短 |
+| UInt16 | int |
+| Int32 | int |
+| UInt32 | long |
+| Int64 | long |
+| UInt64 | 字串 |
+| 單一 | Float |
+| 兩倍 | 兩倍 |
+| 十進位 | 十進位 |
+| 字串 | 字串 |
+| Datetime | Timestamp |
+| DateTimeOffset | Timestamp |
+| 時間範圍 | Timestamp |
+| ByteArray | Binary |
+| Guid | 字串 |
+| Char | Char(1) |
+
+## <a name="avro-format"></a>AVRO 格式
+
+如果您想要剖析 Avro 檔案，或以 Avro 格式寫入資料，請將 `format``type` 屬性設定為 **AvroFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例：
+
+```json
+"format":
+{
+    "type": "AvroFormat",
+}
+```
+
+若要在 Hive 資料表中使用 Avro 格式，您可以參考 [Apache Hive 的教學課程](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)。
+
+請注意下列幾點：
+
+* 不支援[複雜資料類型](http://avro.apache.org/docs/current/spec.html#schema_complex) (記錄、列舉、陣列、對應、等位和固定)。
 
 ## <a name="compression-support"></a>壓縮支援
 
@@ -551,8 +551,8 @@ Azure Data Factory 支援在複製期間壓縮/解壓縮資料。 當您在輸�
 * **類型：** 壓縮轉碼器，可以是 **GZIP**、**Deflate**、**BZIP2** 或 **ZipDeflate**。
 * **層級：** 壓縮比，它可以是**最佳**或**最快**。
 
-  * **Fastest：** 即使產生的檔案未以最佳方式壓縮，壓縮作業也應該儘速完成。
-  * **Optimal**：即使作業耗費較長的時間才能完成，壓縮作業也應該以最佳方式壓縮。
+  * **最快：** 即使未以最佳方式壓縮所產生的檔案，壓縮作業也應儘速完成。
+  * **最佳**：即使作業耗費較長的時間才能完成，壓縮作業也應以最佳方式壓縮。
 
     如需詳細資訊，請參閱 [壓縮層級](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) 主題。
 

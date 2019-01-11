@@ -1,5 +1,5 @@
 ---
-title: 認知搜尋管線中自訂技能的介面定義 - Azure 搜尋服務
+title: 認知搜尋中自訂技能的介面定義 - Azure 搜尋服務
 description: Azure 搜尋服務的認知搜尋管線中，web-api 自訂技能的自訂資料擷取介面。
 manager: pablocas
 author: luiscabrer
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1df2a565b1c9e8bd2bea75ce78abc84608c89eea
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: deb72bcc41e20057b6e7b214c6a8c93655894a12
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314647"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628267"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>如何將自訂技能新增至認知搜尋管線
 

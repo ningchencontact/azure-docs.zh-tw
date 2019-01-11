@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 860d602ecba257ed9015d1e080e5dcb1aa5ab872
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9c85ee23f433e7b14278d8cc0ca3bff3e1ab4b94
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624619"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752566"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>開始使用 Azure Active Directory 報告 API
 
@@ -48,6 +48,11 @@ Azure Active Directory 會向您提供各種[報告](overview-reports.md)，內�
 
 稽核記錄的 Microsoft Graph API 端點是 `https://graph.microsoft.com/beta/auditLogs/directoryAudits`，登入的 Microsoft Graph API 端點則是 `https://graph.microsoft.com/beta/auditLogs/signIns`。 如需詳細資訊，請參閱[稽核 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)和[登入 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn)。
 
+此外，您可以使用 [Identity Protection 風險事件 API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) 來透過 Microsoft Graph 以程式設計方式存取安全性偵測。 如需詳細資訊，請參閱[開始使用 Azure Active Directory Identity Protection 和 Microsoft Graph](../identity-protection/graph-get-started.md)。 
+
+> [!NOTE]
+>  **https:\/\/graph.windows.net\/\<tenant-name\>\/reports\/** 端點已淘汰。 請使用上面所述的新 API 端點，以程式設計方式存取活動和安全性報告。
+  
 ## <a name="apis-with-graph-explorer"></a>API 與 Graph 總管
 
 您可以使用 [MSGraph 總管](https://developer.microsoft.com/graph/graph-explorer)來確認登入並稽核 API 資料。 請務必同時使用 Graph 總管 UI 中的兩個登入按鈕來登入帳戶，並如下所示地設定租用戶的 **AuditLog.Read.All** 和 **Directory.ReadAll** 權限。   

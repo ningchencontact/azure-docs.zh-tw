@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: f3e590ec5dded03ce9c6ab2f7a21d51048020622
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 76fc2c9a0864417e380471f8de59d148e0fbf7b4
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012584"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651822"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>使用 Microsoft 辨識工具組深入了解模型與 Azure HDInsight Spark 叢集
 
@@ -39,15 +39,15 @@ ms.locfileid: "53012584"
 
 Jupyter Notebook 中涵蓋下列剩餘步驟。
 
-- 將範例映像載入 Spark 復原分散式資料集或 RDD
-   - 載入模組並定義預設值
-   - 在 Spark 叢集上的本機下載資料集
-   - 將資料集轉換成 RDD
-- 使用定型的辨識工具組模型對映像進行評分
-   - 下載定型的辨識工具組模型至 Spark 叢集
-   - 定義可供背景工作節點使用的函式
-   - 在背景工作節點上對映像進行評分
-   - 評估模型的精確度
+- 將範例映像載入至 Spark Resiliant Distributed Dataset 或 RDD。
+   - 載入模組並定義預設值。
+   - 在 Spark 叢集上本機下載資料集。
+   - 將資料集轉換成 RDD。
+- 使用定型的 Cognitive Toolkit 模型對映像進行評分。
+   - 將定型的 Cognitive Toolkit 模型下載至 Spark 叢集。
+   - 定義可供背景工作節點使用的函式。
+   - 在背景工作節點上對映像進行評分。
+   - 評估模型精確度。
 
 
 ## <a name="install-microsoft-cognitive-toolkit"></a>安裝 Microsoft 辨識工具組
@@ -98,7 +98,7 @@ Jupyter Notebook 中涵蓋下列剩餘步驟。
 
 ### <a name="create-and-run-applications"></a>建立及執行應用程式
 * [使用 Scala 建立獨立應用程式](apache-spark-create-standalone-application.md)
-* [使用 Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
+* [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和擴充功能
 * [使用 IntelliJ IDEA 的 HDInsight Tools 外掛程式來建立和提交 Spark Scala 應用程式](apache-spark-intellij-tool-plugin.md)

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 12/14/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 87d5389abd72875c62ea3484fc3f9ca43c339447
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 36b3fcfa90b5b1de9c9d3262da1f3e519cc99c19
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239992"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "53444034"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>是否所有的 Azure VPN 閘道 SKU 都支援自訂 IPsec/IKE 原則？
 Azure **VpnGw1、VpnGw2、VpnGw3、標準**和**高效能** VPN 閘道可支援自訂 IPsec/IKE 原則。 **不**支援**基本** SKU。
@@ -101,4 +101,7 @@ SA 存留期只需要在本機指定，不需要相符。
 是。 VNet 對 VNet 通道在 Azure 中包含兩個連線資源，這兩個資源各自應對一個方向。 確保這兩個連線資源具有相同的原則，否則系統不會建立 VNet 對 VNet 連線。
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>自訂 IPsec/IKE 原則是否適用於 ExpressRoute 連線？
-否。 IPsec/IKE 原則只適用於透過 Azure VPN 閘道的 S2S VPN 連線和 VNet 對 VNet 連線。
+沒有。 IPsec/IKE 原則只適用於透過 Azure VPN 閘道的 S2S VPN 連線和 VNet 對 VNet 連線。
+
+### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>哪裡可以找到更多 IPsec 設定資訊？
+請參閱[設定 S2S 或 VNet 對 VNet 連線的 IPsec/IKE 原則](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

@@ -1,102 +1,39 @@
 ---
-title: 在 Azure Active Directory B2C 自訂原則中的密碼複雜度 | Microsoft Docs
-description: 如何在自訂原則中設定密碼複雜度需求。
+title: 在 Azure Active Directory B2C 中使用自訂原則來設定密碼複雜度 | Microsoft Docs
+description: 如何在 Azure Active Directory B2C 中使用自訂原則來設定密碼複雜度需求。
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 12/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6b8312a08d1d92bccf70e7d3dda5f01811b4f87
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 74542f86d5114ff57e358db7e239e307059fe5ad
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848522"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580343"
 ---
-# <a name="configure-password-complexity-in-custom-policies"></a>在自訂原則中設定密碼複雜度
+# <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定密碼複雜度
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-本文是密碼複雜度運作方式的進階描述，並使用 Azure AD B2C 自訂原則來啟用。
-
-## <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C：設定密碼複雜度需求
-
-Azure Active Directory B2C (Azure AD B2C) 支援的變更密碼複雜度需求，是在建立帳戶時由使用者所提供的。  根據預設，Azure AD B2C 是使用**強式**密碼。  Azure AD B2C 也支援組態選項，可控制客戶可以使用的密碼複雜度。  本文示範如何在自訂原則中設定密碼複雜度。  它也可使用[在內建原則中設定密碼複雜度](active-directory-b2c-reference-password-complexity.md)。
+在 Azure Active Directory (Azure AD) B2C 中，您可以針對使用者在建立帳戶時所提供的密碼設定複雜度需求。 根據預設，Azure AD B2C 是使用**強式**密碼。 本文說明如何在[自訂原則](active-directory-b2c-overview-custom.md)中設定密碼複雜度。 此外，您也可以在[使用者流程](active-directory-b2c-reference-password-complexity.md)中設定密碼複雜度。
 
 ## <a name="prerequisites"></a>必要條件
 
-如[開始使用](active-directory-b2c-get-started-custom.md)所述，設定為完成本機帳戶註冊/登入的 Azure AD B2C 租用戶。
+完成[在 Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 
-## <a name="how-to-configure-password-complexity-in-custom-policy"></a>如何在自訂原則中設定密碼複雜度
+## <a name="add-the-elements"></a>新增元素
 
-若要設定自訂原則中的密碼複雜度，自訂原則的整體結構必須包含 `BuildingBlocks` 內的 `ClaimsSchema`、`Predicates`，和 `InputValidations` 元素。
+1. 複製與入門套件一起下載的 *SignUpOrSignIn.xml* 檔案，並將其命名為 *SingUpOrSignInPasswordComplexity.xml*。
+2. 開啟 *SingUpOrSignInPasswordComplexity.xml* 檔案，然後將 **PolicyId** 和 **PublicPolicyUri** 變更成新的原則名稱。 例如 *B2C_1A_signup_signin_password_complexity*。
+3. 新增下列識別碼為 `newPassword` 和 `reenterPassword` 的 **ClaimType** 元素：
 
-```XML
-  <BuildingBlocks>
-    <ClaimsSchema>...</ClaimsSchema>
-    <Predicates>...</Predicates>
-    <InputValidations>...</InputValidations>
-  </BuildingBlocks>
-```
-
-這些元素的用途如下所示：
-
-- 每個 `Predicate` 元素都會定義傳回 true 或 false 的基本字串驗證檢查。
-- `InputValidations` 元素具有一或多個 `InputValidation` 元素。  每個 `InputValidation` 都是使用一系列的 `Predicate` 元素來建構。 這個元素可讓您執行布林值的彙總 (類似於 `and` 和 `or`)。
-- `ClaimsSchema` 會定義要驗證的宣告。  然後它會定義要用來驗證該宣告的 `InputValidation` 規則。
-
-### <a name="defining-a-predicate-element"></a>定義述詞元素
-
-述詞有兩個方法的類型：IsLengthRange 或 MatchesRegex。 讓我們檢閱每一個的範例。  首先，我們要看 MatchesRegex，是用來比對規則運算式的範例。  在此範例中，它必須符合包含數字的字串。
-
-```XML
-      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
-        <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
-        </Parameters>
-      </Predicate>
-```
-
-接著，我們要檢閱 IsLengthRange 的範例。  這個方法會採用最小和最大的字串長度。
-
-```XML
-      <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
-        <Parameters>
-          <Parameter Id="Minimum">8</Parameter>
-          <Parameter Id="Maximum">16</Parameter>
-        </Parameters>
-      </Predicate>
-```
-
-如果檢查失敗，可使用 `HelpText` 屬性來提供錯誤訊息給使用者。  可以使用[語言自訂功能](active-directory-b2c-reference-language-customization.md)將這個字串當地語系化。
-
-### <a name="defining-an-inputvalidation-element"></a>定義 InputValidation 元素
-
-`InputValidation` 是 `PredicateReferences` 的彙總。 每個 `PredicateReferences` 都必須為 true，`InputValidation` 才會成功。  不過，`PredicateReferences` 元素內部會使用名為 `MatchAtLeast`的屬性來指定有幾個 `PredicateReference` 檢查必須傳回 true。  選擇性地定義 `HelpText` 屬性，可覆寫其所參考之 `Predicate` 元素中的錯誤訊息。
-
-```XML
-      <InputValidation Id="PasswordValidation">
-        <PredicateReferences Id="LengthGroup" MatchAtLeast="1">
-          <PredicateReference Id="Length" />
-        </PredicateReferences>
-        <PredicateReferences Id="3of4" MatchAtLeast="3" HelpText="You must have at least 3 of the following character classes:">
-          <PredicateReference Id="Lowercase" />
-          <PredicateReference Id="Uppercase" />
-          <PredicateReference Id="Number" />
-          <PredicateReference Id="Symbol" />
-        </PredicateReferences>
-      </InputValidation>
-```
-
-### <a name="defining-a-claimsschema-element"></a>定義 ClaimsSchema 元素
-
-宣告類型 `newPassword` 和 `reenterPassword` 會視為特殊的，因此不要變更這些名稱。  UI 會以這些 `ClaimType` 元素作為基礎，驗證使用者是否在帳戶建立期間正確地重新輸入其密碼。  若要尋找相同的 `ClaimType` 元素，請在入門套件中查看 TrustFrameworkBase.xml。  此範例中的最新消息是我們要覆寫這些元素來定義 `InputValidationReference`。 這個新元素的 `ID` 屬性指向我們所定義的 `InputValidation` 元素。
-
-```XML
+    ```XML
     <ClaimsSchema>
       <ClaimType Id="newPassword">
         <InputValidationReference Id="PasswordValidation" />
@@ -105,78 +42,29 @@ Azure Active Directory B2C (Azure AD B2C) 支援的變更密碼複雜度需求�
         <InputValidationReference Id="PasswordValidation" />
       </ClaimType>
     </ClaimsSchema>
-```
+    ```
 
-### <a name="putting-it-all-together"></a>總整理
+4. [Predicates](predicates.md) 具有 `IsLengthRange` 或 `MatchesRegex` 方法類型。 `MatchesRegex` 類型可用來比對規則運算式。 `IsLengthRange` 類型可接受最小和最大字串長度。 將含有下列 **Predicate** 元素的 **Predicates** 元素 (如果尚未存在) 新增至 **BuildingBlocks** 元素：
 
-這個範例會說明如何將所有部分拼湊在一起來形成工作原則。  若要使用此範例：
-
-1. 遵循[使用者入門](active-directory-b2c-get-started-custom.md)中必要條件的指示，下載、設定及上傳 TrustFrameworkBase.xml 和 TrustFrameworkExtensions.xml
-1. 使用本節中的範例內容來建立 SignUporSignIn.xml 檔案。
-1. 將 `yourtenant` 取代為您的 Azure AD B2C 租用戶名稱以更新 SignUporSignIn.xml。
-1. 最後上傳 SignUporSignIn.xml 原則檔案。
-
-這個範例包含驗證 PIN 密碼，另一個則是用於強式密碼：
-
-- 尋找 `PINpassword`。 這個 `InputValidation` 元素會驗證任何長度的 PIN。  目前不會使用它，因為 `ClaimType` 內的 `InputValidationReference` 元素不會參考它。 
-- 尋找 `PasswordValidation`。 這項 `InputValidation` 元素驗證的密碼為 8 到 16 個字元，並包含 3 到 4 個數字、大寫、小寫或符號。  會在 `ClaimType` 參考它。  因此，此原則中會強制執行這個規則。
-
-```XML
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TrustFrameworkPolicy
-  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
-  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-  PolicySchemaVersion="0.3.0.0"
-  TenantId="yourtenant.onmicrosoft.com"
-  PolicyId="B2C_1A_signup_signin"
-  PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_signup_signin">
- <BasePolicy>
-    <TenantId>yourtenant.onmicrosoft.com</TenantId>
-    <PolicyId>B2C_1A_TrustFrameworkExtensions</PolicyId>
-  </BasePolicy>
-  <BuildingBlocks>
-    <ClaimsSchema>
-      <ClaimType Id="newPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-      <ClaimType Id="reenterPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-    </ClaimsSchema>
+    ```XML
     <Predicates>
-      <Predicate Id="Lowercase" Method="MatchesRegex" HelpText="a lowercase">
+      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
         <Parameters>
-          <Parameter Id="RegularExpression">[a-z]+</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Uppercase" Method="MatchesRegex" HelpText="an uppercase">
-        <Parameters>
-          <Parameter Id="RegularExpression">[A-Z]+</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Number" Method="MatchesRegex" HelpText="a number">
-        <Parameters>
-          <Parameter Id="RegularExpression">[0-9]+</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="Symbol" Method="MatchesRegex" HelpText="a symbol">
-        <Parameters>
-          <Parameter Id="RegularExpression">[!@#$%^*()]+</Parameter>
+          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
         <Parameters>
           <Parameter Id="Minimum">8</Parameter>
           <Parameter Id="Maximum">16</Parameter>
-        </Parameters>
-      </Predicate>
-      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
-        <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
         </Parameters>
       </Predicate>
     </Predicates>
+    ```
+
+5. 每個 **InputValidation** 元素都是使用已定義的 **Predicate** 元素來建構的。 此元素可讓您執行類似於 `and` 和 `or`的布林值彙總。 將含有下列 **InputValidation** 元素的 **InputValidations** 元素 (如果尚未存在) 新增至 **BuildingBlocks** 元素：
+
+    ```XML
     <InputValidations>
       <InputValidation Id="PasswordValidation">
         <PredicateReferences Id="LengthGroup" MatchAtLeast="1">
@@ -189,30 +77,57 @@ Azure Active Directory B2C (Azure AD B2C) 支援的變更密碼複雜度需求�
           <PredicateReference Id="Symbol" />
         </PredicateReferences>
       </InputValidation>
-      <InputValidation Id="PINpassword">
-        <PredicateReferences Id="PINGroup">
-          <PredicateReference Id="PIN" />
-        </PredicateReferences>
-      </InputValidation>
     </InputValidations>
-  </BuildingBlocks>
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="OpenIdConnect" />
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword" />
-      </InputClaims>
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
-        <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      </OutputClaims>
-      <SubjectNamingInfo ClaimType="sub" />
-    </TechnicalProfile>
-  </RelyingParty>
-</TrustFrameworkPolicy>
-```
+    ```
+
+6. 確定 **PolicyProfile** 技術設定檔包含下列元素：
+
+    ```XML
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn"/>
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect"/>
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+        </InputClaims>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName"/>
+          <OutputClaim ClaimTypeReferenceId="givenName"/>
+          <OutputClaim ClaimTypeReferenceId="surname"/>
+          <OutputClaim ClaimTypeReferenceId="email"/>
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub"/>
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+
+7. 儲存原則檔案。
+
+## <a name="test-your-policy"></a>測試您的原則
+
+在 Azure AD B2C 中測試應用程式時，將 Azure AD B2C 權杖傳回到 `https://jwt.ms` 以檢閱其中的宣告很有用。
+
+### <a name="upload-the-files"></a>上傳檔案
+
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+4. 選取 [識別體驗架構]。
+5. 在 [自訂原則] 頁面上，按一下 [上傳原則]。
+6. 選取 [覆寫現有的原則]，然後搜尋並選取 *SingUpOrSignInPasswordComplexity.xml*檔案。
+7. 按一下 [上傳] 。
+
+### <a name="run-the-policy"></a>執行原則
+
+1. 開啟您所變更的原則。 例如 *B2C_1A_signup_signin_password_complexity*。
+2. 針對**應用程式**，請選取您先前註冊的應用程式。 若要查看權杖，[回覆 URL] 應該顯示 `https://jwt.ms`。
+3. 按一下 [立即執行] 。
+4. 選取 [立即註冊]，輸入電子郵件地址，然後輸入新密碼。 系統會顯示有關密碼限制的指引。 完成使用者資訊輸入，然後按一下 [建立]。 您應該會看到傳回的權杖內容。
+
+## <a name="next-steps"></a>後續步驟
+
+- 了解如何[在 Azure Active Directory B2C 中使用自訂原則來設定密碼變更](active-directory-b2c-reference-password-change-custom.md)。
+
+

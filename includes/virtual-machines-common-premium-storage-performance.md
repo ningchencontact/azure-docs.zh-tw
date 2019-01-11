@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 50e252b7dbd20d5330f8117eaa45ccf52303f277
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51678167"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53553450"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure 進階儲存體：專為高效能而設計
+# <a name="azure-premium-storage-design-for-high-performance"></a>Azure 進階儲存體：為高效能而設計
 
 這篇文章提供使用 Azure 進階儲存體來建置高效能應用程式的指導方針。 您可以使用這份文件所提供的指示，並根據您的應用程式所採用的技術，結合適合的效能最佳作法。 為了說明指導方針，在這整份文件中，我們以進階儲存體上執行的 SQL Server 為範例。
 
@@ -35,7 +35,7 @@ ms.locfileid: "51678167"
 > 有時候，看似磁碟效能問題的情況，其實是網路瓶頸。 在這些情況下，您應該將您的[網路效能](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md)最佳化。
 > 如果您的 VM 支援加速網路，您應確實加以啟用。 如果未啟用，您可以對 [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) 和 [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) 上已部署的 VM 加以啟用。
 
-開始之前，如果您不熟悉進階儲存體，請先閱讀[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../articles/virtual-machines/windows/premium-storage.md)和 [Azure 儲存體延展性和效能目標](../articles/storage/common/storage-scalability-targets.md)文章。
+在開始之前，如果您不熟悉進階儲存體，請先閱讀[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../articles/virtual-machines/windows/premium-storage.md)和 [Azure 儲存體延展性和效能目標](../articles/storage/common/storage-scalability-targets.md)文章。
 
 ## <a name="application-performance-indicators"></a>應用程式效能指標
 
@@ -66,6 +66,14 @@ IOPS 是指應用程式在一秒內傳送到儲存體磁碟的要求數。 輸�
 延遲是指應用程式收到單一要求、將它傳送至儲存體磁碟，然後將回應傳送給用戶端所花費的時間。 除了 IOPS 和輸送量，這也是應用程式效能的一個重要量值。 進階儲存體磁碟的延遲是指擷取要求的資訊並傳回給應用程式所花費的時間。 進階儲存體提供一致的低延遲。 如果在進階儲存體磁碟上啟用 ReadOnly 主機快取，讀取延遲會非常低。 在稍後的 *最佳化應用程式效能*一節中，我們將更詳細討論磁碟快取。
 
 當您將應用程式最佳化以產生較高的 IOPS 和輸送量時，也會影響應用程式的延遲。 調整應用程式效能之後，務必評估應用程式的延遲，以避免發生非預期的高延遲現象。
+
+遵循受控磁碟上的控制平面作業可能牽涉到將磁碟從一個儲存位置移動到另一個儲存位置。 這會透過資料的背景副本進行協調，可能需要數小時才能完成，端視磁碟機中的資料量而定，一般不超過 24 小時。 在這段期間，應用程式可能出現比平常高的讀取延遲，因為某些讀取會重新導向至原始位置，因此可能需要較長的時間才能完成。 在這段期間，對於寫入延遲沒有任何影響。  
+
+1.  [更新儲存體類型](../articles/virtual-machines/windows/convert-disk-storage.md)
+2.  [將磁碟從一部 VM 卸離並附加到另一個 VM](../articles/virtual-machines/windows/attach-disk-ps.md)
+3.  [從 VHD 建立受控磁碟](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
+4.  [從快照集建立受控磁碟](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
+5.  [將非受控磁碟轉換為受控磁碟](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
 
 ## <a name="gather-application-performance-requirements"></a>收集應用程式效能需求
 
@@ -110,7 +118,7 @@ IOPS 是指應用程式在一秒內傳送到儲存體磁碟的要求數。 輸�
 
 | 計數器 | 說明 | PerfMon | Iostat |
 | --- | --- | --- | --- |
-| **IOPS 或每秒交易數** |每秒發出給儲存體磁碟的 I/O 要求數。 |Disk Reads/sec  <br>  Disk Writes/sec |tps  <br> r/s  <br>  w/s |
+| **IOPS 或每秒交易數** |每秒發出給儲存體磁碟的 I/O 要求數。 |Disk Reads/sec  <br> Disk Writes/sec |tps  <br> r/s  <br>  w/s |
 | **磁碟讀取和寫入** |磁碟上執行的讀取和寫入作業 %。 |% Disk Read Time  <br>  % Disk Write Time |r/s  <br>  w/s |
 | **輸送量** |每秒讀取或寫入磁碟的資料量。 |Disk Read Bytes/sec  <br>  Disk Write Bytes/sec |kB_read/s <br> kB_wrtn/s |
 | **延遲** |完成磁碟 IO 要求的總時間。 |Average Disk sec/Read  <br>  Average disk sec/Write |await  <br>  svctm |
@@ -296,7 +304,7 @@ Azure 進階儲存體提供八種 GA 磁碟大小，以及目前處於預覽狀�
 
 在 Windows 中，您可以使用「儲存空間」將磁碟串接在一起。 您必須為集區中的每個磁碟設定一欄。 否則，由於磁碟之間的流量分配不平均，等量磁碟區的整體效能可能會低於預期。
 
-重要事項：您可以使用伺服器管理員 UI，將一個等量磁碟區的總欄數最多設定為 8 個。 當連接 8 個以上的磁碟時，請使用 PowerShell 來建立磁碟區。 您可以使用 PowerShell 將欄數設定為等於磁碟數量。 例如，如果單一等量磁碟區中有 16 個磁碟，請在 *New-VirtualDisk* PowerShell Cmdlet 的 *NumberOfColumns* 參數中指定 16 欄。
+重要：您可以使用伺服器管理員 UI，將一個等量磁碟區的總欄數最多設定為 8 個。 當連接 8 個以上的磁碟時，請使用 PowerShell 來建立磁碟區。 您可以使用 PowerShell 將欄數設定為等於磁碟數量。 例如，如果單一等量磁碟區中有 16 個磁碟，請在 *New-VirtualDisk* PowerShell Cmdlet 的 *NumberOfColumns* 參數中指定 16 欄。
 
 在 Linux 上，請使用 MDADM 公用程式將磁碟串接在一起。 如需有關在 Linux 上等量分割磁碟的詳細步驟，請參閱 [在 Linux 上設定軟體 RAID](../articles/virtual-machines/linux/configure-raid.md)。
 
@@ -403,24 +411,24 @@ Azure 進階儲存體會根據您選擇的 VM 大小和磁碟大小，佈建指�
 
 1. 使用如下所示的值建立兩個存取規格
 
-   | 名稱 | 要求大小 | 隨機 % | 讀取 % |
+   | Name | 要求大小 | 隨機 % | 讀取 % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1MB |100 |0 |
    | RandomReads\_1MB |1MB |100 |100 |
 1. 執行 Iometer 測試，使用下列參數初始化快取磁碟。 對目標磁碟區使用三個背景工作執行緒，佇列深度為 128。 在 [測試安裝程式] 索引標籤上，將測試的「執行階段」期間設為 2 小時。
 
-   | 案例 | 目標磁碟區 | 名稱 | Duration |
+   | 案例 | 目標磁碟區 | Name | Duration |
    | --- | --- | --- | --- |
    | 初始化快取磁碟 |CacheReads |RandomWrites\_1MB |2 小時 |
 1. 執行 Iometer 測試，使用下列參數來準備快取。 對目標磁碟區使用三個背景工作執行緒，佇列深度為 128。 在 [測試安裝程式] 索引標籤上，將測試的「執行階段」期間設為 2 小時。
 
-   | 案例 | 目標磁碟區 | 名稱 | 持續時間 |
+   | 案例 | 目標磁碟區 | Name | 持續時間 |
    | --- | --- | --- | --- |
    | 準備快取磁碟 |CacheReads |RandomReads\_1MB |2 小時 |
 
 準備快取磁碟之後，繼續執行下列的測試案例。 若要執行 Iometer 測試，請對 **每個** 目標磁碟區使用至少三個背景工作角色執行緒。 針對每個背景工作執行緒，請選取目標磁碟區，設定佇列深度，然後選取其中一個已儲存的測試規格，如下表所示，以執行對應的測試案例。 表格也顯示執行這些測試時，預期的 IOPS 和輸送量結果。 在所有案例中，都使用較小的 IO 大小 8 KB 和較高的佇列深度 128。
 
-| 測試案例 | 目標磁碟區 | 名稱 | 結果 |
+| 測試案例 | 目標磁碟區 | Name | 結果 |
 | --- | --- | --- | --- |
 | 最大 讀取 IOPS |CacheReads |RandomWrites\_8K |50,000 IOPS  |
 | 最大 寫入 IOPS |NoCacheWrites |RandomReads\_8K |64,000 IOPS |
@@ -597,7 +605,7 @@ sudo fio --runtime 30 fioreadwrite.ini
 
 深入了解 Azure 進階儲存體：
 
-* [Premium 儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../articles/virtual-machines/windows/premium-storage.md)  
+* [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../articles/virtual-machines/windows/premium-storage.md)  
 
 若為 SQL Server 使用者，請參閱「SQL Server 的效能最佳作法」文章：
 

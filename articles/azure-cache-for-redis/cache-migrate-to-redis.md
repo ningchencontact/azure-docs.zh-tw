@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 5a1febb80b5d3aaf0e5da2620f1b0a35d5d1144b
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 27c8fce8c8eac936708dbac72ca60a1c0af286ea
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556793"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106131"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>從受控快取服務移轉至 Azure Cache for Redis
 若想將使用 Azure 受控快取服務的應用程式移轉至 Azure Cache for Redis，您幾乎不需要變更應用程式就可達成，詳細情形取決於快取應用程式所使用的受控快取服務功能。 API 雖非完全相同，但卻極為類似，而且您現有使用受控快取服務來存取快取的程式碼，大多只需要略做變更即可重複使用。 本文說明如何對設定和應用程式進行必要的變更，以將受控快取服務應用程式移轉為使用 Azure Cache for Redis，並說明如何使用 Azure Cache for Redis 的某些功能，來實作受控快取服務快取的功能。
@@ -53,7 +53,7 @@ Azure 受控快取服務與 Azure Cache for Redis 類似，但兩者在實作某
 | 本機快取 |在用戶端本機上儲存快取物件的複本，以利快速存取。 |用戶端應用程式必須使用字典或類似的資料結構來實作這項功能。 |
 | 收回原則 |無或 LRU。 預設原則是 LRU。 |Azure Cache for Redis 支援下列收回原則：volatile-lru、allkeys-lru、volatile-random、allkeys-random、volatile-ttl、noeviction。 預設原則是 volatile-lru。 如需詳細資訊，請參閱 [預設 Redis 伺服器組態](cache-configure.md#default-redis-server-configuration)。 |
 | 到期原則 |預設的到期原則為「絕對」，預設的到期間隔為 10 分鐘。 另外也提供 [滑動] 和 [永不] 原則。 |依預設，快取中的項目不會到期，但可以使用快取集多載，對每筆寫入作業設定到期時間。 |
-| 區域和標記 |區域是快取項目的子群組。 區域也支援以稱為標記的額外描述性字串，來為快取項目加上註解。 區域支援對該區域內的任何標記項目執行搜尋作業的能力。 區域內的所有項目都位於單一快取叢集節點內。 |Azure Cache for Redis 由單一節點所組成 (除非已啟用 Redis 叢集)，因此不適用受控快取服務區域的概念。 Redis 支援在擷取索引鍵時執行搜尋和萬用字元作業，讓描述性標記可以內嵌在索引鍵名稱內並於稍後用來擷取項目。 如需使用 Redis 實作標記解決方案的範例，請參閱 [使用 Redis 實作快取標記](http://stackify.com/implementing-cache-tagging-redis/)。 |
+| 區域和標記 |區域是快取項目的子群組。 區域也支援以稱為標記的額外描述性字串，來為快取項目加上註解。 區域支援對該區域內的任何標記項目執行搜尋作業的能力。 區域內的所有項目都位於單一快取叢集節點內。 |Azure Cache for Redis 由單一節點所組成 (除非已啟用 Redis 叢集)，因此不適用受控快取服務區域的概念。 Redis 支援在擷取索引鍵時執行搜尋和萬用字元作業，讓描述性標記可以內嵌在索引鍵名稱內並於稍後用來擷取項目。 如需使用 Redis 實作標記解決方案的範例，請參閱 [使用 Redis 實作快取標記](https://stackify.com/implementing-cache-tagging-redis/)。 |
 | 序列化 |受控快取支援 NetDataContractSerializer 和 BinaryFormatter，也支援使用自訂序列化程式。 預設值為 NetDataContractSerializer。 |由用戶端應用程式負責先將 .NET 物件序列化再將它們放入快取中，至於要選擇使用哪個序列化程式則由用戶端應用程式的開發人員決定。 如需詳細資訊和範例程式碼，請參閱 [在快取中使用 .NET 物件](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)。 |
 | 快取模擬器 |受控快取提供本機快取模擬器。 |Azure Cache for Redis 沒有模擬器，但您可以[在本機執行 redis-server.exe 的 MSOpenTech 組建](cache-faq.md#cache-emulator)以提供模擬器體驗。 |
 

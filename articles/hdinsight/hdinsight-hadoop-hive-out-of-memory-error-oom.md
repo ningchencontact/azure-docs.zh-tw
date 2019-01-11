@@ -10,18 +10,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3b49959d167dbb735ebb9be9c75e91ef257c6a70
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9aff828dcb9dfea6d5f35ad92bb09ba7cd802fea
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383828"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53711851"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>修正 Azure HDInsight 中的 Apache Hive 記憶體不足錯誤
 
 了解如何透過設定 Hive 記憶體設定，修正處理大型資料表時的 Apache Hive 記憶體不足 (OOM) 錯誤。
 
-## <a name="run-hive-query-against-large-tables"></a>針對大型資料表執行 Hive 查詢
+## <a name="run-apache-hive-query-against-large-tables"></a>針對大型資料表執行 Apache Hive 查詢
 
 某個客戶執行了 Hive 查詢：
 

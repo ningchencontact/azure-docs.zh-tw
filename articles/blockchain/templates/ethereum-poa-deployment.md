@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 12fab05ef7c459419c8aaf319098fddaae1416e6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 145dd36629286980c0f0e1692df3afb227764285
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241243"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974041"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>以太坊權威證明聯盟
 
@@ -198,7 +198,7 @@ ms.locfileid: "48241243"
 
 當訂用帳戶受到保護後，請移至 Azure 入口網站。 選取 [+] 和 [Marketplace (檢視全部)]，並搜尋以太坊 PoA 聯盟。
 
-以下幾節將引導您逐步設定網路中第一個成員的配置。 部署流程分成下列五個步驟：基本概念、部署區域、網路大小和效能、以太坊設定、Azure 監視器。
+以下幾節將引導您逐步設定網路中第一個成員的配置。 部署流程分成下列五個步驟：基本概念、部署區域、網路大小和效能、Ethereum 設定、Azure 監視器。
 
 #### <a name="basics"></a>基本概念
 
@@ -744,7 +744,7 @@ $ truffle migrate --network poa
 
 ### <a name="debug-smart-contract-with-truffle"></a>使用 Truffle 對智慧合約進行偵錯
 
-Truffle 具有可用來對智慧合約進行偵錯的本機開發網路。 您可以在[這裡](http://truffleframework.com/tutorials/debugging-a-smart-contract)找到完整的教學課程。
+Truffle 具有可用來對智慧合約進行偵錯的本機開發網路。 您可以在[這裡](https://truffleframework.com/tutorials/debugging-a-smart-contract)找到完整的教學課程。
 
 ### <a name="webassembly-wasm-support"></a>WebAssembly (WASM) 支援
 

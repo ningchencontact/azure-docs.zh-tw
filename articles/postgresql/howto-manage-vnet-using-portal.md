@@ -1,19 +1,17 @@
 ---
-title: 使用 Azure 入口網站建立及管理適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點和規則 | Microsoft Docs
+title: 使用 Azure 入口網站建立及管理適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點和規則
 description: 使用 Azure 入口網站建立及管理適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點和規則
-services: postgresql
 author: mbolz
 ms.author: mbolz
-ms.reviewer: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: b1cdabdf3c4f5355df568e940ed78e392a9c6612
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 6f16428b6e5eacedd32712c6ccb212c376e244e8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957168"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537234"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>使用 Azure 入口網站建立及管理適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點和 VNet 規則
 虛擬網路 (VNet) 服務端點和規則會將虛擬網路的私人位址空間延伸到您適用於 PostgreSQL 伺服器的 Azure 資料庫。 如需適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點概觀 (包含限制)，請參閱[適用於 PostgreSQL 伺服器的 Azure 資料庫的 VNet 服務端點](concepts-data-access-and-security-vnet.md)。 VNet 服務端點在「適用於 PostgreSQL 的 Azure 資料庫」的所有支援區域皆可使用。

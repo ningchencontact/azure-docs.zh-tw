@@ -12,16 +12,19 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/12/2018
-ms.openlocfilehash: bb80b512176e8fe260eb4572ea9fa801a6ffc80a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: b5916b781c636752ada6898cfa0c03bc02891501
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685135"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715013"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>適用於 Azure SQL 資料同步的資料同步代理程式
 
 藉由安裝並設定「適用於 Azure SQL 資料同步的資料同步代理程式」，與內部部署 SQL Server 資料庫同步資料。如需有關「SQL 資料同步」的詳細資訊，請參閱[使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料](sql-database-sync-data.md)。
+
+> [!IMPORTANT]
+> 「Azure SQL 資料同步」目前**不**支援「Azure SQL Database 受控執行個體」。
 
 ## <a name="download-and-install"></a>下載並安裝
 
@@ -136,7 +139,7 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
 
 ### <a name="agent-start"></a> 用戶端代理程式無法啟動 (錯誤 1069)
 
-您發現代理程式未在裝載 SQL Server 的電腦上執行。 當您嘗試以手動方式啟動代理程式時，您會看到對話方塊顯示錯誤訊息：「錯誤 1069：登入失敗所以服務無法啟動。」
+您發現代理程式未在裝載 SQL Server 的電腦上執行。 當您嘗試以手動方式啟動代理程式時，您會看到對話方塊顯示錯誤訊息 [錯誤 1069：登入失敗所以服務無法啟動。]
 
 ![資料同步處理錯誤 1069 對話方塊](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
 

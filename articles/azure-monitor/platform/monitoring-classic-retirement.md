@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5e882bf0a9b7cbc8a3e96c0184cc1ad53893e989
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 15a3073cde3f9e9ec8c70212cc3b1a591e703915
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999215"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052218"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Azure 監視器中的整合警示和監視取代了傳統警示和監視
 
@@ -51,7 +51,7 @@ Azure 監視器的較新計量平台現在可強化來自 Application Insights �
 
 - 目前可透過 Azure 入口網站 [[警示 (傳統)] 區段](../../azure-monitor/platform/alerts-classic.overview.md)使用的 Azure 資源舊版 (傳統) 計量和警示；可以 [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) 資源的形式來存取
 - 目前可透過 Azure 入口網站 [[警示 (傳統)] 區段](../../azure-monitor/platform/alerts-classic.overview.md)使用的 Application Insights 舊版 (傳統) 平台與自訂計量及警示；且可以 [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) 資源的形式來存取
-- 目前可在 Azure 入口網站以 [Application Insights 中的智慧偵測](../../application-insights/app-insights-proactive-diagnostics.md)提供的舊版 (傳統) 失敗異常警示；所設定的警示會顯示於 Azure 入口網站的 [[警示 (傳統)] 區段](../../azure-monitor/platform/alerts-classic.overview.md)
+- 目前可在 Azure 入口網站以 [Application Insights 中的智慧偵測](../../azure-monitor/app/proactive-diagnostics.md)提供的舊版 (傳統) 失敗異常警示；所設定的警示會顯示於 Azure 入口網站的 [[警示 (傳統)] 區段](../../azure-monitor/platform/alerts-classic.overview.md)
 
 所有傳統監視和警示系統 (包括對應的 [API](https://msdn.microsoft.com/library/azure/dn931945.aspx)、[PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)、[CLI](../../azure-monitor/platform/alerts-classic-portal.md)、[Azure 入口網站頁面](../../azure-monitor/platform/alerts-classic-portal.md)和[資源範本](../../azure-monitor/platform/alerts-enable-template.md)) 在 2019 年 6 月底之前仍可繼續使用。 
 

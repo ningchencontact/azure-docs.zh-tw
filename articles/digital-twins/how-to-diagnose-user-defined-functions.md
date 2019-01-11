@@ -1,23 +1,27 @@
 ---
 title: 如何為 Azure Digital Twins 中的 UDF 偵錯 | Microsoft Docs
-description: 有關如何為 Azure Digital Twins 中的 UDF 偵錯的指導方針
+description: 有關如何為 Azure Digital Twins 中的 UDF 偵錯的指導方針。
 author: stefanmsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/27/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 9476db888a4bfae2d43ae4eec340972d4c2eb714
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.custom: seodec18
+ms.openlocfilehash: e373e7c3ca83a0200cd1b6b945c5e4cb43b77a51
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413008"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974857"
 ---
-# <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>如何為 Azure Digital Twins 中使用使用者定義函式的問題偵錯
+# <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>如何為 Azure Digital Twins 中的使用者定義函式偵錯
 
-本文摘要說明如何診斷使用者定義函式。 接著，它會找出一些使用這些函式時發生的最常見案例。
+本文摘要說明如何診斷使用者定義函式。 接著，它會識別出一些使用這些函式時很可能發生的最常見案例。
+
+>[!TIP]
+> 若要深入了解如何在 Azure Digital Twins 中使用活動記錄、診斷記錄和 Azure 監視器來設定偵錯工具，請閱讀[如何設定監視和記錄](./how-to-configure-monitoring.md)。
 
 ## <a name="debug-issues"></a>為問題偵錯
 
@@ -28,9 +32,14 @@ ms.locfileid: "53413008"
 Azure Digital Twins 執行個體的記錄和計量是透過 Azure 監視器公開的。 下列文件假設您已透過 [Azure 入口網站](../azure-monitor/learn/quick-create-workspace.md)、[Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md) 或 [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md) 建立 [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) 工作區。
 
 > [!NOTE]
-> 當您第一次將事件傳送到 **Log Analytics** 時，可能會經歷 5 分鐘的延遲。
+> 當您第一次將事件傳送到 Azure Log Analytics 時，可能會經歷 5 分鐘的延遲。
 
-閱讀[「收集並取用來自 Azure 資源的記錄資料」](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)一文可透過入口網站、Azure CLI 或 PowerShell，為 Azure Digital Twins 執行個體啟用診斷設定。 請務必選取所有記錄檔類別、計量，以及您的 Azure Log Analytics 工作區。
+若要針對 Azure Digital Twins 資源設定監視和記錄，請閱讀[如何設定監視和記錄](./how-to-configure-monitoring.md)。
+
+如需透過 Azure 入口網站、Azure CLI 或 PowerShell，適用於 Azure Digital Twins 執行個體之診斷記錄設定的完整概觀，請閱讀[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/diagnostic-logs-overview.md)一文。
+
+>[!IMPORTANT]
+> 請務必選取所有記錄檔類別、計量，以及您的 Azure Log Analytics 工作區。
 
 ### <a name="trace-sensor-telemetry"></a>追蹤感應器遙測
 
@@ -56,11 +65,11 @@ AzureDiagnostics
 | where Category == 'UserDefinedFunction'
 ```
 
-如需有關強大的查詢作業的詳細資訊，請參閱[開始使用查詢](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)。
+如需有關功能強大之查詢作業的詳細資訊，請閱讀[開始使用查詢](../azure-monitor/log-query/get-started-queries.md)。
 
 ## <a name="identify-common-issues"></a>找出常見問題
 
-為解決方案進行疑難排解時，診斷並找出常見問題很重要。 以下摘要說明開發使用者定義函式時所碰到的幾個常見問題。
+為解決方案進行疑難排解時，診斷並找出常見問題很重要。 以下摘要說明開發使用者定義函式時常遇到的數個問題。
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
@@ -74,11 +83,11 @@ AzureDiagnostics
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| 參數 | 更換為 |
+| 參數值 | 更換為 |
 | --- | --- |
-| *YOUR_USER_DEFINED_FUNCTION_ID* | 擷取其角色指派之使用者定義函式的識別碼|
+| YOUR_USER_DEFINED_FUNCTION_ID | 擷取其角色指派之使用者定義函式的識別碼|
 
-如果未擷取任何角色指派，則依照本文中的[如何為使用者定義函式建立角色指派](./how-to-user-defined-functions.md)進行。
+如果沒有任何角色指派存在，請了解[如何為使用者定義函式建立角色指派](./how-to-user-defined-functions.md)。
 
 ### <a name="check-if-the-matcher-will-work-for-a-sensors-telemetry"></a>檢查比對器是否適用於感應器的遙測
 
@@ -159,7 +168,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-當拓樸物件類型為 'Space' 時，使用的識別碼指的是感應器，因此會發生這種情況。
+當指定的拓撲物件類型為 `Space` 時，所使用的識別碼會參考感應器，因此會發生這種情況。
 
 **正確**範例：
 
@@ -200,4 +209,4 @@ function process(telemetry, executionContext) {
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何在 Azure Digital Twins 中啟用[監視和記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)。
+了解如何在 Azure Digital Twins 中啟用[監視和記錄](../azure-monitor/platform/activity-logs-overview.md)。

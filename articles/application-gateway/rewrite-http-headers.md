@@ -1,0 +1,136 @@
+---
+title: 重寫 Azure 應用程式閘道中的 HTTP 標頭 | Microsoft Docs
+description: 本文概要說明重寫「Azure 應用程式閘道」中 HTTP 標頭的功能
+services: application-gateway
+author: abshamsft
+ms.service: application-gateway
+ms.topic: article
+ms.date: 12/20/2018
+ms.author: absha
+ms.openlocfilehash: 6750276cf31d0c804b38cdf3ea6e41a4505c93f1
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971813"
+---
+# <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>使用應用程式閘道來重寫 HTTP 標頭 (公開預覽)
+
+HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。 重新撰寫這些 HTTP 標頭可幫助您完成數個重要的情況，例如新增與安全性相關的標頭欄位 (例如 HSTS/ X-XSS-Protection) 或移除可能會揭露機密資訊 (例如後端伺服器名稱) 的回應標頭欄位。
+
+「應用程式閘道」現在支援重寫傳入 HTTP 要求標頭及傳出 HTTP 回應標頭的能力。 您將能夠在要求/回應封包於用戶端與後端集區之間移動時，新增、移除或更新 HTTP 要求和回應標頭。 您可以重寫標準標頭欄位 (於 [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt) \(英文\) 中定義)，也可以重寫非標準標頭欄位。
+
+> [!NOTE] 
+>
+> HTTP 標頭重寫支援僅適用於 [新 SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+
+「應用程式閘道」標頭重寫支援提供：
+
+- **全域標頭重寫**：您可以重寫網站所有相關要求和回應的特定標頭。
+- **路徑型標頭重寫**：這類型的重寫可讓您只針對與特定網站區域 (例如以 /cart/* 表示的購物車區域) 相關的要求和回應啟用標頭重寫功能。
+
+進行這項變更新時，您必須：
+
+1. 建立重寫 HTTP 標頭所需的新物件： 
+   - **RequestHeaderConfiguration**：此物件可用來指定您想要重寫的要求標頭欄位，以及原始標頭在重寫後必須採用的新值。
+   - **ResponseHeaderConfiguration**：此物件可用來指定您想要重寫的回應標頭欄位，以及原始標頭在重寫後必須採用的新值。
+   - **ActionSet**：此物件包含以上所指定要求和回應標頭的設定。 
+   - **RewriteRule**：此物件包含以上所指定的所有 *actionSet*。 
+   - **RewriteRuleSet**：此物件包含所有 *rewriteRule*，且將必須連結至要求路由規則 - 基本或路徑型。
+2. 接著，您將必須藉由路由規則連結重寫規則集。 此重寫設定在建立之後，就會透過路由規則連結至來源接聽程式。 使用基本路由規則時，標頭重寫設定會與來源接聽程式相關聯，並且會是全域標頭重寫。 使用路徑型錄由規則時，會在 URL 路徑對應上定義標頭重寫設定。 因此，它只適用於網站的特定路徑區域。
+
+您可以建立多個 HTTP 標頭重寫規則集，且每個重寫規則集都可套用至多個接聽程式。 不過，您只能將一個 HTTP 重寫規則集套用至一個特定接聽程式。
+
+您可以將標頭中的值重寫成：
+
+- 文字值。 
+
+  *範例：* 
+
+  ```azurepowershell-interactive
+  $responseHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
+  ```
+
+- 來自另一個標頭的值。 
+
+  *範例 1：* 
+
+  ```azurepowershell-interactive
+  $requestHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
+  ```
+
+  > [!Note] 
+  > 若要指定要求標頭，您必須使用此語法：{http_req_headerName}
+
+  *範例 2：*
+
+  ```azurepowershell-interactive
+  $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
+  ```
+
+  > [!Note] 
+  > 若要指定回應標頭，您必須使用此語法：{http_resp_headerName}
+
+- 來自所支援伺服器變數的值。
+
+  *範例：* 
+
+  ```azurepowershell-interactive
+  $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
+  ```
+
+  > [!Note] 
+  > 若要指定伺服器變數，您必須使用此語法：{var_serverVariable}
+
+- 上述幾個值的組合。
+
+上面提及的伺服器變數是提供與下列各項相關之資訊的變數：伺服器、與用戶端的連線，以及目前連線上的要求。 此功能支援將標頭重寫成下列伺服器變數：
+
+| 支援的伺服器變數 | 說明                                                  |
+| -------------------------- | :----------------------------------------------------------- |
+| ciphers_supported          | 會傳回用戶端所支援的加密方式          |
+| ciphers_used               | 會傳回用於所建立 SSL 連線的加密方式字串 |
+| client_latitude            | 可根據用戶端 IP 位址來判斷國家/地區、區域及縣市 |
+| client_longitude           | 可根據用戶端 IP 位址來判斷國家/地區、區域及縣市 |
+| client_port                | 用戶端連接埠                                                  |
+| client_tcp_rtt             | 有關用戶端 TCP 連線的資訊；是支援 TCP_INFO 通訊端選項之系統上的可用變數 |
+| client_user                | 使用 HTTP 驗證時，為驗證提供的使用者名稱 |
+| host                       | 優先順序如下：來自要求行的主機名稱或來自 “Host” 要求標頭欄位的主機名稱，或是與要求相符的伺服器名稱 |
+| http_method                | 用來提出 URL 要求的方法。 例如 GET、POST 等。 |
+| http_status                | 工作階段狀態，例如：200、400、403 等。                       |
+| http_version               | 要求通訊協定，通常是 “HTTP/1.0”、“HTTP/1.1” 或 “HTTP/2.0” |
+| query_string               | 接在所要求 URL 中 "?" 後面的「變數-值」組清單。 |
+| received_byte              | 要求長度 (包括要求行、標頭及要求本文) |
+| request_query              | 要求行中的引數                                |
+| request_scheme             | 要求配置 (“http” 或 “https”)                            |
+| request_uri                | 完整的原始要求 URI (含引數)                   |
+| sent_bytes                 | 傳送給用戶端的位元組數                             |
+| server_port                | 接受要求之伺服器的連接埠                 |
+| ssl_connection_protocol    | 會傳回所建立 SSL 連線的通訊協定        |
+| ssl_enabled                | 連線以 SSL 模式運作時為 “on”，使用其他模式時則為空字串 |
+
+## <a name="limitations"></a>限制
+
+- 目前只有透過 Azure PowerShell、Azure API 及 Azure SDK，才能使用這項重寫 HTTP 標頭的功能。 近期將會透過入口網站和 Azure CLI 支援此功能。
+
+- 一旦您在「應用程式閘道」上套用標頭重寫，便不應該使用入口網站對該「應用程式閘道」進行任何後續的變更，直到入口網站支援該功能為止。 如果您在套用重寫規則之後，使用入口網站對「應用程式閘道」進行變更，標頭會重寫規則。 您可以繼續使用 Azure PowerShell、Azure API 或 Azure SDK 來進行變更。
+
+- 只有在新 SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) 上才支援 HTTP 標頭重寫支援。 在舊 SKU 上將不支援此功能。
+
+- 目前尚不支援重寫 Connect、Upgrade 及 Host 標頭。
+
+- 目前尚不支援兩個重要的伺服器變數 client_ip (提出要求之用戶端的 IP 位址) 和 cookie_*name* (*name* Cookie)。 在客戶想要重寫「應用程式閘道」所設定 x-forwarded-for 標頭的案例中，client_ip 伺服器變數會特別有用，如此可讓標頭只包含用戶端的 IP 位址，而不包含連接埠資訊。
+
+  這兩個伺服器變數都即將受到支援。
+
+- 近期將會推出可依條件重寫 HTTP 標頭的功能。
+
+- 標頭名稱可以包含任何英數字元和 [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27) 中所定義的特定符號。 不過，我們目前不支援在標頭名稱中使用「底線」(\_) 特殊字元。 
+
+## <a name="need-help"></a>需要協助嗎？
+
+如需有關此功能的任何協助，請透過 [AGHeaderRewriteHelp@microsoft.com](mailto:AGHeaderRewriteHelp@microsoft.com) 與我們連絡。
+
+## <a name="next-steps"></a>後續步驟
+
+在了解重寫 HTTP 標頭的功能之後，請移至[建立會重寫 HTTP 標頭的自動調整規模和區域備援應用程式閘道](tutorial-http-header-rewrite-powershell.md) \(英文\) 或[重寫現有自動調整規模和區域備援應用程式閘道中的 HTTP 標頭](add-http-header-rewrite-rule-powershell.md) \(英文\)

@@ -1,21 +1,18 @@
 ---
-title: 使用 Azure CLI 建立及管理適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點和規則 | Microsoft Docs
+title: 使用 Azure CLI 建立及管理適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點和規則
 description: 本文說明如何使用 Azure CLI 命令列建立及管理適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點和規則。
-services: postgresql
 author: mbolz
 ms.author: mbolz
-manager: jhubbard
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: a0dfd40785e8a3ef9f8c29bacdb08f93f7867197
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: da765863cd1b32310670ee2b34b928ceead3f22d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955406"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537048"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-using-azure-cli"></a>使用 Azure CLI 建立及管理適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點
 虛擬網路 (VNet) 服務端點和規則會將虛擬網路的私人位址空間延伸到您適用於 PostgreSQL 伺服器的 Azure 資料庫。 您可以使用 Azure 命令列介面 (CLI) 命令建立、更新、刪除、列出及顯示 VNet 服務端點和規則，以管理您的伺服器。 如需適用於 PostgreSQL 的 Azure 資料庫的 VNet 服務端點概觀 (包含限制)，請參閱[適用於 PostgreSQL 伺服器的 Azure 資料庫的 VNet 服務端點](concepts-data-access-and-security-vnet.md)。 VNet 服務端點在「適用於 PostgreSQL 的 Azure 資料庫」的所有支援區域皆可使用。

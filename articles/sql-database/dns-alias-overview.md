@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek
+ms.reviewer: genemi,ayolubek, jrasnick
 manager: craigg
 ms.date: 02/05/2018
-ms.openlocfilehash: 290414ca07014d5f3bfbe160b0f571397fb13948
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 96627d96acee76516c9dc3db1b58d6e4b7b6ff15
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467120"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601030"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database 的 DNS 別名
 
@@ -55,7 +55,7 @@ Azure SQL Database 的 DNS 別名功能適用於下列案例：
 
 下列屬性適用於 SQL Database 伺服器的每個 DNS 別名：
 
-- *唯一名稱：* 就像伺服器名稱一樣，您所建立的每個別名名稱都是所有 Azure SQL Database 伺服器中的唯一名稱。
+- *唯一名稱：* 就像伺服器名稱一樣，您所建立的每個別名名稱在所有 Azure SQL Database 伺服器中都是唯一的。
 - *伺服器是必要的：* 無法建立 DNS 別名，除非該名稱參照正好一部伺服器，且該伺服器必須已存在。 更新後的別名必須一律參照正好一部現有的伺服器。
   - 當您卸除 SQL Database 伺服器時，Azure 系統也會卸除參照該伺服器的所有 DNS 別名。
 - *未繫結至任何區域：* DNS 別名未繫結至任何區域。 您可以將任何 DNS 別名更新為參照位於任何地理區域的 Azure SQL Database 伺服器。
@@ -108,7 +108,7 @@ PowerShell Cmdlet 可用於呼叫 REST API。
 
 - *最多 2 分鐘的延遲：* 更新或移除 DNS 別名最多需要 2 分鐘的時間。
   - 不論是否有任何短暫的延遲，別名都會立即停止讓用戶端連線參照舊版伺服器。
-- *DNS 查閱：* 現在，若要檢查指定的 DNS 別名是參照哪部伺服器，唯一的權威性方式便是執行 [DNS 查閱](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)。
+- *DNS 查閱：* 若要檢查指定的 DNS 別名是參照哪部伺服器，目前唯一的官方方式是執行 [DNS 查閱](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)。
 - [不支援資料表稽核](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)：您無法在資料庫已啟用「資料表稽核」的 Azure SQL Database 伺服器上使用 DNS 別名。
   - 資料表稽核功能已淘汰。
   - 建議您改用 [Blob 稽核](sql-database-auditing.md)。

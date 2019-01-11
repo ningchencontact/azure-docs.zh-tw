@@ -6,50 +6,83 @@ author: HeidiSteen
 manager: cgronlun
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 12/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9c9af69e45af6a70c5327393a1c10385ba2c2aed
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 55de72b2a82dea3dfe763d786966565beb229042
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316891"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745086"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>如何重建 Azure 搜尋服務索引
 
-重建索引可變更其結構，改變索引在 Azure 搜尋服務中的實際表示法。 相反地，重新整理索引則是僅限於內容的更新，會從參與的外部資料來源收取最新的變更。 本文將指示如何在結構和實質上同時更新索引。
+本文說明如何重建 Azure 搜尋服務索引、需要重建索引的情況為何，以及降低重建索引對進行中查詢要求之影響的建議。
 
-進行索引更新時需要具備服務層級的讀寫權限。 您可以用程式設計方式，使用指定更新選項的參數呼叫 REST 或 .NET API，為內容進行完整重建或累加的索引編製。 
+「重建」是指卸除並重新建立與索引 (包括所有欄位型反向索引) 相關聯的實體資料結構。 在 Azure 搜尋服務中，您無法卸除並重新建立特定欄位。 若要重建索引，必須刪除所有的欄位儲存體，根據現有的或修訂過的索引結構描述來重新建立，然後填入推送至索引的資料，或從外部來源提取的資料。 在開發期間通常會重建索引，但您可能也需要重建生產層級的索引，以配合結構變更 (如新增複雜類型)。
 
-一般而言，索引的更新是隨需的。 不過，對於使用來源特定[索引子](search-indexer-overview.md)進行填入的索引，您可以使用內建的排程器。 排程器可支援每 15 分鐘一次的文件重新整理，而且您可以依需求設定任意間隔和模式。 較快的重新整理速率需要以手動方式推送索引更新，這有可能透過交易的重複寫入來執行，而同時更新外部資料來源和 Azure 搜尋服務索引。
+相較於使索引離線時的重建，「資料重新整理」執行為背景工作。 您可以新增、移除及取代文件查詢工作負載，且對查詢工作負載的中斷最短，不過查詢通常需要較長的時間才能完成。 如需有關更新索引內容的詳細資訊，請參閱[新增、更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) \(英文\)。
 
-## <a name="full-rebuilds"></a>完整重建
+## <a name="rebuild-conditions"></a>重建條件
 
-對於許多類型的更新，都必須執行完整重建。 完整重建是指刪除索引 (包括資料和中繼資料)，接著再從外部資料來源重新填入索引。 請以程式設計方式[刪除](https://docs.microsoft.com/rest/api/searchservice/delete-index)、[建立](https://docs.microsoft.com/rest/api/searchservice/create-index)並[重新載入](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)索引，而加以重建。 
+| 條件 | 說明 |
+|-----------|-------------|
+| 變更欄位定義 | 修改名稱、資料類型或特定[索引屬性](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\) (可搜尋、可篩選、可排序、可面向化) 需要完整重建。 |
+| 刪除欄位 | 若要實體上移除欄位的所有追蹤，您必須重建索引。 如果沒有立即進行重建，多數開發人員會修改應用程式碼，以停用對「已刪除」欄位的存取。 實體上，在您下次使用省略問題欄位的結構描述重建之前，欄位定義和內容都會保留在索引中。 |
+| 切換層 | 如果您需要更多容量，則沒有就地升級的做法。 您必須在新的容量點建立新的服務，且必須為新服務從頭建置索引。 |
 
-重建之後請留意，如果您已測試過查詢模式和評分設定檔，且基礎內容已變更，則可以預期查詢結果將會有變化。
+可以進行任何其他修改，而不會影響現有的實體結構。 具體來說，下列變更「不」指出重建索引：
 
-## <a name="when-to-rebuild"></a>重建時機
++ 新增欄位
++ 在現有欄位上設定 [可取出] 屬性
++ 在現有欄位上設定分析器
++ 新增、更新或刪除評分設定檔
++ 新增、更新或刪除 CORS 設定
++ 新增、更新或刪除建議工具
++ 新增、更新或刪除 synonymMaps
 
-在作用中的開發期間，如果索引結構描述處於變動狀態，則應規劃頻繁的完整重建。
-
-| 修改 | 重建狀態|
-|--------------|---------------|
-| 變更欄位名稱、資料類型或其[索引屬性](https://docs.microsoft.com/rest/api/searchservice/create-index) | 變更欄位定義通常會造成重建的負面影響，但下列[索引屬性](https://docs.microsoft.com/rest/api/searchservice/create-index)除外：Retrievable、SearchAnalyzer、SynonymMaps。 您可以將 Retrievable、SearchAnalyzer 和 SynonymMaps 屬性新增至現有的欄位，而無須重建其索引。|
-| 新增欄位 | 重建並沒有嚴格的需求。 對於已編製索引的現有文件，會為其新欄位提供 Null 值。 在未來重新編製索引時，來源資料中的值會取代 Azure 搜尋服務所加入的 Null。 |
-| 刪除欄位 | 您無法直接從 Azure 搜尋服務索引中刪除欄位。 您應讓應用程式忽略「已刪除的」欄位，以避免使用該欄位。 實際上，在您下次使用省略問題欄位的結構描述重建索引之前，欄位定義和內容都會保留在索引中。|
-
-> [!Note]
-> 如果您切換層，也需要重建。 如果您在某個時間點決定提高容量，將無法使用就地升級。 您必須在新的容量點建立新的服務，且必須為新服務從頭建置索引。 
+當您新增新的欄位時，現有已編製索引的文件會為新欄位提供 Null 值。 未來重新整理資料時，來自外部來源資料的值會取代 Azure 搜尋服務所加入的 Null。
 
 ## <a name="partial-or-incremental-indexing"></a>部分或累加式索引編製
 
-在索引進入生產環境後，焦點將會移轉至累加式索引編製，這通常不會沒有明顯的服務中斷。 部分或累加式索引編製是僅限內容的工作負載，會同步處理搜尋索引的內容，以反映參與的資料來源內容所處的狀態。 在來源中新增或刪除的文件，將會在索引中新增或刪除。 在程式碼中，呼叫[新增、更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)作業或 .NET 的等同作業。
+在 Azure 搜尋服務中，您無法依每個欄位來控制編製索引，即無法選擇刪除或重新建立特定欄位。 同樣地，沒有內建機制能[根據準則來編製索引](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents) \(英文\)。 任何您所需的準則驅動索引編製，都必須透過自訂程式碼來達成。
 
-> [!Note]
-> 使用會搜耙外部資料來源的索引子時，會使用來源系統中的變更追蹤機制進行累加式索引編製。 對於 [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection)，會使用 `lastModified` 欄位。 在 [Azure 資料表儲存體](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection)中，`timestamp` 具有相同的用途。 同樣地，[Azure SQL Database 索引子](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows)和 [Azure Cosmos DB 索引子](search-howto-index-cosmosdb.md#indexing-changed-documents)都具有標示資料列更新的欄位。 如需索引子的詳細資訊，請參閱[索引子概觀](search-indexer-overview.md)。
+不過，您輕鬆就能「重新整理」索引中的文件。 對於許多搜尋解決方案，外部來源資料是暫時性的，且來源資料和搜尋索引之間的同步處理是常見的作法。 在程式碼中，呼叫[新增、更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) \(英文\) 作業或 [.NET 的對等項目](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexesoperationsextensions.createorupdate?view=azure-dotnet) \(英文\)，以更新索引內容或為新欄位加入值。
 
+## <a name="partial-indexing-with-indexers"></a>使用索引子部分編製索引
+
+[索引子](search-indexer-overview.md)簡化資料重新整理工作。 索引子只能對外部資料來源中的一個資料表或檢視編製索引。 若要對多個資料表編製索引，最簡單的方法是建立加入多個資料表的檢視，並投影您要編製索引的資料行。 
+
+使用會搜耙外部資料來源的索引子時，請檢查來源資料中的「高水位標記」資料行。 如果此資料行存在，您可以只挑選包含新的或修訂過的內容之資料列，以將它用於累加變更偵測。 對於 [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection)，會使用 `lastModified` 欄位。 在 [Azure 資料表儲存體](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection)中，`timestamp` 具有相同的用途。 同樣地，[Azure SQL Database 索引子](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows)和 [Azure Cosmos DB 索引子](search-howto-index-cosmosdb.md#indexing-changed-documents)都具有標示資料列更新的欄位。 
+
+如需有關索引子的詳細資訊，請參閱[索引子概觀](search-indexer-overview.md)和[重設索引子 REST API](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) \(英文\)。
+
+## <a name="how-to-rebuild-an-index"></a>如何重建索引
+
+在作用中的開發期間，如果索引結構描述處於變動狀態，則應規劃頻繁的完整重建。 對於已經在生產環境中的應用程式，我們建議您建立與現有索引並存執行的新索引，以避免查詢停機時間。
+
+如果您有嚴格的 SLA 需求，您可以考慮專為這項工作佈建新服務，其中開發和索引編製完全獨立於生產環境索引。 個別的服務會在自己的硬體上執行，排除資源競爭的可能性。 當開發完成時，您可以保留新索引，將查詢重新導向至新的端點和索引，或者您也可以執行完成的程式碼，以在您原始 Azure 搜尋服務上發佈修訂過的索引。 目前沒有機制能將準備好的索引移動到其他服務。
+
+進行索引更新時需要具備服務層級的讀寫權限。 以程式設計的方式來說，您可以呼叫[更新索引 REST API](https://docs.microsoft.com/rest/api/searchservice/update-index) \(英文\) 或用於完整重建的 .NET API。 該要求與[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\) 相同，但其內容不同。
+
+1. 如果您重複使用索引名稱，請[卸除現有索引](https://docs.microsoft.com/rest/api/searchservice/delete-index) \(英文\)。 目標是該索引的任何查詢都會立即被卸除。 刪除索引是無法復原的動作，這樣會終結欄位集合和其他建構的實體儲存體。 卸除索引之前，請務必清楚了解刪除它的意涵。 
+
+2. 提供包含已變更或已修訂之欄位定義的索引結構描述。 結構描述需求記錄在[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\) 中。
+
+3. 在要求上提供[系統管理金鑰](https://docs.microsoft.com/azure/search/search-security-api-keys)。
+
+4. 傳送[更新索引](https://docs.microsoft.com/rest/api/searchservice/update-index) \(英文\) 命令以重建 Azure 搜尋服務上索引的實體運算式。 要求本文包含索引結構描述，以及評分設定檔的建構、分析器、建議工具和 CORS 選項。
+
+5. 使用來自外部來源的[文件載入索引](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) \(英文\)。 如果您正在使用更新的文件重新整理現有未變更的索引結構描述，則您也可以使用此 API。
+
+當您建立索引時，系統會針對索引結構描述中的每個欄位配置實體儲存體，並為每個可搜尋欄位建立反向索引。 不可搜尋的欄位可用於篩選條件或運算式中，但不會有反向索引且不是全文可搜尋。 在重建的索引上，這些反向索引會被刪除並根據您提供的索引結構描述來重新建立。
+
+當您載入索引時，每個欄位的反向索引都會填入來自每個文件的唯一 Token 化文字，且包含相對應文件識別碼的對應。 例如，編製旅館資料集的索引時，為 City 欄位建立的反向索引可能會包含 Seattle、Portland 等字詞。 City 欄位中包含 Seattle、Portland 之文件的文件識別碼會列在字詞旁邊。 在進行任何[新增、更新或刪除](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) \(英文\) 作業時，字詞和文件識別碼也會隨之更新。
+
+## <a name="view-updates"></a>檢視更新
+
+第一個文件載入之後，您就可以開始查詢索引。 如果您知道文件的別碼，[查閱文件 REST API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) \(英文\) 可傳回特定文件。 若要進行更廣泛的測試，您應該等到索引完全載入，然後使用查詢來確認您預期會看到的內容。
 
 ## <a name="see-also"></a>另請參閱
 

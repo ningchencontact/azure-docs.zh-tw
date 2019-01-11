@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5573c7f122360b3bd3adeb9dcca1c827a1933f70
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 07cacc4a127c333e4c19c4979b7520226919c14b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959456"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722391"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>將 Kubernetes 部署至 Azure Stack
 
@@ -101,7 +101,7 @@ ms.locfileid: "52959456"
 
 1. 選取操作員建立要使用 Kubernetes 叢集的訂用帳戶。
 
-1. 選取 [存取控制 (IAM)] > 選取 [+ 新增]。
+1. 選取 [存取控制 (IAM)] > 選取 [新增角色指派]。
 
 1. 選取 [參與者] 角色。
 

@@ -9,36 +9,32 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: debb27f49c730df4a8bef42b1f1ef9ec50f1faf0
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1e0d6fe79d23f3d3d0679445f5120a3ec17ddd67
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054053"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013769"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 複製資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版](v1/data-factory-on-premises-mongodb-connector.md)
-> * [目前的版本](connector-mongodb.md)
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 MongoDB 資料庫複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+
+>[!IMPORTANT]
+>ADF 發行這個新版的 MongoDB 連接器，以提供更好的原生 MongoDB 支援。 如果您在解決方案中使用先前的 MongoDB 連接器 (依原樣為其提供回溯相容性的支援)，請參閱 [MongoDB 連接器 (舊版)](connector-mongodb-legacy.md) 一文。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
 您可以將資料從 MongoDB 資料庫複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
-具體而言，這個 MongoDB 連接器支援：
+具體而言，這個 MongoDB 連接器所支援的**版本最高可達 3.4 版**。
 
-- MongoDB **2.4、2.6、3.0、3.2、3.4、3.6 版**。
-- 使用 **Basic** (基本) 或 **Anonymous** (匿名) 驗證來複製資料。
+## <a name="prerequisites"></a>必要條件
 
-## <a name="prerequisites"></a>先決條件
-
-若要從不可公開存取的 MongoDB 資料庫複製資料，您必須設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。 Integration Runtime 提供內建的 MongoDB 驅動程式，因此從 MongoDB 複製資料時，您不需要手動安裝任何驅動程式。
+若要從不可公開存取的 MongoDB 資料庫複製資料，您必須設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -52,16 +48,9 @@ ms.locfileid: "37054053"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type |類型屬性必須設定為：**MongoDb** |yes |
-| 伺服器 |MongoDB 伺服器的 IP 位址或主機名稱。 |yes |
-| 連接埠 |MongoDB 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否 (預設值為 27017) |
-| databaseName |您想要存取之 MongoDB 資料庫的名稱。 |yes |
-| authenticationType | 用來連線到 MongoDB 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 |yes |
-| username |用來存取 MongoDB 的使用者帳戶。 |是 (如果使用基本驗證)。 |
-| password |使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 (如果使用基本驗證)。 |
-| authSource |您想要用來檢查驗證所用之認證的 MongoDB 資料庫名稱。 |否。 就基本驗證而言，預設會使用以 databaseName 屬性指定的系統管理員帳戶和資料庫。 |
-| enableSsl | 指定是否使用 SSL 來加密與伺服器的連線。 預設值為 False。  | 否 |
-| allowSelfSignedServerCert | 指定是否允許來自伺服器的自我簽署憑證。 預設值為 False。  | 否 |
+| type |類型屬性必須設定為：**MongoDbV2** |是 |
+| connectionString |指定 MongoDB 連接字串，例如 `mongodb://[username:password@]host[:port][/[database][?options]]`。 如需詳細資訊，請參閱 [MongoDB 手冊中關於連接字串的內容](https://docs.mongodb.com/manual/reference/connection-string/)。 <br/><br />將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 |是 |
+| 資料庫 | 您要存取的資料庫名稱。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
@@ -70,16 +59,13 @@ ms.locfileid: "37054053"
 {
     "name": "MongoDBLinkedService",
     "properties": {
-        "type": "MongoDb",
+        "type": "MongoDbV2",
         "typeProperties": {
-            "server": "<server name>",
-            "databaseName": "<database name>",
-            "authenticationType": "Basic",
-            "username": "<username>",
-            "password": {
+            "connectionString": {
                 "type": "SecureString",
-                "value": "<password>"
-            }
+                "value": "mongodb://[username:password@]host[:port][/[database][?options]]"
+            },
+            "database": "myDatabase"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -91,14 +77,12 @@ ms.locfileid: "37054053"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供 MongoDB 資料集所支援的屬性清單。
-
-若要從 MongoDB 複製資料，請將資料集的類型屬性設定為 **MongoDbCollection**。 以下是支援的屬性：
+如需定義資料集的區段和屬性完整清單，請參閱[資料集和連結服務](concepts-datasets-linked-services.md)。 以下是針對 MongoDB 資料集支援的屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**MongoDbCollection** | yes |
-| collectionName |MongoDB 資料庫中集合的名稱。 |yes |
+| type | 資料集的類型屬性必須設定為：**MongoDbV2Collection** | 是 |
+| collectionName |MongoDB 資料庫中集合的名稱。 |是 |
 
 **範例：**
 
@@ -106,7 +90,7 @@ ms.locfileid: "37054053"
 {
      "name":  "MongoDbDataset",
     "properties": {
-        "type": "MongoDbCollection",
+        "type": "MongoDbV2Collection",
         "linkedServiceName": {
             "referenceName": "<MongoDB linked service name>",
             "type": "LinkedServiceReference"
@@ -124,12 +108,20 @@ ms.locfileid: "37054053"
 
 ### <a name="mongodb-as-source"></a>MongoDB 作為來源
 
-若要從 MongoDB 複製資料，請將複製活動中的來源類型設定為 **MongoDbSource**。 複製活動的 **source** 區段支援下列屬性：
+複製活動的 **source** 區段支援下列屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**MongoDbSource** | yes |
-| query |使用自訂的 SQL-92 查詢來讀取資料。 例如：select * from MyTable。 |否 (如果已指定資料集中 "collectionName") |
+| type | 複製活動來源的類型屬性必須設定為：**MongoDbV2Source** | 是 |
+| filter | 使用查詢運算子指定選取範圍篩選。 若要傳回集合中的所有文件，請省略此參數，或傳遞空白文件 ({})。 | 否 |
+| cursorMethods.project | 指定要在文件中傳回以便投影的欄位。 若要傳回比對文件中的所有欄位，請省略此參數。 | 否 |
+| cursorMethods.sort | 指定查詢傳回比對文件的順序。 請參閱 [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort)。 | 否 |
+| cursorMethods.limit | 指定伺服器傳回的文件數目上限。 請參閱 [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit)。  | 否 | 
+| cursorMethods.skip | 指定要跳過的文件數，以及 MongoDB 開始傳回結果的位置。 請參閱 [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip)。 | 否 |
+| batchSize | 指定要在回應的每個批次中從 MongoDB 執行個體傳回的文件數目。 在大部分情況下，修改批次大小不會影響使用者或應用程式。 Cosmos DB 限制每個批次的大小不能超過 40 MB，也就是文件大小的 batchSize 總數，因此如果您的文件大小很大，請降低此值。 | 否<br/>(預設為 **100**) |
+
+>[!TIP]
+>ADF 支援在 **Strict 模式**中取用 BSON 文件。 請確定您的篩選查詢處於 Strict 模式，而非 Shell 模式。 您可以在 [MongoDB 手冊](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html) \(英文\) 上找到更詳細的說明。
 
 **範例：**
 
@@ -152,8 +144,14 @@ ms.locfileid: "37054053"
         ],
         "typeProperties": {
             "source": {
-                "type": "MongoDbSource",
-                "query": "SELECT * FROM MyTable"
+                "type": "MongoDbV2Source",
+                "filter": "{datetimeData: {$gte: ISODate(\"2018-12-11T00:00:00.000Z\"),$lt: ISODate(\"2018-12-12T00:00:00.000Z\")}, _id: ObjectId(\"5acd7c3d0000000000000000\") }",
+                "cursorMethods": {
+                    "project": "{ _id : 1, name : 1, age: 1, datetimeData: 1 }",
+                    "sort": "{ age : 1 }",
+                    "skip": 3,
+                    "limit": 3
+                }
             },
             "sink": {
                 "type": "<sink type>"
@@ -163,83 +161,13 @@ ms.locfileid: "37054053"
 ]
 ```
 
-> [!TIP]
-> 指定 SQL 查詢時，請注意 DateTime 格式。 例如：`SELECT * FROM Account WHERE LastModifiedDate >= '2018-06-01' AND LastModifiedDate < '2018-06-02'`，或使用參數 `SELECT * FROM Account WHERE LastModifiedDate >= '@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}' AND LastModifiedDate < '@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'`
+## <a name="export-json-documents-as-is"></a>依原樣匯出 JSON 文件
 
-## <a name="schema-by-data-factory"></a>Data factory 的結構描述
+您可以使用這個 MongoDB 連接器，從 MongoDB 集合依原樣將 JSON 文件匯出至各種檔案型存放區或 Azure Cosmos DB。 若要達成這類無結構描述的複製，請略過資料集中的「結構」(也稱為「結構描述」) 區段，以及複製活動中的結構描述對應。
 
-Azure Data Factory 服務會使用 MongoDB 集合中**最新的 100 份文件**，從該集合推斷結構描述。 如果這 100 份文件未包含完整結構描述，則在複製作業期間可能會忽略某些資料行。
+## <a name="schema-mapping"></a>結構描述對應
 
-## <a name="data-type-mapping-for-mongodb"></a>MongoDB 的資料類型對應
-
-從 MongoDB 複製資料時，會使用下列從 MongoDB 資料類型對應到 Azure Data Factory 過渡期資料類型的對應。 請參閱[結構描述和資料類型對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動如何將來源結構描述和資料類型對應至接收器。
-
-| MongoDB 資料類型 | Data Factory 過渡期資料類型 |
-|:--- |:--- |
-| Binary |Byte[] |
-| BOOLEAN |BOOLEAN |
-| 日期 |Datetime |
-| NumberDouble |兩倍 |
-| NumberInt |Int32 |
-| NumberLong |Int64 |
-| ObjectID |字串 |
-| 字串 |字串 |
-| UUID |Guid |
-| Object |以 "_" 作為巢狀分隔符號來重新標準化為壓平合併資料行 |
-
-> [!NOTE]
-> 若要了解對使用虛擬資料表之陣列的支援，請參閱[對使用虛擬資料表之複雜類型的支援](#support-for-complex-types-using-virtual-tables)一節。
->
-> 目前不支援下列 MongoDB 資料類型︰DBPointer、JavaScript、Max/Min 索引鍵、規則運算式、符號、時間戳記、未定義。
-
-## <a name="support-for-complex-types-using-virtual-tables"></a>使用虛擬資料表之複雜類型的支援
-
-Azure Data Factory 會使用內建的 ODBC 驅動程式來連線到 MongoDB 資料庫並從中複製資料。 對於其類型會跨文件而不同的陣列或物件等複雜類型，驅動程式會將資料重新標準化為對應的虛擬資料表。 具體來說，如果資料表包含這類資料行，則驅動程式會產生下列虛擬資料表︰
-
-* **基底資料表**，其中包含與實際資料表相同的資料 (複雜類型資料行除外)。 基底資料表使用與它所代表的實際資料表相同的名稱。
-* 每個複雜類型資料行的 **虛擬資料表** ，以展開巢狀資料。 虛擬資料表會使用實際資料表的名稱、分隔字元 "_" 及陣列或物件的名稱來命名。
-
-虛擬資料表會參考實際資料表中的資料，讓驅動程式得以存取反正規化的資料。 您可以藉由查詢和聯結虛擬資料表來存取 MongoDB 陣列的內容。
-
-### <a name="example"></a>範例
-
-例如，以下的 ExampleTable 是一個 MongoDB 資料表，其中包含一個在每個儲存格中都有物件陣列的資料行 (發票)，以及一個具有純量類型陣列的資料行 (評等)。
-
-| _id | 客戶名稱 | 發票 | 服務等級 | 評等 |
-| --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Silver |[5,6] |
-| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", discount: "0.0"}] |Gold |[1,2] |
-
-驅動程式會產生多個代表這個單一資料表的虛擬資料表。 第一個虛擬資料表是名為 "ExampleTable" 的基底資料表，如範例所示。 基底資料表包含原始資料表的所有資料，但來自陣列的資料已省略，並且會在虛擬資料表中展開。
-
-| _id | 客戶名稱 | 服務等級 |
-| --- | --- | --- |
-| 1111 |ABC |Silver |
-| 2222 |XYZ |Gold |
-
-下表顯示代表範例中原始陣列的虛擬資料表。 這些資料表包含下列項目：
-
-* 對應到原始陣列資料列 (透過 _id 資料行) 之原始主要索引鍵資料行的往回參考
-* 資料在原始陣列之位置的指示
-* 陣列內每個元素的展開資料
-
-**"ExampleTable_Invoices" 資料表：**
-
-| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | 折扣 |
-| --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |toaster |456 |0.2 |
-| 1111 |1 |124 |oven |1235 |0.2 |
-| 2222 |0 |135 |fridge |12543 |0.0 |
-
-**"ExampleTable_Ratings" 資料表：**
-
-| _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
-| --- | --- | --- |
-| 1111 |0 |5 |
-| 1111 |1 |6 |
-| 2222 |0 |1 |
-| 2222 |1 |2 |
-
+若要將資料從 MongoDB 複製到表格式接收器，請參閱[結構描述對應](copy-activity-schema-and-type-mapping.md#schema-mapping)。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

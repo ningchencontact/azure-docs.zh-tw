@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 78c840efebd2e451747e2490fc4d2f363afa9a09
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6a6f8b47044d36d767721e2d3503d11518dbf5a6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263253"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036115"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化儲存體成本
 
@@ -27,7 +27,7 @@ Azure Cosmos DB 能提供無限制的儲存體和輸送量。 不同於輸送量
 
 ## <a name="optimize-cost-with-indexing"></a>搭配編製索引以最佳化成本
 
-根據預設，系統會自動對資料編製索引，而這可能會增加所耗用的總儲存體。 不過，您可以套用自訂索引原則來減少此額外負荷。 沒有透過原則進行調整的自動編製索引，大約為項目大小的 10-20%。 透過移除或自訂索引原則，您便不需要支付寫入的額外費用，也不需要額外的輸送量容量。 請參閱[在 Cosmos DB 中編制索引](indexing-policies.md)以設定自訂編制索引原則。 如果您曾使用過關聯式資料庫，您可能會認為「對所有項目編製索引」會讓所使用的儲存體變成兩倍或是更多。 不過，在 Azure Cosmos DB 中，就中間值來說，其使用量相對低許多。 在 Azure Cosmos DB 中，就算是搭配自動編製索引，儲存體的索引額外負荷通常很低 (10-20%)，因為它具有低儲存體耗用量的設計。 透過管理編制索引原則，您可以更精細地控制索引耗用量和查詢效能之間的取捨。
+根據預設，系統會自動對資料編製索引，而這可能會增加所耗用的總儲存體。 不過，您可以套用自訂索引原則來減少此額外負荷。 沒有透過原則進行調整的自動編製索引，大約為項目大小的 10-20%。 透過移除或自訂索引原則，您便不需要支付寫入的額外費用，也不需要額外的輸送量容量。 請參閱[在 Azure Cosmos DB 中編製索引](indexing-policies.md)以設定自訂編製索引原則。 如果您曾使用過關聯式資料庫，您可能會認為「對所有項目編製索引」會讓所使用的儲存體變成兩倍或是更多。 不過，在 Azure Cosmos DB 中，就中間值來說，其使用量相對低許多。 在 Azure Cosmos DB 中，就算是搭配自動編製索引，儲存體的索引額外負荷通常很低 (10-20%)，因為它具有低儲存體耗用量的設計。 透過管理編制索引原則，您可以更精細地控制索引耗用量和查詢效能之間的取捨。
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>搭配存留時間和變更摘要以最佳化成本
 

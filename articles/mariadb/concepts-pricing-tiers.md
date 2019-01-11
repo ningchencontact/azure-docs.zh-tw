@@ -1,23 +1,21 @@
 ---
 title: 適用於 MariaDB 的 Azure 資料庫的定價層
-description: 此文章說明適用於 MariaDB 的 Azure 資料庫的定價層。
+description: 本文會說明適用於 MariaDB 的 Azure 資料庫的定價層。
 author: jan-eng
 ms.author: janeng
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 561244efd653294694cc16a1115962473e9a7cec
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: b85737adb8f1c9481fb4b7b2005d2856d2bce9f5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249021"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544578"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>適用於 MariaDB 的 Azure 資料庫定價層
 
-適用於 MariaDB 的 Azure 資料庫伺服器可建立於三個不同定價層之一 (基本、一般用途和記憶體最佳化)。 定價層的差別在於虛擬核心中可佈建的計算數量、每個虛擬核心的記憶體，以及用來儲存資料的儲存體技術。 所有資源都會佈建在 MariaDB 伺服器層級。 一個伺服器可以有一個或多個資料庫。
+您可以在下列三個不同定價層其中之一建立「適用於 MariaDB 的 Azure 資料庫」伺服器：「基本」、「一般用途」及「記憶體最佳化」。 定價層的差別在於虛擬核心中可佈建的計算數量、每個虛擬核心的記憶體，以及用來儲存資料的儲存體技術。 所有資源都會佈建在 MariaDB 伺服器層級。 一個伺服器可以有一個或多個資料庫。
 
 |    | **基本** | **一般用途** | **記憶體最佳化** |
 |:---|:----------|:--------------------|:---------------------|

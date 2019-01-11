@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a841ae168119546e8be32ce6f614656f775709ee
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2fe018139fd99f395ff88eae39ca8836eded5677
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583307"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581516"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的擁有權轉移給另一個帳戶
 
@@ -31,9 +31,6 @@ ms.locfileid: "52583307"
 > [!IMPORTANT]
 > 
 > 如果您將訂用帳戶轉移至新的 Azure AD 租用戶，[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 中的所有角色指派會從來源租用戶中永久刪除，而且不會移轉至目標租用戶。
-
-> [!div class="nextstepaction"]
-> [協助改善 Azure 計費文件](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>轉移 Azure 訂用帳戶的擁有權
 

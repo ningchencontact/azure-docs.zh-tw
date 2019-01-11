@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722372"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794238"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>在 Azure Service Fabric 中了解定期備份設定
 
@@ -138,6 +138,9 @@ ms.locfileid: "52722372"
         }
         ```
 
+> [!IMPORTANT]
+> 因為執行階段發生問題，請確定保留原則中的保留持續時間設定為小於 24 天，否則它會導致備份還原服務在複本容錯移轉後進入仲裁遺失狀態。
+
 ## <a name="enable-periodic-backup"></a>啟用定期備份
 定義可滿足資料備份需求的備份原則之後，應該將該備份原則與應用程式、服務或分割區建立適當關聯。
 
@@ -214,6 +217,11 @@ ms.locfileid: "52722372"
 * 如果在服務套用擱置，則應該使用[繼續服務備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup) API 繼續進行。
 
 * 如果在分割區套用擱置，則應該使用[繼續分割區備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API 繼續進行。
+
+### <a name="difference-between-suspend-and-disable-backups"></a>暫停和停用備份的差異
+停用備份應於特定應用程式、服務或分割區不再需要備份的時候使用。 實際叫用停用備份要求搭配為 True 的清除備份參數，其表示所有現有的備份也將刪除。 不過，暫停適用於想要暫時關閉備份 (例如本機磁碟空間已滿，或是上傳備份因為已知的網路問題而失敗等等) 的案例。 
+
+雖然只能以稍早為備份明確度所啟用的層級叫用停用，但暫停則適用於目前直接啟用備份或透過繼承/階層啟用備份的任何層級。 例如，如果備份以應用程式層級啟用，則您只能以應用程式層級叫用停用，但是您可以應用程式、任何服務或該應用程式下的分割區層級來叫用暫停。 
 
 ## <a name="auto-restore-on-data-loss"></a>在資料遺失時自動還原
 服務分割區可能因為非預期的失敗而遺失資料。 例如，分割區的三分之二複本 (包括主要複本) 的磁碟損毀或抹除。

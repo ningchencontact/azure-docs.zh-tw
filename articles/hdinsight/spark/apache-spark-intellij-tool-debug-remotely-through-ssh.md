@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for IntelliJ：透過 SSH 針對 Spark 應用程式進行遠端偵錯 '
+title: 'Azure Toolkit for IntelliJ：透過 SSH 對 Spark 應用程式進行遠端偵錯 '
 description: 逐步指引如何使用適用於 IntelliJ 之 Azure 工具組中的 HDInsight 工具，透過 SSH 對 HDInsight 叢集上的應用程式進行遠端偵錯
 keywords: 遠端偵錯 intellij, 進行 intellij 遠端偵錯, ssh, intellij, hdinsight, 偵錯 intellij, 偵錯
 services: hdinsight
@@ -10,21 +10,21 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: ae22319c54335695a52e803c0c030858e2782c38
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 1c94f184e57c125ce2520b857b47a9da99a9e517
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582459"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601605"
 ---
-# <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>使用適用於 IntelliJ 的 Azure 工具組透過 SSH 對 HDInsight 叢集上的 Spark 應用程式進行本機或遠端偵錯
+# <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>使用 Azure Toolkit for IntelliJ 透過 SSH 對 HDInsight 叢集上的 Apache Spark 應用程式進行本機或遠端偵錯
 
 本文提供的逐步指引，是關於如何使用 [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) 中的 HDInsight 工具，對 HDInsight 叢集上的應用程式進行遠端偵錯。 若要對您的專案進行偵錯，您也可以觀看 [Debug HDInsight Spark applications with Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) (使用適用於 IntelliJ 的 Azure 工具組對 HDInsight Spark 應用程式進行偵錯) 影片。
 
 **先決條件**
 * **適用於 IntelliJ 的 Azure 工具組中的 HDInsight 工具**。 此工具是適用於 IntelliJ 之 Azure 工具組的一部分。 如需詳細資訊，請參閱[安裝適用於 IntelliJ 的 Azure 工具組](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation)。 以及**適用於 IntelliJ 的 Azure 工具組**。 使用此工具組建立適用於 HDInsight 叢集的 Apache Spark 應用程式。 如需詳細資訊，請遵循[使用 Azure Toolkit for IntelliJ 建立適用於 HDInsight 叢集的 Apache Spark 應用程式](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin)中的指示進行。
 
-* **HDInsight SSH 服務與使用者名稱和密碼管理**。 如需詳細資訊，請參閱[使用 SSH 連線到 HDInsight (Apache Hadoop)](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) 和[使用 SSH 通道來存取 Ambari Web UI、JobHistory、NameNode、Oozie 及其他 Web UI](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel)。 
+* **HDInsight SSH 服務與使用者名稱和密碼管理**。 如需詳細資訊，請參閱[使用 SSH 連線到 HDInsight (Apache Hadoop)](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) 和[使用 SSH 通道來存取 Ambari Web UI、JobHistory、NameNode、Apache Oozie 及其他 Web UI](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel)。 
  
 ## <a name="learn-how-to-perform-local-run-and-debugging"></a>了解如何執行本機執行和偵錯
 ### <a name="scenario-1-create-a-spark-scala-application"></a>案例 1：建立 Spark Scala 應用程式 
@@ -70,7 +70,7 @@ ms.locfileid: "52582459"
 ### <a name="prerequisite-for-windows"></a>Windows 的必要條件
 在 Windows 電腦上執行本機 Spark Scala 應用程式時，可能會發生如 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) 中所述的例外狀況。 發生這個例外狀況是因為 Windows 上遺失 WinUtils.exe。 
 
-若要解決這個錯誤，請[下載可執行檔](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)，並將其放在 **C:\WinUtils\bin** 之類的位置。 然後，新增環境變數 **HADOOP_HOME**，並將變數的值設為 **C:\WinUtils**。
+若要解決這個錯誤，請[下載可執行檔](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)，並將其放在 **C:\WinUtils\bin** 之類的位置。 然後，新增環境變數 **HADOOP_HOME**，並將變數的值設為 **C:\WinUtils**。
 
 ### <a name="scenario-2-perform-local-run"></a>案例 2：執行本機執行
 1. 開啟 **SparkCore_wasbloTest** 指令碼，以滑鼠右鍵按一下指令碼編輯器，然後選取 [執行 '[Spark 作業]XXX'] 選項以執行本機執行。
@@ -80,8 +80,8 @@ ms.locfileid: "52582459"
 1. 我們的工具已在您執行本機執行和本機偵錯時自動設定預設本機執行設定。 在右上角開啟 [[Spark 作業] XXX]，您可以看到 [[Spark 作業]XXX] 已在 [Azure HDInsight Spark 作業] 底下建立。 切換至 [本機執行] 索引標籤。
 
     ![本機執行設定](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
-    - [環境變數](#prerequisite-for-windows)：如果您已將系統環境變數 **HADOOP_HOME** 設定為 **C:\WinUtils**，它可以自動偵測，不需要手動新增。
-    - [WinUtils.exe 位置](#prerequisite-for-windows)：如果您尚未設定系統環境變數，您可以按一下此按鈕以找到位置。
+    - [環境變數](#prerequisite-for-windows)：如果您已將系統環境變數 **HADOOP_HOME** 設定為 **C:\WinUtils**，它可以自動偵測，而不需手動新增。
+    - [WinUtils.exe 位置](#prerequisite-for-windows)：如果您尚未設定系統環境變數，可按一下此按鈕來尋找位置。
     - 只要選擇兩個選項之一，在 MacOS 和 Linux 上不需要它們。
 1. 您也可以在執行本機執行和本機偵錯之前手動設定。 在上述螢幕擷取畫面中，選取加號 (**+**)。 然後選取 [Azure HDInsight Spark 作業] 選項。 輸入 [名稱] 的資訊、要儲存的**主要類別名稱**，然後按一下本機執行按鈕。
 
@@ -157,13 +157,13 @@ ms.locfileid: "52582459"
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>示範
-* 建立 Scala 專案 (影片)：[Create Apache Spark Scala Applications](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) (建立 Apache Spark Scala 應用程式)
-* 遠端偵錯 (影片)：[Use Azure Toolkit for IntelliJ to debug Spark applications remotely on an HDInsight cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) (使用 Azure Toolkit for IntelliJ 遠端偵錯 HDInsight 叢集上的 Apache Spark 應用程式)
+* 建立 Scala 專案 (影片)：[建立 Apache Spark Scala 應用程式](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) \(英文\)
+* 遠端偵錯 (影片)：[使用 Azure Toolkit for IntelliJ 對 HDInsight 叢集上的 Apache Spark 應用程式進行遠端偵錯](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) \(英文\)
 
 ### <a name="scenarios"></a>案例
-* [Apache Spark 和 BI：在 HDInsight 中搭配 BI 工具使用 Spark 執行互動式資料分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 和機器學習服務：在 HDInsight 中利用 HVAC 資料使用 Spark 分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 搭配 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>建立及執行應用程式

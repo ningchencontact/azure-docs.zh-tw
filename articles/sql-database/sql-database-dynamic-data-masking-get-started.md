@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 872e700842ce69ca955035120d4e09ec9facf7ec
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/16/2018
+ms.openlocfilehash: 3e807033b109b8281057f6881a315f5c1c783a22
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165546"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536367"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL Database 動態資料遮罩
 
@@ -31,7 +31,7 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 您可以在 Azure 入口網站的 SQL Database [組態] 刀鋒視窗或 [設定] 刀鋒視窗中，選取 [動態資料遮罩] 作業，來設定動態資料遮罩原則。
 
 ### <a name="dynamic-data-masking-permissions"></a>動態資料遮罩權限
-動態資料遮罩可由　Azure 資料庫管理員、伺服器管理員或安全性主管人員等角色來設定。
+動態資料遮罩可由 Azure 資料庫管理員、伺服器管理員或 [SQL 安全性管理員](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager)等角色來設定。
 
 ### <a name="dynamic-data-masking-policy"></a>動態資料遮罩原則
 * **從遮罩處理中排除的 SQL 使用者** - 一組 SQL 使用者或 AAD 身分識別，可在 SQL 查詢結果中取得未經遮罩處理的資料。 具有系統管理員權限的使用者永遠會從遮罩處理中排除，而且會看到沒有任何遮罩的原始資料。

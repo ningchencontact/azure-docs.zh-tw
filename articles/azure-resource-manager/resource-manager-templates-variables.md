@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 08728a3c0b4d4578939004e2d1b1ee2d30a682ab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f6c629182fdcce83c566869860480d9c70488797
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359283"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53712741"
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 範本的 Variables 區段
 在 variables 區段中，您會建構可用於整個範本中的值。 您不需要定義變數，但它們通常會經由減少複雜運算式來簡化您的範本。
@@ -117,7 +117,7 @@ ms.locfileid: "34359283"
 
 ## <a name="use-copy-element-in-variable-definition"></a>在變數定義中使用 copy 元素
 
-您可以使用 **copy** 語法來建立具有多個項目陣列的變數。 您提供項目數目的計數。 每個項目在 **input** 物件內包含屬性。 您可以在變數內使用 copy，或使用 copy 建立變數。 當您定義變數並在該變數內使用 **copy** 時，您會建立具有 array 屬性的物件。 當您在最頂層使用 **copy** 並在其中定義一個或多個變數時，您會建立一或多個陣列。 下列範例中會展示這兩種方法：
+您可以使用 **copy** 語法來建立具有數個元素之陣列的變數。 您提供項目數目的計數。 每個項目在 **input** 物件內包含屬性。 您可以在變數內使用 copy，或使用 copy 建立變數。 當您定義變數並在該變數內使用 **copy** 時，您會建立具有 array 屬性的物件。 當您在最頂層使用 **copy** 並在其中定義一個或多個變數時，您會建立一或多個陣列。 下列範例中會展示這兩種方法：
 
 ```json
 "variables": {
@@ -269,13 +269,6 @@ ms.locfileid: "34359283"
 }
 ```
 
-## <a name="recommendations"></a>建議
-當您使用變數時，下列資訊可能會很有幫助︰
-
-* 您需要在範本中使用一次以上的值，才使用變數。 如果值只會使用一次，硬式編碼值會讓您的範本較容易看懂。
-* 您不能使用範本之 **variables** 區段中的 [reference](resource-group-template-functions-resource.md#reference) 函式。 **reference** 函式的值是從資源的執行階段狀態所衍生。 不過，將範本初始剖析時，會將變數加以解析。 請直接在範本的 **resources** 或 **outputs** 區段中，建構需要 **reference** 函式的值。
-* 包含變數以用於必須是唯一的資源名稱。
-
 ## <a name="example-templates"></a>範本的範例
 
 這些範例範本會示範使用變數的一些情況。 部署這些範本以測試如何在不同的情況下處理變數。 
@@ -290,5 +283,5 @@ ms.locfileid: "34359283"
 ## <a name="next-steps"></a>後續步驟
 * 若要檢視許多不同類型解決方案的完整範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)。
 * 如需您可以在範本內使用哪些函式的詳細資料，請參閱 [Azure Resource Manager 範本函式](resource-group-template-functions.md)。
-* 若要在部署期間合併多個範本，請參閱 [透過 Azure Resource Manager 使用連結的範本](resource-group-linked-templates.md)。
-* 您可能需要使用不同資源群組內的資源。 這案例常見於使用多個資源群組之間所共用的儲存體帳戶或虛擬網路時。 如需詳細資訊，請參閱 [resourceId 函式](resource-group-template-functions-resource.md#resourceid)。
+* 如需建立範本的建議，請參閱 [Azure Resource Manager 範本最佳做法](template-best-practices.md)。
+* 您可能需要使用不同資源群組內的資源。 這個案例常見於使用多個資源群組之間所共用的儲存體帳戶或虛擬網路時。 如需詳細資訊，請參閱 [resourceId 函式](resource-group-template-functions-resource.md#resourceid)。

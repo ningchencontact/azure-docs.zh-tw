@@ -9,21 +9,24 @@ ms.devlang: ''
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: ''
+ms.reviewer: douglasl
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: fa5ce7264fd003e0a49d6408acae070577879cdd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: a7289ba5ab1f4e94adc099978591d69cac6ff786
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686614"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721592"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 資料同步最佳做法 
 
 本文描述 Azure SQL 資料同步的最佳做法。
 
 如需 SQL 資料同步的概觀，請參閱[使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步處理資料](sql-database-sync-data.md)。
+
+> [!IMPORTANT]
+> 「Azure SQL 資料同步」目前**不**支援「Azure SQL Database 受控執行個體」。
 
 ## <a name="security-and-reliability"></a> 安全性與可靠性
 
@@ -196,7 +199,7 @@ SQL 資料同步提供基本資料庫自動佈建。
 1. 同步群組 A 係使用 SQL Database 執行個體和內部部署 SQL Server 資料庫建立，其與本機代理程式 1 建立關聯。
 2. 相同的內部部署資料庫已向本機代理程式 2 註冊 (此代理程式並未與任何同步群組建立關聯)。
 3. 從本機代理程式 2 取消註冊內部部署資料庫，會移除內部部署資料庫之同步群組 A 的追蹤和中繼資料表。
-4. 同步群組 A 作業失敗，並發生下列錯誤：「目前的作業無法完成，因為資料庫未佈建以進行同步處理，或是您沒有同步設定資料表的權限。」
+4. 同步群組 A 作業失敗，並發生此錯誤：「目前的作業無法完成，因為資料庫未佈建以進行同步處理，或是您沒有同步設定資料表的權限。」
 
 #### <a name="solution"></a>解決方法
 

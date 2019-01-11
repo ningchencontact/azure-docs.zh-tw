@@ -10,27 +10,27 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5f07f462fc33761f7d29944594491a72f283cd31
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 6044c0e565a4e321b57789f51e01473933f63d44
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582548"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630476"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>在 Java 中建立 Apache Storm 拓撲
 
-了解如何為 [Apache Storm](http://storm.apache.org/) 建立以 Java 為基礎的拓撲。 您會建立可實作字數統計應用程式的 Storm 拓撲。 您會使用 [Apache Maven](https://maven.apache.org/) 來建置和封裝專案。 然後，您會了解如何使用 Flux 架構定義拓撲。
+了解如何為 [Apache Storm](https://storm.apache.org/) 建立以 Java 為基礎的拓撲。 您會建立可實作字數統計應用程式的 Storm 拓撲。 您會使用 [Apache Maven](https://maven.apache.org/) 來建置和封裝專案。 然後，您會了解如何使用 Flux 架構定義拓撲。
 
 完成這份文件中的步驟之後，您就可以將拓撲部署到 Apache Storm on HDInsight。
 
-> [!NOTE]
+> [!NOTE]  
 > 在此文件中建立的 Storm 拓樸範例完整版位於 [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount)。
 
 ## <a name="prerequisites"></a>必要條件
 
 * [Java Developer Kit (JDK) 第 8 版](https://aka.ms/azure-jdks)
 
-* [Apache Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi)：Maven 是 Java 專案的專案建置系統。
+* [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi)：Maven 是適用於 Java 專案的專案建置系統。
 
 * 文字編輯器或整合式開發環境 (IDE)。
 
@@ -56,16 +56,16 @@ ms.locfileid: "52582548"
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 如果您使用 PowerShell，則必須將 `-D` 參數放置在雙引號內。
 >
 > `mvn archetype:generate "-DarchetypeArtifactId=maven-archetype-quickstart" "-DgroupId=com.microsoft.example" "-DartifactId=WordCount" "-DinteractiveMode=false"`
 
 此命令會在目前的位置建立名為 `WordCount` 的目錄，其內含基本 Maven 專案。 `WordCount` 目錄包含下列項目：
 
-* `pom.xml`：包含 Maven 專案的設定。
-* `src\main\java\com\microsoft\example`︰包含應用程式的程式碼。
-* `src\test\java\com\microsoft\example`︰包含應用程式的測試。 
+* `pom.xml`：包含適用於 Maven 專案的設定。
+* `src\main\java\com\microsoft\example`：包含應用程式的程式碼。
+* `src\test\java\com\microsoft\example`：包含應用程式的測試。 
 
 ### <a name="remove-the-generated-example-code"></a>移除所產生的範例程式碼
 
@@ -76,7 +76,7 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupI
 
 ## <a name="add-maven-repositories"></a>新增 Maven 存放庫
 
-HDInsight 是以 Hortonworks Data Platform (HDP) 為基礎，所以我們建議使用 Hortonworks 存放庫來為您的 Apache Storm 專案下載相依性。 在 __pom.xml__ 檔案中，在 `<url> http://maven.apache.org</url>` 行之後新增下列 XML 文字：
+HDInsight 是以 Hortonworks Data Platform (HDP) 為基礎，所以我們建議使用 Hortonworks 存放庫來為您的 Apache Storm 專案下載相依性。 在 __pom.xml__ 檔案中，在 `<url> https://maven.apache.org</url>` 行之後新增下列 XML 文字：
 
 ```xml
 <repositories>
@@ -93,7 +93,7 @@ HDInsight 是以 Hortonworks Data Platform (HDP) 為基礎，所以我們建議�
         </snapshots>
         <id>HDPReleases</id>
         <name>HDP Releases</name>
-        <url>http://repo.hortonworks.com/content/repositories/releases/</url>
+        <url>https://repo.hortonworks.com/content/repositories/releases/</url>
         <layout>default</layout>
     </repository>
     <repository>
@@ -109,7 +109,7 @@ HDInsight 是以 Hortonworks Data Platform (HDP) 為基礎，所以我們建議�
         </snapshots>
         <id>HDPJetty</id>
         <name>Hadoop Jetty</name>
-        <url>http://repo.hortonworks.com/content/repositories/jetty-hadoop/</url>
+        <url>https://repo.hortonworks.com/content/repositories/jetty-hadoop/</url>
         <layout>default</layout>
     </repository>
 </repositories>
@@ -147,7 +147,7 @@ Maven 可讓您定義稱為屬性的專案層級值。 在 __pom.xml__ 中，在
 
 在編譯期間，Maven 會使用此資訊來查閱 Maven 存放庫中的 `storm-core`。 它會先查看本機電腦上的儲存機制。 如果檔案不存在，Maven 會從公用 Maven 存放庫進行下載，並將它們儲存在本機存放庫中。
 
-> [!NOTE]
+> [!NOTE]  
 > 請注意此區段中的 `<scope>provided</scope>` 行。 這項設定會指示 Maven 從所建立的任何 JAR 檔案中排除 **storm-core**，因為它是由系統所提供。
 
 ## <a name="build-configuration"></a>建置組態
@@ -163,11 +163,11 @@ Maven 外掛程式可讓您自訂專案的建置階段。 例如，如何編譯�
 </build>
 ```
 
-此區段會用來新增外掛程式、資源，和其他組建組態選項。 如需 **pom.xml** 檔案的完整參考，請參閱 [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html)。
+此區段會用來新增外掛程式、資源，和其他組建組態選項。 如需 **pom.xml** 檔案的完整參考，請參閱 [https://maven.apache.org/pom.html](https://maven.apache.org/pom.html)。
 
 ### <a name="add-plug-ins"></a>新增外掛程式
 
-在以 Java 中實作的 Apache Storm 拓撲中，[Exec Maven 外掛程式](http://www.mojohaus.org/exec-maven-plugin/)十分有用，因為它可讓您輕鬆地在開發環境上以本機執行拓撲。 將下列內容加入 `pom.xml` 檔案的 `<plugins>` 區段，以包括 Exec Maven 外掛程式：
+在以 Java 中實作的 Apache Storm 拓撲中，[Exec Maven 外掛程式](https://www.mojohaus.org/exec-maven-plugin/)十分有用，因為它可讓您輕鬆地在開發環境上以本機執行拓撲。 將下列內容加入 `pom.xml` 檔案的 `<plugins>` 區段，以包括 Exec Maven 外掛程式：
 
 ```xml
 <plugin>
@@ -192,7 +192,7 @@ Maven 外掛程式可讓您自訂專案的建置階段。 例如，如何編譯�
 </plugin>
 ```
 
-另一個有用的外掛程式是 [Apache Maven 編譯器外掛程式](http://maven.apache.org/plugins/maven-compiler-plugin/)，其可用來變更編譯選項。 變更 Maven 用於您應用程式之來源和目標的 Java 版本。
+另一個有用的外掛程式是 [Apache Maven 編譯器外掛程式](https://maven.apache.org/plugins/maven-compiler-plugin/)，其可用來變更編譯選項。 變更 Maven 用於您應用程式之來源和目標的 Java 版本。
 
 * 針對 HDInsight __3.4 或更早版本__，請將資源和目標 Java 版本設為 __1.7__。
 
@@ -234,7 +234,7 @@ Java 型 Apache Storm 拓撲包含三個您必須編寫 (或參考) 為相依性
 
 * **Spout**：讀取來自外部來源的資料，並將資料流發出到拓撲。
 
-* **Bolt**：執行 Spout 或其他 Bolt 所發出資料流的處理，並發出一或多個資料流。
+* **Bolt**：執行 Spout 或其他 Bolt 所發出之串流的處理，並發出一或多個串流。
 
 * **拓撲**：定義如何排列 Spout 和 Bolt，並提供拓撲的進入點。
 
@@ -242,11 +242,11 @@ Java 型 Apache Storm 拓撲包含三個您必須編寫 (或參考) 為相依性
 
 若要減少設定外部資料來源的需求，下列 Spout 只會發出隨機的句子。 它是隨附於 [Storm-Starter 範例](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)的 Spout 修正版。
 
-> [!NOTE]
+> [!NOTE]  
 > 如需從外部資料來源讀取之 Spout 的範例，請參閱下列其中一個範例：
 >
-> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java)：從 Twitter 讀取的 Spout 範例
-> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka)：從 Kafka 讀取的 Spout
+> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java)：從 Twitter 讀取的範例 Spout。
+> * [Storm-kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka)：從 Kafka 讀取的 Spout。
 
 針對 Spout，在 `src\main\java\com\microsoft\example` 目錄中建立名為 `RandomSentenceSpout.java` 的檔案，並使用下列 Java 程式碼作為內容：
 
@@ -312,18 +312,18 @@ public class RandomSentenceSpout extends BaseRichSpout {
 }
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 雖然此拓撲只使用一個 Spout，但是其他拓撲可能會有將資料從不同來源送入拓撲的數個 Spout。
 
 ### <a name="create-the-bolts"></a>建立 Bolt
 
 Bolt 會處理資料的處理。 此拓撲會使用兩個 Bolt：
 
-* **SplitSentence**會將 **RandomSentenceSpout** 所發出的句子分割成個別單字。
+* **SplitSentence**：將 **RandomSentenceSpout** 所發出的句子分割成個別字組。
 
-* **WordCount**：計算每個單字的出現次數。
+* **WordCount**：計算每個字組的出現次數。
 
-> [!NOTE]
+> [!NOTE]  
 > Bolt 可以包辦任何作業，例如計算、持續性或與外部元件交談。
 
 在 `src\main\java\com\microsoft\example` 目錄中建立兩個新檔案 `SplitSentence.java` 和 `WordCount.java`。 使用下列文字做為檔案的內容：
@@ -559,10 +559,10 @@ Storm 使用 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) 來記錄�
 
 `<Root level="error">` 區段會設定記錄的根層級 (不在 `com.microsoft.example` 中的所有項目)，只記錄錯誤資訊。
 
-如需設定 Log4j 2 記錄的詳細資訊，請參閱 [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html)。
+如需設定 Log4j 2 記錄的詳細資訊，請參閱 [https://logging.apache.org/log4j/2.x/manual/configuration.html](https://logging.apache.org/log4j/2.x/manual/configuration.html)。
 
-> [!NOTE]
-> Storm 0.10.0 和更新版本是使用 Log4j 2.x。 舊版的 Storm 使用 Log4j 1.x，它們使用不同格式的記錄設定。 如需有關舊版組態資訊，請參閱 [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat)。
+> [!NOTE]  
+> Storm 0.10.0 和更新版本是使用 Log4j 2.x。 舊版的 Storm 使用 Log4j 1.x，它們使用不同格式的記錄設定。 如需有關舊版組態資訊，請參閱 [https://wiki.apache.org/logging-log4j/Log4jXmlFormat](https://wiki.apache.org/logging-log4j/Log4jXmlFormat)。
 
 ## <a name="test-the-topology-locally"></a>在本機測試拓撲
 
@@ -588,14 +588,14 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
 ## <a name="convert-the-topology-to-flux"></a>將拓撲轉換為 Flux
 
-[Flux](http://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) 是可在 Storm 0.10.0 和更新版本中使用的新架構，可讓您區隔設定與實作。 您的元件仍會以 Java 定義，但拓撲則會使用 YAML 檔案來定義。 您可以將預設拓撲定義與您的專案一起封裝，或在提交拓撲時使用獨立檔案。 將拓撲提交至 Storm 時，您可以使用環境變數或組態檔來填入 YAML 拓撲定義中的值。
+[Flux](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) 是可在 Storm 0.10.0 和更新版本中使用的新架構，可讓您區隔設定與實作。 您的元件仍會以 Java 定義，但拓撲則會使用 YAML 檔案來定義。 您可以將預設拓撲定義與您的專案一起封裝，或在提交拓撲時使用獨立檔案。 將拓撲提交至 Storm 時，您可以使用環境變數或組態檔來填入 YAML 拓撲定義中的值。
 
 YAML 檔案會定義要用於拓撲的元件以及其間的資料流程。 您可以包含 YAML 檔案作為 jar 檔案的一部分，或者您可以使用外部 YAML 檔案。
 
 如需有關 Flux 的詳細資訊，請參閱 [Flux 架構 (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html)。
 
-> [!WARNING]
-> 由於發生與 Storm 1.0.1 有關的 [Bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055)，因此，您可能需要安裝 [Storm 開發環境](http://storm.apache.org/releases/current/Setting-up-development-environment.html)，以便在本機執行 Flux 拓撲。
+> [!WARNING]  
+> 由於發生與 Storm 1.0.1 有關的 [Bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055)，因此，您可能需要安裝 [Storm 開發環境](https://storm.apache.org/releases/current/Setting-up-development-environment.html)，以便在本機執行 Flux 拓撲。
 
 1. 將 `WordCountTopology.java` 檔案移出專案。 以前，此檔案會定義拓撲，但在 Flux 中則不需要此檔案。
 
@@ -713,10 +713,10 @@ YAML 檔案會定義要用於拓撲的元件以及其間的資料流程。 您�
     mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
     ```
 
-    > [!WARNING]
-    > 如果您的拓撲使用 Storm 1.0.1 位元，此命令就會失敗。 此失敗是由 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055) 所造成。 請改為[在開發環境中安裝 Storm](http://storm.apache.org/releases/current/Setting-up-development-environment.html)，並使用下列步驟：
+    > [!WARNING]  
+    > 如果您的拓撲使用 Storm 1.0.1 位元，此命令就會失敗。 此失敗是由 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055) 所造成。 請改為[在開發環境中安裝 Storm](https://storm.apache.org/releases/current/Setting-up-development-environment.html)，並使用下列步驟：
     >
-    > 如果您已[在開發環境中安裝 Storm](http://storm.apache.org/releases/current/Setting-up-development-environment.html)，您可以改用下列命令：
+    > 如果您已[在開發環境中安裝 Storm](https://storm.apache.org/releases/current/Setting-up-development-environment.html)，您可以改用下列命令：
     >
     > ```bash
     > mvn compile package
@@ -762,15 +762,15 @@ YAML 檔案會定義要用於拓撲的元件以及其間的資料流程。 您�
 
     拓撲啟動後，您應該會注意到批次發出間隔時間已變更，反映了 newtopology.yaml 中的值。 因此您可以看到，您可以透過 YAML 檔案變更組態，而不需要重新編譯拓撲。
 
-如需Flux 架構的這些功能和其他功能的詳細資訊，請參閱 [Flux (http://storm.apache.org/releases/current/flux.html)](http://storm.apache.org/releases/current/flux.html)。
+如需Flux 架構的這些功能和其他功能的詳細資訊，請參閱 [Flux (https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html)。
 
 ## <a name="trident"></a>Trident
 
-[Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html) 是 Storm 提供的高階抽象概念。 它支援具狀態的處理。 Trident 的主要優點是它可以保證進入拓撲的每則訊息都只處理一次。 若未使用 Trident，您的拓撲只能保證至少處理一次訊息。 還有其他差異，例如可供使用的內建元件，而不是建立 Bolt。 事實上，較不一般的元件 (例如篩選、投影和函數) 會取代 Bolt。
+[Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) 是 Storm 提供的高階抽象概念。 它支援具狀態的處理。 Trident 的主要優點是它可以保證進入拓撲的每則訊息都只處理一次。 若未使用 Trident，您的拓撲只能保證至少處理一次訊息。 還有其他差異，例如可供使用的內建元件，而不是建立 Bolt。 事實上，較不一般的元件 (例如篩選、投影和函數) 會取代 Bolt。
 
 可以使用 Maven 專案來建立 Trident 應用程式。 您使用與本文稍早所呈現的相同基本步驟—只有程式碼不同。 Trident (目前) 也無法與 Flux 架構搭配使用。
 
-如需 Trident 的詳細資訊，請參閱 [Trident API 概觀](http://storm.apache.org/releases/current/Trident-API-Overview.html)。
+如需 Trident 的詳細資訊，請參閱 [Trident API 概觀](https://storm.apache.org/releases/current/Trident-API-Overview.html)。
 
 ## <a name="next-steps"></a>後續步驟
 

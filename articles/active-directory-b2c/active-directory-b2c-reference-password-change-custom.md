@@ -1,226 +1,184 @@
 ---
-title: Azure Active Directory B2C 中的自助式密碼變更 | Microsoft Docs
-description: 此主題示範如何在 Azure Active Directory B2C 中為您的取用者設定自助式密碼變更。
+title: 在 Azure Active Directory B2C 中使用自訂原則來設定密碼變更 | Microsoft Docs
+description: 了解如何在 Azure Active Directory B2C 中使用自訂原則以讓使用者變更其密碼。
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/05/2016
+ms.date: 12/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fdbf2d9bebb26a36e3f83e1149c4f97921aeaa1d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b39c330b555be6b74760c5966e770284fa9da437
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407022"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579187"
 ---
-# <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C：在自訂原則中設定密碼變更  
+# <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定密碼變更
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-利用密碼變更功能，登入的取用者 (使用本機帳戶) 可以變更其密碼而不需要透過電子郵件驗證來證明其真實性，如[自助式密碼重設流程](active-directory-b2c-reference-sspr.md)中所述。 如果取用者進入密碼變更流程時工作階段到期，系統會提示使用者重新登入。 
+在 Azure Active Directory (Azure AD) B2C 中，您可以讓使用本機帳戶來登入的使用者變更其密碼，而無須透過電子郵件驗證來證實其真確性。 如果在使用者進入密碼變更流程時工作階段到期，系統會提示他們重新登入。 本文說明如何在[自訂原則](active-directory-b2c-overview-custom.md)中設定密碼變更。 此外，您也可以為使用者流程設定[自助式密碼重設](active-directory-b2c-reference-sspr.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-如[開始使用](active-directory-b2c-get-started-custom.md)所述，設定為完成本機帳戶註冊/登入的 Azure AD B2C 租用戶。
+完成[在 Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 
-## <a name="how-to-configure-password-change-in-custom-policy"></a>如何在自訂原則中設定密碼變更
+## <a name="add-the-elements"></a>新增元素 
 
-若要設定自訂原則中的密碼變更，請在您信任的可構擴充原則中進行下列變更。 
+1. 開啟 TrustframeworkExtensions.xml 檔案，並將下列識別碼為 `oldPassword` 的 **ClaimType** 元素新增到 [ClaimsSchema](claimsschema.md) 元素： 
 
-## <a name="define-a-claimtype-oldpassword"></a>定義 ClaimType 'oldPassword'
+    ```XML
+    <BuildingBlocks>
+      <ClaimsSchema>
+        <ClaimType Id="oldPassword">
+          <DisplayName>Old Password</DisplayName>
+          <DataType>string</DataType>
+          <UserHelpText>Enter password</UserHelpText>
+          <UserInputType>Password</UserInputType>
+        </ClaimType>
+      </ClaimsSchema>
+    </BuildingBlocks>
+    ```
 
-您的自訂原則的整體結構必須包含 `ClaimsSchema` 並定義新的 `ClaimType` 'oldPassword'，如下所示。 
+2. [ClaimsProvider](claimsproviders.md) 元素包含會驗證使用者的技術設定檔。 請將下列宣告提供者新增至 **ClaimsProvider** 元素：
 
-```XML
-  <BuildingBlocks>
-    <ClaimsSchema>
-      <ClaimType Id="oldPassword">
-        <DisplayName>Old Password</DisplayName>
-        <DataType>string</DataType>
-        <UserHelpText>Enter password</UserHelpText>
-        <UserInputType>Password</UserInputType>
-      </ClaimType>
-    </ClaimsSchema>
-  </BuildingBlocks>
-```
+    ```XML
+    <ClaimsProviders>
+      <ClaimsProvider>
+        <DisplayName>Local Account SignIn</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="login-NonInteractive-PasswordChange">
+            <DisplayName>Local Account SignIn</DisplayName>
+            <Protocol Name="OpenIdConnect" />
+            <Metadata>
+              <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account</Item>
+              <Item Key="UserMessageIfInvalidPassword">Your password is incorrect</Item>
+              <Item Key="UserMessageIfOldPasswordUsed">Looks like you used an old password</Item>
+              <Item Key="ProviderName">https://sts.windows.net/</Item>
+              <Item Key="METADATA">https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration</Item>
+              <Item Key="authorization_endpoint">https://login.microsoftonline.com/{tenant}/oauth2/token</Item>
+              <Item Key="response_types">id_token</Item>
+              <Item Key="response_mode">query</Item>
+              <Item Key="scope">email openid</Item>
+              <Item Key="UsePolicyInRedirectUri">false</Item>
+              <Item Key="HttpBinding">POST</Item>
+              <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
+              <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
+            </Metadata>
+            <InputClaims>
+              <InputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="username" Required="true" />
+              <InputClaim ClaimTypeReferenceId="oldPassword" PartnerClaimType="password" Required="true" />
+              <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="password" />
+              <InputClaim ClaimTypeReferenceId="scope" DefaultValue="openid" />
+              <InputClaim ClaimTypeReferenceId="nca" PartnerClaimType="nca" DefaultValue="1" />
+              <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
+              <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
+            </InputClaims>
+            <OutputClaims>
+              <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="oid" />
+              <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid" />
+              <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+              <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
+              <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+              <OutputClaim ClaimTypeReferenceId="userPrincipalName" PartnerClaimType="upn" />
+              <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+            </OutputClaims>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+      <ClaimsProvider>
+        <DisplayName>Local Account Password Change</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="LocalAccountWritePasswordChangeUsingObjectId">
+            <DisplayName>Change password (username)</DisplayName>
+            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+            <Metadata>
+              <Item Key="ContentDefinitionReferenceId">api.selfasserted</Item>
+            </Metadata>
+            <CryptographicKeys>
+              <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
+            </CryptographicKeys>
+            <InputClaims>
+              <InputClaim ClaimTypeReferenceId="objectId" />
+            </InputClaims>
+            <OutputClaims>
+              <OutputClaim ClaimTypeReferenceId="oldPassword" Required="true" />
+              <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
+              <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+            </OutputClaims>
+            <ValidationTechnicalProfiles>
+              <ValidationTechnicalProfile ReferenceId="login-NonInteractive-PasswordChange" />
+              <ValidationTechnicalProfile ReferenceId="AAD-UserWritePasswordUsingObjectId" />
+            </ValidationTechnicalProfiles>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+    </ClaimsProviders>
+    ```
 
-這些元素的用途如下所示：
+    以您在先決條件教學課程中所建立 IdentityExperienceFramework 應用程式的應用程式識別碼取代 `IdentityExperienceFrameworkAppId`。 以您同樣先前所建立 ProxyIdentityExperienceFramework 應用程式的應用程式識別碼取代 `ProxyIdentityExperienceFrameworkAppId`。
 
-- `ClaimsSchema` 會定義要驗證的宣告。  在此情況下，將會驗證「舊密碼」。 
+3. [UserJourney](userjourneys.md) 元素會定義使用者與應用程式進行互動時所採用的路徑。 新增 **UserJourney** 識別為 `PasswordChange` 的 **UserJourneys** 元素 (如果此元素不存在)：
 
-## <a name="add-a-password-change-claims-provider-with-its-supporting-elements"></a>新增密碼變更宣告提供者與及其支援元素
+    ```XML
+    <UserJourneys>
+      <UserJourney Id="PasswordChange">
+        <OrchestrationSteps>
+          <OrchestrationStep Order="1" Type="ClaimsProviderSelection" ContentDefinitionReferenceId="api.idpselections">
+            <ClaimsProviderSelections>
+              <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
+            </ClaimsProviderSelections>
+          </OrchestrationStep>
+          <OrchestrationStep Order="2" Type="ClaimsExchange">
+            <ClaimsExchanges>
+              <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <OrchestrationStep Order="3" Type="ClaimsExchange">
+            <ClaimsExchanges>
+              <ClaimsExchange Id="NewCredentials" TechnicalProfileReferenceId="LocalAccountWritePasswordChangeUsingObjectId" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <OrchestrationStep Order="4" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        </OrchestrationSteps>
+        <ClientDefinition ReferenceId="DefaultWeb" />
+      </UserJourney>
+    </UserJourneys>
+    ```
 
-密碼變更宣告提供者將
-
-1. 驗證使用者的舊密碼
-2. 如果「新密碼」符合「確認新密碼」，則這個值會儲存在 B2C 資料存放區，因此變更密碼已成功。 
-
-![影像](images/passwordchange.jpg)
-
-將下列宣告提供者新增至您的擴充原則。 
-
-```XML
-<ClaimsProviders>
-    <ClaimsProvider>
-      <DisplayName>Local Account SignIn</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="login-NonInteractive">
-          <Metadata>
-           <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
-           <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
-          </Metadata>
-          <InputClaims>
-            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
-          </InputClaims>
-        </TechnicalProfile>
-        <TechnicalProfile Id="login-NonInteractive-PasswordChange">
-          <DisplayName>Local Account SignIn</DisplayName>
-          <Protocol Name="OpenIdConnect" />
-          <Metadata>
-            <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account</Item>
-            <Item Key="UserMessageIfInvalidPassword">Your password is incorrect</Item>
-            <Item Key="UserMessageIfOldPasswordUsed">Looks like you used an old password</Item>
-            <Item Key="ProviderName">https://sts.windows.net/</Item>
-            <Item Key="METADATA">https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration</Item>
-            <Item Key="authorization_endpoint">https://login.microsoftonline.com/{tenant}/oauth2/token</Item>
-            <Item Key="response_types">id_token</Item>
-            <Item Key="response_mode">query</Item>
-            <Item Key="scope">email openid</Item>
-            <Item Key="UsePolicyInRedirectUri">false</Item>
-            <Item Key="HttpBinding">POST</Item>
-            <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
-            <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
-          </Metadata>
-          <InputClaims>
-            <InputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="username" Required="true" />
-            <InputClaim ClaimTypeReferenceId="oldPassword" PartnerClaimType="password" Required="true" />
-            <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="password" />
-            <InputClaim ClaimTypeReferenceId="scope" DefaultValue="openid" />
-            <InputClaim ClaimTypeReferenceId="nca" PartnerClaimType="nca" DefaultValue="1" />
-            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
-          </InputClaims>
-          <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="oid" />
-            <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
-            <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
-            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-            <OutputClaim ClaimTypeReferenceId="userPrincipalName" PartnerClaimType="upn" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-          </OutputClaims>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
-    <ClaimsProvider>
-      <DisplayName>Local Account Password Change</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="LocalAccountWritePasswordChangeUsingObjectId">
-          <DisplayName>Change password (username)</DisplayName>
-          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-          <Metadata>
-            <Item Key="ContentDefinitionReferenceId">api.selfasserted</Item>
-          </Metadata>
-          <CryptographicKeys>
-            <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
-          </CryptographicKeys>
-          <InputClaims>
-            <InputClaim ClaimTypeReferenceId="objectId" />
-          </InputClaims>
-          <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="oldPassword" Required="true" />
-            <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
-            <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
-          </OutputClaims>
-          <ValidationTechnicalProfiles>
-            <ValidationTechnicalProfile ReferenceId="login-NonInteractive-PasswordChange" />
-            <ValidationTechnicalProfile ReferenceId="AAD-UserWritePasswordUsingObjectId" />
-          </ValidationTechnicalProfiles>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
-  </ClaimsProviders>
-```
-
-
-
-### <a name="add-the-application-ids-to-your-custom-policy"></a>將應用程式識別碼新增至您的自訂原則
-
-在擴充檔案 (`TrustFrameworkExtensions.xml`) 中新增應用程式識別碼：
-
-1. 在擴充檔案 (TrustFrameworkExtensions.xml) 中，尋找 `<TechnicalProfile Id="login-NonInteractive">` 元素和 `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
-
-2. 如[入門](active-directory-b2c-get-started-custom.md)所述，將 `IdentityExperienceFrameworkAppId` 的所有執行個體以身分識別體驗架構應用程式的應用程式識別碼取代。 下列是一個範例：
-
-   ```
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
-   ```
-
-3. 如[快速入門](active-directory-b2c-get-started-custom.md)中所述，以 Proxy 識別體驗架構應用程式的應用程式識別碼，取代 `ProxyIdentityExperienceFrameworkAppId` 的所有執行個體。
-
-4. 儲存擴充檔案。
-
-
-
-## <a name="create-a-password-change-user-journey"></a>建立密碼變更使用者旅程圖
-
-```XML
- <UserJourneys>
-    <UserJourney Id="PasswordChange">
-      <OrchestrationSteps>
-        <OrchestrationStep Order="1" Type="ClaimsProviderSelection" ContentDefinitionReferenceId="api.idpselections">
-          <ClaimsProviderSelections>
-            <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
-          </ClaimsProviderSelections>
-        </OrchestrationStep>
-        <OrchestrationStep Order="2" Type="ClaimsExchange">
-          <ClaimsExchanges>
-            <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="3" Type="ClaimsExchange">
-          <ClaimsExchanges>
-            <ClaimsExchange Id="NewCredentials" TechnicalProfileReferenceId="LocalAccountWritePasswordChangeUsingObjectId" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="4" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-      </OrchestrationSteps>
-      <ClientDefinition ReferenceId="DefaultWeb" />
-    </UserJourney>
-  </UserJourneys>
-```
-
-您已修改擴充檔案。 儲存並上傳這個檔案。 請確定所有驗證都成功。
-
-
-
-## <a name="create-a-relying-party-rp-file"></a>建立信賴憑證者 (RP) 檔案
-
-接下來，更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖：
-
-1. 在您的工作目錄中建立 ProfileEdit.xml 的副本。 然後，將它重新命名 (例如，PasswordChange.xml)。
-2. 開啟新檔案，將 `<TrustFrameworkPolicy>` 的 `PolicyId` 屬性更新成唯一值。 這是原則的名稱 (例如，PasswordChange)。
-3. 修改 `<DefaultUserJourney>` 中的 `ReferenceId` 屬性，以符合您建立之新使用者旅程圖的 `Id` (例如，PasswordChange)。
-4. 儲存變更然後上傳檔案。
-5. 若要測試您上傳的自訂原則，在 Azure 入口網站中，移至原則刀鋒視窗，然後按一下 [立即執行]。
-
-
-
-
-## <a name="link-to-password-change-sample-policy"></a>連結至密碼變更範例原則
+4. 儲存 *TrustFrameworkExtensions.xml* 原則檔案。
+5. 複製與入門套件一起下載的 *ProfileEdit.xml* 檔案，並將其命名為 *ProfileEditPasswordChange.xml*。
+6. 開啟新檔案，然後將 **PolicyId** 屬性更新成唯一值。 此值是您原則的名稱。 例如 *B2C_1A_profile_edit_password_change*。
+7. 將 `<DefaultUserJourney>` 中的 **ReferenceId**屬性修改成符合您所建立新使用者旅程圖的識別碼。 例如 *PasswordChange*。
+8. 儲存您的變更。
 
 您可以在[這裡](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change)找到範例原則。 
 
+## <a name="test-your-policy"></a>測試您的原則
 
+在 Azure AD B2C 中測試應用程式時，將 Azure AD B2C 權杖傳回到 `https://jwt.ms` 以檢閱其中的宣告很有用。
 
+### <a name="upload-the-files"></a>上傳檔案
 
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+4. 選取 [識別體驗架構]。
+5. 在 [自訂原則] 頁面上，按一下 [上傳原則]。
+6. 選取 [覆寫現有的原則]，然後搜尋並選取 TrustframeworkExtensions.xml 檔案。
+7. 按一下 [上傳] 。
+8. 針對信賴憑證者檔案 (例如 *ProfileEditPasswordChange.xml*) 重複步驟 5 到 7。
 
+### <a name="run-the-policy"></a>執行原則
 
+1. 開啟您所變更的原則。 例如 *B2C_1A_profile_edit_password_change*。
+2. 針對**應用程式**，請選取您先前註冊的應用程式。 若要查看權杖，[回覆 URL] 應該顯示 `https://jwt.ms`。
+3. 按一下 [立即執行] 。 使用您先前建立的帳戶進行登入。 您現在應該有機會變更密碼。 
 
+## <a name="next-steps"></a>後續步驟
 
-
-
+- 了解如何[在 Azure Active Directory B2C 中使用自訂原則來設定密碼複雜度](active-directory-b2c-reference-password-complexity-custom.md)。 

@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ce39e3ffce0b7721bde84254c7e5a35ec28465dc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 322c7164c0ecda550bf1bfe6a55075759bf95735
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583154"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630511"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>部署和管理以 Windows 為基礎的 HDInsight 上的 Apache Storm 拓撲
 
-[Apache Storm](http://storm.apache.org/) 儀表板可讓您使用網頁瀏覽器輕鬆部署和執行 Apache Storm 拓撲至 HDInsight 叢集。 您也可以使用儀表板來監視和管理執行中拓撲。 如果您使用 Visual Studio，則 HDInsight Tools for Visual Studio 會提供 Visual Studio 中的類似功能。
+[Apache Storm](https://storm.apache.org/) 儀表板可讓您使用網頁瀏覽器輕鬆部署和執行 Apache Storm 拓撲至 HDInsight 叢集。 您也可以使用儀表板來監視和管理執行中拓撲。 如果您使用 Visual Studio，則 HDInsight Tools for Visual Studio 會提供 Visual Studio 中的類似功能。
 
 HDInsight Tools 的 Storm Dashboard 和 Storm 功能依賴 Storm REST API，此 API 可用來建立您專屬的監視和管理方案。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 這份文件中的步驟需要使用 Windows 做為作業系統的 Storm on HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 >
 > 如需透過使用 Linux 的 HDInsight 叢集來部署和管理 Storm 拓撲的詳細資訊，請參閱[部署和管理以 Linux 為基礎的 HDInsight 上的 Apache Storm 拓撲](apache-storm-deploy-monitor-topology-linux.md)
@@ -31,7 +31,7 @@ HDInsight Tools 的 Storm Dashboard 和 Storm 功能依賴 Storm REST API，此 
 
 * **Apache Storm on HDInsight** - 請參閱[開始使用 Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md)，以取得建立叢集的步驟。
 
-* 針對 **Storm Dashboard**：支援 HTML5 的新型網頁瀏覽器。
+* 針對 **Storm 儀表板**：支援 HTML5 的新式網頁瀏覽器。
 
 * 針對 **Visual Studio** - Azure SDK 2.5.1 或更新版本，以及 HDInsight Tools for Visual Studio。 請參閱[開始使用 HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md) 以安裝及設定 HDInsight Tools for Visual Studio。
 
@@ -59,62 +59,62 @@ Storm Dashboard 是可以在 Storm 叢集上使用的網頁。 URL 是 **https:/
 
 ![Storm UI][storm-dashboard-ui]
 
-> [!NOTE]
+> [!NOTE]  
 > 在 Internet Explorer 的某些版本中，您可能會發現 Storm UI 在您最初到訪之後不會重新整理。 例如，可能不會顯示您提交的新拓撲，或是可能將先前已停用的拓撲顯示為使用中。 Microsoft 知道這個問題，並正在找出解決方案。
 
 #### <a name="main-page"></a>主頁面
 
 Storm UI 的主頁面會提供下列資訊：
 
-* **叢集摘要**：Storm 叢集的基本資訊。
+* **叢集摘要**：有關 Storm 叢集的基本資訊。
 
 * **拓撲摘要**：執行中拓撲的清單。 使用本節中的連結來檢視特定拓撲的詳細資訊。
 
-* **監督員摘要**：Storm 監督員的資訊。
+* **監督員摘要**：Storm 監督員的相關資訊。
 
-* **Nimbus 組態**：叢集的 Nimbus 組態。
+* **Nimbus 設定**：適用於叢集的 Nimbus 設定。
 
 #### <a name="topology-summary"></a>拓撲摘要
 
 選取 [拓撲摘要]  區段中的連結會顯示拓撲的下列資訊：
 
-* **拓撲摘要**：拓撲的基本資訊。
+* **拓撲摘要**：有關拓撲的基本資訊。
 
 * **拓撲動作**：您可以針對拓撲執行的管理動作。
 
-  * **啟用**：繼續處理已停用的拓撲。
+  * **啟動**：繼續處理已停用的拓撲。
 
-  * **停用**：暫停執行中的拓撲。
+  * **停用**：暫停執行中拓撲。
 
   * **重新平衡**：調整拓撲的平行處理原則。 變更叢集中的節點數目之後，您應該重新平衡執行中拓撲。 這可讓拓撲調整平行處理原則，以彌補叢集中增加或減少的節點數目。
 
-      如需詳細資訊，請參閱 [Understanding the parallelism of an Apache Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (了解 Apache Storm 拓撲的平行處理原則)。
+      如需詳細資訊，請參閱 [Understanding the parallelism of an Apache Storm topology](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (了解 Apache Storm 拓撲的平行處理原則)。
 
-  * **終止**：在指定的逾時之後結束 Storm 拓撲。
+  * **終止**：在指定的逾時之後終止 Storm 拓撲。
 
-* **拓撲統計資料**：拓撲的統計資料。 使用 [視窗]  資料行中的連結，以設定頁面上其餘項目的時間範圍。
+* **拓撲統計資料**：有關拓撲的統計資料。 使用 [視窗]  資料行中的連結，以設定頁面上其餘項目的時間範圍。
 
 * **Spout**：拓撲所使用的 Spout。 使用本節中的連結檢視特定 Spout 的詳細資訊。
 
 * **Bolt**：拓撲所使用的 Bolt。 使用本節中的連結檢視特定 Bolt 的詳細資訊。
 
-* **拓撲組態**：所選取拓撲的組態。
+* **拓撲設定**：所選取拓撲的設定。
 
 #### <a name="spout-and-bolt-summary"></a>Spout 和 Bolt 摘要
 
 從 [Spout] 或 [Bolt] 區段中選取 Spout 會顯示所選取項目的下列資訊：
 
-* **元件摘要**：Spout 或 Bolt 的基本資訊。
+* **元件摘要**：有關 Spout 或 Bolt 的基本資訊。
 
-* **Spout/Bolt 統計資料**：Spout 或 Bolt 的統計資料。 使用 [視窗]  資料行中的連結，以設定頁面上其餘項目的時間範圍。
+* **Spout/Bolt 統計資料**：有關 Spout 或 Bolt 的統計資料。 使用 [視窗]  資料行中的連結，以設定頁面上其餘項目的時間範圍。
 
-* **輸入統計資料** (僅限 Bolt)：Bolt 所使用輸入資料流的資訊。
+* **輸入統計資料** (僅限 Bolt)：Bolt 所取用之輸入串流的相關資訊。
 
-* **輸出統計資料**：此 Spout 或 Bolt 所發出資料流的資訊。
+* **輸出統計資料**：此 Spout 或 Bolt 所發出之串流的相關資訊。
 
-* **執行程式**：Spout 或 Bolt 執行個體的資訊。 選取特定執行程式的 [連接埠]  項目，以檢視針對此執行個體所產生之診斷資訊的記錄。
+* **執行程式**：Spout 或 Bolt 執行個體的相關資訊。 選取特定執行程式的 [連接埠]  項目，以檢視針對此執行個體所產生之診斷資訊的記錄。
 
-* **錯誤**：此 Spout 或 Bolt 的任何錯誤資訊。
+* **錯誤**：對於此 Spout 或 Bolt 的任何錯誤資訊。
 
 ## <a name="hdinsight-tools-for-visual-studio"></a>HDInsight Tools for Visual Studio
 
@@ -132,7 +132,7 @@ Storm UI 的主頁面會提供下列資訊：
 
 4. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，然後選取 [提交至 Storm on HDInsight]。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 如果出現提示，請輸入您 Azure 訂閱的登入認證。 如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
 
 5. 從 [Storm 叢集] 下拉式清單中選取 Storm on HDInsight 叢集，然後選取 [提交]。 您可以使用 [輸出]  視窗監視提交是否成功。
@@ -141,17 +141,17 @@ Storm UI 的主頁面會提供下列資訊：
 
     ![Visual Studio 監視器](./media/apache-storm-deploy-monitor-topology/vsmonitor.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > 您也可以透過展開 [Azure]  >  [HDInsight]，並在 Storm on HDInsight 叢集上按一下滑鼠右鍵，然後選取 [檢視 Storm 拓撲] 以從**伺服器總管**中檢視 [Storm 拓撲]。
 
     選取 Spout 或 Bolt 的圖形以檢視這些元件的資訊。 隨即會針對每個選取的項目開啟新的視窗。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 拓撲的名稱是拓撲的類別名稱 (在此案例中為 `HelloWord`) 加上時間戳記。
 
 7. 從 [拓撲摘要] 檢視中，選取 [終止] 停止拓撲。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 除非停止 Storm 拓撲或刪除叢集，否則 Storm 拓撲會繼續執行。
 
 
@@ -169,7 +169,7 @@ REST API on HDInsight 叢集的基底 URI 是 **https://&lt;clustername>.azurehd
 
 REST API 的要求必須使用 **基本驗證**，因此請使用 HDInsight 叢集管理員名稱和密碼。
 
-> [!NOTE]
+> [!NOTE]  
 > 因為使用純文字傳送基本驗證，所以您應該 **一律** 使用 HTTPS 來保護與叢集通訊的安全。
 
 ### <a name="return-values"></a>傳回值

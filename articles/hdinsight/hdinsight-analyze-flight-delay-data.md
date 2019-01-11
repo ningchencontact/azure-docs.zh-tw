@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2e24a138220f350e56b30406f65bb869dd523bad
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fada29145334a45872aa64b3cc0fe2e859b52568
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015869"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632886"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>在 HDInsight 中使用 Apache Hive 分析航班延誤資料
 [Apache Hive](https://hive.apache.org/) 可透過一種類似 SQL 的指令碼語言 (稱為 *[HiveQL][hadoop-hiveql]*) 來執行 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 作業，可用來彙總、查詢和分析大量資料。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 此文件中的步驟需要 Windows 型 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需與 Linux 叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Apache Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)。
 
 Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。 HDInsight 使用 Azure Blob 儲存體來儲存資料。 典型的工作包含三個部分：
@@ -43,8 +43,8 @@ Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。 
 
 在附錄中，您可以找到上傳航班延誤資料、建立/上傳 Hive 查詢字串和針對 Sqoop 工作準備 Azure SQL Database 的指示。
 
-> [!NOTE]
-> 此文件中的步驟是針對以 Windows 為基礎的 HDInsight 叢集。 如需與 Linux 叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Apache Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)
+> [!NOTE]  
+> 此文件中的步驟是針對以 Windows 為基礎的 HDInsight 叢集。 如需與以 Linux 為基礎的叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Apache Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)。
 
 ### <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前，您必須具備下列項目：
@@ -52,7 +52,7 @@ Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * **具有 Azure PowerShell 的工作站**。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 使用 Azure Service Manager 管理 HDInsight 資源的 Azure PowerShell 支援已**被取代**，並已在 2017 年 1 月 1 日移除。 本文件中的步驟會使用可與 Azure Resource Manager 搭配使用的新 HDInsight Cmdlet。
     >
     > 請遵循 [安裝和設定 Azure PowerShell](/powershell/azureps-cmdlets-docs) 中的步驟來安裝最新版的 Azure PowerShell。 如果您需要修改指令碼才能使用適用於 Azure Resource Manager 的新 Cmdlet，請參閱 [移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)](hdinsight-hadoop-development-using-azure-resource-manager.md) ，以取得詳細資訊。
@@ -242,7 +242,7 @@ Hadoop MapReduce 是批次處理。 執行 Hive 工作時，最具成本效益�
 * **使用 HDInsight 將使用的相同 Azure 儲存體帳戶，作為預設檔案系統。**  由於 HDInsight 叢集將具有儲存體帳戶存取金鑰，您將不需進行任何額外的變更。
 * **使用與 HDInsight 叢集預設檔案系統不同的 Azure 儲存體帳戶。** 如果是這樣，您必須修改 Windows PowerShell 指令碼的建立部分 (可在 [建立 HDInsight 叢集和執行 Apache Hive/Sqoop 作業](#runjob) 中找到)，以連結儲存體帳戶作為額外的儲存體帳戶。 如需指示，請參閱[在 HDInsight 中建立 Apache Hadoop 叢集][hdinsight-provision]。 HDInsight 叢集便會知道儲存體帳戶的存取金鑰。
 
-> [!NOTE]
+> [!NOTE]  
 > 資料檔案的 Blob 儲存體路徑會在 HiveQL 指令碼檔案中硬式編碼。 您必須據以更新。
 
 **下載航班資料**
@@ -351,7 +351,7 @@ Hadoop MapReduce 是批次處理。 執行 Hive 工作時，最具成本效益�
 
 tutorials/flightdelay/data 路徑是您在上傳檔案時所建立的虛擬資料夾。 請確認共有 12 個檔案，每個月份各一個。
 
-> [!NOTE]
+> [!NOTE]  
 > 您必須更新 Hive 查詢，以從新位置讀取。
 >
 > 您必須設定容器存取權限，使其成為公用，或將儲存體帳戶繫結至 HDInsight 叢集。 否則，Hive 查詢字串將無法存取資料檔案。
@@ -615,7 +615,7 @@ HiveQL 指令碼將執行下列作業：
     #region - Constants and variables
 
     # IP address REST service used for retrieving external IP address and creating firewall rules
-    [String]$ipAddressRestService = "http://bot.whatismyipaddress.com"
+    [String]$ipAddressRestService = "https://bot.whatismyipaddress.com"
     [String]$fireWallRuleName = "FlightDelay"
 
     # SQL database variables
@@ -699,12 +699,12 @@ HiveQL 指令碼將執行下列作業：
     Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
     ```
 
-   > [!NOTE]
-   > 指令碼使用具象狀態傳輸 (REST) 服務 (http://bot.whatismyipaddress.com) 來擷取外部 IP 位址。 IP 位址用來建立 SQL Database 伺服器的防火牆規則。
+   > [!NOTE]  
+   > 指令碼使用具象狀態傳輸 (REST) 服務 (https://bot.whatismyipaddress.com) 來擷取外部 IP 位址。 IP 位址用來建立 SQL Database 伺服器的防火牆規則。
 
     以下是指令碼中使用的一些常數：
 
-   * **$ipAddressRestService** - 預設值是 http://bot.whatismyipaddress.com。 這是用來取得外部 IP 位址的公用 IP 位址 REST 服務。 想要的話，您可以使用其他服務。 透過此服務所擷取的外部 IP 位址將用來建立 Azure SQL Database 伺服器的防火牆規則，讓您能夠從工作站存取資料庫 (使用 Windows PowerShell 指令碼)。
+   * **$ipAddressRestService** - 預設值是 https://bot.whatismyipaddress.com。 這是用來取得外部 IP 位址的公用 IP 位址 REST 服務。 想要的話，您可以使用其他服務。 透過此服務所擷取的外部 IP 位址將用來建立 Azure SQL Database 伺服器的防火牆規則，讓您能夠從工作站存取資料庫 (使用 Windows PowerShell 指令碼)。
    * **$fireWallRuleName** - 這是 Azure SQL Database 伺服器的防火牆規則名稱。 預設名稱為 <u>FlightDelay</u>。 想要的話，您可以將它重新命名。
    * **$sqlDatabaseMaxSizeGB** - 只有在建立新的 Azure SQL Database 伺服器時才會使用此值。 預設值為 10GB。 10GB 足夠供本教學課程使用。
    * **$sqlDatabaseName** - 只有在建立新的 Azure SQL Database 時才會使用此值。 預設值為 HDISqoop。 如果將它重新命名，則必須相應地更新 Sqoop Windows PowerShell 指令碼。
@@ -725,7 +725,7 @@ HiveQL 指令碼將執行下列作業：
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -739,9 +739,9 @@ HiveQL 指令碼將執行下列作業：
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
-[hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
+[hadoop-shell-commands]: https://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
 [image-hdi-flightdelays-avgdelays-dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png

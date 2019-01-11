@@ -14,14 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: 268e679bb052bce4c972c940333147edc5c7d721
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3b361202d2d80f879ae6d23ec29782bc6f837f96
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242580"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632869"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse Media 檔案與 Azure Media Hyperlapse
+
+> [!NOTE]
+> Azure 媒體服務的這項預覽功能即將淘汰。 自 2018 年 12 月 19 日起，媒體服務將不再變更或改進媒體超縮時攝影功能。 它將會於 2019 年 3 月 29 日淘汰，並且不再提供使用。
+
 Azure Media Hyperlapse 是可以使用第一人稱視角或運動攝影機內容建立流暢縮時攝影影片的「媒體處理器 (MP)」。  Azure 媒體服務的雲端型 Microsoft Hyperlapse 與 [Microsoft Research 的桌面 Hyperlapse Pro 和手機型 Hyperlapse Mobile](https://aka.ms/hyperlapse)相似，它運用大規模的 Azure 媒體服務媒體處理平台來水平調整，並平行化大量的 Hyperlapse 處理。
 
 > [!IMPORTANT]

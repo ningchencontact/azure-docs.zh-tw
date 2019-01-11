@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963589"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600296"
 ---
-# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 詞彙︰Azure 平台上的雲端術語字典
+# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 詞彙：Azure 平台上的雲端術語字典
 
 Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請參閱：
 
@@ -37,7 +37,7 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 [App Service 應用程式](#app-service-app)的另一個名稱。
 
 ## <a name="app-service-app"></a>App Service 應用程式
-[Azure App Service](app-service/app-service-web-overview.md) 提供的計算資源，可供裝載網站或 Web 應用程式、Web API或[行動裝置應用程式後端](app-service-mobile/app-service-mobile-value-prop.md)。 App Service 應用程式也稱為「應用程式服務」、「Web 應用程式」、「API 應用程式」和「行動裝置應用程式」。
+[Azure App Service](app-service/overview.md) 提供的計算資源，可供裝載網站或 Web 應用程式、Web API或[行動裝置應用程式後端](app-service-mobile/app-service-mobile-value-prop.md)。 App Service 應用程式也稱為「應用程式服務」、「Web 應用程式」、「API 應用程式」和「行動裝置應用程式」。
 
 ## <a name="availability-set"></a>可用性設定組
 可一起管理的虛擬機器集合，以提供應用程式備援能力和可靠性。 可用性設定組的用法可確保在預定進行或未預定進行的維護事件期間，至少有一部虛擬機器可以使用。  
@@ -70,7 +70,7 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## <a name="image"></a>映像
-包含作業系統和應用程式組態的檔案，可用來建立任意數目的虛擬機器。 在 Azure 中有兩種類型的映像：VM 映像和作業系統映像。 VM 映像包含作業系統和建立映像時所有連接至虛擬機器的磁碟。 作業系統映像只包含通用的作業系統且不含任何資料磁碟組態。  
+包含作業系統和應用程式組態的檔案，可用來建立任意數目的虛擬機器。 在 Azure 中有兩種類型的映像：VM 映像和 OS 映像。 VM 映像包含作業系統和建立映像時所有連接至虛擬機器的磁碟。 作業系統映像只包含通用的作業系統且不含任何資料磁碟組態。  
 請參閱[使用 PowerShell 或 CLI 在 Azure 中瀏覽並選取 Windows 虛擬機器映像](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="limits"></a>限制

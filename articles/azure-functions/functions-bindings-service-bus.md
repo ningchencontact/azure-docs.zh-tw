@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 0a4d5cf4731932ed72e0dc38c13a5f855a937864
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 21f8d8ad63e8ea7c134477a6171155c40a2b4dc8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317503"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792011"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
 
@@ -331,6 +331,9 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 |`Label`|`string`|應用程式專用標籤。|
 |`CorrelationId`|`string`|相互關連識別碼。|
 |`UserProperties`|`IDictionary<String,Object>`|應用程式專用訊息屬性。|
+
+> [!NOTE]
+> 目前，觸發程序僅適用於不會使用工作階段的佇列和訂用帳戶。 如需任何有關此功能的進一步更新，請追蹤[此功能項目](https://github.com/Azure/azure-functions-host/issues/563) \(英文\)。 
 
 請參閱稍早在本文中使用這些屬性的[程式碼範例](#trigger---example)。
 

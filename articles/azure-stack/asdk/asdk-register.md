@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/28/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 84924900403a4aa2a65143c65a0b26f2c95a1e5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 00c4d750d0617d36ab476719ce31c8038065511c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962642"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807205"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 註冊
 您可以向 Azure 註冊 Azure Stack 開發套件 (ASDK) 安裝，以便從 Azure 下載市集項目，以及設定向 Microsoft 回報商務資料的功能。 必須註冊才能支援完整的 Azure Stack 功能，包括 Marketplace 摘要整合。 我們建議您註冊，因為它可讓您測試重要的 Azure Stack 功能，例如市集摘要整合和使用方式報告。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務。 您可以在註冊時所使用的訂用帳戶下看到這項資訊。 然而，ASDK 使用者將不需針對回報的任何使用方式支付費用。
@@ -201,21 +201,21 @@ $ExecutionContext.SessionState.LanguageMode
 啟用完成時，您應該會看到類似的訊息：**您的環境已完成的註冊和啟用程序。**
 
 ## <a name="verify-the-registration-was-successful"></a>確認註冊已成功
-請遵循下列步驟來確認 ASDK 已成功向**連線環境中**的 Azure 完成註冊。
+
+您可以使用 [Region management] \(區域管理\) 圖格來確認 Azure Stack 註冊是否已成功。 此圖格位於系統管理員入口網站中的預設儀表板上。
 
 1. 登入 [Azure Stack 系統管理入口網站](https://adminportal.local.azurestack.external)。
 
-2. 按一下 [市集管理] > [從 Azure 新增]。
+2. 從儀表板中，選取 [Region management] \(區域管理\)。
 
-    ![](media/asdk-register/2.PNG)
+    [ ![[Region management] \(區域管理\) 圖格](media/asdk-register/admin1sm.png "[Region management] \(區域管理\) 圖格") ](media/asdk-register/admin1.png#lightbox)
 
-3. 如果您看到 Azure 提供的項目清單，則表示啟用已成功。
-
-    ![](media/asdk-register/3.PNG)
+3. 選取 [屬性] 。 此刀鋒視窗會顯示您環境的狀態和詳細資料。 狀態可以是 [已註冊] 或 [未註冊]。 如果是已註冊，則會一併顯示您用來註冊 Azure Stack 的 Azure 訂用帳戶 ID，以及註冊資源群組和名稱。
 
 ## <a name="move-a-registration-resource"></a>移動註冊資源
 **支援**在相同的訂用帳戶下的資源群組之間移動註冊資源。 如需將資源移到新資源群組的詳細資訊，請參閱[將資源移到新的資源群組或訂用帳戶](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
 
 
 ## <a name="next-steps"></a>後續步驟
-[新增 Azure Stack 市集項目](../azure-stack-marketplace.md)
+
+- [新增 Azure Stack 市集項目](../azure-stack-marketplace.md)

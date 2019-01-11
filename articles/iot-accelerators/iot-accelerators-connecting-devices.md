@@ -8,20 +8,22 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: 55c8ff799ba3ff7fe9691d46dc90a00d5182d390
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 729ba19153eeb9767961d099e7a37c10a38b1286
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829405"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634706"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>將裝置連線到遠端監視解決方案加速器 (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-本教學課程示範如何將實體裝置連線到遠端監視解決方案加速器。
+本教學課程示範如何將真實裝置連線到遠端監視解決方案加速器。
 
 如同大部分在受條件約束裝置上執行的內嵌應用程式，裝置應用程式的用戶端程式碼是以 C 撰寫的。在此教學課程中，您要在執行 Windows 的電腦上建置裝置用戶端應用程式。
+
+如果您偏好模擬裝置，請參閱[建立及測試新模擬裝置](iot-accelerators-remote-monitoring-create-simulated-device.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,21 +31,21 @@ ms.locfileid: "48829405"
 
 ## <a name="view-the-code"></a>檢視程式碼
 
-本指南中所使用的[範例程式碼](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) \(英文\) 可在 Azure IoT C SDK GitHub 存放庫中取得。
+您可以在 Azure IoT C SDK GitHub 存放庫中取得本指南中所使用的[範例程式碼](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client)。
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>下載原始程式碼並準備專案
 
-若要準備專案，請從 GitHub 複製或下載[Azure IoT C SDK 存放庫](https://github.com/Azure/azure-iot-sdk-c) \(英文\)。
+若要準備專案，請從 GitHub [複製 Azure IoT C SDK 存放庫](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) \(英文\)。
 
 範例位於 **samples/solutions/remote_monitoring_client** 資料夾中。
 
-在文字編輯器中，開啟 **samples/solutions/remote_monitoring_client** 資料夾中的 **remote_monitoring.c** 檔案。
+請在文字編輯器中，開啟 **samples/solutions/remote_monitoring_client** 資料夾中的 **remote_monitoring.c** 檔案。
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
 ## <a name="build-and-run-the-sample"></a>建置並執行範例
 
-1. 編輯 **remote_monitoring.c** 檔案，將 `<connectionstring>` 取代為您在本操作指南一開始將裝置新增到解決方案加速器時所記下的裝置連接字串。
+1. 編輯 **remote_monitoring.c** 檔案，將 `<connectionstring>` 取代為您在此操作指南一開始將裝置新增到解決方案加速器時所記下的裝置連接字串。
 
 1. 請遵循[在 Windows 中建置 C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#build-the-c-sdk-in-windows) 中的步驟，來建置 SDK 和遠端監視用戶端應用程式。
 

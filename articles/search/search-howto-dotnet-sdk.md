@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: c2dd9d7c7567a7c57def093c4d611ab09c870d84
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6f263511a7d1df4af82a690c1d6b04fecd2a8a91
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310657"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634536"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>如何從 .NET 應用程式使用 Azure 搜尋服務
 本文會逐步指引您學會如何使用 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)。 您可以透過 .NET SDK，利用 Azure 搜尋服務在應用程式中實作豐富的搜尋經驗。
@@ -48,7 +48,7 @@ SDK 中還有其他 NuGet 套件：
 ## <a name="requirements-for-the-sdk"></a>SDK 的需求
 1. Visual Studio 2017。
 2. 擁有 Azure Search 服務。 為了使用 SDK，您需要為服務命名，還需要一或多個 API 金鑰。 [在入口網站建立服務](search-create-service-portal.md) 可協助您執行這些步驟。
-3. 使用 Visual Studio 中的 [管理 NuGet 封裝] 下載 Azure 搜尋服務 .NET SDK [NuGet 封裝](http://www.nuget.org/packages/Microsoft.Azure.Search) 。 只要在 NuGet.org 搜尋套件名稱 `Microsoft.Azure.Search` (或者，如果您只需要某個功能子集，則搜尋上述其中一個其他套件名稱)。
+3. 使用 Visual Studio 中的 [管理 NuGet 封裝] 下載 Azure 搜尋服務 .NET SDK [NuGet 封裝](https://www.nuget.org/packages/Microsoft.Azure.Search) 。 只要在 NuGet.org 搜尋套件名稱 `Microsoft.Azure.Search` (或者，如果您只需要某個功能子集，則搜尋上述其中一個其他套件名稱)。
 
 Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.5.2 (含) 以上版本，以及 .NET Core 為目標的應用程式。
 
@@ -243,7 +243,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 >
 > 
 
-除了欄位之外，您還可以新增評分設定檔、建議工具或 CORS 選項到 Index (基於簡化目的，範例已省略這些選項)。 如需 Index 物件以及其組成部分的詳細資訊，請參閱 [SDK 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index#microsoft_azure_search_models_index)和 [Azure 搜尋服務 REST API 參考](https://docs.microsoft.com/rest/api/searchservice/)。
+除了欄位之外，您還可以新增評分設定檔、建議工具或 CORS 選項到 Index (基於簡化目的，範例已省略這些選項)。 如需 Index 物件以及其組成部分的詳細資訊，請參閱 [SDK 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index)和 [Azure 搜尋服務 REST API 參考](https://docs.microsoft.com/rest/api/searchservice/)。
 
 ### <a name="populating-the-index"></a>填入索引
 `Main` 的下一步是填入新建立的索引。 執行方法如下：
@@ -324,7 +324,7 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 此方法的第三部分是擷取區塊，該區塊會為編制索引處理重要錯誤情況。 如果您的 Azure Search 服務無法將 Batch 中的一些文件編制索引，則 `Documents.Index` 會擲回 `IndexBatchException`。 如果您在服務負載過重時編制文件的索引，就會發生此情況。 **我們強烈建議您在程式碼中明確處理此情況。**  您可以延遲，然後重新嘗試將失敗的文件編制索引，或像範例一樣加以記錄並繼續，或是根據您應用程式的資料一致性需求執行其他操作。
 
 > [!NOTE]
-> 您可以使用 `FindFailedActionsToRetry` 方法來建構新的批次，該批次僅包含先前呼叫 `Index` 時失敗的動作。 此方法記載於[這裡](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception#Microsoft_Azure_Search_IndexBatchException_FindFailedActionsToRetry_Microsoft_Azure_Search_Models_IndexBatch_System_String_)，而且有如何[在 StackOverflow 上](http://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry)正確使用它的討論。
+> 您可以使用 [`FindFailedActionsToRetry`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) 方法來建構新的批次，該批次僅包含先前呼叫 `Index` 時失敗的動作。 [StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry) 上有關於如何適當地使用此方法的討論。
 >
 >
 
@@ -390,20 +390,20 @@ public partial class Hotel
 首先要注意的是，每個 `Hotel` 的公用屬性會對應索引定義中的欄位，但這之中有一項關鍵的差異：每個欄位的名稱會以小寫字母 (「駝峰式命名法」) 為開頭，而每個 `Hotel` 的公用屬性名稱會以大小字母 (「巴斯卡命名法」) 為開頭。 這在執行資料繫結、而目標結構描述在應用程式開發人員控制範圍之外的 .NET 應用程式中很常見。 與其違反 .NET 命名方針，使屬性名稱為駝峰式命名法，您可以改用 `[SerializePropertyNamesAsCamelCase]` 屬性，告訴 SDK 自動將屬性名稱對應至駝峰式命名法。
 
 > [!NOTE]
-> Azure 搜尋服務 .NET SDK 使用 [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) 程式庫來將您的自訂模型物件序列化到 JSON 中，以及將您在 JSON 中的自訂模型物件還原序列化。 如有需要，您可以自訂這個序列化的過程。 如需詳細資訊，請參閱[使用 JSON.NET 自訂序列化](#JsonDotNet)。
+> Azure 搜尋服務 .NET SDK 使用 [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) 程式庫來將您的自訂模型物件序列化到 JSON 中，以及將您在 JSON 中的自訂模型物件還原序列化。 如有需要，您可以自訂這個序列化的過程。 如需詳細資訊，請參閱[使用 JSON.NET 自訂序列化](#JsonDotNet)。
 > 
 > 
 
 第二個要注意的是裝飾每個公用屬性 (property) 的屬性 (attribute)，例如 `IsFilterable`、`IsSearchable`、`Key` 和 `Analyzer`。 這些屬性直接對應至 [Azure 搜尋服務索引的對應屬性](https://docs.microsoft.com/rest/api/searchservice/create-index#request)。 `FieldBuilder` 類別會使用這些屬性來建構索引的欄位定義。
 
-第三個要注意的是，`Hotel` 類別為公用屬性的資料類型。 這些屬性的 .NET 類型會對應至索引定義中，與其相當的欄位類型。 例如，`Category` 字串屬性會對應至 `category` 欄位 (此欄位屬於 `Edm.String` 類型)。 `bool?` 與 `Edm.Boolean`、`DateTimeOffset?` 與 `Edm.DateTimeOffset` 等，它們之間也有類似的類型對應。類型對應的特定規則和 `Documents.Get` 方法已一起記載於 [Azure 搜尋服務 .NET SDK 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_)。 `FieldBuilder` 類別會為您處理這項對應，但它仍有助您了解您需要對任何序列化問題進行疑難排解的情況。
+第三個要注意的是，`Hotel` 類別為公用屬性的資料類型。 這些屬性的 .NET 類型會對應至索引定義中，與其相當的欄位類型。 例如，`Category` 字串屬性會對應至 `category` 欄位 (此欄位屬於 `Edm.String` 類型)。 `bool?` 與 `Edm.Boolean`、`DateTimeOffset?` 與 `Edm.DateTimeOffset` 等，它們之間也有類似的類型對應。類型對應的特定規則和 `Documents.Get` 方法已一起記載於 [Azure 搜尋服務 .NET SDK 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get)。 `FieldBuilder` 類別會為您處理這項對應，但它仍有助您了解您需要對任何序列化問題進行疑難排解的情況。
 
 這讓使用您的類別做為文件可雙向有效；您也可以擷取搜尋結果，然後讓 SDK 將結果自動還原序列化為您選擇的類型，我們會在下一節中看到這部分。
 
 > [!NOTE]
-> Azure 搜尋服務 .NET SDK 還支援使用 `Document` 類別的動態類型文件，也就是欄位名稱與欄位值的索引鍵/值對應。 當您在設計階段卻不知道索引的結構描述時，這很實用，否則要繫結到特定模型類別會很麻煩。 SDK 中所有處理文件的方法，都有可搭配 `Document` 類別使用的多載，以及使用泛型類型參數的強類型多載。 本教學課程的範例程式碼只使用了後者。 `Document` 類別繼承自 `Dictionary<string, object>`。 如需其他詳細資訊，請前往[這裡](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document#microsoft_azure_search_models_document)。
+> Azure 搜尋服務 .NET SDK 還支援使用 `Document` 類別的動態類型文件，也就是欄位名稱與欄位值的索引鍵/值對應。 當您在設計階段卻不知道索引的結構描述時，這很實用，否則要繫結到特定模型類別會很麻煩。 SDK 中所有處理文件的方法，都有可搭配 `Document` 類別使用的多載，以及使用泛型類型參數的強類型多載。 本教學課程的範例程式碼只使用了後者。 [`Document`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) 類別繼承自 `Dictionary<string, object>`。
 > 
-> 
+>
 
 **為什麼您應該使用 Nullable 資料類型**
 
@@ -418,7 +418,7 @@ public partial class Hotel
 <a name="JsonDotNet"></a>
 
 #### <a name="custom-serialization-with-jsonnet"></a>使用 JSON.NET 自訂序列化
-SDK 會使用 JSON.NET 序列化和還原序列化文件。 您可以視需要定義您自己的 `JsonConverter` 或 `IContractResolver` 來自訂序列化和還原序列化 (如需詳細資訊，請參閱 [JSON.NET 文件](http://www.newtonsoft.com/json/help/html/Introduction.htm))。 當您想要調整您的應用程式的現有模型類別以搭配使用 Azure 搜尋服務以及其他更進階的案例時，這非常有用。 例如，使用自訂序列化，您可以：
+SDK 會使用 JSON.NET 序列化和還原序列化文件。 您可以視需要定義您自己的 `JsonConverter` 或 `IContractResolver` 來自訂序列化和還原序列化 (如需詳細資訊，請參閱 [JSON.NET 文件](https://www.newtonsoft.com/json/help/html/Introduction.htm))。 當您想要調整您的應用程式的現有模型類別以搭配使用 Azure 搜尋服務以及其他更進階的案例時，這非常有用。 例如，使用自訂序列化，您可以：
 
 * 包含或排除模型類別的特定屬性儲存為文件欄位。
 * 在程式碼的屬性名稱和索引的欄位名稱之間進行對應。

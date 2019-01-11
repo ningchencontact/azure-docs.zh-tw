@@ -3,25 +3,25 @@ title: 匯入 BACPAC 檔案以建立 Azure SQL Database | Microsoft Docs
 description: 匯入 BACPAC 檔案以建立新的 Azure SQL Database。
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: 6753666f1747c95ad3486444ed41e3cad0b8e905
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9e79aa2315118bcd9ce4328e74d51d7a22ea6247
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084171"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744543"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>快速入門：將 BACPAC 檔案匯入到新的 Azure SQL Database
 
-您可以使用 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 檔案 (副檔名為 `.bacpac` 的 zip 檔案，其中包含資料庫的中繼資料和資料) 將 SQL Server 資料庫移轉至 Azure SQL 資料庫。 您可以從 Azure Blob 儲存體匯入 BACPAC 檔案 (僅限標準儲存體)，或從內部部署位置中的本機儲存體匯入。 若要使匯入速度最大化，建議您指定較高的服務層級與計算大小 (例如 P6)，然後在匯入成功後相應減少。 資料庫匯入後的相容性層級會以來源資料庫的相容性層級為基礎。
+您可以使用 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 檔案 (副檔名為 `.bacpac` 的 zip 檔案，其中擁有資料庫的中繼資料和資料) 將 SQL Server 資料庫移轉至 Azure SQL 資料庫。 您可以從 Azure Blob 儲存體匯入 BACPAC 檔案 (僅限標準儲存體)，或從內部部署位置中的本機儲存體匯入。 若要最大化匯入速度，您可以指定較高的服務層並計算大小 (例如 P6)。 然後，您可以在匯入成功後相應減少。 資料庫匯入後的相容性層級會以來源資料庫的相容性層級為基礎。
 
 > [!IMPORTANT]
 > 匯入資料庫後，您可以選擇於目前的相容性層級 (針對 AdventureWorks2008R2 資料庫為層級 100) 或更高層級運作資料庫。 如需於特定相容性層級操作資料庫的含意與選項詳細資訊，請參閱 [ALTER DATABASE 相容性層級 (ALTER DATABASE Compatibility Level)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level)。 如需相容性層級其他相關資料庫等級設定的資訊，另請參閱 [ALTER DATABASE 範圍組態 (ALTER DATABASE SCOPED CONFIGURATION)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)。
@@ -41,13 +41,13 @@ ms.locfileid: "53084171"
 
 ### <a name="monitor-imports-progress"></a>監視匯入進度
 
-若要監視匯入進度，請為匯入的資料庫開啟邏輯伺服器頁面，並向下捲動至 [設定]，然後選取 [匯入/匯出記錄]。 匯入成功時，會處於 [已完成] 狀態。
+若要監視匯入進度，請為匯入的資料庫開啟邏輯伺服器頁面，然後在 [設定] 下選取 [匯入/匯出記錄]。 匯入成功時，會處於 [已完成] 狀態。
 
 若要確認伺服器上的資料庫為線上狀態，請選取 [SQL 資料庫]，並確認新的資料庫為 [線上] 狀態。
 
 ## <a name="import-from-a-bacpac-file-using-sqlpackage"></a>使用 SqlPackage 從 BACPAC 檔案匯入
 
-若要使用 [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) 命令列公用程式匯入 SQL Database，請參閱[匯入參數和屬性](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties)。 SqlPackage 附有最新版的 [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 和[適用於 Visual Studio 的 SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)。 您也可以從 Microsoft 下載中心下載最新的 [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876)。
+若要使用 [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) 命令列公用程式匯入 SQL Database，請參閱[匯入參數和屬性](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties)。 SqlPackage 具有最新的 [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 和[適用於 Visual Studio 的 SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)。 您也可以從 Microsoft 下載中心下載最新的 [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876)。
 
 基於調整能力和效能，建議在大部分的生產環境中均應使用 SqlPackage。 如需 SQL Server 客戶諮詢小組部落格中有關使用 BACPAC 檔案進行移轉的主題，請參閱[使用 BACPAC 檔案從 SQL Server 移轉至 Azure SQL Database](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)。
 
@@ -73,12 +73,12 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 
  ```powershell
  $importRequest = New-AzureRmSqlDatabaseImport 
-    -ResourceGroupName "myResourceGroup" `
-    -ServerName "myLogicalServer" `
-    -DatabaseName "MyImportSample" `
-    -DatabaseMaxSizeBytes "262144000" `
+    -ResourceGroupName "<your_resource_group>" `
+    -ServerName "<your_server>" `
+    -DatabaseName "<your_database>" `
+    -DatabaseMaxSizeBytes "<database_size_in_bytes>" `
     -StorageKeyType "StorageAccessKey" `
-    -StorageKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "myResourceGroup" -StorageAccountName "myStorageAccount").Value[0] `
+    -StorageKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "<your_resource_group>" -StorageAccountName "<your_storage_account").Value[0] `
     -StorageUri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
     -Edition "Standard" `
     -ServiceObjectiveName "P6" `

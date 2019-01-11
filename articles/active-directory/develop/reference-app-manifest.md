@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2018
+ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 372bff911c0925e05297872da66279e727149010
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: a971806b453d34aa8459cb30090024bfca96d342
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086772"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631179"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 應用程式資訊清單
 
@@ -56,10 +56,10 @@ ms.locfileid: "50086772"
 | `allowPublicClient` | 布林值 | 指定後援應用程式類型。 根據預設，Azure AD 會從 replyUrlsWithType 推斷應用程式類型。 在某些情況中，Azure AD 無法判斷用戶端應用程式類型 (例如 [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) 流程，其會發生沒有 URL 重新導向的 HTTP 要求)。 在這些情況下，Azure AD 會根據這個屬性的值來解譯應用程式類型。 如果此值設為 true，後援應用程式類型就會設定為公用用戶端，例如在行動裝置上執行的已安裝應用程式。 預設值為 false，這表示後援應用程式類型是機密用戶端，例如 Web 應用程式。 | `false` |
 | `appId` | 識別碼字串 | 針對由 Azure AD 指派給應用程式的應用程式，指定唯一識別碼。 | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | 陣列類型 | 指定應用程式可以宣告的角色集合。 這些角色可以指派給使用者、群組或服務主體。 如需更多範例和資訊，請參閱[在您的應用程式中新增應用程式角色，並且在權杖中接收這些角色](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
-| `groupMembershipClaims` | 字串 | 此為位元遮罩，可設定應用程式所需使用者或 OAuth 2.0 存取權杖中所發出的 `groups` 宣告。 位元遮罩值如下：<br>0：無<br>1：安全性群組和 Azure AD 角色<br>2：已保留<br>4：已保留<br>將位元遮罩設為 7，則可以取得登入使用者所屬的所有安全性群組、通訊群組及 Azure AD 目錄角色。 | `1` |
+| `groupMembershipClaims` | 字串 | 可設定應用程式所需使用者或 OAuth 2.0 存取權杖中所發出的 `groups` 宣告。 若要設定此屬性，請使用下列其中一個有效字串值：<br/><br/>- `"None"`<br/>- `"SecurityGroup"` (適用於安全性群組和 Azure AD 角色)<br/>- `"All"` (這會取得登入使用者所屬的所有安全性群組、通訊群組及 Azure AD 目錄角色)。 | `"SecurityGroup"` |
 | `optionalClaims` | 字串 | 由此特定應用程式的安全性權杖服務在權杖中傳回的選擇性宣告。<br>此時，同時支援個人帳戶和 Azure AD (透過應用程式註冊入口網站註冊) 的應用程式無法使用選擇性宣告。 不過，使用 v2.0 端點只註冊 Azure AD 的應用程式，可在資訊清單中取得所要求的選擇性宣告。 如需詳細資訊，請參閱[選用宣告](active-directory-optional-claims.md)。 | `null` |
 | `id` | 識別碼字串 | 目錄中應用程式的唯一識別碼。 此識別碼不是用來在任何通訊協定交易中識別應用程式的識別碼。 它是用來參考目錄查詢中的物件。 | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
-| `identifierUris` | 字串陣列 | 當應用程式為多租用戶時，專門在 Web 應用程式的 Azure AD 租用戶或經過驗證的自訂網域中，用於識別 Web 應用程式的使用者定義 URI。 | <code>[<br>&nbsp;&nbsp;"https://MyRegistererdApp"<br>]</code> |
+| `identifierUris` | 字串陣列 | 當應用程式為多租用戶時，專門在 Web 應用程式的 Azure AD 租用戶或經過驗證的自訂網域中，用於識別 Web 應用程式的使用者定義 URI。 | <code>[<br>&nbsp;&nbsp;"https://MyRegisteredApp"<br>]</code> |
 | `informationalUrls` | 字串 | 指定應用程式服務條款和隱私權聲明的連結。 使用者會透過使用者同意體驗看到服務條款和隱私權聲明。 如需詳細資訊，請參閱[如何：新增 Azure AD 註冊應用程式的服務條款和隱私權聲明](howto-add-terms-of-service-privacy-statement.md)。 | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |
 | `keyCredentials` | 陣列類型 | 保留對應用程式指定認證、字串型的共用密碼以及 X.509 憑證的參考。 要求存取權杖時會使用這些認證 (當應用程式作為用戶端，而不是資源時)。 | <code>[<br>&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-09-13T00:00:00Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2017-09-12T00:00:00Z",<br>&nbsp;&nbsp;&nbsp;"type":"AsymmetricX509Cert",<br>&nbsp;&nbsp;&nbsp;"usage":"Verify",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;}<br>]</code> |
 | `knownClientApplications` | 陣列類型 | 如果您有包含兩個組件 (用戶端應用程式及自訂 Web API 應用程式) 的解決方案，則用來統合同意。 如果您將此值輸入為用戶端應用程式的 appID ，則使用者只需同意用戶端應用程式一次。 Azure AD 會知道同意用戶端表示隱含地同意 Web API，並會自動同時佈建用戶端與 Web API 的服務主體。 用戶端與 Web API 應用程式都必須在相同的租用戶中註冊。 | `[GUID]` |

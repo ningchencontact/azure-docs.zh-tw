@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0519bb78b01cd7cab6abaf453efd7a4595101ef4
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c8870fdb0ff0a62c9b1a3b690724aa004e911bb3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133742"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810877"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB 中變更摘要
 
@@ -32,7 +32,7 @@ Azure Cosmos DB 中的變更摘要可讓您針對每一個模式建置有效率�
 
 此功能目前受到下列 Cosmos DB API 和用戶端 SDK 支援。
 
-| **用戶端驅動程式** | **Azure CLI** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API**|**資料表 API** |
+| **用戶端驅動程式** | **Azure CLI** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API**|**資料表 API** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | NA | 是 | 否 | 否 | 是 | 否 |
 |Java|NA|是|否|否|是|否|

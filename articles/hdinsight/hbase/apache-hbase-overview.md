@@ -10,15 +10,15 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: eaf69ffdd7aa0964860f90b1f98d542175ea086b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 46b201b2b5d8a3ee774f759326afae885ad6cb30
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315404"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651839"
 ---
 # <a name="what-is-apache-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-apache-hadoop"></a>什麼是 HDInsight 中的 Apache HBase：為 Apache Hadoop 提供類似 BigTable 功能的 NoSQL 資料庫
-[Apache HBase](http://hbase.apache.org/) 是開放原始碼的 NoSQL 資料庫，以 [Apache Hadoop](https://hadoop.apache.org/) 作為建置基礎，並仿照 [Google BigTable](https://cloud.google.com/bigtable/) 建立模型。 HBase 可針對依資料行系列組織的無結構描述資料庫中的大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
+[Apache HBase](https://hbase.apache.org/) 是開放原始碼的 NoSQL 資料庫，以 [Apache Hadoop](https://hadoop.apache.org/) 作為建置基礎，並仿照 [Google BigTable](https://cloud.google.com/bigtable/) 建立模型。 HBase 可針對依資料行系列組織的無結構描述資料庫中的大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
 
 從使用者觀點來看，HBase 類似於資料庫。 資料會儲存在資料表的資料列和資料行中，而資料列中的資料會依據資料行系列進行分組。 HBase 是無結構描述的資料庫，也就是說，在使用資料行之前，並不需要先定義資料行和其中儲存之資料的類型。 開放原始碼的程式碼會以線性方式延展，以處理數千個節點上的 PB 資料。 它可依賴散佈在 Hadoop 生態系統中的應用程式所提供的資料備援、批次處理及其他功能。
 
@@ -31,13 +31,12 @@ HDInsight HBase 會以受控叢集的形式提供，並整合到 Azure 環境中
 HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區功能、讀取和寫入的強大一致性，以及自動容錯移轉功能。 透過在記憶體內部快取讀取和高輸送量的串流寫入，來提高效能。 可以在虛擬網路內建立 HBase 叢集。 如需詳細資訊，請參閱[在 Azure 虛擬網路上建立 HDInsight 叢集](./apache-hbase-provision-vnet.md)。
 
 ## <a name="how-is-data-managed-in-hdinsight-hbase"></a>如何在 HDInsight HBase 中管理資料？
-要管理 HBase 中的資料，可使用 HBase Shell 的 `create``get`, `put` 和 `scan` 命令。 將資料寫入資料庫，需使用 `put`，讀取則使用 `get` `scan` 命令可用來取得資料表中多個資料列裡的資料。 您也可以使用 HBase C# API 管理資料，其在 HBase REST API 之上提供用戶端程式庫。 HBase 資料庫也可使用 [Apache Hive](https://hive.apache.org/) 進行查詢。 如需這些程式設計模型的簡介，請參閱[開始在 HDInsight 中搭配使用 HBase 與 Hadoop](./apache-hbase-tutorial-get-started-linux.md)。 同時也提供共同處理器，其允許在主控資料庫的節點中進行資料處理。
+要管理 HBase 中的資料，可使用 HBase Shell 的 `create``get`, `put` 和 `scan` 命令。 將資料寫入資料庫，需使用 `put`，讀取則使用 `get` `scan` 命令可用來取得資料表中多個資料列裡的資料。 您也可以使用 HBase C# API 管理資料，其在 HBase REST API 之上提供用戶端程式庫。 HBase 資料庫也可使用 [Apache Hive](https://hive.apache.org/) 進行查詢。 如需這些程式設計模型的簡介，請參閱[開始在 HDInsight 中搭配使用 Apache HBase 與 Apache Hadoop](./apache-hbase-tutorial-get-started-linux.md)。 同時也提供共同處理器，其允許在主控資料庫的節點中進行資料處理。
 
-> [!NOTE]
+> [!NOTE]  
 > Thrift 不受 HDInsight 中的 HBase 所支援。
->
 
-## <a name="scenarios-use-cases-for-apache-hbase"></a>情節：Apache HBase 的使用案例
+## <a name="scenarios-use-cases-for-apache-hbase"></a>案例：Apache HBase 的使用案例
 從 Web 搜尋建立 BigTable (以及由此延伸出的 HBase) 的正式使用案例。 搜尋引擎會建置索引，以將字詞對應到包含這些字詞的網頁。 除此之外，HBase 還有其他許多適用的使用案例，本節會列舉其中幾個。
 
 * 索引鍵-值存放區
@@ -51,7 +50,7 @@ HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區
     [Apache Phoenix](https://phoenix.apache.org/) 是適用於 Apache HBase 的 SQL 查詢引擎。 其以 JDBC 驅動程式的形式進行存取，並可使用 SQL 查詢和管理 HBase 資料表。
 * HBase 即平台
   
-    應用程式可以將 HBase 做為資料存放區，並在此基礎上執行。 範例包括 Phoenix、[OpenTSDB](http://opentsdb.net/)、Kiji 及 Titan。 應用程式也可與 HBase 整合。 範例包括 [Apache Hive](https://hive.apache.org/)、[Apache Pig](https://pig.apache.org/)、[Solr](http://lucene.apache.org/solr/)、[Apache Storm](http://storm.apache.org/)、[Apache Flume](https://flume.apache.org/)、[Apache Impala](https://impala.apache.org/)、[Apache Spark](https://spark.apache.org/)、[Ganglia](http://ganglia.info/) 和 [Apache Drill](https://drill.apache.org/)。
+    應用程式可以將 HBase 做為資料存放區，並在此基礎上執行。 範例包括 Phoenix、[OpenTSDB](http://opentsdb.net/)、Kiji 及 Titan。 應用程式也可與 HBase 整合。 範例包括 [Apache Hive](https://hive.apache.org/)、[Apache Pig](https://pig.apache.org/)、[Solr](https://lucene.apache.org/solr/)、[Apache Storm](https://storm.apache.org/)、[Apache Flume](https://flume.apache.org/)、[Apache Impala](https://impala.apache.org/)、[Apache Spark](https://spark.apache.org/)、[Ganglia](http://ganglia.info/) 和 [Apache Drill](https://drill.apache.org/)。
 
 ## <a name="next-steps"></a>接續步驟
 * [開始在 HDInsight 中搭配 Apache Hadoop 使用 Apache HBase](./apache-hbase-tutorial-get-started-linux.md)
@@ -62,7 +61,7 @@ HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區
 ## <a name="see-also"></a>另請參閱
 * [Apache HBase](https://hbase.apache.org/)
 * [Apache HBase 參考指南](https://hbase.apache.org/book.html)
-* [Bigtable：結構化資料的分散式儲存體系統](http://research.google.com/archive/bigtable.html)
+* [Bigtable：適用於結構化資料的分散式儲存體系統](https://research.google.com/archive/bigtable.html) \(英文\)
 * [Apache HBase/Phoenix – Azure HDInsight 的祕訣、技巧及最佳做法](https://blogs.msdn.microsoft.com/ashish/2016/08/28/hdinsight-hbase-faq/)
 
 

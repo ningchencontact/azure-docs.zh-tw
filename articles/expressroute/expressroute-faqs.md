@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0621c2d1632dead41463810b9e71ebf0404a8cbe
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6de5fefa3d70c1daecf00909d3ce44d4a4d8561c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077744"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543558"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
@@ -39,7 +39,7 @@ ExpressRoute 連線不會經過公用網際網路。 相較於網際網路一般
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>如果我支付指定頻寬的 ExpressRoute 電路，則我是否必須從網路服務提供者購買相同速度的 VPN 連線？
 
-否。 您可以從服務提供者購買任何速度的 VPN 連線。 不過，您與 Azure 的連線受限於您所購買的 ExpressRoute 線路頻寬。
+沒有。 您可以從服務提供者購買任何速度的 VPN 連線。 不過，您與 Azure 的連線受限於您所購買的 ExpressRoute 線路頻寬。
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>如果我支付指定頻寬的 ExpressRoute 線路，是否能夠在需要時突增到較高的速度？
 
@@ -129,7 +129,7 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>我可以使用 ExpressRoute 來擴充其中一個至 Azure 的 VLAN 嗎？
 
-否。 我們不支援至 Azure 的第 2 層連線擴充程式。
+沒有。 我們不支援至 Azure 的第 2 層連線擴充程式。
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>我的訂用帳戶是否可以有多個 ExpressRoute 電路？
 
@@ -166,7 +166,7 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>我有多個含有虛擬網路的 Azure 訂用帳戶。 我可以將各個訂用帳戶的虛擬網路連線到單一 ExpressRoute 電路嗎？
 
-是。 您最多可以向 10 個其他 Azure 訂用帳戶授權使用單一 ExpressRoute 電路。 您可透過啟用 ExpressRoute 進階功能來提高此限制。
+是。 您可以使用單一 ExpressRoute 線路，在與線路相同的訂用帳戶或不同訂用帳戶中，最多連結 10 個虛擬網路。 您可透過啟用 ExpressRoute 進階功能來提高此限制。
 
 如需詳細資訊，請參閱[在多個訂用帳戶中共用 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)。
 
@@ -178,7 +178,7 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>連線到相同電路的虛擬網路會相互隔離嗎？
 
-否。 從路由的觀點來看，所有連結至相同 ExpressRoute 線路的虛擬網路都屬於相同的路由網域，因此不會相互隔離。 如果需要路由隔離，您必須建立個別的 ExpressRoute 線路。
+沒有。 從路由的觀點來看，所有連結至相同 ExpressRoute 線路的虛擬網路都屬於相同的路由網域，因此不會相互隔離。 如果需要路由隔離，您必須建立個別的 ExpressRoute 線路。
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>我可以將一個虛擬網路連結至多個 ExpressRoute 電路嗎？
 
@@ -266,7 +266,7 @@ ExpressRoute Premium 是下列功能的集合：
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>我可以從進階功能集中挑選和選擇所需功能嗎？
 
-否。 您無法挑選功能。 當您開啟 ExpressRoute Premium 時，我們便會將所有功能啟用。
+沒有。 您無法挑選功能。 當您開啟 ExpressRoute Premium 時，我們便會將所有功能啟用。
 
 ### <a name="how-much-does-expressroute-premium-cost"></a>ExpressRoute Premium 需要多少錢？
 

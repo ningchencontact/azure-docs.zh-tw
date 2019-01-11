@@ -2,25 +2,21 @@
 title: 使用現有的內部部署 Proxy 伺服器與 Azure AD | Microsoft Docs
 description: 涵蓋如何使用現有的內部部署 Proxy 伺服器。
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
-ms.openlocfilehash: 06df705aabce06c37f04de3fb5046d822f9f981e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6409b9313aa9b036e24ea50435659b3653ac01e0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404948"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720096"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>使用現有的內部部署 Proxy 伺服器
 
@@ -98,7 +94,7 @@ OS 元件會嘗試藉由對 wpad.domainsuffix 執行 DNS 查閱來尋找 Proxy �
 
 接著，設定連接器更新程式服務來使用 Proxy，方法為對 C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config 檔案進行類似變更。
 
-### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>步驟 2︰設定 Proxy 以允許來自連接器與相關服務的流量通過
+### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>步驟 2：設定 Proxy 以允許來自連接器與相關服務的流量通過
 
 在輸出 Proxy 有 4 個層面需要考量：
 * Proxy 輸出規則
@@ -107,15 +103,16 @@ OS 元件會嘗試藉由對 wpad.domainsuffix 執行 DNS 查閱來尋找 Proxy �
 * SSL 審查
 
 #### <a name="proxy-outbound-rules"></a>Proxy 輸出規則
-允許存取下列端點以取得連接器服務的存取權︰
+允許存取下列 URL：
 
-* *.msappproxy.net
-* *.servicebus.windows.net
+| URL | 使用方式 |
+| --- | --- |
+| \*.msappproxy.net<br>\*.servicebus.windows.net | 連接器和應用程式 Proxy 雲端服務之間的通訊 |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure 會使用這些 URL 來確認憑證 |
+| login.windows.net<br>login.microsoftonline.com | 連接器會在註冊程序進行期間使用這些 URL。 |
 
-針對初始註冊，允許存取下列端點︰
+如果您的防火牆或 Proxy 允許建立 DNS 允許清單，您可以建立 \*.msappProxy.net 和 \*.servicebus.windows.net 的允許清單連線。 若非如此，您需要允許存取 [Azure 資料中心的 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 IP 範圍會每週更新。
 
-* login.windows.net
-* login.microsoftonline.com
 
 如果您不允許 FQDN 連線且需要改為指定 IP 範圍，請使用下列選項：
 

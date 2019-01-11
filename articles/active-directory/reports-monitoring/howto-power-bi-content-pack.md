@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d810b8be496bbfd1c5bd88d8221e77dd5b76c889
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622956"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651447"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>如何使用 Azure Active Directory Power BI 內容套件
 
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) 的 Power BI 內容套件包含預先建置的
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要 Azure AD Premium (P1/P2) 授權才能使用內容套件。 
+您需要 Azure AD Premium (P1/P2) 授權才能使用內容套件。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 來升級 Azure Active Directory 版本。
 
 ## <a name="install-the-content-pack"></a>安裝內容套件
 

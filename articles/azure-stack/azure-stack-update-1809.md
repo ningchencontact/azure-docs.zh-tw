@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f3994c2be50939a837256224030e5284cc6f385b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088046"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754045"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新
 
@@ -179,7 +179,7 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 - 在系統管理員和使用者入口網站中，按一下入口網站設定，然後選取 [刪除所有設定和私人儀表板]，並未如預期運作。 錯誤通知隨即顯示。 
 
 <!-- 2930799 - IS ASDK --> 
-- 在系統管理員和使用者入口網站中，[所有服務] 底下的 [DDoS 保護計劃] 資產未正確列出。 它無法在 Azure Stack 中使用。 如果您嘗試建立它，則會顯示錯誤，表示入口網站無法建立 Marketplace 項目。 
+- 在系統管理員和使用者入口網站中，[所有服務] 底下的 [DDoS 保護計劃] 資產誤列出。 它無法在 Azure Stack 中使用。 如果您嘗試建立它，則會顯示錯誤，表示入口網站無法建立 Marketplace 項目。 
 
 <!-- 2930820 - IS ASDK --> 
 - 在系統管理員和使用者入口網站中，如果您搜尋 "Docker"，項目未正確傳回。 它無法在 Azure Stack 中使用。 如果您嘗試建立它，則會顯示具有錯誤指示的刀鋒視窗。 
@@ -287,14 +287,17 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
    - 針對在 1808 更新之前建立的配額，雖然配置了 2048 GiB，但是在系統管理員入口網站中，受控磁碟配額會顯示 0 值。 您可以根據實際需求增加或減少該值，新設定的配額值會覆寫預設值 2048 GiB。
    - 如果您將配額值更新為 0，它等於預設值 2048 GiB。 因應措施是將配額值設為 1。
 
-<!-- TBD - IS ASDK --> 套用 1809 更新之後，您在部署具有受控磁碟的 VM 時可能會遇到下列問題：
+<!-- TBD - IS ASDK --> 
+- 套用 1809 更新之後，在部署具有「受控磁碟」的 VM 時，您可能會遇到下列問題：
 
    - 如果訂用帳戶是在 1808 更新之前建立的，部署具有受控磁碟的 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請針對每個訂用帳戶遵循下列步驟：
       1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 按一下 [資源提供者]，按一下 [Microsoft.Compute]，然後按一下 [重新註冊]。
       2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [Azure Stack - 受控磁碟] 已列出。
    2. 如果您已設定多租用戶環境，則在與來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請依照[這篇文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步驟重新設定您的每個來賓目錄。
 
-### <a name="networking"></a>網路  
+- 所建立的 Ubuntu 18.04 VM 如果已啟用 SSH 授權，將不會允許您使用 SSH 金鑰來登入。 因應措施是，請在佈建後使用「適用於 Linux 的 VM 存取」延伸模組來實作 SSH 金鑰，或使用密碼型驗證。
+
+### <a name="networking"></a>網路功能  
 
 <!-- 1766332 - IS ASDK --> 
 - 如果您在 [網路] 下按一下 [建立 VPN 閘道] 來設定 VPN 連線，系統就會將 [原則式] 列為 VPN 類型。 請勿選取此選項。 Azure Stack 只支援 [路由式] 選項。

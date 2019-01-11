@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: f8c296fddaafb8364cc5e0f07b54d850606322d9
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 3da6260faa87aecb7eb13f16386006e0c856d46b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581420"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653844"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>從 Spark Shell 執行 Apache Spark
 
@@ -63,7 +63,7 @@ Spark Shell 命令 (`spark-shell`、`pyspark`或 `sparkR`) 支援許多命令列
 | 參數 | 說明 | 範例 |
 | --- | --- | --- |
 | --master MASTER_URL | 指定主要 URL。 在 HDInsight 中，此值一律為 `yarn`。 | `--master yarn`|
-| --jars JAR_LIST | 本機 Jar 的逗號分隔清單，用來包含在驅動程式和執行程式 Classpath 中。 在 HDInsight 中，此清單是由 Azure 儲存體或 Data Lake Store 中的預設檔案系統路徑組成。 | `--jars /path/to/examples.jar` |
+| --jars JAR_LIST | 本機 Jar 的逗號分隔清單，用來包含在驅動程式和執行程式 Classpath 中。 在 HDInsight 中，此清單是由 Azure 儲存體或 Data Lake Storage 中的預設檔案系統路徑組成。 | `--jars /path/to/examples.jar` |
 | --packages MAVEN_COORDS | Jar 的 Maven 座標逗號分隔清單，用來包含在驅動程式和執行程式 Classpath 中。 依序搜尋本機 Maven 存放庫、Maven 中心和所有以 `--repositories` 指定的遠端存放庫。 座標格式為 *groupId*:*artifactId*:*version*。 | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --py-files LIST | (僅適用於 Python) 要放在 PYTHONPATH 中的 .zip、.egg 或 .py 檔案的逗號分隔清單。 | `--pyfiles "samples.py"` |
 
@@ -72,4 +72,3 @@ Spark Shell 命令 (`spark-shell`、`pyspark`或 `sparkR`) 支援許多命令列
 - 如需概觀，請參閱 [Azure HDInsight 上的 Apache Spark 簡介](apache-spark-overview.md)。
 - 請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)，搭配使用 Spark 叢集和 SparkSQL。
 - 請參閱[什麼是 Apache Spark 結構化串流](apache-spark-streaming-overview.md)，以使用 Spark 撰寫可處理串流資料的應用程式。
-
