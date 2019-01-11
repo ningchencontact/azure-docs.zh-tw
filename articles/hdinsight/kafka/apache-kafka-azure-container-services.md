@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 569030cc6d72d206411a73703ec0d359e033bef7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b8995436677c195317b9ac304fe8c52cc2fcfc80
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311665"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602064"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>使用 Azure Kubernetes Service 搭配 HDInsight 上的 Apache Kafka
 
@@ -22,7 +22,7 @@ ms.locfileid: "52311665"
 
 [Apache Kafka](https://kafka.apache.org) 是開放原始碼分散式串流平台，可用來建置即時串流資料管線和應用程式。 Azure Kubernetes Service 會管理您裝載的 Kubernetes 環境，並讓您快速且輕鬆地部署容器化的應用程式。 使用 Azure 虛擬網路，您可以連接這兩項服務。
 
-> [!NOTE]
+> [!NOTE]  
 > 本文件的重點在於讓 Azure Kubernetes Service 能與 HDInsight 上的 Kafka 通訊所需的步驟。 範例本身只是基本 Kafka 用戶端，用以證明此組態能運作。
 
 ## <a name="prerequisites"></a>必要條件
@@ -49,7 +49,7 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 
 ![一個虛擬網路中的 HDInsight、另一個虛擬網路中的 AKS，以及使用對等互連連線的網路](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 系統不會啟用對等互連網路之間的名稱解析，所以會使用 IP 定址。 根據預設，Kafka on HDInsight 已設定為在用戶端連線時傳回主機名稱，而不是 IP 位址。 本文件中的步驟將 Kafka 修改為使用 IP 通告。
 
 ## <a name="create-an-azure-kubernetes-service-aks"></a>建立 Azure Kubernetes Service (AKS)
@@ -59,7 +59,7 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 * [部署 Azure Kubernetes Service (AKS) 叢集 - 入口網站](../../aks/kubernetes-walkthrough-portal.md)
 * [部署 Azure Kubernetes Service (AKS) 叢集 - CLI](../../aks/kubernetes-walkthrough.md)
 
-> [!NOTE]
+> [!NOTE]  
 > AKS 會在安裝期間建立虛擬網路。 此網路會對等互連至在下一節中針對 HDInsight 建立的網路。
 
 ## <a name="configure-virtual-network-peering"></a>設定虛擬網路對等互連
@@ -72,7 +72,7 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 
 4. 若要建立 HDInsight 的虛擬網路，請選取 [+ 建立資源]、[網路]，然後選取 [虛擬網路]。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 在輸入新虛擬網路的值時，您使用的位址空間不得與 AKS 叢集網路所使用的位址空間重疊。
 
     針對您用於 AKS 叢集的虛擬網路使用相同的 [位置]。
@@ -81,23 +81,23 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 
 5. 若要設定 HDInsight 網路與 AKS 叢集網路之間的對等互連，請選取虛擬網路，然後選取 [對等互連]。 選取 [+ 新增] 並使用下列值來填入表單：
 
-    * __名稱__︰輸入此對等互連組態的唯一名稱。
+    * __名稱__：輸入此對等互連設定的唯一名稱。
     * __虛擬網路__：使用此欄位來選取 **AKS 叢集**的虛擬網路。
 
     讓所有其他欄位保留預設值，然後選取 [確定] 來設定對等互連。
 
 6. 若要設定 AKS 叢集網路與 HDInsight 網路之間的對等互連，請選取 [AKS 叢集虛擬網路]，然後選取 [對等互連]。 選取 [+ 新增] 並使用下列值來填入表單：
 
-    * __名稱__︰輸入此對等互連組態的唯一名稱。
+    * __名稱__：輸入此對等互連設定的唯一名稱。
     * __虛擬網路__：使用此欄位來選取 __HDInsight 叢集__的虛擬網路。
 
     讓所有其他欄位保留預設值，然後選取 [確定] 來設定對等互連。
 
 ## <a name="install-apache-kafka-on-hdinsight"></a>在 HDInsight 上安裝 Apache Kafka
 
-在建立 Kafka on HDInsight 叢集時，您必須加入稍早為 HDInsight 建立的虛擬網路。 如需有關建立 Kafka 叢集的詳細資訊，請參閱[建立 Kafka 叢集](apache-kafka-get-started.md)文件。
+在建立 Kafka on HDInsight 叢集時，您必須加入稍早為 HDInsight 建立的虛擬網路。 如需建立 Kafka 叢集的詳細資訊，請參閱[建立 Apache Kafka 叢集](apache-kafka-get-started.md)文件。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 在建立叢集時，您必須使用 [進階設定] 來加入您為 HDInsight 建立的虛擬網路。
 
 ## <a name="configure-apache-kafka-ip-advertising"></a>設定 Apache Kafka IP 通告
@@ -159,7 +159,7 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 3. 編輯 `index.js` 檔案並變更下列幾行：
 
     * `var topic = 'mytopic'`：將 `mytopic` 取代為此應用程式使用的 Kafka 主題名稱。
-    * `var brokerHost = '176.16.0.13:9092`：將 `176.16.0.13` 取代為您叢集的其中一部訊息代理程式主機的內部 IP 位址。
+    * `var brokerHost = '176.16.0.13:9092`：將 `176.16.0.13` 取代為您叢集中一部訊息代理程式主機的內部 IP 位址。
 
         若要尋找叢集中訊息代理程式主機 (背景工作節點) 的內部 IP 位址，請參閱 [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes)文件。 挑選其中一個項目的 IP 位址，其中網域名稱開頭為 `wn`。
 
@@ -169,7 +169,7 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
     docker build -t kafka-aks-test .
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > 此應用程式所需的套件會簽入存放庫中，因此您不需要使用 `npm` 公用程式來安裝它們。
 
 5. 登入您的 Azure Container Registry (ACR) 並尋找 loginServer 名稱：
@@ -179,7 +179,7 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
     az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > 如果您不知道 Azure Container Registry 名稱，或是不熟悉使用 Azure CLI 來處理 Azure Kubernetes Service，請參閱 [AKS 教學課程](../../aks/tutorial-kubernetes-prepare-app.md)。
 
 6. 以 ACR 的 loginServer 標記本機 `kafka-aks-test` 映像。 此外，將 `:v1` 新增至尾端以表示映像版本：
@@ -217,7 +217,7 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 
 12. 在欄位中輸入文字，然後選取 [傳送] 按鈕。 資料便會傳送給 Kafka。 然後應用程式中的 Kafka 取用者會讀取訊息，並將它新增至 [來自 Kafka 的訊息] 區段。
 
-    > [!WARNING]
+    > [!WARNING]  
     > 您可能會收到同一則訊息很多次。 當您在連線之後重新整理瀏覽器，或開啟應用程式的多個瀏覽器連線時，通常會發生此問題。
 
 ## <a name="next-steps"></a>後續步驟

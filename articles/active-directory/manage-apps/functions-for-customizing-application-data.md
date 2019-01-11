@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 867fdd57df163f37d86572798aaae6d78d43f479
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105150"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973718"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>在 Azure Active Directory 中撰寫屬性對應的運算式
 當您設定佈建到 SaaS 應用程式時，您可以指定的其中一種屬性對應類型是運算式對應。 您必須撰寫類似指令碼的運算式，以便讓您將使用者的資料轉換成 SaaS 應用程式更能接受的格式。
@@ -27,13 +27,13 @@ ms.locfileid: "53105150"
 屬性對應的運算式語法是 Visual Basic for Applications (VBA) 函式。
 
 * 整個運算式必須以函式定義，由函式名稱後面接著以括號括住的引數組成： <br>
-  *FunctionName(<<argument 1>>,<<argument N>>)*
-* 您可以在函式內互相巢狀函式。 例如︰ <br> *FunctionOne(FunctionTwo(<<argument1>>))*
+  *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
+* 您可以在函式內互相巢狀函式。 例如︰ <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * 您可以將三種不同類型的引數傳入函式：
   
   1. 屬性，必須以方括弧括住。 例如：[attributeName]
   2. 字串常數，必須以雙引號括住。 例如︰"United States"
-  3. 其他函式。 例如︰FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
+  3. 其他函式。 例如︰FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
 * 對於字串常數，如果您在字串中需要反斜線 ( \ ) 或引號 ( " ) ，則必須使用反斜線 ( \ ) 符號逸出。 例如︰"Company name:\"Contoso\""
 
 ## <a name="list-of-functions"></a>函式的清單

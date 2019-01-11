@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: cshoe
-ms.openlocfilehash: 39036f17b8ceafebbe3660f2074e2a6c84c4df03
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 765eab8dfc1163c4d9e0337a1af840278ae1a82c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248688"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546261"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Azure Functions 外部檔案繫結 (實驗性)
 本文示範如何在 Azure Functions 中操作不同 SaaS 提供者 (例如 Dropbox 或 Google Drive) 的檔案。 Azure Functions 支援適用於外部檔案的觸發程序、輸入和輸出繫結。 這些繫結會建立與 SaaS 提供者的 API 連線，或使用函式應用程式之資源群組的現有 API 連線。
@@ -31,7 +31,7 @@ ms.locfileid: "50248688"
 |:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)|x|x|x
+|[FTP](https://docs.microsoft.com/azure/app-service/deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[商務用 OneDrive](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x

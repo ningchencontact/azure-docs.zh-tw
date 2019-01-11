@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for Eclipse：：建立適用於 HDInsight Spark 的 Scala 應用程式 '
+title: 'Azure Toolkit for Eclipse：建立適用於 HDInsight Spark 的 Scala 應用程式 '
 description: 使用 HDInsight 工具 (位於 Eclipse 的 Azure 工具組中) 來開發以 Scala 撰寫的 Spark 應用程式，並直接從 Eclipse IDE 將它們提交到 HDInsight Spark 叢集。
 services: hdinsight
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: a875e7517870e4a782d3169fd5eb0796c9b0f16a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4370cc5e39b7d1b9a50e8fc8af9f7bfc58f6356a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496598"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602744"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>使用 Azure Toolkit for Eclipse 為 HDInsight 叢集建立 Apache Spark 應用程式
 
 使用 Azure Toolkit for [Eclipse](https://www.eclipse.org/) 中的 HDInsight 工具來開發以 [Scala](https://www.scala-lang.org/) 撰寫的 [Apache Spark](https://spark.apache.org/) 應用程式，並直接從 Eclipse IDE 將它們提交到 Azure HDInsight Spark 叢集。 您能以數種不同的方式使用 HDInsight 工具外掛程式：
 
-* 在 HDInsight Spark 叢集上開發並提交 Scala Spark 應用程式
-* 存取您的 Azure HDInsight Spark 叢集資源
-* 在本機開發並執行 Scala Spark 應用程式
+* 在 HDInsight Spark 叢集上開發並提交 Scala Spark 應用程式。
+* 存取您的 Azure HDInsight Spark 叢集資源。
+* 在本機開發並執行 Scala Spark 應用程式。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 您可以使用此工具，僅針對 Linux 上的 HDInsight Spark 叢集建立並提交應用程式。
 > 
 > 
@@ -78,7 +78,7 @@ ms.locfileid: "52496598"
    
    ![連結叢集對話方塊](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的儲存體金鑰、使用者名稱和密碼。
    > ![Eclipse 中的儲存體總管](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
@@ -207,7 +207,7 @@ ms.locfileid: "52496598"
 ### <a name="prerequisite"></a>必要條件
 在 Windows 電腦上執行本機 Spark Scala 應用程式時，可能會發生如 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) 中所述的例外狀況。 發生這個例外狀況是因為 Windows 中遺失 **WinUtils.exe**。 
 
-若要解決這個錯誤，必須[下載可執行檔](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)到例如 **C:\WinUtils\bin** 的位置，然後新增 **HADOOP_HOME** 環境變數，並將變數的值設為 **C\WinUtils**。
+若要解決這個錯誤，必須[下載可執行檔](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)到例如 **C:\WinUtils\bin** 的位置，然後新增 **HADOOP_HOME** 環境變數，並將變數的值設為 **C\WinUtils**。
 
 ### <a name="run-a-local-spark-scala-application"></a>執行本機 Spark Scala 應用程式
 1. 啟動 Eclipse，然後建立專案。 在 [新增專案] 對話方塊中選取下列選項，然後選取 [下一步]。
@@ -246,8 +246,8 @@ ms.locfileid: "52496598"
 
 ### <a name="scenarios"></a>案例
 * [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 和機器學習服務：在 HDInsight 中利用 HVAC 資料使用 Spark 分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>建立和執行應用程式

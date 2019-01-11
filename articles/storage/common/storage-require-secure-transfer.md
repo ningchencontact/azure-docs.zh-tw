@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 72e0937e91a7287d240bbdb25996865f934d432d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6f17cb4540feea6400c60c8032d071d6a922c871
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876497"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633056"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>在 Azure 儲存體中要求使用安全傳輸
 
@@ -49,24 +49,26 @@ ms.locfileid: "52876497"
 
 若要以程式設計方式要求使用安全傳輸，請使用儲存體帳戶屬性中的設定 _supportsHttpsTrafficOnly_ 搭配 REST API、工具或程式庫：
 
-* [REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) \(英文\) (版本：2016-12-01)
-* [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) \(英文\) (版本：4.1.0)
-* [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) \(英文\) (版本：2.0.11)
-* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) \(英文\) (版本：1.1.0)
-* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) \(英文\) (版本：6.3.0)
-* [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) \(英文\) (版本：1.1.0)
-* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage) \(英文\) (版本：0.11.0)
+* [REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (版本：2016-12-01)
+* [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) (版本：0.7)
+* [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (版本：2.0.11)
+* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (版本：1.1.0)
+* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (版本：6.3.0)
+* [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (版本：1.1.0)
+* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage) (版本：0.11.0)
 
 ### <a name="enable-secure-transfer-required-setting-with-powershell"></a>透過 PowerShell 啟用「需要安全傳輸」設定
 
-此範例需要 Azure PowerShell 模組 4.1 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-執行 `Connect-AzureRmAccount` 來建立與 Azure 的連線。
+此範例需要 Azure PowerShell 模組 Az 0.7 版或更新版本。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
+
+執行 `Connect-AzAccount` 來建立與 Azure 的連線。
 
  使用下列命令列檢查設定：
 
 ```powershell
-> Get-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+> Get-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : False
@@ -77,7 +79,7 @@ EnableHttpsTrafficOnly : False
 使用下列命令列啟用設定：
 
 ```powershell
-> Set-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+> Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : True

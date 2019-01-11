@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 9898a56991a44f3ac87fde4c34676943b1ab8341
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 1d9a7caa7ab70ef1f0da41e1ec3f30780f93536a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581896"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53649716"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>使用 YARN 建立高可用性 Apache Spark 串流作業
 
@@ -122,6 +122,6 @@ RDD 有數個可協助高可用性和容錯的 Spark 串流作業的屬性：
 
 * [Apache Spark 串流概觀](apache-spark-streaming-overview.md)
 * [透過一次性事件處理來建立 Apache Spark 串流作業](apache-spark-streaming-exactly-once.md)
-* [YARN 上長時間執行的 Apache Spark 串流作業](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) (英文) 
-* [結構化串流：容錯語意](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
+* [YARN 上長時間執行的 Apache Spark 串流作業](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) (英文) 
+* [結構化串流：容錯語意](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
 * [離散化串流：可擴充串流處理的容錯模型](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

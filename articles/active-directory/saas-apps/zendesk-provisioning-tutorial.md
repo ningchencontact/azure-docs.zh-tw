@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7df4cb5e988b4037675d5bf1c45ee103d5939568
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322767"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999317"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>教學課程：設定 Zendesk 來自動佈建使用者
 
@@ -168,6 +168,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ## <a name="connector-limitations"></a>連接器限制
 * Zendesk 僅支援具備代理程式角色的使用者群組使用。 如需詳細資訊，請參閱 [Zendesk 文件](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups) \(英文\)。
+* 將自訂角色指派給使用者和/或群組時，Azure AD 自動使用者佈建服務還會指派預設角色**代理程式**。 只有**代理程式**才能指派自訂角色。 如需詳細資訊，請參閱此 [Zendesk API 文件](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests)。  
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -1,7 +1,7 @@
 ---
 title: 偵測臉部 - 電腦視覺
 titleSuffix: Azure Cognitive Services
-description: 使用電腦視覺 API 偵測臉部的相關概念。
+description: 電腦視覺 API 的臉部偵測功能相關概念。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: bf358d1e8f60f989ced8db966bbf0a5179fab25b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 0c6485bff4ad11aab37139cd2aa2d3660bddac0e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342308"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580531"
 ---
-# <a name="detecting-faces"></a>偵測臉部
+# <a name="face-detection-with-computer-vision"></a>使用電腦視覺的物件偵測
 
 電腦視覺會偵測圖片中的人臉，並針對偵測到的臉部產生年齡、性別和矩形。 電腦視覺提供位於[臉部](/azure/cognitive-services/face/)的功能子集，且您可以使用「臉部」服務執行更詳細的分析，例如臉部識別和姿勢偵測。  
 

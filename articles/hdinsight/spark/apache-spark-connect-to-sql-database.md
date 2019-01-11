@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 603aa8d85d42167accd2a5e71c4ab3e5245f5d07
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8e651f516254d408b15ab4aeae718861dfc2b3e6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499267"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608284"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 叢集對 Azure SQL 資料庫讀取及寫入資料
 
@@ -26,9 +26,9 @@ ms.locfileid: "52499267"
 
 * **Azure SQL 資料庫**。 請依照[建立 Azure SQL 資料庫](../../sql-database/sql-database-get-started-portal.md)中的指示操作。 請確實使用範例 **AdventureWorksLT** 結構描述和資料來建立資料庫。 此外，請確實建立允許用戶端 IP 位址對伺服器上的 SQL 資料庫進行存取的伺服器層級防火牆規則。 在相同的文章中可找到新增防火牆規則的指示。 建立 Azure SQL 資料庫之後，請確實將下列值存放在方便取用之處。 您從 Spark 叢集連線至資料庫時需要用到這些值。
 
-    * 裝載 Azure SQL 資料庫的伺服器名稱
-    * Azure SQL Database 名稱
-    * Azure SQL 資料庫管理使用者名稱/密碼
+    * 裝載 Azure SQL 資料庫的伺服器名稱。
+    * Azure SQL 資料庫名稱。
+    * Azure SQL 資料庫管理使用者名稱 / 密碼。
 
 * **SQL Server Management Studio**。 請依照[使用 SSMS 進行連線及查詢資料](../../sql-database/sql-database-connect-query-ssms.md)中的指示操作。
 
@@ -41,12 +41,10 @@ ms.locfileid: "52499267"
 
     ![Spark 上的 Jupyter Notebook](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark 上的 Jupyter Notebook")
    
-   > [!NOTE]
+   > [!NOTE]  
    > 您也可以在瀏覽器中開啟下列 URL，以存取 Spark 叢集上的 Jupyter Notebook。 使用您叢集的名稱取代 **CLUSTERNAME** ：
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
-   > 
 
 1. 在 Jupyter Notebook 中，按一下右上角的 [新增]，然後按一下 [Spark] 以建立 Scala Notebook。 HDInsight Spark 叢集上的 Jupyter Notebook 也會提供適用於 Python2 應用程式的 **PySpark** 核心，以及適用於 Python3 應用程式的 **PySpark3** 核心。 在本文中，我們會建立 Scala Notebook。
    
@@ -54,9 +52,8 @@ ms.locfileid: "52499267"
 
     如需核心的詳細資訊，請參閱[在 HDInsight 中搭配使用 Jupyter Notebook 核心與 Apache Spark 叢集](apache-spark-jupyter-notebook-kernels.md)。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 在本文中我們將使用 Spark (Scala) 核心，因為目前只有 Scala 和 Java 支援將 Spark 中的資料串流至 SQL 資料庫的作業。 即使對 SQL 的讀取和寫入可使用 Python 來執行，但為了本文的一致性，我們對三項作業都會使用 Scala。
-   >
 
 1. 這時會開啟一個採用預設名稱「**未命名**」的新 Notebook。 請按一下 Notebook 名稱，並輸入您選擇的名稱。
 
@@ -235,6 +232,6 @@ ms.locfileid: "52499267"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 HDInsight Spark 叢集分析 Data Lake Store 中的資料](apache-spark-use-with-data-lake-store.md)
+* [使用 HDInsight Spark 叢集分析 Data Lake Storage 中的資料](apache-spark-use-with-data-lake-store.md)
 * [使用 EventHub 處理結構化串流事件](apache-spark-eventhub-structured-streaming.md)
 * [將 Apache Spark 結構化串流用於 HDInsight 上的 Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

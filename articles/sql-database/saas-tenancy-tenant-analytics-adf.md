@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
-ms.reviewer: MightyPen
+ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4b2c9f17bc9c6e9bbc280116d074bd0f1e3d3e38
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056586"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606039"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>使用 Azure SQL Database、SQL 資料倉儲、Data Factory 及 Power BI 探索 SaaS 分析
 
@@ -142,11 +142,11 @@ Azure Data Factory 可用來協調擷取、載入及轉換資料。 在本教學
 在 [概觀] 頁面中，切換至左側面板的 [建立者] 索引標籤，並觀察有三個 [管線](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) 和三個已建立的 [資料集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)。
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
 
-三個巢狀管道為：SQLDBToDW、DBCopy 及 TableCopy。
+三個巢狀管線為：SQLDBToDW、DBCopy 及 TableCopy。
 
 **管道 1 - SQLDBToDW** 查詢儲存在目錄資料庫的租用戶資料庫名稱 (資料表名稱：[__ShardManagement].[ShardsGlobal])，並針對每個租用戶資料庫執行 **DBCopy** 管道。 完成時，會執行提供的 **sp_TransformExtractedData** 預存程序結構描述。 這個預存程序會轉換暫存表格中載入的資料，並填入星型結構描述資料表。
 
-**管道 2 - DBCopy** 從儲存在 blob 儲存體的組態檔查詢來源資料表和資料行的名稱。  接著會針對四個資料表執行 **TableCopy** 管道：TicketFacts、CustomerFacts、EventFacts 及 VenueFacts。 針對所有 20 個資料庫同時執行 **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** 活動。 ADF 允許最多同時執行 20 個迴圈反覆項目。 請考慮為多個資料庫建立多個管道。    
+**管道 2 - DBCopy** 從儲存在 blob 儲存體的組態檔查詢來源資料表和資料行的名稱。  接著會針對四個資料表執行 **TableCopy** 管線：TicketFacts、CustomerFacts、EventFacts 及 VenueFacts。 針對所有 20 個資料庫同時執行 **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** 活動。 ADF 允許最多同時執行 20 個迴圈反覆項目。 請考慮為多個資料庫建立多個管道。    
 
 **管道 3 - TableCopy** 使用 SQL Database 中的資料列版本號碼 (_rowversion_) 來識別已變更或更新的資料列。 此活動查詢開始和結束資料列版本，用以擷取來自來源資料表的資料列。 儲存在每個租用戶資料庫中的 **CopyTracker** 資料表，會追蹤每次執行中從各來源資料表擷取的最後一個資料列。 全新或變更過的資料列會複製到資料倉儲中對應的暫存表格：**raw_Tickets**、**raw_Customers**、**raw_Venues** 及 **raw_Events**。 最後，最後一個資料列版本會儲存在 **CopyTracker** 資料表，做為下次擷取的初始資料列版本。 
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c226eb19dbd2049c486acfb1ffb9423fdb1dad43
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cad368cb968b94d1327cc99ed4dfa6df0aedd2cd
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410256"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555093"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>從同盟移轉至 Azure AD 的密碼雜湊同步處理
 下列文件提供從 AD FS 移至密碼雜湊同步處理的相關指引。

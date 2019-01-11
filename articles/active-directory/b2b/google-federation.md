@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 5bc94b6fe69a9ffec11fcbab952a6f8aa3e2259a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 295b7eeebf8d9815aef0b862ee2b3cccbee15ed6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569000"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546737"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>將 Google 新增為 B2B 來賓使用者的識別提供者
 
 藉由設定 Google 同盟，您可以讓受邀的使用者使用自己的 Google 帳戶登入共用應用程式和資源，而不需要建立 Microsoft 帳戶 (MSA) 或 Azure AD 帳戶。  
 > [!NOTE]
-> Google 來賓使用者必須使用包含租用戶內容的連結 (例如 `https://myapps.microsoft.com/?tenantid=<tenant id>`) 來登入。 應用程式和資源的直接連結只要包含租用戶內容，也可有同樣作用。 來賓使用者目前無法使用沒有租用戶內容的端點來登入。 例如，使用 `https://myapps.microsoft.com`、`https://portal.azure.com` 或小組通用端點將會導致錯誤。
+> Google 來賓使用者必須使用包含租用戶內容的連結 (例如 `https://myapps.microsoft.com/<tenant id>`) 來登入。 應用程式和資源的直接連結只要包含租用戶內容，也可有同樣作用。 來賓使用者目前無法使用沒有租用戶內容的端點來登入。 例如，使用 `https://myapps.microsoft.com`、`https://portal.azure.com` 或小組通用端點將會導致錯誤。
  
 ## <a name="what-is-the-experience-for-the-google-user"></a>Google 使用者有何體驗？
 當您傳送邀請給 Google Gmail 使用者時，來賓使用者應該會使用包含租用戶內容的連結來存取共用應用程式或資源。 其體驗會因為是否已登入 Google 而有所不同：
@@ -32,7 +32,7 @@ ms.locfileid: "51569000"
 
 ![以 Google 登入](media/google-federation/google-sign-in.png)
 
-## <a name="step-1-configure-a-google-developer-project"></a>步驟 1︰設定 Google 開發人員專案
+## <a name="step-1-configure-a-google-developer-project"></a>步驟 1：設定 Google 開發人員專案
 首先，在 Google 開發人員主控台中，建立新專案來取得用戶端識別碼和用戶端密碼，以供稍後新增至 Azure AD。 
 1. 移至 Google API (網址為： https://console.developers.google.com)，並使用 Google 帳戶來登入。 建議您使用共用小組的 Google 帳戶。
 2. 建立新專案：在儀表板上，選取 [建立專案]，然後選取 [建立]。 在 [新增專案] 頁面上，輸入 [專案名稱]，然後選取 [建立]。

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091038"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000541"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 串流分析中的查詢平行化作業
 本文會示範如何利用 Azure 串流分析中的平行化作業。 您可以了解如何透過設定輸入資料分割並調整分析查詢定義來調整串流分析工作。
@@ -41,12 +41,13 @@ ms.locfileid: "53091038"
 -   Azure Functions
 -   Azure 資料表
 -   Blob 儲存體 (可明確地設定資料分割索引鍵)
--   CosmosDB (需要明確地設定資料分割索引鍵)
--   事件中樞 (需要明確地設定資料分割索引鍵)
+-   CosmosDB (必須明確地設定分割區索引鍵)
+-   事件中樞 (必須明確地設定分割區索引鍵)
 -   IoT 中樞 (需要明確地設定資料分割索引鍵)
 -   服務匯流排
+- 具有選擇性資料分割的 SQL 及 SQL 資料倉儲：如需詳細資訊，請瀏覽[輸出至 Azure SQL Database 頁面](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf)。
 
-PowerBI、SQL 和 SQL 資料倉儲輸出不支援資料分割。 不過，您仍然可以分割輸入，如[本節](#multi-step-query-with-different-partition-by-values)中所述 
+Power BI 不支援資料分割。 不過，您仍然可以分割輸入，如[本節](#multi-step-query-with-different-partition-by-values)中所述 
 
 如需分割區的詳細資訊，請參閱下列文章：
 
@@ -115,9 +116,9 @@ PowerBI、SQL 和 SQL 資料倉儲輸出不支援資料分割。 不過，您仍
 
 ### <a name="query-using-non-partitioned-output"></a>使用非資料分割的輸出查詢
 * 輸入：具有 8 個分割區的事件中樞
-* 輸出：PowerBI
+* 輸出：Power BI
 
-PowerBI 輸出目前不支援資料分割。 因此，此情節不是窘迫平行。
+Power BI 輸出目前不支援資料分割。 因此，此情節不是窘迫平行。
 
 ### <a name="multi-step-query-with-different-partition-by-values"></a>具有不同 PARTITION BY 值的多重步驟查詢
 * 輸入：具有 8 個分割區的事件中樞

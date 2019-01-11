@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/18/2018
 ms.author: tulasim88
-ms.openlocfilehash: 97fb59a9a483753c6c2b5a4ae027bb358f7050e1
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 004f09eb77d1bc32e44e1940186e8a631c45846d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166586"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608472"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>搭配使用中繼資料與 GenerateAnswer API
 
-QnA Maker 可讓您將索引鍵/值組形式的中繼資料新增至問答集。 這項資訊可用來篩選使用者查詢的結果，並儲存待處理的交談中可用的其他資訊。 如需詳細資訊，請參閱[知識庫](../Concepts/knowledge-base.md)。
+QnA Maker 可讓您將索引鍵和值組形式的中繼資料新增至問答集。 這項資訊可用來篩選使用者查詢的結果，並儲存待處理的交談中可用的其他資訊。 如需詳細資訊，請參閱[知識庫](../Concepts/knowledge-base.md)。
 
 ## <a name="qna-entity"></a>QnA 實體
 
@@ -113,11 +113,11 @@ QnA Maker 可讓您將索引鍵/值組形式的中繼資料新增至問答集。
 
 ## <a name="metadata-example"></a>中繼資料範例
 
-請考量位於 Hyderabad 的餐廳以下的常見問題集資料。 請按一下齒輪圖示，將中繼資料新增至至您的知識庫。
+請考慮下面的常見問題集資料。 請按一下中繼資料圖示，將中繼資料新增至至您的知識庫。
 
 ![新增中繼資料](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
-### <a name="filter-results-with-strictfilters"></a>使用 strictFilters 篩選結果
+### <a name="filter-results-with-strictfilters-for-metadata-tags"></a>使用中繼資料標記的 strictFilters 篩選結果
 
 請考量使用者針對 "Paradise" 餐廳而提出的問題 「飯店何時會打烊」。
 

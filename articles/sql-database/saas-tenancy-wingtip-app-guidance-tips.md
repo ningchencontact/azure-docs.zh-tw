@@ -1,21 +1,23 @@
 ---
 title: SQL Database 多租用戶應用程式指引 - Wingtip SaaS | Microsoft Docs
 description: 提供使用 Azure SQL Database、Wingtip Tickets SaaS 範例之範例多租用戶應用程式的安裝和執行步驟及指引。
-keywords: SQL Database Azure
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: 6c352298c701c827cd01c0ed7f427b7ed6015e29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 42fd1c19a9cda0aa3d5d62bd265467327250a784
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646672"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606022"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>使用 Wingtip Tickets 範例 SaaS 應用程式的一般指導方針
 
@@ -55,7 +57,7 @@ ms.locfileid: "34646672"
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>按 F5 執行指令碼
 
-數個指令碼會使用 $PSScriptRoot 來瀏覽資料夾，而只有在按 F5 執行指令碼時才會評估 $PSScriptRoot。  醒目提示並執行選取項目 (**F8**) 可能會導致錯誤，因此請在執行指令碼時按 **F5**。
+數個指令碼會使用 $PSScriptRoot 來瀏覽資料夾，而只有在按 F5 執行指令碼時才會評估 $PSScriptRoot。  醒目提示並執行選取項目 (**F8**) 可能會導致錯誤，因此請在執行指令碼時按 **F5**。
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>逐步執行指令碼來檢查實作
 
@@ -92,7 +94,7 @@ ms.locfileid: "34646672"
 
    ![目錄伺服器](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. 示範認證︰ 登入= developer、密碼 = P@ssword1
+3. 示範認證：登入 = *developer*，密碼 = *P@ssword1*
 
     下圖會示範*每一租用戶一個資料庫*模式的登入。 
     ![連接](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

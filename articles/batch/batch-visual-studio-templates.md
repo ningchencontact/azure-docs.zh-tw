@@ -1,9 +1,9 @@
 ---
-title: 使用 Visual Studio 範本建置 Batch 解決方案 - Azure | Microsoft Docs
+title: 使用 Visual Studio 範本建置解決方案 - Azure Batch | Microsoft Docs
 description: 了解 Visual Studio 專案範本如何協助您在 Azure Batch 中實作和執行計算密集型工作負載。
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a44c249a957050afb500decd094183c71d6ca5e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114091"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538118"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>使用 Visual Studio 專案範本快速啟動 Batch 解決方案
 
@@ -111,20 +111,20 @@ Batch 的**作業管理員**和**工作處理器 Visual Studio 範本**提供了
 
 **架構檔案**
 
-* `Configuration.cs`︰封裝作業組態資料的載入，例如 Batch 帳戶詳細資料、連結的儲存體帳戶認證、作業和工作資訊，以及作業參數。 它也會透過 Configuration.EnvironmentVariable 類別提供 Batch 定義的環境變數 (請參閱 Batch 文件中適用於工作的「環境」設定) 的存取權。
-* `IConfiguration.cs`︰摘要組態類別的實作，以便您可以使用假的或模擬的組態物件對作業分割器進行單元測試。
-* `JobManager.cs`︰協調作業管理員程式的元件。 它負責初始化作業分割器、叫用作業分割器，以及將作業分割器傳回的工作分派給工作傳送者。
-* `JobManagerException.cs`︰代表需要由作業管理員終止的錯誤。 JobManagerException 會用來包裝可在終止過程中提供特定診斷資訊的「預期」錯誤。
-* `TaskSubmitter.cs`︰此類別負責將作業分割器傳回的工作新增至 Batch 作業。 JobManager 類別會將一連串工作彙總成一批，以便有效率但及時地新增到作業中，然後在每一批的背景執行緒上呼叫 TaskSubmitter.SubmitTasks。
+* `Configuration.cs`：封裝作業組態資料的載入，例如 Batch 帳戶詳細資料、連結的儲存體帳戶認證、作業和工作資訊，以及作業參數。 它也會透過 Configuration.EnvironmentVariable 類別提供 Batch 定義的環境變數 (請參閱 Batch 文件中適用於工作的「環境」設定) 的存取權。
+* `IConfiguration.cs`：摘要組態類別的實作，以便您可以使用假的或模擬的組態物件對作業分割器進行單元測試。
+* `JobManager.cs`：協調作業管理員程式的元件。 它負責初始化作業分割器、叫用作業分割器，以及將作業分割器傳回的工作分派給工作傳送者。
+* `JobManagerException.cs`：代表需要由作業管理員終止的錯誤。 JobManagerException 會用來包裝可在終止過程中提供特定診斷資訊的「預期」錯誤。
+* `TaskSubmitter.cs`：此類別負責將作業分割器傳回的工作新增至 Batch 作業。 JobManager 類別會將一連串工作彙總成一批，以便有效率但及時地新增到作業中，然後在每一批的背景執行緒上呼叫 TaskSubmitter.SubmitTasks。
 
 **作業分割器**
 
-`JobSplitter.cs`︰此類別包含用於將作業分割成多個工作的應用程式特定邏輯。 架構會叫用 JobSplitter.Split 方法以取得一連串的工作，並在方法傳回工作時將方法新增至作業中。 這是您將在其中插入作業邏輯的類別。 實作分割方法，傳回一連串代表要將作業分割成之工作的 CloudTask 執行個體。
+`JobSplitter.cs`：此類別包含用於將作業分割成多個工作的應用程式特定邏輯。 架構會叫用 JobSplitter.Split 方法以取得一連串的工作，並在方法傳回工作時將方法新增至作業中。 這是您將在其中插入作業邏輯的類別。 實作分割方法，傳回一連串代表要將作業分割成之工作的 CloudTask 執行個體。
 
 **標準 .NET 命令列專案檔**
 
-* `App.config`︰標準的 .NET 應用程式組態檔。
-* `Packages.config`︰標準的 NuGet 套件相依性檔案。
+* `App.config`：標準的 .NET 應用程式組態檔。
+* `Packages.config`：標準的 NuGet 套件相依性檔案。
 * `Program.cs`：包含程式進入點和最上層的例外狀況處理。
 
 ### <a name="implementing-the-job-splitter"></a>實作作業分割器
@@ -280,13 +280,13 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 **架構檔案**
 
-* `Configuration.cs`︰封裝作業組態資料的載入，例如 Batch 帳戶詳細資料、連結的儲存體帳戶認證、作業和工作資訊，以及作業參數。 它也會透過 Configuration.EnvironmentVariable 類別提供 Batch 定義的環境變數 (請參閱 Batch 文件中適用於工作的「環境」設定) 的存取權。
-* `IConfiguration.cs`︰摘要組態類別的實作，以便您可以使用假的或模擬的組態物件對作業分割器進行單元測試。
-* `TaskProcessorException.cs`︰代表需要由作業管理員終止的錯誤。 TaskProcessorException 會用來包裝可在終止過程中提供特定診斷資訊的「預期」錯誤。
+* `Configuration.cs`：封裝作業組態資料的載入，例如 Batch 帳戶詳細資料、連結的儲存體帳戶認證、作業和工作資訊，以及作業參數。 它也會透過 Configuration.EnvironmentVariable 類別提供 Batch 定義的環境變數 (請參閱 Batch 文件中適用於工作的「環境」設定) 的存取權。
+* `IConfiguration.cs`：摘要組態類別的實作，以便您可以使用假的或模擬的組態物件對作業分割器進行單元測試。
+* `TaskProcessorException.cs`：代表需要由作業管理員終止的錯誤。 TaskProcessorException 會用來包裝可在終止過程中提供特定診斷資訊的「預期」錯誤。
 
 **工作處理器**
 
-* `TaskProcessor.cs`︰執行工作。 架構會叫用 TaskProcessor.Run 方法。 這是您將在其中插入工作的應用程式特定邏輯的類別。 實作 Run 方法以便︰
+* `TaskProcessor.cs`：執行工作。 架構會叫用 TaskProcessor.Run 方法。 這是您將在其中插入工作的應用程式特定邏輯的類別。 實作 Run 方法以便︰
   * 剖析及驗證任何工作參數
   * 針對要叫用的任何外部程式撰寫命令列
   * 記錄為了偵錯所可能需要的任何診斷資訊
@@ -297,8 +297,8 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 **標準 .NET 命令列專案檔**
 
-* `App.config`︰標準的 .NET 應用程式組態檔。
-* `Packages.config`︰標準的 NuGet 套件相依性檔案。
+* `App.config`：標準的 .NET 應用程式組態檔。
+* `Packages.config`：標準的 NuGet 套件相依性檔案。
 * `Program.cs`：包含程式進入點和最上層的例外狀況處理。
 
 ## <a name="implementing-the-task-processor"></a>實作工作處理器

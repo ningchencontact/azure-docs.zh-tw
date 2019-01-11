@@ -1,19 +1,18 @@
 ---
 title: 使用 Azure 儲存體總管管理 Azure Cosmos DB 資源
 description: 了解如何使用 Azure 儲存體總管連接到 Azure Cosmos DB 並管理其資源。
-author: Jejiang
-tags: Azure Cosmos DB
+author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: jejiang
+ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: fb758c12d699bb80f81b65db99e1fec68c4efabf
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d19aaa6e486732cb1453e3299c8e598e8fd2f507
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809755"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044615"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>使用 Azure 儲存體總管管理 Azure Cosmos DB 資源
 

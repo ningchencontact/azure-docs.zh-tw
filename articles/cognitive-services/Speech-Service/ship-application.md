@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 4999639356fd440b6358983f1e4859fb3c505fc7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8c230143a4b3ab15e5a43d8b565d1973bc47ec29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106493"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599006"
 ---
 # <a name="ship-an-application"></a>交付應用程式
 
@@ -55,7 +55,7 @@ ms.locfileid: "53106493"
 * cURL 程式庫 (`libcurl.so.4`)
 * ALSA 應用程式的共用程式庫 (`libasound.so.2`)
 
-例如在 Ubuntu 16.04 上，預設應該已安裝 GNU C 程式庫。 使用下列命令可以安裝最後三項：
+例如在 Ubuntu 16.04 或 18.04 上，預設應該已安裝 GNU C 程式庫。 使用下列命令可以安裝最後三項：
 
 ```sh
 sudo apt-get update

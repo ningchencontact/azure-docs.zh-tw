@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 8e152bc96293d5e6e801fd23657d0de303093eb6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c792881b02eba7207b20c4b4807d8afbc1adb87f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166603"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543983"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>網路效能監控解決方案常見問題集
 
@@ -29,7 +29,7 @@ ms.locfileid: "53166603"
 
 網路效能監視器會偵測網路問題，例如流量黑洞、路由錯誤，以及傳統網路監視方法無法偵測的問題。 此解決方案會在違反網路連結的臨界值時產生警示並通知您。 它可確實而及時地偵測網路效能問題，並將問題的來源限縮於特定網路區段或裝置。 
 
-您可以在線上深入了解[網路效能監視器](https://docs.microsoft.com/azure/networking/network-monitoring-overview)所支援的各種功能。
+您可以在線上深入了解 [網路效能監視器](https://docs.microsoft.com/azure/networking/network-monitoring-overview) 所支援的各種功能。
 
 ## <a name="set-up-and-configure-agents"></a>安裝及設定代理程式
 
@@ -70,6 +70,9 @@ ms.locfileid: "53166603"
 
 ### <a name="how-many-agents-should-i-use"></a>應該使用多少代理程式？
 要監視的每個子網路應使用至少一個代理程式。
+
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>我可以使用或看到錯誤「.... 您已達到設定限制」的代理程式數目上限為何？
+NPM 將 IP 數目限制為每個工作區 5000 個 IP。 如果節點同時有 IPv4 和 IPv6 位址，這會當作該節點有 2 個 IP 來計算。 因此，5000 IP 的這項限制會決定代理程式數目上限。 您可以從 NPM 中的 [節點] 索引標籤 >> [設定] 刪除非使用中的代理程式。 NPM 也會針對所有曾指派給 VM 以裝載代理程式的 IP 維護其歷程記錄，這些 IP 也會當作構成 5000 IP 上限的個別 IP 來計算。 若要釋放 IP 以供您的工作區使用，您可以使用 [節點] 頁面刪除不在使用中的 IP。
 
 ## <a name="monitoring"></a>監視
 

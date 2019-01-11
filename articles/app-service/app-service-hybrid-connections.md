@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/26/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 084d5e9453ea5a55bdeeff839e4c70890575c83d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258010"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653385"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service 混合式連線 #
 
@@ -30,13 +30,13 @@ ms.locfileid: "53258010"
 
 
 ## <a name="how-it-works"></a>運作方式 ##
-「混合式連線」功能是由對「Azure 服務匯流排轉送」發出的兩個連出呼叫所組成。 在 App Service 中執行您應用程式的主機上，會從程式庫連線過來。 也會從 Microsoft Azure 混合式連線管理員連線到服務匯流排轉送。 HCM 是您在網路內部署的轉送服務，該網路裝載您要嘗試存取的資源。 
+「混合式連線」功能是由對「Azure 服務匯流排轉送」發出的兩個輸出呼叫所組成。 在 App Service 中執行您應用程式的主機上，會從程式庫連線過來。 也會從 Microsoft Azure 混合式連線管理員連線到服務匯流排轉送。 HCM 是您在網路內部署的轉送服務，該網路裝載您要嘗試存取的資源。 
 
 透過這個兩個聯結的連線，應用程式便會有一個可通往 HCM 另一端固定之「主機:連接埠」組合的 TCP 通道。 連線會使用 TLS 1.2 以求安全性，並使用共用存取簽章 (SAS) 金鑰來進行驗證和授權。    
 
 ![混合式連線概要流程圖表][1]
 
-當應用程式提出的 DNS 要求與所設定的「混合式連線」端點相符時，系統就會透過「混合式連線」將連出 TCP 流量重新導向。  
+當應用程式提出的 DNS 要求與所設定的「混合式連線」端點相符時，系統就會透過「混合式連線」將輸出 TCP 流量重新導向。  
 
 > [!NOTE]
 > 這表示您應該嘗試一律對混合式連線使用 DNS 名稱。 如果端點改為使用 IP 位址，某些用戶端軟體不會執行 DNS 查閱。
@@ -51,7 +51,7 @@ ms.locfileid: "53258010"
 - 此功能不需要可存取網際網路的端點。
 - 安裝速度快且過程簡單。 
 - 每個「混合式連線」都會與單一的「主機:連接埠」組合對應，有助於提高安全性。
-- 通常不需要在防火牆開洞。 連線全都是透過標準的 Web 連接埠連出。
+- 通常不需要在防火牆開洞。 連線全都是透過標準的 Web 連接埠輸出。
 - 由於這是網路層級的功能，因此不會因為應用程式所使用的語言及端點所使用的技術而受到影響。
 - 它可用來讓您從單一應用程式存取多個網路。 
 
@@ -177,7 +177,7 @@ App Service 方案 UI 會顯示您正在使用的混合式連線數目，以及�
 
 ## <a name="adding-a-hybrid-connection-to-your-app-programmatically"></a>以程式設計方式將混合式連線新增至應用程式 ##
 
-下方所示的 API 可直接用來管理連線到您 Web 應用程式的混合式連線。 
+下方所示的 API 可直接用來管理連線到您應用程式的混合式連線。 
 
     /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
 
@@ -198,7 +198,7 @@ App Service 方案 UI 會顯示您正在使用的混合式連線數目，以及�
       }
     }
 
-使用這項資訊的其中一個方法是使用 armclient (可從 [ARMClient][armclient] GitHub 專案中取得)。 以下是將現有混合式連線連結至 Web 應用程式的範例。 根據上述結構描述建立 JSON 檔案，如下所示：
+使用這項資訊的其中一個方法是使用 armclient (可從 [ARMClient][armclient] GitHub 專案中取得)。 以下是將現有混合式連線連結至應用程式的範例。 根據上述結構描述建立 JSON 檔案，如下所示：
 
     {
       "name": "relay-demo-hc",
@@ -230,7 +230,7 @@ App Service 中的 tcpping 工具，可從 [進階工具 (Kudu)] 主控台中叫
 
 ## <a name="biztalk-hybrid-connections"></a>BizTalk 混合式連線 ##
 
-此功能的舊有形式稱為「BizTalk 混合式連線」。 此功能的已於 2018 年 5 月 31 日結束服務，並且已停止運作。 BizTalk 混合式連線已從所有 Web 應用程式中移除，而且無法透過入口網站或 API 存取。 如果您的混合式連線管理員中仍有這些較舊的連線設定，則您會看到「已中止」狀態，而且底部會顯示服務結束的聲明。
+此功能的舊有形式稱為「BizTalk 混合式連線」。 此功能的已於 2018 年 5 月 31 日結束服務，並且已停止運作。 BizTalk 混合式連線已從所有應用程式中移除，而且無法透過入口網站或 API 存取。 如果您的混合式連線管理員中仍有這些較舊的連線設定，則您會看到「已中止」狀態，而且底部會顯示服務結束的聲明。
 
 ![HCM 中的 BizTalk 混合式連線][12]
 

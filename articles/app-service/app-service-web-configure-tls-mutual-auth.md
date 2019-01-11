@@ -1,6 +1,6 @@
 ---
 title: 設定 TLS 相互驗證 - Azure App Service
-description: 了解如何設定 Web 應用程式在 TLS 上使用用戶端憑證驗證。
+description: 了解如何設定應用程式在 TLS 上使用用戶端憑證驗證。
 services: app-service
 documentationcenter: ''
 author: naziml
@@ -15,40 +15,38 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: f08e8f60f0e23cce9546e45dcf7b249d38224736
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d441329bc3f279e95b2ee302db53d78f786c3470
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252876"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650392"
 ---
-# <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>如何設定 Web 應用程式的 TLS 相互驗證
+# <a name="how-to-configure-tls-mutual-authentication-for-azure-app-service"></a>如何為 Azure App Service 設定 TLS 相互驗證
 ## <a name="overview"></a>概觀
-為 Azure Web 應用程式啟用不同類型的驗證，即可限制其存取。 這樣做的其中一種方法是要求透過 TLS/SSL 時使用用戶端憑證進行驗證。 這項機制稱為 TLS 相互驗證或用戶端憑證驗證，本文將詳細說明如何設定 Web 應用程式使用用戶端憑證驗證。
+為 Azure App Service 應用程式啟用不同類型的驗證，即可限制其存取。 這樣做的其中一種方法是要求透過 TLS/SSL 時使用用戶端憑證進行驗證。 這項機制稱為 TLS 相互驗證或用戶端憑證驗證，本文將詳細說明如何設定應用程式使用用戶端憑證驗證。
 
 > **附註：** 如果您透過 HTTP 存取您的網站，而非 HTTPS，將不會收到任何用戶端憑證。 因此如果您的應用程式需要用戶端憑證，請勿允許透過 HTTP 傳入您應用程式的要求。
 > 
 > 
 
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-## <a name="configure-web-app-for-client-certificate-authentication"></a>設定 Web 應用程式進行用戶端憑證驗證
-若要設定 Web 應用程式要求用戶端憑證，則您需要為 Web 應用程式新增 clientCertEnabled 網站設定，並將它設定為 true。 此設定也可以設定於 Azure 入口網站的 [SSL 憑證] 刀鋒視窗中。
+## <a name="configure-app-service-for-client-certificate-authentication"></a>設定 App Service 進行用戶端憑證驗證
+若要設定應用程式要求用戶端憑證，則您需要為應用程式新增 clientCertEnabled 網站設定，並將它設定為 true。 此設定也可以設定於 Azure 入口網站的 [SSL 憑證] 刀鋒視窗中。
 
 您可以使用 [ARMClient 工具](https://github.com/projectkudu/ARMClient) ，輕鬆地製作 REST API 呼叫。 使用此工具登入之後，需要發出下列命令：
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
 
-將 {} 中的所有內容取代為您 Web 應用程式的資訊，並使用下列 JSON 內容建立稱為 enableclientcert.json 的檔案：
+將 {} 中的所有內容取代為您 應用程式的資訊，並使用下列 JSON 內容建立稱為 enableclientcert.json 的檔案：
 
     {
-        "location": "My Web App Location",
+        "location": "My App Location",
         "properties": {
             "clientCertEnabled": true
         }
     }
 
-請務必將 "location" 的值變更為您 Web 應用程式所在的位置 (例如美國中北部或美國西部等)。
+請務必將 "location" 的值變更為您 應用程式所在的位置 (例如美國中北部或美國西部等)。
 
 您也可以使用 https://resources.azure.com，將 `clientCertEnabled` 屬性翻轉為 `true`。
 
@@ -56,11 +54,11 @@ ms.locfileid: "53252876"
 > 
 > 
 
-## <a name="accessing-the-client-certificate-from-your-web-app"></a>從 Web 應用程式存取用戶端憑證
+## <a name="accessing-the-client-certificate-from-app-service"></a>從 App Service 存取用戶端憑證
 如果您使用 ASP.NET，並將您的應用程式設定為使用用戶端憑證，便可透過 **HttpRequest.ClientCertificate** 屬性取得憑證。 若為其他應用程式堆疊，您則可透過「X-ARR-ClientCert」要求標頭中的 base64 編碼值取得用戶端憑證。 您的應用程式可以從這個值建立憑證，然後將它用於您應用程式中的驗證和授權用途。
 
 ## <a name="special-considerations-for-certificate-validation"></a>憑證驗證的特殊考量
-Azure Web 應用程式平台不會對傳送給應用程式的用戶端憑證進行任何驗證。 驗證此憑證是 Web 應用程式的責任。 以下是基於驗證而驗證憑證內容的範例 ASP.NET 程式碼。
+Azure App Service 平台不會對傳送給應用程式的用戶端憑證進行任何驗證。 驗證此憑證是應用程式的責任。 以下是基於驗證而驗證憑證內容的範例 ASP.NET 程式碼。
 
     using System;
     using System.Collections.Specialized;

@@ -1,5 +1,5 @@
 ---
-title: 教學課程：組建影像處理應用程式 - C#
+title: 教學課程：建置影像處理應用程式 - C#
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: 探索使用「Microsoft 認知服務」中「電腦視覺 API」的基本 Windows 應用程式。 在影像中執行 OCR、建立縮圖，以及處理視覺特徵。
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342648"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584440"
 ---
-# <a name="tutorial-build-an-image-processing-app---c35"></a>教學課程：組建影像處理應用程式 - C&#35;
+# <a name="tutorial-build-an-image-processing-app---c35"></a>教學課程：建置影像處理應用程式 - C&#35;
 
 探索使用「電腦視覺」在影像中執行光學字元辨識 (OCR)、建立智慧型裁剪縮圖以及偵測、分類、標記和描述視覺特徵 (包括臉部) 的基本 Windows 應用程式。 以下範例可讓您提交影像 URL 或儲存在本機的檔案。 您可以將這個開放原始碼範例當作一個範本，來利用「電腦視覺 API」和 Windows Presentation Foundation (WPF，.NET Framework 的組件) 組建自己的 Windows 應用程式。
 
@@ -72,7 +73,7 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
 
 ## <a name="run-and-interact-with-the-sample-app"></a>執行範例應用程式並與之互動
 
-您可以執行範例應用程式來了解執行各種工作時 (例如產生縮圖或標記影像)，此應用程式是如何與您和電腦視覺用戶端程式庫互動。 若要執行範例應用程式並與之互動，請執行下列步驟：
+您可以執行範例應用程式來了解執行各種工作時 (例如產生縮圖或標記影像)，此應用程式如何與您和電腦視覺用戶端程式庫互動。 若要執行範例應用程式並與之互動，請執行下列步驟：
 
 1. 建置完成後，按下 **F5** 或選擇功能區功能表中的 [偵錯]，然後選擇 [開始偵錯] 來執行範例應用程式。
 1. 顯示範例應用程式時，請選擇瀏覽窗格中的 [訂用帳戶金鑰管理]，以顯示訂用帳戶金鑰管理頁面。
@@ -101,7 +102,7 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
    > Microsoft 會收到您上傳的影像，而且可能使用它們來改善「電腦視覺 API」及相關服務。 藉由提交影像，即表示您確認自己已遵守我們的[開發人員管理辦法](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)。
 
    下列螢幕擷取畫面顯示的是在分析範例影像之後，針對分析影像案例提供的頁面。
-   ![分析影像案例頁面](../Images/Analyze_Image_Example.PNG)
+   ![分析影像頁面的螢幕擷取畫面](../Images/Analyze_Image_Example.PNG)
 
 ## <a name="explore-the-sample-app"></a>探索範例應用程式
 
@@ -199,7 +200,7 @@ using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 ## <a name="explore-the-analyze-image-scenario"></a>探索分析影像案例
 
-此案例是由 AnalyzePage.xaml 頁面管理。 您可以選擇分析視覺功能和語言，並查看影像及結果。 案例頁面的做法是根據影像來源使用下列其中一種方法進行：
+此案例由 AnalyzePage.xaml 頁面管理。 您可以選擇分析視覺功能和語言，並查看影像及結果。 案例頁面的做法是根據影像來源使用下列其中一種方法進行：
 
 * UploadAndAnalyzeImageAsync  
   此方法適用於本機影像，其中影像必須編碼成 `Stream`，並藉由呼叫 `ComputerVisionClient.AnalyzeImageInStreamAsync` 方法傳送到電腦視覺。
@@ -212,7 +213,7 @@ using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 ## <a name="explore-the-analyze-image-with-domain-model-scenario"></a>探索使用領域模型案例的分析影像
 
-此案例是由 AnalyzeInDomainPage.xaml 頁面管理。 您可以選擇 `celebrities` 或 `landmarks` 等領域模型和語言來執行特定領域的影像分析，並查看影像和結果。 案例頁面會根據影像來源使用下列方法：
+此案例由 AnalyzeInDomainPage.xaml 頁面管理。 您可以選擇 `celebrities` 或 `landmarks` 等領域模型和語言來執行特定領域的影像分析，並查看影像和結果。 案例頁面會根據影像來源使用下列方法：
 
 * GetAvailableDomainModelsAsync  
   這個方法會從電腦視覺取得可用的領域模型清單，並使用 `ComputerVisionClient.ListModelsAsync` 方法在頁面上填入 `_domainModelComboBox` ComboBox 控制項。
@@ -227,7 +228,7 @@ using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 ## <a name="explore-the-describe-image-scenario"></a>探索描述影像案例
 
-此案例是由 DescribePage.xaml 頁面管理。 您可以選擇一種語言來建立一般人可理解的影像描述，並查看影像和結果。 案例頁面會根據影像來源使用下列方法：
+此案例由 DescribePage.xaml 頁面管理。 您可以選擇一種語言來建立一般人可理解的影像描述，並查看影像和結果。 案例頁面會根據影像來源使用下列方法：
 
 * UploadAndDescribeImageAsync  
   此方法適用於本機影像，其中影像必須編碼成 `Stream`，並藉由呼叫 `ComputerVisionClient.DescribeImageInStreamAsync` 方法傳送到電腦視覺。
@@ -240,7 +241,7 @@ using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 ## <a name="explore-the-generate-tags-scenario"></a>探索產生標籤案例
 
-此案例是由 TagsPage.xaml 頁面管理。 您可以選擇要標記影像視覺功能的語言，並查看影像及結果。 案例頁面會根據影像來源使用下列方法：
+此案例由 TagsPage.xaml 頁面管理。 您可以選擇要標記影像視覺功能的語言，並查看影像及結果。 案例頁面會根據影像來源使用下列方法：
 
 * UploadAndGetTagsForImageAsync  
   此方法適用於本機影像，其中影像必須編碼成 `Stream`，並藉由呼叫 `ComputerVisionClient.TagImageInStreamAsync` 方法傳送到電腦視覺。
@@ -253,7 +254,7 @@ using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 ## <a name="explore-the-recognize-text-ocr-scenario"></a>探索辨識文字 (OCR) 案例
 
-此案例是由 OCRPage.xaml 頁面管理。 您可以選擇一種語言來辨識和擷取影像中的列印文字，並查看影像及結果。 案例頁面會根據影像來源使用下列方法：
+此案例由 OCRPage.xaml 頁面管理。 您可以選擇一種語言來辨識和擷取影像中的列印文字，並查看影像及結果。 案例頁面會根據影像來源使用下列方法：
 
 * UploadAndRecognizeImageAsync  
   此方法適用於本機影像，其中影像必須編碼成 `Stream`，並藉由呼叫 `ComputerVisionClient.RecognizePrintedTextInStreamAsync` 方法傳送到電腦視覺。
@@ -266,7 +267,7 @@ using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 ## <a name="explore-the-recognize-text-v2-english-scenario"></a>探索辨識文字 V2 (英文) 案例
 
-此案例是由 TextRecognitionPage.xaml 頁面管理。 您可以選擇辨識模式和語言，以非同步方式辨識和擷取影像的列印或手寫文字，並查看影像和結果。 案例頁面會根據影像來源使用下列方法：
+此案例由 TextRecognitionPage.xaml 頁面管理。 您可以選擇辨識模式和語言，以非同步方式辨識和擷取影像的列印或手寫文字，並查看影像和結果。 案例頁面會根據影像來源使用下列方法：
 
 * UploadAndRecognizeImageAsync  
   此方法適用於本機影像，其中影像必須編碼成 `Stream`，並藉由呼叫 `RecognizeAsync` 方法及傳遞 `ComputerVisionClient.RecognizeTextInStreamAsync` 方法的參數化委派，傳送到電腦視覺。
@@ -294,7 +295,7 @@ using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 ## <a name="explore-the-get-thumbnail-scenario"></a>探索取得縮圖案例
 
-此案例是由 ThumbnailPage.xaml 頁面管理。 您可以表示是否要使用智慧裁剪，並指定所需的高度和寬度來產生影像縮圖，並查看影像和結果。 案例頁面會根據影像來源使用下列方法：
+此案例由 ThumbnailPage.xaml 頁面管理。 您可以表示是否要使用智慧裁剪，並指定所需的高度和寬度來產生影像縮圖，並查看影像和結果。 案例頁面會根據影像來源使用下列方法：
 
 * UploadAndThumbnailImageAsync  
   此方法適用於本機影像，其中影像必須編碼成 `Stream`，並藉由呼叫 `ComputerVisionClient.GenerateThumbnailInStreamAsync` 方法傳送到電腦視覺。

@@ -4,19 +4,19 @@ description: 深入了解可用來移轉資料庫以及支援移轉程序不同�
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 12/13/2018
-ms.openlocfilehash: 2eb263c6776453c4cae217168af969221485bfa3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9887860470632c37a586cb3029e2ef7d455a3a9c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386786"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713277"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>資料移轉案例可用的服務和工具
 
@@ -125,4 +125,4 @@ ms.locfileid: "53386786"
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 Azure 資料庫移轉服務的概觀，請參閱[什麼是 Azure 資料庫移轉服務預覽](dms-overview.md)一文。
+如需 Azure 資料庫移轉服務的概觀，請參閱[什麼是 Azure 資料庫移轉服務](dms-overview.md)一文。

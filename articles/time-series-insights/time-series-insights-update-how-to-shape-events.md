@@ -1,5 +1,5 @@
 ---
-title: Azure 時間序列深入解析預覽版塑形事件 - 使用 Azure 時間序列深入解析預覽版將事件塑形 | Microsoft Docs
+title: 使用 Azure 時間序列深入解析為事件塑形 | Microsoft Docs
 description: 了解如何使用 Azure 時間序列深入解析預覽版為事件塑形。
 author: ashannon7
 ms.author: anshan
@@ -10,18 +10,18 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: b0ce3b5bbd58c594147f64de9f06f248f4a87fc3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: eb398ad621167ad9f9b245fb8aa98c6942b87668
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269068"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557422"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>使用 Azure 時間序列深入解析為事件塑形
 
 此文章可協助您為 JSON 檔案塑形以最佳化 Azure 時間序列深入解析預覽版查詢的效率。
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 
 請務必考慮如何將事件傳送至時間序列深入解析預覽版。 也就是說，您應該一律：
 

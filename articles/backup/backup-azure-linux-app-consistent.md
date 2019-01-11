@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
 ms.author: anuragm
-ms.openlocfilehash: 027fc4098e7760de276a8548453bb83599ed0521
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a81c0b9c87db85771fcecab87c6b9ac88dcbd472
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605207"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581839"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM 的應用程式一致備份
 
@@ -39,7 +39,7 @@ ms.locfileid: "34605207"
    - **VMSnapshotScriptPluginConfig.json**：權限 “600”。 例如，只有「根」使用者能夠擁有此檔案的「讀取」與「寫入」權限，且沒有任何使用者應擁有「執行」權限。
 
    - **前置指令碼檔案**：權限 “700”。  例如，只有「根」使用者擁有此檔案的「讀取」、「寫入」及「執行」權限。
-  
+
    - **後置指令碼**：權限 “700”。 例如，只有「根」使用者擁有此檔案的「讀取」、「寫入」及「執行」權限。
 
    > [!Important]
@@ -50,19 +50,19 @@ ms.locfileid: "34605207"
 5. 如以下所述設定 VMSnapshotScriptPluginConfig.json：
     - **pluginName**：將此欄位保留原狀，否則您的指令碼可能無法如預期般運作。
 
-    - **preScriptLocation** ：在要備份的 VM 上提供前置指令碼完整路徑。
+    - **preScriptLocation**：在要備份的 VM 上提供前置指令碼的完整路徑。
 
-    - **postScriptLocation**：在要備份的 VM 上提供後置指令碼完整路徑。
+    - **postScriptLocation**：在要備份的 VM 上提供後置指令碼的完整路徑。
 
     - **preScriptParams**：提供必須傳遞給前置指令碼的選擇性參數。 所有參數都應該以引號括住。 如果您使用多個參數，請以逗號分隔參數。
 
-    - **postScriptParams**：提供必須傳遞給前置指令碼的選擇性參數。 所有參數都應該以引號括住。 如果您使用多個參數，請以逗號分隔參數。
+    - **postScriptParams**：提供必須傳遞給後置指令碼的選擇性參數。 所有參數都應該以引號括住。 如果您使用多個參數，請以逗號分隔參數。
 
     - **preScriptNoOfRetries**：設定在終止前如果發生任何錯誤，應重試前置指令碼的次數。 零表示只嘗試一次，若系統故障則不重試。
 
     - **postScriptNoOfRetries**：設定在終止前如果發生任何錯誤，應重試後置指令碼的次數。 零表示只嘗試一次，若系統故障則不重試。
-    
-    - **timeoutInSeconds**：指定前置指令碼與後置指令碼的個別逾時值。
+
+    - **timeoutInSeconds**：指定前置指令碼與後置指令碼的個別逾時值 (最大值可以是 1800)。
 
     - **continueBackupOnFailure**：如果您在前置或後置指令碼失敗時想要 Azure 備份回復使用檔案系統一致/損毀一致備份，請將這個值設定為 true。 若將此設定為 false，則當指令碼失敗會使備份失敗 (但當您有無論此設定為何都會回復為損毁一致備份的單磁碟 VM 時除外)。
 

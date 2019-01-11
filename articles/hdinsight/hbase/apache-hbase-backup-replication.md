@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 568d63f984980e91b4dc059211dcf0eaceb73820
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d7be248e49baf4e7fd10d6b37df1473e92ccfce7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164223"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651719"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>設定 HDInsight 上的 Apache HBase 和 Apache Phoenix 備份和複寫
 
@@ -26,7 +26,7 @@ Apache HBase 支援數種防範資料遺失的方法：
 * 快照集
 * 複寫
 
-> [!NOTE]
+> [!NOTE]  
 > Apache Phoenix 會將其中繼資料儲存在 HBase 資料表中，因此該中繼資料會在您備份 HBase 系統目錄資料表時備份。
 
 下列各節說明這些方法的使用案例。
@@ -35,7 +35,7 @@ Apache HBase 支援數種防範資料遺失的方法：
 
 使用這個方法時，您會複製所有 HBase 資料，無法選擇小部分的資料表或資料行系列。 後續方法可提供更好的控制。
 
-HDInsight 中的 HBase 會使用建立叢集時選取的預設儲存體，即 Azure 儲存體 blob 或 Azure Data Lake Store。 不管是哪一種，HBase 都會將其資料和中繼資料檔案儲存在下列路徑中：
+HDInsight 中的 HBase 會使用建立叢集時選取的預設儲存體，即 Azure 儲存體 Blob 或 Azure Data Lake Storage。 不管是哪一種，HBase 都會將其資料和中繼資料檔案儲存在下列路徑中：
 
     /hbase
 
@@ -45,7 +45,7 @@ HDInsight 中的 HBase 會使用建立叢集時選取的預設儲存體，即 Az
     wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
     ```
 
-* 在 Azure Data Lake Store 中，`hbase` 資料夾位於佈建叢集時所指定的根路徑之下。 此根路徑通常會有 `clusters` 資料夾，其中包含一個以您的 HDInsight 叢集命名的子資料夾：
+* 在 Azure Data Lake Storage 中，`hbase` 資料夾位於佈建叢集時所指定的根路徑之下。 此根路徑通常會有 `clusters` 資料夾，其中包含一個以您的 HDInsight 叢集命名的子資料夾：
 
     ```
     /clusters/<clusterName>/hbase
@@ -57,7 +57,7 @@ HDInsight 中的 HBase 會使用建立叢集時選取的預設儲存體，即 Az
 
 * 建立指向目前儲存位置的新 HDInsight 執行個體。 以所有現有的資料建立新的執行個體。
 
-* 將 `hbase` 資料夾複製到其他 Azure 儲存體 blob 容器或 Data Lake Store 位置，然後建立包含該資料的新叢集。 對 Azure 儲存體使用 [AzCopy](../../storage/common/storage-use-azcopy.md)，而對 Data Lake Store 使用 [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)。
+* 將 `hbase` 資料夾複製到其他 Azure 儲存體 Blob 容器或 Data Lake Storage 位置，然後啟動包含該資料的新叢集。 針對 Azure 儲存體使用 [AzCopy](../../storage/common/storage-use-azcopy.md)，並針對 Data Lake Storage 使用 [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)。
 
 ## <a name="export-then-import"></a>匯出然後匯入
 
@@ -75,7 +75,7 @@ HDInsight 中的 HBase 會使用建立叢集時選取的預設儲存體，即 Az
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
 
-在 Azure Data Lake Store 中，語法是：
+在 Azure Data Lake Storage 中，語法是：
 
     adl://<accountName>.azuredatalakestore.net:443/<path>
 
@@ -117,7 +117,7 @@ CopyTable 公用程式也支援以參數指定要複製的資料列時間範圍�
 
 CopyTable 會掃描即將複製到目的地資料表的整個來源資料表內容。 CopyTable 執行時，這可能會降低 HBase 叢集的效能。
 
-> [!NOTE]
+> [!NOTE]  
 > 若要將資料表間的資料複製自動化，請參閱 GitHub 上 [Azure HBase Utils](https://github.com/Azure/hbase-utils/tree/master/replication) 存放庫中的 `hdi_copy_table.sh` 指令碼。
 
 ### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>手動收集 Apache ZooKeeper 仲裁清單

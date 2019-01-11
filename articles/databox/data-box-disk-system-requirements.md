@@ -2,24 +2,18 @@
 title: Microsoft Azure 資料箱磁碟的系統需求 | Microsoft Docs
 description: 了解 Azure 資料箱磁碟的軟體和網路需求
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/06/2018
+ms.date: 12/27/2018
 ms.author: alkohli
-ms.openlocfilehash: aaa4e4bb24ca42adb9d283e6286dbef879bcb1ea
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5debc14a6a20c42b62b9a7b2c524e36e94302221
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299843"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792861"
 ---
 # <a name="azure-data-box-disk-system-requirements-preview"></a>Azure 資料箱磁碟的系統需求 (預覽)
 
@@ -38,7 +32,7 @@ ms.locfileid: "44299843"
 | **作業系統** | **測試的版本** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows |7, 8, 10 |
+|  Windows |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04、16.04、18.04 <br> 8.11、9 <br> 7.0 <br> 6.5、6.9、7.0、7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Windows 用戶端的其他必要軟體
@@ -67,6 +61,9 @@ ms.locfileid: "44299843"
 | --- | --- |
 | 傳統 | 標準 |
 | 一般用途  |標準；同時支援 V1 和 V2。 同時支援經常性儲存層和非經常性儲存層。 |
+
+>[!NOTE]
+> 不支援 Azure Data Lake Storage Gen 2 帳戶。
 
 
 ## <a name="supported-storage-types"></a>支援的儲存體類型

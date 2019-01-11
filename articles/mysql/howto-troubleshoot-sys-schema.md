@@ -1,20 +1,17 @@
 ---
 title: 如何使用 sys_schema 在適用於 MySQL 的 Azure 資料庫中進行效能微調和資料庫維護
 description: 本文說明如何使用 sys_schema 在適用於 MySQL 的 Azure 資料庫中找出效能問題及維護資料庫。
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/01/2018
-ms.openlocfilehash: 1e10e3b1b5f4518732408f254eb5767acb8485c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 993c77056c09c1dc21d5317ddbfe8e937341718d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446902"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542844"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>如何使用 sys_schema 在適用於 MySQL 的 Azure 資料庫中進行效能微調和資料庫維護
 
@@ -26,10 +23,10 @@ sys_schema 中有 52 個檢視，每個檢視分別具有下列其中一個前�
 
 - Host_summary 或 IO：I/O 相關的延遲。
 - InnoDB：InnoDB 緩衝區狀態和鎖定。
-- Memory：依主機和使用者分類的記憶體使用量。
-- Schema：結構描述相關的資訊，例如自動增量、索引等等。
+- 記憶體：依主機和使用者分類的記憶體使用量。
+- 結構描述：結構描述相關的資訊，例如自動增量、索引等等。
 - Statement：SQL 陳述式相關的資訊；這可以是導致完整資料表掃描或長時間查詢的陳述式。
-- User：使用者所耗用並依使用者分類的資源。 範例包括檔案 I/O、連線和記憶體。
+- 使用者：使用者所耗用並依使用者分類的資源。 範例包括檔案 I/O、連線和記憶體。
 - Wait：依主機或使用者分類的等候事件。
 
 現在，讓我們看看 sys_schema 的一些常見使用模式。 首先，我們會將使用模式分成兩個類別：**效能微調**和**資料庫維護**。

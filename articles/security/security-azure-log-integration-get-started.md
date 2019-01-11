@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036797"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602183"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>使用 Azure 診斷記錄和 Windows 事件轉送進行 Azure 記錄整合
 
@@ -151,9 +151,9 @@ Azure 記錄整合服務會從其安裝所在的電腦收集遙測資料。
 在此步驟中，您會設定執行 Azure 記錄整合服務的電腦，使其連線至包含記錄的儲存體帳戶。
 
 若要完成此步驟，您需要幾個東西：  
-* **FriendlyNameForSource：** 您可以使用這個好記的名稱，為您已設定虛擬機器用來儲存 Azure 診斷資訊的儲存體帳戶命名。
-* **StorageAccountName：** 您設定 Azure 診斷時，指定之儲存體帳戶的名稱。  
-* **StorageKey：** 為此虛擬機器儲存 Azure 診斷資訊之儲存體帳戶的儲存體金鑰。  
+* **FriendlyNameForSource**：您可以使用這個易記名稱，為您已設定虛擬機器用來儲存 Azure 診斷資訊的儲存體帳戶命名。
+* **StorageAccountName**：您設定 Azure 診斷時所指定儲存體帳戶的名稱。  
+* **StorageKey**：為此虛擬機器儲存 Azure 診斷資訊之儲存體帳戶的儲存體金鑰。  
 
 若要取得儲存體金鑰，請完成下列步驟︰
 1. 移至 [Azure 入口網站](http://portal.azure.com)。
@@ -198,7 +198,7 @@ Azure 記錄整合服務會從其安裝所在的電腦收集遙測資料。
 ## <a name="if-data-isnt-showing-up-in-the-forwarded-events-folder"></a>如果「轉送的事件」資料夾中沒有顯示資料
 如果一個小時之後資料未顯示在「轉送的事件」資料夾中，請完成以下步驟︰
 
-1. 檢查執行 Azure 記錄整合服務的機器。 確認它可以存取 Azure。 若要測試連線，請嘗試從瀏覽器前往 [Azure 入口網站](http://portal.azure.com)。
+1. 檢查執行 Azure 記錄整合服務的機器。 確認它可以存取 Azure。 若要測試連線，請嘗試從瀏覽器前往 [Azure 入口網站](https://portal.azure.com)。
 2. 確定使用者帳戶 Azlog 具有 users\Azlog 資料夾的寫入權限。
   1. 開啟檔案總管。
   2. 移至 C:\users。

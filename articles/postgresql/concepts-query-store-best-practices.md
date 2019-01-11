@@ -1,22 +1,21 @@
 ---
 title: 適用於 PostgreSQL 的 Azure 資料庫中的查詢存放區最佳做法
 description: 此文章描述在適用於 PostgreSQL 的 Azure 資料庫中使用查詢存放區的最佳做法。
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 54a86a7ea1852efba0776451291820f4174a1f1f
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 0c962dc6d8aff63a3b7dd34133a40c7ff9feec4c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377567"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540736"
 ---
 # <a name="best-practices-for-query-store"></a>查詢存放區的最佳做法
 
-**適用於：** 適用於 PostgreSQL 的 Azure 資料庫 9.6 和 10
+**適用範圍：** 適用於 PostgreSQL 9.6 和 10 的 Azure 資料庫
 
 > [!IMPORTANT]
 > 查詢存放區功能處於公開預覽狀態。

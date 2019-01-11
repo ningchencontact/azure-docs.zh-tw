@@ -1,5 +1,5 @@
 ---
-title: Azure IoT 解決方案加速器的常見問題集 | Microsoft Docs
+title: IoT 解決方案加速器的常見問題集 - Azure | Microsoft Docs
 description: IoT 解決方案加速器的常見問題集
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 294eae1dd5e591d12fdb82f62ea013ba54489686
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253327"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608744"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 解決方案加速器的常見問題集
 
@@ -40,7 +40,28 @@ ms.locfileid: "51253327"
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>以微服務作為基礎的開放原始碼新基礎架構能在更新中提供哪些優點？
 
-在過去兩年中，雲端架構已大幅發展。 微服務問世以來都是絕佳的模式，可達成縮放及彈性，而不必犧牲開發速度。 此架構模式運用於多項在內部使用的 Microsoft 服務，都獲得絕佳的可靠性與延展性結果。 我們會將這些學習放入實務，以便客戶能夠從中獲益。
+在過去兩年中，雲端架構已大幅發展。 微服務問世以來都是絕佳的模式，可達成縮放及彈性，而不必犧牲開發速度。 此架構模式運用於多項在內部使用的 Microsoft 服務，都獲得絕佳的可靠性與延展性結果。 Microsoft 會在解決方案加速器中將這些知識付諸實現，，讓客戶可以從中獲益。
+
+### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-azure-ad-tenant-how-do-i-complete-this-task"></a>我是服務管理員，我想要變更我的訂用帳戶與特定 Azure AD 租用戶之間的目錄對應。 如何完成這項工作？
+
+請參閱[將現有的訂用帳戶新增至您的 Azure AD 目錄](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
+
+### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>我想要在使用組織帳戶登入時變更服務管理員或共同管理員
+
+請參閱支援文章[在使用組織帳戶登入時變更服務管理員和共同管理員](https://azure.microsoft.com/support/changing-service-admin-and-co-admin)。
+
+### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>為什麼出現以下錯誤？ 「您的帳戶沒有適當的權限可建立方案。 請洽詢您的帳戶管理員或嘗試使用不同的帳戶。」
+
+看看下圖中的指導方針︰
+
+![權限流程圖](media/iot-accelerators-faq/flowchart.png)
+
+> [!NOTE]
+> 在驗證您為 Azure AD 租用戶的全域管理員和訂用帳戶的共同管理員後，如果還是持續看到錯誤，請帳戶管理員依以下順序移除使用者並重新指派必要的權限。 首先，將使用者新增為全域管理員，然後將使用者新增為 Azure 訂用帳戶的共同管理員。 如果問題持續發生，請連絡[說明與支援](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+
+### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>當我有 Azure 訂用帳戶時為何會出現此錯誤？ 「需要有 Azure 訂用帳戶，才能建立預先設定的方案。 只需要幾分鐘的時間，您就可以建立免費試用帳戶。」
+
+如果您確定有 Azure 訂用帳戶，請驗證您的訂用帳戶的租用戶對應，並確認已在下拉式清單中選取正確的租用戶。 如果您已驗證租用戶是否正確，請遵循先前圖表並驗證您的訂用帳戶與此 Azure AD 租用戶的對應。
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>哪裡可以找到舊版遠端監視解決方案的相關資訊？
 
@@ -52,7 +73,7 @@ ms.locfileid: "51253327"
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>在 Azure 入口網站中刪除資源群組，以及在 azureiotsuite.com 中對解決方案加速器按一下 [刪除]，兩者間有何差異？
 
-* 如果您在 [azureiotsuite.com](https://www.azureiotsolutions.com/) 中刪除解決方案加速器，就會刪除您在建立該解決方案加速器時所佈建的所有資源。 將額外資源新增到資源群組時，也會一併刪除這些資源。
+* 如果您在 [azureiotsuite.com](https://www.azureiotsolutions.com/) 中刪除解決方案加速器，就會刪除您在建立該解決方案加速器時部署的所有資源。 將額外資源新增到資源群組時，也會一併刪除這些資源。
 * 如果您在 [Azure 入口網站](https://portal.azure.com)中刪除資源群組，則只會刪除該資源群組中的資源。 您還必須刪除與解決方案加速器相關聯的 Azure Active Directory 應用程式。
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>可以繼續利用我在 Azure IoT 解決方案加速器中的現有投資嗎？
@@ -78,7 +99,7 @@ ms.locfileid: "51253327"
 
 您目前無法使用 [Microsoft Azure for DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) 帳戶來建立解決方案加速器。 不過，您只需花幾分鐘即可建立 [Azure 免費試用帳戶](https://azure.microsoft.com/free/)，此帳戶可讓您建立解決方案加速器。
 
-### <a name="how-do-i-delete-an-aad-tenant"></a>如何刪除 AAD 租用戶？
+### <a name="how-do-i-delete-an-azure-ad-tenant"></a>如何刪除 Azure AD 租用戶？
 
 請參閱 Eric Golpe 的部落格文章：[刪除 Azure AD 租用戶的逐步解說](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx)。
 

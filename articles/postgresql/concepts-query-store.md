@@ -1,22 +1,21 @@
 ---
 title: 適用於 PostgreSQL 的 Azure 資料庫查詢存放區
 description: 此文章描述在適用於 PostgreSQL 的 Azure 資料庫中使用查詢存放區功能。
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 5b760c9148e26421c0df1ffe936365aae4971543
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 86b6c4284cccb183ac9f19911abd4b6cb1d308e5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379156"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546907"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>使用查詢存放區監視效能
 
-**適用於：** 適用於 PostgreSQL 的 Azure 資料庫 9.6 和 10
+**適用範圍：** 適用於 PostgreSQL 9.6 和 10 的 Azure 資料庫
 
 > [!IMPORTANT]
 > 查詢存放區功能處於公開預覽狀態。
@@ -114,30 +113,30 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 |runtime_stats_entry_id |bigint | | 來自 runtime_stats_entries 資料表的識別碼|
 |user_id    |oid    |pg_authid.oid  |執行陳述式的使用者物件識別 (OID)|
 |db_id  |oid    |pg_database.oid    |在其中執行陳述式的資料庫物件識別 (OID)|
-|query_id   |bigint  || 從陳述式的剖析樹狀結構計算的內部雜湊碼|
-|query_sql_text |Varchar(10000)  || 代表性陳述式的文字。 結構相同的不同查詢會群集在一起；此文字就式叢集中第一個查詢的文字。|
+|query_id   |bigint  || 從陳述式的剖析樹狀結構計算的內部雜湊碼|
+|query_sql_text |Varchar(10000)  || 代表性陳述式的文字。 結構相同的不同查詢會群集在一起；此文字就式叢集中第一個查詢的文字。|
 |plan_id    |bigint |   |對應到此查詢的方案識別碼，尚無法使用|
 |start_time |timestamp  ||  依時間貯體彙總的查詢 - 根據預設，貯體的時間範圍為 15 分鐘。 這是和此查詢的時間貯體對應的開始時間。|
 |end_time   |timestamp  ||  和此查詢的時間貯體對應的結束時間。|
-|calls  |bigint  || 查詢執行的次數|
-|total_time |雙精度   ||  查詢總執行時間 (以毫秒為單位)|
+|calls  |bigint  || 查詢執行的次數|
+|total_time |雙精度   ||  查詢總執行時間 (以毫秒為單位)|
 |min_time   |雙精度   ||  查詢最短執行時間 (以毫秒為單位)|
 |max_time   |雙精度   ||  查詢最長執行時間 (以毫秒為單位)|
 |mean_time  |雙精度   ||  查詢平均執行時間 (以毫秒為單位)|
 |stddev_time|   雙精度    ||  查詢執行時間標準差 (以毫秒為單位) |
-|rows   |bigint ||  由陳述式擷取或受其影響的資料列總數|
-|shared_blks_hit|   bigint  ||  依據陳述式的共用區塊快取點擊總次數|
+|rows   |bigint ||  由陳述式擷取或受其影響的資料列總數|
+|shared_blks_hit|   bigint  ||  依據陳述式的共用區塊快取點擊總次數|
 |shared_blks_read|  bigint  ||  由陳述式讀取的共用區塊總數|
-|shared_blks_dirtied|   bigint   || 由陳述式變動的共用區塊總數 |
-|shared_blks_written|   bigint  ||  由陳述式寫入的共用區塊總數|
+|shared_blks_dirtied|   bigint   || 由陳述式變動的共用區塊總數 |
+|shared_blks_written|   bigint  ||  由陳述式寫入的共用區塊總數|
 |local_blks_hit|    bigint ||   依據陳述式的本機區塊快取點擊總次數|
-|local_blks_read|   bigint   || 由陳述式讀取的本機區塊總數|
-|local_blks_dirtied|    bigint  ||  由陳述式變動的本機區塊總數|
-|local_blks_written|    bigint  ||  由陳述式寫入的本機區塊總數|
-|temp_blks_read |bigint  || 由陳述式讀取的暫存區塊總數|
-|temp_blks_written| bigint   || 由陳述式寫入的暫存區塊總數|
-|blk_read_time  |雙精度    || 陳述式讀取區塊花費的總時間 (以毫秒為單位) (若已啟用 track_io_timing 的話，否則為零)|
-|blk_write_time |雙精度    || 陳述式寫入區塊花費的總時間 (以毫秒為單位) (若已啟用 track_io_timing，否則為零)|
+|local_blks_read|   bigint   || 由陳述式讀取的本機區塊總數|
+|local_blks_dirtied|    bigint  ||  由陳述式變動的本機區塊總數|
+|local_blks_written|    bigint  ||  由陳述式寫入的本機區塊總數|
+|temp_blks_read |bigint  || 由陳述式讀取的暫存區塊總數|
+|temp_blks_written| bigint   || 由陳述式寫入的暫存區塊總數|
+|blk_read_time  |雙精度    || 陳述式讀取區塊花費的總時間 (以毫秒為單位) (若已啟用 track_io_timing 的話，否則為零)|
+|blk_write_time |雙精度    || 陳述式寫入區塊花費的總時間 (以毫秒為單位) (若已啟用 track_io_timing，否則為零)|
     
 ### <a name="querystorequerytextsview"></a>query_store.query_texts_view
 此檢視會傳回查詢存放區中的查詢文字資料。 不同的 query_text 都會自成一資料列。
@@ -145,7 +144,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 |**名稱**|  **類型**|   **說明**|
 |---|---|---|
 |query_text_id  |bigint     |query_texts 資料表識別碼|
-|query_sql_text |Varchar(10000)     |代表性陳述式的文字。 結構相同的不同查詢會群集在一起；此文字就式叢集中第一個查詢的文字。|
+|query_sql_text |Varchar(10000)     |代表性陳述式的文字。 結構相同的不同查詢會群集在一起；此文字就式叢集中第一個查詢的文字。|
 
 ### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
 此檢視會傳回查詢存放區中的等候事件資料。 不同的資料庫識別碼、使用者識別碼、查詢識別碼及事件都會自成一資料列。
@@ -154,8 +153,8 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |執行陳述式的使用者物件識別 (OID)|
 |db_id  |oid    |pg_database.oid    |在其中執行陳述式的資料庫物件識別 (OID)|
-|query_id   |bigint     ||從陳述式的剖析樹狀結構計算的內部雜湊碼|
-|event_type |text       ||後端等候中事件的類型|
+|query_id   |bigint     ||從陳述式的剖析樹狀結構計算的內部雜湊碼|
+|event_type |text       ||後端等候中事件的類型|
 |事件  |text       ||如果後端目前正在等候，為該等候事件的名稱|
 |calls  |整數         ||擷取到相同事件的次數|
 
@@ -163,11 +162,11 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="functions"></a>Functions
 Query_store.qs_reset() 傳回 void
 
-`qs_reset` 捨棄查詢存放區至今收集到的所有統計資料。 只有伺服器管理員角色可以執行此函式。
+`qs_reset` 捨棄查詢存放區至今收集到的所有統計資料。 只有伺服器管理員角色可以執行此函式。
 
 Query_store.staging_data_reset() 傳回 void
 
-`staging_data_reset` 捨棄查詢存放區在記憶體中收集的統計資料 (亦即，記憶體中的資料尚未排清至資料庫)。 只有伺服器管理員角色可以執行此函式。
+`staging_data_reset` 捨棄查詢存放區在記憶體中收集的統計資料 (亦即，記憶體中的資料尚未排清至資料庫)。 只有伺服器管理員角色可以執行此函式。
 
 ## <a name="limitations-and-known-issues"></a>限制與已知問題
 - 如果 PostgreSQL 伺服器開啟 default_transaction_read_only 參數，查詢存放區會無法擷取資料。

@@ -1,21 +1,21 @@
 ---
-title: Azure Batch 轉譯概觀
+title: 轉譯概觀 - Azure Batch
 description: 使用 Azure 進行轉譯的簡介及 Azure Batch 轉譯功能的概觀
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: fc26e1d32332bb0ed9624b7442e38ea79b7bfb1d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: bc8c96345aeb1886696326edd230666ac8b6c41d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393548"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542189"
 ---
 # <a name="rendering-using-azure"></a>使用 Azure 進行轉譯
 
-轉譯是取用 3D 模型並將其轉換成 2D 影像的程序。 3D 場景檔案可在 Autodesk 3ds Max、Autodesk Maya 和 Blender 等應用程式中撰寫。  Autodesk Maya、Autodesk Arnold、Chaos Group V-Ray 和 Blender Cycles 等轉譯應用程式可產生 2D 影像。  有時候，會從場景檔案建立單一映像。 不過，一般通常會建立多個影像的模型並進行轉譯，然後將其結合在動畫中。
+轉譯是取用 3D 模型並將其轉換成 2D 影像的程序。 3D 場景檔案可在 Autodesk 3ds Max、Autodesk Maya 和 Blender 等應用程式中撰寫。  Autodesk Maya、Autodesk Arnold、Chaos Group V-Ray 和 Blender Cycles 等轉譯應用程式可產生 2D 影像。  有時候，會從場景檔案建立單一映像。 不過，一般通常會建立多個影像的模型並加以轉譯，然後將其結合在動畫中。
 
 媒體和娛樂業的特效 (VFX) 會大量使用轉譯工作負載。 其他如廣告、零售、石油和天然氣及製造等許多產業，也會使用轉譯。
 
@@ -31,7 +31,7 @@ ms.locfileid: "47393548"
 * 轉譯專案可能需要大幅的調整：
   * 即使使用高階硬體，個別畫面格仍可能十分複雜而需要數小時進行轉譯，而動畫可能包含數十萬個畫面格。  若要在合理的時間內呈現高品質的動畫，必須經過大量計算。  在某些情況下，用來以平行方式轉譯數千個畫面格的核心，會超過 100,000 個。
 * 轉譯專案以專案為基礎，且需要不同的計算量：
-  * 在必要時配置計算和儲存體容量、根據專案期間的負載將其相應增加或相應減少，並在專案完成後將它移除。
+  * 在必要時配置計算和儲存體容量、根據專案期間的負載將其相應增加或相應減少，並在專案完成後加以移除。
   * 在容量配置時支付其費用，但在沒有負載時無須付費，例如在專案間的空窗期。
   * 因應非預期的變更所產生的高載；如果在專案晚期才出現非預期的變更，且這些變更需要以緊迫的時程處理，請進行擴充調整。
 * 根據應用程式、工作負載和時間範圍選擇各式各樣的硬體：
@@ -39,7 +39,7 @@ ms.locfileid: "47393548"
   * 視專案的不同，最佳價格/效能或最佳整體效能會有不同的需求。  不同場景和/或轉譯應用程式會有不同的記憶體需求。  某些轉譯應用程式可利用 GPU 來達到最佳效能或執行特定功能。 
 * 低優先順序 VM 可降低成本：
   * 優先順序 VM 可用遠低於一般隨選 VM 的價格取得，適用於某些作業類型。
-  * 低優先順序 VM 可由 Azure Batch 配置，因為 Batch 讓 VM 可透過彈性使用因應各種不同的需求。  Batch 集區可同時包含專用和低優先順序 VM，並且可隨時變更 VM 類型的混用方式。
+  * 低優先順序 VM 可由 Azure Batch 配置，因為 Batch 讓 VM 可藉由彈性使用因應各種不同的需求。  Batch 集區可同時包含專用和低優先順序 VM，並且可隨時變更 VM 類型的混用方式。
 
 ## <a name="options-for-rendering-on-azure"></a>Azure 上的轉譯選項
 

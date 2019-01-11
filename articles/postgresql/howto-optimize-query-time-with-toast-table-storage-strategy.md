@@ -3,16 +3,15 @@ title: 使用快顯通知資料表儲存策略在適用於 PostgreSQL 的 Azure 
 description: 本文說明如何使用快顯通知資料表儲存策略，在「適用於 PostgreSQL 的 Azure 資料庫」伺服器中最佳化查詢時間。
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: dee8aaaef4b1998a7234a88d07ad5efbc79d050b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1fb818a65e26f969f72131b0f5265f3efdd36bb6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628440"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542193"
 ---
 # <a name="optimizing-query-time-with-toast-table-storage-strategy"></a>使用快顯通知資料表儲存策略最佳化查詢時間 
 本文說明如何使用快顯通知資料表儲存策略最佳化查詢時間。
@@ -32,4 +31,4 @@ ms.locfileid: "51628440"
 ## <a name="next-steps"></a>後續步驟
 檢閱您的工作負載是否有前述特性。 
 
-檢閱下列 PostgreSQL 文件：[第 68 章：資料庫實體儲存體](https://www.postgresql.org/docs/current/storage-toast.html) 
+檢閱下列 PostgreSQL 文件：[Chapter 68, Database physical storage](https://www.postgresql.org/docs/current/storage-toast.html) 

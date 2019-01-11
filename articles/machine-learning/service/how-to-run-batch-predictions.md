@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7b0e3bc14c97c874b9d5936c025f4534665a461e
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: adac498b2f1e3331497c08f41558575c06b5823c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752617"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102932"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務對大型資料集執行批次預測
 
@@ -185,7 +185,7 @@ model = Model.register(
 ## <a name="write-your-scoring-script"></a>撰寫您的計分指令碼
 
 >[!Warning]
->下列程式碼只是[範例 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb) \(英文\) 所使用之 [batch_score.p](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) 中內含的範例。 您將需針對您的案例建立自己的計分指令碼。
+>下列程式碼只是[範例 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb) \(英文\) 所使用之 [batch_score.p](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/batch_scoring.py) 中內含的範例。 您將需針對您的案例建立自己的計分指令碼。
 
 `batch_score.py` 指令碼會接受  *dataset_path* 中的輸入影像、 *model_dir* 中預先定型的模型，並將 *results-label.txt* 輸出至 *output_dir*。
 

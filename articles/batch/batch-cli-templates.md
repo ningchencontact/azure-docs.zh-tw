@@ -1,22 +1,23 @@
 ---
-title: 使用範本執行端對端 Azure Batch 作業 | Microsoft Docs
+title: 使用範本執行端對端作業 - Azure Batch | Microsoft Docs
 description: 使用範本檔案和 Azure CLI 來建立 Batch 集區、作業和工作。
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 08/02/2018
-ms.author: danlep
-ms.openlocfilehash: 753a36eb6fb7a0c007c62bbab7fe7390e706b1f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5e592845f96cb0734daf3c9e07d60005de260386
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964287"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547672"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>使用 Azure Batch CLI 範本和檔案傳輸
 
@@ -37,7 +38,7 @@ Batch 範本會建置在 [Azure CLI 中的現有 Batch 支援](batch-cli-get-sta
 
 作業通常會使用輸入資料檔案，並且產生輸出資料檔案。 根據預設，儲存體帳戶與每個 Batch 帳戶相關聯。 使用 CLI 從這個儲存體帳戶來回傳輸檔案，不需要編碼以及儲存體認證。
 
-例如，[ffmpeg](http://ffmpeg.org/) 是常用的應用程式，可處理音訊和視訊檔案。 以下是使用 Azure Batch CLI 來叫用 ffmpeg，將來源視訊檔案轉碼為不同解析度的步驟。
+例如，[ffmpeg](https://ffmpeg.org/) 是常用的應用程式，可處理音訊和視訊檔案。 以下是使用 Azure Batch CLI 來叫用 ffmpeg，將來源視訊檔案轉碼為不同解析度的步驟。
 
 -   建立集區範本。 建立範本的使用者知道如何呼叫 ffmpeg 應用程式及其需求；他們會指定適當的 OS、VM 大小、ffmpeg 的安裝方式 (例如，從應用程式套件或使用套件管理員)，和其他集區屬性值。 會建立參數，因此當使用範本時，只需要指定集區識別碼和 VM 數目。
 

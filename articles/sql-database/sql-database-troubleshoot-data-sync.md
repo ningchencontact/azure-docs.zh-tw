@@ -12,18 +12,21 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: c08a76711a74f5b0fd119e579c6db54fc13ecfbb
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 87f3b9de2ff86016f11a0996cbe448651ee6844f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685815"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723887"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>針對 SQL 資料同步的問題進行疑難排解
 
 本文說明如何對 Azure SQL 資料同步的常見問題進行疑難排解。如果有問題的解決方案，即會在此處提供。
 
 如需 SQL 資料同步的概觀，請參閱[使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步處理資料](sql-database-sync-data.md)。
+
+> [!IMPORTANT]
+> 「Azure SQL 資料同步」目前**不**支援「Azure SQL Database 受控執行個體」。
 
 ## <a name="sync-issues"></a>同步問題
 
@@ -37,7 +40,7 @@ ms.locfileid: "51685815"
 
 - [我看到效能顯著降低](#sync-perf)
 
-- [我看見錯誤訊息：「無法將 NULL 值插入資料行<column>。資料行不允許 Null。」這是什麼意思，該如何修正？](#sync-nulls)
+- [我看到下列錯誤訊息：「無法將 NULL 值插入資料行 <column>。資料行不允許 Null。」這是什麼意思，該如何修正？](#sync-nulls)
 
 - [資料同步如何處理循環參考？也就是，相同的資料已在多個同步群組中同步，且因此持續變更？](#sync-circ)
 
@@ -102,7 +105,7 @@ SQL 資料同步中的同步群組已處於處理中狀態一段時間。 它不
 
 - **解決方案**。 最佳的修正方式就是預防。 確保您的同步群組中沒有循環參考。 由某個同步群組同步的任何資料列不能同步至另一個同步群組。
 
-### <a name="sync-nulls"></a> 我看見錯誤訊息：「無法將 NULL 值插入資料行<column>。 資料行不允許 Null。」 這是什麼意思，該如何修正？ 
+### <a name="sync-nulls"></a> 我看到下列錯誤訊息：「無法將 NULL 值插入資料行 <column>。 資料行不允許 Null。」 這是什麼意思，該如何修正？ 
 此錯誤訊息表示發生了下列兩種問題的其中之一：
 -  資料表沒有主索引鍵。 若要修正此問題，請將主索引鍵新增至要同步的所有資料表。
 -  在 CREATE INDEX 陳述式中可能有 WHERE 子句。 資料同步不會處理這個狀況。 若要修正此問題，請移除 WHERE 子句或手動變更所有資料庫。 

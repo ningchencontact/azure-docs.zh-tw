@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: f15a0670932a9017c079ff0cf1e7cb4ad598a9c4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 326f0e21582c1aee03c8a44adcd709f3ddf59b0b
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004529"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119623"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -53,10 +53,10 @@ Application Insights 可讓您根據最近的使用模式，輕鬆了解可能�
 
 ![選擇價格](./media/pricing/pricing-001.png)
 
-A. 檢閱當月的資料量。 這包括從您的伺服器和用戶端應用程式，以及從可用性測試接收並保留的所有資料 (在任何[取樣](../../application-insights/app-insights-sampling.md)之後)。  
+A. 檢閱當月的資料量。 這包括從您的伺服器和用戶端應用程式，以及從可用性測試接收並保留的所有資料 (在任何[取樣](../../azure-monitor/app/sampling.md)之後)。  
 B. 進行[多步驟 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests)需另外收費。 (這不包括簡單的可用性測試，其已包含在資料量費用中。)  
 C. 檢視上個月的資料量趨勢。  
-D. 啟用資料擷取[取樣](../../application-insights/app-insights-sampling.md)。   
+D. 啟用資料擷取[取樣](../../azure-monitor/app/sampling.md)。   
 E. 設定每日資料量上限。  
 
 若要更深入調查 Application Insights 的使用量，請開啟 [計量] 頁面，新增名為「資料點量」的計量，然後選取 [套用分割] 選項，以根據「遙測項目類型」拆分資料。 
@@ -68,7 +68,7 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 ## <a name="data-rate"></a>資料速率
 您可以透過三種方式限制傳送的資料量：
 
-* **取樣**：您可以使用取樣來減少從伺服器和用戶端應用程式傳送的遙測量，這對計量的扭曲程度最小。 取樣是您可用來調整所傳送資料量的主要工具。 深入了解[取樣功能](../../application-insights/app-insights-sampling.md)。 
+* **取樣**：您可以使用取樣來減少從伺服器和用戶端應用程式傳送的遙測量，這對計量的扭曲程度最小。 取樣是您可用來調整所傳送資料量的主要工具。 深入了解[取樣功能](../../azure-monitor/app/sampling.md)。 
 * **每日上限**：在 Azure 入口網站中建立 Application Insights 資源時，每日上限會設定為每日 100 GB。 在 Visual Studio 中建立 Application Insights 資源時，預設值很小 (只有每日 32.3 MB)。 每日上限預設值的設定是為了協助測試。 這是預期使用者在將應用程式部署至生產環境之前，會提高每日上限。 
 
     除非您針對高流量的應用程式要求更高的最大值，否則每日的最高上限是 1,000 GB。 
@@ -91,7 +91,7 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 ## <a name="reduce-your-data-rate"></a>降低資料速率
 以下是您可進行以減少資料量的一些事項︰
 
-* 使用 [取樣](../../application-insights/app-insights-sampling.md)。 此技術可在不扭曲計量的情況下降低資料速率。 您不會失去在 [搜尋] 中的相關項目之間瀏覽的能力。 在伺服器應用程式中，取樣會自動運作。
+* 使用 [取樣](../../azure-monitor/app/sampling.md)。 此技術可在不扭曲計量的情況下降低資料速率。 您不會失去在 [搜尋] 中的相關項目之間瀏覽的能力。 在伺服器應用程式中，取樣會自動運作。
 * [限制可回報的 Ajax 呼叫次數](../../azure-monitor/app/javascript.md#detailed-configuration) (在每個頁面檢視中) 或關閉 Ajax 報告功能。
 * [編輯 ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)以關閉您不需要的集合模組。 例如，您可能會決定效能計數器或相依性資料是不必要的。
 * 將遙測資料分攤到各個檢測金鑰。 
@@ -101,20 +101,20 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 
 您可以使用每日用量上限來限制所收集的資料。 不過，如果達到上限，就會失去當天其餘時間從您應用程式傳送的所有遙測資料。 建議您「不要」讓應用程式達到每日上限。 一旦應用程式達到每日上限，您便無法追蹤應用程式的健康情況和效能。
 
-請不要使用每日用量上限，而是改用[取樣](../../application-insights/app-insights-sampling.md)將資料量調整到您想要的程度。 然後，只使用每日上限作為應付萬一應用程式開始未預期地傳送大量遙測時的「最後手段」。
+請不要使用每日用量上限，而是改用[取樣](../../azure-monitor/app/sampling.md)將資料量調整到您想要的程度。 然後，只使用每日上限作為應付萬一應用程式開始未預期地傳送大量遙測時的「最後手段」。
 
 若要變更每日上限，請在 Application Insights 資源的 [設定] 區段中，從 [使用量和估計成本] 窗格選取 [每日上限]。
 
 ![調整每日遙測資料量上限](./media/pricing/pricing-003.png)
 
 ## <a name="sampling"></a>取樣
-[取樣](../../application-insights/app-insights-sampling.md)是一種方法，可降低將遙測傳送到您應用程式時的速率，同時仍保留在診斷搜尋期間尋找相關事件的功能。 此外，也保留正確的事件計數。
+[取樣](../../azure-monitor/app/sampling.md)是一種方法，可降低將遙測傳送到您應用程式時的速率，同時仍保留在診斷搜尋期間尋找相關事件的功能。 此外，也保留正確的事件計數。
 
 取樣可有效減少費用並維持在每月配額內。 取樣演算法會保留相關的遙測項目，因此，例如在使用 [搜尋] 時，您便可以找到與特定例外狀況相關的要求。 此演算法也會保留正確的計數，因此您在 [計量瀏覽器] 中會看到要求率、例外狀況率及其他計數的正確值。
 
 取樣有數種形式。
 
-* [調適型取樣](../../application-insights/app-insights-sampling.md)是 ASP.NET SDK 的預設值。 調適型取樣會自動針對應用程式所傳送的遙測量進行調整。 這會自動在 Web 應用程式的 SDK 中運作，以便降低網路上的遙測流量。 
+* [調適型取樣](../../azure-monitor/app/sampling.md)是 ASP.NET SDK 的預設值。 調適型取樣會自動針對應用程式所傳送的遙測量進行調整。 這會自動在 Web 應用程式的 SDK 中運作，以便降低網路上的遙測流量。 
 *  是替代方法，它會在遙測從應用程式進入 Application Insights 服務時運作。 擷取取樣不會影響從應用程式傳送的遙測量，但可減少服務所保留的量。 您可以使用擷取取樣來減少被來自瀏覽器及其他 SDK 的遙測用光的配額。
 
 若要設定擷取取樣，請移至 [定價] 窗格：
@@ -196,9 +196,9 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 
 ## <a name="next-steps"></a>後續步驟
 
-* [取樣](../../application-insights/app-insights-sampling.md)
+* [取樣](../../azure-monitor/app/sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[start]: ../../application-insights/app-insights-overview.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[start]: ../../azure-monitor/app/app-insights-overview.md
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/

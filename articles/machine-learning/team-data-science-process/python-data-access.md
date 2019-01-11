@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 630961954a235efd5f0cef92dd6a2525ae316838
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f53233edd17fa7097dde67bbce16b1ece668c721
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140025"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554855"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>使用 Azure Machine Learning Python 用戶端程式庫利用 Python 存取資料集
 Microsoft Azure Machine Learning Python 用戶端程式庫的預覽能夠從本機 Python 環境安全存取您的 Azure Machine Learning 資料集，並且可在工作區中建立和管理資料集。
 
 本主題提供如何執行以下作業的指示：
 
-* 安裝 Machine Learning Python 用戶端程式庫 
+* 安裝 Machine Learning Python 用戶端程式庫
 * 存取和上傳資料集，包括如何從本機 Python 環境取得授權以存取 Azure Machine Learning 資料集
 * 存取實驗中的中繼資料集
 * 使用 Python 用端程式庫列舉資料集、存取中繼資料、讀取資料集內容、建立新資料集以及更新現有資料集
@@ -49,7 +49,7 @@ Python 用戶端程式庫已在下列環境下經過測試：
 
     pip install azureml
 
-或者，您可以從 [github](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python)上的來源下載和安裝。
+或者，您可以從 [GitHub](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python) 上的來源進行下載和安裝。
 
     python setup.py install
 
@@ -74,11 +74,11 @@ Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段�
 
 若要取得授權權杖，您可以執行下列其中一項：
 
-* 向擁有者要求權杖。 擁有者能夠在 Studio 中，從他們工作區的 [設定] 頁面存取其授權權杖。 選取左窗格中的 [設定]，然後按一下 [授權權杖]，即可看到主要與次要權杖。  雖然主要或次要授權權杖都能用於程式碼片段，但建議擁有者只共用次要授權權杖。
+* 向擁有者要求權杖。 擁有者能夠在 Studio 中，從他們工作區的 [設定] 頁面存取其授權權杖。 選取左窗格中的 [設定]，然後按一下 [授權權杖]，即可看到主要與次要權杖。 雖然主要或次要授權權杖都能用於程式碼片段，但建議擁有者只共用次要授權權杖。
 
 ![授權權杖](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* 要求升級成擁有者角色。  若要這樣做，工作區目前的擁有者必須先將您從工作區中移除，再重新邀請您成為其擁有者。
+* 要求升級成擁有者角色。 若要這樣做，工作區目前的擁有者必須先將您從工作區中移除，再重新邀請您成為其擁有者。
 
 開發人員一旦取得工作區識別碼與授權權杖，無論其角色為何，都能夠使用程式碼片段存取該工作區。
 

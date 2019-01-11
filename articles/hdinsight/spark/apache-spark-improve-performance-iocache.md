@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 204a3230c782279b0cad4194e97aa4014c940635
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581930"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608489"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>使用 Azure HDInsight IO 快取改進 Apache Spark 工作負載效能 (Preview)
 
@@ -20,7 +20,7 @@ IO 快取是適用於 Azure HDInsight 的資料快取服務，可改進 Apache S
 
 大部分的 SSD 都提供每秒超過 1 GB 的頻寬。 此頻寬加上作業系統記憶體內檔案快取的幫助，提供足夠的頻寬來載入巨量資料計算處理引擎，例如 Apache Spark。 作業系統會保留給 Apache Spark 來處理耗用大量記憶體的繁重工作，例如輪換。 擁有專屬的作業記憶體使用權讓 Apache Spark 可以達成最佳資源使使用狀況。  
 
->[!Note]
+>[!Note]  
 >IO 快取目前使用 RubiX 做為快取元件，但在未來的服務版本中可能會變更。 請使用 IO 快取介面，而不要直接相依於任何 RubiX 實作。
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Azure HDInsight IO 快取的優點
@@ -45,7 +45,7 @@ Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure
 
 1. 確認叢集上的所有受影響服務都已重新啟動。
 
->[!NOTE] 
+>[!NOTE]  
 > 雖然進度列顯示已啟用，但 IO 快取在您重新啟動其他受影響的服務之前實際上不會啟用。
 
 ## <a name="troubleshooting"></a>疑難排解
@@ -78,4 +78,4 @@ Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure
 
 ## <a name="next-steps"></a>後續步驟
 
-- 在此部落格文章中深入了解 IO 快取，包括效能基準測試：[Apache Spark 作業透過 HDInsight IO 快取獲得快 9 倍的速度](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/) \(英文\)
+- 在此部落格文章中深入了解 IO 快取，包括效能評定：[Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/) (Apache Spark 作業透過 HDInsight IO 快取獲得快 9 倍的速度)

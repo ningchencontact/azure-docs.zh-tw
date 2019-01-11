@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 194e6091180fa1dd0eaaf999e970c0248ea99db9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580995"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651770"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>透過一次性事件處理來建立 Apache Spark 串流作業
 
@@ -29,11 +29,11 @@ ms.locfileid: "52580995"
 
 首先，請考慮發生問題後如何重新啟動所有系統故障點，以及如何避免遺失資料。 Spark 串流應用程式具有：
 
-* 輸入來源
-* 從輸入來源提取資料的一或多個接收器流程
-* 可處理資料的工作
-* 輸出接收端
-* 管理長時間執行之作業的驅動程式程序
+* 輸入來源。
+* 從輸入來源提取資料的一或多個接收器處理序。
+* 處理資料的工作。
+* 輸出接收。
+* 管理長時間執行作業的驅動程式處理序。
 
 一次性語意要求任何時間點都不會遺失任何資料，而且不論發生失敗的位置為何，都可以重新開始進行訊息處理。
 
@@ -41,7 +41,7 @@ ms.locfileid: "52580995"
 
 Spark 串流應用程式讀取事件的來源必須「可重新使用」。 這表示在已擷取訊息，但接著在可保存或處理訊息之前系統卻發生失敗的情況下，來源必須再次提供相同的訊息。
 
-在 Azure 中，Azure 事件中樞和 HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 都會提供可重新使用的來源。 可重新使用來源的另一個例子是容錯檔案系統，例如 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)、Azure 儲存體 Blob 或 Azure Data Lake Store，其中所有資料都會永久保留，您隨時都可以重新讀取完整的資料。
+在 Azure 中，Azure 事件中樞和 HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 都會提供可重新使用的來源。 可重新使用來源的另一個範例為容錯檔案系統，例如 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)、Azure 儲存體 Blob 或 Azure Data Lake Storage，其中所有資料都會永久保留，您隨時都可以重新讀取完整的資料。
 
 ### <a name="reliable-receivers"></a>可靠的接收器
 
@@ -49,7 +49,7 @@ Spark 串流應用程式讀取事件的來源必須「可重新使用」。 這�
 
 ### <a name="use-the-write-ahead-log"></a>使用預寫記錄檔
 
-Spark 串流支援使用預寫記錄檔，其中每個收到的事件會先寫入容錯儲存體中的 Spark 的檢查點目錄，然後儲存在彈性分散式資料集 (RDD) 中。 在 Azure 中，容錯儲存體是 Azure 儲存體或 Azure Data Lake Store 所支援的 HDFS。 在 Spark 串流應用程式中，將 `spark.streaming.receiver.writeAheadLog.enable` 組態設定設為 `true`，即可為所有接收器啟用預寫記錄檔。 預寫記錄檔會為失敗的驅動程式和執行程式提供容錯。
+Spark 串流支援使用預寫記錄檔，其中每個收到的事件會先寫入容錯儲存體中的 Spark 的檢查點目錄，然後儲存在彈性分散式資料集 (RDD) 中。 在 Azure 中，容錯儲存體是 Azure 儲存體或 Azure Data Lake Storage 所支援的 HDFS。 在 Spark 串流應用程式中，將 `spark.streaming.receiver.writeAheadLog.enable` 組態設定設為 `true`，即可為所有接收器啟用預寫記錄檔。 預寫記錄檔會為失敗的驅動程式和執行程式提供容錯。
 
 對於針對事件資料執行工作的背景工作，每個 RDD 都會定義為在多個背景工作間進行複寫與散發。 如果工作因執行它的背景工作損毀而失敗，則此工作會在另一個具有事件資料複本的背景工作上重新啟動，因此不會遺失事件。
 
@@ -66,7 +66,7 @@ Spark 串流支援使用預寫記錄檔，其中每個收到的事件會先寫�
     ssc.checkpoint("/path/to/checkpoints")
     ```
 
-    在 HDInsight 中，這些檢查點應會儲存到您的叢集所連結的預設儲存體，即 Azure 儲存體或 Azure Data Lake Store。
+    在 HDInsight 中，這些檢查點應會儲存到您叢集所連結的預設儲存體，即 Azure 儲存體或 Azure Data Lake Storage。
 
 2. 接下來，在 DStream 上指定檢查點間隔 (以秒為單位)。 在每個間隔中，衍生自輸入事件的狀態資料會保存到儲存體。 保存的狀態資料可減少從來源事件重建狀態時所需的運算。
 
@@ -85,7 +85,7 @@ Spark 串流支援使用預寫記錄檔，其中每個收到的事件會先寫�
 
 例如，您可以使用預存程序與 Azure SQL Database，在資料表中插入事件。 此預存程序會先依索引鍵欄位尋找事件，而只有在找不到相符的事件時，才會將記錄插入資料表中。
 
-另一個範例是使用已分割的檔案系統，例如 Azure 儲存體 Blob 或 Azure Data Lake 存放區。 在此情況下，您的接收邏輯不必檢查檔案是否存在。 如果代表事件的檔案存在，則只會使用相同的資料來覆寫。 否則會在計算的路徑上建立新檔案。
+另一個範例是使用已分割的檔案系統，例如 Azure 儲存體 Blob 或 Azure Data Lake Storage。 在此情況下，您的接收邏輯不必檢查檔案是否存在。 如果代表事件的檔案存在，則只會使用相同的資料來覆寫。 否則會在計算的路徑上建立新檔案。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: eeb548d6bd955aedf322a63c861fd23bb37c1167
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632644"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634621"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>搭配 MapReduce 與 HDInsight 上的 Apache Hadoop
 
@@ -28,13 +28,13 @@ ms.locfileid: "51632644"
 
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
->
+
 
 ## <a id="whatis"></a>什麼是 MapReduce
 
 Apache Hadoop MapReduce 是一種可撰寫工作來處理大量資料的軟體架構。 輸入的資料會分割成獨立的區塊。 每個區塊會在叢集的節點之間平行處理。 MapReduce 工作由兩項功能組成：
 
-* **對應程式**：取用輸入資料、分析 (通常使用篩選及排序作業)，以及發出 Tuple (機碼值組)
+* **對應工具**：取用輸入資料、分析 (通常使用篩選及排序作業)，以及發出 Tuple (機碼值組)
 
 * **減壓器**：取用對應程式發出的 Tuple 並執行摘要作業，從對應程式資料建立較小的組合結果
 
@@ -57,7 +57,7 @@ Hadoop 串流會透過 STDIN 與 STDOUT 與對應工具和歸納工具進行通�
 
     [key]/t[value]
 
-如需詳細資訊，請參閱 [Hadoop 資料流](http://hadoop.apache.org/docs/r1.2.1/streaming.html)(英文)。
+如需詳細資訊，請參閱 [Hadoop 資料流](https://hadoop.apache.org/docs/r1.2.1/streaming.html)(英文)。
 
 如需搭配 HDInsight 使用 Hadoop 資料流的範例，請參閱下列文件：
 
@@ -163,7 +163,7 @@ HDInsight 可以使用各種方法執行 HiveQL 工作。 請使用下表決定�
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |使用 **REST** |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |使用 **Windows PowerShell** |Linux 或 Windows | Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a id="nextsteps"></a>接續步驟
@@ -174,9 +174,9 @@ HDInsight 可以使用各種方法執行 HiveQL 工作。 請使用下表決定�
 
 * [開發 HDInsight 的 Python 資料流 MapReduce 程式](apache-hadoop-streaming-python.md)
 
-* [搭配 HDInsight 使用 Hivet][hdinsight-use-hive]
+* [搭配 HDInsight 使用 Apache Hive][hdinsight-use-hive]
 
-* [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
+* [搭配 HDInsight 使用 Apache Pig][hdinsight-use-pig]
 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md

@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/29/2018
-ms.openlocfilehash: c234ac95d0e02857fe87afe3a734d77f00954477
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/18/2018
+ms.openlocfilehash: 2be5c8ddf6928d5529c2eb08a6d64bd64b8445de
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864939"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631969"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制及授與 SQL Database 和 SQL 資料倉儲的資料庫存取權
 
@@ -31,9 +31,9 @@ ms.locfileid: "52864939"
 > 如需教學課程，請參閱[保護 Azure SQL Database](sql-database-security-tutorial.md)。 本教學課程不適用於 **Azure SQL Database 受控執行個體**。
 
 ## <a name="unrestricted-administrative-accounts"></a>不受限制的系統管理帳戶
-做為系統管理員的系統管理帳戶有兩個 (**伺服器管理員**和**Active Directory 管理員**)。 若要識別 SQL server 的系統管理員帳戶，請開啟 Azure 入口網站，然後瀏覽至 SQL server 的屬性。
+做為系統管理員的系統管理帳戶有兩個 (**伺服器管理員**和**Active Directory 管理員**)。 若要識別 SQL server 的系統管理員帳戶，請開啟 Azure 入口網站，然後瀏覽至 SQL Server 或 SQL Database 的 [屬性] 索引標籤。
 
-![SQL Server 系統管理員](./media/sql-database-manage-logins/sql-admins.png)
+![SQL Server 系統管理員](media/sql-database-manage-logins/sql-admins.png)
 
 - **伺服器管理員**   
 當您建立 Azure SQL server 時，您必須指定**伺服器管理員登入**。 SQL Server 會將該帳戶建立為 master 資料庫中的登入。 此帳戶會使用 SQL Server 驗證 (使用者名稱和密碼) 連接。 只有其中一個帳戶可以存在。   

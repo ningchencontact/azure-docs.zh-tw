@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 588bd5b3edeadb841de54691cf30916dd18c0982
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 6dd063f8d6520e3ee18dcb3899c1cca16d732707
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092996"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608710"
 ---
-# <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Contoso 移轉：將 Contoso Linux 服務台應用程式重構至具有 Azure App Service、流量管理員和 Azure MySQL 的多個區域
+# <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Contoso 移轉：將 Contoso Linux 服務傳統應用程式重構至具有 Azure App Service、流量管理員和 Azure MySQL 的多重區域
 
 本文說明 Contoso 如何將其內部部署兩層式 Linux 服務台應用程式 (osTicket) 遷移到含 GitHub 整合的 Azure App Service 和 Azure MySQL，以便重構。
 
@@ -26,14 +26,14 @@ ms.locfileid: "49092996"
 [文章 2：部署 Azure 基礎結構](contoso-migration-infrastructure.md) | Contoso 會準備其內部部署基礎結構和其 Azure 基礎結構以進行移轉。 此系列中的所有移轉文章都使用相同的基礎結構。 | 可用
 [文章 3：存取內部部署資源以移轉至 Azure](contoso-migration-assessment.md)  | Contoso 會評估其在 VMware 上執行的內部部署 SmartHotel360 應用程式。 Contoso 會使用 Azure Migrate 服務來評估應用程式 VM，並使用 Database Migration Assistant 來評估應用程式 SQL Server 資料庫。 | 可用
 [文章 4：在 Azure VM 和 SQL Database 受控執行個體上重新裝載應用程式](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso 會為其內部部署 SmartHotel360 應用程式執行隨即移轉至 Azure 的作業。 Contoso 會使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 來移轉應用程式的前端 VM。 Contoso 會使用 [Azure 資料庫移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)將應用程式資料庫移轉至 Azure SQL Database 受控執行個體。 | 可用   
-[文章 5：在 Azure VM 上重新裝載應用程式](contoso-migration-rehost-vm.md) | Contoso 會使用 Site Recovery 服務，將其 SmartHotel360 應用程式 VM 移轉至 Azure VM。 | 可用
+[文章 5：將應用程式重新裝載在 Azure VM 上](contoso-migration-rehost-vm.md) | Contoso 會使用 Site Recovery 服務，將其 SmartHotel360 應用程式 VM 移轉至 Azure VM。 | 可用
 [文章 6：在 Azure VM 上和 SQL Server AlwaysOn 可用性群組中重新裝載應用程式](contoso-migration-rehost-vm-sql-ag.md) | Contoso 會移轉 SmartHotel360 應用程式。 Contoso 會使用 Site Recovery 來遷移應用程式的 VM。 它會使用資料庫移轉服務，將應用程式資料庫遷移至受到 SQL Server 可用性群組保護的 SQL Server 叢集。 | 可用 
 [文章 7：將 Linux 應用程式重新裝載至 Azure VM](contoso-migration-rehost-linux-vm.md) | Contoso 會使用 Site Recovery 服務，來完成將其 Linux osTicket 應用程式隨即移轉至 Azure VM 的作業 | 可用
 [文章 8：在 Azure VM 和 Azure MySQL 上重新裝載 Linux 應用程式](contoso-migration-rehost-linux-vm-mysql.md) | Contoso 會使用 Azure Site Recovery 將 Linux osTicket 應用程式移轉至 Azure VM，並使用 MySQL Workbench 將應用程式資料庫移轉至 Azure MySQL Server 執行個體。 | 可用
-[文章 9：在 Azure Web 應用程式和 Azure SQL 資料庫上重構應用程式](contoso-migration-refactor-web-app-sql.md) | Contoso 會將 SmartHotel360 應用程式移轉至 Azure Web 應用程式，以及使用 Database Migration Assistant 將應用程式資料庫移轉至 Azure SQL Server 執行個體 | 可用
-文章 10：在 Azure Web Apps 和 Azure MySQL 上重構 Linux 應用程式 | Contoso 會使用 Azure 流量管理員，將 Linux osTicket 應用程式移轉至多個 Azure 區域的 Azure Web 應用程式，與 GitHub 整合以進行持續傳遞。 Contoso 會將應用程式資料庫遷移至適用於 MySQL 的 Azure 資料庫執行個體。 | 本文
+[文章 9：重構 Azure Web Apps 和 Azure SQL 資料庫上的應用程式](contoso-migration-refactor-web-app-sql.md) | Contoso 會將 SmartHotel360 應用程式移轉至 Azure Web 應用程式，以及使用 Database Migration Assistant 將應用程式資料庫移轉至 Azure SQL Server 執行個體 | 可用
+文章 10：重構 Azure Web Apps 和 Azure MySQL 上的 Linux 應用程式 | Contoso 會使用 Azure 流量管理員，將 Linux osTicket 應用程式移轉至多個 Azure 區域的 Azure Web 應用程式，與 GitHub 整合以進行持續傳遞。 Contoso 會將應用程式資料庫遷移至適用於 MySQL 的 Azure 資料庫執行個體。 | 本文
 [文章 11：在 Azure DevOps Services 上重構 TFS](contoso-migration-tfs-vsts.md) | Contoso 會將其內部部署 Team Foundation Server 部署移轉至 Azure 中的 Azure DevOps Services。 | 可用
-[文章 12：在 Azure 容器和 Azure SQL Database 上重新建構應用程式](contoso-migration-rearchitect-container-sql.md) | Contoso 會將其 SmartHotel 應用程式移轉至 Azure。 然後，它會重新建構應用程式 Web 層，作為在 Azure Service Fabric 中執行的 Windows 容器，以及具有 Azure SQL Database 的資料庫。 | 可用
+[文章 12：在 Azure 容器和 Azure SQL Database 上重新架構應用程式](contoso-migration-rearchitect-container-sql.md) | Contoso 會將其 SmartHotel 應用程式移轉至 Azure。 然後，它會重新建構應用程式 Web 層，作為在 Azure Service Fabric 中執行的 Windows 容器，以及具有 Azure SQL Database 的資料庫。 | 可用
 [文章 13：在 Azure 中重建應用程式](contoso-migration-rebuild.md) | Contoso 會藉由使用各種 Azure 功能和服務 (包括 Azure App Service、Azure Kubernetes Service (AKS)、Azure Functions、Azure 認知服務及 Azure Cosmos DB) 重建其 SmartHotel360 應用程式。 | 可用
 [文章 14：對 Azure 進行大規模移轉](contoso-migration-scale.md) | Contoso 在試驗完移轉組合後，準備對 Azure 進行完整規模的移轉。 | 可用
 
@@ -44,8 +44,8 @@ ms.locfileid: "49092996"
 
 IT 領導小組與商務合作夥伴密切合作，了解他們想要達成什麼目標：
 
-- **解決業務成長**：Contoso 正在成長並轉向新的市場。 需要額外的客戶服務代理程式。 
-- **擴展**：應該建置解決方案，好讓 Contoso 隨著商務擴展而新增更多客戶服務代理程式。
+- **因應業務成長**：Contoso 正在成長並轉向新的市場。 需要額外的客戶服務代理程式。 
+- **調整**：應該建置解決方案，好讓 Contoso 隨著商務擴展而新增更多客戶服務代理程式。
 - **提升復原能力**：過去的系統問題只會影響內部使用者。 使用新的商業模式，外部使用者會受到影響，而 Contoso 需要應用程式隨時保持在運作狀態。
 
 ## <a name="migration-goals"></a>移轉目標
@@ -129,12 +129,12 @@ Contoso 會按照下列方式完成移轉程序：
 以下是 Contoso 完成移轉的方式：
 
 > [!div class="checklist"]
-> * **步驟 1：佈建 Azure App Service**：Contoso 管理員會在主要和次要區域中佈建 Web Apps。
+> * **步驟 1：佈建 Azure App Services**：Contoso 管理員會在主要和次要區域中佈建 Web Apps。
 > * **步驟 2：設定流量管理員**：他們會在 Web Apps 前面設定流量管理員，以便路由傳送及平衡流量負載。
-> * **步驟 3：佈建 MySQL**：在 Azure 中，他們會佈建 Azure MySQL 資料庫執行個體。
+> * **步驟 3：佈建 MySQL**：在 Azure 中，他們會佈建 Azure MySQL 資料庫的執行個體。
 > * **步驟 4：遷移資料庫**：他們會使用 MySQL Workbench 來遷移資料庫。 
-> * **步驟 5︰設定 GitHub**：他們會設定應用程式網站/程式碼的本機 GitHub 存放庫。
-> * **步驟 6：部署 Web 應用程式**：他們會從 GitHub 部署 Web 應用程式。
+> * **步驟 5：設定 GitHub**：他們會設定應用程式網站/程式碼的本機 GitHub 存放庫。
+> * **步驟 6：部署至 Web Apps**：他們會從 GitHub 部署 Web 應用程式。
 
 
 
@@ -163,7 +163,7 @@ Contoso 管理員會使用 Azure App Service 佈建兩個 Web 應用程式 (每�
 
 **需要其他協助？**
 
-- 了解 [Azure App Service Web 應用程式](https://docs.microsoft.com/azure/app-service/app-service-web-overview)。
+- 了解 [Azure App Service Web 應用程式](https://docs.microsoft.com/azure/app-service/overview)。
 - 了解 [Linux 上的 Azure App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)。
 
 
@@ -259,7 +259,7 @@ Contoso 管理員會利用 MySQL 工具，使用備份與還原來遷移資料�
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench10.png)
 
 
-## <a name="step-5-set-up-github"></a>步驟 5︰設定 GitHub
+## <a name="step-5-set-up-github"></a>步驟 5：設定 GitHub
 
 Contoso 管理員會建立新的私人 GitHub 存放庫，並設定連到 Azure MySQL 中 osTicket 資料庫的連線。 接著，它們會隨著應用程式載入 Azure Web 應用程式。  
 
@@ -292,7 +292,7 @@ Contoso 管理員會建立新的私人 GitHub 存放庫，並設定連到 Azure 
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github7.png)
 
-## <a name="step-6-configure-the-web-apps"></a>步驟 6: 設定 Web Apps
+## <a name="step-6-configure-the-web-apps"></a>步驟 6：設定 Web Apps
 
 在移轉程序的最後一個步驟中，Contoso 管理員會使用 osTicket 網站來設定 Web 應用程式。
 

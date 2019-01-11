@@ -1,20 +1,17 @@
 ---
 title: 使用「適用於 PostgreSQL 的 Azure 資料庫」的商務持續性概觀
 description: 使用「適用於 PostgreSQL 的 Azure 資料庫」的商務持續性概觀。
-services: postgresql
-author: kamathsun
-ms.author: sukamat
-manager: kfile
-editor: jasonwhowell
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 1b981b650d75556f4521aaf0f089443bb88d064a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29693116"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559037"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>使用「適用於 PostgreSQL 的 Azure 資料庫」的商務持續性概觀
 
@@ -32,7 +29,7 @@ ms.locfileid: "29693116"
 | 從異地複寫備份進行異地還原 | 不支援 | ERT < 12 小時<br/>RPO < 1 小時 | ERT < 12 小時<br/>RPO < 1 小時 |
 
 > [!IMPORTANT]
-> 如果您刪除伺服器，所有屬於該伺服器的資料庫也會一併刪除，且無法復原。 您無法還原已刪除的伺服器。
+> 已刪除的伺服器**無法**還原。 如果您刪除伺服器，所有屬於該伺服器的資料庫也會一併刪除，且無法復原。
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>在使用者或應用程式錯誤之後復原伺服器
 
@@ -49,7 +46,7 @@ ms.locfileid: "29693116"
 另一個選項是使用「適用於 PostgreSQL 的 Azure 資料庫」的地理還原功能，利用異地備援備份來還原伺服器。 即使您的伺服器裝載所在的區域處於離線狀態，這些備份仍可供存取。 您可以從這些備份還原至任何其他區域，並讓您的伺服器恢復上線。
 
 > [!IMPORTANT]
-> 只有使用異地備援備份儲存體來佈建伺服器時，才可進行異地還原。
+> 只有使用異地備援備份儲存體來佈建伺服器時，才可進行異地還原。 如果您希望將現有伺服器從本機備援切換到異地備援備份，您必須先透過現有伺服器的 pg_dump 進行傾印後，再將其還原至已設定為異地備援備份的新建伺服器。
 
 ## <a name="next-steps"></a>後續步驟
 - 若要深入了解自動備份，請參閱[適用於 PostgreSQL 的 Azure 資料庫中的備份](concepts-backup.md)。 

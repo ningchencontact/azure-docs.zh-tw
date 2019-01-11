@@ -4,19 +4,19 @@ description: 了解使用 Azure 資料庫移轉服務來執行資料庫移轉的
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: f1f67921e7eadded4292f244f5754c8f00341a15
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 12/19/2018
+ms.openlocfilehash: b8001729c85c8447ab22bafffe24a32524a0662a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887099"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714690"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務的相關常見問題集
 本文列出使用 Azure 資料庫移轉服務的相關常見問題集以及相關解答。
@@ -28,7 +28,7 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 - 持續投資無衝突的移轉。
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>問： Azure 資料庫移轉服務目前支援哪些來源目標組？
-這項服務目前支援從 SQL Server 移轉到 Azure SQL Database；而針對此支援案例，您現在可以移至 Azure 入口網站來開始使用 Azure 資料庫移轉服務。 從 Oracle 移轉至 Azure SQL Database 等其他來源目標組，則可透過受限制的私人預覽來使用。 若要獲得參與這些案例之受限私人預覽的機會，請在[這裡](https://aka.ms/dms-preview/)註冊。
+這項服務目前支援各種移轉案例。 如需每個可用移轉案例狀態的完整清單，請參閱 [Azure 資料庫移轉服務支援的移轉案例狀態](https://docs.microsoft.com/azure/dms/resource-scenario-status)一文。 其他移轉案例僅限預覽，需要透過 DMS 預覽網站提交提名。 如需限制預覽中的完整案例清單，且若要註冊參與其中一個供應項目，請參閱 [DMS 預覽網站](https://aka.ms/dms-preview/)。
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>問： Azure 資料庫移轉服務和其他 Microsoft 資料庫移轉工具 (例如，資料庫移轉小幫手 (DMA) 或 SQL Server 移轉小幫手 (SSMA)) 相較之下，孰優孰劣？
 若要將資料庫大規模移轉至 Microsoft Azure，建議您使用 Azure 資料庫移轉服務這個方法。 如需 Azure 資料庫移轉服務和其他 Microsoft 資料庫移轉工具相較之下孰優孰劣的詳細資訊，以及在各種案例中使用這項服務的建議，請參閱[區分 Microsoft 的資料庫移轉工具和服務](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/)部落格文章。

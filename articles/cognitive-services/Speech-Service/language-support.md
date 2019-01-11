@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 27b952fb1a901ff716f25cc7d512f860f639fb02
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342083"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632613"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>語音服務 API 支援的語言和區域
 
@@ -155,7 +155,7 @@ te-IN | 泰盧固文 (印度) |女性 | "Microsoft Server Speech Text to Speech 
 th-TH | 泰文|男性 | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)"
 tr-TR |土耳其文| 女性 | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)"
 vi-VN | 越南文|男性 | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)"
-zh-CN | 中文 (中國)|女性 | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)"
+zh-CN | 中文 (大陸)|女性 | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)"
 | | |女性 | "Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)"
 | | |男性 | "Microsoft Server Speech Text to Speech Voice (zh-CN, Kangkang, Apollo)"
 zh-HK | 中文 (香港)|女性 | "Microsoft Server Speech Text to Speech Voice (zh-HK, Tracy, Apollo)"
@@ -176,22 +176,7 @@ zh-TW | 中文 (台灣)|女性 | "Microsoft Server Speech Text to Speech Voice (
 
 ## <a name="speech-translation"></a>語音翻譯
 
-**語音翻譯** API 支援語音轉換語音和語音轉換文字翻譯的不同語言。 來源語言一律必須來自下面的語音語言表格。 可用的目標語言取決於翻譯目標是語音還是文字。 您可以將傳入的語音翻譯為 [60 多種語言](https://www.microsoft.com/translator/business/languages/)。 其中有一些語言提供[語音合成](language-support.md#text-languages)功能。
-
-### <a name="speech-languages"></a>語音語言
-
-| 語音語言   | 語言代碼 |
-|:----------- |-|
-| 阿拉伯文 (現代標準)      | `ar` |
-| 中文 (普通話)      | `zh` |
-| English      | `en` |
-| 法文      | `fr` |
-| 德文      | `de` |
-| 義大利文      | `it` |
-| 日文      | `jp` |
-| 葡萄牙文 (巴西)     | `pt` |
-| 俄文      | `ru` |
-| 西班牙文      |  `es` |
+**語音翻譯** API 支援語音轉換語音和語音轉換文字翻譯的不同語言。 來源語言一律必須來自語音轉換文字的語言表格。 可用的目標語言取決於翻譯目標是語音還是文字。 您可以將傳入的語音翻譯為 [60 多種語言](https://www.microsoft.com/translator/business/languages/)。 其中有一些語言提供[語音合成](language-support.md#text-languages)功能。
 
 ### <a name="text-languages"></a>文字語言
 

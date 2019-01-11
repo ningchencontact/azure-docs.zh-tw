@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d40886f54083a1619635f31af57841138f1706d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e055d1e10ddf8c18c84af5376cf4a284d48fde6b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086601"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603322"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>在 QnA Maker 中編輯知識庫
 
@@ -71,7 +71,7 @@ QnA Maker 可讓您提供方便使用的編輯方式，藉以管理知識庫的�
 ## <a name="add-metadata"></a>新增中繼資料
 
 
-選取篩選圖示來新增中繼資料組
+選取中繼資料圖示來新增中繼資料組
 
 ![新增中繼資料](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
@@ -80,11 +80,17 @@ QnA Maker 可讓您提供方便使用的編輯方式，藉以管理知識庫的�
 
 ## <a name="manage-large-knowledge-bases"></a>管理大型知識庫
 
-1. QnA 是按照擷取資料的資料來源**分組**。 您可以展開或摺疊資料來源。
-2. 您可以使用知識庫資料表頂端的文字方塊來**搜尋**知識庫。 按一下輸入來搜尋問題、答案或中繼資料內容。 按一下 X 圖示移除搜尋篩選條件。
-3. **分頁**可讓您管理大型知識庫
+* **資料來源群組**：QnA 是按照擷取資料的資料來源分組。 您可以展開或摺疊資料來源。
 
-    ![搜尋、分頁、群組](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![使用 QnA Maker 資料來源列來摺疊和展開資料來源問題和答案](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+
+* **搜尋知識庫**：您可以使用知識庫資料表頂端的文字方塊來搜尋知識庫。 按一下輸入來搜尋問題、答案或中繼資料內容。 按一下 X 圖示移除搜尋篩選條件。
+
+    ![使用問題和答案上方的 QnA Maker 搜尋方塊，將檢視縮小為僅限符合篩選條件的項目](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+* **分頁**：快速瀏覽資料來源以管理大型知識庫
+
+    ![使用問題和答案上方的 QnA Maker 分頁功能來瀏覽問題和答案頁面](../media/qnamaker-how-to-edit-kb/pagination.png)
 
 ## <a name="delete-knowledge-bases"></a>刪除知識庫
 

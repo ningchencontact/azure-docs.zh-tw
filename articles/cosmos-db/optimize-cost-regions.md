@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: d5e10e04ea9567e2656f592407855a53a70d7b0f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: b4c873e319dd611221c81deb948db3a64062631e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263353"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54032596"
 ---
 # <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>最佳化 Azure Cosmos DB 中多區域部署的成本
 
@@ -21,7 +21,7 @@ ms.locfileid: "53263353"
 
 1. `T x (N+1) RU/s`如果您的 Azure Cosmos 帳戶設定可處理寫入的所有區域。 
 
-單一寫入區域佈建的輸送量為每 100 RU/秒美元 0.008/小時，多個可寫入區域佈建的輸送量為每 100 RU/秒美元 0.016/小時。 若要深入了解，請參閱 Cosmos DB [定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。
+單一寫入區域佈建的輸送量為每 100 RU/秒美元 0.008/小時，多個可寫入區域佈建的輸送量為每 100 RU/秒美元 0.016/小時。 若要深入了解，請參閱 Azure Cosmos DB [定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。
 
 ## <a name="costs-for-multiple-write-regions"></a>多個寫入區域的成本
 
@@ -54,7 +54,7 @@ ms.locfileid: "53263353"
 接下來，您可以利用下列文章繼續深入了解 Azure Cosmos DB 中有關成本最佳化的詳細資訊：
 
 * 深入了解[最佳化開發與測試](optimize-dev-test.md)
-* 深入了解 [Azure Cosmos DB 上的計費](understand-your-bill.md)
+* 深入了解 [Azure Cosmos DB 帳單](understand-your-bill.md)
 * 深入了解[最佳化輸送量成本](optimize-cost-throughput.md)
 * 深入了解[最佳化儲存體成本](optimize-cost-storage.md)
 * 深入了解[最佳化讀取和寫入的成本](optimize-cost-reads-writes.md)

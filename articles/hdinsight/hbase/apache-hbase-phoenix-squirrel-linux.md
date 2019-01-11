@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4b673423bcf3785b29cc287e025d1ee52bc402f7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 51707baeba4a511d2766161afacd512a4338cf24
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312897"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653980"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>在 HDInsight 中搭配 Linux 型 Apache HBase 叢集使用 Apache Phoenix
-了解如何在 Azure HDInsight 中使用 [Apache Phoenix](http://phoenix.apache.org/)，以及如何使用 SQLLine。 如需有關 Phoenix 的詳細資訊，請參閱 [15 分鐘內了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。 如需 Phoenix 文法，請參閱 [Phoenix 文法](http://phoenix.apache.org/language/index.html)。
+了解如何在 Azure HDInsight 中使用 [Apache Phoenix](https://phoenix.apache.org/)，以及如何使用 SQLLine。 如需有關 Phoenix 的詳細資訊，請參閱 [15 分鐘內了解 Apache Phoenix](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。 如需 Phoenix 文法，請參閱 [Apache Phoenix 文法](https://phoenix.apache.org/language/index.html)。
 
-> [!NOTE]
-> 如需關於 HDInsight 的 Phoenix 版本資訊，請參閱 [HDInsight 在 Hadoop 叢集版本中提供的新功能](../hdinsight-component-versioning.md)。
+> [!NOTE]  
+> 如需關於 HDInsight 的 Phoenix 版本資訊，請參閱 [HDInsight 在 Apache Hadoop 叢集版本中提供的新功能](../hdinsight-component-versioning.md)。
 >
 >
 
@@ -61,10 +61,10 @@ ms.locfileid: "52312897"
 
         !quit
 
-如需詳細資訊，請參閱 [SQLLine 手冊](http://sqlline.sourceforge.net/#manual) \(英文\) 和 [Apache Phoenix 文法](http://phoenix.apache.org/language/index.html) \(英文\)。
+如需詳細資訊，請參閱 [SQLLine 手冊](http://sqlline.sourceforge.net/#manual) \(英文\) 和 [Apache Phoenix 文法](https://phoenix.apache.org/language/index.html) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
-在此文章中，您已經學會如何在 HDInsight 中使用 Apache Phoenix。 若要深入了解，請參閱下列文章：
+在本文中，您已經學會如何在 HDInsight 中使用 Apache Phoenix。 若要深入了解，請參閱下列文章：
 
 * [HDInsight HBase 概觀][hdinsight-hbase-overview]。
   Apache HBase 是建置於 Apache Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大的一致性。

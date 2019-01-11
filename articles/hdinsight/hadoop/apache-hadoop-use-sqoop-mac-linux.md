@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.openlocfilehash: 1b6a77e78d3385c9dfd4e43e0e4242c870eb8c57
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d7df1c65b8588b97a6beb0a4c2428b3c6430c3b2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012550"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635692"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>使用 Apache Sqoop 在 Apache Hadoop on HDInsight 與 SQL Database 之間匯入及匯出資料
 
@@ -23,10 +23,10 @@ ms.locfileid: "53012550"
 
 了解如何使用 Apache Sqoop，在 Azure HDInsight 中的 Apache Hadoop 叢集與 Azure SQL Database 或 Microsoft SQL Server 資料庫之間進行匯入和匯出。 本文件中的步驟直接從 Hadoop 叢集的前端節點使用 `sqoop` 命令。 您可以使用 SSH 連接至前端節點，並執行本文件中的命令。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 本文件中的步驟只適用於使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-> [!WARNING]
+> [!WARNING]  
 > 本文件的步驟假設您已建立名為 `sqooptest` 的 Azure SQL Database。
 >
 > 本文件提供了 T-SQL 陳述式，用於在 SQL Database 中建立和查詢資料表。 有許多用戶端可以搭配使用這些陳述式與 SQL Database。 建議使用下列用戶端：
@@ -37,7 +37,7 @@ ms.locfileid: "53012550"
 
 ## <a name="create-the-table-in-sql-database"></a>在 SQL Database 中建立資料表
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 如果您使用在[建立叢集與 SQL Database](hdinsight-use-sqoop.md) 中建立的 HDInsight 叢集和 SQL Database，請略過這一節的步驟。 在[建立叢集與 SQL database](hdinsight-use-sqoop.md) 文件的步驟中所建立的資料庫和資料表。
 
 使用 SQL 用戶端連線至 SQL Database 中的 `sqooptest` 資料庫。 然後使用下列 T-SQL 建立名為 `mobiledata` 的資料表：
@@ -104,8 +104,8 @@ GO
 
     資料中的欄位是以定位字元分隔，行是以換行字元終止。
 
-    > [!IMPORTANT]
-    > `wasb:///` 路徑會與叢集搭配運作，而叢集會使用 Azure 儲存體作為預設叢集存放區。 如果是使用 Azure Data Lake Store 的叢集，請改為使用 `adl:///`。
+    > [!IMPORTANT]  
+    > `wasb:///` 路徑會與叢集搭配運作，而叢集會使用 Azure 儲存體作為預設叢集存放區。 如果是使用 Azure Data Lake Storage 的叢集，請改為使用 `adl:///`。
 
 2. 匯入完成後，使用下列命令來列出新目錄中的資料：
 
@@ -160,8 +160,8 @@ GO
 
 現在，您已了解如何使用 Sqoop。 若要深入了解，請參閱：
 
-* [搭配 HDInsight 使用 Oozie](../hdinsight-use-oozie.md)：在 Oozie 工作流程中使用 Sqoop 動作。
-* [使用 HDInsight 分析航班延誤資料](../hdinsight-analyze-flight-delay-data.md)：使用 Hive 分析航班誤點資料，然後使用 Sqoop 將資料匯出至 Azure SQL Database。
+* [使用 Apache Oozie 搭配 HDInsight](../hdinsight-use-oozie.md)：在 Oozie 工作流程中使用 Sqoop 動作。
+* [使用 HDInsight 分析航班延誤資料](../hdinsight-analyze-flight-delay-data.md)：使用 Apache Hive 分析航班誤點資料，然後使用 Sqoop 將資料匯出至 Azure SQL 資料庫。
 * [將資料上傳至 HDInsight](../hdinsight-upload-data.md)：尋找其他方法將資料上傳至 HDInsight/Azure Blob 儲存體。
 
 [hdinsight-versions]:  ../hdinsight-component-versioning.md

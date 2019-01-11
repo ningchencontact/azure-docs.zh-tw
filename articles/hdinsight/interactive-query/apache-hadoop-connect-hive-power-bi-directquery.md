@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 68f2314b995eb0f2f67307b44cbfd177f5c5a796
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5f4053888cc8402ab0196e40c33f1acc3e7eef44
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309265"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651126"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>在 Azure HDInsight 中使用直接查詢藉由 Microsoft Power BI 將互動式查詢 Apache Hive 資料視覺化
 
@@ -48,11 +48,11 @@ ms.locfileid: "52309265"
 
 6. 從 [HDInsight 互動式查詢] 選取或輸入下列資訊：
 
-    - **伺服器**：輸入互動式查詢叢集名稱，例如 myiqcluster.azurehdinsight.net。
+    - **伺服器**：輸入互動式查詢叢集名稱，例如 *myiqcluster.azurehdinsight.net*。
 
-    - **資料庫**：針對此教學課程，請輸入**預設**。
+    - **資料庫：** 針對本教學課程，請輸入**預設**。
     
-    - **資料連線模式**：針對此教學課程，請選取 [DirectQuery]。
+    - **資料連線模式**：針對本教學課程，請選取 [DirectQuery]。
 
     ![HDInsight 互動式查詢 Power BI DirectQuery 連線](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "52309265"
 3. 展開地圖。
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您已了解如何使用 Power BI 將 HDInsight 中的資料視覺化。  如需資料視覺效果的詳細資訊，請參閱下列文章：
+在本文中，您已了解如何使用 Microsoft Power BI 將 HDInsight 中的資料視覺化。  如需資料視覺效果的詳細資訊，請參閱下列文章：
 
 * [在 Azure HDInsight 中使用 ODBC 藉由 Microsoft Power BI 將 Apache Hive 資料視覺化](../hadoop/apache-hadoop-connect-hive-power-bi.md)。 
 * [使用 Apache Zeppelin 在 Azure HDInsight 中執行 Apache Hive 查詢](./../hdinsight-connect-hive-zeppelin.md)。

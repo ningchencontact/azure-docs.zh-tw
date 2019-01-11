@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315633"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584491"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控執行個體資源限制概觀
 
@@ -48,16 +48,20 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 | **功能** | **一般用途** | **商務關鍵性** |
 | --- | --- | --- |
 | 虛擬核心數目\* | 第 4 代：8、16、24<br/>第 5 代：8、16、24、32、40、64、80 | 第 4 代：8、16、24、32 <br/> 第 5 代：8、16、24、32、40、64、80 |
-| 記憶體 | 第 4 代：56GB-156GB<br/>第 5 代：44GB-440GB<br/>\*與虛擬核心數目成正比 | 第 4 代：56GB-156GB <br/> 第 5 代：44GB-440GB<br/>\*與虛擬核心數目成正比 |
+| 記憶體 | 第 4 代：56GB-156GB<br/>第 5 代：44GB-440GB<br/>\*與虛擬核心數目成正比 | 第 4 代：56GB-156GB <br/> 第 5 代：41GB-408GB<br/>\*與虛擬核心數目成正比 |
 | 儲存體大小上限 | 8 TB | 第 4 代：1 TB <br/> 第 5 代： <br/>- 1 TB (適用於 8、16 個虛擬核心)<br/>- 2 TB (適用於 24 個虛擬核心)<br/>- 4 TB (適用於 32、40、64、80 個虛擬核心) |
 | 每個資料庫的儲存體上限 | 取決於每個執行個體的最大儲存體大小 | 取決於每個執行個體的最大儲存體大小 |
 | 每個執行個體的資料庫數目上限 | 100 | 100 |
 | 每個執行個體的資料庫檔案數上限 | 最多 280 個 | 每個資料庫 32,767 個檔案 |
-| IOPS (約略) | 每個檔案 500-7500<br/>\*[視檔案大小而定](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (每個虛擬核心 1375) |
+| 資料/記錄 IOPS (大約) | 每個檔案 500-7500<br/>\*[視檔案大小而定](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (每個虛擬核心 1375) |
+| 執行個體記錄輸送量 | 每個執行個體 22MB/秒 | 每個虛擬核心 3MB/秒<br/>最大 48MB/秒 |
+| 資料輸送量 (大約) | 每個檔案 100-250 MB/秒<br/>\*[視檔案大小而定](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 每個虛擬核心 24-48MB/秒 |
 | IO 延遲 (大約) | 5-10 毫秒 | 1-2 毫秒 |
-| 最大 tempDB 大小 | 192-1920 GB (每個虛擬核心 24 GB) | 取決於每個執行個體的最大儲存體大小 |
+| 最大 tempDB 大小 | 192-1920 GB (每個虛擬核心 24 GB) | 沒有限制 - 受到執行個體儲存體大小上限的限制 |
 
-- 使用者和系統資料庫都會計入執行個體儲存體大小，並與儲存體大小上限相比較。 使用 <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 系統檢視來判斷資料庫所使用的總空間。 錯誤記錄檔不會持續留存，也不計入大小。 備份並未計入儲存體大小。
+**注意**：
+- 使用者和系統資料庫中的資料和記錄檔大小都會計入執行個體儲存體大小，並與儲存體大小上限相比較。 使用 <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 系統檢視來判斷資料庫所使用的總空間。 錯誤記錄檔不會持續留存，也不計入大小。 備份並未計入儲存體大小。
+- 輸送量和 IOPS 也取決於受控執行個體未明確限制的頁面大小。
 
 ## <a name="supported-regions"></a>支援區域
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 0d9f4d14d9f6cbeedb667d9d8debd6bfebf8cbd6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6bdb319eb89c3dad8b3602b0ec4561b962fcc868
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239114"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608693"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso 移轉：將內部部署應用程式重新裝載至 Azure VM
 
@@ -28,20 +28,20 @@ ms.locfileid: "51239114"
 [文章 1：概觀](contoso-migration-overview.md) | 系列文章的概觀、Contoso 的移轉策略，以及此系列中所使用的應用程式範例。 | 可用
 [文章 2：部署 Azure 基礎結構](contoso-migration-infrastructure.md) | Contoso 會準備其內部部署基礎結構和其 Azure 基礎結構以進行移轉。 此系列中的所有移轉文章都使用相同的基礎結構。 | 可用
 [文章 3：存取內部部署資源以移轉至 Azure](contoso-migration-assessment.md)  | Contoso 會評估其在 VMware 上執行的內部部署 SmartHotel360 應用程式。 Contoso 會使用 Azure Migrate 服務來評估應用程式 VM，並使用 Database Migration Assistant 來評估應用程式 SQL Server 資料庫。 | 可用
-[文章 4：在 Azure VM 和 SQL Database 受控執行個體上重新裝載應用程式](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso 會為其內部部署 SmartHotel360 應用程式執行隨即移轉至 Azure 的作業。 Contoso 會使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 來移轉應用程式的前端 VM。 Contoso 會使用 [Azure 資料庫移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)將應用程式資料庫移轉至 Azure SQL Database 受控執行個體。 | 可用   
-文章 5：在 Azure VM 上重新裝載應用程式 | Contoso 會使用 Site Recovery 服務，將其 SmartHotel360 應用程式 VM 移轉至 Azure VM。 | 本文
-[文章 6：在 Azure VM 上和 SQL Server AlwaysOn 可用性群組中重新裝載應用程式](contoso-migration-rehost-vm-sql-ag.md) | Contoso 會移轉 SmartHotel360 應用程式。 Contoso 會使用 Site Recovery 來遷移應用程式的 VM。 它會使用資料庫移轉服務，將應用程式資料庫遷移至受到 SQL Server 可用性群組保護的 SQL Server 叢集。 | 可用 
+[文章 4：在 Azure VM 和 SQL Database 受控執行個體上重新裝載應用程式](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso 會為其內部部署 SmartHotel360 應用程式執行隨即移轉至 Azure 的作業。 Contoso 會使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 來移轉應用程式的前端 VM。 Contoso 會使用 [Azure 資料庫移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)將應用程式資料庫移轉至 Azure SQL Database 受控執行個體。 | 可用
+文章 5：將應用程式重新裝載在 Azure VM 上 | Contoso 會使用 Site Recovery 服務，將其 SmartHotel360 應用程式 VM 移轉至 Azure VM。 | 本文
+[文章 6：在 Azure VM 上和 SQL Server AlwaysOn 可用性群組中重新裝載應用程式](contoso-migration-rehost-vm-sql-ag.md) | Contoso 會移轉 SmartHotel360 應用程式。 Contoso 會使用 Site Recovery 來遷移應用程式的 VM。 它會使用資料庫移轉服務，將應用程式資料庫遷移至受到 SQL Server 可用性群組保護的 SQL Server 叢集。 | 可用
 [文章 7：將 Linux 應用程式重新裝載至 Azure VM](contoso-migration-rehost-linux-vm.md) | Contoso 會使用 Site Recovery 服務，來完成將其 Linux osTicket 應用程式隨即移轉至 Azure VM 的作業 | 可用
 [文章 8：在 Azure VM 和 Azure MySQL 上重新裝載 Linux 應用程式](contoso-migration-rehost-linux-vm-mysql.md) | Contoso 會使用 Azure Site Recovery 將 Linux osTicket 應用程式移轉至 Azure VM，並使用 MySQL Workbench 將應用程式資料庫移轉至 Azure MySQL Server 執行個體。 | 可用
-[文章 9：在 Azure Web 應用程式和 Azure SQL 資料庫上重構應用程式](contoso-migration-refactor-web-app-sql.md) | Contoso 會將 SmartHotel360 應用程式移轉至 Azure Web 應用程式，以及使用 Database Migration Assistant 將應用程式資料庫移轉至 Azure SQL Server 執行個體 | 可用
-[文章 10：在 Azure Web Apps 和 Azure MySQL 上重構 Linux 應用程式](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso 會使用 Azure 流量管理員，將 Linux osTicket 應用程式移轉至多個 Azure 區域的 Azure Web 應用程式，與 GitHub 整合以進行持續傳遞。 Contoso 會將應用程式資料庫遷移至適用於 MySQL 的 Azure 資料庫執行個體。 | 可用 
+[文章 9：重構 Azure Web Apps 和 Azure SQL 資料庫上的應用程式](contoso-migration-refactor-web-app-sql.md) | Contoso 會將 SmartHotel360 應用程式移轉至 Azure Web 應用程式，以及使用 Database Migration Assistant 將應用程式資料庫移轉至 Azure SQL Server 執行個體 | 可用
+[文章 10：重構 Azure Web Apps 和 Azure MySQL 上的 Linux 應用程式](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso 會使用 Azure 流量管理員，將 Linux osTicket 應用程式移轉至多個 Azure 區域的 Azure Web 應用程式，與 GitHub 整合以進行持續傳遞。 Contoso 會將應用程式資料庫遷移至適用於 MySQL 的 Azure 資料庫執行個體。 | 可用
 [文章 11：在 Azure DevOps Services 上重構 TFS](contoso-migration-tfs-vsts.md) | Contoso 會將其內部部署 Team Foundation Server 部署移轉至 Azure 中的 Azure DevOps Services。 | 可用
-[文章 12：在 Azure 容器和 Azure SQL Database 上重新建構應用程式](contoso-migration-rearchitect-container-sql.md) | Contoso 會將其 SmartHotel 應用程式移轉至 Azure。 然後，它會重新建構應用程式 Web 層，作為在 Azure Service Fabric 中執行的 Windows 容器，以及具有 Azure SQL Database 的資料庫。 | 可用
+[文章 12：在 Azure 容器和 Azure SQL Database 上重新架構應用程式](contoso-migration-rearchitect-container-sql.md) | Contoso 會將其 SmartHotel 應用程式移轉至 Azure。 然後，它會重新建構應用程式 Web 層，作為在 Azure Service Fabric 中執行的 Windows 容器，以及具有 Azure SQL Database 的資料庫。 | 可用
 [文章 13：在 Azure 中重建應用程式](contoso-migration-rebuild.md) | Contoso 會藉由使用各種 Azure 功能和服務 (包括 Azure App Service、Azure Kubernetes Service (AKS)、Azure Functions、Azure 認知服務及 Azure Cosmos DB) 重建其 SmartHotel 應用程式。 | 可用
 [文章 14：對 Azure 進行大規模移轉](contoso-migration-scale.md) | Contoso 在試驗完移轉組合後，準備對 Azure 進行完整規模的移轉。 | 可用
 
 
-在本文中，Contoso 會移轉兩層式 Windows。 NET SmartHotel360 應用程式 (執行於 VMware VM)，移轉至 Azure。 如果想使用這個應用程式，目前可以取得開放原始碼的格式，請從 [github](https://github.com/Microsoft/SmartHotel360) 下載。
+在本文中，Contoso 會移轉兩層式 Windows。 NET SmartHotel360 應用程式 (執行於 VMware VM)，移轉至 Azure。 如果想使用這個應用程式，目前可以取得開放原始碼的格式，請從 [GitHub](https://github.com/Microsoft/SmartHotel360) 下載。
 
 
 
@@ -49,7 +49,7 @@ ms.locfileid: "51239114"
 
 IT 領導小組與商務合作夥伴密切合作，以了解此次移轉所要實現的目標：
 
-- **因應業務成長**：Contoso 的業務量日益增多，對內部部署系統和基礎結構造成了壓力。
+- **因應業務成長**：Contoso 的業務量日益增多，對其內部部署系統和基礎結構造成了壓力。
 - **限制風險**：SmartHotel360 應用程式對 Contoso 的業務影響甚大。 Contoso 想要在亳無風險的情況下，將應用程式移至 Azure。
 - **擴充**：Contoso 不想要修改應用程式，但想要確保其穩定性。
 
@@ -58,8 +58,8 @@ IT 領導小組與商務合作夥伴密切合作，以了解此次移轉所要�
 
 Contoso 雲端小組已針對此次移轉擬定好各項目標。 這些目標是用來判斷最合適的移轉方法：
 
-- 移轉之後，應用程式不管是在 Azure 或 VMware 中，應具有相同效能。  應用程式不管是在雲端中或在內部部署，都一樣重要。 
-- Contoso 不想在這個應用程式上投注資源。  這對企業很重要，但以其目前的格式而言，Contoso 只想安全地移至雲端。
+- 移轉之後，應用程式不管是在 Azure 或 VMware 中，應具有相同效能。 應用程式不管是在雲端中或在內部部署，都一樣重要。
+- Contoso 不想在這個應用程式上投注資源。 這對企業很重要，但以其目前的格式而言，Contoso 只想安全地移至雲端。
 - Contoso 不想變更這個應用程式的 ops 模型。 Contoso 想要按照目前的方式，與其在雲端中互動。
 - Contoso 不想變更任何應用程式的功能。 只會變更應用程式位置。
 
@@ -83,11 +83,11 @@ Contoso 雲端小組已針對此次移轉擬定好各項目標。 這些目標�
 - 資料庫 VM 會位於生產網路中的資料庫子網路 (PROD-DB-EUS2)。
 - 移轉完成之後，將會解除委任 Contoso 資料中心的內部部署 VM。
 
-![案例架構](./media/contoso-migration-rehost-vm/architecture.png) 
+![案例架構](./media/contoso-migration-rehost-vm/architecture.png)
 
 ### <a name="database-considerations"></a>資料庫考量
 
-在解決方案設計過程中，Contoso 會進行 Azure SQL Database 與 SQL Server 的功能比較。 下列考量協助他們決定使用在 Azure IaaS VM 上執行的 SQL Server： 
+在解決方案設計過程中，Contoso 會進行 Azure SQL Database 與 SQL Server 的功能比較。 下列考量協助他們決定使用在 Azure IaaS VM 上執行的 SQL Server：
 
 - 如果 Contoso 需要自訂作業系統或資料庫伺服器，或者想要在相同的 VM 上共置並執行第三方應用程式，使用執行 SQL Server 的 Azure VM 似乎是最佳解決方案。
 - 透過軟體保證，Contoso 未來可以使用適用於 SQL Server 的 Azure Hybrid Benefit，以折扣優惠在 SQL Database 受控執行個體上交換執行個體的現有授權。 最多可節省 30% 的受控執行個體。
@@ -100,7 +100,7 @@ Contoso 會透過比較一份優缺點清單，來評估建議設計。
 
 **考量** | **詳細資料**
 --- | ---
-**優點** | 這兩個應用程式 VM 都會移至 Azure (不需變更)，讓移轉變簡單。<br/><br/> 由於 Contoso 對這兩個應用程式 VM 使用隨即轉移，所以應用程式資料庫不需要任何特殊設定或移轉工具。<br/><br/> Contoso 可以使用 Azure Hybrid Benefit 來充分利用軟體保證的投資。<br/><br/> Contoso 會保留 Azure 中應用程式 VM 的完整控制權。 
+**優點** | 這兩個應用程式 VM 都會移至 Azure (不需變更)，讓移轉變簡單。<br/><br/> 由於 Contoso 對這兩個應用程式 VM 使用隨即轉移，所以應用程式資料庫不需要任何特殊設定或移轉工具。<br/><br/> Contoso 可以使用 Azure Hybrid Benefit 來充分利用軟體保證的投資。<br/><br/> Contoso 會保留 Azure 中應用程式 VM 的完整控制權。
 **缺點** | WEBVM 和 SQLVM 會執行 Windows Server 2008 R2。 Azure 對此作業系統的支援僅限於特定角色 (2018 年 7 月)。 [深入了解](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)。<br/><br/> 應用程式的 Web 和資料層會保留單一容錯移轉點。</br><br/> SQLVM 是在非主流支援的 SQL Server 2008 R2 上執行。 不過，Azure VM 受到支援 (2018 年 7 月)。 [深入了解](https://support.microsoft.com/en-us/help/956893)。<br/><br/> Contoso 必須繼續支持此應用程式作為 Azure VM，而不是轉向 Azure App Service 與 Azure SQL Database 等受控服務。
 
 
@@ -114,7 +114,7 @@ Contoso 會透過 Site Recovery，將應用程式前端和資料庫 VM 遷移至
 - 等一切就緒，Contoso 就可以開始複寫 VM。
 - 複寫功能啟用且正常運作後，Contoso 會將 VM 容錯移轉至 Azure，而加以遷移。
 
-![移轉程序](./media/contoso-migration-rehost-vm/migraton-process.png) 
+![移轉程序](./media/contoso-migration-rehost-vm/migraton-process.png)
 
 
 
@@ -122,7 +122,7 @@ Contoso 會透過 Site Recovery，將應用程式前端和資料庫 VM 遷移至
 
 **服務** | **說明** | **成本**
 --- | --- | ---
-[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | 此服務可協調和管理 Azure VM 以及內部部署 VM 和實體伺服器的移轉和災害復原。  | 複寫至 Azure 的期間會產生 Azure 儲存體費用。  發生容錯移轉時，系統會建立 Azure VM 並產生費用。 [深入了解](https://azure.microsoft.com/pricing/details/site-recovery/)費用和定價。
+[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | 此服務可協調和管理 Azure VM 以及內部部署 VM 和實體伺服器的移轉和災害復原。  | 複寫至 Azure 的期間會產生 Azure 儲存體費用。 發生容錯移轉時，系統會建立 Azure VM 並產生費用。 [深入了解](https://azure.microsoft.com/pricing/details/site-recovery/)費用和定價。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -131,7 +131,7 @@ Contoso 會透過 Site Recovery，將應用程式前端和資料庫 VM 遷移至
 
 **需求** | **詳細資料**
 --- | ---
-**Azure 訂用帳戶** | Contoso 已在本系列稍早的文章中建立訂用帳戶。 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。<br/><br/> 如果您建立免費帳戶，您就是訂用帳戶的管理員，並可執行所有動作。<br/><br/> 如果您使用現有訂用帳戶，而且您不是系統管理員，則需要與系統管理員合作，讓其指派擁有者或參與者權限給您。<br/><br/> 如果您需要更細微的權限，請檢閱[此文章](../site-recovery/site-recovery-role-based-linked-access-control.md)。 
+**Azure 訂用帳戶** | Contoso 已在本系列稍早的文章中建立訂用帳戶。 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。<br/><br/> 如果您建立免費帳戶，您就是訂用帳戶的管理員，並可執行所有動作。<br/><br/> 如果您使用現有訂用帳戶，而且您不是系統管理員，則需要與系統管理員合作，讓其指派擁有者或參與者權限給您。<br/><br/> 如果您需要更細微的權限，請檢閱[此文章](../site-recovery/site-recovery-role-based-linked-access-control.md)。
 **Azure 基礎結構** | [了解](contoso-migration-infrastructure.md) Contoso 如何設定 Azure 基礎結構。<br/><br/> 深入了解 Site Recovery 具體的[網路](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network)和[儲存體](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage)需求。
 **內部部署伺服器** | 內部部署 vCenter 伺服器應該執行版本 5.5、6.0 或 6.5<br/><br/> ESXi 主機應該執行版本 5.5、6.0 或 6.5<br/><br/> 一或多部在 ESXi 主機上執行的 VMware VM。
 **內部部署 VM** | VM 必須符合 [Azure 需求](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements)。
@@ -142,20 +142,20 @@ Contoso 會透過 Site Recovery，將應用程式前端和資料庫 VM 遷移至
 以下是 Contoso 管理員執行移轉的方式：
 
 > [!div class="checklist"]
-> * **步驟 1：針對 Site Recovery 準備 Azure**：他們要建立一個 Azure 儲存體帳戶來保存複寫的資料，還要建立一個復原服務保存庫。
-> * **步驟 2：針對 Site Recovery 準備內部部署 VMware**：他們要準備帳戶以便探索 VM 和安裝代理程式，並準備在容錯移轉後連線至 Azure VM。
+> * **步驟 1：針對 Site Recovery 準備 Azure**：他們建立一個 Azure 儲存體帳戶來保存複寫的資料，並建立復原服務保存庫。
+> * **步驟 2：針對 Site Recovery 準備內部部署 VMware**：此外，準備帳戶以便探索 VM 和安裝代理程式，並且準備在容錯移轉後連線至 Azure VM。
 > * **步驟 3：複寫 VM**：他們要設定複寫，然後開始將 VM 複寫至 Azure 儲存體。
-> * **步驟 4：使用 Site Recovery 移轉 VM**：他們會執行容錯移轉測試，確定一切都能正常運作，然後執行完整的容錯移轉，以便將 VM 移轉至 Azure。
+> * **步驟 4：使用 Site Recovery 遷移 VM**：他們會執行測試容錯移轉，確定一切都能正常運作，然後執行完整的容錯移轉，以便將 VM 遷移至 Azure。
 
 
 
 
-## <a name="step-1-prepare-azure-for-the-site-recovery-service"></a>步驟 1：針對 Site Recovery 服務準備 Azure
+## <a name="step-1-prepare-azure-for-the-site-recovery-service"></a>步驟 1：為 Azure 進行 Site Recovery 服務的準備工作
 
 以下是 Contoso 將 VM 移轉至 Azure 時，所需的 Azure 元件：
 
 - 容錯移轉期間建立 Azure VM 時，這些 VM 所在的 VNet。
-- 用來保存複寫資料的 Azure 儲存體帳戶。 
+- 用來保存複寫資料的 Azure 儲存體帳戶。
 - Azure 中的復原服務保存庫。
 
 他們依照下列方式進行其設定：
@@ -169,7 +169,7 @@ Contoso 會透過 Site Recovery，將應用程式前端和資料庫 VM 遷移至
 
 2. 設定儲存體帳戶 - Contoso 在主要區域中建立 Azure 儲存體帳戶 (contosovmsacc20180528)。
     - 儲存體帳戶與復原服務保存庫必須位於相同的區域。
-    - 他們使用一般用途的帳戶，並配備標準儲存體和 LRS 複寫。 
+    - 他們使用一般用途的帳戶，並配備標準儲存體和 LRS 複寫。
 
     ![Site Recovery 儲存體](./media/contoso-migration-rehost-vm/asr-storage.png)
 
@@ -179,15 +179,15 @@ Contoso 會透過 Site Recovery，將應用程式前端和資料庫 VM 遷移至
 
 **需要其他協助？**
 
-[了解如何](https://docs.microsoft.com/azure/site-recovery/tutorial-prepare-azure)針對 Site Recovery 設定 Azure。
+[了解](https://docs.microsoft.com/azure/site-recovery/tutorial-prepare-azure)如何為 Azure 進行 Site Recovery 的設定。
 
 
-## <a name="step-2-prepare-on-premises-vmware-for-site-recovery"></a>步驟 2：針對 Site Recovery 準備內部部署 VMware
+## <a name="step-2-prepare-on-premises-vmware-for-site-recovery"></a>步驟 2：為內部部署 VMware 進行 Site Recovery 的準備工作
 
-以下是 Contoso 針對內部部署所準備的內容：
+以下是 Contoso 為內部部署所做的準備：
 
 - 在 vCenter Server 或 vSphere ESXi 主機上準備一個帳戶，用於自動執行 VM 探索。
-- 一個帳戶，允許在 VMware VM 上自動安裝行動服務。 
+- 一個帳戶，允許在 VMware VM 上自動安裝行動服務。
 - 內部部署 VM 設定，讓 Contoso 在容錯移轉之後，可以連線到複寫的 Azure VM。
 
 
@@ -195,7 +195,7 @@ Contoso 會透過 Site Recovery，將應用程式前端和資料庫 VM 遷移至
 
 Site Recovery 需要存取 VMware 伺服器才能：
 
-- 自動探索 VM。 
+- 自動探索 VM。
 - 協調 VM 的複寫、容錯移轉和容錯回復。
 - 需要至少一個唯讀帳戶。 這個帳戶應該可以執行各種操作，例如建立和移除磁碟以及啟動 VM。
 
@@ -224,7 +224,7 @@ Contoso 管理員會依照下列方式設定帳戶：
  - 先在內部部署 VM 上啟用 RDP，然後再容錯移轉。
  - 確定已為**公用**設定檔新增 TCP 和 UDP 規則。
  - 針對所有設定檔，在 [Windows 防火牆] > [允許的應用程式] 中檢查是否允許 RDP。
- 
+
 2. 為了透過站對站 VPN 存取，他們：
 
  - 在內部部署機器上啟用 RDP。
@@ -281,7 +281,7 @@ Contoso 管理員會依照下列方式執行這些步驟：
 
     ![OVF 範本](./media/contoso-migration-rehost-vm/vcenter-wizard.png)
 
-3.  當他們第一次啟動 VM 時，VM 會在開機後進入 Windows Server 2016 安裝程序。 他們接受授權合約，並輸入系統管理員密碼。
+3. 當他們第一次啟動 VM 時，VM 會在開機後進入 Windows Server 2016 安裝程序。 他們接受授權合約，並輸入系統管理員密碼。
 4. 安裝完成之後，他們以系統管理員身分登入 VM。 第一次登入時，預設會執行 Azure Site Recovery 設定工具。
 5. 在這個工具中，他們會指定一個名稱，以在保存庫中註冊組態伺服器。
 6. 此工具會檢查 VM 是否可連線到 Azure。 連線建立後，他們登入 Azure 訂用帳戶。 認證必須能夠存取他們要在其中註冊組態伺服器的保存庫。
@@ -292,15 +292,15 @@ Contoso 管理員會依照下列方式執行這些步驟：
 8. 他們再次登入機器，組態伺服器管理精靈隨即自動啟動。
 9. 在此精靈中，他們選取要接收複寫流量的 NIC。 這項設定調整好之後，便無法變更。
 10. 他們選取訂用帳戶、資源群組，以及在其中註冊組態伺服器的保存庫。
-        ![保存庫](./media/contoso-migration-rehost-vm/cswiz1.png) 
+        ![保存庫](./media/contoso-migration-rehost-vm/cswiz1.png)
 
-10. 他們下載並安裝 MySQL Server 和 VMWare PowerCLI。 
+10. 他們下載並安裝 MySQL Server 和 VMWare PowerCLI。
 11. 驗證之後，他們會指定 vCenter 伺服器或 vSphere 主機的 FQDN 或 IP 位址。 他們會保留預設的連接埠，並為 Azure 中的伺服器指定易記名稱。
 12. 他們會指定為自動探索而建立的帳戶，以及用來自動安裝行動服務的認證。 對於 Windows 機器，此帳戶需具備 VM 的本機系統管理員權限。
 
     ![vCenter](./media/contoso-migration-rehost-vm/cswiz2.png)
 
-7. 註冊完成後，在 Azure 入口網站中確認組態伺服器和 VMware 伺服器都已列在保存庫中的 [來源] 頁面上。 探索可能需要 15 分鐘以上的時間。 
+7. 註冊完成後，在 Azure 入口網站中確認組態伺服器和 VMware 伺服器都已列在保存庫中的 [來源] 頁面上。 探索可能需要 15 分鐘以上的時間。
 8. 接下來，Site Recovery 會使用指定的設定連線至 VMware 伺服器，並探索 VM。
 
 ### <a name="set-up-the-target"></a>設定目標
@@ -322,7 +322,7 @@ Contoso 管理員現在會指定目標複寫設定。
 
         ![建立複寫原則](./media/contoso-migration-rehost-vm/replication-policy.png)
 
-5. 此原則會自動與設定伺服器產生關聯。 
+5. 此原則會自動與設定伺服器產生關聯。
 
     ![關聯複寫原則](./media/contoso-migration-rehost-vm/replication-policy2.png)
 
@@ -337,7 +337,7 @@ Contoso 管理員現在會指定目標複寫設定。
 
 3. 他們會選取目標設定，包括資源群組和 Azure 網路以及儲存體帳戶。
 
-     ![啟用複寫](./media/contoso-migration-rehost-vm/enable-replication2.png)
+    ![啟用複寫](./media/contoso-migration-rehost-vm/enable-replication2.png)
 
 4. 他們會選取 **WebVM** 來進行複寫、檢查複寫原則並啟用複寫。
 
@@ -362,7 +362,7 @@ Contoso 管理員現在會指定目標複寫設定。
 
      ![啟用複寫](./media/contoso-migration-rehost-vm/enable-replication2-sqlvm.png)
 
-3. 他們會選取 SQLVM 來進行複寫。 
+3. 他們會選取 SQLVM 來進行複寫。
 
     ![啟用複寫](./media/contoso-migration-rehost-vm/enable-replication3-sqlvm.png)
 
@@ -377,28 +377,28 @@ Contoso 管理員現在會指定目標複寫設定。
 - 您可以深入了解如何[啟用複寫](https://docs.microsoft.com/azure/site-recovery/vmware-azure-enable-replication)。
 
 
-## <a name="step-4-migrate-the-vms"></a>步驟 4：遷移 VM 
+## <a name="step-4-migrate-the-vms"></a>步驟 4：遷移 VM
 
 Contoso 管理員會執行一次快速的容錯移轉測試，然後再執行一次完整的容錯移轉來遷移 VM。
 
 ### <a name="run-a-test-failover"></a>執行測試容錯移轉
 
-容錯移轉測試有助於保證一切如預期般正常運作。 
+容錯移轉測試有助於保證一切如預期般正常運作。
 
 1. 他們會針對最新的可用時間點 (**最近處理的**) 執行一次測試容錯移轉。
-2. 如果想在觸發容錯移轉之前，讓 Site Recovery 嘗試將來源 VM 關機，請選取 [先將機器關機再開始容錯移轉]。 即使關機失敗，仍會繼續容錯移轉。 
-3. 執行測試容錯移轉： 
+2. 如果想在觸發容錯移轉之前，讓 Site Recovery 嘗試將來源 VM 關機，請選取 [先將機器關機再開始容錯移轉]。 即使關機失敗，仍會繼續容錯移轉。
+3. 執行測試容錯移轉：
 
     - 系統會執行先決條件檢查，以確保所有移轉所需的條件都已準備就緒。
     - 容錯移轉會處理資料，以便建立 Azure VM。 若選取最新的復原點，則會根據資料建立復原點。
     - 將會使用先前步驟中處理的資料來建立 Azure VM。
-    
-3. 容錯移轉完成後，Azure VM 複本會出現在 Azure 入口網站中。 他們會檢查 VM 的大小是否合適、是否連線到正確的網路，而且正常執行中。 
-4. 確認容錯移轉測試之後，他們可以清除容錯移轉，並記錄與儲存任何觀察到的結果。 
+
+3. 容錯移轉完成後，Azure VM 複本會出現在 Azure 入口網站中。 他們會檢查 VM 的大小是否合適、是否連線到正確的網路，而且正常執行中。
+4. 確認容錯移轉測試之後，他們可以清除容錯移轉，並記錄與儲存任何觀察到的結果。
 
 ### <a name="create-and-customize-a-recovery-plan"></a>建立並自訂復原方案
 
- 驗證測試容錯移轉如預期般正常運作之後，Contoso 管理員會針對移轉建立復原方案。 
+ 驗證測試容錯移轉如預期般正常運作之後，Contoso 管理員會針對移轉建立復原方案。
 
 - 復原計劃會指定容錯移轉的發生順序，並指出 Azure VM 如何在 Azure 中正常執行。
 - 由於這是兩層式應用程式，他們會自訂復原計劃，因此資料 VM (SQLVM) 會比前端 (WEBVM) 先啟動。
@@ -408,8 +408,8 @@ Contoso 管理員會執行一次快速的容錯移轉測試，然後再執行一
     ![復原計畫](./media/contoso-migration-rehost-vm/recovery-plan.png)
 
 2. 建立計劃之後，他們會自訂它 ([復原計劃] > [SmartHotelMigrationPlan] > [自訂])。
-2.  他們會從 [群組 1：啟動] 移除 WEBVM。  這樣可確保第一個啟動動作，只會影響 SQLVM。
-3.  在 [+群組] > [新增受保護項目] 中，他們會將 WEBVM 新增至 [群組 2：開始]。  VM 必須分屬兩個不同的群組。
+2.  他們會從 [群組 1：啟動] 移除 WEBVM。 這樣可確保第一個啟動動作，只會影響 SQLVM。
+3.  在 [+群組] > [新增受保護項目] 中，他們會將 WEBVM 新增至 [群組 2：開始]。 VM 必須分屬兩個不同的群組。
 
 
 ### <a name="migrate-the-vms"></a>遷移 VM
@@ -425,7 +425,7 @@ Contoso 管理員現在會執行一次完整的容錯移轉，以完成移轉。
 
 3. 容錯移轉之後，他們可以確認 Azure VM 會如預期般出現在 Azure 入口網站中。
 
-    ![容錯移轉](./media/contoso-migration-rehost-vm/failover2.png)  
+    ![容錯移轉](./media/contoso-migration-rehost-vm/failover2.png)
 
 3. 驗證之後，他們會完成每一個 VM 的移轉。 這樣會停止 VM 的複寫功能，並停止 VM 的 Site Recovery 計費。
 
@@ -433,7 +433,7 @@ Contoso 管理員現在會執行一次完整的容錯移轉，以完成移轉。
 
 **需要其他協助？**
 
-- [了解](https://docs.microsoft.com/azure/site-recovery/tutorial-dr-drill-azure)如何執行測試容錯移轉。 
+- [了解](https://docs.microsoft.com/azure/site-recovery/tutorial-dr-drill-azure)如何執行測試容錯移轉。
 - [了解](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans)如何建立復原計畫。
 - [了解](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover)如何容錯移轉至 Azure。
 
@@ -441,7 +441,7 @@ Contoso 管理員現在會執行一次完整的容錯移轉，以完成移轉。
 
 移轉完成之後，SmartHotel360 應用程式層現在會在 Azure VM 上執行。
 
-現在，Contoso 必須完成以下的清除步驟：  
+現在，Contoso 必須完成以下的清除步驟：
 
 - 從 vCenter 庫存移除 WEBVM 機器。
 - 從 vCenter 清查中移除 SQLVM 機器。
@@ -464,7 +464,7 @@ Contoso 安全性小組會檢查 Azure VM，判斷是否有任何的安全疑慮
 
 ## <a name="bcdr"></a>BCDR
 
-針對商務持續性和災害復原 (BCDR)，Contoso 會採取下列動作：
+針對商務持續性和災害復原 (BCDR)，Contoso 採取下列動作：
 
 - 保護資料安全：Contoso 會使用 Azure 備份服務來備份 VM 上的資料。 [深入了解](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 - 保持應用程式啟動及執行：Contoso 會使用 Site Recovery，在 Azure 中將應用程式 VM 複寫至次要區域。 [深入了解](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)。
@@ -473,12 +473,12 @@ Contoso 安全性小組會檢查 Azure VM，判斷是否有任何的安全疑慮
 
 ### <a name="licensing-and-cost-optimization"></a>授權和成本最佳化
 
-1. Contoso 為他們的 VM 準備了現有的授權，而且會利用 Azure Hybrid Benefit。  Contoso 會轉換現有的 Azure VM，以便充分利用這個定價。
-2. Contoso 會啟用 Microsoft 子公司 Cloudyn 授權的 Azure 成本管理。 它是一種多雲端成本管理解決方案，可協助您使用和管理 Azure 和其他雲端資源。 [深入了解](https://docs.microsoft.com/azure/cost-management/overview) Azure 成本管理。 
+1. Contoso 為他們的 VM 準備了現有的授權，而且會利用 Azure Hybrid Benefit。 Contoso 會轉換現有的 Azure VM，以便充分利用這個定價。
+2. Contoso 會啟用 Microsoft 子公司 Cloudyn 授權的 Azure 成本管理。 它是一種多雲端成本管理解決方案，可協助您使用和管理 Azure 和其他雲端資源。 [深入了解](https://docs.microsoft.com/azure/cost-management/overview) Azure 成本管理。
 
 ## <a name="conclusion"></a>結論
 
-在本文中，Contoso 會使用 Site Recovery 服務，將應用程式 VM 移轉至 Azure VM，以便重新裝載 SmartHotel360。 
+在本文中，Contoso 會使用 Site Recovery 服務，將應用程式 VM 移轉至 Azure VM，以便重新裝載 SmartHotel360。
 
 
 ## <a name="next-steps"></a>後續步驟

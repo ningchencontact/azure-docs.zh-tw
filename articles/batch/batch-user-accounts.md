@@ -1,8 +1,8 @@
 ---
-title: 在 Azure Batch 中的使用者帳戶執行工作 | Microsoft Docs
+title: 在使用者帳戶之下執行工作 - Azure Batch | Microsoft Docs
 description: 設定在 Azure Batch 中執行工作所需的使用者帳戶
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: danlep
-ms.openlocfilehash: d5ec76a62b56769ee3065cac3542f5a94df4a1c6
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133257"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542827"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>在 Batch 中的使用者帳戶執行工作
 
@@ -59,7 +60,7 @@ Azure Batch 提供執行工作所需的兩種使用者帳戶類型︰
 使用者帳戶的提高權限層級會表示工作是否使用提高權限的存取權來執行。 自動使用者帳戶和具名的使用者帳戶都可以使用提高權限的存取權來執行。 提高權限層級的兩個選項如下︰
 
 - **NonAdmin：** 工作是以標準使用者身分執行，沒有提高權限的存取權。 Batch 使用者帳戶的預設提高權限層級一律為 **NonAdmin**。
-- **系統管理員︰** 工作是以具有提高權限存取權的使用者身分執行，並以完整系統管理員權限運作。 
+- **Admin：** 工作是以具有提高權限存取權的使用者身分執行，並以完整系統管理員權限運作。 
 
 ## <a name="auto-user-accounts"></a>自動使用者帳戶
 

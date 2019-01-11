@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 5d2f803414db3bd118f57d317cfc32c8f22fcd5a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499127"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653250"
 ---
 # <a name="install-published-application---dataiku-dds"></a>安裝已發佈的應用程式 - Dataiku DDS
 
@@ -28,7 +28,7 @@ Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/connect
 
 您可以使用 [Apache Hadoop](https://hadoop.apache.org/) 或 [Apache Spark](https://spark.apache.org/) 叢集來安裝 HDInsight 上的 DSS。 您可以在現有的執行中叢集上安裝 DSS，或在建立新叢集時安裝 DSS。 DSS 也支援使用 Azure Blob 儲存體作為讀取資料的連接器。
 
-您可以使用 DSS 來建置專案，然後這些專案將可以產生 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 或 Spark 作業。 這些作業會在 HDInsight 上以一般 MapReduce 或 Spark 作業的形式執行，因此您可以視需要調整叢集規模。
+您可以使用 DSS 來建置專案，然後這些專案將可以產生 [MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 或 Spark 作業。 這些作業會在 HDInsight 上以一般 MapReduce 或 Spark 作業的形式執行，因此您可以視需要調整叢集規模。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -113,8 +113,8 @@ Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/connect
 ## <a name="next-steps"></a>後續步驟
 
 * [Dataiku DSS 文件](https://doc.dataiku.com/dss/latest/) \(英文\)。
-* [安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)︰了解如何將未發佈的 HDInsight 應用程式部署到 HDInsight。
-* [發佈 HDInsight 應用程式](hdinsight-apps-publish-applications.md)︰了解如何將自訂 HDInsight 應用程式發佈至 Azure Marketplace。
-* [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)︰了解如何定義 HDInsight 應用程式。
+* [安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)：了解如何將未發佈的 HDInsight 應用程式部署到 HDInsight。
+* [發佈 HDInsight 應用程式](hdinsight-apps-publish-applications.md)：了解如何將自訂 HDInsight 應用程式發佈到 Azure Marketplace。
+* [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定義 HDInsight 應用程式。
 * [使用指令碼動作自訂以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用指令碼動作來安裝其他應用程式。
-* [在 HDInsight 中使用空白邊緣節點](hdinsight-apps-use-edge-node.md)︰了解如何使用空白邊緣節點來存取 HDInsight 叢集，以及測試和裝載 HDInsight 應用程式。
+* [在 HDInsight 中使用空白邊緣節點](hdinsight-apps-use-edge-node.md)：了解如何使用空白邊緣節點來存取 HDInsight 叢集，以及測試和裝載 HDInsight 應用程式。

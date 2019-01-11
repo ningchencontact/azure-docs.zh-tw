@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: 85f93e15cfce1d44567c48c6c6f4b38c42dfb296
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a15c983291d35063884178f7b84e21fe4908b49a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416387"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632309"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>關於 Azure 儲存體移轉的常見問題集
 
@@ -37,7 +37,7 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 
 **有兩個檔案共用，位在相同區域的相同儲存體帳戶上，在這兩者間複製資料是否收取費用？**
 
-否。 此流程不會收取費用。
+沒有。 此流程不會收取費用。
 
 **如何將我的整個儲存體帳戶備份到其他儲存體帳戶？**
 
@@ -118,6 +118,8 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 
 **如何將受控磁碟移至另一個儲存體帳戶？**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 請遵循下列步驟：
 
 1.  停止受控磁碟附加至的虛擬機器。
@@ -125,15 +127,15 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 2.  執行下列 Azure PowerShell 指令碼，將受控磁碟 VHD 從一個區域複製到另一個區域：
 
     ```
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
-    Select-AzureRmSubscription -SubscriptionId <ID>
+    Select-AzSubscription -SubscriptionId <ID>
 
-    $sas = Grant-AzureRmDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
+    $sas = Grant-AzDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
 
-    $destContext = New-AzureStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
+    $destContext = New-AzStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
 
-    Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
+    Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
 3.  請使用您將 VHD 複製過去的區域內的 VHD 檔案來建立受控的磁碟。 您可以執行下列 Azure PowerShell 指令碼來進行此動作：  
@@ -151,9 +153,9 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 
     $storageType = 'StandardLRS'
 
-    $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
-    $osDisk = New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+    $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
 如需進一步瞭解如何部署受控磁碟中的虛擬機器，請參閱 [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1)。
@@ -191,7 +193,7 @@ AzCopy 使用[複製 Blob API](https://docs.microsoft.com/rest/api/storageservic
 
 **將儲存體帳戶的複寫從異地備援儲存體變更為本地備援儲存體是否有任何必要條件？**
 
-否。 
+沒有。 
 
 **如何存取 Azure 檔案備援儲存體？**
 
@@ -234,7 +236,7 @@ Azure 檔案共用不允許使用進階儲存體。
 
 **如何從傳統儲存體帳戶移至 Azure Resource Manager 儲存體帳戶？**
 
-您可以使用 **Move-AzureStorageAccount** Cmdlet。 此 Cmdlet 具有多個步驟 (驗證、準備、認可)。 您可以在進行之前先驗證移動。
+您可以使用 **Move-AzStorageAccount** Cmdlet。 此 Cmdlet 具有多個步驟 (驗證、準備、認可)。 您可以在進行之前先驗證移動。
 
 如果您有虛擬機器，則必須先執行額外的步驟，才能移轉儲存體帳戶資料。 如需詳細資訊，請參閱[使用 Azure PowerShell 將 IaaS 資源從傳統移轉至 Azure Resource Manager](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md)。
 
@@ -278,7 +280,7 @@ Azure 檔案共用不允許使用進階儲存體。
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **SAS 權杖**︰使用 SAS 權杖以存取來自端點的資料。 如需詳細資訊，請參閱[使用共用存取簽章](storage-dotnet-shared-access-signature-part-1.md)。
+    - **SAS 權杖**：使用 SAS 權杖以存取來自端點的資料。 如需詳細資訊，請參閱[使用共用存取簽章](storage-dotnet-shared-access-signature-part-1.md)。
 
 **如何將 HTTPS 自訂網域與我的儲存體帳戶搭配使用？例如，如何讓 "https://mystorageaccountname.blob.core.windows.net/images/image.gif" 顯示為 "https://www.contoso.com/images/image.gif"？**
 

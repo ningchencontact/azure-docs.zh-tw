@@ -9,26 +9,25 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: da105be19f7d546e530298f87974fe7f3f78989f
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7326cf6a1153d5dc1f7e5f910a376a21b05db606
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012210"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725435"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-windows-based-hdinsight"></a>存取 Windows 型 HDInsight 上的 Apache Hadoop YARN 應用程式記錄檔
 此文件說明如何針對已在 Azure HDInsight 的 Windows 型 Apache Hadoop 叢集上完成的 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) \(英文\) 應用程式存取記錄。
 
-> [!IMPORTANT]
-> 本文件中的資訊僅適用於 Windows 型 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需存取 Linux 型 HDInsight 叢集上 YARN 記錄的相關資訊，請參閱[在 HDInsight 中以 Linux 為基礎之 Apache Hadoop 上存取 Apache Hadoop YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs-linux.md)。
->
+> [!IMPORTANT]  
+> 本文件中的資訊僅適用於 Windows 型 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需存取 Linux 型 HDInsight 叢集上 YARN 記錄的資訊，請參閱[在 HDInsight 的 Linux 型 Apache Hadoop 上存取 Apache Hadoop YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs-linux.md)。
 
 
 ### <a name="prerequisites"></a>必要條件
 * Windows 型 HDInsight 叢集。  請參閱[在 HDInsight 中建立 Windows 型 Apache Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline Server
-<a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Apache Hadoop YARN 時間軸伺服器</a> \(英文\) 透過兩個不同的介面提供有關已完成之應用程式的一般資訊，以及架構特定的應用程式資訊。 具體而言：
+<a href="https://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Apache Hadoop YARN 時間軸伺服器</a> \(英文\) 透過兩個不同的介面提供有關已完成之應用程式的一般資訊，以及架構特定的應用程式資訊。 具體而言：
 
 * 儲存及擷取 HDInsight 叢集上泛型應用程式資訊的功能已在版本 3.1.1.374 或更新版本上啟用。
 * Timeline Server 的架構特定應用程式資訊元件目前在 HDInsight 叢集上並未提供。
@@ -75,7 +74,7 @@ YARN ResourceManager UI 是在叢集前端節點上執行，並可透過 Azure �
 3. 在頂端功能表上，按一下 [儀表板]。 您會看到瀏覽器開啟新的索引標籤頁面，其名稱為 **HDInsight 查詢主控台**。
 4. 在 [HDInsight 查詢主控台] 上，按一下 [Yarn UI]。
 
-[YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
+[YARN-timeline-server]:https://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
 [log-aggregation]:https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315

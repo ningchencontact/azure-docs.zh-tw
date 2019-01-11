@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 22af5b4b757fed83e5c9b23426283d2fb4c4867f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fb72de7e9a61c874d4449a5b9c0422c787a7bdc0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410528"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728443"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
@@ -1867,12 +1867,12 @@ ms.locfileid: "53410528"
 > |  動作 | Microsoft.Devices/provisioningServices/certificates/verify/Action | 驗證憑證資源 |
 > |  動作 | Microsoft.Devices/provisioningServices/certificates/Write | 建立或更新憑證 |
 > |  動作 | Microsoft.Devices/provisioningServices/Delete | 刪除 IotDps 資源 |
-> |  動作 | Microsoft.Devices/provisioningServices/diagnosticSettings/read | 取得資源的診斷設定 |
+> |  動作 | Microsoft.Devices/provisioningServices/diagnosticSettings/read | 取得資源的診斷設定。 注意：您可能也需要 `Microsoft.Insights/diagnosticSettings/read`  |
 > |  動作 | Microsoft.Devices/provisioningServices/diagnosticSettings/write | 建立或更新資源的診斷設定 |
 > |  動作 | Microsoft.Devices/provisioningServices/keys/listkeys/Action | 取得金鑰名稱的 IotDps 金鑰 |
 > |  動作 | Microsoft.Devices/provisioningServices/listkeys/Action | 取得所有 IotDps 金鑰 |
-> |  動作 | Microsoft.Devices/provisioningServices/logDefinitions/read | 取得佈建服務的可用記錄定義 |
-> |  動作 | Microsoft.Devices/provisioningServices/metricDefinitions/read | 取得佈建服務的可用計量 |
+> |  動作 | Microsoft.Devices/provisioningServices/logDefinitions/read | 取得佈建服務的可用記錄定義。 注意：您可能也需要 `Microsoft.Insights/logDefinitions/read` |
+> |  動作 | Microsoft.Devices/provisioningServices/metricDefinitions/read | 取得佈建服務的可用計量。 注意：您可能也需要 `Microsoft.Insights/metricDefinitions/read` |
 > |  動作 | Microsoft.Devices/provisioningServices/operationresults/Read | 取得 DPS 作業結果 |
 > |  動作 | Microsoft.Devices/provisioningServices/Read | 取得 IotDps 資源 |
 > |  動作 | Microsoft.Devices/provisioningServices/skus/Read | 取得有效的 IotDps SKU |

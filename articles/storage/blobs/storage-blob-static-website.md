@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 36b4fbac13e012de2fbef137c6637fd7e2daea8f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161288"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598885"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure 儲存體中的靜態網站代管
 Azure 儲存體 GPv2 帳戶可讓您直接從名為 *$web* 的儲存體容器提供靜態內容 (HTML、CSS、JavaScript 和影像檔)。 利用 Azure 儲存體中的代管，讓您能夠使用無伺服器架構，包括 [Azure Functions](/azure/azure-functions/functions-overview) 和其他 PaaS 服務。
 
-相較於靜態網站代管，取決於伺服器端程式碼的動態網站最適合使用 [Azure Web Apps](/azure/app-service/app-service-web-overview) 來代管。
+相較於靜態網站代管，取決於伺服器端程式碼的動態網站最適合使用 [Azure App Service](/azure/app-service/overview) 來代管。
 
 ## <a name="how-does-it-work"></a>運作方式
 當您在儲存體帳戶中啟用靜態網站代管時，請選取您的預設檔案名稱，並選擇性地提供自訂 404 頁面的路徑。 啟用此功能時，即會建立名為 *$web* 的容器 (如果尚未存在)。 
@@ -161,6 +161,6 @@ az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NA
 * [使用 Azure CDN 透過 HTTP 以自訂網域存取 blob](storage-https-custom-domain-cdn.md)
 * [針對 Blob 或 Web 端點設定自訂網域名稱](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure Web Apps](/azure/app-service/app-service-web-overview)
+* [Azure App Service](/azure/app-service/overview)
 * [建置您的第一個無伺服器 Web 應用程式](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [教學課程：在 Azure DNS 中裝載您的網域](../../dns/dns-delegate-domain-azure-dns.md)
+* [教學課程：在 Azure DNS 上託管您的網域](../../dns/dns-delegate-domain-azure-dns.md)

@@ -2,18 +2,17 @@
 title: 從 Azure Kubernetes Service 對 Azure Container Registry 進行驗證
 description: 了解如何使用 Azure Active Directory 服務主體，提供從 Azure Kubernetes Service 對您私人容器登錄中的映像的存取。
 services: container-service
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
-ms.author: marsma
-ms.openlocfilehash: c9ade4d61a1b95d5041a13f9436f0d02a7951758
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: danlep
+ms.openlocfilehash: 850919f8ca8bb68af544ae528a779e16068424b1
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981642"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752532"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>從 Azure Kubernetes Service 對 Azure Container Registry 進行驗證
 
@@ -23,7 +22,7 @@ ms.locfileid: "46981642"
 
 當您建立 AKS 叢集時，Azure 也會建立服務主體來支援其他 Azure 資源的叢集可操作性。 您可以使用此自動產生的服務主體，向 ACR 登錄進行驗證。 若要這麼做，您需要建立 Azure AD [角色指派](../role-based-access-control/overview.md#role-assignments)，授與叢集的服務主體對容器登錄的存取權。
 
-使用以下指令碼，將 AKS 產生的服務主體存取權授與 Azure Container Registry。 請先為您的環境修改 `AKS_*` 和 `ACR_*` 變數，然後再執行指令碼。
+使用下列指令碼，將 AKS 產生的服務主體提取存取權授與 Azure Container Registry。 請先為您的環境修改 `AKS_*` 和 `ACR_*` 變數，然後再執行指令碼。
 
 ```bash
 #!/bin/bash
@@ -40,7 +39,7 @@ CLIENT_ID=$(az aks show --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER
 ACR_ID=$(az acr show --name $ACR_NAME --resource-group $ACR_RESOURCE_GROUP --query "id" --output tsv)
 
 # Create role assignment
-az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
+az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 ```
 
 ## <a name="access-with-kubernetes-secret"></a>使用 Kubernetes 祕密進行存取
@@ -59,8 +58,8 @@ SERVICE_PRINCIPAL_NAME=acr-service-principal
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv)
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
-# Create a 'Reader' role assignment with a scope of the ACR resource.
-SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role Reader --scopes $ACR_REGISTRY_ID --query password --output tsv)
+# Create acrpull role assignment with a scope of the ACR resource.
+SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role acrpull --scopes $ACR_REGISTRY_ID --query password --output tsv)
 
 # Get the service principal client id.
 CLIENT_ID=$(az ad sp show --id http://$SERVICE_PRINCIPAL_NAME --query appId --output tsv)

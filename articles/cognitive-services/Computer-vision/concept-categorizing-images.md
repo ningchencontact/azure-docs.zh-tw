@@ -1,7 +1,7 @@
 ---
 title: 影像分類：電腦視覺
 titleSuffix: Azure Cognitive Services
-description: 使用電腦視覺 API 將影像分類的相關概念。
+description: 了解電腦視覺 API 的影像分類功能相關概念。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7062d98d40c15f4e9e873038fc12fc1b104c996d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 40873b13407066920caec5c04751b65c01d7e209
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333474"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579493"
 ---
-# <a name="categorizing-images"></a>將影像分類
+# <a name="image-categorization-with-computer-vision"></a>使用電腦視覺的影像分類
 
 除了標記和描述以外，電腦視覺也會傳回舊版本中定義的分類型類別。 這些類別會以父/子承襲階層組織為分類。 所有類別皆採用英文。 類別可單獨使用，或與我們新的標記模型搭配使用。
 
@@ -31,7 +32,7 @@ ms.locfileid: "52333474"
 
 下列 JSON 回應說明根據視覺功能進行範例影像分類時，電腦視覺傳回的內容。
 
-![屋頂上的女人](./Images/woman_roof.png)
+![公寓大樓屋頂上的女人](./Images/woman_roof.png)
 
 ```json
 {
@@ -54,10 +55,10 @@ ms.locfileid: "52333474"
 
 | 映像 | 類別 |
 |-------|----------|
-| ![家人照片](./Images/family_photo.png) | people_group |
-| ![可愛的小狗](./Images/cute_dog.png) | animal_dog |
-| ![戶外山景](./Images/mountain_vista.png) | outdoor_mountain |
-| ![視覺分析食物 (麵包)](./Images/bread.png) | food_bread |
+| ![拍全家福的四個人](./Images/family_photo.png) | people_group |
+| ![坐在草地上的小狗](./Images/cute_dog.png) | animal_dog |
+| ![日落時站在山岩上的人](./Images/mountain_vista.png) | outdoor_mountain |
+| ![桌上的一堆圓麵包](./Images/bread.png) | food_bread |
 
 ## <a name="next-steps"></a>後續步驟
 

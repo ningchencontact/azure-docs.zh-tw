@@ -1,5 +1,5 @@
 ---
-title: 描述成人和猥褻內容：電腦視覺
+title: 描述成人和猥褻內容 - 電腦視覺
 titleSuffix: Azure Cognitive Services
 description: 使用電腦視覺 API 偵測影像中成人和猥褻內容的相關概念。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 71866149e3d2dca4b39585ce8da73aae658a4d59
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: e0cca054acb7d3d649105ecd45748a60a2aa9bbb
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344909"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582162"
 ---
 # <a name="detecting-adult-and-racy-content"></a>偵測成人和猥褻內容
 

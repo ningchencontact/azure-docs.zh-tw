@@ -1,5 +1,5 @@
 ---
-title: Azure 時間序列深入解析資料模型 - Azure 時間序列深入解析預覽版中的資料模型 | Microsoft Docs
+title: Azure 時間序列深入解析預覽版中的資料模型 | Microsoft Docs
 description: 了解 Azure 時間序列深入解析預覽版中的資料模型。
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: e68bc01d2c0781333454fa753992d0136fac0c06
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1686b52c9dacf5c78335f76bd19b41c4c7d15cee
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269085"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555399"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽版中的資料模型
 

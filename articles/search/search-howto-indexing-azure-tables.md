@@ -1,6 +1,6 @@
 ---
 title: 為 Azure 表格儲存體中的內容編製索引以用於全文檢索搜尋 - Azure 搜尋服務
-description: 了解如何使用 Azure 搜尋服務對 Azure 表格儲存體中儲存的資料編製索引。
+description: 了解如何使用 Azure 搜尋服務索引器對 Azure 表格儲存體中儲存的資料編製索引。
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 39455669dd739309ac0201de49b390c2390e0067
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 9532f4331b4dbbc8d687778b29f63179cca6b4d4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317265"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632954"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>使用 Azure 搜尋服務對 Azure 表格儲存體編制索引
 本文章說明如何使用 Azure 搜尋服務來對儲存於 Azure 表格儲存體中的資料編制索引。

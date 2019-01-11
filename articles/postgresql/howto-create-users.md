@@ -3,16 +3,15 @@ title: 在適用於 PostgreSQL 的 Azure 資料庫伺服器中建立使用者
 description: 本文說明如何建立新的使用者帳戶，來與「適用於 PostgreSQL 的 Azure 資料庫」伺服器互動。
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018
-ms.openlocfilehash: 45d1f55e60763724aeb1b1685c5c69696475a424
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 8b1bf6f1eccefb9235751c9e113c90566dfdff79
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958095"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540820"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>在適用於 PostgreSQL 的 Azure 資料庫伺服器中建立使用者 
 本主題說明如在「適用於 PostgreSQL 的 Azure 資料庫」伺服器中建立使用者。
@@ -77,6 +76,6 @@ PostgreSQL 引擎會使用權限來控制資料庫物件的存取，如 [Postgre
    ```
 
 ## <a name="next-steps"></a>後續步驟
-針對新使用者機器的 IP 位址開啟防火牆，讓使用者能夠連線：[使用 Azure 入口網站建立及管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則](howto-manage-firewall-using-portal.md)或 [Azure CLI](howto-manage-firewall-using-cli.md)。
+針對新使用者電腦的 IP 位址開啟防火牆，讓使用者能夠連線：[使用 Azure 入口網站建立及管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則](howto-manage-firewall-using-portal.md)或 [Azure CLI](howto-manage-firewall-using-cli.md)。
 
 如需有關使用者帳戶管理的詳細資訊，請參閱 PostgreSQL 產品文件中的[資料庫角色與權限](https://www.postgresql.org/docs/current/static/user-manag.html)、[GRANT 語法](https://www.postgresql.org/docs/current/static/sql-grant.html)和[權限](https://www.postgresql.org/docs/current/static/ddl-priv.html)。

@@ -1,5 +1,5 @@
 ---
-title: 建立和安裝適用於 P2S RADIUS 連線的 VPN 用戶端組態檔：PowerShell：Azure | Microsoft Docs
+title: 建立和安裝 VPN 用戶端組態檔以便進行 P2S RADIUS 連線：PowerShell：Azure | Microsoft Docs
 description: 為使用 RADIUS 驗證的連線建立 Windows、Mac OS X 和 Linux VPN 用戶端組態檔。
 services: vpn-gateway
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
 ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
+ms.lasthandoff: 12/21/2018
 ms.locfileid: "51251997"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>建立和安裝 VPN 用戶端組態檔以便進行 P2S RADIUS 驗證
@@ -62,11 +62,11 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
  
 執行會傳回連結的命令。 將該連結複製並貼到網頁瀏覽器，以下載 **VpnClientConfiguration.zip**。 將該檔案解壓縮以檢視下列資料夾： 
  
-* **WindowsAmd64** 和 **WindowsX86**：這些資料夾分別包含 Windows 32 位元和 64 位元的安裝程式套件。 
+* **WindowsAmd64** 和 **WindowsX86**：這兩個資料夾分別包含 Windows 64 位元和 32 位元的安裝程式套件。 
 * **Generic**：這個資料夾包含您用來建立自有 VPN 用戶端組態的一般資訊。 使用者名稱/密碼驗證設定不需要此資料夾。
 * **Mac**：如果您在建立虛擬網路閘道時設定 IKEv2，您會看到名為 **Mac** 的資料夾，其中包含 **mobileconfig** 檔案。 您要使用這個檔案來設定 Mac 用戶端。
 
-如果您已經產生用戶端組態檔，您可以使用 `Get-AzureRmVpnClientConfiguration` Cmdlet 來擷取它們。 但是如果您對 P2S VPN 組態進行任何變更 (例如，VPN 通訊協定類型或驗證類型)，該組態不會自動更新。 您必須執行  `New-AzureRmVpnClientConfiguration` Cmdlet 來建立新的設定下載。
+如果您已經產生用戶端組態檔，您可以使用 `Get-AzureRmVpnClientConfiguration` Cmdlet 來擷取它們。 但是如果您對 P2S VPN 組態進行任何變更 (例如，VPN 通訊協定類型或驗證類型)，該組態不會自動更新。 您必須執行 `New-AzureRmVpnClientConfiguration` Cmdlet 來建立新的設定下載。
 
 若要擷取先前產生的用戶端組態檔，請使用下列命令：
 
@@ -193,8 +193,8 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 
 執行會傳回連結的命令。 將該連結複製並貼到網頁瀏覽器，以下載 VpnClientConfiguration.zip。 將該檔案解壓縮以檢視下列資料夾：
 
-* **WindowsAmd64** 和 **WindowsX86**：這些資料夾分別包含 Windows 32 位元和 64 位元的安裝程式套件。 
-* **GenericDevice**：這個資料夾包含用來建立自有 VPN 用戶端設定的一般資訊。
+* **WindowsAmd64** 和 **WindowsX86**：這兩個資料夾分別包含 Windows 64 位元和 32 位元的安裝程式套件。 
+* **GenericDevice**：這個資料夾包含用來建立自有 VPN 用戶端組態的一般資訊。
 
 如果您已經產生用戶端組態檔，您可以使用 `Get-AzureRmVpnClientConfiguration` Cmdlet 來擷取它們。 但是如果您對 P2S VPN 組態進行任何變更 (例如，VPN 通訊協定類型或驗證類型)，該組態不會自動更新。 您必須執行 `New-AzureRmVpnClientConfiguration` Cmdlet 來建立新的設定下載。
 
@@ -268,7 +268,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | 
 
    * **VpnServer**：Azure VPN 閘道的 FQDN。 這是用戶端所連線至的位址。
    * **VpnType**：您用來連線的通道類型。
-   * **路由**：您必須在設定檔中設定的路由，以便只有前往 Azure 虛擬網路的流量會透過 P2S 通道傳送。
+   * **Routes**：您必須在設定檔中設定的路由，以便只有前往 Azure 虛擬網路的流量會透過 P2S 通道傳送。
    
    **GenenericDevice** 資料夾也包含一個稱為 **VpnServerRoot** 的 .cer 檔案。 此檔案包含在 P2S 連線設定期間驗證 Azure VPN 閘道所需的根憑證。 在將連線到 Azure 虛擬網路的所有裝置上安裝憑證。
 

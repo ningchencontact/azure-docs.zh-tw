@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a272b028e1e3ef2778227f259c0b1b980af885d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240387"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547587"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>使用 SQL Database 受控執行個體進行複寫
 
@@ -63,6 +63,8 @@ Azure SQL Database 上的發行者和散發者需要：
 - 連線會在複寫參與者之間使用 SQL 驗證。
 
 - 複寫工作目錄的 Azure 儲存體帳戶共用。
+
+- 必須在受控執行個體子網路的安全性規則中開啟連接埠 445 (TCP 輸出) 才能存取 Azure 檔案共用
 
 ## <a name="features"></a>特性
 

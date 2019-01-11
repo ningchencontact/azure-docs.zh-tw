@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 865525d9c978f3168a4c580dec20f0f91f0a0d16
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 62478eed2eb647a2f29e488e60e41dd9ae501273
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074069"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605835"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>什麼是 QnA Maker 知識庫？
 
@@ -26,7 +26,7 @@ QnA Maker 知識庫是由一組問題/回答 (QnA) 配對以及與每個 QnA 配
 
 * **問題** - 問題包含最能代表使用者查詢的文字。 
 * **回答** - 回答是當使用者查詢符合相關聯問題時傳回的回應。  
-* **中繼資料** - 中繼資料是與 QnA 配對相關聯的標記，而且以索引鍵/值配對表示。 中繼資料用來篩選 QnA 配對，並限制執行查詢比對的集合。
+* **中繼資料** - 中繼資料是與 QnA 配對相關聯的標記，而且以索引鍵/值配對表示。 中繼資料標記用來篩選 QnA 配對，並限制執行查詢比對的集合。
 
 單一 QnA (以數值 QnA 識別碼表示) 具有某個問題的多個變體 (替代問題)，這些變體全都對應至單一回答。 此外，每個這類配對可以有多個與其相關聯的中繼資料欄位。
 

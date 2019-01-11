@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 143df8a8c82e84b193bdb48a3d41682fca19156b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ff96204d53d31940846d2ec74db57caf69d4329e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315422"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608625"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>搭配使用 HDInsight 上的 Apache Kafka 與 Azure IoT 中樞
 
@@ -48,7 +48,7 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
 
 2. 若要將 .jar 檔案上傳至「HDInsight 上的 Kafka」叢集的邊緣節點，請使用下列命令：
 
-    > [!NOTE]
+    > [!NOTE]  
     > 將 `sshuser` 取代為 HDInsight 叢集的 SSH 使用者帳戶。 將 `new-edgenode` 取代為邊緣節點名稱。 將 `clustername` 取代為叢集名稱。 如需與邊緣節點的 SSH 端點有關的詳細資訊，請參閱[搭配使用邊緣節點與 HDInsight](../hdinsight-apps-use-edge-node.md#access-an-edge-node) 文件。
 
     ```bash
@@ -69,10 +69,10 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
     sudo mv kafka-connect-iothub-assembly*.jar /usr/hdp/current/kafka-broker/libs/
     ```
 
-> [!TIP]
+> [!TIP]  
 > 如果您在本文件的其餘步驟中使用預先建置的 .jar 檔案時遇到問題，請嘗試從來源建置套件。
 >
-> 若要建立連接器，您必須具有 Scala 開發環境，並使用 [Scala 建置工具](http://www.scala-sbt.org/)。
+> 若要建立連接器，您必須具有 Scala 開發環境，並使用 [Scala 建置工具](https://www.scala-sbt.org/)。
 >
 > 1. 從 [https://github.com/Azure/toketi-kafka-connect-iothub/](https://github.com/Azure/toketi-kafka-connect-iothub/) 將連接器的來源下載到您的部署環境。
 >
@@ -132,7 +132,7 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > 此變更可讓您使用隨附於 Kafka 的主控台產生者進行測試。 對於其他產生者和取用者，您可能需要不同的轉換器。 如需使用其他轉換器值的相關資訊，請參閱 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)。
 
     * 在檔案結尾處加入包含下列文字的一行︰
@@ -141,7 +141,7 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
         consumer.max.poll.records=10
         ```
 
-        > [!TIP]
+        > [!TIP]  
         > 此變更可將接收連接器限定為一次 10 筆記錄以內，以防止連接器逾時。 如需詳細資訊，請參閱 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)。
 
 6. 若要儲存檔案，請使用 __Ctrl + X__、__Y__ 和 __Enter__ 鍵。
@@ -178,7 +178,7 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
             * __事件中樞相容端點__
             * __分割數__
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > 入口網站中的端點值可能包含在此範例中不需要的多餘文字。 請擷取符合 `sb://<randomnamespace>.servicebus.windows.net/` 模式的文字。
 
     * __在 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 中__，使用下列命令：
@@ -298,7 +298,7 @@ nnect.IotHubSourceTask:39)
 org.apache.kafka.connect.runtime.WorkerSourceTask:356)
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 當連接器啟動時，您可能會看到幾則警告。 這些警告不會導致從 IoT 中樞接收訊息的問題。
 
 若要停止連接器，請使用 __Ctrl + C__。
@@ -320,7 +320,7 @@ IotHubSinkTask:47)
 t.runtime.WorkerSinkTask:262)
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 當連接器啟動時，您可能會看到幾則警告。 您可以放心地忽略這些警告。
 
 若要透過連接器傳送訊息，請使用下列步驟：
@@ -332,7 +332,7 @@ t.runtime.WorkerSinkTask:262)
     ```
 2. 若要將訊息傳送至 `iotout` 主題，請使用下列命令：
 
-    > [!WARNING]
+    > [!WARNING]  
     > 由於這是新的 SSH 連線，`$KAFKABROKERS` 變數並未包含任何資訊。 若要加以設定，請使用下列其中一個方法：
     >
     > * 使用[設定 Apache Kafka](#configure-apache-kafka) 一節中的前三個步驟。
@@ -346,7 +346,7 @@ t.runtime.WorkerSinkTask:262)
 
 3. 若要將訊息傳送至您的裝置，請將 JSON 文件貼到 `kafka-console-producer` 的 SSH 工作階段中。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 您必須將 `"deviceId"` 項目的值設定為您的裝置識別碼。 在下列範例中，裝置會命名為 `fakepi`：
 
     ```text

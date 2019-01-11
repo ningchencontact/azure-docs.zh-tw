@@ -1,5 +1,5 @@
 ---
-title: 時間序列深入解析新增事件中樞 - 新增事件中樞事件來源到 Azure 時間序列深入解析 | Microsoft Docs
+title: 將事件中樞的事件來源新增至 Azure 時間序列深入解析 | Microsoft Docs
 description: 此文章說明如何將與 Azure 事件中樞連線的事件來源新增至時間序列深入解析環境。
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6e7a6a089681ac9f7c0de5244feb3aea67052f25
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d4a80358535429f53b582abe8560757028159070
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274202"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557779"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>新增事件中樞事件來源到您的時間序列深入解析環境
 
@@ -25,7 +25,7 @@ ms.locfileid: "53274202"
 > [!NOTE]
 > 此文章中所述的步驟同時適用於時間序列深入解析公開推出版 (GA) 與時間序列深入解析預覽版環境。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 建立時間序列深入解析環境。 如需詳細資訊，請參閱[建立 Azure 時間序列深入解析環境](./time-series-insights-update-create-environment.md)。
 - 建立事件中樞。 如需有關事件中樞的詳細資訊，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。
@@ -46,7 +46,7 @@ ms.locfileid: "53274202"
 
 1. 在 [取用者群組] 頁面上，在 [名稱] 中輸入新的唯一值。  在時間序列深入解析環境中建立新的事件來源時，使用此相同名稱。
 
-1. 選取 [建立]。
+1. 選取 [建立] 。
 
 ## <a name="add-a-new-event-source"></a>新增事件來源
 
@@ -99,7 +99,7 @@ ms.locfileid: "53274202"
 
 1. 新增您新增至事件中樞的專用時間序列深入解析取用者群組名稱。
 
-1. 選取 [建立]。
+1. 選取 [建立] 。
 
    ![選取 [建立]](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
 

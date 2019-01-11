@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f8fb036eaca35e41d89b0a9610ebcd68e65f40f9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632538"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630253"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>使用 Apache Hive 作為擷取、 轉換和載入 (ETL) 工具
 
-您通常需要先將傳入的資料清理並轉換，才能將它載入至適合進行分析的目的地。 擷取、轉換和載入 (ETL) 作業可用來準備資料並將其載入至資料目的地。  HDInsight 上的 Apache Hive 可以讀入非結構化資料、視需要處理該資料，然後將該資料載入至關聯式資料倉儲以供決策支援系統使用。 在此方法中，會從來源擷取資料並儲存在可調整的儲存體 (例如 Azure 儲存體 Blob 或 Azure Data Lake Store) 中。 接著，會使用一系列 Hive 查詢來轉換該資料，最後會暫存在 Hive 內來為大量載入至目的地資料存放區做準備。
+您通常需要先將傳入的資料清理並轉換，才能將它載入至適合進行分析的目的地。 擷取、轉換和載入 (ETL) 作業可用來準備資料並將其載入至資料目的地。  HDInsight 上的 Apache Hive 可以讀入非結構化資料、視需要處理該資料，然後將該資料載入至關聯式資料倉儲以供決策支援系統使用。 在此方法中，會從來源擷取資料並儲存在可調整的儲存體 (例如 Azure 儲存體 Blob 或 Azure Data Lake Storage) 中。 接著，會使用一系列 Hive 查詢來轉換該資料，最後會暫存在 Hive 內來為大量載入至目的地資料存放區做準備。
 
 ## <a name="use-case-and-model-overview"></a>使用案例和模型概觀
 
@@ -30,7 +30,7 @@ ms.locfileid: "51632538"
 
 使用 Hive 來執行 ETL 的一般步驟如下：
 
-1. 將資料載入至 Azure Data Lake Store 或「Azure Blob 儲存體」。
+1. 將資料載入至 Azure Data Lake Storage 或 Azure Blob 儲存體。
 2. 建立「中繼資料存放區」資料庫 (使用 Azure SQL Database) 供 Hive 用來儲存結構描述。
 3. 建立 HDInsight 叢集並連接資料存放區。
 4. 定義要在讀取階段套用至資料存放區中資料的結構描述：
@@ -51,7 +51,7 @@ ms.locfileid: "51632538"
 
 5. 轉換資料並將其載入至目的地。  在轉換和載入期間，有數種使用 Hive 的方式：
 
-    * 使用 Hive 來查詢和準備資料，然後將其以 CSV 形式儲存在 Azure Data Lake Store 或 Azure Blob 儲存體中。  接著，使用工具 (例如 SQL Server Integration Services (SSIS)) 來取得這些 CSV，然後將資料載入至目的地關聯式資料庫 (例如 SQL Server)。
+    * 使用 Hive 來查詢和準備資料，然後將其以 CSV 形式儲存在 Azure Data Lake Storage 或 Azure Blob 儲存體中。  接著，使用工具 (例如 SQL Server Integration Services (SSIS)) 來取得這些 CSV，然後將資料載入至目的地關聯式資料庫 (例如 SQL Server)。
     * 使用 Hive ODBC 驅動程式直接從 Excel 或 C# 查詢資料。
     * 使用 [Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md) 來讀取已備妥的一般 CSV 檔案，然後將其載入至目的地關聯式資料庫。
 

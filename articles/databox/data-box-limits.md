@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 12/20/2018
 ms.author: alkohli
-ms.openlocfilehash: de47cae219aa457343df292bb91b6af06c4b1186
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5849611ad346fc5ef1f0efd1e262d2ace8097520
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091924"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723447"
 ---
 # <a name="azure-data-box-limits"></a>Azure 資料箱限制
 
@@ -22,7 +22,6 @@ ms.locfileid: "49091924"
 
 ## <a name="data-box-service-limits"></a>資料箱服務限制
 
- - 資料箱服務僅適用於美國所有 [Azure 區域中的 Azure 公用雲端](https://azure.microsoft.com/regions/)。
  - 如果搭配資料箱服務使用多個儲存體帳戶，則所有儲存體帳戶都必須屬於相同的 Azure 區域。
  - 我們建議您使用三個以下的儲存體帳戶。 使用多個儲存體帳戶，可能會影響效能。
 

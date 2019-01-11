@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 71285ce3b1fb3cc592fc65b4ad96c6783de0c408
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499289"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650098"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>將 Apache HBase 叢集移轉至新的版本
 
@@ -26,16 +26,16 @@ ms.locfileid: "52499289"
 4. 將暫時性資料匯入。
 5. 在新叢集上啟動作業並繼續處理。
 
-升級 [Apache HBase](http://hbase.apache.org/) 叢集需要一些額外的步驟，如本文中所述。
+升級 [Apache HBase](https://hbase.apache.org/) 叢集需要一些額外的步驟，如本文中所述。
 
-> [!NOTE]
+> [!NOTE]  
 > 升級時的停機時間不應太長，為大約幾分鐘。 這個停機時間是因排清所有記憶體內部資料的步驟，接著在新叢集上設定及重新啟動服務的時間所造成。 您的結果會依節點數目、資料量和其他變數而有所不同。
 
 ## <a name="review-apache-hbase-compatibility"></a>檢閱 Apache HBase 相容性
 
-在升級 Apache HBase 之前，請確認來源和目的地叢集上的 HBase 版本相容。 如需詳細資訊，請參閱[可以搭配 HDInsight 使用的 Hadoop 元件和版本](../hdinsight-component-versioning.md)。
+在升級 Apache HBase 之前，請確認來源和目的地叢集上的 HBase 版本相容。 如需詳細資訊，請參閱[可搭配 HDInsight 使用的 Apache Hadoop 元件和版本](../hdinsight-component-versioning.md)。
 
-> [!NOTE]
+> [!NOTE]  
 > 強烈建議您檢閱 [HBase 書籍](https://hbase.apache.org/book.html#upgrading)中的版本相容性矩陣。
 
 以下是版本相容性矩陣的範例，其中 Y 表示相容性，N 則表示可能的不相容：
@@ -54,7 +54,7 @@ ms.locfileid: "52499289"
 | 相依性相容性 | N | Y | Y |
 | 作業相容性 | N | N | Y |
 
-> [!NOTE]
+> [!NOTE]  
 > 任何重大的不相容都需在 HBase 版本的版本資訊中加以說明。
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>以相同的 Apache HBase 主要版本進行升級
@@ -203,7 +203,7 @@ ms.locfileid: "52499289"
 9. 如 Ambari 所示，重新啟動所有必要的服務。
 10. 將您的應用程式指向新的叢集。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 您應用程式的靜態 DNS 會在升級時變更。 您不必將此 DNS 寫入程式碼，而是可以在網域名稱的 DNS 設定中設定 CNAME，以指向叢集的名稱。 另一個選項是使用您應用程式的組態檔，以便您無須重新部署即可進行更新。
 
 11. 開始擷取，以查看一切是否皆如預期運作。
@@ -211,7 +211,7 @@ ms.locfileid: "52499289"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解 [Apache HBase](http://hbase.apache.org/) 和升級 HDInsight 叢集，請參閱下列文章：
+若要深入了解 [Apache HBase](https://hbase.apache.org/) 和升級 HDInsight 叢集，請參閱下列文章：
 
 * [將 HDInsight 叢集升級為更新的版本](../hdinsight-upgrade-cluster.md)
 * [使用 Apache Ambari Web UI 監視和管理 Azure HDInsight](../hdinsight-hadoop-manage-ambari.md)

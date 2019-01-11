@@ -1,20 +1,17 @@
 ---
 title: 在適用於 MySQL 的 Azure 資料庫伺服器中建立使用者
 description: 本文說明如何建立新的使用者帳戶，來與「適用於 MySQL 的 Azure 資料庫」伺服器互動。
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
-manager: kfile
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: ee74ea9e114f6401bfcafe44ca3caedfcd0005c5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e8714777b1f9f08de4d02fcb44c25197cdc48899
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265613"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546006"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>在適用於 MySQL 的 Azure 資料庫伺服器中建立使用者 
 本主題說明如在「適用於 MySQL 的 Azure 資料庫」伺服器中建立使用者。
@@ -85,6 +82,6 @@ ms.locfileid: "35265613"
    ```
 
 ## <a name="next-steps"></a>後續步驟
-針對新使用者機器的 IP 位址開啟防火牆，讓使用者能夠連線：[使用 Azure 入口網站建立及管理適用於 MySQL 的 Azure 資料庫防火牆規則](howto-manage-firewall-using-portal.md)或 [Azure CLI](howto-manage-firewall-using-cli.md)。
+針對新使用者電腦的 IP 位址開啟防火牆，讓使用者能夠連線：[使用 Azure 入口網站建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則](howto-manage-firewall-using-portal.md)或 [Azure CLI](howto-manage-firewall-using-cli.md)。
 
 如需有關使用者帳戶管理的詳細資訊，請參閱 MySQL 產品文件中的[使用者帳戶管理](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html)、[GRANT 語法](https://dev.mysql.com/doc/refman/5.7/en/grant.html)和[特殊權限](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html)。

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6af4533a4ab374071b904cc4b03ca239a3e83364
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011656"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603822"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Azure 雲端服務概觀
-Azure 雲端服務是[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 的一個範例。 這項技術如同 [Azure App Service](../app-service/app-service-web-overview.md)，是專為支援可調整、穩定可靠且操作成本低的應用程式而設計。 如同 App Service 是裝載於虛擬機器 (VM) 上，Azure 雲端服務也是如此。 不過，您可更充分地掌控 VM。 您可以使用 Azure 雲端服務在 VM 上安裝您自己的軟體，並從遠端加以存取。
+Azure 雲端服務是[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 的一個範例。 這項技術如同 [Azure App Service](../app-service/overview.md)，是專為支援可調整、穩定可靠且操作成本低的應用程式而設計。 如同 App Service 是裝載於虛擬機器 (VM) 上，Azure 雲端服務也是如此。 不過，您可更充分地掌控 VM。 您可以使用 Azure 雲端服務在 VM 上安裝您自己的軟體，並從遠端加以存取。
 
 ![Azure 雲端服務圖表](./media/cloud-services-choose-me/diagram.png)
 
@@ -33,7 +33,7 @@ Azure 雲端服務角色分為兩種。 這兩者唯一的差別是您的角色�
 
 * **背景工作角色**：不使用 IIS，獨立執行您的應用程式。
 
-例如，簡單的應用程式可能只使用單一 Web 角色提供網站服務。 較複雜的應用程式可能使用 Web 角色處理使用者的傳入要求，然後將這些要求傳送給背景工作角色進行處理。 (此通訊可能會使用 [Azure 服務匯流排](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)或 [Azure 佇列儲存體](../storage/common/storage-introduction.md)。)
+例如，簡單的應用程式可能只使用單一 Web 角色提供網站服務。 較複雜的應用程式可能使用 Web 角色處理使用者的傳入要求，然後將這些要求傳送給背景工作角色進行處理。 (此通訊可能會使用 [Azure 服務匯流排](../service-bus-messaging/service-bus-messaging-overview.md)或 [Azure 佇列儲存體](../storage/common/storage-introduction.md)。)
 
 如上圖所示，單一應用程式中所有的 VM 會在同一個雲端服務中執行。 使用者可以透過單一公用 IP 位址存取應用程式，並且可在應用程式的 VM 之間自動進行要求的負載平衡。 該平台會在 Azure 雲端服務應用程式中[調整和部署](cloud-services-how-to-scale-portal.md) VM，藉此避免發生單一硬體失敗點。
 

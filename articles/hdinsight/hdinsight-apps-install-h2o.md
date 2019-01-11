@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: d2aeb41c2fcc11c37ec56707932eabcf63e026a0
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4be346163fd54c0c5f962d15bc2433c7fab49e0b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497199"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650938"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>安裝已發佈的應用程式 - H2O Sparkling Water
 
-本文說明如何在 Azure HDInsight 上安裝及執行 [H20 Sparkling Water](http://www.h2o.ai/) 已發佈的 [Apache Hadoop](https://hadoop.apache.org/) 應用程式。 如需 HDInsight 應用程式平台的概觀，以及可用獨立軟體廠商 (ISV) 已發佈的應用程式清單，請參閱[安裝第三方 Hadoop 應用程式](hdinsight-apps-install-applications.md)。 如需您自己的應用程式的安裝指示，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
+本文說明如何在 Azure HDInsight 上安裝及執行 [H20 Sparkling Water](https://www.h2o.ai/) 已發佈的 [Apache Hadoop](https://hadoop.apache.org/) 應用程式。 如需 HDInsight 應用程式平台的概觀，以及可用獨立軟體廠商 (ISV) 已發佈的應用程式清單，請參閱[安裝第三方 Hadoop 應用程式](hdinsight-apps-install-applications.md)。 如需您自己的應用程式的安裝指示，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
 
 ## <a name="about-h2o-sparkling-water"></a>關於 H2O Sparkling Water
 
@@ -34,7 +34,7 @@ H2O Sparkling Water 提供：
 ### <a name="resource-links"></a>資源連結
 
 * [H2O.ai 工程藍圖](http://jira.h2o.ai/)
-* [H2O.ai 首頁](http://www.h2o.ai/)
+* [H2O.ai 首頁](https://www.h2o.ai/)
 * [H2O.ai 文件](http://docs.h2o.ai/)
 * [H2O.ai 支援](https://support.h2o.ai/)
 * [H2O.ai 開放原始碼程式碼基底](https://github.com/h2oai/)
@@ -69,7 +69,7 @@ H2O Sparkling Water 提供：
 
 5. H2O 叢集啟動並執行之後，藉由前往 **`https://<ClusterName>-h2o.apps.azurehdinsight.net:443`** 來開啟 H2O Flow。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 如果您無法開啟 H2O Flow，請嘗試清除瀏覽器快取。 如果您仍然無法與它連線，可能是叢集上沒有足夠的資源。 請嘗試在叢集窗格中的 [調整叢集] 選項底下增加背景工作角色節點的數目。
 
     ![H2O Flow 儀表板](./media/hdinsight-apps-install-h2o/h2o-flow.png)
@@ -95,8 +95,8 @@ H2O Sparkling Water 提供：
 ## <a name="next-steps"></a>後續步驟
 
 * [H2O 文件](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/index.html)
-* [安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)︰了解如何將未發佈的 HDInsight 應用程式部署到 HDInsight。
-* [發佈 HDInsight 應用程式](hdinsight-apps-publish-applications.md)︰了解如何將自訂 HDInsight 應用程式發佈至 Azure Marketplace。
-* [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)︰了解如何定義 HDInsight 應用程式。
+* [安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)：了解如何將未發佈的 HDInsight 應用程式部署到 HDInsight。
+* [發佈 HDInsight 應用程式](hdinsight-apps-publish-applications.md)：了解如何將自訂 HDInsight 應用程式發佈到 Azure Marketplace。
+* [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定義 HDInsight 應用程式。
 * [使用指令碼動作自訂以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用指令碼動作來安裝其他應用程式。
-* [在 HDInsight 中使用空白邊緣節點](hdinsight-apps-use-edge-node.md)︰了解如何使用空白邊緣節點來存取 HDInsight 叢集，以及測試和裝載 HDInsight 應用程式。
+* [在 HDInsight 中使用空白邊緣節點](hdinsight-apps-use-edge-node.md)：了解如何使用空白邊緣節點來存取 HDInsight 叢集，以及測試和裝載 HDInsight 應用程式。

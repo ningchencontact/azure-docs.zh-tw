@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.openlocfilehash: ad23599d1df5d07e912f634435f8b44b441d87e6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 12/17/2018
+ms.openlocfilehash: 08faef2eaf5c9cd09172d455c464531e293d5f3e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298521"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554583"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>使用事件網域管理主題並發佈事件
 
@@ -139,7 +139,7 @@ New-AzureRmEventGridSubscription `
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>將事件發佈到事件方格網域
 
-將事件發佈至網域與[發行至自訂主題](./post-to-custom-topic.md)一樣。 唯一的差別是您要指定每個事件的目的地主題。 下列事件陣列會將 `"id": "1111"` 的事件傳送到主題 `foo`，同時將 `"id": "2222"` 的事件傳送到主題 `bar`：
+將事件發佈至網域與[發行至自訂主題](./post-to-custom-topic.md)一樣。 不過，您會所有事件發佈至網域端點，而不是發佈至自訂主題。 在 JSON 事件資料中，您可指定希望事件移至的主題。 下列事件陣列會將 `"id": "1111"` 的事件傳送到主題 `demotopic1`，同時將 `"id": "2222"` 的事件傳送到主題 `demotopic2`：
 
 ```json
 [{
@@ -171,12 +171,28 @@ New-AzureRmEventGridSubscription `
 若要透過 Azure CLI 取得網域金鑰，請使用：
 
 ```azurecli-interactive
+az eventgrid domain show \
+  -g <my-resource-group> \
+  -n <my-domain>
+```
+
+若要取得網域適用的金鑰，請使用：
+
+```azurecli-interactive
 az eventgrid domain key list \
   -g <my-resource-group> \
   -n <my-domain>
 ```
 
-對於 PowerShell，請使用：
+若要使用 PowerShell 取得網域端點，請使用：
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
+若要取得網域適用的金鑰，請使用：
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomainKey `

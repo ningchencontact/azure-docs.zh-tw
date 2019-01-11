@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d0cae4210fa313c5d6e1f33987422e7b0d53e76a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496910"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579952"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上運作 ML 服務叢集
 
@@ -22,13 +22,13 @@ ms.locfileid: "52496910"
 
 ## <a name="prerequisites"></a>必要條件
 
-* **HDInsight 上的 ML 服務叢集**：如需相關指示，請參閱[開始在 HDInsight 上使用 ML 服務](r-server-get-started.md)。
+* **HDInsight 上的 ML 服務叢集**：如需相關指示，請參閱[開始使用 HDInsight 上的 ML 服務](r-server-get-started.md)。
 
 * **安全殼層 (SSH) 用戶端**：SSH 用戶端可用來從遠端連線至 HDInsight 叢集，並直接在叢集上執行命令。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>使用單一方塊設定來運作 ML 服務叢集
 
-> [!NOTE]
+> [!NOTE]  
 > 下列步驟適用於 R Server 9.0 和 ML Server 9.1。 針對 ML Server 9.3，請參閱[使用管理工具來管理運作設定](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch) \(英文\)。
 
 1. 透過 SSH 連線到邊緣節點。

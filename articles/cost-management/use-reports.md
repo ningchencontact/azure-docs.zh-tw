@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: db24cb1e1b303fbd3f0981390940732685c98baf
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075860"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558799"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Cloudyn 入口網站中的可用報告
 
@@ -63,7 +63,7 @@ Cloudy 中的儀表板可提供高階的報告檢視。 儀表板是由小工具
 
 ## <a name="reports-and-reporting-features"></a>報告和報告功能
 
-Clouydn 包括下列報告和報告功能。
+Cloudyn 包括下列報告和報告功能。
 
 ### <a name="cost-navigator-report"></a>成本導覽報告
 

@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: juliako
-ms.openlocfilehash: 1a49f62d7b5e21fe9d6483f71b729a9100aff1a3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 588aeede123848900fac6fab663dd1f6c6c169b6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585400"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719416"
 ---
 # <a name="liveevent-states-and-billing"></a>LiveEvent 狀態和計費
 
 在 Azure 媒體服務中，LiveEvent 只要其狀態轉換為「執行中」，就會開始計費。 若要停止 LiveEvent 計費，您必須停止 LiveEvent。
 
-當 [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) 上的 **LiveEventEncodingType** 設定為 [標準]\(基本\) 時，媒體服務會在輸入摘要遺失且沒有 **LiveOutput** 仍在執行的 12 小時後，自動關閉任何仍處於「執行中」狀態的 LiveEvent。 不過，您仍將需要支付 LiveEvent 處於「執行中」狀態時間的費用。
+當 [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) 上的 **LiveEventEncodingType** 設定為 [標準] 時，媒體服務會在輸入摘要遺失且沒有執行中 **LiveOutput** 的 12 小時後，自動關閉任何仍處於 [執行中] 狀態的 LiveEvent。 不過，您仍將需要支付 LiveEvent 處於「執行中」狀態時間的費用。
 
 ## <a name="states"></a>狀態
 

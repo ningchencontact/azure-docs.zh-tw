@@ -1,5 +1,5 @@
 ---
-title: 電腦視覺 API 的 86 個分類法類別
+title: 影像分類法 - 電腦視覺
 titlesuffix: Azure Cognitive Services
 description: 取得 Azure 認知服務中電腦視覺 API 的 86 個分類法類別。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: reference
 ms.date: 12/19/2016
 ms.author: kefre
-ms.openlocfilehash: b5da9a19d51bef6ae31b89c5b8fc8ae4b7c5177e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 184babea3b11f611850cb33fc9994e9ea79f69a7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984902"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582145"
 ---
 # <a name="86-categories-taxonomy"></a>86 個類別的分類法
 

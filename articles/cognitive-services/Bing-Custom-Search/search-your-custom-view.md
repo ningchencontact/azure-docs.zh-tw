@@ -10,45 +10,44 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 58472d535be41fdd3e1139756f867f683509d9a3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 77a1756aba0d8473051cdf335f33ed9ca5a8fb24
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161730"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558323"
 ---
-# <a name="call-your-custom-search"></a>呼叫您的自訂搜尋
+# <a name="call-your-bing-custom-search-instance-from-the-portal"></a>從入口網站呼叫 Bing 自訂搜尋執行個體
 
-在您第一次呼叫自訂搜尋 API 取得執行個體的搜尋結果之前，必須先取得認知服務訂用帳戶金鑰。 若要取得自訂搜尋 API 的金鑰，請參閱[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)。
+設定自訂搜尋體驗之後，您可以在 Bing 自訂搜尋[入口網站](https://customsearch.ai)中測試。 
+
+![Bing 自訂搜尋入口網站的螢幕擷取畫面](media/portal-search-screen.png)
+## <a name="create-a-search-query"></a>建立搜尋查詢 
+
+登入 Bing 自訂搜尋[入口網站](https://customsearch.ai)後，選取搜尋執行個體，然後按一下 [生產] 索引標籤。在 [端點] 之下，選取 API 端點 (例如 Web API)。 您的訂用帳戶可決定顯示的端點。
+
+若要建立搜尋查詢，請輸入您端點的參數值。 請注意，入口網站中顯示的參數可能會隨著您所選的端點而改變。 如需詳細資訊，請參閱[自訂搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)。 
+
+一些重要參數如下：
 
 
-## <a name="try-it-out"></a>試做
+|參數  |說明  |
+|---------|---------|
+|查詢     | 要搜尋的搜尋字詞。 僅適用於網頁、影像、影片與自動建議端點 |
+|自訂組態識別碼 | 所選取自訂搜尋執行個體的組態識別碼。 這是唯讀欄位。 |
+|市場     | 結果所源自的市場。 僅適用於網頁、影像、影片與裝載 UI 端點。        |
+|訂用帳戶金鑰 | 要用來測試的訂用帳戶金鑰。 您可以從下拉式清單中選取金鑰，或手動輸入一個。          |
 
-設定自訂的搜尋體驗之後，您可以從自訂搜尋入口網站中測試設定。 
+按一下 [其他參數] 會顯示下列參數：  
 
-1. 登入[自訂搜尋](https://customsearch.ai)。
-2. 從您的執行個體清單中按一下 [自訂搜尋] 執行個體。
-3. 按一下 [生產] 索引標籤。 
-4. 在 [端點] 索引標籤下，選取端點 (例如 Web API)。 您的訂用帳戶會決定要顯示哪些端點 (請參閱[定價](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)以取得訂用帳戶選項)。 
-5. 指定參數值。 
-
-    下列是您可以設定的參數 (實際清單取決於選取的端點)。 如需有關這些參數的詳細資訊，請參閱[自訂搜尋 API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) \(英文\) 參考。
-
-    - **查詢**：要搜尋的搜尋字詞。 僅適用於網頁、影像、影片與自動建議端點。
-    - **自訂組態識別碼**：所選取自訂搜尋執行個體的組態識別碼。 這是唯讀欄位。
-    - **市場**：結果來自的市場。 僅適用於網頁、影像、影片與裝載 UI 端點。
-    - **訂用帳戶金鑰**：要用來測試的訂用帳戶金鑰。 您可以從下拉式清單中選取金鑰，或手動輸入一個。  
-      
-    按一下 [其他參數] 會顯示下列參數：  
-      
-    - **安全搜尋**：用來篩選成人內容網頁的篩選條件。 僅適用於網頁、影像、影片與裝載 UI 端點。
-    - **使用者介面語言**：要用於使用者介面字串的語言。 例如，若您在裝載 UI 中啟用影像與影片， [影像] 與 [影片] 索引標籤會使用指定的語言。
-    - **計數**：回應中傳回的搜尋結果數目。 僅適用於網頁、影像與影片端點。
-    - **位移**：傳回結果之前要跳過的搜尋結果數目。 僅適用於網頁、影像與影片端點。
-
-6. 指定所有必要選項之後，請按一下 [呼叫] 在右窗格中檢視 JSON 回應。 
-
-如果您選取裝載 UI 端點，可以從底部窗格測試搜尋體驗。
+|參數  |說明  |
+|---------|---------|
+|安全搜尋     | 用來篩選成人內容網頁的篩選條件。 僅適用於網頁、影像、影片與裝載 UI 端點。        |
+|使用者介面語言    | 用於使用者介面字串的語言。 例如，若您在裝載 UI 中啟用影像與影片， [影像] 與 [影片] 索引標籤會使用指定的語言。        |
+|Count     | 回應中傳回的搜尋結果數目。 僅適用於網頁、影像與影片端點。         |
+|Offset    | 傳回結果之前要跳過的搜尋結果數目。 僅適用於網頁、影像與影片端點。        |
+    
+指定所有必要選項之後，請按一下 [呼叫] 在右窗格中檢視 JSON 回應。 如果您選取裝載 UI 端點，可以從底部窗格測試搜尋體驗。
 
 ## <a name="next-steps"></a>後續步驟
 

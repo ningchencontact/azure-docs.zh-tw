@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 08/27/2018
+ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: c838bdc8857595e55c53c0a10700c48aab988297
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f7eea6e9fdbe69003a93e34f9107d279f2105d7f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337745"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720334"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>將 IoT DevKit AZ3166 連線至 Azure IoT 中樞
 
@@ -24,7 +24,7 @@ ms.locfileid: "53337745"
 
 ## <a name="what-you-do"></a>您要做什麼
 
-將 [DevKit](https://microsoft.github.io/azure-iot-developer-kit/) 連線到您建立的 Azure IoT 中樞，收集來自感應器的溫度與溼度，並傳送資料至 IoT 中樞。
+將 DevKit 連線到您建立的 Azure IoT 中樞。 然後收集來自感應器的溫度與溼度，並傳送資料至 IoT 中樞。
 
 還沒有 DevKit 嗎？ 請試用 [DevKit 模擬器](https://azure-samples.github.io/iot-devkit-web-simulator/)或[購買 DevKit](https://aka.ms/iot-devkit-purchase)。
 
@@ -69,6 +69,8 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 按住按鈕 B，按下再放開 [Reset] 按鈕，然後放開按鈕 B。DevKit 會進入 AP 模式以供設定 Wi-Fi。 此畫面會顯示 DevKit 的服務組識別碼 (SSID) 以及設定入口網站 IP 位址。
 
 ![Reset 按鈕、按鈕 B 和 SSID](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-ap.jpg)
+
+![設定 AP 模式](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-ap-mode.gif)
 
 ### <a name="connect-to-devkit-ap"></a>連線至 DevKit AP
 
@@ -115,27 +117,33 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 
 ## <a name="prepare-the-development-environment"></a>準備開發環境
 
-### <a name="install-azure-iot-workbench"></a>安裝 Azure IoT Workbench
+### <a name="install-azure-iot-tools"></a>安裝 Azure IoT Tools
 
-我們建議使用適用於 Visual Studio Code 的 [Azure IoT Workbench](https://aka.ms/iot-workbench) 擴充功能，以在 DevKit 上進行開發。
+建議使用適用於 Visual Studio Code 的 [Azure IoT Tools](https://aka.ms/azure-iot-tools) 延伸模組套件在 DevKit 上進行開發。 Azure IoT Tools 包含 [Azure IoT Device Workbench](https://aka.ms/iot-workbench) 和 [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit)，前者可讓您在各種 IoT devkit 裝置上進行開發和偵錯，後者可讓您管理 Azure IoT 中樞並與其互動。
 
-Azure IoT Workbench 會提供開發 IoT 解決方案的整合式體驗。 它有助於使用 Azure IoT 和其他服務進行裝置和雲端開發。 您可以觀看此 [Channel 9 影片](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code)，大致了解其功用。
+您可以觀看下列 [Channel 9 影片](https://channel9.msdn.com/)，大致了解其功用：
+* [Introduction to the new IoT Workbench extension for VS Code](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code) (適用於 VS Code 的新 IoT Workbench 延伸模組簡介)
+* [What's new in the IoT Toolkit extension for VS Code](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Whats-new-in-the-IoT-Toolkit-extension-for-VS-Code) (適用於 VS Code 的 IoT Toolkit 延伸模組新功能)
 
 請遵循下列步驟以準備 DevKit 的開發環境：
 
-1. 下載及安裝 [Arduino IDE](https://www.arduino.cc/en/Main/Software)。 它會提供必要的工具鏈，以便編譯和上傳 Arduino 程式碼。
+1. 安裝 [Arduino IDE](https://www.arduino.cc/en/Main/Software)。 它會提供必要的工具鏈，以便編譯和上傳 Arduino 程式碼。
     * **Windows**：使用 Windows Installer 版本。 請勿從 App Store 安裝。
     * **macOS**：將解壓縮的 **Arduino.app** 拖放到 `/Applications` 資料夾中。
-    * **Ubuntu**：將它解壓縮到資料夾中，例如 `$HOME/Downloads/arduino-1.8.5`
+    * **Ubuntu**：將它解壓縮到資料夾中，例如 `$HOME/Downloads/arduino-1.8.8`
 
 2. 安裝 [Visual Studio Code](https://code.visualstudio.com/)，這是具有強大開發人員工具 (例如 IntelliSense 程式碼完成和偵錯) 的跨平台原始程式碼編輯器。
 
-3. 在擴充功能市集中尋找 **Azure IoT Workbench** 並加以安裝。
-    ![安裝 Azure IoT Workbench](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png) 搭配 IoT Workbench，將會安裝其他相依擴充功能。
+3. 啟動 VS Code，在延伸模組市集中尋找 **Arduino** 並加以安裝。 此延伸模組提供在 Arduino 平台上進行開發的增強體驗。
+    ![安裝 Arduino](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-arduino.png)
 
-4. 為 Visual Studio Code 設定 Arduino 設定。 
+4. 在延伸模組市集中尋找 **Azure IoT Tools** 並加以安裝。
+    ![安裝 Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
-    在 Visual Studio Code 中，按一下 [檔案] > [喜好設定] > [設定]。 然後按一下 [...] 和 [開啟 settings.json]。 
+5. 為 VS Code 設定 Arduino 設定。
+
+    在 Visual Studio Code 中，按一下 [檔案] > [喜好設定] > [設定]。 然後按一下 [...] 和 [開啟 settings.json]。
+    ![安裝 Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
     
     依據您的平台，新增下列幾行來設定 Arduino： 
 
@@ -158,12 +166,12 @@ Azure IoT Workbench 會提供開發 IoT 解決方案的整合式體驗。 它有
         以您的使用者名稱取代下方的 **{username}** 預留位置。
 
         ```json
-        "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
+        "arduino.path": "/home/{username}/Downloads/arduino-1.8.8",
         "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
         ```
 
-5. 按一下 `F1` 以開啟命令選擇區，輸入並選取 [Arduino:Board Manager]。 搜尋 **AZ3166** 並安裝最新版本。
-    ![安裝 DevKit SDK](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-sdk.png)
+6. 按一下 `F1` 以開啟命令選擇區，輸入並選取 [Arduino:Board Manager]。 搜尋 **AZ3166** 並安裝最新版本。
+    ![安裝 DevKit SDK](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-az3166-sdk.png)
 
 ### <a name="install-st-link-drivers"></a>安裝 ST-Link 驅動程式
 
@@ -171,7 +179,7 @@ Azure IoT Workbench 會提供開發 IoT 解決方案的整合式體驗。 它有
 
 * **Windows**：從 [STMicroelectronics 網站](http://www.st.com/en/development-tools/stsw-link009.html)下載並安裝 USB 驅動程式。
 * **macOS**：macOS 不需要任何驅動程式。
-* **Ubuntu**：在終端機中執行下列程式碼，並且登出後再登入，以讓群組變更生效：
+* **Ubuntu**：在終端機中執行下列程式碼並登出後再登入，以讓群組變更生效：
     ```bash
     # Copy the default rules. This grants permission to the group 'plugdev'
     sudo cp ~/.arduino15/packages/AZ3166/tools/openocd/0.10.0/linux/contrib/60-openocd.rules /etc/udev/rules.d/
@@ -188,32 +196,30 @@ Azure IoT Workbench 會提供開發 IoT 解決方案的整合式體驗。 它有
 
 1. 確定 IoT DevKit **未**連線至您的電腦。 先啟動 VS Code，然後將 DevKit 連線至您的電腦。
 
-1. 在右下方的狀態列中，檢查 **MXCHIP AZ3166** 是否顯示為已選取的面板，且使用 **STMicroelectronics** 作為序列埠。
-    ![選取面板和 COM](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-board.png)
 
-1. 按一下 `F1` 以開啟命令選擇區，輸入並選取 [IoT Workbench:Examples] \(IoT Workbench: 範例\)。 然後選取 [IoT DevKit] 作為面板。
+1. 按一下 `F1` 以開啟命令選擇區，鍵入並選取 [Azure IoT Device Workbench:Open Examples...] \(Azure IoT Device Workbench：開啟範例...\)。然後選取 [IoT DevKit] 作為面板。
 
 1. 在 [IoT Workbench 範例] 頁面上，尋找 [開始使用]，然後按一下 [開啟範例]。 然後選取預設路徑來下載範例程式碼。
     ![開啟範例](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/open-sample.png)
 
-1. 如果您並未安裝 VS Code 的 Arduino 擴充，請按一下通知窗格中的 [安裝]。
-    ![安裝 Arduino 擴充](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-arduino-ext.png)
-
-1. 在新開啟的專案視窗中，按一下 `F1` 以開啟命令選擇區，輸入並選取 [IoT Workbench:Cloud] \(IoT Workbench: 雲端\)，然後選取 [Azure Provision] \(Azure 佈建\)。 遵循逐步指南，完成您的 Azure IoT 中樞佈建並建立裝置。
+1. 在新開啟的專案視窗中，按一下 `F1` 以開啟命令選擇區，鍵入並選取 [Azure IoT Device Workbench:Provision Azure Services...] \(Azure IoT Device Workbench：佈建 Azure 服務...\)。遵循逐步指南，完成您的 Azure IoT 中樞佈建並建立 IoT 中樞裝置。
     ![雲端佈建](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/cloud-provision.png)
 
-1. 按一下 `F1` 以開啟命令選擇區，輸入並選取 [IoT Workbench:Device] \(IoT Workbench: 裝置\)，然後選取 [Config Device Settings] \(設定裝置設定\) > [Config Device Connection String] \(設定裝置連接字串\) > [Select IoT Hub Device Connection String] \(選取 IoT 中樞裝置連接字串\)。
+1. 在右下方的狀態列中，檢查 **MXCHIP AZ3166** 是否顯示為已選取的面板，且使用 **STMicroelectronics** 作為序列埠。
+    ![選取面板和 COM](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-com.png)
+
+1. 按一下 `F1` 以開啟命令選擇區，鍵入並選取 [Azure IoT Device Workbench:Configure Device Settings...] \(Azure IoT Device Workbench：設定裝置設定...\)，然後選取 [Config Device Connection String] \(設定裝置連接字串\) > [Select IoT Hub Device Connection String] \(選取 IoT 中樞裝置連接字串\)。
 
 1. 在 DevKit 上，按住**按鈕 A**，按下再放開 [重設] 按鈕，然後放開**按鈕 A**。您的 DevKit 會進入設定模式並儲存連接字串。
     ![連接字串](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)
 
-1. 再次按一下 `F1`，輸入並選取 [IoT Workbench:Device] \(IoT Workbench: 裝置\)，然後選取 [Device Upload] \(裝置上傳\)。
+1. 再按一次 `F1`，鍵入並選取 [Azure IoT Device Workbench:Upload Device Code] \(Azure IoT Device Workbench：上傳裝置程式碼\)。 即會開始編譯程式碼，並上傳到 DevKit。
     ![Arduino 上傳](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/arduino-upload.png)
 
 DevKit 會重新開機，然後開始執行程式碼。
 
 > [!NOTE]
-> 如果發生錯誤或中斷，您一律可藉由再次執行命令來復原。
+> 如果發生任何錯誤或中斷，您一律可藉由再次執行命令來復原。
 
 ## <a name="test-the-project"></a>測試專案
 
@@ -240,13 +246,14 @@ DevKit 會重新開機，然後開始執行程式碼。
 1. 在 [共用存取原則] 窗格中，按一下 [iothubowner] 原則，然後記下您 IoT 中樞的連接字串。
     ![Azure IoT 中樞連接字串](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-portal-conn-string.png)
 
-1. 在 Visual Studio Code 中，展開左下角的 [AZURE IOT 中樞裝置] ，按一下 [設定 IoT 中樞連接字串]。
-    ![設定 Azure IoT 中樞連接字串](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-toolkit-conn-string.png)
+1. 在 VS Code 中，按一下 `F1`，鍵入並選取 [Azure IoT 中樞：設定 IoT 中樞連接字串]。 將連接字串複製到其中。
+    ![設定 Azure IoT 中樞連接字串](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-iothub-connection-string.png)
 
-1. 按一下操作功能表中的 [IoT:Start monitoring D2C message] \(IoT: 開始監視 D2C 訊息\)。
+1. 展開右側的 [AZURE IOT 中樞裝置] 窗格，以滑鼠右鍵按一下您所建立的裝置名稱，然後選取 [開始監視 D2C 訊息]。
+    ![監視 D2C 訊息](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/monitor-d2c.png)
 
 1. 在 [輸出] 窗格中，您可以看到 IoT 中樞的連入 D2C 訊息。
-    ![D2C 訊息](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-toolkit-console.png)
+    ![D2C 訊息](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
 
 ## <a name="problems-and-feedback"></a>問題與意見反應
 

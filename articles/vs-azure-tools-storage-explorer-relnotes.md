@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 956482a30d383df558eee775b9d89c211bc53e61
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 94c1f255d7aae63d6faf44cc500c48c68bf6d3fc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101410"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608948"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure 儲存體總管版本資訊
 
@@ -27,49 +27,54 @@ ms.locfileid: "53101410"
 
 [Microsoft Azure 儲存體總管](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
 
-## <a name="version-150"></a>1.5.0 版
-2018 年 10 月 29 日
+## <a name="version-161"></a>1.6.1 版
+12/18/2018
 
-### <a name="download-azure-storage-explorer-150"></a>下載 Azure 儲存體總管 1.5.0
-- [適用於 Windows 的 Azure 儲存體總管 1.5.0](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 Azure 儲存體總管 1.5.0](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 Azure 儲存體總管 1.5.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-161"></a>下載 Azure 儲存體總管 1.6.1
+- [適用於 Windows 的 Azure 儲存體總管 1.6.1](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Azure 儲存體總管 1.6.1](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Azure 儲存體總管 1.6.1](https://go.microsoft.com/fwlink/?LinkId=722418)
 
+### <a name="hotfixes"></a>Hotfix
+* 由於 API 限制，[管理存取] 對話方塊中的所有 ObjectId 驗證已停都用。 現在只會對使用者 UPN 進行驗證。 [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
+* 在 ADLS Gen2 的 [管理存取] 對話方塊中，無法修改群組的權限。 已修正此問題。 [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
+* 已新增 ADLS Gen2 編輯器的拖放上傳支援。 [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
+* ADLS Gen2 檔案和資料夾的 [屬性] 對話方塊中的 URL 屬性有時會遺漏 '/'。 已修正此問題。 [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
+* 如果無法取得 ADLS Gen2 容器、檔案或資料夾的目前權限，則錯誤現在會正確顯示於活動記錄中。 [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
+* 為了開啟檔案所建立的暫存路徑已縮短，可減少在 Windows 上建立長度超過 MAX_PATH 的路徑的機會。 [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
+* 若沒有已登入的使用者或未連結任何資源，[連線] 對話方塊現在可正確地出現。 [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
+* 在 1.6.0 中，儲存非 HNS Blob 和檔案的屬性會將每個屬性的值編碼。 這會導致只包含 ASCII 字元的值進行不必要的編碼。 現在，只有當值包含非 ASCII 字元時才會進行編碼。 [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* 如果使用了 SAS 且 SAS 沒有讀取權限，則無法將資料夾上傳到非 HNS Blob 容器。 已修正此問題。 [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
+* 取消 AzCopy 傳輸無法運作。 已修正此問題。 [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
+* 嘗試從 ADLS Gen2 Blob 容器下載資料夾時，如果資料夾的名稱中包含空格，則 AzCopy 會失敗。 已修正此問題。 [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
+* CosmosDB 編輯器已無法在 1.6.0 中使用。 現在已修正。 [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+        
 ### <a name="new"></a>新增
 
-* 您現在可以使用 [AzCopy v10 (預覽)](https://github.com/Azure/azure-storage-azcopy) 來上傳和下載 Blob。 若要啟用此功能，請移至 [Experimental] \(實驗性\) 功能表，然後按一下 [Use AzCopy for Improved Blob Upload and Download] \(使用 AzCopy 來改善 Blob 上傳和下載\)。 啟用時，會在下列情況下使用 AzCopy：
-   * 將資料夾和檔案上傳到 Blob 容器 (不論是透過工具列還是拖放)。
-   * 下載資料夾和檔案 (不論是透過工具列還是操作功能表)。
-
-* 此外，使用 AzCopy 時：
-   * 您可以將用來執行傳輸的 AzCopy 命令複製到剪貼簿。 只要按一下活動記錄中的 [Copy AzCopy Command to Clipboard] \(將 AzCopy 命令複製到剪貼簿\) 即可。
-   * 上傳之後，您將需要手動重新整理 Blob 編輯器。
-   * 不支援上傳檔案來附加 Blob，.vhds 將會以分頁 Blob 的形式上傳，而所有其他檔案則會以區塊 Blob 的形式上傳。
-   * 在上傳或下載期間如有發生錯誤和衝突，將在上傳或下載完成之後才會顯示。
-
-最後，未來將會支援搭配「檔案共用」使用 AzCopy。
-* 「儲存體總管」目前使用 Electron 2.0.11 版。
-* 目前只能一次在一個 Blob 上執行中斷租用。 此外，您還必須輸入要中斷租用的 Blob 名稱。 進行這項變更是為了降低不小心中斷租用的可能性，尤其是在用於 VM 的 .vhds 情況中。 #394
-* 如果您遇到登入問題，現在已可嘗試重設驗證。 請移至 [Help] \(說明\) 功能表，然後按一下 [Reset] \(重設\) 以存取此功能。 #419
-
-### <a name="fix"></a>修正
-
-* 在收到強烈的使用者意見反應之後，我們已重新啟用預設模擬器節點。 您仍然可以透過 [Connect] \(連接\) 對話方塊來新增額外的模擬器連線，但如果您的模擬器已設定為使用預設連接埠，則您也可以使用 [Local & Attached] \(本機和已連結\) > [Storage Accounts] \(儲存體帳戶\) 底下的.[Emulator * Default Ports] \(模擬器 * 預設連接埠\)。 #669
-* 「儲存體總管」將不再允許您設定開頭或結尾包含空白字元的 Blob 中繼資料值。 #760
-* 在相同的 [Connect] \(連接\) 對話方塊頁面上一律啟用了 [Sign In] \(登入\) 按鈕。 現在已在適當的情況下予以停用。 #761
-* 未新增任何「快速存取」項目時，「快速存取」不會再於主控台中產生錯誤。
+* 您現在可以使用儲存體總管，透過 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409) 存取您的 Blob 資料。 如果您已登入且儲存體總管無法擷取儲存體帳戶的金鑰，則 OAuth 權杖將在處理資料時用來驗證。
+* 儲存體總管現在支援 ADLS Gen2 Storage 帳戶。 當儲存體總管偵測到儲存體帳戶已啟用階層式命名空間時，您會在您儲存體帳戶的名稱旁邊看見「(ADLS Gen2 預覽)」。 儲存體總管能夠偵測當您登入時是否已啟用階層式命名空間，或您是否已連結具有名稱和金鑰的儲存體帳戶。 對於 ADLS Gen2 儲存體帳戶，您可以使用儲存體總管：
+    * 建立和刪除容器
+    * 管理容器屬性和權限 (左側)
+    * 檢視及瀏覽容器內的資料
+    * 建立新資料夾
+    * 上傳、下載、重新命名及刪除檔案和資料夾
+    * 管理檔案和資料夾屬性及權限 (右側)。
+    
+    目前無法使用其他一般 Blob 功能 (例如虛刪除) 和快照集。 管理權限也僅限於登入後使用。 此外，在 ADLS Gen2 儲存體帳戶中運作時，儲存體總管會使用 AzCopy 進行所有的上傳和下載，且預設為對所有作業使用名稱和金鑰認證 (如果有的話)。
+* 在使用者強烈反應之後，中斷租用可再度用於一次在多個 Blob 上中斷租用。
 
 ### <a name="known-issues"></a>已知問題
 
+* 從 ADLS Gen2 儲存體帳戶下載時，如果其中一個傳輸中的檔案已經存在，則 AzCopy 有時會當機。 這個問題將於即將推出的 Hotfix 中獲得修正。
 * 中斷連結透過 SAS URI 連結的資源 (例如 Blob 容器) 可能會導致錯誤，使得其他附件無法正確顯示。 若要解決此問題，只需重新整理群組節點。 如需詳細資訊，請參閱 #537。
 * 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請在此問題加上註解。
 * Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
 * 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
 * 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。 若要解決這個在上傳到 Blob 容器或從 Blob 容器下載時的問題，您可以使用實驗性的 AzCopy 功能。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用這裡所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
-* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * Azure Stack 不支援下列功能。 嘗試在使用 Azure Stack 資源時使用這些功能，可能會導致非預期的錯誤。
    * 檔案共用
    * 存取層級
@@ -98,6 +103,8 @@ ms.locfileid: "53101410"
 
 ## <a name="previous-releases"></a>舊版
 
+* [1.6.0 版](#version-160)
+* [1.5.0 版](#version-150)
 * [1.4.4 版](#version-144)
 * [1.4.3 版](#version-143)
 * [1.4.2 版](#version-142)
@@ -129,11 +136,131 @@ ms.locfileid: "53101410"
 * [0.7.20160105.0 版](#version-07201601050)
 * [0.7.20151116.0 版](#version-07201511160)
 
+## <a name="version-160"></a>1.6.0 版
+12/5/2018
+
+### <a name="new"></a>新增
+
+* 您現在可以使用儲存體總管，透過 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409) 存取您的 Blob 資料。 如果您已登入且儲存體總管無法擷取儲存體帳戶的金鑰，則 OAuth 權杖將在處理資料時用來驗證。
+* 儲存體總管現在支援 ADLS Gen2 Storage 帳戶。 當儲存體總管偵測到儲存體帳戶已啟用階層式命名空間時，您會在您儲存體帳戶的名稱旁邊看見「(ADLS Gen2 預覽)」。 儲存體總管能夠偵測當您登入時是否已啟用階層式命名空間，或您是否已連結具有名稱和金鑰的儲存體帳戶。 對於 ADLS Gen2 儲存體帳戶，您可以使用儲存體總管：
+    * 建立和刪除容器
+    * 管理容器屬性和權限 (左側)
+    * 檢視及瀏覽容器內的資料
+    * 建立新資料夾
+    * 上傳、下載、重新命名及刪除檔案和資料夾
+    * 管理檔案和資料夾屬性及權限 (右側)。
+    
+    目前無法使用其他一般 Blob 功能 (例如虛刪除) 和快照集。 管理權限也僅限於登入後使用。 此外，在 ADLS Gen2 儲存體帳戶中運作時，儲存體總管會使用 AzCopy 進行所有的上傳和下載，且預設為對所有作業使用名稱和金鑰認證 (如果有的話)。
+* 在使用者強烈反應之後，中斷租用可再度用於一次在多個 Blob 上中斷租用。
+
+### <a name="known-issues"></a>已知問題
+
+* 從 ADLS Gen2 儲存體帳戶下載時，如果其中一個傳輸中的檔案已經存在，則 AzCopy 有時會當機。 這個問題將於即將推出的 Hotfix 中獲得修正。
+* 中斷連結透過 SAS URI 連結的資源 (例如 Blob 容器) 可能會導致錯誤，使得其他附件無法正確顯示。 若要解決此問題，只需重新整理群組節點。 如需詳細資訊，請參閱 #537。
+* 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請在此問題加上註解。
+* Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。 若要解決這個在上傳到 Blob 容器或從 Blob 容器下載時的問題，您可以使用實驗性的 AzCopy 功能。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用這裡所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
+* Azure Stack 不支援下列功能。 嘗試在使用 Azure Stack 資源時使用這些功能，可能會導致非預期的錯誤。
+   * 檔案共用
+   * 存取層級
+   * 虛刪除
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="version-150"></a>1.5.0 版
+2018 年 10 月 29 日
+
+### <a name="new"></a>新增
+
+* 您現在可以使用 [AzCopy v10 (預覽)](https://github.com/Azure/azure-storage-azcopy) 來上傳和下載 Blob。 若要啟用此功能，請移至 [Experimental] \(實驗性\) 功能表，然後按一下 [Use AzCopy for Improved Blob Upload and Download] \(使用 AzCopy 來改善 Blob 上傳和下載\)。 啟用時，會在下列情況下使用 AzCopy：
+   * 將資料夾和檔案上傳到 Blob 容器 (不論是透過工具列還是拖放)。
+   * 下載資料夾和檔案 (不論是透過工具列還是操作功能表)。
+
+* 此外，使用 AzCopy 時：
+   * 您可以將用來執行傳輸的 AzCopy 命令複製到剪貼簿。 只要按一下活動記錄中的 [Copy AzCopy Command to Clipboard] \(將 AzCopy 命令複製到剪貼簿\) 即可。
+   * 上傳之後，您將需要手動重新整理 Blob 編輯器。
+   * 不支援上傳檔案來附加 Blob，而且 vhd 檔案將會以分頁 Blob 的形式上傳，而所有其他檔案則會以區塊 Blob 的形式上傳。
+   * 在上傳或下載期間如有發生錯誤和衝突，將在上傳或下載完成之後才會顯示。
+
+最後，未來將會支援搭配「檔案共用」使用 AzCopy。
+* 「儲存體總管」目前使用 Electron 2.0.11 版。
+* 目前只能一次在一個 Blob 上執行中斷租用。 此外，您還必須輸入要中斷租用的 Blob 名稱。 進行這項變更是為了降低不小心中斷租用的可能性 (尤其適用於 VM)。 #394
+* 如果您遇到登入問題，現在已可嘗試重設驗證。 請移至 [Help] \(說明\) 功能表，然後按一下 [Reset] \(重設\) 以存取此功能。 #419
+
+### <a name="fix"></a>修正
+
+* 在收到強烈的使用者意見反應之後，我們已重新啟用預設模擬器節點。 您仍然可以透過 [Connect] \(連接\) 對話方塊來新增額外的模擬器連線，但如果您的模擬器已設定為使用預設連接埠，則您也可以使用 [Local & Attached] \(本機和已連結\) > [Storage Accounts] \(儲存體帳戶\) 底下的.[Emulator * Default Ports] \(模擬器 * 預設連接埠\)。 #669
+* 「儲存體總管」將不再允許您設定開頭或結尾包含空白字元的 Blob 中繼資料值。 #760
+* 在相同的 [Connect] \(連接\) 對話方塊頁面上一律啟用了 [Sign In] \(登入\) 按鈕。 現在已在適當的情況下予以停用。 #761
+* 未新增任何「快速存取」項目時，「快速存取」不會再於主控台中產生錯誤。
+
+### <a name="known-issues"></a>已知問題
+
+* 中斷連結透過 SAS URI 連結的資源 (例如 Blob 容器) 可能會導致錯誤，使得其他附件無法正確顯示。 若要解決此問題，只需重新整理群組節點。 如需詳細資訊，請參閱 #537。
+* 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請在此問題加上註解。
+* Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。 若要解決這個在上傳到 Blob 容器或從 Blob 容器下載時的問題，您可以使用實驗性的 AzCopy 功能。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用這裡所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
+* Azure Stack 不支援下列功能。 嘗試在使用 Azure Stack 資源時使用這些功能，可能會導致非預期的錯誤。
+   * 檔案共用
+   * 存取層級
+   * 虛刪除
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+
 ## <a name="version-144"></a>1.4.4 版
 10/15/2018
 
 ### <a name="hotfixes"></a>Hotfix
-* 已復原 Azure 資源管理 Api 版本，以將 Azure US Government 使用者解除封鎖。 [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* 已復原 Azure 資源管理 API 版本，以將 Azure US Government 使用者解除封鎖。 [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * 載入進度環現在使用 CSS 動畫來減少儲存體總管所使用的 GPU。 [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
 ### <a name="new"></a>新增
@@ -159,7 +286,7 @@ ms.locfileid: "53101410"
 * 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
 * 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[這裡](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
@@ -189,7 +316,7 @@ ms.locfileid: "53101410"
 10/11/2018
 
 ### <a name="hotfixes"></a>Hotfix
-* 已復原 Azure 資源管理 Api 版本，以將 Azure US Government 使用者解除封鎖。 [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* 已復原 Azure 資源管理 API 版本，以將 Azure US Government 使用者解除封鎖。 [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * 載入進度環現在使用 CSS 動畫來減少儲存體總管所使用的 GPU。 [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
 ### <a name="new"></a>新增
@@ -215,7 +342,7 @@ ms.locfileid: "53101410"
 * 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
 * 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[這裡](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
@@ -245,7 +372,7 @@ ms.locfileid: "53101410"
 09/24/2018
 
 ### <a name="hotfixes"></a>Hotfix
-* 將 Azure 資源管理 Api 版本更新為 2018-07-01 以新增新 Azure 儲存體帳戶類型的支援。 [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
+* 將 Azure 資源管理 API 版本更新為 2018-07-01 以新增新 Azure 儲存體帳戶類型的支援。 [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
 
 ### <a name="new"></a>新增
 * 已針對 SAS 連線和模擬器等大幅改良外部資源附件。 現在您可以：
@@ -270,7 +397,7 @@ ms.locfileid: "53101410"
 * 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
 * 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[這裡](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
@@ -330,7 +457,7 @@ ms.locfileid: "53101410"
 * 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
 * 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[這裡](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
@@ -384,7 +511,7 @@ ms.locfileid: "53101410"
 * 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
 * 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[這裡](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * Azure Stack 不支援下列功能，而且嘗試使用這些功能來搭配 Azure Stack 使用時，可能會導致非預期的錯誤：
@@ -444,7 +571,7 @@ ms.locfileid: "53101410"
 * 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
 * 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[這裡](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
@@ -498,7 +625,7 @@ ms.locfileid: "53101410"
 * 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
 * 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[這裡](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
@@ -564,7 +691,7 @@ ms.locfileid: "53101410"
 ### <a name="known-issues"></a>已知問題
 * 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用這裡所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
@@ -600,7 +727,7 @@ ms.locfileid: "53101410"
 ### <a name="known-issues"></a>已知問題
 * 儲存體總管不支援 ADFS 帳戶。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[此處](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用[這裡](https://github.com/Azure/azure-storage-node/issues/317)所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
@@ -649,7 +776,7 @@ ms.locfileid: "53101410"
 ### <a name="known-issues"></a>已知問題
 * 儲存體總管不支援 ADFS 帳戶。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用這裡所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
@@ -696,7 +823,7 @@ ms.locfileid: "53101410"
 * 儲存體總管不支援 ADFS 帳戶。
 * 用於「檢視總管」及「檢視帳戶管理」的快速鍵應該分別是 Ctrl/Cmd+Shift+E 和 Ctrl/Cmd+Shift+A。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用這裡所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
@@ -760,7 +887,7 @@ ms.locfileid: "53101410"
 * 儲存體總管不支援 ADFS 帳戶。
 * 用於「檢視總管」及「檢視帳戶管理」的快速鍵應該分別是 Ctrl/Cmd+Shift+E 和 Ctrl/Cmd+Shift+A。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用這裡所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
@@ -816,7 +943,7 @@ ms.locfileid: "53101410"
 * 儲存體總管不支援 ADFS 帳戶。
 * 用於「檢視總管」及「檢視帳戶管理」的快速鍵應該分別是 Ctrl/Cmd+Shift+E 和 Ctrl/Cmd+Shift+A。
 * 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用這裡所述的取消篩選器因應措施。
 * 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
@@ -921,7 +1048,7 @@ ms.locfileid: "53101410"
 
 * 已修正：檔案上傳先前很容易造成記憶體不足錯誤
 * 已修正：您現在可以使用 PIN/智慧卡登入
-* 已修正：[在入口網站中開啟] 現已可以搭配 Azure 中國、Azure 德國、Azure 美國政府及 Azure Stack 運作
+* 已修正：[在入口網站中開啟] 現已可以搭配 Azure 中國 21Vianet、Azure 德國、Azure 美國政府及 Azure Stack 運作
 * 已修正：先前將資料夾上傳至 Blob 容器時，有時候會發生「作業不合法」錯誤
 * 已修正：先前在管理快照集時會停用 [全選]
 * 已修正：在檢視基底 Blob 的快照集屬性後，可能會覆寫該基底 Blob 的中繼資料
@@ -1000,7 +1127,7 @@ ms.locfileid: "53101410"
 * 儲存體總管 0.8.9 將會自動下載最新版本的更新。
 * Hotfix：先前使用由入口網站所產生的 SAS URI 來附加儲存體帳戶將會導致錯誤。
 * 現已能針對 Blob 快照集進行建立、管理及升階。
-* 您現在已可以登入「Azure 中國」、「Azure 德國」及「Azure 美國政府」帳戶。
+* 您現在已可以登入「Azure 中國 21Vianet」、「Azure 德國」及「Azure 美國政府」帳戶。
 * 現已能變更縮放層級。 使用 [檢視] 功能表中的選項來放大、縮小及重設縮放。
 * Blob 和檔案的使用者中繼資料現已支援 Unicode 字元。
 * 協助工具改進。
@@ -1266,7 +1393,7 @@ ms.locfileid: "53101410"
 
 * Linux 支援 (和 OSX 相同的功能)
 * 新增具有共用存取簽章 (SAS) 金鑰的 Blob 容器
-* 新增 Azure 中國的儲存體帳戶
+* 新增 Azure 中國 21Vianet 的儲存體帳戶
 * 新增具有自訂端點的儲存體帳戶
 * 開啟及檢視內容文字和圖片 Blob
 * 檢視及編輯 Blob 屬性和中繼資料

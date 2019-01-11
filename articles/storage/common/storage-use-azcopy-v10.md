@@ -1,6 +1,6 @@
 ---
 title: 使用 AzCopy v10 (預覽) 複製或移動資料到 Azure 儲存體 | Microsoft Docs
-description: 使用 AzCopy v10 (預覽) 公用程式在 Blob、資料表和檔案內容來回移動或複製資料。 從本機檔案複製資料到 Azure 儲存體，或在儲存體帳戶內或之間複製資料。 輕鬆地將資料移轉至 Azure 儲存體。
+description: 使用 AzCopy v10 (預覽) 公用程式在 Blob、Data Lake 和檔案內容間來回移動或複製資料。 從本機檔案複製資料到 Azure 儲存體，或在儲存體帳戶內或之間複製資料。 輕鬆地將資料移轉至 Azure 儲存體。
 services: storage
 author: artemuwka
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: 2ab933506ea03ae72198113d70888460e5001a6d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: af45081df280f5542b5ba70892ee74c05b3e99cc
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958403"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808107"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>使用 AzCopy v10 (預覽) 傳輸資料
 
@@ -54,18 +54,24 @@ AzCopy v10 不需要安裝。 請開啟慣用的命令列應用程式，並瀏�
 ## <a name="authentication-options"></a>驗證選項
 
 AzCopy v10 可讓您在向 Azure 儲存體進行驗證時使用下列選項：
-- Azure Active Directory。 使用 Azure Active Directory 透過 ```.\azcopy login``` 來登入。  使用者應該[獲派「儲存體 Blob 資料參與者」角色](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)，才能使用 Azure Active Directory 驗證寫入至 Blob 儲存體。
-- 必須附加至 Blob 路徑的 SAS 權杖。 您可以使用 Azure 入口網站、[儲存體總管](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)、[PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestorageblobsastoken?view=azurermps-6.9.0) 或您選擇的其他工具來產生 SAS 權杖。 如需詳細資訊，請參閱[範例](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)。
+- **Azure Active Directory [在 Blob 和 ADLS Gen2 上受支援]**。 使用 Azure Active Directory 透過 ```.\azcopy login``` 來登入。  使用者應該[獲派「儲存體 Blob 資料參與者」角色](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)，才能使用 Azure Active Directory 驗證寫入至 Blob 儲存體。
+- **SAS 權杖 [在 Blob 和檔案服務上受支援]**。 將 SAS 權杖附加至命令列上的 Blob 路徑中來加以使用。 您可以使用 Azure 入口網站、[儲存體總管](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)、[PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStorageblobsastoken) 或您選擇的其他工具來產生 SAS 權杖。 如需詳細資訊，請參閱[範例](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)。
 
 ## <a name="getting-started"></a>開始使用
 
-AzCopy v10 的自我記載語法很簡單。 一般語法如下所示：
+AzCopy v10 的自我記載語法很簡單。 登入 Azure Active Directory 時的一般語法如下所示：
 
 ```azcopy
 .\azcopy <command> <arguments> --<flag-name>=<flag-value>
-# Example:
+# Examples if you have logged into the Azure Active Directory:
 .\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/containersastoken" --recursive=true
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container" --recursive=true
+.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile"
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/container"
+
+# Examples if you are using SAS tokens to authenticate:
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?sastoken" --recursive=true
+.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?sastoken"
 ```
 
 用來取得可用命令清單的方法如下：
@@ -84,15 +90,27 @@ AzCopy v10 的自我記載語法很簡單。 一般語法如下所示：
 .\azcopy cp -h
 ```
 
-## <a name="create-a-file-system-azure-data-lake-storage-gen2-only"></a>建立檔案系統 (僅 Azure Data Lake Storage Gen2 適用)
+## <a name="create-a-blob-container-or-file-share"></a>建立 Blob 容器或檔案共用 
 
-如果您已在 Blob 儲存體帳戶上啟用階層命名空間，您可以使用下列命令來建立新的檔案系統，以便將下載檔案上傳到該處。
+**建立 Blob 容器**
 
 ```azcopy
-.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name" --recursive=true
+.\azcopy make "https://account.blob.core.windows.net/container-name"
 ```
 
-這個字串的 ``account`` 部分是您的儲存體帳戶名稱。 這個字串的 ``top-level-resource-name`` 部分是您想要建立的檔案系統名稱。
+**建立檔案共用**
+
+```azcopy
+.\azcopy make "https://account.file.core.windows.net/share-name"
+```
+
+**使用 ADLS Gen2 建立 Blob 容器**
+
+如果您已在 Blob 儲存體帳戶上啟用階層命名空間，您可以使用下列命令來建立新的檔案系統 (Blob 容器)，以便將檔案上傳到該處。
+
+```azcopy
+.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name"
+```
 
 ## <a name="copy-data-to-azure-storage"></a>將資料複製到 Azure 儲存體
 
@@ -102,37 +120,22 @@ AzCopy v10 的自我記載語法很簡單。 一般語法如下所示：
 - Azure 檔案/目錄/檔案共用 URI
 - Azure Data Lake Storage Gen2 檔案系統/目錄/檔案 URI
 
-> [!NOTE]
-> AzCopy v10 目前只支援在兩個儲存體帳戶之間複製區塊 Blob。
-
 ```azcopy
 .\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
 # Using alias instead
 .\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
 ```
 
-下列命令會將資料夾 C:\local\path 下的所有檔案，以遞迴方式上傳到容器 "mycontainer1"：
+下列命令會將資料夾 `C:\local\path` 下的所有檔案，以遞迴方式上傳到在容器中建立 `path` 目錄的容器 `mycontainer1`：
 
 ```azcopy
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
-如果您已在 Blob 儲存體帳戶上啟用階層命名空間，您可以使用下列命令將檔案上傳到您的檔案系統：
-
-```azcopy
-.\azcopy cp "C:\local\path" "https://myaccount.dfs.core.windows.net/myfolder<sastoken>" --recursive=true
-```
-
-下列命令會將資料夾 C:\local\path 下的所有檔案 (不會遞迴至子目錄) 上傳到容器 "mycontainer1"：
+下列命令會將資料夾 `C:\local\path` 下的所有檔案 (不會遞迴至子目錄) 上傳到容器 `mycontainer1`：
 
 ```azcopy
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
-```
-
-如果您已在 Blob 儲存體帳戶上啟用階層命名空間，您可以使用下列命令：
-
-```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/myfolder<sastoken>"
 ```
 
 若要取得更多範例，請使用下列命令：
@@ -143,23 +146,21 @@ AzCopy v10 的自我記載語法很簡單。 一般語法如下所示：
 
 ## <a name="copy-data-between-two-storage-accounts"></a>在兩個儲存體帳戶之間複製資料
 
-在兩個儲存體帳戶之間複製資料的作業會使用 [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API，而且不會使用用戶端電腦的網路頻寬。 資料會在兩個 Azure 儲存體伺服器之間直接複製，AzCopy 只會協調複製作業。 
+在兩個儲存體帳戶之間複製資料的作業會使用 [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API，而且不會使用用戶端電腦的網路頻寬。 資料會在兩個 Azure 儲存體伺服器之間直接複製，AzCopy 只會協調複製作業。 此選項目前只能供 Blob 儲存體使用。
 
 若要在兩個儲存體帳戶之間複製資料，請使用下列命令：
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
-若要使用已啟用階層命名空間的 Blob 儲存體帳戶，請以 ``dfs.core.windows.net`` 取代這些範例中的 ``blob.core.windows.net`` 字串。
-
 > [!NOTE]
 > 此命令會列舉所有 Blob 容器，並將它們複製到目的地帳戶。 AzCopy v10 目前只支援在兩個儲存體帳戶之間複製區塊 Blob。 所有其他儲存體帳戶物件 (附加 Blob、分頁 Blob、檔案、資料表和佇列) 則會略過。
 
 ## <a name="copy-a-vhd-image-to-a-storage-account"></a>將 VHD 映像複製到儲存體帳戶
 
-AzCopy v10 依預設會將資料上傳至區塊 Blob。 不過，如果來源檔案的副檔名是 vhd，則 AzCopy v10 依預設會將它上傳至分頁 Blob。 此行為無法設定。
+AzCopy v10 依預設會將資料上傳至區塊 Blob。 不過，如果來源檔案的副檔名是 vhd，則 AzCopy v10 依預設會將它上傳至分頁 Blob。 此行為目前無法設定。
 
-## <a name="sync-incremental-copy-and-delete"></a>同步處理：累加複製和刪除
+## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>同步處理：累加複製和刪除 (僅限 Blob 儲存體)
 
 > [!NOTE]
 > Sync 命令會將內容從來源同步處理到目的地，此外，這也會刪除目的地檔案 (如果這些檔案不存在於來源中)。 請確定您所使用的是想要同步處理的目的地。
@@ -177,9 +178,7 @@ AzCopy v10 依預設會將資料上傳至區塊 Blob。 不過，如果來源檔
 .\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
 ```
 
-此命令可讓您根據上一次修改的時間戳記，以累加方式將來源同步處理到目的地。 如果您在來源中新增或刪除檔案，AzCopy v10 也會在目的地進行相同操作。
-
-[!NOTE] 若要使用已啟用階層命名空間的 Blob 儲存體帳戶，請以 ``dfs.core.windows.net`` 取代這些範例中的 ``blob.core.windows.net`` 字串。
+此命令可讓您根據上一次修改的時間戳記，以累加方式將來源同步處理到目的地。 如果您在來源中新增或刪除檔案，AzCopy v10 也會在目的地進行相同操作。 刪除之前，AzCopy 會提示您確認刪除檔案。
 
 ## <a name="advanced-configuration"></a>進階組態
 
@@ -246,6 +245,10 @@ cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```azcopy
 .\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
 ```
+
+### <a name="change-the-default-log-level"></a>變更預設記錄層級
+
+根據預設，AzCopy 記錄層級設定為 INFO。 如果您想要減少記錄詳細資訊以節省磁碟空間，請使用 ``--log-level`` 選項來覆寫此設定。 可用記錄層級如下：DEBUG、INFO、WARNING、ERROR、PANIC 及 FATAL
 
 ## <a name="next-steps"></a>後續步驟
 

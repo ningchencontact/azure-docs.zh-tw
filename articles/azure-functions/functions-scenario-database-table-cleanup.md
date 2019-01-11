@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: e59c0b6994a64972b1458c0f295f24d0a615d871
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740105"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608574"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>使用 Azure Functions 連接到 Azure SQL Database
 
@@ -70,7 +70,7 @@ ms.locfileid: "50740105"
 
 1. 在 [瀏覽] 索引標籤上搜尋 ```System.Data.SqlClient```，並在找到後加以選取。
 
-1. 在 **System.Data.SqlClient** 頁面上，按一下 [安裝]。
+1. 在 **System.Data.SqlClient** 頁面中，選取版本 `4.5.1`，然後按一下 [安裝]。
 
 1. 當安裝完成時，檢閱所做的變更，然後按一下 [確定] 來關閉 [預覽] 視窗。
 
@@ -139,6 +139,6 @@ ms.locfileid: "50740105"
 如需 Functions 的詳細資訊，請參閱下列文章：
 
 + [Azure Functions 開發人員參考](functions-reference.md)  
-  可供程式設計人員撰寫函數程式碼及定義觸發程序和繫結時參考。
+   可供程式設計人員撰寫函數程式碼及定義觸發程序和繫結時參考。
 + [測試 Azure Functions](functions-test-a-function.md)  
   說明可用於測試函式的各種工具和技巧。  

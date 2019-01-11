@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: dbd4634c575fd4f1886d3e7714ef9ddabbde0f8a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 41e8fb40f07a88cb6fa2108a38db7f973fccd2f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341152"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607793"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>教學課程：Azure Active Directory 與 GitHub 整合
 
@@ -49,7 +49,8 @@ GitHub 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。
+本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 GitHub
 2. 設定並測試 Azure AD 單一登入
@@ -59,21 +60,21 @@ GitHub 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 GitHub，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
     ![映像](./media/github-tutorial/selectazuread.png)
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![映像](./media/github-tutorial/a_select_app.png)
-    
+
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![映像](./media/github-tutorial/a_new_app.png)
 
 4. 在搜尋方塊中，輸入 **GitHub**，從結果面板中選取 [GitHub]，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![映像](./media/github-tutorial/tutorial_github_addfromgallery.png)
+    ![映像](./media/github-tutorial/tutorial_github_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
@@ -109,7 +110,7 @@ GitHub 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![映像](./media/github-tutorial/tutorial_github_url.png) 
+    ![映像](./media/github-tutorial/tutorial_github_url.png)
 
     a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL：`https://github.com/orgs/<entity-id>/sso`
 
@@ -123,7 +124,7 @@ GitHub 與 Azure AD 整合提供下列優點：
     ![映像](./media/github-tutorial/i3-attribute.png)
 
 6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
-    
+
     a. 按一下 [編輯] 按鈕以開啟 [管理使用者宣告] 對話方塊。
 
     ![映像](./media/github-tutorial/i2-attribute.png)
@@ -133,7 +134,7 @@ GitHub 與 Azure AD 整合提供下列優點：
     b. 從 [來源屬性] 清單中，選取屬性值。
 
     c. 按一下 [檔案] 。
- 
+
 7. 在 [SAML 簽署憑證] 區段中，按一下 [下載] 來下載 [憑證 (Base64)]，然後將它儲存在您的電腦上。
 
     ![映像](./media/github-tutorial/tutorial_github_certficate.png)
@@ -146,7 +147,7 @@ GitHub 與 Azure AD 整合提供下列優點：
 
     c. 登出 URL
 
-    ![映像](./media/github-tutorial/d1_samlsonfigure.png) 
+    ![映像](./media/github-tutorial/d1_samlsonfigure.png)
 
 9. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 GitHub 組織網站。
 
@@ -170,8 +171,8 @@ GitHub 與 Azure AD 整合提供下列優點：
 
     d. 按一下 [編輯] 圖示以編輯 [簽章方法] 和 [摘要方法]，將 **RSA-SHA1** 和 **SHA1** 改為 **RSA-SHA256** 和 **SHA256**，如下所示。
 
-    ![映像](./media/github-tutorial/tutorial_github_sha.png) 
-    
+    ![映像](./media/github-tutorial/tutorial_github_sha.png)
+
 13. 按一下 [測試 SAML 組態]，確認 SSO 期間沒有驗證失敗或錯誤。
 
     ![設定](./media/github-tutorial/tutorial_github_config_github_06.png)
@@ -179,7 +180,7 @@ GitHub 與 Azure AD 整合提供下列優點：
 14. 按一下 [儲存] 
 
 > [!NOTE]
-> GitHub 中的單一登入會向 GitHub 中的特定組織驗證，而不會取代 GitHub 本身的驗證。 因此，如果使用者的 GitHub.com 工作階段已過期，系統可能會在單一登入程序進行期間，要求您使用 GitHub 的識別碼/密碼進行驗證。
+> GitHub 中的單一登入會向 GitHub 中的特定組織驗證，而不會取代 GitHub 本身的驗證。 因此，如果使用者的 github.com 工作階段已過期，系統可能會在單一登入程序進行期間，要求您使用 GitHub 的識別碼/密碼進行驗證。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -202,10 +203,10 @@ GitHub 與 Azure AD 整合提供下列優點：
     b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 依序選取 [屬性]、[顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
     d. 選取 [建立] 。
- 
+
 ### <a name="create-a-github-test-user"></a>建立 GitHub 測試使用者
 
 本節的目標是在 GitHub 中建立名為 Britta Simon 的使用者。 GitHub 支援自動使用者佈建，該功能預設為啟用。 您可以在[這裡](github-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
@@ -258,13 +259,13 @@ GitHub 與 Azure AD 整合提供下列優點：
 4. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
 
 5. 在 [新增指派] 對話方塊中，選取 [指派] 按鈕。
-    
+
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [GitHub] 圖格時，應該就會自動登入 GitHub 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -11,14 +11,15 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 478727a4d3628fbe6a385e3beb28201c228f9e2d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8ea180131ce2f9e1288c3ffb928170be55a77de7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078225"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598445"
 ---
-# <a name="luis-api-http-response-codes"></a>LUIS API HTTP 回應碼
+# <a name="common-api-response-codes-and-their-meaning"></a>常見的 API 回應碼及其意義
+
 [撰寫](https://aka.ms/luis-authoring-apis)和[端點](https://aka.ms/luis-endpoint-apis) API 會傳回 HTTP 回應碼。 當回應訊息包含專屬於要求的資訊時，HTTP 回應狀態碼為一般。 
 
 ## <a name="common-status-codes"></a>常見狀態碼
@@ -38,3 +39,7 @@ ms.locfileid: "53078225"
 |410|端點|應用程式需要重新訓練並重新發行|
 |414|端點|查詢超過最大字元限制|
 |429|撰寫、端點|超出速率限制 (要求/秒)|
+
+## <a name="next-steps"></a>後續步驟
+
+* REST API [撰寫](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)和[端點](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)文件

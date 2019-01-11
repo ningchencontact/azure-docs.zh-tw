@@ -2,24 +2,27 @@
 title: 遠端監視解決方案中的裝置結構描述 - Azure | Microsoft Docs
 description: 本文說明 JSON 結構描述，它會定義遠端監視解決方案中的模擬裝置。
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: f312f29e14c371e7b500f3eee6471151e3544513
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 54e21e0b5f522b226ec1abb71a1c5ab5b245df05
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338850"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635522"
 ---
 # <a name="understand-the-device-model-schema"></a>了解裝置機型結構描述
 
-您可以在遠端監視解決方案中使用模擬裝置以測試其行為。 當您部署遠端監視解決方案時，會自動佈建模擬裝置集合。 您可以自訂現有的模擬裝置，或建立您自己的裝置。
+您可以在遠端監視解決方案中使用模擬裝置以測試其行為。 遠端監視解決方案包含用以執行模擬裝置的裝置模擬服務。 當您部署遠端監視解決方案時，會自動佈建模擬裝置集合。 您可以自訂現有的模擬裝置，或建立您自己的裝置。
 
 本文說明裝置機型結構描述，它會指定模擬裝置的功能和行為。 裝置機型會儲存在 JSON 檔案中。
+
+> [!NOTE]
+> 此裝置模型結構描述只適用於裝載於裝置模擬服務中的模擬裝置。 如果您想要建立實體裝置，請參閱[將裝置連線到遠端監視解決方案加速器](iot-accelerators-connecting-devices.md)。
 
 下列文章與目前的文章相關：
 

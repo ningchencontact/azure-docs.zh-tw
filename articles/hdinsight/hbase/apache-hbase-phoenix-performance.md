@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 8a67327497c96cba570d2ddb8c525bf5a60be790
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: da227151dd056dd5e852ae8790b6f20ac3c0c790
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308204"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653300"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Apache Phoenix 效能最佳做法
 
-[Apache Phoenix](https://phoenix.apache.org/) 效能最重要的層面，就是將基礎 [Apache HBase](http://hbase.apache.org/) 最佳化。 Phoenix 會在負責將 SQL 查詢轉換成 HBase 作業 (例如掃描) 的 HBase 之上建立關聯式資料模型。 資料表結構描述的設計、主索引鍵中欄位的選取和順序以及索引的使用，都會影響 Phoenix 效能。
+[Apache Phoenix](https://phoenix.apache.org/) 效能最重要的層面，就是將基礎 [Apache HBase](https://hbase.apache.org/) 最佳化。 Phoenix 會在負責將 SQL 查詢轉換成 HBase 作業 (例如掃描) 的 HBase 之上建立關聯式資料模型。 資料表結構描述的設計、主索引鍵中欄位的選取和順序以及索引的使用，都會影響 Phoenix 效能。
 
 ## <a name="table-schema-design"></a>資料表結構描述設計
 
@@ -225,9 +225,9 @@ Phoenix 索引是一個 HBase 資料表，其中儲存索引資料表中部分�
 
     CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
 
-如需這個選項及其他選項的詳細資訊，請參閱 [Phoenix 文法](http://phoenix.apache.org/language/index.html#options)。
+如需這個選項及其他選項的詳細資料，請參閱 [Apache Phoenix 文法](https://phoenix.apache.org/language/index.html#options)。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [Apache Phoenix 微調指南](https://phoenix.apache.org/tuning_guide.html)
-* [次要索引](http://phoenix.apache.org/secondary_indexing.html)
+* [次要索引](https://phoenix.apache.org/secondary_indexing.html)

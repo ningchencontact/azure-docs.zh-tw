@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 7373cc23654e2168963a364e4b4069331bf196c5
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8a0808c0e82ee31a5fd684d449fa30cd331d3dba
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969925"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063857"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Simple Storage Service 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ ms.locfileid: "53969925"
 具體而言，這個 Amazon S3 連接器支援依原樣複製檔案，或使用[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md)來剖析檔案。
 
 >[!TIP]
->您可以使用此 Amazon S3 連接器從**任何與 S3 相容的儲存體提供者** (例如 [Google Cloud Storage](#copy-from-google-cloud-storage)) 中複製資料。 在連結服務設定中指定相對應的服務 URL。
+>您可以使用此 Amazon S3 連接器從**任何與 S3 相容的儲存體提供者** (例如 [Google Cloud Storage](connector-google-cloud-storage.md)) 中複製資料。 在連結服務設定中指定相對應的服務 URL。
 
 ## <a name="required-permissions"></a>所需的權限
 
@@ -212,35 +212,6 @@ ms.locfileid: "53969925"
         }
     }
 ]
-```
-
-## <a name="copy-from-google-cloud-storage"></a>從 Google Cloud Storage 中複製
-
-由於 Google Cloud Storage 提供與 S3 相容的互通性，因此您可以使用 Amazon S3 連接器將資料從 Google Cloud Storage 複製到任何[支援的接收資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。 
-
-您可以在 ADF 撰寫 UI 連接器資源庫中找到特定的 Google Cloud Storage 項目，此項目會自動將服務 URL 填寫為 `https://storage.googleapis.com`。 若要尋找存取金鑰和祕密，請前往 [Google Cloud Storage] > [設定] > [互通性]。 請從頭參閱本文，以了解使用 S3 連接器來複製資料的詳細概觀。
-
-**連結服務範例：**
-
-```json
-{
-    "name": "GoogleCloudStorageLinkedService",
-    "properties": {
-        "type": "AmazonS3",
-        "typeProperties": {
-            "accessKeyId": "<access key id>",
-            "secretAccessKey": {
-                "type": "SecureString",
-                "value": "<secret access key>"
-            },
-            "serviceUrl": "https://storage.googleapis.com"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
 ```
 
 ## <a name="next-steps"></a>後續步驟

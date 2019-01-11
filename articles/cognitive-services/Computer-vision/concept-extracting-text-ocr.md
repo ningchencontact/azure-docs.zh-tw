@@ -10,22 +10,23 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 52b6265722d5cfbf8baf54e1785ace627aa0892f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 07d3f5d365fa5c552ccb61c97532a9931b7e282e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341662"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583675"
 ---
-# <a name="extracting-text-with-ocr"></a>利用 OCR 擷取文字
+# <a name="extracting-text-with-optical-character-recognition"></a>使用光學字元辨識擷取文字
 
 電腦視覺中的光學字元辨識 (OCR) 技術可偵測影像中的文字內容，並將識別出來的文字詞擷取到電腦可讀取的字元資料流中。 您可以將其結果用於搜尋和其他多種用途上，像是醫療記錄、保全和銀行業務等。 它會自動偵測語言。 OCR 讓使用者只需拍攝文字相片而不必謄寫文字，省時又方便。
 
-OCR 支援 25 種語言。 這些語言是：阿拉伯文、簡體中文、繁體中文、捷克文、丹麥文、荷蘭文、英文、芬蘭文、法文、德文、希臘文、匈牙利文、義大利文、日文、韓文、挪威文、波蘭文、葡萄牙文、羅馬尼亞文、俄文、塞爾維亞文 (斯拉夫文和英文)、斯洛伐克文、西班牙文、瑞典文和土耳其文。
+OCR 支援 25 種語言。 這些語言是：阿拉伯文、簡體中文、繁體中文、捷克文、丹麥文、荷蘭文、英文、芬蘭文、法文、德文、希臘文、匈牙利文、義大利文、日文、韓文、挪威文、波蘭文、葡萄牙文、羅馬尼亞文、俄文、塞爾維亞文 (斯拉夫文和拉丁文)、斯洛伐克文、西班牙文、瑞典文及土耳其文。
 
 如有需要，OCR 會沿著水平影像軸以度為單位校正已辨識文字的旋轉角度。 OCR 會提供每個字的框架座標，如下圖所示。
 
-![OCR 概觀](./Images/vision-overview-ocr.png)
+![描畫旋轉影像及其所讀取和描繪文字的圖表](./Images/vision-overview-ocr.png)
 
 ## <a name="ocr-requirements"></a>OCR 需求
 

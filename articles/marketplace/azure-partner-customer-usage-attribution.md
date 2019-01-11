@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262596"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602166"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -270,15 +270,11 @@ Microsoft 為合作夥伴提供一個客戶部署範本檢視和受影響的使�
 
 **何人能將 GUID 加入至範本？**
 
-追蹤資源的主要目的是將合作夥伴的解決方案連結到客戶的 Azure 使用量。 使用量資料會繫結到合作夥伴的 Microsoft 合作夥伴網路身分識別 (MPN ID)。 合作夥伴可以在 CPP 中取得回報資料。
+追蹤資源的主要目的是將合作夥伴的解決方案連結到客戶的 Azure 使用量。 使用量資料會繫結到合作夥伴的 Microsoft 合作夥伴網路身分識別 (MPN ID)。 
 
 **加入 GUID 之後能否予以變更？**
  
 是，客戶或實作合作夥伴可自訂範本並能變更或移除該 GUID。 建議合作夥伴主動向其客戶與合作夥伴，描述資源角色與 GUID，以防止移除或編輯該追蹤 GUID。 變更 GUID 只會影響新的部署和資源，現有的部署和資源不受影響。
-
-**何時才能使用報告功能？**
-
-報告搶鮮版 (Beta) 很快就會推出。 回報功能將會與 CPP 整合。
 
 **我可以從類似 GitHub 的非 Microsoft 存放庫追蹤部署的範本嗎？**
 

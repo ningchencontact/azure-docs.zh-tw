@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 1aa1bd085a312e379dc996a860c7f97b2e0dfe73
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: a296576d3d7983b710727923043091f5660b693d
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918871"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002547"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>使用 Azure 檔案同步管理已註冊的伺服器
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
 
 下列文章說明如何使用儲存體同步服務來註冊及管理伺服器。 如需如何從頭到尾部署 Azure 檔案同步的資訊，請參閱[如何部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>使用儲存體同步服務來註冊/取消註冊伺服器
 使用 Azure 檔案同步來註冊伺服器可在 Windows Server 與 Azure 之間建立信任關係。 此關係可用來在伺服器上建立伺服器端點，其代表應與 Azure 檔案共用 (也稱為雲端端點) 同步的特定資料夾。 
@@ -33,10 +35,10 @@ Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服�
     
     ![醒目提示 [IE 增強式安全性設定] 的 [伺服器管理員] UI](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* 確定您的伺服器上已安裝 AzureRM PowerShell 模組。 如果您的伺服器是容錯移轉叢集的成員，則叢集中的每個節點都需要 AzureRM 模組。 您可以在 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (安裝和設定 Azure PowerShell) 中，找到有關如何安裝 AzureRM 模組的更多詳細資料。
+* 確定您的伺服器上已安裝 Azure PowerShell 模組。 如果您的伺服器是容錯移轉叢集的成員，則叢集中的每個節點都需要 Az 模組。 您可以在[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)中，找到如何安裝 Az 模組的詳細資料。
 
     > [!Note]  
-    > 建議使用最新版 AzureRM PowerShell 模組來註冊/取消註冊伺服器。 如果先前在此伺服器上已安裝 AzureRM 套件 (而且此伺服器上的 PowerShell 版本為 5.* 或更新版本)，您可以使用 `Update-Module` Cmdlet 更新此套件。 
+    > 建議使用最新版 Az PowerShell 模組註冊/取消註冊伺服器。 如果先前已在此伺服器上安裝 Az 套件 (而且此伺服器上的 PowerShell 版本為 5.* 或更高版本)，您可以使用 `Update-Module` Cmdlet 更新此套件。 
 * 如果您在您的環境中使用網路 Proxy 伺服器，請在伺服器上針對要使用的同步代理程式設定 Proxy 設定。
     1. 判斷 Proxy IP 位址和連接埠號碼
     2. 編輯這兩個檔案：
@@ -135,8 +137,8 @@ Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
-$accountInfo = Connect-AzureRmAccount
-Login-AzureRmStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
+$accountInfo = Connect-AzAccount
+Login-AzStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
 
 $StorageSyncService = "<your-storage-sync-service>"
 

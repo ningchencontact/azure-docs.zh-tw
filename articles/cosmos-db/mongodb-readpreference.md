@@ -1,6 +1,6 @@
 ---
-title: 搭配 Azure Cosmos DB MongoDB API 使用 MongoDB 讀取喜好設定
-description: 了解如何搭配 Azure Cosmos DB MongoDB API 使用 MongoDB 讀取喜好設定
+title: 搭配 Azure Cosmos DB 適用於 MongoDB 的 API 使用 MongoDB 讀取喜好設定
+description: 了解如何搭配 Azure Cosmos DB 適用於 MongoDB 的 API 使用 MongoDB 讀取喜好設定
 services: cosmos-db
 author: vidhoonv
 ms.author: sclyon
@@ -9,22 +9,22 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
-ms.openlocfilehash: 4f40a2dac04102a19be7b3209c6bf37be9252cde
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 25c1872a677b05980899307a8de9f9b51fa749f9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875343"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787830"
 ---
-# <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>如何搭配 Azure Cosmos DB MongoDB API 使用讀取喜好設定全域散發讀取 
+# <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>如何使用 Azure Cosmos DB 適用於 MongoDB 的 API 來設定全域散發讀取
 
-本文說明如何搭配 Azure Cosmos DB 的 MongoDB API 使用 [MongoDB 讀取喜好設定](https://docs.mongodb.com/manual/core/read-preference/) \(英文\) 全域散發讀取作業。 
+本文說明如何搭配 Azure Cosmos DB 適用於 MongoDB 的 API 使用 [MongoDB 讀取喜好設定](https://docs.mongodb.com/manual/core/read-preference/)來全域散發讀取作業。
 
 ## <a name="prerequisites"></a>必要條件 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
-如需使用 Azure 入口網站透過全域散發來設定 Azure Cosmos DB 帳戶，然後使用 MongoDB API 來連線的指示，請參閱此[快速入門](tutorial-global-distribution-mongodb.md)文章。
+如需使用 Azure 入口網站透過全域散發來設定 Cosmos 帳戶，然後與其連線的指示，請參閱此[快速入門](tutorial-global-distribution-mongodb.md)一文。
 
 ## <a name="clone-the-sample-application"></a>複製範例應用程式
 
@@ -52,10 +52,10 @@ cd mean
 npm install
 node index.js
 ```
-應用程式會嘗試連線到 MongoDB 來源，並因為連接字串無效而失敗。 請依照讀我檔案中的步驟執行以更新連接字串 `url`。 此外，請將 `readFromRegion` 更新為 Azure Cosmos DB 帳戶中的讀取區域。 下列指示出自 NodeJS 範例：
+應用程式會嘗試連線到 MongoDB 來源，並因為連接字串無效而失敗。 請依照讀我檔案中的步驟執行以更新連接字串 `url`。 此外，請將 `readFromRegion` 更新為 Cosmos 帳戶中的讀取區域。 下列指示出自 NodeJS 範例：
 
 ```
-* Next, substitute the `url`, `readFromRegion` in App.Config with your Cosmos DB account's values. 
+* Next, substitute the `url`, `readFromRegion` in App.Config with your Cosmos account's values. 
 ```
 
 執行這些步驟之後，範例應用程式會執行並會產生下列輸出：
@@ -74,7 +74,7 @@ readFromSecondaryfunc query completed!
 
 ## <a name="read-using-read-preference-mode"></a>使用讀取喜好設定模式來讀取
 
-MongoDB 會提供下列讀取喜好模式供用戶端使用：
+MongoDB 通訊協定會提供下列讀取喜好設定模式供用戶端使用：
 
 1. PRIMARY
 2. PRIMARY_PREFERRED
@@ -82,7 +82,7 @@ MongoDB 會提供下列讀取喜好模式供用戶端使用：
 4. SECONDARY_PREFERRED
 5. NEAREST
 
-如需這些讀取喜好設定模式各項行為的詳細資訊，請參閱詳盡的 [MongoDB 讀取喜好設定行為](https://docs.mongodb.com/manual/core/read-preference-mechanics/#replica-set-read-preference-behavior) \(英文\) 文件。 在 Azure Cosmos DB 中，主要區域會對應至寫入區域，而次要區域會對應至讀取區域。
+如需這些讀取喜好設定模式各項行為的詳細資訊，請參閱詳盡的 [MongoDB 讀取喜好設定行為](https://docs.mongodb.com/manual/core/read-preference-mechanics/#replica-set-read-preference-behavior) \(英文\) 文件。 在 Cosmos DB 中，primary 會對應至 WRITE 區域，而 secondary 會對應至 READ 區域。
 
 根據常見案例，建議您使用下列設定：
 
@@ -137,7 +137,7 @@ MongoClient.connect(url, function(err, client) {
 
 ## <a name="read-using-tags"></a>使用標記讀取
 
-除了讀取喜好設定模式之外，MongoDB 還允許使用標記來導向讀取作業。 在適用於 MongoDB API 的 Azure Cosmos DB 中，預設會包含 `region` 標記當做 `isMaster` 回應的一部分：
+除了讀取喜好設定模式之外，MongoDB 通訊協定還允許使用標記來導向讀取作業。 在 Cosmos DB 適用於 MongoDB 的 API 中，預設會包含 `region` 標記當作 `isMaster` 回應的一部分：
 
 ```json
 "tags": {
@@ -145,7 +145,7 @@ MongoClient.connect(url, function(err, client) {
       }
 ```
 
-因此，MongoClient 可以將 `region` 標記和區域名稱一起使用，將讀取作業導向至特定區域。 針對 Azure Cosmos DB 帳戶，您可以在 Azure 入口網站左邊的 [設定] -> [全域複寫資料] 下找到區域名稱。 此設定對於達成**讀取隔離**很有幫助，但只限用戶端應用程式想要將讀取作業導向至特定區域的情況。 此設定適用於在背景中執行且不是實際執行的重要服務之類的非生產/分析類型案例。
+因此，MongoClient 可以將 `region` 標記和區域名稱一起使用，將讀取作業導向至特定區域。 針對 Cosmos 帳戶，您可以在 Azure 入口網站左邊的 [設定] -> [全域複寫資料] 下找到區域名稱。 此設定對於達成**讀取隔離**很有幫助，但只限用戶端應用程式想要將讀取作業導向至特定區域的情況。 此設定適用於在背景中執行且不是實際執行的重要服務之類的非生產/分析類型案例。
 
 下列來自範例應用程式的程式碼片段示範如何在 NodeJS 中搭配標記來設定讀取喜好設定：
 
@@ -160,7 +160,7 @@ MongoClient.connect(url, function(err, client) {
 
 請參閱其他平台對應的範例應用程式存放庫，例如 [.NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference) 和 [Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)。
 
-在本文中，您已了解如何搭配 Azure Cosmos DB 的 MongoDB API 使用讀取喜好設定來全域散發讀取作業。
+在本文中，您已了解如何搭配 Azure Cosmos DB 適用於 MongoDB 的 API 使用讀取喜好設定來全域散發讀取作業。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -172,5 +172,5 @@ MongoClient.connect(url, function(err, client) {
 ## <a name="next-steps"></a>後續步驟
 
 * [將 MongoDB 資料匯入到 Azure Cosmos DB](mongodb-migrate.md)
-* [設定全域複寫的 Azure Cosmos DB 帳戶並搭配 MongoDB API 使用](tutorial-global-distribution-mongodb.md)
-* [使用模擬器在本機進行開發](local-emulator.md)
+* [使用 Azure Cosmos DB 適用於 MongoDB 的 API 來設定全域散發的資料庫](tutorial-global-distribution-mongodb.md)
+* [使用 Azure Cosmos DB 模擬器在本機開發](local-emulator.md)

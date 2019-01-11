@@ -1,7 +1,7 @@
 ---
 title: 偵測特定網域內容 - 電腦視覺
 titleSuffix: Azure Cognitive Services
-description: 使用電腦視覺 API 描述影像的相關概念。
+description: 了解如何指定影像分類網域，以傳回影像的詳細資訊。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: a9c71fa7e5d86cfeb4fe6fab44bbce241546ccb8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 50942634bd50974453c242d1980db9fc589bd47e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342548"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579204"
 ---
 # <a name="detecting-domain-specific-content"></a>偵測特定網域內容
 
@@ -32,7 +33,7 @@ ms.locfileid: "49342548"
 
 您可以依「電腦視覺」列出特定領域的模型。 目前，電腦視覺支援下列特定領域模型來偵測特定領域內容：
 
-| 名稱 | 說明 |
+| Name | 說明 |
 |------|-------------|
 | 名人 | 支援 `people_` 類別中分類影像的名人辨識 |
 | 地標 | 支援 `outdoor_` 或 `building_` 類別中分類影像的地標辨識 |

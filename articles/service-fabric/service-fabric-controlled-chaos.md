@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 3774ae0572a87129fb089064cec9bb7957a98c22
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: a1b334b34e8e234d9ce5cc5ad5cd77bf5ba7118c
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113234"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555518"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>在 Service Fabric 叢集中引發受控制的混亂
 雲端基礎結構之類的大型分散式系統本身並不可靠。 Azure Service Fabric 可讓開發人員在不可靠的基礎結構之上撰寫可靠的分散式服務。 若要在不可靠的基礎結構之上撰寫健全的分散式服務，開發人員需要能夠測試其服務的穩定性，同時不可靠的基礎結構會因錯誤而經歷複雜的狀態轉換。
@@ -34,7 +34,7 @@ ms.locfileid: "39113234"
 > 目前來說，混亂只會引發安全的錯誤，這表示如果沒有外部錯誤，絕不會發生仲裁遺失或資料遺失。
 >
 
-混亂執行時，會產生不同事件來擷取目前執行的狀態。 例如，ExecutingFaultsEvent 包含混亂已決定正在該反覆運算中執行的所有錯誤。 ValidationFailedEvent 包含在驗證叢集期間所發現驗證失敗 (健康情況或穩定性問題) 的詳細資料。 您可以叫用 GetChaosReport API (C#、Powershell 或 REST) 以取得混亂執行的報告。 這些事件保存在[可靠的字典](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections)中，其中有由兩個組態決定的截斷原則：MaxStoredChaosEventCount (預設值為 25000) 及 StoredActionCleanupIntervalInSeconds (預設值為 3600)。 每個 StoredActionCleanupIntervalInSeconds 混亂檢查及最新 MaxStoredChaosEventCount 事件以外的所有事件皆會自可靠字典中清除。
+混亂執行時，會產生不同事件來擷取目前執行的狀態。 例如，ExecutingFaultsEvent 包含混亂已決定正在該反覆運算中執行的所有錯誤。 ValidationFailedEvent 包含在驗證叢集期間所發現驗證失敗 (健康情況或穩定性問題) 的詳細資料。 您可以叫用 GetChaosReport API (C#、Powershell 或 REST) 以取得混亂執行的報告。 這些事件保存在[可靠的字典](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections)中，其中有由兩個組態決定的截斷原則：**MaxStoredChaosEventCount** (預設值為 25000) 及 **StoredActionCleanupIntervalInSeconds** (預設值為 3600)。 每個 StoredActionCleanupIntervalInSeconds 混亂檢查及最新 MaxStoredChaosEventCount 事件以外的所有事件皆會自可靠字典中清除。
 
 ## <a name="faults-induced-in-chaos"></a>混亂中引發的錯誤
 混亂會在整個 Service Fabric 叢集中產生錯誤，並將在幾個月或幾年內看到的錯誤壓縮成幾小時。 交錯錯誤和高錯誤率的組合，會尋找可能會在其他情形下遺漏的極端狀況。 這個混亂練習可以大幅提升服務的程式碼品質。
@@ -67,10 +67,10 @@ ms.locfileid: "39113234"
 >
 
 * **EnableMoveReplicaFaults**：啟用或停用造成主要或次要複本移動的錯誤。 預設會啟用這些錯誤。
-* **WaitTimeBetweenIterations**︰反覆運算之間要等候的時間量。 亦即，在已執行一輪的錯誤且已完成對應的叢集健康情況驗證後，混亂將暫停的時間。 值愈大，平均錯誤插入率愈低。
-* **WaitTimeBetweenFaults**︰單一反覆運算中兩個連續錯誤之間的等候時間長度。 值愈大，錯誤的並行程度 (或錯誤之間的重疊度) 愈低。
-* **ClusterHealthPolicy**︰叢集健康情況原則用於驗證混亂反覆運算之間的叢集健康情況。 如果叢集健康情況發生錯誤，或如果在錯誤執行期間發生未預期的例外狀況，則混亂會先等待 30 分鐘，再執行下一個健康情況檢查，讓叢集有時間復原。
-* **內容**：(string, string) 類型索引鍵-值組的集合。 此對應可用於記錄混亂執行的相關資訊。 此類組合不能超過 100 個，且每個字串 (索引鍵或值) 最多為 4095 個字元長。 此對應由混亂執行的起始者設定，以選擇性地儲存特定執行的相關內容。
+* **WaitTimeBetweenIterations**：反覆運算之間要等候的時間量。 亦即，在已執行一輪的錯誤且已完成對應的叢集健康情況驗證後，混亂將暫停的時間。 值愈大，平均錯誤插入率愈低。
+* **WaitTimeBetweenFaults**：單一反覆運算中兩個連續錯誤之間的等候時間長度。 值愈大，錯誤的並行程度 (或錯誤之間的重疊度) 愈低。
+* **ClusterHealthPolicy**：叢集健康情況原則用於驗證混亂反覆運算之間的叢集健康情況。 如果叢集健康情況發生錯誤，或如果在錯誤執行期間發生未預期的例外狀況，則混亂會先等待 30 分鐘，再執行下一個健康情況檢查，讓叢集有時間復原。
+* **Context**：(string, string) 類型索引鍵-值組的集合。 此對應可用於記錄混亂執行的相關資訊。 此類組合不能超過 100 個，且每個字串 (索引鍵或值) 最多為 4095 個字元長。 此對應由混亂執行的起始者設定，以選擇性地儲存特定執行的相關內容。
 * **ChaosTargetFilter**：此篩選可用來將混亂錯誤的目標設定為僅針對特定節點類型或特定應用程式執行個體。 如果未使用 ChaosTargetFilter，混亂會針對所有叢集實體引發錯誤。 如果使用 ChaosTargetFilter，則混亂只會針對符合 ChaosTargetFilter 規格的實體引發錯誤。 NodeTypeInclusionList 和 ApplicationInclusionList 只允許集合聯集語意。 換句話說，您不能指定 NodeTypeInclusionList 和 ApplicationInclusionList 的交集。 例如，您不能指定「只有在此應用程式位於該節點類型上時才對它引發錯誤」。 若 NodeTypeInclusionList 或 ApplicationInclusionList 中包含某個實體，則該實體就不能使用 ChaosTargetFilter 排除。 即使 applicationX 並未出現在 ApplicationInclusionList 中，但在某些混亂反覆項目中也能對 applicationX 引發錯誤，因為它正好位於包括在 NodeTypeInclusionList 中的 nodeTypeY 的節點上。 如果 NodeTypeInclusionList 和 ApplicationInclusionList 都是 Null 或空白，則會擲回 ArgumentException。
     * **NodeTypeInclusionList**：要包含在混亂錯誤中的節點類型清單。 針對這些節點類型的節點，會啟用所有錯誤類型 (重新啟動節點、重新啟動程式碼封裝、移除複本、重新啟動複本、移動主要複本，以及移動次要複本)。 如果某個節點類型 (假設為 NodeTypeX) 未出現在 NodeTypeInclusionList 中，則系統將永遠不會針對 NodeTypeX 的節點啟用節點層級錯誤 (例如 NodeRestart)，但如果 ApplicationInclusionList 中的某個應用程式正好位於 NodeTypeX 的節點上，則仍會針對 NodeTypeX 啟用程式碼封裝和複本錯誤。 您最多可在此清單中包含 100 個節點類型名稱，若要增加此數目，則必須針對 MaxNumberOfNodeTypesInChaosTargetFilter 設定進行設定升級。
     * **ApplicationInclusionList**：要包含在混亂錯誤中的應用程式 URI 清單。 屬於這些應用程式之服務的所有複本，都適用於由混亂所引發的複本錯誤 (重新啟動複本、移除複本、移動主要複本和移動次要複本)。 只有在程式碼封裝只裝載這些應用程式的複本時，混亂才可以將程式碼封裝重新啟動。 如果某個應用程式未出現在此清單中，系統仍然可能在某些混亂反覆項目中針對它引發錯誤，前提是該應用程式位於某個包含在 NodeTypeInclusionList 中之節點類型的節點上。 不過，如果 applicationX 因位置限制而繫結至 nodeTypeY，且 applicationX 未出現在 ApplicationInclusionList，而且 nodeTypeY 未出現在 NodeTypeInclusionList 中，則系統將永遠不會對 applicationX 引發錯誤。 您最多可在此清單中包含 1000 個應用程式名稱，若要增加此數目，則必須針對 MaxNumberOfApplicationsInChaosTargetFilter 設定進行設定升級。

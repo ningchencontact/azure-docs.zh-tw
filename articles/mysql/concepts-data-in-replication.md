@@ -1,20 +1,17 @@
 ---
 title: 將資料複寫至適用於 MySQL 的 Azure 資料庫。
 description: 本文將說明適用於 MySQL 的 Azure 資料庫之中的資料帶入複寫 (Data-in Replication)。
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2018
-ms.openlocfilehash: 6135e4a0182f3af7db54eab974e4c307402185ab
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: ca748dff67be2a37ca61f34602f207265cc77aaa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666071"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544221"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>將資料複寫至適用於 MySQL 的 Azure 資料庫
 
@@ -23,8 +20,8 @@ ms.locfileid: "43666071"
 ## <a name="when-to-use-data-in-replication"></a>使用資料帶入複寫的時機
 考慮使用資料帶入複寫的主要案例包括：
 
-- **混合式資料同步：** 您可使用資料帶入複寫，讓內部部署伺服器與適用於 MySQL 的 Azure 資料庫之間的資料保持同步。 此同步適用於建立混合式應用程式。 當您目前擁有本機資料庫伺服器，但想要將資料移到更接近使用者的區域時，這個方法很吸引人。
-- **多重雲端同步處理：** 針對複雜的雲端解決方案，使用資料帶入複寫來同步處理適用於 MySQL 的 Azure 資料庫與不同雲端提供者 (包括這些雲端中所裝載的虛擬機器和資料庫服務) 之間的資料。
+- **混合式資料同步：** 您可以使用資料輸入複寫，讓內部部署伺服器與適用於 MySQL 的 Azure 資料庫之間的資料保持同步。 此同步適用於建立混合式應用程式。 當您目前擁有本機資料庫伺服器，但想要將資料移到更接近使用者的區域時，這個方法很吸引人。
+- **多重雲端同步處理：** 針對複雜的雲端解決方案，使用資料輸入複寫來同步處理適用於 MySQL 的 Azure 資料庫與不同雲端提供者 (包括這些雲端中所裝載的虛擬機器和資料庫服務) 之間的資料。
 
 ## <a name="limitations-and-considerations"></a>限制與注意事項
 

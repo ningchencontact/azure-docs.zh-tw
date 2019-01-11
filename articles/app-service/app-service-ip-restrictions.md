@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a152efb3979b4ffe3402ed668c0f683f5e9cc651
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 337d71c84ace7f44c2668cf2344d9083c4a85bee
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337150"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651057"
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Azure App Service 靜態 IP 限制 #
 
 IP 限制可讓您針對允許存取應用程式的 IP 位址，定義有先後順序的允許/拒絕清單。 允許清單可以包含 IPv4 和 IPv6 位址。 有一個或多個項目時，清單結尾會有隱含的「拒絕全部」語句。 
 
-IP 限制功能適用於所有 App Service 主控的工作負載，包括：Web 應用程式、API 應用程式、Linux 應用程式、Linux 容器應用程式及 Functions。 
+IP 限制功能適用於所有 App Service 裝載的工作負載，包括：Web 應用程式、API 應用程式、Linux 應用程式、Linux 容器應用程式及 Functions。 
 
 如果有對您應用程式發出的要求，「來源」IP 位址就會根據 IP 限制清單受到評估。 如果根據清單中的規則，不允許該位址進行存取，則服務會回覆 [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) 狀態碼。
 

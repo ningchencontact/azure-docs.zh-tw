@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: danlep
-ms.openlocfilehash: e03a35b31c9089abe973c7e4388b508f668a3970
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619838"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993279"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>將容器執行個體部署至 Azure 虛擬網路
 
@@ -47,6 +47,7 @@ ms.locfileid: "52619838"
 * 北歐 (northeurope)
 * 西歐 (westeurope)
 * 美國西部 (westus)
+* 美國東部 (eastus)
 
 **不支援**的網路資源：
 
@@ -184,9 +185,9 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 您也可以使用 YAML 檔案將容器群組部署至現有的虛擬網路。 若要部署至虛擬網路中的子網路，您要在 YAML 中額外指定幾項屬性：
 
 * `ipAddress`：容器群組的 IP 位址設定。
-  * `ports`：要開啟的連接埠 (如果有)。
+  * `ports`：要開啟的連接埠 (如果有的話)。
   * `protocol`：已開啟連接埠的通訊協定 (TCP 或 UDP)。
-* `networkProfile`：為 Azure 資源指定網路設定，像是虛擬網路及子網路。
+* `networkProfile`：為 Azure 資源指定網路設定，例如虛擬網路及子網路。
   * `id`：`networkProfile` 的完整 Resource Manager 資源識別碼。
 
 若要使用 YAML 檔案將容器群組部署至虛擬網路，您需要先取得網路設定檔的識別碼。 請執行 [az network profile list][az-network-profile-list] 命令，指定包含您虛擬網路及委派子網路的資源群組名稱。

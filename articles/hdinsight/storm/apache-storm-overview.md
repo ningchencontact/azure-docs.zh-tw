@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3ea1048b1bd47a5cb4f8f4f7725f5ac4d3bbed8a
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 3bae6d93ffe7ea028d3329dcc69c2f33bdf7aa2a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582832"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635454"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什麼是 Apache Storm on Azure HDInsight？
 
-[Apache Storm](http://storm.apache.org/) 是一個容錯的分散式開放原始碼計算系統。 您可以搭配 [Apache Hadoop](https://hadoop.apache.org/) 使用 Storm 來即時處理資料流。 Storm 解決方案也能夠重播最初未成功處理的資料，保證一定會處理資料。
+[Apache Storm](https://storm.apache.org/) 是一個容錯的分散式開放原始碼計算系統。 您可以搭配 [Apache Hadoop](https://hadoop.apache.org/) 使用 Storm 來即時處理資料流。 Storm 解決方案也能夠重播最初未成功處理的資料，保證一定會處理資料。
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
@@ -27,7 +27,7 @@ ms.locfileid: "52582832"
 
 Storm on HDInsight 提供下列功能︰
 
-* __Storm 運作時間的 99% 服務等級協定 (SLA)__：如需詳細資訊，請參閱 [HDInsight 的 SLA 資訊](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/)文件。
+* __Storm 運作時間的 99% 服務等級協定 (SLA)__：如需詳細資訊，請參閱[適用於 HDInsight 的 SLA 資訊](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/)文件。
 
 * 在建立期間或之後針對 Storm 叢集執行指令碼，可支援輕鬆自訂。 如需詳細資訊，請參閱[使用指令碼動作來自訂 HDInsight 叢集](../hdinsight-hadoop-customize-cluster-linux.md)。
 
@@ -39,10 +39,10 @@ Storm on HDInsight 提供下列功能︰
 
 * **動態調整**：您可以新增或移除背景工作節點，而不影響執行 Storm 拓撲。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 您必須停用並重新執行拓撲，才能利用透過調整作業新增的節點。
 
-* **使用多項 Azure 服務建立串流管線**：Storm on HDInsight 會與其他 Azure 服務整合，例如事件中樞、SQL Database、Azure 儲存體及 Azure Data Lake Store。
+* **使用多項 Azure 服務建立串流管線**：HDInsight 上的 Storm 會與其他 Azure 服務整合，例如事件中樞、SQL Database、Azure 儲存體及 Azure Data Lake Storage。
 
     如需與 Azure 服務整合的解決方案範例，請參閱[使用 Apache Storm on HDInsight 處理事件中樞的事件](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)。
 
@@ -84,7 +84,7 @@ Apache Storm 叢集的預設組態只有一個 Nimbus 節點。 Storm on HDInsig
 
   如需詳細資訊，請參閱[使用 Apache Ambari Web UI 管理 HDInsight](../hdinsight-hadoop-manage-ambari.md) 和[使用 Apache Storm UI 進行監視和管理](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui)文件。
 
-* __Azure PowerShell 與傳統CLI__︰PowerShell 與傳統 CLI 兩者都提供您可以從用戶端系統使用的命令列公用程式，以使用 HDInsight 與其他 Azure 服務。
+* __Azure PowerShell 和 Azure 傳統 CLI__：PowerShell 和傳統 CLI 兩者都提供您可以從用戶端系統使用的命令列公用程式，以便搭配 HDInsight 和其他 Azure 服務運作。
 
 * __Visual Studio 整合__：Azure Data Lake Tools for Visual Studio 包含可供使用 SCP.Net 架構建立 C# Storm 拓撲的專案範本。 Data Lake Tools 也提供一些工具，以利用 Storm on HDInsight 來部署、監視和管理解決方案。
 
@@ -92,15 +92,15 @@ Apache Storm 叢集的預設組態只有一個 Nimbus 節點。 Storm on HDInsig
 
 ## <a name="integration-with-other-azure-services"></a>與其他 Azure 服務整合
 
-* __Azure Data Lake Store__：如需使用 Data Lake Store 搭配 Storm 叢集的範例，請參閱[使用 Azure Data Lake Store 搭配 Apache Storm on HDInsight](apache-storm-write-data-lake-store.md)。
+* __Azure Data Lake Storage__：如需使用 Data Lake Storage 搭配 Storm 叢集的範例，請參閱[搭配使用 Azure Data Lake Storage 與 HDInsight 上的 Apache Storm](apache-storm-write-data-lake-store.md)。
 
-* __事件中樞__︰如需使用事件中樞搭配 Storm 叢集的範例，請參閱下列範例︰
+* __事件中樞__：如需使用事件中樞搭配 Storm 叢集的範例，請參閱下列範例：
 
     * [使用 Apache Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
 
     * [使用 Apache Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
-* __SQL Database__、__Cosmos DB__、__Event Hubs__ 和 __HBase__：範本範例已包含在 Data Lake Tools for Visual Studio 中。 如需詳細資訊，請參閱[開發 Apache Storm on HDInsight 的 C# 拓撲](apache-storm-develop-csharp-visual-studio-topology.md)。
+* __SQL Database__、__Cosmos DB__、__事件中樞__ 和 __HBase__：Data Lake Tools for Visual Studio 隨附範本範例。 如需詳細資訊，請參閱[開發 Apache Storm on HDInsight 的 C# 拓撲](apache-storm-develop-csharp-visual-studio-topology.md)。
 
 ## <a name="support"></a>支援
 
@@ -136,17 +136,17 @@ Python 也可以用於開發 Storm 元件。 如需詳細資訊，請參閱[使�
 
 ### <a name="guaranteed-message-processing"></a>保證處理訊息
 
-Apache Storm 可以提供不同程度的訊息處理保證。 例如，基本的 Storm 應用程式可以保證至少處理一次，而 [Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html) 可以保證只處理一次。
+Apache Storm 可以提供不同程度的訊息處理保證。 例如，基本的 Storm 應用程式可以保證至少處理一次，而 [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) 可以保證只處理一次。
 
 如需詳細資訊，請參閱 apache.org 上的 [保證處理資料](https://storm.apache.org/about/guarantees-data-processing.html) (英文)。
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-讀取輸入 Tuple、發出零個以上的 Tuple，然後在執行方法結束時立即認可輸入 Tuple，是常見的模式。 Storm 提供 [IBasicBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 介面將此模式自動化。
+讀取輸入 Tuple、發出零個以上的 Tuple，然後在執行方法結束時立即認可輸入 Tuple，是常見的模式。 Storm 提供 [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 介面將此模式自動化。
 
 ### <a name="joins"></a>聯結
 
-資料流的聯結方式會隨應用程式而異。 例如，您可以將多個串流中的每個 Tuple 聯結成一個新的串流，也可以只聯結特定時間範圍的幾批 Tuple。 無論何者，都可利用 [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) 來完成聯結。 群組欄位是一種定義 Tuple 如何路由傳送至 Bolt 的方法。
+資料流的聯結方式會隨應用程式而異。 例如，您可以將多個串流中的每個 Tuple 聯結成一個新的串流，也可以只聯結特定時間範圍的幾批 Tuple。 無論何者，都可利用 [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) 來完成聯結。 群組欄位是一種定義 Tuple 如何路由傳送至 Bolt 的方法。
 
 在下列 Java 範例中，會使用 fieldsGrouping 將源自元件 "1"、"2" 和 "3" 的 Tuple 路由傳送至 MyJoiner bolt：
 
@@ -160,11 +160,11 @@ Apache Storm 提供稱為「計時 Tuple」的內部計時機制。 您可以設
 
 ### <a name="caches"></a>快取
 
-通常會使用記憶體內部快取當做加速處理的機制，因為此方式可以將常用的資產保留在記憶體內。 由於拓撲會分散到多個節點，多個處理序位於每個節點內，您應該考慮使用 [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)。 使用 `fieldsGrouping` 可確保含有快取查閱所用欄位的 Tuple 一律會路由傳送至相同程序。 此群組功能可避免快取項目在程序之間重複。
+通常會使用記憶體內部快取當做加速處理的機制，因為此方式可以將常用的資產保留在記憶體內。 由於拓撲會分散到多個節點，多個處理序位於每個節點內，您應該考慮使用 [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)。 使用 `fieldsGrouping` 可確保含有快取查閱所用欄位的 Tuple 一律會路由傳送至相同程序。 此群組功能可避免快取項目在程序之間重複。
 
 ### <a name="stream-top-n"></a>串流「前 N 個」
 
-當拓撲取決於計算前 N 個值時，您可平行地計算前 N 個值。 然後將這些計算的輸出合併成一個全域值。 此作業可利用 [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) 來進行，依欄位路由傳送以便平行處理。 然後您可以路由傳送至 bolt 來整體決定前 N 個值。
+當拓撲取決於計算前 N 個值時，您可平行地計算前 N 個值。 然後將這些計算的輸出合併成一個全域值。 此作業可利用 [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) 來進行，依欄位路由傳送以便平行處理。 然後您可以路由傳送至 bolt 來整體決定前 N 個值。
 
 如需計算前 N 個值的範例，請參閱 [RollingTopWords](https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/org/apache/storm/starter/RollingTopWords.java) 範例。
 
@@ -182,6 +182,6 @@ Storm 使用 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) 來記錄�
 * [Apache Storm on HDInsight 的範例拓撲](apache-storm-example-topology.md)
 
 [stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
-[samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
+[samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: apache-storm-tutorial-get-started-linux.md

@@ -1,5 +1,5 @@
 ---
-title: 在符合成本效益的低優先順序 VM 上執行 Azure Batch 工作負載 | Microsoft Docs
+title: 在符合成本效益的低優先順序 VM 上執行工作負載 - Azure Batch | Microsoft Docs
 description: 了解如何佈建低優先順序的 VM，降低 Azure Batch 工作負載的成本。
 services: batch
 author: mscurrell
@@ -11,12 +11,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: d42cef944c3b971804ef1417a3877bf919784a02
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.custom: seodec18
+ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35771077"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546788"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>使用低優先順序的 VM 搭配 Batch
 
@@ -42,7 +43,7 @@ Azure Batch 提供低優先順序的虛擬機器 (VM)，可降低 Batch 工作�
 
 適用於低優先順序 VM 的一些批次處理使用案例的範例如下︰
 
--   **開發與測試**︰尤其是如果您正在開發大規模的解決方案，可節省可觀的成本。 所有的測試類型都能有所助益，但大規模的負載測試及迴歸測試都是很棒的用途。
+-   **開發與測試**：尤其是如果您正在開發大規模的解決方案，可節省可觀的成本。 所有的測試類型都能有所助益，但大規模的負載測試及迴歸測試都是很棒的用途。
 
 -   **補充隨選容量**︰低優先順序的 VM 可用來補充一般的專用 VM - 在可使用時，作業就能加以調整並從而以較低的成本加速完成；在無法使用時，仍能使用專用 VM 的基準。
 

@@ -1,22 +1,21 @@
 ---
 title: 查詢存放區使用案例 (適用於 PostgreSQL 的 Azure 資料庫)
 description: 本文描述在適用於 PostgreSQL 的 Azure 資料庫中使用查詢存放區的一些案例。
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: fc354a9545f3073a858c2b669d428d1fa4185073
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 24bd6fbcf47a340020b5ed171b84aeed9fa96fe8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377465"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53534651"
 ---
 # <a name="usage-scenarios-for-query-store"></a>查詢存放區的使用案例
 
-**適用對象：** 適用於 PostgreSQL 的 Azure 資料庫 9.6 和 10
+**適用範圍：** 適用於 PostgreSQL 9.6 和 10 的 Azure 資料庫
 
 > [!IMPORTANT]
 > 查詢存放區功能處於公開預覽狀態。

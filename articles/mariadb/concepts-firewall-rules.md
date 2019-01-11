@@ -3,17 +3,15 @@ title: 適用於 MariaDB 的 Azure 資料庫伺服器防火牆規則
 description: 描述適用於 MariaDB 的 Azure 資料庫伺服器防火牆規則。
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 58ccc328281bb70e00294ccef054232108212ccc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6fb9099ebfe884fc6eee58882ee23e46ba550e13
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997653"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546240"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>適用於 MariaDB 的 Azure 資料庫伺服器防火牆規則
 防火牆會防止對您資料庫伺服器的所有存取，直到您指定哪些電腦擁有權限。 此防火牆會根據每一個要求的來源 IP 位址來授與伺服器存取權。
@@ -46,14 +44,16 @@ ms.locfileid: "46997653"
 ![在入口網站中設定 [允許存取 Azure 服務]](./media/concepts-firewall-rules/allow-azure-services.png)
 
 ## <a name="programmatically-managing-firewall-rules"></a>以程式設計方式管理防火牆規則
-除了 Azure 入口網站之外，防火牆規則還可以程式設計方式使用 Azure CLI 來管理。 <!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
+除了 Azure 入口網站之外，防火牆規則還可以程式設計方式使用 Azure CLI 來管理。 
+
+<!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
 
 ## <a name="troubleshooting-the-database-firewall"></a>針對資料庫防火牆問題進行疑難排解
 若對於適用於 MariaDB 的 Microsoft Azure 資料庫伺服器服務的存取未如預期般運作，請考慮下列幾點：
 
-* **對允許清單的變更尚未生效：** 對適用於 MariaDB 的 Azure 資料庫伺服器防火牆組態的變更最多可能會延遲 5 分鐘才能生效。
+* **允許清單的變更尚未生效：** 適用於 MariaDB 的 Azure 資料庫伺服器防火牆組態變更可能會延遲最多 5 分鐘才能生效。
 
-* **登入未獲授權或使用不正確的密碼：** 如果適用於 MariaDB 的 Azure 資料庫伺服器上的登入沒有權限，或使用的密碼不正確，與適用於 MariaDB 的 Azure 資料庫伺服器連接就會遭到拒絕。 建立防火牆設定只會讓用戶端有機會嘗試連線至您的伺服器；每個用戶端必須提供必要的安全性認證。
+* **登入未獲授權或使用不正確的密碼：** 如果適用於 MariaDB 的 Azure 資料庫伺服器上的登入沒有權限，或所使用的密碼不正確，與適用於 MariaDB 的 Azure 資料庫伺服器的連線就會遭到拒絕。 建立防火牆設定只會讓用戶端有機會嘗試連線至您的伺服器；每個用戶端必須提供必要的安全性認證。
 
 * **動態 IP 位址：** 如果您有使用動態 IP 位址的網際網路連線，並且在通過防火牆時遇到問題，您可以嘗試下列其中一個解決方案：
 

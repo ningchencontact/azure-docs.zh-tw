@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 61d3869559d88e14c0b9a3c3e23cd8a1f9c2b6c4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 701f97a006e7457fcbdcc835f87832b269f986a8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627913"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630337"
 ---
 # <a name="view-system-test-results"></a>檢視系統測試結果
 
@@ -26,7 +26,7 @@ ms.locfileid: "51627913"
 
 測試索引標籤會顯示：
 
-1.  系統測試結果：定型中的測試程序所產生的結果。 測試程序會產生 BLEU 分數。
+1.  **系統測試結果：** 定型中的測試程序所產生的結果。 測試程序會產生 BLEU 分數。
 
     **句子計數：** 在測試集中使用了多少個平行句子。
 
@@ -54,11 +54,11 @@ ms.locfileid: "51627913"
 
 這個下載的 ZIP 封存檔包含三個檔案。
 
-1.  custom.mt.txt：此檔案包含以使用者的資料定型的模型對來源語言句子所做的目標語言機器翻譯。
+1.  **custom.mt.txt：** 此檔案包含以使用者的資料定型的模型對來源語言句子所做的目標語言機器翻譯。
 
-2.  ref.txt：此檔案包含使用者以目標語言為來源語言句子提供的翻譯。
+2.  **ref.txt：** 此檔案包含使用者以目標語言為來源語言句子提供的翻譯。
 
-3.  source.txt：此檔案包含來源語言的句子。
+3.  **source.txtref.txt：** 此檔案包含來源語言的句子。
 
     ![下載系統測試結果](media/how-to/how-to-download-system-test.png)
 
@@ -73,14 +73,29 @@ ms.locfileid: "51627913"
     ![部署模型](media/how-to/how-to-deploy-model.png)
 
 3.  按一下 [部署]。
-4.  選取您要部署模型的區域，然後按一下 [儲存]。 您可以選取多個區域。
+4.  針對您要部署模型的區域選取 [已部署]，然後按一下 [儲存]。 您可以對多個區域選取 [已部署]。
 
     ![部署模型](media/how-to/how-to-deploy-model-regions.png)
 
 5.  您可以在 [狀態] 資料行中檢視模型的狀態。
 
+## <a name="update-deployment-settings"></a>更新部署設定
+
+若要更新部署設定：
+
+1.  選取專案，然後移至 [模型] 索引標籤。
+
+2. 針對成功部署的模型會顯示 [更新] 按鈕。
+
+    ![部署模型](media/how-to/how-to-update-undeploy-model.png)
+
+3.  選取 [更新]。
+4.  對您想要部署或解除部署模型的區域選取 [已部署] 或 [已解除部署]，然後按一下 [儲存]。
+
+    ![部署模型](media/how-to/how-to-undeploy-model.png)
+
 >[!Note]
->如果已部署模型，您會看到該模型的 [解除部署] 按鈕。 若要將模型解除部署，請按一下 [解除部署]。
+>如果您對所有區域選取 [已解除部屬]，則模型會從所有區域中解除部署，並進入已解除部署的狀態。 現在無法使用。
 
 ## <a name="next-steps"></a>後續步驟
 

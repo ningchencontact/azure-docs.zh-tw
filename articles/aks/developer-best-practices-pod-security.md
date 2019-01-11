@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 8acd69480d6cd441c33ccc696794977bbfbfd975
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 412f27c572953b3f44ddca54a99f75895f438f21
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110935"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559071"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中的 Pod 安全性最佳做法
 
-當您在 Azure Kubernetes Service (AKS) 中開發和執行應用程式時，Pod 安全性是主要考量。 應用程式應設計為供需要最少量權限的主體使用。 保持私人資料安全是客戶最關切之事。 您不希望向外界公開資料庫連接字串、金鑰或祕密及憑證等認證，讓攻擊將這些祕密用於惡意用途。 請不要將它們新增至程式碼，或內嵌於容器映像中。 因為需要重建容器映像，採用這種方法會暴露在風險下，並限制輪替這些認證的能力。
+當您在 Azure Kubernetes Service (AKS) 中開發和執行應用程式時，Pod 安全性是主要考量。 應用程式應設計為供需要最少量權限的主體使用。 保持私人資料安全是客戶最關切之事。 您不希望向外界公開資料庫連接字串、金鑰或祕密及憑證等認證，讓攻擊者將這些祕密用於惡意用途。 請不要將它們新增至程式碼，或內嵌於容器映像中。 因為需要重建容器映像，採用這種方法會暴露在風險下，並限制輪替這些認證的能力。
 
 此最佳做法文章著重於如何保護AKS 中的 Pod。 您會了解如何：
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: rimman
-ms.openlocfilehash: 44c561386b00ca60dc537360145ea62177b6d5d6
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 81c54d0540aa5af279a5a6d570784454026ff229
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263383"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042002"
 ---
 # <a name="pricing-model-of-azure-cosmos-db"></a>Azure Cosmos DB 的計價模式 
 
@@ -26,11 +26,11 @@ Azure Cosmos DB 的計價模式可簡化成本管理和規劃。 使用 Azure Co
 
 佈建的輸送量指定為每秒[要求單位](request-units.md) (RU/秒)，可讓您從容器或資料庫讀取資料或將資料寫入其中。 您可以[在資料庫或容器上佈建輸送量](set-throughput.md)。 根據工作負載需求，您可以隨時相應增加/相應減少輸送量。 Azure Cosmos DB 定價具有彈性，且與您在資料庫或容器上設定的輸送量成正比。 輸送量和儲存體值下限與縮放增量為所有階層的客戶，提供從小型到大型容器的完整價格與彈性範圍。 每個資料庫或容器是按小時以 100 RU/秒為單位計費，最少 400 RU/秒，取用的儲存體以 GB 為單位。 與佈建的輸送量不同，儲存體是按取用量來計費。 也就是說，您不必事先保留任何儲存體。 您只須支付所取用的儲存體費用。
 
-如需詳細資訊，請參閱 [Cosmos DB 定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)和[了解您的 Cosmos DB 計費](understand-your-bill.md)。
+如需詳細資訊，請參閱 [Azure Cosmos DB 定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)和[了解您的 Azure Cosmos DB 計費](understand-your-bill.md)。
 
-Azure Cosmos DB 的計價模式在所有 API 之間都是一致的。 若要深入了解，請參閱 [Cosmos DB 計價模式如何為客戶提供符合成本效益的解決方案](total-cost-ownership.md)。 資料庫或容器有必要的最小輸送量，以確保 SLA 和您可以每 100 RU/秒 6 元的價格，增加或減少佈建的輸送量。
+Azure Cosmos DB 的計價模式在所有 API 之間都是一致的。 若要深入了解，請參閱 [Azure Cosmos DB 計價模式如何為客戶提供符合成本效益的解決方案](total-cost-ownership.md)。 資料庫或容器有必要的最小輸送量，以確保 SLA 和您可以每 100 RU/秒 6 元的價格，增加或減少佈建的輸送量。
 
-目前資料庫和容器型輸送量的最低價格是 24 元/月，如需最新資訊，請參閱 [Cosmos DB 定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。 如果您的工作負載使用多個容器，可以藉由使用資料庫層級輸送量，針對成本進行最佳化，因為資料庫層級輸送量可讓您在資料庫中具有任意數量的容器，在容器之間共用輸送量。 下表摘要說明不同實體的佈建的輸送量和成本：
+目前資料庫和容器型輸送量的最低價格是 24 元/月，如需最新資訊，請參閱 [Azure Cosmos DB 定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)。 如果您的工作負載使用多個容器，可以藉由使用資料庫層級輸送量，針對成本進行最佳化，因為資料庫層級輸送量可讓您在資料庫中具有任意數量的容器，在容器之間共用輸送量。 下表摘要說明不同實體的佈建的輸送量和成本：
 
 |**實體**  | **輸送量下限和成本** |**縮放增量和成本** |**佈建範圍** |
 |---------|---------|---------|-------|
@@ -45,7 +45,7 @@ Azure Cosmos DB 為開發人員提供數個免費選項。 這些選項包含︰
 
 * **Azure 免費帳戶**：Azure 提供[免費層](https://azure.microsoft.com/free/)，可在前 30 天內使用的 Azure 點數美金 200 元，以及 12 個月數量有限的免費服務。 如需詳細資訊，請參閱 [Azure 免費帳戶](../billing/billing-avoid-charges-free-account.md)。 Azure Cosmos DB 屬於 Azure 免費帳戶。 此免費帳戶會特別針對 Azure Cosmos DB，在為期一年的時間內提供 5-GB 的儲存體，以及 400 RU 的已佈建輸送量。 
 
-* **免費試用 Azure Cosmos DB**：Azure Cosmos DB 透過使用免費試用 Azure Cosmos DB 帳戶，提供限時的體驗。 您可以透過使用快速入門和教學課程，建立 Azure Cosmos DB 帳戶、建立資料庫和集合及執行範例應用程式。 您可以在不註冊 Azure 帳戶或使用信用卡的情況下執行範例應用程式。 [免費試用 Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) 提供一個月的 Azure Cosmos DB，可以任意次數更新您的帳戶。
+* **免費試用 Azure Cosmos DB**：Azure Cosmos DB 透過使用免費試用 Azure Cosmos DB 帳戶，提供限時的體驗。 您可以透過使用快速入門和教學課程，建立 Azure Cosmos DB 帳戶、建立資料庫和集合及執行範例應用程式。 您可以在不註冊 Azure 帳戶或使用信用卡的情況下執行範例應用程式。 [免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) 提供一個月的 Azure Cosmos DB，可以任意次數更新您的帳戶。
 
 * **Azure Cosmos DB 模擬器**：Azure Cosmos DB 模擬器提供一個模擬 Azure Cosmos DB 服務的本機環境作為開發之用。 模擬器免費提供，且具有雲端服務的高逼真度。 您可以使用 Azure Cosmos DB 模擬器在本機開發及測試應用程式，不需建立 Azure 訂用帳戶，也不會產生任何費用。 您可以在進入生產環境之前，在本機使用模擬器來開發您的應用程式。 若滿意模擬器的應用程式功能，可以改為在雲端中使用 Azure Cosmos DB 帳戶，大幅節省成本。 如需有關模擬器的詳細資訊，請參閱[使用 Azure Cosmos DB 進行開發和測試](local-emulator.md)文章以取得詳細資料。
 
@@ -60,12 +60,11 @@ Azure Cosmos DB [保留容量](cosmos-db-reserved-capacity.md)有助於您透過
 您可以在下列文章中深入了解最佳化 Azure Cosmos DB 資源的成本：
 
 * 深入了解[最佳化開發與測試](optimize-dev-test.md)
-
-* 深入了解 [Cosmos DB 計費](understand-your-bill.md)
+* 深入了解 [Azure Cosmos DB 帳單](understand-your-bill.md)
 * 深入了解[最佳化輸送量成本](optimize-cost-throughput.md)
 * 深入了解[最佳化儲存體成本](optimize-cost-storage.md)
 * 深入了解[最佳化讀取和寫入的成本](optimize-cost-reads-writes.md)
 * 深入了解[最佳化查詢成本](optimize-cost-queries.md)
 * 深入了解[最佳化多重區域 Cosmos 帳戶的成本](optimize-cost-regions.md)
-* 深入了解 [Cosmos DB 保留容量](cosmos-db-reserved-capacity.md)
-* 深入了解 [Cosmos DB 模擬器](local-emulator.md)
+* 深入了解 [Azure Cosmos DB 保留容量](cosmos-db-reserved-capacity.md)
+* 了解 [Azure Cosmos DB 模擬器](local-emulator.md)

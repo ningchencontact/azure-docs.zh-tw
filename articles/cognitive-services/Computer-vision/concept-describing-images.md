@@ -1,7 +1,7 @@
 ---
 title: 描述影像：電腦視覺
 titleSuffix: Azure Cognitive Services
-description: 使用電腦視覺 API 描述影像的相關概念。
+description: 電腦視覺 API 的影像描述功能相關概念。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 423d1be57bc800108a08a81b72587ca2711bbc3d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 5b920e4ce8df131b81a9ef6ce2d66c7082d8f5e4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342410"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583403"
 ---
-# <a name="describing-images"></a>描述映像
+# <a name="describe-images-with-human-readable-language"></a>描述映包含人類可讀語言的影像
 
 電腦視覺的演算法會分析影像中的內容。 此分析會形成「描述」的基礎，讓此描述顯示為完整句子中可供閱讀的語言。 描述會概略說明影像中的項目。 電腦視覺的演算法會根據在影像中識別出來的視覺功能產生各種描述。 每個描述都會受到評估，並產生信賴分數。 接著會傳回一份清單，並依照信賴分數由高至低排序。
 
@@ -25,7 +26,7 @@ ms.locfileid: "49342410"
 
 下列 JSON 回應說明了在根據視覺功能描述範例影像時，電腦視覺傳回的內容。
 
-![B&W 建築](./Images/bw_buildings.png)
+![曼哈頓建築物的黑白照片](./Images/bw_buildings.png)
 
 ```json
 {

@@ -1,7 +1,7 @@
 ---
-title: 標記影像 - 電腦視覺
+title: 將內容標記套用到影像 - 電腦視覺
 titleSuffix: Azure Cognitive Services
-description: 使用電腦視覺 API 標記影像的相關概念。
+description: 了解電腦視覺 API 的影像標記功能相關概念。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7e9181b6e805a768ca5dd8ed558b8feea45f22d3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: caf4d8a4ee3ccee181d233716e0a645150a201c3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960902"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582927"
 ---
-# <a name="tagging-images"></a>標記影像
+# <a name="applying-content-tags-to-images"></a>將內容標記套用到影像
 
 「電腦視覺」會依據數千個可辨識的物件、生物、景象及動作傳回標記。 若標記不明確或不屬於常識，API 回應會提供「提示」來釐清標記在已知設定內容中的意涵。 標籤不會組織成分類，且不會有繼承階層存在。 內容標記的集合會形成影像「描述」的基礎，讓此描述顯示為完整句子中已格式化而可供閱讀的語言。 請注意，英文是影像描述目前唯一支援的語言。
 
@@ -27,7 +28,7 @@ ms.locfileid: "52960902"
 
 下列 JSON 回應說明了在範例影像中偵測到標記視覺功能時，電腦視覺傳回的內容。
 
-![House_Yard](./Images/house_yard.png).
+![藍色房屋和前院](./Images/house_yard.png).
 
 ```json
 {

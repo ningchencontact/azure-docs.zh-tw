@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a012798f71b0e3c14ab9982fd41bce6f0fa098e5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5aa52805afcd50ebf7a9ac0ddcae95f21dd329f1
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257602"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554753"
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>重新定型傳統 Azure Machine Learning Studio Web 服務
-您部署的預測性 Web 服務是預設評分端點。 預設端點會與原始定型和計分實驗同步，因此無法取代預設端點的定型模型。 若要重新訓練 Web 服務，必須在 Web 服務新增新端點。 
+您部署的預測性 Web 服務是預設評分端點。 預設端點會與原始定型和計分實驗同步，因此無法取代預設端點的定型模型。 若要重新訓練 Web 服務，必須在 Web 服務新增新端點。
 
 ## <a name="prerequisites"></a>必要條件
-您必須已設定訓練實驗與預測性實驗，如[以程式設計方式重新訓練機器學習服務模型](retrain-models-programmatically.md)中所示。 
+您必須已設定訓練實驗與預測性實驗，如[以程式設計方式重新訓練機器學習服務模型](retrain-models-programmatically.md)中所示。
 
 > [!IMPORTANT]
-> 預測性實驗必須部署為傳統 Machine Learning Web 服務。 
-> 
-> 
+> 預測性實驗必須部署為傳統 Machine Learning Web 服務。
+>
+>
 
 如需關於部署 Web 服務的其他資訊，請參閱[部署 Azure Machine Learning Web 服務](publish-a-machine-learning-web-service.md)。
 
 ## <a name="add-a-new-endpoint"></a>新增端點
-您部署的預測性 Web 服務包含預設評分端點，它會與原始定型和評分實驗定型的模型保持同步。 若要將您的 Web 服務更新為新訓練的模型，您必須建立新的評分端點。 
+您部署的預測性 Web 服務包含預設評分端點，它會與原始定型和評分實驗定型的模型保持同步。 若要將您的 Web 服務更新為新訓練的模型，您必須建立新的評分端點。
 
 在能以定型模型更新的預測性 Web 服務上，建立新的評分端點︰
 
 > [!NOTE]
 > 請確定您將端點新增至預測性 Web 服務，而不是定型 Web 服務。 如果您正確部署定型和預測性 Web 服務，您應該會看到列出兩個不同的 Web 服務。 預測性 Web 服務應是以 "[predictive exp.]" 結尾。
-> 
-> 
+>
+>
 
 有兩種方式可在 Web 服務新增端點︰
 

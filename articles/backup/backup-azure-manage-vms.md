@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: trinadhk
-ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0e599c95f40e62a4bb01a7ab698fe0ce1f738e49
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465715"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635760"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>管理 Azure 虛擬機器備份
 
@@ -77,7 +77,7 @@ ms.locfileid: "38465715"
 
     ![搭配設定刀鋒視窗的備份項目儀表板](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    從保存庫項目儀表板，您可以完成許多重要的管理工作，例如︰
+    從保存庫項目儀表板，您可以完成許多重要工作，例如︰
 
    * 變更原則或建立新的備份原則
    * 檢視還原點並查看其一致性狀態
@@ -85,7 +85,7 @@ ms.locfileid: "38465715"
    * 停止保護虛擬機器
    * 繼續保護虛擬機器
    * 刪除備份資料 (或復原點)
-   * [還原備份磁碟](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
+   * [還原備份磁碟](backup-azure-arm-restore-vms.md#create-new-restore-disks)
 
 在以下的程序中，起始點是保存庫項目儀表板。
 
@@ -214,4 +214,4 @@ ms.locfileid: "38465715"
     通知訊息可讓您知道備份資料已刪除。
 
 ## <a name="next-steps"></a>後續步驟
-如需從復原點重新建立虛擬機器的詳細資訊，請參閱 [還原 Azure VM](backup-azure-arm-restore-vms.md)。 如需保護虛擬機器的詳細資訊，請參閱 [搶先目睹︰將 VM 備份至復原服務保存庫](backup-azure-vms-first-look-arm.md)。 如需監視事件的相關資訊，請參閱 [監視 Azure 虛擬機器備份的警示](backup-azure-monitor-vms.md)。
+如需從復原點重新建立虛擬機器的詳細資訊，請參閱 [還原 Azure VM](backup-azure-arm-restore-vms.md)。 如需保護虛擬機器的詳細資訊，請參閱[搶先目睹：將 VM 備份至復原服務保存庫](backup-azure-vms-first-look-arm.md)。 如需監視事件的相關資訊，請參閱 [監視 Azure 虛擬機器備份的警示](backup-azure-monitor-vms.md)。

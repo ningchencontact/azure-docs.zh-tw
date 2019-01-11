@@ -1,24 +1,24 @@
 ---
-title: 設定容器
-titlesuffix: Computer Vision - Azure Cognitive Services
-description: 電腦視覺中適用於容器的組態設定。
+title: 設定容器 - 電腦視覺
+titlesuffix: Azure Cognitive Services
+description: 在電腦視覺中設定辨識文字容器的各種設定。
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077013"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579782"
 ---
-# <a name="configure-containers"></a>設定容器
+# <a name="configure-recognize-text-containers"></a>設定辨識文字容器
 
 電腦視覺為辨識文字容器提供常見的設定架構，因此您可以輕易地設定及管理您容器的儲存體、記錄和遙測，以及安全性設定。
 
@@ -41,7 +41,7 @@ ms.locfileid: "53077013"
 
 ### <a name="configuration-settings-as-environment-variables"></a>以環境變數指定組態設定
 
-您可以使用 [ASP.NET Core 環境變數語法](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment)來指定組態設定。
+您可以使用 [ASP.NET Core 環境變數語法](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider)來指定組態設定。
 
 容器會在具現化時讀取使用者環境變數。 如果存在環境變數，則該環境變數的值將會覆寫指定組態設定的預設值。 使用環境變數的優點，是可在將容器具現化之前設定多個組態設定，且多個容器可以自動使用相同的組態設定集。
 
@@ -133,7 +133,7 @@ ms.locfileid: "53077013"
   | `Format` | 字串 | 適用於記錄檔的輸出格式。<br/> **附註：** 此值必須設定為 `json` 以啟用記錄提供者。 如果在具現化期間指定此值，但沒有同時指定輸出裝載，便會發生錯誤。 |
   | `MaxFileSize` | 整數  | 記錄檔的大小上限，以 MB 為單位。 當目前記錄檔的大小符合或超過此值時，記錄提供者便會建立新的記錄檔。 如果指定 -1，記錄檔的大小便只會受限於輸出裝載的檔案大小上限 (若有的話)。 預設值為 1。 |
 
-如需設定 ASP.NET Core 記錄支援的詳細資訊，請參閱[設定檔案組態](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration)。
+如需設定 ASP.NET Core 記錄支援的詳細資訊，請參閱[登入 ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration)。
 
 ## <a name="mounts-configuration-settings"></a>裝載組態設定
 

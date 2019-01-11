@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 985bb755e4754d2aa371d7b86594297c16fedd27
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 73a7c2ef80291920a6d19f0c3ab01b45c1d6b22a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583562"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53627719"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Apache Storm on HDInsight 的範例 Apache Storm 拓撲及元件
 
-下列是 Microsoft 所建立和維護的範例清單，可搭配 [Apache Storm](http://storm.apache.org/) on HDInsight 使用。 這些範例涵蓋各種主題，從建立基本 C# 和 Java 拓撲，到使用 Azure 服務 (例如事件中樞、Cosmos DB、SQL Database、[Apache HBase](http://hbase.apache.org/) on HDInsight 和 Azure 儲存體)。 一些範例也會示範如何使用非 Azure 或甚至非 Microsoft 的技術，例如 SignalR 和 Socket.IO。
+下列是 Microsoft 所建立和維護的範例清單，可搭配 [Apache Storm](https://storm.apache.org/) on HDInsight 使用。 這些範例涵蓋各種主題，從建立基本 C# 和 Java 拓撲，到使用 Azure 服務 (例如事件中樞、Cosmos DB、SQL Database、[Apache HBase](https://hbase.apache.org/) on HDInsight 和 Azure 儲存體)。 一些範例也會示範如何使用非 Azure 或甚至非 Microsoft 的技術，例如 SignalR 和 Socket.IO。
 
 | 說明 | 示範 | 語言/架構 |
 |:--- |:--- |:--- |
-| [從 Apache Storm 寫入 Azure Data Lake Store](apache-storm-write-data-lake-store.md) |寫入 Azure Data Lake Store |Java |
+| [從 Apache Storm 寫入 Azure Data Lake Storage](apache-storm-write-data-lake-store.md) |寫入 Azure Data Lake Storage |Java |
 | [事件中樞 Spout 和 Bolt 來源](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |事件中樞 Spout 和 Bolt 的來源 |Java |
 | [開發 Apache Storm on HDInsight 的 Java 型拓撲][5797064f] |Maven |Java |
 | [使用 Visual Studio 開發 Apache Storm on HDInsight 的 C# 拓撲][16fce2d1] |HDInsight Tools for Visual Studio |C#，Java |
@@ -35,7 +35,7 @@ ms.locfileid: "52583562"
 | [搭配 Apache Storm on HDInsight 使用 Python](apache-storm-develop-python-topology.md) |使用 Flux 拓撲的 Python 元件 |Python |
 | [搭配 Apache Storm on HDInsight 使用 Apache Kafka](../hdinsight-apache-storm-with-kafka.md) | 讀取和寫入 Apache Kafka 的 Apache Storm | Java |
 
-> [!WARNING]
+> [!WARNING]  
 > 這份清單中的 C# 範例原先是以 Windows 為基礎的 HDInsight 進行建立和測試，而且無法搭配以 Linux 為基礎的 HDInsight 叢集正常運作。 以 Linux 為基礎的叢集會使用 Mono 來執行 .NET 程式碼，而範例中使用的架構和套件可能有相容性問題。
 >
 > Linux 是 HDInsight 版本 3.4 或更新版本上唯一使用的作業系統。

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: dd11c2c7062d09c522c46770e8dba6d6eb0ac1e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cb155486365ffa1beb4657e2d9cc56fcf143b624
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105559"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547740"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>模式中的實體角色為內容子類型
 角色是實體的具名內容子類型，只能使用於[模式](luis-concept-patterns.md)中。
@@ -45,6 +45,16 @@ ms.locfileid: "53105559"
 
 
 [!INCLUDE [H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
+
+## <a name="example-role-for-entities"></a>實體的範例角色
+
+角色只是實體在語句從內容中學習的放置方式。 當語句有一個以上的該實體類型時最有效率。 任何實體類型的最簡單範例就是要區別來源與目的地位置。 位置可以許多不同的實體類型表示。 
+
+範例使用案例為將員工從某個部門調到另一個部門。而每個部門是清單中的一個項目。 例如︰ 
+
+`Move [PersonName] from [Department:from] to [Department:to]` 。 
+
+在傳回的預測中，兩個部門實體都會在 JSON 回應中傳回，且每個實體都包含角色名稱。 
 
 ## <a name="roles-with-prebuilt-entities"></a>具有預先建置實體的角色
 

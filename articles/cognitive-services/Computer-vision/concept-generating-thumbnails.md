@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 7d914f394ecfcf02ed26f41cd8fe2ef799cf6103
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 371fa639b2edc300e44cc495393e89c9fce9c4bf
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966733"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580853"
 ---
-# <a name="generating-thumbnails"></a>產生縮圖
+# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>使用電腦視覺產生智慧裁剪的縮圖
 
 縮圖是大小縮小的影像表示。 縮圖主要用來以經濟實惠且利於版面配置的方式來表示影像和其他資料。 電腦視覺 API 會使用智慧裁剪，以及搭配影像大小調整，來建立特定影像的直覺式縮圖。
 
@@ -42,9 +43,9 @@ ms.locfileid: "52966733"
 
 | 映像 | 縮圖 |
 |-------|-----------|
-|![戶外山景](./Images/mountain_vista.png) | ![戶外山景縮圖](./Images/mountain_vista_thumbnail.png) |
-|![視覺分析花朵](./Images/flower.png) | ![視覺分析花朵縮圖](./Images/flower_thumbnail.png) |
-|![屋頂上的女人](./Images/woman_roof.png) | ![屋頂上的女人縮圖](./Images/woman_roof_thumbnail.png) |
+|![日落時站在山岩上的人](./Images/mountain_vista.png) | ![戶外山景縮圖](./Images/mountain_vista_thumbnail.png) |
+|![具有綠色背景的白色花卉](./Images/flower.png) | ![視覺分析花朵縮圖](./Images/flower_thumbnail.png) |
+|![公寓大樓屋頂上的女人](./Images/woman_roof.png) | ![屋頂上的女人縮圖](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>後續步驟
 

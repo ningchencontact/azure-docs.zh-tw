@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3e992dd8ab24e4e60b81c6565ea4ec3971a9336b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075347"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036408"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>在 Azure Cosmos 容器和資料庫上佈建輸送量
 
@@ -27,9 +27,9 @@ Azure Cosmos DB 可讓您在下列兩個資料粒度上設定輸送量：**Azure
 
 當您想要保證容器的效能時，建議您在容器資料粒度上設定輸送量。
 
-Azure Cosmos 容器上佈建的輸送量會統一散發到容器的所有邏輯分割區。 由於資源分割區會裝載容器的一或多個邏輯分割區，因此，實體分割區專屬於該容器並支援該容器上佈建的輸送量。 下圖示範資源分割區如何裝載容器的一或多個邏輯分割區：
+Azure Cosmos 容器上佈建的輸送量會統一散發到容器的所有邏輯分割區。 由於實體分割區會裝載容器的一或多個邏輯分割區；因此，實體分割區專屬於該容器並支援該容器上佈建的輸送量。 下圖示範實體分割區如何裝載容器的一或多個邏輯分割區：
 
-![資源分割區](./media/set-throughput/resource-partition.png)
+![實體分割區](./media/set-throughput/resource-partition.png)
 
 ## <a name="setting-throughput-on-a-database"></a>在資料庫上設定輸送量
 
@@ -47,11 +47,11 @@ Azure Cosmos 容器上佈建的輸送量會統一散發到容器的所有邏輯�
 
 * 當您將從 VM 叢集或從內部部署實體伺服器裝載的 NoSQL 資料庫 (例如 MongoDB、Cassandra) 移轉到 Azure Cosmos DB 時，在一組容器之間共用資料庫的佈建輸送量就很實用。 您可以將 Azure Cosmos 資料庫上設定的佈建輸送量想像為 MongoDB 或 Cassandra 叢集計算容量之佈建輸送量的邏輯對等項目 (但更符合成本效益且更具彈性)。  
 
-在任何指定的時間點，配置給資料庫內容器的輸送量都會散發到該容器的所有邏輯分割區。 當您的容器會共用資料庫上的佈建輸送量時，您就無法選擇性地將輸送量套用到特定容器或邏輯分割區。 如果邏輯分割區上的工作負載所取用的輸送量超過配置給特定邏輯分割區的輸送量時，您的作業將會受到速率限制。 發生速率限制時，您可以提高整個容器的輸送量或重試此作業。 如需有關分割的詳細資訊，請參閱[邏輯分割區](partition-data.md)。
+以所佈建輸送量在資料庫內建立的所有容器，在建立時都必須具有分割區索引鍵。 在任何指定的時間點，配置給資料庫內容器的輸送量都會散發到該容器的所有邏輯分割區。 當您的容器會共用資料庫上的佈建輸送量時，您就無法選擇性地將輸送量套用到特定容器或邏輯分割區。 如果邏輯分割區上的工作負載所取用的輸送量超過配置給特定邏輯分割區的輸送量時，您的作業將會受到速率限制。 發生速率限制時，您可以提高整個容器的輸送量或重試此作業。 如需有關分割的詳細資訊，請參閱[邏輯分割區](partition-data.md)。
 
-共用佈建到資料庫之輸送量的多個邏輯分割區可裝載於單一資源分割區上。 儘管容器的單一邏輯分割區範圍一律限定為一個資源分割區，但在 'C' 個容器上共用資料庫佈建輸送量的 'L' 個邏輯分割區均可在 'R' 個邏輯分割區上進行對應與裝載。 下圖顯示資源分割區如何裝載一或多個屬於資料庫內不同容器的邏輯分割區：
+共用佈建到資料庫之輸送量的多個邏輯分割區可裝載於單一實體分割區上。 儘管容器的單一邏輯分割區範圍一律限定為一個實體分割區，但在 'C' 個容器上共用資料庫佈建輸送量的 'L' 個邏輯分割區均可在 'R' 個實體分割區上進行對應與裝載。 下圖顯示實體分割區如何裝載一或多個屬於資料庫內不同容器的邏輯分割區：
 
-![資源分割區](./media/set-throughput/resource-partition2.png)
+![實體分割區](./media/set-throughput/resource-partition2.png)
 
 ## <a name="setting-throughput-on-a-database-and-a-container"></a>在資料庫和容器上設定輸送量
 

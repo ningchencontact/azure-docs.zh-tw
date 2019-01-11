@@ -1,7 +1,7 @@
 ---
 title: 偵測影像類型：電腦視覺
 titleSuffix: Azure Cognitive Services
-description: 使用電腦視覺 API 偵測影像類型的相關概念。
+description: 電腦視覺 API 的影像類別偵測功能相關概念。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: ecdbdd60af41ee14070f2f45dfe50875e38ac3b3
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 04062d5625126712c5f14c41d610d55caf4c28b5
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341992"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583097"
 ---
-# <a name="detecting-image-types"></a>偵測影像類型
+# <a name="detecting-image-types-with-computer-vision"></a>使用電腦視覺偵測影像類型
 
 電腦視覺可以指出影像是否為美工圖案、依等級評估可能性，或是否為線條繪畫等，來分析影像的內容類型。
 
@@ -36,7 +37,7 @@ ms.locfileid: "49341992"
 
 下列 JSON 回應說明了當評估該範例影像是否為美工圖案的可能性時，電腦視覺傳回的內容。
 
-![視覺分析起司美工圖案](./Images/cheese_clipart.png)
+![一片起司的美工圖案](./Images/cheese_clipart.png)
 
 ```json
 {
@@ -53,7 +54,7 @@ ms.locfileid: "49341992"
 }
 ```
 
-![視覺分析住家庭院](./Images/house_yard.png)
+![藍色房屋和前院](./Images/house_yard.png)
 
 ```json
 {
@@ -78,7 +79,7 @@ ms.locfileid: "49341992"
 
 下列 JSON 回應說明了在指出該範例影像是否為線條繪圖時，電腦視覺傳回的內容。
 
-![視覺分析獅子繪圖](./Images/lion_drawing.png)
+![獅子的線圖影像](./Images/lion_drawing.png)
 
 ```json
 {
@@ -95,7 +96,7 @@ ms.locfileid: "49341992"
 }
 ```
 
-![視覺分析花朵](./Images/flower.png)
+![具有綠色背景的白色花卉](./Images/flower.png)
 
 ```json
 {

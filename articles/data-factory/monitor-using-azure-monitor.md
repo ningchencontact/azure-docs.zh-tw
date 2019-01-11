@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2e8c5b3d9624d3a622f16d770f68bc8614993d36
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 99cca60fe13b9757b3328d00cf66b673c95f66ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387477"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558425"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>使用 Azure 監視器提出警示及監視 Data Factory
 雲端應用程式相當複雜，且具有許多移動組件。 監視會提供資料，以確保應用程式持續運作並以健全的狀態執行。 它也可協助您預防潛在問題，或是針對過去所發生的問題進行疑難排解。 除此之外，您還可以使用監視資料來取得應用程式的深入解析。 這項知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
@@ -41,9 +41,9 @@ Data Factory 只會儲存管線執行資料 45 天。 如果您想要保存管�
 ### <a name="diagnostic-settings"></a>診斷設定
 非計算資源的診斷記錄檔要使用診斷設定來設定。 資源的診斷設定會控制：
 
-* 診斷記錄傳送至何處 (儲存體帳戶、事件中樞和/或 Log Analytics)。
+* 診斷記錄傳送至何處 (儲存體帳戶、事件中樞或 Log Analytics)。
 * 傳送何種類別的記錄。
-* 每個記錄類別應該在儲存體帳戶中保留多久
+* 每個記錄類別應該在儲存體帳戶中保留多久。
 * 保留期為 0 天表示會永遠保留記錄。 否則，此值可以是 1 到 2147483647 之間的任意天數。
 * 如果有設定保留原則，但將儲存體帳戶的記錄儲存停用 (例如，只選取事件中樞或 Log Analytics 選項)，保留原則不會有任何作用。
 * 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。
@@ -465,15 +465,7 @@ ADFV2 會發出下列計量
 
 ## <a name="alerts"></a>警示
 
-您可以針對 Data Factory 中支援的計量提出警示。 請在 Data Factory [監視] 頁面中按一下 [警示] 按鈕。
-
-![警示選項](media/monitor-using-azure-monitor/alerts_image1.png)
-
-帶您前往 [警示]。
-
-![警示頁面](media/monitor-using-azure-monitor/alerts_image2.png)
-
-您也可以登入 Azure 入口網站，然後按一下 [監視] -&gt; [警示] 來直接前往 [警示] 頁面。
+登入 Azure 入口網站，然後按一下 [監視器]-&gt; [警示] 以建立警示。
 
 ![入口網站功能表中的警示](media/monitor-using-azure-monitor/alerts_image3.png)
 
@@ -509,4 +501,5 @@ ADFV2 會發出下列計量
     ![動作群組畫面 4 之 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>後續步驟
-請參閱[以程式設計方式監視和管理管線](monitor-programmatically.md)文章，以了解如何藉由執行來監視和管理管線。
+
+請參閱[以程式設計方式監視和管理管線](monitor-programmatically.md)文章，以了解如何使用程式碼監視和管理管線。

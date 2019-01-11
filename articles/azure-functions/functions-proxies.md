@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 413decee89e99b8120d271e2e87e703d4d362c33
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139515"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999283"
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions Proxy
 
@@ -161,7 +161,7 @@ Proxies.json 是由 Proxy 物件定義，該物件包含具名 Proxy 及其定�
             "matchCondition": {
                 "route": "/example"
             },
-            "backendUri": "www.example.com"
+            "backendUri": "https://<AnotherApp>.azurewebsites.net/api/<FunctionName>"
         }
     }
 }
@@ -176,12 +176,13 @@ Proxies.json 是由 Proxy 物件定義，該物件包含具名 Proxy 及其定�
 
 ### <a name="reservedChars"></a> 保留的字元 (字串格式化)
 
-Proxy 讀取所有的字串，而不進行解譯，但大括號和斜線例外
+Proxy 會使用 \\\\\\ 作為逸出符號，讀取以 C# 字串表示法顯示的所有字串。 Proxy 也會解譯大括弧。 請參閱下面的一組完整範例。
 
 |Character|逸出字元|範例|
 |-|-|-|
 |{ or }|{{ or }}|`{{ example }}` --> `{ example }`
-|/|///| `example.com///text.html` --> `example.com/text.html`
+| \ | \\\\\\\\ | `example.com\\\text.html` --> `example.com\text.html`
+|"|\\\\\\"| `\\\"example\\\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>定義 requestOverrides 物件
 

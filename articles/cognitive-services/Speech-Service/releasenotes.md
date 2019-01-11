@@ -8,19 +8,60 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7485ca1e4b1143ed46c9b3bef9ca66af0638b4f8
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088291"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599411"
 ---
 # <a name="release-notes"></a>版本資訊
 
-## <a name="speech-service-sdk-110"></a>語音服務 SDK 1.1.0
+## <a name="speech-sdk-120-2018-december-release"></a>語音 SDK 1.2.0：2018 年 12 月版本
+
+**新功能**
+
+* Python
+  * 這一版提供 Python 支援的搶鮮版 (Beta) (3.5 和更新版本)。 如需詳細資料，請參閱[這裡](quickstart-python.md)。
+* JavaScript
+  * 適用於 JavaScript 的語音 SDK 已開放原始碼。 原始程式碼位於 [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js)。
+  * 我們現在支援 Node.js，您可以在[這裡](quickstart-js-node.md)找到更多資訊。
+  * 音訊工作階段的長度限制已移除，重新連線會自動發生。
+* 連線物件
+  * 您可以從辨識器存取連線物件。 此物件可讓您明確地起始服務連線，並訂閱連線和中斷連線事件。
+    (此物件還無法在 JavaScript 和 Python 中使用。)
+* Ubuntu 18.04 支援。
+* Android
+  * 已在 APK 產生期間啟用 ProGuard 支援。
+
+**改進**
+
+* 改進內部執行緒使用方式，並減少執行緒、鎖定、Mutex 的數目。
+* 已改善錯誤回報 / 資訊。 在有些情況下，錯誤訊息尚未完全傳播出去。
+* 已將 JavaScript 中的開發相依性更新為使用最新的模組。
+
+**錯誤修正**
+
+* 已修正由於 RecognizeAsync 中類型不符所造成的記憶體流失。
+* 在某些情況下，例外狀況正在流失。
+* 已修正翻譯事件引數的記憶體流失。
+* 已修正在長時間執行的工作階段中重新連線的鎖定問題。
+* 已修正因為翻譯失敗而可能導致遺漏最終結果的問題。
+* C#：如果非同步作業未在主執行緒中等候，則在非同步工作完成之前，就可能處置了辨識器。
+* Java：已修正導致 Java VM 損毀的問題。
+* Objective-C：已修正列舉對應；傳回了 RecognizedIntent 而不是 RecognizingIntent。
+* JavaScript：在 SpeechConfig 中將預設輸出格式設定為 'simple'。
+* JavaScript：移除 JavaScript 與其他語言中組態物件屬性之間的不一致。
+
+**範例**
+
+* 已更新和修正數個範例 (例如可供翻譯的輸出語音等)。
+* 已在[範例存放庫](https://aka.ms/csspeech/samples)中新增 Node.js 範例。
+
+## <a name="speech-sdk-110"></a>語音 SDK 1.1.0
 
 **新功能**
 
@@ -51,7 +92,7 @@ ms.locfileid: "53088291"
 
 * 已在[範例存放庫](https://aka.ms/csspeech/samples)中新增可供提取和推送資料流使用方式的 C++ 和 C# 範例。
 
-## <a name="speech-service-sdk-101"></a>語音服務 SDK 1.0.1
+## <a name="speech-sdk-101"></a>語音 SDK 1.0.1
 
 穩定性改進及 Bug 修正：
 

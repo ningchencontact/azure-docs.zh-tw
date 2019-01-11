@@ -11,22 +11,57 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/15/2018
+ms.date: 1/7/2019
 ms.author: raiye
-ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 154b925cc173a1a8fac697e347759764807a3052
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854266"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107900"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 已引進更新的特定[系列][family-explain]會持續推出更新。
 
-## <a name="november-2018-guest-os"></a>2018 年 11 月客體 OS
+## <a name="december-2018-guest-os"></a>2018 年 12 月客體 OS
 
->[!NOTE]
->我們目前正在將 11 月客體 OS 推展到已設定要自動更新的雲端服務 VM。 推展完成時，我們會透過 Azure 入口網站和組態檔來提供此版本，以便您可以手動更新。 下列修補程式會包含在 11 月客體 OS 中。 此清單會隨時變動。
+| 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| --- | --- | --- | --- | --- |
+| Rel 18-12 | [4471321] | Windows 10 安全性 | 5.26 | 2018 年 12 月 11 日 |
+| Rel 18-12 | [4471328] | Windows 安全性   | 2.81 | 2018 年 12 月 11 日 |
+| Rel 18-12 | [4471326] | Windows 安全性   | 3.68 | 2018 年 12 月 11 日 |
+| Rel 18-12 | [4471322] | Windows 安全性   | 4.61 | 2018 年 12 月 11 日 |
+| Rel 18-12 | [4470600] | .Net 3.x 安全性  | 2.81 | 2018 年 12 月 11 日 |
+| Rel 18-12 | [4470601] | .Net 3.x 安全性  | 3.68 | 2018 年 12 月 11 日|
+| Rel 18-12 | [4470602] | .Net 3.x 安全性  | 4.61 | 2018 年 12 月 11 日 |
+| Rel 18-12 | [4470493] | .Net 4.x 安全性  | 2.81 | 2018 年 12 月 11 日 |
+| Rel 18-12 | [4470492] | .Net 4.x 安全性  | 3.68 | 2018 年 12 月 11 日 |
+| Rel 18-12 | [4470491] | .Net 4.x 安全性  | 4.61| 2018 年 12 月 11 日 |
+| Rel 18-12 | [4471331] | 閃爍  | 3.68、4.61、5.26 | 2018 年 12 月 5 日  |
+| Rel 18-12 | [4470199] | Internet Explorer  | 2.81、3.68、4.61 | 2018 年 12 月 11 日 |
+| N/A | [4468323] | 時區更新    | 2.81、3.68、4.61 | 2018 年 12 月 13 日 |
+| N/A | [4467107] | 十一月份非安全性彙總套件   | 2.81 | 2018 年 11 月 13 日 |
+| N/A | [4467701] | 十一月份非安全性彙總套件     | 3.68 | 2018 年 11 月 13 日 |
+| N/A | [4467697] | 十一月份非安全性彙總套件     | 4.61 | 2018 年 11 月 13 日 |
+
+[4471321]: http://support.microsoft.com/kb/4471321
+[4471328]: http://support.microsoft.com/kb/4471328
+[4471326]: http://support.microsoft.com/kb/4471326
+[4471322]: http://support.microsoft.com/kb/4471322
+[4470600]: http://support.microsoft.com/kb/4470600
+[4470601]: http://support.microsoft.com/kb/4470601
+[4470602]: http://support.microsoft.com/kb/4470602
+[4470493]: http://support.microsoft.com/kb/4470493
+[4470492]: http://support.microsoft.com/kb/4470492
+[4470491]: http://support.microsoft.com/kb/4470491
+[4471331]: http://support.microsoft.com/kb/4471331
+[4470199]: http://support.microsoft.com/kb/4470199
+[4468323]: http://support.microsoft.com/kb/4468323
+[4467107]: http://support.microsoft.com/kb/4467107
+[4467701]: http://support.microsoft.com/kb/4467701
+[4467697]: http://support.microsoft.com/kb/4467697
+
+## <a name="november-2018-guest-os"></a>2018 年 11 月客體 OS
 
 | 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
 | --- | --- | --- | --- | --- |
@@ -474,7 +509,7 @@ ms.locfileid: "51854266"
 | N/A |[3185331] |適用於 Windows 8.1 和 Windows Server 2012 R2 的 2016 年 10 月安全性每月品質彙總套件 |4.38 |2016 年 11 月 8 日 |
 | N/A |[3192404] |適用於 Windows 8.1 和 Windows Server 2012 R2 的 2016 年 10 月每月品質彙總套件預覽 |4.38 |2016 年 11 月 8 日 |
 | N/A |[3199986] |適用於 Windows 10 版本 1607 的服務堆疊更新：2016 年 10 月 27 日 |5.3 |2016 年 11 月 8 日 |
-| N/A |[3197954] |適用於 Windows 10 版本 1607 和 Windows Server 2016 的累積更新：2016 年 10 月 27 日 |5.3 |2016 年 11 月 8 日 |
+| N/A |[3197954] |Windows 10 版本 1607 和 Windows Server 2016 的累積更新：2016 年 10 月 27 日 |5.3 |2016 年 11 月 8 日 |
 
 ## <a name="october-2016-guest-os"></a>2016 年 10 月客體 OS
 | 公告識別碼 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
@@ -581,7 +616,7 @@ ms.locfileid: "51854266"
 | N/A |[3133977] |BitLocker 無法加密磁碟機，原因是 Windows 7 或 Windows Server 2008 R2 中 svchost.exe 程序中的服務損毀  |2.51 |2016 年 5 月 10 日 |
 | N/A |[3133681] |虛擬機器並未回應您在 Windows Server 2012 R2 中 SCVMM 中的作業  |4.32 |2016 年 5 月 10 日 |
 | N/A |[3123245] |更新可改善 Windows Server 2012 R2 中的連接埠耗盡識別  |4.32 |2016 年 5 月 10 日 |
-| N/A |[停用 RC4] | Microsoft 安全性諮詢︰停用 RC4 的更新  |4.32, 3.39, 2.51 |2016 年 5 月 10 日 |
+| N/A |[停用 RC4] | Microsoft Security Advisory：可供停用 RC4 的更新  |4.32, 3.39, 2.51 |2016 年 5 月 10 日 |
 
 ## <a name="april-2016-guest-os"></a>2016 年 4 月客體 OS
 | 公告識別碼 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |

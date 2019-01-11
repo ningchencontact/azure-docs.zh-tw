@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 79ee129390c6b364ec65e8ae1e893e98f358751e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4eb4db9a4057d072f348de48bee2f746f77cbb84
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497102"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715336"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>建立 HDInsight 叢集時新增自訂 Apache Hive 程式庫
 
@@ -26,7 +26,7 @@ ms.locfileid: "52497102"
 
 叢集建立期間，指令碼會列舉檔案、將它們複製到前端和背景工作節點上的 `/usr/lib/customhivelibs/` 目錄，然後將它們加入至 `core-site.xml` 檔案中的 `hive.aux.jars.path` 屬性。 在以 Linux 為基礎的叢集上，它也會以檔案的位置來更新 `hive-env.sh` 檔案。
 
-> [!NOTE]
+> [!NOTE]  
 > 使用本文中的指令碼動作可讓程式庫在下列案例中可供使用：
 >
 > * **以 Linux 作為基礎的 HDInsight** - 使用 Hive 用戶端、**WebHCat** 和 **HiveServer2** 時。
@@ -40,7 +40,7 @@ ms.locfileid: "52497102"
 
 **以 Windows 為基礎的叢集**：[https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 **需求**
@@ -53,14 +53,14 @@ ms.locfileid: "52497102"
 
 * 必須指定容器的 WASB 路徑做為指令碼動作的參數。 例如，如果 jar 儲存在名為 **mystorage** 的儲存體帳戶上稱為 **libs** 的容器中，則這個參數會是 **wasb://libs@mystorage.blob.core.windows.net/**。
 
-  > [!NOTE]
+  > [!NOTE]  
   > 本文件假設您已建立儲存體帳戶、blob 容器，也已將檔案上傳給它。
   >
-  > 如果您尚未建立儲存體帳戶，您可以透過 [Azure 入口網站](https://portal.azure.com)來建立。 接著，您可以使用 [Azure 儲存體 Explorer](http://storageexplorer.com/) 之類的公用程式，在帳戶中建立容器，並將檔案上傳至其中。
+  > 如果您尚未建立儲存體帳戶，您可以透過 [Azure 入口網站](https://portal.azure.com)來建立。 接著，您可以使用 [Azure 儲存體 Explorer](https://storageexplorer.com/) 之類的公用程式，在帳戶中建立容器，並將檔案上傳至其中。
 
 ## <a name="create-a-cluster-using-the-script"></a>使用指令碼建立叢集
 
-> [!NOTE]
+> [!NOTE]  
 > 下列步驟會建立以 Linux 為基礎的 HDInsight 叢集。 若要建立以 Windows 為基礎的叢集，請在建立叢集時選取 **Windows** 作為叢集作業系統，並使用 Windows (PowerShell) 指令碼，而不是 bash 指令碼。
 >
 > 您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。 如需使用這些方法的詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
@@ -71,15 +71,15 @@ ms.locfileid: "52497102"
 
    * **名稱**：輸入指令碼動作的易記名稱。
 
-   * **指令碼 URI**： https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **指令碼 URI**： https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh。
 
-   * **HEAD**：勾選此選項。
+   * **前端**：勾選此選項。
 
-   * **WORKER**：勾選此選項。
+   * **背景工作**：勾選此選項。
 
-   * **ZOOKEEPER**：將此選項保留空白。
+   * **ZOOKEEPER**：將此項保留空白。
 
-   * **參數**：輸入包含 jar 的容器和儲存體帳戶的 WASB 位址。 例如：**wasb://libs@mystorage.blob.core.windows.net/**。
+   * **參數**：輸入包含 jar 之容器和儲存體帳戶的 WASB 位址。 例如：**wasb://libs@mystorage.blob.core.windows.net/**。
 
 3. 在 [指令碼動作] 底部，使用 [選取] 按鈕以儲存組態。
 

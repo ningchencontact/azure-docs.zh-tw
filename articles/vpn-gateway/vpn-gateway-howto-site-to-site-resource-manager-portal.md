@@ -1,18 +1,18 @@
 ---
-title: 將內部部署網路連接至 Azure 虛擬網路：站對站 VPN：入口網站 | Microsoft Docs
+title: 將內部部署網路連線到 Azure 虛擬網路：站對站 VPN：入口網站 | Microsoft Docs
 description: 透過公用網際網路建立從內部部署網路至 Azure 虛擬網路之 IPsec 連線的步驟。 這些步驟可協助您使用入口網站建立跨單位的站對站 VPN 閘道連線。
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: dd29b4af85826e350e116b31fa53031aacaba067
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457114"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651634"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>在 Azure 入口網站中建立站對站連線
 
@@ -35,30 +35,30 @@ ms.locfileid: "49457114"
 在開始設定之前，請確認您已符合下列條件：
 
 * 確定您有相容的 VPN 裝置以及能夠對其進行設定的人員。 如需相容 VPN 裝置和裝置組態的詳細資訊，請參閱[關於 VPN 裝置](vpn-gateway-about-vpn-devices.md)。
-* 確認您的 VPN 裝置有對外開放的公用 IPv4 位址。 此 IP 位址不能位於 NAT 後方。
+* 確認您的 VPN 裝置有對外開放的公用 IPv4 位址。
 * 如果您不熟悉位於內部部署網路組態的 IP 位址範圍，您需要與能夠提供那些詳細資料的人協調。 當您建立此組態時，您必須指定 IP 位址範圍的首碼，以供 Azure 路由傳送至您的內部部署位置。 內部部署網路的子網路皆不得與您所要連線的虛擬網路子網路重疊。 
 
 ### <a name="values"></a>範例值
 
 本文的範例使用下列值。 您可以使用這些值來建立測試環境，或參考這些值，進一步了解本文中的範例。 如需有關 VPN 閘道的一般設定詳細資訊，請參閱 [關於 VPN 閘道設定](vpn-gateway-about-vpn-gateway-settings.md)。
 
-* **VNet 名稱︰** TestVNet1
+* **VNet 名稱：** TestVNet1
 * **位址空間：** 10.1.0.0/16
-* **訂用帳戶：** 您需要使用的訂用帳戶
-* **資源群組︰** TestRG1
+* **訂用帳戶︰** 您要使用的訂用帳戶
+* **資源群組：** TestRG1
 * **位置：** 美國東部
-* **子網路：** FrontEnd：10.1.0.0/24，BackEnd：10.1.1.0/24 (在此練習中是選擇性的)
-* **閘道子網路名稱︰** GatewaySubnet (這會在入口網站中自動填入)
-* **閘道子網路位址範圍︰** 10.1.255.0/27
+* **子網路：** FrontEnd：10.1.0.0/24，BackEnd：10.1.1.0/24 (對此練習為選擇性)
+* **閘道子網路名稱：** GatewaySubnet (這會在入口網站中自動填入)
+* **閘道子網路位址範圍：** 10.1.255.0/27
 * **DNS 伺服器：** 8.8.8.8 - 選擇性。 DNS 伺服器的 IP 位址。
 * **虛擬網路閘道名稱：** VNet1GW
 * **公用 IP：** VNet1GWIP
-* **VPN 類型：** 路由式
-* **連線類型︰** 網站間 (IPsec)
+* **VPN 類型：** 以路由為基礎
+* **連線類型：** 站對站 (IPsec)
 * **閘道類型：** VPN
 * **區域網路閘道名稱：** Site1
-* **連線名稱︰** VNet1toSite1
-* **共用的金鑰：** 此範例中，我們會使用 abc123。 但是，您可以使用任何與您 VPN 硬體相容的項目。 值務必符合連線的兩端。
+* **連線名稱：** VNet1toSite1
+* **共用金鑰：** 在此範例中，我們使用 abc123。 但是，您可以使用任何與您 VPN 硬體相容的項目。 值務必符合連線的兩端。
 
 ## <a name="CreatVNet"></a>1.建立虛擬網路
 

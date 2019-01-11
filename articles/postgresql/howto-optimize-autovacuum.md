@@ -3,16 +3,15 @@ title: 將適用於 PostgreSQL 的 Azure 資料庫伺服器中的自動資料清
 description: 本文描述您可以如何將適用於 PostgreSQL 的 Azure 資料庫伺服器中的自動資料清理最佳化。
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 3f35779337082b7280398bd13ef870c74f3ec082
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685985"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539784"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>將適用於 PostgreSQL 的 Azure 資料庫伺服器上的自動資料清理最佳化 
 本文描述如何將適用於 PostgreSQL 的 Azure 資料庫上的自動資料清理有效地最佳化。

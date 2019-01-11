@@ -1,5 +1,5 @@
 ---
-title: Azure 時間序列深入解析驗證 - 如何透過 Azure 時間序列深入解析中的 API 進行驗證和授權 | Microsoft Docs
+title: 如何在 Azure 時間序列深入解析中以 API 驗證和授權 | Microsoft Docs
 description: 本文說明如何為呼叫 Azure Time Series Insights API 的自訂應用程式設定驗證和授權。
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: e42a29152f3abb762e6c95833e8e2e5eddd6929b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 17ca5430a0fdba0bf11d7c2caecd19ec0a402c0e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273539"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556691"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API 的驗證和授權
 

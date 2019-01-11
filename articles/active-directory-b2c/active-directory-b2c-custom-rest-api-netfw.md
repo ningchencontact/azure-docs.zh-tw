@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e3d938c4464fc5141b97f85220bf096920e17d00
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339588"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557276"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證
 
@@ -27,7 +27,7 @@ ms.locfileid: "43339588"
 您可以使用 Azure AD B2C，呼叫自己的 RESTful 服務，將自己的商務邏輯新增至使用者旅程圖。 識別體驗架構會在*輸入宣告*集合中將資料傳送至 RESTful 服務，並在*輸出宣告*集合中從 RESTful 接收資料。 使用 RESTful 服務整合，您可以：
 
 * **驗證使用者輸入資料**：此動作可防止將格式不正確的資料持續保存至 Azure AD。 如果來自使用者的值無效，您的 RESTful 服務會傳回錯誤訊息，指示使用者提供輸入。 例如，您可能會驗證使用者提供的電子郵件地址存在於客戶資料庫中。
-* **覆寫輸入宣告**：例如，如果使用者輸入全部小寫或全部大寫的名字，您可以將名稱格式化為只有第一個字母大寫。
+* **覆寫輸入宣告**：例如，如果使用者輸入全部小寫或全部大寫的名字，您可以設定名稱格式為只有第一個字母大寫。
 * **與公司的企業營運應用程式進一步整合來擴充使用者資料**：您的 RESTful 服務可以接收使用者的電子郵件地址、查詢客戶的資料庫，以及將使用者的忠誠度號碼傳回給 Azure AD B2C。 傳回宣告可能會儲存在使用者的 Azure AD 帳戶中，於下一個*協調流程步驟*中評估，或包含在存取權杖中。
 * **執行自訂商務邏輯**：您可以傳送推播通知、更新公司資料庫、執行使用者移轉程序、管理權限、稽核資料庫，以及執行其他動作。
 
@@ -254,50 +254,50 @@ ms.locfileid: "43339588"
 
    在此範例中，`givenName` 宣告的內容會傳送至 REST 服務做為 `firstName`，宣告 `surname` 的內容會傳送至 REST 服務做為 `lastName`，而 `email` 會依原狀傳送。 `OutputClaims` 元素定義的宣告會從 RESTful 服務擷取回 Azure AD B2C。
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**：將驗證技術設定檔新增至現有的技術設定檔 (定義在基本原則中)。 在註冊旅程期間，驗證技術設定檔會叫用上述技術設定檔。 如果 RESTful 服務傳回 HTTP 錯誤 409 (衝突錯誤)，錯誤訊息會顯示給使用者。 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**：將驗證技術的設定檔新增至現有的技術設定檔 (於基底原則中定義)。 在註冊旅程期間，驗證技術設定檔會叫用上述技術設定檔。 如果 RESTful 服務傳回 HTTP 錯誤 409 (衝突錯誤)，錯誤訊息會顯示給使用者。 
 
 找出 `<ClaimsProviders>` 節點，然後在 `<ClaimsProviders>` 節點下方新增下列 XML 程式碼片段：
 
 ```xml
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
     
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
-        <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
-        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-        <Metadata>
+      <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
         <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
         <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
-        </Metadata>
-        <InputClaims>
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
         <InputClaim ClaimTypeReferenceId="email" />
         <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
         <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
-        </InputClaims>
-        <OutputClaims>
+      </InputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
     </TechnicalProfile>
 
-<!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
+    <!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-        <OutputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <ValidationTechnicalProfiles>
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
         <ValidationTechnicalProfile ReferenceId="REST-API-SignUp" />
-        </ValidationTechnicalProfiles>
+      </ValidationTechnicalProfiles>
     </TechnicalProfile>
-
-    </TechnicalProfiles>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 
-## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>步驟 6：將宣告 `loyaltyNumber` 新增至您的信賴憑證者原則檔案，以便將宣告傳送至您的應用程式
+## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>步驟 6：將 `loyaltyNumber` 宣告新增至您的信賴憑證者原則檔案，以便將宣告傳送至您的應用程式
 編輯您的 *SignUpOrSignIn.xml* 信賴憑證者 (RP) 檔案，並修改 TechnicalProfile Id="PolicyProfile" 元素以新增下列內容：`<OutputClaim ClaimTypeReferenceId="loyaltyNumber" />`。
 
 新增宣告之後，信賴憑證者程式碼看起來像這樣：

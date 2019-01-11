@@ -1,5 +1,5 @@
 ---
-title: 變更並重新部署微服務 | Microsoft Docs
+title: 變更並重新部署微服務 - Azure | Microsoft Docs
 description: 本教學課程示範如何在遠端監視中變更並重新部署微服務
 author: dominicbetts
 ms.author: dobett
@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 563de3d062b2c49d6b7ba23ae405e75283270815
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315752"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631887"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>自訂和重新部署微服務
 
-本教學課程示範如何編輯遠端監視解決方案中的其中一個[微服務](http://azure.com/microservices)，建置該微服務的映像，將該映像部署到 Docker Hub，然後將它用於遠端監視解決方案。 為了引入此概念，本教學課程會使用基本情節，讓您可在其中呼叫微服務 API，並將狀態訊息從 "Alive and Well" 變更為 "New Edits Made Here!"。
+本教學課程示範如何編輯遠端監視解決方案中的其中一個[微服務](https://azure.com/microservices)，建置該微服務的映像，將該映像部署到 Docker Hub，然後將它用於遠端監視解決方案。 為了引入此概念，本教學課程會使用基本情節，讓您可在其中呼叫微服務 API，並將狀態訊息從 "Alive and Well" 變更為 "New Edits Made Here!"。
 
 遠端監視解決方案所使用的微服務，是使用提取自 Docker Hub 的 Docker 映像所建置。 
 
@@ -77,7 +77,7 @@ ms.locfileid: "53315752"
     
     或在 Windows 上：
     
-    ```
+    ```cmd
     ./build.cmd
     ```
 

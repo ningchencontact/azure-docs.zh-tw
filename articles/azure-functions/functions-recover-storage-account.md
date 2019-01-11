@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: babad23743a0a3c9631c0bcf406de3521174264a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887203"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000014"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>如何針對「無法連線至函式執行階段」的情形進行疑難排解
 
@@ -37,6 +37,7 @@ ms.locfileid: "48887203"
 1. 儲存體帳戶的應用程式設定已刪除
 1. 儲存體帳戶的認證無效
 1. 無法存取儲存體帳戶
+1. 每日執行配額已滿
 
 ## <a name="storage-account-deleted"></a>儲存體帳戶已刪除
 
@@ -79,12 +80,19 @@ ms.locfileid: "48887203"
 * 部署到 App Service 環境的函式應用程式沒有正確的網路規則，而無法允許流量進出儲存體帳戶
 * 儲存體帳戶的防火牆已啟用，且未設定為允許流量進出函式。 [在此深入了解儲存體帳戶防火牆組態](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
+## <a name="daily-execution-quota-full"></a>每日執行配額已滿
+
+如果您已設定每日執行配額，則會暫時停用您的函數應用程式，且許多入口網站控制項將變成無法使用。 
+
+* 若要驗證，請在入口網站中檢查開啟的 [平台功能] > [函數應用程式設定]。 如果您已超過配額，就會看到下列訊息
+    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+* 請移除配額，然後重新啟動應用程式來解決此問題。
 
 ## <a name="next-steps"></a>後續步驟
 
 現在，您的函式應用程式已恢復運作，接下來請看看我們的快速入門及開發人員參考，以便讓其重新啟動並執行！
 
-* [建立您的第一個 Azure 函式](functions-create-first-azure-function.md)  
+* [建立您的第一個Azure Functions](functions-create-first-azure-function.md)  
   直接進入正題並使用 Azure Functions 快速入門建立您的第一個函數。 
 * [Azure Functions 開發人員參考](functions-reference.md)  
   提供更多有關 Azure Functions 執行階段的技術資訊，以及可供撰寫函數程式碼及定義觸發程序和繫結時參考。
@@ -92,5 +100,5 @@ ms.locfileid: "48887203"
   說明可用於測試函式的各種工具和技巧。
 * [如何調整 Azure 函式](functions-scale.md)  
   討論 Azure Functions 可用的服務方案，包括使用情況主控方案，以及如何選擇正確的方案。 
-* [深入了解 Azure App Service](../app-service/app-service-web-overview.md)  
+* [深入了解 Azure App Service](../app-service/overview.md)  
   Azure Functions 會利用 Azure App Service 來執行核心功能，例如部署、環境變數和診斷。 

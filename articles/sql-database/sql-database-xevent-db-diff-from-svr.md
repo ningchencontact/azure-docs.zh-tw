@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 3b51f4a4a4d00bcfaa1baf1c46ad7f6eb638ad2b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a4971d680994c9d81e86a4070ea79365ac8ec4dd
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867863"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606481"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database 中的擴充事件
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "52867863"
 
 如需有關 Azure SQL Database 和 Microsoft SQL Server 之擴充事件的其他資訊，請參閱：
 
-- [Quick Start: Extended events in SQL Server (快速入門：SQL Server 中的擴充事件)](https://msdn.microsoft.com/library/mt733217.aspx)
+- [快速入門：SQL Server 中的擴充事件](https://msdn.microsoft.com/library/mt733217.aspx)
 - [擴充事件](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>必要條件

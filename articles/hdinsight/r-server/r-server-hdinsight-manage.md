@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: bdb2e355b29306c8a78a3a773269baeee13fc9d1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497550"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584389"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>在 HDInsight 上管理 ML 服務叢集
 
@@ -22,7 +22,7 @@ ms.locfileid: "52497550"
 
 ## <a name="prerequisites"></a>必要條件
 
-* **HDInsight 上的 ML 服務叢集**：如需相關指示，請參閱[開始在 HDInsight 上使用 ML 服務](r-server-get-started.md)。
+* **HDInsight 上的 ML 服務叢集**：如需相關指示，請參閱[開始使用 HDInsight 上的 ML 服務](r-server-get-started.md)。
 
 * **安全殼層 (SSH) 用戶端**：SSH 用戶端可用來從遠端連線至 HDInsight 叢集，並直接在叢集上執行命令。 如需詳細資訊，請參閱[搭配使用 SSH 與 HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -70,7 +70,7 @@ HDInsight 上 ML 服務叢集中所使用的 R Studio Server 社群版本，只�
 
 當系統提示您輸入 [目前的 Kerberos 密碼] 時，只要按 **Enter** 加以忽略。 `useradd` 命令中的 `-m` 選項表示系統將為使用者建立主資料夾，這是 RStudio 社群版本所需的。
 
-### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>步驟 3：使用 RStudio 社群版本搭配建立的使用者
+### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>步驟 3：使用 RStudio 社群版本搭配所建立的使用者
 
 從 https://CLUSTERNAME.azurehdinsight.net/rstudio/ 存取 RStudio。 如果您在建立叢集之後首次進行登入，請輸入叢集系統管理員認證，後面接著您建立的 SSH 使用者認證。 如果這不是您第一次登入，則只需針對您所建立的 SSH 使用者輸入認證。
 
@@ -80,7 +80,7 @@ HDInsight 上 ML 服務叢集中所使用的 R Studio Server 社群版本，只�
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>遠端連線到 Microsoft ML 服務
 
-您可以設定從桌上型電腦上執行的 ML 用戶端遠端執行個體，來存取 HDInsight Spark 計算內容。 若要這樣做，在桌上型電腦上定義 RxSpark 計算內容時，您必須指定選項 (hdfsShareDir、shareDir、sshUsername、sshHostname、sshSwitches 和 sshProfileScript)：例如：
+您可以設定從桌上型電腦上執行的 ML 用戶端遠端執行個體，來存取 HDInsight Spark 計算內容。 若要這樣做，在桌上型電腦上定義 RxSpark 計算內容時，您必須指定選項 (hdfsShareDir、shareDir、sshUsername、sshHostname、sshSwitches 和 sshProfileScript)：例如︰
 
     myNameNode <- "default"
     myPort <- 0
@@ -299,10 +299,8 @@ HDInsight ML 服務可讓您在 Hive 和 Parquet 中直接存取資料，以供 
 
 若要在叢集的背景工作節點上安裝 R 封裝，就必須使用指令碼動作。 指令碼動作是一種 Bash 指令碼，可用來變更 HDInsight 叢集的設定或安裝其他軟體，例如其他 R 套件。 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 僅有在建立叢集之後，才可以使用指令碼動作來安裝其他 R 封裝。 在叢集建立期間，請勿使用此程序，因為指令碼依賴已完整設定的 ML 服務。
->
->
 
 1. 遵循[使用指令碼動作來自訂叢集](../hdinsight-hadoop-customize-cluster-linux.md)中的步驟。
 
@@ -312,11 +310,11 @@ HDInsight ML 服務可讓您在 Hive 和 Parquet 中直接存取資料，以供 
 
    * 針對**名稱**，提供指令碼動作的名稱。
 
-    * 針對 **Bash 指令碼 URI**，輸入 `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`。 這是在背景工作節點上安裝其他 R 封裝的指令碼
+    * 針對 **Bash 指令碼 URI**，輸入 `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`。 這是在背景工作節點上安裝其他 R 封裝的指令碼
 
    * 只選取**背景工作**的核取方塊。
 
-   * **參數**︰要安裝的 R 套件。 例如， `bitops stringr arules`
+   * **參數**：要安裝的 R 套件。 例如， `bitops stringr arules`
 
    * 選取此核取方塊以**持續此指令碼動作**。  
 

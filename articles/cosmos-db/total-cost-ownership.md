@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: rimman
-ms.openlocfilehash: a15a704cfba9260daac0cd5edfdf8b4566348628
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 419ad6681af39aee468a23319b773de23619984d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263443"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555450"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 的擁有權總成本 (TCO)
 
@@ -27,7 +27,7 @@ Azure Cosmos DB 的無伺服器佈建模型不需要過度佈建的資料庫基�
 
 * **物超所值：** 市場分析師、 客戶和夥伴已確認，與客戶自己或透過其他廠商實作這些解決方案時可以取得的價格相比，Azure Cosmos DB 提供的所有功能都具有更高的價值。 該資料庫具有全域發佈、多重主機、定義完善且直覺式的一致性模型，Azure Cosmos DB 大幅簡化了自動編製索引，沒有任何複雜度、額外負荷或停機。
 
-* **無需 NoSQL devops 管理：** 使用 Azure Cosmos DB，您無需採用 devops 來管理部署、執行維護，調整或修補。 您可以執行透過裝載於內部部署或雲端基礎結構上的 OSS NoSQL 叢集執行的所有工作負載。
+* **無需 NoSQL DevOps 管理：** 使用 Azure Cosmos DB，您無需採用 DevOps 來管理部署、執行維護，調整或修補。 您可以執行透過裝載於內部部署或雲端基礎結構上的 OSS NoSQL 叢集執行的所有工作負載。
 
 ![Azure Cosmos DB 的擁有權成本](./media/total-cost-ownership/tco.png)
 

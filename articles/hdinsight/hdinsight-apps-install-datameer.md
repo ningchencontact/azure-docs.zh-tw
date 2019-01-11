@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9e9ccb1ba3d19e0240df869dfea1e27ac4124c34
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 947abea50685b04c3500a13a950375c32547efaf
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498772"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652960"
 ---
 # <a name="install-published-application---datameer"></a>安裝已發佈的應用程式 - Datameer
 
-本文說明如何在 Azure HDInsight 上安裝及執行 [Datameer](https://www.datameer.com/) 已發佈的 [Apache Hadoop](https://hadoop.apache.org/) 應用程式。 如需 HDInsight 應用程式平台的概觀，以及可用獨立軟體廠商 (ISV) 已發佈的應用程式清單，請參閱[安裝協力廠商 Apache Hadoop 應用程式](hdinsight-apps-install-applications.md)。 如需您自己的應用程式的安裝指示，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
+本文說明如何在 Azure HDInsight 上安裝及執行 [Datameer](https://www.datameer.com/) 已發佈的 [Apache Hadoop](https://hadoop.apache.org/) 應用程式。 如需 HDInsight 應用程式平台的概觀，以及可用獨立軟體廠商 (ISV) 已發佈的應用程式清單，請參閱[安裝第三方 Apache Hadoop 應用程式](hdinsight-apps-install-applications.md)。 如需您自己的應用程式的安裝指示，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
 
 ## <a name="about-datameer"></a>關於 Datameer
 
-Datameer 是 Hadoop 平台的原生應用程式，可擴充現有的 Azure HDInsight 功能，並可快速整合、準備及分析結構化和非結構化的資料。 Datameer 可以存取超過 70 種來源和格式：結構化、半結構化和非結構化。 您可以直接上傳資料，也可以使用其獨特的資料連結來隨需提取資料。 Datameer 的自助式功能和熟悉的試算表介面，可降低巨量資料技術的複雜性並加快深入解析的時間。 此試算表介面可提供簡易機制，讓您輸入宣告式公式，然後轉換成最佳化的 Hadoop 作業。 運用 Datameer 和商業智慧 (BI) 與 Excel 技巧，您即可快速地在雲端中使用 Hadoop。 如需詳細資訊，請參閱 [Datameer 文件](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft)。
+Datameer 是 Hadoop 平台的原生應用程式，可擴充現有的 Azure HDInsight 功能，並可快速整合、準備及分析結構化和非結構化的資料。 Datameer 可以存取超過 70 種來源和格式：結構化、半結構化和非結構化。 您可以直接上傳資料，也可以使用其獨特的資料連結來隨需提取資料。 Datameer 的自助式功能和熟悉的試算表介面，可降低巨量資料技術的複雜性並加快深入解析的時間。 此試算表介面可提供簡易機制，讓您輸入宣告式公式，然後轉換成最佳化的 Hadoop 作業。 運用 Datameer 和商業智慧 (BI) 與 Excel 技巧，您即可快速地在雲端中使用 Hadoop。 如需詳細資訊，請參閱 [Datameer 文件](https://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -106,9 +106,9 @@ Datameer 是 Hadoop 平台的原生應用程式，可擴充現有的 Azure HDIns
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Datameer 文件](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft)。
-* [安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)︰了解如何將未發佈的 HDInsight 應用程式部署到 HDInsight。
-* [發佈 HDInsight 應用程式](hdinsight-apps-publish-applications.md)︰了解如何將自訂 HDInsight 應用程式發佈至 Azure Marketplace。
-* [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)︰了解如何定義 HDInsight 應用程式。
+* [Datameer 文件](https://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft)。
+* [安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)：了解如何將未發佈的 HDInsight 應用程式部署到 HDInsight。
+* [發佈 HDInsight 應用程式](hdinsight-apps-publish-applications.md)：了解如何將自訂 HDInsight 應用程式發佈到 Azure Marketplace。
+* [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定義 HDInsight 應用程式。
 * [使用指令碼動作自訂以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用指令碼動作來安裝其他應用程式。
-* [在 HDInsight 中使用空白邊緣節點](hdinsight-apps-use-edge-node.md)︰了解如何使用空白邊緣節點來存取 HDInsight 叢集，以及測試和裝載 HDInsight 應用程式。
+* [在 HDInsight 中使用空白邊緣節點](hdinsight-apps-use-edge-node.md)：了解如何使用空白邊緣節點來存取 HDInsight 叢集，以及測試和裝載 HDInsight 應用程式。

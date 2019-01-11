@@ -1,6 +1,6 @@
 ---
 title: 針對網域和 SSL 憑證問題進行疑難排解 - Azure App Service | Microsoft Docs
-description: 在 Azure Web Apps 中為網域和 SSL 憑證問題疑難排解
+description: 在 Azure App Service 中對網域和 SSL 憑證問題進行疑難排解
 services: app-service\web
 documentationcenter: ''
 author: genlin
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 726bc78532cfe621eb3f3787aa05a7a54571a8c3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6f88079c5baac8cef677fd3afc5696cec5c00d92
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388322"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653657"
 ---
-# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>在 Azure Web Apps 中為網域和 SSL 憑證問題疑難排解
+# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>在 Azure App Service 中對網域和 SSL 憑證問題進行疑難排解
 
-本文列出為 Azure Web Apps 設定網域或 SSL 憑證時，可能會遇到的常見問題。 文中也會描述這些問題的可能原因和解決方案。
+本文列出在 Azure App Service 中為 Web 應用程式設定網域或 SSL 憑證時，可能會遇到的常見問題。 文中也會描述這些問題的可能原因和解決方案。
 
 如果您在本文中有任何需要協助的地方，您可以連絡 [MSDN 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
 
 ## <a name="certificate-problems"></a>憑證問題
 
-### <a name="you-cant-add-an-ssl-certificate-binding-to-a-web-app"></a>您無法對 Web 應用程式新增 SSL 憑證繫結 
+### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>您無法對應用程式新增 SSL 憑證繫結 
 
 #### <a name="symptom"></a>徵狀
 
@@ -40,13 +40,13 @@ ms.locfileid: "53388322"
 
 #### <a name="cause"></a>原因
 
-多個 Web 應用程式之間，如果有多個基於相同 IP 位址的 IP 為主 SSL 繫結，可能會發生此問題。 例如，Web 應用程式 A 的以 IP 為主 SSL 使用舊憑證。 Web 應用程式 B 的以 IP 為主 SSL 使用同一個 IP 位址的新憑證。 當您更新使用新憑證的 Web 應用程式 SSL 繫結時，由於另一個應用程式也使用相同的 IP 位址，因此更新會失敗，而且會出現這個錯誤。 
+多個應用程式之間，如果有多個基於相同 IP 位址的 IP 為主 SSL 繫結，可能會發生此問題。 例如，應用程式 A 的以 IP 為主 SSL 使用舊憑證。 應用程式 B 的以 IP 為主 SSL 使用同一個 IP 位址的新憑證。 當您更新使用新憑證的應用程式 SSL 繫結時，由於另一個應用程式也使用相同的 IP 位址，因此更新會失敗，而且會出現這個錯誤。 
 
 #### <a name="solution"></a>解決方法 
 
 若要修正問題，請使用下列其中一種方法：
 
-- 在使用舊憑證的 Web 應用程式上刪除以 IP 為主的 SSL 繫結。 
+- 在使用舊憑證的應用程式上刪除以 IP 為主的 SSL 繫結。 
 - 建立使用新憑證的新 IP 為主 SSL 繫結。
 
 ### <a name="you-cant-delete-a-certificate"></a>您無法刪除憑證 
@@ -59,11 +59,11 @@ ms.locfileid: "53388322"
 
 #### <a name="cause"></a>原因
 
-如果有另一個 Web 應用程式使用憑證，可能會出現這個問題。
+如果有另一個應用程式使用憑證，可能會出現這個問題。
 
 #### <a name="solution"></a>解決方法
 
-從 Web 應用程式移除該憑證的 SSL 繫結。 接著再嘗試刪除憑證。 如果您仍然無法刪除憑證，請清除網際網路瀏覽器快取，然後在新的瀏覽器視窗中重新開啟 Azure 入口網站。 接著再嘗試刪除憑證。
+從應用程式移除該憑證的 SSL 繫結。 接著再嘗試刪除憑證。 如果您仍然無法刪除憑證，請清除網際網路瀏覽器快取，然後在新的瀏覽器視窗中重新開啟 Azure 入口網站。 接著再嘗試刪除憑證。
 
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>您無法購買 App Service 憑證 
 
@@ -75,7 +75,7 @@ ms.locfileid: "53388322"
 
 - App Service 方案為免費或共用。 這些定價層不支援 SSL。 
 
-    **解決方案**：將 Web 應用程式的 App Service 方案升級為「標準」。
+    **解決方案**：將應用程式的 App Service 方案升級為「標準」。
 
 - 訂用帳戶的信用卡無效。
 
@@ -88,7 +88,7 @@ ms.locfileid: "53388322"
 - 訂用帳戶已達到單一訂用帳戶允許的購買限制。
 
     **解決方案**：預付型方案和 EA 訂用帳戶類型的 App Service 憑證有購買 10 個憑證的限制。 其他訂用帳戶類型的限制則為 3 個。 若要提高限制，請連絡 [Azure支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
-- App Service 憑證已標示為詐騙。 您收到下列錯誤訊息：「您的憑證已標示為可能的詐欺。 要求目前正在檢閱中。 若憑證在 24 小時內未變為可用，請連絡 Azure 支援。」
+- App Service 憑證已標示為詐騙。 您收到下列錯誤訊息：「您的憑證已標示為可能的詐欺。 要求目前正在進行檢閱。 如果憑證在 24 小時內無法成為可使用，請連絡 Azure 支援」。
 
     **解決方案**：如果憑證已標示為詐騙，且在 24 小時後仍未解決，請依照下列步驟進行操作：
 
@@ -110,14 +110,14 @@ ms.locfileid: "53388322"
 
 如果使用錯誤網域的現行憑證處於「已發行」狀態，則您也必須支付該憑證的費用。 App Service 憑證無法退款，不過您可以連絡 [Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)，看看是否有其他選擇。 
 
-### <a name="an-app-service-certificate-was-renewed-but-the-web-app-shows-the-old-certificate"></a>App Service 憑證已更新，不過 Web 應用程式顯示舊憑證 
+### <a name="an-app-service-certificate-was-renewed-but-the-app-shows-the-old-certificate"></a>App Service 憑證已更新，不過應用程式顯示舊憑證 
 
 #### <a name="symptom"></a>徵狀
 
-App Service 憑證已更新，不過使用 App Service 憑證的 Web 應用程式仍然使用舊憑證。 此外，您收到必須使用 HTTPS 通訊協定的警告。
+App Service 憑證已更新，不過使用 App Service 憑證的應用程式仍然使用舊憑證。 此外，您收到必須使用 HTTPS 通訊協定的警告。
 
 #### <a name="cause"></a>原因 
-Azure App Service 的 Web Apps 功能會每隔八小時執行一次背景作業，如果憑證資源發生變更，便會進行同步處理。 當您輪替或更新憑證時，有時候應用程式仍會擷取舊憑證，而非更新後的憑證。 這是因為同步處理憑證資源的作業尚未執行。 
+Azure App Service 會每隔八小時執行一次背景作業，如果憑證資源發生變更，便會進行同步處理。 當您輪替或更新憑證時，有時候應用程式仍會擷取舊憑證，而非更新後的憑證。 這是因為同步處理憑證資源的作業尚未執行。 
  
 #### <a name="solution"></a>解決方法
 
@@ -156,7 +156,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 ### <a name="you-cant-purchase-a-domain"></a>您無法購買網域
 
 #### <a name="symptom"></a>徵狀
-您無法從 Web Apps 購買網域，或在 Azure 入口網站中購買 App Service 網域。
+您無法在 Azure 入口網站中購買 App Service 網域。
 
 #### <a name="cause-and-solution"></a>原因和解決方案
 
@@ -176,7 +176,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
     **解決方案**：將 Azure 訂用帳戶升級為另一種訂用帳戶類型，例如預付型方案訂用帳戶。
 
-### <a name="you-cant-add-a-host-name-to-a-web-app"></a>您無法將主機名稱新增至 Web 應用程式 
+### <a name="you-cant-add-a-host-name-to-an-app"></a>您無法將主機名稱新增至應用程式 
 
 #### <a name="symptom"></a>徵狀
 
@@ -191,11 +191,11 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
     **解決方案**：要求訂用帳戶管理員授與您新增主機名稱的權限。
 - 您的網域擁有權無法驗證。
 
-    **解決方案**：確認您的 CNAME 或 A 記錄設定正確。 若要將自訂網域對應至 Web 應用程式，請建立 CNAME 記錄或 A 記錄。 如果您想要使用根網域，必須使用 A 和 TXT 記錄：
+    **解決方案**：確認您的 CNAME 或 A 記錄設定正確。 若要將自訂網域對應至應用程式，請建立 CNAME 記錄或 A 記錄。 如果您想要使用根網域，必須使用 A 和 TXT 記錄：
 
     |記錄類型|Host|指向|
     |------|------|-----|
-    |具有使用 |@|Web 應用程式的 IP 位址|
+    |具有使用 |@|應用程式的 IP 位址|
     |TXT|@|<app-name>.azurewebsites.net|
     |CNAME|www|<app-name>.azurewebsites.net|
 
@@ -216,7 +216,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 #### <a name="solution"></a>解決方法
 - 等候 48 小時讓該問題自行解決。
 - 如果您可以變更 DNS 組態中的 TTL 設定，請將值變更為 5 分鐘，看看是否能解決問題。
-- 使用 [WhatsmyDNS.net](https://www.whatsmydns.net/) 來確認網域是否指向 Web 應用程式的 IP 位址。 如果情況並非如此，請設定 A 記錄來更正 Web 應用程式的 IP 位址。
+- 使用 [WhatsmyDNS.net](https://www.whatsmydns.net/) 來確認網域是否指向應用程式的 IP 位址。 如果情況並非如此，請設定 A 記錄來更正應用程式的 IP 位址。
 
 ### <a name="you-need-to-restore-a-deleted-domain"></a>您必須還原已刪除的網域 
 
@@ -247,7 +247,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 **原因 1 的解決方案**
 
 - 如果您已新增 A 記錄，請務必一併新增 TXT 記錄。 如需詳細資訊，請參閱[建立 A 記錄](./app-service-web-tutorial-custom-domain.md#create-the-a-record)。
-- 如果您的 Web 應用程式不一定要使用根網域，建議您使用 CNAME 記錄，避免使用 A 記錄。
+- 如果您的應用程式不一定要使用根網域，建議您使用 CNAME 記錄，避免使用 A 記錄。
 - CNAME 記錄和 A 記錄不應同時用於同一個網域。 這樣可能會導致衝突，使網域無法解析。 
 
 **原因 2** 
@@ -256,18 +256,18 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
 **原因 2 的解決方案**
 
-清除瀏覽器。 如果您使用 Windows 裝置，可以執行命令 `ipconfig /flushdns`。 使用 [WhatsmyDNS.net](https://www.whatsmydns.net/) 來確認網域是否指向 Web 應用程式的 IP 位址。 
+清除瀏覽器。 如果您使用 Windows 裝置，可以執行命令 `ipconfig /flushdns`。 使用 [WhatsmyDNS.net](https://www.whatsmydns.net/) 來確認網域是否指向應用程式的 IP 位址。 
 
 ### <a name="you-cant-add-a-subdomain"></a>您無法新增子網域 
 
 #### <a name="symptom"></a>徵狀
 
-您無法將新主機名稱新增至 Web 應用程式來指派子網域。
+您無法將新主機名稱新增至應用程式來指派子網域。
 
 #### <a name="solution"></a>解決方法
 
-- 請洽詢訂用帳戶管理員，確認您擁有將主機名稱新增至 Web 應用程式的權限。
-- 如果您需要更多子網域，建議您將網域主機代管變更為 Azure DNS。 只要使用 Azure DNS，您就可以將 500 個主機名稱新增至 Web 應用程式。 如需詳細資訊，請參閱[新增子網域](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/)。
+- 請洽詢訂用帳戶管理員，確認您擁有將主機名稱新增至應用程式的權限。
+- 如果您需要更多子網域，建議您將網域主機代管變更為 Azure DNS。 只要使用 Azure DNS，您就可以將 500 個主機名稱新增至應用程式。 如需詳細資訊，請參閱[新增子網域](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/)。
 
 
 
