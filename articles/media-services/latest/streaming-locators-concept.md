@@ -9,33 +9,33 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: cb34855fc9451679c885eebb0ef5a2fab0be8c57
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 658843fd5acbe0d4e29947e99c00edf4909fe9f4
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086840"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742740"
 ---
 # <a name="streaming-locators"></a>串流定位器
 
-若要為您的用戶端提供可用來播放已編碼的視訊或音訊檔案的 URL，您必須建立 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 並建置串流 URL。 如需詳細資訊，請參閱[串流處理檔案](stream-files-dotnet-quickstart.md)。
+您必須為您的用戶端提供可用來播放已編碼的視訊或音訊檔案的 URL，您必須建立[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)並建置串流 URL。 如需詳細資訊，請參閱[串流處理檔案](stream-files-dotnet-quickstart.md)。
 
 ## <a name="streaminglocator-definition"></a>StreamingLocator 定義
 
 下表顯示 StreamingLocator 的屬性並提供其定義。
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |id |資源的完整資源識別碼。|
-|name   |資源名稱。|
+|name|資源名稱。|
 |properties.alternativeMediaId|此串流定位器的替代媒體識別碼。|
-|properties.assetName   |資產名稱|
-|properties.contentKeys |此串流定位器所使用的 Contentkey。|
-|properties.created |串流定位器的建立時間。|
+|properties.assetName|資產名稱|
+|properties.contentKeys|此串流定位器所使用的 Contentkey。|
+|properties.created|串流定位器的建立時間。|
 |properties.defaultContentKeyPolicyName|此串流定位器所使用的預設 ContentKeyPolicy 名稱。|
-|properties.endTime |串流定位器的結束時間。|
+|properties.endTime|串流定位器的結束時間。|
 |properties.startTime|串流定位器的開始時間。|
 |properties.streamingLocatorId|串流定位器的 StreamingLocatorId。|
 |properties.streamingPolicyName |此串流定位器所使用的串流原則名稱。 請指定您所建立的串流原則名稱，或使用其中一個預先定義的串流原則。 可用的預先定義串流原則如下：'Predefined_DownloadOnly'、'Predefined_ClearStreamingOnly'、'Predefined_DownloadAndClearStreaming'、'Predefined_ClearKey'、'Predefined_MultiDrmCencStreaming' 和 'Predefined_MultiDrmStreaming'|
@@ -65,7 +65,7 @@ ms.locfileid: "50086840"
 
 下表顯示這些選項可如何套用至 StreamingLocator 屬性： 
 
-|名稱|Filter|順序|
+|Name|Filter|順序|
 |---|---|---|
 |id |||
 |name|Eq、ne、ge、le、gt、lt|遞增和遞減|

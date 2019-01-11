@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: 05c089c0e92672b3602bd9c7bfb3263c56db76ef
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7dc2136fe6ee28da0583ebdb2b2749ddf1c37049
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633294"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728035"
 ---
 # <a name="filters-and-dynamic-manifests"></a>篩選器與動態資訊清單
 
@@ -46,8 +46,8 @@ ms.locfileid: "52633294"
 
 |通訊協定|範例|
 |---|---|
-|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=myAccountFilter)`|
-|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=myAccountFilter)`|
+|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,filter=myAccountFilter)`|
 |MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
 
@@ -110,7 +110,7 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 
 您可以使用下列屬性來描述篩選器。 
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |firstQuality|篩選器的首次品質位元速率。|
 |presentationTimeRange|簡報時間範圍。 此屬性用於篩選資訊清單起始/結束點、簡報視窗長度，以及即時起始位置。 <br/>如需詳細資訊，請參閱 [PresentationTimeRange](#PresentationTimeRange)。|
@@ -120,7 +120,7 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 
 將此屬性與**資產篩選器**搭配使用。 不建議搭配**帳戶篩選器**設定此屬性。
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |**endTimestamp**|絕對結束時間界限。 適用於點播視訊 (VoD)。 對於即時簡報，系統會以無訊息方式忽略它並在簡報結束時套用，然後資料流會成為 VoD。<br/><br/>此值代表資料流的絕對結束點。 系統會將它四捨五入到最接近的下一個 GOP 起始。<br/><br/>使用 StartTimestamp 和 EndTimestamp 修剪播放清單 (資訊清單)。 例如，StartTimestamp=40000000 和 EndTimestamp = 100000000 會產生包含 StartTimestamp 和 EndTimestamp 之間媒體的播放清單。 如果片段跨越界限，則整個片段都會包含在資訊清單中。<br/><br/>此外，請參閱下列 **forceEndTimestamp** 定義。|
 |**forceEndTimestamp**|適用於即時篩選器。<br/><br/>**forceEndTimestamp** 是布林值，指出 **endTimestamp** 是否設定為有效值。 <br/><br/>如果值為 **true**，就會指定 **endTimestamp** 值。 如果未指定，則會傳回不正確的要求。<br/><br/>例如，如果您想要在輸入視訊中定義在 5 分鐘時開始的篩選器，並且持續直到資料流結束，您可以將 **forceEndTimestamp** 設定為 false，並省略設定 **endTimestamp**。|
@@ -135,7 +135,7 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 
 篩選器資料軌屬性條件描述資料軌類型、值 (下表中所述) 和運算 (Equal、NotEqual)。 
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |**Bitrate**|使用資料軌的位元速率來篩選。<br/><br/>建議的值是位元速率範圍 (以每秒位元數為單位)。 例如，"0-2427000"。<br/><br/>注意：雖然您可以使用特定的位元速率值，如 250000 (每秒位元數)，但不建議使用此方法，因為資產之間的確切位元速率可能會變動。|
 |**FourCC**|將資料軌的 FourCC 值用於篩選。<br/><br/>該值是轉碼器格式的第一個元素，如 [RFC 6381](https://tools.ietf.org/html/rfc6381) \(英文\) 中所指定。 目前支援下列轉碼器： <br/>視訊："avc1"、"hev1"、"hvc1"<br/>音訊："mp4a"、"ec-3"<br/><br/>若要判斷 Asset 中資料軌的 FourCC 值，請[取得並檢查資訊清單檔案](#get-and-examine-manifest-files)。|

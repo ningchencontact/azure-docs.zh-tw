@@ -1,31 +1,30 @@
 ---
-title: 使用 Robomongo 連絡 Azure Cosmos DB
-description: 了解如何使用 Robomongo 搭配 Azure Cosmos DB：適用於 MongoDB 的 API 帳戶
-keywords: robomongo
-services: cosmos-db
-author: SnehaGunda
+title: 使用 Robo 3T 連線至 Azure Cosmos DB
+description: 了解如何使用 Robo 3T 和 Azure Cosmos DB 適用於 MongoDB 的 API 連線到 Azure Cosmos DB
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 05/23/2017
-ms.author: sngun
-ms.openlocfilehash: 78f0158c9a80a60717b81b4788531c7efd979111
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+author: sivethe
+ms.author: sivethe
+ms.openlocfilehash: 5696c376ad64df01d7f9d43ff59c87402c334c52
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863800"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034806"
 ---
-# <a name="use-robomongo-with-an-azure-cosmos-db-api-for-mongodb-account"></a>使用 Robomongo 搭配 Azure Cosmos DB：適用於 MongoDB 的 API 帳戶
-若要使用 Robomongo 連線到 Azure Cosmos DB：適用於 MongoDB 的 API 帳戶，您必須︰
+# <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>使用 Robo 3T 搭配 Azure Cosmos DB 適用於 MongoDB 的 API
 
-* 下載並安裝 [Robomongo](https://robomongo.org/)
-* 具備您的 Azure Cosmos DB：適用於 MongoDB 的 API 帳戶[連接字串](connect-mongodb-account.md)資訊
+若要使用 Robo 3T 連線到 Cosmos 帳戶，您必須：
 
-## <a name="connect-using-robomongo"></a>使用 Robomongo 來連接
-若要將 Azure Cosmos DB：適用於 MongoDB 的 API 帳戶新增至 Robomongo MongoDB 連線，請執行下列步驟。
+* 下載並安裝 [Robo 3T](https://robomongo.org/)
+* 取得您的 Cosmos DB [連接字串](connect-mongodb-account.md)資訊
 
-1. 使用[這裡](connect-mongodb-account.md)的指示來擷取 Azure Cosmos DB：適用於 MongoDB 的 API 帳戶的連線資訊。
+## <a name="connect-using-robo-3t"></a>使用 Robo 3T 連線
+若要將 Cosmos 帳戶新增至 Robo 3T 連線管理員，請執行下列步驟：
+
+1. 使用[這裡](connect-mongodb-account.md)的指示，擷取由 Azure Cosmos DB API MongoDB 為您的 Cosmos 帳戶設定的連線資訊。
 
     ![[連接字串] 刀鋒視窗的螢幕擷取畫面](./media/mongodb-robomongo/connectionstringblade.png)
 2. 執行 *Robomongo.exe*
@@ -45,4 +44,6 @@ ms.locfileid: "52863800"
 7. 最後，按一下 [測試] 以確認您能夠連接，然後按一下 [儲存]。
 
 ## <a name="next-steps"></a>後續步驟
-* 瀏覽 Azure Cosmos DB：適用於 MongoDB 的 API [範例](mongodb-samples.md)。
+
+- 了解如何[使用 Studio 3T](mongodb-mongochef.md) 搭配 Azure Cosmos DB 適用於 MongoDB 的 API。
+- 使用 Azure Cosmos DB 適用於 MongoDB 的 API 瀏覽 Cosmos DB [範例](mongodb-samples.md)。

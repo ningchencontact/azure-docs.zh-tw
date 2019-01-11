@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 8285632d8dea76763c65dd06e8be2d7494a47188
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 02e6d6407a515314d99ea747dac3646d665c47ae
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838985"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976574"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>將 Azure Stack VM 複寫至 Azure
 
@@ -237,7 +237,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 6. 選取您要儲存複寫資料的 Azure 儲存體帳戶。
 7. 選取 Azure VM 在容錯移轉後所要連線的 Azure 網路和子網路。
 8. 選取 [立即設定選取的機器]，將網路設定套用至您選取要進行保護的所有機器。 如果您要分別為每部機器選取 Azure 網路，請選取 [稍後設定]。
-9. 在 [實體機器] 中，按一下 [+實體機器]。 指定每部機器的 IP 位址名稱，以及您要複寫的作業系統。
+9. 在 [實體機器] 中，按一下 [+實體機器]。 針對要複寫的每部機器，指定其名稱、IP 位址和 OS 類型。
 
     - 使用機器的內部 IP 位址。
     - 如果您指定公用 IP 位址，則複寫可能無法如預期般運作。
@@ -279,8 +279,8 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 1. 程式會進行必要條件檢查，以確保所有容錯移轉所需之條件都已準備就緒。
 2. 容錯移轉使用指定的復原點處理資料：
     - **最新處理**︰機器會容錯移轉到 Site Recovery 所處理的最新復原點。 隨即顯示時間戳記。 使用此選項時，無須花費時間處理資料，因此它會提供低 RTO (復原時間目標)。
-    - **最近的應用程式一致**：機器容錯移轉到最新的應用程式一致復原點。
-    - **自訂**。 選取用於容錯移轉的復原點。
+    - **最新應用程式一致**：機器容錯移轉到最新的應用程式一致復原點。
+    - **自訂**：選取用於容錯移轉的復原點。
 
 3. 系統使用處理後的資料建立 Azure VM。
 4. 測試容錯移轉會自動清除演練期間建立的 Azure VM。

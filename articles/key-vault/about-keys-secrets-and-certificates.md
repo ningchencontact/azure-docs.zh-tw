@@ -1,5 +1,5 @@
 ---
-title: 關於 Azure Key Vault 的金鑰、祕密與憑證
+title: 關於 Azure Key Vault 的金鑰、祕密與憑證 - Azure Key Vault
 description: 概述 Azure Key Vault REST 介面和開發人員在金鑰、祕密和憑證方面的詳細資料。
 services: key-vault
 documentationcenter: ''
@@ -10,16 +10,15 @@ ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 6d158f14afa305dd547392722abb5f81380de31f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0dcfd1bd75fa54a1bbea93497a0cc872ad6d5184
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384780"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078366"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>關於金鑰、祕密與憑證
 
@@ -36,7 +35,7 @@ Azure Key Vault 可讓 Microsoft Azure 應用程式和使用者儲存及使用�
 
 以下各節會提供適用於 Key Vault 服務實作的一般資訊。
 
-###  <a name="supporting-standards"></a>支援標準
+### <a name="supporting-standards"></a>支援標準
 
 JavaScript 物件標記法 (JSON) 和 JavaScript 物件簽章與加密 (JOSE) 規格是重要的背景資訊。  
 
@@ -60,7 +59,7 @@ JavaScript 物件標記法 (JSON) 和 JavaScript 物件簽章與加密 (JOSE) �
 -   **身分識別** - Azure Active Directory (AAD) 中的身分識別。  
 -   **IntDate** - JSON 十進位值，代表從 1970-01-01T0:0:0Z UTC 到指定 UTC 日期/時間的 的秒數。 如需關於一般日期/時間和特定 UTC 時間的詳細資料，請參閱 RFC3339。  
 
-###  <a name="objects-identifiers-and-versioning"></a>物件、識別碼和版本控制
+### <a name="objects-identifiers-and-versioning"></a>物件、識別碼和版本控制
 
 儲存於 Key Vault 中的物件在每次有新的物件執行個體建立時，就會建立版本。 每個版本會有指派的唯一識別碼和 URL。 第一次建立的物件會獲得唯一的版本識別碼，並標示為物件的目前版本。 以相同物件名稱建立新的執行個體，會使新物件獲得唯一版本識別碼，並使其成為目前的版本。  
 
@@ -85,7 +84,7 @@ JavaScript 物件標記法 (JSON) 和 JavaScript 物件簽章與加密 (JOSE) �
 
 ## <a name="key-vault-keys"></a>Key Vault 金鑰
 
-###  <a name="keys-and-key-types"></a>金鑰與金鑰類型
+### <a name="keys-and-key-types"></a>金鑰與金鑰類型
 
 Key Vault 中的密碼編譯金鑰會表示為 JSON Web 金鑰 [JWK] 物件。 基底 JWK/JWA 規格也可延伸，讓 Key Vault 實作使用特有的金鑰類型。 例如，匯入使用 HSM 廠商特定封裝的金鑰，可安全地傳輸只能在 Key Vault HSM 中使用的金鑰。  
 

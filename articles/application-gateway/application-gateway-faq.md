@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/6/2018
 ms.author: victorh
-ms.openlocfilehash: 0187ef3d3b6853c1d1225fc9f208f2508372978d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425722"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994839"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>應用程式閘道的常見問題集
 
@@ -49,7 +49,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>目前支援哪些資源做為後端集區的一部分？
 
-後端集區可以包含 NIC、虛擬機器擴展集、公用 IP、內部 IP、完整的網域名稱 (FQDN)，以及如 Azure Web 應用程式的多租用戶後端。 應用程式閘道後端集區成員不會繫結至可用性設定組。 只要後端集區成員具有 IP 連線能力，就可以跨越叢集、資料中心或在 Azure 外部。
+後端集區可以包含 NIC、虛擬機器擴展集、公用 IP、內部 IP、完整的網域名稱 (FQDN)，以及如 Azure App Service 的多租用戶後端。 應用程式閘道後端集區成員不會繫結至可用性設定組。 只要後端集區成員具有 IP 連線能力，就可以跨越叢集、資料中心或在 Azure 外部。
 
 ### <a name="what-regions-is-the-service-available-in"></a>哪些區域提供此服務？
 
@@ -88,9 +88,11 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 應用程式閘道會針對每個執行個體取用一個私人 IP 位址，如果已設定私人前端 IP 組態，則會再取用另一個私人 IP 位址。 此外，Azure 會保留每個子網路中的前四個和最後一個 IP 位址，以供內部使用。
 例如，如果應用程式閘道已設定為三個執行個體且沒有私人前端 IP，則需要 /29 子網路大小或更大。 在本案例中，應用程式閘道會使用 3 個 IP 位址。 如果您有三個執行個體和一個用於私人前端 IP 組態的 IP 位址，則需要 /28 子網路大小或更大，因為四個 IP 位址是必要的。
 
-### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>問： 可以將多個應用程式閘道資源部署到單一子網路嗎？**
+### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>問： 可以將多個應用程式閘道資源部署到單一子網路嗎？
 
 可以，除了具有指定應用程式閘道部署的多個執行個體以外，您可以將另一個唯一的應用程式閘道資源佈建到含有不同應用程式閘道資源的現有子網路。
+
+不支援在相同子網路上混合使用 Standard_v2 和標準應用程式閘道。 此外，如果已啟用自動調整，一個子網路只可以有一個應用程式閘道。
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>應用程式閘道是否支援 x-forwarded-for 標頭？
 
@@ -103,6 +105,8 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 新的應用程式閘道 v1 SKU 部署最多可能需要 20 分鐘的時間來佈建。 執行個體大小/計數的變更不會產生干擾，而閘道會在這段期間保持作用中。
 
 V2 SKU 部署可能需要 5 到 6 分鐘的時間來佈建。
+
+應用程式閘道是否支援 x-forwarded-for 標頭？
 
 ## <a name="configuration"></a>組態
 
@@ -316,9 +320,9 @@ WAF 是透過診斷記錄功能來監視，如需診斷記錄的詳細資訊，�
 
 否，偵測模式只會記錄觸發 WAF 規則的流量。
 
-### <a name="how-do-i-customize-waf-rules"></a>如何自訂 WAF 規則？
+### <a name="can-i-customize-waf-rules"></a>我可以自訂 WAF 規則嗎？
 
-是，WAF 規則是可自訂的，如需有關如何自訂它們的詳細資訊，請參閱[自訂 WAF 規則群組與規則](application-gateway-customize-waf-rules-portal.md)
+是，WAF 規則是可自訂的。 如需詳細資訊，請參閱[自訂 WAF 規則群組與規則](application-gateway-customize-waf-rules-portal.md)
 
 ### <a name="what-rules-are-currently-available"></a>目前可使用哪些規則？
 

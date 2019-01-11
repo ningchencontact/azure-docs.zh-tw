@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jejiang
 ms.custom: seodec18
-ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: fb758c12d699bb80f81b65db99e1fec68c4efabf
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138121"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809755"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>使用 Azure 儲存體總管管理 Azure Cosmos DB 資源
 
-在 Azure 儲存體總管中使用 Azure Cosmos DB 可讓使用者管理 Azure Cosmos DB 實體、操縱資料、更新預存程序及觸發程序，以及其他 Azure 實體 (例如儲存體 Blob 及佇列)。 現在您可以使用同一個工具在同一處管理您不同的 Azure 實體。 目前，Azure 儲存體總管支援 SQL、MongoDB、圖表和資料表帳戶。
+在 Azure 儲存體總管中使用 Azure Cosmos DB 可讓使用者管理 Azure Cosmos DB 實體、操縱資料、更新預存程序及觸發程序，以及其他 Azure 實體 (例如儲存體 Blob 及佇列)。 現在您可以使用同一個工具在同一處管理您不同的 Azure 實體。 目前，Azure 儲存體總管支援對 SQL、MongoDB、Graph 和資料表 API 設定 Cosmos 帳戶。
 
 
 ## <a name="prerequisites"></a>必要條件
 
-SQL API <!--or MongoDB API--> 的 Azure Cosmos DB 帳戶。 若您還沒有帳戶，您可以根據 [Azure Cosmos DB：使用 .NET 及 Azure 入口網站建置 SQL API Web 應用程式](create-sql-api-dotnet.md)中的說明，在 Azure 入口網站中建立帳戶。
+Cosmos 帳戶，需具有 SQL API 或適用於 MongoDB 的 Azure Cosmos DB API。 若您還沒有帳戶，您可以根據 [Azure Cosmos DB：使用 .NET 及 Azure 入口網站建置 SQL API Web 應用程式](create-sql-api-dotnet.md)中的說明，在 Azure 入口網站中建立帳戶。
 
 ## <a name="installation"></a>安裝
 

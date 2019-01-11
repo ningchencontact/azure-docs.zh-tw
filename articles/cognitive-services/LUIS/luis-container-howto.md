@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: a6170d51e1a8756020b4f2caa733c388b2ce4060
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 2542364db3a895c060c752beeb0cfabf75834f7d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013811"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970265"
 ---
-# <a name="install-and-run-containers"></a>安裝及執行容器
+# <a name="install-and-run-luis-docker-containers"></a>安裝和執行 LUIS Docker 容器
  
 Language Understanding (LUIS) 容器會將您已定型或發佈的 Language Understanding 模型 (也稱為 [LUIS 應用程式](https://www.luis.ai)) 載入 Docker 容器中，並提供從容器的 API 端點存取查詢預測的權限。 您可以從這個容器收集查詢記錄，並將這些記錄重新上傳至 Azure Language Understanding 模型，以改善應用程式的預測精確度。
 
@@ -34,7 +34,7 @@ Language Understanding (LUIS) 容器會將您已定型或發佈的 Language Unde
 
 |必要|目的|
 |--|--|
-|Docker 引擎| 若要完成此預覽，您必須在[本機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
+|Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
 |Language Understanding (LUIS) 資源和相關聯的應用程式 |若要使用此容器，您必須具備：<br><br>* [_Language Understanding_ Azure 資源](luis-how-to-azure-subscription.md)，以及相關聯的端點金鑰和端點 URI (作為計費端點)。<br>* 已定型或發佈的應用程式，並封裝為掛接形式連同相關聯的應用程式識別碼輸入容器中。<br>* 用來下載應用程式套件的撰寫金鑰 (如果您從 API 執行此下載)。<br><br>這些需求可用來將命令列引數傳至下列變數：<br><br>**{AUTHORING_KEY}**：此金鑰可用來從雲端中的 LUIS 服務取得已封裝的應用程式，並將查詢記錄重新上傳至雲端。 格式為 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`。<br><br>**{APPLICATION_ID}**：此識別碼可用來選取應用程式。 格式為 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`。<br><br>**{ENDPOINT_KEY}**：此金鑰可用來啟動容器。 您可以在兩個位置找到端點金鑰。 第一個位置是 Azure 入口網站中的 _Language Understanding_ 資源金鑰清單。 端點金鑰也可以在 LUIS 入口網站中的 [金鑰和端點] 設定頁面上取得。 請勿使用入門金鑰。<br><br>**{BILLING_ENDPOINT}**：計費端點值可在 Azure 入口網站的 [Language Understanding 概觀] 頁面上取得。 例如：`https://westus.api.cognitive.microsoft.com/luis/v2.0`。<br><br>[撰寫金鑰和端點金鑰](luis-boundaries.md#key-limits)有不同的用途。 請勿將其交替使用。 |
 
@@ -42,9 +42,9 @@ Language Understanding (LUIS) 容器會將您已定型或發佈的 Language Unde
 
 **主機**是執行 Docker 容器的電腦。 這可以您內部部署的電腦，或是在 Azure 中裝載服務的 Docker，這些服務包括：
 
-* [Azure Kubernetes Service](/azure/aks/)
-* [Azure 容器執行個體](/azure/container-instances/)
-* 部署至 [Azure Stack](/azure/azure-stack/) 的 [Kubernetes](https://kubernetes.io/) 叢集。 如需詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
+* [Azure Kubernetes Service](../../aks/index.yml)
+* [Azure 容器執行個體](../../container-instances/index.yml)
+* 部署至 [Azure Stack](../../azure-stack/index.yml) 的 [Kubernetes](https://kubernetes.io/) 叢集。 如需詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md)。
 
 ### <a name="container-requirements-and-recommendations"></a>容器的需求和建議
 

@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08d0221c785fdaeb18fe9a2999d08ded67d1fa91
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7e5f56251e00b59a6e6d3be40612f4c8e381dff1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437192"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742995"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight 上的機器學習服務
 
-HDInsight 能以巨量資料實現機器學習服務，有能力從大量 (PB，甚至是 EB ) 的結構化、非結構化和快速移動的資料中，取得寶貴的深度見解分析。 HDInsight 有數個機器學習服務選項，分別是：SparkML 和 MLlib、R、Apache Hive 和 Microsoft Cognitive Toolkit。
+HDInsight 能以巨量資料實現機器學習服務，有能力從大量 (PB，甚至是 EB ) 的結構化、非結構化和快速移動的資料中，取得寶貴的深度見解分析。 HDInsight 有數個機器學習服務選項，分別是：SparkML 和 Apache Spark MLlib、R、Apache Hive 和 Microsoft Cognitive Toolkit。
 
 ## <a name="sparkml-and-mllib"></a>SparkML 與 MLlib
 
-[HDInsight Spark](spark/apache-spark-overview.md) 是 Azure 代管的 [Apache Spark](http://spark.apache.org/) 供應項目，是一個支援記憶體內部處理來大幅提升巨量資料分析效能的統一、開放原始碼的平行資料處理架構。 Spark 處理引擎是專為速度、易用性及精密分析打造的產品。 Spark 的記憶體內分散式計算功能，使其成為機器學習和圖表計算中所使用反覆演算法的絕佳選擇。 有兩個可將演算法模型化功能導入此分散式環境的可調整機器學習服務程式庫：MLlib 與 SparkML。 MLlib 包含建置在 RDD 上的原始 API。 SparkML 是較新的套件，可提供建置在 DataFrames 上的較高階 API 來建構 ML 管線。 SparkML 尚未支援 MLlib 的所有功能，但逐漸取代 MLlib 成為 Spark 的標準機器學習程式庫。
+[HDInsight Spark](spark/apache-spark-overview.md) 是 Azure 代管的 [Apache Spark](https://spark.apache.org/) 供應項目，是一個支援記憶體內部處理來大幅提升巨量資料分析效能的統一、開放原始碼的平行資料處理架構。 Spark 處理引擎是專為速度、易用性及精密分析打造的產品。 Spark 的記憶體內分散式計算功能，使其成為機器學習和圖表計算中所使用反覆演算法的絕佳選擇。 有兩個可將演算法模型化功能導入此分散式環境的可調整機器學習服務程式庫：MLlib 與 SparkML。 MLlib 包含建置在 RDD 上的原始 API。 SparkML 是較新的套件，可提供建置在 DataFrames 上的較高階 API 來建構 ML 管線。 SparkML 尚未支援 MLlib 的所有功能，但逐漸取代 MLlib 成為 Spark 的標準機器學習程式庫。
 
 適用於 Apache Spark 的 Microsoft Machine Learning 程式庫為 [MMLSpark](https://github.com/Azure/mmlspark)。 此程式庫是設計來提升資料科學家在 Spark 上的生產力，不僅可提高實驗率，還可在非常大型的資料集上運用最先進的機器學習服務技術，包括深度學習。 建立可調整的 ML 模型時 (例如，編製索引字串)，MMLSpark 會在 SparkML 的低階 API 上提供一個層級，將資料強制轉型成機器學習服務演算法預期的版面配置，並組合功能向量。 MMLSpark 程式庫簡化了這些流程，以及在 PySpark 中建立模型的常見工作。
 
@@ -55,7 +55,7 @@ Azure Machine Learning 提供可建立預測性分析模型的工具，也提供
 ### <a name="scenarios"></a>案例
 
 * [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [使用 Apache Mahout 來產生電影推薦](hadoop/apache-hadoop-mahout-linux-mac.md)
 * [Apache Hive 和 Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)
 * [Apache Hive 和 Azure Machine Learning 端對端](../machine-learning/team-data-science-process/hive-walkthrough.md)

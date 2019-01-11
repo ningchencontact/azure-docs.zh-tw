@@ -1,24 +1,24 @@
 ---
-title: Azure Cosmos DB MongoDB API 中的索引功能
-description: 提供 Azure Cosmos DB MongoDB API 中的索引功能概觀。
+title: Azure Cosmos DB 的 MongoDB 版 API 中的索引編製
+description: 對於 Azure Cosmos DB 的 MongoDB 版 API 中的索引功能提供概觀。
 services: cosmos-db
-author: orestis-ms
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.author: orkostak
-ms.openlocfilehash: bdb2ceb45950b99b1a5a351c6301599a791ef8cc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: 4c6ba4b12625433f0b0218dc88decf2d7cb7ad77
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875292"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792277"
 ---
-# <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB 中的編製索引：MongoDB API
+# <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>使用 Azure Cosmos DB 的 MongoDB 版 API 進行索引編製
 
-Azure Cosmos DB MongoDB API 會運用 Azure Cosmos DB 的自動索引管理功能。 因此，使用者可以存取 Azure Cosmos DB 的預設索引原則。 所以，如果使用者未定義任何索引，或未置放任何索引，則所有欄位在插入至集合時，預設都會自動編製索引。 在大部分情況下，我們建議使用帳戶上設定的預設索引原則。
+Azure Cosmos DB 的 MongoDB 版 API 會運用 Cosmos DB 的自動索引管理功能。 因此，使用者可以存取 Cosmos DB 的預設索引原則。 所以，如果使用者未定義任何索引，或未置放任何索引，則所有欄位在插入至集合時，預設都會自動編製索引。 在大部分情況下，我們建議使用帳戶上設定的預設索引原則。
 
 ## <a name="dropping-the-default-indexes"></a>置放預設索引
 
@@ -97,5 +97,5 @@ globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 目前，只有在集合不包含任何文件時，才可能建立唯一索引。 熱門 MongoDB 移轉工具會嘗試在匯入資料後建立唯一索引。 若要避免這個問題，建議使用者手動建立對應的集合和唯一索引，而不是允許使用移轉工具 (對於 ```mongorestore```，在命令列中使用 --noIndexRestore 旗標可完成此行為)。
 
 ## <a name="next-steps"></a>後續步驟
-* [Azure Cosmos DB 如何為資料編製索引？](../cosmos-db/index-policy.md)
-* [利用存留時間讓 Azure Cosmos DB 集合中的資料自動過期](../cosmos-db/time-to-live.md)
+* [Azure Cosmos DB 中的編製索引](../cosmos-db/index-policy.md)
+* [利用存留時間讓 Azure Cosmos DB 中的資料自動過期](../cosmos-db/time-to-live.md)

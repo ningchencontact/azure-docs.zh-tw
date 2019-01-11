@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: bf290343634f9f9f836a87ab15f13cc1dac6f86f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9d5a0cf9fa4f9ad8b5a673cd2420416f92edda91
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141946"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994975"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 串流分析
  
@@ -144,7 +144,7 @@ ASA 作業中建立的輸入和輸出名稱可用來作為路由的端點。
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>相較於雲端作業，IoT Edge 作業的目前限制
 目標是在 IoT Edge 與業和雲端作業之間進行同位檢查。 已支援大部分 SQL 查詢語言的功能。
 不過，Edge 作業尚未支援下列功能：
-* JavaScript 中的使用者定義函式 (UDF)。 您可以在[適用於 IoT Edge 的 C# 作業](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-edge-csharp-udf) (預覽版) 中找到 UDF。
+* JavaScript 中的使用者定義函式 (UDF)。 您可以在[適用於 IoT Edge 的 C# 作業](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (預覽版) 中找到 UDF。
 * 使用者定義彙總 (UDA)。
 * Azure ML 函式
 * 在單一步驟中使用超過 14 個彙總。
@@ -167,7 +167,7 @@ ASA 作業中建立的輸入和輸出名稱可用來作為路由的端點。
 
 ASA 和 Azure IoT Edge 使用 **Docker** 容器來提供可攜式解決方案，這些解決方案能在多個主機作業系統 (Windows、Linux) 上執行。
 
-IoT Edge 上的 ASA 會以 Windows 和 Linux 映像的形式提供，能在 x86-64 或 Azure Resource Manager 架構上執行。 
+IoT Edge 上的 ASA 可供作為 Windows 和 Linux 映像，能在 x86-64 或 ARM (進階 RISC 機器) 架構上執行。 
 
 
 ### <a name="input-and-output"></a>輸入和輸出

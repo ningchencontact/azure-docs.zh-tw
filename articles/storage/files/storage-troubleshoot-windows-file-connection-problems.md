@@ -9,17 +9,42 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0496d9b3fde8b0194ddf57b3bbfec98eb7fda7fe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: caa078aa522e20a0e09d0b4d97461358c1698fc7
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250844"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744224"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 
 本文列出當您從 Windows 用戶端連線時，與 Microsoft Azure 檔案服務相關的常見問題。 文中也會提供這些問題的可能原因和解決方案。 除了本文中的疑難排解步驟之外，您也可以使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)  來確保 Windows 用戶端環境具備正確的先決條件。 AzFileDiagnostics 會自動偵測本文中提及的大部分徵兆，並協助設定您的環境以取得最佳效能。 您也可以在 [Azure 檔案共用疑難排解員](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)中找到此資訊，當中有提供步驟來協助您解決連線/對應/掛接 Azure 檔案共用的問題。
 
+<a id="error5"></a>
+## <a name="error-5-when-you-mount-an-azure-file-share"></a>掛接 Azure 檔案共用時發生錯誤 5
+
+您嘗試掛接檔案共用時，可能會收到下列錯誤：
+
+- 發生系統錯誤 5。 存取遭到拒絕。
+
+### <a name="cause-1-unencrypted-communication-channel"></a>原因 1：通訊通道未加密
+
+基於安全考量，如果通訊通道未加密，而且未從 Azure 檔案共用所在的相同資料中心進行連線嘗試，與 Azure 檔案共用的連線就會遭到封鎖。 如果儲存體帳戶上啟用[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定，則也可能會封鎖相同資料中心內未加密的連線。 唯有當使用者的用戶端作業系統支援 SMB 加密，才會提供加密的通訊通道。
+
+Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包含支援加密的 SMB 3.0。
+
+### <a name="solution-for-cause-1"></a>原因 1 的解決方案
+
+1. 從支援 SMB 加密的用戶端 (Windows 8、Windows Server 2012 和更新版本) 進行連線，或從 Azure 檔案共用所使用的 Azure 儲存體帳戶相同的資料中心上的虛擬機器進行連線。
+2. 如果用戶端不支援 SMB 加密，請確認儲存體帳戶上已停用[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定。
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>原因 2：在儲存體帳戶上已啟用虛擬網路或防火牆規則 
+
+如果在儲存體帳戶上設定虛擬網路 (VNET) 和防火牆規則，網路流量將遭拒絕存取，除非用戶端 IP 位址或虛擬網路獲准存取。
+
+### <a name="solution-for-cause-2"></a>原因 2 的解決方案
+
+請確認已經在儲存體帳戶上正確設定虛擬網路和防火牆規則。 若要測試虛擬網路或防火牆規則是否造成問題，請暫時將儲存體帳戶上的設定變更為**允許從所有網路存取**。 若要深入了解，請參閱[設定 Azure 儲存體防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)。
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>當您嘗試掛接或取消掛接 Azure 檔案共用時發生錯誤 53、錯誤 67 或錯誤 87
@@ -30,39 +55,47 @@ ms.locfileid: "51250844"
 - 發生系統錯誤 67。 找不到網路名稱。
 - 發生系統錯誤 87。 參數錯誤。
 
-### <a name="cause-1-unencrypted-communication-channel"></a>原因 1：通訊通道未加密
-
-基於安全考量，如果通訊通道未加密，而且未從 Azure 檔案共用所在的相同資料中心進行連線嘗試，與 Azure 檔案共用的連線就會遭到封鎖。 如果儲存體帳戶上啟用[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定，則也可能會封鎖相同資料中心內未加密的連線。 唯有當使用者的用戶端作業系統支援 SMB 加密，才會提供通訊通道加密。
-
-Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包含支援加密的 SMB 3.0。
-
-### <a name="solution-for-cause-1"></a>原因 1 的解決方案
-
-1. 確認儲存體帳戶上已停用[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定。
-2. 從執行下列其中一項的用戶端連線：
-
-    - 符合 Windows 8 和 Windows Server 2012 或更新版本的需求
-    - 從與用於 Azure 檔案共用的 Azure 儲存體帳戶相同之資料中心的虛擬機器連線
-
-### <a name="cause-2-port-445-is-blocked"></a>原因 2：連接埠 445 遭到封鎖
+### <a name="cause-1-port-445-is-blocked"></a>原因 1：連接埠 445 遭到封鎖
 
 如果連接埠 445 至 Azure 檔案服務資料中心的輸出通訊遭到封鎖，可能會發生系統錯誤 53 或系統錯誤 67。 若要查看 ISP 是否允許從連接埠 445 進行存取的摘要，請參閱 [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) \(英文\)。
 
-若要了解這是否為「系統錯誤 53」訊息的原因，您可以使用 Portqry 查詢 TCP:445 端點。 如果篩選顯示 TCP:445 端點，則 TCP 連接埠會被封鎖。 查詢範例如下：
+若要檢查您的防火牆或 ISP 是否封鎖連接埠 445，請使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 工具或 `Test-NetConnection` Cmdlet。 
 
-  `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+若要使用 `Test-NetConnection` Cmdlet，則必須安裝 AzureRM PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)以獲得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resoure-group-name>`。
 
-如果 TCP 連接埠 445 被網路路徑規則所封鎖，您將看到下列輸出：
+   
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
 
-  `TCP port 445 (microsoft-ds service): FILTERED`
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
-如需如何使用 Portqry 的詳細資訊，請參閱 [Portqry.exe 命令列公用程式說明](https://support.microsoft.com/help/310099)。
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+  
+    
+如果連線成功，您應會看見下列輸出：
+    
+  
+    ComputerName     : <storage-account-host-name>
+    RemoteAddress    : <storage-account-ip-address>
+    RemotePort       : 445
+    InterfaceAlias   : <your-network-interface>
+    SourceAddress    : <your-ip-address>
+    TcpTestSucceeded : True
+ 
 
-### <a name="solution-for-cause-2"></a>原因 2 的解決方案
+> [!Note]  
+> 上述命令會傳回儲存體帳戶的目前 IP 位址。 此 IP 位址不保證會維持不變，而且可能隨時變更。 請勿將此 IP 位址硬式編碼到任何指令碼，或防火牆組態中。
+
+### <a name="solution-for-cause-1"></a>原因 1 的解決方案
 
 聯絡您的 IT 部門，要求開啟連接埠 445 輸出到 [Azure IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653) \(英文\)。
 
-### <a name="cause-3-ntlmv1-is-enabled"></a>原因 3：已啟用 NTLMv1
+### <a name="cause-2-ntlmv1-is-enabled"></a>原因 2：已啟用 NTLMv1
 
 如果用戶端上已啟用 NTLMv1 通訊，就會發生系統錯誤 53 或系統錯誤 87。 Azure 檔案僅支援 NTLMv2 驗證。 啟用 NTLMv1 會使用戶端變得較不安全。 因此，Azure 檔案服務會封鎖通訊。 
 
@@ -72,7 +105,7 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 
 如需詳細資訊，請參閱 TechNet 上的 [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) 主題。
 
-### <a name="solution-for-cause-3"></a>原因 3 的解決方案
+### <a name="solution-for-cause-2"></a>原因 2 的解決方案
 
 在下列登錄子機碼中，將 **LmCompatibilityLevel** 值還原為預設值 3：
 
@@ -88,6 +121,27 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 ### <a name="solution"></a>解決方法
 
 關閉一些控制代碼以減少同時開啟的控制代碼數，然後再試一次。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體效能與延展性檢查清單](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
+
+<a id="accessdeniedportal"></a>
+## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>瀏覽至入口網站中的 Azure 檔案共用時發生「拒絕存取」錯誤
+
+您瀏覽至入口網站中的 Azure 檔案共用時，可能會出現下列錯誤：
+
+拒絕存取  
+您沒有存取權  
+您似乎無權存取此內容。 若要存取，請連絡擁有者。  
+
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>原因 1：您的使用者帳戶沒有儲存體帳戶的存取權
+
+### <a name="solution-for-cause-1"></a>原因 1 的解決方案
+
+瀏覽至 Azure 檔案共用所在的儲存體帳戶，按一下 [存取控制 (IAM)]，並確認您的使用者帳戶擁有儲存體帳戶的存取權。 若要深入了解，請參閱[如何使用角色型存取控制 (RBAC) 保護儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac)。
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>原因 2：在儲存體帳戶上已啟用虛擬網路或防火牆規則
+
+### <a name="solution-for-cause-2"></a>原因 2 的解決方案
+
+請確認已經在儲存體帳戶上正確設定虛擬網路和防火牆規則。 若要測試虛擬網路或防火牆規則是否造成問題，請暫時將儲存體帳戶上的設定變更為**允許從所有網路存取**。 若要深入了解，請參閱[設定 Azure 儲存體防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)。
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>從 Windows 中的 Azure 檔案服務複製檔案或將檔案複製到其中的速度變慢
@@ -173,7 +227,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 <a id="doesnotsupportencryption"></a>
 ## <a name="error-you-are-copying-a-file-to-a-destination-that-does-not-support-encryption"></a>「您正將檔案複製到不支援加密的目的地」錯誤
 
-透過網路複製檔案時，該檔案會在來源電腦上解密、以純文字傳送，並在目的地上重新加密。 不過，您可能會在嘗試複製加密的檔案時看到下列錯誤：「您正在將檔案複製到不支援加密的目的地。」
+透過網路複製檔案時，該檔案會在來源電腦上解密、以純文字傳送，並在目的地上重新加密。 不過，您嘗試複製加密的檔案時，可能會看到下列錯誤：「您正將檔案複製到不支援加密的目的地。」
 
 ### <a name="cause"></a>原因
 如果您使用加密檔案系統 (EFS)，可能會發生此問題。 BitLocker 加密的檔案可以複製到 Azure 檔案服務。 不過，Azure 檔案服務不支援 NTFS EFS。
@@ -200,7 +254,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 若要解決此問題，請調整 **DirectoryCacheEntrySizeMax** 登錄值，以允許在用戶端機器快取較大型的目錄清單：
 
-- 位址：HKLM\System\CCS\Services\Lanmanworkstation\Parameters
+- 位置：HKLM\System\CCS\Services\Lanmanworkstation\Parameters
 - 值名稱：DirectoryCacheEntrySizeMax 
 - 值類型：DWORD
  

@@ -5,20 +5,21 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: ae2f32a02005bc015d2521e576ea5625bef2d377
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1c37b764b47856d3a369228d3f224f2a464029bb
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846006"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790651"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>針對 VMware VM 和實體伺服器的複寫問題進行疑難排解
 
 使用 Azure Site Recovery 保護您的 VMware 虛擬機器或實體伺服器時，您可能會收到特定的錯誤訊息。 本文說明當您使用 [Azure Site Recovery](site-recovery-overview.md) 將內部部署 VMware VM 和實體伺服器複寫至 Azure 時，可能會遇到的一些常見問題。
 
-## <a name="initial-replication-issues"></a>初始複寫問題。
+
+## <a name="initial-replication-issues"></a>初始複寫問題
 
 在許多案例中，我們支援部門遇到的初始複寫失敗，都是來自來源伺服器到處理序伺服器或處理序伺服器到 Azure 之間的連線問題。 在大部分情況下，您可以依照下面所列的步驟針對這些問題進行疑難排解。
 
@@ -33,7 +34,7 @@ ms.locfileid: "52846006"
 
 * 檢查服務 `InMage Scout VX Agent – Sentinel/OutpostStart` 的狀態，是否沒有在執行，以及檢查問題是否仍然存在。   
 
-## <a name="verify-the-process-server"></a>確認處理序伺服器
+### <a name="verify-the-process-server"></a>確認處理序伺服器
 
 * **檢查處理序伺服器是否主動將資料推送至 Azure**
 
@@ -87,6 +88,19 @@ ms.locfileid: "52846006"
 
 
 * **檢查處理序伺服器是否限制節流頻寬**：增加頻寬，然後檢查問題是否仍然存在。
+
+## <a name="source-machine-to-be-protected-through-site-recovery-is-not-listed-on-azure-portal"></a>要以 Site Recovery 保護的來源機器未列於 Azure 入口網站中
+
+嘗試選擇要啟用「透過 Azure Site Recovery 進行複寫」功能的來源機器時，機器可能因下列原因而無法讓您繼續使用
+
+* 如果 vCenter 下有兩個虛擬機器具有相同的執行個體 UUID，組態伺服器所探索到的第一個虛擬機器將會顯示於入口網站中。 若要解決此問題，請確定沒有兩個虛擬機器具有相同的執行個體 UUID。
+* 確定您在透過 OVF 範本設定組態或進行統一設定期間，已新增正確的 vCenter 認證。 若要確認已新增認證，請參閱[這裡](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery)提供的指導方針。
+* 如果提供用來存取 vCenter 的使用權限沒有足夠的權限，可能會導致探索虛擬機器失敗。 請確定在[這裡](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)提供的權限已新增至 vCenter 使用者帳戶。
+* 如果虛擬機器已透過 Site Recovery 受到保護，則無法再受到其他保護。 請確定您在入口網站中尋找的虛擬機器，尚未受到任何其他使用者或其他訂用帳戶的保護。
+
+## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>受保護的虛擬機器在入口網站中會顯示為灰色
+
+如果系統中有重複的項目，在 Site Recovery 下複寫的虛擬機器就會呈現灰色。 請參閱[這裡](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx)提供的指導方針以刪除過時的項目，並解決問題。
 
 ## <a name="next-steps"></a>後續步驟
 如果您需要更多說明，請在 [Azure Site Recovery 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) \(英文\) 上張貼您的問題。 我們有一個使用中的社群，我們的其中一位工程師將協助您。

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
-ms.openlocfilehash: e9fbe59c40fe55218429a3b479ddbbec7220c66a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42145564"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789461"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>雲端服務監視簡介
 
-您可以監視任何雲端服務的關鍵效能計量。 每個雲端服務角色都會收集最少資料：CPU 使用量、網路使用量和磁碟使用狀況。 如果雲端服務已將 `Microsoft.Azure.Diagnostics` 延伸模組套用至角色，則該角色可以收集其他資料點。 本文介紹 Azure Diagnostics for Cloud Services。
+您可以監視任何雲端服務的關鍵效能計量。 每個雲端服務角色都會收集最少的資料：CPU 使用量、 網路使用量和磁碟使用率。 如果雲端服務已將 `Microsoft.Azure.Diagnostics` 延伸模組套用至角色，則該角色可以收集其他資料點。 本文介紹 Azure Diagnostics for Cloud Services。
 
 使用基本監視，角色執行個體的效能計數器資料會依 3 分鐘的間隔進行取樣和收集。 此基本監視資料不會儲存在儲存體帳戶中，而且沒有任何與其建立關聯的額外成本。
 
@@ -93,13 +93,13 @@ ms.locfileid: "42145564"
 
 ## <a name="use-application-insights"></a>使用 Application Insights
 
-當您從 Visual Studio 發佈雲端服務時，可以選擇將診斷資料傳送至 Application Insights。 您可以在當時建立 Application Insights Azure 資源，或將資料傳送至現有的 Azure 資源。 Application Insights 可以監視雲端服務的可用性、效能、失敗和使用情況。 自訂圖表可以新增至 Application Insights，因此您可以看到最重要的資料。 在雲端服務專案中使用 Application Insights SDK，即可收集角色執行個體資料。 如需如何整合 Application Insights 的詳細資訊，請參閱[含雲端服務的 Application Insights](../application-insights/app-insights-cloudservices.md)。
+當您從 Visual Studio 發佈雲端服務時，可以選擇將診斷資料傳送至 Application Insights。 您可以在當時建立 Application Insights Azure 資源，或將資料傳送至現有的 Azure 資源。 Application Insights 可以監視雲端服務的可用性、效能、失敗和使用情況。 自訂圖表可以新增至 Application Insights，因此您可以看到最重要的資料。 在雲端服務專案中使用 Application Insights SDK，即可收集角色執行個體資料。 如需如何整合 Application Insights 的詳細資訊，請參閱[含雲端服務的 Application Insights](../azure-monitor/app/cloudservices.md)。
 
 請注意，雖然您可以使用 Application Insights 來顯示透過 Windows Azure 診斷延伸模組所指定的效能計數器 (和其他設定)，但是只有將 Application Insights SDK 整合到背景工作和 Web 角色，才能獲得較豐富的體驗。
 
 
 ## <a name="next-steps"></a>後續步驟
 
-- [深入了解含雲端服務的 Application Insights](../application-insights/app-insights-cloudservices.md)
+- [深入了解含雲端服務的 Application Insights](../azure-monitor/app/cloudservices.md)
 - [設定效能計數器](diagnostics-performance-counters.md)
 

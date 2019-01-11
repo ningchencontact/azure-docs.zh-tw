@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 893e44b3298a03559b7dea4721e3bbbab0c65897
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4d5b98ab001bcb30091590880954c7075701e53b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615920"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607348"
 ---
 # <a name="database-views-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench 中的資料庫檢視
 
@@ -27,7 +27,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 
 > [!NOTE]
 > 在這些檢視外部直接使用位於資料庫中的資料庫資料表雖然是可行的，但不受支援。
-> 
+>
 
 ## <a name="vwapplication"></a>vwApplication
 
@@ -39,11 +39,11 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ApplicationName                  | nvarchar(50)  | 否          | 應用程式的名稱 |
 | ApplicationDescription           | nvarchar(255) | yes         | 應用程式的說明 |
 | ApplicationDisplayName           | nvarchar(255) | 否          | 要在使用者介面中顯示的名稱 |
-| ApplicationEnabled               | bit           | 否          | 識別應用程式目前是否啟用</br> **注意：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
+| ApplicationEnabled               | bit           | 否          | 識別應用程式目前是否啟用<br /> **附註：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
 | UploadedDtTm                     | datetime2(7)  | 否          | 合約上傳的日期和時間 |
 | UploadedByUserId                 | int           | 否          | 應用程式上傳者的使用者識別碼 |
 | UploadedByUserExternalId         | nvarchar(255) | 否          | 應用程式上傳者的使用者外部識別碼。 根據預設，這會是 Azure Active Directory 中的使用者用於協會的識別碼。                                                                                                |
-| UploadedByUserProvisioningStatus | int           | 否          | 識別使用者佈建程序的目前狀態。 可能的值包括： </br>0 – API 已建立使用者<br>1 – 已在資料庫中建立與使用者相關聯的金鑰</br>2 – 已完整佈建使用者                         |
+| UploadedByUserProvisioningStatus | int           | 否          | 識別使用者佈建程序的目前狀態。 可能的值包括： <br />0 – API 已建立使用者<br />1 – 已在資料庫中建立與使用者相關聯的金鑰<br />2 – 已完整佈建使用者                         |
 | UploadedByUserFirstName          | nvarchar(50)  | 是         | 合約上傳者的使用者名字 |
 | UploadedByUserLastName           | nvarchar(50)  | 是         | 合約上傳者的使用者姓氏 |
 | UploadedByUserEmailAddress       | nvarchar(255) | 是         | 合約上傳者的使用者電子郵件地址 |
@@ -81,7 +81,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ApplicationRoleDescription | nvarchar(255) | yes         | 角色的說明                                                                                                                                                                                                             |
 | UserId                     | int           | 否          | 與角色相關聯的使用者識別碼 |
 | UserExternalId             | nvarchar(255) | 否          | 與角色相關聯之使用者的外部識別碼。 根據預設，這會是 Azure Active Directory 中的使用者用於協會的識別碼。                                                                     |
-| UserProvisioningStatus     | int           | 否          | 識別使用者佈建程序的目前狀態。 可能的值包括： </br>0 – API 已建立使用者</br>1 – 已在資料庫中建立與使用者相關聯的金鑰<br>2 – 已完整佈建使用者 |
+| UserProvisioningStatus     | int           | 否          | 識別使用者佈建程序的目前狀態。 可能的值包括： <br />0 – API 已建立使用者<br />1 – 已在資料庫中建立與使用者相關聯的金鑰<br />2 – 已完整佈建使用者 |
 | UserFirstName              | nvarchar(50)  | 是         | 與角色相關聯之使用者名字 |
 | UserLastName               | nvarchar(255) | 是         | 與角色相關聯之使用者的姓氏 |
 | UserEmailAddress           | nvarchar(255) | 是         | 與角色相關聯之使用者的電子郵件地址 |
@@ -103,7 +103,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | LedgerDisplayName        | nvarchar(255) | 否          | 要在 UI 中顯示的總帳名稱 |
 | UserId                   | int           | 否          | 與連線相關聯的使用者識別碼 |
 | UserExternalId           | nvarchar(255) | 否          | 與連線相關聯之使用者的外部識別碼。 根據預設，這會是 Azure Active Directory 中的使用者用於協會的識別碼。 |
-| UserProvisioningStatus   | int           | 否          |識別使用者佈建程序的目前狀態。 可能的值包括： </br>0 – API 已建立使用者</br>1 – 已在資料庫中建立與使用者相關聯的金鑰<br>2 – 已完整佈建使用者 |
+| UserProvisioningStatus   | int           | 否          |識別使用者佈建程序的目前狀態。 可能的值包括： <br />0 – API 已建立使用者<br />1 – 已在資料庫中建立與使用者相關聯的金鑰<br />2 – 已完整佈建使用者 |
 | UserFirstName            | nvarchar(50)  | 是         | 與連線相關聯之使用者的名字 |
 | UserLastName             | nvarchar(255) | 是         | 與連線相關聯之使用者的姓氏 |
 | UserEmailAddress         | nvarchar(255) | 是         | 與連線相關聯之使用者的電子郵件地址 |
@@ -129,7 +129,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ApplicationId                            | int            | 否          | 應用程式的唯一識別碼 |
 | ApplicationName                          | nvarchar (50)  | 否          | 應用程式的名稱 |
 | ApplicationDisplayName                   | nvarchar (255) | 否          | 要在使用者介面中顯示的名稱 |
-| ApplicationEnabled                       | bit            | 否          | 識別應用程式目前是否啟用。</br> **注意：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。  |
+| ApplicationEnabled                       | bit            | 否          | 識別應用程式目前是否啟用。<br /> **附註：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。  |
 | WorkflowId                               | int            | 否          | 與合約相關聯的工作流程唯一識別碼 |
 | WorkflowName                             | nvarchar(50)   | 否          | 與合約相關聯的工作流程名稱 |
 | WorkflowDisplayName                      | nvarchar(255)  | 否          | 與合約相關聯且要在使用者介面中顯示的工作流程名稱 |
@@ -138,11 +138,11 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ContractFileName                         | int            | 否          | 包含此工作流程之智慧合約程式碼的檔案名稱。 |
 | ContractUploadedDtTm                     | int            | 否          | 合約程式碼上傳的日期和時間 |
 | ContractId                               | int            | 否          | 合約的唯一識別碼 |
-| ContractProvisioningStatus               | int            | 否          | 識別合約佈建程序的目前狀態。 可能的值包括： </br>0 – API 已在資料庫中建立合約</br>1 – 合約已傳送至總帳</br>2 – 合約已成功部署至總帳</br>3 或 4 – 合約無法部署至總帳</br>5 – 合約早已成功部署至總帳 </br></br>自 1.5 版起，支援值 0 到 5。 對於目前版本中的回溯相容性，請參考僅支援值 0 到 2 的 **vwContractV0** 檢視。 |
+| ContractProvisioningStatus               | int            | 否          | 識別合約佈建程序的目前狀態。 可能的值包括： <br />0 – API 已在資料庫中建立合約<br />1 – 合約已傳送至總帳<br />2 – 合約已成功部署至總帳<br />3 或 4 – 合約無法部署至總帳<br />5 – 合約早已成功部署至總帳 <br /><br />自 1.5 版起，支援值 0 到 5。 對於目前版本中的回溯相容性，請參考僅支援值 0 到 2 的 **vwContractV0** 檢視。 |
 | ContractLedgerIdentifier                 | nvarchar (255) |             | 合約部署者的使用者電子郵件地址 |
 | ContractDeployedByUserId                 | int            | 否          | 合約部署者的使用者外部識別碼。 根據預設，這會是代表使用者的 Azure Active Directory 識別碼的 GUID。                                                                                                          |
 | ContractDeployedByUserExternalId         | nvarchar(255)  | 否          | 合約部署者的使用者外部識別碼。 根據預設，這會是代表使用者的 Azure Active Directory 識別碼的 GUID。                                                                                                         |
-| ContractDeployedByUserProvisioningStatus | int            | 否          | 識別使用者佈建程序的目前狀態。 可能的值包括： </br>0 – API 已建立使用者</br>1 – 已在資料庫中建立與使用者相關聯的金鑰 </br>2 – 已完整佈建使用者                     |
+| ContractDeployedByUserProvisioningStatus | int            | 否          | 識別使用者佈建程序的目前狀態。 可能的值包括： <br />0 – API 已建立使用者<br />1 – 已在資料庫中建立與使用者相關聯的金鑰 <br />2 – 已完整佈建使用者                     |
 | ContractDeployedByUserFirstName          | nvarchar(50)   | 是         | 合約部署者的使用者名字 |
 | ContractDeployedByUserLastName           | nvarchar(255)  | 是         | 合約部署者的使用者姓氏 |
 | ContractDeployedByUserEmailAddress       | nvarchar(255)  | 是         | 合約部署者的使用者電子郵件地址 |
@@ -170,7 +170,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | WorkflowDisplayName                      | nvarchar(255) | 否          | 要在使用者介面中顯示的工作流程名稱 |
 | WorkflowDescription                      | nvarchar(255) | 是         | 工作流程的說明 |
 | ContractId                               | int           | 否          | 合約的唯一識別碼 |
-| ContractProvisioningStatus               | int           | 否          | 識別合約佈建程序的目前狀態。 可能的值包括： </br>0 – API 已在資料庫中建立合約</br>1 – 合約已傳送至總帳</br>2 – 合約已成功部署至總帳</br>3 或 4 – 合約無法部署至總帳</br>5 – 合約早已成功部署至總帳 </br></br>自 1.5 版起，支援值 0 到 5。 對於目前版本中的回溯相容性，請參考僅支援值 0 到 2 的 **vwContractV0** 檢視。 |
+| ContractProvisioningStatus               | int           | 否          | 識別合約佈建程序的目前狀態。 可能的值包括： <br />0 – API 已在資料庫中建立合約<br />1 – 合約已傳送至總帳<br />2 – 合約已成功部署至總帳<br />3 或 4 – 合約無法部署至總帳<br />5 – 合約早已成功部署至總帳 <br /><br />自 1.5 版起，支援值 0 到 5。 對於目前版本中的回溯相容性，請參考僅支援值 0 到 2 的 **vwContractV0** 檢視。 |
 | ContractCodeId                           | int           | 否          | 合約之程式碼實作的唯一識別碼 |
 | ContractLedgerIdentifier                 | nvarchar(255) | yes         | 已為特定分散式總帳部署的智慧合約版本的相關唯一識別碼。 例如 Ethereum。 |
 | ContractDeployedByUserId                 | int           | 否          | 合約部署者的使用者唯一識別碼 |
@@ -183,12 +183,12 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | WorkflowFunctionDisplayName              | nvarchar(255) | 否          | 要在使用者介面中顯示的函式名稱 |
 | WorkflowFunctionDescription              | nvarchar(255) | 否          | 函式的說明 |
 | ContractActionId                         | int           | 否          | 合約動作的唯一識別碼 |
-| ContractActionProvisioningStatus         | int           | 否          | 識別合約動作佈建程序的目前狀態。 可能的值包括： </br>0 – API 已在資料庫中建立合約動作</br>1 – 合約動作已傳送至總帳</br>2 – 合約動作已成功部署至總帳</br>3 或 4 – 合約無法部署至總帳</br>5 – 合約早已成功部署至總帳 </br></br>自 1.5 版起，支援值 0 到 5。 對於目前版本中的回溯相容性，請參考僅支援值 0 到 2 的 **vwContractV0** 檢視。 |
+| ContractActionProvisioningStatus         | int           | 否          | 識別合約動作佈建程序的目前狀態。 可能的值包括： <br />0 – API 已在資料庫中建立合約動作<br />1 – 合約動作已傳送至總帳<br />2 – 合約動作已成功部署至總帳<br />3 或 4 – 合約無法部署至總帳<br />5 – 合約早已成功部署至總帳 <br /><br />自 1.5 版起，支援值 0 到 5。 對於目前版本中的回溯相容性，請參考僅支援值 0 到 2 的 **vwContractV0** 檢視。 |
 | ContractActionTimestamp                  | datetime(2,7) | 否          | 合約動作的時間戳記 |
 | ContractActionExecutedByUserId           | int           | 否          | 執行合約動作之使用者的唯一識別碼 |
 | ContractActionExecutedByUserFirstName    | int           | 是         | 合約動作執行者的使用者名字 |
 | ContractActionExecutedByUserLastName     | nvarchar(50)  | 是         | 合約動作執行者的使用者姓氏 |
-| ContractActionExecutedByUserExternalId   | nvarchar(255) | yes         | 合約動作執行者的使用者外部識別碼  根據預設，這會是在協會 Azure Active Directory 中代表其身分識別的 GUID。 |
+| ContractActionExecutedByUserExternalId   | nvarchar(255) | yes         | 合約動作執行者的使用者外部識別碼 根據預設，這會是在協會 Azure Active Directory 中代表其身分識別的 GUID。 |
 | ContractActionExecutedByUserEmailAddress | nvarchar(255) | 是         | 合約動作執行者的使用者電子郵件地址 |
 | WorkflowFunctionParameterId              | int           | 否          | 函式參數的唯一識別碼 |
 | WorkflowFunctionParameterName            | nvarchar(50)  | 否          | 函式參數的名稱 |
@@ -204,7 +204,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | TransactionTo                            | nvarchar(255) | 是         | 作為另一交易方的合作對象 |
 | TransactionHash                          | nvarchar(255) | 是         | 交易的雜湊 |
 | TransactionIsWorkbenchTransaction        | bit           | 是         | 一個位元數，用以識別交易是否為 Azure Blockchain Workbench 交易 |
-| TransactionProvisioningStatus            | int           | yes         | 識別交易佈建程序的目前狀態。 可能的值包括： </br>0 – API 已在資料庫中建立交易</br>1 – 交易已傳送至總帳</br>2 – 交易已成功部署至總帳                 |
+| TransactionProvisioningStatus            | int           | yes         | 識別交易佈建程序的目前狀態。 可能的值包括： <br />0 – API 已在資料庫中建立交易<br />1 – 交易已傳送至總帳<br />2 – 交易已成功部署至總帳                 |
 | TransactionValue                         | decimal(32,2) | 是         | 交易的值 |
 
 ## <a name="vwcontractproperty"></a>vwContractProperty
@@ -223,13 +223,13 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ApplicationId                      | int           | 否          | 應用程式的唯一識別碼 |
 | ApplicationName                    | nvarchar(50)  | 否          | 應用程式的名稱 |
 | ApplicationDisplayName             | nvarchar(255) | 否          | 要在使用者介面中顯示的名稱 |
-| ApplicationEnabled                 | bit           | 否          | 識別應用程式目前是否啟用。</br>**注意：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。                      |
+| ApplicationEnabled                 | bit           | 否          | 識別應用程式目前是否啟用。<br />**附註：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。                      |
 | WorkflowId                         | int           | 否          | 工作流程的唯一識別碼 |
 | WorkflowName                       | nvarchar(50)  | 否          | 工作流程的名稱 |
 | WorkflowDisplayName                | nvarchar(255) | 否          | 要在使用者介面中顯示的工作流程名稱 |
 | WorkflowDescription                | nvarchar(255) | 是         | 工作流程的說明 |
 | ContractId                         | int           | 否          | 合約的唯一識別碼 |
-| ContractProvisioningStatus         | int           | 否          | 識別合約佈建程序的目前狀態。 可能的值包括： </br>0 – API 已在資料庫中建立合約</br>1 – 合約已傳送至總帳</br>2 – 合約已成功部署至總帳</br>3 或 4 – 合約無法部署至總帳</br>5 – 合約早已成功部署至總帳 </br></br>自 1.5 版起，支援值 0 到 5。 對於目前版本中的回溯相容性，請參考僅支援值 0 到 2 的 **vwContractPropertyV0** 檢視。 |
+| ContractProvisioningStatus         | int           | 否          | 識別合約佈建程序的目前狀態。 可能的值包括： <br />0 – API 已在資料庫中建立合約<br />1 – 合約已傳送至總帳<br />2 – 合約已成功部署至總帳<br />3 或 4 – 合約無法部署至總帳<br />5 – 合約早已成功部署至總帳 <br /><br />自 1.5 版起，支援值 0 到 5。 對於目前版本中的回溯相容性，請參考僅支援值 0 到 2 的 **vwContractPropertyV0** 檢視。 |
 | ContractCodeId                     | int           | 否          | 合約之程式碼實作的唯一識別碼 |
 | ContractLedgerIdentifier           | nvarchar(255) | yes         | 已為特定分散式總帳部署的智慧合約版本的相關唯一識別碼。 例如 Ethereum。 |
 | ContractDeployedByUserId           | int           | 否          | 合約部署者的使用者唯一識別碼 |
@@ -263,14 +263,14 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ApplicationId                      | int           | 否          | 應用程式的唯一識別碼 |
 | ApplicationName                    | nvarchar(50)  | 否          | 應用程式的名稱 |
 | ApplicationDisplayName             | nvarchar(255) | 否          | 要在使用者介面中顯示的名稱 |
-| ApplicationEnabled                 | bit           | 否          | 識別應用程式目前是否啟用。</br>**注意：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
+| ApplicationEnabled                 | bit           | 否          | 識別應用程式目前是否啟用。<br />**附註：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
 | WorkflowId                         | int           | 否          | 工作流程的唯一識別碼 |
 | WorkflowName                       | nvarchar(50)  | 否          | 工作流程的名稱 |
 | WorkflowDisplayName                | nvarchar(255) | 否          | 要在使用者介面中顯示的名稱 |
 | WorkflowDescription                | nvarchar(255) | 是         | 工作流程的說明 |
 | ContractLedgerImplementationId     | nvarchar(255) | yes         | 已為特定分散式總帳部署的智慧合約版本的相關唯一識別碼。 例如 Ethereum。 |
 | ContractId                         | int           | 否          | 合約的唯一識別碼 |
-| ContractProvisioningStatus         | int           | 否          |識別合約佈建程序的目前狀態。 可能的值包括： </br>0 – API 已在資料庫中建立合約</br>1 – 合約已傳送至總帳</br>2 – 合約已成功部署至總帳</br>3 或 4 – 合約無法部署至總帳</br>5 – 合約早已成功部署至總帳 </br></br>自 1.5 版起，支援值 0 到 5。 對於目前版本中的回溯相容性，請參考僅支援值 0 到 2 的 **vwContractStateV0** 檢視。 |
+| ContractProvisioningStatus         | int           | 否          |識別合約佈建程序的目前狀態。 可能的值包括： <br />0 – API 已在資料庫中建立合約<br />1 – 合約已傳送至總帳<br />2 – 合約已成功部署至總帳<br />3 或 4 – 合約無法部署至總帳<br />5 – 合約早已成功部署至總帳 <br /><br />自 1.5 版起，支援值 0 到 5。 對於目前版本中的回溯相容性，請參考僅支援值 0 到 2 的 **vwContractStateV0** 檢視。 |
 | ConnectionId                       | int           | 否          | 工作流程部署到的區塊鏈執行個體的唯一識別碼 |
 | ContractCodeId                     | int           | 否          | 合約之程式碼實作的唯一識別碼 |
 | ContractDeployedByUserId           | int           | 否          | 合約部署者的使用者唯一識別碼 |
@@ -297,7 +297,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 |--------------------|---------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID                 | int           | 否          | 使用者的唯一識別碼 |
 | ExternalID         | nvarchar(255) | 否          | 使用者的外部識別碼。 根據預設，這會是代表使用者的 Azure Active Directory 識別碼的 GUID。 |
-| ProvisioningStatus | int           | 否          |識別使用者佈建程序的目前狀態。 可能的值包括： </br>0 – API 已建立使用者</br>1 – 已在資料庫中建立與使用者相關聯的金鑰<br>2 – 已完整佈建使用者 |
+| ProvisioningStatus | int           | 否          |識別使用者佈建程序的目前狀態。 可能的值包括： <br />0 – API 已建立使用者<br />1 – 已在資料庫中建立與使用者相關聯的金鑰<br />2 – 已完整佈建使用者 |
 | 名字          | nvarchar(50)  | 是         | 使用者的名字 |
 | 姓氏           | nvarchar(50)  | 是         | 使用者的姓氏 |
 | EmailAddress       | nvarchar(255) | 是         | 使用者的電子郵件地址 |
@@ -331,7 +331,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 
 ## <a name="vwworkflowfunction"></a>vwWorkflowFunction
 
-此檢視會詳細顯示核心工作流程中繼資料以及工作流程的函式和參數。 此檢視是專為報告而設計的，其中也包含了與工作流程相關的應用程式中繼資料。 此檢視包含來自多個基礎資料表的資料，以利報告工作流程的資料。  對於每個工作流程函式，此檢視會包含下列資料：
+此檢視會詳細顯示核心工作流程中繼資料以及工作流程的函式和參數。 此檢視是專為報告而設計的，其中也包含了與工作流程相關的應用程式中繼資料。 此檢視包含來自多個基礎資料表的資料，以利報告工作流程的資料。 對於每個工作流程函式，此檢視會包含下列資料：
 
 -   相關聯的應用程式定義
 -   相關聯的工作流程定義
@@ -371,7 +371,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ApplicationId                | int           | 否          | 應用程式的唯一識別碼 |
 | ApplicationName              | nvarchar(50)  | 否          | 應用程式的名稱 |
 | ApplicationDisplayName       | nvarchar(255) | 否          | 要在使用者介面中顯示的名稱 |
-| ApplicationEnabled           | bit           | 否          | 識別應用程式目前是否啟用。</br>**注意：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
+| ApplicationEnabled           | bit           | 否          | 識別應用程式目前是否啟用。<br />**附註：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
 | WorkflowId                   | int           | 否          | 工作流程的唯一識別碼 |
 | WorkflowName                 | nvarchar(50)  | 否          | 工作流程的名稱 |
 | WorkflowDisplayName          | nvarchar(255) | 否          | 要在使用者介面中為工作流程顯示的名稱 |
@@ -398,7 +398,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | ApplicationId                | int           | 否          | 應用程式的唯一識別碼 |
 | ApplicationName              | nvarchar(50)  | 否          | 應用程式的名稱 |
 | ApplicationDisplayName       | nvarchar(255) | 否          | 應用程式的說明 |
-| ApplicationEnabled           | bit           | 否          | 識別應用程式目前是否啟用。</br>**注意：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
+| ApplicationEnabled           | bit           | 否          | 識別應用程式目前是否啟用。<br />**附註：** 即使應用程式在資料庫中可能反映為已停用，相關聯的合約仍會保留在區塊鏈上，且這些合約的相關資料也會保留在資料庫中。 |
 | WorkflowId                   | int           | 否          | 工作流程的唯一識別碼 |
 | WorkflowName                 | nvarchar(50)  | 否          | 工作流程的名稱 |
 | WorkflowDisplayName          | nvarchar(255) | 否          | 要在使用者介面中為工作流程顯示的名稱 |

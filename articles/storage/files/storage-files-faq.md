@@ -4,15 +4,15 @@ description: 尋找關於 Azure 檔案服務之常見問題集的解答。
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 10/04/2018
+ms.date: 01/02/2019
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 761637a9c44cc490d6633aeb1a9b8d81f8885583
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 70370db841a08ae8ee62bda83bec4b1b9e2e7cf2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972077"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001527"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>關於 Azure 檔案服務的常見問題集 (FAQ)
 [Azure 檔案](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)來存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
@@ -182,7 +182,7 @@ ms.locfileid: "52972077"
 * <a id="ad-support-regions"></a>
 **針對 Azure 檔案透過 SMB 進行 Azure AD 驗證的預覽版在所有 Azure 區域是否都能使用？**
 
-    預覽版適用於所有公用區域，但不包括下列區域：北歐。
+    預覽版適用於所有公用區域。
 
 * <a id="ad-support-on-premises"></a>
 **針對 Azure 檔案透過 SMB 進行 Azure AD 驗證是否支援使用來自內部部署機器的 Azure AD 進行？**
@@ -248,7 +248,7 @@ ms.locfileid: "52972077"
 * <a id="expressroute-not-required"></a>
 **我必須使用 Azure ExpressRoute 來連線到 Azure 檔案服務，還是必須在內部部署中使用 Azure 檔案同步？**  
 
-    否。 不需要 ExpressRoute 就能存取 Azure 檔案共用。 如果您要直接在內部部署掛接 Azure 檔案共用，只需開啟連接埠 445 (TCP 輸出) 以進行網際網路存取 (這是 SMB 用來進行通訊的連接埠)。 如果您使用 Azure 檔案同步，只需連接埠 443 (TCP 輸出) 以進行 HTTPS 存取 (不需要 SMB)。 不過，您可以將 ExpressRoute 與這些其中一個選項搭配使用。
+    沒有。 不需要 ExpressRoute 就能存取 Azure 檔案共用。 如果您要直接在內部部署掛接 Azure 檔案共用，只需開啟連接埠 445 (TCP 輸出) 以進行網際網路存取 (這是 SMB 用來進行通訊的連接埠)。 如果您使用 Azure 檔案同步，只需連接埠 443 (TCP 輸出) 以進行 HTTPS 存取 (不需要 SMB)。 不過，您可以將 ExpressRoute 與這些其中一個選項搭配使用。
 
 * <a id="mount-locally"></a>
 **如何在本機電腦上掛接 Azure 檔案共用？**  
@@ -351,7 +351,7 @@ ms.locfileid: "52972077"
 
 * <a id="need-larger-share"></a>
 **我需要的檔案共用比 Azure 檔案服務目前所提供的更大。我可以提高 Azure 檔案共用的大小嗎？**  
-    否。 Azure 檔案共用的大小上限是 5 TiB。 這是目前的固定限制，我們無法調整。 我們正在研究將共用大小提高到 100 TiB 的解決方案，但目前沒有時間表。
+    沒有。 Azure 檔案共用的大小上限是 5 TiB。 這是目前的固定限制，我們無法調整。 我們正在研究將共用大小提高到 100 TiB 的解決方案，但目前沒有時間表。
 
 * <a id="open-handles-quota"></a>
 **多少個用戶端可以同時存取相同的檔案？**   
@@ -380,7 +380,7 @@ ms.locfileid: "52972077"
 
 * <a id="nested-shares"></a>
 **我可以設定巢狀共用嗎？也就是說，共用下的共用？**  
-    否。 檔案共用是您可以掛接的虛擬驅動程式，因此不支援巢狀共用。
+    沒有。 檔案共用是您可以掛接的虛擬驅動程式，因此不支援巢狀共用。
 
 * <a id="ibm-mq"></a>
 **如何將 Azure 檔案服務與 IBM MQ 搭配使用？**  

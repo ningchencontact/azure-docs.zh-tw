@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: a6343d9bd2009ee2c16f0cca3118e5653faa4c07
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f9f0c52c187b36416dbc77f280a8f6148cf1cbbc
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138682"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971047"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>在您 LUIS 應用程式中關於意圖的概念
 
@@ -58,7 +58,7 @@ ms.locfileid: "53138682"
 [預先建置的定義域](luis-how-to-use-prebuilt-domains.md)含有與語句相關的意圖。  
 
 ## <a name="none-intent-is-fallback-for-app"></a>None 意圖是應用程式的後援
-**None** 是一個全部擷取或後援意圖。 它可用來教導 LUIS 在應用程式定義域 (主題區域) 中不重要的語句。 **None** 意圖應該佔應用程式中語句總數的百分之 10 到 20。 請勿將它保留空白。 
+**None** 是一個全部擷取或後援意圖。 它可用來教導 LUIS 在應用程式定義域 (主題區域) 中不重要的語句。 **None** 意圖應該佔應用程式中語句總數的百分之 10 到 20。 請勿將 None 留空。 
 
 ### <a name="none-intent-helps-conversation-direction"></a>None 意圖可協助引導交談方向
 將語句預測為 None 意圖並以該預測傳回給 Chatbot 時，Bot 可以提出更多問題，並提供功能表將使用者導向到 Chatbot 中的有效選項。 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 3e664fc83fde937b26a4726f997da4c0cb4d8f8a
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407876"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742876"
 ---
 # <a name="scale-hdinsight-clusters"></a>調整 HDInsight 叢集
 
@@ -152,7 +152,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![安全模式關閉](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]  
-> `-D` 是必要參數，原因是 HDInsight 中的預設檔案系統是 Azure 儲存體或 Azure Data Lake Store。 `-D` 會指定讓命令對本機 HDFS 檔案系統來執行。
+> `-D` 是必要參數，原因是 HDInsight 中的預設檔案系統是 Azure 儲存體或 Azure Data Lake Storage。 `-D` 會指定讓命令對本機 HDFS 檔案系統來執行。
 
 接下來，您可以檢視報告，報告中會顯示 HDFS 狀態的詳細資料：
 

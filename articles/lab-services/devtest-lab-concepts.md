@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: ce0c51a3b97c57095a336128919c5e27f860905b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1e35513d5a5a799b1f5e45cf9a5aa97c083e2087
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38676465"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725196"
 ---
 # <a name="devtest-labs-concepts"></a>研發/測試實驗室概念
 ## <a name="overview"></a>概觀
@@ -29,7 +29,7 @@ ms.locfileid: "38676465"
 實驗室是包含一組資源 (例如虛擬機器 (VM)) 的基礎結構，可讓您藉由指定限制和配額更好地管理這些資源。
 
 ## <a name="virtual-machine"></a>虛擬機器
-Azure VM 是由 Azure 所提供的[隨選且可調整的數種運算資源](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)類型之一。 Azure VM 提供您虛擬化的彈性，而無需購買並維護執行它的實體硬體，不過您仍然需要藉由執行特定工作，例如設定、修補和安裝在其中執行的軟體來維護 VM。
+Azure VM 是由 Azure 所提供的[隨選且可調整的數種運算資源](https://docs.microsoft.com/azure/app-service/overview-compare)類型之一。 Azure VM 提供您虛擬化的彈性，而無需購買並維護執行它的實體硬體，不過您仍然需要藉由執行特定工作，例如設定、修補和安裝在其中執行的軟體來維護 VM。
 
 [Azure 中的 Windows 虛擬機器概觀](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview)提供您在建立 VM 之前應該考慮的事項、建立方式及管理方式的相關資訊。
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: fdb316f5f5c1f67dbb92fe8847c0ffacce46ae07
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619807"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789087"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 傳遞驗證：常見問題集
 
@@ -36,7 +36,7 @@ ms.locfileid: "52619807"
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>[Microsoft Azure 德國雲端](https://www.microsoft.de/cloud-deutschland)和 [Microsoft Azure Government 雲端](https://azure.microsoft.com/features/gov/)是否有提供傳遞驗證功能？
 
-否。 只有全球版的 Azure AD 執行個體會提供傳遞驗證功能。
+沒有。 只有全球版的 Azure AD 執行個體會提供傳遞驗證功能。
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>[條件式存取](../active-directory-conditional-access-azure-portal.md)是否能與傳遞驗證搭配運作？
 
@@ -48,7 +48,7 @@ ms.locfileid: "52619807"
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>密碼雜湊同步處理是否會作為傳遞驗證的遞補？
 
-否。 傳遞驗證_不會_自動容錯移轉至密碼雜湊同步處理。 若要避免使用者登入失敗，您應該為傳遞驗證設定[高可用性](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)。
+沒有。 傳遞驗證_不會_自動容錯移轉至密碼雜湊同步處理。 若要避免使用者登入失敗，您應該為傳遞驗證設定[高可用性](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)。
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>能否在傳遞驗證代理程式所在的同一部伺服器上安裝 [Azure AD 應用程式 Proxy](../manage-apps/application-proxy.md) 連接器？
 
@@ -74,7 +74,7 @@ ms.locfileid: "52619807"
 - 驗證代理程式會透過連接埠 80 提出 HTTP 要求，以下載 SSL 憑證撤銷清單 (CRL)。
 
      >[!NOTE]
-     >最近的更新減少了此功能所需的連接埠數目。 如果您有舊版的 Azure AD Connect 或驗證代理程式，請將下列連接埠保持開放：5671、8080、9090、9091、9350、9352、10100-10120。
+     >最近的更新減少了此功能所需的連接埠數目。 如果您有舊版的 Azure AD Connect 或驗證代理程式，請將下列連接埠保持開放：5671、8080、9090、9091、9350、9352 和 10100-10120。
 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>傳遞驗證代理程式是否能透過輸出 Web Proxy 伺服器進行通訊？
 
@@ -83,7 +83,7 @@ ms.locfileid: "52619807"
 如果您的環境中沒有 WPAD，您可以新增 Proxy 資訊 (如下所示)，以允許傳遞驗證代理程式與 Azure AD 進行通訊：
 - 在伺服器上安裝傳遞驗證代理程式之前，請先在 Internet Explorer 中設定 Proxy 資訊。 這可讓您完成驗證代理程式的安裝，但它在管理入口網站中仍將顯示為 [非作用中]。
 - 在伺服器上，瀏覽至 "C:\Program Files\Microsoft Azure AD Connect Authentication Agent"。
-- 編輯 "AzureADConnectAuthenticationAgentService" 組態檔，並新增以下幾行 (將 "http://contosoproxy.com:8080" 取代為您實際的 Proxy 位址)：
+- 編輯 "AzureADConnectAuthenticationAgentService" 組態檔，並新增以下幾行 (請將 "http\://contosoproxy.com:8080" 取代為您實際的 Proxy 位址)：
 
 ```
    <system.net>
@@ -175,9 +175,9 @@ ms.locfileid: "52619807"
 - [快速入門](how-to-connect-pta-quick-start.md)：開始使用 Azure AD 傳遞驗證。
 - [從 AD FS 遷移到傳遞驗證](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) \(英文\) - 從 AD FS (或其他同盟技術) 遷移到傳遞驗證的詳細指南。
 - [智慧鎖定](../authentication/howto-password-smart-lockout.md)：了解如何在租用戶中設定智慧鎖定功能以保護使用者帳戶。
-- [技術深入探討](how-to-connect-pta-how-it-works.md)：了解傳遞驗證功能的運作方式。
+- [深入技術性討論](how-to-connect-pta-how-it-works.md)：了解傳遞驗證功能的運作方式。
 - [疑難排解](tshoot-connect-pass-through-authentication.md)：了解如何解決傳遞驗證功能的常見問題。
-- [安全性深入探討](how-to-connect-pta-security-deep-dive.md)：取得傳遞驗證功能上的深入技術資訊。
+- [安全性深入探討](how-to-connect-pta-security-deep-dive.md)：取得傳遞驗證功能的深入技術資訊。
 - [Azure AD 無縫 SSO](how-to-connect-sso.md)：深入了解此互補功能。
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect)：使用 Azure Active Directory 論壇提出新功能要求。
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) \(英文\)：使用 Azure Active Directory 論壇提出新功能要求。
 

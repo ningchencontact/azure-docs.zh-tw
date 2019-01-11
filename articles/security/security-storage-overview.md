@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 63967face89c12f6769d397bd5be78c23bc9f851
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259134"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973123"
 ---
 # <a name="azure-storage-security-overview"></a>Azure 儲存體安全性概觀
 
@@ -67,11 +67,11 @@ SAS 是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進�
 深入了解用戶端加密︰
 
 * [Microsoft Azure 儲存體的用戶端加密](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-* [雲端安全性控制項系列︰加密傳輸中的資料](https://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+* [雲端安全性控制系列：對傳輸中的資料進行加密](https://cloudblogs.microsoft.com/microsoftsecure/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## <a name="encryption-at-rest"></a>待用加密
 
-對多組織來說，[待用資料加密](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) \(英文\) 是達到資料隱私權、合規性及資料主權的必要步驟。 有三個 Azure 功能可提供待用資料的加密：
+對多組織來說，[待用資料加密](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) \(英文\) 是達到資料隱私權、合規性及資料主權的必要步驟。 有三個 Azure 功能可提供待用資料的加密：
 
 * [儲存體服務加密](../storage/common/storage-security-guide.md#encryption-at-rest)可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加密資料。
 * [用戶端加密](../storage/common/storage-security-guide.md#client-side-encryption)也提供待用加密的功能。

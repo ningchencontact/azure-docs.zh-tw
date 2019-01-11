@@ -11,13 +11,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/25/2018
-ms.openlocfilehash: e947c284843074cf36c2d85dd240df23a1958cd5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/03/2019
+ms.openlocfilehash: 598d2b86e7aeeac9525f37b1ab9422d854e75392
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971516"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034024"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -182,6 +182,8 @@ ms.locfileid: "52971516"
 
     >[!IMPORTANT]
     >使用資料庫層級稽核時，次要資料庫的儲存體設定將會和主要資料庫上的設定完全相同，這會導致跨地區流量。 建議您只啟用伺服器層級稽核，並讓所有資料庫的資料庫層級稽核保留在停用狀態。
+    > [!WARNING]
+    > 目前，次要異地複寫資料庫不支援使用事件中樞或 Log Analytics 作為伺服器層級的稽核記錄目標。
 
 ### <a id="subheading-6">儲存體金鑰重新產生</a>
 
@@ -220,12 +222,12 @@ ms.locfileid: "52971516"
 
 ## <a id="subheading-7"></a>使用 Azure PowerShell 管理 SQL 資料庫稽核
 
-**PowerShell Cmdlet**：
+**PowerShell Cmdlet (包含其他篩選的 WHERE 子句支援)**：
 
-- [建立或更新資料庫 Blob 稽核原則 (Set-AzureRMSqlDatabaseAuditing)][105]
-- [建立或更新伺服器 Blob 稽核原則 (Set-AzureRMSqlServerAuditing)][106]
-- [取得資料庫稽核原則 (Get-AzureRMSqlDatabaseAuditing)][101]
-- [取得伺服器 Blob 稽核原則 (Get-AzureRMSqlServerAuditing)][102]
+- [建立或更新資料庫 Blob 稽核原則 (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [建立或更新伺服器 Blob 稽核原則 (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
+- [取得資料庫稽核原則 (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [取得伺服器 Blob 稽核原則 (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 如需指令碼範例，請參閱[使用 PowerShell 設定稽核與威脅偵測](scripts/sql-database-auditing-and-threat-detection-powershell.md)。
 
@@ -245,6 +247,14 @@ ms.locfileid: "52971516"
 - [取得資料庫「擴充的」Blob 稽核原則](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [取得伺服器「擴充的」Blob 稽核原則](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
+## <a id="subheading-10"></a>使用 ARM 範本管理 SQL 資料庫稽核
+
+您可以使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 範本來管 Azure SQL 資料庫，如下列範例所示：
+
+- [部署啟用稽核的 Azure SQL Server 以將稽核記錄寫入 Azure Blob 儲存體帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [部署啟用稽核的 Azure SQL Server 以將稽核記錄寫入 Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [部署啟用稽核的 Azure SQL Server 以將稽核記錄寫入事件中樞](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1
 [Set up auditing for your database]: #subheading-2
@@ -254,6 +264,7 @@ ms.locfileid: "52971516"
 [Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 [Manage SQL database auditing using REST API]: #subheading-9
+[Manage SQL database auditing using ARM templates]: #subheading-10
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
@@ -266,10 +277,3 @@ ms.locfileid: "52971516"
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
-
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing

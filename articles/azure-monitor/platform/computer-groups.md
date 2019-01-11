@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 3f7cfbea414561a50152f88ac9061d7f62c89e2a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc8688e06b430522d2aeb1bcc67f72dae2e9ac6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192387"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728394"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Log Analytics 記錄檔搜尋中的電腦群組
 
@@ -31,7 +31,7 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](../../azure-mon
 |:--- |:--- |
 | 記錄搜尋 |建立記錄檔搜尋來傳回電腦清單。 |
 | 記錄檔搜尋 API |使用記錄檔搜尋 API，根據記錄檔搜尋結果，以程式設計方式建立電腦群組。 |
-| Active Directory |自動掃描屬於 Active Directory 網域的任何代理程式電腦的群組成員資格，並為每個安全性群組在 Log Analytics 中建立一個群組。 |
+| Active Directory |自動掃描屬於 Active Directory 網域的任何代理程式電腦的群組成員資格，並為每個安全性群組在 Log Analytics 中建立一個群組。 (僅限 Windows 機器)|
 | 組態管理員 | 從 System Center Configuration Manager 匯入集合，並在 Log Analytics 中為每個集合建立群組。 |
 | Windows Server Update Services |自動掃描 WSUS 伺服器或用戶端來找出目標群組，並為每個群組在 Log Analytics 中建立一個群組。 |
 
@@ -60,7 +60,10 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](../../azure-mon
 
 
 ### <a name="active-directory"></a>Active Directory
-當您設定匯入 Log Analytics 來匯入 Active Directory 群組成員資格時，它會針對已加入網域且裝有 Log Analytics 代理程式的任何電腦分析群組成員資格。  針對 Active Directory 中的每個安全性群組，Log Analytics 中會建立一個電腦群組，而每一部電腦會新增至對應到它們所屬安全性群組的電腦群組。  此成員資格持續地每 4 小時更新一次。  
+當您設定匯入 Log Analytics 來匯入 Active Directory 群組成員資格時，它會針對已加入 Windows 網域且裝有 Log Analytics 代理程式的任何電腦分析群組成員資格。  針對 Active Directory 中的每個安全性群組，Log Analytics 中會建立一個電腦群組，而每一部 Windows 電腦都會新增至對應到它們所屬安全性群組的電腦群組。  此成員資格持續地每 4 小時更新一次。  
+
+> [!NOTE]
+> 所匯入的 Active Directory 群組只包含 Windows 機器。
 
 您可以在 Azure 入口網站中，將 Log Analytics 設定為從 Log Analytics [進階設定] 匯入 Active Directory 安全性群組。  依序選取 [電腦群組]、[Active Directory] 和 [從電腦匯入 Active Directory 群組成員資格]。  不需要進一步的組態。
 

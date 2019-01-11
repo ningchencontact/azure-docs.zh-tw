@@ -1,6 +1,6 @@
 ---
-title: 設定 Web 應用程式 - Azure App Service
-description: 如何在 Azure App Service 中設定 Web 應用程式
+title: 設定應用程式 - Azure App Service
+description: 如何在 Azure App Service 中設定應用程式
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -15,22 +15,20 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: deb3b155af464e69c6811414135913917cf2193a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269425"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716458"
 ---
-# <a name="configure-web-apps-in-azure-app-service"></a>在 Azure App Service 中設定 Web 應用程式
+# <a name="configure-apps-in-azure-app-service"></a>在 Azure App Service 中設定應用程式
 
-本主題說明如何使用 [Azure 入口網站]設定 Web 應用程式。
-
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+本主題說明如何使用 [Azure 入口網站]設定 Web 應用程式、行動後端或 API 應用程式。
 
 ## <a name="application-settings"></a>應用程式設定
-1. 在 [Azure 入口網站]中，開啟 Web 應用程式的刀鋒視窗。
-3. 按一下 [應用程式設定] 。
+1. 在 [Azure 入口網站]中，開啟應用程式的刀鋒視窗。
+2. 按一下 [應用程式設定] 。
 
 ![應用程式設定][configure01]
 
@@ -47,14 +45,14 @@ ms.locfileid: "53269425"
 在技術上，針對您的應用程式啟用 Java 就會停用 .NET、PHP 與 Python 選項。
 
 <a name="platform"></a>
-**平台**。 選取 Web 應用程式是否會在 32 位元或 64 位元環境中執行。 64 位元環境需要 [基本] 或 [標準] 層。 [免費] 與 [共用] 層一律於 32 位元環境中執行。
+**平台**。 選取應用程式是否會在 32 位元或 64 位元環境中執行。 64 位元環境需要 [基本] 或 [標準] 層。 [免費] 與 [共用] 層一律於 32 位元環境中執行。
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-**Web 通訊端**。 設為 [開啟] 以啟用 WebSocket 通訊協定，例如，如果您的 Web 應用程式使用 [ASP.NET SignalR] 或 [socket.io](https://socket.io/)。
+**Web 通訊端**。 設為 [開啟] 以啟用 WebSocket 通訊協定，例如，如果您的應用程式使用 [ASP.NET SignalR] 或 [socket.io](https://socket.io/)。
 
 <a name="alwayson"></a>
-**永遠開啟**。 根據預設，Web 應用程式如果閒置一段時間，就會卸載。 此舉有助於系統保留資源。 在 [基本] 或 [標準] 模式中，您可以啟用 [ **永遠開啟** ]，讓應用程式隨時都能載入。 如果您的應用程式會執行連續的 WebJobs，或執行使用 CRON 運算式觸發的 WebJobs，就應該啟用 [一律開啟]，否則 Web 作業可能無法可靠地執行。
+**永遠開啟**。 根據預設，應用程式如果閒置一段時間，就會卸載。 此舉有助於系統保留資源。 在 [基本] 或 [標準] 模式中，您可以啟用 [ **永遠開啟** ]，讓應用程式隨時都能載入。 如果您的應用程式會執行連續的 WebJobs，或執行使用 CRON 運算式觸發的 WebJobs，就應該啟用 [一律開啟]，否則 Web 作業可能無法可靠地執行。
 
 **受控管線版本**。 設定 IIS [管線模式]。 除非您擁有的舊版應用程式需要舊版 IIS，否則請保留 [整合 (預設值)] 的設定。
 
@@ -65,16 +63,16 @@ ms.locfileid: "53269425"
 
 **ARR 同質性**。 在相應放大至多個 VM 執行個體的應用程式中，ARR 同質性 Cookie 可保證用戶端會在工作階段的存留期間路由至相同的執行個體。 若要提升無狀態應用程式的效能，請將此選項設定為 [關閉]。   
 
-**自動交換**。 如果您針對部署位置啟用「自動交換」，當您將更新推送到該位置時，App Service 就會將 Web 應用程式自動交換至生產位置。 如需詳細資訊，請參閱 [將 Azure App Service 中的 Web 應用程式部署至預備位置](web-sites-staged-publishing.md)。
+**自動交換**。 如果您針對部署位置啟用「自動交換」，當您將更新推送到該位置時，App Service 就會將應用程式自動交換至生產位置。 如需詳細資訊，請參閱[將 Azure App Service 中的應用程式部署至預備位置](deploy-staging-slots.md)。
 
 ### <a name="debugging"></a>Debugging
-**遠端偵錯**。 啟用遠端偵錯。 一經啟用，您就可以使用 Visual Studio 中的遠端偵錯工具，直接連接到您的 Web 應用程式。 遠端偵錯將保持啟用達 48 小時。 
+**遠端偵錯**。 啟用遠端偵錯。 一經啟用，您就可以使用 Visual Studio 中的遠端偵錯工具，直接連接到您的應用程式。 遠端偵錯將保持啟用達 48 小時。 
 
 ### <a name="app-settings"></a>應用程式設定
-這一節包含 Web 應用程式將在啟動時載入的名稱/值組。 
+這一節包含應用程式將在啟動時載入的名稱/值組。 
 
 * 如果是 .NET 應用程式，這些設定就會在執行階段插入 .NET 設定 `AppSettings` ，並覆寫現有的設定。 
-* 對於 Linux 上的 App Service 或用於容器的 Web App，如果您的名稱中有巢狀 json 機碼結構 (例如 `ApplicationInsights:InstrumentationKey`)，您必須以 `ApplicationInsights__InstrumentationKey` 作為機碼名稱。 因此請注意，任何 `:` 都應該由 `__` (也就是雙底線) 取代。
+* 對於 Linux 上的 App Service 或 用於容器的 Web App，如果您的名稱中有巢狀 json 索引鍵結構 (例如 `ApplicationInsights:InstrumentationKey`)，您必須以 `ApplicationInsights__InstrumentationKey` 作為索引鍵名稱。 因此請注意，任何 `:` 都應該由 `__` (也就是雙底線) 取代。
 * PHP、Python、Java 和 Node 應用程式可以在執行階段以環境變數的形式存取這些設定。 系統會為每個應用程式設定建立兩個環境變數，一個變數具有由應用程式設定項目指定的名稱，另一個則具有 APPSETTING_ 前置詞。 這兩個變數都包含相同的值。
 
 應用程式設定在儲存時一律加密 (待用加密)。
@@ -84,7 +82,7 @@ ms.locfileid: "53269425"
 ### <a name="connection-strings"></a>連接字串
 連結資源的連接字串。 
 
-如果是 .NET 應用程式，這些連接字串就會在執行階段插入 .NET 組態 `connectionStrings` 的設定，並覆寫機碼相當於所連結資料庫名稱的現有項目。 
+如果是 .NET 應用程式，這些連接字串就會在執行階段插入 .NET 組態 `connectionStrings` 的設定，並覆寫索引鍵相當於所連結資料庫名稱的現有項目。 
 
 如果是 PHP、Python、Java 及 Node 應用程式，您可以在執行階段將這些設定視為環境變數使用，並加上連線類型前置詞。 環境變數首碼如以下所示： 
 
@@ -102,7 +100,7 @@ ms.locfileid: "53269425"
 ### <a name="default-documents"></a>預設文件
 預設文件是顯示於網站根 URL 上的網頁。  系統會使用清單中第一個相符的檔案。 
 
-Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理靜態內容，若是如此，就不會有這類預設文件。    
+應用程式可能會使用根據 URL 路由傳送的模組，而非處理靜態內容，若是如此，就不會有這類預設文件。    
 
 ### <a name="handler-mappings"></a>處理常式對應
 使用此區域可新增自訂指令碼處理器，以處理特定副檔名的要求。 
@@ -117,7 +115,7 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 ## <a name="enabling-diagnostic-logs"></a>啟用診斷記錄
 啟用診斷記錄：
 
-1. 在 Web 應用程式的刀鋒視窗中，按一下 [ **所有設定**]。
+1. 在應用程式的刀鋒視窗中，按一下 [所有設定]。
 2. 按一下 [ **診斷記錄**]。 
 
 從支援記錄功能的 Web 應用程式寫入診斷記錄的選項： 
@@ -134,31 +132,31 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 
 若要檢視記錄檔，您必須建立 FTP 認證，如下所示：
 
-1. 在 Web 應用程式的刀鋒視窗中，按一下 [ **所有設定**]。
+1. 在應用程式的刀鋒視窗中，按一下 [所有設定]。
 2. 按一下 [ **部署認證**]。
 3. 請輸入使用者名稱和密碼。
 4. 按一下 [檔案] 。
 
 ![設定部署認證][configure03]
 
-完整的 FTP 使用者名稱為 「app\username」，其中 *app* 為您 Web 應用程式的名稱。 username 則列於 Web 應用程式刀鋒視窗的 **Essentials**部分。
+完整的 FTP 使用者名稱為「app\username」，其中 app 為應用程式的名稱。 username 則列於應用程式刀鋒視窗的 [基本資訊] 底下。
 
 ![FTP 部署認證][configure02]
 
 ## <a name="other-configuration-tasks"></a>其他配置作業
 ### <a name="ssl"></a>SSL
-在 [基本] 或 [標準] 模式中，您可以上傳自訂網域的 SSL 憑證。 如需詳細資訊，請參閱[為 Web 應用程式啟用 HTTPS](app-service-web-tutorial-custom-ssl.md)。 
+在 [基本] 或 [標準] 模式中，您可以上傳自訂網域的 SSL 憑證。 如需詳細資訊，請參閱[為應用程式啟用 HTTPS](app-service-web-tutorial-custom-ssl.md)。 
 
 若要檢視您上傳的憑證，依序按一下  **所有設定** > **自訂網域和 SSL**設定 Web 應用程式。
 
 ### <a name="domain-names"></a>網域名稱
-新增 Web 應用程式的自訂網域名稱。 如需詳細資訊，請參閱[在 Azure App Service 中設定 Web 應用程式的自訂網域名稱](app-service-web-tutorial-custom-domain.md)。
+新增應用程式的自訂網域名稱。 如需詳細資訊，請參閱[在 Azure App Service 中設定應用程式的自訂網域名稱](app-service-web-tutorial-custom-domain.md)。
 
 若要檢視您的網域名稱，依序按一下  **所有設定** > **自訂網域和 SSL**設定 Web 應用程式。
 
 ### <a name="deployments"></a>部署
-* 設定連續部署。 請參閱 [在 Azure App Service 中使用 Git 來部署 Web Apps](app-service-deploy-local-git.md)。
-* 部署位置。 請參閱 [將 Azure App Service 中的 Web Apps 部署至預備環境]。
+* 設定連續部署。 請參閱[在 Azure App Service 中使用 Git 來部署應用程式](deploy-local-git.md)。
+* 部署位置。 請參閱[部署至 Azure App Service 的預備環境]。
 
 若要檢視您的部署位置，依序按一下  **所有設定** > **部署位置**設定 Web 應用程式。
 
@@ -167,29 +165,23 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 
 如需詳細資訊，請參閱[操作說明：監視 Web 端點狀態]。
 
-> [!NOTE]
-> 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service]，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡；無需承諾。
-> 
-> 
-
 ## <a name="next-steps"></a>後續步驟
 * [在 Azure App Service 中設定自訂網域名稱]
 * [針對 Azure App Service 中的 App 啟用 HTTPS]
-* [在 Azure App Service 中調整 Web 應用程式規模]
-* [在 Azure App Service 中監視 Web 應用程式的基本概念]
+* [在 Azure App Service 中調整應用程式規模]
+* [在 Azure App Service 中監視基本概念]
 
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure 入口網站]: https://portal.azure.com/
 [在 Azure App Service 中設定自訂網域名稱]: ./app-service-web-tutorial-custom-domain.md
-[將 Azure App Service 中的 Web Apps 部署至預備環境]: ./web-sites-staged-publishing.md
+[部署至 Azure App Service 的預備環境]: ./deploy-staging-slots.md
 [針對 Azure App Service 中的 App 啟用 HTTPS]: ./app-service-web-tutorial-custom-ssl.md
 [操作說明：監視 Web 端點狀態]: https://go.microsoft.com/fwLink/?LinkID=279906
-[在 Azure App Service 中監視 Web 應用程式的基本概念]: ./web-sites-monitor.md
+[在 Azure App Service 中監視基本概念]: ./web-sites-monitor.md
 [管線模式]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[在 Azure App Service 中調整 Web 應用程式規模]: ./web-sites-scale.md
-[試用 App Service]: https://azure.microsoft.com/try/app-service/
+[在 Azure App Service 中調整應用程式規模]: ./web-sites-scale.md
 
 <!-- IMG List -->
 

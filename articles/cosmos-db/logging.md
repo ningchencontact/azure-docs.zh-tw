@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7a233a5effb804ec3cc22727b46846509032d214
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: cdc55491e827ab949d471c9b66c7caaa86f5055d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438501"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043323"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的診斷記錄 
 
@@ -81,7 +81,7 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
     * **串流至事件中樞**：若要使用此選項，您需要可以連接的現有事件中樞命名空間和事件中樞。 若要建立事件中樞命名空間，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。 然後，返回入口網站的此頁面，選取事件中樞命名空間和原則名稱。
     * **傳送至 Log Analytics**：若要使用此選項，請使用現有的工作區，或是在入口網站中依照[建立新的工作區](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)的步驟建立新的 Log Analytics 工作區。 如需關於如何檢視 Log Analytics 記錄的詳細資訊，請參閱[檢視 Log Analytics 中的記錄](#view-in-loganalytics)。
     * **記錄 DataPlaneRequests**：選取此選項，可從適用於 SQL、Graph、MongoDB、Cassandra 和資料表 API 帳戶的基礎 Azure Cosmos DB 分散式平台記錄後端要求。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
-    * **記錄 MongoRequests**：選取此選項，從 Azure Cosmos DB 前端針對使用者為了替 MongoDB API 帳戶提供服務而起始的要求進行記錄。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
+    * **記錄 MongoRequests**：選取此選項，可記錄為了處理 Cosmos 帳戶 (已設定適用於 MongoDB 的 Azure Cosmos DB API) 事宜而從 Azure Cosmos DB 前端提出的使用者起始要求。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
     * **計量要求**：選取此選項可儲存 [Azure 計量](../azure-monitor/platform/metrics-supported.md)中的詳細資料。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
 
 3. 選取 [ **儲存**]。
@@ -459,7 +459,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要了解如何啟用記錄，以及各種 Azure 服務支援的計量和記錄類別，請閱讀 [Microsoft Azure 中的計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)和 [Azure 診斷記錄概觀](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)文章。
+- 若要了解如何啟用記錄，以及各種 Azure 服務支援的計量和記錄類別，請閱讀 [Microsoft Azure 中的計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)和 [Azure 診斷記錄概觀](../azure-monitor/platform/diagnostic-logs-overview.md)文章。
 - 閱讀下列文章來了解事件中樞：
    - [Azure 事件中樞是什麼？](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

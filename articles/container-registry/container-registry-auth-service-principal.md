@@ -1,18 +1,18 @@
 ---
 title: 使用服務主體進行 Azure Container Registry 驗證
-description: 了解如何使用 Azure Active Directory 服務主體，提供您私人容器登錄中映像的存取權。
+description: 使用 Azure Active Directory 服務主體，提供您私人容器登錄中映像的存取權。
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 30f0eb04b4b7d07785854e3079bc6656889edec6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854474"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754198"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>使用服務主體進行 Azure Container Registry 驗證
 
@@ -20,9 +20,9 @@ ms.locfileid: "48854474"
 
 ## <a name="what-is-a-service-principal"></a>何謂服務主體？
 
-Azure AD *服務主體*提供您訂用帳戶內 Azure 資源的存取權。 您可以將服務主體視為服務的使用者身分識別，其中「服務」是需要存取資源的任何應用程式、服務或平台。 您可以設定一個服務主體，並將其存取權限範圍限制為您指定的那些資源。 然後，您可以設定應用程式或服務，使用服務主體的認證來存取那些資源。
+Azure AD *服務主體*提供您訂用帳戶內 Azure 資源的存取權。 您可以將服務主體視為服務的使用者身分識別，其中「服務」是需要存取資源的任何應用程式、服務或平台。 您可以設定一個服務主體，並將其存取權限範圍限制為您指定的那些資源。 然後，請設定應用程式或服務，以使用服務主體的認證來存取那些資源。
 
-在 Azure Container Registry 的內容中，您可以建立一個 Azure AD 服務主體，並提供您在 Azure 中之私人 Docker 登錄的提取、發送和提取，或擁有者權限。
+在 Azure Container Registry 的內容中，您可以建立一個 Azure AD 服務主體，並提供您在 Azure 中之私人登錄的提取、發送和提取，或其他權限。 如需完整清單，請參閱 [Azure Container Registry 角色和權限](container-registry-roles.md)。
 
 ## <a name="why-use-a-service-principal"></a>為何要使用服務主體？
 

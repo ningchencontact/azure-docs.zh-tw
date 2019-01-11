@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 5f85d01b20466fd72b802b4daaf001a7928717c4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b298836070a511421f9df25155ff1ee4422e61dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410273"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994363"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>針對速度變慢或失敗的 HDInsight 叢集進行疑難排解
 
@@ -88,7 +88,7 @@ Apache Ambari 可讓您透過 Web UI 和 REST API 來管理和監視 HDInsight �
 
 #### <a name="check-for-azure-service-outages"></a>查看 Azure 服務中斷狀況
 
-HDInsight 倚賴數個 Azure 服務。 它會在 Azure HDInsight 上執行虛擬伺服器、在 Azure Blob 儲存體或 Azure DataLake Store 上儲存資料和指令碼，以及在「Azure 資料表」儲存體中編製記錄檔索引。 這些服務的中斷可能導致 HDInsight 發生問題，但此情況相當罕見。 如果叢集發生非預期的速度變慢或失敗情況，請檢查 [Azure 狀態儀表板](https://azure.microsoft.com/status/)。 此儀表板會依區域列出每個服務的狀態。 請檢查您叢集的區域，並一併檢查所有相關服務的區域。
+HDInsight 倚賴數個 Azure 服務。 它會在 Azure HDInsight 上執行虛擬伺服器、在 Azure Blob 儲存體或 Azure Data Lake Storage 上儲存資料和指令碼，以及在「Azure 資料表」儲存體中編製記錄檔索引。 這些服務的中斷可能導致 HDInsight 發生問題，但此情況相當罕見。 如果叢集發生非預期的速度變慢或失敗情況，請檢查 [Azure 狀態儀表板](https://azure.microsoft.com/status/)。 此儀表板會依區域列出每個服務的狀態。 請檢查您叢集的區域，並一併檢查所有相關服務的區域。
 
 #### <a name="check-azure-service-usage-limits"></a>檢查 Azure 服務使用限制
 

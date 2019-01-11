@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 951292a34f59fd143a7997571513a3c852bbce81
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 161158157e3af92b1ac4fe81a664d95aa6816490
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497995"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001561"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>使用 HDInsight 上的 Apache Spark 分析 Application Insights 遙測記錄檔
 
@@ -28,14 +28,14 @@ ms.locfileid: "52497995"
 
 * 熟悉以 Linux 為基礎的 HDInsight 叢集的建立程序。 如需詳細資訊，請參閱[在 HDInsight 上建立 Apache Spark](apache-spark-jupyter-spark-sql.md)。
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * 網頁瀏覽器。
 
 開發和測試本文件時使用了以下資源：
 
-* Application Insights 遙測資料，由 [設定為使用 Application Insights 的 Node.js Web 應用程式](../../application-insights/app-insights-nodejs.md)產生。
+* Application Insights 遙測資料，由 [設定為使用 Application Insights 的 Node.js Web 應用程式](../../azure-monitor/app/nodejs.md)產生。
 
 * 在 Linux 上使用 HDInsight 叢集版本 3.5 上的 Spark 分析資料。
 
@@ -49,22 +49,22 @@ ms.locfileid: "52497995"
 
 Application Insights 可以設定為持續將遙測資訊匯出到 blob。 HDInsight 接著便可讀取儲存在 blob 中的資料。 不過，有一些您必須遵守的需求︰
 
-* **位置**︰如果儲存體帳戶和 HDInsight 位於不同位置，可能就會增加延遲。 此外，將輸出費用套用到在區域間移動的資料時也會增加成本。
+* **位置**：如果儲存體帳戶和 HDInsight 位於不同位置，可能就會增加延遲。 此外，將輸出費用套用到在區域間移動的資料時也會增加成本。
 
-    > [!WARNING]
+    > [!WARNING]  
     > 不支援在與 HDInsight 不同的位置使用儲存體帳戶。
 
-* **blob 類型**：HDInsight 僅支援區塊 blob。 Application Insights 預設為使用區塊 blob，因此應該使用預設項目來搭配 HDInsight。
+* **Blob 類型**：HDInsight 僅支援區塊 Blob。 Application Insights 預設為使用區塊 blob，因此應該使用預設項目來搭配 HDInsight。
 
 如需將儲存體新增至現有 叢集的資訊，請參閱[新增其他儲存體帳戶](../hdinsight-hadoop-add-storage.md)。
 
 ### <a name="data-schema"></a>資料結構描述
 
-Application Insights 提供 [匯出資料模型](../../application-insights/app-insights-export-data-model.md) 資訊，做為匯出至 blob 之遙測資料的格式依據。 這份文件中的步驟使用 Spark SQL 來處理資料。 Spark SQL 可以為 Application Insights 所記錄的 JSON 資料結構自動產生結構描述。
+Application Insights 提供 [匯出資料模型](../../azure-monitor/app/export-data-model.md) 資訊，做為匯出至 blob 之遙測資料的格式依據。 這份文件中的步驟使用 Spark SQL 來處理資料。 Spark SQL 可以為 Application Insights 所記錄的 JSON 資料結構自動產生結構描述。
 
 ## <a name="export-telemetry-data"></a>匯出遙測資料
 
-依照 [設定連續匯出](../../application-insights/app-insights-export-telemetry.md) 中的步驟設定您的 Application Insights 將遙測資訊匯出到 Azure 儲存體 blob。
+依照 [設定連續匯出](../../azure-monitor/app/export-telemetry.md) 中的步驟設定您的 Application Insights 將遙測資訊匯出到 Azure 儲存體 blob。
 
 ## <a name="configure-hdinsight-to-access-the-data"></a>設定 HDInsight 來存取資料
 
@@ -111,10 +111,10 @@ Application Insights 提供 [匯出資料模型](../../application-insights/app-
 
     傳回的 wasb 路徑是 Application Insights 遙測資料的位置。 將儲存格中的 `hdfs dfs -ls` 這一行變更為使用傳回的 wasb 路徑，然後使用 **SHIFT + ENTER** 再執行一次儲存格。 此時，結果應該會顯示包含遙測資料的目錄。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 本節中步驟的其餘部分使用 `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` 目錄。 您的目錄結構可能不同。
 
-6. 在下一個儲存格中，輸入下列程式碼︰將 `WASB_PATH` 取代為前一個步驟中的路徑。
+6. 在下一個儲存格中，輸入下列程式碼：將 `WASB_PATH` 取代為先前步驟中的路徑。
 
    ```python
    jsonFiles = sc.textFile('WASB_PATH')
@@ -200,7 +200,7 @@ Application Insights 提供 [匯出資料模型](../../application-insights/app-
 
     此查詢會傳回 context.location.city 不是 null 的前 20 筆記錄的 city 資訊。
 
-   > [!NOTE]
+   > [!NOTE]  
    > context 結構會出現在 Application Insights 記錄的所有遙測中。 您的記錄中可能不會填入 city 元素。 使用結構描述找出您可以查詢可能包含您的記錄檔資料的其他元素。
 
     此查詢會傳回類似以下文字的資訊：
@@ -252,10 +252,10 @@ Application Insights 提供 [匯出資料模型](../../application-insights/app-
 
     傳回的 wasb 路徑是 Application Insights 遙測資料的位置。 將儲存格中的 `hdfs dfs -ls` 這一行變更為使用傳回的 wasb 路徑，然後使用 **SHIFT + ENTER** 再執行一次儲存格。 此時，結果應該會顯示包含遙測資料的目錄。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 本節中步驟的其餘部分使用 `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` 目錄。 這個目錄可能不存在，除非您的遙測資料是用於 Web 應用程式。
 
-6. 在下一個儲存格中，輸入下列程式碼︰將 `WASB\_PATH` 取代為前一個步驟中的路徑。
+6. 在下一個儲存格中，輸入下列程式碼：將 `WASB\_PATH` 取代為先前步驟中的路徑。
 
    ```scala
    var jsonFiles = sc.textFile('WASB_PATH')
@@ -343,7 +343,7 @@ Application Insights 提供 [匯出資料模型](../../application-insights/app-
 
     此查詢會傳回 context.location.city 不是 null 的前 20 筆記錄的 city 資訊。
 
-   > [!NOTE]
+   > [!NOTE]  
    > context 結構會出現在 Application Insights 記錄的所有遙測中。 您的記錄中可能不會填入 city 元素。 使用結構描述找出您可以查詢可能包含您的記錄檔資料的其他元素。
    >
    >
@@ -364,12 +364,12 @@ Application Insights 提供 [匯出資料模型](../../application-insights/app-
 
 如需在 Azure 中使用 Apache Spark 處理資料和服務的範例，請參閱下列文件：
 
-* [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 和機器學習服務：在 HDInsight 中利用 HVAC 資料使用 Spark 分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 搭配 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 
 如需建立和執行 Spark 應用程式的詳細資訊，請參閱下列文件︰
 
 * [使用 Scala 建立獨立應用程式](apache-spark-create-standalone-application.md)
-* [利用 Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
+* [使用 Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)

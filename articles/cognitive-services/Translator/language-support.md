@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0b1187083c14fc7c536f6a32f3a41957f53f299b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3d25cfd39b4b4278fedf33e042d394208fd5eafc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679710"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713174"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>翻譯工具文字 API 支援的語言和區域
 
@@ -39,9 +39,8 @@ ms.locfileid: "52679710"
 |:-----|:-----:|:-----|:-----|
 |南非荷蘭文| `af`    |僅限統計|  類神經|
 |阿拉伯文|    `ar`    |可使用類神經|  類神經|
-|阿拉伯文 (黎凡特)| `apc`   |可使用類神經|  類神經|
 |孟加拉文|    `bn`    |可使用類神經|  類神經|
-|波士尼亞文 (拉丁文)|   `bs`    |僅限統計|  統計|
+|波士尼亞文 (拉丁文)|   `bs`    |可使用類神經|  類神經|
 |保加利亞文| `bg`    |可使用類神經|  類神經|
 |粵語 (繁體中文)|   `yue`   |僅限統計|  統計|
 |卡達隆尼亞文|   `ca`    |僅限統計|  統計|
@@ -109,26 +108,26 @@ ms.locfileid: "52679710"
 
 | 語言    | 語言代碼 | 指令碼 | 至/自 | 指令碼|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| 阿拉伯文 | ar | 阿拉伯文 | <--> | 拉丁文 |
-|孟加拉文  | bn | 孟加拉文 | <--> | 拉丁文 |
-| 中文 (簡體) | zh-Hans | 簡體中文 | <--> | 拉丁文 |
-| 中文 (簡體) | zh-Hans | 簡體中文 | <--> | 繁體中文 |
-| 中文 (繁體) | zh-Hant | 繁體中文 | <--> | 拉丁文 |
-| 中文 (繁體) | zh-Hant | 繁體中文 | <--> | 簡體中文 |
-| 古吉拉特文 | gu  | 古吉拉特文 | --> | 拉丁文 |
-| 希伯來文 | he | 希伯來文 | <--> | 拉丁文 |
-| 北印度文 | hi | 梵文字母 | <--> | 拉丁文 |
-| 日文 | ja | 日文 | <--> | 拉丁文 |
-| 坎那達文 | kn | 坎那達文 | --> | 拉丁文 |
-| 馬來亞拉姆文 | ml | 馬來亞拉姆文 | --> | 拉丁文 |
-| 馬拉地文 | mr | 梵文字母 | --> | 拉丁文 |
-| 歐利亞文 | 或 | 歐利亞文 | <--> | 拉丁文 |
-| 旁遮普文 | pa | 古木基文 | <--> | 拉丁文  |
-| 塞爾維亞文 (斯拉夫) | sr-Cyrl | 斯拉夫文  | --> | 拉丁文 |
-| 塞爾維亞文 (拉丁) | sr-Latn | 拉丁文 | --> | 斯拉夫文 |
-| 坦米爾文 | ta | 坦米爾文 | --> | 拉丁文 |
-| 泰盧固文 | te | 泰盧固文 | --> | 拉丁文 |
-| 泰文 | th | 泰文 | <--> | 拉丁文 |
+| 阿拉伯文 | `ar` | 阿拉伯文 `Arab` | <--> | 拉丁文 `Latn` |
+|孟加拉文  | `bn` | 孟加拉文 `Beng` | <--> | 拉丁文 `Latn` |
+| 中文 (簡體) | `zh-Hans` | 簡體中文 `Hans`| <--> | 拉丁文 `Latn` |
+| 中文 (簡體) | `zh-Hans` | 簡體中文 `Hans`| <--> | 繁體中文 `Hant`|
+| 中文 (繁體) | `zh-Hant` | 繁體中文 `Hant`| <--> | 拉丁文 `Latn` |
+| 中文 (繁體) | `zh-Hant` | 繁體中文 `Hant`| <--> | 簡體中文 `Hans` |
+| 古吉拉特文 | `gu`  | 古吉拉特文 `Gujr` | --> | 拉丁文 `Latn` |
+| 希伯來文 | `he` | 希伯來文 `Hebr` | <--> | 拉丁文 `Latn` |
+| 北印度文 | `hi` | 梵文字母 `Deva` | <--> | 拉丁文 `Latn` |
+| 日文 | `ja` | 日文 `Jpan` | <--> | 拉丁文 `Latn` |
+| 坎那達文 | `kn` | 坎那達文 `Knda` | --> | 拉丁文 `Latn` |
+| 馬來亞拉姆文 | `ml` | 馬來亞拉姆文 `Mlym` | --> | 拉丁文 `Latn` |
+| 馬拉地文 | `mr` | 梵文字母 `Deva` | --> | 拉丁文 `Latn` |
+| 歐利亞文 | `or` | 歐利亞文 `Orya` | <--> | 拉丁文 `Latn` |
+| 旁遮普文 | `pa` | 古木基文 `Guru`  | <--> | 拉丁文 `Latn`  |
+| 塞爾維亞文 (斯拉夫) | `sr-Cyrl` | 斯拉夫文 `Cyrl`  | --> | 拉丁文 `Latn` |
+| 塞爾維亞文 (拉丁) | `sr-Latn` | 拉丁文 `Latn` | --> | 斯拉夫文 `Cyrl`|
+| 坦米爾文 | `ta` | 坦米爾文 `Taml` | --> | 拉丁文 `Latn` |
+| 泰盧固文 | `te` | 泰盧固文 `Telu` | --> | 拉丁文 `Latn` |
+| 泰文 | `th` | 泰文 `Thai` | <--> | 拉丁文 `Latn` |
 
 ## <a name="dictionary"></a>字典
 
@@ -187,9 +186,9 @@ ms.locfileid: "52679710"
 | 越南文      | `vi`          |
 | 威爾斯文      | `cy`          |
 
-## <a name="languages-detected-by-the-detect-method"></a>偵測方法偵測到的語言
+## <a name="detect"></a>偵測
 
-以下為偵測方法偵測到的語言。 偵測方法可能會偵測到 Microsoft Translator 無法翻譯的語言。
+偵測方法支援下列語言。 偵測可找出 Microsoft Translator 無法翻譯的語言。
 
 | 語言    |
 |:----------- |
@@ -261,11 +260,55 @@ ms.locfileid: "52679710"
 | 威爾斯文 |
 | 意第緒文 |
 
-## <a name="access-the-list-programmatically"></a>以程式設計方式存取清單
+## <a name="access-the-translator-text-api-language-list-programmatically"></a>以程式設計方式存取翻譯工具文字 API 的語言清單
 
-您可以使用 V3.0 文字 API 的語言作業，以程式設計方式存取支援語言清單。 您可以依特色、語言代碼，以及該語言的英文名稱或任何其他受支援語言的名稱，來檢視清單。 當我們提供新語言時，Microsoft Translator 服務會自動更新此清單。
+您可以使用語言方法擷取翻譯工具文字 API v3.0 的支援語言清單。 您可以依特色、語言代碼，以及該語言的英文名稱或任何其他受支援語言的名稱，來檢視清單。 當我們提供新語言時，Microsoft Translator 服務會自動更新此清單。
 
 [檢視語言作業參考文件](reference/v3-0-languages.md)
+
+## <a name="customization"></a>自訂
+
+下列語言都可供使用[自訂翻譯](http://aka.ms/CustomTranslator)來進行自訂。
+
+| 語言    | 語言代碼 |
+|:----------- |:-------------:|
+| 阿拉伯文       | `ar`          |
+| 孟加拉文      | `bn`          |
+| 波士尼亞文 (拉丁文)      | `bs`          |
+| 保加利亞文      | `bg`          |
+| 簡體中文      | `zh-Hans`          |
+| 克羅埃西亞文      | `hr`          |
+| 捷克文      | `cs`          |
+| 丹麥文      | `da`          |
+| 荷蘭文      | `nl`          |
+| English    | `en`     |
+| 愛沙尼亞文      | `et`          |
+| 芬蘭文      | `fi`          |
+| 法文      | `fr`          |
+| 德文      | `de`          |
+| 希臘文      | `el`          |
+| 希伯來文      | `he`          |
+| 北印度文      | `hi`          |
+| 匈牙利文      | `hu`          |
+| 義大利文      | `it`          |
+| 日文      | `ja`          |
+| 韓文      | `ko`          |
+| 拉脫維亞文      | `lv`          |
+| 立陶宛文      | `lt`          |
+| 挪威文      | `nb`          |
+| 波蘭文      | `pl`          |
+| 葡萄牙文      | `pt`          |
+| 羅馬尼亞文      | `ro`          |
+| 俄文      | `ru`          |
+| 塞爾維亞文 (拉丁)      | `sr-Latn`          |
+| 斯洛伐克文     | `sk`          |
+| 斯洛維尼亞文      | `sl`          |
+| 西班牙文      | `es`          |
+| 瑞典文      | `sv`          |
+| 泰文      | `th`          |
+| 土耳其文      | `tr`          |
+| 烏克蘭文      | `uk`          |
+| 越南文      | `vi`          |
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>存取 Microsoft Translator 網站上的清單
 

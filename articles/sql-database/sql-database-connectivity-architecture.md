@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: eeb1ae2904a9b132ed1de8e66cad83d5ff5144b8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435713"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715897"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 連線架構
 
@@ -26,7 +26,7 @@ ms.locfileid: "53435713"
 > [!IMPORTANT]
 > **[即將推出的變更] 對於 Azure SQL 伺服器的服務端點連線，`Default` 連線行為會變更為 `Redirect`。**
 >
-> 巴西南部與西歐地區的變更已在 2019 年 11 月 10 日生效。 其他所有地區的變更將於 2019 年 1 月 2 日生效。
+> 巴西南部與西歐地區的變更已在 2018 年 11 月 10 日生效。 其他所有地區的變更將於 2019 年 1 月 2 日生效。
 >
 > 為了避免現有環境中通過服務端點的連線因變更而中斷，我們會使用遙測進行下列作業：
 > - 對於在變更前偵測到透過服務端點存取的伺服器，會將連線類型切換成 `Proxy`。

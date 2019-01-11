@@ -10,21 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bd0bcd79bb21dc3973b34086f6dad21b47a95c2f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 409647da146a2844384204cb03de5028d45e5763
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240863"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792385"
 ---
 # <a name="demo-password-reset"></a>示範：密碼重設
-這個示範呈現可協助密碼重設的簡單支援小組聊天機器人。 
-
-其中顯示對話學習模組如何學習非一般對話流程、多次序列，包括領域外類別。 這個示範不使用任何程式碼或實體。
+本教學課程示範簡單的技術支援聊天機器人如何協助您以對話學習模組進行密碼重設。 聊天機器人的模型可學習非一般對話流程和多回合序列，包括領域外類別。 工作可在不使用程式碼或實體的情況下完成。
 
 ## <a name="video"></a>影片
 
-[![示範密碼預覽](https://aka.ms/cl-demo-password-preview)](https://aka.ms/blis-demo-password)
+[![示範密碼預覽](https://aka.ms/cl_Tutorial_v3_DemoPassword_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPassword)
 
 ## <a name="requirements"></a>需求
 本教學課程需要執行密碼重設聊天機器人
@@ -37,41 +35,48 @@ ms.locfileid: "51240863"
 
 ### <a name="actions"></a>動作
 
-我們已經建立使用者尋求解決密碼設定問題時可採取的動作。
+模型中包含一組可協助使用者解決常見密碼問題的動作。
 
 ![](../media/tutorial_pw_reset_actions.PNG)
 
 ### <a name="training-dialogs"></a>訓練對話
 
-有許多訓練對話。 另外還有領域外類別的示範，例如，使用者要求「導航」就是在領域外；聊天機器人已經有一些領域外要求的範例，能夠以「我無法提供協助」來回應。
+模型也包含數個訓練對話，其中包括會示範領域外類別訓練的一些對話。 例如，某些使用者可能會提出行車路線指示之類的要求。 範例聊天機器人已針對示範用途受過一些相關訓練，而會直接回答「無法提供協助」。 現有的訓練對話清單可在左面板中取得。
 
 ![](../media/tutorial_pw_reset_entities.PNG)
 
-讓我們試試以教學工作階段為例。
+1. 在左面板中按一下 [訓練對話]，然後按 [新增訓練對話] 按鈕。
+2. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "i lost my password" (我遺失了密碼)。
+3. 按一下 [評分動作] 按鈕。
+4. 選取回應：「是本機帳戶還是 Microsoft 帳戶的密碼？」
+5. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "local account please" (是本機帳戶)
+6. 按一下 [評分動作] 按鈕。
+7. 選取回應：「您的 Windows 是什麼版本？」
+8. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "windows xp"
+9. 按一下 [評分動作] 按鈕。
+10. 按一下 [+動作] 按鈕。
+11. 在 [聊天機器人的回應...] 欄位中，輸入 "SOLUTION:How to reset password on Windows XP" (解決方案：如何在 Windows XP 重設密碼)。
+12. 按一下 [建立] 按鈕。
 
-1. 按一下 [Train Dialogs]\(訓練對話\)，然後按一下 [New Train Dialog]\(新增訓練對話\)。
-1. 輸入「I lost my password」\(我遺失了我的密碼\)。
-2. 按一下 [Score Actions]\(評分動作\)。
-3. 按一下以選取 [Is that for your local account or Microsoft account?]\(這適用於本機帳戶或 Microsoft 帳戶？\)
-4. 輸入「Local account」\(本機帳戶\)。
-5. 按一下 [Score Actions]\(評分動作\)。
-3. 按一下以選取 [Which version of Windows do you have?]\(您的 Windows 是什麼版本？\)
-4. 輸入「Windows 8」。
-5. 按一下 [Score Actions]\(評分動作\)。
-6. 選取 [SOLUTION: how to reset password on Windows 8.]\(解決方案：如何在 Windows 8 重設密碼。\)
-4. 按一下 [Done Teaching]\(完成教學\)。
+### <a name="training-dialogs-for-out-of-domain-scenarios"></a>領域外案例的訓練對話
 
-讓我們試試聊天機器人如何學習領域外類別。
-
-1. 按一下 [Train Dialogs]\(訓練對話\)，然後按一下 [New Train Dialog]\(新增訓練對話\)。
-1. 輸入「web search」\(網路搜尋\)。
-    - 這是領域外類別的範例。 
-2. 按一下 [Score Actions]\(評分動作\)。
-3. 按一下以選取 [Sorry, I can't help with that.]\(很抱歉，我無法提供協助。\)
-    - 請注意，這個選項的分數目前不高。 但是，經過更多教學之後，分數會變高。
-4. 按一下 [Done Teaching]\(完成教學\)。
-
-您現在已了解如何建立基本的支援小組示範，以及如何提供解決方案，並且處理領域外查詢。
+1. 在左面板中按一下 [訓練對話]，然後按現有的 "toy stores" (玩具店) 訓練對話。
+2. 在聊天面板中，按一下 [玩具店] 語句。
+3. 在 [新增替代輸入...] 欄位中輸入"web search" (Web 搜尋)，並按 Enter 鍵。
+4. 在 [新增替代輸入...] 欄位中輸入"flight booking" (航班預訂)，並按 Enter 鍵。
+5. 按一下 [儲存變更] 按鈕。
+6. 按一下 [儲存編輯] 按鈕。
+7. 在左面板中按一下 [記錄對話]，然後按 [新增記錄對話] 按鈕。
+8. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "i can't find my password" (我找不到密碼)
+9. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "Microsoft account" (Microsoft 帳戶)
+10. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "thanks" (謝謝)
+11. 按一下 [完成測試] 按鈕。
+12. 在方格檢視中按一下 [我找不到密碼] 記錄對話。
+13. 在聊天面板中，按一下錯誤顯示的 [解決方案：如何重設 Microsoft 帳戶密碼] 回應。
+14. 按一下 [+動作] 按鈕。
+15. 在 [聊天機器人的回應...] 欄位中，輸入 "You are welcome" (不客氣)
+16. 按一下 [建立] 按鈕。
+17. 按一下 [另存為訓練對話] 按鈕。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 5acabc8381422b9202b041cf849af3b35809a3c0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0c12136fb0c866ceebf83f6352a33b7e2791ad0f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110680"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717206"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中叢集安全性和升級的最佳做法
 
@@ -54,7 +54,7 @@ Azure Active Directory (AD) 提供符合企業需求且能與 AKS 叢集整合�
 
 ### <a name="app-armor"></a>App Armor
 
-若要限制容器可執行的動作，您可以使用 [AppAmour][k8s-apparmor] Linux 核心安全性模組。 AppArmor 提供用來作為基礎 AKS 節點 OS 的組件，且預設為啟用。 您可以建立 AppArmor 設定檔來限制動作 (例如讀取、寫入或執行)，或是限制系統功能 (例如裝載檔案系統)。 預設 AppArmor 設定檔會限制存取各種 `/proc` 和 `/sys` 位置，並提供方法以邏輯方式從基礎節點隔離容器。 AppArmor 適用於任何在 Linux 上執行的應用程式，而不只是 Kubernetes Pod。
+若要限制容器可執行的動作，您可以使用 [AppArmor][k8s-apparmor] Linux 核心安全性模組。 AppArmor 提供用來作為基礎 AKS 節點 OS 的組件，且預設為啟用。 您可以建立 AppArmor 設定檔來限制動作 (例如讀取、寫入或執行)，或是限制系統功能 (例如裝載檔案系統)。 預設 AppArmor 設定檔會限制存取各種 `/proc` 和 `/sys` 位置，並提供方法以邏輯方式從基礎節點隔離容器。 AppArmor 適用於任何在 Linux 上執行的應用程式，而不只是 Kubernetes Pod。
 
 ![在 AKS 叢集中使用 AppArmor 設定檔限制容器動作](media/operator-best-practices-container-security/apparmor.png)
 

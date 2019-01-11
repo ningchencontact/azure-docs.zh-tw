@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18a32f5e07470f71ba276fbe3a2633150b1bf188
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079206"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754659"
 ---
-# <a name="tutorial-6-group-and-extract-related-data"></a>教學課程 6：擷取將相關的資料組成群組並加以擷取
+# <a name="tutorial-group-and-extract-related-data"></a>教學課程：擷取將相關的資料組成群組並加以擷取
 在本教學課程中，新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
 
 複合實體的用途是將相關實體群組為父類別實體。 在建立複合項目之前，這些資訊會以個別實體的形式存在。 它類似於階層式實體，但可包含不同類型的實體。 
@@ -33,7 +33,8 @@ ms.locfileid: "53079206"
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * 使用現有的教學課程應用程式
+> * 匯入範例應用程式
+> * 建立意圖
 > * 新增複合實體 
 > * 定型
 > * 發佈
@@ -41,286 +42,139 @@ ms.locfileid: "53079206"
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>使用現有的應用程式
-以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
+## <a name="import-example-app"></a>匯入範例應用程式
 
-如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
-
-1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json)。
+1.  從清單實體教學課程下載並儲存[應用程式 JSON 檔案](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json)。
 
 2. 將 JSON 匯入新的應用程式中。
 
 3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `composite`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
 
-
 ## <a name="composite-entity"></a>複合實體
-當個別實體可以邏輯方式組成群組，而此邏輯群組對用戶端應用程式有助益時，請建立複合實體。 
 
-在此應用程式中，員工名稱會定義於 **Employee** 清單實體中，並包含名稱、電子郵件地址、公司電話分機、行動電話號碼和美國聯邦稅務識別碼的同義字。 
+在此應用程式中，部門名稱會定義於**部門**清單實體中，並包含同義字。 
 
-**MoveEmployee** 意圖具有範例語句，可要求員工從某棟建築物和辦公室搬遷到另一棟。 建築物名稱是英文字母："A"、"B" 等，而辦公室是數字："1234"、"13245"。 
+**TransferEmployeeToDepartment** 意圖具有要求員工移至新部門的範例語句。 
 
-**MoveEmployee** 意圖中的範例語句包括：
+此意圖的範例語句包括：
 
 |範例語句|
 |--|
-|Move John W. Smith to a-2345 (將 John W. Smith 搬遷到 a-2345)|
-|shift x12345 to h-1234 tomorrow|
+|move John W. Smith to the accounting department|
+|transfer Jill Jones from to R&D|
  
-搬遷要求應包含員工 (使用任何同義字)，以及最終的建築物和辦公室位置。 要求也可以包含原始辦公室，以及應進行搬遷的日期。 
+移動要求應包含部門名稱和員工名稱。 
 
-從端點擷取的資料應該包含此資訊，並在 `RequestEmployeeMove` 複合實體中傳回它：
+## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>新增預先建置的實體 PersonName 以利擷取常見的資料類型
 
-```json
-"compositeEntities": [
-  {
-    "parentType": "RequestEmployeeMove",
-    "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-    "children": [
-      {
-        "type": "builtin.datetimeV2.datetime",
-        "value": "march 3 2 p.m"
-      },
-      {
-        "type": "Locations::Destination",
-        "value": "z - 2345"
-      },
-      {
-        "type": "Employee",
-        "value": "jill jones"
-      },
-      {
-        "type": "Locations::Origin",
-        "value": "a - 1234"
-      }
-    ]
-  }
-]
-```
+LUIS 提供數個預先建置的實體來擷取常見的資料。 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. 從上方導覽列中選取 [建置]，然後從左側導覽功能表中選取 [意圖]。
 
-2. 在 [意圖] 頁面上，選取 [MoveEmployee] 意圖。 
+1. 選取 [管理預先建置的實體] 按鈕。
 
-3. 在工具列上選取放大鏡圖示來篩選語句清單。 
+1. 從預先建置的實體清單中選取 **[PersonName](luis-reference-prebuilt-person.md)**，然後選取 [完成]。
 
-    [![在 'MoveEmployee' 意圖上已醒目提示放大鏡按鈕的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "在 'MoveEmployee' 意圖上已醒目提示放大鏡按鈕的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    ![預先建置的實體對話方塊中已選取 number 的螢幕擷取畫面](./media/luis-tutorial-composite-entity/add-personname-prebuilt-entity.png)
 
-4. 在篩選條件文字方塊中輸入 `tomorrow`，以尋找語句 `shift x12345 to h-1234 tomorrow`。
+    此實體可協助您將名稱辨識功能新增至用戶端應用程式。
 
-    [![在 'MoveEmployee' 意圖上已醒目提示 'tomorrow' 篩選條件的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "在 'MoveEmployee' 意圖上已醒目提示 'tomorrow' 篩選條件的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+## <a name="create-composite-entity-from-example-utterances"></a>從範例語句建立複合實體
 
-    另一個方法是選取 [實體篩選條件]，然後從清單中選取 [datetimeV2]，依 datetimeV2 篩選實體。 
+1. 從左側導覽窗格中，選取 [Intents] \(意圖\)。
 
-5. 選取第一個實體 `Employee`，然後從快顯功能表清單中選取 [包裝於複合實體中]。 
+1. 從意圖清單中選取 [TransferEmployeeToDepartment]。
 
-    [![在 'MoveEmployee' 意圖上選取複合中已醒目提示之第一個實體的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-create-entity-1.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示之第一個實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+1. 在第一個語句中選取 personName 實體 `John Jackson`，然後在下列語句的快顯功能表清單中選取 [開始包裝複合實體]：
 
+    `place John Jackson in engineering`
 
-6. 接著，立即選取語句中的最後一個實體 `datetimeV2`。 系統會在所選取的文字下方繪製綠色橫條，來表示複合實體。 在快顯功能表中，輸入複合名稱 `RequestEmployeeMove`，然後選取 Enter。 
+1. 接著，立即選取語句中的最後一個實體 `engineering`。 系統會在所選取的文字下方繪製綠色橫條，來表示複合實體。 在快顯功能表中，輸入複合名稱 `TransferEmployeeInfo`，然後選取 Enter。 
 
-    [![在 'MoveEmployee' 意圖上選取複合中已醒目提示的最後一個實體和建立實體的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-create-entity-2.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示的最後一個實體和建立實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+1. 在 [您想要建立何種類型的實體?] 中，所有所需的欄位都會位於清單中：`personName` 和 `Department`。 選取 [完成] 。 
 
-7. 在 [您想要建立何種類型的實體?] 中，幾乎所有所需的欄位都位於清單中。 只會遺漏原始位置。 選取 [新增子實體]，從現有實體清單中選取 [Locations::Origin]，然後選取 [完成]。 
-
-    請注意，預先建置的實體、數字會新增至複合實體。 如果您讓預先建置的實體出現在複合實體的開頭與結尾語彙基元之間，則複合實體必須包含這些預先建置的實體。 如果未包含預先建置的實體，則無法正確預測複合實體，但可正確預測每個個別的元素。
-
-    ![在 'MoveEmployee' 意圖上於快顯視窗中新增另一個實體的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
-
-8. 選取工具列上的放大鏡來移除篩選條件。 
-
-9. 從篩選條件中移除 `tomorrow` 這個字，您便可再度看見所有範例語句。 
+    請注意，預先建置的實體 personName 會新增至複合實體。 如果您讓預先建置的實體出現在複合實體的開頭與結尾語彙基元之間，則複合實體必須包含這些預先建置的實體。 如果未包含預先建置的實體，則無法正確預測複合實體，但可正確預測每個個別的元素。
 
 ## <a name="label-example-utterances-with-composite-entity"></a>使用複合實體來標示範例語句
 
 
 1. 在每個範例語句中，選取應該出現在複合中的最左邊實體。 接著，選取 [包裝於複合實體中]。
 
-    [![在 'MoveEmployee' 意圖上選取複合中已醒目提示之第一個實體的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-label-entity-1.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示之第一個實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+1. 選取複合實體中的最後一個字，然後從快顯功能表中選取 [TransferEmployeeInfo]。 
 
-2. 選取複合實體中的最後一個文字 ，然後從快顯功能表中選取 [RequestEmployeeMove]。 
+1. 確認已使用複合實體來標示意圖中的所有語句。 
 
-    [![在 'MoveEmployee' 意圖上選取複合中已醒目提示之最後一個實體的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-label-entity-2.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示之最後一個實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
-
-3. 確認已使用複合實體來標示意圖中的所有語句。 
-
-    [!['MoveEmployee' 上已標示所有語句的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "'MoveEmployee' 上已標示所有語句的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
-
-## <a name="train"></a>定型
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>訓練應用程式，因此可以測試意圖的變更 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>發佈
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>發佈應用程式，因此可以從端點查詢已定型的模型
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>從端點取得意圖和實體 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>從端點取得意圖和實體預測 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. 移至位址中的 URL 結尾並輸入 `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`。 最後一個查詢字串參數是 `q`，也就是語句查詢。 
+2. 移至位址中的 URL 結尾並輸入 `Move Jill Jones to DevOps`。 最後一個查詢字串參數是 `q`，也就是語句查詢。 
 
     由於此測試是要確認已正確擷取複合，因此，測試可以包含現有的範例語句或新語句。 在複合實體中包含所有子實體是個很好的測試。
 
     ```json
     {
-      "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
+      "query": "Move Jill Jones to DevOps",
       "topScoringIntent": {
-        "intent": "MoveEmployee",
-        "score": 0.9959525
+        "intent": "TransferEmployeeToDepartment",
+        "score": 0.9882747
       },
       "intents": [
         {
-          "intent": "MoveEmployee",
-          "score": 0.9959525
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.009858314
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.00728598563
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.0058053555
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.005371796
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00266987388
+          "intent": "TransferEmployeeToDepartment",
+          "score": 0.9882747
         },
         {
           "intent": "None",
-          "score": 0.00123299169
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00116407464
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00102653319
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.0006628214
+          "score": 0.00925369747
         }
       ],
       "entities": [
         {
-          "entity": "march 3 2 p.m",
-          "type": "builtin.datetimeV2.datetime",
-          "startIndex": 41,
-          "endIndex": 54,
-          "resolution": {
-            "values": [
-              {
-                "timex": "XXXX-03-03T14",
-                "type": "datetime",
-                "value": "2018-03-03 14:00:00"
-              },
-              {
-                "timex": "XXXX-03-03T14",
-                "type": "datetime",
-                "value": "2019-03-03 14:00:00"
-              }
-            ]
-          }
-        },
-        {
           "entity": "jill jones",
-          "type": "Employee",
+          "type": "builtin.personName",
           "startIndex": 5,
-          "endIndex": 14,
+          "endIndex": 14
+        },
+        {
+          "entity": "devops",
+          "type": "Department",
+          "startIndex": 19,
+          "endIndex": 24,
           "resolution": {
             "values": [
-              "Employee-45612"
+              "Development Operations"
             ]
           }
         },
         {
-          "entity": "z - 2345",
-          "type": "Locations::Destination",
-          "startIndex": 31,
-          "endIndex": 36,
-          "score": 0.9690751
-        },
-        {
-          "entity": "a - 1234",
-          "type": "Locations::Origin",
-          "startIndex": 21,
-          "endIndex": 26,
-          "score": 0.9713137
-        },
-        {
-          "entity": "-1234",
-          "type": "builtin.number",
-          "startIndex": 22,
-          "endIndex": 26,
-          "resolution": {
-            "value": "-1234"
-          }
-        },
-        {
-          "entity": "-2345",
-          "type": "builtin.number",
-          "startIndex": 32,
-          "endIndex": 36,
-          "resolution": {
-            "value": "-2345"
-          }
-        },
-        {
-          "entity": "3",
-          "type": "builtin.number",
-          "startIndex": 47,
-          "endIndex": 47,
-          "resolution": {
-            "value": "3"
-          }
-        },
-        {
-          "entity": "2",
-          "type": "builtin.number",
-          "startIndex": 50,
-          "endIndex": 50,
-          "resolution": {
-            "value": "2"
-          }
-        },
-        {
-          "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-          "type": "RequestEmployeeMove",
+          "entity": "jill jones to devops",
+          "type": "TransferEmployeeInfo",
           "startIndex": 5,
-          "endIndex": 54,
-          "score": 0.4027723
+          "endIndex": 24,
+          "score": 0.9607566
         }
       ],
       "compositeEntities": [
         {
-          "parentType": "RequestEmployeeMove",
-          "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+          "parentType": "TransferEmployeeInfo",
+          "value": "jill jones to devops",
           "children": [
             {
-              "type": "builtin.datetimeV2.datetime",
-              "value": "march 3 2 p.m"
-            },
-            {
-              "type": "Locations::Destination",
-              "value": "z - 2345"
-            },
-            {
-              "type": "Employee",
+              "type": "builtin.personName",
               "value": "jill jones"
             },
             {
-              "type": "Locations::Origin",
-              "value": "a - 1234"
+              "type": "Department",
+              "value": "devops"
             }
           ]
         }
@@ -333,6 +187,15 @@ ms.locfileid: "53079206"
 ## <a name="clean-up-resources"></a>清除資源
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="related-information"></a>相關資訊
+
+* [清單實體教學課程](luis-quickstart-intents-only.md)
+* [複合實體](luis-concept-entity-types.md)的概念資訊
+* [如何訓練](luis-how-to-train.md)
+* [發佈方法](luis-how-to-publish-app.md)
+* [如何在 LUIS 入口網站中測試](luis-interactive-test.md)
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,25 +1,71 @@
 ---
 title: Azure Digital Twins 中的輸出和端點 | Microsoft Docs
-description: 有關如何使用 Azure Digital Twins 建立端點的指導方針
+description: 有關如何使用 Azure Digital Twins 建立端點的指導方針。
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 12/31/2018
 ms.author: alinast
-ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636300"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994808"
 ---
 # <a name="egress-and-endpoints"></a>輸出和端點
 
-Azure Digital Twins 支援**端點**的概念。 在使用者的 Azure 訂用帳戶中，每個端點都代表訊息/事件的訊息代理程式。 事件和訊息可以傳送至 Azure 事件中樞、Azure 事件方格和 Azure 服務匯流排主題。
+Azure Digital Twins 的「端點」代表使用者 Azure 訂用帳戶內的訊息或事件代理程式。 事件和訊息可以傳送至 Azure 事件中樞、Azure 事件方格和 Azure 服務匯流排主題。
 
-事件會根據預先定義的路由喜好設定傳送至端點。 使用者可以指定哪些端點應接收下列任何事件： 
+事件會根據預先定義的路由喜好設定來路由至端點。 使用者會指定每個端點可收到的「事件類型」。
+
+若要深入了解事件、路由與事件類型，請參閱 [Azure Digital Twins 中的路由事件和訊息](./concepts-events-routing.md)。
+
+## <a name="events"></a>活動
+
+IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和事件代理程式進行處理。 事件會根據下列 [Azure 事件方格事件結構描述參考](../event-grid/event-schema.md)來定義。
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "subject": "ExtendedPropertyKey",
+  "data": {
+    "SpacesToNotify": [
+      "3a16d146-ca39-49ee-b803-17a18a12ba36"
+    ],
+    "Id": "00000000-0000-0000-0000-000000000000",
+      "Type": "ExtendedPropertyKey",
+    "AccessType": "Create"
+  },
+  "eventType": "TopologyOperation",
+  "eventTime": "2018-04-17T17:41:54.9400177Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
+
+| 屬性 | 類型 | 說明 |
+| --- | --- | --- |
+| id | 字串 | 事件的唯一識別碼。 |
+| 主旨 | 字串 | 發行者定義事件主體的路徑。 |
+| data | 物件 | 資源提供者特有的事件資料。 |
+| eventType | 字串 | 此事件來源已註冊的事件類型之一。 |
+| eventTime | 字串 | 事件產生的時間，以提供者之 UTC 時間為準。 |
+| dataVersion | 字串 | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
+| metadataVersion | 字串 | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
+| 主題 | 字串 | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+
+如需有關事件方格事件結構描述的詳細資訊：
+
+- 請檢閱 [Azure 事件方格事件結構描述參考](../event-grid/event-schema.md)。
+- 請閱讀 [Azure EventGrid Node.js SDK EventGridEvent 參考](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest)。
+
+## <a name="event-types"></a>事件類型
+
+事件類型會以事件本質進行分類，並在 **eventType** 欄位中設定。 下列清單提供可用的事件類型：
 
 - TopologyOperation
 - UdfCustom
@@ -27,15 +73,11 @@ Azure Digital Twins 支援**端點**的概念。 在使用者的 Azure 訂用帳
 - SpaceChange
 - DeviceMessage
 
-若要對事件路由和事件類型有基本了解，請參閱[路由事件和訊息](concepts-events-routing.md)。
-
-## <a name="event-types-description"></a>事件類型描述
-
-以下幾節將說明每個事件類型的事件格式。
+以下幾小節將進一步說明每個事件類型的事件格式。
 
 ### <a name="topologyoperation"></a>TopologyOperation
 
-**TopologyOperation** 適用於圖表變更。 subject 屬性會指定受影響的物件類型。 下列類型的物件可能會觸發此事件： 
+**TopologyOperation** 適用於圖表變更。 subject 屬性會指定受影響的物件類型。 下列類型的物件可能會觸發此事件：
 
 - 裝置
 - DeviceBlobMetadata
@@ -86,7 +128,7 @@ Azure Digital Twins 支援**端點**的概念。 在使用者的 Azure 訂用帳
 
 ### <a name="udfcustom"></a>UdfCustom
 
-**UdfCustom** 是由使用者定義函式 (UDF) 傳送的事件。 
+**UdfCustom** 是由使用者定義函式 (UDF) 傳送的事件。
   
 > [!IMPORTANT]  
 > 此事件必須以明確地從 UDF 本身傳送。
@@ -195,10 +237,19 @@ Azure Digital Twins 支援**端點**的概念。 在使用者的 Azure 訂用帳
 
 ## <a name="configure-endpoints"></a>設定端點
 
-端點管理可透過端點 API 來執行。 下列範例示範如何設定不同的支援端點。 請特別注意事件類型陣列，因為此陣列會定義端點的路由：
+端點管理可透過端點 API 來執行。
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
+下列範例示範如何設定支援端點。
+
+>[!IMPORTANT]
+> 請特別注意 **eventTypes** 屬性。 此屬性會定義端點處理的事件類型，並以此決定其路由方式。
+
+已驗證的 HTTP POST 要求會根據下列內容進行處理
 
 ```plaintext
-POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
+YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
 - 路由傳送至服務匯流排事件類型 **SensorChange**、**SpaceChange** 和 **TopologyOperation**：

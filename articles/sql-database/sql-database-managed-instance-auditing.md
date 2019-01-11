@@ -14,12 +14,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 375e1a0ba4be9483986c088195e380e856d32a67
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b295f7a2a454e3987e8639814f785b7457dd452b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093743"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973089"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>開始使用 Azure SQL Database 受控執行個體稽核
 
@@ -153,7 +153,7 @@ SQL 稽核在受控執行個體、Azure SQL Database 和 SQL Server 內部部署
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需稽核記錄耗用方法的完整清單，請參閱[開始使用 SQL 資料庫稽核](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing)。
+- 如需稽核記錄耗用方法的完整清單，請參閱[開始使用 SQL 資料庫稽核](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)。
 - 如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)。
 
 

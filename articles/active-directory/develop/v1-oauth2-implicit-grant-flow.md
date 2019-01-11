@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 90c636d57189518cb95291510f3e83ef8e7a8a75
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 818801a7f36e82d0065f85b5cf9e36288ccbff32
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422026"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970384"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>了解 Azure Active Directory (AD) 中的 OAuth2 隱含授與流程
 
@@ -61,7 +61,7 @@ OAuth2 規格聲明設計出隱含授與是為了實現使用者代理程式應�
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>我的應用程式適用隱含授與嗎？
 
-隱含授與所帶來的風險高於其他授與，您需要注意的地方都有詳細的文件記載。 例如，[在隱含流程中誤用存取權杖來模擬資源擁有者 (英文)][OAuth2-Spec-Implicit-Misuse]和 [OAuth 2.0 威脅模型和安全性考量 (英文)][OAuth2-Threat-Model-And-Security-Implications]。 不過，風險概況之所以較高，主要是因為它要啟用執行作用中程式碼的應用程式，並由遠端資源提供給瀏覽器。 如果您正在規劃 SPA 架構，沒有後端元件或想要透過 JavaScript 叫用 Web API，則建議使用隱含流程來取得權杖。
+隱含授與比其他授與帶來更多風險，您需要注意的區域已有詳細記錄 (例如，[在隱含流程中誤用存取權杖來模擬資源擁有者][OAuth2-Spec-Implicit-Misuse]和 [OAuth 2.0 威脅模型和安全性考量][OAuth2-Threat-Model-And-Security-Implications])。 不過，風險概況之所以較高，主要是因為它要啟用執行作用中程式碼的應用程式，並由遠端資源提供給瀏覽器。 如果您正在規劃 SPA 架構，沒有後端元件或想要透過 JavaScript 叫用 Web API，則建議使用隱含流程來取得權杖。
 
 如果應用程式是原生用戶端，則不適用隱含流程。 原生用戶端環境中沒有Azure AD 工作階段 Cookie，將會讓應用程式沒有辦法維持長時間執行的工作階段。 這表示應用程式在取得新資源的存取權杖時會重複提示使用者。
 

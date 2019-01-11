@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: a5150d3f318fce2f66adfa4bdc43ae8aec651223
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 46065a742afd08585707f4f4fdf6ad2e32cd89b2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251142"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719450"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>在 C# 中的 Bot 將 LUIS 結果新增至 Application Insights
 
@@ -39,7 +39,7 @@ ms.locfileid: "53251142"
 > [!Tip]
 > 若您還沒有訂用帳戶，則可以註冊[免費帳戶](https://azure.microsoft.com/free/)。
 
-本教學課程中的所有程式碼都是位於 [LUIS-Samples GitHub 存放庫](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp)，而且與本教學課程建立關聯的每一行都會加上 `//LUIS Tutorial:` 註解。
+本教學課程中的所有程式碼都是位於 [Azure-Samples GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp)，而且與本教學課程建立關聯的每一行都會加上 `//LUIS Tutorial:` 註解。
 
 ## <a name="review-luis-web-app-bot"></a>檢閱 LUIS Web 應用程式 Bot
 
@@ -127,11 +127,11 @@ ms.locfileid: "53251142"
 
 2. 在 [發佈] 視窗中，選取 [建立新設定檔]。
 
-    ![將專案發佈至入口網站](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
+    ![在發佈期間建立新的設定檔。](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
 
 3. 選取 [匯入設定檔]，然後選取 [確定]。
 
-    ![將專案發佈至入口網站](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
+    ![在發佈期間匯入設定檔](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
 
 4. 在 [匯入發佈設定檔] 視窗中，瀏覽至您的專案資料夾，瀏覽至 `PostDeployScripts` 資料夾，選取以 `.PublishSettings` 結尾的檔案，然後選取 `Open`。 您現在已針對這個專案設定發佈。
 
@@ -204,7 +204,7 @@ ms.locfileid: "53251142"
 
 1. 在入口網站中，選取 [所有資源]，然後依 Web 應用程式 Bot 名稱篩選。 按一下類型為 **Application Insights** 的資源。 Application Insights 的圖示為燈泡。
 
-    ![搜尋應用程式見解](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
+    ![在 Azure 入口網站中搜尋應用程式深入解析](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
 2. 當資源開啟時，按一下最右側面板中放大鏡的**搜尋**圖示。 即會顯示右側新面板。 根據找到的遙測資料量，此面板可能需要一秒才會顯示。 搜尋 `LUIS`。 這份清單的範圍會縮小為只有使用本教學課程所新增的 LUIS 查詢結果。
 

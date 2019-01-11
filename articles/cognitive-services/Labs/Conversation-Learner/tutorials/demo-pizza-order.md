@@ -10,23 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e23ff60a0a2ea10ace09130ba115e72b4e1c9ad7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9b35c0fd412dd48137a3cb362f20fae067c80461
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249807"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792623"
 ---
 # <a name="demo-pizza-order"></a>示範：披薩訂單
-這段示範說明披薩訂購聊天機器人。 這支援藉由下列功能訂購一份披薩：
+這段示範說明披薩訂購聊天機器人，可藉由下列動作來支援單一比薩訂購：
 
-- 辨識使用者語句中的披薩配料
-- 檢查披薩配料是否有庫存或無庫存，並進行適當的回應
-- 記住前一份訂單的披薩配料，並使用相同的配料開始新的訂單
+- 從使用者語句中辨識披薩配料
+- 管理配料庫存，並適當回應
+- 記住先前的訂單，以快速重新訂購相同的比薩
 
 ## <a name="video"></a>影片
 
-[![示範披薩預覽](https://aka.ms/cl-demo-pizza-preview)](https://aka.ms/blis-demo-pizza)
+[![示範披薩預覽](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder)
 
 ## <a name="requirements"></a>需求
 本教學課程需要執行披薩訂單聊天機器人
@@ -39,72 +39,66 @@ ms.locfileid: "51249807"
 
 ## <a name="entities"></a>實體
 
-您已經建立三個實體。
+模型包含三個實體：
 
-- Toppings：這個實體將會累積使用者要求的配料。 其中包含有庫存的有效配料。 這會檢查配料是否有庫存或無庫存。
-- OutofStock：這個實體會用來回覆使用者選取的配料沒有庫存。
-- LastToppings：下達訂單之後，此實體會用來在訂單上向使用者提供配料清單。
+- "Toppings" 會累加使用者指定的配料 (如果有的話)。
+- "OutofStock" 會告知使用者其選取的配料存貨不足
+- "LastToppings" 會包含其上一次訂購時所加的配料
 
 ![](../media/tutorial_pizza_entities.PNG)
 
 ### <a name="actions"></a>動作
 
-您已經建立一組動作，其中包括詢問使用者想要在披薩中加入哪些配料、告訴他們目前已加入的配料等等。
+模型包含一組會詢問使用者要選取哪些配料的動作、累加的配料和其他項目。
 
-另外還有兩個 API 呼叫：
+此外也提供兩個 API 呼叫：
 
-- FinalizeOrder： 下達披薩訂單
-- UseLastToppings：從前一份訂單移轉配料 
+- "FinalizeOrder" 會處理訂單履行
+- "UseLastToppings" 會處理過去的配料資訊
 
 ![](../media/tutorial_pizza_actions.PNG)
 
 ### <a name="training-dialogs"></a>訓練對話
-您已經定義少數定型對話。 
+
+在模型中可找到數個訓練對話。
 
 ![](../media/tutorial_pizza_dialogs.PNG)
 
-讓我們試試以教學工作階段為例。
+我們將建立另一個訓練對話以進一步訓練模型。
 
-1. 按一下 [Train Dialogs]\(訓練對話\)，然後按一下 [New Train Dialog]\(新增訓練對話\)。
-1. 輸入「order a pizza」(訂購披薩)。
-2. 按一下 [Score Actions]\(評分動作\)。
-3. 按一下以選取 [what would you like on your pizza?]\(您要在披薩上加什麼？\)
-4. 輸入「mushrooms and cheese」(蘑菇和起士)。
-    - 請注意 LUIS 已將兩者標示為配料。 如果不正確，您可以按一下以反白顯示，然後進行修正。
-    - 實體旁的「+」號表示已加入到配料集合。
-5. 按一下 [Score Actions]\(評分動作\)。
-    - 請注意，`mushrooms` 和 `cheese` 不在配料的記憶體中。
-3. 按一下以選取 [you have $Toppings on your pizza]\(您的披薩上有 '$Toppings\)
-    - 請注意這是非等候動作，因此聊天機器人將要求下一個動作。
-6. 選取 [Would you like anything else?]\(您還需要其他任何服務嗎？\)
-7. 輸入「remove mushrooms and add peppers」(不要蘑菇而且要加黑胡椒)。
-    - 請注意，`mushroom` 旁邊有 '-' 號，因為將移除該配料。 此外，`peppers` 具有 '+' 號，可將它加入配料。
-2. 按一下 [Score Actions]\(評分動作\)。
-    - 請注意，`peppers` 現在是粗體，因為這是新配料。 此外，已劃掉 `mushrooms`。
-8. 按一下以選取 [you have $Toppings on your pizza]\(您的披薩上有 '$Toppings\)
-6. 選取 [Would you like anything else?]\(您還需要其他任何服務嗎？\)
-7. 輸入「加入豌豆」。
-    - `Peas` 是沒有庫存的配料範例。 但仍會將它標示為配料。
-2. 按一下 [Score Actions]\(評分動作\)。
-    - `Peas` 會顯示為 OutOfStock。
-    - 若要查看這是如何發生的，請開啟位於 `C:\<\installedpath>\src\demos\demoPizzaOrder.ts` 的程式碼。 查看 EntityDetectionCallback 方法。 對於每個配料都會呼叫這個方法來查看否有庫存。 如果沒有，則會從配料集合中清除，並新增至 OutOfStock 實體。 inStock 變數是在該方法之上定義，其中有一份庫存配料清單。
-6. 選取 [We don't have $OutOfStock]\(我們沒有 $OutOfStock\)。
-7. 選取 [Would you like anything else?]\(您還需要其他任何服務嗎？\)
-8. 輸入「no」(否)。
-9. 按一下 [Score Actions]\(評分動作\)。
-10. 選取 [FinalizeOrder] API 呼叫。 
-    - 這會呼叫程式碼中定義的「FinalizeOrder」函式。 這會清除配料，並且回覆「your order is on its way」(您的訂單正在處理中)。 
-2. 輸入「order another」(訂購另一份)。 我們會開始新的訂單。
-9. 按一下 [Score Actions]\(評分動作\)。
-    - 'cheese' 和 'peppers' 均位於記憶體中，因為這些是前一份訂單的配料。
-1. 選取 [Would you like $LastToppings]\(您是否要 $LastToppings\)。
-2. 輸入「yes」(是)。
-3. 按一下 [Score Actions]\(評分動作\)。
-    - 聊天機器人想要進行 UseLastToppings 動作。 這是兩個回呼方法的第二個。 這會將最後一份訂單的配料複製到配料，並清除最後的配料。 這會記住最後一份訂單，而且，如果使用者說還要另一份披薩，會提供這些配料做為選項。
-2. 按一下以選取 [you have $Toppings on your pizza]\(您的披薩上有 '$Toppings\)。
-3. 選取 [Would you like anything else?]\(您還需要其他任何服務嗎？\)
-8. 輸入「no」(否)。
-4. 按一下 [Done Teaching]\(完成教學\)。
+1. 在左面板中按一下 [訓練對話]，然後按 [新增訓練對話] 按鈕。
+2. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "Order a pizza with cheese" (訂購加起司的比薩)
+    - 實體擷取程式會擷取「起司」一詞。
+3. 按一下 [評分動作] 按鈕。
+4. 選取回應：「您的比薩加了起司」。
+5. 選取回應：「您還要加點什麼嗎？」
+6. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "add mushrooms and peppers" (加蘑菇和辣椒)
+7. 按一下 [評分動作] 按鈕。
+8. 選取回應：「您的比薩加了起司、蘑菇和辣椒」。
+9. 選取回應：「您還要加點什麼嗎？」
+10. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "remove peppers and add sausage" (移除辣椒，加臘腸)
+11. 按一下 [評分動作] 按鈕。
+12. 選取回應：「您的比薩加了起司、蘑菇和臘腸」。
+13. 選取回應：「您還要加點什麼嗎？」
+14. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "add yam" (加甜薯)
+15. 按一下 [評分動作] 按鈕。
+    - 實體偵測回呼程式碼已將「甜薯」值新增至 "OutofStock"，因為該文字不符合任何支援的原料。
+16. 選取回應："OutOfStock"
+17. 選取回應：「您還要加點什麼嗎？」
+18. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "no" (否)
+    - 「否」不會標記為任何類型的意圖。 相對地，我們將根據目前的內容選取相關動作。
+19. 按一下 [評分動作] 按鈕。
+20. 選取回應："FinalizeOrder"
+    - 選取此動作會使客戶目前的配料儲存至的 "LastToppings" 實體，並且使 FinalizeOrder 回呼程式碼刪除 "Toppings" 實體。
+21. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "order another" (訂購另一份)
+22. 按一下 [評分動作] 按鈕。
+23. 選取回應：「您要起司、蘑菇和臘腸嗎？」
+    - 由於設定了 "LastToppings" 實體，因此這現在已是可用的動作。
+24. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "yes" (是)
+25. 按一下 [評分動作] 按鈕。
+26. 選取回應："UseLastToppings"
+27. 選取回應：「您的比薩加了起司、蘑菇和臘腸」。
+28. 選取回應：「您還要加點什麼嗎？」
 
 ![](../media/tutorial_pizza_callbackcode.PNG)
 
@@ -113,4 +107,4 @@ ms.locfileid: "51249807"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [示範 - VR 應用程式啟動器](./demo-vr-app-launcher.md)
+> [部署對話學習模組聊天機器人](../deploy-to-bf.md) (英文)

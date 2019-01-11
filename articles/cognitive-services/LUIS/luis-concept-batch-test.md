@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: c050c8ed338a019b34302e87a53d4a40306f9a22
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b0b2c8d0e3484538ca5c988a7fad56fb82b97902
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133141"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993157"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>在 LUIS 入口網站使用 1000 個語句進行批次測試
 
@@ -48,7 +48,7 @@ ms.locfileid: "53133141"
 
 批次檔由語句組成。 每個語句都必須有預期的意圖預測，以及您想要偵測的[機器學習實體](luis-concept-entity-types.md#types-of-entities)。 
 
-## <a name="batch-syntax-template"></a>批次語法範本
+## <a name="batch-syntax-template-for-intents-with-entities"></a>使用實體的意圖批次語法範本
 
 使用下列範本來啟動您的批次檔：
 
@@ -75,6 +75,22 @@ ms.locfileid: "53133141"
 ```
 
 批次檔會使用 **startPos** 和 **endPos** 屬性，來記錄實體的開頭與結尾。 值是以零為起始的，而且不應以空格作為開頭或結尾。 這與查詢記錄不同，後者使用 startIndex 與 endIndex 屬性。 
+
+## <a name="batch-syntax-template-for-intents-without-entities"></a>不使用實體的意圖批次語法範本
+
+使用下列範本來啟動沒有實體的批次檔：
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": []
+  }
+]
+```
+
+如果您不想要測試實體，則可包括 `entities` 屬性並將該值設為空陣列：`[]`。
 
 
 ## <a name="common-errors-importing-a-batch"></a>匯入批次的常見錯誤

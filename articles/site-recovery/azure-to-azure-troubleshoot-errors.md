@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 84462b98e1006cadf34adecf948efd39ad4f69d6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e120c10468ca95b604ef8f857959607d3a066ea0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313967"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973548"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
 
@@ -278,6 +278,14 @@ Azure Site Recovery 目前要求來源區域資源群組和虛擬機器應該位
 
 您可以開啟 [服務] 主控台，確定「COM+ 系統應用程式」和「磁碟區陰影複製」的 [啟動類型] 未設定為 [停用]。
   ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
+
+## <a name="unsupported-managed-disk-size-error-code-150172"></a>不支援的受控磁碟大小 (錯誤碼 150172)
+
+
+**錯誤碼** | **可能的原因** | **建議**
+--- | --- | ---
+150172<br></br>**訊息**：無法對虛擬機器啟用保護作業，因為其 (DiskName) 的大小 (DiskSize) 小於支援的最小值 10 GB。 | - 磁碟小於支援的大小 1024 MB| 請確定磁碟大小在支援的大小範圍內，然後重試作業。 
+
 
 ## <a name="next-steps"></a>後續步驟
 [複寫 Azure 虛擬機器](site-recovery-replicate-azure-to-azure.md)

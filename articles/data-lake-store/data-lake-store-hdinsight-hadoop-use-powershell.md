@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0fa4a4c1586957dabf1c849fdb897a479c4f8db3
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 3de675adf7364e8281a03a46c5eeeaa1b74249b5
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957387"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969279"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>使用 Azure PowerShell 建立搭配 Azure Data Lake Storage Gen1 (作為附加儲存體) 的 HDInsight 叢集
 
@@ -77,7 +77,7 @@ ms.locfileid: "49957387"
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
    > [!NOTE]
-   > 如果您在註冊 Data Lake Storage Gen1 資源提供者時收到類似 `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` 的錯誤，可能表示您的訂用帳戶不在 Data Lake Storage Gen1 的白名單中。 請務必遵循這些[指示](data-lake-store-get-started-portal.md)，來為您的 Azure 訂用帳戶啟用使用 Data Lake Storage Gen1 的功能。
+   > 如果您在註冊 Data Lake Storage Gen1 資源提供者時收到類似 `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` 的錯誤，可能表示您的訂用帳戶不在 Data Lake Storage Gen1 的允許清單中。 請務必遵循這些[指示](data-lake-store-get-started-portal.md)，來為您的 Azure 訂用帳戶啟用使用 Data Lake Storage Gen1 的功能。
    >
    >
 2. Data Lake Storage Gen1 帳戶會與 Azure 資源群組相關聯。 從建立 Azure 資源群組開始。
@@ -194,7 +194,7 @@ ms.locfileid: "49957387"
 
         # Create an Azure storage account
         $location = "East US 2"
-        $storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
+        $storageAccountName = "<StorageAccountName>"   # Provide a Storage account name
 
         New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
 

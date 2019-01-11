@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3d029c91debfc8ed3ac24e831224426a2780b763
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166127"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791062"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>如何使用 Node.js 建立對話學習模組模型
 
@@ -112,14 +112,11 @@ ms.locfileid: "53166127"
   npm run demo-password
   npm run demo-pizza
   npm run demo-storage
-  npm run demo-vrapp
   ```
 
 4. 如果您尚未開啟，請在 Chrome 中載入 http://localhost:5050/home，以切換到對話學習模組 Web UI。 
 
-5. 按一下 [匯入教學課程] (只需執行一次)。  這需要約一分鐘，就會將所有教學課程的對話學習模組模型複製到您的對話學習模組帳戶。
-
-6. 按一下對話學習模組 UI 中與您所啟動的示範相對應的示範模型。
+5. 按一下 [匯入教學課程]，並選取對話學習模組 UI 中與您所啟動的示範相對應的示範模型。
 
 示範的來源檔案位在 `cl-bot-01/src/demos`
 
@@ -181,4 +178,4 @@ cp .env.example .env
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Hello world](./tutorials/1-hello-world.md)
+> [Hello world](./tutorials/01-hello-world.md)

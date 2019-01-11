@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: fa0adef58ae1eda8604cefc9c3d7e3a4c32d63d0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023813"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793534"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>頻寬/輸送量測試 (NTTTCP)
 
@@ -29,10 +29,11 @@ ms.locfileid: "50023813"
 
 #### <a name="deploying-vms-for-testing"></a>部署用於測試的 VM
 基於這項測試的目的，兩個 VM 應該位於相同的「雲端服務」或相同的「可用性設定組」中，以便我們使用其內部 IP 並將「負載平衡器」從測試中排除。 您可以使用 VIP 進行測試，但這類型的測試不在本文件的涵蓋範圍內。
- 
+
 記下「傳送端」的 IP 位址。 讓我將該 IP 稱為 "a.b.c.r"
 
-記下該 VM 上的核心數目。 讓我們將此稱為 "\#num\_cores"  
+記下該 VM 上的核心數目。 讓我們將此稱為 "\#num\_cores"
+
 在傳送端 VM 和接收端 VM 上執行長達 300 秒 (或 5 分鐘) 的 NTTTCP 測試。
 
 提示：第一次設定此測試時，您可以嘗試較短的測試期間以更快獲得回饋。 在工具如預期般運作之後，請將測試期間延長到 300 秒以獲得最精確的結果。

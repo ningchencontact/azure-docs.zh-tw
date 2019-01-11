@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 58f4827910d863aef14171574d40e4b3acfc04d9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d4245ce35cfc1e3aa0ba9ee9307315c9a999b5ff
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498689"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722034"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印
 
@@ -22,7 +22,7 @@ ms.locfileid: "52498689"
 
 堆積傾印含有應用程式記憶體的快照，其中包括建立傾印時的變數值。 因此它們有助於為執行階段發生的問題進行診斷。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 本文件中的步驟只適用於使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="whichServices"></a>服務
@@ -48,7 +48,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 * **mapreduce.admin.map.child.java.opts**
 * **mapreduce.admin.reduce.child.java.opts**
 
-> [!NOTE]
+> [!NOTE]  
 > 我們建議使用 [Apache Ambari](https://ambari.apache.org/) 來修改指令碼和 mapred-site.xml 設定，因為 Ambari 會處理叢集中跨節點的複寫變更。 如需特定的步驟，請參閱 [使用 Apache Ambari](#using-apache-ambari) 一節。
 
 ### <a name="enable-heap-dumps"></a>啟用堆積傾印
@@ -59,7 +59,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
 **+** 表示已啟用此選項。 預設值為停用。
 
-> [!WARNING]
+> [!WARNING]  
 > 根據預設不會在 HDInsight 上啟用 Hadoop 服務的堆積傾印，因為傾印檔案可能會很龐大。 如果您為了進行疑難排解而啟用它們，請記得在重現問題並收集傾印檔案之後將其停用。
 
 ### <a name="dump-location"></a>傾印位置
@@ -76,7 +76,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
     -XX:OnOutOfMemoryError=/path/to/script
 
-> [!NOTE]
+> [!NOTE]  
 > 由於 Apache Hadoop 是分散式系統，因此所有使用的指令碼都必須放置在服務執行所在叢集中的所有節點上。
 > 
 > 指令碼也必須位於服務所屬的帳戶可以存取的位置中，而且必須提供執行權限。 例如，您可能想要在 `/usr/local/bin` 中存放指令碼，並用 `chmod go+rx /usr/local/bin/filename.sh` 授與讀取和執行權限。
@@ -89,8 +89,8 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
     出現提示時，請使用您叢集的 HTTP 帳戶名稱 (預設值：admin) 和密碼來向網站驗證。
 
-   > [!NOTE]
-   > Ambari 可能會再次提示您輸入使用者名稱和密碼。 此時，請輸入同一組帳戶名稱和密碼
+   > [!NOTE]  
+   > Ambari 可能會再次提示您輸入使用者名稱和密碼。 此時，請輸入同一組帳戶名稱和密碼。
 
 2. 使用左側的清單，選取您想要修改的服務區域。 例如 **HDFS**。 在中間區域內，選取 [設定]  索引標籤。
 
@@ -104,7 +104,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
     ![含有 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/ 的 HADOOP_NAMENODE_OPTS](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > 啟用 map 或 reduce 子處理序的堆積傾印時，請尋找名為 **mapreduce.admin.map.child.java.opts** 和 **mapreduce.admin.reduce.child.java.opts** 的欄位。
 
     使用 [儲存] 按鈕來儲存變更。 您可以輸入簡短的附註來說明所做的變更。
@@ -121,7 +121,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
     ![重新啟動所有受影響的項目](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > 其他服務的 [重新啟動] 按鈕項目可能會有所不同。
 
 8. 重新啟動服務後，請使用 [服務動作] 按鈕**關閉維護模式**。 這麼做可讓 Ambari 繼續監視服務是否有警示。

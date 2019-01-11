@@ -8,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 537ae87fa694a8b0e82cb2830dd8ad1f62986093
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/28/2018
+ms.openlocfilehash: 81104c7b206d4fe158df1ae9d329084ad88c3bdd
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496441"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976625"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>教學課程：使用 Azure 事件中樞與 HDInsight 中的 Apache Spark 處理推文
 
-在本教學課程中，您會了解如何建立 [Apache Spark](https://spark.apache.org/) \(英文\) 串流應用程式以將推文傳送至 Azure 事件中樞，並建立另一個應用程式以便從事件中樞讀取推文。 如需 Spark 串流的詳細說明，請參閱 [Apache Spark 串流概觀](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview)。 HDInsight 會將相同的串流功能帶入 Azure 上的 Spark 叢集。
+在本教學課程中，您會了解如何建立 [Apache Spark](https://spark.apache.org/) \(英文\) 串流應用程式以將推文傳送至 Azure 事件中樞，並建立另一個應用程式以便從事件中樞讀取推文。 如需 Spark 串流的詳細說明，請參閱 [Apache Spark 串流概觀](https://spark.apache.org/docs/latest/streaming-programming-guide.html#overview)。 HDInsight 會將相同的串流功能帶入 Azure 上的 Spark 叢集。
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
@@ -29,78 +29,104 @@ ms.locfileid: "52496441"
 
 ## <a name="prerequisites"></a>必要條件
 
-* **完成此文章[教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢](./apache-spark-load-data-run-query.md)**。
+* **完成[教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢](./apache-spark-load-data-run-query.md)** 一文。
 
 ## <a name="create-a-twitter-application"></a>建立 Twitter 應用程式
 
 若要收到推文的串流，您必須在 Twitter 中建立應用程式。 依照下列指示建立 Twitter 應用程式，並寫下完成本教學課程所需的值。
 
 1. 瀏覽至 [Twitter 應用程式管理](https://apps.twitter.com/) \(英文\)。
-2. 選取 [Create New App] \(建立新的應用程式\)。
-3. 提供下列值：
+
+1. 選取 [Create New App] \(建立新的應用程式\)。
+
+1. 提供下列值：
 
     - 名稱：提供應用程式名稱。 針對本教學課程所使用的值是 **HDISparkStreamApp0423**。 此名稱必須是唯一的名稱。
     - 描述：提供應用程式的簡短描述。 針對本教學課程所使用的值是**簡單的 HDInsight Spark 串流應用程式**。
     - 網站：提供應用程式的網站。 不需是有效的網站。  針對本教學課程所使用的值是 **http://www.contoso.com**。
     - 回呼 URL：您可以保留空白。
 
-4. 選取 [Yes, I have read and agree to the Twitter Developer Agreement] \(是，我已閱讀並同意 Twitter 開發人員合約\)，然後選取 [Create your Twitter application] \(建立 Twitter 應用程式\)。
-5. 選取 [ **金鑰和存取權杖** ] 索引標籤。
-6. 選取頁面底部的 [Create my access token] \(建立我的存取權杖\)。
-7. 寫下頁面上的下列值。  在本教學課程後續的內容中，您會需要這些值：
+1. 選取 [Yes, I have read and agree to the Twitter Developer Agreement] \(是，我已閱讀並同意 Twitter 開發人員合約\)，然後選取 [Create your Twitter application] \(建立 Twitter 應用程式\)。
+
+1. 選取 [ **金鑰和存取權杖** ] 索引標籤。
+
+1. 選取頁面底部的 [Create my access token] \(建立我的存取權杖\)。
+
+1. 寫下頁面上的下列值。  在本教學課程後續的內容中，您會需要這些值：
 
     - **取用者金鑰 (API 金鑰)**    
     - **取用者祕密 (API 祕密)**  
     - **存取權杖**
     - **存取權杖祕密**   
 
-## <a name="create-an-azure-event-hub"></a>建立 Azure 事件中樞
+## <a name="create-an-azure-event-hubs-namespace"></a>建立 Azure 事件中樞命名空間
 
 您會使用此事件中樞來儲存推文。
 
-1. 登入 [Azure 入口網站](https://ms.portal.azure.com)。
-2. 選取螢幕左上方的 [建立資源]。
-3. 選取 [物聯網]，然後選取 [事件中樞]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 
+
+1. 從左側功能表中選取 [所有服務]。  
+
+1. 在 [物聯網] 底下選取 [事件中樞]。 
 
     ![建立 Spark 串流範例的事件中樞](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "建立 Spark 串流範例的事件中樞")
-4. 針對新的事件中樞命名空間，輸入下列值：
+
+4. 選取 [+ 新增] 。
+5. 針對新的事件中樞命名空間，輸入下列值：
 
     - **名稱**：輸入事件中樞的名稱。  針對本教學課程所使用的值是 **myeventhubns20180403**。
+
     - **定價層**：選取 [標準]。
-    - **資源群組**：您可以選擇建立新的或選取適用於 Spark 叢集的資源群組。 
+
+    - 訂用帳戶：選取適當的訂用帳戶。
+
+    - **資源群組**：從下拉式清單中選取現有的資源群組，或選取 [新建] 來建立新的資源群組。
+
     - **位置**：選取與 HDInsight 中 Apache Spark 叢集相同的**位置**，以降低延遲和成本。
 
-    ![提供 Spark 串流範例的事件中樞名稱](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "提供 Spark 串流範例的事件中樞名稱")
-5. 選取 [建立] 來建立命名空間。
+    - **啟用自動擴充**：(選用) 自動擴充會在您流量超過指派給事件中樞命名空間的輸送量單位容量時，自動調整指派的輸送量單位數目。  
 
-7. 使用下列指示來開啟事件中樞命名空間：
+    - **自動擴充輸送量單位上限**：(選用) 此滑桿只會在您核取 [啟用自動擴充] 時出現。  
 
-    1. 從入口網站，選取 [所有服務]。
-    2. 在篩選方塊中，輸入**事件中樞**。
-    3. 選取新建立的命名空間。
-    4. 選取 [+ 事件中樞]。
+      ![提供 Spark 串流範例的事件中樞名稱](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "提供 Spark 串流範例的事件中樞名稱")
+6. 選取 [建立] 來建立命名空間。  部署將會在幾分鐘內完成。
 
-8. 輸入下列值：
+## <a name="create-an-azure-event-hub"></a>建立 Azure 事件中樞
+部署好事件中樞命名空間後，請建立事件中樞。  從入口網站：
 
-    - 名稱：提供事件中樞的名稱。
-    - 分割區計數：10
-    - 訊息保留期：1。 
+1. 從左側功能表中選取 [所有服務]。  
+
+1. 在 [物聯網] 底下選取 [事件中樞]。  
+
+1. 從清單中選取您的事件中樞命名空間。  
+
+1. 在 [事件中樞命名空間] 頁面中，選取 [+ 事件中樞]。  
+1. 在 [建立事件中樞] 頁面中輸入下列值：
+
+    - **名稱**：提供事件中樞的名稱。 
+ 
+    - **分割區計數**：10.  
+
+    - **訊息保留期**：1.   
    
-    ![提供 Spark 串流範例的事件中樞詳細資料](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "提供 Spark 串流範例的事件中樞詳細資料")
+      ![提供 Spark 串流範例的事件中樞詳細資料](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "提供 Spark 串流範例的事件中樞詳細資料")
 
-9. 選取 [建立] 。
-10. 針對命名空間選取 [共用存取原則] (請注意，不是事件中樞共用存取原則)，然後選取 [RootManageSharedAccessKey]。
+1. 選取 [建立] 。  部署應該會在幾秒鐘內完成，而您將返回 [事件中樞命名空間] 頁面。
+
+1. 在 [設定] 底下，選取 [共用存取原則]。
+
+1. 選取 [RootManageSharedAccessKey]。
     
      ![設定 Spark 串流範例的事件中樞原則](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "設定 Spark 串流範例的事件中樞原則")
 
-11. 儲存**主索引鍵**和**連接字串-主索引鍵**值，以便稍後在本教學課程中使用。
+1. 儲存**主索引鍵**和**連接字串-主索引鍵**值，以便稍後在本教學課程中使用。
 
      ![檢視 Spark 串流範例的事件中樞原則金鑰](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "檢視 Spark 串流範例的事件中樞原則金鑰")
 
 
 ## <a name="send-tweets-to-the-event-hub"></a>將推文傳送至事件中樞
 
-您需要建立一個 Jupyter Notebook，並將其命名為 **SendTweetsToEventHub**。 
+建立一個 Jupyter Notebook，並將其命名為 **SendTweetsToEventHub**。 
 
 1. 執行下列程式碼，以新增外部 Apache Maven 程式庫：
 
@@ -182,7 +208,7 @@ ms.locfileid: "52496441"
 
 ## <a name="read-tweets-from-the-event-hub"></a>從事件中樞讀取推文
 
-您需要建立另一個 Jupyter Notebook，並將其命名為 **ReadTweetsFromEventHub**。 
+建立另一個 Jupyter Notebook，並將其命名為 **ReadTweetsFromEventHub**。 
 
 1. 執行下列程式碼，以新增外部 Apache Maven 程式庫：
 
@@ -218,7 +244,7 @@ ms.locfileid: "52496441"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-利用 HDInsight，會將您的資料儲存於 Azure 儲存體或 Azure Data Lake Store 中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 如果您打算立即進行下一個教學課程，則可能想要保留叢集，否則可直接刪除叢集。
+利用 HDInsight，會將您的資料儲存於 Azure 儲存體或 Azure Data Lake Storage 中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 如果您打算立即進行下一個教學課程，則可能想要保留叢集，否則可直接刪除叢集。
 
 在 Azure 入口網站中開啟叢集，然後選取 [刪除]。
 

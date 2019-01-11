@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193853"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716135"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 叢集的容量規劃
 
@@ -38,17 +38,17 @@ HDInsight 可在多個 Azure 區域中使用。 若要尋找最接近的區域�
 
 ### <a name="location-of-default-storage"></a>預設儲存體的位置
 
-預設儲存體 (無論是 Azure 儲存體帳戶或 Azure Data Lake Store) 必須與您的叢集在相同的位置。 Azure 儲存體可在所有位置使用。 Data Lake Store Gen1 可在某些區域中使用 - 請在[依區域提供的 Azure 產品](https://azure.microsoft.com/regions/services/)中的儲存體下參閱目前的 Data Lake Store 可用性。
+預設儲存體 (無論是 Azure 儲存體帳戶或 Azure Data Lake Storage) 必須與您的叢集在相同的位置。 Azure 儲存體可在所有位置使用。 Data Lake Storage Gen1 可在某些區域中使用 - 請在[依區域提供的 Azure 產品](https://azure.microsoft.com/regions/services/)中的儲存體下參閱目前的 Data Lake Storage 可用性。
 
 ### <a name="location-of-existing-data"></a>現有資料的位置
 
-如果您已經有包含資料的儲存體帳戶或 Data Lake Store，並需要使用這個儲存體作為叢集的預設儲存體，就必須在該相同的位置部署您的叢集。
+如果您已經有包含資料的儲存體帳戶或 Data Lake Storage，並需要使用這個儲存體作為叢集的預設儲存體，就必須在該相同的位置部署您的叢集。
 
 ### <a name="storage-size"></a>儲存體大小
 
-部署 HDInsight 叢集之後，您可以連接額外的 Azure 儲存體帳戶，或存取其他 Data Lake Store。 所有的儲存體帳戶都必須與您的叢集位於相同的位置。 Data Lake Store 可位於不同的位置，雖然這樣可能會導致某些資料的讀取/寫入延遲。
+部署 HDInsight 叢集之後，您可以連接額外的 Azure 儲存體帳戶，或存取其他 Data Lake Storage。 所有的儲存體帳戶都必須與您的叢集位於相同的位置。 Data Lake Storage 可位於不同的位置，雖然這樣可能會導致某些資料的讀取/寫入延遲。
 
-Azure 儲存體有某些[容量限制](../azure-subscription-service-limits.md#storage-limits)，但 Data Lake Store Gen1 幾乎不受限制。
+Azure 儲存體有某些[容量限制](../azure-subscription-service-limits.md#storage-limits)，但 Data Lake Storage Gen1 幾乎不受限制。
 
 叢集可以存取不同儲存體帳戶的組合。 典型的範例包括：
 
@@ -75,7 +75,7 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 * RAM：VM 大小也會決定 VM 可用的 RAM 數量。 針對將資料儲存在記憶體以進行處理的工作負載，並非從磁碟讀取，請確保背景工作節點有足夠的記憶體來容納資料。
 
-* 網路：對於大部分的叢集類型而言，由叢集處理的資料不是在本機磁碟上，而是在諸如 Data Lake Store 或 Azure 儲存體等外部儲存體服務中。 請考慮節點 VM 與儲存體服務之間的網路頻寬和輸送量。 可供 VM 使用的網路頻寬通常會隨著較大的大小而增加。 如需詳細資訊，請參閱 [VM 大小概觀](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)。
+* 網路：對於大部分的叢集類型而言，由叢集處理的資料不是在本機磁碟上，而是在諸如 Data Lake Storage 或 Azure 儲存體等外部儲存體服務中。 請考慮節點 VM 與儲存體服務之間的網路頻寬和輸送量。 可供 VM 使用的網路頻寬通常會隨著較大的大小而增加。 如需詳細資訊，請參閱 [VM 大小概觀](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)。
 
 ## <a name="choose-the-cluster-scale"></a>選擇叢集縮放比例
 
@@ -89,7 +89,7 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 叢集的存留期需要收費。 如果您只需要叢集在特定時間開機及執行，可以[使用 Azure Data Factory 來建立隨需叢集](hdinsight-hadoop-create-linux-clusters-adf.md)。 您也可以建立 PowerShell 指令碼來佈建和刪除您的叢集，並使用 [Azure 自動化](https://azure.microsoft.com/services/automation/)來排程這些指令碼。
 
-> [!NOTE]
+> [!NOTE]  
 > 刪除叢集時，也會刪除其預設的 Hive 中繼存放區。 若要保存中繼存放區以進行下一次重新建立叢集，請使用外部中繼資料存放區，例如 Azure 資料庫或 [Apache Oozie](https://oozie.apache.org/)。
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
@@ -120,7 +120,7 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 1. 按 [下一步：檢閱 + 建立]。
 1. 在 [檢閱 + 建立] 索引標籤上，按一下 [建立]。
 
-> [!Note]
+> [!NOTE]  
 > 如果需要在私人區域中新增 HDInsight 核心配額，請[提交白名單要求](https://aka.ms/canaryintwhitelist)。
 
 您可以[連絡支援人員以要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。

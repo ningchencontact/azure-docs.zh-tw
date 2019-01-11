@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 308ab9d35e07c8376fb183c794fcad77a74a1df9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 39d0813eab49f526842eec171e3355326bd13c44
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295558"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727797"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>定義 Azure Resource Manager 範本中部署資源的順序
 針對指定的資源，可能會有部署資源之前必須存在的其他資源。 例如，SQL Server 必須存在，才能嘗試部署 SQL 資料庫。 您可以將一個資源標示為相依於其他資源，來定義此關聯性。 您可以使用 **dependsOn** 元素或使用 **reference** 函式定義相依性。 
@@ -145,16 +145,7 @@ listKeys('resourceName', 'yyyy-mm-dd')
 
 若要深入了解，請參閱 [reference 函數](resource-group-template-functions-resource.md#reference)。
 
-## <a name="recommendations-for-setting-dependencies"></a>設定相依性的建議
-
-決定設定哪種相依性時，請使用下列指導方針︰
-
-* 設定越少相依性越好。
-* 設定子資源為相依於其父資源。
-* 使用 **reference** 函式並傳入資源名稱，以針對必須共用屬性的資源，設定資源間的隱含相依性。 當您已經定義隱含的相依性時，不要新增明確的相依性 (**dependsOn**)。 這種方法可減少產生不必要相依性的風險。 
-* 當資源必須有另一個資源的功能才能**建立**時，請設定相依性。 如果資源只會在部署之後互動，請勿設定相依性。
-* 讓相依性重疊顯示，而不需要明確設定它們。 例如，您的虛擬機器相依於虛擬網路介面，而虛擬網路介面相依於虛擬網路和公用 IP 位址。 因此，會在所有三個資源之後部署虛擬機器，但不會明確地將虛擬機器設定為相依於所有三個資源。 這種方法可釐清相依性順序，而且稍後可以比較容易變更範本。
-* 如果部署之前可以決定值，請嘗試部署沒有相依性的資源。 例如，如果設定值需要另一個資源的名稱，您可能就不需要相依性。 本指引並非一律有效，因為某些資源會確認其他資源是否存在。 如果您收到錯誤，請加入相依性。 
+## <a name="circular-dependencies"></a>循環相依性
 
 Resource Manager 範本會在驗證期間識別循環相依性。 如果收到錯誤表示循環相依性存在，請評估您的範本，以查看是否有任何不需要的相依性可以移除。 如果移除相依性沒有用，您可以將某些部署作業移到在有循環相依性的資源之後部署的子資源中，以避免循環相依性。 例如，假設您要部署兩部虛擬機器，但是您必須分別在上面設定互相參考的屬性。 您可以採取下列順序部署︰
 
@@ -168,6 +159,7 @@ Resource Manager 範本會在驗證期間識別循環相依性。 如果收到�
 ## <a name="next-steps"></a>後續步驟
 
 * 如須逐步瀏覽教學課程，請參閱[教學課程：使用相依資源建立 Azure Resource Manager 範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md)。
+* 如需設定相依性時的建議，請參閱 [Azure Resource Manager 範本最佳做法](template-best-practices.md)。
 * 若要了解在部署期間如何對相依性進行疑難排解，請參閱[使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。
 * 若要了解如何建立 Azure 資源管理員範本，請參閱 [撰寫範本](resource-group-authoring-templates.md)。 
 * 如需在範本中可用函式的清單，請參閱 [範本函式](resource-group-template-functions.md)。

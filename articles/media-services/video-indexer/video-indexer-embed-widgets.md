@@ -7,39 +7,43 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/25/2018
 ms.author: juliako
-ms.openlocfilehash: a051f40cb5586cae58d8e4939f4fcee35438bf69
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 2c07cfcba473e2e27f14ff0118e6ca8a8f484df1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291855"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791809"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>將影片索引子小工具內嵌到應用程式中
 
 本文說明如何將影片索引子小工具內嵌到應用程式中。 影片索引子支援將兩種類型的小工具內嵌到應用程式中：**認知深入解析**和**播放器**。 
+
+> [!NOTE]
+> 從 2018 年 2 月 1 日開始，第 1 版**認知深入解析**小工具將會被取代。 內嵌的 URL 版本將預設為 `version=2`。
+
 ## <a name="widget-types"></a>小工具類型
 
 ### <a name="cognitive-insights-widget"></a>認知深入解析小工具
 
 **認知深入解析**小工具包含從您的影片索引編製程序中擷取的所有視覺化深入解析。 深入解析小工具支援下列選擇性 URL 參數：
 
-|名稱|定義|說明|
+|Name|定義|說明|
 |---|---|---|
-|widgets|以逗號分隔的字串|可讓您控制您想要呈現的深入解析。 <br/>範例：`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` 只會呈現人員和品牌 UI 深入解析<br/>可用的選項：人員、關鍵字、註解、品牌、情緒、文字記錄、搜尋。<br/>使用 version=2 時無法透過 URL 支援<br/><br/>**注意：** 如果使用 **version=2**，則不支援 **widgets** URL 參數。 |
+|widgets|以逗號分隔的字串|可讓您控制您想要呈現的深入解析。 <br/>範例：`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` 只會呈現人員和品牌 UI 深入解析<br/>可用的選項：人員、關鍵字、註解、品牌、情緒、文字記錄、搜尋。<br/>使用 version=2 時無法透過 URL 支援<br/><br/>**附註：** 如果使用 **version=2**，則不支援 **widgets** URL 參數。 |
 |version|**認知深入解析**小工具的版本|若要取得最新的深入解析小工具更新，請在內嵌 URL 中新增 `?version=2` 查詢參數。 例如， `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> 若要取得較舊的版本，只要從 URL 中移除 `version=2` 即可。
 
 ### <a name="player-widget"></a>播放器小工具
 
 **播放器**小工具可讓您使用調適性位元速率來串流影片。 播放器小工具支援下列選擇性 URL 參數：
 
-|名稱|定義|說明|
+|Name|定義|說明|
 |---|---|---|
 |t|開始後的秒數|可讓播放器從指定的時間點開始播放。<br/>範例：t=60|
 |captions|語言代碼|在可於標題功能表中載入小工具期間，擷取指定語言的標題。<br/>範例：captions=en-US|
 |showCaptions|布林值|可讓播放器載入已啟用的標題。<br/>範例：showCaptions=true|
-|type||啟動音訊播放器面板 (移除影片部分)。<br/>範例：type=audio|
+|type||啟動音訊播放器面板 (移除影片部分)。<br/>範例：type=audio|"
 |autoplay|布林值|指出播放器是否應在影片載入後開始播放 (預設值為 true)。<br/>範例：autoplay=false|
 |語言|語言代碼|控制播放器語言 (預設值為 en-US)<br/>範例：language=de-DE|
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4322841f126e4aa017b4d901cbfb1afd39e5bccf
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f68c3797d5425c496e38c1000cc39e3868d41739
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342567"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727032"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Durable Functions 中的監視器案例 - 天氣監看員範例
 
@@ -175,6 +175,9 @@ POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf6
 ## <a name="visual-studio-sample-code"></a>Visual Studio 範例程式碼
 
 以下是 Visual Studio 專案中的單一 C# 檔案所示範的協調流程：
+
+> [!NOTE]
+> 您必須安裝 `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget 封裝來執行下列範例程式碼。
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 

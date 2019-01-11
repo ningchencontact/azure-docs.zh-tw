@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 48b2d42348996f5f135d88cdf6345bca8daf8335
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3239cbc957d2a79c7a5411604759f86f0268bd70
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409440"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976302"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -68,7 +68,7 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
 
     ```bash
     brew tap azure/functions
-    brew install azure-functions-core-tools 
+    brew install azure-functions-core-tools
     ```
 
 #### <a name="linux"></a> 採用 APT 的 Linux (Ubuntu/Debian)
@@ -195,12 +195,12 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 + [先行編譯 C#](functions-dotnet-class-library.md#environment-variables)
 + [C# 指令碼 (.csx)](functions-reference-csharp.md#environment-variables)
 + [F# 指令碼 (.fsx)](functions-reference-fsharp.md#environment-variables)
-+ [Java](functions-reference-java.md#environment-variables) 
++ [Java](functions-reference-java.md#environment-variables)
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-若沒有針對 **AzureWebJobsStorage** 設定有效的儲存體連接字串，而且未使用模擬器時，系統會顯示下列錯誤訊息：  
+若沒有針對 **AzureWebJobsStorage** 設定有效的儲存體連接字串，而且未使用模擬器時，系統會顯示下列錯誤訊息：
 
-> 在 local.settings.json 中遺失 AzureWebJobsStorage 的值。 這對 HTTP 以外的所有觸發程序是必要的。 您可以執行 'func azure functionapp fetch-app-settings <functionAppName>'，或指定 local.settings.json 中的連接字串。
+> 在 local.settings.json 中遺失 AzureWebJobsStorage 的值。 這對 HTTP 以外的所有觸發程序是必要的。 您可以執行 'func azure functionapp fetch-app-settings \<functionAppName\>'，或指定 local.settings.json 中的連接字串。
 
 ### <a name="get-your-storage-connection-strings"></a>取得您的儲存體連接字串
 
@@ -210,7 +210,7 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 
   ![從 Azure 入口網站複製連接字串](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ 使用 [Azure 儲存體總管](https://storageexplorer.com/)以連接至您的 Azure 帳戶。 在**總管**中展開您的訂閱，選取您的儲存體帳戶，並複製主要或次要連接字串。 
++ 使用 [Azure 儲存體總管](https://storageexplorer.com/)以連接至您的 Azure 帳戶。 在**總管**中展開您的訂閱，選取您的儲存體帳戶，並複製主要或次要連接字串。
 
   ![透過儲存體總管複製連接字串](./media/functions-run-local/storage-explorer.png)
 
@@ -298,16 +298,15 @@ func host start
 
 | 選項     | 說明                            |
 | ------------ | -------------------------------------- |
-| **`--build`** | 執行前先建置目前的專案。 僅限 2.x 版和 C# 專案。 |
+| **`--no-build`** | 執行前請勿建置目前的專案。 僅適用於 dotnet 專案。 預設會設定為 false。 僅限 2.x 版。 |
 | **`--cert`** | 包含私密金鑰的 .pfx 檔案路徑。 僅能與 `--useHttps` 搭配使用。 僅限 2.x 版。 |
+| **`--cors-credentials`** | 允許跨來源的已驗證要求 (也就是 cookie 及驗證標頭) 僅限 2.x 版。 |
 | **`--cors`** | 以逗號分隔的 CORS 來源清單，不含空格。 |
-| **`--debug`** | 啟動已開啟偵錯連接埠的主機，以便您從 [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) 或 [Visual Studio 2017](functions-dotnet-class-library.md) 連結至 **func.exe** 程序。 有效值為 `VSCode` 和 `VS`。  |
 | **`--language-worker`** | 用來設定語言背景工作角色的引數。 僅限 2.x 版。 |
 | **`--nodeDebugPort -n`** | 要使用的節點偵錯工具連接埠。 預設值：Launch.json 中的值或 5858。 僅限 1.x 版。 |
 | **`--password`** | 密碼或包含 .pfx 檔案密碼的檔案。 僅能與 `--cert` 搭配使用。 僅限 2.x 版。 |
 | **`--port -p`** | 要接聽的本機連接埠。 預設值：7071。 |
 | **`--pause-on-error`** | 暫停以在結束處理程序之前取得其他輸入。 這僅適用於從整合式開發環境 (IDE) 啟動 Core Tools 時。|
-| **`--script-root --prefix`** | 用來為要執行或部署的函式應用程式指定根目錄的路徑。 此選項可用於在子資料夾中產生專案檔的編譯專案。 例如，當您建置 C# 類別庫專案時，將會以類似於 `MyProject/bin/Debug/netstandard2.0` 的路徑在 *root* 子資料夾中產生 host.json、local.settings.json 和 function.json 等檔案。 在此情況下，請將前置詞設為 `--script-root MyProject/bin/Debug/netstandard2.0`。 這是函式應用程式在 Azure 中執行時的根目錄。 |
 | **`--timeout -t`** | Functions 主機要啟動的逾時 (以秒為單位)。 預設值：20 秒。|
 | **`--useHttps`** | 繫結至 `https://localhost:{port}` 而不是 `http://localhost:{port}` 。 根據預設，此選項會在您的電腦上建立受信任的憑證。|
 
@@ -324,13 +323,13 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
 >[!IMPORTANT]
->在本機執行時，不會對 HTTP 端點強制執行驗證。 這表示所有的本機 HTTP 要求會作為 `authLevel = "anonymous"` 處理。 如需詳細資訊，請參閱 [HTTP 繫結文章](functions-bindings-http-webhook.md#authorization-keys)。 
+>在本機執行時，不會對 HTTP 端點強制執行驗證。 這表示所有的本機 HTTP 要求會作為 `authLevel = "anonymous"` 處理。 如需詳細資訊，請參閱 [HTTP 繫結文章](functions-bindings-http-webhook.md#authorization-keys)。
 
 ### <a name="passing-test-data-to-a-function"></a>將測試資料傳遞至函式
 
 若要在本機測試您的函式，您要使用 HTTP 要求在本機伺服器上[啟動 Functions 主機](#start)並呼叫端點。 您呼叫的端點取決於函式的類型。
 
->[!NOTE]  
+>[!NOTE]
 > 本主題中的範例使用 cURL 工具，從終端機或命令提示字元傳送 HTTP 要求。 您可以使用您選擇的工具，將 HTTP 要求傳送至本機伺服器。 以 Linux 為基礎的系統預設可以使用 cURL 工具。 在 Windows 上，您必須先下載並安裝 [cURL 工具 (英文)](https://curl.haxx.se/)。
 
 如需測試函式的更多一般資訊，請參閱[在 Azure Functions 中測試程式碼的策略](functions-test-a-function.md)。
@@ -341,9 +340,9 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 
     http://localhost:{port}/api/{function_name}
 
-請務必使用 Functions 主機接聽的相同伺服器名稱和連接埠。 啟動 Function 主機時，您會在產生的輸出中看到下列內容。 您可以使用觸發程序支援的任何 HTTP 方法呼叫此 URL。 
+請務必使用 Functions 主機接聽的相同伺服器名稱和連接埠。 啟動 Function 主機時，您會在產生的輸出中看到下列內容。 您可以使用觸發程序支援的任何 HTTP 方法呼叫此 URL。
 
-下列 cURL 命令從 GET 要求在查詢字串中傳遞 _name_ 參數，觸發 `MyHttpTrigger` 快速入門函式。 
+下列 cURL 命令從 GET 要求在查詢字串中傳遞 _name_ 參數，觸發 `MyHttpTrigger` 快速入門函式。
 
 ```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
@@ -355,11 +354,11 @@ curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
-您可以從瀏覽器在查詢字串中傳遞資料來進行 GET 要求。 對於所有其他 HTTP 方法，您必須使用 cURL、Fiddler、Postman 或類似的 HTTP 測試工具。  
+您可以從瀏覽器在查詢字串中傳遞資料來進行 GET 要求。 對於所有其他 HTTP 方法，您必須使用 cURL、Fiddler、Postman 或類似的 HTTP 測試工具。
 
 #### <a name="non-http-triggered-functions"></a>非 HTTP 觸發函式
 
-對於 HTTP 觸發程序和 Webhook 以外的所有函式類型，您可以呼叫管理端點在本機測試函式。 在本機伺服器上使用 HTTP POST 要求來呼叫此端點會觸發函式。 您可以在 POST 要求本文中選擇性地傳遞測試資料到執行程序。 這項功能類似於 Azure 入口網站中的 [測試] 索引標籤。  
+對於 HTTP 觸發程序和 Webhook 以外的所有函式類型，您可以呼叫管理端點在本機測試函式。 在本機伺服器上使用 HTTP POST 要求來呼叫此端點會觸發函式。 您可以在 POST 要求本文中選擇性地傳遞測試資料到執行程序。 這項功能類似於 Azure 入口網站中的 [測試] 索引標籤。
 
 您可以呼叫下列系統管理員端點來觸發非 HTTP 函式：
 
@@ -381,10 +380,10 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 #### <a name="using-the-func-run-command-in-version-1x"></a>使用版本 1.x 中的 `func run` 命令
 
->[!IMPORTANT]  
+>[!IMPORTANT]
 > 工具的版本 2.x 不支援 `func run` 命令。 如需詳細資訊，請參閱[如何設定 Azure Functions 執行階段版本目標](set-runtime-version.md)主題。
 
-您也可以使用 `func run <FunctionName>` 直接叫用函式，並為函式提供輸入資料。 此命令類似於使用 Azure 入口網站中的 [測試] 索引標籤執行函式。 
+您也可以使用 `func run <FunctionName>` 直接叫用函式，並為函式提供輸入資料。 此命令類似於使用 Azure 入口網站中的 [測試] 索引標籤執行函式。
 
 `func run` 支援下列選項：
 
@@ -410,9 +409,9 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Core Tools 支援兩種類型的部署：將函式專案檔直接部署至您的函式應用程式，以及部署自訂 Linux 容器 (僅在 2.x 版中受到支援)。 您必須已[在 Azure 訂用帳戶中建立函式應用程式](functions-cli-samples.md#create)。
 
-在 2.x 版中，您必須已在專案中[註冊您的擴充功能](#register-extensions)，才能進行發佈。 應建置需要編譯的專案，以便部署二進位檔。 
+在 2.x 版中，您必須已在專案中[註冊您的擴充功能](#register-extensions)，才能進行發佈。 應建置需要編譯的專案，以便部署二進位檔。
 
-### <a name="project-file-deployment"></a>專案檔部署  
+### <a name="project-file-deployment"></a>專案檔部署
 
 最常見的部署方法會使用 Core Tools 來封裝您的函式應用程式專案、二進位檔和相依性，然後將套件部署到函式應用程式。 您可以選擇[直接從部署套件執行函式](run-functions-from-deployment-package.md)。
 
@@ -424,10 +423,10 @@ func azure functionapp publish <FunctionAppName>
 
 此命令會發行至 Azure 中的現有函式應用程式。 訂用帳戶中沒有 `<FunctionAppName>` 時，會發生錯誤。 若要了解如何使用 Azure CLI 從命令提示字元或終端機視窗建立函式應用程式，請參閱[建立無伺服器也可執行的函式應用程式](./scripts/functions-cli-create-serverless.md)。
 
-`publish` 命令會將 Functions 專案目錄的內容上傳。 如果您在本機將檔案刪除，`publish` 命令並不會從 Azure 刪除它們。 您可以使用 [Azure 入口網站] 中的 [Kudu 工具](functions-how-to-use-azure-function-app-settings.md#kudu)來刪除 Azure 中的檔案。  
+`publish` 命令會將 Functions 專案目錄的內容上傳。 如果您在本機將檔案刪除，`publish` 命令並不會從 Azure 刪除它們。 您可以使用 [Azure 入口網站] 中的 [Kudu 工具](functions-how-to-use-azure-function-app-settings.md#kudu)來刪除 Azure 中的檔案。
 
->[!IMPORTANT]  
-> 當您在 Azure 入口網站中建立函式應用程式時，依預設會使用 2.x 版的函式執行階段。 若要讓函式應用程式使用 1.x 版的執行階段，請依照[在 1.x 版上執行](functions-versions.md#creating-1x-apps)中的指示操作。  
+>[!IMPORTANT]
+> 當您在 Azure 入口網站中建立函式應用程式時，依預設會使用 2.x 版的函式執行階段。 若要讓函式應用程式使用 1.x 版的執行階段，請依照[在 1.x 版上執行](functions-versions.md#creating-1x-apps)中的指示操作。
 > 若函式應用程式具有現有的函式，您就無法變更其執行階段版本。
 
 下列專案發佈選項同時適用於 1.x 和 2.x 版：
@@ -460,7 +459,7 @@ Functions 可讓您在自訂 Linux 容器中部署函式專案。 如需詳細�
 func deploy
 ```
 
-以下是可用的自訂容器部署選項： 
+以下是可用的自訂容器部署選項：
 
 | 選項     | 說明                            |
 | ------------ | -------------------------------------- |

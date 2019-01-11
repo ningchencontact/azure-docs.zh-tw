@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 80a2ed779fa65c669be81fdf8212b7d018325ee5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262313"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634502"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 儲存體計量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -94,6 +94,8 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 
 **透過 PowerShell**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 若要開始使用 Azure PowerShell，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。
 
 1. 使用 [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) Cmdlet 將您的 Azure 使用者帳戶新增至 PowerShell 視窗：
@@ -114,13 +116,13 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 4. 啟用 Blob 服務的儲存體記錄：
    
     ```powershell
-    Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 5. 啟用 Blob 服務的儲存體度量，並確定將 -**-MetricsType`Minute` 設定為** ：
    
     ```powershell
-    Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 ### <a name="configure-net-client-side-logging"></a>設定 .NET 用戶端記錄
@@ -198,11 +200,11 @@ Message Analyzer 包含 Azure 儲存體資產，可協助您分析伺服器、�
 2. 啟動 Message Analyzer。
 3. 從 [工具] 功能表，選取 [資產管理員]。 在 [資產管理員] 對話方塊中，選取 [下載]，然後依據 [Azure 儲存體] 篩選。 您會看到 Azure 儲存體資產，如下圖所示。
 4. 按一下 [同步處理所有顯示的項目]  以安裝 Azure 儲存體資產。 可用的資產包括：
-   * **Azure 儲存體色彩規則** ：Azure 儲存體色彩規則可讓您定義特殊篩選條件，以使用色彩、文字和字型樣式來反白顯示在追蹤中包含特定資訊的訊息。
-   * **Azure 儲存體圖表** ：Azure 儲存體圖表是圖形伺服器記錄資料的預先定義的圖表。 請注意，若要在此時使用 Azure 儲存體圖表，您可能只要將伺服器記錄檔載入到 [分析方格]。
-   * **Azure 儲存體剖析器** ：Azure 儲存體剖析器可剖析 Azure 儲存體用戶端、伺服器和 HTTP 記錄檔，以便顯示在 [分析方格] 中。
-   * **Azure 儲存體篩選條件** ：Azure 儲存體篩選條件是預先定義的準則，您可以在 [分析方格] 中用來查詢資料。
-   * **Azure 儲存體檢視版面配置** ：Azure 儲存體檢視版面配置是 [分析方格] 中預先定義的資料行版本配置和群組。
+   * **Azure 儲存體色彩規則：** Azure 儲存體色彩規則可讓您定義特殊篩選條件，以使用色彩、文字和字型樣式來反白顯示在追蹤中包含特定資訊的訊息。
+   * **Azure 儲存體圖表：** Azure 儲存體圖表是圖形伺服器記錄資料的預先定義圖表。 請注意，若要在此時使用 Azure 儲存體圖表，您可能只要將伺服器記錄檔載入到 [分析方格]。
+   * **Azure 儲存體剖析器：** Azure 儲存體剖析器可剖析 Azure 儲存體用戶端、伺服器和 HTTP 記錄檔，以便顯示在 [分析方格] 中。
+   * **Azure 儲存體篩選條件：** Azure 儲存體篩選條件是預先定義的準則，您可以在 [分析方格] 中用來查詢資料。
+   * **Azure 儲存體檢視版面配置：** Azure 儲存體檢視版面配置是 [分析方格] 中預先定義的資料行版面配置和群組。
 5. 在您安裝資產之後，請重新啟動 Message Analyzer。
 
 ![訊息分析器資產管理員](./media/storage-e2e-troubleshooting/mma-start-page-1.png)

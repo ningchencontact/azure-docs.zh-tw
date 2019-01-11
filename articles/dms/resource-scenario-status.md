@@ -4,22 +4,22 @@ description: 了解「Azure 資料庫移轉服務」支援的移轉案例狀態�
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/11/2018
-ms.openlocfilehash: 9eea3c28751ecaec0ffdb27e08f84cad1bf62acd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 12/19/2018
+ms.openlocfilehash: 81bd23f7e4b7065155b708703e52bc0a351696c1
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53267861"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722082"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Azure 資料庫移轉服務支援的移轉案例狀態
-「Azure 資料庫移轉服務」是設計成可同時支援離線 (單次) 和線上 (持續同步) 移轉的各種移轉案例 (來源/目標組)。 「Azure 資料庫移轉服務」所提供的案例涵蓋範圍會隨著時間擴展。 定期都會新增新的案例。 本文會指出「Azure 資料庫移轉服務」目前支援的移轉案例，以及狀態 (個人預覽版、公開預覽版或正式推出版) 或每個案例。
+「Azure 資料庫移轉服務」是設計成可同時支援離線 (單次) 和線上 (持續同步) 移轉的各種移轉案例 (來源/目標組)。 「Azure 資料庫移轉服務」所提供的案例涵蓋範圍會隨著時間擴展。 定期都會新增新的案例。 本文會指出「Azure 資料庫移轉服務」目前支援的移轉案例，以及狀態 (個人 [或有限] 預覽版、公開預覽版或正式推出版) 或每個案例。
 
 ## <a name="offline-versus-online-migrations"></a>離線移轉與線上移轉之比較
 當您使用「Azure 資料庫移轉服務」將資料庫移轉至 Azure 時，可以執行「離線」或「線上」移轉。 若使用「離線」移轉，在移轉開始的同時，應用程式也會開始停機。 若使用「線上」移轉，則停機時間僅限於移轉完成時完全移轉到新環境所需的時間。 建議您測試離線移轉以判斷停機時間是否在可容忍的範圍內；如果無法容忍，則執行線上移轉。

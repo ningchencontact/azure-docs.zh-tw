@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497279"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792776"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>使用擴充的 Apache Spark 記錄伺服器對 Apache Spark 應用程式進行偵錯和診斷
 
@@ -26,7 +26,7 @@ ms.locfileid: "52497279"
 
 ### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>從 Azure 入口網站開啟 Apache Spark 歷程記錄伺服器 Web UI
 
-1. 從 [Azure 入口網站](https://portal.azure.com/)，開啟 Spark 叢集。 如需詳細資訊，請參閱[列出和顯示叢集](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。
+1. 從 [Azure 入口網站](https://portal.azure.com/)，開啟 Spark 叢集。 如需詳細資訊，請參閱[列出和顯示叢集](../hdinsight-administer-use-portal-linux.md#showClusters)。
 2. 從 [快速連結]，按一下 [叢集儀表板]，然後按一下 [Spark 記錄伺服器]。 出現提示時，輸入 Spark 叢集的系統管理員認證。 
 
     ![Spark 歷程記錄伺服器](./media/apache-azure-spark-history-server/launch-history-server.png "Spark 歷程記錄伺服器")
@@ -106,10 +106,10 @@ ms.locfileid: "52497279"
 
 + 按一下 [播放] 按鈕可播放作業，而按一下 [停止] 按鈕可隨時停止。 播放時，工作會以不同色彩來顯示，以表示不同狀態：
 
-    + 綠色表示成功：作業已順利完成。
+    + 綠色表示成功：作業已成功完成。
     + 橘色表示重試：失敗但不會影響作業最終結果的工作執行個體。 這些工作有之後可能會成功的重複或重試執行個體。
     + 藍色表示執行中：工作正在執行中。
-    + 白色表示等候中或已略過：工作在等候執行，或已略過該階段。
+    + 白色表示等候中或已略過：工作正在等候執行，或已略過該階段。
     + 紅色表示失敗：工作失敗。
 
     ![正在執行的圖表色彩範例](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
@@ -119,7 +119,7 @@ ms.locfileid: "52497279"
 
     ![失敗的圖表色彩範例](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
-    > [!NOTE]
+    > [!NOTE]  
     > 每個作業都可播放。 針對不完整的作業，不支援播放。
 
 
@@ -132,8 +132,8 @@ ms.locfileid: "52497279"
     ![圖表工具提示](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + 在 [作業圖表] 索引標籤中，若階段有符合以下條件的工作，將會顯示工具提示與小圖示：
-    + 資料扭曲：資料讀取大小 > 此階段中所有工作的平均資料讀取大小 * 2 與資料讀取大寫 > 10 MB
-    + 時間扭曲：執行時間 > 此階段中包含之所有工作的平均執行時間 * 2 與執行時間 > 2 分鐘
+    + 資料扭曲：資料讀取大小 > 此階段中所有工作的平均資料讀取大小 * 2，且資料讀取大小 > 10 MB。
+    + 時間扭曲：執行時間 > 此階段所含所有工作的平均執行時間 * 2，且執行時間 > 2 分鐘。
 
     ![圖表扭曲圖示](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
@@ -147,10 +147,10 @@ ms.locfileid: "52497279"
     + 資料列計數：輸入記錄、輸出記錄、隨機讀取記錄和隨機寫入記錄的總和。
     + 進度。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 根據預設，作業圖表節點會顯示每個階段 (不包括階段執行時間) 最後一次嘗試時的資訊 ，但是播放期間的圖表節點會顯示每一次嘗試的資訊。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 針對讀取和寫入的資料大小，我們使用 1MB = 1000 KB = 1000 * 1000 個位元組。
 
 + 按一下 [提供意見反應給我們]，可將意見反應和問題傳送給我們。
@@ -168,7 +168,7 @@ ms.locfileid: "52497279"
 ### <a name="data-skew"></a>資料扭曲
 按一下 [資料扭曲] 索引標籤，即會根據指定的參數顯示對應的扭曲工作。 
 
-+ **指定參數** - 第一個區段會顯示用來偵測資料扭曲的參數。 內建規則是：工作資料讀取大於平均工作資料讀取的 3 倍，而工作資料讀取超過 10MB。 若要為扭曲工作定義您的自己的規則，您可以選擇您的參數，[扭曲階段] 與 [扭曲字元] 區段將相應重新整理。
++ **指定參數** - 第一個區段會顯示用來偵測資料扭曲的參數。 內建規則是：工作資料讀取大於平均工作資料讀取的 3 倍，且工作資料讀取超過 10MB。 若要為扭曲工作定義您的自己的規則，您可以選擇您的參數，[扭曲階段] 與 [扭曲字元] 區段將相應重新整理。
 
 + **扭曲階段** - 第二個區段會顯示具有符合上面指定條件之扭曲工作的階段。 若階段中有多個扭曲工作，扭曲階段表格只會顯示最扭曲的工作 (例如要用於資料扭曲的最大資料)。
 

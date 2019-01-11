@@ -1,46 +1,37 @@
 ---
-title: 教學課程：建置單頁 Web 應用程式 - Bing 圖像式搜尋
+title: " 建置單頁 Web 應用程式 - Bing 圖像式搜尋"
 titleSuffix: Azure Cognitive Services
-description: 說明如何在單頁 Web 應用程式中使用 Bing 圖像式搜尋 API。
+description: 了解如何將 Bing 圖像式搜尋 API 整合至單頁 Web 應用程式。
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: tutorial
+ms.topic: article
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: fe7159e88bd70ba8af23909559264fa5f210ef10
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8ff5e36e6189c522e00c7cdd126c26b1cef92912
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443880"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745137"
 ---
-# <a name="tutorial-visual-search-single-page-web-app"></a>教學課程：圖像式搜尋單頁 Web 應用程式
+# <a name="create-a-visual-search-single-page-web-app"></a>建立圖像式搜尋單頁 Web 應用程式 
 
 Bing 圖像式搜尋 API 可提供與 Bing.com/images 上顯示的影像詳細資料類似的體驗。 使用圖像式搜尋可以指定影像並取得影像的相關深入解析，例如外觀上類似的影像、購物來源、包含影像的網頁等。 
 
-為使用本教學課程，您必須在 S9 定價層上啟用訂用帳戶，如[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/) 中所示。 
+本文說明如何擴充 Bing 影像搜尋 API 的單頁 Web 應用程式。 若要檢視該教學課程或取得此處所用的原始程式碼，請參閱[教學課程：建立 Bing 影像搜尋 API 的單頁應用程式](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)。 
 
-若要在 Azure 入口網站中啟用訂用帳戶：
-1. 在 Azure 入口網站頂端顯示 `Search resources, services, and docs` 的文字方塊中輸入 'BingSearchV7'。  
-2. 在下拉式清單中的 Marketplace 下選取 `Bing Search v7`。
-3. 輸入新資源的 `Name`。
-4. 選取 `Pay-As-You-Go` 訂用帳戶。
-5. 選取 `S9` 定價層。
-6. 按一下 `Enable` 來啟用訂用帳戶。
+此應用程式的完整原始程式碼 (在經過擴充而使用 Bing 圖像式搜尋 API 之後) 可於 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html) 取得。
 
-本教學課程會從 Bing 影像搜尋教學課程來延伸單頁 Web 應用程式 (請參閱[單頁 Web 應用程式](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md))。 如需開始進行本教學課程所需的完整原始程式碼，請參閱[單頁 Web 應用程式 (原始程式碼)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md)。 如需本教學課程最終的原始程式碼，請參閱[圖像式搜尋單頁 Web 應用程式](tutorial-bing-visual-search-single-page-app-source.md)。
+## <a name="prerequisites"></a>必要條件
 
-涵蓋的工作包括：
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-> [!div class="checklist"]
-> * 使用影像深入解析權杖呼叫 Bing 圖像式搜尋 API
-> * 顯示類似的影像
+## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>呼叫 Bing 圖像式搜尋 API 並處理回應
 
-## <a name="call-bing-visual-search"></a>呼叫 Bing 圖像式搜尋
-編輯 Bing 影像搜尋教學課程，並在第 409 行將下列程式碼新增至指令碼元素的結尾處。 此程式碼會呼叫 Bing 圖像式搜尋 API，並顯示結果。
+編輯 Bing 影像搜尋教學課程，並將下列程式碼新增至 `<script>` 元素的結尾處 (並在結尾 `</script>` 標籤之前)。 下列程式碼會處理來自 API 的圖像式搜尋回應、逐一查看結果，並加以顯示。
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -70,7 +61,12 @@ function handleVisualSearchResponse(){
         }
     }
 }
+```
 
+下列程式碼會使用事件接聽程式來呼叫 `handleVisualSearchResponse()`，以將搜尋要求傳送至 API。
+
+
+```javascript
 function bingVisualSearch(insightsToken){
     let visualSearchBaseURL = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch',
         boundary = 'boundary_ABC123DEF456',
@@ -105,13 +101,15 @@ function bingVisualSearch(insightsToken){
 ```
 
 ## <a name="capture-insights-token"></a>擷取深入解析權杖
-在第 151 行將下列程式碼新增至 `searchItemsRenderer` 物件中。 程式碼會新增經點按時會呼叫 `bingVisualSearch` 函式的**尋找類似項目**連結。 此函式會接收 imageInsightsToken 以作為引數。
+
+將下列程式碼新增至 `searchItemsRenderer` 物件中。 程式碼會新增經點按時會呼叫 `bingVisualSearch` 函式的**尋找類似項目**連結。 此函式會接收 imageInsightsToken 以作為引數。
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
 ```
 
 ## <a name="display-similar-images"></a>顯示類似的影像
+
 在第 601 行將新增下列 HTML 程式碼。 此標記程式碼會新增用來顯示 Bing 圖像式搜尋 API 呼叫結果的元素。
 
 ``` html
@@ -126,5 +124,4 @@ html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [圖像式搜尋單頁 Web應用程式來源](tutorial-bing-visual-search-single-page-app-source.md)
-> [Bing 圖像式搜尋 API 參考](https://aka.ms/bingvisualsearchreferencedoc)
+> [裁剪和上傳影像](tutorial-visual-search-crop-area-results.md)

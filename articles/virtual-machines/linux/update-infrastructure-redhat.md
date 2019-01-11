@@ -14,17 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: borisb
-ms.openlocfilehash: 20fe724d32e31e1bacbad024cc934f89af12f112
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0755d472ef6b2566d7faa51019da7d49266fa199
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139923"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993207"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>適用於 Azure 中隨選 Red Hat Enterprise Linux VM 的 Red Hat Update Infrastructure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) 允許雲端提供者 (例如 Azure) 鏡像 Red Hat 代管的存放庫內容、建立具有 Azure 特定內容的自訂存放庫，以及讓它可供使用者 VM 使用。
 
 Red Hat Enterprise Linux (RHEL) 預付型方案 (PAYG) 映像預先設定為存取 Azure RHUI。 不需要任何其他設定。 若要取得最新的更新，請在 RHEL 執行個體備妥之後執行 `sudo yum update`。 此服務包含在 RHEL PAYG 軟體費用中。
+
+有關 Azure 中 RHEL 映像的其他資訊 (包括發佈和保留原則)，可在[這裡](./rhel-images.md)取得。
 
 ## <a name="important-information-about-azure-rhui"></a>Azure RHUI 的重要資訊
 * Azure RHUI 目前僅支援每個 RHEL 系列 (RHEL6 或 RHEL7) 中的最新次要版本。 若要將連線至 RHUI 的 RHEL VM 執行個體會升級為最新的次要版本，請執行 `sudo yum update`。
@@ -35,9 +37,37 @@ Red Hat Enterprise Linux (RHEL) 預付型方案 (PAYG) 映像預先設定為存�
 
 * 對 Azure 代管之 RHUI 的存取，包含在 RHEL PAYG 映像價格中。 如果您將 PAYG RHEL VM 從 Azure 代管的 RHUI 取消註冊，這樣並不會將虛擬機器轉換成自備授權 (BYOL) 類型的虛擬機器。 如果您以另一個更新來源註冊相同的 VM，可能會產生「間接」雙重費用。 您需要支付 Azure RHEL 軟體費用， 而且還需要支付先前已購買的 Red Hat 訂用帳戶費用。 如果您持續需要使用非 Azure 代管 RHUI 的更新基礎結構，請考慮建立及部署您自己的 (BYOL 類型) 映像。 [建立與上傳適用於 Azure 的 Red Hat 型虛擬機器](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)一文中有描述此流程。
 
-* Azure 中兩個類別的 RHEL PAYG 映像 (RHEL for SAP Hana 和 RHEL for SAP Business Applications) 會連線至專用 RHUI 通道，以維持在 SAP 認證所需的特定 RHEL 次要版本。
+* Azure 中 RHEL PAYG 映像 (RHEL for SAP、RHEL for SAP HANA 和 RHEL for SAP Business Applications) 會連線至專用 RHUI 通道，以維持在 SAP 認證所需的特定 RHEL 次要版本。
 
 * 只有 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653) \(英文\) 中的 VM 能夠存取 Azure 代管的 RHUI。 如果您透過內部部署網路基礎結構為所有 VM 流量設定 Proxy，則可能需要為 RHEL PAYG VM 設定使用者定義的路由，以便存取 Azure RHUI。
+
+### <a name="rhel-eus-and-version-locking-rhel-vms"></a>RHEl EUS 和版本鎖定的 RHEL 虛擬機器
+有些客戶可能想要將其 RHEL 虛擬機器鎖定為特定 RHEL 次要版本。 您可以藉由將存放庫更新為指向「擴充更新支援」存放庫，將 RHEL 虛擬機器的版本鎖定為特定次要版本。 使用下列指示，將 RHEL 虛擬機器鎖定為特定的次要版本：
+
+>[!NOTE]
+> 這僅適用於 RHEL 7.2-7.5
+
+1. 停用非 EUS 存放庫：
+    ```
+    sudo yum --disablerepo=* remove rhui-azure-rhel7
+    ```
+
+1. 新增 EUS 存放庫：
+    ```
+    yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
+    ```
+
+1. 鎖定 releasever 變數：
+    ```
+    echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
+    ```
+
+    >[!NOTE]
+    > 上述指示會將 RHEL 次要版本鎖定為目前次要版本。 如果您要升級並鎖定到不是最新的次要版本，請輸入特定次要版本。 例如，`echo 7.5 > /etc/yum/vars/releasever` 會將您的 RHEL 版本鎖定為 RHEL 7.5
+1. 更新您的 RHEL 虛擬機器
+    ```bash
+    sudo yum update
+    ```
 
 ### <a name="the-ips-for-the-rhui-content-delivery-servers"></a>RHUI 內容傳遞伺服器的 IP
 
@@ -70,13 +100,19 @@ Red Hat Enterprise Linux (RHEL) 預付型方案 (PAYG) 映像預先設定為存�
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>更新虛擬機器上已過期的 RHUI 用戶端憑證
 
-如果您使用的是較舊的 RHEL VM 映像，例如 RHEL 7.4 (映像 URN：`RedHat:RHEL:7.4:7.4.2018010506`)，因為 SSL 用戶端憑證已過期 (2018 年 11 月 21 日)，所以會碰到對 RHUI 的連線問題。 若要解決這個問題，請使用下列命令來更新虛擬機器上的 RHUI 用戶端套件
+如果您使用的是較舊的 RHEL VM 映像，例如 RHEL 7.4 (映像 URN：`RedHat:RHEL:7.4:7.4.2018010506`)，因為 SSL 用戶端憑證已過期 (2018 年 11 月 21 日)，所以會碰到對 RHUI 的連線問題。 若要解決這個問題，請使用下列命令來更新虛擬機器上的 RHUI 用戶端套件：
 
 ```bash
 sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-azure-rhel7
 ```
 
-或者也可以執行 `sudo yum update`，如此也會更新此套件，只是會看到其他存放庫顯示「SSL 憑證已過期」錯誤。 在更新後，其他 RHUI 存放庫應會恢復正常連線。
+如果您的 RHEL 虛擬機器是在美國政府雲端，請使用下列命令：
+```bash
+sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-usgov-rhel7
+```
+
+或者，也可以執行 `sudo yum update`，如此也會更新用戶端憑證套件，只是會看到其他存放庫顯示「SSL 憑證已過期」錯誤。 更新後，其他 RHUI 存放庫應該會恢復正常連線，以便您可以順利執行 `sudo yum update`。
+
 
 ### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>針對 Azure RHUI 連線問題進行疑難排解
 從 Azure RHEL PAYG VM 連線至 RHUI 時若發生問題，請依照下列步驟操作：
@@ -179,5 +215,6 @@ sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-azure-rhel
 1. 完成之後，請確認您可以從 VM 存取 Azure RHUI。
 
 ## <a name="next-steps"></a>後續步驟
-若要從 Azure Marketplace PAYG 映像建立 Red Hat Enterprise Linux VM 並使用 Azure 代管的 RHUI，請移至 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/)。
+* 若要從 Azure Marketplace PAYG 映像建立 Red Hat Enterprise Linux VM 並使用 Azure 代管的 RHUI，請移至 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/)。
+* 若要深入了解 Azure 中的 Red Hat 映像，請移至[文件頁面](./rhel-images.md)。
 

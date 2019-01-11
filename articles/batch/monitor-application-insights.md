@@ -11,18 +11,18 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: fb0760f24b8f384818db8154ffe871d7fd4ce429
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 986a05dab29226ff492269587ab6c0f49585cef6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138339"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119902"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>使用 Application Insights 監視 Azure Batch .NET 應用程式並進行偵錯
 
-[Application Insights](../application-insights/app-insights-overview.md) 提供開發人員精緻且強大的方法，用來監視部署到 Azure 服務的應用程式並進行偵錯。 使用 Application Insights 監視效能計數器和例外狀況，以及透過自訂計量與追蹤來檢測您的程式碼。 整合 Application Insights 與 Azure Batch 應用程式可讓您取得行為的深入見解，並幾近即時地調查問題。
+[Application Insights](../azure-monitor/app/app-insights-overview.md) 提供開發人員精緻且強大的方法，用來監視部署到 Azure 服務的應用程式並進行偵錯。 使用 Application Insights 監視效能計數器和例外狀況，以及透過自訂計量與追蹤來檢測您的程式碼。 整合 Application Insights 與 Azure Batch 應用程式可讓您取得行為的深入見解，並幾近即時地調查問題。
 
-本文會示範如何將 Application Insights 程式庫新增至您的 Azure Batch .NET 解決方案並加以設定，以及檢測應用程式的程式碼。 同時示範透過 Azure 入口網站監視應用程式和建置自訂儀表板的方法。 如需了解其他語言中的 Application Insights 支援，請查看[語言、平台及整合文件](../application-insights/app-insights-platforms.md)。
+本文會示範如何將 Application Insights 程式庫新增至您的 Azure Batch .NET 解決方案並加以設定，以及檢測應用程式的程式碼。 同時示範透過 Azure 入口網站監視應用程式和建置自訂儀表板的方法。 如需了解其他語言中的 Application Insights 支援，請查看[語言、平台及整合文件](../azure-monitor/app/platforms.md)。
 
 隨附於本文的 C# 解決方案範例與程式碼可於 [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights) 中取得。 此範例會將 Application Insights 檢測程式碼新增至 [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) 範例。 如果您不熟悉該範例，請先嘗試建置及執行 TopNWords。 這麼做可協助您了解在多個計算節點上平行處理一組輸入 Blob 的基本 Batch 工作流程。 
 
@@ -35,11 +35,11 @@ ms.locfileid: "50138339"
 
 * [Batch 帳戶和連結的 Azure 儲存體帳戶](batch-account-create-portal.md)
 
-* [Application Insights 資源](../application-insights/app-insights-create-new-resource.md)
+* [Application Insights 資源](../azure-monitor/app/create-new-resource.md )
   
    * 使用 Azure 入口網站建立 Application Insights 資源。 選取「一般」**應用程式類型**。
 
-   * 從入口網站複製[檢測金鑰](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key)。 本文稍後會需要此項目。
+   * 從入口網站複製[檢測金鑰](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key)。 本文稍後會需要此項目。
   
   > [!NOTE]
   > 您可能需要為儲存在 Application Insights 中的資料[支付費用](https://azure.microsoft.com/pricing/details/application-insights/)。 這其中包括本文討論的診斷和監視記錄。
@@ -56,14 +56,14 @@ Install-Package Microsoft.ApplicationInsights.WindowsServer
 
 ## <a name="instrument-your-code"></a>實作您的程式碼
 
-若要檢測您的程式碼，您的解決方案必須建立 Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient)。 在範例中，TelemetryClient 會從 [ApplicationInsights.config](../application-insights/app-insights-configuration-with-applicationinsights-config.md) 檔案載入其組態。 請務必使用您的 Application Insights 檢測金鑰來更新下列專案中的 ApplicationInsights.config：Microsoft.Azure.Batch.Samples.TelemetryStartTask and TopNWordsSample。
+若要檢測您的程式碼，您的解決方案必須建立 Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient)。 在範例中，TelemetryClient 會從 [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md) 檔案載入其組態。 請務必使用您的 Application Insights 檢測金鑰來更新下列專案中的 ApplicationInsights.config：Microsoft.Azure.Batch.Samples.TelemetryStartTask and TopNWordsSample。
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
 也請將檢測金鑰新增至 TopNWords.cs 檔案。
 
-TopNWords.cs 中的範例會使用 Application Insights API 中的下列[檢測呼叫](../application-insights/app-insights-api-custom-events-metrics.md)：
+TopNWords.cs 中的範例會使用 Application Insights API 中的下列[檢測呼叫](../azure-monitor/app/api-custom-events-metrics.md)：
 * `TrackMetric()` - 追蹤計算節點下載必要文字檔案要多久時間 (平均值)。
 * `TrackTrace()` - 將偵錯呼叫新增至您的程式碼。
 * `TrackEvent()` - 追蹤要擷取的關注事件。
@@ -125,7 +125,7 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 ```
 
 ### <a name="azure-batch-telemetry-initializer-helper"></a>Azure Batch 遙測初始設定式的協助程式
-報告指定伺服器和執行個體的遙測時，Application Insights 會使用 Azure VM 角色和 VM 名稱作為預設值。 在 Azure Batch 的執行內容中，此範例會改為示範如何使用集區名稱和計算節點名稱。 使用[遙測初始設定式](../application-insights/app-insights-api-filtering-sampling.md#add-properties)覆寫預設值。 
+報告指定伺服器和執行個體的遙測時，Application Insights 會使用 Azure VM 角色和 VM 名稱作為預設值。 在 Azure Batch 的執行內容中，此範例會改為示範如何使用集區名稱和計算節點名稱。 使用[遙測初始設定式](../azure-monitor/app/api-filtering-sampling.md#add-properties)覆寫預設值。 
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -338,12 +338,12 @@ pool.StartTask = new StartTask()
 
 ## <a name="throttle-and-sample-data"></a>節流和範例資料 
 
-由於在生產環境中執行的 Azure Batch 應用程式本質上都是大規模運作，因此建議您藉由限制 Application Insights 所收集的資料量來管理成本。 請參閱 [Application Insights 中的取樣](../application-insights/app-insights-sampling.md)，以了解完成此操作的一些機制。
+由於在生產環境中執行的 Azure Batch 應用程式本質上都是大規模運作，因此建議您藉由限制 Application Insights 所收集的資料量來管理成本。 請參閱 [Application Insights 中的取樣](../azure-monitor/app/sampling.md)，以了解完成此操作的一些機制。
 
 
 ## <a name="next-steps"></a>後續步驟
-* 深入了解 [Application Insights](../application-insights/app-insights-overview.md)。
+* 深入了解 [Application Insights](../azure-monitor/app/app-insights-overview.md)。
 
-* 如需了解其他語言中的 Application Insights 支援，請查看[語言、平台及整合文件](../application-insights/app-insights-platforms.md)。
+* 如需了解其他語言中的 Application Insights 支援，請查看[語言、平台及整合文件](../azure-monitor/app/platforms.md)。
 
 

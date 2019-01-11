@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 792a3401c483327eb7fb9fcd88039bc09025b3ef
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 85e9b49cb8be1a3f53ca0f3b4816e6165b68bde0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944950"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993099"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>使用 Windows VM 和 Azure Resource Manager 範本的監視和診斷
 Azure 診斷擴充功能會在以 Windows 為基礎的 Azure 虛擬機器上提供監視和診斷功能。 您可以將擴充功能納入為 Azure Resource Manager 範本的一部分，在虛擬機器上啟用這些功能。 請參閱 [使用 VM 延伸模組編寫 Azure 資源管理員範本](../windows/template-description.md#extensions) ，以取得將任何延伸模組納入為虛擬機器範本一部分的詳細資訊。 本文描述如何將 Azure 診斷延伸模組新增至 Windows 虛擬機器範本。  
@@ -92,13 +92,13 @@ Azure 診斷擴充功能會在以 Windows 為基礎的 Azure 虛擬機器上提�
     "type": "string",
     "metadata": {
 "description": "The name of an existing storage account to which diagnostics data is transfered."
-    }        
+    }
 },
 "existingdiagnosticsStorageResourceGroup": {
     "type": "string",
     "metadata": {
 "description": "The resource group for the storage account specified in existingdiagnosticsStorageAccountName"
-      }
+    }
 }
 ```
 
@@ -168,13 +168,13 @@ PT1M 及 PT1H 的 MetricAggregation 值分別表示超過一分鐘的彙總及�
 
 每個 WADMetrics 資料表都包含下列資料行：
 
-* **PartitionKey**︰分割區索引鍵是以 resourceID 值作為基礎所建構，可唯一識別 VM 資源。 例如：002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
+* **PartitionKey**：分割區索引鍵是以 *resourceID* 值作為基礎所建構，可唯一識別 VM 資源。 例如：`002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
 * **RowKey**：遵循下列格式：`<Descending time tick>:<Performance Counter Name>`。 遞減的時間刻度計算是最大時間刻度減去開始彙總期間時間。 例如，如果取樣期間是從 2015 年 11 月 10 日 00:00Hrs UTC 開始，則計算就是：`DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`。 對於記憶體可用位元組的效能計數器，資料列索引鍵看起來會像：`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**：效能計數器的名稱。 這符合 xml 設定中定義的 *counterSpecifier* 。
 * **Maximum**：彙總期間效能計數器的最大值。
-* **Minimum**：彙總期間效能計數器的最小值。
+* **最低**：彙總期間效能計數器的最小值。
 * **Total**：彙總期間報告之效能計數器的所有值加總。
-* **Count**：針對效能計數器報告的值總數。
+* **計數**：針對效能計數器報告的值總數。
 * **Average**：彙總期間效能計數器的平均 (總計/計數) 值。
 
 ## <a name="next-steps"></a>後續步驟

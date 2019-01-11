@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d8d12662552eaf2d566eebd773c69dfb9817d874
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a97da5542395b57fa9a6ca6e4c38dd25e524ec3e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098636"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969415"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>從意圖和實體擷取資料
 LUIS 可讓您從使用者的自然語言語句取得資訊。 此資訊的擷取方式使得它可供程式、應用程式或 Chatbot 用來執行動作。 在下列各節中，您將透過 JSON 範例，了解從意圖和實體會傳回哪些資料。
@@ -28,7 +28,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-當您編輯 LUIS 應用程式時，從該 LUIS 應用程式的 [Settings] \(設定\) 頁面，以及從您 URL 的一部分 (在 `/apps/` 之後)，都可以取得 `appID`。 `subscription-key` 是用來查詢您應用程式的端點金鑰。 在學習 LUIS 期間，雖然您可以使用免費的撰寫/入門金鑰，但請務必將端點金鑰變更為支援[預期的 LUIS 使用方式](luis-boundaries.md#key-limits)的金鑰。 `timezoneOffset` 單位為分鐘。
+當您編輯 LUIS 應用程式時，從該 LUIS 應用程式的 [設定] 頁面，以及從您 URL 的一部分 (在 `/apps/` 之後)，都可以取得 `appID`。 `subscription-key` 是用來查詢您應用程式的端點金鑰。 在學習 LUIS 期間，雖然您可以使用免費的撰寫/入門金鑰，但請務必將端點金鑰變更為支援[預期的 LUIS 使用方式](luis-boundaries.md#key-limits)的金鑰。 `timezoneOffset` 單位為分鐘。
 
 **HTTPS 回應**包含 LUIS 可以根據目前已發佈之預備或生產環境端點模型來判斷的所有意圖和實體資訊。 端點 URL 是在 [LUIS](luis-reference-regions.md) 網站、[管理] 區段、[金鑰和端點] 頁面上找到的。
 
@@ -425,7 +425,11 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 ```
 
 ## <a name="extracting-names"></a>擷取名稱
-從語句中取得名稱相當困難，因為名稱幾乎可以是字母與單字的任何組合。 視所要擷取的名稱類型而定，您會有數個選項。 這些並非規則，而比較像是指導方針。
+從語句中取得名稱相當困難，因為名稱幾乎可以是字母與單字的任何組合。 視所要擷取的名稱類型而定，您會有數個選項。 下列建議不是規定，而是指導方針。
+
+### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>新增預建的 PersonName 和 GeographyV2 實體
+
+[PersonName](luis-reference-prebuilt-person.md) 和 [GeographyV2](luis-reference-prebuilt-geographyV2.md) 實體可在某些[語言文化特性](luis-reference-prebuilt-entities.md)中使用。 
 
 ### <a name="names-of-people"></a>人名
 人名可依據語言和文化特性而有些微的格式。 請使用以名字和姓氏作為子系的階層式實體，或使用含有名字和姓氏角色的簡單實體。 請務必提供在語句的不同部分、在不同長度的語句中及在所有意圖 (包括 None 意圖) 的語句中使用名字和姓氏的範例。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。
@@ -434,7 +438,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 地名是已設定且已知的名稱，例如城市、郡縣、州、省及國家/地區。 如果您的應用程式使用一組已知的地點，請考慮使用清單實體。 如果您需要尋找所有地名，請建立一個簡單實體，然後提供各種範例。 請新增一個地名片語清單來強調地名在您應用程式中看起來的樣子。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。
 
 ### <a name="new-and-emerging-names"></a>全新和新興的名稱
-有些應用程式需要能夠尋找全新和新興的名稱，例如產品或公司。 這是難度最高類型的資料擷取。 請從簡單實體開始著手，並新增一個片語清單。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。
+有些應用程式需要能夠尋找全新和新興的名稱，例如產品或公司。 這些名稱類型是難度最高的資料擷取類型。 請從簡單實體開始著手，並新增一個片語清單。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。
 
 ## <a name="pattern-roles-data"></a>模式角色資料
 角色是實體的內容相關差異。
@@ -603,6 +607,7 @@ Pattern.any 實體是在[模式](luis-concept-patterns.md)範本語句中使用�
 ```
 
 ## <a name="data-matching-multiple-entities"></a>與多個實體相符的資料
+
 LUIS 會傳回在語句中探索到的所有實體。 因此，您的 Chatbot 可能需要根據結果進行決策。 一個語句可以包含許多實體：
 
 `book me 2 adult business tickets to paris tomorrow on air france`
@@ -728,6 +733,46 @@ LUIS 端點可以探索不同實體中的相同資料：
           "value": "business"
         }
       ]
+    }
+  ]
+}
+```
+
+## <a name="data-matching-multiple-list-entities"></a>與多個清單實體相符的資料
+
+如果單字或片語與多個清單實體相符，端點查詢會傳回每個清單實體。
+
+如果查詢為 `when is the best time to go to red rock?`，且應用程式在多個清單中有 `red` 一字，LUIS 就會辨識所有實體，並在 JSON 端點回應中傳回實體陣列： 
+
+```JSON
+{
+  "query": "when is the best time to go to red rock?",
+  "topScoringIntent": {
+    "intent": "Calendar.Find",
+    "score": 0.06701678
+  },
+  "entities": [
+    {
+      "entity": "red",
+      "type": "Colors",
+      "startIndex": 31,
+      "endIndex": 33,
+      "resolution": {
+        "values": [
+          "Red"
+        ]
+      }
+    },
+    {
+      "entity": "red rock",
+      "type": "Cities",
+      "startIndex": 31,
+      "endIndex": 38,
+      "resolution": {
+        "values": [
+          "Destinations"
+        ]
+      }
     }
   ]
 }

@@ -4,14 +4,14 @@ description: 解說 Azure Migrate 的相關常見問題
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: snehaa
-ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257789"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975469"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - 常見問題集 (FAQ)
 
@@ -48,12 +48,13 @@ Azure Migrate 是移轉規劃工具，而 Azure Site Recovery 部署規劃工具
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Azure Migrate 支援哪些 Azure 地理區？
 
-Azure Migrate 目前支援美國和 Azure Government 作為專案的地理位置。 即使您只能在這些地理區建立移轉專案，您還是可以針對[多個目標位置](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties)評估機器。 專案地理位置只會用來儲存探索到的資料。
+Azure Migrate 目前支援以歐洲、北美洲和 Azure Government 作為專案的地理位置。 即使您只能在這些地理區建立移轉專案，您還是可以針對[多個目標位置](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties)評估機器。 專案地理位置只會用來儲存探索到的資料。
 
 **地理位置** | **中繼資料儲存位置**
 --- | ---
-美國 | 美國中西部或美國東部
 Azure Government | 美國政府維吉尼亞州
+歐洲 | 北歐或西歐
+美國 | 美國東部或美國中西部
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>內部部署站台如何連線至 Azure Migrate？
 
@@ -155,7 +156,7 @@ Azure Migrate 目前不支援 [Enterprise 合約支援方案供應項目](https:
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>我是否需要付費才能使用相依性虛擬化功能？
 
-否。 [在此](https://azure.microsoft.com/pricing/details/azure-migrate/)深入了解 Azure Migrate 定價。
+沒有。 [在此](https://azure.microsoft.com/pricing/details/azure-migrate/)深入了解 Azure Migrate 定價。
 
 ### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>我是否需要為相依性視覺效果安裝任何項目？
 

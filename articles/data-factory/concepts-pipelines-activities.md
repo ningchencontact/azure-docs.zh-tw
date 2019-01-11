@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: ca64c87a0211ae00218493fe7bfddcbbb81a032a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8ceae771f1a66f6d999dd0dc2b1f298d4aae8f86
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109434"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017288"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory 中的管道及活動
-> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-create-pipelines.md)
 > * [目前的版本](concepts-pipelines-activities.md)
 
@@ -97,13 +96,13 @@ Azure Data Factory 支援下列可個別或與其他活動鏈結而新增至管�
 
 Tag | 說明 | 類型 | 必要
 --- | ----------- | ---- | --------
-name | 管線的名稱。 指定代表管線所執行之動作的名稱。 <br/><ul><li>字元數目上限︰140</li><li>開頭必須為字母、數字或底線 (_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\”</li></ul> | 字串 | 是
+name | 管線的名稱。 指定代表管線所執行之動作的名稱。 <br/><ul><li>字元數目上限︰140</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\”</li></ul> | 字串 | 是
 說明 | 指定說明管線用途的文字。 | 字串 | 否
 活動 | [ **活動** ] 區段內可以有一或多個已定義的活動。 如需活動 JSON 元素的詳細資料，請參閱[活動 JSON](#activity-json) 一節。 | 陣列 | 是
 parameters | **parameters** 區段可以在管道內定義一或多個參數，讓管道變得更有彈性而可重複使用。 | 列出 | 否
 
 ## <a name="activity-json"></a>活動 JSON
-[ **活動** ] 區段內可以有一或多個已定義的活動。 主要有兩種類型的活動：執行和控制活動。
+[ **活動** ] 區段內可以有一或多個已定義的活動。 活動可分為兩種主要類型：執行和控制活動。
 
 ### <a name="execution-activities"></a>執行活動
 執行活動包括[資料移動活動](#data-movement-activities)和[資料轉換活動](#data-transformation-activities)。 這些活動具有下列最上層結構：
@@ -130,7 +129,7 @@ parameters | **parameters** 區段可以在管道內定義一或多個參數，�
 
 Tag | 說明 | 必要
 --- | ----------- | ---------
-name | 活動的名稱。 指定代表活動所執行之動作的名稱。 <br/><ul><li>字元數目上限︰55</li><li>開頭必須為字母、數字或底線 (_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | 是</li></ul>
+name | 活動的名稱。 指定代表活動所執行之動作的名稱。 <br/><ul><li>字元數目上限︰55</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | 是</li></ul>
 說明 | 說明活動用途的文字 | 是
 type | 活動的類型。 如需了解不同類型的活動，請參閱[資料移動活動](#data-movement-activities)、[資料轉換活動](#data-transformation-activities)和[控制活動](#control-activities)各節。 | 是
 預設容器 | 活動所使用的連結服務名稱。<br/><br/>活動可能會要求您指定可連結至所需計算環境的連結服務。 | 對於 HDInsight 活動、Azure Machine Learning 批次計分活動和預存程序活動而言為必要。 <br/><br/>否：所有其他
@@ -170,10 +169,10 @@ dependsOn | 這個屬性用來定義活動相依性，以及後續活動如何�
 ```
 JSON 名稱 | 說明 | 允許的值 | 必要
 --------- | ----------- | -------------- | --------
-timeout | 指定活動執行的逾時。 | Timespan | 否。 預設逾時為 7 天。
-retry | 重試次數上限 | 整數  | 否。 預設值為 0
-retryIntervalInSeconds | 重試嘗試之間的延遲 (秒) | 整數  | 否。 預設值為 20 秒
-secureOutput | 設定為 true 時，活動的輸出會被視為安全，且不會記錄到監視。 | BOOLEAN | 否。 預設值為 false。
+timeout | 指定活動執行的逾時。 | Timespan | 沒有。 預設逾時為 7 天。
+retry | 重試次數上限 | 整數  | 沒有。 預設值為 0
+retryIntervalInSeconds | 重試嘗試之間的延遲 (秒) | 整數  | 沒有。 預設值為 20 秒
+secureOutput | 設定為 true 時，活動的輸出會被視為安全，且不會記錄到監視。 | BOOLEAN | 沒有。 預設值為 false。
 
 ### <a name="control-activity"></a>控制活動
 控制活動具有下列最上層結構：
@@ -194,7 +193,7 @@ secureOutput | 設定為 true 時，活動的輸出會被視為安全，且不�
 
 Tag | 說明 | 必要
 --- | ----------- | --------
-name | 活動的名稱。 指定代表活動所執行之動作的名稱。<br/><ul><li>字元數目上限︰55</li><li>開頭必須為字母、數字或底線 (_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | 是</li><ul>
+name | 活動的名稱。 指定代表活動所執行之動作的名稱。<br/><ul><li>字元數目上限︰55</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | 是</li><ul>
 說明 | 說明活動用途的文字 | 是
 type | 活動的類型。 如需了解不同類型的活動，請參閱[資料移動活動](#data-movement-activities)、[資料轉換活動](#data-transformation-activities)和[控制活動](#control-activities)各節。 | 是
 typeProperties | typeProperties 區段中的屬性視每一種活動而定。 若要查看活動的類型屬性，請按一下先前小節中的活動連結。 | 否
@@ -203,14 +202,14 @@ dependsOn | 這個屬性用來定義活動相依性，以及後續活動如何�
 ### <a name="activity-dependency"></a>活動相依性
 「活動相依性」可定義後續活動如何相依於先前活動，根據條件以決定是否繼續執行下一項工作。 一個活動可以根據不同的相依性條件，而相依於一或多個先前活動。
 
-各種相依性條件包括：成功、失敗、略過、完成。
+不同的相依性條件如下︰成功、失敗、略過、已完成。
 
 例如，如果管道有活動 A -> 活動 B，則可能發生的各種情節如下：
 
-- 活動 B 對於活動 A 的相依性條件為**成功**：只有當活動 A 的最終狀態為成功時，活動 B 才會執行
-- 活動 B 對於活動 A 的相依性條件為**失敗**：只有當活動 A 的最終狀態為失敗時，活動 B 才會執行
-- 活動 B 對於活動 A 的相依性條件為**完成**：如果活動 A 的最終狀態為成功或失敗，活動 B 會執行
-- 活動 B 對於活動 A 的相依性條件為**略過**：如果活動 A 的最終狀態為略過，活動 B 會執行。 「略過」發生於活動 X -> 活動 Y -> 活動 Z 的情節中，每個活動只有在前一個活動成功時才會執行。 如果活動 X 失敗，則活動 Y 的狀態為「略過」，因為永遠不會執行。 同樣地，活動 Z 的狀態也是「略過」。
+- 活動 B 對於活動 A 具有相依性條件**成功**：只有在活動 A 的最終狀態為成功時，活動 B 才會執行
+- 活動 B 對於活動 A 具有相依性條件**失敗**：只有在活動 A 的最終狀態為失敗時，活動 B 才會執行
+- 活動 B 對於活動 A 具有相依性條件**已完成**：活動 B 會在活動 A 的最終狀態為已完成時執行
+- 活動 B 對於活動 A 具有相依性條件**略過**：活動 B 會在活動 A 的最終狀態為略過時執行。 「略過」發生於活動 X -> 活動 Y -> 活動 Z 的情節中，每個活動只有在前一個活動成功時才會執行。 如果活動 X 失敗，則活動 Y 的狀態為「略過」，因為永遠不會執行。 同樣地，活動 Z 的狀態也是「略過」。
 
 #### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>範例：活動 2 相依於活動 1 成功
 

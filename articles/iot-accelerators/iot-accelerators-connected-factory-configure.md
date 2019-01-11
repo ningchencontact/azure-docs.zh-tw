@@ -1,5 +1,5 @@
 ---
-title: 設定連線的處理站拓撲 | Microsoft Docs
+title: 設定連線處理站拓撲 - Azure | Microsoft Docs
 description: 如何設定連線處理站解決方案加速器的拓撲。
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 8cb3cae396016545c5d78a2ff7ccde4a053c4cf1
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746974"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602268"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>設定連線的處理站解決方案加速器
 
@@ -85,7 +85,7 @@ ms.locfileid: "42746974"
 }
 ```
 
-`<global_configuration>`、`<factory_configuration>`、`<production_line_configuration>` 和 `<station_configuration>` 的通用屬性是：
+ `<global_configuration>`、`<factory_configuration>`、`<production_line_configuration>` 和 `<station_configuration>` 的通用屬性是：
 
 * **Name** (字串類型)
 
@@ -264,7 +264,7 @@ ms.locfileid: "42746974"
 
 此分類中的屬性會定義連線處理站儀表板的視覺外觀。 範例包括：
 
-* 名稱
+* Name
 * 說明
 * 映像
 * 位置
@@ -282,7 +282,7 @@ WebApp 可維護其中包含所有拓撲節點相關資訊的內部資料字典�
 * 要包含在計算中的 OPC UA 節點值。
 * 如何從遙測值計算數據。
 
-連線的處理站會使用如 http://www.oeefoundation.org 所發行的 OEE 公式。
+連線的處理站會使用如 https://www.oeefoundation.org 所發行的 OEE 公式。
 
 站台中的 OPC UA 節點物件會啟用可在 OEE/KPI 計算中使用的標記。 **Relevance** 屬性指出 OPC UA 節點值應該用於哪個 OEE/KPI 數據。 **OpCode** 屬性定義如何將值包含在計算中。
 

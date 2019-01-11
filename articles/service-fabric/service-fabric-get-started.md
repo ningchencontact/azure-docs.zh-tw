@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: 968c9f2455269cf41a701de685e4f47255b46847
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 064d73aa3d1a9183eddd53b1a1b8ddbf02afb04d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386415"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792844"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -50,6 +50,9 @@ ms.locfileid: "53386415"
 ## <a name="install-the-sdk-and-tools"></a>安裝 SDK 和工具
 Web Platform Installer (WebPI) 是安裝 SDK 和工具的建議方式。 如果您在使用 WebPI 時接收到執行階段錯誤，您也可以在特定 Service Fabric 版本的版本資訊中找到安裝程式的直接連結。 版本資訊可在 [Service Fabric 小組部落格](https://blogs.msdn.microsoft.com/azureservicefabric/) \(英文\) 上的各個版本公告中找到。
 
+> [!NOTE]
+> 不支援本機 Service Fabric 開發叢集升級。
+
 ### <a name="to-use-visual-studio-2017"></a>若要使用 Visual Studio 2017
 Service Fabric 工具屬於 Visual Studio 2017 中的 Azure 開發工作負載。 啟用此工作負載作為 Visual Studio 安裝的一部分。
 此外，您必須使用 Web Platform Installer 來安裝 Microsoft Azure Service Fabric SDK 和執行階段。
@@ -66,8 +69,8 @@ Service Fabric 工具屬於 Visual Studio 2017 中的 Azure 開發工作負載�
 * [安裝 Microsoft Azure Service Fabric SDK][core-sdk]
 
 目前的版本如下︰
-* Service Fabric SDK 和工具 3.3.617
-* Service Fabric 執行階段 6.4.617
+* Service Fabric SDK 和工具 3.3.622
+* Service Fabric 執行階段 6.4.622
 * Service Fabric Tools for Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15.9 包含 Service Fabric Tools for Visual Studio 2.4.11024.1 
 

@@ -11,20 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 12/19/2018
 ms.author: juliako
-ms.openlocfilehash: b167d3424d520cf8be515eec9d495164dd9785ab
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: f4ded67ef964482a2acea0d731b1b154a95168d2
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682090"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741346"
 ---
 # <a name="liveevent-latency-in-media-services"></a>媒體服務中的 LiveEvent 延遲
 
-本文示範如何在 **LiveEvent** 上設定低延遲。 它也會討論您在各種播放器中使用低延遲設定時會看到的典型結果。 結果會隨著 CDN 和網路延遲而有所不同。 
+本文示範如何在 [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) 上設定低延遲。 它也會討論您在各種播放器中使用低延遲設定時會看到的典型結果。 結果會隨著 CDN 和網路延遲而有所不同。
 
-若要使用新的 **LowLatency** 功能，您可以在 **LiveEvent** 上將 **StreamOptionsFlag** 設定為 **LowLatency**。 啟動並執行資料流後，您可以使用 [Azure 媒體播放器](http://ampdemo.azureedge.net/) (AMP) 示範頁面，並將播放選項設定為使用 [低延遲啟發學習法設定檔]。
+若要使用新的 **LowLatency** 功能，您可以在 **LiveEvent** 上將 **StreamOptionsFlag** 設定為 **LowLatency**。 在建立 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) 以便播放 HLS 時，請將 [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) 設定為 1。 啟動並執行資料流後，您可以使用 [Azure 媒體播放器](http://ampdemo.azureedge.net/) (AMP 示範頁面)，並將播放選項設定為使用 [低延遲啟發學習法設定檔]。
+
+> [!NOTE]
+> 目前，Azure 媒體播放器中的 LowLatency HeuristicProfile 是設計為播放使用 DASH 通訊協定或 HLS (搭配 CMAF) 的資料流。 如果您鎖定透過 HLS (搭配 TS) 的 MacOS 或 iOS 裝置 (例如 `format=m3u8-aapl` 或 `format=m3u8-aapl-v3`)，則請勿使用此設定，因為在這種情況下，AMP 會直接使用作業系統所提供的原生播放程式。
 
 下列 .NET 範例會示範如何在 **LiveEvent** 上設定 **LowLatency**：
 
@@ -34,7 +37,7 @@ LiveEvent liveEvent = new LiveEvent(
             description: "Sample LiveEvent for testing",
             vanityUrl: false,
             encoding: new LiveEventEncoding(
-                        // Set this to Basic to enable a transcoding LiveEvent, and None to enable a pass-through LiveEvent
+                        // Set this to Standard to enable a transcoding LiveEvent, and None to enable a pass-through LiveEvent
                         encodingType:LiveEventEncodingType.None, 
                         presetName:null
                     ),

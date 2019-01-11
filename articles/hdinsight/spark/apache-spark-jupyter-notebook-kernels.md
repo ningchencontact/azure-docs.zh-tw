@@ -10,20 +10,20 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: ea54419f230a7988a42fd4b85be0d212ee3d14d4
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 937f6ffb9865419611c35b95ac84832bb2f1f3fe
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582576"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791805"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Apache Spark 叢集上的 Jupyter Notebook 核心 
 
 HDInsight Spark 叢集提供的核心，可讓您用於 [Apache Spark](https://spark.apache.org/) 上的 Jupyter Notebook 以測試應用程式。 核心是一個可執行並解譯程式碼的程式。 三個核心為︰
 
-- **PySpark** - 適用於以 Python2 撰寫的應用程式
-- **PySpark3** - 適用於以 Python3 撰寫的應用程式
-- **Spark** - 適用於以 Scala 撰寫的應用程式
+- **PySpark** - 適用於以 Python2 撰寫的應用程式。
+- **PySpark3** - 適用於以 Python3 撰寫的應用程式。
+- **Spark** - 適用於以 Scala 撰寫的應用程式。
 
 在本文中，您將了解使用這些核心的方式及優點。
 
@@ -33,7 +33,7 @@ HDInsight Spark 叢集提供的核心，可讓您用於 [Apache Spark](https://s
 
 ## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>在 Spark HDInsight 上建立 Jupyter Notebook
 
-1. 從 [Azure 入口網站](https://portal.azure.com/)，開啟您的叢集。  請參閱[列出和顯示叢集](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters)以取得指示。 叢集會在新的入口網站刀鋒視窗中開啟。
+1. 從 [Azure 入口網站](https://portal.azure.com/)，開啟您的叢集。  請參閱[列出和顯示叢集](../hdinsight-administer-use-portal-linux.md#showClusters)以取得指示。 叢集會在新的入口網站刀鋒視窗中開啟。
 
 2. 從 [快速連結] 區段，按一下 [叢集儀表板] 以開啟 [叢集儀表板] 刀鋒視窗。  如果您沒有看見 [快速連結]，請按一下刀鋒視窗上左側功能表中的 [概觀]。
 
@@ -41,12 +41,11 @@ HDInsight Spark 叢集提供的核心，可讓您用於 [Apache Spark](https://s
 
 3. 按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的系統管理員認證。
    
-   > [!NOTE]
+   > [!NOTE]  
    > 您也可以在瀏覽器中開啟下列 URL，來觸達 Spark 叢集上的 Jupyter Notebook。 使用您叢集的名稱取代 **CLUSTERNAME** ：
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
-   > 
+
 
 3. 按一下 [新增]，然後按一下 [Pyspark]、[PySpark3] 或 [Spark] 建立 Notebook。 使用適用於 Scala 應用程式的 Spark 核心、適用於 Python2 應用程式的 PySpark 核心，以及適用於 Python3 應用程式的 PySpark3 核心。
    
@@ -70,7 +69,7 @@ HDInsight Spark 叢集提供的核心，可讓您用於 [Apache Spark](https://s
    
    您可以直接在您的應用程式中使用現有的內容。
 
-- **Cell magic**。 PySpark 核心提供一些預先定義的 "magic"，這是您可以使用 `%%` 呼叫的特殊命令 (例如 `%%MAGIC` <args>)。 magic 命令必須是程式碼儲存格中的第一個字，而且允許多行的內容。 magic 這個字應該是儲存格中的第一個字。 在 magic 前面加入任何項目，甚至是註解，將會造成錯誤。     如需 magic 的詳細資訊，請參閱 [這裡](http://ipython.readthedocs.org/en/stable/interactive/magics.html)。
+- **Cell magic**。 PySpark 核心提供一些預先定義的 "magic"，這是您可以使用 `%%` 呼叫的特殊命令 (例如 `%%MAGIC` <args>)。 magic 命令必須是程式碼儲存格中的第一個字，而且允許多行的內容。 magic 這個字應該是儲存格中的第一個字。 在 magic 前面加入任何項目，甚至是註解，將會造成錯誤。     如需 magic 的詳細資訊，請參閱 [這裡](https://ipython.readthedocs.org/en/stable/interactive/magics.html)。
    
     下表列出透過核心而提供的不同 magic。
 
@@ -79,16 +78,15 @@ HDInsight Spark 叢集提供的核心，可讓您用於 [Apache Spark](https://s
    | help |`%%help` |產生所有可用 magic 的表格，其中包含範例與說明 |
    | info |`%%info` |輸出目前 Livy 端點的工作階段資訊 |
    | 設定 |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |設定用來建立工作階段的參數。 如果已建立工作階段，則強制旗標 (-f) 是必要的，可確保卸除並重新建立該工作階段。 如需有效參數的清單，請查看 [Livy 的 POST /sessions 要求本文](https://github.com/cloudera/livy#request-body) 。 參數必須以 JSON 字串傳遞，且必須在 magic 之後的下一行，如範例資料行中所示。 |
-   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |針對 sqlContext 執行 Hive 查詢。 如果傳遞 `-o` 參數，則查詢的結果會當做 [Pandas](http://pandas.pydata.org/) 資料框架，保存在 %%local Python 內容中。 |
+   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |針對 sqlContext 執行 Hive 查詢。 如果傳遞 `-o` 參數，則查詢的結果會當做 [Pandas](https://pandas.pydata.org/) 資料框架，保存在 %%local Python 內容中。 |
    | local |`%%local`<br>`a=1` |接下來幾行的程式碼全部在本機執行。 程式碼必須是有效的 Python2 程式碼，即使與您使用的核心無關也一樣。 因此，即使您在建立 Notebook 時選取 **PySpark3** 或 **Spark** 核心，如果您在資料格中使用核心 `%%local` magic，該資料格只能包含有效的 Python2 程式碼。 |
    | logs |`%%logs` |輸出目前 Livy 工作階段的記錄檔。 |
    | delete |`%%delete -f -s <session number>` |刪除目前 Livy 端點的特定工作階段。 您無法刪除針對核心本身起始的工作階段。 |
    | cleanup |`%%cleanup -f` |刪除目前 Livy 端點的所有工作階段，包括此 Notebook 的工作階段。 force 旗標 -f 是必要的。 |
 
-   > [!NOTE]
+   > [!NOTE]  
    > 除了 PySpark 核心所新增的 Magic，您也可以使用[內建的 IPython Magic](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics) (包括 `%%sh`)。 您可以使用 `%%sh` Magic，在叢集前端節點上執行指令碼和程式碼區塊。
-   >
-   >
+
 2. **自動視覺化**。 **Pyspark** 核心會自動將 Hive 和 SQL 查詢的輸出視覺化。 有數種不同類型的視覺效果供您選擇，包括資料表、圓形圖、線條、區域、長條圖。
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>%%sql magic 支援的參數
@@ -96,7 +94,7 @@ HDInsight Spark 叢集提供的核心，可讓您用於 [Apache Spark](https://s
 
 | 參數 | 範例 | 說明 |
 | --- | --- | --- |
-| -o |`-o <VARIABLE NAME>` |使用此參數，在 %%local Python 內容中保存查詢的結果，以做為 [Pandas](http://pandas.pydata.org/) 資料框架。 資料框架變數的名稱是您指定的變數名稱。 |
+| -o |`-o <VARIABLE NAME>` |使用此參數，在 %%local Python 內容中保存查詢的結果，以做為 [Pandas](https://pandas.pydata.org/) 資料框架。 資料框架變數的名稱是您指定的變數名稱。 |
 | -q |`-q` |使用此項關閉儲存格的視覺效果。 如果您不想自動將儲存格內容視覺化，而且只想擷取它做為資料框架，則可使用 `-q -o <VARIABLE>`。 如果您想要關閉視覺化功能而不擷取結果 (例如，執行 SQL 查詢的 `CREATE TABLE` 陳述式)，請使用 `-q` 但不要指定 `-o` 引數。 |
 | -m |`-m <METHOD>` |其中 **METHOD** 是 **take** 或 **sample** (預設值是 **take**)。 如果方法是 **take**，核心會從 MAXROWS 指定的結果資料集頂端挑選項目 (如此表稍後所述)。 如果方法是 **sample**，核心會根據 `-r` 參數隨機取樣資料集的項目，如此表稍後所述。 |
 | -r |`-r <FRACTION>` |這裡的 **FRACTION** 是介於 0.0 到 1.0 之間的浮點數。 如果 SQL 查詢的範例方法是 `sample`，則核心會為您從結果集隨機取樣指定比例的項目。 例如，如果您使用 `-m sample -r 0.01` 引數執行 SQL 查詢，則會隨機取樣 1% 的結果資料列。 |
@@ -131,9 +129,8 @@ HDInsight Spark 叢集提供的核心，可讓您用於 [Apache Spark](https://s
 
 如果您的叢集使用 Azure 儲存體作為預設的儲存體帳戶，Jupyter 筆記本會儲存在儲存體帳戶的 **/HdiNotebooks** 資料夾底下。  您從 Jupyter 內建立的 Notebook、文字檔案和資料夾，都可從儲存體帳戶存取。  例如，如果您使用 Jupyter 建立資料夾 **myfolder** 和 Notebook **myfolder/mynotebook.ipynb**，您可以在儲存體帳戶內從 `/HdiNotebooks/myfolder/mynotebook.ipynb` 存取該 Notebook。  反之亦然，也就是說，如果您直接將 Notebook 上傳至儲存體帳戶的 `/HdiNotebooks/mynotebook1.ipynb`，則從 Jupyter 也能看到該 Notebook。  即使在刪除叢集之後，Notebook 仍會保留在儲存體帳戶中。
 
-> [!NOTE]
+> [!NOTE]  
 > 使用 Azure Data Lake Store 作為預設儲存體帳戶的 HDInsight 叢集，不會在相關聯的儲存體中儲存筆記本。
->
 
 將 Notebook 儲存到儲存體帳戶的方式與 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 相容。 因此，如果對叢集執行 SSH，您可以使用檔案管理命令，如下列程式碼片段所示︰
 
@@ -155,13 +152,13 @@ Google Chrome 上只支援 Spark HDInsight 叢集上的 Jupyter Notebook。
 
 ### <a name="scenarios"></a>案例
 * [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 和機器學習服務：在 HDInsight 中利用 HVAC 資料使用 Spark 分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>建立及執行應用程式
 * [使用 Scala 建立獨立應用程式](apache-spark-create-standalone-application.md)
-* [利用 Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
+* [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和擴充功能
 * [使用 IntelliJ IDEA 的 HDInsight Tools 外掛程式來建立和提交 Spark Scala 應用程式](apache-spark-intellij-tool-plugin.md)

@@ -7,21 +7,21 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 47c6ee9c30e183b9991d1b670e96e937ade19d5f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ff9d51a96335af110aa0377c7db57ae665c44893
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838509"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970520"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 SAML 技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C 提供對 SAML 2.0 識別提供者的支援。 本文會說明技術設定檔的詳細規格，其可和支援此標準化通訊協定的宣告提供者互動。 使用 SAML 技術設定檔，您可以與 SAML 式識別提供者 (例如 [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) 與 [Salesforce](active-directory-b2c-setup-sf-app-custom.md)) 同盟，讓您的使用者夠使用其現有的社交或企業識別來登入。
+Azure Active Directory (Azure AD) B2C 提供對 SAML 2.0 識別提供者的支援。 本文會說明技術設定檔的詳細規格，其可和支援此標準化通訊協定的宣告提供者互動。 透過 SAML 技術設定檔，您可以與 SAML 型識別提供者 (例如[ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) 和 [Salesforce](active-directory-b2c-setup-sf-app-custom.md)) 建立同盟。 此同盟允許使用者使用其現有的社交或企業身分識別登入。
 
 ## <a name="metadata-exchange"></a>中繼資料交換
 
@@ -101,17 +101,55 @@ https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadat
 
 Protocol 元素的 **Name** 屬性必須設定為 `SAML2`。 
 
+## <a name="output-claims"></a>輸出宣告
+ 
+**OutputClaims** 元素包含 `AttributeStatement` 區段下由 SAML 識別提供者傳回的宣告清單。 您可能需要將原則中定義的宣告名稱對應至識別提供者中定義的名稱。 只要設定了 `DefaultValue` 屬性，也可以加入識別提供者未傳回的宣告。
+ 
+若要以正規化宣告的形式讀取**主體**中的 SAML 判斷提示 **NamedId**，請將 **PartnerClaimType** 宣告設定為 `assertionSubjectName`。 請確定 **NameId** 是判斷提示 XML 中的第一個值。 如果您定義一個以上的判斷提示，Azure AD B2C 會挑選最後一個判斷提示中的主體值。
+ 
+**OutputClaimsTransformations** 元素可能含有 **OutputClaimsTransformation** 的集合，用於修改輸出宣告或產生新的輸出宣告。
+ 
+下列範例顯示 Facebook 識別提供者傳回的宣告：
+
+- **SocialIdpUserId** 宣告對應至 **assertionSubjectName** 宣告。
+- **first_name** 宣告對應至 **givenName** 宣告。
+- **last_name** 宣告對應至 **surname** 宣告。
+- **displayName** 宣告沒有名稱對應。
+- **email** 宣告沒有名稱對應。
+ 
+技術設定檔也會傳回識別提供者未傳回的宣告： 
+ 
+- 包含識別提供者名稱的 **identityProvider** 宣告。
+- 具有 **socialIdpAuthentication** 預設值的 **authenticationSource** 宣告。
+ 
+```xml
+<OutputClaims>
+  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="assertionSubjectName" />
+  <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
+  <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
+  <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+  <OutputClaim ClaimTypeReferenceId="email"  />
+  <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="contoso.com" />
+  <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+</OutputClaims>
+```
+
 ## <a name="metadata"></a>中繼資料
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
 | PartnerEntity | 是 | SAML 識別提供者的中繼資料 URL。 複製識別提供者中繼資料，並在 CDATA 元素 `<![CDATA[Your IDP metadata]]>` 內新增它 |
-| WantsSignedRequests | 否 | 指出技術設定檔是否需要所有連出驗證要求都經過簽署。 可能的值：`true` 或 `false`。 預設值為 `true`。 將值設定為 `true` 時，**SamlMessageSigning** 密碼編譯金鑰必須經過簽署，而所有連出驗證要求也都要經過簽署。 如果將值設定為 `false`，則會略過要求中的 **SigAlg** 和 **Signature** 參數 (查詢字串或張貼參數)。 此中繼資料也會控制中繼資料 **AuthnRequestsSigned** 屬性，其為要與識別提供者共用之 Azure AD B2C 技術設定檔中繼資料內的輸出。 |
+| WantsSignedRequests | 否 | 指出技術設定檔是否需要所有連出驗證要求都經過簽署。 可能的值：`true` 或 `false`。 預設值為 `true`。 將值設定為 `true` 時，**SamlMessageSigning** 密碼編譯金鑰必須經過簽署，而所有連出驗證要求也都要經過簽署。 如果將值設定為 `false`，則會略過要求中的 **SigAlg** 和 **Signature** 參數 (查詢字串或張貼參數)。 此中繼資料也會控制中繼資料 **AuthnRequestsSigned** 屬性，其為要與識別提供者共用之 Azure AD B2C 技術設定檔中繼資料內的輸出。 如果技術設定檔中繼資料中的 **WantsSignedRequests** 設為 `false`，以及識別提供者中繼資料 **WantAuthnRequestsSigned** 設為 `false` 或未指定，則 Azure AD B2C 不會簽署要求。 |
 | XmlSignatureAlgorithm | 否 | Azure AD B2C 用來簽署 SAML 要求的方法。 此中繼資料會控制 SAML 要求中 **SigAlg** 參數 (查詢字串或張貼參數) 的值。 可能的值：`Sha256`、`Sha384`、`Sha512` 或 `Sha1`。 請確定您會使用相同的值來設定這兩端的簽章演算法。 僅使用您憑證支援的演算法。 | 
 | WantsSignedAssertions | 否 | 指出技術設定檔是否需要所有傳入的判斷提示都要經過簽署。 可能的值：`true` 或 `false`。 預設值為 `true`。 如果將值設定為 `true`，由識別提供者傳送到 Azure AD B2C 的所有判斷提示區段 `saml:Assertion` 都必須經過簽署。 如果將值設定為 `false`，則識別提供者不應該簽署判斷提示，但即使是這樣，Azure AD B2C 還是不會驗證簽章。 此中繼資料也會控制中繼資料旗標 **WantsAssertionsSigned**，其為要與識別提供者共用之 Azure AD B2C 技術設定檔中繼資料內的輸出。 如果您停用判斷提示驗證，您可能也想要停用回應簽章驗證 (如需詳細資訊，請參閱 **ResponsesSigned**)。 |
 | ResponsesSigned | 否 | 可能的值：`true` 或 `false`。 預設值為 `true`。 如果將值設定為 `false`，則識別提供者不應該簽署 SAML 回應，但即使是這樣，Azure AD B2C 還是不會驗證簽章。 如果將值設定為 `true`，由識別提供者傳送到 Azure AD B2C 的 SAML 回應會經過簽署且必須進行驗證。 如果您停用 SAML 回應驗證，您可能也想要停用判斷提示簽章驗證 (如需詳細資訊，請參閱 **WantsSignedAssertions**)。 |
 | WantsEncryptedAssertions | 否 | 指出技術設定檔是否需要所有傳入的判斷提示都要加密。 可能的值：`true` 或 `false`。 預設值為 `false`。 如果將值設定為 `true`，由識別提供者傳送到 Azure AD B2C 的判斷提示都必須經過簽署，而且必須指定 **SamlAssertionDecryption** 密碼編譯金鑰。 如果將值設定為 `true`，Azure AD B2C 技術設定檔的中繼資料就會包含 [加密] 區段。 識別提供者會讀取中繼資料，並使用 Azure AD B2C 技術設定檔中繼資料內提供的公開金鑰來加密 SAML 回應判斷提示。 如果您啟用判斷提示加密，您可能也需要停用回應簽章驗證 (如需詳細資訊，請參閱 **ResponsesSigned**)。 | 
-| IdpInitiatedProfileEnabled | 否 |指出由 SAML 識別提供者設定檔所起始的單一登入工作階段設定檔是否已啟用。 可能的值：`true` 或 `false`。 預設值為 `false`。 在識別提供者所起始的流程中，使用者會在外部進行驗證，而未經要求的回應會傳送到 Azure AD B2C，其接著會取用權杖、執行協調流程步驟，然後將回應傳送到信賴憑證者應用程式。 |
+| IdpInitiatedProfileEnabled | 否 | 指出由 SAML 識別提供者設定檔所起始的單一登入工作階段設定檔是否已啟用。 可能的值：`true` 或 `false`。 預設值為 `false`。 在識別提供者所起始的流程中，使用者會在外部進行驗證，而未經要求的回應會傳送到 Azure AD B2C，其接著會取用權杖、執行協調流程步驟，然後將回應傳送到信賴憑證者應用程式。 |
+| NameIdPolicyFormat | 否 | 針對代表要求主體的名稱識別碼指定限制。 如果省略，則可能會使用識別提供者所支援的任何識別碼類型來代表要求主體。 例如，`urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`。 **NameIdPolicyFormat** 可與 **NameIdPolicyAllowCreate** 搭配使用。 請查看您識別提供者的文件，以了解哪些名稱識別碼原則可受到支援。 |
+| NameIdPolicyAllowCreate | 否 | 使用 **NameIdPolicyFormat** 時，您也可以指定 **NameIDPolicy** 的 `AllowCreate` 屬性。 此中繼資料的值會是 `true` 或 `false`，用來指出是否允許識別提供者在登入流程期間建立新的帳戶。 請查看您的識別提供者文件，以取得如何執行此操作的指導方針。 |
+| AuthenticationRequestExtensions | 否 | 選用的通訊協定訊息擴充項目，這是 Azure AD BC 和識別提供者都同意的項目。 擴充項目會以 XML 格式呈現。 您可以在 CDATA 項目 `<![CDATA[Your IDP metadata]]>` 內新增 XML 資料。 請檢查您識別提供者的文件，以查看是否支援擴充項目。 |
+| IncludeAuthnContextClassReferences | 否 | 指定識別驗證內容類別的一個或多個 URI 參考。 例如，若要允許使用者以使用者名稱和密碼登入，請將值設定為 `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`。 若要透過受保護的工作階段 (SSL/TLS)，才能允許以使用者名稱和密碼登入，請指定 `PasswordProtectedTransport`。 請查看您識別提供者的文件，以了解受支援的 **AuthnContextClassRef** URI。 |
+| IncludeKeyInfo | 否 | 指出當繫結設定為 `HTTP-POST` 時，SAML 驗證要求是否包含憑證的公開金鑰。 可能的值：`true` 或 `false`。 |
 
 ## <a name="cryptographic-keys"></a>密碼編譯金鑰
 

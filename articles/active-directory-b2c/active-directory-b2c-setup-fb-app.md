@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b1fbf77bfb771bd94ed9acdecb3c54e4c6894687
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 183afaeb40b90de078a44f4677dd0218b8d86ba8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182105"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53968975"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 Facebook 帳戶登入
 
@@ -38,12 +38,12 @@ ms.locfileid: "47182105"
 13. 選取 [產品]，然後在 [Facebook 登入] 下方選取 [設定]。
 14. 在 [Facebook 登入] 下方選取 [設定]。
 15. 在 [Valid OAuth redirect URIs] \(有效的 OAuth 重新導向 URI\) 中，輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`。 以您的租用戶名稱取代 `your-tenant-name`。 按一下頁面底部的 [儲存變更]。
-16. 若要將 Facebook 應用程式提供給 Azure AD B2C，請選取 [App Review] \(應用程式審查\)、將 [Make My Application public?] \(公開提供我的應用程式？\) 設定為 [YES] \(是\)，然後按一下 [Confirm] \(確認\)。
+16. 若要讓 Azure AD B2C 能使用您的 Facebook 應用程式，請按一下頁面右上方的 [狀態選取器]，然後將其切換至 [開啟]，以將應用程式設為公用，然後按一下 [確認]。  此時，狀態應該會從 [開發] 變更為 [作用中]。
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>將 Facebook 帳戶設為識別提供者
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下頂端功能表中的**目錄和訂用帳戶篩選**，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。 
+2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。 
 3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
 4. 選取 [識別提供者]，然後選取 [新增]。
 5. 輸入 [名稱]。 例如，輸入 *Facebook*。

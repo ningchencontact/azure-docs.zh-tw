@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e247cedb732bb1290631ada4c6d423f1b3ed0dbd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: da67213b708b3ff26fe1ddd926c5cb0bba33458d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195656"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788543"
 ---
 # <a name="saas-application-technical-info-tab"></a>SaaS 應用程式技術資訊索引標籤
 
@@ -54,7 +54,7 @@ ms.locfileid: "53195656"
 |     開始使用指示              |   與客戶共用以協助他們連線至您 SaaS 應用程式的指示。 允許使用基本的 HTML 標記，例如：&lt;p&gt;、&lt;h1&gt;、&lt;li&gt; 等標記。                |
 |    登陸頁面 URL  |   在客戶從 Azure 入口網站中取得應用程式之後，您將會引導他們進行登陸的網站 URL。 此 URL 也會是接收連線 API 以與 Microsoft 建立商務的端點。                |
 |  連線 Webhook    |  針對 Microsoft 代表客戶傳送給您所需的所有非同步事件 (範例：Azure 訂用帳戶已經失效)，我們要求您提供連線 Webhook。 如果您尚未具有 Webhook 系統，最簡單的設定方式便是準備會接聽任何向它張貼的事件，並能適當處理它們的 HTTP 端點邏輯應用程式。 如需詳細資訊，請參閱<a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程</a>。                |
-|  Azure AD 租用戶識別碼和應用程式識別碼      |   在 Azure 入口網站內，我們需要您建立 Active Directory 應用程式，使我們可以確認我們服務之間的連線是透過已驗證的通訊來進行。 針對這些欄位，請建立 AD 應用程式並貼上相對應的所需租用戶識別碼和應用程式識別碼。               |
+|  Azure AD 租用戶識別碼和應用程式識別碼      |   在 Azure 入口網站內，我們需要您建立 Active Directory 應用程式，使我們可以確認我們服務之間的連線是透過已驗證的通訊來進行。 針對這些欄位，請建立 AD 應用程式並貼上相對應的所需租用戶識別碼和應用程式識別碼。 請注意，應用程式識別碼會與您的發行者識別碼相關聯。 因此，請確定應用程式識別碼與所有供應項目中的識別碼相同。             |
 
 
 最後，如果您選取 [透過 Microsoft 銷售]，則有另一個名為**方案**的 [新增供應項目] 索引標籤。 

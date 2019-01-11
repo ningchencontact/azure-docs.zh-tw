@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 22b9a63ab595b4d0b003d999bcd0f131e50aeabf
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 83cbb2a54ed712f8aa5084408ab852432470b73c
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383930"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742468"
 ---
 # <a name="monitor-cluster-performance"></a>監視叢集效能
 
@@ -77,11 +77,11 @@ YARN 可讓我們將資源配置給這些佇列，並顯示是否已指派所有
 
 如果您是使用 Azure 儲存體，如需監視儲存體相關問題的資訊 (包括節流)，請參閱[監視、診斷 Microsoft Azure 儲存體，及對其進行疑難排解](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting)。
 
-如果您叢集的備份存放區是 Azure Data Lake Store (ADLS)，您的節流很有可能是因為頻寬限制。 在此情況下，透過觀察工作記錄中的節流錯誤即可識別節流。 如需 ADLS，請參閱這些文章中的節流一節以了解適當服務：
+如果您叢集的備份存放區是 Azure Data Lake Storage (ADLS)，您的節流很有可能是因為頻寬限制。 在此情況下，透過觀察工作記錄中的節流錯誤即可識別節流。 如需 ADLS，請參閱這些文章中的節流一節以了解適當服務：
 
-* [HDInsight 和 Azure Data Lake Store 上的 Apache Hive 效能微調方針](../data-lake-store/data-lake-store-performance-tuning-hive.md)
-* [HDInsight 和 Azure Data Lake Store 上的 MapReduce 效能微調方針](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [HDInsight 和 Azure Data Lake Store 上的 Apache Storm 效能微調方針](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [HDInsight 和 Azure Data Lake Storage 上的 Apache Hive 效能微調方針](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [HDInsight 和 Azure Data Lake Storage 上的 MapReduce 效能微調方針](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
+* [HDInsight 和 Azure Data Lake Storage 上的 Apache Storm 效能微調方針](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## <a name="next-steps"></a>後續步驟
 

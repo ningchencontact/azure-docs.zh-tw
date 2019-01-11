@@ -11,20 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 11/27/2018
-ms.openlocfilehash: 4aaaf2e7a918ab91aebd1e1f1f6d166d6cadf19a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/02/2019
+ms.openlocfilehash: f756f043a7ab3c9086b21b8bdb88a5a6a7ed60df
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437056"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001595"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>V 核心服務層、Azure Hybrid Benefit 及移轉
 
 虛擬核心形式的採購模型可讓您獨立地調整計算和儲存體資源、符合內部部署效能，並獲得最佳價格。 它也可讓您選擇硬體世代：
 
 - Gen 4 - 最多 24 個以 Intel E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 PP (實體核心)，每一核心 7 GB，連結的 SSD
-- Gen 5 - 最多 80 個以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 LP (超執行緒)，5.5。 每一核心 GB，快速 eNVM SSD
+- Gen 5 - 最多 80 個以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 LP (超執行緒)，5.1。 每一核心 GB，快速 eNVM SSD
 
 V 核心模型還可讓您使用[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) 來節省成本。
 
@@ -33,16 +33,16 @@ V 核心模型還可讓您使用[適用於 SQL Server 的 Azure Hybrid Benefit](
 
 ## <a name="service-tier-characteristics"></a>服務層的特性
 
-虛擬核心模型提供兩個服務層：一般用途與業務關鍵。 服務層以一系列的計算大小、高可用性設計、錯誤隔離、儲存體類型和 IO 範圍來做區分。 客戶必須個別設定所需的儲存體和備份保留期。 您必須個別設定所需的儲存體和備份保留期。 在 Azure 入口網站中，移至 [伺服器] (不是資料庫) > [受控備份] > [設定原則] > [還原時間點設定] > 7-35 天。
+虛擬核心模型提供三個服務層：一般用途、超大規模與業務關鍵。 服務層以一系列的計算大小、高可用性設計、錯誤隔離、儲存體類型和大小，以及 IO 範圍來區分。 您必須個別設定所需的儲存體和備份保留期。 在 Azure 入口網站中，移至 [伺服器] (不是資料庫) > [受控備份] > [設定原則] > [還原時間點設定] > 7-35 天。
 
-下表可協助您了解這兩層的差異︰
+下表可協助您了解這三層的差異︰
 
 ||**一般用途**|**商務關鍵性**|**超大規模 (預覽)**|
 |---|---|---|---|
 |適用對象|大部分的商業工作負載。 提供以預算為導向、平衡且可調整規模的計算與儲存體選項。|高 IO 需求的商務應用程式。 使用數個分開的複本，針對失敗提供最高的復原能力。|具有可高度擴充的儲存體和讀取規模需求的多數商務工作負載|
 |計算|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|
 |記憶體|第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB | 第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB |第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB|
-|儲存體|使用[進階遠端儲存體](../virtual-machines/windows/premium-storage.md)：<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 8 TB |使用本機 SSD 儲存體：<br/>單一資料庫：5 GB – 1 TB<br/>受控執行個體：32 GB - 4 TB |儲存體可依需求彈性地自動成長。 可支援多達 100 TB 以上的儲存體。 本機緩衝區集區快取和本機資料儲存可使用本機 SSD 儲存體。 以 Azure 遠端儲存體作為最終的長期資料存放區。 |
+|儲存體|使用[進階遠端儲存體](../virtual-machines/windows/premium-storage.md)：<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 8 TB |使用本機 SSD 儲存體：<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 4 TB |儲存體可依需求彈性地自動成長。 可支援多達 100 TB 以上的儲存體。 本機緩衝區集區快取和本機資料儲存可使用本機 SSD 儲存體。 以 Azure 遠端儲存體作為最終的長期資料存放區。 |
 |IO 輸送量 (大約)|單一資料庫：每個虛擬核心 500 IOPS，且 IOPS 上限為 7000</br>受控執行個體：視[檔案大小](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)而定|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200,000|TBD|
 |可用性|1 個複本、無讀取規模|3 個複本、1 個[讀取規模複本](sql-database-read-scale-out.md)、<br/>區域備援 HA|?|
 |備份|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|Azure 遠端儲存體中有以快照集為基礎的備份，還原時可使用這些快照集進行快速復原。 備份可迅速完成，且不會影響計算的 IO 效能。 還原速度非常快，而且不是資料作業的大小 (以分鐘而非小時或天來計算)。|
@@ -63,7 +63,7 @@ V 核心模型還可讓您使用[適用於 SQL Server 的 Azure Hybrid Benefit](
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-在 V 核心形式的購買模型中，您可以使用[適用於 SQL Server 的 Azure Hybrid Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，以折扣優惠在 SQL Database 上交換現有授權。 這個 Azure 權益可讓您使用具備軟體保證的內部部署 SQL Server 授權，在 Azure SQL Database 上使用內部部署 SQL Server 授權省下最高 30% 的成本。
+在 V 核心形式的購買模型中，您可以使用[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，以折扣優惠在 SQL Database 上交換現有授權。 這個 Azure 權益可讓您使用具備軟體保證的內部部署 SQL Server 授權，在 Azure SQL Database 上使用內部部署 SQL Server 授權省下最高 30% 的成本。
 
 ![定價](./media/sql-database-service-tiers/pricing.png)
 

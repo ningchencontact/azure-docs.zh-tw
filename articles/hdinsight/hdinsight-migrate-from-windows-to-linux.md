@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: bcaf59e1d9b36dfbb17f1e0b8089cd88e626e2b9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ea808609add942c5cac36e7f0306e4a27ac3bb3a
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437124"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743641"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>從以 Windows 為基礎的 HDInsight 叢集移轉至以 Linux 為基礎的叢集
 
@@ -119,7 +119,7 @@ ms.locfileid: "53437124"
 
 ### <a name="ssh-user"></a>SSH 使用者
 
-以 Linux 為基礎的 HDInsight 是使用 **安全殼層 (SSH)** 通訊協定來為叢集節點提供遠端存取功能。 不同於以 Windows 為基礎之叢集的遠端桌面，大部分的 SSH 用戶端不提供圖形化使用者體驗。 SSH 用戶端改為提供命令列，讓您在叢集上執行命令。 某些用戶端 (例如 [MobaXterm](http://mobaxterm.mobatek.net/)) 除了提供遠端命令列之外，也提供圖形化檔案系統瀏覽器。
+以 Linux 為基礎的 HDInsight 是使用 **安全殼層 (SSH)** 通訊協定來為叢集節點提供遠端存取功能。 不同於以 Windows 為基礎之叢集的遠端桌面，大部分的 SSH 用戶端不提供圖形化使用者體驗。 SSH 用戶端改為提供命令列，讓您在叢集上執行命令。 某些用戶端 (例如 [MobaXterm](https://mobaxterm.mobatek.net/)) 除了提供遠端命令列之外，也提供圖形化檔案系統瀏覽器。
 
 在叢集建立期間，您必須提供 SSH 使用者，以及**密碼**或**公開金鑰憑證**以進行驗證。
 
@@ -199,7 +199,7 @@ Pig 和 MapReduce 工作負載在 Linux 為基礎的叢集上很相似。 不過
 | `set hive.execution.engine=tez;` 以啟用 Tez |Apache Tez 是以 Linux 為基礎之叢集的預設執行引擎，因此已不再需要 SET 陳述式。 |
 | C# 使用者定義函數 | 如需驗證以 Linux 為基礎之 HDInsight 的 C# 元件詳細資訊，請參閱[將 .NET 方案移轉至以 Linux 為基礎的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | 伺服器上的 CMD 檔案或指令碼是做為 Hive 工作的一部分進行叫用 |使用 Bash 指令碼 |
-| `hive` 命令 |使用 [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) 或是[來自 SSH 工作階段的 Apache Hive](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` 命令 |使用 [Apache Hive Beeline](hadoop/apache-hadoop-use-hive-beeline.md) 或是[來自 SSH 工作階段的 Apache Hive](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -220,7 +220,7 @@ Pig 和 MapReduce 工作負載在 Linux 為基礎的叢集上很相似。 不過
 > [!IMPORTANT]  
 > 如果您使用外部 Oozie 中繼存放區，您應該先備份中繼存放區，然後才將它搭配以 Linux 為基礎的 HDInsight 使用。 以 Linux 為基礎的 HDInsight 可搭配較新版本的 Oozie 使用，但可能會與舊版建立的中繼存放區不相容。
 
-Oozie 工作流程允許殼層動作。 殼層動作會使用作業系統的預設殼層來執行命令列命令。 如果您有依賴 Windows 殼層的 Oozie 工作流程，您必須重新撰寫工作流程，以依賴 Linux 殼層環境 (Bash)。 如需使用 Oozie 殼層動作的詳細資訊，請參閱 [Oozie 殼層動作擴充功能](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html)。
+Oozie 工作流程允許殼層動作。 殼層動作會使用作業系統的預設殼層來執行命令列命令。 如果您有依賴 Windows 殼層的 Oozie 工作流程，您必須重新撰寫工作流程，以依賴 Linux 殼層環境 (Bash)。 如需使用 Oozie 殼層動作的詳細資訊，請參閱 [Oozie 殼層動作擴充功能](https://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html)。
 
 如果您有使用 C# 應用程式的工作流程，請在 Linux 環境中驗證這些應用程式。 如需詳細資訊，請參閱[將 .NET 方案移轉至以 Linux 為基礎的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)。
 

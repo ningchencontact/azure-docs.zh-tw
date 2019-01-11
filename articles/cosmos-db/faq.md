@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 70feaae718bc6ff8e3f956f0fbc6aa395ba27061
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: ede900e135960141ed65b54dc876b1c0c2b90aaa
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410392"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809262"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>關於 Azure Cosmos DB 內不同 API 的常見問題集
 
@@ -26,7 +26,7 @@ Azure Cosmos DB DocumentDB API 或 SQL (DocumentDB) API 現在也稱為 Azure Co
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Azure DocumentDB 服務有何改變？
 
-Azure DocumentDB 服務現在是 Azure Cosmos DB 服務的一部分，且本身以 SQL API 形式呈現。 針對 Azure DocumentDB 所建置的應用程式可在不變更 Azure Cosmos DB SQL API 的情況下執行。 此外，Azure Cosmos DB 支援 Gremlin API、資料表 API、MongoDB API 和 Cassandra API (預覽)。
+Azure DocumentDB 服務現在是 Azure Cosmos DB 服務的一部分，且本身以 SQL API 形式呈現。 針對 Azure DocumentDB 所建置的應用程式可在不變更 Azure Cosmos DB SQL API 的情況下執行。 Cosmos DB 還直接在服務上實作[Cassandra](cassandra-introduction.md)、[MongoDB](mongodb-introduction.md)、[Gremlin](graph-introduction.md) 和 [Azure 表格儲存體](table-introduction.md)線路通訊協定。 這可讓您將常用的 NoSQL API 的用戶端驅動程式 (和工具) 直接指向您的 Cosmos 資料庫。
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Azure Cosmos DB 有哪些一般使用案例？
 
@@ -36,11 +36,11 @@ Azure DocumentDB 服務現在是 Azure Cosmos DB 服務的一部分，且本身�
 
 [要求單位](request-units.md) (RU) 是 Azure Cosmos DB 的輸送量計算單位。 1 RU 的輸送量會對應至 1KB 文件的 GET 輸送量。 根據完成作業所需的輸送量，Azure Cosmos DB 中的每個作業 (包括讀取、寫入、SQL 查詢和預存程序執行) 具有決定性的 RU 值。 您可以就單一 RU 計量來思考，而不是思考 CPU、IO 和記憶體以及它們分別如何影響您的應用程式輸送量。
 
-您可以按照每秒輸送量 RU 的佈建輸送量保留每個 Azure Cosmos DB 容器。 對於任何規模的應用程式，您可以將個別要求設為基準以測量其 RU 值，以及佈建容器來處理所有要求的要求單位總數。 您也可以隨著應用程式發展需求，相應增加或減少容器的輸送量。 如需有關要求單位的詳細資訊，以及用於判斷容器需求的說明，請參閱[輸送量計算機](https://www.documentdb.com/capacityplanner) \(英文\)。 這裡的「容器」一詞指的是 SQL API 集合、Gremlin API 圖形、MongoDB API 集合及資料表 API 資料表。
+您可以按照每秒輸送量 RU 的佈建輸送量設定每個 Azure Cosmos DB 容器。 對於任何規模的應用程式，您可以將個別要求設為基準以測量其 RU 值，以及佈建容器來處理所有要求的要求單位總數。 您也可以隨著應用程式發展需求，相應增加或減少容器的輸送量。 如需有關要求單位的詳細資訊，以及用於判斷容器需求的說明，請參閱[輸送量計算機](https://www.documentdb.com/capacityplanner) \(英文\)。
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Azure Cosmos DB 如何支援各種資料模型，例如索引鍵/值、單欄式資料、文件和圖形？
 
-索引鍵/值、單欄式資料、文件和圖形都是原生支援的模型，因為 Azure Cosmos DB 內建 ARS (原子、記錄、序列) 設計。 原子、記錄、序列可以輕易地對應並且投射至各種資料模型。 目前已有適用於各種模型子集合的 API (SQL、MongoDB、資料表、Gremlin API)，未來會有更多用於其他特定資料模型的 API。
+索引鍵/值、單欄式資料、文件和圖形都是原生支援的模型，因為 Azure Cosmos DB 內建 ARS (原子、記錄、序列) 設計。 原子、記錄、序列可以輕易地對應並且投射至各種資料模型。 目前已有適用於各種模型子集合的 API (SQL、MongoDB、資料表、Gremlin)，未來會有更多用於其他特定資料模型的 API。
 
 Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌之資料的索引，且不需要查詢任何結構描述或開發者的次要索引。 引擎依賴一組邏輯索引配置 (反向式、單欄式、樹狀目錄)，可將儲存配從索引和查詢的處理子系統分離。 Cosmos DB 也可以擴充支援一些有線網路通訊協定和 API，並將它們有效地轉譯成核心資料模型 (1) 和邏輯索引配置，(2) 造就其原生支援多個資料模型的獨特能力。
 
@@ -62,7 +62,7 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Azure Cosmos DB 的費用是多少？
 
-如需詳細資料，請參閱 [Azure Cosmos DB 定價詳細資料](https://azure.microsoft.com/pricing/details/cosmos-db/)頁面。 Azure Cosmos DB 使用量費用取決於已佈建的容器數目、容器在線上的時數，以及每個容器的佈建輸送量。 這裡的「容器」一詞指的是 SQL API 集合、Gremlin API (Graph)、MongoDB API 集合及資料表 API 資料表。
+如需詳細資料，請參閱 [Azure Cosmos DB 定價詳細資料](https://azure.microsoft.com/pricing/details/cosmos-db/)頁面。 Azure Cosmos DB 使用量費用取決於已佈建的容器數目、容器在線上的時數，以及每個容器的佈建輸送量。
 
 ### <a name="is-a-free-account-available"></a>有免費的帳戶嗎？
 
@@ -105,7 +105,7 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>如何註冊 Azure Cosmos DB？
 
-Azure 入口網站中已提供 Azure Cosmos DB。 首先，請註冊 Azure 訂用帳戶。 註冊後，您就可以將 SQL API、Gremlin API、資料表 API、MongoDB API 或 Cassandra API 帳戶新增至您的 Azure 訂用帳戶。
+Azure 入口網站中已提供 Azure Cosmos DB。 首先，請註冊 Azure 訂用帳戶。 註冊之後，您就可以將 Azure Cosmos DB 帳戶新增至您的 Azure 訂用帳戶。
 
 ### <a name="what-is-a-master-key"></a>什麼是主要金鑰？
 
@@ -153,7 +153,7 @@ GitHub 上提供 SQL API [.NET](sql-api-dotnet-samples.md)、[Java](https://gith
 
 容器是一組文件及其相關聯的 JavaScript 應用程式邏輯。 容器是計費實體，其[成本](performance-levels.md)是由輸送量和使用的儲存體所決定。 容器可以跨越一或多個磁碟分割或伺服器，也可以進行調整以處理幾乎無限量的儲存體或輸送量。
 
-* 針對 SQL 和 MongoDB API 帳戶，容器會對應至集合。
+* 針對 SQL API 和適用於 MongoDB 帳戶的 Cosmos DB API，容器會對應至集合。
 * 針對 Cassandra 和資料表 API 帳戶，容器會對應至資料表。
 * 針對 Gremlin API 帳戶，容器會對應至圖表。
 
@@ -183,7 +183,7 @@ SQL API 透過 HTTP 實體標記或 ETag，支援開放式並行存取控制 (OC
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>我如何在 SQL API 中執行交易？
 
-SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交易。 指令碼內的所有資料庫作業都會在快照隔離的情況下執行。 如果是單一資料分割集合，執行範圍將限制為該集合。 如果集合已經過資料分割，執行範圍將限制為集合內具有相同資料分割索引鍵值的文件。 文件版本 (ETag) 的快照是在交易開始時取得，且只有當指令碼成功執行時才會認可。 如果 JavaScript 擲回錯誤，則會回復交易。 如需詳細資訊，請參閱 [Azure Cosmos DB 的伺服器端 JavaScript 程式設計](programming.md)。
+SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交易。 指令碼內的所有資料庫作業都會在快照隔離的情況下執行。 如果是單一資料分割集合，執行範圍將限制為該集合。 如果集合已經過資料分割，執行範圍將限制為集合內具有相同資料分割索引鍵值的文件。 文件版本 (ETag) 的快照是在交易開始時取得，且只有當指令碼成功執行時才會認可。 如果 JavaScript 擲回錯誤，則會回復交易。 如需詳細資訊，請參閱 [Azure Cosmos DB 的伺服器端 JavaScript 程式設計](stored-procedures-triggers-udfs.md)。
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>如何將大量文件插入 Cosmos DB？
 
@@ -191,7 +191,7 @@ SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交
 
 * 大量執行程式工具，如[使用大量執行程式工具 .NET 程式庫](bulk-executor-dot-net.md)和[使用大量執行程式工具 Java 程式庫](bulk-executor-java.md)中所述
 * 資料移轉工具，如 [Azure Cosmos DB 的資料庫移轉工具](import-data.md)中所述。
-* 預存程序，如 [Azure Cosmos DB 的伺服器端 JavaScript 程式設計](programming.md)中所述。
+* 預存程序，如 [Azure Cosmos DB 的伺服器端 JavaScript 程式設計](stored-procedures-triggers-udfs.md)中所述。
 
 ### <a name="ive-set-up-my-container-to-use-lazy-indexing-i-see-that-my-queries-dont-return-expected-results"></a>我已將容器設定為使用延遲索引，但我發現查詢不會傳回預期的結果。
 
@@ -213,32 +213,32 @@ SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交
 
 您可以在容器層級和其子系 (例如文件、附件) 使用 ResourceTokens 來建立權限。 這意味著目前不允許在資料庫或帳戶層級嘗試建立權限。
 
-## <a name="mongodb-api"></a>MongoDB API
+## <a name="azure-cosmos-dbs-api-for-mongodb"></a>適用於 MongoDB 的 Azure Cosmos DB API
 
-### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>什麼是適用於 MongoDB 的 Azure Cosmos DB API？
+### <a name="what-is-the-azure-cosmos-dbs-api-for-mongodb"></a>什麼是適用於 MongoDB 的 Azure Cosmos DB API？
 
-適用於 MongoDB 的 Azure Cosmos DB API 是一個相容性層級，可讓應用程式使用社群支援的現有 Apache MongoDB API 和驅動程式，輕鬆且透明地與原生 Azure Cosmos DB 資料庫引擎通訊。 開發人員現在可以使用現有的 MongoDB 工具鏈結和技術，建置充分利用 Azure Cosmos DB 的應用程式。 開發人員能從 Azure Cosmos DB 的獨特功能受益，包括自動編製索引、備份維護、有金錢補償的服務等級協定 (SLA) 等。
+適用於 MongoDB 的 Azure Cosmos DB API 是線路協議相容性階層，可讓應用程式使用社群支援的現有 SDK 和適用於 MongoDB 的驅動程式，以簡易且透明的方式與原生 Azure Cosmos DB 資料庫引擎通訊。開發人員現在可以使用現有的 MongoDB 工具鏈和技能來建置可運用 Azure Cosmos DB 優勢的應用程式。 開發人員能從 Azure Cosmos DB 的獨特功能受益，包括使用多主機複寫的全域散發功能、自動編製索引、備份維護、有金錢補償的服務等級協定 (SLA) 等。
 
-### <a name="how-do-i-connect-to-my-api-for-mongodb-database"></a>如何連線我的 API for MongoDB 資料庫？
+### <a name="how-do-i-connect-to-my-database"></a>我要如何連線到我的資料庫？
 
-直接前往 [Azure 入口網站](https://portal.azure.com)，是連接適用於 MongoDB 之 Azure Cosmos DB API 最快的方式。 移至您的帳戶，然後在左側瀏覽功能表中按一下 [快速入門]。 [快速入門] 是取得程式碼片段以連接資料庫的最佳方式。
+若要使用適用於 MongoDB 的 Azure Cosmos DB API 來連線至 Cosmos 資料庫，最快的方式是直接前往 [Azure 入口網站](https://portal.azure.com)。 移至您的帳戶，然後在左側瀏覽功能表中按一下 [快速入門]。 [快速入門] 是取得程式碼片段以連接資料庫的最佳方式。
 
 Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos DB 帳戶需要驗證和透過 SSL 的安全通訊，因此請務必使用 TLSv1.2。
 
-如需詳細資訊，請參閱[連線到 API for MongoDB 資料庫](connect-mongodb-account.md)。
+如需詳細資訊，請參閱[使用適用於 MongoDB 的 Azure Cosmos DB API 連線到 Cosmos 資料庫](connect-mongodb-account.md)。
 
-### <a name="are-there-additional-error-codes-for-an-api-for-mongodb-database"></a>API for MongoDB 資料庫是否有其他錯誤碼？
+使用適用於 MongoDB 的 Azure Cosmos DB API 時，是否有其他必須處理的錯誤碼？
 
-除了常見的 MongoDB 錯誤碼，MongoDB API 有自己專用的錯誤碼：
+除了常見的 MongoDB 錯誤碼，適用於 MongoDB 的 Azure Cosmos DB API 有專用錯誤碼：
 
 | Error               | 代碼  | 說明  | 解決方法  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | 取用的要求單位總數已超過針對集合佈建的要求單位率並已進行節流。 | 請考慮從 Azure 入口網站調整指派給容器或容器集的輸送量，或重試一次。 |
 | ExceededMemoryLimit | 16501 | 做為多租用戶服務，作業已超出用戶端的記憶體配額。 | 透過更嚴格的查詢準則來縮小作業的範圍，或經由 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡支援人員。 <br><br>範例：*&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name:"Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
-### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmosdb-mongodb-api"></a>適用於 MongoDB 的 Simba 驅動程式是否支援與 Azure CosmosDB MongoDB API 搭配使用？
+### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>適用於 MongoDB 的 Simba 驅動程式是否支援與適用於 MongoDB 的 Azure Cosmos DB API 搭配使用？
 
-是的，您可以使用 Simba 的 Mongo ODBC 驅動程式搭配 Azure CosmosDB MongoDB API
+是的，您可以使用 Simba 的 Mongo ODBC 驅動程式搭配適用於 MongoDB 的 Azure Cosmos DB API
 
 ## <a id="table"></a>資料表 API
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 1bcd9dfe2d7a846dd040944509be916c1964ba48
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4796dc50447b94b01d9bb4625ca9a69a73850fcd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420382"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994397"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 資料靜態加密
 
@@ -104,7 +104,7 @@ Microsoft 致力於為所有雲端服務提供靜態加密選項，並給予客�
 - 客戶在內部部署環境 (或其他安全的儲存區中) 管理或儲存金鑰。 金鑰無法供 Azure 服務使用
 - 縮減的雲端功能
 
-Azure 中支援的模型如先前所述區分成兩個主要群組：「用戶端加密」和「伺服器端加密」。 除了所使用的加密靜態模型之外，Azure 服務一律建議使用諸如 TLS 或 HTTPS 等安全的傳輸。 因此，傳輸中的加密應該由傳輸通訊協定來處理，且不應作為要使用哪個靜態加密模型的主要判斷因素。
+Azure 中支援的加密模型區分成兩個主要群組：「用戶端加密」和「伺服器端加密」，如先前所述。 除了所使用的加密靜態模型之外，Azure 服務一律建議使用諸如 TLS 或 HTTPS 等安全的傳輸。 因此，傳輸中的加密應該由傳輸通訊協定來處理，且不應作為要使用哪個靜態加密模型的主要判斷因素。
 
 ### <a name="client-encryption-model"></a>用戶端加密模型
 
@@ -262,6 +262,7 @@ Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶�
 | 磁碟 (IaaS)                      | -                  | 是，RSA 2048 位元  | -                  |
 | SQL Server (IaaS)                | 是                | 是，RSA 2048 位元  | 是                |
 | Azure SQL (資料庫/資料倉儲) | 是                | 是，RSA 2048 位元  | 是                |
+| Azure SQL (資料庫受控執行個體) | 是                | 預覽，RSA 2048 位元  | 是                |
 | Azure 儲存體 (區塊/分頁 Blob) | 是                | 是，RSA 2048 位元  | 是                |
 | Azure 儲存體 (檔案)            | 是                | 是，RSA 2048 位元  | -                  |
 | Azure 儲存體 (資料表、佇列)   | 是                | -                  | 是                |

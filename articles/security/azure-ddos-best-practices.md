@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4496a0fd3ec220d03c4cc279876234b503b0dbb6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231618"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720861"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS 保護：最佳做法與參考架構
 
@@ -81,7 +81,7 @@ Azure 客戶可藉由檢閱 Microsoft 的最佳做法，以及全域建置針對
 
 延展性是指系統能夠處理負載增加的能力。 您必須將應用程式設計為可[水平調整](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)以滿足放大負載的需求，遭遇 DDoS 攻擊時尤其需要。 如果您的應用程式相依於服務的單一執行個體，它會建立單一失敗點。 佈建多個執行個體可讓系統更有彈性且更具延展性。
 
-對於 [Azure App Service](../app-service/app-service-value-prop-what-is.md)，請選擇可提供多個執行個體的 [App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 對於 Azure 雲端服務，設定您的每個角色以使用[多個執行個體](../cloud-services/cloud-services-choose-me.md)。 對於 [Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，確保虛擬機器 (VM) 架構包含多個 VM，而且每個 VM 都包含於[可用性設定組](../virtual-machines/virtual-machines-windows-manage-availability.md)中。 建議您使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)，自動調整功能。
+對於 [Azure App Service](../app-service/app-service-value-prop-what-is.md)，請選擇可提供多個執行個體的 [App Service 方案](../app-service/overview-hosting-plans.md)。 對於 Azure 雲端服務，設定您的每個角色以使用[多個執行個體](../cloud-services/cloud-services-choose-me.md)。 對於 [Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，確保虛擬機器 (VM) 架構包含多個 VM，而且每個 VM 都包含於[可用性設定組](../virtual-machines/virtual-machines-windows-manage-availability.md)中。 建議您使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)，自動調整功能。
 
 ### <a name="defense-in-depth"></a>深層防禦
 
@@ -265,7 +265,7 @@ Azure 標準 DDoS 保護會識別 DDoS 攻擊並降低風險，無須使用者�
 
 #### <a name="paas-web-application"></a>PaaS Web 應用程式
 
-此參考架構示範如何在單一區域中執行 Azure App Service 應用程式。 此架構針對使用 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) 和 [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/) 的 Web 應用程式，示範一組經過證實的做法。
+此參考架構示範在單一區域中執行的 Azure App Service 應用程式。 此架構針對使用 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) 和 [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/) 的 Web 應用程式，示範一組經過證實的做法。
 針對容錯移轉案例，會設定一個待命區域。
 
 ![PaaS Web 應用程式的架構參考圖](media/azure-ddos-best-practices/image11.png)

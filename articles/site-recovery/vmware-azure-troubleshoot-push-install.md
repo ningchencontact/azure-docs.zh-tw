@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 12/12/2018
-ms.openlocfilehash: 748f4e56b4b7fa52928f8f6507960ec35b5fe6e5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314392"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789902"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>針對行動服務推送安裝問題進行疑難排解
 
@@ -135,9 +135,8 @@ ms.locfileid: "53314392"
 
 ## <a name="unsupported-operating-systems"></a>不支援的作業系統
 
-失敗的另一個最常見原因可能是由於不支援的作業系統。 請確定您在可成功安裝行動服務的受支援作業系統/核心版本上。
-
-若要深入了解 Azure Site Recovery 支援哪些作業系統，請參閱我們的[支援矩陣文件](vmware-physical-azure-support-matrix.md#replicated-machines)。
+失敗的另一個最常見原因可能是由於不支援的作業系統。 請確定您在可成功安裝行動服務的受支援作業系統/核心版本上。 請避免使用私人的修補程式。
+若要檢視 Azure Site Recovery 所支援的作業系統和核心版本的清單，請參閱我們的[支援矩陣文件](vmware-physical-azure-support-matrix.md#replicated-machines)。
 
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>開機與系統磁碟分割/磁碟區不是同一個磁碟 (錯誤識別碼：95309)
 
@@ -146,6 +145,10 @@ ms.locfileid: "53314392"
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>系統磁碟分割位於多個磁碟上 (錯誤識別碼：95313)
 
 9.20 之前的版本不支援開機磁碟分割或磁碟區位於多個磁碟的設定。 從 [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)開始支援這樣的設定。 請使用最新版本以取得此支援。
+
+## <a name="grub-uuid-failure-errorid-95320"></a>GRUB UUID 失敗 (錯誤識別碼：95320)
+
+如果來源機器的 GRUB 使用裝置名稱而非 UUID，則行動代理程式安裝將會失敗。 請連絡系統管理員以變更 GRUB 檔案。
 
 ## <a name="lvm-support-from-920-version"></a>從 9.20 版開始支援 LVM
 

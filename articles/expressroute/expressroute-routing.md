@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 73dc4b14214c10966dca1a6cd7ebd41af019f640
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 5dde36bb8710190627a8780ed740957e62a57da0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406550"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994576"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由需求
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理路由。 有些連線提供者會以受控服務形式提供路由的設定和管理。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵循下列需求：
@@ -135,7 +135,7 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 
  若要能夠連接其他 Azure 服務和基礎結構服務，您必須確定已備妥下列其中一個項目︰
 
-* 啟用 Azure 公用對等互連以將流量路由傳送至公用端點
+* 啟用 Azure 公用對等互連以將流量路由傳送至公用端點。
 * 您可使用使用者定義的路由，讓需要網際網路連線的每個子網路進行網際網路連線。
 
 > [!NOTE]

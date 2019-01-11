@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure Cosmos DB 中的計量進行監視及偵錯
 description: 使用 Azure Cosmos DB 中的計量偵錯常見問題及監控資料庫。
-services: cosmos-db
 ms.service: cosmos-db
 author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.openlocfilehash: 8461797e0c3b8d92466c37c5564df895e494ce74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: sngun
+ms.openlocfilehash: ff6e0b6084eebf236d01b4dd00a46897687938c2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957584"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034721"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的計量進行監視及偵錯
 
@@ -38,7 +38,7 @@ Azure Cosmos DB 為輸送量、儲存體、一致性、可用性和延遲提供�
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>判斷所有磁碟分割中的儲存體分佈
 
-良好的磁碟分割基數對於任何種類的可調整應用程式都很重要。 若要判斷任何分割容器的輸送量分佈且能細分至分割區，請前往 [Azure 入口網站](https://portal.azure.com)中的 [計量] 刀鋒視窗。 在 [輸送量] 索引標籤上，儲存體細目顯示在每個實體磁碟分割每秒使用的最多 RU 圖表中。 下圖說明資料分佈不佳的情況，如最左側有誤差的磁碟分割所示。
+良好的磁碟分割基數對於任何種類的可調整應用程式都很重要。 若要判斷任何分割容器的儲存體分佈且能細分至分割區，請前往 [Azure 入口網站](https://portal.azure.com)中的 [計量] 刀鋒視窗。 在 [儲存體] 索引標籤中，儲存體分佈顯示在前幾大分割區索引鍵圖表使用的「資料 + 索引」儲存體。 下圖說明資料儲存體分佈不佳的情況，如最左側有誤差的磁碟分割所示。
 
 ![資料分佈不佳的範例](media/use-metrics/metrics-07.png)
 

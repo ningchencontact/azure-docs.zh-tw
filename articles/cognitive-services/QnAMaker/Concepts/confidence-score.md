@@ -6,17 +6,17 @@ services: cognitive-services
 author: tulasim88
 manager: pchoudh
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 8fe4ecfe241422c03a2de8d0634ef1e1395aa050
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9f5aedfc28c8aa0835c865cc2041f66abef39d5f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081314"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724686"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的信賴分數
 當使用者查詢與某個知識庫相符時，QnA Maker 會傳回相關的答案以及信賴分數。 此分數表示該答案針對指定之使用者查詢正確比對的信賴度。 
@@ -38,7 +38,7 @@ ms.locfileid: "53081314"
 
 |分數值|分數意義|範例查詢|
 |--|--|--|
-|90 - 100|使用者查詢和 KB 問題接近完全相符|「我的變更在發行後並未在知識庫中更新」|
+|90 - 100|使用者查詢和 KB 問題接近完全相符|「我的變更在發行後並未在 KB 中更新」|
 |> 70|高信賴度：通常是良好的答案，能完整回答使用者查詢|「我發行了我的 KB 但它不會更新」|
 |50 - 70|中信賴度：通常是相當不錯的答案，能回答使用者查詢的主要意圖|「我應該要先儲存更新再發行 KB 嗎？」|
 |30 - 50|低信賴度：通常是相關聯的答案，能對使用者意圖進行部分的回答|「儲存和訓練的作用為何？」|
@@ -58,7 +58,7 @@ ms.locfileid: "53081314"
 > 較新的 QnA Maker 版本包括改善評分邏輯，並可能影響您的閾值。 每當您更新服務時，請務必視需要測試和調整閾值。 您可以[在此](https://www.qnamaker.ai/UserSettings)檢查您的 QnA 服務版本，並[在此](../How-To/troubleshooting-runtime.md)了解如何取得最新的更新。
 
 ## <a name="improve-confidence-scores"></a>改善信賴分數
-若要改善使用者查詢特定回應的信賴分數，您可以將使用者查詢加入至知識庫做為該回應的替代問題。
+若要改善使用者查詢特定回應的信賴分數，您可以將使用者查詢加入至知識庫做為該回應的替代問題。 您也可以使用[文字變異形式](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd)將同義字新增至 KB 中的關鍵字。
 
 
 ## <a name="similar-confidence-scores"></a>類似的信賴分數

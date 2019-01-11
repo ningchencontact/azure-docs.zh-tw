@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 3a65b66619351462fcd9c77c3fb9b935cf99ebcc
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 46791468e094ffb17a6dc9993b2cf8623a72b9b3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496461"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53968803"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>開始使用 Azure HDInsight 上的 ML 服務
 
-Azure HDInsight 可讓您建立 ML 服務叢集。 此選項可讓 R 指令碼使用 [Apache Spark](https://spark.apache.org/) \(英文\) 和 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) \(英文\) 來執行分散式計算。 在此文章中，您將了解如何在 HDInsight 上建立 ML 服務叢集，以及如何執行 R 指令碼以示範使用 Spark 進行分散式 R 計算的方式。
+Azure HDInsight 可讓您建立 ML 服務叢集。 此選項可讓 R 指令碼使用 [Apache Spark](https://spark.apache.org/) \(英文\) 和 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) \(英文\) 來執行分散式計算。 在本文中，您將了解如何在 HDInsight 上建立 ML 服務叢集，以及如何執行 R 指令碼以示範使用 Spark 進行分散式 R 計算的方式。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -31,13 +31,13 @@ Azure HDInsight 可讓您建立 ML 服務叢集。 此選項可讓 R 指令碼�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 按一下 [建立資源] > [資料 + 分析] > [HDInsight]。
+2. 瀏覽至 [+ 建立資源] > [分析] > [HDInsight]。
 
 3. 從 [基本概念]，輸入以下資訊：
 
-    * **叢集名稱**︰HDInsight 叢集的名稱。
-    * **訂用帳戶**：選取要使用的訂用帳戶。
-    * **叢集登入使用者名稱**和**叢集登入密碼**：透過 HTTPS 存取叢集時使用的登入資訊。 您會使用這些認證來存取 Apache Ambari Web UI 或 REST API 之類的服務。
+    * **叢集名稱**：HDInsight 叢集的名稱。
+    * 訂用帳戶：選取要使用的訂用帳戶。
+    * [叢集登入使用者名稱] 和 [叢集登入密碼]：透過 HTTPS 存取叢集時的登入資訊。 您會使用這些認證來存取 Apache Ambari Web UI 或 REST API 之類的服務。
     * **安全殼層 (SSH) 使用者名稱**：透過 SSH 存取叢集時使用的登入資訊。 依預設，密碼要與叢集登入密碼相同。
     * **資源群組**：在其中建立叢集的資源群組。
     * **位置**：在其中建立叢集的 Azure 區域。
@@ -52,13 +52,13 @@ Azure HDInsight 可讓您建立 ML 服務叢集。 此選項可讓 R 指令碼�
 
     * **版本**：ML Server 9.3 (HDI 3.6)。 ML Server 9.3 的版本資訊可在 [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-machine-learning-server) 上取得。
 
-    * **ML 伺服器的 R Studio Community 版本**︰邊緣節點上依預設會安裝以瀏覽器為基礎的 IDE。 如果您不想加以安裝，請清除此核取方塊。 如果您選擇安裝它，則在建立後，可在叢集的入口網站應用程式刀鋒視窗上，取得用來存取 RStudio Server 登入的 URL。
+    * **適用於 ML Server 的 R Studio Community Edition**：邊緣節點上依預設會安裝這個以瀏覽器為基礎的 IDE。 如果您不想加以安裝，請清除此核取方塊。 如果您選擇安裝它，則在建立後，可在叢集的入口網站應用程式刀鋒視窗上，取得用來存取 RStudio Server 登入的 URL。
 
         ![叢集基本詳細資料](./media/r-server-get-started/clustertypeconfig.png)
 
 4. 選取叢集類型之後，請使用 [選取] 按鈕來設定叢集類型。 接下來，使用 [下一步] 按鈕來完成基本組態。
 
-5. 從 [儲存體] 區段中，選取或建立儲存體帳戶。 此文件的步驟是，將此區段中的其他欄位保留為預設值。 使用 [下一步] 按鈕以儲存儲存體組態。
+5. 從 [儲存體] 區段中，選取或建立儲存體帳戶。 本文件的步驟是，將此區段中的其他欄位保留為預設值。 使用 [下一步] 按鈕以儲存儲存體組態。
 
     ![設定 HDInsight 的儲存體帳戶](./media/r-server-get-started/cluster-storage.png)
 
@@ -66,7 +66,7 @@ Azure HDInsight 可讓您建立 ML 服務叢集。 此選項可讓 R 指令碼�
 
     ![設定 HDInsight 的儲存體帳戶](./media/r-server-get-started/clustersummary.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > 建立叢集可能需要花費 20 分鐘的時間。
 
 <a name="connect-to-rstudio-server"></a>
@@ -78,15 +78,16 @@ Azure HDInsight 可讓您建立 ML 服務叢集。 此選項可讓 R 指令碼�
 
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
-* **選項 2** - 在 Azure 入口網站中開啟 ML 服務叢集，並在 [快速連結] 下按一下 [ML 服務儀表板]。
-
-     ![設定 HDInsight 的儲存體帳戶](./media/r-server-get-started/dashboard-quick-links.png)
-
-    從 [叢集儀表板] 中，按一下 [R Studio Server]。
+* **選項 2** - 使用 Azure 入口網站。
+從入口網站：
+  1. 從左側功能表中選取 [所有服務]。
+  2. 在 [分析] 底下，選取 [HDInsight 叢集]。
+  3. 從 [HDInsight 叢集] 頁面選取您的叢集名稱。
+  4. 從 [ML 服務儀表板] 中選取 [R Studio 伺服器]。 
 
     ![設定 HDInsight 的儲存體帳戶](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > 不論使用哪一種方法，第一次登入時都必須驗證兩次。  第一次出現驗證提示時，請提供「叢集管理員的使用者識別碼」和「密碼」。 第二次出現驗證提示時，請提供「SSH 使用者識別碼」和「密碼」。 之後再登入時，只需要提供 SSH 認證。
 
 一旦連線後，您的畫面看起來應該像下列螢幕擷取畫面：
@@ -221,11 +222,11 @@ Azure HDInsight 可讓您建立 ML 服務叢集。 此選項可讓 R 指令碼�
 
 ## <a name="troubleshoot"></a>疑難排解
 
-如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](../hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](../hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-在此文章中，您已了解如何在 Azure HDInsight 中建立新的 ML 服務叢集，以及從 SSH 工作階段使用 R 主控台的基本概念。 下列文章說明，在 HDInsight 上管理和使用 ML 服務的其他方式：
+在本文中，您已了解如何在 Azure HDInsight 中建立新的 ML 服務叢集，以及從 SSH 工作階段使用 R 主控台的基本概念。 下列文章說明，在 HDInsight 上管理和使用 ML 服務的其他方式：
 
 * [從 Visual Studio R 工具提交作業](r-server-submit-jobs-r-tools-vs.md)
 * [在 HDInsight 上管理 ML 服務叢集](r-server-hdinsight-manage.md)

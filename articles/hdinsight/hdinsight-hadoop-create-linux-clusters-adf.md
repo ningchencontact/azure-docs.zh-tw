@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: c7ec0b29e200710070cb1243ff8bfadd5e31e8eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7b20ceb61f522bea11e7256c824a851e587cbd49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879404"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975452"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>教學課程：使用 Azure Data Factory 在 HDInsight 中建立隨選 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -55,7 +55,7 @@ ms.locfileid: "52879404"
 
 
 **使用 Azure PowerShell 建立儲存體帳戶並複製檔案：**
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 指定指令碼會建立之 Azure 資源群組和 Azure 儲存體帳戶的名稱。
 > 記下指令碼所輸出的**資源群組名稱**、**儲存體帳戶名稱**和**儲存體帳戶金鑰**。 您在下一節中需要這些資料。
 
@@ -166,7 +166,11 @@ Write-host "`nScript completed" -ForegroundColor Green
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1. 在 Azure 入口網站中，選取 [建立資源] > [資料 + 分析] > [Data Factory]。
+1. 在左側功能表中，選取 [+ 建立資源]。
+
+1. 在 [Azure Marketplace] 下方，選取 [分析]。
+
+1.  在 [精選] 下方，選取 [Data Factory]。
 
     ![入口網站上的 Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "入口網站上的 Azure Data Factory")
 
@@ -181,19 +185,18 @@ Write-host "`nScript completed" -ForegroundColor Green
     |**名稱** |  輸入資料處理站的名稱。 此名稱必須是全域唯一的。|
     |**訂用帳戶**     |  選取 Azure 訂用帳戶。 |
     |**資源群組**     | 選取 [使用現有的]，然後選取您使用 PowerShell 指令碼建立的資源群組。 |
-    |**版本**     | 選取 [V2 (預覽)] |
-    |**位置**     | 系統會自動將位置設定為您先前在建立資源群組時所指定的位置。 針對本教學課程，位置會設定為 [美國東部 2]。 |
+    |**版本**     | 選取 [V2] |
+    |**位置**     | 系統會自動將位置設定為您先前在建立資源群組時所指定的位置。 針對本教學課程，位置會設定為 [美國東部]。 |
     
 
-1. 選取 [釘選到儀表板]，然後選取 [建立]。 您應該會在入口網站儀表板上看到標題為**正在提交部署**的新圖格。 建立資料處理站可能需要 2 到 4 分鐘的時間。
+1. 選取 [建立] 。 建立資料處理站可能需要 2 到 4 分鐘的時間。
 
-    ![範本部署進度](./media/hdinsight-hadoop-create-linux-clusters-adf/deployment-progress-tile.png "範本部署進度") 
- 
-1. 建立資料處理站之後，入口網站就會顯示該資料處理站的概觀。
 
-    ![Azure Data Factory 概觀](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory 概觀")
+1. 資料處理站建立好之後，您會收到**部署成功**通知，內有 [移至資源] 按鈕。  選取 [移至資源]，以開啟 [Data Factory] 預設檢視。
 
 1. 選取 [撰寫與監視] 以啟動 Azure Data Factory 撰寫與監視入口網站。
+
+    ![Azure Data Factory 概觀](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory 概觀")
 
 ## <a name="create-linked-services"></a>建立連結的服務
 

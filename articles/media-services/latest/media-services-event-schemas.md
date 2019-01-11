@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 12/05/2018
+ms.date: 12/24/2018
 ms.author: juliako
-ms.openlocfilehash: 9de0d8bc389218d3102633b09073b3af323d2ceb
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c5332cd2613bc64e3dda143381f37d27b54aa922
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011989"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789224"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure 媒體服務事件的 Azure 事件格線結構描述
 
@@ -134,7 +134,7 @@ ms.locfileid: "53011989"
     "previousState": "Scheduled",
     "state": "Processing",
     "correlationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -168,7 +168,7 @@ ms.locfileid: "53011989"
     "previousState": "Processing",
     "state": "Finished",
     "correlationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -205,7 +205,7 @@ ms.locfileid: "53011989"
       "state": "Finished"
     },
     "jobCorrelationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -236,7 +236,7 @@ ms.locfileid: "53011989"
       "state": "Processing"
     },
     "jobCorrelationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -258,13 +258,14 @@ ms.locfileid: "53011989"
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "b303db59-d5c1-47eb-927a-3650875fded1",
     "data": { 
-      "StreamId":"Mystream1",
-      "IngestUrl": "http://abc.ingest.isml",
-      "EncoderIp": "118.238.251.xxx",
-      "EncoderPort": 52859,
-      "ResultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
+      "streamId":"Mystream1",
+      "ingestUrl": "http://abc.ingest.isml",
+      "encoderIp": "118.238.251.xxx",
+      "encoderPort": 52859,
+      "resultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -273,10 +274,10 @@ ms.locfileid: "53011989"
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| StreamId | 字串 | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中新增此識別碼。 |  
-| IngestUrl | 字串 | 即時事件所提供的內嵌 URL。 |  
-| EncoderIp | 字串 | 編碼器的 IP。 |
-| EncoderPort | 字串 | 此資料流來源編碼器的連接埠。 |
+| streamId | 字串 | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中新增此識別碼。 |  
+| ingestUrl | 字串 | 即時事件所提供的內嵌 URL。 |  
+| encoderIp | 字串 | 編碼器的 IP。 |
+| encoderPort | 字串 | 此資料流來源編碼器的連接埠。 |
 | ResultCode | 字串 | 連線遭到拒絕的原因。 結果碼列於下表。 |
 
 結果碼如下：
@@ -320,10 +321,10 @@ ms.locfileid: "53011989"
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| StreamId | 字串 | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中提供此識別碼。 |
-| IngestUrl | 字串 | 即時事件所提供的內嵌 URL。 |
-| EncoderIp | 字串 | 編碼器的 IP。 |
-| EncoderPort | 字串 | 此資料流來源編碼器的連接埠。 |
+| streamId | 字串 | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中提供此識別碼。 |
+| ingestUrl | 字串 | 即時事件所提供的內嵌 URL。 |
+| encoderIp | 字串 | 編碼器的 IP。 |
+| encoderPort | 字串 | 此資料流來源編碼器的連接埠。 |
 
 ### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -354,10 +355,10 @@ ms.locfileid: "53011989"
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| StreamId | 字串 | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中新增此識別碼。 |  
-| IngestUrl | 字串 | 即時事件所提供的內嵌 URL。 |  
-| EncoderIp | 字串 | 編碼器的 IP。 |
-| EncoderPort | 字串 | 此資料流來源編碼器的連接埠。 |
+| streamId | 字串 | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中新增此識別碼。 |  
+| ingestUrl | 字串 | 即時事件所提供的內嵌 URL。 |  
+| encoderIp | 字串 | 編碼器的 IP。 |
+| encoderPort | 字串 | 此資料流來源編碼器的連接埠。 |
 | ResultCode | 字串 | 編碼器中斷連線的原因。 可能是正常中斷連線或錯誤所致。 結果碼列於下表。 |
 
 錯誤結果碼如下：
@@ -394,14 +395,15 @@ ms.locfileid: "53011989"
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "03da9c10-fde7-48e1-80d8-49936f2c3e7d",
     "data": { 
-      "TrackType": "Video",
-      "TrackName": "Video",
-      "Bitrate": 300000,
-      "Timestamp": 36656620000,
-      "Timescale": 10000000,
-      "ResultCode": "FragmentDrop_OverlapTimestamp"
+      "trackType": "Video",
+      "trackName": "Video",
+      "bitrate": 300000,
+      "timestamp": 36656620000,
+      "timescale": 10000000,
+      "resultCode": "FragmentDrop_OverlapTimestamp"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -410,11 +412,11 @@ ms.locfileid: "53011989"
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| TrackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
-| TrackName | 字串 | 資料軌的名稱。 |
-| Bitrate | integer | 資料軌的位元速率。 |
-| Timestamp | 字串 | 資料區塊的卸除時間戳記。 |
-| 時幅 | 字串 | 時間戳記的時幅。 |
+| trackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
+| trackName | 字串 | 資料軌的名稱。 |
+| bitrate | integer | 資料軌的位元速率。 |
+| timestamp | 字串 | 資料區塊的卸除時間戳記。 |
+| timescale | 字串 | 時間戳記的時幅。 |
 | ResultCode | 字串 | 資料區塊卸除的原因。 **FragmentDrop_OverlapTimestamp** 或 **FragmentDrop_NonIncreasingTimestamp**。 |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
@@ -450,14 +452,14 @@ ms.locfileid: "53011989"
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| TrackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
-| TrackName | 字串 | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate 格式產生)。 |
-| Bitrate | integer | 資料軌的位元速率。 |
-| IngestUrl | 字串 | 即時事件所提供的內嵌 URL。 |
-| EncoderIp | 字串  | 編碼器的 IP。 |
-| EncoderPort | 字串 | 此資料流來源編碼器的連接埠。 |
-| Timestamp | 字串 | 所收到資料區塊的第一個時間戳記。 |
-| 時幅 | 字串 | 用來表示時間戳記的時幅。 |
+| trackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
+| trackName | 字串 | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate 格式產生)。 |
+| bitrate | integer | 資料軌的位元速率。 |
+| ingestUrl | 字串 | 即時事件所提供的內嵌 URL。 |
+| encoderIp | 字串  | 編碼器的 IP。 |
+| encoderPort | 字串 | 此資料流來源編碼器的連接埠。 |
+| timestamp | 字串 | 所收到資料區塊的第一個時間戳記。 |
+| timescale | 字串 | 用來表示時間戳記的時幅。 |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -489,12 +491,12 @@ ms.locfileid: "53011989"
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| MinLastTimestamp | 字串 | 所有資料軌 (音訊或視訊) 最後一個時間戳記之間的最小值。 |
-| TypeOfTrackWithMinLastTimestamp | 字串 | 最後一個時間戳記為最小值的資料軌 (音訊或視訊) 類型。 |
-| MaxLastTimestamp | 字串 | 所有資料軌 (音訊或視訊) 的所有時間戳記之間的最大值。 |
-| TypeOfTrackWithMaxLastTimestamp | 字串 | 最後一個時間戳記為最大值的資料軌 (音訊或視訊) 類型。 |
-| TimescaleOfMinLastTimestamp| 字串 | 取得用來表示 "MinLastTimestamp" 的時幅。|
-| TimescaleOfMaxLastTimestamp| 字串 | 取得用來表示 "MaxLastTimestamp" 的時幅。|
+| minLastTimestamp | 字串 | 所有資料軌 (音訊或視訊) 最後一個時間戳記之間的最小值。 |
+| typeOfTrackWithMinLastTimestamp | 字串 | 最後一個時間戳記為最小值的資料軌 (音訊或視訊) 類型。 |
+| maxLastTimestamp | 字串 | 所有資料軌 (音訊或視訊) 的所有時間戳記之間的最大值。 |
+| typeOfTrackWithMaxLastTimestamp | 字串 | 最後一個時間戳記為最大值的資料軌 (音訊或視訊) 類型。 |
+| timescaleOfMinLastTimestamp| 字串 | 取得用來表示 "MinLastTimestamp" 的時幅。|
+| timescaleOfMaxLastTimestamp| 字串 | 取得用來表示 "MaxLastTimestamp" 的時幅。|
 
 ### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
@@ -509,13 +511,14 @@ ms.locfileid: "53011989"
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "6dd4d862-d442-40a0-b9f3-fc14bcf6d750",
     "data": {
-      "FirstTimestamp": "2162058216",
-      "FirstDuration": "2000",
-      "SecondTimestamp": "2162057216",
-      "SecondDuration": "2000",
+      "firstTimestamp": "2162058216",
+      "firstDuration": "2000",
+      "secondTimestamp": "2162057216",
+      "secondDuration": "2000",
       "timescale": "10000000"      
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -524,11 +527,11 @@ ms.locfileid: "53011989"
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| FirstTimestamp | 字串 | 其中一個視訊類型資料軌/品質層級所收到的時間戳記。 |
-| FirstDuration | 字串 | 具有第一個時間戳記的資料區塊持續時間。 |
-| SecondTimestamp | 字串  | 其他某些視訊類型資料軌/品質層級所收到的時間戳記。 |
-| SecondDuration | 字串 | 具有第二個時間戳記的資料區塊持續時間。 |
-| 時幅 | 字串 | 時間戳記和持續時間的時幅。|
+| firstTimestamp | 字串 | 其中一個視訊類型資料軌/品質層級所收到的時間戳記。 |
+| firstDuration | 字串 | 具有第一個時間戳記的資料區塊持續時間。 |
+| secondTimestamp | 字串  | 其他某些視訊類型資料軌/品質層級所收到的時間戳記。 |
+| secondDuration | 字串 | 具有第二個時間戳記的資料區塊持續時間。 |
+| timescale | 字串 | 時間戳記和持續時間的時幅。|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -566,18 +569,18 @@ ms.locfileid: "53011989"
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| TrackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
-| TrackName | 字串 | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate 格式產生)。 |
-| Bitrate | integer | 資料軌的位元速率。 |
-| IncomingBitrate | integer | 根據來自編碼器的資料區塊所計算出的位元速率。 |
-| LastTimestamp | 字串 | 資料軌在過去 20 秒所收到的最新時間戳記。 |
-| 時幅 | 字串 | 用來表示時間戳記的時幅。 |
-| OverlapCount | integer | 在過去 20 秒有重疊時間戳記的資料區塊數目。 |
-| DiscontinuityCount | integer | 在過去 20 秒所觀察到的中斷次數。 |
-| NonIncreasingCount | integer | 在過去 20 秒所收到有過去時間戳記的資料區塊數目。 |
-| UnexpectedBitrate | 布林 | 在過去 20 秒內，預期和實際的位元速率差異是否超過允許的限制。 只有當「IncomingBitrate >= 2* 位元速率」或「IncomingBitrate <= 位元速率/2」或「IncomingBitrate = 0」時，才為 true。 |
-| State | 字串 | 即時事件的狀態。 |
-| Healthy | 布林 | 根據計數和旗標來指出內嵌是否狀況良好。 如果 OverlapCount = 0 && DiscontinuityCount = 0 && NonIncreasingCount = 0 && UnexpectedBitrate = false，則健康情況為 true。 |
+| trackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
+| trackName | 字串 | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate 格式產生)。 |
+| bitrate | integer | 資料軌的位元速率。 |
+| incomingBitrate | integer | 根據來自編碼器的資料區塊所計算出的位元速率。 |
+| lastTimestamp | 字串 | 資料軌在過去 20 秒所收到的最新時間戳記。 |
+| timescale | 字串 | 用來表示時間戳記的時幅。 |
+| overlapCount | integer | 在過去 20 秒有重疊時間戳記的資料區塊數目。 |
+| discontinuityCount | integer | 在過去 20 秒所觀察到的中斷次數。 |
+| nonIncreasingCount | integer | 在過去 20 秒所收到有過去時間戳記的資料區塊數目。 |
+| unexpectedBitrate | 布林 | 在過去 20 秒內，預期和實際的位元速率差異是否超過允許的限制。 只有在「incomingBitrate >= 2* 位元速率」或「incomingBitrate <= 位元速率/2」或「IncomingBitrate = 0」時，才會是 true。 |
+| state | 字串 | 即時事件的狀態。 |
+| healthy | 布林 | 根據計數和旗標來指出內嵌是否狀況良好。 如果 overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false，則健康情況為 true。 |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -610,13 +613,13 @@ ms.locfileid: "53011989"
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
-| TrackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
-| TrackName | 字串 | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate 格式產生)。 |
-| Bitrate | integer | 資料軌的位元速率。 |
-| PreviousTimestamp | 字串 | 上一個片段的時間戳記。 |
-| NewTimestamp | 字串 | 當前片段的時間戳記。 |
-| DiscontinuityGap | 字串 | 上述兩個時間戳記之間的間距。 |
-| 時幅 | 字串 | 用來表示時間戳記和中斷間距的時幅。 |
+| trackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
+| trackName | 字串 | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate 格式產生)。 |
+| bitrate | integer | 資料軌的位元速率。 |
+| previousTimestamp | 字串 | 上一個片段的時間戳記。 |
+| newTimestamp | 字串 | 當前片段的時間戳記。 |
+| discontinuityGap | 字串 | 上述兩個時間戳記之間的間距。 |
+| timescale | 字串 | 用來表示時間戳記和中斷間距的時幅。 |
 
 ### <a name="common-event-properties"></a>常見的事件屬性
 

@@ -11,27 +11,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 16275ddc4d4ad85bdac54244ceeec568603fdfef
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 54c334aa9363ac5ca75cc4ad5b107524f502011e
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112094"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810606"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>複製活動中的結構描述對應
 本文說明 Azure Data Factory 複製活動在執行資料複製時，如何將來源資料中的結構描述和資料類型對應到接收資料。
 
 ## <a name="column-mapping"></a>資料行對應
 
-根據預設，除非已設定[明確的資料行對應](#explicit-column-mapping)，否則複製活動**會依資料行名稱將來源資料對應到接收**。 更具體來說，複製活動會：
+在表格形狀的資料之間複製資料時，適用資料行對應。 根據預設，除非已設定[明確的資料行對應](#explicit-column-mapping)，否則複製活動**會依資料行名稱將來源資料對應到接收**。 更具體來說，複製活動會：
 
 1. 從來源讀取資料，並判斷來源結構描述
 
     * 對於含有資料存放區/檔案格式之預先定義結構描述的資料來源 (例如含中繼資料 (Avro/ORC/Parquet/含標頭的文字) 的資料庫/檔案)，會從查詢結果或檔案中繼資料擷取來源結構描述。
-    * 對於具有彈性結構描述的資料來源 (例如 Azure 資料表/Cosmos DB)，會從查詢結果推斷來源結構描述。 您可以藉由在資料集中提供「結構」以將它覆寫。
-    * 對於沒有標頭的文字檔案，會以 Prop_0、Prop_1 的模式產生預設資料行名稱，您可以藉由在資料集中提供「結構」以將它覆寫。
+    * 對於具有彈性結構描述的資料來源 (例如 Azure 資料表/Cosmos DB)，會從查詢結果推斷來源結構描述。 您可以藉由在資料集中設定「結構」以將它覆寫。
+    * 對於沒有標頭的文字檔案，會以 Prop_0、Prop_1 的模式產生預設資料行名稱，您可以藉由在資料集中設定「結構」以將它覆寫。
     * 對於動態來源，您必須在資料集「結構」區段中提供結構描述資訊。
 
 2. 如果指定，請套用明確的資料行對應。
@@ -141,6 +141,81 @@ ms.locfileid: "37112094"
 
 ![資料行對應流程](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
 
+## <a name="schema-mapping"></a>結構描述對應
+
+在階層形狀的資料與表格形狀的資料之間複製資料時，適用結構描述對應，例如從 MongoDB/REST 複製到文字檔案，以及從 SQL 複製到 Azure Cosmos DB MongoDB API。 複製活動的 `translator` 區段支援下列屬性：
+
+| 屬性 | 說明 | 必要 |
+|:--- |:--- |:--- |
+| type | 複製活動轉譯程式的類型屬性必須設定為：**TabularTranslator** | 是 |
+| schemaMapping | 機碼值組的集合，表示從表格端到階層端的對應關聯性。<br/>- **機碼：** 表格式資料的資料行名稱，如同資料集結構中所定義。<br/>- **值：** 每個要擷取並對應的欄位 JSON 路徑運算式。 如果是根物件下的欄位，請從根 $ 開始，如果是 `collectionReference` 屬性所選陣列內的欄位，請從陣列元素開始。  | 是 |
+| collectionReference | 如果您想要逐一查看**陣列欄位內**相同模式的物件並擷取資料，然後轉換為每個物件一個資料列，則請指定該陣列的 JSON 路徑，以執行交叉套用。 只有在階層式資料是來源時，才支援這個屬性。 | 否 |
+
+**範例：從 MongoDB 複製到 SQL：**
+
+例如，如果您有具備下列內容的 MongoDB 文件： 
+
+```json
+{
+    "id": {
+        "$oid": "592e07800000000000000000"
+    },
+    "number": "01",
+    "date": "20170122",
+    "orders": [
+        {
+            "prod": "p1",
+            "price": 23
+        },
+        {
+            "prod": "p2",
+            "price": 13
+        },
+        {
+            "prod": "p3",
+            "price": 231
+        }
+    ],
+    "city": [ { "name": "Seattle" } ]
+}
+```
+
+您想要壓平合併陣列內的資料 (order_pd 和 order_price)，將內容複製到下列格式的 Azure SQL 資料表，並與一般根資訊 (編號、日期和城市) 交叉聯結︰
+
+| orderNumber | orderDate | order_pd | order_price | city |
+| --- | --- | --- | --- | --- |
+| 01 | 20170122 | P1 | 23 | Seattle |
+| 01 | 20170122 | P2 | 13 | Seattle |
+| 01 | 20170122 | P3 | 231 | Seattle |
+
+如下列複製活動 JSON 範例所示，設定結構描述對應規則：
+
+```json
+{
+    "name": "CopyFromMongoDBToSqlAzure",
+    "type": "Copy",
+    "typeProperties": {
+        "source": {
+            "type": "MongoDbV2Source"
+        },
+        "sink": {
+            "type": "SqlSink"
+        },
+        "translator": {
+            "type": "TabularTranslator",
+            "schemaMapping": {
+                "orderNumber": "$.number", 
+                "orderDate": "$.date", 
+                "order_pd": "prod", 
+                "order_price": "price",
+                "city": " $.city[0].name"
+            },
+            "collectionReference":  "$.orders"
+        }
+    }
+}
+```
+
 ## <a name="data-type-mapping"></a>資料類型對應
 
 複製活動會使用下列 2 個步驟的方法，將來源類型對應至接收類型：
@@ -152,7 +227,7 @@ ms.locfileid: "37112094"
 
 ### <a name="supported-data-types"></a>支援的資料類型
 
-Data Factory 支援下列過渡資料類型：在[資料集結構](concepts-datasets-linked-services.md#dataset-structure)設定中提供類型資訊時，您可以指定下列值：
+Data Factory 支援下列過渡資料類型：在[資料集結構](concepts-datasets-linked-services.md#dataset-structure)組態中設定類型資訊時，您可以指定下列值：
 
 * Byte[]
 * BOOLEAN
@@ -186,7 +261,7 @@ Data Factory 支援下列過渡資料類型：在[資料集結構](concepts-data
 
 在以下情況下，建議在資料集中使用「結構」：
 
-* 從沒有標頭的文字檔案複製 (輸入資料集)。 您可以指定與對應的接收資料行對齊之文字檔案的資料行名稱，就不用提供明確的資料行對應。
+* 從沒有標頭的文字檔案複製 (輸入資料集)。 您可以指定與對應接收資料行對齊之文字檔案的資料行名稱，就不用設定明確的資料行對應。
 * 從具有彈性結構描述 (例如 Azure 資料表/Cosmos DB (輸入資料集)) 的資料存放區複製，以確保每個活動執行期間複製的是預期的資料 (資料行)，而不是讓複製活動根據最上層的資料列推論結構描述。
 
 

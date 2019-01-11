@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: f86107c5fcd4c0175d59689718dca15736aa3b17
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fb4fed2aa6b80ceb37dde1205996a16f0c30bdd4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497367"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994705"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>在 SLES 12 SP3 上驗證 SAP HANA scale-out 高可用性設定並為其進行疑難排解 
 
@@ -173,7 +173,7 @@ nc: connect to 10.0.2.40 port 40002 (tcp) failed: Connection refused
 
 測試系統的 **corosync.conf** 內容即為範例。
 
-第一個區段為 **totem**，如[叢集安裝](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation)步驟 11 中所述。 您可以忽略 **mcastaddr** 的值。 只需要保留現有項目。 必須根據 [Microsoft Azure SAP HANA 文件][sles-pacemaker-ha-guide]設定 **token** 和 **consensus** 的項目。
+第一個區段為 **totem**，如[叢集安裝](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation)步驟 11 中所述。 您可以忽略 **mcastaddr** 的值。 只需要保留現有項目。 必須根據 [Microsoft Azure SAP HANA 文件][sles-pacemaker-ha-guide]設定 **token** 和 **consensus** 的項目。
 
 <pre><code>
 totem {
@@ -280,7 +280,7 @@ systemctl restart corosync
 
 ## <a name="sbd-device"></a>SBD 裝置
 
-[SBD 隔離](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing)描述如何在 Azure VM 上設定 SBD 裝置。
+[SBD 隔離](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing)描述如何在 Azure VM 上設定 SBD 裝置。
 
 首先檢查 SBD 伺服器 VM，叢集中的每個節點是否都具有 ACL 項目。 在 SBD 伺服器 VM 上執行下列命令：
 
@@ -423,7 +423,7 @@ sbd -d /dev/sdm message hso-hana-vm-s2-2 test
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-檢查 **/etc/sysconfig/sbd** 中的項目，是否對應於[在 Azure 中的 SUSE Linux Enterprise Server 上設定 pacemaker](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing) 的描述。 驗證 **/etc/iscsi/iscsid.conf** 中的啟動設定設定為 automatic (自動)。
+檢查 **/etc/sysconfig/sbd** 中的項目，是否對應於[在 Azure 中的 SUSE Linux Enterprise Server 上設定 pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing) 的描述。 驗證 **/etc/iscsi/iscsid.conf** 中的啟動設定設定為 automatic (自動)。
 
 下列項目在 **/etc/sysconfig/sbd** 中都很重要。 視需要調整**識別碼**值：
 

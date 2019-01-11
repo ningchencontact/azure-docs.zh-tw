@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5994abaf0276d915553494b7272d2a8abed451bb
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: da6435c6e3ea5fe88b605bd65c5d0e10f1772450
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498622"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717461"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>在 HDInsight 中的 Apache Hadoop 叢集上使用空白邊緣節點
 
@@ -57,15 +57,15 @@ ms.locfileid: "52498622"
 
 建立邊緣節點之後，您可以使用 SSH 連線到邊緣節點，並執行用戶端工具來存取 HDInsight 中的 Hadoop 叢集。
 
-> [!WARNING] 
+> [!WARNING]   
 > 邊緣節點上安裝的自訂元件會收到來自 Microsoft 的商業上合理支援。 可能可以解決您遇到的問題。 或者，您可能需要參考社群資源以取得進一步協助。 以下是從社群取得協助的一些最活躍網站：
 >
 > * [HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
-> * [http://stackoverflow.com](http://stackoverflow.com)。
+> * [https://stackoverflow.com](https://stackoverflow.com)。
 >
-> 如果您使用 Apache 技術，您可以透過位於 [http://apache.org](http://apache.org) 的 Apache 專案網站 (例如 [Apache Hadoop](http://hadoop.apache.org/) 網站) 尋求協助。
+> 如果您使用 Apache 技術，您可以透過位於 [https://apache.org](https://apache.org) 的 Apache 專案網站 (例如 [Apache Hadoop](https://hadoop.apache.org/) 網站) 尋求協助。
 
-> [!NOTE]
+> [!NOTE]  
 > 就像另一個叢集節點一樣，邊緣節點也會受到修補程式的管理。  如需詳細資訊，請參閱 [HDInsight 的作業系統修補](./hdinsight-os-patching.md)。
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>將邊緣節點新增至現有叢集
@@ -78,7 +78,7 @@ ms.locfileid: "52498622"
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. 設定下列屬性：
    
-   * **訂用帳戶**：選取用來建立叢集的 Azure 訂用帳戶。
+   * 訂用帳戶：選取用來建立叢集的 Azure 訂用帳戶。
    * **資源群組**：選取用於現有 HDInsight 叢集的資源群組。
    * **位置**：選取現有 HDInsight 叢集的位置。
    * **叢集名稱**︰輸入現有 HDInsight 叢集的名稱。
@@ -87,7 +87,7 @@ ms.locfileid: "52498622"
 
 4. 核取 [我同意上方所述的條款及條件]，然後按一下 [購買] 以建立邊緣節點。
 
->[!IMPORTANT]
+>[!IMPORTANT]  
 > 請務必選取用於現有 HDInsight 叢集的 Azure 資源群組。  否則，您會收到錯誤訊息：「無法對巢狀資源執行所要求的作業。 找不到父資源 '&lt;叢集名稱>'」。
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>在建立叢集時新增邊緣節點
@@ -101,12 +101,12 @@ ms.locfileid: "52498622"
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. 設定下列屬性：
    
-   * **訂用帳戶**：選取用來建立叢集的 Azure 訂用帳戶。
+   * 訂用帳戶：選取用來建立叢集的 Azure 訂用帳戶。
    * **資源群組**：建立用於叢集的新資源群組。
    * **位置**：選取資源群組的位置。
    * **叢集名稱**︰輸入要建立之新叢集的名稱。
-   * **叢集登入使用者名稱**︰輸入 Hadoop HTTP 使用者名稱。  預設名稱為 **admin**。
-   * **叢集登入密碼**︰輸入 Hadoop HTTP 使用者密碼。
+   * **叢集登入使用者名稱**：輸入 Hadoop HTTP 使用者名稱。  預設名稱為 **admin**。
+   * **叢集登入密碼**：輸入 Hadoop HTTP 使用者密碼。
    * **SSH 使用者名稱**︰輸入 SSH 使用者名稱。 預設名稱為 **sshuser**。
    * **SSH 密碼**︰輸入 SSH 使用者密碼。
    * **安裝指令碼動作**︰請保留預設值以便完成本教學課程。
@@ -155,10 +155,10 @@ ms.locfileid: "52498622"
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何新增邊緣節點以及如何存取邊緣節點。 若要深入了解，請參閱下列文章：
 
-* [安裝 HDInsight 應用程式](hdinsight-apps-install-applications.md)︰了解如何將 HDInsight 應用程式安裝到您的叢集。
+* [安裝 HDInsight 應用程式](hdinsight-apps-install-applications.md)：了解如何將 HDInsight 應用程式安裝到您的叢集。
 * [安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)︰了解如何將未發佈的 HDInsight 應用程式部署到 HDInsight。
-* [發佈 HDInsight 應用程式](hdinsight-apps-publish-applications.md)︰了解如何將自訂 HDInsight 應用程式發佈至 Azure Marketplace。
-* [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)︰了解如何定義 HDInsight 應用程式。
+* [發佈 HDInsight 應用程式](hdinsight-apps-publish-applications.md)：了解如何將自訂 HDInsight 應用程式發佈到 Azure Marketplace。
+* [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定義 HDInsight 應用程式。
 * [使用指令碼動作自訂以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用指令碼動作來安裝其他應用程式。
 * [使用 Resource Manager 範本在 HDInsight 中建立以 Linux 為基礎的 Apache Hadoop 叢集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)︰了解如何呼叫 Resource Manager 範本來建立 HDInsight 叢集。
 

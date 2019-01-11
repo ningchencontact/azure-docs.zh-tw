@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 6bcea43fb21cae6f000f3522b498dfc6c0f6d9a7
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 4d14569219c8db503fc91f52a6867de85373aa05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166212"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724380"
 ---
-# <a name="find-endpoint-region-with-nodejs"></a>尋找使用 Node.js 的端點區域
+# <a name="programmatically-find-endpoint-region-with-nodejs"></a>使用 Node.js 以程式設計方式尋找端點區域
 如果您有 LUIS 應用程式識別碼和 LUIS 訂用帳戶識別碼，可以尋找哪個區域要用於端點查詢。
 
 > [!NOTE] 
-> 從 [**LUIS-Samples** GitHub 存放庫](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/)可取得完整的 Node.js 解決方案。
+> 從 [**Azure-Samples** GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/find-region/nodejs/)可取得完整的 Node.js 解決方案。
 
 ## <a name="luis-endpoint-query-strategy"></a>LUIS 端點查詢策略
 每個 LUIS 端點查詢都需要：

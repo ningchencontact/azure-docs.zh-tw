@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 6572a9b72554691441cb258a87a5db4ba7845087
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a02be1ba29ad43b90c99a5d1e275b96b3b4023d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077115"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718719"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>將中樞工作區和專案移轉至自訂翻譯工具
 
@@ -130,7 +130,7 @@ ms.locfileid: "53077115"
 * 您的每個專案只能移轉一次。  如果您需要重複移轉某個專案，請與我們連絡。
 * 目前，自訂翻譯工具支援 36 種語言與英文互譯，而我們正努力新增更多語言。  Hub 不需要基準模型，因此可支援數千種語言。  您可以移轉不受支援的語言組，但我們只會執行文件和專案定義的移轉。  我們無法為新模型定型。  此外，這些文件和專案將會顯示為非作用中，以指出它們目前無法使用。 如果新增了這些專案和 (或) 文件的支援，它們就會變成作用中狀態，且可以定型。
 * 自訂翻譯工具目前不支援單一語言定型資料。  和不受支援的語言組一樣，您可以移轉單一語言文件，但在單一語言資料受到支援之前，這些文件都會顯示為非作用中。  
-* 自訂翻譯工具需要 10k 個平行句子才能執行定型。  Microsoft Hub 無法對較小的資料集定型。  不符合此需求的訓練若進行移轉，將會先定型。
+* 自訂翻譯工具需要 10k 個平行句子才能執行定型。  Microsoft Hub 無法對較小的資料集定型。 不符合此需求的訓練若進行移轉，則不會定型。
 
 
 ## <a name="custom-translator-versus-hub"></a>自訂翻譯工具與中樞

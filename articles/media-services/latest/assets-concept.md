@@ -9,27 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/01/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f9a6f0963ce8f45da567bb4f6326e9fcc8f435ef
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8507d51f0d4d49d89fc24b38ed73df7488261daa
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140127"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969570"
 ---
 # <a name="assets"></a>Assets
 
-**資產** 包含數位檔案 (包括視訊、音訊、影像、縮圖集合、文字播放軌和隱藏式輔助字幕檔案)，以及這些檔案的相關中繼資料。 將數位檔案上傳到資產之後，可以用於媒體服務編碼和串流工作流程。
+在 Azure 媒體服務中，[資產](https://docs.microsoft.com/rest/api/media/assets)包含了數位檔案 (包括視訊、音訊、影像、縮圖集合、文字播放軌和隱藏式輔助字幕檔案)，以及這些檔案的相關中繼資料。 將數位檔案上傳到資產之後，可以用於媒體服務編碼、串流和分析內容工作流程。 如需詳細資訊，請參閱下方的[將數位檔案上傳到資產](#upload-digital-files-into-assets)一節。
 
-資產會對應到 [Azure 儲存體帳戶](storage-account-concept.md)中的 blob 容器，且資產中的檔案會儲存為該容器中的區塊 Blob。 您可以使用儲存體 SDK 用戶端，與容器中的資產檔案互動。
+資產會對應到 [Azure 儲存體帳戶](storage-account-concept.md)中的 Blob 容器，且資產中的檔案會儲存為該容器中的區塊 Blob。 當帳戶使用一般用途 v2 (GPv2) 儲存體時，媒體服務支援 Blob 層。 您可以利用 GPv2，將檔案移至[非經常性存取儲存體或封存儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)。 來源檔案不再需要時，很適合放到**封存**儲存體中保管 (例如，在檔案已編碼之後)。
 
-當帳戶使用一般用途 v2 (GPv2) 儲存體時，Azure 媒體服務支援 Blob 層。 您可以利用 GPv2，將檔案移至非經常性存取儲存體或冷儲存體。 來源檔案不再需要時，很適合放到冷儲存體中保管 (例如，在它們編碼之後)。
-
-在媒體服務 v3 中，可以從資產或 HTTP(s) URL 建立工作輸入。 若要建立一個資產而且可以當作工作的輸入，請參閱[從本機檔案建立工作輸入](job-input-from-local-file-how-to.md)。
-
-此外，閱讀有關[媒體服務 中的儲存體帳戶](storage-account-concept.md)和[轉換與工作](transform-concept.md)。
+**封存**儲存層只建議用於經過編碼，且編碼作業輸出已放在輸出 Blob 容器的極大型來源檔案。 如果您要讓輸出容器中的 Blob 與資產建立關聯，並且用來串流或分析您的內容，則該 Blob 必須位在**經常性存取**或**非經常性存取**儲存層。
 
 ## <a name="asset-definition"></a>資產定義
 
@@ -42,14 +38,69 @@ ms.locfileid: "53140127"
 |properties.alternateId |資產的替代 ID。|
 |properties.assetId |資產識別碼。|
 |properties.container |資產 Blob 容器的名稱。|
-|properties.created |資產的建立日期。|
+|properties.created |資產的建立日期。<br/> 日期時間一律是 UTC 格式。|
 |properties.description|資產描述。|
-|properties.lastModified |資產的上次修改日期。|
+|properties.lastModified |資產的上次修改日期。 <br/> 日期時間一律是 UTC 格式。|
 |properties.storageAccountName |儲存體帳戶的名稱。|
 |properties.storageEncryptionFormat |資產加密格式。 None 或 MediaStorageEncryption 其中一個。|
 |type|資源類型。|
 
 如需完整定義，請參閱[資產](https://docs.microsoft.com/rest/api/media/assets)。
+
+## <a name="upload-digital-files-into-assets"></a>將數位檔案上傳到資產
+
+其中一個常見的媒體服務工作流程是上傳、編碼和串流檔案。 本節將概述一般步驟。
+
+1. 使用媒體服務 v3 API 建立新的「輸入」資產。 這項作業會在與您媒體服務帳戶相關聯的儲存體帳戶中建立容器。 此 API 會傳回容器名稱 (例如 `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`)。
+   
+    如果您已經有要與資產建立關聯的 Blob 容器，您可以在建立資產時指定容器名稱。 媒體服務目前僅支援根目錄中的 Blob 容器，且檔案名稱中不能有路徑。 如此一來，檔案名稱為 "input.mp4" 的容器可運作。 而檔案名稱為 "videos/inputs/input.mp4" 的容器將無法運作。
+
+    您可以使用 Azure CLI，直接上傳至訂用帳戶中任何您有權存取的儲存體帳戶和容器。 <br/>容器名稱必須是唯一的，並且必須遵循儲存體命名指引。 名稱不需要遵循媒體服務資產容器名稱 (資產-GUID) 的格式。 
+    
+    ```azurecli
+    az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
+    ```
+2. 以讀寫權限取得 SAS URL，這將用來將數位檔案上傳到資產容器。 您可以使用媒體服務 API 來[列出資產容器 URL](https://docs.microsoft.com/rest/api/media/assets/listcontainersas)。
+3. 使用 Azure 儲存體 API 或 SDK (例如 [儲存體 REST API](../../storage/common/storage-rest-api-auth.md)、[JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md) 或 [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) 將檔案上傳到資產容器。 
+4. 使用媒體服務 v3 API 建立可處理「輸入」資產的轉換和作業。 如需詳細資訊，請參閱[轉換和作業](transform-concept.md)。
+5. 串流來自「輸出」資產的內容。
+
+> [!TIP]
+> 如需完整的 .NET 範例 (其中會示範如何建立資產、取得儲存體中資產容器的可寫入 SAS URL、使用 SAS URL 將檔案上傳到儲存體的容器)，請參閱[從本機檔案建立作業輸入](job-input-from-local-file-how-to.md)。
+
+### <a name="create-a-new-asset"></a>建立新的資產
+
+#### <a name="rest"></a>REST
+
+```
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
+```
+
+如需 REST 範例，請參閱[使用 REST 建立資產](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples)。
+
+此範例會示範如何建立**要求本文**，您可以在其中指定有用的資訊，例如描述、容器名稱、儲存體帳戶和其他資訊。
+
+#### <a name="curl"></a>cURL
+
+```cURL
+curl -X PUT \
+  'https://management.azure.com/subscriptions/00000000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Media/mediaServices/amsAccountName/assets/myOutputAsset?api-version=2018-07-01' \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "properties": {
+    "description": "",
+  }
+}'
+```
+
+#### <a name="net"></a>.NET
+
+```csharp
+ Asset asset = await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, new Asset());
+```
+
+如需完整範例，請參閱[從本機檔案建立作業輸入](job-input-from-local-file-how-to.md)。 在媒體服務 v3 中，您也可以從 HTTPS URL 中建立作業的輸入 (請參閱[從 HTTPS URL 中建立作業輸入](job-input-from-http-how-to.md))。
 
 ## <a name="filtering-ordering-paging"></a>篩選、排序、分頁
 
@@ -105,6 +156,8 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 如果逐頁查看集合時，有資產建立或刪除，則所做的變更會反映在傳回的結果中 (如果這些變更屬於尚未下載的集合)。 
 
+#### <a name="c-example"></a>C# 範例
+
 下列 C# 範例會示範如何列舉帳戶中的所有資產。
 
 ```csharp
@@ -117,7 +170,47 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-如需其他範例，請參閱[資產 - 清單](https://docs.microsoft.com/rest/api/media/assets/list)
+#### <a name="rest-example"></a>REST 範例
+
+請參考下列使用 $skiptoken 的範例。 請務必將 amstestaccount 取代為您的帳戶名稱，並將 api-version 值設為最新版本。
+
+如果您要求的資產清單如下：
+
+```
+GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
+x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
+Content-Type: application/json; charset=utf-8
+```
+
+您將會收到如下所示的回應：
+
+```
+HTTP/1.1 200 OK
+ 
+{
+"value":[
+{
+"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+}
+},
+// lots more assets
+{
+"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+}
+}
+],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
+}
+```
+
+然後您會藉由傳送 get 要求來要求下一個頁面：
+
+```
+https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
+```
+
+如需其他 REST 範例，請參閱[資產 - 清單](https://docs.microsoft.com/rest/api/media/assets/list)
 
 ## <a name="storage-side-encryption"></a>儲存端加密
 
@@ -136,3 +229,5 @@ while (currentPage.NextPageLink != null)
 ## <a name="next-steps"></a>後續步驟
 
 [串流處理檔案](stream-files-dotnet-quickstart.md)
+
+[媒體服務 v2 及 v3 之間的差異](migrate-from-v2-to-v3.md)

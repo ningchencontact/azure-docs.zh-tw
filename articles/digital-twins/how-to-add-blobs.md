@@ -1,19 +1,20 @@
 ---
-title: 在 Azure Digital Twins 中將 Blob 新增到物件 | Microsoft Docs
-description: 了解如何新增 Blob 到 Azure Digital Twins 中的物件
+title: 如何新增 Blob 到 Azure Digital Twins 中的物件 | Microsoft Docs
+description: 了解如何新增 Blob 到 Azure Digital Twins 中的物件。
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/28/2018
 ms.author: adgera
-ms.openlocfilehash: 8a68ba35ddf7caacbf2339d87c5aeef80f470ba4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec18
+ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725619"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974503"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>在 Azure Digital Twins 中將 Blob 新增到物件
 
@@ -21,10 +22,7 @@ Blob 是常見檔案類型 (例如圖片和記錄) 的非結構化表示法。 B
 
 Azure Digital Twins 支援將 Blob 連結到裝置、空間和使用者。 Blob 可以代表使用者的個人檔案圖片、裝置的相片、影片、地圖或記錄。
 
-> [!NOTE]
-> 本文假設：
-> * 您的執行個體已正確設定，以接收管理 API 的要求。
-> * 您已選擇使用 REST 用戶端正確地經過驗證。
+[!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
 ## <a name="uploading-blobs-an-overview"></a>上傳 Blob：概觀
 
@@ -93,9 +91,9 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| 參數值 | 更換為 |
+| 值 | 更換為 |
 | --- | --- |
-| *USER_DEFINED_BOUNDARY* | 多部分內容界限名稱 |
+| USER_DEFINED_BOUNDARY | 多部分內容界限名稱 |
 
 以下程式碼是使用類別 [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent) 的相同 Blob 上傳 .NET 實作：
 
@@ -116,7 +114,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 ## <a name="api-endpoints"></a>API 端點
 
-下列各節詳細說明核心端點及其功能。
+下列各節說明核心 Blob 相關的 API 端點及其功能。
 
 ### <a name="devices"></a>裝置
 
@@ -194,7 +192,7 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 
 ## <a name="common-errors"></a>常見錯誤
 
-常見錯誤不會包含正確的標頭資訊：
+常見錯誤是未包含正確的標頭資訊：
 
 ```JSON
 {

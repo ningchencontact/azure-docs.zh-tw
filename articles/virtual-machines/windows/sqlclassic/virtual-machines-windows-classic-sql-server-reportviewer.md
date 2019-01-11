@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 514e85fc61240834d8db152ece65a4f9cce9023e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b554dc1fa33519d87aa0c9c5ba9130b47cbea142
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250402"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971745"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>在裝載於 Azure 上的網站中使用 ReportViewer
-> [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
+> [!IMPORTANT]
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 
 您可以使用 Visual Studio ReportViewer 控制項 (可顯示儲存在 Microsoft Azure 虛擬機器上的報告)，建置 Microsoft Azure 網站。 ReportViewer 控制項位於您使用 ASP.NET Web 應用程式範本建置的 Web 應用程式中。
 
@@ -42,7 +42,7 @@ ms.locfileid: "51250402"
 
 > [!NOTE]
 > ReportViewer 控制項隨附於 Visual Studio (Standard Edition 以上版本) 中。 如果您使用的是 Web Developer Express 版，您必須安裝 [Microsoft Report Viewer 2012 Runtime](https://www.microsoft.com/download/details.aspx?id=35747) ，才能使用 ReportViewer 執行階段功能。
-> 
+>
 > Microsoft Azure 不支援在本機處理模式中設定的 ReportViewer。
 
 ## <a name="adding-assemblies-to-the-deployment-package"></a>將組件新增至部署套件
@@ -50,7 +50,7 @@ ms.locfileid: "51250402"
 
 在遠端處理模式中，ReportViewer 控制項會使用下列組件：
 
-* **Microsoft.ReportViewer.WebForms.dll**：包含您要在頁面中使用 ReportViewer 所需的 ReportViewer 程式碼。 將 ReportViewer 控制項拖曳至專案的 ASP.NET 頁面中後，此組件的參考便會加入專案之中。
+* **Microsoft.ReportViewer.WebForms.dll**:包含您要在頁面中使用 ReportViewer 所需的 ReportViewer 程式碼。 將 ReportViewer 控制項拖曳至專案的 ASP.NET 頁面中後，此組件的參考便會加入專案之中。
 * **Microsoft.ReportViewer.Common.dll**：包含 ReportViewer 控制項在執行階段使用的類別。 此組件不會自動加入至您的專案。
 
 ### <a name="to-add-a-reference-to-microsoftreportviewercommon"></a>加入 Microsoft.ReportViewer.Common 的參考
@@ -71,21 +71,21 @@ ms.locfileid: "51250402"
 
 ### <a name="to-configure-for-localized-reportviewer-control"></a>設定當地語系化的 ReportViewer 控制項
 1. 依照上述的指示，下載並安裝 Microsoft Report Viewer 2012 Runtime 可轉散發套件。
-2. 在專案中建立 <language> 資料夾，並複製該資料夾中的相關聯資源組件檔案。 需複製的資源組件檔案為：**Microsoft.ReportViewer.Webforms.Resources.dll** 和 **Microsoft.ReportViewer.Common.Resources.dll**。選取資源組件檔案，然後在 [屬性] 窗格中，將 [複製到輸出目錄] 設為 [永遠複製]。
-3. 設定 Web 專案的文化特性和 UI 文化特性。 如需關於設定 ASP.NET 網頁的文化特性和 UI 文化特性的詳細資訊，請參閱 [作法：設定 ASP.NET Web 網頁全球化的文化特性和 UI 文化特性](https://go.microsoft.com/fwlink/?LinkId=237461)。
+2. 在專案中建立\<語言\>資料夾，並複製該資料夾中的相關資源組件檔案。 要複製的資源組件檔案為：**Microsoft.ReportViewer.Webforms.Resources.dll** 和 **Microsoft.ReportViewer.Common.Resources.dll**。選取資源組件檔案，然後在 [屬性] 窗格中，將 [複製到輸出目錄] 設為 [永遠複製]。
+3. 設定 Web 專案的文化特性和 UI 文化特性。 如需關於如何設定 ASP.NET 網頁之文化特性和 UI 文化特性的詳細資訊，請參閱[作法：為 ASP.NET 網頁全球化設定文化特性和 UI 文化特性](https://go.microsoft.com/fwlink/?LinkId=237461)。
 
 ## <a name="configuring-authentication-and-authorization"></a>設定驗證和授權
 ReportViewer 必須使用正確的認證對報表伺服器進行驗證，而且認證必須由報表伺服器授權，才能存取您需要的報表。 如需驗證的資訊，請檢閱白皮書《 [Reporting Services 報告檢視器控制項和 Microsoft Azure 虛擬機器型報表伺服器](https://msdn.microsoft.com/library/azure/dn753698.aspx)》。
 
 ## <a name="publish-the-aspnet-web-application-to-azure"></a>將 ASP.NET Web 應用程式發佈至 Azure
-如需有關將 ASP.NET Web 應用程式發佈至 Azure 的指示，請參閱[做法：從 Visual Studio 將 Web 應用程式移轉並發佈至 Azure](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) 和[開始使用 Web Apps 和 ASP.NET](../../../app-service/app-service-web-get-started-dotnet.md)。
+如需將 ASP.NET Web 應用程式發佈至 Azure 的相關指示，請參閱[作法：從 Visual Studio 將 Web 應用程式移轉並發佈至 Azure](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md)，以及[開始使用 Web Apps 和 ASP.NET](../../../app-service/app-service-web-get-started-dotnet.md)。
 
 > [!IMPORTANT]
 > 如果新增 Azure 部署專案，或新增 Azure 雲端服務專案命令沒有顯示在 [方案總管] 的捷徑功能表中，您可能需要將專案的目標 Framework 變更為 .NET Framework 4。
-> 
+>
 > 兩個命令提供的功能基本上相同。 視您安裝的 Microsoft Azure SDK 版本而定，其中一個命令會顯示在捷徑功能表中。
-> 
-> 
+>
+>
 
 ## <a name="resources"></a>資源
 [Microsoft 報告](https://go.microsoft.com/fwlink/?LinkId=205399)
@@ -93,4 +93,3 @@ ReportViewer 必須使用正確的認證對報表伺服器進行驗證，而且�
 [Azure 虛擬機器中的 SQL Server Business Intelligence](../classic/ps-sql-bi.md)
 
 [使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM](../classic/ps-sql-report.md)
-

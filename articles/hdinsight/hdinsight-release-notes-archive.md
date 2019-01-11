@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 43acf5f59667f45e67156b33e31d28160ba47c13
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 19a842eacb00e877d31712febeeebc72cbdd25a0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408803"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743165"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Azure HDInsight 的封存版本資訊
 
@@ -52,10 +52,9 @@ ms.locfileid: "53408803"
   
 
 
-
 ## <a name="04062017---general-availability-of-hdinsight-36"></a>2017/04/06 - HDInsight 3.6 正式運作
 
-* 此版本中，Azure HDInsight 新增以 HDP 2.6 為基礎的 3.6 版。 HDP 2.6 版本資訊可在[這裡](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html)找到，而 HDInsight 版本的詳細資訊則可以在[這裡](hdinsight-component-versioning.md)找到。 HDInsight 3.6 適用於下列工作負載：
+* 此版本中，Azure HDInsight 新增以 HDP 2.6 為基礎的 3.6 版。 HDP 2.6 版本資訊可在[這裡](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html)找到，而 HDInsight 版本的詳細資訊則可以在[這裡](hdinsight-component-versioning.md)找到。 HDInsight 3.6 適用於下列工作負載：
 
     * Hadoop v2.7.3
     * HBase v1.1.2
@@ -63,7 +62,7 @@ ms.locfileid: "53408803"
     * Spark v2.1.0
     * Interactive Hive v2.1.0
 
-* **Hive View 2.0 的支援**。 這應該會改善 Interactive Hive 的使用者體驗。 如需詳細資訊，請參閱 [Hortonworks 文件](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html)。
+* **Hive View 2.0 的支援**。 這應該會改善 Interactive Hive 的使用者體驗。 如需詳細資訊，請參閱 [Hortonworks 文件](https://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html)。
 
 * **使用 Hive LLAP 提高效能**。 如需詳細資訊，請參閱 [Hortonworks 文件](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/)。
 
@@ -87,11 +86,11 @@ ms.locfileid: "53408803"
 
 
 ## <a name="02282017---release-of-spark-21-on-hdinsight-36-preview"></a>2017/02/28 - 發行 Spark 2.1 on HDInsight 3.6 (預覽版)
-* [Spark 2.1](http://spark.apache.org/releases/spark-release-2-1-0.html) 會改善舊版的許多穩定性和可用性問題。 它也會有跨所有 Spark 工作負載的新功能，例如 Spark Core、SQL、ML 和串流處理。
+* [Spark 2.1](https://spark.apache.org/releases/spark-release-2-1-0.html) 會改善舊版的許多穩定性和可用性問題。 它也會有跨所有 Spark 工作負載的新功能，例如 Spark Core、SQL、ML 和串流處理。
 * 結構化串流會利用事件時間的浮水印和 Kafka 0.10 連接器支援改良延展性。
-* Spark SQL 分割現在會使用新的可調整資料分割處理機制來處理。 在[這裡](http://spark.apache.org/releases/spark-release-2-1-0.html)查看如何升級的其他詳細資料。
+* Spark SQL 分割現在會使用新的可調整資料分割處理機制來處理。 在[這裡](https://spark.apache.org/releases/spark-release-2-1-0.html)查看如何升級的其他詳細資料。
 * Spark 2.1 on Azure HDInsight 3.6 預覽目前不支援使用 ODBC 驅動程式的 BI 工具連線。
-* 此預覽版本不支援從 Spark 2.1 叢集的 Azure Data Lake Store 存取。
+* 此預覽版本不支援從 Spark 2.1 叢集的 Azure Data Lake Storage 存取。
 
 
 ## <a name="11182016---release-of-spark-201-on-hdinsight-35"></a>2016/11/18 - 發行 Spark 2.0.1 on HDInsight 3.5
@@ -110,9 +109,4 @@ Spark 2.0.1 現已可在 Spark 叢集上取得 (HDInsight 3.5 版)。
 * HDInsight 上 R 伺服器的叢集佈建已簡化。
 * HDInsight 上的 R 伺服器現在可做為一般 HDInsight「R 伺服器」叢集類型，不會再安裝為個別的 HDInsight 應用程式。 邊緣節點和 R 伺服器二進位檔現在會佈建為 R 伺服器叢集部署的一部分。 這可改善佈建速度和可靠性。 R 伺服器的定價模式也會隨之更新。
 * R 伺服器叢集類型價格現在會根據標準層價格加上 R 伺服器額外費用價格。 這項變更不會影響 R 伺服器的實際價格，它只會變更帳單中費用的呈現方式。 所有現有的 R 伺服器叢集會繼續運作，而 Resource Manager 範本則會繼續運作，直到取代通知發出為止。 **雖然如此，仍建議更新已編寫指令碼的部署，以使用新的 Resource Manager 範本。**
-
-
-
-
-
 

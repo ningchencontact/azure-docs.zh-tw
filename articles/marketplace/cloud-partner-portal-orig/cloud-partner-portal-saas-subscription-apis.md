@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9ffb67a2d3d07e75df29070ca198bac1661f95cc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c4cf59e6aa7e6edc73db2e22b9fa8ce40301b07c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212959"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790328"
 ---
 <a name="saas-sell-through-azure---apis"></a>透過 Azure API 銷售 SaaS 
 ==============================
@@ -67,8 +67,8 @@ Azure 不會對 SaaS 服務向終端使用者顯示的驗證施加任何限制�
         - 針對在裝置本機上安裝的[用戶端應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)選取 [原生]。 此設定適用於 OAuth 公用[原生用戶端](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client)。
         - 針對安裝在安全伺服器上的[用戶端應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)和[資源/API 應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)選取 [Web 應用程式/API]。 此設定適用於 OAuth 機密 [Web 用戶端](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client)和公用[使用者代理程式型用戶端](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client)。
         相同的應用程式也可以公開用戶端和資源/API。
-    -   **登入 URL：** 在 [Web 應用程式/API] 應用程式中，提供您應用程式的基底 URL。 例如，**http://localhost:31544** 可能是在您的本機電腦上執行之 Web 應用程式的 URL。 接著，使用者會使用此 URL 來登入 Web 用戶端應用程式。
-    -   **重新導向 URI：** 在 [原生] 應用程式中，提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 **http://MyFirstAADApp**。
+    -   **登入 URL**：針對 Web 應用程式/API 應用程式，請提供應用程式的基底 URL。 例如，**http://localhost:31544** 可能是在您的本機電腦上執行之 Web 應用程式的 URL。 接著，使用者會使用此 URL 來登入 Web 用戶端應用程式。
+    -   **重新導向 URI**：針對原生應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 **http://MyFirstAADApp**。
 
         ![SaaS AD 應用程式註冊](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png)如需 Web 應用程式或原生應用程式的特定範例，請參閱 [Azure AD 開發人員指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started) [開始使用] 一節中提供的快速入門引導設定。
 
@@ -136,7 +136,7 @@ HTTP 方法
       "ext_expires_in": "0",
       "expires_on": "15251…",
       "not_before": "15251…",
-      "resource": "b3cca048-ed2e-406c-aff2-40cf19fe7bf5",
+      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
   }               
 ```
@@ -172,7 +172,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | x-ms-correlationid | 否           | 用於用戶端作業的特殊字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 | Content-Type       | 是          | `application/json`                                        |
 | 授權      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
-| x-ms-marketplace-token| 是| 使用者從 Azure 重新導向至 SaaS ISV 的網站時，在 URL 中的權杖查詢參數。 **注意：** URL 在使用瀏覽器的權杖值之前，會先將其解碼。|
+| x-ms-marketplace-token| 是| 使用者從 Azure 重新導向至 SaaS ISV 的網站時，在 URL 中的權杖查詢參數。 **附註：** 此權杖的效力只有 1 小時。 此外，URL 在使用瀏覽器的權杖值之前，會先將其解碼。|
 |  |  |  |
   
 
@@ -201,7 +201,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | **HTTP 狀態碼** | **錯誤碼**     | **說明**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | 成功解析權杖。                                                            |
-| 400                  | `BadRequest`         | 要求的標頭遺失或指定的 API 版本不正確。 無法解析權杖，因為其格式不正確或已過期。 |
+| 400                  | `BadRequest`         | 要求的標頭遺失或指定的 API 版本不正確。 無法解析權杖，因為其格式不正確或已過期 (此權杖在產生後只有 1 小時的效力)。 |
 | 403                  | `Forbidden`          | 呼叫者沒有權限執行此作業。                                 |
 | 429                  | `RequestThrottleId`  | 服務正忙於處理多個要求，請稍後重試。                                |
 | 503                  | `ServiceUnavailable` | 服務已關閉，請稍後重試。                                        |
@@ -513,7 +513,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | offerId                | 字串        | 使用者訂閱的供應項目識別碼。         |
 | planId                 | 字串        | 使用者訂閱的方案識別碼。          |
 | saasSubscriptionName   | 字串        | SaaS 訂用帳戶名稱。                |
-| saasSubscriptionStatus | 例舉          | 作業狀態。  下列其中之一：  <br/> - `Subscribed`：訂用帳戶作用中。  <br/> - `Pending`：使用者建立了該資源，但它不是由 ISV 所啟動。   <br/> - `Unsubscribed`：使用者已取消訂閱。   <br/> - `Suspended`：使用者已暫止訂用帳戶。   <br/> - `Deactivated`：Azure 訂用帳戶已暫時停用。  |
+| saasSubscriptionStatus | 例舉          | 作業狀態。  下列其中之一：  <br/> - `Subscribed`：訂用帳戶作用中。  <br/> - `Pending`：使用者建立了該資源，但它不是由 ISV 所啟動。   <br/> - `Unsubscribed`：使用者已取消訂閱。   <br/> - `Suspended`：使用者已暫止訂用帳戶。   <br/> - `Deactivated`：Azure 訂用帳戶已暫止。  |
 | created                | Datetime      | 建立訂用帳戶的時間戳記值 (UTC)。 |
 | lastModified           | Datetime      | 已修改之訂用帳戶的時間戳記值 (UTC)。 |
 |  |  |  |
@@ -587,7 +587,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | offerId                | 字串        | 使用者訂閱的供應項目識別碼。         |
 | planId                 | 字串        | 使用者訂閱的方案識別碼。          |
 | saasSubscriptionName   | 字串        | SaaS 訂用帳戶名稱。                |
-| saasSubscriptionStatus | 例舉          | 作業狀態。  下列其中之一：  <br/> - `Subscribed`：訂用帳戶作用中。  <br/> - `Pending`：使用者建立了該資源，但它不是由 ISV 所啟動。   <br/> - `Unsubscribed`：使用者已取消訂閱。   <br/> - `Suspended`：使用者已暫止訂用帳戶。   <br/> - `Deactivated`：Azure 訂用帳戶已暫時停用。  |
+| saasSubscriptionStatus | 例舉          | 作業狀態。  下列其中之一：  <br/> - `Subscribed`：訂用帳戶作用中。  <br/> - `Pending`：使用者建立了該資源，但它不是由 ISV 所啟動。   <br/> - `Unsubscribed`：使用者已取消訂閱。   <br/> - `Suspended`：使用者已暫止訂用帳戶。   <br/> - `Deactivated`：Azure 訂用帳戶已暫止。  |
 | created                | Datetime      | 建立訂用帳戶的時間戳記值 (UTC)。 |
 | lastModified           | Datetime      | 已修改之訂用帳戶的時間戳記值 (UTC)。 |
 |  |  |  |
@@ -612,4 +612,36 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | x-ms-correlationid | 是          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
 | x-ms-activityid    | 是          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
 | Retry-after        | 否           | 用戶端可用來檢查狀態的間隔。                                                       |
+|  |  |  |
+
+### <a name="saas-webhook"></a>SaaS Webhook
+
+SaaS Webhook 可用來主動通知 SaaS 服務關於變更的訊息。 此 POST API 應未經驗證，且將由 Microsoft 服務所呼叫。 SaaS 服務應該會呼叫作業 API，以在對 Webhook 通知執行動作之前進行驗證和授權。 
+
+
+*內文*
+
+``` json
+  { 
+    "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
+    "offerId": "sampleSaaSOffer", // Provided with "Update" action
+    "publisherId": "contoso", 
+    "planId": "silver",     // Provided with "Update" action
+    "action": "Activate", // Activate/Delete/Suspend/Reinstate/Update
+    "timeStamp": "2018-12-01T00:00:00"
+  }
+```
+
+| **參數名稱**     | **資料類型** | **說明**                               |
+|------------------------|---------------|-----------------------------------------------|
+| id  | 字串       | 已觸發作業的唯一識別碼。                |
+| activityId   | 字串        | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。               |
+| subscriptionId                     | 字串        | Azure 中的 SaaS 訂用帳戶資源識別碼。    |
+| offerId                | 字串        | 使用者訂閱的供應項目識別碼。 僅為「更新」動作提供。        |
+| publisherId                | 字串        | SaaS 供應項目的發行者識別碼         |
+| planId                 | 字串        | 使用者訂閱的方案識別碼。 僅為「更新」動作提供。          |
+| 動作                 | 字串        | 觸發此通知的動作。 可能的值 - 啟動、刪除、暫止、恢復、更新          |
+| timeStamp                 | 字串        | 觸發此通知時的時間戳記值 (採用 UTC)。          |
 |  |  |  |

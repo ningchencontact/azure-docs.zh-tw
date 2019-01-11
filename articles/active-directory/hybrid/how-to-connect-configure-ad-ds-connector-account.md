@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 97352cdc89aabe312bf500901347acaf5238e871
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b05b3fee5c49f69979f5e778f897d4be863a3715
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436988"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809874"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect： 設定 AD DS 連接器帳戶權限 
 
@@ -219,7 +219,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 |-----|-----|-----|-----| 
 |允許 |AD DS 連接器帳戶 |一般讀取/寫入 |子系群組物件| 
 |允許 |AD DS 連接器帳戶 |建立/刪除子物件 |此物件和所有子系物件| 
-|允許 |AD DS 連接器帳戶 |刪除/刪除物件及其所有子系 |此物件和所有子系物件|
+|允許 |AD DS 連接器帳戶 |建立/刪除物件及其所有子系 |此物件和所有子系物件|
 
 ### <a name="permissions-for-exchange-hybrid-deployment"></a>Exchange 混合部署的權限 
 若要在使用 Exchange 混合部署時設定 AD DS 連接器帳戶的權限，請執行： 

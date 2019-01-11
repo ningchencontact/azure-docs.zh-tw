@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 878d9e635d82e52d8a47d47a135ba865f140c9e9
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3a8b3a22eb4bdaed0142f8afc6f92128be32eca3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321881"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971115"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Apache Hadoop 元件和版本有哪些？
 
@@ -60,7 +60,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 在 HDInsight 的更新中，可能會變更與 HDInsight 叢集版本相關聯的 Hadoop 生態系統元件版本。 若要檢查 Hadoop 元件和驗證叢集所使用的版本，請使用 Ambari REST API。 **GetComponentInformation** 命令會擷取服務元件的相關資訊。 如需詳細資訊，請參閱 [Apache Ambari 文件][ambari-docs]。
 
-> [!IMPORTANT]  
+> [!IMPORTANT]    
 > Linux 是 HDInsight 版本 3.4 或更新版本上唯一使用的作業系統。 如需詳細資訊，請參閱 [HDInsight 上的 Windows 停用項目](#hdinsight-windows-retirement)。
 
 ### <a name="release-notes"></a>版本資訊
@@ -139,9 +139,9 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 - Spark
 - 互動式查詢
 
-### <a name="support-for-azure-data-lake-store"></a>支援 Azure Data Lake Store
+### <a name="support-for-azure-data-lake-storage"></a>支援 Azure Data Lake Storage
 
-企業安全性套件支援使用 Azure Data Lake Store 同時作為主要儲存體和附加元件儲存體。
+企業安全性套件支援使用 Azure Data Lake Storage 同時作為主要儲存體和附加元件儲存體。
 
 ### <a name="pricing-and-sla"></a>價格和 SLA
 如需企業安全性套件之定價和 SLA 的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
@@ -149,7 +149,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 ## <a name="hdinsight-windows-retirement"></a>HDInsight Windows 停用項目
 Microsoft Azure HDInsight 版本 3.3 是 Windows 上的最後一個 HDInsight 版本。 Windows 上 HDInsight 的停用日期是 2018 年 7 月 31 日。 如果您在 Windows 上有任何 3.3 版或更早版本的 HDInsight 叢集，就必須在 2018 年 7 月 31 日之前移轉至 Linux 上的 HDInsight 叢集 (HDInsight 版本 3.5 或更新版本)。 移轉至 Linux OS，可讓您保留建立或調整 HDInsight 叢集的能力。 對於 Windows 上 HDInsight 版本 3.3 的支援已在 2016 年 6 月 27 日到期。
 
-從 HDInsight 版本 3.4 開始，Microsoft 只在 Linux OS 上發行 HDInsight。 因此，HDInsight 內的部分元件僅適用於 Linux。 這些包含 [Apache Ranger](https://ranger.apache.org/)、[Apache Kafka](https://kafka.apache.org/)、互動式查詢、[Apache Spark](https://spark.apache.org/)、HDInsight 應用程式，以及作為主要檔案系統的 Azure Data Lake Store。 未來的 HDInsight 版本僅適用於 Linux OS。 未來不會在 Windows 上推出任何 HDInsight 版本。 
+從 HDInsight 版本 3.4 開始，Microsoft 只在 Linux OS 上發行 HDInsight。 因此，HDInsight 內的部分元件僅適用於 Linux。 這些包含 [Apache Ranger](https://ranger.apache.org/)、[Apache Kafka](https://kafka.apache.org/)、互動式查詢、[Apache Spark](https://spark.apache.org/)、HDInsight 應用程式，以及作為主要檔案系統的 Azure Data Lake Storage。 未來的 HDInsight 版本僅適用於 Linux OS。 未來不會在 Windows 上推出任何 HDInsight 版本。 
 
 ## <a name="faqs"></a>常見問題集
 
@@ -172,7 +172,7 @@ Azure HDInsight 版本 3.3 是最後一個適用於 Windows 的 HDInsight 版本
 HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight Windows 叢集，或調整現有的 HDInsight Windows 叢集。 
 
 ### <a name="my-cluster-has-a-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>我的叢集具有 .NET 相依性。 如何在 Linux 上解析此相依性？
-您可以使用 [Mono 專案](http://www.mono-project.com/) \(英文\) 來解析 Linux 叢集相依性。 這個 .NET 開放原始碼實作適用於 HDInsight Linux 叢集。 深入了解 [HDInsight 移轉文件](hdinsight-migrate-from-windows-to-linux.md)。 
+您可以使用 [Mono 專案](https://www.mono-project.com/) \(英文\) 來解析 Linux 叢集相依性。 這個 .NET 開放原始碼實作適用於 HDInsight Linux 叢集。 深入了解 [HDInsight 移轉文件](hdinsight-migrate-from-windows-to-linux.md)。 
 
 ### <a name="im-a-new-customer-for-hdinsight-on-windows-how-can-i-create-an-hdinsight-windows-cluster"></a>我是 Windows 上 HDInsight 的新客戶。 該如何建立 HDInsight Windows 叢集？
 從 2017 年 7 月 3 日開始，只有現有的 HDInsight Windows 客戶可以建立新的 HDInsight Windows 叢集。 新客戶無法在 Azure 入口網站中，使用 PowerShell 或 SDK 來建立 HDInsight Windows 叢集。 我們建議新客戶建立 Linux HDInsight 叢集。 現有的客戶可以在 Windows上 HDInsight 的停用日期之前，建立新的 HDInsight Windows 叢集。 
@@ -186,7 +186,7 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 * 能夠讓開放原始碼社群練習積極開發 Hadoop 和較新的巨量資料技術
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>Linux 上的 HDInsight 是否提供 Windows 上的 HDInsight 中未提供的額外功能？
-從 HDInsight 版本 3.4 開始，Microsoft 只在 Linux OS 上發行 HDInsight。 因此，HDInsight 內的部分元件僅適用於 Linux。 這些包含 Apache Ranger、Kafka、「互動式查詢」、Spark、HDInsight 應用程式，以及作為主要檔案系統的 Azure Data Lake Store。 
+從 HDInsight 版本 3.4 開始，Microsoft 只在 Linux OS 上發行 HDInsight。 因此，HDInsight 內的部分元件僅適用於 Linux。 這些包含 Apache Ranger、Kafka、「互動式查詢」、Spark、HDInsight 應用程式，以及作為主要檔案系統的 Azure Data Lake Storage。 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 叢集版本的服務等級協定
 服務等級協定 (SLA) 是根據「支援期間」來定義。 支援期間是 Microsoft 客戶服務與支援中心支援 HDInsight 叢集版本的一段時間。 如果已超過版本的「支援到期日」，則表示該 HDInsight 叢集不在支援期間內。 如需支援版本的詳細資訊，請參閱[支援的 HDInsight 叢集版本](hdinsight-migrate-from-windows-to-linux.md)清單。 特定 HDInsight 版本 X (在較新的 X+1 版本推出後) 的支援到期日計算方式會以下列較晚的時間為準：  
@@ -203,10 +203,10 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 
 本節提供 Hortonworks Data Platform 發佈的版本資訊，以及與 HDInsight 搭配使用的 Apache 元件。
 * HDInsight 叢集 4.0 版採用以 [Hortonworks Data Platform 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html) 為基礎的 Hadoop 散發
-* HDInsight 叢集 3.6 版採用以 [Hortonworks Data Platform 2.6](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) 為基礎的 Hadoop 散發套件。
-* HDInsight 叢集 3.5 版採用以 [Hortonworks Data Platform 2.5](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/ch_relnotes_v250.html) 為基礎的 Hadoop 散發套件。 HDInsight 叢集版本 3.5 是在 Azure 入口網站中建立的「預設」 Hadoop 叢集。
-* HDInsight 叢集 3.4 版採用以 [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html)為基礎的 Hadoop 散發套件。
-* HDInsight 叢集 3.3 版採用以 [Hortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html)為基礎的 Hadoop 散發。
+* HDInsight 叢集 3.6 版採用以 [Hortonworks Data Platform 2.6](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) 為基礎的 Hadoop 散發套件。
+* HDInsight 叢集 3.5 版採用以 [Hortonworks Data Platform 2.5](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/ch_relnotes_v250.html) 為基礎的 Hadoop 散發套件。 HDInsight 叢集版本 3.5 是在 Azure 入口網站中建立的「預設」 Hadoop 叢集。
+* HDInsight 叢集 3.4 版採用以 [Hortonworks Data Platform 2.4](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html)為基礎的 Hadoop 散發套件。
+* HDInsight 叢集 3.3 版採用以 [Hortonworks Data Platform 2.3](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html)為基礎的 Hadoop 散發。
 
   * [Apache Storm 版本資訊](https://storm.apache.org/2015/11/05/storm0100-released.html) \(英文\) 可從 Apache 網站上取得。
   * [Apache Hive 版本資訊](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843) \(英文\) 可從 Apache 網站上取得。
@@ -230,11 +230,11 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 
   | 叢集類型 | Hadoop | hbase | 互動式查詢 | Storm | Spark  | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | 前端：預設 VM 大小 |D3 v2 |D3 v2 | D13、<br/> D14 |A4 v2 |D12 v2 |D12 v2 |
+  | 前端：預設 VM 大小 |D12 v2 |D12 v2 | D13 v2 |A3 |D12 v2 |D12 v2 |
   | 前端：建議的 VM 大小 |D3 v2、<br/> D4 v2、<br/> D12 v2 |D3 v2、<br/> D4 v2、<br/> D12 v2  | D13、<br/> D14 |A4 v2、<br/> A8 v2、<br/> A2m v2 |D12 v2、<br/> D13 v2、<br/> D14 v2 |D12 v2、<br/> D13 v2、<br/> D14 v2 |
-  | 背景工作：預設 VM 大小 |D3 v2 |D3 v2  | D13、<br/> D14 |D3 v2 |D4 v2 | D4 v2 |
+  | 背景工作：預設 VM 大小 |D4 v2 |D4 v2| D14 v2|D3 v2 |D13 v2 | D4 v2 |
   | 背景工作：建議的 VM 大小 |D3 v2、<br/> D4 v2、<br/> D12 v2 |D3 v2、<br/> D4 v2、<br/> D12 v2  | D13、<br/> D14 |D3 v2、<br/> D4 v2、<br/> D12 v2 |D4 v2、<br/> D12 v2、<br/> D13 v2、<br/> D14 v2 |D4 v2、<br/> D12 v2、<br/> D13 v2、<br/> D14 v2 |
-  | ZooKeeper：預設 VM 大小 | |A4 v2 | |A2 v2 | | |
+  | ZooKeeper：預設 VM 大小 | |A4 v2 |A4 v2 |A4 v2 | | A2 v2|
   | ZooKeeper：建議的 VM 大小 | |A4 v2、<br/> A8 v2、<br/> A2m v2 | | A2 v2、<br/> A4 v2、<br/> A8 v2 | | |
   | 邊緣：預設 VM 大小 | | | | | |D4 v2 |
   | 邊緣：建議的 VM 大小 | | | | | |D4 v2、<br/> D12 v2、<br/> D13 v2、<br/> D14 v2 |
@@ -242,11 +242,11 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 
   | 叢集類型 | Hadoop | hbase | 互動式查詢 |Storm | Spark | ML 服務 |
   | --- | --- | --- | --- | --- | --- | --- |
-  | 前端：預設 VM 大小 |D3 |D3  | D13、<br/> D14 |A3 |D12 |D12 |
+  | 前端：預設 VM 大小 |D12 |D12  | D13 |A3 |D12 |D12 |
   | 前端：建議的 VM 大小 |D3、<br/> D4、<br/> D12 |D3、<br/> D4、<br/> D12  | D13、<br/> D14 |A3、<br/> A4、<br/> A5 |D12、<br/> D13、<br/> D14 |D12、<br/> D13、<br/> D14 |
-  | 背景工作：預設 VM 大小 |D3 |D3  | D13、<br/> D14 |D3 |D4 |D4 |
+  | 背景工作：預設 VM 大小 |D4 |D4  |  D14 |D3 |D13 |D4 |
   | 背景工作：建議的 VM 大小 |D3、<br/> D4、<br/> D12 |D3、<br/> D4、<br/> D12  | D13、<br/> D14 |D3、<br/> D4、<br/> D12 |D4、<br/> D12、<br/> D13、<br/> D14 | D4、<br/> D12、<br/> D13、<br/> D14 |
-  | ZooKeeper：預設 VM 大小 | |A2 | | A2 | | |
+  | ZooKeeper：預設 VM 大小 | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
   | ZooKeeper：建議的 VM 大小 | |A2、<br/> A3、<br/> A4 | |A2、<br/> A3、<br/> A4 | | |
   | 邊緣：預設 VM 大小 | | | | | |D4 |
   | 邊緣：建議的 VM 大小 | | | | | |D4、<br/> D12、<br/> D13、<br/> D14 |
@@ -270,16 +270,16 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 
 [hdp-2-2]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.9/bk_HDP_RelNotes/content/ch_relnotes_v229.html
 
-[hdp-2-1-7]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html
+[hdp-2-1-7]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html
 
-[hdp-2-1-1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html
+[hdp-2-1-1]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html
 
-[hdp-2-0-8]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
+[hdp-2-0-8]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
 
-[hdp-1-3-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
+[hdp-1-3-0]: https://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
 
 [hdp-1-1-0]: https://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.1.1.16_1.html
 
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
-[zookeeper]: http://zookeeper.apache.org/
+[zookeeper]: https://zookeeper.apache.org/

@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: 7f67868f6220ab2940aa8ac4d4bf24f82191cc22
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: b14a36e79488f586173a6f4c8b81a24d8ce24806
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620246"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727491"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>將 IoT DevKit 裝置連線到遠端監視解決方案加速器
 
@@ -22,24 +22,21 @@ ms.locfileid: "52620246"
 
 本操作指南會示範如何在您的 IoT DevKit 裝置上執行範例應用程式。 範例程式碼會將來自 DevKit 裝置上感應器的遙測資料傳送至您的解決方案加速器。
 
-[IoT DevKit](https://aka.ms/iot-devkit) 是全方位 Arduino 相容板，具有豐富的週邊設備和感應器。 您可以使用 Visual Studio Code 中的 [Azure IoT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) 來對它進行開發。 [專案目錄](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/)包含範例應用程式，可協助您設計 IoT 解決方案原型。
+[MXChip IoT DevKit](https://aka.ms/iot-devkit) 是全方位 Arduino 相容板，具有豐富的週邊設備和感應器。 您可以使用 Visual Studio Code 中的 [Azure IoT Device Workbench](https://aka.ms/iot-workbench) 或 [Azure IoT Tools](https://aka.ms/azure-iot-tools) 擴充套件來對它進行開發。 [專案目錄](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/)包含範例應用程式，可協助您設計 IoT 解決方案原型。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="before-you-begin"></a>開始之前
 
-請遵循 [IoT DevKet 使用者入門指南](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started)並只完成下列章節：
+若要完成本教學課程中的步驟，請先執行下列工作：
 
-* 準備硬體
-* 設定 Wi-Fi
-* 開始使用 DevKit
-* 準備開發環境
+* 遵循[將 IoT DevKit AZ3166 連線到雲端中的 Azure IoT 中樞](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started)中的步驟來準備您的 DevKit。
 
-## <a name="open-the-sample"></a>開啟範例
+## <a name="open-sample-project"></a>開啟範例專案
 
 若要在 VS Code 中開啟遠端監視範例：
 
 1. 確定 IoT DevKit 未連線至您的電腦。 先啟動 VS Code，然後將 DevKit 連線至您的電腦。
 
-1. 按一下 `F1` 開啟命令選擇區，輸入並選取 [IoT Workbench: 範例]。 然後選取 [IoT DevKit] 作為面板。
+1. 按一下 `F1` 以開啟命令選擇區，鍵入並選取 [Azure IoT Device Workbench:Open Examples...] \(Azure IoT Device Workbench：開啟範例...\)。然後選取 [IoT DevKit] 作為面板。
 
 1. 找出 [遠端監視]，並按一下 [開啟範例]。 新的 VS Code 視窗隨即開啟，其中顯示專案資料夾：
 
@@ -58,7 +55,7 @@ ms.locfileid: "52620246"
 
     ![IoT DevKit 設定模式](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
 
-1. 按 **F1** 鍵開啟命令選擇區，鍵入並選取 [IoT Workbench：裝置] > [設定裝置設定]。
+1. 按 **F1** 以開啟命令選擇區，鍵入並選取 [Azure IoT Device Workbench:設定裝置設定...] > [設定裝置連接字串]。
 
 1. 貼上您先前複製的連接字串，然後按 **Enter** 鍵設定裝置。
 
@@ -66,13 +63,11 @@ ms.locfileid: "52620246"
 
 若要建置並上傳裝置程式碼：
 
-1. 按 **F1** 鍵開啟命令選擇區，鍵入並選取 [IoT Workbench：裝置] > [裝置上傳]：
-
-    ![IoT Workbench：裝置 - > 上傳](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-upload.png)
+1. 按 `F1` 以開啟命令選擇區，鍵入並選取 [Azure IoT Device Workbench:上傳裝置程式碼]：
 
 1. VS Code 會編譯程式碼並上傳到您的 DevKit 裝置：
 
-    ![IoT Workbench：裝置 - > 已上傳](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-uploaded.png)
+    ![IoT Workbench：[裝置] -> [上傳]](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-uploaded.png)
 
 1. DevKit 裝置會重新開機並執行您所上傳的程式碼。
 
@@ -126,7 +121,7 @@ ms.locfileid: "52620246"
 
 如果遇到任何問題，請參閱 [IoT DevKit 常見問題集](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)，或使用下列管道與我們連絡：
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>後續步驟

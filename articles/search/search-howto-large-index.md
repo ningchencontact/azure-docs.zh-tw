@@ -1,55 +1,81 @@
 ---
-title: 使用內建索引子相應放大索引 - Azure 搜尋服務
-description: 藉由完整重建或部分累加索引編製來新增元素、更新現有的元素或文件或刪除過時的文件，以重新整理 Azure 搜尋服務索引。
+title: 使用內建索引子為大型資料集編製索引 - Azure 搜尋服務
+description: 了解大型資料的索引編製策略或透過批次模式進行密集計算的索引編製策略、資源運用，以及排程式、平行和分散式索引編製的技術。
 services: search
 author: HeidiSteen
 manager: cgronlun
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f268de43f4f860458c062cb80e5bea0134b4407
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2f3d08a32384cea815f096f51b24eea596d0d118
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316662"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742230"
 ---
-# <a name="how-to-scale-out-indexing-in-azure-search"></a>如何在 Azure 搜尋服務中相應放大索引
+# <a name="how-to-index-large-data-sets-in-azure-search"></a>如何在 Azure 搜尋服務中為大型資料集編製索引
 
-隨著資料磁碟區的成長或處理需求的變更，您可能會發現簡單的[重建和重新編製索引作業](search-howto-reindex.md)已不敷需求。 
+隨著資料量的成長或處理需求的變更，您可能會發現預設的索引編製策略已不再可行。 Azure 搜尋服務有好幾種可因應較大型資料集的方法，範圍從如何建構資料上傳要求，到使用來源專屬的索引子來處理排程式和分散式的工作負載。
 
-要因應增加的需求，首先我們建議您現有服務的限制範圍內提高[規模和容量](search-capacity-planning.md)。 
+對大型資料適用的技術，同樣適用於長時間執行的程序。 具體來說，[平行索引編製](#parallel-indexing)中概述的步驟就適用於需要密集計算的索引編製作業，例如[認知搜尋管線](cognitive-search-concept-intro.md)中的影像分析或自然語言處理。
 
-第二個步驟，如果您可以使用[索引子](search-indexer-overview.md)，請新增可延展索引的機制。 索引子會隨附內建的排程器，可讓您定期分批編製索引，或將處理延伸到 24 小時的時間範圍外。 此外，在與資料來源定義配對時，索引子可藉由分割資料並使用排程以平行方式執行，而協助您達成平行處理原則。
+## <a name="batch-indexing"></a>批次索引編製
 
-### <a name="scheduled-indexing-for-large-data-sets"></a>為大型資料集排定的索引編製
+若要為較大型的資料集編製索引，其中一個最簡單的機制是在單一要求中提交多個文件或記錄。 只要整個承載的大小在 16 MB 以內，要求便可以在大量上傳作業中處理多達 1000 個文件。 採用[新增或更新文件 REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 時，您會在要求的本文中封裝 1000 個文件。
 
-排程是處理大型資料集和執行緩慢的分析 (例如，認知搜尋管線中的影像分析) 的重要機制。 索引子處理會在 24 小時的期間內運作。 如果處理無法在 24 小時內完成，索引子排程的行為可能對您會有幫助。 
+在為個別要求實作批次索引編製時，會使用 REST、.NET 或透過索引子。 少數索引子會有不同的運作限制。 具體而言，Azure Blob 索引編製作業會在發現平均文件大小較大時，將批次大小設定為 10 個文件。 針對以[建立索引子 REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer ) 為基礎的索引子，您可以設定 `BatchSize` 引數以自訂此設定，以便更加符合資料的特性。 
+
+> [!NOTE]
+> 為了降低文件大小，請記得從要求中排除不可查詢的資料。 影像和其他二進位資料無法直接搜尋，而且不應該儲存於索引中。 若要將不可查詢的資料整合到搜尋結果，請定義不可搜尋的欄位，以儲存資源的 URL 參考。
+
+## <a name="add-resources"></a>新增資源
+
+佈建在其中一個[標準定價層](search-sku-tier.md)的服務，其儲存體和工作負載 (查詢或索引編製) 容量通常不會充分利用，因此若要因應較大型的資料集，明顯可以使用[增加分割區和複本計數](search-capacity-planning.md)作為解決方案。 若要獲得最佳結果，您需要同時擁有這兩個資源：分割區 (用於儲存) 和複本 (用於資料擷取工作)。
+
+增加複本和分割區是需要付費的事件，所以會增加成本，但除非您持續地在最大負載下編製索引，否則您可以增加索引編製程序的持續時間，再於索引編製完成後下調資源層級。
+
+## <a name="use-indexers"></a>使用索引子
+
+[索引子](search-indexer-overview.md)可用來搜耙外部資料來源中的可搜尋內容。 有幾個索引子功能雖然不是專門用於大規模的索引編製作業，但特別適用於因應較大型的資料集：
+
++ 排程器可讓您以固定間隔分拆索引編製作業，以將作業分散到不同時間進行。
++ 排程的索引編製作業可以在最後一個已知的停止點繼續進行。 如果資料來源未能在 24 小時內完整搜耙一遍，索引子會在第二天從上次停下的地方繼續開始索引編製作業。
++ 將資料分割成較小的個別資料來源可實現平行處理作業。 您可以將大型資料集分成較小的資料集，然後建立多個可以平行編製索引的資料來源定義。
+
+> [!NOTE]
+> 索引子有專門適用的資料來源，因此使用索引子的方法只適用於 Azure 上的選定資料來源：[SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)、[Blob 儲存體](search-howto-indexing-azure-blob-storage.md)、[資料表儲存體](search-howto-indexing-azure-tables.md)、[Cosmos DB](search-howto-index-cosmosdb.md)。
+
+## <a name="scheduled-indexing"></a>排程的索引編製
+
+索引子排程是一種重要機制，可用來處理大型資料集以及緩慢執行的程序 (例如，認知搜尋管線中的影像分析)。 索引子處理會在 24 小時的期間內運作。 如果處理無法在 24 小時內完成，索引子排程的行為可能對您會有幫助。 
 
 根據設計，排程的索引編製會在特定間隔啟動，且作業通常會在繼續執行下一個排程的間隔之前完成。 不過，如果處理未在間隔內完成，索引子就會停止 (因為其時間已用盡)。 在下一個間隔中，將會從上次中斷之處繼續進行處理，而系統會追蹤該發生點。 
 
-實際上，對於跨數天的索引負載，您可以將索引子安排在 24 小時的排程上。 繼續在下一個 24 小時的期間內進行索引編製時，作業將會從最後一個已知的正常文件重新開始。 如此，索引子將可順利在數天內處理待處理項目，直到所有未處理的文件都完成處理為止。 如需此方法的詳細資訊，請參閱[為大型資料集編製索引](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
+實際上，對於跨數天的索引負載，您可以將索引子安排在 24 小時的排程上。 繼續在下一個 24 小時的週期內進行索引編製時，作業會從最後一個已知的正常文件重新開始。 如此，索引子將可順利在數天內處理待處理項目，直到所有未處理的文件都完成處理為止。 如需此方法的詳細資訊，請參閱[在 Azure Blob 儲存體中為大型資料集編製索引](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)。 如需一般排程設定方式的詳細資訊，請參閱[建立索引子 REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax)。
 
 <a name="parallel-indexing"></a>
 
 ## <a name="parallel-indexing"></a>平行索引
 
-第二個選項是設定以平行方式處理的索引編製策略。 對於非常態且須耗用較高計算資源的索引編製需求 (例如認知搜尋管線中對掃描文件的 OCR)，平行索引策略可能是達成該目標的理想方式。 在認知搜尋擴充管線中，影像分析和自然語言處理都需要長時間執行。 對不會同時處理查詢要求的服務使用平行索引策略，或許可因應龐大且處理速度緩慢的內容所產生的問題。 
+平行索引編製策略所根據的是以一致的方式為多個資料來源編製索引，在此策略中，每個資料來源定義都會指定資料的子集。 
 
-平行處理的策略具有下列元素：
+若需要進行非例行性且需要密集計算的索引編製作業 (例如，對認知搜尋管線中的掃描文件進行 OCR、影像分析或自然語言處理)，平行索引編製策略往往是能在最短時間完成長時間執行程序的理想方法。 如果您可以消除或減少查詢要求，對不會同時處理查詢的服務使用平行索引編製策略，便會成為因應龐大且處理速度緩慢的內容的最佳策略選項。 
+
+平行處理具有下列元素：
 
 + 將來源資料分置於多個容器中，或是相同容器內的多個虛擬資料夾中。 
-+ 將每個小型資料集對應至一個[資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)，並與其本身的[索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)配對。
++ 將每個小型資料集對應至各自的[資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)，並與各自的[索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)配對。
 + 對於認知搜尋，請參考每個索引子定義中的相同[技能集](https://docs.microsoft.com/rest/api/searchservice/create-skillset)。
 + 寫入相同的目標搜尋索引中。 
 + 將所有索引子排程在相同時間執行。
 
-> [!Note]
+> [!NOTE]
 > Azure 搜尋服務不支援將複本或分割區分配給特定工作負載。 同時編製大量索引的風險，是系統負擔過重而影響到查詢效能。 如果您有測試環境，請先在該處實作平行索引以了解利弊得失。
 
-## <a name="configure-parallel-indexing"></a>設定平行索引
+### <a name="how-to-configure-parallel-indexing"></a>如何設定平行索引編製
 
 就索引子而言，處理容量大致上會以搜尋服務所使用的每個服務單位 (SU) 的一個索引子子系統為基礎。 在至少有兩個複本的基本或標準層上佈建的 Azure 搜尋服務，可能會有多個並行的索引子。 
 

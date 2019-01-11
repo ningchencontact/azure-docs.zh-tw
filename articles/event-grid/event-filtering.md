@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 973b5d3f40968790dc6153ae91d1638cb83202ee
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 77225c4d659755ec6de1a14bf67bd0a62659fb6a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384372"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753858"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>了解適用於事件格線訂用帳戶的事件篩選
 
@@ -141,6 +141,7 @@ ms.locfileid: "53384372"
 * 每個字串值只能有 512 個字元
 * **in** 和 **not in** 運算子個別只能有五個值
 * 索引鍵只能有一個層級的巢狀結構 (例如 data.key1)
+* 自訂事件結構描述只能在最上層欄位上進行篩選
 
 相同的索引鍵可以用在多個篩選中。
 

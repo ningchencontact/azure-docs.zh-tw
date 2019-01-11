@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 2e7b7d9b0a194b13de9bdf759f4f3be645ed7c2e
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 01a9852157cbaefd966be974a3175c25e7ff69f8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442164"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001697"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>使用 Visual Studio 簡化撰寫及管理 Service Fabric 應用程式
 您可以透過 Visual Studio 管理 Azure Service Fabric 應用程式與服務。 [設定開發環境](service-fabric-get-started.md)後，您可以使用 Visual Studio 在本機開發叢集中建立 Service Fabric 應用程式、新增服務，或是封裝、註冊及部署應用程式。
@@ -47,7 +47,7 @@ Visual Studio 提供的 **Application Debug Mode** 屬性可讓您控制 Visual 
 
 #### <a name="application-debug-modes"></a>應用程式偵錯模式
 
-1. **重新整理應用程式** 這個模式可讓您快速變更和偵錯您的程式碼，並支援在偵錯時編輯靜態網頁檔案。 這種模式僅適用於您的本機開發叢集為 [1 個節點模式] 的情況。 此為預設的應用程式偵錯模式。(/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode)。
+1. **重新整理應用程式** 這個模式可讓您快速變更和偵錯您的程式碼，並支援在偵錯時編輯靜態網頁檔案。 這種模式僅適用於您的本機開發叢集為 [1 個節點模式](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode)的情況。 這是預設的應用程式偵錯模式。
 2. **移除應用程式** 會在偵錯工作階段結束時移除應用程式。
 3. **自動升級** 偵錯工作階段結束時，應用程式繼續執行。 下一個偵錯工作階段會將部署視為升級。 此升級程序會保留您在前一個偵錯工作階段中輸入的所有資料。
 4. **保留應用程式** 偵錯工作階段結束時，應用程式會在叢集中繼續執行。 在下一個偵錯工作階段開始時，會移除應用程式。

@@ -1,21 +1,22 @@
 ---
-title: 了解如何使用 Azure Digital Twins Swagger | Microsoft Docs
-description: 使用 Azure Digital Twins Swagger
+title: 了解如何使用 Azure Digital Twins 參考 Swagger | Microsoft Docs
+description: 了解如何使用 Azure Digital Twins Swagger 參考文件。
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/31/2018
 ms.author: adgera
-ms.openlocfilehash: 737c33f6b8cdf9bcb2530816601ff9b5eb994087
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: 7d079f543f8b564c396560c97225897c12f3cd24
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624245"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975639"
 ---
-# <a name="use-azure-digital-twins-swagger"></a>使用 Azure Digital Twins Swagger
+# <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 參考文件
 
 每個已佈建的 Azure Digital Twins 執行個體都包含本身自動產生的 Swagger 參考文件。
 
@@ -34,19 +35,19 @@ Swagger 會提供可互動的 API 摘要，包括：
 * 用於驗證和確認 HTTP 回應的範例回應資訊。
 * 錯誤碼資訊。
 
-Swagger 是一個很便利的工具，可協助您開發和測試對管理 API 所發出的呼叫。
+Swagger 是一個很便利的工具，可協助您開發和測試對 Azure Digital Twins 管理 API 所發出的呼叫。
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>參考資料
 
-自動產生的參考資料會說明重要概念和物件模型。
+自動產生的 Swagger 參考資料提供重要概念的快速概觀、可用的管理 API 端點，以及每個物件模型的說明，以協助執行開發和測試工作。
 
 透過簡單摘要來說明 API。
 
 ![Swagger 最上層][1]
 
-此外，也會列出核心 API 物件模型。
+此外，也會列出管理 API 物件模型。
 
 ![Swagger 模型][2]
 
@@ -58,7 +59,7 @@ Swagger 是一個很便利的工具，可協助您開發和測試對管理 API �
 
 ## <a name="endpoint-summary"></a>端點摘要
 
-Swagger 也提供 API 架構中所有端點的整體概觀。
+Swagger 也提供管理 API 中所有端點的整體概觀。
 
 每個列出的端點也會包含必要的要求資訊，例如：
 

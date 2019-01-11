@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 814afb8731f8e4da3d3cbc75ef69c3b5da487914
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f2cdeea546e7153c63cb1edfbc53f3644facc4f2
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877856"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743896"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>使用 PowerShell 來備份及還原虛擬機器
 
-此文章說明如何使用 Azure PowerShell Cmdlet 從復原服務保存庫備份及復原 Azure 虛擬機器 (VM)。 復原服務保存庫是一個 Azure Resource Manager 資源，可用來保護 Azure 備份與 Azure Site Recovery 服務中的資料與資產。 
+此文章說明如何使用 Azure PowerShell Cmdlet 從復原服務保存庫備份及復原 Azure 虛擬機器 (VM)。 復原服務保存庫是一個 Azure Resource Manager 資源，可用來保護 Azure 備份與 Azure Site Recovery 服務中的資料與資產。
 
 > [!NOTE]
 > Azure 有兩種用來建立和使用資源的部署模型：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文章適用於以 Resource Manager 模型建立的 VM。
@@ -28,6 +28,7 @@ ms.locfileid: "52877856"
 本文章會引導您逐步完成使用 PowerShell 來保護 VM，以及從復原點還原資料的步驟。
 
 ## <a name="concepts"></a>概念
+
 如果您不熟悉 Azure 備份服務，如需服務的概觀，請參閱文章[何謂 Azure 備份？](backup-introduction-to-azure-backup.md) 開始之前，請確定您已了解 Azure 備份需要的先決條件，以及目前 VM 備份解決方案的限制。
 
 若要有效地使用 PowerShell，就必須了解物件的階層及從何處開始。
@@ -43,7 +44,7 @@ ms.locfileid: "52877856"
 1. [下載最新版本的 PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (所需的最低版本為：1.4.0)
 
 2. 輸入下列命令，以找到可用的 Azure 備份 PowerShell Cmdlet：
-   
+
     ```powershell
     Get-Command *azurermrecoveryservices*
     ```    
@@ -326,7 +327,7 @@ $rp[0]
 
 輸出類似於下列範例：
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -350,6 +351,7 @@ BackupManagementType        : AzureVM
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
 ```
+
 #### <a name="restore-managed-disks"></a>還原受控磁碟
 
 > [!NOTE]
@@ -359,16 +361,15 @@ $restorejob
 
 請提供額外的參數 **TargetResourceGroupName**以指定將作為受控磁碟還原目的地的 RG。
 
-
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
 ```
 
 **VMConfig.JSON** 檔案將會還原至儲存體帳戶，而受控磁碟則會還原至指定的目標 RG。
 
-
 輸出類似於下列範例：
-```
+
+```powershell
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -397,6 +398,27 @@ $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 > 若要從預存的磁碟建立加密的 VM，您的 Azure 角色必須具備可執行 **Microsoft.KeyVault/vaults/deploy/action** 動作的權限。 如果您的角色並沒有此權限，請使用此動作來建立自訂角色。 如需詳細資訊，請參閱 [Azure RBAC 中的自訂角色](../role-based-access-control/custom-roles.md)。
 >
 >
+
+> [!NOTE]
+> 還原磁碟之後，現在即可取得部署範本，您可以直接用來建立新的虛擬機器。 沒有其他不同的 PS Cmdlet 可建立加密/解密的受控/非受控虛擬機器。
+
+結果工作詳細資料提供可查詢和部署的範本 URI。
+
+```powershell
+   $properties = $details.properties
+   $templateBlobURI = $properties["Template Blob Uri"]
+```
+
+僅部署範本來建立新的虛擬機器，如[此處](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source)所述。
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
+```
+
+下節列出使使用「VMConfig」檔案建立虛擬機器所需的步驟。
+
+> [!NOTE]
+> 強烈建議使用以上詳述的部署範本來建立虛擬機器。 本節 (1-6 點) 很快就會淘汰。
 
 1. 查詢工作詳細資料的已還原磁碟內容。
 
@@ -476,14 +498,14 @@ $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
    * **受控與未加密的 VM** - 針對受控、未加密的 VM，請連結已還原的受控磁碟。 如需深入的資訊，請參閱[使用 PowerShell 將資料磁碟連結至 Windows VM](../virtual-machines/windows/attach-disk-ps.md) 一文。
 
    * **受控與已加密的 VM (僅限 BEK)** - 針對受控、已加密的 VM (僅限使用 BEK 加密)，請連結已還原的受控磁碟。 如需深入的資訊，請參閱[使用 PowerShell 將資料磁碟連結至 Windows VM](../virtual-machines/windows/attach-disk-ps.md) 一文。
-   
-      使用下列命令，以手動方式啟用資料磁碟的加密。
+
+     使用下列命令，以手動方式啟用資料磁碟的加密。
 
        ```powershell
        Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
        ```
 
-   * **受控與已加密的 VM (BEK 和 KEK)** - 針對受控、已加密的 VM (使用 BEK 和 KEK 加密)，請連結已還原的受控磁碟。 如需深入的資訊，請參閱[使用 PowerShell 將資料磁碟連結至 Windows VM](../virtual-machines/windows/attach-disk-ps.md) 一文。 
+   * **受控與已加密的 VM (BEK 和 KEK)** - 針對受控、已加密的 VM (使用 BEK 和 KEK 加密)，請連結已還原的受控磁碟。 如需深入的資訊，請參閱[使用 PowerShell 將資料磁碟連結至 Windows VM](../virtual-machines/windows/attach-disk-ps.md) 一文。
 
       使用下列命令，以手動方式啟用資料磁碟的加密。
 
@@ -520,7 +542,6 @@ $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 * 掛接復原點的磁碟
 * 複製所需的檔案
 * 將磁碟取消掛接
-
 
 ### <a name="select-the-vm"></a>選取 VM
 
@@ -575,7 +596,7 @@ Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 輸出類似於下列範例：
 
-```
+```powershell
 OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe

@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 4f1372f8b15670472146efc1c4f3a341f4a97c71
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0ab9e4a3d129243ec069031c5e7233f341b545e4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255596"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713959"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>將 LUIS 結果新增至 Application Insights 和 Azure 函式
 本教學課程將 LUIS 要求和回應資訊新增至 [Application Insights](https://azure.microsoft.com/services/application-insights/) 遙測資料存放區。 在您擁有該資料之後，即可使用 Kusto 語言或 PowerBi 查詢它，以即時分析、彙總以及報告意圖和語句實體。 此分析可協助您判斷應該新增還是編輯 LUIS 應用程式的意圖和實體。
@@ -37,7 +37,7 @@ ms.locfileid: "53255596"
 > [!Tip]
 > 若您還沒有訂用帳戶，則可以註冊[免費帳戶](https://azure.microsoft.com/free/)。
 
-本教學課程中的所有程式碼都是位於 [LUIS-Samples GitHub 存放庫](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs)，而且與本教學課程建立關聯的每一行都會加上 `//APPINSIGHT:` 註解。 
+本教學課程中的所有程式碼都是位於 [Azure-Samples GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs)，而且與本教學課程建立關聯的每一行都會加上 `//APPINSIGHT:` 註解。 
 
 ## <a name="web-app-bot-with-luis"></a>含 LUIS 的 Web 應用程式 Bot
 本教學課程假設您的程式碼與下面類似，或您已完成[其他教學課程](luis-nodejs-tutorial-build-bot-framework-sample.md)： 
@@ -51,11 +51,11 @@ ms.locfileid: "53255596"
 
 1. 在 Azure 入口網站中，於 Web 應用程式 Bot 服務中，選取 [Bot Management] \(Bot 管理\) 區段下方的 [建置]。 
 
-    ![搜尋應用程式見解](./media/luis-tutorial-appinsights/build.png)
+    ![在 Azure 入口網站中，於 Web 應用程式 Bot 服務中，選取 [Bot 管理] 區段下方的 [建置]。 ](./media/luis-tutorial-appinsights/build.png)
 
 2. 新的瀏覽器索引標籤與 App Service 編輯器隨即開啟。 選取頂端列中的應用程式名稱，然後選取 [Open Kudu Console] \(開啟 Kudu 主控台\)。 
 
-    ![搜尋應用程式見解](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![選取頂端列中的應用程式名稱，然後選取 [Open Kudu Console] \(開啟 Kudu 主控台\)。 ](./media/luis-tutorial-appinsights/kudu-console.png)
 
 3. 在主控台中，輸入下列命令以安裝 Application Insights 和 Underscore 套件：
 
@@ -63,7 +63,7 @@ ms.locfileid: "53255596"
     cd site\wwwroot && npm install applicationinsights && npm install underscore
     ```
 
-    ![搜尋應用程式見解](./media/luis-tutorial-appinsights/npm-install.png)
+    ![使用 npm 命令以安裝 Application Insights 和 Underscore 套件](./media/luis-tutorial-appinsights/npm-install.png)
 
     等候安裝套件：
 
@@ -112,9 +112,7 @@ ms.locfileid: "53255596"
 
 1. 在入口網站中，選取 [所有資源]，然後依 Web 應用程式 Bot 名稱篩選。 按一下類型為 **Application Insights** 的資源。 Application Insights 的圖示為燈泡。 
 
-    ![搜尋應用程式見解](./media/luis-tutorial-appinsights/search-for-app-insights.png)
-
-
+    ![[在 Azure 入口網站中搜尋應用程式深入解析](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
 2. 當資源開啟時，按一下最右側面板中放大鏡的**搜尋**圖示。 即會顯示右側新面板。 根據找到的遙測資料量，此面板可能需要一秒才會顯示。 搜尋 `LUIS-results`，然後按鍵盤上的 Enter 鍵。 這份清單的範圍會縮小為只有使用本教學課程所新增的 LUIS 查詢結果。
 

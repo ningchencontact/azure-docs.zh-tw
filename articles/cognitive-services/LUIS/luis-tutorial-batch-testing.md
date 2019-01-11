@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2c8d4486b235534db2bb7d06206d5767c1496fbd
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106034"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754385"
 ---
-# <a name="tutorial-2-batch-test-data-sets"></a>教學課程 2：批次測試資料集
+# <a name="tutorial-batch-test-data-sets"></a>教學課程：批次測試資料集
 
 本教學課程示範如何使用批次測試來找出應用程式中的語句預測問題，並加以修正。  
 
@@ -36,7 +36,7 @@ ms.locfileid: "53106034"
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * 使用現有的教學課程應用程式
+> * 匯入範例應用程式
 > * 建立批次測試檔案 
 > * 執行批次測試
 > * 檢閱測試結果
@@ -45,13 +45,13 @@ ms.locfileid: "53106034"
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>使用現有的應用程式
+## <a name="import-example-app"></a>匯入範例應用程式
 
 以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
 
-如果您沒有來自上一個教學課程的 HumanResources 應用程式，請使用下列步驟：
+請使用下列步驟：
 
-1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json)。
+1.  下載並儲存[應用程式的 JSON 檔案](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json)。
 
 2. 將 JSON 匯入新的應用程式中。
 
@@ -61,7 +61,7 @@ ms.locfileid: "53106034"
 
 ## <a name="batch-file"></a>批次檔
 
-1. 在文字編輯器中建立 `HumanResources-jobs-batch.json`，或[下載此項目](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json)。 
+1. 在文字編輯器中建立 `HumanResources-jobs-batch.json`，或[下載此項目](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json)。 
 
 2. 在 JSON 格式的批次檔中，新增具有您想要在測試中預測之**意圖**的語句。 
 
@@ -177,7 +177,7 @@ ms.locfileid: "53106034"
 
 測試語句中提供的 **Job** 實體值，通常是一或兩個文字，以及一些有更多文字的範例。 如果「您自己」的人力資源應用程式的作業名稱通常會有許多文字，則應用程式中已使用 **Job** 實體標示的範例語句就無法正常運作。
 
-1. 在文字編輯器 (例如 `HumanResources-entities-batch.json`VSCode[) 中建立 ](https://code.visualstudio.com/)，或[下載此項目](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json)。
+1. 在文字編輯器 (例如 `HumanResources-entities-batch.json`VSCode[) 中建立 ](https://code.visualstudio.com/)，或[下載此項目](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json)。
 
 
 2. 在 JSON 格式的批次檔中，新增一個物件陣列，其中包含語句和您想要在測試中預測的**意圖**，以及語句中任何實體的位置。 由於實體會以語彙基元為基礎，因此，請確定會在字元上啟動和停止每個實體。 不要以空格開始或結束語句。 這會在批次檔匯入期間造成錯誤。  

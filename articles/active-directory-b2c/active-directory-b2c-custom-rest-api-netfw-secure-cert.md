@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7bf7add75f60bf64f64119979e5eee81be0f6e7b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 89663db23962cbc82ead331f05cb39c0ef5d2e87
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344960"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722561"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>使用用戶端憑證保護您的 RESTful 服務
 
@@ -41,7 +41,7 @@ ms.locfileid: "43344960"
 若要設定 **Azure App Service** 以要求用戶端憑證，請將 Web 應用程式 `clientCertEnabled` 站台設定設為 *true*。 若要進行此變更，請在 Azure 入口網站中，開啟 Web 應用程式頁面。 在左側導覽的 [設定] 底下，選取 [SSL 設定]。 在 [用戶端憑證] 區段中，開啟 [連入用戶端憑證] 選項。
 
 >[!NOTE]
->請確定您的 Azure App Service 方案至少為標準版本。 如需詳細資訊，請參閱 [Azure App Service 方案深入概觀](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)。
+>請確定您的 Azure App Service 方案至少為標準版本。 如需詳細資訊，請參閱 [Azure App Service 方案深入概觀](https://docs.microsoft.com/azure/app-service/overview-hosting-plans)。
 
 >[!NOTE]
 >如需設定 **clientCertEnabled** 屬性的詳細資訊，請參閱[設定 Web 應用程式的 TLS 相互驗證](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)。
@@ -152,7 +152,7 @@ ms.locfileid: "43344960"
    >如果收到錯誤訊息：*名稱無效，請提供有效的名稱*，這表示 Azure AD B2C 在呈現用戶端憑證時已成功呼叫 RESTful 服務。 下一個步驟是驗證憑證。
 
 ## <a name="step-6-add-certificate-validation"></a>步驟 6：新增憑證驗證
-Azure Web 應用程式平台不會對 Azure AD B2C 傳送至 RESTful 服務的用戶端憑證進行任何驗證 (除了檢查憑證是否存在)。 驗證憑證是 Web 應用程式的責任。 
+Azure App Service 平台不會對 Azure AD B2C 傳送至 RESTful 服務的用戶端憑證進行任何驗證 (除了檢查憑證是否存在)。 驗證憑證是 Web 應用程式的責任。 
 
 在本節中，您會基於驗證而驗證憑證內容的範例 ASP.NET 程式碼。
 

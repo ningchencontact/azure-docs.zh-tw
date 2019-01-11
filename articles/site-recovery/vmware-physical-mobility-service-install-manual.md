@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: d0180a32f2a4258cb728869e2cb9f2abd57cc545
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 06430bf476c2e9f3af2102272fb54d201a3f1066
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845955"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790804"
 ---
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>在 VMware VM 和實體伺服器上手動安裝行動服務
 
@@ -91,7 +91,7 @@ ms.locfileid: "52845955"
 安裝記錄檔 | 在 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log 底下。
 /Role | 必要安裝參數。 指定應該要安裝行動服務 (MS) 還是主要目標 (MT)。
 /InstallLocation| 選擇性參數。 指定行動服務安裝位置 (任何資料夾)。
-/Platform | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**如果是 Azure VM，則為 **Azure**。 
+/Platform | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**；如果是 Azure VM，則為 **Azure**。 
 /Silent| 選用。 指定是否要以無訊息模式執行安裝程式。
 
 #### <a name="registration-settings"></a>註冊設定
@@ -129,7 +129,7 @@ ms.locfileid: "52845955"
 使用量 | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 -r | 必要安裝參數。 指定應該要安裝行動服務 (MS) 還是主要目標 (MT)。
 -d | 選擇性參數。 指定行動服務安裝位置：/usr/local/ASR。
--v | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**如果是 Azure VM，則為 **Azure**。 
+-v | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**；如果是 Azure VM，則為 **Azure**。 
 -q | 選用。 指定是否要以無訊息模式執行安裝程式。
 
 #### <a name="registration-settings"></a>註冊設定

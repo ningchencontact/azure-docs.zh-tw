@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 12/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 84ea1d999a26ce0ce1d548da92549c6a718d5978
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c727cddf41c269c214b541134cd9f688017ee687
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850358"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789716"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>教學課程：Azure Active Directory 與 Tableau Server 整合
 
@@ -86,13 +86,14 @@ Tableau Server 與 Azure AD 整合提供下列優點：
 
 若要使用 Tableau Server 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
-1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 Tableau Server 測試使用者](#creating-a-tableau-server-test-user)** - 使 Tableau Server 中 Britta Simon 的對應使用者連結到該使用者在 Azure AD 中的代表身分。
-4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
+2. **[設定 Tableau Server 單一登入](#configure-tableau-server-single-sign-on)** - 在應用程式端設定單一登入設定。
+3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+4. **[建立 Tableau Server 測試使用者](#create-tableau-server-test-user)** - 使 Cisco Umbrella 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+5. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
-### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
+### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，並在您的 Tableau Server 應用程式中設定單一登入。
 
@@ -112,9 +113,9 @@ Tableau Server 與 Azure AD 整合提供下列優點：
 
 4. 在 [使用者屬性與宣告] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
     
-    | 屬性名稱 | 屬性值 |
-    | ---------------| --------------- |    
-    | username | user.userprincipalname |
+    | 屬性名稱 | 屬性值 | 命名空間 |
+    | ---------------| --------------- | ----------- |   
+    | username | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
 
     a. 按一下 [新增宣告] 以開啟 [管理使用者宣告] 對話方塊。
 
@@ -151,33 +152,41 @@ Tableau Server 與 Azure AD 整合提供下列優點：
 
 7. 在 [SAML 簽署憑證] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載] 以下載 [同盟中繼資料 XML]，然後將憑證檔案儲存在電腦上。
 
-    ![憑證下載連結](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png) 
+    ![憑證下載連結](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png)
 
-8. 若要取得為應用程式設定的 SSO，您必須以系統管理員身分登入 Tableau Server 租用戶。
+### <a name="configure-tableau-server-single-sign-on"></a>設定 Tableau Server 單一登入 
 
-9. 在 [Tableau Server 設定] 頁面上，執行下列步驟：
-   
-    ![設定單一登入](./media/tableauserver-tutorial/tutorial-tableauserver-001.png)
+1. 若要取得為應用程式設定的 SSO，您必須以系統管理員身分登入 Tableau Server 租用戶。
 
-    a. 在 Tableau Server 組態中，按一下 [SAML] 索引標籤。 
-  
-    b. 選取 [使用 SAML 進行單一登入] 的核取方塊。
-   
+2. 在 [組態] 索引標籤上選取 [使用者身分識別和存取權]，然後選取 [驗證方法] 索引標籤。
+
+    ![設定單一登入](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+
+3. 在 [組態] 頁面上，執行下列步驟：
+
+    ![設定單一登入](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+
+    a. 選取 [SAML] 作為 [驗證方法]。
+    
+    b. 選取 [為伺服器啟用 SAML 驗證] 的核取方塊。
+
     c. Tableau Server 傳回 URL — Tableau Server 使用者將存取的 URL，例如 http://tableau_server。 不建議使用 http://localhost。 不支援使用包含結尾斜線的 URL (例如， http://tableau_server/)。 複製 [Tableau Server 傳回 URL]，並將其貼到 [Tableau Server 網域及 URL] 區段中的 Azure AD [單一登入 URL] 文字方塊。
-   
+
     d. SAML 實體識別碼—實體識別碼可唯一識別安裝至 IdP 的 Tableau Server。 您可以依意願再次在這裡輸入 Tableau Server URL，但是它不一定是您的 Tableau Server URL。 複製 [SAML 實體識別碼]，並將其貼到 [Tableau Server 網域及 URL] 區段中的 Azure AD [識別碼] 文字方塊。
-     
-    e. 按一下 [匯出中繼資料檔案]，並在文字編輯器應用程式中將其開啟。 利用 Http Post 與索引 0 找出判斷提示取用者服務 URL，並複製 URL。 現在將其貼到 [Tableau Server 網域及 URL] 區段中的 Azure AD [回覆 URL] 文字方塊。
-   
+
+    e. 按一下 [下載 XML 中繼資料檔案]，並在文字編輯器應用程式中將其開啟。 利用 Http Post 與索引 0 找出判斷提示取用者服務 URL，並複製 URL。 現在將其貼到 [Tableau Server 網域及 URL] 區段中的 Azure AD [回覆 URL] 文字方塊。
+
     f. 尋找從 Azure 入口網站下載的同盟中繼資料檔案，然後在 [SAML Idp 中繼資料檔案] 中將其上傳。
-   
-    g. 按一下 [Tableau Server 設定] 頁面中的 [確定] 按鈕。
-   
+
+    g. 輸入 IdP 用來保留使用者名稱、顯示名稱和電子郵件地址的屬性名稱。
+
+    h. 按一下 [儲存] 
+
     >[!NOTE] 
     >客戶必須在 [Tableau Server SAML SSO 設定] 中上傳任何憑證，系統將在 SSO 流程中忽略該憑證。
-    >如果您需要在 Tableau Server 上設定 SAML 的協助，請參閱[設定 SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm)。
+    >如果您需要在 Tableau Server 上設定 SAML 的協助，請參閱[設定 SAML](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm)。
 
-### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
+### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
@@ -202,7 +211,7 @@ Tableau Server 與 Azure AD 整合提供下列優點：
 
     d. 選取 [建立] 。
   
-### <a name="creating-a-tableau-server-test-user"></a>建立 Tableau Server 測試使用者
+### <a name="create-tableau-server-test-user"></a>建立 Tableau Server 測試使用者
 
 本節目標是在 Tableau Server 中建立名為 Britta Simon 的使用者。 您必須在 Tableau Server 中佈建所有使用者。 
 
@@ -211,7 +220,7 @@ Tableau Server 與 Azure AD 整合提供下列優點：
 >[!NOTE]
 >如果您需要以手動方式建立使用者，您必須連絡貴組織的 Tableau Server 系統管理員。
 
-### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
+### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 Tableau Server 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
@@ -235,7 +244,7 @@ Tableau Server 與 Azure AD 整合提供下列優點：
 
 6. 在 [新增指派] 對話方塊中，選取 [指派] 按鈕。
 
-### <a name="testing-single-sign-on"></a>測試單一登入
+### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 

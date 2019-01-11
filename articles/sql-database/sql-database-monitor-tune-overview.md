@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 9e8b9b24707577aba5df754984953ef2f59b9ff9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3c809638cef89d111a032e5876b1f2f1b2c1eb7b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272859"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602341"
 ---
 # <a name="monitoring-and-performance-tuning"></a>監視和效能微調
 
@@ -91,7 +91,7 @@ Azure SQL Database 是有彈性的自動管理資料服務，您可以輕鬆監�
 
 有數個用來減輕問題的因應措施，每一種都有相關聯的取捨和缺點：
 
-- 在每次查詢執行時使用 [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 查詢提示。 此因應措施交易交易編譯時間和增加的 CPU，以獲得更好的計劃品質。 針對需要高輸送量的工作負載，通常無法使用 `RECOMPILE` 選項。
+- 在每次查詢執行時使用 [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 查詢提示。 此因應措施會交易編譯時間和增加的 CPU，以獲得更好的計劃品質。 針對需要高輸送量的工作負載，通常無法使用 `RECOMPILE` 選項。
 - 使用 [OPTION (OPTIMIZE FOR…)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 查詢提示，以典型參數值覆寫實際參數值，可為大多數參數值的可能性提供夠完善的計畫。   此選項需要充分了解最佳的參數值和相關聯的計畫特性。
 - 使用 [OPTION (OPTIMIZE FOR UNKNOWN)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 查詢提示來覆寫實際參數值以換取使用密度向量的平均值。 另一種方法是將傳入的參數值擷取到區域變數中，然後使用述詞內的區域變數，而不是使用參數本身。 對於此特定的修正程式，平均密度必須*夠好*。
 - 使用 [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 查詢提示完全停用參數探查。
@@ -104,7 +104,7 @@ Azure SQL Database 是有彈性的自動管理資料服務，您可以輕鬆監�
 
 - 此[參數的特徵](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) \(英文\) 部落格文章
 - 此[參數探查問題和因應措施](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/) \(英文\) 部落格文章
-- 此[大象與老鼠的參數探查](ttps://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) \(英文\) 部落格文章
+- 此[大象與老鼠的參數探查](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) \(英文\) 部落格文章
 - 此[動態 sql 與參數化查詢的計畫品質](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) \(英文\) 部落格文章
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>疑難排解由於不正確的參數化所導致的編譯活動失敗

@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9ad71c34bdf88023bcb0a4115fc02ddf3a8d7624
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 340805e668190fedc7df047b66bec710d7e726c7
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086393"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53992969"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>使用一組範例語句的批次測試
 
- 批次測試是針對您目前已定型模型的完整測試，以測量其於 LUIS 中的效能。 
+ 批次測試是針對您目前已定型模型的完整測試，以測量其於 LUIS 中的效能。 用於批次測試的資料集不應包含意圖中的範例語句，或從預測執行階段端點收到的語句。 
 
 <a name="batch-testing"></a>
 
@@ -65,9 +65,6 @@ ms.locfileid: "53086393"
 若要檢閱批次測試結果，請選取 [查看結果]。
 
 ![批次測試結果](./media/luis-how-to-batch-test/run-test-results.png)
-
-<!-- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. Green points indicate correct prediction, and red ones indicate incorrect prediction. The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.-->
-
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
 

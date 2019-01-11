@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83ba1b94413990c0eb8dff42c49d46456a658d5a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417764"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722137"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 範本中的參數區段
 在範本的 parameters 區段中，您會指定可在部署資源時輸入的值。 提供針對特定環境 (例如開發、測試和生產環境) 量身訂做的參數值，可讓您自訂部署。 您不必在範本中提供參數，但若沒有參數，您的範本一律會部署具有相同名稱、位置和屬性的相同資源。
@@ -188,74 +188,6 @@ ms.locfileid: "50417764"
 ]
 ```
 
-## <a name="recommendations"></a>建議
-當您使用參數時，下列資訊可能會很有幫助︰
-
-* 將參數的使用最小化。 可能的話，使用變數或常值。 只針對這些案例使用參數︰
-   
-   * 您想要根據環境 (SKU、大小、容量) 使用變化的設定。
-   * 您希望能方便識別而指定的資源名稱。
-   * 您經常用來完成其他工作 (例如，管理使用者名稱) 的值。
-   * 機密資料 (例如密碼)。
-   * 建立多個資源類型執行個體時要使用的數字或值陣列。
-* 參數名稱使用駝峰式大小寫。
-* 在中繼資料中提供每個參數的描述：
-
-   ```json
-   "parameters": {
-       "storageAccountType": {
-           "type": "string",
-           "metadata": {
-               "description": "The type of the new storage account created to store the VM disks."
-           }
-       }
-   }
-   ```
-
-* 定義參數的預設值 (密碼和 SSH 金鑰除外)。 藉由指定預設值，該參數在部署期間變成選用。 預設值可以是空字串。 
-   
-   ```json
-   "parameters": {
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_GRS",
-            "metadata": {
-                "description": "The type of the new storage account created to store the VM disks."
-            }
-        }
-   }
-   ```
-
-* 所有密碼都要使用 **securestring** 。 如果您在 JSON 物件中傳遞敏感資料，請使用 **secureObject** 類型。 部署資源後，無法讀取類型為 securestring 或 secureObject 的範本參數。 
-   
-   ```json
-   "parameters": {
-       "secretValue": {
-           "type": "securestring",
-           "metadata": {
-               "description": "The value of the secret to store in the vault."
-           }
-       }
-   }
-   ```
-
-* 請使用參數以指定位置，並盡可能和可能位於相同位置的資源一起共用該參數值。 此方法可以降低系統要求使用者提供位置資訊的次數。 如果只在有限的位置支援某資源類型，您可能想要直接在範本中指定有效的位置，或新增其他位置參數。 當組織限制其使用者的允許區域時，**resourceGroup().location** 運算式可能會阻止使用者部署範本。 例如，某位使用者在區域中建立資源群組。 第二個使用者必須部署至該資源群組，但沒有該區域的存取權。 
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
-         "location": "[parameters('location')]",
-         ...
-     }
-   ]
-   ```
-    
-* 資源類型的 API 版本要避免使用參數或變數。 資源屬性和值可能會隨版本號碼而不同。 將 API 版本設定為參數或變數時，程式碼編輯器中的 Intellisense 會無法判斷正確的結構描述。 請改為將 API 版本硬式編碼在範本中。
-* 請避免在範本中指定與部署命令中的參數相符合的參數名稱。 資源管理員會在範本參數加上後置詞 **FromTemplate** 以避免命名衝突。 例如，如果您在範本中包含名為 **ResourceGroupName** 的參數，這會與 [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) Cmdlet 中的 **ResourceGroupName** 參數發生衝突。 部署期間，系統會提示您為 **ResourceGroupNameFromTemplate** 提供值。
-
 ## <a name="example-templates"></a>範本的範例
 
 這些範例範本示範使用參數的一些情況。 部署這些參數以測試如何在不同的情況下處理參數。
@@ -269,5 +201,5 @@ ms.locfileid: "50417764"
 
 * 若要檢視許多不同類型解決方案的完整範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)。
 * 如需如何在部署期間輸入參數值的資訊，請參閱 [使用 Azure Resource Manager 範本部署資源](resource-group-template-deploy.md)。 
-* 如需您可以在範本內使用哪些函式的詳細資料，請參閱 [Azure Resource Manager 範本函式](resource-group-template-functions.md)。
+* 如需建立範本的建議，請參閱 [Azure Resource Manager 範本最佳做法](template-best-practices.md)。
 * 如需使用參數物件的資訊，請參閱[在 Azure Resource Manager 範本中使用物件作為參數](/azure/architecture/building-blocks/extending-templates/objects-as-parameters)。

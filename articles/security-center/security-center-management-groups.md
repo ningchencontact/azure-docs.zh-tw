@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f05c0469dffa074501a301802412901ead3d1e69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964112"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720810"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>取得 Azure 資訊安全中心的全租用戶可見性
 本文可協助您先執行數個可充分發揮 Azure Security Center 效用的動作，以著手使用。 執行這些動作可讓您檢視所有連結至 Azure Active Directory 租用戶的 Azure 訂用帳戶，並以彙總的方式跨多個訂用帳戶套用安全性原則，以有效而大規模地管理組織的安全性狀態。
@@ -71,13 +71,13 @@ Azure Active Directory 租用戶管理員並沒有 Azure 訂用帳戶的直接�
 
    ![Azure AD 屬性 - 螢幕擷取畫面](./media/security-center-management-groups/aad-properties.png)
 
-3. 在 [全域管理員可以管理 Azure 訂用帳戶與管理群組] 下，將開關設定為 [是]。
+3. 在 [Azure 資源的存取管理] 下，將切換開關設為 [是]。
 
    ![全域管理員可以管理 Azure 訂用帳戶與管理群組 - 螢幕擷取畫面](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
-   - 當您將開關設定為 [是] 時，您的全域管理員帳戶 (目前登入的使用者) 會新增至根目錄範圍 (`/`) 之 Azure RBAC 中的使用者存取系統管理員角色，這會授權您存取與您的 Azure AD 租用戶建立關聯之所有 Azure 訂用帳戶中的檢視和報表。
+   - 當您將切換開關設定為 [是] 時，您會在根範圍 (/) 上獲派 Azure RBAC 中的使用者存取管理員角色。 這會授與您權限，讓您可以在所有與 Azure AD 目錄相關聯的 Azure 訂用帳戶和管理群組中指派角色。 只有在 Azure AD 中獲派全域管理員角色的使用者可使用此切換開關。
 
-   - 當您將開關設定為 [否] 時，您的全域管理員帳戶 (目前登入的使用者) 會從 Azure RBAC 的使用者存取系統管理員角色中移除。 您無法看到與 Azure AD 租用戶建立關聯的所有 Azure 訂用帳戶，而且您只能檢視及管理已獲得存取權的 Azure 訂用帳戶。
+  - 當您將切換開關設定為 [否] 時，Azure RBAC 中的使用者存取管理員角色會從使用者帳戶中移除。 您將無法在所有與 Azure AD 目錄相關聯的 Azure 訂用帳戶和管理群組中指派角色。 您只能檢視和管理已取得其存取權的 Azure 訂用帳戶和管理群組。
 
 4. 按一下 [儲存] 儲存您的設定。
 

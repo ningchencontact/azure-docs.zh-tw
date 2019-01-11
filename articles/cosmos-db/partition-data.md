@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: 5dd1926496351f5bbfe8e5b3e4d1e0b68e82d272
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 38f587fc24478beff3ab236207de3ed8a892c915
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283388"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998943"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Azure Cosmos DB 中的資料分割和水平調整
 
@@ -29,7 +29,7 @@ ms.locfileid: "51283388"
 
 ## <a name="physical-partitions"></a>實體分割區
 
-您可以藉由將資料和輸送量散發到許多邏輯分割區來調整 Cosmos 容器。 就內部而言，會將一或多個邏輯分割區對應至由一組複本 (也稱為「複本集」) 所組成的**資源分割區**。 每個複本集都會裝載 Cosmos 資料庫引擎的執行個體。 複本集讓資源分割區內儲存的資料都具耐久性、高度可用且一致。 資源分割區支援固定且最大數量的儲存體和 RU。 組成資源分割區的每個複本都會繼承儲存體配額。 此外，資源分割區的所有複本會共同支援配置給資源分割區的輸送量。 下圖顯示如何將邏輯分割區對應至全域散發的實體分割區：
+您可以藉由將資料和輸送量散發到許多邏輯分割區來調整 Cosmos 容器。 就內部而言，會將一或多個邏輯分割區對應至由一組複本 (也稱為「複本集」) 所組成的**實體分割區**。 每個複本集都會裝載 Cosmos 資料庫引擎的執行個體。 複本集讓實體分割區內儲存的資料都具耐久性、高度可用且一致。 實體分割區支援固定且最大數量的儲存體和 RU。 組成實體分割區的每個複本都會繼承儲存體配額。 此外，實體分割區的所有複本會共同支援配置給實體分割區的輸送量。 下圖顯示如何將邏輯分割區對應至全域散發的實體分割區：
 
 ![Azure Cosmos DB 資料分割](./media/partition-data/logical-partitions.png)
 

@@ -9,27 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/22/2018
 ms.author: juliako
-ms.openlocfilehash: c5f441fef95989e5c82586d96fc6c10e00a9627c
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d74ce913a2189dd1062b30f9def919cbbabe7b64
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085490"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742519"
 ---
 # <a name="streaming-policies"></a>串流原則
 
-Azure 媒體服務 v3 中，串流原則可讓您設定 StreamingLocators 的串流通訊協定和加密選項。 您可以指定您所建立的串流原則名稱，或使用其中一個預先定義的串流原則。 目前可用的預先定義串流原則如下：'Predefined_DownloadOnly'、'Predefined_ClearStreamingOnly'、'Predefined_DownloadAndClearStreaming'、'Predefined_ClearKey'、'Predefined_MultiDrmCencStreaming' 和 'Predefined_MultiDrmStreaming'。
+Azure 媒體服務 v3 中，串流原則可讓您設定 StreamingLocators 的串流通訊協定和加密選項。 您可以指定您所建立的串流原則名稱，或使用其中一個預先定義的串流原則。 可用的預先定義串流原則如下：'Predefined_DownloadOnly'、'Predefined_ClearStreamingOnly'、'Predefined_DownloadAndClearStreaming'、'Predefined_ClearKey'、'Predefined_MultiDrmCencStreaming' 和 'Predefined_MultiDrmStreaming'。
 
 > [!IMPORTANT]
-> 使用自訂的 [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) 時，您應該為媒體服務帳戶設計一組受限的這類原則，並且在需要相同的加密選項和通訊協定時，對 StreamingLocators 重新使用這些原則。 媒體服務帳戶有 StreamingPolicy 項目的數量配額。 不建議您對每個 StreamingLocator 建立新的 StreamingPolicy。
+> 使用自訂的 [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) 時，您應該為媒體服務帳戶設計一組受限的這類原則，並且在需要相同的加密選項和通訊協定時，對 StreamingLocators 重新使用這些原則。 媒體服務帳戶有串流原則項目的數量配額。 不建議您對每個串流定位器建立新的串流原則。
 
 ## <a name="streamingpolicy-definition"></a>StreamingPolicy 定義
 
 下表說明 StreamingPolicy 的屬性並提供其定義。
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |id|資源的完整資源識別碼。|
 |name|資源名稱。|
@@ -65,7 +65,7 @@ Azure 媒體服務 v3 中，串流原則可讓您設定 StreamingLocators 的串
 
 下表說明這些選項可如何套用至 StreamingPolicy 屬性： 
 
-|名稱|Filter|順序|
+|Name|Filter|順序|
 |---|---|---|
 |id|||
 |name|Eq、ne、ge、le、gt、lt|遞增和遞減|

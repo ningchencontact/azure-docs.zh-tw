@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 01/02/2019
 ms.author: yushwang
-ms.openlocfilehash: a232ac111974444848aec82f3c7ab6236f82ac03
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7545000e0dda959195d3669da877a77c5bedea40
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037087"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002054"
 ---
 # <a name="vpn-gateway-faq"></a>VPN 閘道常見問題集
 
@@ -30,6 +30,10 @@ ms.locfileid: "51037087"
 
 您可以使用 Windows PowerShell 和 Azure REST API 連接到多個網站。 請參閱＜ [多網站和 VNet 對 VNet 連線能力](#V2VMulti) ＞常見問題集一節。
 
+### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>將 VPN 閘道設定為主動 - 主動是否需要額外費用？
+
+沒有。 
+
 ### <a name="what-are-my-cross-premises-connection-options"></a>有哪些跨單位連線選項？
 
 支援下列跨單位連線：
@@ -38,7 +42,7 @@ ms.locfileid: "51037087"
 * 點對站 – 透過 SSTP (安全通訊端通道通訊協定) 的 VPN 連線或 IKE v2。 此連線不需要 VPN 裝置。 如需詳細資訊，請參閱[點對站](vpn-gateway-howto-point-to-site-resource-manager-portal.md)。
 * VNet 對 VNet – 此類型的連線與站對站組態相同。 VNet 對 VNet 是透過 IPsec (IKE v1 和 IKE v2) 的 VPN 連線， 並不需要 VPN 裝置。 如需詳細資訊，請參閱 [VNet 對 VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)。
 * 多網站 - 這是站對站組態的變體，可讓您將多個內部部署網站連線至虛擬網路。 如需詳細資訊，請參閱[多網站](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)。
-* ExpressRoute - ExpressRoute 是從 WAN 到 Azure 的直接連線，而不是透過公用網際網路的 VPN 連線。 如需詳細資訊，請參閱 [ExpressRoute 技術概觀](../expressroute/expressroute-introduction.md)和 [ExpressRoute 常見問題集](../expressroute/expressroute-faqs.md)。
+* ExpressRoute - ExpressRoute 是從 WAN 到 Azure 的私人連線，而不是透過公用網際網路的 VPN 連線。 如需詳細資訊，請參閱 [ExpressRoute 技術概觀](../expressroute/expressroute-introduction.md)和 [ExpressRoute 常見問題集](../expressroute/expressroute-faqs.md)。
 
 如需 VPN 閘道連線的詳細資訊，請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)。
 
@@ -65,7 +69,7 @@ VPN 閘道是一種虛擬網路閘道。 VPN 閘道可透過公用連線在您�
 路由式閘道實作路由式 VPN。 路由式 VPN 會使用 IP 轉送或路由表中的「路由」，直接封包至其對應的通道介面。 然後，通道介面會加密或解密輸入和輸出通道的封包。 路由式 VPN 的原則或流量選取器會設定為任意對任意 (或萬用字元)。
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>可以將我的原則型 VPN 閘道更新為路由型嗎？
-否。 Azure Vnet 閘道類型無法從原則型變更為路由型或其他方式。 閘道必須刪除並重新建立，程序大約要 60 分鐘的時間。 閘道的 IP 位址不會保留，預先共用金鑰 (PSK) 也不會保留。
+沒有。 Azure Vnet 閘道類型無法從原則型變更為路由型或其他方式。 閘道必須刪除並重新建立，程序大約要 60 分鐘的時間。 閘道的 IP 位址不會保留，預先共用金鑰 (PSK) 也不會保留。
 1. 刪除與要刪除之閘道相關聯的任何連線。
 2. 刪除閘道：
 * [Azure 入口網站](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -81,15 +85,15 @@ VPN 閘道是一種虛擬網路閘道。 VPN 閘道可透過公用連線在您�
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>是否可以將虛擬機器或角色執行個體部署到閘道子網路？
 
-否。
+沒有。
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>在建立之前是否可以取得我的 VPN 閘道 IP 位址？
 
-否。 您必須先建立閘道才能取得 IP 位址。 如果您刪除並重新建立 VPN 閘道，IP 位址就會變更。
+沒有。 您必須先建立閘道才能取得 IP 位址。 如果您刪除並重新建立 VPN 閘道，IP 位址就會變更。
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>是否可以要求我的 VPN 閘道的靜態公用 IP 位址？
 
-否。 僅支援動態 IP 位址指派。 不過，這不表示 IP 位址變更之後已被指派至您的 VPN 閘道。 VPN 閘道 IP 位址只會在刪除或重新建立閘道時變更。 VPN 閘道公用 IP 位址不會因為重新調整、重設或 VPN 閘道的其他內部維護/升級而變更。 
+沒有。 僅支援動態 IP 位址指派。 不過，這不表示 IP 位址變更之後已被指派至您的 VPN 閘道。 VPN 閘道 IP 位址只會在刪除或重新建立閘道時變更。 VPN 閘道公用 IP 位址不會因為重新調整、重設或 VPN 閘道的其他內部維護/升級而變更。 
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>我的 VPN 通道如何獲得驗證？
 
@@ -223,7 +227,7 @@ Azure 基礎結構通訊需要這些連接埠。 它們受到 Azure 憑證的保
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity-does-all-the-traffic-from-my-vm-go-through-that-connection"></a>如果我的虛擬機器位於具有跨單位連線能力的虛擬網路，所有來自我的 VM 的流量是否都會通過該連線？
 
-否。 只有目地的 IP 包含在您指定之虛擬網路區域網路 IP 位址範圍的流量，才會通過虛擬網路閘道。 目的地 IP 位於虛擬網路內的流量仍會留在虛擬網路內。 其他流量是透過負載平衡器傳送至公用網路，或者如果使用強制通道，則透過 Azure VPN 閘道傳送。
+沒有。 只有目地的 IP 包含在您指定之虛擬網路區域網路 IP 位址範圍的流量，才會通過虛擬網路閘道。 目的地 IP 位於虛擬網路內的流量仍會留在虛擬網路內。 其他流量是透過負載平衡器傳送至公用網路，或者如果使用強制通道，則透過 Azure VPN 閘道傳送。
 
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>如何針對 VM 的 RDP 連線進行疑難排解
 

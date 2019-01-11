@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d39a271f33cb86bf870c3a7692c38d780093efa2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100033"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652595"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>準備在生產環境中部署 IoT Edge 解決方案
 
@@ -140,7 +140,7 @@ timeToLiveSecs 參數的預設值是 7200 秒，也就是兩小時。
 
 如需標籤慣例的範例，請參閱[更新 IoT Edge 執行階段](how-to-update-iot-edge.md#understand-iot-edge-tags)，了解 IoT Edge 如何使用循環標籤 (rolling tag) 和特定標籤來追蹤版本。 
 
-## <a name="networking"></a>網路
+## <a name="networking"></a>網路功能
 
 * **實用**
     * 檢閱輸出/輸入設定
@@ -162,6 +162,17 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 在這三個案例中，DNS 名稱會符合模式 \*.azure-devices.net。 
 
 此外，**容器引擎**會透過 HTTPS 呼叫容器登錄。 若要擷取 IoT Edge 執行階段容器映像，DNS 名稱為 mcr.microsoft.com。 容器引擎會依部署中的設定，連線到其他登錄。 
+
+此檢查清單是防火牆規則的起始點：
+
+   | URL (\* = 萬用字元) | 輸出 TCP 連接埠 | 使用量 |
+   | ----- | ----- | ----- |
+   | mcr.microsoft.com  | 443 | Microsoft 容器登錄 |
+   | global.azure-devices-provisioning.net  | 443 | DPS 存取 (選用) |
+   | \*.azurecr.io | 443 | 個人和第三方容器登錄 |
+   | \*.blob.core.windows.net | 443 | 映像差異的下載 | 
+   | \*.azure-devices.net | 5671、8883、443 | IoT 中樞存取 |
+   | \*.docker.io  | 443 | Docker 存取 (選用) |
 
 ### <a name="configure-communication-through-a-proxy"></a>設定 Proxy 通訊
 

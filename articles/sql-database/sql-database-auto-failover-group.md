@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3da4d6ffe8660c490d39f223dff105ed126fa10b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/03/2019
+ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283114"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033803"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
-自動容錯移轉群組是 SQL Database 功能，允許您管理邏輯伺服器上的一組資料庫，或受控執行個體中所有資料庫到另一個區域 (當前處於受控執行個體的公開預覽狀態) 的複寫和容錯移轉。 它會使用與[主動式異地複寫](sql-database-active-geo-replication.md)相同的基礎技術。 您可以手動起始容錯移轉，也可以使用使用者定義的原則，根據使用者定義的原則將它委派給 SQL Database 服務。 後項可讓您在導致主要區域中完全或部分喪失 SQL Database 服務可用性的嚴重失敗或其他非計劃事件之後，自動復原次要地區中的多個相關資料庫。 此外，您可以使用可讀取次要資料庫來卸載唯讀查詢工作負載。 因為自動容錯移轉群組牽涉到多個資料庫，所以這些資料庫必須在主要伺服器上進行設定。 在容錯移轉群組中，資料庫的主要和次要伺服器都必須位於相同的訂用帳戶。 自動容錯移轉群組支援將群組中的所有資料庫都只複寫到不同區域的一部次要伺服器。
+自動容錯移轉群組是 SQL Database 功能，允許您管理邏輯伺服器上的一組資料庫，或受控執行個體中所有資料庫到另一個區域 (當前處於受控執行個體的公開預覽狀態) 的複寫和容錯移轉。 它會使用與[主動式異地複寫](sql-database-active-geo-replication.md)相同的基礎技術。 您可以手動起始容錯移轉，也可以根據使用者定義的原則將其委派給 SQL Database 服務。 後項可讓您在導致主要區域中完全或部分喪失 SQL Database 服務可用性的嚴重失敗或其他非計劃事件之後，自動復原次要地區中的多個相關資料庫。 此外，您可以使用可讀取次要資料庫來卸載唯讀查詢工作負載。 因為自動容錯移轉群組牽涉到多個資料庫，所以這些資料庫必須在主要伺服器上進行設定。 在容錯移轉群組中，資料庫的主要和次要伺服器都必須位於相同的訂用帳戶。 自動容錯移轉群組支援將群組中的所有資料庫都只複寫到不同區域的一部次要伺服器。
 
 > [!NOTE]
 > 當在邏輯服務器上使用單一或集區資料庫，且您希望在相同或不同區域中有多個次要資料庫時，請使用[主動式異地複寫](sql-database-active-geo-replication.md)。
@@ -175,7 +175,7 @@ ms.locfileid: "53283114"
 
   建立的新執行個體時，會自動產生唯一識別碼作為 DNS 區域，並包含在執行個體的 DNS 名稱中。 針對此執行個體的多網域 (SAN) 憑證佈建了 `zone_id.database.windows.net` 形式的 SAN 欄位。 此憑證可用來驗證與相同的 DNS 區域中的執行個體的用戶端連線。 若要確保容錯移轉之後與主要執行個體的連線不中斷，主要和次要執行個體必須位於相同的 DNS 區域。 當您的應用程式準備好進行生產環境部署時，請在不同區域中建立次要執行個體，並確保它與主要執行個體共用 DNS 區域。 這是透過使用 Azure 入口網站、PowerShell 或 REST API 指定 `DNS Zone Partner` 選擇性參數來完成的。
 
-  如需在與主要執行個體相同的 DNS 區域中建立次要執行個體的詳細資訊，請參閱[使用受控執行個體管理容錯移轉群組 (預覽)](#managing-failover-groups-with-managed-instances-preview)。
+  如需在與主要執行個體相同的 DNS 區域中建立次要執行個體的詳細資訊，請參閱[使用受控執行個體管理容錯移轉群組 (預覽)](#powershell-managing-failover-groups-with-managed-instances-preview)。
 
 - **在兩個執行個體之間啟用複寫流量**
 
@@ -203,7 +203,7 @@ ms.locfileid: "53283114"
 
 - **對效能降低做好心理準備**
 
-  應用程式的其餘部分或所使用的其他服務並不會影響 SQL 的容錯移轉決策。 應用程式可能會「混用」某個區域的某些元件和另一個區域的某些元件。 若要避免效能降低，請務必要在 DR 區域中部署備援應用程式，並遵循[網路安全性指導方針](#Failover groups-and-network-security)。
+  應用程式的其餘部分或所使用的其他服務並不會影響 SQL 的容錯移轉決策。 應用程式可能會「混用」某個區域的某些元件和另一個區域的某些元件。 若要避免效能降低，請務必要在 DR 區域中部署備援應用程式，並遵循[網路安全性指導方針](#failover-groups-and-network-security)。
 
 - **對資料遺失做好心理準備**
 
@@ -306,17 +306,17 @@ ms.locfileid: "53283114"
 
 #### <a name="install-the-newest-pre-release-version-of-powershell"></a>安裝 Powershell 的最新發行前版本
 
-1. 將 powershellget 模組更新為 1.6.5 (或最新預覽版本)。 請參閱 [PowerShel Preview 網站](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview)。
+1. 將 PowerShellGet 模組更新為 1.6.5 (或最新預覽版本)。 請參閱 [PowerShel Preview 網站](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview)。
 
    ```Powershell
-      install-module powershellget -MinimumVersion 1.6.5 -force
+      install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. 在新的 PowerShell 視窗中，執行下列命令：
 
    ```Powershell
-      import-module powershellget
-      get-module powershellget #verify version is 1.6.5 (or newer)
+      import-module PowerShellGet
+      get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
       import-module azurerm.sql
    ```
@@ -349,7 +349,7 @@ ms.locfileid: "53283114"
 | API | 說明 |
 | --- | --- |
 | [建立或更新容錯移轉群組](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | 建立或更新容錯移轉群組 |
-| [刪除容錯移轉群組](https://docs.microsoft.com/rest/api/instancefailovergroups/delete) | 從伺服器中移除容錯移轉群組 |
+| [刪除容錯移轉群組](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | 從伺服器中移除容錯移轉群組 |
 | [容錯移轉 (計劃性)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | 從目前主要伺服器容錯移轉到此伺服器。 |
 | [強制容錯移轉允許資料遺失](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |從目前主要伺服器容錯移轉到此伺服器。 這項作業可能會導致資料遺失。 |
 | [取得容錯移轉群組](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | 取得容錯移轉群組。 |

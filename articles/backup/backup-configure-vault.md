@@ -4,17 +4,16 @@ description: 使用 Microsoft Azure 備份代理程式，可將 Windows 檔案�
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keywords: 備份保存庫；備份 Windows Server；備份Windows；
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874000"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788390"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>使用資源管理員部署模型將 Windows Server 或用戶端備份至 Azure
 本文說明如何 Resource Manager 部署模型將 Windows Server (或 Windows 用戶端) 檔案和資料夾備份至 Azure。
@@ -183,6 +182,8 @@ ms.locfileid: "52874000"
 備份原則就是復原點擷取排程以及復原點保留時間長度。 請使用 Microsoft Azure 備份代理程式來為檔案和資料夾建立備份原則。
 
 ### <a name="to-create-a-backup-schedule"></a>建立備份排程
+
+在您想要備份的機器上設定備份排程。 請注意，為備份設定的時間可能會與本機電腦時間不同，因為 Azure 備份不會將日光節約時間 (DST) 納入考量。 
 1. 開啟 Microsoft Azure 備份代理程式。 您可以透過在您的電腦中搜尋 **Microsoft Azure 備份**來找出備份。
 
     ![啟動 Azure 備份代理程式](./media/backup-configure-vault/snap-in-search.png)

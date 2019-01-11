@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: d4957efa151a0f992d098b2d6355b03f336e3738
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 33e0b66541e5ead5f3c05d2310ecc07e8a62324c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438586"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728120"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>對 Azure SQL Database 使用虛擬網路服務端點和規則
 
 「虛擬網路規則」是一項防火牆功能，可控制 Azure [SQL Database](sql-database-technical-overview.md) 或 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)伺服器是否接受虛擬網路中的特定子網路所傳來的通訊。 本文說明為何虛擬網路規則功能有時是讓 Azure SQL Database 和 SQL 資料倉儲安全地接受通訊的最佳選項。
 
-> [!NOTE]
-> 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
+> [!IMPORTANT]
+> 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 本文「不」適用於 **Azure SQL Database 受控執行個體**。
 
 若要建立虛擬網路規則，必須先有[虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]規則可供參考。
 
@@ -64,9 +64,8 @@ SQL Database 防火牆可讓您指定 IP 位址範圍，以接受來自此範圍
 
 不過，靜態 IP 方法可能變得難以管理，在大規模使用時成本很高。 虛擬網路規則較容易建立和管理。
 
-### <a name="c-cannot-yet-have-sql-database-on-a-subnet"></a>C. 子網路上還不能有 SQL Database
-
-如果 Azure SQL Database 伺服器是虛擬網路中某個子網路的節點，則虛擬網路內的所有節點都可以與 SQL Database 通訊。 在此情況下，VM 可以與 SQL Database 通訊，而不需要任何虛擬網路規則或 IP 規則。
+> [!NOTE]
+> 子網路上還不能有 SQL Database。 如果 Azure SQL Database 伺服器是虛擬網路中某個子網路的節點，則虛擬網路內的所有節點都可以與 SQL Database 通訊。 在此情況下，VM 可以與 SQL Database 通訊，而不需要任何虛擬網路規則或 IP 規則。
 
 不過，截至 2017 年 9 月，Azure SQL Database 服務還不是可指派給子網路的服務。
 

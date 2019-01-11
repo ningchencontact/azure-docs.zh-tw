@@ -4,16 +4,16 @@ description: 本文說明如何使用 Azure Site Recovery 保護檔案伺服器
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: dde38f1c27ed808d730699e3c1d68a1c78cf3af5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c6db0b9dda9f383ddc062c41bae0be0b56f7e69d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850477"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794085"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保護檔案伺服器 
 
@@ -37,7 +37,7 @@ DFSR 使用名為「遠端差異壓縮 (RDC)」的壓縮演算法，可用來在
 
 ## <a name="disaster-recovery-recommendations-for-file-servers"></a>檔案伺服器的災害復原建議
 
-* **使用 Site Recovery 複寫檔案伺服器**：可使用 Site Recovery 將檔案伺服器複寫至 Azure。 當一或多個內部部署檔案伺服器無法存取時，可以在 Azure 中執行復原 VM。 後續只要有站對站的 VPN 連線能力，且在 Azure 中設定了 Active Directory，VM 就可以處理內部部署用戶端的要求。 您可以在設定了 DFSR 的環境或沒有 DFSR 的簡單檔案伺服器環境中使用此方法。 
+* **使用 Site Recovery 複寫檔案伺服器**：可以使用 Site Recovery，將檔案伺服器複寫至 Azure。 當一或多個內部部署檔案伺服器無法存取時，可以在 Azure 中執行復原 VM。 後續只要有站對站的 VPN 連線能力，且在 Azure 中設定了 Active Directory，VM 就可以處理內部部署用戶端的要求。 您可以在設定了 DFSR 的環境或沒有 DFSR 的簡單檔案伺服器環境中使用此方法。 
 
 * **將 DFSR 延伸至 Azure IaaS VM**：在實作 DFSR 的叢集檔案伺服器環境中，您可以將內部部署 DFSR 延伸至 Azure。 然後啟用 Azure VM，以執行檔案伺服器角色。 
 

@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 9e5b132a7946bdc648e051c9f7327cc7159f291e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163628"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714197"
 ---
-# <a name="language-understanding-faq"></a>Language Understanding 常見問題集
+# <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
 本文包含 Language Understanding (LUIS) 常見問題集的解答。
 
@@ -212,7 +212,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 |整合|[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)與[情感分析](luis-how-to-publish-app.md#enable-sentiment-analysis)的整合<br>[語音](https://docs.microsoft.com/azure/cognitive-services/speech)與語音預備的整合搭配[語音 SDK](https://aka.ms/SpeechSDK)|
 |分派工具|在 [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) 期間，分派命令列[工具](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps)以將多個 LUIS 和 QnA Maker 應用程式合併為單一 LUIS 應用程式，以在 Bot 中更恰當地辨識意圖
 
-已包括其他撰寫 [API 路由](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md)。
+已包括其他撰寫 [API 路由](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md)。
 
 影片：
 * [Azure Friday 組建 2018：認知服務 - 語言 (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)

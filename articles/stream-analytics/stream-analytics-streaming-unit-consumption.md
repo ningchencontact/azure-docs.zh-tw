@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 0907739bc0e67228f9f7f12594df7b9067e32578
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 84f0c000f54852bbab60a53ecb686656ac86b3de
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984973"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002649"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解及調整串流單位
 
@@ -48,7 +48,7 @@ SU % 使用率計量介於 0% 到 100% 的範圍間，可說明工作負載的�
 
 一般情況下，最佳的作法是對不是使用 **PARTITION BY** 的查詢使用 6 個 SU 開始。 然後使用反覆嘗試的方法來決定最佳配置，這方法就是您可以在傳送代表的資料總數後修改 SU 數目，並且檢查 SU% 使用率計量。 串流分析作業可使用的串流單位數目上限，取決於為作業定義的查詢中包含的步驟數目，和每個步驟中的分割區數目。 您可以在[這裡](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job)深入了解限制。
 
-如需選擇正確 SU 數目的詳細資訊，請參閱頁面：[調整 Azure 串流分析工作以增加輸送量](stream-analytics-scale-jobs.md)
+如需關於選擇正確數目之 SU 的更多資訊，請參閱此頁面：[調整 Azure 串流分析工作以增加輸送量](stream-analytics-scale-jobs.md)
 
 > [!Note]
 > 選擇特定工作所需的 SU 數量，取決於輸入的分割組態和針對作業所定義的查詢。 您為作業選取的 SU 以您的配額為上限。 根據預設，對於特定區域中的所有分析作業，每個 Azure 訂用帳戶的配額上限為 200 個 SU。 若要為您的訂用帳戶增加超出此配額的 SU，請連絡 [Microsoft 支援服務](https://support.microsoft.com)。 每個作業有效的 SU 值為 1、3、6 和更大 (以 6 為增量單位)。
@@ -56,6 +56,8 @@ SU % 使用率計量介於 0% 到 100% 的範圍間，可說明工作負載的�
 ## <a name="factors-that-increase-su-utilization"></a>增加 SU% 使用量的因素 
 
 時態性 (時間導向) 查詢元素是由串流分析提供的一組核心具狀態運算子。 串流分析會在服務升級期間管理記憶體耗用量、復原的檢查點和狀態復原，代替使用者在內部管理這些作業的狀態。 即使串流分析會完全管理狀態，但還是有許多使用者應該考慮的最佳做法建議。
+
+請注意，具有複雜查詢邏輯的作業即使在非連續接收輸入事件時，也可能具有較高的 SU% 使用率。 此情況可能發生在輸入和輸出事件突然激增之後。 如果查詢很複雜，作業可能會繼續維持在記憶體中的狀態。
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>時態性元素中的具狀態查詢邏輯
 Azure 串流分析作業的其中一個獨特功能是執行具狀態的處理工作，如視窗型彙總、時態性聯結及時態性分析函式。 每個運算子都會保留狀態資訊。 這些查詢元素的時間範圍上限是七天。 

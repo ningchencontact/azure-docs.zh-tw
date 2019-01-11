@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 3a0304a69cdff15cddf325be8abe336a42ea4fc1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d463ca73fb533b8a44c2019a478f2df0162cb23
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089865"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791440"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>快速入門：使用 .NET Core 將文字轉換為語音
 
@@ -27,7 +27,7 @@ ms.locfileid: "53089865"
 
 本快速入門需要：
 
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)、[Visual Studio Code](https://code.visualstudio.com/download)，或您最愛的文字編輯器
 * 語音服務的 Azure 訂用帳戶金鑰
 
@@ -109,7 +109,7 @@ public class Authentication
 ```
 
 > [!NOTE]
-> 如需關於驗證的詳細資訊，請參閱[如何取得存取權杖](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token)。
+> 如需驗證的詳細資訊，請參閱[使用存取權杖進行驗證](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token)。
 
 ## <a name="get-an-access-token-and-set-the-host-url"></a>取得存取權杖並設定主機 URL
 
@@ -162,7 +162,7 @@ string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'
 ```
 
 > [!NOTE]
-> 此範例使用 `ZiraRUS` 語音音調。 如需 Microsoft 提供的完整語音/語言清單，請參閱[語言支援](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support)。 如果您想要為品牌建立獨特可辨識的語音，請參閱[建立自訂語音音調](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font)。
+> 此範例使用 `ZiraRUS` 語音音調。 如需 Microsoft 提供的完整語音/語言清單，請參閱[語言支援](language-support.md)。 如果您想要為品牌建立獨特可辨識的語音，請參閱[建立自訂語音音調](how-to-customize-voice-font.md)。
 
 ## <a name="instantiate-the-client-make-a-request-and-save-synthesized-audio-to-a-file"></a>具現化用戶端、發起要求，然後將合成的音訊儲存為檔案
 

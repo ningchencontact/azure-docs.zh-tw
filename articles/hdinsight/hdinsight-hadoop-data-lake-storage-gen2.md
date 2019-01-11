@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.openlocfilehash: 2ae11afe1ecbe500a4851aab6d56e612fbe79ee6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b7cde3a8990a51e95a8ce9ad85bca524d5669e0c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976233"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721116"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>搭配 Azure HDInsight 中的 Apache Hadoop 使用 Azure Data Lake Storage Gen2
 
@@ -45,7 +45,7 @@ Apache Hadoop 應用程式原本就預期會從本機磁碟儲存體讀取和寫
 
 先前，Hadoop 檔案系統驅動程式會將所有檔案系統作業轉換成用戶端上的 Azure 儲存體 REST API 呼叫，並接著叫用 REST API。 不過，此用戶端轉換會造成單一檔案系統作業 (例如檔案重新命名) 有多個 REST API 呼叫。 ABFS 已將部分 Hadoop 檔案系統邏輯從用戶端移至伺服器端，ADLS Gen2 API 現在會與 Blob API 平行執行。 此移轉可改善效能，因為現在的一般 Hadoop 檔案系統作業可透過一個 REST API 呼叫來執行。
 
-如需詳細資訊，請參閱 [Azure Blob 檔案系統驅動程式 (ABFS)：適用於 Hadoop 的專用 Azure 儲存體驅動程式](../storage/data-lake-storage/abfs-driver.md)。
+如需詳細資訊，請參閱 [Azure Blob 檔案系統驅動程式 (ABFS)：適用於 Apache Hadoop 的專用 Azure 儲存體驅動程式](../storage/data-lake-storage/abfs-driver.md)。
 
 ### <a name="adls-gen-2-uri-scheme"></a>ADLS Gen 2 的 URI 配置
 
@@ -68,7 +68,7 @@ abfss://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapr
 abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
 ```
 
-> [!Note]
+> [!NOTE]  
 > 在 HDInsight 2.1 和 1.6 版叢集中的檔案名稱是 `hadoop-examples.jar`。 使用 HDInsight 外部的檔案時，大部分的公用程式會無法辨識 ABFS 格式，因而預期基本的路徑格式，例如 `example/jars/hadoop-mapreduce-examples.jar`。
 
 如需詳細資訊，請參閱[使用 Azure Data Lake Storage Gen2 URI](../storage/data-lake-storage/introduction-abfs-uri.md)。

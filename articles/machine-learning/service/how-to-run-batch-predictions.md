@@ -11,27 +11,27 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a711b80471da0677c5e2d0dd0ee5e371e5a16f75
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7b0e3bc14c97c874b9d5936c025f4534665a461e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268638"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752617"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務對大型資料集執行批次預測
 
-在本文中，您將了解如何使用 Azure Machine Learning 服務，快速且有效率地以非同步方式對大量資料進行預測。
+在本文中，您將了解如何使用 Azure Machine Learning 服務，以非同步方式對大量資料進行預測。
 
 批次預測 (或批次評分) 會針對非同步的應用程式，利用獨特的輸送量來提供符合成本效益的推斷。 批次預測管線可以調整規模，以針對數個 TB 的生產資料執行推斷。 批次預測會對適用於大型資料集合的高輸送量且射後不理的預測進行最佳化。
 
->[!NOTE]
-> 如果您的系統需要低延遲處理 (快速處理單一文件或小型文件集)，請使用[即時評分](how-to-consume-web-service.md)而不是批次預測。
+>[!TIP]
+> 如果您的系統需要低延遲處理 (為了快速處理單一文件或小型文件集)，請使用[即時評分](how-to-consume-web-service.md)而不是批次預測。
 
-在下列步驟中，您將建立[機器學習管線](concept-ml-pipelines.md)來註冊預先定型的電腦視覺模型 ([Inception-V3](https://arxiv.org/abs/1512.00567) \(英文\))，然後使用預先定型的模型，對可在您的 Azure Blob 帳戶中取得的影像進行批次評分。 這些用於計分的影像均為來自 [ImageNet](http://image-net.org/) \(英文\) 資料集的未標記影像。
+在下列步驟中，您會建立[機器學習管線](concept-ml-pipelines.md)來註冊預先定型的電腦視覺模型 ([Inception-V3](https://arxiv.org/abs/1512.00567) \(英文\))。 然後使用預先定型的模型，對可在 Azure Blob 儲存體帳戶中取得的影像進行批次評分。 這些用於計分的影像均為來自 [ImageNet](http://image-net.org/) \(英文\) 資料集的未標記影像。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
+- 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
 
 - 設定開發環境以安裝 Azure Machine Learning SDK。 如需詳細資訊，請參閱[設定 Azure Machine Learning 的開發環境](how-to-configure-environment.md)。
 
@@ -48,18 +48,18 @@ ms.locfileid: "53268638"
 
 ## <a name="set-up-machine-learning-resources"></a>設定機器學習資源
 
-下列步驟將會設定執行管線所需的資源：
+下列步驟會設定執行管線所需的資源：
 
 - 存取已經具備預先定型之模型、輸入標籤及要評分之映像 (已經為您設定此項) 的資料存放區。
 - 設定資料存放區來儲存您的輸出。
-- 設定 DataReference 物件，以指向上述資料存放區中的資料。
+- 設定  `DataReference` 物件，以指向上述資料存放區中的資料。
 - 設定管線步驟執行所在的計算機器或叢集。
 
 ### <a name="access-the-datastores"></a>存取資料存放區
 
 首先，存取具備模型、標籤及影像的資料存放區。
 
-您將使用 *pipelinedata* 帳戶中名為 *sampledata* 的公用 Blob 容器，此容器會保存來自 ImageNet 評估集中的影像。 此公用容器的資料存放區名稱為 *images_datastore*。 向您的工作區註冊此資料存放區：
+您將使用 pipelinedata 帳戶中名為 sampledata 的公用 Blob 容器，此容器會保存來自 ImageNet 評估集中的影像。 此公用容器的資料存放區名稱為 *images_datastore*。 向您的工作區註冊此資料存放區：
 
 ```python
 # Public blob container details
@@ -76,7 +76,7 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
 
 接下來，設定以針對輸出使用預設的資料存放區。
 
-當您建立工作區時，預設會將  [Azure 檔案儲存體](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) 和 [Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) 附加至工作區。 Azure 檔案儲存體是工作區的「預設資料存放區」，但您也可以使用 Blob 儲存體作為資料存放區。 深入了解 [Azure 儲存體選項](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)。
+當您建立工作區時，預設會將[檔案儲存體](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) 和 [Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) 連結至工作區。 檔案儲存體是工作區的預設資料存放區，但您也可以使用 Blob 儲存體作為資料存放區。 如需詳細資訊，請參閱 [Azure 儲存體選項](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)。
 
 ```python
 def_data_store = ws.get_default_datastore()
@@ -86,7 +86,7 @@ def_data_store = ws.get_default_datastore()
 
 現在，請參考管線中的資料作為管線步驟的輸入。
 
-管線中的資料來源會由 [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) 物件來表示。 DataReference 物件會指向位於資料存放區或可從資料存放區存取的資料。 您需要針對輸入影像使用的目錄、儲存預先定型之模型的目錄、適用於標籤的目錄及輸出目錄，使用 DataReference 物件。
+管線中的資料來源會由 [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) 物件來表示。  `DataReference` 物件會指向位於資料存放區中或可從資料存放區存取的資料。 您需要針對輸入影像使用的目錄、儲存預先定型之模型的目錄、適用於標籤的目錄及輸出目錄，使用 `DataReference` 物件。
 
 ```python
 input_images = DataReference(datastore=batchscore_blob, 
@@ -111,7 +111,7 @@ output_dir = PipelineData(name="scores",
 
 ### <a name="set-up-compute-target"></a>設定計算目標
 
-在 Azure Machine Learning 中，計算 (或計算目標) 會參考將在您的機器學習管線中執行計算步驟的機器或叢集。 例如，您可以建立 `Azure Machine Learning compute`。
+在 Azure Machine Learning 中，*計算* (或*計算目標*) 係指會在您機器學習管線中執行計算步驟的機器或叢集。 例如，您可以建立 `Azure Machine Learning compute`。
 
 ```python
 compute_name = "gpucluster"
@@ -148,7 +148,7 @@ else:
 
 ### <a name="download-the-pretrained-model"></a>下載預先定型的模型
 
-從 <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz> 下載預先定型的電腦視覺模型 (InceptionV3)。 下載之後，將其解壓縮到 `models` 子資料夾。
+從 <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz> 下載預先定型的電腦視覺模型 (InceptionV3)。 然後，將其解壓縮到 `models` 子資料夾。
 
 ```python
 import os
@@ -167,6 +167,8 @@ tar.extractall(model_dir)
 
 ### <a name="register-the-model"></a>註冊模型
 
+註冊模型的方法如下：
+
 ```python
 import shutil
 from azureml.core.model import Model
@@ -183,7 +185,7 @@ model = Model.register(
 ## <a name="write-your-scoring-script"></a>撰寫您的計分指令碼
 
 >[!Warning]
->下列程式碼只是[範例 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb) \(英文\) 所使用之 [batch_score.p](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) 中內含的範例。您將需針對您的案例建立自己的計分指令碼。
+>下列程式碼只是[範例 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb) \(英文\) 所使用之 [batch_score.p](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) 中內含的範例。 您將需針對您的案例建立自己的計分指令碼。
 
 `batch_score.py` 指令碼會接受  *dataset_path* 中的輸入影像、 *model_dir* 中預先定型的模型，並將 *results-label.txt* 輸出至 *output_dir*。
 
@@ -258,7 +260,7 @@ amlcompute_run_config.environment.spark.precache_packages = False
 
 ### <a name="specify-the-parameter-for-your-pipeline"></a>指定管線的參數
 
-使用 [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) \(英文\) 物件搭配預設值來建立管線參數。
+使用  [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) \(英文\) 物件搭配預設值來建立管線參數。
 
 ```python
 batch_size_param = PipelineParameter(
@@ -290,14 +292,14 @@ batch_score_step = PythonScriptStep(
 
 ### <a name="run-the-pipeline"></a>執行管道
 
-現在執行管線，並檢查它所產生的輸出。 輸出將具有對應至每個輸入影像的分數。
+現在執行管線，並檢查它所產生的輸出。 輸出具有對應至每個輸入影像的分數。
 
 ```python
 # Run the pipeline
 pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
 pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline, pipeline_params={"param_batch_size": 20})
 
-# Wait for the run to finish (this may take several minutes)
+# Wait for the run to finish (this might take several minutes)
 pipeline_run.wait_for_completion(show_output=True)
 
 # Download and review the output
@@ -312,7 +314,7 @@ df.head()
 
 ## <a name="publish-the-pipeline"></a>發佈管線
 
-一旦您滿意執行結果之後，請發佈管線，讓您稍後可以使用不同的輸入值來執行它。 當您發佈管線時，您會取得一個 REST 端點，以接受利用一組您已經使用 [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) \(英文\) 合併的參數來叫用管線。
+在滿意執行結果之後，請發佈管線，以便稍後可以使用不同的輸入值來執行它。 當您發佈管線時，您會取得一個 REST 端點。 此端點會接受利用一組您已經使用 [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) \(英文\) 合併的參數來叫用管線。
 
 ```python
 published_pipeline = pipeline_run.publish_pipeline(
@@ -321,7 +323,7 @@ published_pipeline = pipeline_run.publish_pipeline(
     version="1.0")
 ```
 
-## <a name="rerun-the-pipeline-using-the-rest-endpoint"></a>使用 REST 端點重新執行管線
+## <a name="rerun-the-pipeline-by-using-the-rest-endpoint"></a>使用 REST 端點重新執行管線
 
 若要重新執行管線，您將需要 Azure Active Directory 驗證標頭權杖，如 [AzureCliAuthentication 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) \(英文\) 中所述。
 
@@ -344,7 +346,7 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>後續步驟
 
-若要查看這個端對端運作，請嘗試使用批次評分 Notebook ([how-to-use-azureml/machine-learning-pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines))。 
+若要查看這個端對端運作，請嘗試使用 [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines) 中的批次評分 Notebook。 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

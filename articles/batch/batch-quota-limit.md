@@ -1,9 +1,9 @@
 ---
-title: Azure Batch 的服務配額和限制 | Microsoft Docs
+title: 服務配額和限制 - Azure Batch | Microsoft Docs
 description: 了解預設的 Azure Batch 配額、限制和條件約束，以及如何要求增加配額
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0493783cb1253aab78ff39aa42eeabbec8ddb726
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5194fa73d246cee039e113207bbde277b06d7130
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263591"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753194"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服務配額和限制
 
@@ -65,9 +65,9 @@ ms.locfileid: "52263591"
 | [並行工作](batch-parallel-node-tasks.md)  | 4 x 節點的核心數目 |
 | [應用程式](batch-application-packages.md)  | 20 |
 | 每個應用程式的應用程式封裝 | 40 |
-| 工作存留期上限 | 7 天<sup>1</sup> |
+| 工作存留期上限 | 180 天<sup>1</sup> |
 
-<sup>1</sup> 工作的最長存留期 (從它新增至作業到完成時) 為 7 天。 已完成的工作會無限期保留；無法存取未在最長存留期內完成之工作的資料。
+<sup>1</sup> 工作的最長存留期 (從它新增至作業到完成時) 為 180 天。 已完成的工作會保留 7 天；無法存取未在最長存留期內完成之工作的資料。
 
 ## <a name="view-batch-quotas"></a>檢視 Batch 配額
 

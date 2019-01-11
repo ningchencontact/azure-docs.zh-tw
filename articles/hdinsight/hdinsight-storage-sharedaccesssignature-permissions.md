@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409916"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743352"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 儲存體共用存取簽章來限制 HDInsight 對資料的存取
 
@@ -180,10 +180,10 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
    > [!IMPORTANT]  
    > 出現 HTTP/s 或 SSH 使用者名稱和密碼提示時，您必須提供符合下列準則的密碼：
    >
-   > * 長度必須小於 10 個字元
-   > * 必須包含至少一個數字
-   > * 必須包含至少一個非英數字元
-   > * 必須包含至少一個大寫或小寫字元
+   > * 長度必須小於 10 個字元。
+   > * 必須包含至少一個數字。
+   > * 必須包含至少一個非英數字元。
+   > * 必須包含至少一個大寫或小寫字元。
 
 需要一段時間讓此指令碼完成，通常大約是 15 分鐘。 指令碼完成且沒有發生任何錯誤時，叢集即已建立。
 
@@ -290,10 +290,10 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 **解決方案**：使用符合下列準則的密碼：
 
-* 長度必須小於 10 個字元
-* 必須包含至少一個數字
-* 必須包含至少一個非英數字元
-* 必須包含至少一個大寫或小寫字元
+* 長度必須小於 10 個字元。
+* 必須包含至少一個數字。
+* 必須包含至少一個非英數字元。
+* 必須包含至少一個大寫或小寫字元。
 
 ## <a name="next-steps"></a>後續步驟
 

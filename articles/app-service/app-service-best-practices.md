@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 0a3570e8907369d5cefc1197eef60d682659d0ed
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3d1821ccc3f3bc16bffd8a19d3014b5ea4876768
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261818"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715600"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure App Service 的最佳作法
 本文將摘要說明使用 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)的最佳作法。 
@@ -39,7 +39,7 @@ ms.locfileid: "53261818"
 ## <a name="CPUresources"></a>當應用程式耗用超出預期的 CPU 時
 當您經由監視或服務建議，發現應用程式耗用超出預期的記憶體，或 CPU 用量連續暴增時，請考慮相應增加或相應放大 App Service 方案。 如果應用程式是具狀態，則相應增加是唯一選項，如果應用程式是無狀態，則相應放大提供較大彈性和更高的調整可能性。 
 
-如需有關「具狀態」和「無狀態」應用程式的詳細資訊，您可以觀看這段影片︰[在 Microsoft Azure Web 應用程式上規劃可調整的端對端多層式應用程式](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid)。 如需 App Service 調整和自動調整選項的詳細資訊，請參閱[在 Azure App Service 中調整 Web 應用程式的規模](web-sites-scale.md)。  
+如需有關「具狀態」和「無狀態」應用程式的詳細資訊，您可以觀看這段影片︰[在 Azure App Service 上規劃可調整的端對端多層式應用程式](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid)。 如需 App Service 調整和自動調整選項的詳細資訊，請參閱[在 Azure App Service 中調整 Web 應用程式的規模](web-sites-scale.md)。  
 
 ## <a name="socketresources"></a>當通訊端資源耗盡時
 使用的用戶端程式庫未實作為重複使用 TCP 連線是耗盡輸出 TCP 連線的常見原因，而未使用更高階的通訊協定 (例如 HTTP - Keep-Alive) 也是原因之一。 請檢閱 App Service 方案中各應用程式所參考的每個程式庫的說明文件，以確保在程式碼中設定或存取程式庫時，能夠有效率地重複使用輸出連線。 此外，請遵循程式庫文件指引，適當地建立和釋放或清除，以免連線流失。 在進行這類用戶端程式庫調查時，可相應放大至多個執行個體來緩和影響。
@@ -68,7 +68,7 @@ pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
 ## <a name="appbackup"></a>當您的應用程式備份啟動失敗時
 應用程式備份為什麼會失敗有兩個最常見的原因：儲存體設定無效和資料庫組態無效。 這些失敗通常會在下列情況中發生：對儲存體或資料庫資源進行變更，或者針對存取這些資源的方式進行變更 (例如，針對備份設定中所選取的資料庫更新了認證)。 備份通常會依排程執行，而且需要存取儲存體 (用於輸出的備份檔案) 和資料庫 (用於複製和讀取要包含於備份中的內容)。 無法存取這其中一個資源的結果就是備份一律會失敗。 
 
-發生備份失敗時，請檢閱最新的結果，以了解發生了哪種類型的失敗。 發生儲存體存取失敗時，請檢閱並更新備份組態中所使用的存放體設定。 發生資料庫存取失敗時，請檢閱並更新連接字串以作為應用程式設定的一部分，然後繼續更新您的備份組態，以便正確包含所需的資料庫。 如需應用程式備份的詳細資訊，請參閱[在 Azure App Service 中備份 Web 應用程式](web-sites-backup.md)。
+發生備份失敗時，請檢閱最新的結果，以了解發生了哪種類型的失敗。 發生儲存體存取失敗時，請檢閱並更新備份組態中所使用的存放體設定。 發生資料庫存取失敗時，請檢閱並更新連接字串以作為應用程式設定的一部分，然後繼續更新您的備份組態，以便正確包含所需的資料庫。 如需應用程式備份的詳細資訊，請參閱[在 Azure App Service 中備份 Web 應用程式](manage-backup.md)。
 
 ## <a name="nodejs"></a>當新的 Node.js 應用程式部署至 Azure App Service 時
 適用於 Node.js app 的 Azure App Service 預設組態是為了符合大部分應用程式的需求。 如果進行個人化調整從而改善效能或將 CPU/記憶體/網路資源的資源使用量最佳化，能夠讓您的 Node.js 應用程式組態受益，則請參閱 [Azure App Service 上 Node 應用程式的最佳做法和疑難排解指南](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)。 此文說明您可能需要對 Node.js 應用程式設定的 iisnode 設定、說明應用程式可能面臨的各種情況或問題，以及示範如何解決這些問題。

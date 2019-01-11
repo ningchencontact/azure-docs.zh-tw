@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5d4c564ac797f40d7f6e9b169a6c864d3ef8147b
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: f95dec8a539a92a0397421fbde411f646eeca3ca
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165158"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720079"
 ---
-# <a name="find-endpoint-region-with-c"></a>尋找使用 C# 的端點區域 
+# <a name="programmatically-find-endpoint-region-with-c"></a>使用 C# 以程式設計方式尋找端點區域 
 如果您有 LUIS 應用程式識別碼和 LUIS 訂用帳戶識別碼，可以尋找哪個區域要用於端點查詢。
 
 > [!NOTE] 
-> 從 [**LUIS-Samples** GitHub 存放庫](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/)可以取得完整 C# 解決方案。
+> 從 [**Azure-Samples** GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/find-region/csharp/)可以取得完整 C# 解決方案。
 
 ## <a name="luis-endpoint-query-strategy"></a>LUIS 端點查詢策略
 每個 LUIS 端點查詢都需要：

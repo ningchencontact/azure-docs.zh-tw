@@ -14,16 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0f4ff7c11952e6e222104b3953c547a91b4fc124
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 487872b1e9344aaefad5ca0953c41b59f01027b0
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223067"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753960"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace 和 AppSource 發行指南
 
 Marketplace 發行指南的目的是協助新的與現有的發行者了解如何使用 [Azure Marketplace](https://azuremarketplace.microsoft.com) 和 [Microsoft AppSource](https://appsource.microsoft.com) 中的店面來列出應用程式和服務，與 Microsoft 合作提升業績。
+
+>[!Note]
+>此處的 Marketplace 泛指 Azure Marketplace 和 AppSource。  如需詳細資訊，請參閱[一個市集，二間店面](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)。
 
 本指南涵蓋下列主題： 
 *   Marketplace 是什麼及其運作方式 
@@ -52,7 +55,7 @@ Marketplace 是與 Microsoft 共同舉辦上市活動的跳板，有助於促進
 
 將工作負載移動到雲端之後，開始解決客戶的問題，藉機追加銷售與交叉銷售您的解決方案。 透過 Marketplace 銷售或部署解決方案，即能夠以特定工作負載和產業實例為目標來銷售完整的解決方案，進而縮短銷售週期、提高專案效率並增加交易獲利率。 
 
-### <a name="get-actionable-insights"></a>取得可操作的見解 
+### <a name="get-actionable-insights"></a>取得可操作的深入解析 
 
 透過 Marketplace 提供的見解和分析，了解產品系列的績效表現。 可進一步了解行銷活動績效、訂單與支出，並了解如何讓解決方案的行銷活動發揮最大效益。
 

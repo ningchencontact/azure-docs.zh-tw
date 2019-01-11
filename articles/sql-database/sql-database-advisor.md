@@ -9,22 +9,22 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e5480e5e071d541d12e96ddd549e496c7f974f81
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f55d3eb67bb9c494a3d055e39d970c9a440dfc67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271040"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603425"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL Database 的效能建議
 
 Azure SQL Database 會學習及適應您的應用程式。 它會提供自訂的建議，讓您將 SQL 資料庫的效能最大化。 SQL Database 會持續評估及分析 SQL 資料庫的使用歷程記錄。 根據資料庫的獨特工作負載模式提供建議，並協助改善效能。
 
 > [!TIP]
-> [自動調整](sql-database-automatic-tuning.md)是建議的效能調整方法。 [Intelligent Insights](sql-database-intelligent-insights.md) 是建議的效能監視方法。 
+> [自動調整](sql-database-automatic-tuning.md)是自動調整一些最常見資料庫效能問題的建議方法。 [查詢效能深入解析](sql-database-query-performance.md)是基本 Azure SQL Database 效能監視需求的建議方法。 [Azure SQL 分析](../azure-monitor/insights/azure-sql.md) 是運用自動化效能疑難排解的內建智慧，執行資料庫效能大規模進階監視的建議方法。
 >
 
 ## <a name="create-index-recommendations"></a>建立索引建議

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 2d6df569a2b5b813bd832adf5ef2e1d193de9364
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187563"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001272"
 ---
 # <a name="automated-backups"></a>自動備份
 
@@ -109,9 +109,15 @@ Azure SQL Database 工程小組會持續自動地對服務上所有資料庫，�
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>使用 Azure 入口網站變更 PITR 備份保留期間
 
-若要使用 Azure 入口網站變更 PITR 備份保留期限，請瀏覽至要變更其保留期限的資料庫，然後按一下**概觀**。
+若要使用 Azure 入口網站變更 PITR 備份保留期間，請導覽至要在入口網站中變更其保留期間的伺服器物件，然後根據要修改的伺服器物件，選取適當的選項。 
 
-![變更 PITR Azure 入口網站](./media/sql-database-automated-backup/configure-backup-retention.png)
+#### <a name="change-pitr-for-a-logical-server"></a>變更邏輯伺服器的 PITR
+
+![變更 PITR Azure 入口網站](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
+
+#### <a name="change-pitr-for-a-managed-instance"></a>變更受控執行個體的 PITR
+
+![變更 PITR Azure 入口網站](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>使用 PowerShell 變更 PITR 備份保留期間
 

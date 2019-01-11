@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8951680ca9488dabffd02ee084e3f6827122276e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a51efa18672b81ef3e23e292abbe2b34c1936205
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957447"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994737"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>使用 Azure IoT 中樞裝置 SDK 來管理連線能力和可靠傳訊
 
@@ -62,13 +62,13 @@ Azure IoT 中樞裝置 SDK 的目標是要簡化雲端到裝置以及裝置到�
 1. SDK 偵測到錯誤以及在網路、通訊協定或應用程式中的相關錯誤。
 1. SDK 使用錯誤篩選來判斷錯誤類型，並決定是否需要重試。
 1. 如果 SDK 識別出**無法復原的錯誤**，連線、傳送和接收之類的作業就會停止。 SDK 會通知使用者。 舉例來說，無法復原的錯誤包括驗證錯誤和不正確的端點錯誤。
-1. 如果 SDK 識別出**可復原的錯誤**，則會根據您指定的重試原則進行重試，直到定義的逾時結束為止。
+1. 如果 SDK 識別出**可復原的錯誤**，則會根據指定的重試原則進行重試，直到定義的逾時結束為止。  請注意，SDK 預設會使用**含隨機跳躍的指數輪詢**重試原則。
 1. 當定義的逾時到期後，SDK 就會停止嘗試連線或傳送。 它會通知使用者。
 1. SDK 可讓使用者附加回呼，以接收連線狀態變更。
 
 SDK 提供三個重試原則：
 
-- **含隨機跳躍的指數輪詢**：此預設重試原則通常會在一開始積極執行，然後隨著時間減緩，直到達到延遲上限。 設計的基礎是 [Azure Architecture Center 的重試指引](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)。
+- **含隨機跳躍的指數輪詢**：此預設重試原則通常會在一開始積極執行，然後隨著時間減緩，直到達到延遲上限。 設計的基礎是 [Azure Architecture Center 的重試指引](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)。 
 - **自訂重試**：針對某些 SDK 語言中，您可以設計您的案例較為適用的自訂重試原則，然後將其插入 RetryPolicy 中。 自訂重試並不適用於 C SDK。
 - **不重試**：您可以將重試原則設為「不重試」，而停用重試邏輯。 假設連線已建立，SDK 會嘗試連線一次，然後傳送訊息一次。 此原則通常用於在頻寬或成本方面有所顧慮的案例。 如果選擇此選項，無法傳送的訊息將會遺失，且無法復原。
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 1bba25d0b7fd6bbe4efeb9c2164fc663b22bed11
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2a33283d735532d4cc4c11bc3910377f15aaa730
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139362"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002683"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虛擬機器擴展集常見問題集
 
@@ -134,7 +134,7 @@ ms.locfileid: "53139362"
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>如果我已停止 (已取消配置) VM，該 VM 是否在自動調整作業中啟動？
 
-否。 如果自動調整規則需有額外的 VM 執行個體作為擴展集的一部分，則會建立新的 VM 執行個體。 已停止 (已取消配置) 的 VM 執行個體不會在自動調整事件中啟動。 不過，這些已停止 (已取消配置) 的 VM 可能會在執行個體數目相應縮小的自動調整事件中遭到刪除，同樣地系統可以根據 VM 執行個體識別碼的順序刪除任何 VM 執行個體。
+沒有。 如果自動調整規則需有額外的 VM 執行個體作為擴展集的一部分，則會建立新的 VM 執行個體。 已停止 (已取消配置) 的 VM 執行個體不會在自動調整事件中啟動。 不過，這些已停止 (已取消配置) 的 VM 可能會在執行個體數目相應縮小的自動調整事件中遭到刪除，同樣地系統可以根據 VM 執行個體識別碼的順序刪除任何 VM 執行個體。
 
 
 
@@ -167,48 +167,16 @@ ms.locfileid: "53139362"
 如需詳細資訊，請參閱[建立或更新虛擬機器擴展集](https://msdn.microsoft.com/library/mt589035.aspx)。
 
 
-### <a name="example-of-self-signed-certificate"></a>自我簽署憑證的範例
+### <a name="example-of-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>為 Azure Service Fabric 叢集佈建的自我簽署憑證範例。
+如需關於在 azure shell 中使用下列 azure CLI 陳述式的最新範例，請閱讀 Service Fabrics CLI 模組範例文件，該文件會列印至 stdout：
 
-1.  在金鑰保存庫中建立自我簽署憑證。
+```bash
+az sf cluster create -h
+```
 
-    使用下列 PowerShell 命令：
+請檢閱 KeyVault 文件，了解 Azure 中最新 API 支援的憑證作業。
 
-    ```powershell
-    Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-
-    Connect-AzureRmAccount
-
-    Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
-    ```
-
-    此命令可讓您輸入 Azure Resource Manager 範本。
-
-    如需如何在金鑰保存庫中建立自我簽署憑證的範例，請參閱 [Service Fabric 叢集安全性案例](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)一文。
-
-2.  變更 Resource Manager 範本。
-
-    將這個屬性新增至 **virtualMachineProfile** 成為虛擬機器擴展集資源的一部分︰
-
-    ```json 
-    "osProfile": {
-        "computerNamePrefix": "[variables('namingInfix')]",
-        "adminUsername": "[parameters('adminUsername')]",
-        "adminPassword": "[parameters('adminPassword')]",
-        "secrets": [
-            {
-                "sourceVault": {
-                    "id": "[resourceId('KeyVault', 'Microsoft.KeyVault/vaults', 'MikhegnVault')]"
-                },
-                "vaultCertificates": [
-                    {
-                        "certificateUrl": "https://mikhegnvault.vault.azure.net:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
-                        "certificateStore": "My"
-                    }
-                ]
-            }
-        ]
-    }
-    ```
+自我簽署的憑證無法用於憑證授權單位提供的分散式信任，也不應該用於任何預期託管企業生產解決方案的 Service Fabric 叢集；如需其他 Service Fabric 安全性指引，請檢閱 [Azure Service Fabric 安全性最佳做法](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices)和 [Service Fabric 叢集安全性案例](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)。
   
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>是否可指定 SSH 金鑰組以便透過 Resource Manager 範本中的 Linux 虛擬機器擴展集來進行 SSH 驗證？  
@@ -389,7 +357,7 @@ GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?
 
 ### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>[Azure 資源的受控識別](https://docs.microsoft.com/azure/active-directory/msi-overview)是否可以與虛擬機器擴展集搭配運作？
 
-是。 您可以在 Azure 快速入門範本中看到某些範例 MSI 範本。 Linux：[https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux) \(英文\)。 Windows：[https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows) \(英文\)。
+是。 您可以在 Azure 快速入門範本中看到某些範例 MSI 範本。 Linux：[https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) \(英文\)。 Windows：[https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) \(英文\)。
 
 
 ## <a name="extensions"></a>擴充功能
@@ -515,7 +483,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 若要執行裝載於私人儲存體帳戶的自訂指令碼，請使用儲存體帳戶金鑰和名稱來進行受保護的設定。 如需詳細資訊，請參閱[適用於 Windows 的自訂指令碼擴充功能](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)。
 
 
-## <a name="networking"></a>網路
+## <a name="networking"></a>網路功能
  
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>是否可以將「網路安全性群組」(NSG) 指派給擴展集，以便將它套用至擴展集中的所有 VM NIC？
 

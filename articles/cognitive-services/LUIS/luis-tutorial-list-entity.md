@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: be2c7aea356f6d7b73438499b7e4d680ed4bad7c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 4cac20cb44c2400e44ff2ca0939b1537f0b20734
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259234"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727177"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>使用清單實體增加實體偵測 
 本教學課程將示範如何使用[清單實體](luis-concept-entity-types.md)增加實體偵測。 清單實體不需要標籤，因為其與字詞完全相符。  
@@ -37,7 +37,7 @@ ms.locfileid: "53259234"
 > [!Tip]
 > 若您還沒有訂用帳戶，則可以註冊[免費帳戶](https://azure.microsoft.com/free/)。
 
-此教學課程中的所有程式碼皆位於 [LUIS 範例 GitHub 存放庫](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity)。 
+此教學課程中的所有程式碼皆位於 [Azure-Samples GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity)。 
 
 ## <a name="use-homeautomation-app"></a>使用 HomeAutomation 應用程式
 HomeAutomation 應用程式可讓您控制許多裝置，例如燈和娛樂系統，以及控制環境，例如升溫或降溫。 這些系統有許多不同名稱，其中可能包含製造商名稱、別名、暱稱、首字母縮寫和俚語。 

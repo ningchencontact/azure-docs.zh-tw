@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e3bd48cf56650e266f5002a179d20177b3127f25
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8f8503f560985e1170105199212734dd704d81c1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426395"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743522"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>使用 SAML 2.0 識別提供者 (IdP) 來進行單一登入
 
@@ -167,7 +167,7 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>安裝 Windows PowerShell 以使用 SAML 2.0 識別提供者來進行登入
 在設定了 SAML 2.0 識別提供者以便用於 Azure AD 登入之後，下一步是下載並安裝適用於 Windows PowerShell 的 Azure Active Directory 模組。 安裝完成後，您將會使用這些 Cmdlet 來將 Azure AD 網域設定為同盟網域。
 
-適用於 Windows PowerShell 的 Azure Active Directory 模組可供下載以便管理組織在 Azure AD 中的資料。 此模組會在 Windows PowerShell 中安裝一組 Cmdlet；您必須執行這些 Cmdlet 來設定 Azure AD 的單一登入存取權，進而設定您所訂閱之所有雲端服務的單一登入存取權。 如需有關如何下載及安裝 Cmdlet 的指示，請參閱 [https://technet.microsoft.com/library/jj151815.aspx](httpss://technet.microsoft.com/library/jj151815.aspx)
+適用於 Windows PowerShell 的 Azure Active Directory 模組可供下載以便管理組織在 Azure AD 中的資料。 此模組會在 Windows PowerShell 中安裝一組 Cmdlet；您必須執行這些 Cmdlet 來設定 Azure AD 的單一登入存取權，進而設定您所訂閱之所有雲端服務的單一登入存取權。 如需有關如何下載及安裝 Cmdlet 的指示，請參閱 [https://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>設定 SAML 識別提供者與 Azure AD 的信任關係
 在 Azure AD 網域中設定同盟之前，您必須先設定自訂網域。 您無法為 Microsoft 所提供的預設網域建立同盟關係。 Microsoft 的預設網域會以 "onmicrosoft.com" 結尾。
@@ -190,7 +190,7 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-如需有關 “Set-MsolDomainAuthentication” 的詳細資訊，請參閱：[https://technet.microsoft.com/library/dn194112.aspx](httpss://technet.microsoft.com/library/dn194112.aspx)。
+如需有關 “Set-MsolDomainAuthentication” 的詳細資訊，請參閱：[https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx)。
 
 >[!NOTE]
 >只有在已經為識別提供者設定 ECP 延伸模組時，才必須使用 “$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"” 來執行。 Exchange Online 用戶端 (Outlook Web App (OWA) 除外) 仰賴以 POST 為基礎的作用中端點。 如果您的 SAML 2.0 STS 所實作的作用中端點，類似於 Shibboleth 以 ECP 實作的作用中端點，則這些豐富型用戶端可能可以和 Exchange Online 服務互動。
@@ -218,7 +218,7 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-如需有關 “New-MsolUser” 的詳細資訊，請參閱 [https://technet.microsoft.com/library/dn194096.aspx](httpss://technet.microsoft.com/library/dn194096.aspx)
+如需有關 “New-MsolUser” 的詳細資訊，請參閱 [https://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
 >「UserPrinciplName」值必須符合您會為 SAML 2.0 宣告中的「IDPEmail」傳送的值，而「ImmutableID」值則必須符合「NameID」判斷提示中所傳送的值。

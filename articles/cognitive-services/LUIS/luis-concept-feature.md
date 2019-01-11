@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2d6f7e2fd332e1687db1564befeb6f531045c5dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271380"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993054"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS 應用程式中的片語清單功能
 
@@ -29,10 +29,14 @@ ms.locfileid: "53271380"
 
 片語清單會新增至應用程式網域的詞彙，作為向 LUIS 指示這些字的第二個信號。
 
+## <a name="phrase-lists-help-all-models"></a>片語清單適用於所有模型
+
+片語清單不會連結至特定的意圖或實體，而是為所有模型提升效能。 其目的是要改善意圖偵測和實體分類。
+
 ## <a name="how-to-use-phrase-lists"></a>如何使用片語清單
 在人力資源應用程式的[簡單實體教學課程](luis-quickstart-primary-and-secondary-data.md)中，應用程式會使用工作類型的 **Job** 片語類型，例如程式設計人員、屋頂工和秘書。 如果您將這其中一個值標示為機器學習的實體，LUIS 就會學習辨識其他值。 
 
-片語清單可能可交換或不可交換。 「可交換」片語清單適用於同義字的值，而「不可交換」片語清單則要作為應用程式的特定詞彙清單。 隨著應用程式詞彙片語清單的增加，您可能會發現一些字詞有許多形式 (同義字)。 將這些字詞分解為另一個可交換的片語清單。 
+片語清單可能可互換或不可互換。 「可交換」片語清單適用於同義字的值，而「不可交換」片語清單則要作為應用程式的特定詞彙清單。 隨著應用程式詞彙片語清單的增加，您可能會發現一些字詞有許多形式 (同義字)。 將這些字詞分解為另一個可交換的片語清單。 
 
 |清單類型|目的|
 |--|--|
@@ -40,6 +44,7 @@ ms.locfileid: "53271380"
 |不可交換|應用程式詞彙 (特別是您的應用程式) 通常比該語言中的其他字組還要多。|
 
 片語清單不僅有助於實體偵測也意圖分類，當不可交換的詞彙合理，則可以新增至英文未知的詞彙字組中。
+
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

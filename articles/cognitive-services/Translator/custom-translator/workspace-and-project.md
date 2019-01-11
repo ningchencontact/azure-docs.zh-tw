@@ -10,12 +10,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 6f88ff8ecd1aee588cb82c08ae2eda58fe2eb1e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f3d2276c92868bd2f9d98b119bc31aee4db13a81
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627896"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717547"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>什麼是自訂翻譯工具工作區？
 
@@ -31,7 +31,7 @@ ms.locfileid: "51627896"
 
 類別會識別專案的領域 – 您要使用的術語和樣式所屬的區域。 請選擇與您的文件最為相關的類別。 在某些情況下，您所選擇的類別會直接影響到自訂翻譯工具的行為。
 
-除了一般基準系統外，我們並沒有自訂的類別模型。 但我們仍建議使用者選取最適用於其領域的類別，以便將其作為 CategoryID 中的識別碼。 對於技術領域的專案，選取 [技術] 可確保在有可用的基準模型時，您的專案將可使用該模型。
+我們有兩組基準模型。 分別是「一般」和「技術」。 如果選取**技術**類別，就會使用「技術」基準模型。 如果選取任何其他類別，則會使用「一般」基準模型。 「技術」基準模型也能在技術領域良好運作，但如果用來翻譯的句子不屬於技術領域，其品質就會較差。 我們會建議客戶，只有在句子完全落在技術領域時，才選取「技術」類別。
 
 在相同的工作區中，您可以為不同類別中的相同語言組建立專案。 自訂翻譯工具可避免建立具有相同語言組和類別的重複專案。 將標籤套用至專案，可讓您避免受到這項限制。 除非您要為多個用戶端建置翻譯系統，否則請勿使用標籤，因為將唯一標籤新增至您的專案，將會反映在您的專案 CategoryID 中。
 

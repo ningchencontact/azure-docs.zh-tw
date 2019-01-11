@@ -1,5 +1,5 @@
 ---
-title: 發生影響 Azure 金鑰保存庫的 Azure 服務中斷事件時該怎麼辦 | Microsoft Docs
+title: 發生影響 Azure Key Vault 的 Azure 服務中斷事件時該怎麼辦 - Azure Key Vault | Microsoft Docs
 description: 了解發生影響「Azure 金鑰保存庫」的 Azure 服務中斷事件時該怎麼辦。
 services: key-vault
 documentationcenter: ''
@@ -12,16 +12,17 @@ ms.workload: key-vault
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: 5ab6fc207d8a7732062a51a6215c25a4a0fac006
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 0479e5f7e51d02a08f6d542515212c88b3a43df5
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465838"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999232"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure 金鑰保存庫的可用性與備援
+
 Azure 金鑰保存庫具備多層備援功能，以確保您的金鑰和密碼會保持可供應用程式使用，甚至在服務的個別元件失敗時也是如此。
 
 金鑰保存庫的內容會在區域內複寫，以及複寫到至少距離 150 英哩但位於相同地理位置內的次要區域。 這可維持您金鑰和密碼的高持久性。 請參閱 [Azure 配對的區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)文件，以取得特定區域配對的詳細資料。

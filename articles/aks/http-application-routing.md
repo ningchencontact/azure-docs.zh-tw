@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: c2f68afb685cb04d456e06cadf378bd1c3ebb1fb
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384948"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742383"
 ---
 # <a name="http-application-routing"></a>HTTP 應用程式路由
 
@@ -174,6 +174,36 @@ HTTP 路由解決方案可以使用 Azure CLI 來移除。 若要執行此動作
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
+停用 HTTP 應用程式路由附加元件時，某些 Kubernetes 資源可能會留在叢集中。 這些資源包括 configMaps 和 secrets，且會建立在 kube-system 命名空間中。 為了讓叢集保持乾淨，建議您移除這些資源。
+
+使用下列 [kubectl get][kubectl-get] 命令尋找 addon-http-application-routing 資源：
+
+```console
+kubectl get deployments --namespace kube-system
+kubectl get services --namespace kube-system
+kubectl get configmaps --namespace kube-system
+kubectl get secrets --namespace kube-system
+```
+
+下列範例輸出會顯示應該刪除的 configMaps：
+
+```
+$ kubectl get configmaps --namespace kube-system
+
+NAMESPACE     NAME                                                       DATA   AGE
+kube-system   addon-http-application-routing-nginx-configuration         0      9m7s
+kube-system   addon-http-application-routing-tcp-services                0      9m7s
+kube-system   addon-http-application-routing-udp-services                0      9m7s
+```
+
+若要刪除資源，請使用 [kubectl delete][kubectl-delete] 命令。 指定資源類型、資源名稱和命名空間。 下列範例會刪除先前的其中一個 configmaps：
+
+```console
+kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
+```
+
+針對留在叢集中的所有 *addon-http-application-routing* 資源重複先前 `kubectl delete` 步驟。
+
 ## <a name="troubleshoot"></a>疑難排解
 
 使用 [kubectl logs][kubectl-logs] 命令來檢視 External-DNS 應用程式的應用程式記錄。 記錄應該確認是否已成功建立 A 和 TXT DNS 記錄。
@@ -256,6 +286,7 @@ ingress "party-clippy" deleted
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [ingress-resource]: https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource

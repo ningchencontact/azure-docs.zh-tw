@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 9f26a51a8da2c3fec3ff180dbc8c8de08bb0a93a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a0f002266764ace07482023a0412366b90acec63
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833868"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789852"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或擴充功能相關的問題
 
@@ -52,8 +52,7 @@ ms.locfileid: "52833868"
 * 如果每日觸發多個備份，也會發生此問題。 目前，我們建議每日只能觸發一個備份，因為立即 RP 會保留 7 天，而一段指定時間內只能讓 18 個立即 RP 與 VM 相關聯。 <br>
 
 建議的動作：<br>
-若要解決此問題，請移除資源群組上的鎖定，並重試此作業來觸發清除動作。
-
+若要解決此問題，請移除 VM 資源群組的鎖定，並重試此作業以觸發清除動作。 
 > [!NOTE]
     > 備份服務會建立與 VM 資源群組不同的資源群組，來儲存還原點集合。 建議客戶請勿鎖定建立給備份服務使用的資源群組。 備份服務建立的資源群組命名格式為：AzureBackupRG_`<Geo>`_`<number>` 例如：AzureBackupRG_northeurope_1
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: c239464a37637b21504227951d917977cfea6726
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8be453ae479e88d441a240ce472f3314b3f4de31
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343950"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809738"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 大量執行程式程式庫：下載資訊 
 
@@ -77,7 +77,7 @@ ms.locfileid: "53343950"
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
 * 新增對 Azure Cosmos DB SQL API 帳戶之 BulkDelete 作業的支援。
-* 新增對 Azure Cosmos DB MongoDB API 帳戶之 BulkImport 作業的支援。
+* 若帳戶有適用於 MongoDB 的 Azure Cosmos DB API，可對其進行 BulkImport 作業。
 * 將 DocumentDB.NET SDK 相依性提高至版本 2.0.0。 
 
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2

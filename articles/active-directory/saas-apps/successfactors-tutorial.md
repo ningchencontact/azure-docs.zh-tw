@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 89224b32efaecdf7a2797b034b1beac7ad191ee5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 467db4046c0600142338dcfa39e136f45255caba
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685220"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976744"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>教學課程：Azure Active Directory 與 SuccessFactors 整合
 
@@ -150,7 +150,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
     | `https://<companyname>.sapsf.cn/<companyname>`|
          
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [SuccessFactors 用戶端支援小組](https://www.successfactors.com/support.html) \(英文\) 以取得這些值。 
+    > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [SuccessFactors 用戶端支援小組](https://www.successfactors.com/content/ssf-site/en/support.html) \(英文\) 以取得這些值。 
 
 5. 在 [SAML 簽署憑證] 頁面上的 [SAML 簽署憑證] 區段中，按一下 [下載] 以下載**憑證 (Base64)**，然後將憑證檔案儲存在電腦上。
 
@@ -261,7 +261,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
 若要讓 Azure AD 使用者能夠登入 SuccessFactors，必須將他們佈建到 SuccessFactors。  
 SuccessFactors 需以手動方式佈建。
 
-若要在 SuccessFactors 建立使用者，您需要連絡 [SuccessFactors 支援小組](https://www.successfactors.com/support.html)。
+若要在 SuccessFactors 建立使用者，您需要連絡 [SuccessFactors 支援小組](https://www.successfactors.com/content/ssf-site/en/support.html)。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

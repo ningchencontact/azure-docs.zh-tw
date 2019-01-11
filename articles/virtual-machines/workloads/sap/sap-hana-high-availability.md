@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: e2e76e3cd058e5798b0159923118b050f38d077e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: aca5b1613a6500b3aeca1a7074cabdce50023510
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034632"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789495"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server 上 Azure VM 的 SAP HANA 高可用性
 
@@ -36,6 +36,7 @@ ms.locfileid: "47034632"
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
+[401162]:https://launchpad.support.sap.com/#/notes/401162
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -67,6 +68,7 @@ ms.locfileid: "47034632"
 * SAP Note [2243692] 包含 Azure 中 Linux 上的 SAP 授權相關資訊。
 * SAP Note [1984787] 包含 SUSE LINUX Enterprise Server 12 的一般資訊。
 * SAP Note [1999351] 包含 Azure Enhanced Monitoring Extension for SAP 的其他疑難排解資訊。
+* SAP 附註 [401162] 提供關於如何在設定 HANA 系統複寫時避免出現「位址已在使用中」的資訊。
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) 包含 Linux 所需的所有 SAP Note。
 * [SAP Hana 認證 IaaS 平台](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [適用於 SAP on Linux 的 Azure 虛擬機器規劃和實作][planning-guide]指南。
@@ -84,7 +86,7 @@ ms.locfileid: "47034632"
 
 SAP HANA 系統複寫設定會使用專用的虛擬主機名稱和虛擬 IP 位址。 在 Azure 上必須有負載平衡器才能使用虛擬 IP 位址。 下列清單顯示負載平衡器的組態：
 
-* 前端組態：IP 位址 10.0.0.13 (針對 hn1-db)
+* 前端組態：hn1-db 的 IP 位址 10.0.0.13
 * 後端組態：連線到應屬於 HANA 系統複寫一部分的所有虛擬機器的主要網路介面
 * 探查連接埠：連接埠 62503
 * 負載平衡規則：30313 TCP、30315 TCP、30317 TCP
@@ -103,15 +105,15 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
     資料庫範本只會針對資料庫建立負載平衡規則。 交集範本還會針對 ASCS/SCS 和 ERS (僅限 Linux) 執行個體建立負載平衡規則。 如果您打算安裝 SAP NetWeaver 架構的系統，而且想要在同一部電腦上安裝 ASCS/SCS 執行個體，請使用[交集範本][template-converged]。
 
 1. 輸入下列參數：
-    - **SAP 系統識別碼**：輸入您想要安裝的 SAP 系統識別碼。 該識別碼會作為所部署之資源的前置詞。
+    - **SAP 系統識別碼**：輸入您想要安裝的 SAP 系統之 SAP 系統識別碼。 該識別碼會作為所部署之資源的前置詞。
     - **堆疊類型**：(此參數只有在您使用交集範本時才適用)。選取 SAP NetWeaver 堆疊類型。
-    - **OS 類型**：選取其中一個 Linux 發行版本。 在此範例中，請選取 **SLES 12**。
+    - **OS 類型**：選取一個 Linux 發行版本。 在此範例中，請選取 **SLES 12**。
     - **DB 類型**：選取 **HANA**。
     - **SAP 系統大小**：輸入新系統要提供的 SAP 數量。 如果您不確定系統需要多少 SAP，請詢問您的 SAP 技術合作夥伴或系統整合者。
-    - **系統可用性**選取 [HA]。
-    - **管理員使用者名稱和管理員密碼**：會建立可用來登入機器的新使用者。
-    - **新的或現有的子網路**︰決定應該建立新的虛擬網路和子網路，還是使用現有的子網路。 如果您已經有連線到內部部署網路的虛擬網路，請選取 [現有]。
-    - **子網路識別碼**：如果您想要將 VM 部署至您已定義應將 VM 指派到之目標子網路的現有 VNet，請提供該特定子網路的識別碼。 識別碼通常如下所示：**/subscriptions/\<訂用帳戶識別碼>/resourceGroups/\<資源群組名稱>/providers/Microsoft.Network/virtualNetworks/\<虛擬網路名稱>/subnets/\<子網路名稱>**。
+    - **系統可用性**：選取 **HA**。
+    - **管理員使用者名稱和管理員密碼**：建立可用來登入電腦的新使用者。
+    - **新的或現有的子網路**：決定要建立新的虛擬網路和子網路，還是要使用現有子網路。 如果您已經有連線到內部部署網路的虛擬網路，請選取 [現有]。
+    - **子網路識別碼**：如果您想將 VM 部署至現有的 VNet (其中具有定義 VM 應指派的目的子網路)，請說明該特定子網路的 ID。 識別碼通常如下所示：**/subscriptions/\<訂用帳戶識別碼>/resourceGroups/\<資源群組名稱>/providers/Microsoft.Network/virtualNetworks/\<虛擬網路名稱>/subnets/\<子網路名稱>**。
 
 ### <a name="manual-deployment"></a>手動部署
 
@@ -203,7 +205,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 - **[1]**：此步驟僅適用於節點 1。
 - **[2]**：此步驟僅適用於 Pacemaker 叢集的節點 2。
 
-1. **[A]** 設定磁碟配置：**邏輯磁碟區管理員 (LVM)**。
+1. **[A]** 設定磁碟配置：**邏輯磁碟區管理 (LVM)**。
 
    建議您針對儲存資料和記錄檔的磁碟區使用 LVM。 下列範例假設虛擬機器已連接四個資料磁碟，這些資料磁碟會用來建立兩個磁碟區。
 
@@ -319,24 +321,24 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    * 輸入安裝路徑 [/hana/shared]：選取 Enter 鍵。
    * 輸入本機主機名稱 [..]：選取 Enter 鍵。
    * 您是否要將其他主機新增至系統？ (y/n) [n]：選取 Enter 鍵。
-   * 輸入 SAP HANA 系統識別碼：輸入 HANA 的 SID，例如：**HN1**。
-   * 輸入執行個體號碼 [00]：輸入 HANA 執行個體號碼。 如果您使用了 Azure 範本或遵循了本文的手動部署章節，請輸入 **03**。
+   * 輸入 SAP HANA 系統識別碼︰輸入 HANA 的 SID，例如：**HN1**。
+   * 輸入執行個體號碼 [00]：輸入 HANA 執行個體編號。 如果您使用了 Azure 範本或遵循了本文的手動部署章節，請輸入 **03**。
    * 選取資料庫模式 / 輸入索引 [1]：選取 Enter 鍵。
-   * 選取系統使用量 / 輸入索引 [4]：選取系統使用量的值。
+   * 選取系統使用量 / 輸入索引 [4]：選取系統使用量。
    * 輸入資料磁碟區的位置 [/hana/data/HN1]：選取 Enter 鍵。
    * 輸入記錄磁碟區的位置 [/hana/log/HN1]：選取 Enter 鍵。
    * 是否限制記憶體配置上限？ [n]：選取 Enter 鍵。
    * 輸入主機的憑證主機名稱 '...' [...]：選取 Enter 鍵。
    * 輸入 SAP 主機代理程式使用者 (sapadm) 密碼：輸入主機代理程式使用者密碼。
-   * 確認 SAP 主機代理程式使用者 (sapadm) 密碼：再次輸入主機代理程式使用者密碼以做確認。
+   * 確認 SAP 主機代理程式使用者 (sapadm) 密碼：再次輸入主機代理程式使用者密碼以進行確認。
    * 輸入系統管理員 (hdbadm) 密碼：輸入系統管理員密碼。
-   * 確認系統管理員 (hdbadm) 密碼：再次輸入系統管理員密碼以做確認。
+   * 確認系統管理員 (hdbadm) 密碼：再次輸入系統管理員密碼以進行確認。
    * 輸入系統管理員主目錄 [/usr/sap/HN1/home]：選取 Enter 鍵。
-   * 輸入系統管理員登入殼層 [/bin/sh]：選取 Enter 鍵。
+   * 輸入系統管理員登入殼層 [/bin/sh]：->選取 Enter 鍵。
    * 輸入系統管理員使用者識別碼 [1001]：選取 Enter 鍵。
    * 輸入使用者群組 (sapsys) 的識別碼 [79]：選取 Enter 鍵。
    * 輸入資料庫使用者 (SYSTEM) 密碼：輸入資料庫使用者密碼。
-   * 確認資料庫使用者 (SYSTEM) 密碼：再次輸入資料庫使用者密碼以做確認。
+   * 確認資料庫使用者 (SYSTEM) 密碼：再次輸入資料庫使用者密碼以進行確認。
    * 是否在電腦重新開機後重新啟動系統？ [n]：選取 Enter 鍵。
    * 是否要繼續？ (y/n)：驗證摘要。 輸入 **y** 繼續。
 

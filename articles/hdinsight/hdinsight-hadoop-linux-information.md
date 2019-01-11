@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: abaf69136fbed577095b3efba2ec6d4383907255
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 95d8825b8359b0ba8649c4c4e145ef488a486b21
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385205"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001918"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>在 Linux 上使用 HDInsight 的相關資訊
 
 Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端中執行的 Apache Hadoop。 其操作大多與 Linux 安裝上的任何其他 Hadoop 相同。 本文件會指出其中應注意的特殊不同之處。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="prerequisites"></a>必要條件
@@ -61,28 +61,28 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 
     驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 透過 Ambari 使用的一些 Web UI 會使用內部網域名稱存取節點。 內部網域名稱無法透過網際網路公開存取。 在嘗試透過網際網路存取某些功能時可能會收到「找不到伺服器」的錯誤。
     >
     > 若要使用 Ambari Web UI 的完整功能，請使用 SSH 通道將 Web 流量以 Proxy 處理傳輸到叢集前端節點。 請參閱[使用 SSH 通道來存取 Apache Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
-    > [!NOTE]
+    > [!NOTE]  
     > 使用叢集系統管理員使用者和密碼進行驗證。
     >
     > 驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
 
 * **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.net/templeton
 
-    > [!NOTE]
+    > [!NOTE]  
     > 使用叢集系統管理員使用者和密碼進行驗證。
     >
     > 驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
 
 * **SSH** - 連接埠 22 或 23 上的 &lt;clustername>-ssh.azurehdinsight.net。 連接埠 22 用來連接至主要前端節點，而 23 用來連接至次要前端節點。 如需前端節點的詳細資訊，請參閱 [HDInsight 上 Apache Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 您只能從用戶端電腦透過 SSH 存取叢集前端節點。 然後在連線後，再從前端節點使用 SSH 存取背景工作角色節點。
 
 如需詳細資訊，請參閱 [HDInsight 上 Apache Hadoop 服務所使用的連接埠](hdinsight-hadoop-port-settings-for-services.md)文件。
@@ -96,23 +96,23 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
 
 在 Hadoop 分散式檔案系統的 `/example` 和 `/HdiSamples` 可取得範例資料和 JAR 檔案。
 
-## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS、Azure 儲存體和 Data Lake Store
+## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS、Azure 儲存體和 Data Lake Storage
 
 在大部分的 Hadoop 散發套件中，資料會儲存在叢集機器上的本機儲存體所支援的 HDFS 中。 針對雲端解決方案使用本機儲存體的成本可能相當高，因為計算資源是以每小時或每分鐘為單位來計費。
 
-使用 HDInsight 時，會使用 Azure Blob 儲存體 (並選擇性地使用 Azure Data Lake Store) 以可調整的彈性方式將資料檔案儲存在雲端中。 這些服務提供下列優點：
+使用 HDInsight 時，會使用 Azure Blob 儲存體 (並選擇性地使用 Azure Data Lake Storage) 以可調整的彈性方式將資料檔案儲存在雲端中。 這些服務提供下列優點：
 
 * 長期儲存成本低廉。
 * 可從各種外部服務進行存取，例如網站、檔案上傳/下載公用程式、各種語言的 SDK 和網頁瀏覽器。
 * 大型檔案容量和大型可調整儲存體。
 
-如需詳細資訊，請參閱[了解 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 和[Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。
+如需詳細資訊，請參閱[了解 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 和[Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)。
 
-使用 Azure 儲存體或 Data Lake Store 時，您不需要從 HDInsight 進行任何特殊動作就能存取資料。 例如，下列命令列出 `/example/data` 資料夾中的檔案，不論其儲存在 Azure 儲存體或 Data Lake Store 中：
+使用 Azure 儲存體或 Data Lake Storage 時，您不需要從 HDInsight 進行任何特殊動作就能存取資料。 例如，下列命令會列出 `/example/data` 資料夾中的檔案，不論其儲存在 Azure 儲存體或 Data Lake Storage 中：
 
     hdfs dfs -ls /example/data
 
-在 HDInsight 中，資料儲存體資源 (Azure Blob 儲存體和 Azure Data Lake Store) 會與計算資源分離。 因此，您可以在必要時建立 HDInsight 叢集以執行計算，並在後續完成工作後刪除該叢集，同時將您的資料檔案安全地保存在雲端儲存體中，沒有時間限制。
+在 HDInsight 中，資料儲存體資源 (Azure Blob 儲存體和 Azure Data Lake Storage) 會與計算資源分離。 因此，您可以在必要時建立 HDInsight 叢集以執行計算，並在後續完成工作後刪除該叢集，同時將您的資料檔案安全地保存在雲端儲存體中，沒有時間限制。
 
 ### <a name="uri-and-scheme"></a>URI 和配置
 
@@ -126,14 +126,14 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`：與非預設儲存體帳戶進行通訊時使用。 例如，當您有其他儲存體帳戶，或在可公開存取的儲存體帳戶中存取儲存的資料時。
 
-使用 __Data Lake Store__ 時，可使用下列其中一種 UI 配置︰
+使用 __Data Lake Storage__ 時，可使用下列其中一種 URI 配置︰
 
-* `adl:///`：存取叢集的預設 Data Lake Store。
+* `adl:///`：存取叢集的預設 Data Lake Storage。
 
-* `adl://<storage-name>.azuredatalakestore.net/`：用來與非預設 Data Lake Store 進行通訊。 也用來存取 HDInsight 叢集根目錄之外的資料。
+* `adl://<storage-name>.azuredatalakestore.net/`：與非預設 Data Lake Storage 進行通訊時使用。 也用來存取 HDInsight 叢集根目錄之外的資料。
 
-> [!IMPORTANT]
-> 使用 Data Lake Store 做為 HDInsight 的預設存放區時，您必須在存放區內指定要做為 HDInsight 儲存體根目錄的路徑。 預設路徑為 `/clusters/<cluster-name>/`。
+> [!IMPORTANT]  
+> 使用 Data Lake Storage 做為 HDInsight 的預設存放區時，您必須在存放區內指定要做為 HDInsight 儲存體根目錄的路徑。 預設路徑為 `/clusters/<cluster-name>/`。
 >
 > 使用 `/` 或 `adl:///` 存取資料時，您只可以存取儲存在叢集根目錄 (例如，`/clusters/<cluster-name>/`) 中的資料。 若要存取存放區中任何位置的資料，請使用 `adl://<storage-name>.azuredatalakestore.net/` 格式。
 
@@ -152,7 +152,7 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
 
     帳戶名稱是「Azure 儲存體」帳戶的名稱。 容器名稱是作為叢集儲存體根目錄的 Blob 容器。
 
-* `adl://home`，若使用 Azure Data Lake Store。 若要取得 Data Lake Store 名稱，請使用下列 REST 呼叫︰
+* 如果使用 Azure Data Lake Storage，則為 `adl://home`。 若要取得 Data Lake Storage 名稱，請使用下列 REST 呼叫︰
 
     ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 
@@ -177,7 +177,7 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
 如果使用 __Azure 儲存體__，請參閱下列連結，以取得可供存取資料的方式︰
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2)：適用於 Azure 的命令列介面命令。 安裝好後，請使用 `az storage` 命令以協助使用儲存體，或是針對 Blob 特有命令使用 `az storage blob`。
-* [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage)：python 指令碼，用於 Azure 儲存體中的 Blob。
+* [blobxfer.py](https://github.com/Azure/blobxfer)：python 指令碼，用於 Azure 儲存體中的 Blob。
 * 各種 SDK：
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
@@ -188,7 +188,7 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
     * [儲存體 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
-如果使用 __Azure Data Lake Store__，請參閱下列連結，以取得可供存取資料的方式︰
+如果使用 __Azure Data Lake Storage__，請參閱下列連結，以取得可供存取資料的方式︰
 
 * [Web 瀏覽器](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
@@ -256,9 +256,9 @@ HDInsight 是受控服務。 如果 Azure 偵測到叢集問題，它可能會�
 
 獨立的 jar 檔案中提供了一些 Hadoop 技術，其中包含可用來做為 MapReduce 工作一部分的函式，或者來自 Pig 或 Hive 內部的函式。 它們通常不需要任何設定，而且可在佈建後上傳到叢集並直接使用。 如果您想要確定元件會在重新安裝叢集的映像後保存下來，則可將 jar 檔案儲存於叢集的預設儲存體 (WASB 或 ADL) 中。
 
-例如，如果您想要使用最新版本的 [DataFu](http://datafu.incubator.apache.org/)，則可下載包含專案的 jar，並將它上傳至 HDInsight 叢集。 接著遵循 DataFu 文件中，如何從 Pig 或 Hive 中使用它的指示進行。
+例如，如果您想要使用最新版本的 [Apache DataFu](https://datafu.incubator.apache.org/)，則可下載包含專案的 jar，並將它上傳至 HDInsight 叢集。 接著遵循 DataFu 文件中，如何從 Pig 或 Hive 中使用它的指示進行。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 有一些屬於獨立 jar 檔案的元件是透過 HDInsight 來提供，但它們不在路徑中。 如果您正在尋找特定元件，可在叢集上使用下列內容來搜尋：
 >
 > ```find / -name *componentname*.jar 2>/dev/null```
@@ -270,7 +270,7 @@ HDInsight 是受控服務。 如果 Azure 偵測到叢集問題，它可能會�
 > [!WARNING]
 > 透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務會協助釐清與解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如：[Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，像是：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[https://stackoverflow.com](https://stackoverflow.com)。 此外，Apache 專案在 [https://apache.org](https://apache.org) 上也有專案網站，例如：[Hadoop](https://hadoop.apache.org/)、[Spark](https://spark.apache.org/)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,7 +1,7 @@
 ---
 title: 建立用戶端以取用已部署的 Web 服務
 titleSuffix: Azure Machine Learning service
-description: 了解如何取用在使用 Azure Machine Learning 模型部署模型時所產生的 Web 服務。此 Web 服務會公開 REST API。 使用您選擇的程式設計語言來建立此 API 的用戶端。
+description: 了解如何取用在使用 Azure Machine Learning 模型部署模型時所產生的 Web 服務。 此 Web 服務會公開 REST API。 使用您選擇的程式設計語言來建立此 API 的用戶端。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,31 +11,31 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: fc1f472cec1b1da26456924885d7905ab2458e14
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: efa24fcb624c7613ce16028d7ba06af4d4d2153c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251125"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753382"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>使用部署為 Web 服務的 Azure Machine Learning 模型
 
 將 Azure Machine Learning 模型部署為 Web 服務可建立 REST API。 您可以將資料傳送至此 API 並接收模型傳回的預測。 在本文件中，了解如何使用 C#、Go、Java 和 Python 為Web 服務建立用戶端。
 
-將映像部署至 Azure 容器執行個體、Azure Kubernetes 服務或 Project Brainwave (可現場程式化閘道陣列) 時，會建立 Web 服務。 映像是根據已註冊的模型及評分檔案建立的。 可以使用 [Azure Machine Learning SDK](https://aka.ms/aml-sdk) 擷取用來存取 Web 服務的 URI。 如果啟用驗證，您還可以使用 SDK 取得驗證金鑰。
+您會在將映像部署至 Azure 容器執行個體、Azure Kubernetes 服務或 Project Brainwave (可現場程式化閘道陣列) 時建立 Web 服務。 您會從已註冊的模型及評分檔案建立映像。 您可以使用 [Azure Machine Learning SDK](https://aka.ms/aml-sdk) 擷取用來存取 Web 服務的 URI。 如果啟用驗證，您還可以使用 SDK 取得驗證金鑰。
 
-建立使用 ML Web 服務之用戶端的一般工作流程是：
+建立使用機器學習 Web 服務的用戶端所適用的一般工作流程是：
 
-1. 使用 SDK 取得連線資訊
-1. 判斷模型所使用之要求資料的類型
-1. 建立一個呼叫 Web 服務的應用程式
+1. 使用 SDK 取得連線資訊。
+1. 判斷模型所使用之要求資料的類型。
+1. 建立一個呼叫 Web 服務的應用程式。
 
 ## <a name="connection-information"></a>連線資訊
 
 > [!NOTE]
-> Azure Machine Learning SDK 用於取得 Web 服務資訊。 這是 Python SDK。 雖然它用來擷取 Web 服務的相關資訊，但您可以使用任何語言來建立服務的用戶端。
+> 使用 Azure Machine Learning SDK 來取得 Web 服務資訊。 這是 Python SDK。 您可以使用任何語言來建立服務的用戶端。
 
-可以使用 Azure Machine Learning SDK 擷取 Web 服務的連線資訊。 [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 類別提供建立用戶端所需的資訊。 建立用戶端應用程式時，下列 `Webservice` 屬性很有用：
+[azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 類別可提供建立用戶端所需的資訊。 建立用戶端應用程式時，下列 `Webservice` 屬性很有用：
 
 * `auth_enabled` - 如果啟用驗證，則為 `True`；否則為 `False`。
 * `scoring_uri` - REST API 的位址。
@@ -53,7 +53,7 @@ ms.locfileid: "53251125"
     print(service.scoring_uri)
     ```
 
-* 您可以使用 `Webservice.list` 擷取工作區中已針對模型部署的 Web 服務的清單。 您可以新增篩選來縮小傳回的資訊清單。 如需可以篩選之內容的詳細資訊，請參閱 [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) 參考文件。
+* 您可以使用 `Webservice.list` 擷取工作區中已針對模型部署的 Web 服務的清單。 您可以新增篩選來縮小傳回的資訊清單。 如需可篩選項目的詳細資訊，請參閱 [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) 參考文件。
 
     ```python
     services = Webservice.list(ws)
@@ -69,10 +69,10 @@ ms.locfileid: "53251125"
 
 ### <a name="authentication-key"></a>驗證金鑰
 
-針對部署啟用驗證時，會自動建立驗證金鑰。
+當您為部署啟用驗證時，您會自動建立驗證金鑰。
 
-* 在部署到 __Azure Kubernetes Service__ 時，__預設會啟用__驗證。
-* 在部署到 __Azure 容器執行個體__時，__預設會停用__驗證。
+* 在部署到 Azure Kubernetes Service 時，預設會啟用驗證。
+* 在部署到 Azure Container Instances 時，預設會停用驗證。
 
 若要控制驗證，請在建立或更新部署時使用 `auth_enabled` 參數。
 
@@ -155,9 +155,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> `azureml.contrib` 命名空間中的項目會因為我們致力於改善本服務而經常變更。 因此，此命名空間中的任何項目均應被視為預覽，而且 Microsoft 不會完全支援。
+> `azureml.contrib` 命名空間會因為我們致力於改善本服務而經常變更。 因此，此命名空間中的任何項目均應被視為預覽，而且 Microsoft 不會完全支援。
 >
-> 如果您需要在本機開發環境中測試此項，您可以使用下列命令，在 contrib 命名空間中安裝元件：
+> 如果您需要在本機開發環境中測試此項，您可以使用下列命令，在 `contrib` 命名空間中安裝元件：
 > 
 > ```shell
 > pip install azureml-contrib-services

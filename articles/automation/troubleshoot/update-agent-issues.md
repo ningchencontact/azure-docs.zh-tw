@@ -9,16 +9,22 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9a16498c527af2d23840c53af11103f7580d80bb
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434761"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582553"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>了解更新管理中的 Windows 代理程式檢查結果
 
 您的機器在 [更新管理] 中未顯示為 [就緒] 的原因有很多。 在「更新管理」中，您可以檢查「混合式背景工作角色」代理程式的健康情況，以判斷根本問題。 本文探討如何以 Azure 入口網站與非 Azure 機器在[離線情況](#troubleshoot-offline)下執行 Azure 機器的疑難排解員。
+
+下列清單是機器可具備的三種整備狀態：
+
+* **就緒**：更新代理程式已部署且上次出現時間不超過 1 小時。
+* **已中斷連線**：更新代理程式已部署且上次出現時間已超過 1 小時。
+* **未設定**：找不到更新代理程式或尚未完成上線。
 
 ## <a name="start-the-troubleshooter"></a>啟動疑難排解員
 
