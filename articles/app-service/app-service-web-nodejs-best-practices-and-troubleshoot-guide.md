@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: db412d3fd0af84d528ad0c83d86cc5d055359914
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: aad31e72682e15c49fb3d6dce64e7ef46525cb66
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632682"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051847"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows 上節點應用程式的最佳作法和疑難排解指南
 
@@ -147,7 +147,7 @@ var keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>我的節點應用程式目前耗用太多 CPU
 
-您可能會在入口網站上收到 Azure App Service 建議的高 CPU 耗用量。 您也可以設定監視器以監看某些[計量](web-sites-monitor.md)。 在 [Azure 入口網站儀表板](../application-insights/app-insights-web-monitor-performance.md)上檢查 CPU 使用量時，請檢查 CPU 的 MAX 值，您才不會錯過尖峰值。
+您可能會在入口網站上收到 Azure App Service 建議的高 CPU 耗用量。 您也可以設定監視器以監看某些[計量](web-sites-monitor.md)。 在 [Azure 入口網站儀表板](../azure-monitor/app/web-monitor-performance.md)上檢查 CPU 使用量時，請檢查 CPU 的 MAX 值，您才不會錯過尖峰值。
 在您認為應用程式耗用太多 CPU，但您無法解釋原因的情況下，您可以剖析節點應用程式以找出原因。
 
 #### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>在 Azure App Service 上使用 V8 分析工具剖析節點應用程式
@@ -220,7 +220,7 @@ http.createServer(function (req, res) {
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>我的節點應用程式目前耗用太多記憶體
 
-如果您的應用程式耗用太多記憶體，則會在入口網站上看到來自 Azure App Service 的通知，說明關於高記憶體耗用量。 您可以設定監視器以監看某些[計量](web-sites-monitor.md)。 在 [Azure 入口網站儀表板](../application-insights/app-insights-web-monitor-performance.md)上檢查記憶體使用量時，務必檢查記憶體的 MAX 值，才不會錯過尖峰值。
+如果您的應用程式耗用太多記憶體，則會在入口網站上看到來自 Azure App Service 的通知，說明關於高記憶體耗用量。 您可以設定監視器以監看某些[計量](web-sites-monitor.md)。 在 [Azure 入口網站儀表板](../azure-monitor/app/web-monitor-performance.md)上檢查記憶體使用量時，務必檢查記憶體的 MAX 值，才不會錯過尖峰值。
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>node.js 的流失偵測和堆積區分
 

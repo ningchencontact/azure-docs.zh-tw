@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: aee91f6d9b8d16db7f14bbc2372d7c465377ce28
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 444f1aaee496666745be548bcdfadf3a4f162699
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971523"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104058"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis 常見問題集
 了解 Azure Redis 快取常見問題、模式及最佳做法的解答。
@@ -90,7 +90,7 @@ Azure Cache for Redis 會以廣受使用的開放原始碼軟體 [Redis](https:/
 
 * 您可以查看我們針對 [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)、[ASP.NET](cache-web-app-howto.md)、[Java](cache-java-get-started.md)、[Node.js](cache-nodejs-get-started.md) 和 [Python](cache-python-get-started.md) 提供的其中一套教學課程。
 * 您可以觀看[如何使用 Microsoft Azure Redis 快取來建立高效能應用程式](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/) \(英文\)。
-* 您可以取出符合您專案開發語言用戶端的用戶端文件，來查看如何使用 Redis。 有許多可與「Azure Redis 快取」搭配使用的 Redis 用戶端。 如需 Redis 用戶端清單，請參閱 [http://redis.io/clients](http://redis.io/clients)。
+* 您可以取出符合您專案開發語言用戶端的用戶端文件，來查看如何使用 Redis。 有許多可與「Azure Redis 快取」搭配使用的 Redis 用戶端。 如需 Redis 用戶端清單，請參閱 [https://redis.io/clients](https://redis.io/clients)。
 
 如果您還沒有 Azure 帳戶，您可以：
 
@@ -210,7 +210,7 @@ StackExchange.Redis 有許多選項。 本節談論一些常見設定。 如需 
       * 此指引可以疏解每個 `ConnectionMultiplexer` 的延遲。
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>我可以使用哪些 Azure Redis 快取用戶端？
-Redis 最大的好處是，有許多用戶端支援許多不同的開發語言。 如需最新的用戶端清單，請參閱 [Redis 用戶端](http://redis.io/clients)。 如需涵蓋數個不同語言和用戶端的教學課程，請參閱[如何使用 Azure Redis 快取](cache-dotnet-how-to-use-azure-redis-cache.md)，然後從文章頂端的語言切換器中按一下所需的語言。
+Redis 最大的好處是，有許多用戶端支援許多不同的開發語言。 如需最新的用戶端清單，請參閱 [Redis 用戶端](https://redis.io/clients)。 如需涵蓋數個不同語言和用戶端的教學課程，請參閱[如何使用 Azure Redis 快取](cache-dotnet-how-to-use-azure-redis-cache.md)，然後從文章頂端的語言切換器中按一下所需的語言。
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -236,12 +236,12 @@ Redis 最大的好處是，有許多用戶端支援許多不同的開發語言�
         }
 
 
-如有需要，您也可以依選擇設定 [redis.conf](http://redis.io/topics/config) 檔案，以更符合線上「Azure Redis 快取」的[預設快取設定](cache-configure.md#default-redis-server-configuration)。
+如有需要，您也可以依選擇設定 [redis.conf](https://redis.io/topics/config) 檔案，以更符合線上「Azure Redis 快取」的[預設快取設定](cache-configure.md#default-redis-server-configuration)。
 
 <a name="cache-commands"></a>
 
 ### <a name="how-can-i-run-redis-commands"></a>如何執行 Redis 命令？
-您可以使用 [Redis 命令](http://redis.io/commands#)中列出的任何命令，但不包含 [Azure Redis 快取中不支援的 Redis 命令](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis)中列出的命令。 您有幾種方式可以執行 Redis 命令。
+您可以使用 [Redis 命令](https://redis.io/commands#)中列出的任何命令，但不包含 [Azure Redis 快取中不支援的 Redis 命令](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis)中列出的命令。 您有幾種方式可以執行 Redis 命令。
 
 * 如果您有標準或進階快取，就可以使用 [Redis 主控台](cache-configure.md#redis-console)來執行 Redis 命令。 Redis 主控台提供安全的方式在 Azure 入口網站中執行 Redis 命令。
 * 您也可以使用 Redis 命令列工具。 若要使用那些工具，請執行下列步驟：
@@ -257,7 +257,7 @@ Redis 最大的好處是，有許多用戶端支援許多不同的開發語言�
 <a name="cache-reference"></a>
 
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Azure Redis 快取為什麼沒有像一些其他 Azure 服務有 MSDN 類別庫參考？
-「Microsoft Azure Redis 快取」是以熱門的開放原始碼「Azure Redis 快取」為基礎，且透過許多程式設計語言的各種 [Redis 用戶端](http://redis.io/clients) 都存取此快取。 每個用戶端都有自己的 API，可使用 [Redis 命令](http://redis.io/commands)對「Azure Redis 快取」執行個體發出呼叫。
+「Microsoft Azure Redis 快取」是以熱門的開放原始碼「Azure Redis 快取」為基礎，且透過許多程式設計語言的各種 [Redis 用戶端](https://redis.io/clients) 都存取此快取。 每個用戶端都有自己的 API，可使用 [Redis 命令](https://redis.io/commands)對「Azure Redis 快取」執行個體發出呼叫。
 
 因為每個用戶端都不同，所以 MSDN 上沒有一個集中式類別參考，每個用戶端都會維護其專屬的參考文件。 除了參考文件之外，還有數個教學課程，示範如何使用不同的語言和快取用戶端來開始使用「Azure Redis 快取」。 若要存取這些教學課程，請參閱[如何使用 Azure Redis 快取](cache-dotnet-how-to-use-azure-redis-cache.md)，然後從文章頂端的語言切換器中按一下所需的語言。
 
@@ -310,7 +310,7 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 * Redis 在值越小時運作得最好，因此請考慮將較大的資料切分成多個金鑰。 在[此 Redis 討論](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)中，100kb 就算很大。 閱讀 [這篇文章](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) 以了解較大值所造成的範例問題。
 * 設定您的 [執行緒集區設定](#important-details-about-threadpool-growth) 以避免逾時。
 * 使用至少 5 秒的預設 connectTimeout。 此間隔可讓 StackExchange.Redis 在網路短暫發生中斷時，有足夠的時間重新建立連線。
-* 請注意您執行不同作業的相關效能成本。 例如， `KEYS` 命令是一種 O(n) 作業，應該盡量避免。 [Redis.io 網站](http://redis.io/commands/) 有它支援的每項作業的時間複雜度詳細資訊。 按一下每個命令，可查看每項作業的複雜度。
+* 請注意您執行不同作業的相關效能成本。 例如， `KEYS` 命令是一種 O(n) 作業，應該盡量避免。 [Redis.io 網站](https://redis.io/commands/) 有它支援的每項作業的時間複雜度詳細資訊。 按一下每個命令，可查看每項作業的複雜度。
 
 #### <a name="configuration-and-concepts"></a>組態和概念
 * 為生產環境系統使用標準或進階層。 基本層是一個單一節點的系統，沒有資料複寫也沒有 SLA。 此外，請至少使用 C1 快取。 C0 快取通常用於簡單的開發/測試案例。
@@ -329,7 +329,7 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>使用常見 Redis 命令時的一些考量為何？
 * 如果不了解需要花很長時間才能完成之特定 Redis 命令的影響，則不應該執行這些命令。
-  * 例如，不要在生產環境中執行 [KEYS](http://redis.io/commands/keys) 命令，因為根據索引鍵數目，它可能會花很長時間才會傳回。 Redis 是單一執行緒伺服器，並且一次處理一個命令。 如果您在 KEYS 之後發出其他命令，則除非 Redis 處理 KEYS 命令，否則不會處理它們。 [Redis.io 網站](http://redis.io/commands/) 有它支援的每項作業的時間複雜度詳細資訊。 按一下每個命令，可查看每項作業的複雜度。
+  * 例如，不要在生產環境中執行 [KEYS](https://redis.io/commands/keys) 命令，因為根據索引鍵數目，它可能會花很長時間才會傳回。 Redis 是單一執行緒伺服器，並且一次處理一個命令。 如果您在 KEYS 之後發出其他命令，則除非 Redis 處理 KEYS 命令，否則不會處理它們。 [Redis.io 網站](https://redis.io/commands/) 有它支援的每項作業的時間複雜度詳細資訊。 按一下每個命令，可查看每項作業的複雜度。
 * 索引鍵大小 - 應該使用較小的索引鍵/值還是較大的索引鍵/值？ 一般而言，這取決於案例。 如果您的案例需要較大的金鑰，您可以調整 ConnectionTimeout，然後重試值並調整重試邏輯。 從 Redis 伺服器的觀點，觀察到較小的值，即表示有較佳的效能。
 * 這些考量不表示您無法在 Redis 中儲存較大的值；您必須注意下列考量。 延遲會比較高。 如果您有一個較大的資料集和一個較小的值，則可以使用多個 ConnectionMultiplexer 執行個體，而每個執行個體都會設定一組不同的逾時和重試值 (如先前的 [StackExchange.Redis 設定選項的作用為何](#cache-configuration) 小節所述)。
 

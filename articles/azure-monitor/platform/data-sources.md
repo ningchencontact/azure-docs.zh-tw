@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 0349e3f482923a236ea29332abfc3a9206828ba7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976880"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020127"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure 監視器中資料的來源
 本文描述 Azure 監視器所收集的資料來源，這些資料可用來監視資源 (以及在資源上執行的應用程式) 健康情況和效能。 這些資源可能在 Azure、另一個雲端或內部部署中。  請參閱 [Azure 監視器所收集的資料](data-collection.md)，以取得這項資料儲存方式以及如何檢視它的詳細資訊。
@@ -96,7 +96,7 @@ Log Analytics 代理程式隨附用於 Windows 虛擬機器、Linux 虛擬機器
 您也可以使用 Application Insights 來[建立自訂計量](../../azure-monitor/app/api-custom-events-metrics.md)。  這樣可讓您定義自己的邏輯，以便計算數值，然後用可從 [計量瀏覽器] 存取的其他計量儲存該值，並且用於[自動調整](../../azure-monitor/platform/autoscale-custom-metric.md)和計量警示。
 
 ### <a name="dependencies"></a>相依性
-若要監視應用程式的不同邏輯作業，您必須[跨多個元件收集遙測](../../application-insights/app-insights-transaction-diagnostics.md)。 Application Insights 支援[分散式遙測相互關聯](../../azure-monitor/app/correlation.md)，這個功能可識別元件之間的相依性，讓您對它們一起進行分析。
+若要監視應用程式的不同邏輯作業，您必須[跨多個元件收集遙測](../../azure-monitor/app/transaction-diagnostics.md)。 Application Insights 支援[分散式遙測相互關聯](../../azure-monitor/app/correlation.md)，這個功能可識別元件之間的相依性，讓您對它們一起進行分析。
 
 ### <a name="availability-tests"></a>可用性集合
 Application Insights 中的[可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)可讓您從公用網際網路上的不同位置，測試應用程式的可用性和回應能力。 您可以執行簡單的 ping 測試來確認應用程式是否運作，或使用 Visual Studio 來建立 Web 測試，以模擬使用者案例。  可用性測試不需要在應用程式中進行任何檢測。

@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect 同步︰Synchronization Service Manager UI | Microsoft Docs
+title: Azure AD Connect 同步：Synchronization Service Manager UI | Microsoft Docs
 description: 了解 Azure AD Connect 的 Synchronization Service Manager。
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 877f41fb1d47bc8faf4ea1275c94cd492884bfb1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 439535975c6e1b996bf888a1df7b6f2ae6732a6d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46307737"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717530"
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Azure AD Connect Synchronization Service Manager UI 簡介
 
@@ -32,9 +32,10 @@ ms.locfileid: "46307737"
 您可以從 [開始] 功能表啟動 **Synchronization Service Manager** UI。 它會命名為「同步處理服務」，而且可在 **Azure AD Connect** 群組中找到。  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui/startmenu.png)
 
-按一下本主題頂端的連結，以深入了解 UI 中不同的索引標籤。
-
 ## <a name="next-steps"></a>後續步驟
+
+深入了解 Synchronization Service Manager UI，包括 [作業](how-to-connect-sync-service-manager-ui-operations.md)、[連接器](how-to-connect-sync-service-manager-ui-connectors.md)、[Metaverse 設計工具](how-to-connect-sync-service-manager-ui-mvdesigner.md) 及 [Metaverse 搜尋](how-to-connect-sync-service-manager-ui-mvsearch.md) 索引標籤。
+
 深入了解 [Azure AD Connect 同步](how-to-connect-sync-whatis.md) 組態。
 
 深入了解 [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。

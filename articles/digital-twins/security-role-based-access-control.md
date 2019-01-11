@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: lyrana
-ms.openlocfilehash: c1e48f6cb7ca4f26b8cafc31605bc9441ed047d3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 94217deace731f6650db8003d2e1e3c6c63dcb66
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807596"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121017"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Azure Digital Twins 中的角色型存取控制
 
@@ -83,4 +83,4 @@ Azure Digital Twins 的角色指派會建立物件 (例如，使用者或 Azure 
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解如何建立和管理 Azure Digital Twins 角色指派，請閱讀[建立和管理角色指派](./security-create-manage-role-assignments.md)。
+- 若要深入了解如何建立和管理 Azure Digital Twins 角色指派，請閱讀[建立和管理角色指派](./security-create-manage-role-assignments.md)。

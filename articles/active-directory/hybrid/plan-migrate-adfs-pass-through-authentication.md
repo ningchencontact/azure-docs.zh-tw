@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5361c8940c8c7dba5338a3f5a0ed18910f7e45a0
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c7d236769d5e9adca0402affc2d0eccdf78a6837
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410324"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107747"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-ad"></a>從同盟移轉至 Azure AD 的傳遞驗證遷移
 下列文件提供從 AD FS 移至傳遞驗證的相關指引。
@@ -121,9 +121,9 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 |-|-|
 | 您要保留 AD FS 供其他應用程式使用。| 您會同時使用 AD FS 與 Azure AD，因而需要考慮一般使用者體驗。 在某些情況下，使用者可能需要進行兩次驗證，一次是 Azure AD (會在此將 SSO 向外轉發到 Office 365 等其他應用程式)，另一次則是為了任何仍繫結至 AD FS 作為信賴憑證者信任的應用程式。 |
 | AD FS 是高度自訂且仰賴 onload.js 檔案中的特定自訂設定 (此檔案無法在 Azure AD 中複製) (例如您已變更登入體驗，所以使用者只能輸入 SamAccountName 格式的使用者名稱，而不是 UPN，或是有大量品牌化的登入體驗)| 您必須確認 Azure AD 可以滿足您目前的自訂需求後再繼續。 如需詳細資訊和指引，請參閱 AD FS 商標和 AD FS 自訂區段。|
-| 您正透過 AD FS 封鎖舊版驗證用戶端。| 請考慮以[舊版驗證的條件式存取控制](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)和 [Exchange Online 用戶端存取規則](http://aka.ms/EXOCAR)來更換控制項，以封鎖目前在 AD FS 上的舊版驗證用戶端。 |
+| 您正透過 AD FS 封鎖舊版驗證用戶端。| 請考慮以[舊版驗證的條件式存取控制](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)和 [Exchange Online 用戶端存取規則](https://aka.ms/EXOCAR)來更換控制項，以封鎖目前在 AD FS 上的舊版驗證用戶端。 |
 | 您要求使用者向 AD FS 進行驗證時，對內部部署 MFA 伺服器解決方案執行 MFA。| 您無法透過內部部署 MFA 解決方案將 MFA 挑戰納入受控網域的驗證流程，但是可以在網域轉換後使用 Azure MFA 服務繼續執行此操作。 如果使用者目前未使用 Azure MFA，會涉及到一次性的使用者註冊步驟，您必須做好準備並傳達給使用者。 |
-| 您目前使用 AD FS 中的存取控制原則 (AuthZ 規則) 來控管 Office 365 的存取權。| 請考慮將這些更換成對等的 Azure AD [條件式存取原則](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)和 [Exchange Online 用戶端存取規則](http://aka.ms/EXOCAR)。|
+| 您目前使用 AD FS 中的存取控制原則 (AuthZ 規則) 來控管 Office 365 的存取權。| 請考慮將這些更換成對等的 Azure AD [條件式存取原則](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)和 [Exchange Online 用戶端存取規則](https://aka.ms/EXOCAR)。|
 
 ### <a name="considerations-for-common-ad-fs-customizations"></a>常見的 AD FS 自訂考量
 
@@ -333,7 +333,7 @@ Azure AD 智慧鎖定在使用傳遞驗證，而且在 Active Directory 中設�
 
 如果您的租用戶使用同盟，會從 Azure AD 登入頁面將使用者重新導向至您的 AD FS 環境。 現在，租用戶已設定為使用傳遞驗證，而不是同盟，系統不會將使用者重新導向至 AD FS，而是直接透過 Azure AD 登入頁面登入。
 
-以 InPrivate 模式開啟 Internet Explorer 可避免無縫 SSO 將您自動登入並前往 Office 365 登入頁面 ([http://portal.office.com](http://portal.office.com/))。 輸入使用者的 **UPN**，然後按一下 [下一步]。 請務必輸入從內部部署 Active Directory 同步，而且先前已建立同盟的混合式使用者 UPN。 使用者會看到須輸入使用者名稱和密碼的畫面。
+以 InPrivate 模式開啟 Internet Explorer 可避免無縫 SSO 將您自動登入並前往 Office 365 登入頁面 ([https://portal.office.com](https://portal.office.com/))。 輸入使用者的 **UPN**，然後按一下 [下一步]。 請務必輸入從內部部署 Active Directory 同步，而且先前已建立同盟的混合式使用者 UPN。 使用者會看到須輸入使用者名稱和密碼的畫面。
 
 ![圖 18](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)
 

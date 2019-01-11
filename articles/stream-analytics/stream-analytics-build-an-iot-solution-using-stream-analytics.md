@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4817efcb5cfa5f8692f2b7e5c65d411bc0d21942
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 820a918b9ab5dd7a399dc43bcfed29fb3b94e99b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317384"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971098"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>利用串流分析來建置 IoT 解決方案
 
@@ -30,7 +30,7 @@ ms.locfileid: "53317384"
 * 利用監視和記錄的經驗來排解問題。
 
 ## <a name="prerequisites"></a>先決條件
-若要完成此解決方案，您需要滿足下列先決條件：
+若要完成本解決方案，您需要滿足下列必要條件：
 * [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="scenario-introduction-hello-toll"></a>案例簡介："Hello, Toll!"
@@ -44,7 +44,7 @@ ms.locfileid: "53317384"
 ### <a name="entry-data-stream"></a>入口資料流
 入口資料流包含車輛進入收費站的相關資訊。 出口資料事件會從包含在範例應用程式中的 Web 應用程式即時串流到事件中樞佇列。
 
-| TollID | EntryTime | LicensePlate | State | Make | Model | VehicleType | VehicleWeight | Toll | Tag |
+| TollID | EntryTime | LicensePlate | State | 請確定 | 模型 | VehicleType | VehicleWeight | Toll | Tag |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -61,8 +61,8 @@ ms.locfileid: "53317384"
 | EntryTime |車輛進入收費亭的日期及時間 (國際標準時間) |
 | LicensePlate |車輛的車牌號碼 |
 | State |美國的某個洲 |
-| Make |車輛的製造商 |
-| Model |車輛的型號 |
+| 請確定 |車輛的製造商 |
+| 模型 |車輛的型號 |
 | VehicleType |1 代表載客車或 2 代表商用車 |
 | WeightType |車輛的重量，單位為噸；0 代表客車 |
 | Toll |通行費，單位為美元 |
@@ -185,7 +185,7 @@ ms.locfileid: "53317384"
 ## <a name="review-the-cosmosdb-output-data"></a>檢閱 CosmosDB 輸出資料
 1. 尋找包含 TollApp 資源的資源群組。
 
-2. 選取名稱模式為 **tollapp<random>-cosmos** 的 Azure Cosmos DB 帳戶。
+2. 選取名稱模式為 **tollapp\<隨機\>-cosmos** 的 Azure Cosmos DB 帳戶。
 
 3. 選取 [資料總管] 標題以開啟 [資料總管] 頁面。
 
@@ -231,7 +231,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 ### <a name="review-the-total-time-in-the-output"></a>檢閱輸出中的總時間
 重複上一節中的步驟，檢閱串流作業中的 CosmosDB 輸出資料。 檢閱最新的 JSON 文件。
 
-例如，此文件會顯示特定車牌的範例汽車、entrytime 和 exittime，以及 DATEDIFF 導出的 durationinminutes 欄位，顯示收費亭持續時間為兩分鐘：
+例如，本文件會顯示特定車牌的範例汽車、entrytime 和 exittime，以及 DATEDIFF 導出的 durationinminutes 欄位，顯示收費亭持續時間為兩分鐘：
 ```JSON
 {
     "tollid": 4,
@@ -308,7 +308,7 @@ GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 5. **啟動**串流作業以示範額外的縮放。 Azure 串流分析可將工作分送給更多計算資源以改善輸送量，並使用 PARTITION BY 子句中指定的資料行，將工作分割給各個資源。
 
 ## <a name="monitor-the-job"></a>監視作業
-[監視] 區域包含執行中作業的相關統計資料。 第一次設定需要使用相同區域中的儲存體帳戶 (如同此文件的其餘部分，也就是收費)。
+[監視] 區域包含執行中作業的相關統計資料。 第一次設定需要使用相同區域中的儲存體帳戶 (如同本文的其餘部分，也就是收費)。
 
 ![Azure 串流分析作業監視](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 

@@ -1,20 +1,20 @@
 ---
 title: 將 Node.js Mongoose 應用程式連線至 Azure Cosmos DB
 description: 了解如何使用 Mongoose 架構來儲存和管理 Azure Cosmos DB 中的資料。
-author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 12/26/2018
-ms.author: rimman
+author: sivethe
+ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: a6d5a11163cca67a524bdb886249d42a938024a4
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 34ec22550106f03bc90c95b407af088327b7837f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810843"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036166"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>將 Node.js Mongoose 應用程式連線至 Azure Cosmos DB
 
@@ -308,9 +308,9 @@ Mongoose 也有稱為[鑑別子](https://mongoosejs.com/docs/discriminators.html
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何[使用 Studio 3T](mongodb-mongochef.md) 搭配 Azure Cosmos DB 的 MongoDB API。
-- 了解如何[使用 Robo 3T](mongodb-robomongo.md) 搭配 Azure Cosmos DB 的 MongoDB API。
-- 使用適用於 MongoDB 的 Azure Cosmos DB API 探索 MongoDB [範例](mongodb-samples.md)。
+- 了解如何[使用 Studio 3T](mongodb-mongochef.md) 搭配 Azure Cosmos DB 適用於 MongoDB 的 API。
+- 了解如何[使用 Robo 3T](mongodb-robomongo.md) 搭配 Azure Cosmos DB 適用於 MongoDB 的 API。
+- 使用 Azure Cosmos DB 適用於 MongoDB 的 API 瀏覽 Cosmos DB [範例](mongodb-samples.md)。
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
 [mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png

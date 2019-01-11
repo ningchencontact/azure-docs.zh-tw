@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1bd92b9c4611465b680f195e4881a447f4bb701
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631578"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044394"
 ---
 # <a name="back-up-azure-vms-with-the-azure-backup-service"></a>使用 Azure 備份服務備份 Azure VM
 
@@ -290,7 +290,7 @@ ms.locfileid: "53631578"
   部署通知可讓您知道已觸發備份工作，而且您可以在 [備份工作] 頁面上監視作業的進度。 根據您的 VM 大小，建立初始備份可能需要花一點時間。
 
   > [!NOTE]
-  > 所有要由「Azure 備份」備份的資料都會透過[儲存體服務加密 (SSE)](../storage/common/storage-service-encryption.md) 進行靜態加密。
+  > - 所有要由「Azure 備份」備份的資料都會透過[儲存體服務加密 (SSE)](../storage/common/storage-service-encryption.md) 進行靜態加密。
   >
   >
 
@@ -339,4 +339,3 @@ ms.locfileid: "53631578"
 ## <a name="next-steps"></a>後續步驟
 
 [管理](backup-azure-manage-vms.md)您的備份。
-
