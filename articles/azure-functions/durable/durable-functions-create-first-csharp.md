@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a9794c25bd5f0acd48362611d13bac17fc502450
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a0cee1ad750144f30b9ab6732e0bbdf8138db28
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341043"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038144"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>使用 C\# 建立第一個耐久函式
 
@@ -30,7 +30,7 @@ ms.locfileid: "53341043"
 
 若要完成本教學課程：
 
-* 安裝 [Visual Studio 2017](https://azure.microsoft.com/downloads/)，並確定也已經安裝 **Azure 開發**工作負載。
+* 安裝 [Visual Studio 2017](https://azure.microsoft.com/downloads/)。 確定也已經安裝 **Azure 開發**工作負載。
 
 * 確定您有[最新的 Azure Functions 工具](../functions-develop-vs.md#check-your-tools-version)。
 
@@ -40,7 +40,7 @@ ms.locfileid: "53341043"
 
 ## <a name="create-a-function-app-project"></a>建立函式應用程式專案
 
-Visual Studio 中的 Azure Functions 專案範本會建立可發行至 Azure 中函式應用程式的專案。 函式應用程式可讓您將多個函式群組為邏輯單位，以便您管理、部署和共用資源。
+Azure Functions 範本可建立可發佈至 Azure 中函式應用程式的專案。 函式應用程式可讓您將多個函式群組為邏輯單位，以便您管理、部署和共用資源。
 
 1. 在 Visual Studio 中，從 [檔案] 功能表中選取 [新增]  >  [專案]。
 
@@ -55,14 +55,14 @@ Visual Studio 中的 Azure Functions 專案範本會建立可發行至 Azure 中
     | 設定      | 建議的值  | 說明                      |
     | ------------ |  ------- |----------------------------------------- |
     | **版本** | Azure Functions 2.x <br />(.NET Core) | 建立函式專案，該專案會使用可支援 .NET Core 的 Azure Functions 2.x 版執行階段。 Azure Functions 1.x 支援 .NET Framework。 如需詳細資訊，請參閱[如何設定 Azure Functions 執行階段目標版本](../functions-versions.md)。   |
-    | **範本** | 空白 | 這會建立空白的函式應用程式。 |
+    | **範本** | 空白 | 建立空白的函式應用程式。 |
     | **儲存體帳戶**  | 儲存體模擬器 | 需要儲存體帳戶，才能管理耐久函式應用程式狀態。 |
 
-4. 按一下 [確定] 以建立空白的函式專案。
+4. 按一下 [確定] 以建立空白的函式專案。 此專案具有執行您的函式所需的基本組態檔。
 
 ## <a name="add-functions-to-the-app"></a>將函式新增至應用程式
 
-Visual Studio 會建立空白的函式應用程式專案。  其中包含應用程式所需的基本組態檔案，但尚未包含任何函式。  我們必須在專案中新增耐久函式範本。
+下列步驟會使用範本在您的專案中建立耐久函式程式碼。
 
 1. 在 Visual Studio 中以滑鼠右鍵按一下專案，然後選取 [新增] > [新增 Azure Function]。
 
@@ -74,11 +74,13 @@ Visual Studio 會建立空白的函式應用程式專案。  其中包含應用�
 
     ![選取耐久範本](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
-新的耐久函式會新增至應用程式。  開啟新檔案以檢視內容。  此耐久函式是簡單的函式鏈結範例。  
+新的耐久函式會新增至應用程式。  開啟新的 .cs 檔案以檢視內容。 此耐久函式是簡單的函式鏈結範例，包含下列方法：  
 
-* `RunOrchestrator` 方法與協調器函式相關聯。  此函式會啟動、建立清單，以及將三個函式呼叫的結果新增至清單。  完成三個函式呼叫之後，它會傳回清單。  正在呼叫的函式為 `SayHello` 方法 (預設會將它稱為 `<NameOfFile>_Hello`)。
-* `SayHello` 函式會傳回 hello。
-* `HttpStart` 方法描述將啟動協調流程執行個體的函式。  它會與 [HTTP 觸發程序](../functions-bindings-http-webhook.md)相關聯，該觸發程序會啟動協調器的新執行個體，並傳回檢查狀態回應。
+| 方法 | FunctionName | 說明 |
+| -----  | ------------ | ----------- |
+| **`RunOrchestrator`** | `<file-name>` | 管理耐久協調流程。 在此情況下，協調流程會啟動、建立清單，以及將三個函式呼叫的結果新增至清單。  完成三個函式呼叫後，它會傳回清單。 |
+| **`SayHello`** | `<file-name>_Hello` | 此函數會傳回 hello。 這個函式包含要進行協調的商務邏輯。 |
+| **`HttpStart`** | `<file-name>_HttpStart` | [HTTP 觸發的函式](../functions-bindings-http-webhook.md)，該函式會啟動協調流程執行個體並傳回檢查狀態回應。 |
 
 您現在已建立函式專案和耐久函式，可以在本機電腦上進行測試。
 
@@ -143,4 +145,4 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 您已使用 Visual Studio 來建立及發佈 C# 耐久函式應用程式。
 
 > [!div class="nextstepaction"]
-> [了解常見的耐久函式模式。](durable-functions-overview.md)
+> [了解常見的耐久函式模式。](durable-functions-concepts.md)

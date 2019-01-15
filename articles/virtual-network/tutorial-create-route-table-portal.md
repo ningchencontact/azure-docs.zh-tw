@@ -1,5 +1,6 @@
 ---
-title: 路由網路流量 - 教學課程 - Azure 入口網站 | Microsoft Docs
+title: 路由網路流量 - 教學課程 - Azure 入口網站
+titlesuffix: Azure Virtual Network
 description: 在本教學課程中，您會了解如何使用 Azure 入口網站以路由表路由網路流量。
 services: virtual-network
 documentationcenter: virtual-network
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: fbbc624bbc3d20a70a54c50296f5b74634002a67
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3422219e33c04d7cb130e064790896f5da28649a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409066"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025040"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站以路由表路由傳送網路流量
 

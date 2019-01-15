@@ -1,10 +1,9 @@
 ---
-title: 使用 Azure 流量管理員設定子網路流量路由方法 | Microsoft Docs
+title: 使用 Azure 流量管理員設定子網路流量路由方法
 description: 本文說明如何設定流量管理員，以將流量從使用者子網路路由傳送到特定端點。
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 20c34b820eb326a18be1c4298b0850a58599be64
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8243130fc9752a47661b4c80826000d573da35c8
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956229"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053069"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>使用流量管理員根據使用者子網路將流量導向特定端點
 
@@ -41,7 +40,7 @@ ms.locfileid: "46956229"
 
 ## <a name="prerequisites"></a>必要條件
 若要查看流量管理員的運作，本教學課程會要求您部署下列項目：
-- 在不同 Azure 區域中執行的兩個基本網站 - **美國東部** (作為內部網站) 和**西歐** (作為生產網站)。
+- 在不同 Azure 區域中執行的兩個基本網站，分別是**美國東部** (作為內部網站) 和**西歐** (作為生產網站)。
 - 用於測試流量管理員的兩個測試 VM - 一個 VM 位於**美國東部**，另一個 VM 位於**西歐**。 
 
 測試 VM 可用來說明流量管理員如何根據使用者查詢的來源子網路，將使用者流量路由傳送至內部網站或生產網站。
@@ -64,7 +63,7 @@ ms.locfileid: "46956229"
 
     |設定|值|
     |---|---|
-    |名稱|InternalWebsite|
+    |Name|InternalWebsite|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |資源群組| 選取 [新增]，然後輸入 myResourceGroupTM1。|
@@ -145,7 +144,7 @@ ms.locfileid: "46956229"
 
     |設定|值|
     |---|---|
-    |名稱|UserVMUS|
+    |Name|UserVMUS|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |資源群組| 選取 [現有]，然後選取 [myResourceGroupTM1]。|
@@ -155,7 +154,7 @@ ms.locfileid: "46956229"
 5. 針對 [設定] 選取下列值，然後選取 [確定]：
     |設定|值|
     |---|---|
-    |虛擬網路| 選取 [虛擬網路]，在 [建立虛擬網路] 中，針對 [名稱] 輸入 myVNet3，針對子網路輸入 mySubnet3。|
+    |虛擬網路| 選取 [虛擬網路]，在 [建立虛擬網路] 中，對 [名稱] 輸入 *myVNet3*，而對 [子網路] 則輸入 *mySubnet3*。|
     |網路安全性群組|選取 [基本]，然後在 [選取公用輸入連接埠] 下拉式清單中，選取 **HTTP** 和 **RDP** |
     |開機診斷|選取 [已停用]。|
     |||
@@ -168,7 +167,7 @@ ms.locfileid: "46956229"
     |---|---|
     |虛擬機器名稱 | UserVMEurope|
     |資源群組 | 選取 [現有]，然後輸入 *myResourceGroupTM2*|
-    |虛擬網路 | 選取 [虛擬網路]，在 [建立虛擬網路] 中，針對 [名稱] 輸入 myVNet4，針對子網路輸入 mySubnet4。|
+    |虛擬網路 | 選取 [虛擬網路]，在 [建立虛擬網路] 中，對 [名稱] 輸入 *myVNet4*，而對 [子網路] 則輸入 *mySubnet4*。|
     |||
 
 8. 可能需要數分鐘才會建立虛擬機器。 請等到這兩個虛擬機器都已建立，再繼續進行其餘步驟。
@@ -180,7 +179,7 @@ ms.locfileid: "46956229"
 2. 在 [建立流量管理員設定檔] 中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]：
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | 名稱                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
+    | Name                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
     | 路由方法          | 選取 [子網路] 路由方法。                                       |
     | 訂用帳戶            | 選取您的訂用帳戶。                          |
     | 資源群組          | 選取 [現有]，然後輸入 *myResourceGroupTM1*。 |
@@ -200,7 +199,7 @@ ms.locfileid: "46956229"
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
     | 類型                    | Azure 端點                                   |
-    | 名稱           | myInternalWebSiteEndpoint                                        |
+    | Name           | myInternalWebSiteEndpoint                                        |
     | 目標資源類型           | 公用 IP 位址                          |
     | 目標資源          | **選擇公用 IP 位址**以顯示具有相同訂用帳戶下公用 IP 位址的資源清單。 在 [資源] 中，選取名為 InternalWebsite-ip 的公用 IP 位址。 這是美國東部 IIS 伺服器 VM 的公用 IP 位址。|
     |  子網路路由設定    |   新增 UserVMUS 測試 VM 的 IP 位址。 任何源自此 VM 的使用者查詢都會導向至 InternalWebSiteEndpoint。    |

@@ -44,7 +44,7 @@ ms.locfileid: "53436869"
 
 支援適用於想要移轉至更詳盡之 [Azure Machine Learning 服務](https://aka.ms/aml-docs)的現有客戶。
 
-如果 Azure Machine Learning 服務不符合您對於所支援功能存在於 Batch AI 服務中的需求，請向支援小組開啟 Batch AI 支援要求，以將您的訂用帳戶列入白名單來使用 Batch AI，直到服務淘汰為止。
+如果 Azure Machine Learning 服務不符合您對於所支援功能存在於 Batch AI 服務中的需求，請向支援小組開啟 Batch AI 支援要求，以將您的訂用帳戶列入允許清單來使用 Batch AI，直到服務淘汰為止。
 
 ## <a name="next-steps"></a>後續步驟
 

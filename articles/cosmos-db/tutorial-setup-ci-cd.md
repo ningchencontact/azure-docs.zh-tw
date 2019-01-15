@@ -1,19 +1,18 @@
 ---
 title: 使用 Azure Cosmos DB 模擬器建置工作來設定 CI/CD 管線
 description: 如何使用 Cosmos DB 模擬器建置工作，在 Azure DevOps 中設定組建和發行工作流程的教學課程
-services: cosmos-db
-keywords: Azure Cosmos DB 模擬器
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 83178abab84679dcfb36a361950097f9224eda81
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.reviewer: sngun
+ms.openlocfilehash: 58b97dd2df29a829b843d20c14cdb15644357653
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810629"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053699"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>使用 Azure Cosmos DB 模擬器建置工作在 Azure DevOps 中設定 CI/CD 管線
 
@@ -66,7 +65,7 @@ Azure Cosmos DB 模擬器提供了一個模擬 Azure Cosmos DB 服務的本機�
 
 現在，我們會設定我們的測試使用模擬器。 模擬器建置工作會匯出環境變數 (CosmosDbEmulator.Endpoint)，建置管線中任何進一步的工作都可以針對該變數發出要求。 
 
-在本教學課程中，我們會使用 [Visual Studio 測試工作](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) (英文) 來執行單元測試 (該測試會透過 **.runsettings** 檔案來設定)。 若要深入了解單位測試設定，請造訪[文件](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017)。
+在本教學課程中，我們會使用 [Visual Studio 測試工作](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) (英文) 來執行單元測試 (該測試會透過 **.runsettings** 檔案來設定)。 若要深入了解單位測試設定，請造訪[文件](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017)。 在 [Github](https://github.com/Azure-Samples/documentdb-dotnet-todo-app) 上可取得您在本文件中使用的完整 Todo 應用程式的程式碼範例
 
 以下是 **.runsettings** 檔案的範例，該檔案會定義要傳遞至應用程式單元測試的參數。 請注意，所使用的 `authKey` 變數是模擬器的[已知金鑰](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests)。 這個 `authKey` 是模擬器建置工作所預期的金鑰，應該在您的 **.runsettings** 檔案中定義。
 

@@ -1,5 +1,5 @@
 ---
-title: 將公司網際網路網域指向流量管理員網域名稱 | Microsoft Docs
+title: 將公司網際網路網域指向 Azure 流量管理員網域名稱 | Microsoft Docs
 description: 本文將協助您將公司網域名稱指向流量管理員網域名稱。
 services: traffic-manager
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-ms.openlocfilehash: 45fe4fd8511cd1d725275a5a04bd4b6e13eb68f7
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 2b9b718a61d13790de38ea82f9b479e372e9de63
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138390"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052678"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>將公司網際網路網域指向 Azure 流量管理員網域
 

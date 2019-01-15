@@ -4,17 +4,17 @@ description: 在本教學課程中，您會將 Azure 函式部署為 IoT Edge �
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/19/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d8912b67656cb9862f31b03eb9a899dfc650f377
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081875"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053360"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教學課程：將 Azure 函式部署為 IoT Edge 模組
 
@@ -51,13 +51,13 @@ Azure IoT Edge 裝置：
 
 * [Visual Studio Code](https://code.visualstudio.com/)。 
 * [C# for Visual Studio Code (採用 OmniSharp 技術) 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。
-* [Visual Studio Code 的 Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。 
+* 適用於 Visual Studio Code 的 [Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)。 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)。
 * [Docker CE](https://docs.docker.com/install/)。 
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 
-在本教學課程中，您會使用適用於 Visual Studio Code 的 Azure IoT Edge 擴充功能來建置模組，並從檔案建立**容器映像**。 接著，您會將此映像推送至儲存並管理映像的**登錄**。 最後，您會從登錄部署該映像，以在 IoT Edge 裝置上執行。  
+在本教學課程中，您會使用適用於 Visual Studio Code 的 Azure IoT 工具來建置模組，並從檔案建立**容器映像**。 接著，您會將此映像推送至儲存並管理映像的**登錄**。 最後，您會從登錄部署該映像，以在 IoT Edge 裝置上執行。  
 
 您可以使用任何與 Docker 相容的登錄來保存容器映像。 兩個熱門 Docker 登錄服務為 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 和 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)。 本教學課程使用的是 Azure Container Registry。 
 
@@ -84,7 +84,7 @@ Azure IoT Edge 裝置：
 
 ## <a name="create-a-function-project"></a>建立函式專案
 
-您在必要條件中安裝的「適用於 Visual Studio Code 的 Azure IoT Edge 擴充功能」，可提供管理功能以及一些程式碼範本。 在本節中，您會使用 Visual Studio Code 建立包含 Azure 函式的 IoT Edge 解決方案。 
+您在必要條件中安裝的「適用於 Visual Studio Code 的 Azure IoT 工具」，可提供管理功能以及一些程式碼範本。 在本節中，您會使用 Visual Studio Code 建立包含 Azure 函式的 IoT Edge 解決方案。 
 
 1. 在您的開發電腦上開啟 Visual Studio Code。
 
@@ -221,7 +221,7 @@ Azure IoT Edge 裝置：
 
 ## <a name="deploy-and-run-the-solution"></a>部署並執行解決方案
 
-您可以使用 Azure 入口網站將函式模組部署到 IoT Edge 裝置，如同您在快速入門中所做的一樣。 您也可以從 Visual Studio Code 內部署和監視模組。 下列幾節會使用先決條件中所列的「適用於 VS Code 的 Azure IoT Edge 擴充功能」。 請立即安裝擴充功能 (如果您尚未安裝)。 
+您可以使用 Azure 入口網站將函式模組部署到 IoT Edge 裝置，如同您在快速入門中所做的一樣。 您也可以從 Visual Studio Code 內部署和監視模組。 下列幾節會使用先決條件中所列的適用於 VS Code 的 Azure IoT 工具。 請立即安裝擴充功能 (如果您尚未安裝)。 
 
 1. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。
 

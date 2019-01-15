@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793065"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042048"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>將 Amazon Web Services (AWS) VM 移轉至 Azure
 
@@ -33,12 +33,14 @@ ms.locfileid: "53793065"
 
 ## <a name="prerequisites"></a>必要條件
 - 確定您想要移轉的 VM 正執行支援的 OS 版本。 支援的版本包括： 
-  - Windows Server 2016 
-  - Windows Server 2012 R2
-  - Windows Server 2012 
-  - 64 位元版本的 Windows Server 2008 R2 SP1 或更新版本
-  - Red Hat Enterprise Linux 6.7 (僅限 HVM 虛擬化執行個體)，且具有 Citrix PV 或 AWS PV 驅動程式。 *不*支援執行 RedHat PV 驅動程式的執行個體。
- - 行動服務必須安裝在您要複寫的每個 VM 上。 
+      - Windows Server 2016 
+      - Windows Server 2012 R2
+      - Windows Server 2012 
+      - 64 位元版本的 Windows Server 2008 R2 SP1 或更新版本
+      - Red Hat Enterprise Linux 6.4 至 6.10、7.1 至 7.6 (僅限 HVM 虛擬化執行個體) *(不支援執行 RedHat PV 驅動程式的執行個體。)*
+      - CentOS 6.4 至 6.10, 7.1 至 7.6 (只有 HVM 虛擬化執行個體)
+ 
+- 行動服務必須安裝在您要複寫的每個 VM 上。 
 
     > [!IMPORTANT]
     > 當您啟用 VM 的複寫功能時，Site Recovery 會自動安裝此服務。 若要自動安裝，您必須在 EC2 執行個體上準備一個可供 Site Recovery 用來存取 VM 的帳戶。 您可以使用網域帳戶或本機帳戶。 

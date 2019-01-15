@@ -1,24 +1,23 @@
 ---
-title: 使用適用於 Visual Studio 的 Azure 串流分析工具建立串流分析作業 | Microsoft Docs
+title: 使用適用於 Visual Studio 的 Azure 串流分析工具建立串流分析作業
 description: 本快速入門將說明如何開始使用 Visual Studio 建立串流分析作業、設定輸入與輸出以及定義查詢。
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 06/15/2018
+ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-manager: kfile
-ms.openlocfilehash: be4c906535981c6b05c1a72aa23e4e1f78f57edf
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 1a72e2874e28a2aa5b69866bd959743707ea9d99
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954739"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021912"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>快速入門：使用適用於 Visual Studio 的 Azure 串流分析工具建立串流分析作業
 
-本快速入門將說明如何使用適用於 Visual Studio 的 Azure 串流分析工具建立及執行串流分析作業。 範例作業會從 Azure Blob 儲存體讀取串流資料。 本快速入門中所使用的輸入資料檔案包含僅供說明之用的靜態資料。 在實際案例中，您可以使用串流輸入資料來進行串流分析作業。 在本快速入門中，您會定義一項作業，用以計算溫度超過 100° 時的平均溫度，並將產生的輸出事件寫入至新的檔案。
+本快速入門將說明如何使用適用於 Visual Studio 的 Azure 串流分析工具建立及執行串流分析作業。 範例作業會從 IoT 中樞裝置讀取串流資料。 您會定義一項作業，用以計算溫度超過 27° 時的平均溫度，並將產生的輸出事件寫入 Blob 儲存體中的新檔案。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -32,33 +31,54 @@ ms.locfileid: "49954739"
 
 ## <a name="prepare-the-input-data"></a>準備輸入資料
 
-定義串流分析作業前，您應先準備設定為作業輸入的資料。 為了準備作業所需的輸入資料，請執行下列步驟：
+定義串流分析作業前，您應先準備資料，該資料稍後會設定為作業輸入。 為了準備作業所需的輸入資料，請完成下列步驟：
 
-1. 從 GitHub 下載[感應器資料範例](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json)。 範例資料包含下列 JSON 格式的感應器資訊：  
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-   ```json
-   {
-     "time": "2018-01-26T21:18:52.0000000",
-     "dspl": "sensorC",
-     "temp": 87,
-     "hmdt": 44
-   }
-   ```
-2. 登入 [Azure 入口網站](https://portal.azure.com/)。
+2. 選取 [建立資源] > [物聯網] > [IoT 中樞]。
 
-3. 從 Azure 入口網站的左上角，選取 [建立資源] > [儲存體] > [儲存體帳戶]。 填寫儲存體帳戶作業頁面，將 [名稱] 設為 "asaquickstartstorage"、[位置] 設為 [美國西部]、[資源群組] 設為 "asaquickstart-resourcegroup" (將儲存體帳戶裝載在與串流作業相同的資源群組中可增加效能)。 其餘設定可以保留預設值。  
+3. 在 [IoT 中樞] 窗格中，輸入下列資訊︰
+   
+   |**設定**  |**建議的值**  |**說明**  |
+   |---------|---------|---------|
+   |訂用帳戶  | \<您的訂用帳戶\> |  選取您要使用的 Azure 訂用帳戶。 |
+   |資源群組   |   asaquickstart-resourcegroup  |   選取 [新建]，然後為您的帳戶輸入新的資源群組名稱。 |
+   |區域  |  \<選取最接近使用者的區域\> | 選取您可以在其中裝載 IoT 中樞的地理位置。 使用最靠近您的使用者的位置。 |
+   |IoT 中樞名稱  | MyASAIoTHub  |   選取您的 IoT 中樞名稱。   |
 
-   ![建立儲存體帳戶](./media/stream-analytics-quick-create-vs/create-a-storage-account-vs.png)
+   ![建立 IoT 中樞](./media/stream-analytics-quick-create-vs/create-iot-hub.png)
 
-4. 從 [所有資源] 頁面中，找出您在上一個步驟中建立的儲存體帳戶。 依序開啟 [概觀] 頁面及 [Blob] 圖格。  
+4. 完成時，選取 [下一步:設定大小與級別]。
 
-5. 在 [Blob 服務] 頁面中選取 [容器]，並為容器提供 [名稱] (例如 container1)，然後選取 [確定]。  
+5. 選擇您的**定價與級別層**。 在本快速入門中，選取 [F1-免費] 層 (如果仍可用於您的訂用帳戶)。 如果無法使用免費層，請選擇可用的最低層。 如需詳細資訊，請參閱 [IoT 中樞定價](https://azure.microsoft.com/pricing/details/iot-hub/)。
 
-   ![建立容器](./media/stream-analytics-quick-create-vs/create-a-storage-container.png)
+   ![調整 IoT 中樞的大小與級別](./media/stream-analytics-quick-create-vs/iot-hub-size-and-scale.png)
 
-6. 移至您在上一個步驟所建立的容器。 選取 [上傳] 並上傳您從第一個步驟取得的感應器資料。  
+6. 選取 [檢閱 + 建立]。 檢閱您的 IoT 中樞資訊，然後按一下 [建立]。 建立 IoT 中樞可能需要數分鐘。 您可以在 [通知] 窗格中監視進度。
 
-   ![將範例資料上傳至 blob](./media/stream-analytics-quick-create-vs/upload-sample-data-to-blob.png)
+7. 在您的 IoT 中樞導覽功能表中，按一下 [IoT 裝置] 之下的 [新增]。 新增 [裝置識別碼]，然後按一下 [儲存]。
+
+   ![將裝置新增至 IoT 中樞](./media/stream-analytics-quick-create-vs/add-device-iot-hub.png)
+
+8. 建立裝置之後，請從 [IoT 裝置] 清單開啟裝置。 複製 [連接字串 -- 主索引鍵]，並將它儲存到記事本以供日後使用。
+
+   ![複製 IoT 中樞裝置連接字串](./media/stream-analytics-quick-create-vs/save-iot-device-connection-string.png)
+
+## <a name="create-blob-storage"></a>建立 Blob 儲存體
+
+1. 從 Azure 入口網站的左上角，選取 [建立資源] > [儲存體] > [儲存體帳戶]。
+
+2. 在 [建立儲存體帳戶] 窗格中，輸入儲存體帳戶名稱、位置和資源。 選擇相同的位置和資源群組作為您建立的 IoT 中樞。 然後按一下 [檢閱 + 建立] 以建立帳戶。
+
+   ![建立儲存體帳戶](./media/stream-analytics-quick-create-portal/create-storage-account.png)
+
+3. 建立儲存體帳戶後，選取 [概觀] 窗格上的 [Blob] 圖格。
+
+   ![儲存體帳戶概觀](./media/stream-analytics-quick-create-portal/blob-storage.png)
+
+4. 在 [Blob 服務] 頁面中選取 [容器]，然後為容器提供名稱 (例如 container1)。 將 [公用存取層級] 保留為 [私人 (沒有匿名存取)]，然後選取 [確定]。
+
+   ![建立 Blob 容器](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
 ## <a name="create-a-stream-analytics-project"></a>建立串流分析專案
 
@@ -93,11 +113,10 @@ ms.locfileid: "49954739"
    |---------|---------|---------|
    |輸入別名  |  輸入   |  輸入名稱以識別作業的輸入。   |
    |來源類型   |  資料流 |  選擇適當的輸入來源：資料流或參考資料。   |
-   |來源  |  Blob 儲存體 |  選擇適當的輸入來源。   |
+   |來源  |  IoT 中樞 |  選擇適當的輸入來源。   |
    |資源  | 選擇目前帳戶中的資料來源 | 選擇以手動方式輸入資料，或選取現有的帳戶。   |
-   |訂用帳戶  |  \<您的訂用帳戶\>   | 選取您在其中建立儲存體帳戶的 Azure 訂用帳戶。 儲存體帳戶可以位在相同或不同的訂用帳戶中。 此範例假設您已在相同的訂用帳戶中建立儲存體帳戶。   |
-   |儲存體帳戶  |  asaquickstartstorage   |  選擇或輸入儲存體帳戶的名稱。 系統會自動偵測建立在相同訂用帳戶中的儲存體帳戶名稱。   |
-   |容器  |  container1   |  選取您在儲存體帳戶中建立的現有容器。   |
+   |訂用帳戶  |  \<您的訂用帳戶\>   | 根據您建立的事件中樞，選取 IoT 中樞所在的 Azure 訂用帳戶。   |
+   |IoT 中樞  |  MyASAIoTHub   |  選擇或輸入 IoT 中樞的名稱。 系統會自動偵測建立在相同訂用帳戶中的 IoT 中樞名稱。   |
    
 3. 其他選項保留為預設值，然後選取 [儲存] 以儲存設定。  
 
@@ -130,16 +149,10 @@ ms.locfileid: "49954739"
 2. 新增下列查詢：
 
    ```sql
-   SELECT 
-   System.Timestamp AS OutputTime,
-   dspl AS SensorName,
-   Avg(temp) AS AvgTemperature
-   INTO
-     Output
-   FROM
-     Input TIMESTAMP BY time
-   GROUP BY TumblingWindow(second,30),dspl
-   HAVING Avg(temp)>100
+   SELECT *
+   INTO BlobOutput
+   FROM IoTHubInput
+   HAVING Temperature > 27
    ```
 
 ## <a name="submit-a-stream-analytics-query-to-azure"></a>將串流分析查詢提交至 Azure
@@ -150,13 +163,23 @@ ms.locfileid: "49954739"
 
    ![將作業提交至 Azure](./media/stream-analytics-quick-create-vs/stream-analytics-job-to-azure.png)
 
+## <a name="run-the-iot-simulator"></a>執行 IoT 模擬器
+
+1. 在新的瀏覽器索引標籤或視窗中開啟 [Raspberry Pi Azure IoT 線上模擬器](https://azure-samples.github.io/raspberry-pi-web-simulator/)。
+
+2. 以您在上一節中儲存的 Azure IoT 中樞裝置連接字串取代行 15 中的預留位置。
+
+3. 按一下 **[執行]**。 下列輸出會顯示傳送至 IoT 中樞的感應器資料和訊息。
+
+   ![Raspberry Pi Azure IoT 線上模擬器](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
+
 ## <a name="start-the-stream-analytics-job-and-check-output"></a>啟動串流分析工作並查看輸出
 
 1. 作業建立後，作業檢視會自動開啟。 選取綠色箭頭按鈕可啟動作業。
 
    ![啟動串流分析作業](./media/stream-analytics-quick-create-vs/start-stream-analytics-job-vs.png)
 
-2. 將 [自訂時間] 的日期變更為 `2018-01-01`，然後選取 [啟動]。
+2. 將 [作業輸出啟動模式] 變更為 [JobStartTime]，然後選取 [啟動]。
 
    ![啟動作業組態](./media/stream-analytics-quick-create-vs/stream-analytics-start-configuration.png)
 
@@ -180,7 +203,7 @@ ms.locfileid: "49954739"
 
 在本快速入門中，您已使用 Visual Studio 部署了簡單的串流分析作業。 您也可以使用 [Azure 入口網站](stream-analytics-quick-create-portal.md)和 [PowerShell](stream-analytics-quick-create-powershell.md) 部署串流分析作業。 
 
-若要了解如何設定其他輸入來源及執行即時偵測，請前往下列文章：
+若要了解適用於 Visual Studio 的 Azure 串流分析工具，請繼續下列文章：
 
 > [!div class="nextstepaction"]
-> [使用 Azure 串流分析進行即時詐騙偵測](stream-analytics-real-time-fraud-detection.md)
+> [使用 Visual Studio 檢視 Azure 串流分析工作](stream-analytics-vs-tools.md)

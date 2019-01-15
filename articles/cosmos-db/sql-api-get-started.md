@@ -1,21 +1,19 @@
 ---
 title: Azure Cosmos DB：SQL API 入門教學課程
 description: 本教學課程將使用 SQL API 來建立線上資料庫，以及 C# 主控台應用程式。
-keywords: nosql 教學課程, 線上資料庫, c# 主控台應用程式
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: 100524eacb30f77e06204fb3b31e6477dd1320a4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d73638e0c02af5dc07e80084dd2ce5a7e090ecd2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867524"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043442"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB：SQL API 入門教學課程
 
@@ -77,7 +75,7 @@ ms.locfileid: "52867524"
 
 太棒了！ 現在已完成安裝程式，讓我們開始撰寫一些程式碼。 您可以在 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs)找到本教學課程的完整程式碼專案。
 
-## <a id="Connect"></a>步驟 3：連接至 Azure Cosmos DB 帳戶
+## <a id="Connect"></a>步驟 3：連線至 Azure Cosmos DB 帳戶
 首先，在 Program.cs 檔案中，將這些參考新增到 C# 應用程式的開頭：
 
     using System;
@@ -367,7 +365,7 @@ ms.locfileid: "52867524"
 
 ![說明 NoSQL 教學課程用來建立 C# 主控台應用程式之帳戶、線上資料庫、集合和文件之間階層式關聯性的圖表](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>步驟 7︰查詢 Azure Cosmos DB 資源
+## <a id="Query"></a>步驟 7：查詢 Azure Cosmos DB 資源
 Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行豐富[查詢](how-to-sql-query.md)。  下列範例程式碼示範各種查詢，同時使用可在我們於前一個步驟中所插入文件上執行的 Azure Cosmos DB SQL 語法和 LINQ。
 
 複製 **ExecuteSimpleQuery** 方法並貼到 **CreateFamilyDocumentIfNotExists** 方法之後。
@@ -423,7 +421,7 @@ Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行豐富[查
 
 因為 Azure Cosmos DB 查詢已侷限於單一集合，所以查詢中的 [FROM](how-to-sql-query.md#FromClause) 關鍵字是選擇性的。 因此，"FROM Families f" 可以換成 "FROM root r"，或您選擇的任何其他變數名稱。 依預設，Azure Cosmos DB 會推斷該 Families、root 或您選擇的變數名稱來參考目前的集合。
 
-## <a id="ReplaceDocument"></a>步驟 8︰取代 JSON 文件
+## <a id="ReplaceDocument"></a>步驟 8：取代 JSON 文件
 Azure Cosmos DB 支援取代 JSON 文件。  
 
 複製 **ReplaceFamilyDocument** 方法並貼到 **ExecuteSimpleQuery** 方法之後。
@@ -453,7 +451,7 @@ Azure Cosmos DB 支援取代 JSON 文件。
 
 恭喜！ 您已成功取代 Azure Cosmos DB 文件。
 
-## <a id="DeleteDocument"></a>步驟 9︰刪除 JSON 文件
+## <a id="DeleteDocument"></a>步驟 9：刪除 JSON 文件
 Azure Cosmos DB 支援刪除 JSON 文件。  
 
 複製 **DeleteFamilyDocument** 方法並貼到 **ReplaceFamilyDocument** 方法之後。

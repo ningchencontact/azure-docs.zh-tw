@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: af764557a6bd3d3f60a3aa628834d5929e073a82
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614016"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021980"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 在本教學課程中，您會使用 Azure Data Factory 使用者介面 (UI) 來建立資料處理站管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。 您要建立及使用自我裝載的整合執行階段，其會在內部部署與雲端資料存放區之間移動資料。
@@ -195,7 +194,7 @@ ms.locfileid: "51614016"
 
     ![整合執行階段名稱](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
 
-1. 在 [選項 1：快速安裝] 下，選取 [按一下這裡啟動此電腦的快速安裝]。 
+1. 在 [選項 1：**快速安裝]** **下，選取 [按一下這裡啟動此電腦的快速安裝]**。 
 
     ![快速安裝連結](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 

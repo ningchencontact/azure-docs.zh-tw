@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/7/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a28a4f8dd5087377d559c50ef3432251510810b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 088fc2b7aeb318481a81387770f1dcef2883241d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194896"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064095"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>教學課程：Azure Active Directory 與 Zscaler Internet Access Administrator 整合
 
@@ -38,7 +38,7 @@ ms.locfileid: "53194896"
 若要設定 Azure AD 與 Zscaler Internet Access Administrator 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 已啟用 Zscaler Internet Access Administrator 單一登入的訂用帳戶
+* Zscaler Internet Access Administrator 訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
@@ -105,6 +105,7 @@ ms.locfileid: "53194896"
     ![Zscaler Internet Access Administrator 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，依據您的需求鍵入 URL：
+    
     | |
     |--|
     | `https://admin.zscaler.net` |
@@ -115,6 +116,7 @@ ms.locfileid: "53194896"
     | `https://admin.zscalerbeta.net` |
 
     b. 在 [回覆 URL] 文字方塊中，依據您的需求鍵入 URL：
+    
     | |
     |--|
     | `https://admin.zscaler.net/adminsso.do` |
@@ -165,37 +167,19 @@ ms.locfileid: "53194896"
 
 ### <a name="configure-zscaler-internet-access-administrator-single-sign-on"></a>設定 Zscaler Internet Access Administrator 單一登入
 
-9. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Zscaler Internet Access Administrator 公司網站。
+1. 在不同的 Web 瀏覽器視窗中，登入您的 Zscaler Internet Access Admin UI。
 
-10. 移至 管理 > 驗證 > 驗證設定 並執行下列步驟：
+2. 移至 管理員 > 管理員管理，執行下列步驟並按一下 儲存：
    
-    ![管理](./media/zscaler-internet-access-administrator-tutorial/ic800206.png "管理")
+    ![管理](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "管理")
 
-    a. 在 [驗證類型] 下選擇 [SAML]。
+    a. 核取 [啟用 SAML 驗證] 。
 
-    b. 按一下 [設定 SAML]。
-
-11. 在 [編輯 SAML] 視窗上，執行下列步驟，然後按一下 [儲存]。  
-            
-    ![管理使用者和驗證](./media/zscaler-internet-access-administrator-tutorial/ic800208.png "管理使用者和驗證")
+    b. 按一下 [上傳]，以上傳您從 Azure 入口網站的 [公開 SSL 憑證] 下載的 Azure SAML 簽署憑證。
     
-    a. 在 [SAML 入口網站 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]。
+    c. (選擇性) 為了增加安全性，新增 [簽發者] 詳細資料以驗證 SAML 回應的簽發者。
 
-    b. 在 [登入名稱屬性] 文字方塊中，輸入 **NameID**。
-
-    c. 按一下 [上傳]，以上傳您從 Azure 入口網站的 [公開 SSL 憑證] 下載的 Azure SAML 簽署憑證。
-
-    d. 切換 [啟用 SAML 自動佈建]。
-
-    e. 如果您想要啟用 displayName 屬性的 SAML 自動佈建，請在 [使用者顯示名稱屬性] 文字方塊中，輸入 **displayName**。
-
-    f. 如果您想要啟用 memberOf 屬性的 SAML 自動佈建，請在 [群組名稱屬性] 文字方塊中，輸入 **memberOf**。
-
-    g. 如果您想要啟用 department 屬性的 SAML 自動佈建，請在 [部門名稱屬性] 文字方塊中，輸入 **department**。
-
-    i. 按一下 [檔案] 。
-
-12. 在 [設定使用者驗證]  對話方塊頁面上執行下列步驟：
+3. 在 Admin UI 上，執行下列步驟：
 
     ![系統管理](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
 
@@ -256,15 +240,16 @@ ms.locfileid: "53194896"
 
 ### <a name="create-zscaler-internet-access-administrator-test-user"></a>建立 Zscaler Internet Access Administrator 測試使用者
 
-本節目標是在 Zscaler Internet Access Administrator 中建立名為 Britta Simon 的使用者。 Zscaler Internet Access Administrator 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 Zscaler Internet Access Administrator 時，如果使用者還不存在，就會建立新使用者。
->[!Note]
->如果您需要手動建立使用者，請連絡  [Zscaler Internet Access Administrator 支援小組](Phone: +1-408-701-0534 URL: help.zscaler.com)。
+本節目標是在 Zscaler Internet Access Administrator 中建立名為 Britta Simon 的使用者。 Zscaler Internet Access 不支援 Administrator SSO 的 Just-In-Time 佈建。 您必須手動建立系統管理員帳戶。
+如需有關如何建立系統管理員帳戶的步驟，請參閱 Zscaler 文件：
+
+https://help.zscaler.com/zia/adding-admins
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 [Zscaler Internet Access Administrator] 圖格時，應該會自動登入您設定 SSO 的 Zscaler Internet Access Administrator。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在「存取面板」中按一下 Zscaler Internet Access Administrator 圖格時，應該會自動登入您設定 SSO 的 Zscaler Internet Access Admin UI。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

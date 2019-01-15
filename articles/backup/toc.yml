@@ -122,8 +122,6 @@ items:
         href: backup-azure-vms-encryption.md
       - name: 在建立虛擬機器時啟用虛擬機器備份
         href: backup-during-vm-creation.md
-      - name: 立即還原功能
-        href: backup-instant-restore-capability.md
     - name: 管理和監視 VM
       items:
       - name: 在 Azure 入口網站中管理 Azure VM 備份
@@ -136,6 +134,8 @@ items:
         href: backup-azure-restore-files-from-vm.md
       - name: 在 Azure 入口網站中還原虛擬機器
         href: backup-azure-arm-restore-vms.md
+      - name: 立即還原功能
+        href: backup-instant-restore-capability.md
       - name: 還原已加密的虛擬機器
         href: backup-azure-vms-encryption.md
       - name: 還原已加密 VM 的 Key Vault 金鑰與祕密
@@ -256,9 +256,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: 44ab1f24ba3bcae8902d8fa953b09f48630e7822
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4f5d8a19fe45aa493183fd5de027a1ecd159622e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199236"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267482"

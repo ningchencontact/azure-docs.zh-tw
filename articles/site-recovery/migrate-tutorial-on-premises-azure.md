@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5023171c4f943b7e698a0b6bbcadef209965e2df
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4ba25da1f356f6164137dead467bd8bc948ce3d7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789241"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037832"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>將內部部署機器移轉至 Azure
 
@@ -45,7 +45,7 @@ ms.locfileid: "53789241"
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
 1. 登入 [Azure 入口網站](https://portal.azure.com) > [復原服務]。
-2. 按一下 [建立群組] > [監視和管理] > [備份和 Site Recovery]。
+2. 按一下 [建立資源] > [管理工具] > [備份和 Site Recovery]。
 3. 在 [名稱] 中，指定易記名稱 [ContosoVMVault]。 如果您有多個訂用帳戶，請選取適當的一個。
 4. 建立資源群組 **ContosoRG**。
 5. 指定 Azure 區域。 若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](https://azure.microsoft.com/pricing/details/site-recovery/)。

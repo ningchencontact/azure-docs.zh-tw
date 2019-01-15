@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 1bf93ce9aa1733634b46c2a15b587d4cc0826ba1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c15c79e90b69fd72ed6b8968d35be95da50f838b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090928"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023859"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>使用 Azure Data Factory 大量複製多個資料表
 本教學課程示範**從 Azure SQL Database 複製一些資料表到 Azure SQL 資料倉儲**。 您也可以在其他複製案例中套用相同模式。 例如，將資料表從 SQL Server/Oracle 複製到 Azure SQL Database/資料倉儲/Azure Blob，將不同的路徑從 Blob 複製到 Azure SQL Database 資料表。
@@ -116,7 +115,7 @@ ms.locfileid: "43090928"
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>建立來源 Azure SQL Database 連結服務
 
-1. 在 **C:\ADFv2TutorialBulkCopy** 資料夾中，使用下列內容建立名為 **AzureSqlDatabaseLinkedService.json** 的 JSON 檔案：(如果 ADFv2TutorialBulkCopy 資料夾尚不存在，請建立。)
+1. 在 **C:\ADFv2TutorialBulkCopy** 資料夾中，使用下列內容建立名為 **AzureSqlDatabaseLinkedService.json** 的 JSON 檔案：(如果 ADFv2TutorialBulkCopy 資料夾不存在，請加以建立。)
 
     > [!IMPORTANT]
     > 儲存檔案之前，以您的 Azure SQL Database 的值取代 &lt;servername&gt;、&lt;databasename&gt;、&lt;username&gt;@&lt;servername&gt; 和 &lt;password&gt;。
@@ -138,7 +137,7 @@ ms.locfileid: "43090928"
 
 2. 在 **Azure PowerShell** 中，切換至 **ADFv2TutorialBulkCopy** 資料夾。
 
-3. 執行 **Set-AzureRmDataFactoryV2LinkedService** Cmdlet 來建立連結服務：**AzureSqlDatabaseLinkedService**。 
+3. 執行 **Set-AzureRmDataFactoryV2LinkedService** Cmdlet 來建立已連結的服務：**AzureSqlDatabaseLinkedService**。 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"

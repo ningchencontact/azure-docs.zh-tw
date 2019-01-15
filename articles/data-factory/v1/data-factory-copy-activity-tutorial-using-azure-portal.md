@@ -1,5 +1,5 @@
 ---
-title: 教學課程︰建立 Azure Data Factory 管線來複製資料 (Azure 入口網站) |Microsoft 文件
+title: 教學課程：建立 Azure Data Factory 管線來複製資料 (Azure 入口網站) |Microsoft 文件
 description: 在本教學課程中，您會使用 Azure 入口網站建立具有複製活動的 Azure Data Factory 管線，以將資料從 Azure Blob 儲存體複製到 Azure SQL Database。
 services: data-factory
 documentationcenter: ''
@@ -10,19 +10,18 @@ ms.assetid: d9317652-0170-4fd3-b9b2-37711272162b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2e40e518f9f04809b1fd59b0ed12dcee9b1da9ce
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2ecbfacd16ee7ba5cfdf673bf84e20e41ad0c75d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240900"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025907"
 ---
-# <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>本教學課程︰使用 Azure 入口網站建立 Data Factory 管線來複製資料 
+# <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>教學課程：使用 Azure 入口網站建立 Data Factory 管線來複製資料 
 > [!div class="op_single_selector"]
 > * [概觀和必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [複製精靈](data-factory-copy-data-wizard-tutorial.md)
@@ -53,7 +52,7 @@ ms.locfileid: "50240900"
 以下是您會在本教學課程中執行的步驟：
 
 1. 建立 Azure **資料處理站**。 在此步驟中，您會建立名為 ADFTutorialDataFactory 的資料處理站。 
-2. 在此資料處理站中建立**連結服務**。 在此步驟中，您會建立兩種連結服務：Azure 儲存體和 Azure SQL Database。 
+2. 在此資料處理站中建立**連結服務**。 在此步驟中，您會建立兩個連結服務：類型為 Azure 儲存體和 Azure SQL Database。 
     
     AzureStorageLinkedService 會將 Azure 儲存體帳戶連結至資料處理站。 您已建立容器並將資料上傳到此儲存體帳戶，作為[必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)的一部分。   
 
@@ -94,7 +93,7 @@ ms.locfileid: "50240900"
       - 選取 [使用現有的] ，然後從下拉式清單選取現有的資源群組。 
       - 選取 [建立新的] ，然後輸入資源群組的名稱。   
          
-          本教學課程的某些步驟是假設您使用 **ADFTutorialResourceGroup** 做為資源群組名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../../azure-resource-manager/resource-group-overview.md)。  
+          本教學課程的某些步驟會假設您使用名為：**ADFTutorialResourceGroup** 的資源群組。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../../azure-resource-manager/resource-group-overview.md)。  
    4. 選取 Data Factory 的 [位置]  。 下拉式清單中只會顯示 Data Factory 服務支援的區域。
    5. 選取 [釘選到儀表板]。     
    6. 按一下頁面底部的 [新增] 。
@@ -105,7 +104,7 @@ ms.locfileid: "50240900"
       > Data Factory 的名稱未來可能會註冊為 DNS 名稱，因此會變成公開可見的名稱。                
       > 
       > 
-3. 在儀表板上，您會看到狀態如下的下列圖格︰**正在部署資料處理站**。 
+3. 在儀表板上，您會看到狀態如下的下列圖格︰**部署 Data Factory**。 
 
     ![部署資料處理站圖格](media/data-factory-copy-activity-tutorial-using-azure-portal/deploying-data-factory.png)
 4. 建立完成之後，您會看到如圖所示的 [Data Factory]  刀鋒視窗。
@@ -115,7 +114,7 @@ ms.locfileid: "50240900"
 ## <a name="create-linked-services"></a>建立連結的服務
 您在資料處理站中建立的連結服務會將您的資料存放區和計算服務連結到資料處理站。 在本教學課程中，您不會使用任何計算服務，例如 Azure HDInsight 或 Azure Data Lake Analytics。 您可以使用兩種類型的資料存放區：Azure 儲存體 (來源) 和 Azure SQL Database (目的地)。 
 
-因此，您可以建立名為 AzureStorageLinkedService 和 AzureSqlLinkedService 的兩個連結服務︰類型為 AzureStorage 和 AzureSqlDatabase。  
+因此，您可以建立名為 AzureStorageLinkedService 和 AzureSqlLinkedService 的兩個連結服務類型︰分別為 AzureStorage 和 AzureSqlDatabase。  
 
 AzureStorageLinkedService 會將 Azure 儲存體帳戶連結至資料處理站。 此儲存體帳戶是您在其中建立容器並將資料上傳為[必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)一部分的帳戶。   
 
@@ -319,7 +318,7 @@ Azure SQL Database 連結服務會指定 Data Factory 在執行階段用來連�
     - 在活動區段中，只會有一個 **type** 設為 **Copy** 的活動。 如需複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)。 在 Data Factory 解決方案中，您也可以使用[資料轉換活動](data-factory-data-transformation-activities.md)。
     - 活動的輸入設定為 **InputDataset**，活動的輸出則設定為 **OutputDataset**。 
     - 在 **typeProperties** 區段中，來源類型指定為 **BlobSource**，接收類型指定為 **SqlSink**。 如需複製活動作為來源和接收器支援的資料存放區完整清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。 若要了解如何使用特定支援的資料存放區作為來源/接收器，請按一下資料表中的連結。
-    - 開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。 例如：2016-10-14T16:32:41Z。 **end** 時間為選擇性項目，但在本教學課程中會用到。 如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
+    - 開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。 例如︰2016-10-14T16:32:41Z。 **end** 時間為選擇性項目，但在本教學課程中會用到。 如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
      
     在上述範例中，由於每小時即產生一個資料配量，共會有 24 個資料配量。
 

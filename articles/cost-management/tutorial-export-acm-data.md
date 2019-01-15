@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 4614a1417213ed8b4d57c3b7ab21ac7424d75949
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4ad93dad2044526f5825823540325b73f2d0d7ae
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087928"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053529"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>教學課程：建立和管理匯出的資料
 
@@ -61,6 +61,22 @@ ms.locfileid: "53087928"
 您新增的匯出會出現在匯出清單中。 根據預設會啟用新的匯出。 若您想要停用或刪除已排程的匯出，請按一下清單中的任何項目，然後按一下 [停用] 或 [刪除]。
 
 剛開始可能會需要一到兩個小時，匯出才會開始執行。 但是，資料可能需要最多四個小時，才會出現在匯出檔案中。
+
+### <a name="export-schedule"></a>匯出排程
+
+排程的匯出會受您最初建立匯出時的時間和星期幾所影響。 當您建立排程的匯出時，匯出會針對後續的每次匯出在一天的相同時間執行。 例如，您會在下午 1:00 建立每日匯出。 下一次匯出會在隔天下午 1:00 執行。 目前時間會以相同方式影響所有其他匯出類型 — 一律會在您最初建立匯出時的一天相同時間執行。 在不同範例中，您可在星期一下午 4:00 建立每週匯出。 下一份報告會在下個星期一下午 4:00 執行。 *匯出的資料可在執行階段的四小時內取得。*
+
+每次匯出都會建立一個新檔案，因此不會覆寫較舊的匯出。
+
+匯出類型有三種：
+
+**每日匯出當月成本**– 初始匯出會立即執行。 後續匯出會在隔天與初始匯出相同的時間執行。 系統會從先前的每日匯出彙總最新資料。
+
+**過去七天的每週成本** – 初始匯出會立即執行。 後續匯出會在與初始匯出相同的時間和星期幾執行。 成本屬於過去七天。
+
+**自訂** – 可讓您使用當週和當月選項來排程每週和每月匯出。 *初始匯出會立即執行。*
+
+![[新匯出 - 基本資料] 索引標籤，其中顯示自訂每週的當週選取項目](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
 ## <a name="verify-that-data-is-collected"></a>驗證已收集資料
 

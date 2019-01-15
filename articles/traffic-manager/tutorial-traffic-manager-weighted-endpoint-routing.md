@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Azure 流量管理員將流量路由至加權端點 | Microsoft Docs
+title: 教學課程 - 將流量路由傳送至加權端點 - Azure 流量管理員
 description: 本教學課程文章說明如何使用流量管理員將流量路由至加權端點。
 services: traffic-manager
 author: KumudD
@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: 0f5b1f3525ab75f8c14f7921e23b30a1c58e8c73
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f70f3804bb1c6f385081b56fe6139b1b680a95cf
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158817"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055008"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>教學課程：使用流量管理員控制加權端點的流量路由 
 
@@ -54,7 +54,7 @@ ms.locfileid: "50158817"
 
     |設定|值|
     |---|---|
-    |名稱|輸入 **myIISVMEastUS**。|
+    |Name|輸入 **myIISVMEastUS**。|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |資源群組| 選取 [新增]，然後輸入 myResourceGroupTM1。|
@@ -129,7 +129,7 @@ ms.locfileid: "50158817"
 
     |設定|值|
     |---|---|
-    |名稱|輸入 **myVMEastUS**。|
+    |Name|輸入 **myVMEastUS**。|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |資源群組| 選取 [使用現有的]，然後選取 [myResourceGroupTM1]。|
@@ -155,7 +155,7 @@ ms.locfileid: "50158817"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | 名稱                   | 輸入 trafficmanager.net 區域內的唯一名稱。 它會產生 DNS 名稱 trafficmanager.net，用以存取流量管理員設定檔。                                   |
+    | Name                   | 輸入 trafficmanager.net 區域內的唯一名稱。 它會產生 DNS 名稱 trafficmanager.net，用以存取流量管理員設定檔。                                   |
     | 路由方法          | 選取 [加權] 路由方法。                                       |
     | 訂用帳戶            | 選取您的訂用帳戶。                          |
     | 資源群組          | 選取 [使用現有的]，然後選取 [myResourceGroupTM1]。 |
@@ -174,7 +174,7 @@ ms.locfileid: "50158817"
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
     | 類型                    | 輸入 Azure 端點。                                   |
-    | 名稱           | 輸入 **myEastUSEndpoint**。                                        |
+    | Name           | 輸入 **myEastUSEndpoint**。                                        |
     | 目標資源類型           | 選取 [公用 IP 位址]。                          |
     | 目標資源          | 選擇公用 IP 位址，以顯示相同訂用帳戶下具有公用 IP 位址的資源清單。 在 [資源] 中，選取名為 **myIISVMEastUS-ip** 的公用 IP 位址。 這是美國東部 IIS 伺服器 VM 的公用 IP 位址。|
     |  Weight      | 輸入 **100**。        |

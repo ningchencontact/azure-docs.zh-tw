@@ -21,7 +21,7 @@ ms.locfileid: "53634179"
 | 錯誤詳細資料 | 因應措施 |
 | ------ | --- |
 | 備份無法執行作業，因為虛擬機器 (VM) 已不存在： <br>請在不刪除備份資料的情況下停止保護虛擬機器。 如需詳細資訊，請參閱[停止保護虛擬機器](http://go.microsoft.com/fwlink/?LinkId=808124)。 |此錯誤會在已刪除主要 VM，但備份原則仍然在尋找 VM 來備份時發生。 若要修正此錯誤，請遵循下列步驟： <ol><li> 重新建立具有相同名稱和相同資源群組名稱 (**雲端服務名稱**) 的虛擬機器，<br>**or**</li><li> 停止保護虛擬機器 (不論是否刪除備份資料)。 如需詳細資訊，請參閱[停止保護虛擬機器](https://go.microsoft.com/fwlink/?LinkId=808124)。</li></ol> |
-| 因為虛擬機器沒有網路連線，所以快照集作業失敗： <br>請確定 VM 可以存取網路。 若要讓快照集成功，請將 Azure 資料中心 IP 範圍設為白名單或設定 Proxy 伺服器以取得網路存取。 如需詳細資訊，請參閱[針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題](http://go.microsoft.com/fwlink/?LinkId=800034)。 <br><br>如果您已經使用 Proxy 伺服器，請確定已正確設定 Proxy 伺服器設定。 | 此錯誤會在您拒絕虛擬機器上的輸出網際網路連線時發生。 VM 快照集延伸模組需要網際網路連線，才能建立基礎磁碟的快照集。 請參閱 [ExtensionSnapshotFailedNoNetwork](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine)。 |
+| 因為虛擬機器沒有網路連線，所以快照集作業失敗： <br>請確定 VM 可以存取網路。 若要讓快照集成功，請將 Azure 資料中心 IP 範圍設為允許清單或設定 Proxy 伺服器以取得網路存取。 如需詳細資訊，請參閱[針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題](http://go.microsoft.com/fwlink/?LinkId=800034)。 <br><br>如果您已經使用 Proxy 伺服器，請確定已正確設定 Proxy 伺服器設定。 | 此錯誤會在您拒絕虛擬機器上的輸出網際網路連線時發生。 VM 快照集延伸模組需要網際網路連線，才能建立基礎磁碟的快照集。 請參閱 [ExtensionSnapshotFailedNoNetwork](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine)。 |
 | Azure 虛擬機器代理程式 (VM 代理程式) 無法與 Azure 備份服務通訊： <br>請確認 VM 具有網路連線，且 VM 代理程式是最新版且正在執行。 如需詳細資訊，請參閱[針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題](http://go.microsoft.com/fwlink/?LinkId=800034)。 |此錯誤會在 VM 代理程式發生問題，或對 Azure 基礎結構的網路存取被某種方式封鎖時發生。 深入了解[對 VM 快照集問題進行偵錯](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup)。 <br><br>如果 VM 代理程式未造成問題，請重新啟動 VM。 不正確的 VM 狀態可能會造成問題，重新啟動 VM 可重設此狀態。 |
 | VM 處於失敗的佈建狀態： <br>請將 VM 重新啟動，並確定 VM 正在執行或已關機。 | 此錯誤會在因其中一個延伸模組發生失敗，而使 VM 處於失敗的佈建狀態時發生。 請移至延伸模組清單，查看是否有失敗的延伸模組並將它移除，然後嘗試重新啟動虛擬機器。 如果所有延伸模組都是處於執行中的狀態，請檢查 VM 代理程式服務是否正在執行。 若否，請重新啟動 VM 代理程式服務。 |
 | 受控磁碟的 **VMSnapshot** 延伸模組作業失敗： <br>請重試備份作業。 如果問題持續發生，請遵循[針對 Azure 備份失敗進行疑難排解](http://go.microsoft.com/fwlink/?LinkId=800034)中的指示。 如果問題持續發生，請連絡 Microsoft 支援服務。 | Azure 備份服務無法觸發快照集時，就會發生此錯誤。 深入了解[對 VM 快照集問題進行偵錯](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtentionOperationFailed-vmsnapshot-extension-operation-failed)。 |
@@ -114,7 +114,7 @@ ms.locfileid: "53634179"
 ## <a name="troubleshoot-vm-snapshot-issues"></a>對 VM 快照集問題進行疑難排解
 VM 備份仰賴發給底層儲存體的快照命令。 無法存取儲存體或快照集工作執行上的延遲，可能會造成備份作業失敗。 下列狀況可能導致快照集工作失敗：
 
-- **因使用 NSG 而導致封鎖儲存體的網路存取**。 深入了解如何使用 IP 白名單或透過 Proxy 伺服器來對儲存體[建立網路存取](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
+- **因使用 NSG 而導致封鎖儲存體的網路存取**。 深入了解如何使用 IP 允許清單或透過 Proxy 伺服器來對儲存體[建立網路存取](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
 - **已設定 SQL Server 備份的 VM 可能會造成快照集工作延遲**。 根據預設，VM 備份會在 Windows VM 上建立 VSS 完整備份。 執行 SQL Server 並已設定 SQL Server 備份的 VM，可能會遇到快照集延遲。 如果快照集延遲會導致備份失敗，請設定下列登錄機碼：
 
    ```
@@ -137,7 +137,7 @@ VM 備份仰賴發給底層儲存體的快照命令。 無法存取儲存體或�
 
 正確完成名稱解析後，也必須提供 Azure IP 的存取權。 若要解除封鎖對 Azure 基礎結構的存取，請遵循下列步驟進行：
 
-- 將 Azure 資料中心 IP 範圍列入白名單：
+- 將 Azure 資料中心 IP 範圍列入允許清單：
    1. 取得要列入允許清單的 [Azure 資料中心 IP](https://www.microsoft.com/download/details.aspx?id=41653) 。
    1. 使用 [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) \(英文\) Cmdlet 來解除封鎖 IP。 在 Azure VM 內提升權限的 PowerShell 視窗中執行這個 Cmdlet。 請以系統管理員身分執行。
    1. 將規則加入 NSG (若已有 NSG)，以允許存取該 IP。

@@ -1,19 +1,19 @@
 ---
 title: 如何在 Azure Cosmos DB 中使用 SQL 進行查詢？
 description: 了解如何在 Azure Cosmos DB 中使用 SQL 進行查詢
-services: cosmos-db
 author: rafats
 ms.author: rafats
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.openlocfilehash: 7f8c3f6d11ba7551cb0d0c9398b46bb001b9b75b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: 329f50341649c353fae21d92e8d5f25b1e45a632
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832627"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043578"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>教學課程：使用 SQL API 查詢 Azure Cosmos DB
 
@@ -121,7 +121,7 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支援使用 SQL 來查詢
 
 **結果**
 
-[ { "givenName": "Jesse" }, { "givenName": "Lisa" } ]
+[ { "givenName":"Jesse" }, { "givenName":"Lisa" } ]
 
 
 ## <a name="next-steps"></a>後續步驟

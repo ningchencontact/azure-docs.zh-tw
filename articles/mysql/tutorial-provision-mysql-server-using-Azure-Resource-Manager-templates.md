@@ -8,18 +8,18 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 45a4a43ae95b42174f368122f89831a356410f2b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3c89c5cc0b299852f85836dd416b5bb270757719
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004069"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061035"
 ---
-# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-templates"></a>教學課程：使用 Azure Resource Manager 範本佈建「適用於 MySQL 的 Azure 資料庫」伺服器
+# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>教學課程：使用 Azure Resource Manager 範本佈建「適用於 MySQL 的 Azure 資料庫」伺服器
 
 [適用於 MySQL 的 Azure 資料庫 REST API](https://docs.microsoft.com/en-us/rest/api/mysql/) 可讓 DevOps 工程師在 Azure 中自動化及整合受控 MySQL 伺服器和資料庫的佈建、設定和作業。  此 API 可用來建立、列舉、管理和刪除「適用於 MySQL 的 Azure 資料庫」服務的 MySQL 伺服器和資料庫。
 
-Azure Resource Manager 範本會利用基礎的 REST API 來宣告和程式化大規模部署所需的 Azure 資源，使其與「基礎結構即程式碼」的概念相一致。 此範本會將 Azure 資源名稱、SKU、網路、防火牆組態和設定參數化，使其在建立之後可以使用多次。  Azure Resource Manager 範本可使用 [Azure 入口網站](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)或 [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI) 輕易建立。 這些範本可用於應用程式的封裝、標準化和部署自動化，而隨後應用程式可整合到 DevOps CI/CD 管線中。  例如，如果您想要在「適用於 MySQL 的 Azure 資料庫」後端快速部署 Web 應用程式，您可以從 GitHub 資源庫使用此[快速入門範本](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/)執行端對端部署。
+Azure Resource Manager 會利用基礎的 REST API 來宣告和程式化大規模部署所需的 Azure 資源，使其與「基礎結構即程式碼」的概念相一致。 此範本會將 Azure 資源名稱、SKU、網路、防火牆組態和設定參數化，使其在建立之後可以使用多次。  Azure Resource Manager 範本可使用 [Azure 入口網站](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)或 [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI) 輕易建立。 這些範本可用於應用程式的封裝、標準化和部署自動化，而隨後應用程式可整合到 DevOps CI/CD 管線中。  例如，如果您想要在「適用於 MySQL 的 Azure 資料庫」後端快速部署 Web 應用程式，您可以從 GitHub 資源庫使用此[快速入門範本](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/)執行端對端部署。
 
 在本教學課程中，您將使用 Azure Resource Manager 範本和其他公用程式來了解如何：
 
@@ -32,7 +32,7 @@ Azure Resource Manager 範本會利用基礎的 REST API 來宣告和程式化�
 
 ## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本在 VNet 服務端點建立「適用於 MySQL 的 Azure 資料庫」伺服器
 
-若要取得「適用於 MySQL 的 Azure 資料庫」伺服器的 JSON 範本參考，請移至 Microsoft.DBforMySQL 伺服器範本參考 (https://docs.microsoft.com/en-us/azure/templates/microsoft.dbformysql/servers)。 下列範例 JSON 範本可用來建立在 VNet 服務端點上執行「適用於 MySQL 的 Azure 資料庫」的新伺服器。
+若要取得「適用於 MySQL 的 Azure 資料庫」伺服器的 JSON 範本參考，請移至 [Microsoft.DBforMySQL 伺服器](/azure/templates/microsoft.dbformysql/servers)範本參考。 下列範例 JSON 範本可用來建立在 VNet 服務端點上執行「適用於 MySQL 的 Azure 資料庫」的新伺服器。
 ```json
 {
   "apiVersion": "2017-12-01",

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: 86c169c84e905362e8fdb069e8ceadcb5e19fe67
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 647890517e6f08a4602ebed8ee1057cb45f10cbe
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602387"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075493"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Azure Container Instances 的配額和區域可用性
 
@@ -24,7 +24,7 @@ ms.locfileid: "53602387"
 
 ## <a name="region-availability"></a>區域可用性
 
-具有指定 CPU 和記憶體限制的 Azure Container Instances 可於下列區域取得。 以下是本文章發行時的值。 如需最新資訊，請使用[清單功能](/rest/api/container-instances/listcapabilities/listcapabilities) API。
+具有指定 CPU 和記憶體限制的 Azure Container Instances 可於下列區域取得。 以下是本文章發行時的值。 如需最新資訊，請使用[清單功能](/rest/api/container-instances/listcapabilities/listcapabilities) API。 搭配[虛擬網路](container-instances-vnet.md) (預覽) 或 [GPU 資源](container-instances-gpu.md) (預覽) 使用 Azure Container Instances 時，可用性和資源限制可能會有所不同。
 
 | 位置 | 作業系統 | CPU | 記憶體 (GB) |
 | -------- | -- | :---: | :-----------: |

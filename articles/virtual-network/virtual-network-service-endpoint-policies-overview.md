@@ -3,24 +3,20 @@ title: Azure 虛擬網路服務端點原則 | Microsoft Docs
 description: 了解如何使用服務端點原則篩選流向 Azure 服務資源的虛擬網路流量
 services: virtual-network
 documentationcenter: na
-author: anithaa
-manager: narayan
-editor: ''
-ms.assetid: ''
+author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: anithaa
-ms.custom: ''
-ms.openlocfilehash: 425bbc9eac112a4b999bd08940abb8b875aca61c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: sumeet.mittal
+ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433288"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051306"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>虛擬網路服務端點原則 (預覽)
 
@@ -53,7 +49,7 @@ __Azure 儲存體__：WestCentralUS、WestUS2。
 
 - 您可以設定端點原則，將虛擬網路流量限制為特定 Azure 服務資源。 針對預覽版本，我們支援 Azure 儲存體的端點原則。 
 - 您可在虛擬網路的子網路上設定端點原則。 針對原則中列出的所有 Azure 服務，您應該在子網路上啟用服務端點以套用原則。
-- 端點原則可讓您使用 resourceID 格式，將特定 Azure 服務資源列入白名單。 您可以限制訂用帳戶或資源群組中所有資源的存取。 您也可以限制特定資源的存取。 
+- 端點原則可讓您使用 resourceID 格式，將特定 Azure 服務資源列入允許清單。 您可以限制訂用帳戶或資源群組中所有資源的存取。 您也可以限制特定資源的存取。 
 - 根據預設，如果含端點的子網路未附加任何原則，您就可以存取服務中的所有資源。 一旦在這個子網路上設定原則之後，就只能從該子網路的計算執行個體存取原則中所指定資源。 若要存取特定服務的其他所有資源，則會遭到拒絕。 
 - 您可以篩選流向服務端點所設區域中的 Azure 服務資源流量。 預設會允許存取其他區域的服務資源。 
 
@@ -146,9 +142,9 @@ __Azure 儲存體__：WestCentralUS、WestUS2。
 
 ## <a name="scenarios"></a>案例
 
-- **對等互連或多個虛擬網路**：若要篩選對等互連虛擬網路中的流量，您應該將端點原則個別套用至這些虛擬網路。
+- **對等互連、已連線或多個虛擬網路**：若要篩選對等互連虛擬網路中的流量，您應該將端點原則個別套用至這些虛擬網路。
 - **使用網路設備或 Azure 防火牆篩選網際網路流量**：使用原則來篩選通過端點的 Azure 服務流量，並透過設備或 Azure 防火牆來篩選其餘網際網路或 Azure 流量。 
-- **篩選部署於虛擬網路中 Azure 服務的流量**：在預覽期間，服務端點原則不支援部署於虛擬網路中的任何受控 Azure 服務。 
+- **篩選已部署在虛擬網路中的 Azure 服務流量**：在預覽期間，服務端點原則不支援部署於虛擬網路中的任何受控 Azure 服務。 
  如需特定服務，請參閱[限制](#Limitations)。
 - **篩選從內部部署到 Azure 服務的流量**：服務端點原則只適用於來自原則相關聯子網路的流量。 若要允許從內部部署存取特定的 Azure 服務資源，則應該使用網路虛擬設備或防火牆篩選流量。
 

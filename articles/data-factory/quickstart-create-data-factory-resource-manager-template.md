@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 2baadd0bcb5aba401e2dd6cec9a82ca401b3c9bd
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 5a883d922944552b53b152546cc891a0a2f4a31f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620484"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042728"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>教學課程：使用 Azure Resource Manager 範本建立 Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,6 +38,8 @@ ms.locfileid: "52620484"
 若要了解一般的 Azure Resource Manager 範本，請參閱[撰寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)。 
 
 下節會提供完整的 Resource Manager 範本來定義 Data Factory 實體，如此您可以快速執行教學課程並測試範本。 若要了解每個 Data Factory 實體的定義方式，請參閱[範本中的 Data Factory 實體](#data-factory-entities-in-the-template)一節。
+
+若要了解範本中 Data Factory 資源的 JSON 語法和屬性，請參閱 [Microsoft.DataFactory 資源類型](/azure/templates/microsoft.datafactory/allversions)。
 
 ## <a name="data-factory-json"></a>Data Factory JSON 
 在 **C:\ADFTutorial** 資料夾中，使用下列內容建立名為 **ADFTutorialARM.json** 的 JSON 檔案：
@@ -268,7 +269,7 @@ ms.locfileid: "52620484"
 
 > [!IMPORTANT]
 > - 針對此參數檔案中的 **storageAccountName** 和 **storageAccountKey** 參數指定您 Azure 儲存體帳戶的名稱和金鑰。 您已建立 adftutorial 容器並將範例檔案 (emp.txt) 上傳到此 Azure blob 儲存體中的輸入資料夾。 
-> - 為 **dataFactoryName** 參數的資料處理站指定全域唯一的名稱。 例如：ARMTutorialFactoryJohnDoe11282017。 
+> - 為 **dataFactoryName** 參數的資料處理站指定全域唯一的名稱。 例如︰ARMTutorialFactoryJohnDoe11282017。 
 > - 針對 **triggerStartTime**，指定以下格式的當天日期：`2017-11-28T00:00:00`。
 > - 針對 **triggerEndTime**，指定以下格式的隔天日期：`2017-11-29T00:00:00`。 您也可檢查目前的 UTC 時間，並指定下一個小時或兩個小時作為結束時間。 例如，如果現在的 UTC 時間為上午 1:32，則指定 `2017-11-29:03:00:00` 作為結束時間。 在此情況下，觸發程序會執行管線兩次 (在上午 2 點和上午 3 點)。
 
@@ -444,7 +445,7 @@ DeploymentDebugLogLevel :
 5. 按一下 [動作] 資料行中的連結。 
 
     ![管線動作連結](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
-6. 您會看到與管線執行相關聯的活動執行。 本快速入門中，管線只有一個以下類型的活動：複製。 因此，您會看到該活動的執行。 
+6. 您會看到與管線執行相關聯的活動執行。 在本快速入門中，管線只有一個以下類型的活動：複製。 因此，您會看到該活動的執行。 
 
     ![活動執行](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
 1. 按一下 [輸出] 資料行底下的連結。 您會在 [輸出] 視窗中看到複製作業的輸出。 按一下最大化按鈕，以查看完整的輸出。 您可以關閉最大化的輸出視窗，或將它關閉。 

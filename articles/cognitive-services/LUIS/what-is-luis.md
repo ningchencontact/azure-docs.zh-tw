@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
-ms.date: 12/10/2018
+ms.date: 01/09/2018
 ms.author: diberry
-ms.openlocfilehash: ca92a6a2eb92e3b7fed9452d135c0a6bce55a57c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f587791dd1b864d0088408c377001c23546654c5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273233"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191270"
 ---
 # <a name="what-is-language-understanding-luis"></a>何謂 Language Understanding Intelligent Service (LUIS)？
 
@@ -115,6 +115,10 @@ LUIS 最上層的用戶端應用程式是：
 * [語音服務](../Speech-Service/overview.md)可將口說語言要求轉換成文字。 
 * [對話學習模組](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview)可讓您更快速地使用 LUIS 建置 Bot 對話。
 * [專案特質交談](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview)可處理 Bot 的小型交談。
+
+使用 LUIS 的範例：
+* [交談式 AI](https://github.com/Microsoft/AI) GitHub 存放庫。
+* [Language Understanding](https://github.com/Azure-Samples/cognitive-services-language-understanding) Azure 範例
 
 ## <a name="next-steps"></a>後續步驟
 

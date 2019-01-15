@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 11/19/2018
+ms.date: 01/03/2019
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 7628260efff34b52ca7d4bd4c35cce279d5474b3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 516ce9d9a6fcc73b543c7db584afebf71c2293ca
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965405"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064983"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob 儲存體簡介
 
@@ -33,7 +33,7 @@ Blob 儲存體提供三種類型資源：
 
 ### <a name="storage-accounts"></a>儲存體帳戶
 
-儲存體帳戶會在 Azure 中為您的資料提供唯一命名空間。 每個儲存在 Azure 儲存體中的物件都有一個位址，其中包含您的唯一帳戶名稱。 帳戶名稱與 Azure 儲存體服務端點的組合會形成儲存體帳戶的端點。
+儲存體帳戶會在 Azure 中為您的資料提供唯一命名空間。 每個儲存在 Azure 儲存體中的物件都有一個位址，其中包含您的唯一帳戶名稱。 帳戶名稱與 Azure 儲存體 Blob 端點的組合會形成儲存體帳戶中物件的基底位址。
 
 例如，如果您的儲存體帳戶名為 *mystorageaccount*，則 Blob 儲存體的預設端點將是：
 
@@ -56,7 +56,7 @@ Azure 儲存體支援三種 blob 類型：
 
 * **區塊 Blob** 可儲存文字和二進位資料 (最多約 4.7 TB)。 區塊 Blob 是由可個別管理的資料區塊所組成。
 * **附加 Blob** 和區塊 Blob 相似，由區塊所組成，但已針對附加作業最佳化。 附加 Blob 很適合某些案例，例如記錄虛擬機器中的資料。
-* **分頁 Blob** 可儲存隨機存取檔案 (大小上限為 8 TB)。 分頁 Blob 存放區可儲存虛擬硬碟 (VHD) 檔案，以做為 Azure 虛擬機器的磁碟。 如需分頁 Blob 的相關詳細資訊，請參閱 (.../ articles/storage/blobs/storage-blob-pageblob-overview.md)
+* **分頁 Blob** 可儲存隨機存取檔案 (大小上限為 8 TB)。 分頁 Blob 存放區可儲存虛擬硬碟 (VHD) 檔案，以做為 Azure 虛擬機器的磁碟。 如需有關分頁 Blob 的詳細資訊，請參閱 [Azure 分頁 Blob 的概觀](storage-blob-pageblob-overview.md)
 
 如需不同 Blob 類型的相關詳細資訊，請參閱[了解區塊 Blob、附加 Blob 及分頁 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)。
 

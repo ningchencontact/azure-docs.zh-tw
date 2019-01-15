@@ -1,14 +1,12 @@
 ---
-title: 篩選網路流量 - 教學課程 - Azure 入口網站 | Microsoft Docs
+title: 篩選網路流量 - 教學課程 - Azure 入口網站
+titlesuffix: Azure Virtual Network
 description: 在本教學課程中，您將了解如何使用 Azure 入口網站，透過網路安全性群組篩選傳至子網路的網路流量。
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
 ms.topic: tutorial
@@ -16,13 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: jdial
-ms.custom: ''
-ms.openlocfilehash: 68fdb158a7d4c723bffb54f33203120afb72a8ef
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: caf9b91d5b98d028d7c9e971df30ad1f6ec448ad
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385392"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019022"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過網路安全性群組篩選網路流量
 

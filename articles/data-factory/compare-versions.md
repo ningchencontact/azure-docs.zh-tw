@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: f898b21e84cc57327991c97d2694e9e44e608417
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638234"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014891"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>比較 Azure Data Factory 與 Data Factory 第 1 版
 本文將比較 Data Factory 與 Data Factory 第 1 版。 如需 Data Factory 的指示，請參閱 [Data Factory 簡介](introduction.md)。如需 Data Factory 第 1 版的指示，請參閱 [Azure Data Factory 簡介](v1/data-factory-introduction.md)。 
@@ -117,9 +116,9 @@ Azure-SSIS 整合執行階段是一個完全受管理的 Azure VM (節點) 叢�
 ## <a name="sdks"></a>SDK
  目前的 Data Factory 版本提供一組豐富的 SDK，可用來撰寫、管理及監視管線。
 
-- **.NET SDK**：目前版本中的 .NET SDK 已更新。
+- **.NET SDK**:目前版本中的 .NET SDK 已更新。
 
-- **PowerShell**：目前版本中的 PowerShell Cmdlet 已更新。 現行版本 Cmdlet 的名稱中會有 **DataFactoryV2**，例如 Get-AzureRmDataFactoryV2。 
+- **PowerShell**:目前版本中的 PowerShell Cmdlet 已更新。 現行版本 Cmdlet 的名稱中會有 **DataFactoryV2**，例如：Get-AzureRmDataFactoryV2。 
 
 - **Python SDK**：此 SDK 是目前版本的新增項目。
 
@@ -147,4 +146,4 @@ Azure-SSIS 整合執行階段是一個完全受管理的 Azure VM (節點) 叢�
 
 
 ## <a name="next-steps"></a>後續步驟
-依照下列快速入門中的逐步指示操作，以了解如何建立資料處理站：[PowerShell](quickstart-create-data-factory-powershell.md)[.NET](quickstart-create-data-factory-dot-net.md)[Python](quickstart-create-data-factory-python.md)[REST API](quickstart-create-data-factory-rest-api.md)。 
+依照下列快速入門中的逐步指示操作，以了解如何建立資料處理站：[PowerShell](quickstart-create-data-factory-powershell.md)、[.NET](quickstart-create-data-factory-dot-net.md)、[Python](quickstart-create-data-factory-python.md)、[REST API](quickstart-create-data-factory-rest-api.md)。 

@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB 的 Azure 表格儲存體支援
 description: 了解 Azure Cosmos DB 資料表 API 和 Azure 儲存體資料表如何一起運作。
-services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 11/15/2017
-ms.author: sngun
-ms.openlocfilehash: 6c6b0650ae8f4ed780b72e8fcd414e3f26e4f5f3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+author: wmengmsft
+ms.author: wmeng
+ms.reviewer: sngun
+ms.openlocfilehash: b105cf6c220534927a16be83ca5db8801c88f6c0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878732"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035588"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>使用 Azure Cosmos DB 資料表 API 和 Azure 表格儲存體進行開發
 
@@ -29,7 +29,7 @@ Azure Cosmos DB 資料表 API 和 Azure 表格儲存體共用同一個資料表�
 - [Java SDK](table-sdk-java.md)。 此 Azure 儲存體 SDK 能夠使用資料表 API 連線至 Azure Cosmos DB 帳戶。
 - [Node.js SDK](table-sdk-nodejs.md)。 此 Azure 儲存體 SDK 能夠使用資料表 API 連線至 Azure Cosmos DB 帳戶。
 
-[常見問題集：使用資料表 API 開發](faq.md#table)一文提供使用資料表 API 的其他資訊。
+如需使用資料表 API 的其他資訊，請參閱[常見問題集：使用資料表 API 開發](faq.md#table)一文。
 
 ## <a name="developing-with-azure-table-storage"></a>使用 Azure 表格儲存體進行開發
 

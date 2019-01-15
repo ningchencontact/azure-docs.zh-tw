@@ -6,12 +6,12 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: af59a3f4d631992c2319a79f40a721c45535bb91
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 32500e4c7319411555e028889d6ec94150776250
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581057"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306585"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -211,6 +211,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/machine-learning/">機器學習服務</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">認知服務</a></li>
+                                                    <li><a class="barLink" href="/azure/notebooks/">Azure Notebooks</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -780,6 +781,11 @@ Azure 服務和功能導覽 </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/notebooks">
+                                                <img src="media/index/notebooks.svg" alt="" />
+                                                <p>Azure Notebooks</p>
+                                            </a>
+                                        </li>                                        <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
                                                 <p>Azure 搜尋服務</p>
@@ -3562,7 +3568,7 @@ Azure 服務和功能導覽 </a>
                         <a href="#ai">AI + 機器學習服務</a>
                         <ul id="ai" class="cardsA">
                             <li class="fullSpan">
-                                <h2>人工智慧</h2>
+                                <h2>人工智慧 + 機器學習服務</h2>
                             </li>
                             <li>
                                 <a href="/azure/azure-databricks/">
@@ -3672,6 +3678,25 @@ Azure 服務和功能導覽 </a>
                                                 <div class="cardText">
                                                     <h3>認知服務</h3>
                                                     <p>讓應用程式、網站和 Bot 智慧化，以便傾聽、說話及了解資訊</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/notebooks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/notebooks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Notebooks</h3>
+                                                    <p>在預先設定的雲端環境中裝載和執行 Jupyter Notebooks</p>
                                                 </div>
                                             </div>
                                         </div>

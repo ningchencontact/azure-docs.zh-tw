@@ -121,7 +121,7 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 1. 在 [檢閱 + 建立] 索引標籤上，按一下 [建立]。
 
 > [!NOTE]  
-> 如果需要在私人區域中新增 HDInsight 核心配額，請[提交白名單要求](https://aka.ms/canaryintwhitelist)。
+> 如果需要在私人區域中新增 HDInsight 核心配額，請[提交允許清單要求](https://aka.ms/canaryintwhitelist)。
 
 您可以[連絡支援人員以要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。
 

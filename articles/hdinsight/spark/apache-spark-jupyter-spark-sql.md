@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: e816799ba2df0f97aca7618e7c181a1086bb84a9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2fc88f82222deeecb55dac8fa77e1d8702ffe011
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791909"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055025"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>快速入門：使用範本在 HDInsight 中建立 Apache Spark 叢集
 
@@ -29,7 +29,7 @@ ms.locfileid: "53791909"
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>建立 HDInsight Spark 叢集
 
-使用 Azure Resource Manager 範本來建立 HDInsight Spark 叢集。 此範本可在 [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/) 中找到。
+使用 Azure Resource Manager 範本來建立 HDInsight Spark 叢集。 此範本可在 [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/) 中找到。 如需叢集的 JSON 語法和屬性，請參閱 [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters)。
 
 1. 選取下列連結，在新的瀏覽器索引標籤中開啟 Azure 入口網站中的範本：
 

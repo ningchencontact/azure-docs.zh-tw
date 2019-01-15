@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: 8c060cd7b1c3cf049db6d5935c0d3e20a024fb16
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f85d404df37d34f7363114fbbf34ceec3bbe7c0f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635727"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042796"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 上傳、下載及列出 Blob
 
@@ -33,30 +33,30 @@ ms.locfileid: "53635727"
 
 Blob 一律會上傳到容器中。 您可以組織 Blob 群組，如同在電腦的資料夾中組織檔案一般。
 
-設定容器名稱，然後使用 [New-AzStorageContainer](/powershell/module/azure.storage/new-AzStoragecontainer) 來建立容器。 請設定 `blob` 的權限，以允許檔案的公用存取。 此範例中的容器名稱是 *quickstartblobs*。
+設定容器名稱，然後使用 [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer) 建立容器。 請設定 `blob` 的權限，以允許檔案的公用存取。 此範例中的容器名稱是 *quickstartblobs*。
 
 ```powershell
 $containerName = "quickstartblobs"
-New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
+new-azurestoragecontainer -Name $containerName -Context $ctx -Permission blob
 ```
 
 ## <a name="upload-blobs-to-the-container"></a>將 Blob 上傳到容器
 
 Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 用來備份 IaaS VM 的 VHD 檔案是分頁 Blob。 附加 Blob 可用於記錄，例如，當您想要寫入檔案，並繼續新增更多資訊時。 儲存在 Blob 儲存體中的大部分檔案都是區塊 Blob。 
 
-若要將檔案上傳至區塊 Blob，請取得容器參考，然後取得該容器中區塊 Blob 的參考。 取得 Blob 參考之後，即可使用 [Set-AzStorageBlobContent](/powershell/module/azure.storage/set-AzStorageblobcontent) 將資料上傳至 Blob。 如果 Blob 不存在，此作業會予以建立，若已存在，則加以覆寫。
+若要將檔案上傳至區塊 Blob，請取得容器參考，然後取得該容器中區塊 Blob 的參考。 取得 Blob 參考之後，即可使用 [set-azurestorageblobcontent](/powershell/module/azure.storage/set-azurestorageblobcontent) 將資料上傳至 blob。 如果 Blob 不存在，此作業會予以建立，若已存在，則加以覆寫。
 
 下列範例會將本機磁碟上 *D:\\_TestImages* 資料夾中的 *Image001.jpg* 和 *Image002.png* 上傳至您所建立的容器。
 
 ```powershell
 # upload a file
-Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
+set-azurestorageblobcontent -File "D:\_TestImages\Image001.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
   -Context $ctx 
 
 # upload another file
-Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
+set-azurestorageblobcontent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
   -Context $ctx
@@ -66,30 +66,30 @@ Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
 
 ## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-使用 [Get-AzStorageBlob](/powershell/module/azure.storage/get-AzStorageblob) 來取得容器中 Blob 的清單。 此範例只會顯示已上傳之 Blob 的名稱。
+使用 [get-azurestorageblob](/powershell/module/azure.storage/get-azurestorageblob) 取得容器中的 Blob 清單。 此範例只會顯示已上傳之 Blob 的名稱。
 
 ```powershell
-Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name 
+get-azurestorageblob -Container $ContainerName -Context $ctx | select Name
 ```
 
 ## <a name="download-blobs"></a>下載 Blob
 
-將 blob 下載到本機磁碟。 針對您要下載每個 Blob，請設定名稱並呼叫[Get-AzStorageBlobContent](/powershell/module/azure.storage/get-AzStorageblobcontent) 以下載 Blob。
+將 blob 下載到本機磁碟。 對於您要下載每個 Blob，請設定名稱並呼叫 [get-azurestorageblobcontent](/powershell/module/azure.storage/get-azurestorageblobcontent) 以下載 Blob。
 
 此範例會將 Blob 下載到本機磁碟上的 *D:\\_TestImages\Downloads*。 
 
 ```powershell
 # download first blob
-Get-AzStorageBlobContent -Blob "Image001.jpg" `
+get-azurestorageblobcontent -Blob "Image001.jpg" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
   -Context $ctx 
 
 # download another blob
-Get-AzStorageBlobContent -Blob "Image002.png" `
+get-azurestorageblobcontent -Blob "Image002.png" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
-  -Context $ctx 
+  -Context $ctx
 ```
 
 ## <a name="data-transfer-with-azcopy"></a>使用 AzCopy 進行資料轉送
@@ -111,7 +111,7 @@ Get-AzStorageBlobContent -Blob "Image002.png" `
 移除您已建立的所有資產。 要移除資產，最簡單的方法是刪除資源群組。 移除資源群組時也會刪除群組內包含的所有資源。 在下列範例中，移除資源群組時也會移除儲存體帳戶和資源群組本身。
 
 ```powershell
-Remove-AzResourceGroup -Name $resourceGroup
+Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>後續步驟

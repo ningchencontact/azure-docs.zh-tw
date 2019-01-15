@@ -9,21 +9,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 9aab9df353ea5691b4132741e9b4a97b0afd9d17
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 93f8a5e806bd10824a78dd62351fd3d9be0cf32c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262143"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025822"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 在本教學課程中，您會建立 Data Factory 管道來展示部分的控制流程功能。 這個管道只是簡單地從 Azure Blob 儲存體中的一個容器複製到相同儲存體帳戶中的另一個容器。 如果複製活動成功，您希望透過成功電子郵件傳送成功複製作業的詳細資料 (例如寫入的資料量)。 如果複製活動失敗，您希望透過失敗電子郵件傳送複製失敗的詳細資料 (例如錯誤訊息)。 在整個教學課程中，您會看到如何傳遞參數。
 
-情節的高階概觀：![概觀](media/tutorial-control-flow/overview.png)
+案例的高階概觀：![概觀](media/tutorial-control-flow/overview.png)
 
 您會在本教學課程中執行下列步驟：
 
@@ -204,7 +203,7 @@ client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLink
 
 您可以定義資料集來代表 Azure Blob 中的來源資料。 此 Blob 資料集會參考您在前一個步驟中建立的 Azure 儲存體連結服務，並描述：
 
-- 複製的來源 Blob 位置：**FolderPath** 和 **FileName**。
+- 複製的來源 Blob 位置：**FolderPath** 和 **FileName**；
 - 請注意 FolderPath 的參數用法。 “sourceBlobContainer” 是參數的名稱，而傳入管道執行中的值會取代運算式。 定義參數的語法是 `@pipeline().parameters.<parameterName>`
 
 在 Program.cs 檔案中，建立 “SourceBlobDatasetDefinition” 函式

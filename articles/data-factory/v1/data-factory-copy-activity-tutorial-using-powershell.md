@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 Azure PowerShell 建立管線來移動資料 | Microsoft Docs
+title: 教學課程：使用 Azure PowerShell 建立管線移動資料 | Microsoft Docs
 description: 在本教學課程中，您會使用 Azure PowerShell，建立具有複製活動的 Azure Data Factory 管線。
 services: data-factory
 documentationcenter: ''
@@ -10,19 +10,18 @@ ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bfe1d022364455f6c3e22872358b6e18b0806e6a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ce2c3bffecd691acd5eb26b999c63fd2bb5dd510
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109331"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015334"
 ---
-# <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>教學課程︰使用 Azure PowerShell 建立 Data Factory 管線來移動資料
+# <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立 Data Factory 管線來移動資料
 > [!div class="op_single_selector"]
 > * [概觀和必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [複製精靈](data-factory-copy-data-wizard-tutorial.md)
@@ -55,7 +54,7 @@ ms.locfileid: "43109331"
 以下是您會在本教學課程中執行的步驟：
 
 1. 建立 Azure **Data Factory**。 在此步驟中，您會建立名為 ADFTutorialDataFactoryPSH 的資料處理站。 
-1. 此資料處理站中建立**連結服務**。 在此步驟中，您會建立兩種連結服務：Azure 儲存體和 Azure SQL Database。 
+1. 在此資料處理站中建立**連結服務**。 在此步驟中，您會建立兩個連結服務：類型為 Azure 儲存體和 Azure SQL Database。 
     
     AzureStorageLinkedService 會將 Azure 儲存體帳戶連結至資料處理站。 您已建立容器並將資料上傳到此儲存體帳戶，作為[必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)的一部分。   
 
@@ -107,7 +106,7 @@ ms.locfileid: "43109331"
     ```PowerShell
     $df=New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
     ```
-    此名稱可能已被使用。 因此，加上前置詞或後置詞 (例如︰ADFTutorialDataFactoryPSH05152017) 並再次執行命令，讓資料處理站的名稱成為唯一的。  
+    此名稱可能已被使用。 因此，新增前置詞或後置詞 (例如︰ADFTutorialDataFactoryPSH05152017) 並再次執行命令，讓資料處理站的名稱成為唯一的。  
 
 請注意下列幾點：
 
@@ -118,7 +117,7 @@ ms.locfileid: "43109331"
     ```
 * 若要建立 Data Factory 執行個體，您必須是 Azure 訂用帳戶的參與者或系統管理員。
 * Data Factory 的名稱未來可能會註冊為 DNS 名稱，因此會變成公開可見的名稱。
-* 您可能會收到下列錯誤︰「**未註冊此訂用帳戶，無法使用命名空間 Microsoft.DataFactory。**」 請執行下列其中一個動作，並試著重新發佈一次︰
+* 您可能收到下列錯誤：「此訂用帳戶未註冊為使用命名空間 Microsoft.DataFactory。」 請執行下列其中一個動作，並試著重新發佈一次︰
 
   * 在 Azure PowerShell 中，執行下列命令以註冊 Data Factory 提供者：
 
@@ -136,7 +135,7 @@ ms.locfileid: "43109331"
 ## <a name="create-linked-services"></a>建立連結的服務
 您在資料處理站中建立的連結服務會將您的資料存放區和計算服務連結到資料處理站。 在本教學課程中，您不會使用任何計算服務，例如 Azure HDInsight 或 Azure Data Lake Analytics。 您可以使用兩種類型的資料存放區：Azure 儲存體 (來源) 和 Azure SQL Database (目的地)。 
 
-因此，您可以建立名為 AzureStorageLinkedService 和 AzureSqlLinkedService 的兩個連結服務︰類型為 AzureStorage 和 AzureSqlDatabase。  
+因此，您可以建立名為 AzureStorageLinkedService 和 AzureSqlLinkedService 的兩個連結服務類型︰分別為 AzureStorage 和 AzureSqlDatabase。  
 
 AzureStorageLinkedService 會將 Azure 儲存體帳戶連結至資料處理站。 此儲存體帳戶是您在其中建立容器並將資料上傳為[必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)一部分的帳戶。   
 
@@ -145,7 +144,7 @@ AzureSqlLinkedService 會將 Azure SQL Database 連結至資料處理站。 從 
 ### <a name="create-a-linked-service-for-an-azure-storage-account"></a>建立 Azure 儲存體帳戶的連結服務
 在此步驟中，您會將您的 Azure 儲存體帳戶連結到您的資料處理站。
 
-1. 在 **C:\ADFGetStartedPSH** 資料夾中，使用以下內容建立名為 **AzureStorageLinkedService.json** 的 JSON 檔案：(如果 ADFGetStartedPSH 資料夾不存在，則加以建立。)
+1. 在 **C:\ADFGetStartedPSH** 資料夾中，使用以下內容建立名為 **AzureStorageLinkedService.json** 的 JSON 檔案：(建立 ADFGetStartedPSH 資料夾 (如果不存在)。)
 
     > [!IMPORTANT]
     > 儲存檔案前，以 Azure 儲存體帳戶的名稱和金鑰取代 &lt;accountname&gt; 和 &lt;accountkey&gt;。 
@@ -427,7 +426,7 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
      
     將 **start** 屬性的值替換為目前日期，並將 **end**值替換為隔天的日期。 在日期時間中，您只指定日期部分，並略過時間部分。 例如，"2016-02-03"，這相當於 "2016-02-03T00:00:00Z"
      
-    開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。 例如：2016-10-14T16:32:41Z。 **end** 時間為選擇性項目，但在本教學課程中會用到。 
+    開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。 例如︰2016-10-14T16:32:41Z. **end** 時間為選擇性項目，但在本教學課程中會用到。 
      
     如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
      

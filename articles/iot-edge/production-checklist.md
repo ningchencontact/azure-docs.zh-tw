@@ -144,16 +144,16 @@ timeToLiveSecs 參數的預設值是 7200 秒，也就是兩小時。
 
 * **實用**
     * 檢閱輸出/輸入設定
-    * 白名單連線
+    * 允許清單連線
     * 設定 Proxy 通訊
 
 ### <a name="review-outboundinbound-configuration"></a>檢閱輸出/輸入設定
 
 Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 在大部分的 IoT Edge 情節下，必要的連線只有三個。 容器引擎必須和容納模組映像的容器登錄連線。 IoT Edge 執行階段需要和 IoT 中樞連線才能擷取裝置組態資訊，以及傳送訊息和遙測。 如果您使用自動佈建，IoT Edge 精靈必須連線至裝置佈建服務。 如需詳細資訊，請參閱[防火牆和連接埠組態規則](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment)。
 
-### <a name="whitelist-connections"></a>白名單連線
+### <a name="whitelist-connections"></a>允許清單連線
 
-如果您的網路設定要求您明確地將 IoT Edge 裝置連線加入白名單，請檢閱下列的 IoT Edge 元件清單：
+如果您的網路設定要求您明確地將 IoT Edge 裝置連線加入允許清單，請檢閱下列的 IoT Edge 元件清單：
 
 * **IoT Edge 代理程式**可能會透過 WebSockets 持續以 AMQP/MQTT 連線方式連線到 IoT 中樞。 
 * **IoT Edge 中樞**可能會透過 WebSockets 持續以 AMQP 連線或多種 MQTT 連線方式連線到 IoT 中樞。 

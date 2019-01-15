@@ -1,25 +1,33 @@
 ---
 title: 在 Azure Blockchain Workbench 中使用應用程式
-description: 如何在 Azure Blockchain Workbench 中使用應用程式合約。
+description: 關於如何在 Azure Blockchain Workbench 中使用應用程式合約的教學課程。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
+ms.date: 1/8/2019
+ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 4fe6f164882ffce7bf22ec0c0b94107abcf6a20e
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b43b125f7e96ac58a9094fc1e0e18b38f10d3e2f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241224"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107067"
 ---
-# <a name="using-applications-in-azure-blockchain-workbench"></a>在 Azure Blockchain Workbench 中使用應用程式
+# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>教學課程：在 Azure Blockchain Workbench 中使用應用程式
 
 您可以使用 Blockchain Workbench 建立合約並對其採取動作。 您也可以檢視合約詳細資料，例如狀態和交易歷程記錄。
+
+您將學習如何：
+
+> [!div class="checklist"]
+> * 建立新合約
+> * 對合約採取動作
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -36,7 +44,7 @@ ms.locfileid: "48241224"
 
 若要建立新合約，您必須是指定為合約**啟動者**的成員。 如需有關定義應用程式角色和合約啟動者的資訊，請參閱[組態概觀中的工作流程](configuration.md#workflows)。 如需將成員指派給應用程式角色的資訊，請參閱[將成員新增至應用程式](manage-users.md#add-member-to-application)。
 
-1. 在 Blockchain Workbench 應用程式區段中，選取您想要建立的合約所在的應用程式圖格。 隨即會顯示作用中合約的清單。
+1. 在 Blockchain Workbench 應用程式區段中，選取您想要建立的合約所在的應用程式圖格。 作用中合約的清單會隨即顯示。
 
 2. 若要建立新的合約，請選取 [新增合約]。
 
@@ -63,7 +71,7 @@ ms.locfileid: "48241224"
     |---------|---------|
     | 狀態 | 列出合約階段內的目前進度 |
     | 詳細資料 | 合約目前的值 |
-    | 動作 | 最後一個動作的詳細資料 |
+    |  動作 | 最後一個動作的詳細資料 |
     | 活動 | 合約的交易歷程記錄 |
     
 3. 在 [動作] 區段中，選取 [採取動作]。
@@ -82,4 +90,4 @@ ms.locfileid: "48241224"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [如何針對 Azure Blockchain Workbench 進行疑難排解](troubleshooting.md)
+> [Azure Blockchain Workbench 應用程式版本設定](version-app.md)

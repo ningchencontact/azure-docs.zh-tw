@@ -1,5 +1,6 @@
 # 概觀
-## [關於虛擬機器](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [VM 延伸模組](agents-and-extensions-classic.md)
+## [可用性](configure-availability-classic.md)
 ## [常見問題集](faq-classic.md)
 
 # 開始使用
@@ -29,20 +30,17 @@
 ### [維護](planned-maintenance-schedule-classic.md)
 
 ## 管理
-### [從傳統移轉至 Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+### [從傳統移轉至 Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-deep-dive)
 ### [使用 Azure PowerShell 管理您的 VM](manage-psh-classic.md)
 ### [關於 VM 代理程式與擴充功能](agents-and-extensions-classic.md)
 ### [管理 VM 擴充功能](manage-extensions-classic.md)
 
 ## 管理工作負載
-### [高效能運算 (HPC)](../../virtual-machines-windows-hpcpack-cluster-options.md)
+### 高效能運算 (HPC)
 #### [自動調整資源](hpcpack-cluster-node-autogrowshrink.md)
 #### [管理計算節點](hpcpack-cluster-node-manage.md)
 #### [建立叢集](hpcpack-cluster-powershell-script.md)
 #### [設定叢集以執行 MPI 應用程式](hpcpack-rdma-cluster.md)
-#### [執行 Excel 和 SOA 工作負載](../../virtual-machines-windows-excel-cluster-hpcpack.md)
-#### [使用 Marketplace 映像建立前端節點](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
-#### [將內部部署的作業提交至 Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MySQL](mysql-2008r2.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
 
@@ -57,7 +55,6 @@
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
-## [製作 Resource Manager 範本](../../../resource-group-authoring-templates.md)
 ## [社群範本](https://azure.microsoft.com/documentation/templates)
 ## [計算 REST](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [網路 REST](https://msdn.microsoft.com/library/jj157182.aspx)

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff862dcee77fb874511ea1b9bcc907a5e4b60dcc
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998977"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015267"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>快速入門：使用技能和範例資料建立認知搜尋管線
 
@@ -26,9 +26,9 @@ ms.locfileid: "53998977"
 
 > [!div class="checklist"]
 > * 從使用 Azure blob 儲存體中的範例資料開始
-> * 設定[匯入資料精靈](search-import-data-portal.md)來進行認知編製索引和進行擴充 
+> * 設定[**匯入資料**](search-import-data-portal.md)精靈來進行認知編製索引和進行擴充 
 > * 執行精靈 (會偵測人員、位置和組織的實體技能)
-> * 使用[搜尋總管](search-explorer.md)來查詢擴充的資料
+> * 使用[**搜尋總管**](search-explorer.md)來查詢擴充的資料
 
 ## <a name="supported-regions"></a>支援的區域
 
@@ -98,9 +98,9 @@ Azure 服務僅限用於此案例中。 建立所需服務是準備工作的一�
 
 1. [下載範例資料](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)，其中有不同類型的小型檔案集。 
 
-1. 註冊 Azure Blob 儲存體、建立儲存體帳戶、登入儲存體總管，並建立容器。 將公用存取層級設為**容器**。 如需詳細資訊，請參閱搜尋非結構化資料教學課程中的 [＜建立容器＞一節](../storage/blobs/storage-unstructured-search.md#create-a-container)。
+1. 註冊 Azure Blob 儲存體、建立儲存體帳戶、開啟 Blob 服務夜面，以及建立容器。 在容器上，將公用存取層級設為 [容器]。 如需詳細資訊，請參閱*搜尋非結構化資料*教學課程中的[建立容器一節](../storage/blobs/storage-unstructured-search.md#create-a-container)。
 
-1. 在您建立的容器中，按一下 [上傳] 以上傳範例檔案。
+1. 在您建立的 容器中，按一下 [上傳] 以上傳您在上一步中下載的範例檔案。
 
   ![Azure Blob 儲存體中的來源檔案](./media/cognitive-search-quickstart-blob/sample-data.png)
 

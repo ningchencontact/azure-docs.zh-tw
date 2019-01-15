@@ -25,7 +25,7 @@ ms.locfileid: "54103990"
 在使用 Azure NetApp Files 之前，您必須先提交在 Azure NetApp Files 服務中進行註冊的要求。  註冊之後，您即可註冊使用服務。
 
 ## <a name="request-to-enroll-in-the-service"></a>要求在服務中註冊
-您必須加入「公開預覽計畫」，並列入可存取 Microsoft.NetApp Azure 資源提供者的白名單中。 如需有關加入「公開預覽」方案的詳細資訊，請參閱 [Azure NetApp Files 公開預覽註冊頁面](https://aka.ms/nfspublicpreview)。 
+您必須加入「公開預覽計畫」，並列入可存取 Microsoft.NetApp Azure 資源提供者的允許清單中。 如需有關加入「公開預覽」方案的詳細資訊，請參閱 [Azure NetApp Files 公開預覽註冊頁面](https://aka.ms/nfspublicpreview)。 
 
 
 ## <a name="register-the-netapp-resource-provider"></a>註冊 NetApp 資源提供者
@@ -36,7 +36,7 @@ ms.locfileid: "54103990"
 
       ![Azure Cloud Shell 圖示](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
 
-2. 如果您的 Azure 帳戶中有多個訂用帳戶，請選取已列入 Azure NetApp Files 白名單中的訂用帳戶：
+2. 如果您的 Azure 帳戶中有多個訂用帳戶，請選取已列入 Azure NetApp Files 允許清單中的訂用帳戶：
     
         az account set --subscription <subscriptionId>
 
