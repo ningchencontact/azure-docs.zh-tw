@@ -52,7 +52,7 @@ ms.locfileid: "53086805"
 
 當成功新增網域時，預先建置網域方塊會顯示 [移除網域] 按鈕。
 
-[![含有 [移除] 按鈕的家庭自動化網域螢幕擷取畫面](media/luis-quickstart-new-app/remove-domain.png "含有 [移除] 按鈕的家庭自動化網域螢幕擷取畫面")](media/luis-quickstart-new-app/remove-domain.png)
+[![含有 移除 按鈕的家庭自動化網域螢幕擷取畫面](media/luis-quickstart-new-app/remove-domain.png "含有 移除 按鈕的家庭自動化網域螢幕擷取畫面")](media/luis-quickstart-new-app/remove-domain.png)
 
 ## <a name="intents-and-entities"></a>意圖和實體
 
@@ -80,7 +80,7 @@ Turn off the lights
 
 在此範例中，「關閉燈光」會正確識別為 "HomeAutomation.TurnOff" 的最高得分意圖。
 
-[![已醒目提示語句的 [測試] 面板螢幕擷取畫面](media/luis-quickstart-new-app/test.png "已醒目提示語句的 [測試] 面板螢幕擷取畫面")](media/luis-quickstart-new-app/test.png)
+[![已醒目提示語句的 測試 面板螢幕擷取畫面](media/luis-quickstart-new-app/test.png "已醒目提示語句的 測試 面板螢幕擷取畫面")](media/luis-quickstart-new-app/test.png)
 
 
 再次選取 [測試] 以摺疊測試窗格。 

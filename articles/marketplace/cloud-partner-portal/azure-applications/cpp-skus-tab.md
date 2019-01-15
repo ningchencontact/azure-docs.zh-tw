@@ -26,7 +26,7 @@ ms.locfileid: "53195527"
 本文說明如何使用 SKU 索引標籤來建立 Azure 應用程式。 
 
 >[!IMPORTANT] 
-設定 SKU 的步驟與受控應用程式供應項目和解決方案範本供應項目的步驟不同。。 如需了解這些差異，請參閱這篇文章。 
+設定 SKU 的步驟與受控應用程式供應項目和解決方案範本供應項目的步驟不同。 如需了解這些差異，請參閱這篇文章。 
 
 ## <a name="configure-azure-application-skus"></a>設定 Azure 應用程式 SKU
 

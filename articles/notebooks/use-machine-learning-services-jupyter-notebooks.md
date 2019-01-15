@@ -28,7 +28,7 @@ Azure Notebooks 隨附預先設定的所需環境，可與 [Azure Machine Learni
 
 1. 登入 [Azure Notebooks](https://notebooks.azure.com/)。
 1. 選取 [我的專案]，瀏覽至專案儀表板。
-1. 選取 [上傳 GitHub 存放庫] (向上鍵頭) 按鈕，開啟 [上傳 GitHub 存放庫] 快顯視窗。
+1. 選取 **上傳 GitHub 存放庫** (向上鍵頭) 按鈕，開啟 **上傳 GitHub 存放庫** 快顯視窗。
 1. 在快顯視窗的 [GitHub 存放庫] 中，輸入 `Azure/MachineLearningNotebooks`，在 [專案名稱] 為專案提供像是 "Azure ML Services" 的名稱，在 [專案識別碼] 中提供識別碼，視需要清除 [公用]，然後選取 [匯入]。
 
     ![將 Azure Machine Learning Notebook 範例匯入 Notebooks 帳戶](media/azureml-import-project.png)
