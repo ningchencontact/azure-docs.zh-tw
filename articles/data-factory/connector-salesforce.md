@@ -21,7 +21,7 @@ ms.lasthandoff: 10/18/2018
 ms.locfileid: "49409572"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](v1/data-factory-salesforce-connector.md)
 > * [目前的版本](connector-salesforce.md)
 
