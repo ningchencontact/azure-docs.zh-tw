@@ -21,7 +21,7 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51242206"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>使用 Azure Data Factory 從 Sybase 複製資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](v1/data-factory-onprem-sybase-connector.md)
 > * [目前的版本](connector-sybase.md)
 
