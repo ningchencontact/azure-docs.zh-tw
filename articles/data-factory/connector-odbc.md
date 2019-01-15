@@ -21,7 +21,7 @@ ms.lasthandoff: 11/19/2018
 ms.locfileid: "51976548"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區複製資料及將資料複製到處
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](v1/data-factory-odbc-connector.md)
 > * [目前的版本](connector-odbc.md)
 
