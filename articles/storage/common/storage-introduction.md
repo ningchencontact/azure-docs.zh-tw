@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 07/11/2018
+ms.date: 01/02/2019
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: e483997140efc1d75466d887e42383d887f8a6f4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dc7932f197931a0fbf1dde924eb70ca18f6f9748
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963244"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065540"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 儲存體簡介
 
@@ -22,7 +22,7 @@ Azure 儲存體是 Microsoft 針對最新資料儲存體環境推出的雲端儲
 - **持久與高可用性。** 備援功能可在發生暫時性硬體失敗時，確保您的資料安全無虞。 您也可以選擇在資料中心或地理區域間複寫資料，以便在發生地方性災難或天然災害時獲得額外保護。 以此方式複寫資料，可在發生未預期的中斷事件時保持高可用性。 
 - **安全。** 所有寫入 Azure 儲存體的資料皆會由服務進行加密。 Azure 儲存體在存取您資料的人員控管上，提供更細微的控制。
 - **可調整。** Azure 儲存體設計為可大幅調整，以符合現今應用程式的資料儲存和效能需求。 
-- **受控。** Microsoft Azure 會為您處理維護作業和任何重大問題。
+- **受控。** Microsoft Azure 會為您處理硬體維護、更新和重大問題。
 - **可存取。** 您可以從世界各地透過 HTTP 或 HTTPS 存取 Azure 儲存體中的資料。 Microsoft 提供多種語言的 Azure 儲存體 SDK (.NET、Java、Node.js、Python、PHP、Ruby、Go 等) 和成熟的 REST API。 Azure 儲存體支援在 Azure PowerShell 或 Azure CLI 中使用指令碼。 而且在使用資料方面，Azure 入口網站和 Azure 儲存體總管提供簡易的視覺式解決方案。  
 
 ## <a name="azure-storage-services"></a>Azure 儲存體服務
@@ -89,30 +89,9 @@ Azure 儲存體也包含虛擬機器所使用的受控和非受控磁碟功能�
 
 ## <a name="types-of-storage-accounts"></a>儲存體帳戶類型
 
-下表顯示各種儲存體帳戶，以及各自可以使用的物件。
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
-|**儲存體帳戶的類型**|**一般用途：標準**|**一般用途：進階**|**Blob 儲存體、經常性存取和非經常性存取層**|
-|-----|-----|-----|-----|
-|**支援的服務**| Blob、檔案、佇列和資料表服務 | Blob 服務 | Blob 服務|
-|**支援的 Blob 類型**|區塊 Blob、分頁 Blob 及附加 Blob | 分頁 Blob | 區塊 Blob 和附加 Blob|
-
-### <a name="general-purpose-storage-accounts"></a>一般用途的儲存體帳戶
-
-一般用途的儲存體帳戶有兩種。
-
-#### <a name="standard-storage"></a>標準儲存體
-
-標準儲存體帳戶是最廣泛使用的儲存體帳戶，可用於所有類型的資料。 標準儲存體帳戶會使用磁性媒體來儲存資料。
-
-#### <a name="premium-storage"></a>進階儲存體
-
-進階儲存體可為分頁 blob 提供高效能儲存體，主要用於 VHD 檔案。 進階儲存體帳戶使用 SSD 來儲存資料。 Microsoft 建議對所有 VM 使用進階儲存體。
-
-### <a name="blob-storage-accounts"></a>Blob 儲存體帳戶
-
-Blob 儲存體帳戶是專門的儲存體帳戶，用來儲存區塊 blob 和附加 blob。 您無法將分頁 blob 儲存在這些帳戶中，因此無法儲存 VHD 檔案。 這些帳戶允許您將存取層設定為經常性存取或非經常性存取；存取層可以隨時變更。
-
-經常性存取層用於經常存取的檔案 - 您需支付較高的儲存體成本，但存取 blob 的成本低很多。 對於非經常性存取層中儲存的 blob，您需支付較高的 blob 存取成本，但儲存體的成本低很多。
+如需有關儲存體帳戶類型的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](storage-account-overview.md)。 
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>存取您的 blob、檔案和佇列
 
@@ -161,16 +140,7 @@ SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Re
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>從 Azure 儲存體來回傳輸資料
 
-您可以使用 AzCopy 命令列公用程式，在儲存體帳戶內或跨儲存體帳戶複製 Blob 和檔案資料。 請參閱下列其中一篇文章中的說明：
-
-* [使用適用於 Windows 的 AzCopy 傳輸資料](storage-use-azcopy.md)
-* [使用適用於 Linux 的 AzCopy 傳輸資料](storage-use-azcopy-linux.md)
-
-AzCopy 建置於 [Azure 資料移動程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)之上，其目前可供預覽。
-
-Azure 匯入/匯出服務可用於從儲存體帳戶匯入或匯出大量 blob 資料。 您可準備多個硬碟並將其郵寄至 Azure 資料中心，這些硬碟會在其中從硬碟機傳入/傳出資料並將硬碟機傳送給您。 如需匯入/匯出服務的詳細資訊，請參閱 [使用 Microsoft Azure 匯入/匯出服務將資料傳輸至 Blob 儲存體](../storage-import-export-service.md)。
-
-若要以快速、便宜且可靠的方式，將大量 blob 資料匯入您的儲存體帳戶中，您也可以使用 Azure 資料箱磁碟。 Microsoft 會透過區域電訊廠商，將最多 5 個包含 40 TB 容量的加密固態硬碟 (SSD) 寄送至您的資料中心。 您可快速設定磁碟、透過 USB 連線將資料複製到磁碟，並將磁碟寄回 Azure。 在 Azure 資料中心內，您的資料會從磁碟自動上傳至雲端。 如需有關此解決方案的詳細資訊，請移至 [Azure 資料箱磁碟概觀](https://docs.microsoft.com/azure/databox/data-box-disk-overview)。
+您可以透過數個選項將資料移入或移出 Azure 儲存體。 應選擇哪個選項，取決於您的資料集大小和網路頻寬。 如需詳細資訊，請參閱[選擇適合資料轉送的 Azure 解決方案](storage-choose-data-transfer-solution.md)。
 
 ## <a name="pricing"></a>價格
 

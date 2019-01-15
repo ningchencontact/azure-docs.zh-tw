@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: dd6d25d05f59d9561eadb0b55d2a1ec528c27b56
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 4d35ab9df17055b798207aafd0e0bdf3b17426fb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753943"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188465"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>教學課程：使用 Event Grid 自動調整已上傳映像的大小
 
@@ -27,7 +27,7 @@ ms.locfileid: "53753943"
 
 您可以使用 Azure CLI 與 Azure 入口網站，將調整大小功能加入現有的映像上傳應用程式。
 
-![Edge 瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Microsoft Edge 瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 在本教學課程中，您了解如何：
 
@@ -170,8 +170,8 @@ az functionapp deployment source config --name <function_app> \
     | **訂閱者類型** |  自動產生 |  預先定義為 Web Hook。 |
     | **訂閱者端點** | 自動產生 | 使用為您產生的端點 URL。 | 
     | **名稱** | imageresizersub | 用以識別新事件訂閱的名稱。 | 
-
-4. 按一下 [建立] 以新增事件訂閱。 當 Blob 新增至 images 容器時，這會建立可觸發 `imageresizerfunc` 的事件訂閱。 此函式會調整映像大小，並將其新增至 *thumbnails* 容器。
+4. *選擇性：* 如果您需要在相同的 Blob 儲存體中建立其他容器供日後使用，您可以使用 [篩選] 索引標籤中的 [主旨篩選] 功能更精確地設定 Blob 事件的目標，以確保只有在 Blob 明確新增至**映像**容器時，才會呼叫您的函式應用程式。 
+5. 按一下 [建立] 以新增事件訂閱。 當 Blob 新增至 images 容器時，這會建立可觸發 `imageresizerfunc` 的事件訂閱。 此函式會調整映像大小，並將其新增至 *thumbnails* 容器。
 
 既然已設定了後端服務，您可以在範例 Web 應用程式中測試映像調整大小功能。 
 
@@ -183,7 +183,7 @@ az functionapp deployment source config --name <function_app> \
 
 請注意，上傳的映像消失之後，上傳映像的複本會顯示在 [產生縮圖] 浮動切換中。 此映像已由函式調整大小、新增至 *thumbnails* 容器，並由 Web 用戶端下載。
 
-![Edge 瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Microsoft Edge 瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## <a name="next-steps"></a>後續步驟
 

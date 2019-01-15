@@ -1,6 +1,6 @@
 ---
-title: 建立和自動執行第一個工作流程 - Azure Logic Apps | Microsoft Docs
-description: 說明如何建立第一個邏輯應用程式，以使用 Azure Logic Apps 自動執行工作、程序和工作流程的快速入門。 針對系統和雲端服務的系統整合和企業應用程式整合 (EAI) 解決方案，建立邏輯應用程式
+title: 快速入門 - 建立和自動執行第一個工作流程 - Azure Logic Apps | Microsoft Docs
+description: 建立第一個邏輯應用程式，以使用 Azure Logic Apps 自動執行工作、程序和工作流程。 針對系統和雲端服務的系統整合和企業應用程式整合 (EAI) 解決方案，建立邏輯應用程式
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: fe2ca48c1cab3789f2bb501eaf00aeb9cd866b8c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233679"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065183"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>快速入門：使用 Azure Logic Apps 建立第一個自動化工作流程 - Azure 入口網站
 
@@ -38,7 +38,7 @@ ms.locfileid: "50233679"
 
    ![建立邏輯應用程式](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. 在 [建立邏輯應用程式] 底下，提供有關邏輯應用程式的詳細資訊，如下所示。 完成之後，請選擇 [釘選到儀表板] > [建立]。
+3. 在 [建立邏輯應用程式] 底下，提供有關邏輯應用程式的詳細資訊，如下所示。 完成之後，請選擇 [建立]。
 
    ![提供邏輯應用程式詳細資料](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -61,9 +61,9 @@ ms.locfileid: "50233679"
 
 ## <a name="check-rss-feed-with-a-trigger"></a>使用觸發程序檢查 RSS 摘要
 
-1. 在設計工具的搜尋方塊中輸入 "rss"。 選取此觸發程序︰**RSS - 摘要項目發佈時**
+1. 在設計工具的搜尋方塊中輸入 "rss"。 選取此觸發程序：**RSS - 摘要項目發佈時**
 
-   ![選取觸發程序︰RSS - 摘要項目發佈時](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
+   ![選取觸發程序：「RSS - 摘要項目發佈時」](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
 
 2. 為您的觸發程序提供此資訊，如下所示和描述： 
 
@@ -91,13 +91,13 @@ ms.locfileid: "50233679"
 
 現在請新增一個[動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)，以在 RSS 摘要中出現新項目時傳送電子郵件。 
 
-1. 在 [摘要項目發佈時] 觸發程序下方，選擇 [+ 新增步驟] > [新增動作]。
+1. 在 [摘要項目發佈時] 觸發程序下方，選擇 [新增步驟]。
 
    ![新增動作](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. 在 [選擇動作] 下方，輸入「傳送電子郵件」作為篩選條件。 在動作清單中，為您想要的電子郵件提供者選取 [傳送電子郵件] 動作。 
+2. 在 [選擇動作] 下方的搜尋方塊中，輸入「傳送電子郵件」。 在搜尋方塊下方，選擇 [全部]。 在動作清單中，為您想要的電子郵件提供者選取 [傳送電子郵件] 動作。 
 
-   ![選取此動作：Office 365 Outlook - 傳送電子郵件](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+   ![選取此動作：「Office 365 Outlook - 傳送電子郵件」](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
    若要篩選特定應用程式或服務的動作清單，您可以先選取該應用程式或服務：
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ed3d21719908a4c16b92d610b8ac75ac0b235ec1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4a9ffdd9f81a7d46d3476f3395a4456dea6c0341
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968700"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156726"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>建立新的 Azure API 管理服務執行個體
 
@@ -69,12 +69,12 @@ ms.locfileid: "52968700"
 1. 在 Azure 入口網站中，選取 [所有服務]。
 2. 在搜尋方塊中輸入 `resource groups`，然後按一下結果。
 
-    ![資源群組瀏覽](./media/get-started-create-service-instance/00-DeleteResource-01.png)
+    ![資源群組導覽](./media/get-started-create-service-instance/00-DeleteResource-01.png)
 
 3. 找到您的資源群組並按一下。
 4. 按一下 [刪除資源群組]。
 
-    ![資源群組瀏覽](./media/get-started-create-service-instance/00-DeleteResource-02.png)
+    ![資源群組導覽](./media/get-started-create-service-instance/00-DeleteResource-02.png)
 
 5. 輸入您資源群組的名稱，以確認刪除。
 6. 按一下 [刪除] 。

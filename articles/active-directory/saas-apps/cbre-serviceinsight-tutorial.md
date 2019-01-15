@@ -1,33 +1,33 @@
 ---
-title: 教學課程：Azure Active Directory 與 RedBrick Health 整合 | Microsoft Docs
-description: 了解如何設定 Azure Active Directory 與 RedBrick Health 之間的單一登入。
+title: 教學課程：Azure Active Directory 與 CBRE ServiceInsight 整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 CBRE ServiceInsight 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 26290c65-9aa3-42ab-8ba5-901b14dc8e73
+ms.assetid: 31d7cedf-2b70-4fa4-9b05-80066d2e8bfd
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/3/2019
+ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: b757da1f218d446c56c318d91d3c9015ed08c967
+ms.openlocfilehash: cddd20f24ed8719e3d9b228dd2014bb894a3f141
 ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065455"
+ms.locfileid: "54067507"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>教學課程：Azure Active Directory 與 RedBrick Health 整合
+# <a name="tutorial-azure-active-directory-integration-with-cbre-serviceinsight"></a>教學課程：Azure Active Directory 與 CBRE ServiceInsight 整合
 
-在本教學課程中，您將了解如何整合 RedBrick Health 與 Azure Active Directory (Azure AD)。
-將 RedBrick Health 與 Azure AD 整合可提供下列優點：
+在本教學課程中，您將了解如何整合 CBRE ServiceInsight 與 Azure Active Directory (Azure AD)。
+CBRE ServiceInsight 與 Azure AD 整合可提供下列優點：
 
-* 您可以在 Azure AD 中控制可存取 RedBrick Health 的人員。
-* 您可以讓使用者使用其 Azure AD 帳戶自動登入 RedBrick Health (單一登入)。
+* 您可以在 Azure AD 中控制可存取 CBRE ServiceInsight 的人員。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 CBRE ServiceInsight (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -35,26 +35,23 @@ ms.locfileid: "54065455"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 RedBrick Health 整合，您需要下列項目：
+若要設定 Azure AD 與 CBRE ServiceInsight 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 已啟用 RedBrick Health 單一登入的訂用帳戶
+* 已啟用 CBRE ServiceInsight 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
+* CBRE ServiceInsight 支援由 **SP** 起始的 SSO
+* CBRE ServiceInsight 支援 **Just In Time** 使用者佈建
 
-* RedBrick Health 支援由 **IDP** 起始的 SSO
+## <a name="adding-cbre-serviceinsight-from-the-gallery"></a>從資源庫新增 CBRE ServiceInsight
 
+若要進行將 CBRE ServiceInsight 整合到 Azure AD 的設定，您必須從資源庫將 CBRE ServiceInsight 新增至受控 SaaS 應用程式清單。
 
-
-
-## <a name="adding-redbrick-health-from-the-gallery"></a>從資源庫新增 RedBrick Health
-
-若要設定將 RedBrick Health 整合到 Azure AD 中，您需要從資源庫將 RedBrick Health 新增到受控 SaaS 應用程式清單。
-
-**若要從資源庫新增 RedBrick Health，請執行下列步驟：**
+**若要從資源庫新增 CBRE ServiceInsight，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -68,31 +65,31 @@ ms.locfileid: "54065455"
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **RedBrick Health**，從結果面板中選取 [RedBrick Health]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中輸入 **CBRE ServiceInsight**，並從結果面板中選取 [CBRE ServiceInsight]，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![結果清單中的 RedBrick Health](common/search-new-app.png)
+     ![結果清單中的 CBRE ServiceInsight](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 RedBrick Health 搭配運作的 Azure AD 單一登入。
-若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 RedBrick Health 中相關使用者之間的連結關聯性。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 CBRE ServiceInsight 搭配運作的 Azure AD 單一登入。
+若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 CBRE ServiceInsight 中相關使用者之間的連結關聯性。
 
-若要使用 RedBrick Health 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 CBRE ServiceInsight 搭配運作的 Azure AD 單一登入，您必須完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[設定 RedBrick Health 單一登入](#configure-redbrick-health-single-sign-on)** - 在應用程式端設定單一登入設定。
+2. **[設定 CBRE ServiceInsight 單一登入](#configure-cbre-serviceinsight-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 RedBrick Health 測試使用者](#create-redbrick-health-test-user)** - 使 RedBrick Health 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+5. **[建立 CBRE ServiceInsight 測試使用者](#create-cbre-serviceinsight-test-user)** - 使 CBRE ServiceInsight 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 RedBrick Health 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要設定與 CBRE ServiceInsight 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [RedBrick Health] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 **CBRE ServiceInsight** 應用程式整合頁面上，選取 [單一登入]。
 
     ![設定單一登入連結](common/select-sso.png)
 
@@ -106,35 +103,23 @@ ms.locfileid: "54065455"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![RedBrick Health 網域和 URL 單一登入資訊](common/idp-relay.png)
+    ![CBRE ServiceInsight 網域和 URL 單一登入資訊](common/sp-signonurl.png)
 
-    a. 在 [識別碼] 文字方塊中，鍵入 URL：`https://www.redbrickhealth.com`
-
-    b. 在 [回覆 URL] 文字方塊中，輸入 URL：`https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
-
-    生產環境：`https://sso.redbrickhealth.com/sp/ACS.saml2`
-
-    c. 按一下 [設定額外的 URL]。
-
-    d. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL：`https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=<companyname>conn1`
+    在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://adfs4.mainstreamsasp.com/adfs/ls/`
 
     > [!NOTE]
-    > 轉送狀態的值不是真正的值。 請將這個值更新為實際的「轉送狀態」。 請連絡 [RedBrick Health 用戶端支援小組](https://home.redbrickhealth.com/contact/)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [CBRE ServiceInsight 用戶端支援小組](mailto:SISupport@cbre.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. RedBrick Health 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
+5. CBRE ServiceInsight 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
     ![映像](common/edit-attribute.png)
 
 6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
-    | 名稱 | 來源屬性|
-    | ---------------| --------------- | --------- |
-    | 主體名稱 | ********** |
-    | 用戶端識別碼 | ********** |
-    | 參與者識別碼 | ********** |
-
-    > [!NOTE]
-    > 這些值僅供參考之用。 您需要根據組織的需求定義屬性。 請連絡 [RedBrick Health 支援小組](https://home.redbrickhealth.com/contact/)，以取得必要宣告的詳細資訊。
+    | 名稱 |  來源屬性|
+    | ------------ | --------- |
+    | SSOCallerPhone | user.telephonenumber |
+    | | |
 
     a. 按一下 [新增宣告] 以開啟 [管理使用者宣告] 對話方塊。
 
@@ -154,23 +139,13 @@ ms.locfileid: "54065455"
 
     g. 按一下 [檔案] 。
 
-7. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
+7. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]，並將其儲存在您的電腦上。
 
-    ![憑證下載連結](common/certificatebase64.png)
+    ![憑證下載連結](common/copy-metadataurl.png)
 
-8. 在 [設定 RedBrick Health] 區段上，依據您的需求複製適當的 URL。
+### <a name="configure-cbre-serviceinsight-single-sign-on"></a>設定 CBRE ServiceInsight 單一登入
 
-    ![複製組態 URL](common/copy-configuration-urls.png)
-
-    a. 登入 URL
-
-    b. Azure AD 識別碼
-
-    c. 登出 URL
-
-### <a name="configure-redbrick-health-single-sign-on"></a>設定 RedBrick Health 單一登入
-
-若要設定 **RedBrick Health** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [RedBrick Health 支援小組](https://home.redbrickhealth.com/contact/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **CBRE ServiceInsight** 端設定單一登入，您必須將 [應用程式同盟中繼資料 URL] 傳送給 [CBRE ServiceInsight 支援小組](mailto:SISupport@cbre.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -199,15 +174,15 @@ ms.locfileid: "54065455"
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 RedBrick Health 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 CBRE ServiceInsight 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [RedBrick Health]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [CBRE ServiceInsight]。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [RedBrick Health]。
+2. 在應用程式清單中，選取 [CBRE ServiceInsight]。
 
-    ![應用程式清單中的 RedBrick Health 連結](common/all-applications.png)
+    ![應用程式清單中的 CBRE ServiceInsight 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -223,15 +198,15 @@ ms.locfileid: "54065455"
 
 7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
 
-### <a name="create-redbrick-health-test-user"></a>建立 RedBrick Health 測試使用者
+### <a name="create-cbre-serviceinsight-test-user"></a>建立 CBRE ServiceInsight 測試使用者
 
-在本節中，您會在 RedBrick Health 中建立名為 Britta Simon 的使用者。 請與  [RedBrick Health 支援小組](https://home.redbrickhealth.com/contact/)合作，在 RedBrick Health 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+本節會在 CBRE ServiceInsight 中建立名為 Britta Simon 的使用者。 CBRE ServiceInsight 支援依預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 如果 CBRE ServiceInsight 中還沒有使用者，當您嘗試存取 CBRE ServiceInsight 時，就會建立新的使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [RedBrick Health] 圖格時，應該會自動登入您已設定 SSO 的 RedBrick Health。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [CBRE ServiceInsight] 圖格時，應該會自動登入您已設定 SSO 的 CBRE ServiceInsight。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -240,4 +215,3 @@ ms.locfileid: "54065455"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

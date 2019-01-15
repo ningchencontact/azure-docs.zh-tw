@@ -6,14 +6,14 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/01/2018
+ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: ddecd640c8b005588e8aa552957ee455cad7ad74
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 39e5042d5116cba96fb3d378fbf42813d33c69c6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547044"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191015"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立 Azure Database for PostgreSQL
 Azure Database for PostgreSQL 是一個受控服務，可讓您在雲端執行、管理及調整高可用性 PostgreSQL 資料庫。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 本快速入門說明如何使用 Azure CLI 在 [Azure 資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)中建立 Azure Database for PostgreSQL 伺服器。
@@ -62,7 +62,7 @@ admin-password | *安全密碼* | 系統管理員使用者的密碼。 其必須
 
 
 sku-name 參數值會遵循慣例 {pricing tier}\_{compute generation}\_{vCores}，如下列範例所示：
-+ `--sku-name B_Gen4_4` 對應於基本、第 4 代和 4 個 vCore。
++ `--sku-name B_Gen4_1` 對應於基本、第 4 代和 1 個虛擬核心。
 + `--sku-name GP_Gen5_32` 對應於一般用途、第 5 代和 32 個 vCore。
 + `--sku-name MO_Gen5_2` 對應於記憶體最佳化、第 5 代和 2 個 vCore。
 
@@ -73,10 +73,9 @@ sku-name 參數值會遵循慣例 {pricing tier}\_{compute generation}\_{vCores}
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
-
-> [!IMPORTANT]
-> 必須要有您在此處指定的伺服器系統管理員登入與密碼，稍後在此快速入門中才能登入伺服器。 請記住或記錄此資訊，以供稍後使用。
-
+> [!NOTE]
+> 如果您的工作負載只需要輕量計算和 I/O，請考慮使用基本定價層。 請注意，在基本定價層中建立的伺服器後續無法調整為「一般用途」或「記憶體最佳化」。 如需詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/postgresql/)。
+> 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>設定伺服器層級防火牆規則
 

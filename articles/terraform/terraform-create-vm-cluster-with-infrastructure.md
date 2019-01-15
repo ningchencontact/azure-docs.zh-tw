@@ -4,17 +4,17 @@ description: 使用 Terraform 和 HashiCorp Configuration Language (HCL) 在 Azu
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, 虛擬機器, 網路, 模組
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2017
-ms.openlocfilehash: fffaf275a98791885b87ee8ffdc275e911b26341
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 9870eac87204f24993ab71e373dcab3a8ead3e89
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667595"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075331"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>以 Terraform 和 HCL 建立 VM 叢集
 
@@ -62,7 +62,7 @@ ms.locfileid: "43667595"
 
 6. 建立包含您 Terraform 變數值的新檔案。 常見的作法是將您的 Terraform 變數檔案命名為 `terraform.tfvars`，因為 Terraform 會自動載入目前目錄中名為 `terraform.tfvars` (或遵循 `*.auto.tfvars` 的模式) 的檔案 (若存在的話)。 
 
-7. 將下列程式碼複製到您的變數檔案。 請務必依下列方式取代預留位置：針對 `subscription_id`，請使用您執行 `az account set` 時所指定的 Azure 訂用帳戶識別碼。 針對 `tenant_id`，請使用 `az ad sp create-for-rbac` 所傳回的 `tenant` 值。 針對 `client_id`，請使用 `az ad sp create-for-rbac` 所傳回的 `appId` 值。 針對 `client_secret`，請使用 `az ad sp create-for-rbac` 所傳回的 `password` 值。
+7. 將下列程式碼複製到您的變數檔案。 請務必依照下列方式取代預留位置：針對 `subscription_id`，請使用您在執行 `az account set` 時所指定的 Azure 訂用帳戶識別碼。 針對 `tenant_id`，請使用 `az ad sp create-for-rbac` 所傳回的 `tenant` 值。 針對 `client_id`，請使用 `az ad sp create-for-rbac` 所傳回的 `appId` 值。 針對 `client_secret`，請使用 `az ad sp create-for-rbac` 所傳回的 `password` 值。
 
   ```tf
   subscription_id = "<azure-subscription-id>"

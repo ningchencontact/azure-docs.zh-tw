@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 316d2b4ebf0a9b0799e2bdcdfda1d517713f413f
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 21eb28611c1e40695356d502c262c23013591986
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277075"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117362"
 ---
-# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>快速入門：將資料從 Kafka 內嵌至 Azure 資料總管
+# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>快速入門：將資料從 Kafka 擷取至 Azure 資料總管
  
 Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管會提供從 Kafka 擷取資料 (資料載入) 的功能。 Kafka 是分散式串流平台，可用於建置即時串流資料管線，可靠地在系統或應用程式之間移動資料。 
  

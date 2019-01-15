@@ -6,27 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 10/30/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: f965d455b3ada48caabb80458d44e841329cf787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 874142df31d96de36b2b5be81a863c2f31317c52
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229606"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158035"
 ---
-# <a name="what-is-azure-data-box-disk-preview"></a>什麼是 Azure 資料箱磁碟？ (預覽)
+# <a name="what-is-azure-data-box-disk"></a>什麼是 Azure 資料箱磁碟？
 
 Microsoft Azure 資料箱磁碟解決方案可讓您以快速、實惠和可靠的方式，將數 TB 的內部部署資料傳送至 Azure。 安全的資料傳輸可透過寄送給您的 1 到 5 個固態硬碟 (SSD) 加速運作。 這些 8 TB 的加密磁碟會透過區域貨運公司傳送至您的資料中心。 
 
 您可以透過 Azure 入口網站中的資料箱服務快速設定、連接和解除鎖定這些磁碟。 請將資料複製到磁碟，然後將磁碟送回給 Azure。 在 Azure 資料中心內，您的資料會透過快速的私人網路上傳連結從磁碟機自動上傳至雲端。
-
-
-> [!IMPORTANT]
-> - 資料箱磁碟處於預覽狀態。 部署此解決方案之前，請先檢閱 [Azure 預覽版服務條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
-> - 您必須註冊此服務。 若要註冊，請移至[預覽版入口網站](https://aka.ms/azuredataboxfromdiskdocs)。
-> - 在預覽期間，資料箱磁碟可運送給美國與歐盟的客戶。 如需詳細資訊，請移至[區域可用性](#region-availability)。
 
 ## <a name="use-cases"></a>使用案例
 
@@ -95,7 +89,7 @@ Microsoft Azure 資料箱磁碟解決方案可讓您以快速、實惠和可靠�
 
 ## <a name="region-availability"></a>區域可用性
 
-在預覽期間，資料箱磁碟可將資料傳輸至下列 Azure 區域：
+目前，資料箱磁碟可將資料傳輸至下列 Azure 區域：
 
 
 |Azure 區域  |Azure 區域  |
@@ -112,7 +106,7 @@ Microsoft Azure 資料箱磁碟解決方案可讓您以快速、實惠和可靠�
 
 ## <a name="pricing"></a>價格
 
-如需定價的相關資訊，請移至[預覽定價頁面](https://azure.microsoft.com/pricing/details/storage/databox/disk/)。
+如需定價的相關資訊，請移至[定價頁面](https://azure.microsoft.com/pricing/details/storage/databox/disk/)。
 
 ## <a name="next-steps"></a>後續步驟
 

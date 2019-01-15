@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: quickstart
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 59469b6c27ceb0ed96659198edd6ddbca12685e2
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.date: 01/02/2019
+ms.author: assafi
+ms.openlocfilehash: 7c26117c9c36b3004df0d85b1a739fcebd9a1e4e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283956"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119402"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 C# 來呼叫文字分析認知服務
 <a name="HOLTop"></a>
@@ -28,7 +28,7 @@ ms.locfileid: "52283956"
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-您也必須具備在註冊時產生的[端點和存取金鑰](../How-tos/text-analytics-how-to-access-key.md)。 
+您也必須具備註冊時產生的[端點和存取金鑰](../How-tos/text-analytics-how-to-access-key.md)。
 
 
 ## <a name="install-the-nuget-sdk-package"></a>安裝 NuGet SDK 套件
@@ -49,7 +49,7 @@ ms.locfileid: "52283956"
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>使用 SDK 呼叫文字分析 API
 1. 將 Program.cs 取代為下面提供的程式碼。 此程式以 3 個區段 (語言擷取、關鍵片語擷取和情感分析) 示範文字分析 API 的功能。
 1. 以對您訂用帳戶有效的存取金鑰取代 `Ocp-Apim-Subscription-Key` 標頭值。
-1. 將 `Endpoint` 中的位置取代為您註冊的端點。 您可以在 Azure 入口網站資源中尋找端點。 端點通常會以 "https://[region].api.cognitive.microsoft.com" 開頭，在這裡，請只包含通訊協定和主機名稱。
+1. 將 `Endpoint` 中的位置取代為您註冊的端點。 您可以在 Azure 入口網站資源中尋找端點。 端點通常會以 "https://[region].api.cognitive.microsoft.com" 開頭，在此請僅包含通訊協定和主機名稱。
 1. 執行程式。
 
 ```csharp
@@ -68,13 +68,14 @@ namespace ConsoleApp1
     {
         /// <summary>
         /// Container for subscription credentials. Make sure to enter your valid key.
-        string subscriptionKey = ""; //Insert your Text Anaytics subscription key
+        private const string SubscriptionKey = ""; //Insert your Text Anaytics subscription key
+
         /// </summary>
         class ApiKeyServiceClientCredentials : ServiceClientCredentials
         {
             public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
             {
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
                 return base.ProcessHttpRequestAsync(request, cancellationToken);
             }
         }
@@ -104,7 +105,7 @@ namespace ConsoleApp1
             // Printing language results.
             foreach (var document in result.Documents)
             {
-                Console.WriteLine("Document ID: {0} , Language: {1}", document.Id, document.DetectedLanguages[0].Name);
+                Console.WriteLine($"Document ID: {document.Id} , Language: {document.DetectedLanguages[0].Name}");
             }
 
             // Getting key-phrases
@@ -122,13 +123,13 @@ namespace ConsoleApp1
             // Printing keyphrases
             foreach (var document in result2.Documents)
             {
-                Console.WriteLine("Document ID: {0} ", document.Id);
+                Console.WriteLine($"Document ID: {document.Id} ");
 
                 Console.WriteLine("\t Key phrases:");
 
                 foreach (string keyphrase in document.KeyPhrases)
                 {
-                    Console.WriteLine("\t\t" + keyphrase);
+                    Console.WriteLine($"\t\t{keyphrase}");
                 }
             }
 
@@ -149,14 +150,14 @@ namespace ConsoleApp1
             // Printing sentiment results
             foreach (var document in result3.Documents)
             {
-                Console.WriteLine("Document ID: {0} , Sentiment Score: {1:0.00}", document.Id, document.Score);
+                Console.WriteLine($"Document ID: {document.Id} , Sentiment Score: {document.Score:0.00}");
             }
 
 
             // Identify entities
             Console.WriteLine("\n\n===== ENTITIES ======");
 
-            EntitiesBatchResult result4 = client.EntitiesAsync(
+            EntitiesBatchResultV2dot1 result4 = client.EntitiesAsync(
                     new MultiLanguageBatchInput(
                         new List<MultiLanguageInput>()
                         {
@@ -166,13 +167,13 @@ namespace ConsoleApp1
             // Printing entities results
             foreach (var document in result4.Documents)
             {
-                Console.WriteLine("Document ID: {0} ", document.Id);
+                Console.WriteLine($"Document ID: {document.Id} ");
 
                 Console.WriteLine("\t Entities:");
 
-                foreach (EntityRecord entity in document.Entities)
+                foreach (EntityRecordV2dot1 entity in document.Entities)
                 {
-                    Console.WriteLine("\t\t" + entity.Name);
+                    Console.WriteLine($"\t\t{entity.Name}\t\t{entity.WikipediaUrl}\t\t{entity.Type}\t\t{entity.SubType}");
                 }
             }
 
@@ -187,8 +188,7 @@ namespace ConsoleApp1
 > [!div class="nextstepaction"]
 > [文字分析與 Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>另請參閱 
+## <a name="see-also"></a>另請參閱
 
- [文字分析概觀](../overview.md)  
- [常見問題集 (FAQ)](../text-analytics-resource-faq.md)
+ [文字分析概觀](../overview.md)[常見問題集 (FAQ)](../text-analytics-resource-faq.md)
 

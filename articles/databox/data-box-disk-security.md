@@ -6,21 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 07/10/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 569442f5dfdf96f03a95f7210bfe1ed7dc3af8de
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 569f89d389e4bc8c7f2d1f46f3713e9792d4e466
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091482"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159684"
 ---
-# <a name="azure-data-box-disk-security-and-data-protection-preview"></a>Azure 資料箱磁碟安全性和資料保護 (預覽)
+# <a name="azure-data-box-disk-security-and-data-protection"></a>Azure 資料箱磁碟安全性和資料保護
 
 本文說明 Azure 資料箱磁碟的安全性功能，這些功能可協助保護每個資料箱解決方案元件，以及這些元件中儲存的資料。 
-
-> [!IMPORTANT]
-> 資料箱磁碟處於預覽狀態。 部署這個解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="data-flow-through-components"></a>透過元件的資料流程
 

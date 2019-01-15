@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 12/11/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: f437f1fd61cfdaa4d2ff908f6e294fa0c679b9a5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 4320e56b04761c6adcae1db259eeecf332fbd781
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273047"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158783"
 ---
-# <a name="what-is-azure-data-box-disk-preview"></a>什麼是 Azure 資料箱磁碟？ (預覽)
+# <a name="what-is-azure-data-box-disk"></a>什麼是 Azure 資料箱磁碟？
 
 Microsoft Azure 資料箱磁碟雲端解決方案可讓您以快速、實惠和可靠的方式，將數 TB 的資料傳送至 Azure。 此常見問題集包含您在 Azure 入口網站中使用資料箱磁碟時可能遇到的問題及其解答。 
 
@@ -27,8 +27,6 @@ Microsoft Azure 資料箱磁碟雲端解決方案可讓您以快速、實惠和�
 - 移轉資料 
 - 確認和上傳資料 
 
-> [!IMPORTANT]
-> 資料箱磁碟處於預覽狀態。 部署此解決方案之前，請先檢閱 [Azure 預覽版服務條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="about-the-service"></a>關於此服務
 
@@ -44,19 +42,19 @@ A. Azure 資料箱磁碟可讓您快速、實惠且安全地將數 TB 的資料�
 A. 如果您有不超過 40 TB 的資料要傳輸至 Azure，則使用資料箱磁碟將有其效益。
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>問： 資料箱磁碟的價格為何？
-A. 如需資料箱磁碟價格的資訊，請移至[預覽定價頁面](https://azure.microsoft.com/pricing/details/storage/databox/disk/)。
+A. 如需資料箱磁碟價格的資訊，請移至[定價頁面](https://azure.microsoft.com/pricing/details/storage/databox/disk/)。
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>問： 如何取得資料箱磁碟？ 
-A.  若要取得 Azure 資料箱磁碟，請先註冊[資料箱磁碟預覽](https://aka.ms/AzureDataBox)。 接下來登入 Azure 入口網站，並建立磁碟的資料箱訂單。 請提供您的連絡資訊和通知詳細資料。 在您下訂單後，根據可用性，磁碟會在 10 天內寄送給您。   
+A.  若要取得 Azure 資料箱磁碟，請登入 Azure 入口網站，並建立磁碟的資料箱訂單。 請提供您的連絡資訊和通知詳細資料。 在您下訂單後，根據可用性，磁碟會在 10 天內寄送給您。
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-disks-in-one-instance"></a>問： 使用資料箱磁碟最多可在一個執行個體中傳輸多少資料量？
-A. 就各有 8 TB (可用容量為 7 TB) 的 5 個磁碟而言，可用容量上限為 35 TB。 因此，您可以在一個執行個體中傳輸 35 TB 的資料。  若要傳輸更多資料，您必須訂購更多磁碟。
+A. 就各有 8 TB (可用容量為 7 TB) 的 5 個磁碟而言，可用容量上限為 35 TB。 因此，您可以在一個執行個體中傳輸 35 TB 的資料。 若要傳輸更多資料，您必須訂購更多磁碟。
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>問： 如何確認在我的區域中是否適用資料箱磁碟？ 
-A.  在預覽階段期間，資料箱磁碟適用於美國、加拿大、澳大利亞和歐盟的所有國家/地區。  
+A.  資料箱磁碟目前適用於美國、加拿大、澳大利亞和歐盟的所有國家/地區。  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>問： 在哪些區域中可以使用資料箱磁碟來儲存資料？
-A. 在預覽期間，美國、加拿大、澳大利亞、西歐和北歐內的所有區域均支援資料箱磁碟。 只有 Azure 公用雲端區域受到支援。 Azure Government 或其他主權雲端不受支援。
+A. 美國、加拿大、澳大利亞、西歐和北歐內的所有區域均支援資料箱磁碟。 只有 Azure 公用雲端區域受到支援。 Azure Government 或其他主權雲端不受支援。
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>問： 如果遇到任何資料箱磁碟方面的問題，該與誰連絡？
 A. 如果您遇到任何資料箱磁碟方面的問題，請[連絡 Microsoft 支援服務](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support)。
@@ -64,7 +62,7 @@ A. 如果您遇到任何資料箱磁碟方面的問題，請[連絡 Microsoft �
 ## <a name="configure-and-connect"></a>設定和連線
  
 ### <a name="q-can-i-specify-the-number-of-data-box-disks-in-the-order"></a>問： 可以在訂單中指定資料箱磁碟的數目嗎？
-A.  否。 您會根據磁碟的資料大小和可用性取得 8 TB 磁碟 (最多 5 個磁碟)。  
+A.  沒有。 您會根據磁碟的資料大小和可用性取得 8 TB 磁碟 (最多 5 個磁碟)。  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>問： 如何將資料箱磁碟解除鎖定？ 
 A.  在 Azure 入口網站中，移至您的資料箱磁碟訂單，並瀏覽至 [裝置詳細資料]。 複製通行金鑰。 從 Azure 入口網站下載及擷取您作業系統適用的資料箱磁碟解鎖工具。 在有資料要複製到磁碟的電腦上執行此工具。 請提供用來將磁碟解除鎖定的通行金鑰。 所有磁碟均可用相同的通行金鑰解除鎖定。 
@@ -75,7 +73,7 @@ A.  在 Azure 入口網站中，移至您的資料箱磁碟訂單，並瀏覽至
 A.  是。 Linux 和 Windows 用戶端皆可用來連線至資料箱磁碟，並將資料複製到其中。 如需詳細資訊，請移至主機電腦[支援的作業系統](data-box-disk-system-requirements.md)清單。
 
 ### <a name="q-my-disks-are-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>問： 我的磁碟已派送，但現在我想要取消此訂單。 為何 [取消] 按鈕無法使用？
-A.  在訂購磁碟後，您只能在出貨之前取消訂單。 一旦磁碟已派送，您即無法取消訂單。 在預覽階段中，您可以免費送回磁碟，但在此解決方案正式推出後，此機制將可能有所變更。 
+A.  在訂購磁碟後，您只能在出貨之前取消訂單。 一旦磁碟已派送，您即無法取消訂單。 不過，您可以自費退回磁碟。 
 
 ### <a name="q-can-i-connect-multiple-data-box-disks-at-the-same-to-the-host-computer-to-transfer-data"></a>問： 是否可以同時將多個資料箱磁碟連線至主機電腦以傳輸資料？
 A. 是。 您可以將多個資料箱磁碟連線至相同的主機電腦以傳輸資料，並且可以平行執行多個複製作業。
@@ -91,10 +89,10 @@ A.  Microsoft 會在寄送包裹中提供隨附於資料箱磁碟的出貨標籤
 ## <a name="migrate-data"></a>移轉資料
 
 ### <a name="q-what-is-the-maximum-data-size-that-can-be-used-with-data-box-disks"></a>問： 資料箱磁碟可處理的資料大小上限為何？  
-A.  資料箱磁碟解決方案最多可以有 5 個磁碟，可用容量上限為 35 TB。 磁碟本身為 8 TB (可用容量為 7 TB)。 
+A.  資料箱磁碟解決方案最多可以有 5 個磁碟，可用容量上限為 35 TB。 磁碟本身為 8 TB (可用容量為 7 TB)。
 
 ### <a name="q-what-are-the-maximum-block-blob-and-page-blob-sizes-supported-by-data-box-disks"></a>問： 資料箱磁碟所支援的最大區塊 Blob 和分頁 Blob 大小為何？ 
-A.  大小上限由 Azure 儲存體限制所控管。 區塊 Blob 上限大約是 4.768 TiB，而分頁 Blob 大小上限為 8 TiB。 如需詳細資訊，請移至 [Azure 儲存體延展性和效能目標](../storage/common/storage-scalability-targets.md)。 
+A.  大小上限由 Azure 儲存體限制所控管。 區塊 Blob 上限大約是 4.768 TiB，而分頁 Blob 大小上限為 8 TiB。 如需詳細資訊，請移至 [Azure 儲存體延展性和效能目標](../storage/common/storage-scalability-targets.md)。
 
 ### <a name="q-what-is-the-data-transfer-speed-for-data-box-disks"></a>問： 資料箱磁碟的資料傳輸速度為何？
 A. 使用透過 USB 3.0 連線的磁碟進行測試時，磁碟效能可達 430 MB/s。 實際數字會隨使用的檔案大小而不同。 如果檔案較小，您可能會看到較低的效能。
@@ -103,7 +101,7 @@ A. 使用透過 USB 3.0 連線的磁碟進行測試時，磁碟效能可達 430 
 A.  資料箱磁碟會使用 BitLocker AES-128 位元加密進行加密，且通行金鑰只能在 Azure 入口網站中取得。 請使用您的帳戶認證登入 Azure 入口網站，以取得通行金鑰。 在執行資料箱磁碟解除鎖定工具時，必須提供此通行金鑰。
 
 ### <a name="q-how-do-i-copy-the-data-to-the-data-box-disks"></a>問： 如何將資料複製到資料箱磁碟？ 
-A.  使用 SMB 複製工具 (例如 Robocopy、Diskboss) 甚或 Windows 檔案總管的拖放功能，將資料複製到磁碟上。 
+A.  使用 SMB 複製工具 (例如 Robocopy、Diskboss) 甚或 Windows 檔案總管的拖放功能，將資料複製到磁碟上。
 
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>問： 是否有任何秘訣可加快複製資料的速度？
 A.  若要加快複製程序：
@@ -121,9 +119,19 @@ A.  若要加快複製程序：
 - 將其掛接到 VM。
 - 將檔案複製到 VM 的磁碟。
 
-
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>問： 是否可對資料箱磁碟使用多個儲存體帳戶？
-A.  否。 目前僅支援對資料箱磁碟使用一個儲存體帳戶 (一般或傳統)。 經常性存取和非經常性存取 Blob 均受支援。 在預覽期間，僅支援美國、西歐及北歐等區域位於 Azure 公用雲端中的儲存體帳戶。
+A.  沒有。 目前僅支援對資料箱磁碟使用一個儲存體帳戶 (一般或傳統)。 經常性存取和非經常性存取 Blob 均受支援。 目前僅支援美國、西歐及北歐等區域位於 Azure 公用雲端中的儲存體帳戶。
+
+### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>問： 可供我的資料使用的工具箱磁碟工具組是什麼？
+A. 資料箱磁碟隨附的工具組包含三項工具：
+ - **資料箱磁碟解除鎖定工具**：使用此工具可將 Microsoft 寄送的加密磁碟解除鎖定。 使用此工具將磁碟解除鎖定時，您必須提供可從 Azure 入口網站中的資料箱磁碟訂單取得的通行金鑰。 
+ - **資料箱磁碟驗證工具**：使用此工具可根據 Azure 命名慣例來驗證大小、格式和 Blob 名稱。 它也會為複製的資料產生總和檢查碼，後續可用來驗證上傳至 Azure 的資料。
+ - **資料箱磁碟分割複製工具**：如果您使用多個磁碟，且其中包含必須分割並複製到所有磁碟上的大型資料集，請使用此工具。 此工具目前適用於 Windows。
+
+工具組則同時適用於 Windows 和 Linux。 您可以從下列位置下載工具組：
+ - [下載適用於 Windows 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolswin) 
+ - [下載適用於 Linux 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolslinux)
+
 
 ## <a name="verify-and-upload"></a>確認和上傳
 
@@ -131,7 +139,7 @@ A.  否。 目前僅支援對資料箱磁碟使用一個儲存體帳戶 (一般�
 A.  當複製資料的訂單狀態顯示為完成時，您就應該能夠立即存取您的資料。
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>問： 我的資料在上傳後會存放於 Azure 的何處？
-A.  當您在磁碟上的 *BlockBlob* 和 *PageBlob* 資料夾下複製資料後，系統會在 Azure 儲存體帳戶中為 *BlockBlob* 和 *PageBlob* 資料夾下的每個子資料夾建立容器。 如果您直接複製 *BlockBlob* 和 *PageBlob* 資料夾下的檔案，這些檔案將會位於 Azure 儲存體帳戶下的預設容器 *$root* 中。 
+A.  當您在磁碟上的 *BlockBlob* 和 *PageBlob* 資料夾下複製資料後，系統會在 Azure 儲存體帳戶中為 *BlockBlob* 和 *PageBlob* 資料夾下的每個子資料夾建立容器。 如果您直接複製 *BlockBlob* 和 *PageBlob* 資料夾下的檔案，這些檔案將會位於 Azure 儲存體帳戶下的預設容器 *$root* 中。
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>問： 我剛剛發現我的容器並未遵循 Azure 命名需求。 我的資料會不會無法上傳至 Azure？
 A. 如果容器名稱包含大寫字母，這些字母會自動轉換為小寫。 如果名稱在其他方面不符合規範 (特殊字元、其他語言等等)，則會上傳失敗。 如需詳細資訊，請移至 [Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions)。
@@ -150,8 +158,6 @@ A. 是。 如果您決定要驗證資料 (建議您這麼做)，則必須在新�
 
 ### <a name="q-i-used-all-my-disks-to-transfer-data-and-need-to-order-more-disks-is-there-a-way-to-quickly-place-the-order"></a>問： 我所有的磁碟都已用來傳輸資料，且需要訂購更多磁碟。 有快速下訂單的方法嗎？
 A. 您可以複製您的上一筆訂單。 複製會建立與之前相同的訂單，因此您只需編輯訂單詳細資料即可，而不需要輸入地址、連絡人和通知詳細資料。 
-
-
 
 ## <a name="next-steps"></a>後續步驟
 

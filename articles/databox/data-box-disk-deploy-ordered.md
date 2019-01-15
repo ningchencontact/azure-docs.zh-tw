@@ -6,41 +6,46 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567446"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156166"
 ---
-# <a name="tutorial-order-an-azure-data-box-disk-preview"></a>教學課程：訂購 Azure 資料箱磁碟 (預覽)
+# <a name="tutorial-order-an-azure-data-box-disk"></a>教學課程：訂購 Azure 資料箱磁碟
 
 Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速、簡便而可靠的方式，將內部部署資料匯入 Azure 中。 您可以將資料傳輸至由 Microsoft 提供的固態硬碟 (SSD)，並將磁碟寄回。 這項資料隨後會上傳至 Azure。
 
 本教學課程說明如何訂購 Azure 資料箱磁碟。 在本教學課程中，您會了解：
 
 > [!div class="checklist"]
-> * 註冊資料箱磁碟
 > * 訂購資料箱磁碟
 > * 追蹤訂單狀態
 > * 取消訂單
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+## <a name="prerequisites"></a>必要條件
 
-> [!IMPORTANT]
-> - 資料箱磁碟處於預覽狀態。 部署訂購並部署此解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
-> - 在預覽期間，資料箱磁碟可運送給美國、西歐和北歐、加拿大及澳大利亞的客戶。 如需詳細資訊，請移至[區域可用性](data-box-disk-overview.md#region-availability)。
+在您部署之前，請先完成資料箱服務與資料相磁碟的下列組態必要條件。
 
-## <a name="sign-up"></a>註冊
+### <a name="for-service"></a>針對服務
 
-資料箱磁碟處於預覽狀態，您必須註冊以取得服務。 請執行下列步驟以註冊資料箱服務︰
+在您開始前，請確定：
+- 您擁有的 Microsoft Azure 儲存體帳戶具有存取認證。
+- 請確定您用於資料箱服務的訂用帳戶是下列其中一種類型：
+    - Microsoft Enterprise 合約 (EA)。 深入了解 [EA 訂用帳戶](https://azure.microsoft.com/pricing/enterprise-agreement/)。
+    - 雲端解決方案提供者 (CSP)。 深入了解 [Azure CSP 方案](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)。
+- 請確定您有訂用帳戶的擁有者或參與者存取權，才能建立資料箱訂單。
 
-1. 登入 Azure 入口網站：[https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs)。
-2. 挑選您要用來啟用預覽版的訂用帳戶。 回答關於資料大小、資料所在國家/地區、時間範圍和資料傳輸頻率的問題。 按一下 [我要註冊!]。
-3. 在註冊並啟用預覽後，即可訂購資料箱磁碟。
+### <a name="for-device"></a>針對裝置
+
+在您開始前，請確定：
+- 您有一部用戶端電腦可用來複製資料。 您的用戶端電腦必須：
+    - 執行[支援的作業系統](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)。
+    - 安裝其他[必要軟體](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) (如果是 Windows 用戶端)。  
 
 ## <a name="order-data-box-disk"></a>訂購資料箱磁碟
 
@@ -72,7 +77,7 @@ Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速�
 
     |設定|值|
     |---|---|
-    |名稱|提供用來追蹤訂單的易記名稱。<br> 名稱長度可介於 3 到 24 個字元之間，且可以是字母、數字和連字號。 <br> 名稱必須以字母或數字為開頭或結尾。 |
+    |Name|提供用來追蹤訂單的易記名稱。<br> 名稱長度可介於 3 到 24 個字元之間，且可以是字母、數字和連字號。 <br> 名稱必須以字母或數字為開頭或結尾。 |
     |資源群組| 使用現有的群組或建立新群組。 <br> 資源群組是適用於資源而可一併管理或部署的邏輯容器： |
     |目的地 Azure 區域| 選取儲存體帳戶的區域。<br> 目前支援全美國、西歐和北歐、加拿大及澳大利亞地區的儲存體帳戶。 |
     |儲存體帳戶|根據指定的 Azure 區域，從現有儲存體帳戶的篩選清單中進行選取。 <br>您也可以建立新的一般用途 v1 或一般用途 v2 帳戶。 |
@@ -97,7 +102,7 @@ Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速�
  
 ## <a name="track-the-order"></a>追蹤訂單狀態
 
-在您下訂單之後，您可以從 Azure 預覽入口網站來追蹤訂單狀態。 請移至您的訂單，然後移至 [概觀] 以檢視狀態。 入口網站會顯示處於 [已訂購] 狀態的作業。 
+在您下訂單之後，可以從 Azure 入口網站來追蹤訂單狀態。 請移至您的訂單，然後移至 [概觀] 以檢視狀態。 入口網站會顯示處於 [已訂購] 狀態的作業。 
 
 ![已訂購的資料箱磁碟狀態](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -111,17 +116,15 @@ Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速�
 
 接著，Microsoft 會準備磁碟，並透過區域貨運公司派送給您。 在磁碟送達後，您會收到追蹤號碼。 入口網站會顯示訂單處於 [已分派] 狀態。
 
-
-
 ## <a name="cancel-the-order"></a>取消訂單
 
-若要取消此訂單，請在 Azure 預覽入口網站中移至 [概觀]，然後從命令列按一下 [取消]。 
+若要取消此訂單，請在 Azure 入口網站中移至 [概觀]，然後從命令列按一下 [取消]。 
 
 在訂購磁碟後，您只能在訂單仍在進行出貨處理時取消訂單。 一旦訂單已處理完畢，您即無法取消訂單。 
 
 ![取消訂單](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
-若要刪除已取消的訂單，請移至 [概觀]，然後從命令列按一下 [刪除]。 
+若要刪除已取消的訂單，請移至 [概觀]，然後從命令列按一下 [刪除]。
 
 
 ## <a name="next-steps"></a>後續步驟
@@ -129,7 +132,6 @@ Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速�
 在本教學課程中，您已了解 Azure 資料箱的相關主題，像是：
 
 > [!div class="checklist"]
-> * 註冊資料箱磁碟
 > * 訂購資料箱磁碟
 > * 追蹤訂單狀態
 > * 取消訂單

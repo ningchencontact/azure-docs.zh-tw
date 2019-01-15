@@ -4,17 +4,17 @@ description: 了解如何在 Visual Studio Code 中安裝和使用 Azure Terrafo
 services: terraform
 ms.service: terraform
 keywords: terraform, azure, devops, visual studio code, 擴充功能
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: be0140606302335884d62ba60c875a049949b495
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 137a57638207a05f797692b25a5d5a31bd66ce3d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353045"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074575"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>安裝和使用 Azure Terraform Visual Studio Code 擴充功能
 
@@ -27,11 +27,11 @@ Microsoft Azure Terraform Visual Studio Code 擴充功能，旨在讓開發人�
 > * 使用 Visual Studio Code 來撰寫、規劃及執行 Terraform 方案。
 
 ## <a name="prerequisites"></a>必要條件
-- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
 
 - **Terraform**：[安裝及設定 Terraform](/azure/virtual-machines/linux/terraform-install-configure)。
 
-- **Visual Studio Code**：安裝適合您環境的 [Visual Studio Code](https://code.visualstudio.com/download) (英文) 版本。
+- **Visual Studio Code**：安裝您的環境適用的 [Visual Studio Code](https://code.visualstudio.com/download) 版本。
 
 ## <a name="prepare-your-dev-environment"></a>準備您的開發環境
 
@@ -95,7 +95,7 @@ Azure Terraform 延伸模組將會出現在已安裝的延伸模組清單中。
 
 您現在可以從 Visual Studio Code，在您的 Cloud Shell 環境中執行所有支援的 Terraform 命令。
 
-## <a name="exercise-1-basic-terraform-commands-walk-through"></a>練習 1: 基本 Terraform 命令逐步解說
+## <a name="exercise-1-basic-terraform-commands-walk-through"></a>練習 1：基本 Terraform 命令逐步解說
 
 在此練習中，您會建立及執行基本 Terraform 設定檔，此設定檔會佈建新的 Azure 資源群組。
 
@@ -138,7 +138,7 @@ Azure Terraform 延伸模組將會出現在已安裝的延伸模組清單中。
 
     ![main.tf 檔案](media/terraform-vscode-extension/tf-main-tf.png)
 
-1. 從功能表列，選取 [檢視] > [命令選擇區...] > [Azure Terraform：初始化]。
+1. 從功能表列中選取 [檢視] > [命令選擇區...] > [Azure Terraform：**初始化]**。
 
 1. 要求您確認時，請選取 [確定]。
 
@@ -173,7 +173,7 @@ Azure Terraform 延伸模組將會出現在已安裝的延伸模組清單中。
 
 在此教學課程稍早，您已安裝 GraphViz。 Terraform 可以使用 GraphViz 來產生設定或執行計畫的視覺表示。 Azure Terraform Visual Studio Code 擴充功能會透過 visualize 命令來實作此功能。
 
-- 從功能表列，選取 [檢視] > [命令選擇區] > [Azure Terraform：視覺化]。
+- 從功能表列中選取 [檢視] > [命令選擇區] > [Azure Terraform：**視覺化]**。
 
     ![將方案視覺化](media/terraform-vscode-extension/tf-graph.png)
 
@@ -196,7 +196,7 @@ Terraform *plan* 命令是用來檢查變更集的執行計畫是否會執行您
 
     ![Terraform apply](media/terraform-vscode-extension/tf-terraform-apply.png)
 
-1. 輸入 `yes`。
+1. 輸入 `yes` 。
 
     ![Terraform 套用 > 是](media/terraform-vscode-extension/tf-terraform-apply-yes.png)
 
@@ -270,7 +270,7 @@ Terraform *plan* 命令是用來檢查變更集的執行計畫是否會執行您
 
 ### <a name="module-test-lint"></a>模組清單：*lint*
 
-1. 請從功能表列，選取 [檢視] > [命令選擇區] > [Azure Terraform：執行測試]。
+1. 從功能表列中選取 [檢視] > [命令選擇區] > [Azure Terraform：**執行測試]**。
 
 1. 從測試類型選項清單，選取 [lint]。
 
@@ -289,7 +289,7 @@ Terraform *plan* 命令是用來檢查變更集的執行計畫是否會執行您
 
 ### <a name="module-test-end-to-end"></a>模組測試：*端對端*
 
-1. 請從功能表列，選取 [檢視] > [命令選擇區] > [Azure Terraform：執行測試]。
+1. 從功能表列中選取 [檢視] > [命令選擇區] > [Azure Terraform：**執行測試]**。
 
 1. 從測試類型選項清單，選取 [端對端]。
 

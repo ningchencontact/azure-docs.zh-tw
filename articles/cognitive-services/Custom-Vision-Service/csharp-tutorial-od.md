@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: 1ffe75b088b3e6db5717746ab2fc00ef4b350e8b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14123c316b2881c2ded36a5e30ce62a961183991
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971864"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079148"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>快速入門：使用自訂視覺 .NET SDK 建立物件偵測專案
 
@@ -42,6 +42,10 @@ ms.locfileid: "53971864"
 開啟 _Program.cs_ 檔案，並檢查程式碼。 在 **Main** 方法的適當定義中插入您的訂用帳戶金鑰。
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=18-27)]
+
+端點參數應指向包含自訂視覺資源的 Azure 資源群組建立所在的區域。 此範例中我們會假設在美國中南部區域，並使用：
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
 
 ### <a name="create-a-new-custom-vision-service-project"></a>建立新的自訂視覺服務專案
 

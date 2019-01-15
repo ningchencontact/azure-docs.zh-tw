@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 515ab6a4ee832c702cfe19f2aca9022f208b409d
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 15940d952dad62b3f71bfef6aa1cd8598d044605
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612783"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104721"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立及部署 Azure Resource Manager 範本
 
@@ -97,7 +97,7 @@ Azure 會要求每個 Azure 服務都必須有唯一名稱。 如果您輸入已
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "location": {
@@ -146,8 +146,8 @@ Azure 會要求每個 Azure 服務都必須有唯一名稱。 如果您輸入已
     - **位置**：選取資源群組的位置。
     - **位置**：選取儲存體帳戶的位置。  您可以使用與資源群組相同的位置。
     - **帳戶類型**：在本快速入門中請輸入 **Standard_LRS**。
-    - **種類**：在本快速入門中輸入 **StorageV2**。
-    - **存取層**：在本快速入門中輸入 **Hot**。
+    - **種類**：在本快速入門中請輸入 **StorageV2**。
+    - **存取層**：在本快速入門中請輸入 **Hot**。
     - **僅啟用 HTTPS 流量**。  在本快速入門中請選取 **true**。
     - **我同意上方所述的條款及條件**：(選取)
 
@@ -164,7 +164,7 @@ Azure 會要求每個 Azure 服務都必須有唯一名稱。 如果您輸入已
 
     ![Azure Resource Manager 範本部署資源群組](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
 
-    您可以看到部署狀態為成功，且資源群組中只有一個儲存體帳戶。 儲存體帳戶名稱是範本所產生的唯一字串。 若要深入了解如何使用 Azure 儲存體帳戶，請參閱[快速入門：使用 Azure 入口網站上傳、下載及列出 Blob](../storage/blobs/storage-quickstart-blobs-portal.md)。
+    您可以看到部署狀態為成功，且資源群組中只有一個儲存體帳戶。 儲存體帳戶名稱是範本所產生的唯一字串。 若要深入了解使用 Azure 儲存體帳戶的相關資訊，請參閱[快速入門：使用 Azure 入口網站上傳、下載及列出 Blob](../storage/blobs/storage-quickstart-blobs-portal.md)。
 
 ## <a name="clean-up-resources"></a>清除資源
 

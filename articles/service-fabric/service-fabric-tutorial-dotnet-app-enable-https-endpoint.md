@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4333a234efe96f32541254819c9c5f21bb031757
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2e631a0605385f8d55c652a26739b23a0945674f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115071"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077245"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教學課程：使用 Kestrel 將 HTTPS 端點新增至 ASP.NET Core Web API 前端服務
 
@@ -54,10 +54,10 @@ ms.locfileid: "49115071"
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>取得憑證或建立自我簽署的開發憑證
 
-對於生產應用程式，使用[憑證授權單位 (CA)](https://wikipedia.org/wiki/Certificate_authority) 提供的憑證。 基於開發和測試目的，您可以建立和使用自我簽署憑證。 Service Fabric SDK 會提供 CertSetup.ps1指令碼，該指令碼可建立自我簽署的憑證並將它匯入到 `Cert:\LocalMachine\My` 憑證存放區中。 以系統管理員身分開啟命令提示字元，然後執行下列命令來建立主體為 "CN=localhost" 的憑證：
+對於生產應用程式，使用[憑證授權單位 (CA)](https://wikipedia.org/wiki/Certificate_authority) 提供的憑證。 基於開發和測試目的，您可以建立和使用自我簽署憑證。 Service Fabric SDK 會提供 CertSetup.ps1指令碼，該指令碼可建立自我簽署的憑證並將它匯入到 `Cert:\LocalMachine\My` 憑證存放區中。 以系統管理員身分開啟命令提示字元，然後執行下列命令以建立主體為 "CN=mytestcert" 的憑證：
 
 ```powershell
-PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost
+PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=mytestcert
 ```
 
 如果您已經有憑證 PFX 檔案，請執行下列命令，將憑證匯入 `Cert:\LocalMachine\My` 憑證存放區：
@@ -158,7 +158,7 @@ serviceContext =>
         }))
 ```
 
-此外，新增下列方法，以便 Kestrel 在 `Cert:\LocalMachine\My` 存放區中使用主體來尋找憑證。  如果您使用上一個 PowerShell 命令建立了自我簽署的憑證，則以 "localhost" 取代 "&lt;your_CN_value&gt;"，或使用您憑證的 CN。
+此外，新增下列方法，以便 Kestrel 在 `Cert:\LocalMachine\My` 存放區中使用主體來尋找憑證。  如果您使用上一個 PowerShell 命令建立了自我簽署的憑證，請將 "&lt;your_CN_value&gt;" 取代為 "mytestcert"，或使用您憑證的 CN。
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -238,7 +238,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 在 [方案總管] 中，以滑鼠右鍵按一下 **VotingWeb**，選取 [新增]-> [新項目]，然後新增名為 "SetCertAccess.ps1" 的檔案。  編輯 SetCertAccess.ps1 檔案，然後新增下列指令碼：
 
 ```powershell
-$subject="localhost"
+$subject="mytestcert"
 $userGroup="NETWORK SERVICE"
 
 Write-Host "Checking permissions to certificate $subject.." -ForegroundColor DarkCyan
@@ -349,7 +349,7 @@ if ($cert -eq $null)
 
 將應用程式部署至 Azure 之前，將憑證安裝到遠端叢集節點的 `Cert:\LocalMachine\My` 存放區中。  當前端 Web 服務在叢集節點上啟動時，啟動指令碼會查閱憑證並設定存取權限。
 
-首先，將憑證匯出至 PFX 檔案。 開啟 certlm.msc 應用程式，並巡覽至 **Personal**>**Certificates**。  在 localhost 憑證上按一下滑鼠右鍵，然後選取 [所有工作]>[匯出]。
+首先，將憑證匯出至 PFX 檔案。 開啟 certlm.msc 應用程式，並巡覽至 **Personal**>**Certificates**。  以滑鼠右鍵按一下 mytestcert，然後選取 [所有工作]>[匯出]。
 
 ![匯出憑證][image4]
 

@@ -4,17 +4,17 @@ description: 教學課程說明如何以 Azure Kubernetes Service 和 Terraform 
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, 虛擬機器, Azure, kubernetes
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: d723eea6fff54b3a2f90478fcb209df76a6a776e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3ccba82e626882a99deaca2f12be3d2f96869b81
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872912"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078944"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>以 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集
 [Azure Kubernetes Service (AKS)](/azure/aks/) 可以管理裝載 Kubernetes 的環境；因此，您不需具備容器協調流程專業知識，就能快速、輕鬆地部署及管理容器化應用程式。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。
@@ -28,7 +28,7 @@ ms.locfileid: "52872912"
 
 ## <a name="prerequisites"></a>必要條件
 
-- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
 
 - **設定 Terraform**：請遵循 [Terraform 和設定 Azure 的存取](/azure/virtual-machines/linux/terraform-install-configure)一文中的指示
 

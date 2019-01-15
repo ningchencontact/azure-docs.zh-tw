@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 60ecf08d7f0c40a04472b3e2bf5ef739e51c32e8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2af1ad35ee5f7548352180026f1d613d27b6af46
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794425"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103489"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>設定 Azure VM 到次要 Azure 區域的災害復原
 
@@ -43,7 +43,7 @@ ms.locfileid: "53794425"
 在來源區域以外的任何區域中建立保存庫。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com) > [復原服務]。
-2. 按一下 [建立群組] > [監視和管理] > [備份和 Site Recovery]。
+2. 按一下 [建立資源] > [管理工具] > [備份和 Site Recovery]。
 3. 在 [名稱] 中，指定保存庫的易記識別名稱。 如果您有多個訂用帳戶，請選取適當的一個。
 4. 建立資源群組，或選取現有的資源群組。 指定 Azure 區域。 若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](https://azure.microsoft.com/pricing/details/site-recovery/)。
 5. 若要從儀表板快速存取保存庫，請按一下 [釘選到儀表板]，然後按一下 [建立]。
@@ -172,7 +172,8 @@ Site Recovery 會設定目標區域的預設設定和複寫原則。 您可以�
 
 5. 如果您想要將 VM 新增至新的或現有的複寫群組，請在 [自訂] 中的多部 VM 一致性上選取 [是]。 好讓 VM 成為複寫群組的一部分。 然後按一下 [確定] 。
 
-    - 在容錯移轉時，複寫群組中的所有機器都會共用當機時保持一致和應用程式一致復原點。 啟用多部 VM 一致性可能會影響工作負載的效能，應該只用於機器正在執行相同工作負載，且您需要多部機器之間具有一致性的情況。
+    - 在容錯移轉時，複寫群組中的所有機器都會共用當機時保持一致和應用程式一致復原點。 啟用多部 VM 一致性可能會影響工作負載的效能 (因為這需要使用大量 CPU)，應該只用於機器正在執行相同工作負載，且您需要多部機器之間具有一致性的情況。
+    - 您最多可選擇在一個複寫群組中設置 16 個虛擬機器。
     - 如果您啟用多部 VM 一致性，則複寫群組中的機器會透過連接埠 20004 彼此通訊。 請確定並沒有防火牆應用裝置封鎖了 VM 之間透過連接埠 20004 進行的內部通訊。 如果您想要讓 Linux VM 成為複寫群組的一部分，請確定已根據特定 Linux 版本的指引手動開啟連接埠 20004上 的輸出流量。
 
 ### <a name="configure-encryption-settings"></a>加密設定

@@ -1,6 +1,6 @@
 ---
 title: 手動設定混合式 Azure Active Directory 已加入裝置 | Microsoft Docs
-description: 了解如何手動設定混合式 Azure Active Directory 已加入裝置。
+description: 了解如何手動設定已加入混合式 Azure Active Directory 的裝置。
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -16,28 +16,25 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c85d3ce6ab3e84d454ddbc2550f430b87705c192
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1b25484dc536fd75b261e595332c0d92ae6cb40a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622171"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118501"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>教學課程：手動設定混合式 Azure Active Directory 已加入裝置 
+# <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>教學課程：手動設定已加入混合式 Azure Active Directory 的裝置 
 
-使用 Azure Active Directory (Azure AD) 中的裝置管理，您可以確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。 如需詳細資料，請參閱 [Azure Active Directory 中的裝置管理簡介](overview.md)。
+使用 Azure Active Directory (Azure AD) 中的裝置管理，可確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。 如需詳細資訊，請參閱 [Azure Active Directory 中的裝置管理簡介](overview.md)。
 
 
 > [!TIP]
-> 如果使用 Azure AD Connect 是您可使用的選項，請參閱[選取您的案例](hybrid-azuread-join-plan.md#select-your-scenario)。 使用 Azure AD Connect，您可以大幅簡化混合式 Azure AD Join 的設定。
+> 如果使用 Azure AD Connect 是您可使用的選項，請參閱[選取您的案例](hybrid-azuread-join-plan.md#select-your-scenario)。 使用 Azure AD Connect，可簡化混合式 Azure AD Join 的設定。
 
-
-
-如果您有內部部署 Active Directory 環境，而且您想要將加入網域的裝置加入 Azure AD，您可以藉由設定混合式 Azure AD 已加入裝置來完成。 在本教學課程中，您將了解如何手動為您的裝置設定混合式 Azure AD Join。
+如果您有內部部署 Active Directory 環境，而且您想要將加入網域的裝置加入 Azure AD，您可以藉由設定混合式 Azure AD 已加入裝置來完成。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 必要條件
-> * 組態步驟
+> * 手動設定混合式 Azure AD Join
 > * 設定服務連接點
 > * 設定宣告的發行
 > * 啟用舊版 Windows 裝置
@@ -52,50 +49,43 @@ ms.locfileid: "51622171"
 
 本教學課程假設您已熟悉：
     
--  [Azure Active Directory 中的裝置管理簡介](../device-management-introduction.md)
-    
--  [如何規劃混合式 Azure Active Directory Join 實作](hybrid-azuread-join-plan.md)
-
--  [如何控制裝置的混合式 Azure AD Join](hybrid-azuread-join-control.md)
+-  [Azure Active Directory 中的裝置管理簡介](../device-management-introduction.md)    
+-  [規劃混合式 Azure Active Directory Join 實作](hybrid-azuread-join-plan.md)
+-  [控制裝置的混合式 Azure AD 聯結](hybrid-azuread-join-control.md)
 
 
-開始在組織中啟用混合式 Azure AD 已加入裝置之前，您必須先確定：
+開始在組織中啟用已加入混合式 Azure AD 的裝置之前，請先確定：
 
 - 您執行的是最新版的 Azure AD Connect。
-
 - Azure AD Connect 已將您要加入混合式 Azure AD 之裝置的電腦物件同步處理至 Azure AD。 如果電腦物件屬於特定組織單位 (OU)，則您也必須在 Azure AD Connect 中設定這些 OU 的同步處理。
 
   
 
 Azure AD Connect：
 
-- 保持內部部署 Active Directory (AD) 中的電腦帳戶和 Azure AD 中的裝置物件之間的關聯。 
+- 保持內部部署 Active Directory 執行個體中的電腦帳戶和 Azure AD 中的裝置物件之間的關聯。 
 - 啟用其他裝置相關功能，例如 Windows Hello 企業版。
 
 請確定下列 URL 可從組織網路內的電腦存取，以將電腦註冊至 Azure AD：
 
 - https://enterpriseregistration.windows.net
-
-- https://login.microsoftonline.com 允許
+- https://login.microsoftonline.com
 - https://device.login.microsoftonline.com
+- 使用者的本機內部網路設定中應包含的組織 STS (適用於同盟網域)
 
-- 組織的 STS (同盟網域)
-
-如果尚未完成，使用者的本機內部網路設定中應該包括組織的 STS (適用於同盟網域)。
-
-如果您的組織打算使用隨選即用 SSO，那麼您必須能從組織內部的電腦連線到下列 URL，也必須將其新增至使用者的本機內部網路區域：
+如果您的組織打算使用無縫 SSO，則下列 URL 必須能夠從組織內部的電腦連線。 此 URL 也必須新增至使用者的近端內部網路區域。
 
 - https://autologon.microsoftazuread-sso.com
 
-- 此外，請在使用者的內部網路區域啟用下列設定：[允許透過指令碼更新狀態列]。
+此外，請在使用者的內部網路區域啟用下列設定：「允許透過指令碼更新狀態列」。
 
-如果您的組織以內部部署 AD 使用受控 (非同盟) 設定，而不是使用 ADFS 與 Azure AD 同盟，則在 Windows 10 上的混合式 Azure AD，就要靠 AD 中的電腦物件與 Azure AD 同步才能加入。 若要在 Azure AD Connect 同步處理組態中進行同步，請確定已啟用其中包含需要加入混合式 Azure AD 電腦物件的任何組織單位 (OU)。
+如果您的組織以內部部署 Active Directory 使用受控 (非同盟) 設定，而不是使用 Active Directory 同盟服務 (AD FS) 與 Azure AD 同盟，則在 Windows 10 上的混合式 Azure AD Join 就必須倚賴 Active Directory 中的電腦物件，才能同步至 Azure AD。 請確定任何 OU 只要包含需要加入混合式 Azure AD 的電腦物件，均已完成啟用，以在 Azure AD Connect 同步組態中進行同步。
 
-針對 Windows 10 1703 版或更早版本的裝置，如果組織需要透過輸出 Proxy 存取網際網路，您就必須實作 Web Proxy 自動探索 (WPAD)，以在 Azure AD 中註冊 Windows 10 電腦。 
+對於 1703 版或更早版本的 Windows 10 裝置，如果組織需要透過輸出 Proxy 存取網際網路，您就必須實作 Web Proxy 自動探索 (WPAD)，以在 Azure AD 中註冊 Windows 10 電腦。 
 
-從 Windows 10 1803 起，即使同盟網域中使用 AD FS 的裝置混嘗試合式 Azure AD 聯結失敗，而且如果 Azure AD Connect 已設定為要將電腦/裝置物件同步處理至 Azure AD，則此裝置會使用已同步處理的電腦/裝置來嘗試完成混合式 Azure AD 聯結。
+自 Windows 10 1803 起，即使同盟網域中的裝置嘗試透過 AD FS 進行混合式 Azure AD Join 失敗，且 Azure AD Connect 已設定為要將電腦/裝置物件同步至 Azure AD，裝置仍會嘗試使用已同步的電腦/裝置來完成混合式 Azure AD Join。
 
-## <a name="configuration-steps"></a>組態步驟
+## <a name="verify-configuration-steps"></a>驗證設定步驟
 
 您可以設定混合式 Azure AD 已加入裝置，以用於各種類型的 Windows 裝置平台。 本主題包含所有一般組態案例所需的步驟。  
 
@@ -112,9 +102,9 @@ Azure AD Connect：
 
 
 
-## <a name="configure-service-connection-point"></a>設定服務連接點
+## <a name="configure-a-service-connection-point"></a>設定服務連接點
 
-您的裝置會在註冊期間使用服務連接點 (SCP) 物件來探索 Azure AD 租用戶資訊。 在內部部署 Active Directory (AD) 中，用於混合式 Azure AD 已加入裝置的 SCP 物件必須存在於電腦樹系的組態命名內容資料分割中。 每個樹系只有一個組態命名內容。 在多樹系 Active Directory 組態中，服務連接點必須存在於包含已加入網域電腦的所有樹系中。
+您的裝置會在註冊期間使用服務連接點 (SCP) 物件來探索 Azure AD 租用戶資訊。 在內部部署 Active Directory 執行個體中，已加入混合式 Azure AD 的裝置所使用的 SCP 物件必須存在於電腦樹系的組態命名內容分割區中。 每個樹系只有一個組態命名內容。 在多樹系 Active Directory 組態中，服務連接點必須存在於有已加入網域的電腦包含在其中的所有樹系中。
 
 您可以使用 [**Get-ADRootDSE**](https://technet.microsoft.com/library/ee617246.aspx) Cmdlet 來擷取樹系的組態命名內容。  
 
@@ -126,8 +116,8 @@ Azure AD Connect：
 
 `CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,[Your Configuration Naming Context]`
 
-視您部署 Azure AD Connect 的方式而定，可能已經設定 SCP 物件。
-您可以使用下列 Windows PowerShell 指令碼，確認物件是否存在並擷取探索值︰ 
+視您部署 Azure AD Connect 的方式而定，SCP 物件有可能已設定。
+您可以使用下列 Windows PowerShell 指令碼確認物件是否存在，並擷取探索值︰ 
 
     $scp = New-Object System.DirectoryServices.DirectoryEntry;
 
@@ -135,16 +125,17 @@ Azure AD Connect：
 
     $scp.Keywords;
 
-**$scp.Keywords** 的輸出會顯示 Azure AD 租用戶資訊，例如：
+**$scp.Keywords** 的輸出會顯示 Azure AD 租用戶資訊。 以下是範例：
 
     azureADName:microsoft.com
     azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 
 如果服務連接點不存在，請在 Azure AD Connect 伺服器上執行 `Initialize-ADSyncDomainJoinedComputerSync` Cmdlet 加以建立。 需要企業系統管理員認證才能執行此 Cmdlet。  
+
 此 Cmdlet：
 
 - 在 Azure AD Connect 連線到的 Active Directory 樹系中建立服務連接點。 
-- 要求您指定 `AdConnectorAccount` 參數。 這是在 Azure AD Connect 中設定為 Active Directory 連接器帳戶的帳戶。 
+- 要求您指定 `AdConnectorAccount` 參數。 此帳戶會在 Azure AD Connect 中設定為 Active Directory 連接器帳戶。 
 
 
 以下指令碼顯示使用此 Cmdlet 的範例。 在此指令碼中，`$aadAdminCred = Get-Credential` 會要求您輸入使用者名稱。 您必須提供使用者主體名稱 (UPN) 格式 (`user@example.com`) 的使用者名稱。 
@@ -158,17 +149,15 @@ Azure AD Connect：
 
 `Initialize-ADSyncDomainJoinedComputerSync` Cmdlet：
 
-- 使用 Active Directory PowerShell 模組和 DS 工具，此模組依賴網域控制站上執行的 Active Directory Web 服務。 執行 Windows Server 2008 R2 和更新版本的網域控制站可支援 Active Directory Web 服務。
-- 只有 **MSOnline PowerShell 模組 1.1.166.0 版**才支援。 若要下載此模組，請使用這個[連結](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/)。   
-- 若未安裝 AD DS 工具，則 `Initialize-ADSyncDomainJoinedComputerSync` 會失敗。  您可透過 [功能] - [遠端伺服器管理工具] - [角色管理工具] 下的「伺服器管理員」安裝 AD DS 工具。
+- 使用 Active Directory PowerShell 模組和 Azure Active Directory Domain Services (Azure AD DS) 工具。 這些工具須依賴在網域控制站上執行的 Active Directory Web 服務。 執行 Windows Server 2008 R2 和更新版本的網域控制站可支援 Active Directory Web 服務。
+- 只有 MSOnline PowerShell 模組 1.1.166.0 版才支援。 若要下載此模組，請使用[這個連結](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/)。   
+- 若未安裝 Azure AD DS 工具，`Initialize-ADSyncDomainJoinedComputerSync` 將會失敗。 您可以透過 [功能] > [遠端伺服器管理工具] > [角色管理工具] 下的 [伺服器管理員] 來安裝 Azure AD DS 工具。
 
-對於執行 Windows Server 2008 或更早版本的網域控制站，請使用下列指令碼來建立服務連接點。
-
-在多樹系組態中，您應該使用下列指令碼在電腦所在的樹系中建立服務連接點︰
+對於執行 Windows Server 2008 或更早版本的網域控制站，請使用下列指令碼來建立服務連接點。 在多樹系組態中，請使用下列指令碼在電腦所在的樹系中建立服務連接點。
  
     $verifiedDomain = "contoso.com"    # Replace this with any of your verified domain names in Azure AD
     $tenantID = "72f988bf-86f1-41af-91ab-2d7cd011db47"    # Replace this with you tenant ID
-    $configNC = "CN=Configuration,DC=corp,DC=contoso,DC=com"    # Replace this with your AD configuration naming context
+    $configNC = "CN=Configuration,DC=corp,DC=contoso,DC=com"    # Replace this with your Active Directory configuration naming context
 
     $de = New-Object System.DirectoryServices.DirectoryEntry
     $de.Path = "LDAP://CN=Services," + $configNC
@@ -181,27 +170,26 @@ Azure AD Connect：
 
     $deSCP.CommitChanges()
 
-在上述指令碼中，
+在上述指令碼中，`$verifiedDomain = "contoso.com"` 是預留位置。 請將其取代為您在 Azure AD 中已驗證的網域名稱之一。 您必須擁有網域，才能加以使用。
 
-- `$verifiedDomain = "contoso.com"` 是要使用您 Azure AD 中其中一個已驗證網域名稱來取代的預留位置。 您必須擁有該網域，才能使用它。
+如需已驗證之網域名稱的資訊，請參閱[將自訂網域名稱新增至 Azure Active Directory](../active-directory-domains-add-azure-portal.md)。 
 
-如需已驗證之網域名稱的詳細資料，請參閱[將自訂網域名稱新增至 Azure Active Directory](../active-directory-domains-add-azure-portal.md)。  
 若要取得已驗證之公司網域的清單，您可以使用 [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) Cmdlet。 
 
-![Get-AzureADDomain](./media/hybrid-azuread-join-manual-steps/01.png)
+![公司網域的清單](./media/hybrid-azuread-join-manual-steps/01.png)
 
-## <a name="setup-issuance-of-claims"></a>設定宣告的發行
+## <a name="set-up-issuance-of-claims"></a>設定宣告的發行
 
-在同盟 Azure AD 組態中，裝置倚賴 Active Directory Federation Services (AD FS) 或協力廠商內部部署同盟伺服器向 Azure AD 進行驗證。 裝置會進行驗證以取得向 Azure Active Directory 裝置註冊服務 (Azure ADS) 註冊的存取權杖。
+在同盟 Azure AD 組態中，裝置須依賴 AD FS 或 Microsoft 合作夥伴的內部部署同盟服務向 Azure AD 進行驗證。 裝置會進行驗證以取得向 Azure Active Directory 裝置註冊服務 (Azure ADS) 註冊的存取權杖。
 
 現行 Windows 裝置會使用整合式 Windows 驗證向內部部署同盟服務所裝載的作用中 WS-Trust 端點 (1.3 或 2005 版) 進行驗證。
 
 > [!NOTE]
-> 使用 AD FS 時，必須啟用 **adfs/services/trust/13/windowstransport** 或 **adfs/services/trust/2005/windowstransport**。 如果您使用 Web 驗證 Proxy，也需確定已透過 Proxy 發佈此端點。 您可以在 AD FS 管理主控台的 [服務] > [端點] 底下看到已啟用的端點。
+> 使用 AD FS 時，必須啟用 **adfs/services/trust/13/windowstransport** 或 **adfs/services/trust/2005/windowstransport**。 如果您使用 Web 驗證 Proxy，也需確定已透過 Proxy 發佈此端點。 您可以在 AD FS 管理主控台的 [服務] > [端點] 下方查看已啟用的端點。
 >
->如果您沒有以 AD FS 做為您的內部部署同盟伺服器，請依照廠商的指示來確定支援 WS-Trust 1.3 或 2005 端點，而這些端點是透過中繼資料交換檔 (MEX) 發佈。
+>如果您未以 AD FS 作為內部部署同盟服務，請依照廠商的指示確定他們支援 WS-Trust 1.3 或 2005 端點，且這些端點可透過中繼資料交換檔 (MEX) 發佈。
 
-下列宣告必須存在於 Azure DRS 所收到的權杖中，才能完成裝置註冊。 Azure DRS 會使用其中一些資訊在 Azure AD 中建立裝置物件，而 Azure AD Connect 接著會使用此資訊將新建立的裝置物件與內部部署電腦帳戶建立關聯。
+下列宣告必須存在於 Azure DRS 所收到的權杖中，裝置註冊才能完成。 Azure DRS 會在 Azure AD 中建立含有其中部分資訊的裝置物件。 然後，Azure AD Connect 會使用這項資訊，讓新建立的裝置物件與內部部署的電腦帳戶產生關聯。
 
 * `http://schemas.microsoft.com/ws/2012/01/accounttype`
 * `http://schemas.microsoft.com/identity/claims/onpremobjectguid`
@@ -211,14 +199,14 @@ Azure AD Connect：
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
 
-如果您已發出 ImmutableID 宣告 (例如，替代登入 ID)，您必須為電腦提供一個對應宣告：
+如果您已發出 ImmutableID 宣告 (例如，替代登入識別碼)，則必須為電腦提供一個對應宣告：
 
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
 在下列各節中，您可找到下列相關資訊：
  
-- 每個宣告應該具有的值
-- 定義在 AD FS 中看起來如何
+- 每個宣告都應具備的值。
+- AD FS 中所將顯示的定義。
 
 此定義可協助您確認值是否存在，或者您是否需要加以建立。
 
@@ -227,7 +215,7 @@ Azure AD Connect：
 
 ### <a name="issue-account-type-claim"></a>發出帳戶類型宣告
 
-**`http://schemas.microsoft.com/ws/2012/01/accounttype`** - 此宣告必須包含 **DJ** 這個值，此值可將裝置識別為已加入網域的電腦。 在 AD FS 中，您可以新增發行轉換規則，如下所示︰
+`http://schemas.microsoft.com/ws/2012/01/accounttype` 宣告必須包含 **DJ** 值，此值可將裝置識別為已加入網域的電腦。 在 AD FS 中，您可以新增發行轉換規則，如下所示︰
 
     @RuleName = "Issue account type for domain-joined computers"
     c:[
@@ -242,7 +230,7 @@ Azure AD Connect：
 
 ### <a name="issue-objectguid-of-the-computer-account-on-premises"></a>發出內部部署電腦帳戶的 objectGUID
 
-**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`** - 此宣告必須包含內部電腦帳戶的 **objectGUID** 值。 在 AD FS 中，您可以新增發行轉換規則，如下所示︰
+`http://schemas.microsoft.com/identity/claims/onpremobjectguid` 宣告必須包含內部部署電腦帳戶的 **objectGUID** 值。 在 AD FS 中，您可以新增發行轉換規則，如下所示︰
 
     @RuleName = "Issue object GUID for domain-joined computers"
     c1:[
@@ -264,7 +252,7 @@ Azure AD Connect：
  
 ### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>發出內部部署電腦帳戶的 objectSID
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** - 此宣告必須包含內部部署電腦帳戶的 **objectSid** 值。 在 AD FS 中，您可以新增發行轉換規則，如下所示︰
+`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid` 宣告必須包含內部部署電腦帳戶的 **objectSid** 值。 在 AD FS 中，您可以新增發行轉換規則，如下所示︰
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -279,9 +267,9 @@ Azure AD Connect：
     ]
     => issue(claim = c2);
 
-### <a name="issue-issuerid-for-computer-when-multiple-verified-domain-names-in-azure-ad"></a>當 Azure AD 中有多個經過驗證的網域名稱時，發出電腦的 issuerID
+### <a name="issue-issuerid-for-the-computer-when-multiple-verified-domain-names-are-in-azure-ad"></a>當 Azure AD 中有多個已驗證的網域名稱時，發出電腦的 issuerID
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`** - 此宣告必須包含與發行權杖的內部部署同盟服務 (AD FS 或協力廠商) 連線之任何已驗證網域名稱的統一資源識別項 (URI)。 在 AD FS 中，您可以在上述內容之後，以該特定順序新增如下所示的發行轉換規則。 請注意，需要有一個規則可為使用者明確發出此規則。 下列規則中會新增用來識別使用者與電腦驗證的優先規則。
+`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid` 宣告必須包含與發行權杖的內部部署同盟服務 (AD FS 或合作夥伴) 連線的任何已驗證網域名稱的統一資源識別項 (URI)。 在 AD FS 中，您可以在上述內容之後，以該特定順序新增如下所示的發行轉換規則。 請注意，需要有一個規則可為使用者明確發出此規則。 在下列規則中新增的第一個規則會用來識別使用者，而不是電腦驗證。
 
     @RuleName = "Issue account type with the value User when its not a computer"
     NOT EXISTS(
@@ -325,21 +313,19 @@ Azure AD Connect：
     );
 
 
-在上述宣告中，
-
-- `<verified-domain-name>` 是要使用您 Azure AD 中其中一個已驗證網域名稱來取代的預留位置。 例如，值 = "http://contoso.com/adfs/services/trust/"
+在上述宣告中，`<verified-domain-name>` 是預留位置。 請將其取代為您在 Azure AD 中已驗證的網域名稱之一。 例如，使用 `Value = "http://contoso.com/adfs/services/trust/"`。
 
 
 
-如需已驗證之網域名稱的詳細資料，請參閱[將自訂網域名稱新增至 Azure Active Directory](../active-directory-domains-add-azure-portal.md)。  
+如需已驗證之網域名稱的資訊，請參閱[將自訂網域名稱新增至 Azure Active Directory](../active-directory-domains-add-azure-portal.md)。  
 
 若要取得已驗證之公司網域的清單，您可以使用 [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) Cmdlet。 
 
-![Get-MsolDomain](./media/hybrid-azuread-join-manual-steps/01.png)
+![公司網域的清單](./media/hybrid-azuread-join-manual-steps/01.png)
 
-### <a name="issue-immutableid-for-computer-when-one-for-users-exist-eg-alternate-login-id-is-set"></a>當使用者存在 ImmutableID (例如已設定替代登入識別碼) 時，請發出電腦的 ImmutableID
+### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-an-alternate-login-id-is-set"></a>當使用者有電腦的 ImmutableID 時 (例如已設定替代登入識別碼)，請發出電腦的 ImmutableID
 
-**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`** - 此宣告必須包含電腦的有效值。 在 AD FS 中，您可以新增發行轉換規則，如下所示︰
+`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID` 宣告必須包含電腦的有效值。 在 AD FS 中，您可以新增發行轉換規則，如下所示︰
 
     @RuleName = "Issue ImmutableID for computers"
     c1:[
@@ -361,7 +347,7 @@ Azure AD Connect：
 
 ### <a name="helper-script-to-create-the-ad-fs-issuance-transform-rules"></a>建立 AD FS 發行轉換規則的協助程式指令碼
 
-下列指令碼可協助您建立上面所述的發行轉換規則。
+下列指令碼可協助您建立前述的發行轉換規則。
 
     $multipleVerifiedDomainNames = $false
     $immutableIDAlreadyIssuedforUsers = $false
@@ -482,15 +468,14 @@ Azure AD Connect：
 
     Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
 
-### <a name="remarks"></a>備註 
+#### <a name="remarks"></a>備註 
 
 - 此指令碼會將規則附加至現有的規則。 請勿執行此指令碼兩次，因為會新增這組規則兩次。 先確定這些宣告沒有對應的規則存在 (在對應的條件下)，才能再次執行指令碼。
 
-- 如果您有多個經過驗證的網域名稱 (如 Azure AD 入口網站中所示，或透過 Get-MsolDomains cmdlet)，將指令碼中 **$multipleVerifiedDomainNames** 的值設定為 **$true**。 此外，也務必移除經由 Azure AD Connect 或透過其他方式所建立的任何現有 issuerid 宣告。 此規則的範例如下︰
+- 如果您有多個已驗證的網域名稱 (如 Azure AD 入口網站中所示，或透過 **Get-MsolDomain** Cmdlet)，請將指令碼中的 **$multipleVerifiedDomainNames** 值設定為 **$true**。 此外，也務必移除經由 Azure AD Connect 或透過其他方式建立的任何現有 **issuerid** 宣告。 此規則的範例如下︰
 
-
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
-        => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
+      c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
+      => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
 - 如果您已對使用者帳戶發出 **ImmutableID** 宣告，請將指令碼中 **$immutableIDAlreadyIssuedforUsers** 的值設定為 **$true**。
 
@@ -498,44 +483,37 @@ Azure AD Connect：
 
 如果有些已加入網域的裝置是舊版 Windows 裝置，您需要︰
 
-- 在 Azure AD 中設定原則，讓使用者可以註冊裝置。
- 
-- 設定內部部署同盟服務來發出宣告，以支援**整合式 Windows 驗證 (IWA)** 來進行裝置註冊。
- 
+- 在 Azure AD 中設定原則，讓使用者可以註冊裝置。 
+- 設定內部部署同盟服務來發出宣告，以支援以整合式 Windows 驗證 (IWA) 進行裝置註冊。 
 - 將 Azure AD 裝置驗證端點新增至近端內部網路區域，以避免在驗證裝置時出現憑證提示。
+- 控制舊版 Windows 裝置。 
 
-- 控制舊版 Windows 裝置 
 
+### <a name="set-a-policy-in-azure-ad-to-enable-users-to-register-devices"></a>在 Azure AD 中設定原則，讓使用者可以註冊裝置
 
-### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>在 Azure AD 中設定原則，讓使用者可以註冊裝置
-
-若要註冊舊版 Windows 裝置，您需要確定已設定可允許使用者在 Azure AD 中註冊裝置的設定。 在 Azure 入口網站中，您可以在底下找到此設定：
-
-`Azure Active Directory > Users and groups > Device settings`
+若要註冊舊版 Windows 裝置，請確定可允許使用者在 Azure AD 中註冊裝置的設定已啟用。 在 Azure 入口網站中，您可以在 [Azure Active Directory] > [使用者和群組] > [裝置設定] 下方找到此設定。
     
-下列原則必須設定為 [全部]：**使用者可以向 Azure AD 註冊其裝置**
+以下原則必須設定為 [全部]：**使用者可以向 Azure AD 註冊其裝置**。
 
-![註冊裝置](./media/hybrid-azuread-join-manual-steps/23.png)
+![可讓使用者註冊裝置的 [全部] 按鈕](./media/hybrid-azuread-join-manual-steps/23.png)
 
 
-### <a name="configure-on-premises-federation-service"></a>設定內部部署同盟服務 
+### <a name="configure-the-on-premises-federation-service"></a>設定內部部署同盟服務 
 
-在收到對 Azure AD 信賴憑證者 (持有 resouce_params 參數且編碼值如下所示) 的驗證要求時，內部部署同盟服務必須支援發出 **authenticationmehod** 和 **wiaormultiauthn** 宣告︰
+內部部署同盟服務在收到對 Azure AD 信賴憑證者 (持有 resouce_params 參數且編碼值如下所示) 的驗證要求時，必須能夠發出 **authenticationmehod** 和 **wiaormultiauthn** 宣告︰
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 
     which decoded is {"Properties":[{"Key":"acr","Value":"wiaormultiauthn"}]}
 
-收到這類要求時，內部部署同盟服務必須先使用整合式 Windows 驗證來驗證使用者，並且在成功時發出下列兩個宣告︰
+收到這類要求時，內部部署同盟服務必須使用整合式 Windows 驗證來驗證使用者。 在驗證成功時，同盟服務必須發出下列兩個宣告：
 
     http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows
     http://schemas.microsoft.com/claims/wiaormultiauthn
 
-在 AD FS 中，您必須新增可傳遞驗證方法的發行轉換規則。  
+在 AD FS 中，您必須新增可傳遞驗證方法的發行轉換規則。 若要新增此規則︰
 
-**若要新增此規則︰**
-
-1. 在 AD FS 管理主控台中，移至 `AD FS > Trust Relationships > Relying Party Trusts`。
+1. 在 AD FS 管理主控台中，移至 [AD FS]  >  [信任關係] >  [信賴憑證者信任]。
 2. 在 [Microsoft Office 365 身分識別平台] 信賴憑證者信任物件上按一下滑鼠右鍵，然後選取 [編輯宣告規則]。
 3. 在 [發佈轉換規則] 索引標籤上，選取 [新增規則]。
 4. 在 [宣告規則] 範本清單中，選取 [使用自訂規則傳送宣告]。
@@ -545,26 +523,26 @@ Azure AD Connect：
 
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-8. 在同盟伺服器上，以 Azure AD 信賴憑證者信任物件的信賴憑證者物件名稱取代 **\<RPObjectName\>** 之後，輸入下列 PowerShell 命令。 此物件通常名為「Microsoft Office 365 身分識別平台」。
+8. 在您的同盟伺服器上，輸入下列 PowerShell 命令。 請將 **\<RPObjectName\>** 取代為 Azure AD 信賴憑證者信任物件的信賴憑證者物件名稱。 此物件通常名為「Microsoft Office 365 身分識別平台」。
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
-### <a name="add-the-azure-ad-device-authentication-end-point-to-the-local-intranet-zones"></a>將 Azure AD 裝置驗證端點新增至近端內部網路區域
+### <a name="add-the-azure-ad-device-authentication-endpoint-to-the-local-intranet-zones"></a>將 Azure AD 裝置驗證端點新增至近端內部網路區域
 
-若要避免在註冊裝置中的使用者向 Azure AD 進行驗證時出現憑證提示時，您可以將原則推送到已加入網域的裝置，進而將下列 URL 新增至 Internet Explorer 的近端內部網路區域︰
+若要避免在已註冊裝置的使用者向 Azure AD 進行驗證時出現憑證提示時，您可以將原則推送到已加入網域的裝置，以將下列 URL 新增至 Internet Explorer 的近端內部網路區域︰
 
 `https://device.login.microsoftonline.com`
 
 
 ### <a name="control-windows-down-level-devices"></a>控制舊版 Windows 裝置 
 
-若要註冊舊版 Windows 裝置，您必須從下載中心下載並安裝 Windows Installer 套件 (.msi)。 如需詳細資訊，請按一下[這裡](hybrid-azuread-join-control.md#control-windows-down-level-devices)。 
+若要註冊舊版 Windows 裝置，您必須從下載中心下載並安裝 Windows Installer 套件 (.msi)。 如需詳細資訊，請參閱[控制裝置的混合式 Azure AD Join](hybrid-azuread-join-control.md#control-windows-down-level-devices)。 
 
 
 
 ## <a name="verify-joined-devices"></a>確認加入的裝置
 
-您可以在 [Azure Active Directory PowerShell 模組](/powershell/azure/install-msonlinev1?view=azureadps-2.0) 中使用 [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) Cmdlet，以查看您組織中已加入成功的裝置。
+您可以在 [Azure Active Directory PowerShell 模組](/powershell/azure/install-msonlinev1?view=azureadps-2.0) 中使用 [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) Cmdlet，以查看您組織中已成功加入的裝置。
 
 此 Cmdlet 的輸出會顯示已註冊和已加入 Azure AD 的裝置。 若要取得所有裝置，請使用 **-All** 參數，然後使用 **deviceTrustType** 屬性進行篩選。 已加入網域的裝置具有**已加入網域**這個值。
 

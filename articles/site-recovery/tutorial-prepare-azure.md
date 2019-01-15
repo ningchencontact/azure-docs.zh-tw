@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 947e5d4004565fd10e81e703111daf26fce10368
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973514"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159004"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>準備 Azure 資源以進行內部部署電腦的災害復原
 
@@ -68,11 +68,12 @@ ms.locfileid: "53973514"
 
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
-1. 在 Azure 入口網站中，選取 [建立群組] > [儲存體] > [備份和 Site Recovery (OMS)]。
-2. 在 [ **名稱**] 中，輸入保存庫的易記識別名稱。 在這一組教學課程中，我們會使用 **ContosoVMVault**。
-3. 在 [資源群組] 中，我們使用 **contosoRG**。
-4. 在 [位置] 中。 我們使用**西歐**。
-5. 若要從儀表板快速存取保存庫，請按一下 [釘選到儀表板] > [建立]。
+1. 在 Azure 入口網站中按一下 [+建立資源]，然後在 Marketplace 中搜尋 [復原服務]。
+2. 按一下 [備份和 Site Recovery (OMS)]，然後在 [備份和 Site Recovery] 頁面中按一下 [建立]。 
+1. 在 [復原服務保存庫] > [名稱] 中，輸入用來識別保存庫的易記名稱。 在這一組教學課程中，我們會使用 **ContosoVMVault**。
+2. 在 [資源群組] 中選取現有的資源群組，或建立新的資源群組。 在本教學課程中，我們將使用 **contosoRG**。
+3. 在 [位置] 中，選取要設置保存庫的區域。 我們使用**西歐**。
+4. 若要從儀表板快速存取保存庫，請按一下 [釘選到儀表板] > [建立]。
 
    ![建立新保存庫](./media/tutorial-prepare-azure/new-vault-settings.png)
 

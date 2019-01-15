@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: d02557ecd84ea14db297ee07f7055a08304e7fcd
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 00c001b5c0c2c3dab86477fca798ec651f7b6c93
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091210"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189961"
 ---
 # <a name="tutorial-order-azure-data-box"></a>教學課程：訂購 Azure 資料箱
 
@@ -38,7 +38,7 @@ Azure 資料箱是一項混合式解決方案，可讓您以快速、簡便而�
 - 請確定您用於資料箱服務的訂用帳戶是下列其中一種類型：
     - Microsoft Enterprise 合約 (EA)。 深入了解 [EA 訂用帳戶](https://azure.microsoft.com/pricing/enterprise-agreement/)。
     - 雲端解決方案提供者 (CSP)。 深入了解 [Azure CSP 方案](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)。
-    - 使用量 - 隨用隨付。 關於 Azure [隨用隨付訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0003p/)的詳細資訊。
+    - Microsoft Azure 贊助。 深入了解 [Azure 贊助方案](https://azure.microsoft.com/offers/ms-azr-0036p/)。 
 
 - 請確定您有訂用帳戶的擁有者或參與者存取權，才能建立資料箱訂單。
 
@@ -76,7 +76,7 @@ Azure 資料箱是一項混合式解決方案，可讓您以快速、簡便而�
     
     |設定  |值  |
     |---------|---------|
-    |名稱     |  提供用來追蹤訂單的易記名稱。 <br> 名稱長度可介於 3 到 24 個字元之間，且可以是字母、數字和連字號。 <br> 名稱必須以字母或數字為開頭或結尾。      |
+    |Name     |  提供用來追蹤訂單的易記名稱。 <br> 名稱長度可介於 3 到 24 個字元之間，且可以是字母、數字和連字號。 <br> 名稱必須以字母或數字為開頭或結尾。      |
     |資源群組     |   使用現有的群組或建立新群組。 <br> 資源群組是適用於資源而可一併管理或部署的邏輯容器：         |
     |目的地 Azure 區域     | 選取儲存體帳戶的區域。 <br> 如需詳細資訊，請移至[區域可用性](data-box-overview.md#region-availability)。        |
     |儲存體帳戶     | 根據指定的 Azure 區域，從現有儲存體帳戶的篩選清單中選取一或多個儲存體帳戶。 資料箱可以與最多 10 個儲存體帳戶連結。 <br> 您也可以建立新的**一般用途 v1**、**一般用途 v2** 或 **Blob 儲存體帳戶**。        |

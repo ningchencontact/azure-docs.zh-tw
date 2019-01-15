@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 01/07/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d5533932ef9ab521b623c18a0c3a27b663c56f8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261803"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077397"
 ---
-# <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>教學課程：使用 Azure 虛擬 WAN 來建立點對站連線 (預覽)
+# <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>教學課程：使用 Azure 虛擬 WAN 建立點對站連線 (預覽)
 
 本教學課程會示範如何使用虛擬 WAN，透過 IPsec/IKE (IKEv2) 或 OpenVPN VPN 連線來與 Azure 中的資源連線。 此類型的連線需要在用戶端電腦上設定用戶端。 如需有關虛擬 WAN 的詳細資訊，請參閱[虛擬 WAN 概觀](virtual-wan-about.md)。
 
@@ -42,7 +42,7 @@ ms.locfileid: "51261803"
 
 ## <a name="register"></a>註冊此功能
 
-按一下 [TryIt] 即可輕鬆地使用 Azure Cloud Shell 註冊此功能。
+按一下 [TryIt] 即可輕鬆地使用 Azure Cloud Shell 註冊此功能。 如果您要在本機執行 PowerShell，請確定您擁有最新版本，並使用 **Connect-AzureRmAccount** 和 **Select-AzureRmSubscription** 命令登入。
 
 >[!NOTE]
 >如果您未註冊此功能，將無法使用它，或在入口網站中看到它。

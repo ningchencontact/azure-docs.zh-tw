@@ -1,7 +1,7 @@
 ---
 title: 教學課程 - 透過 Azure DevOps Services 將 CI/CD 從 Jenkins 部署到 Azure VM | Microsoft Docs
 description: 在本教學課程中，您會了解如何透過 Visual Studio Team Services 或 Microsoft Team Foundation Server 中的 Release Management，使用 Jenkins 將 Node.js 應用程式的持續整合 (CI) 和持續部署 (CD) 安裝至 Azure VM
-author: tomarcher
+author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 4e91c0287bfe50b297b9a3ef118ececb67909f21
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388477"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074762"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>教學課程：使用 Jenkins 和 Azure DevOps Services 在 Azure 中將應用程式部署至 Linux 虛擬機器
 
@@ -164,7 +164,7 @@ ms.locfileid: "49388477"
 
 1. 選取 [+ 發行]，然後選取 [建立發行]。
 2. 在反白顯示的下拉式清單中選取您完成的組建，然後選取 [佇列]。
-3. 在快顯訊息中選擇發行連結。 例如：「發行「**發行-1**」已建立。」
+3. 在快顯訊息中選擇發行連結。 例如︰「發行 **Release-1** 已建立。」
 4. 開啟 [記錄] 索引標籤以查看發行主控台輸出。
 5. 在瀏覽器中，開啟您在部署群組中新增之其中一部伺服器的 URL。 例如，輸入 **http://{您的伺服器 IP 位址}**。
 6. 移至來源 Git 存放庫，並使用某些變更的文字修改 app/views/index.jade 檔案中的 **h1** 標題。

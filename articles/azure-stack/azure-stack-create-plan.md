@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: ec8fabfce8c26aef98217947da33a56222288b3c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6399e1838b00fc533ab42a76e4f1f1667e3a434a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077557"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159514"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>在 Azure Stack 中建立方案
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 [方案](azure-stack-key-features.md)結合一或多項服務。 身為提供者的您可以為使用者製作方案。 使用者接著即可訂閱您的供應項目，以使用其中的方案與服務。 此範例說明如何建立一個包含計算、網路及儲存體資源提供者的方案。 此方案可讓訂閱者佈建虛擬機器。
 
-1. 登入 Azure Stack 系統管理員入口網站 (https://adminportal.local.azurestack.external) 。
+1. 登入 [Azure Stack 系統管理員入口網站](https://adminportal.local.azurestack.external)。
 
-2. 若要建立使用者可訂閱的方案和供應項目，請選取 [+ 建立資源] > [供應項目 + 方案] > [方案]。
+2. 若要建立使用者可訂閱的方案和供應項目，請依序選取 [+ 建立資源]、[供應項目 + 方案] 和 [方案]。
   
    ![選取方案](media/azure-stack-create-plan/select-plan.png)
 
-3. 在 [新增方案] 下，輸入 [顯示名稱] 與 [資源名稱]。 [顯示名稱] 是使用者所能看見的方案易記名稱。 只有系統管理員可以看到資源名稱，他會使用此名稱將方案當作 Azure Resource Manager 資源來使用。
+3. 在 [新增方案] 下，輸入 [顯示名稱] 與 [資源名稱]。 顯示名稱是使用者所能看見的方案易記名稱。 只有系統管理員可以看到資源名稱，他會使用此名稱將方案當作 Azure Resource Manager 資源來使用。
 
    ![指定詳細資料](media/azure-stack-create-plan/plan-name.png)
 
@@ -72,4 +72,4 @@ ms.locfileid: "49077557"
 
 ## <a name="next-steps"></a>後續步驟
 
-[建立供應項目](azure-stack-create-offer.md)
+* [建立供應項目](azure-stack-create-offer.md)

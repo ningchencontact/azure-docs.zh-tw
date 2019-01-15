@@ -12,12 +12,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 23778a56cfa6440442bd7aab67c5441094a633ae
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fd5f9567c92201b4dfa08c74574df97fa8c91ae2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073987"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065557"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>註冊 Azure Active Directory Premium 版本
 您可以使用您的 Azure 訂用帳戶來購買 Azure Active Directory (Azure AD) Premium 版本並與其產生關聯。 如果您需要建立新的 Azure 訂用帳戶，您也需要啟用授權方案及 Azure AD 服務存取。
@@ -39,7 +39,7 @@ ms.locfileid: "53073987"
 身為 Azure 或 Office 365 訂閱者，您可以在線上購買 Azure Active Directory Premium 版本。 如需詳細步驟，請參閱[如何購買 Azure Active Directory Premium - 現有客戶](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer)或[如何購買 Azure Active Directory Premium - 新客戶](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers)。
 
 ## <a name="sign-up-using-your-enterprise-mobility--security-licensing-plan"></a>使用 Enterprise Mobility + Security 授權方案註冊
-Enterprise Mobility + Security 是套件，其包含 Azure AD Premium、Azure 資訊保護，以及 Microsoft Intune。 如果您已經擁有 EMS 授權，則可以利用下列其中一個授權選項開始使用 Azure AD：
+Enterprise Mobility + Security 是一個套件，其中包含 Azure AD Premium、Azure 資訊保護，以及 Microsoft Intune。 如果您已經擁有 EMS 授權，則可以利用下列其中一個授權選項開始使用 Azure AD：
 
 如需 EMS 的詳細資訊，請參閱 [Enterprise Mobility + Security 網站](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)。
 
@@ -66,7 +66,7 @@ Enterprise Mobility + Security 是套件，其包含 Azure AD Premium、Azure �
    
     ![登入](media/active-directory-get-started-premium/MOLSEmail.png)
 
-    - **登入**： 如果您有現有的租用戶，請選擇這個連結，然後使用現有的系統管理員帳戶登入。 您必須是要啟用授權之租用戶上的全域系統管理員。
+    - **登入**： 如果您有現有的租用戶，請選擇這個連結，然後使用現有的系統管理員帳戶登入。 您必須是要啟用授權之租用戶的全域管理員。
 
     - **註冊**： 如果您想要開啟 [建立帳戶設定檔] 頁面，並針對授權方案建立新的 Azure AD 租用戶，請選擇這個連結。
 

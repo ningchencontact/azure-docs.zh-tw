@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 11/05/2018
+ms.date: 1/07/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: a0dc3405cc0e1deb25c1f2772a5018dad95b87e9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 9f5f3c4ce08cde81c883bfdac87012dcfd80b8a4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036585"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119725"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器映像
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 在 Azure Stack 中，您可以製作虛擬機器映像供使用者使用。 這些映像可供 Azure Resource Manager 範本參考，或者您可以將其新增到 Azure Marketplace UI 作為 Marketplace 項目。 您可以使用全球 Azure Marketplace 中的映像，或新增自己的自訂映像。 您可以使用入口網站或 Windows PowerShell 新增 VM。
 
@@ -48,7 +48,7 @@ ms.locfileid: "51036585"
 
    * 記下您上傳映像的 blob 儲存體 URI。 blob 儲存體 URI 的格式如下：*&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd。
 
-   * 若要讓 Blob 可供匿名存取，請移至將 VM 映像 VHD 上傳時的儲存體帳戶 Blob 容器。 選取 [Blob]，然後選取 [存取原則]。 您可以選擇性地改為產生容器的共用存取簽章，然後將它包含在 Blob URI 中。 此步驟會確保 Blob 可用於將此項目新增為映像。 如果 Blob 不可供匿名存取，則建立的 VM 映像會處於失敗狀態。
+   * 若要讓 Blob 可供匿名存取，請移至將 VM 映像 VHD 上傳時的儲存體帳戶 Blob 容器。 選取 [Blob]，然後選取 [存取原則]。 您可以選擇性地產生容器的共用存取簽章，並將其包含在 Blob URI 中。 此步驟會確保 Blob 可用於將此項目新增為映像。 如果 Blob 不可供匿名存取，則建立的 VM 映像會處於失敗狀態。
 
    ![移至儲存體帳戶 Blob](./media/azure-stack-add-vm-image/image1.png)
 
@@ -154,7 +154,7 @@ ms.locfileid: "51036585"
 
 3. 以操作員身分登入 Azure Stack。 如需相關指示，請參閱[以操作員身分登入 Azure Stack](azure-stack-powershell-configure-admin.md)。
 
-4. 在全域 Azure 或 Azure Stack 中建立儲存體帳戶來儲存自訂 VM 映像。 如需相關指示，請參閱[快速入門：使用 Azure 入口網站上傳、下載及列出 blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)。
+4. 在全域 Azure 或 Azure Stack 中建立儲存體帳戶來儲存自訂 VM 映像。 如需指示，請參閱[快速入門：使用 Azure 入口網站上傳、下載及列出 Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)。
 
 5. 準備 VHD 格式 (非 VHDX) 的 Windows 或 Linux 作業系統映像，將該映像上傳到儲存體帳戶，並取得可供 PowerShell 擷取 VM 映像的 URI。  
 

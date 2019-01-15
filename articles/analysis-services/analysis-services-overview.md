@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2dd209025db762f659510898e23cb371a31291b9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3e192449858d6cbd2d054fa7c70276739cfe1143
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544680"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189474"
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 
@@ -132,7 +132,7 @@ Azure Analysis Services 會以**開發人員**、**基本**及**標準**層提�
 
 ## <a name="built-on-sql-server-analysis-services"></a>建置在 SQL Server Analysis Services 上
 
-Azure Analysis Services 與 SQL Server Analysis Services Enterprise Edition 中現有的許多優質功能相容。 Azure Analysis Services 支援 1200 或更高[相容性層級](analysis-services-compat-level.md)的表格式模型。 表格式模型屬於關聯式模型建構 (模型、資料表、資料行)，在表格式模型指令碼語言 (TMSL) 和表格式物件模型 (TOM) 程式碼中會以表格式中繼資料物件定義來加以聯結。 分割區、檢視方塊、資料列層級安全性、雙向關聯性和轉譯都有支援*。 多維度模型和 PowerPivot for Sharepoint 則不受 Azure Analysis Services 支援。
+Azure Analysis Services 與 SQL Server Analysis Services Enterprise Edition 中現有的許多優質功能相容。 Azure Analysis Services 支援 1200 或更高[相容性層級](analysis-services-compat-level.md)的表格式模型。 表格式模型屬於關聯式模型建構 (模型、資料表、資料行)，在表格式模型指令碼語言 (TMSL) 和表格式物件模型 (TOM) 程式碼中會以表格式中繼資料物件定義來加以聯結。 分割區、檢視方塊、資料列層級安全性、雙向關聯性和轉譯都有支援*。 多維度模型和 PowerPivot for SharePoint 則不受 Azure Analysis Services 支援。
 
 記憶體內部模式和 DirectQuery 模式皆支援表格式模型。 記憶體內部模式 (預設值) 的表格式模型支援多個資料來源。 因為模型資料經過高度壓縮，且會快取到記憶體內部，此模式可在資料量很大時提供最快的查詢回應速度。 針對複雜的資料集和查詢，它也可提供最大的彈性。 分割能實現累加式載入、增加平行處理能力，並降低記憶體耗用量。 其他進階的資料模型功能 (例如，導出的資料表和所有的 DAX 函式) 都可獲得支援。 記憶體內部模型必須經過重新整理 (處理)，才能從資料來源更新快取資料。 搭配 Azure 服務主體支援，使用 PowerShell、TOM、TMSL 和 REST 的自動重新整理作業可提供彈性，確保模型資料永遠是最新的。 
 
@@ -176,7 +176,7 @@ Analysis Services 會使用[角色型授權](https://docs.microsoft.com/sql/anal
 
 1400 相容性層級的表格式模型可支援物件層級安全性，其中包括資料表層級安全性和資料行層級安全性。 物件層級安全性可使用 TMSL 或 TOM 在 Model.bim 檔案的 JSON 型中繼資料內進行設定。 若要深入了解，請參閱[物件層級安全性](https://docs.microsoft.com/sql/analysis-services/tabular-models/object-level-security)。
 
-### <a name="automation-through-service-principles"></a>透過服務主體進行自動化
+### <a name="automation-through-service-principals"></a>透過服務主體進行自動化
 
 服務主體是您在租用戶內建立的 Azure Active Directory 應用程式資源，用來執行自動資源和服務層級作業。 服務主體可與 Azure 自動化、PowerShell 自動模式、自訂用戶端應用程式和 Web 應用程式搭配使用，來將資料重新整理、相應增加/減少以及暫停/繼續等一般工作自動化。 權限會透過角色成員資格指派給服務主體。 若要深入了解，請參閱[使用服務主體進行自動化](analysis-services-service-principal.md)。
 

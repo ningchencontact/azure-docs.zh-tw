@@ -1,5 +1,5 @@
 ---
-title: 快速入門：尋找替代的翻譯 (C#) - 翻譯工具文字 API
+title: 快速入門：在雙語字典中查詢單字 (C#) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您可以使用 .NET Core 和翻譯工具文字 API，取得字詞的替代翻譯，以及這些替代翻譯的使用範例。
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: d0921d67867e412ed1862c597297e27c2c56ae3b
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3460c1c62f26e2bb0a4a14238e110cdd363a7a87
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334528"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159565"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-c"></a>快速入門：使用翻譯工具文字 REST API (C#) 尋找替代的翻譯
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>快速入門：使用 C# 在雙語字典中查詢單字
 
 在本快速入門中，您可以使用 .NET Core 和翻譯工具文字 API，取得字詞的替代翻譯，以及這些替代翻譯的使用範例。
 
@@ -28,7 +28,7 @@ ms.locfileid: "52334528"
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet 套件](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)、[Visual Studio Code](https://code.visualstudio.com/download)，或您最愛的文字編輯器。
-* 語音服務的 Azure 訂用帳戶金鑰
+* 翻譯工具文字的 Azure 訂用帳戶金鑰
 
 ## <a name="create-a-net-core-project"></a>建立 .NET Core 專案
 

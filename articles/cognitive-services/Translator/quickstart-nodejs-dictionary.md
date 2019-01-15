@@ -1,5 +1,5 @@
 ---
-title: 快速入門：取得替代的翻譯 (Node.js) - 翻譯工具文字 API
+title: 快速入門：在雙語字典中查詢單字 (Node.js) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將了解如何搭配使用 Node.js 和翻譯工具文字 REST API 尋找指定文字的替代翻譯和使用範例。
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 191afcdfb7a401755fffc028ce4119526f1e693d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: f7f779ccd10eeffc9ddfcba5dbb9abde00e1f735
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035623"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160007"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-with-nodejs"></a>快速入門：搭配使用翻譯工具文字 API 和 Node.js 取得替代的翻譯
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>快速入門：使用 Node.js 在雙語字典中查詢單字
 
 在本快速入門中，您將了解如何搭配使用 Node.js 和翻譯工具文字 REST API 尋找指定文字的替代翻譯和使用範例。
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c5889d89ec8c913d9300fa85318a16b4eb452d3b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d265c391b12a46f509c8663c64892372c8d806ba
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633753"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104517"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>使用 Visual Studio Code 建立第一個函式
 
@@ -27,7 +27,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
 
 ![Visual Studio 專案中的 Azure Functions 程式碼](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-擴充功能目前支援 C#、JavaScript 和 Java 函式。 本文中的步驟可能會因為您為 Azure Functions 專案選擇的語言不同而有所差異。 此擴充功能目前為預覽狀態。 若要進一步了解，請參閱[適用於 Visual Studio Code 的 Azure Functions 擴充功能]的擴充功能頁面。
+此擴充功能目前可完整支援 C#、JavaScript 和 Java 函式，而 Python 的支援目前為預覽狀態。 本文中的步驟可能會因為您為 Azure Functions 專案選擇的語言不同而有所差異。 此擴充功能目前為預覽狀態。 若要進一步了解，請參閱[適用於 Visual Studio Code 的 Azure Functions 擴充功能]的擴充功能頁面。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -55,7 +55,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
 
 ## <a name="create-an-http-triggered-function"></a>建立由 HTTP 觸發的函式
 
-1. 從 [Azure：函式] 中，選擇 [建立函式] 圖示。
+1. 從 [Azure: 函式] 中，選擇 [建立函式] 圖示。
 
     ![建立函式](./media/functions-create-first-function-vs-code/create-function.png)
 
@@ -93,7 +93,7 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 
     ![瀏覽器中的函式 localhost 回應](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
 
-1. 若要停止偵錯，請按 Shift + F1。
+1. 若要停止偵錯，請按 Shift + F5。
 
 確認函式在本機電腦上正確執行之後，就可以將專案發佈到 Azure。
 

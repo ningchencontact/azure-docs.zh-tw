@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ef4099130878813378fb277c45b5d352cbe822a7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4e9080cfc863b4253a4eb4d427f21df74bb08874
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000157"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186731"
 ---
 # <a name="quickstart-create-a-server---portal"></a>快速入門：建立伺服器 - 入口網站
 
@@ -31,7 +31,7 @@ ms.locfileid: "53000157"
 
 ## <a name="create-a-server"></a>建立伺服器
 
-1. 按一下 [+ 建立資源] > [資料 + 分析] > [Analysis Services]。
+1. 按一下 [+ 建立資源] > [資料] > [Analysis Services]。
 
     ![入口網站](./media/analysis-services-create-server/aas-create-server-portal.png)
 
@@ -42,9 +42,9 @@ ms.locfileid: "53000157"
    * **資源群組**：建立新的資源群組，或選取您現有的資源群組。 資源群組是為了協助您管理 Azure 資源集合而設計。 若要深入了解，請參閱[資源群組](../azure-resource-manager/resource-group-overview.md)。
    * **位置**：此 Azure 資料中心位置會裝載伺服器。 請選擇最靠近最大使用者群體的位置。
    * **定價層**：選取定價層。 如果您在進行測試，而且想要安裝範例模型資料庫，請選取免費的 **D1** 層。 若要深入了解，請參閱 [Azure Analysis Services 定價](https://azure.microsoft.com/pricing/details/analysis-services/)。 
-    * **系統管理員**：根據預設，這將是您用來登入的帳戶。 您可以從 Azure Active Directory 選擇不同的帳戶。
-    * **備份儲存體設定**：選用。 如果您已經有[儲存體帳戶](../storage/common/storage-introduction.md)，您可以將它指定為模型資料庫備份的預設值。 您也可以稍後指定[備份和還原](analysis-services-backup.md)設定。
-    * **儲存體金鑰到期日**：選用。 指定儲存體金鑰到期期間。
+   * **系統管理員**：根據預設，這將是您用來登入的帳戶。 您可以從 Azure Active Directory 選擇不同的帳戶。
+   * **備份儲存體設定**：選用。 如果您已經有[儲存體帳戶](../storage/common/storage-introduction.md)，您可以將它指定為模型資料庫備份的預設值。 您也可以稍後指定[備份和還原](analysis-services-backup.md)設定。
+   * **儲存體金鑰到期日**：選用。 指定儲存體金鑰到期期間。
 
 建立伺服器通常不到一分鐘即可完成。 如果您選取 [新增到入口網站]，請瀏覽至您的入口網站來查看新的伺服器。 或者，導覽至 [所有服務] > [Analysis Services]，以查看您的伺服器是否就緒。
 

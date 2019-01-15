@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 10/04/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a2f8d295ca161ff2263f53b8faa407c7a42a4c6b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385831"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188550"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站部署 Azure 資料箱
 
@@ -28,7 +28,6 @@ ms.locfileid: "49385831"
 - 請確定您用於資料箱服務的訂用帳戶是下列其中一種類型：
     - Microsoft Enterprise 合約 (EA)。 深入了解 [EA 訂用帳戶](https://azure.microsoft.com/pricing/enterprise-agreement/)。
     - 雲端解決方案提供者 (CSP)。 深入了解 [Azure CSP 方案](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)。
-    - 使用量 - 隨用隨付。 關於 Azure [隨用隨付訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0003p/)的詳細資訊。
     - Microsoft Azure 贊助。 深入了解 [Azure 贊助方案](https://azure.microsoft.com/offers/ms-azr-0036p/)。 
 
 - 請確定您有訂用帳戶的擁有者或參與者存取權，才能建立資料箱訂單。

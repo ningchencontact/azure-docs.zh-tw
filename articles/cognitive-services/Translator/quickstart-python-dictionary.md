@@ -1,5 +1,5 @@
 ---
-title: 快速入門：取得替代的翻譯 (Python) - 翻譯工具文字 API
+title: 快速入門：在雙語字典中查詢單字 (Python) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將了解如何搭配使用 Python 和翻譯工具文字 REST API 尋找指定文字的替代翻譯和使用範例。
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/21/2018
 ms.author: erhopf
-ms.openlocfilehash: ab8a6d5b6d4bb52863e77b844a4008bb80d840be
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 52820a9162a20b680b85d07f8c49ac5305d4979a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993940"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158001"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來取得替代的翻譯
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>快速入門：使用 Python 在雙語字典中查詢單字
 
 在本快速入門中，您將了解如何搭配使用 Python 和翻譯工具文字 REST API 尋找指定文字的替代翻譯和使用範例。
 

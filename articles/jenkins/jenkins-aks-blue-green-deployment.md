@@ -3,17 +3,17 @@ title: 使用 Jenkins 和藍/綠部署模式來部署至 Azure Kubernetes Servic
 description: 了解如何使用 Jenkins 和藍/綠部署模式來部署至 Azure Kubernetes Service (AKS)。
 ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, 藍/綠部署, 持續傳遞, cd
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/11/2018
-ms.openlocfilehash: 6cd3938844d7f6977c7b0912acffbfb1679dc42e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 9bd601aee87ab0776069c80bfdeffb70b06c3c86
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387375"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073878"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>使用 Jenkins 和藍/綠部署模式來部署至 Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ Azure Kubernetes Service (AKS) 可管理裝載 Kubernetes 的環境，以便快�
 ## <a name="prerequisites"></a>必要條件
 - [GitHub 帳戶](https://github.com)：您需要 GitHub 帳戶來複製範例存放庫。
 - [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)：您可使用 Azure CLI 2.0 來建立 Kubernetes 叢集。
-- [Chocolatey](https://chocolatey.org) - 用來安裝 kubectl 的套件管理員。
+- [Chocolatey](https://chocolatey.org)：用來安裝 kubectl 的套件管理員。
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)：用來對 Kubernetes 叢集執行命令的命令列介面。
 - [jq](https://stedolan.github.io/jq/download/)：輕量級的命令列 JSON 處理器。
 

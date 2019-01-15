@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6a9b8e25b8c64d39606ee5c2582098839e349630
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317903"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189757"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>使用 Azure 地圖服務建立商店定位器
 
@@ -109,7 +109,7 @@ ms.locfileid: "52317903"
 
 若要建立使用者介面，請將程式碼新增至 *index.html*：
 
-1. 將下列 `meta` 標記新增至 *index.html* 的 `head`。 這些標記會定義字元集 (UTF-8)、指示 Internet Explorer 與 Edge 使用的最新的瀏覽器版本，並指定適用於回應式配置的檢視區。
+1. 將下列 `meta` 標記新增至 *index.html* 的 `head`。 這些標記會定義字元集 (UTF-8)、指示 Internet Explorer 與 Microsoft Edge 使用的最新的瀏覽器版本，並指定適用於回應式配置的檢視區。
 
     ```HTML
     <meta charset="utf-8" /> 

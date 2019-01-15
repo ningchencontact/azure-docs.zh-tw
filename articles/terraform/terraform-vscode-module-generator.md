@@ -4,17 +4,17 @@ description: 了解如何使用 Yeoman 在 Azure 中建立 Terraform 基底範�
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, virtual machine, azure, yeoman, 虛擬機器
-author: v-mavick
+author: tomarchermsft
 manager: jeconnoc
-ms.author: v-mavick
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 15ef4795544044427805e21f7a8e98646c9cf9bd
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 36e4b424cdb961920fccdf7f050e28447ccbd6cf
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284330"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074504"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>使用 Yeoman 在 Azure 中建立 Terraform 基底範本
 
@@ -28,11 +28,11 @@ ms.locfileid: "52284330"
 
 ## <a name="prerequisites"></a>必要條件
 
-- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
-- **Visual Studio Code**：我們將會使用 [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) 來檢視由 Yeoman 產生器所建立的檔案。 不過，您也可以使用自己偏好的程式碼編輯器。
-- **Terraform**：您需要安裝 [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) 以執行由 Yeoman 所建立的模組。
-- **Docker**：我們將會使用 [Docker](https://www.docker.com/get-started) 以執行由 Yeoman 產生器所建立的模組。 (如果想要的話，您也可以使用 Ruby 來代替 Docker 執行範例模組)。
-- **Go 程式設計語言**：您需要安裝 [Go](https://golang.org/)，因為由 Yeoman 所產生的測試案例將會以 Go 撰寫。
+- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+- **Visual Studio Code**：我們將使用 [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) 來檢查由 Yeoman 產生器建立的檔案。 不過，您也可以使用自己偏好的程式碼編輯器。
+- **Terraform**：您需要安裝 [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) 以執行由 Yeoman 建立的模組。
+- **Docker**：我們將使用 [Docker](https://www.docker.com/get-started) 來執行由 Yeoman 產生器建立的模組。 (如果想要的話，您也可以使用 Ruby 來代替 Docker 執行範例模組)。
+- **Go 程式設計語言**：您需要安裝 [Go](https://golang.org/)，因為由 Yeoman 產生的測試案例將會以 Go 撰寫。
 
 >[!NOTE]
 >此教學課程中大部分的程序都牽涉到命令列輸入。 這裡所描述的步驟皆適用於所有作業系統與命令列工具。 在我們的範例中，我們已選擇對本機環境使用 PowerShell，並對 Cloud Shell 環境使用 Git Bash。
@@ -248,11 +248,11 @@ Yeoman 範本會在**目前的目錄**中產生檔案。 因此，您必須建�
 
 1. 此時，Cloud Shell 已為您在環境變數中設定 GOPATH。 若要查看此路徑，請輸入 `go env`。
 
-1. 如果尚無 $GOPATH 資料夾，請建立一個：輸入 `mkdir ~/go`。
+1. 如果尚無 $GOPATH 資料夾，請建立一個：輸入 `mkdir ~/go` 。
 
-1. 在 $GOPATH 資料夾內建立資料夾：輸入 `mkdir ~/go/src`。 此資料夾將用來保存及組織您可能建立的其他專案資料夾，例如我們將在下個步驟中建立的 <your-module-name> 資料夾。
+1. 在 $GOPATH 資料夾內建立資料夾：輸入 `mkdir ~/go/src` 。 此資料夾將用來保存及組織您可能建立的其他專案資料夾，例如我們將在下個步驟中建立的 <your-module-name> 資料夾。
 
-1. 建立資料夾以保存您的 Terraform 模組：輸入 `mkdir ~/go/src/<your-module-name>`。
+1. 建立資料夾以保存您的 Terraform 模組：輸入 `mkdir ~/go/src/<your-module-name>` 。
 
     >[!NOTE]
     >在此範例中，我們選擇 `my-module-name` 作為資料夾名稱。

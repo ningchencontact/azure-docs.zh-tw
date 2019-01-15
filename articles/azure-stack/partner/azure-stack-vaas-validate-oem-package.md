@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e3b0de577186cb7eb032a2042d234a0ffa2e3bb9
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261797"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105537"
 ---
 # <a name="validate-oem-packages"></a>驗證 OEM 套件
 
@@ -113,9 +113,23 @@ ms.locfileid: "52261797"
 
 ## <a name="run-package-validation-tests"></a>執行套件驗證測試
 
-在 [套件驗證測試摘要] 頁面中，您會看到完成驗證所需的測試清單。 此工作流程中的測試大約會執行 24 小時。
+1. 在 [套件驗證測試摘要] 頁面中，您會看到完成驗證所需的測試清單。 此工作流程中的測試大約會執行 24 小時。
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+    在驗證工作流程中，**排程**測試時會使用您在建立工作流程期間所指定的工作流程層級一般參數 (請參閱 [Azure Stack 驗證即服務的工作流程一般參數](azure-stack-vaas-parameters.md))。 如果有任何測試參數值無效，您就必須依照[修改工作流程參數](azure-stack-vaas-monitor-test.md#change-workflow-parameters)中的指示重新提供參數。
+
+    > [!NOTE]
+    > 對現有的執行個體排程驗證測試時，將建立新的執行個體而取代入口網站中的舊執行個體。 舊執行個體的記錄仍會保留，但無法從入口網站存取。  
+    測試順利完成後，**排程**動作就會停用。
+
+2. 選取將執行測試的代理程式。 如需新增本機測試執行代理程式的相關資訊，請參閱[部署本機代理程式](azure-stack-vaas-local-agent.md)。
+
+3. 對下列各項測試，步驟四和步驟五：
+    - OEM 延伸模組套件驗證
+    - 雲端模擬引擎
+
+4. 從內容功能表中選取 [排程]，以開啟排程測試執行個體的提示。
+
+5. 檢閱測試參數，然後選取 [提交] 以排程要執行的測試。
 
 所有測試均順利完成後，請將您 VaaS 解決方案的名稱和套件驗證傳送至 [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)，以要求套件簽署。
 

@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 11/01/2018
+ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 4c425e4da99774be5da8c060a8243bc34ec08f5a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7544da2357e5b30ef54260d56cd8c969901f893e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547780"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189162"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 建立 Azure Database for MySQL 伺服器
 本快速入門說明如何使用 Azure CLI，在大約 5 分鐘內於 Azure 資源群組中建立 Azure Database for MySQL 伺服器。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
@@ -57,19 +57,21 @@ admin-password | *安全密碼* | 系統管理員使用者的密碼。 其必須
 
 
 sku-name 參數值會遵循慣例 {pricing tier}\_{compute generation}\_{vCores}，如下列範例所示：
-+ `--sku-name B_Gen4_4` 對應於基本、第 4 代和 4 個 vCore。
++ `--sku-name B_Gen4_1` 對應於基本、第 4 代和 1 個虛擬核心。
 + `--sku-name GP_Gen5_32` 對應於一般用途、第 5 代和 32 個 vCore。
 + `--sku-name MO_Gen5_2` 對應於記憶體最佳化、第 5 代和 2 個 vCore。
 
 請參閱[定價層](./concepts-pricing-tiers.md)文件，以了解每個區域和每一層的有效值。
 
 下列範例會使用伺服器系統管理員登入 `myadmin` 在 `myresourcegroup` 您的資源群組中建立且名為 `mydemoserver` 的 MySQL 5.7 伺服器 (位於美國西部)。 這是**第 4 代****一般用途**伺服器，它具有 2 個 **vCore**。 將 `<server_admin_password>` 替換成您自己的值。
+
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
 
-
-
+> [!NOTE]
+> 如果您的工作負載只需要輕量計算和 I/O，請考慮使用基本定價層。 請注意，在基本定價層中建立的伺服器後續無法調整為「一般用途」或「記憶體最佳化」。 如需詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/mysql/)。
+> 
 
 ## <a name="configure-firewall-rule"></a>設定防火牆規則
 使用 **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create)** 命令建立 Azure Database for MySQL 伺服器層級的防火牆規則。 伺服器層級的防火牆規則允許外部應用程式 (例如 **mysql.exe** 命令列工具或 MySQL Workbench) 穿過 Azure MySQL 服務防火牆連線到您的伺服器。 

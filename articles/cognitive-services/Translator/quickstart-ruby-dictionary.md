@@ -1,5 +1,5 @@
 ---
-title: 快速入門：尋找替代的翻譯 (Ruby) - 翻譯工具文字 API
+title: 快速入門：在雙語字典中查詢單字 (Ruby) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Ruby，為內容中的字詞尋找替代的翻譯與範例。
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: c9e33fd4be80c8bb95248e8be34f9540d9cd69ea
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4574c07f3dfa98c0264d70c08a5ee4feff075bee
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649613"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157074"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-ruby"></a>快速入門：使用翻譯工具文字 REST API (Ruby) 尋找替代的翻譯
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-ruby"></a>快速入門：使用 Ruby 在雙語字典中查詢單字
 
 在本快速入門中，您可以使用翻譯工具文字 API，尋找字詞可能的替代翻譯的詳細資料，以及這些替代翻譯的使用範例。
 

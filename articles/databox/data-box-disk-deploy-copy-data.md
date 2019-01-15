@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 807453d6af67fd2dccf06a1b4a2beaca47dc865a
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 10750b5005810ec9034d2b4c7907578949ca6821
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913795"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155196"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>教學課程：將資料複製到 Azure 資料箱磁碟並確認
 
@@ -29,7 +29,7 @@ ms.locfileid: "50913795"
 ## <a name="prerequisites"></a>必要條件
 
 在您開始前，請確定：
-- 您已完成[教學課程：安裝及設定您的 Azure 資料箱磁碟](data-box-disk-deploy-set-up.md)。
+- 您已完成[教學課程：安裝和設定您的 Azure 資料箱磁碟](data-box-disk-deploy-set-up.md)。
 - 您的磁碟已解除鎖定，並連線到用戶端電腦。
 - 您用來將資料複製到磁碟的用戶端電腦必須執行[支援的作業系統](data-box-disk-system-requirements.md##supported-operating-systems-for-clients)。
 - 請確定資料的預定儲存體類型符合[支援的儲存體類型](data-box-disk-system-requirements.md#supported-storage-types)。
@@ -148,19 +148,32 @@ ms.locfileid: "50913795"
     C:\Users>
     ```
  
+    若要將效能最佳化，複製資料時請使用下列 robocopy 參數。
+
+    |    平台    |    大部分是 < 512 KB 的小檔案                           |    大部分是 512 KB - 1 MB 的中型檔案                      |    大部分是 > 1 MB 的大檔案                             |   
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
+    |    資料箱磁碟        |    4 個 Robocopy 工作階段* <br> 每個工作階段 16 個執行緒    |    2 個 Robocopy 工作階段* <br> 每個工作階段 16 個執行緒    |    2 個 Robocopy 工作階段* <br> 每個工作階段 16 個執行緒    |  |
     
-7. 開啟目標資料夾，以檢視並確認已複製的檔案。 如果您在複製程序期間遇到任何錯誤，請下載記錄檔以進行疑難排解。 記錄檔位於 robobopy 命令所指定的位置。
+    **每個 Robocopy 工作階段最多可以有 7,000 個目錄和 1 億 5 千萬個檔案。*
+    
+    >[!NOTE]
+    > 上述建議參數以室內測試所使用的環境為基礎。
+    
+    如需 Robocopy 命令的詳細資訊，請移至 [Robocopy 和數個範例](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx)。
+
+6. 開啟目標資料夾，以檢視並確認已複製的檔案。 如果您在複製程序期間遇到任何錯誤，請下載記錄檔以進行疑難排解。 記錄檔位於 robobopy 命令所指定的位置。
  
-
-
 > [!IMPORTANT]
 > - 您必須負責確保將資料複製到資料夾中，該資料夾對應至適當的資料格式。 例如，將區塊 Blob 資料複製到區塊 Blob 的資料夾。 如果資料格式與適當資料夾 (儲存體類型) 不相符，則在稍後步驟中，資料上傳至 Azure 會失敗。
-> -  複製資料時，請確定資料大小符合 [Azure 儲存體和資料箱磁碟限制](data-box-disk-limits.md)中所述的大小限制。 
+> -  複製資料時，請確定資料大小符合 [Azure 儲存體和資料箱磁碟限制](data-box-disk-limits.md)中所述的大小限制。
 > - 如果資料 (由資料箱磁碟上傳) 同時由資料箱磁碟以外的其他應用程式上傳，則可能導致上傳作業失敗和資料損毀。
 
 ### <a name="split-and-copy-data-to-disks"></a>將資料分割並複製到磁碟
 
 如果您使用多個磁碟，而且具有必須加以分割並複製到所有磁碟上的大型資料集，則您可能會用到此選擇性程序。 「資料箱分割複製」工具可協助您分割和複製 Windows 電腦上的資料。
+
+>[!IMPORTANT]
+> 「資料箱分割複製」工具也會驗證您的資料。 如果您使用「資料箱分割複製」工具來複製資料，您可以略過[驗證步驟](#validate-data)。
 
 1. 在您的 Windows 電腦上，請確定已下載「資料箱分割複製」工具，並且已在本機資料夾中解壓縮。 此工具會在您下載適用於 Windows 的資料箱磁碟工具組時一併下載。
 2. 開啟檔案總管。 請記下指派給資料箱磁碟的資料來源磁碟機和磁碟機代號。 
@@ -176,26 +189,26 @@ ms.locfileid: "50913795"
 
          ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
-4. 請移至軟體解壓縮後所在的資料夾。 在該資料夾中，找出 SampleConfig.json 檔案。 這是您可以修改並儲存的唯讀檔案。
+4. 請移至軟體解壓縮後所在的資料夾。 在該資料夾中找出 `SampleConfig.json` 檔案。 這是您可以修改並儲存的唯讀檔案。
 
    ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
-5. 修改 SampleConfig.json 檔案。
+5. 修改 `SampleConfig.json` 檔案。
  
     - 提供作業名稱。 這會在資料箱磁碟中建立資料夾，而這最後會在與這些磁碟相關聯的 Azure 儲存體帳戶中成為容器。 作業名稱必須遵循 Azure 容器的命名慣例。 
-    - 提供來源路徑並記下 SampleConfigFile.json 中的路徑格式。 
+    - 提供來源路徑並記下 `SampleConfigFile.json` 中的路徑格式。 
     - 輸入對應到目標磁碟的磁碟機代號。 資料會取自來源路徑，並複製到多個磁碟。
-    - 提供記錄檔的路徑。 根據預設，這會傳送到 .exe 目前所在的目錄。
+    - 提供記錄檔的路徑。 根據預設，這會傳送到 `.exe` 目前所在的目錄。
 
      ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
-6. 若要驗證檔案格式，請移至 JSONlint。 將檔案儲存為 ConfigFile.json。 
+6. 若要驗證檔案格式，請移至 `JSONlint`。 將檔案儲存為 `ConfigFile.json`。 
 
      ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. 開啟命令提示字元視窗。 
 
-8. 執行 DataBoxDiskSplitCopy.exe。 類型
+8. 執行 `DataBoxDiskSplitCopy.exe`。 類型
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
@@ -214,7 +227,7 @@ ms.locfileid: "50913795"
     ![分割複製資料](media/data-box-disk-deploy-copy-data/split-copy-10.png)
     ![分割複製資料](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
-    如果您進一步檢查 n:磁碟機的內容，您會看到對應至區塊 Blob 和分頁 Blob 格式資料的兩個子資料夾已建立。
+    如果您進一步檢查 `n:` 磁碟機的內容，您會看到對應至區塊 Blob 和分頁 Blob 格式資料的兩個子資料夾已建立。
     
      ![分割複製資料 ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
@@ -222,15 +235,14 @@ ms.locfileid: "50913795"
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+資料複製完成之後，接下來您可以驗證資料。 如果您使用「分割複製」工具，請略過驗證 (「分割複製」工具也會進行驗證)，並進入下一個教學課程。
 
-資料複製完成之後，下一個步驟是驗證資料。 
 
+## <a name="validate-data"></a>驗證資料
 
-## <a name="validate-data"></a>驗證資料 
+如果您未使用「分割複製」工具複製資料，則必須驗證資料。 若要確認資料，請執行下列步驟。
 
-若要確認資料，請執行下列步驟。
-
-1. 在磁碟機的 DataBoxDiskImport 資料夾中執行 `DataBoxDiskValidation.cmd`，以進行總和檢查碼驗證。 
+1. 在磁碟機的 DataBoxDiskImport 資料夾中執行 `DataBoxDiskValidation.cmd`，以進行總和檢查碼驗證。
     
     ![資料箱磁碟驗證工具的輸出](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -240,7 +252,7 @@ ms.locfileid: "50913795"
 
     > [!TIP]
     > - 請在兩次的執行之間重設工具。
-    > - 只在處理包含小檔案 (~KB) 的大型資料集時，使用選項 1 來驗證檔案。 在這些情況下，產生總和檢查碼可能需要很長的時間，而且效能可能會變得非常慢。
+    > - 如果處理包含小檔案 (~KB) 的大型資料集，請使用選項 1。 此選項只會驗證檔案，因為產生總和檢查碼可能需要很長的時間，而且效能可能會變得非常慢。
 
 3. 如果使用了多個磁碟，請對每個磁碟執行命令。
 
@@ -256,4 +268,3 @@ ms.locfileid: "50913795"
 
 > [!div class="nextstepaction"]
 > [將您的 Azure 資料箱寄回給 Microsoft](./data-box-disk-deploy-picked-up.md)
-

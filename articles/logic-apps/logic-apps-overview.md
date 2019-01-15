@@ -11,16 +11,16 @@ ms.custom: mvc
 ms.date: 6/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: f5b39b428b894fcf5dddc0a7435353d174d83b78
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d9f3bb33ab0638fddfcf64e61642c236a03d6293
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231197"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065256"
 ---
 # <a name="what-is-azure-logic-apps"></a>什麼是 Azure Logic Apps？
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) 是一項雲端服務，可在您需要跨企業或組織整合應用程式、資料、系統和服務時，協助您自動化及協調工作、商務程序和[工作流程](#logic-app-concepts)。 Logic Apps 會簡化設計和建立可調整解決方案的方式，以便在雲端、內部部署環境或兩者中進行應用程式整合、資料整合、系統整合、企業應用程式整合 (EAI) 和企業對企業 (B2B) 通訊。
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) 是一項雲端服務，可在您需要跨企業或組織整合應用程式、資料、系統和服務時，協助您自動化及協調工作、商務程序和[工作流程](#logic-app-concepts)。 Logic Apps 會簡化設計和建立可調整解決方案的方式，以便在雲端、內部部署環境或兩者中進行應用程式[整合](https://azure.microsoft.com/product-categories/integration/)、資料整合、系統整合、企業應用程式整合 (EAI) 和企業對企業 (B2B) 通訊。
 
 例如，以下是可利用邏輯應用程式自動執行的幾項工作負載：
 
@@ -122,9 +122,9 @@ BizTalk Server 可以透過另一種方式，使用[適用於 Logic Apps 的 Mic
 
 * **觸發程序**：由 Microsoft 管理的許多連接器會提供可在事件或新資料符合指定的條件時引發的觸發程序。 比方說，事件可能是收到一封電子郵件，或偵測到您的 Azure 儲存體帳戶有變更。 每次引發觸發程序時，Logic Apps 引擎就會建立可執行工作流程的新邏輯應用程式執行個體。
 
-* **動作**：動作是在觸發程序引發後發生的所有步驟。 每個動作通常會對應至受控連接器、自訂 API 或自訂連接器所定義的作業。
+* **動作**：「動作」是指在觸發程序之後發生的所有步驟。 每個動作通常會對應至受控連接器、自訂 API 或自訂連接器所定義的作業。
 
-* **企業整合套件** - 在更進階的整合案例中，Logic Apps 會包含來自 BizTalk Server 的功能。 企業整合套件提供的連接器可協助邏輯應用程式輕鬆地執行驗證、轉換等等。
+* **企業整合套件**：在更進階的整合案例中，Logic Apps 會包含來自 BizTalk Server 的功能。 企業整合套件提供的連接器可協助邏輯應用程式輕鬆地執行驗證、轉換等等。
 
 ## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-flow"></a>Logic Apps 與 Functions、WebJobs 和 Flow 有何不同？
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: d116f2553ce35c2d4041f37cc3fe4567e1595adc
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5b3e68765fbcff12dcb5337aec38623b8994882c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258758"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156794"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing 新聞搜尋 SDK 來執行新聞搜尋
 
@@ -35,14 +35,14 @@ Bing 新聞搜尋 SDK 包含用於新聞查詢以及剖析結果的 REST API 功
 * Newtonsoft.Json
 
 ## <a name="news-search-client"></a>新聞搜尋用戶端
-若要建立 `NewsSearchAPI` 用戶端的執行個體，請新增 using 指示詞：
+若要建立 `NewsSearchClient` 的執行個體，請新增 using 指示詞：
 ```
 using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
 
 ```
-然後，具現化用戶端：
+然後，將用戶端具現化：
 ```
-var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
@@ -56,7 +56,7 @@ Console.WriteLine("Search news for query \"Quantum  Computing\" with market and 
 ```
 if (newsResults.Value.Count > 0)
 {
-    var firstNewsResult = newsResults.Value.First();
+    var firstNewsResult = newsResults.Value[0];
 
     Console.WriteLine($"TotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
     Console.WriteLine($"News result count: {newsResults.Value.Count}");
@@ -64,7 +64,7 @@ if (newsResults.Value.Count > 0)
     Console.WriteLine($"First news url: {firstNewsResult.Url}");
     Console.WriteLine($"First news description: {firstNewsResult.Description}");
     Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-    Console.WriteLine($"First news provider: {firstNewsResult.Provider.First().Name}");
+    Console.WriteLine($"First news provider: {firstNewsResult.Provider[0].Name}");
 }
 
 else
@@ -88,7 +88,7 @@ namespace NewsSrchSDK
     {
         static void Main(string[] args)
         {
-            var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+            var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
             try
             {
@@ -141,7 +141,7 @@ namespace NewsSrchSDK
 ## <a name="recent-news-freshness-and-sortby-parameters"></a>最新 news、freshness 和 sortBy 參數
 下列程式碼使用 `freshness` 和 `sortBy` 參數來搜尋最新新聞中是否有 "Artificial Intelligence"。 它會驗證結果數目，並印出第一個新聞結果的 `totalEstimatedMatches`、`name`、`url`、`description`、`published time` 和提供者 `name`。
 ```
-        public static void NewsSearchWithFilters(NewsSearchAPI client)
+        public static void NewsSearchWithFilters(NewsSearchClient client)
         {
             try
             {
@@ -184,7 +184,7 @@ namespace NewsSrchSDK
 ## <a name="category-news-safe-search"></a>分類新聞、安全搜尋
 下列程式碼使用安全搜尋，搜尋分類新聞中是否有電影和電視娛樂。  它會驗證結果數目，並印出第一個新聞結果的 `category`、`name`、`url`、`description`、`published time` 和提供者 `name`。
 ```
-        public static void NewsCategory(NewsSearchAPI client)
+        public static void NewsCategory(NewsSearchClient client)
         {
             try
             {
@@ -226,7 +226,7 @@ namespace NewsSrchSDK
 ## <a name="trending-topics"></a>趨勢主題
 下列程式碼會在 Bing 中搜尋新聞趨勢主題。 它會驗證結果數目，並印出第一個新聞結果的 `name`、`text of query`、`webSearchUrl`、`newsSearchUrl` 和 `image.Url`。
 ```
-        public static void TrendingTopics(NewsSearchAPI client)
+        public static void TrendingTopics(NewsSearchClient client)
         {
             try
             {

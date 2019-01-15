@@ -3,17 +3,17 @@ title: 使用 Ansible 調整 Azure App Service Web Apps 的規模
 description: 深入了解如何使用 Ansible 建立在 Linux 上的 App Service 中具有 Java 8 和 Tomcat 容器執行階段的 Web Apps
 ms.service: ansible
 keywords: ansible, azure, devops, bash, 劇本, Azure App Service, Web App, 調整規模, Java
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
-ms.author: kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: 740ff6d6a636377f9d58a5231692c87f935ae6d2
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 4ef8320d3eba841ee64557e31e63b4e79ee3aa92
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601860"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159888"
 ---
 # <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>使用 Ansible 調整 Azure App Service Web Apps 的規模
 [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (或簡稱 Web Apps) 可裝載 Web 應用程式、REST API 和行動後端。 您可以使用您慣用的語言進行開發&mdash;.NET、.NET Core、Java、Ruby、Node.js、PHP 或 Python 均可。
@@ -39,7 +39,7 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 本文將說�
     location: eastus
 
   tasks:
-  - name: Get facts of existing App serivce plan
+  - name: Get facts of existing App service plan
     azure_rm_appserviceplan_facts:
       resource_group: "{{ resource_group }}"
       name: "{{ plan_name }}"
@@ -80,7 +80,7 @@ PLAY [localhost] **************************************************************
 TASK [Gathering Facts] ********************************************************
 ok: [localhost]
 
-TASK [Get facts of existing App serivce plan] **********************************************************
+TASK [Get facts of existing App service plan] **********************************************************
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]

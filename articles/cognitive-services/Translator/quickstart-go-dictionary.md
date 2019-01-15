@@ -1,5 +1,5 @@
 ---
-title: 快速入門：尋找替代的翻譯 (Go) - 翻譯工具文字 API
+title: 快速入門：在雙語字典中查詢單字 (Go) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 Go，為內容中的字詞尋找替代的翻譯與範例。
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: bcda716d143bd675f9510b1ecf5974ab9c28a394
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c1a75a32e60e337d07bda9d6f6d39efa58c679e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000582"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158562"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-go"></a>快速入門：搭配使用翻譯工具文字 API 與 Go 來取得替代的翻譯
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>快速入門：使用 Go 在雙語字典中查詢單字
 
 在本快速入門中，您將了解如何搭配使用 Go 與翻譯工具文字 REST API，來尋找指定文字的替代翻譯和使用範例。
 

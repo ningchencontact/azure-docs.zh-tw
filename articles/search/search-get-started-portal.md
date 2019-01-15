@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3f75cd61d948f3f6df34124a9b16b333f6c5e6d5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 9bdc2e197b4d7aea270c954305a96a01a1371945
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001782"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121544"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>快速入門：使用內建入口網站工具進行 Azure 搜尋服務的匯入、編製索引和查詢
 
@@ -48,7 +48,7 @@ ms.locfileid: "54001782"
 
 服務儀表板上的區段會顯示您已有多少個索引、索引子和資料來源。 
 
-![清單索引、索引子和資料來源][media/search-get-started-portal/tiles-indexers-datasources2.png]
+![索引、索引子和資料來源的清單](media/search-get-started-portal/tiles-indexers-datasources2.png)
 
 ## <a name="create-index"></a> 建立索引和載入資料
 
@@ -124,9 +124,13 @@ ms.locfileid: "54001782"
 
 ## <a name="view-the-index"></a>檢視索引
 
-[索引] 清單會顯示現有的索引，包括您剛才在精靈中建立的 realestate-us-sample 索引。
+主要服務頁面會提供在 Azure 搜尋服務中建立之資源的連結。  若要檢視您剛才建立的索引，請從連結的清單中按一下 [索引]。 
 
-在這份清單中，您可以檢視索引結構描述以及選擇性地新增欄位，但您無法變更現有欄位。 現有的欄位在 Azure 搜尋服務中具有實體表示法，因此不可修改，甚至是在程式碼中也不可修改。 若要對現有欄位進行重大變更，請建立新索引並，捨棄原始欄位。
+   ![服務儀表板上的索引清單](media/search-get-started-portal/indexes-list.png)
+
+在此清單中，您可以按一下剛剛建立的 *realestate-us-sample* 索引、檢視索引結構描述， 以及選擇性地新增欄位。 
+
+[欄位] 索引標籤會顯示索引結構描述。 捲動至清單底部可輸入新欄位。 在大部分情況下，您無法變更現有的欄位。 現有的欄位在 Azure 搜尋服務中具有實體表示法，因此不可修改，甚至是在程式碼中也不可修改。 若要對現有欄位進行重大變更，請建立新索引並，捨棄原始欄位。
 
    ![範例索引定義](media/search-get-started-portal/sample-index-def.png)
 
@@ -137,6 +141,8 @@ ms.locfileid: "54001782"
 ## <a name="query-index"></a> 使用搜尋總管進行查詢
 
 接下來，您現在應該有搜尋索引，準備好要使用內建的 [[搜尋總管]](search-explorer.md) 查詢頁面進行查詢。 它會提供搜尋方塊，讓您能夠測試任意的查詢字串。
+
+**搜尋總管**只能用來處理 [REST API 要求](https://docs.microsoft.com/rest/api/searchservice/search-documents)，但可接受[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)和[完整 Lucene 查詢剖析器](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)的語法，以及[搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) 作業中可用的所有搜尋參數。
 
 > [!TIP]
 > 下列步驟會在 [Azure 搜尋服務概觀影片](https://channel9.msdn.com/Events/Connect/2016/138)的 6 分 08 秒處示範。
@@ -150,11 +156,9 @@ ms.locfileid: "54001782"
 
    ![索引和 API 命令](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
-3. 在搜尋列中，輸入下列查詢字串，然後按一下 [搜尋]。
+3. 在搜尋列中貼入下列查詢字串，然後按一下 [搜尋]。
 
-    > [!NOTE]
-    > [搜尋總管] 只能用來處理 [REST API 要求](https://docs.microsoft.com/rest/api/searchservice/search-documents)。 它可接受[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)和[完整 Lucene 查詢剖析器](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)的語法，以及[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents)作業中可用的所有搜尋參數。
-    >
+   ![查詢字串和搜尋按鈕](media/search-get-started-portal/search-explorer-query-string-example.png)
 
 ## <a name="example-queries"></a>查詢範例
 

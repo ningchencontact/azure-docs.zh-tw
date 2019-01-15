@@ -6,26 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: fbe286313bce9b735665b134a5ea18ba4995548b
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 3b158e0743a811f0d8f478c15b64c2b8b99a748a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712257"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155995"
 ---
-# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>快速入門：使用 Azure 入口網站部署 Azure 資料箱磁碟 (預覽)
+# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站部署 Azure 資料箱磁碟
 
 本快速入門說明如何使用 Azure 入口網站來部署 Azure 資料箱磁碟。 這些步驟包含如何快速建立訂單、接收磁碟、打開包裝、連線及將資料複製到磁碟，以便上傳至 Azure。 
 
 如需部署和追蹤的詳細逐步指示，請移至[教學課程：訂購 Azure 資料箱磁碟](data-box-disk-deploy-ordered.md)。 
 
 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
-
-> [!IMPORTANT]
-> 資料箱磁碟處於預覽狀態。 部署這個解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="prerequisites"></a>必要條件
 

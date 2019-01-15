@@ -9,14 +9,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 113e5769ee6a58785a46182064684bea5825c12c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d233f1df40d9580edfaaeb6b819c014952ad3b0c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138907"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189265"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>教學課程：C# 中使用 Bot Framework 4.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
 使用 C#，您可以建置與 Language Understanding (LUIS) 整合的聊天機器人。 此 Bot 會使用 HomeAutomation 應用程式來實作 Bot 解決方案。 此 Bot 是使用 [Web 應用程式 Bot](https://docs.microsoft.com/azure/bot-service/) 和 [Bot Framework 第 4 版](https://github.com/Microsoft/botbuilder-js)所建置的。
@@ -301,6 +301,7 @@ Azure Bot 服務會使用 Bot Framework SDK。 深入了解 SDK 和 Bot Framewor
 
 您已建立了 Azure Bot 服務、複製 Bot 祕密和 `.bot` 檔案路徑，以及下載了程式碼的 zip 檔案。 您將預先建置的 HomeAutomation 領域新增至建立為新 Azure Bot 服務一部份的 LUIS 應用程式，然後再次訓練並發佈應用程式。 您將程式碼專案解壓縮，並建立了環境檔案 (`.env`)，然後設定 Bot 祕密和 `.bot` 檔案路徑。 在 bot.js 檔案中，您新增了程式碼來處理兩個新的意圖。 然後您在 Bot 模擬器中測試 Bot，以查看 LUIS 如何回應其中一個新意圖的語句。 
 
+查看更多聊天機器人[範例](https://github.com/Microsoft/AI)。 
 
 > [!div class="nextstepaction"]
 > [在 LUIS 中建置自訂領域](luis-quickstart-intents-only.md)

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 8f76c53964d062db76ea7d40cdb0ced2d015fc79
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 926a339bc8214c989da4ef934ae41012eea58d1e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716002"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120728"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教學課程：新增內部部署應用程式以便透過 Azure Active Directory 中的應用程式 Proxy 進行遠端存取
 
@@ -25,10 +25,10 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 本教學課程會：
 
 > [!div class="checklist"]
-> * 對輸出流量開啟連接埠，並允許存取特定 URL
-> * 在 Windows 伺服器上安裝連接器，並向應用程式 Proxy 註冊
-> * 確認連接器的安裝和註冊是否正確
-> * 將內部部署應用程式新增至 Azure AD 租用戶
+> * 對輸出流量開啟連接埠，並允許存取特定 URL。
+> * 在 Windows 伺服器上安裝連接器，並向應用程式 Proxy 註冊。
+> * 確認連接器的安裝和註冊是否正確。
+> * 將內部部署應用程式新增至 Azure AD 租用戶。
 > * 確認測試使用者可以使用 Azure AD 帳戶登入應用程式。
 
 ## <a name="before-you-begin"></a>開始之前

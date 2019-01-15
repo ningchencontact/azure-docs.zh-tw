@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 2fc81cc06063c0fee0a4f875b4b0f8bd1343cf85
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 789f58699f39f4b7eac453f4cf79ea55a5bfc8d3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810452"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159497"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>教學課程：Azure Active Directory 與 SharePoint 內部部署整合
 
@@ -118,7 +118,7 @@ ms.locfileid: "53810452"
     ![憑證下載連結](common/certificatebase64.png)
 
     > [!Note]
-    > 請記下您已將憑證檔案下載到其中的檔案路徑，因為您稍後需要在 PowerShell 指令碼中使用它來進行設定。
+    > 請記下您下載憑證檔案的檔案路徑。 您後續使用 PowerShell 指令碼進行設定時，將需使用此檔案。
 
 6. 在 [設定 SharePoint 內部部署] 區段上，依據您的需求複製適當的 URL。 針對**單一登入服務 URL**，請使用下列模式的值：`https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
@@ -175,7 +175,7 @@ ms.locfileid: "53810452"
     ![設定您的驗證提供者](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
     > [!NOTE]
-    > 某些外部使用者將無法使用這個單一登入整合，因為他們的 UPN 將含有類似 `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com` 的損害值。 我們很快地將會為客戶提供如何根據使用者類型來處理 UPN 的應用程式設定。 在那之後，您的所有來賓使用者應該都能以組織員工的身分順暢地使用 SSO。
+    > 某些外部使用者將無法使用這個單一登入整合，因為他們的 UPN 將含有類似 `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com` 的損害值。 我們即將允許自訂應用程式設定，以根據使用者類型來處理 UPN。 在那之後，您的所有來賓使用者應該都能以組織員工的身分順暢地使用 SSO。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

@@ -1,7 +1,7 @@
 ---
 title: 迴歸模型教學課程：準備資料
 titleSuffix: Azure Machine Learning service
-description: 在本教學課程的第一個部分中，您將了解如何使用 Azure ML SDK 來準備建立迴歸模型所需的 Python 資料。
+description: 在本教學課程的第一個部分中，您將了解如何使用 Azure Machine Learning SDK 來準備建立迴歸模型所需的 Python 資料。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,37 +11,39 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d20ff1fabfb73c899153cf42bb6f2d7a8f233e21
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8f7e414d2aa4962534a90a295e104f8e8ebabbd9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314681"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079233"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>教學課程：準備建立迴歸模型所需的資料
 
-在本教學課程中，您將了解如何使用 Azure Machine Learning 資料準備 SDK 來準備建立迴歸模型所需的資料。 請執行各種轉換來篩選和結合兩個不同的 NYC 計程車資料集。 本教學課程組的最終目的是要以各種資料特性 (包括上車時間、星期幾、乘客人數和座標) 來訓練模型，以預測計程車車程的成本。 本教學課程是兩部分教學課程系列的第一部分。
+在本教學課程中，您將了解如何使用 Azure Machine Learning 資料準備 SDK 來準備建立迴歸模型所需的資料。 您將執行各種轉換來篩選和結合兩個不同的 NYC 計程車資料集。  
+
+本教學課程是兩部分教學課程系列的第一部分。 完成教學課程系列之後，您可以訓練模型的資料特性，以預測計程車車程的費用。 這些特性包括上車的日期和時間、乘客數和上車地點。
 
 在本教學課程中，您：
 
 > [!div class="checklist"]
-> * 設定 Python 環境並匯入套件
-> * 載入具有不同欄位名稱的兩個資料集
-> * 清理資料以移除異常的部分
-> * 使用智慧型轉換來轉換資料，以建立新特性
-> * 儲存要在迴歸模型中使用的資料流程物件
+> * 設定 Python 環境並匯入套件。
+> * 載入具有不同欄位名稱的兩個資料集。
+> * 清理資料以移除異常的部分。
+> * 使用智慧型轉換來轉換資料，以建立新特性。
+> * 儲存要在迴歸模型中使用的資料流程物件。
 
-您可以使用 [Azure Machine Learning 資料準備 SDK](https://aka.ms/data-prep-sdk)，以 Python 準備資料。
+您可以使用 [Azure Machine Learning 資料準備 SDK](https://aka.ms/data-prep-sdk)，準備 Python 中的資料。
 
 ## <a name="get-the-notebook"></a>取得 Notebook
 
-為了方便起見，此教學課程以 [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb) 形式提供。 在 Azure Notebooks 或您自己的 Jupyter Notebook 伺服器中執行 `regression-part1-data-prep.ipynb` Notebook。
+為了方便起見，此教學課程以 [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb) 形式提供。 在 Azure Notebooks 或您自己的 Jupyter Notebook 伺服器中執行 **regression-part1-data-prep.ipynb** Notebook。
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
-## <a name="import-packages"></a>匯入封裝
+## <a name="import-packages"></a>匯入套件
 
-首先，請匯入 SDK。
+首先，您應匯入 SDK。
 
 
 ```python
@@ -50,7 +52,7 @@ import azureml.dataprep as dprep
 
 ## <a name="load-data"></a>載入資料
 
-將兩個不同的 NYC 計程車資料集下載到資料流程物件中。  這些資料集包含稍有不同的欄位。 方法 `auto_read_file()` 會自動辨識輸入檔類型。
+將兩個不同的 NYC 計程車資料集下載到資料流程物件中。 這些資料集包含稍有不同的欄位。 方法 `auto_read_file()` 會自動辨識輸入檔類型。
 
 
 ```python
@@ -60,7 +62,7 @@ green_path = "/".join([dataset_root, "green-small/*"])
 yellow_path = "/".join([dataset_root, "yellow-small/*"])
 
 green_df = dprep.read_csv(path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
-# auto_read_file will automatically identify and parse the file type, and is useful if you don't know the file type
+# auto_read_file automatically identifies and parses the file type, which is useful when you don't know the file type.
 yellow_df = dprep.auto_read_file(path=yellow_path)
 
 display(green_df.head(5))
@@ -69,7 +71,7 @@ display(yellow_df.head(5))
 
 ## <a name="cleanse-data"></a>清理資料
 
-現在，您可以在一些變數中填入將套用至所有資料流程的捷徑轉換。 變數 `drop_if_all_null` 將用來刪除所有欄位皆為 Null 的記錄。 變數 `useful_columns` 會保存每個資料流程中保留的資料行描述陣列。
+現在，您可以在一些變數中填入將套用至所有資料流程的捷徑轉換。 變數 `drop_if_all_null` 會用來刪除所有欄位皆為 Null 的記錄。 變數 `useful_columns` 會保存每個資料流程中保留的資料行描述陣列。
 
 ```python
 all_columns = dprep.ColumnSelector(term=".*", use_regex=True)
@@ -80,7 +82,7 @@ useful_columns = [
 ]
 ```
 
-您會先處理綠色計程車資料，並使其成為可與黃色計程車資料結合的有效型態。 建立暫時的資料流程 `tmp_df`。 使用您所建立的捷徑轉換變數呼叫 `replace_na()`、`drop_nulls()` 和 `keep_columns()` 函式。 此外，請將資料框架中的所有資料行重新命名，使其符合 `useful_columns` 中的名稱。
+您會先處理綠色計程車資料，並使其成為可與黃色計程車資料結合的有效型態。 建立名為 `tmp_df` 的暫時資料流程。 使用您所建立的捷徑轉換變數呼叫 `replace_na()`、`drop_nulls()` 和 `keep_columns()` 函式。 此外，請將資料框架中的所有資料行重新命名，使其符合 `useful_columns` 變數中的名稱。
 
 
 ```python
@@ -209,7 +211,7 @@ tmp_df.head(5)
 </table>
 </div>
 
-使用對先前步驟中的 `tmp_df` 執行的轉換來覆寫 `green_df` 變數。
+使用對先前步驟中的 `tmp_df` 資料流程執行的轉換來覆寫 `green_df` 變數。
 
 ```python
 green_df = tmp_df
@@ -247,7 +249,7 @@ tmp_df = (yellow_df
 tmp_df.head(5)
 ```
 
-同樣地，以 `tmp_df` 覆寫 `yellow_df`，然後在綠色計程車資料上呼叫 `append_rows()` 以附加黃色計程車資料，而建立新結合的資料框架。
+同樣地，以 `tmp_df` 資料流程覆寫 `yellow_df` 資料流程。 然後，對綠色計程車資料呼叫 `append_rows()` 函式，以附加黃色計程車資料。 此時會建立新的合併資料框架。
 
 
 ```python
@@ -257,7 +259,7 @@ combined_df = green_df.append_rows([yellow_df])
 
 ### <a name="convert-types-and-filter"></a>轉換類型和篩選 
 
-檢查上車和下車座標摘要統計資料，以了解如何資料的分布情形。 首先，請定義將經緯度欄位變更為十進位類型的 `TypeConverter` 物件。 接著，呼叫 `keep_columns()` 函式將輸出限定於經緯度欄位，然後呼叫 `get_profile()`。
+檢查上車和下車座標摘要統計資料，以了解如何資料的分布情形。 首先，請定義將經、緯度欄位變更為十進位類型的 `TypeConverter` 物件。 接著，呼叫 `keep_columns()` 函式將輸出限定於經、緯度欄位，然後呼叫 `get_profile()` 函式。
 
 
 ```python
@@ -401,7 +403,7 @@ combined_df.keep_columns(columns=[
 
 
 
-在摘要統計資料輸出中，您會看到有遺漏的座標，和不在紐約市內的座標。 請在 `filter()` 函式內鏈結資料行篩選命令，並定義每個欄位的下限和上限，以篩選出不在市界內的座標。 然後，再次呼叫 `get_profile()` 以驗證轉換。
+在摘要統計資料輸出中，您會看到有遺漏的座標，和不在紐約市內的座標。 請篩選出不在市界內的位置座標。 在 `filter()` 函式內鏈結資料行篩選命令，並定義每個欄位的下限和上限。 然後，再次呼叫 `get_profile()` 函式以驗證轉換。
 
 
 ```python
@@ -553,7 +555,7 @@ tmp_df.keep_columns(columns=[
 
 
 
-使用您對 `tmp_df` 所做的轉換來覆寫 `combined_df`。
+以您對 `tmp_df` 資料流程所做的轉換覆寫 `combined_df` 資料流程。
 
 
 ```python
@@ -627,14 +629,14 @@ combined_df.keep_columns(columns='store_forward').get_profile()
 
 
 
-在 `store_forward` 的資料設定檔輸出中，您會看到資料不一致，而且有遺漏/Null 值。 請使用 `replace()` 和 `fill_nulls()` 函式取代這些值，並且將這兩種值都變更為字串 "N"。
+請注意，`store_forward` 資料行中的資料設定檔輸出會顯示資料不一致，而且有遺漏值或 Null 值。 請使用 `replace()` 和 `fill_nulls()` 函式將這些值取代為字串 "N"：
 
 
 ```python
 combined_df = combined_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
-執行另一個 `replace` 函式，但這次在 `distance` 欄位上執行。 這會將錯誤標示為 `.00` 的距離值重新格式化，並在所有 Null 中填入零。 將 `distance` 欄位轉換為數值格式。
+在 `distance` 欄位上執行 `replace` 函式。 此函式會將錯誤標示為 `.00` 的距離值重新格式化，並在所有 Null 中填入零。 將 `distance` 欄位轉換為數值格式。
 
 
 ```python
@@ -642,7 +644,7 @@ combined_df = combined_df.replace(columns="distance", find=".00", replace_with=0
 combined_df = combined_df.to_number(["distance"])
 ```
 
-將上車和下車的日期時間分割到各自的日期資料行和時間資料行中。 請使用 `split_column_by_example()` 來執行此分割。 在此案例中，會省略選擇性 `example` 參數 `split_column_by_example()`。 因此，函式將根據資料自動決定分割的目的地。
+將上車和下車的日期時間值分割到各自的日期資料行和時間資料行中。 使用 `split_column_by_example()` 函式進行分割。 在此案例中，會省略函式 `split_column_by_example()` 的選擇性 `example` 參數。 因此，函式將根據資料自動決定分割的目的地。
 
 
 ```python
@@ -780,7 +782,7 @@ tmp_df.head(5)
 </div>
 
 
-將 `split_column_by_example()` 產生的資料行重新命名為有意義的名稱。
+將 `split_column_by_example()` 函式產生的資料行重新命名，以使用有意義的名稱。
 
 
 ```python
@@ -794,7 +796,7 @@ tmp_df_renamed = (tmp_df
 tmp_df_renamed.head(5)
 ```
 
-使用已執行的轉換來覆寫 `combined_df`，然後呼叫 `get_profile()` 以檢視所有轉換完成後的完整摘要統計資料。
+使用已執行的轉換來覆寫 `combined_df` 資料流程。 然後，呼叫 `get_profile()` 函式，以檢視所有轉換完成後的完整摘要統計資料。
 
 
 ```python
@@ -804,9 +806,9 @@ combined_df.get_profile()
 
 ## <a name="transform-data"></a>轉換資料
 
-將上車和下車日期進一步分割成週中的日期、月中的日期，以及月份。 若要取得週中的日期，請使用 `derive_column_by_example()` 函式。 此函數會以定義輸入資料和所需輸出的範例物件陣列作為參數。 然後，此函式會自動判斷您所需的轉換。 針對上車和下車時間資料行，請使用不含範例參數的 `split_column_by_example()` 函式將其分割成小時、分鐘和秒。
+將上車和下車日期進一步分割成週中的日期、月中的日期和月份值。 若要取得「週中的日期」值，請使用 `derive_column_by_example()` 函式。 此函數會採用定義輸入資料和所需輸出的範例物件所組成的陣列參數。 此函式會自動判斷您所需的轉換。 針對上車和下車時間資料行，請使用不含範例參數的 `split_column_by_example()` 函式，將時間分割成小時、分鐘和秒。
 
-在您已產生這些新特性後，請使用 `drop_columns()` 刪除原始欄位，而改用新產生的特性。 請將其餘所有的欄位重新命名為精確的描述。
+在您產生這些新特性後，請使用 `drop_columns()` 函式刪除原始欄位，因為您所需的是新產生的特性。 將其餘欄位重新命名，以使用有意義的描述。
 
 
 ```python
@@ -824,7 +826,7 @@ tmp_df = (combined_df
           
     .split_column_by_example(source_column="pickup_time")
     .split_column_by_example(source_column="dropoff_time")
-    # the following two split_column_by_example calls reference the generated column names from the above two calls
+    # The following two calls to split_column_by_example reference the column names generated from the previous two calls.
     .split_column_by_example(source_column="pickup_time_1")
     .split_column_by_example(source_column="dropoff_time_1")
     .drop_columns(columns=[
@@ -999,7 +1001,7 @@ tmp_df.head(5)
 </table>
 </div>
 
-在以上資料中，您會看到從衍生的轉換產生的上車和下車日期和時間元件正確無誤。 `pickup_datetime` 和 `dropoff_datetime` 資料行已不再需要，請加以卸除。
+請注意，資料會顯示從衍生的轉換產生的上車和下車日期和時間元件正確無誤。 `pickup_datetime` 和 `dropoff_datetime` 資料行已不再需要，請加以卸除。
 
 
 ```python
@@ -1034,7 +1036,7 @@ type_infer
     'dropoff_latitude': [FieldType.DECIMAL],
     'cost': [FieldType.DECIMAL]
 
-推斷結果依資料來看是正確的，接著請將類型轉換套用至資料流程。
+推斷結果依資料來看是正確的。 接著請將類型轉換套用至資料流程。
 
 
 ```python
@@ -1042,14 +1044,14 @@ tmp_df = type_infer.to_dataflow()
 tmp_df.get_profile()
 ```
 
-在封裝資料流程之前，請先在資料集上執行兩個最終篩選條件。 若要排除不正確的資料點，請在 `cost` 和 `distance` 皆大於零的記錄上篩選資料流程。
+在封裝資料流程之前，請先在資料集上執行兩個最終篩選條件。 若要排除不正確的資料點，請在 `cost` 和 `distance` 變數值皆大於零的記錄上篩選資料流程。
 
 ```python
 tmp_df = tmp_df.filter(dprep.col("distance") > 0)
 tmp_df = tmp_df.filter(dprep.col("cost") > 0)
 ```
 
-此時，您已完整轉換並備妥要在機器學習模型中使用的資料流程物件。 SDK 包含物件序列化功能，其使用方式如下。
+現在，您已完整轉換並備妥要在機器學習模型中使用的資料流程物件。 SDK 包含物件序列化功能，其使用方式如下列程式碼片段所示。
 
 ```python
 import os
@@ -1062,19 +1064,21 @@ package.save(file_path)
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不想繼續進行本教學課程的第二部分，請刪除檔案 `dflows.dprep` (無論您在本機執行還是在 Azure Notebooks 中執行)。 如果您要繼續進行第二部分，則必須將 `dflows.dprep` 檔案保存在目前的目錄中。
+若要繼續進行本教學課程的第二部分，您必須在目前的目錄中保留 **dflows.dprep** 檔案。
+
+如果您不打算繼續進行第二部分，請在目前的目錄中刪除 **dflows.dprep** 檔案。 無論您是在本機還是 Azure Notebooks 中執行，均請刪除此檔案。
 
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程的第一部分中，您已：
 
 > [!div class="checklist"]
-> * 設定開發環境
-> * 載入並清理資料集
-> * 使用智慧轉換根據範例預測您的邏輯
-> * 合併並封裝機器學習訓練的資料集
+> * 設定您的開發環境。
+> * 載入並清理資料集。
+> * 使用智慧轉換根據範例預測您的邏輯。
+> * 合併並封裝機器學習訓練的資料集。
 
-您已準備就緒，可在教學課程系列的下一個部分中使用這項訓練資料：
+您已準備就緒，可在教學課程的第二部分中使用訓練資料：
 
 > [!div class="nextstepaction"]
-> [教學課程 2：訓練迴歸模型](tutorial-auto-train-models.md)
+> [教學課程 (第二部分)：訓練迴歸模型](tutorial-auto-train-models.md)

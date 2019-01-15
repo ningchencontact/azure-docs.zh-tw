@@ -6,24 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 08/28/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: f4ea5e282e9b915cffeac7daff07f5934be1a424
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 6b6d0d1a7e14035f7a1b7998ec4b3e68761539f5
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974984"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158103"
 ---
-# <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>使用 Azure 入口網站來管理資料箱磁碟 (預覽)
+# <a name="use-azure-portal-to-administer-your-data-box-disk"></a>使用 Azure 入口網站來管理資料箱磁碟
 
 本文中的教學課程適用於預覽期間的 Microsoft Azure 資料箱磁碟。 本文說明一些可以在資料箱磁碟上執行的複雜工作流程和管理工作。 
 
 您可以透過 Azure 入口網站管理資料箱磁碟。 本文著重於可使用 Azure 入口網站執行的工作。 使用 Azure 入口網站來管理訂單、管理磁碟，並且在進行到終端機階段時追蹤訂單狀態。
-
-> [!IMPORTANT]
-> 資料箱磁碟處於預覽狀態。 部署這個解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
-
 
 ## <a name="cancel-an-order"></a>取消訂單
 

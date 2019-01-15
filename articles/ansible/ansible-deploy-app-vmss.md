@@ -3,17 +3,17 @@ title: 使用 Ansible 將應用程式部署至 Azure 中的虛擬機器擴展集
 description: 了解如何使用 Ansible 來設定虛擬機器擴展集，並在 Azure 中的虛擬機器擴展集上部署應用程式
 ms.service: ansible
 keywords: ansible, azure, devops, bash, 腳本, 虛擬機器, 虛擬機器擴展集, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4f3712a45fdb2474eedeb8d4eac034060723010d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408369"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156539"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>使用 Ansible 將應用程式部署至 Azure 中的虛擬機器擴展集
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 將應用程式部署至 Azure。 本文說明如何將 Java 應用程式部署至 Azure 虛擬機器擴展集 (VMSS)。  
@@ -150,7 +150,7 @@ Ansible 腳本中的下一節會在名為 **saclesethosts** 的主機群組上�
 您可以將上述範例 Ansible 腳本儲存為 `vmss-setup-deploy.yml`，或[下載整個範例腳本](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss)。 
 
 若要使用需要密碼的 SSH 連線類型，您必須安裝 sshpass 程式。 
-  - 針對 Ubunto 16.04，請執行命令 `apt-get install sshpass`。
+  - 針對 Ubuntu 16.04，請執行命令 `apt-get install sshpass`。
   - 針對 CentOS 7.4，請執行命令 `yum install sshpass`。
 
 您可能會看到如下的錯誤：**無法使用 SSH 密碼而不使用金鑰，因為已啟用主機金鑰檢查，但 sshpass 不支援此功能。請將此主機的指紋新增至您的 known_hosts 檔案，以管理此主機。** 如果出現此錯誤，您可以在 `/etc/ansible/ansible.cfg` 檔案或 `~/.ansible.cfg` 檔案中加入以下一行，以停用主機金鑰檢查：

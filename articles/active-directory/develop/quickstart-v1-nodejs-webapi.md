@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: f6f804ea9121d1728e31f1e694280e841f4b7f4e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9683eb8cbfcabb946f8b364ac9cc8aeeb167d023
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946539"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120286"
 ---
-# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>快速入門：使用 Azure Active Directory 保護 Node.js Web API
+# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>快速入門：使用 Azure Active Directory 保護 Web API
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -82,7 +82,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 連線到 Azure Active Directory 之前，您需要下列資訊：
 
-| 名稱  | 說明 | 組態檔中的變數名稱 |
+| Name  | 說明 | 組態檔中的變數名稱 |
 | ------------- | ------------- | ------------- |
 | 租用戶名稱  | 您想要用來進行驗證的[租用戶名稱](quickstart-create-new-tenant.md) | `tenantName`  |
 | 用戶端識別碼  | 用戶端識別碼是用於 AAD _應用程式識別碼_ 的 OAuth 字詞。 |  `clientID`  |
@@ -106,7 +106,7 @@ module.exports.credentials = {
 
 ### <a name="implement-the-server"></a>實作伺服器
 
-[Passport azure ad](https://github.com/AzureAD/passport-azure-ad#5-usage) 模組功能有兩種驗證策略：[OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) 和[持有人權杖](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy) 策略。 本文中實作的伺服器使用「持有人權杖」策略來保護 API 端點。
+[Passport azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) 模組有兩種驗證策略：[OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) 和[持有人](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy)策略。 本文中實作的伺服器使用「持有人權杖」策略來保護 API 端點。
 
 ### <a name="step-1-import-dependencies"></a>步驟 1：匯入相依性
 
@@ -166,7 +166,7 @@ passport.use(authenticationStrategy);
 定義驗證策略後，您現在可以設定具備一些基本設定的 Restify 伺服器，並針對安全性設定為使用 Passport。
 
 ```JavaScript
-const server = restify.createServer({ name: 'Azure Active Directroy with Node.js Demo' });
+const server = restify.createServer({ name: 'Azure Active Directory with Node.js Demo' });
 server.use(restifyPlugins.authorizationParser());
 server.use(passport.initialize());
 server.use(passport.session());
@@ -221,7 +221,7 @@ curl -isS -X GET http://127.0.0.1:3000/
 
 ```shell
 HTTP/1.1 200 OK
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 Content-Type: application/json
 Content-Length: 49
 Date: Tue, 10 Oct 2017 18:35:13 GMT
@@ -240,7 +240,7 @@ curl -isS -X GET http://127.0.0.1:3000/api
 
 ```shell
 HTTP/1.1 401 Unauthorized
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 WWW-Authenticate: token is not found
 Date: Tue, 10 Oct 2017 16:22:03 GMT
 Connection: keep-alive

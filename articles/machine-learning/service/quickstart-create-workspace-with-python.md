@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: da84d6361d80db8aea797827ed3d7bc612e2eda3
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2c8edd73a287d5bca2f3deb68448ba951b7a3367
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999045"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106557"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>快速入門：使用 Python SDK 開始使用 Azure Machine Learning
 
@@ -76,7 +76,7 @@ ms.locfileid: "53999045"
 
 在已啟用的 Conda 環境中安裝 SDK。 此程式碼會安裝 Machine Learning SDK 的核心元件。 它也會在 conda 環境中安裝 Jupyter Notebook 伺服器。 完成安裝需要幾分鐘的時間，視您的電腦組態而定。
 
-```sh
+```shell
 # Install Jupyter
 conda install nb_conda
 
@@ -86,7 +86,7 @@ pip install azureml-sdk[notebooks]
 
 您可以使用其他關鍵字來安裝 SDK 的其他元件：
 
-```sh
+```shell
 # Install the base SDK and auto ml components
 pip install azureml-sdk[automl]
 
@@ -97,13 +97,8 @@ pip install azureml-sdk[explain]
 pip install azureml-sdk[contrib]
 ```
 
-在 Azure Databricks 環境中，請改用下列安裝命令：
-
-```
-# Install the base SDK and automl components in the Azure Databricks environment.
-# For more information, see https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks.
-pip install azureml-sdk[databricks]
-```
+在 Azure Databricks 環境中，請改用 [Databricks 安裝步驟](how-to-configure-environment.md#azure-databricks
+)。
 
 
 ## <a name="create-a-workspace"></a>建立工作區
@@ -143,11 +138,7 @@ pip install azureml-sdk[databricks]
 
 將組態檔中的工作區詳細資料儲存到目前的目錄。 此檔案稱為 *aml_config\config.json*。  
 
-此工作區組態檔可讓您稍後輕鬆地載入相同的工作區。 您可以使用相同目錄或子目錄中的其他 Notebook 和指令碼來載入它。 
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
-
-`write_config()` API 呼叫會在目前的目錄中建立組態檔。 *config.json* 檔案包含下列指令碼：
+`write_config()` API 呼叫會在目前的目錄中建立組態檔。 *config.json* 檔案包含下列項目：
 
 ```json
 {
@@ -156,6 +147,12 @@ pip install azureml-sdk[databricks]
     "workspace_name": "myworkspace"
 }
 ```
+
+此工作區組態檔可讓您稍後輕鬆地載入相同的工作區。 您可以使用相同目錄或子目錄中的其他 Notebook 和指令碼來載入它。 
+
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
+
+
 
 ## <a name="use-the-workspace"></a>使用工作區
 
@@ -190,7 +187,7 @@ print(run.get_portal_url())
 
 1. 在瀏覽器中關閉 Notebook。
 1. 在命令列視窗中選取 Ctrl+C，以停止 Jupyter Notebook 伺服器。
-1. 安裝其他套件。
+1. 安裝其他套件。  如果您尚未安裝 `azureml-sdk[automl]`，請確實於此時安裝。
 
     ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy

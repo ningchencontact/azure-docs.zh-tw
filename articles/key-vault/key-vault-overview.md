@@ -9,17 +9,16 @@ ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 80a740e13f5c3a13b7533d75e386a9afa2855085
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c96899fc46cd9cf6377894de773785dac14f3345
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002241"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121561"
 ---
 # <a name="what-is-azure-key-vault"></a>什麼是 Azure 金鑰保存庫？
 
@@ -70,7 +69,7 @@ Azure Key Vault 可能受軟體或硬體 HSM 保護。 在您需要加強保證�
 - 透過入口網站、Azure CLI 和 PowerShell 提供標準 Azure 系統管理選項。
 - 自動對向公開 CA 購買的憑證執行一些作業，例如註冊或續約。
 
-此外，Azure Key Vault 可讓您隔離應用程式祕密。 應用程式只能存取它們有權存取的保存庫，且受限於僅只執行特定作業。 您可以為每個應用程式建立 Azure Key Vault，並將 Key Vault 中儲存的祕密限制於特定應用程式和開發人員小組。
+此外，Azure Key Vault 可讓您隔離應用程式祕密。 應用程式只能存取其有權存取的保存庫，且可能限定為只能執行特定作業。 您可以為每個應用程式建立 Azure Key Vault，並將 Key Vault 中儲存的祕密限制於特定應用程式和開發人員小組。
 
 ### <a name="integrate-with-other-azure-services"></a>與其他 Azure 服務整合
 
