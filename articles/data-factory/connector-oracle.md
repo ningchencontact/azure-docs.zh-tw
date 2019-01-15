@@ -21,7 +21,7 @@ ms.lasthandoff: 11/21/2018
 ms.locfileid: "52275681"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](v1/data-factory-onprem-oracle-connector.md)
 > * [目前的版本](connector-oracle.md)
 
