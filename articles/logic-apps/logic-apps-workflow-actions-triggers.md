@@ -9,16 +9,16 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 27c074b12d2b151015e6946c483302387726dfc5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044768"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190805"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中的工作流程定義語言的觸發程序和動作類型參考
 
-在 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 中，所有邏輯應用程式工作流程的開頭都是觸發程序，後面接著動作。 此文章說明您在建立邏輯應用程式以自動化工作、處理序和工作流程時所能使用的觸發程序和動作類型。 您可以利用 Logic Apps 設計工具以視覺化方式建立邏輯應用程式工作流程，或利用[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)撰寫基礎工作流程定義，以建立邏輯應用程式。 您可以在 Azure 入口網站或 Visual Studio 中建立邏輯應用程式。 整個工作流程的基礎定義 (包括觸發程序和動作) 會使用 Javascript 物件標記法 (JSON)。
+在 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 中，所有邏輯應用程式工作流程的開頭都是觸發程序，後面接著動作。 本文說明您在建立邏輯應用程式以自動化工作、處理序和工作流程時所能使用的觸發程序和動作類型。 您可以利用 Logic Apps 設計工具以視覺化方式建立邏輯應用程式工作流程，或利用[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)撰寫基礎工作流程定義，以建立邏輯應用程式。 您可以在 Azure 入口網站或 Visual Studio 中建立邏輯應用程式。 整個工作流程的基礎定義 (包括觸發程序和動作) 會使用 Javascript 物件標記法 (JSON)。
 
 <a name="triggers-overview"></a>
 
@@ -54,8 +54,8 @@ ms.locfileid: "48044768"
 | <*trigger-name*> | 字串 | 觸發程序的名稱 | 
 | <*trigger-type*> | 字串 | 觸發程序類型，例如 "Http" 或 "ApiConnection" | 
 | <*trigger-inputs*> | JSON 物件 | 定義觸發程序行為的輸入 | 
-| <*time-unit*> | 字串 | 說明觸發程序多久引發一次的時間單位：[秒]、[分鐘]、[小時]、[天]、[週]、[月] | 
-| <*number-of-time-units*> | 整數  | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
+| <*time-unit*> | 字串 | 描述觸發程序引發頻率的時間單位："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
+| <*number-of-time-units*> | 整數  | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
 |||| 
 
 *選擇性*
@@ -133,10 +133,10 @@ ms.locfileid: "48044768"
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | 字串 | 觸發程序的名稱 | 
 | <*connection-name*> | 字串 | 工作流程所使用的受控 API 連線名稱 | 
-| <*method-type*> | 字串 | 與受控 API 通訊時所使用的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" | 
+| <*method-type*> | 字串 | 與管理 API 通訊的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" | 
 | <*api-operation*> | 字串 | 要呼叫的 API 作業 | 
-| <*time-unit*> | 字串 | 說明觸發程序多久引發一次的時間單位：[秒]、[分鐘]、[小時]、[天]、[週]、[月] | 
-| <*number-of-time-units*> | 整數  | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
+| <*time-unit*> | 字串 | 描述觸發程序引發頻率的時間單位："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
+| <*number-of-time-units*> | 整數  | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
 |||| 
 
 *選擇性*
@@ -304,10 +304,10 @@ ms.locfileid: "48044768"
 
 | 值 | 類型 | 說明 | 
 |-------|------|-------------| 
-| <*method-type*> | 字串 | 用來輪詢指定端點的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" | 
+| <*method-type*> | 字串 | 要用於輪詢指定端點的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" | 
 | <*endpoint-URL*> | 字串 | 要輪詢的端點 HTTP 或 HTTPS URL <p>字串大小上限：2 KB | 
-| <*time-unit*> | 字串 | 說明觸發程序多久引發一次的時間單位：[秒]、[分鐘]、[小時]、[天]、[週]、[月] | 
-| <*number-of-time-units*> | 整數  | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
+| <*time-unit*> | 字串 | 描述觸發程序引發頻率的時間單位："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
+| <*number-of-time-units*> | 整數  | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
 |||| 
 
 *選擇性*
@@ -401,7 +401,7 @@ ms.locfileid: "48044768"
 
 | 值 | 類型 | 說明 | 
 |-------|------|-------------| 
-| <*method-type*> | 字串 | 用於訂閱要求的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" | 
+| <*method-type*> | 字串 | 要用於訂閱要求的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" | 
 | <*endpoint-subscribe-URL*> | 字串 | 要傳送訂閱要求的目標端點 URL | 
 |||| 
 
@@ -409,7 +409,7 @@ ms.locfileid: "48044768"
 
 | 值 | 類型 | 說明 | 
 |-------|------|-------------| 
-| <*method-type*> | 字串 | 用於取消要求的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" | 
+| <*method-type*> | 字串 | 要用於取消要求的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" | 
 | <*endpoint-unsubscribe-URL*> | 字串 | 要傳送取消要求的目標端點 URL | 
 | <*body-content*> | 字串 | 要在訂閱或取消要求中傳送的任何訊息內容 | 
 | <*authentication-method*> | JSON 物件 | 要求用於驗證的方法。 如需詳細資訊，請參閱[排程器輸出驗證](../scheduler/scheduler-outbound-authentication.md)。 |
@@ -495,19 +495,19 @@ ms.locfileid: "48044768"
 
 | 值 | 類型 | 說明 | 
 |-------|------|-------------| 
-| <*time-unit*> | 字串 | 說明觸發程序多久引發一次的時間單位：[秒]、[分鐘]、[小時]、[天]、[週]、[月] | 
-| <*number-of-time-units*> | 整數  | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
+| <*time-unit*> | 字串 | 描述觸發程序引發頻率的時間單位："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
+| <*number-of-time-units*> | 整數  | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
 |||| 
 
 *選擇性*
 
 | 值 | 類型 | 說明 | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | 字串 | 使用以下格式的開始日期和時間： <p>YYYY-MM-DDThh:mm:ss (如果您指定時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未指定時區) <p>因此，舉例來說，如果您想要的是 2017 年 9 月 18 日下午 2:00，則請指定 "2017-09-18T14:00:00"，然後指定一個時區，例如 "Pacific Standard Time"，或指定不含時區的 "2017-09-18T14:00:00Z"。 <p>**注意：** 這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不指定時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>就簡單排程來說，開始時間係指第一次發生的時間，而就複雜排程來說，觸發程序會在開始時間一到就立即引發。 如需有關開始日期和時間的詳細資訊，請參閱[建立及排定定期執行的工作](../connectors/connectors-native-recurrence.md)。 | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | 字串 | 使用以下格式的開始日期和時間： <p>YYYY-MM-DDThh:mm:ss (如果您指定時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未指定時區) <p>因此，舉例來說，如果您想要的是 2017 年 9 月 18 日下午 2:00，則請指定 "2017-09-18T14:00:00"，然後指定一個時區，例如 "Pacific Standard Time"，或指定不含時區的 "2017-09-18T14:00:00Z"。 <p>**附註：** 這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不指定時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>就簡單排程來說，開始時間係指第一次發生的時間，而就複雜排程來說，觸發程序會在開始時間一到就立即引發。 如需有關開始日期和時間的詳細資訊，請參閱[建立及排定定期執行的工作](../connectors/connectors-native-recurrence.md)。 | 
 | <*time-zone*> | 字串 | 只有當您有指定開始時間時才適用，因為此觸發程序並不接受 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 指定您要套用的時區。 | 
 | <*one-or-more-hour-marks*> | 整數或整數陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Day" 或 "Week"，便可指定從 0 到 23 的一或多個整數 (以逗號分隔) 來表示一天中的哪幾個整點。 <p>例如，如果您指定 "10"、"12" 及 "14"，就會得出上午 10 點、下午 12 點及下午 2 點作為整點標記。 | 
 | <*one-or-more-minute-marks*> | 整數或整數陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Day" 或 "Week"，便可指定從 0 到 59 的一或多個整數 (以逗號分隔) 來表示小時中的哪幾個分鐘。 <p>例如，您可以指定 "30" 作為分鐘標記，然後使用上個範例代表一天中的整點，這樣就會得出上午 10:30、下午 12:30 及下午 2:30。 | 
-| weekDays | 字串或字串陣列 | 當您想要執行工作流程時，如果針對 `frequency` 指定 "Week"，便可指定一或多天 (以逗號分隔)："Monday"、"Tuesday"、"Wednesday"、"Thursday"、"Friday"、"Saturday" 及 "Sunday" | 
+| weekDays | 字串或字串陣列 | 如果您為 `frequency` 指定 "Week"，您可以針對要執行工作流程的時間指定一或多天："Monday"、"Tuesday"、"Wednesday"、"Thursday"、"Friday"、"Saturday" 和 "Sunday" | 
 | <*max-runs*> | 整數  | 根據預設，邏輯應用程式工作流程執行個體會同時執行，或依據[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)以平行方式執行。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
 | <*max-runs-queue*> | 整數  | 當邏輯應用程式所執行的執行個體已達數目上限時 (您可以根據 `runtimeConfiguration.concurrency.runs` 屬性變更此限制)，任何新的執行都會放入此佇列中 (以[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為限)。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
 | <*operation-option*> | 字串 | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
@@ -612,7 +612,7 @@ ms.locfileid: "48044768"
 
 | 值 | 類型 | 說明 | 
 |-------|------|-------------| 
-| <*method-type*> | 字串 | 連入要求呼叫您的邏輯應用程式時所必須使用的方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" |
+| <*method-type*> | 字串 | 傳入要求要呼叫您邏輯應用程式必須使用的方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" |
 | <*relative-path-for-accepted-parameter*> | 字串 | 端點 URL 可接受的參數相對路徑 | 
 | <*required-properties*> | 陣列 | 需要值的一或多個屬性 | 
 | <*max-runs*> | 整數  | 根據預設，邏輯應用程式工作流程執行個體會同時執行，或依據[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)以平行方式執行。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
@@ -908,7 +908,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *範例*
 
-此定義會說明 Office 365 Outlook 連接器 (這是 Microsoft 管理的 API) 的**傳送電子郵件**動作： 
+此定義會說明 Office 365 Outlook 連接器 (此為 Microsoft 管理的 API) 的**傳送電子郵件**動作： 
 
 ```json
 "Send_an_email": {
@@ -971,7 +971,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 | 值 | 類型 | 說明 | 
 |-------|------|-------------| 
 | <*action-name*> | 字串 | 連接器所提供的動作名稱 | 
-| <*method-type*> | 字串 | 用來訂閱或取消訂閱端點的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" | 
+| <*method-type*> | 字串 | 要用於訂閱或取消訂閱端點的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" | 
 | <*api-subscribe-URL*> | 字串 | 用來訂閱 API 的 URI | 
 |||| 
 
@@ -1072,7 +1072,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 | 值 | 類型 | 說明 | 
 |-------|------|-------------|  
 | <*Azure-function-ID*> | 字串 | 您想要呼叫的 Azure 函式所具備的資源識別碼。 此值得格式如下：<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
-| <*method-type*> | 字串 | 用來呼叫函式的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" <p>若未指定，預設方法將是 "POST"。 | 
+| <*method-type*> | 字串 | 要用於呼叫函式的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" <p>若未指定，預設方法將是 "POST"。 | 
 ||||
 
 *選擇性*
@@ -1142,7 +1142,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 | 值 | 類型 | 說明 | 
 |-------|------|-------------| 
-| <*method-type*> | 字串 | 用來傳送要求的方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" | 
+| <*method-type*> | 字串 | 要用來傳送要求的方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" | 
 | <*HTTP-or-HTTPS-endpoint-URL*> | 字串 | 要呼叫的 HTTP 或 HTTPS 端點。 字串大小上限：2 KB | 
 |||| 
 
@@ -1238,7 +1238,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 | 值 | 類型 | 說明 | 
 |-------|------|-------------| 
 | <*JSON-source*> | JSON 物件 | 您想要剖析的 JSON 內容 | 
-| <*JSON-schema*> | JSON 物件 | 說明基礎 JSON 內容的 JSON 結構描述，動作會用它來剖析來源 JSON 內容。 <p>**提示**：在 Logic Apps 設計工具中，您可以提供此結構描述，或提供範例承載讓動作得以產生結構描述。 | 
+| <*JSON-schema*> | JSON 物件 | 說明基礎 JSON 內容的 JSON 結構描述，動作會用它來剖析來源 JSON 內容。 <p>**秘訣**：在 Logic Apps 設計工具中，您可以提供此結構描述，或提供範例承載讓動作得以產生結構描述。 | 
 |||| 
 
 *範例*
@@ -1666,7 +1666,7 @@ ID,Product_Name
 
 | 值 | 類型 | 說明 | 
 |-------|------|-------------| 
-| <*status*> | 字串 | 要傳回的執行狀態：「失敗」、「已取消」或「成功」 |
+| <*status*> | 字串 | 針對該回合要傳回的狀態："Failed"、"Cancelled" 或 "Succeeded" |
 |||| 
 
 *選擇性*
@@ -1737,7 +1737,7 @@ ID,Product_Name
 | 值 | 類型 | 說明 | 
 |-------|------|-------------| 
 | <*number-of-units*> | 整數  | 針對**延遲**動作要等候的單位數 | 
-| <*interval*> | 字串 | 針對**延遲**動作要等候的間隔：[秒]、[分]、[小時]、[天]、[週]、[月] | 
+| <*interval*> | 字串 | **Delay** 動作要等候的間隔："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
 | <*date-time-stamp*> | 字串 | 針對**延遲到**動作，要繼續執行的日期和時間。 此值必須使用 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)。 | 
 |||| 
 
@@ -2188,7 +2188,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 ### <a name="until-action"></a>直到動作
 
-此迴圈動作包含會持續執行直到符合指定條件為止的動作。 迴圈會在所有其他動作都執行完成後，才在最後一個步驟檢查條件。 您可以在 `"actions"` 物件中包含多個動作，而動作至少須定義一個限制。 了解[如何建立 "until" 迴圈](../logic-apps/logic-apps-control-flow-loops.md#until-loop)。 
+此迴圈動作包含會持續執行直到符合指定條件為止的動作。 迴圈會在所有其他動作都執行完成後，才在最後一個步驟檢查條件。 您可以在 `"actions"` 物件中包含多個動作，而動作至少須定義一項限制。 了解[如何建立 "until" 迴圈](../logic-apps/logic-apps-control-flow-loops.md#until-loop)。 
 
 ```json
  "Until": {
@@ -2350,9 +2350,9 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 1. 在觸發程序的右上角，選擇省略符號 (...) 按鈕，然後選擇 [設定]。
 
-2. 在 [並行控制] 下方，將 [覆寫預設] 設定為 [開啟]。 
+2. 在 [並行控制] 底下，將 [限制] 設定成 [開啟]。 
 
-3. 將 [平行處理原則的程度] 滑桿拖曳至您要的值。 
+3. 將 [平行處理原則的程度] 滑桿拖曳至您要的值。 若要循序執行邏輯應用程式，將滑桿值拖曳至 [1]。
 
 <a name="change-for-each-concurrency"></a>
 
@@ -2387,9 +2387,9 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 1. 在 **For each** 動作的右上角選擇省略符號 (...) 按鈕，然後選擇 [設定]。
 
-2. 在 [並行控制] 下方，將 [覆寫預設] 設定為 [開啟]。 
+2. 在 [並行控制] 底下，將 [並行控制] 設定成 [開啟]。 
 
-3. 將 [平行處理原則的程度] 滑桿拖曳至您要的值。 
+3. 將 [平行處理原則的程度] 滑桿拖曳至您要的值。 若要循序執行邏輯應用程式，將滑桿值拖曳至 [1]。
 
 <a name="change-waiting-runs"></a>
 
@@ -2397,7 +2397,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 根據預設，邏輯應用程式執行個體會以並行的方式同時執行，或依據[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)以平行方式執行。 每個觸發程序執行個體都會在先前作用中的邏輯應用程式執行個體執行完成之前引發。 雖然您可以[變更此預設限制](#change-trigger-concurrency)，但當邏輯應用程式執行個體數目達到新的並行限制時，任何其他新的執行個體都必須等候執行。 
 
-可等候執行的數目也有其[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)，但您可變更。 不過，在邏輯應用程式達到等待執行的限制後，Logic Apps 引擎就不會再接受新的執行。 要求和 Webhook 觸發程序會傳回 429 錯誤，且週期性觸發程序會開始略過輪詢嘗試。
+可等候執行的數目也有其[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)，但您可加以變更。 不過，在邏輯應用程式達到等待執行的限制後，Logic Apps 引擎就不會再接受新的執行。 要求和 Webhook 觸發程序會傳回 429 錯誤，且週期性觸發程序會開始略過輪詢嘗試。
 
 若要變更等候執行的預設限制，請在基礎觸發程序定義中新增 `runtimeConfiguration.concurency.maximumWaitingRuns` 屬性，並將其設定為介於 `0` 與 `100` 之間的值。 
 
@@ -2465,7 +2465,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 1. 在觸發程序的右上角，選擇省略符號 (...) 按鈕，然後選擇 [設定]。
 
-2. 在 [並行控制] 下方，將 [覆寫預設] 設定為 [開啟]。 
+2. 在 [並行控制] 底下，將 [限制] 設定成 [開啟]。 
 
 3. 將 [平行處理原則的程度] 滑桿拖曳至數字 `1`。 
 
@@ -2516,7 +2516,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 1. 在 **For each** 動作的右上角選擇省略符號 (...) 按鈕，然後選擇 [設定]。
 
-2. 在 [並行控制] 下方，將 [覆寫預設] 設定為 [開啟]。 
+2. 在 [並行控制] 底下，將 [並行控制] 設定成 [開啟]。 
 
 3. 將 [平行處理原則的程度] 滑桿拖曳至數字 `1`。 
 
@@ -2644,7 +2644,7 @@ HTTP 端點支援各種驗證。 您可以針對這些 HTTP 觸發程序和動�
 | **secret** | 是，僅適用於 "Secret" 認證類型 | <*secret-for-authentication*> | Base64 編碼的祕密，供用戶端用於要求授權 |
 ||||| 
 
-例如，以下是當觸發程序或動作定義使用 "Secret" 認證類型時，`authentication` 物件的格式：如需保護參數的詳細資訊，請參閱[保護機密資訊](#secure-info)。 
+例如，當您的觸發程序或動作定義使用「祕密」認證類型時，`authentication` 物件的格式如下：如需如何保護參數的詳細資訊，請參閱[保護機密資訊](#secure-info)。 
 
 ```javascript
 "authentication": {
@@ -2660,7 +2660,7 @@ HTTP 端點支援各種驗證。 您可以針對這些 HTTP 觸發程序和動�
 
 ## <a name="secure-sensitive-information"></a>保護機密資訊
 
-若要在觸發程序和動作定義中，保護您用於驗證的機密資訊 (例如使用者名稱或密碼)，您可以使用參數和 `@parameters()` 運算式，讓此資訊在您儲存邏輯應用程式之後無法顯示。 
+若要在觸發程序和動作定義中，保護您用於驗證的機密資訊 (例如使用者名稱或密碼)，您可以使用參數和 `@parameters()` 運算式，讓這項資訊在您儲存邏輯應用程式之後無法顯示。 
 
 例如，假設您在觸發程序或動作定義中使用 "Basic" 驗證。 以下是範例 `authentication` 物件，會指定使用者名稱和密碼：
 
@@ -2706,7 +2706,7 @@ HTTP 端點支援各種驗證。 您可以針對這些 HTTP 觸發程序和動�
 },
 ```
 
-如果您是建立或使用 Azure Resource Manager 部署範本，也必須包含範本定義的外部 `parameters` 區段。 如需保護參數的詳細資訊，請參閱[保護對邏輯應用程式的存取](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow)。 
+如果您是建立或使用 Azure Resource Manager 部署範本，也必須包含範本定義的外部 `parameters` 區段。 如需保護參數的詳細資訊，請參閱[保護對邏輯應用程式的存取](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。 
 
 ## <a name="next-steps"></a>後續步驟
 

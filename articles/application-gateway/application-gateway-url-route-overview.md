@@ -1,18 +1,17 @@
 ---
-title: URL 型內容路由概觀 | Microsoft Docs
-description: 此頁面提供應用程式閘道 URL 型內容路由、UrlPathMap 組態和 PathBasedRouting 規則的概觀。
+title: Azure 應用程式閘道 URL 型內容路由概觀
+description: 此頁面提供 Azure 應用程式閘道 URL 型內容路由、UrlPathMap 組態和 PathBasedRouting 規則的概觀。
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.date: 11/7/2018
+ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: bc123307a3cc3a5040e93e517c60604dc75fc7e7
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 1ada74f5c85ef327957ec4981e83f68bcafea858
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218418"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188754"
 ---
 # <a name="url-path-based-routing-overview"></a>URL 路徑型路由概觀
 
@@ -62,8 +61,37 @@ urlPathMap 元素是用來指定與後端伺服器集區對應的路徑模式。
 }]
 ```
 
-> [!NOTE]
-> PathPattern：此設定是要比對的路徑模式清單。 每個字串都必須以 / 開始，而且唯一允許出現 "*" 的地方是緊接在 "/" 之後的結尾處。 傳送給路徑比對器的字串未在第一個 ? 或 # 之後包含任何文字，而那些字元在這裡是不允許的。 否則，PathPattern 中會允許 URL 中允許的任何字元。
+### <a name="pathpattern"></a>PathPattern
+
+PathPattern 是要比對的路徑模式清單。 每個字串都必須以 / 開始，而且唯一允許出現 "*" 的地方是緊接在 "/" 之後的結尾處。 傳送給路徑比對器的字串未在第一個 ? 或 # 之後包含任何文字，而那些字元在這裡是不允許的。 否則，PathPattern 中會允許 URL 中允許的任何字元。
+
+支援的模式取決於您是部署應用程式閘道 v1 或 v2：
+
+#### <a name="v1"></a>v1
+
+路徑規則不區分大小寫。
+
+|v1 路徑模式  |是否支援？  |
+|---------|---------|
+|`/images/*`     |是|
+|`/images*`     |no|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
+|`/CurrentUser/Comments/*`     |是|
+
+#### <a name="v2"></a>v2
+
+路徑規則會區分大小寫。
+
+|v2 路徑模式  |是否支援？  |
+|---------|---------|
+|`/images/*`     |是|
+|`/images*`     |是|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
+|`/CurrentUser/Comments/*`     |是|
 
 如需詳細資訊，您可以查看 [使用 URL 型路由的 Resource Manager 範本](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) 。
 

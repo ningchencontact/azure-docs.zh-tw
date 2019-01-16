@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
-ms.openlocfilehash: a00328608c582dcd28dbc78b5b56829f9d1ab500
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: eae36aa6e60e3da03c59952a1d9e035e6a773d2d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585403"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156692"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API 管理層的功能式比較
 
@@ -42,7 +42,7 @@ ms.locfileid: "52585403"
 | Azure 監視器記錄檔和計量                                                               | 否<sup>5</sup>                | 是            | 是            | 是            | 是            |
 
 <sup>1</sup>可使用 Azure AD (和 Azure AD B2C) 作為識別提供者，供開發人員入口網站的使用者登入使用。<br/>
-<sup>2</sup>包括相關的功能，例如使用者、群組、問題、應用程式以及電子郵件範本和通知。<br/>
+<sup>2</sup> 包括相關的功能，例如使用者、群組、問題、應用程式以及電子郵件範本和通知。<br/>
 <sup>3</sup>此階層即將支援外部快取。<br/>
 <sup>4</sup>用戶端憑證驗證會在使用量層正式運作之前新增至該階層。<br/>
 <sup>5</sup>使用量層即將完整支援 Azure 監視器。

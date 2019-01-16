@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1f51fb1d92fdec93fdb57fd25f8ca1cbaeb4fc46
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834701"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188924"
 ---
 # <a name="what-is-the-myapps-portal"></a>什麼是 MyApps 入口網站？
 
@@ -65,7 +65,7 @@ MyApps 入口網站至少需要有支援 JavaScript 且啟用 CSS 的瀏覽器�
 
 
 MyApps 入口網站延伸模組目前適用於：
-- **Edge**：在 Windows 10 Anniversary Edition 或更新版本上。 
+- **Microsoft Edge**：在 Windows 10 Anniversary Edition 或更新版本上。 
 - **Chrome**：在 Windows 7 或更新版本，和在 MacOS X 或更新版本上。
 - **Firefox 26.0 或更新版本**：在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上。
 - **Internet Explorer 11**：在 Windows 7 或更新版本上 (部分支援)。
@@ -79,7 +79,7 @@ MyApps 入口網站延伸模組目前適用於：
 - 您可以在遠端透過[應用程式 Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started) 時使用公司內部 URL
 
 > [!NOTE]
-> 其他功能僅適用於 Edge、Chrome 和 Firefox。
+> 其他功能僅適用於 Microsoft Edge、Chrome 和 Firefox。
 >
 您也可以直接從下列網站下載延伸模組：
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)

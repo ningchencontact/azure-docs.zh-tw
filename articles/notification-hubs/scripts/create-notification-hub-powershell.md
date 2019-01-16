@@ -1,23 +1,23 @@
 ---
-title: PowerShell 指令碼： 建立 Azure 通知中樞 |Microsoft Docs
+title: PowerShell 指令碼：建立 Azure 通知中樞 | Microsoft Docs
 description: 這個 PowerShell 指令碼會建立 Azure 通知中樞範例。
-services: data-factory
+services: notification-hubs
 author: dimazaid
 manager: kpiteira
 editor: spelluru
-ms.service: data-factory
+ms.service: notification-hubs
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 747d743a0573bd959b4d3c7100be8ae9451c5ed5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f1408f7b6bdc0aa58d4e1ee43173a0bfbd02ab6a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786727"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120152"
 ---
 # <a name="use-powershell-to-create-an-azure-notification-hub"></a>使用 PowerShell 建立 Azure 通知中樞
 
@@ -25,7 +25,7 @@ ms.locfileid: "33786727"
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="sample-script"></a>範例指令碼

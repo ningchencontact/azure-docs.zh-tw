@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: c225761f18a89539ea4966fab620104a25d1270e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 45bf554e457e48704684fe8ac3b32c29f3f646b2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50128962"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189269"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 漫遊設定參考
 以下是在 Windows 10 中進行漫遊或備份的所有設定的完整清單。 
@@ -48,11 +48,11 @@ ms.locfileid: "50128962"
 * 語言喜好設定：拼字檢查字典、系統語言設定 
 * 輕鬆存取：朗讀程式、螢幕小鍵盤、放大鏡 
 * 其他 Windows 設定：請參閱 Windows 設定詳細資料
-* Edge 瀏覽器設定：Microsoft Edge 我的最愛、閱讀清單和其他設定
+* Microsoft Edge 瀏覽器設定：Microsoft Edge 我的最愛、閱讀清單和其他設定
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
-使用者可以透過 Edge 瀏覽器 [設定] 功能表選項，啟用或停用 Edge 瀏覽器設定群組同步處理 (我的最愛，讀取清單)。
+使用者可以透過 Microsoft Edge 瀏覽器 [設定] 功能表選項，啟用或停用 Microsoft Edge 瀏覽器設定群組同步處理 (我的最愛，讀取清單)。
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "50128962"
 | **命令提示字元**：命令提示字元「預設值」設定 |sync |X |內部 |
 | **認證**：認證保險箱 |sync |sync |password |
 | **日期、時間和區域**：自動時間 (網際網路時間同步處理) |sync |sync |語言 |
-| **日期、時間和區域**：24 小時制時鐘 |sync |X |語言 |
+| **日期、時間和區域**：24 小時制 |sync |X |語言 |
 | **日期、時間和區域**：日期和時間 |sync |X |語言 |
 | **日期、時間和區域**：時區 | |X |語言 |
 | **日期、時間和區域**：日光節約時間 |sync |X |語言 |
@@ -93,22 +93,22 @@ ms.locfileid: "50128962"
 | **桌面個人化**：工作列設定 (位置、自動隱藏等) |sync |X |佈景主題 |
 | **桌面個人化**：開始畫面版面配置 |X |backup | |
 | **裝置**：您已連接的共用印表機 |X |X |其他 |
-| **Edge 瀏覽器**：閱讀清單 |sync |sync |內部 |
-| **Edge 瀏覽器**：我的最愛 |sync |sync |內部 |
-| **Edge 瀏覽器**：熱門網站 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| **Edge 瀏覽器**：輸入的 URL <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| **Edge 瀏覽器**：我的最愛列設定 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| **Edge 瀏覽器**：顯示 [首頁] 按鈕 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| **Edge 瀏覽器**：封鎖快顯 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| **Edge 瀏覽器**：詢問我要如何處理每個下載的項目 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| **Edge 瀏覽器**：提供儲存密碼 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| **Edge 瀏覽器**：傳送「不要追蹤」要求 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| **Edge 瀏覽器**：儲存表單項目 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| **Edge 瀏覽器**：在我輸入的同時顯示搜尋與網站建議 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| **Edge 瀏覽器**：Cookie 喜好設定 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| **Edge 瀏覽器**：讓網站在我的裝置上儲存受保護的媒體授權 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| **Edge 瀏覽器**：螢幕助讀程式設定 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
-| **高對比**：開啟或關閉 |sync |X |輕鬆存取 |
+| **Microsoft Edge 瀏覽器**：閱讀清單 |sync |sync |內部 |
+| **Microsoft Edge 瀏覽器**：我的最愛 |sync |sync |內部 |
+| **Microsoft Edge 瀏覽器**：熱門網站 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| **Microsoft Edge 瀏覽器**：輸入的 URL <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| **Microsoft Edge 瀏覽器**：我的最愛列設定 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| **Microsoft Edge 瀏覽器**：顯示 [首頁] 按鈕 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| **Microsoft Edge 瀏覽器**：封鎖快顯 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| **Microsoft Edge 瀏覽器**：詢問我要如何處理每個下載的項目 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| **Microsoft Edge 瀏覽器**：提供儲存密碼 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| **Microsoft Edge 瀏覽器**：傳送「不要追蹤」要求 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| **Microsoft Edge 瀏覽器**：儲存表單項目 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| **Microsoft Edge 瀏覽器**：在我輸入的同時顯示搜尋與網站建議 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| **Microsoft Edge 瀏覽器**：Cookie 喜好設定 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| **Microsoft Edge 瀏覽器**：讓網站在我的裝置上儲存受保護的媒體授權 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| **Microsoft Edge 瀏覽器**：螢幕助讀程式設定 <sup>[[1]](#footnote-1)</sup> |sync |sync |內部 |
+| **高對比**：ON 或 OFF |sync |X |輕鬆存取 |
 | **高對比**：佈景主題設定 |sync |X |輕鬆存取 |
 | **Internet Explorer**：開啟索引標籤 (URL 和標題) |sync |sync |Internet Explorer |
 | **Internet Explorer**：閱讀清單 |sync |sync |Internet Explorer |

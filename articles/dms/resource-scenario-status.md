@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: 81bd23f7e4b7065155b708703e52bc0a351696c1
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/08/2019
+ms.openlocfilehash: 9e153cca321e94233cfda2a03cf52ba85a0f6b02
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722082"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102800"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Azure 資料庫移轉服務支援的移轉案例狀態
 「Azure 資料庫移轉服務」是設計成可同時支援離線 (單次) 和線上 (持續同步) 移轉的各種移轉案例 (來源/目標組)。 「Azure 資料庫移轉服務」所提供的案例涵蓋範圍會隨著時間擴展。 定期都會新增新的案例。 本文會指出「Azure 資料庫移轉服務」目前支援的移轉案例，以及狀態 (個人 [或有限] 預覽版、公開預覽版或正式推出版) 或每個案例。
@@ -45,7 +45,7 @@ ms.locfileid: "53722082"
 | **Azure SQL DB MI**  | SQL Server  | ✔ |
 |   | RDS SQL  | ✔ |
 |   | Oracle  | ✔  |
-| **Azure SQL MV**  | SQL Server  | ✔ |
+| **Azure SQL VM**  | SQL Server  | ✔ |
 |   | Oracle  |   |
 | **Cosmos DB**  | MongoDB  | ✔ |
 | **適用於 MySQL 的 Azure DB**  | MySLQ  |  |
@@ -64,7 +64,7 @@ ms.locfileid: "53722082"
 | **Azure SQL DB MI**  | SQL Server  | ✔ |
 |   | RDS SQL  |  |
 |   | Oracle  | ✔  |
-| **Azure SQL MV**  | SQL Server  |   |
+| **Azure SQL VM**  | SQL Server  |   |
 |   | Oracle  | ✔  |
 | **Cosmos DB**  | MongoDB  | ✔ |
 | **適用於 MySQL 的 Azure DB**  | MySLQ  | ✔ |

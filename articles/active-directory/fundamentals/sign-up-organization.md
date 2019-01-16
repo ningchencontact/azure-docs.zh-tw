@@ -12,15 +12,15 @@ ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 53536604ed2f371d1ae7e63b286b17501b260c8c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 286c46f760dda4991fd89651bc3a01424d8a5502
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100713"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054787"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>註冊您的組織以使用 Azure Active Directory
-請使用下列其中一種選擇，在 Azure Active Directory (Azure AD) 註冊新的 Microsoft Azure 訂用帳戶：
+請使用下列其中一種選擇，註冊 Azure Active Directory (Azure AD) 或新的 Microsoft Azure 訂用帳戶：
 
 - **Microsoft 帳戶。** 使用您個人的 Microsoft 帳戶存取 Azure 及所有消費者導向的 Microsoft 產品和雲端服務，例如 Outlook (Hotmail)、Messenger、OneDrive、MSN、Xbox LIVE 或 Office 365。 註冊 Outlook.com 信箱時會自動建立 Microsoft 帳戶。 如需詳細資訊，請參閱 [Microsoft 帳戶概觀](https://account.microsoft.com/account)。
 

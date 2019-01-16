@@ -3,8 +3,8 @@ title: 測試 Microsoft Azure SUSE Linux VM 上的 SAP NetWeaver | Microsoft Doc
 description: 在 Microsoft Azure SUSE Linux VM 上測試 SAP NetWeaver
 services: virtual-machines-linux
 documentationcenter: ''
-author: hermanndms
-manager: jeconnoc
+author: msjuergent
+manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,13 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
-ms.author: hermannd
-ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: juergent
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 032ab2a221f64d01af25056a4eff3ee3384de0c3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950041"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157219"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>在 Microsoft Azure SUSE Linux VM 上執行 SAP NetWeaver
 這篇文章描述在 Microsoft Azure SUSE Linux 虛擬機器 (VM) 上執行 SAP NetWeaver 時應考量的各種事項。 自 2016 年 5 月 19 日起，在 Azure 的 SUSE Linux VM 上已正式支援 SAP NetWeaver。 如需有關 Linux 版本、SAP 核心版本的所有詳細資料及其他必要條件，請參閱 SAP 附註 1928533＜Azure 上的 SAP 應用程式︰支援的產品和 Azure VM 類型＞。
@@ -75,7 +76,7 @@ ms.locfileid: "46950041"
 * [SUSE](https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
 ## <a name="sap-enhanced-monitoring"></a>SAP「增強型監視」
-SAP「增強型監視」是在 Azure 上執行 SAP 的必要先決條件。 請查看 SAP 附註 2191498＜Linux 搭配 Azure 上的 SAP：增強型監視＞中的詳細資料。
+SAP「增強型監視」是在 Azure 上執行 SAP 的必要先決條件。 如需詳細資訊，請查看檢查 SAP 附註 2191498＜Linux 上的 SAP 搭配 Azure：增強型監視＞。
 
 ## <a name="attaching-azure-data-disks-to-an-azure-linux-vm"></a>將 Azure 資料磁碟連結至 Azure Linux VM
 請絕對避免透過裝置識別碼將 Azure 資料磁碟掛接到 Azure Linux VM。 相反地，請使用全域唯一識別碼 (UUID)。 舉例來說，使用圖形工具來掛接 Azure 資料磁碟時應多加留意。 請仔細檢查 /et/fstab 中的項目。
@@ -125,7 +126,7 @@ SAP「增強型監視」是在 Azure 上執行 SAP 的必要先決條件。 請�
 針對官方的 SAP-Azure 憑證，已經有新的機制可以計算 SAP 授權使用的 SAP 硬體金鑰。 要使用新的演算法，必須調整 SAP 核心。 Linux 先前的 SAP 核心版本不包括此程式碼變更。 因此，在某些情況下 (例如 Azure VM 調整大小)，SAP 硬體金鑰已發生變更，而 SAP 授權已不再有效 使用較新的 SAP Linux 核心提供解決方案。  詳細的 SAP 核心修補程式會記載於 SAP 附註 1928533。
 
 ## <a name="suse-sapconf-package--tuned-adm"></a>SUSE sapconf 封裝 / tuned-adm
-SUSE 提供稱為 "sapconf" 的封裝，這組封裝負責管理一組 SAP 特定設定。 如需有關此封裝之用途、安裝方式及使用方式的更多詳細資料，請參閱[使用 sapconf 來準備要執行 SAP 系統的 SUSE Linux Enterprise Server](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) 和[何謂 sapconf 或如何準備要執行 SAP 系統的 SUSE Linux Enterprise Server？](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems)。
+SUSE 提供稱為 "sapconf" 的封裝，這組封裝負責管理一組 SAP 特定設定。 如需有關此套件之用途、安裝方式及使用方式的詳細資料，請參閱：[使用 sapconf 來準備要執行 SAP 系統的 SUSE Linux Enterprise Server](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) 和[何謂 sapconf 或如何準備要執行 SAP 系統的 SUSE Linux Enterprise Server？](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems)。
 
 同時還提供一個新工具來取代 'sapconf - tuned-adm'。 您可以在這兩個連結中找到關於這個工具的更多詳細資料：
 

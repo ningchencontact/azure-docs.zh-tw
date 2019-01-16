@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: juliako
-ms.openlocfilehash: f9ad7fcf414e90acc40ee5cd42e322a3b9e47f17
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 93222129b80592ef5b4e1ed2e1420d975fe9f108
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380668"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190712"
 ---
 # <a name="generate-a-thumbnail-sprite"></a>產生縮圖原件 
 
@@ -70,7 +70,7 @@ ms.locfileid: "49380668"
 
 1.  無法以單一資料列的影像產生原件影像 (SpriteColumn = 1 會產生含有單一資料行的影像)。
 2.  尚不支援將原件影像區塊化為一般大小的 JPEG 影像。 因此，務必要謹慎限制縮圖的數目和大小，使結合後的縮圖原件保持在 8M 個像素左右或以內。
-3.  Azure 媒體播放器支援 Edge、Chrome 和 Firefox 瀏覽器的原件。 在 IE11 中不支援 VTT 剖析。
+3.  Azure 媒體播放器支援 Microsoft Edge、Chrome 和 Firefox 瀏覽器的原件。 在 IE11 中不支援 VTT 剖析。
 
 ## <a name="next-steps"></a>後續步驟
 

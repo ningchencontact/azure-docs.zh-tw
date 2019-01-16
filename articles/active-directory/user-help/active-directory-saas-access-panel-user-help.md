@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: b4229ca7ff96a9806ac82cf9452de496d858f6b4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: a761e6a42e478aafca75709689a022edec2a64db
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705679"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191020"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>針對存取和使用 MyApps 入口網站的問題進行疑難排解
 
@@ -49,7 +49,7 @@ MyApps 入口網站需要支援 JavaScript 且已啟用 CSS 的瀏覽器。 如�
 
 請檢查以確定您符合下列瀏覽器需求：
 
-- **Edge**：在 Windows 10 Anniversary Edition 或更新版本上。
+- **Microsoft Edge**：在 Windows 10 Anniversary Edition 或更新版本上。
 - **Chrome**：在 Windows 7 或更新版本，和在 MacOS X 或更新版本上。
 - **Firefox 26.0 或更新版本**：在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上。
 - **Internet Explorer 11**：在 Windows 7 或更新版本上 (部分支援)。
@@ -90,7 +90,7 @@ MyApps 入口網站需要支援 JavaScript 且已啟用 CSS 的瀏覽器。 如�
        您所使用的最後三個應用程式會顯示在 [最近使用的] 捷徑清單中。
 
 > [!NOTE]
-> 這些選項僅適用於 Edge、Chrome 和 Firefox。
+> 這些選項僅適用於 Microsoft Edge、Chrome 和 Firefox。
 
 ## <a name="how-do-i-add-a-new-app"></a>如何新增應用程式？
 

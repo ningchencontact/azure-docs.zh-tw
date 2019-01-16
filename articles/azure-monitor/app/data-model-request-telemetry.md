@@ -9,19 +9,19 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 91f6254fe756f256a2c88429fb4d96156867ef4a
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001901"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117141"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>要求遙測：Application Insights 資料模型
 
-要求遙測項目 (在 [Application Insights](../../application-insights/app-insights-overview.md) 中) 代表外部要求對應用程式所觸發的執行邏輯順序。 每個要求執行都是由包含所有執行參數的唯一 `ID` 和 `url` 所識別。 您可以將這些要求依邏輯 `name` 群組，並定義這項要求的 `source`。 程式碼執行可能會導致 `success` 或 `fail`，並且有特定 `duration`。 成功和失敗的執行都可以進一步以 `resultCode` 分組。 信封層級上定義之要求遙測的開始時間。
+要求遙測項目 (在 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中) 代表外部要求對應用程式所觸發的執行邏輯順序。 每個要求執行都是由包含所有執行參數的唯一 `ID` 和 `url` 所識別。 您可以將這些要求依邏輯 `name` 群組，並定義這項要求的 `source`。 程式碼執行可能會導致 `success` 或 `fail`，並且有特定 `duration`。 成功和失敗的執行都可以進一步以 `resultCode` 分組。 信封層級上定義之要求遙測的開始時間。
 
 要求遙測會使用自訂 `properties` 和 `measurements`支援標準的擴充性模型。
 
@@ -65,7 +65,7 @@ Application Insights web SDK 會將要求名稱依「現狀」傳送 (考量字�
 
 表示成功或失敗的呼叫。 這是必填欄位。 當未明確設定為 `false` 時 - 要求會視為成功。 如果作業是例外狀況而中斷或傳回錯誤結果碼，將此值設定為 `false`。
 
-針對 Web 應用程式，當回應碼小於 `400` 或等於 `401` 時，Application Insights 會將要求定義為失敗。 不過有可能會發生這個預設對應與應用程式之語意不相符的情況。 回應碼 `404` 可能表示「沒有記錄」，這可能是一般流程的一部分。 它也可能表示中斷的連結。 針對中斷連結，您甚至可以實作更進階的邏輯。 只有當中斷的連結藉由分析 URL 查閱者位於相同網站時，您才可以將這些連結標示為失敗。 或是從公司的行動應用程式存取時，才可以將它們標示為失敗。 同樣地，從不支援重新導向的用戶端存取時，`301` 和 `302` 會表示失敗。
+針對 Web 應用程式，當回應碼小於 `400` 或等於 `401` 時，Application Insights 會將要求定義為成功。 不過有可能會發生這個預設對應與應用程式之語意不相符的情況。 回應碼 `404` 可能表示「沒有記錄」，這可能是一般流程的一部分。 它也可能表示中斷的連結。 針對中斷連結，您甚至可以實作更進階的邏輯。 只有當中斷的連結藉由分析 URL 查閱者位於相同網站時，您才可以將這些連結標示為失敗。 或是從公司的行動應用程式存取時，才可以將它們標示為失敗。 同樣地，從不支援重新導向的用戶端存取時，`301` 和 `302` 會表示失敗。
 
 部分接受的內容 `206` 可能表示整體要求失敗。 例如，Application Insights 端點會接收一批遙測項目作為單一要求。 當批次中的某些項目未處理成功時，它會傳回 `206`。 `206` 的速率遞增表示有需要調查的問題。 類似的邏輯也適用於 `207` 多狀態，當中成功可能是不同回應代碼的最差狀況。
 

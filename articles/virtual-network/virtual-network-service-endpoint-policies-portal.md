@@ -1,13 +1,10 @@
 ---
-title: 建立服務端點原則並為其建立關聯 - Azure 入口網站 | Microsoft Docs
-description: 在此文章中，了解如何使用 Azure 入口網站設定服務端點原則並為其建立關聯。
+title: 建立服務端點原則並為其建立關聯 - Azure 入口網站
+titlesuffix: Azure Virtual Network
+description: 在本文中，了解如何使用 Azure 入口網站設定服務端點原則並為其建立關聯。
 services: virtual-network
 documentationcenter: virtual-network
 author: anithaa
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 6bd318da5b3cd667d0a39b9c963e8d3ffd472f41
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633005"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054430"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>使用 Azure 入口網站建立、變更或刪除服務端點原則
 
@@ -46,28 +43,28 @@ ms.locfileid: "52633005"
 2. 在搜尋窗格中，輸入「服務端點原則」，然後選取 [服務端點原則 (預覽)]，然後選取 [建立]。
 3. 從 [基本] 中，輸入或選取以下資訊 
 
-   - 訂用帳戶：為原則選取訂用帳戶。    
-   - 資源群組：選取 [新建]，並輸入 *myResourceGroup*。     
+   - 訂用帳戶   ：為原則選取訂用帳戶。    
+   - 資源群組：選取 [新建]，然後輸入 *myResourceGroup*。     
    - 名稱：myEndpointPolicy
-   - 位置：美國中西部     
+   - 位置       ：美國中西部     
  
    ![建立服務端點原則基本事項](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
    
 4. 從 [原則定義] 中，輸入或選取以下資訊
 
    - 按一下 [+新增資源]，輸入或選取下列資訊、接受其餘設定的預設值，然後按一下 [新增]。  
-   - 範圍︰選取 [單一帳戶] 或 [訂用帳戶中的所有帳戶] 或 [資源群組中的所有帳戶]。    
-   - 訂用帳戶：為儲存體帳戶選取訂用帳戶。 原則和儲存體帳戶可以位於不同的訂用帳戶中。   
+   - 範圍          ：選取 [單一帳戶] 或 [訂用帳戶中的所有帳戶] 或 [資源群組中的所有帳戶]。    
+   - 訂用帳戶   ：為儲存體帳戶選取訂用帳戶。 原則和儲存體帳戶可以位於不同的訂用帳戶中。   
    - 資源群組：選取您的資源群組。 如果範圍設為「資源群組中的所有帳戶」或「單一帳戶」，則為必要項目。  
    - 資源：mystorageaccountportal    
    - 按一下 [+ 新增資源]，繼續新增更多資源。
    
    ![建立服務端點原則定義](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
-5. 選擇性：在 [標記] 中，輸入或選取下列資訊：
+5. 選用：在 [標籤] 中輸入或選取下列資訊：
    
-   - 機碼：為您的原則選取機碼。 例如：部門     
-   - 值：為索引建輸入值組。 例如：財務
+   - 索引鍵     ：為您的原則選取索引鍵。 例如：Dept     
+   - 值   ：為索引建輸入值組。 例如：財務
 
 6. 選取 [檢閱 + 建立]。 驗證資訊，然後按一下 [建立]。 若要進一步編輯，請按一下 [上一步]。 
 
@@ -100,12 +97,12 @@ ms.locfileid: "52633005"
 2. 選取 [網絡]，然後選取 [虛擬網路]。
 3. 在 [建立虛擬網路] 底下，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]：
    - 名稱：myVirtualNetwork      
-   - 位址空間：10.0.0.0/16      
-   - 訂用帳戶︰選取您的訂用帳戶。 原則應該位於與 VNet 相同的訂用帳戶     
+   - 位址空間  ：10.0.0.0/16      
+   - 訂用帳戶   ：選取您的訂用帳戶。 原則應該位於與 VNet 相同的訂用帳戶     
    - 資源群組：選取 [使用現有的]，然後選取 [myResourceGroup]     
-   - 位置：美國中西部     
+   - 位置       ：美國中西部     
    - 子網路名稱：私用     
-   - 位址範圍：10.0.0.0/24
+   - 位址範圍  ：10.0.0.0/24
      
 4. 在入口網站頂端的 [搜尋資源、服務和文件] 方塊中，開始輸入 myVirtualNetwork。 當搜尋結果中出現 **myVirtualNetwork** 時加以選取。
 5. 在 [設定] 底下選取 [子網路]，然後選取 [私用]。

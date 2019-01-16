@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 951a202f8d57c736af8c17af91859ce89e9efc7d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4e2feb1f5b0cad9a05f796d160a0a641622d6b59
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717954"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189214"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>C# 中使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
 
@@ -161,6 +161,8 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
 ## <a name="next-steps"></a>後續步驟
 
 新增 LUIS 意圖和 Bot 服務對話方塊來處理 **Help** **Cancel**及 **Greeting** 意圖。 請務必進行 Web 應用程式 Bot 定型、發佈及[建置](#build-the-bot)。 LUIS 與 Bot 兩者必須具有相同的意圖。
+
+查看更多聊天機器人[範例](https://github.com/Microsoft/AI)。 
 
 > [!div class="nextstepaction"]
 > [新增意圖](./luis-how-to-add-intents.md)

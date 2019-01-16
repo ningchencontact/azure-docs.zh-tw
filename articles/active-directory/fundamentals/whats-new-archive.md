@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d727c9c3a9add701263e799dba778b37e637adef
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc9892882cfd4c3f68118648baaaf278133bb2a8
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194278"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191916"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory 新增功能的封存檔
 
@@ -28,7 +28,7 @@ ms.locfileid: "53194278"
 - 已知問題
 - 錯誤修正
 - 已被取代的功能
-- 針對變更做規劃
+- 方案變更
 
 ---
 
@@ -857,7 +857,7 @@ Azure AD Connect 是在 Azure AD 與內部部署資料來源 (包括 Windows Ser
 - 此功能從應用程式的登入頁面直接登入以密碼 SSO 為基礎的應用程式
 - 使用快速搜尋功能來啟動任何應用程式
 - 擴充功能所提供的最近使用過的應用程式捷徑
-- 此擴充功能適用於 Edge、Chrome 及 Firefox。
+- 此擴充功能適用於 Microsoft Edge、Chrome 及 Firefox。
  
 如需詳細資訊，請參閱[我的應用程式安全登入擴充功能](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension)。
 

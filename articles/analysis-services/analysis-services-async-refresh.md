@@ -5,17 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e797f1faf249a1ad1eebbd46984829de5f087936
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f10bae780ebb05d3450f4dab7e53fa87fe25b022
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958664"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189548"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 進行非同步重新整理
+
 使用任何支援 REST 呼叫的程式設計語言，您可以對 Azure Analysis Services 表格式模型執行非同步的資料重新整理作業。 這包括相應放大查詢的唯讀複本同步處理。 
 
 資料重新整理作業可能需要一些時間，取決於數個因素，包括資料磁碟區、使用資料分割的最佳化層級等等。這些作業傳統上是以現有的方法叫用，例如使用 [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (表格式物件模型)、[PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) Cmdlet 或 [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) (表格式模型指令碼語言)。 不過，這些方法可能需要通常不太可靠的長時間執行 HTTP 連線。
@@ -94,9 +95,10 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 ```
 
 ### <a name="parameters"></a>參數
+
 不一定要指定參數。 會套用預設值。
 
-|名稱  |類型  |說明  |預設值  |
+|Name  |類型  |說明  |預設值  |
 |---------|---------|---------|---------|
 |類型     |  例舉       |  要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic 和 defragment。 不支援 Add 類型。      |   automatic      |
 |CommitMode     |  例舉       |  決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |
@@ -184,8 +186,8 @@ CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要�
 
 `syncstate` 的值：
 
-- 0：複寫。 資料庫檔案會被複寫到目標資料夾。
-- 1：重新序列化。 只有唯讀伺服器執行個體上的資料庫會被序列化。
+- 0︰複寫。 資料庫檔案會被複寫到目標資料夾。
+- 1:重新序列化。 只有唯讀伺服器執行個體上的資料庫會被序列化。
 - 2：完成。 同步處理作業順利完成。
 - 3：失敗。 同步處理作業失敗。
 - 4：正在結束。 同步處理作業已完成，但正在執行清除步驟。

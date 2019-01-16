@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0be1ddea4d5eaa253850ae640152b2538b39d0ca
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001272"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035418"
 ---
 # <a name="automated-backups"></a>自動備份
 
@@ -42,7 +42,7 @@ SQL Database 會自動建立保留 7 到 35 天的資料庫備份，並使用 Az
 
 ## <a name="how-long-are-backups-kept"></a>備份會保留多久的時間
 
-每個 SQL Database 有 7 到 35 天的預設備份保留期限，這取決於[購買模式和服務層級](#pitr-retention-period)而定。 您可以更新 Azure 邏輯伺服器上資料庫的備份保留週期。 如需詳細資訊，請參閱[變更備份保留週期](#how-to-change-the-pitr-backup-retention-period)。
+視購買模型和服務層而定，每個 SQL Database 的預設備份保留週期會介於 7 到 35 天。 您可以更新「Azure 邏輯伺服器」上資料庫的備份保留週期。 如需詳細資訊，請參閱[變更備份保留週期](#how-to-change-the-pitr-backup-retention-period)。
 
 如果您刪除資料庫，則 SQL Database 會以保存線上資料庫備份的相同方式保存備份。 例如，如果您刪除保留期間為七天的基本資料庫，則為期四天的備份還會再儲存三天。
 
@@ -109,7 +109,7 @@ Azure SQL Database 工程小組會持續自動地對服務上所有資料庫，�
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>使用 Azure 入口網站變更 PITR 備份保留期間
 
-若要使用 Azure 入口網站變更 PITR 備份保留期間，請導覽至要在入口網站中變更其保留期間的伺服器物件，然後根據要修改的伺服器物件，選取適當的選項。 
+若要使用 Azure 入口網站變更 PITR 備份保留期間，請導覽至要在入口網站中變更其保留期間的伺服器物件，然後根據要修改的伺服器物件，選取適當的選項。
 
 #### <a name="change-pitr-for-a-logical-server"></a>變更邏輯伺服器的 PITR
 

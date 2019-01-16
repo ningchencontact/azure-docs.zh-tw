@@ -1,19 +1,19 @@
 ---
-title: Azure Analysis Services 教學課程第 3 課：標記為日期資料表 | Microsoft Docs
+title: Azure Analysis Services 教學課程第 3 課：標記為日期資料表 |Microsoft Docs
 description: 說明如何在 Azure Analysis Services 教學課程專案中標記日期資料表。
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9cbbf8c5ea05915293c785028bdd0a47ba081036
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4c383fe30b8a6be3a5915f3cc1c0f5e5712ab328
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426017"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188992"
 ---
 # <a name="mark-as-date-table"></a>標示為日期資料表
 
@@ -25,10 +25,10 @@ ms.locfileid: "49426017"
 
 在標記日期資料表和日期資料行之前，最好稍微整理一下，讓您的模型更容易懂。 請注意 DimDate 資料表中名為 **FullDateAlternateKey** 的資料行。 對於資料表內含的每個日曆年度中的每一天，此資料行都包含一個資料列。 您在量值公式和報告中常會用到此資料行。 但是，FullDateAlternateKey 並不是此資料行的理想識別項。 您會將它重新命名為 **Date**，使其更容易識別和納入公式中。 可能的話，最好重新命名物件，例如資料表和資料行，以更容易在 SSDT 和用戶端報告應用程式 (例如 Power BI 和 Excel) 中識別。 
   
-這堂課的預估完成時間：**3 分鐘**  
+這堂課的預估完成時間：**三分鐘**  
   
 ## <a name="prerequisites"></a>必要條件  
-本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 2 課︰取得資料](../tutorials/aas-lesson-2-get-data.md)。 
+本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 2 課：取得資料](../tutorials/aas-lesson-2-get-data.md)。 
 
 ### <a name="to-rename-the-fulldatealternatekey-column"></a>重新命名 FullDateAlternateKey 資料行
 

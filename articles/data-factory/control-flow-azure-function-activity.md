@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 4b185236e5925152acb5f8a733e117186a2318cf
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0fd9b679411dd06336fd65bcb400b152316146fa
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53740887"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188635"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Azure 函式活動
 
@@ -26,7 +25,7 @@ Azure 函式活動可讓您在 Data Factory 管線中執行 [Azure 函式](../az
 
 ## <a name="azure-function-linked-service"></a>Azure 函式連結服務
 
-Azure 函式的傳回型別必須是有效的 JObject。 任何其他型別都會失敗，並引發一般使用者錯誤「呼叫端點時發生錯誤」。
+Azure 函式的傳回型別必須是有效的 `JObject`。 (請記住，[JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm)「不是」一個`JObject`)。`JObject` 以外的所有傳回型別都會失敗，並引發「呼叫端點時發生錯誤」一般使用者錯誤。
 
 | **屬性** | **說明** | **必要** |
 | --- | --- | --- |

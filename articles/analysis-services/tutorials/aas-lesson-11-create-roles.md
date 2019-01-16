@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1a9ecea835e42c90ce7d71617666d210182fe465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5b89051cab7e89f79a2b62a392173e6dc234e48d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428896"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189740"
 ---
 # <a name="create-roles"></a>建立角色
 
-在這堂課中，您會建立角色。 角色可以限制只有身為角色成員的使用者才能存取，提供模型資料庫物件和資料的安全性。 每個角色都定義有單一權限︰「無」、「讀取」、「讀取和處理」、「處理」或「系統管理員」。 在製作模型期間可以使用 [角色管理員] 來定義角色。 在部署模型之後，您可以使用 SQL Server Management Studio (SSMS) 來管理角色。 若要深入了解，請參閱[角色](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular)。
+在這堂課中，您會建立角色。 角色可以限制只有身為角色成員的使用者才能存取，提供模型資料庫物件和資料的安全性。 每個角色都定義了單一權限：無、讀取、讀取和處理、處理或系統管理員。 在製作模型期間可以使用 [角色管理員] 來定義角色。 在部署模型之後，您可以使用 SQL Server Management Studio (SSMS) 來管理角色。 若要深入了解，請參閱[角色](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular)。
   
 > [!NOTE]  
 > 完成本教學課程並不需要建立角色。 根據預設，您目前登入的帳戶具有模型的「系統管理員」權限。 不過，若要讓組織中的其他使用者利用報告用戶端瀏覽模型，您必須建立至少一個具有「讀取」權限的角色，並將這些使用者新增為成員。  
@@ -35,7 +35,7 @@ ms.locfileid: "49428896"
 這堂課的預估完成時間：**15 分鐘**  
   
 ## <a name="prerequisites"></a>必要條件  
-本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 10 課︰建立分割區](../tutorials/aas-lesson-10-create-partitions.md)。  
+本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 10 課：建立分割區](../tutorials/aas-lesson-10-create-partitions.md)。  
   
 ## <a name="create-roles"></a>建立角色  
   
@@ -51,7 +51,7 @@ ms.locfileid: "49428896"
 
     ![aas 第 11 課新的角色](../tutorials/media/aas-lesson11-new-role.png) 
   
-5.  選擇性：按一下 [成員] 索引標籤，然後按一下 [新增]。 在 [選取使用者或群組] 對話方塊中，輸入您想從組織中加入此角色的 Windows 使用者或群組。  
+5.  選用：按一下 [成員] 索引標籤，然後按一下 [新增]。 在 [選取使用者或群組] 對話方塊中，輸入您想從組織中加入此角色的 Windows 使用者或群組。  
   
 #### <a name="to-create-a-sales-analyst-us-user-role"></a>建立「美國銷售分析師」使用者角色  
   
@@ -70,7 +70,7 @@ ms.locfileid: "49428896"
     「資料列篩選條件」公式必須解析成布林值 (TRUE/FALSE)。 在這個公式中，您指定只有 [國家區域碼] 值為 "US" 的資料列才能被使用者看到。  
     ![aas 第 11 課角色篩選](../tutorials/media/aas-lesson11-role-filter.png) 
   
-6.  選擇性：按一下 [成員] 索引標籤，然後按一下 [新增]。 在 [選取使用者或群組] 對話方塊中，輸入您想從組織中加入此角色的 Windows 使用者或群組。  
+6.  選用：按一下 [成員] 索引標籤，然後按一下 [新增]。 在 [選取使用者或群組] 對話方塊中，輸入您想從組織中加入此角色的 Windows 使用者或群組。  
   
 #### <a name="to-create-an-administrator-user-role"></a>建立「系統管理員」使用者角色  
   
@@ -80,11 +80,11 @@ ms.locfileid: "49428896"
   
 3.  將 [系統管理員] 權限授與此角色。  
   
-4.  選擇性：按一下 [成員] 索引標籤，然後按一下 [新增]。 在 [選取使用者或群組] 對話方塊中，輸入您想從組織中加入此角色的 Windows 使用者或群組。 
+4.  選用：按一下 [成員] 索引標籤，然後按一下 [新增]。 在 [選取使用者或群組] 對話方塊中，輸入您想從組織中加入此角色的 Windows 使用者或群組。 
   
   
 ## <a name="whats-next"></a>後續步驟
-[第 12 課：在 Excel 中進行分析](../tutorials/aas-lesson-12-analyze-in-excel.md)
+[第 12 課：使用 Excel 分析](../tutorials/aas-lesson-12-analyze-in-excel.md)。
 
   
   

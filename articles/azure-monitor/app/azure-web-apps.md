@@ -1,6 +1,6 @@
 ---
-title: 監視 Azure App Service 效能 | Microsoft Docs
-description: Azure Web 應用程式的應用程式效能監視。 圖表載入和回應時間、相依性資訊以及設定效能警示。
+title: 監視 Azure 應用程式服務效能 | Microsoft Docs
+description: Azure 應用程式服務的應用程式效能監視。 圖表載入和回應時間、相依性資訊以及設定效能警示。
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,33 +12,33 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: a5aea15c2563a81f4e915baa1b332beda64a1a70
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 17d8eff39eabb2f7b4968bf74d2482b980fe8060
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970962"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116614"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
-在 [Azure 入口網站](https://portal.azure.com)中，您可以為 [Azure App Service](../../app-service/overview.md) 中的 Web 應用程式、行動後端和 API 應用程式設定應用程式效能監視。 [Azure Application Insights](../../application-insights/app-insights-overview.md) 會檢測您的應用程式，將其活動的相關遙測傳送給 Application Insights 服務，以在其中儲存和分析遙測。 該處的度量圖表和搜尋工具可用於協助診斷問題、改善效能，以及評估使用方式。
+在 [Azure 入口網站](https://portal.azure.com)中，您可以為 [Azure App Service](../../app-service/overview.md) 中的 Web 應用程式、行動後端和 API 應用程式設定應用程式效能監視。 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 會檢測您的應用程式，將其活動的相關遙測傳送給 Application Insights 服務，以在其中儲存和分析遙測。 該處的度量圖表和搜尋工具可用於協助診斷問題、改善效能，以及評估使用方式。
 
 ## <a name="run-time-or-build-time"></a>執行階段或建置階段
 您可以用任一種方式檢測應用程式，進而設定監視︰
 
-* **執行階段** - 您可以在 Web 應用程式已經上線時，選取效能監視延伸模組。 不需要重建或重新安裝您的應用程式。 您會取得一組標準封裝，用以監視回應時間、成功率、例外狀況、相依性等。 
+* **執行階段** - 您可以在應用程式服務已經上線時，選取效能監視延伸模組。 不需要重建或重新安裝您的應用程式。 您會取得一組標準封裝，用以監視回應時間、成功率、例外狀況、相依性等。 
 * **建置階段** - 您可以在開發應用程式中安裝封裝。 此選項比較靈活。 除了相同的標準封裝以外，您可以撰寫程式碼以自訂遙測，或傳送自己的遙測。 您可以根據您的應用程式網域，記錄特定活動或記錄事件。 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>使用 Application Insights 執行時間檢測
-如果您已在 Azure 中執行 Web 應用程式，您便已得到一些監視︰要求率和錯誤率。 新增 Application Insights 可得到更多監視，例如回應時間、監視相依性呼叫、智慧偵測，以及強大的 Log Analytics 查詢語言。 
+如果您已經在 Azure 中執行應用程式服務，您便已經得到一些監視︰要求率和錯誤率。 新增 Application Insights 可得到更多監視，例如回應時間、監視相依性呼叫、智慧偵測，以及強大的 Log Analytics 查詢語言。 
 
-1. 在 Web 應用程式的 Azure 控制台中**選取 Application Insights**。
+1. 在 Azure 控制台中，選取您應用程式服務的 [Application Insights]。
 
     ![在 [設定] 之下，選擇 Application Insights](./media/azure-web-apps/settings-app-insights.png)
 
    * 除非您已經為此應用程式設定 Application Insights 資源，否則請選擇建立新的資源。 
 
     > [!NOTE]
-    > 當您按一下 [確定] 來建立新資源時，系統會提示您 [套用監視設定]。 選取 [繼續] 將新的 Application Insights 資源連結至 Web 應用程式，這麼做也可以**觸發 Web 應用程式的重新啟動**。 
+    > 當您按一下 [確定] 來建立新資源時，系統會提示您 [套用監視設定]。 選取 [繼續] 會將新的 Application Insights 資源連結至您的應用程式服務，這麼做也會**觸發應用程式服務的重新啟動**。 
 
     ![檢測 Web 應用程式](./media/azure-web-apps/create-resource.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "53970962"
 
     ![選擇每個平台的選項](./media/azure-web-apps/choose-options.png)
 
-3. 安裝 Application Insights 之後，**檢測您的 Web 應用程式**。
+3. 在安裝 Application Insights 之後，**檢測您的應用程式服務**。
 
    針對頁面檢視和使用者遙測**啟用用戶端監視**。
 
@@ -96,8 +96,19 @@ Application Insights 可以提供更詳細的遙測，方法是將 SDK 安裝至
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
+## <a name="troubleshooting"></a>疑難排解
+
+### <a name="appinsightsjavascriptenabled-causes-incomplete-html-response-in-net-core-web-applications"></a>APPINSIGHTS_JAVASCRIPT_ENABLED 在 NET CORE Web 應用程式中造成不完整的 HTML 回應。
+
+透過 App Service 啟用 Javascript 可能導致 HTML 回應被切斷。
+
+- 因應措施 1：將 APPINSIGHTS_JAVASCRIPT_ENABLED 應用程式設定設為 false，或將其完全移除，然後重新啟動
+- 因應措施 2：透過程式碼新增 SDK，然後移除延伸模組 (使用此設定時，將無法使用 Profiler 和快照偵錯工具)
+
+我們正在[此處](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)追蹤此問題
+
 ## <a name="next-steps"></a>後續步驟
-* [在即時應用程式上執行分析工具](../../application-insights/app-insights-profiler.md)。
+* [在即時應用程式上執行分析工具](../../azure-monitor/app/profiler.md)。
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - 使用 Application Insights 監視 Azure Functions
 * [能夠讓 Azure 診斷](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) 傳送至 Application Insights。
 * [監視服務健康狀態計量](../../azure-monitor/platform/data-collection.md)，確保您的服務可用且回應正常。

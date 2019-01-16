@@ -3,7 +3,7 @@ title: 如何針對 VHD 建立常見問題進行疑難排解 | Microsoft Docs
 description: VHD 建立常見疑難排解問題的解答。
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: ''
 editor: ''
 ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: e58a5f8901b2ab53d47095e1d5fd232783e3b1ba
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713392"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079131"
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>如何針對 VHD 建立常見問題進行疑難排解
 這篇文章可協助 Azure Marketplace 發行者和 (或) 共同管理員解決在發行或管理其虛擬機器解決方案時發生的問題或常見問題。
@@ -52,6 +53,6 @@ ms.locfileid: "39713392"
 9. Azure Marketplace 中是否支援 32 位元應用程式？
    
    如需支援原則的詳細資料，請參閱此連結︰[https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
-10. 每次嘗試從我的 VHD 建立映像時都會在 PowerShell 中收到錯誤「.VHD 已經在映像儲存機制上註冊為資源」。 我之前未建立任何映像，也在 Azure 中找不到任何具有這個名稱的映像。 如何解決這個問題？
+10. 每次嘗試從我的 VHD 建立映像時都會在 PowerShell 中收到錯誤「.VHD 已經在映像儲存機制上註冊為資源」。 我之前未建立任何映像，也在 Azure 中找不到任何具有這個名稱的映像。 如何解決此問題？
     
-    如果使用者已從這個 VHD 佈建 VM，並且鎖定該 VHD，則通常會發生這種情況。 請確認未從這個 VHD 配置任何 VM。 如果錯誤仍然存在，則請使用這個連結或從發佈入口網站提出這個錯誤的支援票證 (第 11 個問題的答案會提供詳細資料)。
+    如果使用者已從這個 VHD 佈建 VM，並且鎖定該 VHD，則通常會發生這種情況。 請確認未從這個 VHD 配置任何 VM。 如果錯誤仍然存在，則請使用這個連結或從發佈入口網站提出支援票證 (第 11 個問題的答案會提供詳細資料)。

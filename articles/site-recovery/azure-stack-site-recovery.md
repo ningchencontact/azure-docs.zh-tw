@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 02e6d6407a515314d99ea747dac3646d665c47ae
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976574"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039464"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>將 Azure Stack VM 複寫至 Azure
 
@@ -142,7 +142,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>步驟 2：建立保存庫，然後選取複寫目標
 
-1. 在 Azure 入口網站中，選取 [建立群組] > [監視 + 管理] > [備份和 Site Recovery]。
+1. 在 Azure 入口網站中，選取 [建立群組] > [管理工具] > [備份和 Site Recovery]。
 2. 在 [ **名稱**] 中，輸入保存庫的易記識別名稱。 
 3. 在 [資源群組] 中，建立或選取資源群組。 我們使用的是 [contosoRG]。
 4. 在 [位置] 中，輸入 Azure 區域。 我們使用**西歐**。

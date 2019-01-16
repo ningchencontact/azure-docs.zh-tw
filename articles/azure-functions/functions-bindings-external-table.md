@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 62924488b776a1a89e1abf492db1881a44585b1a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 38f0d03698ff8b11e1a6a06dc29102f407e0e90f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997818"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156862"
 ---
 # <a name="external-table-binding-for-azure-functions-experimental"></a>Azure Functions 的外部資料表繫結 (實驗性)
 
-本文說明如何在 Azure Functions 中使用 SaaS 提供者上的表格式資料，例如 Sharepoint 和 Dynamics。 Azure Functions 支援外部資料表的輸入和輸出繫結。
+本文說明如何在 Azure Functions 中使用 SaaS 提供者上的表格式資料，例如 SharePoint 和 Dynamics。 Azure Functions 支援外部資料表的輸入和輸出繫結。
 
 > [!IMPORTANT]
 > 外部資料表繫結是實驗性質，且可能永遠無法觸達正式上市 (GA) 狀態。 它只包含在 Azure Functions 1.x 中，且並未計劃將它新增至 Azure Functions 2.x。 針對要求存取 SaaS 提供者中資料的情況，請考量使用[呼叫函式的邏輯應用程式](functions-twitter-email.md)。

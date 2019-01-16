@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: dd7351d2948526905c91f2eac52e48b25cf063ac
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386990"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191423"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
 
@@ -208,7 +208,7 @@ Windows 10 和 Windows Server 2016 隨附用戶端和伺服器端上的 HTTP/2 �
 這項作業完成之後，您可以使用下列方法之一來確認是否已啟用 HTTP/2：
 
 - 啟用 IIS 記錄中的通訊協定版本，並查看 IIS 記錄。 它會在記錄中顯示 HTTP/2。 
-- 若要確認通訊協定，請在 Internet Explorer/Edge 中啟用 F12 開發人員工具，並切換至 [網路] 索引標籤。 
+- 在 Internet Explorer/Microsoft Edge 中啟用 F12 開發人員工具，並切換至 [網路] 索引標籤以確認通訊協定。 
 
 如需詳細資訊，請參閱 [IIS 上的 HTTP/2](https://blogs.iis.net/davidso/http2)。
 

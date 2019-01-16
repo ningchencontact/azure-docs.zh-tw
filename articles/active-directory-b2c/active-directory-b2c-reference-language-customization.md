@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e5bf7cc199fc8a439b5071faa89cce2e3ed47a75
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e115db18770ef304d823ff9c35d7d2cf302d5ccf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724310"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187757"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的語言自訂
 
@@ -175,7 +175,7 @@ Microsoft 目前不支援從右至左的語言。 您可以使用自訂地區設
 ### <a name="social-identity-provider-translations"></a>社交識別提供者的翻譯
 Microsoft 為社交登入提供 `ui_locales` OIDC 參數。 但有些社交識別提供者不接受此參數，包括 Facebook 和 Google。 
 ### <a name="browser-behavior"></a>瀏覽器行為
-Chrome 和 Firefox 都會要求使用其設定的語言。 如果該語言受到支援，則會顯示在預設語言之前。 Edge 目前未要求語言，而是會直接使用預設語言。
+Chrome 和 Firefox 都會要求使用其設定的語言。 如果該語言受到支援，則會顯示在預設語言之前。 Microsoft Edge 目前未要求語言，而是會直接使用預設語言。
 
 ### <a name="supported-languages"></a>支援的語言
 

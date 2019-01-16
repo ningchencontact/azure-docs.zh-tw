@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 1/09/2019
 ms.author: jeffgilb
 ms.reviewer: georgel
-ms.openlocfilehash: 7bcec2d17f61345986c1676d13011946a0036666
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 5cbbc3c1c2371264e3e29028d4b9d68533cc59ff
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164706"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54154941"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>SQL 資源提供者 1.1.30.0 版本資訊
 
@@ -81,7 +81,10 @@ ms.locfileid: "53164706"
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
+- **SQL 資源提供者無法新增 SQL Server Always On 接聽程式**。 在使用 SQL Server Always On 接聽程式的接聽程式 IP 位址時，SQL 資源提供者 VM 無法解析接聽程式的主機名稱。
 
+    **因應措施**：請確定 DNS 正常運作，以便將接聽程式 IP 解析為接聽程式主機名稱。
+    
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>雲端管理員操作 Azure Stack 時的已知問題
 請參閱 [Azure Stack 版本資訊](azure-stack-servicing-policy.md)中的文件。
 

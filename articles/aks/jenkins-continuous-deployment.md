@@ -6,13 +6,13 @@ ms.service: container-service
 author: iainfoulds
 ms.author: iainfou
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: d252e275280ed2a5c2129f6b228e9989a33b37fd
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 01/09/2019
+ms.openlocfilehash: 470ba6df76741dd5c9e9eed055cd7848d341082f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853610"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188448"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>教學課程：使用 Jenkins 持續整合和部署從 GitHub 部署至 Azure Kubernetes Service (AKS)
 
@@ -229,11 +229,6 @@ az role assignment create --assignee 626dd8ea-042d-4043-a8df-4ef56273670f --role
 1. 輸入 *azure-vote* 作為作業名稱。 選擇 [Freestyle project] \(自由樣式專案\)，然後選取 [OK] \(確定\)
 1. 在 [一般] 區段下，選取 [GitHub 專案]，然後輸入您的分支存放庫 URL，例如 *https://github.com/\<your-github-account\>/azure-voting-app-redis*
 1. 在 [原始碼管理] 區段中，選取 [Git]，輸入您的分支存放庫 *.git* URL，例如 *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*
-    - 針對認證，按一下 [Add] \(新增\) > [Jenkins]
-    - 在 [Kind] \(種類\) 底下，選取 [Secret text] \(祕密文字\)，然後輸入您的 [GitHub 個人存取權杖][git-access-token]作為祕密。
-    - 完成時，選取 [Add] \(新增\)。
-
-    ![GitHub 認證](media/aks-jenkins/github-creds.png)
 
 1. 在 [Build Triggers] \(建置觸發程序\) 底下，選取 [GitHub hook trigger for GITscm polling] \(GITScm 輪詢的 GitHub 勾點觸發程序\)
 1. 在 [Build Environment] \(建置環境\) 底下，選取 [Use secret texts or files] \(使用祕密文字或檔案\)

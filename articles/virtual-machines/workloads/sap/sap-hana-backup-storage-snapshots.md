@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 031cb10e476ba068f7e3d7baf3b19f7703caf170
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 74f47344afff630a8633b340ea4ce21db28db7ca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580029"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159922"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>以儲存體快照集為基礎的 SAP HANA 備份
 
@@ -52,7 +52,7 @@ SAP HANA 中有個功能支援建立儲存體快照集。 單一容器系統有�
 
 當 SAP HANA 處於快照集準備模式時，執行儲存體快照集之前，您必須確定也能保證檔案系統一致性。 請參閱相關文章 [Azure 虛擬機器上 SAP HANA 的備份指南](sap-hana-backup-guide.md)中的＜建立儲存體快照集時，SAP HANA 資料的一致性＞。
 
-完成儲存體快照集時，務必確認 SAP HANA 快照集。 有個對應的 SQL 陳述式可以執行︰BACKUP DATA CLOSE SNAPSHOT (請參閱 [BACKUP DATA CLOSE SNAPSHOT陳述式 (備份和復原)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm)。
+完成儲存體快照集時，務必確認 SAP HANA 快照集。 有個對應的 SQL 陳述式可以執行︰BACKUP DATA CLOSE SNAPSHOT (請參閱 [BACKUP DATA CLOSE SNAPSHOT 陳述式 (備份和復原)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm))。
 
 > [!IMPORTANT]
 > 確認 HANA 快照集。 由於「寫入時複製」&quot;&quot;的特性，SAP HANA 在快照集準備模式可能需要額外的磁碟空間，而且不確認 SAP HANA 快照集就不能啟動新的備份。

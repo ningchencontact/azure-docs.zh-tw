@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB 中的資料分割和水平調整
 description: 了解資料分割在 Azure Cosmos DB 中的運作方式、如何設定資料分割和資料分割索引鍵，以及如何為您的應用程式挑選合適的資料分割索引鍵。
-author: aliuy
+ms.author: mjbrown
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: andrl
-ms.openlocfilehash: 38f587fc24478beff3ab236207de3ed8a892c915
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dd62e0f4ff110ec8454031f1b66b56025328c33c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998943"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101474"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Azure Cosmos DB 中的資料分割和水平調整
 
@@ -23,13 +23,11 @@ ms.locfileid: "53998943"
 
 在 Azure Cosmos DB 中，容器是延展性的基本單位。 新增至容器的資料和您在容器上佈建的輸送量都會自動 (水平) 分割到一組邏輯分割區。 它們會根據您針對 Cosmos 容器指定的分割區索引鍵進行分割。 若要深入了解，請參閱[如何為您的 Cosmos 容器指定分割區索引鍵](how-to-create-container.md)一文。
 
-邏輯分割區會定義資料庫交易的範圍。 您可以使用含有快照集隔離的交易來更新邏輯分割區內的項目。
-
-將新項目新增至容器時，或者當容器上佈建的輸送量增加時，系統就會以透明的方式建立新的邏輯分割區。
+邏輯分割區會定義資料庫交易的範圍。 您可以使用含有快照集隔離的交易來更新邏輯分割區內的項目。 將新項目新增至容器時，系統會自動在背景建立新的邏輯分割區。
 
 ## <a name="physical-partitions"></a>實體分割區
 
-您可以藉由將資料和輸送量散發到許多邏輯分割區來調整 Cosmos 容器。 就內部而言，會將一或多個邏輯分割區對應至由一組複本 (也稱為「複本集」) 所組成的**實體分割區**。 每個複本集都會裝載 Cosmos 資料庫引擎的執行個體。 複本集讓實體分割區內儲存的資料都具耐久性、高度可用且一致。 實體分割區支援固定且最大數量的儲存體和 RU。 組成實體分割區的每個複本都會繼承儲存體配額。 此外，實體分割區的所有複本會共同支援配置給實體分割區的輸送量。 下圖顯示如何將邏輯分割區對應至全域散發的實體分割區：
+您可以藉由將資料和輸送量散發到大量邏輯分割區來調整 Azure Cosmos 容器規模。 就內部而言，會將一或多個邏輯分割區對應至由一組複本 (也稱為「複本集」) 所組成的**實體分割區**。 每個複本集都會裝載一個 Azure Cosmos 資料庫引擎執行個體。 複本集讓實體分割區內儲存的資料都具耐久性、高度可用且一致。 實體分割區支援固定且最大數量的儲存體和 RU。 組成實體分割區的每個複本都會繼承儲存體配額。 此外，實體分割區的所有複本會共同支援配置給實體分割區的輸送量。 下圖顯示如何將邏輯分割區對應至全域散發的實體分割區：
 
 ![Azure Cosmos DB 資料分割](./media/partition-data/logical-partitions.png)
 

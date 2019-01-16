@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 94f7239bdcdc5ddc91f3ed8b49b59378309711e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 08cd16cb9edc5606a18fc5d425910185f7747179
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844952"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187516"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>關於 Azure Active Directory B2C 中的使用者介面自訂
 
@@ -36,7 +36,7 @@ Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為[跨原
 - Azure AD B2C 會將 HTML 內容合併到您的頁面中。 請勿複製及嘗試變更 Azure AD B2C 所提供的預設內容。 最好是從頭建置您的 HTML 內容，將預設範本當作參考即可。
 - 基於安全考量，目前不允許您在內容中加入 JavaScript。
 - 支援的瀏覽器版本包括︰ 
-    - Internet Explorer 11、10 和 Edge
+    - Internet Explorer 11、10 和 Microsoft Edge
     - 對 Internet Explorer 9 和 8 僅提供有限支援
     - Google Chrome 42.0 和更新版本
     - Mozilla Firefox 38.0 和更新版本

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Connect：針對無縫單一登入進行疑難排解 | Microsoft Docs
+title: Azure Active Directory Connect：針對 Azure Active Directory 無縫單一登入進行疑難排解 | Microsoft Docs
 description: 本主題說明如何針對 Azure Active Directory 無縫單一登入進行疑難排解
 services: active-directory
 author: billmath
@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 308623b4643724d95777d7e21d1138f808e9c1c9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055895"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190420"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>針對 Azure Active Directory 無縫單一登入進行疑難排解
 
@@ -27,7 +27,7 @@ ms.locfileid: "47055895"
 
 - 在某些情況下，啟用無縫 SSO 最久可能需要 30 分鐘。
 - 如果您在租用戶上將「無縫 SSO」停用再重新啟用，使用者將必須等到他們的已快取 Kerberos 票證到期 (有效期通常為 10 小時) 之後，才能使用單一登入體驗。
-- 不支援 Edge 瀏覽器。
+- 不支援 Microsoft Edge 瀏覽器。
 - 如果無縫 SSO 成功，使用者就沒有機會選取 [讓我保持登入]。 由於這個行為而使得 [SharePoint 和 OneDrive 對應案例](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) \(機器翻譯\) 無法運作。
 - 使用非互動式流程，來支援 Office 365 Win32 用戶端 (Outlook、Word、Excel 和其他產品) 16.0.8730.xxxx 版和更新版本。 不支援其他版本；在那些版本中，使用者將輸入其使用者名稱 (但不輸入密碼) 來登入。 針對 OneDrive，您必須啟用 [OneDrive 無訊息設定功能](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) \(英文\) 以獲得無訊息登入體驗。
 - 在 Firefox 的私用瀏覽模式中，無法使用無縫 SSO。
@@ -36,23 +36,23 @@ ms.locfileid: "47055895"
 - 如果使用者是 Active Directory 中過多群組的成員之一，該使用者的 Kerberos 票證可能會太大而無法處理，並且會導致無縫式 SSO 失敗。 Azure AD HTTPS 要求可以有大小上限為 50 KB 的標頭；Kerberos 票證必須小於該限制，才能容納其他 Azure AD 成品 (通常是 2 - 5 KB)，例如 Cookie。 建議您降低使用者的群組成員資格，然後再試一次。
 - 如果您正在同步處理 30 個或更多的 Active Directory 樹系，便無法透過 Azure AD Connect 啟用無縫 SSO。 您可以在租用戶上[手動啟用](#manual-reset-of-the-feature)此功能，以解決這個問題。
 - 將 Azure AD 服務 URL (https://autologon.microsoftazuread-sso.com)) 新增至「信任的網站區域」而非「近端內部網路區域」，會「阻止使用者登入」。
-- 無縫 SSO 會使用適用於 Kerberos 的 **RC4_HMAC_MD5** 加密類型。 在 Active Directory 設定中停用 **RC4_HMAC_MD5** 加密類型會中斷無縫 SSO。 在您的「群組原則管理編輯器」工具中，請確定在 [電腦設定] -> [Windows 設定] -> [安全性設定] -> [本機原則] -> [安全性選項] -> [網路安全性: 設定 Kerberos 允許的加密類型] 底下，[RC4_HMAC_MD5] 的原則值為 [已啟用]。 此外，無縫 SSO 無法使用其他加密類型，因此請確定它們**已停用**。
+- 無縫 SSO 會使用適用於 Kerberos 的 **RC4_HMAC_MD5** 加密類型。 在 Active Directory 設定中停用 **RC4_HMAC_MD5** 加密類型會中斷無縫 SSO。 在 [群組原則管理編輯器] 工具中，於 [電腦設定] > [Windows 設定] > [安全性設定] > [本機原則] > [安全性選項] > [網路安全性: 設定 Kerberos 允許的加密類型] 下，確認 **RC4_HMAC_MD5** 的原則值為 [啟用]。 此外，無縫 SSO 無法使用其他加密類型，因此請確定它們**已停用**。
 
 ## <a name="check-status-of-feature"></a>檢查功能的狀態
 
 確認您租用戶端的無縫 SSO 功能仍為 [已啟用]。 您可以前往 [Azure Active Directory 管理中心](https://aad.portal.azure.com/)的 [Azure AD Connect] 窗格來檢查狀態。
 
-![Azure Active Directory 管理中心：Azure AD Connect 窗格](./media/tshoot-connect-sso/sso10.png)
+![Azure Active Directory 系統管理中心：[Azure AD Connect] 窗格](./media/tshoot-connect-sso/sso10.png)
 
 一路按一下來查看已針對「無縫 SSO」啟用的所有 AD 樹系。
 
-![Azure Active Directory 管理中心：無縫 SSO 窗格](./media/tshoot-connect-sso/sso13.png)
+![Azure Active Directory 系統管理中心：[無縫 SSO] 窗格](./media/tshoot-connect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Azure Active Directory 管理中心上的登入失敗原因 (需要 Premium 授權)
 
 如果您的租用戶已有與其相關聯的 Azure AD Premium 授權，您也可以查看 [Azure Active Directory 管理中心](https://aad.portal.azure.com/)上的[登入活動報告](../reports-monitoring/concept-sign-ins.md)。
 
-![Azure Active Directory 管理中心：登入報告](./media/tshoot-connect-sso/sso9.png)
+![Azure Active Directory 系統管理中心：登入報告](./media/tshoot-connect-sso/sso9.png)
 
 瀏覽至 [Azure Active Directory 管理中心](https://aad.portal.azure.com/)中的 [Azure Active Directory] > [登入]，然後選取特定使用者的登入活動。 尋找 [登入錯誤碼] 欄位。 使用下表，將該欄位的值對應至失敗原因和解決方式：
 
@@ -104,7 +104,7 @@ ms.locfileid: "47055895"
 
 如果疑難排解無法解決問題，您可以在租用戶上手動重設此功能。 請在執行 Azure AD Connect 的內部部署伺服器上依照下列步驟操作。
 
-### <a name="step-1-import-the-seamless-sso-powershell-module"></a>步驟 1：匯入無縫 SSO PowerShell 模組
+### <a name="step-1-import-the-seamless-sso-powershell-module"></a>步驟 1：匯入流暢 SSO PowerShell 模組
 
 1. 首先，下載並安裝 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview)。
 2. 瀏覽至 `%programfiles%\Microsoft Azure Active Directory Connect` 資料夾。

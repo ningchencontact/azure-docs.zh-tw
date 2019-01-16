@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 94c1f255d7aae63d6faf44cc500c48c68bf6d3fc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd6384dcd132ffb53e3531707c600465e8d0b649
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608948"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190012"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure 儲存體總管版本資訊
 
@@ -27,15 +27,18 @@ ms.locfileid: "53608948"
 
 [Microsoft Azure 儲存體總管](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
 
-## <a name="version-161"></a>1.6.1 版
-12/18/2018
+## <a name="version-162"></a>1.6.2 版
+2019 年 1 月 9 日
 
-### <a name="download-azure-storage-explorer-161"></a>下載 Azure 儲存體總管 1.6.1
-- [適用於 Windows 的 Azure 儲存體總管 1.6.1](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 Azure 儲存體總管 1.6.1](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 Azure 儲存體總管 1.6.1](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-162"></a>下載 Azure 儲存體總管 1.6.2
+- [適用於 Windows 的 Azure 儲存體總管 1.6.2](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Azure 儲存體總管 1.6.2](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Azure 儲存體總管 1.6.2](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Hotfix
+* 在 1.6.1 中，由 ObjectId 新增至 ADLS Gen2 ACL 的實體只要不是使用者便一律新增為群組。 現在，只有群組會新增為群組，「企業應用程式」和「服務主體」等實體則新增為使用者。 [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049) \(英文\)
+* 如果 ADLS Gen2 儲存體帳戶沒有容器且已連結名稱和金鑰，則「儲存體總管」無法將該「儲存體帳戶」偵測為 ADLS Gen2。 已修正此問題。 [#1048](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1048) \(英文\)
+* 在 1.6.0 中，在複製和貼上期間發生衝突時，不會提示您解決衝突。 取而代之的是，衝突的複製會直接失敗。 現在，在第一次發生衝突時，將會詢問您要如何解決。 [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014) \(英文\)
 * 由於 API 限制，[管理存取] 對話方塊中的所有 ObjectId 驗證已停都用。 現在只會對使用者 UPN 進行驗證。 [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
 * 在 ADLS Gen2 的 [管理存取] 對話方塊中，無法修改群組的權限。 已修正此問題。 [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
 * 已新增 ADLS Gen2 編輯器的拖放上傳支援。 [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
@@ -103,6 +106,7 @@ ms.locfileid: "53608948"
 
 ## <a name="previous-releases"></a>舊版
 
+* [1.6.1 版](#version-161)
 * [1.6.0 版](#version-160)
 * [1.5.0 版](#version-150)
 * [1.4.4 版](#version-144)
@@ -135,6 +139,75 @@ ms.locfileid: "53608948"
 * [0.7.20160129.1 版](#version-07201601291)
 * [0.7.20160105.0 版](#version-07201601050)
 * [0.7.20151116.0 版](#version-07201511160)
+
+## <a name="version-161"></a>1.6.1 版
+12/18/2018
+
+### <a name="hotfixes"></a>Hotfix
+* 由於 API 限制，[管理存取] 對話方塊中的所有 ObjectId 驗證已停都用。 現在只會對使用者 UPN 進行驗證。 [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
+* 在 ADLS Gen2 的 [管理存取] 對話方塊中，無法修改群組的權限。 已修正此問題。 [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
+* 已新增 ADLS Gen2 編輯器的拖放上傳支援。 [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
+* ADLS Gen2 檔案和資料夾的 [屬性] 對話方塊中的 URL 屬性有時會遺漏 '/'。 已修正此問題。 [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
+* 如果無法取得 ADLS Gen2 容器、檔案或資料夾的目前權限，則錯誤現在會正確顯示於活動記錄中。 [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
+* 為了開啟檔案所建立的暫存路徑已縮短，可減少在 Windows 上建立長度超過 MAX_PATH 的路徑的機會。 [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
+* 若沒有已登入的使用者或未連結任何資源，[連線] 對話方塊現在可正確地出現。 [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
+* 在 1.6.0 中，儲存非 HNS Blob 和檔案的屬性會將每個屬性的值編碼。 這會導致只包含 ASCII 字元的值進行不必要的編碼。 現在，只有當值包含非 ASCII 字元時才會進行編碼。 [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* 如果使用了 SAS 且 SAS 沒有讀取權限，則無法將資料夾上傳到非 HNS Blob 容器。 已修正此問題。 [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
+* 取消 AzCopy 傳輸無法運作。 已修正此問題。 [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
+* 嘗試從 ADLS Gen2 Blob 容器下載資料夾時，如果資料夾的名稱中包含空格，則 AzCopy 會失敗。 已修正此問題。 [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
+* CosmosDB 編輯器已無法在 1.6.0 中使用。 現在已修正。 [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+        
+### <a name="new"></a>新增
+
+* 您現在可以使用儲存體總管，透過 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409) 存取您的 Blob 資料。 如果您已登入且儲存體總管無法擷取儲存體帳戶的金鑰，則 OAuth 權杖將在處理資料時用來驗證。
+* 儲存體總管現在支援 ADLS Gen2 Storage 帳戶。 當儲存體總管偵測到儲存體帳戶已啟用階層式命名空間時，您會在您儲存體帳戶的名稱旁邊看見「(ADLS Gen2 預覽)」。 儲存體總管能夠偵測當您登入時是否已啟用階層式命名空間，或您是否已連結具有名稱和金鑰的儲存體帳戶。 對於 ADLS Gen2 儲存體帳戶，您可以使用儲存體總管：
+    * 建立和刪除容器
+    * 管理容器屬性和權限 (左側)
+    * 檢視及瀏覽容器內的資料
+    * 建立新資料夾
+    * 上傳、下載、重新命名及刪除檔案和資料夾
+    * 管理檔案和資料夾屬性及權限 (右側)。
+    
+    目前無法使用其他一般 Blob 功能 (例如虛刪除) 和快照集。 管理權限也僅限於登入後使用。 此外，在 ADLS Gen2 儲存體帳戶中運作時，儲存體總管會使用 AzCopy 進行所有的上傳和下載，且預設為對所有作業使用名稱和金鑰認證 (如果有的話)。
+* 在使用者強烈反應之後，中斷租用可再度用於一次在多個 Blob 上中斷租用。
+
+### <a name="known-issues"></a>已知問題
+
+* 從 ADLS Gen2 儲存體帳戶下載時，如果其中一個傳輸中的檔案已經存在，則 AzCopy 有時會當機。 這個問題將於即將推出的 Hotfix 中獲得修正。
+* 中斷連結透過 SAS URI 連結的資源 (例如 Blob 容器) 可能會導致錯誤，使得其他附件無法正確顯示。 若要解決此問題，只需重新整理群組節點。 如需詳細資訊，請參閱 #537。
+* 如果您使用 VS for Mac，而且曾建立自訂 AAD 設定，則您可能無法登入。 若要解決此問題，請刪除 ~/.IdentityService/AadConfigurations 的內容。 如果這麼做無法將您解除封鎖，請在此問題加上註解。
+* Azurite 尚未完全實作所有的儲存體 API。 因此，對於開發儲存體使用 Azurite 時，可能出現未預期的錯誤或行為。
+* 在少數情況下，樹狀焦點可能會固定在快速存取上。 若要取消固定焦點，您可以 [全部重新整理]。
+* 由於 NodeJS 中的錯誤，造成無法從您的 OneDrive 資料夾上傳。 已修正該 Bug，但是尚未整合至 Electron。 若要解決這個在上傳到 Blob 容器或從 Blob 容器下載時的問題，您可以使用實驗性的 AzCopy 功能。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用這裡所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案及實體的所有其他屬性和中繼資料在重新命名期間都會保留。
+* Azure Stack 不支援下列功能。 嘗試在使用 Azure Stack 資源時使用這些功能，可能會導致非預期的錯誤。
+   * 檔案共用
+   * 存取層級
+   * 虛刪除
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* 對於 Linux 使用者，您必須安裝 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
+* 針對使用 Ubuntu 14.04 的使用者，您必須確定 GCC 已是最新版本，做法是執行下列命令，然後重新啟動電腦即可：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-160"></a>1.6.0 版
 12/5/2018

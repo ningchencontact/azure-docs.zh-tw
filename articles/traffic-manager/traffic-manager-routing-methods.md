@@ -1,8 +1,7 @@
 ---
-title: Azure 流量管理員 - 流量路由方法 | Microsoft Docs
+title: Azure 流量管理員 - 流量路由方法
 description: 本文將協助您了解流量管理員所使用的不同流量路由方法
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3cabfeda458011c5d3006642085f78dc74f3451e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139327"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054719"
 ---
 # <a name="traffic-manager-routing-methods"></a>流量管理員路由方法
 
@@ -28,7 +27,7 @@ Azure 流量管理員支援六種流量路由方法，以決定如何將網路�
 * **[加權](#weighted)︰** 如果您想要將流量分配給一組端點 (不論是平均分配還是根據您定義的權數)，請選取 [加權]。
 * **[效能](#performance)：** 如果您的端點位於不同的地理位置，而您希望使用者使用「最靠近」(亦即網路延遲最低) 的端點，請選取 [效能]。
 * **[地理](#geographic)︰** 選取 [地理]，以根據使用者的 DNS 查詢來自哪個地理位置，將使用者導向特定端點 (Azure、外部或巢狀)。 在必須知道使用者的地理區域，並據以路由傳送使用者的情況下，這可讓流量管理員客戶應付自如。 例如，遵守資料主權規定、內容和使用者經驗的當地語系化，以及測量來自不同區域的流量。
-* **[多值](#multivalue)：** 針對流量管理員設定檔選取 [多值]，其只能將 IPv4/IPv6 位址當作端點。 當系統收到此設定檔的查詢時，會傳回所有狀況良好的端點。
+* **[多值](#multivalue)：** 針對只能將 IPv4/IPv6 位址當作端點的流量管理員設定檔選取 [MultiValue]。 當系統收到此設定檔的查詢時，會傳回所有狀況良好的端點。
 * **[子網路](#subnet)：** 選取 [子網路] 流量路由方法，以將使用者 IP 位址範圍集對應到流量管理員設定檔中的特定端點。 當收到要求時，傳回的端點會是對應至該要求來源 IP 位址的端點。 
 
 
@@ -58,8 +57,8 @@ Azure 流量管理員支援六種流量路由方法，以決定如何將網路�
 加權方法支援一些實用的案例︰
 
 * 應用程式逐步升級：配置要路由傳送到新端點的流量百分比，並隨時間逐漸增加流量到 100%。
-* 應用程式移轉至 Azure︰建立具有 Azure 和外部端點的設定檔。 調整端點的權數來優先使用新的端點。
-* 額外容量的雲端負載平衡：將內部部署快速展開到雲端的方式是將它放在流量管理員設定檔後面。 當您需要在雲端中增加額外容量時，您可以新增或啟用更多的端點並指定進入每個端點的流量比例。
+* 應用程式移轉至 Azure：建立包含 Azure 和外部端點的設定檔。 調整端點的權數來優先使用新的端點。
+* 雲端高載以取得額外的容量：將內部部署放在流量管理員設定檔後面，以將它快速擴充到雲端。 當您需要在雲端中增加額外容量時，您可以新增或啟用更多的端點並指定進入每個端點的流量比例。
 
 除了使用 Azure 入口網站之外，您可以使用 Azure PowerShell、CLI 和 REST API 來設定加權。
 

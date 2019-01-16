@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519867b1e0607a769948c86af263c172e810d107
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247070"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078111"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>發佈虛擬機器到 Azure Marketplace 
 
@@ -31,35 +31,23 @@ ms.locfileid: "51247070"
 
 ### <a name="technical"></a>技術需求
 
--   [建立 Azure Marketplace 虛擬機器映像的技術性必要條件](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
-
+-   [建立 Azure Marketplace 虛擬機器映像的技術性必要條件](../cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
 -   [建立和上傳 Linux VHD](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 -   [從映像建立及測試 Linux VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
-
 -   [建立和上傳 Windows VHD ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
-
 -   [從映像建立及測試 Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
-
--   [如何針對 VHD 建立常見問題進行疑難排解](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
-
+-   [如何針對 VHD 建立常見問題進行疑難排解](../cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 -   [Azure Marketplace 映像的安全性建議](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images)
 
 
 ### <a name="non-technical-business-requirements"></a>非技術性需求 (商務需求)
 
  -   您的公司 (或其子公司) 必須位於 Azure Marketplace 支援的銷售來源國家/地區
-
 -   您的產品授權必須與 Azure Marketplace 支援的計費模式相容
-
 -   您必須以合乎商業行為的方式，負責為客戶提供技術支援。 此支援可以是免費、付費或透過社群的支援。
-
 -   您必須負責為您的軟體和任何第三方廠商相依性進行授權。
-
--   為了使您的供應項目可列於 Azure Marketplace 和 Azure 管理入口網站中，您提供的內容必須符合標準。
-
+-   為了使您的供應項目可列於 Azure Marketplace 和 Azure 入口網站中，您提供的內容必須符合標準。
 -   您同意 Azure Marketplace 參與原則和發行者合約中的條款。
-
 -   您同意遵守[使用條款](https://azure.microsoft.com/support/legal/website-terms-of-use/)、[Microsoft 隱私權聲明](https://www.microsoft.com/privacystatement/default.aspx)以及 [Microsoft Azure 認證方案合約](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/)。
 
 ## <a name="before-you-begin"></a>開始之前
@@ -177,7 +165,7 @@ SKU 新增後，會出現在 SKU 檢視的 SKU 清單中。 若要查看 SKU 詳
 
 #### <a name="usage-based-monthly-billed-sku"></a>依據用法每月計費的 SKU
 
-依據發行者針對 VM 大小設定的費率，以每小時為基礎向客戶收費。 如果是 SKU 的 **每小時計費** 模式，總價格會是發行者收取的軟體成本和 Microsoft 收取的基礎結構成本的總和。 當客戶考慮購買時，總成本將顯示為每小時和每月價格以供客戶參考。 計費在此情況下會以月為基礎。
+依據發行者針對 VM 大小設定的費率，以每小時為基礎向客戶收費。 如果使用**每小時計費**模式，總價格會是發行者收取的軟體成本和 Microsoft 收取的基礎結構成本的總和。 當客戶考慮購買時，總成本將顯示為每小時和每月價格以供客戶參考。 計費在此情況下會以月為基礎。
 
 在依據用法的計費模式中，您需要進行額外設定。
 
@@ -188,7 +176,7 @@ SKU 新增後，會出現在 SKU 檢視的 SKU 清單中。 若要查看 SKU 詳
 
 **每核心價格**
 
-您可以為 SKU 設定核心價格。 為此，您只需要為單一核心輸入基本價格，我們會自動計算剩餘核心的價格。 在入口網站中以美金為單位輸入價格，我們將自動計算其他地區的價格。 您可以使用 [匯出價格資料]，確認其他地區的價格
+您可以為 SKU 設定核心價格。 針對此選項，您只需要為單一核心輸入基本價格，我們會自動計算剩餘核心的價格。 在入口網站中以美金為單位輸入價格，我們將自動計算其他地區的價格。 您可以使用 [匯出價格資料]，確認其他地區的價格
 
 ![每核心價格](./media/cloud-partner-portal-publish-virtual-machine/publishvm6.png)
 
@@ -201,8 +189,8 @@ SKU 新增後，會出現在 SKU 檢視的 SKU 清單中。 若要查看 SKU 詳
 
 **匯出-匯入價格**
 
-您可以匯出入口網站設定的價格，並以 excel 介面進行變更。 您也可以藉此確認每個地區以當地幣值顯示的價格。
-按一下 [匯出價格]，下載預先填入價格詳細資訊的 excel 檔案。 您可以在 excel 內進行編輯，並使用 [匯入價格] 來匯入您所做的變更。
+您可以匯出入口網站設定的價格，並以 excel 介面進行變更。 此選項也可讓您確認每個區域以當地幣值顯示的價格。
+按一下 [匯出價格]，下載預先填入價格詳細資訊的 Excel 檔案。 您可以在試算表內編輯這些詳細資料，然後使用 [匯入價格] 來匯入您所做的變更。
 匯入的價格，將會反映在入口網站中。
 
 在價格 excel 中，不同地區的價格會以當地幣值顯示。 我們使用的匯率，每天都會重新整理。
@@ -219,24 +207,18 @@ SKU 新增後，會出現在 SKU 檢視的 SKU 清單中。 若要查看 SKU 詳
 
 下一個需要完成的區段為 VM 映像區段。 在進入這一節前，您必須備妥您準備好發佈的 VHD。 以下是一些能幫助您建立 VHD 的連結︰
 
--   [建立 Azure Marketplace 虛擬機器映像的技術性必要條件](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
-
+-   [建立 Azure Marketplace 虛擬機器映像的技術性必要條件](../cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
 -   [建立及上傳 Linux VHD](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 -   [從映像建立及測試 Linux VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
-
 -   [建立及上傳 Windows VHD ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
-
 -   [從映像建立及測試 Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
+-   [如何針對 VHD 建立常見問題進行疑難排解](../cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 
--   [如何針對 VHD 建立常見問題進行疑難排解](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
-
-VHD 就緒後，您便可以開始填寫這一區段。
-以下是若干欄位的細節資訊。
+VHD 就緒後，您便可以開始填寫這一區段。  以下是若干欄位的細節資訊。
 
 ### <a name="recommended-vm-sizes"></a>建議的 VM 大小
 
-最多選取六個建議的虛擬機器大小。 當客戶決定購買與部署您的映像時，這些大小是在 Azure Marketplace 和 Azure 入口網站的 [定價層] 刀鋒視窗中對其顯示的建議大小。 **這些只是建議大小。客戶可以選取任何可容納您映像中指定之磁碟的 VM 大小。**  下列螢幕擷取畫面顯示客戶將在 Azure 入口網站中看到的建議 VM 大小。
+最多選取六個建議的虛擬機器大小。 當客戶決定購買與部署您的映像時，這些大小是在 Azure Marketplace 和 Azure 入口網站的 [定價層] 刀鋒視窗中對其顯示的建議大小。 *這些只是建議大小。客戶可以選取任何可容納您映像中指定之磁碟的 VM 大小。*  下列螢幕擷取畫面顯示客戶將在 Azure 入口網站中看到的建議 VM 大小。
 
 
 ![建議的 VM 大小](./media/cloud-partner-portal-publish-virtual-machine/publishvm9.png)
@@ -250,7 +232,7 @@ VHD 就緒後，您便可以開始填寫這一區段。
 
 下一個步驟是為 SKU 新增 VM 映像。 每個 SKU，您最多可以新增 8 個磁碟版本。 Azure Marketplace 僅顯示特定 SKU 的最高磁碟版本編號。 其他版本編號須透過 API 來檢視。
 
-在 [磁碟版本] 下方，選取 [+ 新增版本]。 此時會顯示您必須填寫的下列欄位。
+在 [磁碟版本] 下方，選取 [+ 新增版本]。 此選項會顯示您必須填寫的下列欄位。
 
 #### <a name="vm-image-version"></a>VM 映像版本
 
@@ -258,13 +240,13 @@ VM 映像版本須遵循[語意版本](http://semver.org/)格式。 版本格式
 
 #### <a name="os-vhd-url"></a>作業系統 VHD URL
 
-輸入為作業系統 VHD 建立的[共用存取簽章 URI](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#52-get-the-shared-access-signature-uri-for-your-vm-images)。
+輸入為作業系統 VHD 建立的[共用存取簽章 URI](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)。
 
 如果有與此 SKU 相關聯的資料磁碟，您可以選取 [+ 新增資料磁碟] 連結，以選擇新增這些磁碟。 此動作會顯示您需填寫的其他欄位。
 
 #### <a name="lun-vhd-url"></a>LUN VHD URL
 
-為資料磁碟輸入[共用存取簽章 URI](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#52-get-the-shared-access-signature-uri-for-your-vm-images)
+為資料磁碟輸入[共用存取簽章 URI](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
 
 #### <a name="lun-number"></a>LUN 編號
 
@@ -277,16 +259,16 @@ VM 映像版本須遵循[語意版本](http://semver.org/)格式。 版本格式
 
 | 問題                                                                 | 訊息                                                                           | 修正                                                           |  文件的連結                                                                                |
 |---------------------------------------------------------------------  |-------------------------------------------------------------------------------    |-----------------------------------------------------------    |---------------------------------------------------------------------------------------------------    |
-| 複製映像失敗 - 在 SAS URL 中找不到 "?"                | 失敗︰複製映像。 無法使用提供的 SAS URI 下載 Blob。       | 使用建議的工具更新 SAS Url                    | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| 映像複製失敗 - SAS url 中未設定 “st” 和 “se” 參數   | 失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob。        | 更新 SAS Url，必須包含開始和結束日期             | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| 複製映像失敗 - SAS url 中沒有 “sp=rl”                    | 失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob         | 更新 SAS Url，將權限設定為「讀取」和「列出」     | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| 複製映像失敗 - SAS url 中的 vhd 名稱含有空格     | 失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob。        | 更新 SAS Url，不能含有空格                       | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| 複製映像失敗 – SAS Url 授權錯誤的               | 失敗︰複製映像。 因為發生授權錯誤，無法下載 blob     | 重新產生 SAS Url                                        | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| 複製映像失敗 - 在 SAS URL 中找不到 "?"                | 失敗：正在複製映像。 無法使用提供的 SAS URI 下載 Blob。       | 使用建議的工具更新 SAS Url                    | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| 映像複製失敗 - SAS url 中未設定 “st” 和 “se” 參數   | 失敗：正在複製映像。 無法使用提供的 SAS Uri 下載 blob。        | 更新 SAS Url，必須包含開始和結束日期             | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| 複製映像失敗 - SAS url 中沒有 “sp=rl”                    | 失敗：正在複製映像。 無法使用提供的 SAS Uri 下載 blob         | 更新 SAS Url，將權限設定為「讀取」和「列出」     | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| 複製映像失敗 - SAS url 中的 vhd 名稱含有空格     | 失敗：正在複製映像。 無法使用提供的 SAS Uri 下載 blob。        | 更新 SAS Url，不能含有空格                       | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| 複製映像失敗 – SAS Url 授權錯誤的               | 失敗：正在複製映像。 因為發生授權錯誤，無法下載 blob     | 重新產生 SAS Url                                        | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
 
 
 ## <a name="to-configure-the-marketplace"></a>設定 Marketplace
 
-使用 Marketplace 檢視來設定針對 [Azure Marketplace](https://azuremarketplace.microsoft.com) 上與 [Azure Portal](https://portal.azure.com/) 上的供應項目顯示的欄位。
+使用 Marketplace 檢視來設定針對 [Azure Marketplace](https://azuremarketplace.microsoft.com) 上與 [Azure 入口網站](https://portal.azure.com/)上供應項目顯示的欄位。
 
 ### <a name="preview-subscription-ids"></a>預覽訂用帳戶識別碼
 
@@ -294,9 +276,9 @@ VM 映像版本須遵循[語意版本](http://semver.org/)格式。 版本格式
 
 ### <a name="suggested-categories"></a>建議的類別
 
-從提供的清單中，選擇最能與您的供應項目互相關聯的五種類別 選取的類別係用來將您提供的供應項目對應至 [Marketplace](https://azuremarketplace.microsoft.com) 和 [Azure 入口網站](https://portal.azure.com/)中提供的產品類別。
+從提供的清單中，選擇最能與您的供應項目建立關聯的五種類別。 選取的類別係用來將您提供的供應項目對應至 [Marketplace](https://azuremarketplace.microsoft.com) 和 [Azure 入口網站](https://portal.azure.com/)中提供的產品類別。
 
-下列範例顯示 Azure Marketplace 與 Azure 入口網站中的 Marketplace 資訊。
+下列範例顯示 Azure Marketplace 與 Azure 入口網站中的市集資訊。
 
 **Azure Marketplace**
 
@@ -316,7 +298,6 @@ VM 映像版本須遵循[語意版本](http://semver.org/)格式。 版本格式
 ![publishvm12](./media/cloud-partner-portal-publish-virtual-machine/publishvm12.png)
 
 
-
 ![publishvm13](./media/cloud-partner-portal-publish-virtual-machine/publishvm13.png)
 
 
@@ -333,7 +314,7 @@ VM 映像版本須遵循[語意版本](http://semver.org/)格式。 版本格式
 
 -   請不要在標誌上使用漸層背景。
 
--   避免在標誌上放置文字。 這包括您的公司或品牌名稱。 您標誌的外觀與風格應該是*一般*，而且應該避免漸層。
+-   避免在標誌上放置文字，包括公司或品牌名稱。  您標誌的外觀與風格應該是*一般*，而且應該避免漸層。
 
 -   標誌不應自動縮放。
 

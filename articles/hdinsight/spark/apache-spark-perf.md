@@ -8,13 +8,13 @@ ms.author: maxluk
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/08/2019
+ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653725"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117855"
 ---
 # <a name="optimize-apache-spark-jobs"></a>最佳化 Apache Spark 作業
 
@@ -24,7 +24,7 @@ ms.locfileid: "53653725"
 
 ## <a name="choose-the-data-abstraction"></a>選擇資料抽象
 
-Spark 1.x 使用 RDD 使資料抽象化，而 Spark 2.x 使用 DataFrames 和 DataSets。 請考慮下列的相對優勢：
+舊版 Spark 使用 RDD 來提取資料，Spark 1.3 和 1.6 分別導入了 DataFrame 和 DataSet。 請考慮下列的相對優勢：
 
 * **DataFrames**
     * 大部分情況下的最佳選擇。
@@ -42,7 +42,7 @@ Spark 1.x 使用 RDD 使資料抽象化，而 Spark 2.x 使用 DataFrames 和 Da
     * 高 GC 額外負荷。
     * 中斷整體階段程式碼產生。
 * **RDDs**
-    * 在 Spark 2.x 中，除非您需要建立新的自訂 RDD，否則您不需要使用 RDD。
+    * 除非您需要建立新的自訂 RDD，否則不需要使用 RDD。
     * 沒有透過 Catalyst 的任何查詢最佳化。
     * 沒有整體階段程式碼產生。
     * 高 GC 額外負荷。

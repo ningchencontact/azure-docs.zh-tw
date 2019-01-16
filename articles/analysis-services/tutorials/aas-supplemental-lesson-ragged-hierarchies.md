@@ -1,19 +1,19 @@
 ---
-title: Azure Analysis Services 教學課程補充課程：不完全階層 | Microsoft Docs
+title: Azure Analysis Services 教學課程補充課程：不完全階層 |Microsoft Docs
 description: 說明如何在 Azure Analysis Services 教學課程中修正不完全階層。
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f5bd679c11139b7ac439247df81a7adb0b02b0fe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 50926b7c8b06668770d9a00b8342d209fdb94649
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426321"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191100"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>補充課程 - 不完全階層
 

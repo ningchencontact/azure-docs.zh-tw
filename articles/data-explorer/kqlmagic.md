@@ -8,21 +8,22 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 7152b1d09a11d5860d52b5f73ae601422bd0f722
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 179cc133e755a317c70b84acc95aafc61f4e0e68
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654451"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078162"
 ---
 # <a name="analyze-data-using-jupyter-notebook-and-kqlmagic"></a>使用 Jupyter Notebook 和 Kqlmagic 來分析資料
+
 Jupyter Notebook 是開放原始碼的 Web 應用程式，可讓您建立及共用含有即時程式碼、方程式、視覺效果和敘述文字的文件。 使用方式包含資料清理和轉換、數字模擬、統計模型、資料視覺效果和機器學習。
-[Jupyter Notebook](https://jupyter.org/) 支援 magic 函式，可藉由支援其他命令來擴展核心的功能。 Kqlmagic 是一種函式，可在 Jupyter Notebook 中擴充 Python 核心的功能，讓您能夠以原生方式執行 Kusto 查詢語言查詢。 您可以輕鬆地結合 Python 和 Kusto 查詢語言，以使用與 `render` 命令整合在一起的豐富 Plot.ly 程式庫，來查詢並以視覺方式呈現資料。 支援用於執行查詢的資料來源。 這些資料來源包含 Azure 資料總管 (兼具速度與極佳調整能力的資料探索服務，適用於記錄和遙測資料)，以及 Log Analytics 和 Application Insights。
+[Jupyter Notebook](https://jupyter.org/) 支援 magic 函式，可藉由支援其他命令來擴展核心的功能。 Kqlmagic 是一種命令，可在 Jupyter Notebook 中擴展 Python 核心的功能，讓您能夠以原生方式執行 Kusto 語言查詢。 您可以輕鬆地結合 Python 和 Kusto 查詢語言，以使用與 `render` 命令整合在一起的豐富 Plot.ly 程式庫，來查詢並以視覺方式呈現資料。 支援用於執行查詢的資料來源。 這些資料來源包含 Azure 資料總管 (兼具速度與極佳調整能力的資料探索服務，適用於記錄和遙測資料)，以及 Log Analytics 和 Application Insights。 Kqlmagic 也可以與 Azure Notebooks、Jupyter Lab 及 Visual Studio Code Jupyter 延伸模組搭配運作。
 
 ## <a name="prerequisites"></a>必要條件
+
 - 屬於 Azure Active Directory (AAD) 成員的組織電子郵件帳戶。
 - 本機電腦上已安裝 Jupyter Notebook，或使用 Azure Notebook 並複製範例 [Azure Notebook](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb)
-
 
 ## <a name="install-kqlmagic-library"></a>安裝 Kqlmagic 程式庫
 
@@ -31,8 +32,10 @@ Jupyter Notebook 是開放原始碼的 Web 應用程式，可讓您建立及共�
     ```python
     !pip install Kqlmagic --no-cache-dir  --upgrade
     ```
+    > [!NOTE]
+    > 使用 Azure Notebooks 時，不需要執行此步驟。
 
-2. 載入 Kqlmagic：
+1. 載入 Kqlmagic：
 
     ```python
     reload_ext Kqlmagic
@@ -41,7 +44,6 @@ Jupyter Notebook 是開放原始碼的 Web 應用程式，可讓您建立及共�
 ## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>連線至 Azure 資料總管協助叢集
 
 使用下列命令來連線至裝載於「協助」叢集的「範例」資料庫。 若為非 Microsoft AAD 使用者，請將租用戶名稱 `Microsoft.com` 替換為您的 AAD 租用戶。
-
 
 ```python
 %kql AzureDataExplorer://tenant="Microsoft.com";code;cluster='help';database='Samples'
@@ -54,8 +56,8 @@ Jupyter Notebook 是開放原始碼的 Web 應用程式，可讓您建立及共�
 ### <a name="query-and-render-piechart"></a>查詢和轉譯圓形圖
 
 ```python
-%%kql 
-StormEvents 
+%%kql
+StormEvents
 | summarize statecount=count() by State
 | sort by statecount 
 | limit 10
@@ -75,6 +77,7 @@ StormEvents
 > 這些圖表具有互動功能。 選取時間範圍即可放大特定時間。
 
 ### <a name="customize-the-chart-colors"></a>自訂圖表色彩
+
 如果您不喜歡預設的調色盤，請使用調色盤選項自訂圖表。 可用的調色盤可以在這裡找到：[為 Kqlmagic 查詢圖表結果選擇調色盤](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
 
 1. 獲取調色盤清單：
@@ -87,16 +90,16 @@ StormEvents
 
     ```python
     %%kql -palette_name "cool"
-    StormEvents 
+    StormEvents
     | summarize statecount=count() by State
-    | sort by statecount 
+    | sort by statecount
     | limit 10
     | render piechart title="My Pie Chart by State"
     ```
 
-## <a name="parametrize-a-query-with-python"></a>使用 Python 將查詢參數化
+## <a name="parameterize-a-query-with-python"></a>使用 Python 將查詢參數化
 
-Kqlmagic 可讓您簡單地在 Kusto 查詢語言與 Python 之間進行交換。 若要深入了解：[使用 Python 將 Kqlmagic 查詢參數化](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
+Kqlmagic 可讓您簡單地在 Kusto 查詢語言與 Python 之間進行交換。 若要深入了解：[使用 Python 將 Kqlmagic 查詢參數化](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) \(英文\)
 
 ### <a name="use-a-python-variable-in-your-kql-query"></a>在 KQL 查詢中使用 Python 變數
 
@@ -115,7 +118,7 @@ StormEvents
 | render timechart title = "Trend"
 ```
 
-### <a name="convert-query-results-to-pandas-dataframe"></a>將查詢結果轉換為 Pandas 資料框架 
+### <a name="convert-query-results-to-pandas-dataframe"></a>將查詢結果轉換為 Pandas 資料框架
 
 您可以在 Pandas 資料框架中存取 KQL 查詢的結果。 依變數 `_kql_raw_result_` 存取最後一次執行查詢的結果，並輕鬆地將結果轉換為 Pandas 資料框架，如下所示：
 
@@ -124,7 +127,7 @@ df = _kql_raw_result_.to_dataframe()
 df.head(10)
 ```
 
-### <a name="example"></a>範例 
+### <a name="example"></a>範例
 
 在許多分析案例中，您可能會想要建立包含許多查詢的可重複使用 Notebook，並將某個查詢的結果饋送給後續查詢。 下列範例會使用 Python 變數 `statefilter` 來篩選資料。
 
@@ -132,7 +135,7 @@ df.head(10)
 
     ```python
     %%kql
-    StormEvents 
+    StormEvents
     | summarize max(DamageProperty) by State
     | order by max_DamageProperty desc
     | limit 10
@@ -152,25 +155,22 @@ df.head(10)
     %%kql
     let _state = statefilter;
     StormEvents 
-    | where State in (_state) 
+    | where State in (_state)
     | summarize statecount=count() by bin(StartTime,1d), State
     | render timechart title = "Trend"
     ```
 
-1. 執行 help 命令： 
+1. 執行 help 命令：
 
     ```python
     %kql --help "help"
     ```
 
 ## <a name="next-steps"></a>後續步驟
-    
+
 執行 help 命令來瀏覽下列包含所有支援功能的範例 Notebook：
 - [開始使用適用於 Azure 資料總管的 Kqlmagic](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
 - [開始使用適用於 Application Insights 的 Kqlmagic](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
 - [開始使用適用於 Log Analytics 的 Kqlmagic](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
 - [使用 Python 將 Kqlmagic 查詢參數化](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
 - [為 Kqlmagic 查詢圖表結果選擇調色盤](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
-
-
-

@@ -5,15 +5,15 @@ author: dkamstra
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2017
+ms.date: 4/12/2018
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: 8603ccf4643d7b1abd977cc372cde3fe24f98e07
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2dec2b1f9bdca8c83669b753d424204218f7a9ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724846"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190692"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>使用 Azure 入口網站檢視服務健康情況通知
 
@@ -49,52 +49,36 @@ category | 此屬性一律為 **ServiceHealth**。
 ResourceId | 受影響資源的資源識別碼。
 Properties.title | 此通訊的當地語系化標題。 預設語言為英文。
 Properties.communication | 與 HTML 標記通訊的詳細資料 (已當地語系化)。 預設語言為英文。
-Properties.incidentType | 下列其中一個值：**ActionRequired**、**Information**、**Incident**、**Maintenance** 或 **Security**。
+Properties.incidentType | 下列其中一個值：**ActionRequired**、**Informational**、**Incident**、**Maintenance** 或 **Security**。
 Properties.trackingId | 與此事件 (event) 相關聯的附帶事件 (Incident)。 可用此屬性讓與附帶事件 (Incident) 有關的事件 (event) 相關聯。
 Properties.impactedServices | 逸出的 JSON blob，描述受到附帶事件 (Incident) 影響的服務和區域。 屬性包含服務清單 (每一份都有 **ServiceName**) 和受影響區域清單 (每一份都有 **RegionName**)。
 Properties.defaultLanguageTitle | 英文的通訊。
 Properties.defaultLanguageContent | 英文的通訊，如 html 標記或純文字。
-Properties.stage | **Incident** 和 **Security** 的可能值為 **Active**、**Resolved** 或 **RCA**。 針對 **ActionRequired** 或 **Information**，唯一的值為 **Active**。 **Maintenance** 的可能值：**Active**、**Planned**、**InProgress**、**Canceled**、**Rescheduled**、**Resolved** 或 **Complete**。
+Properties.stage | **Incident** 和 **Security** 的可能值為 **Active**、**Resolved** 或 **RCA**。 針對 **ActionRequired** 或 **Informational**，唯一的值為 **Active**。 **Maintenance** 的可能值：**Active**、**Planned**、**InProgress**、**Canceled**、**Rescheduled**、**Resolved** 或 **Complete**。
 Properties.communicationId | 與此事件相關聯的通訊。
 
 ### <a name="details-on-service-health-level-information"></a>服務健康情況層級資訊的詳細資料
-  <ul>
-    <li><b>所需的動作</b> (properties.incidentType == ActionRequired) <dl>
-            <dt>資訊</dt>
-            <dd>避免影響現有服務所需的系統管理員動作</dd>
-        </dl>
-    </li>
-    <li><b>維護</b> (properties.incidentType == Maintenance) <dl>
-            <dt>警告</dt>
-            <dd>緊急維護<dd>
-            <dt>資訊</dt>
-            <dd>標準的計劃性維護</dd>
-        </dl>
-    </li>
-    <li><b>資訊</b> (properties.incidentType == Information) <dl>
-            <dt>資訊</dt>
-            <dd>系統管理員可能必須避免影響現有服務</dd>
-        </dl>
-    </li>
-    <li><b>安全性</b> (properties.incidentType == Security) <dl>
-            <dt>錯誤</dt>
-            <dd>跨多個區域存取多個服務的廣泛問題會影響廣泛的客戶。</dd>
-            <dt>警告</dt>
-            <dd>存取特定服務及/或特定區域的問題會影響一部分客戶。</dd>
-            <dt>資訊</dt>
-            <dd>影響管理作業和/或延遲的問題，不會影響服務可用性。</dd>
-        </dl>
-    </li>
-    <li><b>服務問題</b> (properties.incidentType == Incident) <dl>
-            <dt>錯誤</dt>
-            <dd>跨多個區域存取多個服務的廣泛問題會影響廣泛的客戶。</dd>
-            <dt>警告</dt>
-            <dd>存取特定服務及/或特定區域的問題會影響一部分客戶。</dd>
-            <dt>資訊</dt>
-            <dd>影響管理作業和/或延遲的問題，不會影響服務可用性。</dd>
-        </dl>
-    </li>
-  </ul>
+
+**所需的動作** (properties.incidentType == ActionRequired)
+    - 資訊 - 避免影響現有服務所需的系統管理員動作
+    
+**維護** (properties.incidentType == Maintenance)
+    - 警告 - 緊急維護
+    - 資訊 - 標準計劃性維護
+
+**資訊** (properties.incidentType == Information)
+    - 資訊 - 可能需要系統管理員採取動作，以避免影響現有服務
+
+**安全性** (properties.incidentType == Security)
+    - 錯誤 - 跨多個區域存取多個服務的廣泛問題會影響廣泛的一組客戶。
+    - 警告 - 存取特定服務及/或特定區域的問題會影響一部分客戶。
+    - 資訊 - 影響管理作業和/或延遲的問題，不會影響服務可用性。
+
+**服務問題** (properties.incidentType == Incident)
+    - 錯誤 - 跨多個區域存取多個服務的廣泛問題會影響廣泛的一組客戶。
+    - 警告 - 存取特定服務及/或特定區域的問題會影響一部分客戶。
+    - 資訊 - 影響管理作業和/或延遲的問題，不會影響服務可用性。
+
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>在 Azure 入口網站中檢視您的服務健康情況通知
 1.  在 [Azure 入口網站](https://portal.azure.com)中，選取 [監視]。

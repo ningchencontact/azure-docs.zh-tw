@@ -3,20 +3,20 @@ title: 使用 Visual Studio 管理邏輯應用程式 - Azure Logic Apps | Micros
 description: 使用 Visual Studio Cloud Explorer 管理邏輯應用程式和其他 Azure 資產
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d4de75238e48b8eb955095b5a3823f2fed799fae
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: dbb38336f0521f8f8e526ad3f5e13829075e7cca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445638"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158140"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理邏輯應用程式
 
@@ -65,7 +65,7 @@ ms.locfileid: "42445638"
    * **資源群組**：在您的 Azure 訂用帳戶底下，Cloud Explorer 會顯示與該訂用帳戶相關聯的所有資源群組。 
    展開包含您邏輯應用程式的資源群組，然後選取您的邏輯應用程式。
 
-   * **資源類型**：在您的 Azure 訂用帳戶底下，展開 [邏輯應用程式]。 在 Cloud Explorer 顯示與您訂用帳戶相關聯的所有已部署邏輯應用程式後，選取您的邏輯應用程式。
+   * **資源類型**：在您的 Azure 訂用帳戶中，展開 [Logic Apps]。 在 Cloud Explorer 顯示與您訂用帳戶相關聯的所有已部署邏輯應用程式後，選取您的邏輯應用程式。
 
 <a name="open-designer"></a>
 
@@ -172,6 +172,13 @@ ms.locfileid: "42445638"
 
 > [!NOTE]
 > 當您刪除邏輯應用程式後，就不會具現化新的執行。 所有進行中和擱置的執行都會取消。 如果您有數千個執行，加以取消可能需要很長的時間。 
+
+## <a name="troubleshooting"></a>疑難排解
+
+當您在 Logic Apps 設計工具中開啟您的邏輯應用程式專案時，您可能不會取得選取 Azure 訂用帳戶的選項。 相反地，您的邏輯應用程式以不是您想要使用的 Azure 訂用帳戶開啟。 此行為是因為當您開啟邏輯應用程式的 .json 檔案之後，Visual Studio 會快取第一個選取的訂用帳戶供未來使用。 若要解決此問題，請嘗試下列任一步驟：
+
+* 重新命名邏輯應用程式的 .json 檔案。 訂用帳戶快取是根據檔案名稱。 
+* 若要為您解決方案中的「所有」邏輯應用程式移除先前選取的訂用帳戶，請刪除解決方案目錄中「隱藏」的 .vs 資料夾。 此位置儲存您的訂用帳戶資訊。 
 
 ## <a name="next-steps"></a>後續步驟
 

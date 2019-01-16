@@ -4,15 +4,15 @@ description: 提供 Azure Migrate 中收集器設備的相關資訊。
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/08/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255970"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104197"
 ---
 # <a name="about-the-collector-appliance"></a>關於收集器設備
 
@@ -41,7 +41,7 @@ ms.locfileid: "53255970"
 - 刪除 VM：基於設備的設計方式，刪除 VM 並不會有所反映，即使您停止探索後再重新啟動也一樣。 這是因為後續探索中的資料會附加至較舊的探索，而且不會受到覆寫。 在此情況下，您可以藉由從群組中移除 VM 並重新計算評定，以直接忽略入口網站中的 VM。
 
 > [!NOTE]
-> 單次探索設備現在已被取代，因為這個方法依賴 vCenter Server 的統計資料設定來取得效能資料點可用性，而且收集到的平均效能計數器會導致 VM 大小不足，而無法遷移至 Azure。
+> 一次性探索設備現在已被取代，因為這個方法依賴 vCenter Server 的統計資料設定來取得效能資料點可用性，而且收集到的平均效能計數器會導致 VM 大小不足，而無法遷移至 Azure。
 
 ## <a name="deploying-the-collector"></a>部署收集器
 
@@ -63,7 +63,7 @@ ms.locfileid: "53255970"
     - 如果您打算移轉至商業 Azure 雲端，請選取 [Azure 全球]。
     - 根據這裡指定的雲端，應用裝置會將探索到的中繼資料傳送到個別的端點。
 - **檢查網際網路連線**：收集器可以直接或透過 Proxy 連線至網際網路。
-    - 先決條件檢查會確認是否能夠與[必要和選擇性 URL](#connect-to-urls) 連線。
+    - 先決條件檢查會確認是否能夠與[必要和選擇性 URL](#urls-for-connectivity) 連線。
     - 如果您可以直接連線至網際網路，則除了確定收集器可以連線至必要的 URL 之外，無須採取任何特定動作。
     - 如果您透過 Proxy 進行連線，請注意[下列需求](#connect-via-a-proxy)。
 - **驗證時間同步處理**：收集器應該與網際網路時間伺服器保持同步，以確保會驗證服務的要求。
@@ -105,7 +105,7 @@ ms.locfileid: "53255970"
 
 
 
-### <a name="connect-to-urls"></a>連線至 URL
+### <a name="urls-for-connectivity"></a>進行連線的 URL
 
 透過連線至 URL 清單，即可驗證連線能力檢查。
 
@@ -219,7 +219,7 @@ RDP | TCP 3389 |
 
 #### <a name="performance-counters"></a>效能計數器
 
- 收集器設備會以 20 秒的間隔，從 ESXi 主機收集下列每個 VM 的效能計數器。 這些計數器是 vCenter 計數器，雖然術語說明是平均計數器，但 20 秒範例是即時計數器。 啟動探索兩小時之後，就可以在入口網站上取得 VM 效能資料。 強烈建議您至少先等候一天的時間，再建立以效能為基礎的評量，以取得正確的適當大小建議。 如果您要尋求立即滿足，則可以使用「內部部署」作為調整大小準則來建立評量，這不會考慮適當大小的效能資料。
+ 收集器設備會以 20 秒的間隔，從 ESXi 主機收集下列每個 VM 的效能計數器。 這些計數器是 vCenter 計數器，雖然術語說明是平均計數器，但 20 秒範例是即時計數器。 啟動探索兩小時之後，就可以在入口網站上取得 VM 效能資料。 強烈建議您至少先等候一天的時間，再建立以效能為基礎的評量，以取得正確的適當大小建議。 如果您要尋求立即滿足，則可以使用*內部部署*作為調整大小準則來建立評量，這不會考慮適當大小的效能資料。
 
 **計數器** |  **對評量的影響**
 --- | ---

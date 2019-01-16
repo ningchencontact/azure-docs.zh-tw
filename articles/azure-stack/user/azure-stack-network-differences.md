@@ -10,22 +10,22 @@ ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: de98387b0c7d5eb3c5ca99f9aa31619397e2aadf
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 4aa62319ee37b2f82455d1a3c7ad2d224988d93e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944574"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160058"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 網路服務的注意事項
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 Azure Stack 網路服務有許多 Azure 網路服務所提供的功能。 不過，在部署 Azure Stack 網路之前，您應該了解一些主要差異。
 
 本文提供 Azure Stack 網路服務及其功能的獨特考量概觀。 若要深入了解 Azure Stack 與 Azure 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)文章。
 
-## <a name="cheat-sheet-networking-differences"></a>速查表：網路服務差異
+## <a name="cheat-sheet-networking-differences"></a>速查表：網路功能差異
 
 | 服務 | 功能 | Azure (全域) | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,7 +54,6 @@ Azure Stack 網路服務有許多 Azure 網路服務所提供的功能。 不過
 |  | 預設閘道站台 | Azure 支援為強制通道設定預設站台。 | 尚不支援。 |
 |  | 調整閘道大小 | Azure 支援在部署後調整閘道大小。 | 不支援調整大小。 |
 |  | 主動/主動設定 | 支援 | 尚不支援。 |
-|  | IKE/IPSec 原則 | Azure 支援自訂 IPSec 原則設定。 | 尚不支援。 |
 |  | UsePolicyBasedTrafficSelectors | Azure 支援將原則式流量選取器與路由式閘道連線搭配使用。 | 尚不支援。 |
 | 負載平衡器 | SKU | 支援「基本負載平衡器」和「標準負載平衡器」 | 僅支援「基本負載平衡器」。  不支援 SKU 屬性。 |
 |  | 區域 | 支援「可用性區域」。 | 尚不支援 |
@@ -65,11 +64,9 @@ Azure Stack 網路服務有許多 Azure 網路服務所提供的功能。 不過
 |  | 取得有效的 ACL | 支援 | 尚不支援。 |
 |  | 啟用加速網路 | 支援 | 尚不支援。 |
 |  | IP 轉送 | 預設為停用。  可以啟用。 | 不支援切換此設定。  預設為 [開啟]。 |
-|  | 每一介面有多個 IP 設定 | 支援 | 尚不支援。 |
 |  | 應用程式安全性群組 | 支援 | 尚不支援。 |
 |  | 內部 DNS 名稱標籤 | 支援 | 尚不支援。 |
 |  | 私人 IP 位址版本 | 支援 IPv4 和 IPv6。 | 僅支援 IPv4。 |
-|  | 主要 IP 設定 | 支援。 識別介面上的主要 IP 設定。 | 尚不支援。 |
 | 網路監看員 | 網路監看員租用戶網路監視功能 | 支援 | 尚不支援。 |
 | CDN | 內容傳遞網路設定檔 | 支援 | 尚不支援。 |
 | 應用程式閘道 | 第 7 層負載平衡 | 支援 | 尚不支援。 |

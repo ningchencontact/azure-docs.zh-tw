@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: fac22508e679c1e1c93ec62a5b120ba9c7c52317
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 607d05818966e62407795640d223f1aed2f59bbb
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162328"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156743"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>教學課程：Azure Active Directory 與 SAP NetWeaver 整合
 
@@ -142,7 +142,7 @@ SAP NetWeaver 與 Azure AD 整合提供下列優點：
 
     ![憑證下載連結](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
-6. 從 [提供者名稱] 從 T01122 取代為 **http://T01122**，然後按一下 [儲存]。
+6. 將 [提供者名稱] 從 T01122 取代為 `http://T01122`，然後按一下 [儲存]。
 
     > [!NOTE]
     > 根據預設，提供者名稱來自 <sid><client> 格式，但 Azure AD 預期有 <protocol>://<name> 格式的名稱，並建議將提供者名稱保持為 https://<sid><client>，以允許在 Azure AD 中設定多個 SAP NetWeaver ABAP 引擎。

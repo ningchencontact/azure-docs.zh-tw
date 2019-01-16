@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: asganesh
-ms.openlocfilehash: db33deaa9bb0bf9a4c3f766fbae883df4075c431
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 554fd9c32c9831d45a40c62a871e3a8d5f8d7cb9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323366"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191746"
 ---
-# <a name="azure-stack-customer-journey"></a>Azure Stack 客戶旅程圖
+# <a name="azure-stack-datacenter-integration"></a>Azure Stack 資料中心整合
 
 本文將說明端對端 Azure Stack 客戶從購買整合式解決方案到解決方案提供者成功完成現場部署的體驗。 使用此資訊可簡化您的旅程，並協助您 (Azure Stack 客戶) 設定將 Azure Stack 整合到資料中心時預期要有的項目。
 

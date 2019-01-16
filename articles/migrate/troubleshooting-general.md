@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 4ebd6eb860a6b102d1a3b12642510c429c18baa7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259149"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189491"
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
@@ -136,7 +136,7 @@ Azure Migrate 收集器會下載 PowerCLI，然後將它安裝到設備上。 Po
 2. 移至目錄 C:\ProgramFiles\ProfilerService\VMWare\Scripts\
 3. 執行指令碼 InstallPowerCLI.ps1
 
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>發生 UnhandledException 內部錯誤：System.IO.FileNotFoundException
+### <a name="error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception"></a>發生 UnhandledException 內部錯誤：System.IO.FileNotFoundException
 
 如果 VMware PowerCLI 安裝發生問題，便可能發生此問題。 請依照下列步驟來解決問題：
 
@@ -245,14 +245,14 @@ Azure Migrate 可讓您將相依性視覺化的持續時間最多為一小時。
 2. 按 F12 開啟 Developer Tools。 如有需要，請清除 [清除瀏覽的項目] 設定。
 3. 按一下 [網路] 索引標籤，並開始擷取網路流量：
  - 在 Chrome 中，選取 [保留記錄]。 記錄應該會自動啟動。 紅色圓圈表示正在擷取流量。 如果未出現，請按一下黑色圓圈啟動
- - 在 Edge/IE 中，記錄應該會自動啟動。 如果未啟動，請按一下綠色播放按鈕。
+ - 在 Microsoft Edge/IE 中，記錄應該會自動啟動。 如果未啟動，請按一下綠色播放按鈕。
 4. 嘗試重現錯誤。
 5. 您在記錄時發生錯誤之後，請停止錄製，並儲存一份記錄的活動：
  - 在 Chrome 中，以滑鼠右鍵按一下 [內容另存為 HAR]。 這會壓縮記錄並匯出為 .har 檔案。
- - 在 Edge/IE 中，按一下 [匯出擷取流量] 圖示。 這會壓縮並匯出記錄。
+ - 在 Microsoft Edge/IE 中，按一下 [匯出擷取流量] 圖示。 這會壓縮並匯出記錄。
 6. 瀏覽至 [主控台] 索引標籤，檢查是否有任何警告或錯誤。 若要儲存主控台記錄：
  - 在 Chrome 中，以滑鼠右鍵按一下主控台記錄的任何位置。 選取 [另存新檔]，以匯出並壓縮記錄。
- - 在 Edge/IE 中，以滑鼠右鍵按一下錯誤，然後選取 [全部複製]。
+ - 在 Microsoft Edge/IE 中，以滑鼠右鍵按一下錯誤，然後選取 [全部複製]。
 7. 關閉 Developer Tools。
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>收集器錯誤碼和建議的動作

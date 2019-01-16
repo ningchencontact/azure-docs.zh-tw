@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: cb61b1ef1caa39f31331d8e9dc5e0da207959e89
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 1e081eb98b1d9c076fd85c0b542d0bf4ae309935
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334919"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190403"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>什麼是 Azure Stack 的驗證即服務？
 
@@ -41,21 +41,29 @@ VaaS 的主要用途為：
 
 ## <a name="validate-changes-to-the-azure-stack-software"></a>驗證對 Azure Stack 軟體進行的變更
 
-合作夥伴可使用**套件驗證**工作流程，來檢查其解決方案是否可與最近的 Azure Stack 軟體更新搭配運作。 「套件驗證」工作流程必須在已使用修補程式和更新 (P&U) 來套用更新的 Microsoft 建議硬體環境上執行。 建議您也在基準組建上執行此工作流程。
+合作夥伴可使用**解決方案驗證**工作流程，來檢查其解決方案是否可與最新的 Azure Stack 軟體更新搭配運作。 「解決方案驗證」工作流程必須在已使用修補程式和更新 (P&U) 來套用更新的 Microsoft 建議硬體環境上執行。 建議您也在基準組建上執行此工作流程。
 
 如需詳細資訊，請參閱[驗證來自 Microsoft 的軟體更新](azure-stack-vaas-validate-microsoft-updates.md)。
 
 ## <a name="get-digitally-signed-solution-partner-packages"></a>取得以數位方式簽署的解決方案合作夥伴套件
 
-除了驗證 Azure Stack 更新之外，合作夥伴還會使用**套件驗證**工作流程來驗證對 OEM 自訂套件進行的更新，這包括 Azure Stack 合作夥伴特定的驅動程式、韌體及其他在 Azure Stack 軟體部署期間所使用的軟體。 請至少使用將會支援的最小大小解決方案，將您要驗證的套件部署在目前版本的 Azure Stack 軟體上。 系統會先將該套件提交給 VaaS，然後才執行測試。 如果測試成功，請通知 [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) 該套件已完成測試，應該使用 Azure Stack 數位簽章以數位方式簽署該套件。 Microsoft 會簽署該套件，並通知 Azure Stack 合作夥伴該套件已在 VaaS 入口網站中可供下載。
+除了驗證 Azure Stack 更新之外，合作夥伴還會使用**解決方案驗證**工作流程來驗證對 OEM 自訂套件進行的更新，這包括 Azure Stack 合作夥伴特定的驅動程式、韌體及其他在 Azure Stack 軟體部署期間所使用的軟體。 請至少使用將會支援的最小大小解決方案，將您要驗證的套件部署在目前版本的 Azure Stack 軟體上。 系統會先將該套件提交給 VaaS，然後才執行測試。 如果測試成功，請通知 [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) 該套件已完成測試，應該使用 Azure Stack 數位簽章以數位方式簽署該套件。 Microsoft 會簽署該套件，並通知 Azure Stack 合作夥伴該套件已在 VaaS 入口網站中可供下載。
 
 如需詳細資訊，請參閱[驗證 OEM 套件](azure-stack-vaas-validate-oem-package.md)。
 
 ## <a name="preview-vaas-test-collateral"></a>預覽 VaaS 測試附隨品
 
-Microsoft 會定期在 Azure Stack 中提供新的功能。 在為市場提供這些功能的開發過程中，會在**測試進行**工作流程中提供新的測試附隨品。 「測試進行」工作流程包含來自其他工作流程的測試附隨品，用來允許執行非正式測試。 請勿使用「測試進行」工作流程來提交結果以供核准。 請使用「解決方案驗證」和「套件驗證」工作流程，來為您的解決方案取得正式核准。
+Microsoft 會定期在 Azure Stack 中提供新的功能。 在為市場提供這些功能的開發過程中，會在**測試進行**工作流程中提供新的測試附隨品。 「測試進行」工作流程包含來自其他工作流程的測試附隨品，用來允許執行非正式測試。 請勿使用「測試進行」工作流程來提交結果以供核准。 請使用「解決方案驗證」和「解決方案驗證」工作流程，來為您的解決方案取得正式核准。
 
-如需詳細資訊，請參閱[快速入門：使用驗證即服務入口網站來排定第一個測試](azure-stack-vaas-schedule-test-pass.md)。
+如需詳細資訊，請參閱[快速入門：使用「驗證即服務」入口網站來排程第一個測試](azure-stack-vaas-schedule-test-pass.md)。
+
+## <a name="validation-workflow-tests-summary"></a>驗證工作流程測試摘要
+
+| 驗證工作流程 | 必要的測試 |
+|----|------------|
+| [新解決方案驗證](azure-stack-vaas-validate-solution-new.md) | 雲端模擬引擎<br>計算 SDK 操作套件<br>磁碟識別測試<br>KeyVault 擴充功能 SDK 操作套件<br>KeyVault SDK 操作套件<br>網路 SDK 操作套件<br>儲存體帳戶 SDK 操作套件<br> |
+| [OEM 套件驗證](azure-stack-vaas-validate-oem-package.md) | OEM 擴充功能套件驗證<br>雲端模擬引擎 |
+| [每月更新驗證](azure-stack-vaas-validate-microsoft-updates.md) | 每月 Azure Stack 更新驗證<br>雲端模擬引擎<br> |
 
 ## <a name="next-steps"></a>後續步驟
 

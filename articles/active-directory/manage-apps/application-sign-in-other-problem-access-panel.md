@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 830fc1d96825e28aad41aac9afee499b9bc1f7ae
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 02aa4eb37437861d428c6f361b3ff21def56b49b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355189"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189825"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>從存取面板登入應用程式的問題
 
@@ -68,7 +68,7 @@ ms.locfileid: "44355189"
 
 -   Internet Explorer 8、9、10、11 -- 在 Windows 7 或更新版本上
 
--   Windows 10 Anniversary Edition 或更新版本上的 Edge
+-   Windows 10 Anniversary Edition 或更新版本上的 Microsoft Edge
 
 -   Chrome - 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上
 
@@ -92,11 +92,11 @@ ms.locfileid: "44355189"
 
 7.  登入存取面板，並查看您是否可以**啟動**密碼-SSO 應用程式
 
-您可能也會從下列直接連結中下載適用於 Chrome 和 Edge 的擴充功能：
+您也可以從以下直接的連結下載適用於 Chrome 和 Microsoft Edge 的延伸模組：
 
 -   [Chrome 存取面板延伸模組](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Edge 存取面板延伸模組](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+-   [Microsoft Edge 存取面板延伸模組](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 ## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>如何為 Azure AD 資源庫應用程式設定同盟單一登入
 
@@ -500,7 +500,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 11. 將滑鼠停留在清單中的**使用者**上方，以顯示**核取方塊**。 按一下使用者設定檔照片或標誌旁邊的核取方塊，將使用者新增至 [已選取] 清單。
 
-12. **選擇性︰** 如果您想要**新增多位使用者**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**全名**或**電子郵件地址**，然後按一下核取方塊，將此使用者新增至 [已選取] 清單。
+12. **選擇性：** 如果您想要**新增多位使用者**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**全名**或**電子郵件地址**，然後按一下核取方塊，將此使用者新增至 [已選取] 清單。
 
 13. 當您完成選取使用者時，按一下 [選取] 按鈕，將他們新增到要指派至應用程式的使用者和群組清單。
 

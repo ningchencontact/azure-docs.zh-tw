@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 147887151abd5c1f7455b0efbf9aadbc2d884183
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a96cfcb07252dc4a9089eab2decaec9efb01a67b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796970"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064980"
 ---
 # <a name="how-to-use-entity-detection-callback"></a>如何使用實體偵測回呼
 
@@ -90,12 +90,12 @@ ms.locfileid: "53796970"
 1. 在左面板中按一下 [訓練對話]，然後按 [新增訓練對話] 按鈕。
 2. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "hi" (您好)
 3. 按一下 [評分動作] 按鈕。
-4. 選取回應：「您想要哪座城市？」
+4. 選取 [Which city do you want?] \(您想要哪個城市?\) 回應
 5. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "big apple" (大蘋果)
 6. 按一下 [評分動作] 按鈕。
     - 按一下此按鈕會觸發實體偵測回呼
     - 回呼程式碼將 CityResolved 實體值正確設為 "new york" (紐約)
-7. 選取回應：「紐約是很棒的城市」。
+7. 選取 [new york is very nice] \(紐約是很棒的城市\) 回應。
 
 許多聊天機器人案例都會用到此模式。 使用者語句和擷取的實體可提供給您的商務邏輯，而該邏輯會將語句轉換成標準格式，然後儲存到程式設計實體中，供後續的對話回合使用。
 

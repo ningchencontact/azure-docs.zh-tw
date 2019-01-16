@@ -5,20 +5,22 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fa089db385995f6c44ea2238c91a3ac59946daae
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407651"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190369"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
+
 如果相同區域中有一或多部 Analysis Services 伺服器連線到內部部署資料來源，則需要一個內部部署閘道。 若要深入了解閘道，請參閱[內部部署資料閘道](analysis-services-gateway.md)。
 
 ## <a name="prerequisites"></a>必要條件
+
 **最低需求：**
 
 * .NET 4.5 Framework
@@ -44,6 +46,7 @@ ms.locfileid: "49407651"
 
 
 ## <a name="download"></a>下載
+
  [下載閘道](https://aka.ms/azureasgateway)
 
 ## <a name="install"></a>安裝
@@ -62,6 +65,7 @@ ms.locfileid: "49407651"
    > 如果您使用網域帳戶來登入，該帳戶會對應至 Azure AD 中的組織帳戶。 您的組織帳戶會當作閘道管理員。
 
 ## <a name="register"></a>註冊
+
 若要在 Azure 中建立閘道資源，您必須向閘道雲端服務註冊您安裝的本機執行個體。 
 
 1.  選取 [在這部電腦上註冊新的閘道]。
@@ -77,6 +81,7 @@ ms.locfileid: "49407651"
 
 
 ## <a name="create-resource"></a>建立 Azure 閘道資源
+
 在您安裝並註冊閘道之後，您需要在您的 Azure 訂用帳戶中建立閘道資源。 使用您用於註冊閘道的相同帳戶登入 Azure。
 
 1. 在 Azure 入口網站中，按一下 [建立資源] > [整合] > [內部部署資料閘道]。
@@ -87,7 +92,7 @@ ms.locfileid: "49407651"
 
     * **名稱**：輸入閘道資源的名稱。 
 
-    * **訂用帳戶**︰選取要與閘道資源關聯的 Azure 訂用帳戶。 
+    * 訂用帳戶：選取要與閘道資源關聯的 Azure 訂用帳戶。 
    
       預設的訂用帳戶會由您用來登入的 Azure 帳戶來決定。
 
@@ -115,6 +120,7 @@ ms.locfileid: "49407651"
 就這麼簡單。 如果您需要開啟連接埠，或進行疑難排解，請務必簽出[內部部署資料閘道](analysis-services-gateway.md)。
 
 ## <a name="next-steps"></a>後續步驟
+
 * [ Analysis Services](analysis-services-manage.md)   
 * [從 Azure Analysis Services 取得資料](analysis-services-connect.md)   
 * [使用 Azure 虛擬網路上的資料來源閘道](analysis-services-vnet-gateway.md)

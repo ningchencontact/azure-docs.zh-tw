@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 01/09/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 21e442c7a0cdd0edcce77c862b11ae368d4a3abc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014492"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191661"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob 儲存體：進階 (預覽)、經常性儲存層、非經常性儲存層和封存儲存層
 
@@ -63,7 +63,7 @@ Blob 儲存體和 GPv2 帳戶會在帳戶層級公開**存取層**屬性，這�
 
 - 可用來作為本地備援儲存體 (LRS)
 - 只會在以下地區上市：美國東部 2、美國中部和美國西部
-- 不支援自動階層處理和資料生命週期管理
+- 資料生命週期管理不支援物件層級分層或自動分層
 
 若要了解如何註冊進階存取層預覽版，請參閱 [Azure 進階 Blob 儲存體簡介](https://aka.ms/premiumblob)。
 
@@ -86,7 +86,8 @@ Blob 儲存體和 GPv2 帳戶會在帳戶層級公開**存取層**屬性，這�
 
 封存儲存體的儲存成本最低，而相較於經常性儲存體和非經常性儲存體，其資料擷取成本比較高。 這一層適用於可容許擷取延遲數個小時，而且將在封存儲存層中至少保留 180 天的資料。
 
-當 Blob 位於封存儲存體時，它已離線且無法讀取 (中繼資料除外，其為線上且可供使用)、複製、覆寫或修改。 您也無法在封存儲存體中製作 Blob 的快照集。 不過，您可以使用現有的作業來刪除、列出、取得 blob 屬性/中繼資料，或變更您的 blob 層。
+當 Blob 在封存儲存體中時，該 Blob 資料為離線，且無法讀取、複製、覆寫或修改。 您也無法在封存儲存體中製作 Blob 的快照集。 不過，Blob 中繼資料會保持連線且可以取得，讓您可列出 Blob 和其屬性。 對於封存中的 Blob，唯一有效的作業是 GetBlobProperties、GetBlobMetadata、ListBlobs、SetBlobTier 和 DeleteBlob。 
+
 
 封存儲存層的範例使用案例包括：
 
@@ -110,20 +111,27 @@ Blob 層級的階層處理可讓您使用稱為[設定 Blob 層](/rest/api/stora
 > [!NOTE]
 > 封存儲存體與 Blob 層級階層處理只支援區塊 blob。 您也無法變更具有快照集之區塊 blob 的存取層。
 
-進階存取層中儲存的資料無法使用[設定 Blob 層](/rest/api/storageservices/set-blob-tier)或使用 Azure Blob 儲存體生命週期管理分層至經常性存取、非經常性存取或封存。 若要移動資料，您必須使用 [Put Block From URL API](/rest/api/storageservices/put-block-from-url) 或支援此 API 的 AzCopy 版本，將 Blob 從進階存取同步複製到經常性存取。 *Put Block From URL* API 會同步複製伺服器上的資料，這表示只有將所有資料從原始伺服器位置移動到目標位置後，才會完成呼叫。
+> [!NOTE]
+> 進階存取層中儲存的資料目前無法使用[設定 Blob 層](/rest/api/storageservices/set-blob-tier)或使用 Azure Blob 儲存體生命週期管理分層至經常性存取層、非經常性存取層或封存。 若要移動資料，您必須使用 [Put Block From URL API](/rest/api/storageservices/put-block-from-url) 或支援此 API 的 AzCopy 版本，將 Blob 從進階存取同步複製到經常性存取。 *Put Block From URL* API 會同步複製伺服器上的資料，這表示只有將所有資料從原始伺服器位置移動到目標位置後，才會完成呼叫。
 
 ### <a name="blob-lifecycle-management"></a>Blob 生命週期管理
 Blob 儲存體生命週期管理 (預覽) 提供豐富、以規則為基礎的原則，可讓您用來將資料轉換到最佳存取層，並在其生命週期結束時使資料過期。 若要深入了解，請參閱[管理 Azure Blob 儲存體生命週期](storage-lifecycle-management-concepts.md)。  
 
 ### <a name="blob-level-tiering-billing"></a>Blob 層級的階層處理計費
 
-將 Blob 移至存取頻率較低的階層 (經常性存取 -> 非經常性存取、經常性存取 -> 封存，或非經常性存取 -> 封存) 時，此作業會在寫入目的地階層時計費，且適用目的地階層的寫入作業 (每 10,000 個) 和資料寫入 (每 GB) 費用。 如果將 Blob 移至存取頻率較高的階層 (封存 -> 非經常性存取、封存 -> 經常性存取，或非經常性存取 -> 經常性存取)，此作業會在從來源階層讀取時計費，且適用來源階層的讀取作業 (每 10,000 個) 和資料擷取 (每 GB) 費用。
+將 Blob 移至存取頻率較低的階層 (經常性存取 -> 非經常性存取、經常性存取 -> 封存，或非經常性存取 -> 封存) 時，此作業會在寫入目的地階層時計費，且適用目的地階層的寫入作業 (每 10,000 個) 和資料寫入 (每 GB) 費用。 當 Blob 移至存取頻率較高的階層 (封存 -> 非經常性存取、封存 -> 經常性存取，或非經常性存取 -> 經常性存取) 時，此作業會在從來源階層讀取時計費，且套用來源階層的讀取作業 (每 10,000 個) 和資料擷取 (每 GB) 費用。
+
+| | **寫入費用** | **讀取費用** 
+| ---- | ----- | ----- |
+| **SetBlobTier 方向** | 經常性存取 -> 非經常性存取、經常性存取 -> 封存、非經常性存取 -> 封存 | 封存 -> 非經常性存取、封存 -> 經常性存取、非經常性存取 -> 經常性存取
 
 如果將帳戶層從經常性存取切換至非經常性存取，您只需針對在 GPv2 帳戶中未設定階層的所有 Blob 支付寫入作業 (每 10,000 個) 費用。 此變更在 Blob 儲存體帳戶中不收費。 如果您將 Blob 儲存體或 GPv2 帳戶從非經常性存取切換至經常性存取，您需要支付讀取作業 (每 10,000 個) 和資料擷取 (每 GB) 費用。 提前刪除任何已移出非經常性存取或封存存取層之 Blob 的費用可能也適用。
 
 ### <a name="cool-and-archive-early-deletion"></a>提前刪除非經常性存取和封存
 
 除了每 GB、每月費用，任何移入非經常性存取層的 Blob (僅限 GPv2 帳戶) 都受限於 30 天的非經常性存取提前刪除期間，而且任何移入封存層的 Blob 都受限於 180 天的封存提前刪除期間。 此費用按比例計算。 例如，如果將 Blob 移至封存，然後在 45 天後加以刪除或移至經常性存取層，則您需支付相當於在封存中儲存該 Blob 135 (180 減去 45) 天的提前刪除費用。
+
+如果沒有存取層變更，您可以使用 Blob 屬性 **creation-time** 來計算提前刪除。 否則，您可以藉由檢視 Blob 屬性 **access-tier-change-time**，來使用存取層最後修改為非經常性存取層或封存的時間。 如需 Blob 屬性的詳細資訊，請參閱[取得 Blob 屬性](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties)。
 
 ## <a name="comparison-of-the-storage-tiers"></a>儲存層的比較
 
@@ -140,7 +148,7 @@ Blob 儲存體生命週期管理 (預覽) 提供豐富、以規則為基礎的�
 | **擴充和效能目標** | 與一般用途儲存體帳戶相同 | 與一般用途儲存體帳戶相同 | 與一般用途儲存體帳戶相同 |
 
 > [!NOTE]
-> Blob 儲存體帳戶支援與一般用途儲存體帳戶相同的效能和延展性目標。 如需詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (英文)。
+> Blob 儲存體帳戶支援與一般用途儲存體帳戶相同的效能和延展性目標。 如需詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。 
 
 ## <a name="quickstart-scenarios"></a>快速入門案例
 
@@ -203,7 +211,7 @@ GPv1 與 GPv2 帳戶之間的價格結構不同，客戶在決定使用 GPv2 帳
 
 **是否可將我的預設帳戶存取層設定為封存存取層？**
 
-否。 只有經常性存取層和非經常性存取層可設定為預設帳戶存取層。 封存只能設定於物件層級。
+沒有。 只有經常性存取層和非經常性存取層可設定為預設帳戶存取層。 封存只能設定於物件層級。
 
 **哪些區域中可以使用經常性儲存層、非經常性儲存層和封存儲存層？**
 

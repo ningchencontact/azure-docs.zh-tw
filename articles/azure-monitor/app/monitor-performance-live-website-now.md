@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Application Insights 監視即時 ASP.NET Web 應用程式 | Microsoft Docs
-description: 監視網站的效能而不重新部署網站。 使用裝載於內部部署、VM 中或 Azure 上的 ASP.NET Web 應用程式。
+description: 監視網站的效能而不重新部署網站。 使用裝載於內部部署或 VM 中的 ASP.NET Web 應用程式。
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,16 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2eacff55197e203e79043ed225a4495eb85988a0
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1558d8e8392ff49e2661e9f8bc41e41c5bbc6dd5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999793"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189843"
 ---
-# <a name="instrument-web-apps-at-runtime-with-application-insights"></a>在執行階段使用 Application Insights 檢測 Web 應用程式
+# <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>在執行階段使用 Application Insights 狀態監視器檢測 Web 應用程式
 
-您可以使用 Azure Application Insights 檢測即時 Web 應用程式，而不需修改或重新部署您的程式碼。 如果您的應用程式是由內部部署 IIS 伺服器裝載，請安裝狀態監視器。 如果這些是 Azure Web 應用程式或在 Azure VM 中執行，您可以從 Azure 控制台切換為 Application Insights 監視。 (我們還提供有關檢測[即時 J2EE Web 應用程式](../../azure-monitor/app/java-live.md)和 [Azure 雲端服務](../../azure-monitor/app/cloudservices.md)的個別文章)。您需要 [Microsoft Azure](https://azure.com) 訂用帳戶。
+您可以使用 Azure Application Insights 檢測即時 Web 應用程式，而不需修改或重新部署您的程式碼。 您需要 [Microsoft Azure](https://azure.com) 訂用帳戶。
+
+狀態監視器用於檢測 IIS 內部或 VM 中裝載的 .NET 應用程式。
+
+- 如果您的應用程式已部署到 Azure 應用程式服務中，請遵循[這些指示](azure-web-apps.md)。
+- 如果您的應用程式部署在 Azure VM 中，您可以從 Azure 控制台切換為 Application Insights 監視。
+- (我們還提供有關檢測[即時 J2EE Web 應用程式](java-live.md)和 [Azure 雲端服務](../../azure-monitor/app/cloudservices.md)的個別文章)。
+
 
 ![App Insights 概觀圖表的螢幕擷取畫面，包含失敗的要求、伺服器回應時間和伺服器要求的相關資訊](./media/monitor-performance-live-website-now/overview-graphs.png)
 
@@ -45,39 +52,13 @@ ms.locfileid: "53999793"
 | 需要重新建置程式碼 |是 | 否 |
 
 
-## <a name="monitor-a-live-azure-web-app"></a>監視即時 Azure Web 應用程式
-
-如果您的應用程式是以 Azure Web 服務的形式執行，以下是如何開始監視的方法︰
-
-* 在 Azure 中於應用程式控制台選取 [Application Insights]。
-
-    ![針對 Azure Web 應用程式設定 Application Insights](./media/monitor-performance-live-website-now/azure-web-setup.png)
-* 當 [Application Insights 摘要] 頁面開啟時，按一下頁面底部的連結以開啟完整的 Application Insights 資源。
-
-    ![點選 Application Insights](./media/monitor-performance-live-website-now/azure-web-view-more.png)
-
-[監視雲端和 VM 應用程式](../../application-insights/app-insights-overview.md)。
-
-### <a name="enable-client-side-monitoring-in-azure"></a>在 Azure 中啟用用戶端監視
-
-如果您已在 Azure 中啟用 Application Insights，即可新增頁面檢視和使用者遙測。
-
-1. 選取 [設定] > [應用程式設定]
-2.  在 [應用程式設定] 之下，新增索引鍵值組︰ 
-   
-    索引鍵︰`APPINSIGHTS_JAVASCRIPT_ENABLED` 
-    
-    值: `true`
-3. **儲存**設定並**重新啟動**您的應用程式。
-
-Application Insights JavaScript SDK 現在已插入每個網頁中。
 
 ## <a name="monitor-a-live-iis-web-app"></a>監視即時 IIS Web 應用程式
 
 如果您的應用程式裝載於 IIS 伺服器上，請使用狀態監視器來啟用 Application Insights。
 
 1. 在 IIS Web 伺服器上，以系統管理員認證登入。
-2. 如果尚未安裝 Application Insights 狀態監視器，請下載並執行[狀態監視器安裝程式](https://go.microsoft.com/fwlink/?LinkId=506648) (或執行 [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) 並在其中搜尋 Application Insights 狀態監視器)。
+2. 如果尚未安裝 Application Insights 狀態監視器，請[下載並執行安裝程式](#download)
 3. 在狀態監視器中，選取您想要監視的已安裝 Web 應用程式或網站。 利用您的 Azure 認證登入。
 
     在 Application Insights 入口網站中設定您要在其中檢視結果的資源。 (通常最好建立新的資源。 如果您已經為此應用程式設定 [Web 測試][availability]或[用戶端監視][client]，請選取現有的資源。) 
@@ -106,21 +87,90 @@ Application Insights JavaScript SDK 現在已插入每個網頁中。
 4. 恢復您在 .config 檔案上執行的所有編輯。
 
 
-## <a name="troubleshooting-runtime-configuration-of-application-insights"></a>針對 Application Insights 的執行階段組態進行疑難排解
+## <a name="troubleshoot"></a>疑難排解
+
+### <a name="confirm-a-valid-installation"></a>確認有效安裝 
+
+這些是您可以執行的一些步驟，以確認您的安裝是否成功。
+
+- 確認 applicationInsights.config 檔案在您的目標應用程式目錄中，並且包含您的 ikey。
+
+- 如果您懷疑資料會遺失，可以在 [Analytics](../log-query/get-started-portal.md) 中執行簡單查詢，列出目前正在傳送遙測的所有雲端角色。
+
+```Kusto
+union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+```
+
+- 如果您需要確認已成功附加 Application Insights，則可以在命令視窗中執行 [Sysinternals 控制代碼](https://docs.microsoft.com/sysinternals/downloads/handle)以確認 IIS 已載入 applicationinsights.dll。
+
+`handle.exe /p w3wp.exe`
+
 
 ### <a name="cant-connect-no-telemetry"></a>無法連接？ 沒有遙測資料？
 
 * 在伺服器的防火牆中開啟[必要的傳出連接埠](../../azure-monitor/app/ip-addresses.md#outgoing-ports)，以允許狀態監視器運作。
 
+### <a name="unable-to-login"></a>無法登入
+
+* 如果無法登入狀態監視器，請改用命令列進行安裝。 狀態監視器嘗試登入以收集您的 ikey，但您可以使用下列命令以手動方式提供： 
+```
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
+Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
+```
+
+### <a name="could-not-load-file-or-assembly-systemdiagnosticsdiagnosticsource"></a>無法載入檔案或組件 'System.Diagnostics.DiagnosticSource'
+
+啟用 Application Insights 後，您可能會發生此錯誤。 這是因為安裝程式會在 bin 目錄中取代此 dll。
+若要修正更新您的 web.config：
+
+```
+<dependentAssembly>
+    <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51"/>
+    <bindingRedirect oldVersion="0.0.0.0-4.*.*.*" newVersion="4.0.2.1"/>
+</dependentAssembly>
+```
+
+我們正在[此處](https://github.com/Microsoft/ApplicationInsights-Home/issues/301)追蹤此問題。
+
+
+### <a name="application-diagnostic-messages"></a>應用程式診斷訊息
+
 * 開啟狀態監視器，然後選取左窗格中的應用程式。 檢查 [設定通知] 區段中是否有任何關於此應用程式的診斷訊息：
 
   ![開啟 [效能] 刀鋒視窗，即可查看要求、回應時間、相依性和其他資料](./media/monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  
+### <a name="detailed-logs"></a>詳細記錄
+
+* 根據預設，狀態監視器將於下列位置輸出診斷記錄檔：`C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
+
+* 若要輸出詳細資訊記錄，請修改組態檔 `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` 並將 `<add key="TraceLevel" value="All" />` 新增至 `appsettings`。
+然後重新啟動狀態監視器。
+
+### <a name="insufficient-permissions"></a>權限不足
+  
 * 如果您在伺服器上看到有關「權限不足」的訊息，請嘗試下列操作：
   * 在 IIS 管理員中，選取應用程式集區，開啟 [進階設定]，並記下 [處理序模型] 下的身分識別。
   * 在電腦的管理控制台中，將此身分識別加入至效能監試器使用者群組。
+
+### <a name="conflict-with-systems-center-operations-manager"></a>與 Systems Center Operations Manager 衝突
+
 * 如果您的伺服器上已安裝 MMA/SCOM (Microsoft Operations Management Suite)，某些版本可能會發生衝突。 解除安裝 SCOM 和狀態監視器，重新安裝最新版本。
-* 狀態監視器記錄預設可在以下位置找到："C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log"
-* 請參閱[疑難排解][qna]。
+
+### <a name="failed-or-incomplete-installation"></a>安裝失敗或不完整
+
+如果狀態監視器在安裝期間失敗，則可能會出現狀態監視器無法從中復原的不完整的安裝。 這將需要手動重設。
+
+刪除應用程式目錄中找到的任何檔案：
+- bin 目錄中以 "Microsoft.AI." 或 "Microsoft.ApplicationInsights." 開頭的任何 Dll。
+- bin 目錄中的此 DLL "Microsoft.Web.Infrastructure.dll"
+- bin 目錄中的此 DLL "System.Diagnostics.DiagnosticSource.dll"
+- 在您的應用程式目錄中移除 "App_Data\packages"
+- 在您的應用程式目錄中移除 "applicationinsights.config"
+
+
+### <a name="additional-troubleshooting"></a>其他疑難排解
+
+* 請參閱[其他疑難排解][qna]。
 
 ## <a name="system-requirements"></a>系統需求
 支援伺服器上 Application Insights 狀態監視器的作業系統：
@@ -252,6 +302,11 @@ IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
+## <a name="download"></a>下載狀態監視器
+
+- 下載並執行[狀態監視器安裝程式](https://go.microsoft.com/fwlink/?LinkId=506648)
+- 或執行 [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) 並在其中搜尋 Application Insights 狀態監視器。
+
 ## <a name="next"></a>接續步驟
 
 檢視遙測：
@@ -274,6 +329,6 @@ IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 [client]: ../../azure-monitor/app/javascript.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [usage]: ../../azure-monitor/app/javascript.md

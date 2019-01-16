@@ -6,15 +6,15 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: caa078aa522e20a0e09d0b4d97461358c1698fc7
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: a7ab2e76280458326539fe83d3507dfb4e4a486e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744224"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023075"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 
@@ -261,6 +261,15 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
  
 例如，您可以將它設定為 0x100000，然後看看效能是否有變好。
 
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>為 Azure 檔案儲存體啟用 Azure Active Directory 驗證時發生 AadDsTenantNotFound 錯誤「找不到租用戶識別碼為 aad-tenant-id 的使用中租用戶」
+
+### <a name="cause"></a>原因
+
+當儲存體帳戶之相關訂用帳戶的 AAD 租用戶上未建立 [AAD 網域服務 (AAD DS)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview)，而您嘗試在該儲存體帳戶上[為 Azure 檔案儲存體啟用 Azure Active Directory (AAD) 驗證](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable)時，發生 AadDsTenantNotFound 錯誤。  
+
+### <a name="solution"></a>解決方法
+
+在您儲存體帳戶部署所在訂用帳戶的 AAD 租用戶上啟用 AAD DS。 您必須有 AAD 租用戶的系統管理員權限，才能建立受控網域。 如果您不是 Azure AD 租用戶的系統管理員，請連絡系統管理員，並遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started) 的逐步指導。
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

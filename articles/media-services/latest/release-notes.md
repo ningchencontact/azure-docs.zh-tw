@@ -1,5 +1,5 @@
 ---
-title: Azure 媒體服務 v3 版本資訊 | Microsoft Docs
+title: 新功能 版本資訊 - Azure 媒體服務 v3 | Microsoft Docs
 description: 為了讓您隨時掌握最新的開發訊息，本文提供 Azure 媒體服務 v3 最新資訊。
 services: media-services
 documentationcenter: ''
@@ -7,18 +7,18 @@ author: Juliako
 manager: femila
 editor: ''
 ms.service: media-services
-ms.workload: ''
+ms.workload: na
 ms.topic: article
 ms.date: 11/21/2018
 ms.author: juliako
-ms.openlocfilehash: 598587a0fe726ccf65f062833f84b352ca03c077
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4db84deb344921d329e81e0f0c9c3a97923430f3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315523"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156488"
 ---
-# <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊 
+# <a name="whats-new-in-azure-media-services-v3"></a>Azure Media Services v3 有哪些新功能？
 
 為了讓您隨時掌握最新的開發訊息，本文提供下列相關資訊：
 
@@ -26,7 +26,6 @@ ms.locfileid: "52315523"
 * 已知問題
 * 錯誤修正
 * 已被取代的功能
-* 方案變更
 
 ## <a name="known-issues"></a>已知問題
 

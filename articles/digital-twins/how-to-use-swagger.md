@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 7d079f543f8b564c396560c97225897c12f3cd24
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9a1d328f79405b14ffd84e07cb915566bd686c8e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975639"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120949"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 參考文件
 
@@ -55,7 +55,7 @@ Swagger 是一個很便利的工具，可協助您開發和測試對 Azure Digit
 
 ![Swagger 模型][3]
 
-使用產生的 Swagger 物件模型來查看所有可用的 Azure Digital Twins [物件和 API](./concepts-objectmodel-spatialgraph.md) 相當方便。 開發人員可以在 Azure Digital Twins 上建置解決方案時使用此資源。
+使用產生的 Swagger 物件模型來查看所有可用的 Azure Digital Twins [物件和 API](./concepts-objectmodel-spatialgraph.md) 相當方便。 開發人員可在於 Azure Digital Twins 上建置解決方案時使用此資源。
 
 ## <a name="endpoint-summary"></a>端點摘要
 
@@ -79,7 +79,7 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
 
 ![Swagger 試用][5]
 
-展開該區段後，即會顯示每個必要和選擇性參數的輸入欄位。 輸入適當的值，然後選取 [執行]。
+展開該區段後，即會顯示每個必要和選擇性參數的輸入欄位。 輸入正確的值，然後選取 [執行]。
 
 ![Swagger 已試用][6]
 
@@ -102,9 +102,9 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解 Azure Digital Twins 物件模型和空間智慧圖表，請參閱[了解 Azure Digital Twins 物件模型](./concepts-objectmodel-spatialgraph.md)。
+- 若要深入了解 Azure Digital Twins 物件模型和空間智慧圖表，請參閱[了解 Azure Digital Twins 物件模型](./concepts-objectmodel-spatialgraph.md)。
 
-若要了解如何使用管理 API 進行驗證，請參閱[使用 API 進行驗證](./security-authenticating-apis.md)。
+- 若要了解如何使用管理 API 進行驗證，請參閱[使用 API 進行驗證](./security-authenticating-apis.md)。
 
 <!-- Images -->
 [1]: media/how-to-use-swagger/swagger_management_top.PNG

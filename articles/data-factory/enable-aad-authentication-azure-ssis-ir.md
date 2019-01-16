@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 12/25/2018
+ms.date: 1/9/2019
 ms.author: douglasl
-ms.openlocfilehash: be14eb59cb89676b0d69b94246f35ad6dfc7eed9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5cc625e07f1c92c53491e83f4049bad12cd9d1a1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792642"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158256"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>啟用適用於 Azure-SSIS Integration Runtime 的 Azure Active Directory 驗證
 
@@ -114,10 +114,28 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 9.  清除查詢視窗，輸入下列 T-SQL 命令，然後在工具列中選取 [執行]。
 
     ```sql
+    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+    ```
+
+    命令應該會順利完成，將建立資料庫 (SSISDB) 的能力授與內含的使用者。
+
+10.  如果您的 SSISDB 是使用 SQL 驗證來建立的，而您想要切換成使用 Azure AD 驗證以便讓 Azure-SSIS IR 存取它，請在 [SSISDB] 資料庫上按一下滑鼠右鍵，然後選取 [新增查詢] ****。
+
+11.  在查詢視窗中，輸入下列 T-SQL 命令，然後在工具列中選取 [執行] **** 。
+
+    ```sql
+    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+    ```
+
+    命令應該會順利完成，建立代表群組的內含使用者。
+
+12.  清除查詢視窗，輸入下列 T-SQL 命令，然後在工具列中選取 [執行]。
+
+    ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]
     ```
 
-    命令應該會順利完成，將建立資料庫的能力授與內含的使用者。
+    命令應該會順利完成，將存取 SSISDB 的能力授與內含的使用者。
 
 ## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>為 Azure SQL Database 受控執行個體啟用 Azure AD
 
@@ -127,15 +145,15 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
 
 1.   在 Azure 入口網站中，從左側導覽中選取 [所有服務] -> [SQL 伺服器]。
 
-1.   選取要使用 Azure AD 驗證設定的受控執行個體。
+2.   選取要使用 Azure AD 驗證設定的受控執行個體。
 
-1.   在刀鋒視窗的 [設定] 區段中，選取 [Active Directory 管理員]。
+3.   在刀鋒視窗的 [設定] 區段中，選取 [Active Directory 管理員]。
 
-1.   在命令列中選取 [設定管理員]。
+4.   在命令列中選取 [設定管理員]。
 
-1.   選取要設定為伺服器管理員的 Azure AD 使用者帳戶，然後選取 [選取]。
+5.   選取要設定為伺服器管理員的 Azure AD 使用者帳戶，然後選取 [選取]。
 
-1.   在命令列中，選取 [儲存]。
+6.   在命令列中，選取 [儲存]。
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>在 Azure SQL Database 受控執行個體中，以使用者身分為 ADF 新增受控識別
 
@@ -168,7 +186,18 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```
     
-    命令應該會順利完成，將建立資料庫的能力授與 ADF 的受控識別。
+    命令應該會順利完成，將建立資料庫 (SSISDB) 的能力授與 ADF 的受控識別。
+
+8.  如果您的 SSISDB 是使用 SQL 驗證來建立的，而您想要切換成使用 Azure AD 驗證以便讓 Azure-SSIS IR 存取它，請在 [SSISDB] 資料庫上按一下滑鼠右鍵，然後選取 [新增查詢] ****。
+
+9.  在查詢視窗中，輸入下列 T-SQL 命令，然後在工具列中選取 [執行] **** 。
+
+    ```sql
+    CREATE USER [{the managed identity name}] FOR LOGIN [{the managed identity name}] WITH DEFAULT_SCHEMA = dbo
+    ALTER ROLE db_owner ADD MEMBER [{the managed identity name}]
+    ```
+
+    命令應該會順利完成，將存取 SSISDB 的能力授與 ADF 的受控識別。
 
 ## <a name="provision-azure-ssis-ir-in-azure-portaladf-app"></a>在 Azure 入口網站/ADF 應用程式中，佈建 Azure-SSIS IR
 

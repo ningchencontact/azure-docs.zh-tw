@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: b7919a86c5f0b6b6990b465ed0c563fb42ea8bbc
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: d3b039c30557499233eec72d7c560ad4bf49a776
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747910"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157202"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>裝置與模組對應項、作業和訊息路由的 IoT 中樞查詢語言
 
@@ -168,15 +168,15 @@ SELECT * FROM devices.modules
 我們不允許 devices 與 devices.modules 集合之間的聯結。 如果您想要跨裝置查詢模組對應項，可以根據標籤來執行。 此查詢會傳回所有裝置上具有 scanning 狀態的所有模組對應項：
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning'
+SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 ```
 
 此查詢會傳回具有 scanning 狀態的所有模組對應項，但僅以指定的裝置子集為限：
 
 ```sql
-Select * from devices.modules 
-  where properties.reported.status = 'scanning' 
-  and deviceId IN ['device1', 'device2']
+SELECT * FROM devices.modules 
+  WHERE properties.reported.status = 'scanning' 
+  AND deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>C# 範例
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>FROM 子句
 
-**FROM <from_specification>** 子句只能採用兩個值︰**FROM devices** (用來查詢裝置對應項) 或 **FROM devices.jobs** (用來查詢每一裝置的作業詳細資料)。
+**FROM <from_specification>** 只能採用兩個值：**FROM devices** 可查詢裝置對應項，或 **FROM devices.jobs** 可查詢每部裝置的作業詳細資料。
 
 
 ## <a name="where-clause"></a>WHERE 子句

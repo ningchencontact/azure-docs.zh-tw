@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: e1dc637d2f629b5002c2e8796fbd29a95478c392
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b48de6a6eeed997fe162cabe4d57e6770e016971
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035365"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54122797"
 ---
 Azure 虛擬機器 (VM) 會經歷不同狀態，這些狀態可以分成「佈建」和「電源」狀態。 本文的目的是要說明這些狀態，並具體指出何時會向客戶收取執行個體使用量費用。 
 
@@ -151,7 +151,7 @@ State
 </table>
 
 
-&#42;某些 Azure 資源 (例如，磁碟和網路) 會產生費用，而無論執行個體的狀態為何。 
+&#42;某些 Azure 資源 (例如，磁碟和網路) 會產生費用。 執行個體上的軟體授權不會產生費用。
 
 ## <a name="provisioning-states"></a>佈建狀態
 
@@ -244,7 +244,7 @@ State
  "displayStatus": "OS Provisioning Complete"<br>
  }<br>
 ]</code><br>
-<p><b>附註</b>：如果發生 OS 失敗或 OS 未及時安裝，則 OS 佈建會過渡為**失敗**狀態。 客戶必須就基礎結構上已部署的 VM 支付費用。</p>
+<p><b>注意</b>：如果發生 OS 失敗或 OS 未及時安裝，則 OS 佈建會過渡為**失敗**狀態。 客戶必須就基礎結構上已部署的 VM 支付費用。</p>
 </td>
 </tr>
 </table>

@@ -10,16 +10,15 @@ ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 8e3076f2176739f5b9df5776f27d7483c9fd2692
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2a36993e9406613ad9182d01c3681056114dca18
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000405"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159956"
 ---
 # <a name="azure-key-vault-logging"></a>Azure 金鑰保存庫記錄
 
@@ -39,7 +38,7 @@ ms.locfileid: "54000405"
 > [!NOTE]
 > 本教學課程不會指示如何建立金鑰保存庫、金鑰或密碼。 如需這方面的資訊，請參閱 [開始使用 Azure 金鑰保存庫](key-vault-get-started.md)。 或者，如需跨平台命令列介面的指示，請參閱 [這個對等的教學課程](key-vault-manage-with-cli2.md)。
 >
-> 目前，您無法在 Azure 入口網站中設定 Azure 金鑰保存庫。 請改用這些 Azure PowerShell 指示。
+> 本文提供適用於更新診斷記錄的 Azure PowerShell 指示。 不過，在 Azure 入口網站中使用「Azure 監視器」，於 [診斷記錄] 區段中也可以啟用相同的功能。 
 >
 >
 
@@ -113,7 +112,7 @@ $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 ```
 
-此命令的輸出包含：
+輸出將看起來如下：
 
     StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
     ServiceBusRuleId   :
@@ -156,7 +155,7 @@ $container = 'insights-logs-auditevent'
 Get-AzureStorageBlob -Container $container -Context $sa.Context
 ```
 
-其輸出類似如下範例：
+輸出類似如下範例：
 
 **容器 Uri： https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
@@ -230,6 +229,7 @@ Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
 
 會傳回類似以下所示的記錄項目：
 
+```json
     {
         "records":
         [
@@ -250,6 +250,7 @@ Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
             }
         ]
     }
+```
 
 下表列出各個欄位的名稱和其描述。
 

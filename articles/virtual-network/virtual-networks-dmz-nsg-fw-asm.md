@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fdc4885c079a3659d394517f0a10394eff0720c8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23126926"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119148"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>範例 2 – 建置 DMZ 以透過防火牆和 NSG 保護應用程式
 [返回 [安全性界限最佳作法] 頁面][HOME]
@@ -31,8 +31,8 @@ ms.locfileid: "23126926"
 ## <a name="environment-description"></a>環境描述
 此範例中，有一個訂用帳戶包含下列項目：
 
-* 兩個雲端服務：“FrontEnd001” 和 “BackEnd001”
-* 一個虛擬網路 “CorpNetwork”，包含兩個子網路：“FrontEnd” 和 “BackEnd”
+* 兩個雲端服務："FrontEnd001" 和 "BackEnd001"
+* 虛擬網路 "CorpNetwork" 具有兩個子網路："FrontEnd" 和 "BackEnd"
 * 套用至這兩個子網路的單一網路安全性群組
 * 一個網路虛擬應用裝置 (在此範例中為 Barracuda NextGen 防火牆)，且已連線到 Frontend 子網路
 * 一個代表應用程式 Web 伺服器的 Windows Server (“IIS01”)
@@ -87,7 +87,7 @@ ms.locfileid: "23126926"
 ## <a name="firewall-rules"></a>防火牆規則
 電腦上必須安裝管理用戶端，才能管理防火牆和建立所需的組態。 請參閱防火牆 (或其他 NVA) 廠商提供的說明文件，以了解如何管理裝置。 本節剩餘部分將說明如何透過廠商的管理用戶端 (亦即不是使用 Azure 入口網站或 PowerShell) 設定防火牆本身。
 
-適用於下載用戶端和連線到此範例所用 Barracuda 的指示，可以在這裡找到： [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
+適用於下載用戶端和連線到此範例所用 Barracuda 的指示，可以在這裡找到：[Barracuda NG 系統管理員](https://techlib.barracuda.com/NG61/NGAdmin)
 
 防火牆上必須建立轉送規則。 此範例只會將網際網路流量往內路由傳送到防火牆，再傳送到 Web 伺服器，因此只需要一個轉送 NAT 規則。 在此範例所使用的 Barracuda NextGen 防火牆上，傳送此流量的這個規則是目的地 NAT 規則 (“Dst NAT”)。
 
@@ -427,7 +427,7 @@ Web 伺服器、IIS01 和防火牆都在相同的雲端服務中，因此共用�
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
@@ -568,7 +568,7 @@ Web 伺服器、IIS01 和防火牆都在相同的雲端服務中，因此共用�
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>範例應用程式指令碼
-如果您想要為此範例和其他 DMZ 範例安裝範例應用程式，下列連結中有提供一個：[範例應用程式指令碼][SampleApp]
+如果您希望為此範例和其他 DMZ 範例安裝範例應用程式，下列連結中有提供一個：[範例應用程式指令碼][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "具有 NSG 的輸入 DMZ"

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 3154d5401389d46eb1b9fad335aa18362c5f21f7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cb604bec1860da25e18c1c3a56a012882e5ea58e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310363"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189508"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>作法：規劃 Azure AD 聯結實作
 
@@ -113,7 +113,7 @@ Azure AD Join 在受控和同盟環境中均可運作。
 
 - **Azure AD**，則不需另行設定。
 
-已加入 Azure AD 的裝置不支援[替代登入識別碼](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)。 如果您的使用者使用替代登入識別碼，您應規劃改為使用他們在 Azure AD 中的主要 UPN。
+內部部署 UPN 與 Azure AD UPN 不同，加入 Azure AD 的裝置上並不支援它。 如果您使用內部部署 UPN，您應規劃改為使用它們在 Azure AD 中的主要 UPN。
 
 
 
@@ -167,7 +167,7 @@ Azure AD Join：
 
 ### <a name="cloud-based-applications"></a>雲端式應用程式
 
-如果應用程式已新增至 Azure AD 應用程式資源庫，使用者將可透過已加入 Azure AD 的裝置進行 SSO。 他們不需進行其他設定。 使用者可在Edge 和 Chrome 瀏覽器上進行 SSO。 若要使用 Chrome，您必須部署 [Windows 10 帳戶延伸模組](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)。 
+如果應用程式已新增至 Azure AD 應用程式資源庫，使用者將可透過已加入 Azure AD 的裝置進行 SSO。 他們不需進行其他設定。 使用者可在Microsoft Edge 和 Chrome 瀏覽器上進行 SSO。 若要使用 Chrome，您必須部署 [Windows 10 帳戶延伸模組](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)。 
 
 所有 Win32 應用程式只要：
 

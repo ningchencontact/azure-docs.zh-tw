@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: dcedf27f6105dcc1ea6e43feb32d254b491842c7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9d91ccd04ed06fb6c256a2d9911202d7df6d08a5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974432"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188295"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>在 Azure 備份中離線備份工作流程
 Azure 備份有數個可提升效率的內建功能，能在資料初始完整備份至 Azure 的期間節省網路和儲存體成本。 初始完整備份通常會傳輸大量資料，且需要較多網路頻寬，相較之下，後續備份只會傳輸差異/增量部分。 透過離線植入程序，Azure 備份可以使用磁碟將離線備份資料上傳至 Azure。
@@ -109,7 +109,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
     * 複本電腦可使用在 **起始離線備份** 工作流程中所提供的相同網路路徑，存取離線植入工作流程的預備位置。
     * 已在複本電腦上啟用 BitLocker。
     * 已安裝 Azure PowerShell 3.7.0。
-    * 已安裝最新相容的瀏覽器 (Edge 或 Internet Explorer 11) 並已啟用 JavaScript。 
+    * 已安裝最新相容的瀏覽器 (Microsoft Edge 或 Internet Explorer 11) 並已啟用 JavaScript。 
     * 複本電腦可以存取 Azure 入口網站。 必要時，複本電腦可以與來源電腦相同。
     
     > [!IMPORTANT] 

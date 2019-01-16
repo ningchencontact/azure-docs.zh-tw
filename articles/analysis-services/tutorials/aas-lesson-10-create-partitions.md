@@ -1,19 +1,19 @@
 ---
-title: Azure Analysis Services 教學課程第 10 課：建立分割區 | Microsoft Docs
+title: Azure Analysis Services 教學課程第 10 課：建立資料分割 |Microsoft Docs
 description: 說明如何在 Azure Analysis Services 教學課程專案中建立分割區。
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5aaaee6f9a69f9cb619935f18f614d7572a755d7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 11be6d10589d981335d1f63d06933dba5265348a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429678"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191831"
 ---
 # <a name="create-partitions"></a>建立分割區
 
@@ -40,7 +40,7 @@ ms.locfileid: "49429678"
 
     ![aas 第 10 課查詢編輯器](../tutorials/media/aas-lesson10-query-editor.png)
 
-6.  在 [篩選資料列] 對話方塊中，保留 [顯示符合條件的列: OrderDate] 中的 [之後或等於]，然後在日期欄位中輸入 **2010/1/1**。 保持選取 [且] 運算子，並選取 [之前]，在日期欄位中輸入 **2011/1/1**，然後按一下 [確定]。
+6.  在 [篩選資料列] 對話方塊的 [顯示符合條件的列:OrderDate] 中，保留 [之後或等於]，然後在日期欄位中輸入 [1/1/2010]。 保持選取 [且] 運算子，並選取 [之前]，在日期欄位中輸入 **2011/1/1**，然後按一下 [確定]。
 
     ![aas-lesson10-filter-rows](../tutorials/media/aas-lesson10-filter-rows.png)
     
@@ -109,4 +109,4 @@ ms.locfileid: "49429678"
     ![aas 第 10 課處理完成](../tutorials/media/aas-lesson10-process-complete.png)
   
  ## <a name="whats-next"></a>後續步驟
-移至下一個課程︰[第 11 課︰建立角色](../tutorials/aas-lesson-11-create-roles.md)。 
+移至下一個課程︰[第 11 課：建立角色](../tutorials/aas-lesson-11-create-roles.md)。 

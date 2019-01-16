@@ -4,30 +4,27 @@ description: 說明如何針對在 Azure 資料箱磁碟中察覺的問題進行
 services: databox
 author: alkohli
 ms.service: databox
-ms.topic: overview
-ms.date: 10/09/2018
+ms.subservice: disk
+ms.topic: article
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 776108b109bc27e0f8059d287e87c67aeca9fbd2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091841"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191695"
 ---
-# <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>針對 Azure 資料箱磁碟 (預覽) 中的問題進行疑難排解
+# <a name="troubleshoot-issues-in-azure-data-box-disk"></a>對 Azure 資料箱磁碟中的問題進行疑難排解
 
-本文適用於執行預覽版本的 Microsoft Azure 資料箱。 本文說明一些可以在資料箱和資料箱磁碟上執行的複雜工作流程和管理工作。 
+本文適用於 Microsoft Azure 資料箱磁碟，並描述您在部署此解決方案時所見任何問題的疑難排解工作流程。 
 
-您可以透過 Azure 入口網站管理資料箱磁碟。 本文著重於可使用 Azure 入口網站執行的工作。 使用 Azure 入口網站來管理訂單、管理裝置，並且在進行到完成時追蹤訂單狀態。
-
-本文包含下列教學課程：
+本文包含下列小節：
 
 - 下載診斷記錄
 - 查詢活動記錄
-
-
-> [!IMPORTANT]
-> 資料箱處於預覽狀態。 部署這個解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+- 資料箱磁碟解除鎖定工具錯誤
+- 資料箱磁碟分割複製工具錯誤
 
 ## <a name="download-diagnostic-logs"></a>下載診斷記錄
 
@@ -76,20 +73,89 @@ ms.locfileid: "49091841"
 | 無法解除鎖定或驗證任何磁碟區。 連絡 Microsoft 支援服務。  <br><br>此工具無法解除鎖定或驗證任何已鎖定的磁碟機。 | 此工具無法使用提供的通行金鑰，解除鎖定任何已鎖定的磁碟機。 連絡 Microsoft 支援服務以進行後續步驟。                                                |
 | 下列磁碟區已解除鎖定並經過驗證。 <br>磁碟區磁碟機代號：E:<br>無法使用下列通行金鑰解除鎖定任何磁碟區：werwerqomnf、qwerwerqwdfda <br><br>此工具會解除鎖定部分磁碟機，並列出成功和失敗的磁碟機代號。| 部分成功。 無法使用提供的通行金鑰解除鎖定部分磁碟機。 連絡 Microsoft 支援服務以進行後續步驟。 |
 | 找不到鎖定的磁碟區。 請確認從 Microsoft 處接收的磁碟已正確連線且處於鎖定狀態。          | 此工具找不到任何鎖定的磁碟機。 可能磁碟機已解除鎖定，或未偵測到磁碟機。 請確定磁碟機已連線且已鎖定。                                                           |
-| 嚴重錯誤：參數無效<br>參數名稱：invalid_arg<br>使用方式：<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>範例：DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>範例：DataBoxDiskUnlock /SystemCheck<br>範例：DataBoxDiskUnlock /Help<br><br>/PassKeys:       從 Azure 資料箱磁碟訂單取得此通行金鑰。 通行金鑰會將您的磁碟解除鎖定。<br>/Help:           這個選項提供 Cmdlet 使用方式和範例的說明。<br>/SystemCheck:    這個選項會檢查您的系統是否符合執行工具的需求。<br><br>按任意鍵以結束。 | 輸入的參數無效。 允許的參數只有 /SystemCheck、/PassKey 和 /Help。                                                                            |
+| 嚴重錯誤:參數不正確<br>參數名稱：invalid_arg<br>使用方式：<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>範例：DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>範例：DataBoxDiskUnlock /SystemCheck<br>範例：DataBoxDiskUnlock /Help<br><br>/PassKeys：     從 Azure 資料箱磁碟訂單取得此通行金鑰。 通行金鑰會將您的磁碟解除鎖定。<br>/Help：         這個選項提供 Cmdlet 使用方式和範例的說明。<br>/SystemCheck：  這個選項會檢查您的系統是否符合執行工具的需求。<br><br>按任意鍵以結束。 | 輸入的參數無效。 允許的參數只有 /SystemCheck、/PassKey 和 /Help。                                                                            |
 
 ## <a name="data-box-disk-split-copy-tool-errors"></a>資料箱磁碟分割複製工具錯誤
 
 |錯誤訊息/警告  |建議 |
 |---------|---------|
 |[資訊] 擷取 m 磁碟區的 bitlocker 密碼 <br>[錯誤] 擷取 m: 磁碟區的 bitlocker 金鑰時攔截到例外狀況<br> 序列未包含項目。|如果目的地資料箱磁碟處於離線狀態，就會擲回這個錯誤。 <br> 對線上磁碟使用 `diskmgmt.msc` 工具。|
-|[錯誤] 擲回例外狀況：WMI 作業失敗：<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=所提供的復原密碼格式無效。 <br>BitLocker 修復原密碼是 48 位數字。 <br>請確認復原密碼的格式正確，然後再試一次。|先使用資料箱磁碟解除鎖定工具將磁碟解除鎖定，然後重試命令。 如需詳細資訊，請移至 <li> [解除鎖定適用於 Windows 用戶端的資料箱磁碟](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client)。 </li><li> [解除鎖定適用於 Linux 用戶端的資料箱磁碟](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client)。 </li>|
-|[錯誤] 擲回例外狀況：目標磁碟機上有 DriveManifest.xml 檔案。 <br> 這表示目標磁碟機可能已透過不同的日誌檔案來準備。 <br>若要將更多資料新增至相同磁碟機，請使用先前的日誌檔案。 若要刪除現有資料，並再次使用目標磁碟進行新的匯入作業，則請刪除磁碟機上的 DriveManifest.xml。 以新的日誌檔案重新執行此命令。| 當您嘗試對多個匯入工作階段使用同一組磁碟機時，就會收到這個錯誤。 <br> 一組磁碟機僅適用於一個分割及複製工作階段。|
-|[錯誤] 擲回例外狀況：CopySessionId importdata-sept-test-1 代表前一個複製工作階段，而且無法用於新的複製工作階段。|如果嘗試使用前一個已成功完成的作業名稱來作為新作業的名稱，就會回報此錯誤。<br> 請為您的新作業指派唯一名稱。|
+|[錯誤] 擲回例外狀況：WMI 作業失敗:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=所提供的復原密碼格式無效。 <br>BitLocker 修復原密碼是 48 位數字。 <br>請確認復原密碼的格式正確，然後再試一次。|先使用資料箱磁碟解除鎖定工具將磁碟解除鎖定，然後重試命令。 如需詳細資訊，請移至 <li> [解除鎖定適用於 Windows 用戶端的資料箱磁碟](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client)。 </li><li> [解除鎖定適用於 Linux 用戶端的資料箱磁碟](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client)。 </li>|
+|[錯誤] 擲回例外狀況：存在於目標磁碟機上的 DriveManifest.xml 檔案。 <br> 這表示目標磁碟機可能已透過不同的日誌檔案來準備。 <br>若要將更多資料新增至相同磁碟機，請使用先前的日誌檔案。 若要刪除現有資料，並再次使用目標磁碟進行新的匯入作業，則請刪除磁碟機上的 DriveManifest.xml。 以新的日誌檔案重新執行此命令。| 當您嘗試對多個匯入工作階段使用同一組磁碟機時，就會收到這個錯誤。 <br> 一組磁碟機僅適用於一個分割及複製工作階段。|
+|[錯誤] 擲回例外狀況：CopySessionId importdata-sept-test-1 參考前一個複製工作階段，而且無法用於新的複製工作階段。|如果嘗試使用前一個已成功完成的作業名稱來作為新作業的名稱，就會回報此錯誤。<br> 請為您的新作業指派唯一名稱。|
 |[資訊] 目的地檔案或目錄名稱超過 NTFS 長度限制。 |當目的檔案因為檔案路徑太長而重新命名時，就會回報此訊息。<br> 請修改 `config.json` 檔案中的配置選項，以控制此行為。|
-|[錯誤] 擲回例外狀況：不正確的 JSON 逸出序列。 |當 config.json 的格式無效時，就會回報此訊息。 <br> 請在儲存檔案之前，先確認您的 `config.json` 是使用 [JSONlint](https://jsonlint.com/)。|
+|[錯誤] 擲回例外狀況：錯誤的 JSON 逸出序列。 |當 config.json 的格式無效時，就會回報此訊息。 <br> 請在儲存檔案之前，先確認您的 `config.json` 是使用 [JSONlint](https://jsonlint.com/)。|
 
+## <a name="deployment-issues-for-linux"></a>Linux 的部署問題
 
+本節詳細說明一些當使用 Linux 用戶端進行資料複製時，於資料箱磁碟部署期間最常面臨的問題。
+
+### <a name="issue-drive-getting-mounted-as-read-only"></a>問題：磁碟機以唯讀模式掛接
+ 
+**原因** 
+
+原因可能是未整理的檔案系統。 
+
+- 將磁碟機重新掛接為讀取不適用於資料箱磁碟。 此情節不適用於由 dislocker 解密的磁碟機。 
+- 重新掛接為讀寫沒有用。 您可能已經使用下列命令成功重新掛接磁碟機： 
+
+    `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
+
+   雖然已經成功重新掛接，但資料不會保存。
+
+**解決方案**
+
+如果看到上述錯誤，您可以嘗試下列其中一個解決方法：
+
+- 安裝 [`ntfsfix`](https://linux.die.net/man/8/ntfsfix) \(英文\) (可在 `ntfsprogs` 套件中取得)，並對相關的磁碟分割執行它。
+
+- 如果您可以存取 Windows 系統
+
+    - 請將該磁碟載入 Windows 系統。
+    - 以系統管理權限開啟命令提示字元。 在磁碟區上執行 `chkdsk`。
+    - 安全地移除磁碟區，然後再試一次。
+ 
+### <a name="issue-error-with-data-not-persisting-after-copy"></a>問題：複製之後資料沒有保留的錯誤
+ 
+**原因** 
+
+如果您發現磁碟機卸載之後沒有資料 (雖然資料有複製到其中)，則您可能在磁碟機掛接為唯讀之後，將它重新掛接為讀寫。
+
+**解決方案**
+ 
+如果是此情況，請參閱[磁碟機掛接為唯讀](#issue-drive-getting-mounted-as-read-only)的解決方法。
+
+如果不是這種情況，請從您的系統[下載診斷記錄檔](#download-diagnostic-logs)，並[連絡 Microsoft 支援服務](data-box-disk-contact-microsoft-support.md)。
+
+## <a name="deployment-issues-for-windows"></a>Windows 部署問題
+
+本節詳細說明一些當使用 Linux 用戶端進行資料複製時，於資料箱磁碟部署期間最常面臨的問題
+
+### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>問題：無法從 BitLocker 將磁碟機解除鎖定
+ 
+**原因** 
+
+您使用 BitLocker 對話方塊中的密碼，並嘗試透過 BitLocker 解除鎖定磁碟機對話方塊來解除鎖定。 這不可行。 
+
+**解決方案**
+
+若要將資料箱磁碟解除鎖定，您需要使用「資料箱磁碟解除鎖定工具」，並提供來自 Azure 入口網站的密碼。
+ 
+### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>問題：無法解除鎖定或驗證某些磁碟區。 連絡 Microsoft 支援服務。
+ 
+**原因** 
+
+您可能會在錯誤記錄檔中看到下列錯誤，且無法解除鎖定或驗證某些磁碟區。
+
+`Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
+ 
+這表示您的 Windows 用戶端上可能沒有適當版本的 Windows PowerShell。
+
+**解決方案**
+
+您可以安裝 [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) \(英文\) 並重試作業。
+ 
+如果您仍然無法將磁碟區解除鎖定，請[連絡 Microsoft 支援服務](data-box-disk-contact-microsoft-support.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

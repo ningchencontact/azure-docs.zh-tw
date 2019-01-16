@@ -1,19 +1,19 @@
 ---
-title: Azure Analysis Services 教學課程補充課程︰動態安全性 | Microsoft Docs
+title: Azure Analysis Services 教學課程補充課程：動態安全性 | Microsoft Docs
 description: 說明如何在 Azure Analysis Services 教學課程中使用資料列篩選條件，進而使用動態安全性。
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6a0c4158b85a6bc6c9276eff19466fb742c6f442
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1908d655064a4a320191695c048271246951c29c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235916"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187479"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>補充課程 - 動態安全性
 
@@ -21,7 +21,7 @@ ms.locfileid: "51235916"
   
 若要實作動態安全性，您可以將資料表新增至模型 (其中包含可連線至該模型及瀏覽模型物件和資料之使用者的使用者名稱)。 您使用本教學課程建立的模型位於 Adventure Works 的環境中；不過，若要完成本課程，您必須新增包含您自有網域使用者的資料表。 您不需要所新增使用者名稱的密碼。 若要建立 EmployeeSecurity 資料表 (包含您自有網域中的少量使用者範例)，您可使用 [貼上] 功能中，貼上 Excel 試算表中的員工資料。 在真實的案例中，包含使用者名稱的資料表通常會是實際資料庫中做為資料來源的資料表；例如，真實的 DimEmployee 資料表。  
   
-若要實作動態安全性，您可以使用兩個 DAX 函式︰[USERNAME 函式 (DAX)](https://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) 和 [LOOKUPVALUE 函式 (DAX)](https://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab)。 套用於資料列篩選公式的這些函式，會以新的角色定義。 使用 LOOKUPVALUE 函式，此公式會指定 EmployeeSecurity 資料表中的值。 此公式接著將該值傳遞至 USERNAME 函式，其指定已登入使用者的使用者名稱屬於此角色。 使用者接著可以只瀏覽角色的資料列篩選條件所指定的資料。 在此案例中，您指定銷售員工只能瀏覽其所屬銷售地區的網際網路銷售資料。  
+若要實作動態安全性，請使用兩個 DAX 函式：[USERNAME 函式 (DAX)](https://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) 與 [LOOKUPVALUE 函式 (DAX)](https://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab)。 套用於資料列篩選公式的這些函式，會以新的角色定義。 使用 LOOKUPVALUE 函式，此公式會指定 EmployeeSecurity 資料表中的值。 此公式接著將該值傳遞至 USERNAME 函式，其指定已登入使用者的使用者名稱屬於此角色。 使用者接著可以只瀏覽角色的資料列篩選條件所指定的資料。 在此案例中，您指定銷售員工只能瀏覽其所屬銷售地區的網際網路銷售資料。  
   
 這麼一來，便會識別此 Adventure Works 表格式模型案例獨有，但不一定適用於真實案例的工作。 每個工作都包含描述工作目的的其他資訊。  
   

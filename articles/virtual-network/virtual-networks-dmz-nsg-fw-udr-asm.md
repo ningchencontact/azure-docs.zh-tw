@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c2ebcfc376456f63896ebae8331136aff0cdb99
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23127156"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119436"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>範例 3 – 建置 DMZ 以透過防火牆、UDR 和 NSG 保護網路
 [返回 [安全性界限最佳作法] 頁面][HOME]
@@ -31,8 +31,8 @@ ms.locfileid: "23127156"
 ## <a name="environment-setup"></a>環境設定
 此範例中，有一個訂用帳戶包含下列項目：
 
-* 三個雲端服務：“SecSvc001”、“FrontEnd001” 和 “BackEnd001”
-* 一個虛擬網路 "CorpNetwork"，包含三個子網路：“SecNet”、“FrontEnd” 和 “BackEnd”
+* 三個雲端服務："SecSvc001"、"FrontEnd001" 和 "BackEnd001"
+* 虛擬網路 "CorpNetwork" 具有三個子網路："SecNet"、"FrontEnd" 和 "BackEnd"
 * 一個網路虛擬應用裝置，在此範例中為防火牆，並連接到 SecNet 子網路
 * 一個代表應用程式 Web 伺服器的 Windows Server (“IIS01”)
 * 兩個代表應用程式後端伺服器的 Windows Server (“AppVM01”、“AppVM02”)
@@ -50,7 +50,7 @@ ms.locfileid: "23127156"
 
 指令碼順利執行後，即可採取下列指令碼後續步驟：
 
-1. 設定防火牆規則，下面的 [防火牆規則說明] 一節會有這部分的說明。
+1. 設定防火牆規則，下面的＜防火牆規則＞一節防火牆規則描述。
 2. (選擇性)＜參考＞一節中有兩個指令碼，其會設定 Web 伺服器和具有簡單 Web 應用程式的應用程式伺服器，以便能使用此 DMZ 組態進行測試。
 
 一旦指令碼順利執行，就必須完成防火牆規則，[防火牆規則] 一節中會有這部分的說明。
@@ -200,7 +200,7 @@ UDR 隨附 IP 轉送功能。 這是虛擬應用裝置的一項設定，以允�
 
 * 外部規則 (適用於輸入流量)：
   1. 防火牆管理規則：此應用程式重新導向規則允許流量傳遞至網路虛擬應用裝置的管理連接埠。
-  2. RDP 規則 (適用於每個 Windows 伺服器)：這四個規則 (每部伺服器一個) 會允許透過 RDP 管理個別伺服器。 根據所使用的網路虛擬應用裝置功能而定，也可將其結合成一個規則。
+  2. RDP 規則 (適用於每部 Windows Server)：這四個規則 (每部伺服器一個) 會允許透過 RDP 管理個別伺服器。 根據所使用的網路虛擬應用裝置功能而定，也可將其結合成一個規則。
   3. 應用程式流量規則：應用程式流量規則有兩個，第一個適用於前端 Web 流量，第二個適用於後端流量 (例如 Web 伺服器流往資料層)。 這些規則的設定將取決於網路架構 (伺服器的放置位置) 和流量流動行為 (流量的流動方向，以及使用的連接埠)。
      * 第一個規則會允許實際的應用程式流量抵達應用程式伺服器。 其他規則所考慮的是安全性、管理等方面的事項，而應用程式規則則是用來允許外部使用者或服務存取應用程式。 就此範例來說，連接埠 80 上有單一 Web 伺服器，因此單一防火牆應用程式規則會將流往外部 IP 的輸入流量，重新導向到 Web 伺服器的內部 IP 位址。 重新導向的流量工作階段會經過 NAT 轉譯到內部伺服器。
      * 第二個應用程式流量規則是後端規則，可允許Web 伺服器透過任何連接埠與 AppVM01 伺服器 (而非 AppVM02) 對談。
@@ -241,7 +241,7 @@ UDR 隨附 IP 轉送功能。 這是虛擬應用裝置的一項設定，以允�
 
 電腦上必須安裝管理用戶端，才能管理防火牆和建立所需的組態。 請參閱防火牆 (或其他 NVA) 廠商提供的說明文件，以了解如何管理裝置。 本節剩餘部分和下一節＜建立防火牆規則＞將說明如何透過廠商的管理用戶端 (亦即不是使用 Azure 入口網站或 PowerShell) 設定防火牆本身。
 
-適用於下載用戶端和連線到此範例所用 Barracuda 的指示，可以在這裡找到： [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
+適用於下載用戶端和連線到此範例所用 Barracuda 的指示，可以在這裡找到：[Barracuda NG 系統管理員](https://techlib.barracuda.com/NG61/NGAdmin)
 
 在登入防火牆後、建立防火牆規則前，有兩個必要的物件類別可讓您更輕鬆地建立規則：分別是網路和服務物件。
 
@@ -289,7 +289,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
 
 完成此範例所需的每個規則的細節說明如下：
 
-* **防火牆管理規則**︰此「應用程式重新導向」規則允許將流量傳遞到網路虛擬設備 (在此範例中為「Barracuda NextGen 防火牆」) 的管理連接埠。 管理連接埠是 801 和 807，以及 22 (選擇性)。 外部和內部連接埠相同 (亦即沒有連接埠轉譯)。 此 SETUP-MGMT-ACCESS 規則 (在 Barracuda NextGen 防火牆 6.1 版中) 是預設規則，且為預設啟用。
+* **防火牆管理規則**：此「應用程式重新導向」規則允許將流量傳遞到網路虛擬設備 (在此範例中為「Barracuda NextGen 防火牆」) 的管理連接埠。 管理連接埠是 801 和 807，以及 22 (選擇性)。 外部和內部連接埠相同 (亦即沒有連接埠轉譯)。 此 SETUP-MGMT-ACCESS 規則 (在 Barracuda NextGen 防火牆 6.1 版中) 是預設規則，且為預設啟用。
   
     ![防火牆管理規則][10]
 
@@ -782,7 +782,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
@@ -959,7 +959,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>範例應用程式指令碼
-如果您想要為此範例和其他 DMZ 範例安裝範例應用程式，下列連結中有提供一個：[範例應用程式指令碼][SampleApp]
+如果您希望為此範例和其他 DMZ 範例安裝範例應用程式，下列連結中有提供一個：[範例應用程式指令碼][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "具有 NVA、NSG 和 UDR 的雙向 DMZ"

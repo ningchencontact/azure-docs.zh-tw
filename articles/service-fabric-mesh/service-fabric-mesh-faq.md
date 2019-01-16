@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 2f9800deedb2e8d55362920fed2493a42290e764
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 8d6dcdd4de8fb56935d2f66bfff045b2115d4004
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555841"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063568"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh 的常見問題
 
@@ -93,9 +93,9 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 ## <a name="developer-experience-issues"></a>開發人員體驗問題
 
-### <a name="dns-resolution-from-an-outbound-container-doesnt-work"></a>輸出容器的 DNS 解析沒有運作
+### <a name="dns-resolution-from-a-container-doesnt-work"></a>來自容器的 DNS 解析無法運作
 
-在某些情況下，服務對服務的通訊可能會失敗。 我們正在調查此問題。 減輕問題：
+從容器連出到 Service Fabric DNS 服務的 DNS 查詢在某些情況下可能會失敗。 我們正在調查此問題。 減輕問題：
 
 - 使用 Windows Fall Creators Update (1709版) 或更新版本作為基礎容器映像。
 - 如果只有服務名稱時無法運作，請嘗試完整名稱：ServiceName.ApplicationName。

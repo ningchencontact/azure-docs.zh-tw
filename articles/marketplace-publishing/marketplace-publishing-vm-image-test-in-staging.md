@@ -3,7 +3,7 @@ title: 測試將發佈到 Marketplace 的 VM 供應項目 | Microsoft Docs
 description: 了解如何測試您的 VM 供應項目在 Azure Marketplace 的表現。
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
@@ -14,22 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
-ms.openlocfilehash: bf41953300c3042853118c815dbf64e4474106fa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ROBOTS: NOINDEX
+ms.openlocfilehash: b90353dbbc5d019897735cfc05caa3ee094dfedc
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194108"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078808"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>在預備環境中測試您將發佈到 Azure Marketplace 的 VM 供應項目
-預備環境代表將您的 SKU 部署在私人的「沙箱」中，您可以在部署到 Marketplace 之前在沙箱中測試與驗證其功能。 SKU 會出現在預備環境中，就如同客戶已部署該項目一樣。 您的 VM 映像必須經過認證才能推送至預備環境。
+預備環境代表將您的 SKU 部署在私人的「沙箱」中，您可以在部署到 Marketplace 之前在沙箱中測試與驗證其功能。 SKU 會出現在預備環境中，就如同客戶已部署該項目一樣。 您必須在將 VM 映像推送至預備環境之前對其進行認證。
 
 ## <a name="step-1-push-your-offer-to-staging"></a>步驟 1：推送供應項目至預備環境
 1. 在 [發佈] 索引標籤上,按一下 [推送至預備環境]。
    
     ![繪圖](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
 2. 如果發佈入口網站通知您任何錯誤，修正它們。
-3. 在 [ **誰可以存取您預備的供應項目？** ] 對話方塊中，輸入您要用來在 [Azure Preview 入口網站](https://portal.azure.com)中預覽供應項目的 Azure 訂用帳戶清單。
+3. 在 [誰可以存取您預備的供應項目?] 對話方塊中，輸入您要用來在 [Azure 入口網站](https://portal.azure.com)中預覽供應項目的 Azure 訂用帳戶清單。
    
    > [!NOTE]
    > 如果是「虛擬機器」和「方案」範本，請 **不要** 將 CSP、DreamSpark 或 Azure in Open 類型的訂用帳戶加入允許清單。
@@ -42,7 +43,7 @@ ms.locfileid: "53194108"
    > - 憑證完成後，就會開始跨所有 Azure 資料中心複寫供應項目。 複寫通常需要 24-48 小時才能完成，但依據 VHD 大小而定，最長可能需要一週的時間。 不過，如果您的要求只有行銷變更，複寫會更快速。
    > - 當複寫完成後，供應項目就會在 [Azure 入口網站](http:/portal.azure.com)公開發行。 屆時在發佈入口網站中的狀態會變成「已預備」。 只有當您使用與預備供應項目所用的訂用帳戶相關的電子郵件識別碼時，才能在 [Azure 入口網站](http:/portal.azure.com) 中看到已預備的供應項目。
 
-1. 使用上一個步驟中列出的其中一個 Azure 訂用帳戶登入 [Azure Preview 入口網站](https://portal.azure.com) 。
+1. 使用上一個步驟中列出的其中一個 Azure 訂用帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 2. 尋找您的供應項目，並驗證您的 VM 映像點：
    
    * 請確定該行銷內容可在 MarketPlace 中正確顯示。

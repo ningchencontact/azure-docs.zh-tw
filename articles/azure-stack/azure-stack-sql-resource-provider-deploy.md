@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/09/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: e1a52dffe0b87b140ee8f0da9379a33f8b071f39
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: georgel
+ms.openlocfilehash: 035284e23d3b600cbf1cbd5500a9821c2c628b05
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960663"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156199"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 SQL Server 資源提供者
 
@@ -39,6 +39,7 @@ ms.locfileid: "52960663"
 
   |最低 Azure Stack 版本|SQL RP 版本|
   |-----|-----|
+  |1808 版 (1.1808.0.97)|[SQL RP 1.1.33.0 版](https://aka.ms/azurestacksqlrp11330)|  
   |1808 版 (1.1808.0.97)|[SQL RP 1.1.30.0 版](https://aka.ms/azurestacksqlrp11300)|
   |1804 版 (1.0.180513.1)|[SQL RP 1.1.24.0 版](https://aka.ms/azurestacksqlrp11240)
   |     |     |

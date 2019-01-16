@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.author: tulasim
-ms.openlocfilehash: f732391cc73f0a7cb417409cd6f6f2b3c54f93d6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a26c4b6d16ac16596f8b1b0606aca029be335d71
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994125"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038495"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 內容的資料來源
 
@@ -149,6 +149,23 @@ Answer2
 ## <a name="formatting-considerations"></a>格式化考量
 
 檔案或 URL 在匯入後會轉換為 Markdown，並以該格式進行儲存。 如果轉換程序未正確地轉換檔案和 URL 中的連結，您應該在 [編輯] 頁面上編輯問題與解答。 
+
+|格式|目的|
+|--|--|
+|`\n\n`| 新行|
+|`\n*`|已排序清單的項目符號|
+
+## <a name="editing-your-knowledge-base-locally"></a>在本機編輯您的知識庫
+
+在建立知識庫之後，建議您在 [QnA Maker 入口網站](https://qnamaker.ai)中對知識庫文字進行編輯，而不要透過本機檔案匯出和重新匯入。 不過，有時您可能需要在本機編輯知識庫。 
+
+請從 [設定] 頁面匯出知識庫，然後使用 Microsoft Excel 來編輯知識庫。 如果您選擇使用另一個應用程式來編輯已匯出的 TSV 檔案，應用程式可能會因為它不完全符合 TSV 規範而造成語法錯誤。 Microsoft Excel 的 TSV 檔案通常不會造成任何格式設定錯誤。 
+
+完成編輯之後，請從 [設定] 檔案重新匯入 TSV 檔案。 這會以匯入的知識庫完全取代目前的知識庫。 
+
+## <a name="testing-your-markdown"></a>測試您的 Markdown
+
+請使用 **[CommonMark](https://commonmark.org/help/tutorial/index.html)** \(英文\) 教學課程來驗證您的 Markdown。 此教學課程具有 [Try it] \(試用\) 功能，可快速進行複製/貼上驗證。 
 
 ## <a name="next-steps"></a>後續步驟
 

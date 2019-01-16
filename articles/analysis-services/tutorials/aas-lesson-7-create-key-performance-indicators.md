@@ -1,19 +1,19 @@
 ---
-title: Azure Analysis Services 教學課程第 7 課︰建立關鍵效能指標 | Microsoft Docs
+title: Azure Analysis Services 教學課程第 7 課：建立關鍵效能指標 | Microsoft Docs
 description: 說明如何在 Azure Analysis Services 教學課程專案中建立關鍵效能指標。
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1e7fc5cd684610a5d96b5986f5c169741055c9b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d238b3bf159a5e540eb9c72ecbcee188bd357b05
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426805"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186527"
 ---
 # <a name="create-key-performance-indicators"></a>建立關鍵效能指標
 
@@ -22,7 +22,7 @@ ms.locfileid: "49426805"
 這堂課的預估完成時間：**15 分鐘**  
   
 ## <a name="prerequisites"></a>必要條件  
-本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 6 課︰建立量值](../tutorials/aas-lesson-6-create-measures.md)。   
+本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 6 課：建立量值](../tutorials/aas-lesson-6-create-measures.md)。   
   
 ## <a name="create-key-performance-indicators"></a>建立關鍵效能指標  
   

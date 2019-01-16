@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 24c7ddff1eea16fc2be3f99d04abd90ee0791f4c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f3d171a8f0e353d5860f410a8c32149f8872338
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247291"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189383"
 ---
 # <a name="settings-and-data-roaming-faq"></a>設定和資料漫遊常見問題集
 本文將回答 IT 系統管理員可能會遇到的設定和應用程式資料同步處理的一些問題。
@@ -31,7 +31,7 @@ ms.locfileid: "51247291"
 
 * *佈景主題*- 包括桌面主題和工作列設定之類的功能。
 * *Internet Explorer 設定*- 包括最近開啟的索引標籤和我的最愛。
-* *Edge 瀏覽器設定*- 例如我的最愛和閱讀清單。
+* *Microsoft Edge 瀏覽器設定*- 例如我的最愛和閱讀清單。
 * *密碼*- 包括網際網路密碼、Wi-Fi 設定檔等。
 * *語言喜好設定*- 包括鍵盤配置、系統語言、日期和時間等的設定。
 * *輕鬆存取功能*- 例如高對比佈景主題、朗讀程式及放大鏡。

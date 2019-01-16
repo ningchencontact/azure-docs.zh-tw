@@ -1,13 +1,9 @@
 ---
-title: Azure 流量管理員中的實際使用者度量 | Microsoft Docs
+title: Azure 流量管理員中的實際使用者度量
 description: 流量管理員中實際使用者度量的簡介
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -16,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 4e8d808d65c9898d230455d128e3ffc50db303d6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fd37ef739522955ae8227db39a41aecf199d65c3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178108"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052814"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>流量管理員實際使用者度量概觀
 
@@ -31,7 +27,7 @@ ms.locfileid: "30178108"
 
 ## <a name="how-real-user-measurements-work"></a>實際使用者度量的運作方式
 
-實際使用者度量的運作方式是從使用所在的使用者網路中看到時，給予 Azure 區域的用戶端應用程式測量延遲。 舉例來說，如果您有讓不同位置之使用者存取的網頁 (例如，北美區域)，您可以在使用效能路由方法將它們導向裝載您的伺服器的最佳 Azure 區域時，利用實際使用者度量的功能。
+實際使用者度量的運作方式是從使用所在的使用者網路中看到時，給予 Azure 區域的用戶端應用程式測量延遲。 舉例來說，如果您有讓不同位置之使用者存取的網頁 (例如，北美區域)，您可以將實際使用者度量與效能路由方法結合使用，以使其到達裝載伺服器應用程式的最佳 Azure 區域。
 
 一開始會將 Azure 提供的 JavaScript (其中具有獨特索引鍵) 內嵌至您的網頁。 完成之後，每當使用者造訪該網頁，JavaScript 就會查詢流量管理員來取得它應該測量之 Azure 區域的相關資訊。 服務會傳回一組端點給指令碼，然後藉由下載裝載在這些 Azure 區域的單一像素映像，並且註明要求傳送的時間與收到第一個位元組的時間之間的延遲，來連續測量這些區域。 這些度量會接著回報給「流量管理員」服務。
 

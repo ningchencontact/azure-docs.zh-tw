@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/13/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8cfbc72e239a7a5b38cee6752803e79735e2adc9
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321269"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190807"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 擴充
 
@@ -74,15 +74,19 @@ ms.locfileid: "49321269"
 ![擴充滑桿](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>REST API
+
 使用**同步**作業。
 
 #### <a name="synchronize-a-model"></a>同步處理模型   
+
 `POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 #### <a name="get-sync-status"></a>取得同步處理狀態  
+
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
+
 使用 PowerShell 之前，請[安裝或更新最新的 AzureRM 模組](https://github.com/Azure/azure-powershell/releases)。 
 
 若要設定查詢複本數目，請使用 [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)。 指定選擇性的 `-ReadonlyReplicaCount` 參數。
@@ -101,9 +105,9 @@ ms.locfileid: "49321269"
 
 ## <a name="troubleshoot"></a>疑難排解
 
-**問題︰** 使用者收到錯誤「找不到處於連線模式 'ReadOnly' 的伺服器 '\<伺服器名稱>' 執行個體。
+**問題：** 使用者收到錯誤 [在連線模式 'ReadOnly' 中，找不到伺服器 '\<伺服器名稱>' 執行個體。]
 
-**解決方法：** 選取 [分開處理伺服器與查詢集區] 選項時，使用預設連接字串 (不含 :rw) 的用戶端連線會重新導向至查詢集區複本。 如果查詢集區中的複本因為尚未完成同步處理而未上線，則重新導向的用戶端連線可能會失敗。 若要避免連線失敗，請選擇在相應放大和同步處理作業完成後，才能分開處理伺服器與查詢集區。 您可以使用記憶體和 QPU 計量來監視同步處理狀態。
+**解決方案：** 選取 [區隔處理伺服器與查詢集區] 選項時，使用預設連接字串 (不含 :rw) 的用戶端連線會重新導向至查詢集區複本。 如果查詢集區中的複本因為尚未完成同步處理而未上線，則重新導向的用戶端連線可能會失敗。 若要避免連線失敗，請選擇在相應放大和同步處理作業完成後，才能分開處理伺服器與查詢集區。 您可以使用記憶體和 QPU 計量來監視同步處理狀態。
 
 ## <a name="related-information"></a>相關資訊
 

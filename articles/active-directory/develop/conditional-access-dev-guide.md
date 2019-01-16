@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 9f0a4369d794eda047185844d5fafa49bc8a2e0d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24644faab85305f18fe4b657d3e982a306a41c16
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337915"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157066"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取的開發人員指引
 
@@ -92,11 +92,11 @@ Azure AD 條件式存取是 [Azure AD Premium](https://docs.microsoft.com/azure/
 
 ## <a name="scenario-app-accessing-microsoft-graph"></a>案例：存取 Microsoft Graph 的應用程式
 
-在此案例中，了解 Web 應用程式如何要求存取 Microsoft Graph。 在此案例中，可以將條件式存取原則指派給 SharePoint、Exchange，或是透過 Microsoft Graph 存取作為工作負載的一些其他服務。 在此範例中，假設 Sharepoint Online 上具有條件式存取原則。
+在此案例中，了解 Web 應用程式如何要求存取 Microsoft Graph。 在此案例中，可以將條件式存取原則指派給 SharePoint、Exchange，或是透過 Microsoft Graph 存取作為工作負載的一些其他服務。 在此範例中，假設 SharePoint Online 上具有條件式存取原則。
 
 ![存取 Microsoft Graph 流程圖的應用程式](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
 
-應用程式會先要求對 Microsoft Graph 的授權，這需要在沒有條件式存取的情況下存取下游工作負載。 要求成功且無需叫用任何原則，應用程式會接收 Microsoft Graph 的權杖。 此時，應用程式會針對已要求的端點使用持有人要求中的存取權杖。 現在，應用程式需要存取 Microsoft Graph 的 Sharepoint Online 端點，例如：`https://graph.microsoft.com/v1.0/me/mySite`
+應用程式會先要求對 Microsoft Graph 的授權，這需要在沒有條件式存取的情況下存取下游工作負載。 要求成功且無需叫用任何原則，應用程式會接收 Microsoft Graph 的權杖。 此時，應用程式會針對已要求的端點使用持有人要求中的存取權杖。 現在，應用程式需要存取 Microsoft Graph 的 SharePoint Online 端點，例如：`https://graph.microsoft.com/v1.0/me/mySite`
 
 應用程式已經具有 Microsoft Graph 的有效權杖，因此它不需接收新的權杖即可執行新的要求。 此要求失敗，且從 Microsoft Graph 以包含 ```WWW-Authenticate``` 挑戰的 HTTP 403 禁止形式發行宣告挑戰。
 
@@ -108,7 +108,7 @@ error=insufficient_claims
 www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
 ```
 
-宣告挑戰位於 ```WWW-Authenticate``` 標頭內，可加以剖析來擷取下一個要求的宣告參數。 一旦附加至新的要求之後，Azure AD 便得知要在將使用者登入時評估條件式存取原則，而應用程式現在已符合此條件式存取原則。 重複對 Sharepoint Online 端點的要求成功。
+宣告挑戰位於 ```WWW-Authenticate``` 標頭內，可加以剖析來擷取下一個要求的宣告參數。 一旦附加至新的要求之後，Azure AD 便得知要在將使用者登入時評估條件式存取原則，而應用程式現在已符合此條件式存取原則。 重複對 SharePoint Online 端點的要求成功。
 
 ```WWW-Authenticate``` 標頭有獨特的結構，要剖析來擷取值並非易事。 以下簡短方法有所幫助。
 

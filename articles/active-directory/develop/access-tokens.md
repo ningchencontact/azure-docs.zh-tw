@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 18de5ce2f47b6593d4c8556af045f14ade957fb9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 164fc42d905c9354a58ea6f66a739ea05f12e601
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979228"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157763"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory 存取權杖
 
@@ -38,7 +38,7 @@ ms.locfileid: "50979228"
 
 ## <a name="sample-tokens"></a>權杖範例
 
-v1.0 和 v2.0 權杖看起來非常類似，而且包含許多相同的宣告。 其各自的範例如下所示。
+v1.0 和 v2.0 權杖看起來類似，而且包含許多相同的宣告。 其各自的範例如下所示。
 
 ### <a name="v10"></a>v1.0
 
@@ -79,7 +79,7 @@ JWT 分成三個部分：
 | `nonce` | 字串 | 唯一識別碼，用來防範權杖重新執行攻擊。 您的資源可以記錄此值，以防止重新執行。 |
 | `alg` | 字串 | 表示用來簽署權杖的演算法，例如 "RS256" |
 | `kid` | 字串 | 為用來簽署此權杖的公開金鑰指定指紋。 v1.0 和 v2.0 存取權杖中都會發出此宣告。 |
-| `x5t` | 字串 | 與 `kid` 的功能一樣 (用法和值)。 這是只在 v1.0 存取權杖中發出的舊版宣告，僅針對相容性使用。 |
+| `x5t` | 字串 | 與 `kid` 的功能一樣 (用法和值)。 `x5t` 是只在 v1.0 存取權杖中發出的舊版宣告，僅針對相容性使用。 |
 
 ### <a name="payload-claims"></a>承載宣告
 
@@ -121,7 +121,7 @@ JWT 分成三個部分：
 | 宣告 | 格式 | 說明 |
 |-----|--------|-------------|
 | `ipaddr`| 字串 | 從中進行使用者驗證的 IP 位址。 |
-| `onprem_sid`| 字串，採 [SID 格式](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | 如果使用者具有內部部署驗證，此宣告會提供其 SID。 這可以用於繼承應用程式中的授權。 |
+| `onprem_sid`| 字串，採 [SID 格式](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | 如果使用者具有內部部署驗證，此宣告會提供其 SID。 您可以使用 `onprem_sid` 取得繼承應用程式中的授權。 |
 | `pwd_exp`| 整數，UNIX 時間戳記 | 表示使用者密碼到期的時間。 |
 | `pwd_url`| 字串 | 可傳送給使用者以重設其密碼的 URL。 |
 | `in_corp`|布林值 | 指出用戶端是否是從公司網路登入的。 如果不是，就不會包含此宣告。 |
@@ -200,7 +200,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 * 使用 `appidacr` 來確認呼叫用戶端的驗證狀態 - 如果公用用戶端無法呼叫您的 API，則這應不會是 0。
 * 檢查過去的 `nonce` 宣告清單，以確認權杖不會重新執行。
 * 檢查 `tid` 是否符合允許呼叫您 API 的租用戶。
-* 使用 `acr` 宣告確認使用者已執行 MFA。 請注意，這應該使用[條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)來強制執行。
+* 使用 `acr` 宣告確認使用者已執行 MFA。 這應該使用[條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)來強制執行。
 * 如果您已在存取權杖中要求 `roles` 或 `groups` 宣告，確認使用者位在允許執行此動作的群組中。
   * 針對使用隱含流程擷取的權杖，您可能需要查詢此資料的 [Microsoft Graph](https://developer.microsoft.com/graph/)，因為這通常會太大，而無法放入權杖。 
 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/08/2018
 ms.author: tulasim
-ms.openlocfilehash: bb074b1f256275c26889a30435dff28c86060a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ec26e7ab535084fa5d8f52c11c671212eeab0f13
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035227"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119816"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>對知識庫進行共同作業
 
@@ -35,7 +35,7 @@ QnA Maker 可讓多位使用者對知識庫進行共同作業。 這項功能是
 
     ![QnA Maker IAM 新增](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 
-4. 選取**擁有者**或**參與者**角色。
+4. 選取**擁有者**或**參與者**角色。 您無法透過角色型存取控制授與唯讀存取。 擁有者和參與者角色針對 QnA Maker 服務具有讀取-寫入權限。
 
     ![QnA Maker IAM 新增角色](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
 

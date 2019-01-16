@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2d92edd0bda15ecd57a5a29375adae3a51c661c2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bb0a17d4b7e11dd83439d943abf0bdd34ef915ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428125"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187445"
 ---
 # <a name="create-calculated-columns"></a>建立計算結果欄
 
@@ -26,7 +26,7 @@ ms.locfileid: "49428125"
 這堂課的預估完成時間：**15 分鐘**  
   
 ## <a name="prerequisites"></a>必要條件  
-本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 4 課︰建立關聯性](../tutorials/aas-lesson-4-create-relationships.md)。 
+本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 4 課：建立關聯性](../tutorials/aas-lesson-4-create-relationships.md)。 
   
 ## <a name="create-calculated-columns"></a>建立計算結果欄  
   

@@ -1,19 +1,19 @@
 ---
-title: Azure Analysis Services 教學課程第 4 課：建立關聯性 | Microsoft Docs
+title: Azure Analysis Services 教學課程第 4 課：建立關聯性 |Microsoft Docs
 description: 說明如何在 Azure Analysis Services 教學課程專案中建立關聯性。
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e791514cc25c645775de260e7f190ee20812d4b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4a595e4c955b08bda6fcf49b9ca6a050e8440621
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428484"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187496"
 ---
 # <a name="create-relationships"></a>建立關聯性
 
@@ -22,7 +22,7 @@ ms.locfileid: "49428484"
 這堂課的預估完成時間：**10 分鐘**  
   
 ## <a name="prerequisites"></a>必要條件  
-本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 3 課：標記為日期資料表](../tutorials/aas-lesson-3-mark-as-date-table.md)。 
+本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 3 課：標示為日期資料表](../tutorials/aas-lesson-3-mark-as-date-table.md)。 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>檢閱現有的關聯性和新增關聯性  
 當您使用「取得資料」匯入資料時，您從 AdventureWorksDW2014 資料庫取得七個資料表。 一般而言，當您從關聯式來源匯入資料時，自動會隨著資料一起匯入現有的關聯性。 為了讓「取得資料」自動在資料模型中建立關聯性，資料來源的資料表之間必須有關聯性。
@@ -60,7 +60,7 @@ ms.locfileid: "49428484"
     |是|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |是|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    如果遺漏任何關聯性，請確認您的模型包含下列資料表：DimCustomer、DimDate、DimGeography、DimProduct、DimProductCategory、DimProductSubcategory 和 FactInternetSales。 如果是在不同時間從相同的資料來源連線匯入資料表，則不會建立這些資料表之間的關聯性，必須手動建立。 如果沒有出現任何關聯性，表示資料來源沒有任何關聯性。 您可以手動在資料模型中加以建立。
+    如果遺漏任何關聯性，請確認您的模型包含下列資料表：DimCustomer、DimDate、DimGeography、DimProduct、DimProductCategory、DimProductSubcategory，以及 FactInternetSales。 如果是在不同時間從相同的資料來源連線匯入資料表，則不會建立這些資料表之間的關聯性，必須手動建立。 如果沒有出現任何關聯性，表示資料來源沒有任何關聯性。 您可以手動在資料模型中加以建立。
 
 ### <a name="take-a-closer-look"></a>進一步了解
 在 [圖表] 檢視中，請注意在顯示資料表之間關聯性的線條上有箭號、星號和數字。

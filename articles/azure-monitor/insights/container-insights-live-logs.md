@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: da11bb0669bf6bde2c65b2a7a0badaa1ae35abda
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1a51e9b636e15f178de072af8372404af1dc47e2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189113"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187989"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>如何使用適用於容器的 Azure 監視器 (預覽) 即時檢視容器記錄
-此功能目前處於預覽狀態，可提供您 Azure Kubernetes Service (AKS) 容器記錄 (stdout/stderr) 的即時檢視，而不需執行 kubectl 命令。 當您選取此選項時，新窗格會顯示於 [容器] 檢視上的容器效能資料表格下方，而其會顯示容器引擎所產生的即時引擎，以進一步協助對問題進行即時疑難排解。  
+此功能目前處於預覽狀態，可提供您 Azure Kubernetes Service (AKS) 容器記錄 (stdout/stderr) 的即時檢視，而不需執行 kubectl 命令。 選取此選項時，[容器] 檢視上容器效能資料的資料表下方會顯示新窗格。  它會顯示容器引擎產生的即時記錄，以進一步協助疑難排解問題。  
 
 即時記錄支援三種不同的方法來控制記錄的存取：
 
@@ -39,33 +39,33 @@ ms.locfileid: "53189113"
 1. 複製並貼上這個 yaml 檔案，然後將它儲存為 LogReaderRBAC.yaml。  
 
    ```
-   kind: ClusterRole 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRole 
+   metadata: 
       name: containerHealth-log-reader 
    rules: 
-      - apiGroups: [""]   
-        resources: ["pods/log"]   
+      - apiGroups: [""] 
+        resources: ["pods/log"] 
         verbs: ["get"] 
    --- 
-   kind: ClusterRoleBinding 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRoleBinding 
+   metadata: 
       name: containerHealth-read-logs-global 
-   subjects:   
-      - kind: User     
-        name: clusterUser
-        apiGroup: rbac.authorization.k8s.io 
-    roleRef:   
-       kind: ClusterRole
-       name: containerHealth-log-reader
+   roleRef: 
+       kind: ClusterRole 
+       name: containerHealth-log-reader 
        apiGroup: rbac.authorization.k8s.io 
+   subjects: 
+      - kind: User 
+        name: clusterUser 
+        apiGroup: rbac.authorization.k8s.io 
    ```
 
 2. 執行下列命令來建立叢集規則繫結：`kubectl create -f LogReaderRBAC.yaml`。 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>使用 Azure Active Directory 設定 AKS
-AKS 可設定為使用 Azure Active Directory (AD) 進行使用者驗證。 如果您第一次設定此項，請參閱[將 Azure Active Directory 與 Azure Kubernetes Service 整合](../../aks/aad-integration.md)。 在執行建立[用戶端應用程式](../../aks/aad-integration.md#create-client-application)並指定**重新導向 URI** 的步驟期間，您需要將另一個 URI 新增至清單 ** https://ininprodeusuxbase.microsoft.com/***。  
+AKS 可設定為使用 Azure Active Directory (AD) 進行使用者驗證。 如果您第一次設定此項，請參閱[將 Azure Active Directory 與 Azure Kubernetes Service 整合](../../aks/aad-integration.md)。 在執行建立[用戶端應用程式](../../aks/aad-integration.md#create-client-application)並指定**重新導向 URI** 的步驟期間，您需要將另一個 URI 新增至清單 `https://ininprodeusuxbase.microsoft.com/*`。  
 
 >[!NOTE]
 >使用 Azure Active Directory 設定驗證以進行單一登入，只能在新 AKS 叢集的初始部署期間完成。 您無法針對已經部署的 AKS 叢集設定單一登入。  

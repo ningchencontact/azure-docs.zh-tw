@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: af738b655b4070da1cfe7555daff82c0e40ff91c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 05e5c0a37d2de78393048728b73d9bcf6e56c491
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138580"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159161"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure 檔案服務延展性和效能目標
 [Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 本文討論 Azure 檔案服務和 Azure 檔案同步的延展性和效能目標。
@@ -60,8 +60,8 @@ Azure 檔案共用的父資源是 Azure 儲存體帳戶。 儲存體帳戶代表
 | 物件數目 | 1 千萬個物件 | 
 | 資料集大小| ~4 TiB |
 | 平均檔案大小 | ~500 KiB (最大檔案：100 GiB) |
-| 上傳輸送量 | 每秒 15 個物件 |
-| 命名空間下載輸送量* | 每秒 350 個物件 |
+| 上傳輸送量 | 每秒 20 個物件 |
+| 命名空間下載輸送量* | 每秒 400 個物件 |
  
 *在建立新的伺服器端點時，Azure 檔案同步代理程式不會下載任何檔案內容。 它會先同步完整命名空間，然後再觸發背景回復以下載檔案；有可能是下載完整檔案，或者，如果已啟用雲端分層處理，則會根據伺服器端點上設定的雲端分層處理原則進行下載。
 
@@ -70,8 +70,8 @@ Azure 檔案共用的父資源是 Azure 儲存體帳戶。 儲存體帳戶代表
 | 已同步的物件數目| 125,000 個物件 (~1% 變換) | 
 | 資料集大小| 50 GiB |
 | 平均檔案大小 | ~500 KiB |
-| 上傳輸送量 | 每秒 20 個物件 |
-| 完整下載輸送量* | 每秒 30 個物件 |
+| 上傳輸送量 | 每秒 30 個物件 |
+| 完整下載輸送量* | 每秒 60 個物件 |
  
 *如果雲端分層處理已啟用，您應該會發現效能有所提升，因為只會下載部分檔案資料。 只有在任何端點上的快取檔案資料有所變更時，Azure 檔案同步才會下載這些資料。 對於任何分層或新建的檔案，代理程式並不會下載檔案資料，而只會將命名空間同步至所有伺服器端點。 代理程式也支援在使用者存取分層的檔案時進行檔案的部分下載。 
  

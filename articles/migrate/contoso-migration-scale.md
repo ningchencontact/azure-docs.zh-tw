@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: 37f0ba800cca4b096691a8bb6b43eb33a636d833
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c36572230387ffc33a46913dbcc1259ea65f84f5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284858"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104228"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - 對 Azure 進行大規模移轉
 
@@ -28,7 +28,7 @@ ms.locfileid: "52284858"
 [文章 2：部署 Azure 基礎結構](contoso-migration-infrastructure.md) | Contoso 會準備其內部部署基礎結構和其 Azure 基礎結構以進行移轉。 此系列中的所有移轉文章都使用相同的基礎結構。 | 可用。
 [文章 3：存取內部部署資源以移轉至 Azure](contoso-migration-assessment.md)  | Contoso 會評估其在 VMware 上執行的內部部署 SmartHotel360 應用程式。 Contoso 會使用 Azure Migrate 服務來評估應用程式 VM，並使用 Database Migration Assistant 來評估應用程式 SQL Server 資料庫。 | 可用
 [文章 4：在 Azure VM 和 SQL Database 受控執行個體上重新裝載應用程式](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso 會為其內部部署 SmartHotel360 應用程式執行隨即移轉至 Azure 的作業。 Contoso 會使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 來移轉應用程式的前端 VM。 Contoso 會使用 [Azure 資料庫移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)將應用程式資料庫移轉至 Azure SQL Database 受控執行個體。 | 可用   
-[文章 5：在 Azure VM 上重新裝載應用程式](contoso-migration-rehost-vm.md) | Contoso 會使用 Site Recovery 服務，將其 SmartHotel360 應用程式 VM 移轉至 Azure VM。 | 可用
+[文章 5：將應用程式重新裝載在 Azure VM 上](contoso-migration-rehost-vm.md) | Contoso 會使用 Site Recovery 服務，將其 SmartHotel360 應用程式 VM 移轉至 Azure VM。 | 可用
 [文章 6：在 Azure VM 上和 SQL Server AlwaysOn 可用性群組中重新裝載應用程式](contoso-migration-rehost-vm-sql-ag.md) | Contoso 會使用 Site Recovery 來移轉應用程式 VM，以移轉應用程式，以及使用資料庫移轉服務，將應用程式資料庫移轉至受到 AlwaysOn 可用性群組保護的 SQL Server 叢集。 | 可用
 [文章 7：將 Linux 應用程式重新裝載至 Azure VM](contoso-migration-rehost-linux-vm.md) | Contoso 會使用 Site Recovery 服務，來完成將其 Linux osTicket 應用程式隨即移轉至 Azure VM 的作業。 | 可用
 [文章 8：在 Azure VM 和適用於 MySQL 的 Azure 資料庫上重新裝載 Linux 應用程式](contoso-migration-rehost-linux-vm-mysql.md) | Contoso 會藉由使用 Site Recovery 將其 Linux osTicket 應用程式遷移至 Azure VM。 它會使用 MySQL Workbench 將應用程式資料庫遷移至適用於 MySQL 的 Azure 資料庫。 | 可用
@@ -46,7 +46,7 @@ IT 領導小組與商務合作夥伴密切合作，以了解此次移轉所要�
 - **因應業務成長**：Contoso 的業務量日益增多，對內部部署系統和基礎結構造成了壓力。
 - **提高效率**：Contoso 必須移除不必要的程序，並且簡化開發人員和使用者的程序。 企業亟需快速且不浪費時間或金錢的 IT 服務，進而更快滿足客戶的需求。
 - **提高靈活性**：Contoso IT 必須能夠更快因應企業的需求。 其因應速度必須能夠比市場變化更快，才能更在全球經濟中獲致成功。 它不得礙事，或成為企業的絆腳石。
-- **規模調整**：隨著企業順利成長，Contoso IT 小組必須提供能夠同步成長的系統。
+- **調整**：隨著企業順利成長，Contoso IT 小組必須提供能夠同步成長的系統。
 - **改進成本模型**：Contoso 想要減少 IT 預算的資本適足要求。  Contoso 想要使用雲端功能來調整規模，並減少對於昂貴硬體的需要。
 - **降低授權成本**：Contoso 想要將雲端成本降至最低。
 
@@ -89,7 +89,7 @@ Contoso 已確立商業誘因和移轉目標，因此決定採用四個方法來
 在整個組織中，這些階段並非是一系列的。 Contoso 移轉專案的每個部分都會落在評估及移轉程序的不同階段。 最佳化、安全性和管理則是隨時都在進行。
 
 
-## <a name="phase-1-assess"></a>階段 1：評估
+## <a name="phase-1-assess"></a>第 1 階段：評估
 
 Contoso 會藉由探索及評估內部部署應用程式、資料和基礎結構，來啟動整個程序。 以下是 Contoso 將採取的做法：
 
@@ -172,7 +172,7 @@ Azure Migrate 服務可協助您探索及評估內部部署 VMware VM，以做�
 1. 探索：探索內部部署 VMware VM。
     - Azure Migrate 支援從多部 vCenter Server 循序探索，並可在不同的 Azure Migrate 專案中執行探索。
     - Azure Migrate 會透過執行 Migrate 收集器的 VMware VM 來執行探索。 相同的收集器也可探索不同 vCenter Server 上的 VM，並將資料傳送至不同專案。
-1. 評估整備程度：評估內部部署機器是否適合在 Azure 中執行。 評估項目包括：
+1. 評定移轉整備程度：評估內部部署機器是否適合在 Azure 中執行。 評估項目包括：
     - 大小建議：根據內部部署 VM 的效能歷程記錄，取得 Azure VM 的大小建議。
     - 預估每月成本：取得在 Azure 中執行內部部署機器的估計成本。
 2. 識別相依性：以視覺方式呈現內部部署機器的相依性，來建立最適合用於評估和移轉的機器群組。
@@ -216,7 +216,7 @@ Data Migration Assistant (DMA) 可協助 Contoso 了解內部部署資料庫是�
 
 Contoso 另有數個合作夥伴工具可協助其評估要移轉至 Azure 的內部部署環境。 [深入了解](https://azure.microsoft.com/migration/partners/) Azure 移轉合作夥伴。  
 
-## <a name="phase-2-migrate"></a>階段 2：遷移
+## <a name="phase-2-migrate"></a>第 2 階段：移轉
 
 評估完成後，Contoso 必須找出工具來將其應用程式、資料和基礎結構移至 Azure。 
 
@@ -289,8 +289,8 @@ Contoso 必須了解如何根據容量考量來部署這些元件。
 --- | ---
 **最大每日變動率** | 單一處理序伺服器可以處理多達 2 TB 的每日變動率。 由於一個 VM 只能使用一個處理序伺服器，所複寫 VM 支援的每日最大資料變動率會是 2 TB。
 **最大輸送量** | 標準 Azure 儲存體帳戶每秒可處理最多 20,000 個要求，複寫中 VM 的每秒輸入/輸出作業 (IOPS) 數應保持在此限制內。 例如，如果某個 VM 有 5 個磁碟，且該 VM 上的每個磁碟會產生 120 IOPS (8K 大小)，則它會保持在 Azure 的每個磁碟 IOPS 限制 (500) 內。<br/><br/> 請注意，所需的儲存體帳戶數目等於來源機器 IOPS 總數除以 20,000。 複寫的機器只能屬於 Azure 中的單一儲存體帳戶。
-**組態伺服器** | 根據 Contoso 所估計的一起複寫 100=200 VM 以及[組態伺服器調整大小需求](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server)，Contoso 估計值所需的組態伺服器機器如下：<br/><br/> CPU：16 個 vCPU (2 個通訊端 * 8 核心 @ 2.5 GHz)<br/><br/> 記憶體：32 GB<br/><br/> 快取磁碟：1 TB<br/><br/> 資料變動率：1 TB 至 2 TB。<br/><br/> 除了調整大小需求，Contoso 還必須確定該組態伺服器完美地位在和所要遷移 VM 相同的網路與 LAN 區段上。
-**處理序伺服器** | Contoso 會部署獨立的專用處理序伺服器，並使其能夠複寫 100 至 200 個 VM：<br/><br/> CPU：16 個 vCPU (2 個通訊端 * 8 核心 @ 2.5 GHz)<br/><br/> 記憶體：32 GB<br/><br/> 快取磁碟：1 TB<br/><br/> 資料變動率：1 TB 至 2 TB。<br/><br/> 處理序伺服器會竭力運作，因此其位置應該落在 ESXi 主機上，以便應付複寫所需的磁碟 I/O、網路流量和 CPU。 為此，Contoso 會考慮使用專用主機。 
+**組態伺服器** | 根據 Contoso 所估計的一起複寫 100=200 VM 以及[組態伺服器調整大小需求](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server)，Contoso 估計值所需的組態伺服器機器如下：<br/><br/> CPU：16 個 vCPU (2 個插槽 * 8 核心 @ 2.5GHz)<br/><br/> 記憶體：32 GB<br/><br/> 快取磁碟：1 TB<br/><br/> 資料變更率：1 TB 至 2 TB。<br/><br/> 除了調整大小需求，Contoso 還必須確定該組態伺服器完美地位在和所要遷移 VM 相同的網路與 LAN 區段上。
+**處理序伺服器** | Contoso 會部署獨立的專用處理序伺服器，並使其能夠複寫 100 至 200 個 VM：<br/><br/> CPU：16 個 vCPU (2 個插槽 * 8 核心 @ 2.5GHz)<br/><br/> 記憶體：32 GB<br/><br/> 快取磁碟：1 TB<br/><br/> 資料變更率：1 TB 至 2 TB。<br/><br/> 處理序伺服器會竭力運作，因此其位置應該落在 ESXi 主機上，以便應付複寫所需的磁碟 I/O、網路流量和 CPU。 為此，Contoso 會考慮使用專用主機。 
 **網路功能** | Contoso 已檢閱目前的站對站 VPN 基礎結構，並決定實作 Azure ExpressRoute。 此實作很重要，因為它會減少延遲，並提升通往 Contoso 主要美國東部 2 Azure 區域的頻寬。<br/><br/> **監視**：Contoso 將需要仔細監視來自處理序伺服器的資料。 如果資料負載超過網路頻寬處理能力，Contoso 會考慮[將處理序伺服器的頻寬節流](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth)。
 **Azure 儲存體** | 為了移轉，Contoso 必須識別目標 Azure 儲存體帳戶的正確類型和數目。  Site Recovery 會將 VM 資料複寫至 Azure 儲存體。<br/><br/> Site Recovery 可以複寫至標準或進階的 (SSD) 儲存體帳戶。<br/><br/> 為了決定儲存體，Contoso 必須檢閱[儲存體限制](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)，並考慮一段時間後的預期成長和使用量增加。 知道移轉速度和優先順序後，Contoso 決定使用進階儲存體帳戶。<br/><br/> 他們會在移轉程序期間建立並重複使用多個儲存體帳戶。
 Contoso 已決定對部署至 Azure 的所有 VM 使用受控磁碟。  所需的 IOPS 將會決定磁碟會是標準 (HDD) 還是進階 (SSD)。<br/>.<br/>

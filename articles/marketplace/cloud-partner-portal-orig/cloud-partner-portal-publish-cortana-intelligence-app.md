@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74cde720af012b3355b813cf6da2b2bdf10b9b8e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a6357640ceeb7c5f1bde4eea85aa5265990935f4
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257202"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157151"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>使用 Cloud Partner 入口網站發行 Cortana Intelligence 供應項目
 
@@ -68,7 +68,7 @@ Cloud Partner 入口網站支援對該入口網站進行角色型存取，讓參
 >[!Note]
 >供應項目上架後，此欄位便會鎖定。
 
-### <a name="name"></a>名稱
+### <a name="name"></a>Name
 
 您供應項目的顯示名稱。 此名稱會顯示在 [AppSource](https://appsource.microsoft.com) 中。 它最多不能超過 50 個字元。
 
@@ -126,7 +126,7 @@ Cloud Partner 入口網站支援對該入口網站進行角色型存取，讓參
 3. [開始錄製](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232)
 4. 在您停止錄製後，[使用錄製管理員來發佈您的錄製影片](https://support.office.com/article/Recording-Manager-save-and-publish-59a3beb7-c700-40cf-ab21-bc82a2b06351)
 
-將錄製的影片上傳至服務，讓您能夠產生共用的 URL。 例如，[OneDrive 或 Sharepoint 中的來賓連結](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232) \(機器翻譯\)。
+將錄製的影片上傳至服務，讓您能夠產生共用的 URL。 例如，[OneDrive 或 Sharepoint 中的來賓連結](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232)。
 
 ### <a name="supported-regions"></a>支援區域
 
@@ -292,7 +292,7 @@ Cloud Partner 入口網站支援對該入口網站進行角色型存取，讓參
 
 選取將儲存您潛在客戶的 CRM 系統。 
 
-如果您使用這其中一個 CRM 系統，請選取 [Azure 資料表]： Salesforce、Marketo 或 Microsoft Dynamics CRM。 
+如果您使用下列其中一個 CRM 系統，請選取 [Azure 資料表]：Salesforce、Marketo 或 Microsoft Dynamics CRM。 
 
 若要取得您想要使用的 CRM 系統詳細資訊，請選取下列其中一個支援系統的連結。
 

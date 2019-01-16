@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: e5c5d1a3e0316c96a6df7e01e6d6796d6a72506a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853824"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159021"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -26,7 +26,7 @@ ms.locfileid: "51853824"
 
 以下是單一邏輯應用程式定義的限制：
 
-| 名稱 | 限制 | 注意 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 每個工作流程的動作數目 | 500 | 若要延伸此限制，您可以視需要新增巢狀工作流程。 |
 | 允許的動作巢狀深度 | 8 | 若要延伸此限制，您可以視需要新增巢狀工作流程。 | 
@@ -48,7 +48,7 @@ ms.locfileid: "51853824"
 
 以下是單一邏輯應用程式執行的限制：
 
-| 名稱 | 限制 | 注意 | 
+| Name | 限制 | 注意 | 
 |------|-------|-------| 
 | 執行持續時間 | 90 天 | 若要變更此限制，請參閱[變更執行持續時間](#change-duration)。 | 
 | 儲存體保留期 | 從執行開始時間算起 90 天 | 若要將此值的限制變更為介於 7 天到 90 天之間，請參閱[變更儲存保留](#change-retention)。 | 
@@ -83,12 +83,12 @@ ms.locfileid: "51853824"
 
 以下是單一邏輯應用程式執行的限制：
 
-| 名稱 | 限制 | 注意 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
-| 觸發程序並行 | 50 | 預設限制是 20 個。 此限制描述可以同時 (或稱「平行」) 執行的邏輯應用程式執行個體數目上限。 <p><p>若要將預設限制變更為介於 1 到 50 個之間 (含 1 與 50)，請參閱[變更觸發程序並行](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency)或[循序觸發執行個體](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)。 | 
-| 最大等候執行數 | 100 | 預設限制是 10 個。 此限制描述當您的邏輯應用程式準備執行並行執行個體數目上限時，可以等候執行的邏輯應用程式執行個體數目上限。 <p><p>若要將預設限制變更為介於 0 到 100 之間的值 (包含 0 與 100)，請參閱[變更等候執行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)。 | 
-| Foreach 項目 | 100,000 | 此限制描述 "for each" 迴圈可以處理的陣列項目數目上限。 <p><p>若要篩選較大的陣列，您可以使用[查詢動作](../connectors/connectors-native-query.md)。 | 
-| Foreach 反覆項目 | 50 | 預設限制是 20 個。 此限制描述可以同時 (或稱「平行」) 執行的 "for each" 迴圈反覆項目數目上限。 <p><p>若要將預設限制變更為介於 1 到 50 個之間 (含 1 與 50)，請參閱[變更 "for each" 並行](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency)或[循序執行 "for each" 迴圈](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)。 | 
+| 觸發程序並行 | 50 (當您限制並行時) | 當您開啟觸發程序的並行控制時，預設限制為 25。 此限制描述可以同時 (或稱「平行」) 執行的邏輯應用程式執行個體數目上限。 <p><p>若要將預設限制變更為介於 1 到 50 個之間 (含 1 與 50)，請參閱[變更觸發程序並行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency)或[循序觸發執行個體](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)。 | 
+| 最大等候執行數 | 100 (當您限制並行時) | 當您開啟觸發程序的並行控制時，預設限制為 10。 此限制描述當您的邏輯應用程式準備執行並行執行個體數目上限時，可以等候執行的邏輯應用程式執行個體數目上限。 <p><p>若要將預設限制變更為介於 0 到 100 之間的值 (包含 0 與 100)，請參閱[變更等候執行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)。 | 
+| Foreach 陣列項目 | 100,000 | 此限制描述 "for each" 迴圈可以處理的陣列項目數目上限。 <p><p>若要篩選較大的陣列，您可以使用[查詢動作](../connectors/connectors-native-query.md)。 | 
+| Foreach 並行 | 50 (當您限制並行時) | 當您開啟此迴圈的並行控制時，預設限制為 20。 此限制描述可以同時 (或稱「平行」) 執行的 "for each" 迴圈反覆項目數目上限。 <p><p>若要將預設限制變更為介於 1 到 50 個之間 (含 1 與 50)，請參閱[變更 "for each" 並行限制](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency)或[循序執行 "for each" 迴圈](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)。 | 
 | SplitOn 項目 | 100,000 | | 
 | 反覆運算之前 | 5,000 | | 
 |||| 
@@ -99,13 +99,13 @@ ms.locfileid: "51853824"
 
 以下是單一邏輯應用程式執行的限制：
 
-| 名稱 | 限制 | 注意 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 動作：每 5 分鐘執行次數 | 300,000 | 預設限制是 100,000 個。 若要變更預設限制，請參閱[以「輸送量」模式執行您的邏輯應用程式](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) (此為預覽版)。 或者，您可以視需要將工作負載分散到多個邏輯應用程式。 | 
 | 動作：並行連出呼叫數目 | ~2,500 | 您可以視需要減少並行要求數目或縮短持續時間。 | 
-| 執行階段端點：並行連入呼叫 | ~1,000 | 您可以視需要減少並行要求數目或縮短持續時間。 | 
-| 執行階段端點：每隔 5 分鐘讀取一次呼叫  | 60,000 | 您可以視需要將工作負載分散到多個應用程式。 | 
-| 執行階段端點：每隔 5 分鐘叫用一次呼叫 | 45,000 | 您可以視需要將工作負載分散到多個應用程式。 | 
+| 執行階段端點：並行連入呼叫數目 | ~1,000 | 您可以視需要減少並行要求數目或縮短持續時間。 | 
+| 執行階段端點：每 5 分鐘讀取呼叫數目  | 60,000 | 您可以視需要將工作負載分散到多個應用程式。 | 
+| 執行階段端點：每 5 分鐘叫用呼叫數目 | 45,000 | 您可以視需要將工作負載分散到多個應用程式。 | 
 | 每 5 分鐘的內容輸送量 | 600 MB | 您可以視需要將工作負載分散到多個應用程式。 | 
 |||| 
 
@@ -117,11 +117,11 @@ ms.locfileid: "51853824"
 
 ### <a name="file-size"></a>檔案大小
 
-| 名稱 | 限制 | 注意 |
+| Name | 限制 | 注意 |
 |------|-------|-------|
-| FTP | 50 MB | 若要解決此限制，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 | 
-| SFTP | 50 MB | 若要解決此限制，請使用 [SFTP-SSH 連接器](../connectors/connectors-sftp-ssh.md)或請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 | 
-| SFTP-SSH | 1 GB | 若要解決此限制，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 | 
+| FTP | 50 MB | 若要超過此限制，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 | 
+| SFTP | 50 MB | 若要超過此限制，請使用 [SFTP-SSH 連接器](../connectors/connectors-sftp-ssh.md)或請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 | 
+| SFTP-SSH | 1 GB | 若要超過此限制，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 | 
 |||| 
 
 <a name="request-limits"></a>
@@ -134,7 +134,7 @@ ms.locfileid: "51853824"
 
 某些連接器作業會進行非同步呼叫或接聽 Webhook 要求，因此這些作業的逾時可能會超過這些限制。 如需詳細資訊，請參閱特定連接器的技術詳細資料以及[工作流程觸發程序和動作](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)。
 
-| 名稱 | 限制 | 注意 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 傳出的要求 | 120 秒 | 對於執行時間較久的作業，請使用[非同步輪詢模式](../logic-apps/logic-apps-create-api-app.md#async-pattern)或 [until 迴圈](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)。 | 
 | 同步回應 | 120 秒 | 為了讓原始要求取得回應，除非您以巢狀工作流程的形式呼叫另一個邏輯應用程式，否則回應中的所有步驟都必須在限制時間內完成。 如需詳細資訊，請參閱[呼叫、觸發或巢狀邏輯應用程式](../logic-apps/logic-apps-http-endpoint.md)。 | 
@@ -151,7 +151,7 @@ ms.locfileid: "51853824"
 
 #### <a name="retry-policy"></a>重試原則
 
-| 名稱 | 限制 | 注意 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 重試次數 | 90 | 預設值為 4。 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 | 
 | 重試延遲上限 | 1 天 | 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 | 
@@ -164,7 +164,7 @@ ms.locfileid: "51853824"
 
 以下限制適用於可透過 Web API 來建立的自訂連接器。
 
-| 名稱 | 限制 | 
+| Name | 限制 | 
 | ---- | ----- | 
 | 自訂連接器的數目 | 每個 Azure 訂用帳戶 1,000 個 | 
 | 自訂連接器所建立之每個連線的每分鐘要求數目 | 每個連線 500 個要求 |
@@ -174,7 +174,7 @@ ms.locfileid: "51853824"
 
 ## <a name="managed-identities"></a>受控身分識別
 
-| 名稱 | 限制 | 
+| Name | 限制 | 
 | ---- | ----- | 
 | 每個 Azure 訂用帳戶都有系統指派受控識別的邏輯應用程式數目。 | 10 | 
 |||
@@ -234,14 +234,14 @@ ms.locfileid: "51853824"
 
 ### <a name="artifact-capacity-limits"></a>成品容量限制
 
-| 名稱 | 限制 | 注意 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | 結構描述 | 8 MB | 若要上傳超過 2 MB 的檔案，請使用 [Blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md)。 | 
 | 對應 (XSLT 檔案) | 2 MB | | 
-| 執行階段端點：每隔 5 分鐘讀取一次呼叫 | 60,000 | 您可以視需要將工作負載分散到多個帳戶。 | 
-| 執行階段端點：每隔 5 分鐘叫用一次呼叫 | 45,000 | 您可以視需要將工作負載分散到多個帳戶。 | 
-| 執行階段端點：每隔 5 分鐘追蹤一次呼叫 | 45,000 | 您可以視需要將工作負載分散到多個帳戶。 | 
-| 執行階段端點：封鎖並行呼叫 | ~1,000 | 您可以視需要減少並行要求數目或縮短持續時間。 | 
+| 執行階段端點：每 5 分鐘讀取呼叫數目 | 60,000 | 您可以視需要將工作負載分散到多個帳戶。 | 
+| 執行階段端點：每 5 分鐘叫用呼叫數目 | 45,000 | 您可以視需要將工作負載分散到多個帳戶。 | 
+| 執行階段端點：每 5 分鐘追蹤呼叫數目 | 45,000 | 您可以視需要將工作負載分散到多個帳戶。 | 
+| 執行階段端點：封鎖並行呼叫數目 | ~1,000 | 您可以視需要減少並行要求數目或縮短持續時間。 | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>
@@ -250,7 +250,7 @@ ms.locfileid: "51853824"
 
 以下是適用於 B2B 通訊協定的限制：
 
-| 名稱 | 限制 | 注意 | 
+| Name | 限制 | 注意 | 
 | ---- | ----- | ----- | 
 | AS2 | 50 MB | 適用於解碼和編碼 | 
 | X12 | 50 MB | 適用於解碼和編碼 | 
@@ -259,7 +259,7 @@ ms.locfileid: "51853824"
 
 <a name="configuration"></a>
 
-## <a name="configuration-ip-addresses"></a>設定：IP 位址
+## <a name="configuration-ip-addresses"></a>組態:IP 位址
 
 ### <a name="azure-logic-apps-service"></a>Azure Logic Apps 服務
 

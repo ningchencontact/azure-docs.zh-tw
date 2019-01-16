@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: ac80cd5ee1c530736666338e8bc3763b110c688c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388250"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191440"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure 中的 Web Apps 相關開放原始碼技術常見問題集
 
@@ -46,7 +46,7 @@ ms.locfileid: "53388250"
 11. 將文字變更為下列程式碼：
    ```php
    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
    ```
 12. 在 Azure 入口網站的 Web 應用程式功能表中，重新啟動 Web 應用程式。
 
@@ -219,4 +219,4 @@ WordPress Buddy+ 是 Azure 網站擴充功能，可讓您直接在資料庫中�
 
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>我嘗試使用 PHPMyadmin 匯入或匯出應用程式內 MySQL 資料庫時，出現 HTTP 403 錯誤。 如何解決這個問題？
 
-如果您使用舊版 Chrome，您可能會遇到已知的錯誤。 若要解決此問題，請升級為新版 Chrome。 也請嘗試使用無此問題的不同瀏覽器，例如 Internet Explorer 或 Edge。
+如果您使用舊版 Chrome，您可能會遇到已知的錯誤。 若要解決此問題，請升級為新版 Chrome。 也請嘗試使用無此問題的不同瀏覽器，例如 Internet Explorer 或 Microsoft Edge。

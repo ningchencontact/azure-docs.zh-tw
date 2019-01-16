@@ -3,28 +3,28 @@ title: 新增會重複動作或處理陣列的迴圈 - Azure Logic Apps | Micros
 description: 如何在 Azure Logic Apps 中建立會重複工作流程動作或處理陣列的迴圈
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 5ba5e5abef4ebdc58c44cbe7f5ba584efe8abfc7
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+manager: jeconnoc
+ms.date: 01/05/2019
+ms.topic: article
+ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233101"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159480"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立會重複工作流程動作或處理陣列的迴圈
 
-若要逐一查看邏輯應用程式中的陣列，您可以使用  [Foreach](#foreach-loop) 迴圈 或循序  [Foreach 迴圈](#sequential-foreach-loop)。 標準  "Foreach" 迴圈中的反覆項目會平行執行，而循序  "Foreach" 迴圈中的反覆項目為每次執行一個。 如需 "Foreach" 迴圈在單一邏輯應用程式中可處理的陣列項目數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。 
+若要處理邏輯應用程式中的陣列，您可以建立 ["Foreach" 迴圈](#foreach-loop)。 這個迴圈會對陣列中的每個項目重複執行一或多個動作。 如需 "Foreach" 迴圈可處理的陣列項目數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。 
 
-> [!TIP] 
-> 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 **SplitOn** 觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」[。 
-  
-若要重複動作直到條件符合或某些狀態改變，請使用 ["Until" 迴圈](#until-loop)。 邏輯應用程式會先執行迴圈內所有動作，然後將檢查條件當作最後一個步驟。 如果符合條件，則迴圈會停止。 否則，迴圈會重複。 如需單一邏輯應用程式中可執行的 "Until" 迴圈數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。 
+若要重複執行動作直到條件符合或狀態改變，您可以建立 ["Until" 迴圈](#until-loop)。 邏輯應用程式會執行迴圈內的所有動作，然後檢查條件或狀態。 如果符合條件，則迴圈會停止。 否則，迴圈會重複。 如需一個邏輯應用程式回合中可擁有的 "Until" 迴圈數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。 
+
+> [!TIP]
+> 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 [**SplitOn** 觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -36,21 +36,31 @@ ms.locfileid: "50233101"
 
 ## <a name="foreach-loop"></a>"Foreach" 迴圈
 
-若要針對陣列中每個項目重複動作，可在您的邏輯應用程式工作流程中使用 "Foreach" 迴圈。 您可以在 "Foreach" 迴圈中包含多個動作，並且可以使 "Foreach" 迴圈在彼此之中巢狀化。 根據預設，標準 "Foreach" 迴圈中的循環會平行執行。 如需 "Foreach" 迴圈可平行執行的循環數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。
+"Foreach" 迴圈會對每個陣列項目重複執行一或多個動作，且只能在陣列上運作。 "Foreach" 迴圈中的反覆項目會平行執行。 不過，您可以設定[循序的 "Foreach" 迴圈](#sequential-foreach-loop)，一次執行一個反覆項目。 
 
-> [!NOTE] 
-> "Foreach" 迴圈只適用於陣列，而且迴圈中的動作會使用 `@item()` 參考來處理陣列中的每個項目。 如果您指定的資料不是在陣列中，則邏輯應用程式工作流程將會失敗。 
+以下是使用 "Foreach" 迴圈時的一些考量：
 
-例如，此邏輯應用程式會從網站的 RSS 摘要傳送每日摘要給您。 應用程式會使用 "Foreach" 迴圈，針對每個找到的新項目傳送電子郵件。
+* 在巢狀迴圈中，反覆項目一律會循序執行，而不會平行執行。 若要針對巢狀迴圈中的項目平行執行作業，請建立和[呼叫子系邏輯應用程式](../logic-apps/logic-apps-http-endpoint.md)。
+
+* 若要在每個迴圈反覆項目的執行期間，從針對變數所執行的作業獲得可預測的結果，請循序執行這些迴圈。 例如，當並行執行的迴圈結束時，遞增、遞減和附加至變數的作業會傳回可預測的結果。 不過，在並行執行迴圈中的每個反覆項目執行期間，這些作業可能會傳回無法預測的結果。 
+
+* "Foreach" 迴圈中的動作會使用 [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 運算式來參考和處理陣列中的每個項目。 
+expression to reference and process each item in the array. 如果您指定的資料不是在陣列中，則邏輯應用程式工作流程將會失敗。 
+
+此範例邏輯應用程式會傳送網站 RSS 摘要的每日摘要。 此應用程式會使用 "Foreach" 迴圈，針對每個新項目傳送電子郵件。
 
 1. 使用 Outlook.com 或 Office 365 Outlook 帳戶來[建立此範例邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 2. 在 RSS 觸發程序和傳送電子郵件動作之間，新增 "Foreach" 迴圈。 
 
-   若要在步驟之間新增迴圈，請將指標移至您要新增迴圈的箭號上。 
-   選擇顯示的 **加號** \(**+** \)，然後選擇 [新增 for each]。
+   1. 若要在步驟之間新增迴圈，請將滑鼠指標移至這些步驟之間的箭號上。 
+   選擇所顯示的**加號** (**+**)，然後選取 [新增動作]。
 
-   ![在兩個步驟之間新增 "Foreach" 迴圈](media/logic-apps-control-flow-loops/add-for-each-loop.png)
+      ![選取 [新增動作]](media/logic-apps-control-flow-loops/add-for-each-loop.png)
+
+   1. 在搜尋方塊下方，選擇 [全部]。 在搜尋方塊中，輸入 "for each" 作為篩選條件。 從 [動作] 清單中，選取此動作：**For each - 控制**
+
+      ![新增 "For each" 迴圈](media/logic-apps-control-flow-loops/select-for-each.png)
 
 3. 現在建置迴圈。 當**新增動態內容**清單出現後，在 [從上一個步驟中選取輸出] 下，選取 [摘要連結] 陣列，這是來自 RSS 觸發程序的輸出。 
 
@@ -63,7 +73,7 @@ ms.locfileid: "50233101"
 
    ![選取陣列](media/logic-apps-control-flow-loops/for-each-loop-select-array.png)
 
-4. 若要在每個陣列項目上執行動作，請將 [傳送電子郵件] 動作拖曳至 **For each** 迴圈。 
+4. 若要對每個陣列項目執行動作，請將 [傳送電子郵件] 動作拖曳至迴圈。 
 
    您的邏輯應用程式看起來可能就像下面這個範例︰
 
@@ -79,86 +89,90 @@ ms.locfileid: "50233101"
 
 ``` json
 "actions": {
-    "myForEachLoopName": {
-        "type": "Foreach",
-        "actions": {
-            "Send_an_email": {
-                "type": "ApiConnection",
-                "inputs": {
-                    "body": {
-                        "Body": "@{item()}",
-                        "Subject": "New CNN post @{triggerBody()?['publishDate']}",
-                        "To": "me@contoso.com"
-                    },
-                    "host": {
-                        "api": {
-                            "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
-                        },
-                        "connection": {
-                            "name": "@parameters('$connections')['office365']['connectionId']"
-                        }
-                    },
-                    "method": "post",
-                    "path": "/Mail"
-                },
-                "runAfter": {}
-            }
-        },
-        "foreach": "@triggerBody()?['links']",
-        "runAfter": {},
-    }
-},
+   "myForEachLoopName": {
+      "type": "Foreach",
+      "actions": {
+         "Send_an_email": {
+            "type": "ApiConnection",
+            "inputs": {
+               "body": {
+                  "Body": "@{item()}",
+                  "Subject": "New CNN post @{triggerBody()?['publishDate']}",
+                  "To": "me@contoso.com"
+               },
+               "host": {
+                  "api": {
+                     "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
+                  },
+                  "connection": {
+                     "name": "@parameters('$connections')['office365']['connectionId']"
+                  }
+               },
+               "method": "post",
+               "path": "/Mail"
+            },
+            "runAfter": {}
+         }
+      },
+      "foreach": "@triggerBody()?['links']",
+      "runAfter": {}
+   }
+}
 ```
 
 <a name="sequential-foreach-loop"></a>
 
 ## <a name="foreach-loop-sequential"></a>"Foreach" 迴圈：循序
 
-根據預設，"Foreach" 迴圈中的每個循環會針對每個陣列項目平行執行。 若要以循序方式執行每個循環，可在 "Foreach"迴圈中設定 [循序] 選項。
+根據預設，"Foreach" 迴圈中的循環會平行執行。 若要以循序方式執行每個循環，請設定迴圈的 [循序] 選項。 如果您在預期要有可預測結果的迴圈內部具有巢狀迴圈或變數，"Foreach" 迴圈就必須循序執行。 
 
 1. 在迴圈的右上角，選擇**省略符號** (**...**) > [設定]。
 
    ![在 "Foreach" 迴圈上，選擇 [...] > [設定]](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-2. 開啟 [循序] 設定，然後選擇 [完成]。
+1. 在 [並行控制] 底下，將 [並行控制] 設定改為 [開啟]。 將 [平行處理原則的程度] 滑桿移至 **1**，然後選擇 [完成]。
 
-   ![開啟 "Foreach" 迴圈的循序設定](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
+   ![開啟並行控制](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
-您也可以在邏輯應用程式的 JSON 定義中，將 **operationOptions** 參數設定為 `Sequential`。 例如︰
+如果您要處理邏輯應用程式的 JSON 定義，您可以藉由新增 `operationOptions` 參數來使用 `Sequential` 選項，例如：
 
 ``` json
 "actions": {
-    "myForEachLoopName": {
-        "type": "Foreach",
-        "actions": {
-            "Send_an_email": {               
-            }
-        },
-        "foreach": "@triggerBody()?['links']",
-        "runAfter": {},
-        "operationOptions": "Sequential"
-    }
-},
+   "myForEachLoopName": {
+      "type": "Foreach",
+      "actions": {
+         "Send_an_email": { }
+      },
+      "foreach": "@triggerBody()?['links']",
+      "runAfter": {},
+      "operationOptions": "Sequential"
+   }
+}
 ```
 
 <a name="until-loop"></a>
 
 ## <a name="until-loop"></a>"Until" 迴圈
   
-若要重複動作直到條件符合或某些狀態改變，請在邏輯應用程式工作流程中使用 "Until" 迴圈。 以下是可以使用 "Until" 迴圈的一些常見使用案例：
+若要重複執行動作直到條件符合或狀態改變，請將這些動作放入 "Until" 迴圈。 以下是可以使用 "Until" 迴圈的一些常見案例：
 
-* 呼叫端點，直到您獲得您想要的回應。
-* 在資料庫中建立一筆記錄，等到該記錄中的特定欄位獲得核准，然後繼續處理。 
+* 呼叫端點，直到您獲得想要的回應。
 
-例如，每天上午 8:00，此邏輯應用程式會遞增變數，直到變數的值等於 10。 接著，邏輯應用程式傳送用來確認目前值的電子郵件。 雖然此範例使用 Office 365 Outlook，但您可以使用 Logic Apps 支援的任何電子郵件提供者 ([在此檢閱連接器清單](https://docs.microsoft.com/connectors/))。 如果您使用另一個電子郵件帳戶，則整體步驟相同，但您的 UI 可能稍有不同。 
+* 在資料庫中建立記錄。 等到該記錄中的特定欄位獲得核准。 繼續處理。 
 
-1. 建立空白邏輯應用程式。 在邏輯應用程式設計工具中，搜尋「週期」，並選取此觸發程序：**排程 - 週期** 
+從每天上午 8:00 開始，此範例邏輯應用程式會遞增變數，直到變數的值等於 10。 接著，此邏輯應用程式會傳送用來確認目前值的電子郵件。 
 
-   ![新增「排程 - 週期」觸發程序](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
+> [!NOTE]
+> 這些步驟會使用 Office 365 Outlook 來進行，但您也可以使用 Logic Apps 支援的任何電子郵件提供者。 
+> [請參考這裡的連接器清單](https://docs.microsoft.com/connectors/)。 如果您使用其他電子郵件帳戶，整體步驟將維持不變，但您的 UI 外觀可能會略有不同。 
 
-2. 透過設定時間間隔、頻率和一天的小時來指定觸發程序引發的時間。 若要設定小時，請選擇 [顯示進階選項]。
+1. 建立空白邏輯應用程式。 在邏輯應用程式設計工具中的搜尋方塊底下，選擇 [全部]。 搜尋「週期」。 從觸發程序清單中，選取此觸發程序：**週期 - 排程**
 
-   ![新增「排程 - 週期」觸發程序](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
+   ![新增「週期 - 排程」觸發程序](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
+
+1. 透過設定時間間隔、頻率和一天的小時來指定觸發程序引發的時間。 若要設定小時，請選擇 [顯示進階選項]。
+
+   ![設定週期排程](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
    | 屬性 | 值 |
    | -------- | ----- |
@@ -167,11 +181,11 @@ ms.locfileid: "50233101"
    | **在這幾小時內** | 8 |
    ||| 
 
-3. 在觸發程序底下，選擇 **新增步驟** > **新增動作**。 搜尋「變數」，然後選取此動作：**變數 - 初始化變數**
+1. 在觸發程序下方，選擇 [新增步驟]。 搜尋「變數」，然後選取此動作：**初始化變數 - 變數**
 
-   ![新增 [變數 - 初始化變數] 動作](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
+   ![新增「初始化變數 - 變數」動作](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
-4. 使用下列值來設定您的變數：
+1. 使用下列值來設定您的變數：
 
    ![設定變數屬性](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
@@ -182,27 +196,35 @@ ms.locfileid: "50233101"
    | **值** | 0 | 變數的起始值 | 
    |||| 
 
-5. 在 [初始化變數] 動作下，選擇 [新增步驟] > [更多]。 選取此迴圈：**新增 do until**
+1. 在 [初始化變數] 動作下，選擇 [新增步驟]。 
 
-   ![新增 "do until" 迴圈](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
+1. 在搜尋方塊下方，選擇 [全部]。 搜尋 "Until"，然後選取此動作：**Until - 控制**
 
-6. 選取**限制**變數和**等於**運算子，可建置迴圈的結束條件。 輸入 **10** 作為比較值。
+   ![新增 "Until" 迴圈](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
+
+1. 選取**限制**變數和**等於**運算子，可建置迴圈的結束條件。 輸入 **10** 作為比較值。
 
    ![建置停止迴圈的結束條件](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
-7. 在迴圈中，選擇 [新增動作]。 搜尋「變數」，然後新增此動作：[變數 - 遞增變數]
+1. 在迴圈中，選擇 [新增動作]。 
+
+1. 在搜尋方塊下方，選擇 [全部]。 搜尋「變數」，然後選取此動作：**遞增變數 - 變數**
 
    ![新增遞增變數的動作](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-8. 針對 [名稱]，選取**限制**變數。 針對 [值]，輸入 "1"。 
+1. 針對 [名稱]，選取**限制**變數。 針對 [值]，輸入 "1"。 
 
    ![以 1 遞增 [限制]](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
-9. 在迴圈之下 (但不是在迴圈內)，新增傳送電子郵件的動作。 如果出現提示，請登入您的電子郵件帳戶。
+1. 在迴圈外部底下，選擇 [新增步驟]。 
+
+1. 在搜尋方塊下方，選擇 [全部]。 尋找並新增會傳送電子郵件的動作，例如： 
 
    ![新增傳送電子郵件的動作](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
-10. 設定電子郵件的內容。 在主旨上新增**限制**變數。 這樣一來，您可以確認變數的目前值符合您指定的條件，例如：
+1. 如果出現提示，請登入您的電子郵件帳戶。
+
+1. 設定電子郵件動作的屬性。 在主旨上新增**限制**變數。 這樣一來，您可以確認變數的目前值符合您指定的條件，例如：
 
     ![設定電子郵件內容](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
@@ -213,7 +235,7 @@ ms.locfileid: "50233101"
     | **內文** | <*email-content*> | 指定您想要傳送的電子郵件訊息內容。 針對此範例，輸入任何您喜歡的文字。 | 
     |||| 
 
-11. 儲存您的邏輯應用程式。 若要手動測試邏輯應用程式，在設計工具的工具列上，選擇 [執行]。
+1. 儲存您的邏輯應用程式。 若要手動測試邏輯應用程式，在設計工具的工具列上，選擇 [執行]。
 
     當您的邏輯開始執行之後，您會收到電子郵件及您指定的內容：
 
@@ -225,8 +247,8 @@ ms.locfileid: "50233101"
 
 | 屬性 | 預設值 | 說明 | 
 | -------- | ------------- | ----------- | 
-| **Count** | 60 | 迴圈結束前可執行的迴圈數上限。 預設為 60 個循環。 | 
-| **逾時** | PT1H | 迴圈結束前可執行迴圈的時間上限。 預設值是一小時，並以 ISO 8601 格式指定。 <p>逾時值的評估會以每個迴圈循環為基礎。 如果迴圈中有任何動作所花費的時間超過逾時限制，目前的循環並不會停止，但不會啟動下一個循環，因為不符合限制條件。 | 
+| **Count** | 60 | 迴圈結束前可執行的最高迴圈數。 預設為 60 個循環。 | 
+| **逾時** | PT1H | 迴圈結束前可執行迴圈的最大時間。 預設值是一小時，並以 ISO 8601 格式指定。 <p>逾時值的評估會以每個迴圈循環為基礎。 如果迴圈中有任何動作所花費的時間超過逾時限制，目前的循環並不會停止。 但不會啟動下一個循環，因為不符合限制條件。 | 
 |||| 
 
 若要變更這些預設限制，請選擇迴圈動作圖形中的 [顯示進階選項]。
@@ -239,73 +261,74 @@ ms.locfileid: "50233101"
 
 ``` json
 "actions": {
-    "Initialize_variable": {
-        // Definition for initialize variable action
-    },
-    "Send_an_email": {
-        // Definition for send email action
-    },
-    "Until": {
-        "type": "Until",
-        "actions": {
-            "Increment_variable": {
-                "type": "IncrementVariable",
-                "inputs": {
-                    "name": "Limit",
-                    "value": 1
-                },
-                "runAfter": {}
-            }
-        },
-        "expression": "@equals(variables('Limit'), 10)",
-        // To prevent endless loops, an "Until" loop 
-        // includes these default limits that stop the loop. 
-        "limit": { 
-            "count": 60,
-            "timeout": "PT1H"
-        },
-        "runAfter": {
-            "Initialize_variable": [
-                "Succeeded"
-            ]
-        },
-    }
-},
+   "Initialize_variable": {
+      // Definition for initialize variable action
+   },
+   "Send_an_email": {
+      // Definition for send email action
+   },
+   "Until": {
+      "type": "Until",
+      "actions": {
+         "Increment_variable": {
+            "type": "IncrementVariable",
+            "inputs": {
+               "name": "Limit",
+               "value": 1
+            },
+            "runAfter": {}
+         }
+      },
+      "expression": "@equals(variables('Limit'), 10)",
+      // To prevent endless loops, an "Until" loop 
+      // includes these default limits that stop the loop. 
+      "limit": { 
+         "count": 60,
+         "timeout": "PT1H"
+      },
+      "runAfter": {
+         "Initialize_variable": [
+            "Succeeded"
+         ]
+      }
+   }
+}
 ```
 
-在另一個範例中，此 "Until" 迴圈會呼叫建立資源的 HTTP 端點，並在 HTTP 回應主體傳回「完成」狀態時停止執行。 若要避免無止盡迴圈，迴圈也會在達到下列任一條件時停止：
+此範例 "Until" 迴圈會呼叫 HTTP 端點，這會建立資源。 當 HTTP 回應本文傳回且狀態為 `Completed` 時，迴圈就會停止。 若要避免無止盡迴圈，迴圈也會在達到下列任一條件時停止：
 
-* 迴圈已依循 `count` 屬性所指定的內容執行了 10 次。 預設值為 60 次。 
-* 迴圈已依循 `timeout` 屬性所指定的內容 (ISO 8601 格式) 嘗試執行兩個小時。 預設值是一小時。
+* 迴圈已依 `count` 屬性所指定的值執行了 10 次。 預設值為 60 次。 
+
+* 迴圈已依 `timeout` 屬性所指定的值 (ISO 8601 格式) 執行了兩個小時。 預設值是一小時。
   
 ``` json
 "actions": {
-    "myUntilLoopName": {
-        "type": "Until",
-        "actions": {
-            "Create_new_resource": {
-                "type": "Http",
-                "inputs": {
-                    "body": {
-                        "resourceId": "@triggerBody()"
-                    },
-                    "url": "https://domain.com/provisionResource/create-resource",
-                    "body": {
-                        "resourceId": "@triggerBody()"
-                    }
-                },
-                "runAfter": {},
-                "type": "ApiConnection"
-            }
-        },
-        "expression": "@equals(triggerBody(), 'Completed')",
-        "limit": {
-            "count": 10,
-            "timeout": "PT2H"
-        },
-        "runAfter": {}
-    }
-},
+   "myUntilLoopName": {
+      "type": "Until",
+      "actions": {
+         "Create_new_resource": {
+            "type": "Http",
+            "inputs": {
+               "body": {
+                  "resourceId": "@triggerBody()"
+               },
+               "url": "https://domain.com/provisionResource/create-resource",
+               "body": {
+                  "resourceId": "@triggerBody()"
+               }
+            },
+            "runAfter": {},
+            "type": "ApiConnection"
+         }
+      },
+      "expression": "@equals(triggerBody(), 'Completed')",
+      "limit": {
+         "count": 10,
+         "timeout": "PT2H"
+      },
+      "runAfter": {}
+   }
+}
 ```
 
 ## <a name="get-support"></a>取得支援

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 425c3a351c75c63cb07df66d6122f4d900b4932e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e5ac04c7bd8174f823cacc67401af8a98b3d8170
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429757"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186476"
 ---
 # <a name="analyze-in-excel"></a>使用 Excel 分析
 
@@ -21,10 +21,10 @@ ms.locfileid: "49429757"
   
 若要完成本這堂課，就必須將 Excel 安裝在 Visual Studio 所在的同一台電腦。
   
-這堂課的預估完成時間：**5 分鐘**  
+這堂課的預估完成時間：**五分鐘**  
   
 ## <a name="prerequisites"></a>必要條件  
-本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 11 課︰建立角色](../tutorials/aas-lesson-11-create-roles.md)。  
+本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 11 課：建立角色](../tutorials/aas-lesson-11-create-roles.md)。  
   
 ## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>使用 [預設] 和 [網際網路銷售] 檢視方塊來瀏覽  
 在這些首要工作中，您將會使用 [預設] 檢視方塊 (包含所有模型物件) 來瀏覽模型，也會使用您稍早建立的 [網際網路銷售] 檢視方塊來瀏覽模型。 [網際網路銷售] 檢視方塊會排除 Customer 資料表物件。  
@@ -69,7 +69,7 @@ ms.locfileid: "49429757"
 3.  關閉 Excel 而不儲存活頁簿。  
   
 ## <a name="whats-next"></a>後續步驟
-移至下一個課程︰[第 13 課︰部署](../tutorials/aas-lesson-13-deploy.md)。
+移至下一個課程︰[第 13 課：部署](../tutorials/aas-lesson-13-deploy.md)。
 
   
   
