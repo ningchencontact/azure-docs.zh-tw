@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 140c92d260ac6423127e478e304cbebcf9c42124
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 27686cf036f69a9a4597c499e9b8b7d66d77e1e9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144812"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019668"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的 Liquid 範本執行進階的 JSON 轉換
 
@@ -34,7 +34,7 @@ ms.locfileid: "42144812"
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>為您的企業整合帳戶建立 Liquid 範本或對應
 
 1. 在此範例中，您會建立此步驟中描述的 Liquid 範本範例。
-如果您想要在 Liquid 範本中使用任何篩選，請確定這些篩選以大寫字母開頭。 深入了解 [Liquid 篩選](https://shopify.github.io/liquid/basics/introduction/#filters)。 
+如果您想要在 Liquid 範本中使用任何篩選，請確定這些篩選以大寫字母開頭。 深入了解 [Liquid 篩選條件](https://shopify.github.io/liquid/basics/introduction/#filters)，其中使用 [DotLiquid](https://dotliquidmarkup.org/) 和 C# 命名慣例。
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -80,7 +80,7 @@ ms.locfileid: "42144812"
 
 2. 在邏輯應用程式設計工具中，將[要求觸發程序](../connectors/connectors-native-reqres.md#use-the-http-request-trigger)新增至邏輯應用程式。
 
-3. 在觸發程序下方，選擇 [新增步驟]。 在 [搜尋] 方塊中，輸入 "liquid" 作為篩選條件，並選取下列動作：**將 JSON 轉換為 JSON - Liquid**
+3. 在觸發程序下方，選擇 [新增步驟]。 在搜尋方塊中，輸入 "liquid" 作為篩選條件，然後選取以下動作：**將 JSON 轉換為 JSON - Liquid**
 
    ![尋找並選取 Liquid 動作](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 

@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 14035fe9061af98b10b822c3b7b9213cdda3fbbd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3fdbbd1d3cf27172ed9ba5c5087ffc331e01ccf9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098285"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076802"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 入口網站新增自訂網域名稱
 每個新的 Azure AD 租用戶皆隨附初始網域名稱 (*domainname*.onmicrosoft.com)。 您無法變更或刪除初始網域名稱，但您可以將貴組織的名稱新增至清單。 新增自訂網域名稱可協助您建立使用者熟悉的使用者名稱，例如 *alain@contoso.com*。
@@ -63,7 +63,7 @@ ms.locfileid: "53098285"
 ## <a name="add-your-dns-information-to-the-domain-registrar"></a>將您的 DNS 資訊新增至網域註冊機構
 將自訂網域名稱新增至 Azure AD 之後，您必須回到您的網域註冊機構，並新增從您複製的 TXT 檔案中的 Azure AD DNS 資訊。 為您的網域建立此 TXT 記錄可「確認」網域名稱的擁有權。
 
--  回到您的網域註冊機構，根據您複製的 DNS 資訊為您的網域建立新 TXT 記錄、將 **TTL** (存留時間) 設定為 60 分鐘，然後儲存資訊。
+-  回到您的網域註冊機構，根據您複製的 DNS 資訊為您的網域建立新 TXT 記錄、將 **TTL** (存留時間) 設定為 3600 秒 (60 分鐘)，然後儲存資訊。
 
     >[!Important]
     >您可以註冊您想要的多個網域名稱。 不過，每個網域會從 Azure AD 取得自己的 TXT 記錄。 在網域註冊機構輸入您的 TXT 檔案資訊時，請格外小心。 如果您不小心輸入錯誤或重複的資訊，則必須等到 TTL 會逾時 (60 分鐘)，才能再試一次。
@@ -98,9 +98,9 @@ ms.locfileid: "53098285"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 將其他全域管理員新增至您的目錄。 如需詳細資訊，請參閱[如何指派角色和系統管理員](active-directory-users-assign-role-azure-portal.md)
+- 將其他全域管理員新增至您的目錄。 如需詳細資訊，請參閱[如何指派角色和系統管理員](active-directory-users-assign-role-azure-portal.md)。
 
-- 將使用者新增至您的網域，請參閱[如何新增或刪除使用者](add-users-azure-active-directory.md)
+- 將使用者新增至您的網域，請參閱[如何新增或刪除使用者](add-users-azure-active-directory.md)。
 
 - 在 Azu e AD 中管理網域名稱資訊。 如需詳細資訊，請參閱[管理自訂網域名稱](../users-groups-roles/domains-manage.md)。
 

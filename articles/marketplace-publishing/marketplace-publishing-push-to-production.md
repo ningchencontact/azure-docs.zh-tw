@@ -3,7 +3,7 @@ title: 將您的供應項目部署至 Azure Marketplace | Microsoft Docs
 description: 了解並逐步依照指示執行，將您的供應項目 (虛擬機器映像、開發人員服務、資料服務等) 部署至 Azure Marketplace。
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 8f79b891-84e2-4f41-ba0d-66420e2c6b2e
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
-ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 058f50853795453617593a6a07e2951f15f28174
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714276"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076106"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>將您的供應項目部署至 Azure Marketplace
 當您對供應項目感到滿意 (意即經過測試的客戶案例、行銷內容等) 並準備推出時，請在 [發佈] 索引標籤中要求 [推送至生產環境]。  
@@ -50,7 +51,7 @@ ms.locfileid: "39714276"
 ## <a name="production-checklist-for-all-virtual-machine-offers"></a>適用於所有虛擬機器供應項目的生產環境檢查清單
 * 請確定您是 Microsoft Azure 認證合作夥伴
 * 在 [SKU] 索引標籤下，只有當 SKU 是方案範本的一部分時，[從 Marketplace 隱藏此 SKU，因為應該永遠透過方案範本購買它] 選項才應該標示為 [是]。 否則，這個選項應該永遠標示為 [否]。
-* 請記住︰您不應在 SKU 列出後變更 SKU 可見性設定。 我們不支援這項功能。
+* 請記住：您不應在 SKU 列出後變更 SKU 可見性設定。 我們不支援這項功能。
 * 請確定標誌遵循以下的 Azure Marketplace 標誌指導方針。
 * 供應項目和 SKU 描述不應相同。
 * SKU 的標題和供應項目完整摘要不應相同。
@@ -81,7 +82,7 @@ ms.locfileid: "39714276"
 一旦供應項目上線，請測試客戶案例，如同在預備環境中進行測試和驗證一樣，驗證在生產環境中的所有合約和功能都運作正常。
 
 ## <a name="see-also"></a>另請參閱
-* [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
+* [使用者入門：將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png

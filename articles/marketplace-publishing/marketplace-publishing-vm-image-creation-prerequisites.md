@@ -3,7 +3,7 @@ title: 建立 Azure Marketplace 虛擬機器映像的技術性必要條件 | Mic
 description: 了解建立和部署虛擬機器映像到 Azure Marketplace 供他人購買的要求。
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 79fb9869b37e82df3f41a50e4425e7c0cd08c841
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1fdf945645b2d5c89d7f3750ec836595adb90b06
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255263"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077074"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>建立 Azure Marketplace 虛擬機器映像的技術性必要條件
 開始之前，請先徹底閱讀程序，並且了解每個步驟執行的位置及原因。 在供應項目建立程序之前，您應該盡可能準備您的公司資訊和其他資料、下載必要的工具，和/或建立技術元件。 檢閱本文之後，您會更清楚這些項目。  
@@ -50,6 +51,6 @@ ms.locfileid: "51255263"
 您可以在雲端或內部部署中開發 Azure VHD：
 
 * 雲端開發表示所有開發步驟都會在 Azure 的 VHD 上遠端執行。
-* 內部部署開發則需要使用內部部署基礎結構下載 VHD 和開發。 雖然可行，但我們不建議您這麼做。 請注意，為內部部署的 Windows 或 SQL 開發時，需要有相關的內部部署授權金鑰。 建立 VM 之後即無法加入或安裝 SQL Server。 此外，您必須讓供應項目以 Azure 入口網站中核准的 SQL 映像為基礎。 如果您決定開發內部部署，必須執行一些不同於在雲端中開發的步驟。 您可以在 [建立內部部署 VM 映像](marketplace-publishing-vm-image-creation-on-premise.md)找到相關資訊。
+* 內部部署開發則需要使用內部部署基礎結構下載 VHD 和開發。 雖然此方法可行，但我們不建議您這麼做。 為內部部署的 Windows 或 SQL 開發時，需要有相關的內部部署授權金鑰。 建立 VM 之後即無法加入或安裝 SQL Server。 此外，您必須讓供應項目以 Azure 入口網站中核准的 SQL 映像為基礎。 如果您決定開發內部部署，必須執行一些不同於在雲端中開發的步驟。 您可以在 [建立內部部署 VM 映像](marketplace-publishing-vm-image-creation-on-premise.md)找到相關資訊。
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md

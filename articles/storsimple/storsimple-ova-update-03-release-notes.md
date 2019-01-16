@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/15/2016
 ms.author: alkohli
-ms.openlocfilehash: fe9d4f6b232e9abcf1fe9fc5657044b6c72fedb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 635b5f4edf5d403c569b4957540fc105997b3e8e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109336"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117668"
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>StorSimple Virtual Array Update 0.3 版本資訊
 ## <a name="overview"></a>概觀
@@ -40,15 +40,15 @@ Update 0.3 主要是錯誤修正組建。 在此版本中，已修正數個在�
 ## <a name="issues-fixed-in-the-update-03"></a>Update 0.3 中修正的問題
 下表提供本版已修正問題的摘要。
 
-| 編號 | 功能 | 問題 |
+| 沒有。 | 功能 | 問題 |
 | --- | --- | --- |
-| 1 |備份 |在舊版中發生無法完成檔案共用備份的問題。 如果發生此問題，備份作業將會失敗並在 StorSimple Manager 服務引發重大警示來通知使用者。 這個問題不會影響共用上的資料或對該資料的存取。 此版本已找出根本原因並加以修正。 <br></br> 此修正無法溯及既往地套用到已發生此問題的共用。 發生此問題的客戶應該先套用 Update 0.3，然後連絡「Microsoft 支援服務」來執行完整的系統備份，以修正此問題。 客戶也可以不連絡「Microsoft 支援服務」，而是針對受影響的共用，從狀況良好備份還原到新的共用。 |
-| 2 |iSCSI |在舊版中發生將資料複製到 StorSimple Virtual Array 上的磁碟區時磁碟區會消失的問題。 此版本已經修正這個問題。 <br></br> 這些修正只有在新建立的磁碟區上才會生效。 這些修正無法溯及既往地套用到已發生此問題的磁碟區。 建議客戶透過 Azure 傳統入口網站讓受影響磁碟區上線、備份這些磁碟區，然後將這些磁碟區還原到新的磁碟區。 |
+| 1 |備份 |在舊版中發生無法完成檔案共用備份的問題。 如果發生此問題，備份作業將會失敗並在 StorSimple Manager 服務引發重大警示來通知使用者。 這個問題不會影響共用上的資料或對該資料的存取。 此版本已找出根本原因並加以修正。 <br></br>  此修正無法溯及既往地套用到已發生此問題的共用。 發生此問題的客戶應該先套用 Update 0.3，然後連絡「Microsoft 支援服務」來執行完整的系統備份，以修正此問題。 客戶也可以不連絡「Microsoft 支援服務」，而是針對受影響的共用，從狀況良好備份還原到新的共用。 |
+| 2 |iSCSI |在舊版中發生將資料複製到 StorSimple Virtual Array 上的磁碟區時磁碟區會消失的問題。 此版本已經修正這個問題。 <br></br>  這些修正只有在新建立的磁碟區上才會生效。 這些修正無法溯及既往地套用到已發生此問題的磁碟區。 建議客戶透過 Azure 傳統入口網站讓受影響磁碟區上線、備份這些磁碟區，然後將這些磁碟區還原到新的磁碟區。 |
 
 ## <a name="known-issues-in-the-update-03"></a>Update 0.3 中的已知問題
 下表提供 StorSimple Virtual Array 的已知問題摘要，並包含舊版所列的問題。 
 
-| 編號 | 功能 | 問題 | 因應措施/註解 |
+| 沒有。 | 功能 | 問題 | 因應措施/註解 |
 | --- | --- | --- | --- |
 | **1.** |更新 |預覽版中所建立的虛擬裝置無法更新為支援的正式運作版本。 |必須針對正式運作版本使用災害復原 (DR) 工作流程容錯移轉這些虛擬裝置。 |
 | **2.** |佈建的資料磁碟 |佈建特定指定大小的資料磁碟並建立對應的 StorSimple 虛擬裝置之後，不得展開或壓縮資料磁碟。 嘗試執行會導致裝置本機層中的所有資料遺失。 | |

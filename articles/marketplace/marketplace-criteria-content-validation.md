@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 8bf0eac5391ea2d9bbb9ba42887b0a53e075589d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fb12fe381cb4df6139fae7289279220f72984484
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847230"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078009"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Marketplace 列名指導方針
 
@@ -99,8 +99,8 @@ ms.locfileid: "52847230"
 
 
 ## <a name="next-steps"></a>後續步驟
-* 深入了解 Marketplace 中的不同供應項目類型 <br>[SaaS 應用程式](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[容器](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[諮詢服務](https://docs.microsoft.com/azure/marketplace/consulting-services)
-*   [決定您解決方案的清單類型](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* 深入了解 Marketplace 中的不同供應項目類型。 <br>[SaaS 應用程式](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[容器](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[諮詢服務](https://docs.microsoft.com/azure/marketplace/consulting-services)
+*   [決定您解決方案的清單類型](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)。
 
  
 ---  

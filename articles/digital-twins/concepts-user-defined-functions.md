@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 915c57033209ff982946163c408cf8557515e2f5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999195"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106836"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>資料處理與各項使用者定義功能
 
@@ -102,6 +102,15 @@ Azure Digital Twins 中的資料處理由三個物件的定義所組成：*比�
 - 在傳送通知之前將圖形中繼資料附加至感應器讀數。
 
 如需詳細資訊，請參閱[如何使用使用者定義的函式](./how-to-user-defined-functions.md)。
+
+
+#### <a name="examples"></a>範例
+
+[Digital Twins C# 範例的 GitHub 存放庫](https://github.com/Azure-Samples/digital-twins-samples-csharp/)包含一些使用者定義函式範例：
+- [此函式](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js)會尋找二氧化碳、動作和溫度值，來判斷是否有房間的這些值是在範圍內。 [Digital Twins 教學課程](tutorial-facilities-udf.md)會更詳細地探討此函式。 
+- [此函式](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js)會尋找多個動作感應器中的資料，如果沒有任何感應器偵測到任何動作，則判斷該空間可供使用。 您可以透過進行檔案註解區段中所述的變更，輕鬆地取代[快速入門](quickstart-view-occupancy-dotnet.md)或[教學課程](tutorial-facilities-setup.md)中使用的使用者定義函式。 
+
+
 
 ### <a name="role-assignment"></a>角色指派
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3d9d6aef4fafd6013c86fd5d5883222c0f32b34d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4d311794c1c0f2dd6b9a0b2a44983b47bfeef362
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319365"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040535"
 ---
 # <a name="what-is-password-writeback"></a>什麼是密碼回寫？
 
@@ -36,7 +36,7 @@ ms.locfileid: "49319365"
 密碼回寫提供：
 
 * **強制執行內部部署 Active Directory 密碼原則**：當使用者重設其密碼時，系統會進行檢查以確保此動作符合內部部署 Active Directory 原則，然後才將此動作認可至該目錄。 這項檢閱包括檢查歷程記錄、複雜度、有效期、密碼篩選，以及您在本機 Active Directory 中已定義的任何其他密碼限制。
-* **零延遲的意見反應**：密碼回寫是一項同步作業。 如果使用者的密碼不符合原則，或因為任何原因而無法重設或變更，他們會立即收到通知。
+* **零延遲的意見反應**： 密碼回寫是一項同步作業。 如果使用者的密碼不符合原則，或因為任何原因而無法重設或變更，他們會立即收到通知。
 * **支援從存取面板和 Office 365 變更密碼**：當已同盟的或已同步處理密碼雜湊的使用者變更其已過期或尚未過期的密碼時，系統會將這些密碼回寫到本機 Active Directory 環境。
 * **支援在管理員從 Azure 入口網站重設密碼時將密碼回寫**：每當管理員在 [Azure 入口網站](https://portal.azure.com)中重設使用者密碼時，如果該使用者為已同盟的或已同步處理密碼雜湊的使用者，系統就會將密碼回寫至內部部署環境。 Office 管理入口網站目前不支援此功能。
 * **不需要任何輸入防火牆規則**：密碼回寫會使用「Azure 服務匯流排」轉送作為基礎通訊通道。 所有通訊都會透過連接埠 443 來輸出。
@@ -60,7 +60,7 @@ ms.locfileid: "49319365"
 * Microsoft 365 F1
 
 > [!WARNING]
-> 獨立的 Office 365 授權方案不支援密碼回寫，而且需要您具備上述其中一個方案，這項功能才能運作。
+> 獨立的 Office 365 授權方案不支援「自助式密碼重設/變更/使用內部部署回寫來解鎖」，而且需要您具備上述其中一個方案，這項功能才能運作。
 >
 
 ## <a name="how-password-writeback-works"></a>密碼回寫的運作方式
@@ -121,7 +121,7 @@ ms.locfileid: "49319365"
 
 在使用者提交密碼重設之後，重設要求會先經過數個加密步驟，然後才抵達您的內部部署環境。 這些加密步驟可確保提供最高的服務可靠性和安全性。 這些步驟的說明如下：
 
-* **步驟 1：採用 2048 位元 RSA 金鑰的密碼加密**在使用者提交要寫回到內部部署環境的密碼之後，所提交的密碼本身會以 2048 位元 RSA 金鑰加密。
+* **步驟 1：採用 2048 位元 RSA 金鑰的密碼加密**：在使用者提交要寫回到內部部署環境的密碼之後，所提交的密碼本身會以 2048 位元 RSA 金鑰加密。
 * **步驟 2：採用 AES-GCM 的套件層級加密**：整個套件 (密碼 + 必要的中繼資料) 會以 AES-GCM 加密。 這個加密可防止任何可直接存取基礎 ServiceBus 通道的人員檢視或竄改內容。
 * **步驟 3：所有通訊都會透過 TLS/SSL 進行**：與 ServiceBus 的所有通訊都會在 SSL/TLS 通道中進行。 這個加密可保護內容，免於遭到未經授權的第三方存取。
 * **每 6 個月自動變換金鑰**：所有金鑰會每 6 個月變換一次，或在每一次於 Azure AD Connect 上停用再重新啟用密碼回寫時進行變換，以確保最高的服務安全性。

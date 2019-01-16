@@ -3,7 +3,7 @@ title: 建立 Azure Marketplace 的內部部署虛擬機器映像 | Microsoft Do
 description: 了解及執行建立內部部署的 VM 映像，並且部署至 Azure Marketplace 以供他人購買的步驟。
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e5571a0933284a52d5567db0505ecaced6c6c336
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: b9fbb2f50905b1b80a092ba13f860f30cb9423a9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253494"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077788"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>開發 Azure Marketplace 的內部部署虛擬機器映像
 強烈建議您使用遠端桌面通訊協定，在雲端中直接開發您的 Azure 虛擬硬碟 (VHD)。 不過如果需要，可以使用內部部署基礎結構來下載 VHD 並進行開發。  
@@ -144,7 +145,7 @@ ms.locfileid: "51253494"
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>使用適用於 Mac 和 Linux 的命令列工具上傳 VHD
-透過 [Linux 命令列工具](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)，使用下列語法：azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
+透過 [Linux 命令列工具](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)，使用下列命令：`azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>`
 
 ## <a name="see-also"></a>另請參閱
 * [建立 Marketplace 的虛擬機器映像](marketplace-publishing-vm-image-creation.md)

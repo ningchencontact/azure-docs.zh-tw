@@ -8,23 +8,22 @@ ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9453099af8d9be21a97808733ffa8f8bfe5a364a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047559"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022533"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>使用資料管理閘道針對問題進行疑難排解
 本文提供使用資料管理閘道進行疑難問題排解的相關資訊。
 
 > [!NOTE]
-> 本文適用於 Azure Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。
+> 本文適用於 Azure Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。
 
 如需閘道的詳細資訊，請參閱[資料管理閘道](data-factory-data-management-gateway.md)文章。 如需使用閘道將資料從內部部署 SQL Server 資料庫移至 Microsoft Azure Blob 儲存體的逐步解說，請參閱[在內部部署與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)文章。
 
@@ -169,7 +168,7 @@ ms.locfileid: "37047559"
 #### <a name="resolution"></a>解決方案
 請依照下列步驟操作，讓閘道回到線上：
 
-1. 允許在閘道電腦和公司防火牆上執行 IP 位址輸出規則。 您可以從 Windows 事件記錄檔中找到 IP 位址 (識別碼 == 401)：嘗試以存取權限禁止的方式存取通訊端 XX.XX.XX.XX:9350。
+1. 允許在閘道電腦和公司防火牆上執行 IP 位址輸出規則。 您可以從 Windows 事件記錄 (識別碼 = 401) 找到 IP 位址：嘗試存取通訊端被拒絕，因為存取權限不足 XX.XX.XX.XX:9350。
 * 設定閘道上的 Proxy 設定。 如需詳細資料，請參閱 [Proxy 伺服器考量](#proxy-server-considerations)一節。
 * 在閘道電腦的 Windows 防火牆上與公司防火牆上啟用輸出連接埠 5671 和 9350-9354。 如需詳細資料，請參閱[連接埠和防火牆](#ports-and-firewall)一節。 此步驟為選用步驟，但基於效能考量，還是建議執行。
 

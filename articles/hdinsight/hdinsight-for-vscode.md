@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 23cbdb4d72a6b88563d9d2c2bd0e4e3c8223377f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c86fd2affa08999ae574f55315c6a0b32fa58fca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723666"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076785"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -127,7 +127,7 @@ Azure HDInsight 工具可以安裝在 VSCode 支援的平台上，包括 Windows
 
 1. 選取 **CTRL+SHIFT+P** 以開啟命令選擇區，然後輸入 [HDInsight：連結叢集]。
 2. 選取 [泛型 Livy 端點]。
-3. 輸入泛型 Livy 端點，例如： http://10.172.41.42:18080。
+3. 輸入泛型 Livy 端點，例如：http\://10.172.41.42:18080。
 4. 泛用 Livy 端點需要授權時，請選取 [基本]，否則請選擇 [無]。
 5. 在步驟 4 中選取 [基本] 時，請輸入使用者名稱。
 6. 在步驟 4 中選取 [基本] 時，請輸入密碼。

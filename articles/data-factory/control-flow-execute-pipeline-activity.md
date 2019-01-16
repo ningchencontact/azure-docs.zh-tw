@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: aace01fedd0c2ab538d4e11b418907f962128d0e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f36d9eed11685d1bb35a46a97eb58fe870970075
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163113"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019426"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>在 Azure Data Factory 中執行管線活動
 執行管線活動可允許資料處理站管線叫用另一個管線。
@@ -63,7 +62,7 @@ ms.locfileid: "52163113"
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
 name | 執行管線活動的名稱。 | 字串 | 是
-type | 必須設為：**ExecutePipeline**。 | 字串 | 是
+type | 必須設定為：**ExecutePipeline**。 | 字串 | 是
 管線 | 此管線叫用之相依管線的管線參考。 管線參考物件有兩個屬性：**referenceName** 和 **type**。 referenceName 屬性指定參考管線的名稱。 type 屬性必須設為 PipelineReference。 | PipelineReference | 是
 parameters | 要傳遞至叫用之管線的參數 | 將參數名稱對應到引數值的 JSON 物件 | 否
 waitOnCompletion | 定義活動執行是否等待相依的管線執行完成。 | 預設值為 false。 | BOOLEAN | 否

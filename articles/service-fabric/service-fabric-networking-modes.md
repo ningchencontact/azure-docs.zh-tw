@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 55f388ed15167c5bc7262e194e09e4a92ba50af4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866061"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024785"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器網路模式
 
@@ -35,7 +35,7 @@ ms.locfileid: "52866061"
 
 ## <a name="set-up-open-networking-mode"></a>設定 Open 網路模式
 
-1. 設定 Azure Resource Manager 範本。 在 [fabricSettings] 區段中，啟用 DNS 服務及 IP 提供者： 
+1. 設定 Azure Resource Manager 範本。 在叢集資源的 [fabricSettings] 區段中，啟用 DNS 服務及 IP 提供者： 
 
     ```json
     "fabricSettings": [
@@ -77,8 +77,10 @@ ms.locfileid: "52866061"
                 }
             ],
     ```
+    
+2. 設定虛擬機器擴展集資源的網路設定檔區段。 這允許在叢集的每個節點上設定多個 IP 位址。 下列範例會針對 Windows/Linux Service Fabric 叢集的每個節點，設定五個 IP 位址。 您可以在每個節點的連接埠上接聽五個服務執行個體。 若要讓五個 IP 可從 Azure Load Balancer 存取，請在 Azure Load Balancer 後端位址集區註冊五個 IP，如下所示。  您也需要在 variables 區段中將變數新增到您範本的頂端。
 
-2. 設定網路設定檔區段，以允許在叢集的每個節點上設定多個 IP 位址。 下列範例會針對 Windows/Linux Service Fabric 叢集的每個節點，設定五個 IP 位址。 您可以在每個節點的連接埠上接聽五個服務執行個體。 若要讓五個 IP 可從 Azure Load Balancer 存取，請在 Azure Load Balancer 後端位址集區註冊五個 IP，如下所示。
+    將以下區段新增至 Variables：
 
     ```json
     "variables": {
@@ -97,6 +99,11 @@ ms.locfileid: "52866061"
         "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
         "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]"
     }
+    ```
+    
+    將以下區段新增至虛擬機器擴展集資源：
+
+    ```json   
     "networkProfile": {
                 "networkInterfaceConfigurations": [
                   {

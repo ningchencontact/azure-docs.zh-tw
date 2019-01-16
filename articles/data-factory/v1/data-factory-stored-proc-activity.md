@@ -9,17 +9,16 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: b10fbd953eb9ca904043973ebc1f7c6adb9f9abc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e1c563f33030795d52cc686bf52497f927ace6bc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047382"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017696"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 預存程序活動
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -49,7 +48,7 @@ ms.locfileid: "37047382"
 > [!IMPORTANT]
 > 將資料複製到 Azure SQL Database 或 SQL Server 時，您可以使用 **sqlWriterStoredProcedureName** 屬性在複製活動中設定 **SqlSink** 以叫用預存程序。 如需詳細資訊，請參閱[從複製活動叫用預存程序](data-factory-invoke-stored-procedure-from-copy-activity.md)。 如需有關此屬性的詳細資料，請參閱下列連接器文章：[Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties)、[SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties)。 不支援在使用複製活動將資料複製到「Azure SQL 資料倉儲」時叫用預存程序。 但是，您可以使用預存程序活動來叫用「SQL 資料倉儲」中的預存程序。 
 >  
-> 從 Azure SQL Database、SQL Server 或「Azure SQL 資料倉儲」複製資料時，您可以使用 **sqlReaderStoredProcedureName** 屬性在複製活動中設定 **SqlSource**，以叫用預存程序從來源資料庫讀取資料。 如需詳細資訊，請參閱下列連接器文章：[Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties)、[SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties)、[Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
+> 從 Azure SQL Database、SQL Server 或「Azure SQL 資料倉儲」複製資料時，您可以使用 **sqlReaderStoredProcedureName** 屬性在複製活動中設定 **SqlSource**，以叫用預存程序從來源資料庫讀取資料。 如需詳細資訊，請參閱下列連接器文章：[Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties)、[SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties)、[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
 
 
 下列逐步解說會在管線中使用預存程序活動，來叫用 Azure SQL Database 中的預存程序。 
@@ -223,7 +222,7 @@ ms.locfileid: "37047382"
 ## <a name="chaining-with-other-activities"></a>與其他活動鏈結
 如果您想要將此活動與上游活動進行鏈結，請指定上游活動的輸出作為此活動的輸入。 當您這麼做時，預存程序活動將會等到上游活動完成且上游活動的輸出資料集可供使用 (處於「就緒」狀態) 之後，才會執行。 您可以指定多個上游活動的輸出資料集作為預存程序活動的輸入資料集。 如果您這麼做，預存程序活動將只會在所有輸入資料集配量都可供使用時，才會執行。  
 
-在下列範例中，複製活動的輸出是 OutputDataset，這是預存程序活動的輸入。 因此，預存程序活動將會等到複製活動完成且 OutputDataset 配量可供使用 (處於「就緒」狀態) 之後，才會執行。 如果您指定多個輸入資料集，則預存程序活動將會等到所有輸入資料集配量都可供使用 (處於「就緒」狀態) 之後，才會執行。 輸入資料集無法直接用來作為預存程序活動的參數。 
+在下列範例中，複製活動的輸出是OutputDataset，這是預存程序活動的輸入。 因此，預存程序活動將會等到複製活動完成且 OutputDataset 配量可供使用 (處於「就緒」狀態) 之後，才會執行。 如果您指定多個輸入資料集，則預存程序活動將會等到所有輸入資料集配量都可供使用 (處於「就緒」狀態) 之後，才會執行。 輸入資料集無法直接用來作為預存程序活動的參數。 
 
 如需有關將活動鏈結的詳細資訊，請參閱[管線中的多個活動](data-factory-create-pipelines.md#multiple-activities-in-a-pipeline)
 
@@ -283,7 +282,7 @@ ms.locfileid: "37047382"
 > [!IMPORTANT]
 > 將資料複製到 Azure SQL Database 或 SQL Server 時，您可以使用 **sqlWriterStoredProcedureName** 屬性在複製活動中設定 **SqlSink** 以叫用預存程序。 如需詳細資訊，請參閱[從複製活動叫用預存程序](data-factory-invoke-stored-procedure-from-copy-activity.md)。 如需有關此屬性的詳細資料，請參閱下列連接器文章：[Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties)、[SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties)。
 >  
-> 從 Azure SQL Database、SQL Server 或「Azure SQL 資料倉儲」複製資料時，您可以使用 **sqlReaderStoredProcedureName** 屬性在複製活動中設定 **SqlSource**，以叫用預存程序從來源資料庫讀取資料。 如需詳細資訊，請參閱下列連接器文章：[Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties)、[SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties)、[Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
+> 從 Azure SQL Database、SQL Server 或「Azure SQL 資料倉儲」複製資料時，您可以使用 **sqlReaderStoredProcedureName** 屬性在複製活動中設定 **SqlSource**，以叫用預存程序從來源資料庫讀取資料。 如需詳細資訊，請參閱下列連接器文章：[Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties)、[SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties)、[Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
 
 ## <a name="json-format"></a>JSON 格式
 以下是 JSON 格式來定義預存程序活動︰
@@ -311,12 +310,12 @@ ms.locfileid: "37047382"
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| name | 活動的名稱 |yes |
+| name | 活動的名稱 |是 |
 | 說明 |說明活動用途的文字 |否 |
-| type | 必須設定為：**SqlServerStoredProcedure** | yes |
+| type | 必須設定為：**SqlServerStoredProcedure** | 是 |
 | 輸入 | 選用。 如果您有指定輸入資料集，它必須可供使用 (「就緒」狀態)，預存程序活動才能執行。 在預存程序中輸入資料集無法做為參數取用。 它只會用來在啟動預存程序活動之前檢查相依性。 |否 |
-| 輸出 | 您必須指定預存程序活動的輸出資料集。 輸出資料集會指定預存程序活動的 **排程** (每小時、每週、每月等)。 <br/><br/>輸出資料集必須使用參考了想在其中執行預存程序之 Azure SQL Database、Azure SQL 資料倉儲或 SQL Server Database 的 **連結服務** 。 <br/><br/>輸出資料集可以用來傳遞預存程序結果，以供管線中的另一個活動 ([鏈結活動](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) 進行後續處理。 不過，Data Factory 不會自動將預存程序的輸出寫入至此資料集。 它是會寫入至輸出資料集所指向之 SQL 資料表的預存程序。 <br/><br/>在某些情況下，輸出資料集可以是 **虛擬資料集**，只會用來指定用於執行預存程序活動的排程。 |yes |
-| storedProcedureName |指定 Azure SQL Database、「Azure SQL 資料倉儲」或 SQL Server 資料庫中預存程序 (由輸出資料表所使用的已連結服務代表) 的名稱。 |yes |
+| 輸出 | 您必須指定預存程序活動的輸出資料集。 輸出資料集會指定預存程序活動的 **排程** (每小時、每週、每月等)。 <br/><br/>輸出資料集必須使用參考了想在其中執行預存程序之 Azure SQL Database、Azure SQL 資料倉儲或 SQL Server Database 的 **連結服務** 。 <br/><br/>輸出資料集可以用來傳遞預存程序結果，以供管線中的另一個活動 ([鏈結活動](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) 進行後續處理。 不過，Data Factory 不會自動將預存程序的輸出寫入至此資料集。 它是會寫入至輸出資料集所指向之 SQL 資料表的預存程序。 <br/><br/>在某些情況下，輸出資料集可以是 **虛擬資料集**，只會用來指定用於執行預存程序活動的排程。 |是 |
+| storedProcedureName |指定 Azure SQL Database、「Azure SQL 資料倉儲」或 SQL Server 資料庫中預存程序 (由輸出資料表所使用的已連結服務代表) 的名稱。 |是 |
 | storedProcedureParameters |指定預存程序參數的值。 如果您要為參數傳遞 null，請使用語法："param1": null (全部小寫)。 請參閱下列範例以了解如何使用這個屬性。 |否 |
 
 ## <a name="passing-a-static-value"></a>傳遞靜態值

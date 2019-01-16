@@ -9,26 +9,25 @@ ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: cbd51c48ec5b1801062e7aaf0b77e7b347018b31
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c41f03494720c9283bb3ce91fda6e3981f305084
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051860"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023015"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>資料處理站的疑難排解
 > [!NOTE]
-> 本文適用於 Azure Data Factory 的第 1 版。 
+> 本文適用於 Azure Data Factory 第 1 版。 
 
 這篇文章提供使用 Azure Data Factory 時的問題疑難排解提示。 這篇文章並未列出使用服務時的所有可能問題，但是涵蓋部分問題和一般疑難排解提示。   
 
 ## <a name="troubleshooting-tips"></a>疑難排解秘訣
-### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>錯誤︰訂用帳戶未註冊為使用命名空間 'Microsoft.DataFactory'
+### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Error:訂用帳戶未註冊為使用命名空間 'Microsoft.DataFactory'
 如果您收到此錯誤，Azure Data Factory 資源提供者尚未在您的電腦上註冊。 執行下列動作：
 
 1. 啟動 Azure PowerShell。

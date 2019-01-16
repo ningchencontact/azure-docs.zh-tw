@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 9f701f0f6d00d2913eaf5b237435fd375b2030e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 80b1896c55d00a4ac8e5dea62afc08ace1a84249
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435271"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078519"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 智慧鎖定
 
@@ -70,6 +70,14 @@ ms.locfileid: "53435271"
 > 如果鎖定之後的第一個登入也失敗，帳戶將會再次鎖定。 如果帳戶重複鎖定，鎖定持續時間將會增加。
 
 ![在 Azure 入口網站中自訂 Azure AD 智慧鎖定原則](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
+
+## <a name="how-to-determine-if-the-smartlockout-feature-is-working-or-not"></a>如何判斷 Smartlockout 功能是否運作
+
+觸發 smartlockout 臨界值時，您會在帳戶鎖定的情形下收到下列訊息：
+
+**您的帳戶已暫時鎖定以防未經授權的使用。請稍後再試一次，如果仍有問題，請連絡您的管理員。**
+
+
 ## <a name="next-steps"></a>後續步驟
 
 [了解如何使用 Azure AD 在組織中禁用不當密碼。](howto-password-ban-bad.md)

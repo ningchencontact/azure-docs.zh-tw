@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 722f350c4f11648753465e302e84949fc340e281
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f488f8aa991b3d4baae05097af9b6e2f2db481cc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42143996"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158919"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>搖一搖以獲取推文 -- 使用 Azure Functions 擷取 Twitter 訊息
 
@@ -88,7 +88,7 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 
 接著，組建並上傳裝置程式碼。
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 1. 使用 `Ctrl+P` 來執行 `task device-upload`。
 
@@ -157,7 +157,7 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 
 Arduino 草圖會將事件傳送至 Azure IoT 中樞。 此事件會觸發 Azure Functions 應用程式。 Azure Functions 應用程式所包含的邏輯可用來連線至 Twitter 的 API 並擷取推文。 接著，它會將推文的文字包裝成 C2D (雲端到裝置) 訊息，並將該訊息傳回給裝置。
 
-## <a name="optional-use-your-own-twitter-bearer-token"></a>選擇性：使用您自己的 Twitter 持有人權杖
+## <a name="optional-use-your-own-twitter-bearer-token"></a>選用：使用您自己的 Twitter 持有人權杖
 
 為了進行測試，此專案範例會使用預先設定的 Twitter 持有人權杖。 不過，每個 Twitter 帳戶都有[速率限制](https://dev.twitter.com/rest/reference/get/search/tweets)。 如果您要考慮使用您自己的權杖，請遵循下列步驟：
 
@@ -202,7 +202,7 @@ Arduino 草圖會將事件傳送至 Azure IoT 中樞。 此事件會觸發 Azure
 如果發生其他問題，請參閱 [IoT DevKit 常見問題集](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)，或使用下列管道與我們連絡：
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 1c850b16492f725114fb23a8503f6345e1509212
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3cd0766fa4308df41172c323aa933e1c048f1e9d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868662"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073997"
 ---
 # <a name="requirements-by-listing-type"></a>依清單類型別需求  
 技術與行銷內容需求會因店面、供應項目類型和清單類型而異。 請檢閱以下規格，檢查您的合規性。  
@@ -40,7 +40,7 @@ ms.locfileid: "52868662"
 | ***商用軟體即服務 (SaaS) 應用程式*** | 您的應用程式必須符合下列需求。<ul> <li>企業營運 SaaS 應用程式</li> <li>著重於業務流程</li> <li>以商務客戶為目標</li> <li>讓使用者能夠透過其公司認證 (使用者名稱與密碼) 登入</li> </ul> | 必要 |  
 | ***免費試用期與試用版體驗*** | 您的應用程式必須包含下列其中一個選項，客戶才能在一段有限時間內免費使用您的應用程式。<ul> <li>提供 `try` 方法，客戶才能在 AppSource 內啟動您應用程式的試用版</li> <li>在 AppSource 提供 `request trial` 選項，客戶才能要求使用您應用程式的試用版</li> </ul>您提供的免費試用版必須讓客戶能在預先設定的期間內試用應用程式，無須支付額外費用。 | 必要 |  
 | ***輕鬆設定、立即可用的解決方案*** | 應用程式的安裝與設定必須簡單快速而且無須自訂。 | 必要 |  
-| ***潛在客戶管理*** | 獲得來自店面的潛在客戶之前，您必須啟用 CRM 以接受潛在客戶資料。<ul> <li>CRM 的範例包括 Marketo、Microsoft Dynamics 或 Salesforce</li> </ul> | 必要 |  
+| ***潛在客戶管理*** | 您必須先啟用 CRM 以接受潛在客戶資料，方可獲得來自店面的潛在客戶。<ul> <li>CRM 的範例包括 Marketo、Microsoft Dynamics 或 Salesforce</li> </ul> | 必要 |  
 | ***隱私權原則及使用規定*** | 您的應用程式必須提供公用 URL，連結至您的隱私權原則網頁。 您的使用條款必須在發行期間以文字形式提供。 | 必要 |  
 | ***支援*** | 您的應用程式必須使用公用 URL，提供前往您的客戶支援網頁的連結。 如果您的應用程式是試用版，您必須在試用期間提供支援，而且不收取額外費用。 | 必要 |  
 
@@ -52,7 +52,7 @@ ms.locfileid: "52868662"
 | ***參與原則*** | 您的應用程式必須遵守 Azure Marketplace 參與原則。<ul> <li>如需參與原則的相關詳細資訊，請參閱 Azure Marketplace 參與原則網頁：[azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies)。</li></ul> | list<br />交易<br />試用版 |  
 | ***與 Microsoft 整合*** | 您的供應項目應使用或擴充 Microsoft Azure 服務類型，例如計算、網路或儲存體。 您的供應項目也應符合現有的 Azure Marketplace 類別，例如資料庫、安全性或網路功能。<ul> <li>如需 Marketplace 供應項目的詳細資訊，請瀏覽 Marketplace 應用程式網頁：[azuremarketplace.microsoft.com/marketplace/apps](https://azuremarketplace.microsoft.com/marketplace/apps)。</li> </ul> | list<br />交易<br />試用版 |  
 | ***目標對象*** | 您的供應項目必須專為 IT 專業人員、雲端開發人員或其他技術客戶角色提供。 | list<br />交易<br />試用版 |  
-| ***潛在客戶管理*** | 獲得來自店面的潛在客戶之前，您必須啟用 CRM (Marketo、Microsoft Dynamics 或 Salesforce)，以接受潛在客戶資料。 | list<br />交易<br />試用版 |  
+| ***潛在客戶管理*** | 獲得來自店面的潛在客戶之前，必須啟用 CRM (Marketo、Microsoft Dynamics 或 Salesforce)，以接受潛在客戶資料。 | list<br />交易<br />試用版 |  
 | ***隱私權原則及使用規定*** | 您的應用程式必須提供公用 URL，連結至您的隱私權原則網頁。 您的使用條款必須在發行期間以文字形式提供。 | list<br />交易<br />試用版 |  
 | ***支援*** | 您的供應項目必須提供公用 URL，連結至您的客戶支援網頁。 如果您的供應項目是試用版，您必須在試用期間提供支援，且不收取額外費用。 | 交易<br />試用版 |    
 
@@ -164,9 +164,8 @@ ms.locfileid: "52868662"
 | 需求 | 詳細資料 |  
 |:--- |:--- | 
 | 計費和計量 | 您的 VM 必須支援 BYOL 或每月計費「預付型方案」。 |  
-| Azure 相容的虛擬硬碟 (VHD) | VM 必須建置在 Windows 或 Linux 上。<ul> <li>如需有關建立 Linux VHD 的詳細資訊，請瀏覽＜建立與 Azure 相容的 VHD (以 Linux 為基礎)＞一節：[docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based)。</li> <li>如需有關建立 Windows VHD 的詳細資訊，請瀏覽＜建立與 Azure 相容的 VHD (以 Windows 為基礎)＞一節：[docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based)。</li> </ul> |  
+| Azure 相容的虛擬硬碟 (VHD) | VM 必須建置在 Windows 或 Linux 上。<ul> <li>如需建立 Linux VHD 的詳細資訊，請參閱 [Azure 背書的 Linux 散發套件](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)。</li> <li>如需建立 Windows VHD 的詳細資訊，請參閱[建立與 Azure 相容的 VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)。</li> </ul> |  
 
 ## <a name="next-steps"></a>後續步驟
 *   請瀏覽 [Azure Marketplace 和 AppSource 發行者指南](./marketplace-publishers-guide.md)網頁。  
- 
----  
+

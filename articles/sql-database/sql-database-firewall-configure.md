@@ -11,21 +11,20 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 6de91e28ebced1d41e128cec1180839e4b353020
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/03/2019
+ms.openlocfilehash: e4079a4dcaadab8e9cea0cc1b30a609a091e5937
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945462"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035265"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL Database 和 SQL 資料倉儲防火牆規則
 
 Microsoft Azure [SQL Database](sql-database-technical-overview.md) 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)可為 Azure 和其他網際網路型應用程式提供關聯式資料庫服務。 為了協助保護您的資料，防火牆會防止對您的資料庫伺服器的所有存取，直到您指定哪些電腦擁有權限。 此防火牆會根據每一個要求的來源 IP 位址來授與資料庫存取權。
 
 > [!NOTE]
-> 本文適用於 Azure SQL Server，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 
-
+> 本文適用於 Azure SQL Server，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
 > [!IMPORTANT]
 > 本文「不」適用於 **Azure SQL Database 受控執行個體**。 如需所需網路設定的相關資訊，請參閱下列關於[連線到受控執行個體](sql-database-managed-instance-connect-app.md)的文章。
 
@@ -58,9 +57,9 @@ Microsoft Azure [SQL Database](sql-database-technical-overview.md) 和 [SQL 資�
 
 Microsoft 建議在可行時使用資料庫層級防火牆規則來增強安全性，並且讓您的資料庫更具有可攜性。 當您有多個資料庫具有相同存取需求，且不想花時間個別設定每個資料庫時，請對系統管理員使用伺服器層級的防火牆規則。
 
-> [!Important]
+> [!IMPORTANT]
 > Windows Azure SQL Database 支援最多 128 個防火牆規則。
-> [!Note]
+> [!NOTE]
 > 如需可讓業務持續運作的可攜式資料庫資訊，請參閱[災害復原的驗證需求](sql-database-geo-replication-security-config.md)。
 
 ### <a name="connecting-from-the-internet"></a>從網際網路連線
@@ -102,7 +101,7 @@ Microsoft 建議在可行時使用資料庫層級防火牆規則來增強安全�
 
 ### <a name="from-database-overview-page"></a>從資料庫概觀頁面
 
-1. 若要從資料庫概觀頁面設定伺服器層級防火牆規則，請依下圖所示按一下工作列上的 [設定伺服器防火牆]：此時會開啟 [防火牆設定] 頁面。
+1. 若要從資料庫概觀頁面設定伺服器層級防火牆規則，請依下圖所示按一下工作列上的 [設定伺服器防火牆]：SQL Database 伺服器的 [防火牆設定] 頁面隨即開啟。
 
       ![伺服器防火牆規則](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
@@ -248,7 +247,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 - 如需建立資料庫和伺服器層級防火牆規則的快速入門，請參閱[建立 Azure SQL Database](sql-database-get-started-portal.md)。
 - 如需從開放原始碼或協力廠商應用程式連接到 Azure SQL Database 的說明，請參閱 [SQL Database 的用戶端快速入門程式碼範例](https://msdn.microsoft.com/library/azure/ee336282.aspx)。
-- 如需詳細資訊，請參閱[針對 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)的〈**SQL Database：外部與內部**〉一節
+- 如需詳細資訊，請參閱[針對 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)的〈**SQL Database：外部與內部**〉一節。
 - 如需 Azure SQL Database 安全性的概觀，請參閱[保護您的資料庫](sql-database-security-overview.md)
 
 <!--Image references-->

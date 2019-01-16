@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: qianw211
-ms.openlocfilehash: 0468c41f0813277b6ba6d3be8ad89c3178dd1420
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: f13d3f780e24d71babb1bda48a9b85d1208e3c4c
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094666"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074592"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 模組
 
@@ -95,3 +95,4 @@ Marketplace 目前針對 IoT Edge 模組支援 [免費] 和 [自備授權 (BYOL)
 如果您已註冊，且要建立新供應項目或使用現有供應項目，請
 
 - 登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)以建立或完成您的供應項目。
+- 如需如何發佈 IoT Edge 模組供應項目的詳細資訊，請參閱 [IoT Edge 模組供應項目發佈概觀](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts)。

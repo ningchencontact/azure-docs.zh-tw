@@ -1,13 +1,10 @@
 ---
-title: 建立、變更或刪除 Azure 網路介面 | Microsoft Docs
+title: 建立、變更或刪除 Azure 網路介面
+titlesuffix: Azure Virtual Network
 description: 了解何謂網路介面，以及要如何建立網路介面、變更其設定和刪除網路介面。
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 78578197c5f764c8e197d3426506cb1eb13b838f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c5667d5fafdc01e8568f459b675d91ace9b8869a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956790"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023748"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>建立、變更或刪除網路介面
 
@@ -49,10 +46,10 @@ ms.locfileid: "46956790"
 
     |設定|必要？|詳細資料|
     |---|---|---|
-    |名稱|是|名稱必須是您選取的資源群組中唯一的名稱。 在經過一段時間後，您的 Azure 訂用帳戶中可能會有好幾個網路介面。 如需建立命名慣例以便更輕鬆管理數個網路介面時的建議，請參閱[命名慣例](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions)。 建立網路介面之後，便無法變更名稱。|
+    |Name|是|名稱必須是您選取的資源群組中唯一的名稱。 在經過一段時間後，您的 Azure 訂用帳戶中可能會有好幾個網路介面。 如需建立命名慣例以便更輕鬆管理數個網路介面時的建議，請參閱[命名慣例](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions)。 建立網路介面之後，便無法變更名稱。|
     |虛擬網路|是|選取網路介面的虛擬網路。 您只能將網路介面指派給和網路介面的訂用帳戶和位置相同的虛擬網路。 網路介面建立後，即無法變更為它指派的虛擬網路。 新增網路介面的虛擬機器必須也位於和網路介面相同的位置和訂用帳戶。|
     |子網路|是|選取您所選虛擬網路內的子網路。 在網路介面建立後，您可以變更為它指派的子網路。|
-    |私人 IP 位址指派|是| 在此設定中，您選擇的是 IPv4 位址指派方法。 選擇下列任一指派方法︰**動態︰** 若選取此選項，Azure 會自動指派您所選子網路位址空間中的下一個可用位址。 **靜態︰** 若選取此選項，您必須手動指派所選子網路位址空間中的可用 IP 位址。 直到您變更靜態和動態位址或刪除網路介面，位址才會變更。 您可以在建立網路介面後變更指派方法。 Azure DHCP 伺服器會將此位址指派給虛擬機器作業系統內的網路介面。|
+    |私人 IP 位址指派|是| 在此設定中，您選擇的是 IPv4 位址指派方法。 選擇下列任一指派方法︰**動態：** 若選取此選項，Azure 會自動指派您所選子網路位址空間中的下一個可用位址。 **靜態︰** 若選取此選項，您必須手動指派所選子網路位址空間中的可用 IP 位址。 直到您變更靜態和動態位址或刪除網路介面，位址才會變更。 您可以在建立網路介面後變更指派方法。 Azure DHCP 伺服器會將此位址指派給虛擬機器作業系統內的網路介面。|
     |網路安全性群組|否| 保持設為 [無]、選取現有的[網路安全性群組](security-overview.md)或[建立網路安全性群組](tutorial-filter-network-traffic.md)。 網路安全性群組可讓您篩選進出網路介面的網路流量。 您可以將網路安全性群組套用至網路介面或不套用。 您也可以將網路安全性群組套用至網路介面的目的地子網路或不套用。 當網路安全性群組套用至網路介面和網路介面的目的地子網路後，有時會發生非預期結果。 若要為套用至網路介面和子網路的網路安全性群組進行疑難排解，請參閱[針對網路安全性群組進行疑難排解](diagnose-network-traffic-filter-problem.md)。|
     |訂用帳戶|是|選取其中一個 Azure [訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)。 連接網路介面的虛擬機器和虛擬機器連線的虛擬網路，必須存在於相同的訂用帳戶。|
     |私人 IP 位址 (IPv6)|否| 如果您選取此核取方塊，除了指派給網路介面的 IPv4 位址以外，IPv6 位址也會指派給網路介面。 如需使用 IPv6 搭配網路介面的重要資訊，請參閱本文的 [IPv6](#IPv6) 一節。 您無法選取 IPv6 位址的指派方法。 如果您選擇要指派 IPv6 位址，會使用動態方法指派。
@@ -88,7 +85,7 @@ ms.locfileid: "46956790"
     - **屬性︰** 顯示有關網路介面的重要設定，包括其 MAC 位址 (如果網路介面未連結至虛擬機器，則位址會空白) 以及其所在的訂用帳戶。
     - **有效安全性規則︰** 如果網路介面已連結至執行中的虛擬機器，而且 NSG 與網路介面、為它指派的子網路或兩者相關聯，則會列出安全性規則。 若要深入了解顯示的內容，請參閱[檢視有效的安全性規則](#view-effective-security-rules)。 若要深入了解 NSG，請參閱[網路安全性群組](security-overview.md)。
     - **有效路由︰** 如果網路介面已連結至執行中的虛擬機器，則會列出路由。 路由是下列各項的組合：Azure 預設路由、任何使用者定義的路由，以及為網路介面所指派子網路的任何可能 BGP 路由。 若要深入了解所顯示的內容，請參閱[檢視有效的路由](#view-effective-routes)。 若要深入了解 Azure 預設路由和使用者定義的路由，請閱讀[路由概觀](virtual-networks-udr-overview.md)。
-    - **一般 Azure Resource Manager 設定：** 若要深入了解一般 Azure Resource Manager 設定，請參閱[活動記錄](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)、[存取控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)、[標記](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[自動化指令碼](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)。
+    - **一般 Azure Resource Manager 設定：** 若要深入了解一般 Azure Resource Manager 設定，請參閱[活動記錄](../azure-monitor/platform/activity-logs-overview.md)、[存取控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)、[標記](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)、[鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[自動化指令碼](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)。
 
 <a name="view-settings-commands"></a>**命令**
 
@@ -108,7 +105,7 @@ DNS 伺服器是由 Azure DHCP 伺服器指派給虛擬機器作業系統內的�
 3. 選取 [設定] 底下的 [DNS 伺服器]。
 4. 選取任一個選項：
     - **繼承自虛擬網路**︰選擇此選項，可針對網路介面所指派的虛擬網路，繼承為虛擬網路所定義的 DNS 伺服器設定。 在虛擬網路層級，可定義自訂 DNS 伺服器或 Azure 提供的 DNS 伺服器。 Azure 提供的 DNS 伺服器可為指派給相同虛擬網路的資源解析其主機名稱。 對於指派給不同虛擬網路的資源，則必須使用 FQDN 來解析。
-    - **自訂**︰您可以設定自己的 DNS 伺服器，以解析跨多個虛擬網路的名稱。 輸入您要做為 DNS 伺服器之伺服器的 IP 位址。 您指定的 DNS 伺服器位址只會指派給此網路介面，並會覆寫為此網路介面指派的虛擬網路的任何 DNS 設定。
+    - **自訂**：您可以設定自己的 DNS 伺服器，以解析跨多個虛擬網路的名稱。 輸入您要做為 DNS 伺服器之伺服器的 IP 位址。 您指定的 DNS 伺服器位址只會指派給此網路介面，並會覆寫為此網路介面指派的虛擬網路的任何 DNS 設定。
 5. 選取 [ **儲存**]。
 
 **命令**
@@ -247,7 +244,7 @@ Azure 網路監看員的下一個躍點功能，也可協助您判斷路由是�
 
 若要針對網路介面執行工作，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派下表所列適當權限的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
 
-| 動作                                                                     | 名稱                                                      |
+|  動作                                                                     | Name                                                      |
 | ---------                                                                  | -------------                                             |
 | Microsoft.Network/networkInterfaces/read                                   | 取得網路介面                                     |
 | Microsoft.Network/networkInterfaces/write                                  | 建立或更新網路介面                        |

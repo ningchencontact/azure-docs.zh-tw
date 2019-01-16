@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: ba2441044d63e63b969054e84e163352d2b376e8
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a44b348e0c41e96c575555f2b5c275e196284c5b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993794"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074505"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 觸發程序和繫結概念
 
@@ -674,6 +674,10 @@ public class BlobName
 ## <a name="functionjson-file-schema"></a>function.json 檔案結構描述
 
 function.json 檔案結構描述可以在 [http://json.schemastore.org/function](http://json.schemastore.org/function) 取得。
+
+## <a name="testing-bindings"></a>測試繫結
+
+在本機開發函式時，您可以使用 Visual Studio 2017 或 Visual Studio Code 來測試繫結。 若要深入了解，請參閱[在 Azure Functions 中測試程式碼的策略](functions-test-a-function.md)。 您也可以使用 REST API 叫用非 HTTP 繫結。 若要深入了解，請參閱[手動執行非 HTTP 觸發的函式](functions-manually-run-non-http.md)。
 
 ## <a name="handling-binding-errors"></a>處理繫結錯誤
 

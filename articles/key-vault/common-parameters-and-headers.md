@@ -10,16 +10,15 @@ ms.assetid: a715d13ca9-d6e8-4e54-ac5e-0ed9400fb15b15d13ca9-d6e8-4e54-ac5e-0ed940
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2018
+ms.topic: conceptual
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: a319dc670b5b1dab163b2d3aa623fc4fb9ce1c3a
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: de9243a0a95c14a048be124976b07853a48a9a08
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145072"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075221"
 ---
 # <a name="common-parameters-and-headers"></a>通用參數和標頭
 
@@ -37,8 +36,8 @@ ms.locfileid: "42145072"
 
    {  
      "error": {  
-     "code": "BadRequest",  
-     "message": "金鑰保存庫 SKU 無效。"  
+     "code":"BadRequest",  
+     "message":"The key vault sku is invalid."  
      }  
    }  
 

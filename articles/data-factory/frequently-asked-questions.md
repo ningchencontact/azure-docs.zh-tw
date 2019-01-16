@@ -9,19 +9,18 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249582"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024088"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory 常見問題集
-此文章提供 Azure Data Factory 常見問題集的解答。  
+本文提供 Azure Data Factory 常見問題集的解答。  
 
 ## <a name="what-is-azure-data-factory"></a>Azure 資料處理站是什麼？ 
 Data Factory 是完全受控並以雲端為基礎的資料整合服務，用來自動化資料的移動和轉換。 就像會運轉設備以將原物料轉換成成品的工廠一樣，Azure Data Factory 會協調現有的服務來收集未經處理資料，並將其轉換成隨時可用的資訊。 
@@ -64,10 +63,10 @@ Data Factory 可讓您自由地為資料整合所需的任何流程樣式建立�
 3.  C# SDK 使用者也可以利用記載的 REST API 作為 ADF V2 的介面
 
 ### <a name="iterative-development-and-debugging-using-visual-tools"></a>使用視覺工具進行反覆式開發與偵錯
-Azure Data Factory (ADF) 視覺工具可讓您進行反覆式開發與偵錯。 您可以使用管線畫布中的 [偵錯] 功能來建立管線和執行測試回合，無須撰寫任何一行程式碼。 您可以在管線畫布的 [輸出] 視窗中檢視測試回合的結果。 測試回合成功後，您可以將更多活動新增至您的管線，並繼續反覆地偵錯。 您也可以取消進行中的測試回合。 在按一下 [偵錯] 前，您不需先將變更發佈到資料處理站服務。 如果您想要在開發、測試或生產環境中更新資料處理站工作流程前，先確定新增項目或變更如預期般運作，此功能便很有幫助。 
+Azure Data Factory (ADF) 視覺工具可讓您進行反覆式開發與偵錯。 您可以使用管線畫布中的 [偵錯] 功能來建立管線和執行測試回合，無須撰寫任何一行程式碼。 您可以在管線畫布的 [輸出] 視窗中檢視測試回合的結果。 測試回合成功後，您可以將更多活動新增至您的管線，並繼續反覆地偵錯。 您也可以取消進行中的測試回合。 在按一下 [偵錯] 前，您不需先將變更發佈到資料處理站服務。 如果您想要在開發、測試或生產環境中更新資料處理站工作流程前，先確定新增項目或變更如預期般運作，這項功能便很有幫助。 
 
 ### <a name="deploy-ssis-packages-to-azure"></a>將 SSIS 套件部署至 Azure 
-如果您想要移動 SSIS 工作負載，可以建立 Data Factory，然後佈建 Azure-SSIS 整合執行階段。 Azure-SSIS 整合執行階段是一個完全受控的 Azure VM (節點) 叢集，專門用來執行您的雲端 SSIS 套件。 如需逐步指示，請參閱教學課程：[將 SSIS 套件部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 
+如果您想要移動 SSIS 工作負載，可以建立 Data Factory，然後佈建 Azure-SSIS 整合執行階段。 Azure-SSIS 整合執行階段是一個完全受控的 Azure VM (節點) 叢集，專門用來執行您的雲端 SSIS 封裝。 如需逐步指示，請參閱教學課程：[將 SSIS 封裝部署至 Azure](tutorial-create-azure-ssis-runtime-portal.md)。 
  
 ### <a name="sdks"></a>SDK
 如果您是進階使用者且正在尋找程式設計介面，ADF 提供一組豐富的 SDK，讓您能使用慣用的 IDE 來撰寫、管理及監視管線。 .NET、PowerShell、Python 和 REST 皆提供語言支援。
@@ -78,7 +77,7 @@ Azure Data Factory (ADF) 視覺工具可讓您進行反覆式開發與偵錯。 
 ### <a name="new-features-for-ssis-in-adf"></a>ADF 中 SSIS 適用的新功能
 自 2017 年首次發行公開預覽版起，Data Factory 已為 SSIS 新增下列功能：
 
--   支援超過三個 Azure SQL 資料庫 (DB) 設定/變體，以主控專案/套件 (SSISDB) 的 SSIS 目錄：
+-   支援超過三個 Azure SQL 資料庫 (DB) 設定/變體，以主控專案/封裝 (SSISDB) 的 SSIS 目錄：
 -   含 VNet 服務端點的 Azure SQL DB
 -   受控執行個體 (MI)
 -   彈性集區
@@ -92,22 +91,22 @@ Azure Data Factory (ADF) 視覺工具可讓您進行反覆式開發與偵錯。 
 ## <a name="what-is-integration-runtime"></a>什麼是整合執行階段？
 整合執行階段是 Azure Data Factory 所使用的計算基礎結構，可跨各種網路環境提供下列資料整合功能：
 
-- **資料移動**：若要移動資料，Integration Runtime 會在來源與目的地資料存放區之間移動資料，並且支援內建連接器、格式轉換、資料行對應，以及高效能且可調整規模的資料轉送作業。
-- **分派活動**：若要轉換，Integration Runtime 提供可原生執行 SSIS 套件的功能。
-- **執行 SSIS 套件**：在受控 Azure 計算環境中原生執行 SSIS 套件。 Integration Runtime 也支援分派和監視在 Azure HDInsight、Azure Machine Learning、Azure SQL Database、SQL Server 等各種計算服務上執行的轉換活動。
+- **資料移動**：針對資料移動，整合執行階段會在來源與目的地資料存放區之間移動資料，同時提供內建連接器、格式轉換、資料行對應，以及高效能且可調整規模的資料轉送支援。
+- **分派活動**：針對轉換，整合執行階段提供可原生執行 SSIS 套件的功能。
+- **執行 SSIS 套件**：在受控 Azure 計算環境中原生執行 SSIS 封裝。 Integration Runtime 也支援分派和監視在 Azure HDInsight、Azure Machine Learning、Azure SQL Database、SQL Server 等各種計算服務上執行的轉換活動。
 
 您可視需要部署一或多個整合執行階段執行個體，以移動和轉換資料。 整合執行階段可以在 Azure 公用網路中執行，或是在私人網路 (內部部署、Azure 虛擬網路或 Amazon Web Services 虛擬私人雲端 [VPC]) 中執行。 
 
 如需詳細資訊，請參閱 [Azure Data Factory 中的整合執行階段](concepts-integration-runtime.md)。
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>整合執行階段數目的限制為何？
-您在資料處理站中可擁有多少個整合執行階段個體，並無硬性限制。 不過，整合執行階段可根據訂用帳戶用於 SSIS 套件的虛擬機器核心數目，將會受到限制。 如需詳細資訊，請參閱 [Data Factory 限制](../azure-subscription-service-limits.md#data-factory-limits)。
+您在資料處理站中可擁有多少個整合執行階段個體，並無硬性限制。 不過，整合執行階段可根據訂用帳戶用於 SSIS 套件封裝的虛擬機器核心數目，將會受到限制。 如需詳細資訊，請參閱 [Data Factory 限制](../azure-subscription-service-limits.md#data-factory-limits)。
 
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Azure Data Factory 的最上層概念為何？
 Azure 訂用帳戶可能會有一或多個 Azure Data Factory 執行個體 (或資料處理站)。 Azure Data Factory 是由四個重要元件所組成，這些元件會一起運作，以提供平台讓您撰寫具有資料移動和轉換步驟的資料驅動工作流程。
 
 ### <a name="pipelines"></a>管線
-資料處理站可以有一或多個管線。 管線是一個執行某個單位工作的活動邏輯群組。 管線中的活動會合作執行一個工作。 例如，管線可能包含一組活動，以從 Azure Blob 內嵌資料，然後對 HDInsight 叢集執行 Hive 查詢來分割資料。 其中的優勢在於，您可使用管線按組別管理活動，而無須個別管理每個活動。 您可將管線中的活動鏈結在一起以循序方式運作，或是以平行方式獨立運作。
+資料處理站可以有一或多個管線。 管線是一個執行某個單位工作的活動邏輯群組。 管線中的活動會合作執行一項工作。 例如，管線可能包含一組活動，以從 Azure Blob 內嵌資料，然後對 HDInsight 叢集執行 Hive 查詢來分割資料。 其中的優勢在於，您可使用管線按組別管理活動，而無須個別管理每個活動。 您可將管線中的活動鏈結在一起以循序方式運作，或是以平行方式獨立運作。
 
 ### <a name="activity"></a>活動
 活動代表管線中的處理步驟。 例如，您可以使用*複製*活動，將資料從某個資料存放區複製到另一個資料存放區。 同樣地，您可以使用在 Azure HDInsight 叢集上執行 Hive 查詢的 Hive 活動，來轉換或分析您的資料。 Data Factory 支援三種類型的活動︰資料移動活動、資料轉換活動，以及控制活動。
@@ -179,5 +178,5 @@ Data Factory 中的連結服務，有兩個用途：
 ## <a name="next-steps"></a>後續步驟
 如需建立資料處理站的逐步指示，請參閱下列教學課程：
 
-- [快速入門：建立 Data Factory](quickstart-create-data-factory-dot-net.md)
+- [快速入門：建立資料處理站](quickstart-create-data-factory-dot-net.md)
 - [教學課程：複製雲端中的資料](tutorial-copy-data-dot-net.md)

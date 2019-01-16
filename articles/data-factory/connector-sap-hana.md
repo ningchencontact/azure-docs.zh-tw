@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1ded69225319e447ad210aed267741b2803889ac
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048077"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022966"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP HANA 複製資料
-> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-sap-hana-connector.md)
 > * [目前的版本](connector-sap-hana.md)
 
@@ -40,7 +39,7 @@ ms.locfileid: "37048077"
 > [!NOTE]
 > 若要將資料複製**到** SAP HANA 資料存放區，請使用一般 ODBC 連接器。 如需詳細資料，請參閱 [SAP HANA 接收器](connector-odbc.md#sap-hana-sink)。 請注意，SAP HANA 連接器和 ODBC 連接器的已連接服務具有不同的類型，因此無法重複使用。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用這個 SAP HANA 接收器，您必須：
 
@@ -59,12 +58,12 @@ ms.locfileid: "37048077"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**SapHana** | yes |
-| 伺服器 | SAP Hana 執行個體所在之伺服器的名稱。 如果您的伺服器使用自訂連接埠，指定 `server:port`。 | yes |
-| authenticationType | 用來連線到 SAP HANA 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Windows** | yes |
-| userName | 能夠存取 SAP 伺服器的使用者名稱。 | yes |
-| password | 使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
-| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |yes |
+| type | 類型屬性必須設定為：**SapHana** | 是 |
+| 伺服器 | SAP Hana 執行個體所在之伺服器的名稱。 如果您的伺服器使用自訂連接埠，指定 `server:port`。 | 是 |
+| authenticationType | 用來連線到 SAP HANA 資料庫的驗證類型。<br/>允許的值包括：**基本**和 **Windows** | 是 |
+| userName | 能夠存取 SAP 伺服器的使用者名稱。 | 是 |
+| password | 使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
 **範例：**
 
@@ -122,8 +121,8 @@ ms.locfileid: "37048077"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | yes |
-| query | 指定 SQL 查詢從 SAP HANA 執行個體讀取資料。 | yes |
+| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| query | 指定 SQL 查詢從 SAP HANA 執行個體讀取資料。 | 是 |
 
 **範例：**
 

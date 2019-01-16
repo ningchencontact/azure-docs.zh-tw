@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: d193cfcd03eb4e686ba829e121fbf77e2e0c18a6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 054215a44b66d8fbf30c1a3e61f66425350392b1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233009"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074507"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>在 Marketplace 上拓展業務 
 您在 AppSource 或 Azure Marketplace 上發行供應項目之後，可以使用您的清單作為 Microsoft 聯合 Go-To-Market (GTM) 活動跳板。 推動您的 Marketplace 供應項目流量並與 Marketplace 潛在客戶加強關係，都是加速業務成長的絕佳範例方式。 
@@ -33,7 +33,7 @@ ms.locfileid: "51233009"
 ### <a name="storefront-offer-details"></a>店面供應項目詳細資料
 | 店面設定 | 最佳做法 |
 |:--- |:--- |  
-| 供應項目名稱 | 提供有力標題：<br>您的應用程式名稱應該傳達客戶收到的核心價值。 在您的應用程式標題中包含搜尋關鍵字，有助於您的應用程式在搜尋引擎結果中獲得更高的順位。<br><br>針對諮詢服務清單依照已設定的標題格式：<br>[供應項目名稱] : [期間] [供應項目類型] (例如 *Contoso: 2-Week Implementation*)<br><br>遵守品牌指導方針：<br>提及 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 [Microsoft 商標和品牌指導方針](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)以及其他相關的特定產品指導方針。 |
+| 供應項目名稱 | 提供有力標題：<br>您的應用程式名稱應該傳達客戶收到的核心價值。 在您的應用程式標題中包含搜尋關鍵字，有助於您的應用程式在搜尋引擎結果中獲得更高的順位。<br><br>針對諮詢服務清單依照已設定的標題格式：<br>[供應項目名稱] : [期間] [供應項目類型] (例如 *Contoso:2-Week Implementation*)<br><br>遵守品牌指導方針：<br>提及 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 [Microsoft 商標和品牌指導方針](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx)以及其他相關的特定產品指導方針。 |
 | 供應項目描述 | 提供清楚的供應項目描述：<br>在您的描述中的前幾個句子清楚描述您供應項目的價值主張。 請記住，前幾個句子可能會顯示在搜尋引擎結果中。 請勿依賴特色與功能來銷售您的產品。 反之，要鎖定在您所提供的價值。 請盡可能使用業界特定詞彙或凸顯優點的字眼。<br><br>您的價值主張核心部分應該包含下列資訊：<ul><li>產品的描述</li><li>可從產品獲益的使用者類型</li><li>客戶需求或產品可解決的問題</li></ul> |
 
 ### <a name="storefront-listing-details"></a>店面清單詳細資料
@@ -41,7 +41,7 @@ ms.locfileid: "51233009"
 |:--- |:--- |  
 | 產業：僅 AppSource 應用程式與諮詢服務 | 如果您的供應項目可解決特定產業需求，請選取產業：<br>在您的供應項目描述中凸顯這些特定產業需求。<br><br>**注意**：選項數目上限會隨供應項目類型而有所不同，並會在 Cloud Partner 入口網站中指出。 |
 | 類別 | 選取最符合您供應項目的類別：<br>請謹慎選擇這些類別，因為客戶會以類別搜尋相關應用程式。 務必在供應項目描述中凸顯您的供應項目如何支援特定類別需求。<br><br> **注意**：選項數目上限會隨供應項目類型而有所不同，並會在 Cloud Partner 入口網站中指出。 |
-| 與您的應用程式一起運作的產品 (最多 3&nbsp;個)：僅 AppSource 應用程式 | 列出您的解決方案使用或延伸的其他產品和技術：<br>例如，Azure IoT 中樞或 Azure Machine Learning。 |
+| 可搭配您應用程式的產品 (3&nbsp;max)：僅 AppSource 應用程式 | 列出您的解決方案使用或延伸的其他產品和技術：<br>例如，Azure IoT 中樞或 Azure Machine Learning。 |
 | 搜尋關鍵字 (最多 3&nbsp;個) | 使用可協助商務使用者在 Azure Marketplace 與 AppSource 上或使用搜尋引擎搜尋時找到您的供應項目的搜尋關鍵字：<br>找出您供應項目的前三個搜尋關鍵字，將這些關鍵字納入供應項目摘要與描述中，並將搜尋關鍵字列在此處。 |
 
 ### <a name="storefront-marketing-details"></a>店面行銷詳細資料
@@ -148,7 +148,7 @@ AppSource 徽章有三種大小。 您可以從「[在 Microsoft AppSource 上�
 ### <a name="link-to-your-app-listing-page-in-the-marketplace-from-your-website"></a>從您的網站連結至市集上您的應用程式清單頁面
 當您從網站上的 AppSource 或 Azure Marketplace 徽章連結到市集上的清單時，請在 URL 結尾處包含以下查詢參數，以支援強大的分析與報告功能：
 * **src**：包含路由傳送到 AppSource (例如，網站、LinkedIn 或 Facebook) 的流量來源。
-* **mktcmpid**：您的行銷活動識別碼，最多可包含 16 個字元，而且可以是字母、數字、底線與連字號的任意組和 (例如，*blogpost_12*)。
+* **mktcmpid**：您的行銷活動識別碼，最多可包含 16 個字元，而且可以是字母、數字、底線與連字號的任意組和 (例如，blogpost_12)。
 
 下列範例 URL 包含前兩個查詢範例：`https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

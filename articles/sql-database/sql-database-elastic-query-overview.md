@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: dd6a9ee00ba6244e5a0d04f654e6b57db8896ea6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a1ad976be258c418c115d0dbd79d4d6700a15b31
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603942"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158409"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 彈性查詢概觀 (預覽)
 
@@ -108,11 +108,11 @@ ms.locfileid: "53603942"
 
 下列步驟會針對水平資料分割案例設定彈性資料庫查詢，這些案例需要存取 (通常) 位於數個遠端 SQL Database 上的一組資料表：
 
-* [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
-* [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
+* [CREATE MASTER KEY](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
+* [CREATE DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql) mycredential
 * 使用彈性資料庫用戶端程式庫，建立代表您的資料層的 [分區對應](sql-database-elastic-scale-shard-map-management.md) 。
-* [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource (類型為 **SHARD_MAP_MANAGER**)
-* [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
+* [CREATE/DROP EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource (類型為 **SHARD_MAP_MANAGER**)
+* [CREATE/DROP EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) mytable
 
 執行這些步驟後，您即可存取水平分割的資料表 "mytable"，就像存取本機資料表一樣。 Azure SQL Database 會自動開啟遠端資料庫 (實際儲存資料表的位置) 的多個平行連線、處理對於遠端資料庫的要求，以及傳回結果。
 如需水平資料分割案例所需步驟的詳細資訊，請參閱 [水平資料分割的彈性查詢](sql-database-elastic-query-horizontal-partitioning.md)。
@@ -146,7 +146,7 @@ ms.locfileid: "53603942"
 
 ## <a name="feedback"></a>意見反應
 
-請在以下MSDN 論壇或 Stackoverflow 上，與我們分享您在彈性查詢體驗方面的意見。 我們很樂意接受關於服務的各種意見 (缺失、不完善、功能落差)。
+請在以下MSDN 論壇或 Stack Overflow 上，與我們分享您在彈性查詢體驗方面的意見。 我們很樂意接受關於服務的各種意見 (缺失、不完善、功能落差)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ff3ca665382efc9133a4c4ce3f3fde25c03c5e52
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ad22f1944d3fe9a088b66da4cf4df7136db497f7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806739"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075325"
 ---
 <a name="make-your-virtual-machine-offer-live-on-azure-marketplace"></a>虛擬機器供應項目於 Azure Marketplace 上線
 =========================================================
@@ -51,13 +51,13 @@ ms.locfileid: "48806739"
 
 當您按一下 [發行] 時，將會進行自動化檢查，確保您已填入供應項目的所有必要欄位。 如果未填入所有的欄位，欄位旁邊會出現警告，您必須正確填入它，然後再按一下 [發行]。
 
-正確地完成此步驟後，快顯視窗就會出現，要求您提供電子郵件地址。 在剩餘的發佈程序中，您會透過此電子郵件收到發佈狀態通知。 一旦提交電子郵件地址，這個步驟就算完成。
+正確地完成此步驟後，快顯視窗就會出現，提示您輸入電子郵件地址。 在剩餘的發佈程序中，您會透過此電子郵件收到發佈狀態通知。 一旦提交電子郵件地址，這個步驟就算完成。
 
 ![供應項目上線順序 4 - 發行您的供應項目](./media/cloud-partner-portal-offer-go-live-azure-marketplace/publishyouroffer.png)
 
 **認證 (\<5 天)**
 
-我們會在這個步驟中執行數個測試，以確保您的 VM 映像符合 Azure 認證的需求。 [這裡](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)有您必須確保通過認證需求的所有指導方針。
+我們會在這個步驟中執行數個測試，以確保您的 VM 映像符合 Azure 認證的需求。 [這裡](../cloud-partner-portal/virtual-machine/cpp-prerequisites.md)有您必須確保通過認證需求的所有指引。
 
 由於此步驟可能需要數天的時間，所以您可登出 Cloud Partner 入口網站。 如果有您需要解決的任何錯誤，我們將傳送電子郵件通知給您。 如果所有項目均順利通過，此程序會自動移至「佈建」步驟。
 
@@ -75,11 +75,11 @@ ms.locfileid: "48806739"
 
 您會收到一封電子郵件通知，表示您的供應項目已成功完成存取預覽狀態供應項目所需的步驟。 在此步驟中，您應該預覽您的供應項目並確定一切看起來正常，而且您的 VM 正確地部署在預備環境中。
 
-**只有列入允許清單的訂用帳戶可以執行此驗證。**\*
+只有列入允許清單的訂用帳戶可以執行此驗證。
 
 **發行者登出**
 
-一旦您確認一切看起來正確無誤且可在預覽狀態正常運作，您就已準備好上線。 若要這麼做，請按一下 [狀態] 索引標籤之下的 [上線]，我們會開始讓您的供應項目於生產環境和網站上線。 從您按一下 [上線] 到供應項目於網站上線，通常需要數小時的時間。 一旦您的供應項目在網站上正式上線，我們就會傳送電子郵件通知給您。
+一旦您確認一切看起來正確無誤且可在預覽狀態正常運作，您就已準備好上線。 按一下 [狀態] 索引標籤之下的 [上線]，我們會開始讓您的供應項目於生產環境和網站上線。 從您按一下 [上線] 到供應項目於網站上線，通常需要數小時的時間。 一旦您的供應項目在網站上正式上線，我們就會傳送電子郵件通知給您。
 
 ![供應項目上線順序 5 - 上線](./media/cloud-partner-portal-offer-go-live-azure-marketplace/golive.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "48806739"
 
 ![供應項目上線順序 6 - 錯誤訊息](./media/cloud-partner-portal-offer-go-live-azure-marketplace/errormessage.png)
 
-如果在發行過程中遇到錯誤，您必須修正這些錯誤，然後按一下 [發行] 重新啟動程序。 在修正任何錯誤後重新發佈時，您必須從發佈步驟中「驗證必要元件」的開頭著手。
+如果在發佈過程中遇到錯誤，您必須修正這些問題，然後按一下 [發行] 重新啟動程序。 在修正任何錯誤後重新發佈時，您必須從驗證必要元件中之發行步驟的開頭著手。
 
 如果您在解決錯誤時遇到問題，您應該開啟支援要求，向我們的支援工程師取得協助。
 
@@ -103,7 +103,7 @@ ms.locfileid: "48806739"
 <a name="canceling-the-publishing-request"></a>取消發佈要求
 --------------------------------
 
-您可以啟動發佈程序，並且需要取消您的要求。 您只能在發行要求觸達「發行者登出」步驟時取消發行要求。 若要取消，請按一下 [取消發行]。 發佈狀態會重設為步驟 1，若要重新發行，您應該按一下 [發佈] 並依照狀態中的步驟執行。
+您可以啟動發佈程序，並且需要取消您的要求。 您只能在發行要求觸達「發行者登出」步驟時取消發行要求。 若要取消，請按一下 [取消發行]。 發佈狀態會重設為步驟 1，若要重新發行，您應該按一下 [發佈] 並遵循狀態中的步驟。
 
 ![供應項目上線順序 8 - 狀態](./media/cloud-partner-portal-offer-go-live-azure-marketplace/status5.png)
 

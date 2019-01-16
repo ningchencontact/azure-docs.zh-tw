@@ -9,17 +9,16 @@ ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3f234e49f1a28fd0881e47ede13ae72483ed31f3
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053111"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025414"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>使用監視及管理應用程式，以監視和管理 Azure Data Factory 管線
 > [!div class="op_single_selector"]
@@ -29,7 +28,7 @@ ms.locfileid: "37053111"
 >
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[監視和管理 Data Factory 管線](../monitor-visually.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[監視和管理 Data Factory 管線](../monitor-visually.md)。
 
 本文說明如何使用監視及管理應用程式來監視、管理與偵錯您的 Data Factory 管線。 您可以藉由觀賞下列影片開始使用應用程式：
 
@@ -146,7 +145,7 @@ Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data F
 
 ![活動時段總管的向左/向右箭號](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-在 [圖表檢視] 的底部，您會看到 [放大]、[縮小]、[縮放至適當比例]、[顯示比例 100%]、[鎖定配置] 等按鈕。 [鎖定配置] 按鈕會防止您在 [圖表檢視] 中不小心移動了資料表和管線。 此按鈕預設為開啟。 但您可以關閉該設定，以便移動圖表中的實體。 當您關閉該設定，您可以使用上一個按鈕來自動把資料表和管線移動到適當的地方。 您也可以使用滑鼠滾輪來放大或縮小。
+在 [圖表檢視] 的底部，您會看到下列按鈕：放大、縮小、縮放至適當比例、顯示比例 100%、鎖定配置。 [鎖定配置] 按鈕會防止您在 [圖表檢視] 中不小心移動了資料表和管線。 此按鈕預設為開啟。 但您可以關閉該設定，以便移動圖表中的實體。 當您關閉該設定，您可以使用上一個按鈕來自動把資料表和管線移動到適當的地方。 您也可以使用滑鼠滾輪來放大或縮小。
 
 ![圖表檢視縮放命令](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
@@ -268,7 +267,7 @@ Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data F
 >
 >
 
-請在 [活動時段清單] 中，按一下某個資料行的名稱 (例如：[狀態])。
+請在 [活動時段清單] 中，按一下某個資料行的名稱 (例如：狀態)。
 
 ![活動時段清單的資料行功能表](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
@@ -291,7 +290,7 @@ Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data F
 選取某個活動時段、按一下第一個命令列按鈕旁的向下箭號，然後選取 [重新執行] / [搭配管線上游來重新執行]。 當您選取 [搭配管線上游來重新執行] 時，系統也會傳回所有上游的活動時段。
     ![重新執行某個活動時段](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-您也可以選取清單中的數個活動時段，然後同時重新執行這些活動時段。 您可能會想要根據狀態 (例如 [失敗]) 來篩選活動時段，然後在修正導致活動時段執行失敗的問題之後，重新執行失敗的活動時段。 請參閱下一節來取得如何篩選清單中活動時段的詳細資料。  
+您也可以選取清單中的數個活動時段，然後同時重新執行這些活動時段。 您可能會想要根據狀態來篩選活動時段 (例如：[失敗])，然後在修正導致活動時段執行失敗的問題之後，重新執行失敗的活動時段。 請參閱下一節來取得如何篩選清單中活動時段的詳細資料。  
 
 ### <a name="pauseresume-multiple-pipelines"></a>暫停/繼續多個管線
 您可以使用 Ctrl 鍵，以多重選取兩個以上的管線。 您可以使用命令列按鈕 (在下圖以紅色矩形反白顯示) 來暫停/繼續這些管線。

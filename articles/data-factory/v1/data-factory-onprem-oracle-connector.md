@@ -9,21 +9,20 @@ ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 848616bb69aa0eae384b9c4e7ea1c2ac3da3c04e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167115"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024904"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到內部部署 Oracle 或複製其中的資料
 
-> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](data-factory-onprem-oracle-connector.md)
 > * [第 2 版 (目前的版本)](../connector-oracle.md)
 
@@ -70,7 +69,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
     > 目前，適用於 Oracle 的 Microsoft 驅動程式僅支援從 Oracle 複製資料。 驅動程式不支援寫入至 Oracle。 資料管理閘道 [診斷] 索引標籤中的測試連線功能不支援此驅動程式。 您可以選擇使用複製精靈來驗證連線。
     >
 
-- **Oracle Data Provider for .NET**︰您可以使用 Oracle Data Provider，從 Oracle 複製資料或將資料複製到 Oracle。 此元件包含於 [適用於 Windows 的 Oracle 資料存取元件](http://www.oracle.com/technetwork/topics/dotnet/downloads/)中。 在安裝閘道的電腦上安裝相關版本 (32 位元或 64 位元)。 [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) 可以存取 Oracle Database 10g Release 2 和更新版本。
+- **Oracle Data Provider for .NET**：您可以使用 Oracle Data Provider，從 Oracle 複製資料或將資料複製到 Oracle。 此元件包含於 [適用於 Windows 的 Oracle 資料存取元件](http://www.oracle.com/technetwork/topics/dotnet/downloads/)中。 在安裝閘道的電腦上安裝相關版本 (32 位元或 64 位元)。 [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) 可以存取 Oracle Database 10g Release 2 和更新版本。
 
     如果您選取 [XCopy 安裝]，請完成 readme.htm 檔案中所述的步驟。 建議您選取具有 UI 的安裝程式 (不是 XCopy 安裝程式)。
 
@@ -82,7 +81,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 您可以建立具有複製活動的管線。 管線會使用不同的工具或 API，將資料移進或移出內部部署 Oracle 資料庫。
 
-若要建立管線，最簡單的方式就是使用複製精靈。 如需使用資料複製精靈建立管線的快速逐步解說，請參閱[教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)。
+若要建立管線，最簡單的方式就是使用複製精靈。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用資料複製精靈建立管線的快速逐步解說。
 
 您也可以使用下列其中一個工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 或 **REST API**。 如需逐步指示來了解如何建立內含複製活動的管線，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
@@ -108,10 +107,10 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 | connectionString | 針對 **connectionString** 屬性指定連線到 Oracle 資料庫執行個體所需的資訊。 | 是 |
 | gatewayName | 用來連線內部部署 Oracle 伺服器的閘道名稱。 |是 |
 
-**範例︰使用 Microsoft 驅動程式**
+**範例：使用 Microsoft 驅動程式**
 
 > [!TIP]
-> 如果您看見指出「ORA-01025: UPI 參數超出範圍」的錯誤，而且您的 Oracle 版本為 8i，請將 `WireProtocolMode=1` 新增至連接字串並再試一次：
+> 如果您看見錯誤訊息表示「ORA-01025:UPI 參數超出範圍」的錯誤，而且您的 Oracle 版本為 8i，請將 `WireProtocolMode=1` 新增至連接字串並再試一次：
 
 ```json
 {
@@ -127,7 +126,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 }
 ```
 
-**範例︰使用 ODP 驅動程式**
+**範例：使用 ODP 驅動程式**
 
 若要了解允許的格式，請參閱 [Oracle Data Provider for .NET ODP](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/)。
 
@@ -268,7 +267,7 @@ User Id=<user name>;Password=<password>;",
 
 **Azure Blob 輸出資料集**
 
-資料會每小時寫入至新的 Blob (**頻率**：**小時**，**間隔**：**1**)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑和檔案名稱。 資料夾路徑會使用開始時間的年、月、日和小時部分。
+資料會每小時寫入至新的 Blob (**frequency**：**hour**，**interval**：**1**)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑和檔案名稱。 資料夾路徑會使用開始時間的年、月、日和小時部分。
 
 ```json
 {
@@ -423,7 +422,7 @@ User Id=<user name>;Password=<password>;",
 
 **Azure Blob 輸入資料集**
 
-每小時從新的 Blob 挑選資料 (**頻率**：**小時**，**間隔**：**1**)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑和檔案名稱。 資料夾路徑會使用開始時間的年、月和日部分。 檔案名稱會使用開始時間的小時部分。 **external**: **true** 設定會通知 Data Factory 服務：這是 Data Factory 外部的資料表而且不是由 Data Factory 中的活動所產生。
+每小時從新的 Blob 挑選資料 (**frequency**：**hour**，**interval**：**1**)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑和檔案名稱。 資料夾路徑會使用開始時間的年、月和日部分。 檔案名稱會使用開始時間的小時部分。 **external**: **true** 設定會通知 Data Factory 服務：這是 Data Factory 外部的資料表而且不是由 Data Factory 中的活動所產生。
 
 ```json
 {
@@ -575,7 +574,7 @@ User Id=<user name>;Password=<password>;",
 * 將此項目複製到下列 .NET 4.0 資料夾中的 machine.config 檔案：<系統磁碟\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config。然後，將版本變更為 4.xxx.x.x。
 * 執行 **gacutil /i [provider path]**，在全域組件快取 (GAC) 中安裝 <ODP.NET 安裝路徑\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll。
 
-### <a name="problem-2-datetime-formatting"></a>問題 2︰日期/時間格式
+### <a name="problem-2-datetime-formatting"></a>問題 2：日期/時間格式
 
 **錯誤訊息**
 

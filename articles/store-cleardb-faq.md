@@ -1,5 +1,5 @@
 ---
-title: ClearDB MySQL 資料庫搭配 Azure App Service 的常見問題集 | Microsoft Docs
+title: ClearDB MySQL 資料庫搭配 Azure App Service 的常見問題集
 description: 使用 ClearDB MySQL 資料庫搭配 Azure App Service 常見問題的解答。
 documentationcenter: php
 services: mysql
@@ -7,17 +7,16 @@ author: sunbuild
 manager: yochayk
 tags: mysql
 ms.service: multiple
-ms.workload: data-management
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 253f817099bd2705d8b9ea98741dc8fd28f09efe
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0887f58ca455dfec0474c8d6a1acba584224f0d7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421652"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074405"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>ClearDB MySQL 資料庫搭配 Azure App Service 的常見問題集
 此常見問題集可回答為 Azure Web Apps 使用及購買 ClearDB MySQL 資料庫的常見問題。
@@ -27,16 +26,14 @@ ms.locfileid: "52421652"
 >
 > 如需詳細資訊和後續步驟，請參閱 [ClearDB 服務方案之變更](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/) (英文)。
 
-
 ## <a name="what-options-do-i-have-for-mysql-on-azure"></a>在 Azure 上的 MySQL 有哪些選項？
-您有幾種選項：
+請參閱 [ClearDB](https://w2.cleardb.net/)，以取得該服務的最新資訊。 ClearDB 是 MySQL 代管服務，會為您管理 MySQL 基礎結構。 
 
-* [ClearDB Shared MySQL 資料庫](/marketplace/partners/cleardb/databases/)
-* [ClearDB MySQL Premium 叢集](/marketplace/partners/cleardb-clusters/cluster/)
+您有其他數個選項可以在 Azure 中裝載 MySQL：
+* [適用於 MySQL 的 Azure 資料庫](https://azure.microsoft.com/services/mysql/)
 * [Azure VM 上執行的 MySQL 叢集](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 * [Azure VM 上執行的 MySQL 單一執行個體](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-ClearDB 是 MySQL 代管服務，會為您管理 MySQL 基礎結構。 在 Azure 虛擬機器上執行自己的 MySQL 叢集或資料庫時，您必須設定 MySQL 伺服器，並使用修補程式讓它保持更新。
 
 ## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>要取得 Azure Marketplace 中的 Web 應用程式與 MySQL 範本需要使用信用卡嗎？
 這取決於您使用的訂用帳戶類型。 以下是一些常用的訂用帳戶類型：
@@ -53,7 +50,7 @@ ClearDB 是 MySQL 代管服務，會為您管理 MySQL 基礎結構。 在 Azure
 是。 只要您的 Azure VM 已將遠端存取權提供給 Web 應用程式，Web 應用程式就能連線到您的資料庫。 如需詳細資訊，請參閱 [在虛擬機器上安裝 MySQL](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
 ## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>支援 ClearDB Premium MySQL 叢集的國家 (地區)有哪些？
-[ClearDB Premium MySQL 叢集](/marketplace/partners/cleardb-clusters/cluster/) 。
+ClearDB Premium MySQL 叢集適用於下列區域以外的全球所有 Azure 區域：印度、澳洲、巴西南部及中國。
 
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>可以於使用 ClearDB Premium 叢集解決方案建立資料庫之前建立新的叢集嗎？
 否，不支援建立空白的 ClearDB 叢集。 Azure 入口網站可讓您在叢集中建立資料庫，這可能會同時建立新的叢集。
@@ -65,7 +62,7 @@ ClearDB 是 MySQL 代管服務，會為您管理 MySQL 基礎結構。 在 Azure
 Azure Marketplace 無法供在亞塞拜然、克羅埃西亞、挪威或波多黎各註冊的客戶使用。 這些區域中無法使用 ClearDB。
 
 ## <a name="what-pricing-tier-should-i-choose-for-a-production-web-app-and-database"></a>針對生產 Web 應用程式和資料庫，應該選擇哪個定價層？
-對 Web Apps 使用「基本」或更高的定價層。 針對 ClearDB，我們建議 Saturn 或 Jupiter 計劃。 請檢閱 [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) 和 [ClearDB MySQL 資料庫](/marketplace/partners/cleardb/databases/)每個定價層的功能和限制，來選擇符合您需求的定價層。
+對 Web Apps 使用「基本」或更高的定價層。 針對 ClearDB，我們建議 Saturn 或 Jupiter 計劃。 請檢閱 [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) 和 [ClearDB MySQL 資料庫](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/)每個定價層的功能和限制，來選擇符合您需求的定價層。
 
 ## <a name="how-do-i-upgrade-my-cleardb-database-from-one-plan-to-another"></a>如何將我的 ClearDB 資料庫從一個計劃升級到另一個？
 在 [Azure 入口網站](https://portal.azure.com)，您可以相應增加 ClearDB 共用裝載資料庫。 閱讀[本文](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/)以深入了解。 我們目前不支援 Azure 入口網站中的 ClearDB 進階叢集升級。

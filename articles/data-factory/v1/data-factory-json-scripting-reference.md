@@ -9,27 +9,26 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c5909c1f511d3a7816ebafc3ea8b326edb7f14e3
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 7b38bc8a2cdb740363dbf2c797738fc5277ff2bc
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629492"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036411"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 指令碼參考
 > [!NOTE]
 > 本文適用於 Data Factory 第 1 版。
 
 
-本文提供 JSON 結構描述和範例來定義 Azure Data Factory 實體 (管線、活動、資料集和連結服務)。  
+本文提供 JSON 結構描述和範例來定義 Azure Data Factory 實體 (管線、活動、資料集和連結服務)。
 
-## <a name="pipeline"></a>管線 
-管線定義的高階結構如下所示︰ 
+## <a name="pipeline"></a>管線
+管線定義的高階結構如下所示︰
 
 ```json
 {
@@ -41,30 +40,30 @@ ms.locfileid: "39629492"
     "start": "2016-07-12T00:00:00",
     "end": "2016-07-13T00:00:00"
   }
-} 
+}
 ```
 
 下表說明管線 JSON 定義內的屬性：
 
 | 屬性 | 說明 | 必要
 -------- | ----------- | --------
-| name | 管線的名稱。 指定一個名稱，以表示活動或管線設定要進行的動作<br/><ul><li>字元數目上限︰260</li><li>開頭必須為字母、數字或底線 (_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\\”</li></ul> |是 |
+| name | 管線的名稱。 指定一個名稱，以表示活動或管線設定要進行的動作<br/><ul><li>字元數目上限︰260</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\\”</li></ul> |是 |
 | 說明 |說明活動或管線用途的文字 | 否 |
 | 活動 | 包含活動清單。 | 是 |
 | start |管線的開始日期時間。 必須使用 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。 例如︰2014-10-14T16:32:41。 <br/><br/>您可以指定本地時間，如 EST 時間。 範例如下︰`2016-02-27T06:00:00**-05:00`，這是 6 AM EST。<br/><br/>管線的 start 和 end 屬性共同指定管線的作用中期間。 輸出配量只會在作用中期間內產生。 |否<br/><br/>如果您指定 end 屬性的值，也必須指定 start 屬性的值。<br/><br/>開始和結束時間都可以是空白來建立管線。 必須指定兩個值，才能設定執行管線的作用中時間。 如果您建立管線時未指定開始和結束時間，您可以在稍後使用 Set-AzureRmDataFactoryPipelineActivePeriod Cmdlet 進行設定。 |
-| end |管線的結束日期時間。 如果已指定，則必須使用 ISO 格式。 例如：2014-10-14T17:32:41 <br/><br/>您可以指定本地時間，如 EST 時間。 範例如下︰`2016-02-27T06:00:00**-05:00`，這是美加東部標準時間上午 6 點。<br/><br/>若要無限期地執行管線，請指定 9999-09-09 做為 end 屬性的值。 |否 <br/><br/>如果您指定 start 屬性的值，也必須指定 end 屬性的值。<br/><br/>請參閱 **start** 屬性的註釋。 |
+| end |管線的結束日期時間。 如果已指定，則必須使用 ISO 格式。 例如︰2014-10-14T17:32:41 <br/><br/>您可以指定本地時間，如 EST 時間。 範例如下︰`2016-02-27T06:00:00**-05:00`，這是美加東部標準時間上午 6 點。<br/><br/>若要無限期地執行管線，請指定 9999-09-09 做為 end 屬性的值。 |否 <br/><br/>如果您指定 start 屬性的值，也必須指定 end 屬性的值。<br/><br/>請參閱 **start** 屬性的註釋。 |
 | isPaused |如果設為 true，管線不會執行。 預設值 = false。 您可以使用此屬性來啟用或停用。 |否 |
 | pipelineMode |排程管線執行的方法。 允許的值包括：scheduled (預設值)、onetime。<br/><br/>‘Scheduled’ 表示管線會根據其作用中期間 (開始和結束時間) 依指定的時間間隔執行。 ‘Onetime’ 表示管線只會執行一次。 目前，Onetime 管線在建立之後即無法進行修改/更新。 如需 onetime 設定的詳細資料，請參閱 [Onetime 管線](data-factory-create-pipelines.md#onetime-pipeline)。 |否 |
 | expirationTime |建立之後，管線有效且應該保持佈建的期間。 如果管線沒有任何作用中、失敗或擱置執行，則會在到達到期時間之後自動予以刪除。 |否 |
 
 
-## <a name="activity"></a>活動 
+## <a name="activity"></a>活動
 管線定義 (activities 元素) 內活動的高階結構如下所示︰
 
 ```json
 {
     "name": "ActivityName",
-    "description": "description", 
+    "description": "description",
     "type": "<ActivityType>",
     "inputs":  "[]",
     "outputs":  "[]",
@@ -75,7 +74,7 @@ ms.locfileid: "39629492"
     },
     "policy":
     {
-    }
+    },
     "scheduler":
     {
     }
@@ -86,7 +85,7 @@ ms.locfileid: "39629492"
 
 | Tag | 說明 | 必要 |
 | --- | --- | --- |
-| name |活動的名稱。 指定名稱，代表活動設定要進行的動作<br/><ul><li>字元數目上限︰260</li><li>開頭必須為字母、數字或底線 (_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\\”</li></ul> |是 |
+| name |活動的名稱。 指定名稱，代表活動設定要進行的動作<br/><ul><li>字元數目上限︰260</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\\”</li></ul> |是 |
 | 說明 |說明活動用途的文字。 |否 |
 | type |指定活動的類型。 如需了解不同類型的活動，請參閱[資料存放區](#data-stores)和[資料轉換活動](#data-transformation-activities)小節。 |是 |
 | 輸入 |活動所使用的輸入資料表<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |對 HDInsightStreaming 和 SqlServerStoredProcedure 活動來說為非必要 <br/> <br/> 對所有其他活動來說為必要 |
@@ -104,18 +103,18 @@ ms.locfileid: "39629492"
 | 並行 |整數  <br/><br/>最大值：10 |1 |活動的並行執行數目。<br/><br/>它可決定不同配量上可以發生的平行活動執行數目。 例如，如果活動需要處理大量可用的資料，具有較大的並行值會加快資料處理。 |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |決定正在處理之資料配量的順序。<br/><br/>例如，如果您有 2 個配量 (一個發生在下午 4 點，另一個發生在下午 5 點)，而兩者都暫停執行。 如果您將 executionPriorityOrder 設為 NewestFirst，則會先處理下午 5 點的配量。 同樣地，如果您將 executionPriorityOrder 設為 OldestFIrst，則會處理下午 4 點的配量。 |
 | retry |整數 <br/><br/>最大值可以是 10 |0 |在配量的資料處理標示為 [失敗] 前的重試次數。 資料配量的活動執行會一直重試，直到指定的重試計數為止。 在失敗後會儘速完成重試。 |
-| timeout |時間範圍 |00:00:00 |活動的逾時。 範例︰00:10:00 (意指逾時 10 分鐘)<br/><br/>如果您未指定值 (或值為 0)，代表無限逾時。<br/><br/>如果配量的資料處理時間超過逾時值，該活動會遭到取消，且系統會嘗試重試處理。 重試次數取決於 retry 屬性。 若發生逾時，狀態會設為 TimedOut。 |
-| delay |時間範圍 |00:00:00 |指定配量之資料處理開始之前的延遲。<br/><br/>資料配量的活動執行會在 Delay 超出預期執行時間後開始。<br/><br/>範例︰00:10:00 (意指延遲 10 分鐘) |
+| timeout |時間範圍 |00:00:00 |活動的逾時。 範例：00:10:00 (意指逾時 10 分鐘)<br/><br/>如果您未指定值 (或值為 0)，代表無限逾時。<br/><br/>如果配量的資料處理時間超過逾時值，該活動會遭到取消，且系統會嘗試重試處理。 重試次數取決於 retry 屬性。 若發生逾時，狀態會設為 TimedOut。 |
+| delay |時間範圍 |00:00:00 |指定配量之資料處理開始之前的延遲。<br/><br/>資料配量的活動執行會在 Delay 超出預期執行時間後開始。<br/><br/>範例：00:10:00 (意指延遲 10 分鐘) |
 | longRetry |整數 <br/><br/>最大值：10 |1 |配量執行失敗之前的長時間重試嘗試次數。<br/><br/>多個 longRetry 嘗試之間以 longRetryInterval 隔開。 所以如果您需要指定重試嘗試之間的時間，請使用 longRetry。 如果您指定 Retry 和 longRetry 兩者，每個 longRetry 嘗試都包含 Retry 嘗試，且最大嘗試次數是 Retry * longRetry。<br/><br/>例如，如果活動原則的設定如下︰<br/>Retry：3<br/>longRetry：2<br/>longRetryInterval：01:00:00<br/><br/>假設只有一個要執行的配量 (狀態是 Waiting)，且活動執行每次都失敗。 一開始會有 3 次連續執行嘗試。 在每次嘗試之後，配量狀態會是 Retry。 在前 3 次嘗試結束之後，配量狀態會是 LongRetry。<br/><br/>一個小時 (也就是 longRetryInteval 的值) 之後，會有另一組 3 次連續執行嘗試。 在那之後，配量狀態會是 Failed，不會再嘗試重試。 因此全部已進行 6 次嘗試。<br/><br/>如果任何執行成功，配量狀態會是 Ready 且不會再嘗試重試。<br/><br/>longRetry 可能用於下列情況：相依資料達到不具決定性的次數，或進行資料處理的整體環境很脆弱。 在這類情況下逐一進行重試並沒有幫助，而在一段時間後進行重試則會導致所要的結果。<br/><br/>提醒：請勿設定較大的 longRetry 或 longRetryInterval 值。 較大的值通常表示其他系統問題。 |
 | longRetryInterval |時間範圍 |00:00:00 |長時間重試嘗試之間的延遲 |
 
 ### <a name="typeproperties-section"></a>typeProperties 區段
-每個活動的 typeProperties 區段不同。 轉換活動只有 type 屬性。 如需在管線中定義轉換活動的 JSON 範例，請參閱本文中的[資料轉換活動](#data-transformation-activities)一節。 
+每個活動的 typeProperties 區段不同。 轉換活動只有 type 屬性。 如需在管線中定義轉換活動的 JSON 範例，請參閱本文中的[資料轉換活動](#data-transformation-activities)一節。
 
-**複製活動**的 typeProperties 區段中有兩個子區段︰**source** 和 **sink**。 如需示範如何使用資料存放區作為來源和/或接收的 JSON 範例，請參閱本文中的[資料存放區](#data-stores)一節。 
+**複製活動**的 typeProperties 區段中有兩個子區段︰**source** 和 **sink**。 如需示範如何使用資料存放區作為來源和/或接收的 JSON 範例，請參閱本文中的[資料存放區](#data-stores)一節。
 
 ### <a name="sample-copy-pipeline"></a>範例複製管線
-在以下的範例管線中， **Copy** in the **活動** 類型的活動。 在此範例中， [Copy 活動](data-factory-data-movement-activities.md) 會將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。 
+在以下的範例管線中， **Copy** in the **活動** 類型的活動。 在此範例中， [Copy 活動](data-factory-data-movement-activities.md) 會將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。
 
 ```json
 {
@@ -157,7 +156,7 @@ ms.locfileid: "39629492"
     "start": "2016-07-12T00:00:00",
     "end": "2016-07-13T00:00:00"
   }
-} 
+}
 ```
 
 請注意下列幾點：
@@ -166,12 +165,12 @@ ms.locfileid: "39629492"
 * 活動的輸入設定為 **InputDataset**，活動的輸出則設定為 **OutputDataset**。
 * 在 **typeProperties** 區段中，來源類型指定為 **BlobSource**，接收類型指定為 **SqlSink**。
 
-如需示範如何使用資料存放區作為來源和/或接收的 JSON 範例，請參閱本文中的[資料存放區](#data-stores)一節。    
+如需示範如何使用資料存放區作為來源和/或接收的 JSON 範例，請參閱本文中的[資料存放區](#data-stores)一節。
 
-如需建立此管線的完整逐步解說，請參閱 [教學課程：將資料從 Blob 儲存體複製到 SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
+如需有關建立此管道的完整逐步解說，請參閱[教學課程：將資料從 Blob 儲存體複製到 SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 ### <a name="sample-transformation-pipeline"></a>範例轉換管線
-在以下的範例管線中， **CopyActivity** in the **活動** 類型的活動。 在此範例中， [HDInsight Hive 活動](data-factory-hive-activity.md) 會執行 Azure HDInsight Hadoop 叢集上的 Hive 指令碼檔案，來轉換 Azure Blob 儲存體的資料。 
+在以下的範例管線中， **CopyActivity** in the **活動** 類型的活動。 在此範例中， [HDInsight Hive 活動](data-factory-hive-activity.md) 會執行 Azure HDInsight Hadoop 叢集上的 Hive 指令碼檔案，來轉換 Azure Blob 儲存體的資料。
 
 ```json
 {
@@ -218,7 +217,7 @@ ms.locfileid: "39629492"
 }
 ```
 
-請注意下列幾點： 
+請注意下列幾點：
 
 * 在活動區段中，只會有一個 **type** 設為 **HDInsightHive** 的活動。
 * Hive 指令碼檔案 **partitionweblogs.hql** 儲存於 Azure 儲存體帳戶 (透過名為 **AzureStorageLinkedService** 的 scriptLinkedService 指定)，且位於 **adfgetstarted** 容器的 **script** 資料夾中。
@@ -226,7 +225,7 @@ ms.locfileid: "39629492"
 
 如需在管線中定義轉換活動的 JSON 範例，請參閱本文中的[資料轉換活動](#data-transformation-activities)一節。
 
-如需建立此管線的完整逐步解說，請參閱 [教學課程：使用 Hadoop 叢集建置您的第一個管線來處理資料](data-factory-build-your-first-pipeline.md)。 
+如需有關建立此管道的完整逐步解說，請參閱[教學課程：使用 Hadoop 叢集建置您的第一個管線來處理資料](data-factory-build-your-first-pipeline.md)。
 
 ## <a name="linked-service"></a>連結服務
 連結服務定義的高階結構如下所示︰
@@ -245,12 +244,12 @@ ms.locfileid: "39629492"
 下表說明活動 JSON 定義內的屬性：
 
 | 屬性 | 說明 | 必要 |
-| -------- | ----------- | -------- | 
-| name | 連結服務的名稱。 | 是 | 
+| -------- | ----------- | -------- |
+| name | 連結服務的名稱。 | 是 |
 | properties - type | 連結服務的類型。 例如︰Azure 儲存體、Azure SQL Database。 |
-| typeProperties | TypeProperties 區段中的元素隨著每個資料存放區或計算環境而不同。 關於所有資料存放區連結服務，請參閱[資料存放區](#datastores)一節，關於所有計算連結服務，請參閱[計算環境](#compute-environments)一節 |   
+| typeProperties | TypeProperties 區段中的元素隨著每個資料存放區或計算環境而不同。 關於所有資料存放區連結服務，請參閱[資料存放區](#datastores)一節，關於所有計算連結服務，請參閱[計算環境](#compute-environments)一節 |
 
-## <a name="dataset"></a>Dataset 
+## <a name="dataset"></a>Dataset
 Azure Data Factory 中的資料集定義如下：
 
 ```json
@@ -274,19 +273,19 @@ Azure Data Factory 中的資料集定義如下：
             "frequency": "<Specifies the time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
             "interval": "<Specifies the interval within the defined frequency. For example, frequency set to 'Hour' and interval set to 1 indicates that new data slices should be produced hourly>"
         },
-       "policy":
-        {      
+        "policy":
+        {
         }
     }
 }
 ```
 
-下表描述上述 JSON 的屬性：   
+下表描述上述 JSON 的屬性：
 
 | 屬性 | 說明 | 必要 | 預設值 |
 | --- | --- | --- | --- |
 | name | 資料集的名稱。 請參閱 [Azure Data Factory - 命名規則](data-factory-naming-rules.md) ，以了解命名規則。 |是 |NA |
-| type | 資料集的類型。 指定 Azure Data Factory 支援的其中一個類型 (例如︰AzureBlob、AzureSqlTable)。 關於 Data Factory 支援的所有資料存放區和資料集類型，請參閱[資料存放區](#data-stores)一節。 | 
+| type | 資料集的類型。 指定 Azure Data Factory 支援的其中一種類型 (例如︰AzureBlob、AzureSqlTable)。 關於 Data Factory 支援的所有資料存放區和資料集類型，請參閱[資料存放區](#data-stores)一節。 |
 | structure | 資料集的結構描述。 它包含資料行、其類型等。 | 否 |NA |
 | typeProperties | 對應至所選類型的屬性。 關於支援的類型和其屬性，請參閱[資料存放區](#data-stores)一節。 |是 |NA |
 | external | 用來指定資料集是否由 Data Factory 管線明確產生的布林值旗標。 |否 |false |
@@ -299,13 +298,13 @@ Azure Data Factory 中的資料集定義如下：
 | --- | --- | --- |
 | name |資料行的名稱。 |是 |
 | type |資料行的資料類型。  |否 |
-| culture |\.NET 型文化特性是在已指定類型 (type) 且是 \.NET 類型 `Datetime` 或 `Datetimeoffset` 時使用。 預設值為 `en-us`。 |否 |
+| culture |.NET 型文化特性是在已指定類型 (type) 且是 .NET 類型 `Datetime` 或 `Datetimeoffset` 時使用。 預設值為 `en-us`。 |否 |
 | format |格式字串是在已指定類型且是 .NET 類型 `Datetime` 或 `Datetimeoffset` 時使用。 |否 |
 
-在下列範例中，資料集有三個資料行 `slicetimestamp`、`projectname` 及 `pageviews`，類型分別為：String、String 及 Decimal。
+在下列範例中，資料集有三個資料行︰`slicetimestamp`、`projectname` 及 `pageviews`，其類別：分別是 String、String 及 Decimal。
 
 ```json
-structure:  
+structure:
 [
     { "name": "slicetimestamp", "type": "String"},
     { "name": "projectname", "type": "String"},
@@ -320,16 +319,16 @@ structure:
 | frequency |指定資料集配量生產的時間單位。<br/><br/><b>支援的頻率</b>：Minute、Hour、Day、Week、Month |是 |NA |
 | interval |指定頻率的倍數<br/><br/>「頻率 x 間隔」會決定產生配量的頻率。<br/><br/>如果您需要將資料集以每小時為單位來切割，請將 <b>Frequency</b> 設定為 <b>Hour</b>，將 <b>interval</b> 設定為 <b>1</b>。<br/><br/><b>注意</b>：如果您將 Frequency 指定為 Minute，建議您將 interval 設定為不小於 15 |是 |NA |
 | style |指定是否應該在間隔開始/結束時產生配量。<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>如果 Frequency 設為 Month，style 設為 EndOfInterval，則會在當月最後一天產生配量。 如果 style 設為 StartOfInterval，則會在每月的第一天產生配量。<br/><br/>如果 Frequency 設為 Day，style 設為 EndOfInterval，則會在當天最後一個小時產生配量。<br/><br/>如果 Frequency 設為 Hour，style 設為 EndOfInterval，則會在每小時結束時產生配量。 例如，若為下午 1 – 2 點期間的配量，此配量會在下午 2 點產生。 |否 |EndOfInterval |
-| anchorDateTime |定義排程器用來計算資料集配量界限的時間絕對位置。 <br/><br/><b>注意</b>：如果 AnchorDateTime 有比頻率更細微的日期部分，則系統會忽略那些更細微的部分。 <br/><br/>例如，如果 <b>interval</b> 為 <b>hourly</b> (frequency: hour 且 interval: 1)，而且 <b>AnchorDateTime</b> 包含<b>分鐘和秒鐘</b>，則會忽略 AnchorDateTime 的<b>分鐘和秒鐘</b>部分。 |否 |01/01/0001 |
-| Offset |所有資料集配量的開始和結束移位所依據的時間範圍。 <br/><br/><b>注意</b>︰如果同時指定 anchorDateTime 和 offset，結果會是合併的位移。 |否 |NA |
+| anchorDateTime |定義排程器用來計算資料集配量界限的時間絕對位置。 <br/><br/><b>注意</b>：如果 AnchorDateTime 有比頻率更細微的日期部分，則系統會忽略那些更細微的部分。 <br/><br/>例如，如果 <b>interval</b> 為 <b>hourly</b> (frequency：hour 且 interval：1)，而且 <b>AnchorDateTime</b> 包含<b>分鐘和秒鐘</b>，則會忽略 AnchorDateTime 的<b>分鐘和秒鐘</b>部分。 |否 |01/01/0001 |
+| Offset |所有資料集配量的開始和結束移位所依據的時間範圍。 <br/><br/><b>注意</b>：如果同時指定 anchorDateTime 和 offset，結果會是合併的位移。 |否 |NA |
 
 下列 availability 區段指定輸出資料集是每小時產生 (或) 輸入資料集是每小時可用：
 
 ```json
-"availability":    
-{    
-    "frequency": "Hour",        
-    "interval": 1    
+"availability":
+{
+    "frequency": "Hour",
+    "interval": 1
 }
 ```
 
@@ -368,11 +367,11 @@ structure:
 
 [資料集](#dataset)一節描述所有資料集類型通用的 JSON 元素。 本節提供每個資料存放區特有的 JSON 元素的詳細資料。
 
-[活動](#activity)一節描述所有活動類型通用的 JSON 元素。 本節詳細說明複製活動中作為來源/接收之每個資料存放區特有的 JSON 元素。  
+[活動](#activity)一節描述所有活動類型通用的 JSON 元素。 本節詳細說明複製活動中作為來源/接收之每個資料存放區特有的 JSON 元素。
 
 按一下您感興趣之存放區的連結，以查看連結服務的 JSON 結構描述、資料集，以及複製活動的來源/接收。
 
-| 類別 | 資料存放區 
+| 類別 | 資料存放區
 |:--- |:--- |
 | **Azure** |[Azure Blob 儲存體](#azure-blob-storage) |
 | &nbsp; |[Azure Data Lake Store](#azure-datalake-store) |
@@ -380,7 +379,7 @@ structure:
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
 | &nbsp; |[Azure SQL 資料倉儲](#azure-sql-data-warehouse) |
 | &nbsp; |[Azure 搜尋服務](#azure-search) |
-| &nbsp; |[Azure 表格儲存體](#azure-table-storage) |
+| &nbsp; |[Azure 資料表儲存體](#azure-table-storage) |
 | **資料庫** |[Amazon Redshift](#amazon-redshift) |
 | &nbsp; |[IBM DB2](#ibm-db2) |
 | &nbsp; |[MySQL](#mysql) |
@@ -407,16 +406,16 @@ structure:
 ## <a name="azure-blob-storage"></a>Azure Blob 儲存體
 
 ### <a name="linked-service"></a>連結服務
-有兩種連結服務類型︰Azure 儲存體連結服務和 Azure 儲存體 SAS 連結服務。
+連結服務有兩種類型：Azure 儲存體連結服務和 Azure 儲存體 SAS 連結服務。
 
 #### <a name="azure-storage-linked-service"></a>Azure 儲存體連結服務
-若要使用**帳戶金鑰**將 Azure 儲存體帳戶連結至資料處理站，請建立 Azure 儲存體連結服務。 若要定義 Azure 儲存體連結服務，請將連結服務的**類型**設為 **AzureStorage**。 然後，您可以在 **typeProperties** 區段中指定下列屬性：  
+若要使用**帳戶金鑰**將 Azure 儲存體帳戶連結至資料處理站，請建立 Azure 儲存體連結服務。 若要定義 Azure 儲存體連結服務，請將連結服務的**類型**設為 **AzureStorage**。 然後，您可以在 **typeProperties** 區段中指定下列屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | connectionString |針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。 |是 |
 
-##### <a name="example"></a>範例  
+##### <a name="example"></a>範例
 
 ```json
 {
@@ -431,7 +430,7 @@ structure:
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Azure 儲存體 SAS 連結服務
-Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Azure 儲存體帳戶連結到 Azure Data Factory。 它提供受限制/時間界限存取權，讓資料處理站存取儲存體中的所有/特定資源 (blob/容器)。 若要使用共用存取簽章將 Azure 儲存體帳戶連結至資料處理站，請建立 Azure 儲存體 SAS 連結服務。 若要定義 Azure 儲存體 SAS 連結服務，請將連結服務的**類型**設為 **AzureStorageSas**。 然後，您可以在 **typeProperties** 區段中指定下列屬性：   
+Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Azure 儲存體帳戶連結到 Azure Data Factory。 它提供受限制/時間界限存取權，讓資料處理站存取儲存體中的所有/特定資源 (blob/容器)。 若要使用共用存取簽章將 Azure 儲存體帳戶連結至資料處理站，請建立 Azure 儲存體 SAS 連結服務。 若要定義 Azure 儲存體 SAS 連結服務，請將連結服務的**類型**設為 **AzureStorageSas**。 然後，您可以在 **typeProperties** 區段中指定下列屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
@@ -440,28 +439,28 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 ##### <a name="example"></a>範例
 
 ```json
-{  
-    "name": "StorageSasLinkedService",  
-    "properties": {  
-        "type": "AzureStorageSas",  
-        "typeProperties": {  
-            "sasUri": "<storageUri>?<sasToken>"   
-        }  
-    }  
-}  
+{
+    "name": "StorageSasLinkedService",
+    "properties": {
+        "type": "AzureStorageSas",
+        "typeProperties": {
+            "sasUri": "<storageUri>?<sasToken>"
+        }
+    }
+}
 ```
 
-如需這些連結服務的詳細資訊，請參閱 [Azure Blob 儲存體連接器](data-factory-azure-blob-connector.md#linked-service-properties)文件。 
+如需這些連結服務的詳細資訊，請參閱 [Azure Blob 儲存體連接器](data-factory-azure-blob-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Azure Blob 資料集，請將資料集的 **type** 設為 **AzureBlob**。 然後，在 **typeProperties** 區段中指定下列 Azure Blob 特定屬性︰ 
+若要定義 Azure Blob 資料集，請將資料集的 **type** 設為 **AzureBlob**。 然後，在 **typeProperties** 區段中指定下列 Azure Blob 特定屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | folderPath |Blob 儲存體中容器和資料夾的路徑。 範例：myblobcontainer\myblobfolder\ |是 |
-| fileName |Blob 的名稱。 fileName 是選擇性的，而且區分大小寫。<br/><br/>如果您指定檔案名稱，活動 (包括複製) 適用於特定的 Blob。<br/><br/>如果您未指定 fileName，複製會包含 folderPath 中的所有 Blob 以做為輸入資料集。<br/><br/>沒有為輸出資料集指定 fileName 時，所產生的檔案名稱會是下列格式：Data.<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |否 |
+| fileName |Blob 的名稱。 fileName 是選擇性的，而且區分大小寫。<br/><br/>如果您指定檔案名稱，活動 (包括複製) 適用於特定的 Blob。<br/><br/>如果您未指定 fileName，複製會包含 folderPath 中的所有 Blob 以做為輸入資料集。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰Data.<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |否 |
 | partitionedBy |partitionedBy 是選擇性的屬性。 您可以用來指定時間序列資料的動態 folderPath 和 filename。 例如，folderPath 可針對每小時的資料進行參數化。 |否 |
-| format | 支援下列格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
+| format | 以下是支援的檔案類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
 | compression | 指定此資料的壓縮類型和層級。 支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。 支援的層級為：**Optimal** 和 **Fastest**。 如需詳細資訊，請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 |
 
 #### <a name="example"></a>範例
@@ -543,7 +542,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 | --- | --- | --- | --- |
 | copyBehavior |當來源為 BlobSource 或 FileSystem 時，定義複製行為。 |<b>PreserveHierarchy</b>：保留目標資料夾中的檔案階層。 來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><br/><b>FlattenHierarchy</b>：來自來源資料夾的所有檔案都在目標資料夾的第一層中。 目標檔案會有自動產生的名稱。 <br/><br/><b>MergeFiles (預設值)</b>：將來自來源資料夾的所有檔案合併成一個檔案。 如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。 |否 |
 
-#### <a name="example-blobsink"></a>範例︰BlobSink
+#### <a name="example-blobsink"></a>範例：BlobSink
 
 ```json
 {
@@ -582,16 +581,16 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [Azure Blob 連接器](data-factory-azure-blob-connector.md#copy-activity-properties)文件。 
+如需詳細資訊，請參閱 [Azure Blob 連接器](data-factory-azure-blob-connector.md#copy-activity-properties)文件。
 
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Azure Data Lake Store 連結服務，請將連結服務的 type 設為 **AzureDataLakeStore**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Azure Data Lake Store 連結服務，請將連結服務的 type 設為 **AzureDataLakeStore**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設為： **AzureDataLakeStore** | 是 |
+| type | 類型屬性必須設定為：**AzureDataLakeStore** | 是 |
 | dataLakeStoreUri | 指定有關 Azure Data Lake Store 帳戶的資訊。 它的格式如下：`https://[accountname].azuredatalakestore.net/webhdfs/v1` 或 `adl://[accountname].azuredatalakestore.net/`。 | 是 |
 | subscriptionId | Data Lake Store 所屬的 Azure 訂用帳戶識別碼。 | 接收 (Sink) 的必要項目 |
 | resourceGroupName | Data Lake Store 所屬的 Azure 資源群組名稱。 | 接收 (Sink) 的必要項目 |
@@ -634,17 +633,17 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [Azure Data Lake Store 連接器](data-factory-azure-datalake-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [Azure Data Lake Store 連接器](data-factory-azure-datalake-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Azure Data Lake Store 資料集，請將資料集的 **type** 設為 **AzureDataLakeStore**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 Azure Data Lake Store 資料集，請將資料集的 **type** 設為 **AzureDataLakeStore**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | folderPath |Azure Data Lake Store 中容器與資料夾的路徑。 |是 |
-| fileName |Azure Data Lake Store 中的檔案名稱。 fileName 是選擇性的，而且區分大小寫。 <br/><br/>如果您指定檔案名稱，活動 (包括複製) 適用於特定的檔案。<br/><br/>如果您未指定 fileName，複製會包含 folderPath 中的所有檔案以做為輸入資料集。<br/><br/>沒有為輸出資料集指定 fileName 時，所產生的檔案名稱會是下列格式：Data<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |否 |
+| fileName |Azure Data Lake Store 中的檔案名稱。 fileName 是選擇性的，而且區分大小寫。 <br/><br/>如果您指定檔案名稱，活動 (包括複製) 適用於特定的檔案。<br/><br/>如果您未指定 fileName，複製會包含 folderPath 中的所有檔案以做為輸入資料集。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰Data.<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |否 |
 | partitionedBy |partitionedBy 是選擇性的屬性。 您可以用來指定時間序列資料的動態 folderPath 和 filename。 例如，folderPath 可針對每小時的資料進行參數化。 |否 |
-| format | 支援下列格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
+| format | 以下是支援的檔案類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
 | compression | 指定此資料的壓縮類型和層級。 支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。 支援的層級為：**Optimal** 和 **Fastest**。 如需詳細資訊，請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 |
 
 #### <a name="example"></a>範例
@@ -679,7 +678,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [Azure Data Lake Store 連接器](data-factory-azure-datalake-connector.md#dataset-properties)文件。 
+如需詳細資訊，請參閱 [Azure Data Lake Store 連接器](data-factory-azure-datalake-connector.md#dataset-properties)文件。
 
 ### <a name="azure-data-lake-store-source-in-copy-activity"></a>複製活動中的 Azure Data Lake Store 來源
 如果您從 Azure Data Lake Store 複製資料，請將複製活動的 **source type** 設為 **AzureDataLakeStoreSource**，並在 **source** 區段中指定下列屬性︰
@@ -778,12 +777,12 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [Azure Data Lake Store 連接器](data-factory-azure-datalake-connector.md#copy-activity-properties)文件。 
+如需詳細資訊，請參閱 [Azure Data Lake Store 連接器](data-factory-azure-datalake-connector.md#copy-activity-properties)文件。
 
-## <a name="azure-cosmos-db"></a>Azure Cosmos DB  
+## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Azure Cosmos DB 連結服務，請將連結服務的 **type** 設定為 **DocumentDb**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Azure Cosmos DB 連結服務，請將連結服務的 **type** 設定為 **DocumentDb**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | **屬性** | **說明** | **必要** |
 | --- | --- | --- |
@@ -805,7 +804,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 如需詳細資訊，請參閱 [Azure Cosmos DB 連接器](data-factory-azure-documentdb-connector.md#linked-service-properties)一文。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Azure Cosmos DB 資料集，請將資料集的 **type** 設定為 **DocumentDbCollection**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 Azure Cosmos DB 資料集，請將資料集的 **type** 設定為 **DocumentDbCollection**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | **屬性** | **說明** | **必要** |
 | --- | --- | --- |
@@ -884,7 +883,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 | **屬性** | **說明** | **允許的值** | **必要** |
 | --- | --- | --- | --- |
-| nestingSeparator |來源資料行名稱中用來表示需要巢狀文件的特殊字元。 <br/><br/>就上述範例而言：輸出資料表中的 `Name.First` 會在 Cosmos DB 文件中產生下列 JSON 結構：<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |用來分隔巢狀層級的字元。<br/><br/>預設值為 `.` (點)。 |用來分隔巢狀層級的字元。 <br/><br/>預設值為 `.` (點)。 |
+| nestingSeparator |來源資料行名稱中用來表示需要巢狀文件的特殊字元。 <br/><br/>就上述範例而言：輸出資料表中的 `Name.First` 會在 Cosmos DB 文件中產生下列 JSON 結構：<br/><br/>"Name": {<br/>    "First":"John"<br/>}, |用來分隔巢狀層級的字元。<br/><br/>預設值為 `.` (點)。 |用來分隔巢狀層級的字元。 <br/><br/>預設值為 `.` (點)。 |
 | writeBatchSize |為了建立文件而傳送到 Azure Cosmos DB 服務的平行要求數目。<br/><br/>您可以在將資料複製到 Azure Cosmos DB 或從該處複製資料時，使用這個屬性來微調效能。 增大 writeBatchSize 的值時，預期可以提升效能，因為會對 Azure Cosmos DB 傳送更多平行要求。 不過，您必須避免可能擲回錯誤訊息的節流：「要求速率很高」。<br/><br/>節流是由許多因素所決定，包括文件大小、文件中的詞彙數目、目標集合的檢索原則等。對於複製作業，您可以使用更好的集合 (例如 S3) 以取得最多可用輸送量 (2,500 要求單位/秒)。 |整數  |否 (預設值：5) |
 | writeBatchTimeout |在逾時前等待作業完成的時間。 |時間範圍<br/><br/> 範例：“00:30:00” (30 分鐘)。 |否 |
 
@@ -933,7 +932,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 ## <a name="azure-sql-database"></a>連接字串
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Azure SQL Database 連結服務，請將連結服務的 **type** 設為 **AzureSqlDatabase**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Azure SQL Database 連結服務，請將連結服務的 **type** 設為 **AzureSqlDatabase**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -952,10 +951,10 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Azure SQL Database 資料集，請將資料集的 **type** 設為 **AzureSqlTable**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 Azure SQL Database 資料集，請將資料集的 **type** 設為 **AzureSqlTable**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -987,7 +986,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
     }
 }
 ```
-如需詳細資訊，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#dataset-properties)文件。 
+如需詳細資訊，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#dataset-properties)文件。
 
 ### <a name="sql-source-in-copy-activity"></a>複製活動中的 SQL 來源
 如果您從 Azure SQL Database 複製資料，請將複製活動的 **source type** 設為 **SqlSource**，並在 **source** 區段中指定下列屬性︰
@@ -1041,7 +1040,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
     }
 }
 ```
-如需詳細資訊，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#copy-activity-properties)文件。 
+如需詳細資訊，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#copy-activity-properties)文件。
 
 ### <a name="sql-sink-in-copy-activity"></a>複製活動中的 SQL 接收
 如果您將資料複製到 Azure SQL Database，請將複製活動的 **sink type** 設為 **SqlSink**，並在 **sink** 區段中指定下列屬性︰
@@ -1099,12 +1098,12 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#copy-activity-properties)文件。 
+如需詳細資訊，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#copy-activity-properties)文件。
 
 ## <a name="azure-sql-data-warehouse"></a>Azure SQL 資料倉儲
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Azure SQL 資料倉儲連結服務，請將連結服務的 **type** 設為 **AzureSqlDW**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Azure SQL 資料倉儲連結服務，請將連結服務的 **type** 設為 **AzureSqlDW**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -1126,10 +1125,10 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [Azure SQL 資料倉儲連接器](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [Azure SQL 資料倉儲連接器](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Azure SQL 資料倉儲資料集，請將資料集的 **type** 設為 **AzureSqlDWTable**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 Azure SQL 資料倉儲資料集，請將資料集的 **type** 設為 **AzureSqlDWTable**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -1162,7 +1161,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [Azure SQL 資料倉儲連接器](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties)文件。 
+如需詳細資訊，請參閱 [Azure SQL 資料倉儲連接器](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties)文件。
 
 ### <a name="sql-dw-source-in-copy-activity"></a>複製活動中的 SQL DW 來源
 如果您從 Azure SQL 資料倉儲複製資料，請將複製活動的 **source type** 設為 **SqlDWSource**，並在 **source** 區段中指定下列屬性︰
@@ -1217,7 +1216,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [Azure SQL 資料倉儲連接器](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)文件。 
+如需詳細資訊，請參閱 [Azure SQL 資料倉儲連接器](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)文件。
 
 ### <a name="sql-dw-sink-in-copy-activity"></a>複製活動中的 SQL DW 接收
 如果您將資料複製到 Azure SQL 資料倉儲，請將複製活動的 **sink type** 設為 **SqlDWSink**，並在 **sink** 區段中指定下列屬性︰
@@ -1278,12 +1277,12 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [Azure SQL 資料倉儲連接器](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)文件。 
+如需詳細資訊，請參閱 [Azure SQL 資料倉儲連接器](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)文件。
 
 ## <a name="azure-search"></a>Azure 搜尋服務
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Azure 搜尋服務連結服務，請將連結服務的 **type** 設為 **AzureSearch**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Azure 搜尋服務連結服務，請將連結服務的 **type** 設為 **AzureSearch**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
@@ -1308,7 +1307,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 如需詳細資訊，請參閱 [Azure 搜尋服務連接器](data-factory-azure-search-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Azure 搜尋服務資料集，請將資料集的 **type** 設為 **AzureSearchIndex**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 Azure 搜尋服務資料集，請將資料集的 **type** 設為 **AzureSearchIndex**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
@@ -1392,56 +1391,56 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 ## <a name="azure-table-storage"></a>Azure 表格儲存體
 
 ### <a name="linked-service"></a>連結服務
-有兩種連結服務類型︰Azure 儲存體連結服務和 Azure 儲存體 SAS 連結服務。
+連結服務有兩種類型：Azure 儲存體連結服務和 Azure 儲存體 SAS 連結服務。
 
 #### <a name="azure-storage-linked-service"></a>Azure 儲存體連結服務
-若要使用**帳戶金鑰**將 Azure 儲存體帳戶連結至資料處理站，請建立 Azure 儲存體連結服務。 若要定義 Azure 儲存體連結服務，請將連結服務的**類型**設為 **AzureStorage**。 然後，您可以在 **typeProperties** 區段中指定下列屬性：  
+若要使用**帳戶金鑰**將 Azure 儲存體帳戶連結至資料處理站，請建立 Azure 儲存體連結服務。 若要定義 Azure 儲存體連結服務，請將連結服務的**類型**設為 **AzureStorage**。 然後，您可以在 **typeProperties** 區段中指定下列屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type |類型屬性必須設為： **AzureStorage** |是 |
+| type |類型屬性必須設定為：**AzureStorage** |是 |
 | connectionString |針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。 |是 |
 
-**範例：**  
+**範例：**
 
 ```json
-{  
-    "name": "StorageLinkedService",  
-    "properties": {  
-        "type": "AzureStorage",  
-        "typeProperties": {  
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
-        }  
-    }  
-}  
+{
+    "name": "StorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+    }
+}
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Azure 儲存體 SAS 連結服務
-Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Azure 儲存體帳戶連結到 Azure Data Factory。 它提供受限制/時間界限存取權，讓資料處理站存取儲存體中的所有/特定資源 (blob/容器)。 若要使用共用存取簽章將 Azure 儲存體帳戶連結至資料處理站，請建立 Azure 儲存體 SAS 連結服務。 若要定義 Azure 儲存體 SAS 連結服務，請將連結服務的**類型**設為 **AzureStorageSas**。 然後，您可以在 **typeProperties** 區段中指定下列屬性：   
+Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Azure 儲存體帳戶連結到 Azure Data Factory。 它提供受限制/時間界限存取權，讓資料處理站存取儲存體中的所有/特定資源 (blob/容器)。 若要使用共用存取簽章將 Azure 儲存體帳戶連結至資料處理站，請建立 Azure 儲存體 SAS 連結服務。 若要定義 Azure 儲存體 SAS 連結服務，請將連結服務的**類型**設為 **AzureStorageSas**。 然後，您可以在 **typeProperties** 區段中指定下列屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type |類型屬性必須設為： **AzureStorageSas** |是 |
+| type |類型屬性必須設定為：**AzureStorageSas** |是 |
 | sasUri |指定 Azure 儲存體資源 (例如 Blob、容器或資料表) 的共用存取簽章 URI。 |是 |
 
 **範例：**
 
 ```json
-{  
-    "name": "StorageSasLinkedService",  
-    "properties": {  
-        "type": "AzureStorageSas",  
-        "typeProperties": {  
-            "sasUri": "<storageUri>?<sasToken>"   
-        }  
-    }  
-}  
+{
+    "name": "StorageSasLinkedService",
+    "properties": {
+        "type": "AzureStorageSas",
+        "typeProperties": {
+            "sasUri": "<storageUri>?<sasToken>"
+        }
+    }
+}
 ```
 
-如需這些連結服務的詳細資訊，請參閱 [Azure 表格儲存體連接器](data-factory-azure-table-connector.md#linked-service-properties)文件。 
+如需這些連結服務的詳細資訊，請參閱 [Azure 表格儲存體連接器](data-factory-azure-table-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Azure 資料表資料集，請將資料集的 **type** 設為 **AzureTable**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 Azure 資料表資料集，請將資料集的 **type** 設為 **AzureTable**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -1474,14 +1473,14 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需這些連結服務的詳細資訊，請參閱 [Azure 表格儲存體連接器](data-factory-azure-table-connector.md#dataset-properties)文件。 
+如需這些連結服務的詳細資訊，請參閱 [Azure 表格儲存體連接器](data-factory-azure-table-connector.md#dataset-properties)文件。
 
 ### <a name="azure-table-source-in-copy-activity"></a>複製活動中的 Azure 資料表來源
 如果您從 Azure 表格儲存體複製資料，請將複製活動的 **source type** 設為 **AzureTableSource**，並在 **source** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| AzureTableSourceQuery |使用自訂查詢來讀取資料。 |Azure 資料表查詢字串。 請參閱下一節中的範例。 |否。 指定 tableName 時若沒有指定 azureTableSourceQuery，資料表中的所有記錄都會複製到目的地。 如果同時指定了 azureTableSourceQuery，則資料表中符合查詢的記錄會複製到目的地。 |
+| AzureTableSourceQuery |使用自訂查詢來讀取資料。 |Azure 資料表查詢字串。 請參閱下一節中的範例。 |沒有。 指定 tableName 時若沒有指定 azureTableSourceQuery，資料表中的所有記錄都會複製到目的地。 如果同時指定了 azureTableSourceQuery，則資料表中符合查詢的記錄會複製到目的地。 |
 | azureTableSourceIgnoreTableNotFound |指出是否忍受資料表不存在的例外狀況。 |TRUE<br/>FALSE |否 |
 
 #### <a name="example"></a>範例
@@ -1527,7 +1526,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需這些連結服務的詳細資訊，請參閱 [Azure 表格儲存體連接器](data-factory-azure-table-connector.md#copy-activity-properties)文件。 
+如需這些連結服務的詳細資訊，請參閱 [Azure 表格儲存體連接器](data-factory-azure-table-connector.md#copy-activity-properties)文件。
 
 ### <a name="azure-table-sink-in-copy-activity"></a>複製活動中的 Azure 資料表接收
 如果您將資料複製到 Azure 表格儲存體，請將複製活動的 **sink type** 設為 **AzureTableSink**，並在 **sink** 區段中指定下列屬性︰
@@ -1584,17 +1583,17 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
     }
 }
 ```
-如需這些連結服務的詳細資訊，請參閱 [Azure 表格儲存體連接器](data-factory-azure-table-connector.md#copy-activity-properties)文件。 
+如需這些連結服務的詳細資訊，請參閱 [Azure 表格儲存體連接器](data-factory-azure-table-connector.md#copy-activity-properties)文件。
 
 ## <a name="amazon-redshift"></a>Amazon RedShift
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Amazon Redshift 連結服務，請將連結服務的 **type** 設為 **AmazonRedshift**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Amazon Redshift 連結服務，請將連結服務的 **type** 設為 **AmazonRedshift**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | 伺服器 |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
-| 連接埠 |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否，預設值︰5439 |
+| 連接埠 |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否，預設值：5439 |
 | 資料庫 |Amazon Redshift 資料庫的名稱。 |是 |
 | username |可存取資料庫之使用者的名稱。 |是 |
 | password |使用者帳戶的密碼。 |是 |
@@ -1617,10 +1616,10 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [Amazon Redshift 連接器](#data-factory-amazon-redshift-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [Amazon Redshift 連接器](#data-factory-amazon-redshift-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Amazon Redshift 資料集，請將資料集的 **type** 設為 **RelationalTable**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 Amazon Redshift 資料集，請將資料集的 **type** 設為 **RelationalTable**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -1648,7 +1647,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 ```
 如需詳細資訊，請參閱 [Amazon Redshift 連接器](#data-factory-amazon-redshift-connector.md#dataset-properties)文件。
 
-### <a name="relational-source-in-copy-activity"></a>複製活動中的關聯式來源 
+### <a name="relational-source-in-copy-activity"></a>複製活動中的關聯式來源
 如果您從 Amazon Redshift 複製資料，請將複製活動的 **source type** 設為 **RelationalSource**，並在 **source** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 允許的值 | 必要 |
@@ -1701,14 +1700,14 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 ## <a name="ibm-db2"></a>IBM DB2
 
 ### <a name="linked-service"></a>連結服務
-若要定義 IBM DB2 連結服務，請將連結服務的 **type** 設為 **OnPremisesDB2**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 IBM DB2 連結服務，請將連結服務的 **type** 設為 **OnPremisesDB2**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | 伺服器 |DB2 伺服器的名稱。 |是 |
 | 資料庫 |DB2 資料庫的名稱。 |是 |
 | 結構描述 |在資料庫中的結構描述名稱。 結構描述名稱會區分大小寫。 |否 |
-| authenticationType |用來連接到 DB2 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |是 |
+| authenticationType |用來連接到 DB2 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |是 |
 | username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
 | gatewayName |Data Factory 服務應該用來連接到內部部署 DB2 資料庫的閘道器名稱。 |是 |
@@ -1738,7 +1737,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| tableName |DB2 資料庫執行個體中連結服務所參照的資料表名稱。 tableName 會區分大小寫。 |否 (如果已指定 **RelationalSource** 的 **query**) 
+| tableName |DB2 資料庫執行個體中連結服務所參照的資料表名稱。 tableName 會區分大小寫。 |否 (如果已指定 **RelationalSource** 的 **query**)
 
 #### <a name="example"></a>範例
 ```json
@@ -1817,7 +1816,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 ## <a name="mysql"></a>MySQL
 
 ### <a name="linked-service"></a>連結服務
-若要定義 MySQL 連結服務，請將連結服務的 **type** 設為 **OnPremisesMySql**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 MySQL 連結服務，請將連結服務的 **type** 設為 **OnPremisesMySql**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -1849,10 +1848,10 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [MySQL 連接器](data-factory-onprem-mysql-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [MySQL 連接器](data-factory-onprem-mysql-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 MySQL 資料集，請將資料集的 **type** 設為 **RelationalTable**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 MySQL 資料集，請將資料集的 **type** 設為 **RelationalTable**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -1882,7 +1881,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
     }
 }
 ```
-如需詳細資訊，請參閱 [MySQL 連接器](data-factory-onprem-mysql-connector.md#dataset-properties)文件。 
+如需詳細資訊，請參閱 [MySQL 連接器](data-factory-onprem-mysql-connector.md#dataset-properties)文件。
 
 ### <a name="relational-source-in-copy-activity"></a>複製活動中的關聯式來源
 如果您從 MySQL 資料庫複製資料，請將複製活動的 **source type** 設為 **RelationalSource**，並在 **source** 區段中指定下列屬性︰
@@ -1934,12 +1933,12 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 }
 ```
 
-如需詳細資訊，請參閱 [MySQL 連接器](data-factory-onprem-mysql-connector.md#copy-activity-properties)文件。 
+如需詳細資訊，請參閱 [MySQL 連接器](data-factory-onprem-mysql-connector.md#copy-activity-properties)文件。
 
-## <a name="oracle"></a>Oracle 
+## <a name="oracle"></a>Oracle
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Oracle 連結服務，請將連結服務的 **type** 設為 **OnPremisesOracle**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Oracle 連結服務，請將連結服務的 **type** 設為 **OnPremisesOracle**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -1965,7 +1964,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 如需詳細資訊，請參閱 [Oracle 連接器](data-factory-onprem-oracle-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Oracle 資料集，請將資料集的 **type** 設為 **OracleTable**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 Oracle 資料集，請將資料集的 **type** 設為 **OracleTable**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -2108,14 +2107,14 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 ## <a name="postgresql"></a>PostgreSQL
 
 ### <a name="linked-service"></a>連結服務
-若要定義 PostgreSQL 連結服務，請將連結服務的 **type** 設為 **OnPremisesPostgreSql**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 PostgreSQL 連結服務，請將連結服務的 **type** 設為 **OnPremisesPostgreSql**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | 伺服器 |PostgreSQL 伺服器的名稱。 |是 |
 | 資料庫 |PostgreSQL 資料庫的名稱。 |是 |
 | 結構描述 |在資料庫中的結構描述名稱。 結構描述名稱會區分大小寫。 |否 |
-| authenticationType |用來連接到 PostgreSQL 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |是 |
+| authenticationType |用來連接到 PostgreSQL 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |是 |
 | username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
 | gatewayName |Data Factory 服務應該用來連接到內部部署 PostgreSQL 資料庫的閘道器名稱。 |是 |
@@ -2142,7 +2141,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 如需詳細資訊，請參閱 [PostgreSQL 連接器](data-factory-onprem-postgresql-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 PostgreSQL 資料集，請將資料集的 **type** 設為 **RelationalTable**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 PostgreSQL 資料集，請將資料集的 **type** 設為 **RelationalTable**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -2227,7 +2226,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 
 
 ### <a name="linked-service"></a>連結服務
-若要定義 SAP Business Warehouse (BW) 連結服務，請將連結服務的 **type** 設為 **SapBw**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 SAP Business Warehouse (BW) 連結服務，請將連結服務的 **type** 設為 **SapBw**，並在 **typeProperties** 區段中指定下列屬性︰
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
@@ -2258,10 +2257,10 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 }
 ```
 
-如需詳細資訊，請參閱 [SAP Business Warehouse 連接器](data-factory-sap-business-warehouse-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [SAP Business Warehouse 連接器](data-factory-sap-business-warehouse-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 SAP BW 資料集，請將資料集的 **type** 設為 **RelationalTable**。 **RelationalTable** 類型的 SAP BW 資料集不支援類型專用的屬性。  
+若要定義 SAP BW 資料集，請將資料集的 **type** 設為 **RelationalTable**。 **RelationalTable** 類型的 SAP BW 資料集不支援類型專用的屬性。
 
 #### <a name="example"></a>範例
 
@@ -2280,7 +2279,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
     }
 }
 ```
-如需詳細資訊，請參閱 [SAP Business Warehouse 連接器](data-factory-sap-business-warehouse-connector.md#dataset-properties)文件。 
+如需詳細資訊，請參閱 [SAP Business Warehouse 連接器](data-factory-sap-business-warehouse-connector.md#dataset-properties)文件。
 
 ### <a name="relational-source-in-copy-activity"></a>複製活動中的關聯式來源
 如果您從 SAP Business Warehouse 複製資料，請將複製活動的 **source type** 設為 **RelationalSource**，並在 **source** 區段中指定下列屬性︰
@@ -2332,17 +2331,17 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 }
 ```
 
-如需詳細資訊，請參閱 [SAP Business Warehouse 連接器](data-factory-sap-business-warehouse-connector.md#copy-activity-properties)文件。 
+如需詳細資訊，請參閱 [SAP Business Warehouse 連接器](data-factory-sap-business-warehouse-connector.md#copy-activity-properties)文件。
 
 ## <a name="sap-hana"></a>SAP HANA
 
 ### <a name="linked-service"></a>連結服務
-若要定義 SAP HANA 連結服務，請將連結服務的 **type** 設為 **SapHana**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 SAP HANA 連結服務，請將連結服務的 **type** 設為 **SapHana**，並在 **typeProperties** 區段中指定下列屬性︰
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
 伺服器 | SAP Hana 執行個體所在之伺服器的名稱。 如果您的伺服器使用自訂連接埠，指定 `server:port`。 | 字串 | 是
-authenticationType | 驗證類型。 | 字串。 "Basic" 或 "Windows" | 是 
+authenticationType | 驗證類型。 | 字串。 "Basic" 或 "Windows" | 是
 username | 具有 SAP 伺服器存取權之使用者的名稱 | 字串 | 是
 password | 使用者的密碼。 | 字串 | 是
 gatewayName | Data Factory 服務應該用來連接到內部部署 SAP Hana 執行個體的閘道器名稱。 | 字串 | 是
@@ -2367,9 +2366,9 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 ```
 如需詳細資訊，請參閱 [SAP HANA 連接器](data-factory-sap-hana-connector.md#linked-service-properties)文件。
- 
+
 ### <a name="dataset"></a>Dataset
-若要定義 SAP HANA 資料集，請將資料集的 **type** 設為 **RelationalTable**。 沒有類型特定的屬性支援 **RelationalTable** 的 SAP HANA 資料集類型。 
+若要定義 SAP HANA 資料集，請將資料集的 **type** 設為 **RelationalTable**。 沒有類型特定的屬性支援 **RelationalTable** 的 SAP HANA 資料集類型。
 
 #### <a name="example"></a>範例
 
@@ -2388,7 +2387,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
     }
 }
 ```
-如需詳細資訊，請參閱 [SAP HANA 連接器](data-factory-sap-hana-connector.md#dataset-properties)文件。 
+如需詳細資訊，請參閱 [SAP HANA 連接器](data-factory-sap-hana-connector.md#dataset-properties)文件。
 
 ### <a name="relational-source-in-copy-activity"></a>複製活動中的關聯式來源
 如果您從 SAP HANA 資料存放區複製資料，請將複製活動的 **source type** 設為 **RelationalSource**，並在 **source** 區段中指定下列屬性︰
@@ -2453,20 +2452,20 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| type |類型屬性應設為： **OnPremisesSqlServer**。 |是 |
+| type |type 屬性應設為：**OnPremisesSqlServer**。 |是 |
 | connectionString |指定使用 SQL 驗證或 Windows 驗證連接至內部部署 SQL Server 資料庫所需的 connectionString 資訊。 |是 |
 | gatewayName |Data Factory 服務應該用來連接到內部部署 SQL Server 資料庫的閘道器名稱。 |是 |
 | username |如果您使用「Windows 驗證」，請指定使用者名稱。 範例︰**domainname\\username**。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
 
-您可以使用 **New-AzureRmDataFactoryEncryptValue** Cmdlet 加密認證，並在連接字串中使用這些認證，如下列範例所示 (**EncryptedCredential** 屬性)：  
+您可以使用 **New-AzureRmDataFactoryEncryptValue** Cmdlet 加密認證，並在連接字串中使用這些認證，如下列範例所示 (**EncryptedCredential** 屬性)：
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 ```
 
 
-#### <a name="example-json-for-using-sql-authentication"></a>範例：用於 SQL 驗證的 JSON
+#### <a name="example-json-for-using-sql-authentication"></a>範例：使用 SQL 驗證的 JSON
 
 ```json
 {
@@ -2480,7 +2479,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
     }
 }
 ```
-#### <a name="example-json-for-using-windows-authentication"></a>範例：用於 Windows 驗證的 JSON
+#### <a name="example-json-for-using-windows-authentication"></a>範例：使用 Windows 驗證的 JSON
 
 如果已指定使用者名稱和密碼，閘道就會使用它們來模擬指定的使用者帳戶，以連線到內部部署 SQL Server 資料庫。 否則，閘道會使用閘道的安全性內容 (其啟動帳戶) 直接連線到 SQL Server。
 
@@ -2499,10 +2498,10 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 }
 ```
 
-如需詳細資訊，請參閱 [SQL Server 連接器](data-factory-sqlserver-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [SQL Server 連接器](data-factory-sqlserver-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 SQL Server 資料集，請將資料集的 **type** 設為 **SqlServerTable**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 SQL Server 資料集，請將資料集的 **type** 設為 **SqlServerTable**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -2534,7 +2533,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 }
 ```
 
-如需詳細資訊，請參閱 [SQL Server 連接器](data-factory-sqlserver-connector.md#dataset-properties)文件。 
+如需詳細資訊，請參閱 [SQL Server 連接器](data-factory-sqlserver-connector.md#dataset-properties)文件。
 
 ### <a name="sql-source-in-copy-activity"></a>複製活動中的 Sql 來源
 如果您從 SQL Server 資料庫複製資料，請將複製活動的 **source type** 設為 **SqlSource**，並在 **source** 區段中指定下列屬性︰
@@ -2602,7 +2601,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 如果您未指定 sqlReaderQuery 或 sqlReaderStoredProcedureName，系統就會使用 structure 區段中定義的資料行來建立一個要對「SQL Server 資料庫」執行的 select 查詢。 如果資料集定義沒有結構，則會從資料表中選取所有資料行。
 
-如需詳細資訊，請參閱 [SQL Server 連接器](data-factory-sqlserver-connector.md#copy-activity-properties)文件。 
+如需詳細資訊，請參閱 [SQL Server 連接器](data-factory-sqlserver-connector.md#copy-activity-properties)文件。
 
 ### <a name="sql-sink-in-copy-activity"></a>複製活動中的 Sql 接收
 如果您將資料複製到 SQL Server 資料庫，請將複製活動的 **sink type** 設為 **SqlSink**，並在 **sink** 區段中指定下列屬性︰
@@ -2661,19 +2660,19 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 }
 ```
 
-如需詳細資訊，請參閱 [SQL Server 連接器](data-factory-sqlserver-connector.md#copy-activity-properties)文件。 
+如需詳細資訊，請參閱 [SQL Server 連接器](data-factory-sqlserver-connector.md#copy-activity-properties)文件。
 
 ## <a name="sybase"></a>Sybase
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Sybase 連結服務，請將連結服務的 **type** 設為 **OnPremisesSybase**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Sybase 連結服務，請將連結服務的 **type** 設為 **OnPremisesSybase**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | 伺服器 |Sybase 伺服器的名稱。 |是 |
 | 資料庫 |Sybase 資料庫的名稱。 |是 |
 | 結構描述 |在資料庫中的結構描述名稱。 |否 |
-| authenticationType |用來連接到 Sybase 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |是 |
+| authenticationType |用來連接到 Sybase 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |是 |
 | username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
 | gatewayName |Data Factory 服務應該用來連接到內部部署 Sybase 資料庫的閘道器名稱。 |是 |
@@ -2697,10 +2696,10 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 }
 ```
 
-如需詳細資訊，請參閱 [Sybase 連接器](data-factory-onprem-sybase-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [Sybase 連接器](data-factory-onprem-sybase-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Sybase 資料集，請將資料集的 **type** 設為 **RelationalTable**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 Sybase 資料集，請將資料集的 **type** 設為 **RelationalTable**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -2731,7 +2730,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 }
 ```
 
-如需詳細資訊，請參閱 [Sybase 連接器](data-factory-onprem-sybase-connector.md#dataset-properties)文件。 
+如需詳細資訊，請參閱 [Sybase 連接器](data-factory-onprem-sybase-connector.md#dataset-properties)文件。
 
 ### <a name="relational-source-in-copy-activity"></a>複製活動中的關聯式來源
 如果您從 Sybase 資料庫複製資料，請將複製活動的 **source type** 設為 **RelationalSource**，並在 **source** 區段中指定下列屬性︰
@@ -2786,12 +2785,12 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 ## <a name="teradata"></a>Teradata
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Teradata 連結服務，請將連結服務的 **type** 設為 **OnPremisesTeradata**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Teradata 連結服務，請將連結服務的 **type** 設為 **OnPremisesTeradata**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | 伺服器 |Teradata 伺服器的名稱。 |是 |
-| authenticationType |用來連接到 Teradata 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |是 |
+| authenticationType |用來連接到 Teradata 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |是 |
 | username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
 | gatewayName |Data Factory 服務應該用來連接到內部部署 Teradata 資料庫的閘道器名稱。 |是 |
@@ -2816,7 +2815,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 如需詳細資訊，請參閱 [Teradata 連接器](data-factory-onprem-teradata-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Teradata Blob 資料集，請將資料集的 **type** 設為 **RelationalTable**。 目前沒有支援 Teradata 資料集的類型屬性。 
+若要定義 Teradata Blob 資料集，請將資料集的 **type** 設為 **RelationalTable**。 目前沒有支援 Teradata 資料集的類型屬性。
 
 #### <a name="example"></a>範例
 ```json
@@ -2900,7 +2899,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Cassandra 連結服務，請將連結服務的 **type** 設為 **OnPremisesCassandra**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Cassandra 連結服務，請將連結服務的 **type** 設為 **OnPremisesCassandra**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -2931,10 +2930,10 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 }
 ```
 
-如需詳細資訊，請參閱 [Cassandra 連接器](data-factory-onprem-cassandra-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [Cassandra 連接器](data-factory-onprem-cassandra-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Cassandra 資料集，請將資料集的 **type** 設為 **CassandraTable**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 Cassandra 資料集，請將資料集的 **type** 設為 **CassandraTable**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -2969,7 +2968,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 }
 ```
 
-如需詳細資訊，請參閱 [Cassandra 連接器](data-factory-onprem-cassandra-connector.md#dataset-properties)文件。 
+如需詳細資訊，請參閱 [Cassandra 連接器](data-factory-onprem-cassandra-connector.md#dataset-properties)文件。
 
 ### <a name="cassandra-source-in-copy-activity"></a>複製活動中的 SCassandra 來源
 如果您從 Cassandra 複製資料，請將複製活動的 **source type** 設為 **CassandraSource**，並在 **source** 區段中指定下列屬性︰
@@ -2977,10 +2976,10 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
 | query |使用自訂查詢來讀取資料。 |SQL-92 查詢或 CQL 查詢。 請參閱 [CQL 參考資料](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)。 <br/><br/>在使用 SQL 查詢時，指定 **keyspace name.table 名稱** 來代表您想要查詢的資料表。 |否 (如果已定義資料集上的 tableName 和 keyspace)。 |
-| consistencyLevel |一致性層級可指定必須先有多少複本回應讀取要求，才會將資料傳回用戶端應用程式。 Cassandra 會檢查要讓資料滿足讀取要求的指定複本數目。 |ONE、TWO、THREE、QUORUM、ALL、LOCAL_QUORUM、EACH_QUORUM、LOCAL_ONE。 如需詳細資訊，請參閱 [設定資料一致性](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 。 |否。 預設值為 ONE。 |
+| consistencyLevel |一致性層級可指定必須先有多少複本回應讀取要求，才會將資料傳回用戶端應用程式。 Cassandra 會檢查要讓資料滿足讀取要求的指定複本數目。 |ONE、TWO、THREE、QUORUM、ALL、LOCAL_QUORUM、EACH_QUORUM、LOCAL_ONE。 如需詳細資訊，請參閱 [設定資料一致性](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 。 |沒有。 預設值為 ONE。 |
 
 #### <a name="example"></a>範例
-  
+
 ```json
 {
     "name": "SamplePipeline",
@@ -3027,7 +3026,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 ## <a name="mongodb"></a>MongoDB
 
 ### <a name="linked-service"></a>連結服務
-若要定義 MongoDB 連結服務，請將連結服務的 **type** 設為 **OnPremisesMongoDB**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 MongoDB 連結服務，請將連結服務的 **type** 設為 **OnPremisesMongoDB**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -3065,7 +3064,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 如需詳細資訊，請參閱 [MongoDB 連接器文件](data-factory-on-premises-mongodb-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Dataset
-若要定義 MongoDB 資料集，請將資料集的 **type** 設為 **MongoDbCollection**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 MongoDB 資料集，請將資料集的 **type** 設為 **MongoDbCollection**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -3148,7 +3147,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Amazon S3 連結服務，請將連結服務的 **type** 設為 **AwsAccessKey**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Amazon S3 連結服務，請將連結服務的 **type** 設為 **AwsAccessKey**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
@@ -3172,7 +3171,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 如需詳細資訊，請參閱 [Amazon S3 連接器文件](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties)。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Amazon S3 資料集，請將資料集的 **type** 設為 **AmazonS3**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 Amazon S3 資料集，請將資料集的 **type** 設為 **AmazonS3**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
@@ -3180,14 +3179,14 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 | 索引鍵 |S3 物件索引鍵。 |字串 |否 |
 | prefix |S3 物件索引鍵的前置詞。 系統會選取索引鍵以此前置詞開頭的物件。 只有當索引鍵空白時才適用。 |字串 |否 |
 | version |如果已啟用 S3 版本設定功能，則為 S3 物件的版本。 |字串 |否 |
-| format | 支援下列格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 | |
+| format | 以下是支援的檔案類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 | |
 | compression | 指定此資料的壓縮類型和層級。 支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。 支援的層級為：**Optimal** 和 **Fastest**。 如需詳細資訊，請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 | |
 
 
 > [!NOTE]
 > bucketName + key 可指定 S3 物件的位置，其中貯體是 S3 物件的根容器，而索引鍵是 S3 物件的完整路徑。
 
-#### <a name="example-sample-dataset-with-prefix"></a>範例：範例資料集 (含 prefix)
+#### <a name="example-sample-dataset-with-prefix"></a>範例：prefix 的相關範例資料集
 
 ```json
 {
@@ -3210,7 +3209,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
     }
 }
 ```
-#### <a name="example-sample-data-set-with-version"></a>範例︰範例資料集 (含 version)
+#### <a name="example-sample-data-set-with-version"></a>範例：version 的相關範例資料集
 
 ```json
 {
@@ -3323,7 +3322,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 | encryptedCredential |指定可以透過執行 New-AzureRmDataFactoryEncryptValue Cmdlet 來取得的加密認證。 |否 (如果您選擇以純文字指定使用者識別碼和密碼) |
 | gatewayName |指定 Data Factory 應該用來連接到內部部署檔案伺服器的閘道器名稱。 |是 |
 
-#### <a name="sample-folder-path-definitions"></a>範例資料夾路徑定義 
+#### <a name="sample-folder-path-definitions"></a>範例資料夾路徑定義
 | 案例 | 連結服務定義中的主機 | 資料集定義中的 folderPath |
 | --- | --- | --- |
 | 資料管理閘道電腦上的本機資料夾︰ <br/><br/>範例：D:\\\* 或 D:\folder\subfolder\\* |D:\\\\ (適用於資料管理閘道 2.0 和更新版本) <br/><br/> localhost (適用於比資料管理閘道 2.0 更早的版本) |.\\\\ 或 folder\\\\subfolder (適用於資料管理閘道 2.0 和更新版本) <br/><br/>D:\\\\ 或 D:\\\\folder\\\\subfolder (適用低於閘道 2.0 的版本) |
@@ -3366,16 +3365,16 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 如需詳細資訊，請參閱[檔案系統連接器文件](data-factory-onprem-file-system-connector.md#linked-service-properties)。
 
 ### <a name="dataset"></a>Dataset
-若要定義檔案系統資料集，請將資料集的 **type** 設為 **FileShare**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義檔案系統資料集，請將資料集的 **type** 設為 **FileShare**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | folderPath |指定資料夾的子路徑。 字串中的特殊字元需使用逸出字元 ‘ \ ’。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。<br/><br/>您可以結合此屬性與 **partitionBy**，讓資料夾路徑以配量開始/結束日期時間為基礎。 |是 |
-| fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>`Data.<Guid>.txt` (例如： Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |否 |
-| fileFilter |指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。 <br/><br/>允許的值為︰`*` (多個字元) 和 `?` (單一字元)。<br/><br/>範例 1："fileFilter": "*.log"<br/>範例 2："fileFilter": 2016-1-?.txt"<br/><br/>請注意，fileFilter 適用於輸入 FileShare 資料集。 |否 |
+| fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>`Data.<Guid>.txt` (範例：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |否 |
+| fileFilter |指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。 <br/><br/>允許的值為︰`*` (多個字元) 和 `?` (單一字元)。<br/><br/>範例 1："fileFilter": "*.log"<br/>範例 2："fileFilter":2016-1-?.txt"<br/><br/>請注意，fileFilter 適用於輸入 FileShare 資料集。 |否 |
 | partitionedBy |您可以使用 partitionedBy 來指定時間序列資料的動態 folderPath/fileName。 例如，folderPath 可針對每小時的資料進行參數化。 |否 |
-| format | 支援下列格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
-| compression | 指定此資料的壓縮類型和層級。 支援的類型為：**GZip**、**Deflate**、**BZip2** 和 **ZipDeflate**，而支援的層級為：**最佳**和**最快**。 請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 |
+| format | 以下是支援的檔案類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
+| compression | 指定此資料的壓縮類型和層級。 支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**，而支援的層級為：**Optimal** 和 **Fastest**。 請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 |
 
 > [!NOTE]
 > 無法同時使用 fileName 和 fileFilter。
@@ -3494,7 +3493,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| copyBehavior |當來源為 BlobSource 或 FileSystem 時，定義複製行為。 |**PreserveHierarchy：** 保留目標資料夾中的檔案階層。 亦即，來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><br/>**FlattenHierarchy：** 來源資料夾的中所有檔案都會建立在目標資料夾的第一層中。 建立的目標檔案會具有自動產生的名稱。<br/><br/>**MergeFiles：** 將來源資料夾的所有檔案合併為一個檔案。 如果有指定檔案/Blob 名稱，合併檔案的名稱會是指定的名稱。 否則，就會是自動產生的檔案名稱。 |否 |
+| copyBehavior |當來源為 BlobSource 或 FileSystem 時，定義複製行為。 |**PreserveHierarchy：** 保留目標資料夾中的檔案階層。 亦即，來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><br/>**FlattenHierarchy：** 來源資料夾的中所有檔案都會建立在目標資料夾的第一層中。 建立的目標檔案會具有自動產生的名稱。<br/><br/>**MergeFiles：** 將來自來源資料夾的所有檔案合併成一個檔案。 如果有指定檔案/Blob 名稱，合併檔案的名稱會是指定的名稱。 否則，就會是自動產生的檔案名稱。 |否 |
 auto-
 
 #### <a name="example"></a>範例
@@ -3545,7 +3544,7 @@ auto-
 ## <a name="ftp"></a>FTP
 
 ### <a name="linked-service"></a>連結服務
-若要定義 FTP 連結服務，請將連結服務的 **type** 設為 **FtpServer**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 FTP 連結服務，請將連結服務的 **type** 設為 **FtpServer**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 | 預設值 |
 | --- | --- | --- | --- |
@@ -3591,7 +3590,7 @@ auto-
 }
 ```
 
-#### <a name="example-using-port-enablessl-enableservercertificatevalidation"></a>範例：使用 port、enableSsl、enableServerCertificateValidation
+#### <a name="example-using-port-enablessl-enableservercertificatevalidation"></a>範例：Using port, enableSsl, enableServerCertificateValidation
 
 ```json
 {
@@ -3600,7 +3599,7 @@ auto-
         "type": "FtpServer",
         "typeProperties": {
             "host": "myftpserver.com",
-            "authenticationType": "Basic",    
+            "authenticationType": "Basic",
             "username": "Admin",
             "password": "123456",
             "port": "21",
@@ -3631,17 +3630,17 @@ auto-
 如需詳細資訊，請參閱 [FTP 連接器](data-factory-ftp-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 FTP 資料集，請將資料集的 **type** 設為 **FileShare**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 FTP 資料集，請將資料集的 **type** 設為 **FileShare**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| folderPath |資料夾的子路徑。 使用逸出字元 ‘ \ ’ 當做字串中的特殊字元。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。<br/><br/>您可以結合此屬性與 **partitionBy**，讓資料夾路徑以配量開始/結束日期時間為基礎。 |是 
-| fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>Data.<Guid>.txt (範例：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |否 |
+| folderPath |資料夾的子路徑。 使用逸出字元 ‘ \ ’ 當做字串中的特殊字元。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。<br/><br/>您可以結合此屬性與 **partitionBy**，讓資料夾路徑以配量開始/結束日期時間為基礎。 |是
+| fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>`Data.<Guid>.txt` (範例：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |否 |
 | fileFilter |指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。<br/><br/>允許的值為︰`*` (多個字元) 和 `?` (單一字元)。<br/><br/>範例 1：`"fileFilter": "*.log"`<br/>範例 2：`"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter 適用於輸入 FileShare 資料集。 這個屬性不支援使用 HDFS。 |否 |
 | partitionedBy |partitionedBy 可以用來指定時間序列資料的動態 folderPath 和 filename。 例如，folderPath 可針對每小時的資料進行參數化。 |否 |
-| format | 支援下列格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
-| compression | 指定此資料的壓縮類型和層級。 支援的類型為：**GZip**、**Deflate**、**BZip2** 和 **ZipDeflate**，而支援的層級為：**最佳**和**最快**。 如需詳細資訊，請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 |
-| useBinaryTransfer |指定是否使用二進位傳輸模式。 二進位模式為 true，ASCII 則為 false。 預設值：True。 只有在相關聯的連結服務類型的類型為 FtpServer 時，才可以使用這個屬性。 |否 |
+| format | 以下是支援的檔案類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
+| compression | 指定此資料的壓縮類型和層級。 支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**，而支援的層級為：**Optimal** 和 **Fastest**。 如需詳細資訊，請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 |
+| useBinaryTransfer |指定是否使用二進位傳輸模式。 二進位模式為 true，ASCII 則為 false。 預設值：True。 只有在相關聯的連結服務類型為以下類型時，才可以使用這個屬性：FtpServer。 |否 |
 
 > [!NOTE]
 > 無法同時使用檔名和 fileFilter。
@@ -3723,11 +3722,11 @@ auto-
 ## <a name="hdfs"></a>HDFS
 
 ### <a name="linked-service"></a>連結服務
-若要定義 HDFS 連結服務，請將連結服務的 **type** 設為 **Hdfs**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 HDFS 連結服務，請將連結服務的 **type** 設為 **Hdfs**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| type |類型屬性必須設為： **Hdfs** |是 |
+| type |類型屬性必須設定為：**Hdfs** |是 |
 | Url |到 HDFS 的 URL |是 |
 | authenticationType |匿名或 Windows。 <br><br> 若要對 HDFS 連接器使用 **Kerberos 驗證**，請參閱[此章節](#use-kerberos-authentication-for-hdfs-connector)來據以設定您的內部部署環境。 |是 |
 | userName |Windows 驗證的使用者名稱。 |是 (適用於 Windows 驗證) |
@@ -3770,17 +3769,17 @@ auto-
 }
 ```
 
-如需詳細資訊，請參閱 [HDFS 連接器](#data-factory-hdfs-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [HDFS 連接器](#data-factory-hdfs-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 HDFS 資料集，請將資料集的 **type** 設為 **FileShare**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 HDFS 資料集，請將資料集的 **type** 設為 **FileShare**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | folderPath |資料夾的路徑。 範例： `myfolder`<br/><br/>使用逸出字元 ‘ \ ’ 當做字串中的特殊字元。 例如︰若為 folder\subfolder，請指定 folder\\\\subfolder；若為 d:\samplefolder，請指定 d:\\\\samplefolder。<br/><br/>您可以結合此屬性與 **partitionBy**，讓資料夾路徑以配量開始/結束日期時間為基礎。 |是 |
-| fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>Data<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |否 |
+| fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>Data.<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |否 |
 | partitionedBy |partitionedBy 可以用來指定時間序列資料的動態 folderPath 和 filename。 範例：folderPath 可針對每小時的資料進行參數化。 |否 |
-| format | 支援下列格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
+| format | 以下是支援的檔案類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
 | compression | 指定此資料的壓縮類型和層級。 支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。 支援的層級為：**Optimal** 和 **Fastest**。 如需詳細資訊，請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 |
 
 > [!NOTE]
@@ -3806,7 +3805,7 @@ auto-
 }
 ```
 
-如需詳細資訊，請參閱 [HDFS 連接器](#data-factory-hdfs-connector.md#dataset-properties)文件。 
+如需詳細資訊，請參閱 [HDFS 連接器](#data-factory-hdfs-connector.md#dataset-properties)文件。
 
 ### <a name="file-system-source-in-copy-activity"></a>複製活動中的檔案系統來源
 如果您從 HDFS 複製資料，請將複製活動的 **source type** 設為 **FileSystemSource**，並在 **source** 區段中指定下列屬性︰
@@ -3859,17 +3858,17 @@ auto-
 
 
 ### <a name="linked-service"></a>連結服務
-若要定義 SFTP 連結服務，請將連結服務的 **type** 設為 **Sftp**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 SFTP 連結服務，請將連結服務的 **type** 設為 **Sftp**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- | --- |
 | host | SFTP 伺服器的名稱或 IP 位址。 |是 |
-| 連接埠 |SFTP 伺服器所接聽的連接埠。 預設值：21 |否 |
-| authenticationType |指定驗證類型。 允許的值︰**Basic**、**SshPublicKey**。 <br><br> 請參閱[使用基本驗證](#using-basic-authentication)和[使用 SSH 公開金鑰驗證](#using-ssh-public-key-authentication)章節，分別取得更多屬性和 JSON 範例。 |是 |
-| skipHostKeyValidation | 指定是否略過主機金鑰驗證。 | 否。 預設值：false |
+| 連接埠 |SFTP 伺服器所接聽的連接埠。 預設值為：21 |否 |
+| authenticationType |指定驗證類型。 允許的值：**Basic**、**SshPublicKey**。 <br><br> 請參閱[使用基本驗證](#using-basic-authentication)和[使用 SSH 公開金鑰驗證](#using-ssh-public-key-authentication)章節，分別取得更多屬性和 JSON 範例。 |是 |
+| skipHostKeyValidation | 指定是否略過主機金鑰驗證。 | 沒有。 預設值：false |
 | hostKeyFingerprint | 指定主機金鑰的指紋。 | 如果 `skipHostKeyValidation` 設為 false，則為 [是]。  |
 | gatewayName |要連線至內部部署 SFTP 伺服器的資料管理閘道名稱。 | 如果從內部部署 SFTP 伺服器複製資料，則為 [是]。 |
-| encryptedCredential | 用來存取 SFTP 伺服器的加密認證。 當您在複製精靈或 ClickOnce 快顯對話方塊中指定基本驗證 (使用者名稱 + 密碼) 或 SshPublicKey 驗證 (使用者名稱 + 私密金鑰路徑或內容) 時自動產生。 | 否。 僅當從內部部署 SFTP 伺服器複製資料時才套用。 |
+| encryptedCredential | 用來存取 SFTP 伺服器的加密認證。 當您在複製精靈或 ClickOnce 快顯對話方塊中指定基本驗證 (使用者名稱 + 密碼) 或 SshPublicKey 驗證 (使用者名稱 + 私密金鑰路徑或內容) 時自動產生。 | 沒有。 僅當從內部部署 SFTP 伺服器複製資料時才套用。 |
 
 #### <a name="example-using-basic-authentication"></a>範例：使用基本驗證
 
@@ -3899,7 +3898,7 @@ auto-
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>範例：**採用加密認證的基本驗證**
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>範例：**基本驗證與加密認證**
 
 ```json
 {
@@ -3970,20 +3969,20 @@ auto-
 }
 ```
 
-如需詳細資訊，請參閱 [SFTP 連接器](data-factory-sftp-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [SFTP 連接器](data-factory-sftp-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 SFTP 資料集，請將資料集的 **type** 設為 **FileShare**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 SFTP 資料集，請將資料集的 **type** 設為 **FileShare**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | folderPath |資料夾的子路徑。 使用逸出字元 ‘ \ ’ 當做字串中的特殊字元。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。<br/><br/>您可以結合此屬性與 **partitionBy**，讓資料夾路徑以配量開始/結束日期時間為基礎。 |是 |
-| fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>Data.<Guid>.txt (範例：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |否 |
+| fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>`Data.<Guid>.txt` (範例：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |否 |
 | fileFilter |指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。<br/><br/>允許的值為︰`*` (多個字元) 和 `?` (單一字元)。<br/><br/>範例 1：`"fileFilter": "*.log"`<br/>範例 2：`"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter 適用於輸入 FileShare 資料集。 這個屬性不支援使用 HDFS。 |否 |
 | partitionedBy |partitionedBy 可以用來指定時間序列資料的動態 folderPath 和 filename。 例如，folderPath 可針對每小時的資料進行參數化。 |否 |
-| format | 支援下列格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
+| format | 以下是支援的檔案類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
 | compression | 指定此資料的壓縮類型和層級。 支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。 支援的層級為：**Optimal** 和 **Fastest**。 如需詳細資訊，請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 |
-| useBinaryTransfer |指定是否使用二進位傳輸模式。 二進位模式為 true，ASCII 則為 false。 預設值：True。 只有在相關聯的連結服務類型的類型為 FtpServer 時，才可以使用這個屬性。 |否 |
+| useBinaryTransfer |指定是否使用二進位傳輸模式。 二進位模式為 true，ASCII 則為 false。 預設值：True。 只有在相關聯的連結服務類型為以下類型時，才可以使用這個屬性：FtpServer。 |否 |
 
 > [!NOTE]
 > 無法同時使用檔名和 fileFilter。
@@ -4009,7 +4008,7 @@ auto-
 }
 ```
 
-如需詳細資訊，請參閱 [SFTP 連接器](data-factory-sftp-connector.md#dataset-properties)文件。 
+如需詳細資訊，請參閱 [SFTP 連接器](data-factory-sftp-connector.md#dataset-properties)文件。
 
 ### <a name="file-system-source-in-copy-activity"></a>複製活動中的檔案系統來源
 如果您從 SFTP 來源複製資料，請將複製活動的 **source type** 設為 **FileSystemSource**，並在 **source** 區段中指定下列屬性︰
@@ -4066,17 +4065,17 @@ auto-
 ## <a name="http"></a>HTTP
 
 ### <a name="linked-service"></a>連結服務
-若要定義 HTTP 連結服務，請將連結服務的 **type** 設為 **Http**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 HTTP 連結服務，請將連結服務的 **type** 設為 **Http**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | url | Web 伺服器的基本 URL | 是 |
-| authenticationType | 指定驗證類型。 允許的值為︰**匿名**、**基本**、**摘要**、**Windows**、**ClientCertificate**。 <br><br> 請分別參閱此關於更多屬性的下列資料表各節以及這些驗證類型的 JSON 範例。 | 是 |
+| authenticationType | 指定驗證類型。 允許的值包括：**匿名**、**基本**、**摘要**、**Windows**、**ClientCertificate**。 <br><br> 請分別參閱此關於更多屬性的下列資料表各節以及這些驗證類型的 JSON 範例。 | 是 |
 | enableServerCertificateValidation | 如果來源是 HTTPS Web 伺服器，指定是否啟用伺服器 SSL 憑證驗證 | 否，預設值是 True |
 | gatewayName | 連接至內部部署 HTTP 來源的「資料管理閘道」閘道。 | 如果從內部部署 HTTP 來源複製資料，則為是。 |
-| encryptedCredential | 用來存取 HTTP 端點的加密認證。 當您在複製精靈或 ClickOnce 快顯對話方塊中設定驗證資訊時會自動產生。 | 否。 僅當從內部部署 HTTP 伺服器複製資料時才套用。 |
+| encryptedCredential | 用來存取 HTTP 端點的加密認證。 當您在複製精靈或 ClickOnce 快顯對話方塊中設定驗證資訊時會自動產生。 | 沒有。 僅當從內部部署 HTTP 伺服器複製資料時才套用。 |
 
-#### <a name="example-using-basic-digest-or-windows-authentication"></a>範例︰使用基本、摘要或 Windows 驗證
+#### <a name="example-using-basic-digest-or-windows-authentication"></a>範例：使用基本、摘要或 Windows 驗證
 將 `authenticationType` 設定為 `Basic`、`Digest`或 `Windows`，並指定除了上面介紹的 HTTP 連接器泛用的下列屬性︰
 
 | 屬性 | 說明 | 必要 |
@@ -4114,9 +4113,9 @@ auto-
 1. 啟動 Microsoft Management Console (MMC)。 新增目標為 [本機電腦] 的 [憑證] 嵌入式管理單元。
 2. 展開 [憑證]，[個人]，然後按一下 [憑證]。
 3. 以滑鼠右鍵按一下個人存放區中的 [憑證]，然後選取 [所有工作]->[管理私用金鑰...]
-3. 在 [安全性] 索引標籤上，新增資料管理閘道主機服務使用憑證讀取存取執行所在的使用者帳戶。  
+3. 在 [安全性] 索引標籤上，新增資料管理閘道主機服務使用憑證讀取存取執行所在的使用者帳戶。
 
-**範例：使用用戶端憑證：** 此連結服務會將您的資料處理站連結至內部部署 HTTP Web 伺服器。 它會使用已安裝資料管理閘道的電腦上所安裝的用戶端憑證。
+**範例︰使用用戶端憑證：** 此連結服務會將您的資料處理站與內部部署 HTTP web 伺服器連結。 它會使用已安裝資料管理閘道的電腦上所安裝的用戶端憑證。
 
 ```json
 {
@@ -4154,15 +4153,15 @@ auto-
 如需詳細資訊，請參閱 [HTTP 連接器](data-factory-http-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 HTTP 資料集，請將資料集的 **type** 設為 **Http**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 HTTP 資料集，請將資料集的 **type** 設為 **Http**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | relativeUrl | 包含資料之資源的相對 URL。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 <br><br> 若要建構動態 URL，您可以使用 [Data Factory 函式和系統變數](data-factory-functions-variables.md)，範例︰`"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`。 | 否 |
-| requestMethod | HTTP 方法。 允許的值為 **GET** 或 **POST**。 | 否。 預設值為 `GET`。 |
+| requestMethod | HTTP 方法。 允許的值為 **GET** 或 **POST**。 | 沒有。 預設值為 `GET`。 |
 | additionalHeaders | 其他 HTTP 要求標頭。 | 否 |
 | requestBody | HTTP 要求的內文。 | 否 |
-| format | 如果您只想要**從 HTTP 端點依現狀擷取資料**而不剖析它，請略過此格式設定。 <br><br> 如果您想要在複製期間剖析 HTTP 回應內容，支援下列格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 |否 |
+| format | 如果您只想要**從 HTTP 端點依現狀擷取資料**而不剖析它，請略過此格式設定。 <br><br> 如果您想要在複製期間剖析 HTTP 回應內容，下列是支援的格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 |否 |
 | compression | 指定此資料的壓縮類型和層級。 支援的類型為：**GZip**、**Deflate**、**BZip2** 及 **ZipDeflate**。 支援的層級為：**Optimal** 和 **Fastest**。 如需詳細資訊，請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 |
 
 #### <a name="example-using-the-get-default-method"></a>範例︰使用 GET (預設值) 方法
@@ -4214,7 +4213,7 @@ auto-
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | HTTP 的逾時 (TimeSpan) 要求取得回應。 逾時會取得回應，而非逾時讀取回應資料。 | 否。 預設值：00:01:40 |
+| httpRequestTimeout | HTTP 的逾時 (TimeSpan) 要求取得回應。 逾時會取得回應，而非逾時讀取回應資料。 | 沒有。 預設值：00:01:40 |
 
 
 #### <a name="example"></a>範例
@@ -4264,7 +4263,7 @@ auto-
 ## <a name="odata"></a>OData
 
 ### <a name="linked-service"></a>連結服務
-若要定義 OData 連結服務，請將連結服務的 **type** 設為 **OData**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 OData 連結服務，請將連結服務的 **type** 設為 **OData**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -4344,7 +4343,7 @@ auto-
 如需詳細資訊，請參閱 [OData 連接器](data-factory-odata-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 OData 資料集，請將資料集的 **type** 設為 **ODataResource**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 OData 資料集，請將資料集的 **type** 設為 **ODataResource**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -4434,13 +4433,13 @@ auto-
 
 
 ### <a name="linked-service"></a>連結服務
-若要定義 ODBC 連結服務，請將連結服務的 **type** 設為 **OnPremisesOdbc**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 ODBC 連結服務，請將連結服務的 **type** 設為 **OnPremisesOdbc**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | connectionString |連接字串的非存取認證部分和選擇性的加密認證。 請參閱下列幾節中的範例。 |是 |
-| 認證 |以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 範例：“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”。 |否 |
-| authenticationType |用來連接到 ODBC 資料存放區的驗證類型。 可能的值為：Anonymous 和 Basic。 |是 |
+| 認證 |以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 範例： `“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”.` |否 |
+| authenticationType |用來連接到 ODBC 資料存放區的驗證類型。 可能的值包括：匿名和基本。 |是 |
 | username |如果您要使用 Basic 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
 | gatewayName |Data Factory 服務應該用來連接到 ODBC 資料存放區的閘道器名稱。 |是 |
@@ -4463,7 +4462,7 @@ auto-
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>範例 - 使用基本驗證搭配加密認證
-您可以使用 [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (1.0 版的 Azure PowerShell) Cmdlet 或 [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 或更舊版的 Azure PowerShell) 來加密認證。  
+您可以使用 [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (1.0 版的 Azure PowerShell) Cmdlet 或 [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 或更舊版的 Azure PowerShell) 來加密認證。
 
 ```json
 {
@@ -4496,10 +4495,10 @@ auto-
 }
 ```
 
-如需詳細資訊，請參閱 [ODBC 連接器](data-factory-odbc-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [ODBC 連接器](data-factory-odbc-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 ODBC 資料集，請將資料集的 **type** 設為 **RelationalTable**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 ODBC 資料集，請將資料集的 **type** 設為 **RelationalTable**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -4531,7 +4530,7 @@ auto-
 }
 ```
 
-如需詳細資訊，請參閱 [ODBC 連接器](data-factory-odbc-connector.md#dataset-properties)文件。 
+如需詳細資訊，請參閱 [ODBC 連接器](data-factory-odbc-connector.md#dataset-properties)文件。
 
 ### <a name="relational-source-in-copy-activity"></a>複製活動中的關聯式來源
 如果您從 ODBC 資料存放區複製資料，請將複製活動的 **source type** 設為 **RelationalSource**，並在 **source** 區段中指定下列屬性︰
@@ -4580,7 +4579,7 @@ auto-
         "end": "2016-06-01T19:00:00"
     }
 }
-``` 
+```
 
 如需詳細資訊，請參閱 [ODBC 連接器](data-factory-odbc-connector.md#copy-activity-properties)文件。
 
@@ -4588,11 +4587,11 @@ auto-
 
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Salesforce 連結服務，請將連結服務的 **type** 設為 **Salesforce**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Salesforce 連結服務，請將連結服務的 **type** 設為 **Salesforce**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> - 預設為「 https://login.salesforce.com 」。 <br> - 若要從沙箱複製資料，請指定「 https://test.salesforce.com 」。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 "https://[網域].my.salesforce.com"。 |否 |
+| environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> - 預設為「 https://login.salesforce.com」。 <br> - 若要從沙箱複製資料，請指定「 https://test.salesforce.com」。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 "https://[網域].my.salesforce.com"。 |否 |
 | username |指定使用者帳戶的使用者名稱。 |是 |
 | password |指定使用者帳戶的密碼。 |是 |
 | securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。 |是 |
@@ -4613,10 +4612,10 @@ auto-
 }
 ```
 
-如需詳細資訊，請參閱 [Salesforce 連接器](data-factory-salesforce-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [Salesforce 連接器](data-factory-salesforce-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Salesforce 資料集，請將資料集的 **type** 設為 **RelationalTable**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 Salesforce 資料集，請將資料集的 **type** 設為 **RelationalTable**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -4649,7 +4648,7 @@ auto-
 }
 ```
 
-如需詳細資訊，請參閱 [Salesforce 連接器](data-factory-salesforce-connector.md#dataset-properties)文件。 
+如需詳細資訊，請參閱 [Salesforce 連接器](data-factory-salesforce-connector.md#dataset-properties)文件。
 
 ### <a name="relational-source-in-copy-activity"></a>複製活動中的關聯式來源
 如果您從 Salesforce 複製資料，請將複製活動的 **source type** 設為 **RelationalSource**，並在 **source** 區段中指定下列屬性︰
@@ -4658,7 +4657,7 @@ auto-
 | --- | --- | --- | --- |
 | query |使用自訂查詢來讀取資料。 |SQL-92 查詢或 [Salesforce 物件查詢語言 (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 查詢。 例如：`select * from MyTable__c`。 |否 (如果已指定 **dataset** 的 **tableName**) |
 
-#### <a name="example"></a>範例  
+#### <a name="example"></a>範例
 
 
 
@@ -4706,18 +4705,18 @@ auto-
 > [!IMPORTANT]
 > 任何自訂物件都需要 API 名稱的「__c」部分。
 
-如需詳細資訊，請參閱 [Salesforce 連接器](data-factory-salesforce-connector.md#copy-activity-properties)文件。 
+如需詳細資訊，請參閱 [Salesforce 連接器](data-factory-salesforce-connector.md#copy-activity-properties)文件。
 
-## <a name="web-data"></a>Web 資料 
+## <a name="web-data"></a>Web 資料
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Web 連結服務，請將連結服務的 **type** 設為 **Web**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Web 連結服務，請將連結服務的 **type** 設為 **Web**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | Url |Web 來源的 URL |是 |
 | authenticationType |匿名。 |是 |
- 
+
 
 #### <a name="example"></a>範例
 
@@ -4735,15 +4734,15 @@ auto-
 }
 ```
 
-如需詳細資訊，請參閱 [Web 資料表連接器](data-factory-web-table-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [Web 資料表連接器](data-factory-web-table-connector.md#linked-service-properties)文件。
 
 ### <a name="dataset"></a>Dataset
-若要定義 Web 資料集，請將資料集的 **type** 設為 **WebTable**，並在 **typeProperties** 區段中指定下列屬性︰ 
+若要定義 Web 資料集，請將資料集的 **type** 設為 **WebTable**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type |資料集的類型。 必須設定為 **WebTable** |是 |
-| path |包含資料表之資源的相對 URL。 |否。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
+| path |包含資料表之資源的相對 URL。 |沒有。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
 | index |資源中資料表的索引。 如需如何取得 HTML 網頁中資料表索引的步驟，請參閱 [取得 HTML 網頁中資料表的索引](#get-index-of-a-table-in-an-html-page) 一節。 |是 |
 
 #### <a name="example"></a>範例
@@ -4767,7 +4766,7 @@ auto-
 }
 ```
 
-如需詳細資訊，請參閱 [Web 資料表連接器](data-factory-web-table-connector.md#dataset-properties)文件。 
+如需詳細資訊，請參閱 [Web 資料表連接器](data-factory-web-table-connector.md#dataset-properties)文件。
 
 ### <a name="web-source-in-copy-activity"></a>複製活動中的 Web 來源
 如果您從 Web 資料表複製資料，請將複製活動的 **source type** 設為 **WebSource**。 當複製活動中的來源類型為 **WebSource**，目前並未支援任何其他屬性。
@@ -4814,10 +4813,10 @@ auto-
 }
 ```
 
-如需詳細資訊，請參閱 [Web 資料表連接器](data-factory-web-table-connector.md#copy-activity-properties)文件。 
+如需詳細資訊，請參閱 [Web 資料表連接器](data-factory-web-table-connector.md#copy-activity-properties)文件。
 
 ## <a name="compute-environments"></a>計算環境
-下表列出 Data Factory 支援的計算環境和可在這些環境上執行的轉換活動。 按一下您感興趣的計算連結，查看連結服務的 JSON 結構描述，以將它連結至資料處理站。 
+下表列出 Data Factory 支援的計算環境和可在這些環境上執行的轉換活動。 按一下您感興趣的計算連結，查看連結服務的 JSON 結構描述，以將它連結至資料處理站。
 
 | 計算環境 | 活動 |
 | --- | --- |
@@ -4828,9 +4827,9 @@ auto-
 | [Azure SQL Database](#azure-sql-database-1)、[Azure SQL 資料倉儲](#azure-sql-data-warehouse-1)、[SQL Server](#sql-server-1) |[預存程序](#stored-procedure-activity) |
 
 ## <a name="on-demand-azure-hdinsight-cluster"></a>隨選 Azure HDInsight 叢集
-Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDInsight 叢集來處理資料。 此叢集會建立在與叢集相關聯的儲存體帳戶 (JSON 中的 linkedServiceName 屬性) 相同的區域中。 您可以在此連結服務上執行下列轉換活動：[.NET 自訂活動](#net-custom-activity)、[Hive 活動](#hdinsight-hive-activity)、[Pig 活動](#hdinsight-pig-activity)、[MapReduce 活動](#hdinsight-mapreduce-activity)、[Hadoop 串流活動](#hdinsight-streaming-activityd)、[Spark 活動](#hdinsight-spark-activity)。 
+Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDInsight 叢集來處理資料。 此叢集會建立在與叢集相關聯的儲存體帳戶 (JSON 中的 linkedServiceName 屬性) 相同的區域中。 您可以在此連結服務上執行下列轉換活動：[.NET 自訂活動](#net-custom-activity)、[Hive 活動](#hdinsight-hive-activity)、[Pig 活動](#hdinsight-pig-activity)、[MapReduce 活動](#hdinsight-mapreduce-activity)、[Hadoop 串流活動](#hdinsight-streaming-activityd)、[Spark 活動](#hdinsight-spark-activity)。
 
-### <a name="linked-service"></a>連結服務 
+### <a name="linked-service"></a>連結服務
 下表描述隨選 HDInsight 連結服務的 Azure JSON 定義中所使用的屬性。
 
 | 屬性 | 說明 | 必要 |
@@ -4841,11 +4840,11 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 | version |HDInsight 叢集的版本。 如需詳細資訊，請參閱 [Azure Data Factory 中支援的 HDInsight 版本](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory)。 |否 |
 | 預設容器 |隨選叢集用於儲存及處理資料的 Azure 儲存體連結服務。 <p>目前，您無法建立使用 Azure Data Lake Store 做為儲存體的隨選 HDInsight 叢集。 如果您想要在 Azure Data Lake Store 中儲存 HDInsight 處理的結果資料，可使用複製活動將 Azure Blob 儲存體的資料複製到 Azure Data Lake Store。</p>  | 是 |
 | additionalLinkedServiceNames |指定 HDInsight 連結服務的其他儲存體帳戶，讓 Data Factory 服務代表您註冊它們。 |否 |
-| osType |作業系統的類型。 允許的值為：Windows (預設值) 和 linux |否 |
+| osType |作業系統的類型。 允許的值包括：Windows (預設值) 和 Linux |否 |
 | hcatalogLinkedServiceName |指向 HCatalog 資料庫的 Azure SQL 連結服務名稱。 會使用 Azure SQL 資料庫作為中繼存放區，建立隨選 HDInsight 叢集。 |否 |
 
 ### <a name="json-example"></a>JSON 範例
-下列 JSON 會定義以 Linux 為基礎的隨選 HDInsight 連結服務。 Data Factory 服務會在處理資料配量時自動建立 **以 Linux 為基礎的** HDInsight 叢集。 
+下列 JSON 會定義以 Linux 為基礎的隨選 HDInsight 連結服務。 Data Factory 服務會在處理資料配量時自動建立 **以 Linux 為基礎的** HDInsight 叢集。
 
 ```json
 {
@@ -4863,10 +4862,10 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 }
 ```
 
-如需詳細資訊，請參閱[計算連結服務](data-factory-compute-linked-services.md)一文。 
+如需詳細資訊，請參閱[計算連結服務](data-factory-compute-linked-services.md)一文。
 
 ## <a name="existing-azure-hdinsight-cluster"></a>現有的 Azure HDInsight 叢集
-您可以建立 Azure HDInsight 連結服務，以向 Data Factory 註冊自己的 HDInsight 叢集。 您可以在此連結服務上執行下列資料轉換活動：[.NET 自訂活動](#net-custom-activity)、[Hive 活動](#hdinsight-hive-activity)、[Pig 活動](#hdinsight-pig-activity)、[MapReduce 活動](#hdinsight-mapreduce-activity)、[Hadoop 串流活動](#hdinsight-streaming-activityd)、[Spark 活動](#hdinsight-spark-activity)。 
+您可以建立 Azure HDInsight 連結服務，以向 Data Factory 註冊自己的 HDInsight 叢集。 您可以在此連結服務上執行下列資料轉換活動：[.NET 自訂活動](#net-custom-activity)、[Hive 活動](#hdinsight-hive-activity)、[Pig 活動](#hdinsight-pig-activity)、[MapReduce 活動](#hdinsight-mapreduce-activity)、[Hadoop 串流活動](#hdinsight-streaming-activityd)、[Spark 活動](#hdinsight-spark-activity)。
 
 ### <a name="linked-service"></a>連結服務
 下表描述 Azure HDInsight 連結服務的 Azure JSON 定義中所使用的屬性。
@@ -4879,7 +4878,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 | password |指定使用者帳戶的密碼。 |是 |
 | 預設容器 | 參照 HDInsight 叢集所使用 Azure Blob 儲存體的 Azure 儲存體連結服務名稱。 <p>目前，您無法針對此屬性指定 Azure Data Lake Store 連結服務。 如果 HDInsight 叢集可存取 Data Lake Store，您可以透過 Hive/Pig 指令碼存取 Azure Data Lake Store 中的資料。 </p>  |是 |
 
-如需支援的 HDInsight 叢集版本，請參閱[支援的 HDInsight 版本](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory)。 
+如需支援的 HDInsight 叢集版本，請參閱[支援的 HDInsight 版本](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory)。
 
 #### <a name="json-example"></a>JSON 範例
 
@@ -4899,7 +4898,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 ```
 
 ## <a name="azure-batch"></a>Azure Batch
-您可以建立 Azure Batch 連結服務，以向資料處理站註冊虛擬機器 (VM) 的 Batch 集區。 您可以使用 Azure Batch 或 Azure HDInsight 執行 .NET 自訂活動。 您可以在此連結服務上執行 [.NET 自訂活動](#net-custom-activity)。 
+您可以建立 Azure Batch 連結服務，以向資料處理站註冊虛擬機器 (VM) 的 Batch 集區。 您可以使用 Azure Batch 或 Azure HDInsight 執行 .NET 自訂活動。 您可以在此連結服務上執行 [.NET 自訂活動](#net-custom-activity)。
 
 ### <a name="linked-service"></a>連結服務
 下表描述 Azure Batch 連結服務的 Azure JSON 定義中所使用的屬性。
@@ -4931,14 +4930,14 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 ```
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
-您可建立 Azure Machine Learning 連結服務，以向資料處理站註冊 Machine Learning 批次評分端點。 您可以在此連結服務上執行兩個資料轉換活動︰[Machine Learning 批次執行活動](#machine-learning-batch-execution-activity)、[Machine Learning 更新資源活動](#machine-learning-update-resource-activity)。 
+您可建立 Azure Machine Learning 連結服務，以向資料處理站註冊 Machine Learning 批次評分端點。 可以在此連結服務上執行的兩個資料轉換活動：[Machine Learning 批次執行活動](#machine-learning-batch-execution-activity)、[Machine Learning 更新資源活動](#machine-learning-update-resource-activity)。
 
 ### <a name="linked-service"></a>連結服務
 下表描述 Azure Machine Learning 連結服務的 Azure JSON 定義中所使用的屬性。
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| 類型 |type 屬性應設為： **AzureML**。 |是 |
+| 類型 |type 屬性應設為：**AzureML**。 |是 |
 | mlEndpoint |批次評分 URL。 |是 |
 | apiKey |已發佈的工作區模型的 API。 |是 |
 
@@ -4962,11 +4961,11 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 
 ### <a name="linked-service"></a>連結服務
 
-下表描述 Azure Data Lake Analytics 連結服務的 JSON 定義中所使用的屬性。 
+下表描述 Azure Data Lake Analytics 連結服務的 JSON 定義中所使用的屬性。
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| 類型 |type 屬性應設為： **AzureDataLakeAnalytics**。 |是 |
+| 類型 |type 屬性應設為：**AzureDataLakeAnalytics**。 |是 |
 | accountName |Azure Data Lake Analytics 帳戶名稱。 |是 |
 | dataLakeAnalyticsUri |Azure Data Lake Analytics URI。 |否 |
 | 授權 |按一下 Data Factory 編輯器中的 [授權]  按鈕並完成 OAuth 登入後，即會自動擷取授權碼。 |是 |
@@ -4996,10 +4995,10 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 ```
 
 ## <a name="azure-sql-database"></a>連接字串
-您可建立 Azure SQL 連結服務，並將其與 [預存程序活動](#stored-procedure-activity) 搭配使用，以叫用 Data Factory 管線中的預存程序。 
+您可建立 Azure SQL 連結服務，並將其與 [預存程序活動](#stored-procedure-activity) 搭配使用，以叫用 Data Factory 管線中的預存程序。
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Azure SQL Database 連結服務，請將連結服務的 **type** 設為 **AzureSqlDatabase**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Azure SQL Database 連結服務，請將連結服務的 **type** 設為 **AzureSqlDatabase**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -5022,10 +5021,10 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 如需此連結服務的詳細資料，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#linked-service-properties) 一文。
 
 ## <a name="azure-sql-data-warehouse"></a>Azure SQL 資料倉儲
-您可以建立 Azure SQL 資料倉儲連結服務，並將其與 [預存程序活動](data-factory-stored-proc-activity.md) 搭配使用，以叫用 Data Factory 管線中的預存程序。 
+您可以建立 Azure SQL 資料倉儲連結服務，並將其與 [預存程序活動](data-factory-stored-proc-activity.md) 搭配使用，以叫用 Data Factory 管線中的預存程序。
 
 ### <a name="linked-service"></a>連結服務
-若要定義 Azure SQL 資料倉儲連結服務，請將連結服務的 **type** 設為 **AzureSqlDW**，並在 **typeProperties** 區段中指定下列屬性︰  
+若要定義 Azure SQL 資料倉儲連結服務，請將連結服務的 **type** 設為 **AzureSqlDW**，並在 **typeProperties** 區段中指定下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -5045,10 +5044,10 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 }
 ```
 
-如需詳細資訊，請參閱 [Azure SQL 資料倉儲連接器](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties)文件。 
+如需詳細資訊，請參閱 [Azure SQL 資料倉儲連接器](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties)文件。
 
-## <a name="sql-server"></a>SQL Server 
-您可以建立 SQL Server 連結服務，並將其與 [預存程序活動](data-factory-stored-proc-activity.md) 搭配使用，以叫用 Data Factory 管線中的預存程序。 
+## <a name="sql-server"></a>SQL Server
+您可以建立 SQL Server 連結服務，並將其與 [預存程序活動](data-factory-stored-proc-activity.md) 搭配使用，以叫用 Data Factory 管線中的預存程序。
 
 ### <a name="linked-service"></a>連結服務
 您可以建立 **OnPremisesSqlServer** 類型的連結服務，以將內部部署 SQL Server 資料庫連結至資料處理站。 下表提供內部部署 SQL Server 連結服務專屬 JSON 元素的描述。
@@ -5057,20 +5056,20 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| type |類型屬性應設為： **OnPremisesSqlServer**。 |是 |
+| type |type 屬性應設為：**OnPremisesSqlServer**。 |是 |
 | connectionString |指定使用 SQL 驗證或 Windows 驗證連接至內部部署 SQL Server 資料庫所需的 connectionString 資訊。 |是 |
 | gatewayName |Data Factory 服務應該用來連接到內部部署 SQL Server 資料庫的閘道器名稱。 |是 |
 | username |如果您使用「Windows 驗證」，請指定使用者名稱。 範例︰**domainname\\username**。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
 
-您可以使用 **New-AzureRmDataFactoryEncryptValue** Cmdlet 加密認證，並在連接字串中使用這些認證，如下列範例所示 (**EncryptedCredential** 屬性)：  
+您可以使用 **New-AzureRmDataFactoryEncryptValue** Cmdlet 加密認證，並在連接字串中使用這些認證，如下列範例所示 (**EncryptedCredential** 屬性)：
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 ```
 
 
-#### <a name="example-json-for-using-sql-authentication"></a>範例：用於 SQL 驗證的 JSON
+#### <a name="example-json-for-using-sql-authentication"></a>範例：使用 SQL 驗證的 JSON
 
 ```json
 {
@@ -5084,7 +5083,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
     }
 }
 ```
-#### <a name="example-json-for-using-windows-authentication"></a>範例：用於 Windows 驗證的 JSON
+#### <a name="example-json-for-using-windows-authentication"></a>範例：使用 Windows 驗證的 JSON
 
 如果已指定使用者名稱和密碼，閘道就會使用它們來模擬指定的使用者帳戶，以連線到內部部署 SQL Server 資料庫。 否則，閘道會使用閘道的安全性內容 (其啟動帳戶) 直接連線到 SQL Server。
 
@@ -5109,18 +5108,18 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 
 活動 | 說明
 -------- | -----------
-[HDInsight Hive 活動](#hdinsight-hive-activity) | Data Factory 管線中的 HDInsight Hive 活動會在您自己或隨選的 Windows/Linux 架構 HDInsight 叢集上執行 Hive 查詢。 
+[HDInsight Hive 活動](#hdinsight-hive-activity) | Data Factory 管線中的 HDInsight Hive 活動會在您自己或隨選的 Windows/Linux 架構 HDInsight 叢集上執行 Hive 查詢。
 [HDInsight Pig 活動](#hdinsight-pig-activity) | Data Factory 管線中的 HDInsight Pig 活動會在您自己或隨選的 Windows/Linux 架構 HDInsight 叢集上執行 Pig 查詢。
 [HDInsight MapReduce 活動](#hdinsight-mapreduce-activity) | Data Factory 管線中的 HDInsight MapReduce 活動會在您自己或隨選的 Windows/Linux 架構 HDInsight 叢集上執行 MapReduce 程式。
 [HDInsight 串流活動](#hdinsight-streaming-activity) | Data Factory 管線中的 HDInsight 串流活動會在您自己或隨選的 Windows/Linux 架構 HDInsight 叢集上執行 Hadoop 串流程式。
-[HDInsight Spark 活動](#hdinsight-spark-activity) | Data Factory 管線中的 HDInsight Spark 活動會在您自己的 HDInsight 叢集上執行 Spark 程式。 
-[Machine Learning Batch 執行活動](#machine-learning-batch-execution-activity) | Azure Data Factory 可讓您輕鬆地建立管線，使用已發佈的 Azure Machine Learning Web 服務進行預測性分析。 在 Azure Data Factory 管線中使用批次執行活動，您可以叫用 Machine Learning Web 服務來對批次中的資料進行預測。 
+[HDInsight Spark 活動](#hdinsight-spark-activity) | Data Factory 管線中的 HDInsight Spark 活動會在您自己的 HDInsight 叢集上執行 Spark 程式。
+[Machine Learning Batch 執行活動](#machine-learning-batch-execution-activity) | Azure Data Factory 可讓您輕鬆地建立管線，使用已發佈的 Azure Machine Learning Web 服務進行預測性分析。 在 Azure Data Factory 管線中使用批次執行活動，您可以叫用 Machine Learning Web 服務來對批次中的資料進行預測。
 [Machine Learning 更新資源活動](#machine-learning-update-resource-activity) | 經過一段時間，必須使用新的輸入資料集重新訓練 Machine Learning 評分實驗中的預測模型。 完成重新訓練之後，您想要使用已重新訓練的 Machine Learning 模型來更新評分 Web 服務。 您可以使用更新資源活動，以新訓練的模型更新 Web 服務。
-[預存程序活動](#stored-procedure-activity) | 您可以在 Data Factory 管線中使用預存程序活動，以叫用下列其中一個資料存放區中的預存程序：您的企業或 Azure VM 中的 Azure SQL Database、Azure SQL 資料倉儲、SQL Server 資料庫。 
-[Data Lake Analytics U-SQL 活動](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL 活動會在 Azure Data Lake Analytics 叢集上執行 U-SQL 指令碼。  
-[.NET 自訂活動](#net-custom-activity) | 如果您需要以 Data Factory 不支援的方法轉換資料，可以利用自己的資料處理邏輯建立自訂活動，然後在管線中使用活動。 您可以將自訂 .NET 活動設定為使用 Azure Batch 服務或 Azure HDInsight 叢集來執行。 
+[預存程序活動](#stored-procedure-activity) | 您可以在 Data Factory 管線中使用預存程序活動，以叫用下列其中一個資料存放區中的預存程序。您的企業或 Azure VM 中的 Azure SQL Database、Azure SQL 資料倉儲、SQL Server 資料庫。
+[Data Lake Analytics U-SQL 活動](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL 活動會在 Azure Data Lake Analytics 叢集上執行 U-SQL 指令碼。
+[.NET 自訂活動](#net-custom-activity) | 如果您需要以 Data Factory 不支援的方法轉換資料，可以利用自己的資料處理邏輯建立自訂活動，然後在管線中使用活動。 您可以將自訂 .NET 活動設定為使用 Azure Batch 服務或 Azure HDInsight 叢集來執行。
 
-     
+
 ## <a name="hdinsight-hive-activity"></a>HDInsight Hive 活動
 您可以在 Hive 活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**HDInsightHive**。 您必須先建立 HDInsight 連結服務，再指定它的名稱作為 **linkedServiceName** 屬性的值。 當您將活動類型設為 HDInsightHive 時，**typeProperties** 區段中支援下列屬性︰
 
@@ -5130,10 +5129,10 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 | 指令碼路徑 |在 Azure Blob 儲存體中儲存 Hive 指令碼，並提供檔案的路徑。 使用 'script' 或 'scriptPath' 屬性。 兩者無法同時使用。 檔案名稱有區分大小寫。 |否 |
 | 定義 |在使用 'hiveconf' 的 Hive 指令碼內指定參數做為參考的金鑰/值組 |否 |
 
-只有 Hive 活動才有這些類型屬性。 其他屬性 (在 typeProperties 區段外) 在所有活動中都支援。   
+只有 Hive 活動才有這些類型屬性。 其他屬性 (在 typeProperties 區段外) 在所有活動中都支援。
 
 ### <a name="json-example"></a>JSON 範例
-下列 JSON 定義管線中的 HDInsight Hive 活動。  
+下列 JSON 定義管線中的 HDInsight Hive 活動。
 
 ```json
 {
@@ -5165,10 +5164,10 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 }
 ```
 
-如需詳細資訊，請參閱 [Hive 活動](data-factory-hive-activity.md)文件。 
+如需詳細資訊，請參閱 [Hive 活動](data-factory-hive-activity.md)文件。
 
 ## <a name="hdinsight-pig-activity"></a>HDInsight Pig 活動
-您可以在 Pig 活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**HDInsightPig**。 您必須先建立 HDInsight 連結服務，再指定它的名稱作為 **linkedServiceName** 屬性的值。 當您將活動類型設為 HDInsightPig 時，**typeProperties** 區段中支援下列屬性︰ 
+您可以在 Pig 活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**HDInsightPig**。 您必須先建立 HDInsight 連結服務，再指定它的名稱作為 **linkedServiceName** 屬性的值。 當您將活動類型設為 HDInsightPig 時，**typeProperties** 區段中支援下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
@@ -5176,7 +5175,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 | 指令碼路徑 |在 Azure blob 儲存體中儲存 Pig 指令碼，並提供檔案的路徑。 使用 'script' 或 'scriptPath' 屬性。 兩者無法同時使用。 檔案名稱有區分大小寫。 |否 |
 | 定義 |在使用 Pig 指令碼內指定參數做為參考的機碼/值組 |否 |
 
-只有 Pig 活動才有這些類型屬性。 其他屬性 (在 typeProperties 區段外) 在所有活動中都支援。   
+只有 Pig 活動才有這些類型屬性。 其他屬性 (在 typeProperties 區段外) 在所有活動中都支援。
 
 ### <a name="json-example"></a>JSON 範例
 
@@ -5217,17 +5216,17 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 }
 ```
 
-如需詳細資訊，請參閱 [Pig 活動](#data-factory-pig-activity.md)文件。 
+如需詳細資訊，請參閱 [Pig 活動](#data-factory-pig-activity.md)文件。
 
 ## <a name="hdinsight-mapreduce-activity"></a>HDInsight MapReduce 活動
-您可以在 MapReduce 活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**HDInsightMapReduce**。 您必須先建立 HDInsight 連結服務，再指定它的名稱作為 **linkedServiceName** 屬性的值。 當您將活動類型設為 HDInsightMapReduce 時，**typeProperties** 區段中支援下列屬性︰ 
+您可以在 MapReduce 活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**HDInsightMapReduce**。 您必須先建立 HDInsight 連結服務，再指定它的名稱作為 **linkedServiceName** 屬性的值。 當您將活動類型設為 HDInsightMapReduce 時，**typeProperties** 區段中支援下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
 | jarLinkedService | 含有 JAR 檔案之 Azure 儲存體的連結服務名稱。 | 是 |
-| jarFilePath | Azure 儲存體中的 JAR 檔案路徑。 | 是 | 
-| className | JAR 檔案中的主要類別名稱。 | 是 | 
-| arguments | MapReduce 程式以逗號分隔的引數清單。 在執行階段，您會看到幾個來自 MapReduce 架構的額外引數 (例如：mapreduce.job.tags)。 若要區分您的引數與 MapReduce 引數，請考慮同時使用選項和值作為引數，如下列範例所示 (-s、--input、--output 等等是後面接著其值的選項) | 否 | 
+| jarFilePath | Azure 儲存體中的 JAR 檔案路徑。 | 是 |
+| className | JAR 檔案中的主要類別名稱。 | 是 |
+| arguments | MapReduce 程式以逗號分隔的引數清單。 在執行階段，您會看到幾個來自 MapReduce 架構的額外引數 (例如：mapreduce.job.tags)。 若要區分您的引數與 MapReduce 引數，請考慮同時使用選項和值作為引數，如下列範例所示 (-s、--input、--output 等等是後面接著其值的選項) | 否 |
 
 ### <a name="json-example"></a>JSON 範例
 
@@ -5275,24 +5274,24 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 }
 ```
 
-如需詳細資訊，請參閱 [MapReduce 活動](data-factory-map-reduce.md)文件。 
+如需詳細資訊，請參閱 [MapReduce 活動](data-factory-map-reduce.md)文件。
 
 ## <a name="hdinsight-streaming-activity"></a>HDInsight 串流活動
-您可以在 Hadoop 串流活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**HDInsightStreaming**。 您必須先建立 HDInsight 連結服務，再指定它的名稱作為 **linkedServiceName** 屬性的值。 當您將活動類型設為 HDInsightStreaming 時，**typeProperties** 區段中支援下列屬性︰ 
+您可以在 Hadoop 串流活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**HDInsightStreaming**。 您必須先建立 HDInsight 連結服務，再指定它的名稱作為 **linkedServiceName** 屬性的值。 當您將活動類型設為 HDInsightStreaming 時，**typeProperties** 區段中支援下列屬性︰
 
-| 屬性 | 說明 | 
+| 屬性 | 說明 |
 | --- | --- |
-| mapper | 對應程式可執行檔的名稱。 在範例中，cat.exe 是對應程式可執行檔。| 
-| reducer | 歸納器可執行檔的名稱。 在範例中，cat.exe 是減壓器可執行檔。 | 
-| input | 對應工具的輸入檔 (包括位置)。 在 "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt" 範例中：adfsample 是 blob 容器，example/data/Gutenberg 是資料夾，而 davinci.txt 是 blob。 |
+| mapper | 對應程式可執行檔的名稱。 在範例中，cat.exe 是對應程式可執行檔。|
+| reducer | 歸納器可執行檔的名稱。 在範例中，cat.exe 是減壓器可執行檔。 |
+| input | 對應工具的輸入檔 (包括位置)。 在 `"wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"` 範例中：adfsample 是 blob 容器、example/data/Gutenberg 是資料夾，而 davinci.txt 是 blob。 |
 | output | 歸納器的輸出檔 (包括位置)。 Hadoop 串流作業的輸出會寫入針對這個屬性指定的位置。 |
-| filePaths | 對應器和歸納器可執行檔的路徑。 在 "adfsample/example/apps/wc.exe" 範例中，adfsample 是 blob 容器，example/apps 是資料夾，而 wc.exe 是可執行檔。 | 
-| fileLinkedService | Azure 儲存體連結服務，代表含有 filePaths 區段中指定之檔案的 Azure 儲存體。 | 
-| arguments | MapReduce 程式以逗號分隔的引數清單。 在執行階段，您會看到幾個來自 MapReduce 架構的額外引數 (例如：mapreduce.job.tags)。 若要區分您的引數與 MapReduce 引數，請考慮同時使用選項和值作為引數，如下列範例所示 (-s、--input、--output 等等是後面接著其值的選項) | 
-| getDebugInfo | 選擇性元素。 該屬性設定為 [失敗] 時，只能在執行失敗時下載記錄檔。 當其設定為「所有」時，無論執行狀態為何，一律下載記錄檔。 | 
+| filePaths | 對應器和歸納器可執行檔的路徑。 在 "adfsample/example/apps/wc.exe" 範例中，adfsample 是 blob 容器，example/apps 是資料夾，而 wc.exe 是可執行檔。 |
+| fileLinkedService | Azure 儲存體連結服務，代表含有 filePaths 區段中指定之檔案的 Azure 儲存體。 |
+| arguments | MapReduce 程式以逗號分隔的引數清單。 在執行階段，您會看到幾個來自 MapReduce 架構的額外引數 (例如：mapreduce.job.tags)。 若要區分您的引數與 MapReduce 引數，請考慮同時使用選項和值作為引數，如下列範例所示 (-s、--input、--output 等等是後面接著其值的選項) |
+| getDebugInfo | 選擇性元素。 該屬性設定為 [失敗] 時，只能在執行失敗時下載記錄檔。 當其設定為「所有」時，無論執行狀態為何，一律下載記錄檔。 |
 
 > [!NOTE]
-> 您必須在 **outputs** 屬性中指定 Hadoop 串流活動的輸出資料集。 這個資料集可能只是驅動管線排程 (每小時、每天等) 所需的虛設資料集。 如果活動不需要有輸入，您可以略過不用在 **inputs** 屬性中指定活動的輸入資料集。  
+> 您必須在 **outputs** 屬性中指定 Hadoop 串流活動的輸出資料集。 這個資料集可能只是驅動管線排程 (每小時、每天等) 所需的虛設資料集。 如果活動不需要有輸入，您可以略過不用在 **inputs** 屬性中指定活動的輸入資料集。
 
 ## <a name="json-example"></a>JSON 範例
 
@@ -5339,20 +5338,20 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 }
 ```
 
-如需詳細資訊，請參閱 [Hadoop 串流活動](data-factory-hadoop-streaming-activity.md)文件。 
+如需詳細資訊，請參閱 [Hadoop 串流活動](data-factory-hadoop-streaming-activity.md)文件。
 
 ## <a name="hdinsight-spark-activity"></a>HDInsight Spark 活動
-您可以在 Spark 活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**HDInsightSpark**。 您必須先建立 HDInsight 連結服務，再指定它的名稱作為 **linkedServiceName** 屬性的值。 當您將活動類型設為 HDInsightSpark 時，**typeProperties** 區段中支援下列屬性︰ 
+您可以在 Spark 活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**HDInsightSpark**。 您必須先建立 HDInsight 連結服務，再指定它的名稱作為 **linkedServiceName** 屬性的值。 當您將活動類型設為 HDInsightSpark 時，**typeProperties** 區段中支援下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- |
 | rootPath | Spark 檔案所在的 Azure Blob 容器和資料夾。 檔案名稱有區分大小寫。 | 是 |
 | entryFilePath | Spark 程式碼/套件之根資料夾的相對路徑。 | 是 |
-| className | 應用程式的 Java/Spark 主要類別 | 否 | 
-| arguments | Spark 程式的命令列引數清單。 | 否 | 
-| proxyUser | 模擬來執行 Spark 程式的使用者帳戶 | 否 | 
-| sparkConfig | Spark 組態屬性。 | 否 | 
-| getDebugInfo | 指定何時將 Spark 記錄檔複製到 HDInsight 叢集所使用 (或) sparkJobLinkedService 所指定的 Azure 儲存體。 允許的值︰None、Always 或 Failure。 預設值：None。 | 否 | 
+| className | 應用程式的 Java/Spark 主要類別 | 否 |
+| arguments | Spark 程式的命令列引數清單。 | 否 |
+| proxyUser | 模擬來執行 Spark 程式的使用者帳戶 | 否 |
+| sparkConfig | Spark 組態屬性。 | 否 |
+| getDebugInfo | 指定何時將 Spark 記錄檔複製到 HDInsight 叢集所使用 (或) sparkJobLinkedService 所指定的 Azure 儲存體。 允許的值：None、Always 或 Failure。 預設值：無。 | 否 |
 | sparkJobLinkedService | 存放 Spark 作業檔案、相依性和記錄的 Azure 儲存體連結服務。  如果您未指定此屬性的值，則會使用與 HDInsight 叢集相關聯的儲存體。 | 否 |
 
 ### <a name="json-example"></a>JSON 範例
@@ -5383,31 +5382,31 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
     }
 }
 ```
-請注意下列幾點： 
+請注意下列幾點：
 
 - **type** 屬性會設為 **HDInsightSpark**。
 - **rootPath** 會設為 **adfspark\\pyFiles**，其中 adfspark 是 Azure Blob 容器，而 pyFiles 是該容器中的正常資料夾。 在此範例中，Azure Blob 儲存體是與 Spark 叢集相關聯的儲存體。 您可以將檔案上傳至不同的 Azure 儲存體。 如果您這麼做，請建立 Azure 儲存體連結服務，以將該儲存體帳戶連結至資料處理站。 然後，將連結服務的名稱指定為 **sparkJobLinkedService** 屬性的值。 如需此屬性和 Spark 活動所支援的其他屬性詳細資訊，請參閱 [Spark 活動屬性](#spark-activity-properties)。
-- **entryFilePath** 會設為 **test.py**，這就是 python 檔案。 
+- **entryFilePath** 會設為 **test.py**，這就是 python 檔案。
 - **getDebugInfo** 屬性會設為 **Always**，表示永遠產生記錄檔 (不論成功或失敗)。  
 
     > [!IMPORTANT]
-    > 我們建議您不要在生產環境中將這個屬性設定為 Always，除非您要針對問題進行疑難排解。 
+    > 我們建議您不要在生產環境中將這個屬性設定為 Always，除非您要針對問題進行疑難排解。
 - **outputs** 區段有一個輸出資料集。 您必須指定輸出資料集，即使 Spark 程式不會產生任何輸出。 輸出資料集可以驅動管線的排程 (每小時、每天等)。
 
-如需活動的詳細資訊，請參閱 [Spark 活動](data-factory-spark.md)文件。  
+如需活動的詳細資訊，請參閱 [Spark 活動](data-factory-spark.md)文件。
 
 ## <a name="machine-learning-batch-execution-activity"></a>Machine Learning 批次執行活動
 您可以在 Azure ML 批次執行活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**AzureMLBatchExecution**。 您必須先建立 Azure Machine Learning 連結服務，再指定它的名稱作為 **linkedServiceName** 屬性的值。 當您將活動類型設為 AzureMLBatchExecution 時，**typeProperties** 區段中支援下列屬性︰
 
-屬性 | 說明 | 必要 
+屬性 | 說明 | 必要
 -------- | ----------- | --------
-webServiceInput | 傳遞作為 Azure ML Web 服務之輸入的資料集。 此資料集也必須包含在活動的輸入中。 |使用 webServiceInput 或 webServiceInputs。 | 
-webServiceInputs | 指定要傳遞作為 Azure ML Web 服務之輸入的資料集。 如果 Web 服務接受多個輸入，請使用 webServiceInputs 屬性，而不要使用 webServiceInput 屬性。 **webServiceInputs** 所參考的資料集也必須包含在活動的 **inputs** 中。 | 使用 webServiceInput 或 webServiceInputs。 | 
-webServiceOutputs | 指派作為 Azure ML Web 服務之輸出的資料集。 Web 服務會在此資料集中傳回輸出資料。 | 是 | 
-globalParameters | 在此區段中指定 Web 服務參數的值。 | 否 | 
+webServiceInput | 傳遞作為 Azure ML Web 服務之輸入的資料集。 此資料集也必須包含在活動的輸入中。 |使用 webServiceInput 或 webServiceInputs。 |
+webServiceInputs | 指定要傳遞作為 Azure ML Web 服務之輸入的資料集。 如果 Web 服務接受多個輸入，請使用 webServiceInputs 屬性，而不要使用 webServiceInput 屬性。 **webServiceInputs** 所參考的資料集也必須包含在活動的 **inputs** 中。 | 使用 webServiceInput 或 webServiceInputs。 |
+webServiceOutputs | 指派作為 Azure ML Web 服務之輸出的資料集。 Web 服務會在此資料集中傳回輸出資料。 | 是 |
+globalParameters | 在此區段中指定 Web 服務參數的值。 | 否 |
 
 ### <a name="json-example"></a>JSON 範例
-在這個範例中，活動有資料集 **MLSqlInput** 作為輸入，也有 **MLSqlOutput** 作為輸出。 **MLSqlInput** 透過 **webServiceInput** JSON 屬性，傳遞至 Web 服務作為輸入。 **MLSqlOutput** 透過 **webServiceOutputs** JSON 屬性，傳遞至 Web 服務作為輸出。 
+在這個範例中，活動有資料集 **MLSqlInput** 作為輸入，也有 **MLSqlOutput** 作為輸出。 **MLSqlInput** 透過 **webServiceInput** JSON 屬性，傳遞至 Web 服務作為輸入。 **MLSqlOutput** 透過 **webServiceOutputs** JSON 屬性，傳遞至 Web 服務作為輸出。
 
 ```json
 {
@@ -5432,7 +5431,7 @@ globalParameters | 在此區段中指定 Web 服務參數的值。 | 否 |
                "Database name": "<database>",
                "Server user account name": "<user name>",
                "Server user account password": "<password>"
-            }              
+            }
          },
          "policy": {
             "concurrency": 1,
@@ -5447,7 +5446,7 @@ globalParameters | 在此區段中指定 Web 服務參數的值。 | 否 |
 }
 ```
 
-在 JSON 範例中，已部署的 Azure Machine Learning Web 服務使用讀取器和寫入器模組，讀取 Azure SQL Database 的資料，或將資料寫入其中。 此 Web 服務會公開下列 4 個參數：資料庫伺服器名稱、資料庫名稱、伺服器使用者帳戶名稱和伺服器使用者帳戶密碼。
+在 JSON 範例中，已部署的 Azure Machine Learning Web 服務使用讀取器和寫入器模組，讀取 Azure SQL Database 的資料，或將資料寫入其中。 此 Web 服務公開下列四個參數：資料庫伺服器名稱、資料庫名稱、伺服器使用者帳戶名稱和伺服器使用者帳戶密碼。
 
 > [!NOTE]
 > 只有當輸入及輸出屬於 AzureMLBatchExecution 活動時，才可以當做參數傳遞至 Web 服務。 例如，在上面的 JSON 片段中，MLSqlInput 是 AzureMLBatchExecution 活動的輸入，其透過 webServiceInput 參數傳遞至 Web 服務作為輸入。
@@ -5455,10 +5454,10 @@ globalParameters | 在此區段中指定 Web 服務參數的值。 | 否 |
 ## <a name="machine-learning-update-resource-activity"></a>Machine Learning 更新資源活動
 您可以在 Azure ML 更新資源活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**AzureMLUpdateResource**。 您必須先建立 Azure Machine Learning 連結服務，再指定它的名稱作為 **linkedServiceName** 屬性的值。 當您將活動類型設為 AzureMLUpdateResource 時，**typeProperties** 區段中支援下列屬性︰
 
-屬性 | 說明 | 必要 
+屬性 | 說明 | 必要
 -------- | ----------- | --------
-trainedModelName | 重新定型之模型的名稱。 | 是 |  
-trainedModelDatasetName | 此資料集指向重新訓練作業所傳回的 iLearner 檔案。 | 是 | 
+trainedModelName | 重新定型之模型的名稱。 | 是 |
+trainedModelDatasetName | 此資料集指向重新訓練作業所傳回的 iLearner 檔案。 | 是 |
 
 ### <a name="json-example"></a>JSON 範例
 管線有兩個活動：**AzureMLBatchExecution** 和 **AzureMLUpdateResource**。 Azure ML 批次執行活動會以訓練資料做為輸入並產生 iLearner 檔案做為輸出。 此活動會使用輸入訓練資料叫用訓練 Web 服務 (公開為 Web 服務的訓練實驗)，並從 Web 服務接收 iLearner 檔案。 PlaceholderBlob 只是 Azure Data Factory 服務執行管線所需的虛擬輸出資料集而已。
@@ -5486,7 +5485,7 @@ trainedModelDatasetName | 此資料集指向重新訓練作業所傳回的 iLear
                     "webServiceInput": "trainingData",
                     "webServiceOutputs": {
                         "output1": "trainedModelBlob"
-                    }              
+                    }
                  },
                 "linkedServiceName": "trainingEndpoint",
                 "policy": {
@@ -5520,13 +5519,13 @@ trainedModelDatasetName | 此資料集指向重新訓練作業所傳回的 iLear
 ```
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 活動
-您可以在 U-SQL 活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**DataLakeAnalyticsU-SQL**。 您必須建立 Azure Data Lake Analytics 連結服務，並指定它的名稱作為 **linkedServiceName** 屬性的值。 當您將活動類型設為 DataLakeAnalyticsU-SQL 時，**typeProperties** 區段中支援下列屬性︰ 
+您可以在 U-SQL 活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**DataLakeAnalyticsU-SQL**。 您必須建立 Azure Data Lake Analytics 連結服務，並指定它的名稱作為 **linkedServiceName** 屬性的值。 當您將活動類型設為 DataLakeAnalyticsU-SQL 時，**typeProperties** 區段中支援下列屬性︰
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | scriptPath |包含 U-SQL 指令碼的資料夾的路徑。 檔案的名稱有區分大小寫。 |否 (如果您使用指令碼) |
 | scriptLinkedService |連結服務會連結包含 Data Factory 的指令碼的儲存體 |否 (如果您使用指令碼) |
-| script |指定內嵌指令碼而不是指定 scriptPath 和 scriptLinkedService。 例如："script": "CREATE DATABASE test"。 |否 (如果您使用 scriptPath 和 scriptLinkedService) |
+| script |指定內嵌指令碼而不是指定 scriptPath 和 scriptLinkedService。 例如："script":"CREATE DATABASE test". |否 (如果您使用 scriptPath 和 scriptLinkedService) |
 | degreeOfParallelism |同時用來執行作業的節點數目上限。 |否 |
 | 優先順序 |判斷應該選取排入佇列的哪些工作首先執行。 編號愈低，優先順序愈高。 |否 |
 | parameters |U-SQL 指令碼的參數 |否 |
@@ -5538,7 +5537,7 @@ trainedModelDatasetName | 此資料集指向重新訓練作業所傳回的 iLear
     "name": "ComputeEventsByRegionPipeline",
     "properties": {
         "description": "This pipeline computes events for en-gb locale and date less than Feb 19, 2012.",
-        "activities": 
+        "activities":
         [
             {
                 "type": "DataLakeAnalyticsU-SQL",
@@ -5557,7 +5556,7 @@ trainedModelDatasetName | 此資料集指向重新訓練作業所傳回的 iLear
                         "name": "DataLakeTable"
                     }
                 ],
-                "outputs": 
+                "outputs":
                 [
                     {
                         "name": "EventsByRegionTable"
@@ -5584,12 +5583,12 @@ trainedModelDatasetName | 此資料集指向重新訓練作業所傳回的 iLear
 }
 ```
 
-如需詳細資訊，請參閱 [Data Lake Analytics U-SQL 活動](data-factory-usql-activity.md)。 
+如需詳細資訊，請參閱 [Data Lake Analytics U-SQL 活動](data-factory-usql-activity.md)。
 
 ## <a name="stored-procedure-activity"></a>預存程序活動
 您可以在預存程序活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**SqlServerStoredProcedure**。 您必須建立下列其中一個連結服務，並指定連結服務的名稱作為 **linkedServiceName** 屬性的值：
 
-- SQL Server 
+- SQL Server
 - 連接字串
 - Azure SQL 資料倉儲
 
@@ -5600,9 +5599,9 @@ trainedModelDatasetName | 此資料集指向重新訓練作業所傳回的 iLear
 | storedProcedureName |指定 Azure SQL Database 或 Azure SQL 資料倉儲中預存程序的名稱，由輸出資料表使用的連結的服務代表。 |是 |
 | storedProcedureParameters |指定預存程序參數的值。 如果您要為參數傳遞 null，請使用語法："param1": null (全部小寫)。 請參閱下列範例以了解如何使用這個屬性。 |否 |
 
-如果您有指定輸入資料集，它必須可供使用 (「就緒」狀態)，預存程序活動才能執行。 在預存程序中輸入資料集無法做為參數取用。 它只會用來在啟動預存程序活動之前檢查相依性。 您必須指定預存程序活動的輸出資料集。 
+如果您有指定輸入資料集，它必須可供使用 (「就緒」狀態)，預存程序活動才能執行。 在預存程序中輸入資料集無法做為參數取用。 它只會用來在啟動預存程序活動之前檢查相依性。 您必須指定預存程序活動的輸出資料集。
 
-輸出資料集會指定預存程序活動的 **排程** (每小時、每週、每月等)。 輸出資料集必須使用參考了想在其中執行預存程序之 Azure SQL Database、Azure SQL 資料倉儲或 SQL Server Database 的 **連結服務** 。 輸出資料集可以做為傳遞預存程序結果，以供管線中的另一個活動 ([鏈結活動](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) 進行後續處理的方式。 不過，Data Factory 不會自動將預存程序的輸出寫入至此資料集。 它是會寫入至輸出資料集所指向之 SQL 資料表的預存程序。 在某些情況下，輸出資料集可以是 **虛擬資料集**，只會用來指定用於執行預存程序活動的排程。  
+輸出資料集會指定預存程序活動的 **排程** (每小時、每週、每月等)。 輸出資料集必須使用參考了想在其中執行預存程序之 Azure SQL Database、Azure SQL 資料倉儲或 SQL Server Database 的 **連結服務** 。 輸出資料集可以做為傳遞預存程序結果，以供管線中的另一個活動 ([鏈結活動](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) 進行後續處理的方式。 不過，Data Factory 不會自動將預存程序的輸出寫入至此資料集。 它是會寫入至輸出資料集所指向之 SQL 資料表的預存程序。 在某些情況下，輸出資料集可以是 **虛擬資料集**，只會用來指定用於執行預存程序活動的排程。
 
 ### <a name="json-example"></a>JSON 範例
 
@@ -5630,18 +5629,18 @@ trainedModelDatasetName | 此資料集指向重新訓練作業所傳回的 iLear
 }
 ```
 
-如需詳細資訊，請參閱[預存程序活動](data-factory-stored-proc-activity.md)。 
+如需詳細資訊，請參閱[預存程序活動](data-factory-stored-proc-activity.md)。
 
 ## <a name="net-custom-activity"></a>.NET 自訂活動
 您可以在 .NET 自訂活動 JSON 定義中指定下列屬性。 活動的 type 屬性必須是︰**DotNetActivity**。 您必須建立 Azure HDInsight 連結服務，或 Azure Batch 連結服務，然後指定連結服務的名稱作為 **linkedServiceName** 屬性的值。 當您將活動類型設為 DotNetActivity 時，**typeProperties** 區段中支援下列屬性︰
- 
+
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | AssemblyName | 組件的名稱。 在此範例中，它是︰**MyDotnetActivity.dll**。 | 是 |
-| EntryPoint |實作 IDotNetActivity 介面的類別名稱。 在此範例中，它是︰**MyDotNetActivityNS.MyDotNetActivity**，其中 MyDotNetActivityNS 是命名空間，而 MyDotNetActivity 是類別。  | 是 | 
-| PackageLinkedService | Azure 儲存體連結服務的名稱，指向包含自訂活動 zip 檔案的 Blob 儲存體。 在此範例中，它是：**AzureStorageLinkedService**。| 是 |
+| EntryPoint |實作 IDotNetActivity 介面的類別名稱。 在此範例中，它是︰**MyDotNetActivityNS.MyDotNetActivity**，其中 MyDotNetActivityNS 是命名空間，而 MyDotNetActivity 是類別。  | 是 |
+| PackageLinkedService | Azure 儲存體連結服務的名稱，指向包含自訂活動 zip 檔案的 Blob 儲存體。 在此範例中，它是︰**AzureStorageLinkedService**。| 是 |
 | PackageFile | zip 檔案的名稱。 在此範例中，它是：**customactivitycontainer/MyDotNetActivity.zip**。 | 是 |
-| extendedProperties | 可定義並傳遞至 .NET 程式碼的擴充屬性。 在此範例中，**SliceStart** 變數的值是根據 SliceStart 系統變數來設定。 | 否 | 
+| extendedProperties | 可定義並傳遞至 .NET 程式碼的擴充屬性。 在此範例中，**SliceStart** 變數的值是根據 SliceStart 系統變數來設定。 | 否 |
 
 ### <a name="json-example"></a>JSON 範例
 
@@ -5690,10 +5689,10 @@ trainedModelDatasetName | 此資料集指向重新訓練作業所傳回的 iLear
 }
 ```
 
-如需詳細資訊，請參閱[在 Data Factory 中使用自訂活動](data-factory-use-custom-activities.md)文件。 
+如需詳細資訊，請參閱[在 Data Factory 中使用自訂活動](data-factory-use-custom-activities.md)文件。
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列教學課程： 
+請參閱下列教學課程：
 
 - [教學課程：建立具有複製活動的管線](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [教學課程：建立具有 Hive 活動的管線](data-factory-build-your-first-pipeline-using-editor.md)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5eb30c65032332825d05097f86d0275b015a8929
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6b02714c3a62e8d11512c1cc2dfc7a75a422441d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057580"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076377"
 ---
 # <a name="containers-offer-publishing-guide"></a>容器供應項目發佈指南
 
@@ -41,15 +41,16 @@ Microsoft 目前支援免費和自備授權 (BYOL) 授權模型。
 | 計費和計量 | 支援免費或 BYOL 計費模型。 |  
 | 從 Dockerfile 建置的映像 | 容器映像必須以 Docker 映像規格為基礎，而必須從 Dockerfile 建置。<ul> <li>如需建置 Docker 映像的詳細資訊，請瀏覽＜使用方式＞一節 (網址為 [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage))。</li> </ul> |  
 | 裝載於 ACR 中 | 容器映像必須裝載於 Azure Container Registry (ACR) 存放庫中。<ul> <li>如需使用 ACR 的詳細資訊，請瀏覽＜快速入門：使用 Azure 入口網站建立容器登錄＞頁面 (網址為 [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal))。</li> </ul> |  
-| 映像標記 | 容器映像必須包含至少 1 個標籤 (最多可容納 16 個標籤)。<ul> <li>如需標記映像的詳細資訊，請瀏覽＜Docker 標籤＞頁面 (網址為 [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag))。</li> </ul> |  
+| 映像標記 | 容器映像必須包含至少 1 個標籤 (最多可容納標籤：16 個)。<ul> <li>如需標記映像的詳細資訊，請瀏覽＜Docker 標籤＞頁面 (網址為 [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag))。</li> </ul> |  
 
 
 ## <a name="next-steps"></a>後續步驟
 
 如果您還沒有這麼做，請 
 
-- 在 Marketplace 中[註冊](https://azuremarketplace.microsoft.com/sell)
+- 在市集中[註冊](https://azuremarketplace.microsoft.com/sell)。
 
-如果您已註冊，且要建立新的供應項目或使用現有的供應項目，請
+如果您已註冊，且要建立新供應項目或使用現有供應項目，請
 
-- [登入 Cloud Partner 入口網站](https://cloudpartner.azure.com)以建立或完成您的供應項目
+- [登入 Cloud Partner 入口網站](https://cloudpartner.azure.com)以建立或完成您的供應項目。
+- 如需詳細資訊，請參閱[容器](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer)。

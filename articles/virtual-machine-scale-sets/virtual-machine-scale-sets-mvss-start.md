@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 29c0a1a15db7670d83ff384a1ba0f37499389ef7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a476af9ceb1b664a458f7f07a5a7b3945b1ad881
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741873"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036557"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>了解虛擬機器擴展集範本
 [Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)是部署相關資源群組的絕佳方式。 本教學課程系列說明如何建立最基本的可行擴展集範本，以及如何修改此範本來配合各種案例。 所有範例皆來自這個 [GitHub 存放庫](https://github.com/gatneil/mvss)。 
@@ -70,7 +70,7 @@ Resource Manager 範本也可讓您定義以後要在範本中使用的變數。
    "resources": [
 ```
 
-所有資源都必須要有 `type`、`name`、`apiVersion` 及 `location` 屬性。 這個範例的第一個資源具有類型 `Microsft.Network/virtualNetwork`、名稱`myVnet`，和 apiVersion `2016-03-30`。 (若要了解資源類型的最新 API 版本，請參閱 [Azure REST API 文件](https://docs.microsoft.com/rest/api/)。)
+所有資源都必須要有 `type`、`name`、`apiVersion` 及 `location` 屬性。 這個範例的第一個資源具有類型 [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)、名稱 `myVnet`，以及 apiVersion `2016-03-30`。 (若要了解資源類型的最新 API 版本，請參閱 [Azure Resource Manager 範本參考](/azure/templates/)。)
 
 ```json
      {
@@ -124,7 +124,7 @@ Resource Manager 範本也可讓您定義以後要在範本中使用的變數。
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>指定擴展集屬性
-擴展集有許多屬性，可以在擴展集中自訂 VM。 如需這些屬性的完整清單，請參閱[擴展集 REST API 文件](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set)。 本教學課程只會設定一些常用的屬性。
+擴展集有許多屬性，可以在擴展集中自訂 VM。 如需這些屬性的完整清單，請參閱[範本參考](/azure/templates/microsoft.compute/virtualmachinescalesets)。 本教學課程只會設定一些常用的屬性。
 ### <a name="supply-vm-size-and-capacity"></a>提供 VM 大小和容量
 擴展集需要知道要建立的 VM 大小 (即「SKU 名稱」)，以及要建立多少個這類 VM (即「SKU 容量」)。 若要查看有哪些可用的 VM 大小，請參閱 [VM 大小文件](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes)。
 

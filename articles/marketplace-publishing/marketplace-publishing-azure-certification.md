@@ -3,7 +3,7 @@ title: 透過 Microsoft Azure 認證計劃取得預先核准 | Microsoft Docs
 description: 了解 Microsoft Azure 認證合作夥伴方案，以及如何在 Azure Marketplace 銷售您的虛擬機器映像、解決方案範本、開發人員服務或資料服務
 services: marketplace-publishing
 documentationcenter: na
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 tags: ''
@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
-ms.openlocfilehash: 300b94aea0c06092a5fb6bdecd49771ef1cd517d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: d0bfb4112aabda00355e670e1e20735bbe40a26b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234182"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073756"
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>透過 Microsoft Azure 認證計劃取得預先核准
 本文提供如何取得 Microsoft Azure 認證的指示，以便您將解決方案發佈至 Azure Marketplace 並有資格享有行銷優勢。 如需 Microsoft Azure 認證計劃及其優點的詳細概觀，請造訪 [http://azure.com/certified](http://azure.com/certified)。
@@ -38,7 +39,7 @@ ms.locfileid: "51234182"
 
 
 ## <a name="next-step"></a>後續步驟
-一旦您收到 Microsoft Azure 認證計劃的預先核准，即可繼續[將您的 Microsoft 帳戶註冊為 Microsoft 賣方](marketplace-publishing-accounts-creation-registration.md)。
+一旦您收到 Microsoft Azure 認證計劃的預先核准，即可[將您的 Microsoft 帳戶註冊為 Microsoft 賣方](marketplace-publishing-accounts-creation-registration.md)。
 
 ## <a name="see-also"></a>另請參閱
-* [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
+* [使用者入門：將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)

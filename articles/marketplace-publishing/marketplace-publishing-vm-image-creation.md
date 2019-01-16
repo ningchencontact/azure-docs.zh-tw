@@ -3,7 +3,7 @@ title: 建立 Azure Marketplace 的虛擬機器映像 | Microsoft Docs
 description: 如何建立 Azure Marketplace 的虛擬機器映像以讓其他人購買的詳細指示。
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 0dc33c669a73dd92926eef6a9c4a476160ce60a4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6737e16efa93370b5b5d2b46026fce3bbc22d38f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686359"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075153"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>建立 Azure Marketplace 的虛擬機器映像的指南
 本文的 **步驟 2**會逐步引導您準備您將部署到 Azure Marketplace 的虛擬硬碟 (VHD)。 您的 VHD 是 SKU 的基礎。 這個程序會因為您是否提供以 Linux 或 Windows 為基礎的 SKU 而有所不同。 本文將探討這兩種狀況。 這個程序可與[帳戶建立和註冊][link-acct-creation]同步執行。
@@ -30,14 +31,14 @@ ms.locfileid: "51686359"
 供應項目是其所有 SKU 的「上層」。 您可以擁有多個供應項目。 您可以隨意決定供應項目的建構方式。 當供應項目進入預備環境，它的所有 SKU 也會一起進入。 細心考量您的 SKU 識別碼，因為這些識別碼會顯示於 URL 中：
 
 * Azure.com： http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
-* Azure 預覽入口網站： https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
+* Azure 入口網站： https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
 SKU 是 VM 映像的商務名稱。 VM 映像包含一個作業系統磁碟以及零或多個資料磁碟。 它在本質上是虛擬機器的完整儲存體設定檔。 每個磁碟都需要一個 VHD。 即使空的資料磁碟也需要建立一個 VHD。
 
 無論您使用哪一種作業系統，您只能加入 SKU 所需的最少數目資料磁碟。 客戶無法在部署時移除屬於映像一部分的磁碟，但是可隨時在必要時於部署期間或之後加入磁碟。
 
 > [!IMPORTANT]
-> **請勿變更新映像版本中的磁碟計數。** 如果您必須重新設定映像中的資料磁碟，請定義新的 SKU。 對於自動調整大小、透過 ARM 範本自動部署解決方案和其他案例來說，發行磁碟計數相異的新映像版本有可能會毀損以新映像版本為基礎的新部署。
+> *請勿變更新映像版本中的磁碟計數。*  如果您必須重新設定映像中的資料磁碟，請定義新的 SKU。 對於自動調整大小、透過 ARM 範本自動部署解決方案和其他案例來說，發行磁碟計數相異的新映像版本有可能會毀損以新映像版本為基礎的新部署。
 >
 >
 
@@ -49,13 +50,13 @@ SKU 是 VM 映像的商務名稱。 VM 映像包含一個作業系統磁碟以�
 ### <a name="12-define-a-sku"></a>1.2 定義 SKU
 在您加入供應項目之後，您必須定義及識別您的 SKU。 您可以有多個供應項目，每個供應項目在其下可以有多個 SKU。 當供應項目進入預備環境，它的所有 SKU 也會一起進入。
 
-1. **加入 SKU。** SKU 必須具備用於 URL 中的識別碼。 此識別碼必須是發行設定檔中的唯一識別碼，但是若與其他發行者發生識別碼衝突，並不會有任何風險。
+1. **加入 SKU。**  SKU 必須具備用於 URL 中的識別碼。 此識別碼必須是發行設定檔中的唯一識別碼，但是若與其他發行者發生識別碼衝突，並不會有任何風險。
 
    > [!NOTE]
    > 供應項目和 SKU 識別項會顯示在 Marketplace 中的供應項目 URL。
    >
    >
-2. **為 SKU 加入摘要描述。** 客戶可以看見摘要說明，所以您應讓說明可容易閱讀。 此資訊在「進入預備環境」階段之前都不需要鎖定。 在那之前，您都可以任意編輯。
+2. **為 SKU 加入摘要描述。**  客戶可以看見摘要說明，所以您應讓說明可容易閱讀。 此資訊在「進入預備環境」階段之前都不需要鎖定。 在那之前，您都可以任意編輯。
 3. 如果您正在使用以 Windows 為基礎的 SKU，請遵循建議的連結，要求使用核准的 Windows Server 版本。
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2.建立與 Azure 相容的 VHD (以 Linux 為基礎)
@@ -81,13 +82,13 @@ VM 映像的作業系統 VHD 必須以獲得 Azure 核准的基底映像為基�
 >
 
 ### <a name="32-create-your-windows-based-vm"></a>3.2 建立您的 Windows 型 VM
-從 Microsoft Azure 入口網站，您可以利用幾個簡單的步驟，根據核准的基底映像建立您的 VM。 下列內容是程序概觀：
+從 Microsoft Azure 入口網站，您可以利用幾個簡單的步驟，根據核准的基底映像建立您的 VM。 下列清單提供程序概觀：
 
 1. 從基底映像頁面，選取 [建立虛擬機器] 以導向新的 [Microsoft Azure 入口網站][link-azure-portal]。
 
     ![繪圖][img-acom-1]
 2. 利用您想使用的 Azure 訂用帳戶之 Microsoft 帳戶和密碼登入入口網站。
-3. 遵循提示以使用您已選取的基底映像建立 VM。 您必須提供主機名稱 (電腦的名稱)、使用者名稱 (以系統管理員身分註冊) 和 VM 的密碼。
+3. 遵循提示以使用您已選取的基底映像建立 VM。 提供主機名稱 (電腦的名稱)、使用者名稱 (以系統管理員身分註冊) 和 VM 的密碼。
 
     ![繪圖][img-portal-vm-create]
 4. 選取要部署之 VM 的大小：
@@ -110,7 +111,7 @@ VM 映像的作業系統 VHD 必須以獲得 Azure 核准的基底映像為基�
 
     a.    如果您打算開發 VHD 內部部署，位置不會造成影響，因為您稍後會將映像上傳至 Azure。
 
-    b.    如果您打算在 Azure 中開發映像，請考慮從一開始就使用其中一個位於美國的 Microsoft Azure 區域。 這樣可以在您提交映像以進行認證時，加速 Microsoft 代表您執行的 VHD 複製程序。
+    b.    如果您打算在 Azure 中開發映像，請考慮從一開始就使用其中一個位於美國的 Microsoft Azure 區域。 此選項可以在您提交映像以進行認證時，加速 Microsoft 代表您執行的 VHD 複製程序。
 
     ![繪圖][img-portal-vm-location]
 7. 按一下頁面底部的 [新增] 。 開始部署 VM。 在數分鐘內，您將成功完成部署，並且可以開始為您的 SKU 建立映像。
@@ -152,7 +153,7 @@ VM 映像的作業系統 VHD 必須以獲得 Azure 核准的基底映像為基�
 
 **設定 VM 並建立您的 SKU**
 
-下載作業系統 VHD 之後，請使用 Hyper-V 並將 VM 設定為開始建立您的 SKU。 詳細步驟可在下列 TechNet 連結中找到： [安裝 Hyper-V 和設定 VM](https://technet.microsoft.com/library/hh846766.aspx)。
+下載作業系統 VHD 之後，請使用 hyperv 並將 VM 設定為開始建立您的 SKU。 詳細步驟可在下列 TechNet 連結中找到：[安裝 Hyper-V 和設定 VM](https://technet.microsoft.com/library/hh846766.aspx)。
 
 ### <a name="34-choose-the-correct-vhd-size"></a>3.4 選擇正確的 VHD 大小
 您 VM 映像中的 Windows 作業系統 VHD 應建立為 128 GB 固定格式 VHD。  
@@ -225,7 +226,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
 **從 PowerShell 部署 VM**
 
-若要從剛才建立的一般化 VM 映像部署大型 VM，您可使用下列 Cmdlet。
+若要從新建立的一般化 VM 映像部署大型 VM，您可使用下列 Cmdlet。
 
     $img = Get-AzureVMImage -ImageName "myVMImage"
     $user = "user123"
@@ -276,7 +277,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
 ![Windows VM 映像的測試案例][img-cert-vm-test-win]
 
-如果任何測試失敗，您的映像就不會獲得認證。 如果發生這種情況，請檢閱需求並進行任何必要的變更。
+如果任何測試失敗，您的映像就不會獲得認證。 如果發生這個問題，請檢閱需求並進行任何必要的變更。
 
 在自動化測試之後，系統會要求您透過問卷螢幕提供您的 VM 映像的額外輸入。  完成問題，然後選取 [下一步] 。
 
@@ -289,11 +290,11 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 ![儲存認證測試結果][img-cert-vm-results]
 
 ### <a name="52-get-the-shared-access-signature-uri-for-your-vm-images"></a>5.2 取得 VM 映像的共用存取簽章 URI
-在發行期間，您會指定統一資源識別項 (URI)，這些 URI 會指向您為 SKU 所建立的每個 VHD。 Microsoft 需要在認證程序期間存取這些 VHD。 因此，您必須建立每個 VHD 的共用存取簽章 URI。 此為要在發佈入口網站的 [映像]  標籤中輸入的 URI。
+在發行期間，您會指定統一資源識別項 (URI)，這些 URI 會指向您為 SKU 所建立的每個 VHD。 Microsoft 需要在認證程序期間存取這些 VHD。 因此，您必須建立每個 VHD 的共用存取簽章 URI。 此 URI 應該在發佈入口網站的 [映像] 索引標籤中輸入。
 
 建立的共用存取簽章 URI 應符合下列需求：
 
-注意：以下指示只適用於非受控磁碟，也是唯一支援的一種。
+以下指示只適用於非受控磁碟，也是唯一支援的一種。
 
 * 為 VHD 產生共用存取簽章 URI 時，必須有足夠的列出和讀取權限。 不提供寫入或刪除存取權。
 * 存取期間應為建立共用存取簽章 URI 起至少三個 (3) 星期。
@@ -323,7 +324,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_03.png)
 
-5. 指定儲存體帳戶名稱、儲存體帳戶金鑰和儲存體端點網域。 這是您的 Azure 訂用帳戶中的儲存體帳戶，其中保存您在 Azure 入口網站上的 VHD。
+5. 指定儲存體帳戶名稱、儲存體帳戶金鑰和儲存體端點網域。 這個儲存體帳戶是在您的 Azure 訂用帳戶中，其中保存您在 Azure 入口網站上的 VHD。
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_04.png)
 
@@ -347,7 +348,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
-    a. **允許存取開始日期**：為了確保使用 UTC 時間，請選取目前日期之前的日期。 例如，如果目前日期為 2014 年 10 月 6 日，則選取 10/5/2014。
+    a. **允許存取開始日期：** 為了確保使用 UTC 時間，請選取目前日期之前的日期。 例如，如果目前日期為 2014 年 10 月 6 日，則選取 10/5/2014。
 
     b. **允許存取結束日期**：選取至少在 [允許存取開始日期] 之後 3 個星期的日期。
 
@@ -360,12 +361,12 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
     f. 在 [此容器產生的共用存取簽章 URI] 中，在下列項目中檢查上方反白顯示的項目：
 
        - 確定您的映像檔案名稱和 **".vhd"** 位於 URI 中。
-       - 確定 **"= rl"** 出現在簽章的結尾。 這表明已成功提供 [讀取] 和 [列出] 存取權。
-       - 確定 **"sr=c"** 出現在簽章的中間。 這示範您具有容器層級存取
+       - 確定 **"= rl"** 出現在簽章的結尾。 此值表明已成功提供 [讀取] 和 [列出] 存取權。
+       - 確定 **"sr=c"** 出現在簽章的中間。 此值表明您具有容器層級存取
 
 11. 若要確認產生的共用存取簽章 URI 有效，請按一下 [在瀏覽器中測試]。 應該會啟動下載程序。
 
-12. 複製共用存取簽章 URI。 此為要貼入發佈入口網站的 URI。
+12. 複製共用存取簽章 URI。 將此 URI 貼上至發行入口網站。
 
 13. 針對 SKU 中的每個 VHD 重複步驟 6-10。
 
@@ -399,7 +400,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
     b.  **到期時間︰** 選取至少在 [開始時間] 日期之後 3 個星期的日期。
 
-    c.  **權限：**：選取 [列出] 和 [讀取] 權限
+    c.  **權限：** 選取 [列出] 和 [讀取] 權限
 
 8.  複製容器共用存取簽章 URI
 
@@ -418,12 +419,12 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
     TestRGVM201631920152.vhd 是 VHD 的名稱，所以 VHD SAS URL 會是 `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     - 確定您的映像檔案名稱和 **".vhd"** 位於 URI 中。
-    - 確定 **"sp=rl"** 出現在簽章的中間。 這表明已成功提供 [讀取] 和 [列出] 存取權。
-    - 確定 **"sr=c"** 出現在簽章的中間。 這示範您具有容器層級存取
+    - 確定 **"sp=rl"** 出現在簽章的中間。 此值表明已成功提供 [讀取] 和 [列出] 存取權。
+    - 確定 **"sr=c"** 出現在簽章的中間。 此值表明您具有容器層級存取
 
 9.  若要確認產生的共用存取簽章 URI 有效，請在瀏覽器中測試。 應該會啟動下載程序
 
-10. 複製共用存取簽章 URI。 此為要貼入發佈入口網站的 URI。
+10. 複製共用存取簽章 URI。 將此 URI 貼上至發行入口網站。
 
 11. 為 SKU 中的每個 VHD 重複這些步驟。
 
@@ -435,7 +436,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
 1.  從[這裡](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)下載 Microsoft Azure CLI。 您也可以找到適用於 **[Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)** 和 **[MAC OS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos?view=azure-cli-latest)** 的不同連結。
 
-2.  下載之後，請安裝
+2.  下載之後，請安裝此工具。
 
 3.  使用下列程式碼建立 Bash (或其他對等的指令碼可執行檔) 檔案，並將它儲存在本機
 
@@ -451,16 +452,16 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
     b. **`<VHD Blob Name>`**：提供您 VHD Blob 的名稱。
 
-    選取開始日期後至少 3 個星期的日期 (預設為產生 SAS 權杖的時間)。 範例值為：**2018-10-11T23:56Z**。
+    選取開始日期後至少 3 個星期的日期 (預設為產生 SAS 權杖的時間)。 範例值：`2018-10-11T23:56Z`。
 
-    以下是更新適當參數後的範例程式碼     export AZURE_STORAGE_ACCOUNT=vhdstorage1ba78dfb6bc2d8     EXPIRY=$(date -d "3 weeks" '+%Y-%m-%dT%H:%MZ')     CONTAINER_SAS=$(az storage container generate-sas -n vhds --permissions rl --expiry $EXPIRY -otsv)     BLOB_URL=$(az storage blob url -c vhds -n osdisk_1ba78dfb6b.vhd -otsv)     echo $BLOB_URL\?$CONTAINER_SAS
+    以下是更新適當參數後的範例程式碼     export AZURE_STORAGE_ACCOUNT=vhdstorage1ba78dfb6bc2d8     EXPIRY=$(date -d "three weeks" '+%Y-%m-%dT%H:%MZ')     CONTAINER_SAS=$(az storage container generate-sas -n vhds --permissions rl --expiry $EXPIRY -otsv)     BLOB_URL=$(az storage blob url -c vhds -n osdisk_1ba78dfb6b.vhd -otsv)     echo $BLOB_URL\?$CONTAINER_SAS
 
 4.  執行指令碼，它會提供容器層級存取的 SAS URL 給您。
 
 5.  檢查您的 SAS URL。
 
     - 確定您的映像檔案名稱和 ".vhd" 位於 URI 中。
-    -   確定 "sp=rl" 出現在簽章的中間。 這表明已成功提供 [讀取] 和 [列出] 存取權。
+    -   確定 "sp=rl" 出現在簽章的中間。 此值表明已成功提供 [讀取] 和 [列出] 存取權。
     -   確定 "sr=c" 出現在簽章的中間。 這示範您具有容器層級存取
 
     範例：
@@ -469,7 +470,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
 8.  若要確認產生的共用存取簽章 URI 有效，請在瀏覽器中測試。 應該會啟動下載程序
 
-9.  複製共用存取簽章 URI。 此為要貼入發佈入口網站的 URI。
+9.  複製共用存取簽章 URI。 將此 URI 貼上至發行入口網站。
 
 10. 為 SKU 中的每個 VHD 重複這些步驟。
 
@@ -499,18 +500,18 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
 |問題|失敗訊息|修正|文件連結|
 |---|---|---|---|
-|複製映像失敗 - 在 SAS url 中找不到 "?"|失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob。|使用建議的工具更新 SAS Url|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|映像複製失敗 - SAS url 中未設定 “st” 和 “se” 參數|失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob。|更新 SAS Url，必須包含開始和結束日期|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|複製映像失敗 - SAS url 中沒有 “sp=rl”|失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob|更新 SAS Url，將權限設定為「讀取」和「列出」|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|複製映像失敗 - SAS url 中的 vhd 名稱含有空格|失敗︰複製映像。 無法使用提供的 SAS Uri 下載 blob。|更新 SAS Url，不能含有空格|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|複製映像失敗 – SAS Url 授權錯誤的|失敗︰複製映像。 因為發生授權錯誤，無法下載 blob|重新產生 SAS Url|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|複製映像失敗 – SAS Url "st" 和 "se" 參數沒有完整的日期時間規格|失敗︰複製映像。 因為 SAS Url 不正確，無法下載 blob |SAS Url 的開始和結束日期參數 ("st"、"se") 必須有完整的日期時間規格，例如 11-02-2017T00:00:00Z，而不能只有日期或縮短的時間版本。 使用 Azure CLI 2.0 版或更高版本，可能會遇到此狀況。 請務必提供完整的日期時間規格，並重新產生 SAS Url。|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|複製映像失敗 - 在 SAS url 中找不到 "?"|失敗：正在複製映像。 無法使用提供的 SAS Uri 下載 blob。|使用建議的工具更新 SAS Url|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|映像複製失敗 - SAS url 中未設定 “st” 和 “se” 參數|失敗：正在複製映像。 無法使用提供的 SAS Uri 下載 blob。|更新 SAS Url，必須包含開始和結束日期|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|複製映像失敗 - SAS url 中沒有 “sp=rl”|失敗：正在複製映像。 無法使用提供的 SAS Uri 下載 blob|更新 SAS Url，將權限設定為「讀取」和「列出」|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|複製映像失敗 - SAS url 中的 vhd 名稱含有空格|失敗：正在複製映像。 無法使用提供的 SAS Uri 下載 blob。|更新 SAS Url，不能含有空格|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|複製映像失敗 – SAS Url 授權錯誤的|失敗：正在複製映像。 因為發生授權錯誤，無法下載 blob|重新產生 SAS Url|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|複製映像失敗 – SAS Url "st" 和 "se" 參數沒有完整的日期時間規格|失敗：正在複製映像。 因為 SAS Url 不正確，無法下載 blob |SAS Url 的開始和結束日期參數 ("st"、"se") 必須有完整的日期時間規格，例如 11-02-2017T00:00:00Z，而不能只有日期或縮短的時間版本。 使用 Azure CLI 2.0 版或更高版本，可能會遇到此狀況。 請務必提供完整的日期時間規格，並重新產生 SAS Url。|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>後續步驟
-完成 SKU 詳細資料之後，您可以移至 [Azure Marketplace 行銷內容指南][link-pushstaging]。 在發佈程序的該步驟中，您會在 **步驟 3：在預備環境中測試您的 VM 供應項目**之前提供行銷內容、價格和其他必要資訊，而您會在該步驟中測試各種使用案例，然後再將供應項目部署到 Azure Marketplace 以供公開查看和購買。  
+完成 SKU 詳細資料之後，您可以移至 [Azure Marketplace 行銷內容指南][link-pushstaging]。 在發佈程序的該步驟中，您必須在**步驟 3：在暫存階段測試您的 VM 供應項目**之前，提供行銷內容、價格和其他必要資訊，您會在該步驟中測試各種使用案例，然後再將供應項目部署至 Azure Marketplace 讓大眾看見及購買。  
 
 ## <a name="see-also"></a>另請參閱
-* [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
+* [使用者入門：將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png
 [img-portal-vm-size]:media/marketplace-publishing-vm-image-creation/vm-image-portal-size.png

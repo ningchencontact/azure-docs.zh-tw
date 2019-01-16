@@ -1,13 +1,10 @@
 ---
-title: Azure 中的 IP 位址類型 (傳統) | Microsoft Docs
+title: 在 Azure 中的 IP 位址類型 (傳統)
+titlesuffix: Azure Virtual Network
 description: 了解 Azure 中的公用和私人 IP 位址 (傳統)。
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 2f8664ab-2daf-43fa-bbeb-be9773efc978
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 81699764952e50cb18c1f299c9c4f7c524b0a332
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011673"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024564"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 位址類型及配置方法 (傳統)
 您可以將 IP 位址指派給 Azure 資源，來與其他 Azure 資源、內部部署網路和網際網路進行通訊。 您可以在 Azure 中使用兩種類型的 IP 位址：公用和私人。
@@ -44,7 +41,7 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 * 應用程式閘道
 
 ### <a name="allocation-method"></a>配置方法
-當公用 IP 位址需要指派給 Azure 資源時，會從資源建立位置內的可用公用 IP 位址集區進行動態  配置。 此 IP 位址會在停止資源後釋出。 就雲端服務而言，這會發生在所有角色執行個體都被停止的時候，而使用「靜態」  (保留) IP 位址即可避免這種情形 (請參閱 [雲端服務](#Cloud-services))。
+當公用 IP 位址需要指派給 Azure 資源時，會從資源建立位置內的可用公用 IP 位址集區進行動態  配置。 此 IP 位址會在停止資源後釋出。 就雲端服務而言，這會發生在所有角色執行個體都被停止的時候，而使用「靜態」 (保留) IP 位址即可避免這種情形 (請參閱[雲端服務](#Cloud-services))。
 
 > [!NOTE]
 > 將公用 IP 位址配置給 Azure 資源的 IP 範圍清單已發佈於 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
@@ -130,7 +127,7 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 #### <a name="internal-dns-hostname-resolution"></a>內部 DNS 主機名稱解析
 除非明確設定自訂 DNS 伺服器，否則所有 Azure VM 和 PaaS 角色執行個體預設都會設定 [Azure 受控 DNS 伺服器](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) 。 這些 DNS 伺服器會針對位於相同 VNet 或雲端服務內的 VM 和角色執行個體提供內部名稱解析。
 
-當您建立 VM 時，會將主機名稱與其私人 IP 位址的對應加入至 Azure 受控 DNS 伺服器。 如果是多個 NIC 的 VM，主機名稱會對應至主要 NIC 的私人 IP 位址。 不過，此對應資訊僅限於相同雲端服務或 VNet 內的資源。
+當您建立 VM 時，會將主機名稱與其私人 IP 位址的對應加入至 Azure 受控 DNS 伺服器。 就多個 NIC 的 VM 而言，主機名稱會對應至主要 NIC 的私人 IP 位址。 不過，此對應資訊僅限於相同雲端服務或 VNet 內的資源。
 
 如果是獨立  雲端服務，您只能夠解析相同雲端服務內所有 VM/角色執行個體的主機名稱。 如果是 VNet 內的雲端服務，您將能夠解析 VNet 內所有 VM/角色執行個體的主機名稱。
 

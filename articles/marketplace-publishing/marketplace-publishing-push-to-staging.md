@@ -3,7 +3,7 @@ title: 準備和測試供應項目以部署至 Azure Marketplace | Microsoft Doc
 description: 將供應項目部署至 Azure Marketplace 之前，關於提供行銷內容、設定價格方案和測試供應項目的詳細指示。
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: f1e6e779731564f714cc100d25a53da8732dca74
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714954"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075986"
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>使用行銷內容完成供應項目建立程序
 在發佈程序的這個步驟中，您需要在 Azure Marketplace 中提供特定的行銷內容，以及關於您的供應項目和 (或) SKU 的詳細資料。 例如，您將提供產品的描述、公司標誌、價目表、方案的詳細資料，以及其他將您的供應項目和 (或) SKU 推送至預備環境的必要資訊。 此資訊會做為 Azure 入口網站中的行銷內容。 您將在[發佈入口網站][link-pubportal]中開始進行此程序。
 
 ## <a name="step-1-provide-marketplace-marketing-content"></a>步驟 1：提供 Marketplace 行銷內容
-**英文是預設值，並且是唯一支援的語言。** 請確定欄位中提供的所有資訊都是英文。 在您進入預備環境之前，所有資訊皆可隨時編輯。
+*英文是預設值，並且是唯一支援的語言。*  確認欄位中提供的所有資訊都是英文。 在您進入預備環境之前，所有資訊皆可隨時編輯。
 
 1. 移至發佈入口網站：[https://publish.windowsazure.com](https://publish.windowsazure.com)。
 2. 在左側功能表上，按一下 [行銷]  索引標籤。
@@ -104,7 +105,7 @@ ms.locfileid: "39714954"
 
 ![繪圖](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
- 對於「虛擬機器」供應項目，一旦供應項目/SKU於 Azure 入口網站預備完成，您就無法變更以下欄位：
+**附註：** 對於「虛擬機器」供應項目，一旦供應項目/SKU於 Azure 入口網站預備完成，您就無法變更以下欄位：
 
 * **供應項目識別碼︰**[發佈入口網站 -> 虛擬機器 -> 您的供應項目 -> VM 映像索引標籤 -> 供應項目識別碼]
 * **SKU 識別碼︰**[發佈入口網站 -> 虛擬機器 -> 選取您的供應項目 -> SKU 索引標籤 -> 新增 SKU]
@@ -121,11 +122,11 @@ ms.locfileid: "39714954"
 * **移除已列出 SKU 的計費區域**
 * **變更已列出 SKU 的資料磁碟計數**
 
-## <a name="step-2-set-your-prices"></a>步驟 2：設定價格
+## <a name="step-2-set-your-prices"></a>步驟 2：設定您的價格
 ### <a name="pricing-models"></a>定價模式
 | 定價模式 | 說明 |
 | --- | --- |
-| 基本 |購買時支付的每月分期費率，例如 $10 美元/月 |
+| 基本 |購買時支付的每月分期費率，例如 $10 美元/月。 |
 | 耗用量 (又稱為 使用量、計量器) |每次使用付費，由供應項目發行者定義。 無法定義每一基座、每位使用者等等的超額部分，因為並沒有使用者分數的概念，也沒有比例分攤的功能。 使用量由合作夥伴每小時報告一次。 客戶依每月計費週期付款，而非預付式的月繳方案。 |
 | 免費試用 |客戶在一段有限期間內可以免費使用，之後就依正常費率付費。 |
 | 免費層 |方案一律免費。 |
@@ -141,18 +142,18 @@ ms.locfileid: "39714954"
 |  | 僅基本 | 僅耗用量 | 基本 + 耗用量 |
 | --- | --- | --- | --- |
 | 虛擬機器映像 |否 |是 |否 |
-| 開發人員服務 |是 |yes |是 |
+| 開發人員服務 |是 |是 |是 |
 
 ### <a name="21-set-your-vm-prices"></a>2.1. 設定 VM 價格
-目前對於虛擬機器，我們提供下列 **3 種計費模式**
+目前對於虛擬機器，我們提供下列 **3 種計費模式：**
 
-* **每小時︰** 依據發行者針對 VM 大小設定的費率，以每小時為基礎向客戶收費。 如果是 SKU 的 **每小時計費** 模式，總價格會是發行者收取的軟體成本和 Microsoft 收取的基礎結構成本的總和。 當客戶考慮購買時，總成本將顯示為每小時和每月價格以供客戶參考 (請參閱以下螢幕擷取畫面)。 **發行者會收取 80% 的應收軟體成本。** 因此，在您設定 SKU 的價格之前，請先以此作計算。
+* **每小時：** 依據發行者針對 VM 大小設定的費率，以每小時為基礎向客戶收費。 如果是 SKU 的 **每小時計費** 模式，總價格會是發行者收取的軟體成本和 Microsoft 收取的基礎結構成本的總和。 當客戶考慮購買時，總成本將顯示為每小時和每月價格以供客戶參考 (請參閱以下螢幕擷取畫面)。 **發行者會收取 80% 的應收軟體成本。** 因此，在您設定 SKU 的價格之前，請先以此作計算。
   
     ![繪圖](media/marketplace-publishing-push-to-staging/img2.1-01.png)
-* **免費試用版︰** 這是「每小時」模式的另一項好處。 此模式的客戶在 VM 部署後的前 30 天不需負擔任何軟體成本 (免費)。 在 30 天過後，他們就必須依據發行者在每小時模型中設定的費率，以每小時為基礎付費。
-* **自備授權 (BYOL)：** 發行者管理 VM 上所執行軟體的授權。
+* **免費試用：** 這是「每小時」模式的另一項好處。 此模式的客戶在 VM 部署後的前 30 天不需負擔任何軟體成本 (免費)。 30 天後，他們就必須依據發行者在每小時模型中設定的費率，以每小時為基礎付費。
+* **自備授權 (BYOL)：** 發行者管理在 VM 上執行的軟體授權。
 
-**重要：** 一旦供應項目/SKU 列於 Azure Marketplace，您就無法變更以下欄位。
+**重要事項：** 一旦供應項目/SKU 列於 Azure Marketplace，您就無法變更以下欄位。
 
 * **已列出 SKU 的價格變更**
 * **已列出 SKU 的計費模式變更**
@@ -174,22 +175,22 @@ ms.locfileid: "39714954"
 > 
 > 
 
-### <a name="211-how-to-setup-hourly-pricing-model-for-a-sku"></a>2.1.1 如何設定 SKU 的每小時定價模式
+### <a name="211-how-to-set-up-hourly-pricing-model-for-a-sku"></a>2.1.1 如何設定 SKU 的每小時定價模式
 請依照下列步驟來設定 SKU 的「每小時」定價模式︰
 
-1. 登入 [發佈入口網站](https://publish.windowsazure.com)。
+1. 登入[發佈入口網站](https://publish.windowsazure.com)。
 2. 瀏覽至 [虛擬機器]  索引標籤並選取您的供應項目。
-3. 從左側功能表，按一下 [SKU]  索引標籤。
+3. 從左側功能表，按一下 [SKU] 索引標籤。
 4. 請確定 SKU 標示為「每小時計費模式」。 如果不是，請按一下 [編輯]  按鈕來還原計費模式。 隨即開啟一個視窗。 取消核取 [計費與授權於 Azure 外部進行 (亦即自備授權)] 核取方塊並儲存變更。
 5. 如果您想要啟用 SKU 部署前 30 天的免費試用版，請針對 [是否提供免費試用版?] 問題選取 [一個月] 選項。 否則請選取 [無試用版] 選項。 現在請依照下列步驟執行。
-6. 從左側功能表，按一下 [價格]  索引標籤。
+6. 從左側功能表，按一下 [價格] 索引標籤。
 7. 選取您的基本區域。
    
    ![繪圖](media/marketplace-publishing-push-to-staging/img2.1.1_07.png)
-8. 設定所有核心的價格。 **即使您的 SKU 不支援，您仍然必須提供 SKU 所有核心的價格。**
+8. 設定所有核心的價格。 即使您的 SKU 不支援，仍然必須提供 SKU 所有核心的價格。
    
     ![繪圖](media/marketplace-publishing-push-to-staging/img2.1.1_08.png)
-9. 手動設定其他區域的價格，或者您可以使用「自動定價」精靈，依據基本區域設定其他區域的價格。 若要使用「自動定價」精靈，請按一下 [依據美國價格自動訂定其他市場價格] 按鈕。  視選取的區域而定，按鈕的標籤可能會不同。 由於我們在建立這份文件時選取美國，因此以下螢幕擷取畫面中的按鈕標示為 [依據美國價格自動訂定其他市場價格]。
+9. 手動設定其他區域的價格，或者您可以使用「自動定價」精靈，依據基本區域設定其他區域的價格。 若要使用「自動定價」精靈，請按一下 [依據美國價格自動訂定其他市場價格] 按鈕。 **附註：** 視選取的區域而定，按鈕的標籤可能會不同。 由於我們在建立這份文件時選取美國，因此以下螢幕擷取畫面中的按鈕標示為 [依據美國價格自動訂定其他市場價格]。
    
    ![繪圖](media/marketplace-publishing-push-to-staging/img2.1.1_09.png)
 10. 自動定價精靈隨即開啟。 第 1 頁會顯示基本市場的選項。 選擇您的區域，然後按一下 "->" 按鈕移至下一頁。
@@ -198,21 +199,21 @@ ms.locfileid: "39714954"
 11. 選取核心和方案的選項將顯示在第 2 頁。 選取所需的方案，然後按一下 [->] 按鈕。 按一下 [全部切換] 按鈕以選取所有**服務方案**和**計量器**，或您可以手動選取核取方塊。 **即使您的 SKU 不支援，您仍然必須提供 SKU 所有核心的價格。** 因此，請確定已選取所有核心大小。
     
     ![繪圖](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
-12. 第 3 頁會顯示市場/區域。 按一下 [全部切換] 按鈕以選取所有區域，或手動選取區域的方塊。 按一下 [->] 按鈕移至下一頁。 **注意：**「Microsoft 免稅國家/地區」以房屋形狀的符號表示。 如需詳細資訊，請參閱此頁面的＜SKU 的銷往國家/地區＞一節。
+12. 第 3 頁會顯示市場/區域。 按一下 [全部切換] 按鈕以選取所有區域，或手動選取區域的方塊。 按一下 [->] 按鈕移至下一頁。 **附註：**「Microsoft 免稅國家/地區」以房屋形狀的符號表示。 如需詳細資訊，請參閱此頁面的＜SKU 的銷往國家/地區＞一節。
     
     ![繪圖](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
 13. 第 4 頁會顯示匯率。 按一下 [完成] 按鈕以完成步驟。
 
-### <a name="212-how-to-setup-byol-pricing-model-for-a-sku"></a>2.1.2 如何設定 SKU 的 BYOL 定價模式
+### <a name="212-how-to-set-up-byol-pricing-model-for-a-sku"></a>2.1.2 如何設定 SKU 的 BYOL 定價模式
 請依照下列步驟來設定 SKU 的 BYOL 定價模式︰
 
-1. 登入 [發佈入口網站](https://publish.windowsazure.com)。
+1. 登入[發佈入口網站](https://publish.windowsazure.com)。
 2. 瀏覽至 [虛擬機器]  索引標籤並選取您的供應項目。
-3. 從左側功能表，按一下 [SKU]  索引標籤。
+3. 從左側功能表，按一下 [SKU] 索引標籤。
 4. 請確定 SKU 標示為「自備授權 SKU」。 如果不是，請按一下 [編輯] 按鈕來還原計費模式。 隨即開啟一個視窗。 核取 [計費與授權於 Azure 外部進行 (亦即自備授權)] 核取方塊並儲存變更。
    
    ![繪圖](media/marketplace-publishing-push-to-staging/img2.1.2_04.png)
-5. 從左側功能表，按一下 [價格]  索引標籤。
+5. 從左側功能表，按一下 [價格] 索引標籤。
 6. 選取您的基本區域，在 [外部授權的 (BYOL) SKU 可用性] 區段下方核取該 SKU 的核取方塊，以在該區域公開發行 SKU (請參閱以下螢幕擷取畫面)。
    
    ![繪圖](media/marketplace-publishing-push-to-staging/img2.1.2_06.png)
@@ -242,7 +243,7 @@ ms.locfileid: "39714954"
 4. 輸入支援 URL。
 
 ## <a name="step-4-choose-azure-marketplace-categories"></a>步驟 4：選擇 Azure Marketplace 類別
-[類別]  索引標籤會提供選取項目的陣列。 您的供應項目可能會落在這些選取項目中，而且您最多可選取五個類別。
+[類別]  索引標籤會提供選取項目的陣列。 您可以挑選最多五個類別。
 
 ## <a name="how-your-marketing-will-appear"></a>行銷活動的呈現方式
 以下是如何在 [Azure Marketplace 網站](https://azure.microsoft.com/marketplace/)上和 [Azure 入口網站](https://portal.azure.com)中使用供應項目行銷資訊的詳細檢視。
@@ -252,39 +253,33 @@ ms.locfileid: "39714954"
 
 ![繪圖](media/marketplace-publishing-push-to-staging/acom-catalog-02.png)
 
-
-  *Azure.com Marketplace 網站上的供應項目清單*
+*Azure.com Marketplace 網站上的供應項目清單*
 
 ![繪圖](media/marketplace-publishing-push-to-staging/acom-listing-details-01.png)
 
-
-  *Azure.com Marketplace 網站上的供應項目描述詳細資料*
+*Azure.com Marketplace 網站上的供應項目描述詳細資料*
 
 ![繪圖](media/marketplace-publishing-push-to-staging/acom-listing-details-02.png)
 
-
-  *Azure.com Marketplace 網站上的供應項目定價詳細資料*
+*Azure.com Marketplace 網站上的供應項目定價詳細資料*
 
 ### <a name="azure-portal"></a>Azure 入口網站
 ![繪圖](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
-
-  *Azure 入口網站中的供應項目清單*
+Azure 入口網站中的供應項目清單
 
 ![繪圖](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
 
-
-  *Azure 入口網站中的供應項目描述詳細資料*
+*Azure 入口網站中的供應項目描述詳細資料*
 
 ## <a name="next-steps"></a>後續步驟
 既然已載入您的 Marketplace 內容，讓我們繼續在預備環境中測試您的供應項目。 不過，您必須從下列清單選取適當的供應項目類型，因為步驟會隨著供應項目類型而有所不同。
 
-* 
-  [在預備環境中測試您的 VM 供應項目](marketplace-publishing-vm-image-test-in-staging.md)
+* [在預備環境中測試您的 VM 供應項目](marketplace-publishing-vm-image-test-in-staging.md)
 * [在預備環境中測試您的解決方案範本供應項目](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## <a name="see-also"></a>另請參閱
-* [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
+* [使用者入門：將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
 [img-map-portal]:media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg

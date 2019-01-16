@@ -10,24 +10,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: bc57d445c334baeb32dbffda814cb10a35956d03
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d1b15e634cae0758f1f872750ffd9dd569e83a8e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380211"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036234"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack 中設定檔所支援的資源提供者 API 版本
 
 您可以尋找 Azure Stack 在本文中所使用之每個 API 設定檔的資源提供者和版本號碼。 本文中的表格會列出設定檔之每個資源提供者的支援版本和 API 版本。 每個資源提供者包含一組資源類型和特定版本號碼。
 
 API 設定檔使用三種命名慣例：
- - 最新
- - yyyy-mm-dd-hybrid
- - yyyy-mm-dd-profile
+
+ - **最新**
+ - **yyyy-mm-dd-hybrid**
+ - **yyyy-mm-dd-profile**
 
 如需 Azure Stack 之 API 設定檔和版本發行日程的說明，請參閱[管理 Azure Stack 中的 API 版本設定檔](azure-stack-version-profiles.md)。
 
@@ -76,13 +77,13 @@ API 設定檔使用三種命名慣例：
 | Resources_Locks | 2016-09-01 |
 | 訂用帳戶 | 2016-06-1 |
 
-如需 API 設定檔中的提供者各種適用資源類型的詳細版本清單，請參閱 [2018-03-01-hybrid 的詳細資料](#details-for-the-2018-03-01-hybrid)
+如需 API 設定檔中提供者各種適用資源類型的版本清單，請參閱下一節。
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>2018-03-01-hybrid 的詳細資料
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 
-您需使用角色型存取控制，來管理您組織內使用者可對資源進行的動作。 這一組作業可讓您定義角色、將角色指派給使用者或群組，以及取得權限的相關資訊。 如需詳細資訊，請參閱[授權](https://docs.microsoft.com/rest/api/authorization/)。
+您需使用角色型存取控制，來管理您組織內使用者可對資源進行的動作。 這一組作業可讓您定義角色、將角色指派給使用者或群組，以及取得權限的相關資訊。 如需詳細資訊，請參閱[授權](/rest/api/authorization/)。
 
 | 資源類型 | API 版本 |
 |---------------------|--------------------|
@@ -108,7 +109,7 @@ API 設定檔使用三種命名慣例：
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-「Azure 計算 API」可讓您透過程式設計方式，存取虛擬機器及存取支援虛擬機器的資源。 如需詳細資訊，請參閱 [Azure 計算](https://docs.microsoft.com/rest/api/compute/)。
+「Azure 計算 API」可讓您透過程式設計方式，存取虛擬機器及存取支援虛擬機器的資源。 如需詳細資訊，請參閱 [Azure 計算](/rest/api/compute/)。
 
 | 資源類型 | API 版本 |
 |---------------------------------------------------------------|-------------|
@@ -155,7 +156,7 @@ API 設定檔使用三種命名慣例：
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
-管理金鑰保存庫，以及金鑰保存庫內的金鑰、祕密和憑證。 如需詳細資訊，請參閱 [Azure Key Vault REST API 參考](https://docs.microsoft.com/rest/api/keyvault/) \(英文\)。
+管理金鑰保存庫，以及金鑰保存庫內的金鑰、祕密和憑證。 如需詳細資訊，請參閱 [Azure Key Vault REST API 參考](/rest/api/keyvault/)。
 
 | 資源類型 | API 版本 |
 |-------------------------|--------------|
@@ -166,7 +167,7 @@ API 設定檔使用三種命名慣例：
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-作業呼叫結果所呈現的是可用的網路雲端作業清單。 如需詳細資訊，請參閱 [作業 REST API](https://docs.microsoft.com/rest/api/operation/) \(英文\)。
+作業呼叫結果所呈現的是可用的網路雲端作業清單。 如需詳細資訊，請參閱 [作業 REST API](/rest/api/operation/) \(英文\)。
 
 | 資源類型 | API 版本 |
 |---------------------------|--------------|
@@ -188,7 +189,7 @@ API 設定檔使用三種命名慣例：
 
 ### <a name="microsoftresources"></a>Microsoft.Resources
 
-Azure Resource Manager 可讓您部署和管理 Azure 解決方案的基礎結構。 您可組織資源群組中的相關資源，並使用 JSON 範本部署資源。 如需有關使用 Resource Manager 來部署和管理資源的簡介，請參閱 [Azure Resource Manager 概觀](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。
+Azure Resource Manager 可讓您部署和管理 Azure 解決方案的基礎結構。 您可組織資源群組中的相關資源，並使用 JSON 範本部署資源。 如需有關使用 Resource Manager 來部署和管理資源的簡介，請參閱 [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)。
 
 | 資源類型 | API 版本 |
 |-----------------------------------------|-------------------|
@@ -220,7 +221,7 @@ Azure Resource Manager 可讓您部署和管理 Azure 解決方案的基礎結�
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 
-「儲存體資源提供者」(SRP) 可讓您透過程式設計方式管理儲存體帳戶和金鑰。 如需詳細資訊，請參閱 [Azure 儲存體資源提供者 REST API 參考](https://docs.microsoft.com/rest/api/storagerp/) \(英文\)。
+「儲存體資源提供者」(SRP) 可讓您透過程式設計方式管理儲存體帳戶和金鑰。 如需詳細資訊，請參閱 [Azure 儲存體資源提供者 REST API 參考](/rest/api/storagerp/)。
 
 | 資源類型 | API 版本 |
 |-------------------------|--------------|

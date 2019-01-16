@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: fbfee92343bfecfbe8395f95775ae1f107b99299
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336521"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037271"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 之函式類型與功能概觀
 
@@ -37,7 +37,7 @@ Durable Functions 提供函式執行之具狀態的協調流程。 長期函式�
 
 ### <a name="orchestrator-functions"></a>協調器函式
 
-協調器函式是長期函式的核心。  協調器函式描述了動作的執行方式與順序。  協調器函式描述了程式碼 (C# 或 JavaScript) 中的協調流程，如 [Durable Functions 概觀](durable-functions-overview.md) 所述。  協調流程可以有許多不同類型的動作，例如[活動函式](#activity-functions)、[子協調流程](#sub-orchestrations)、[等待外部事件](#external-events)和[計時器](#durable-timers)。  
+協調器函式是長期函式的核心。  協調器函式描述了動作的執行方式與順序。  協調器函式描述了程式碼 (C# 或 JavaScript) 中的協調流程，如 [Durable Functions 模式和技術概念](durable-functions-concepts.md)所述。  協調流程可以有許多不同類型的動作，例如[活動函式](#activity-functions)、[子協調流程](#sub-orchestrations)、[等待外部事件](#external-events)和[計時器](#durable-timers)。  
 
 協調器函式必須由[協調流程觸發程序](durable-functions-bindings.md#orchestration-triggers)觸發。
 

@@ -9,17 +9,16 @@ ms.assetid: de28fa56-3204-4546-a4df-21a21de43ed7
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: be2150147d950d708404aff53ce0aa4e0776ac33
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: cb2d3bc128a3508f85ac349242d9a33f2a88424e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051162"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022745"
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>使用 Azure Data Factory 來移動 OData 來源的資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,9 +44,9 @@ ms.locfileid: "37051162"
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從 OData 來源移動資料。
 
-若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。
+若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
 
-您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
+您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線： 
 
@@ -64,9 +63,9 @@ ms.locfileid: "37051162"
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| type |類型屬性必須設為： **OData** |yes |
-| url |OData 服務的 URL。 |yes |
-| authenticationType |用來連線到 OData 來源的驗證類型。 <br/><br/> 若為雲端 OData，可能的值為 Anonymous、Basic 和 OAuth (請注意，Azure Data Factory 目前僅支援 Azure Active Directory 架構的 OAuth)。 <br/><br/> 若為內部部署 OData，可能的值為 Anonymous、Basic 和 Windows。 |yes |
+| type |類型屬性必須設定為：**OData** |是 |
+| url |OData 服務的 URL。 |是 |
+| authenticationType |用來連線到 OData 來源的驗證類型。 <br/><br/> 若為雲端 OData，可能的值為 Anonymous、Basic 和 OAuth (請注意，Azure Data Factory 目前僅支援 Azure Active Directory 架構的 OAuth)。 <br/><br/> 若為內部部署 OData，可能的值為 Anonymous、Basic 和 Windows。 |是 |
 | username |如果您要使用 Basic 驗證，請指定使用者名稱。 |是 (只在您使用基本驗證時) |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |是 (只在您使用基本驗證時) |
 | authorizedCredential |如果您使用 OAuth，按一下 Data Factory 複製精靈或編輯器中的 [授權] 按鈕，然後輸入您的認證，接著將會自動產生這個屬性的值。 |是 (只有在您使用 OAuth 驗證時) |
@@ -191,7 +190,7 @@ ms.locfileid: "37051162"
 > [!Note]
 > 不支援 OData 複雜資料類型，例如，物件。
 
-## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>JSON 範例：將資料從 OData 來源複製到 Azure Blob
+## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>JSON 範例：將 OData 來源的資料複製到 Azure Blob
 此範例提供您使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 來建立管線時，可使用的範例 JSON 定義。 這些範例示範如何把 OData 來源的資料複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。 範例有下列 Data Factory 實體：
 
 1. [OData](#linked-service-properties)類型的連結服務。
@@ -202,7 +201,7 @@ ms.locfileid: "37051162"
 
 範例會每隔一小時依照 OData 來源，把查詢來的資料複製到 Azure Blob 中。 範例後面的各節會說明這些範例中使用的 JSON 屬性。
 
-**OData 已連結的服務：** 此範例會使用匿名驗證。 請參閱 [OData 連結服務](#linked-service-properties) 一節，來了解您可以使用的不同驗證類型。
+**OData 連結服務：** 此範例會使用匿名驗證。 請參閱 [OData 連結服務](#linked-service-properties) 一節，來了解您可以使用的不同驗證類型。
 
 ```json
 {
@@ -267,7 +266,7 @@ ms.locfileid: "37051162"
 
 **Azure Blob 輸出資料集：**
 
-資料會每小時寫入至新的 Blob (頻率：小時，間隔：1)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑。 資料夾路徑會使用開始時間的年、月、日和小時部分。
+資料會每小時寫入至新的 Blob (frequency：hour，interval：1)。 根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑。 資料夾路徑會使用開始時間的年、月、日和小時部分。
 
 ```json
 {
@@ -376,7 +375,7 @@ ms.locfileid: "37051162"
 }
 ```
 
-在管線定義中指定 **query** 的動作是可以省略的。 Data Factory 服務用來擷取資料的 **URL** 就是：在連結服務中所指定的 URL (必要) + 在資料集所指定的路徑 (可省略) + 管線中的查詢 (可省略)。
+在管線定義中指定 **query** 的動作是可以省略的。 Data Factory 服務用來擷取資料的 **URL** 為：在連結服務中所指定的 URL (必要) + 在資料集所指定的路徑 (可省略) + 管線中的查詢 (可省略)。
 
 
 ### <a name="type-mapping-for-odata"></a>OData 的類型對應

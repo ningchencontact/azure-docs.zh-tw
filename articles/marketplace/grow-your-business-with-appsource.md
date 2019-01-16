@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: f39392518f89ac51afd9a18fe59bcef46840478d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2a4343b036716e6c49f7a05a8a480c6e74463760
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054168"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077992"
 ---
 # <a name="grow-your-business-with-appsource"></a>使用 AppSource 拓展您的業務  
 使用 AppSource 讓商務客戶參與尋找、嘗試及取得企業營運軟體即服務 (SaaS) 應用程式和實作服務，藉以協助推動商務成果並縮短創造價值的時程。  
@@ -67,7 +67,7 @@ ms.locfileid: "37054168"
 下列檢查清單提供行銷最佳做法和資源，可供您在建立要在 AppSource 上發佈的供應項目時加以考量：  
 *   **請注意 Microsoft 商標和品牌指導方針。**  
     當為您的應用程式命名及參考 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 Microsoft 商標和品牌指導方針以及相關的特定產品指導方針。  
-    *   如需 Microsoft 商標與品牌的詳細資訊，請瀏覽 Microsoft 商標和品牌指導方針網頁：[www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)。  
+    *   如需 Microsoft 商標與品牌的詳細資訊，請瀏覽 Microsoft 商標和品牌指導方針網頁：[www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx)。  
 *   **為您的應用程式啟用立即取得體驗、免費試用供應項目，或是試用產品體驗。**  
     商務使用者希望親身體驗您的應用程式。  
 *   **建立強大的價值主張。**  
@@ -104,7 +104,7 @@ ms.locfileid: "37054168"
 
 | 供應項目設定 | 最佳作法 | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **名稱** | **為您的供應項目命名**<br />為您的應用程式選擇名稱是至關重要的決定。 凸顯優點的名稱，比描述性名稱更有效果。 您的應用程式名稱應該傳達客戶收到的核心價值。 在您的應用程式標題中包含搜尋關鍵字，也可協助您的應用程式在搜尋引擎結果中獲得更高的順位。 參考 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 Microsoft 商標和品牌指導方針以及相關的特定產品指導方針。<ul> <li>如需 Microsoft 商標與品牌的詳細資訊，請瀏覽 Microsoft 商標和品牌指導方針網頁：[www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)。</li> </ul> |
+| **名稱** | **為您的供應項目命名**<br />為您的應用程式選擇名稱是至關重要的決定。 凸顯優點的名稱，比描述性名稱更有效果。 您的應用程式名稱應該傳達客戶收到的核心價值。 在您的應用程式標題中包含搜尋關鍵字，也可協助您的應用程式在搜尋引擎結果中獲得更高的順位。 參考 Microsoft 商標與 Microsoft 軟體、產品和服務的名稱時，請遵循 Microsoft 商標和品牌指導方針以及相關的特定產品指導方針。<ul> <li>如需 Microsoft 商標與品牌的詳細資訊，請瀏覽 Microsoft 商標和品牌指導方針網頁：[www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx)。</li> </ul> |
 
 **店面詳細資料 - 供應項目詳細資料**  
 
@@ -153,7 +153,7 @@ https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-87
 ```  
 
 >[!Important]  
->當您準備 URL 時，請勿包含語言代碼，例如 `/en-us/`。  
+>當您準備 URL 時，請勿包含語言代碼，例如 ``。  
 
 
 #### <a name="link-to-gtm-benefits"></a>GTM 權益連結

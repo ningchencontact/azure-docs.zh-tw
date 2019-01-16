@@ -9,17 +9,16 @@ ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6a7f31cf541bc1cccd3a5d565a0d3a223ccd3aee
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 145a1d24e877cc4083706310694005c01c8c8fbf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045162"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020144"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>使用 Data Factory 在 15 分鐘內將 1 TB 載入至 Azure SQL 資料倉儲
 > [!NOTE]
@@ -42,12 +41,12 @@ ms.locfileid: "37045162"
 > [!NOTE]
 >  如需從 Azure SQL 資料倉儲來回移動資料之 Data Factory 功能的一般資訊，請參閱[使用 Azure Data Factory 從 Azure SQL 資料倉儲來回移動資料](data-factory-azure-sql-data-warehouse-connector.md)一文。
 >
-> 您也可以使用 Azure 入口網站、Visual Studio、PowerShell 等來建置管線。請參閱 [教學課程：將資料從 Azure Blob 複製到 Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ，以取得快速逐步解說，其中包含如何使用 Azure Data Factory 中複製活動的逐步指示。  
+> 您也可以使用 Azure 入口網站、Visual Studio、PowerShell 等來建置管線。請參閱[教學課程：將資料從 Azure Blob 複製到 Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ，以取得快速逐步解說，其中包含如何使用 Azure Data Factory 中複製活動的逐步指示。  
 >
 >
 
-## <a name="prerequisites"></a>先決條件
-* Azure Blob 儲存體︰這項實驗使用 Azure Blob 儲存體 (GRS) 來儲存 TPC-H 測試資料集。  如果您沒有 Azure 儲存體帳戶，請參閱[如何建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+## <a name="prerequisites"></a>必要條件
+* Azure Blob 儲存體︰這項實驗使用 Azure Blob 儲存體 (GRS) 來儲存 TPC-H 測試資料集。  如果您沒有 Azure 儲存體帳戶，請參閱[如何建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)。
 * [TPC-H](http://www.tpc.org/tpch/) 資料︰我們將使用 TPC-H 作為測試資料集。  若要這麼做，您必須使用 TPC-H 工具組中的 `dbgen`，以協助您產生資料集。  您可以從 [TPC Tools](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) 下載 `dbgen` 的原始程式碼並自行進行編譯，或者從 [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools) 下載編譯過的二進位檔。  使用下列命令執行 dbgen.exe，以針對分散到 10 個檔案的 `lineitem` 資料表產生 1 TB 一般檔案：
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
@@ -118,7 +117,7 @@ ms.locfileid: "37045162"
 3. 在 [新增 Data Factory] 窗格中：
 
    1. 輸入 **LoadIntoSQLDWDataFactory** 作為 [名稱]。
-       Azure Data Factory 的名稱在全域必須是唯一的。 如果您收到錯誤： **Data Factory 名稱 “LoadIntoSQLDWDataFactory” 無法使用**，請變更 Data Factory 名稱 (例如 yournameLoadIntoSQLDWDataFactory)，然後試著重新建立。 請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md) 主題，以了解 Data Factory 成品的命名規則。  
+       Azure Data Factory 的名稱在全域必須是唯一的。 如果您收到錯誤：**Data Factory 名稱 “LoadIntoSQLDWDataFactory” 無法使用**，請變更 Data Factory 名稱 (例如 yournameLoadIntoSQLDWDataFactory)，然後試著重新建立。 請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md) 主題，以了解 Data Factory 成品的命名規則。  
    2. 選取您的 Azure **訂用帳戶**。
    3. 針對資源群組，請執行下列其中一個步驟︰
       1. 選取 [使用現有的] 以選取現有的資源群組。
@@ -136,7 +135,7 @@ ms.locfileid: "37045162"
    >
    >
 
-## <a name="step-1-configure-data-loading-schedule"></a>步驟 1︰設定資料載入排程
+## <a name="step-1-configure-data-loading-schedule"></a>步驟 1：設定資料載入排程
 第一個步驟是設定資料載入排程。  
 
 在 [屬性]  頁面︰
@@ -148,7 +147,7 @@ ms.locfileid: "37045162"
     ![複製精靈 - 屬性頁面](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## <a name="step-2-configure-source"></a>步驟 2：設定來源
-本節示範來源設定步驟︰包含 1 TB TPC-H 明細行項目檔案的 Azure Blob。
+本節說明設定以下來源的步驟：包含 1-TB TPC-H 明細行項目檔案的 Azure Blob。
 
 1. 選取 [Azure Blob 儲存體] 作為資料存放區，然後按 [下一步]。
 
@@ -166,7 +165,7 @@ ms.locfileid: "37045162"
 
     ![複製精靈 - 檔案格式設定](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
-## <a name="step-3-configure-destination"></a>步驟 3︰設定目的地
+## <a name="step-3-configure-destination"></a>步驟 3：設定目的地
 本節示範如何設定目的地︰Azure SQL 資料倉儲資料庫中的 `lineitem` 資料表。
 
 1. 選擇 [Azure SQL 資料倉儲] 作為目的地存放區，然後按 [下一步]。
@@ -189,7 +188,7 @@ ms.locfileid: "37045162"
 
 ![複製精靈 - 結構描述對應頁面](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
-## <a name="step-5-deploy-and-monitor-load-results"></a>步驟 5︰部署和監視載入結果
+## <a name="step-5-deploy-and-monitor-load-results"></a>步驟 5：部署和監視載入結果
 1. 按一下 [完成] 按鈕進行部署。
 
     ![複製精靈 - 摘要頁面](media/data-factory-load-sql-data-warehouse/summary-page.png)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: c6dee6fc26f540ad93f5a4b4e6e2f9432f757a6c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 00e50d60ed7f13a2f28338891b39b1b55b7adbfa
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076350"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074371"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>在 Azure 中於 SUSE Linux Enterprise Server 上設定 Pacemaker
 
@@ -483,12 +483,12 @@ o- / ...........................................................................
 
 STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下列步驟來建立服務主體。
 
-1. 移至 <https://portal.azure.com>。
+1. 移至 <https\://portal.azure.com>
 1. 開啟 [Azure Active Directory] 刀鋒視窗  
    移至 [屬性]，並記下目錄識別碼。 這是「租用戶識別碼」。
 1. 按一下 [應用程式註冊]
 1. 按一下 [新增]
-1. 輸入名稱、選取應用程式類型 [Web 應用程式/API]、輸入登入 URL (例如 http://localhost))，然後按一下 [建立]
+1. 輸入名稱、選取應用程式類型 [Web 應用程式/API]、輸入登入 URL (例如 http\://localhost)，然後按一下 [建立]
 1. 登入 URL 並未使用，而且可以是任何有效的 URL
 1. 選取新的應用程式，然後按一下 [設定] 索引標籤中的金鑰
 1. 輸入新金鑰的說明、選取 [永不過期]，然後按一下 [儲存]
@@ -525,7 +525,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 
 將在上一章中建立的自訂角色「Linux 柵欄代理程式角色」指派給服務主體。 不要再使用「擁有者」角色！
 
-1. 移至 https://portal.azure.com。
+1. 移至 https\://portal.azure.com
 1. 開啟 [所有資源] 刀鋒視窗
 1. 選取第一個叢集節點的虛擬機器
 1. 選取 [存取控制 (IAM)]

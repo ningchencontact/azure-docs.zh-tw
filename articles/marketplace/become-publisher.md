@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 33edfdc58d82530bc1a5d0245b5e18e94b0a6dc1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846465"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077550"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>成為雲端市集發行者
 
@@ -97,15 +97,15 @@ Microsoft 帳戶 (例如 @outlook.com或 @live.com) 可用來存取許多 Micros
 完成[開發人員中心](https://developer.microsoft.com/store/register)註冊後，將 Cloud Partner 設定檔與您的[開發人員中心](https://developer.microsoft.com/store/register)帳戶連結 (請在此參閱詳細的步驟)。 此步驟必須在發行交易供應項目之前完成。 
 
 >[!Note]
->若要免除 $99 的開發人員中心註冊費用，請填寫[市集註冊表單](https://azuremarketplace.microsoft.com/en-us/sell/signup)，您便會收到包含促銷代碼的電子郵件。 
+>若要免除 $99 的開發人員中心註冊費用，請填寫[市集註冊表單](https://azuremarketplace.microsoft.com/sell/signup)，您便會收到包含促銷代碼的電子郵件。 
 
 >[!Important]
 >建立 Microsoft 開發人員中心帳戶之前，請確認組織還沒有開發人員中心帳戶，以避免重複的帳戶。 如需詳細資訊，請瀏覽[在開發人員中心註冊](https://docs.microsoft.com/azure/marketplace/register-dev-center)一節。
 
 
 ## <a name="next-steps"></a>後續步驟
-* 深入了解 Marketplace 店面：[比較 AppSource 和 Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
-*   [決定您解決方案的清單類型](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* 深入了解 Marketplace 店面：[比較 AppSource 和 Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)。
+*   [決定您解決方案的清單類型](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)。
 
  
 ---  

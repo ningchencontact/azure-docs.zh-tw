@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 8e44db9c992a2c4905a392323994c67befea9a9a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e2adae46e3124fcd407fa4d4677f02bdface0a6b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096718"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077635"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>透過 Azure 事件中樞在 Azure Blob 儲存體或 Azure Data Lake Storage 中擷取事件
 Azure 事件中樞可讓您自動將事件中樞的串流資料擷取至您選擇的 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)或 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) 帳戶，並另外增加了可指定時間或大小間隔的彈性。 設定擷取的作業很快，因此執行時不需要系統管理成本，而且它可以針對事件中樞的[輸送量單位](event-hubs-features.md#capacity)自動進行調整。 事件中樞擷取是將串流資料載入至 Azure 的最簡單方式，並可讓您專注於處理資料而非擷取資料。
@@ -62,15 +62,43 @@ https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhu
 - [使用 Azure 入口網站啟用事件中樞擷取功能](event-hubs-capture-enable-through-portal.md)
 - [使用 Azure Resource Manager 範本建立含有一個事件中樞的事件中樞命名空間並啟用擷取](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
+
 ## <a name="exploring-the-captured-files-and-working-with-avro"></a>瀏覽擷取檔案並使用 Avro
 
 事件中樞擷取會以 Avro 格式建立檔案，如設定之時間範圍內所指定。 您可以在任何工具 (例如 [Azure 儲存體總管][Azure Storage Explorer]) 檢視這些檔案。 您可以在本機下載檔案，以對其進行處理。
 
 事件中樞擷取所產生的檔案會有下列 Avro 結構描述︰
 
-![Acro 結構描述][3]
+![Avro 結構描述][3]
 
-瀏覽 Avro 檔案的簡易方式是使用 Apache 所提供的 [Avro Tools][Avro Tools] jar。 下載這個 jar 之後，您可以執行下列命令來查看特定 Avro 檔案的結構描述︰
+瀏覽 Avro 檔案的簡易方式是使用 Apache 所提供的 [Avro Tools][Avro Tools] jar。 您也可以使用適用於輕量型 SQL 驅動體驗的 [Apache Drill][Apache Drill] 或 [Apache Spark][Apache Spark]，對內嵌資料執行複雜分散式處理。 
+
+### <a name="use-apache-drill"></a>使用 Apache Drill
+
+[Apache Drill][Apache Drill] 是「適用於巨量資料探索的開放原始碼 SQL 查詢引擎」，可以查詢結構化和半結構化資料。 引擎可以獨立節點或大型叢集形式執行，以獲得絕佳的效能。
+
+Azure Blob 儲存體的原生支援可以使用，使得在 Avro 檔案中查詢資料變得容易，如文件中所述：
+
+[Apache Drill：Azure Blob 儲存體外掛程式][Apache Drill: Azure Blob Storage Plugin]
+
+若要輕鬆地查詢擷取的檔案，您可以透過容器建立和執行已啟用 Apache Drill 的 VM，以存取 Azure Blob 儲存體：
+
+https://github.com/yorek/apache-drill-azure-blob
+
+在大規模串流存放庫中可以使用完整端對端範例：
+
+[大規模串流：事件中樞擷取]
+
+### <a name="use-apache-spark"></a>使用 Apache Spark
+
+[Apache Spark][Apache Spark] 是進行大規模資料處理的整合分析引擎。 它支援不同的語言 (包括 SQL)，而且可以輕鬆地存取 Azure Blob 儲存體。 有兩個選項可以在 Azure 中執行 Apache Spark，兩者都提供 Azure Blob 儲存體的輕鬆存取：
+
+- [HDInsight：定址 Azure 儲存體中的檔案][HDInsight: Address files in Azure storage]
+- [Azure Databricks：Azure Blob 儲存體][Azure Databricks: Azure Blob Storage]
+
+### <a name="use-avro-tools"></a>使用 Avro Tools
+
+[Avro Tools][Avro Tools] 是以 jar 套件形式提供。 下載 jar 檔案之後，您可以執行下列命令來查看特定 Avro 檔案的結構描述︰
 
 ```shell
 java -jar avro-tools-1.8.2.jar getschema <name of capture file>
@@ -106,8 +134,8 @@ Apache Avro 已完成適用於 [Java][Java] 和 [Python][Python] 的快速入門
 事件中樞擷取的計量方式類似輸送量單位，屬於每小時的費用。 其費用與命名空間所購買的輸送量單位數目成正比。 當輸送量單位增加和減少時，事件中樞擷取也會增加和減少以提供相符的效能。 計量會串聯地發生。 如需定價詳細資訊，請參閱[事件中樞定價](https://azure.microsoft.com/pricing/details/event-hubs/)。 
 
 ## <a name="integration-with-event-grid"></a>事件格線整合 
-您可以使用事件中樞命名空間作為其來源，建立 Azure 事件格線訂用帳戶。 下列教學課程說明如何使用事件中樞作為來源、Azure Functions 應用程式作為接收，來建立事件方格訂用帳戶：[使用事件方格和 Azure Functions 將擷取的事件中樞資料處理並移轉至 SQL 資料倉儲](store-captured-data-data-warehouse.md)。
 
+您可以使用事件中樞命名空間作為其來源，建立 Azure 事件格線訂用帳戶。 下列教學課程說明如何使用事件中樞作為來源、Azure Functions 應用程式作為接收，來建立事件方格訂用帳戶：[使用事件方格和 Azure Functions 將擷取的事件中樞資料處理並移轉至 SQL 資料倉儲](store-captured-data-data-warehouse.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -119,6 +147,8 @@ Apache Avro 已完成適用於 [Java][Java] 和 [Python][Python] 的快速入門
 * [事件中樞概觀][Event Hubs overview]
 
 [Apache Avro]: http://avro.apache.org/
+[Apache Drill]: https://drill.apache.org/
+[Apache Spark]: https://spark.apache.org/
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
@@ -126,3 +156,7 @@ Apache Avro 已完成適用於 [Java][Java] 和 [Python][Python] 的快速入門
 [Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage#address-files-in-azure-storage
+[Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
+[Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
+[大規模串流：事件中樞擷取]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

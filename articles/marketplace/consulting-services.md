@@ -1,6 +1,6 @@
 ---
 title: Azure Marketplace 和 AppSource 諮詢服務
-description: 此文章說明 Azure Marketplace 中最新諮詢服務供應項目的適用性準則和發佈需求。
+description: 本文說明 Azure Marketplace 中最新諮詢服務供應項目的適用性準則和發佈需求。
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: yijenj
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dbd97ba8faacdc387a6e0b78c206f65a201ca246
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261542"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074082"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 和 AppSource 的諮詢服務
 Azure Marketplace 和 AppSource 中的諮詢服務會為 Microsoft 合作夥伴提供一個目標，希望以服務連結客戶，支援並擴大客戶對 Azure 的使用和商務目標。 
@@ -66,8 +66,8 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 |主要產品 |資格需求 |
 |---------|---------|
 | Dynamics 365 for Customer Engagement    |   具備銀級或金級[雲端客戶關係管理](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency)專長認證。    | 
-|Dynamics 365 for Finance and Operations，Enterprise edition  |  具備銀級或金級[企業資源規劃](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency)專長認證，且過去 12 個月的雲端作業收益達 $25,000 以上。       |
-|Dynamics 365 for Finance and Operations，Business edition  |  以[雲端服務提供者 (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) 或[數位記錄合作夥伴 (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) 的身分為至少一位客戶提供服務      |
+|Dynamics 365 for Finance and Operations，Enterprise edition  |  具備銀級或金級[企業資源規劃](https://partner.microsoft.com/membership/enterprise-resource-planning-competency)專長認證，且過去 12 個月的雲端作業收益達 $25,000 以上。       |
+|Dynamics 365 for Finance and Operations，Business edition  |  以[雲端服務提供者 (CSP)](https://partner.microsoft.com/cloud-solution-provider) 或[數位記錄合作夥伴 (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) 的身分為至少一位客戶提供服務      |
 |Power BI，Power BI 自訂視覺效果 | 符合[解決方案合作夥伴準則](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf)。|
 |PowerApps | 具有[合作夥伴展示工具]()解決方案
 
@@ -87,7 +87,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 諮詢服務將在特定地理位置推出。 首波推出區域將為：美國、加拿大、英國與澳洲。 在合作夥伴提交一定數量且極具吸引力的精選服務供應項目並經 Microsoft 核准後，其他國家/地區的目錄就會推出。
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>如何使用 Azure Marketplace 和 AppSource 註冊諮詢服務
-首先，在市集中[註冊](https://azuremarketplace.microsoft.com/en-us/sell/signup)您的公司資訊。 如需完整的註冊需求清單，發行者可以參考[成為 Marketplace 中的發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)。 
+首先，在市集中[註冊](https://azuremarketplace.microsoft.com/sell/signup)您的公司資訊。 如需完整的註冊需求清單，發行者可以參考[成為 Marketplace 中的發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)。 
 
 **註冊後的預期事項**上線團隊將在 1-3 個工作日內寄送歡迎電子郵件與您連絡，該電子郵件內含您的 Cloud Partner 入口網站 (CPP) 登入資訊。 [Cloud Partner 入口網站](https://cloudpartner.azure.com)是供應項目清單入口網站，發行者可在其中提交清單資訊和提交內容。 
 
@@ -131,11 +131,11 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 
 * **評估**：可以評估客戶的環境，以判斷解決方案的適用性，並提供估計的成本和時間。 
 * **簡報**：可以介紹解決方案或諮詢服務，使用架構、示範和客戶範例引起客戶的興趣。 
-* **實作**：可進行完整安裝以產生完整有效的解決方案。 建議您限制在可於 2 週以內完成實作的解決方案。 
+* **實作**：完整安裝以產生完全可行的解決方案。 建議您限制在可於 2 週以內完成實作的解決方案。 
 * **概念證明**：可以判斷解決方案是否符合客戶需求的有限範圍實作。 
 * **研討會**：在客戶場地進行的互動式交流。 它可以包含以客戶資料或環境為基礎的訓練、簡報、評量或示範。 
 
-**注意：** 除了「簡報」服務類型以外，其他諮詢服務皆可透過親赴現場 (亦即在客戶的場地或合作夥伴的設備舉辦) 或虛擬方式 (亦即透過電話會議、網路會議、遠端實作舉辦) 提供。 簡報必須親赴現場提供。
+**附註：** 除了「簡報」服務類型以外，其他諮詢服務皆可透過親赴現場 (亦即在客戶的場地或合作夥伴的設備舉辦) 或虛擬方式 (亦即透過電話會議、網路會議、遠端實作舉辦) 提供。 簡報必須親赴現場提供。
 
 一旦您已設定以上所列的必要元素，內容檢閱小組將會針對您的目標對象，驗證供應項目描述是否具有足夠資訊且完整。 
 
@@ -149,7 +149,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 |範例標題  |正確格式  |
 |---------|---------|
 |在製造中開始使用 Azure IoT    |   製造 IoT：2 天評量      |
-|Smart Toaster 工作坊        |  Smart Toaster：1 週工作坊       |
+|Smart Toaster 工作坊        |  Smart Toaster：1 週研討會       |
 |  SQL Server 移轉概念證明    | SQL 移轉：3 週概念證明        |
 
 #### <a name="listing-summaries-and-descriptions"></a>清單摘要和描述
@@ -180,8 +180,9 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 
 如果您還沒有這麼做，請 
 
-- 在 Marketplace 中[註冊](https://azuremarketplace.microsoft.com/sell)
+- 在市集中[註冊](https://azuremarketplace.microsoft.com/sell)。
 
 如果您已註冊並使用 Cloud Partner 入口網站，請 
 
-- [登入 Cloud Partner 入口網站](https://cloudpartner.azure.com)以建立或完成您的供應項目
+- [登入 Cloud Partner 入口網站](https://cloudpartner.azure.com)以建立或完成您的供應項目。
+- 如需詳細資訊，請參閱 [Azure 與 Dynamcis 365 諮詢服務供應項目](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer)。

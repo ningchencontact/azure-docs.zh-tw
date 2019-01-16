@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: f1a6825cdfab2375f1a6f1858ef14684d374dae2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 19600ccbc2a424d210c686d7027b52bc6254de57
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123477"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074711"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 應用程式供應項目發行指南
 
@@ -94,7 +94,7 @@ SaaS 應用程式的技術需求很簡單。 發行者只需要與 Azure Active 
 * [內容重點放在 Active Directory 的 Microsoft Azure 影片](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
 
 免費的 Azure Active Directory 訓練如下  
-* [IT 專業人員的 Microsoft Azure 內容系列：Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+* [IT 專業人員的 Microsoft Azure 內容系列：Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 此外，Azure Active Directory 提供可檢查服務更新的網站   
 * [Azure AD 服務更新](https://azure.microsoft.com/updates/?product=active-directory)
@@ -145,10 +145,11 @@ Microsoft 主控商務交易。 Microsoft 代表您向客戶收費。 若要將 
 | 訂用帳戶 API | 您公開一項服務，能與 SaaS 訂用帳戶互動，以建立、更新及刪除使用者帳戶與服務方案。 必須在 24 小時內支援重大的 API 變更。 需定期發行非重大的 API 變更。 |  
 
 ## <a name="next-steps"></a>後續步驟
-如果您還沒有這麼做，請 
+如果您還沒有這麼做，請
 
-- 在市集中[註冊](https://azuremarketplace.microsoft.com/sell)
+- 在市集中[註冊](https://azuremarketplace.microsoft.com/sell)。
 
 如果您已註冊，且要建立新供應項目或使用現有供應項目，請
 
-- [登入 Cloud Partner 入口網站](https://cloudpartner.azure.com)以建立或完成您的供應項目
+- [登入 Cloud Partner 入口網站](https://cloudpartner.azure.com)以建立或完成您的供應項目。
+- 如需詳細資訊，請參閱 [Azure SaaS 應用程式供應項目](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer)。
