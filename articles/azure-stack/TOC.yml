@@ -227,8 +227,6 @@ items:
       href: azure-stack-marketplace-azure-items.md
     - name: 建立及發佈 Marketplace 項目
       href: azure-stack-create-and-publish-marketplace-item.md
-    - name: 使用 Marketplace 發佈工具
-      href: azure-stack-marketplace-publisher.md
     - name: 適用於 Azure Stack 的支援客體作業系統
       href: azure-stack-supported-os.md
     - name: 新增自訂虛擬機器映像
@@ -407,9 +405,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: 訓練與憑證
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 8f1c083f59808852f0bcd2130e023fbf74bccbe6
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 4d16a02c09ae801e44b0f3e4d5540a445d41fae6
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230963"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319133"
