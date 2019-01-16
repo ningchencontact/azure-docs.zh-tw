@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb6f74a1de3e91868d7b20563a790352486862ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: db427d0c171e164cb03d7280103fa85e5add4dd1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425688"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157474"
 ---
-# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步處理：函式參考
+# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步：函式參考
 在 Azure AD Connect 中，函數是用來在同步處理期間操作屬性值。  
 函式的語法可使用下列格式來表示：  
 `<output type> FunctionName(<input type> <position name>, ..)`
@@ -146,7 +146,7 @@ CDate 函式會傳回字串的 UTC DateTime。 DateTime 不是同步處理中的
 **語法：**  
 `dt CDate(str value)`
 
-* Value：包含日期、時間和選擇性時區的字串
+* 值：包含日期、時間和選擇性時區的字串
 
 **備註：**  
 傳回的字串一律以 UTC 來表示。
@@ -372,7 +372,7 @@ Contains 函式會在多重值屬性內尋找字串
 
 * attribute：要搜尋的多重值屬性。
 * search：要在屬性中尋找的字串。
-* Casetype：CaseInsensitive 或 CaseSensitive。
+* Casetype:CaseInsensitive 或 CaseSensitive。
 
 傳回在多重值屬性中找到字串的索引。 如果找不到該字串，即會傳回 0。
 
@@ -485,7 +485,7 @@ CStr 函式會轉換為字串資料類型。
 `str CStr(ref value)`  
 `str CStr(bool value)`  
 
-* value：可以是數值、參考屬性或布林值。
+* 值：可以是數值、參考屬性或布林值。
 
 **範例：**  
 `CStr([dn])`  
@@ -510,7 +510,7 @@ CStr 函式會轉換為字串資料類型。
   * h 小時
   * n 分鐘
   * s 秒
-* value：您想要加入的單位數。 它可以是正數 (用以取得未來的日期) 或負數 (用以取得過去的日期)。
+* 值：您想要加入的單位數。 它可以是正數 (用以取得未來的日期) 或負數 (用以取得過去的日期)。
 * date：DateTime 代表要加入間隔的日期。
 
 **範例：**  
@@ -556,7 +556,7 @@ DNComponentRev 函式會從右邊 (結尾處) 傳回指定 DN 元件的值。
 
 * dn：要解譯的參考屬性
 * ComponentNumber - DN 中要傳回的元件
-* Options：DC - 忽略所有含 "dc=" 的元件
+* 選項：DC - 忽略所有含 "dc=" 的元件
 
 **範例：**  
 如果 dn 是 "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com"，則  
@@ -600,7 +600,7 @@ FormatDateTime 函式可用來將 DateTime 格式化為具有指定格式的字�
 * format：字串，表示要轉換的目標格式。
 
 **備註：**  
-您可以在此處找到格式的可能值：[使用者定義日期/時間格式 (Format 函式)](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+您可在此處找到格式可能的值：[FORMAT 函式的自訂日期與時間格式](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function)。
 
 **範例：**  
 
@@ -628,7 +628,7 @@ IIF 函式會根據指定的條件傳回其中一組可能值。
 
 * condition：可評估為 True 或 False 的任何值或運算式。
 * valueIfTrue：條件評估為 True 時所傳回的值。
-* valueIfFalse：條件評估為 false 時所傳回的值。
+* valueIfFalse：條件評估為 False 時所傳回的值。
 
 **範例：**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
@@ -852,7 +852,7 @@ Join 函式會接受多重值的字串，並傳回單一值的字串，其中每
 `str Join(mvstr attribute)`  
 `str Join(mvstr attribute, str Delimiter)`
 
-* attribute：包含要聯結之字串的多重值屬性。
+* 屬性：包含要聯結之字串的多重值屬性。
 * delimiter：任何字串，可用來分隔傳回字串中的子字串。 如果省略，即會使用空格字元 (" ")。 如果分隔符號是零長度字串 ("") 或 Nothing，就不會使用分隔符號來串連清單中的所有項目。
 
 **備註**  
@@ -1223,7 +1223,7 @@ Switch 函式可用來根據評估的條件傳回單一值。
 `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
 * expr：您想要評估的 Variant 運算式。
-* value：當對應的運算式為 True 時要傳回的值。
+* 值：當對應的運算式為 True 時要傳回的值。
 
 **備註：**  
 Switch 函式引數清單是由運算式和值的配對所組成。 運算式是以從左到右的方式進行評估，並會傳回與要評估為 True 的第一個運算式相關聯的值。 如果未正確配對組件，就會發生執行階段錯誤。
@@ -1335,5 +1335,5 @@ string 內以 delimiters 其中一個字元來分隔之字元的每個字串，�
 
 ## <a name="additional-resources"></a>其他資源
 * [了解宣告式佈建運算式](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Azure AD Connect 同步處理：自訂同步處理選項](how-to-connect-sync-whatis.md)
+* [Azure AD Connect Sync：自訂同步處理選項](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)

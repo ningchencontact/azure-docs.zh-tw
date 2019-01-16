@@ -8,12 +8,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 586f3c81fad79f49b3506b0bd84a4f7b218d8605
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426480"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054957"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect：ADSyncTools PowerShell 參考
 以下文件提供 Azure AD Connect 所隨附 ADSyncTools.psm1 PowerShell 模組的參考資訊。
@@ -338,7 +338,7 @@ Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>描述
-傳回 AD 物件 待辦事項：多樹系支援
+傳回 AD 物件待辦事項：多樹系支援
 
 ### <a name="examples"></a>範例
 
@@ -470,7 +470,7 @@ Accept wildcard characters: False
 ## <a name="get-adsynctoolsrunhistory"></a>Get-ADSyncToolsRunHistory
 
 ### <a name="synopsis"></a>概要
-取得 AAD Connnect 執行歷程記錄
+取得 AAD Connect 執行歷程記錄
 
 ### <a name="syntax"></a>語法
 
@@ -479,7 +479,7 @@ Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
 ```
 
 ### <a name="description"></a>描述
-以 XML 格式傳回 AAD Connnect 執行歷程記錄的函式
+以 XML 格式傳回 AAD Connect 執行歷程記錄的函式
 
 ### <a name="examples"></a>範例
 
@@ -526,7 +526,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 ### <a name="description"></a>描述
-函式會查詢 AAD Connnect 執行歷程記錄，以及匯出回報以下錯誤的所有使用者：「SourceAnchor屬性已經變更。」
+函式會查詢 AAD Connnect 執行歷程記錄，以及匯出回報以下錯誤的所有使用者：「SourceAnchor 屬性已經變更。」
 
 ### <a name="examples"></a>範例
 

@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a66917f1ab4e554dbb5a8cd1fb9013e111970714
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b6713eabec62b1658b54dcb29231ddbfb2faceb7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999810"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107492"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -169,7 +169,7 @@ Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | 是
 客體/伺服器 NFS | 否
 客體/伺服器 SMB 3.0 | 否
 客體/伺服器 RDM | 是<br/><br/> 實體伺服器為 N/A
-客體/伺服器磁碟 > 1 TB | 是<br/><br/>最多 4,095 GB
+客體/伺服器磁碟 > 1 TB | 是<br/><br/>最多 4,095 GB<br/><br/> 磁碟必須大於 1024 MB。
 客體/伺服器磁碟使用 4K 邏輯與 4k 實體磁區大小 | 是
 客體/伺服器磁碟使用 4K 邏輯與 512 位元組實體磁區大小 | 是
 客體/伺服器磁碟區使用等量磁碟 > 4 TB <br/><br/>邏輯磁碟區管理 (LVM)| 是
