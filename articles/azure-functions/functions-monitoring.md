@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: da676b5d1cb3c25adc72d04882915ee0440c2d98
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d0c24fbd749a344d9041e9c50c34e6e58ab8fd38
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002326"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121216"
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
-[Azure Functions](functions-overview.md) 提供與 [Azure Application Insights](../application-insights/app-insights-overview.md) 的內建整合來監視函式。 本文示範如何設定 Functions 將系統產生的記錄檔傳送到 Application Insights。
+[Azure Functions](functions-overview.md) 提供與 [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) 的內建整合來監視函式。 本文示範如何設定 Functions 將系統產生的記錄檔傳送到 Application Insights。
 
 ![Application Insights 計量瀏覽器](media/functions-monitoring/metrics-explorer.png)
 
@@ -329,7 +329,7 @@ v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.mic
 
 ## <a name="configure-sampling"></a>設定取樣
 
-Application Insights 具有[取樣](../application-insights/app-insights-sampling.md)功能，可以提供保護，避免在尖峰負載的情況下產生過多的遙測資料。 當內送遙測速率超過指定的閾值時，Application Insights 就會開始隨機忽略部分傳入的項目。 每秒的項目數上限的預設值為 5。 您可以在 [host.json](functions-host-json.md) 中設定取樣。  以下是範例：
+Application Insights 具有[取樣](../azure-monitor/app/sampling.md)功能，可以提供保護，避免在尖峰負載的情況下產生過多的遙測資料。 當內送遙測速率超過指定的閾值時，Application Insights 就會開始隨機忽略部分傳入的項目。 每秒的項目數上限的預設值為 5。 您可以在 [host.json](functions-host-json.md) 中設定取樣。  以下是範例：
 
 ### <a name="version-2x"></a>2.x 版 
 
@@ -360,7 +360,7 @@ Application Insights 具有[取樣](../application-insights/app-insights-samplin
 ```
 
 > [!NOTE]
-> [取樣](../application-insights/app-insights-sampling.md)預設為啟用。 如果似乎有資料遺失，只需要調整取樣設定，以符合您特定的監視案例即可。
+> [取樣](../azure-monitor/app/sampling.md)預設為啟用。 如果似乎有資料遺失，只需要調整取樣設定，以符合您特定的監視案例即可。
 
 ## <a name="write-logs-in-c-functions"></a>在 C# 函式中寫入記錄
 
@@ -414,7 +414,7 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 在 C# 指令碼函式中，您可以使用 `ILogger` 上的 `LogMetric` 擴充方法，在 Application Insights 中建立自訂計量。 以下是範例方法呼叫：
 
 ```csharp
-logger.LogMetric("TestMetric", 1234); 
+logger.LogMetric("TestMetric", 1234);
 ```
 
 此程式碼是使用[適用於 .NET 的 Application Insights API](#custom-telemetry-in-c-functions) 呼叫 `TrackMetric` 的替代方法。
@@ -429,10 +429,10 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### <a name="logging-custom-metrics"></a>記錄自訂計量  
 
-在 Node.js 函式中，您可以使用 `context.log.metric` 方法，在 Application Insights 中建立自訂計量。 以下是範例方法呼叫：
+在 Azure Functions 執行階段的[版本 1.x](functions-versions.md#creating-1x-apps) 上執行時，Node.js 函式可以使用 `context.log.metric` 方法，在 Application Insights 中建立自訂計量。 版本 2.x 目前不支援這個方法。 以下是範例方法呼叫：
 
 ```javascript
-context.log.metric("TestMetric", 1234); 
+context.log.metric("TestMetric", 1234);
 ```
 
 此程式碼是使用[適用於 Application Insights 的 Node.js SDK](#custom-telemetry-in-javascript-functions) 呼叫 `trackMetric` 的替代方法。

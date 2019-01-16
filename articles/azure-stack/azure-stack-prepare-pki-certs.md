@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5f31d995ba4390eb5a893c3ebde49ee4e96e8023
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631476"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021130"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>準備要在部署或輪替中使用的 Azure Stack PKI 憑證
 必須使用與 Azure Stack 憑證需求符合的屬性，來匯入和匯出[取自您所選 CA 的](azure-stack-get-pki-certs.md)憑證檔案。
@@ -73,7 +73,14 @@ ms.locfileid: "53631476"
 
 1. 選取 [是，匯出私密金鑰]，然後按 [下一步]。
 
-1. 在 [匯出檔案格式] 區段中，選取 [匯出所有延伸內容]，然後按 [下一步]。
+1. 在 [匯出檔案格式] 區段中：
+    
+    - 選取 [如果可能的話，包含憑證路徑中所有的憑證]。  
+    - 選取 [匯出所有延伸屬性]。  
+    - 選取 [啟用憑證隱私權]。  
+    - 按 [下一步] 。  
+    
+    ![選項已選取的憑證匯出精靈](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
 1. 選取 [密碼] 並提供憑證的密碼。 請記住這個密碼，因為它要作為部署參數使用。 選取 [下一步] 。
 
@@ -82,4 +89,5 @@ ms.locfileid: "53631476"
 1. 選取 [完成]。
 
 ## <a name="next-steps"></a>後續步驟
+
 [驗證 PKI 憑證](azure-stack-validate-pki-certs.md)

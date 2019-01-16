@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/06/2018
-ms.openlocfilehash: b0fd2466d72b1aae65a54b9e9813a5af51bf1672
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 31f3cf9bd8f83c5da32569ed370de1ed35299749
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997520"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062378"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>透過整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 
@@ -40,6 +40,9 @@ ms.locfileid: "52997520"
 ## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
+
+  > [!IMPORTANT]
+  > Logic Apps、內建動作，以及在您 ISE 中執行的連接器會使用不同定價方案，而非使用量式定價方案。 如需詳細資訊，請參閱 [Logic Apps 定價](../logic-apps/logic-apps-pricing.md)。
 
 * [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)。 如果您沒有虛擬網路，請了解如何[建立 Azure 虛擬網路](../virtual-network/quick-create-portal.md)。 
 
@@ -109,9 +112,9 @@ ms.locfileid: "52997520"
    | **資源群組** | 是 | <*Azure-resource-group-name*> | 您要用來建立環境的 Azure 資源群組 |
    | **整合服務環境名稱** | 是 | <*environment-name*> | 提供給環境的名稱 | 
    | **位置** | 是 | <*Azure-datacenter-region*> | 要用來部署環境的 Azure 資料中心區域 | 
-   | **容量** | 是 | 0、1、2、3 | 要用於此 ISE 資源的處理單元數 | 
+   | **額外容量** | 是 | 0、1、2、3 | 要用於此 ISE 資源的處理單元數 | 
    | **虛擬網路** | 是 | <*Azure-virtual-network-name*> | 要插入環境的 Azure 虛擬網路，讓該環境中的邏輯應用程式可以存取虛擬網路。 如果您沒有網路，可以在此建立一個。 <p>**重要**：您「只」可以在建立您的 ISE 時執行此插入作業。 但是，在您能夠建立此關聯性之前，請確定您已經[在虛擬網路中為 Azure Logic Apps 設定角色型存取控制](#vnet-access)。 | 
-   | **子網路** | 是 | <*IP-address-range*> | ISE 需要四個「空白」子網路。 這些子網路不會委派給任何服務，而且會用來在您的環境中建立資源。 您在建立環境之後「無法變更」這些 IP 範圍。 <p><p>若要建立每個子網路，[請遵循此表格底下的步驟](#create-subnet)。 每個子網路都必須符合下列準則： <p>- 不得存在於所選虛擬網路的相同位址範圍中，也不能在虛擬網路連線的任何其他私人 IP 位址中。 <br>- 使用的名稱不能以數字或連字號開頭。 <br>- 使用[無類別網域間路由選擇 (CIDR) 格式](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)。 <br>- 需要類別 B 位址空間。 <br>- 包含 `/27`。 例如，此處每個子網路會指定 32 位元位址範圍：`10.0.0.0/27`、`10.0.0.32/27`、`10.0.0.64/27` 和 `10.0.0.96/27`。 <br>- 必須是空白的。 |
+   | **子網路** | 是 | <*subnet-resource-list*> | ISE 需要四個「空的」子網路，以在您的環境中建立資源。 因此，請確認這些子網路「不會委派」給任何服務。 您在建立環境之後「無法變更」這些子網路位址。 <p><p>若要建立每個子網路，[請遵循此表格底下的步驟](#create-subnet)。 每個子網路都必須符合下列準則： <p>- 必須是空白的。 <br>- 使用的名稱不能以數字或連字號開頭。 <br>- 使用[無類別網域間路由選擇 (CIDR) 格式](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)及類別 B 位址空間。 <br>- 在位址空間中包含至少一個 `/27`，讓子網路取得至少 32 個位址。 若要深入了解如何計算位址數目，請參閱 [IPv4 CIDR 區塊](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks)。 例如︰ <p>- `10.0.0.0/24` 有 256 個位址，因為 2<sup>(32-24)</sup>是 2<sup>8</sup> 或 256。 <br>- `10.0.0.0/27` 有 32 個位址，因為 2<sup>(32-27)</sup>是 2<sup>5</sup> 或 32。 <br>- `10.0.0.0/28` 有 16 個位址，因為 2<sup>(32-28)</sup>是 2<sup>4</sup> 或 16。 |
    |||||
 
    <a name="create-subnet"></a>

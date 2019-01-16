@@ -4,16 +4,16 @@ description: 了解如何針對 Azure 自動化 Runbook 的錯誤進行疑難排
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015461"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063636"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>針對 Runbook 的錯誤進行疑難排解
 
@@ -39,7 +39,7 @@ Unknown_user_type: Unknown User Type
 為了判斷錯誤原因，請執行下列步驟：  
 
 1. 確定您沒有任何特殊字元，包括用來連線到 Azure 的「自動化」認證資產名稱中的 **@** 字元。  
-2. 請檢查您可以使用儲存在本機 PowerShell ISE 編輯器中的 Azure 自動化認證的使用者名稱和密碼。 您可以在 PowerShell ISE 中執行下列 Cmdlet，以檢查使用者名稱和密碼是否正確：  
+2. 請確認您可以在本機 PowerShell ISE 編輯器中使用儲存在 Azure 自動化認證的使用者名稱和密碼。 您可以在 PowerShell ISE 中執行下列 Cmdlet，以檢查使用者名稱和密碼是否正確：  
 
    ```powershell
    $Cred = Get-Credential  
@@ -94,13 +94,15 @@ The subscription named <subscription name> cannot be found.
 若要判斷您是否已正確地向 Azure 進行驗證並取得所嘗試選取之訂用帳戶的存取權，請執行下列步驟：  
 
 1. 在 Azure 自動化外部測試您的指令碼，確定它能獨立運作。
-2. 確認您在執行 **Select-AzureSubscription** Cmdlet 之前，已經執行 **Add-AzureAccount** Cmdlet。  
-3. 如果您仍然看到此錯誤訊息，請在 **Add-AzureAccount** Cmdlet 之後新增 **-AzureRmContext** 參數，以修改您的程式碼，然後執行此程式碼。
+2. 請務必先執行 `Add-AzureAccount` Cmdlet，再執行 `Select-AzureSubscription` Cmdlet。 
+3. 在 Runbook 的開頭加上 `Disable-AzureRmContextAutosave –Scope Process`。 這可確保所有認證只會套用到目前的 Runbook 執行。
+4. 如果您仍然看到此錯誤訊息，請在 `Add-AzureAccount` Cmdlet 之後新增 **AzureRmContext** 參數，以修改您的程式碼，然後執行此程式碼。
 
    ```powershell
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
--ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
    $context = Get-AzureRmContext
 
@@ -147,21 +149,24 @@ Exception: A task was canceled.
 
 在您的自動化帳戶中，按一下 [模組]，然後按一下 [更新 Azure 模組]。 更新需要花費大約 15 分鐘的時間。完成之後，請重新執行先前失敗的 Runbook。 若要深入了解如何更新模組，請參閱[更新 Azure 自動化中的 Azure 模組](../automation-update-azure-modules.md)。
 
-### <a name="child-runbook-auth-failure"></a>案例：處理多個訂用帳戶時，子 Runbook 失敗
+### <a name="runbook-auth-failure"></a>案例：Runbook 在處理多個子訂用帳戶時發生失敗
 
 #### <a name="issue"></a>問題
 
-使用 `Start-AzureRmRunbook` 執行子 Runbook 時，子 Runbook 無法管理 Azure 資源。
+使用 `Start-AzureRmAutomationRunbook` 執行 Runbook 時，Runbook 無法管理 Azure 資源。
 
 #### <a name="cause"></a>原因
 
-子 Runbook 在執行時未使用正確的內容。
+Runbook 在執行時未使用正確的內容。
 
 #### <a name="resolution"></a>解決方案
 
-在使用多個訂用帳戶時，若叫用子 Runbook，可能會遺失訂用帳戶內容。 若要確保訂用帳戶的內容會傳遞至子 Runbook，請將 `AzureRmContext` 參數新增至 Cmdlet，並將內容傳遞給它。
+在使用多個訂用帳戶時，若叫用 Runbook，可能會遺失訂用帳戶內容。 若要確保訂用帳戶的內容會傳遞至 Runbook，請將 `AzureRmContext` 參數新增至 Cmdlet，並將內容傳遞給它。 也建議您使用 `Disable-AzureRmContextAutosave` Cmdlet 搭配**程序**範圍，以確保您使用的認證只會用於目前的 Runbook。
 
 ```azurepowershell-interactive
+# Ensures that any credentials apply only to the execution of this runbook
+Disable-AzureRmContextAutosave –Scope Process
+
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
@@ -222,11 +227,11 @@ The job was tried three times but it failed
 
 這個錯誤可能是下列原因所造成：
 
-1. 記憶體限制。 配置給沙箱的記憶體數量有已記載的限制 ([自動化服務限制](../../azure-subscription-service-limits.md#automation-limits))，因此如果作業使用超過 400 MB 的記憶體，就可能發生失敗。
+1. 記憶體限制。 配置給沙箱的記憶體數量限制記載於[自動化服務限制](../../azure-subscription-service-limits.md#automation-limits)。 如果作業使用超過 400 MB 的記憶體，此作業可能失敗。
 
-1. 網路通訊端。 Azure 沙箱受限於如[自動化服務限制](../../azure-subscription-service-limits.md#automation-limits)所述的 1000 個並存網路通訊端。
+2. 網路通訊端。 Azure 沙箱受限於如[自動化服務限制](../../azure-subscription-service-limits.md#automation-limits)所述的 1000 個並存網路通訊端。
 
-1. 模組不相容。 如果模組相依性不正確，就可能發生此錯誤，且當相依性不正確時，您的 Runbook 通常會傳回「找不到命令」或「無法繫結參數」訊息。
+3. 模組不相容。 如果模組相依性不正確，就可能發生此錯誤，且當相依性不正確時，您的 Runbook 通常會傳回「找不到命令」或「無法繫結參數」訊息。
 
 #### <a name="resolution"></a>解決方案
 
@@ -328,9 +333,9 @@ Runbook 的執行時間已超過「Azure 沙箱」中公平共用所允許的 3 
 
 其中一個建議的解決方案是在[混合式 Runbook 背景工作角色](../automation-hrw-run-runbooks.md)上執行 Runbook。
 
-「混合式背景工作角色」不受限於 Azure 沙箱所受的[公平共用](../automation-runbook-execution.md#fair-share) 3 小時 Runbook 限制。 雖然「混合式 Runbook 背景工作角色」不受限於 3 小時的公平共用限制，但是開發在「混合式 Runbook 背景工作角色」上執行的 Runbook 時，仍應將其開發成支援重新啟動行為，以免萬一發生未預期的本機基礎結構問題。
+「混合式背景工作角色」不受限於 Azure 沙箱所受的[公平共用](../automation-runbook-execution.md#fair-share) 3 小時 Runbook 限制。 雖然「混合式 Runbook 背景工作角色」不受限於 3 小時的公平共用限制，但是開發在「混合式 Runbook 背景工作角色」上執行的 Runbook 時，仍應將其開發成在發生未預期的本機基礎結構問題時支援重新啟動行為。
 
-另一個選項是藉由建立[子 Runbook](../automation-child-runbooks.md) 將 Runbook 最佳化。 如果您的 Runbook 在幾個資源上循環執行同一函式 (例如在數個資料庫上循環執行某個資料庫作業)，您便可以將該函式移到子 Runbook。 每個子 Runbook 會在個別程序中平行執行，以減少父 Runbook 完成的總時間量。
+另一個選項是藉由建立[子 Runbook](../automation-child-runbooks.md) 將 Runbook 最佳化。 如果您的 Runbook 在幾個資源上循環執行同一函式 (例如在數個資料庫上循環執行某個資料庫作業)，您便可以將該函式移到子 Runbook。 每一個 Runbook 會在個別的處理程序中平行執行。 此行為可減少完成父代 Runbook 的時間總計。
 
 啟用子 Runbook 案例的 PowerShell Cmdlet 是：
 
@@ -375,7 +380,7 @@ Runbook 的執行時間已超過「Azure 沙箱」中公平共用所允許的 3 
 有兩種方法可以解決此錯誤：
 
 * 編輯 Runbook，並減少它所發出的作業資料流數目。
-* 減少在執行 Cmdlet 時所要擷取的資料流數目。 這麼做可讓您指定讓 `Get-AzureRmAutomationJobOutput` Cmdlet 的 `-Stream Output` 參數僅擷取輸出資料流。 
+* 減少在執行 Cmdlet 時所要擷取的資料流數目。 若要這麼做，您可以指定讓 `Get-AzureRmAutomationJobOutput` Cmdlet 的 `-Stream Output` 參數僅擷取輸出資料流。 
 
 ## <a name="common-errors-when-importing-modules"></a>匯入模組時的常見錯誤
 

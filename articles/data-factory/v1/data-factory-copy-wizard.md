@@ -10,17 +10,16 @@ ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b74a431664faa95e8be9c9ff90970fd6e7c0ec7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 90f78428601d7b039d00d39c1ca8339ab3ace9ba
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048715"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020348"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>使用 Azure Data Factory 複製精靈輕鬆地複製或移動資料
 > [!NOTE]
@@ -41,7 +40,7 @@ Azure Data Factory 複製精靈會簡化內嵌資料的程序，這通常是端�
 > 
 > 
 
-精靈的設計之初即是以巨量資料為出發點。 它是撰寫 Data Factory 管線既簡單又有效率的方式，讓您得以使用複製資料精靈來移動數百個資料夾、檔案或資料表。 此精靈支援下列三項功能︰自動資料預覽、結構描述擷取和對應，以及篩選資料。 
+精靈的設計之初即是以巨量資料為出發點。 它是撰寫 Data Factory 管線既簡單又有效率的方式，讓您得以使用複製資料精靈來移動數百個資料夾、檔案或資料表。 此精靈支援下列三項功能：自動資料預覽、結構描述擷取和對應，以及篩選資料。 
 
 ## <a name="automatic-data-preview"></a>自動資料預覽
 複製精靈可讓您檢閱來自所選取資料來源之資料的一部分，以驗證資料是否為您想要複製的正確資料。 此外，如果來源資料位於文字檔案中，複製精靈會自動剖析該文字檔，以了解資料列和資料行的分隔符號，以及結構描述。 
@@ -94,5 +93,5 @@ Azure Data Factory 複製精靈會簡化內嵌資料的程序，這通常是端�
 ![排程屬性](./media/data-factory-copy-wizard/scheduling-properties.png)
 
 ## <a name="next-steps"></a>後續步驟
-如需使用 Data Factory 複製精靈建立含複製活動之管線的快速逐步解說，請參閱 [教學課程：使用 Data Factory 複製精靈建立具有複製活動的管線](data-factory-copy-data-wizard-tutorial.md)。
+如需使用 Data Factory 複製精靈建立含複製活動之管線的快速逐步解說，請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)。
 

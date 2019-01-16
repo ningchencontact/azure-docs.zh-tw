@@ -1,6 +1,6 @@
 ---
-title: 存取 Azure Logic Apps 的內部部署資料來源 | Microsoft Docs
-description: 建立及設定內部部署資料閘道，以便從邏輯應用程式存取內部部署資料來源
+title: 從 Azure Logic Apps 存取內部部署資料來源 | Microsoft Docs
+description: 藉由建立內部部署資料閘道，從邏輯應用程式連線至內部部署資料來源
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,16 +9,19 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: e8e8d85d2c95c1dda7271de72491594562b7d3c1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413701"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064061"
 ---
-# <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>透過內部部署資料閘道從 Azure Logic Apps 連線至內部部署資料來源
+# <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>從 Azure Logic Apps 連線到內部部署資料來源
 
-若要從邏輯應用程式存取內部部署資料來源，您可以在 Azure 中建立資料閘道資源，以便邏輯應用程式使用[內部部署連接器](../logic-apps/logic-apps-gateway-install.md#supported-connections)。 本文示範如何在[本機電腦下載並安裝閘道](../logic-apps/logic-apps-gateway-install.md)之後，建立 Azure 閘道資源。 
+若要從您的邏輯應用程式存取內部部署資料來源，請在 Azure 入口網站中建立內部部署資料閘道資源。 然後，您的邏輯應用程式可以使用[內部部署連接器](../logic-apps/logic-apps-gateway-install.md#supported-connections)。 本文示範如何在[本機電腦下載並安裝閘道](../logic-apps/logic-apps-gateway-install.md)之後，建立 Azure 閘道資源。 
+
+> [!TIP]
+> 若要連線至 Azure 虛擬網路，請考慮建立[*整合服務環境*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)。 
 
 如需如何使用閘道與其他服務的資訊，請參閱下列文章：
 

@@ -6,18 +6,18 @@ author: bryanla
 manager: mbaldwin
 services: key-vault
 ms.author: bryanla
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 54449e26279e6c6d83a57daa9c8f40819fab4993
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e3239d57b34af396ee4b23f3b9b01b367eb3daa6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715749"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050110"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 進行 Azure Key Vault 的服務對服務驗證
 
@@ -29,14 +29,14 @@ ms.locfileid: "53715749"
 
 `Microsoft.Azure.Services.AppAuthentication` 程式庫會自動管理驗證，這可讓您將焦點放在您的方案，而不是認證上。
 
-`Microsoft.Azure.Services.AppAuthentication` 程式庫支援使用 Microsoft Visual Studio、Azure CLI 或 Azure AD 整合式驗證的本機開發。 部署到 Azure App Services 或 Azure 虛擬機器 (VM) 時，程式庫會自動使用 [Azure 服務的受控識別](/azure/active-directory/msi-overview)。 不需要任何程式碼或設定變更。 當受控識別無法使用，或在本機開發期間無法判斷開發人員的安全性內容時，程式庫也支援直接使用 Azure AD [用戶端認證](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)。
+`Microsoft.Azure.Services.AppAuthentication` 程式庫支援使用 Microsoft Visual Studio、Azure CLI 或 Azure AD 整合式驗證的本機開發。 如果部署到支援受控執行個體的 Azure 資源，程式庫會自動使用 [Azure 資源的受控識別](/azure/active-directory/msi-overview)。 不需要任何程式碼或設定變更。 當受控識別無法使用，或在本機開發期間無法判斷開發人員的安全性內容時，程式庫也支援直接使用 Azure AD [用戶端認證](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)。
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>使用程式庫
 
 對於 .NET 應用程式，使用受控識別最簡單的方式是透過 `Microsoft.Azure.Services.AppAuthentication` 套件。 如何開始使用：
 
-1. 將 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 套件的參考新增至應用程式。
+1. 將 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 和 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 套件的參考新增至應用程式。 
 
 2. 新增下列程式碼：
 
@@ -44,16 +44,13 @@ ms.locfileid: "53715749"
     using Microsoft.Azure.Services.AppAuthentication;
     using Microsoft.Azure.KeyVault;
 
-    // ...
+    // Instantiate a new KeyVaultClient object, with an access token to Key Vault
+    var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
 
-    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(
-    azureServiceTokenProvider.KeyVaultTokenCallback));
-
-    // or
-
-    var azureServiceTokenProvider = new AzureServiceTokenProvider();
-    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(
-       "https://management.azure.com/").ConfigureAwait(false);
+    // Optional: Request an access token to other Azure services
+    var azureServiceTokenProvider2 = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
 `AzureServiceTokenProvider` 類別會快取記憶體中的權杖，並在到期之前從 Azure AD 擷取權杖。 因此，您不再需要先檢查到期日，再呼叫 `GetAccessTokenAsync` 方法。 當您想要使用權杖時，可直接呼叫方法。 
@@ -234,8 +231,5 @@ az account list
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解 [Azure 資源的受控識別](/azure/app-service/overview-managed-identity)。
-
-- 了解[驗證和授權應用程式](/azure/app-service/overview-authentication-authorization)的不同方式。
-
-- 深入了解 Azure AD [驗證案例](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application)。
+- 深入了解 [Azure 資源的受控識別](/azure/active-directory/managed-identities-azure-resources/)。
+- 深入了解 [Azure AD 驗證案例](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application)。

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 12/4/2018
+ms.date: 1/8/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2c5e3664a9ef26319eb8a51d03ddef6a5392ffa9
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876144"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102987"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>部署 Azure Blockchain Workbench
 
@@ -119,7 +119,7 @@ Azure Blockchain Workbench 需要 Azure AD 設定和應用程式註冊。 您可
 
     | 設定 | 說明  |
     |---------|--------------|
-    | 以太坊 RPC 端點 | 提供現有 PoA 區塊鏈網路的 RPC 端點。 端點會以 https:// 或 http:// 開頭，並以連接埠號碼結尾。 例如， `https://network.westus.cloudapp.com:8540` |
+    | 以太坊 RPC 端點 | 提供現有 PoA 區塊鏈網路的 RPC 端點。 端點會以 https:// 或 http:// 開頭，並以連接埠號碼結尾。 例如， `http<s>://<network-url>:<port>` |
     | Azure Active Directory 設定 | 選擇 [稍後再新增]。</br>注意：如果您選擇了 [預先設定 Azure AD](#azure-ad-configuration) 或重新部署，請選擇 *立即新增*。 |
     | VM 選取項目 | 選擇您的區塊鏈網路慣用的 VM 大小。 |
 
@@ -159,7 +159,7 @@ Blockchain Workbench 部署完成後，新的資源群組即會包含您的 Bloc
 您必須設定 Azure AD 以完成 Blockchain Workbench 部署。 您將使用 PowerShell 指令碼來進行設定。
 
 1. 在瀏覽器中，瀏覽至 [Blockchain Workbench Web URL](#blockchain-workbench-web-url)。
-2. 您將會看到如何使用 Cloud Shell 設定 Azure AD 的指示。 複製命令並啟動 Cloud Shell。
+2. 您會看到如何使用 Cloud Shell 設定 Azure AD 的指示。 複製命令並啟動 Cloud Shell。
 
     ![啟動 AAD 指令碼](media/deploy/launch-aad-script.png)
 
@@ -216,7 +216,7 @@ Blockchain Workbench 部署完成後，新的資源群組即會包含您的 Bloc
 接著，您必須修改資訊清單，以使用 Azure AD 中的應用程式角色來指定 Blockchain Workbench 管理員。  如需應用程式資訊清單的詳細資訊，請參閱 [Azure Active Directory 應用程式資訊清單](../../active-directory/develop/reference-app-manifest.md)。
 
 1. 針對您所登錄的應用程式，在 [已註冊的應用程式詳細資料] 窗格中選取 [資訊清單]。
-2. 產生 GUID。 您可以使用 PowerShell 命令 [guid] :: NewGuid () 或 New-GUID Cmdlet 產生 GUID。 另一個選項是使用 GUID 產生器網站。
+2. 產生 GUID。 您可以使用 PowerShell 命令 [guid] ::NewGuid () 或 New-GUID Cmdlet 來產生 GUID。 另一個選項是使用 GUID 產生器網站。
 3. 您將會更新資訊清單的 [appRoles] 區段。 在 [編輯資訊清單] 窗格中，選取 [編輯]，並將 `"appRoles": []` 取代為提供的 JSON。 請務必將 [識別碼] 欄位的值取代為您所產生的 GUID。 
 
     ![編輯資訊清單](media/deploy/edit-manifest.png)

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: a6245472f0fc3f65dcbeebdf251387efed5f02b8
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 687e47eff000679f24088a59297a258a1469f3fd
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333003"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106268"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>驗證即服務的版本資訊
 
@@ -49,7 +49,7 @@ ms.locfileid: "52333003"
 
 - VaaS 先決條件和 VHD 更新
 
-    `Install-VaaSPrerequisites` 現在需要雲端管理員認證，以處理套件驗證期間的問題。 位於[下載並安裝代理程式](azure-stack-vaas-local-agent.md#download-and-install-the-agent)的文件已進行下列更新：
+    `Install-VaaSPrerequisites` 現在需要雲端管理員認證，以處理解決方案驗證期間的問題。 位於[下載並安裝代理程式](azure-stack-vaas-local-agent.md#download-and-install-the-agent)的文件已進行下列更新：
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -76,7 +76,7 @@ ms.locfileid: "52333003"
 
   - 套件簽署通知
 
-    當在「套件驗證」工作流程中一併提交 OEM 自訂套件時，系統會驗證套件格式，以確保格式遵守已發佈的規格。 如果套件不符合規範，執行就會失敗。 系統會將電子郵件通知傳送給租用戶的已註冊 Azure Active Directory 連絡人電子郵件地址。
+    在「解決方案驗證」工作流程中一併提交 OEM 自訂套件時，系統會驗證套件格式，以確保格式遵守已發佈的規格。 如果套件不符合規範，執行就會失敗。 系統會將電子郵件通知傳送給租用戶的已註冊 Azure Active Directory 連絡人電子郵件地址。
 
   - 互動式測試分類
 

@@ -1,37 +1,33 @@
 ---
-title: 設定應用程式的 Azure AD SSO | Microsoft Docs
-description: 了解如何使用 SAML 和密碼 SSO 以自助方式將應用程式連接到 Azure Active Directory
+title: 單一登入 - 非資源庫應用程式 - Azure Active Directory | Microsoft Docs
+description: 在 Azure Active Directory (Azure AD) 中設定非資源庫應用程式的單一登入 (SSO)
 services: active-directory
 author: barbkess
-documentationcenter: na
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2018
+ms.date: 01/08/2019
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dd42f6317f684fcc5ad9da94c1b09ab1870ccf76
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: bb2fcbad3d415a8ac7a8e0c3237fcb97042defd7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408117"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121340"
 ---
-# <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>為不在 Azure Active Directory 應用程式庫中的應用程式設定單一登入
+# <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>在 Azure Active Directory 中設定非資源庫應用程式的單一登入
 
-本文是關於可讓系統管理員設定單一登入不存在於 Azure Active Directory 應用程式資源庫的應用程式，而「不需要撰寫程式碼」 的功能。 此功能已在 2015 年 11 月 18 日的技術預覽中發行，並且包含在 [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md) 中。 如果您要改為尋找有關如何透過程式碼將自訂應用程式與 Azure AD 整合的開發人員指導方針，請參閱 [Azure AD 的驗證案例](../develop/authentication-scenarios.md)。
+本文是關於可讓系統管理員設定單一登入不存在於 Azure Active Directory 應用程式資源庫的應用程式，而「不需要撰寫程式碼」 的功能。 如果您要改為尋找有關如何透過程式碼將自訂應用程式與 Azure AD 整合的開發人員指導方針，請參閱 [Azure AD 的驗證案例](../develop/authentication-scenarios.md)。
 
 Azure Active Directory 應用程式資源庫提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單，如 [本文](what-is-single-sign-on.md)所說明。 在您 (假設您是 IT 專業人員或組織中的系統整合者) 找到所要連接的應用程式之後，就可以依照 Azure 入口網站中展示的逐步指示來啟用單一登入。
 
-具有 [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md) 授權的客戶還會獲得下列額外功能：
+根據您的授權合約，您也能使用這些功能。 如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/active-directory/)。 
 
-* 任何支援 SAML 2.0 身分識別提供者的應用程式皆可進行自助式整合 (SP 起始或 IdP 起始)
-* Web 應用程式可在使用 [密碼型 SSO](what-is-single-sign-on.md#password-based-sso)
+- 任何支援 SAML 2.0 身分識別提供者的應用程式皆可進行自助式整合 (SP 起始或 IdP 起始)
+- Web 應用程式可在使用 [密碼型 SSO](what-is-single-sign-on.md#password-based-sso)
 * 應用程式可使用 SCIM 通訊協定進行自助式連線，以執行使用者佈建 ([說明請見此處](use-scim-to-provision-users-and-groups.md))
 * 能夠在 [Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板](what-is-single-sign-on.md#linked-sso)中新增任何應用程式的連結
 

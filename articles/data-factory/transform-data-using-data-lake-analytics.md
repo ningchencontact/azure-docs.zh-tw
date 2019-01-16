@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: d406c7f7714e011126be67ad3f65938db62e7bbe
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 1874473b3ad091ce1da0a48367548cd4432737a2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412843"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016489"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
-> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-usql-activity.md)
 > * [目前的版本](transform-data-using-data-lake-analytics.md)
 
@@ -37,7 +36,7 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 
 | 屬性                 | 說明                              | 必要                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | type 屬性應設為： **AzureDataLakeAnalytics**。 | 是                                      |
+| **type**                 | type 屬性應設為：**AzureDataLakeAnalytics**。 | 是                                      |
 | **accountName**          | Azure Data Lake Analytics 帳戶名稱。  | 是                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI。           | 否                                       |
 | **subscriptionId**       | Azure 訂用帳戶識別碼                    | 否                                       |
@@ -74,7 +73,7 @@ Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連
                 "value": "<service principal key>",
                 "type": "SecureString"
             },
-            "tenant": "<tenant ID>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
             "subscriptionId": "<optional, subscription id of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
         },
@@ -130,7 +129,7 @@ Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連
 | 優先順序            | 判斷應該選取排入佇列的哪些工作首先執行。 編號愈低，優先順序愈高。 | 否       |
 | parameters          | 要傳遞到 U-SQL 指令碼的參數。    | 否       |
 | runtimeVersion      | 所要使用之 U-SQL 引擎的執行階段版本。 | 否       |
-| compilationMode     | <p>U-SQL 的編譯模式。 必須是下列其中一個值：**Semantic：** 僅執行語意檢查和必要的例行性檢查、**Full：** 執行完整編譯，包括語法檢查、最佳化、程式碼產生等等，**SingleBox：** 執行完整編譯，TargetType 設定為 SingleBox。 如果您沒有為此屬性指定值，伺服器將會判斷最佳的編譯模式。 | 否 |
+| compilationMode     | <p>U-SQL 的編譯模式。 必須是下列其中一個值：**Semantic：** 僅執行語意檢查和必要的例行性檢查，**Full：** 執行完整編譯，包括語法檢查、最佳化、程式碼產生等，**SingleBox：** 在將 TargetType 設定為 SingleBox 的情況下，執行完整編譯。 如果您沒有為此屬性指定值，伺服器將會判斷最佳的編譯模式。 | 否 |
 
 Data Factory 針對指令碼定義提交「請參閱 [SearchLogProcessing.txt 指令碼定義](#sample-u-sql-script)」。 
 

@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 920ae8ff09cb8e936a1ba70b2c862bd9bc076046
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e229fcc2c9eb6b8e1b49293dfd741a2f96f62871
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974687"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077380"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -108,6 +108,12 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 ### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>我是否可藉由新增磁碟或調整其大小來修改要複寫的 VM？
 
 對於從 VMware 到 Azure 的複寫，您可以修改磁碟大小。 如果您想要新增磁碟，您必須新增磁碟，並重新啟用對 VM 的保護。
+
+### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>我是否可在不影響進行中複寫的情況下將內部部署電腦遷移至新的 Vcenter？
+否，變更 Vcenter 或移轉會影響進行中的複寫。 您必須使用新的 Vcenter 設定 ASR，並為電腦啟用複寫。
+
+### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>我是否可以複寫至設有 Vnet (含 Azure 儲存體防火牆) 的快取/目標儲存體帳戶？
+否，Azure Site Recovery 不支援複寫至 Vnet 上的儲存體。
 
 ## <a name="configuration-server"></a>組態伺服器
 
@@ -225,9 +231,10 @@ Azure 是針對復原能力而設計的。 Site Recovery 設計成可根據 Azur
 是的，在容錯移轉至 Azure 之後，如果原始位置無法使用，您可以容錯回復至不同的位置。 [深入了解](concepts-types-of-failback.md#alternate-location-recovery-alr)。
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>為何需要以 VPN 或 ExpressRoute 進行容錯回復？
-
 您從 Azure 容錯回復時，Azure 中的資料會重新複製到內部部署 VM，因此需要私用存取。
 
+### <a name="can-i-resize-the-azure-vm-after-failover"></a>容錯移轉後我是否可調整 Azure VM 的大小？
+否，在容錯移轉之後您無法變更目標 VM 的大小。
 
 
 ## <a name="automation-and-scripting"></a>自動化和指令碼

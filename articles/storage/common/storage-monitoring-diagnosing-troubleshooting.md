@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: 64e7b6ad79fc26f8ab2ba796bbca2909417b113c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e451fd2c2dad5c411d0a8faa8e9c044648759001
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625992"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121720"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>監視、診斷與疑難排解 Microsoft Azure 儲存體
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -401,7 +401,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 高 **AverageServerLatency** 值同時也是資料表或查詢設計不良的徵兆，這種情況可能導致掃描作業，或是因為資料表或查詢遵循結尾附加/開頭附加的反模式而引起。 如需詳細資訊，請參閱「[度量顯示 PercentThrottlingError 增加]」。
 
 > [!NOTE]
-> 您可以在這裡找到完整的檢查清單，包括效能檢查清單： [Microsoft Azure 儲存體效能與延展性檢查清單](storage-performance-checklist.md)。
+> 您可以在這裡找到完整的檢查清單，包括效能檢查清單：[Microsoft Azure 儲存體效能與延展性檢查清單](storage-performance-checklist.md)。
 > 
 > 
 
@@ -474,7 +474,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 | Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止。 |
 | Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |收到回應。 狀態碼 = 403，要求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = . |
 | Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |作業期間擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止... |
-| Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |檢查是否應該重試作業。 重試計數 = 0，HTTP 狀態碼 = 403，例外狀況 = 遠端伺服器傳回錯誤：(403) 禁止. |
+| Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |檢查是否應該重試作業。 重試計數 = 0，HTTP 狀態碼 = 403，例外狀況 = 遠端伺服器傳回錯誤：(403) 禁止... |
 | Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |以下位置已經設為「主要」(依據位置模式)。 |
 | Microsoft.WindowsAzure.Storage |Error |1 |85d077ab -… |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(403) 禁止。 |
 
@@ -534,7 +534,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 | de8b1c3c-... |啟動對 https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt 的同步要求。 |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |正在準備寫入要求資料。 |
-| e2d06d78-... |等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(404) 找不到. |
+| e2d06d78-... |等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(404) 找不到.. |
 | e2d06d78-... |收到回應。 狀態碼 = 404，要求 ID = 353ae3bc-...，Content-MD5 = ，ETag = . |
 | e2d06d78-... |回應標頭已成功處理完畢，並繼續剩下的作業。 |
 | e2d06d78-... |正在下載回應內文。 |
@@ -544,14 +544,14 @@ queueServicePoint.UseNagleAlgorithm = false;
 | e2d06d78-... |等候回應。 |
 | de8b1c3c-... |正在寫入要求資料。 |
 | de8b1c3c-... |等候回應。 |
-| e2d06d78-... |等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(409) 衝突. |
+| e2d06d78-... |等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(409) 衝突.. |
 | e2d06d78-... |收到回應。 狀態碼 = 409，要求 ID = c27da20e-...，Content-MD5 = ，ETag = . |
 | e2d06d78-... |正在下載錯誤回應內文。 |
-| de8b1c3c-... |等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(404) 找不到. |
+| de8b1c3c-... |等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(404) 找不到.. |
 | de8b1c3c-... |收到回應。 狀態碼 = 404，回應 ID = 0eaeab3e-...，Content-MD5 = ，ETag = . |
-| de8b1c3c-... |作業期間擲回例外狀況：遠端伺服器傳回錯誤：(404) 找不到. |
-| de8b1c3c-... |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(404) 找不到. |
-| e2d06d78-... |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(409) 衝突. |
+| de8b1c3c-... |作業期間擲回例外狀況：遠端伺服器傳回錯誤：(404) 找不到.. |
+| de8b1c3c-... |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(404) 找不到.. |
+| e2d06d78-... |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(409) 衝突.. |
 
 在此範例中，記錄顯示用戶端正將來自 **UploadFromStream** 方法的要求 (de8b1c3c-...) 穿插到來自 **CreateIfNotExists** 方法 (要求 ID e2d06d78…) 的要求。這種穿插現象是因為用戶端應用程式正以非同步方式叫用這些方法所致。 請修改用戶端裡的非同步程式碼，確保該程式碼在嘗試將任何資料上傳至容器的 Blob 之前，先建立該容器。 理想的情況是，您應該事先建立所有容器。
 
@@ -560,7 +560,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 下列資料表顯示來自儲存體記錄檔案的伺服器端記錄訊息範例：
 
-| 名稱 | 值 |
+| Name | 值 |
 | --- | --- |
 | 要求開始時間 | 2014-05-30T06:17:48.4473697Z |
 | 作業類型     | GetBlobProperties            |
@@ -677,8 +677,8 @@ client.SetServiceProperties(sp);
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>安裝 Azure SDK for .NET 時發生問題
 當您嘗試安裝 SDK 時，系統在您的本機電腦上安裝儲存體模擬器時失敗。 安裝記錄內含下列其中一則訊息：
 
-* CAQuietExec：錯誤：無法存取 SQL 執行個體
-* CAQuietExec：錯誤：無法建立資料庫
+* CAQuietExec：Error:無法存取 SQL 執行個體
+* CAQuietExec：Error:無法建立資料庫
 
 此問題原因出在現有的 LocalDB 安裝。 根據預設，儲存體模擬器在模擬 Azure 儲存體服務時，使用 LocalDB 來永久儲存資料。 您可以在嘗試安裝 SDK 之前，先於命令提示字元中執行下列命令以重設您的 LocalDB 執行個體。
 
@@ -805,7 +805,7 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 * 確保您的 Web 服務可用且迅速回應。 無論您的應用程式是網站或是使用 Web 服務的裝置應用程式，此工具都可以每幾分鐘從全球各地測試您的 URL，然後讓您知道是否有問題。
 * 快速診斷 Web 服務中的任何效能問題或例外。 了解 CPU 或其他資源是否過度使用，從例外中取得堆疊追蹤資料，並且輕鬆地搜尋記錄追蹤項目。 當應用程式的效能低於可接受的範圍，Microsoft 可以傳送一封電子郵件給您。 我們可以同時監視 .NET 與 Java Web 服務。
 
-您可以在[什麼是 Application Insights](../../application-insights/app-insights-overview.md) 中找到詳細資訊。
+您可以在[什麼是 Application Insights](../../azure-monitor/app/app-insights-overview.md) 中找到詳細資訊。
 
 <!--Anchors-->
 [簡介]: #introduction

@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 06/07/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 3c875060a7abdf4431026e79ce966efdc89e4e77
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: e9b547b6b582e38a51196815522132dd807c971b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236173"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079029"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Azure 記錄整合簡介
 
 >[!IMPORTANT]
-> Azure 記錄整合功能將於 2019 年 6 月 1 日淘汰。 AzLog 下載將於 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
+> Azure 記錄整合功能將於 2019/06/01 淘汰。 AzLog 下載將於 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
 
 Azure 記錄整合可讓您簡化將 Azure 記錄與您的內部部署安全性資訊與事件管理 (SIEM) 系統整合的工作。
 
- 整合 Azure 記錄的建議方法是使用您 SIEM 廠商的連接器。 Azure 監視器可讓您將記錄串流至事件中樞，而 SIEM 廠商可以撰寫連接器來進一步將記錄從事件中樞整合至 SIEM。  如需此運作方式的描述，請依照[監視用於監視資料事件中樞的資料流](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)中的指示進行。 該文也會列出已提供直接 Azure 連接器的 SIEM 清單。  
+ 整合 Azure 記錄的建議方法是使用您 SIEM 廠商的連接器。 Azure 監視器可讓您將記錄串流至事件中樞，而 SIEM 廠商可以撰寫連接器來進一步將記錄從事件中樞整合至 SIEM。  如需此運作方式的描述，請依照[監視用於監視資料事件中樞的資料流](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)中的指示進行。 該文也會列出已提供直接 Azure 連接器的 SIEM 清單。  
 
 > [!IMPORTANT]
 > 如果您的主要興趣在於收集虛擬機器記錄，大多數 SIEM 廠商會將此選項包含在其解決方案中。 使用 SIEM 廠商的連接器永遠是較好的替代做法。
@@ -38,7 +38,7 @@ Azure 記錄整合功能的相關文件仍會繼續維護，直到此功能被�
 
 請進一步閱讀以深入了解 Azure 記錄整合功能：
 
-Azure 記錄整合會從 Windows 事件檢視器記錄收集 Windows 事件，從 Azure 資源收集 [Azure 活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)、[Azure 資訊安全中心警示](../security-center/security-center-intro.md)和 [Azure 診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 整合可協助您的 SIEM 解決方案為內部部署或雲端中的所有資產，提供一個整合儀表板。 您可以使用儀表板，來接收、彙總、相互關聯及分析安全性事件的警示。
+Azure 記錄整合會從 Windows 事件檢視器記錄收集 Windows 事件，從 Azure 資源收集 [Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)、[Azure 資訊安全中心警示](../security-center/security-center-intro.md)和 [Azure 診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)。 整合可協助您的 SIEM 解決方案為內部部署或雲端中的所有資產，提供一個整合儀表板。 您可以使用儀表板，來接收、彙總、相互關聯及分析安全性事件的警示。
 
 > [!NOTE]
 > Azure 記錄整合目前僅支援 Azure Commercial 和 Azure Government 雲端。 不支援其他雲端。
@@ -60,7 +60,7 @@ Azure 記錄整合支援 ArcSight、QRadar 及 Splunk。 請向您的 SIEM 廠�
 |SIEM | 客戶已在使用 Azure 記錄整合器 | 客戶正在調查 SIEM 整合選項|
 |---------|--------------------------|-------------------------------------------|
 |**Splunk** | 開始移轉到 [Splunk 的 Azure 監視器附加元件](https://splunkbase.splunk.com/app/3534/) \(英文\)。 | 使用 [Splunk 連接器](https://splunkbase.splunk.com/app/3534/) \(英文\)。 |
-|**QRadar** | 移轉到或開始使用[將 Azure 監視資料串流至事件中樞以供外部工具取用](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)最後一節中所述的 QRadar 連接器。 | 使用[將 Azure 監視資料串流至事件中樞以供外部工具取用](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)最後一節中所述的 QRadar 連接器。 |
+|**QRadar** | 移轉到或開始使用[將 Azure 監視資料串流至事件中樞以供外部工具取用](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)最後一節中所述的 QRadar 連接器。 | 使用[將 Azure 監視資料串流至事件中樞以供外部工具取用](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)最後一節中所述的 QRadar 連接器。 |
 |**ArcSight** | 繼續使用 Azure 記錄整合，直到有可用的連接器為止，然後移轉至以連接器為基礎的解決方案。  | 考慮使用 Azure Log Analytics 作為替代方案。 除非您願意在連接器變成可用時完成移轉程序，否則請不要上架到 Azure 記錄整合。 |
 
 > [!NOTE]
@@ -74,7 +74,7 @@ Azure 記錄整合支援 ArcSight、QRadar 及 Splunk。 請向您的 SIEM 廠�
 
 * [開始使用 Azure 記錄整合](security-azure-log-integration-get-started.md)。 此教學課程將引導您完成安裝 Azure 記錄整合。 它也會說明如何整合 Windows Azure 診斷 (WAD) 儲存體的記錄、Azure 活動記錄、Azure 資訊安全中心警示，以及 Azure Active Directory 稽核記錄。
 * [Azure 記錄整合常見問題集 (FAQ)](security-azure-log-integration-faq.md)。 此常見問題集會回答 Azure 記錄整合的相關常見問題。
-* 深入了解如何[將 Azure 監視資料串流至事件中樞以供外部工具取用](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)。
+* 深入了解如何[將 Azure 監視資料串流至事件中樞以供外部工具取用](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png

@@ -6,21 +6,21 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 36f4caac38f2f4891af6f61b78b55c7eff15eae4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974503"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116733"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>在 Azure Digital Twins 中將 Blob 新增到物件
 
-Blob 是常見檔案類型 (例如圖片和記錄) 的非結構化表示法。 Blob 使用 MIME 類型 (例如："image/jpeg") 和中繼資料 (名稱、描述、類型等等)，持續追蹤它們所代表的資料類型。
+Blob 是常見檔案類型 (例如圖片和記錄) 的非結構化表示法。 Blob 使用 MIME 類型 (例如："image/jpeg") 和中繼資料 (名稱、描述、類型等等)，追蹤它們所代表的資料類型。
 
-Azure Digital Twins 支援將 Blob 連結到裝置、空間和使用者。 Blob 可以代表使用者的個人檔案圖片、裝置的相片、影片、地圖或記錄。
+Azure Digital Twins 支援將 Blob 連結到裝置、空間和使用者。 Blob 可以代表使用者的個人檔案圖片、裝置的相片、影片、地圖、韌體、韌體 zip、JSON 資料或記錄等等。
 
 [!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
@@ -28,27 +28,11 @@ Azure Digital Twins 支援將 Blob 連結到裝置、空間和使用者。 Blob 
 
 您可以使用多部分要求，將 Blob 上傳到特定端點及其各自的功能。
 
-> [!IMPORTANT]
-> 多部分要求需要三個資訊片段：
-> * **Content-Type** 標頭：
->   * `application/json; charset=utf-8`
->   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
-> * **Content-Disposition**：`form-data; name="metadata"`
-> * 要上傳的檔案內容
->
-> **Content-Type** 和 **Content-Disposition** 資訊可能會依使用案例而有所不同。
-
-針對 Azure Digital Twins 管理 API 發出的多部分要求有兩個部分：
-
-* Blob 中繼資料 (例如相關聯的 MIME 類型)，如 **Content-Type** 和 **Content-Disposition** 資訊所示
-
-* Blob 內容 (非結構化的檔案內容)  
-
-兩個部分都不需要 **PATCH** 要求。 針對 **POST** 或建立作業，兩者皆為必要。
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ### <a name="blob-metadata"></a>Blob 中繼資料
 
-除了 **Content-Type** 和 **Content-Disposition**，多部分要求必須指定正確的 JSON 主體。 要提交的 JSON 主體取決於所執行 HTTP 要求作業的種類。
+除了 **Content-Type** 和 **Content-Disposition**，Azure Digital Twins Blob 多部分要求必須指定正確的 JSON 主體。 要提交的 JSON 主體取決於所執行 HTTP 要求作業的種類。
 
 四個主要 JSON 結構描述是：
 
@@ -64,12 +48,15 @@ Swagger 文件會完整詳細說明這些模型結構描述。
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-若要發出 **POST** 要求，以 Blob 形式上傳文字檔並將它與某個空間建立關聯：
+若要上傳文字檔作為 Blob，並將其與空間建立關聯，請發出已驗證的 HTTP POST 要求至：
 
 ```plaintext
-POST YOUR_MANAGEMENT_API_URL/spaces/blobs HTTP/1.1
-Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
+YOUR_MANAGEMENT_API_URL/spaces/blobs
+```
 
+使用下列主體：
+
+```plaintext
 --USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
@@ -112,6 +99,16 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
+在這兩個範例中：
+
+1. 確認標頭包含：`Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`。
+1. 確認主體是由多個部分組成的：
+
+   - 第一個部分包含必要的 Blob 中繼資料。
+   - 第二個部分包含文字檔。
+
+1. 確認已提供文字檔作為 `Content-Type: text/plain`。
+
 ## <a name="api-endpoints"></a>API 端點
 
 下列各節說明核心 Blob 相關的 API 端點及其功能。
@@ -122,7 +119,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 ![裝置 Blob][2]
 
-例如，若要更新或建立 Blob 並將 Blob 連結到裝置，請發出 **PATCH** 要求給：
+例如，若要更新或建立 Blob 並將 Blob 連結到裝置，請發出已驗證的 HTTP PATCH 要求至：
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
@@ -148,7 +145,7 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 
 ![空間 Blob][3]
 
-例如，若要傳回連結到空間的 Blob，請發出 **GET** 要求給：
+例如，若要傳回連結到空間的 Blob，請發出已驗證的 HTTP GET 要求至：
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
@@ -158,7 +155,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | 所需的 Blob 識別碼 |
 
-對相同端點發出 **PATCH** 要求可讓您更新中繼資料描述，並建立新版的 Blob。 HTTP 要求是透過 **PATCH** 方法搭配任何必要的中繼與多部分表單資料來發出。
+相同端點的 PATCH 要求會更新中繼資料描述，並建立新版本的 Blob。 HTTP 要求是透過 PATCH 方法搭配任何必要的中繼與多部分表單資料來發出。
 
 成功的作業會傳回符合下列結構描述的 **SpaceBlob** 物件。 您可將它用來取用所傳回的資料。
 
@@ -173,7 +170,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 
 ![使用者 Blob][4]
 
-例如，若要擷取連結至使用者的 Blob，請發出 **GET** 要求並搭配任何必要的表單資料：
+例如，若要擷取連結至使用者的 Blob，請發出已驗證的 HTTP GET 要求，並搭配任何必要的表單資料：
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
@@ -205,7 +202,7 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解 Azure Digital Twins 的 Swagger 參考文件，請參閱[使用 Azure Digital Twins Swagger](how-to-use-swagger.md)。
+- 若要深入了解 Azure Digital Twins 的 Swagger 參考文件，請參閱[使用 Azure Digital Twins Swagger](how-to-use-swagger.md)。
 
 <!-- Images -->
 [1]: media/how-to-add-blobs/blob-models.PNG

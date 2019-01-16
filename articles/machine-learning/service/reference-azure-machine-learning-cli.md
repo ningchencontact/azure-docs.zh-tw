@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e16506773e38f1732a55161cdd58ffb7523602d4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: bbe843f3481c6cd15f2c14386088cbb8d2d355d6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277279"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053120"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務的 CLI 擴充功能
 
@@ -52,7 +52,7 @@ CLI 不是 Azure Machine Learning SDK 的取代項目。 它是已經過最佳�
 若要安裝 Machine Learning CLI 擴充功能，請使用下列命令：
 
 ```azurecli-interactive
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.2-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.6-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 出現提示時，請選取 `y` 來安裝擴充功能。
@@ -119,11 +119,15 @@ az extension remove -n azure-cli-ml
     az ml project attach --experiment-name myhistory
     ```
 
-* 開始您的實驗回合。 使用此命令時，指定計算目標。 在此範例中，`local` 會使用本機電腦，利用 `train.py` 指令碼來定型模型：
+* 開始您的實驗回合。 使用此命令時，請指定包含回合組態的 `.runconfig` 檔案名稱。 計算目標會使用回合組態來建立模型的訓練環境。 在此範例中，回合組態會從 `./aml_config/myrunconfig.runconfig` 檔案載入。
 
     ```azurecli-interactive
-    az ml run submit -c local train.py
+    az ml run submit -c myrunconfig train.py
     ```
+
+    當您使用 `az ml project attach` 命令來附加專案時，系統就會建立名為 `docker.runconfig` 和 `local.runconfig` 的預設 `.runconfig`。 這些檔案可能需要先修改，才能用來順練模型。 
+
+    您也可以使用 [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) 類別，以程式設計方式建立回合組態。 一旦建立後，您就可以使用 `save()` 方法來建立 `.runconfig` 檔案。
 
 * 檢視已提交的實驗清單：
 

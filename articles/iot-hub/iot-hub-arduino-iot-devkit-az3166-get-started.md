@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: f7eea6e9fdbe69003a93e34f9107d279f2105d7f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2f480fd4d5d7d6261776660f1a7eab587320c849
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720334"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052505"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>將 IoT DevKit AZ3166 連線至 Azure IoT 中樞
 
@@ -197,7 +197,7 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 1. 確定 IoT DevKit **未**連線至您的電腦。 先啟動 VS Code，然後將 DevKit 連線至您的電腦。
 
 
-1. 按一下 `F1` 以開啟命令選擇區，鍵入並選取 [Azure IoT Device Workbench:Open Examples...] \(Azure IoT Device Workbench：開啟範例...\)。然後選取 [IoT DevKit] 作為面板。
+1. 按一下 `F1` 以開啟命令選擇區，輸入並選取 [Azure IoT Device Workbench：**開啟範例...]**。然後選取 [IoT DevKit] 作為面板。
 
 1. 在 [IoT Workbench 範例] 頁面上，尋找 [開始使用]，然後按一下 [開啟範例]。 然後選取預設路徑來下載範例程式碼。
     ![開啟範例](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/open-sample.png)
@@ -213,7 +213,7 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 1. 在 DevKit 上，按住**按鈕 A**，按下再放開 [重設] 按鈕，然後放開**按鈕 A**。您的 DevKit 會進入設定模式並儲存連接字串。
     ![連接字串](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)
 
-1. 再按一次 `F1`，鍵入並選取 [Azure IoT Device Workbench:Upload Device Code] \(Azure IoT Device Workbench：上傳裝置程式碼\)。 即會開始編譯程式碼，並上傳到 DevKit。
+1. 再按一次 `F1`，鍵入並選取 [Azure IoT Device Workbench:**上傳裝置程式碼]**。 即會開始編譯程式碼，並上傳到 DevKit。
     ![Arduino 上傳](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/arduino-upload.png)
 
 DevKit 會重新開機，然後開始執行程式碼。
@@ -236,9 +236,7 @@ DevKit 會重新開機，然後開始執行程式碼。
 
 ### <a name="view-the-telemetry-received-by-azure-iot-hub"></a>檢視 Azure IoT 中樞所接收的遙測資料
 
-您可以使用 [Azure IoT 中樞工具組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (先前稱為「Azure IoT 工具組」) 來監視「IoT 中樞」中的裝置到雲端 (D2C) 訊息。
-
-1. 在 Visual Studio Code 的延伸模組市集中尋找 [Azure IoT 中樞工具組] 並加以安裝。
+您可以使用 [Azure IoT 工具組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 來監視 IoT 中樞的裝置到雲端 (D2C) 訊息。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，尋找您所建立的 IoT 中樞。
     ![Azure 入口網站](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)

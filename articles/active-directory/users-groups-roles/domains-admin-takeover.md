@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 01/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8e11d370f58028ee4c1665d84d0e48541e7d3344
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837166"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121187"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
-本文說明接管 Azure Active Directory (Azure AD) 之非受控目錄中 DNS 網域名稱的兩種方式。 當自助使用者註冊使用 Azure AD 的雲端服務時，系統會根據其電子郵件網域將其新增至非受控 Azure AD 目錄。 如需有關自助式或「病毒式」服務註冊的詳細資訊，請參閱[什麼是自助式 Azure Active Directory 註冊？](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
+本文說明接管 Azure Active Directory (Azure AD) 之非受控目錄中 DNS 網域名稱的兩種方式。 當自助使用者註冊使用 Azure AD 的雲端服務時，系統會根據其電子郵件網域將其新增至非受控 Azure AD 目錄。 如需有關自助式或「病毒式」服務註冊的詳細資訊，請參閱[什麼是自助式 Azure Active Directory 註冊？](directory-self-service-signup.md)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>決定要如何接管非受控目錄
 在管理員接管的過程中，您可以依照[將自訂網域名稱新增到 Azure AD](../fundamentals/add-custom-domain.md) 中所述，證明擁有權。 下一節會更詳細地說明管理員體驗，但其摘要如下：
@@ -41,7 +41,7 @@ ms.locfileid: "52837166"
 
 3. 在來自 Power BI 的確認電子郵件中，選取 [是，這是我]。
 
-4. 使用 Power BI 使用者帳戶來登入 [Office 365 系統管理中心](https://portal.office.com/adminportal/Home)。 您會收到指導您**成為管理員**的訊息，這是已經在非受控租用戶中驗證之網域名稱的管理員。 請選取 [是，我想要成為管理員]。
+4. 使用 Power BI 使用者帳戶來登入 [Office 365 系統管理中心](https://portal.office.com/admintakeover)。 您會收到指導您**成為管理員**的訊息，這是已經在非受控租用戶中驗證之網域名稱的管理員。 請選取 [是，我想要成為管理員]。
   
   ![[成為管理員] 的第一個螢幕擷取畫面](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -53,9 +53,9 @@ ms.locfileid: "52837166"
 
 完成上述步驟之後，您現在便已成為 Office 365 中 Fourth Coffee 租用戶的全域管理員。 若要將網域名稱與您的其他 Azure 服務整合，您可以將它從 Office 365 中移除，然後新增至 Azure 中其他的受控租用戶。
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>將網域名稱新增至 Azure AD 中的受控租用戶 
+### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>將網域名稱新增至 Azure AD 中的受控租用戶
 
-1. 開啟 [Office 365 系統管理中心](https://portal.office.com/adminportal/Home)。
+1. 開啟 [Office 365 系統管理中心](https://portal.office.com/admintakeover)。
 2. 選取 [使用者] 索引標籤，然後使用 *user@fourthcoffeexyz.onmicrosoft.com* 這類未使用自訂網域名稱的名稱來建立新使用者帳戶。 
 3. 確定新使用者帳戶具有 Azure AD 租用戶的全域管理員權限。
 4. 在「Office 365 系統管理中心」中開啟 [網域] 索引標籤，選取網域名稱，然後選取 [移除]。 

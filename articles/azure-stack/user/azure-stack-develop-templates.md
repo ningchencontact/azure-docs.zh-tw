@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 16cf679f91dae185a857813ec27441b9a4440e37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.reviewer: ''
+ms.openlocfilehash: 34804dae53fcf06d1a18bf503cdabea61f272585
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244044"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065387"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Azure Resource Manager 範本考量
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 當您開發應用程式時，請務必確保 Azure 與 Azure Stack 之間的範本可攜性。 本文提供開發 Azure Resource Manager [範本](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)時必須考量的事項，以便您可以建立原型應用程式，並在 Azure 中測試部署，而不需要存取 Azure Stack 環境。
 
@@ -34,7 +34,7 @@ ms.locfileid: "51244044"
 
 ## <a name="public-namespaces"></a>公用命名空間
 
-因為 Azure Stack 是裝載在您的資料中心，它的服務端點命名空間與 Azure 公用雲端不同。 因此，當您嘗試將 Resource Manager 範本部署到 Azure Stack 時，以硬式編碼方式寫在 Azure Resource Manager 範本中的公用端點將會失敗。 您可以使用 reference 和 concatenate 函式動態建置服務端點，以在部署期間從資源提供者擷取值。 例如，您不需要以硬式編碼方式在您的範本中寫入 *blob.core.windows.net*，而是改為擷取 [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) 以動態設定 *osDisk.URI* 端點：
+因為 Azure Stack 是裝載在您的資料中心，它的服務端點命名空間與 Azure 公用雲端不同。 因此，當您嘗試將 Resource Manager 範本部署到 Azure Stack 時，以硬式編碼方式寫在 Azure Resource Manager 範本中的公用端點將會失敗。 您可以使用 `reference` 和 `concatenate` 函式動態建置服務端點，以在部署期間從資源提供者擷取值。 例如，您不需要以硬式編碼方式在您的範本中寫入 *blob.core.windows.net*，而是改為擷取 [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) 以動態設定 *osDisk.URI* 端點：
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":

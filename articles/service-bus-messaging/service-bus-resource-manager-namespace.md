@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: c616ad86e6846800d214feeaf100f63e311f78b0
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 248ac7ed2a855dd1df71e6e44d1aa7065ddd8ba4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282725"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062062"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本來建立服務匯流排命名空間
 在本快速入門中，您會建立一個 Azure Resource Manager 範本，此範本會建立一個**訊息**類型且具有**標準** SKU 的服務匯流排命名空間。 本文也會定義針對部署執行而指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。 如需關於建立範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本][Authoring Azure Resource Manager templates]。 如需完整的範本，請參閱 GitHub 上的 [服務匯流排命名空間範本][Service Bus namespace template]。
@@ -96,7 +96,7 @@ ms.locfileid: "51282725"
 }
 ```
 
-此範本會建立標準「服務匯流排」命名空間。
+此範本會建立標準「服務匯流排」命名空間。 若要了解 JSON 語法和屬性，請參閱[命名空間](/azure/templates/microsoft.servicebus/namespaces)範本參考。
 
 ## <a name="create-the-parameters-json"></a>建立參數 JSON
 您在上一個步驟中建立的範本包含一個名為 `Parameters` 的區段。 您需針對會依據所要部署之專案或依據目標環境而變更的值，定義參數。 此範本會定義下列參數：**serviceBusNamespaceName**、**serviceBusSku** 及 **location**。 若要深入了解「服務匯流排」的 SKU，請參閱 [服務匯流排 SKU](https://azure.microsoft.com/pricing/details/service-bus/) 以進行建立作業。

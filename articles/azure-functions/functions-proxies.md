@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 413decee89e99b8120d271e2e87e703d4d362c33
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 81f76b31f7af3643e2b654e8e26c70d0481d60b8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999283"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017101"
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions Proxy
 
@@ -47,13 +47,13 @@ Azure Functions Proxy 可讓您修改針對後端的要求及來自後端的回�
 
 根據預設，後端要求會初始化為原始要求的複本。 除了設定後端 URL 之外，您也可以變更 HTTP 方法、標頭及查詢字串參數。 修改過的值可以參考[應用程式設定]和[來自原始用戶端要求的參數]。
 
-後端要求可以藉由展開 Proxy 詳細資料分頁的要求覆寫區段，在入口網站中修改。 
+後端要求可以藉由展開 Proxy 詳細資料分頁的*要求覆寫*區段，在入口網站中修改。 
 
 ### <a name="modify-response"></a>修改回應
 
 根據預設，用戶端回應會初始化為後端回應的複本。 您可以對回應的狀態碼、原因說明、標頭及本文做出變更。 修改過的值可以參考[應用程式設定]、[來自原始用戶端要求的參數]，以及[來自後端回應的參數]。
 
-後端要求可以藉由展開 Proxy 詳細資料分頁的回應覆寫區段，在入口網站中修改。 
+後端要求可以藉由展開 Proxy 詳細資料分頁的*回應覆寫*區段，在入口網站中修改。 
 
 ## <a name="using-variables"></a>使用變數
 
@@ -176,13 +176,13 @@ Proxies.json 是由 Proxy 物件定義，該物件包含具名 Proxy 及其定�
 
 ### <a name="reservedChars"></a> 保留的字元 (字串格式化)
 
-Proxy 會使用 \\\\\\ 作為逸出符號，讀取以 C# 字串表示法顯示的所有字串。 Proxy 也會解譯大括弧。 請參閱下面的一組完整範例。
+Proxy 會使用 \ 作為逸出符號，讀出 JSON 檔案中的所有字串。 Proxy 也會解譯大括號。 請參閱下面的一組完整範例。
 
 |Character|逸出字元|範例|
 |-|-|-|
 |{ or }|{{ or }}|`{{ example }}` --> `{ example }`
-| \ | \\\\\\\\ | `example.com\\\text.html` --> `example.com\text.html`
-|"|\\\\\\"| `\\\"example\\\"` --> `"example"`
+| \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
+|"|\\\"| `\"example\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>定義 requestOverrides 物件
 

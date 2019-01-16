@@ -5,8 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 2f399b5084ab65736adfebb5cf0a77ccfbc972e8
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457284"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052388"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>範例 1 – 使用 NSG 搭配 Azure Resource Manager 範本建立簡單的 DMZ
 [返回 [安全性界限最佳作法] 頁面][HOME]
@@ -51,8 +49,8 @@ ms.locfileid: "49457284"
 
 **若要建置此環境**(這份文件的參考一節中有詳細指示)。
 
-1. 將 Azure Resource Manager 範本部署在：[Azure 快速入門範本][Template]
-2. 將範例應用程式安裝在︰[範例應用程式指令碼][SampleApp]
+1. 部署 Azure Resource Manager 範本：[Azure 快速入門範本][Template]
+2. 安裝範例應用程式：[範例應用程式指令碼][SampleApp]
 
 >[!NOTE]
 >在這個執行個體中 RDP 至任何後端伺服器，IIS 伺服器會作為「跳躍箱」。 首先 RDP 到 IIS 伺服器，然後從 IIS 伺服器 RDP 到後端伺服器。 或者，可以將公用 IP 與每個伺服器 NIC 相關聯以便更容易 RDP。

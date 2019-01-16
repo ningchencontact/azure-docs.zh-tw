@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 2d42d2014432b72f35e9b0d9543fe499a6ab721b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355218"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063655"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM 啟動程序停滯於 Windows Update
 
 本文將協助您解決虛擬機器 (VM) 在啟動期間停滯於 Windows Update 階段的問題。 
 
 > [!NOTE] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋內容包括如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不要使用傳統部署模型。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋內容包括如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不要使用傳統部署模型。
 
  ## <a name="symptom"></a>徵狀
 
@@ -47,16 +47,16 @@ ms.locfileid: "49355218"
 
 1. 擷取受影響虛擬機器作業系統磁碟的快照集作為備份。 如需詳細資訊，請參閱[擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。 
 2. [將 OS 磁碟連結至復原 VM](troubleshoot-recovery-disks-portal-windows.md)。
-3. 在復原 VM 上連結 OS 磁碟後，請開啟**磁碟管理員**，並確定它處於 [線上] 狀態。 記下為已連結而包含 \windows 資料夾的 OS 磁碟指派的磁碟機代號。 如果該磁碟已加密，請先將其解密，再繼續進行本文件中的後續步驟。
+3. 當 OS 磁碟連結至復原 VM 後，請執行 **diskmgmt.msc** 來開啟磁碟管理，並確認連結的磁碟是**連線**狀態。 記下為已連結而包含 \windows 資料夾的 OS 磁碟指派的磁碟機代號。 如果該磁碟已加密，請先將其解密，再繼續進行本文件中的後續步驟。
 
-3. 取得連結的 OS 磁碟上包含的更新套件清單：
+4. 開啟提升權限的命令提示字元執行個體 (以系統管理員身分執行)。 執行下列命令以取得連結的 OS 磁碟上包含的更新套件清單：
 
         dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
 
     例如，若連結的 OS 磁碟是磁碟機 F，請執行下列命令：
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-4. 開啟 C:\temp\Patch_level.txt 檔案，然後由下至上閱讀。 找出處於 [安裝擱置中] 或 [解除安裝擱置中] 狀態的更新。  以下是更新狀態的範例：
+5. 開啟 C:\temp\Patch_level.txt 檔案，然後由下至上閱讀。 找出處於 [安裝擱置中] 或 [解除安裝擱置中] 狀態的更新。  以下是更新狀態的範例：
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
@@ -64,7 +64,7 @@ ms.locfileid: "49355218"
     Release Type : Security Update
     Install Time :
     ```
-5. 移除造成問題的更新：
+6. 移除造成問題的更新：
     
     ```
     dism /Image:<Attached OS disk>:\ /Remove-Package /PackageName:<PACKAGE NAME TO DELETE>
@@ -72,10 +72,10 @@ ms.locfileid: "49355218"
     範例： 
 
     ```
-    dism /Image:F:\ /Remove-Package /Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
+    dism /Image:F:\ /Remove-Package /PackageName:Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     ```
 
     > [!NOTE] 
     > 根據套件的大小，DISM 工具將需要一些時間來處理解除安裝程序。 此程序通常會在 16 分鐘內完成。
 
-6. 卸離 OS 磁碟，然後[使用 OS 磁碟重建 VM](troubleshoot-recovery-disks-portal-windows.md)。 
+7. [將 OS 磁碟中斷連結並建立 VM](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk)。 然後檢查問題是否已解決。

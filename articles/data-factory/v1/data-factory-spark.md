@@ -10,17 +10,16 @@ ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736405"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015809"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>從 Azure Data Factory 叫用 Spark 程式管線
 
@@ -46,7 +45,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 > - Spark 活動不支援使用 Azure Data Lake Store 作為主要儲存體的 HDInsight Spark 叢集。
 > - Spark 活動僅支援現有 (您自己的) HDInsight Spark 叢集。 它不支援隨選 HDInsight 已連結服務。
 
-## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>逐步解說：建立含有 Spark 活動的管線
+## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>逐步解說：建立具有 Spark 活動的管線
 以下是建立含有 Spark 活動之資料處理站管線的一般步驟： 
 
 * 建立資料處理站。
@@ -74,7 +73,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 1. 在 [新增資料處理站] 刀鋒視窗上的 [名稱] 底下，輸入 **SparkDF**。
 
    > [!IMPORTANT]
-   > Azure Data Factory 的名稱在全域必須是唯一的。 如果您看到「資料處理站名稱 SparkDF 無法使用」錯誤，請變更資料處理站名稱。 例如，使用 yournameSparkDFdate，然後重新建立資料處理站。 如需有關命名規則的詳細資訊，請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md)。
+   > Azure Data Factory 的名稱在全域必須是唯一的。 如果您看到「資料處理站名稱 SparkDF 無法使用」錯誤，請變更資料處理站名稱。 例如，使用 yournameSparkDFdate，然後重新建立資料處理站。 如需有關命名規則的詳細資訊，請參閱 [Data Factory：命名規則](data-factory-naming-rules.md)。
 
 1. 在 [訂用帳戶] 底下，選取您想要建立資料處理站的 Azure 訂用帳戶。
 

@@ -11,26 +11,27 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 53aba5192ddf57598965fcfe0db5f2b18423c7e9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 01/03/2019
+ms.openlocfilehash: 1718177a0902bc7049eb6986e5a1d128eeb3f233
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345212"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040953"
 ---
 # <a name="configure-an-existing-vnet-for-azure-sql-database-managed-instance"></a>針對 Azure SQL Database 受控執行個體設定現有的 VNet
 
-Azure SQL Database 受控執行個體必須部署在 Azure [虛擬網路 (VNet)](../virtual-network/virtual-networks-overview.md) 以及受控執行個體專用的子網路內。 如果根據[受控執行個體 VNet 需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)設定，則可以使用現有的 VNet 和子網路。 
+Azure SQL Database 受控執行個體必須部署在 Azure [虛擬網路 (VNet)](../virtual-network/virtual-networks-overview.md) 以及受控執行個體專用的子網路內。 如果根據[受控執行個體 VNet 需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)設定，則可以使用現有的 VNet 和子網路。
 
-如果您仍有新的子網路尚未設定、不確定子網路是否符合[需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)，或者在您進行了一些變更後，您想要檢查子網路是否仍符合[網路需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)的規範，您可以使用本節中所述的指令碼驗證及修改您的網路。 
+如果您仍有新的子網路尚未設定、不確定子網路是否符合[需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)，或者在您進行了一些變更後，您想要檢查子網路是否仍符合[網路需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)的規範，您可以使用本節中所述的指令碼驗證及修改您的網路。
 
   > [!Note]
-  > 您只能在 Resource Manager 虛擬網路中建立受控執行個體。 不支援使用傳統部署模型部署的 Azure VNet。 請確定依照[決定受控執行個體的子網路大小](#determine-the-size-of-subnet-for-managed-instances)一節中的指導方針來計算子網路大小，因為在子網路內部署資源後無法調整大小。
+  > 您只能在 Resource Manager 虛擬網路中建立受控執行個體。 不支援使用傳統部署模型部署的 Azure VNet。 請確定依照[決定受控執行個體的子網路大小](sql-database-managed-instance-determine-size-vnet-subnet.md)一文中的指導方針來計算子網路大小，因為在子網路內部署資源後無法調整大小。
 
-## <a name="validate-and-modify-an-existing-virtual-network"></a>驗證與修改現有的虛擬網路 
+## <a name="validate-and-modify-an-existing-virtual-network"></a>驗證與修改現有的虛擬網路
 
 如果您想要在現有子網路內建立受控執行個體，我們建議使用下列 PowerShell 指令碼來準備子網路：
+
 ```powershell
 $scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
 
@@ -43,6 +44,7 @@ $parameters = @{
 
 Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
 ```
+
 子網路準備可以在 3 個簡單步驟中完成：
 
 1. 驗證 - 針對受控執行個體網路需求，驗證所選虛擬網路和子網路。

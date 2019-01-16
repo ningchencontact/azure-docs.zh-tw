@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: ddc6942b56e3ad4d1f5b16c86dde87f408c1a2c1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c5dc19c2f3e939f9721fd0885761a3927826b25b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262996"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102053"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Azure Stack 驗證即服務的工作流程通用參數
 
@@ -39,7 +39,7 @@ ms.locfileid: "52262996"
 ### <a name="generate-the-stamp-information-file"></a>產生戳記資訊檔案
 
 1. 登入 DVM 或任何能夠存取 Azure Stack 環境的機器。
-2. 在已提高權限的 PowerShell 視窗中，執行下列命令：
+2. 在提高權限的 PowerShell 視窗中執行下列命令：
     ```PowerShell  
     $CloudAdminUser = "<cloud admin username>"
     $CloudAdminPassword = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force

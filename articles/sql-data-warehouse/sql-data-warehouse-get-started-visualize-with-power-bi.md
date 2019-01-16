@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 514516dcc28e99d03611c7db6ec09c7b4a48ff0e
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0fbb389120857a167867a5804c670e181f5232b6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306658"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051436"
 ---
 # <a name="visualize-data-with-power-bi"></a>使用 Power BI 視覺化資料
 本教學課程會示範如何使用 Power BI 來連接到 SQL 資料倉儲，並建立一些基本的視覺效果。
@@ -77,7 +77,7 @@ ms.locfileid: "43306658"
 
 您也可以隨時按一下 [檔案]，並選取 [儲存] 來儲存您的進度。
 
-## <a name="using-direct-connnect"></a>使用直接連接
+## <a name="using-direct-connect"></a>使用直接連接
 在 Azure SQL Database 中，SQL Data Warehouse 直接連接允許邏輯下推以及 Power BI 的分析功能。 透過直接連接，查詢會在您瀏覽資料時即時傳送回到您的 Azure SQL 資料倉儲。  此功能與 SQL 資料倉儲結合的功能，可讓您在數分鐘內針對數 TB 的資料建立動態報表。 此外，引入 [在 Power BI 中開啟] 按鈕可讓使用者直接將 Power BI 連接到其 SQL 資料倉儲，而不需從其他 Azure 部分收集資訊。
 
 使用直接連接時：

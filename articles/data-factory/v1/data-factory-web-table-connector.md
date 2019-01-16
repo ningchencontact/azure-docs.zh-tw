@@ -9,20 +9,19 @@ ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 05833599059c2724529f9fd23edcd86934793835
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1ba8db3ebe2caf4c37d147f744326b6e631cb556
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048851"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022048"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>使用 Azure Data Factory 來移動 Web 資料表的資料
-> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](data-factory-web-table-connector.md)
 > * [第 2 版 (目前的版本)](../connector-web-table.md)
 
@@ -36,7 +35,7 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 > [!IMPORTANT]
 > 此 Web 連接器目前只支援從 HTML 網頁擷取資料表內容。 若要從 HTTP/s 端點擷取資料，請改用 [HTTP 連接器](data-factory-http-connector.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用此 Web 資料表連接器，您需要設定自我裝載 Integration Runtime (也稱為 Data Management Gateway)，並在接收連結服務中設定 `gatewayName` 屬性。 例如，若要從 Web 資料表複製至 Azure Blob 儲存體，請設定 Azure 儲存體連結的服務，如下所示：
 
@@ -56,8 +55,8 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。 
 
-- 若要建立管線，最簡單的方式就是使用**複製精靈**。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
-- 您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
+- 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。 
+- 您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -74,9 +73,9 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| type |類型屬性必須設為： **Web** |yes |
-| Url |Web 來源的 URL |yes |
-| authenticationType |匿名。 |yes |
+| type |類型屬性必須設定為：**Web** |是 |
+| Url |Web 來源的 URL |是 |
+| authenticationType |匿名。 |是 |
 
 ### <a name="using-anonymous-authentication"></a>使用匿名驗證
 
@@ -102,9 +101,9 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type |資料集的類型。 必須設定為 **WebTable** |yes |
-| path |包含資料表之資源的相對 URL。 |否。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
-| index |資源中資料表的索引。 如需如何取得 HTML 網頁中資料表索引的步驟，請參閱 [取得 HTML 網頁中資料表的索引](#get-index-of-a-table-in-an-html-page) 一節。 |yes |
+| type |資料集的類型。 必須設定為 **WebTable** |是 |
+| path |包含資料表之資源的相對 URL。 |沒有。 當路徑未指定時，則只會使用在連結服務定義中指定的 URL。 |
+| index |資源中資料表的索引。 如需如何取得 HTML 網頁中資料表索引的步驟，請參閱 [取得 HTML 網頁中資料表的索引](#get-index-of-a-table-in-an-html-page) 一節。 |是 |
 
 **範例：**
 
@@ -135,7 +134,7 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 當複製活動中的來源類型為 **WebSource**，目前並未支援任何其他屬性。
 
 
-## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>JSON 範例：將資料從 Web 資料表複製到 Azure Blob
+## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>JSON 範例：將 Web 資料表的資料複製到 Azure Blob
 下列範例顯示︰
 
 1. [Web](#linked-service-properties)類型的連結服務。
@@ -209,7 +208,7 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 
 **Azure Blob 輸出資料集**
 
-資料會每小時寫入至新的 Blob (頻率：小時，間隔：1)。
+資料會每小時寫入至新的 Blob (frequency：hour，interval：1)。
 
 ```json
 {
@@ -290,11 +289,11 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 2. 按一下工具列上的 [開新查詢]、指向 [從其他來源]，然後按一下 [從 Web]。
 
     ![Power Query 功能表](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. 在 [從 Web] 對話方塊中，輸入您要在連結服務 JSON 中使用的 **URL** (例如：https://en.wikipedia.org/wiki/)，以及您為資料集指定的路徑 (例如：AFI%27s_100_Years...100_Movies)，然後按一下 [確定]。
+3. 在 [從 Web] 對話方塊中，輸入您要在連結服務 JSON 中使用的 **URL** (例如： https://en.wikipedia.org/wiki/)，以及您為資料集指定的路徑 (例如：AFI%27s_100_Years...100_Movies)，然後按一下 [確定]。
 
     ![[從 Web] 對話方塊](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
-    此範例使用的 URL：https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
+    此範例使用的 URL： https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
 4. 當您看到 [存取 Web 內容] 對話方塊時，選取右側的 **URL**、**驗證方式**，然後按一下 [連線]。
 
    ![[存取 Web 內容] 對話方塊](./media/data-factory-web-table-connector/AccessWebContentDialog.png)

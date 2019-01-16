@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fbb92fd1186881a359f77a9c6b68816763dd8f9b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cbd09f141128f9103af88b695baf717eaa3c99d5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628376"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038831"
 ---
 # <a name="database-transactions-and-optimistic-concurrency-control"></a>資料庫交易和開放式並行存取控制
 
@@ -53,9 +53,9 @@ JavaScript 型預存程序、觸發程序、UDF，以及合併程序，都包裝
 
 Azure Cosmos DB 的通訊通訊協定層項目的並行更新受制於 OCC。 Azure Cosmos 資料庫可確保您正在更新 (或刪除) 之項目的用戶端版本和 Azure Cosmos 容器中項目的版本相同。 這可確保您寫入的內容會受到保護，防止因為其他人寫入而意外遭到覆寫，反之亦然。 在多使用者環境中，開放式並行存取控制可防止您不小心刪除項目，或更新項目的錯誤版本。 因此，項目會收到保護，不會受到惡名昭彰的「遺失更新」或「遺失刪除」問題影響。
 
-Azure Cosmos 容器中儲存的每個項目都有系統定義的 `__etag` 屬性。 `__etag` 的值會自動產生，並在項目每次更新時，由伺服器更新。 `__etag` 可以和用戶端提供的 if-match 要求標頭搭配使用，以允許伺服器決定是否可以有條件地更新項目。 If-match 標頭的值與伺服器中 `__etag` 的值相符時，項目就會更新。 如果 if-match 要求標頭的值不再是最新狀態，伺服器會拒絕該作業，並提供「HTTP 412 前置條件失敗」回應訊息。 然後用戶端可以重新擷取項目，以取得項目在伺服器上的最新版本，或用項目自己的 `__etag` 值覆寫伺服器中的項目版本。 此外，`__etag` 可以與 If-none-match 標頭搭配使用，以判斷是否需要重新擷取資源。 
+Azure Cosmos 容器中儲存的每個項目都有系統定義的 `_etag` 屬性。 `_etag` 的值會自動產生，並在項目每次更新時，由伺服器更新。 `_etag` 可以和用戶端提供的 if-match 要求標頭搭配使用，以允許伺服器決定是否可以有條件地更新項目。 If-match 標頭的值與伺服器中 `_etag` 的值相符時，項目就會更新。 如果 if-match 要求標頭的值不再是最新狀態，伺服器會拒絕該作業，並提供「HTTP 412 前置條件失敗」回應訊息。 然後用戶端可以重新擷取項目，以取得項目在伺服器上的最新版本，或用項目自己的 `_etag` 值覆寫伺服器中的項目版本。 此外，`_etag` 可以與 If-none-match 標頭搭配使用，以判斷是否需要重新擷取資源。 
 
-項目的 __etag 值會在項目每次更新時變更。 取對於代項目作業，必須在要求選項中明確表示 if-match。 如需範例，請參閱 [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446) 中的範例程式碼。 預存程序接觸過的所有寫入項目，系統都會以隱含方式檢查它們的 `__etag` 值。 如果偵測到任何衝突，預存程序將會復原交易，並擲回例外狀況。 透過此方法，在預存程序內的所有寫入都會自動套用，或全部不會自動套用。 這是應用程式重新套用更新並重試原始用戶端要求的信號。
+項目的 _etag 值會在項目每次更新時變更。 取對於代項目作業，必須在要求選項中明確表示 if-match。 如需範例，請參閱 [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446) 中的範例程式碼。 預存程序接觸過的所有寫入項目，系統都會以隱含方式檢查它們的 `_etag` 值。 如果偵測到任何衝突，預存程序將會復原交易，並擲回例外狀況。 透過此方法，在預存程序內的所有寫入都會自動套用，或全部不會自動套用。 這是應用程式重新套用更新並重試原始用戶端要求的信號。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/03/2018
-ms.openlocfilehash: 5046b1012e0074e9548cad050c16eef25c00cee0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2b11d74436907380811acda3b7427ebe8011afb4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845190"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061018"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>透過整合服務環境 (ISE) 從 Azure Logic Apps 存取 Azure 虛擬網路資源
 
@@ -33,7 +33,7 @@ ms.locfileid: "52845190"
 
 ## <a name="isolated-versus-global"></a>隔離式與全域
 
-當您在 Azure 中建立整合服務環境 (ISE) 時，您可選取 Azure 虛擬網路作為您的「插入」環境。 Azure 會在您的虛擬網路中部署 Logic Apps 服務的私人執行個體。 這個動作會建立一個隔離式環境，您可以在其中建立邏輯應用程式並在專用資源上執行。 當您建立邏輯應用程式時，您可選取此環境作為您的應用程式位置，讓邏輯應用程式可直接存取您虛擬網路中的資源。 
+當您在 Azure 中建立整合服務環境 (ISE) 時，您可選取 Azure 虛擬網路來「插入」。 Azure 會在您的虛擬網路中部署 Logic Apps 服務的私人執行個體。 這個動作會建立一個隔離式環境，您可以在其中建立邏輯應用程式並在專用資源上執行。 當您建立邏輯應用程式時，您可選取此環境作為您的應用程式位置，讓邏輯應用程式可直接存取您虛擬網路中的資源。 
 
 ISE 中的 Logic Apps 提供與全域 Logic Apps 服務相同的使用者體驗及相似功能。 您不僅可以在全域 Logic Apps 服務中使用相同的內建動作和連接器，也可以使用 ISE 專用連接器。 例如，以下為一些標準連接器，提供在 ISE 中執行的版本：
  

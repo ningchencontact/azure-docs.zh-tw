@@ -1,25 +1,24 @@
 ---
 title: 調整 Azure Cosmos DB 的輸送量
 description: 此文章說明 Azure Cosmos DB 如何彈性調整輸送量
-services: cosmos-db
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 7e3f6d053e9466f07e15b0c2c1092fece76c98a4
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: c5e4720a6b830158581d17bbdcb9aba49e13183b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160659"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064486"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>調整 Azure Cosmos DB 的輸送量
 
 在 Azure Cosmos DB 中，佈建的輸送量會以要求單位/秒 (RU/秒) 來表示。 RU 會根據您的 Cosmos 容器來衡量讀取與寫入作業的成本，如下圖所示：
 
-![要求單位](./media/scale-throughput/figure1.png)
+![要求單位](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
 您可以在 Cosmos 容器或 Cosmos 資料庫上佈建 RU。 佈建於容器上的 RU 僅適用於在該容器上執行的作業。 佈建於資料庫上的 RU 會在該資料庫內的所有容器之間共用 (但任何具有以獨佔方式指派之 RU 的容器除外)。
 

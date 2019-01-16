@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: bf16c0fbc7090bf9b548796765502cde1731aef9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a3d6cb745c782d2a7166208f2a8dd1202a330b15
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669705"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050484"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>將資料移至 vFXT 叢集 - 平行資料擷取 
 
@@ -167,7 +167,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ### <a name="create-file-manifests"></a>建立檔案資訊清單
 
-了解上述方法 (每個目的地多個複製執行緒、每個用戶端多個目的地、每個可透過網路存取之來源檔案系統多個用戶端) 之後，請考慮這項建議：建置檔案資訊清單，然後跨多個用戶端將它們與複製命令搭配使用。
+了解上述方法 (每個目的地多個複製執行緒、每個用戶端多個目的地、每個可透過網路存取之來源檔案系統多個用戶端) 之後，請考慮這項建議：建置檔案資訊清單，然後跨多個用戶端將其與複製命令搭配使用。
 
 此案例會使用 UNIX ``find`` 命令來建立檔案或目錄的資訊清單：
 
@@ -272,7 +272,7 @@ for i in 1 2 3 4 5 6; do for j in $(cat /tmp/client${i}); do echo "cp -p -R /mnt
 1. 安裝 msrsync 及其先決條件 (rsync 和 Python 2.6 或更新版本)
 1. 決定要複製的檔案和目錄總數。
 
-   例如，使用 Avere 公用程式 ``prime.py`` 搭配引數 ```prime.py --directory /path/to/some/directory``` (可藉由下載下列 URL 來取得： https://raw.githubusercontent.com/Azure/Avere/master/src/dataingestor/prime.py)。
+   例如，使用 Avere 公用程式 ``prime.py`` 搭配引數 ```prime.py --directory /path/to/some/directory``` (可藉由下載下列 URL 來取得： https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py)。
 
    如果不使用 ``prime.py``，您可以依照以下方式，使用 Gnu ``find`` 工具來計算項目數：
 

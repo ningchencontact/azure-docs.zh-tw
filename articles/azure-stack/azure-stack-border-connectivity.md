@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 39edcb97f062693d11fd5c0ce332c206ebd4b54a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 12219e2df875d317aece73cabebdfb55115f7b41
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343548"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021079"
 ---
 # <a name="border-connectivity"></a>界限連線能力 
 網路整合規劃是成功的 Azure Stack 整合式系統部署、作業及管理的重要先決條件。 邊界連線能力規劃是從選擇是否要搭配邊界閘道協定 (BGP) 使用動態路由開始。 這需要指派 16 位元 BGP 自治號碼 (公用或私人)，或使用靜態路由，這會為邊界裝置指派一個靜態預設路由。
@@ -29,9 +29,9 @@ ms.locfileid: "43343548"
 > Top-of-Rack (TOR) 交換器需要實體介面上已設定具有點對點 IP (/30 網路) 的第 3 層上行連結。 支援 Azure Stack 作業的 TOR 交換器不支援搭配使用第 2 層上行連結。 
 
 ## <a name="bgp-routing"></a>BGP 路由
-使用動態路由通訊協定 (例如 BGP) 可保證系統一律能夠察覺網路變更，而有助於系統管理。 
+使用動態路由通訊協定 (例如 BGP) 可保證系統一律能夠察覺網路變更，而有助於系統管理。 為了增強安全性，可以在 TOR 與邊界之間的 BGP 對等互連上設定密碼。 
 
-如下圖所示，在 TOR 交換器上會使用首碼清單來限制公告私人 IP 空間。 首碼清單會定義私人 IP 子網路，並在 TOR 與邊界之間的連線上套用該子網路作為路由對應。
+如下圖所示，在 TOR 交換器上會使用首碼清單來阻止公告私人 IP 空間。 首碼清單會拒絕私人網路的公告，並在 TOR 與邊界之間的連線上套用為路由對應。
 
 在 Azure Stack 解決方案內執行的「軟體負載平衡器」(SLB) 會與 TOR 裝置對等互連，因此可以動態公告 VIP 位址。
 

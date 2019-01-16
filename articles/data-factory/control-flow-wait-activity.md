@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 74a5d687535915fab7d518faaf916b98ab262c4b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 731df55a11f4671670a65dac8a83927d81da454c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053893"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015792"
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Wait 活動
 在管線中使用 Wait (等待) 活動時，管線便會等待一段指定的時間，然後再繼續執行後續的活動。 
@@ -40,9 +39,9 @@ ms.locfileid: "37053893"
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-name | `Wait` 活動的名稱。 | 字串 | yes
-type | 必須設為 **Wait**。 | 字串 | yes
-waitTimeInSeconds | 管線繼續進行處理之前所等待的秒數。 | 整數  | yes
+name | `Wait` 活動的名稱。 | 字串 | 是
+type | 必須設為 **Wait**。 | 字串 | 是
+waitTimeInSeconds | 管線繼續進行處理之前所等待的秒數。 | 整數  | 是
 
 ## <a name="example"></a>範例
 
@@ -50,7 +49,7 @@ waitTimeInSeconds | 管線繼續進行處理之前所等待的秒數。 | 整數
 > 本節提供 JSON 定義和 PowerShell 命令範例，以供執行管線。 針對使用 Azure PowerShell 和 JSON 定義來建立 Data Factory 管線，如需包含逐步指示的逐步解說，請參閱[教學課程：使用 Azure PowerShell 來建立資料處理站](quickstart-create-data-factory-powershell.md)。
 
 ### <a name="pipeline-with-wait-activity"></a>具有 Wait 活動的管線
-在此範例中，管線有兩個活動：**Until** 與 **Wait**。 Wait (等待) 活動設定為等待一秒鐘。 管線是在迴圈中執行 Wait (等待) 活動，每次執行之間會等待一秒鐘。 
+在此範例中，管理有兩個活動：**Until** 和 **Wait**。 Wait (等待) 活動設定為等待一秒鐘。 管線是在迴圈中執行 Wait (等待) 活動，每次執行之間會等待一秒鐘。 
 
 ```json
 {

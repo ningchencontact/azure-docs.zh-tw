@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/21/2018
+ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 0231eaad26fbc3e7157999c0023c5001f37d70d5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291210"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063278"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>在 PIM 中設定 Azure AD 目錄角色的安全性警示
 
@@ -69,7 +69,7 @@ ms.locfileid: "52291210"
 | | |
 | --- | --- |
 | **嚴重性** | 中 |
-| **為什麼會收到此警示？** | 最近未變更密碼的帳戶可能是未受到維護的服務或共用帳戶。 這些特殊權限角色中的帳戶容易成為攻擊者的目標。 |
+| **為什麼會收到此警示？** | 特殊權限中的角色在過去 90 天內未變更其帳戶密碼。 這些帳戶可能是未受到維護且容易遭到攻擊的服務或共用帳戶。 |
 | **如何修正？** | 檢閱清單中的帳戶。 如果他們不再需要存取，請將它們從其特殊權限角色中移除。 |
 | **預護** | 確定共用帳戶會在知道密碼的使用者有所變更時，輪替使用強式密碼。 </br>使用[存取權檢閱](pim-how-to-start-security-review.md)功能定期檢閱具備特殊權限角色的帳戶，並移除不再需要的角色指派。 |
 | **入口網站內風險降低措施** | 從其特殊權限角色中移除帳戶。 |

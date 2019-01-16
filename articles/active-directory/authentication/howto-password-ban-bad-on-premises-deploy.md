@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5774af4e0550ceb7a51e399fcab203a503a7f23f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011488"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033599"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>預覽：部署 Azure AD 密碼保護
 
@@ -86,6 +86,9 @@ Azure AD 密碼保護有兩個可從 [Microsoft 下載](https://www.microsoft.co
 2. 使用 AzureADPasswordProtectionProxy.msi MSI 套件來安裝「密碼原則 Proxy 服務」軟體。
    * 軟體安裝並不需要重新開機。 您可以使用標準 MSI 程序來自動執行軟體安裝，例如：`msiexec.exe /i AzureADPasswordProtectionProxy.msi /quiet /qn`
 
+      > [!NOTE]
+      > 安裝 AzureADPasswordProtectionProxy.msi MSI 套件之前，Windows 防火牆服務必須正在執行，否則會發生安裝錯誤。 如果 Windows 防火牆設定為不執行，則因應措施是在安裝過程中暫時啟用並啟動 Windows 防火牆服務。 安裝後，Proxy 軟體對 Windows 防火牆軟體沒有特定相依性。 如果您使用第三方防火牆，仍必須加以設定來滿足部署需求 (允許對連接埠 135 和動態或靜態 Proxy RPC 伺服器連接埠的輸入存取)。 [請參閱部署需求](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements)
+
 3. 以系統管理員身分開啟 PowerShell 視窗。
    * Azure AD 密碼保護 Proxy 軟體包含一個名為 AzureADPasswordProtection 的新 PowerShell 模組。 下列步驟就是以從這個 PowerShell 模組執行各種 Cmdlet 為基礎，並假設您已開啟一個新的 PowerShell 視窗，而且已依下列方式匯入新的模組：
       * `Import-Module AzureADPasswordProtection`
@@ -142,7 +145,7 @@ Azure AD 密碼保護有兩個可從 [Microsoft 下載](https://www.microsoft.co
    > [!NOTE]
    > 為了讓 `Register-AzureADPasswordProtectionForest` 可成功執行，Proxy 伺服器的網域中至少要有一個 Windows Server 2012 或更新版本的網域控制站可用。 不過，在此步驟之前，不需要在任何網域控制站上安裝 DC 代理程式軟體。
 
-6. 選擇性：將 Azure AD 密碼保護 Proxy 服務設定成在特定連接埠上進行接聽。
+6. 選用：將 Azure AD 密碼保護 Proxy 服務設定成在特定連接埠上進行接聽。
    * 網域控制站上的 Azure AD 密碼保護 DC 代理程式軟體會使用「透過 TCP 的 RPC」與 Azure AD 密碼保護 Proxy 服務進行通訊。 Azure AD 密碼保護密碼原則 Proxy 服務預設會在任何可用的動態 RPC 端點上進行接聽。 因網路拓撲或防火牆需求而有必要時，可以改為將服務設定為在特定的 TCP 連接埠上進行接聽。
       * 若要將服務設定成在靜態連接埠下執行，請使用 `Set-AzureADPasswordProtectionProxyConfiguration` Cmdlet。
          ```

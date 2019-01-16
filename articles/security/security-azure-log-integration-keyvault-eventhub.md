@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: b91d405b8ada1446a477dc10a116b5dfdf349131
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b03c3627d476ec83fda402545c7a7d73346385f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440041"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063908"
 ---
-# <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 記錄整合教學課程：使用事件中樞處理Azure Key Vault 事件
+# <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 記錄整合教學課程：使用事件中樞處理 Azure Key Vault 事件
 
 >[!IMPORTANT]
 > Azure 記錄整合功能將於 2019/06/01 淘汰。 AzLog 下載將於 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
 
 您可以使用 Azure 記錄整合擷取記錄的事件，並將其提供給安全性資訊和事件管理 (SIEM) 系統。 本教學課程示範如何使用 Azure 記錄整合，來處理透過 Azure 事件中樞所取得的記錄。
 
-整合 Azure 記錄檔的慣用方法是使用 SIEM 廠商的 Azure 監視器連接器，並遵循這些[指示](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)。 不過，如果您的 SIEM 廠商沒有提供 Azure 監視器連接器，在這類連接器可供使用之前，您可以使用 Azure 記錄整合作為暫時解決方案 (如果 Azure 記錄整合支援您的 SIEM)。
+整合 Azure 記錄檔的慣用方法是使用 SIEM 廠商的 Azure 監視器連接器，並遵循這些[指示](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。 不過，如果您的 SIEM 廠商沒有提供 Azure 監視器連接器，在這類連接器可供使用之前，您可以使用 Azure 記錄整合作為暫時解決方案 (如果 Azure 記錄整合支援您的 SIEM)。
 
  
 您可以使用本教學課程來熟悉 Azure 記錄整合如何與事件中樞搭配運作。請遵循範例步驟，並了解每個步驟如何支援解決方案。 然後您可以利用這裡學到的內容來建立自己的步驟，以支援您公司的獨特需求。
@@ -80,7 +80,7 @@ ms.locfileid: "39440041"
 ## <a name="create-supporting-infrastructure-elements"></a>建立支援基礎結構元素
 
 1. 開啟提升權限的 PowerShell 視窗並移至 **C:\Program Files\Microsoft Azure Log Integration**。
-1. 透過執行指令碼 LoadAzLogModule.ps1，匯入 AzLog Cmdlet。 輸入 `.\LoadAzLogModule.ps1` 命令 (請注意該命令中的 “.\”)。您應該會看到如下的結果：</br>
+1. 透過執行指令碼 LoadAzLogModule.ps1，匯入 AzLog Cmdlet。 輸入 `.\LoadAzLogModule.ps1` 命令 (請注意該命令中的 ".\")。您應該會看到如下的結果：</br>
 
    ![載入的模組清單](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "39440041"
 
    ![PowerShell 視窗](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. 建立變數來儲存稍後將使用的值。 逐行下列每一行 PowerShell。 您可能需要調整該值以符合您的環境。
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (您的訂用帳戶名稱可能會不同。 您可以看到其顯示為先前命令輸出的一部分。)
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (您的訂用帳戶名稱可能會不同。 您可以看到其顯示為先前命令輸出的一部分。)
     - ```$location = 'West US'``` (此變數會用於傳遞應該建立資源的位置。 您可以將此變數變更為您所選擇的任何位置。)
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random``` (名稱可以是任何項目，但必須只包含小寫字母和數字。)
@@ -129,7 +129,7 @@ ms.locfileid: "39440041"
     
     ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
-    如需有關 Azure 記錄設定檔的詳細資訊，請參閱 [Azure 活動記錄概觀](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。
+    如需有關 Azure 記錄設定檔的詳細資訊，請參閱 [Azure 活動記錄概觀](../azure-monitor/platform/activity-logs-overview.md)。
 
 > [!NOTE]
 > 嘗試建立記錄設定檔時，您可能會收到錯誤訊息。 然後您可以檢閱 Get-AzureRmLogProfile 和 Remove-AzureRmLogProfile 的文件。 如果您執行 Get-AzureRmLogProfile，則會看到有關記錄設定檔的資訊。 您可以透過輸入 ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` 命令，刪除現有記錄設定檔。

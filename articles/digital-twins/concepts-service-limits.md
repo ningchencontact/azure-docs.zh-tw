@@ -1,19 +1,19 @@
 ---
 title: Azure Digital Twins 公開預覽服務限制 | Microsoft Docs
-description: 了解 Azure Digital Twins 公開預覽服務限制
+description: 了解 Azure Digital Twins 公開預覽服務限制。
 author: dwalthermsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 86ae75118dd1311ea2ae92fb718fe4c58b8e5673
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1e7b6ed7c401bed741142dfc02efc7990cf67f6e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961750"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118807"
 ---
 # <a name="public-preview-service-limits"></a>公開預覽服務限制
 
@@ -35,21 +35,25 @@ ms.locfileid: "50961750"
 
 接著，每個 Azure Digital Twins 執行個體可以有：
 
-- 一個 **IoTHub** 資源。
-- 一個事件類型為 **DeviceMessage** 的 **EventHub** 端點。
+- 僅一個 **IoTHub** 資源。
+- 僅一個事件類型為 **DeviceMessage** 的 **EventHub** 端點。
 - 最多三個事件類型為 **SensorChange**、**SpaceChange**、**TopologyOperation** 或 **UdfCustom** 的 **EventHub**、**ServiceBus** 或 **EventGrid** 端點。
 
-## <a name="management-api-limits"></a>管理 API 限制
+> [!NOTE]
+> 在建立上述 Azure IoT 實體時，通常會定義一些參數，但在公開預覽期間則不需要。
+> - 請參閱 [Swagger 參考文件](./how-to-use-swagger.md)，以取得最新的 API 規格。
 
-管理 API 的要求比率限制如下：
+## <a name="azure-digital-twins-management-api-limits"></a>Azure Digital Twins 管理 API 限制
 
-- 每秒可對管理 API 發出 100 個要求。
-- 單一管理 API 查詢最多會傳回 1,000 個物件。 
+Azure Digital Twins 管理 API 的要求比率限制如下：
+
+- 每秒可對 Azure Digital Twins 管理 API 發出 100 個要求。
+- 單一 Azure Digital Twins 管理 API 查詢最多會傳回 1,000 個物件。
 
 > [!IMPORTANT]
 > 如果超過 1,000 個物件的限制，您就會收到錯誤，而且必須簡化您的查詢。
 
-## <a name="udf-rate-limits"></a>UDF 比率限制
+## <a name="user-defined-functions-rate-limits"></a>使用者定義函式的比率限制
 
 對於可對您 Azure Digital Twins 執行個體發出的所有使用者定義函式呼叫總數，其限制如下：
 
@@ -59,7 +63,7 @@ ms.locfileid: "50961750"
 > [!NOTE]
 > 下列動作可能會產生要暫時套用的額外比率限制：
 > - 對拓撲物件中繼資料所做的編輯
-> - 對 UDF 定義所做的更新
+> - 對使用者定義函式定義所做的更新
 > - 第一次傳送遙測資料的裝置
 
 ## <a name="device-telemetry-limits"></a>裝置遙測限制
@@ -70,4 +74,4 @@ ms.locfileid: "50961750"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要試用 Azure Digital Twins 的範例，請移至[尋找可用會議室的快速入門](./quickstart-view-occupancy-dotnet.md)。
+- 若要試用 Azure Digital Twins 的範例，請移至[尋找可用會議室的快速入門](./quickstart-view-occupancy-dotnet.md)。

@@ -12,21 +12,21 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 2afbea68c017805e9bd7db43b03face0705608b7
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6bb3215e63e2fc672cde5746e6a9867df899ee88
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42358742"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016693"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>安裝 Visual Studio 並連線至 Azure Stack
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-您可以使用 Visual Studio 在 Azure Stack 中撰寫和部署 Azure Resource Manager [範本](azure-stack-arm-templates.md)。 本文中的步驟會逐步引導您在 [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) 上安裝 Visual Studio，或是在外部電腦上安裝 (如果您計劃透過 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 連線至 Azure Stack)。
+您可以使用 Visual Studio 在 Azure Stack 中撰寫和部署 Azure Resource Manager [範本](azure-stack-arm-templates.md)。 本文中的步驟會逐步引導您在 [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) 上安裝 Visual Studio，或是在外部電腦上安裝 (如果您打算透過 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 使用 Azure Stack)。
 
 ## <a name="install-visual-studio"></a>安裝 Visual Studio
 
@@ -72,22 +72,23 @@ ms.locfileid: "42358742"
 
 5. 選取 [新增] 。  
 
-    Visual Studio 會呼叫 Azure Resource Manager 並探索端點 (包括 Active Directory Federation Services (AD FS) 的驗證端點)。
+    Visual Studio 會呼叫 Azure Resource Manager 並探索端點，包括 Active Directory Federation Services (AD FS) 的驗證端點。
 
     ![登入 Cloud Explorer 後並連接到 Azure Stack 的螢幕擷取畫面](./media/azure-stack-install-visual-studio/image6.png)
 
 6. 從 [檢視] 功能表選取 [Cloud Explorer]。
-7. 選取 [新增帳戶] 並使用 AD FS 認證來登入。  
 
-    ![X](./media/azure-stack-install-visual-studio/image7.png)
+1. 選取 [新增帳戶] 並使用 AD FS 認證來登入。  
+
+    ![雲端總管](./media/azure-stack-install-visual-studio/image7.png)
 
     Cloud Explorer 會查詢可用訂用帳戶。 您可以選取其中一個可用訂用帳戶來進行管理。
 
-    ![X](./media/azure-stack-install-visual-studio/image8.png)
+    ![雲端總管](./media/azure-stack-install-visual-studio/image8.png)
 
 8. 瀏覽您現有的資源、資源群組，或部署範本。
 
 ## <a name="next-steps"></a>後續步驟
 
- - 深入了解關於其他 Visual Studio 版本的[共存](https://msdn.microsoft.com/library/ms246609.aspx)。
- - [開發適用於 Azure Stack 的範本](azure-stack-develop-templates.md)
+ - 深入了解 Visual Studio 與其他 Visual Studio 版本的[共存](https://msdn.microsoft.com/library/ms246609.aspx)。
+ - [開發適用於 Azure Stack 的範本](azure-stack-develop-templates.md)。

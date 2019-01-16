@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: John.Haskin
-ms.openlocfilehash: fc2659fb9bbe043a61f1ad49bb4290b7ccf834f8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 245826e816f77db3394d1fc3858246ec5d1d605a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422009"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102001"
 ---
 # <a name="create-an-oem-package"></a>建立 OEM 套件
 
@@ -28,7 +28,7 @@ ms.locfileid: "52422009"
 
 ## <a name="creating-the-package"></a>建立套件
 
-OEM 延伸模組套件在建立並通過驗證之後，便可在 VaaS 中使用。  在繼續進行之前，請確定您已完成[建立 OEM 套件](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true)的步驟。 接著會將此套件連同 VaaS 測試結果一起提交給 Microsoft，以供在「套件驗證」工作流程中簽署。 下列步驟會詳細說明如何將所產生的檔案組成 VaaS 能夠取用的單一 ZIP 檔案。
+OEM 延伸模組套件在建立並通過驗證之後，便可在 VaaS 中使用。  在繼續進行之前，請確定您已完成[建立 OEM 套件](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true)的步驟。 接著會將此套件連同 VaaS 測試結果一起提交給 Microsoft，以在「解決方案驗證」工作流程中進行簽署。 下列步驟會詳細說明如何將所產生的檔案組成 VaaS 能夠取用的單一 ZIP 檔案。
 
 1. 識別下列用於套件的內容：
     - 一個名為 `<Publisher>-<Model>-<Version>.exe` 的可執行檔
@@ -49,7 +49,7 @@ OEM 延伸模組套件在建立並通過驗證之後，便可在 VaaS 中使用�
 
 ![以正確方式壓縮的套件內容](media/vaas-create-oem-package-3.png)
 
-ZIP 檔案現在已可上傳到 VaaS，並由 Microsoft 在「套件驗證」工作流程中簽署。
+ZIP 檔案現在已可上傳到 VaaS，並由 Microsoft 在「解決方案驗證」工作流程中簽署。
 
 ## <a name="next-steps"></a>後續步驟
 

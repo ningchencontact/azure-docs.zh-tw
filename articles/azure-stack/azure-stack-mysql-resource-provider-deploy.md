@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 01/09/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: da88be76d01b246e273739566d629348895b68b6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: georgel
+ms.openlocfilehash: c7b002a0730e94e9507aed273b9be4fe35de5bf0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971992"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159395"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 MySQL 資源提供者
 
@@ -45,6 +45,7 @@ ms.locfileid: "52971992"
 
   |最低 Azure Stack 版本|MySQL RP 版本|
   |-----|-----|
+  |1808 版 (1.1808.0.97)|[MySQL RP 1.1.33.0 版](https://aka.ms/azurestackmysqlrp11330)|  
   |1808 版 (1.1808.0.97)|[MySQL RP 1.1.30.0 版](https://aka.ms/azurestackmysqlrp11300)|
   |1804 版 (1.0.180513.1)|[MySQL RP 1.1.24.0 版](https://aka.ms/azurestackmysqlrp11240)
   |     |     |
@@ -97,7 +98,7 @@ _僅適用於整合式系統安裝_。 您必須提供 [Azure Stack 部署 PKI �
 | **RetryDuration** | 重試之間的逾時間隔 (秒)。 | 120 |
 | **解除安裝** | 移除資源提供者和所有關聯的資源 (請參閱下面的附註)。 | 否 |
 | **DebugMode** | 防止在失敗時自動清除。 | 否 |
-| **AcceptLicense** | 略過接受 GPL 授權的提示。  <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
+| **AcceptLicense** | 略過接受 GPL 授權的提示。  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>使用自訂指令碼來部署 MySQL 資源提供者
 

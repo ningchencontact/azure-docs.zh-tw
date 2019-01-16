@@ -5,17 +5,17 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
+ms.component: performance
 ms.topic: how-to
-ms.component: monitor and tune
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cf2fcb2ce99d4c6c670e5afdb1c4208158ea4de
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2a0504ae0e5c3dbf70ad84526176beae52f55870
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095955"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103121"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>如何監視 Gen2 快取
 在針對 Gen2 資料倉儲所設計的 NVMe 型 SSD 上，Gen2 儲存體架構會自動在位於其中的快取內將最常查詢的資料行存放區區段分層。 當查詢擷取位於快取中的區段時，將可獲得更好的效能。 本文說明如何藉由判斷工作負載是否有充分利用 Gen2 快取，來監視緩慢的查詢效能並加以疑難排解。  
@@ -41,13 +41,13 @@ ms.locfileid: "44095955"
 
 **案例 1：** 您充分使用快取。 針對其他可能會拖慢查詢速度的領域進行[疑難排解](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)。
 
-**案例 2：** 您目前的工作資料集不適合該快取，導致由於實體讀取次數的關係而產生低快取命中百分比。 請考慮相應增加效能層級，然後重新執行工作負載來填入快取。
+**案例 2：** 您目前的工作資料集不適用於快取，導致快取命中百分比因實體讀取次數而偏低。 請考慮相應增加效能層級，然後重新執行工作負載來填入快取。
 
-**案例 3：** 查詢可能是因為與快取無關的理由而導致執行速度緩慢。 針對其他可能會拖慢查詢速度的領域進行[疑難排解](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)。 您也可以考慮[相應減少執行個體](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)來降低快取大小，以節省成本。 
+**案例 3：** 查詢可能因為與快取無關的原因而執行緩慢。 針對其他可能會拖慢查詢速度的領域進行[疑難排解](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)。 您也可以考慮[相應減少執行個體](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)來降低快取大小，以節省成本。 
 
-**案例 4：** 您擁有冷快取，這可能是查詢速度緩慢的理由。 工作資料集現在應該已完成快取，所以請考慮重新執行查詢。 
+**案例 4：** 您的冷快取可能是查詢速度緩慢的原因。 工作資料集現在應該已完成快取，所以請考慮重新執行查詢。 
 
-**重要事項：如果快取命中百分比或已用快取百分比未在重新執行工作負載後更新，表示工作集可能已經位於記憶體中。請注意只有叢集化的資料行存放區資料表才會進行快取。**
+**重要事項：如果快取命中百分比或快取使用百分比未在重新執行工作負載後更新，表示工作集可能已位於記憶體中。請注意只有叢集化的資料行存放區資料表才會進行快取。**
 
 ## <a name="next-steps"></a>後續步驟
 如需一般查詢效能微調的詳細資訊，請參閱[監視查詢的執行](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-query-execution)。

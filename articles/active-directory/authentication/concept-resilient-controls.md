@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: b6640e4ef9751e235c0310b0d725cd7e27ff2b40
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: caabc5a396c015b806778bfc5887b0708897101e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745525"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101916"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>使用 Azure Active Directory 來建立具彈性的存取控制管理策略
 
@@ -80,7 +80,7 @@ ms.locfileid: "53745525"
   * 使用者和群組：包含所有使用者。 排除 AppAccess、CoreAdmins 及 EmergencyAccess
   * 雲端應用程式：包含所有應用程式
   * 條件：(無)
-  * 授與控制權：封鎖
+  * 授與控制權：區塊
 * 原則 2：對要求 MFA 或受信任裝置的 AppUsers 授與存取權。
   * 使用者和群組：包含 AppUsers。 排除 CoreAdmins 和 EmergencyAccess
   * 雲端應用程式：包含所有應用程式
@@ -134,19 +134,19 @@ ms.locfileid: "53745525"
   * 使用者和群組：包含所有使用者。 排除 CoreAdmins 和 EmergencyAccess
   * 雲端應用程式：Exchange Online 和 SharePoint Online
   * 條件：裝置平台包含所有平台，但 Windows 除外
-  * 授與控制權：封鎖
+  * 授與控制權：區塊
   * 狀態：已停用
 * 原則 3：封鎖 CorpNetwork 以外的網路
   * 使用者和群組：包含所有使用者。 排除 CoreAdmins 和 EmergencyAccess
   * 雲端應用程式：Exchange Online 和 SharePoint Online
   * 條件：位置包含任何位置，但 CorpNetwork 除外
-  * 授與控制權：封鎖
+  * 授與控制權：區塊
   * 狀態：已停用
 * 原則 4：明確封鎖 EAS
   * 使用者和群組：包含所有使用者
   * 雲端應用程式：包含 Exchange Online
   * 條件：用戶端應用程式：Exchange Active Sync
-  * 授與控制權：封鎖
+  * 授與控制權：區塊
   * 狀態：已停用
 
 啟用順序：
@@ -166,7 +166,7 @@ ms.locfileid: "53745525"
   * 使用者和群組：包含所有使用者。 排除 SalesAdmins 和 SalesforceContingency
   * 雲端應用程式：Salesforce。
   * 條件：None
-  * 授與控制權：封鎖
+  * 授與控制權：區塊
   * 狀態：已停用
 * 原則 2：封鎖來自行動平台以外任何平台的銷售小組 (以縮小受攻擊面區域)
   * 使用者和群組：包含 SalesforceContingency。 排除 SalesAdmins
@@ -230,7 +230,7 @@ ms.locfileid: "53745525"
 如果組織使用個別使用者 MFA 舊版原則，則您可以考慮使用下列替代方案：
 
 1. 如果您有公司網路連出 IP 位址，您可以將它們新增為受信任的 IP，以只針對公司網路啟用驗證。
- 2. 如果您沒有連出 IP 位址的清查，或是必須啟用公司網路內部及外部的存取權，則可以將整個 IPv4 位址空間 (採用 CIDR 標記法，例如 192.168.1.1/24) 新增為受信任的 IP。
+ 2. 如果您沒有輸出 IP 位址的目錄，或是必須啟用公司網路內部及外部的存取權，您可以透過指定 0.0.0.0/1 與 128.0.0.0/1，將整個 IPv4 位址空間新增為受信任的 IP。
 
 >[!IMPORTANT]
  > 如果您擴大受信任的 IP 位址範圍以將存取解除封鎖，系統就不會產生與 IP 位址關聯的風險事件 (例如，不可能的移動或不熟悉的位置)。

@@ -13,12 +13,12 @@ ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 6cf3e9a9b767dfaa6f04d151864f64123e3d6ae7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0d3f417b5a169b3d8d91d85b5f47496064c8f5f3
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077447"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063347"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 入口網站指派或移除授權
 許多 Azure Active Directory (Azure AD) 服務會要求您啟用 Azure AD 產品，以及授權該產品的每個使用者或群組 (和相關聯的成員)。 只有擁有有效授權的使用者才能存取和使用授權 Azure AD 服務。
@@ -57,7 +57,8 @@ Azure AD 產品有數個可用版本。
 ## <a name="assign-licenses-to-users-or-groups"></a>指派授權給使用者或群組
 請確定需要授權 Azure AD 服務的所有人都擁有適當的授權。 要將授權的權限提供給個別使用者還是整個群組取決於您。
 
->![Note] 群組型授權是 Azure AD 的公用預覽版功能，可與任何付費 Azure AD 授權方案搭配使用。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。<br><br>如需如何新增使用者的詳細資訊，請參閱[如何新增或刪除 Azure Active Directory 中的使用者](add-users-azure-active-directory.md)。 如需如何建立群組並新增成員的詳細資訊，請參閱[建立基本群組並新增成員](active-directory-groups-create-azure-portal.md)。
+>[!Note]
+>群組型授權是 Azure AD 的公用預覽版功能，可與任何付費 Azure AD 授權方案搭配使用。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。<br><br>如需如何新增使用者的詳細資訊，請參閱[如何新增或刪除 Azure Active Directory 中的使用者](add-users-azure-active-directory.md)。 如需如何建立群組並新增成員的詳細資訊，請參閱[建立基本群組並新增成員](active-directory-groups-create-azure-portal.md)。
 
 ### <a name="to-assign-a-license-to-a-specific-user"></a>若要將授權指派給特定使用者
 1. 在 [產品] 頁面上，選取您想要指派給使用者的版本名稱。 例如 _Azure Active Directory Premium Plan 2_。

@@ -1,22 +1,23 @@
 ---
-title: Azure 安全性群組概觀 | Microsoft Docs
+title: Azure 安全性群組概觀
+titlesuffix: Azure Virtual Network
 description: 了解網路和應用程式安全性群組。 安全性群組可協助您篩選 Azure 資源之間的網路流量。
 services: virtual-network
 documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: ad5205bcf063cd3375e68ef609c71ced2f551b61
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 52cac856fbec79842cc4661f38342cb972ea40df
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311757"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159055"
 ---
 # <a name="security-groups"></a>安全性群組
 <a name="network-security-groups"></a>
@@ -70,15 +71,18 @@ ms.locfileid: "53311757"
 * **MicrosoftContainerRegistry** (僅限 Resource Manager)：此標記代表 Microsoft Container Registry 服務的位址前置詞。 如果您指定 MicrosoftContainerRegistry 作為值，就會允許或拒絕 MicrosoftContainerRegistry 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 MicrosoftContainerRegistry，您可以用 MicrosoftContainerRegistry.[region name] 的格式指定區域。 
 * **AzureContainerRegistry** (僅限 Resource Manager)：此標記代表 Azure Container Registry 服務的位址前置詞。 如果您指定 AzureContainerRegistry 作為值，就會允許或拒絕 AzureContainerRegistry 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureContainerRegistry，您可以用 AzureContainerRegistry.[region name] 的格式指定區域。 
 * **AppService** (僅限 Resource Manager)：此標記代表 Azure AppService 服務的位址前置詞。 如果您指定 AppService 作為值，就會允許或拒絕 AppService 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AppService，您可以用 AppService.[region name] 的格式指定區域。 
-* **AppServiceManagement** (僅限 Resource Manager)：此標記代表 Azure AppService Management 服務的位址前置詞。 如果您指定 AppServiceManagement 作為值，就會允許或拒絕 AppServiceManagement 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AppServiceManagement，您可以用 AppServiceManagement.[region name] 的格式指定區域。 
-* **ApiManagement** (僅限 Resource Manager)：此標記代表 Azure API Management 服務的位址前置詞。 如果您指定 ApiManagement 作為值，就會允許或拒絕 ApiManagement 的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 ApiManagement，您可以用 ApiManagement.[region name] 的格式指定區域。 
+* **AppServiceManagement** (僅限 Resource Manager)：此標記代表 Azure AppService Management 服務的位址前置詞。 如果您指定 AppServiceManagement 作為值，就會允許或拒絕 AppServiceManagement 的流量。 
+* **ApiManagement** (僅限 Resource Manager)：此標記代表 Azure API Management 服務的位址前置詞。 如果您指定 ApiManagement 作為值，就會允許或拒絕 ApiManagement 的流量。  
 * **AzureConnectors** (僅限 Resource Manager)：此標記代表 Azure Connectors 服務的位址前置詞。 如果您指定 AzureConnectors 作為值，就會允許或拒絕 AzureConnectors 的流量。 如果您只要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureConnectors，您可以用 AzureConnectors.[region name] 的格式指定區域。 
-* **GatewayManager** (僅限 Resource Manager)：此標記代表 Azure Gateway Manager 服務的位址前置詞。 如果您指定 GatewayManager 作為值，就會允許或拒絕 GatewayManager 的流量。 如果您只要在特定[區域](https://azure.microsoft.com/regions)中允許存取 GatewayManager，您可以用 GatewayManager.[region name] 的格式指定區域。 
+* **GatewayManager** (僅限 Resource Manager)：此標記代表 Azure Gateway Manager 服務的位址前置詞。 如果您指定 GatewayManager 作為值，就會允許或拒絕 GatewayManager 的流量。  
 * **AzureDataLake** (僅限 Resource Manager)：此標記代表 Azure Data Lake 服務的位址前置詞。 如果您指定 AzureDataLake 作為值，就會允許或拒絕 AzureDataLake 的流量。 
 * **AzureActiveDirectory** (僅限 Resource Manager)：此標記代表 AzureActiveDirectory 服務的位址前置詞。 如果您指定 AzureActiveDirectory 作為值，就會允許或拒絕 AzureActiveDirectory 的流量。  
+* **AzureMonitor** (僅限 Resource Manager)：此標記代表 AzureMonitor 服務的位址前置詞。 如果您指定 AzureMonitor 作為值，就會允許或拒絕 AzureMonitor 的流量。 
+* **ServiceFabric** (僅限 Resource Manager)：此標記代表 ServiceFabric 服務的位址前置詞。 如果您指定 ServiceFabric 作為值，就會允許或拒絕 ServiceFabric 的流量。 
+* **AzureMachineLearning** (僅限 Resource Manager)：此標記代表 AzureMachineLearning 服務的位址前置詞。 如果您指定 AzureMachineLearning 作為值，就會允許或拒絕 AzureMachineLearning 的流量。 
 
 > [!NOTE]
-> Azure 服務的服務標記代表所使用之特定雲端中的位址前置詞。 區域服務標記在國家雲端中不受支援，只有全域格式可支援。 例如「儲存體」和「Sql」。
+> Azure 服務的服務標記代表所使用之特定雲端中的位址前置詞。 
 
 > [!NOTE]
 > 如果您對服務 (例如 Azure 儲存體或 Azure SQL Database) 實作[虛擬網路服務端點](virtual-network-service-endpoints-overview.md)，Azure 會將[路由](virtual-networks-udr-overview.md#optional-default-routes)新增至服務的虛擬網路子網路。 路由中的位址前置詞為相同的位址前置詞，或 CIDR 範圍，以及對應的服務標籤。

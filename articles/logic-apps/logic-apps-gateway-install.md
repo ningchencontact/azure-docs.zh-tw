@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420093"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065795"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -262,7 +262,7 @@ TcpTestSucceeded       : True
 
    否則，若要尋找用戶端位置，請在同一部電腦上開啟 [服務] 主控台，尋找 [內部部署資料閘道服務]，然後檢視 [可執行檔的路徑] 屬性。
 
-2. 開啟這個「組態」檔案：**Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+2. 開啟此「組態」檔：**Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. 將 **ServiceBusSystemConnectivityModeString** 值從 **AutoDetect** 變更為 **Https**：
 
@@ -276,10 +276,9 @@ TcpTestSucceeded       : True
 
 ## <a name="windows-service-account"></a>Windows 服務帳戶
 
-內部部署資料閘道會以名為「內部部署資料閘道服務」的 Windows 服務形式執行，但使用 "NT SERVICE\PBIEgwService" 作為其「登入身分」帳戶認證。 根據預設，內部部署資料閘道對於您安裝閘道的電腦擁有「以服務方式登入」權限。 若要在 Azure 入口網站中建立和維護閘道，Windows 服務帳戶必須至少具備**參與者**權限。 
+在安裝內部部署資料閘道的電腦上，閘道會以名為「內部部署資料閘道服務」的 Windows 服務帳戶來執行。 不過，閘道會在其「登入身分」帳戶認證上使用 "NT SERVICE\PBIEgwService" 名稱。 根據預設，閘道對於您安裝閘道的電腦擁有「以服務方式登入」權限。 用於閘道的 Windows 服務帳戶通常與用來連線至內部部署資料來源的帳戶不同，也與用來登入雲端服務的公司或學校帳戶不同。
 
-> [!NOTE]
-> Windows 服務帳戶與用來連線至內部部署資料來源的帳戶不同，也與用來登入雲端服務的公司或學校帳戶不同。
+您若要在 Azure 入口網站中建立和維護閘道，此 Windows 服務帳戶必須至少具備**參與者**權限。 若要檢查這些權限，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../role-based-access-control/role-assignments-portal.md)。 
 
 <a name="restart-gateway"></a>
 
@@ -329,54 +328,54 @@ TcpTestSucceeded       : True
 
 ### <a name="general"></a>一般
 
-**問**︰我在雲端中的資料來源 (例如 Azure SQL Database) 是否需要閘道？ <br/>
+**問**：我在雲端中的資料來源 (例如 Azure SQL Database) 是否需要閘道？ <br/>
 **答**：否，閘道只會連線至內部部署資料來源。
 
-**問**︰閘道必須安裝在與資料來源相同的電腦上嗎？ <br/>
+**問**：閘道必須安裝在與資料來源相同的電腦上嗎？ <br/>
 **答**：否，閘道會使用所提供的連線資訊來連線到資料來源。 在此請將閘道視為用戶端應用程式。 閘道只需要能夠連線到所提供的伺服器名稱。
 
 <a name="why-azure-work-school-account"></a>
 
-**問︰**︰為何必須使用公司或學校帳戶進行登入？ <br/>
-**答**︰安裝內部部署資料閘道時，您只能使用公司或學校帳戶。 登入帳戶會儲存在由 Azure Active Directory (Azure AD) 所管理的租用戶中。 Azure AD 帳戶的使用者主體名稱 (UPN) 通常會與電子郵件地址相符。
+**問**：為何必須使用公司或學校帳戶進行登入？ <br/>
+**答**：安裝內部部署資料閘道時，您只能使用公司或學校帳戶。 登入帳戶會儲存在由 Azure Active Directory (Azure AD) 所管理的租用戶中。 Azure AD 帳戶的使用者主體名稱 (UPN) 通常會與電子郵件地址相符。
 
-**問**︰我的認證儲存在哪裡？ <br/>
+**問**：我的認證儲存在哪裡？ <br/>
 **答**：您針對資料來源輸入的認證會以加密方式儲存在閘道雲端服務中。 認證會在內部部署資料閘道進行解密。
 
-**問**︰網路頻寬是否有任何需求？ <br/>
-**答**︰檢查您的網路連線有良好的輸送量。 每個環境都不同，但是傳送的資料量會影響結果。 若要保證內部部署資料來源與 Azure 資料中心之間有一定的輸送量等級，請嘗試 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)。 若要協助測量您的輸送量，請嘗試 Azure 速度測試之類的外部工具。
+**問**：網路頻寬是否有任何需求？ <br/>
+**答**：檢查您的網路連線有良好的輸送量。 每個環境都不同，但是傳送的資料量會影響結果。 若要保證內部部署資料來源與 Azure 資料中心之間有一定的輸送量等級，請嘗試 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)。 若要協助測量您的輸送量，請嘗試 Azure 速度測試之類的外部工具。
 
-**問**︰從閘道向資料來源執行查詢時的延遲為何？ 最佳的架構為何？ <br/>
+**問**：從閘道向資料來源執行查詢時的延遲為何？ 最佳的架構為何？ <br/>
 **答**：若要減少網路延遲，請盡可能靠近資料來源安裝閘道。 如果您可以在實際的資料來源上安裝閘道，此鄰近程度就能將所產生的延遲降到最低。 此外，請考慮 Azure 資料中心的鄰近程度。 例如，如果您的服務使用美國西部資料中心，而且在 Azure VM 中裝載了 SQL Server，則您會希望 Azure VM 也位於美國西部。 此鄰近程度能將延遲降到最低，並避免 Azure VM 的輸出費用。
 
-**問**︰結果如何傳送回雲端？ <br/>
-**答**︰結果會透過 Azure 服務匯流排傳送。
+**問**：結果如何傳送回雲端？ <br/>
+**答**：結果會透過 Azure 服務匯流排傳送。
 
-**問**︰是否有任何從雲端至閘道的輸入連線？ <br/>
-**答**︰否，閘道使用連至 Azure 服務匯流排的輸出連線。
+**問**：是否有任何從雲端至閘道的輸入連線？ <br/>
+**答**：否，閘道使用連至 Azure 服務匯流排的輸出連線。
 
-**問**︰如果我封鎖輸出連線會如何？ 我需要開啟什麼嗎？ <br/>
+**問**：如果我封鎖輸出連線會如何？ 我需要開啟什麼嗎？ <br/>
 **答**：查看閘道使用的連接埠和主機。
 
 **問**：實際的 Windows 服務名稱為何？ <br/>
 **答**：在工作管理員的 [服務] 索引標籤中，服務名稱為 "PBIEgwService" 或 Power BI Enterprise Gateway Service。 在 [服務] 主控台中，服務名稱為「內部部署資料閘道服務」。 Windows 服務會使用 "NT SERVICE\PBIEgwService" 作為服務 SID (SSID)。
 
-**問**︰閘道 Windows 服務可以使用 Azure Active Directory 帳戶執行嗎？ <br/>
+**問**：閘道 Windows 服務可以使用 Azure Active Directory 帳戶執行嗎？ <br/>
 **答**：否，Windows 服務必須要有有效的 Windows 帳戶。
 
 ### <a name="disaster-recovery"></a>災害復原
 
-**問**︰災害復原有哪些選項？ <br/>
+**問**：災害復原有哪些選項？ <br/>
 **答**：您可以使用修復金鑰還原或移動閘道。 當您安裝閘道時，請指定修復金鑰。
 
-**問**︰修復金鑰有什麼好處？ <br/>
-**答**：修復金鑰可在災害發生後讓您有辦法移轉或復原閘道設定。
+**問**：修復金鑰有什麼好處？ <br/>
+**答**：修復金鑰可在災害發生後讓您有辦法遷移或復原閘道設定。
 
 ## <a name="troubleshooting"></a>疑難排解
 
 本節說明您在設定及使用內部部署資料閘道時可能遇到的一些常見問題。
 
-**問：**：我的閘道安裝為何失敗？ <br/>
+**問**：我的閘道安裝為何失敗？ <br/>
 **答**：如果目標電腦上的防毒軟體已過期，就可能發生此問題。 您可以更新防毒軟體或停用防毒軟體，但僅限於閘道安裝期間，然後再次啟用該軟體。
 
 **問**：為何在 Azure 中建立閘道資源時看不到我的閘道安裝？ <br/>
@@ -389,10 +388,10 @@ TcpTestSucceeded       : True
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-**問**︰閘道記錄在哪裡？ <br/>
+**問**：閘道記錄在哪裡？ <br/>
 **答**：請參閱本文稍後的[**記錄**一節](#logs)。
 
-**問**︰如何查看有哪些查詢正要傳送至內部部署資料來源？ <br/>
+**問**：如何查看有哪些查詢正要傳送至內部部署資料來源？ <br/>
 **答**：您可以啟用查詢追蹤，其中包含要傳送的查詢。 完成疑難排解時，請務必將查詢追蹤變更回原始值。 讓查詢追蹤保持開啟會產生較大的記錄。
 
 您也可以查看資料來源具備的工具是否有追蹤查詢。 例如，您可以使用 SQL Server 和 Analysis Services 的擴充事件或 SQL Profiler。
@@ -401,7 +400,7 @@ TcpTestSucceeded       : True
 
 閘道版本過期時，可能會出現很多問題。 良好的一般做法是確定您有最新版本。 如果有一個月以上未更新閘道，您可以考慮安裝最新版的閘道，並看看是否能重現問題。
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>錯誤︰無法將使用者新增到群組。 (-2147463168 PBIEgwService Performance Log Users)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Error:無法將使用者新增至群組。 (-2147463168 PBIEgwService Performance Log Users)
 
 如果您嘗試在不支援的網域控制站上安裝閘道，可能會收到這個錯誤。 請確定您是在非網域控制站的電腦上部署閘道。
 
@@ -444,7 +443,7 @@ TcpTestSucceeded       : True
 
    否則，若要尋找用戶端位置，請在同一部電腦上開啟 [服務] 主控台，尋找 [內部部署資料閘道服務]，然後檢視 [可執行檔的路徑] 屬性。
 
-2. 開啟這個「組態」檔案：**Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+2. 開啟此「組態」檔：**Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. 將 **SendTelemetry** 值變更為 **true**：
 

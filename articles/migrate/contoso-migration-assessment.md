@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6b4b1b74ace534517157edc20c33236d516205c5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c2afd1c5a85ec393acfb0f754dd4ca9d77162061
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635011"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065489"
 ---
-# <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso 移轉：評定要移轉至 Azure 的內部部署工作負載
+# <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso 移轉：評估要移轉至 Azure 的內部部署工作負載
 
 在本文中，Contoso 會在將其內部部署 SmartHotel360 應用程式移轉至 Azure 時，對該應用程式進行評估。
 
@@ -27,7 +27,7 @@ ms.locfileid: "52635011"
 [文章 2：部署 Azure 基礎結構](contoso-migration-infrastructure.md) | Contoso 會準備其內部部署基礎結構和其 Azure 基礎結構以進行移轉。 此系列中的所有文章都使用相同的基礎結構。 | 可用
 文章 3：存取內部部署資源以移轉至 Azure | Contoso 會評估其在 VMware 上執行的內部部署 SmartHotel360 應用程式。 Contoso 會使用 Azure Migrate 服務來評估應用程式 VM，並使用 Database Migration Assistant 來評估應用程式 SQL Server 資料庫。 | 本文
 [文章 4：在 Azure VM 和 SQL Database 受控執行個體上重新裝載應用程式](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso 會為其內部部署 SmartHotel360 應用程式執行隨即移轉至 Azure 的作業。 它會使用 Azure Site Recovery 服務來遷移應用程式前端。 它會使用 Azure 資料庫移轉服務，將應用程式資料庫遷移至 Azure SQL Database 受控執行個體。 | 可用
-[文章 5：在 Azure VM 上重新裝載應用程式](contoso-migration-rehost-vm.md) | Contoso 會使用 Site Recovery 服務，將其 SmartHotel360 應用程式 VM 移轉至 Azure VM。 | 可用
+[文章 5：將應用程式重新裝載在 Azure VM 上](contoso-migration-rehost-vm.md) | Contoso 會使用 Site Recovery 服務，將其 SmartHotel360 應用程式 VM 移轉至 Azure VM。 | 可用
 [文章 6：在 Azure VM 上和 SQL Server AlwaysOn 可用性群組中重新裝載應用程式](contoso-migration-rehost-vm-sql-ag.md) | Contoso 會使用 Site Recovery 來移轉應用程式 VM，以移轉 SmartHotel360 應用程式，以及使用資料庫移轉服務，將應用程式資料庫移轉至受到 AlwaysOn 可用性群組保護的 SQL Server 叢集。 | 可用
 [文章 7：將 Linux 應用程式重新裝載至 Azure VM](contoso-migration-rehost-linux-vm.md) | Contoso 會使用 Site Recovery 服務，來完成將其 Linux osTicket 應用程式隨即移轉至 Azure VM 的作業。 | 可用
 [文章 8：在 Azure VM 和適用於 MySQL 的 Azure 資料庫上重新裝載 Linux 應用程式](contoso-migration-rehost-linux-vm-mysql.md) | Contoso 會使用 Site Recovery，將其 Linux osTicket 應用程式遷移至 Azure VM。 它會使用 MySQL Workbench，將應用程式資料庫遷移至適用於 MySQL 的 Azure 資料庫。 | 可用
@@ -68,7 +68,7 @@ osTicket<br/><br/> (Contoso 服務台應用程式) | 在含有 MySQL PHP (LAMP) 
 
 Contoso 的 IT 領導小組已與該公司的企業合作夥伴密切合作，以了解這些企業想從此次移轉實現什麼目標：
 
-- **解決業務成長**：Contoso 正在成長。 因此，該公司的內部部署系統和基礎結構所承受的壓力變大了。
+- **因應業務成長**：Contoso 正在成長。 因此，該公司的內部部署系統和基礎結構所承受的壓力變大了。
 - **提高效率**：Contoso 必須移除不必要的程序，並簡化其開發人員和使用者的程序。 該公司需要快速且不浪費時間或金錢的 IT 服務，以便能夠更快滿足客戶需求。
 - **提高靈活性**：Contoso IT 必須能夠更快因應企業的需求。 其因應速度必須能夠比市場變化更快，才能讓該公司在全球經濟中獲致成功。 Contoso 的 IT 小組不得礙事，或成為企業的絆腳石。
 - **調整**：隨著該公司的業務順利成長，Contoso IT 必須提供能夠同步成長的系統。
@@ -136,11 +136,11 @@ Contoso 和其他使用者都必須符合下列先決條件才能進行評量：
 
 > [!div class="checklist"]
 > * **步驟 1：下載並安裝 Data Migration Assistant**：Contoso 會準備 Data Migration Assistant 以便評量內部部署 SQL Server 資料庫。
-> * **步驟 2：使用 Data Migration Assistant 評定資料庫**：Contoso 會執行及分析資料庫評量。
+> * **步驟 2：使用 Data Migration Assistant 評估資料庫**：Contoso 會執行並分析資料庫評估。
 > * **步驟 3：使用 Azure Migrate 準備 VM 評量**：Contoso 會設定內部部署帳戶並調整 VMware 設定。
 > * **步驟 4：使用 Azure Migrate 探索內部部署 VM**：Contoso 會建立 Azure Migrate 收集器 VM。 然後，Contoso 會執行收集器以探索要評量的 VM。
 > * **步驟 5：使用 Azure Migrate 準備相依性分析**：Contoso 會在 VM 上安裝 Azure Migrate 代理程式，以便能夠了解 VM 之間的相依性對應。
-> * **步驟 6：使用 Azure Migrate 評定 VM**：Contoso 會檢查相依性、將 VM 分組，並執行評量。 當評量就緒時，Contoso 會分析評量以準備進行移轉。
+> * **步驟 6：使用 Azure Migrate 評量 VM**：Contoso 會檢查相依性、將 VM 分組，並執行評量。 當評量就緒時，Contoso 會分析評量以準備進行移轉。
 
 ## <a name="step-1-download-and-install-data-migration-assistant"></a>步驟 1：下載並安裝 Data Migration Assistant
 
@@ -351,7 +351,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 
     ![Azure Migrate - 必須安裝代理程式](./media/contoso-migration-assessment/machines-no-agent.png)
 
-## <a name="step-5-prepare-for-dependency-analysis"></a>步驟 5︰準備相依性分析
+## <a name="step-5-prepare-for-dependency-analysis"></a>步驟 5：準備相依性分析
 
 Contoso 為了檢視其所要評定 VM 之間的相依性，會在應用程式 VM 上下載並安裝代理程式。 Contoso 會在其應用程式的所有 VM (Windows 和 Linux) 上安裝代理程式。
 

@@ -11,24 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 1/08/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f3a83352e5aa7591d3f7b325adb542ba89e57fe5
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 1205bb636c01ff03e7e5d6f245c7469c186fca6f
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515823"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121166"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>驗證 Azure Stack PKI 憑證
 
-[從 PowerShell 資源庫](https://aka.ms/AzsReadinessChecker)可取得本文中所述的 Azure Stack 整備檢查工具。 您可以使用此工具來驗證[產生的 PKI 憑證](azure-stack-get-pki-certs.md)是否適用於預先部署。 您應保留足夠的時間來測試及重新發出憑證，以驗證憑證 (如有需要的話)。
+[從 PowerShell 資源庫](https://aka.ms/AzsReadinessChecker)可取得本文中所述的 Azure Stack 整備檢查工具。 您可以使用此工具來驗證[產生的 PKI 憑證](azure-stack-get-pki-certs.md)是否適用於預先部署。 保留足夠的時間來測試及重新發出憑證，以驗證憑證 (如有需要的話)。
 
 整備檢查工具會執行下列憑證驗證：
 
 - **讀取 PFX**  
-    確認 PFX 檔案有效且密碼正確，並在公用資訊未受到密碼保護時發出警告。 
+    確認 PFX 檔案有效且密碼正確，以及公用資訊是否未受密碼保護。 
 - **簽章演算法**  
     確認簽章演算法不是 SHA1。
 - **私密金鑰**  
@@ -86,8 +86,8 @@ ms.locfileid: "51515823"
     
      - 將您的憑證放在上一個步驟中建立的適當目錄。 例如︰  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
-        - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
-        - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
+        - `c:\certificates\Admin Portal\CustomerCertificate.pfx`
+        - `c:\certificates\ARM Admin\CustomerCertificate.pfx`
 
 3. 在 PowerShell 視窗中，將 **RegionName** 和 **FQDN** 的值變更為適合 Azure Stack 環境的值，並執行下列命令：
 
@@ -147,7 +147,7 @@ Invoke-AzsCertificateValidation Completed
 
 **徵兆**：測試會略過
 
-**原因**：如果不符合相依性，AzsReadinessChecker 會略過某些測試：
+**原因**︰如果不符合相依性，AzsReadinessChecker 會略過某些測試：
 
  - 如果信任鏈結失敗，則會略過其他憑證。
 
@@ -172,7 +172,7 @@ Invoke-AzsCertificateValidation Completed
     Invoke-AzsCertificateValidation Completed
     ```
 
-**解析**：遵循每個憑證測試集合下詳細資料區段中的工具指引。
+**解決方案**︰遵循每個憑證測試集合下詳細資料區段中的工具指引。
 
 ## <a name="perform-platform-as-a-service-certificate-validation"></a>執行平台即服務憑證驗證
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598885"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191814"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure 儲存體中的靜態網站代管
 Azure 儲存體 GPv2 帳戶可讓您直接從名為 *$web* 的儲存體容器提供靜態內容 (HTML、CSS、JavaScript 和影像檔)。 利用 Azure 儲存體中的代管，讓您能夠使用無伺服器架構，包括 [Azure Functions](/azure/azure-functions/functions-overview) 和其他 PaaS 服務。
@@ -21,16 +21,16 @@ Azure 儲存體 GPv2 帳戶可讓您直接從名為 *$web* 的儲存體容器提
 相較於靜態網站代管，取決於伺服器端程式碼的動態網站最適合使用 [Azure App Service](/azure/app-service/overview) 來代管。
 
 ## <a name="how-does-it-work"></a>運作方式
-當您在儲存體帳戶中啟用靜態網站代管時，請選取您的預設檔案名稱，並選擇性地提供自訂 404 頁面的路徑。 啟用此功能時，即會建立名為 *$web* 的容器 (如果尚未存在)。 
+當您在儲存體帳戶中啟用靜態網站代管時，請選取您的預設檔案名稱，並選擇性地提供自訂 404 頁面的路徑。 啟用此功能時，即會建立名為 *$web* 的容器 (如果尚未存在)。
 
 *$web* 容器中的檔案：
 
 - 透過匿名存取要求來提供
 - 僅能透過物件讀取作業來取得
 - 區分大小寫
-- 適用於遵循下列模式的公用網路： 
+- 適用於遵循下列模式的公用網路：
     - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- 可透過遵循下列模式的 Blob 儲存體端點來取得： 
+- 可透過遵循下列模式的 Blob 儲存體端點來取得：
     - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
 您可以使用 Blob 儲存體端點來上傳檔案。 例如，已上傳到下列位置的檔案：
@@ -97,10 +97,10 @@ Web 端點 URL 的查詢：
 az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-將物件從來源目錄上傳至 *$web* 容器：
+將物件從來源目錄上傳至 *$web* 容器。 請務必使用命令，將參考適當地逸出至 *$web* 容器。 例如，如果您在 Azure 入口網站中使用來自 CloudShell 的 Azure CLI，會逸出 *$web* 容器，如下所示：
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
 ```
 
 ## <a name="deployment"></a>部署
@@ -120,7 +120,7 @@ az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NA
 
 藉由連結到不同的計量 API 來產生計量資料。 入口網站只會顯示指定時間範圍內所使用的 API 成員，以便只專注於傳回資料的成員。 為了確保您能夠選取所需的 API 成員，第一個步驟是展開時間範圍。
 
-按一下時間範圍按鈕、選取 [最近 24 小時]，然後按一下 [套用] 
+按一下時間範圍按鈕、選取 [最近 24 小時]，然後按一下 [套用]
 
 ![Azure 儲存體靜態網站計量的時間範圍](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

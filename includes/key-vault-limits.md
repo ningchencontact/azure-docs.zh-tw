@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: efa367157a8fd896cdc9680bf2ab6ba6a9e3dbb0
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 9a39abf77a7396302f93e5a423271402b7c3edb3
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429932"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54083999"
 ---
 金鑰交易 (每個區域中的每個保存庫在 10 秒內允許的最大交易數<sup>1</sup>)：
 
@@ -23,6 +23,9 @@ ms.locfileid: "53429932"
 |ECC P-521|5|1000|10|2000|
 |ECC SECP256K1|5|1000|10|2000|
 |
+
+> [!NOTE]
+> 上述閾值會進行加權，並依其總和強制執行。 您可以執行 125 個 RSA-HSM-4k 和 0 個 RSA-HSM-2k 作業，或執行 124 個 RSA-HSM-4k 和 16 個 RSA-HSM-2k 作業。 其後，在相同的 10 秒間隔內，任何其他作業都將導致 AKV 用戶端例外狀況。
 
 > [!NOTE]
 > 您查看下表時，會發現我們允許軟體支援的金鑰每 10 秒鐘有 2000 筆交易，至於 HSM 支援的金鑰每 10 秒鐘則允許 1000 筆交易。 3072 金鑰與 2048 金鑰的軟體支援交易比例為 500/2000，即 0.4。 這表示如果客戶在 10 秒鐘內進行了 500 筆 3072 金鑰交易，就會達到上限，無法再進行任何其他的金鑰作業。 

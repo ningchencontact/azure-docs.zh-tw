@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Domain Services︰限域同步處理 | Microsoft Docs
+title: Azure Active Directory Domain Services：限域同步處理 | Microsoft Docs
 description: 設定從 Azure AD 到受控網域的限域同步處理
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ae51151bd20d2c715d868e916f7bc633040efa40
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442976"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121515"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>設定從 Azure AD 到受控網域的限域同步處理
 此文章說明如何設定只將特定使用者帳戶從 Azure AD 目錄同步至 Azure AD Domain Services 受控網域。
@@ -173,7 +173,7 @@ foreach ($id in $newGroupIds)
     }
     catch
     {
-        Write-Error "Exception occured assigning Object-ID: $id. Exception: $($_.Exception)."
+        Write-Error "Exception occurred assigning Object-ID: $id. Exception: $($_.Exception)."
     }
 }
 

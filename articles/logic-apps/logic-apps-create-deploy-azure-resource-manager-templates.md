@@ -10,16 +10,16 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 274fa3153f6a354b121b7fd8338d8e0d2d94f4f4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 52aea4e47473d4dd27519ae53322b0e72d93f20e
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230807"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062888"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立和部署邏輯應用程式
 
-Azure Logic Apps 提供 Azure Resource Manager 範本，不僅可用來建立自動化工作流程的邏輯應用程式，也可以定義用於部署的資源和參數。 您可以在自己的商務案例中使用此範本，或自訂此範本以符合您的需求。 深入了解[邏輯應用程式的 Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json)和 [Azure Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)。
+Azure Logic Apps 提供 Azure Resource Manager 範本，不僅可用來建立自動化工作流程的邏輯應用程式，也可以定義用於部署的資源和參數。 您可以在自己的商務案例中使用此範本，或自訂此範本以符合您的需求。 深入了解[邏輯應用程式的 Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json)和 [Azure Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)。 如需了解 JSON 語法和屬性，請參閱 [Microsoft.Logic 資源類型](/azure/templates/microsoft.logic/allversions)。
 
 ## <a name="define-the-logic-app"></a>定義邏輯應用程式
 

@@ -10,16 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: ce1bcb26b3a3510b22ced57471016999156bb0cf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086942"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040654"
 ---
-# <a name="how-to-configure-password-writeback"></a>如何：設定密碼回寫
-
-使用密碼回寫時，我們建議您使用 [Azure AD Connect](../hybrid/how-to-connect-install-express.md) 的自動更新功能。
+# <a name="how-to-configure-password-writeback"></a>操作說明：設定密碼回寫
 
 下列步驟假設您已使用[快速](../hybrid/how-to-connect-install-express.md)或[自訂](../hybrid/how-to-connect-install-custom.md)設定在您的環境中設定 Azure AD Connect。
 
@@ -39,6 +37,24 @@ ms.locfileid: "50086942"
 > 在 [Azure 存取控制服務 (ACS) 於 2018 年 11 月 7 日淘汰](../develop/active-directory-acs-migration.md)後，使用 Azure AD Connect 1.0.8641.0 版和更舊版本的使用者將無法進行密碼回寫。 屆時，Azure AD Connect 1.0.8641.0 版和更舊版本將不再允許進行密碼回寫，因為它們倚賴 ACS 來進行該功能。
 >
 > 若要避免服務中斷，請從舊版 Azure AD Connect 升級至新版，請參閱 [Azure AD Connect：從舊版升級到最新版本](../hybrid/how-to-upgrade-previous-version.md)
+>
+
+## <a name="licensing-requirements-for-password-writeback"></a>密碼回寫的授權需求
+
+**自助式密碼重設/變更/使用內部部署回寫來解除鎖定是 Azure AD 的進階功能**。 如需授權的詳細資訊，請參閱 [Azure Active Directory 價格網站](https://azure.microsoft.com/pricing/details/active-directory/)。
+
+若要使用密碼回寫，您的租用戶中必須已指派下列其中一項授權：
+
+* Azure AD Premium P1
+* Azure AD Premium P2
+* Enterprise Mobility + Security E3 或 A3
+* Enterprise Mobility + Security E5 或 A5
+* Microsoft 365 E3 或 A3
+* Microsoft 365 E5 或 A5
+* Microsoft 365 F1
+
+> [!WARNING]
+> 獨立的 Office 365 授權方案不支援「自助式密碼重設/變更/使用內部部署回寫來解鎖」，而且需要您具備上述其中一個方案，這項功能才能運作。
 >
 
 ## <a name="active-directory-permissions"></a>Active Directory 權限

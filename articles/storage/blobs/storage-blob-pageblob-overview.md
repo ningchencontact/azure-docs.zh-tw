@@ -1,23 +1,23 @@
 ---
-title: Azure 分頁 Blob 的獨特功能 | Microsoft Docs
+title: Azure 分頁 Blob 的概觀 | Microsoft Docs
 description: Azure 分頁 Blob 和其優點的概觀，包括具有範例指令碼的使用案例。
 services: storage
 author: anasouma
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 01/03/2019
 ms.author: wielriac
 ms.component: blobs
-ms.openlocfilehash: a215771b0126e9048b7d9da4ed1d6073c8e960a4
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 6d1c443cfe3454d1b1e50a7270bd78598f69f6de
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266939"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063925"
 ---
-# <a name="unique-features-of-azure-page-blobs"></a>Azure 分頁 Blob 的獨特功能
+# <a name="overview-of-azure-page-blobs"></a>Azure 分頁 Blob 的概觀
 
-Azure 儲存體提供三種類型的 Blob 儲存體：區塊 Blob、附加 Blob 及分頁 Blob。 區塊 blob 是由區塊所組成，適合用來儲存文字或二進位檔案，以及有效率地上傳大型檔案。 附加 Blob 也是由區塊所組成，但是它們是針對附加作業最佳化，使其適合用於記錄案例。 分頁 Blob 是由大小上限為 8 TB 的 512 位元組分頁所組成，專為頻繁的隨機讀取/寫入作業而設計。 分頁 Blob 是 Azure IaaS 磁碟的基礎。 本文著重於說明分頁 Blob 的功能和優點。
+Azure 儲存體提供三種類型的 Blob 儲存體：區塊 Blob、附加 Blob、分頁 Blob。 區塊 blob 是由區塊所組成，適合用來儲存文字或二進位檔案，以及有效率地上傳大型檔案。 附加 Blob 也是由區塊所組成，但是它們是針對附加作業最佳化，使其適合用於記錄案例。 分頁 Blob 是由大小上限為 8 TB 的 512 位元組分頁所組成，專為頻繁的隨機讀取/寫入作業而設計。 分頁 Blob 是 Azure IaaS 磁碟的基礎。 本文著重於說明分頁 Blob 的功能和優點。
 
 分頁 Blob 是 512 位元組分頁的集合，可提供讀取/寫入任意位元組範圍的功能。 因此，分頁 Blob 適合用於儲存索引式和疏鬆檔案結構，例如虛擬機器和資料庫的 OS 和資料磁碟。 例如，Azure SQL DB 會使用分頁 Blob 作為其資料庫的基礎永續性儲存體。 此外，分頁 Blob 也經常用於具有範圍型更新的檔案。  
 
@@ -71,7 +71,7 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 ```
 
 #### <a name="writing-pages-to-a-page-blob"></a>將分頁寫入分頁 Blob
-若要寫入分頁，請使用 [CloudPageBlob.WritePages](/library/microsoft.windowsazure.storageclient.cloudpageblob.writepages.aspx) 方法。  這可讓您寫入最多 4MB 的連續分頁集合。 要寫入的位移必須從 512 位元組界限 (startingOffset % 512 == 0) 開始，並於 512 界限 - 1 的位置結束。  下列程式碼範例顯示如何呼叫 Blob 的**WritePages**：
+若要寫入分頁，請使用 [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) 方法。  這可讓您寫入最多 4MB 的連續分頁集合。 要寫入的位移必須從 512 位元組界限 (startingOffset % 512 == 0) 開始，並於 512 界限 - 1 的位置結束。  下列程式碼範例顯示如何呼叫 Blob 的**WritePages**：
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -116,8 +116,6 @@ foreach (PageRange range in pageRanges)
 
 #### <a name="leasing-a-page-blob"></a>租用分頁 Blob
 租用 Blob 作業會針對寫入和刪除作業，在 Blob 上建立鎖定並加以管理。 這項作業在有多個用戶端存取分頁 Blob 的案例中很有用，因為它可確保一次僅有一個用戶端可以寫入 Blob。 例如，Azure 磁碟會運用此租用機制來確保磁碟僅受單一 VM 管理。 鎖定持續時間的範圍是 15 到 60 秒，也可以設為無限。 如需詳細資料，請參閱[這裡](/rest/api/storageservices/lease-blob)的文件。
-
-> 使用下列連結來取得許多其他應用程式案例的[程式碼範例](/resources/samples/?service=storage&term=blob&sort=0 )。 
 
 除了豐富的 REST API 之外，分頁 Blob 也提供共用存取、持久性和增強的安全性。 我們將會在接下來的段落中詳細介紹那些優點。 
 

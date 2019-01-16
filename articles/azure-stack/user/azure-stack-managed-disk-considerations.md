@@ -12,23 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 4bad339ca704f14f57c120db5e731d0dbfeb8d59
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793427"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159361"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 受控磁碟：差異與注意事項
-本文摘要說明 Azure Stack 受控磁碟和適用於 Azure 的受控磁碟之間的已知差異。 若要深入了解 Azure Stack 與 Azure 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)文章。
 
-受控磁碟會管理與 VM 磁碟相關的[儲存體帳戶](/azure/azure-stack/azure-stack-manage-storage-accounts)，從而簡化 IaaS VM 的磁碟管理。
+本文摘要說明 [Azure Stack 受控磁碟](azure-stack-manage-vm-disks.md)和 [Azure 受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)之間的已知差異。 若要深入了解 Azure Stack 與 Azure 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)文章。
+
+受控磁碟會管理與 VM 磁碟相關的[儲存體帳戶](../azure-stack-manage-storage-accounts.md)，從而簡化 IaaS VM 的磁碟管理。
 
 > [!Note]  
-> Azure Stack 上的受控磁碟從 1808 可供使用。
+> Azure Stack 上的受控磁碟可從 1808 更新取得使用。 使用來自 1811 更新的 Azure Stack 入口網站來建立虛擬機器時，依預設會啟用此受控磁碟。
   
 
 ## <a name="cheat-sheet-managed-disk-differences"></a>速查表：受控磁碟的差異
@@ -48,28 +49,32 @@ ms.locfileid: "53793427"
 |磁碟效能分析 |彙總計量和每個磁碟支援的計量 |尚不支援 |
 |移轉      |提供從現有非受控 Azure Resource Manager VM 進行移轉的工具，而不需要重新建立 VM  |尚不支援 |
 
-> [!Note]  
+> [!NOTE]  
 > Azure Stack 中的受控磁碟 IOP 和輸送量是數量上限而不是佈建數量，可能會受到在 Azure Stack 中執行的硬體和工作負載影響。
 
-
 ## <a name="metrics"></a>度量
+
 儲存體計量也有些差異：
+
 - 使用 Azure Stack，儲存體度量中的交易資料並不區分內部或外部網路頻寬。
 - 儲存體度量中的 Azure Stack 交易資料並不包含虛擬機器對所掛接磁碟的存取。
 
-
 ## <a name="api-versions"></a>API 版本
+
 Azure Stack 受控磁碟支援下列 API 版本：
+
 - 2017-03-30
 
 ## <a name="known-issues"></a>已知問題
-套用 1809 更新之後，在部署具有「受控磁碟」的 VM 時，您可能會遇到下列問題：
 
-   - 如果訂用帳戶是在 1808 更新之前建立的，部署具有受控磁碟的 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請針對每個訂用帳戶遵循下列步驟：
-      1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 按一下 [資源提供者]，按一下 [Microsoft.Compute]，然後按一下 [重新註冊]。
-      2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [Azure Stack - 受控磁碟] 已列出。
-   - 如果您已設定多租用戶環境，則在與來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請依照[這篇文章](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步驟重新設定您的每個來賓目錄。
+在 1808 之後套用更新後，在部署具有「受控磁碟」的 VM 時，您可能會遇到下列問題：
+
+- 如果訂用帳戶是在 1808 更新之前建立的，部署具有受控磁碟的 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請針對每個訂用帳戶遵循下列步驟：
+   1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 按一下 [資源提供者]，按一下 [Microsoft.Compute]，然後按一下 [重新註冊]。
+   2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [Azure Stack - 受控磁碟] 已列出。
+- 如果您已設定多租用戶環境，則在與來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請依照[這篇文章](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步驟重新設定您的每個來賓目錄。
 
 
 ## <a name="next-steps"></a>後續步驟
-[了解 Azure Stack 虛擬機器](azure-stack-compute-overview.md)
+
+- [了解 Azure Stack 虛擬機器](azure-stack-compute-overview.md)

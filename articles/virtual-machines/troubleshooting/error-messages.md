@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: b996d42e5c543235d09b46d29889bc5eaeafd52a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 80b99880362c3979ae5ead6d1cdff4091d23d065
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411526"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118970"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>了解當您在 Azure 中管理虛擬機器時，常見的錯誤訊息
 
@@ -108,7 +108,7 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  InvalidParameter  |  無法為指定的映像參考中已定義的磁碟，指定使用者映像覆寫。  |
 |  InvalidParameter  |  名為 '{0}' 的磁碟已使用相同的 VHD URL {1}。  |
 |  InvalidParameter  |  指定的錯誤網域計數 {0} 必須介於 {1} 到 {2} 之間。  |
-|  InvalidParameter  |  授權類型 {0} 無效。 有效授權類型為: Windows_Client 或 Windows_Server (區分大小寫)。  |
+|  InvalidParameter  |  授權類型 {0} 無效。 有效授權類型為：Windows_Client 或 Windows_Server (區分大小寫)。  |
 |  InvalidParameter  |  Linux 主機名稱長度不可超過 {0} 個字元，也不得包含下列字元：{1}。  |
 |  InvalidParameter  |  由於 Linux 佈建代理程式中的已知問題，SSH 公開金鑰的目的地路徑目前僅限於其預設值 {0}。  |
 |  InvalidParameter  |  已有磁碟的 LUN 為 {0}。  |

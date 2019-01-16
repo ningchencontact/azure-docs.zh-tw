@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 5d8aa2c25bf79278b10b96f93733e3abf89e4783
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9cf0c378271841277e6dfd770bf8d186494b9d48
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971176"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040739"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中啟用並檢閱 Kubernetes 主要節點記錄
 
@@ -31,18 +31,15 @@ Log Analytics 的啟用和管理是在 Azure 入口網站中進行。 若要在 
 1. 選取適用於您 AKS 叢集的資源群組，例如 *myResourceGroup*。 請勿選取包含個別 AKS 叢集資源的資源群組，例如 *MC_myResourceGroup_myAKSCluster_eastus*。
 1. 選擇左邊的 [診斷設定]。
 1. 選取您的 AKS 叢集 (例如 *myAKSCluster*)，然後選擇 [開啟診斷]。
-1. 輸入名稱 (例如 *myAKSLogs*)，然後選取 [傳送至 Log Analytics] 選項。
+1. 輸入名稱 (例如 myAKSClusterLogs)，然後選取 [傳送至 Log Analytics] 選項。
     * 選擇要 [設定] Log Analytics，然後選取現有工作區或 [建立新工作區]。
     * 若您需要建立工作區，請提供名稱、資源群組和位置。
-1. 在可用記錄清單中，選取您想要啟用的記錄，例如 *kube-apiserver*、*kube-controller-manager* 及 *kube-scheduler*。 您可以在啟用 Log Analytics 之後返回這裡並變更收集的記錄。
+1. 在可用的記錄清單中，選取想要啟用的記錄。 預設會啟用 kube-apiserver、kube-controller-manager 和 kube-scheduler 記錄。 您可以啟用其他記錄，例如 kube-audit 和 cluster-autoscaler。 您可以在啟用 Log Analytics 之後返回這裡並變更收集的記錄。
 1. 準備好後，請選取 [儲存] 以啟用所選取記錄的收集。
 
 下列範例入口網站螢幕擷取畫面顯示 [診斷設定] 視窗，以及建立 Log Analytics 工作區的選項：
 
 ![針對 AKS 叢集的 Log Analytics 啟用 Log Analytics 工作區](media/view-master-logs/enable-oms-log-analytics.png)
-
->[!NOTE]
->OMS 工作區現在稱為 Log Analytics 工作區。
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>在 AKS 叢集上對測試 Pod 進行排程
 

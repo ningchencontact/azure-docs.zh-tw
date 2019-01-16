@@ -1,13 +1,10 @@
 ---
-title: 建立 Azure 虛擬網路對等互連 - 不同部署模型 - 不同訂用帳戶 |Microsoft Docs
+title: 建立 Azure 虛擬網路對等互連 - 不同部署模型 - 不同訂用帳戶
+titlesuffix: Azure Virtual Network
 description: 了解如何在透過不同 Azure 部署模型建立且存在於不同 Azure 訂用帳戶中的虛擬網路之間，建立虛擬網路對等互連。
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 666e4c434d05bb953950893f32c262183055becd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 45dd31ecca4f09a595fbf1dae5fe61623fb2be3c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728158"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025856"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>建立虛擬網路對等互連 - 不同部署模型和訂用帳戶
 
@@ -48,7 +45,7 @@ ms.locfileid: "52728158"
 2. 依序按一下 [新增]、[網路] 及 [虛擬網路]。
 3. 在 [建立虛擬網路] 刀鋒視窗上，輸入或選取下列設定的值，然後按一下 [建立]：
     - **名稱**：*myVnetA*
-    - **位址空間：***10.0.0.0/16*
+    - **位址空間**：*10.0.0.0/16*
     - **子網路名稱**：*預設值*
     - **子網路位址範圍**︰*10.0.0.0/24*
     - 訂用帳戶：選取訂用帳戶 A。
@@ -66,7 +63,7 @@ ms.locfileid: "52728158"
 13.   在顯示的 [建立虛擬網路 (傳統)] 方塊中，輸入下列值：
 
     - **名稱**：*myVnetB*
-    - **位址空間：***10.1.0.0/16*
+    - **位址空間**：*10.1.0.0/16*
     - **子網路名稱**：*預設值*
     - **子網路位址範圍**︰*10.1.0.0/24*
     - 訂用帳戶：選取訂用帳戶 B。
@@ -92,8 +89,8 @@ ms.locfileid: "52728158"
 
     您在任何一個虛擬網路中建立的任何 Azure 資源現在能夠透過其 IP 位址彼此通訊。 如果您使用虛擬網路的預設 Azure 名稱解析，則虛擬網路中的資源無法跨虛擬網路解析名稱。 如果您想要跨對等互連中的虛擬網路解析名稱，您必須建立自己的 DNS 伺服器。 了解如何設定[使用自己的 DNS 伺服器進行名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
 
-24. **選用**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
-25. **選用**：若要刪除您在本教學課程中建立的資源，請完成本文中[刪除資源](#delete-portal)一節的步驟。
+24. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
+25. **選擇性**：若要刪除您在本教學課程中建立的資源，請完成本文中[刪除資源](#delete-portal)一節的步驟。
 
 ## <a name="cli"></a>建立對等互連 - Azure CLI
 
@@ -176,8 +173,8 @@ ms.locfileid: "52728158"
 
     您在任何一個虛擬網路中建立的任何 Azure 資源現在能夠透過其 IP 位址彼此通訊。 如果您使用虛擬網路的預設 Azure 名稱解析，則虛擬網路中的資源無法跨虛擬網路解析名稱。 如果您想要跨對等互連中的虛擬網路解析名稱，您必須建立自己的 DNS 伺服器。 了解如何設定[使用自己的 DNS 伺服器進行名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
 
-10. **選用**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
-11. **選用**：若要刪除您在本教學課程中所建立的資源，請完成本文中[刪除資源](#delete-cli)的步驟。
+10. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
+11. **選擇性**：若要刪除您在本教學課程中所建立的資源，請完成本文中[刪除資源](#delete-cli)的步驟。
 
 ## <a name="powershell"></a>建立對等互連 - PowerShell
 
@@ -266,8 +263,8 @@ ms.locfileid: "52728158"
 
     您在任何一個虛擬網路中建立的任何 Azure 資源現在能夠透過其 IP 位址彼此通訊。 如果您使用虛擬網路的預設 Azure 名稱解析，則虛擬網路中的資源無法跨虛擬網路解析名稱。 如果您想要跨對等互連中的虛擬網路解析名稱，您必須建立自己的 DNS 伺服器。 了解如何設定[使用自己的 DNS 伺服器進行名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
 
-12. **選用**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
-13. **選用**：若要刪除您在本教學課程中所建立的資源，請完成本文中[刪除資源](#delete-powershell)的步驟。
+12. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
+13. **選擇性**：若要刪除您在本教學課程中所建立的資源，請完成本文中[刪除資源](#delete-powershell)的步驟。
 
 ## <a name="delete"></a>刪除資源
 當您完成本教學課程時，您可能會想刪除您在教學課程中建立的資源，以免產生使用費。 刪除資源群組同時會刪除其內含的所有資源。

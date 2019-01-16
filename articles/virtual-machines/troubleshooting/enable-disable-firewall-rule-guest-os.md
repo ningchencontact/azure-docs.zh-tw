@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: cb2c548a94a91fe9126f684e382e9626adb93dd6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
+ms.lasthandoff: 01/08/2019
 ms.locfileid: "52319057"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>啟用或停用 Azure VM 客體 OS 上的防火牆規則
@@ -35,7 +35,7 @@ ms.locfileid: "52319057"
 
 ### <a name="online-troubleshooting"></a>線上疑難排解 
 
-#### <a name="mitigation-1-custom-script-extension"></a>緩解措施 1：自訂指令碼擴充
+#### <a name="mitigation-1-custom-script-extension"></a>降低風險 1：自訂指令碼延伸模組
 
 1.  下列範例建立指令碼。
 
@@ -51,7 +51,7 @@ ms.locfileid: "52319057"
 
 2.  在 Azure 入口網站中使用[自訂指令碼擴充功能](../extensions/custom-script-windows.md)，上傳此指令碼。 
 
-#### <a name="mitigation-2-remote-powershell"></a>緩解措施 2：遠端 PowerShell
+#### <a name="mitigation-2-remote-powershell"></a>降低風險 2：遠端 Powershell
 
 如果虛擬機器為連線狀態，而且可以在相同的虛擬網路上存取另一個虛擬機器，您可以使用其他虛擬機器來進行後續的緩解措施。
 
@@ -73,7 +73,7 @@ ms.locfileid: "52319057"
         exit
         ```
 
-#### <a name="mitigation-3-pstools-commands"></a>緩解措施 3：PSTools 命令
+#### <a name="mitigation-3-pstools-commands"></a>降低風險 3：PSTools 命令
 
 如果虛擬機器為連線狀態，而且可以在相同的虛擬網路上存取另一個虛擬機器，您可以使用其他虛擬機器來進行後續的緩解措施。
 
@@ -93,7 +93,7 @@ ms.locfileid: "52319057"
         netsh advfirewall firewall set rule dir=in name="Remote Desktop - User Mode (TCP-In)" new enable=no
         ```
 
-#### <a name="mitigation-4-remote-registry"></a>緩解措施 4：遠端登錄
+#### <a name="mitigation-4-remote-registry"></a>降低風險 4：遠端登錄
 
 如果虛擬機器為連線狀態，而且可以在相同的虛擬網路上存取另一個虛擬機器，您可以在其他虛擬機器上使用[遠端登錄](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)。
 

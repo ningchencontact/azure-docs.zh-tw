@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 01/08/2019
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820353"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119045"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>在 Azure 容器執行個體中針對常見問題進行疑難排解
 
@@ -48,7 +48,7 @@ ms.locfileid: "51820353"
 
 部署以半年通道 (SAC) 版本為基礎的 Windows 映像時，最常發生此錯誤。 比方說，Windows 1709 和 1803 版都是 SAC 版本，並且會在部署時產生此錯誤。
 
-Azure 容器執行個體僅支援以長期維護通道 (LTSC) 版本為基礎的 Windows 映像。 若要解決部署 Windows 容器時發生的這個問題，請一律部署以 LTSC 為基礎的映像。
+Azure 容器執行個體目前僅支援以 **Windows Server 2016 長期維護通道 (LTSC)** 版本為基礎的 Windows 映像。 若要解決部署 Windows 容器時發生的這個問題，請一律部署以 Windows Server 2016 (LTSC) 為基礎的映像。 不支援以 Windows Server 2019 (LTSC) 為基礎的映像。
 
 如需 Windows LTSC 和 SAC 版的詳細資訊，請參閱 [Windows Server 半年通道概觀][windows-sac-overview]。
 

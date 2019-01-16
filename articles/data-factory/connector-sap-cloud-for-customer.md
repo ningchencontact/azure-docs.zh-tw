@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: df45613105c8fb005fc8ba0c796ef768e293c57e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 360cf92686682e65cf5348ee717bbb80cdc85cb4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052427"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016166"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Cloud for Customer (C4C) 複製資料
 
@@ -42,10 +41,10 @@ ms.locfileid: "37052427"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為：**SapCloudForCustomer**。 | yes |
-| url | SAP C4C OData 服務的 URL。 | yes |
-| username | 指定要連線到 SAP C4C 的使用者名稱。 | yes |
-| password | 指定您為 username 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
+| type | 類型屬性必須設定為：**SapCloudForCustomer**。 | 是 |
+| url | SAP C4C OData 服務的 URL。 | 是 |
+| username | 指定要連線到 SAP C4C 的使用者名稱。 | 是 |
+| password | 指定您為 username 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
 
 >[!IMPORTANT]
@@ -82,8 +81,8 @@ ms.locfileid: "37052427"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的 type 屬性必須設定為：**SapCloudForCustomerResource** |yes |
-| path | 指定 SAP C4C OData 實體的路徑。 |yes |
+| type | 資料集的類型屬性必須設定為：**SapCloudForCustomerResource** |是 |
+| path | 指定 SAP C4C OData 實體的路徑。 |是 |
 
 **範例：**
 
@@ -113,7 +112,7 @@ ms.locfileid: "37052427"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為：**SapCloudForCustomerSource**  | yes |
+| type | 類型屬性必須設定為：**SapCloudForCustomerSource**  | 是 |
 | query | 指定自訂 OData 查詢來讀取資料。 | 否 |
 
 取得特定日之資料的範例查詢：`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
@@ -156,9 +155,9 @@ ms.locfileid: "37052427"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為：**SapCloudForCustomerSink**  | yes |
-| writeBehavior | 作業的寫入行為。 可能是 “Insert”、“Update”。 | 否。 預設值為 “Insert”。 |
-| writeBatchSize | 寫入作業的批次大小。 要取得最佳效能的批次大小可能會隨著資料表或伺服器而有所不同。 | 否。 預設值為 10。 |
+| type | 類型屬性必須設定為：**SapCloudForCustomerSink**  | 是 |
+| writeBehavior | 作業的寫入行為。 可能是 “Insert”、“Update”。 | 沒有。 預設值為 “Insert”。 |
+| writeBatchSize | 寫入作業的批次大小。 要取得最佳效能的批次大小可能會隨著資料表或伺服器而有所不同。 | 沒有。 預設值為 10。 |
 
 **範例：**
 
@@ -205,14 +204,14 @@ ms.locfileid: "37052427"
 
 | SAP C4C OData 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| Edm.Binary | Byte[] |
+| Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
-| Edm.Byte | Byte[] |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | Datetime |
 | Edm.Decimal | 十進位 |
 | Edm.Double | 兩倍 |
 | Edm.Single | 單一 |
-| Edm.Guid | Guid |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |

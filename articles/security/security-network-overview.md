@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: ad711fe998a3c250775c5d4f4d76305ffb7cf860
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a5943c1d2e6b04564e1de732b8f3924a67393753
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244588"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065676"
 ---
 # <a name="azure-network-security-overview"></a>Azure 網路安全性概觀
 
@@ -316,12 +316,12 @@ Azure 會以 Azure DNS 的形式提供高可用性且高效能的外部 DNS 解�
 分散式阻斷服務 (DDoS) 攻擊是將應用程式移至雲端的客戶所面臨的最大可用性和安全性顧慮之一。 DDoS 攻擊會嘗試耗盡應用程式的資源，讓合法使用者無法使用該應用程式。 DDoS 攻擊可以鎖定可透過網際網路公開觸達的任何端點。
 Microsoft 提供在 Azure 平台中名為**基本**的 DDoS 保護。 此功能不收費，且會持續監視和即時緩解常見的網路層級攻擊。 除了隨附於 DDoS 保護**基本**的保護功能以外，您也可以啟用**標準**選項。 DDoS Protection Standard 功能包括：
 
-* **原生平台整合**：原生整合到 Azure。 包括透過 Azure 入口網站進行設定。 DDoS Protection Standard 了解您的資源和資源組態。
-* **現成的保護：** 經過簡化的組態會在啟用 DDoS Protection Standard 後，立即保護虛擬網路上的所有資源。 不需要任何介入或使用者定義。 一旦偵測到攻擊，DDoS Protection Standard 就會立即自動減輕攻擊。
+* **原生平台整合：** 原生整合至 Azure。 包括透過 Azure 入口網站進行設定。 DDoS Protection Standard 了解您的資源和資源組態。
+* **現成的保護：** 經過簡化的設定會在啟用「DDoS 保護標準」後，立即保護虛擬網路上的所有資源。 不需要任何介入或使用者定義。 一旦偵測到攻擊，DDoS Protection Standard 就會立即自動減輕攻擊。
 * **永遠可用流量監視：** 您的應用程式流量模式受到全年無休的全天候監視，以尋找 DDoS 攻擊的指標。 超出保護原則時，就會執行安全防護功能。
 * **攻擊風險降低報**攻擊風險降低報告會使用彙總的網路流量資料，提供有關以您資源為目標的攻擊詳細資訊。
 * **攻擊風險降低流程記錄**攻擊風險降低流程記錄可讓您在作用中 DDoS 攻擊期間，近乎即時地查看丟棄的流量、轉送的流量及其他相關攻擊資料。
-* **自適性調整：** 智慧型流量分析功能可了解不同時間的應用程式流量，並選取及更新最適合您服務的設定檔。 設定檔會隨著時間調整流量變更。 第 3 層至第 7 層保護：搭配 Web 應用程式防火牆使用時，可提供完整的堆疊 DDoS 保護。
+* **自適性調整：** 智慧型流量分析功能可了解不同時間的應用程式流量，並選取及更新最適合您服務的設定檔。 設定檔會隨著時間調整流量變更。 第 3 層至第 7 層保護：與 Web 應用程式防火牆搭配使用時，提供完整堆疊 DDoS 保護。
 * **廣泛的安全防護範圍：** 可利用全域功能降低超過 60 種不同攻擊類型的風險，以抵禦最大的已知 DDoS 攻擊。
 * **攻擊計量：** 透過 Azure 監視器可以存取每個攻擊的摘要計量。
 * **攻擊警示：** 警示可設定為在開始和停止攻擊時，並且在攻擊的持續時間內使用內建攻擊計量。 警示會整合到您的作業軟體，例如 Microsoft Azure Log Analytics、Splunk、Azure 儲存體、電子郵件和 Azure 入口網站。
@@ -394,7 +394,7 @@ Azure 虛擬網路 TAP (終端機存取點) 可讓您持續將虛擬機器網路
 
 網路層級的記錄是任何網路安全性案例的重要功能。 在 Azure 中，您可以記錄針對 NSG 所取得的資訊，以取得網路層級的記錄資訊。 使用 NSG 記錄，您可以從下列項目取得資訊︰
 
-* [活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。 使用這些記錄來檢視已提交至您 Azure 訂用帳戶的所有作業。 預設會啟用這些記錄，並且可在 Azure 入口網站內使用。 它們以前稱為稽核或作業記錄。
+* [活動記錄](../azure-monitor/platform/activity-logs-overview.md)。 使用這些記錄來檢視已提交至您 Azure 訂用帳戶的所有作業。 預設會啟用這些記錄，並且可在 Azure 入口網站內使用。 它們以前稱為稽核或作業記錄。
 * 事件記錄。 這些記錄會提供已套用哪些 NSG 規則的相關資訊。
 * 計數器記錄。 這些記錄可讓您知道套用每個 NSG 規則以拒絕或允許流量的次數。
 

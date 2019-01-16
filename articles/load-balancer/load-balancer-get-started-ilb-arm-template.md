@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 72101b8b6c945e58e06cea371ce4222cd87bcec7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d029de11c7101e961506f1fa46f5a71c6efb103e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079469"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044003"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>使用範本建立內部負載平衡器
 
@@ -80,3 +80,4 @@ ms.locfileid: "53079469"
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
+如需範本中負載平衡器的 JSON 語法和屬性，請參閱 [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers)。

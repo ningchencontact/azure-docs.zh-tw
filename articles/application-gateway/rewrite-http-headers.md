@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 6750276cf31d0c804b38cdf3ea6e41a4505c93f1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971813"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187412"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>使用應用程式閘道來重寫 HTTP 標頭 (公開預覽)
 
 HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。 重新撰寫這些 HTTP 標頭可幫助您完成數個重要的情況，例如新增與安全性相關的標頭欄位 (例如 HSTS/ X-XSS-Protection) 或移除可能會揭露機密資訊 (例如後端伺服器名稱) 的回應標頭欄位。
 
-「應用程式閘道」現在支援重寫傳入 HTTP 要求標頭及傳出 HTTP 回應標頭的能力。 您將能夠在要求/回應封包於用戶端與後端集區之間移動時，新增、移除或更新 HTTP 要求和回應標頭。 您可以重寫標準標頭欄位 (於 [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt) \(英文\) 中定義)，也可以重寫非標準標頭欄位。
+「應用程式閘道」現在支援重寫傳入 HTTP 要求標頭及傳出 HTTP 回應標頭的能力。 您將能夠在要求/回應封包於用戶端與後端集區之間移動時，新增、移除或更新 HTTP 要求和回應標頭。 您可以重寫標準標頭欄位，也可以重寫非標準標頭欄位。
 
 > [!NOTE] 
 >
@@ -84,7 +84,11 @@ HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。
 
 - 上述幾個值的組合。
 
-上面提及的伺服器變數是提供與下列各項相關之資訊的變數：伺服器、與用戶端的連線，以及目前連線上的要求。 此功能支援將標頭重寫成下列伺服器變數：
+## <a name="server-variables"></a>伺服器變數
+
+伺服器變數會在 Web 伺服器上儲存有用的資訊。 這些變數提供與下列各項相關的資訊：伺服器、與用戶端的連線，以及目前連線上的要求，例如用戶端 IP 位址或用戶端 IP 位址或 Web 瀏覽器類型。 它們會以動態方式變更，例如載入新頁面時或發佈表單時。  使用者可以使用這些變數以設定要求標頭以及回應標頭。 
+
+此功能支援將標頭重寫成下列伺服器變數：
 
 | 支援的伺服器變數 | 說明                                                  |
 | -------------------------- | :----------------------------------------------------------- |
@@ -100,7 +104,7 @@ HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。
 | http_status                | 工作階段狀態，例如：200、400、403 等。                       |
 | http_version               | 要求通訊協定，通常是 “HTTP/1.0”、“HTTP/1.1” 或 “HTTP/2.0” |
 | query_string               | 接在所要求 URL 中 "?" 後面的「變數-值」組清單。 |
-| received_byte              | 要求長度 (包括要求行、標頭及要求本文) |
+| received_bytes             | 要求長度 (包括要求行、標頭及要求本文) |
 | request_query              | 要求行中的引數                                |
 | request_scheme             | 要求配置 (“http” 或 “https”)                            |
 | request_uri                | 完整的原始要求 URI (含引數)                   |

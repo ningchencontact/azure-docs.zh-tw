@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 950336db215bbca76f20c15527397212c6fe5ffd
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 23114a1d2fff081c802ddedc7bf5430938c45b3b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554923"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191780"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和傳遞 (CI/CD)
 
@@ -162,7 +161,7 @@ ms.locfileid: "53554923"
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>為 Azure Pipelines 代理程式授與權限
-Azure Key Vault 工作第一次執行時可能會失敗，並發生拒絕存取錯誤。 請下載發行的記錄，並使用命令找出 `.ps1` 檔案，為 Azure Pipelines 代理程式指定權限。 您可以直接執行此命令，或是從檔案複製主體識別碼，然後在 Azure 入口網站中手動新增存取原則。 (*取得*和*列出*是所需的最低權限)。
+Azure Key Vault 工作在第一次整合執行階段可能會失敗，並發生拒絕存取錯誤。 請下載發行的記錄，並使用命令找出 `.ps1` 檔案，為 Azure Pipelines 代理程式指定權限。 您可以直接執行此命令，或是從檔案複製主體識別碼，然後在 Azure 入口網站中手動新增存取原則。 (*取得*和*列出*是所需的最低權限)。
 
 ### <a name="update-active-triggers"></a>更新使用中的觸發程序
 如果您嘗試更新使用中的觸發程序，部署可能會失敗。 若要更新使用中的觸發程序，您必須手動將其停止，等部署完成後再加以啟動。 為此，您可以新增 Azure Powershell 工作，如下列範例所示：
@@ -184,7 +183,7 @@ Azure Key Vault 工作第一次執行時可能會失敗，並發生拒絕存取�
 在部署之後，您可以依照類似的步驟，並使用 (與 `Start-AzureRmDataFactoryV2Trigger` 函式) 類似的程式碼，來重新啟動觸發程序。
 
 > [!IMPORTANT]
-> 在持續整合和部署案例中，跨不同環境的整合執行階段類型必須是相同的。 例如，如果您在開發環境中有*自我裝載*整合執行階段 (IR)，則相同的 IR 在其他環境 (例如測試和生產環境) 中也必須屬於*自我裝載*類型。 同樣地，如果您要跨多個階段共用整合執行階段，則必須將所有環境中的 IR 設定為*連結自我裝載*，例如開發、測試和生產環境。
+> 在持續整合和部署案例中，跨不同環境的整合執行階段類型必須是相同的。 例如，如果您在開發環境中有*自我裝載*整合執行階段 (IR)，則相同的 IR 在其他環境 (例如測試和生產環境) 中也必須屬於*自我裝載*類型。 同樣地，如果您要跨多個階段共用整合執行階段，則必須將所有環境中的整合執行階段設定為*連結自我裝載*，例如開發、測試和生產環境。
 
 ## <a name="sample-deployment-template"></a>範例部署範本
 
@@ -854,7 +853,7 @@ else {
 
 以下是在撰寫自訂參數檔案時所要使用的一些指導方針。 若要查看這個語法的範例，請參閱下一節[自訂參數檔案範例](#sample)。
 
-1. 當您在定義檔中指定陣列時，就表示範本中的比對屬性是陣列。 Data Factory 會使用陣列中第一個物件所指定的定義，逐一查看陣列中的所有物件。 第二個物件 (字串) 會變成屬性的名稱，以作為每個反覆項目參數的名稱。
+1. 當您在定義檔中指定陣列時，就表示範本中的比對屬性是陣列。 Data Factory 會使用陣列之第一個整合執行階段物件中所指定的定義，逐一查看陣列中的所有物件。 第二個物件 (字串) 會變成屬性的名稱，以作為每個反覆項目參數的名稱。
 
     ```json
     ...
@@ -989,3 +988,23 @@ else {
 請記得在在部署工作之前和之後，於 CI/CD 管線中新增 Data Factory 指令碼。
 
 如果您未設定 Git，則可透過 [匯出 ARM 範本] 手勢存取連結的範本。
+
+## <a name="best-practices-for-cicd"></a>CI/CD 的最佳做法
+
+如果您將 Git 整合與資料處理站搭配使用，而且您具備 CI/CD 管線，可將您的變更從開發轉移到測試，然後再轉移到生產，我們建議您採用以下最佳做法：
+
+-   **Git 整合**。 您只需要使用 Git 整合設定您的開發資料處理站。 測試與生產的變更已透過 CI/CD 部署，而且不需要具備 Git 整合。
+
+-   **Data Factory CI/CD 指令碼**。 在 CI/CD 中的 Resource Manager 部署步驟之前，您必須處理諸如停止觸發程序和不同類型的中心清理等事項。 建議使用[此指令碼](#sample-script-to-stop-and-restart-triggers-and-clean-up)，因為它會處理所有事項。 在部署之前執行一次，然後使用適當的旗標。
+
+-   **整合執行階段和共用**。 整合執行階段是資料處理站的基礎結構組件之一，它不會經常變更，而且在 CI/CD 中的所有階段皆相似。 因此，Data Factory 預期在所有階段的 CI/CD 中，要有相同的名稱和相同類型的整合執行階段。 如果您希望在所有階段中共用整合執行階段 - 例如，自我裝載整合執行階段 - 這是一種在三元中心主控自我裝載整合執行階段的共用方式，僅適用於包含共用的整合執行階段。 然後您可以在開發/測試/生產中，將其做為連結的整合執行階段類型。
+
+-   **Key Vault**。 當您使用以建議之 Azure Key Vault 為基礎的連結服務時，可以藉由為開發/測試/生產保留單獨的金鑰保存庫，進一步發揮其優勢。您也可以為每個服務設定不同的權限等級。 您可能不希望團隊成員有生產環境密碼的權限。 我們也建議您在所有階段之間保留相同的密碼名稱。 如果保留相同的名稱，不需要跨 CI/CD 變更 Resource Manager 範本，因為唯一需要變更的是金鑰保存庫名稱，這是 Resource Manager 範本參數之一。
+
+## <a name="unsupported-features"></a>不支援的功能
+
+-   因為資料處理站實體彼此相依，您無法發佈個別資源。 例如，觸發程序取決於管線，管線取決於資料集和其他管線等等。追蹤變更的相依性並不容易。 如果可以選擇手動發佈的資源，可以僅選擇整組變更的子集，這將導致發佈後出現未預期的行為。
+
+-   您無法從私人分支發佈。
+
+-   您無法在 Bitbucket 上裝載專案。

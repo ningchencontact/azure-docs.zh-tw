@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 09c8b63cddde547b0dc42cf1f15a8ac5002d0a3e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2a5383952f64edb08717b1a100c74352c9b4246f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725133"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187972"
 ---
 # <a name="content-protection-overview"></a>內容保護概觀
 
@@ -60,7 +60,7 @@ ms.locfileid: "53725133"
 
     若要測試 AES 或 CENC (Widevine 和/或 PlayReady) 加密的內容，您可以使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html) \(英文\)。 務必按一下 [進階選項] 並檢查您的加密選項。
 
-    如果您想要測試 FairPlay 加密內容，請使用[此測試播放程式](https://aka.ms/amtest)。 該播放程式支援 Widevine、PlayReady 及 FairPlay DRM，以及 AES-128 清除金鑰加密。 您必須選擇適當的瀏覽器來測試不同的 DRM：適用於 Widevine 的 Chrome/Opera/Firefox、適用於 PlayReady 的 MS Edge/IE11、macOS 上適用於 FairPlay 的 Safari。
+    如果您想要測試 FairPlay 加密內容，請使用[此測試播放程式](https://aka.ms/amtest)。 該播放程式支援 Widevine、PlayReady 及 FairPlay DRM，以及 AES-128 清除金鑰加密。 您必須選擇適當的瀏覽器來測試不同的 DRM：適用於 Widevine 的 Chrome/Opera/Firefox、適用於 PlayReady 的 Microsoft Edge/IE11、macOS 上適用於 FairPlay 的 Safari。
 
 3. 安全性權杖服務 (STS) 會發出 JSON Web 權杖 (JWT) 作為後端資源存取的存取權杖。 您可以使用 AMS 授權傳遞服務作為後端資源。 STS 必須定義以下項目：
 

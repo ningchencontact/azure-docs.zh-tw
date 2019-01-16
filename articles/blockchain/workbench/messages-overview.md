@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/12/2018
+ms.date: 1/8/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: f8f3584475415cf9ca19458f6da78d34df37f438
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 34731bb96a83a901b3fc1a59ce1846083d69bfd7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614356"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103378"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench 訊息整合
 
@@ -216,7 +216,7 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 | **名稱**                 | **說明**                                                                                                           |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | requestId                | 用戶端提供的 GUID |
-| userChainIdentifier      | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，這是使用者的**鏈結**位址。 |
+| userChainIdentifier      | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，此位址是使用者的**鏈結**位址。 |
 | contractLedgerIdentifier | 總帳上合約的位址 |
 | workflowFunctionName     | 工作流程函式的名稱 |
 | parameters               | 可供建立合約的參數輸入 |
@@ -345,8 +345,8 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 
 ### <a name="consuming-event-grid-events-with-logic-apps"></a>使用 Logic Apps 取用事件方格事件
 
-1.  在 Azure 入口網站中建立新的 **Azure 邏輯應用程式**。
-2.  在入口網站中開啟 Azure 邏輯應用程式時，系統會提示您選取觸發程序。 選取 [Azure 事件方格 - 發生資源事件時]。
+1. 在 Azure 入口網站中建立新的 **Azure 邏輯應用程式**。
+2. 在入口網站中開啟 Azure 邏輯應用程式時，系統會提示您選取觸發程序。 選取 [Azure 事件方格 - 發生資源事件時]。
 3. 當工作流程設計工具顯示時，系統會提示您登入。
 4. 選取訂用帳戶。 資源作為 **Microsoft.EventGrid.Topics**。 從 Azure Blockchain Workbench 資源群組的資源名稱中選取 [資源名稱]。
 5. 從 Blockchain Workbench 的資源群組中選取事件方格。
@@ -355,11 +355,11 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 
 服務匯流排主題可用來通知使用者在 Blockchain Workbench 中所發生的事件。 
 
-1.  在 Workbench 的資源群組內瀏覽至服務匯流排。
-2.  選取 [主題]。
-3.  選取 [workbench-external]。
-4.  對此主題建立新的訂用帳戶。 取得其金鑰。
-5.  建立程式，從這個訂用帳戶訂閱事件。
+1. 在 Workbench 的資源群組內瀏覽至服務匯流排。
+2. 選取 [主題]。
+3. 選取 **egress-topic**。
+4. 對此主題建立新的訂用帳戶。 取得其金鑰。
+5. 建立程式，從這個訂用帳戶訂閱事件。
 
 ### <a name="consuming-service-bus-messages-with-logic-apps"></a>使用 Logic Apps 取用服務匯流排訊息
 
@@ -373,240 +373,531 @@ Blockchain Workbench 會傳回包含下列欄位的回應：
 
 根據 **OperationName**，通知訊息具有下列其中一種訊息類型。
 
-### <a name="accountcreated"></a>AccountCreated
+### <a name="block-message"></a>區塊訊息
 
-表示已要求將新帳戶新增至指定的鏈結。
+包含個別區塊的相關資訊。 *BlockMessage* 包含具有區塊層級資訊的區段和具有交易資訊的區段。
 
-| 名稱    | 說明  |
-|----------|--------------|
-| UserId  | 所建立使用者的識別碼。 |
-| ChainIdentifier | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，這會是使用者的**鏈結**位址。 |
+| Name | 說明 |
+|------|-------------|
+| block | 包含[區塊資訊](#block-information) |
+| 交易 | 包含區塊的[交易資訊](#transaction-information)集合 |
+| connectionId | 連線的唯一識別碼 |
+| messageSchemaVersion | 傳訊結構描述版本 |
+| messageName | **BlockMessage** |
+| additionalInformation | 提供的其他資訊 |
 
-``` csharp
-public class NewAccountRequest : MessageModelBase
+#### <a name="block-information"></a>區塊資訊
+
+| Name              | 說明 |
+|-------------------|-------------|
+| blockId           | Azure Blockchain Workbench 內區塊的唯一識別碼 |
+| blockNumber       | 總帳上區塊的唯一識別碼 |
+| blockHash         | 區塊的雜湊 |
+| previousBlockHash | 上一個區塊的雜湊 |
+| blockTimestamp    | 區塊的時間戳記 |
+
+#### <a name="transaction-information"></a>交易資訊
+
+| Name               | 說明 |
+|--------------------|-------------|
+| transactionId      | Azure Blockchain Workbench 內所含交易的唯一識別碼 |
+| transactionHash    | 總帳上交易的雜湊 |
+| from               | 交易來源總帳的唯一識別碼 |
+| to                 | 交易目的地總帳的唯一識別碼 |
+| provisioningStatus | 識別交易佈建程序的目前狀態。 可能的值包括： </br>0 – API 已在資料庫中建立交易</br>1 – 交易已傳送至總帳</br>2 – 交易已成功認可至總帳</br>3 或 4 – 交易無法認可至總帳</br>5 – 交易已成功認可至總帳 |
+
+Blockchain Workbench 中的 *BlockMessage* 範例：
+
+``` json
 {
-  public int UserID { get; set; }
-  public string ChainIdentifier { get; set; }
+    "block": {
+        "blockId": 123
+        "blockNumber": 1738312,
+        "blockHash": "0x03a39411e25e25b47d0ec6433b73b488554a4a5f6b1a253e0ac8a200d13fffff",
+        "previousBlockHash": null,
+        "blockTimestamp": "2018-10-09T23:35:58Z",
+    },
+    "transactions": [
+        {
+            "transactionId": 234
+            "transactionHash": "0xa4d9c95b581f299e41b8cc193dd742ef5a1d3a4ddf97bd11b80d123fec27ffff",
+            "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
+            "to": null,
+            "provisioningStatus": 1
+        },
+        {
+            "transactionId": 235
+            "transactionHash": "0x5c1fddea83bf19d719e52a935ec8620437a0a6bdaa00ecb7c3d852cf92e1ffff",
+            "from": "0xadd97e1e595916e29ea94fda894941574000ffff",
+            "to": "0x9a8DDaCa9B7488683A4d62d0817E965E8f24ffff",
+            "provisioningStatus": 2
+        }
+    ],
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "BlockMessage",
+    "additionalInformation": {}
 }
 ```
 
-### <a name="contractinsertedorupdated"></a>ContractInsertedOrUpdated
+### <a name="contract-message"></a>合約訊息
 
-表示已提出要求要在分散式總帳上插入或更新合約。
+包含合約的相關資訊。 此訊息包含具有合約屬性的區段和具有交易資訊的區段。 已針對特定區塊修改合約的所有交易，都會包含在交易區段中。
 
-| 名稱 | 說明 |
-|-----|--------------|
-| ChainID | 要求相關鏈結的唯一識別碼 |
-| BlockId | 總帳上區塊的唯一識別碼 |
-| ContractId | 合約的唯一識別碼 |
-| ContractAddress |       總帳上合約的位址 |
-| TransactionHash  |     總帳上交易的雜湊 |
-| OriginatingAddress |   交易建立者的位址 |
-| ActionName       |     動作的名稱 |
-| IsUpdate        |      識別這是否為更新 |
-| 參數       |     物件清單，這些物件可識別傳送至動作的參數名稱、值和資料類型 |
-| TopLevelInputParams |  在合約連線至一或多個其他合約的情況下，這些是來自最上層合約的參數。 |
+| Name | 說明 |
+|------|-------------|
+| blockId | Azure Blockchain Workbench 內區塊的唯一識別碼 |
+| blockHash | 區塊的雜湊 |
+| modifyingTransactions | [已修改合約的交易](#modifying-transaction-information) |
+| contractId | Azure Blockchain Workbench 內合約的唯一識別碼 |
+| contractLedgerIdentifier | 總帳所含合約的唯一識別碼 |
+| contractProperties | [合約的屬性](#contract-properties) |
+| isNewContract | 指出此合約是否為新建的。 可能的值為：true：此合約是新建的合約。 false：此合約是合約更新。 |
+| connectionId | 連線的唯一識別碼 |
+| messageSchemaVersion | 傳訊結構描述版本 |
+| messageName | **ContractMessage** |
+| additionalInformation | 提供的其他資訊 |
 
-``` csharp
-public class ContractInsertOrUpdateRequest : MessageModelBase
+#### <a name="modifying-transaction-information"></a>修改交易資訊
+
+| Name               | 說明 |
+|--------------------|-------------|
+| transactionId | Azure Blockchain Workbench 內所含交易的唯一識別碼 |
+| transactionHash | 總帳上交易的雜湊 |
+| from | 交易來源總帳的唯一識別碼 |
+| to | 交易目的地總帳的唯一識別碼 |
+
+#### <a name="contract-properties"></a>合約屬性
+
+| Name               | 說明 |
+|--------------------|-------------|
+| workflowPropertyId | Azure Blockchain Workbench 內所含工作流程屬性的唯一識別碼 |
+| name | 工作流程屬性的名稱 |
+| value | 工作流程屬性的值 |
+
+Blockchain Workbench 中的 *ContractMessage* 範例：
+
+``` json
 {
-    public int ChainId { get; set; }
-    public int BlockId { get; set; }
-    public int ContractId { get; set; }
-    public string ContractAddress { get; set; }
-    public string TransactionHash { get; set; }
-    public string OriginatingAddress { get; set; }
-    public string ActionName { get; set; }
-    public bool IsUpdate { get; set; }
-    public List<ContractProperty> Parameters { get; set; }
-    public bool IsTopLevelUpdate { get; set; }
-    public List<ContractInputParameter> TopLevelInputParams { get; set; }
+    "blockId": 123,
+    "blockhash": "0x03a39411e25e25b47d0ec6433b73b488554a4a5f6b1a253e0ac8a200d13fffff",
+    "modifyingTransactions": [
+        {
+            "transactionId": 234,
+            "transactionHash": "0x5c1fddea83bf19d719e52a935ec8620437a0a6bdaa00ecb7c3d852cf92e1ffff",
+            "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
+            "to": "0xf8559473b3c7197d59212b401f5a9f07ffff"
+        },
+        {
+            "transactionId": 235,
+            "transactionHash": "0xa4d9c95b581f299e41b8cc193dd742ef5a1d3a4ddf97bd11b80d123fec27ffff",
+            "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
+            "to": "0xf8559473b3c7197d59212b401f5a9f07b429ffff"
+        }
+    ],
+    "contractId": 111,
+    "contractLedgerIdentifier": "0xf8559473b3c7197d59212b401f5a9f07b429ffff",
+    "contractProperties": [
+        {
+            "workflowPropertyId": 1,
+            "name": "State",
+            "value": "0"
+        },
+        {
+            "workflowPropertyId": 2,
+            "name": "Description",
+            "value": "1969 Dodge Charger"
+        },
+        {
+            "workflowPropertyId": 3,
+            "name": "AskingPrice",
+            "value": "30000"
+        },
+        {
+            "workflowPropertyId": 4,
+            "name": "OfferPrice",
+            "value": "0"
+        },
+        {
+            "workflowPropertyId": 5,
+            "name": "InstanceAppraiser",
+            "value": "0x0000000000000000000000000000000000000000"
+        },
+        {
+            "workflowPropertyId": 6,
+            "name": "InstanceBuyer",
+            "value": "0x0000000000000000000000000000000000000000"
+        },
+        {
+            "workflowPropertyId": 7,
+            "name": "InstanceInspector",
+            "value": "0x0000000000000000000000000000000000000000"
+        },
+        {
+            "workflowPropertyId": 8,
+            "name": "InstanceOwner",
+            "value": "0x9a8DDaCa9B7488683A4d62d0817E965E8f24ffff"
+        },
+        {
+            "workflowPropertyId": 9,
+            "name": "ClosingDayOptions",
+            "value": "[21,48,69]"
+        }
+    ],
+    "isNewContract": false,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "ContractMessage",
+    "additionalInformation": {}
 }
 ```
 
-#### <a name="updatecontractaction"></a>UpdateContractAction
+### <a name="event-message-contract-function-invocation"></a>事件訊息：合約函式引動過程
 
-表示已提出要求要對分散式總帳上的特定合約執行動作。
+包含叫用合約函式時的資訊，例如函式名稱、參數輸入，以及函式的呼叫端。
 
-| 名稱                     | 說明                                                                                                                                                                   |
-|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ContractActionId         | 此合約動作的唯一識別碼 |
-| ChainIdentifier          | 鏈結的唯一識別碼 |
-| ConnectionId             | 連線的唯一識別碼 |
-| UserChainIdentifier      | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，此位址是使用者的**鏈結**位址。 |
-| ContractLedgerIdentifier | 總帳上合約的位址 |
-| WorkflowFunctionName     | 工作流程函式的名稱 |
-| WorkflowName             | 工作流程的名稱 |
-| WorkflowBlobStorageURL   | Blob 儲存體中合約的 URL |
-| ContractActionParameters | 合約動作的參數 |
-| TransactionHash          | 總帳上交易的雜湊 |
-| 佈建狀態      | 動作目前的佈建狀態。</br>0 – 已建立</br>1 – 處理中</br>2 – 完成</br> 完成表示總帳確認已成功新增此項目 |
+| Name | 說明 |
+|------|-------------|
+| eventName                   | **ContractFunctionInvocation** |
+| 呼叫者                      | [呼叫端資訊](#caller-information) |
+| contractId                  | Azure Blockchain Workbench 內合約的唯一識別碼 |
+| contractLedgerIdentifier    | 總帳所含合約的唯一識別碼 |
+| functionName                | 函式的名稱 |
+| parameters                  | [參數資訊](#parameter-information) |
+| 交易                 | [交易資訊](#eventmessage-transaction-information) |
+| inTransactionSequenceNumber | 交易在區塊中的序號 |
+| connectionId                | 連線的唯一識別碼 |
+| messageSchemaVersion        | 傳訊結構描述版本 |
+| messageName                 | **EventMessage** |
+| additionalInformation       | 提供的其他資訊 |
 
-```csharp
-public class ContractActionRequest : MessageModelBase
+#### <a name="caller-information"></a>呼叫端資訊
+
+| Name | 說明 |
+|------|-------------|
+| type | 呼叫端的類型，例如使用者或合約 |
+| id | Azure Blockchain Workbench 內所含呼叫端的唯一識別碼 |
+| ledgerIdentifier | 總帳所含呼叫端的唯一識別碼 |
+
+#### <a name="parameter-information"></a>參數資訊
+
+| Name | 說明 |
+|------|-------------|
+| name | 參數名稱 |
+| value | 參數值 |
+
+#### <a name="event-message-transaction-information"></a>事件訊息交易資訊
+
+| Name               | 說明 |
+|--------------------|-------------|
+| transactionId      | Azure Blockchain Workbench 內所含交易的唯一識別碼 |
+| transactionHash    | 總帳上交易的雜湊 |
+| from               | 交易來源總帳的唯一識別碼 |
+| to                 | 交易目的地總帳的唯一識別碼 |
+
+Blockchain Workbench 中的 *EventMessage ContractFunctionInvocation* 範例：
+
+``` json
 {
-    public int ContractActionId { get; set; }
-    public int ConnectionId { get; set; }
-    public string UserChainIdentifier { get; set; }
-    public string ContractLedgerIdentifier { get; set; }
-    public string WorkflowFunctionName { get; set; }
-    public string WorkflowName { get; set; }
-    public string WorkflowBlobStorageURL { get; set; }
-    public IEnumerable<ContractActionParameter> ContractActionParameters { get; set; }
-    public string TransactionHash { get; set; }
-    public int ProvisioningStatus { get; set; }
+    "eventName": "ContractFunctionInvocation",
+    "caller": {
+        "type": "User",
+        "id": 21,
+        "ledgerIdentifier": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60ffff"
+    },
+    "contractId": 34,
+    "contractLedgerIdentifier": "0xf8559473b3c7197d59212b401f5a9f07b429ffff",
+    "functionName": "Modify",
+    "parameters": [
+        {
+            "name": "description",
+            "value": "a new description"
+        },
+        {
+            "name": "price",
+            "value": "4567"
+        }
+    ],
+    "transaction": {
+        "transactionId": 234,
+        "transactionHash": "0x5c1fddea83bf19d719e52a935ec8620437a0a6bdaa00ecb7c3d852cf92e1ffff",
+        "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
+        "to": "0xf8559473b3c7197d59212b401f5a9f07b429ffff"
+    },
+    "inTransactionSequenceNumber": 1,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "EventMessage",
+    "additionalInformation": { }
 }
 ```
 
-### <a name="updateuserbalance"></a>UpdateUserBalance
+### <a name="event-message-application-ingestion"></a>事件訊息：應用程式擷取
 
-表示已提出要求要在特定分散式總帳上更新使用者餘額。
+包含資訊應用程式上傳至 Workbench 時的資訊，例如，上傳的應用程式名稱和版本。
 
-> [!NOTE]
-> 此訊息只會針對需要帳戶資金的總帳來產生。
-> 
+| Name | 說明 |
+|------|-------------|
+| eventName | **ApplicationIngestion** |
+| applicationId | Azure Blockchain Workbench 內所含應用程式的唯一識別碼 |
+| applicationName | 應用程式名稱 |
+| applicationDisplayName | 應用程式顯示名稱 |
+| applicationVersion | 應用程式版本 |
+| applicationDefinitionLocation | 應用程式組態檔所在的 URL |
+| contractCodes | 應用程式的[合約程式碼](#contract-code-information)集合 |
+| applicationRoles | 應用程式的[應用程式角色](#application-role-information)集合 |
+| applicationWorkflows | 應用程式的[應用程式工作流程](#application-workflow-information)集合 |
+| connectionId | 連線的唯一識別碼 |
+| messageSchemaVersion | 傳訊結構描述版本 |
+| messageName | **EventMessage** |
+| additionalInformation | 此處提供的其他資訊包括應用程式工作流程狀態和轉換資訊。 |
 
-| 名稱    | 說明                              |
-|---------|------------------------------------------|
-| 位址 | 已對其募集資金的使用者位址 |
-| 餘額 | 使用者餘額的餘額         |
-| ChainID | 鏈結的唯一識別碼     |
+#### <a name="contract-code-information"></a>合約程式碼資訊
 
+| Name | 說明 |
+|------|-------------|
+| id | Azure Blockchain Workbench 內所含合約程式碼檔案的唯一識別碼 |
+| ledgerId | Azure Blockchain Workbench 內所含總帳的唯一識別碼 |
+| location | 合約程式碼檔案所在的 URL |
 
-``` csharp
-public class UpdateUserBalanceRequest : MessageModelBase
+#### <a name="application-role-information"></a>應用程式角色資訊
+
+| Name | 說明 |
+|------|-------------|
+| id | Azure Blockchain Workbench 內所含應用程式角色的唯一識別碼 |
+| name | 應用程式角色的名稱 |
+
+#### <a name="application-workflow-information"></a>應用程式工作流程資訊
+
+| Name | 說明 |
+|------|-------------|
+| id | Azure Blockchain Workbench 內所含應用程式工作流程的唯一識別碼 |
+| name | 應用程式工作流程名稱 |
+| displayName | 應用程式工作流程顯示名稱 |
+| functions | [應用程式工作流程的函式](#workflow-function-information)集合|
+| states | [應用程式工作流程的狀態](#workflow-state-information)集合 |
+| properties | 應用程式[工作流程屬性資訊](#workflow-property-information) |
+
+##### <a name="workflow-function-information"></a>工作流程函式資訊
+
+| Name | 說明 |
+|------|-------------|
+| id | Azure Blockchain Workbench 內所含應用程式工作流程函式的唯一識別碼 |
+| name | 函式名稱 |
+| parameters | 函式的屬性 |
+
+##### <a name="workflow-state-information"></a>工作流程狀態資訊
+
+| Name | 說明 |
+|------|-------------|
+| name | 狀態名稱 |
+| displayName | 狀態顯示名稱 |
+| style | 狀態模式 (成功或失敗) |
+
+##### <a name="workflow-property-information"></a>工作流程屬性資訊
+
+| Name | 說明 |
+|------|-------------|
+| id | Azure Blockchain Workbench 內所含應用程式工作流程屬性的唯一識別碼 |
+| name | 屬性名稱 |
+| type | 屬性類型 |
+
+Blockchain Workbench 中的 *EventMessage ApplicationIngestion* 範例：
+
+``` json
 {
-    public string Address { get; set; }
-    public decimal Balance { get; set; }
-    public int ChainID { get; set; }
+    "eventName": "ApplicationIngestion",
+    "applicationId": 31,
+    "applicationName": "AssetTransfer",
+    "applicationDisplayName": "Asset Transfer",
+    "applicationVersion": “1.0”,
+    "applicationDefinitionLocation": "http://url"
+    "contractCodes": [
+        {
+            "id": 23,
+            "ledgerId": 1,
+            "location": "http://url"
+        }
+    ],
+    "applicationRoles": [
+            {
+                "id": 134,
+                "name": "Buyer"
+            },
+            {
+                "id": 135,
+                "name": "Seller"
+            }
+       ],
+    "applicationWorkflows": [
+        {
+            "id": 89,
+            "name": "AssetTransfer",
+            "displayName": "Asset Transfer",
+            "functions": [
+                {
+                    "id": 912,
+                    "name": "",
+                    "parameters": [
+                        {
+                            "name": "description",
+                            "type": {
+                                "name": "string"
+                             }
+                        },
+                        {
+                            "name": "price",
+                            "type": {
+                                "name": "int"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 913,
+                    "name": "modify",
+                    "parameters": [
+                        {
+                            "name": "description",
+                            "type": {
+                                "name": "string"
+                             }
+                        },
+                        {
+                            "name": "price",
+                            "type": {
+                                "name": "int"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "states": [ 
+                 {
+                      "name": "Created",
+                      "displayName": "Created",
+                      "style" : "Success"
+                 },
+                 {
+                      "name": "Terminated",
+                      "displayName": "Terminated",
+                      "style" : "Failure"
+                 }
+            ],
+            "properties": [
+                {
+                    "id": 879,
+                    "name": "Description",
+                    "type": {
+                                "name": "string"
+                     }
+                },
+                {
+                    "id": 880,
+                    "name": "Price",
+                    "type": {
+                                "name": "int"
+                     }
+                }
+            ]
+        }
+    ]
+    "connectionId": [ ],
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "EventMessage",
+    "additionalInformation":
+        {
+            "states" :
+            [
+                {
+                    "Name": "BuyerAccepted",
+                    "Transitions": [
+                        {
+                            "DisplayName": "Accept"
+                            "AllowedRoles": [ ],
+                            "AllowedInstanceRoles": [ "InstanceOwner" ],
+                            "Function": "Accept",
+                            "NextStates": [ "SellerAccepted" ]
+                        }
+                    ]
+                }
+            ]
+        }
 }
 ```
 
-### <a name="insertblock"></a>InsertBlock
+### <a name="event-message-role-assignment"></a>事件訊息：角色指派
 
-訊息會表示已提出要求要在分散式總帳上新增區塊。
+包含在 Workbench 中為使用者指派角色時的資訊，例如，執行角色指派的人員、角色的名稱和對應的應用程式。
 
-| 名稱           | 說明                                                            |
-|----------------|------------------------------------------------------------------------|
-| ChainId        | 已在其中新增區塊的鏈結唯一識別碼             |
-| BlockId        | Azure Blockchain Workbench 內區塊的唯一識別碼 |
-| BlockHash      | 區塊的雜湊                                                 |
-| BlockTimeStamp | 區塊的時間戳記                                            |
+| Name | 說明 |
+|------|-------------|
+| eventName | **RoleAssignment** |
+| applicationId | Azure Blockchain Workbench 內所含應用程式的唯一識別碼 |
+| applicationName | 應用程式名稱 |
+| applicationDisplayName | 應用程式顯示名稱 |
+| applicationVersion | 應用程式版本 |
+| applicationRole        | [應用程式角色](#roleassignment-application-role)的相關資訊 |
+| 指派者               | [指派者](#roleassignment-assigner)的相關資訊 |
+| 受託人               | [受託人](#roleassignment-assignee)的相關資訊 |
+| connectionId           | 連線的唯一識別碼 |
+| messageSchemaVersion   | 傳訊結構描述版本 |
+| messageName            | **EventMessage** |
+| additionalInformation  | 提供的其他資訊 |
 
-``` csharp
-public class InsertBlockRequest : MessageModelBase
+#### <a name="roleassignment-application-role"></a>RoleAssignment 應用程式角色
+
+| Name | 說明 |
+|------|-------------|
+| id | Azure Blockchain Workbench 內所含應用程式角色的唯一識別碼 |
+| name | 應用程式角色的名稱 |
+
+#### <a name="roleassignment-assigner"></a>RoleAssignment 指派者
+
+| Name | 說明 |
+|------|-------------|
+| id | Azure Blockchain Workbench 內所含使用者的唯一識別碼 |
+| type | 指派者的類型 |
+| chainIdentifier | 總帳所含使用者的唯一識別碼 |
+
+#### <a name="roleassignment-assignee"></a>RoleAssignment 受託人
+
+| Name | 說明 |
+|------|-------------|
+| id | Azure Blockchain Workbench 內所含使用者的唯一識別碼 |
+| type | 受託人的類型 |
+| chainIdentifier | 總帳所含使用者的唯一識別碼 |
+
+Blockchain Workbench 中的 *EventMessage RoleAssignment* 範例：
+
+``` json
 {
-    public int ChainId { get; set; }
-    public int BlockId { get; set; }
-    public string BlockHash { get; set; }
-    public int BlockTimestamp { get; set; }
-}
-```
-
-### <a name="inserttransaction"></a>InsertTransaction
-
-訊息會提供有關要在分散式總帳上新增交易的要求詳細資料。
-
-| 名稱            | 說明                                                            |
-|-----------------|------------------------------------------------------------------------|
-| ChainId         | 已在其中新增區塊的鏈結唯一識別碼             |
-| BlockId         | Azure Blockchain Workbench 內區塊的唯一識別碼 |
-| TransactionHash | 交易的雜湊                                           |
-| 從            | 交易建立者的位址                      |
-| 至              | 交易預定接收者的位址              |
-| 值           | 交易中所包含的值                                 |
-| IsAppBuilderTx  | 識別這是否為 Blockchain Workbench 交易                         |
-
-``` csharp
-public class InsertTransactionRequest : MessageModelBase
-{
-    public int ChainId { get; set; }
-    public int BlockId { get; set; }
-    public string TransactionHash { get; set; }
-    public string From { get; set; }
-    public string To { get; set; }
-    public decimal Value { get; set; }
-    public bool IsAppBuilderTx { get; set; }
-}
-```
-
-### <a name="assigncontractchainidentifier"></a>AssignContractChainIdentifier
-
-提供合約鏈結識別碼指派的詳細資料。 例如，在 Ethereum 區塊鏈中，總帳上合約的位址。
-
-| 名稱            | 說明                                                                       |
-|-----------------|-----------------------------------------------------------------------------------|
-| ContractId      | Azure Blockchain Workbench 內合約的唯一識別碼 |
-| ChainIdentifier | 鏈結上合約的識別碼                             |
-
-``` csharp
-public class AssignContractChainIdentifierRequest : MessageModelBase
-{
-    public int ContractId { get; set; }
-    public string ChainIdentifier { get; set; }
-}
-```
-
-## <a name="classes-used-by-message-types"></a>訊息類型所使用的類別
-
-### <a name="messagemodelbase"></a>MessageModelBase
-
-所有訊息的基本模型。
-
-| 名稱          | 說明                          |
-|---------------|--------------------------------------|
-| OperationName | 作業的名稱           |
-| RequestId     | 要求的唯一識別碼 |
-
-``` csharp
-public class MessageModelBase
-{
-    public string OperationName { get; set; }
-    public string RequestId { get; set; }
-}
-```
-
-### <a name="contractinputparameter"></a>ContractInputParameter
-
-包含參數的名稱、值和類型。
-
-| 名稱  | 說明                 |
-|-------|-----------------------------|
-| 名稱  | 參數的名稱  |
-| 值 | 參數的值 |
-| 類型  | 參數的類型  |
-
-``` csharp
-public class ContractInputParameter
-{
-    public string Name { get; set; }
-    public string Value { get; set; }
-    public string Type { get; set; }
-}
-```
-
-#### <a name="contractproperty"></a>ContractProperty
-
-包含屬性的識別碼、名稱、值和類型。
-
-| 名稱  | 說明                |
-|-------|----------------------------|
-| id    | 屬性的識別碼    |
-| 名稱  | 屬性的名稱  |
-| 值 | 屬性的值 |
-| 類型  | 屬性的類型  |
-
-``` csharp
-public class ContractProperty
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Value { get; set; }
-    public string DataType { get; set; }
+    "eventName": "RoleAssignment",
+    "applicationId": 31,
+    "applicationName": "AssetTransfer",
+    "applicationDisplayName": "Asset Transfer",
+    "applicationVersion": “1.0”,
+    "applicationRole": {
+        "id": 134,
+        "name": "Buyer"
+    },
+    "assigner": {
+        "id": 1,
+        "type": null,
+        "chainIdentifier": "0xeFFC7766d38aC862d79706c3C5CEEf089564ffff"
+    },
+    "assignee": {
+        "id": 3,
+        "type": null,
+        "chainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f24ffff"
+    },
+    "connectionId": [ ],
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "EventMessage",
+    "additionalInformation": { }
 }
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [智慧合約整合模式](integration-patterns.md)
+- [智慧合約整合模式](integration-patterns.md)

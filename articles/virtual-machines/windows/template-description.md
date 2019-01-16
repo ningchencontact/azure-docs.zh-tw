@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5856824ba4aec2998ad38ac73cc5acc0840584cd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987691"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023833"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 範本中的虛擬機器
 
@@ -146,7 +146,7 @@ ms.locfileid: "46987691"
 ``` 
 
 > [!NOTE] 
->此範例仰賴先前建立的儲存體帳戶。 您可以透過從範本部署它來建立儲存體帳戶。 此範例也會仰賴網路介面和其會在範本中定義的相依資源。 這些資源不會顯示在範例中。
+>此範例仰賴先前建立的儲存體帳戶。 您可以藉由從範本部署它來建立儲存體帳戶。 此範例也會仰賴網路介面和其會在範本中定義的相依資源。 這些資源不會顯示在範例中。
 >
 >
 
@@ -213,7 +213,7 @@ ms.locfileid: "46987691"
 }, 
 ```
 
-當您部署範例範本時，變數值會用於名稱與先前建立之儲存體帳戶的識別碼。 變數也用來提供診斷延伸模組的設定。 使用[建立 Azure Resource Manager 範本的最佳作法](../../resource-manager-template-best-practices.md)可協助您決定要如何組織您範本中的變數與參數。
+當您部署範例範本時，變數值會用於名稱與先前建立之儲存體帳戶的識別碼。 變數也用來提供診斷擴充功能的設定。 使用[建立 Azure Resource Manager 範本的最佳作法](../../resource-manager-template-best-practices.md)可協助您決定要如何組織您範本中的變數與參數。
 
 ## <a name="resource-loops"></a>資源迴圈
 
@@ -372,9 +372,9 @@ Resource Manager 會以平行方式部署任何不依存於另一個要部署資
 ],
 ```
 
-## <a name="extensions"></a>延伸模組
+## <a name="extensions"></a>擴充功能
 
-雖然[延伸模組](extensions-features.md)是不同的資源，它們會緊密繫結至 VM。 延伸模組可新增為 VM 的子資源或不同的資源。 範例會示範要新增至 VM 的[診斷延伸模組](extensions-diagnostics-template.md)：
+雖然[擴充功能](extensions-features.md)是不同的資源，它們會緊密繫結至 VM。 擴充功能可新增為 VM 的子資源或不同的資源。 範例會示範要新增至 VM 的[診斷擴充功能](extensions-diagnostics-template.md)：
 
 ```
 { 
@@ -407,9 +407,9 @@ Resource Manager 會以平行方式部署任何不依存於另一個要部署資
 },
 ```
 
-此延伸模組資源會使用 storageName 變數和診斷變數來提供值。 如果您想要變更此延伸模組所收集的資料，可以將更多效能計數器新增至 wadperfcounters 變數。 您也可以選擇將診斷資料放入與 VM 磁碟所儲存位置不同的儲存體帳戶。
+此擴充功能資源會使用 storageName 變數和診斷變數來提供值。 如果您想要變更此擴充功能所收集的資料，可以將更多效能計數器新增至 wadperfcounters 變數。 您也可以選擇將診斷資料放入與 VM 磁碟所儲存位置不同的儲存體帳戶。
 
-有許多您可以在 VM 上安裝的延伸模組，而最有用的可能是[自訂指令碼延伸模組](extensions-customscript.md)。 在範例中，名為 start.ps1 的 PowerShell 指令碼第一次啟動時會在每個 VM 上執行︰
+有許多您可以在 VM 上安裝的擴充功能，而最有用的可能是[自訂指令碼擴充功能](extensions-customscript.md)。 在範例中，名為 start.ps1 的 PowerShell 指令碼第一次啟動時會在每個 VM 上執行︰
 
 ```
 {
@@ -436,11 +436,11 @@ Resource Manager 會以平行方式部署任何不依存於另一個要部署資
 }
 ```
 
-Start.ps1 指令碼可以完成許多設定工作。 例如，範例中新增至 VM 的資料磁碟未初始化；您可以使用自訂指令碼將它們初始化。 如果您有多個啟動工作要執行時，可以使用 start.ps1 檔案來呼叫 Azure 儲存體中的其他 PowerShell 指令碼。 範例會使用 PowerShell，但您可以使用任何您所使用的作業系統上可用的指令碼方法。
+Start.ps1 指令碼可以完成許多組態工作。 例如，範例中新增至 VM 的資料磁碟未初始化；您可以使用自訂指令碼將它們初始化。 如果您有多個啟動工作要執行時，可以使用 start.ps1 檔案來呼叫 Azure 儲存體中的其他 PowerShell 指令碼。 範例會使用 PowerShell，但您可以使用任何您所使用的作業系統上可用的指令碼方法。
 
-您可以從入口網站中的延伸模組設定看到已安裝延伸模組的狀態︰
+您可以從入口網站中的擴充功能設定看到已安裝擴充功能的狀態︰
 
-![取得延伸模組狀態](./media/template-description/virtual-machines-show-extensions.png)
+![取得擴充功能狀態](./media/template-description/virtual-machines-show-extensions.png)
 
 您也可以使用 **Get-AzureRmVMExtension** PowerShell 命令、**vm extension get** Azure CLI 命令或 **Get extension information** REST API 取得延伸模組資訊。
 
@@ -448,7 +448,7 @@ Start.ps1 指令碼可以完成許多設定工作。 例如，範例中新增至
 
 當您部署範本時，Azure 會追蹤您部署為群組的資源，並自動指派此部署群組的名稱。 部署的名稱與範本的名稱相同。
 
-如果您想知道部署中的資源狀態，可以使用 Azure 入口網站中的資源群組刀鋒視窗︰
+如果您想知道部署中的資源狀態，可在 Azure 入口網站中檢視資源群組︰
 
 ![取得部署資訊](./media/template-description/virtual-machines-deployment-info.png)
     
@@ -459,3 +459,4 @@ Start.ps1 指令碼可以完成許多設定工作。 例如，範例中新增至
 - 使用[編寫 Azure Resource Manager 範本](../../resource-group-authoring-templates.md)來建立專屬範本。
 - 部署您使用[利用 Resource Manager 範本搭配 Azure PowerShell 建立 Windows 虛擬機器](ps-template.md)建立的範本。
 - 檢閱[使用 Azure PowerShell 模組來建立和管理 Windows VM](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，以了解如何管理您建立的 VM。
+- 如需範本中資源類型的 JSON 語法和屬性，請參閱 [Azure Resource Manager 範本參考](/azure/templates/)。

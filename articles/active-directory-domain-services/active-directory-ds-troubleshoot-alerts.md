@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: c4aa5786ea1dfbef32c40306de6291ebeb2fe6f8
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: c30e18c42f310172b07995e0ad88a505a01c4218
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036133"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159599"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 針對警示進行疑難排解
 本文提供的疑難排解指引，適用於受控網域上可能會遇到的任何警示。
@@ -179,7 +179,7 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 此錯誤無法復原。 若要加以解決，您必須[刪除現有受控網域](active-directory-ds-disable-aadds.md)，然後[重新建立受控網域](active-directory-ds-getting-started.md)
 
-## <a name="aaddds111-service-principal-unauthorized"></a>AADDDS111：服務主體未獲授權
+## <a name="aadds111-service-principal-unauthorized"></a>AADDS111：服務主體未獲授權
 
 **警示訊息：**
 

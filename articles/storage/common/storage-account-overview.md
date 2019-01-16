@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 227ef61ee4809d376c6ac5e8e8c1a7f9c364b7fc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2940e1d8328ffaea799ddff4afc9669aaa85a2f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255757"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065625"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 儲存體帳戶概觀
 
@@ -23,27 +23,7 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 
 ## <a name="types-of-storage-accounts"></a>儲存體帳戶類型
 
-Azure 儲存體提供三種儲存體帳戶。 每個類型都支援不同的功能，而且都有自己的計價模式。 您在建立儲存體帳戶之前請先考量這些差異，以判斷您的應用程式最適用的帳戶類型。 儲存體帳戶的類型如下：
-
-* **[一般用途 v2 帳戶](#general-purpose-v2-accounts)** (建議用於大部分的案例)
-* **[一般用途 v1 帳戶](#general-purpose-v1-accounts)**
-* **[Blob 儲存體帳戶](#blob-storage-accounts)** 
-
-下表描述儲存體帳戶類型及其功能：
-
-| 儲存體帳戶類型 | 支援的服務                       | 支援的效能層級 | 支援的存取層               | 複寫選項                                                | 部署模型<sup>1</sup>  | 加密<sup>2</sup> |
-|----------------------|------------------------------------------|-----------------------------|--------------------------------------|--------------------------------------------------------------------|-------------------|------------|
-| 一般用途 V2   | Blob、檔案、佇列、資料表及磁碟       | 標準、進階           | 經常性存取層、非經常性存取層、封存存取層<sup>3</sup> | LRS、ZRS<sup>4</sup>、GRS、RA-GRS | Resource Manager | 已加密  |
-| 一般用途 V1   | Blob、檔案、佇列、資料表及磁碟       | 標準、進階           | N/A                                  | LRS、GRS、RA-GRS                                                   | Resource Manager、傳統  | 已加密  |
-| Blob 儲存體         | Blob (僅限區塊 Blob 和附加 Blob) | 標準                    | 經常性存取層、非經常性存取層、封存存取層<sup>3</sup>                            | LRS、GRS、RA-GRS                                                   | Resource Manager  | 已加密  |
-
-<sup>1</sup>建議使用 Azure Resource Manager 部署模型。 使用傳統部署模型的儲存體帳戶仍可建立於某些位置，而且會繼續支援現有的傳統帳戶。 如需詳細資訊，請參閱 [Azure Resource Manager vs. 傳統部署：了解資源的部署模型和狀態](../../azure-resource-manager/resource-manager-deployment-model.md)。
-
-<sup>2</sup>所有儲存體帳戶會使用待用資料的 Azure 儲存體服務加密 (SSE) 進行加密。 如需詳細資訊，請參閱[待用資料的 Azure 儲存體服務加密](storage-service-encryption.md)。
-
-<sup>3</sup>封存儲存層適用於於個別 Blob 的等級，不適用於儲存體帳戶層級。 只可以封存區塊 Blob 和附加 Blob。 如需詳細資訊，請參閱 [Azure Blob 儲存體︰經常性存取、非經常性存取和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
-
-<sup>4</sup>區域備援儲存體 (ZRS) 僅適用於標準的一般用途 v2 儲存體帳戶。 如需 ZRS 的詳細資訊，請參閱[區域備援儲存體 (ZRS)：高可用性 Azure 儲存體應用程式](storage-redundancy-zrs.md)。 如需其他複寫選項的詳細資訊，請參閱 [Azure 儲存體複寫](storage-redundancy.md)。
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ### <a name="general-purpose-v2-accounts"></a>一般用途 v2 帳戶
 
@@ -98,7 +78,7 @@ Blob 儲存體帳戶提供多個存取層，以便根據您的使用量模式來
 可以針對下列任一效能層級設定一般用途儲存體帳戶：
 
 * 標準效能層可供儲存 Blob、檔案、資料表、佇列和 Azure 虛擬機器磁碟。
-* 進階效能層僅供儲存 Azure 虛擬機器磁碟。 如需進階儲存體的深入概觀，請參閱 [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../virtual-machines/windows/premium-storage.md) 。
+* 進階效能層僅供儲存 Azure 虛擬機器磁碟。 請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../virtual-machines/windows/premium-storage.md)，以取得進階儲存體的深入概觀。
 
 ## <a name="access-tiers-for-block-blob-data"></a>區塊 blob 資料的存取層
 
@@ -114,7 +94,7 @@ Azure 儲存體提供不同的選項，以便根據使用量模式來存取區�
 * **封存**層，只適用於個別的區塊 Blob。 封存存取層最適合於可容許擷取延遲數個小時，而且將在封存存取層中至少保留 180 天的資料。 封存存取層是最具成本效益的資料儲存選項，但是存取該資料可能比存取經常性或非經常性存取層中的資料更為昂貴。 
 
 
-如果您的資料使用模式有變動，您可以隨時在這些存取層之間切換。 如需存取層的詳細資訊，請參閱 [Azure Blob 儲存體︰進階 (預覽)、經常性儲存層、非經常性儲存層和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
+如果您的資料使用模式有變動，您可以隨時在這些存取層之間切換。 如需存取層的詳細資訊，請參閱 [Azure Blob 儲存體：進階 (預覽)、經常性儲存層、非經常性儲存層和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
 
 > [!IMPORTANT]
 > 變更現有儲存體帳戶或 Blob 的存取層可能會導致額外的費用。 如需詳細資訊，請參閱[儲存體帳戶計費](#storage-account-billing)小節。
@@ -157,7 +137,7 @@ Azure 儲存體提供不同的選項，以便根據使用量模式來存取區�
 
 您可以使用下列任何一種方法，授與您儲存體帳戶中資料的存取權：
 
-- **Azure Active Directory：** 使用 Azure Active Directory (Azure AD) 認證來驗證使用者、群組或其他身分識別，以便存取 blob 和佇列資料 (預覽)。 如果身分識別驗證成功，Azure AD 會傳回一個權杖，以使用於對 Azure Blob 儲存體或佇列儲存體的要求授權。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權 (預覽)](storage-auth-aad.md)。
+- **Azure Active Directory：** 使用 Azure Active Directory (Azure AD) 認證來驗證使用者、群組或其他身分識別，以便存取 Blob 和佇列資料 (預覽)。 如果身分識別驗證成功，Azure AD 會傳回一個權杖，以使用於對 Azure Blob 儲存體或佇列儲存體的要求授權。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權 (預覽)](storage-auth-aad.md)。
 - **共用金鑰授權：** 使用儲存體帳戶存取金鑰來建構一個連接字串，以便您的應用程式在執行階段用來存取 Azure 儲存體。 連接字串中的值用來建構會傳遞至 Azure 儲存體的「授權」標頭。 如需詳細資訊，請參閱[設定 Azure 儲存體連接字串](storage-configure-connection-string.md)。
 - **共用存取簽章：** 如果您並未使用 Azure AD 驗證，請使用共用存取簽章來委派儲存體帳戶中資源的存取權。 共用存取簽章是一個權杖，可封裝在 URL 上對 Azure 儲存體的要求授權所需的資訊。 您可以將儲存體資源、授與的權限，以及權限有效的間隔指定為共用存取簽章的一部分。 如需詳細資訊，請參閱[使用共用存取簽章 (SAS)](storage-dotnet-shared-access-signature-part-1.md)。
 

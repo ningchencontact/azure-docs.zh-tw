@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: f3c5d7bc1907e94ff2e590fe77cc531ac4b01f4c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628392"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034078"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引類型
 
@@ -31,7 +31,7 @@ Azure Cosmos DB 支援每個路徑的雜湊和範圍索引 (可針對 String、N
 
 - **範圍索引**支援有效率的相等查詢、範圍查詢 (使用 >、<、>=、<=、!=) 和 ORDER BY 查詢。 根據預設，ORDER By 查詢也需要最大索引精確度 (-1)。 資料類型可以是 String 或 Number。
 
-- **空間索引**支援有效率的空間 (內部和距離) 查詢。 資料類型可以是 Point、Polygon 或 LineString。 Azure Cosmos DB 針對每個路徑也支援空間索引類型 (可針對 Point、Polygon 或 LineString 資料類型加以指定)。 位於指定路徑的值必須是有效的 GeoJSON 片段，例如 {"type": "Point", "coordinates": [0.0, 10.0]}。 Azure Cosmos DB 支援自動編製 Point、Polygon 及 LineString 資料類型的索引。
+- **空間索引**支援有效率的空間 (內部和距離) 查詢。 資料類型可以是 Point、Polygon 或 LineString。 Azure Cosmos DB 針對每個路徑也支援空間索引類型 (可針對 Point、Polygon 或 LineString 資料類型加以指定)。 位於指定路徑的值必須是有效的 GeoJSON 片段，例如 {"type":"Point", "coordinates": [0.0, 10.0]}。 Azure Cosmos DB 支援自動編製 Point、Polygon 及 LineString 資料類型的索引。
 
 下列範例說明可使用雜湊、範圍和空間索引來處理的查詢：
 
@@ -39,7 +39,7 @@ Azure Cosmos DB 支援每個路徑的雜湊和範圍索引 (可針對 String、N
 | ---------- | ---------------- |
 | 雜湊  | Hash over /prop/? (或 /) 可用來有效率地處理下列查詢︰<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (或 / 或 /props/) 可用來有效率地處理下列查詢︰<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5  |
 | 範圍  | Range over /prop/? (或 /) 可用來有效率地處理下列查詢︰<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop   |
-| 空間     | Range over /prop/? (或 /) 可用來有效率地處理下列查詢︰<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --已啟用在 Polygon 上編製索引。     |
+| 空間     | Range over /prop/? (或 /) 可用來有效率地處理下列查詢︰<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type":"Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type":"Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type":"Point", ... }, c.prop) --with indexing on polygons enabled.     |
 
 ## <a name="default-behavior-of-index-kinds"></a>索引類型的預設行為
 

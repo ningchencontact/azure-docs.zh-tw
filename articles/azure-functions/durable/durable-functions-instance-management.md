@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1ab2e35c916c6bd6f2d73a328f71710378fac890
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8dbf7b6f6741998972070234d90e87baca1154a4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343933"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042456"
 ---
-# <a name="manage-instances-in-durable-functions-azure-functions"></a>在 Durable Functions (Azure Functions) 中管理執行個體
+# <a name="manage-instances-in-durable-functions-in-azure"></a>在 Azure 中管理 Durable Functions 中的執行個體
 
 您可以啟動、終止、查詢和傳送通知事件給 [Durable Functions](durable-functions-overview.md) 協調流程執行個體。 執行個體管理完全是透過[協調流程用戶端繫結](durable-functions-bindings.md)來進行。 本文討論每個執行個體管理作業的詳細資料。
 
@@ -520,7 +520,7 @@ modules.exports = async function(context, ctx) {
 > [!NOTE]
 > 此 API 並非要取代適當的錯誤處理和重試原則。 相反地，它只是要用於協調流程執行個體因非預期原因而失敗的情況。 如需錯誤處理和重試原則的詳細資訊，請參閱[錯誤處理](durable-functions-error-handling.md)主題。
 
-「倒轉」的其中一個範例使用案例為涉及一系列[人為核准](durable-functions-overview.md#pattern-5-human-interaction)的工作流程。 假設有一系列的活動函式，其可通知某人需要其核准並等待即時回應。 在所有核准活動已收到回應或逾時之後，另一個活動會因為應用程式設定錯誤 (例如資料庫連接字串無效) 而失敗。 結果就是深入工作流程的協調流程失敗。 透過 `RewindAsync` (.NET) 或 `rewindAsync` (JavaScript) API，應用程式系統管理員可以修正設定錯誤，以及讓失敗的協調流程「倒轉」回到失敗之前的狀態。 不需要重新核准任何人為互動步驟，協調流程現在可以順利完成。
+「倒轉」的其中一個範例使用案例為涉及一系列[人為核准](durable-functions-concepts.md#human)的工作流程。 假設有一系列的活動函式，其可通知某人需要其核准並等待即時回應。 在所有核准活動已收到回應或逾時之後，另一個活動會因為應用程式設定錯誤 (例如資料庫連接字串無效) 而失敗。 結果就是深入工作流程的協調流程失敗。 透過 `RewindAsync` (.NET) 或 `rewindAsync` (JavaScript) API，應用程式系統管理員可以修正設定錯誤，以及讓失敗的協調流程「倒轉」回到失敗之前的狀態。 不需要重新核准任何人為互動步驟，協調流程現在可以順利完成。
 
 > [!NOTE]
 > 「倒轉」功能不支援使用耐久計時器的倒轉協調流程執行個體。

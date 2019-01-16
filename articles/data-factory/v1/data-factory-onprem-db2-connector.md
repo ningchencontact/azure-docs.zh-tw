@@ -9,20 +9,19 @@ ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88e56f522545f9c1f38bf0d0fdbcebdc171c294b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046525"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015129"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>使用 Azure Data Factory 複製活動從 DB2 移動資料
-> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](data-factory-onprem-db2-connector.md)
 > * [第 2 版 (目前的版本)](../connector-db2.md)
 
@@ -34,7 +33,7 @@ ms.locfileid: "37046525"
 
 資料處理站目前僅支援資料從 DB2 資料庫移至[支援的接收資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。 不支援資料從其他資料存放區移至 DB2 資料庫。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 資料處理站支援使用[資料管理閘道](data-factory-data-management-gateway.md)連接至內部部署 DB2 資料庫。 如需有關設定閘道資料管線來移動資料的逐步指示，請參閱[將資料從內部部署移到雲端](data-factory-move-data-between-onprem-and-cloud.md)一文。
 
 即使 DB2 裝載於 Azure IaaS VM 中，也必須要有閘道。 您可以在資料存放區所在的 IaaS VM 上安裝閘道。 如果閘道可以連線到資料庫，您可以在不同的 VM 上安裝閘道。
@@ -59,7 +58,7 @@ ms.locfileid: "37046525"
 > [!TIP]
 > 如果收到錯誤訊息「找不到對應至 SQL 陳述式執行要求的套件。 SQLSTATE=51002 SQLCODE=-805」，原因是作業系統上未針對一般使用者建立所需的套件。 若要解決此問題，請針對 DB2 伺服器類型遵循這些指示：
 > - DB2 for i (AS400)：進行複製活動之前，讓進階使用者建立一般使用者的集合。 若要建立集合，請使用命令：`create collection <username>`
-> - DB2 for z/OS 或 LUW：使用高權限帳戶 -- 具有套件授權單位與 BIND、BINDADD、GRANT EXECUTE TO PUBLIC 權限的進階使用者 -- 執行一次複製。 在複製期間，會自動建立所需的套件。 之後，您可以切換至一般使用者，來執行後續的複製。
+> - DB2 for z/OS or LUW：使用高權限帳戶 -- 具有套件授權單位與 BIND、BINDADD、GRANT EXECUTE TO PUBLIC 權限的進階使用者 -- 執行一次複製。 在複製期間，會自動建立所需的套件。 之後，您可以切換至一般使用者，來執行後續的複製。
 
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具和 API，建立內含複製活動的管線，以從內部部署的 DB2 資料存放區移動資料： 
@@ -82,14 +81,14 @@ ms.locfileid: "37046525"
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| **type** |此屬性必須設為 **OnPremisesDB2**。 |yes |
-| **server** |DB2 伺服器的名稱。 |yes |
-| **database** |DB2 資料庫的名稱。 |yes |
+| **type** |此屬性必須設為 **OnPremisesDB2**。 |是 |
+| **server** |DB2 伺服器的名稱。 |是 |
+| **database** |DB2 資料庫的名稱。 |是 |
 | **schema** |在 DB2 資料庫中的結構描述名稱。 此屬性必須區分大小寫。 |否 |
-| **authenticationType** |用來連接到 DB2 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |yes |
+| **authenticationType** |用來連接到 DB2 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |是 |
 | **username** |使用者帳戶的名稱 (如果您使用基本或 Windows 驗證)。 |否 |
 | **password** |使用者帳戶的密碼。 |否 |
-| **gatewayName** |Data Factory 服務應該用來連接到內部部署 DB2 資料庫的閘道器名稱。 |yes |
+| **gatewayName** |Data Factory 服務應該用來連接到內部部署 DB2 資料庫的閘道器名稱。 |是 |
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的**結構**、**可用性**和**原則**等區段類似於所有的資料集類型 (Azure SQL、Azure Blob 儲存體、Azure 資料表儲存體等)。
@@ -112,7 +111,7 @@ ms.locfileid: "37046525"
 > [!NOTE]
 > 結構描述和資料表名稱會區分大小寫。 在查詢陳述式中，使用 "" (雙引號) 括住屬性名稱。
 
-## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>JSON 範例：將資料從 DB2 複製到 Azure Blob 儲存體
+## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>JSON 範例：從 DB2 複製資料到 Azure Blob 儲存體
 此範例提供您使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 來建立管線時，可使用的範例 JSON 定義。 此範例示範如何將資料從 DB2 資料庫複製到 Blob 儲存體。 不過，可以使用 Azure Data Factory 複製活動，將資料複製到[任何支援的資料存放區接收類型](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。
 
 範例有下列 Data Factory 實體：

@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231622"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063211"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立用於儲存和管理值的變數
 
@@ -28,7 +28,10 @@ ms.locfileid: "50231622"
 * 為變數指派不同的值。
 * 在字串或陣列中插入或「附加」變數的值作為最後一個項目。
 
-變數只存在於建立它們的邏輯應用程式執行個體內，並且是全域性。 此外，它們只會在邏輯應用程式執行個體內跨任何迴圈反覆項目存留。 參考變數時，請使用變數的名稱作為語彙基元，而不是使用動作的名稱，動作名稱是參考動作輸出的實用方式。
+變數只存在於建立它們的邏輯應用程式執行個體內，並且是全域性。 此外，它們只會在邏輯應用程式執行個體內跨任何迴圈反覆項目存留。 參考變數時，請使用變數的名稱作為語彙基元，而不是使用動作的名稱，動作名稱是參考動作輸出的實用方式。 
+
+> [!IMPORTANT]
+> 根據預設，"Foreach" 迴圈中的循環會平行執行。 當您在迴圈中使用變數時，請[循序](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop)執行迴圈，如此變數才會傳回可預測的結果。 
 
 如果您還沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
 
@@ -38,7 +41,7 @@ ms.locfileid: "50231622"
 
 * 您要建立變數的邏輯應用程式 
 
-  如果您還不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+  如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 * 作為邏輯應用程式中第一個步驟的[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
@@ -71,9 +74,9 @@ ms.locfileid: "50231622"
 
    | 屬性 | 必要 | 值 |  說明 |
    |----------|----------|-------|--------------|
-   | 名稱 | 是 | <*variable-name*> | 要遞增的變數名稱 | 
+   | Name | 是 | <*variable-name*> | 要遞增的變數名稱 | 
    | 類型 | 是 | <*variable-type*> | 變數的資料類型 | 
-   | 值 | 否 | <*start-value*> | 您的變數初始值 <p><p>**提示**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道變數的開始值。 | 
+   | 值 | 否 | <*start-value*> | 您的變數初始值 <p><p>**秘訣**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道變數的開始值。 | 
    ||||| 
 
    ![將變數初始化](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -207,8 +210,8 @@ ms.locfileid: "50231622"
 
    | 屬性 | 必要 | 值 |  說明 |
    |----------|----------|-------|--------------|
-   | 名稱 | 是 | <*variable-name*> | 要遞增的變數名稱 | 
-   | 值 | 否 | <*increment-value*> | 用來遞增變數的值。 預設值為一。 <p><p>**提示**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道用來遞增變數的特定值。 | 
+   | Name | 是 | <*variable-name*> | 要遞增的變數名稱 | 
+   | 值 | 否 | <*increment-value*> | 用來遞增變數的值。 預設值為一。 <p><p>**秘訣**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道用來遞增變數的特定值。 | 
    |||| 
 
    例如︰ 
@@ -327,8 +330,8 @@ ms.locfileid: "50231622"
 
 | 屬性 | 必要 | 值 |  說明 |
 |----------|----------|-------|--------------|
-| 名稱 | 是 | <*variable-name*> | 要遞減的變數名稱 | 
-| 值 | 否 | <*increment-value*> | 用來遞減變數的值。 預設值為一。 <p><p>**提示**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道用來遞減變數的特定值。 | 
+| Name | 是 | <*variable-name*> | 要遞減的變數名稱 | 
+| 值 | 否 | <*increment-value*> | 用來遞減變數的值。 預設值為一。 <p><p>**秘訣**：雖然此值為選擇性，但最佳做法是設定此值，如此您便一律知道用來遞增變數的特定值。 | 
 ||||| 
 
 如果您從設計工具切換到程式碼檢視編輯器，以下是 [遞減變數] 動作在您邏輯應用程式定義內顯示的樣子，其中採用 JSON 格式。
@@ -362,7 +365,7 @@ ms.locfileid: "50231622"
 
 | 屬性 | 必要 | 值 |  說明 | 
 |----------|----------|-------|--------------| 
-| 名稱 | 是 | <*variable-name*> | 要變更的變數名稱 | 
+| Name | 是 | <*variable-name*> | 要變更的變數名稱 | 
 | 值 | 是 | <*new-value*> | 您想要指派給變數的值。 兩者必須具有相同的資料類型。 | 
 ||||| 
 
@@ -420,7 +423,7 @@ ms.locfileid: "50231622"
 
 | 屬性 | 必要 | 值 |  說明 | 
 |----------|----------|-------|--------------| 
-| 名稱 | 是 | <*variable-name*> | 要變更的變數名稱 | 
+| Name | 是 | <*variable-name*> | 要變更的變數名稱 | 
 | 值 | 是 | <*append-value*> | 您想要附加的值 (可以具有任何類型) | 
 |||||  
 

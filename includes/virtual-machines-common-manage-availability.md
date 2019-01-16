@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e6c5f4623f3483dcfb0dde0f55b77161eee2c562
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035518"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084050"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>了解 VM 重新開機 - 維護與停機時間
 有三種情況可能會導致 Azure 中的虛擬機器受到影響：未規劃的硬體維護、未預期的停機時間以及規劃的維護。
@@ -32,7 +32,7 @@ ms.locfileid: "50035518"
 
 * [針對備援在可用性設定組中設定多部虛擬機器]
 * [將受控磁碟使用於可用性設定組中的 VM]
-* [使用排程的事件主動回應受 VM 影響的事件](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [使用排定的事件主動回應 VM 影響事件](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [將每個應用程式層設定至不同的可用性設定組中]
 * [將負載平衡器與可用性設定組結合]
 * [使用可用性區域來防禦資料中心層級的失敗]
@@ -65,6 +65,10 @@ ms.locfileid: "50035518"
 1. **將與 VM 相關聯的所有磁碟 (OS 和資料) 保留於相同的儲存體帳戶中**
 2. 將更多VHD 新增至儲存體帳戶之前，**請檢閱儲存體帳戶中非受控磁碟數目的[限制](../articles/storage/common/storage-scalability-targets.md)**
 3. **針對可用性設定組中的每個 VM 使用個別的儲存體帳戶。** 請勿與相同可用性設定組中的多個 VM 共用儲存體帳戶。 如果遵循上述的最佳做法，即可接受位於不同可用性設定組的 VM 共用儲存體帳戶 ![非受控磁碟 FD](./media/virtual-machines-common-manage-availability/umd-updated.png)
+
+## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>使用排定的事件主動回應 VM 影響事件
+
+當您訂閱[排定的事件](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)時，您的 VM 將會收到即將有維護事件可能會影響到 VM 的通知。 排定的事件啟用時，您的虛擬機器在維護活動執行之前將有最低限度的時間可因應。 例如，可能對 VM 造成影響的主機 OS 更新會排入佇列中作為事件，以指出相關影響，並在您未採取任何動作時指出將執行維護的時間。 當 Azure 偵測到即將有硬體故障可能對 VM 造成影響時，也會將排程事件排入佇列，以讓您決定應於何時執行修復。 客戶可以使用此事件在維護之前執行適當工作，例如儲存狀態、容錯移轉至次要機器等等。 在您完成依正常程序處理維護事件的邏輯之後，您可以核准待處理的已排定事件，以允許平台繼續進行維護。
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>將每個應用程式層設定至不同的可用性設定組中
 若虛擬機器幾乎都一樣，且對應用程式而言具有相同用途，建議您針對每個應用程式層設定可用性設定組。  若您在相同的可用性設定組中放入兩個不同的階層，則可以一次重新啟動位於相同應用程式層的所有虛擬機器。 您可以藉由在可用性設定組中為每個層設定至少兩部虛擬機器，確保每個層中至少有一部虛擬機器可供使用。

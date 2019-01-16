@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB 中的 SQL 語言語法
 description: 本文說明用於 Azure Cosmos DB 中的 SQL 查詢語言語法、不同的運算子，以及此語言所提供的關鍵字。
-author: LalithaMV
+author: markjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: reference
 ms.date: 12/07/2018
-ms.author: laviswa
+ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: eec3846319a93e94ca362d9ef6815a73d0ca958a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9e589c582e52aafb9bdd93f80a702b581b883a59
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142505"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044377"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Azure Cosmos DB SQL 語言參考 
 
@@ -517,7 +517,7 @@ ORDER BY <sort_specification>
   
  在 Cosmos DB 中，通常不會知道值的類型，除非從資料庫中擷取。 為了支援有效率的查詢執行，大部分的運算子都有嚴謹的類型需求。 此外，運算子本身並不會執行隱含轉換。  
   
- 這表示如SELECT * FROM ROOT r WHERE r.Age = 21 的查詢僅會傳回 Age (年齡) 屬性等於數字 21 的文件。 具有適當年齡為字串 "21" 或字串 "0021" 的文件並不相符，因為運算式 "21" = 21 評估為未定義。 由於查詢特定值 (例如數字 21) 比搜尋不限數量的可能相符項目更加快速 (例如數字 21 或字串 "21"、"021"、"21.0" 等)，因此可以利用索引進行。 這點不同於 JavaScript 評估不同類型運算子值的方式。  
+ 這表示類似下列的查詢：SELECT * FROM ROOT r WHERE r.Age = 21，僅會傳回 Age (年齡) 屬性等於數字 21 的文件。 具有適當年齡為字串 "21" 或字串 "0021" 的文件並不相符，因為運算式 "21" = 21 評估為未定義。 由於查詢特定值 (例如數字 21) 比搜尋不限數量的可能相符項目更加快速 (例如數字 21 或字串 "21"、"021"、"21.0" 等)，因此可以利用索引進行。 這點不同於 JavaScript 評估不同類型運算子值的方式。  
   
  **陣列和物件的相等和比較**  
   

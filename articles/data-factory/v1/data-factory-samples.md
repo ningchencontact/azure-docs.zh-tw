@@ -9,21 +9,20 @@ ms.assetid: c0538b90-2695-4c4c-a6c8-82f59111f4ab
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 417425a6982ca92e486ccfb578131ebc898a0466
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046083"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020807"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - 範例
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 的 PowerShell 範例](../samples-powershell.md)和 [Azure 程式碼範例資源庫中的程式碼範例](https://azure.microsoft.com/resources/samples/?service=data-factory)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [Data Factory 的 PowerShell 範例](../samples-powershell.md)和 [Azure 程式碼範例資源庫中的程式碼範例](https://azure.microsoft.com/resources/samples/?service=data-factory)。
 
 
 ## <a name="samples-on-github"></a>GitHub 上的範例
@@ -78,12 +77,12 @@ ms.locfileid: "37046083"
     ![Data Factory 刀鋒視窗](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Visual Studio 中的範例
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 您必須已在電腦上安裝下列項目：
 
 * Visual Studio 2013 或 Visual Studio 2015
 * 下載 Azure SDK for Visual Studio 2013 或 Visual Studio 2015。 瀏覽至 [Azure 下載頁面](https://azure.microsoft.com/downloads/)，然後按一下 [.NET] 區段中的 [VS 2013] 或 [VS 2015]。
-* 下載適用於 Visual Studio 的最新 Azure Data Factory 外掛程式：[VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 或 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)。 如果您使用的是 Visual Studio 2013，您也可以執行下列步驟來更新外掛程式：在功能表上，按一下 [工具] -> [擴充功能和更新] -> [線上] -> [Visual Studio 組件庫] -> [Microsoft Azure Data Factory Tools for Visual Studio] -> [更新]。
+* 下載適用於 Visual Studio 的最新 Azure Data Factory 外掛程式：[VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 或 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)。 如果您使用 Visual Studio 2013，也可以執行下列步驟來更新外掛程式：在功能表中按一下 [工具] -> [擴充功能和更新] -> [線上] -> [Visual Studio 組件庫] -> [Microsoft Azure Data Factory Tools for Visual Studio] -> [更新]。
 
 ### <a name="use-data-factory-templates"></a>使用 Data Factory 範本
 1. 在功能表上按一下 [檔案]，指向 [新增]，然後按一下 [專案]。

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: edbb953111fb4589539369bd9b2519b48b9b70eb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584613"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121306"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>管理前置和後置指令碼 (預覽)
 
@@ -101,9 +101,6 @@ ms.locfileid: "52584613"
 ```
 
 您可以在以下位置找到所有屬性的完整範例：[軟體更新設定 - 依名稱取得](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
-
-> [!NOTE]
-> 使用[動態群組 (預覽)](automation-update-management.md#using-dynamic-groups) 新增到部署的電腦目前不屬於 **SoftwareUpdateConfigurationRunContext**參數。
 
 ## <a name="samples"></a>範例
 

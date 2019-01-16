@@ -9,23 +9,22 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 58fffafe9658919a96d1aef2881424c0d324e688
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d103061289991fb149b7c8d76430b37a6b385f80
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876472"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064367"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory 中的管道執行和觸發程序
-> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
+> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [第 1 版](v1/data-factory-scheduling-and-execution.md)
 > * [目前的版本](concepts-pipeline-execution-triggers.md)
 
-在 Azure Data Factory 中，「管線執行」可定義管線執行的執行個體。 例如，假設您的管線會在上午 8 點、9 點和 10 點執行。 在此情況下，管線會有三個個別的執行 (或管線執行)。 每個管線執行都有唯一的管線執行識別碼。 執行識別碼是一組 GUID，可唯一定義特定的管線執行。 
+在 Azure Data Factory 中，「管線執行」可定義管線執行的執行個體。 例如，假設您的管線會在上午 8 點、9 點和 10 點執行。 在此情況下，管線會有三個個別的執行 (或管線執行)。 每個管線執行都有唯一的管線執行識別碼。 執行識別碼是一組 GUID，可唯一定義特定的管線執行。
 
 將引數傳遞給管線中定義的參數，通常可將管線執行具現化。 您可以用手動方式或使用「觸發程序」來執行管線。 本文提供兩種管線執行方式的詳細資料。
 
@@ -85,7 +84,7 @@ ms.locfileid: "52876472"
 - Python SDK
 
 ### <a name="rest-api"></a>REST API
-下列範例命令說明如何使用 REST API 以手動方式執行管線：  
+下列範例命令說明如何使用 REST API 以手動方式執行管線：
 
 ```
 POST
@@ -118,7 +117,7 @@ Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickSt
 }
 ```
 
-如需完整範例，請參閱[快速入門：使用 Azure PowerShell 建立資料處理站](quickstart-create-data-factory-powershell.md)。
+如需完整範例，請參閱[快速入門：使用 .NET SDK 來建立資料處理站](quickstart-create-data-factory-powershell.md)。
 
 ### <a name="net-sdk"></a>.NET SDK
 下列範例呼叫說明如何使用 .NET SDK 以手動方式執行管線：
@@ -176,7 +175,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 如需關於排程觸發程序的詳細資訊和範例，請參閱[建立排程觸發程序](how-to-create-schedule-trigger.md)。
 
 ## <a name="schedule-trigger-definition"></a>排程觸發程序定義
-在建立排程觸發程序時，您必須使用 JSON 定義指定排程和週期。 
+在建立排程觸發程序時，您必須使用 JSON 定義指定排程和週期。
 
 若要讓排程觸發程序啟動管線執行，請在觸發程序定義中包含特定管線的管線參考。 管道和觸發程序具有多對多關聯性。 多個觸發程序可以啟動單一管道。 單一觸發程序可以啟動多個管道。
 
@@ -313,7 +312,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 | **minutes** | 一小時內觸發程序執行的分鐘數。 |- 整數<br />- 一連串整數|
 | **hours** | 一天內觸發程序執行的小時數。 |- 整數<br />- 一連串整數|
 | **weekDays** | 觸發程序執行的星期幾。 此值只能搭配 weekly 頻率指定。|<br />- 星期一<br />- 星期二<br />- 星期三<br />- 星期四<br />- 星期五<br />- 星期六<br />- 星期六<br />- 日期值陣列 (最大陣列大小為 7)<br /><br />日值不區分大小寫|
-| **monthlyOccurrences** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 |- **monthlyOccurrence** 物件的陣列︰`{ "day": day,  "occurrence": occurrence }`<br />- **day** 屬性是觸發程序在一週中的執行日。 例如，**day** 值為 `{Sunday}` 的 **monthlyOccurrences** 屬性意謂著月份中的每個星期日。 **day** 屬性為必要屬性。<br />- **occurrence** 屬性係指所指定的 **day** 在月份中出現的位置。 例如，**day** 和 **occurrence** 值為 `{Sunday, -1}` 的 **monthlyOccurrences** 屬性意謂著月份中的最後一個星期日。 **occurrence** 屬性為選用屬性。|
+| **monthlyOccurrences** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 |- **monthlyOccurrence** 物件的陣列︰`{ "day": day, "occurrence": occurrence }`<br />- **day** 屬性是觸發程序在一週中的執行日。 例如，**day** 值為 `{Sunday}` 的 **monthlyOccurrences** 屬性意謂著月份中的每個星期日。 **day** 屬性為必要屬性。<br />- **occurrence** 屬性係指所指定的 **day** 在月份中出現的位置。 例如，**day** 和 **occurrence** 值為 `{Sunday, -1}` 的 **monthlyOccurrences** 屬性意謂著月份中的最後一個星期日。 **occurrence** 屬性為選用屬性。|
 | **monthDays** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 |- <= -1 且 >= -31 的任何值<br />- >= 1 且 <= 31 的任何值<br />- 值的陣列|
 
 ## <a name="tumbling-window-trigger"></a>輪轉視窗觸發程序
@@ -373,7 +372,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 | **功能** | 支援。 失敗管線執行的預設重試原則為 0，或是使用者在觸發程序定義中指定的原則。 當管線執行因為並行/伺服器/節流限制而失敗 (也就是狀態碼 400：使用者錯誤、429：太多要求和 500：內部伺服器錯誤) 時，將會自動重試。 | 不支援。 |
 | **並行** | 支援。 使用者可以明確設定觸發程序的並行限制。 允許 1 個到 50 個已觸發的並行管線執行。 | 不支援。 |
 | **系統變數** | 支援使用 **WindowStart** 和 **WindowEnd** 系統變數。 使用者可以存取 `triggerOutputs().windowStartTime` 和 `triggerOutputs().windowEndTime` 作為觸發程序定義中的觸發程序系統變數。 其值會分別作為時間範圍開始時間和時間範圍結束時間。 例如，對於每小時執行一次的輪轉視窗觸發程序，如果時間範圍為凌晨 1 點到凌晨 2 點，則定義為 `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` 和 `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`。 | 不支援。 |
-| **管線與觸發程序的關聯性** | 支援一對一關聯性。 只能觸發一個管線。 | 支援多對多關聯性。 多個觸發程序可以啟動單一管道。 單一觸發程序可以啟動多個管道。 | 
+| **管線與觸發程序的關聯性** | 支援一對一關聯性。 只能觸發一個管線。 | 支援多對多關聯性。 多個觸發程序可以啟動單一管道。 單一觸發程序可以啟動多個管道。 |
 
 ## <a name="next-steps"></a>後續步驟
 請參閱下列教學課程：

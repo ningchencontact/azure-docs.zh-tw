@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: cd4b58dea43e497a2d7a5b977379d95f7004af45
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9a1623cca1c185ff3dba07ad5fbe354d8662dc68
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052302"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020960"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Until 活動
 Until 活動所提供的功能，與 do-until 迴圈結構在程式設計語言中提供的功能相同。 它會以迴圈的方式執行一系列活動，直到與該活動相關聯的條件評估為 true 為止。 您可以在 Data Factory 中針對 until 活動指定逾時的值。 
@@ -55,11 +54,11 @@ Until 活動所提供的功能，與 do-until 迴圈結構在程式設計語言�
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-name | `Until` 活動的名稱。 | 字串 | yes
-type | 必須設為 **Until**。 | 字串 | yes
-expression | 必須評估為 true 或 false 的運算式 | 運算式。  | yes
-timeout | do-until 迴圈在經過於此指定的時間之後便會逾時。 | 字串。 `d.hh:mm:ss` (或) `hh:mm:ss`。 預設值為 7 天。 最大值為 90 天。 | 否
-活動 | 會在運算式評估為 `true` 之前持續執行的一系列活動。 | 一系列的活動。 |  yes
+name | `Until` 活動的名稱。 | 字串 | 是
+type | 必須設為 **Until**。 | 字串 | 是
+expression | 必須評估為 true 或 false 的運算式 | 運算式。  | 是
+timeout | do-until 迴圈在經過於此指定的時間之後便會逾時。 | 字串。 `d.hh:mm:ss` (或) `hh:mm:ss`。 預設值為 7 天。 最大值：90 天。 | 否
+活動 | 會在運算式評估為 `true` 之前持續執行的一系列活動。 | 一系列的活動。 |  是
 
 ## <a name="example-1"></a>範例 1
 
@@ -67,7 +66,7 @@ timeout | do-until 迴圈在經過於此指定的時間之後便會逾時。 | �
 > 本節提供 JSON 定義和 PowerShell 命令範例，以供執行管線。 針對使用 Azure PowerShell 和 JSON 定義來建立 Data Factory 管線，如需包含逐步指示的逐步解說，請參閱[教學課程：使用 Azure PowerShell 來建立資料處理站](quickstart-create-data-factory-powershell.md)。
 
 ### <a name="pipeline-with-until-activity"></a>具有 Until 活動的管線
-在此範例中，管線有兩個活動：**Until** 與 **Wait**。 Wait 活動會先等候一段指定的時間，然後再以迴圈的方式執行 Web 活動。 若要了解 Data Factory 中的運算式和函式，請參閱[運算式語言和函式](control-flow-expression-language-functions.md)。 
+在此範例中，管理有兩個活動：**Until** 和 **Wait**。 Wait 活動會先等候一段指定的時間，然後再以迴圈的方式執行 Web 活動。 若要了解 Data Factory 中的運算式和函式，請參閱[運算式語言和函式](control-flow-expression-language-functions.md)。 
 
 ```json
 {

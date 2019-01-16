@@ -9,20 +9,19 @@ ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 534fbeaa8ba3c27c8d3f3bbcc59717d8bdb5c654
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7631b103d6d14cceb2c320d56e9f68d9ea57e4d8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050313"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020841"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
-> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](data-factory-usql-activity.md)
 > * [第 2 版 (目前的版本)](../transform-data-using-data-lake-analytics.md)
 
@@ -49,8 +48,8 @@ U-SQL 活動支援以下針對 Data Lake Analytics 的驗證類型：
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| **type** |type 屬性應設為： **AzureDataLakeAnalytics**。 |yes |
-| **accountName** |Azure Data Lake Analytics 帳戶名稱。 |yes |
+| **type** |type 屬性應設為：**AzureDataLakeAnalytics**。 |是 |
+| **accountName** |Azure Data Lake Analytics 帳戶名稱。 |是 |
 | **dataLakeAnalyticsUri** |Azure Data Lake Analytics URI。 |否 |
 | **subscriptionId** |Azure 訂用帳戶識別碼 |否 (如果未指定，便會使用 Data Factory 的訂用帳戶)。 |
 | **resourceGroupName** |Azure 資源群組名稱 |否 (若未指定，便會使用 Data Factory 的資源群組)。 |
@@ -65,9 +64,9 @@ U-SQL 活動支援以下針對 Data Lake Analytics 的驗證類型：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | 指定應用程式的用戶端識別碼。 | yes |
-| **servicePrincipalKey** | 指定應用程式的金鑰。 | yes |
-| **tenant** | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | yes |
+| **servicePrincipalId** | 指定應用程式的用戶端識別碼。 | 是 |
+| **servicePrincipalKey** | 指定應用程式的金鑰。 | 是 |
+| **tenant** | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 |
 
 **範例：服務主體驗證**
 ```json
@@ -93,10 +92,10 @@ U-SQL 活動支援以下針對 Data Lake Analytics 的驗證類型：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| **authorization** | 按一下「資料處理站編輯器」中的 [授權] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | yes |
-| **sessionId** | OAuth 授權工作階段的 OAuth 工作階段識別碼。 每個工作階段識別碼都是唯一的，只能使用一次。 當您使用「資料處理站編輯器」時便會自動產生此設定。 | yes |
+| **authorization** | 按一下「資料處理站編輯器」中的 [授權] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 |
+| **sessionId** | OAuth 授權工作階段的 OAuth 工作階段識別碼。 每個工作階段識別碼都是唯一的，只能使用一次。 當您使用「資料處理站編輯器」時便會自動產生此設定。 | 是 |
 
-**範例：使用者認證授權**
+**範例：使用者認證驗證**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -115,7 +114,7 @@ U-SQL 活動支援以下針對 Data Lake Analytics 的驗證類型：
 ```
 
 #### <a name="token-expiration"></a>權杖到期
-您使用 [授權] 按鈕所產生的授權碼在一段時間後會到期。 請參閱下表以了解不同類型的使用者帳戶的到期時間。 當驗證**權杖到期**時，您可能會看到下列錯誤訊息：認證作業發生錯誤：invalid_grant - AADSTS70002：驗證認證時發生錯誤。 AADSTS70008：提供的存取授權已過期或撤銷。 追蹤識別碼：d18629e8-af88-43c5-88e3-d8419eb1fca1 相互關連識別碼：fac30a0c-6be6-4e02-8d69-a776d2ffefd7 時間戳記：2015-12-15 21:09:31Z
+您使用 [授權] 按鈕所產生的授權碼在一段時間後會到期。 請參閱下表以了解不同類型的使用者帳戶的到期時間。 當驗證的「權杖到期時」，您可能會看見下列錯誤訊息：認證作業錯誤：invalid_grant - AADSTS70002：驗證認證時發生錯誤。 AADSTS70008：提供的存取授權已過期或撤銷。 追蹤識別碼：d18629e8-af88-43c5-88e3-d8419eb1fca1 相互關連識別碼：fac30a0c-6be6-4e02-8d69-a776d2ffefd7 時間戳記：2015-12-15 21:09:31Z
 
 | 使用者類型 | 到期時間 |
 |:--- |:--- |
@@ -149,7 +148,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 
-請參閱 [AzureDataLakeStoreLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)、[AzureDataLakeAnalyticsLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)和 [AuthorizationSessionGetResponse 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx)主題，以取得在程式碼中使用的 Data Factory 類別的詳細資訊。 請針對 WindowsFormsWebAuthenticationDialog 類別，新增對下列項目的參考：Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll。 
+請參閱 [AzureDataLakeStoreLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)、[AzureDataLakeAnalyticsLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)和 [AuthorizationSessionGetResponse 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx)主題，以取得在程式碼中使用的 Data Factory 類別的詳細資訊。 新增對下列項目的參考：適用於 WindowsFormsWebAuthenticationDialog 類別的 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll。 
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 活動
 下列 JSON 片段會定義具有 Data Lake Analytics U-SQL 活動的管線。 活動定義具有您稍早建立的 Azure Data Lake Analytics 連結服務的參考。   
@@ -209,11 +208,11 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 | 屬性            | 說明                              | 必要                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| type                | 類型屬性必須設為 DataLakeAnalyticsU-SQL 。 | yes                                      |
-| 預設容器   | 參考 Azure Data Lake Analytics 註冊為 Data Factory 中的連結服務 | yes                                      |
+| type                | 類型屬性必須設為 DataLakeAnalyticsU-SQL 。 | 是                                      |
+| 預設容器   | 參考 Azure Data Lake Analytics 註冊為 Data Factory 中的連結服務 | 是                                      |
 | scriptPath          | 包含 U-SQL 指令碼的資料夾的路徑。 檔案的名稱有區分大小寫。 | 否 (如果您使用指令碼)                   |
 | scriptLinkedService | 連結服務會連結包含 Data Factory 的指令碼的儲存體 | 否 (如果您使用指令碼)                   |
-| script              | 指定內嵌指令碼而不是指定 scriptPath 和 scriptLinkedService。 例如：`"script": "CREATE DATABASE test"`。 | 否 (如果您使用 scriptPath 和 scriptLinkedService) |
+| script              | 指定內嵌指令碼而不是指定 scriptPath 和 scriptLinkedService。 例如： `"script": "CREATE DATABASE test"` 。 | 否 (如果您使用 scriptPath 和 scriptLinkedService) |
 | degreeOfParallelism | 同時用來執行作業的節點數目上限。 | 否                                       |
 | 優先順序            | 判斷應該選取排入佇列的哪些工作首先執行。 編號愈低，優先順序愈高。 | 否                                       |
 | parameters          | U-SQL 指令碼的參數          | 否                                       |

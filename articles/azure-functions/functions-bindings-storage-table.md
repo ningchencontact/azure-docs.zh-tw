@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 3fc31306af1c85a67a1afca8a34be82a711f2527
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bd85214efc3c8f67d41563e3ca46a1e2278c4868
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999519"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062668"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 資料表儲存體繫結
 
@@ -779,7 +779,7 @@ public static MyPoco TableOutput(
 
   在 C# 和 C# 指令碼中，使用方法參數 (例如 `out T paramName`) 或函式傳回值，藉此存取輸出資料表實體。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 如果分割區索引鍵和資料列索引鍵是由 *function.json* 檔案或 `Table` 屬性提供，`T` 可以是任何可序列化的型別。 否則，`T` 必須包含 `PartitionKey` 和 `RowKey` 屬性的型別。 在此案例中，`T` 通常會實作 `ITableEntity` 或衍生自 `TableEntity`，但不一定如此。
 
-* **寫入 C# 或 C# 指令碼中的一或多個資料列**
+* **以 C# 或 C# 指令碼寫入一或多個資料列**
 
   在 C# 和 C# 指令碼中，使用方法參數 `ICollector<T> paramName` 或 `IAsyncCollector<T> paramName` 存取輸出資料表實體。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 `T` 指定了您想要新增之實體的結構描述。 一般而言，`T` 會衍生自 `TableEntity` 或實作 `ITableEntity`，但不一定如此。 *function.json* 中的分割區索引鍵或資料列索引鍵值，或 `Table` 屬性建構函式不會在此案例中使用。
 

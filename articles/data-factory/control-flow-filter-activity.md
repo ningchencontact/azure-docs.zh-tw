@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
-ms.openlocfilehash: b3b26869a84b8519ced19a4c93a6d39d6ed20f9b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050347"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021827"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Azure Data Factory 中的篩選活動
 您可以在管線中使用篩選活動，將篩選運算式套用至輸入陣列。 
@@ -40,14 +39,14 @@ ms.locfileid: "37050347"
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-name | `Filter` 活動的名稱。 | 字串 | yes
-type | 必須設定為**篩選**。 | 字串 | yes
-condition | 要用來篩選輸入的條件。 | 運算是 | yes
-項目 | 應套用篩選條件的輸入陣列。 | 運算是 | yes
+name | `Filter` 活動的名稱。 | 字串 | 是
+type | 必須設定為**篩選**。 | 字串 | 是
+condition | 要用來篩選輸入的條件。 | 運算是 | 是
+項目 | 應套用篩選條件的輸入陣列。 | 運算是 | 是
 
 ## <a name="example"></a>範例
 
-在此範例中，管線有兩個活動：**篩選**與 **ForEach**。 篩選活動設定為會對值大於 3 之項目的輸入陣列進行篩選。 接著，ForEach 活動會逐一查看篩選值，然後等候目前的值所指定的秒數。
+在此範例中，管理有兩個活動：**Filter** 和 **ForEach**。 篩選活動設定為會對值大於 3 之項目的輸入陣列進行篩選。 接著，ForEach 活動會逐一查看篩選值，然後等候目前的值所指定的秒數。
 
 ```json
 {

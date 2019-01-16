@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: c23bdba74ab528a0774b73598dbee8888ebfdc7e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d53de431ea619dfc8865ef23439146517d37764
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076103"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013293"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>什麼是 Azure Active Directory 架構？
 Azure Active Directory (Azure AD) 可讓您安全地管理您使用者的 Azure 服務和資源存取權。 Azure AD 隨附一套完整的身分識別管理功能。 如需 Azure AD 功能的詳細資訊，請參閱[什麼是 Azure Active Directory？](active-directory-whatis.md)
@@ -34,7 +34,7 @@ Azure AD 分佈各地的架構結合廣泛監視、自動化重設路徑、容�
  *  資料中心
 
 ### <a name="service-architecture-design"></a>服務架構設計
-若要建置可存取且可使用、資料豐富的系統，最常見方式就是透過 Azure AD 資料層的獨立建置組塊或縮放單位 (稱之為「分割區」)。 
+若要建置可存取且可使用、資料豐富的系統，最常見的方式就是透過獨立建置組塊或縮放單位。 對於 Azure AD 資料層，縮放單位稱之為「分割區」。 
 
 資料層有數個可提供讀寫功能的前端服務。 下圖顯示單一目錄分割區的元件如何在分佈各地的資料中心內傳遞。 
 

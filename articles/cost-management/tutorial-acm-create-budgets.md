@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: ab2ea762ac8cc289ff24136f3cafac2b80fa1a9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7ffceaf761d459667e4118e3e10b733898ea2710
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268439"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053971"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>教學課程：建立和管理 Azure 預算
 
@@ -51,9 +51,7 @@ ms.locfileid: "53268439"
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>在 Azure 入口網站中建立預算
 
-您可以針對每月、每季或每年期間建立 Azure 訂用帳戶預算。 您在 Azure 入口網站中的瀏覽內容會決定您是否要針對訂用帳戶或資源群組建立預算。
-
-在 Azure 入口網站中，瀏覽至 [成本管理 + 計費] &gt;[訂用帳戶] &gt; 選取訂用帳戶 &gt;[預算]。 在此範例中，您建立的預算適用於您所選取的訂用帳戶。
+您可以針對每月、每季或每年期間建立 Azure 訂用帳戶預算。 您在 Azure 入口網站中的瀏覽內容會決定您是否要針對訂用帳戶或資源群組建立預算。 例如，在 Azure 入口網站中，瀏覽至 [訂用帳戶] &gt; 選取訂用帳戶 &gt; [預算]。 在此範例中，您建立的預算適用於您所選取的訂用帳戶。 如果您想要建立資源群組的預算，請瀏覽至 [資源群組] > 選取資源群組 > [預算]。
 
 建立預算之後，會針對它們顯示您目前費用的簡單檢視。
 

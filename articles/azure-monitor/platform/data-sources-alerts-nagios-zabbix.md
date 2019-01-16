@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 監視器中收集 Nagios 和 Zabbix 警示 | Microsoft Docs
-description: Nagios 和 Zabbix 是開放原始碼監視工具。 您可以將來自這些工具的警示收集到 Azure 監視器，以搭配其他來源的警示一起分析。  本文說明如何設定 Log Analytics Linux 代理程式以收集來自這些系統的警示。
+title: 在 Log Analytics 中收集 Nagios 和 Zabbix 警示 | Microsoft Docs
+description: Nagios 和 Zabbix 是開放原始碼監視工具。 您可以將來自這些工具的警示收集到 Log Analytics，以搭配其他來源的警示一起分析。  本文說明如何設定 Log Analytics Linux 代理程式以收集來自這些系統的警示。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: cccc42cd925c123b52c0f2416599bb989ce44d8a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1ae719237cb1afee6d2340e1734d008799da8a86
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713492"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107526"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>從 Log Analytics Linux 代理程式在 Azure 監視器中收集來自 Nagios 和 Zabbix 的警示 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-[Nagios](https://www.nagios.org/) 和 [Zabbix](http://www.zabbix.com/) 是開放原始碼監視工具。 您可以將來自這些工具的警示收集到 Azure 監視器，以搭配其他來源的記錄資料一起分析。  本文說明如何設定 Log Analytics Linux 代理程式以收集來自這些系統的警示。
+[Nagios](https://www.nagios.org/) 和 [Zabbix](http://www.zabbix.com/) 是開放原始碼監視工具。 您可以將來自這些工具的警示收集到 Log Analytics 中，以搭配其他來源的記錄資料一起分析。  本文說明如何設定 Log Analytics Linux 代理程式以收集來自這些系統的警示。
+
 
 > [!NOTE]
 > [Azure 監視器建立的警示](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)會與記錄資料分開儲存，而且無法從記錄查詢中存取。
@@ -83,7 +84,7 @@ Log Analytics Linux 代理程式支援從 Nagios 收集的警示最高為 4.2.x 
 
 
 ## <a name="alert-records"></a>警示記錄
-您可以在 Azure 監視器中使用[記錄查詢](../log-query/log-query-overview.md)，擷取來自 Nagios 和 Zabbix 的警示記錄。
+您可以在 Log Analytics 中使用[記錄查詢](../log-query/log-query-overview.md)，擷取來自 Nagios 和 Zabbix 的警示記錄。
 
 ### <a name="nagios-alert-records"></a>Nagios 警示記錄
 

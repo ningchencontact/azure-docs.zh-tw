@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 01/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: a6cf415112f245421b3225c2e2ccb07a7bbf9332
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098286"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103160"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure 磁碟加密疑難排解指南
 
@@ -72,6 +72,9 @@ ProgressMessage            : OS disk successfully encrypted, please reboot the V
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>防火牆後方的 Azure Key Vault
 VM 必須能夠存取金鑰保存庫。 請參閱由 [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) 小組所維護的指引，當中說明如何從防火牆後方存取金鑰保存庫。 
+
+### <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務 
+VM 必須能夠存取 [Azure 執行個體中繼資料服務](../virtual-machines/windows/instance-metadata-service.md)端點；此端點會使用只能從 VM 內存取且無法路由的已知 IP 位址 (`169.254.169.254`)。
 
 ### <a name="linux-package-management-behind-a-firewall"></a>防火牆後方的 Linux 套件管理
 

@@ -9,17 +9,16 @@ ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5abd0b07037559b14158a3c314b6ca6ce30ab655
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 48cbd33d4cbaff5d362731d67bbd3d4041e26f89
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045111"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025635"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Pig 活動轉換資料
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,13 +34,13 @@ ms.locfileid: "37045111"
 > * [.NET 自訂活動](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用 Pig 活動來轉換資料](../transform-data-using-hadoop-pig.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用 Pig 活動來轉換資料](../transform-data-using-hadoop-pig.md)。
 
 
 Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Pig 活動會在[您自己](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或[隨選](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)的 Windows/Linux 架構 HDInsight 叢集上執行 Pig 查詢。 本文是根據 [資料轉換活動](data-factory-data-transformation-activities.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。
 
 > [!NOTE] 
-> 如果您是 Azure Data Factory 的新手，請在閱讀本文章之前閱讀 [Azure Data Factory 簡介](data-factory-introduction.md)，以及進行教學課程：[建置您的第一個資料管線](data-factory-build-your-first-pipeline.md)。 
+> 如果您是 Azure Data Factory 的新手，請在閱讀本文之前先閱讀 [Azure Data Factory 簡介](data-factory-introduction.md)，以及研習[建置第一個資料管線](data-factory-build-your-first-pipeline.md)。 
 
 ## <a name="syntax"></a>語法
 
@@ -84,12 +83,12 @@ Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Pig 活�
 ## <a name="syntax-details"></a>語法詳細資料
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| name |活動的名稱 |yes |
+| name |活動的名稱 |是 |
 | 說明 |說明活動用途的文字 |否 |
-| type |HDInsightPig |yes |
+| type |HDInsightPig |是 |
 | 輸入 |Pig 活動所取用的一或多項輸入 |否 |
-| 輸出 |Pig 活動所產生的一或多項輸出 |yes |
-| 預設容器 |參考 HDInsight 叢集註冊為 Data Factory 中的連結服務 |yes |
+| 輸出 |Pig 活動所產生的一或多項輸出 |是 |
+| 預設容器 |參考 HDInsight 叢集註冊為 Data Factory 中的連結服務 |是 |
 | script |指定 Pig 指令碼內嵌 |否 |
 | 指令碼路徑 |在 Azure blob 儲存體中儲存 Pig 指令碼，並提供檔案的路徑。 使用 'script' 或 'scriptPath' 屬性。 兩者無法同時使用。 檔案名稱有區分大小寫。 |否 |
 | 定義 |在使用 Pig 指令碼內指定參數做為參考的機碼/值組 |否 |

@@ -1,20 +1,19 @@
 ---
 title: Azure Cosmos DB：SQL .NET API、SDK 和資源
 description: 全面了解 SQL .NET API 和 SDK，包括發行日期、停用日期及 Azure Cosmos DB .NET SDK 每個版本之間的變更。
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 715d67a30bbf2c6d1f50ed7c10a013c0d421f48b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.author: sngun
+ms.openlocfilehash: f135281ad8bfe8222fd799e3d18c4022c627d23c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337932"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051946"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>適用於 SQL API 的 Azure Cosmos DB .NET SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -54,6 +53,14 @@ ms.locfileid: "53337932"
 * 新的物件模型，其最上層 CosmosClient 和方法分佈在相關 CosmosDatabases、CosmosContainers 與 CosmosItems 類別之間。 
 * 支援資料流。 
 * 更新來自伺服器的 CosmosResponseMessage 以傳回狀態碼，並只會在沒有傳回回應時擲回例外狀況。 
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+
+* 針對 StoredProcedure 執行呼叫改善容錯移轉期間的重試邏輯。
+
+* 建立 Made DocumentClientEventSource singleton。 
+
+* 修正不接受 ConnectionPolicy RequestTimeout 的 GatewayAddressCache 逾時。
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -116,7 +123,7 @@ ms.locfileid: "53337932"
 
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
-* 修正會在特定競爭條件下觸發，並會在使用工作階段一致性層級的情況下，導致間歇的「Microsoft.Azure.Documents.NotFoundException:讀取工作階段不適用於輸入工作階段權杖」錯誤 (error) 的錯誤 (bug)。
+* 修正使用工作階段一致性層級時，會在特定競爭條件下觸發，並導致間歇「Microsoft.Azure.Documents.NotFoundException:The read session is not available for the input session token」錯誤的錯誤 (bug)。
 
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
@@ -187,7 +194,7 @@ ms.locfileid: "53337932"
 * 修正來讓 SDK 在某些情況下能夠更有彈性地進行自動容錯移轉。
 
 ### <a name="a-name11221122"></a><a name="1.12.2"/>1.12.2
-* 修正偶爾會造成「WebException:無法解析遠端名稱」的問題。
+* 修正偶爾會造成「WebException:The remote name could not be resolved」的問題。
 * 透過針對 ReadDocumentAsync API 新增多載，以新增直接讀取具類型文件的支援。
 
 ### <a name="a-name11211121"></a><a name="1.12.1"/>1.12.1
@@ -232,7 +239,7 @@ ms.locfileid: "53337932"
 * 多項 SDK 錯誤修正。
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* 修正會導致下列 NotFoundException 的問題：「讀取工作階段不適用於輸入工作階段權杖」。 查詢異地分散帳戶讀取區域時，在某些情況下發生此例外狀況。
+* 已修正造成下列 NotFoundException 的問題：讀取工作階段不適用於輸入工作階段權杖。 查詢異地分散帳戶讀取區域時，在某些情況下發生此例外狀況。
 * 公開 ResourceResponse 類別中的 ResponseStream 屬性，可讓您直接從回應存取基礎資料流。
 
 ### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
@@ -240,7 +247,7 @@ ms.locfileid: "53337932"
 * 修正了使用自訂 JsonSerializerSettings 物件來序列化資料時，會造成資料分割索引鍵標頭格式不正確的問題。
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
-* 修正造成長時間執行的查詢失敗，並伴隨下列錯誤的問題：「授權權杖目前無效」。
+* 已修正因下列錯誤導致無法長時間執行查詢的問題：目前的授權權杖無效。
 * 已修正會從跨資料分割的排名/排序依據查詢中移除原始 SqlParameterCollection 的問題。
 
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
@@ -275,7 +282,7 @@ ms.locfileid: "53337932"
 * 實作[已分割的集合](partition-data.md)和[使用者定義的效能等級](performance-levels.md)。 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[已修正]** 查詢 Azure Cosmos DB 端點時擲回：「System.Net.Http.HttpRequestException:將內容複製到資料流時發生錯誤」。
+* **[已修正]** 查詢 Azure Cosmos DB 端點時擲回：「System.Net.Http.HttpRequestException：將內容複製至串流時發生錯誤」。
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * 擴充的 LINQ 支援包括新的分頁、條件式運算式以及範圍比較的運算子。
@@ -350,6 +357,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |2018 年 12 月 24 日 |--- |
 | [2.2.0](#2.2.0) |2018 年 12 月 7 日 |--- |
 | [2.1.3](#2.1.3) |2018 年 10 月 15 日 |--- |
 | [2.1.2](#2.1.2) |2018 年 10 月 4 日 |--- |

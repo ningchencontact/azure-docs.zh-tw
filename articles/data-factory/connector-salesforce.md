@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: bc98fc2465c280c41a77823de239a5572c5d27e4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409572"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015078"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce
-> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-salesforce-connector.md)
 > * [目前的版本](connector-salesforce.md)
 
@@ -73,7 +72,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 >[!IMPORTANT]
 >當您將資料複製到 Salesforce 時，無法使用預設的 Azure 整合執行階段執行複製。 換句話說，如果您的來源連結服務沒有指定的整合執行階段，請在您的 Salesforce 執行個體附近位置明確[建立 Azure 整合執行階段](create-azure-integration-runtime.md#create-azure-ir)。 與 Salesforce 連結服務建立關聯，如下列範例所示。
 
-**範例：在資料處理站中儲存認證**
+**範例：在 Data Factory 中儲存認證**
 
 ```json
 {
@@ -227,7 +226,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 ```
 
 >[!NOTE]
->基於回溯相容性：從 Salesforce 複製資料時，如果使用先前的 "RelationalSource" 類型複製，來源仍可正常運作，但您會看到改用新的 "SalesforceSource" 類型的建議。
+>基於回溯相容性：從 Salesforce 複製資料時，如果使用先前的 "RelationalTable" 類型資料集，它仍可正常運作，但會看到改用新的 SalesforceObject 類型的建議。
 
 ### <a name="salesforce-as-a-sink-type"></a>Salesforce 作為接收類型
 
@@ -239,7 +238,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | writeBehavior | 作業的寫入行為。<br/>允許的值為 **Insert** 和 **Upsert**。 | 否 (預設為 Insert) |
 | externalIdFieldName | upsert 作業的外部識別碼欄位名稱。 指定的欄位在 Salesforce 物件中必須定義為「外部識別碼欄位」。 對應的輸入資料中不能有 NULL 值。 | 是 (用於 upsert) |
 | writeBatchSize | 每個批次中寫入 Salesforce 的資料列計數。 | 否 (預設值為 5,000) |
-| ignoreNullValues | 指出在寫入作業期間是否要忽略輸入資料中的 NULL 值。<br/>允許的值為 **true** 和 **false**。<br>- **true**：執行 upsert 或更新作業時，讓目的地物件中的資料保持不變。 執行插入作業時，插入已定義的預設值。<br/>- **false**：執行 upsert 或更新作業時，將目的地物件中的資料更新為 NULL。 執行插入作業時，插入 NULL 值。 | 否 (預設值為 false) |
+| ignoreNullValues | 指出在寫入作業期間是否要忽略輸入資料中的 NULL 值。<br/>允許的值為 **true** 和 **false**。<br>- **True**：執行 upsert 或更新作業時，讓目的地物件中的資料保持不變。 執行插入作業時，插入已定義的預設值。<br/>- **False**：執行 upsert 或更新作業時，將目的地物件中的資料更新為 NULL。 執行插入作業時，插入 NULL 值。 | 否 (預設值為 false) |
 
 **範例：複製活動中的 Salesforce 接收**
 

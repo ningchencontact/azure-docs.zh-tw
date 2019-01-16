@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: ab5f334b1c830ea5e9c0164b8e75ef0f4fab8e1b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 50f048dc36b0248cdbbd85d91c00b7947f9ddc1f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075636"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052133"
 ---
 # <a name="assign-access-to-cost-management-data"></a>指派成本管理資料的存取權
 
@@ -39,6 +39,10 @@ ms.locfileid: "53075636"
 <sup>1</sup> 帳單帳戶也稱為「Enterprise 合約」或「註冊」。
 
 <sup>2</sup> 註冊帳戶也稱為「帳戶擁有者」。
+
+下圖說明成本管理範圍之間的關係，以及角色和 EA 入口網站設定。
+
+![圖表顯示成本管理範圍之間的關係，以及角色和 EA 入口網站設定](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>在 EA 入口網站中啟用對成本的存取權
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ce2ad3e699b930f801ad47083d6cfcf6a7937a5c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: f2823ec32b6658aa22c38294c09c9738c9121c39
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433441"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121578"
 ---
 # <a name="string-claims-transformations"></a>字串宣告轉換
 
@@ -82,7 +82,7 @@ ms.locfileid: "47433441"
     - **inputClaim2**：someone@outlook.com
  - 輸入參數：
     - **stringComparison**：ordinalIgnoreCase
-- 結果：擲回錯誤
+- 結果︰擲回錯誤
 
 ## <a name="changecase"></a>ChangeCase 
 
@@ -184,7 +184,7 @@ ms.locfileid: "47433441"
     - **inputClaim1**：someone@contoso.com
     - **inputClaim2**：someone@outlook.com
 - 輸入參數：
-    - **operator**：NOT EQUAL
+    - **運算子**：不等於
     - **ignoreCase**：true
 - 輸出宣告：
     - **outputClaim**：true
@@ -224,7 +224,7 @@ ms.locfileid: "47433441"
     - **inputClaim1**：v1
 - 輸入參數：
     - **compareTo**：V1
-    - **operator**：EQUAL 
+    - **運算子**：EQUAL 
     - **ignoreCase**：true
 - 輸出宣告：
     - **outputClaim**：true
@@ -238,7 +238,7 @@ ms.locfileid: "47433441"
 | InputParameter | randomGeneratorType | 字串 | 指定要產生的隨機值：`GUID` (全域唯一識別碼) 或 `INTEGER` (數字)。 |
 | InputParameter | stringFormat | 字串 | [選擇性] 將隨機值格式化。 |
 | InputParameter | base64 | 布林值 | [選擇性] 將隨機值轉換為 base64。 如果套用字串格式，則會將字串格式之後的值編碼為 base64。 |
-| InputParameter | maximumNumber | int | [選擇性] 僅適用於 `INTEGER` randomGeneratorType。 指定最大數。 |
+| InputParameter | maximumNumber | int | [選擇性] 僅適用於 `INTEGER` randomGeneratorType。 指定最大數字。 |
 | InputParameter | seed  | int | [選擇性] 僅適用於 `INTEGER` randomGeneratorType。 指定隨機值的種子。 注意：相同的種子會產生相同的隨機數字序列。 |
 | OutputClaim | outputClaim | 字串 | 叫用此宣告轉換之後將產生的 ClaimType。 隨機值。 |
 
@@ -392,7 +392,7 @@ ms.locfileid: "47433441"
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
   </OutputClaims>
 </ClaimsTransformation>
 ```

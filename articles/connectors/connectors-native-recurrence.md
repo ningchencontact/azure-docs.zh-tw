@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Logic Apps 建立定期執行的工作和工作流程 | Microsoft Docs
-description: 自動執行工作和工作流程，其透過 Azure Logic Apps 中的週期連接器依排程執行
+title: 使用 Azure Logic Apps 排程和執行自動化工作和工作流程 | Microsoft Docs
+description: 使用 Azure Logic Apps 中的週期連接器自動執行排程和週期性工作
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,17 +10,17 @@ ms.reviewer: klam, LADocs
 ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
-ms.date: 09/25/2017
-ms.openlocfilehash: 905157ab530ae042318de520f9d6fe24cb9d59ce
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 01/08/2019
+ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127049"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107832"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>使用 Azure Logic Apps 建立並執行週期性工作和工作流程
 
-若要排程定期執行的工作、動作、工作負載或程序，您可以先使用**排程 - 重複**[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)，建立邏輯應用程式工作流程。 使用此觸發程序，您可以設定開始重複的日期和時間，以及執行工作的重複排程，例如下列範例等等：
+若要排程定期執行的動作、工作負載或程序，請使用**排程 - 週期**[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)建立邏輯應用程式工作流程。 您可以設定開始執行工作流程的日期和時間，以及執行工作的週期性排程，例如下列範例等等：
 
 * 取得內部資料：每天[執行 SQL 預存程序](../connectors/connectors-create-api-sqlazure.md)。
 * 取得外部資料：每 15 分鐘從美國國家海洋暨大氣總署 (NOAA) 提取氣象報告。
@@ -37,7 +37,9 @@ ms.locfileid: "43127049"
 * 每週執行並重複，但僅在特定的星期幾，例如星期六和星期日。
 * 每週執行並重複，但僅在特定的星期幾和時間，例如星期一到星期五的上午 8:00 和下午 5:00。
 
-每次引發重複觸發程序時，Logic Apps 會建立並執行新的邏輯應用程式工作流程執行個體。
+每次引發重複觸發程序時，Logic Apps 會建立並執行新的邏輯應用程式工作流程執行個體。 
+
+若要觸發邏輯應用程式，並且在未來只執行一次，請參閱本主題稍後的[僅執行作業一次](#run-once)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -49,9 +51,9 @@ ms.locfileid: "43127049"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 建立空白的邏輯應用程式，或了解[如何建立空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-2. Logic Apps 設計工具出現之後，在搜尋方塊中輸入「重複」作為篩選條件。 選取 [排程 - 重複] 觸發程序。 
+2. Logic Apps 設計工具出現之後，請在搜尋方塊下方選擇 [全部]。 在搜尋方塊中，輸入 "recurrence" 作為篩選條件。 從觸發程序清單中，選取此觸發程序：**週期 - 排程** 
 
-   ![排程 - 重複觸發程序](./media/connectors-native-recurrence/add-recurrence-trigger.png)
+   ![選取「週期 - 排程」觸發程序](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
    此觸發程序現在在您的邏輯應用程式中是第一個步驟。
 
@@ -93,12 +95,12 @@ ms.locfileid: "43127049"
 
 您可以設定重複觸發程序的下列屬性。
 
-| 名稱 | 必要 | 屬性名稱 | 類型 | 說明 | 
+| Name | 必要 | 屬性名稱 | 類型 | 說明 | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **頻率** | 是 | frequency | 字串 | 重複的時間單位：**秒**、**分鐘**、**小時**、**天**、**週**或**月** | 
-| **間隔** | 是 | interval | 整數  | 描述工作流程根據 frequency 多久執行一次的正整數。 <p>預設間隔是 1。 以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 個小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是「月」，則週期為每隔 6 個月。 | 
+| **頻率** | 是 | frequency | 字串 | 用於週期的時間單位：**秒**、**分鐘**、**小時**、**天**、**週**或**月** | 
+| **間隔** | 是 | interval | 整數  | 描述工作流程根據 frequency 多久執行一次的正整數。 <p>預設間隔是 1。 以下是最小和最大間隔： <p>- 月：1-16 個月 </br>- 天：1-500 天 </br>- 小時：1-12,000 小時 </br>- 分鐘：1-72,000 分鐘 </br>- 秒：1-9,999,999 秒<p>例如，如果 interval 是 6，而 frequency 是「月」，則週期為每隔 6 個月。 | 
 | **時區** | 否 | timeZone | 字串 | 只有當您有指定開始時間時才適用，因為此觸發程序並不接受 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 選取您要套用的時區。 | 
-| **開始時間** | 否 | startTime | 字串 | 提供下列格式的開始時間： <p>YYYY-MM-DDThh:mm:ss (如果您選取時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未選取時區) <p>因此，舉例來說，如果您想要的是 2017 年 9 月 18 日下午 2:00，則請指定 "2017-09-18T14:00:00"，然後選取時區，例「美國太平洋時間」。 或是指定 "2017-09-18T14:00:00Z"，但不指定時區。 <p>**注意：** 這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不選取時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>就簡單排程來說，開始時間係指第一次發生的時間，而就複雜排程來說，觸發程序會在開始時間一到就立即引發。 [*我可以使用開始日期和時間的方式有哪些？*](#start-time) | 
+| **開始時間** | 否 | startTime | 字串 | 提供下列格式的開始時間： <p>YYYY-MM-DDThh:mm:ss (如果您選取時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未選取時區) <p>因此，舉例來說，如果您想要的是 2017 年 9 月 18 日下午 2:00，則請指定 "2017-09-18T14:00:00"，然後選取時區，例「美國太平洋時間」。 或是指定 "2017-09-18T14:00:00Z"，但不指定時區。 <p>**附註：** 這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不選取時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>就簡單排程來說，開始時間係指第一次發生的時間，而就複雜排程來說，觸發程序會在開始時間一到就立即引發。 [*我可以使用開始日期和時間的方式有哪些？*](#start-time) | 
 | **在這幾天內** | 否 | weekDays | 字串或字串陣列 | 如果您選取 [週]，可以選取想要在哪一天或哪幾天執行工作流程：**星期一**、**星期二**、**星期三**、**星期四**、**星期五**、**星期六**和**星期日** | 
 | **在這幾小時內** | 否 | hours | 整數或整數陣列 | 如果您選取 [天] 或 [週]，可以選取從 0 到 23 的一或多個整數，來表示想要在一天中的哪幾個整點執行工作流程。 <p>例如，如果您指定 "10"、"12" 及 "14"，就會得出上午 10 點、下午 12 點及下午 2 點作為整點標記。 | 
 | **在這幾分鐘內** | 否 | minutes | 整數或整數陣列 | 如果您選取 [天] 或 [週]，可以選取從 0 到 59 的一或多個整數，來表示想要在小時的哪幾個分鐘執行工作流程。 <p>例如，您可以指定 "30" 作為分鐘標記，然後使用上個範例代表一天中的整點，這樣就會得出上午 10:30、下午 12:30 及下午 2:30。 | 
@@ -109,39 +111,46 @@ ms.locfileid: "43127049"
 以下是範例[重複觸發程序定義](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger)：
 
 ``` json
-{
-    "triggers": {
-        "Recurrence": {
-            "type": "Recurrence",
-            "recurrence": {
-                "frequency": "Week",
-                "interval": 1,
-                "schedule": {
-                    "hours": [
-                        10,
-                        12,
-                        14
-                    ],
-                    "minutes": [
-                        30
-                    ],
-                    "weekDays": [
-                        "Monday"
-                    ]
-                },
-               "startTime": "2017-09-07T14:00:00",
-               "timeZone": "Pacific Standard Time"
-            }
-        }
-    }
+"triggers": {
+   "Recurrence": {
+      "type": "Recurrence",
+      "recurrence": {
+         "frequency": "Week",
+         "interval": 1,
+         "schedule": {
+            "hours": [
+               10,
+               12,
+               14
+            ],
+            "minutes": [
+               30
+            ],
+            "weekDays": [
+               "Monday"
+            ]
+         },
+         "startTime": "2017-09-07T14:00:00",
+         "timeZone": "Pacific Standard Time"
+      }
+   }
 }
 ```
 
 ## <a name="faq"></a>常見問題集
 
+<a name="run-once"></a>
+
+**問：** 如果我只要在未來執行邏輯應用程式一次呢？ </br>
+**答：** 若要觸發邏輯應用程式，並僅執行一次而不重複執行，您可以使用**排程器：執行作業一次**範本。 建立新的邏輯應用程式之後，在您開啟 Logic Apps 設計工具中之前，請在 [範本] 區段下的 [類別] 清單中選取 [排程]，然後選取範本：
+
+![選取 [排程器：執行作業一次] 範本](./media/connectors-native-recurrence/choose-run-once-template.png)
+
+或者，如果您要使用空的邏輯應用程式範本，請使用 [收到 HTTP 要求時 - 要求] 觸發程序啟動您的邏輯應用程式。 傳入觸發程序的開始時間作為參數。 在下一個步驟中，請新增 [延遲直到 - 排程] 動作，並提供下一個動作開始執行的時間。
+
 <a name="example-recurrences"></a>
 
-**問：** 還有其他哪些範例重複排程？ </br>
+**問：** 還有其他哪些範例週期性排程？ </br>
 **答：** 以下還有其他範例：
 
 | 週期性 | 間隔 | 頻率 | 開始時間 | 在這幾天內 | 在這幾小時內 | 在這幾分鐘內 | 附註 |
@@ -172,13 +181,13 @@ ms.locfileid: "43127049"
 <a name="start-time"></a>
 
 **問：** 我可以使用開始日期和時間的方式有哪些？ </br>
-**答：** 以下是一些顯示您如何控制有開始日期和時間的週期，以及 Logic Apps 引擎如何執行這些週期的模式：
+**答：** 以下是一些說明如何控制有開始日期和時間的週期，以及 Logic Apps 引擎如何執行這些週期的模式：
 
 | 開始時間 | 週期性無排程 | 週期性有排程 | 
 | ---------- | --------------------------- | ------------------------ | 
 | {無} | 立即執行第一個工作負載。 <p>根據上次執行的時間執行未來的工作負載。 | 立即執行第一個工作負載。 <p>根據指定的排程執行未來的工作負載。 | 
-| 過去的開始時間 | 根據指定的開始時間計算執行時間，並捨棄過去的執行時間。 在未來的下一個執行時間執行第一個工作負載。 <p>根據上次執行時間的計算，執行未來的工作負載。 <p>如需詳細說明，請參閱本表格後的範例。 | 根據從開始時間計算的排程，在開始時間「之後」才執行第一個工作負載。 <p>根據指定的排程執行未來的工作負載。 <p>**注意：** 如果您指定有排程的週期，但未指定排程的小時或分鐘，則未來的執行時間會分別使用第一次執行時間之後的小時或分鐘來計算。 | 
-| 目前或未來的開始時間 | 在指定的開始時間執行第一個工作負載。 <p>根據上次執行時間的計算，執行未來的工作負載。 | 根據從開始時間計算的排程，在開始時間「之後」才執行第一個工作負載。 <p>根據指定的排程執行未來的工作負載。 <p>**注意：** 如果您指定有排程的週期，但未指定排程的小時或分鐘，則未來的執行時間會分別使用第一次執行時間之後的小時或分鐘來計算。 | 
+| 過去的開始時間 | 根據指定的開始時間計算執行時間，並捨棄過去的執行時間。 在未來的下一個執行時間執行第一個工作負載。 <p>根據上次執行時間的計算，執行未來的工作負載。 <p>如需詳細說明，請參閱本表格後的範例。 | 根據從開始時間計算的排程，在開始時間「之後」才執行第一個工作負載。 <p>根據指定的排程執行未來的工作負載。 <p>**附註：** 如果您指定排程的週期，但未指定排程的小時或分鐘，則未來的執行時間會分別使用第一次執行時間之後的小時或分鐘來計算。 | 
+| 目前或未來的開始時間 | 在指定的開始時間執行第一個工作負載。 <p>根據上次執行時間的計算，執行未來的工作負載。 | 根據從開始時間計算的排程，在開始時間「之後」才執行第一個工作負載。 <p>根據指定的排程執行未來的工作負載。 <p>**附註：** 如果您指定排程的週期，但未指定排程的小時或分鐘，則未來的執行時間會分別使用第一次執行時間之後的小時或分鐘來計算。 | 
 ||||
 
 **開始時間在過去，有週期但沒有排程的範例** 

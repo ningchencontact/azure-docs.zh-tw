@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure Cosmos DB 資料庫、容器和項目
 description: 本文說明如何建立及使用 Azure Cosmos DB 資料庫、容器和項目
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 6757f887376e1b399d6af18f114e203991c16a67
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807681"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107730"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>使用 Azure Cosmos 資料庫、容器和項目
 
@@ -45,7 +45,7 @@ ms.locfileid: "53807681"
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos 容器
 
-Azure Cosmos 容器是適用於項目的已佈建輸送量和儲存體的延展性單位。 容器會以水平方式分割，然後跨多個區域複寫。 您新增至容器的項目和您在容器上佈建的輸送量，都會自動依據分割區索引鍵，跨一組邏輯分割區散佈。 若要深入了解分割和分割區索引鍵，請參閱[邏輯分割區](partition-data.md)文章。 
+Azure Cosmos 容器是適用於項目的已佈建輸送量和儲存體的延展性單位。 容器會以水平方式分割，然後跨多個區域複寫。 您新增至容器的項目和您在容器上佈建的輸送量，會自動依據分割區索引鍵分布在一組邏輯分割區之間。 若要深入了解分割和分割區索引鍵，請參閱[邏輯分割區](partition-data.md)文章。 
 
 建立 Azure Cosmos 容器時，您可以透過以下其中一種方法設定輸送量：
 
@@ -77,10 +77,10 @@ Azure Cosmos 容器都有一組系統定義的屬性。 根據選擇的 API 不�
 
 | **系統定義屬性** | **系統產生或可由使用者設定** | **用途** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API** | **資料表 API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__rid | 由系統產生 | 容器的唯一識別碼 | 是 | 否 | 否 | 否 | 否 |
-|__etag | 由系統產生 | 適用於開放式並行存取控制的實體標記 | 是 | 否 | 否 | 否 | 否 |
-|__ts | 由系統產生 | 容器的上次更新日期時間戳記 | 是 | 否 | 否 | 否 | 否 |
-|__self | 由系統產生 | 容器的可定址 URI | 是 | 否 | 否 | 否 | 否 |
+|_rid | 由系統產生 | 容器的唯一識別碼 | 是 | 否 | 否 | 否 | 否 |
+|_etag | 由系統產生 | 適用於開放式並行存取控制的實體標記 | 是 | 否 | 否 | 否 | 否 |
+|_ts | 由系統產生 | 容器的上次更新日期時間戳記 | 是 | 否 | 否 | 否 | 否 |
+|_self | 由系統產生 | 容器的可定址 URI | 是 | 否 | 否 | 否 | 否 |
 |id | 可由使用者設定 | 使用者定義的容器唯一名稱 | 是 | 是 | 是 | 是 | 是 |
 |indexingPolicy | 可由使用者設定 | 提供變更的索引路徑、其精確度，以及一致性模型的能力。 | 是 | 否 | 否 | 否 | 是 |
 |TimeToLive | 可由使用者設定 | 提供在一段時間後自動從容器中刪除項目的能力。 如需詳細資訊，請參閱[存留時間](time-to-live.md)文章。 | 是 | 否 | 否 | 否 | 是 |
@@ -113,10 +113,10 @@ Azure Cosmos 項目可以根據選擇的 API，分別代表集合中的文件、
 
 |**系統定義屬性** | **系統產生或可由使用者設定**| **用途** | **SQL API** | **Cassandra API** | **適用於 MongoDB 的 Azure Cosmos DB API** | **Gremlin API** | **資料表 API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__id | 由系統產生 | 項目的唯一識別碼 | 是 | 否 | 否 | 否 | 否 |
-|__etag | 由系統產生 | 適用於開放式並行存取控制的實體標記 | 是 | 否 | 否 | 否 | 否 |
-|__ts | 由系統產生 | 項目的上次更新日期時間戳記 | 是 | 否 | 否 | 否 | 否 |
-|__self | 由系統產生 | 項目的可定址 URI | 是 | 否 | 否 | 否 | 否 |
+|_id | 由系統產生 | 項目的唯一識別碼 | 是 | 否 | 否 | 否 | 否 |
+|_etag | 由系統產生 | 適用於開放式並行存取控制的實體標記 | 是 | 否 | 否 | 否 | 否 |
+|_ts | 由系統產生 | 項目的上次更新日期時間戳記 | 是 | 否 | 否 | 否 | 否 |
+|_self | 由系統產生 | 項目的可定址 URI | 是 | 否 | 否 | 否 | 否 |
 |id | 無論是 | 邏輯分割區內使用者定義的唯一名稱。 如果使用者未指定識別碼，系統會自動產生一個。 | 是 | 是 | 是 | 是 | 是 |
 |任意使用者定義的屬性 | 使用者定義 | 以 API 原生表示法 (JSON、BSON，CQL 等等) 表示的使用者定義屬性 | 是 | 是 | 是 | 是 | 是 |
 

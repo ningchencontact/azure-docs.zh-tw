@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993279"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077466"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>將容器執行個體部署至 Azure 虛擬網路
 
@@ -33,26 +33,28 @@ ms.locfileid: "53993279"
 
 當您將容器群組部署至虛擬網路時，會有特定限制。
 
-* 不支援 Windows 容器
 * 若要將容器群組部署至子網路，該子網路不能包含任何其他資源類型。 在將容器群組部署至子網路之前，請先將所有現有資源從現有的子網路移除，或是建立新的子網路。
 * 部署至虛擬網路的容器群組目前不支援公用 IP 位址或 DNS 名稱標籤。
 * 由於涉及其他網路資源，將容器群組部署至虛擬網路的速度通常會比部署標準容器執行個體要慢一些。
 
 ## <a name="preview-limitations"></a>預覽限制
 
-當此功能在預覽階段時，若將容器執行個體部署至虛擬網路，會有下列限制。
+當此功能在預覽階段時，若將容器執行個體部署至虛擬網路，會有下列限制。 
 
-**支援**的區域：
+**支援的國家/地區與資源限制**
 
-* 北歐 (northeurope)
-* 西歐 (westeurope)
-* 美國西部 (westus)
-* 美國東部 (eastus)
+| 位置 | 作業系統 | CPU | 記憶體 (GB) |
+| -------- | :---: | :---: | :-----------: |
+| 西歐 | Linux | 4 | 14 |
+| 美國東部、美國西部 | Linux | 2 | 3.5 |
+| 澳大利亞東部、北歐 | Linux | 1 | 1.5 |
 
-**不支援**的網路資源：
+容器資源限制會隨著這些區域中非網路的容器執行個體其限制不同而異。 目前僅支援 Linux 容器的這項功能。 已計劃支援 Windows。
 
-* 網路安全性群組
+**不支援的網路資源與功能**
+
 * Azure Load Balancer
+* 虛擬網路對等互連
 
 當您將容器群組部署至虛擬網路後，便需要[其他步驟](#delete-network-resources)來**刪除網路資源**。
 

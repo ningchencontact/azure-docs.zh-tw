@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: c55a80749506b0a03af2f8c5f0179b67c8a78d15
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: bad87931feb11012f23f0ef19bd853b38566c07c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016734"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106819"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 匯入的限制和已知問題
 ## <a name="about-this-list"></a>關於本清單
@@ -47,6 +47,7 @@ WSDL 檔案是用來產生 SOAP 傳遞的 API，或作為「SOAP 至 REST」API 
 * **WCF wsHttpBinding** - 使用 Windows Communication Foundation 建立的 SOAP 服務應該使用 basicHttpBinding，不支援 wsHttpBinding。
 * **MTOM** - 使用 MTOM 的服務「可能」可以運作。 目前不提供官方支援。
 * **遞迴** - APIM 不支援遞迴定義的類型 (例如，參考自己的陣列)。
+* **多個命名空間** - 在結構描述中可使用多個命名空間，但只有目標命名空間可用來定義訊息部分。 命名空間若不是用來定義其他輸入或輸出元素的目標，則不會保留。 雖然這類 WSDL 文件可以匯入，但在匯出慈時，所有訊息部分都會有 WSDL 的目標命名空間。
 
 ## <a name="wadl"> </a>WADL
 目前沒有任何已知的 WADL 匯入問題。

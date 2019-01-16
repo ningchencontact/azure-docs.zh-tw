@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 73eda631d43da87b4472615c2b6a28244372c613
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1d7c5df1b49a1f8c2fe4fbae4d8c8fdbd481e0e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339258"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053903"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>適用於 C 的 Azure IoT 裝置 SDK
 
@@ -75,11 +75,11 @@ Azure IoT 裝置 SDK (適用於 C) 是以 ANSI C (C99) 撰寫，以獲得最大�
 
 * 稱為[裝置總管](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)的 Windows 應用程式。
 
-* 名為 [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (先前稱為 Azure IoT Toolkit) 的跨平台 Visual Studio Code 延伸模組。
+* 名為 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 的跨平台 Visual Studio Code 擴充功能。
 
 * 名為 [Azure CLI 的 IoT 擴充功能](https://github.com/Azure/azure-iot-cli-extension)的跨平台 Python CLI。
 
-本教學課程使用圖形化「裝置總管」工具。 若您在 VS Code 中開發，您可以使用*適用於 VS Code 的 Azure IoT Hub Toolkit 延伸模組*。 如果您偏好使用 CLI 工具，也可以使用 Azure CLI 2.0 的 IoT 擴充功能工具。
+本教學課程使用圖形化「裝置總管」工具。 若您在 VS Code 中開發，您可以使用「適用於 VS Code 的 Azure IoT」。 如果您偏好使用 CLI 工具，也可以使用 Azure CLI 2.0 的 IoT 擴充功能工具。
 
 裝置總管工具會使用 Azure IoT 服務程式庫在 IoT 中樞上執行各種功能，包括新增裝置。 如果您使用裝置總管工具來新增裝置，您會得到裝置的連接字串。 您需要此連接字串才能執行應用程式範例。
 

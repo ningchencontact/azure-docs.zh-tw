@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 871df693878611b0322a0f06634c62a7a9efd90a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6a14a806b48b30d84b021a84a1ef0a2f4318ea94
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335158"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106457"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>驗證即服務重要概念
 
@@ -44,7 +44,7 @@ VaaS 工作流程會在 VaaS 解決方案內容內運作。 它代表一組執�
 ![VaaS 工作流程圖格](media/tile_all-workflows.png)
 
 > [!NOTE]
-> **套件驗證**工作流程目前支援兩種案例：[驗證 OEM 套件](azure-stack-vaas-validate-oem-package.md)和[驗證來自 Microsoft 的軟體更新](azure-stack-vaas-validate-microsoft-updates.md)。
+> **解決方案驗證**工作流程目前支援兩種案例：[驗證 OEM 套件](azure-stack-vaas-validate-oem-package.md)和[驗證來自 Microsoft 的軟體更新](azure-stack-vaas-validate-microsoft-updates.md)。
 
 如需有關工作流程類型的詳細資訊，請參閱[什麼是 Azure Stack 的驗證即服務？](azure-stack-vaas-overview.md)
 
@@ -52,10 +52,10 @@ VaaS 工作流程會在 VaaS 解決方案內容內運作。 它代表一組執�
 
 1. 在解決方案儀表板上，建立新的解決方案或選取現有的解決方案。 這會重新整理工作流程並顯示成圖格。
 2. 若要建立新的工作流程，請在任何圖格上選取 [開始]。 如需有關每個工作流程的特定資訊，請參閱下列文章：
-    - 測試進行：[快速入門：使用驗證即服務入口網站來排定第一個測試](azure-stack-vaas-schedule-test-pass.md)
+    - 測試進行：[快速入門：使用驗證即服務入口網站來排程第一個測試](azure-stack-vaas-schedule-test-pass.md)
     - 解決方案驗證：[驗證新的 Azure Stack 解決方案](azure-stack-vaas-validate-solution-new.md)
-    - 套件驗證：[驗證來自 Microsoft 的軟體更新](azure-stack-vaas-validate-microsoft-updates.md)
-    - 套件驗證：[驗證 OEM 套件](azure-stack-vaas-validate-oem-package.md)
+    - 解決方案驗證：[驗證來自 Microsoft 的軟體更新](azure-stack-vaas-validate-microsoft-updates.md)
+    - 解決方案驗證：[驗證 OEM 套件](azure-stack-vaas-validate-oem-package.md)
 
 3. 若要管理或監視現有的工作流程，請在工作流程圖格上選取 [管理]。 選取工作流程的名稱，然後使用 [編輯] 按鈕來檢視屬性或變更通用的測試參數。
 

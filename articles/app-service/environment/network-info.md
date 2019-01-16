@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3939d8dce641d066a2470612068df7102b317a70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d22b181baa9b9e6d01fb92a3644078ecbd6af7be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630456"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191593"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment 的網路考量 #
 
@@ -131,7 +131,7 @@ ASE 子網路中有許多用於內部元件通訊的連接埠，您可以變更�
 
 ## <a name="functions-and-web-jobs"></a>函式和 Web 工作 ##
 
-函式和 Web 工作都相依於 SCM 網站，但受到支援可用於入口網站，即使您的應用程式在 ILB ASE 中，只要您的瀏覽器可以到達 SCM 網站就沒問題。  如果您搭配 ILB ASE 使用自我簽署憑證，您必須啟用瀏覽器以信任該憑證。  若是 IE 和 Edge，這表示憑證必須在電腦信任存放區中。  如果您使用 Chrome，則表示您假設瀏覽器會直接到達 SCM 網站，而過早接受瀏覽器中的憑證。  最佳解決方法是使用瀏覽器信任鏈結中的商業憑證。  
+函式和 Web 工作都相依於 SCM 網站，但受到支援可用於入口網站，即使您的應用程式在 ILB ASE 中，只要您的瀏覽器可以到達 SCM 網站就沒問題。  如果您搭配 ILB ASE 使用自我簽署憑證，您必須啟用瀏覽器以信任該憑證。  若是 IE 和 Microsoft Edge，這表示憑證必須在電腦信任存放區中。  如果您使用 Chrome，則表示您假設瀏覽器會直接到達 SCM 網站，而過早接受瀏覽器中的憑證。  最佳解決方法是使用瀏覽器信任鏈結中的商業憑證。  
 
 ## <a name="ase-ip-addresses"></a>ASE IP 位址 ##
 

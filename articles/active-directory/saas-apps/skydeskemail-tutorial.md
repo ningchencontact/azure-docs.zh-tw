@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 058aad72ea8e5741bc632b3c27c032613683ae78
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4dc34a390303ffe5e4bafc6b71d77a19e554374c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444077"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052184"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>教學課程：Azure Active Directory 與 SkyDesk Email 整合
 
@@ -115,7 +115,7 @@ SkyDesk Email 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://mail.skydesk.jp/portal/<companyname>`
 
     > [!NOTE] 
-    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [SkyDesk Email 客戶支援小組](https://www.skydesk.sg/support/)以取得此值。 
+    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [SkyDesk Email 客戶支援小組](https://www.skydesk.jp/apps/support/)以取得此值。 
  
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -220,7 +220,7 @@ SkyDesk Email 與 Azure AD 整合提供下列優點：
     ![設定單一登入](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 >[!NOTE] 
->如果您需要建立大量使用者，您需要連絡 [SkyDesk Email 客戶支援小組](https://www.skydesk.sg/support/)。
+>如果您需要建立大量使用者，您需要連絡 [SkyDesk Email 客戶支援小組](https://www.skydesk.jp/apps/support/)。
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者

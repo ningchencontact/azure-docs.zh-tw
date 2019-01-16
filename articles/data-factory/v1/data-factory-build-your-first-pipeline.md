@@ -1,5 +1,5 @@
 ---
-title: Data Factory 教學課程︰第一個資料管線 | Microsoft Docs
+title: Data Factory 教學課程：第一個資料管線 | Microsoft Docs
 description: 此 Azure Data Factory 教學課程會示範如何使用 Hadoop 叢集上的 Hive 指令碼，建立和排程處理資料的 Data Factory。
 services: data-factory
 documentationcenter: ''
@@ -10,19 +10,18 @@ ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 63ae8699af5213634eeac7dfc5045a3fc888b6c0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 266d16311115f788283eadc60ca16f95b433d6b0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734247"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015945"
 ---
-# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>教學課程︰使用 Hadoop 叢集建置您的第一個管線來轉換資料
+# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>教學課程：使用 Hadoop 叢集建置第一個管線來轉換資料
 > [!div class="op_single_selector"]
 > * [概觀和必要條件](data-factory-build-your-first-pipeline.md)
 > * [Azure 入口網站](data-factory-build-your-first-pipeline-using-editor.md)
@@ -33,7 +32,7 @@ ms.locfileid: "45734247"
 
 
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[快速入門：使用 Azure Data Factory 來建立資料處理站](../quickstart-create-data-factory-dot-net.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[快速入門：使用 Azure Data Factory 建立資料處理站](../quickstart-create-data-factory-dot-net.md)。
 
 在本教學課程中，您會使用資料管線建立您的第一個 Azure Data Factory。 管線藉由在 Azure HDInsight (Hadoop) 叢集上執行 Hive 指令碼，來將輸入資料轉換成輸出資料。  
 
@@ -45,12 +44,12 @@ ms.locfileid: "45734247"
 1. 建立 **Data Factory**。 資料處理站可以包含一或多個資料管線，可移動和轉換資料。 
 
     在本教學課程中，您會在資料處理站中建立一個管線。 
-2. 建立 **管線**。 管線可以有一或多個活動 (範例︰複製活動、HDInsight Hive 活動)。 本範例使用在 HDInsight Hadoop 叢集上執行 Hive 指令碼的 HDInsight Hive 活動。 指令碼首先會建立一個參照儲存在 Azure Blob 儲存體中的原始 Web 記錄資料的資料表，再依年份或月份分割未經處理資料。
+2. 建立 **管線**。 管線可以有一或多個活動 (例如：複製活動、HDInsight Hive 活動)。 本範例使用在 HDInsight Hadoop 叢集上執行 Hive 指令碼的 HDInsight Hive 活動。 指令碼首先會建立一個參照儲存在 Azure Blob 儲存體中的原始 Web 記錄資料的資料表，再依年份或月份分割未經處理資料。
 
     在本教學課程中，管線使用 Hive 活動來轉換資料，方法是在 Azure HDInsight Hadoop 叢集上執行 Hive 查詢。 
 3. 建立 **連結服務**。 您會建立一個連結的服務，以將資料存放區或計算服務連結到 Data Factory。 像是 Azure 儲存體的資料存放區會保留管線中的活動輸入/輸出資料。 計算服務 (例如 HDInsight Hadoop 叢集) 會處理/轉換資料。
 
-    在本教學課程中，您會建立兩個「連結服務」：**Azure 儲存體** 和 **Azure HDInsight**。 Azure 儲存體已連結的服務會連結提供資料處理站輸入/輸出資料的 Azure 儲存體帳戶。 Azure HDInsight 已連結的服務會連將資料轉換到資料處理站的 Azure HDInsight 叢集。 
+    在本教學課程中，您會建立兩個連結服務：**Azure 儲存體**和 **Azure HDInsight**。 Azure 儲存體已連結的服務會連結提供資料處理站輸入/輸出資料的 Azure 儲存體帳戶。 Azure HDInsight 已連結的服務會連將資料轉換到資料處理站的 Azure HDInsight 叢集。 
 3. 建立輸入和輸出 **資料集**。 輸入資料集表示管線中的活動輸入，而輸出資料集表示活動的輸出。
 
     在本教學課程中，輸入和輸出資料集是指定 Azure Blob 儲存體中輸入和輸出資料的位置。 Azure 儲存體連結服務會指定要使用的 Azure 儲存體帳戶。 輸入資料集會指定輸入資料所在的位置，而輸出資料集則指定放置輸出資料的位置。 
@@ -103,7 +102,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 Azure 入口網站和 Visual Studio 可讓您透過 GUI 建置資料處理站。 而 PowerShell、Resource Manager 範本和 REST API，則可讓您選擇以撰寫指令碼/程式碼的方式來建置資料處理站。
 
 > [!NOTE]
-> 本教學課程中的資料管線會轉換輸入資料來產生輸出資料， 它不是將資料從來源資料存放區，複製到目的地資料存放區。 如需說明如何使用 Azure Data Factory 複製資料的教學課程，請參閱[教學課程：將資料從 Blob 儲存體複製到 SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+> 本教學課程中的資料管線會轉換輸入資料來產生輸出資料， 它不是將資料從來源資料存放區，複製到目的地資料存放區。 如需如何使用 Azure Data Factory 複製資料的教學課程，請參閱[教學課程︰將資料從 Blob 儲存體複製到 SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 > 
 > 您可以將一個活動的輸出資料集設為另一個活動的輸入資料集，藉此鏈結兩個活動 (讓一個活動接著另一個活動執行)。 如需詳細資訊，請參閱[在 Data Factory 中排程和執行](data-factory-scheduling-and-execution.md)。 
 

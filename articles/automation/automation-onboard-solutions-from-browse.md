@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039423"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062939"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>在多個 VM 上啟用更新管理、變更追蹤和清查解決方案
 
@@ -59,6 +59,24 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ![沒有工作區](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
+啟用解決方案時，只有特定區域支援連結 Log Analytics 工作區和自動化帳戶。
+
+下表顯示支援的對應：
+
+|**Log Analytics 工作區區域**|**Azure 自動化區域**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS|WestCentralUS|
+|WestEurope|WestEurope|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP|CentralUSEUAP|
+
 針對您不想啟用的虛擬機器，取消選取它旁邊的核取方塊。 無法啟用的虛擬機器已取消選取。
 
 按一下 [啟用] 以啟用解決方案。 啟用解決方案最多需要 15 分鐘。
@@ -80,13 +98,13 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 1. 從 Azure 入口網站開啟您的自動化帳戶，然後在 [自動化帳戶] 頁面上，在左側的 [相關資源] 區段下選取 [已取消連結的工作區]。
 
-1. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。
+2. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。
 
    ![取消連結工作區頁面](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    您會收到提示，確認您想要繼續。
 
-1. 當 Azure 自動化嘗試將您的帳戶從 Log Analytics 工作區取消連結時，您可以從功能表在 [通知] 下追蹤進度。
+3. 當 Azure 自動化嘗試將您的帳戶從 Log Analytics 工作區取消連結時，您可以從功能表在 [通知] 下追蹤進度。
 
 若使用「更新管理」解決方案，您可以在移除解決方案之後選擇移除已不再需要的下列項目。
 
@@ -106,13 +124,13 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>VM 向不同的工作區報告：'\<workspaceName\>'。  將組態變更為啟用所需的組態
 
-**原因**：此錯誤表示您嘗試上架的 VM 是向另一個工作區報告。
+**原因**︰此錯誤表示您嘗試上架的 VM 是向另一個工作區報告。
 
 **解決方案**：按一下 [作為組態使用]，變更目標自動化帳戶和 Log Analytics 工作區。
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>VM 向此訂用帳戶中無法使用的工作區報告
 
-**原因**：虛擬機器報告的目標工作區：
+**原因**︰虛擬機器報告的目標工作區：
 
 * 位於不同訂用帳戶，或
 * 已不存在，或
@@ -128,13 +146,13 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ### <a name="classic-vms-cannot-be-enabled"></a>無法啟用傳統 VM
 
-**原因**：不支援使用傳統部署模型的 VM。
+**原因**︰不支援使用傳統部署模型的 VM。
 
 **解決方案**：將虛擬機器遷移至資源管理員部署模型。 若要了解如何執行這項操作，請參閱[遷移傳統部署模型資源](../virtual-machines/windows/migration-classic-resource-manager-overview.md)。
 
 ### <a name="vm-is-stopped-deallocated"></a>VM 已停止。 (已解除配置)
 
-**原因**：虛擬機器的狀態不是 [執行中]。
+**原因**︰虛擬機器的狀態不是 [執行中]。
 
 **解決方案**：VM 必須是執行中的狀態，才能將該 VM 上架到解決方案。 按一下 [啟動 VM] 的內嵌連結來啟動 VM (不用離開此頁面)。
 

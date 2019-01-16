@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 850919f8ca8bb68af544ae528a779e16068424b1
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 0dbdf2261b851b303a0c606e5de70354578c6d2e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752532"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078774"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>從 Azure Kubernetes Service 對 Azure Container Registry 進行驗證
 
@@ -44,7 +44,7 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>使用 Kubernetes 祕密進行存取
 
-在某些情況下，您可能無法將所需角色指派給自動產生的 AKS 服務主體，授與其存取 ACR 的權限。 例如，由於貴組織的安全性模型，您在 Azure AD 目錄中可能沒有足夠權限為 AKS 產生的服務主體指派角色。 在此情況下，您可以建立新的服務主體，然後使用 Kubernetes 映像提取密碼，授與其容器登錄的存取權。
+在某些情況下，您可能無法將所需角色指派給自動產生的 AKS 服務主體，授與其存取 ACR 的權限。 例如，由於貴組織的安全性模型，您在 Azure Active Directory 租用戶中可能沒有足夠權限為 AKS 產生的服務主體指派角色。 要將角色指派給服務主體，需要您的 Azure AD 帳戶擁有寫入您 Azure AD 租用戶的權限。 如果您沒有權限，您可以建立新的服務主體，然後使用 Kubernetes 映像提取密碼，授與其容器登錄的存取權。
 
 使用下列指令碼來建立新的服務主體 (您將使用其認證進行 Kubernetes 映像提取祕密)。 請先為您的環境修改 `ACR_NAME` 變數，然後再執行指令碼。
 

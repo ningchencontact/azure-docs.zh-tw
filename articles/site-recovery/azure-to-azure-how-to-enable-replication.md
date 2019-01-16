@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 797cef2d3a0e2cfeb28411c30a7da8a5b6f2d953
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 79ad4b3598c227ad2c2e3b76562cf95a30e82ad3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834514"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101542"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>將 Azure 虛擬機器複寫到另一個 Azure 區域
 
@@ -62,10 +62,10 @@ ms.locfileid: "52834514"
     >啟用複寫之後，便無法變更可用性類型 - 單一執行個體、可用性設定組或可用性區域。 您需要停用後再啟用複寫，以變更可用性類型。
     >
     
-    - **複寫原則**：該原則會定義復原點保留歷程記錄和應用程式一致快照集頻率的設定。 根據預設，Azure Site Recovery 會對於復原點保留期使用「24 小時」的預設設定來建立新的複寫原則，並對於應用程式一致快照集頻率使用「60 分鐘」。
+    - **複寫原則**：這會定義復原點保留期歷程記錄和應用程式一致快照集頻率的設定。 根據預設，Azure Site Recovery 會對於復原點保留期使用「24 小時」的預設設定來建立新的複寫原則，並對於應用程式一致快照集頻率使用「60 分鐘」。
 
     ![啟用複寫](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
-
+  
 ## <a name="customize-target-resources"></a>自訂目標資源
 
 您可以修改 Site Recovery 所使用的預設目標設定。
@@ -79,7 +79,13 @@ ms.locfileid: "52834514"
     - 在 [目標儲存體帳戶] 中，選取您要使用的帳戶。
 
         ![啟用複寫](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
-
+1. 按一下 [自訂:] 以修改複寫設定。
+   - 在 [多 VM 一致性] 中，選取要一起複寫的 VM 
+   - 在容錯移轉時，複寫群組中的所有機器都會共用當機時保持一致和應用程式一致復原點。 啟用多 VM 一致性可能會影響工作負載的效能 (因為這需要使用大量 CPU)，應該只用於機器正在執行相同工作負載，且您需要多部機器之間具有一致性的情況。 例如，如果某個應用程式有 2 個 SQL 虛擬機器和 2 個 Web 伺服器，則您僅應將 SQL 虛擬機器新增至複寫群組中。
+   - 您最多可選擇在一個複寫群組中設置 16 個虛擬機器。
+   - 如果您啟用多部 VM 一致性，則複寫群組中的機器會透過連接埠 20004 彼此通訊。 請確定並沒有防火牆應用裝置封鎖了 VM 之間透過連接埠 20004 進行的內部通訊。 如果您想要讓 Linux VM 成為複寫群組的一部分，請確定已根據特定 Linux 版本的指引手動開啟連接埠 20004上 的輸出流量。
+![啟用複寫](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
+    
 2. 按一下 [建立目標資源] > [啟用複寫]。
 3. 啟用 VM 以進行複寫之後，您就可以在 [複寫的項目] 下方檢查 VM 健康情況的狀態。
 

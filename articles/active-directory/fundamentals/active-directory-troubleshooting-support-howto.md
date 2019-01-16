@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: d67b53d80b74d0a6ad3c4264a55a5e277acffd20
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ddf4763b8f5abb81c7d884d9d978c85843410ccb
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083898"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064941"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>尋求 Azure Active Directory 方面的協助及開立支援票證
 Microsoft 對 Azure Active Directory (Azure AD) 提供全球性的技術、售前、帳單和訂用帳戶支援。 Microsoft Azure 付費訂用帳戶與試用訂用帳戶則提供線上和電話支援 。 電話支援和線上帳單支援已推出其他語言版本。 
@@ -51,7 +51,7 @@ Microsoft 對 Azure Active Directory (Azure AD) 提供全球性的技術、售�
    
 4. 對於 [服務] 選取 [Azure Active Directory]，然後選取 [下一步]。
 
-5. 在 [問題] 刀鋒視窗中，選取[嚴重性](https://azure.microsoft.com/support/plans/response/))。
+5. 在 [問題] 刀鋒視窗中，選取[嚴重性](https://azure.microsoft.com/support/plans/response/)。
   
 6. 選取 [問題類型]，然後選取該類型的 [類別]。 此時，您還會收到問題類別的自助資訊。
   

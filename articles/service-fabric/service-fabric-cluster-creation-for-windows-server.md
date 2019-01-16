@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: dekapur
-ms.openlocfilehash: f91a6b305a3d531aa1c733685f6d896ed07054ae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 321a69768935a9cb220bf5c2ae96c30274dc590d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257600"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159447"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>建立在 Windows Server 上執行的獨立叢集
 您可以使用 Azure Service Fabric 在執行 Windows Server 的任何虛擬機器或電腦上建立 Service Fabric 叢集。 這表示您能夠在包含一組互連式 Windows Server 電腦的任何環境中部署和執行 Service Fabric 應用程式，不論該環境是內部部署或是透過任何雲端提供者來提供。 Service Fabric 會提供一個安裝封裝來建立稱為獨立 Windows Server 封裝的 Service Fabric 叢集。
@@ -74,7 +74,7 @@ Service Fabric 可以使用[範例](https://github.com/Azure-Samples/service-fab
 
 如果您完成執行開發案例，您可以參閱「[移除叢集](#removecluster_anchor)」一節中的步驟，從電腦中移除 Service Fabric 叢集。 
 
-### <a name="step-1b-create-a-multi-machine-cluster"></a>步驟 1B︰ 建立多部電腦的叢集
+### <a name="step-1b-create-a-multi-machine-cluster"></a>步驟 1B︰建立多部電腦的叢集
 在您完成[規劃及準備叢集部署](service-fabric-cluster-standalone-deployment-preparation.md)中詳述的規劃和準備步驟之後，就可以開始使用您的叢集設定檔，建立生產叢集。
 
 部署和設定叢集的叢集系統管理員必須具有電腦的系統管理員權限。 您無法在網域控制站上安裝 Service Fabric。
@@ -200,8 +200,8 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 * FailoverUnitQueueLength
 * CommitQueueLength
 * Nodes 的數目
-* IsContextComplete: True/False
-* ClusterId︰這是針對每個叢集隨機產生的 GUID。
+* IsContextComplete：True/False
+* ClusterId：這是針對每個叢集隨機產生的 GUID。
 * ServiceFabricVersion
 * 遙測上傳來源虛擬機器的 IP 位址
 

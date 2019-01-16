@@ -8,16 +8,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2017
 ms.author: jingwang
-ms.openlocfilehash: 3428fb5034435d9f3444347329171d803136177c
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 60dd0bdd529b4ee8fc8377093d49b8a27fb9b3f1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944663"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016643"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>在 Azure Key Vault 中儲存認證
 
@@ -47,7 +46,7 @@ ms.locfileid: "49944663"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設為：**AzureKeyVault**。 | 是 |
+| type | 類型屬性必須設定為：**AzureKeyVault**。 | 是 |
 | baseUrl | 指定 Azure Key Vault URL。 | 是 |
 
 **使用編寫 UI：**
@@ -80,7 +79,7 @@ ms.locfileid: "49944663"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 欄位的 type 屬性必須設定為：**AzureKeyVaultSecret**。 | 是 |
+| type | 欄位的類型屬性必須設定為：**AzureKeyVaultSecret**。 | 是 |
 | secretName | Azure Key Vault 中密碼的名稱。 | 是 |
 | secretVersion | Azure Key Vault 中密碼的版本。<br/>如果未指定，它會一律使用最新版本的密碼。<br/>如果指定，則它會遵循指定的版本。| 否 |
 | store | 代表您用來儲存認證的 Azure Key Vault 已連結服務。 | 是 |

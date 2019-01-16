@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602166"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077737"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -36,10 +36,8 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 
 ## <a name="use-resource-manager-templates"></a>使用 Resource Manager 範本
 
-許多合作夥伴解決方案都使用 Resource Manager 範本來部署在客戶的訂用帳戶上。 如果您在 Azure Marketplace 中、GitHub 上或快速入門中，已有可用的 Resource Manager 範本，修改範本以啟用這個新追蹤方法的程序應該相當簡單。 如果您未使用 Azure Resource Manager 範本，現在這裡有一些連結，可協助您更了解 Resource Manager 範本與其建立方式： 
+許多合作夥伴解決方案都使用 Resource Manager 範本來部署在客戶的訂用帳戶上。 如果您在 Azure Marketplace 中、GitHub 上或快速入門中，已有可用的 Resource Manager 範本，修改範本以啟用這個新追蹤方法的程序應該相當簡單。 如需詳細資訊，請參閱[建立及部署第一個 Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)。
 
-*   [建立及部署第一個 Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-*   [建立 Azure Marketplace 的解決方案範本](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
 ## <a name="add-a-guid-to-your-template"></a>將 GUID 新增到您的範本
 
@@ -270,11 +268,15 @@ Microsoft 為合作夥伴提供一個客戶部署範本檢視和受影響的使�
 
 **何人能將 GUID 加入至範本？**
 
-追蹤資源的主要目的是將合作夥伴的解決方案連結到客戶的 Azure 使用量。 使用量資料會繫結到合作夥伴的 Microsoft 合作夥伴網路身分識別 (MPN ID)。 
+追蹤資源的主要目的是將合作夥伴的解決方案連結到客戶的 Azure 使用量。 使用量資料會繫結到合作夥伴的 Microsoft 合作夥伴網路身分識別 (MPN ID)。 合作夥伴可以在 CPP 中取得回報資料。
 
 **加入 GUID 之後能否予以變更？**
  
 是，客戶或實作合作夥伴可自訂範本並能變更或移除該 GUID。 建議合作夥伴主動向其客戶與合作夥伴，描述資源角色與 GUID，以防止移除或編輯該追蹤 GUID。 變更 GUID 只會影響新的部署和資源，現有的部署和資源不受影響。
+
+**何時才能使用報告功能？**
+
+報告搶鮮版 (Beta) 很快就會推出。 回報功能將會與 CPP 整合。
 
 **我可以從類似 GitHub 的非 Microsoft 存放庫追蹤部署的範本嗎？**
 

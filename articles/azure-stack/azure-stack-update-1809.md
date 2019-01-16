@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f3994c2be50939a837256224030e5284cc6f385b
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 97b7defded39e572a1fecae3e93d389014b15a6b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754045"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077958"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新
 
@@ -48,6 +48,8 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
    如需詳細資訊，請參閱 [Azure Stack Syslog 轉送](azure-stack-integrate-security.md)。
 
 - 您現在可以在 Azure 上的資源群組之間[移動註冊資源](azure-stack-registration.md#move-a-registration-resource)，而不需要重新註冊。 只要新和舊訂用帳戶都對應至相同的 CSP 合作夥伴識別碼，雲端解決方案提供者 (CSP) 也可以在訂用帳戶之間移動註冊資源。 這不會影響現有的客戶租用戶對應。 
+
+- 已新增可每個網路介面指派多個 IP 位址的支援。  如需詳細資料，請參閱[使用 PowerShell 對虛擬機器指派多個 IP 位址](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell)。
 
 ### <a name="fixed-issues"></a>已修正的問題
 
@@ -179,7 +181,7 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 - 在系統管理員和使用者入口網站中，按一下入口網站設定，然後選取 [刪除所有設定和私人儀表板]，並未如預期運作。 錯誤通知隨即顯示。 
 
 <!-- 2930799 - IS ASDK --> 
-- 在系統管理員和使用者入口網站中，[所有服務] 底下的 [DDoS 保護計劃] 資產誤列出。 它無法在 Azure Stack 中使用。 如果您嘗試建立它，則會顯示錯誤，表示入口網站無法建立 Marketplace 項目。 
+- 在系統管理員和使用者入口網站中，[所有服務] 底下的 [DDoS 保護計劃] 資產未正確列出。 它無法在 Azure Stack 中使用。 如果您嘗試建立它，則會顯示錯誤，表示入口網站無法建立 Marketplace 項目。 
 
 <!-- 2930820 - IS ASDK --> 
 - 在系統管理員和使用者入口網站中，如果您搜尋 "Docker"，項目未正確傳回。 它無法在 Azure Stack 中使用。 如果您嘗試建立它，則會顯示具有錯誤指示的刀鋒視窗。 

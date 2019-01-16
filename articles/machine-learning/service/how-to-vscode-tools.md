@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 898fd7d0416d1e1b27a25cabf524e72a7de44fde
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 902c659d2c51d69f2e9d0ef3a7401326e0e530eb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269580"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013140"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>開始使用適用於 Visual Studio Code 的 Azure Machine Learning
 
@@ -80,7 +80,8 @@ ms.locfileid: "53269580"
 
 1. 在 Visual Studio Code 活動列中，按一下 Azure 圖示。 Azure Machine Learning 提要欄位隨即出現。
 
-   [![提要欄位](./media/vscode-tools-for-ai/CreateNewWorkspace.gif)](./media/vscode-tools-for-ai/CreateNewWorkspace.gif#lightbox)
+   [![安裝](./media/vscode-tools-for-ai/CreateaWorkspace.gif)](./media/vscode-tools-for-ai/CreateaWorkspace.gif#lightbox)
+
 
 1. 以滑鼠右鍵按一下您的 Azure 訂用帳戶，然後選取 [建立工作區]。 清單隨即出現。 在動畫影像中，訂用帳戶名稱是 'Free Trial'，而工作區是 'TeamWorkspace'。 
 
@@ -96,11 +97,11 @@ ms.locfileid: "53269580"
  
 1. 按 Enter，即會建立新的實驗。 它會出現在工作區名稱下方的樹狀目錄中。
 
-1. 以滑鼠右鍵按一下實驗名稱，然後選擇 [將資料夾附加至實驗]。 此資料夾應該包含您的本機 Python 指令碼。 此資料夾會接著連結至雲端中的實驗。 
+1. 您可以滑鼠右鍵按一下工作區中的實驗，然後選取 [設定為使用中實驗]。 [使用中] 實驗是您目前使用的實驗，而您在 VS Code 中開啟的資料夾會連結到雲端中的這項實驗。 此資料夾應該包含您的本機 Python 指令碼。
 
    現在，您的每個實驗都會透過您的實驗來執行，因此，您的所有關鍵計量都將儲存於實驗歷程記錄中，而您定型的模型將自動上傳至 Azure Machine Learning，並與您的實驗計量和記錄一起儲存。
 
-   [![在 VS Code 中附加資料夾](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif)](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif#lightbox)
+   [![在 VS Code 中附加資料夾](./media/vscode-tools-for-ai/CreateAnExperiment.gif)](./media/vscode-tools-for-ai/CreateAnExperiment.gif#lightbox)
 
 ### <a name="use-keyboard-shortcuts"></a>使用鍵盤快速鍵
 

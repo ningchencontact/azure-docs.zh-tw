@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 17402911fee5363d707547e73df7da30be6dcd0e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: ab196645cc14acb3ed2e56ee785d4790a8df3c23
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343797"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052532"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解 IoT 中樞的直接方法並從中樞叫用直接方法
 
@@ -203,4 +203,4 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 如果您想要嘗試本文章所述的概念，您可能會對下列 IoT 中樞教學課程感興趣：
 
 * [使用直接方法](quickstart-control-device-node.md)
-* [使用適用於 VS Code 的 Azure IoT 中樞工具組管理裝置](iot-hub-device-management-iot-toolkit.md)
+* [使用適用於 VS Code 的 Azure IoT Tools 管理裝置](iot-hub-device-management-iot-toolkit.md)

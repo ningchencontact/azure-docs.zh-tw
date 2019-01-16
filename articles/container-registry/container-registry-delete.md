@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 01/04/2019
 ms.author: danlep
-ms.openlocfilehash: a1644f68465cffa8cce27257bb91100c111af8a1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b18638057def03a02024200edb157e5caf08a669
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857766"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065166"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>刪除 Azure Container Registry 中的容器映像
 
@@ -60,7 +60,7 @@ product-returns/legacy-integrator:20180715
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
 ```
 
-如需映像標記最佳做法的討論，請參閱 MSDN 上的 [Docker 標記：Docker 映像標記和版本設定的最佳做法][tagging-best-practices]部落格文章。
+如需有關映像標記最佳做法的討論，請參閱 MSDN 上 [Docker 標記：Docker 映像標記和版本設定的最佳做法][tagging-best-practices]部落格文章。
 
 ### <a name="layer"></a>層次
 
@@ -131,7 +131,7 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 
 * 刪除[存放庫](#delete-repository)：刪除存放庫內的所有映像和所有唯一層次。
 * 依[標記](#delete-by-tag)刪除：刪除映像、標記、映像參考的所有唯一層次，以及與映像相關聯的所有其他標記。
-* 刪除[資訊清單摘要](#delete-by-manifest-digest)：刪除映像、映像參考的所有唯一層次，以及與映像相關聯的所有標記。
+* 依[資訊清單摘要](#delete-by-manifest-digest)刪除：刪除映像、映像參考的所有唯一層次，以及與映像相關聯的所有標記。
 
 ## <a name="delete-repository"></a>刪除存放庫
 
@@ -239,20 +239,20 @@ Are you sure you want to continue? (y/n): y
      },
      {
        "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",
-       "tags": null,
+       "tags": [],
        "timestamp": "2018-07-11T21:32:21.1400513Z"
      }
    ]
    ```
 
-如您在序列中最後一個步驟的輸出中所見，現在有一個 `"tags"` 屬性為 `null` 的孤立資訊清單。 此資訊清單以及它所參考的任何唯一層次資料，仍存在於登錄中。 **若要刪除這類孤立映像及其層次資料，您必須依資訊清單摘要刪除**。
+如您在序列中最後一個步驟的輸出中所見，現在有一個其 `"tags"` 屬性為空白陣列的孤立資訊清單。 此資訊清單以及它所參考的任何唯一層次資料，仍存在於登錄中。 **若要刪除這類孤立映像及其層次資料，您必須依資訊清單摘要刪除**。
 
 ### <a name="list-untagged-images"></a>列出已取消標記的映像
 
 您可以使用下列 Azure CLI 命令，列出存放庫中所有已取消標記的映像。 以適合您環境的值取代 `<acrName>` 和 `<repositoryName>`。
 
 ```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>  --query "[?tags==null].digest"
+az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?!(tags[?'*'])].digest"
 ```
 
 ### <a name="delete-all-untagged-images"></a>刪除所有已取消標記的映像
@@ -283,7 +283,7 @@ REPOSITORY=myrepository
 # Delete all untagged (orphaned) images
 if [ "$ENABLE_DELETE" = true ]
 then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags==null].digest" -o tsv \
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?!(tags[?'*'])].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
@@ -310,7 +310,7 @@ $registry = "myregistry"
 $repository = "myrepository"
 
 if ($enableDelete) {
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags==null].digest" -o tsv `
+    az acr repository show-manifests --name $registry --repository $repository --query "[?!(tags[?'*'])].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
     Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."

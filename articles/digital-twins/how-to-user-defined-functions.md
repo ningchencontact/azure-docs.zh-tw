@@ -1,20 +1,20 @@
 ---
 title: 如何在 Azure Digital Twins 中建立使用者定義函式 | Microsoft Docs
-description: 有關如何使用 Azure Digital Twins 建立使用者定義函數、比對器和角色指派的指導方針。
+description: 如何在 Azure Digital Twins 中建立使用者定義函式、比對器和角色指派。
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 91c0b5700fbc648f1fcd1355a438694cecc07a04
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 7208f96d99127247b51510e0c43c1733bb327dfb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993396"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076241"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中建立使用者定義函式
 
@@ -73,21 +73,17 @@ YOUR_MANAGEMENT_API_URL/matchers
 
 ## <a name="create-a-user-defined-function"></a>建立使用者定義的函式
 
-建立比對器之後，使用下列已驗證的 HTTP **POST** 要求來上傳函式程式碼片段：
+建立使用者定義的函式涉及向 Azure Digital Twins 管理 API 提出多部分 HTTP 要求。
+
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
+
+建立比對器之後，使用下列已驗證的多部分 HTTP POST 要求來上傳函式程式碼片段：
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
-> [!IMPORTANT]
-> - 確認標頭包含：`Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`。
-> - 提供的主體為多部分項目：
->   - 第一個部分包含必要的 UDF 中繼資料。
->   - 第二個部分包含 JavaScript 計算邏輯。
-> - 在 **USER_DEFINED_BOUNDARY** 區段中，取代 **spaceId** (`YOUR_SPACE_IDENTIFIER`) 和 **matchers**(`YOUR_MATCHER_IDENTIFIER`) 值。
-> - 請注意 JavaScript UDF 會以 `Content-Type: text/javascript` 形式提供。
-
-使用下列 JSON 主體：
+使用下列主體：
 
 ```plaintext
 --USER_DEFINED_BOUNDARY
@@ -116,6 +112,15 @@ function process(telemetry, executionContext) {
 | USER_DEFINED_BOUNDARY | 多部分內容界限名稱 |
 | YOUR_SPACE_IDENTIFIER | 空間識別碼  |
 | YOUR_MATCHER_IDENTIFIER | 您想要使用之比對器的識別碼 |
+
+1. 確認標頭包含：`Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`。
+1. 確認主體是由多個部分組成的：
+
+   - 第一個部分包含必要的使用者定義函式中繼資料。
+   - 第二個部分包含 JavaScript 計算邏輯。
+
+1. 在 **USER_DEFINED_BOUNDARY** 區段中，取代 **spaceId** (`YOUR_SPACE_IDENTIFIER`) 和 **matchers**(`YOUR_MATCHER_IDENTIFIER`) 值。
+1. 確認將 JavaScript 使用者定義函式作為 `Content-Type: text/javascript` 提供。
 
 ### <a name="example-functions"></a>函式範例
 
@@ -190,16 +195,16 @@ function process(telemetry, executionContext) {
 
 ## <a name="create-a-role-assignment"></a>建立角色指派
 
-建立角色指派，讓使用者定義函式可在其下執行。 如果沒有適用於使用者定義函式的角色指派，它將不具適當權限來與管理 API 互動或有權在圖形物件上執行動作。使用者定義函式可能執行的動作可以透過 Azure Digital Twins 管理 API 中的角色型存取控制來指定和定義。 例如，您可以藉由指定特定角色或特定存取控制路徑來限制使用者定義函式的範圍。 如需詳細資訊，請參閱[角色型存取控制](./security-role-based-access-control.md)文件。
+建立角色指派，讓使用者定義函式可在其下執行。 如果為使用者定義的函式沒有角色指派存在，則不會擁有適當的權限可與管理 API 互動，或者不會擁有可對圖表物件執行動作的存取權。 使用者定義函式可執行的動作是透過 Azure Digital Twins 管理 API 內的角色型存取控制所指定與定義的。 例如，您可以藉由指定特定角色或特定存取控制路徑來限制使用者定義函式的範圍。 如需詳細資訊，請參閱[角色型存取控制](./security-role-based-access-control.md)文件。
 
-1. 針對所有角色[查詢系統 API](./security-create-manage-role-assignments.md#all)，以取得您想要指派給 UDF 的角色識別碼。 提出已驗證的 HTTP GET 要求來達成此目的：
+1. 針對所有角色[查詢系統 API](./security-create-manage-role-assignments.md#all)，以取得您想要指派給使用者定義函式的角色識別碼。 提出已驗證的 HTTP GET 要求來達成此目的：
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    保留所需的角色識別碼。 它將會以下方的 JSON 主體屬性 **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) 來傳遞。
 
-1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) 將會是稍早建立的 UDF 識別碼。
+1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) 將會是稍早建立的使用者定義函式識別碼。
 1. 藉由使用 `fullpath` 查詢您的空間來尋找 **path** (`YOUR_ACCESS_CONTROL_PATH`) 的值。
 1. 複製傳回的 `spacePaths` 值。 您將會在下方用到該值。 提出已驗證的 HTTP GET 要求：
 
@@ -211,7 +216,7 @@ function process(telemetry, executionContext) {
     | --- | --- |
     | YOUR_SPACE_NAME | 想要使用的空間名稱 |
 
-1. 將傳回的 `spacePaths` 值貼至 **path**，藉由提出已驗證的 HTTP POST 要求來建立 UDF 角色指派：
+1. 將傳回的 `spacePaths` 值貼至 **path**，藉由提出已驗證的 HTTP POST 要求來建立使用者定義函式角色指派：
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -230,12 +235,12 @@ function process(telemetry, executionContext) {
     | 值 | 更換為 |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | 所需角色的識別碼 |
-    | YOUR_USER_DEFINED_FUNCTION_ID | 要使用的 UDF 識別碼 |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | 指定 UDF 類型的識別碼 |
+    | YOUR_USER_DEFINED_FUNCTION_ID | 您所要使用的使用者定義函式其識別碼 |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | 指定使用者定義函式類型的識別碼 |
     | YOUR_ACCESS_CONTROL_PATH | 存取控制路徑 |
 
 >[!TIP]
-> 請參閱[如何建立和管理角色指派](./security-create-manage-role-assignments.md)一文，以取得 UDF 相關的管理 API 作業和端點詳細資訊。
+> 請參閱[如何建立和管理角色指派](./security-create-manage-role-assignments.md)一文，以取得使用者定義函式管理 API 作業和端點的相關詳細資訊。
 
 ## <a name="send-telemetry-to-be-processed"></a>傳送要處理的遙測
 

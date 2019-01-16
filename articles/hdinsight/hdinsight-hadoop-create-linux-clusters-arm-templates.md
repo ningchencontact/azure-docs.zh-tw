@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 028d00f579e266c92b4a6d00d5ebb5b0ef7b1b60
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 1b145b1162dcba5653c962f0af1969c1aa017f57
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787533"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054634"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 範本在 HDInsight 中建立 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -42,6 +42,7 @@ Resource Manager 範本可讓您輕鬆地在單一、協調的作業中為您的
 
 * [編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)
 * [使用 Azure Resource Manager 範本部署應用程式](../azure-resource-manager/resource-group-template-deploy.md)
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters) 範本參考
 
 ## <a name="generate-templates"></a>產生範本
 

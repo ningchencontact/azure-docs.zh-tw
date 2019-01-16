@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a0cfd65aa2444956336e5363d20acab61a404c68
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d1e44eae7e87a450ac5f36e621d559fca92ca74
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309173"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016149"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
@@ -180,6 +180,9 @@ ms.locfileid: "53309173"
 
 - [針對已加入 Azure AD 網域之 Windows 下層用戶端電腦的自動註冊進行疑難排解](troubleshoot-hybrid-join-windows-legacy.md)
  
+**問：為什麼我會在 Azure AD 裝置清單中看到我已加入 Windows 10 混合式 Azure AD 的裝置有重複的 Azure AD 註冊記錄？**
+
+**答：** 當使用者在已加入網域的裝置上將其帳戶新增至應用程式時，系統可能會提示他們「將帳戶新增至 Windows？」。 按一下提示中的 [是] 會導致向 Azure AD 註冊裝置，且信任類型標示為 Azure AD 註冊。 您在組織中啟用混合式 Azure AD Join 後，裝置也會加入混合式 Azure AD。 因此會有兩個裝置狀態針對相同的裝置顯示。 不過，混合式 Azure AD Join 的優先順序高於 Azure AD 註冊的狀態。 因此您的裝置會被視為任何驗證和條件式存取評估的混合式 Azure AD Join。 所以，您可以從 Azure AD 入口網站安全地刪除 Azure AD 註冊的裝置記錄。 請檢閱混合式 Azure AD Join 文章的[這一節](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know)，以了解如何避免或清除 Windows 10 電腦上的此種雙重狀態。 
 
 ---
 
