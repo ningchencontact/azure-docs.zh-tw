@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: d97a5f8aff57f4bbfd7d5222a87d258fa5c92da8
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 5df10ce2bb7508aad0abe7f9972ffc9b886a098d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604381"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302352"
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Azure Stack 儲存體簡介
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 ## <a name="overview"></a>概觀
 

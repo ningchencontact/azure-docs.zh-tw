@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/22/2017
+ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 21015d31a738d3ad57048fe4a703bf78dda7e40c
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 2183467bab423fc3190bfe08f519ddc75dcd2874
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865765"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304443"
 ---
 # <a name="connect-to-azure-stack"></a>連線至 Azure Stack
 
@@ -45,7 +45,7 @@ ms.locfileid: "37865765"
 > [!NOTE] 
 > 這個 VPN 連線並無法連線到 Azure Stack 基礎結構 VM。 
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 * 在您的本機電腦上安裝 [Azure Stack 相容的 Azure PowerShell](azure-stack-powershell-install.md)。  
 * 下載[處理 Azure Stack 所需的工具](azure-stack-powershell-download.md)。 

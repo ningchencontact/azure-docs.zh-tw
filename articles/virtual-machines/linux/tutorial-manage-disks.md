@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 69ffd2dd4df8ca0a64036f7a96c88d5c83353211
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 2716838b28bc6dc5155ab7fbb6e1b4966b63f4dc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685359"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266105"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>教學課程 - 使用 Azure CLI 管理 Azure 磁碟
 
@@ -126,7 +126,7 @@ az vm disk attach \
 建立虛擬機器的 SSH 連線。 以虛擬機器的公用 IP 位址取代範例 IP 位址。
 
 ```azurecli-interactive
-ssh azureuser@52.174.34.95
+ssh 10.101.10.10
 ```
 
 使用 `fdisk` 分割磁碟。
@@ -196,12 +196,16 @@ exit
 建立虛擬機器磁碟快照集之前，需要磁碟的識別碼或名稱。 使用 [az vm show](/cli/azure/vm#az-vm-show) 命令傳回磁碟識別碼。 在此範例中，磁碟識別碼會儲存在變數中，以便用於稍後的步驟。
 
 ```azurecli-interactive
-osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+osdiskid=$(az vm show \
+   -g myResourceGroupDisk \
+   -n myVM \
+   --query "storageProfile.osDisk.managedDisk.id" \
+   -o tsv)
 ```
 
 您現在有虛擬機器磁碟的識別碼，下列命令會建立磁碟的快照集。
 
-```azurcli
+```azurecli-interactive
 az snapshot create \
     --resource-group myResourceGroupDisk \
     --source "$osdiskid" \
@@ -213,7 +217,10 @@ az snapshot create \
 此快照集可以接著轉換成磁碟，進而用於重新建立虛擬機器。
 
 ```azurecli-interactive
-az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
+az disk create \
+   --resource-group myResourceGroupDisk \
+   --name mySnapshotDisk \
+   --source osDisk-backup
 ```
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>從快照集還原虛擬機器
@@ -221,7 +228,9 @@ az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --sour
 若要示範虛擬機器復原，請刪除現有的虛擬機器。
 
 ```azurecli-interactive
-az vm delete --resource-group myResourceGroupDisk --name myVM
+az vm delete \
+--resource-group myResourceGroupDisk \
+--name myVM
 ```
 
 從快照磁碟建立新的虛擬機器。
@@ -241,13 +250,19 @@ az vm create \
 首先使用 [az disk list](/cli/azure/disk#az-disk-list) 命令尋找資料磁碟名稱。 此範例會將磁碟名稱放入名為 datadisk 的變數，該變數使用於下一個步驟。
 
 ```azurecli-interactive
-datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
+datadisk=$(az disk list \
+   -g myResourceGroupDisk \
+   --query "[?contains(name,'myVM')].[id]" \
+   -o tsv)
 ```
 
 使用 [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) 命令來連結磁碟。
 
 ```azurecli-interactive
-az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
+az vm disk attach \
+   –g myResourceGroupDisk \
+   --vm-name myVM \
+   --disk $datadisk
 ```
 
 ## <a name="next-steps"></a>後續步驟

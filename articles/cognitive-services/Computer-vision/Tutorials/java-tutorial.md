@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.author: kefre
 ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: ef1180a8e8c833648e3b61705abf354cb4dfaed3
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d0bc4f5877a09380a2c7053134ae0505b31ae685
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117481"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330937"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>教學課程：電腦視覺 API Java
 
@@ -456,7 +456,7 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
 
 ### <a name="intelligently-generate-a-thumbnail"></a>以智慧方式產生縮圖
 
-「電腦視覺」的「縮圖」功能可從影像產生縮圖。 透過使用「智慧型裁剪」功能，「縮圖」功能將可識別影像中的關注區並將縮圖集中在此區域上，以產生更賞心悅目的縮圖影像。
+「電腦視覺」的「縮圖」功能可從影像產生縮圖。 藉由使用「智慧型裁剪」功能，「縮圖」功能將可識別影像中的關注區並將縮圖集中在此區域上，以產生更賞心悅目的縮圖影像。
 
 若要完成教學課程應用程式的「縮圖」功能，請執行下列步驟：
 

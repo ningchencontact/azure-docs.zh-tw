@@ -11,18 +11,18 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8f7e414d2aa4962534a90a295e104f8e8ebabbd9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 81afda4227484c19b49ffc4c399e52576629da34
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079233"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321869"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>教學課程：準備建立迴歸模型所需的資料
 
 在本教學課程中，您將了解如何使用 Azure Machine Learning 資料準備 SDK 來準備建立迴歸模型所需的資料。 您將執行各種轉換來篩選和結合兩個不同的 NYC 計程車資料集。  
 
-本教學課程是兩部分教學課程系列的第一部分。 完成教學課程系列之後，您可以訓練模型的資料特性，以預測計程車車程的費用。 這些特性包括上車的日期和時間、乘客數和上車地點。
+本教學課程是**兩部分教學課程系列的第一部分**。 完成教學課程系列之後，您可以訓練模型的資料特性，以預測計程車車程的費用。 這些特性包括上車的日期和時間、乘客數和上車地點。
 
 在本教學課程中，您：
 

@@ -2,9 +2,8 @@
 title: 在 Azure 中建立 Linux SQL Server 2017 VM | Microsoft Docs
 description: 本教學課程會示範如何在 Azure 入口網站中建立 Linux SQL Server 2017 虛擬機器。
 services: virtual-machines-linux
-author: rothja
-ms.author: jroth
-manager: jhubbard
+author: MashaMSFT
+manager: craigg
 ms.date: 12/5/2018
 ms.topic: hero-article
 tags: azure-service-management
@@ -12,12 +11,14 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: cc2f094417d8710a1fdabaf850a8ced185de1ad7
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 4087cd93b7342958717a20a08832daba1123417f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632750"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330733"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 入口網站中佈建 Linux SQL Server 虛擬機器
 

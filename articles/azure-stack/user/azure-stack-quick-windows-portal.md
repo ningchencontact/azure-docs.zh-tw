@@ -6,22 +6,22 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
-ms.reviewer: ''
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: e4e3fdbdd3bc9eb982f993a9be60ba0812c68a9d
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 37cd6eaec5b3d4bd6dfbbb7e7b6657d139ccea07
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713730"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303014"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>快速入門：使用 Azure Stack 入口網站建立 Windows Server 虛擬機器
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-您可以使用 Azure Stack 入口網站建立 Windows Server 2016 虛擬機器。 請遵循此文章中的步驟建立和使用虛擬機器。
+您可以使用 Azure Stack 入口網站建立 Windows Server 2016 虛擬機器。 請遵循本文中的步驟建立和使用虛擬機器。
 
 > [!NOTE]  
 > 此文章中的螢幕影像會更新為符合 Azure Stack 1808 版中導入的使用者介面。 除了非受控磁碟之外，1808 加入對使用「受控磁碟」的支援。 若您使用較早的版本，某些影像 (例如磁碟選取)將會與此文章中所顯示的影像不同。  

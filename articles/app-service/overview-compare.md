@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2cf73607f0cb286f06a5aa043fd8b30816e6a80f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729687"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322022"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service、虛擬機器、Service Fabric 及雲端服務的比較
 
@@ -53,7 +53,7 @@ Azure App Service 是大多數 Web 應用程式的最佳選擇。 部署和管�
 | 向外延展至多個執行個體而不重新部署 |X |X |X |X |「虛擬機器」可向外延展至多個執行個體，但這些機器上執行的服務必須設計成應付這個向外延展情況。您必須設定負載平衡器以在機器間路由要求，並確定您在[可用性設定組](../virtual-machines/windows/manage-availability.md)中有多個 VM 執行個體。 |
 | 支援 SSL |X |X |X |X |在 App Service Web 應用程式中，只有基本和標準模式才支援自訂網域名稱的 SSL。 如需 Web 應用程式使用 SSL 的相關資訊，請參閱[設定 Azure 網站的 SSL 憑證](app-service-web-tutorial-custom-ssl.md)。 |
 | 整合 Visual Studio |X |X |X |X | |
-| 遠端偵錯 |X |X |X | | |
+| 遠端偵錯 |X |X |X |X | |
 | 利用 TFS 來部署程式碼 |X |X |X |X | |
 | 利用 [Azure 虛擬網路](/azure/virtual-network/) |X |X |X |X |另請參閱＜ [Azure 網站虛擬網路整合](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
 | 支援 [Azure 流量管理員](/azure/traffic-manager/) |X |X |X |X | |
