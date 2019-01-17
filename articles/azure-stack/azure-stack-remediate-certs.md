@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/19/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: d5a7cf597bb19f6c4a180b0dc306c86ae91875cf
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.reviewer: unknown
+ms.openlocfilehash: 2024c4d8a251ad2066332a403db3d7f8c3dce975
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161662"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354105"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>修復 Azure Stack PKI 憑證的一般問題
 
@@ -117,7 +117,7 @@ ms.locfileid: "52161662"
 1. 在符合先決條件的電腦上，開啟系統管理 PowerShell 提示字元，然後執行下列命令以安裝 AzsReadinessChecker：
   
    ```powershell
-   Install-Module Microsoft.AzureStack.ReadinessChecker- Force
+   Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
 2. 從 PowerShell 提示字元中，執行下列 Cmdlet 以設定 PFX 密碼。 將 PFXpassword 取代為實際的密碼：
@@ -131,7 +131,7 @@ ms.locfileid: "52161662"
    - 針對 `-ExportPFXPath`，指定要進行匯出的 PFX 檔案的位置和名稱。 在下列範例中，路徑是 `.\certificates\ssl_new.pfx`：
 
    ```powershell
-   Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`
+   Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
    ```  
 
 4. 此工具完成之後，檢閱輸出確認是否成功：
