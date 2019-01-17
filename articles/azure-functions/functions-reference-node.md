@@ -353,7 +353,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 | _method_      | 要求的 HTTP 方法。                                |
 | _originalUrl_ | 要求的 URL。                                        |
 | _params_      | 包含要求之路由傳送參數的物件。 |
-| _查詢_       | 包含查詢參數的物件。                  |
+| _query_       | 包含查詢參數的物件。                  |
 | _rawBody_     | 字串格式的訊息內文。                           |
 
 
@@ -366,7 +366,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 | _body_    | 包含回應本文的物件。         |
 | _headers_ | 包含回應標頭的物件。             |
 | _isRaw_   | 表示略過回應的格式。    |
-| _狀態_  | 回應的 HTTP 狀態碼。                     |
+| _status_  | 回應的 HTTP 狀態碼。                     |
 
 ### <a name="accessing-the-request-and-response"></a>存取要求和回應 
 
