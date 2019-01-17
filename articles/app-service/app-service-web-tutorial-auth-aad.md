@@ -105,7 +105,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="push-to-azure-from-git"></a>從 Git 推送至 Azure
 
-回到_本機終端機視窗_，執行下列 Git 命令，以部署至後端應用程式。 將 _&lt;deploymentLocalGitUrl-of-back-end-app>_ 取代為您從[建立 Azure 資源](#create-azure-resources)儲存之 Git 遠端的 URL。 當 Git 認證管理員提示您輸入認證時，請務必輸入[您的部署認證](deploy-configure-credentials.md)，而不是您用來登入 Azure 入口網站的認證。
+回到 _本機終端機視窗_ ，執行下列 Git 命令，以部署至後端應用程式。 將 _&lt;deploymentLocalGitUrl-of-back-end-app>_ 取代為您從[建立 Azure 資源](#create-azure-resources)儲存之 Git 遠端的 URL。 當 Git 認證管理員提示您輸入認證時，請務必輸入[您的部署認證](deploy-configure-credentials.md)，而不是您用來登入 Azure 入口網站的認證。
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -257,7 +257,7 @@ git push frontend master
 
 ### <a name="grant-front-end-app-access-to-back-end"></a>授與前端應用程式對後端的存取權
 
-現在，您已為這兩個應用程式啟用驗證和授權，兩者皆受到 AD 應用程式的支援。 在此步驟中，您會為前端應用程式提供代表使用者存取後端的權限。 (技術上，您會為前端的 _AD 應用程式_提供代表使用者存取後端 _AD 應用程式_的權限。)
+現在，您已為這兩個應用程式啟用驗證和授權，兩者皆受到 AD 應用程式的支援。 在此步驟中，您會為前端應用程式提供代表使用者存取後端的權限。 (技術上，您會為前端的 _AD 應用程式_ 提供代表使用者存取後端 _AD 應用程式_ 的權限。)
 
 此時，您應在前端應用程式的 [Azure Active Directory 設定] 頁面中。 若非如此，請回到該頁面。 
 
