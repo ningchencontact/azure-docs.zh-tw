@@ -42,7 +42,7 @@ Microsoft Graph 擴充功能會提供下列繫結：
 
 ## <a name="setting-up-the-extensions"></a>設定擴充功能
 
-Microsoft Graph 繫結可透過_繫結擴充功能_提供。 繫結擴充功能是 Azure Functions 執行階段的選用元件。 本節將示範如何設定 Microsoft Graph 和驗證權杖的擴充功能。
+Microsoft Graph 繫結可透過 _繫結擴充功能_ 提供。 繫結擴充功能是 Azure Functions 執行階段的選用元件。 本節將示範如何設定 Microsoft Graph 和驗證權杖的擴充功能。
 
 ### <a name="enabling-functions-20-preview"></a>啟用 Functions 2.0 預覽
 
@@ -215,8 +215,8 @@ module.exports = function (context, req) {
 |**type**||必要項目 - 必須設定為 `token`。|
 |**direction**||必要項目 - 必須設定為 `in`。|
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
-|**userId**|UserId  |只有當_身分識別_設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
-|**userToken**|**UserToken**|只有當_身分識別_設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
+|**userId**|UserId  |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
+|**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
 |**Resource**|**資源**|必要項目 - 正在要求權杖的 Azure AD 資源 URL。|
 
 <a name="token-input-code"></a>
@@ -350,8 +350,8 @@ module.exports = function (context, req) {
 |**type**||必要項目 - 必須設定為 `excel`。|
 |**direction**||必要項目 - 必須設定為 `in`。|
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
-|**userId**|UserId  |只有當_身分識別_設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
-|**userToken**|**UserToken**|只有當_身分識別_設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
+|**userId**|UserId  |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
+|**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
 |**路徑**|**路徑**|必要項目 - OneDrive 中的 Excel 活頁簿路徑。|
 |**worksheetName**|**WorksheetName**|資料表所在的工作表。|
 |**tableName**|**TableName**|資料表的名稱。 如果未指定，就會使用工作表的內容。|
@@ -511,8 +511,8 @@ module.exports = function (context, req) {
 |**type**||必要項目 - 必須設定為 `excel`。|
 |**direction**||必要項目 - 必須設定為 `out`。|
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
-|UserId |**userId** |只有當_身分識別_設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
-|**userToken**|**UserToken**|只有當_身分識別_設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
+|UserId |**userId** |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
+|**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
 |**路徑**|**路徑**|必要項目 - OneDrive 中的 Excel 活頁簿路徑。|
 |**worksheetName**|**WorksheetName**|資料表所在的工作表。|
 |**tableName**|**TableName**|資料表的名稱。 如果未指定，就會使用工作表的內容。|
@@ -656,8 +656,8 @@ module.exports = function (context, req) {
 |**type**||必要項目 - 必須設定為 `onedrive`。|
 |**direction**||必要項目 - 必須設定為 `in`。|
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
-|**userId**|UserId  |只有當_身分識別_設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
-|**userToken**|**UserToken**|只有當_身分識別_設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
+|**userId**|UserId  |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
+|**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
 |**路徑**|**路徑**|必要項目 - OneDrive 中的檔案路徑。|
 
 <a name="onedrive-input-code"></a>
@@ -803,8 +803,8 @@ module.exports = function (context, req) {
 |**type**||必要項目 - 必須設定為 `onedrive`。|
 |**direction**||必要項目 - 必須設定為 `out`。|
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
-|UserId |**userId** |只有當_身分識別_設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
-|**userToken**|**UserToken**|只有當_身分識別_設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
+|UserId |**userId** |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
+|**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
 |**路徑**|**路徑**|必要項目 - OneDrive 中的檔案路徑。|
 
 <a name="onedrive-output-code"></a>
@@ -953,8 +953,8 @@ module.exports = function (context, req) {
 |**type**||必要項目 - 必須設定為 `outlook`。|
 |**direction**||必要項目 - 必須設定為 `out`。|
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
-|**userId**|UserId  |只有當_身分識別_設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
-|**userToken**|**UserToken**|只有當_身分識別_設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
+|**userId**|UserId  |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
+|**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
 
 <a name="outlook-output-code"></a>
 ### <a name="outlook-output---usage"></a>Outlook 輸出 - 使用方式
@@ -1388,11 +1388,11 @@ module.exports = function (context, req) {
 |**type**||必要項目 - 必須設定為 `graphWebhookSubscription`。|
 |**direction**||必要項目 - 必須設定為 `out`。|
 |**身分識別**|**身分識別**|必要項目 - 要用來執行動作的身分識別。 可以是下列其中一個值：<ul><li><code>userFromRequest</code> - 僅在使用 [HTTP 觸發程序]時才有效。 會使用呼叫使用者的身分識別。</li><li><code>userFromId</code> - 使用先前已登入之使用者的身分識別與指定的識別碼。 請參閱 <code>userId</code> 屬性。</li><li><code>userFromToken</code> - 使用指定權杖所代表的身分識別。 請參閱 <code>userToken</code> 屬性。</li><li><code>clientCredentials</code> - 使用函式應用程式的身分識別。</li></ul>|
-|**userId**|UserId  |只有當_身分識別_設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
-|**userToken**|**UserToken**|只有當_身分識別_設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
+|**userId**|UserId  |只有當 _identity_ 設為 `userFromId` 時才需要。 與先前已登入之使用者相關聯的使用者主體識別碼。|
+|**userToken**|**UserToken**|只有當 _identity_ 設為 `userFromToken` 時才需要。 函式應用程式有效的權杖。 |
 |**action**|**Action**|必要項目 - 指定繫結應該要執行的動作。 可以是下列其中一個值：<ul><li><code>create</code> - 註冊新的訂用帳戶。</li><li><code>delete</code> - 刪除指定的訂用帳戶。</li><li><code>refresh</code> - 重新整理指定的訂用帳戶以避免過期。</li></ul>|
-|**subscriptionResource**|**SubscriptionResource**|只有當_動作_設為 `create` 時才需要。 指定要監視以進行變更的 Microsoft Graph 資源。 請參閱[在 Microsoft Graph 中使用 webhook]。 |
-|**changeType**|**ChangeType**|只有當_動作_設為 `create` 時才需要。 指出會引發通知之訂閱資源中的變更類型。 支援的值為：`created`、`updated`、`deleted`。 可以使用逗號分隔清單來組合多個值。|
+|**subscriptionResource**|**SubscriptionResource**|只有當 _action_ 設為 `create` 時才需要。 指定要監視以進行變更的 Microsoft Graph 資源。 請參閱[在 Microsoft Graph 中使用 webhook]。 |
+|**changeType**|**ChangeType**|只有當 _action_ 設為 `create` 時才需要。 指出會引發通知之訂閱資源中的變更類型。 支援的值為：`created`、`updated`、`deleted`。 可以使用逗號分隔清單來組合多個值。|
 
 ### <a name="webhook-output---usage"></a>Webhook 輸出 - 使用方式
 
