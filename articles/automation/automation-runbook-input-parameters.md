@@ -74,7 +74,7 @@ Param
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
 > [!NOTE]
-> 當您未將任何值傳遞至_預設值_為 `$null` 的選用 `[String]` 類型參數時，參數的值會是_空白字串_，而**不是** `$null`。
+> 當您未將任何值傳遞至 _預設值_ 為 `$null` 的選用 `[String]` 類型參數時，參數的值會是 _空白字串_ ，而**不是** `$null`。
 > 
 > 
 
