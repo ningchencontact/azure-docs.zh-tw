@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/20/2018
 ms.author: sharadag
-ms.openlocfilehash: c4032f7c33cec7b7a7864ccff07a05b87c945949
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 68da9a0255cde6cbad5c675901c80193888bf255
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988578"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214873"
 ---
 # <a name="how-to-set-up-a-geo-filtering-policy-for-your-front-door"></a>如何為 Front Door 設定地區篩選原則
 本教學課程會說明如何使用 Azure PowerShell 來建立簡單的地區篩選原則，並將此原則與現有的 Front Door 前端主機產生關聯。 此地區篩選原則範例會封鎖來自美國以外所有其他國家/地區的要求。
@@ -47,7 +47,7 @@ Install-Module -Name AzureRM.FrontDoor -AllowPrerelease
 ```
 
 ## <a name="2-define-geo-filtering-match-conditions"></a>2.定義地區篩選比對條件
-先建立比對條件範例來選取並非來自「美國」的要求。 在建立比對條件時，請參閱 PowerShell 關於參數的[指南](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject)。 [此處](/Protection/GeoFiltering)會提供兩個字母的國家/地區代碼對國家/地區對應。
+先建立比對條件範例來選取並非來自「美國」的要求。 在建立比對條件時，請參閱 PowerShell 關於參數的[指南](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject)。 [此處](front-door-geo-filtering.md)會提供兩個字母的國家/地區代碼對國家/地區對應。
 
 ```
 $nonUSGeoMatchCondition = New-AzureRmFrontDoorMatchConditionObject -MatchVariable RemoteAddr -OperatorProperty GeoMatch -NegateCondition $true -MatchValue "US"

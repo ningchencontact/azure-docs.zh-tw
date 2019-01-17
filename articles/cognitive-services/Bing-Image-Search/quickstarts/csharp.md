@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 67dd91d7555ebd1e72cea168fc8b841bf4ed9175
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 53dc9b90fd06cf4b6feb1e394f5fbfc5f257be4d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249510"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215247"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>快速入門：使用 Bing 影像搜尋 REST API 和 C# 來搜尋影像
 
@@ -101,12 +101,12 @@ namespace BingSearchApisQuickstart
 
 在 `BingImageSearch` 方法中，執行下列步驟。
 
-1. 建構搜尋要求的 URI。 請注意，搜尋字詞 `toSearch` 必須先格式化，才能附加到字串。
+1. 建構搜尋要求的 URI。 請注意，搜尋字詞 `SearchTerm` 必須先格式化，才能附加到字串。
 
     ```csharp
-    static SearchResult BingImageSearch(string toSearch){
+    static SearchResult BingImageSearch(string SearchTerm){
 
-        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
+        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(SearchTerm);
     //...
     ```
 
@@ -156,7 +156,6 @@ namespace BingSearchApisQuickstart
     Console.WriteLine("URL for the first image result: " + firstJsonObj["webSearchUrl"]+"\n");
     ```  
 
-3. 務必從應用程式的程式碼中移除您的訂用帳戶金鑰。
 
 ## <a name="json-response"></a>JSON 回應
 

@@ -13,12 +13,13 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 3c3e064ea229db97c59cc5b49107b568a2fdaa98
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9d22bb288bafb5e9984c357d0bf9139973f5d262
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334443"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262995"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>使用 PowerShell 將 Azure Stack 驗證設為自動化
 
@@ -71,7 +72,7 @@ ms.locfileid: "52334443"
 
     | 參數 | 說明 |
     | --- | --- |
-    | VaaSUserld | 您的 VaaS 使用者識別碼。 |
+    | VaaSUserId | 您的 VaaS 使用者識別碼。 |
     | VaaSUserPassword | 您的 VaaS 密碼。 |
     | VaaSAccountTenantId | 您的 VaaS 租用戶 GUID。 |
     | VaaSSolutionName | 用以執行「測試進行」的 VaaS 解決方案名稱。 |

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/23/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 1b2b06c02dc54c4369dd8490b714d1444d4b3b01
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.reviewer: unknown
+ms.openlocfilehash: 0eed7943d782bda134c2df2de6cf9eeeb58bfa3b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986180"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243860"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack 驗證報告
 使用 Azure Stack 整備檢查程式工具來執行驗證，這些驗證支援 Azure Stack 環境的部署和維護。 此工具會將結果寫入 .json 報告檔案。 報告會針對 Azure Stack 部署的必要條件狀態，顯示相關的詳細和摘要資料。 報告也會顯示現有 Azure Stack 部署祕密輪替的相關資訊。  

@@ -5,6 +5,7 @@ description: 本快速入門說明如何使用 Azure 入口網站建立公用基
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e7055e016abd06d20206d25cb1d7b9eac35142f0
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 64c0a42ac3cc074e5fd9e2824180009431b11e1e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260220"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231966"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立公用基本負載平衡器
 
@@ -196,7 +197,7 @@ ms.locfileid: "53260220"
    
    - **名稱**：輸入 MyLoadBalancerRule。
    - **前端 IP 位址：** 輸入 LoadBalancerFrontend。
-   - **通訊協定**：選取 **TCP**。
+   - **通訊協定**：選取 [TCP]。
    - **連接埠**：輸入 80。
    - **後端連接埠**：輸入 80。
    - **後端集區**：選取 [MyBackendPool]。

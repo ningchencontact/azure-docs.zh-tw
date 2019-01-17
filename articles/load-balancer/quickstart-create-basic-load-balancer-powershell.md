@@ -5,6 +5,7 @@ description: 本快速入門說明如何使用 PowerShell 建立基本負載平�
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 5d76a1ac58606df82fc7e25dc8071d91da8298f5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: dfb9db14f37efeb5ad83ef54fcc4613724d28a15
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261019"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229735"
 ---
 # <a name="get-started"></a>快速入門：使用 Azure PowerShell 建立公用負載平衡器
 本快速入門示範如何使用 Azure PowerShell 建立基本負載平衡器。 若要測試負載平衡器，您要部署兩部執行 Windows Server 的虛擬機器 (VM)，並平衡兩部 VM 間 Web 應用程式的負載。

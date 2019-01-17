@@ -4,15 +4,15 @@ description: 說明如何使用 Azure Migrate 服務，探索及評估要移轉�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8971bba1e25a8e87ed57463dcc9b013fea56a0ff
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 186d532f159db7d51ba4f93a250c00c7627280e0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976829"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229519"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>探索及評估要移轉到 Azure 的內部部署 VMware VM
 
@@ -59,6 +59,7 @@ Azure Migrate 需要存取 VMware 伺服器，才能自動探索 VM 以進行評
 **地理位置** | **儲存位置**
 --- | ---
 Azure Government | 美國政府維吉尼亞州
+亞洲 | 東南亞
 歐洲 | 北歐或西歐
 美國 | 美國東部或美國中西部
 

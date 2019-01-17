@@ -9,12 +9,12 @@ ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: c2aeab6888cf93be75742028b0354c45a1834d51
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 58b19a039bb6aebcd2687ab80cdd29c5f378645e
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537277"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200202"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>教學課程：建立 Azure 時間序列深入解析環境
 
@@ -41,7 +41,7 @@ ms.locfileid: "53537277"
 
 ## <a name="overview"></a>概觀
 
-TSI 環境是收集及儲存裝置資料之處。 儲存在 TSI 環境中之後，您可以使用 [TSI 總管](time-series-quickstart.md)和 [TSI 查詢 API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) 來查詢和分析資料。
+TSI 環境是收集及儲存裝置資料之處。 儲存在 TSI 環境中之後，您可以使用 [TSI 總管](time-series-quickstart.md)和 [TSI 查詢 API](/rest/api/time-series-insights/ga-query-api) 來查詢和分析資料。
 
 和所有裝置一樣 (無論模擬或實體)，IoT 中樞也可作為連線點，供裝置安全地連線至 Azure 雲端並傳輸資料。 如 [TSI 概觀](time-series-insights-overview.md)中的討論，IoT 中樞也可作為事件來源，將資料串流處理至 TSI 環境中。 
 

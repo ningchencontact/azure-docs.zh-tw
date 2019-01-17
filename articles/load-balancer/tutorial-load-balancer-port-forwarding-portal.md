@@ -5,6 +5,7 @@ description: 本教學課程說明如何使用 Azure Load Balancer 設定連接�
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/18
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e3431ff7ee6991e5af3ecab0e734cc587009dcde
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: da41b33f3e5d24c0391c8486d9c0b372877eff21
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273506"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232187"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>教學課程：使用入口網站在 Azure Load Balancer 中設定連接埠轉送
 
@@ -210,7 +211,7 @@ ms.locfileid: "53273506"
 1. 在 [新增負載平衡規則] 頁面上，輸入或選取下列值：
    
    - **名稱**：輸入 MyLoadBalancerRule。
-   - **通訊協定**：選取 **TCP**。
+   - **通訊協定**：選取 [TCP]。
    - **連接埠**：輸入 80。
    - **後端連接埠**：輸入 80。
    - **後端集區**：選取 [MyBackendPool]。

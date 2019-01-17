@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jeffgilb
-ms.reviewer: ''
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: d106d9f79498678f08142f952e09c5125c6e5d6c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7c4f8fd3d7a4885893a126c63776a5e241dc0f91
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721512"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246529"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>教學課程：將虛擬機器提供給 Azure Stack 使用者
 
 身為 Azure Stack 雲端系統管理員，您可以建立供應項目，以供您的使用者 (有時稱為租用戶) 訂閱。 藉由訂閱供應項目，使用者可以取用供應項目所提供的 Azure Stack 服務。
 
-此教學課程會說明如何為虛擬機器建立供應項目，然後以使用者身分登入來測試供應項目。
+本教學課程會說明如何為虛擬機器建立供應項目，然後以使用者身分登入來測試供應項目。
 
 您將了解：
 
@@ -36,7 +36,7 @@ ms.locfileid: "44721512"
 > * 新增映像
 > * 測試供應項目
 
-在 Azure Stack 中，能透過訂用帳戶、供應項目與方案，為使用者提供服務。 使用者可以訂閱多個供應項目。 供應項目可以有一或多個方案，而方案則可以有一或多個服務。
+在 Azure Stack 中，能透過訂用帳戶、供應項目與方案，為使用者提供服務。 使用者可以訂閱多個供應項目。 供應項目可以有一或多個方案，而方案則可以有一或多項服務。
 
 ![訂用帳戶、供應項目與方案](media/azure-stack-key-features/image4.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "44721512"
 
    ![方案服務](media/azure-stack-tutorial-tenant-vm/image05.png)
 
-1. 選取 [配額]，然後選取要建立配額的第一個服務。 如果是 IaaS 配額，請使用下列範例作為指南，來設定計算、網路和儲存體服務的配額。
+1. 選取 [配額]，然後選取要建立配額的第一項服務。 如果是 IaaS 配額，請使用下列範例作為指南，來設定計算、網路和儲存體服務的配額。
 
    - 首先，為計算服務建立配額。 在命名空間清單中，選取 [Microsoft.Compute]，然後選取 [建立新的配額]。
 
@@ -158,7 +158,7 @@ ms.locfileid: "44721512"
    
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 建立供應項目

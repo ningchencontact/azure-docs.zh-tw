@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6409011c1a7c125dd03bb706f49ccad1a1fd49a4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8a5c11df1b6353a100dd5f1cf388308b9c048932
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538866"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258859"
 ---
 # <a name="quickstart-create-reviews-using-net"></a>快速入門：使用 .NET 來建立審核項目
 
@@ -30,8 +30,7 @@ ms.locfileid: "53538866"
 
 ## <a name="sign-up-for-content-moderator"></a>註冊 Content Moderator
 
-您必須有訂用帳戶金鑰，才能透過 REST API 或 SDK 使用 Content Moderator 服務。
-請參考[快速入門](quick-start.md)，以了解如何取得金鑰。
+您必須有訂用帳戶金鑰，才能透過 REST API 或 SDK 使用 Content Moderator 服務。 請依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱 Content Moderator 並取得金鑰。
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>如果未在上一個步驟中完成審核工具帳戶的註冊，請於此時註冊
 

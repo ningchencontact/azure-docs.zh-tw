@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 1dbfd668c2d233d299ee673da92ca203e72942fe
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: unknown
+ms.openlocfilehash: af959507fc2e0d1b68f547d2856eb7020d3ed5c6
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957413"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247567"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker Cmdlet 參考
 
@@ -211,7 +211,7 @@ $PaaSCertificates = @{
 Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates – RegionName east -FQDN azurestack.contoso.com
 ```
 
-在此範例中，會以每個 PaaS 憑證的路徑和密碼建構雜湊表。 可將憑證省略。 Start-AzsReadinessChecker 會檢查每個 PFX 路徑是否存在，並使用區域 ‘east’ 和外部 FQDN ‘azurestack.contoso.com’ 加以驗證。
+在此範例中，會以每個 PaaS 憑證的路徑和密碼建構雜湊表。 連接埠可以省略。 Start-AzsReadinessChecker 會檢查每個 PFX 路徑是否存在，並使用區域 ‘east’ 和外部 FQDN ‘azurestack.contoso.com’ 加以驗證。
 
 ### <a name="example-validate-paas-certificates-with-deployment-data"></a>範例：以部署資料驗證 PaaS 憑證
 
@@ -226,7 +226,7 @@ $PaaSCertificates = @{
 Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -DeploymentDataJSONPath .\deploymentdata.json
 ```
 
-在此範例中，會以每個 PaaS 憑證的路徑和密碼建構雜湊表。 可將憑證省略。 Start-AzsReadinessChecker 會檢查每個 PFX 路徑是否存在，並使用從為部署產生的部署資料 JSON 檔案中讀取的區域和外部 FQDN 加以驗證。 
+在此範例中，會以每個 PaaS 憑證的路徑和密碼建構雜湊表。 連接埠可以省略。 Start-AzsReadinessChecker 會檢查每個 PFX 路徑是否存在，並使用從為部署產生的部署資料 JSON 檔案中讀取的區域和外部 FQDN 加以驗證。 
 
 ### <a name="example-validate-azure-identity"></a>範例：驗證 Azure 身分識別
 

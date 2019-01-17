@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/22/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: e9365008c47c2aac71d3983a16db37b0c5ea62ea
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.reviewer: unknown
+ms.openlocfilehash: ee247dcadd7ba8574bbdae1e25b0e39ca1ebc2da
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648100"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246223"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 將 Azure Stack 連線至 Azure
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 本文說明如何使用 [Microsoft Azure ExpressRoute](/azure/expressroute/) 直接連接，將 Azure Stack 虛擬網路連接到 Azure 虛擬網路。
 
@@ -107,7 +107,7 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
 
    |欄位  |值  |
    |---------|---------|
-   |名稱     |Tenant1VNet1         |
+   |Name     |Tenant1VNet1         |
    |位址空間     |10.1.0.0/16|
    |子網路名稱     |Tenant1-Sub1|
    |子網路位址範圍     |10.1.1.0/24|

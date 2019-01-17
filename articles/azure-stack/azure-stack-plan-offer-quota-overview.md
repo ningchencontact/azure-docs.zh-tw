@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: ee336fb5a60998aaac1518a85b8b92f63d9d4b64
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.reviewer: unknown
+ms.openlocfilehash: 61afc8a736025763f950307fdbb78bb21577b22f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318124"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244200"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>方案、供應項目、配頭和訂用帳戶概觀
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 [Azure Stack](azure-stack-marketplace-azure-items.md) 可讓您提供各式各樣的服務，例如虛擬機器、SQL Server 資料庫、SharePoint、Exchange，甚至 [Azure Marketplace 項目](azure-stack-poc.md)。 身為 Azure Stack 操作員，您可以使用方案、供應項目與配額，在 Azure Stack 中設定並提供這類服務。
 

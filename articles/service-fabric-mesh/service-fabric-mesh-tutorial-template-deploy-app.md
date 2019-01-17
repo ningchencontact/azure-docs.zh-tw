@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cca18b2aa5cb6f27df45e4b63e55251bea058625
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 97b1efbcb02277028782764ca1018b195ab21277
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968844"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246359"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>教學課程：使用範本將應用程式部署到 Service Fabric Mesh
 
@@ -38,7 +38,7 @@ ms.locfileid: "46968844"
 > [!div class="checklist"]
 > * 使用範本將應用程式部署到 Service Fabric Mesh
 > * [調整 Service Fabric Mesh 上所執行應用程式中的服務](service-fabric-mesh-tutorial-template-scale-services.md)
-> * [升級 Service Fabric Mesh 上所執行的應用程式](service-fabric-mesh-tutorial-template-upgrade-app.md)
+> * [升級 Service Fabric Mesh 中所執行的應用程式](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * [移除應用程式](service-fabric-mesh-tutorial-template-remove-app.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
@@ -51,7 +51,7 @@ ms.locfileid: "46968844"
 
 * [安裝 Docker](service-fabric-mesh-howto-setup-developer-environment-sdk.md#install-docker)
 
-* [本機安裝 Azure CLI 和 Service Fabric Mesh CLI](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally)。
+* [本機安裝 Azure CLI 和 Service Fabric Mesh CLI](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli)。
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 
@@ -70,7 +70,7 @@ az account set --subscription "<subscriptionName>"
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用下列命令，在 *eastus* 位置中，建立名為 *myResourceGroup* 的資源群組。
+Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用下列命令，在 eastus 位置中，建立名為 myResourceGroup 的資源群組。
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -236,7 +236,7 @@ Service Fabric Mesh 應用程式是一種 Azure 資源，您可以使用 Azure R
   },
   "resources": [
     {
-      "apiVersion": "2018-07-01-preview",
+      "apiVersion": "2018-09-01-preview",
       "name": "MyMeshApplication",
       "type": "Microsoft.ServiceFabricMesh/applications",
       "location": "[parameters('location')]",
@@ -319,7 +319,7 @@ Service Fabric Mesh 應用程式是一種 Azure 資源，您可以使用 Azure R
       }
     },
     {
-      "apiVersion": "2018-07-01-preview",
+      "apiVersion": "2018-09-01-preview",
       "name": "ServiceAVolume",
       "type": "Microsoft.ServiceFabricMesh/volumes",
       "location": "[parameters('location')]",
@@ -359,16 +359,34 @@ Service Fabric Mesh 應用程式是一種 Azure 資源，您可以使用 Azure R
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json
 ```
 
-幾分鐘後，您會看到︰
+此命令會產生如下所示的 JSON 程式碼片段。 在 JSON 輸出的 ```outputs``` 區段下方，複製 ```publicIPAddress``` 屬性。
 
-`todolistappNetwork has been deployed successfully on todolistappNetwork with public ip address <IP Address>`
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
+
+這項資訊來自於 ARM 範本中的 ```outputs``` 區段。 如下所示，此區段會參考閘道資源以擷取公用 IP 位址。 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('todolistappGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
 
 ## <a name="open-the-application"></a>開啟應用程式
 
 在應用程式成功部署後，請取得服務端點的公用 IP 位址。 部署命令會傳回服務端點的公用 IP 位址。 或者，您也可以查詢網路資源，來尋找服務端點的公用 IP 位址。 此應用程式的網路資源名稱是 `todolistappNetwork`，請使用下列命令擷取其相關資訊。 
 
 ```azurecli
-az mesh network show --resource-group myResourceGroup --name todolistappNetwork
+az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 ```
 
 請在網頁瀏覽器中導覽至該 IP 位址。

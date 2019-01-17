@@ -13,12 +13,13 @@ ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 0608da33e816b40f7fadbeb1b5da3feb926c28aa
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ROBOTS: NOINDEX
+ms.openlocfilehash: f0ffb4a4c4ea12292639b5a94b7f2990db6e45bd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334052"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247804"
 ---
 # <a name="deploy-the-local-agent"></a>部署本機代理程式
 
@@ -138,4 +139,4 @@ Azure Stack 是待測系統。 機器不應為 Azure Stack 的一部分，或裝
 
 - [針對驗證即服務進行疑難排解](azure-stack-vaas-troubleshoot.md)
 - [驗證即服務的重要概念](azure-stack-vaas-key-concepts.md)
-- [快速入門：使用「驗證即服務」入口網站來排程第一個測試](azure-stack-vaas-schedule-test-pass.md)
+- [快速入門：使用驗證即服務入口網站來排程第一個測試](azure-stack-vaas-schedule-test-pass.md)

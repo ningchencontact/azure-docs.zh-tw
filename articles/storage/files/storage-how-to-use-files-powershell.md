@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a8ac01850c090b36a5b9d896f6de6c122edfbcaa
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 64e041d61c628a54b7a55b11fceba0973f3f427b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628420"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214958"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立及管理 Azure 檔案共用 
 本指南會逐步說明透過 PowerShell 來使用 [Azure 檔案共用](storage-files-introduction.md)的基本概念。 Azure 檔案共用與其他檔案共用類似，但它儲存在雲端中，並且由 Azure 平台支援。 Azure 檔案共用支援業界標準 SMB 通訊協定，並可在多個機器、應用程式及執行個體上啟用檔案共用。 
@@ -51,7 +51,7 @@ $storageAcct = New-AzStorageAccount `
 ```
 
 ## <a name="create-an-azure-file-share"></a>建立 Azure 檔案共用
-現在，您可以建立第一個 Azure 檔案共用。 您可以使用 [New-AzStorageShare](/powershell/module/azure.storage/new-AzStorageshare) Cmdlet 來建立檔案共用。 此範例會建立名為 `myshare` 的共用。
+現在，您可以建立第一個 Azure 檔案共用。 您可以使用 [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) Cmdlet 來建立檔案共用。 此範例會建立名為 `myshare` 的共用。
 
 ```azurepowershell-interactive
 New-AzStorageShare `
@@ -81,7 +81,7 @@ Azure 檔案服務提供兩個在 Azure 檔案共用中使用檔案和資料夾�
 下列範例示範如何搭配 File REST 通訊協定使用 Azure PowerShell 模組，來操作 Azure 檔案共用。 
 
 #### <a name="create-directory"></a>建立目錄
-若要在 Azure 檔案共用的根目錄建立名為 *myDirectory* 的新目錄，請使用 [New-AzStorageDirectory](/powershell/module/azure.storage/new-AzStoragedirectory) Cmdlet。
+若要在 Azure 檔案共用的根目錄建立名為 *myDirectory* 的新目錄，請使用 [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory) Cmdlet。
 
 ```azurepowershell-interactive
 New-AzStorageDirectory `
@@ -91,7 +91,7 @@ New-AzStorageDirectory `
 ```
 
 #### <a name="upload-a-file"></a>上傳檔案
-為了示範如何使用 [Set-AzStorageFileContent](/powershell/module/azure.storage/set-AzStoragefilecontent) Cmdlet 來上傳檔案，我們必須先在 PowerShell Cloud Shell 的臨時磁碟機內建立要上傳的檔案。 
+為了示範如何使用 [Set-AzStorageFileContent](/powershell/module/az.storage/Set-AzStorageFileContent) Cmdlet 來上傳檔案，我們必須先在 PowerShell Cloud Shell 的臨時磁碟機內建立要上傳的檔案。 
 
 此範例會將目前的日期和時間放入可用磁碟機上的新檔案中，然後將檔案上傳至檔案共用。
 
@@ -109,14 +109,14 @@ Set-AzStorageFileContent `
 
 如果您要在本機執行 PowerShell，則應將 `C:\Users\ContainerAdministrator\CloudDrive\` 替換為存在於您的機器上的路徑。
 
-上傳檔案之後，您可以使用 [Get-AzStorageFile](/powershell/module/Azure.Storage/Get-AzStorageFile) Cmdlet 來確認檔案已上傳至 Azure 檔案共用。 
+上傳檔案之後，您可以使用 [Get-AzStorageFile](/powershell/module/Az.Storage/Get-AzStorageFile) Cmdlet 來確認檔案已上傳至 Azure 檔案共用。 
 
 ```azurepowershell-interactive
 Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "myDirectory" 
 ```
 
 #### <a name="download-a-file"></a>下載檔案
-您可以使用 [Get-AzStorageFileContent](/powershell/module/azure.storage/get-AzStoragefilecontent) Cmdlet，將您剛才上傳的檔案複本下載到 Cloud Shell 的臨時磁碟機。
+您可以使用 [Get-AzStorageFileContent](/powershell/module/az.storage/Get-AzStorageFilecontent) Cmdlet，將您剛才上傳的檔案複本下載到 Cloud Shell 的臨時磁碟機。
 
 ```azurepowershell-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
@@ -139,7 +139,7 @@ Get-ChildItem -Path "C:\Users\ContainerAdministrator\CloudDrive"
 ``` 
 
 #### <a name="copy-files"></a>複製檔案
-常見工作之一，是在不同的檔案共用之間複製檔案，或是對 (從) Azure Blob 儲存體容器複製檔案。 若要示範這項功能，您可以建立新的共用，然後使用 [Start-AzStorageFileCopy](/powershell/module/azure.storage/start-AzStoragefilecopy) Cmdlet 將您剛才上傳的檔案複製到這個新的共用。 
+常見工作之一，是在不同的檔案共用之間複製檔案，或是對 (從) Azure Blob 儲存體容器複製檔案。 若要示範這項功能，您可以建立新的共用，然後使用 [Start-AzStorageFileCopy](/powershell/module/az.storage/Start-AzStorageFileCopy) Cmdlet 將您剛才上傳的檔案複製到這個新的共用。 
 
 ```azurepowershell-interactive
 New-AzStorageShare `
@@ -173,7 +173,7 @@ Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myD
 - Windows 檔案系統的[磁碟區陰影複製服務 (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)，例如 NTFS 和 ReFS
 - Linux 系統的[邏輯磁碟區管理員 (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 快照集
 - macOS 的 [Apple 檔案系統 (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 快照集。 
- 您可以對檔案共用 (使用 [Get-AzStorageShare](/powershell/module/azure.storage/get-AzStorageshare)Cmdlet 所擷取) 的 PowerShell 物件使用 `Snapshot` 方法，來為共用建立共用快照集。 
+ 您可以對檔案共用 (使用 [Get-AzStorageShare](/powershell/module/az.storage/Get-AzStorageShare)Cmdlet 所擷取) 的 PowerShell 物件使用 `Snapshot` 方法，來為共用建立共用快照集。 
 
 ```azurepowershell-interactive
 $share = Get-AzStorageShare -Context $storageAcct.Context -Name "myshare"
@@ -213,7 +213,7 @@ Start-AzStorageFileCopy `
 ```
 
 ### <a name="delete-a-share-snapshot"></a>刪除共用快照集
-您可以使用 [Remove-AzStorageShare](/powershell/module/azure.storage/remove-AzStorageshare) Cmdlet 搭配包含 `-Share` 參數之 `$snapshot` 參考的變數，來刪除共用快照集。
+您可以使用 [Remove-AzStorageShare](/powershell/module/az.storage/Remove-AzStorageShare) Cmdlet 搭配包含 `-Share` 參數之 `$snapshot` 參考的變數，來刪除共用快照集。
 
 ```azurepowershell-interactive
 Remove-AzStorageShare -Share $snapshot

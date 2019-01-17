@@ -16,12 +16,12 @@ ms.workload: ''
 ms.date: 05/02/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2b8766a5353b015030872176e9032034afb7cb9d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a0153cf11c3fe817ce397b4d0c47a786a4334f39
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779531"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214805"
 ---
 # <a name="azure-policy-sample-templates-for-virtual-network"></a>虛擬網路的 Azure 原則範例範本
 
@@ -43,7 +43,7 @@ ms.locfileid: "32779531"
 | [需要比對模式](../azure-policy/scripts/enforce-match-pattern.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | 請確定資源名稱符合指定命名模式。 |
 | [需要標籤比對模式](../azure-policy/scripts/enforce-tag-match-pattern.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | 請確認標籤值符合文字模式。 |
 |**標記**||
-| [計費標籤原則計畫](../azure-policy/scripts/billing-tags-policy-init.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | 要求針對成本中心和產品名稱使用指定的標籤值。 使用內建的原則來套用及強制執行必要的標籤。 您需為標籤指定必要的值。  |
+| [計費標籤原則計畫](../governance/policy/samples/billing-tags-policy-initiative.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | 要求針對成本中心和產品名稱使用指定的標籤值。 使用內建的原則來套用及強制執行必要的標籤。 您需為標籤指定必要的值。  |
 | [對資源群組強制執行標籤及其值](../azure-policy/scripts/enforce-tag-rg.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | 要求對資源群組使用標籤和值。 您需指定必要的標籤名稱和值。  |
 | [強制執行標籤及其值](../azure-policy/scripts/enforce-tag-val.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | 要求使用指定的標籤名稱和值。 您需指定要強制執行的標籤名稱和值。  |
 | [套用標籤及其預設值](../azure-policy/scripts/apply-tag-def-val.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | 附加指定的標籤名稱和值 (如果未提供該標籤)。 您需指定要套用的標籤名稱和值。  |

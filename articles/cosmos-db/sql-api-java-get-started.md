@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 4b03fc3721d7a2be1e2099bf4878f6abb50e6b76
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7b59ab5da89d7ab99560a777f5a685f8b33e31dc
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044037"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201171"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教學課程：建置 SQL API Java 主控台應用程式
 
@@ -90,7 +90,7 @@ ms.locfileid: "54044037"
 ![NoSQL 教學課程用來建立 Java 主控台應用程式之 Azure 入口網站的螢幕擷取畫面。 顯示 Azure Cosmos DB 帳戶，內含反白顯示的 [主動式] 集線器、[Azure Cosmos DB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][keys]
 
 ## <a name="step-4-create-a-database"></a>步驟 4：建立資料庫
-可以使用 **DocumentClient** 類別的 [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) 方法建立 Azure Cosmos DB [資料庫](databases-containers-items.md#azure-cosmos-databases)。 資料庫是分割給多個集合之 JSON 文件儲存體的邏輯容器。
+可以使用 **DocumentClient** 類別的 [createDatabase](/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) 方法建立 Azure Cosmos DB [資料庫](databases-containers-items.md#azure-cosmos-databases)。 資料庫是分割給多個集合之 JSON 文件儲存體的邏輯容器。
 
     Database database = new Database();
     database.setId("familydb");
@@ -102,7 +102,7 @@ ms.locfileid: "54044037"
 > 
 > 
 
-可以使用 **DocumentClient** 類別的 [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) 方法建立集合。 集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。
+可以使用 **DocumentClient** 類別的 [createCollection](/java/api/com.microsoft.azure.documentdb.documentclient.createcollection) 方法建立集合。 集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。
 
 
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -116,7 +116,7 @@ ms.locfileid: "54044037"
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>步驟 6：建立 JSON 文件
-您可以使用 **DocumentClient** 類別的 [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) 方法建立文件。 文件會是使用者定義的 (任意) JSON 內容。 現在可插入一或多份文件。 如果您已經有想要儲存於資料庫中的資料，就可以使用 Azure Cosmos DB 的[資料移轉工具](import-data.md)，將資料匯入資料庫中。
+您可以使用 **DocumentClient** 類別的 [createDocument](/java/api/com.microsoft.azure.documentdb.documentclient.createdocument) 方法建立文件。 文件會是使用者定義的 (任意) JSON 內容。 現在可插入一或多份文件。 如果您已經有想要儲存於資料庫中的資料，就可以使用 Azure Cosmos DB 的[資料移轉工具](import-data.md)，將資料匯入資料庫中。
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -139,7 +139,7 @@ ms.locfileid: "54044037"
 ![說明 NoSQL 教學課程用來建立 Java 主控台應用程式之帳戶、線上資料庫、集合和文件之間階層式關聯性的圖表](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>步驟 7：查詢 Azure Cosmos DB 資源
-Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行豐富[查詢](how-to-sql-query.md)。  下列範例程式碼示範如何使用 SQL 語法與 [queryDocuments](/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) 方法來查詢 Azure Cosmos DB 中的文件。
+Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行豐富[查詢](how-to-sql-query.md)。  下列範例程式碼示範如何使用 SQL 語法與 [queryDocuments](/java/api/com.microsoft.azure.documentdb.documentclient.querydocuments) 方法來查詢 Azure Cosmos DB 中的文件。
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",
@@ -152,7 +152,7 @@ Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行豐富[查
     }
 
 ## <a id="ReplaceDocument"></a>步驟 8：取代 JSON 文件
-Azure Cosmos DB 支援使用 [replaceDocument](/java/api/com.microsoft.azure.documentdb._document_client.replacedocument) 方法來更新 JSON 文件。
+Azure Cosmos DB 支援使用 [replaceDocument](/java/api/com.microsoft.azure.documentdb.documentclient.replacedocument) 方法來更新 JSON 文件。
 
     // Update a property
     andersenFamily.Children[0].Grade = 6;
@@ -163,7 +163,7 @@ Azure Cosmos DB 支援使用 [replaceDocument](/java/api/com.microsoft.azure.doc
         null);
 
 ## <a id="DeleteDocument"></a>步驟 9：刪除 JSON 文件
-同樣地，Azure Cosmos DB 支援使用 [deleteDocument](/java/api/com.microsoft.azure.documentdb._document_client.deletedocument) 方法來將 JSON 文件刪除。  
+同樣地，Azure Cosmos DB 支援使用 [deleteDocument](/java/api/com.microsoft.azure.documentdb.documentclient.deletedocument) 方法來將 JSON 文件刪除。  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 

@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
 ms.author: rogarana
-ms.openlocfilehash: 2c83526ac5fd6fb6c757bffab08414d940694998
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: eddf85df3f9efb6a742e226e9582e2e284cbd4cf
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635420"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215128"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>在 Windows 上使用 AzCopy 在儲存體帳戶間移轉 blob
 
@@ -68,8 +68,8 @@ AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
 
 | 命令 | 注意 |
 |---|---|
-| [Get-AzStorageContainer](/powershell/module/azure.storage/Get-AzStorageContainer) | 傳回與儲存體帳戶關聯的容器。 |
-| [New-AzStorageContext](/powershell/module/azure.storage/New-AzStorageContext) | 建立 Azure 儲存體內容。 |
+| [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | 傳回與儲存體帳戶關聯的容器。 |
+| [New-AzStorageContext](/powershell/module/az.storage/New-AzStorageContext) | 建立 Azure 儲存體內容。 |
 
 ## <a name="next-steps"></a>後續步驟
 

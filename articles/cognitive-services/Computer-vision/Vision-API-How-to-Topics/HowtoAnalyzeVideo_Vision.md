@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 140e45270cf29eec48df260efa29b8aacac2d855
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cb8964bdbdfe575630f6e65a79d53aac76a76d45
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580462"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232102"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>如何即時分析影片
 本指南將示範如何在從即時視訊資料流擷取的畫面上，執行近乎即時的分析。 這類系統中的基本元件如下：
@@ -195,12 +195,6 @@ namespace VideoFrameConsoleApplication
         
 
 當您做好整合準備時，**只需從自己的專案參考 VideoFrameAnalyzer 程式庫**即可。 
-
-
-
-## <a name="developer-code-of-conduct"></a>開發人員行為準則
-和所有「認知服務」一樣，使用我們的 API 和範例進行開發的開發人員必須遵守 [Microsoft 認知服務的開發人員管理辦法](https://azure.microsoft.com/support/legal/developer-code-of-conduct/) \(英文\)。 
-
 
 VideoFrameAnalyzer 的影像、語音、影片或文字理解功能會使用「Azure 認知服務」。 Microsoft 會收到您透過此應用程式上傳的影像、聲音、影片和其他資料，而且可能使用它們來改善服務。 當您的應用程式將使用者的資料傳送給「Azure 認知服務」時，請務必協助保護這些使用者。 
 
