@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: 88880fbfe0f6020a0a982c42b6df0e9eb71b2fc9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: fa0883c18e0d586e6e9b35fb19dbe304388045b5
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550326"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215281"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>教學課程：透過 REST API 將資料複製到 Azure 資料箱 Blob 儲存體  
 
@@ -154,7 +154,7 @@ ms.locfileid: "53550326"
 
    ![建立 Blob 容器內容功能表](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
-4. [Blob 容器] 資料夾下方會出現一個文字方塊。 輸入 blob 容器的名稱。 請參閱[建立容器與設定權限](/articles/storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions)，以取得為 Blob 容器命名之規則和限制的相關資訊。
+4. [Blob 容器] 資料夾下方會出現一個文字方塊。 輸入 blob 容器的名稱。 請參閱[建立容器與設定權限](../storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions)，以取得為 Blob 容器命名之規則和限制的相關資訊。
 5. 完成建立 blob 容器時按下 **Enter**鍵，或按下 **Esc** 鍵取消。 成功建立 Blob 容器之後，它就會顯示在所選儲存體帳戶的 [Blob 容器] 資料夾下方。
 
    ![Blob 容器已建立](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)
@@ -171,7 +171,7 @@ ms.locfileid: "53550326"
         --dest-key <key> \
         --recursive
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
 
@@ -196,7 +196,7 @@ ms.locfileid: "53550326"
     --recursive \
     --exclude-older
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 

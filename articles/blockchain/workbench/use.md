@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 1/8/2019
+ms.date: 01/08/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: b43b125f7e96ac58a9094fc1e0e18b38f10d3e2f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 55207e1eb8fe1b88df7f9bfb84a1da505d0e0252
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107067"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332212"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>教學課程：在 Azure Blockchain Workbench 中使用應用程式
 
@@ -71,7 +71,7 @@ ms.locfileid: "54107067"
     |---------|---------|
     | 狀態 | 列出合約階段內的目前進度 |
     | 詳細資料 | 合約目前的值 |
-    |  動作 | 最後一個動作的詳細資料 |
+    | 動作 | 最後一個動作的詳細資料 |
     | 活動 | 合約的交易歷程記錄 |
     
 3. 在 [動作] 區段中，選取 [採取動作]。

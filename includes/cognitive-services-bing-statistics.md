@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
-ms.openlocfilehash: a8d588b186652ab86ee1e8152bd9be08f0f1ef04
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978817"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193340"
 ---
 Bing 統計資料可為 Bing 搜尋 API 提供分析。 Analytics 包括呼叫量、熱門查詢字串、地理分佈等等。 若要在 Bing 搜尋付費訂用帳戶中啟用 Bing 統計資料，請瀏覽至 [Azure 儀表板](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7)，選取您的付費訂用帳戶，然後按一下 [啟用 Bing 統計資料]。 啟用 Bing 統計資料會稍微增加訂用帳戶的費率 (請參閱[定價](https://aka.ms/bingstatisticspricing))。
 
@@ -85,7 +85,7 @@ For example, if you don't include the User-Agent header in your calls, the dashb
 
 - **回應碼分佈**：在報告期間內所有呼叫的 HTTP 狀態碼。
 
-- **呼叫來源發佈**：使用者使用的瀏覽器類型。 例如，Edge、Chrome、Safari 及 FireFox。 從 bot、Postman 等瀏覽器外部或從主控台應用程式使用 curl 發出的呼叫，都會分組歸類在程式庫之下。 來源是使用要求的使用者代理程式標頭值來判斷的。 如果要求不包含使用者代理程式標頭，Bing 就會嘗試從其他訊號衍生來源。  
+- **呼叫來源發佈**：使用者使用的瀏覽器類型。 例如，Microsoft Edge、Chrome、Safari 及 FireFox。 從 bot、Postman 等瀏覽器外部或從主控台應用程式使用 curl 發出的呼叫，都會分組歸類在程式庫之下。 來源是使用要求的使用者代理程式標頭值來判斷的。 如果要求不包含使用者代理程式標頭，Bing 就會嘗試從其他訊號衍生來源。  
 
 - **安全搜尋分佈**：安全搜尋值的分佈。 例如，關閉、中等或嚴格。 `safeSearch` 查詢參數會包含值 (如果指定的話)。 否則，Bing 會預設該值為中等。  
 
