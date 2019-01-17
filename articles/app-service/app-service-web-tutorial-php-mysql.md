@@ -233,7 +233,7 @@ CREATE DATABASE sampledb;
 
 ### <a name="create-a-user-with-permissions"></a>建立具有權限的使用者
 
-建立名為 _phpappuser_ 的資料庫使用者，並將 `sampledb` 資料庫中所有的權限授權給它。 同樣地，為了簡單起見，請使用_MySQLAzure2017_做為密碼。
+建立名為 _phpappuser_ 的資料庫使用者，並將 `sampledb` 資料庫中所有的權限授權給它。 同樣地，為了簡單起見，請使用 _MySQLAzure2017_ 做為密碼。
 
 ```sql
 CREATE USER 'phpappuser' IDENTIFIED BY 'MySQLAzure2017'; 
