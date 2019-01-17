@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: zarhoads
-ms.openlocfilehash: fbbe6753bd8aa3e43c8a45db5692ce38c18de50c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: df59b3ec7da0c12a17e10790d69e244f9a0d03f5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467288"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259525"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>變更 Windows VM 的可用性設定組
 下列步驟說明如何使用 Azure PowerShell 來變更 VM 的可用性設定組。 只有在建立 VM 時，才能將 VM 新增到可用性設定組中。 若要變更可用性設定組，您必須將虛擬機器刪除，然後再重新建立。 
@@ -35,7 +35,7 @@ ms.locfileid: "49467288"
     $vmName = "myVM"
     $newAvailSetName = "myAvailabilitySet"
 
-# Get the details of the VM to be moved to the Availablity Set
+# Get the details of the VM to be moved to the Availability Set
     $originalVM = Get-AzureRmVM `
        -ResourceGroupName $resourceGroup `
        -Name $vmName

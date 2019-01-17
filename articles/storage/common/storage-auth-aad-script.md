@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: b5a129c2a92c18b979a3b0c2eeea7fa19791551c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 29b44e4b281ded635359148e251527c44efaa6d4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633760"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214040"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>使用 Azure AD 身分識別以使用 CLI 或 PowerShell 存取 Azure 儲存體 (預覽)
 
@@ -84,7 +84,7 @@ az storage blob download --account-name storagesamples --container sample-contai
    Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
    ```
 1. 關閉並重新開啟 PowerShell 視窗。
-1. 呼叫 [New-AzStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext) Cmdlet 以建立內容，並包含 `-UseConnectedAccount` 參數。 
+1. 呼叫 [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) Cmdlet 以建立內容，並包含 `-UseConnectedAccount` 參數。 
 1. 若要使用 Azure AD 身分識別呼叫 Cmdlet，請將新建立的內容傳遞給 Cmdlet。
 
 下列範例顯示如何使用 Azure AD 身分識別，從 Azure PowerShell 列出容器中的 Blob。 請務必以您的值取代預留位置帳戶與容器名稱： 

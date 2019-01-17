@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 68f7df2ab004477fae5df1d200fcd44929465e93
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2e1c155a371fa96e4f772f632a9585948b012e54
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233118"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232238"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立或加入工作流程動作的平行分支
 
@@ -37,7 +37,7 @@ ms.locfileid: "50233118"
 
 ![平行執行步驟](media/logic-apps-control-flow-branches/parallel.png)
 
-邏輯應用程式會等到所有分支完成後，再繼續進行工作流程。 平行分支會在其 `runAfter` 屬性值符合完成的父步驟狀態時才執行。 例如，`branchAction1` 和 `branchAction2` 皆設定為在 `parentAction` 完成且狀態為 `Succeded` 時，才會執行。
+邏輯應用程式會等到所有分支完成後，再繼續進行工作流程。 平行分支會在其 `runAfter` 屬性值符合完成的父步驟狀態時才執行。 例如，`branchAction1` 和 `branchAction2` 皆設定為在 `parentAction` 完成且狀態為 `Succeeded` 時，才會執行。
 
 > [!NOTE]
 > 開始之前，應用程式邏輯必須已有可新增平行分支的步驟。

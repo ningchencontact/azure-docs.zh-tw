@@ -1,17 +1,19 @@
 ---
 title: 在使用 Azure Site Recovery 服務設定災害復原時從複寫作業排除磁碟 | Microsoft Docs
 description: 說明如何在災害復原至 Azure 期間從複寫作業排除 VM 磁碟。
-author: nsoneji
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 7de9dc497b1c9ee29b46aa0d645b7b28676cb22d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 01/19/2019
+ms.author: mayg
+ms.openlocfilehash: 9b26c80b59a57b4a9b2423e1a9028cf723f40fb1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849015"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321223"
 ---
 # <a name="exclude-disks-from-replication"></a>從複寫排除磁碟
 本文說明如何從複寫排除磁碟。 這種排除可以最佳化已使用的複寫頻寬，或最佳化此類磁碟使用的目標端資源。

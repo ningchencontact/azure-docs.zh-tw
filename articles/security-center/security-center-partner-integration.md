@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
+ms.date: 1/3/2019
 ms.author: rkarlin
-ms.openlocfilehash: 97153f4e11f9346083718a83dc7bcd292dc503c7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 25975739f7992a8e7a5318775b99d05715863ed1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580734"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260104"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>在 Azure 資訊安全中心整合安全性解決方案
 這份文件可協助您管理已連線到 Azure 資訊安全中心的安全性解決方案，並且新增新的項目。
@@ -33,29 +33,12 @@ ms.locfileid: "53580734"
 
 目前整合式安全性解決方案包括：
 
-- 端點保護 ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)、[Symantec](https://www.symantec.com/products)、[McAfee](https://www.mcafee.com/us/products.aspx)、[Windows Defender](https://www.microsoft.com/windows/comprehensive-security) 和 [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))
 - Web 應用程式防火牆 ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall)、[F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html)、[Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF)、[Fortinet](https://www.fortinet.com/products.html)，以及 [Azure 應用程式閘道](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - 新一代防火牆 ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/)、[Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/)、[Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2)、[Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) 和 [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - 弱點評量 ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) 和 [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]
 > 資訊安全中心不會在合作夥伴虛擬設備上安裝 Microsoft Monitoring Agent，因為大部分的安全防護廠商都禁止在其設備上執行的外部代理程式。
->
->
-
-
-| 端點保護               | 平台                             | 資訊安全中心安裝 | 資訊安全中心探索 |
-|-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender (Microsoft 反惡意程式碼軟體)                  | Windows Server 2016                   | 否，內建於 OS           | 是                       |
-| System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 (請參閱下列附註) | 透過延伸模組                | 是                       |
-| Trend Micro – 所有版本         | Windows Server 系列                 | 否                           | 是                       |
-| Symantec v12.1.1100+              | Windows Server 系列                 | 否                           | 是                       |
-| McAfee v10+                       | Windows Server 系列                 | 否                           | 是                       |
-| Kaspersky                         | Windows Server 系列                 | 否                           | 否                        |
-| Sophos                            | Windows Server 系列                 | 否                           | 否                        |
-
-> [!NOTE]
-> 在 Windows Server 2008 R2 虛擬機器上偵測 System Center Endpoint Protection (SCEP) 需要安裝 SCEP (PowerShell 3.0 或更高版本)。
 >
 >
 

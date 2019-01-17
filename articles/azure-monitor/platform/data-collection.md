@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: 84ab63d145d9726fad83b7b2337542fef5c8743d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b96a00fb5dbf96a7b57adbaaacf24af319d86950
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718957"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215383"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>監視 Azure 監視器所收集的資料
 [Azure 監視器](../overview.md)是一項服務，可協助您監視應用程式及其所依賴的資源。 此功能的核心是儲存來自受監視資源的遙測和其他資料。 本文提供如何透過 Azure 監視器來儲存和使用此資料的完整說明。
@@ -156,7 +156,7 @@ Azure 監視器可以在 Azure 中及內部部署資源的各種來源收集資�
 Azure 監視器中的所有記錄資料，都是使用以[資料總管查詢語言](../log-query/get-started-queries.md)撰寫的[記錄查詢](../log-query/log-query-overview.md)來擷取，可讓您快速擷取、彙總及分析收集的資料。 使用 [Log Analytics](../log-query/portals.md) 在 Azure 入口網站中撰寫及測試查詢。 您可以互動方式使用結果，或將結果釘選到儀表板，利用其他視覺效果進行檢視。 您也可以使用 [Azure 監視 REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md) 來擷取記錄。
 
 > [!IMPORTANT]
-> 來自 Application Insights 的資料是儲存在與 Azure 監視器中其他記錄資料分開的磁碟分割區中。 這支援與其他記錄資料相同的功能，但您必須使用 [Application Insights 主控台](/azure-monitor/app/analytics.md)或 [Application Insights API](https://dev.applicationinsights.io/) 來存取此資料。 您可以使用[跨資源查詢](../log-query/cross-workspace-query.md)來分析應用程式資料和其他記錄資料。
+> 來自 Application Insights 的資料是儲存在與 Azure 監視器中其他記錄資料分開的磁碟分割區中。 這支援與其他記錄資料相同的功能，但您必須使用 [Application Insights 主控台](../app/analytics.md)或 [Application Insights API](https://dev.applicationinsights.io/) 來存取此資料。 您可以使用[跨資源查詢](../log-query/cross-workspace-query.md)來分析應用程式資料和其他記錄資料。
 
 ![記錄檔](media/data-collection/logs.png)
 

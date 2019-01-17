@@ -2,18 +2,18 @@
 title: 瀏覽 Azure Digital Twins API | Microsoft Docs
 description: 了解查詢 Azure Digital Twins 管理 API 的常見模式。
 author: dsk-2015
-manager: bertvanhoof
+manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
-ms.openlocfilehash: 2221e8b22450a353da42564e5b93342a11e59f71
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109393"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200950"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>如何使用 Azure Digital Twins 管理 API
 
@@ -25,11 +25,11 @@ Azure Digital Twins 管理 API 可為您的 IoT 應用程式提供強大功能�
 
 * [/spaces](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces)：這些 API 可與您環境中的實體位置互動。 這些 API 會以[空間圖形](concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph)的形式，協助您建立、刪除和管理實體位置的數位對應。
 
-* [/resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources)：這些 API 可協助您為 Digital Twin 執行個體設定資源 (例如 IoT 中樞)。
-
 * [/devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices)：這些 API 可與您環境中的裝置互動。 這些裝置可管理一或多個感應器。 例如，裝置可以是手機、Raspberry Pi 感應器 Pod，或 Lora 閘道器等等。
 
 * [/sensors](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Sensors)：這些 API 可協助您與和裝置及實體位置相關聯的感應器通訊。 感應器會記錄並傳送環境值，這些值可接著用來操作空間環境。  
+
+* [/resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources)：這些 API 可協助您為 Digital Twin 執行個體設定資源 (例如 IoT 中樞)。
 
 * [/types](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Types)：這些 API 可讓您建立與 Digital Twins 物件延伸類型的關聯性，以將特定特性新增至那些物件。 這些類型可在 UI 中輕鬆地篩選和分組物件，並自訂可處理遙測資料的函式。 延伸類型的範例包括 *DeviceType*、*SensorType*、*SensorDataType*、*SpaceType*、*SpaceSubType*、*SpaceBlobType*、*SpaceResourceType* 等等。
 

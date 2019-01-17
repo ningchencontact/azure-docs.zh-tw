@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0bc44dc31de4a45127468b956d01d7c3f8d92985
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122814"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54242368"
 ---
 您可以利用許多機會，藉由收集、檢視及分析診斷和記錄資料來監視 VM。 若要執行簡單的 VM [監視](../articles/azure-monitor/overview.md)，您可以在 Azure 入口網站中使用 VM 的 [概觀] 畫面。 您可以使用[擴充功能](../articles/virtual-machines/windows/extensions-features.md)來設定 VM 診斷，以收集其他計量資料。 您也可以使用更進階的監視選項，例如 [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 和 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)。
 
@@ -31,7 +31,7 @@ ms.locfileid: "54122814"
 
 ## <a name="alerts"></a>警示
 
-您可以根據特定效能計量來建立[警示](../articles/azure-monitor/platform/alerts-overview.md)。 舉例來說，當平均 CPU 使用量超過特定臨界值，或可用的磁碟空間低於特定數量時，您即可接獲問題的警示。 您可以使用 [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) 或 [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md)，在 [Azure 入口網站](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)中設定警示。
+您可以根據特定效能計量來建立[警示](../articles/azure-monitor/platform/alerts-overview.md)。 舉例來說，當平均 CPU 使用量超過特定臨界值，或可用的磁碟空間低於特定數量時，您即可接獲問題的警示。 您可以使用 [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell) 或 [Azure CLI](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli)，在 [Azure 入口網站](../articles/azure-monitor/platform/alerts-classic-portal.md)中設定警示。
 
 ## <a name="azure-service-health"></a>Azure 服務健康狀態
 

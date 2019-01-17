@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d36179685e2098455e00186827d35e6de18bf975
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 5396fefca3a60dea7a503f8b4e84cc575753ea30
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892904"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229110"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>在地圖中新增影像圖層
 
@@ -31,7 +31,7 @@ ms.locfileid: "52892904"
 
 ## <a name="add-an-image-layer"></a>新增映像圖層
 
-此範例說明如何在地圖上覆蓋 [1922 年紐澤西紐瓦克地圖]((https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg))的影像。
+此範例說明如何在地圖上覆蓋 [1922 年紐澤西紐瓦克地圖](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg)的影像。
 
 <br/>
 
@@ -40,7 +40,7 @@ ms.locfileid: "52892904"
 
 在上述程式碼中，程式碼的第一個區塊會建構地圖物件。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
-程式碼的第二個區塊會建立 [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest)，所用方法是傳遞影像 URL 和四個角落的座標 (格式為 `[Top Left Corner, Top Right Corner, Bottom Right Conter, Bottom Left Corner]`)。
+程式碼的第二個區塊會建立 [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest)，所用方法是傳遞影像 URL 和四個角落的座標 (格式為 `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`)。
 
 ## <a name="import-a-kml-ground-overlay"></a>匯入 KML Ground Overlay
 

@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 38e85ede1e984aa3d26fe509d68b4582d11b6c26
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.reviewer: justini
+ms.lastreviewed: 11/14/2018
+ms.openlocfilehash: 408be7ad9aa371e749a225ef85be42d002293c0d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636215"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302590"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>在 Azure Stack 中使用 Azure 資源管理員範本
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 您可以使用 Azure Resource Manager 範本，在單一協調作業中部署和佈建應用程式的所有資源。 您也可以重新部署範本，對資源群組中的資源進行變更。
 

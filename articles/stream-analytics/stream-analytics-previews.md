@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: 9b721ab614bf1797604fe342de117c78ba703f96
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 01/10/2019
+ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557592"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232119"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure 串流分析預覽功能
 
@@ -26,10 +26,6 @@ ms.locfileid: "53557592"
 ### <a name="integration-with-azure-machine-learning"></a>與 Azure Machine Learning 整合
 
 您可以使用 Machine Learning (ML) 函式來調整串流分析作業。 若要深入了解如何在串流分析作業中使用 ML 函式，請造訪[使用 Azure Machine Learning 函式調整串流分析作業](stream-analytics-scale-with-machine-learning-functions.md)。 透過[使用 Azure 串流分析和 Azure Machine Learning 執行情感分析](stream-analytics-machine-learning-integration-tutorial.md)來了解真實案例。
-
-### <a name="session-windows"></a>工作階段時間範圍
-
-串流分析具備對時間範圍函式的原生支援，可讓開發人員輕鬆地撰寫複雜的串流處理工作。 [工作階段時間範圍](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics)會將相近時間送達的事件分組，並將沒有任何資料的時間範圍篩選掉。 若要深入了解時間範圍函式，請造訪[串流分析時間範圍函式簡介](stream-analytics-window-functions.md)。
 
 ### <a name="blob-output-partitioning-by-custom-time"></a>透過自訂時間來分割 Blob 輸出
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3897225ef6ed7fcc0db75e82058e5b5b273ccbd4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679517"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214023"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -113,7 +113,11 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 ### <a name="collection-frequency"></a>收集頻率
 
-針對每部受控 Windows 電腦，每天會掃描兩次。 系統會每隔 15 分鐘呼叫一次 Windows API 來查詢上次更新時間，以判斷狀態是否已變更。 如果狀態已變更，則會開始合規性掃描。 針對每部受控 Linux 電腦，每 3 小時會掃描一次。
+在電腦完成更新合規性掃描之後，代理程式會將資訊以大量方式轉送至 Azure Log Analytics。 在 Windows 電腦上，合規性掃描預設會每 12 小時執行一次。
+
+除了掃描排程，如果在更新安裝之前與更新安裝之後重新啟動 MMA，則會在 15 分鐘內起始更新合規性掃描。
+
+針對 Linux 電腦，合規性掃描預設每 3 小時執行一次。 若 MMA 代理程式重新啟動，則會在 15 分鐘內起始合規性掃描。
 
 儀表板可能需要 30 分鐘到 6 小時，才能顯示來自受控電腦的已更新資料。
 

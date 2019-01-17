@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024904"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332637"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到內部部署 Oracle 或複製其中的資料
 
@@ -73,7 +73,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
     如果您選取 [XCopy 安裝]，請完成 readme.htm 檔案中所述的步驟。 建議您選取具有 UI 的安裝程式 (不是 XCopy 安裝程式)。
 
-    安裝提供者之後，請使用 [服務] 小程式或資料管理閘道組態管理員，重新啟動您電腦上的資料管理閘道主機服務。  
+    安裝提供者之後，請使用 [服務] 小程式或資料管理閘道組態管理員，重新啟動您電腦上的資料管理閘道主機服務。
 
 若使用複製精靈來撰寫複製管線，系統會自動決定驅動程式類型。 除非您的閘道版本早於 2.7 版或您選取 Oracle 作為接收端，否則預設會使用 Microsoft 驅動程式。
 
@@ -87,12 +87,12 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 不論您是使用工具還是 API，都需完成下列步驟以建立將資料從來源資料存放區移到接收資料存放區的管線：
 
-1. 建立 **Data Factory**。 資料處理站可以包含一或多個管線。 
+1. 建立 **Data Factory**。 資料處理站可以包含一或多個管線。
 2. 建立**連結服務**，將輸入和輸出資料存放區連結到資料處理站。 例如，如果您從 Oralce 資料庫將資料複製到 Azure Blob 儲存體，請建立兩個連結服務，將 Oracle 資料庫和 Azure 儲存體帳戶連結至資料處理站。 針對 Oracle 專屬的連結服務屬性，請參閱[連結服務屬性](#linked-service-properties)。
 3. 建立**資料集**，代表複製作業的輸入和輸出資料。 在前先前步驟的範例中，您會建立資料集，以指定您 Oracle 資料庫中包含輸入資料的資料表。 還會建立另一個資料集來指定 blob 容器和資料夾，該資料夾會保存從 Oracle 資料庫複製的資料。 針對 Oracle 專屬的資料集屬性，請參閱[資料集屬性](#dataset-properties)。
-4. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 在先前範例中，您使用 **OracleSource** 作為來源，以及使用 **BlobSink** 作為複製活動的接收端。 同樣地，如果您是從 Azure Blob 儲存體複製到 Oracle 資料庫，則在複製活動中使用 **BlobSource** 和 **OracleSink**。 如需 Oracle 資料庫專屬的複製活動屬性，請參閱[複製活動屬性](#copy-activity-properties)。 如需有關如何使用資料存放區作為來源或接收端的詳細資訊，請選取上一節中資料存放區的連結。 
+4. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 在先前範例中，您使用 **OracleSource** 作為來源，以及使用 **BlobSink** 作為複製活動的接收端。 同樣地，如果您是從 Azure Blob 儲存體複製到 Oracle 資料庫，則在複製活動中使用 **BlobSource** 和 **OracleSink**。 如需 Oracle 資料庫專屬的複製活動屬性，請參閱[複製活動屬性](#copy-activity-properties)。 如需有關如何使用資料存放區作為來源或接收端的詳細資訊，請選取上一節中資料存放區的連結。
 
-使用精靈時，精靈會自動為您建立這些 Data Factory 實體的 JSON 定義：連結服務、資料集及管線。 使用工具或 API (.NET API 除外) 時，您需使用 JSON 格式來定義這些資料處理站實體。  如需相關範例，其中具有用來將資料複製到內部部署 Oracle 資料庫 (或從內部部署 Oracle 資料庫複製資料) 之 Data Factory 實體的 JSON 定義，請參閱 [JSON 範例](#json-examples-for-copying-data-to-and-from-oracle-database)。
+使用精靈時，精靈會自動為您建立這些 Data Factory 實體的 JSON 定義：連結服務、資料集及管線。 使用工具或 API (.NET API 除外) 時，您需使用 JSON 格式來定義這些資料處理站實體。 如需相關範例，其中具有用來將資料複製到內部部署 Oracle 資料庫 (或從內部部署 Oracle 資料庫複製資料) 之 Data Factory 實體的 JSON 定義，請參閱 [JSON 範例](#json-examples-for-copying-data-to-and-from-oracle-database)。
 
 下列各節提供 JSON 屬性的相關詳細資料，這些屬性用來定義 Data Factory 實體。
 
@@ -136,8 +136,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
     "properties": {
         "type": "OnPremisesOracle",
         "typeProperties": {
-            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>)));
-User Id=<user name>;Password=<password>;",
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>))); User Id=<user name>;Password=<password>;",
             "gatewayName": "<gateway name>"
         }
     }
@@ -146,7 +145,7 @@ User Id=<user name>;Password=<password>;",
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)。 
+如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)。
 
 所有資料集類型 (例如，Oracle、Azure Blob 儲存體和 Azure 資料表儲存體的資料集類型) 的資料集 JSON 檔案區段很類似 (例如結構、可用性及原則)。
 
@@ -158,7 +157,7 @@ User Id=<user name>;Password=<password>;",
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)。 
+如需可用來定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)。
 
 屬性 (例如名稱、描述、輸入和輸出資料表，以及原則) 適用於所有類型的活動。
 
@@ -188,7 +187,7 @@ User Id=<user name>;Password=<password>;",
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>將資料複製到 Oracle 資料庫以及複製其中資料的 JSON 範例
 
-以下範例提供可用來使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 建立管線的範例 JSON 定義。 這些範例示範如何將資料複製到 Oracle 資料庫和 Azure Blob 儲存體，或複製其中的資料。 不過，您可以使用 Azure Data Factory 中的複製活動，將資料複製到[支援的資料存放區和格式](data-factory-data-movement-activities.md#supported-data-stores-and-formats)中所列的任何接收端。   
+以下範例提供可用來使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 建立管線的範例 JSON 定義。 這些範例示範如何將資料複製到 Oracle 資料庫和 Azure Blob 儲存體，或複製其中的資料。 不過，您可以使用 Azure Data Factory 中的複製活動，將資料複製到[支援的資料存放區和格式](data-factory-data-movement-activities.md#supported-data-stores-and-formats)中所列的任何接收端。
 
 **範例：將資料從 Oracle 複製到 Azure Blob 儲存體**
 
@@ -254,12 +253,12 @@ User Id=<user name>;Password=<password>;",
             "anchorDateTime": "2014-02-27T12:00:00",
             "frequency": "Hour"
         },
-        "policy": {     
-            "externalData": {        
-                "retryInterval": "00:01:00",    
-                "retryTimeout": "00:10:00",       
-                "maximumRetry": 3       
-            }     
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
         }
     }
 }
@@ -327,16 +326,16 @@ User Id=<user name>;Password=<password>;",
 
 **具有複製活動的管線**
 
-此管線包含複製活動，該活動已設定為使用輸入和輸出資料集並排定為每小時執行。 在管線 JSON 定義中，**source** 類型設為 **OracleSource**，而 **sink** 類型設為 **BlobSink**。  利用 **oracleReaderQuery** 屬性指定的 SQL 查詢會選取過去一小時內要複製的資料。
+此管線包含複製活動，該活動已設定為使用輸入和輸出資料集並排定為每小時執行。 在管線 JSON 定義中，**source** 類型設為 **OracleSource**，而 **sink** 類型設為 **BlobSink**。 利用 **oracleReaderQuery** 屬性指定的 SQL 查詢會選取過去一小時內要複製的資料。
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "OracletoBlob",
                 "description": "copy activity",
@@ -378,7 +377,7 @@ User Id=<user name>;Password=<password>;",
 
 **範例：將資料從 Azure Blob 儲存體複製到 Oracle**
 
-此範例示範如何將資料從 Azure Blob 儲存體帳戶複製到內部部署 Oracle 資料庫。 不過，您可以使用 Azure Data Factory 中的複製活動，「直接」從[支援的資料存放區和格式](data-factory-data-movement-activities.md#supported-data-stores-and-formats)中所列的任何來源複製資料。  
+此範例示範如何將資料從 Azure Blob 儲存體帳戶複製到內部部署 Oracle 資料庫。 不過，您可以使用 Azure Data Factory 中的複製活動，「直接」從[支援的資料存放區和格式](data-factory-data-movement-activities.md#supported-data-stores-and-formats)中所列的任何來源複製資料。
 
 範例有下列 Data Factory 實體：
 
@@ -503,16 +502,16 @@ User Id=<user name>;Password=<password>;",
 
 **具有複製活動的管線**
 
-此管線包含複製活動，該活動已設定為使用輸入和輸出資料集並排定為每小時執行。 在管線 JSON 定義中，**source** 類型設為 **BlobSource**，而 **sink** 類型設為 **OracleSink**。  
+此管線包含複製活動，該活動已設定為使用輸入和輸出資料集並排定為每小時執行。 在管線 JSON 定義中，**source** 類型設為 **BlobSource**，而 **sink** 類型設為 **OracleSink**。
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-05T19:00:00",
         "description":"pipeline with a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "AzureBlobtoOracle",
                 "description": "Copy Activity",
@@ -558,7 +557,7 @@ User Id=<user name>;Password=<password>;",
 
 **錯誤訊息**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.  
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
 
 **可能的原因**
 
@@ -584,7 +583,7 @@ User Id=<user name>;Password=<password>;",
 
 您可能需要根據 Oracle 資料庫中的日期設定來調整查詢字串。 範例 (使用 **to_date** 函式) 如下：
 
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 
 ## <a name="type-mapping-for-oracle"></a>Oracle 的類型對應

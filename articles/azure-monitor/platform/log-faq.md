@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: a2213ac9b31623aed18855ce87e7e00870b05247
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107218"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214737"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常見問題集
 此 Microsoft 常見問題集是 Microsoft Azure 中 Log Analytics 常見問題的清單。 若您有任何關於 Log Analytics 的其他問題，請前往[討論論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
@@ -63,7 +63,7 @@ Azure 入口網站中的新 [Logs] 體驗是以進階分析入口網站為基礎
 
 ### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>問： 為何我可以在 OMS 入口網站中存取我的工作區，但卻在 Azure 入口網站中收到錯誤「您沒有存取權」？  
 
-答：若要在 Azure 中存取工作區，您必須獲得 Azure 權限。 有某些情況下，您可能沒有適當的存取權限。 在這些情況下，系統管理員必須授與您 Azure 權限。如需詳細資訊，請參閱 [OMS 入口網站移至 Azure](/../../azure-monitor/platform/oms-portal-transition.md)。
+答：若要在 Azure 中存取工作區，您必須獲得 Azure 權限。 有某些情況下，您可能沒有適當的存取權限。 在這些情況下，系統管理員必須授與您 Azure 權限。如需詳細資訊，請參閱 [OMS 入口網站移至 Azure](oms-portal-transition.md)。
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>問： 為何在 Logs 中看不到「檢視設計工具」項目？ 
 答：記錄中的「檢視設計工具」僅適用於獲派「參與者」權限或更高權限的使用者。

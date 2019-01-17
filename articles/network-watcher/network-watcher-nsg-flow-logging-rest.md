@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 30f20e2671b4428f08c38eeb93ec90f0b745eea6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 58486ab821b6b01f531f62445a9d4ade1336569a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819112"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332008"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>使用 REST API 設定網路安全性群組流量記錄
 
@@ -32,7 +32,7 @@ ms.locfileid: "51819112"
 網路安全性群組流量記錄是網路監看員的一項功能，可讓您檢視透過網路安全性群組傳輸之輸入和輸出 IP 流量的相關資訊。 這些流量記錄是以 json 格式撰寫，會顯示每一規則的輸出和輸入流量、流量套用至的 NIC、有關流量的 5 個 Tuple 資訊 (來源/目的地 IP、來源/目的地連接埠、通訊協定)，以及流量是被允許或拒絕。
 
 > [!NOTE] 
-> 美國中西部區域現已提供流程記錄第 2 版。 組態可透過 Azure 入口網站和 REST API 取得。 在不支援的區域中啟用第 2 版記錄會導致第 1 版記錄輸出到您的儲存體帳戶。
+> 美國中西部區域現已提供流程記錄第 2 版。 在不支援的區域中啟用第 2 版記錄會導致第 1 版記錄輸出到您的儲存體帳戶。
 
 ## <a name="before-you-begin"></a>開始之前
 

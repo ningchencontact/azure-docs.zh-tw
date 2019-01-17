@@ -1,17 +1,19 @@
 ---
 title: 安裝 Linux 主要目標伺服器以便容錯回復至內部部署網站 | Microsoft Docs
 description: 了解如何使用 Azure Site Recovery 在從 VMware VM 至 Azure 的災害復原期間，將 Linux 主要目標伺服器設定為容錯回復至內部部署網站。
-author: nsoneji
+author: mayurigupta13
+services: site-recovery
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 09f4637c24b146394dc0299e60e729c07420150a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.author: mayg
+ms.openlocfilehash: befc979b84c5ace3b8c787b184e52f09ada9ea2b
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974356"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321394"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>安裝 Linux 主要目標伺服器以便進行容錯回復
 您可以在將虛擬機器容錯移轉至 Azure 之後，將虛擬機器容錯回復至內部部署網站。 若要進行容錯回復，您需要在從 Azure 到內部部署網站的過程中重新保護虛擬機器。 針對此程序，您需要內部部署的主要目標伺服器以接收流量。 

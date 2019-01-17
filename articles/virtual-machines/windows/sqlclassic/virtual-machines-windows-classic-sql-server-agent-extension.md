@@ -3,7 +3,7 @@ title: SQL VM 上的自動化管理工作 (傳統) | Microsoft 文件
 description: 本主題說明如何管理 SQL Server 代理程式擴充功能，此擴充功能可將特定 SQL Server 管理工作自動化。 其中包括自動備份、自動修補和 Azure 金鑰保存庫整合。 本主題使用傳統部署模式。
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
-ms.author: jroth
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55a31d7a0ab603dd7fe7de514d11d003e044240a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 2b719185aabd39cd70b9cb890a9599aa06ca4ff4
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008326"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330527"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>使用 SQL Server 代理程式延伸模組 (傳統) 自動化 Azure 虛擬機器上的管理工作
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "39008326"
 Azure 虛擬機器會執行 SQL Server IaaS Agent 擴充功能 (SQLIaaSAgent) 以自動化系統管理工作。 本主題概述擴充功能所支援的服務，以及與安裝、狀態及移除相關的指示。
 
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 若要檢視這篇文章的 Resource Manager 版本，請參閱 [適用於 SQL Server VM Resource Manager 的 SQL Server Agent 擴充功能](../sql/virtual-machines-windows-sql-server-agent-extension.md)。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 若要檢視這篇文章的 Resource Manager 版本，請參閱 [適用於 SQL Server VM Resource Manager 的 SQL Server Agent 擴充功能](../sql/virtual-machines-windows-sql-server-agent-extension.md)。
 
 ## <a name="supported-services"></a>支援的服務
 SQL Server IaaS 代理程式擴充功能支援下列管理工作︰

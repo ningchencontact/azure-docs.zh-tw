@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 632e605a6f7c9885f3854ca1f7b69ed337a1eacc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025873"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331635"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
 
@@ -108,7 +108,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 若要覆寫此預設值，請如下所示指定 **cloudDataMovementUnits** 屬性的值。 **cloudDataMovementUnits** 屬性的「允許值」是 2、4、8、16 和 32。 根據您的資料模式，複製作業會在執行階段使用的 **實際雲端 DMU 數目** 等於或小於所設定的值。 如需在為特定複製來源和接收設定更多單位時可能獲得之效能增益水準的相關資訊，請參閱 [效能參考](#performance-reference)。
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -135,7 +135,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 ### <a name="parallelcopies"></a>parallelCopies
 您可以使用 **parallelCopies** 屬性，來指出您想要複製活動使用的平行處理原則。 您可以將此屬性視為複製活動內，可透過平行方式從來源讀取或寫入至接收資料存放區中的執行緒數目上限。
 
-對於每個複製活動執行，Data Factory 會決定要用來從來源資料存放區複製資料到目的地資料存放區的平行複製數目。 它會使用的預設平行複製數目取決於您所使用的來源和接收類型。  
+對於每個複製活動執行，Data Factory 會決定要用來從來源資料存放區複製資料到目的地資料存放區的平行複製數目。 它會使用的預設平行複製數目取決於您所使用的來源和接收類型。
 
 | 來源和接收 | 由服務決定的預設平行複製計數 |
 | --- | --- |
@@ -146,7 +146,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 通常，預設行為應可提供最佳輸送量。 不過，若要控制裝載資料存放區之電腦上的負載或是調整複製效能，您可以選擇覆寫預設值並指定 **parallelCopies** 屬性的值。 該值必須介於 1 (含) 到 32 (含)。 在執行階段，為獲得最佳效能，複製活動會使用小於或等於設定值的值。
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -176,7 +176,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 >
 >
 
-若要更妥善地使用這兩個屬性，以及增強您的資料移動輸送量，請參閱 [範例使用案例](#case-study-use-parallel-copy)。 您不需要設定 **parallelCopies** 就能利用預設行為。 如果您有設定且 **parallelCopies** 太小，將可能無法充分利用多個雲端 DMU。  
+若要更妥善地使用這兩個屬性，以及增強您的資料移動輸送量，請參閱 [範例使用案例](#case-study-use-parallel-copy)。 您不需要設定 **parallelCopies** 就能利用預設行為。 如果您有設定且 **parallelCopies** 太小，將可能無法充分利用多個雲端 DMU。
 
 ### <a name="billing-impact"></a>計費影響
 請 **務必** 要記住，您必須根據複製作業的總時間付費。 若過去某複製作業使用 1 個雲端單位花費 1 小時，現在使用 4 個雲端單位花費 15 分鐘，則兩者的整體費用幾乎相同。 例如，您使用 4 個雲端單位。 第 1 個雲端單位費時 10 分鐘、第 2 個單位費時 10 分鐘、第 3 個單位費時 5 分鐘、第 4 個單位費時 5 分鐘，以上全都在一個複製活動執行內。 您必須支付總複製 (資料移動) 時間的費用，亦即 10 + 10 + 5 + 5 = 30 分鐘。 是否使用 **parallelCopies** 對計費沒有任何影響。
@@ -216,7 +216,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 以下是具有上表所述屬性的「複製活動」的範例定義︰
 
 ```json
-"activities":[  
+"activities":[
 {
     "name": "Sample copy activity",
     "type": "Copy",
@@ -273,9 +273,9 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 3. **將組態擴展至整個資料集**。 當您對執行結果及效能感到滿意時，您可以將定義和管線作用期間擴展為涵蓋整個資料集。
 
 ## <a name="considerations-for-data-management-gateway"></a>資料管理閘道的考量
-**閘道設定**：建議您使用專用的電腦來裝載資料管理閘道。 請參閱[使用資料管理閘道的考量](data-factory-data-management-gateway.md#considerations-for-using-gateway)。  
+**閘道設定**：建議您使用專用的電腦來裝載資料管理閘道。 請參閱[使用資料管理閘道的考量](data-factory-data-management-gateway.md#considerations-for-using-gateway)。
 
-**閘道監控與相應增加/相應放大**：具有一或多個閘道節點的單一邏輯閘道可同時提供多個複製活動進行。 您可以在 Azure 入口網站中，檢視閘道機器近乎即時的資訊使用率 (CPU、記憶體、網路 (輸入/輸出) 等) 快照集，以及執行的並行作業數目與限制，請參閱[在入口網站中監視閘道](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal)。 如果您對於混合式資料移動 (包含大量的並行複製活動執行或需要複製的大量資料) 有很大的需求，請考慮[相應增加或相應放大閘道](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations)，以充份利用您的資源，或佈建更多資源以賦予複製能力。 
+**閘道監控與相應增加/相應放大**：具有一或多個閘道節點的單一邏輯閘道可同時提供多個複製活動進行。 您可以在 Azure 入口網站中，檢視閘道機器近乎即時的資訊使用率 (CPU、記憶體、網路 (輸入/輸出) 等) 快照集，以及執行的並行作業數目與限制，請參閱[在入口網站中監視閘道](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal)。 如果您對於混合式資料移動 (包含大量的並行複製活動執行或需要複製的大量資料) 有很大的需求，請考慮[相應增加或相應放大閘道](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations)，以充份利用您的資源，或佈建更多資源以賦予複製能力。
 
 ## <a name="considerations-for-the-source"></a>來源的考量
 ### <a name="general"></a>一般
@@ -404,7 +404,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 **案例 II**：從 Blob 儲存體複製 20 個 Blob (每個 Blob 有 500 MB) 到 Data Lake Store 分析，然後微調效能。
 
-**分析和效能微調**︰在此案例中，Data Factory 會使用一個複製 (**parallelCopies** 設為 1) 以及一個雲端資料移動單位，將資料從 Blob 儲存體複製到 Data Lake Store。 您所觀察到的輸送量會接近 [效能參考](#performance-reference)一節所述。   
+**分析和效能微調**︰在此案例中，Data Factory 會使用一個複製 (**parallelCopies** 設為 1) 以及一個雲端資料移動單位，將資料從 Blob 儲存體複製到 Data Lake Store。 您所觀察到的輸送量會接近 [效能參考](#performance-reference)一節所述。
 
 ![案例 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 

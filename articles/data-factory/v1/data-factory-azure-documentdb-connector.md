@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d95534cceb11f7bf20f6966e0205694fc1db021d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: af528f210f4464c973d88fab7eeb1572effc87bc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017594"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330381"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure Cosmos DB 來回移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,9 +28,9 @@ ms.locfileid: "54017594"
 > [!NOTE]
 > 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 Azure Cosmos DB 連接器](../connector-azure-cosmos-db.md)。
 
-本文說明如何使用 Azure Data Factory 中的「複製活動」，將資料移進/移出 Azure Cosmos DB (SQL API)。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。 
+本文說明如何使用 Azure Data Factory 中的「複製活動」，將資料移進/移出 Azure Cosmos DB (SQL API)。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。
 
-您可以將資料從任何支援的來源資料存放區複製到 Azure Cosmos DB，或從 Azure Cosmos DB 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源或接收器的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)表格。 
+您可以將資料從任何支援的來源資料存放區複製到 Azure Cosmos DB，或從 Azure Cosmos DB 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源或接收器的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)表格。
 
 > [!IMPORTANT]
 > Azure Cosmos DB 連接器只支援 SQL API。
@@ -42,17 +42,17 @@ ms.locfileid: "54017594"
 
 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
 
-您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
+您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
-不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線： 
+不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
 1. 建立**連結服務**，將輸入和輸出資料存放區連結到資料處理站。
-2. 建立**資料集**，代表複製作業的輸入和輸出資料。 
-3. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 
+2. 建立**資料集**，代表複製作業的輸入和輸出資料。
+3. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。
 
-使用精靈時，精靈會自動為您建立這些 Data Factory 實體 (已連結的服務、資料集及管線) 的 JSON 定義。 使用工具/API (.NET API 除外) 時，您需使用 JSON 格式來定義這些 Data Factory 實體。  如需相關範例，其中含有用來將資料複製到 Cosmos DB (或從 Cosmos DB 複製資料) 之 Data Factory 實體的 JSON 定義，請參閱本文的 [JSON 範例](#json-examples)一節。 
+使用精靈時，精靈會自動為您建立這些 Data Factory 實體 (已連結的服務、資料集及管線) 的 JSON 定義。 使用工具/API (.NET API 除外) 時，您需使用 JSON 格式來定義這些 Data Factory 實體。 如需相關範例，其中含有用來將資料複製到 Cosmos DB (或從 Cosmos DB 複製資料) 之 Data Factory 實體的 JSON 定義，請參閱本文的 [JSON 範例](#json-examples)一節。
 
-下列各節提供 JSON 屬性的相關詳細資料，這些屬性是用來定義 Cosmos DB 特定的 Data Factory 實體： 
+下列各節提供 JSON 屬性的相關詳細資料，這些屬性是用來定義 Cosmos DB 特定的 Data Factory 實體：
 
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 Azure Cosmos DB 連結服務專屬 JSON 元素的描述。
@@ -105,7 +105,7 @@ ms.locfileid: "54017594"
 }
 ```
 ### <a name="schema-by-data-factory"></a>Data factory 的結構描述
-針對無結構描述的資料存放區 (如 Azure Cosmos DB)，Data Factory 服務會以下列一種方式推斷結構描述：  
+針對無結構描述的資料存放區 (如 Azure Cosmos DB)，Data Factory 服務會以下列一種方式推斷結構描述：
 
 1. 如果您是使用資料集定義中的 **structure** 屬性來定義結構，Data Factory 服務會將此結構接受為結構描述。 在此情況下，如果資料列不包含資料行的值，則會使用 null 值。
 2. 如果您不是使用資料集定義中的 **structure** 屬性來指定結構，Data Factory 服務會使用資料的第一列來推斷結構描述。 在此情況下，如果第一個資料列不包含完整的結構描述，某些資料行會因複製作業而遺失。
@@ -142,7 +142,7 @@ ms.locfileid: "54017594"
 * 將 JSON 文件從 Cosmos DB 集合匯出至各種檔案型存放區。
 * 在兩個 Cosmos DB 集合之間依原樣移轉資料。
 
-達成這種無從驗證結構描述的複製 
+達成這種無從驗證結構描述的複製
 * 使用複製精靈時，核取 [依原樣匯出到 JSON 檔案或 Cosmos DB 集合] 選項。
 * 使用 JSON 編輯時，請勿在 Cosmos DB 資料集中指定 "structure" 區段，也不要在複製活動的 Cosmos DB 來源/接收器上指定 "nestingSeparator" 屬性。 若要從 JSON 檔案匯入或匯出到這些檔案，請在檔案存放區資料集內，將格式類型指定為 "JsonFormat"、設定 "filePattern"，然後略過其餘格式設定，如需詳細資料，請參閱 [JSON 格式](data-factory-supported-file-and-compression-formats.md#json-format)一節。
 
@@ -249,13 +249,13 @@ Cosmos DB 資料庫中 Person 集合中的範例 JSON 文件：
 ```
 Cosmos DB 支援在階層式 JSON 文件上使用類似 SQL 的語法來查詢文件。
 
-範例： 
+範例：
 
 ```sql
 SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
 ```
 
-下列管線會將資料從 Azure Cosmos DB 資料庫中的 Person 集合複製到 Azure Blob。 複製活動中已指定為輸入和輸出資料集。  
+下列管線會將資料從 Azure Cosmos DB 資料庫中的 Person 集合複製到 Azure Blob。 複製活動中已指定為輸入和輸出資料集。
 
 ```JSON
 {
@@ -298,7 +298,7 @@ SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as Mi
   }
 }
 ```
-## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>範例：將資料從 Azure Blob 複製到 Azure Cosmos DB 
+## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>範例：將資料從 Azure Blob 複製到 Azure Cosmos DB
 下列範例顯示：
 
 1. [DocumentDb](#azure-documentdb-linked-service-properties)類型的連結服務。
@@ -434,7 +434,7 @@ SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as Mi
             "nestingSeparator": ".",
             "writeBatchSize": 2,
             "writeBatchTimeout": "00:00:00"
-          }
+          },
           "translator": {
               "type": "TabularTranslator",
               "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix, EmailPromotion: EmailPromotion, rowguid: rowguid, ModifiedDate: ModifiedDate"
@@ -487,7 +487,7 @@ Azure Cosmos DB 是 JSON 文件的 NoSQL 存放區 (允許巢狀結構)。 Azure
     **答：** 沒有。
 2. **問：** 重試複製 Azure Cosmos DB 時，會如何處理已經複製的記錄？
 
-    **答：** 如果記錄有 [識別碼] 欄位，而複製作業嘗試插入具有相同識別碼的記錄，則複製作業會擲回錯誤。  
+    **答：** 如果記錄有 [識別碼] 欄位，而複製作業嘗試插入具有相同識別碼的記錄，則複製作業會擲回錯誤。
 3. **問：** Data Factory 支援[範圍或雜湊式資料分割](../../cosmos-db/sql-api-partition-data.md)嗎？
 
     **答：** 沒有。

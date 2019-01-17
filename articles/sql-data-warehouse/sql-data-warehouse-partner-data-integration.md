@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 09be96a4a6fd4e36412e4e0958683a14873e172d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3b83f6df85271f7f4c38a87c48ec4537025af053
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961819"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305514"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL 資料倉儲資料整合合作夥伴
 若要建立資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。 本文將重點放在具有可支援「Azure SQL 資料倉儲」之資料整合解決方案的 Microsoft 合作夥伴公司。
@@ -82,7 +82,7 @@ ms.locfileid: "52961819"
 
 <!--[bryte_systems_marketplace]:https://azure.microsoft.com/marketplace/partners/bryte/bryteflow-cdc-free-trial/--> 
 
-[informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/partners/informatica/informatica-cloud-services/
+[informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.ics-byol
 
 <!--[informatica_PowerCenter_std_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-standard-10-0pc-std-10-0-windows/
 [informatica_PowerCenter_adv_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-advanced-10-0pc-adv-10-0-ubuntu/-->

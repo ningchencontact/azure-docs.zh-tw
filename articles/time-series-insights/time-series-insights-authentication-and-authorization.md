@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 17ca5430a0fdba0bf11d7c2caecd19ec0a402c0e
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: b9f3561155038e91bc278f5d7ddc995adb53ad78
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556691"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197992"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API 的驗證和授權
 
@@ -106,7 +106,7 @@ ms.locfileid: "53556691"
 
 ## <a name="next-steps"></a>後續步驟
 - 如需呼叫 Time Series Insights API 的範例程式碼，請參閱[使用 C# 查詢資料](time-series-insights-query-data-csharp.md)。
-- 如需 API 參考資訊，請參閱[查詢 API 參考](/rest/api/time-series-insights/time-series-insights-reference-queryapi)。
+- 如需 API 參考資訊，請參閱[查詢 API 參考](/rest/api/time-series-insights/ga-query-api)。
 
 > [!div class="nextstepaction"]
 > [建立服務主體](../active-directory/develop/howto-create-service-principal-portal.md)

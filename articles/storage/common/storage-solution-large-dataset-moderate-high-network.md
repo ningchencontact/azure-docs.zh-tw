@@ -8,12 +8,12 @@ ms.subservice: blob
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: 7243edbe0b51a3cca69bec018d6cbb15e9aa1674
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: bc5668d826395fb71ee70907f095303a43f1ec7f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263503"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214312"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>在有中速至高速的網路頻寬之情況下進行大型資料集的資料轉送
  
@@ -66,7 +66,7 @@ ms.locfileid: "53263503"
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    資料大小                        |    最多 35 TB                 |    每個裝置最多 80 TB                       |    每個裝置最多 800 TB               |    變數                            |
 |    資料類型                        |    Azure Blob                  |    Azure Blob<br>Azure 檔案                    |    Azure Blob<br>Azure 檔案            |    Azure Blob<br>Azure 檔案          |
-|    板型規格                      |    每筆訂單 5 個 SSD             |    每筆訂單 1 X 50 磅 桌上型大小裝置    |    每筆訂單 1 X ~500 磅 大型裝置    |    每筆訂單最多 10 個 HDD/SSD        |
+|    板型規格                      |    每筆訂單 5 個 SSD             |    每筆訂單 1 X 50 磅 桌上型電腦大小裝置    |    每筆訂單 1 X ~500 磅 大型裝置    |    每筆訂單最多 10 個 HDD/SSD        |
 |    初始設定時間               |    低 <br>(15 分鐘)            |    低至中度 <br> (<30 分鐘)               |    中度<br>(1-2 小時)               |    中度到困難<br>(變動) |
 |    將資料傳送到 Azure               |    是                          |    是                                           |    是                                   |    是                                 |
 |    從 Azure 匯出資料           |    否                           |    否                                            |    否                                    |    是                                 |
@@ -102,7 +102,7 @@ ms.locfileid: "53263503"
     - [使用資料箱轉送資料](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal)。
 - [使用 AzCopy 轉送資料](/azure/storage/common/storage-use-azcopy-v10)。
 - 了解如何：
-    - [使用資料箱閘道傳輸資料](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares.md)。
+    - [使用資料箱閘道傳輸資料](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares)。
     - [先使用 Azure Data Box Edge 轉換資料再傳送至 Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute)。
 - [了解如何使用 Azure Data Factory 轉送資料](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal)。
 - 使用 REST API 轉送資料

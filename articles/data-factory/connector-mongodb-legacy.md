@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1ffd1b96e721707f69c47a7cbf11d60f17f3a7d2
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105418"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320475"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 複製資料
-> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-on-premises-mongodb-connector.md)
 > * [目前的版本](connector-mongodb.md)
 
@@ -104,7 +104,7 @@ ms.locfileid: "54105418"
 
 ```json
 {
-     "name":  "MongoDbDataset",
+    "name": "MongoDbDataset",
     "properties": {
         "type": "MongoDbCollection",
         "linkedServiceName": {
@@ -239,7 +239,6 @@ Azure Data Factory 會使用內建的 ODBC 驅動程式來連線到 MongoDB 資�
 | 1111 |1 |6 |
 | 2222 |0 |1 |
 | 2222 |1 |2 |
-
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

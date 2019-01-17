@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1cd7e504a614203218cb06b337becf36b992cf1d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2d586f28b426732433c027c950f8193e7503c72b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018223"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330799"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署檔案系統來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ ms.locfileid: "54018223"
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
-> 來源檔案成功複製至目的地後，「複製活動」不會將它刪除。 如果您需要在成功複製後刪除來源檔案，請建立自訂活動來刪除檔案，並在管道中使用該活動。 
+> 來源檔案成功複製至目的地後，「複製活動」不會將它刪除。 如果您需要在成功複製後刪除來源檔案，請建立自訂活動來刪除檔案，並在管道中使用該活動。
 
 ## <a name="enabling-connectivity"></a>啟用連線
 Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案系統，或從內部部署的檔案系統連出。 您必須在內部部署環境安裝「資料管理閘道」，Data Factory 服務才能連接到任何支援的內部部署資料存放區 (包括檔案系統)。 如需有關資料管理閘道以及設定閘道的逐步指示，請參閱[利用資料管理閘道在內部部署資源和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)。 除了資料管理閘道，不需要安裝其他二進位檔即可和內部部署檔案系統進行通訊。 您必須安裝和使用「資料管理閘道」，即使檔案系統位於 Azure IaaS VM 中也一樣。 如需有關閘道的詳細資訊，請參閱[資料管理閘道](data-factory-data-management-gateway.md)。
@@ -57,7 +57,7 @@ Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案�
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
-1. 建立 **Data Factory**。 資料處理站可包含一或多個管線。 
+1. 建立 **Data Factory**。 資料處理站可包含一或多個管線。
 2. 建立**連結服務**，將輸入和輸出資料存放區連結到資料處理站。 例如，如果您從 Azure Blob 儲存體將資料複製到內部部署檔案系統，您會建立兩個連結服務，將內部部署檔案系統和 Azure 儲存體帳戶連結至資料處理站。 有關內部部署檔案系統專屬的連結服務屬性，請參閱[連結服務屬性](#linked-service-properties)一節。
 3. 建立**資料集**，代表複製作業的輸入和輸出資料。 在上一個步驟所述的範例中，您可以建立資料集來指定包含輸入資料的 Blob 容器與資料夾。 同時，您會建立另一個資料集來指定檔案系統中的資料夾與檔案名稱 (選擇性)。 針對內部部署檔案系統專屬的資料集屬性，請參閱[資料集屬性](#dataset-properties)一節。
 4. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 在稍早所述的範例中，您使用 BlobSource 作為來源，以及使用 FileSystemSink 作為複製活動的接收器。 同樣地，如果您是從內部部署檔案系統複製到 Azure Blob 儲存體，則在複製活動中使用 FileSystemSource 和 BlobSink。 針對內部部署檔案系統專屬的複製活動屬性，請參閱[複製活動屬性](#copy-activity-properties)一節。 如需有關如何使用資料存放區作為來源或接收器的詳細資訊，按一下上一節中資料存放區的連結。
@@ -161,7 +161,7 @@ Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案�
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
@@ -254,7 +254,7 @@ Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案�
 
 **內部部署檔案系統輸入資料集：**
 
-每小時從新的檔案挑選資料。 會根據配量的開始時間來決定 folderPath 和 fileName 屬性。  
+每小時從新的檔案挑選資料。 會根據配量的開始時間來決定 folderPath 和 fileName 屬性。
 
 `"external": "true"` 設定會通知 Data Factory：這是 Data Factory 外部的資料集而且不是由 Data Factory 中的活動所產生。
 
@@ -383,13 +383,13 @@ Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案�
 此管線包含複製活動，該活動已設定為使用輸入和輸出資料集並排定為每小時執行。 在管線 JSON 定義中，**source** 類型設為 **FileSystemSource**，而 **sink** 類型設為 **BlobSink**。
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2015-06-01T18:00:00",
     "end":"2015-06-01T19:00:00",
     "description":"Pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "OnpremisesFileSystemtoBlob",
         "description": "copy activity",
@@ -423,8 +423,8 @@ Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案�
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 
@@ -572,13 +572,13 @@ Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案�
 此管線包含複製活動，該活動已設定為使用輸入和輸出資料集並排定為每小時執行。 在管線 JSON 定義中，**source** 類型設為 **SqlSource**，而 **sink** 類型設為 **FileSystemSink**。 針對 **SqlReaderQuery** 屬性指定的 SQL 查詢會選取過去一小時內要複製的資料。
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2015-06-01T18:00:00",
     "end":"2015-06-01T20:00:00",
     "description":"pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureSQLtoOnPremisesFile",
         "description": "copy activity",
@@ -613,11 +613,10 @@ Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案�
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
-
 
 您也可以在複製活動定義中，將來自來源資料集的資料行與來自接收資料集的資料行對應。 如需詳細資料，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
 

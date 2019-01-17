@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 820a918b9ab5dd7a399dc43bcfed29fb3b94e99b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971098"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321563"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>利用串流分析來建置 IoT 解決方案
 
@@ -36,7 +36,7 @@ ms.locfileid: "53971098"
 ## <a name="scenario-introduction-hello-toll"></a>案例簡介："Hello, Toll!"
 收費站是常見的設施。 您可以在世界各地的許多快速道路、橋樑及隧道中看到它們。 每個收費站都有多個收費亭。 在人工收費亭中，您需要停車來向服務員付費。 在自動收費亭中，位於每個收費亭最上方的感應器會在您通過收費亭時掃描黏貼在您車輛擋風玻璃上的 RFID 卡。 我們可以輕易地把車輛通過這些收費站的情況，想像成其中能執行許多有趣行動的事件串流。
 
-![收費亭前的車輛圖片](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
+![收費亭中車輛的圖片](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
 
 ## <a name="incoming-data"></a>傳入的資料
 本解決方案會搭配兩個資料串流來運作。 安裝在收費亭入口和出口處的感應器會產生第一個串流。 第二個串流是擁有車輛登記資料的靜態查詢資料集。

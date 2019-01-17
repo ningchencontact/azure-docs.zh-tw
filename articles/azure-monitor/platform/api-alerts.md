@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: d4701143a24fdf89b1c61744a9661fffdbb61ed3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d6096967c33866f9498f413a4a73fc1d7eae9ede
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278044"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231354"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>使用 REST API 在 Log Analytics 中建立及管理警示規則
 Log Analytics 警示 REST API 可讓您在 Log Analytics 中建立及管理警示。  本文提供此 API 的詳細資料和幾個執行不同作業的範例。
@@ -255,7 +255,7 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
       "properties": {
         "Type": "Alert",
         "Name": "test-alert",
-        "Description": "I need to put a descriptio here",
+        "Description": "I need to put a description here",
         "Threshold": {
           "Operator": "gt",
           "Value": 12
@@ -289,7 +289,7 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
       "properties": {
         "Type": "Alert",
         "Name": "test-alert",
-        "Description": "I need to put a descriptio here",
+        "Description": "I need to put a description here",
         "Threshold": {
           "Operator": "gt",
           "Value": 12
@@ -323,7 +323,7 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
       "properties": {
         "Type": "Alert",
         "Name": "test-alert",
-        "Description": "I need to put a descriptio here",
+        "Description": "I need to put a description here",
         "Threshold": {
           "Operator": "gt",
           "Value": 12

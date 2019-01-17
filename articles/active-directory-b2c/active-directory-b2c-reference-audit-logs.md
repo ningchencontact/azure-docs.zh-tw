@@ -10,19 +10,19 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 31f0517cd4d61fa324072eae954404c899451cc3
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 93ca61c610856ebba64bff46b2338090f317ad56
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117396"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302029"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>存取 Azure AD B2C 稽核記錄
 
 Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含有關 B2C 資源、發行的權杖和系統管理員存取的活動資訊。 本文概述透過稽核記錄可取得的資訊，以及說明如何從您的 Azure AD B2C 租用戶存取此資料。
 
 > [!IMPORTANT]
-> 稽核記錄只會保留七天。 如果您需要更長的保留期，請使用以下所示的其中一個方法來規劃下載與儲存您的記錄。 
+> 稽核記錄只會保留七天。 如果您需要更長的保留期，請使用以下所示的其中一個方法來規劃下載與儲存您的記錄。
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>稽核記錄 B2C 類別中可取得活動的概觀
 稽核記錄中的 **B2C** 類別包含以下類型的活動：
@@ -43,7 +43,7 @@ Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含�
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>透過 Azure 入口網站來存取稽核記錄
 1. 移至 [Azure 入口網站](https://portal.azure.com)。 確定您位於 B2C 目錄中。
-2. 在左邊 [我的最愛] 列中，按一下 [Azure Active Directory] 
+2. 在左邊 [我的最愛] 列中，按一下 [Azure Active Directory]
     
     ![稽核記錄 - AAD 按鈕](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
@@ -56,14 +56,14 @@ Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含�
 
     ![稽核記錄 - 類別](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
-您會看到過去七天所記錄活動的清單。 
+您會看到過去七天所記錄活動的清單。
 - 使用 [活動資源類型] 下拉式清單，根據上述活動類型來進行篩選
 - 使用 [日期範圍] 下拉式清單，以篩選所要顯示活動的日期範圍
 - 如果您按一下清單中的特定列，右邊的關聯式方塊會顯示與該活動相關的額外屬性
 - 按一下 [下載]，將活動下載為 csv 檔案
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>透過 Azure AD 報告 API 來存取稽核記錄
-稽核記錄的發行管線與 Azure Active Directory 的其他活動相同，因此可以透過 [Azure Active Directory 報告 API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference) \(機器翻譯\) 來存取。 
+稽核記錄的發行管線與 Azure Active Directory 的其他活動相同，因此可以透過 [Azure Active Directory 報告 API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference) \(機器翻譯\) 來存取。
 
 ### <a name="prerequisites"></a>必要條件
 若要向 Azure AD 報告 API 驗證，需要先註冊應用程式。 請務必遵循[存取 Azure AD 報告 API 的必要條件](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/) \(機器翻譯\) 中的步驟。
@@ -82,7 +82,7 @@ Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含�
 # Constants
 $ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a Globally Unique ID (registered by Global Admin)
 $ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client Key/Secret string
-$loginURL       = "https://login.microsoftonline.com"     
+$loginURL       = "https://login.microsoftonline.com"
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # AAD B2C Tenant; for example, contoso.onmicrosoft.com
 $resource       = "https://graph.windows.net"             # Azure AD Graph API resource URI
 $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
@@ -93,13 +93,13 @@ $body       = @{grant_type="client_credentials";resource=$resource;client_id=$Cl
 $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
 
 # Parse audit report items, save output to file(s): auditX.json, where X = 0 thru n for number of nextLink pages
-if ($oauth.access_token -ne $null) {   
+if ($oauth.access_token -ne $null) {
     $i=0
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-    $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=category eq ''B2C''and activityDate gt ' + $7daysago 
+    $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=category eq ''B2C''and activityDate gt ' + $7daysago
 
     # loop through each query page (1 through n)
-    Do{
+    Do {
         # display each event on the console window
         Write-Output "Fetching data using Uri: $url"
         $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
@@ -117,4 +117,3 @@ if ($oauth.access_token -ne $null) {
     Write-Host "ERROR: No Access Token"
 }
 ```
-

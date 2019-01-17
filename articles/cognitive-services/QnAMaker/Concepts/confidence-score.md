@@ -8,15 +8,15 @@ manager: pchoudh
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 9f5aedfc28c8aa0835c865cc2041f66abef39d5f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 94d8571464828897d2257f103a81ae206110256d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724686"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263232"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的信賴分數
 當使用者查詢與某個知識庫相符時，QnA Maker 會傳回相關的答案以及信賴分數。 此分數表示該答案針對指定之使用者查詢正確比對的信賴度。 

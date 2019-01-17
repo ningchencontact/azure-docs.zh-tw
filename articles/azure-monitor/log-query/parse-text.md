@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 03268981bcfe90f14f35c74effe5799dd31e4ac0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185778"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214125"
 ---
 # <a name="parse-text-data-in-log-analytics"></a>剖析 Log Analytics 中的文字資料
 Log Analytics 所收集的部分資料將在單一屬性中包含多個資訊片段。 將此資料剖析成多個屬性可讓您更輕鬆地在查詢中使用。 常見的範例為[自訂記錄檔](../../log-analytics/log-analytics-data-sources-custom-logs.md)，可將具有多個值的整個記錄檔項目收集成單一屬性。 您可以針對不同的值建立不同的屬性，以便在每個屬性中搜尋並彙總。
@@ -98,7 +98,7 @@ AzureActivity
 
 
 ### <a name="regular-expressions"></a>規則運算式
-如果可以使用規則運算式識別您的資料，則您可以利用[使用規則運算式的函式](/azure/kusto/query/re2)來擷取個別的值。 下列範例會使用 [extract](/kusto/query/extractfunction)，從 _AzureActivity_ 記錄中細分 _UPN_ 欄位，然後再傳回不同的使用者。
+如果可以使用規則運算式識別您的資料，則您可以利用[使用規則運算式的函式](/azure/kusto/query/re2)來擷取個別的值。 下列範例會使用 [extract](/azure/kusto/query/extractfunction)，從 _AzureActivity_ 記錄中細分 _UPN_ 欄位，然後再傳回不同的使用者。
 
 ```Kusto
 AzureActivity

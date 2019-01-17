@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4d3c67974bc1dd0e52d3de457071d550a6379e36
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023073"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330002"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料推送到 Azure 搜尋服務索引
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,15 +40,15 @@ ms.locfileid: "54023073"
 
 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
 
-您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
+您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
-不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線： 
+不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
 1. 建立**連結服務**，將輸入和輸出資料存放區連結到資料處理站。
-2. 建立**資料集**，代表複製作業的輸入和輸出資料。 
-3. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 
+2. 建立**資料集**，代表複製作業的輸入和輸出資料。
+3. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。
 
-使用精靈時，精靈會自動為您建立這些 Data Factory 實體 (已連結的服務、資料集及管線) 的 JSON 定義。 使用工具/API (.NET API 除外) 時，您需使用 JSON 格式來定義這些 Data Factory 實體。  如需相關範例，其中含有用來將資料複製到 Azure 搜尋服務索引之 Data Factory 實體的 JSON 定義，請參閱本文的 [JSON 範例：將資料從內部部署 SQL Server 複製到 Azure 搜尋索引](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index)一節。 
+使用精靈時，精靈會自動為您建立這些 Data Factory 實體 (已連結的服務、資料集及管線) 的 JSON 定義。 使用工具/API (.NET API 除外) 時，您需使用 JSON 格式來定義這些 Data Factory 實體。  如需相關範例，其中含有用來將資料複製到 Azure 搜尋服務索引之 Data Factory 實體的 JSON 定義，請參閱本文的 [JSON 範例：將資料從內部部署 SQL Server 複製到 Azure 搜尋索引](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index)一節。
 
 下列各節提供 JSON 屬性的相關詳細資料，這些屬性是用來定義「Azure 搜尋索引」特定的 Data Factory 實體：
 
@@ -113,11 +113,11 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
 
 下列範例顯示︰
 
-1.  [AzureSearch](#linked-service-properties) 類型的連結服務。
-2.  [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties)類型的連結服務。
-3.  [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。
-4.  [AzureSearchIndex](#dataset-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
-4.  具有使用 [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) 和 [AzureSearchIndexSink](#copy-activity-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
+1. [AzureSearch](#linked-service-properties) 類型的連結服務。
+2. [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties)類型的連結服務。
+3. [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties) 類型的輸入[資料集](data-factory-create-datasets.md)。
+4. [AzureSearchIndex](#dataset-properties) 類型的輸出[資料集](data-factory-create-datasets.md)。
+4. 具有使用 [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) 和 [AzureSearchIndexSink](#copy-activity-properties) 之複製活動的[管線](data-factory-create-pipelines.md)。
 
 這個範例每小時都會將時間序列的資料從內部部署 SQL Server 資料庫複製到 Azure 搜尋服務索引。 範例後面的各節將會說明此範例中使用的 JSON 屬性。
 
@@ -201,7 +201,7 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
             "frequency": "Minute",
             "interval": 15
         }
-   }
+    }
 }
 ```
 
@@ -210,13 +210,13 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
 此管線包含複製活動，該活動已設定為使用輸入和輸出資料集並排定為每小時執行。 在管線 JSON 定義中，將 **source** 類型設為 **SqlSource**，並且將 **sink** 類型設為 **AzureSearchIndexSink**。 針對 **SqlReaderQuery** 屬性指定的 SQL 查詢會選取過去一小時內要複製的資料。
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
     "description":"pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "SqlServertoAzureSearchIndex",
         "description": "copy activity",
@@ -240,7 +240,7 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
             "type": "AzureSearchIndexSink"
           }
         },
-       "scheduler": {
+        "scheduler": {
           "frequency": "Hour",
           "interval": 1
         },
@@ -251,8 +251,8 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 
@@ -288,7 +288,7 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
 
 您也可以在複製活動定義中，將來自來源資料集的資料行與來自接收資料集的資料行對應。 如需詳細資料，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
 
-## <a name="performance-and-tuning"></a>效能和微調  
+## <a name="performance-and-tuning"></a>效能和微調
 若要了解影響資料移動 (複製活動) 效能的重要因素，以及各種最佳化的方法，請參閱[複製活動的效能及微調指南](data-factory-copy-activity-performance.md)。
 
 ## <a name="next-steps"></a>後續步驟

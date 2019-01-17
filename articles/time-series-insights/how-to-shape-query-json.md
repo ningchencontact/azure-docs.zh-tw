@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: aa09183d1dbb78822b6c46333dada3ed7f54811a
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: c076d425a7740bd0eb6398e6b8720fa873f2fc30
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554566"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201256"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>如何成形 JSON 來將查詢效能最大化 
 
@@ -200,4 +200,4 @@ ms.locfileid: "53554566"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要實際執行這些方針，請參閱 [Azure 時間序列見解查詢語法](/rest/api/time-series-insights/time-series-insights-reference-query-syntax)，以深入了解 TSI 資料存取 REST API 的查詢語法。
+若要實際執行這些方針，請參閱 [Azure 時間序列見解查詢語法](/rest/api/time-series-insights/ga-query-syntax)，以深入了解 TSI 資料存取 REST API 的查詢語法。

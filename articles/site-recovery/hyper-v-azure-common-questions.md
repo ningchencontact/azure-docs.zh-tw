@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 8ba188db87ffc0d428c7349c902cf60bec65d30f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 11e29aa8d85ed7e3cf5ce7b4a8360e4b5eb628f9
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788475"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319212"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>常見問題 - 從 Hyper-V 至 Azure 的災害復原
 
@@ -140,7 +140,7 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 Hyper-V VM 可以每隔 30 秒 (進階儲存體除外)、5 分鐘或 15 分鐘複寫一次。
 
 ###<a name="can-i-extend-replication"></a>我可以延伸複寫嗎？
-不支援延伸的或鏈結的複寫。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)中提出這項功能的要求。
+不支援延伸的或鏈結的複寫。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)中提出這項功能的要求。
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>是否可執行離線初始複寫？
 不支援此做法。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中提出這項功能的要求。

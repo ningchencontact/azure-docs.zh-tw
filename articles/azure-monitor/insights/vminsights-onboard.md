@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 3c1caa2485437768781ada2c7271445ccd3c19e1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: cfbe1ce39d7f68dd6ea2510b5c6cbddf4eb71710
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190319"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331991"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>部署適用於 VM 的 Azure 監視器 (預覽)
 本文說明如何設定適用於 VM 的 Azure 監視器。 此服務會監視 Azure 虛擬機器 (VM) 和虛擬機器擴展集的作業系統健康情況，以及您環境中的虛擬機器。 此監控包括探索及對應可能會在其上裝載的應用程式相依性。 
@@ -308,7 +308,7 @@ ms.locfileid: "54190319"
 1. 您已經準備好使用下列 PowerShell 命令部署此範本：
 
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
     ```
 
     可能需要幾分鐘的時間才能完成設定變更。 完成之後，將會顯示如下的訊息並包含結果：

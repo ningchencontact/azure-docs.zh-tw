@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: b81b9b34843974ceacf41b08a40a52418ea46d22
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3e8e1626987f7418fee9fc36515131650d865201
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547544"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213071"
 ---
 # <a name="configure-deployment-sources"></a>設定部署來源
 
@@ -138,7 +138,7 @@ Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨�
 
 ## <a name="next-steps"></a>後續步驟
 
-使用者現在可以對[連續部署](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)、[本機 Git 部署](https://docs.microsoft.com/azure/app-service/deploy-local-git)和[雲端資料夾同步處理](https://docs.microsoft.com/azure/app-service-web/deploy-content-sync)之類使用部署來源。
+使用者現在可以對[連續部署](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)、[本機 Git 部署](https://docs.microsoft.com/azure/app-service/deploy-local-git)和[雲端資料夾同步處理](https://docs.microsoft.com/azure/app-service/deploy-content-sync)之類使用部署來源。
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png

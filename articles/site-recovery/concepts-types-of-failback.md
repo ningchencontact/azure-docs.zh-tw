@@ -2,18 +2,18 @@
 title: 使用 Azure Site Recovery 在災害復原期間進行容錯回復 | Microsoft Docs
 description: 本文概述使用 Azure Site Recovery 服務在災害復原期間容錯回復至內部部署環境時，所要考慮的各種容錯回復和警告。
 services: site-recovery
-author: rajani-janaki-ram
-manager: guaravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 11/27/2018
-ms.author: rajanki
-ms.openlocfilehash: 9b181f21affa5b762dd6e9062953badc3a37191d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.topic: conceptual
+ms.date: 01/17/2019
+ms.author: raynew
+ms.openlocfilehash: 16233c9013e97a7db7ef799b79526abac4741612
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841875"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318435"
 ---
 # <a name="overview-of-failback"></a>容錯回復的概觀
 

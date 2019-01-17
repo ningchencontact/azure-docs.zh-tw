@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 2299dd6c723aa3059c293170c655918e5236ca0e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138155"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213445"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>因為停用 DHCP 用戶端服務，而無法 RDP 連線至 Azure 虛擬機器
 
@@ -62,7 +62,7 @@ VM 上的 DHCP 用戶端服務並未執行。
 
 ### <a name="use-serial-control"></a>使用序列主控台
 
-1. 連線至[序列主控台並開啟 CMD 執行個體](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+1. 連線至[序列主控台並開啟 CMD 執行個體](serial-console-windows.md#use-cmd-or-powershell-in-serial-console)。
 )。 如果未在 VM 上啟用序列主控台，請參閱[重設網路介面](reset-network-interface.md)。
 2. 請檢查是否已在網路介面上停用 DHCP：
 
@@ -95,7 +95,7 @@ VM 上的 DHCP 用戶端服務並未執行。
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>DHCP 用戶端服務因為拒絕存取錯誤而停止
 
-1. 連線至[序列主控台](serial-console-windows.md#)並開啟 PowerShell 執行個體。
+1. 連線至[序列主控台](serial-console-windows.md)並開啟 PowerShell 執行個體。
 2. 執行下列指令碼來下載處理程序監視工具：
 
    ```

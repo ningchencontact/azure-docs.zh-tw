@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 977c464e0c172a25d069fa7db55d8aefb78d89d9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f6267bd2d97dabd71c007bcb8112936093124f74
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339088"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267023"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>保護 Azure 資訊安全中心內的 Azure SQL 服務和資料
 「Azure 資訊安全中心」會分析 Azure 資源的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議。  這些建議適用於下列 Azure 資源類型︰虛擬機器 (VM)、網路、SQL 和資料，以及應用程式。
 
-本文說明適用於 Azure SQL 服務和資料的建議。 這些建議是以下列主題為中心：為 Azure SQL 伺服器和資料庫啟用稽核、為 SQL 資料庫啟用加密，以及啟用 Azure 儲存體帳戶加密。  請使用下表作為參考來協助您了解可用的 SQL 服務和資料建議，以及每一項建議在套用後將產生的作用。
+
 ### <a name="monitor-data-security"></a>監視資料安全性
 
 當您按一下 [防護] 區段中的 [資料安全性] 時，隨即會開啟包含 SQL 和儲存體建議的 [資料資源]。 它也具有資料庫的一般健全狀況狀態 [建議](security-center-sql-service-recommendations.md) 。 如需儲存體加密的詳細資訊，請閱讀[在 Azure 資訊安全中心啟用 Azure 儲存體帳戶的加密](security-center-enable-encryption-for-storage-account.md)。
@@ -60,7 +60,6 @@ ms.locfileid: "53339088"
 |SQL|15|在 SQL Database 上啟用稽核|啟用 Azure SQL Database 的稽核。 (僅限 Azure SQL 服務。 不包含在虛擬機器上執行的 SQ。)|
 |Data Lake 分析|15|啟用 Data Lake Analytics 的待用加密|啟用透明資料加密以保護 Data Lake Analytics 中的待用資料。 待用加密是在背景中自動進行的，也就是說 Data Lake Analytics 會在保存資料前自動將資料加密，並在擷取資料前自動將資料解密。 在與 Data Lake Analytics 互動的應用程式和服務中，無須因為加密而進行任何變更。 待用加密不僅可將實體竊取所造成的資料遺失風險降到最低，還有助於滿足法規合規性需求。|
 |Data Lake Store|15|啟用 Data Lake Store 的待用加密|啟用透明資料加密以保護 Data Lake Store 中的待用資料。 待用加密是在背景中自動進行的，也就是說 Data Lake Store 會在保存資料前自動將資料加密，並在擷取資料前自動將資料解密。 您無須在與 Data Lake Store 互動的應用程式和服務中，為配合加密而進行任何變更。 待用加密不僅可將實體竊取所造成的資料遺失風險降到最低，還有助於滿足法規合規性需求。|
-|儲存體帳戶|15|啟用 Azure 儲存體帳戶的加密|針對待用資料啟用「Azure 儲存體服務加密」。 「儲存體服務加密」(SSE) 會在資料被寫入 Azure 儲存體時加密資料，並於擷取資料之前將其解密。 SSE 目前僅適用於 Azure Blob 服務，可用於區塊 Blob、分頁 Blob 和附加 Blob。|
 |Data Lake 分析|5|啟用 Data Lake Analytics 診斷記錄|啟用記錄並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。 |
 |Data Lake Store|5|啟用 Azure Data Lake Store 的診斷記錄|啟用記錄並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。 |
 |SQL|30|修復 SQL 資料庫的弱點|SQL 弱點評定會掃描資料庫有無安全性弱點，並公開任何與最佳做法不同的差異，例如設定不正確、過多權限，以及未保護敏感性資料等等。 解決找到的弱點可以大幅改進資料庫的安全性等級。|

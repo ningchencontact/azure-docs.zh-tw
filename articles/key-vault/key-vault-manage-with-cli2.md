@@ -11,14 +11,14 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 3d97ce7588642462920e98eb90c5c6b5d3748067
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 9ebfb01071257c8879531c1879b6f8b3ba4493ef
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076358"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198893"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 來管理 Key Vault 
 
@@ -103,7 +103,7 @@ az account set --subscription <subscription name or ID>
 使用 Azure 資源管理員時，會在資源群組內建立所有相關資源。 您可以在現有的資源群組中建立金鑰保存庫。 如果您想使用新的資源群組，可以建立一個新的。
 
 ```azurecli
-az group create -n 'ContosoResourceGroup' -l 'East Asia'
+az group create -n "ContosoResourceGroup" -l "East Asia"
 ```
 
 第一個參數是資源群組名稱，而第二個參數是位置。 若要取得所有可能位置類型的清單：
@@ -127,7 +127,7 @@ az provider register -n Microsoft.KeyVault
 若要在位於 [東亞] 位置的 **ContosoResourceGroup** 資源群組中，建立名稱為 **ContosoKeyVault** 的新保存庫，請輸入： 
 
 ```azurecli
-az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --location 'East Asia'
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
 ```
 
 此命令的輸出會顯示您所建立的金鑰保存庫屬性。 兩個最重要屬性是：
@@ -142,13 +142,13 @@ az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGro
 如果您想讓 Azure Key Vault 為您建立一個軟體防護金鑰，請使用 `az key create` 命令。
 
 ```azurecli
-az keyvault key create --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --protection software
+az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --protection software
 ```
 
 如果您在 .pem 檔案中有現有的金鑰，您可以將它上傳至 Azure Key Vault。 您可以選擇使用軟體或 HSM 保護金鑰。 使用下列步驟從 .pem 檔案匯入金鑰，並使用軟體保護它：
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --pem-file './softkey.pem' --pem-password 'Pa$$w0rd' --protection software
+az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "Pa$$w0rd" --protection software
 ```
 
 您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰 (藉由使用其 URI)。 使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 一律可取得最新版本。 使用 https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] 可取得此特定版本。 例如：**https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**。 
@@ -156,7 +156,7 @@ az keyvault key import --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' -
 將名為 SQLPassword 且其 Azure Key Vault 的值為 Pa$$w0rd 的密碼新增至保存庫。 
 
 ```azurecli
-az keyvault secret set --vault-name 'ContosoKeyVault' --name 'SQLPassword' --value 'Pa$$w0rd'
+az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "Pa$$w0rd"
 ```
 
 使用此密碼的 URI 參考此密碼。 使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword** 一律可取得目前的版本，而使用 https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] 可取得特定版本。 例如：**https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**。
@@ -164,7 +164,7 @@ az keyvault secret set --vault-name 'ContosoKeyVault' --name 'SQLPassword' --val
 使用 .pem 或 .pfx 將憑證匯入至保存庫。
 
 ```azurecli
-az keyvault certificate import --vault-name 'ContosoKeyVault' --file 'c:\cert\cert.pfx' --name 'ContosoCert' --password 'Pa$$w0rd'
+az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "Pa$$w0rd"
 ```
 
 讓我們檢視您所建立的金鑰、祕密或憑證：
@@ -172,19 +172,19 @@ az keyvault certificate import --vault-name 'ContosoKeyVault' --file 'c:\cert\ce
 * 若要檢視您的金鑰，請輸入： 
 
 ```azurecli
-az keyvault key list --vault-name 'ContosoKeyVault'
+az keyvault key list --vault-name "ContosoKeyVault"
 ```
 
 * 若要檢視您的祕密，請輸入： 
 
 ```azurecli
-az keyvault secret list --vault-name 'ContosoKeyVault'
+az keyvault secret list --vault-name "ContosoKeyVault"
 ```
 
 * 若要檢視您的憑證，請輸入： 
 
 ```azurecli
-az keyvault certificate list --vault-name 'ContosoKeyVault'
+az keyvault certificate list --vault-name "ContosoKeyVault"
 ```
 
 ## <a name="registering-an-application-with-azure-active-directory"></a>向 Azure Active Directory 註冊應用程式
@@ -203,7 +203,7 @@ az keyvault certificate list --vault-name 'ContosoKeyVault'
 若要在 Azure Active Directory 中註冊應用程式：
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "Pa$$w0rd" --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 
@@ -214,33 +214,35 @@ az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
 例如，如果您的保存庫名稱為 ContosoKeyVault，應用程式的 appID 為 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed，而且您想要授權應用程式使用保存庫中的金鑰來進行解密並簽署，請使用下列命令：
 
 ```azurecli
-az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
+az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
 ```
 
 若要授權相同的應用程式讀取您保存庫中的機密資料，請輸入以下命令：
 
 ```azurecli
-az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
+az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
 ## <a name="bkmk_KVperCLI"></a> 設定金鑰保存庫進階存取原則
 
-使用 [az keyvault update](/cli/azure/keyvault#az-keyvault-update) 啟用金鑰保存庫的進階的原則。 
+使用 [az keyvault update](/cli/azure/keyvault#az-keyvault-update) 啟用金鑰保存庫的進階的原則。
 
  針對部署啟用 Key Vault：允許虛擬機器從保存庫擷取儲存為祕密的憑證。
+
  ```azurecli
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
- ``` 
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
+ ```
 
 針對磁碟加密啟用 Key Vault：使用保存庫進行 Azure 磁碟加密時為必要。
 
  ```azurecli
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-disk-encryption "true"
  ```  
 
 針對範本部署啟用 Key Vault：允許 Resource Manager 從保存庫擷取秘密。
- ```azurecli 
- az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
+
+```azurecli 
+ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
  ```
 
 ## <a name="working-with-hardware-security-modules-hsms"></a>使用硬體安全模組 (HSM)
@@ -252,25 +254,25 @@ az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec
 建立金鑰保存庫時，請新增 'sku' 參數：
 
 ```azurecli
-az keyvault create --name 'ContosoKeyVaultHSM' --resource-group 'ContosoResourceGroup' --location 'East Asia' --sku 'Premium'
+az keyvault create --name "ContosoKeyVaultHSM" --resource-group "ContosoResourceGroup" --location "East Asia" --sku "Premium"
 ```
 
 您可以將軟體防護金鑰 (如稍早所示) 和受 HSM 保護的金鑰新增至此保存庫。 若要建立受 HSM 保護的金鑰，請將 [目的地] 參數設為 'HSM'：
 
 ```azurecli
-az keyvault key create --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --protection 'hsm'
+az keyvault key create --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --protection "hsm"
 ```
 
 您可以使用下列命令，從電腦上的 .pem 檔案匯入金鑰。 此命令會將金鑰匯入金鑰保存庫服務中的 HSM：
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --protection 'hsm' --pem-password 'PaSSWORD'
+az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --pem-file "/.softkey.pem" --protection "hsm" --pem-password "PaSSWORD"
 ```
 
 下一個命令會匯入「自備金鑰」(BYOK) 封包。 這可讓您在您的本機 HSM 中產生金鑰，且在金鑰無需離開 HSM 界限的情況下，即可將它傳輸到金鑰保存庫服務中的 HSM：
 
 ```azurecli
-az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --protection 'hsm'
+az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --byok-file "./ITByok.byok" --protection "hsm"
 ```
 
 如需有關如何產生此 BYOK 封包的詳細指示，請參閱 [如何使用 Azure 金鑰保存庫中受 HSM 保護的金鑰](key-vault-hsm-protected-keys.md)。
@@ -280,13 +282,13 @@ az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSM
 如果您不再需要金鑰保存庫及其所金鑰或祕密，可以使用 `az keyvault delete` 命令來刪除金鑰保存庫：
 
 ```azurecli
-az keyvault delete --name 'ContosoKeyVault'
+az keyvault delete --name "ContosoKeyVault"
 ```
 
 或者，您可以刪除整個 Azure 資源群組，其中包括金鑰保存庫和您加入該群組的任何其他資源：
 
 ```azurecli
-az group delete --name 'ContosoResourceGroup'
+az group delete --name "ContosoResourceGroup"
 ```
 
 ## <a name="miscellaneous-azure-cross-platform-command-line-interface-commands"></a>其他 Azure 跨平台命令列介面命令
@@ -296,31 +298,31 @@ az group delete --name 'ContosoResourceGroup'
 此命令會列出以表格形式顯示的所有金鑰和所選屬性：
 
 ```azurecli
-az keyvault key list --vault-name 'ContosoKeyVault'
+az keyvault key list --vault-name "ContosoKeyVault"
 ```
 
 此命令會顯示指定金鑰的完整屬性清單：
 
 ```azurecli
-az keyvault key show --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey'
+az keyvault key show --vault-name "ContosoKeyVault" --name "ContosoFirstKey"
 ```
 
 此命令會列出以表格形式顯示的所有密碼名稱和所選屬性：
 
 ```azurecli
-az keyvault secret list --vault-name 'ContosoKeyVault'
+az keyvault secret list --vault-name "ContosoKeyVault"
 ```
 
 以下是如何移除特定金鑰的範例：
 
 ```azurecli
-az keyvault key delete --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey'
+az keyvault key delete --vault-name "ContosoKeyVault" --name "ContosoFirstKey"
 ```
 
 以下是如何移除特定密碼的範例：
 
 ```azurecli
-az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
+az keyvault secret delete --vault-name "ContosoKeyVault" --name "SQLPassword"
 ```
 
 ## <a name="next-steps"></a>後續步驟

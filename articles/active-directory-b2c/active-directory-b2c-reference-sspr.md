@@ -10,18 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c9d6a66a9d54c75fbb20775f0ae4de4d22a7d599
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3d2019101abf1086a58d0224ab31f2aa27afe8de
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840856"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54350586"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>設定客戶的自助式密碼重設
+
 自助式密碼重設功能可讓已註冊本機帳戶的客戶自行重設自己的密碼。 這可大幅減輕支援人員的負擔，特別是在您的應用程式具有數百萬名定期使用的客戶時更是如此。 目前僅支援使用已驗證的電子郵件地址作為復原方法。
 
 > [!NOTE]
-> 本文適用於 V1 **登入** 使用者流程內容中使用的自助式密碼重設，而該使用者流程使用 [本機帳戶登入] 作為識別提供者。 如果您需要從應用程式叫用的可完全自訂密碼重設使用者流程，請參閱 [這篇文章](active-directory-b2c-reference-policies.md#create-a-password-reset-user-flow)。
+> 本文適用於 V1 **登入** 使用者流程內容中使用的自助式密碼重設，而該使用者流程使用 [本機帳戶登入] 作為識別提供者。 如果您需要從應用程式叫用的可完全自訂密碼重設使用者流程，請參閱 [這篇文章](active-directory-b2c-reference-policies.md)。
 > 
 > 
 

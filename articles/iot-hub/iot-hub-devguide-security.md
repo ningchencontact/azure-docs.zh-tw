@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 6d15715379b06f55e1e190ebf5410995e3703d70
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3b49d568b1ca19a99359314bb181712f56ca5615
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053325"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201052"
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
 
@@ -418,7 +418,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 4. 裝置/模組直接透過 IoT 中樞使用權杖。
 
 > [!NOTE]
-> 您可以使用 .NET 類別 [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) 或 Java 類別 [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token)，在權杖服務中建立權杖。
+> 您可以使用 .NET 類別 [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) 或 Java 類別 [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken)，在權杖服務中建立權杖。
 
 權杖服務可以視需要設定權杖到期日。 權杖到期時，IoT 中樞會切斷裝置/模組連線。 然後，裝置/模組必須向權杖服務要求新權杖。 使用過短的到期時間會增加裝置/模組與權杖服務上的負載。
 

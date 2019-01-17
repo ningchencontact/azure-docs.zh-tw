@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3540d68491d6f2c8282aa1ef0b385300aaa190cf
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3e7a03f1235dab7eefd63b6611890897285d86ea
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822478"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332331"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>使用 Azure CLI 設定網路安全性群組流量記錄
 
@@ -34,7 +34,7 @@ ms.locfileid: "51822478"
 若要執行此文章中的步驟，您必須[安裝適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (CLI)](/cli/azure/install-azure-cli)。
 
 > [!NOTE] 
-> 美國中西部區域現已提供流程記錄第 2 版。 組態可透過 Azure 入口網站和 REST API 取得。 在不支援的區域中啟用第 2 版記錄會導致第 1 版記錄輸出到您的儲存體帳戶。
+> 美國中西部區域現已提供流程記錄第 2 版。 在不支援的區域中啟用第 2 版記錄會導致第 1 版記錄輸出到您的儲存體帳戶。
 
 ## <a name="register-insights-provider"></a>註冊 Insights 提供者
 
@@ -50,6 +50,8 @@ az provider register --namespace Microsoft.Insights
 
 ```azurecli
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
+# Configure 
+az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName  --format JSON --log-version 2
 ```
 
 您指定的儲存體帳戶不能為其設定網路規則，以限制只能對 Microsoft 服務或特定虛擬網路進行網路存取。 儲存體帳戶和您要啟用流程記錄的 NSG 可以位於相同或不同的 Azure 訂用帳戶。 如果您使用不同訂用帳戶，兩者都必須與相同的 Azure Active Directory 租用戶相關聯。 為每個訂用帳戶所使用的帳戶必須具有[必要的權限](required-rbac-permissions.md)。 
@@ -68,7 +70,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 流量記錄的儲存位置會在建立時定義。 若要存取這些儲存至儲存體帳戶的流量記錄，Microsoft Azure 儲存體總管是很便利的工具，您可以在這裡下載︰ http://storageexplorer.com/
 
-如果指定了儲存體帳戶，封包擷取檔案便會儲存到儲存體帳戶的下列位置︰
+如果指定了儲存體帳戶，流量記錄檔案便會儲存到儲存體帳戶的下列位置︰
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json

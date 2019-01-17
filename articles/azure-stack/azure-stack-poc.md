@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 89552bc568ce38c6153683e9c3b0f3f26f569083
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 530bb7b164ec7d7b31e6d4a58bca97aa17dc62fa
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959530"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357873"
 ---
 # <a name="what-is-azure-stack"></a>什麼是 Azure Stack？
 
@@ -29,8 +29,6 @@ Microsoft Azure Stack 是一個混合式雲端平台，可讓您在資料中心�
 
 Azure Stack 是透過兩種部署選項來提供的，用以滿足您的需求。
 
-## <a name="azure-stack-integrated-systems"></a>Azure Stack 整合系統
-Azure Stack 整合系統是透過 Microsoft 與[硬體合作夥伴](https://azure.microsoft.com/overview/azure-stack/integrated-systems/)的合作來提供的，可建立既提供雲端步調的創新又兼顧計算管理簡易性的解決方案。 由於是以整合的軟硬體系統形式來提供 Azure Stack，因此您可以獲得所需的彈性和控制力，以及從雲端創新的能力。 Azure Stack 整合系統的大小範圍為 4 到 16 個節點，並且由硬體合作夥伴與 Microsoft 共同支援。  請使用 Azure Stack 整合系統，來為生產環境工作負載建立新案例和部署新解決方案。
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack 開發套件
 
@@ -44,6 +42,9 @@ ASDK 有下列限制：
 * ASDK 會與單一 Azure Active Directory (Azure AD) 或 Active Directory 同盟服務 (AD FS) 識別提供者相關聯。 您可以在此目錄中建立多位使用者，並對每位使用者指派訂用帳戶。
 * Azure Stack 元件會部署在一部主機電腦上，因此租用戶資源可用的實體資源有限。 此設定不適合進行規模或效能評估。
 * 因為單一主機和 NIC 部署需求，所以網路功能案例會受到限制。
+
+## <a name="azure-stack-integrated-systems"></a>Azure Stack 整合系統
+Azure Stack 整合系統是透過 Microsoft 與[硬體合作夥伴](https://azure.microsoft.com/overview/azure-stack/integrated-systems/)的合作來提供的，可建立既提供雲端步調的創新又兼顧計算管理簡易性的解決方案。 由於是以整合的軟硬體系統形式來提供 Azure Stack，因此您可以獲得所需的彈性和控制力，以及從雲端創新的能力。 Azure Stack 整合系統的大小範圍為 4 到 16 個節點，並且由硬體合作夥伴與 Microsoft 共同支援。  請使用 Azure Stack 整合系統，來為生產環境工作負載建立新案例和部署新解決方案。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: c26f9c319a8260f4c19933d640310923b9c36db7
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 768a9d930314882f88eab630365475d69aa5f83b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134823"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213717"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>使用 Application Proxy 應用程式時發生「無法存取此企業應用程式」錯誤
 
@@ -62,7 +62,7 @@ ms.locfileid: "53134823"
 
 如果您看到禁止錯誤，則表示使用者尚未指派至該應用程式。 此錯誤可能發生在 Azure Active Directory 或後端應用程式。
 
-若要了解如何將使用者指派至 Azure 中的應用程式，請參閱[組態文件](https://docs.microsoft.com/azure/active-directory/application-proxy-add-on-premises-application#add-a-test-user)。
+若要了解如何將使用者指派至 Azure 中的應用程式，請參閱[組態文件](application-proxy-add-on-premises-application.md#test-the-application)。
 
 如果您確認使用者已指派至 Azure 中的應用程式，請在後端應用程式中檢查使用者組態。 如果您使用的是 Kerberos 限制委派/整合式 Windows 驗證，請參閱 [KCD 疑難排解] 頁面的指導方針。
 

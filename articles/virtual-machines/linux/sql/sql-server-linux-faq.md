@@ -3,21 +3,22 @@ title: Linux Azure 虛擬機器上的 SQL Server 常見問題集 | Microsoft Doc
 description: 本文章提供在 Linux Azure VM 上執行 SQL Server 的常見問題解答。
 services: virtual-machines-linux
 documentationcenter: ''
-author: rothja
-manager: jhubbard
+author: MashaMSFT
+manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
-ms.author: jroth
-ms.openlocfilehash: e8297892c533f3b0126f925f81d3e9bc429828ef
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: fb1cafcf9405576749ea91aeea033c6ee783a026
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039950"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330427"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Linux Azure 虛擬機器上 SQL Server 的常見問題集
 
@@ -72,7 +73,7 @@ ms.locfileid: "47039950"
 
 1. **如果是從其中一個隨收隨付資源庫映像建立，可以將 VM 變更為使用自己的 SQL Server 授權嗎？**
 
-   否。 您不能從以秒鐘計費授權切換為使用您自己的授權。 您必須建立新的 Linux VM，安裝 SQL Server，然後移轉資料。 如需自備授權的詳細資訊，請參閱上一個問題。
+   沒有。 您不能從以秒鐘計費授權切換為使用您自己的授權。 您必須建立新的 Linux VM，安裝 SQL Server，然後移轉資料。 如需自備授權的詳細資訊，請參閱上一個問題。
 
 ## <a name="administration"></a>系統管理
 

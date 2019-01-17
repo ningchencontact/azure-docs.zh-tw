@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.custom: seodec18
-ms.openlocfilehash: cded580e9083b9056bafe8070626a34726e8595a
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 0ed7d868f0e46e16224e15caaefd2d819c923f29
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555994"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200746"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用 C# 來管理 Azure Time Series Insights 環境的參考資料
 
@@ -241,4 +241,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>後續步驟
-[參考資料 API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)
+[參考資料 API](/rest/api/time-series-insights/ga-reference-data-api)

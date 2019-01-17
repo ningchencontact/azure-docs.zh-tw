@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 1d4760eb6490ce458e699ad9bc59a57cb473ef6d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8ccd2bfe78ca7b0fabac2b8c9bfd6ba002782a41
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104117"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352798"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>將 Windows 電腦連接到 Azure 中的 Log Analytics 服務
 
@@ -100,7 +100,7 @@ ms.locfileid: "54104117"
 |OPINSIGHTS_PROXY_USERNAME               | 要存取已驗證 Proxy 的使用者名稱 |
 |OPINSIGHTS_PROXY_PASSWORD               | 要存取已驗證 Proxy 的密碼 |
 
-1. 若要解壓縮代理程式安裝檔案，請從提升權限的命令提示字元執行 `MMASetup-<platform>.exe /c`，它會提示檔案解壓縮的路徑。  或者，您可以傳遞 `MMASetup-<platform>.exe /c /t:<Path>` 引數來指定路徑。  
+1. 若要解壓縮代理程式安裝檔案，請從提升權限的命令提示字元執行 `MMASetup-<platform>.exe /c`，它會提示檔案解壓縮的路徑。  或者，您可以傳遞 `MMASetup-<platform>.exe /c /t:<Full Path>` 引數來指定路徑。  
 2. 若要以無訊息方式安裝代理程式，並設定它向 Azure 商業雲端中的工作區報告，在您解壓縮安裝檔案的資料夾中輸入： 
    
      ```dos

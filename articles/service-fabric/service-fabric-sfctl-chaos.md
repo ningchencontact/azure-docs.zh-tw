@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 697815aeca9b8a07e3cece877d610436b2b8ac83
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c60f835939b790a05bb536388b961a277e3101e3
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278282"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215332"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 啟動、停止及報告 chaos 測試服務。
@@ -47,9 +47,9 @@ ms.locfileid: "53278282"
 |引數|說明|
 | --- | --- |
 | --continuation-token | 接續權杖參數可用來取得下一組結果。 當來自系統的結果無法放入單一回應中時，API 的回應中會包含具有非空白值的接續權杖。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。 |
-| --end-time-utc | 表示要產生 Chaos 報告之時間範圍結束時間的 Windows 檔案時間。 如需詳細資料，請參閱 [DateTime.ToFileTimeUtc 方法](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) \(機器翻譯\)。 |
+| --end-time-utc | 表示要產生 Chaos 報告之時間範圍結束時間的 Windows 檔案時間。 如需詳細資料，請參閱 [DateTime.ToFileTimeUtc 方法](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) \(機器翻譯\)。 |
 | --max-results | 分頁式查詢時傳回的最大結果數目。 此參數定義傳回結果數目的上限。 根據設定中所定義的訊息大小限制上限，如果所傳回的結果無法放入訊息中，則它們可以小於指定的結果上限。 如果此參數為零或未指定，則分頁式查詢會在傳回訊息中盡可能包含較多結果。 |
-| --start-time-utc | 表示要產生 Chaos 報告之時間範圍開始時間的 Windows 檔案時間。 如需詳細資料，請參閱 [DateTime.ToFileTimeUtc 方法](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) \(機器翻譯\)。 |
+| --start-time-utc | 表示要產生 Chaos 報告之時間範圍開始時間的 Windows 檔案時間。 如需詳細資料，請參閱 [DateTime.ToFileTimeUtc 方法](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) \(機器翻譯\)。 |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074082"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213616"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 和 AppSource 的諮詢服務
 Azure Marketplace 和 AppSource 中的諮詢服務會為 Microsoft 合作夥伴提供一個目標，希望以服務連結客戶，支援並擴大客戶對 Azure 的使用和商務目標。 
@@ -69,7 +69,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 |Dynamics 365 for Finance and Operations，Enterprise edition  |  具備銀級或金級[企業資源規劃](https://partner.microsoft.com/membership/enterprise-resource-planning-competency)專長認證，且過去 12 個月的雲端作業收益達 $25,000 以上。       |
 |Dynamics 365 for Finance and Operations，Business edition  |  以[雲端服務提供者 (CSP)](https://partner.microsoft.com/cloud-solution-provider) 或[數位記錄合作夥伴 (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) 的身分為至少一位客戶提供服務      |
 |Power BI，Power BI 自訂視覺效果 | 符合[解決方案合作夥伴準則](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf)。|
-|PowerApps | 具有[合作夥伴展示工具]()解決方案
+|PowerApps | 具有[合作夥伴展示工具](https://appsource.microsoft.com/partners)解決方案
 
 <b> 如需詳細資訊，請參閱[透過 Microsoft 合作夥伴網路了解專長認證](https://partner.microsoft.com/membership/competencies)。</b>
  

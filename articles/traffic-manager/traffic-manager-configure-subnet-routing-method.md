@@ -1,9 +1,10 @@
 ---
-title: 使用 Azure 流量管理員設定子網路流量路由方法 | Microsoft Docs
+title: 使用 Azure 流量管理員設定子網路流量路由方法
 description: 本文說明如何設定流量管理員，以從特定子網路路由傳送流量。
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 624bbb9fa8841b0c43800f318e83c54d6d408a09
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e3a3a9fdc2ab7f03db2d3a646eaeec7a02f88692
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987427"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231541"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>使用流量管理員根據使用者子網路將流量導向特定端點
 
@@ -51,7 +52,7 @@ ms.locfileid: "49987427"
 
     |設定|值|
     |---|---|
-    |名稱|myIISVMEastUS|
+    |Name|myIISVMEastUS|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |資源群組| 選取 [新增]，然後輸入 myResourceGroupTM1。|
@@ -134,7 +135,7 @@ ms.locfileid: "49987427"
 
     |設定|值|
     |---|---|
-    |名稱|myVMEastUS|
+    |Name|myVMEastUS|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |資源群組| 選取 [現有]，然後選取 [myResourceGroupTM1]。|
@@ -169,7 +170,7 @@ ms.locfileid: "49987427"
 2. 在 [建立流量管理員設定檔] 中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]：
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | 名稱                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
+    | Name                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
     | 路由方法          | 選取 [子網路] 路由方法。                                       |
     | 訂用帳戶            | 選取您的訂用帳戶。                          |
     | 資源群組          | 選取 [現有]，然後輸入 *myResourceGroupTM1*。 |
@@ -189,7 +190,7 @@ ms.locfileid: "49987427"
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
     | 類型                    | Azure 端點                                   |
-    | 名稱           | myTestWebSiteEndpoint                                        |
+    | Name           | myTestWebSiteEndpoint                                        |
     | 目標資源類型           | 公用 IP 位址                          |
     | 目標資源          | **選擇公用 IP 位址**以顯示具有相同訂用帳戶下公用 IP 位址的資源清單。 在 [資源] 中，選取名為 *myIISVMEastUS-ip* 的公用 IP 位址。 這是美國東部 IIS 伺服器 VM 的公用 IP 位址。|
     |  子網路路由設定    |   新增 *myVMEastUS* 測試 VM 的 IP 位址。 任何來自此 VM 的使用者查詢都會導向至 *myTestWebSiteEndpoint*。    |

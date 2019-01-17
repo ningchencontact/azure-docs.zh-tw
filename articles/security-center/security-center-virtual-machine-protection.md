@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9c1eff58be52b0b4bd9561db51986c9f509d64ee
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3a2ccd04cd7ec36cafdf56830b9ad8249f89eb7e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723224"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321581"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>保護 Azure 資訊安全中心內的機器和應用程式
 「Azure 資訊安全中心」會分析 Azure 資源的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議。 這些建議適用於下列 Azure 資源類型︰虛擬機器 (VM) 和電腦、應用程式、網路、SQL、身分識別與存取。
@@ -44,7 +44,6 @@ ms.locfileid: "53723224"
 - **雲端服務**︰列出資訊安全中心所監視的 Web 和背景工作角色。
 - **應用程式服務 (預覽)**：列出您的應用程式服務環境和各項目目前的安全性狀態。
 - **容器 (預覽)**：列出在 IaaS Linux 電腦上所裝載的容器，以及其 Docker 設定的安全性評定。
-- **VM 擴展集 (預覽)**：列出您的擴展集及其個別建議。
 - **計算資源 (預覽)**：列出您計算資源所適用的建議，例如 Service Fabric 叢集和事件中樞。
 
 若要繼續，請選取 [資源安全性檢查] 下的 [計算及應用程式]。
@@ -162,24 +161,6 @@ ms.locfileid: "53723224"
 
     ![App Service 修復](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-## <a name="virtual-machine-scale-sets-preview"></a>虛擬機器擴展集 (預覽)
-資訊安全中心會自動探索您是否有擴展集，並建議您在這些擴展集上安裝 Microsoft Monitoring Agent。 
-
-安裝 Microsoft Monitoring Agent： 
-
-1. 選取 [在虛擬機器擴展集上安裝監視代理程式] 建議。 您將取得未受監視的擴展集清單。
-2. 選取狀況不良的擴展集。 請遵循下列指示，使用現有擴展工作區或建立新擴展工作區來安裝監視代理程式。 如果未設定工作區[定價層](security-center-pricing.md)，請務必加以設定。
-
- ![安裝 MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
-
-如果您想要設定新的擴展集來自動安裝 Microsoft Monitoring Agent：
-1. 移至 Azure 原則，然後按一下 [定義]。
-2. 搜尋 [為 Windows VM 擴展集部署 Log Analytics 代理程式] 原則，並加以點選。
-3. 按一下 [指派]。
-4. 設定 [範圍] 和 [Log Analytics 工作區]，然後按一下 [指派]。
-
-如果您想要設定所有現有擴展集來安裝 Microsoft Monitoring Agent，請在 Azure 原則中移至 [修復]，並將現有原則套用到現有的擴展集。
-
 
 ## <a name="compute-and-app-recommendations"></a>計算和應用程式建議
 |資源類型|安全分數|建議|說明|
@@ -238,11 +219,7 @@ ms.locfileid: "53723224"
 |機器|30|在您的虛擬機器上安裝弱點評定解決方案|在您的虛擬機器上安裝弱點評定解決方案|
 |機器|1|將虛擬機器移轉到新的 Azure Resource Manager 資源|針對您的虛擬機器使用 Azure Resource Manager 以加強安全性，除了增強存取控制 (RBAC)、改善稽核、提供以 Resource Manager 為基礎的部署及治理、受控身分識別的存取、金鑰保存庫的祕密存取、以 Azure AD 為基礎的驗證，並支援標籤和資源群組，讓安全性管理更加輕鬆。 |
 |機器|30|利用弱點評定解決方案修復弱點|針對已部署弱點評定第三方解決方案的虛擬機器，持續評定是否有應用程式和 OS 弱點。 每當找到這類弱點時，都會隨著建議一併提供這些弱點的相關詳細資訊。|
-|虛擬機器擴展集 |4|啟用虛擬機器擴展集中的診斷記錄|啟用記錄並保留記錄最長一年。 這可讓您重新建立活動線索來進行調查。 當發生安全性事件或您的網路遭到入侵時，這非常有用。|
-|虛擬機器擴展集|35|修復虛擬機器擴展集之安全性設定中的弱點|修復虛擬機器擴展集之安全性設定中的弱點，避免其遭受攻擊。 |
-|虛擬機器擴展集|5|修復虛擬機器擴展集上的端點保護健康狀態失敗|修復虛擬機器擴展集的端點保護健康狀態失敗，避免其遭受威脅與弱點的傷害。 |
-|虛擬機器擴展集|10|在虛擬機器擴展集上安裝端點保護解決方案|在虛擬機器擴展集上安裝端點保護解決方案，避免其遭受威脅及弱點的傷害。 |
-|虛擬機器擴展集|40|在虛擬機器擴展集上安裝系統更新|安裝遺漏的系統安全性及重大更新，以保護您的 Windows 與 Linux 虛擬機器擴展集。 |
+
  
 
 

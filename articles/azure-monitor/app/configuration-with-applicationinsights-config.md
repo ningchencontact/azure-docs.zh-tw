@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 3c7b855588b45cd61bb13848720d6e926bbecba4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d17b1b754afc5067a885025dba83cd0fba2370d5
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121102"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214567"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>使用 ApplicationInsights.config 或 .xml 設定 Application Insights SDK
 Application Insights .NET SDK 是由數個 NuGet 封裝所組成。 [核心封裝](https://www.nuget.org/packages/Microsoft.ApplicationInsights) 提供 API，用於傳送遙測至 Application Insights。 [其他套件](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)提供遙測*模組*和*初始設定式*，用於自動從您的應用程式和其內容追蹤遙測。 您可以藉由調整組態檔，來啟用或停用遙測模組和初始設定式，並為其設定一些參數。
@@ -233,7 +233,7 @@ Microsoft.ApplicationInsights 封裝提供 SDK 的 [核心 API](https://msdn.mic
 
 #### <a name="local-forwarder"></a>本機轉送工具
 
-[本機轉送工具](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder)是會從各種 SDK 和架構收集 Application Insights 或 [OpenCensus](https://opencensus.io/) 遙測資料的代理程式，並且會將這些資料路由至 Application Insights。 此工具能夠在 Windows 和 Linux 下執行。 與 Application Insights Java SDK 搭配時，本機轉送工具可完整支援[即時計量](../../azure-monitor/app/live-stream.md)和調適型取樣。
+[本機轉送工具](opencensus-local-forwarder.md)是會從各種 SDK 和架構收集 Application Insights 或 [OpenCensus](https://opencensus.io/) 遙測資料的代理程式，並且會將這些資料路由至 Application Insights。 此工具能夠在 Windows 和 Linux 下執行。 與 Application Insights Java SDK 搭配時，本機轉送工具可完整支援[即時計量](../../azure-monitor/app/live-stream.md)和調適型取樣。
 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">

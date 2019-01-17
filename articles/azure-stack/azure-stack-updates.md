@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 67f363d14489340755251369b422475032d1e671
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ca09427de2f18612146ff03e4eef705006823ca8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222491"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302607"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>在 Azure Stack 中管理更新概觀
 
-「適用於：Azure Stack 整合系統」
+*適用於：Azure Stack 整合式系統*
 
 適用於 Azure Stack 整合式系統的 Microsoft 更新套件，通常大約會在每個月的第四個星期二發行。 請向您的 OEM 洽詢其特定通知程序，以確保更新通知觸達貴組織。 如需尚在有效支援期間之版本的相關資訊，您也可以在 [概觀] > [版本資訊] 底下查看此文件庫。 
 

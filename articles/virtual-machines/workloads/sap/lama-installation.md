@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 17/07/2018
 ms.author: sedusch
-ms.openlocfilehash: 2a0934fa3bb46eebba02029a8292b9bee6b12c62
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: d5d344f47fa46e9fe0adea048db200ec67a3fadc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728220"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262572"
 ---
 # <a name="sap-lama-connector-for-azure"></a>適用於 Azure 的 SAP LaMa 連接器
 
@@ -116,7 +116,7 @@ ms.locfileid: "52728220"
 
 ## <a name="provision-a-new-adaptive-sap-system"></a>佈建一個新的調適性 SAP 系統
 
-您可以手動部署新的虛擬機器，或使用[快速入門存放庫](https://github.com/Azure/azure-quickstart-templates)中的其中一個 Azure 範本。 其中包含 [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs)[SAP NetWeaver 應用程式伺服器](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps)和[資料庫](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-db)的範本。 您也可以使用這些範本，將新主機佈建為系統複製 (copy)/複製 (clone) 等的一部分。
+您可以手動部署新的虛擬機器，或使用[快速入門存放庫](https://github.com/Azure/azure-quickstart-templates)中的其中一個 Azure 範本。 其中包含 [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs)[SAP NetWeaver 應用程式伺服器](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps)和[資料庫](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-database)的範本。 您也可以使用這些範本，將新主機佈建為系統複製 (copy)/複製 (clone) 等的一部分。
 
 在部署新虛擬機器和取消準備 SAP 執行個體時，我們建議針對您要透過 SAP LaMa 管理的所有虛擬機器使用個別的子網路，請勿使用動態 IP 位址來防止 IP 位址「竊取」。
 

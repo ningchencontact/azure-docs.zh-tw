@@ -13,12 +13,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
-ms.openlocfilehash: d046b8e6c054131a4154654637f12dbdc26608a6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9e0e1a70926127389101c79121ffab03e411f56a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210426"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265137"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD 群組型授權的 PowerShell 範例
 
@@ -32,7 +32,7 @@ ms.locfileid: "50210426"
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>檢視指派給群組的產品授權
 [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) Cmdlet 可用來擷取群組物件並檢查「授權」屬性︰它會列出目前指派給群組的所有產品授權。
-```
+```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
 ```
@@ -78,11 +78,11 @@ HTTP/1.1 200 OK
 ## <a name="get-all-groups-with-licenses"></a>取得具有授權的所有群組
 
 您可以執行下列命令來尋找所有已獲得授權的群組︰
-```
+```powershell
 Get-MsolGroup | Where {$_.Licenses}
 ```
 您可以顯示更多有關已指派之產品的詳細資料︰
-```
+```powershell
 Get-MsolGroup | Where {$_.Licenses} | Select `
     ObjectId, `
     DisplayName, `
@@ -102,7 +102,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ## <a name="get-statistics-for-groups-with-licenses"></a>取得具有授權之群組的統計資料
 您可以針對具有授權的群組提出基本統計資料報告。 下列範例中，指令碼列出使用者總人數、群組已對其指派授權的使用者人數，以及群組無法對其指派授權的使用者人數。
 
-```
+```powershell
 #get all groups with licenses
 Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
     $groupId = $_.ObjectId;
@@ -160,7 +160,7 @@ Access to Offi... 11151866-5419-4d93-9141-0603bbf78b42 STANDARDPACK             
 
 ## <a name="get-all-groups-with-license-errors"></a>取得具有授權錯誤的所有群組
 若要尋找其所包含的使用者無法獲得授權指派的群組︰
-```
+```powershell
 Get-MsolGroup -HasLicenseErrorsOnly $true
 ```
 輸出：
@@ -201,7 +201,7 @@ HTTP/1.1 200 OK
 
 若群組中包含某些授權相關錯誤，您現在可以列出這些錯誤所影響到的使用者。 使用者也可能有來自其他群組的錯誤。 不過，此範例所列出的結果僅限於與有問題之群組有關的錯誤，其方法是對使用者每個 **IndirectLicenseError** 項目的 **ReferencedObjectId** 屬性進行檢查。
 
-```
+```powershell
 #a sample group with errors
 $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 
@@ -209,7 +209,7 @@ $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 Get-MsolGroupMember -All -GroupObjectId $groupId |
     #get full information about user objects
     Get-MsolUser -ObjectId {$_.ObjectId} |
-    #filter out users without license errors and users with licenense errors from other groups
+    #filter out users without license errors and users with license errors from other groups
     Where {$_.IndirectLicenseErrors -and $_.IndirectLicenseErrors.ReferencedObjectId -eq $groupId} |
     #display id, name and error detail. Note: we are filtering out license errors from other groups
     Select ObjectId, `
@@ -252,7 +252,7 @@ HTTP/1.1 200 OK
 > [!NOTE]
 > 此指令碼會列舉租用戶中的所有使用者，因此可能不適合大型租用戶使用。
 
-```
+```powershell
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
     $user = $_;
     $user.IndirectLicenseErrors | % {
@@ -278,7 +278,7 @@ Drew Fogarty     f2af28fc-db0b-4909-873d-ddd2ab1fd58c 1ebd5028-6092-41d0-9668-12
 
 以下是另一個版本的指令碼，它只會針對包含授權錯誤的群組進行搜尋。 這個指令碼可能更適合用於預期不會有多少群組有問題的情況。
 
-```
+```powershell
 $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
     foreach ($groupId in $groupIds) {
     Get-MsolGroupMember -All -GroupObjectId $groupId.ObjectID |
@@ -296,7 +296,7 @@ $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
 對於使用者物件，您可以檢查特定產品授權是群組所指派還是直接指派的。
 
 下列兩個函式範例可用來分析個別使用者的指派類型︰
-```
+```powershell
 #Returns TRUE if the user has the license assigned directly
 function UserHasLicenseAssignedDirectly
 {
@@ -358,7 +358,7 @@ function UserHasLicenseAssignedFromGroup
 ```
 
 此指令碼會對租用戶中的每位使用者執行這些函式，使用 SKU 識別碼作為輸入 - 在此範例中我們感興趣的是 Enterprise Mobility + Security 的授權，它在我們的租用戶中是以識別碼 contoso:EMS 表示：
-```
+```powershell
 #the license SKU we are interested in. use Msol-GetAccountSku to see a list of all identifiers in your tenant
 $skuId = "contoso:EMS"
 
@@ -436,7 +436,7 @@ HTTP/1.1 200 OK
 > [!NOTE]
 > 請務必先驗證，要移除的直接授權所啟用的服務功能，沒有比繼承的授權所啟用的功能多。 否則，移除直接授權可能會停用使用者對服務和資料的存取權。 目前無法透過 PowerShell 來檢查哪些服務是透過繼承授權來啟用，哪些則是透過直接授權來啟用。 在指令碼中，我們會指定已知從群組所繼承而來的最低層級服務，然後就此進行檢查，以確定使用者不會意外失去服務的存取權。
 
-```
+```powershell
 #BEGIN: Helper functions used by the script
 
 #Returns TRUE if the user has the license assigned directly

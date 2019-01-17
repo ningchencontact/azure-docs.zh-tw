@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7e6205f49aeacc960b01cfe43f0577e83de2896c
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: c54ae8990de134ca9aee85646f2c1548a878a2a8
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654361"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351980"
 documentType: LandingData
 title: Content Moderator 文件
 metadata:
@@ -42,7 +42,7 @@ sections:
       html: <p>了解 Content Moderator API。</p>
       image:
         src: ../media/index/i_overview.svg
-      title: 什麼是 Content Moderator？
+      title: 什麼是內容仲裁？
     - href: /azure/cognitive-services/content-moderator/text-moderation-api
       html: <p>了解文字仲裁。</p>
       image:
@@ -56,7 +56,7 @@ sections:
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
-    text: 了解如何選取箭號連結，開始使用 Content Moderator <img src="media/index/link.jpg" height="15" width="15"></img>.
+    text: 了解如何選取箭號連結，開始使用 Content Moderator <img src="images/index/link.jpg" height="15" width="15"></img>.
   - type: table
     style: dataMatrix
     columns:
@@ -72,7 +72,7 @@ sections:
       - href: quick-start
       - href: text-moderation-quickstart-dotnet
       - href: text-moderation-quickstart-python
-    - title: 分析影像內容
+    - title: 分析映像內容
       values:
       - href: 
       - href: image-moderation-quickstart-dotnet

@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 5b90ebc554738c89816cf88f8984ffab01c87d4d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 398a33e3f2f16cd694e77224dbd26324fe332fa1
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451308"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306398"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>從 GitHub 下載 Azure Stack 工具
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 **AzureStack-Tools** 是一個 [GitHub 存放庫](https://github.com/Azure/AzureStack-Tools)，當中裝載用來管理資源並將其部署至 Azure Stack 的 PowerShell 模組。 如果您打算建立 VPN 連線能力，您可以將這些 PowerShell 模組下載到 Azure Stack 開發套件或以 Windows 為基礎的外部用戶端。 若要取得這些工具，請複製 GitHub 存放庫或下載 **AzureStack-Tools** 資料夾，方法是執行下列指令碼：
 

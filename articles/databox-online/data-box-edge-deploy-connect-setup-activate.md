@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5f2ecd2cdff0ae5f3f5f086bde0741f7f6d2dbb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e5477807e4cff6dc745ccfd0383fd216719a7aa5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121612"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259597"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>教學課程：連線、設定及啟用 Azure Data Box Edge (預覽) 
 
@@ -95,7 +95,7 @@ ms.locfileid: "54121612"
    
    在 [Web Proxy 設定] 頁面上，執行下列動作：
    
-   a. 在 [Web proxy URL] 方塊中，以下列格式輸入 URL：`http://host-IP address or FDQN:Port number`。 此處不支援 HTTPS URL。
+   a. 在 [Web proxy URL] 方塊中，以下列格式輸入 URL：`http://host-IP address or FQDN:Port number`。 此處不支援 HTTPS URL。
 
    b. 在 [驗證] 底下，選取 [無] 或 [NTLM]。
 

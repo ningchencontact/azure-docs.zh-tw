@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 10/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: bc08025f070fb31d83fed26bfec00cec11cee061
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3aa98026d7293f1486f5450cc9ab17057807c031
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313627"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306110"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>什麼是 FPGA 和 Project Brainwave？
 
@@ -39,7 +39,7 @@ FPGA 包含可程式化邏輯區塊的陣列，以及可重新設定互連的階
 
 ## <a name="project-brainwave-on-azure"></a>Azure 的 Project Brainwave
 
-[Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) \(英文\) 是 Microsoft 所提供的硬體架構。 它會以 Intel 的 FPGA 裝置為基礎，讓資料科學家和開發人員可用來加速即時 AI 計算。 這個具有 FPGA 功能的架構可提供效能、彈性和擴展能力，並且可在 Azure 上使用。
+[Project Brainwave](https://www.microsoft.com/en-us/research/project/project-brainwave/) \(英文\) 是 Microsoft 所提供的硬體架構。 它會以 Intel 的 FPGA 裝置為基礎，讓資料科學家和開發人員可用來加速即時 AI 計算。 這個具有 FPGA 功能的架構可提供效能、彈性和擴展能力，並且可在 Azure 上使用。
 
 FPGA 可以實現低延遲的即時推斷請求。 不需要非同步要求 (批次處理)。 批次處理可能會造成延遲 (因為需要處理更多資料)。 使用類神經處理器的 Project Brainwave 實作不需要批次處理；因此，其延遲比 CPU 和 GPU 處理器低好幾倍。
 

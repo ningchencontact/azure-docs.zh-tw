@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 3154c3a5a677f208973d442ff3875bb5ee8df6a1
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.reviewer: unknown
+ms.openlocfilehash: 98a1235532ec4cc225ac6a5117265e145b21034b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160625"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245155"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>將 Linux 映像新增到 Azure Stack
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 您可以透過將 Linux 型映像新增到「Azure Stack 市集」中，在 Azure Stack 上部署 Linux 虛擬機器 (VM)。 將 Linux 映像新增到 Azure Stack 的最簡單方式就是透過「市集管理」。 這些映像已備妥，並已針對與 Azure Stack 的相容性進行測試。
 

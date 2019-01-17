@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: a97da5542395b57fa9a6ca6e4c38dd25e524ec3e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f2beb80619d03f0f7b41af95a8766eed23ffa784
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969415"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260681"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>從意圖和實體擷取資料
 LUIS 可讓您從使用者的自然語言語句取得資訊。 此資訊的擷取方式使得它可供程式、應用程式或 Chatbot 用來執行動作。 在下列各節中，您將透過 JSON 範例，了解從意圖和實體會傳回哪些資料。

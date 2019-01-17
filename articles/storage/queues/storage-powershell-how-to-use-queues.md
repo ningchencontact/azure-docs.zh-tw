@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: fef6858383028d62a16472bd530bf456d01ee7d3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 016d6b1991085e3ed881deb68317dbde0ee46326
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634417"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213224"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 執行 Azure 佇列儲存體作業
 
@@ -77,7 +77,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>建立佇列
 
-下列範例會先使用儲存體帳戶內容建立 Azure 儲存體的連線，其中包含儲存體帳戶名稱及其存取金鑰 。 接著，它會呼叫 [New-AzStorageQueue](/powershell/module/azure.storage/new-AzStoragequeue) Cmdlet 以建立名為 'queuename' 的佇列。
+下列範例會先使用儲存體帳戶內容建立 Azure 儲存體的連線，其中包含儲存體帳戶名稱及其存取金鑰 。 接著，它會呼叫 [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) Cmdlet 以建立名為 'queuename' 的佇列。
 
 ```powershell
 $queueName = "howtoqueue"
@@ -88,7 +88,7 @@ $queue = New-AzStorageQueue –Name $queueName -Context $ctx
 
 ## <a name="retrieve-a-queue"></a>擷取佇列
 
-您可以查詢與擷取儲存體帳戶中的特定佇列或所有佇列清單。 下列範例示範如何擷取儲存體帳戶中的所有佇列，以及一個特定的佇列；這兩個命令都會使用 [Get-AzStorageQueue](/powershell/module/azure.storage/get-AzStoragequeue) Cmdlet。
+您可以查詢與擷取儲存體帳戶中的特定佇列或所有佇列清單。 下列範例示範如何擷取儲存體帳戶中的所有佇列，以及一個特定的佇列；這兩個命令都會使用 [Get-AzStorageQueue](/powershell/module/az.storage/Get-AzStorageQueue) Cmdlet。
 
 ```powershell
 # Retrieve a specific queue

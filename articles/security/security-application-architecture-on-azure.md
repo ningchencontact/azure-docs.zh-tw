@@ -12,30 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 8ca9f0b75627e7ad366b3c02ec3126713a283ed2
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 4945978fdc27a298daf4de0604b894c53ba51dbe
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233730"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321397"
 ---
 # <a name="application-architecture-on-azure"></a>Azure 的應用程式架構
 為了協助保護您在 Microsoft Azure 上以雲端為基礎的解決方案，堅強的架構基礎相當重要。 架構設計人員、設計人員和實作者都受益於對於應用程式及服務架構的強大知識。 此基本知識將幫助您了解所有以雲端為基礎的解決方案的元件，並輕鬆地將安全性整合至您的設計和實作的所有層面。
 
 我們有下列項目可以協助您的架構調查與設計︰
 
-* 架構資訊圖
 * 架構藍圖
 * 雲端和企業符號集
 * 3D 藍圖 Visio 範本
-
-## <a name="architectural-infographics"></a>架構資訊圖
-Microsoft 發佈數個與架構相關的海報/資訊圖。 這些包括：
-
-* [建置真實世界的雲端應用程式](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
-* [調整雲端服務](https://azure.microsoft.com/documentation/infographics/cloud-services/)
 
 ## <a name="architectural-blueprints"></a>架構藍圖
 Microsoft 發佈一組高階 [架構藍圖](https://aka.ms/azblueprints) ，示範如何使用 Microsoft 產品來建置特定類型的系統。

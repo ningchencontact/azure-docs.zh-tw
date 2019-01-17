@@ -10,21 +10,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 945c5df9aa76cef6d55b759e3cef7c00bf54e1c4
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: fe516d1d34496d190ae45e00893deb646fc08408
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078325"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306551"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
 # <a name="use-the-azure-stack-api"></a>使用 Azure Stack API
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 您可以使用應用程式開發介面 (API)，將在 Azure Stack 雲端中新增 VM 之類的作業自動化。
 

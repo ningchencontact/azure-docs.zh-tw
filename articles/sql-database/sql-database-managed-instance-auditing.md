@@ -13,13 +13,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 045314980d0051e8b5ef71bdf95023084eff1880
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.date: 01/12/2019
+ms.openlocfilehash: 716c4caa1b28cc40470d366e5fc6901de9462f9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063862"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267261"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>開始使用 Azure SQL Database 受控執行個體稽核
 
@@ -172,9 +172,9 @@ ms.locfileid: "54063862"
 
 - 使用系統函式 `sys.fn_get_audit_file` (T-SQL) 以表格格式傳回稽核記錄資料。 如需有關如何使用此函數的詳細資訊，請參閱 [sys.fn_get_audit_file 文件](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) (英文)。
 
-- 您可以使用「Azure 儲存體總管」之類的工具來瀏覽稽核記錄。 在 Azure 儲存體中，稽核記錄是以 Blob 檔案集合的方式儲存在名為 sqldbauditlogs 的容器內。 如需有關儲存體資料夾階層、命名慣例及記錄格式的進一步詳細資料，請參閱＜Blob 稽核記錄格式參考＞。
+- 您可以使用工具 (例如 [Azure 儲存體總管](https://azure.microsoft.com/en-us/features/storage-explorer/)) 來查看稽核記錄。 在 Azure 儲存體中，稽核記錄是以 Blob 檔案集合的方式儲存在名為 sqldbauditlogs 的容器內。 如需有關儲存體資料夾階層、命名慣例、記錄格式的進一步詳細資訊，請參閱 [Blob 稽核記錄格式參考](https://go.microsoft.com/fwlink/?linkid=829599)。
 
-- 如需稽核記錄耗用方法的完整清單，請參閱[開始使用 SQL 資料庫稽核](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing)。
+- 如需稽核記錄耗用方法的完整清單，請參閱[開始使用 SQL 資料庫稽核](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)。
 
 > [!IMPORTANT]
 > 目前無法從 Azure 入口網站 ([稽核記錄] 窗格) 檢視「受控執行個體」的稽核記錄。

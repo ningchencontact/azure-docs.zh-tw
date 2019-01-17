@@ -1,18 +1,18 @@
 ---
 title: 分析 Azure Site Recovery 部署規劃工具針對 VMWare 至 Azure 的災害復原所做的報告 | Microsoft Docs
 description: 本文說明如何分析 Azure Site Recovery 部署規劃工具針對「VMWare 至 Azure 的災害復原」所產生的報告。
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 995c4bbbde87315e92c182fbc91b58ee34cda04e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: ecb1d4cca5ebc8a699988c6556b080ffa810eca8
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839546"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319841"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>分析 Azure Site Recovery 部署規劃工具針對 VMWare 至 Azure 的災害復原所做的報告
 

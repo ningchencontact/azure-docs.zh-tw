@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 12/14/2018
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d1110669bd0ca8c0ba0caf34ef41861c500bdd33
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4d25e4cd94fec35f31594544b619aa054a35d58d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790023"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302335"
 ---
 # <a name="recommended-live-streaming-encoders"></a>建議使用即時串流編碼器
 
@@ -52,7 +52,7 @@ ms.locfileid: "53790023"
 
 ## <a name="live-encoders-that-output-fragmented-mp4"></a>輸出分散式 MP4 的即時編碼器
 
-媒體服務建議使用下列其中一種具有多位元速率 Smooth Streaming (分散式 MP4) 做為輸出的即時編碼器。 支援的 URL 配置是 `rtmp://` 或 `rtmps://`。
+媒體服務建議使用下列其中一種具有多位元速率 Smooth Streaming (分散式 MP4) 做為輸出的即時編碼器。 支援的 URL 配置是 `http://` 或 `https://`。
 
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200

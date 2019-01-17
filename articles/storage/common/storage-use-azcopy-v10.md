@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: af45081df280f5542b5ba70892ee74c05b3e99cc
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2d0f3292a12505249ebc8594c58234a0c6e81a8a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808107"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212493"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>使用 AzCopy v10 (預覽) 傳輸資料
 
@@ -55,7 +55,7 @@ AzCopy v10 不需要安裝。 請開啟慣用的命令列應用程式，並瀏�
 
 AzCopy v10 可讓您在向 Azure 儲存體進行驗證時使用下列選項：
 - **Azure Active Directory [在 Blob 和 ADLS Gen2 上受支援]**。 使用 Azure Active Directory 透過 ```.\azcopy login``` 來登入。  使用者應該[獲派「儲存體 Blob 資料參與者」角色](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)，才能使用 Azure Active Directory 驗證寫入至 Blob 儲存體。
-- **SAS 權杖 [在 Blob 和檔案服務上受支援]**。 將 SAS 權杖附加至命令列上的 Blob 路徑中來加以使用。 您可以使用 Azure 入口網站、[儲存體總管](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)、[PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStorageblobsastoken) 或您選擇的其他工具來產生 SAS 權杖。 如需詳細資訊，請參閱[範例](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)。
+- **SAS 權杖 [在 Blob 和檔案服務上受支援]**。 將 SAS 權杖附加至命令列上的 Blob 路徑中來加以使用。 您可以使用 Azure 入口網站、[儲存體總管](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)、[PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) 或您選擇的其他工具來產生 SAS 權杖。 如需詳細資訊，請參閱[範例](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)。
 
 ## <a name="getting-started"></a>開始使用
 

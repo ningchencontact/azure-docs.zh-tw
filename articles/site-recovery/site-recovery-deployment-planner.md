@@ -1,18 +1,18 @@
 ---
 title: 關於 VMware VM 至 Azure 災害復原的 Azure Site Recovery 部署規劃工具 | Microsoft Docs
 description: 了解 VMware VM 至 Azure 災害復原的 Azure Site Recovery 部署規劃工具。
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 58dc344cc7ab40218a122e34a9032276107a944c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.author: mayg
+ms.openlocfilehash: 9a9129d376c0a39c54f297fcae883f8d90016970
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964453"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320560"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>關於 VMware 至 Azure 的 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery 部署規劃工具使用者指南。

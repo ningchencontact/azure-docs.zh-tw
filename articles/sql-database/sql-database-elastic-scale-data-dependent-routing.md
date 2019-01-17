@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 2a862a6f1165b0cdd4dfe46e638dc6b10eae9ee5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 46febbeb2675c38bf68c6ba0b911f799b268e208
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191321"
+ms.locfileid: "54201103"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>使用資料相依路由將查詢路由至適當的資料庫
 
@@ -68,7 +68,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 
 * **key** 參數做為分區對應中的查閱索引鍵，以決定要求的適當資料庫。
 * **connectionString** 只用來傳遞使用者認證給所需的連接。 此 *connectionString* 中不含任何資料庫名稱或伺服器名稱，因為此方法會使用 **ShardMap** 來決定資料庫和伺服器。
-* 若分區對應所在的環境可能變更，且資料列可能會移動到其他的資料庫成為分割或合併作業的結果，則 **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) 應設為 **ConnectionOptions.Validate**。 此驗證牽涉到在將連接傳遞至應用程式之前，對目標資料庫上的本機分區對應 (不是全域分區對應) 的簡短查詢。
+* 若分區對應所在的環境可能變更，且資料列可能會移動到其他的資料庫成為分割或合併作業的結果，則 **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) 應設為 **ConnectionOptions.Validate**。 此驗證牽涉到在將連接傳遞至應用程式之前，對目標資料庫上的本機分區對應 (不是全域分區對應) 的簡短查詢。
 
 如果本機分區對應驗證失敗 (表示快取不正確)，分區對應管理員會查詢全域分區對應來取得查閱的新正確值、更新快取，然後取得並傳回適當的資料庫連線。
 

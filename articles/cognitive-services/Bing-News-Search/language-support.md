@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: a8f7ccdb199f934011b6d64d813eb36cc9dff952
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 1d8a46287d2b84735ffb6d5159346cb9b8243472
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804543"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263985"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Bing 新聞搜尋 API 支援的語言和區域
 
@@ -47,7 +47,7 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 |紐西蘭|English|en-NZ|
 |菲律賓共和國|English|en-PH|
 |新加坡|English|en-SG|
-|美國|English|zh-TW|
+|美國|English|en-US|
 |English|一般|en-WW|
 |English|一般|en-XA|
 |南非|English|en-ZA|
@@ -86,7 +86,7 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 |德國|德文|de-DE|
 |澳大利亞|English|en-AU|
 |英國|English|en-GB|
-|美國|English|zh-TW|
+|美國|English|en-US|
 |English|一般|en-WW|
 |智利|西班牙文|es-CL|
 |墨西哥|西班牙文|es-MX|
@@ -108,7 +108,7 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 |德國|德文|de-DE|
 |澳大利亞|English|en-AU|
 |英國|English|en-GB|
-|美國|English|zh-TW|
+|美國|English|en-US|
 |加拿大|English|en-CA|
 |印度|English|en-IN|
 |法國|法文|fr-FR|

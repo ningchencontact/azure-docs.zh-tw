@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/20/2018
+ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: 859d81239cfad9eb5396a30f5db316bc73285831
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 341565bf621fa63ad578489cd04bcfff3510265b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188416"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229467"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 本文將說明如何開始使用使用規定。
@@ -87,9 +87,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 1. 若要要求使用者在接受使用規定之前必須檢閱其內容，請將 [要求使用者展開使用規定] 設定為 [開啟]。
 
-1. 若要要求使用者在其所存取的所有裝置上接受您的使用規定，請將 [需要使用者在每部裝置上同意] 設定為 [開啟]。
-
-    如果您沒看見 [需要使用者在每部裝置上同意] 設定，這是因為這項功能尚未部署到您的區域。 這項功能預計會在 2019 年 1 月初全面部署。 如需詳細資訊，請參閱[每部裝置的使用規定](#per-device-terms-of-use)。
+1. 若要要求使用者在其所存取的所有裝置上接受您的使用規定，請將 [需要使用者在每部裝置上同意] 設定為 [開啟]。 如需詳細資訊，請參閱[每部裝置的使用規定](#per-device-terms-of-use)。
 
 1. 如果您想要定期使針對使用規定的同意到期，請將 [到期同意] 設定為 [開啟]。 設定為 [開啟] 時，系統會顯示兩個額外的排程設定。
 
@@ -253,9 +251,6 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 ## <a name="per-device-terms-of-use"></a>每部裝置的使用規定
 
 [需要使用者在每部裝置上同意] 設定可讓您要求使用者在其所存取的所有裝置上接受您的使用規定。 使用者必須在 Azure AD 中加入其裝置。 裝置加入之後，系統將會使用裝置識別碼來對每個裝置強制執行使用規定。
-
-> [!NOTE]
-> 如果您在建立新的使用規定時沒看見 [需要使用者在每部裝置上同意] 設定，這是因為這項功能尚未部署到您的區域。 這項功能預計會在 2019 年 1 月初全面部署。
 
 以下是支援的平台與軟體清單。
 

@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 11/6/2018
 ms.author: patricka
 ms.reviewer: bryanr
-ms.openlocfilehash: fbf62e53ffe3fc3540086137955417bec56e7825
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 28bd314e2dd179d83d2880e3acbf39805b54d333
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240166"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263950"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack 中的多重租用
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 您可以設定 Azure Stack，以支援來自多重 Azure Active Directory (Azure AD) 租用戶的使用者在 Azure Stack 中使用服務。 例如，請考慮下列情節：
 
@@ -133,7 +133,7 @@ Mary 會將 Fabrikam 目錄中的任何[外部主體](../role-based-access-contr
 2. 身為 Azure Stack 的服務系統管理員 (在此案例中為您)，執行 *Unregister-AzSGuestDirectoryTenant*。 
 
     ``` PowerShell  
-    ## The following Azure Resource Manaager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
     $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
     
     ## Replace the value below with the Azure Stack directory

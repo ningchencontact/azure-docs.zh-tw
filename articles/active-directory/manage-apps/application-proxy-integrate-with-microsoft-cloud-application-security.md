@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 33da0b09339460d66650c492ec125461bc0980b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730168"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215094"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>使用 Microsoft Cloud App Security 與 Azure Active Directory 設定即時應用程式存取監視
 設定 Azure Active Directory (Azure AD) 中的內部部署應用程式，以使用 Microsoft Cloud App Security (MCAS) 進行即時監視。 MCAS 會使用條件式存取應用程式控制，根據條件式存取原則即時監視和控制工作階段。 您可以將這些原則套用至內部部署應用程式，以在 Azure Active Directory (Azure AD) 中使用應用程式 Proxy。
@@ -27,7 +27,7 @@ ms.locfileid: "53730168"
 - 使用用戶端憑證或裝置相容性，來封鎖非受控裝置對特定應用程式的存取。
 - 限制來自非公司網路的使用者工作階段。 您可以為從公司網路外部存取應用程式之使用者提供受限制的存取權。 例如，這個受限制的存取權會封鎖使用者下載敏感性文件的動作。
 
-如需詳細資訊，請參閱[使用 Microsoft Cloud App Security 條件式存取應用程式控制來保護應用程式](/cloud-app-security/proxy-intro-aad.md)。
+如需詳細資訊，請參閱[使用 Microsoft Cloud App Security 條件式存取應用程式控制來保護應用程式](/cloud-app-security/proxy-intro-aad)。
 
 ## <a name="requirements"></a>需求
 

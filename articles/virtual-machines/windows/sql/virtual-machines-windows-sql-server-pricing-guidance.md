@@ -3,7 +3,7 @@ title: 有效地管理 Azure 虛擬機器上 SQL Server 的成本 | Microsoft Do
 description: 提供選擇正確 SQL Server 虛擬機器定價模型的最佳做法。
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
-ms.author: jroth
-ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496469"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330784"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定價指導方針
 
@@ -91,7 +92,7 @@ ms.locfileid: "52496469"
 >不包含其他 SQL Server 的 Web、Standard 和 Enterprise 版本的授權成本。 若要取得最精確的定價估計，請在 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) 或 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 適用的定價頁面上，選取您的作業系統和 SQL Server 版本。
 
 > [!NOTE]
-> 現在已可將授權模式從依使用量付費變更成自備授權 (BYOL)，反之亦然。 如需詳細資訊，請參閱[如何變更 SQL VM 的授權模式](virtual-machines-windows-sql-ahb.md)。 
+> 現在已可將授權模式從依使用量付費變更成自備授權 (BYOL)，反之亦然。 如需詳細資訊，請參閱[如何變更 SQL VM 的授權模型](virtual-machines-windows-sql-ahb.md)。 
 
 ## <a id="byol"></a> 自備授權 (BYOL)
 
@@ -126,7 +127,7 @@ ms.locfileid: "52496469"
 > 請在 10 天內告訴我們您將在 Azure 中使用多少個 SQL Server 授權。 上述映像的連結包含如何這麼做的相關指示。
 
 > [!NOTE]
-> 現在已可將授權模式從依使用量付費變更成自備授權 (BYOL)，反之亦然。 如需詳細資訊，請參閱[如何變更 SQL VM 的授權模式](virtual-machines-windows-sql-ahb.md)。 
+> 現在已可將授權模式從依使用量付費變更成自備授權 (BYOL)，反之亦然。 如需詳細資訊，請參閱[如何變更 SQL VM 的授權模型](virtual-machines-windows-sql-ahb.md)。 
 
 
 

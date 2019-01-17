@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: fb0ad8efcd73b304ea5c68f0d3c45a38ce1b80e8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557276"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304902"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證
 
@@ -50,7 +50,7 @@ ms.locfileid: "53557276"
 * 在使用者旅程圖中使用 RESTful 服務。
 * 傳送輸入宣告，並在您的程式碼中讀取。
 * 驗證使用者的名字。
-* 傳回忠誠度號碼。 
+* 傳回忠誠度號碼。
 * 將忠誠度號碼新增至 JSON Web 權杖 (JWT)。
 
 ## <a name="prerequisites"></a>必要條件
@@ -77,11 +77,11 @@ ms.locfileid: "53557276"
 ## <a name="step-2-prepare-the-rest-api-endpoint"></a>步驟 2：準備 REST API 端點
 
 ### <a name="step-21-add-data-models"></a>步驟 2.1：新增資料模型
-模型會呈現 RESTful 服務中的輸入宣告以及輸出宣告資料。 您的程式碼會利用將來自 JSON 字串的輸入宣告模型還原序列化為 C# 物件 (您的模型)，藉此讀取輸入資料。 ASP.NET Web API 會將輸出宣告模型自動還原序列化回 JSON，然後將序列化資料寫入至 HTTP 回應訊息的本文。 
+模型會呈現 RESTful 服務中的輸入宣告以及輸出宣告資料。 您的程式碼會利用將來自 JSON 字串的輸入宣告模型還原序列化為 C# 物件 (您的模型)，藉此讀取輸入資料。 ASP.NET Web API 會將輸出宣告模型自動還原序列化回 JSON，然後將序列化資料寫入至 HTTP 回應訊息的本文。
 
 執行下列步驟建立一個代表輸入宣告的模型：
 
-1. 如果尚未開啟 [方案總管]，請選取 [檢視] > [方案總管]。 
+1. 如果尚未開啟 [方案總管]，請選取 [檢視] > [方案總管]。
 2. 在 [方案總管] 中，以滑鼠右鍵按一下 **Models** 資料夾，選取 [新增]，然後選取 [類別]。
 
     ![新增模型](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
@@ -128,13 +128,13 @@ ms.locfileid: "53557276"
                 this.userMessage = message;
                 this.status = (int)status;
                 this.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }    
+            }
         }
     }
     ```
 
 ### <a name="step-22-add-a-controller"></a>步驟 2.2：新增控制器
-在 Web API 中， _控制器_ 是處理 HTTP 要求的物件。 控制器會傳回輸出宣告，或如果名字無效，則會擲回「衝突」HTTP 錯誤訊息。
+在 Web API 中，_控制器_是處理 HTTP 要求的物件。 控制器會傳回輸出宣告，或如果名字無效，則會擲回「衝突」HTTP 錯誤訊息。
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，選取 [新增]，然後選取 [控制器]。
 
@@ -241,20 +241,20 @@ ms.locfileid: "53557276"
 </BuildingBlocks>
 ```
 
-## <a name="step-5-add-a-claims-provider"></a>步驟 5：新增宣告提供者 
-每個宣告提供者必須有一或多個技術設定檔，以決定與該宣告提供者進行通訊所需的端點以及通訊協定。 
+## <a name="step-5-add-a-claims-provider"></a>步驟 5：新增宣告提供者
+每個宣告提供者必須有一或多個技術設定檔，以決定與該宣告提供者進行通訊所需的端點以及通訊協定。
 
-基於各種原因，宣告提供者可以有多個技術設定檔。 例如，可能定義了多個技術設定檔，因為宣告提供者支援多個通訊協定，端點可以具有不同的功能，或是版本可以包含具有各種保證層級的宣告。 它可能會在一個使用者旅程圖中接受釋出機密宣告，但在另一個則不接受。 
+基於各種原因，宣告提供者可以有多個技術設定檔。 例如，可能定義了多個技術設定檔，因為宣告提供者支援多個通訊協定，端點可以具有不同的功能，或是版本可以包含具有各種保證層級的宣告。 它可能會在一個使用者旅程圖中接受釋出機密宣告，但在另一個則不接受。
 
 下列 XML 程式碼片段包含一個宣告提供者節點，其中具有兩個技術設定檔：
 
-* **TechnicalProfile Id="REST-API-SignUp"**：定義您的 RESTful 服務。 
-   * `Proprietary` 會描述為以 RESTful 為基礎之提供者的通訊協定。 
-   * `InputClaims` 會定義將從 Azure AD B2C 傳送至 REST 服務的宣告。 
+* **TechnicalProfile Id="REST-API-SignUp"**：定義您的 RESTful 服務。
+   * `Proprietary` 會描述為以 RESTful 為基礎之提供者的通訊協定。
+   * `InputClaims` 會定義將從 Azure AD B2C 傳送至 REST 服務的宣告。
 
    在此範例中，`givenName` 宣告的內容會傳送至 REST 服務做為 `firstName`，宣告 `surname` 的內容會傳送至 REST 服務做為 `lastName`，而 `email` 會依原狀傳送。 `OutputClaims` 元素定義的宣告會從 RESTful 服務擷取回 Azure AD B2C。
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**：將驗證技術的設定檔新增至現有的技術設定檔 (於基底原則中定義)。 在註冊旅程期間，驗證技術設定檔會叫用上述技術設定檔。 如果 RESTful 服務傳回 HTTP 錯誤 409 (衝突錯誤)，錯誤訊息會顯示給使用者。 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**：將驗證技術的設定檔新增至現有的技術設定檔 (於基底原則中定義)。 在註冊旅程期間，驗證技術設定檔會叫用上述技術設定檔。 如果 RESTful 服務傳回 HTTP 錯誤 409 (衝突錯誤)，錯誤訊息會顯示給使用者。
 
 找出 `<ClaimsProviders>` 節點，然後在 `<ClaimsProviders>` 節點下方新增下列 XML 程式碼片段：
 
@@ -329,7 +329,7 @@ ms.locfileid: "53557276"
 
 2. 選取 [識別體驗架構]。
 
-3. 開啟 [所有原則]。 
+3. 開啟 [所有原則]。
 
 4. 選取 [上傳原則]。
 
@@ -354,7 +354,7 @@ ms.locfileid: "53557276"
 
     ![測試您的原則](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4.  在 [名字] 方塊中輸入名字 ("Test" 除外)。  
+4. 在 [名字] 方塊中輸入名字 ("Test" 除外)。  
     Azure AD B2C 會註冊使用者，然後將 loyaltyNumber傳送至您的應用程式。 記下此 JWT 中的數字。
 
 ```
@@ -381,7 +381,7 @@ ms.locfileid: "53557276"
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(選用) 下載完整的原則檔案和程式碼
 * 在完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)逐步解說之後，建議您使用自己的自訂原則檔案來建置您的情節。 我們已提供[範例原則檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw)，供您參考。
 * 您可以從[供參考的範例 Visual Studio 解決方案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/)中下載完整程式碼。
-    
+
 ## <a name="next-steps"></a>後續步驟
 * [使用基本驗證 (使用者名稱和密碼) 保護您的 RESTful API](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 * [使用用戶端憑證保護您的 RESTful API](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

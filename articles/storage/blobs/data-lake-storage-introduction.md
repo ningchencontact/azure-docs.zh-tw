@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: ac36499475ffe02ae4d5140f35507530e6cf089e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 898080f445c54c93543a481bdd0487c70e772160
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994329"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214385"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2 預覽版介紹
 
@@ -51,7 +51,7 @@ Data Lake Storage Gen2 的基礎部分是新增至 Blob 儲存體的[階層命�
 
 ### <a name="cost-effectiveness"></a>符合成本效益
 
-在 Azure Blob 儲存體上建立 Data Lake Storage Gen2 的眾多好處之一，在於儲存容量和異動的成本低。 Data Lake Storage Gen2 和其他雲端儲存體服務不同之處，是在執行分析之前不需要移動或轉換儲存在其中的資料。 如需定價的詳細資訊，請參閱 [Azure 儲存體定價]((https://azure.microsoft.com/pricing/details/storage))。
+在 Azure Blob 儲存體上建立 Data Lake Storage Gen2 的眾多好處之一，在於儲存容量和異動的成本低。 Data Lake Storage Gen2 和其他雲端儲存體服務不同之處，是在執行分析之前不需要移動或轉換儲存在其中的資料。 如需定價的詳細資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage)。
 
 此外，例如[階層式命名空間](data-lake-storage-namespace.md)等功能可大幅提升許多分析作業的整體效能。 效能提升即表示處理數量相同的資料時，所需的計算能力較少，因此可降低端對端分析工作的擁有權總成本 (TCO)。
 

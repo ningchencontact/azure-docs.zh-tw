@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187412"
+ms.locfileid: "54198520"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>使用應用程式閘道來重寫 HTTP 標頭 (公開預覽)
 
@@ -116,8 +116,6 @@ HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。
 ## <a name="limitations"></a>限制
 
 - 目前只有透過 Azure PowerShell、Azure API 及 Azure SDK，才能使用這項重寫 HTTP 標頭的功能。 近期將會透過入口網站和 Azure CLI 支援此功能。
-
-- 一旦您在「應用程式閘道」上套用標頭重寫，便不應該使用入口網站對該「應用程式閘道」進行任何後續的變更，直到入口網站支援該功能為止。 如果您在套用重寫規則之後，使用入口網站對「應用程式閘道」進行變更，標頭會重寫規則。 您可以繼續使用 Azure PowerShell、Azure API 或 Azure SDK 來進行變更。
 
 - 只有在新 SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) 上才支援 HTTP 標頭重寫支援。 在舊 SKU 上將不支援此功能。
 

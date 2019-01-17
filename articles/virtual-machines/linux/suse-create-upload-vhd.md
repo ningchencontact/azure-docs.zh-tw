@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 5aa998ef7af157f84a3985fdb458c2800f2575f4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8ecc29e9422c1d427dd76059f1a427f3d49da38f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249365"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262366"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>準備適用於 Azure 的 SLES 或 openSUSE 虛擬機器
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -49,7 +49,7 @@ SUSE 是建置您自己的 VHD 的替代選項，其也可在 [VMDepot](https://
         # sudo zypper update
 5. 從 SLES 儲存機制安裝 Azure Linux 代理程式：
    
-        # sudo zypper install WALinuxAgent
+        # sudo zypper install python-azure-agent
 6. 檢查 chkconfig 中的 waagent 是否設為「啟用」，若否，請啟用以便自動啟動：
    
         # sudo chkconfig waagent on

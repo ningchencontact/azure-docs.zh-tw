@@ -3,7 +3,7 @@ title: 以 Azure PowerShell 建立 SQL Server 虛擬機器 (傳統) | Microsoft 
 description: 提供使用 SQL Server 虛擬機器資源庫映像建立 Azure VM 的步驟和 PowerShell 指令碼。 本主題使用傳統部署模式。
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
@@ -13,20 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
-ms.author: jroth
-ms.openlocfilehash: 66f44e27562f33373e0b67fe6e0ebf9c6bf99e03
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: ad8b59a9290c533a3687b5ff8956d8682fb6d9e9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399656"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332280"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>使用 Azure PowerShell 佈建 SQL Server 虛擬機器 (傳統)
 
 這篇文章提供如何使用 PowerShell Cmdlet 在 Azure 中建立 SQL Server 虛擬機器的步驟。
 
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 
 如果您需要本主題的 Resource Manager 版本，請參閱 [使用 Azure PowerShell Resource Manager 佈建 SQL Server 虛擬機器](../sql/virtual-machines-windows-ps-sql-create.md)。
 

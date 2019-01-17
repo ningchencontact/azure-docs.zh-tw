@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3cd0766fa4308df41172c323aa933e1c048f1e9d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: c02bc75a978325f8cb0dc8733fb8d296e8710975
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073997"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264677"
 ---
 # <a name="requirements-by-listing-type"></a>依清單類型別需求  
 技術與行銷內容需求會因店面、供應項目類型和清單類型而異。 請檢閱以下規格，檢查您的合規性。  

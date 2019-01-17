@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/14/2019
 ms.author: tulasim
-ms.openlocfilehash: b983fb21e8e67a422b6757619d1d0dfe8b6b9dcc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e785abe09bba83f4ee69e7fd676422e22b44b391
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033901"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261735"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>QnA Maker 知識庫內容的語言支援
 QnA Maker 支援多種語言的知識庫內容。 不過，個別的 QnA Maker 服務均應保留給單一語言使用。 針對特定 QnA Maker 服務而建立的第一個知識庫，會設定該服務的語言。 請參閱[這裡](../Overview/languages-supported.md)以取得支援的語言清單。

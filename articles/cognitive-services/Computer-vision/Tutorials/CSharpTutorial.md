@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: f4f588ad9123ec98cbae9f9bf03c08ec551a31a5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584440"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232748"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>教學課程：建置影像處理應用程式 - C&#35;
 
@@ -97,9 +97,6 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
    |辨識文字 (OCR) | 使用 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) (英文) 作業可辨識及擷取影像中的列印文字。 您可以選擇要使用的語言，或是由電腦視覺自動偵測語言。 |
    |辨識文字 V2 (英文) | 使用[辨識文字](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (英文) 和[取得辨識文字作業結果](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (英文) 作業，能以非同步方式辨識及擷取影像中的列印或手寫文字。 |
    |取得縮圖 | 使用[取得縮圖](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (英文) 作業可產生本機或遠端影像的縮圖。 |
-
-   > [!IMPORTANT]
-   > Microsoft 會收到您上傳的影像，而且可能使用它們來改善「電腦視覺 API」及相關服務。 藉由提交影像，即表示您確認自己已遵守我們的[開發人員管理辦法](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)。
 
    下列螢幕擷取畫面顯示的是在分析範例影像之後，針對分析影像案例提供的頁面。
    ![分析影像頁面的螢幕擷取畫面](../Images/Analyze_Image_Example.PNG)

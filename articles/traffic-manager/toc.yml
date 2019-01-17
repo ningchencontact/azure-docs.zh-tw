@@ -19,6 +19,10 @@ items:
     href: traffic-manager-configure-weighted-routing-method.md
   - name: 路由傳送流量至優先順序的端點
     href: traffic-manager-configure-priority-routing-method.md
+  - name: 使用加權端點控制流量
+    href: tutorial-traffic-manager-weighted-endpoint-routing.md
+  - name: 根據使用者的子網路路由傳送流量
+    href: tutorial-traffic-manager-subnet-routing.md
 - name: 範例
   items:
   - name: Azure CLl
@@ -100,6 +104,8 @@ items:
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html
   - name: REST
     href: https://msdn.microsoft.com/library/mt163667.aspx
+  - name: Resource Manager 範本
+    href: /azure/templates/microsoft.network/trafficmanagerprofiles
 - name: 相關參考
   items:
   - name: 應用程式閘道
@@ -128,9 +134,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla/traffic-manager/
   - name: 影片
     href: https://azure.microsoft.com/resources/videos/index/?services=traffic-manager
-ms.openlocfilehash: 31549ccb0241d174d42d1cb748a905539b01cfef
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: ab7f91c93ee513dcd8139e525e14cf5c84747772
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124281"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354241"

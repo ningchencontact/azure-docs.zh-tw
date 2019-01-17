@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 476e74a4d167fb3e9158f07cc5c073f129a74daa
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2ad641ae054f9542ec1ef42f5ebbe724ba4ecf87
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545887"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354020"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>在適用於 MariaDB 的 Azure 資料庫中監視
 監視伺服器的相關資料，可協助您疑難排解並最佳化您的工作負載。 適用於 MariaDB 的 Azure 資料庫提供多種計量，可讓您深入了解您伺服器的行為。
@@ -19,7 +19,7 @@ ms.locfileid: "53545887"
 ## <a name="metrics"></a>度量
 所有 Azure 計量都有一分鐘頻率，且每個計量皆提供 30 天的記錄。 您可以在計量上設定警示。 其他工作包含設定自動化動作、執行進階分析，以及封存記錄。 如需詳細資訊，請參閱 [Azure 計量概觀] (../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
 
-<!--For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). -->
+如需逐步指引，請參閱[如何設定警示](howto-alert-metric.md)。
 
 ### <a name="list-of-metrics"></a>計量清單
 這些計量可供適用於 MariaDB 的 Azure 資料庫使用：
@@ -45,5 +45,4 @@ ms.locfileid: "53545887"
 
 ## <a name="next-steps"></a>後續步驟
 - 如需如何使用 Azure 入口網站、REST API 或 CLI 存取及匯出計量的詳細資訊，請參閱 [Azure 計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
-
-<!-- - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.-->
+ - 請參閱[如何設定警示](howto-alert-metric.md)，取得根據計量來建立警示的指引。

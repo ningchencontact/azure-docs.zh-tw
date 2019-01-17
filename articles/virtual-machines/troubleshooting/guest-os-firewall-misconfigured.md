@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: bbfa5ce0e277df3648e98be29fe91a44b15a52b7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137832"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262280"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure 虛擬機器客體作業系統防火牆設定不正確
 
@@ -68,7 +68,7 @@ ms.locfileid: "53137832"
 *   使用應用程式所用的本機連接埠進行查詢：
 
     ```cmd
-    netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<APPLICAITON PORT>)" -context 9,4 | more
+    netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<APPLICATION PORT>)" -context 9,4 | more
     ```
 
 *   使用應用程式所用的本機 IP 位址進行查詢：
