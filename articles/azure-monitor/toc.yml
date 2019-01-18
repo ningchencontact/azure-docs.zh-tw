@@ -662,6 +662,8 @@ items:
         href: log-query/query-language.md
       - name: 語言差異
         href: log-query/data-explorer-difference.md
+      - name: 從記錄搜尋轉換
+        href: log-query/log-search-transition.md
       - name: 開始使用
         items:
         - name: 開始使用 Analytics 入口網站
@@ -702,6 +704,8 @@ items:
         items:
         - name: 範例
           href: log-query/examples.md
+        - name: 寫入有效率的查詢
+          href: log-query/log-query-performance.md
         - name: 智慧分析
           href: log-query/smart-analytics.md
         - name: 跨資源搜尋
@@ -1017,9 +1021,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 程式碼範例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: a0dc6965328ed73059342f36d89d5fdd405bfc9d
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5cb859501356213289c674e3bfa689095c9b28e1
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352609"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390716"
