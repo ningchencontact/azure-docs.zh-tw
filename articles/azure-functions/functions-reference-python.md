@@ -149,7 +149,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-叫用此函式時，HTTP 要求會以 `req` 傳遞至函式。 系統會根據路由 URL 中的_識別碼_從 Azure Blob 儲存體擷取輸入，並於函式主體中以 `obj` 形式提供使用。
+叫用此函式時，HTTP 要求會以 `req` 傳遞至函式。 系統會根據路由 URL 中的 _id_ 從 Azure Blob 儲存體擷取輸入，並於函式主體中以 `obj` 形式提供使用。
 
 ## <a name="outputs"></a>輸出
 
