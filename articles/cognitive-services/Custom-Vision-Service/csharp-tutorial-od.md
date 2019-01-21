@@ -31,9 +31,9 @@ ms.locfileid: "51278855"
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-複製或下載[認知服務 .NET 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)專案。 在 Visual Studio 中瀏覽至 **CustomVision/ObjectDetection** 資料夾並開啟 _ObjectDetection.csproj_。
+複製或下載[認知服務 .NET 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)專案。 在 Visual Studio 中瀏覽至「CustomVision/ObjectDetection」資料夾並開啟「ObjectDetection.csproj」。
 
-此 Visual Studio 專案會建立名為**我的新專案**的新自訂視覺專案，而此專案可透過[自訂視覺網站](https://customvision.ai/)來存取。 接著，它會上傳影像，以定型和測試物件偵測模型。 在此專案中，將會定型模型以偵測影像中的叉子和剪刀。
+此 Visual Studio 專案會新建一個名為「我的新專案」的自訂視覺專案，而此專案可透過[自訂視覺網站](https://customvision.ai/)來存取。 接著，它會上傳影像，以定型和測試物件偵測模型。 在此專案中，將會定型模型以偵測影像中的叉子和剪刀。
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
