@@ -33,7 +33,7 @@ ms.locfileid: "51279419"
 
 複製或下載[認知服務 .NET 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)專案。 在 Visual Studio 中瀏覽至 **CustomVision/ImageClassification** 資料夾並開啟 _ImageClassification.csproj_。
 
-此 Visual Studio 專案會建立名為**我的新專案**的新自訂視覺專案，而此專案可透過[自訂視覺網站](https://customvision.ai/)來存取。 然後上傳影像以便為分類器定型並加以測試。 在此專案中，分類器會用來判斷影像是**鐵杉**還是**日本櫻**。
+此 Visual Studio 專案會建立名為「我的新專案」的新自訂視覺專案，而此專案可透過[自訂視覺網站](https://customvision.ai/)來存取。 然後上傳影像以便為分類器定型並加以測試。 在此專案中，分類器會用來判斷影像是「鐵杉」還是「日本櫻」。
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
