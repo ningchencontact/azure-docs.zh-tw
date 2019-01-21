@@ -36,7 +36,7 @@ ms.locfileid: "51283524"
 
 複製或下載[認知服務 Java SDK 範例](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master)專案。 瀏覽至 **Vision/CustomVision/** 資料夾。
 
-此 Java 專案會建立名為 **Java 專案範例**的新自訂視覺影像分類專案，如需存取此專案，請透過[自訂視覺網站](https://customvision.ai/)。 然後上傳影像以便為分類器定型並加以測試。 在此專案中，分類器會用來判斷影像是**鐵杉**還是**日本櫻**。
+此 Java 專案會建立名為「Java 專案範例」的新自訂視覺影像分類專案，如需存取此專案，請透過[自訂視覺網站](https://customvision.ai/)。 然後上傳影像以便為分類器定型並加以測試。 在此專案中，分類器會用來判斷影像是「鐵杉」還是「日本櫻」。
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
