@@ -57,34 +57,13 @@ items:
     href: r-quickstart.md
 - name: 範例
   items:
+  - name: 實驗範例
+    displayName: gallery
+    href: sample-experiments.md
   - name: 範例資料集
     href: use-sample-datasets.md
-  - name: 客戶流失範例
-    href: azure-ml-customer-churn-scenario.md
   - name: Azure AI 資源庫
-    items:
-    - name: 概觀
-      href: gallery-how-to-use-contribute-publish.md
-    - name: 實驗範例
-      href: sample-experiments.md
-    - name: 產業
-      href: gallery-industries.md
-    - name: 解決方案
-      href: gallery-solutions.md
-    - name: 實驗
-      href: gallery-experiments.md
-    - name: Jupyter Notebook
-      href: gallery-jupyter-notebooks.md
-    - name: 競賽
-      href: gallery-competitions.md
-    - name: 競賽常見問題集
-      href: competition-faq.md
-    - name: 教學課程
-      href: gallery-tutorials.md
-    - name: 集合
-      href: gallery-collections.md
-    - name: 自訂模組
-      href: gallery-custom-modules.md
+    href: gallery-how-to-use-contribute-publish.md
 - name: 概念
   items:
   - name: 模型管理
@@ -102,9 +81,6 @@ items:
       href: troubleshooting-creating-ml-workspace.md
     - name: 使用 ARM 部署
       href: deploy-with-resource-manager-template.md
-    - name: 檢視和刪除 Studio 帳戶資料
-      displayName: export
-      href: export-delete-personal-data-dsr.md
   - name: 匯入訓練資料
     items:
     - name: 概觀
@@ -127,16 +103,10 @@ items:
     - name: 使用 PowerShell 建立模型
       displayName: endpoint, endpoints
       href: create-models-and-endpoints-with-powershell.md
-    - name: 選取演算法
-      items:
-      - name: 選擇演算法
-        href: algorithm-choice.md
-      - name: 演算法功能提要
-        href: algorithm-cheat-sheet.md
-      - name: 使用線性迴歸
-        href: linear-regression-in-azure.md
-      - name: 使用文字分析
-        href: text-analytics-module-tutorial.md
+    - name: 選擇演算法
+      href: algorithm-choice.md
+    - name: 演算法功能提要
+      href: algorithm-cheat-sheet.md
     - name: 評估及解譯結果
       items:
       - name: 評估效能
@@ -212,7 +182,19 @@ items:
       href: consume-web-service-with-web-app-template.md
     - name: 使用 Batch 集區
       href: dedicated-capacity-for-bes-jobs.md
-  - name: 檢視和刪除帳戶資料
+  - name: 範例
+    items:
+    - name: 客戶流失
+      href: azure-ml-customer-churn-scenario.md
+    - name: 情感分析
+      href: text-analytics-module-tutorial.md
+    - name: 將分析從 Excel 遷移至 Studio
+      href: linear-regression-in-azure.md
+  - name: 檢視和刪除 Studio 資料
+    displayName: export
+    href: export-delete-personal-data-dsr.md
+  - name: 檢視和刪除資源庫資料
+    displayName: export
     href: ai-gallery-control-personal-data-dsr.md
 - name: 參考
   items:
@@ -244,9 +226,9 @@ items:
     href: azure-ml-netsharp-reference-guide.md
   - name: 比較 ML 產品
     href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 821a6ffb787aef0d75dbc0f9e1ab331ad35dafa0
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: a79ff2e7b2fba67e5c341468b462eacd07e2693c
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389928"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401940"

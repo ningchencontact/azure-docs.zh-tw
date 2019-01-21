@@ -98,6 +98,16 @@ items:
         href: azure-stack-network-overview.md
       - name: 網路考量
         href: azure-stack-network-differences.md
+      - name: VPN 閘道
+        items:
+        - name: 使用 VPN 連線
+          href: azure-stack-connect-vpn.md
+        - name: 關於 VPN 閘道
+          href: azure-stack-vpn-gateway-about-vpn-gateways.md
+        - name: 設定 IPSec/IKE 連線原則
+          href: azure-stack-vpn-s2s.md
+        - name: VPN 閘道設定
+          href: azure-stack-vpn-gateway-settings.md
       - name: iDNS for Azure Stack
         href: azure-stack-understanding-dns.md
       - name: Azure Stack 中的 DNS
@@ -223,9 +233,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: 訓練與憑證
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 256560806e1065ec1ca9cfa9ba1d9f4521755ee8
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0a573a5e9c79ffc2a9db52705cf229b3b776df65
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351755"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411691"
