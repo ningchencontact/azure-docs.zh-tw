@@ -25,7 +25,7 @@ ms.locfileid: "49338364"
 ## <a name="get-a-subscription-key"></a>取得訂用帳戶金鑰
 1. 您可以透過兩種方式之一，從 Azure 入口網站取得訂用帳戶金鑰：
 
-    * 移至 [Azure 入口網站](https://ms.portal.azure.com)，然後藉由搜尋_認知服務_再選取 [認知服務 API] 來新增認知服務 API。
+    * 移至 [Azure 入口網站](https://ms.portal.azure.com)，然後藉由搜尋 _Cognitive Services_ 再選取 **[Cognitive Services APIs]** 來新增 Cognitive Services API。
 
       ![認知服務搜尋](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription.png)
 
