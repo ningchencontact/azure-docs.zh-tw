@@ -187,7 +187,7 @@ ms.locfileid: "54258859"
 更新這些值，以包含您訂用帳戶和小組專屬的資訊。
 
 > [!NOTE]
-> 您可以在建立 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)訂用帳戶時使用的名稱中設定 TeamName 常數。 您可以從 [設定] \(齒輪) 功能表的 [認證] 區段中擷取 TeamName。
+> 您可以在建立 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)訂用帳戶時使用的名稱中設定 TeamName 常數。 您可以從 [設定]\(齒輪) 功能表的 [認證] 區段中擷取 TeamName。
 >
 > 小組名稱會是 [API] 區段中 [Id] 欄位的值。
 
