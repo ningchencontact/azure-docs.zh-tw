@@ -15,14 +15,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: a8a7514624387d0fc00d32e4d47042e4a3b130f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 41f8a403694eec897ba4a6eb147ab71757d5caa5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444414"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263929"
 ---
-# <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Azure CLI 指令碼範例：平衡多個網站的負載
+# <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Azure CLI 指令碼範例：進行多個網站的負載平衡
 
 此 Azure CLI 指令碼範例使用可用性設定組成員的兩個虛擬機器 (VM) 建立虛擬網路。 負載平衡器會將兩個不同 IP 位址的流量傳送至這兩個 VM。 執行指令碼之後，您可以將 Web 伺服器軟體部署至 VM 並主控多個網站 (各有自己的 IP 位址)。
 

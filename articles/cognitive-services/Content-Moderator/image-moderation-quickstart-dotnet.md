@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 C# 分析影像內容中的不當題材
+title: 快速入門：使用 C# 分析令人反感的影像 - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: 如何使用 Content Moderator SDK for .NET 分析各種令人反感的影像內容
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 10/26/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 7a8341d4189b90a67525fd0fba25aa0f321b21b1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e11e037e7be8ca308f7924654c4f28b1634dc5fd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084748"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260766"
 ---
 # <a name="quickstart-analyze-image-content-for-objectionable-material-in-c"></a>快速入門：使用 C# 分析影像內容中的不當題材
 

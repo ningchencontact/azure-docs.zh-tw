@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4809c09b5aa7b8212981cc13589602a365a23a37
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: d82e80530d375a9d0f0a6d3f491d3070942ca02f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113609"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331906"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>在 Azure 中建立由計時器觸發的函式
 
@@ -43,15 +43,15 @@ ms.locfileid: "49113609"
 
 ## <a name="create-a-timer-triggered-function"></a>建立由計時器觸發的函式
 
-1. 展開函式應用程式，然後按一下 [Functions] 旁的 [+] 按鈕。 如果這是您函式應用程式中的第一個函式，請選取 [自訂函式]。 這會顯示一組完整的函式範本。
+1. 展開函式應用程式，然後按一下 [Functions] 旁的 [+] 按鈕。 如果這是函式應用程式中的第一個函式，請依序選取 [入口網站內] 和 [繼續]。 否則，請移至步驟三。
 
-    ![Azure 入口網站中的 Functions 快速入門](./media/functions-create-scheduled-function/add-first-function.png)
+   ![Azure 入口網站中的 Functions 快速入門](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
-2. 在 [搜尋] 欄位中，輸入 `timer`，然後選擇您需要的計時器觸發程序範本語言。 
+2. 依序選擇 [更多範本] 和 [完成並檢視範本]。
 
-    ![選擇計時器觸發的函式範本。](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Functions 快速入門選擇更多範本](./media/functions-create-scheduled-function/add-first-function.png)
 
-3. 使用下圖下方之表格內指定的設定來設定新的觸發程序。
+3. 在搜尋欄位中輸入 `timer`，並使用下圖下方的表格內指定的設定來設定新的觸發程序。
 
     ![在 Azure 入口網站中建立計時器觸發函式。](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
@@ -60,13 +60,13 @@ ms.locfileid: "49113609"
     | **名稱** | 預設值 | 定義計時器觸發函式的名稱。 |
     | **排程** | 0 \*/1 \* \* \* \* | 含有六個欄位的 [CRON 運算式](functions-bindings-timer.md#cron-expressions)，它會將函式排程為每分鐘執行一次。 |
 
-2. 按一下頁面底部的 [新增] 。 系統隨即會以您所選的語言建立函式，並讓它每分鐘執行一次。
+4. 按一下頁面底部的 [新增] 。 系統隨即會以您所選的語言建立函式，並讓它每分鐘執行一次。
 
-3. 檢視寫入到記錄的追蹤資訊以確認執行情形。
+5. 檢視寫入到記錄的追蹤資訊以確認執行情形。
 
     ![Azure 入口網站中的函式記錄檢視器。](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-現在，您可以變更函式的排程，使其每小時執行一次，而非每分鐘執行一次。 
+現在，您可以變更函式的排程，使其每小時執行一次，而非每分鐘執行一次。
 
 ## <a name="update-the-timer-schedule"></a>更新計時器排程
 

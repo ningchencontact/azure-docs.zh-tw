@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 2db8784432398c8e913705d73b0232e36db44084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 14295bca12e64174d03cfd1c2bd8d214d801e8e5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080435"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261055"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>開始監視 ASP.NET Core Web 應用程式
 
@@ -87,7 +87,7 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
    ![經過一段時間的使用者要求分析圖表](./media/dotnetcore-quick-start/0007-dc.png)
 
-4. 返回 [概觀] 頁面，檢查 [KPI 儀表板]。  此儀表板會提供應用程式健康情況的統計資料，包括連入要求數量、這些要求的持續時間，以及任何發生的失敗。 
+4. 返回 [概觀] 頁面，並檢查 [KPI 儀表板]。  此儀表板會提供應用程式健康情況的統計資料，包括連入要求數量、這些要求的持續時間，以及任何發生的失敗。 
 
    ![健康情況概觀時間軸圖表](./media/dotnetcore-quick-start/overview-graphs.png)
 

@@ -8,53 +8,68 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 02/14/2018
+ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 3489a9634cecd776afc8619a81acd72a2649ec36
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7927e680194d682ab9ee48320afa42ba29c676dc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261192"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259490"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>快速入門：使用適用於 Python 的 Bing 新聞搜尋 SDK 來執行新聞搜尋
 
-新聞搜尋 SDK 包含用於 Web 查詢以及剖析結果的 REST API 功能。 
+透過本快速入門開始使用適用於 Python 的 Bing 新聞搜尋 SDK 來搜尋新聞。 雖然 Bing 新聞搜尋具有與大部分程式設計語言相容的 REST API，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py) 上找到。
 
-[Python Bing 新聞搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py)可從 Git Hub 取得。
+## <a name="prerequisites"></a>必要條件
 
-## <a name="application-dependencies"></a>應用程式相依性
-在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
+* [Python](https://www.python.org/) 2.x 或 3.x
 
-若還沒有 Python，請安裝。 SDK 與 Python 2.7、3.3、3.4、3.5 和 3.6 相容。
+建議使用[虛擬環境](https://docs.python.org/3/tutorial/venv.html)來開發 Python。 您可以使用 [venv 模組](https://pypi.python.org/pypi/virtualenv)來安裝和初始化虛擬環境。 您必須安裝適用於 Python 2.7 的 virtualenv。 您可以使用下列命令建立虛擬環境：
 
-Python 開發的一般建議是使用[虛擬環境](https://docs.python.org/3/tutorial/venv.html)。 使用 [venv 模組](https://pypi.python.org/pypi/virtualenv)來安裝和初始化虛擬環境。 您必須安裝適用於 Python 2.7 的 virtualenv。
-```
+```console
 python -m venv mytestenv
 ```
-安裝 Bing 新聞搜尋 SDK 相依性：
-```
-cd mytestenv
+
+您可以使用下列命令安裝 Bing 新聞搜尋 SDK 相依性：
+    
+```console
 python -m pip install azure-cognitiveservices-search-newssearch
 ```
-## <a name="news-search-client"></a>新聞搜尋用戶端
-在 [搜尋] 下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。 新增匯入：
-```
-from azure.cognitiveservices.search.newssearch import NewsSearchAPI
-from msrest.authentication import CognitiveServicesCredentials
 
-subscription_key = "YOUR-SUBSCRIPTION-KEY"
-```
-建立 `CognitiveServicesCredentials` 執行個體。 具現化用戶端：
-```
-client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-```
-搜尋結果，並列印第一個網頁結果：
-```
-news_result = client.news.search(query="Quantum Computing", market="en-us", count=10)
-print("Search news for query \"Quantum Computing\" with market and count")
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
+## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
+
+1. 在您最愛的 IDE 或編輯器中建立新的 Python 檔案，並匯入下列程式庫。 建立訂用帳戶金鑰變數和搜尋字詞。
+
+    ```python
+    from azure.cognitiveservices.search.newssearch import NewsSearchAPI
+    from msrest.authentication import CognitiveServicesCredentials
+    subscription_key = "YOUR-SUBSCRIPTION-KEY"
+    search_term = "Quantum Computing"
+    ```
+
+## <a name="initialize-the-client-and-send-a-request"></a>初始化用戶端並傳送要求
+
+1. 建立 `CognitiveServicesCredentials` 執行個體。 具現化用戶端：
+    
+    ```python
+    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
+    ```
+
+2. 將搜尋查詢傳送至 Bing 新聞搜尋 API，儲存回應。
+
+    ```python
+    news_result = client.news.search(query=search_term, market="en-us", count=10)
+    ```
+
+## <a name="parse-the-response"></a>剖析回應
+
+如果找到任何搜尋結果，請列印第一個網頁結果：
+
+```python
 if news_result.value:
     first_news_result = news_result.value[0]
     print("Total estimated matches value: {}".format(news_result.total_estimated_matches))
@@ -66,97 +81,9 @@ if news_result.value:
     print("First news provider: {}".format(first_news_result.provider[0].name))
 else:
     print("Didn't see any news result data..")
-
-```
-使用 `freshness` 和 `sortBy` 參數，利用篩選搜尋有關 "Artificial Intelligence" 的最新新聞。 驗證結果數目，並印出第一個新聞項目結果的 `totalEstimatedMatches`、`name`、`url`、`description`、`published time` 和 `name of provider`。
-```
-def news_search_with_filtering(subscription_key):
-
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-
-    try:
-        news_result = client.news.search(
-            query="Artificial Intelligence",
-            market="en-us",
-            freshness="Week",
-            sort_by="Date"
-        )
-        print("\r\nSearch most recent news for query \"Artificial Intelligence\" with freshness and sortBy")
-
-        if news_result.value:
-            first_news_result = news_result.value[0]
-            print("News result count: {}".format(len(news_result.value)))
-            print("First news name: {}".format(first_news_result.name))
-            print("First news url: {}".format(first_news_result.url))
-            print("First news description: {}".format(first_news_result.description))
-            print("First published time: {}".format(first_news_result.date_published))
-            print("First news provider: {}".format(first_news_result.provider[0].name))
-        else:
-            print("Didn't see any news result data..")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-
-```
-使用安全搜尋，搜尋電影和電視娛樂的分類新聞。 驗證結果數目，並印出第一個新聞項目結果的 `category`、`name`、`url`、`description`、`published time` 和 `name of provider`。
-```
-def news_category(subscription_key):
-
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-
-    try:
-        news_result = client.news.category(
-            category="Entertainment_MovieAndTV",
-            market="en-us",
-            safe_search="strict"
-        )
-        print("\r\nSearch category news for movie and TV entertainment with safe search")
-
-        if news_result.value:
-            first_news_result = news_result.value[0]
-            print("News result count: {}".format(len(news_result.value)))
-            print("First news category: {}".format(first_news_result.category))
-            print("First news name: {}".format(first_news_result.name))
-            print("First news url: {}".format(first_news_result.url))
-            print("First news description: {}".format(first_news_result.description))
-            print("First published time: {}".format(first_news_result.date_published))
-            print("First news provider: {}".format(first_news_result.provider[0].name))
-        else:
-            print("Didn't see any news result data..")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-
-
-```
-在 Bing 中搜尋新聞趨勢主題。  驗證結果數目，並印出第一個新聞結果的 `name`、`text of query`、`webSearchUrl`、`newsSearchUrl` 和 `image Url`。
-```
-def news_trending(subscription_key):
-
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-
-    try:
-        trending_topics = client.news.trending(market="en-us")
-        print("\r\nSearch news trending topics in Bing")
-
-        if trending_topics.value:
-            first_topic = trending_topics.value[0]
-            print("News result count: {}".format(len(trending_topics.value)))
-            print("First topic name: {}".format(first_topic.name))
-            print("First topic query: {}".format(first_topic.query.text))
-            print("First topic image url: {}".format(first_topic.image.url))
-            print("First topic webSearchUrl: {}".format(first_topic.web_search_url))
-            print("First topic newsSearchUrl: {}".format(first_topic.news_search_url))
-        else:
-            print("Didn't see any topics result data..")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-[認知服務 Python SDK 範例](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-
-
+> [!div class="nextstepaction"]
+[建立單頁 Web 應用程式](tutorial-bing-news-search-single-page-app.md)

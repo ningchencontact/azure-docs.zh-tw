@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 2640316ce8915018df30fc94df0e1fbb207e894b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713602"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246206"
 ---
 # <a name="overview-of-azure-notebooks"></a>Azure Notebooks 概觀
 
@@ -57,7 +57,7 @@ Azure Notebooks 可協助您快速開始使用原型化、資料科學、學術�
 
 Azure Notebooks 是一項免費服務，但為防濫用，每個專案都限制只能使用 4 GB 的記憶體和 1 GB 的資料。 超過這些限制的合法使用者會看到 Captcha 查問，通過後才能繼續執行筆記本。
 
-若要解除所有限制，請將您的帳戶關聯到 Azure 訂用帳戶，這可讓您選取進階計算層。
+若要解除所有限制，請以使用 Azure Active Directory 的帳戶 (例如公司帳戶) 登入 Azure Notebooks。 如果該帳戶與 Azure 訂用帳戶相關聯，您可以使用 Azure 資料科學虛擬機器計算層。
 
 ## <a name="available-kernels-and-environments"></a>可用的核心和環境
 

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2018
+ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078489"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321733"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教學課程：建立和部署含有 ASP.NET Core Web API 前端服務和具狀態後端服務的應用程式
 
@@ -326,8 +326,6 @@ namespace VotingWeb.Controllers
 
 同時更新 Voting 專案中的 [應用程式 URL] 屬性值，以便您在進行應用程式偵錯時，網頁瀏覽器會開啟至正確的連接埠。  在 [方案總管] 中，選取 [Voting] 專案，並將 [應用程式 URL] 屬性更新至 **8080**。
 
-![應用程式 URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
-
 ### <a name="deploy-and-run-the-voting-application-locally"></a>在本機部署和執行 Voting 應用程式
 您現在可以繼續執行 Voting 應用程式以供偵錯。 在 Visual Studio 中，按 **F5** 將應用程式部署到偵錯模式中的本機 Service Fabric 叢集。 如果您先前並未以**系統管理員**身分開啟 Visual Studio，此應用程式將會失敗。
 
@@ -454,12 +452,7 @@ namespace VotingData.Controllers
 
 對於您與可靠服務通訊的方式，Service Fabric 會提供完整的彈性。 在單一應用程式中，您可能有可透過 TCP 存取的服務。 可透過 HTTP 的 REST API 存取的其他服務以及其他任何服務可以透過 Web 通訊端存取。 如需可用選項和相關權衡取捨的背景，請參閱 [與服務進行通訊](service-fabric-connect-and-communicate-with-services.md)。
 
-此教學課程使用 [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) 與 [Service Fabric 反向 Proxy](service-fabric-reverseproxy.md)，讓 VotingWeb 前端 Web 服務能與後端 VotingData 服務通訊。 依預設，反向 Proxy 會設定為使用連接埠 19081，且應適用於本教學課程。 該連接埠會設定在用於設定叢集的 ARM 範本中。 若要尋找使用哪個連接埠，請查詢 **Microsoft.ServiceFabric/clusters** 資源中的叢集範本，或查看叢集資訊清單中的 HttpApplicationGatewayEndpoint 元素。
-
-> [!NOTE]
-> 只有執行 Windows 8 和更新版本或 Windows Server 2012 和更新版本的叢集支援反向 Proxy。
-
-<u>Microsoft.ServiceFabric/clusters reverseProxyEndpointPort resource</u>
+此教學課程使用 [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) 與 [Service Fabric 反向 Proxy](service-fabric-reverseproxy.md)，讓 VotingWeb 前端 Web 服務能與後端 VotingData 服務通訊。 依預設，反向 Proxy 會設定為使用連接埠 19081，且應適用於本教學課程。 反向 Proxy 連接埠會設定在用來設定叢集的 Azure Resource Manager 範本中。 若要尋找使用哪個連接埠，請查詢 **Microsoft.ServiceFabric/clusters** 資源中的叢集範本： 
 
 ```json
 "nodeTypes": [
@@ -472,13 +465,10 @@ namespace VotingData.Controllers
           }
         ],
 ```
-若要檢視本機 Service Fabric 叢集資訊清單中的 HttpApplicationGatewayEndpoint 元素：
-1. 開啟瀏覽器視窗並瀏覽至 http://localhost:19080。
-2. 按一下 [資訊清單]。
+若要尋找您的本機開發叢集中使用的反向 Proxy 連接埠，請檢視本機 Service Fabric 叢集資訊清單中的 **HttpApplicationGatewayEndpoint** 元素：
+1. 開啟瀏覽器視窗，並瀏覽至 http://localhost:19080 以開啟 Service Fabric Explorer 工具。
+2. 選取 [叢集 -> 資訊清單]。
 3. 記下 HttpApplicationGatewayEndpoint 元素連接埠。 根據預設，這應該是 19081。 如果不是 19081，您必須變更下列 VotesController.cs 程式碼的 GetProxyAddress 方法中的連接埠。
-
-
-
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
@@ -622,9 +612,9 @@ public class VotesController : Controller
 
 若要查看對程式碼的影響，請完成下列步驟：
 
-1. 開啟 **VotingWeb\VotesController.cs** 檔案，並在 Web API 的 **Put** 方法 (第 63 行) 中設定中斷點。
+1. 開啟 **VotingWeb\VotesController.cs** 檔案，並在 Web API 的 **Put** 方法 (第 72 行) 中設定中斷點。
 
-2. 開啟 **VotingData\VoteDataController.cs** 檔案，並在 Web API 的 **Put** 方法 (第 53 行) 中設定中斷點。
+2. 開啟 **VotingData\VoteDataController.cs** 檔案，並在 Web API 的 **Put** 方法 (第 54 行) 中設定中斷點。
 
 3. 按 **F5** 以在偵錯模式中啟動應用程式。
 

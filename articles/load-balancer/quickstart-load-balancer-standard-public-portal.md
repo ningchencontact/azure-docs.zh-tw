@@ -1,10 +1,11 @@
 ---
-title: 快速入門：建立標準負載平衡器 - Azure 入口網站 | Microsoft Docs
+title: 快速入門：建立標準負載平衡器 - Azure 入口網站
+titlesuffix: Azure Load Balancer
 description: 本快速入門說明如何使用 Azure 入口網站建立標準負載平衡器。
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
@@ -17,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: df79581f4ad6af3dc420e7c7895acf46b5e3d997
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 1395c79b9c39d7376f39446eac6da8ee80b2ef18
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615203"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232663"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立標準負載平衡器以平衡 VM 的負載
 
@@ -43,7 +44,7 @@ ms.locfileid: "51615203"
 
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | 名稱                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | 類型          | 公開                                        |
     | SKU           | 標準                          |
     | 公用 IP 位址 | 選取 [新建]，並在文字方塊中輸入 *myPublicIP*。 依預設會為公用 IP 位址選取標準 SKU。 針對 [可用性區域]，選取 [區域備援]。 |

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4c952c847aa56b385065a878b664b3d1d98763f4
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cd4eca669936a206241069f1f8a8d9440f45be33
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584015"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229773"
 ---
 # <a name="what-is-computer-vision"></a>什麼是電腦視覺？
 
@@ -69,6 +69,10 @@ ms.locfileid: "53584015"
 - 影像的檔案大小必須小於 4 MB
 - 影像的維度必須大於 50 x 50 像素  
   針對 OCR，影像的大小必須介於 50 x 50 與 4200 x 4200 像素之間
+
+## <a name="data-privacy-and-security"></a>資料隱私權和安全性
+
+和所有認知服務一樣，使用電腦視覺服務的開發人員應該要了解 Microsoft 對於客戶資料的政策。 請參閱 Microsoft 信任中心上的[認知服務頁面](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices)，以進行深入了解。
 
 ## <a name="next-steps"></a>後續步驟
 

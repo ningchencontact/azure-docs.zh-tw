@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ce2d69e26909231383f3538d51387f27d8202a43
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822461"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332467"
 ---
-# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站記錄往返虛擬機器的網路流量
+# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站記錄往返於虛擬機器的網路流量
 
 網路安全性群組 (NSG) 可讓您篩選虛擬機器 (VM) 的輸入流量和輸出流量。 您可以使用網路監看員的 NSG 流量記錄功能，記錄流經 NSG 的網路流量。 在本教學課程中，您了解如何：
 
@@ -38,7 +38,7 @@ ms.locfileid: "51822461"
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 > [!NOTE] 
-> 美國中西部區域現已提供流程記錄第 2 版。 組態可透過 Azure 入口網站和 REST API 取得。 在不支援的區域中啟用第 2 版記錄會導致第 1 版記錄儲存到您的儲存體帳戶。
+> 美國中西部區域現已提供流程記錄第 2 版。 在不支援的區域中啟用第 2 版記錄會導致第 1 版記錄輸出到您的儲存體帳戶。
 
 ## <a name="create-a-vm"></a>建立 VM
 
@@ -48,7 +48,7 @@ ms.locfileid: "51822461"
 
     |設定|值|
     |---|---|
-    |名稱|myVm|
+    |Name|myVm|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |訂用帳戶| 選取您的訂用帳戶。|
@@ -91,7 +91,7 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
 
     | 設定        | 值                                                        |
     | ---            | ---   |
-    | 名稱           | 3-24 個字元長，只能包含小寫英文字母和數字，並且必須是所有 Azure 儲存體帳戶中唯一的名稱。                                                               |
+    | Name           | 3-24 個字元長，只能包含小寫英文字母和數字，並且必須是所有 Azure 儲存體帳戶中唯一的名稱。                                                               |
     | 位置       | 選取 [美國東部]                                           |
     | 資源群組 | 選取 [使用現有的]，然後選取 [myResourceGroup] |
 

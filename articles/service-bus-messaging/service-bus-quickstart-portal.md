@@ -1,6 +1,6 @@
 ---
-title: 快速入門 - 使用 Azure 入口網站從 Azure 服務匯流排傳送和接收訊息 | Microsoft Docs
-description: 在本快速入門中，您將了解如何使用 Azure 入口網站傳送和接收服務匯流排訊息
+title: 快速入門 - 使用 Azure 入口網站建立服務匯流排佇列 | Microsoft Docs
+description: 在本快速入門中，您會了解如何使用 Azure 入口網站來建立服務匯流排佇列。 然後，您會使用用戶端應用程式範例在佇列中傳送和接收訊息。
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -8,17 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: bfe6c48b2e83c1ebbbad446f79cebd1f513db57e
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 69c9a6d2d059ffbac5fe3e0ddb103eaec51123c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002666"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264015"
 ---
-# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>快速入門：使用 Azure 入口網站和 .NET 來傳送和接收訊息
-
+# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>快速入門：使用 Azure 入口網站建立服務匯流排佇列
 Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提供安全的傳訊和絕對的可靠性。 典型的服務匯流排案例通常會牽涉到將兩個或更多應用程式、服務或程序彼此分開處理，以及傳輸狀態或資料變更。 此類案例可能牽涉到在另一個應用程式或服務中排程多個批次作業，或觸發訂單履行。 例如，零售公司可能會將其銷售點資料傳送至後端辦公室或區域配送中心，以進行補貨和庫存更新。 在此案例中，用戶端應用程式會對服務匯流排佇列傳送及接收訊息。  
 
 ![佇列](./media/service-bus-quickstart-portal/quick-start-queue.png)

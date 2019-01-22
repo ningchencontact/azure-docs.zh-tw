@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 2480aa92dec8d8e8879db813b1cfcddc26f77b7e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e1cb588d68153a88d8b55b2696b376c4eb8704f5
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792521"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199263"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>什麼是 Azure 物聯網 (IoT)？
 
@@ -34,6 +34,8 @@ Azure 物聯網 (IoT) 是由 Microsoft 管理的雲端服務集合，它會連�
 * 房間中的狀態感應器
 
 經常用於原型設計的兩個裝置分別是 Microsoft 的基本 MX Chip IoT Devkit 和 Raspberry PI 裝置。 MX Chip Devkit 具有內建的溫度、壓力和溼度感應器，還有陀螺儀和加速計，以及磁力計和 Wi-Fi 晶片。 Raspberry PI 是 IoT 裝置，您可以對其連接許多不同類型的感應器，藉此選取您案例真正需要的服務。 
+
+如需可用 IoT 裝置的詳細資訊，請參閱業界最大的 [IoT 認證裝置目錄](https://catalog.azureiotsolutions.com/alldevices)。
 
 [IoT 裝置 SDK](../iot-hub/iot-hub-devguide-sdks.md) 可讓您建置在裝置上執行的應用程式，讓裝置能執行您所需的工作。 透過 SDK，您可以將遙測傳送至 IoT 中樞、接收來自 IoT 中樞的訊息和更新等等。
 

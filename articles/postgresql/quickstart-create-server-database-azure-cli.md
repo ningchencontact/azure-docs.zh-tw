@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 39e5042d5116cba96fb3d378fbf42813d33c69c6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 2fd60aa635fdea078a2b5c4b724318798d57573d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191015"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359575"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立 Azure Database for PostgreSQL
 Azure Database for PostgreSQL 是一個受控服務，可讓您在雲端執行、管理及調整高可用性 PostgreSQL 資料庫。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 本快速入門說明如何使用 Azure CLI 在 [Azure 資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)中建立 Azure Database for PostgreSQL 伺服器。
@@ -62,7 +62,7 @@ admin-password | *安全密碼* | 系統管理員使用者的密碼。 其必須
 
 
 sku-name 參數值會遵循慣例 {pricing tier}\_{compute generation}\_{vCores}，如下列範例所示：
-+ `--sku-name B_Gen4_1` 對應於基本、第 4 代和 1 個虛擬核心。
++ `--sku-name B_Gen4_1` 對應於基本、第 4 代和 1 個虛擬核心。 此選項是最小的可用 SKU。
 + `--sku-name GP_Gen5_32` 對應於一般用途、第 5 代和 32 個 vCore。
 + `--sku-name MO_Gen5_2` 對應於記憶體最佳化、第 5 代和 2 個 vCore。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 19b4a1382b2a9b6034fd6ac9feed776dcca6a124
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e4f2362e6baca14c540070a47b2c71fd99465f33
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704353"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305412"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>使用 Windows VM 系統指派的受控識別來存取 Resource Manager
 
@@ -41,7 +41,7 @@ ms.locfileid: "51704353"
 1.  瀏覽至**資源群組**的索引標籤。 
 2.  選取您為 **Windows VM**所建立的特定 [資源群組]。 
 3.  前往左側面板的 [存取控制 (IAM)]。 
-4.  然後 [新增] **Windows VM**的新角色指派。  選擇 [角色] 為 [讀取者]。 
+4.  然後針對 **Windows VM** [新增] 角色指派。  選擇 [角色] 為 [讀取者]。 
 5.  在下一個下拉式清單中，將**存取權指派給**資源 [虛擬機器]。 
 6.  接下來，確認適當的訂用帳戶已列在 [訂用帳戶]下拉式清單中。 針對 [資源群組]，請選取 [所有資源群組]。 
 7.  最後，在 [選取] 中選擇下拉式清單中您的 Windows VM，然後按一下 [儲存]。
@@ -50,15 +50,15 @@ ms.locfileid: "51704353"
 
 ## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager"></a>使用 VM 系統指派的受控識別來取得存取權杖，以用來呼叫 Azure Resource Manager 
 
-在這裡您必須使用 **PowerShell**。  如果您尚未安裝 **PowerShell**，請在[這裡](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1)下載。 
+在這裡您必須使用 **PowerShell**。  如果您尚未安裝 **PowerShell**，請在[這裡](https://docs.microsoft.com/powershell/azure/overview)下載。 
 
 1.  在入口網站中，瀏覽至 [虛擬機器] 並移至您的 Windows 虛擬機器，在 [概觀] 中按一下 [連線]。 
 2.  輸入您建立 Windows VM 時新增的**使用者名稱**和**密碼**。 
 3.  現在您已經建立虛擬機器的**遠端桌面連線**，請在遠端工作階段中開啟 **PowerShell**。 
-4.  使用 Powershell 的 Invoke-WebRequest，向 Azure 資源端點的本機受控識別提出要求，以取得 Azure Resource Manager 的存取權杖。
+4.  使用 Invoke-WebRequest Cmdlet，向 Azure 資源端點的本機受控識別提出要求，以取得 Azure Resource Manager 的存取權杖。
 
     ```powershell
-       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
@@ -75,7 +75,7 @@ ms.locfileid: "51704353"
     $ArmToken = $content.access_token
     ```
     
-    最後，使用存取權杖呼叫 Azure Resource Manager。 在此範例中，我們也將使用 PowerShell 的 Invoke-WebRequest 進行呼叫 Azure Resource Manager，並將存取權杖包含在授權標頭中。
+    最後，使用存取權杖呼叫 Azure Resource Manager。 在此範例中，我們也將使用 Invoke-WebRequest Cmdlet 呼叫 Azure Resource Manager，並將存取權杖包含在授權標頭中。
     
     ```powershell
     (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content

@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: ff512ac3bef1ce721860172dbaf9d9b68512a518
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b33a646c52ca5ce85e0525b04e9be5009cc6f90d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064690"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352920"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>快速入門：將資料從事件中樞內嵌至 Azure 資料總管
 
@@ -189,7 +189,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     ![訊息結果集](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > ADX 具有資料擷取的彙總 (批次處理) 原則，其設計訴求是要將擷取程序最佳化。 此原則已設定為 5 分鐘，因此您可能會遇到延遲。
+    > Azure 資料總管具有資料擷取的彙總 (批次處理) 原則，可將擷取程序最佳化。 此原則已設定為 5 分鐘，因此您可能會遇到延遲。
 
 ## <a name="clean-up-resources"></a>清除資源
 

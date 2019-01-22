@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/14/2019
 ms.author: mstewart
 ms.custom: seodec18
-ms.openlocfilehash: ee2a4be97b2b56f9c659639a34e821e37c188828
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f94ec1a64108cde6ff69a572559960a988a1b7c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087859"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261276"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 為 Windows IaaS VM 加密
 
@@ -30,9 +30,9 @@ Azure 磁碟加密可協助您為 Windows 和 Linux IaaS 虛擬機器磁碟加�
 ## <a name="prerequisites"></a>必要條件
 
 - Windows PowerShell ISE
-- 安裝或更新至[最新版的 Azure PowerShell](/powershell/azure/install-azurerm-ps)
+- 安裝或更新至[最新版的 AzureRM PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)
     - AzureRM 模組版本必須是 6.0.0 或更新版本。 `Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path`
-- [Azure 磁碟加密先決條件指令碼](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)的複本。
+- [Azure 磁碟加密先決條件指令碼](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)的複本。
     - 如果您已有此指令碼，請下載新複本，因為近期已有所變更。 
     - 使用 **CTRL-A** 選取所有文字，然後使用 **CTRL-C** 將所有文字複製到 [記事本] 中。
     - 將檔案儲存為 **ADEPrereqScript.ps1**
@@ -41,7 +41,7 @@ Azure 磁碟加密可協助您為 Windows 和 Linux IaaS 虛擬機器磁碟加�
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
 1. 以滑鼠右鍵按一下 [Windows PowerShell ISE]，然後按一下 [以系統管理員身分執行]。
-1. 在 [系統管理員: Windows PowerShell ISE] 視窗中，依序按一下 [檢視] 和 [顯示指令碼窗格]。
+1. 在**系統管理員：Windows PowerShell ISE** 視窗中，依序按一下 [檢視] 和 [顯示指令碼窗格]。
 1. 在指令碼窗格中，輸入下列 Cmdlet： 
 
      ```azurepowershell
@@ -55,7 +55,7 @@ Azure 磁碟加密可協助您為 Windows 和 Linux IaaS 虛擬機器磁碟加�
 ## <a name="bkmk_PrereqScript"></a>執行 Azure 磁碟加密先決條件指令碼
  **ADEPrereqScript.ps1** 將會建立資源群組、金鑰保存庫，並設定金鑰保存庫的存取原則。 此指令碼也會建立金鑰保存庫的資源鎖定，以防止保存庫意外遭到刪除。  
 
-1. 在 [系統管理員: Windows PowerShell ISE] 視窗中按一下 [檔案]，然後按一下 [開啟]。 瀏覽至 **ADEPrereqScript.ps1** 檔案並按兩下。 此指令碼會在指令碼窗格中開啟。
+1. 在**系統管理員：Windows PowerShell ISE** 視窗中，按一下 [檔案]，然後按一下 [開啟]。 瀏覽至 **ADEPrereqScript.ps1** 檔案並按兩下。 此指令碼會在指令碼窗格中開啟。
 2. 按一下 [執行指令碼] 的綠色箭號，或使用 F5 執行指令碼。 
 3. 輸入新的**資源群組**和新**金鑰保存庫**的名稱。 在本快速入門請勿使用現有的資源群組或金鑰保存庫，因為我們稍後將會刪除資源群組。 
 4. 輸入要建立資源的位置，例如 **EastUS**。 使用 `Get-AzureRMLocation` 取得位置清單。
@@ -69,7 +69,7 @@ Azure 磁碟加密可協助您為 Windows 和 Linux IaaS 虛擬機器磁碟加�
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器 
 現在，您必須建立虛擬機器，以加密其磁碟。 您將使用的指令碼會建立一個 Windows Server 2016 VM，具有 8 GB 的 RAM 與 30 GB 的 OS 磁碟。 
 
-1. 將指令碼複製到 [系統管理員: Windows PowerShell ISE] 指令碼窗格中，並變更最上方的三個變數。 資源群組和位置必須與您先前在[先決條件指令碼](#bkmk_PrereqScript)中使用的相同。  
+1. 將指令碼複製到**系統管理員：Windows PowerShell ISE** 指令碼窗格中，並變更最上方的三個變數。 資源群組和位置必須與您先前在[先決條件指令碼](#bkmk_PrereqScript)中使用的相同。  
 
    ```azurepowershell
     # Variables for common values

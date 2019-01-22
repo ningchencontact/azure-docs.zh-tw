@@ -8,83 +8,79 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 02b603c0a7e1f84b2677511f73f96eee20a613d9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ebb1e61c832ab60d95a1e8a5938410ebdc7a4a0c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250224"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258851"
 ---
 # <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>快速入門：使用 Ruby 和 Bing 新聞搜尋 REST API 來執行新聞搜尋
 
-本文說明如何在 Azure 上使用屬於 Microsoft 認知服務的 Bing 新聞搜尋 API。 雖然本文是以 Ruby 部署，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。 
+使用本快速入門以第一次呼叫 Bing 新聞搜尋 API，並接收 JSON 回應。 這個簡單的 JavaScript 應用程式會將搜尋查詢傳送給 API，並處理結果。
 
-程式碼範例已撰寫為可在 Ruby 2.4 下執行。
-
-請參閱 [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)了解 API 的技術詳細資料。
+雖然此應用程式是以 Python 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb) 上有此範例的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
-您必須有具備 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 啟用免費試用時，您必須提供存取金鑰。 另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
+* [Ruby 2.4 或更新版本](https://www.ruby-lang.org/downloads/) (英文)
 
-## <a name="bing-news-search"></a>Bing 新聞搜尋
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-[Bing 新聞搜尋 API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) 會從 Bing 搜尋引擎傳回新聞結果。
+另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
-1. 在您最愛的 IDE 或編輯器中建立新的 Ruby 專案。
-2. 新增下方提供的程式碼。
-3. 以訂用帳戶有效的存取金鑰來取代 `accessKey` 值。
-4. 執行程式。
+## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
+
+1. 將下列套件匯入至您的程式碼檔案中。
+
+    ```ruby
+    require 'net/https'
+    require 'uri'
+    require 'json'
+    ```
+
+2. 建立適用於 API 端點、新聞搜尋 URL、您訂用帳戶金鑰及搜尋字詞的變數。
+
+    ```ruby
+    accessKey = "enter key here"
+    uri  = "https://api.cognitive.microsoft.com"
+    path = "/bing/v7.0/news/search"
+    term = "Microsoft"
+    ```
+
+## <a name="format-and-make-an-api-request"></a>製作 API 要求格式並提出 API 要求
+
+使用上一個步驟中的變數來製作適用於 API 要求的搜尋 URL 格式。 然後傳送要求。
 
 ```ruby
-require 'net/https'
-require 'uri'
-require 'json'
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the accessKey string value with your valid access key.
-accessKey = "enter key here"
-
-# Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-# search APIs.  In the future, regional endpoints may be available.  If you
-# encounter unexpected authorization errors, double-check this value against
-# the endpoint for your Bing Search instance in your Azure dashboard.
-
-uri  = "https://api.cognitive.microsoft.com"
-path = "/bing/v7.0/news/search"
-
-term = "Microsoft"
-
 uri = URI(uri + path + "?q=" + URI.escape(term))
-
-puts "Searching news for: " + term
-
 request = Net::HTTP::Get.new(uri)
 request['Ocp-Apim-Subscription-Key'] = accessKey
-
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request(request)
+   http.request(request)
 end
+```
 
+## <a name="process-and-print-the-json-response"></a>處理及列印 JSON 回應
+
+在收到回應之後，您可以剖析 JSON，並列印回應主體和其標頭：
+
+```ruby
 puts "\nRelevant Headers:\n\n"
 response.each_header do |key, value|
-    # header names are coerced to lowercase
-    if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
-        puts key + ": " + value
-    end
+   # header names are coerced to lowercase
+   if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
+      puts key + ": " + value
+   end
 end
-
 puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-**回應**
+## <a name="json-response"></a>JSON 回應
 
 如以下範例所示，成功的回應會以 JSON 格式來傳回：
 
@@ -183,7 +179,4 @@ puts JSON::pretty_generate(JSON(response.body))
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [將新聞分頁](paging-news.md)
-> [使用裝飾標記醒目提示文字](hit-highlighting.md)
-> [搜尋網路上的新聞](search-the-web.md)  
-> [試試看](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)
+> [建立單頁應用程式](tutorial-bing-news-search-single-page-app.md)

@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 21eb28611c1e40695356d502c262c23013591986
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: b53c26f265cc5d944c8e15ae5bf436e8f71dcc2f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117362"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352728"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>快速入門：將資料從 Kafka 擷取至 Azure 資料總管
  
-Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管會提供從 Kafka 擷取資料 (資料載入) 的功能。 Kafka 是分散式串流平台，可用於建置即時串流資料管線，可靠地在系統或應用程式之間移動資料。 
+Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管會提供從 Kafka 擷取資料 (資料載入) 的功能。 Kafka 是分散式串流平台，可用於建置即時串流資料管線，可靠地在系統或應用程式之間移動資料。
  
 ## <a name="prerequisites"></a>必要條件
  
@@ -30,9 +30,11 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 * [Visual studio 2017 15.3.2 版或更新版本](https://www.visualstudio.com/vs/)，以執行範例應用程式
  
 ## <a name="kafka-connector-setup"></a>Kafka 連接器設定
+
 Kafka Connect 工具能夠彈性且可靠地在 Apache Kafka 和其他系統之間串流資料。 此工具可讓您輕鬆且快速地定義連接器，以移動傳入和傳出 Kafka 的大型資料集合。 ADX Kafka 接收器可作為 Kafka 中的連接器。
  
-### <a name="bundle"></a>組合 
+### <a name="bundle"></a>組合
+
 Kafka 可將 `.jar` 載入為外掛程式，以作為自訂連接器使用。 若要產生這類 `.jar`，我們會在本機複製程式碼，並使用 Maven 建置。 
 
 #### <a name="clone"></a>複製
@@ -41,7 +43,7 @@ Kafka 可將 `.jar` 載入為外掛程式，以作為自訂連接器使用。 �
 git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
- 
+
 #### <a name="build"></a>建置
 
 使用 Maven 在本機建置，以產生附帶相依性的 `.jar`。
@@ -55,10 +57,10 @@ cd ./kafka-sink-azure-kusto/kafka/
 ```bash
 mvn clean compile assembly:single
 ```
- 
+
 ### <a name="deploy"></a>部署 
- 
-將外掛程式載入 Kafka。 [kafka-sink-azure-kusto](https://github.com/Azure/kafka-sink-azure-kusto#deploy) 中有使用 Docker 的部署範本
+
+將外掛程式載入 Kafka。 您可以在 [kafka-sink-azure-kusto](https://github.com/Azure/kafka-sink-azure-kusto#deploy) 中找到使用 Docker 的部署範本
  
 
 [Kafka Connect](https://kafka.apache.org/documentation/#connect) 中有詳細的 Kafka 連接器文件和部署方式 
@@ -112,13 +114,16 @@ kusto.sink.flush_size=1000
 現在 Kafka 叢集已連線到 ADX，請使用下載的[範例應用程式](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)來產生資料。
 
 ### <a name="clone"></a>複製
+
 在本機複製範例應用程式：
 
 ```cmd
 git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
 cd ./azure-kusto-samples-dotnet/kafka/
 ```
+
 ### <a name="run-the-app"></a>執行應用程式
+
 1. 請在 Visual Studio 中開啟範例應用程式解決方案。
 
 1. 在 `Program.cs` 檔案中，將 `connectionString` 常數更新為您的 Kafka 連接字串。
@@ -127,11 +132,11 @@ cd ./azure-kusto-samples-dotnet/kafka/
     const string connectionString = @"<YourConnectionString>";
     ```
 
-1. 建置並執行應用程式。 應用程式會將訊息傳送至 Kafka 叢集，並每隔 10 秒列印出狀態。
+1. 建置並執行應用程式。 應用程式會將訊息傳送至 Kafka 叢集，並且每 10 秒列出狀態一次。
 
 1. 在應用程式送出一些訊息之後，請移至下一個步驟。
  
-## <a name="query-and-review-the-data"></a>查詢及檢視資料 
+## <a name="query-and-review-the-data"></a>查詢及檢視資料
 
 1. 若要確定擷取期間未發生任何錯誤：
 

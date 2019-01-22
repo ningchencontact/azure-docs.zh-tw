@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 6e75e549486fb260f3ccbdead7fe1dea02593f3c
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 16095dabb0e5e3e303e82126c7f57cb4ff3fe8dd
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707141"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200916"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>教學課程：使用事件中樞將資料串流至 Azure Databricks
 

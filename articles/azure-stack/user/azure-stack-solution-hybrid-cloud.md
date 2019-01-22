@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/18/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e4da34be5b1e9eb2675f540fe4069cfd3dc1d056
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.reviewer: anajod
+ms.openlocfilehash: 1629c4b62fb04e057c38261a33fd3bc759b279c1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409882"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267397"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>教學課程：使用 Azure 與 Azure Stack 部署混合式雲端解決方案
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 本教學課程說明如何部署使用 Azure 公用雲端和 Azure Stack 私人雲端的混合式雲端解決方案。
 
@@ -79,11 +79,11 @@ ms.locfileid: "49409882"
 
     ![Azure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
 
-3. 在 [Marketplace] 中選取 [計算]，然後選擇 [其他]。 在 [其他] 下方，選取 [免費 SQL Server 授權︰Windows Server 上的 SQL Server 2017 Developer] 映像。
+3. 在 [Marketplace] 中選取 [計算]，然後選擇 [其他]。 在 [其他] 底下，選取**免費的 SQL Server 授權：Windows Server 上的 SQL Server 2017 Developer** 映像。
 
     ![選取虛擬機器映像](media/azure-stack-solution-hybrid-cloud/image2.png)
 
-4. 在 [免費 SQL Server 授權︰Windows Server 上的 SQL Server 2017 Developer] 上，選取 [建立]。
+4. 在**免費的 SQL Server 授權：Windows Server 上的 SQL Server 2017 Developer** 上，選取 [建立]。
 
 5. 在 [基本 > 設定基本設定] 上，提供虛擬機器 (VM) 的 [名稱]、SQL Server SA 的 [使用者名稱]，和 SA 的 [密碼]。  從 [訂用帳戶]  下拉式清單中，選取要部署到的訂用帳戶。 針對 [資源群組] 使用 [選擇現有的]，並將 VM 放在與 Azure Stack Web 應用程式相同的資源群組中。
 
@@ -308,7 +308,7 @@ Web 應用程式的每個執行個體會使用不同的方法連線至 SQL 資�
 
     ![啟用自動調整](media/azure-stack-solution-hybrid-cloud/image17.png)
 
-3. 輸入 [自動調整設定名稱] 的名稱。 選取 [依據計量調整規模]，作為**預設**自動調整規則。 將 [執行個體限制] 設為 [最小值：1]、[最大值：10] 和 [預設值：1]。
+3. 輸入 [自動調整設定名稱] 的名稱。 選取 [依據計量調整規模]，作為**預設**自動調整規則。 將 [執行個體限制] 設為**最小值：1**、**最大值：10** 和**預設值：1**。
 
     ![設定自動調整](media/azure-stack-solution-hybrid-cloud/image18.png)
 

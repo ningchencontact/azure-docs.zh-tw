@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/11/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 21aac318542f9d30cb44d940392d05367f1f7b9f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714742"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246461"
 ---
 # <a name="what-is-azure-application-gateway"></a>什麼是 Azure 應用程式閘道？
 
@@ -78,7 +78,7 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 
 ## <a name="multiple-site-hosting"></a>多網站裝載
 
-多網站裝載可讓您在相同的應用程式閘道執行個體上設定多個網站。 此功能可讓您將最多 20 個網站新增到一個應用程式閘道，為您的部署設定更有效率的拓撲。 每個網站都可以導向到自己的集區。 例如，應用程式閘道可以從兩個伺服器集區 (名為 ContosoServerPool 和 FabrikamServerPool) 為 `contoso.com` 和 `fabrikam.com` 處理流量。
+多網站裝載可讓您在相同的應用程式閘道執行個體上設定多個網站。 此功能可讓您將最多 100 個網站新增到一個應用程式閘道，為您的部署設定更有效率的拓撲。 每個網站都可以導向到自己的集區。 例如，應用程式閘道可以從兩個伺服器集區 (名為 ContosoServerPool 和 FabrikamServerPool) 為 `contoso.com` 和 `fabrikam.com` 處理流量。
 
 對 `http://contoso.com` 的要求會路由傳送至 ContosoServerPool，而對 `http://fabrikam.com` 的要求則會路由傳送至 FabrikamServerPool。
 

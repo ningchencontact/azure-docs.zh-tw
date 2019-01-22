@@ -6,28 +6,27 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
-ms.service: active-directory
+service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 01/09/2019
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 1b00f8b400225857ed78688e8ea0b7f68b7442d8
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 3f863d0d5d0a7ee30ff7cfdfd55f0b656d487ed0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579726"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54242337"
 ---
-| 行動和原生應用程式 | Web Apps 和 Web API | 直接整合通訊協定 |
+| 行動和原生應用程式 | Web 應用程式和 SPA | Web API |
 | --- | --- | --- |
-| [將登入新增至 iOS 應用程式](../articles/active-directory/develop/tutorial-v2-ios.md) | [將登入新增至 JavaScript 單一頁面應用程式 (SPA)](../articles/active-directory/develop/tutorial-v2-javascript-spa.md) |[註冊應用程式](../articles/active-directory/develop/quickstart-v2-register-an-app.md) |
-| [將登入新增至 Android 應用程式](../articles/active-directory/develop/tutorial-v2-android.md) | [將登入新增至 ASP.NET 應用程式](../articles/active-directory/develop/tutorial-v2-asp-webapp.md) |[使用 OAuth 2.0 通訊協定的行動應用程式](../articles/active-directory/develop/v2-oauth2-auth-code-flow.md) |
-| [將登入新增至 Windows 桌面應用程式](../articles/active-directory/develop/guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  [將登入新增至 ASP.NET Core Web 應用程式](https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2) | [使用 OpenID Connect 通訊協定的 web 應用程式](../articles/active-directory/develop/v2-protocols-oidc.md) |
-| [將登入新增至多平台的 Xamarin 應用程式](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)| [ Node JS Web 應用程式](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) |[使用 OpenID Connect 通訊協定的 JavaScript SPA](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) |
-|  | [保護 ASP.NET Web API](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet) | [使用 OAuth 2.0 用戶端認證流程的精靈應用程式](../articles/active-directory/develop/v2-oauth2-client-creds-grant-flow.md) |
-|  | [保護 ASP.NET Core Web API](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2) | |
+|<img width="40" role="presentation" alt="iOS" src="../articles/active-directory/develop/media/index/logo_ios.svg" data-linktype="relative-path" /><br/>[從 iOS 應用程式登入和取得權杖](../articles/active-directory/develop/quickstart-v2-ios.md) | <img width="40" role="presentation" alt="JavaScript" src="../articles/active-directory/develop/media/index/logo_js.svg"/><br/>[從 JavaScript SPA 登入和取得權杖](../articles/active-directory/develop/quickstart-v2-javascript.md) |<img width="40" role="presentation" alt="ASP.NET Web API" src="../articles/active-directory/develop/media/index/logo_net.svg" /><br/> [保護 ASP.NET Web API](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)  |
+|<img width="40" role="presentation" alt="Android" src="../articles/active-directory/develop/media/index/logo_android.svg" /><br/>[從 Android 應用程式登入和取得權杖](../articles/active-directory/develop/quickstart-v2-android.md) | <img width="40" role="presentation" alt="ASP.NET" src="../articles/active-directory/develop/media/index/logo_net.svg" /><br/>[將登入新增至 ASP.NET 應用程式](../articles/active-directory/develop/quickstart-v2-aspnet-webapp.md) |<img width="40" role="presentation" alt="ASP.NET Core Web API" src="../articles/active-directory/develop/media/index/logo_netcore.svg" /><br/>[保護 ASP.NET Core Web API](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2) |
+|<img width="40" role="presentation" alt="Windows Desktop" src="../articles/active-directory/develop/media/index/logo_windows.svg" /><br/>[從 Windows 傳統型應用程式登入和取得權杖](../articles/active-directory/develop/quickstart-v2-windows-desktop.md) | <img width="40" role="presentation" alt=".NET Core" src="../articles/active-directory/develop/media/index/logo_netcore.svg" /><br/> [將登入新增至 ASP.NET Core Web 應用程式](../articles/active-directory/develop/quickstart-v2-aspnet-core-webapp.md) | |
+|<img width="40" role="presentation" alt="Xamarin" src="../articles/active-directory/develop/media/index/logo_xamarin.svg" /><br/> [將登入新增至多平台的 Xamarin 應用程式](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)| <img width="40" role="presentation" alt="Node.js" src="../articles/active-directory/develop/media/index/logo_nodejs.svg" /><br/>[ Node JS Web 應用程式](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
+|<img width="40" role="presentation" alt="Universal Windows Platform" src="../articles/active-directory/develop/media/index/logo_windows.svg" /><br/> [從 UWP 應用程式登入和取得權杖](../articles/active-directory/develop/quickstart-v2-uwp.md)| | |
+|<img width="40" role="presentation" alt=".NET Core Daemon" src="../articles/active-directory/develop/media/index/logo_netcore.svg" /><br/> [從非互動式 .NET Core 應用程式取得權杖](../articles/active-directory/develop/quickstart-v2-netcore-daemon.md)| | |

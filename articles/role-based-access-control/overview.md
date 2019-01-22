@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c614ae9d157c6e4121701cb22213706020ee20a7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867893"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303302"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>什麼是角色型存取控制 (RBAC)？
 
@@ -78,7 +78,7 @@ Azure 引進了可讓您授與物件內資料存取權的資料作業 (目前處
 
 ### <a name="scope"></a>影響範圍
 
-「範圍」是存取權的適用界限。 當您指派角色時，可以藉由定義範圍來進一步限制動作。 如果您想要讓某位使用者成為[網站參與者](built-in-roles.md#website-contributor)，但僅限於某個資源群組，這會很實用。
+「範圍」是要套用存取權的一組資源。 當您指派角色時，可以藉由定義範圍來進一步限制動作。 如果您想要讓某位使用者成為[網站參與者](built-in-roles.md#website-contributor)，但僅限於某個資源群組，這會很實用。
 
 在 Azure 中，您可以在多個層級指定範圍：[管理群組](../azure-resource-manager/management-groups-overview.md)、訂用帳戶、資源群組或資源。 範圍的結構為父子式關聯性。
 
@@ -99,6 +99,12 @@ Azure 引進了可讓您授與物件內資料存取權的資料作業 (目前處
 ![角色指派可控制存取權](./media/overview/rbac-overview.png)
 
 您可以使用 Azure 入口網站、Azure CLI、Azure PowerShell、Azure SDK 或 REST API 建立角色指派。 您在每個訂用帳戶中可以有最多 2000 個角色指派。 若要建立和移除角色指派，您必須具有 `Microsoft.Authorization/roleAssignments/*` 權限。 此權限是透過[擁有者](built-in-roles.md#owner)或[使用者存取管理員](built-in-roles.md#user-access-administrator)角色來授與。
+
+## <a name="multiple-role-assignments"></a>多角色指派
+
+所以，如果您有多個重疊的角色指派會發生什麼事？ RBAC 是加法模型，因此，您的有效權限就是角色指派的相加。 請參考下列範例，其中使用者在訂用帳戶範圍中獲派「參與者」角色，並在資源群組中獲派「讀者」角色。 「參與者」權限和「讀者」權限實際上就是資源群組的參與者角色。 因此，在此情況下，「讀者」角色的指派並沒有作用。
+
+![多角色指派](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>拒絕指派
 
@@ -126,7 +132,7 @@ Azure 引進了可讓您授與物件內資料存取權的資料作業 (目前處
 
 ## <a name="next-steps"></a>後續步驟
 
-- [快速入門 - 使用 RBAC 與 Azure 入口網站為使用者授與存取權](quickstart-assign-role-user-portal.md)
+- [快速入門：使用 RBAC 與 Azure 入口網站為使用者授與存取權](quickstart-assign-role-user-portal.md)
 - [使用 RBAC 和 Azure 入口網站來管理存取權](role-assignments-portal.md)
 - [了解 Azure 中的不同角色](rbac-and-directory-admin-roles.md)
-- [企業雲端採用：在 Azure 中管理資源存取](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)
+- [企業雲端採用：Azure 中的資源存取管理](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

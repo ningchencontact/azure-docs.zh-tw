@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 151f6fa7880db03909c522147d9c1f74508f51a1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087271"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351844"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 叢集
 
@@ -118,7 +118,7 @@ Azure Stack 中的 Service Fabric 叢集並不使用資源提供者 Microsoft.Se
    ``` 
 
 
-如需詳細資訊，請參閱[使用 PowerShell 在 Azure Stack 上管理 KeyVault](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell)。
+如需詳細資訊，請參閱[使用 PowerShell 在 Azure Stack 上管理 KeyVault](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-key-vault-manage-powershell)。
 
 ## <a name="deploy-the-marketplace-item"></a>部署 Marketplace 項目
 
@@ -138,10 +138,10 @@ Azure Stack 中的 Service Fabric 叢集並不使用資源提供者 Microsoft.Se
 
    針對 [管理用戶端憑證指紋]，輸入 [管理用戶端憑證] 的指紋。 (請參閱[必要條件](#prerequisites)。)
    
-   - 來源金鑰保存庫：指定指令碼結果中的整個 keyVault id 字串。 
-   - 叢集憑證 URL：指定指令碼結果中 Secret Id 中的整個 URL。 
-   - 叢集憑證指紋：指定指令碼結果中的 Cluster Certificate Thumbprint。
-   - 管理用戶端憑證指紋：指定在必要條件中建立的 [管理用戶端憑證指紋]。 
+   - 來源 Key Vault：指定指令碼結果中的完整「keyVault 識別碼」字串。 
+   - 叢集憑證 URL：指定指令碼結果中的「秘密識別碼」的完整 URL。 
+   - 叢集憑證指紋：指定指令碼結果中的「叢集憑證指紋」。
+   - 管理員用戶端憑證指紋：指定在必要條件中建立的「管理員用戶端憑證指紋」。 
 
    ![指令碼輸出](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 

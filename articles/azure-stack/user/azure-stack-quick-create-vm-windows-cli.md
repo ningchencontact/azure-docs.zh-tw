@@ -6,25 +6,24 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: E26B246E-811D-44C9-9BA6-2B3CE5B62E83
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/23/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 4d062b937eb005b8c30a6f7f59b00f80095a7924
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8838172313ec40298ccd564a6a3f84314461a9b1
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422285"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54301972"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入門：在 Azure Stack 中使用 Azure CLI 建立 Windows Server 虛擬機器
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+‎*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 您可以使用 Azure CLI 建立 Windows Server 2016 虛擬機器。 請遵循本文中的步驟建立和使用虛擬機器。 本文也提供下列步驟：
 

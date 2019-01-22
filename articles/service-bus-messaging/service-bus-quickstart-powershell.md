@@ -1,6 +1,6 @@
 ---
-title: 快速入門 - 對 Azure 服務匯流排傳送和接收訊息 | Microsoft Docs
-description: 在本快速入門中，您將了解如何使用 PowerShell 和 .NET Standard 用戶端來傳送和接收服務匯流排訊息
+title: 快速入門 - 使用 Azure PowerShell 建立服務匯流排佇列 | Microsoft Docs
+description: 在本快速入門中，您會了解如何使用 Azure PowerShell 來建立服務匯流排佇列。 然後，您會使用應用程式範例在佇列中傳送和接收訊息。
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -8,17 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 2669b3ad9abc2370b4ecb66596d6edde17c82ddd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9fe9952c3885e0e6145141bac7db13694dcdbd11
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242427"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259660"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>快速入門：使用 Azure PowerShell 和 .NET 傳送和接收訊息
-
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>快速入門：使用 Azure PowerShell 建立服務匯流排佇列
 Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提供安全的傳訊和絕對的可靠性。 典型的服務匯流排案例通常會牽涉到將兩個或更多應用程式、服務或程序彼此分開處理，以及傳輸狀態或資料變更。 此類案例可能牽涉到在另一個應用程式或服務中排程多個批次作業，或觸發訂單履行。 例如，零售公司可能會將其銷售點資料傳送至後端辦公室或區域配送中心，以進行補貨和庫存更新。 在此案例中，用戶端應用程式會對服務匯流排佇列傳送及接收訊息。
 
 ![佇列](./media/service-bus-quickstart-powershell/quick-start-queue.png)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: e0261f96b1b097cba753ec905bc590a35e9a2c24
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ee26db80e3219c170c77a2bd90f7d1416676333e
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623599"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352745"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>教學課程：使用 Linux VM 系統指派的受控識別，透過存取金鑰來存取 Azure 儲存體
 
@@ -61,11 +61,11 @@ ms.locfileid: "51623599"
 
 ## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-storage-account-access-keys"></a>將存取儲存體帳戶存取金鑰的權利，授予 VM 系統指派的受控識別
 
-Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用適用於 Azure 資源的受控識別，從 Resource Manager 中擷取儲存體帳戶存取金鑰，然後使用金鑰來存取儲存體。  在此步驟中，您會將存取儲存體帳戶金鑰的權利，授予 VM 系統指派的受控識別。   
+在此步驟中，您會將存取儲存體帳戶金鑰的權利，授予 VM 系統指派的受控識別。   
 
 1. 巡覽回到您新建立的儲存體帳戶。
 2. 按一下左側面板中的 [存取控制 (IAM)] 連結。  
-3. 按一下頁面頂端的 [+ 新增] 以新增 VM 的新角色指派
+3. 按一下頁面頂端的 [+ 新增角色指派]，以新增虛擬機器的新角色指派。
 4. 在頁面右側中，將 [角色] 設定為 [儲存體帳戶金鑰操作員服務角色]。 
 5. 在下一個下拉式清單中，將 [存取權指派給] 設定為資源 [虛擬機器]。  
 6. 接下來，請確保 [訂用帳戶] 下拉式清單中已列出適當的訂用帳戶，然後將 [資源群組] 設定為 [所有資源群組]。  

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: af733b75780787f07ec28ff45bda6810c3d96baa
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 70620b5ec57f6bf4403ac959c4c69026ae80b887
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888115"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261395"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>教學課程：調整 Service Fabric Mesh 中所執行應用程式的大小
 
@@ -53,7 +53,7 @@ ms.locfileid: "52888115"
 
 將應用程式部署到 Service Fabric Mesh 的其中一個主要優點是可讓您輕鬆相應縮小或放大服務。這應用於處理您服務上不同數量的負載，或是改善可用性。
 
-本教學課程使用待辦事項清單樣本作為範例，該樣本[先前已完成部署](service-fabric-mesh-tutorial-template-deploy-app.md)，因此現在應已在執行中。 應用程式有兩個服務：WebFrontEnd 和 ToDoService。 每個服務一開始都使用複寫計數 1 進行部署。  若要檢視執行 WebFrontEnd 服務的執行中複本數，請執行下列內容：
+本教學課程使用待辦事項清單樣本作為範例，該樣本[先前已完成部署](service-fabric-mesh-tutorial-template-deploy-app.md)，因此現在應已在執行中。 應用程式有兩種服務：WebFrontEnd 和 ToDoService。 每個服務一開始都使用複寫計數 1 進行部署。  若要檢視執行 WebFrontEnd 服務的執行中複本數，請執行下列內容：
 
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp --query "replicaCount"

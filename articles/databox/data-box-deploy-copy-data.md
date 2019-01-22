@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 6349ced07385ede42b21c9a8401dd3e0a23bcfbe
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2b6db4977b585b50168c2fa523db9210ca031ff3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790295"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359284"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>教學課程：透過 SMB 將資料複製到 Azure 資料箱
 
@@ -85,9 +85,11 @@ ms.locfileid: "53790295"
 
     您現在應可看到以資料夾形式呈現的共用。
     
+    ![透過檔案總管 2 連線至共用](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)    
+
     **一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾**。 在區塊 Blob 和分頁 Blob 底下建立的資料夾，代表資料以 Blob 形式上傳至的容器。 您無法將檔案直接複製到儲存體帳戶中的 $root 資料夾。
     
-    ![透過檔案總管 2 連線至共用](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
+     
 
 ## <a name="copy-data-to-data-box"></a>將資料複製到資料箱
 
@@ -96,7 +98,11 @@ ms.locfileid: "53790295"
 - 確實將資料複製到與適當資料格式相對應的共用。 例如，將區塊 Blob 資料複製到區塊 Blob 的共用。 如果資料格式不符合適當的共用類型，則在稍後步驟中，資料上傳至 Azure 的作業將會失敗。
 -  複製資料時，請確定資料大小符合 [Azure 儲存體和資料箱限制](data-box-limits.md)中所述的大小限制。
 - 如果資料 (由資料箱上傳) 同時由資料箱以外的其他應用程式上傳，則可能導致上傳作業失敗和資料損毀。
-- 建議您不要同時使用 SMB 與 NFS，或將相同的資料複製到 Azure 上的相同最終目的地。 在這類情況下，無法判斷最後的結果。
+- 我們的建議如下：
+    - 您不要同時使用 SMB 與 NFS。
+    - 將相同的資料複製到 Azure 上的相同最終目的地。 
+     
+  在這類情況下，無法判斷最後的結果。
 - 一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾。 在區塊 Blob 和分頁 Blob 底下建立的資料夾，代表資料以 Blob 形式上傳至的容器。 您無法將檔案直接複製到儲存體帳戶中的 $root 資料夾。
 
 連線至 SMB 共用之後，請開始複製資料。 您可以使用任何與 SMB 相容的檔案複製工具 (例如 Robocopy) 來複製資料。 使用 Robocopy 可起始多個複製作業。 使用下列命令：
