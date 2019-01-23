@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 流量管理員中設定多值流量路由方法 | Microsoft Docs
+title: 在 Azure 流量管理員中設定多值流量路由方法
 description: 本文說明如何設定流量管理員，以路由傳送流量至 A/AAAA 端點。
 services: traffic-manager
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: d4a51551fb0f9067929df1fdf074e7286938004b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 40b266c92a86006746ab5341ac5fa1d785ee6032
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187700"
+ms.locfileid: "54197163"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>在流量管理員中設定多值路由方法
 
