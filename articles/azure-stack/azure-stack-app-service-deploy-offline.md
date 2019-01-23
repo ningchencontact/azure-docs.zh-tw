@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: a3703133e5dc5f0525638562fab98f9416bcf26e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: db4c0f2d1197a190b33bd297bb597fd19057d875
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104653"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230334"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>將 App Service 資源提供者新增至中斷連線且受 AD FS 保護的 Azure Stack 環境
 
@@ -27,14 +27,15 @@ ms.locfileid: "54104653"
 
 > [!IMPORTANT]
 > 在部署 Azure App Service 1.4 之前，請先將 1809 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
->
->
 
 您可以遵循本文章中的指示，安裝 [App Service 資源提供者](azure-stack-app-service-overview.md)至以下 Azure Stack 環境：
 
 - 未連線至網際網路
 - 受 Active Directory 同盟服務 (AD FS) 保護。
 
+ > [!IMPORTANT]
+ > 在部署資源提供者之前，請先檢閱版本資訊，以了解有哪些新功能、修正，以及任何可能對部署造成影響的已知問題。
+ 
 若要將 App Service 資源提供者新增至您的離線 Azure Stack 部署，您必須完成三個最上層工作：
 
 1. 完成[先決條件步驟](azure-stack-app-service-before-you-get-started.md) (例如：購買憑證可能需要幾天才會收到憑證)。

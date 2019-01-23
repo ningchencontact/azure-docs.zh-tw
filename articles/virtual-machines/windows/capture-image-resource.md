@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: ac5ad9d0067205411c56562264aed81f8a5751bc
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 9dc57876467deb24a763a3c3772209e3e2e0ca0d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267448"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360032"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中建立一般化 VM 的受控映像
 
-您可以從在儲存體帳戶中儲存為受控磁碟或非受控磁碟的一般化虛擬機器 (VM)，建立受控映像資源。 映像接著便可用來建立多個 VM。 
+您可以從在儲存體帳戶中儲存為受控磁碟或非受控磁碟的一般化虛擬機器 (VM)，建立受控映像資源。 映像接著便可用來建立多個 VM。 如需受控映像計費方式的相關資訊，請參閱[受控磁碟定價](https://azure.microsoft.com/pricing/details/managed-disks/)。 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>使用 Sysprep 將 Windows VM 一般化
 
@@ -49,7 +49,7 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
    
 4. 針對 [關機選項]，選取 [關機]。
    
-5. 選取 [確定]。
+5. 選取 [確定] 。
    
     ![啟動 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 

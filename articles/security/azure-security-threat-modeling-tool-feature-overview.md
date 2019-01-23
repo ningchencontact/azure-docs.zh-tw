@@ -3,9 +3,9 @@ title: Microsoft 威脅模型化工具 - Azure | Microsoft Docs
 description: 深入了解威脅模型化工具中可用的所有功能
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8bbc13aa77c50c6ae02ecc67869035e7ec85effa
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
-ms.locfileid: "26754740"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359335"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>威脅模型化工具功能概觀
 
@@ -119,7 +119,7 @@ ms.locfileid: "26754740"
 
 ### <a name="open-a-model"></a>開啟模型
 
-將游標移到 [開啟模型] 上方時會顯示 2 個選項：[從這部電腦開啟] 和 [從 OneDrive 開啟]。 第一個選項會開啟 [開啟舊檔] 畫面。 第二個選項會引導您完成 OneDrive 的登入程序。 成功通過驗證之後，您可以選取資料夾和檔案。
+將滑鼠停留在 [開啟模型] 上方，會顯示兩個選項：[從這部電腦開啟] 和 [從 OneDrive 開啟]。 第一個選項會開啟 [開啟舊檔] 畫面。 第二個選項會引導您完成 OneDrive 的登入程序。 成功通過驗證之後，您可以選取資料夾和檔案。
 
 ![開啟模型](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
@@ -147,7 +147,7 @@ ms.locfileid: "26754740"
 您可以利用兩種方法連接元素：
 
 - **拖放**：將所需的資料流程拖曳到格線中，然後將兩端連接到適當的元素。
-- **按一下 + Shift**：按一下第一個元素 (傳送資料)，按住 Shift 鍵，然後選取第二個元素 (接收資料)。 按一下滑鼠右鍵，然後選取 [連接]。 如果您使用雙向資料流程，順序並不重要。
+- **按一下 + Shift**：按一下第一個元素 (傳送資料)，然後按住 Shift 鍵並選取第二個元素 (接收資料)。 按一下滑鼠右鍵，然後選取 [連接]。 如果您使用雙向資料流程，順序並不重要。
 
 ### <a name="properties"></a>properties
 

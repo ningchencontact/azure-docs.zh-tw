@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 1/8/2019
+ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 203168f27e06d58c192bc5009db077461738011a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 2e9e4fe06f4d3802f6c0b3ff13e6cf6cdc218050
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54122780"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54211810"
 ---
 資料處理站是一種多租用戶服務，並具有以下的預設限制以確保客戶訂用帳戶不會受到彼此工作負載的影響。 您只要連絡支援人員，即可將您訂用帳戶的大部分限制調整至其最大限制。
 
@@ -26,6 +26,7 @@ ms.locfileid: "54122780"
 | 一個訂用帳戶下的 Azure SSIS Integration Runtime 總 CPU 核心數 | 256 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 每個資料處理站的並行管線執行回合 (處理站中的所有管線共用) | 10,000  | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 每個管線 (包含容器的內部活動) 的活動數目上限 | 40 | 40 |
+| 可以針對單一自我裝載 Integration Runtime 建立的連結 Integration Runtime 最大數目 | 20 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | 每個管線的參數數目上限 | 50 | 50 |
 | ForEach 項目 | 100,000 | 100,000 |
 | ForEach 平行處理原則 | 20 | 50 |

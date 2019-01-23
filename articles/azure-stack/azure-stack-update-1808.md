@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 8d477997e71843307f6c756a6974a23267842015
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754538"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244965"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 更新
 
@@ -184,7 +184,7 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
 - 在系統管理員和使用者入口網站中，按一下入口網站設定，然後選取 [刪除所有設定和私人儀表板]，並未如預期運作。 錯誤通知隨即顯示。 
 
 <!-- 2930799 - IS ASDK --> 
-- 在系統管理員和使用者入口網站中，[所有服務] 底下的 [DDoS 保護計劃] 資產誤列出。 實際上，它無法在 Azure Stack 中使用。 如果您嘗試建立它，則會顯示錯誤，表示入口網站無法建立 Marketplace 項目。 
+- 在系統管理員和使用者入口網站中，[所有服務] 底下的 [DDoS 保護計劃] 資產未正確列出。 實際上，它無法在 Azure Stack 中使用。 如果您嘗試建立它，則會顯示錯誤，表示入口網站無法建立 Marketplace 項目。 
 
 <!-- 2930820 - IS ASDK --> 
 - 在系統管理員和使用者入口網站中，如果您搜尋 "Docker"，項目未正確傳回。 實際上，它無法在 Azure Stack 中使用。 如果您嘗試建立它，則會顯示具有錯誤指示的刀鋒視窗。 
@@ -254,6 +254,8 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
 - 身為 Azure Stack 操作員，如果您收到記憶體不足的警示，而且租用戶虛擬機器無法部署並出現「Fabric VM 建立錯誤」，則可能表示 Azure Stack 戳記的可用記憶體不足。 請使用 [Azure Stack 容量規劃工具](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)來充分了解可供工作負載使用的容量。
 
 ### <a name="compute"></a>計算
+
+- 建立 [Dv2 系列 VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes) 時，D11-14v2 VM 可讓您分別建立 4、8、16 和 32 個資料磁碟。 不過，建立 VM 窗格會顯示 8、16、32 和 64 個資料磁碟。
 
 <!-- 3164607 – IS, ASDK -->
 - 將已中斷連結的磁碟重新連結到具有相同名稱的相同虛擬機器 (VM)，並且發生如**無法將資料磁碟 'datadisk' 連結到 VM 'vm1'** 錯誤的 LUN 失敗。 此錯誤的發生原因是磁碟目前正在中斷連結，或上次的中斷連結作業失敗。 請等候磁碟完全中斷連結後再試一次，或再次明確將磁碟刪除/中斷連結。 因應措施是使用其他名稱或在其他 LUN 上將它重新連結。 

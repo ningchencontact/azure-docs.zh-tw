@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 7d451f7eae16426c85ed5540b35993cd9b218b83
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d209e1f6924e5c7d6bba7512606504b7165f0ed3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033138"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359420"
 ---
 # <a name="configure-an-ip-firewall-for-your-azure-cosmos-db-account"></a>設定 Azure Cosmos DB 帳戶的 IP 防火牆
 
@@ -145,10 +145,10 @@ az cosmosdb update \
 藉由啟用 Azure Cosmos DB 帳戶的 IP 存取控制原則，您可以封鎖所允許 IP 位址範圍清單外部的電腦對您帳戶的所有要求。 若要啟用入口網站資料平面作業 (例如瀏覽容器和查詢文件)，則需要在入口網站中使用 [防火牆] 窗格，明確地允許 Azure 入口網站存取。
 
 ### <a name="sdks"></a>SDK 
-當您從不在允許清單中的電腦使用 SDK 來存取 Azure Cosmos DB 資源時，會傳回一般的 **404 找不到**回應且沒有其他詳細資料。 請確認您帳戶的允許 IP 清單，並確保會將正確的原則設定套用至您的 Azure Cosmos DB 帳戶。 
+當您從不在允許清單中的電腦使用 SDK 來存取 Azure Cosmos DB 資源時，將會傳回一般的 **403 禁止**回應，且沒有其他詳細資料。 請確認您帳戶的允許 IP 清單，並確保會將正確的原則設定套用至您的 Azure Cosmos DB 帳戶。 
 
 ### <a name="source-ips-in-blocked-requests"></a>已封鎖要求中的來源 IP
-啟用 Azure Cosmos DB 帳戶的診斷記錄。 這些記錄會顯示每個要求和回應。 防火牆相關的訊息會在內部使用 403 傳回碼進行記錄。 藉由篩選這些訊息，您就能看到已封鎖要求的來源 IP。 請參閱 [Azure Cosmos DB 診斷記錄](logging.md)。
+啟用 Azure Cosmos DB 帳戶的診斷記錄。 這些記錄會顯示每個要求和回應。 防火牆相關的訊息會以 403 傳回碼進行記錄。 藉由篩選這些訊息，您就能看到已封鎖要求的來源 IP。 請參閱 [Azure Cosmos DB 診斷記錄](logging.md)。
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>要求來自具有已啟用 Azure Cosmos DB 之服務端點的子網路
 若要求來自虛擬網路中具有已啟用 Azure Cosmos DB 之服務端點的子網路，即會將虛擬網路和子網路身分識別傳送至 Azure Cosmos DB 帳戶。 這些要求沒有來源的公用 IP，因此 IP 篩選器會予以拒絕。 若要允許來自虛擬網路中特定子網路的存取，請新增[如何針對 Azure Cosmos DB 帳戶設定虛擬網路和子網路型存取](how-to-configure-vnet-service-endpoint.md)中所述的存取控制清單。 套用防火牆規則最多可能需要 15 分鐘。
