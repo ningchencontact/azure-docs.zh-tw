@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: ee7a9c407a26f9334a854c98793db8fc01244e2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 65e4c6d66e410e8cd761128028b7a47e21db86eb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994669"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354496"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>準備備份 Azure VM
 
@@ -61,8 +61,6 @@ ms.locfileid: "53994669"
     - 您不需要指定用來儲存備份資料的儲存體帳戶。 保存庫和 Azure 備份服務會自動處理該事宜。
 - 確認已在您要備份的 Azure VM 上安裝 VM 代理程式。
 
-
-
 ### <a name="install-the-vm-agent"></a>安裝 VM 代理程式
 
 為了啟用備份功能，Azure 備份會將備份擴充功能 (VM 快照集或 VM 快照集 Linux) 安裝到執行於 Azure VM 上的 VM 代理程式。
@@ -79,12 +77,14 @@ ms.locfileid: "53994669"
 
 ### <a name="establish-network-connectivity"></a>建立網路連線
 
-在 VM 上執行的備份擴充功能必須具有對 Azure 公用 IP 位址的輸出存取權。 若要允許存取，您可以：
+在 VM 上執行的備份擴充功能必須具有對 Azure 公用 IP 位址的輸出存取權。
 
+> [!NOTE]
+> 不需要明確的輸出網路存取權，即可讓 Azure VM 與 Azure 備份服務通訊。 不過，某些較舊的虛擬機器可能會遇到問題，並因為 **ExtensionSnapshotFailedNoNetwork** 錯誤而發生失敗，若要克服這項錯誤，可選擇下列其中一個選項來允許備份擴充功能與 Azure 公用 IP 位址通訊，從而為備份流量提供明確的路徑。
 
-- **NSG 規則**：允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 您可以新增可使用[服務標記](../virtual-network/security-overview.md#service-tags)允許存取 Azure 備份服務的規則，而不要個別允許每個位址範圍長時間加以管理。
+- **NSG 規則**：允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 您可以新增可使用[服務標記](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)允許存取 Azure 備份服務的規則，而不要個別允許每個位址範圍長時間加以管理。 如需服務標記的詳細資訊，請參閱這篇[文章](../virtual-network/security-overview.md#service-tags)。
 - **Proxy**：部署 HTTP Proxy 伺服器來路由傳送流量。
-- **Azure 防火牆**：使用 Azure 備份服務的 FQDN 標記，允許流量通過 VM 上的 Azure 防火牆。
+- **Azure 防火牆**：使用 Azure 備份服務的 FQDN 標記，允許流量通過 VM 上的 Azure 防火牆
 
 在決定要採用哪些選項時，請考量其優缺點。
 
@@ -94,20 +94,15 @@ ms.locfileid: "53994669"
 **HTTP Proxy** | 可精確控制儲存體 URL。<br/><br/> VM 具有單一網際網路存取點。<br/><br/> Proxy 需要額外成本。
 **FQDN 標記** | 如果您已在 VNet 子網路中設定 Azure 防火牆，則易於使用 | 無法建立您自己的 FQDN 標記，或修改標記中的 FQDN。
 
-
-
 如果您使用 Azure 受控磁碟，您可能需要在防火牆上開啟其他連接埠 (連接埠 8443)。
-
-
 
 ### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>設定 NSG 規則以允許對 Azure 的輸出存取
 
 如果您以 NSG 管理 Azure VM 的存取，請允許備份儲存體對於必要範圍和連接埠的輸出存取。
 
-
-
 1. 在 VM > [網路] 中，按一下 [新增輸出連接埠規則]。
-- 如果您有拒絕存取的規則，新的允許規則必須具有較高的優先順序。 例如，如果您有優先順序設為 1000 的 **Deny_All** 規則，則新規則必須設為小於 1000。
+
+  - 如果您有拒絕存取的規則，新的允許規則必須具有較高的優先順序。 例如，如果您有優先順序設為 1000 的 **Deny_All** 規則，則新規則必須設為小於 1000。
 2. 在 [新增輸出安全性規則] 中，按一下 [進階]。
 3. 在 [來源] 中，選取 [VirtualNetwork]。
 4. 在 [來源連接埠範圍] 中，輸入星號 (*) 以允許從任何連接埠進行輸出存取。
@@ -117,9 +112,9 @@ ms.locfileid: "53994669"
     - 使用非受控磁碟和未加密儲存體帳戶的 VM：80
     - 使用非受控磁碟和加密儲存體帳戶的 VM：443 (預設設定)
     - 受控 VM：8443。
-1. 在 [通訊協定] 中，選取 [TCP]。
-2. 在 [優先順序] 中，為它提供比任何優先順序較高的拒絕規則都小的優先順序值。
-3. 提供規則的名稱和描述，然後按一下 [確定]。
+7. 在 [通訊協定] 中，選取 [TCP]。
+8. 在 [優先順序] 中，為它提供比任何優先順序較高的拒絕規則都小的優先順序值。
+9. 提供規則的名稱和描述，然後按一下 [確定]。
 
 您可以將 NSG 規則套用至多個 VM，以允許透過 Azure 的輸出存取進行 Azure 備份。
 
@@ -127,12 +122,12 @@ ms.locfileid: "53994669"
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-
+> [!WARNING]
+> 儲存體服務標籤處於預覽狀態。 僅在特定區域中提供使用。 如需區域清單，請參閱[儲存體的服務標籤](../virtual-network/security-overview.md#service-tags)。
 
 ### <a name="route-backup-traffic-through-a-proxy"></a>透過 Proxy 路由備份流量
 
 您可以透過 Proxy 來路由備份流量，然後提供對所需 Azure 範圍的 Proxy 存取權。
-
 您應將 Proxy VM 設定為允許下列事項：
 
 - Azure VM 應透過 Proxy 路由所有連往公用網際網路的 HTTP 流量。
@@ -167,8 +162,9 @@ ms.locfileid: "53994669"
 
 #### <a name="allow-incoming-connections-on-the-proxy"></a>允許 Proxy 上的連入連線
 
-1. 在 Proxy 設定中允許連入連線。
-2. 例如，開啟**具有進階安全性的 Windows 防火牆**。
+在 Proxy 設定中允許連入連線。
+
+- 例如，開啟**具有進階安全性的 Windows 防火牆**。
     - 以滑鼠右鍵按一下 [輸入規則] > [新增規則]。
     - 在 [規則類型] 中，選取 [自訂] > [下一步]。
     - 在 [程式] 中，選取 [所有程式] > [下一步]。
@@ -186,13 +182,13 @@ ms.locfileid: "53994669"
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
+
 ### <a name="allow-firewall-access-with-fqdn-tag"></a>允許使用 FQDN 標記的防火牆存取
 
 您可以設定 Azure 防火牆，以允許對 Azure 備份網路流量的輸出存取。
 
 - [了解](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)如何部署 Azure 防火牆。
 - [閱讀](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN 標記的相關資訊。
-
 
 ## <a name="create-a-vault"></a>建立保存庫
 
@@ -227,7 +223,7 @@ ms.locfileid: "53994669"
 
 ## <a name="set-up-storage-replication"></a>設定儲存體複寫
 
-根據預設，保存庫會有[異地備援儲存體 (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)。 建議您使用 GRS 進行主要備份，但您也可以使用[本地備援儲存體](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)，這是成本較低的選項。 
+根據預設，保存庫會有[異地備援儲存體 (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)。 建議您使用 GRS 進行主要備份，但您也可以使用[本地備援儲存體](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)，這是成本較低的選項。
 
 依照下列方式修改儲存體複寫：
 
@@ -285,5 +281,5 @@ ms.locfileid: "53994669"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 對 [Azure VM 代理程式](/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)或 [Azure VM 備份](backup-azure-vms-troubleshoot.md)所發生的任何問題進行疑難排解。
+- 對 [Azure VM 代理程式](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)或 [Azure VM 備份](backup-azure-vms-troubleshoot.md)所發生的任何問題進行疑難排解。
 - [備份 Azure VM](backup-azure-vms-first-look-arm.md)

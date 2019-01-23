@@ -10,15 +10,14 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 47b501fef8d6e0e3fecf944e3b67d563b8cce5eb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5c89673f6154c77a40fb71ae483151998596e7fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117906"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354411"
 ---
-# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C：使用 Node.js 保護 Web API 安全
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
+# <a name="secure-a-web-api-by-using-nodejs-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 Node.js 保護 Web API
 
 透過 Azure Active Directory (Azure AD) B2C，您可以使用 OAuth 2.0 存取權杖來保護 Web API。 這些權杖可讓您的用戶端 app 使用 Azure AD B2C 來對 API 進行驗證。 本文說明如何建立「待辦事項清單」API，以便使用者新增和列出工作。 Web API 會使用 Azure AD B2C 進行保護，只允許已驗證的使用者管理他們的待辦事項清單。
 
@@ -36,7 +35,7 @@ ms.locfileid: "54117906"
 3. 設定用戶端應用程式呼叫「待辦事項清單」Web API。
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>取得 Azure AD B2C 目錄
-您必須先建立目錄或租用戶，才可使用 Azure AD B2C。  目錄就是所有使用者、應用程式、群組等項目的容器。  如果您還沒有此資源，請先 [建立 B2C 目錄](active-directory-b2c-get-started.md) 再繼續進行。
+您必須先建立目錄或租用戶，才可使用 Azure AD B2C。  目錄就是所有使用者、應用程式、群組等項目的容器。  如果您還沒有此資源，請先 [建立 B2C 目錄](tutorial-create-tenant.md) 再繼續進行。
 
 ## <a name="create-an-application"></a>建立應用程式
 接下來，您需要在 B2C 目錄中建立應用程式，以提供一些必要資訊給 Azure AD，讓它與應用程式安全地通訊。 在此案例中，因為用戶端應用程式和 Web API 會組成一個邏輯應用程式，所以由單一 **應用程式識別碼**表示。 如果要建立應用程式，請遵循 [這些指示](active-directory-b2c-app-registration.md)。 請務必：
@@ -47,17 +46,13 @@ ms.locfileid: "54117906"
 * 複製指派給您的應用程式的 **應用程式識別碼** 。 您稍後需要此資料。
 
 ## <a name="create-your-policies"></a>建立您的原則
-在 Azure AD B2C 中，每個使用者體驗皆是由某個 [原則](active-directory-b2c-reference-policies.md)所定義。 此應用程式包含兩種身分識別體驗：註冊和登入。 您必須為每個類型建立一個原則，如 [原則參考文章](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow)所述。  建立您的三個原則時，請務必：
+在 Azure AD B2C 中，每個使用者體驗皆是由某個 [原則](active-directory-b2c-reference-policies.md)所定義。 此應用程式包含兩種身分識別體驗：註冊和登入。 您需要為每個類型建立一個原則。  建立原則時，請務必：
 
 * 在註冊原則中，選擇 [顯示名稱]  和其他註冊屬性。
 * 在每個原則中，選擇 [顯示名稱] 和 [物件識別碼] 應用程式宣告。  您也可以選擇其他宣告。
 * 建立每個原則後，請複製原則的 **名稱** 。 其前置詞應該為 `b2c_1_`。  您稍後需要這些原則名稱。
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
-
-建立您的三個原則後，就可以開始建置您的應用程式。
-
-如需了解 Azure AD B2C 中原則的運作方式，請從 [.NET Web 應用程式快速入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始。
+建立您的原則後，就可以開始建置您的應用程式。
 
 ## <a name="download-the-code"></a>下載程式碼
 本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS)。 如要依照指示建置範例，請 [下載 .zip 檔案格式的基本架構專案](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/skeleton.zip)。 您也可以複製基本架構：
