@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e514f35567f4be0932c7bcc591cbd0f05cd9814
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606753"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246869"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -133,7 +133,11 @@ Azure 會強制執行每個資料磁碟的 IOPS 配額。 這些配額與 Azure 
 
 > [!NOTE]
 > 若要受益於 Azure 的獨特[單一 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)，所有連結的磁碟類型都必須為 Azure 進階儲存體，包括基底 VHD。
->
+
+
+> [!NOTE]
+> 它不支援託管儲存體硬體上 SAP 資料庫的主要資料庫檔案 (資料和記錄檔)，該儲存體硬體位於與 Azure 資料中心相鄰的共存第三方資料中心中。 針對 SAP 工作負載，SAP 資料庫的資料和交易記錄檔僅支援表示為原生 Azure 服務的儲存體。
+> 
 
 資料庫檔案和記錄/重做檔案的位置以及所使用的 Azure 儲存體類型應該依據 IOPS、延遲和輸送量需求來定義。 為了有足夠的 IOPS，您可能被迫利用多個磁碟或使用更大的進階儲存體磁碟。 如果使用多個磁碟，您會建置橫跨多個磁碟的軟體等量磁碟區，其中包含資料檔案或記錄/重做檔案。 在這類情況下，基礎進階儲存體磁碟的 IOPS 和磁碟輸送量，或Azure 標準儲存體磁碟的最大可達成 IOPS 都會針對所產生的等量磁碟區組累加。
 
