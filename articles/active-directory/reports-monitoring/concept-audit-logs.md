@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 883f521040c67cb8fe9578bc5c490bc3dfccba28
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 03206baf0e70e7be247e9848bfd5a80a1a1e1b35
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624653"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247753"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的稽核活動報告 
 
@@ -45,7 +45,7 @@ ms.locfileid: "51624653"
 
 ## <a name="audit-logs"></a>稽核記錄
 
-Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取稽核報告，請選取 [Azure Active Directory] 中 [活動] 區段上的 [稽核記錄]。 
+Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取稽核報告，請選取 [Azure Active Directory] 中 [活動] 區段上的 [稽核記錄]。 請注意，稽核記錄檔可能會延遲最多一小時，所以稽核活動資料可能會在您完成該工作的一個小時後，才會出現在入口網站中。
 
 ![稽核記錄檔](./media/concept-audit-logs/61.png "稽核記錄檔")
 
@@ -178,6 +178,11 @@ Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取�
 
 ![稽核記錄檔](./media/concept-audit-logs/25.png "稽核記錄檔")
 
+## <a name="office-365-activity-logs"></a>Office 365 活動記錄
+
+您可以從 [Office 365 系統管理中心](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)檢視 Office 365 活動記錄。 雖然 Office 365 活動和 Azure AD 活動記錄共用許多目錄資源，但只有 Office 365 系統管理員中心提供 Office 365 活動記錄的完整檢視。 
+
+您也可以透過使用 [Office 365 管理 API](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview)，以程式設計的方式存取 Office 365 活動記錄。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6a23ea08ee14efbc7850e555d9ad84daf855638f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043034"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320730"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 自助式密碼重設的授權需求
 
@@ -33,15 +33,15 @@ Azure AD 自助式密碼重設會依使用者授權來維持合規性，而組�
 * 雲端使用者的自助式密碼重設
    * 我是**僅限雲端的使用者**而且忘了我的密碼。
       * 我想要將我的密碼**重設**為我所知道的密碼。
-   * 這項功能包含在 Azure AD Basic、Premium P1 或 Premium P2 版本中。
+   * 此功能包含在 Azure AD Basic、Premium P1 或 P2，或 Microsoft 365 Business 中。
 
 * 自助式密碼重設/變更/**使用內部部署回寫**來解鎖
    * 我是**混合式使用者**，我的內部部署 Active Directory 使用者帳戶已使用 Azure AD Connect 與我的 Azure AD 帳戶同步處理。 我想要變更我的密碼、忘了我的密碼，或已鎖定。
       * 我想要變更我的密碼或將它重設為我知道的，或將我的帳戶解除鎖定，**以及**將該變更同步處理回到內部部署 Active Directory。
-   * 這項功能包含在 Azure AD Premium P1 或 Premium P2 版本中。
+   * 此功能包含在 Azure AD Premium P1 或 P2，或 Microsoft 365 商務版中。
 
 > [!WARNING]
-> 獨立的 Office 365 授權方案不支援「自助式密碼重設/變更/使用內部部署回寫來解鎖」，而且需要包含 Azure AD Premium P1 或 Premium P2 版本的方案，這項功能才能運作。
+> 獨立的 Office 365 授權方案不支援「自助式密碼重設/變更/使用內部部署回寫來解鎖」，而且需要包含 Azure AD Premium P1、Premium P2 或 Microsoft 365 商務版的方案，這項功能才能運作。
 >
 
 在下列分頁可以找到額外的授權資訊 (包括成本)：
@@ -50,6 +50,7 @@ Azure AD 自助式密碼重設會依使用者授權來維持合規性，而組�
 * [Azure Active Directory 功能和功用](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 企業版](https://www.microsoft.com/microsoft-365/enterprise)
+* [Microsoft 365 Business 服務描述](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-business-service-description)
 
 ## <a name="enable-group-or-user-based-licensing"></a>啟用以群組或使用者為基礎的授權
 

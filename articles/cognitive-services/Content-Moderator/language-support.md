@@ -1,21 +1,21 @@
 ---
 title: 語言支援 - 內容仲裁 API
 titleSuffix: Azure Cognitive Services
-description: 內容仲裁 API 所支援的自然語言清單。
+description: 這是內容仲裁 API 支援的自然語言清單。
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5c170fd2871d0e487f705e1e7274fdfdda4049e6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 95e7f5ce52f4bcf45153b4e455c1427f7117641c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276366"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263647"
 ---
 # <a name="language-support-for-content-moderator-api"></a>內容仲裁 API 的語言支援
 

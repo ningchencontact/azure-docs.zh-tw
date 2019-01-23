@@ -11,23 +11,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 01/16/2019
 ms.author: anwestg
-ms.openlocfilehash: e8a75afe2c7dbe91c7c98d0d35c319088f40748f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cfbf71d4cfbd01eb8544d4b577292c5d7f8faf66
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612673"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359097"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>更新 Azure App Service on Azure Stack
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 > [!IMPORTANT]  
-> 在部署 Azure App Service 1.4 之前，請先將 1809 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
->
->
+> 在部署 Azure App Service 1.4 之前，請先將 1809 更新 (或更新版本) 套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。 在更新資源提供者之前，請先檢閱版本資訊，以了解有哪些新功能、修正，以及任何可能對部署造成影響的已知問題。
 
 您可以遵循本文章中的指示，將部署在連線到網際網路之 Azure Stack 環境中的 [App Service 資源提供者](azure-stack-app-service-overview.md)進行升級。
 

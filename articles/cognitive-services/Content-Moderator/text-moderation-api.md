@@ -7,16 +7,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/30/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0948251c18ad8eece974914ee33dff18b5930553
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 03545d61bf385c4d2e7bd29099be5af47aee74c9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535798"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259048"
 ---
-# <a name="text-moderation"></a>文字仲裁
+# <a name="learn-text-moderation-concepts"></a>了解文字仲裁概念
 
 使用 Content Moderator 的電腦輔助文字仲裁和[人工檢閱](Review-Tool-User-Guide/human-in-the-loop.md)功能來仲裁文字內容。
 

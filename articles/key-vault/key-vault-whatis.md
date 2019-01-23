@@ -1,6 +1,6 @@
 ---
 title: 什麼是 Azure 金鑰保存庫？ - Azure Key Vault | Microsoft Docs
-description: Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 使用 Azure 金鑰保存庫之後，客戶可以加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)，方法是使用受硬體安全模組 (HSM) 保護的金鑰。
+description: Azure 金鑰保存庫可保護雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 客戶可以透過使用受硬體安全模組 (HSM) 保護的金鑰，將驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼加密。
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -11,14 +11,14 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: f3c198ab8a17df019f1735a9b62e27f1051f64c5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 889f12b935eaad72eb7637524ab578f28fbc412f
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076326"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198485"
 ---
 # <a name="what-is-azure-key-vault"></a>什麼是 Azure 金鑰保存庫？
 
@@ -76,7 +76,7 @@ Azure Key Vault 是可安全儲存及存取祕密的工具。 祕密是指任何
 
 此系統管理員接著可以為開發人員提供可從其應用程式進行呼叫的 URI，並為其安全性系統管理員提供金鑰使用方法記錄資訊。 
 
-![Azure 金鑰保存庫概觀][1]
+![Azure 金鑰保存庫運作方式的概觀][1]
 
 開發人員也可透過使用 API 直接管理金鑰。 如需詳細資訊，請參閱 [金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
 

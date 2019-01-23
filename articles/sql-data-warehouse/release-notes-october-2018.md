@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9160a5f4e3a452682787ff500199e43e7fad0c77
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966818"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213684"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 10 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 10 月導入的新功能和變更。
@@ -41,7 +41,7 @@ Azure SQL 資料倉儲 (SQL DW) 的進階微調透過額外的資料倉儲相關
 Azure SQL 資料倉儲加速資料庫復原 (ADR) 現在處於公開預覽狀態。 ADR 是新的 SQL 資料庫引擎功能，藉由完整重新設計目前的復原程序，來大幅改善資料庫可用性 (特別是在有長時間執行的交易時)。 ADR 的主要優點是快速且一致的資料庫復原，以及即時的交易回復。
 
 ## <a name="azure-monitor-diagnostics-logs"></a>Azure 監視器診斷記錄檔
-藉由直接與 Azure 監視器診斷記錄整合，SQL 資料倉儲 (SQL DW) 現在提供更強的分析工作負載見解。 這項新功能可讓開發人員分析更長一段時間內的工作負載行為，並在充分了解資訊的情況下，做出查詢最佳化或容量管理決策。 我們現在透過 [Azure 監視器診斷記錄檔](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs)引進了外部的記錄處理程序，這些記錄檔提供了有關資料倉儲工作負載的額外見解。 只要按一下按鈕，您就可以使用 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries) 為歷程查詢效能疑難排解功能設定診斷記錄檔。 Azure 監視器診斷記錄透過將記錄儲存至儲存體帳戶以供稽核，來支援可自訂的保留期間；也支援將記錄串流至事件中樞，以獲得近乎即時的遙測見解的功能；以及使用具有[記錄查詢]()之 Log Analytics 來分析記錄的功能。 診斷記錄是由您資料倉儲的遙測檢視所組成，其等同於 SQL 資料倉儲最常使用的效能疑難排解 DMV。 我們已為此初始版本啟用下列系統動態管理檢視的檢視：
+藉由直接與 Azure 監視器診斷記錄整合，SQL 資料倉儲 (SQL DW) 現在提供更強的分析工作負載見解。 這項新功能可讓開發人員分析更長一段時間內的工作負載行為，並在充分了解資訊的情況下，做出查詢最佳化或容量管理決策。 我們現在透過 [Azure 監視器診斷記錄檔](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs)引進了外部的記錄處理程序，這些記錄檔提供了有關資料倉儲工作負載的額外見解。 只要按一下按鈕，您就可以使用 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries) 為歷程查詢效能疑難排解功能設定診斷記錄檔。 Azure 監視器診斷記錄透過將記錄儲存至儲存體帳戶以供稽核，來支援可自訂的保留期間；也支援將記錄串流至事件中樞，以獲得近乎即時的遙測深入解析功能；以及使用具有記錄查詢之 Log Analytics 來分析記錄的功能。 診斷記錄是由您資料倉儲的遙測檢視所組成，其等同於 SQL 資料倉儲最常使用的效能疑難排解 DMV。 我們已為此初始版本啟用下列系統動態管理檢視的檢視：
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)

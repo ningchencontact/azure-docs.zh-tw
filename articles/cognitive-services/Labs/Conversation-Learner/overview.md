@@ -10,18 +10,18 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0d2cca335206ee59b922a31ed3cf3ba24ef4ecd7
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 63d13235ec7244978193ed97aac8d11b2ff65eeb
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790770"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198128"
 ---
 # <a name="what-is-conversation-learner"></a>什麼是對話學習模組？
 
 對話學習模組可讓您建置並教導對話介面從範例互動中學習。 
 
-不同於傳統方法，對話學習模組會考慮對話的端對端內容，以改善回應，並達到更有吸引力的使用者經驗。 對話學習模組橫跨眾多工作導向的使用情況，可在幕後運用機器學習來改善聊天機器人和智慧型代理程式，避免讓使用者不耐煩，或造成額外的顧客服務成本，並促使互動更為直覺。
+不同於傳統方法，對話學習模組會考慮對話的端對端內容，以改善回應，並達到更有吸引力的使用者經驗。 Conversation Learner 橫跨眾多工作導向的使用情況，可在幕後運用機器學習來改善聊天機器人和智慧型代理程式，避免讓使用者不耐煩，或造成額外的顧客服務成本，並促使互動更為直覺。
 
 開發人員首先會輸入他們想要模擬的典型對話內容。 隨著更多對話的輸入，模型會持續學習。 模型運作良好時，聊天機器人即可部署到終端使用者。 對話學習模式會記錄使用者的對話，而且開發人員可以檢閱對話內容。 如果發現錯誤，開發人員即可進行立即修正，而且模型將重新訓練且立即可供使用。
 

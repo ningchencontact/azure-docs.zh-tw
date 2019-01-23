@@ -1,5 +1,6 @@
 ---
-title: 在 Azure Content Moderator 中使用連接器來存取其他 API | Microsoft Docs
+title: 審核內容時連接至其他服務 - 內容仲裁
+titlesuffix: Azure Cognitive Services
 description: 了解如何使用連接器來存取 Content Moderator 工作流程的其他 API。
 services: cognitive-services
 author: sanjeev3
@@ -7,16 +8,16 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: d8114457e7079ca8772cab830bd011dcddf372f5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 99d8b3603278a9c6c432ca32a1d85e9abe34e1da
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367990"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265578"
 ---
-# <a name="connectors"></a>連接器
+# <a name="connect-to-other-cognitive-services"></a>連接到其他認知服務
 
 除了 Content Moderator API 外，Azure Content Moderator 工作流程還可以使用其他 API。 您可以使用 Content Moderator 中的連接器來存取其他 API。 連接器會提供通往其他 API 的連結。
 

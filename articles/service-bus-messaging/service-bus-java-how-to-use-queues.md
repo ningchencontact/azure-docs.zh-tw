@@ -13,17 +13,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 804e0dd4b510b40c1ebbc5790308a429c2715724
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e8d168e4171c96441162f1090a215cab8a70b7d1
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573309"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198689"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>如何將服務匯流排佇列搭配 Java 使用
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-此文章說明如何使用服務匯流排佇列。 相關範例是以 Java 撰寫，並且使用 [Azure SDK for Java][Azure SDK for Java]。 此文章說明的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。
+本文說明如何使用服務匯流排佇列。 相關範例是以 Java 撰寫，並且使用 [Azure SDK for Java][Azure SDK for Java]。 本文說明的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。
 
 > [!NOTE]
 > 您可以在 GitHub 的 [azure-service-bus repository](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) 中找到 Java 範例。
@@ -109,7 +109,7 @@ public void run() throws Exception {
 
 ```
 
-傳送至 (和接收自) 服務匯流排佇列的訊息是 [Message](/java/api/com.microsoft.azure.servicebus._message?view=azure-java-stable) 類別的執行個體。 Message 物件有一組標準屬性 (例如 Label 和 TimeToLive)、一個用來保存自訂應用程式專用屬性的字典，以及一堆任意應用程式資料。 應用程式可以設定訊息本文，方法是將任何可序列化物件傳遞到 Message 的建構函式，接著系統便會使用適當的序列化程式將物件序列化。 此外，您也可以提供 **java.IO.InputStream** 物件。
+傳送至 (和接收自) 服務匯流排佇列的訊息是 [Message](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) 類別的執行個體。 Message 物件有一組標準屬性 (例如 Label 和 TimeToLive)、一個用來保存自訂應用程式專用屬性的字典，以及一堆任意應用程式資料。 應用程式可以設定訊息本文，方法是將任何可序列化物件傳遞到 Message 的建構函式，接著系統便會使用適當的序列化程式將物件序列化。 此外，您也可以提供 **java.IO.InputStream** 物件。
 
 
 服務匯流排佇列支援的訊息大小上限：在[標準層](service-bus-premium-messaging.md)中為 256 KB 以及在[進階層](service-bus-premium-messaging.md)中為 1 MB。 標頭 (包含標準和自訂應用程式屬性) 可以容納 64 KB 的大小上限。 佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。 此佇列大小會在建立時定義，上限是 5 GB。
@@ -117,7 +117,7 @@ public void run() throws Exception {
 ## <a name="receive-messages-from-a-queue"></a>從佇列接收訊息
 自佇列接收訊息的主要方式是使用 **ServiceBusContract** 物件。 接收的訊息可在兩種不同的模式下運作：**ReceiveAndDelete** 和 **PeekLock**。
 
-使用 **ReceiveAndDelete** 模式時，接收是一次性作業；也就是說，當服務匯流排在佇列中收到訊息的讀取要求時，它會將此訊息標示為已使用，並將它傳回應用程式。 **ReceiveAndDelete** 模式 (這是預設模式) 是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。 若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。
+使用 **ReceiveAndDelete** 模式時，接收是一次性作業；也就是說，當服務匯流排在佇列中收到訊息的讀取要求時，它會將此訊息標示為已使用，並將它傳回應用程式。 **ReceiveAndDelete** 模式 (此為預設模式) 是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。 若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。
 因為服務匯流排已將訊息標示為已取用，所以，當應用程式重新啟動並開始重新取用訊息時，它會遺漏當機前已取用的訊息。
 
 在 **PeekLock** 模式中，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。 當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。 在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它會在已接收的訊息上呼叫 **Delete**，以完成接收程序的第二個階段。 當服務匯流排看到 **Delete** 呼叫時，它會將訊息標示為已取用，並將它從佇列中移除。

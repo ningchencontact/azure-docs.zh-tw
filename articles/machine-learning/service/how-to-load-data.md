@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: fda0f600fa7cb130511f2bd8b53543acfbcc7759
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2478a5dd3f5d685253ef9145bec0a68ff324c6c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054283"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263810"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>使用 Azure Machine Learning 載入和讀取資料
 
@@ -27,7 +27,25 @@ ms.locfileid: "54054283"
 * 在檔案載入期間使用推斷進行類型轉換
 * MS SQL Server 和 Azure Data Lake Storage 的連線支援
 
-## <a name="load-text-line-data"></a>載入文字行資料 
+## <a name="load-data-automatically"></a>自動載入資料
+
+若要自動載入資料，但不指定檔案類型，請使用 `auto_read_file()` 函式。 系統會自動推斷所需的檔案類型及讀取檔案所需的引數。
+
+```python
+import azureml.dataprep as dprep
+
+dataflow = dprep.auto_read_file(path='./data/any-file.txt')
+```
+
+此函式有助於自動偵測檔案類型、編碼及其他的剖析引數，全部從一個方便的進入點進行。 此函式也會自動執行下列步驟，這些步驟通常在載入分隔的資料時執行：
+
+* 推斷和設定分隔符號
+* 略過檔案頂端的空白記錄
+* 推斷和設定的標頭列
+
+或者，如果您事先知道檔案類型，並想要明確控制剖析檔案的方式，請繼續依循這篇文章以查看 SDK 提供的專門函式。
+
+## <a name="load-text-line-data"></a>載入文字行資料
 
 若要在資料流程中讀取簡單的文字資料，請使用 `read_lines()`，但不指定選擇性參數。
 
@@ -188,7 +206,7 @@ dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
 
 SDK 也可以從 SQL 來源載入資料。 目前只支援 Microsoft SQL Server。 若要從 SQL 伺服器讀取資料，請建立包含連線參數的 `MSSQLDataSource` 物件。 `MSSQLDataSource` 的密碼參數接受 `Secret` 物件。 您能以兩種方式建置祕密物件：
 
-* 向執行引擎註冊祕密與其值。 
+* 向執行引擎註冊祕密與其值。
 * 使用 `dprep.create_secret("[SECRET-ID]")` 建立只有 `id` (若祕密值已在執行環境中註冊) 的祕密。
 
 ```python
@@ -232,7 +250,7 @@ az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > 若您的使用者帳戶是多個 Azure 租用戶的成員，您必須以 AAD URL 主機名稱格式指定該租用戶。
 
 ### <a name="create-a-service-principal-with-the-azure-cli"></a>使用 Azure CLI 建立服務主體
@@ -256,7 +274,7 @@ openssl x509 -in adls-dpreptestfiles.crt -noout -fingerprint
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
 
-若要設定 Azure Data Lake Storage 檔案系統的 `Read` 和 `Execute` 存取，您要個別設定資料夾和檔案的 ACL。 這是因為基礎 HDFS ACL 模型不支援繼承。 
+若要設定 Azure Data Lake Storage 檔案系統的 `Read` 和 `Execute` 存取，您要個別設定資料夾和檔案的 ACL。 這是因為基礎 HDFS ACL 模型不支援繼承。
 
 ```azurecli
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /

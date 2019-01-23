@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 2d8a98e6ab38f4156b6e2f5bda81b44e1789a6ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 11e255c8cc32f17efa9fc9e8f39e869fba032d75
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253069"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359828"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>完成在 Azure 虛擬機器上建立 Always On 可用性群組的必要條件
 
 本教學課程示範如何完成[在 Azure虛擬機器 (VM) 上建立 SQL Server Always On 可用性群組](virtual-machines-windows-portal-sql-availability-group-tutorial.md)的必要條件。 完成必要條件之後，您會在單一資源群組中有一個網域控制站、兩個 SQL Server VM 及一部見證伺服器。
 
-**估計時間**︰可能需要幾個小時的時間才能完成必要條件。 這個時間大部分都是花在建立虛擬機器。
+**估計時間**：可能需要幾個小時的時間才能完成必要條件。 這個時間大部分都是花在建立虛擬機器。
 
 下圖說明您在本教學課程中建置的項目。
 
@@ -108,7 +108,7 @@ Azure 會讓您回到入口網站儀表板，並在建立完新網路時通知�
 
     如果看不到 [SQL-HA-RG]，請按一下 [資源群組]，然後依資源群組名稱進行篩選來尋找它。
 2. 按一下資源清單上的 [autoHAVNET]  。 
-3. 在 [autoHAVNET] 虛擬網路上的 [設定] 下方，按一下 [子網路]。
+3. 在 [autoHAVNET] 虛擬網路上的 [設定] 下方，選取 [子網路]。
 
     請注意您已建立的子網路。
 
@@ -189,7 +189,7 @@ Azure 會讓您回到入口網站儀表板，並在建立完新網路時通知�
 | **子網路** |admin |
 | **公用 IP 位址** |*與 VM 同名* |
 | **網路安全性群組** |*與 VM 同名* |
-| **可用性設定組** |adavailabilityset </br>**容錯網域**：2</br>**更新網域**：2|
+| **可用性設定組** |adavailabilityset </br>**容錯網域**：2 </br>**更新網域**：2|
 | **診斷** |已啟用 |
 | **診斷儲存體帳戶** |*自動建立* |
 
@@ -234,7 +234,7 @@ Azure 會建立虛擬機器。
     | --- | --- |
     | **部署組態** |**新增樹系**<br/> **根網域名稱** = corp.contoso.com |
     | **網域控制站選項** |**DSRM 密碼** = Contoso!0000<br/>**確認密碼** = Contoso!0000 |
-14. 按 [下一步]，以通過精靈中的其他頁面。 在 [檢查先決條件] 頁面上，確認是否出現下列訊息：**已順利通過所有先決條件檢查**。 您可以檢閱任何適用的警告訊息，但是仍可以繼續進行安裝。
+14. 按 [下一步]，以通過精靈中的其他頁面。 在 [先決條件檢查] 頁面上，確認是否出現下列訊息：**已順利通過所有先決條件檢查**。 您可以檢閱任何適用的警告訊息，但是仍可以繼續進行安裝。
 15. 按一下 [Install] 。 **ad-primary-dc** 虛擬機器會自動重新開機。
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>請注意主要網域控制站的 IP 位址
@@ -462,6 +462,10 @@ Azure 會建立虛擬機器。
 6. 按一下 [安裝] 以新增功能。
 
 在另一個 SQL Server VM 上重複上述步驟。
+
+  >[!NOTE]
+  > 此步驟 (以及實際將 SQL Server VM 聯結到容錯移轉叢集) 現在可以使用 Azure 快速入門範本進行自動化。 如需詳細資訊，請參閱[使用 Azure 快速入門範本在 SQL Server VM 上建立 WSFC 和接聽程式，並設定 Always On 可用性群組的 ILB](virtual-machines-windows-sql-availability-group-quickstart-template.md)。
+
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> 在每個 SQL Server VM 上設定防火牆
 

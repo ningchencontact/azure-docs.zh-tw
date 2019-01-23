@@ -1,10 +1,11 @@
 ---
-title: 使用 Azure PowerShell 來建立具有區域備援前端的 Standard Load Balancer
+title: 建立具有區域備援前端的 Load Balancer - Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: 了解如何使用 PowerShell 建立具有區域備援公用 IP 位址前端的公用 Load Balancer Standard
+description: 了解如何使用 PowerShell 建立具有區域備援公用 IP 位址前端的公用 Standard Load Balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: kumud
-ms.openlocfilehash: b6730b624cc0416354fecfdbe747f643540f9e89
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 1a976344fd634e78fc5009ede4954ea578aa8db7
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138734"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244579"
 ---
-#  <a name="create-a-standard-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>使用 Azure PowerShell 來建立具有區域備援前端的 Standard Load Balancer
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>使用 Azure PowerShell 來建立具有區域備援前端的 Standard Load Balancer
 
-本文會逐步說明如何使用 Public IP Standard 位址來建立具有區域備援前端的公用 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard)。
+本文會逐步說明如何使用公用 IP 標準位址，來建立具有區域備援前端的公用 [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -86,7 +87,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
 ```
 
 ## <a name="create-a-load-balancer"></a>建立負載平衡器
-使用下列命令建立 Load Balancer Standard：
+使用下列命令建立 Standard Load Balancer：
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBalancer' -Location westeurope `

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: e902f5969611dd3b1074e899003abe5067857c04
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80d8d1664100cdfbbf6d537b41823c2db0204040
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446131"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318912"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>教學課程：Azure Active Directory 與 KnowledgeOwl 整合
 
@@ -186,7 +186,7 @@ KnowledgeOwl 與 Azure AD 整合提供下列優點：
 
     ![KnowledgeOwl 設定](./media/knowledgeowl-tutorial/configure1.png)
 
-1. 向下捲動至 [SAML SSO 整合]，然後執行下列步驟：
+1. 捲動至 [SAML SSO 整合]，然後執行下列步驟：
     
     ![KnowledgeOwl 設定](./media/knowledgeowl-tutorial/configure2.png)
 
@@ -254,7 +254,7 @@ KnowledgeOwl 與 Azure AD 整合提供下列優點：
 
 本節目標是在 KnowledgeOwl 中建立名為 Britta Simon 的使用者。 KnowledgeOwl 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 KnowledgeOwl 時，如果使用者還不存在，就會建立新使用者。
 >[!Note]
->如果您需要手動建立使用者，請連絡 [KnowledgeOwl 支援小組](mailto:support@knowledgeowl.com)。
+>如果您需要手動建立使用者，請連絡  [KnowledgeOwl 支援小組](mailto:support@knowledgeowl.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -291,7 +291,7 @@ KnowledgeOwl 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [KnowledgeOwl] 圖格時，應該會自動登入您的 KnowledgeOwl 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

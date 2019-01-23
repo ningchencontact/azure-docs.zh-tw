@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f09b9a93956c9d23e17c742c5f6ec4730591933b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 365b15f11409f985b71c9bba4372552321f162f2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302308"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212544"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中設計資料表
 
@@ -103,7 +103,7 @@ SQL 資料倉儲的基本功能，是它能跨越 60 個[散發](massively-paral
 ## <a name="columnstore-indexes"></a>資料行存放區索引
 根據預設，SQL 資料倉儲會將資料表儲存為叢集資料行存放區索引。 這種形式的資料儲存對於大型資料表可達到高度的資料壓縮和查詢效能。  叢集資料行存放區索引通常是最佳選擇，但在某些情況下，叢集索引或堆積會是更適當的儲存結構。
 
-如需資料行存放區功能的清單，請參閱[資料行存放區索引的新功能](/sql/relational-databases/indexes/columnstore-indexes-whats-new)。 若要改善資料行存放區索引效能，請參閱[盡可能提高資料行存放區索引的資料列群組品質](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)。
+如需資料行存放區功能的清單，請參閱[資料行存放區索引的新功能](/sql/relational-databases/indexes/columnstore-indexes-what-s-new)。 若要改善資料行存放區索引效能，請參閱[盡可能提高資料行存放區索引的資料列群組品質](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)。
 
 ## <a name="statistics"></a>統計資料
 查詢最佳化工具在建立執行查詢的計劃時，會使用資料行層級的統計資料。 若要改善查詢效能，請務必建立個別資料行的統計資料，尤其是查詢聯結中使用的資料行。 統計資料並不會自動建立和更新。 請在建立資料表後[建立統計資料](/sql/t-sql/statements/create-statistics-transact-sql)。 在新增或變更大量的資料列之後，請更新統計資料。 例如，請在載入之後更新統計資料。 如需詳細資訊，請參閱[統計資料指引](sql-data-warehouse-tables-statistics.md)。
@@ -133,7 +133,7 @@ SQL 資料倉儲支援其他資料庫所提供的多項 (但並非所有) 資料
 - [索引檢視表](/sql/relational-databases/views/create-indexed-views)
 - [順序](/sql/t-sql/statements/create-sequence-transact-sql)
 - [疏鬆資料行](/sql/relational-databases/tables/use-sparse-columns)
-- [Surrogate 索引鍵]()。 使用[身分識別](sql-data-warehouse-tables-identity.md)進行實作。
+- Surrogate 索引鍵。 使用[身分識別](sql-data-warehouse-tables-identity.md)進行實作。
 - [同義字](/sql/t-sql/statements/create-synonym-transact-sql)
 - [觸發程序](/sql/t-sql/statements/create-trigger-transact-sql)
 - [唯一索引](/sql/t-sql/statements/create-index-transact-sql)

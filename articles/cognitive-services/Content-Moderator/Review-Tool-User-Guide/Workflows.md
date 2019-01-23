@@ -1,20 +1,21 @@
 ---
-title: 在 Azure Content Moderator 中定義和使用工作流程 | Microsoft Docs
-description: 了解如何建立以內容原則為基礎的自訂工作流程。
+title: 定義和使用內容審核工作流程 - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: 您可以使用 Azure Content Moderator 工作流程設計工具和 API，來定義以內容原則為基礎的自訂工作流程和閾值。
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 01/07/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: dfe3ba8a2ef1bcbc69ef585b504a9367d9420bf0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 265d5a2bd6a256d287e6ae164e883ade783f960f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367986"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262399"
 ---
 # <a name="define-test-and-use-workflows"></a>定義、測試和使用工作流程
 

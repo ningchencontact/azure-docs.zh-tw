@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: c510bb060d5c0dc866c3802fab751c1cbeff3745
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42141465"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353272"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>高可用性跨單位和 VNet 對 VNet 連線
 本文針對使用 Azure VPN 閘道的跨單位和 VNet 對 VNet 連線提供高可用性組態選項的概觀。
@@ -49,7 +49,8 @@ ms.locfileid: "42141465"
 3. 此組態需要 BGP。 代表 VPN 裝置的每個區域網路閘道都必須有在 "BgpPeerIpAddress" 屬性中指定的唯一 BGP 對等 IP 位址。
 4. 每個區域網路閘道中的 AddressPrefix 屬性欄位不得重疊。 您應該在 AddressPrefix 欄位中指定 /32 CIDR 格式的 "BgpPeerIpAddress"，例如 10.200.200.254/32。
 5. 您應該使用 BGP 向您的 Azure VPN 閘道通告相同內部部署網路首碼的相同首碼，而流量會同時透過這些通道轉送。
-6. 每個連線會計入 Azure VPN 閘道的通道數目上限，基本和標準 SKU 的上限為 10，而高效能 SKU 的上限為 30。 
+6. 您必須使用等價多路徑路由 (ECMP)。
+7. 每個連線會計入 Azure VPN 閘道的通道數目上限，基本和標準 SKU 的上限為 10，而高效能 SKU 的上限為 30。 
 
 在此組態中，Azure VPN 閘道仍處於作用中-待命模式，因此，仍會發生如 [上面](#activestandby)所述的相同容錯移轉行為和短暫中斷。 但這項設定可防範內部部署網路和 VPN 裝置發生錯誤或中斷。
 

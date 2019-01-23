@@ -1,30 +1,24 @@
 ---
-title: Azure 中的自動調整規模和區域備援應用程式閘道 (公開預覽) | Microsoft Docs
+title: Azure 中的自動調整規模和區域備援應用程式閘道 (公開預覽)
 description: 本文說明如何使用 Azure 入口網站來設定「應用程式閘道」中的 Web 應用程式防火牆要求大小限制和排除清單。
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 09/26/2018
+ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 8fb3dce108b59b8df0d330ec642365d2487eae35
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: f5885fd2ac76550990c9a56a1d200bbe11555918
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085456"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213751"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>自動調整規模和區域備援應用程式閘道 (公開預覽)
 
 在提供效能增強功能並新增重要新功能 (例如自動調整規模、區域備援及靜態 VIP 支援) 支援的新 v2 SKU 下，現以「公開預覽版」方式提供了「應用程式閘道」和「Web 應用程式防火牆」(WAF)。 除了已知限制一節中所列的幾個例外項目之外，新 v2 SKU 會繼續支援已正式推出之 SKU 下的現有功能。 新的 v2 SKU 包含下列增強功能：
 
-- **自動調整規模**：自動調整規模 SKU 下的「應用程式閘道」或 WAF 部署可以根據變動的流量負載模式來調升或調降規模。 自動調整規模也可讓您在佈建時，無須選擇部署大小或執行個體計數。 因此，SKU 可提供真正的靈活彈性。 在新 SKU 中，「應用程式閘道」除了可在啟用自動調整規模功能模式下運作之外，也可在固定容量 (停用自動調整規模功能) 模式下運作。 固定容量模式適用於工作負載一致且可預測的案例。 自動調整規模模式則有利於在應用程式流量中可看到許多變異的應用程式。
+- **自動調整**：自動調整 SKU 下的「應用程式閘道」或 WAF 部署可以根據變動的流量負載模式來相應增加或相應減少。 自動調整規模也可讓您在佈建時，無須選擇部署大小或執行個體計數。 因此，SKU 可提供真正的靈活彈性。 在新 SKU 中，「應用程式閘道」可在固定容量 (停用自動調整規模功能) 模式下運作，也可在啟用自動調整規模功能模式下運作。 固定容量模式適用於工作負載一致且可預測的案例。 自動調整規模模式則有利於在應用程式流量中可看到許多變異的應用程式。
    
    > [!NOTE]
    > 目前針對 WAF SKU 並未提供自動調整規模功能。 請為 WAF 設定固定容量模式，而不是自動調整規模模式。
@@ -39,7 +33,7 @@ ms.locfileid: "50085456"
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>支援區域
-自動調整規模 SKU 適用區域包括美國東部 2、美國中部、美國西部 2、法國中部、西歐及東南亞。
+美國東部 2、美國中部、美國西部 2、美國中北部、美國西部、美國中南部、法國中部、西歐、北歐、英國西部、東南亞和日本東部可以自動調整 SKU。
 
 ## <a name="pricing"></a>價格
 預覽期間無須付費。 將向您收取的是應用程式閘道以外資源 (例如 Key Vault、虛擬機器等) 的費用。 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 076df176d7cd40c009aea27004fe0f4415999c80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6466dc1ec0dcaae6045fadfae7f3a552345be2e8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23112276"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267280"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>部署 StorSimple Virtual Array - 透過 Azure 入口網站設定為 iSCSI 伺服器
 
@@ -36,7 +36,7 @@ ms.locfileid: "23112276"
 在您設定及安裝 StorSimple Virtual Array 之前，請先確定：
 
 * 您已根據[部署 StorSimple Virtual Array：在 Hyper-V 中佈建虛擬陣列](storsimple-ova-deploy2-provision-hyperv.md)或[部署 StorSimple Virtual Array：在 VMware 中佈建虛擬陣列](storsimple-virtual-array-deploy2-provision-vmware.md)中的說明，佈建並連接至虛擬陣列。
-* 您已從您建立來管理 StorSimple Virtual Array 的 StorSimple 裝置管理員服務取得服務註冊金鑰。 如需詳細資訊，請參閱[部署 StorSimple Virtual Array：準備入口網站](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key)中的**步驟 2：取得服務註冊金鑰**。
+* 您已從您建立來管理 StorSimple Virtual Array 的 StorSimple 裝置管理員服務取得服務註冊金鑰。 如需詳細資訊，請參閱**步驟 2：取得服務註冊金鑰** (於[部署 StorSimple Virtual Array - 準備入口網站](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key)中)。
 * 如果這是您要向現有 StorSimple 裝置管理員服務註冊的第二個或更後續的虛擬陣列，則您應該有服務資料加密金鑰。 當第一個裝置在此服務註冊成功時，這個金鑰就已經產生。 如果您遺失這個金鑰，請參閱《 **使用 Web UI 來管理您的 StorSimple Virtual Array** 》一文中的〈 [取得服務資料加密金鑰](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)〉。
 
 ## <a name="step-by-step-setup"></a>安裝的逐步指示
@@ -59,7 +59,7 @@ ms.locfileid: "23112276"
     請使用您在上一個步驟記下的連線 URL。 您會看到錯誤訊息，通知您網站的安全性憑證有問題。 請按一下 [繼續瀏覽此網頁] 。
    
     ![安全性憑證錯誤](./media/storsimple-virtual-array-deploy3-iscsi-setup/image3.png)
-2. 以 **StorSimpleAdmin**的帳戶名稱登入虛擬裝置的 Web UI。 請輸入您在[部署 StorSimple Virtual Array - 在 Hyper-V 中佈建虛擬裝置](storsimple-virtual-array-deploy2-provision-hyperv.md)或[部署 StorSimple Virtual Array - 在 VMware 中佈建虛擬裝置](storsimple-virtual-array-deploy2-provision-vmware.md)的「步驟 3：啟動虛擬裝置」中所變更的裝置系統管理員密碼。
+2. 以 **StorSimpleAdmin**的帳戶名稱登入虛擬裝置的 Web UI。 輸入您[部署 StorSimple Virtual Array - 在 Hyper-V 中佈建虛擬裝置](storsimple-virtual-array-deploy2-provision-hyperv.md)或[部署 StorSimple Virtual Array - 在 VMware 中佈建虛擬裝置](storsimple-virtual-array-deploy2-provision-vmware.md)的「步驟 3：啟動虛擬裝置」中所變更的裝置系統管理員密碼。
    
     ![登入頁面](./media/storsimple-virtual-array-deploy3-iscsi-setup/image4.png)
 3. 您將會進入 [首頁]  頁面。 此頁面說明設定虛擬裝置並向 StorSimple 裝置管理員服務註冊時所需的各種設定。 請注意，[網路設定]、[Web Proxy 設定] 及 [時間設定] 是可省略的。 只有 [裝置設定] 及 [雲端設定] 是必要的設定。
@@ -98,7 +98,7 @@ ms.locfileid: "23112276"
    
     在 [Web Proxy]  頁面上：
    
-   1. 以下列格式提供 **Web Proxy URL**：「http://host-IP 位址」或「FDQN:連接埠號碼」。 請注意，此處不支援 HTTPS URL。
+   1. 以此格式提供 **Web proxy URL**：*http://host-IP 位址* 或 *FQDN:連接埠號碼*。 請注意，此處不支援 HTTPS URL。
    2. 將 [驗證] 指定為 [基本] 或 [無]。
    3. 如果您要使用驗證功能，您也必須提供 [使用者名稱] 和 [密碼]。
    4. 按一下 [套用]。 這將會驗證並套用您設定的 Web Proxy 設定。
@@ -109,13 +109,13 @@ ms.locfileid: "23112276"
     在 [時間設定]  頁面上：
    
    1. 根據裝置部署的地理位置，從下拉式清單中選取 [時區]  。 裝置的預設時區是太平洋標準時間。 裝置將針對所有排程的操作使用這個時區。
-   2. 指定裝置的 [主要 NTP 伺服器]  ，或是接受預設值 time.windows.com。請確定您的網路允許 NTP 流量從您的資料中心通過網際網路。
+   2. 指定裝置的 [主要 NTP 伺服器]  ，或是接受預設值 time.windows.com。 請確定您的網路允許 NTP 流量從您的資料中心通過網際網路。
    3. (選擇性) 指定裝置的 [次要 NTP 伺服器]  。
    4. 按一下 [Apply (套用)] 。 這將會驗證並套用您設定的時間設定。
 9. 設定裝置的雲端設定。 在此步驟中，您將會完成本機裝置設定，然後向您的 StorSimple 裝置管理員服務註冊裝置。
    
-   1. 輸入您在[部署 StorSimple Virtual Array：準備入口網站](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key)的**步驟 2：取得服務註冊金鑰**中取得的**服務註冊金鑰**。
-   2. 如果這不是您向此服務註冊的第一個裝置，您將必須提供「服務資料加密金鑰」 。 這個金鑰需要與服務註冊金鑰搭配使用，才能向 StorSimple 裝置管理員服務註冊其他裝置。 如需詳細資訊，請參閱使用本機 Web UI 來 [取得服務資料加密金鑰](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) 。
+   1. 輸入**服務註冊金鑰**，這是您在**步驟 2：取得服務註冊金鑰** (於[部署 StorSimple Virtual Array - 準備入口網站](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key)中) 取得的「服務註冊金鑰」。
+   2. 如果這不是您向此服務註冊的第一個裝置，您必須提供 **服務資料加密金鑰**。 這個金鑰需要與服務註冊金鑰搭配使用，才能向 StorSimple 裝置管理員服務註冊其他裝置。 如需詳細資訊，請參閱使用本機 Web UI 來 [取得服務資料加密金鑰](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) 。
    3. 按一下 [註冊] 。 這將讓裝置重新啟動。 您可能需要等待 2 至 3 分鐘，裝置才會註冊成功。 裝置重新啟動之後，您將會看到登入頁面。
       
       ![註冊裝置](./media/storsimple-virtual-array-deploy3-iscsi-setup/image11.png)
@@ -125,7 +125,7 @@ ms.locfileid: "23112276"
     
     ![註冊裝置](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
 
-## <a name="step-2-configure-the-device-as-iscsi-server"></a>步驟 2︰將裝置設定為 iSCSI 伺服器
+## <a name="step-2-configure-the-device-as-iscsi-server"></a>步驟 2：將裝置設定為 iSCSI 伺服器
 
 在 Azure 入口網站中執行下列步驟，完成必要的裝置設定。
 

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/6/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994839"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247498"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>應用程式閘道的常見問題集
 
@@ -53,7 +53,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ### <a name="what-regions-is-the-service-available-in"></a>哪些區域提供此服務？
 
-應用程式閘道適用於全域 Azure 的所有區域。 它也適用於 [Azure China](https://www.azure.cn/) 和 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
+應用程式閘道適用於全域 Azure 的所有區域。 它也適用於 [Azure China 21Vianet](https://www.azure.cn/) 和 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 ### <a name="is-this-a-dedicated-deployment-for-my-subscription-or-is-it-shared-across-customers"></a>這是我的訂用帳戶專用的部署，還是所有客戶共用？
 
@@ -138,6 +138,8 @@ V2 SKU 部署可能需要 5 到 6 分鐘的時間來佈建。
 
 例如，您可以在應用程式閘道子網路中設定 UDR，使其指向防火牆設備以進行封包檢查，但您必須確定封包在經過檢查後可送達預定目的地。 若未這麼做，可能會導致不正確的健康情況探查或流量路由行為。 這包括學習到的路由，或是 ExpressRoute 或 VPN 閘道在虛擬網路中傳播的預設 0.0.0.0/0 路由。
 
+應用程式閘道子網路的 UDR **不**支援 v2 SKU。 如需詳細資訊，請參閱[自動調整規模和區域備援應用程式閘道 (公開預覽)](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations)。
+
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>應用程式閘道的限制為何？ 是否可以增加這些限制？
 
 請參閱[應用程式閘道限制](../azure-subscription-service-limits.md#application-gateway-limits)來檢視限制。
@@ -206,7 +208,7 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 ### <a name="does-manual-scale-updown-cause-downtime"></a>手動相應增加/相應減少會造成停機嗎？
 
-不會停機，執行個體已分散於升級網域和容錯網域。
+不會停機。 執行個體已分散於升級網域和容錯網域。
 
 ### <a name="does-application-gateway-support-connection-draining"></a>應用程式閘道是否支援連線清空？
 
@@ -292,7 +294,7 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 ### <a name="how-many-ssl-certificates-are-supported"></a>支援多少個 SSL 憑證？
 
-最多支援 20 個 SSL 憑證。
+最多支援 100 個 SSL 憑證。
 
 ### <a name="how-many-authentication-certificates-for-backend-re-encryption-are-supported"></a>針對後端重新加密支援多少個驗證憑證？
 

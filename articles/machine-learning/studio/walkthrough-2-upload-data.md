@@ -1,26 +1,8 @@
 ---
-title: 步驟 2：將資料上傳至 Machine Learning Studio 實驗 - Azure | Microsoft Docs
-description: 開發預測解決方案逐步解說的步驟 2：將儲存的公用資料上傳至 Azure Machine Learning Studio。
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: garye
-editor: cgronlun
-ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
-ms.service: machine-learning
-ms.component: studio
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.openlocfilehash: 90a73de4177cec74187da852709137d77d60b4d4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261444"
+標題：'步驟 2：將資料上傳至 Machine Learning Studio 實驗' titleSuffix: Azure Machine Learning Studio description:'開發預測性解決方案逐步解說的步驟 2：將儲存的公用資料上傳至 Azure Machine Learning Studio。'
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:2017/03/23
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>逐步解說步驟 2：將現有資料上傳至 Azure Machine Learning Studio 實驗
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)

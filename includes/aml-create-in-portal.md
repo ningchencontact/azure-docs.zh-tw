@@ -9,16 +9,16 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 6f73b15ed16cfe26bf14e60a5206568e1a1564fd
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8bbdd2d49171ee8f4e7eb3cc0def1c7a6e59806b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53594346"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193337"
 ---
 使用您所使用之 Azure 訂用帳戶的認證來登入 [Azure 入口網站](https://portal.azure.com/)。 
 
-只有在 Edge、Chrome 與 Firefox 瀏覽器上才支援入口網站的工作區儀表板。
+只有在 Microsoft Edge、Chrome 和 Firefox 瀏覽器上才支援入口網站的工作區儀表板。
 
    ![Azure 入口網站](./media/aml-create-in-portal/portal-dashboard.png)
 

@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0c171ff768395540c123c4ef2a19168d926b0661
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7fc40945588c272ae0ae80ba17b7b3752cab4306
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633822"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353306"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
 Azure Machine Learning 服務會使用 SDK 來提供數種可部署已定型模型的方式。 在此文件中，了解如何將模型部署為 Azure 雲端中的 Web 服務，或部署到 IoT 邊緣裝置。
+
+> [!IMPORTANT]
+> 將模型部署為 Web 服務時，目前不支援跨原始來源資源共用 (CORS)。
 
 您可以將模型部署到下列計算目標：
 
@@ -31,41 +34,34 @@ Azure Machine Learning 服務會使用 SDK 來提供數種可部署已定型模�
 | [Azure IoT Edge](#iotedge) | IoT 模組 | 在 IoT 裝置上部署模型。 裝置上會發生推斷。 |
 | [可現場程式化閘道陣列 (FPGA)](#fpga) | Web 服務 | 即時推斷的超低延遲。 |
 
+部署模型的程序與所有計算目標類似：
+
+1. 定型和註冊模型。
+1. 設定和註冊使用模型的映像。
+1. 將映像部署到計算目標。
+1. 測試部署
+
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
+
+
+如需部署工作流程中相關概念的詳細資訊，請參閱[使用 Azure Machine Learning 服務來管理、部署及監視模型](concept-model-management-and-deployment.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
+
 - 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 使用[開始使用 Azure Machine Learning 快速入門](quickstart-get-started.md)了解如何取得這些必要條件。
 
-- Pickle (`.pkl`) 或 ONNX (`.onnx`) 格式的已定型模型。 如果您沒有已定型的模型，請使用[將模型定型](tutorial-train-models-with-aml.md)教學課程中的步驟，利用 Azure Machine Learning 服務來定型並註冊一個模型。
+- 已定型的模型。 如果您沒有已定型的模型，請使用[將模型定型](tutorial-train-models-with-aml.md)教學課程中的步驟，利用 Azure Machine Learning 服務來定型並註冊一個模型。
 
-- 程式碼區段假設 `ws` 會參考您的機器學習工作區。 例如： `ws = Workspace.from_config()`。
+    > [!NOTE]
+    > 雖然 Azure Machine Learning 服務可搭配任何能夠在 Python 3 中載入的一般模型運作，但本文件中的範例示範使用以 Pickle 格式儲存的模型。
+    > 
+    > 如需使用 ONNX 模型的詳細資訊，請參閱 [ONNX 和 Azure Machine Learning](how-to-build-deploy-onnx.md) 文件。
 
-## <a name="deployment-workflow"></a>部署工作流程
+## <a id="registermodel"></a> 註冊已定型的模型
 
-部署模型的程序與所有計算目標類似：
-
-1. 將模型定型。
-1. 註冊模型。
-1. 建立映像設定。
-1. 建立映像。
-1. 將映像部署到計算目標。
-1. 測試部署
-1. (選擇性) 清除成品。
-
-    * **部署為 Web 服務**時，有三個部署選項：
-
-        * [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) \(英文\)：使用此方法時，您不需要註冊模型或建立映像。 不過，您無法控制模型或映像的名稱，或相關聯的標記和描述。
-        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) \(英文\)：使用此方法時，您不需要建立映像。 但您無法控制所建立的映像名稱。
-        * [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) \(英文\)：先註冊模型並建立映像，然後才能使用此方法。
-
-        本文件中的範例會使用 `deploy_from_image`。
-
-    * **部署為 IoT Edge 模組**時，您必須註冊模型並建立映像。
-
-## <a name="register-a-model"></a>註冊模型
-
-您只能部署已定型的模型。 您可以使用 Azure Machine Learning 或另一個服務來將模型定型。 若要從檔案註冊模型，請使用下列程式碼：
+模型註冊是在 Azure 雲端中儲存和組織已定型模型的方法。 模型是註冊在您的 Azure Machine Learning 服務工作區中。 您可以使用 Azure Machine Learning 或另一個服務來將模型定型。 若要從檔案註冊模型，請使用下列程式碼：
 
 ```python
 from azureml.core.model import Model
@@ -77,16 +73,15 @@ model = Model.register(model_path = "model.pkl",
                        workspace = ws)
 ```
 
-> [!NOTE]
-> 儘管此範例示範使用儲存為 pickle 檔案的模型，但您也可以使用 ONNX 模型。 如需使用 ONNX 模型的詳細資訊，請參閱 [ONNX 和 Azure Machine Learning](how-to-build-deploy-onnx.md) 文件。
+**估計時間**：大約 10 秒。
 
 如需詳細資訊，請參閱 [Model 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py) \(英文\) 的參考文件。
 
-## <a id="configureimage"></a> 建立映像設定
+## <a id="configureimage"></a> 建立和註冊映像
 
 已部署的模型會封裝為映像。 映像會包含執行模型所需的相依性。
 
-針對 **Azure 容器執行個體**、**Azure Kubernetes Service** 及 **Azure IoT Edge** 部署，使用 `azureml.core.image.ContainerImage` 類別來建立映像設定。 接著使用映像設定來建立新的 Docker 映像。 
+針對 **Azure 容器執行個體**、**Azure Kubernetes Service** 及 **Azure IoT Edge** 部署，使用 [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) 類別來建立映像設定。 接著使用映像設定來建立新的 Docker 映像。 
 
 下列程式碼示範如何建立新的映像設定：
 
@@ -102,24 +97,101 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  )
 ```
 
-此設定會使用 `score.py` 檔案，來將要求傳遞到模型。 此檔案包含兩個函式：
+**估計時間**：大約 10 秒。
 
-* `init()`：此函式通常會將模型載入到全域物件。 此函式只會在 Docker 容器啟動時執行一次。 
+下表說明此範例中的重要參數：
 
-* `run(input_data)`：此函式會使用模型，依據輸入資料來預測值。 run 的輸入和輸出通常會使用 JSON 進行序列化及還原序列化，但也支援其他格式。
-
-如需範例 `score.py` 檔案，請參閱[映像分類教學課程](tutorial-deploy-models-with-aml.md#make-script)。 如需使用 ONNX 模型的範例，請參閱 [ONNX 和 Azure Machine Learning](how-to-build-deploy-onnx.md) 文件。
-
-`conda_file` 參數可用來提供 conda 環境檔案。 此檔案會為已部署的模型定義 conda 環境。 如需建立此檔案的詳細資訊，請參閱[建立環境檔案 (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file)。
+| 參數 | 說明 |
+| ----- | ----- |
+| `execution_script` | 指定用來接收提交給服務之要求的 Python 指令碼。 在此範例中，指令碼包含在 `score.py` 檔案中。 如需詳細資訊，請參閱[執行指令碼](#script)一節。 |
+| `runtime` | 指出映像使用 Python。 其他選項是 `spark-py`，其使用 Python 搭配 Apache Spark。 |
+| `conda_file` | 用來提供 Conda 環境檔。 此檔案會為已部署的模型定義 conda 環境。 如需建立此檔案的詳細資訊，請參閱[建立環境檔案 (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file)。 |
 
 如需詳細資訊，請參閱 [ContainerImage 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) \(英文\) 的參考文件。
 
-## <a id="createimage"></a> 建立映像
+### <a id="script"></a> 執行指令碼
 
-當您建立映像設定之後，就可以使用它來建立映像。 此映像會儲存於您工作區的容器登錄中。 建立之後，您就可以將同一個映像部署到多個服務。
+執行指令碼會接收提交給已部署映像的資料，並將它傳遞給模型。 然後，它會採用模型傳回的回應，並將該回應傳回至用戶端。 指令碼是模型專用的，其必須了解模型所預期和傳回的資料。 指令碼通常包含載入和執行模型的兩個函式：
+
+* `init()`：此函式通常會將模型載入到全域物件。 此函式只會在 Docker 容器啟動時執行一次。 
+
+* `run(input_data)`：此函式會使用模型，依據輸入資料來預測值。 執行的輸入和輸出通常使用 JSON 進行序列化和還原序列化。 您也可以使用原始的二進位資料。 您可以先轉換資料，再將資料傳送給模型或傳回用戶端。 
+
+#### <a name="working-with-json-data"></a>使用 JSON 資料
+
+下列範例指令碼會接受並傳回 JSON 資料。 `run` 函式會將資料從 JSON 轉換為模型預期的格式，然後將回應轉換為 JSON，再將回應傳回：
 
 ```python
-# Create the image from the image configuration
+# import things required by this script
+import json
+import numpy as np
+import os
+import pickle
+from sklearn.externals import joblib
+from sklearn.linear_model import LogisticRegression
+
+from azureml.core.model import Model
+
+# load the model
+def init():
+    global model
+    # retrieve the path to the model file using the model name
+    model_path = Model.get_model_path('sklearn_mnist')
+    model = joblib.load(model_path)
+
+# Passes data to the model and returns the prediction
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    # make prediction
+    y_hat = model.predict(data)
+    return json.dumps(y_hat.tolist())
+```
+
+#### <a name="working-with-binary-data"></a>使用二進位資料
+
+如果您的模型接受__二進位資料__，請使用 `AMLRequest`、`AMLResponse` 和 `rawhttp`。 下列範例指令碼會接受二進位資料，並針對 POST 要求傳回反轉的位元組。 針對 GET 要求，它會在回應本文中傳回完整的 URL：
+
+```python
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+# Accept and return binary data
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    # handle GET requests
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    # handle POST requests
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> `azureml.contrib` 命名空間會因為我們致力於改善本服務而經常變更。 因此，此命名空間中的任何項目均應被視為預覽，而且 Microsoft 不會完全支援。
+>
+> 如果您需要在本機開發環境中測試此項，您可以使用下列命令，在 `contrib` 命名空間中安裝元件： 
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
+### <a id="createimage"></a> 註冊映像
+
+當您建立映像設定之後，就可以使用它來註冊映像。 此映像會儲存於您工作區的容器登錄中。 建立之後，您就可以將同一個映像部署到多個服務。
+
+```python
+# Register the image from the image configuration
 image = ContainerImage.create(name = "myimage", 
                               models = [model], #this is the model object
                               image_config = image_config,
@@ -133,7 +205,7 @@ image = ContainerImage.create(name = "myimage",
 
 如需詳細資訊，請參閱 [ContainerImage 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) \(英文\) 的參考文件。
 
-## <a name="deploy-the-image"></a>部署映像
+## <a id="deploy"></a> 部署映像
 
 當您進行部署時，此程序會根據您部署到其中的計算目標而略微不同。 使用後續各節的資訊來了解如何部署到：
 
@@ -141,6 +213,17 @@ image = ContainerImage.create(name = "myimage",
 * [Azure Kubernetes Service](#aks)
 * [Project Brainwave (可現場程式化閘道陣列)](#fpga)
 * [Azure IoT Edge 裝置](#iotedge)
+
+> [!NOTE]
+> 當**部署為 Web 服務**時，有三個部署方法可以使用：
+>
+> | 方法 | 注意 |
+> | ----- | ----- |
+> | [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) | 您必須先註冊模型並建立映像，然後才能使用此方法。 |
+> | [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) | 使用此方法時，您不需要註冊模型或建立映像。 不過，您無法控制模型或映像的名稱，或相關聯的標記和描述。 |
+> | [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) | 使用此方法時，您不需要建立映像。 但您無法控制所建立的映像名稱。 |
+>
+> 本文件中的範例會使用 `deploy_from_image`。
 
 ### <a id="aci"></a> 部署到 Azure 容器執行個體
 
@@ -179,75 +262,82 @@ Azure Kubernetes Service 提供以下功能：
 * 模型資料收集
 * 快速的 Web 服務回應時間
 
-若要部署到 Azure Kubernetes Service，請使用下列步驟：
+#### <a name="create-a-new-cluster"></a>建立新叢集
 
-1. 若要建立 AKS 叢集，請使用下列程式碼：
+若要建立新的 Azure Kubernetes Service 叢集，使用下列程式碼：
 
-    > [!IMPORTANT]
-    > 建立 AKS 叢集是工作區的一次性程序。 建立之後，就可以重複使用此叢集進行多個部署。 如果刪除叢集或包含該叢集的資源群組，就必須在下次需要部署時建立新的叢集。
-    > 針對 [`provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)，如果您要為 agent_count 和 vm_size 挑選自訂值，則必須先確定 agent_count 乘以 vm_size 會大於或等於 12 個虛擬 CPU。 例如，如果您使用的 vm_size 為 "Standard_D3_v2" (其具有 4 個虛擬 CPU)，則您應該挑選等於或大於 3 的 agent_count。
+> [!IMPORTANT]
+> 建立 AKS 叢集是工作區的一次性程序。 建立之後，就可以重複使用此叢集進行多個部署。 如果刪除叢集或包含該叢集的資源群組，就必須在下次需要部署時建立新的叢集。
+> 針對 [`provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)，如果您要為 agent_count 和 vm_size 挑選自訂值，則必須先確定 agent_count 乘以 vm_size 會大於或等於 12 個虛擬 CPU。 例如，如果您使用的 vm_size 為 "Standard_D3_v2" (其具有 4 個虛擬 CPU)，則您應該挑選等於或大於 3 的 agent_count。
 
-    ```python
-    from azureml.core.compute import AksCompute, ComputeTarget
+```python
+from azureml.core.compute import AksCompute, ComputeTarget
 
-    # Use the default configuration (you can also provide parameters to customize this)
-    prov_config = AksCompute.provisioning_configuration()
+# Use the default configuration (you can also provide parameters to customize this)
+prov_config = AksCompute.provisioning_configuration()
 
-    aks_name = 'aml-aks-1' 
-    # Create the cluster
-    aks_target = ComputeTarget.create(workspace = ws, 
-                                        name = aks_name, 
-                                        provisioning_configuration = prov_config)
+aks_name = 'aml-aks-1' 
+# Create the cluster
+aks_target = ComputeTarget.create(workspace = ws, 
+                                    name = aks_name, 
+                                    provisioning_configuration = prov_config)
 
-    # Wait for the create process to complete
-    aks_target.wait_for_completion(show_output = True)
-    print(aks_target.provisioning_state)
-    print(aks_target.provisioning_errors)
-    ```
+# Wait for the create process to complete
+aks_target.wait_for_completion(show_output = True)
+print(aks_target.provisioning_state)
+print(aks_target.provisioning_errors)
+```
 
-    **估計時間**：約 20 分鐘。
+**估計時間**：約 20 分鐘。
 
-    > [!TIP]
-    > 如果您在 Azure 訂用帳戶中已經有 AKS 叢集，而且它的版本為 1.11.*，則您可以使用它來部署映像。 下列程式碼示範如何將現有叢集附加至您的工作區：
-    >
-    > ```python
-    > from azureml.core.compute import AksCompute, ComputeTarget
-    > # Set the resource group that contains the AKS cluster and the cluster name
-    > resource_group = 'myresourcegroup'
-    > cluster_name = 'mycluster'
-    > 
-    > # Attatch the cluster to your workgroup
-    > attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-    >                                          cluster_name = cluster_name)
-    > aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
-    > 
-    > # Wait for the operation to complete
-    > aks_target.wait_for_completion(True)
-    > ```
+#### <a name="use-an-existing-cluster"></a>使用現有的叢集
 
-2. 若要部署在本文[建立映像](#createimage)一節中所建立的映像，請使用下列程式碼，
+如果您在 Azure 訂用帳戶中已經有 AKS 叢集，而且它的版本為 1.11.*，則您可以使用它來部署映像。 下列程式碼示範如何將現有叢集附加至您的工作區：
 
-    ```python
-    from azureml.core.webservice import Webservice, AksWebservice
+```python
+from azureml.core.compute import AksCompute, ComputeTarget
+# Set the resource group that contains the AKS cluster and the cluster name
+resource_group = 'myresourcegroup'
+cluster_name = 'mycluster'
 
-    # Set configuration and service name
-    aks_config = AksWebservice.deploy_configuration()
-    aks_service_name ='aks-service-1'
-    # Deploy from image
-    service = Webservice.deploy_from_image(workspace = ws, 
-                                                name = aks_service_name,
-                                                image = image,
-                                                deployment_config = aks_config,
-                                                deployment_target = aks_target)
-    # Wait for the deployment to complete
-    service.wait_for_deployment(show_output = True)
-    print(service.state)
-    ```
+# Attatch the cluster to your workgroup
+attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                         cluster_name = cluster_name)
+aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 
-    > [!TIP]
-    > 如果部署期間發生錯誤，請使用 `service.get_logs()` 來檢視 AKS 服務記錄。 記錄資訊可能會指出發生錯誤的原因。
+# Wait for the operation to complete
+aks_target.wait_for_completion(True)
+```
 
-如需詳細資訊，請參閱 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) \(英文\) 和 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py) \(英文\) 類別的參考文件。
+**估計時間**：約 3 分鐘。
+
+#### <a name="deploy-the-image"></a>部署映像
+
+若要將本文件[建立映像](#createimage)一節中所建立的映像部署至 Azure Kubernetes 伺服器叢集，請使用下列程式碼：
+
+```python
+from azureml.core.webservice import Webservice, AksWebservice
+
+# Set configuration and service name
+aks_config = AksWebservice.deploy_configuration()
+aks_service_name ='aks-service-1'
+# Deploy from image
+service = Webservice.deploy_from_image(workspace = ws, 
+                                            name = aks_service_name,
+                                            image = image,
+                                            deployment_config = aks_config,
+                                            deployment_target = aks_target)
+# Wait for the deployment to complete
+service.wait_for_deployment(show_output = True)
+print(service.state)
+```
+
+**估計時間**：約 3 分鐘。
+
+> [!TIP]
+> 如果部署期間發生錯誤，請使用 `service.get_logs()` 來檢視 AKS 服務記錄。 記錄資訊可能會指出發生錯誤的原因。
+
+如需詳細資訊，請參閱 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) \(英文\) 和 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) \(英文\) 類別的參考文件。
 
 ### <a id="fpga"></a> 部署到可現場程式化閘道陣列 (FPGA)
 
@@ -375,23 +465,32 @@ prediction = service.run(input_data = test_sample)
 print(prediction)
 ```
 
-## <a name="update-the-web-service"></a>更新 Web 服務
+Webservice 是 REST API，因此您可以使用各種程式設計語言建立用戶端應用程式。 如需詳細資訊，請參閱[建立用戶端應用程式以使用 Webservice](how-to-consume-web-service.md)。
+
+## <a id="update"></a> 更新 Web 服務
 
 若要更新 Web 服務，請使用 `update` 方法。 下列程式碼示範如何更新 Web 服務以使用新的映像：
 
 ```python
 from azureml.core.webservice import Webservice
+from azureml.core.image import Image
 
 service_name = 'aci-mnist-3'
 # Retrieve existing service
 service = Webservice(name = service_name, workspace = ws)
+
+# point to a different image
+new_image = Image(workspace = ws, id="myimage2:1")
+
 # Update the image used by the service
-service.update(image = new-image)
+service.update(image = new_image)
 print(service.state)
 ```
 
 > [!NOTE]
 > 當您更新映像時，不會自動更新 Web 服務。 您必須手動更新您想要使用新映像的每個服務。
+
+如需詳細資訊，請參閱 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 類別的參考文件。
 
 ## <a name="clean-up"></a>清除
 
@@ -401,8 +500,14 @@ print(service.state)
 
 若要刪除已註冊的模型，請使用 `model.delete()`。
 
+如需詳細資訊，請參閱 [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--)、[Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--) 和 [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--) 參考文件。
+
 ## <a name="next-steps"></a>後續步驟
 
 * [使用 SSL 保護 Azure Machine Learning Web 服務](how-to-secure-web-service.md)
 * [取用部署為 Web 服務的 ML 模型](how-to-consume-web-service.md)
 * [如何執行批次預測](how-to-run-batch-predictions.md)
+* [使用 Application Insights 監視您的 Azure Machine Learning 模型](how-to-enable-app-insights.md)
+* [在生產環境中收集模型資料](how-to-enable-data-collection.md)
+* [Azure Machine Learning 服務 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [透過 Azure 虛擬網路使用 Azure Machine Learning 服務](how-to-enable-virtual-network.md)

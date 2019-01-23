@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 26b7e92bf8fa6c42320f604643bc996794ed52ca
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/11/2019
+ms.openlocfilehash: a999553d7ba26daba674534b1656e90ad0de4f5f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540719"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243962"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>使用 Azure 入口網站來設定適用於 PostgreSQL 之 Azure 資料庫的計量警示 
 
@@ -25,48 +25,54 @@ ms.locfileid: "53540719"
 * 呼叫 Webhook。
 
 您可以透過下列方式，來設定及取得警示規則的相關資訊：
-* [Azure 入口網站](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
-* [命令列介面 (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure 入口網站](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure 監視器 REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>從 Azure 入口網站建立計量的警示規則
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取您想要監視的「適用於 PostgreSQL 的 Azure 資料庫」伺服器。
 
 2. 在資訊看板的 [監視] 區段底下，選取 [警示規則]，如下所示：
 
-   ![選取 [警示規則]](./media/howto-alert-on-metric/1-alert-rules.png)
+   ![選取 [警示規則]](./media/howto-alert-on-metric/2-alert-rules.png)
 
-3. 選取 [新增計量警示] (+ 圖示)。 
+3. 選取 [新增計量警示] (+ 圖示)。
 
-4. [新增規則] 頁面隨即開啟，如下所示。  填寫必要資訊：
+4. [建立規則] 頁面隨即開啟，如下所示。 填寫必要資訊：
 
-   ![[新增計量警示] 表單](./media/howto-alert-on-metric/2-add-rule-form.png)
+   ![[新增計量警示] 表單](./media/howto-alert-on-metric/4-add-rule-form.png)
 
-   | 設定 | 說明  |
-   |---------|---------|
-   | Name | 提供警示規則的名稱。 在警示通知電子郵件中會傳送此值。 |
-   | 說明 | 提供警示規則的簡短描述。 在警示通知電子郵件中會傳送此值。 |
-   | 警示在 | 針對這類警示，請選擇 [計量]。 |
-   | 訂用帳戶 | 此欄位會預先填入裝載「適用於 PostgreSQL 的 Azure 資料庫」的訂用帳戶。 |
-   | 資源群組 | 此欄位會預先填入「適用於 PostgreSQL 的 Azure 資料庫」的資源群組。 |
-   | 資源 | 此欄位會預先填入「適用於 PostgreSQL 的 Azure 資料庫」的名稱。 |
-   | 計量 | 選取您要為其發出警示的計量。 例如 [儲存體百分比]。 |
-   | 條件 | 選擇要用來比較計量的條件。 例如 [大於]。 |
-   | 閾值 | 計量的臨界值，例如 85 (百分比)。 |
-   | 期間 | 觸發警示之前，必須滿足計量規則的一段時間。 例如 [在過去 30 分鐘內]。 |
+5. 在 [條件] 區段中，選取 [新增條件]。
 
-   根據此範例，警示會尋找儲存體百分比在 30 分鐘期間高於 85% 的情況。 當平均儲存體百分比高於 85% 達 30 分鐘時，就會觸發該警示。 發生第一次觸發之後，當平均儲存體百分比在 30 分鐘期間低於 85% 時，就會再次觸發該警示。
+6. 從要提醒的訊號清單中選擇一個計量。 在此範例中，選取 "Storage percent"。
+   
+   ![選取計量](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-5. 選擇要用於警示規則的通知方法。 
+7. 設定警示邏輯，包括**條件** (例如， "Greater than")、**閾值** (例如， 85 percent)、**時間彙總**，觸發警示之前，必須滿足計量規則的**期間** (例如， "Over the last 30 minutes")，以及**頻率**。
+   
+   完成時選取 [完成]。
 
-   如果您想要在警示引發時傳送電子郵件給訂用帳戶管理員和共同管理員，請勾選 [將電子郵件寄給擁有者、參與者及讀者] 選項。
+   ![選取計量](./media/howto-alert-on-metric/7-set-threshold-time.png)
 
-   如果您想要讓其他電子郵件信箱在警示引發時收到通知，請在 [其他管理員的電子郵件] 欄位新增它們。 以分號分隔多個電子郵件 - *email@contoso.com;email2@contoso.com*
+8. 在 [動作群組] 區段中，選取 [建立] 建立新的群組，以接收警示通知。
 
+9. 使用名稱、簡短名稱、訂用帳戶和資源群組填寫 [新增動作群組] 表單。
+
+10. 設定 [電子郵件/簡訊/推播/語音] 動作類型。
+    
+   選擇 [電子郵件 Azure 資源管理員角色] 來選取訂用帳戶擁有者、參與者和讀者，以接收通知。
+   
    如果您想要在警示引發時呼叫 Webhook，可選擇在 [Webhook] 欄位中提供有效的 URI。
 
-6. 選取 [確定] 可建立警示。
+   完成時選取 [確定]。
+
+   ![動作群組](./media/howto-alert-on-metric/10-action-group-type.png)
+
+11. 指定 [警示規則名稱]、[描述] 與 [嚴重性]。
+
+   ![動作群組](./media/howto-alert-on-metric/11-name-description-severity.png) 
+
+12. 選取 [建立警示規則] 以建立警示。
 
    在幾分鐘之內，警示會開始作用，且先前所述觸發。
 

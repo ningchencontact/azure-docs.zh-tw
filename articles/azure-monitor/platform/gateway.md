@@ -11,20 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 01/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 551e7c0ca3b4b5e0e94aca39e19d9a35d08e4e05
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194227"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353034"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>在無網際網路存取下使用 Log Analytics 閘道連線電腦
 本文件說明如何在直接連線或受 Operations Manager 監視的電腦沒有網際網路存取時，設定使用 Log Analytics 閘道與 Azure 自動化和 Log Analytics 的通訊。  Log Analytics 閘道是使用 HTTP CONNECT 命令支援 HTTP 通道的 HTTP 正向 Proxy，可以代表這些電腦收集資料並傳送給 Azure 自動化和 Log Analytics 服務。  
 
 Log Analytics 閘道支援︰
 
+* 向其背後所設最多達四個相同的 Log Analytics 工作區代理程式報告  
 * Azure 自動化混合式 Runbook 背景工作  
 * 直接連線到 Log Analytics 工作區、具有 Microsoft Monitoring Agent 的 Windows 電腦
 * 將適用於 Linux 的 Log Analytics 代理程式直接連線到 Log Analytics 工作區的 Linux 電腦  
@@ -36,11 +37,11 @@ Log Analytics 閘道支援︰
 
 若要為透過閘道與 Log Analytics 通訊的直接連線群組或 Operations Management 群組提供高可用性，您可以使用網路負載平衡來將流量重新導向，並將流量分散到多個閘道伺服器。  如果某個閘道伺服器故障，系統就會將流量重新導向到其他可用節點。  
 
-執行 Log Analytic 閘道的電腦上需要有 Log Analytic 代理程式，才能識別其需要與之通訊的服務端點，並監視 Log Analytics 閘道以分析其效能或事件資料。
+執行 Log Analytic 閘道的電腦上需要有 Log Analytic Windows 代理程式，才能識別其需要與之通訊的服務端點，還能向閘道背後所設代理程式或 Operations Manager 管理群組的相同工作區報告。 若要讓閘道能夠允許它們與指派給它們的工作區交談，這是必要的。 閘道可以是最多四個工作區的多重主目錄，因為這是 Windows 代理程式支援的工作區總數。  
 
-每個代理程式必須具備對其閘道的網路連線，代理程式才能自動將資料傳輸到閘道，或從閘道傳輸資料。 不建議您將閘道安裝在網域控制站上。
+每個代理程式必須具備與閘道間的網路連線，代理程式才能自動與閘道之間來回傳輸資料。 不建議您將閘道安裝在網域控制站上。
 
-下圖顯示使用閘道伺服器從直接代理程式流向 Azure 自動化和 Log Analytics 的資料流程。  代理程式的 Proxy 組態必須符合 Log Analytics 閘道所設定的相同連接埠，以便與服務通訊。  
+下圖顯示使用閘道伺服器從直接代理程式流向 Azure 自動化和 Log Analytics 的資料流程。 代理程式的 Proxy 組態必須符合 Log Analytics 閘道所設定的相同連接埠。  
 
 ![代理程式直接與服務通訊的圖表](./media/gateway/oms-omsgateway-agentdirectconnect.png)
 
@@ -56,7 +57,7 @@ Log Analytics 閘道支援︰
 * Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 及 Windows Server 2008
 * .Net Framework 4.5
 * 至少為 4 核心處理器和 8 GB 記憶體 
-* 適用於 Windows 的 Log Analytics 代理程式 
+* [Windows 版 Log Analytics 代理程式](agent-windows.md) 已安裝，並設定為會透過該閘道向與代理程式相同的工作區報告。  
 
 ### <a name="language-availability"></a>提供的語言
 
@@ -83,12 +84,12 @@ Log Analytics 閘道有下列語言版本︰
 Log Analytics 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不支援安全通訊端層 (SSL)。  為了確保資料傳送至 Log Analytics 時的安全性，我們強烈建議您將閘道設定為至少使用傳輸層安全性 (TLS) 1.2。 我們已發現較舊版本的 TLS/安全通訊端層 (SSL) 較易受到攻擊，而且在其目前的運作中仍允許回溯相容性，因此並**不建議使用**這些版本。  如需其它資訊，請檢閱[使用 TLS 1.2 安全地傳送](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)。 
 
 ### <a name="supported-number-of-agent-connections"></a>支援的代理程式連線數目
-下表強調支援與閘道伺服器通訊的代理程式數目。  此支援是根據代理程式每 6 秒上傳 ~200 KB 資料計算。 測試得出每個代理程式的資料量是每天大約 2.7 GB。
+下表強調支援與閘道伺服器通訊的代理程式數目。  此支援是根據代理程式每 6 秒上傳 ~200 KB 資料計算。 每個代理程式每天所測試的資料量約為 2.7 GB。
 
 |閘道器 |支援的約略代理程式數目|  
 |--------|----------------------------------|  
-|- CPU：Intel XEON CPU E5-2660 v3 \@ 2.6GHz 2 核心<br> - 記憶體：4 GB<br> - 網路頻寬：1 Gbps| 600|  
-|- CPU：Intel XEON CPU E5-2660 v3 \@ 2.6GHz 4 核心<br> - 記憶體：8 GB<br> - 網路頻寬：1 Gbps| 1000|  
+|- CPU：Intel XEON CPU E5-2660 v3 \@ 2.6 GHz 2 核心<br> - 記憶體：4 GB<br> - 網路頻寬：1 Gbps| 600|  
+|- CPU：Intel XEON CPU E5-2660 v3 \@ 2.6 GHz 4 核心<br> - 記憶體：8 GB<br> - 網路頻寬：1 Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>下載 Log Analytics 閘道
 
@@ -124,7 +125,8 @@ Log Analytics 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不�
 1. 如果您沒有啟用 Microsoft Update，系統會顯示 Microsoft Update 頁面，您可以在其中選擇啟用 Microsoft Update。 選擇想要的選項，然後按一下 [下一步]。 否則，請繼續下一個步驟。
 1. 在 [目的地資料夾] 頁面上，保留預設資料夾 C:\Program Files\OMS Gateway 或輸入您想要安裝閘道的位置，然後按 [下一步]。
 1. 在 [準備安裝] 頁面上，按一下 [安裝]。 系統可能會顯示 [使用者帳戶控制] 來要求安裝權限。 如果有顯示，請按一下 [是]。
-1. 安裝完成後，請按一下 [完成]。 您可以透過開啟 services.msc 嵌入式管理單元來確認服務正在執行，並確認服務清單中已顯示 [Log Analytics 閘道]，且其狀態為 [執行中]。<br><br> ![服務 – Log Analytics 閘道](./media/gateway/gateway-service.png)  
+1. 安裝完成後，請按一下 [完成]。 您可以透過開啟 services.msc 嵌入式管理單元來確認服務正在執行，並確認服務清單中已顯示 [OMS 閘道]，且其狀態為 [執行中]。<br><br> ![服務 – Log Analytics 閘道](./media/gateway/gateway-service.png)  
+
 
 ## <a name="configure-network-load-balancing"></a>設定網路負載平衡 
 您可以設定閘道以獲得使用網路負載平衡 (NLB) 的高可用性，此平衡可能是使用 Microsoft 網路負載平衡 (NLB) 或硬體式負載平衡器來達成。  負載平衡器可藉由跨其節點將來自 Log Analytics 代理程式或 Operations Manager 管理伺服器的要求連線進行重新導向，來管理流量。 如果閘道伺服器故障，流量就會被重新導向到其他節點。
@@ -140,7 +142,11 @@ Log Analytics 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不�
 下一節包含的步驟會說明如何為直接連線的 Log Analytics 代理程式、Operations Manager 管理群組或 Azure 自動化混合式 Runbook 背景工作設定 Log Analytics 閘道以與 Azure 自動化或 Log Analytics 通訊。  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>設定獨立 Log Analytics 代理程式
-若要了解如何在直接連線到 Log Analytics 的 Windows 電腦上安裝 Log Analytics 代理程式的相關需求和步驟，請參閱[將 Windows 電腦連線到 Log Analytics](agent-windows.md)，若是 Linux 電腦，則請參閱[將 Linux 電腦連線到 Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md)。 您不需在設定代理程式時指定 Proxy 伺服器，而是以 Log Analytics 閘道伺服器的 IP 位址及其連接埠號碼取代該值。  如果您已在網路負載平衡器後方部署了多個閘道伺服器，Log Analytics 代理程式 Proxy 組態會是 NLB 的虛擬 IP 位址。  
+若要了解如何在直接連線到 Log Analytics 的閘道和 Windows 電腦上安裝 Log Analytics 代理程式的相關需求和步驟，請參閱[將 Windows 電腦連線到 Log Analytics](agent-windows.md)，若是 Linux 電腦，則請參閱[將 Linux 電腦連線到 Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md)。 您不需在設定代理程式時指定 Proxy 伺服器，而是以 Log Analytics 閘道伺服器的 IP 位址及其連接埠號碼取代該值。 如果您已在網路負載平衡器後方部署了多個閘道伺服器，Log Analytics 代理程式 Proxy 組態會是 NLB 的虛擬 IP 位址。  
+
+在閘道伺服器上安裝代理程式後，您可以將它設定為會對與閘道交談的工作區或工作區代理程式報告。 如果 Log Analytics Windows 代理程式未安裝在閘道上，則會在 **OMS 閘道記錄**事件記錄檔上寫入事件 300，表示需要安裝代理程式。 如果代理程式有安裝，但未設定為會向與透過閘道通訊的代理程式相同的工作區報告，則會在相同的事件記錄上寫入事件 105，表示閘道上的代理程式必須設定為向與閘道交談的代理程式相同的工作區報告。
+
+完成設定後，您必須重新啟動 [OMS 閘道] 服務，變更才會生效。 否則，閘道將會拒絕嘗試與 Log Analytics 通訊的代理程式，並在 **OMS 閘道記錄**事件記錄檔中報告事件識別碼 105。 這也適用於當您在閘道伺服器的代理程式組態中新增或移除工作區時。   
 
 如需自動化混合式 Runbook 背景工作角色 的相關資訊，請參閱[部署混合式 Runbook 背景工作角色](../../automation/automation-hybrid-runbook-worker.md)。
 
@@ -149,18 +155,20 @@ Log Analytics 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不�
 
 若要使用閘道來支援 Operations Manager，您必須具備下列條件：
 
-* 在閘道伺服器上安裝 Microsoft Monitoring Agent (代理程式版本 - **8.0.10900.0** 或更新版本)，並針對您想要與之通訊的 Log Analytics 工作區進行設定。
+* 閘道伺服器上已安裝 Microsoft Monitoring Agent (代理程式版本 **8.0.10900.0** 或更新版本)，且設有 Log Analytics 工作區，該工作區與設定您管理群組要報告的工作區相同。
 * 閘道必須有網際網路連線，或連線到有網際網路連線的 Proxy 伺服器。
 
 > [!NOTE]
 > 如果未指定閘道的值，系統會將空白值推送到所有代理程式。
 > 
 
-如果這是 Operations Manager 管理群組第一次向 Log Analytics 工作區進行登錄，在 Operations 主控台中為管理群組指定 Proxy 設定的選項無法使用。  必須先向服務成功登錄該管理群組，之後此選項才可供使用。  您需要在執行 Operations 主控台的系統上使用 Netsh 更新系統 Proxy 設定，以在管理群組中設定整合，以及所有管理伺服器。  
+如果這是 Operations Manager 管理群組第一次向 Log Analytics 工作區進行登錄，在 Operations 主控台中為管理群組指定 Proxy 設定的選項無法使用。  必須先向服務成功登錄該管理群組，之後此選項才可供使用。  請在執行 Operations 主控台的系統上使用 Netsh 更新系統 Proxy 設定，以在管理群組中設定整合，以及所有管理伺服器。  
 
 1. 開啟提升權限的命令提示字元。
-   a. 移至 [開始] 並輸入 **cmd**。
-   b. 用滑鼠右鍵按一下 [命令提示字元]，然後選取 [以系統管理員身分執行]**。
+
+    a. 移至 [開始] 並輸入 **cmd**。  
+    b. 用滑鼠右鍵按一下 [命令提示字元]，然後選取 [以系統管理員身分執行]。  
+
 1. 輸入下列命令並按 **Enter** 鍵：
 
     `netsh winhttp set proxy <proxy>:<port>`

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 3fdbac019849bc97e8d336b75f26a8fe0a05c449
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ca7ce29adb0b83215b64065ef83ff476025b8e81
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713109"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199709"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支援適用於 Azure 資源的受控識別服務
 
@@ -27,28 +27,125 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 下列 Azure 服務支援 Azure 資源的受控識別：
 
-| 服務 | 系統指派的狀態 | 使用者指派的狀態| 設定 | 取得權杖 |
-| ------- | ------ | ---- | --------- | ----------- |
-| Azure 虛擬機器 | 可用 | 預覽 | [Azure 入口網站](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure CLI](qs-configure-cli-windows-vm.md)<br>[Azure 資源管理員範本](qs-configure-template-windows-vm.md)<br>[REST](qs-configure-rest-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
-| 虛擬機器擴展集 | 可用 | 預覽 | [Azure 入口網站](qs-configure-portal-windows-vmss.md)<br>[PowerShell](qs-configure-powershell-windows-vmss.md)<br>[Azure CLI](qs-configure-cli-windows-vmss.md)<br>[Azure 資源管理員範本](qs-configure-template-windows-vmss.md)<br>[REST](qs-configure-rest-vmss.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell)
-| Azure App Service | Windows:可用 <br> Linux：預覽 | 預覽 | [Azure 入口網站](/azure/app-service/overview-managed-identity#using-the-azure-portal)<br>[Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)<br>[Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)<br>[Azure Resource Manager 範本](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template) | [REST](/azure/app-service/overview-managed-identity#using-the-rest-protocol)<br>[.NET](/azure/app-service/overview-managed-identity#asal)<br>[JavaScript](/azure/app-service/overview-managed-identity#token-js)<br>[PowerShell](/azure/app-service/overview-managed-identity#token-powershell)  |
-| Azure Functions | 可用 | 預覽 | [Azure 入口網站](/azure/app-service/overview-managed-identity#using-the-azure-portal)<br>[Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)<br>[Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)<br>[Azure Resource Manager 範本](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template) | [REST](/azure/app-service/overview-managed-identity#using-the-rest-protocol)<br>[.NET](/azure/app-service/overview-managed-identity#asal)<br>[JavaScript](/azure/app-service/overview-managed-identity#token-js)<br>[PowerShell](/azure/app-service/overview-managed-identity#token-powershell) |
-| Azure Logic Apps | 可用 | 尚未提供 | [Azure 入口網站](/azure/logic-apps/create-managed-service-identity#azure-portal)<br>[Azure Resource Manager 範本](/azure/app-service/overview-managed-identity#deployment-template) |  |
-| Azure Data Factory V2 | 可用 | 尚未提供 | [Azure 入口網站](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-| Azure API 管理 | 可用 | 尚未提供 | [Azure Resource Manager 範本](/azure/api-management/api-management-howto-use-managed-service-identity) |
-| Azure Container Instances | Linux：預覽<br>Windows:尚未提供 | Linux：預覽<br>Windows:尚未提供 | [Azure CLI](~/articles/container-instances/container-instances-managed-identity.md)<br>[Azure Resource Manager 範本](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)<br>[YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file) |  |
+### <a name="azure-virtual-machines"></a>Azure 虛擬機器
+
+|受控識別類型 |  全部正式推出<br>全域 Azure 區域 | Azure Government|Azure Germany|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| 系統指派 | 可用 | 預覽 | 預覽 | 預覽 | 預覽 |
+| 使用者指派 | 預覽 | 預覽 | 預覽 | 預覽 | 預覽
+
+請參閱下列清單來設定 Azure 虛擬機器的受控識別 (若區域提供)：
+
+- [Azure 入口網站](qs-configure-portal-windows-vm.md)
+- [PowerShell](qs-configure-powershell-windows-vm.md)
+- [Azure CLI](qs-configure-cli-windows-vm.md)
+- [Azure 資源管理員範本](qs-configure-template-windows-vm.md)
+- [REST](qs-configure-rest-vm.md)
+
+### <a name="azure-virtual-machine-scale-sets"></a>Azure 虛擬機器擴展集
+
+|受控識別類型 |  全部正式推出<br>全域 Azure 區域 | Azure Government|Azure Germany|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| 系統指派 | 可用 | 預覽 | 預覽 | 預覽 |
+| 使用者指派 | 預覽 | 預覽 | 預覽 | 預覽
+
+請參閱下列清單來設定 Azure 虛擬機器擴展集的受控識別 (若區域提供)：
+
+- [Azure 入口網站](qs-configure-portal-windows-vm.md)
+- [PowerShell](qs-configure-powershell-windows-vm.md)
+- [Azure CLI](qs-configure-cli-windows-vm.md)
+- [Azure 資源管理員範本](qs-configure-template-windows-vm.md)
+- [REST](qs-configure-rest-vm.md)
+
+### <a name="azure-app-service"></a>Azure App Service
+
+|受控識別類型 |  全部正式推出<br>全域 Azure 區域 | Azure Government|Azure Germany|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| 系統指派 | 可用 | 可用 | 可用 | 可用 |
+| 使用者指派 | 預覽 | 尚未提供 | 尚未提供 | 尚未提供
+
+請參閱下列清單來設定 Azure App Service 的受控識別 (若區域提供)：
+
+- [Azure 入口網站](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
+- [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
+- [Azure Resource Manager 範本](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+
+### <a name="azure-functions"></a>Azure Functions
+
+受控識別類型 |  全部正式推出<br>全域 Azure 區域 | Azure Government|Azure Germany|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| 系統指派 | 可用 | 可用 | 可用 | 可用 |
+| 使用者指派 | 預覽 | 尚未提供 | 尚未提供 | 尚未提供
+
+請參閱下列清單來設定 Azure Functions 的受控識別 (若區域提供)：
+
+- [Azure 入口網站](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
+- [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
+- [Azure Resource Manager 範本](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+
+### <a name="azure-logic-apps"></a>Azure Logic Apps
+
+受控識別類型 |  全部正式推出<br>全域 Azure 區域 | Azure Government|Azure Germany|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| 系統指派 | 可用 | 可用 | 可用 | 可用 |
+| 使用者指派 | 尚未提供 | 尚未提供 | 尚未提供 | 尚未提供
+
+請參閱下列清單來設定 Azure Logic Apps 的受控識別 (若區域提供)：
+
+- [Azure 入口網站](/azure/logic-apps/create-managed-service-identity#azure-portal)
+- [Azure Resource Manager 範本](/azure/app-service/overview-managed-identity#deployment-template)
+
+### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
+
+受控識別類型 |  全部正式推出<br>全域 Azure 區域 | Azure Government|Azure Germany|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| 系統指派 | 可用 | 尚未提供 | 尚未提供 | 尚未提供 |
+| 使用者指派 | 尚未提供 | 尚未提供 | 尚未提供 | 尚未提供
+
+請參閱下列清單來設定 Azure Data Factory V2 的受控識別 (若區域提供)：
+
+- [Azure 入口網站](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)
+- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)
+- [REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)
+- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk)
+
+### <a name="azure-api-management"></a>Azure API 管理
+
+受控識別類型 |  全部正式推出<br>全域 Azure 區域 | Azure Government|Azure Germany|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| 系統指派 | 可用 | 可用 | 尚未提供 | 尚未提供 |
+| 使用者指派 | 尚未提供 | 尚未提供 | 尚未提供 | 尚未提供
+
+請參閱下列清單來設定 Azure APIM 的受控識別 (若區域提供)：
+
+- [Azure Resource Manager 範本](/azure/api-management/api-management-howto-use-managed-service-identity)
+
+### <a name="azure-container-instances"></a>Azure Container Instances
+
+受控識別類型 |  全部正式推出<br>全域 Azure 區域 | Azure Government|Azure Germany|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| 系統指派 | Linux：預覽<br>Windows:尚未提供 | 尚未提供 | 尚未提供 | 尚未提供 |
+| 使用者指派 | Linux：預覽<br>Windows:尚未提供 | 尚未提供 | 尚未提供 | 尚未提供
+
+請參閱下列清單來設定 Azure 容器執行個體的受控識別 (若區域提供)：
+
+- [Azure CLI](~/articles/container-instances/container-instances-managed-identity.md)
+- [Azure Resource Manager 範本](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
+- [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>支援 Azure AD 驗證的 Azure 服務
 
 下列服務支援 Azure AD 驗證，並已經過使用 Azure 資源受控識別的用戶端服務進行的測試。
 
-| 服務 | 資源識別碼 | 狀態 | 日期 | 指派存取權 |
+| 服務 | 資源識別碼 | 狀態 | 指派存取權 |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | `https://management.azure.com/` | 可用 | 2017 年 9 月 | [Azure 入口網站](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) <br>[Azure Resource Manager 範本](../../role-based-access-control/role-assignments-template.md) |
-| Azure 金鑰保存庫 | `https://vault.azure.net` | 可用 | 2017 年 9 月 | |
-| Azure Data Lake | `https://datalake.azure.net/` | 可用 | 2017 年 9 月 | |
-| Azure SQL | `https://database.windows.net/` | 可用 | 2017 年 10 月 | |
-| Azure 事件中心 | `https://eventhubs.azure.net` | 預覽 | 2017 年 12 月 | |
-| Azure 服務匯流排 | `https://servicebus.azure.net` | 預覽 | 2017 年 12 月 | |
-| Azure 儲存體 | `https://storage.azure.com/` | 預覽 | 2018 年 5 月 | |
+| Azure Resource Manager | `https://management.azure.com/` | 可用 | [Azure 入口網站](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) <br>[Azure Resource Manager 範本](../../role-based-access-control/role-assignments-template.md) |
+| Azure 金鑰保存庫 | `https://vault.azure.net` | 可用 |  
+| Azure Data Lake | `https://datalake.azure.net/` | 可用 |
+| Azure SQL | `https://database.windows.net/` | 可用 |
+| Azure 事件中心 | `https://eventhubs.azure.net` | 預覽 |
+| Azure 服務匯流排 | `https://servicebus.azure.net` | 預覽 |
+| Azure 儲存體 | `https://storage.azure.com/` | 預覽 |

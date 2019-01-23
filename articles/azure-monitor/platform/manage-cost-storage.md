@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a20e4d713440ca6fe1adaf5b89bff347a8fd0bde
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 262c81dbf2c094b6a823a8320a0657f2767bc20c
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744083"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332314"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>管理 Log Analytics 的使用量和成本
 
@@ -67,7 +66,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 
 1. 在工作區中，從左側窗格中選取 [使用量和估計成本]。
 2. 在所選工作區的 [使用量和估計成本] 頁面上，按一下頁面頂端的 [資料量管理]。 
-5. 每日上限預設為 [關閉] – 請按一下 [開啟] 來加以啟用，然後設定資料量限制 (GB/天)。<br><br> ![Log Analytics 設定資料限制](media/manage-cost-storage/set-daily-volume-cap-01.png)
+3. 每日上限預設為 [關閉] – 請按一下 [開啟] 來加以啟用，然後設定資料量限制 (GB/天)。<br><br> ![Log Analytics 設定資料限制](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-daily-cap-reached"></a>已達每日上限時發出警示
 雖然我們會在您達到資料限制閾值時，於 Azure 入口網站中顯示視覺提示，但對於需要立刻處理的作業問題，此行為並不一定與您的管理方式一致。  若要接收警示通知，您可以在 Azure 監視器中建立新的警示規則。  若要進一步了解，請參閱[如何建立、檢視及管理警示](alerts-metric.md)。      
@@ -98,6 +97,25 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 ## <a name="legacy-pricing-tiers"></a>舊版定價層
 
 在 2018 年 7 月 1 日前簽署 Enterprise 合約的客戶，或已在訂用帳戶中建立 Log Analytics 工作區的客戶，仍然可以存取「免費」方案。 如果訂用帳戶未繫結至現有的 EA 註冊，當您在 2018 年 4 月 2 日之後於新的訂用帳戶中建立工作區時，不適用「免費」層。  「免費」層的資料保留期僅限 7 天。  針對舊版「獨立」或「每個節點」層以及目前的 2018 年單一定價層，都會提供過去 31 天所收集的資料。 「免費」層有每日 500 MB 的擷取限制，如果您發現一直超出所允許的數量，您可以將工作區變更為另一個方案來收集超出此限制的資料。 
+
+> [!NOTE]
+> 若要使用來自購買 OMS E1套件、OMS E2 套件或 OMS Add-On for System Center 的權利，請選擇 Log Analytics [每個節點] 定價層。
+
+## <a name="changing-pricing-tier"></a>正在變更定價層
+
+如果您的 Log Analytics 工作區可以存取舊版的定價層，則可以在舊版的定價層之間進行變更：
+
+1. 在 Azure 入口網站的 [Log Analytics 訂用帳戶] 窗格中，選取工作區。
+
+2. 在 [工作區] 窗格的 [一般] 下方，選取 [定價層]。  
+
+3. 在 [定價層] 下方選取定價層，然後按一下 [選取]。  
+    ![選取的定價方案](media/manage-cost-storage/workspace-pricing-tier-info.png)
+
+如果您想要將工作區移至目前的定價層，則需要[在 Azure 監視器中變更訂用帳戶的監視定價模型](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model)，這將變更該訂用帳戶中所有工作區的定價層。
+
+> [!NOTE]
+> 如果您的工作區連結到自動化帳戶，必須先刪除任何**自動化和控制**解決方案以及取消連結自動化帳戶，才可以選取 [獨立 (每 GB)] 定價層。 在 [工作區] 刀鋒視窗的 [一般] 之下，按一下 [解決方案] 以查看和刪除解決方案。 若要取消連結自動化帳戶，請按一下 [定價層] 刀鋒視窗上的自動化帳戶名稱。
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>針對 Log Analytics 為什麼不再收集資料的問題進行疑難排解
@@ -136,22 +154,55 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 
 ### <a name="nodes-sending-data"></a>傳送資料的節點
 
-若要了解上個月回報資料的節點數目，請使用：
+若要了解在上個月每一天回報資料的電腦 (節點) 數目，請使用
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
+| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-若要查看每部電腦所擷取的事件計數，請使用：
+若要取得傳送**計費資料類型**的電腦清單 (某些資料類型是免費的)，請使用 [_IsBillable](log-standard-properties.md#isbillable) 屬性：
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+
+請謹慎使用這些 `union withsource = tt *` 查詢，因為執行跨資料類型掃描相當昂貴。 
+
+加以延伸，即可傳回每小時傳送計費資料類型的電腦計數：
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+
+若要查看每部電腦擷取的可計費事件的**大小**，請使用大小以位元組計算的 `_BilledSize` 屬性：
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+
+此查詢會取代使用「使用量」資料類型進行查詢的舊方法。 
+
+若要查看每部電腦所擷取的事件**計數**，請使用：
 
 `union withsource = tt *
-| summarize count() by Computer |sort by count_ nulls last`
+| summarize count() by Computer | sort by count_ nulls last`
 
-請謹慎使用此查詢，因為它相當耗費資源。 如果您想要查看哪些資料類型正在將資料傳送到特定電腦，請使用：
+若要查看每部電腦所擷取之可計費事件的計數，請使用： 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+如果您想要查看有哪些可計費資料類型的計數正在傳送資料到特定的電腦，請使用：
 
 `union withsource = tt *
-| where Computer == "*computer name*"
-| summarize count() by tt |sort by count_ nulls last `
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
 
 > [!NOTE]
 > [使用量] 資料類型的部分欄位雖然仍位於結構描述中，但皆已過時，且系統將不再填入其值。 這包括 [Computer]，以及其他與擷取相關的欄位 ([TotalBatches]、[BatchesWithinSla]、[BatchesOutsideSla]、[BatchesCapped]，以及 [AverageProcessingTimeMs])。

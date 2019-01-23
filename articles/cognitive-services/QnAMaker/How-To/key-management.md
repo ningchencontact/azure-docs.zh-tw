@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 3984ac84271728b9066aba15a582065ea3121c76
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2b199e10b1a70bc44065d422d32acd3bea182721
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581754"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302046"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>如何管理 QnA Maker 中的金鑰
 
@@ -42,7 +42,7 @@ QnA Maker 服務會處理兩種類型的金鑰，即**訂用帳戶金鑰**和**�
 
 您可以從 [QnA Maker 入口網站](https://qnamaker.ai)來管理端點金鑰。
 
-1. 登入 [QnA Maker 入口網站](https://qnamaker.ai)，並移至 [服務設定]。
+1. 登入 [QnA Maker 入口網站](https://qnamaker.ai)，移至您的設定檔，然後按一下 [服務設定]。
 
     ![端點金鑰](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 

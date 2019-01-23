@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
-ms.openlocfilehash: 0112853bf36c6b7b594400d303234d204b2ea24a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ff8638042fa10c939ff9c5fa7af99a660fcdc753
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109353"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198638"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>如何針對一般工作查詢 Azure Digital Twins API
 
@@ -26,7 +26,7 @@ ms.locfileid: "54109353"
 
 本節說明可取得有關您所佈建空間之詳細資訊的範例查詢。 使用範例查詢提出已驗證的 GET HTTP 要求，以您的設定值取代預留位置。 
 
-- 取得根節點。
+- 取得根節點的空間。
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?$filter=ParentSpaceId eq null
@@ -38,7 +38,7 @@ ms.locfileid: "54109353"
     YOUR_MANAGEMENT_API_URL/spaces?name=Focus Room A1&includes=fullpath,devices,sensors,values,sensorsvalues
     ```
 
-- 取得其父代為指定空間識別碼的空間，且包含相依性。 
+- 取得空間及其裝置/感應器資訊，其父代是指定的空間識別碼，而且這是[相對於指定空白字元](how-to-navigate-apis.md#api-navigation)的層級 2 至 5。 
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?spaceId=YOUR_SPACE_ID&includes=fullpath,devices,sensors,values,sensorsvalues&traverse=Down&minLevel=1&minRelative=true&maxLevel=5&maxRelative=true
@@ -91,7 +91,7 @@ ms.locfileid: "54109353"
     YOUR_MANAGEMENT_API_URL/roleassignments?path=/A_SPATIAL_PATH
     ```
 
-## <a name="queries-for-device-management"></a>查詢裝置管理
+## <a name="queries-for-devices"></a>查詢裝置
 
 本節說明一些如何使用管理 API 來取得有關裝置特定資訊的範例。 所有的 API 呼叫都必須是已驗證的 GET HTTP 要求。
 
@@ -167,7 +167,7 @@ ms.locfileid: "54109353"
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true
     ```
 
-- 取得特定裝置的 IoT 中樞連接字串。
+- 取得裝置的 IoT 中樞連接字串。
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_ID?includes=ConnectionString

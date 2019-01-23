@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: fd5e62138d47622417bde658bf0d05308594d64e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 154f5200872dbc06550f396717cb215f3db4f7dd
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104143"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199573"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>如何針對 Azure Redis 快取問題進行疑難排解
 本文提供下列類別的「Azure Redis 快取」問題疑難排解指引。
@@ -231,9 +231,9 @@ StackExchange.Redis 使用名為 `synctimeout` 的組態設定來進行預設值
    
     如需有關使用 redis-cli 和 stunnel 來連線到「Azure Redis 快取」SSL 端點的資訊，請參閱[宣佈適用於 Redis 預覽版的 ASP.NET 工作階段狀態提供者](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) \(英文\) 部落格文章。 如需詳細資訊，請參閱 [SlowLog](https://redis.io/commands/slowlog)。
 6. 高 Redis 伺服器負載可能會導致逾時。 您可以藉由監視 `Redis Server Load` [快取效能度量](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)來監視伺服器負載。 伺服器負載為 100 (最大值) 表示 Redis 伺服器正忙碌處理要求，並沒有閒置的時間。 若要確認特定要求是否會佔用所有伺服器功能，請執行 SlowLog 命令，如上一段所述。 如需詳細資訊，請參閱 [高 CPU 使用率/伺服器負載](#high-cpu-usage-server-load)。
-7. 用戶端上是否有其他任何事件可能導致網路問題？ 檢查用戶端 (Web、背景工作角色或 Iaas VM) 上是否有用戶端執行個體數目相應增加或相應減少，或部署新版用戶端或已啟用自動調整之類的事件？我們在測試中發現，自動調整或相應增加/相應減少可能會導致輸出網路連線中斷幾秒鐘。 StackExchange.Redis 程式碼對於這類事件具有復原能力，因此將會重新連線。 在重新連線的這段時間內，佇列中的任何要求都會逾時。
+7. 用戶端上是否有其他任何事件可能導致網路問題？ 檢查用戶端 (Web、背景工作角色或 IaaS VM) 上是否有用戶端執行個體數目相應增加或相應減少，或部署新版用戶端或已啟用自動調整之類的事件？我們在測試中發現，自動調整或相應增加/相應減少可能會導致輸出網路連線中斷幾秒鐘。 StackExchange.Redis 程式碼對於這類事件具有復原能力，因此將會重新連線。 在重新連線的這段時間內，佇列中的任何要求都會逾時。
 8. 針對「Azure Redis 快取」，在數個小型要求之前是否有大型要求已逾時？ 錯誤訊息中的參數 `qs` 會告訴您有多少要求已從用戶端傳送到伺服器，但尚未處理回應。 這個值會不斷成長，因為 StackExchange.Redis 使用單一 TCP 連線，而且一次只能讀取一個回應。 即使第一項作業已逾時，它也不會停止傳送資料到伺服器/從伺服器傳出資料，在大型要求完成之前，其他要求都會遭到封鎖，因而導致逾時。 有一個解決方案是確保快取足以容納工作負載，並將較大的值分割成較小的區塊，以將逾時的機會降到最低。 另一個可能的解決方案是在用戶端中使用 `ConnectionMultiplexer` 物件集區，並在傳送新要求時選擇最少負載的 `ConnectionMultiplexer`。 這應該就能防止單一逾時造成其他要求也逾時。
-9. 如果您使用 `RedisSessionStateprovider`，請確定您已正確設定重試逾時。 `retrytimeoutInMilliseconds` 應高於 `operationTimeoutinMilliseonds`，否則不會發生任何重試。 在下列範例中， `retrytimeoutInMilliseconds` 已設定為 3000。 如需詳細資訊，請參閱[適用於 Azure Redis 快取的 ASP.NET 工作階段狀態提供者](cache-aspnet-session-state-provider.md)和[如何使用工作階段狀態提供者和輸出快取提供者的設定參數](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration) \(英文\)。
+9. 如果您使用 `RedisSessionStateProvider`，請確定您已正確設定重試逾時。 `retryTimeoutInMilliseconds` 應高於 `operationTimeoutInMilliseconds`，否則不會發生任何重試。 在下列範例中， `retryTimeoutInMilliseconds` 已設定為 3000。 如需詳細資訊，請參閱[適用於 Azure Redis 快取的 ASP.NET 工作階段狀態提供者](cache-aspnet-session-state-provider.md)和[如何使用工作階段狀態提供者和輸出快取提供者的設定參數](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration) \(英文\)。
 
     <add
       name="AFRedisCacheSessionStateProvider"

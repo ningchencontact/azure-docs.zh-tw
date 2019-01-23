@@ -7,19 +7,19 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315548"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354547"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
 
-在 Azure 搜尋服務中，[佈建服務](search-create-service-portal.md)在定價層或該服務之存留期內固定的 SKU。 層包括**免費**、**基本**或**標準**，其中**標準**在多個組態和容量都有提供。 大部分客戶一開始都會使用**免費**層來進行評估，然後再晉升到**標準**層以進行開發與生產環境部署。 您可以完成**免費**層上的所有快速入門和教學課程，包括耗用大量資料之認知搜尋的快速入門和教學課程。 
+在 Azure 搜尋服務中，[資源是建立](search-create-service-portal.md)在定價層或該服務之存留期內固定的 SKU。 層包括**免費**、**基本**或**標準**，其中**標準**在數個組態和容量都有提供。 大部分客戶一開始都會使用**免費**層來進行評估，然後再晉升到**標準**層以進行開發與生產環境部署。 您可以完成**免費**層上的所有快速入門和教學課程，包括耗用大量資料之認知搜尋的快速入門和教學課程。 
 
 層決定容量，而不是功能，並透過下列方式區分：
 
@@ -32,7 +32,7 @@ ms.locfileid: "53315548"
 > 功能同位的例外狀況是[索引子](search-indexer-overview.md)，它們並不適用於 S3HD。
 >
 
-在層中，您可以[調整複本和分割區的資源](search-capacity-planning.md)以進行效能調整。 雖然您可能從每個層中的兩或三個開始，但您可以暫時提高運算能力以應對繁重的索引工作負載。 調整層中資源層級的能力增加了彈性，但也使分析稍微變得複雜。 您可能需要嘗試實驗以查看具有較高資源/副本的較低層級，是否提供比具有較低資源的較高層級較佳的值和效能。 若要深入了解容量會進行調整的時機和原因，請參閱[效能和最佳化考量](search-performance-optimization.md)。
+在層中，您可以[調整複本和分割區的資源](search-capacity-planning.md)以進行效能調整。 您可能從每個層中的兩或三個開始，然後可以暫時提高運算能力以應對繁重的索引工作負載。 調整層中資源層級的能力增加了彈性，但也使分析稍微變得複雜。 您可能需要嘗試實驗以查看具有較高資源/副本的較低層級，是否提供比具有較低資源的較高層級較佳的值和效能。 若要深入了解容量會進行調整的時機和原因，請參閱[效能和最佳化考量](search-performance-optimization.md)。
 
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
@@ -40,23 +40,46 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 ## <a name="how-billing-works"></a>計費的運作方式
 
-在 Azure 搜尋服務中，所需了解的最重要計費概念是*搜尋單位* (SU)。 Azure 搜尋服務需要複本和分割區才能運作，因此僅依據其中之一來計費沒有意義。 相反地，會將兩者合併來計費。 
+在 Azure 搜尋服務中，當您在入口網站裡建立搜尋資源時有四種方式會產生成本：
+
+* 新增用於一般編製索引和查詢工作的複本和分割區。 您會使用這兩者，但您可以選擇其他資源層級並付費來增加其中之一或兩者以增加容量。 
+* 編製索引期間的資料輸出費用。 從 Azure SQL Database 或 Cosmos DB 資料來源提取資料時，您會在帳單中看到那些資源的交易費用。
+* 僅針對[認知搜尋](cognitive-search-concept-intro.md)，在文件萃取期間的影像擷取，會根據從文件擷取的影像數目計費。 文字擷取目前是免費的。
+* 僅針對[認知搜尋](cognitive-search-concept-intro.md)，以[內建認知技能](cognitive-search-predefined-skills.md)為基礎的擴充會按照認知服務資源進行計費。 擴充的計費費率如同您直接使用認知服務執行工作。
+
+如果您不是使用[認知服務](cognitive-search-concept-intro.md)或 [Azure 搜尋服務索引子](search-indexer-overview.md)，您的成本只會與使用中的複本和分割區相關聯，用於一般編製索引和查詢工作負載。
+
+### <a name="billing-for-general-purpose-indexing-and-queries"></a>一般用途編製索引和查詢的計費
+
+針對 Azure 搜尋服務作業，所需了解的最重要計費概念是「搜尋單位」(SU)。 因為 Azure 搜尋服務需要複本和分割區才能編製索引和查詢，因此僅依據其中之一來計費沒有意義。 相反地，會將兩者合併來計費。 
 
 SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 
-每個服務都以 1 個 SU (一個複本乘以一個分割區) 作為最小值。 任何服務的最大值均為 36 個 SU，其可透過多種方式達成：6 個資料分割 x 6 複本，或 3 個分割區 x 12 個複本等等。 
-
-使用少於總容量的情況很常見。 例如，3 個複本，3 個分割區，以 9 個 SU 計費。 
+每個服務都以一個 SU (一個複本乘以一個分割區) 作為最小值。 任何服務的最大值均為 36 個 SU，其可透過多種方式達成：6 個資料分割 x 6 複本，或 3 個分割區 x 12 個複本等等。 使用少於總容量的情況很常見。 例如，3 個複本，3 個分割區，以 9 個 SU 計費。 
 
 計費的費率是**每小時每 SU**，而且每個定價層會有漸進式較高的費率。 較高層級具有更大型且更快速的分割區，從而有助於該層級整體較高的每小時費率。 如需每一層的費率，請參閱 [定價詳細資料](https://azure.microsoft.com/pricing/details/search/)。 
 
 大多數客戶只能線上提供總容量的一部分，其餘部分則保留。 就計費來說，所上線的分割區和複本數目 (使用 SU 公式來計算) 會決定您實際上每小時要支付多少金額。
 
-### <a name="tips-for-reducing-costs"></a>降低成本的秘訣
+### <a name="billing-for-image-extraction-in-cognitive-search"></a>認知搜尋服務中的影像擷取計費
+
+如果您在認知服務編製索引管線中從檔案擷取影像，在您的 Azure 搜尋服務帳單中會針對該作業收費。 觸發影像擷取的參數是[索引子設定](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters)中的 **imageAction**。 如果 **imageAction** 設為 none (預設值)，則不會有影像擷取的費用。
+
+價格有可能會變更，但一律會在 Azure 搜尋服務的[價格詳細資料](https://azure.microsoft.com/pricing/details/search/)頁面記載。 
+
+### <a name="billing-for-built-in-skills-in-cognitive-search"></a>認知搜尋服務中的內建技能收費
+
+當您設定擴充管線後，在管線中使用的任何[內建技能](cognitive-search-predefined-skills.md)都是以機器學習模型為基礎。 那些模型是由認知服務提供。 在編製索引期間使用那些模型，其計費費率與您直接要求資源相同。
+
+例如，假設有一個針對掃描的影像 JPEG 檔案進行光學字元辨識 (OCR) 所組成的管線，其產生的文字會推送到 Azure 搜尋服務索引以供自由格式檢索查詢。 您的編製索引管線會包含具有 [OCR 技能](cognitive-search-skill-ocr.md)的索引子，而該技能將會[附加到認知服務資源](cognitive-search-attach-cognitive-services.md)。 當您執行索引子時，執行 OCR 的費用會出現在認知資源帳單。
+
+## <a name="tips-for-reducing-costs"></a>降低成本的秘訣
 
 您無法關閉服務以降低費用。 專用資源在您服務的整個生命週期內是 24 小時運行，專供您使用。 降低費用的唯一方法，是將複本和分割區減少到仍然提供可接受的效能和 [SLA 合規性](https://azure.microsoft.com/support/legal/sla/search/v1_0/)的低層級。 
 
-降低成本的一個手段，是選擇每小時費率較低的層。 S1 的每小時費率低於 S2 或 S3 的費率。 您可以針對您的負載預測的下限佈建服務。 如果您超出服務範圍，請建立第二個較大的階層式服務、在第二個服務上重建索引，然後刪除第一個服務。 如果您已完成內部部署伺服器的容量規劃，則您知道「購買」是常見的，這樣您就能夠處理預估的成長。 但是透過雲端服務，您可以更積極地追求成本節約，因為您沒有鎖定特定的購買。 如果目前服務不足，您可以隨時切換至較高層的服務。
+降低成本的一個手段，是選擇每小時費率較低的層。 S1 的每小時費率低於 S2 或 S3 的費率。 假設您針對負載預測的下限佈建服務，如果您超出服務範圍，您可以建立第二個較大的階層式服務，在第二個服務上重建索引，然後刪除第一個服務。 
+
+如果您已完成內部部署伺服器的容量規劃，則您知道「購買」是常見的，這樣您就能夠處理預估的成長。 但是透過雲端服務，您可以更積極地追求成本節約，因為您沒有鎖定特定的購買。 如果目前服務不足，您可以隨時切換至較高層的服務。
 
 ### <a name="capacity-drill-down"></a>容量向下鑽研
 
@@ -143,9 +166,9 @@ SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 
 **查詢量的考量**
 
-在微調效能時，每秒查詢數 (QPS) 計量會顯得重要，但除非您一開始就預期會有非常大量的查詢，否則此計量通常不是定價層的考量事項。
+在微調效能時，每秒查詢數 (QPS) 計量會顯得重要，但除非您一開始就預期會有大量的查詢，否則此計量通常不是定價層的考量事項。
 
-所有標準層都能提供平衡的複本與資料分割，透過額外的複本來達到負載平衡以及額外的資料分割來協助平行處理，以支援更快速的查詢往返。 佈建服務之後，就能對效能進行微調。
+標準層能提供平衡的複本與分割區，透過額外的複本來達到負載平衡以及額外的分割區來協助平行處理，以支援更快速的查詢往返。 佈建服務之後，就能對效能進行微調。
 
 一開始就預期會有不斷大量查詢的客戶，應該考慮使用更高的定價層，以獲得更強大硬體的支援。 如果未能發生這些查詢量，您便可以將資料分割和複本離線，或甚至改用較低定價層的服務。 如需如何計算查詢輸送量的詳細資訊，請參閱 [Azure 搜尋服務效能和最佳化](search-performance-optimization.md)。
 
@@ -158,7 +181,7 @@ SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 
 + 了解如何建置有效率的索引，以及哪種重新整理方法的影響最少。 我們建議使用[搜尋流量分析](search-traffic-analytics.md)來獲得查詢活動見解。
 
-+ 允許圍繞查詢來建置計量，並收集使用模式的相關資料 (在營業時間內查詢、在離峰時間編製索引)，並使用此資料來通知未來的服務佈建決策。 雖然對每小時或每日層級來說不實用，但您可以動態調整資料分割和資源以因應計劃中的查詢量變化，而如果這些層級已保持夠久而必定會採取相應行動，則可因應雖非計劃中但已獲認可的變化。
++ 允許圍繞查詢來建置計量，並收集使用模式的相關資料 (在營業時間內查詢、在離峰時間編製索引)，並使用此資料來通知未來的服務佈建決策。 雖然對每小時或每日的頻率來說不實用，但您可以動態調整分割區和資源以因應計劃中的查詢量變化，而如果這些層級已保持夠久而必定會採取相應行動，則可因應雖非計劃中但已獲認可的變化。
 
 + 請記住，佈建量不足的唯一缺點是，您可能必須在實際需求大於預估需求時終止服務。 為避免服務中斷，建議您在相同訂用帳戶中使用更高的定價層建立一個新服務，並讓此服務並行執行，直到所有應用程式和要求都以新端點為目標才停止。
 

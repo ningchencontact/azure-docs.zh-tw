@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: da2e742f0dde0cb4b98bfb107d18eca779d10021
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dd2914c675d3bca32ca8951ffca1b04e23786400
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234590"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266894"
 ---
-# <a name="security-frame-input-validation--mitigations"></a>安全性架構︰輸入驗證 | 風險降低 
+# <a name="security-frame-input-validation--mitigations"></a>安全框架︰輸入驗證 | 風險降低 
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Web 應用程式** | <ul><li>[停用所有使用未受信任樣式表之轉換的 XSLT 指令碼](#disable-xslt)</li><li>[確定可能包含使用者可控制內容的每個頁面都選擇不要自動探查 MIME](#out-sniffing)</li><li>[強化或停用 XML 實體解析](#xml-resolution)</li><li>[利用 http.sys 的應用程式會執行 URL 標準化驗證](#app-verification)</li><li>[確定在接受使用者的檔案時已備妥適當的控制](#controls-users)</li><li>[確定 Web 應用程式有使用 type-safe 參數來存取資料](#typesafe)</li><li>[使用個別的模型繫結類別或繫結篩選清單來防止 MVC 大量指派弱點](#binding-mvc)</li><li>[先將未受信任的 Web 輸出編碼再進行轉譯](#rendering)</li><li>[對所有字串類型的模型屬性執行輸入驗證和篩選](#typemodel)</li><li>[應該對接受所有字元的表單欄位 (例如 RTF 編輯器) 套用清理](#richtext)</li><li>[請勿將沒有內建編碼的 DOM 元素指派給接收器](#inbuilt-encode)</li><li>[驗證應用程式內的所有重新導向皆已關閉或安全完成](#redirect-safe)</li><li>[對控制器方法所接受的所有字串類型參數實作輸入驗證](#string-method)</li><li>[為規則運算式處理設定逾時上限以防止因規則運算式不正確而導致 DoS](#dos-expression)</li><li>[避免在 Razor 檢視中使用 Html.Raw](#html-razor)</li></ul> | 
@@ -39,7 +39,7 @@ ms.locfileid: "51234590"
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [XSLT 安全性](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx)、[XsltSettings.EnableScript 屬性](https://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
-| **步驟** | XSLT 支援在使用 `<msxml:script>` 元素的樣式表內編寫指令碼。 這可讓自訂函式用於 XSLT 轉換。 指令碼會在執行轉換的程序內容下執行。 在未受信任的環境時必須停用 XSLT 指令碼，以防止執行未受信任的程式碼。 如果使用 .NET：預設會停用 XSLT 指令碼；不過，您必須確認它尚未透過 `XsltSettings.EnableScript` 屬性加以明確啟用。|
+| **步驟** | XSLT 支援在使用 `<msxml:script>` 元素的樣式表內編寫指令碼。 這可讓自訂函式用於 XSLT 轉換。 指令碼會在執行轉換的程序內容下執行。 在未受信任的環境時必須停用 XSLT 指令碼，以防止執行未受信任的程式碼。 *如果使用 .NET：* 預設會停用 XSLT 指令碼；不過，您必須確認它尚未透過 `XsltSettings.EnableScript` 屬性加以明確啟用。|
 
 ### <a name="example"></a>範例 
 

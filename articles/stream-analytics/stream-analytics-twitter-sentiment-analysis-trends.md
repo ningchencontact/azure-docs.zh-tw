@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: de0ddbc041d6f177e5bfcd24d593b8d63a8e1e23
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248722"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231133"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure 串流分析中的即時 Twitter 情感分析
 
@@ -36,7 +36,7 @@ ms.locfileid: "50248722"
 * Azure 訂用帳戶
 * Twitter 帳戶 
 * Twitter 應用程式和該應用程式的 [OAuth 存取權杖](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)。 稍後我們會提供如何建立 Twitter 應用程式的高層級指示。
-* 用來讀取 Twitter 摘要的 TwitterWPFClient 應用程式。 若要取得此應用程式，請從 GitHub 下載[TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) 檔案，然後將套件解壓縮至電腦上的資料夾。 如果您想要看到原始程式碼，並在偵錯工具中執行應用程式，您可以從 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator) 取得原始程式碼。 
+* 用來讀取 Twitter 摘要的 TwitterWPFClient 應用程式。 若要取得此應用程式，請從 GitHub 下載[TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) 檔案，然後將套件解壓縮至電腦上的資料夾。 如果您想要看到原始程式碼，並在偵錯工具中執行應用程式，您可以從 [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient) 取得原始程式碼。 
 
 ## <a name="create-an-event-hub-for-streaming-analytics-input"></a>建立串流分析輸入的事件中樞
 
@@ -298,11 +298,11 @@ ms.locfileid: "50248722"
 2. 在 [輸出] 刀鋒視窗中，按一下 [+&nbsp;新增]，然後在刀鋒視窗中填入這些值：
 
     * **輸出別名**：使用名稱 `TwitterStream-Output`。 
-    * **接收器**：選取 [Blob 儲存體]。
-    * **匯入選項**：選取 [使用來自目前訂用帳戶的 Blob 儲存體]。
+    * **接收**：選取 [Blob 儲存體]。
+    * **匯入選項**：選取 [從目前的訂用帳戶使用 Blob 儲存體]。
     * **儲存體帳戶**。 選取 [建立新儲存體帳戶]。
     * **儲存體帳戶** (第二個方塊)。 輸入 `YOURNAMEsa`，其中 `YOURNAME` 是您的名稱或另一個唯一字串。 名稱只能使用小寫字母和數字，而且在整個 Azure 中必須是唯一的。 
-    * **容器**。 輸入 `socialtwitter`。
+    * **容器**。 輸入 `socialtwitter` 。
     儲存體帳戶名稱和容器名稱一起用來提供 blob 儲存體的 URI，例如： 
 
     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`

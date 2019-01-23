@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.openlocfilehash: 5af508714b5eae5cdd23c940af0ae21300c0c5b8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bf056c162684c021e3a8408edfdf82fe4590be48
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195154"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260629"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>將 Azure 認知服務部署至 Azure Stack
 
@@ -41,7 +41,7 @@ ms.locfileid: "53195154"
   為應用程式使用者提供部署在其解決方案中的模型版本和更新。
 
 - **可攜式架構**  
-  啟用建立可攜式應用程式架構，以便您可以將解決方案部署到公用雲端、私人雲端內部或邊緣裝置。 您可以將容器部署至 Azure Kubernetes Service、Azure 容器執行個體，或是至 Azure Stack 的 Kubernetes 叢集。 如需詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
+  啟用建立可攜式應用程式架構，以便您可以將解決方案部署到公用雲端、私人雲端內部部署或邊緣裝置。 您可以將容器部署至 Azure Kubernetes Service、Azure 容器執行個體，或是至 Azure Stack 的 Kubernetes 叢集。 如需詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
 
 - **高輸送量與低延遲**  
    為您的應用程式使用者提供能夠調整流量暴增的能力，以實現高輸送量與低延遲。 在 Azure Kubernetes Service 中啟用認知服務，實體接近其應用程式邏輯和資料。

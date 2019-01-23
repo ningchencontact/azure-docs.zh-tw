@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 3f158d040654b251faebceaa2e89d0462f13c217
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a43988f8d4d6ae318f409cf1e79d8ad2ff8c8af1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016016"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247821"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>建立、變更或刪除虛擬網路
 
@@ -99,7 +99,13 @@ ms.locfileid: "54016016"
 
 ## <a name="add-or-remove-an-address-range"></a>新增或移除位址範圍
 
-您可以新增和移除虛擬網路的位址範圍。 位址範圍必須以 CIDR 標記法來指定，而且同一個虛擬網路中的位址範圍不能重疊。 您可以定義公用或私人的位址範圍 (RFC 1918)。 不論您定義的是公用或私人的位址範圍，您都只能從虛擬網路、互連的虛擬網路，以及任何已連線到虛擬網路的內部部署網路來連線到位址空間。 您無法新增下列位址範圍︰
+您可以新增和移除虛擬網路的位址範圍。 位址範圍必須以 CIDR 標記法來指定，而且同一個虛擬網路中的位址範圍不能重疊。 您可以定義公用或私人的位址範圍 (RFC 1918)。 不論您定義的是公用或私人的位址範圍，您都只能從虛擬網路、互連的虛擬網路，以及任何已連線到虛擬網路的內部部署網路來連線到位址空間。 
+
+如果您沒有任何與其相關聯的子網路，您可以縮小虛擬網路的位址範圍。 如果有的話，您只能擴大位址範圍，例如，將 /16 變更為 /8。 您可以從小的位址範圍開始，日後再擴大或新增額外的範圍。
+
+<!-- the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+
+您無法新增下列位址範圍︰
 
 - 224.0.0.0/4 (多點傳送)
 - 255.255.255.255/32 (廣播)

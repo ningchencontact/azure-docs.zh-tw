@@ -1,21 +1,21 @@
 ---
 title: 使用 API 主控台執行內容仲裁作業 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 了解如何在 API 主控台中執行內容審核作業。
+description: 使用檢閱 API 的作業操作來對 Azure Content Moderator 中的影像或文字內容起始端對端內容審核。
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/03/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 240b26cd86a6985825e3145c5bc43ef31524d7b7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4d1f96cbf7a94c59476f077cc4e72a26ee9c8296
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227096"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259106"
 ---
 # <a name="start-a-moderation-job-from-the-api-console"></a>從 API 主控台啟動審核作業
 
@@ -33,7 +33,7 @@ ms.locfileid: "47227096"
 若要使用線上主控台來試用此 API，您需要在主控台中輸入幾個值：
     
 - `teamName`：使用檢閱工具認證畫面中的 `Id` 欄位。 
-- `ContentId`：這個字串會傳遞至 API 並透過回呼傳回。 **ContentId** 適合用於建立內部識別項或中繼資料與審核作業結果的關聯。- `Workflowname`：您在上一節[所建立工作流程](Review-Tool-User-Guide/Workflows.md)的名稱。
+- `ContentId`：這個字串會傳遞至 API 並透過回呼傳回。 **ContentId** 適合用於建立內部識別項或中繼資料與審核作業結果的關聯。- `Workflowname`：在上一節中[您所建立工作流程](Review-Tool-User-Guide/Workflows.md)的名稱。
 - `Ocp-Apim-Subscription-Key`：位於 [設定] 索引標籤。如需詳細資訊，請參閱[概觀](overview.md)。
 
 [存取 API 主控台] 來自 [認證] 視窗。

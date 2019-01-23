@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
-ms.author: alleonar
-ms.openlocfilehash: 2af87c87916dd272026a3bd7e1438507c655053b
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.author: erikre
+ms.openlocfilehash: 297b1d5e683a8ad505a37c43ab74c8b888ec87f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616988"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265748"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>使用 REST API 檢閱 Azure 資源使用量
 
@@ -146,7 +146,7 @@ Authorization: Bearer
 
 ### <a name="changing-timeframes"></a>變更時間範圍
 
-將 `timeframe` 定義設定為 `Custom`，以設定除了內建選項當週到現在以及月初到現在以外的時間範圍。
+將 `timeframe` 定義設定為 `Custom`，以設定除了內建選項當週到現在，以及月初到現在以外的時間範圍。
 
 ```json
 "timeframe": "Custom",

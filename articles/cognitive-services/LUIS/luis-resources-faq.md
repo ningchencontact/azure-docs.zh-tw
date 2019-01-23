@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e75fa6560feb01ae912ad2040df7a8748ed0077b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714197"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246546"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
@@ -84,6 +84,14 @@ Azure 中針對[服務](https://azure.microsoft.com/pricing/details/cognitive-se
 應用程式儀表板中的端點叫用總數均會定期更新，但會更頻繁地更新 Azure 入口網站中與 LUIS 端點金鑰相關聯的計量。
 
 若您在儀表板中看不到已更新的端點叫用，請登入 Azure 入口網站，並找到與您 LUIS 端點金鑰相關聯的資源，然後開啟 [計量] 來選取 [呼叫總計] 計量。 若將端點金鑰用於多個 LUIS 應用程式，Azure 入口網站中的計量會顯示使用該計量之所有 LUIS 應用程式的呼叫彙總次數。
+
+### <a name="is-there-a-powershell-command-to-the-endpoint-quota"></a>端點配額是否有 PowerShell 命令？
+
+您可以使用 PowerShell 命令查看端點配額：
+
+```powershell
+Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>LUIS 應用程式昨天還可以運作，但現在我收到 403 錯誤。 我未變更應用程式。 如何修正問題？
 遵循下一個常見問題集中的[指示](#how-do-i-create-and-assign-a-luis-endpoint-key)來建立 LUIS 端點金鑰，並將它指派給應用程式。 您接著必須將 HTTP 要求變更為端點，以[使用新端點金鑰](luis-concept-keys.md#use-endpoint-key-in-query)。
@@ -194,6 +202,12 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>哪些 LUIS 區域支援 Bot Framework 語音預備？
 只有在美國中部執行個體中才支援 LUIS 應用程式的[語音預備](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)。
+
+## <a name="api-programming-strategies"></a>API 程式設計策略
+
+### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>如何以程式設計方式取得資源的 LUIS 區域？ 
+
+使用 LUIS 範例以程式設計方式[尋找區域](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) (使用 C# 或 Node.Js)。 
 
 ## <a name="luis-service"></a>LUIS 服務
 

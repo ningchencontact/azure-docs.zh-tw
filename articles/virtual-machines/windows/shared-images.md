@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/11/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 1e51d55fcc20230dff20ca18d58a13e6ed32905b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecac7216582fa07e9c25492ddeb25e9f155da563
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192718"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305142"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>預覽：使用 Azure PowerShell 建立共用映像資源庫 
 
@@ -49,7 +49,7 @@ ms.locfileid: "54192718"
  
 ## <a name="create-vms-from-an-image"></a>從映像建立 VM
 
-映像版本完成之後，您可以建立一或多個新的 VM。 使用 [New-AzureRMVM]() Cmdlet 的簡化參數集，您只需提供映像版本的映像識別碼即可。 
+映像版本完成之後，您可以建立一或多個新的 VM。 使用 [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) Cmdlet 的簡化參數集，您只需提供映像版本的映像識別碼即可。 
 
 此範例在*美國東部*資料中心的 *myResourceGroup* 中建立名為 *myVMfromImage* 的 VM。
 

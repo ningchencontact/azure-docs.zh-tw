@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 7ba1c4e0f358a2168c06ab9172229525cd4c136c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4543982f731feb44a8f02581c11714dec2b206f9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016126"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214499"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop MapReduce 活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -25,9 +25,9 @@ ms.locfileid: "54016126"
 
 Data Factory [管線](concepts-pipelines-activities.md) 中的 HDInsight MapReduce 活動會在[您自己](compute-linked-services.md#azure-hdinsight-linked-service)或[隨選](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)的 HDInsight 叢集上叫用 MapReduce 程式。 本文是根據 [資料轉換活動](transform-data.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。
 
-如果您是 Azure Data Factory 的新手，請在閱讀本文之前先閱讀 [Azure Data Factory 簡介](introduction.md)，以及研習[教學課程：轉換資料](tutorial-transform-data-spark-powershell.md)。 
+如果您是 Azure Data Factory 的新手，請在閱讀本文之前先閱讀 [Azure Data Factory 簡介](introduction.md)，以及研習[教學課程：轉換資料](tutorial-transform-data-spark-powershell.md)。
 
-若要了解如何使用 HDInsight 的 Pig 和 Hive 活動，在 HDInsight 叢集上從管線執行 Pig/Hive 指令碼，請參閱 [Pig](transform-data-using-hadoop-pig.md) 和 [Hive](transform-data-using-hadoop-hive.md)。 
+若要了解如何使用 HDInsight 的 Pig 和 Hive 活動，在 HDInsight 叢集上從管線執行 Pig/Hive 指令碼，請參閱 [Pig](transform-data-using-hadoop-pig.md) 和 [Hive](transform-data-using-hadoop-hive.md)。
 
 ## <a name="syntax"></a>語法
 
@@ -49,10 +49,10 @@ Data Factory [管線](concepts-pipelines-activities.md) 中的 HDInsight MapRedu
         "jarFilePath": "MyAzureStorage/jars/sample.jar",
         "getDebugInfo": "Failure",
         "arguments": [
-          "-SampleHadoopJobArgument1"
+            "-SampleHadoopJobArgument1"
         ],
         "defines": {
-          "param1": "param1Value"
+            "param1": "param1Value"
         }
     }
 }
@@ -79,7 +79,7 @@ Data Factory [管線](concepts-pipelines-activities.md) 中的 HDInsight MapRedu
 ## <a name="example"></a>範例
 您可以使用「HDInsight MapReduce 活動」，在 HDInsight 叢集上執行任何 MapReduce Jar 檔案。 在下列管線的範例 JSON 定義中，已設定讓「HDInsight 活動」執行 Mahout JAR 檔案。
 
-```json   
+```json
 {
     "name": "MapReduce Activity for Mahout",
     "description": "Custom MapReduce to generate Mahout result",
@@ -113,7 +113,7 @@ Data Factory [管線](concepts-pipelines-activities.md) 中的 HDInsight MapRedu
 您可以在 **arguments** 區段中，為 MapReduce 程式指定所有引數。 在執行階段，您會看到幾個來自 MapReduce 架構的額外引數 (例如：mapreduce.job.tags)。 若要區分您的引數與 MapReduce 引數，請考慮同時使用選項和值作為引數，如下列範例所示 (-s、--input、--output 等等是後面接著其值的選項)。
 
 ## <a name="next-steps"></a>後續步驟
-請參閱下列文章，其說明如何以其他方式轉換資料： 
+請參閱下列文章，其說明如何以其他方式轉換資料：
 
 * [U-SQL 活動](transform-data-using-data-lake-analytics.md)
 * [Hive 活動](transform-data-using-hadoop-hive.md)

@@ -1,10 +1,10 @@
 ---
-title: 用於在 Azure Active Directory 中授權的產品名稱和服務方案識別碼 | Microsoft Docs
-description: 識別項對應來管理 Azure 入口網站、Office 365 入口網站、PowerShell 或 Microsoft Graph 中的 Azure AD 授權
+title: 授權的產品名稱和服務方案識別碼 - Azure AD | Microsoft Docs
+description: 識別項對應來管理 Azure 入口網站、Office 365 入口網站、PowerShell 或 Microsoft Graph 中的 Azure Active Directory 授權
 services: active-directory
 keywords: Azure Active Directory 授權服務方案
 documentationcenter: ''
-author: piotrci
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 8/17/2018
-ms.author: piotrci
-ms.openlocfilehash: 7ebf0149af9e012d3b0135c7ee9b8167c4cf76c9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.date: 01/14/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.openlocfilehash: 9d229dfa11a317c1f3b3121cdc7c1cdfa7df9c5e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42142107"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321631"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>用於授權的產品名稱和服務方案識別碼
 
-管理 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)或 Office 365 入口網站中的授權時，您會看到看起來像是 Office 365 Enterprise E3 的產品名稱。 當您使用 PowerShell v1.0 Cmdlet 時，會使用特定但是較不好記的名稱來識別相同的產品：ENTERPRISEPACK。 使用 PowerShell 2.0 版 Cmdlet 或 Microsoft Graph 時，會使用 GUID 值來識別相同的產品：6fd2c87f-b296-42f0-b197-1e91e994b900。 下表列出最常使用的 Microsoft 線上服務產品，並提供其各種識別碼值。 這些表格僅供參考，而準確性僅截至本篇文章最後更新之日。 Microsoft 並不打算針對最新加入的服務定期更新它們。
+管理 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)或 Office 365 入口網站中的授權時，您會看到看起來像是 Office 365 Enterprise E3 的產品名稱。 當您使用 PowerShell v1.0 Cmdlet 時，會使用特定但是較不好記的名稱來識別相同的產品：*ENTERPRISEPACK*。 使用 PowerShell 2.0 版 Cmdlet 或 Microsoft Graph 時，會使用 GUID 值來識別相同的產品：*6fd2c87f-b296-42f0-b197-1e91e994b900*。 下表列出最常使用的 Microsoft 線上服務產品，並提供其各種識別碼值。 這些表格僅供參考，而準確性僅截至本篇文章最後更新之日。 Microsoft 並不打算針對最新加入的服務定期更新它們。
 
 - **產品名稱**：在管理入口網站中使用
 - **字串識別碼**：PowerShell v1.0 Cmdlet 會在執行授權作業時使用這些識別碼

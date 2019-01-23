@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 6c7d4d8d4a16e0679722f9de007870a7ec7554b0
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.date: 1/14/2019
+ms.openlocfilehash: 8d5fc1c579fd09f1a71d63dce4d1673ef5a8652b
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635994"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354615"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 資料總管資料擷取
 
@@ -27,7 +27,7 @@ Azure 資料總管資料管理服務負責資料擷取，並提供下列功能�
 
 1. **批次處理**：批次處理流向相同資料庫和資料表的資料，將擷取輸送量最佳化。
 
-1. **驗證**：初步驗證和格式轉換 (如有必要)。
+1. **驗證**：若有需要則進行初步驗證和格式轉換。
 
 1. **資料操作**：比對結構描述、組織、編製索引、編碼以及壓縮資料。
 
@@ -44,7 +44,10 @@ Azure 資料總管支援數種擷取方法，每種方法都有自己的目標�
 Azure 資料總管目前支援事件中樞管線，可以使用 Azure 入口網站中的管理精靈來管理。 如需詳細資訊，請參閱[快速入門：將資料從事件中樞內嵌至 Azure 資料總管](ingest-data-event-hub.md)。
 
 ### <a name="ingestion-using-connectors-and-plugins"></a>使用連接器和外掛程式的擷取
-Azure 資料總管目前支援 Logstash 外掛程式。 如需詳細資訊，請參閱 [Azure 資料總管的 Logstash 輸出外掛程式](https://github.com/Azure/logstash-output-kusto/blob/master/README.md)。
+
+* Azure 資料總管支援 Logstash 外掛程式。 如需詳細資訊，請參閱 [Azure 資料總管的 Logstash 輸出外掛程式](https://github.com/Azure/logstash-output-kusto/blob/master/README.md)。
+
+* Azure 資料總管支援 Kafka 連接器。 如需詳細資訊，請參閱[快速入門：將資料從 Kafka 內嵌至 Azure 資料總管](ingest-data-kafka.md)
 
 ### <a name="programmatic-ingestion"></a>程式設計擷取
 
@@ -52,7 +55,7 @@ Azure 資料總管會提供可用於查詢和資料擷取的 SDK。 程式設計
 
 **可用的 SDK 及開放原始碼專案**：
 
-Kusto 提供的用戶端 SDK 可用來搭配下列項目擷取及查詢資料：
+Kusto 提供的用戶端 SDK 可用來搭配下列項目內嵌及查詢資料：
 
 * [Python SDK](/azure/kusto/api/python/kusto-python-client-library)
 
@@ -68,7 +71,7 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目擷取及查詢資料：
 
 * 透過 Azure 資料總管資料管理服務 (高輸送量且可靠的擷取) 擷取資料：
 
-  * [**批次擷取**](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (由 SDK 提供)：用戶端將資料上傳至 Azure Blob 儲存體 (Azure 資料總管資料管理服務所指定)，並將通知張貼到 Azure 佇列。 這是針對大量、可靠且不費力的資料擷取所建議的技術。
+    [**批次擷取**](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (由 SDK 提供)：用戶端將資料上傳至 Azure Blob 儲存體 (Azure 資料總管資料管理服務所指定)，並將通知張貼到 Azure 佇列。 批次擷取是針對大量、可靠且不費力的資料擷取所建議的技術。
 
 * 將資料直接擷取到 Azure 資料總管引擎 (最適合探索和原型設計)：
 
@@ -76,7 +79,7 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目擷取及查詢資料：
 
   * **從查詢擷取**：指向查詢結果的控制命令 (.set、.set-or-append、.set-or-replace)，用來產生報表或小型暫存資料表。
 
-  * **從儲存體擷取**：資料儲存在外部 (例如 Azure Blob 儲存體) 的控制命令 (.ingest into) 允許有效大量擷取資料。
+  * **從儲存體內嵌**：資料儲存在外部 (例如，Azure Blob 儲存體) 的控制命令 (.ingest into) 允許高效大量擷取資料。
 
 **不同方法的延遲**：
 
@@ -88,7 +91,7 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目擷取及查詢資料：
 | **已排入佇列的擷取** | 批次處理時間 + 處理時間 |
 | |
 
-處理時間取決於資料大小，通常少於幾秒鐘。 批次處理時間預設為 5 分鐘。
+處理時間取決於資料大小 (少於幾秒鐘)。 批次處理時間預設為 5 分鐘。
 
 ## <a name="choosing-the-most-appropriate-ingestion-method"></a>選擇最適合的擷取方法
 
@@ -109,7 +112,7 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目擷取及查詢資料：
 
 ## <a name="supported-data-formats"></a>支援的資料格式
 
-若是從查詢擷取以外的其他所有擷取方法，資料格式必須是下列其中一種支援的資料格式，Azure 資料總管才可以進行剖析。
+對於從查詢內嵌以外的所有擷取方法，請設定資料格式，Azure 資料總管才能剖析它。 支援的資料格式如下：
 
 * CSV、TSV、PSV、SCSV、SOH
 * JSON (以行分隔、多行)、Avro
@@ -119,21 +122,30 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目擷取及查詢資料：
 > 正在擷取資料時，會根據目標資料表資料行推斷資料類型。 如果記錄不完整或無法將欄位剖析為所需的資料類型，則會將對應的資料表資料行填入 null 值。
 
 ## <a name="ingestion-recommendations-and-limitations"></a>擷取的建議和限制
+
 * 已擷取資料的有效保留原則衍生自資料庫的保留原則。 如需詳細資料，請參閱[保留原則](/azure/kusto/concepts/retentionpolicy)。 擷取資料需要有**資料表擷取器**或**資料庫擷取器**權限。
-* 擷取最多可支援 5GB 的檔案大小。 建議您擷取 100 MB 到 1 GB 之間的檔案。
+* 擷取最多可支援 5GB 的檔案大小。 建議內嵌 100 MB 和 1 GB 之間的檔案。
 
 ## <a name="schema-mapping"></a>結構描述對應
 
-結構描述對應有助於以確定的方式，將來源資料欄位繫結至目的地資料表資料行。
+結構描述對應可協助將來源資料欄位繫結至目的地資料表資料行。
 
-* [CSV 對應](/azure/kusto/management/mappings?branch=master#csv-mapping) (選擇性) 適用於所有以序數為基礎的格式，而且可以當作擷取命令參數傳遞，或[在資料表上預先建立](/azure/kusto/management/tables?branch=master#create-ingestion-mapping)，並參考自擷取命令參數。
-* [JSON 對應](/azure/kusto/management/mappings?branch=master#json-mapping) (強制性) 和 [Avro 對應](/azure/kusto/management/mappings?branch=master#avro-mapping) (強制性) 可以當作擷取命令參數傳遞，或[在資料表上預先建立](/azure/kusto/management/tables#create-ingestion-mapping)，並參考自擷取命令參數。
+* [CSV 對應](/azure/kusto/management/mappings?branch=master#csv-mapping) (選擇性) 適用於所有序數型格式。 可以使用內嵌命令參數來執行，或是[在資料表上預先建立](/azure/kusto/management/tables?branch=master#create-ingestion-mapping)，並從擷取命令參數參考。
+* [JSON 對應](/azure/kusto/management/mappings?branch=master#json-mapping) (強制性) 和 [Avro 對應](/azure/kusto/management/mappings?branch=master#avro-mapping) (強制性) 可以使用內嵌命令參數來執行，或[在資料表上預先建立](/azure/kusto/management/tables#create-ingestion-mapping)，並從內嵌命令參數參考。
 
 ## <a name="next-steps"></a>後續步驟
 
-[快速入門：將資料從事件中樞內嵌至 Azure 資料總管](ingest-data-event-hub.md)
+> [!div class="nextstepaction"]
+> [快速入門：將資料從事件中樞內嵌至 Azure 資料總管](ingest-data-event-hub.md)
 
-[快速入門：使用 Azure 資料總管 Python 程式庫內嵌資料](python-ingest-data.md)
+> [!div class="nextstepaction"]
+> [快速入門：將資料從 Kafka 內嵌至 Azure 資料總管](ingest-data-kafka.md)
 
-[快速入門：使用 Azure 資料總管 Node 程式庫擷取資料](node-ingest-data.md)
+> [!div class="nextstepaction"]
+> [快速入門：使用 Azure 資料總管 Python 程式庫內嵌資料](python-ingest-data.md)
 
+> [!div class="nextstepaction"]
+> [快速入門：使用 Azure 資料總管 Node 程式庫內嵌資料](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [快速入門：使用 Azure 資料總管 .NET Standard SDK 內嵌資料 (預覽)](net-standard-ingest-data.md)

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: eb0fa1edaadddfe055f3fc53a6d232e5a1293490
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 46d8a26398ed63bef4fa101fbaf0be9087880109
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424930"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214142"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 
@@ -64,7 +64,7 @@ Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的�
 
 大部分計費問題可以從 [Multi-Factor Authentication 價格頁面](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)或有關[如何取得 Azure Multi-Factor Authentication](concept-mfa-licensing.md)的文件中得到解答。
 
-**問︰若為了驗證而撥打電話或傳送簡訊，我的組織是否須為此付費？**
+**問：若為了驗證而撥打電話或傳送簡訊，我的組織是否須為此付費？**
 
 不用，您不需為透過 Azure Multi-Factor Authentication 對使用者撥打個別通話或傳送簡訊支付費用。 如果您使用的 MFA 提供者是以驗證次數計費，則您需要為每次驗證支付費用，但無須支付使用方式的費用。
 
@@ -116,13 +116,15 @@ MFA 提供者建立時，可與 Azure Active Directory (或稱為「Azure AD 租
 
 ## <a name="manage-and-support-user-accounts"></a>管理和支援使用者帳戶
 
-**問：如果我的使用者沒在手機上收到回應，或是沒帶著手機，有什麼處理方式是我該告訴他們的？**
+**問：如果我的使用者未在手機上收到回應，我該告訴他們如何處理？**
 
-我們希望您的所有使用者並非只設定一種驗證方式。 請告訴他們試著重新登入，但在登入頁面上選取不同驗證方法。
+讓使用者在 5 分鐘內最多嘗試 5 次進行電話通話或簡訊的驗證。 Microsoft 會使用多個提供者提供電話及簡訊。 如果這個作法無效，請向 Microsoft 提出支援案例，進行後續疑難排解。
+
+如果上述做法都無效，表示所有使用者可能都設定不只一種的驗證方式。 請告訴他們試著重新登入，但在登入頁面上選取不同驗證方法。
 
 您可以將使用者引導至[終端使用者疑難排解指南](../user-help/multi-factor-authentication-end-user-troubleshoot.md)。
 
-**問︰如果我的使用者無法登入他們的帳戶，我該怎麼做？**
+**問：如果我的使用者無法登入他們的帳戶，我該怎麼做？**
 
 您可以讓使用者再次進行註冊程序，以重設使用者的帳戶。 深入了解 [在雲端使用 Azure Multi-Factor Authentication 管理使用者和裝置設定](howto-mfa-userdevicesettings.md)。
 
@@ -141,7 +143,7 @@ MFA 提供者建立時，可與 Azure Active Directory (或稱為「Azure AD 租
 >
 > 只有不支援最新驗證方式的應用程式需要應用程式密碼。 Office 2013 用戶端支援最新的驗證通訊協定，但需要設定。 新的 Office 用戶端會自動支援最新的驗證通訊協定。 如需詳細資訊，請參閱 [發表 Office 2013 新式驗證公開預覽](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)。
 
-**問︰我的使用者說他們有時會沒收到簡訊，或回覆雙向簡訊時，驗證逾時。**
+**問：我的使用者說他們有時會沒收到簡訊，或回覆雙向簡訊時，驗證逾時。**
 
 因為有些無法控制的因素可能會影響服務可靠性，所以不保證會傳遞簡訊，以及在雙向簡訊中收到回覆。 這些因素包含目的地國家/地區、行動電信業者和訊號強度。
 
@@ -149,7 +151,7 @@ MFA 提供者建立時，可與 Azure Active Directory (或稱為「Azure AD 租
 
 如果您必須使用簡訊，則建議盡可能使用單向簡訊，而不要使用雙向簡訊。 單向簡訊比較可靠，並可防止使用者因為回覆從其他國家/地區傳送的簡訊而產生全域簡訊費用。
 
-**問︰可變更使用者必須在系統逾時前，輸入簡訊上驗證碼的時間限制嗎？**
+**問：可變更使用者必須在系統逾時前，輸入簡訊上驗證碼的時間限制嗎？**
 
 在某些情況下是可以的。 
 
@@ -199,7 +201,7 @@ Windows Server 2012 R2 中的安全性變更已改變 Azure Multi-Factor Authent
 
 ## <a name="errors"></a>Errors
 
-**問：如果使用者在使用行動應用程式通知時看到「驗證要求不適用於已啟用的帳戶」錯誤訊息，應該怎麼辦？**
+**問：如果使用者在使用行動應用程式通知時，看到「驗證要求不適用於已啟用的帳戶」錯誤訊息，應該怎麼辦？**
 
 請告訴他們遵循這個從行動應用程式移除其帳戶的程序，然後重新新增帳戶︰
 

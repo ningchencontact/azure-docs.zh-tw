@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/5/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3a377441758fcd7dd91deefb5cae91579e881498
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4bc426e291a47ae42e7628ad911e2960e654819f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007040"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261293"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>改善您 Azure 資訊安全中心的安全分數
 
 
 有這麼多提供安全優勢的服務，通常很難知道首先要採取哪些步驟來保護和加強您的工作負載。 Azure 安全分數會檢閱您的安全性建議，並為您排列這些建議的優先順序，讓您了解要先執行哪些建議。 這可協助您找出最嚴重的資訊安全漏洞，以便優先安排調查。 安全分數是一個可協助您評估工作負載安全性狀態的工具。
-
-![安全分數儀表板](./media/security-center-secure-score/secure-score-dashboard.png)
 
 ## <a name="secure-score-calculation"></a>安全分數的計算
 
@@ -43,11 +41,25 @@ ms.locfileid: "51007040"
 
 檢視您的整體安全分數：
 
-1. 在 Azure 資訊安全中心儀表板上按一下 [資訊安全中心]，然後按一下 [建議]。
-2. 您可以在頂端看到每個所選訂用帳戶的安全分數，代表每個原則的分數。 
-2. 在列出建議的下表中，您可以看到每個建議都有代表**安全分數影響**的資料行。 此數字代表如果您遵循建議，將會改善多少整體安全分數。 例如，在下面畫面中，如果您**補救容器安全性設定中的漏洞**，您的安全分數將增加 35 分。
+1. 在 Azure 資訊安全中心儀表板上按一下 [資訊安全中心]，然後按一下 [安全分數]。
+2. 您可以在頂端看到安全性分數重點：
+   - [整體安全性分數] 代表每個所選訂用帳戶每個原則的分數
+   - [依類別計的安全分數] 顯示最需要注意的資源
+   - [依安全性分數的重要建議] 提供建議清單，如果您修復其中的項目將能大幅改善您的安全性分數。
+ 
+   ![安全分數](./media/security-center-secure-score/secure-score-dashboard.png)
+
+3. 您可以在下面的的表格中查看每個您的訂用帳戶及每個的整體安全性分數。
+
+   > [!NOTE]
+   > 每個訂用帳戶的安全性分數總和不等於整體安全性分數。 安全性分數的計算方式是根據每個建議計算您健康資源和您總資源的比例，而不是您所有訂用帳戶安全性分數的總和。 
+   >
+4. 按一下 [檢視建議] 來查看該訂用帳戶的建議，根據建議來修復可以改善您的安全性分數。
+4. 在建議清單中，您可以看到每個建議都有代表**安全分數影響**的資料行。 此數字代表如果您遵循建議，將會改善多少整體安全分數。 例如，在下面畫面中，如果您**補救容器安全性設定中的漏洞**，您的安全分數將增加 35 分。
 
    ![安全分數](./media/security-center-secure-score/security-center-secure-score1.png)
+
+
 
 ## <a name="individual-secure-score"></a>個別安全分數
 
@@ -60,6 +72,12 @@ ms.locfileid: "51007040"
 該建議會顯示未執行補救步驟時，工作負載會面臨哪些威脅。
 
 ![個別建議安全分數](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
+
+
+
+
+
+
 
 ## <a name="next-steps"></a>後續步驟
 本文說明如何使用 Azure 資訊安全中心的**安全分數**來改善安全性狀態。 若要深入了解資訊安全中心，請參閱：
