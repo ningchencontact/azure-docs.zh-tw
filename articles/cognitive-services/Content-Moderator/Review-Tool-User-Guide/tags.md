@@ -1,5 +1,6 @@
 ---
-title: 在 Azure Content Moderator 中使用標記 | Microsoft Docs
+title: 使用自訂標籤進行內容仲裁 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Content Moderator 包含預設標記，您可以建立自訂標記，以便審查您企業特有的內容。
 services: cognitive-services
 author: sanjeev3
@@ -7,20 +8,20 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/25/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: c462ff2937453f942db7fdd5b751f3356b6fe715
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: c1a547f99995d25d19dafb03276306c50a544c9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310074"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264711"
 ---
-# <a name="about-tags"></a>關於標記 #
+# <a name="create-and-use-moderation-tags"></a>建立及使用仲裁標記
 
 除了兩個預設標記 **isadult** (**a**) 和 **isracy** (**r**)，您可以建立自訂標記，以便進行更有目標性的掃描。 人力審查者接著可將這些自訂標記指派給影像或文字。
 
-## <a name="create-tags"></a>建立標記 ##
+## <a name="create-tags"></a>建立標記
 
 1.  從 [設定] 索引標籤中選取 [標記]。
 
@@ -34,7 +35,7 @@ ms.locfileid: "49310074"
 
 ![定義內容審核標記](images/tags-2-define.png)
 
-## <a name="using-custom-tags"></a>使用自訂標記 ##
+## <a name="using-custom-tags"></a>使用自訂標記
 
 自訂在人力審查期間使用的標記。 它們會顯示於預覽上，且審查者在其上按一下即可加以選取。
 
@@ -48,6 +49,6 @@ ms.locfileid: "49310074"
 
 ![刪除內容審核標記](images/tags-5-delete.png)
 
-## <a name="next-steps"></a>後續步驟 ##
+## <a name="next-steps"></a>後續步驟
 
 若要了解如何使用標記進行影像審核，請參閱[檢閱已審核的影像](Review-Moderated-Images.md)。

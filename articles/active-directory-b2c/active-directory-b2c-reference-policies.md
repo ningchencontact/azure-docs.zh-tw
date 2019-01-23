@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2C 中的使用者流程 | Microsoft Docs
-description: 關於 Azure Active Directory B2C 的可延伸原則架構，及如何建立各種使用者流程類型的主題。
+description: 深入了解 Azure Active Directory B2C 的可延伸原則架構，以及如何建立各種使用者流程。
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -10,30 +10,32 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d4a93b04b8ad86a6a6d36a5bdaf3209b49e7a9dc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bcbd26c8e78e29daa78a7e50f2f49b095103f696
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877077"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351776"
 ---
-# <a name="azure-active-directory-b2c-user-flows"></a>Azure Active Directory B2C：使用者流程
+# <a name="user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的使用者流程
 
+Azure Active Directory (Azure AD) B2C 的可延伸原則架構是服務的核心力量。 原則可完整描述身分識別體驗，例如註冊、登入或設定檔編輯。 為了協助您設定最常見的身分識別工作，Azure AD B2C 入口網站包含預先定義且可設定的原則，稱為**使用者流程**。 
 
-Azure Active Directory (Azure AD) B2C 的可延伸原則架構是服務的核心力量。 原則可完整描述取用者身分識別體驗，例如註冊、登入或設定檔編輯。 為了協助您設定最常見的身分識別工作，Azure AD B2C 入口網站包含預先定義且可設定的原則，稱為**使用者流程**。 比方說，註冊使用者流程可讓進行下列設定來控制行為：
+## <a name="what-are-user-flows"></a>使用者流程是什麼？
 
-* 可供取用者用來註冊應用程式的帳戶類型 (例如 Facebook 等社交帳戶，或像是電子郵件地址的本機帳戶)
-* 註冊時向取用者收集的屬性 (例如名字、郵遞區號和鞋子尺寸)
-* Azure Multi-Factor Authentication 的使用
-* 所有註冊頁面的外觀與風格
-* 使用者流程執行完成時應用程式所接收的資訊 (以權杖中的宣告表示)
+使用者流程可讓您藉由進行下列設定來控制您應用程式的行為：
 
-您可以在租用戶中建立多個不同類型的使用者流程，並視需要在您的應用程式中使用。 使用者流程可以跨應用程式重複使用。 此一彈性可讓開發人員在少量變更或完全不變更程式碼的情況，定義及修改取用者身分識別體驗。
+- 用於登入的帳戶類型，例如社交帳戶，像是 Facebook 或本機帳戶
+- 要向取用者收集的屬性，例如名字、郵遞區號和鞋子尺寸
+- Azure Multi-Factor Authentication
+- 使用者介面的自訂
+- 應用程式所接收的資訊 (以權杖中的宣告表示) 
 
-透過簡單的開發人員介面就可使用使用者流程。 您的應用程式使用標準 HTTP 驗證要求來觸發使用者流程 (在要求中傳遞使用者流程參數)，並從回應中收到自訂的權杖。 例如，在叫用註冊使用者流程的要求和叫用登入使用者流程的要求之間，唯一的差別在於 "p" 查詢字串參數中所使用的使用者流程名稱：
+您可以在租用戶中建立許多不同類型的使用者流程，並視需要在您的應用程式中使用。 使用者流程可以跨應用程式重複使用。 此彈性可讓您在稍微變更或完全不變更程式碼的情況下，定義及修改身分識別體驗。 您的應用程式會使用包含使用者流程參數的標準 HTTP 驗證要求來觸發使用者流程。 自訂的[權杖](active-directory-b2c-reference-tokens.md)當以回應形式收到。 
+
+下列範例顯示 "p" 查詢字串參數，該參數可指定要使用的使用者流程：
 
 ```
-
 https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
@@ -43,11 +45,9 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &nonce=dummy
 &state=12345                                        // Any value provided by your application
 &p=b2c_1_siup                                       // Your sign-up user flow
-
 ```
 
 ```
-
 https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
@@ -57,50 +57,34 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &nonce=dummy
 &state=12345                                        // Any value provided by your application
 &p=b2c_1_siin                                       // Your sign-in user flow
-
 ```
 
-## <a name="create-a-sign-up-or-sign-in-user-flow"></a>建立註冊或登入使用者流程
+## <a name="user-flow-versions"></a>使用者流程版本
 
-此使用者流程可使用單一組態處理取用者註冊和登入經驗。 視內容而定，取用者會被引導到正確的路徑 (註冊或登入)。 此原則也會描述在成功註冊或登入時，應用程式將收到的權杖內容。您可以**在這裡找到**[註冊或登入](active-directory-b2c-devquickstarts-web-dotnet-susi.md)使用者流程的程式碼範例。  建議您使用這個使用者流程，而不要使用**註冊**使用者流程或**登入**使用者流程。  
+在 Azure 入口網站中，一直會新增[新版的使用者流程](user-flow-versions.md)。 當您開始使用 Azure AD B2C 時，建議使用經過測試的使用者流程。 當您建立新的使用者流程時，可從 [建議] 索引標籤選擇您所需的使用者流程。
 
-[!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
+目前建議使用下列使用者流程：
 
-## <a name="create-a-sign-up-user-flow"></a>建立註冊使用者流程
+- **註冊和登入** - 透過單一組態來處理註冊與登入體驗。 系統會視內容而定，將使用者引導到正確的路徑。 建議您使用這個使用者流程，而不要使用**註冊**使用者流程或**登入**使用者流程。
+- **設定檔編輯** - 可讓使用者編輯其設定檔資訊。
+- **密碼重設** - 可讓您設定使用者是否及如何重設其密碼。
 
-[!INCLUDE [active-directory-b2c-create-sign-up-policy](../../includes/active-directory-b2c-create-sign-up-policy.md)]
+## <a name="linking-user-flows"></a>連結使用者流程
 
-## <a name="create-a-sign-in-user-flow"></a>建立登入使用者流程
+使用本機帳戶的**註冊或登入**使用者流程在體驗的第一個頁面上包含[忘記密碼?] 連結。 按一下此連結並不會自動觸發密碼重設使用者流程。 
 
-[!INCLUDE [active-directory-b2c-create-sign-in-policy](../../includes/active-directory-b2c-create-sign-in-policy.md)]
+相反地，系統會將錯誤碼 `AADB2C90118` 傳回您的應用程式。 您的應用程式必須藉由執行可重設密碼的特定使用者流程來處理此錯誤碼。 若要查看範例，請看看[簡單的 ASP.NET 範例](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI)，該範例示範如何連結使用者流程。
 
-## <a name="create-a-profile-editing-user-flow"></a>建立設定檔編輯使用者流程
+## <a name="email-address-storage"></a>電子郵件地址儲存
 
-[!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
-
-## <a name="create-a-password-reset-user-flow"></a>建立密碼重設使用者流程
-
-[!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
-
-## <a name="preview-user-flows"></a>預覽使用者流程
-
-隨著我們推出新功能，這些功能的其中一些可能不會在現有原則或使用者流程上提供。  我們打算在這些使用者流程進入 GA 時，就使用最新的相同類型取代舊版。  您的現有原則或使用者流程將不會變更。若要利用這些新功能，您必須建立新的使用者流程。
-
-## <a name="frequently-asked-questions"></a>常見問題集
-
-### <a name="how-do-i-link-a-sign-up-or-sign-in-user-flow-with-a-password-reset-user-flow"></a>如何將註冊或登入使用者流程與密碼重設使用者流程連結在一起？
-當您建立**註冊或登入**使用者流程 (搭配本機帳戶) 時，您會在該體驗的第一個頁面上看到[忘記密碼?] 連結。 按一下此連結並不會自動觸發密碼重設使用者流程。 
-
-相反地，系統會將錯誤碼 **`AADB2C90118`** 傳回您的應用程式。 您的應用程式必須叫用特定的密碼重設使用者流程來處理此錯誤碼。 如需詳細資訊，請參閱[示範連結使用者流程方法的範例](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI)。
-
-### <a name="should-i-use-a-sign-up-or-sign-in-user-flow-or-a-sign-up-user-flow-and-a-sign-in-user-flow"></a>應該使用註冊使用者流程、登入使用者流程還是註冊使用者流程加上登入使用者流程？
-我們建議使用**註冊或登入**使用者流程，而不要使用**註冊**使用者流程和**登入**使用者流程。  
-
-**註冊或登入**使用者流程的功能比**登入**使用者流程還多。 它也可讓您使用頁面 UI 自訂，並且對當地語系化有更強的支援。 
-
-如果您不需要將使用者流程當地語系化，只需要較少的自訂功能來設定商標，而且想要內建密碼重設功能，則建議您使用**登入**使用者流程。
+電子郵件地址可以是使用者流程的必要部分。 如果使用者向社交識別提供者進行驗證，則電子郵件地址會儲存在 **otherMails** 屬性中。 如果本機帳戶是以使用者名稱為基礎，則電子郵件地址會儲存在強式驗證詳細資料屬性中。 如果本機帳戶是以電子郵件地址為基礎，則電子郵件地址會儲存在 **signInNames** 屬性中。
+ 
+在上述任何情況下，不保證電子郵件地址都經過驗證。 租用戶系統管理員可以在本機帳戶的基本原則中停用電子郵件驗證。 即使已啟用電子郵件地址驗證，如果地址來自社交識別提供者且尚未變更，則不會加以驗證。
+ 
+只有 **otherMails** 和 **signInNames** 屬性會透過 Active Directory Graph API 公開。 無法使用強式驗證詳細資料屬性中的電子郵件地址。
 
 ## <a name="next-steps"></a>後續步驟
-* [權杖、工作階段及單一登入組態](active-directory-b2c-token-session-sso.md)
-* [在取用者註冊期間停用電子郵件驗證](active-directory-b2c-reference-disable-ev.md)
+
+若要建立建議的使用者流程，請依照[教學課程：建立使用者流程](tutorial-create-tenant.md)中的指示執行。
+
 

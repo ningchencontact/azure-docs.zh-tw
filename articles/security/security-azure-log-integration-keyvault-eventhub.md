@@ -8,20 +8,20 @@ editor: TomShinder
 ms.assetid: ''
 ms.service: security
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 8b03c3627d476ec83fda402545c7a7d73346385f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 790f49f0fae98162b3443c78d813b1070e4514a0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063908"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303882"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 記錄整合教學課程：使用事件中樞處理 Azure Key Vault 事件
 
 >[!IMPORTANT]
-> Azure 記錄整合功能將於 2019/06/01 淘汰。 AzLog 下載將於 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
+> Azure 記錄整合功能將於 2019/06/01 淘汰。 AzLog 下載已在 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
 
 您可以使用 Azure 記錄整合擷取記錄的事件，並將其提供給安全性資訊和事件管理 (SIEM) 系統。 本教學課程示範如何使用 Azure 記錄整合，來處理透過 Azure 事件中樞所取得的記錄。
 
@@ -56,21 +56,21 @@ ms.locfileid: "54063908"
  
 1. 具有網際網路存取且符合安裝 Azure 記錄整合需求的系統。 系統可位於雲端服務或裝載於內部部署。
 
-1. 已安裝 [Azure 記錄整合](https://www.microsoft.com/download/details.aspx?id=53324)。 若要安裝該項目：
+1. 已安裝 Azure 記錄整合。 若要安裝該項目：
 
    a. 使用遠端桌面連線至步驟 2 中所述的系統。   
-   b. 將 Azure 記錄整合安裝程式複製到系統。 您可以[下載安裝檔案](https://www.microsoft.com/download/details.aspx?id=53324)。   
-   c. 啟動安裝程式並接受 Microsoft 軟體授權條款。   
-   d. 如果您將提供遙測資訊，請將核取方塊保留為選取。 如果您不想要將使用情況資訊傳送給 Microsoft，請清除核取方塊。
-   
+   b. 將 Azure 記錄整合安裝程式複製到系統。 c. 啟動安裝程式並接受 Microsoft 軟體授權條款。
+
+1. 如果您將提供遙測資訊，請將核取方塊保留為選取。 如果您不想要將使用情況資訊傳送給 Microsoft，請清除核取方塊。
+
    如需 Azure 記錄整合和安裝方式的詳細資訊，請參閱[使用 Azure 診斷記錄和 Windows 事件轉送進行 Azure 記錄整合](security-azure-log-integration-get-started.md)。
 
 1. 最新的 PowerShell 版本。
- 
+
    如果您已安裝 Windows Server 2016，便至少擁有 PowerShell 5.0。 如果您正在使用任何其他版本的 Windows Server，則可能已安裝舊版 PowerShell。 您可以透過在 PowerShell 視窗中輸入 ```get-host``` 檢查版本。 如果您尚未安裝 PowerShell 5.0，則可以[進行下載](https://www.microsoft.com/download/details.aspx?id=50395)。
 
    至少擁有 PowerShell 5.0 之後，您便可以繼續安裝最新版本：
-   
+
    a. 在 PowerShell 視窗中，輸入 ```Install-Module Azure``` 命令。 完成安裝步驟。    
    b. 輸入 ```Install-Module AzureRM``` 命令 完成安裝步驟。
 

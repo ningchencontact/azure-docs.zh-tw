@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: df3222c361e4a8f6451326d967d574b1eb8eed1b
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: aafeeab50a60116ac93cbfa8acb0375224453b03
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157440"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353986"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>在 Azure Stack 中使用 API 版本設定檔搭配 Ruby
 
@@ -33,7 +33,7 @@ ms.locfileid: "54157440"
 API 設定檔是資源提供者和服務版本的組合。 您可以使用 API 設定檔來組合不同的資源類型。
 
 - 若要使用所有服務的最新版本，請使用 Azure SDK 彙總 Gem 的 **Latest** 設定檔。
-- 若要使用與 Azure Stack 相容的服務，請使用 Azure SDK 彙總 Gem 的 **V2017_03_09** 設定檔。
+- 若要使用與 Azure Stack 相容的服務，請使用 Azure SDK 彙總 Gem 的 **V2018_03_01** 設定檔。
 - 若要使用服務的最新 **api-version**，請使用特定 Gem 的 **Latest** 設定檔。 例如，如果您想要單獨使用計算服務的最新 **api-version**，請使用 **Compute** Gem 的 **Latest** 設定檔。
 - 若要使用服務的特定 **api-version**，請使用 Gem 內所定義的特定 API 版本。
 
@@ -72,12 +72,12 @@ Azure Resource Manager Ruby SDK 目前處於預覽狀態，且很可能會在即
 
 ## <a name="use-the-azuresdk-gem"></a>使用 azure_sdk Gem
 
-**azure_sdk** Gem 是 Ruby SDK 中所有已支援 Gem 的彙總。 這個 Gem 包含  **Latest** 設定檔，其支援所有服務的最新版本。 它會導入已建立版本的設定檔： **V2017_03_09** 設定檔，其專為 Azure Stack 所建置。
+**azure_sdk** Gem 是 Ruby SDK 中所有已支援 Gem 的彙總。 這個 Gem 包含  **Latest** 設定檔，其支援所有服務的最新版本。 它會導入兩個已建立版本的  **V2017_03_09** 和 **V2018_03_01**  設定檔，這些設定檔專為 Azure Stack 所建置。
 
 您可以使用下列命令安裝 azure_sdk 彙總 Gem：  
 
 ```Ruby  
-gem install 'azure_sdk
+gem install 'azure_sdk'
 ```
 
 ## <a name="prerequisites"></a>必要條件
@@ -127,11 +127,12 @@ Microsoft Azure Resource Manager 是可讓系統管理員進行部署、管理�
 
 ## <a name="existing-api-profiles"></a>現有的 API 設定檔
 
-Azure_sdk 彙總 Gem 有下列兩個設定檔：
+Azure_sdk 彙總 Gem 有下列三個設定檔：
 
-1. **V2017_03_09**  
+1. **V2018_03_01** 針對 Azure Stack 建置的設定檔。 使用此設定檔，以便利用 Azure Stack 中可用服務的所有最新版本。
+2. **V2017_03_09**  
   針對 Azure Stack 建置的設定檔。 將此設定檔用於和 Azure Stack 最具相容性的服務。
-2. **最新**  
+3. **最新**  
   包含所有服務最新版本的設定檔。 使用所有服務的最新版本。
 
 如需有關 Azure Stack 和 API 設定檔的詳細資訊，請參閱 [API 設定檔的摘要](azure-stack-version-profiles.md#summary-of-api-profiles)。
@@ -158,7 +159,7 @@ options = {
 }
 
 # Target profile built for Azure Stack
-client = Azure::Resources::Profiles::V2017_03_09::Mgmt::Client.new(options)
+client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
 ```
 
 設定檔用戶端可用來存取個別資源提供者，例如計算、儲存體和網路：
@@ -172,7 +173,7 @@ purchase_plan_obj = profile_client.compute.model_classes.purchase_plan.new
 
 # Option 2: To access the models associated with Compute
 # Notice Namespace: Azure::Profiles::<Profile Name>::<Service Name>::Mgmt::Models::<Model Name>
-purchase_plan_obj = Azure::Profiles::V2017_03_09::Compute::Mgmt::Models::PurchasePlan.new
+purchase_plan_obj = Azure::Profiles::V2018_03_01::Compute::Mgmt::Models::PurchasePlan.new
 ```
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>定義 Azure Stack 環境設定功能
@@ -201,27 +202,27 @@ end
 
 您可以使用下列可在 GitHub 上找到的範例，作為搭配 Ruby 和 Azure Stack API 設定檔建立解決方案的參考：
 
-- [使用 Ruby 管理 Azure 資源與資源群組](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)
-- [使用 Ruby 管理虛擬機器](https://github.com/Azure-Samples/compute-ruby-manage-vm/tree/master/Hybrid)
-- [使用 Ruby 格式的範本部署已啟用 SSH 的 VM](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/tree/master/Hybrid)
+- [使用 Ruby 管理 Azure 資源與資源群組](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)
+- [使用 Ruby 管理虛擬機器](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM)
+- [使用 Ruby 格式的範本部署已啟用 SSH 的 VM](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Template-Deployment)
 
 ### <a name="sample-resource-manager-and-groups"></a>範例 Resource Manager 與群組
 
 若要執行範例，請確定您已安裝 Ruby。 如果您使用的是 Visual Studio Code，請一併下載 Ruby SDK 擴充功能。
 
 > [!NOTE]  
-> 您可以在[使用 Ruby 管理 Azure 資源與資源群組](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid) \(英文\) 中取得範例的存放庫。
+> 您可以在[使用 Ruby 管理 Azure 資源與資源群組](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups) \(英文\) 中取得範例的存放庫。
 
 1. 複製存放庫：
 
    ```bash
-   git clone https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups.git
+   git clone https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups.git
    ```
 
 2. 使用 bundle 安裝相依性：
 
    ```Bash
-   cd resource-manager-ruby-resources-and-groups\Hybrid\
+   cd Hybrid-Resource-Manager-Ruby-Resources-And-Groups
    bundle install
    ```
 
@@ -269,7 +270,7 @@ end
 7. 建立以 Azure Stack 設定檔為目標的設定檔用戶端：
 
    ```ruby  
-   client = Azure::Resources::Profiles::V2017_03_09::Mgmt::Client.new(options)
+   client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
    ```
 
 8. 若要向 Azure Stack 驗證服務主體，端點應使用 **get_active_directory_settings()** 來定義。 這個方法會使用您在建立環境變數時所設定的 **ARM_Endpoint** 環境變數：

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/05/2017
 ms.author: alkohli
-ms.openlocfilehash: cc2b025b7f3e28954c7f95409ffab03e5cbcf13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 06a3469507631d032535bce62b01d964e99dc603
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110596"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319396"
 ---
 # <a name="storsimple-virtual-array-update-04-release-notes"></a>StorSimple Virtual Array Update 0.4 版本資訊
 
@@ -53,7 +53,7 @@ Update 0.4 是主要的錯誤修正組建，而且包含一些加強功能。 �
 
 下表提供本版已修正問題的摘要。
 
-| 編號 | 功能 | 問題 |
+| 沒有。 | 功能 | 問題 |
 | --- | --- | --- |
 | 1 |備份效能|在舊版中，牽涉到大量檔案的備份可能需要非常長的時間才能完成 (數以天計)。 在此版本中，完整與增量備份的完成時間將會大幅縮短。 |
 | 2 |支援封裝|磁碟、CPU、記憶體、網路與雲端統計資料現在會記錄到支援記錄檔，讓支援套件在支援人員針對任何裝置問題進行疑難排解時發揮效用。|
@@ -65,7 +65,7 @@ Update 0.4 是主要的錯誤修正組建，而且包含一些加強功能。 �
 
 下表提供 StorSimple Virtual Array 的已知問題摘要，並包含舊版所列的問題。 
 
-| 編號 | 功能 | 問題 | 因應措施/註解 |
+| 沒有。 | 功能 | 問題 | 因應措施/註解 |
 | --- | --- | --- | --- |
 | **1.** |更新 |預覽版中所建立的虛擬裝置無法更新為支援的正式運作版本。 |必須針對正式運作版本使用災害復原 (DR) 工作流程容錯移轉這些虛擬裝置。 |
 | **2.** |佈建的資料磁碟 |佈建特定指定大小的資料磁碟並建立對應的 StorSimple 虛擬裝置之後，不得展開或壓縮資料磁碟。 嘗試執行會導致裝置本機層中的所有資料遺失。 | |

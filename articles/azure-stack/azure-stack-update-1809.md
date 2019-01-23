@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 97b7defded39e572a1fecae3e93d389014b15a6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: f4a1bf9e2fee9278713315c98f25dbc820a553a1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077958"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352403"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新
 
@@ -134,7 +134,7 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 
 ### <a name="prerequisites"></a>必要條件
 
-- 在套用 1809 之前，請安裝 1808 的最新 Azure Stack Hotfix。 如需詳細資訊，請參閱 [KB 4481066 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/)。
+- 在套用 1809 之前，請安裝 1808 的最新 Azure Stack Hotfix。 如需詳細資訊，請參閱 [KB 4481066 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/)。 雖然 Microsoft 建議有最新的 Hotfix 可用，但是安裝 1809 所需的最小版本是 1.1808.5.110。
 
   > [!TIP]  
   > 訂閱下列 *RRS* 或 *Atom* 摘要，以掌握最新的 Azure Stack Hotfix：
@@ -251,6 +251,8 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 - 身為 Azure Stack 操作員，如果您收到記憶體不足的警示，而且租用戶虛擬機器無法部署並出現「Fabric VM 建立錯誤」，則可能表示 Azure Stack 戳記的可用記憶體不足。 請使用 [Azure Stack 容量規劃工具](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)來充分了解可供工作負載使用的容量。
 
 ### <a name="compute"></a>計算
+
+- 建立 [Dv2 系列 VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes) 時，D11-14v2 VM 可讓您分別建立 4、8、16 和 32 個資料磁碟。 不過，建立 VM 窗格會顯示 8、16、32 和 64 個資料磁碟。
 
 <!-- 3235634 – IS, ASDK -->
 - 若要部署大小包含 **v2** 後置詞的 VM (例如 **Standard_A2_v2**)，請將後置詞指定為 **Standard_A2_v2** (小寫 v)。 請勿使用 **Standard_A2_V2** (大寫 V)。 這適用於全域 Azure，並且在 Azure Stack 上有不一致的問題。

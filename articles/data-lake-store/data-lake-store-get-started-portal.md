@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: fba62a7838ad4b8f349e233eef5e8d82450f1453
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 91c069f845ef6291f867099e59e79fd059d8caf1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949014"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320220"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>使用 Azure 入口網站開始使用 Azure Data Lake Storage Gen1
 
@@ -76,8 +76,8 @@ ms.locfileid: "46949014"
 
 > [!NOTE]
 > 您也可以使用 Azure Resource Manager 範本建立 Data Lake Storage Gen1 帳戶。 您可從 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=data+lake+store)存取這些範本︰
-    - 未啟用資料加密：[部署 Data Lake Storage Gen1 帳戶 (未啟用資料加密)](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/)。
-    - 使用 Data Lake Storage Gen1 (已啟用資料加密)：[部署 Data Lake Storage Gen1 帳戶 (已啟用加密) (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/)。
+    - 未啟用資料加密：[部署 Azure Data Lake Storage Gen1 帳戶 (未啟用資料加密)](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/)。
+    - 使用 Data Lake Storage Gen1 (未啟用加密)：[部署 Data Lake Storage Gen1 帳戶 (已啟用加密) (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/)。
     - 使用 Azure Key Vault (已啟用資料加密)：[部署 Data Lake Storage Gen1 帳戶 (已啟用加密) (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/)。
 > 
 > 
@@ -125,6 +125,6 @@ ms.locfileid: "46949014"
 ## <a name="next-steps"></a>後續步驟
 * [使用 Azure Data Lake Storage Gen1 處理巨量資料需求](data-lake-store-data-scenarios.md) 
 * [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
-* [將 Azure Data Lake Analytics 與 Data Lake Storage Gen1 搭配使用](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [將 Azure HDInsight 與 Data Lake Storage Gen1 搭配使用](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [搭配 Data Lake Storage Gen1 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [搭配 Data Lake Storage Gen1 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 

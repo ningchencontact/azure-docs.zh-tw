@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 7f97b72dc7b3456488d97009bde590b0e29918e6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631426"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352133"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升級至一般用途 v2 儲存體帳戶
 
@@ -21,7 +21,8 @@ ms.locfileid: "53631426"
 從一般用途 v1 或 Blob 儲存體帳戶升級至一般用途 v2 儲存體帳戶很簡單。 您可以使用 Azure 入口網站、PowerShell 或 Azure CLI 來執行升級。 
 
 > [!NOTE]
-> 變更儲存層可能會導致額外的費用。 如需詳細資訊，請參閱[定價和計費](#pricing-and-billing)一節。
+> 將您的儲存體帳戶升級到一般目的 v2 帳戶是免費的。
+> 變更儲存體存取層可能會導致您的帳單變更。 如需詳細資訊，請參閱[定價和計費](#pricing-and-billing)一節。
 
 ## <a name="upgrade-using-the-azure-portal"></a>使用 Azure 入口網站升級
 
@@ -62,8 +63,8 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 根據預設，系統會在經常性存取層中建立新的儲存體帳戶，而一般用途 v1 儲存體帳戶則會升級至經常性存取層。 如果您是在已升級的情況下決定要針對資料使用哪個存取層，請考慮您的案例。 有兩個適用於移轉至一般用途 v2 帳戶的典型使用者案例：
 
-* 您有現有一般用途 v1 儲存體帳戶，而且想要針對變更成具有正確 Blob 資料儲存層的一般用途 v2 儲存體帳戶進行評估。
-* 您已決定使用一般用途 v2 儲存體帳戶或是已有一個帳戶，並想要評估應該針對 Blob 資料使用經常性或非經常性儲存層。
+* 您有現有一般用途 v1 儲存體帳戶，而且想要針對升級至具有正確 Blob 資料儲存體存取層的一般用途 v2 儲存體帳戶進行評估。
+* 您已決定使用一般用途 v2 儲存體帳戶或是已有一個帳戶，並想要評估應該針對 Blob 資料使用經常性或非經常性儲存體存取層。
 
 在這兩種情況下，您的第一要務都是估計儲存、存取及操作儲存在一般用途 v2 儲存體帳戶中之資料的成本，並與您目前的成本進行比較。
 
@@ -71,9 +72,9 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 ## <a name="pricing-and-billing"></a>價格和計費
 所有儲存體帳戶會對以每個 Blob 層為基礎的 Blob 儲存體使用價格模型。 使用儲存體帳戶時，需考量下列計費資訊：
 
-* **儲存成本**：除了儲存的資料量以外，儲存資料的成本會因儲存層而異。 每 GB 的成本會隨著儲存層存取頻率降低而減少。
+* **儲存成本**：除了儲存的資料量以外，儲存資料的成本會因儲存體存取層而異。 每 GB 的成本會隨著儲存層存取頻率降低而減少。
 
-* **資料存取成本**：資料存取費用會隨著儲存層存取頻率降低而增加。 對於非經常性存取與封存儲存層中的資料，您需支付讀取的每 GB 資料存取費用。
+* **資料存取成本**：資料存取費用會隨著儲存層存取頻率降低而增加。 對於非經常性儲存層與封存儲存體存取層中的資料，您需支付讀取的每 GB 資料存取費用。
 
 * **交易成本**：所有層都有每筆交易的費用，該費用會隨著儲存層存取頻率降低而增加。
 
@@ -81,7 +82,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 * **輸出資料傳輸成本**：輸出資料傳輸 (從 Azure 區域傳出的資料) 會產生每 GB 頻寬使用量費用，與一般用途的儲存體帳戶一致。
 
-* **變更儲存層**︰將帳戶儲存層從非經常性儲存層變更為經常性儲存層，會產生相當於讀取儲存體帳戶中所有資料的費用。 不過，將帳戶儲存層從經常性存取變更為非經常性存取時，會產生等於將所有資料寫入非經常性存取層的費用 (僅限 GPv2 帳戶)。
+* **變更儲存體存取層**︰將帳戶儲存體存取層從非經常性存取層變更為經常性存取層，會產生相當於讀取儲存體帳戶中所有資料的費用。 不過，將帳戶存取層從經常性存取層變更為非經常性存取層，會產生相當於將所有資料寫入非經常性存取層的費用 (僅限 GPv2 帳戶)。
 
 > [!NOTE]
 > 如需儲存體帳戶的定價模型詳細資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)頁面。 如需輸出資料傳輸費用的詳細資訊，請參閱[資料傳輸定價詳細資料](https://azure.microsoft.com/pricing/details/data-transfers/)頁面。
@@ -156,7 +157,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 使用 GRS 或 RA-GRS 儲存體帳戶時，使用寫入的資料量估計值，也可以計算 Blob 儲存體帳戶的異地複寫資料傳輸成本。
 
 > [!NOTE]
-> 關於計算使用經常性存取或非經常性存取儲存層的成本，如需更詳細的範例，請查看標題為「經常性存取或非經常性存取層是什麼，以及如何判斷要使用哪一個？」的常見問題 於 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/)。
+> 關於計算使用經常性存取或非經常性儲存體存取層的成本，如需更詳細的範例，請查看標題為「經常性存取或非經常性存取層是什麼，以及如何判斷要使用哪一個？」的常見問題 於 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/)。
 
 ## <a name="next-steps"></a>後續步驟
 

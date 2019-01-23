@@ -13,14 +13,14 @@ ms.topic: How to
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 3021fafe7d74f71450eec9b3720c974b04ada224
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0e9ad89e504ce1cb86daad48bec9ffe9423e2cf1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426922"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319540"
 ---
-# <a name="schedule-your-first-test"></a>排程第一個測試
+# <a name="scheduling-a-test"></a>排程測試
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -35,8 +35,8 @@ ms.locfileid: "52426922"
 在您依照本快速入門進行操作之前，應該先完成下列項目：
 
 - [設定您的驗證即服務資源](azure-stack-vaas-set-up-resources.md)
-- [部署本機代理程式](azure-stack-vaas-local-agent.md) (建議)
-- [驗證即服務重要概念](azure-stack-vaas-key-concepts.md) (建議)
+- [部署本機代理程式](azure-stack-vaas-local-agent.md) (必要)
+- [驗證即服務重要概念](azure-stack-vaas-key-concepts.md) (必要)
 
 ## <a name="start-a-workflow"></a>開始工作流程
 

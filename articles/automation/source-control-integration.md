@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/26/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 94d948267286ad716aa200cb5aa858acf2eb2624
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342233"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330758"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自動化中的原始檔控制整合
 
@@ -59,6 +59,9 @@ Azure 自動化支援三種類型的原始檔控制：
 |說明     | 用來提供其他詳細資料的文字欄位        |
 
 ![原始檔控制摘要](./media/source-control-integration/source-control-summary.png)
+
+> [!NOTE]
+> 確定您在設定原始檔控制時使用了正確的帳戶登入。 如果有所疑慮，請在您的瀏覽器中開啟新的索引標籤並從 visualstudio.com 或 github.com 登出，然後再試一次連線原始檔控制。
 
 ## <a name="syncing"></a>同步處理
 

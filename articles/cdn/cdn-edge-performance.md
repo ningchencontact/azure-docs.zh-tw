@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "22999153"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320068"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>在 Microsoft Azure CDN 中分析邊緣節點效能
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -73,7 +73,7 @@ ms.locfileid: "22999153"
 * 時間範圍：執行下列其中一項：
   * 在時間表中選取需要的區域。 將會以對應至所選期間的資料來更新圖表。
   * 按兩下圖表以顯示所有可用的歷史資料，最多為兩年。
-* 度量：按一下所需度量旁邊顯示的圖表圖示。 將會以相對應度量的資料來重新整理圖表和時間表。
+* 計量：按一下所需度量旁邊顯示的圖表圖示。 將會以相對應度量的資料來重新整理圖表和時間表。
 
 ### <a name="key-metrics-and-statistics"></a>關鍵度量和統計資料
 #### <a name="efficiency-metrics"></a>效能度量

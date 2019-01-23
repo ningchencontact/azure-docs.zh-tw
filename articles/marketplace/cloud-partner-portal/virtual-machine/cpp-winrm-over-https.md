@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1a341bf36842e49faf8e39f4056232c97cc4232c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 99c41dc010ae589cc43c093646fd1c05c1333f7e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195579"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265119"
 ---
 # <a name="windows-remote-management-over-https"></a>透過 HTTPS 進行 Windows 遠端管理
 
 本節說明如何設定 Azure 託管的 Windows 型 VM，以便使用 PowerShell 從遠端管理和部署。  若要啟用 PowerShell 遠端處理，目標 VM 必須公開 Windows 遠端管理 (WinRM) 的 HTTPS 端點。  如需有關 PowerShell 遠端處理的詳細資訊，請參閱[執行遠端命令](https://docs.microsoft.com/powershell/scripting/core-powershell/running-remote-commands?view=powershell-6)。  如需有關 WinRM 的詳細資訊，請參閱 [Windows 遠端管理](https://docs.microsoft.com/windows/desktop/WinRM/portal)。
 
-如果您使用其中一種「傳統的」Azure 方法 (Azure Service Manager 入口網站或已淘汰的 [Azure 服務管理 API] (https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))) 建立 VM，則會自動使用 WinRM 端點設定。  不過，如果您使用下列其中一種「新型的」Aure 方法建立 VM，則*不會*透過 HTTPS 為 WinRM 設定您的 VM。  
+如果您使用其中一種「傳統的」Azure 方法 (Azure Service Manager 入口網站或已淘汰的 [Azure 服務管理 API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))) 建立 VM，則會自動使用 WinRM 端點設定。  不過，如果您使用下列其中一種「新型的」Azure 方法建立 VM，則「不會」透過 HTTPS 為 WinRM 設定您的 VM。  
 
 - 使用 [Azure 入口網站](https://portal.azure.com/) (通常是來自已核准的基礎)，如[建立與 Azure 相容的 VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd) 一節中所述
 - [使用 Azure Resource Manager 範本](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)

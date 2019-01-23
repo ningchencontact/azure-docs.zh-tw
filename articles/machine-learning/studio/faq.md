@@ -1,26 +1,8 @@
 ---
-title: Machine Learning Studio 常見問題集 (FAQ) - Azure | Microsoft Docs
-description: Azure Machine Learning Studio：常見問題集，涵蓋計費、功能，以及適用於簡化預測性模型化之雲端服務的限制。
-keywords: 機器學習服務簡介,建立預測模型,什麼是機器學習服務
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/02/2017
-ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091272"
+標題：Machine Learning Studio 常見問題集 (FAQ) titleSuffix: Azure Machine Learning Studio 說明：「Azure Machine Learning Studio：常見問題集，涵蓋計費、功能，以及適用於簡化預測性模型化之雲端服務的限制。」
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: conceptual
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:06/02/2017
 ---
 # <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>Azure Machine Learning Studio 常見問題集：計費、功能、限制和支援
 以下是有關 Azure Machine Learning 的一些常見問題和對應解答，而 Azure Machine Learning 是適合透過 Web 服務開發預測性模型和運作方案的雲端服務。 這個常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -168,7 +150,7 @@ Machine Learning Studio 提供頂級演算法，例如 Scalable Boosted Decision
 
 **可以使用內建模組來視覺化類神經網路模型的層級嗎？**
 
-否。
+沒有。
 
 **可以以 C# 或其他語言建立自己的模組嗎？**
 
@@ -205,7 +187,7 @@ Machine Learning Studio 目前支援 400 個以上的 CRAN 套件，以下是所
 ### <a name="create"></a>建立
 **可以在本機或在沒有網際網路連線的應用程式中部署模型嗎？**
 
-否。
+沒有。
 
 **所有 Web 服務是否有預期的基準延遲？**
 
@@ -246,7 +228,7 @@ Machine Learning Studio 目前支援 400 個以上的 CRAN 套件，以下是所
 
 **R 作業會分散於節點嗎？**
 
-否。  
+沒有。  
 
 **我可以將多少資料用於訓練？**
 
@@ -275,7 +257,7 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 **可以調整用來執行 Web 服務的虛擬機器大小嗎？**
 
-否。  
+沒有。  
 
 ## <a name="security-and-availability"></a>安全性和可用性
 **根據預設，哪些人可以存取 Web 服務的 HTTP 端點？如何限制對此端點的存取？**

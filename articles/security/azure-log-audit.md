@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: a1e9647e64556a7c7f2444fa2711a2eb61d230a3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e6fb14fc901b5ae5ad11d94c1e71453c2852239c
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874560"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306245"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 記錄與稽核
 
@@ -29,6 +29,7 @@ Azure 提供各種可設定的安全性稽核和記錄選項，協助您識別�
 > 本文的某些建議可能會導致資料、網路或計算資源使用量增加，並可能增加授權或訂用帳戶成本。
 
 ## <a name="types-of-logs-in-azure"></a>Azure 中的記錄類型
+
 雲端應用程式相當複雜，且具有許多移動組件。 記錄可提供資料，協助應用程式保持正常運用。 記錄可協助您針對過去的問題進行疑難排解，或防止可能的問題。 而且有助於提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
 
 Azure 記錄可歸類為下列類型：
@@ -52,6 +53,7 @@ Azure 記錄可歸類為下列類型：
 |處理資料 / 安全性警示|    Azure 資訊安全中心警示、Azure Log Analytics 警示|   提供安全性資訊和警示。|  REST API、JSON|
 
 ### <a name="activity-logs"></a>活動記錄
+
 [Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄先前稱為「稽核記錄」或「作業記錄」，因為這些記錄會報告訂用帳戶的[控制層面的事件](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/)。 
 
 活動記錄可協助您判斷寫入作業 的「內容、對象及時間」(也就是 PUT、POST 或 DELETE)。 活動記錄也可協助您了解作業的狀態和其他相關屬性。 活動記錄不包含讀取 (GET) 作業。
@@ -81,6 +83,7 @@ Azure 記錄可歸類為下列類型：
 您可以使用並非發出記錄的同一個訂用帳戶中的儲存體帳戶或[事件中樞命名空間](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive)。 進行此設定的人員必須具有這兩個訂用帳戶的適當[角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 存取權。
 
 ### <a name="azure-diagnostics-logs"></a>Azure 診斷記錄
+
 Azure 診斷記錄是由資源發出的，提供有關該資源之作業的豐富、經常性資料。 這些記錄的內容會依資源類型而有所不同。 例如，[Windows 事件系統記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events)是適用於 VM 的診斷記錄類別，而 [Blob、資料表和佇列記錄](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account)則是適用於儲存體帳戶的診斷記錄類別。 診斷記錄與活動記錄不同，其針對在訂用帳戶中資源上所執行的作業提供深入解析。
 
 ![Azure 診斷記錄圖表](./media/azure-log-audit/azure-log-audit-fig2.png)
@@ -115,6 +118,7 @@ Azure 診斷記錄提供多個組態選項，例如 Azure 入口網站、PowerSh
 |Azure 服務匯流排|[服務匯流排診斷記錄](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
 ### <a name="azure-active-directory-reporting"></a>Azure Active Directory 報告
+
 Azure Active Directory (Azure AD) 包括使用者目錄的安全性、活動和稽核報告。 [Azure AD 稽核報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide)可協助您識別在使用者的 Azure AD 執行個體中發生的特殊權限動作。 特殊權限動作包括提高權限變更 (例如，角色建立或密碼重設)、原則設定變更 (例如密碼原則) 或目錄設定變更 (例如，網域同盟設定變更)。
 
 報告會提供的稽核記錄包括事件名稱、執行動作的使用者、受變更影響的目標資源，以及日期和時間 (UTC)。 使用者能透過 [Azure 入口網站](https://portal.azure.com/)擷取 Azure AD 的稽核事件清單，如[檢視您的稽核記錄](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)中所述。 
@@ -143,6 +147,7 @@ Azure AD 稽核報告中的事件會保留 180 天。
 如果您於較常時間保留稽核事件感興趣，請使用報告 API 定期將[稽核事件](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events)提取至不同的資料存放區。
 
 ### <a name="virtual-machine-logs-that-use-azure-diagnostics"></a>使用 Azure 診斷的虛擬機器記錄
+
 [Azure 診斷](https://docs.microsoft.com/azure/azure-diagnostics)是 Azure 中可對部署的應用程式啟用診斷資料收集的功能。 您可以使用來自數個不同來源的診斷擴充功能。 目前支援 [Azure 雲端服務的 Web 和背景工作角色](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)。
 
 ![使用 Azure 診斷的虛擬機器記錄](./media/azure-log-audit/azure-log-audit-fig3.png)
@@ -160,6 +165,7 @@ Azure AD 稽核報告中的事件會保留 180 天。
 * [使用 Azure Resource Manager 範本建立具有監視和診斷的 Windows 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="storage-analytics"></a>儲存體分析
+
 [Azure 儲存體分析](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)會記錄並提供儲存體帳戶的度量資料。 您可以使用此資料來追蹤要求、分析使用量趨勢，以及診斷儲存體帳戶的問題。 儲存體分析記錄適用於 [Azure Blob、Azure 佇列及 Azure 資料表儲存體服務](https://docs.microsoft.com/azure/storage/storage-introduction)。 儲存體分析會記錄對儲存體服務之成功和失敗要求的詳細資訊。
 
 您可以使用這項資訊來監視個別要求，並診斷儲存體服務的問題。 系統會以最佳方式來記錄要求。 只有在對服務端點提出要求時，才會建立記錄項目。 例如，如果儲存體帳戶在其 Blob 端點中有活動，而不是在其資料表或佇列端點中，則只會建立關於 Blob 儲存體服務的記錄。
@@ -185,6 +191,7 @@ Storage Analytics 會記錄下列類型的已驗證與匿名要求：
 | 系統不會記錄儲存體分析本身所提出的要求 (例如，記錄檔的建立或刪除)。 記錄資料的完整清單記錄於[儲存體分析記錄作業和狀態訊息](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages)及[儲存體分析記錄格式](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format)中。 | 系統不會記錄所有其他失敗的匿名要求。 記錄資料的完整清單記錄於[儲存體分析記錄作業和狀態訊息](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages)及[儲存體分析記錄格式](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format)中。 |
 
 ### <a name="azure-networking-logs"></a>Azure 網路記錄
+
 Azure 中的網路記錄和監視功能相當完善，主要涵蓋分類有二種：
 
 * [網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher)：網路監看員的功能隨附了案例式網路監視。 這項服務包括封包擷取、下一個躍點、IP 流量驗證、安全性群組檢視、NSG 流量記錄。 案例層級監視可提供端對端的網路資源檢視，而非個別的網路資源監視。
@@ -271,9 +278,9 @@ Application Insights 是以開發小組為目標，以協助您了解您的應�
 | --------------------- | :---------- |
 |[應用程式對應](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|應用程式的元件，包含重要計量和警示。||
 |[執行個體資料的診斷搜尋](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| 搜尋和篩選事件，例如要求、例外狀況、相依性呼叫、記錄追蹤，以及頁面檢視。||
-|[彙總資料的計量瀏覽器](https://docs.microsoft.com/azure/application-insights/app-insights-metrics-explorer)|瀏覽、篩選和分割彙總的資料，例如，要求、錯誤和例外狀況的比率；回應時間、頁面載入時間。||
+|[彙總資料的計量瀏覽器](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|瀏覽、篩選和分割彙總的資料，例如，要求、錯誤和例外狀況的比率；回應時間、頁面載入時間。||
 |[儀表板](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|來自多個資源的交互式資料並與其他人員共用。 非常適用於多元件的應用程式，以及小組聊天室中的連續顯示。||
-|[即時計量串流](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)|當您部署新的組建時，請觀看這些近乎即時的效能指標，以確定一切如預期運作。||
+|[即時計量串流](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|當您部署新的組建時，請觀看這些近乎即時的效能指標，以確定一切如預期運作。||
 |[分析](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|使用這個功能強大的查詢語言，回答有關您應用程式效能和使用方式的艱難問題。||
 |[自動和手動警示](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|如果在常見模式之外發生一些狀況，則自動警示會適應您應用程式的一般遙測和觸發程式模式。 您也可以在自訂或標準計量的特定層級上設定警示。||
 |[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|檢視程式碼中的效能資料。 從堆疊追蹤移至程式碼。||
@@ -282,6 +289,7 @@ Application Insights 是以開發小組為目標，以協助您了解您的應�
 |[連續匯出](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|將送達的未經處理資料大量匯出至儲存體。||
 
 ### <a name="azure-security-center-alerts"></a>Azure 資訊安全中心警示
+
 Azure 資訊安全中心威脅偵測的運作方式如下：從您的 Azure 資源、網路及已連線的協力廠商解決方案自動收集安全性資訊。 它會分析這項資訊 (通常是來自多個來源的相互關聯資訊) 以識別威脅。 資訊安全中心的安全性警示會排定優先順序，並提供如何補救威脅的建議。 如需詳細資訊，請參閱 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)。
 
 ![Azure 資訊安全中心圖表](./media/azure-log-audit/azure-log-audit-fig7.png)
@@ -296,7 +304,7 @@ Azure 資訊安全中心威脅偵測的運作方式如下：從您的 Azure 資�
 
 許多安全性作業和事件回應小組依賴 SIEM 方案對安全性警示進行分級和調查做為起點。 您可以利用 Azure 記錄整合，將資訊安全中心警示以及 Azure 診斷和稽核記錄所收集的虛擬機器安全性事件，與 Log Analytics 或 SIEM 解決方案以接近即時的方式進行同步處理。
 
-## <a name="log-analytics"></a>Log Analytics 
+## <a name="log-analytics"></a>Log Analytics
 
 Log Analytics 是 Azure 中的一項服務，可協助您收集和分析雲端和內部部署環境中的資源所產生的資料。 它可讓您在所有工作負載和伺服器之間 (無論其實體位置為何)，使用整合式搜尋和自訂儀表板輕易地分析數百萬筆記錄，提供您即時的深入資訊。
 
@@ -309,6 +317,7 @@ Log Analytics 的中心是裝載在 Azure 的 Log Analytics 工作區。 Log Ana
 [資料來源](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources) 是從每個已連線來源收集的各種資料。 除了 [IIS 記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-iis-logs)和[自訂文字記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-custom-logs)等來源，來源還包括來自 [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) 和 Linux 代理程式的事件和[效能資料](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters)。 您設定想要收集的每個資料來源，組態會自動傳遞到每一個已連接的來源。
 
 有四種方法可[收集 Azure 服務的記錄和計量](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)：
+
 * Azure 診斷直達 Log Analytics (下表中的「診斷」)
 
 * Azure 診斷至 Azure 儲存體至 Log Analytics (下表中的「儲存體」)
@@ -351,7 +360,8 @@ Log Analytics 的中心是裝載在 Azure 的 Log Analytics 工作區。 Log Ana
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>與內部部署之 SIEM 系統整合的記錄
-您可以使用 [Azure 記錄整合](https://www.microsoft.com/download/details.aspx?id=53324)，將來自 Azure 資源的未經處理記錄與內部部署 SIEM 系統 (安全性資訊與事件管理系統) 整合。
+
+您可以使用 Azure 記錄整合，將來自 Azure 資源的未經處理記錄與內部部署 SIEM 系統 (安全性資訊與事件管理系統) 整合。 AzLog 下載已在 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文
 
 ![記錄整合圖表](./media/azure-log-audit/azure-log-audit-fig9.png)
 

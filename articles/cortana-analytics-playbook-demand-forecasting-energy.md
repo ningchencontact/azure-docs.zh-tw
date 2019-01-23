@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426249"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306483"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>能源需求預測的 Cortana Intelligence 解決方案範本教戰守則
 ## <a name="executive-summary"></a>執行摘要
@@ -287,7 +287,7 @@ Cortana Intelligence Suite 支援最常見的資料格式，例如 CSV、TSV、J
 
 在本節，我們列出能源需求預測模型包含的一些常見的資料特徵。
 
-**時間導向特徵︰** 這些特徵衍生自日期/時間戳記資料。 這些在擷取後會轉換成類別特徵，例如︰
+**時間導向特徵：** 這些特徵衍生自日期/時間戳記資料。 這些在擷取後會轉換成類別特徵，例如︰
 
 * 當天時間 – 這是一天中的時段，接受的值從 0 到 23
 * 星期 – 這代表星期幾，接受的值從 1 (星期日) 到 7 (星期六)
@@ -320,21 +320,21 @@ Cortana Intelligence Suite 支援最常見的資料格式，例如 CSV、TSV、J
 在最近幾年，已開發出進階演算法來配合時間序列預測，並改善預測精確度。 在此我們簡短討論其中一部分。
 
 > [!NOTE]
-> 本節並不做為機器學習服務和預測的概觀，只是簡單審視需求預測常用的模型化技術。 如需時間序列預測相關的詳細資訊和教學資料，強烈建議您閱讀線上書籍 [Forecasting: principles and practice](https://www.otexts.org/book/fpp)。
+> 本節並不做為機器學習服務和預測的概觀，只是簡單審視需求預測常用的模型化技術。 如需時間序列預測相關的詳細資訊和教學資料，強烈建議您閱讀線上書籍 [Forecasting: principles and practice](https://www.otexts.org/)。
 > 
 > 
 
-#### <a name="ma-moving-averagehttpswwwotextsorgfpp62"></a>[**MA (移動平均)**](https://www.otexts.org/fpp/6/2)
+#### <a name="ma-moving-average"></a>**MA (移動平均法)**
 移動平均是時間序列預測的第一代分析技巧之一，目前仍是最常用的其中一項技巧。 它也是更進階預測技巧的基礎。 使用移動平均時，我們會將 K 個最近資料點算出平均值，以預測下一個資料點，其中 K 表示移動平均的順序。
 
 移動平均技巧具有將預測平滑化的效果，因此可能無法處理資料中的劇烈波動性。
 
-#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**ETS (指數平滑法)**](https://www.otexts.org/fpp/7/5)
-指數平滑法 (ETS) 是一系列的各種方法，使用最近資料點的加權平均來預測下一個資料點。 在概念上是將較高權數指派給較新的值，而對於較舊的測量值，就逐漸降低此權數。 這一系列有許多不同的方法，其中包括處理資料中的季節性，例如 [Holt-Winters 季節性方法](https://www.otexts.org/fpp/7/5)。
+#### <a name="ets-exponential-smoothing"></a>**ETS (指數平滑法)**
+指數平滑法 (ETS) 是一系列的各種方法，使用最近資料點的加權平均來預測下一個資料點。 在概念上是將較高權數指派給較新的值，而對於較舊的測量值，就逐漸降低此權數。 這一系列有許多不同的方法，其中包括處理資料中的季節性，例如 Holt-Winters 季節性方法。
 
 其中某些方法也會納入資料的季節性。
 
-#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**ARIMA (自迴歸整合移動平均)**](https://www.otexts.org/fpp/8)
+#### <a name="arima-auto-regression-integrated-moving-average"></a>**ARIMA (自迴歸整合移動平均)**
 自迴歸整合移動平均 (ARIMA) 是常用於時間序列預測的另一系列的方法。 實際上是結合自迴歸方法與移動平均。 自迴歸方法使用迴歸模型時會取得先前的時間序列值來計算下一個日期點。 ARIMA 方法也運用差異性方法，包括計算資料點之間的差異，以及使用它們而不是原始的測量值。 最後，ARIMA 也使用上面所討論的移動平均技巧。 以各種方式將所有這些方法組合起來，就構成 ARIMA 方法系列。
 
 ETS 和 ARIMA 現在廣泛用於能源需求預測和其他許多的預測問題。 在許多情況下，這些結合起來可提供非常精確的結果。

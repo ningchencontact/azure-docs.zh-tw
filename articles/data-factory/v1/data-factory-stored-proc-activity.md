@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: e1c563f33030795d52cc686bf52497f927ace6bc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3f13cb2626394d16a127b172bb69c4ab88121cdb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017696"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352524"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 預存程序活動
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -76,7 +76,7 @@ ms.locfileid: "54017696"
 2. 建立下列**預存程序**，將資料插入 **sampletable**。
 
     ```SQL
-    CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
+    CREATE PROCEDURE usp_sample @DateTime nvarchar(127)
     AS
 
     BEGIN
@@ -108,7 +108,7 @@ ms.locfileid: "54017696"
    ![Data Factory 首頁](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### <a name="create-an-azure-sql-linked-service"></a>建立 Azure SQL 連結服務
-建立 Data Factory 之後，您需建立 Azure SQL 已連結服務，將包含 sampletable 資料表和 sp_sample 預存程序的 Azure SQL Database 連結到 Data Factory。
+建立 Data Factory 之後，您需建立 Azure SQL 已連結服務，將包含 sampletable 資料表和 usp_sample 預存程序的 Azure SQL Database 連結到 Data Factory。
 
 1. 在 **SProcDF** 的 [Data Factory] 刀鋒視窗上，按一下 [製作和部署] 來啟動 Data Factory 編輯器。
 2. 在命令列上按一下 [新增資料儲存區]，然後選擇 [Azure SQL Database]。 您應該會在編輯器中看到用來建立 Azure SQL 連結服務的 JSON 指令碼。
@@ -160,7 +160,7 @@ ms.locfileid: "54017696"
 請注意下列屬性： 
 
 - **type** 屬性會設定為 **SqlServerStoredProcedure**。 
-- 類型屬性中的 **storedProcedureName** 會設定為 **sp_sample** (預存程序的名稱)。
+- 類型屬性中的 **storedProcedureName** 會設定為 **usp_sample** (預存程序的名稱)。
 - **storedProcedureParameters** 區段包含一個名為 **DateTime** 的參數。 JSON 中參數的名稱和大小寫必須符合預存程序定義中參數的名稱和大小寫。 如果您需要為參數傳遞 null，請使用此語法：`"param1": null` (全部小寫)。
  
 1. 按一下 **...命令列上的 [更多]**，然後按一下 [新增管線]。
@@ -174,7 +174,7 @@ ms.locfileid: "54017696"
                 {
                     "type": "SqlServerStoredProcedure",
                     "typeProperties": {
-                        "storedProcedureName": "sp_sample",
+                        "storedProcedureName": "usp_sample",
                         "storedProcedureParameters": {
                             "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                         }
@@ -340,7 +340,7 @@ CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable2(Id);
 **預存程序：**
 
 ```SQL
-CREATE PROCEDURE sp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
+CREATE PROCEDURE usp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
 
 AS
 
@@ -355,7 +355,7 @@ END
 ```JSON
 "typeProperties":
 {
-    "storedProcedureName": "sp_sample",
+    "storedProcedureName": "usp_sample",
     "storedProcedureParameters":
     {
         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
@@ -394,7 +394,7 @@ END
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample2",
+                    "storedProcedureName": "usp_sample2",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
                         "Scenario": "Document sample"
