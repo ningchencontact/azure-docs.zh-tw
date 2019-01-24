@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 1521d18ab94c647aebf303b660574afe6612474d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: fa858ffbae5c1a37851ea114efd0fbc9cf010e68
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250507"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200797"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>使用工作流程設計工具建立進階編碼工作流程
 ## <a name="overview"></a>概觀
@@ -30,7 +30,7 @@ ms.locfileid: "50250507"
 
 您可以建立的範例工作流程包括：
 
-* 決策型工作流程，會檢查要解析的來源內容，並且只會編碼想要的輸出追蹤。  藉由消除倍增的來源內容不經意地產生的浪費的追蹤，而有所助益。
+* 決策型工作流程，會檢查要解析的來源內容，並且只會編碼想要的輸出追蹤。  藉由消除倍增的來源內容不經意產生的已浪費追蹤，而有所助益。
 * 多個輸入檔案可以用來支援標題、重疊和連結在一起的內容。 
 
 這項工具也可用來修改任何 [已發佈工作流程](media-services-workflow-designer.md#existing_workflows)。 

@@ -1,10 +1,11 @@
 ---
-title: 使用 Azure 入口網站，建立具有區域備援前端的 Standard Load Balancer
+title: 建立具有區域備援前端的 Load Balancer - Azure 入口網站
 titlesuffix: Azure Load Balancer
 description: 了解如何使用 Azure 入口網站，建立具有區域備援公用 IP 位址前端的 Standard Load Balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: fc5dcd76ca8ecfb820a8d157fee9cc0a92bd2d5b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2b898a9228e251003a049b2d82c0b1039eb54114
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135676"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247430"
 ---
-#  <a name="create-a-public-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>使用 Azure 入口網站，建立具有區域備援前端的公用 Standard Load Balancer
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>使用 Azure 入口網站，建立具有區域備援前端的 Standard Load Balancer
 
-本文會逐步說明如何使用 Public IP Standard 位址來建立具有區域備援前端的公用 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard)。 標準 Load Balancer 上的單一前端 IP 位址預設具備區域備援能力。
+本文會逐步說明如何使用公用 IP 標準位址，來建立具有區域備援前端的公用 [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard)。 標準 Load Balancer 上的單一前端 IP 位址預設具備區域備援能力。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

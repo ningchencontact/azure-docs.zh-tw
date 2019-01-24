@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/24/2016
+ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: c0478b320afca1b82a79fa43e7b60c29a2cb2e7c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dbca662f38f13833a4b9e642a4d8f690017d999a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997923"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262127"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>監視 Java Web 應用程式中的相依性、擷取到的例外狀況和方法執行時間
 
@@ -89,6 +89,32 @@ ms.locfileid: "53997923"
 您必須啟用報告例外狀況和個別方法的方法執行時間。
 
 根據預設，`reportExecutionTime` 為 true，而 `reportCaughtExceptions` 為 false。
+
+### <a name="spring-boot-agent-additional-config"></a>Spring Boot 代理程式的其他設定
+
+`java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
+
+> [!NOTE]
+> AI-Agent.xml 與代理程式 jar 檔案應在同一個資料夾中。 它們通常一起放在專案的 `/resources` 資料夾中。 
+
+#### <a name="enable-w3c-distributed-tracing"></a>啟用 W3C 分散式追蹤
+
+將下列程式碼新增至 AI-Agent.xml：
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> 回溯相容模式預設為啟用，enableW3CBackCompat 參數為選擇性，且應僅用於您想要將它關閉時。 
+
+理想的狀況是，所有的服務已更新至支援 W3C 通訊協定的新版 SDK。 強烈建議儘快移至具備 W3C 支援的新版 SDK。
+
+確定**[傳入](correlation.md#w3c-distributed-tracing)與傳出 (代理程式) 設定兩者**完全相同。
 
 ## <a name="view-the-data"></a>檢視資料
 在 Application Insights 資源中，彙總的遠端相依性和方法執行時間會出現[在效能圖格下][metrics]。

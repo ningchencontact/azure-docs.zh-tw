@@ -14,21 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/20/2018
 ms.author: ryanwi
-ms.openlocfilehash: e854ed42b6af8bc090950e8399e3229e202a2ed0
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 9e29f05c71f9dfe0bcd79135deb30d713fb3abb0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293407"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477086"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>使用 FabricClient API 時常見的例外狀況和錯誤
-[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API 可讓叢集和應用程式系統管理員對 Service Fabric 應用程式、服務或叢集執行系統管理工作。 例如，應用程式部署、升級和移除、檢查叢集的健康狀態，或測試服務。 應用程式開發人員和叢集系統管理員可以使用 FabricClient API，來開發用於管理 Service Fabric 叢集和應用程式的工具。
+[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) API 可讓叢集和應用程式系統管理員對 Service Fabric 應用程式、服務或叢集執行系統管理工作。 例如，應用程式部署、升級和移除、檢查叢集的健康狀態，或測試服務。 應用程式開發人員和叢集系統管理員可以使用 FabricClient API，來開發用於管理 Service Fabric 叢集和應用程式的工具。
 
-使用 FabricClient 可以執行許多不同類型的作業。  每種方法都可能因輸入不正確、執行階段錯誤或暫時性基礎結構問題而擲回錯誤的例外狀況。  請參閱 API 參考文件來尋找特定方法所擲回的例外狀況。 不過，許多不同的 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API 可能會擲回一些例外狀況。 下表列出常見的 FabricClient API 例外狀況。
+使用 FabricClient 可以執行許多不同類型的作業。  每種方法都可能因輸入不正確、執行階段錯誤或暫時性基礎結構問題而擲回錯誤的例外狀況。  請參閱 API 參考文件來尋找特定方法所擲回的例外狀況。 不過，許多不同的 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) API 可能會擲回一些例外狀況。 下表列出常見的 FabricClient API 例外狀況。
 
 | 例外狀況 | 擲回時機 |
 | --- |:--- |
-| [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception#System_Fabric_FabricObjectClosedException) |[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) 物件處於已關閉狀態。 處置正在使用的 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) 物件，並具現化新的 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) 物件。 |
+| [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception#System_Fabric_FabricObjectClosedException) |[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 物件處於已關閉狀態。 處置正在使用的 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 物件，並具現化新的 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 物件。 |
 | [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception#System_TimeoutException) |作業逾時。作業需要 MaxOperationTimeout 以上的時間才能完成時，會傳回 [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode)。 |
 | [System.UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception#System_UnauthorizedAccessException) |作業的存取檢查失敗。 傳回 E_ACCESSDENIED。 |
 | [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException) |執行作業時發生執行階段錯誤。 任何 FabricClient 方法都可能擲回 [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException)，[ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException_ErrorCode) 屬性指出例外狀況的確切原因。 錯誤碼是在 [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) 列舉中定義。 |

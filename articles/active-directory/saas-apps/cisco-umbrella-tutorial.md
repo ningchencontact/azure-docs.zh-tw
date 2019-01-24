@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Cisco Umbrella 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 675dca98-f119-4463-8350-d6a45d5601e3
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cbf58f7e5553f10087c854428a6a369cbb8c3bf9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f43c3072660ce4b9ca68c2bc58d1c752ce474e28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194884"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821902"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>教學課程：Azure Active Directory 與 Cisco Umbrella 整合
 
@@ -78,8 +78,8 @@ ms.locfileid: "53194884"
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Cisco Umbrella 單一登入](#configure-cisco-umbrella-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[建立 Cisco Umbrella 測試使用者](#create-cisco-umbrella-test-user)** - 在 Cisco Umbrella 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
-5. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+5. **[建立 Cisco Umbrella 測試使用者](#create-cisco-umbrella-test-user)** - 在 Cisco Umbrella 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -110,7 +110,7 @@ ms.locfileid: "53194884"
 
     c. 在 [登入 URL] 文字方塊中，輸入 URL：`https://login.umbrella.com/sso`
 
-4. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載] 以依據您的需求從指定選項下載 [中繼資料 XML]，並儲存在您的電腦上。
+5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載] 以依據您的需求從指定選項下載 [中繼資料 XML]，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
@@ -128,7 +128,7 @@ ms.locfileid: "53194884"
 
 1. 在不同的瀏覽器視窗中，以系統管理員身分登入您的 Cisco Umbrella 公司網站。
 
-2.  從左側的功能表中，按一下 [管理員] 並瀏覽至 [驗證]，然後按一下 [SAML]。
+2. 從左側的功能表中，按一下 [管理員] 並瀏覽至 [驗證]，然後按一下 [SAML]。
 
     ![管理員](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_admin.png)
 
@@ -144,7 +144,6 @@ ms.locfileid: "53194884"
 
     ![下一步](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_next.png)
 
-
 6. 在 [選項 A:XML 檔案上傳] 中，上傳您從 Azure 入口網站下載的 [同盟中繼資料 XML] 檔案，而在上傳中繼資料後會自動填入以下值，然後按 [下一步]。
 
     ![選擇檔案 ](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
@@ -155,7 +154,7 @@ ms.locfileid: "53194884"
 
 8. 按一下 [儲存] 。
 
-### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
+### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
@@ -215,7 +214,7 @@ Cisco Umbrella 需以手動方式佈建。
 
 1. 在不同的瀏覽器視窗中，以系統管理員身分登入您的 Cisco Umbrella 公司網站。
 
-2.  從左側的功能表中，按一下 [管理員] 並瀏覽至 [帳戶]。
+2. 從左側的功能表中，按一下 [管理員] 並瀏覽至 [帳戶]。
 
     ![帳戶](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_account.png)
 
@@ -237,7 +236,7 @@ Cisco Umbrella 需以手動方式佈建。
 
     g. 按一下 [建立]。
 
-### <a name="test-single-sign-on"></a>測試單一登入 
+### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -250,4 +249,3 @@ Cisco Umbrella 需以手動方式佈建。
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

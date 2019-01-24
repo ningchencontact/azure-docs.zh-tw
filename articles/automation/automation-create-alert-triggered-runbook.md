@@ -3,18 +3,18 @@ title: 使用警示來觸發 Azure 自動化 Runbook
 description: 了解如何在引發 Azure 警示時觸發 Runbook 執行。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d35d2bfdf379d5bf02ebb4b2fd71fb85519c741a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 88fe7740170638e9e0d7398a02dcf83ab81f6ffc
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581637"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421678"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>使用警示來觸發 Azure 自動化 Runbook
 
@@ -232,3 +232,4 @@ Runbook 會使用**AzureRunAsConnection** [執行身分帳戶](automation-create
 * 如需以不同方式啟動 Runbook 的詳細資訊，請參閱 [啟動 Runbook](automation-starting-a-runbook.md)。
 * 若要了解如何建立活動記錄警示，請參閱[建立活動記錄警示](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)。
 * 若要了解如何建立近乎即時計量警示，請參閱[在 Azure 入口網站中建立警示規則](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json)。
+

@@ -6,15 +6,14 @@ author: yushwang
 manager: rossort
 ms.service: vpn-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/07/2019
+ms.date: 01/10/2019
 ms.author: yushwang
-ms.openlocfilehash: 8a2210e9917fa8676c767362cbce2facaf42d566
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 0110b6daa34d0bb24ad0abb7128ee6409bc4ff25
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075119"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215451"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>關於 VPN 裝置和站對站 VPN 閘道連線的 IPsec/IKE 參數
 
@@ -57,10 +56,11 @@ ms.locfileid: "54075119"
 | F5 |BIG-IP 系列 |12.0 |[設定指南](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[設定指南](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[設定指南](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
 | Internet Initiative Japan (IIJ) |SEIL 系列 |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[設定指南](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |不相容 |
-| Juniper |SRX |原則式︰JunOS 10.2<br>路由式：JunOS 11.4 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
-| Juniper |J 系列 |原則式︰JunOS 10.4r9<br>路由式：JunOS 11.4 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
-| Juniper |ISG |ScreenOS 6.3 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
-| Juniper |SSG |ScreenOS 6.2 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
+| Juniper |SRX |原則式︰JunOS 10.2<br>路由式：JunOS 11.4 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[組態指令碼](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |J 系列 |原則式︰JunOS 10.4r9<br>路由式：JunOS 11.4 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[組態指令碼](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |ISG |ScreenOS 6.3 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[組態指令碼](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |SSG |ScreenOS 6.2 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[組態指令碼](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |MX |JunOS 12.x|[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[組態指令碼](vpn-gateway-download-vpndevicescript.md) |
 | Microsoft |路由及遠端存取服務 |Windows Server 2012 |不相容 |[設定範例](https://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | 開啟系統 AG |任務控制安全性閘道 |N/A |[設定指南](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |不相容 |
 | Palo Alto Networks |所有執行 PAN-OS 的裝置 |PAN-OS<br>原則式︰6.1.5 或更新版本<br>路由式：7.1.4 |[設定指南](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[設定指南](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |

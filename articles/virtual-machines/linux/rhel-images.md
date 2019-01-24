@@ -13,15 +13,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2018
 ms.author: borisb
-ms.openlocfilehash: f178ac06b4ebfeef534233c2782423a7358f0c10
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719624"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229569"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure 中的 Red Hat Enterprise Linux 映像
-本文說明 Azure Marketplace 中所提供的 Red Hat Enterprise Linux (RHEL) 映像，以及與其命名和保留期相關的原則
+本文說明 Azure Marketplace 中所提供的 Red Hat Enterprise Linux (RHEL) 映像，以及與其命名和保留期相關的原則。
+
+如需所有 RHEL 版本的 Red Hat 支援原則資訊，請參閱 [Red Hat Enterprise Linux 生命週期](https://access.redhat.com/support/policy/updates/errata)頁面。
 
 ## <a name="images-available-in-the-ui"></a>UI 中的可用映像
 當您在 Marketplace 中搜尋 “Red Hat”，或是在 Azure 入口網站 UI 中建立資源時，您將會看到可用 RHEL 映像的子集，以及相關的 Red Hat 產品。 您隨時可以使用 Azure CLI/PowerShell/API 取得可用 VM 映像的完整集合。
@@ -108,3 +110,4 @@ Microsoft 和 Red Hat 會在發行新的次要版本時更新映像以解決特�
 
 ## <a name="next-steps"></a>後續步驟
 * 請[在這裡](https://aka.ms/rhui-update)了解 Azure Red Hat Update Infrastructure。
+* 如需所有 RHEL 版本的 Red Hat 支援原則資訊，請參閱 [Red Hat Enterprise Linux 生命週期](https://access.redhat.com/support/policy/updates/errata)頁面。

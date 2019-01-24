@@ -4,18 +4,18 @@ description: 角色型存取控制 (RBAC) 可以啟用對 Azure 資源的存取�
 keywords: 自動化 rbac, 角色型存取控制, azure rbac
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727897"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424314"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自動化中的角色型存取控制
 
@@ -428,3 +428,4 @@ New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runb
 * 如需針對 Azure 自動化設定 RBAC 的不同方式詳細資訊，請參閱 [使用 Azure PowerShell 管理 RBAC](../role-based-access-control/role-assignments-powershell.md)。
 * 如需以不同方式啟動 Runbook 的詳細資訊，請參閱 [啟動 Runbook](automation-starting-a-runbook.md)
 * 如需不同 Runbook 類型的詳細資訊，請參閱 [Azure 自動化 Runbook 類型](automation-runbook-types.md)
+

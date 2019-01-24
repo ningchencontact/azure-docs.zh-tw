@@ -1,27 +1,27 @@
 ---
 title: 教學課程：在 .NET 中仲裁影片及文字記錄 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 如何使用 Content Moderator 在 .NET 中審核影片及文字記錄。
+description: 本教學課程可協助您了解如何使用機器輔助仲裁和建立人機互動 (human-in-the-loop) 審核，來建置完整的影片和文字記錄仲裁解決方案。
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 1/27/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: e5958eeb4aca4cdc41bbc263a4cc38378927874b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 45f1b4d16bd982e17b67d6fb337e0d917f635851
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118569"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332688"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>教學課程：影片及文字記錄仲裁
 
 Content Moderator 的影片 API 可讓您審核影片，以及在人工審核工具中建立影片檢閱。 
 
-這篇詳細的教學課程可協助您了解如何使用機器輔助審核和建立人機互動 (human-in-the-loop) 檢閱，來建置完整的影片及文字記錄審核解決方案。
+本教學課程可協助您了解如何使用機器輔助仲裁和建立人機互動 (human-in-the-loop) 審核，來建置完整的影片和文字記錄仲裁解決方案。
 
 下載本教學課程適用的 [C# 主控台應用程式](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp)。 主控台應用程式會使用 SDK 和相關的套件來執行下列工作：
 
@@ -241,7 +241,7 @@ Content Moderator 的影片 API 可讓您審核影片，以及在人工審核工
 
 - 檢查 `App.config` 中的組態，確定其包含所有必要資料
 - 檢查並確定 `ffmpeg` 二進位檔已存在
-- 藉由在檔案基底名稱上加上 `_c.mp4` 來建置輸出檔案的名稱 (例如 `Example.mp4` -> `E>xample_c.mp4`)
+- 藉由在檔案基底名稱上加上 `_c.mp4` 來建置輸出檔案的名稱 (例如 `Example.mp4` -> `Example_c.mp4`)
 - 建置命令列字串來執行轉換
 - 使用命令列開始 `ffmpeg` 處理程序
 - 等候影片進行處理

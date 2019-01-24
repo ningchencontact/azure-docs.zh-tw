@@ -1,27 +1,8 @@
 ---
-title: 適用於初學者的資料科學 - Azure Machine Learning Studio | Microsoft Docs
-description: 「適用於初學者的資料科學」會運用 5 支短片教導基本概念，首先為「資料科學可以回答的 5 個問題」。 來自 Azure Machine Learning。
-keywords: 進行資料科學, 資料科學初學者, 適用於初學者的資料科學, 資料科學基本概念, 資料科學問題, 資料科學影片, 資料科學簡介
-services: machine-learning
-documentationcenter: na
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cjgronlund
-ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/03/2018
-ms.openlocfilehash: 9f6d951dcbb0a0a01961bf3f6c924a0c40fd4d29
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252910"
+標題：適用於初學者的資料科學標題字尾：Azure Machine Learning Studio 說明：「適用於初學者的資料科學」會運用 5 支短片教導基本概念，首先為「資料科學可以回答的 5 個問題」。 來自 Azure Machine Learning。
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: seodec18 ms.date:01/03/2018
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>適用於初學者的資料科學影片 1：資料科學可以回答的 5 個問題
 從頂尖資料科學家所提供之「適用於初學者的資料科學」的五個簡短影片中快速認識資料科學。 無論您是對從事資料科學有興趣，或您是和資料科學家一起工作，這些影片都能為您提供基本但很有用的知識。

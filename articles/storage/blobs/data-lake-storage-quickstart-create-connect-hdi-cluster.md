@@ -6,14 +6,14 @@ author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: 95aff0bb37a91c1e2ac117f2f3b90c726e9f88d8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 791598da593c25a135c05d72b6846053af3ff344
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792881"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353850"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>快速入門：在 HDInsight 中設定叢集
 
@@ -25,6 +25,10 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 >HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。 了解如何[刪除叢集。](../../hdinsight/hdinsight-delete-cluster.md)
 
 在本快速入門中，會使用具備 Data Lake Storage Gen2 功能的儲存體帳戶作為資料層。 Data Lake Storage Gen2 利用其階層命名空間服務和 [Hadoop 驅動程式](data-lake-storage-abfs-driver.md)，得以針對分散式處理和分析進行最佳化。 儲存在已啟用 Data Lake Storage Gen2 之儲存體帳戶中的資料，即使在 HDInsight 叢集被刪除後仍會存在。
+
+## <a name="prerequisites"></a>必要條件
+
+- 您必須建立使用者指派的受控識別，然後將 [Blob 儲存體參與者角色] 指派給該身分識別。 請參閱[使用 Azure 入口網站對使用者指派的受控識別建立、列出、刪除或指派角色](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)。
 
 ## <a name="cluster-setup-methods"></a>叢集設定方法
 
@@ -104,8 +108,7 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 
 ![叢集儲存體設定：HDFS 相容儲存體端點](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
-> [!IMPORTANT]
-> 請務必**停用 Data Lake Store 存取**。 此設定是指舊的 Data Lake Store 功能，且必須加以停用，Data Lake Storage 功能才可正常運作。
+在 [使用者指派的受控識別] 中，務必選取您建立為本文必要條件的使用者管理且使用者指派的受控識別。
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 

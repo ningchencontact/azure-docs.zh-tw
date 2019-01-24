@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: 4ef611965382906e933f8d50b5dbdb3969d0b45f
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: ce031b5c0dba96ab1a51532ad771eebeafb5d599
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979041"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413255"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>修改虛擬機器擴展集
 在應用程式的整個生命週期中，您可能需要修改或更新您的虛擬機器擴展集。 這些更新可能包括如何更新擴展集的組態，或者變更應用程式組態。 本文說明如何使用 REST API、Azure PowerShell 或 Azure CLI 來修改現有的擴展集。
@@ -86,7 +86,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- Azure CLI 執行 [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)：
+- Azure CLI 執行 [az vmss get-instance-view](/cli/azure/vmss)：
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -180,7 +180,7 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Azure CLI 執行 [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
+- Azure CLI 執行 [az vmss get-instance-view](/cli/azure/vmss)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId

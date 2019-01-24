@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 65ccf45ea8ea1f8f553be0b2c599f5c1433fc3e8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "51238070"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359709"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>在 Azure VM 中手動設定 Always On 可用性群組
 
@@ -51,6 +51,9 @@ ms.locfileid: "51238070"
 
 
 開始本教學課程之前，您必須先[完成在 Azure 虛擬機器中建立 Always On 可用性群組的必要條件 (英文)](virtual-machines-windows-portal-sql-availability-group-prereq.md)。 如果這些必要條件都已經完成，您可以跳到[建立叢集](#CreateCluster)。
+
+  >[!NOTE]
+  > 本教學課程中有許多步驟都可以使用 Azure 快速入門範本進行自動化。 如需詳細資訊，請參閱[使用 Azure 快速入門範本在 SQL Server VM 上建立 WSFC 和接聽程式，並設定 Always On 可用性群組的 ILB](virtual-machines-windows-sql-availability-group-quickstart-template.md)。
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->

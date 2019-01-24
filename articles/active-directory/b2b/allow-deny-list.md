@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 563b2d6393533a86305213b6cdec6ca901e53257
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d0458fa9c40c5a6681a3f691cbb3d6a02f01ce66
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985374"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429053"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>允許或封鎖對特定組織的 B2B 使用者的邀請
 

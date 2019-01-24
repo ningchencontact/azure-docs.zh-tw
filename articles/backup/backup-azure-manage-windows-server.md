@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871316"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261497"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>監視及管理復原服務保存庫
 
@@ -67,7 +67,7 @@ ms.locfileid: "52871316"
 
 ![針對重大警示篩選的備份警示功能表](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-上圖中的 [備份警示] 功能表的篩選依據：狀態為作用中、嚴重性為重大，且時間為前 24 小時。
+上圖中 [備份警示] 功能表的篩選依據：狀態為作用中、嚴重性為重大，且時間為前 24 小時。
 
 ## <a name="manage-backup-alerts"></a>管理備份警示
 

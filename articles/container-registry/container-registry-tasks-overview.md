@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: danlep
-ms.openlocfilehash: 63affd4ad22d5246274ddfa3160d5675f702003f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cd2b14dc29f865a162cb1ced605e740a96f7a46a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855749"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329968"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>使用 ACR 工作來自動執行 OS 和架構修補
 
@@ -26,7 +26,7 @@ ms.locfileid: "48855749"
 
 * [快速工作](#quick-task)：在 Azure 中依需求建置及推送容器映像，而無須安裝本機 Docker 引擎。 請思考一下雲端中的 `docker build`、`docker push`。 從本機原始程式碼或 Git 存放庫進行建置。
 * [在原始程式碼認可時建置](#automatic-build-on-source-code-commit)：將程式碼認可至 Git 存放庫時，自動觸發容器映像建置。
-* [在基底映像更新時建置](#automate-os-and-framework-patching)：在已更新映像的基底映像時，觸發容器映像建置。
+* [在基底映像更新時建置](#automate-os-and-framework-patching)：當映像的基底映像已更新時，觸發容器映像建置。
 * [多步驟工作](#multi-step-tasks-preview) (預覽)：定義建置映像、以命令形式執行容器並將映像推送至登錄的多步驟工作。 這個「ACR 工作」預覽版功能支援依需求執行工作，以及平行的映像建置、測試及推送作業。
 
 ## <a name="quick-task"></a>快速工作
@@ -61,7 +61,7 @@ Azure CLI 中的 [az acr build][az-acr-build]命令會使用熟悉的 `docker bu
 
 若要了解如何在認可原始程式碼時觸發建置，請參閱第二個「ACR 工作」教學課程：[使用 Azure Container Registry 工作自動執行容器映像建置](container-registry-tutorial-build-task.md)。
 
-## <a name="automate-os-and-framework-patching"></a>自動執行 OS 和架構修補
+## <a name="automate-os-and-framework-patching"></a>自動進行作業系統和架構修補
 
 「ACR 工作」之所以能夠真正增強您的容器建置工作流程，是因為它能夠偵測基底映像的更新。 當已更新的基底映像被推送至您的登錄時，「ACR 工作」可根據它自動建置任何應用程式映像。
 

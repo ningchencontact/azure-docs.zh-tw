@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: 1e81f165c3ab38fffae7523efc6cb2ae307a1a25
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.subservice: metrics
+ms.openlocfilehash: be2274b5d7a0e39733440379ce9678ab012d7d27
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549627"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473821"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
 Azure 監視器提供數種與計量進行互動的方式，包括在入口網站中製作計量圖表、透過 REST API 存取計量，或使用 PowerShell 或 CLI 查詢計量。 以下是目前可供 Azure 監視器計量管線使用的所有計量完整清單。 其他計量可在入口網站中或使用舊版 API 提供。 下列清單只包含使用彙總 Azure 監視器計量管線時可供使用的計量。 若要查詢及存取這些計量，請使用 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -1573,3 +1573,4 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 * [了解 Azure 監視器中的計量](../../azure-monitor/platform/data-collection.md)
 * [建立計量警示](../../azure-monitor/platform/alerts-overview.md)
 * [將計量匯出至儲存體、事件中樞或 Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
+

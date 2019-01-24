@@ -8,19 +8,19 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.date: 08/25/2018
-ms.openlocfilehash: 0c30ffec58b1542fa80cf0c9873a0e6df8641104
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/13/2019
+ms.openlocfilehash: b58059727a383e978691bfbbee77a1f6b04692ce
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232540"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264321"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>透過 Azure Logic Apps 連線到內部部署檔案系統
 
 透過檔案系統連接器與 Azure Logic Apps，您可以建立自動化工作和工作流程，以建立和管理內部部署檔案共用上的檔案，例如：  
 
-- 建立、取得、附加更新及刪除檔案
+- 建立、取得、附加更新及刪除檔案。
 - 列出資料夾或根資料夾中的檔案。
 - 取得檔案內容與中繼資料。
 
@@ -28,13 +28,17 @@ ms.locfileid: "50232540"
 
 ## <a name="prerequisites"></a>必要條件
 
+若要遵循此範例，您需要這些項目：
+
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
 
 * 您必須先[安裝及設定內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md)，才可以將邏輯應用程式連線到內部部署系統 (例如檔案系統伺服器)。 如此一來，您可以在從邏輯應用程式建立檔案系統連線時，指定使用您的閘道安裝。
 
-* [Drobox 帳戶](https://www.dropbox.com/)和您的使用者認證
+* [Drobox 帳戶](https://www.dropbox.com/)和您的帳戶認證。 在邏輯應用程式與 Drobox 帳戶之間建立連線時，需要您的 DropBox 認證。 
 
-  您的認證會授權您的邏輯應用程式建立連線並存取 Drobox 帳戶。 
+* 您要存取的檔案系統所在電腦所適用的帳戶認證。 例如，如果您在與檔案系統相同的電腦上安裝資料閘道，您則需要該電腦的帳戶認證。 
+
+* Logic Apps 支援的任何電子郵件提供者 (例如 Office 365 Outlook、Outlook.com 或 Gmail) 所提供的電子郵件帳戶。 對於其他提供者，請[檢閱這裡的連接器清單](https://docs.microsoft.com/connectors/)。 本邏輯應用程式會使用 Office 365 Outlook 帳戶。 如果您使用另一個電子郵件帳戶，則整體步驟相同，但您的 UI 可能稍有不同。 
 
 * [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識。 針對此範例，您需要空白的邏輯應用程式。
 
@@ -44,7 +48,7 @@ ms.locfileid: "50232540"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
 
-1. 在搜尋方塊中，輸入 "dropbox" 作為篩選條件。 從觸發程序清單中選取此觸發程序：**建立檔案時** 
+1. 在搜尋方塊中，輸入 "dropbox" 作為篩選條件。 從觸發程序清單中，選取此觸發程序：**當檔案建立時** 
 
    ![選取 Dropbox 觸發程序](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -56,7 +60,7 @@ ms.locfileid: "50232540"
 
 ## <a name="add-actions"></a>新增動作
 
-1. 在觸發程序下方，選擇 [下一個步驟]。 在搜尋方塊中，輸入「檔案系統」作為篩選條件。 從 [動作] 清單中，選取此動作：**建立檔案 - 檔案系統**
+1. 在觸發程序下方，選擇 [下一個步驟]。 在搜尋方塊中，輸入「檔案系統」作為篩選條件。 從 [動作] 清單中，選取此動作：**建立檔案 - 系統系統**
 
    ![尋找檔案系統連接器](media/logic-apps-using-file-connector/find-file-system-action.png)
 
@@ -67,10 +71,10 @@ ms.locfileid: "50232540"
    | 屬性 | 必要 | 值 | 說明 | 
    | -------- | -------- | ----- | ----------- | 
    | 連線名稱 | 是 | <*connection-name*> | 您想要的連線名稱 | 
-   | **根資料夾** | 是 | <*root-folder-name*> | 您檔案系統的根資料夾，例如內部部署資料閘道安裝所在電腦上的本機資料夾，或電腦可以存取的網路共用資料夾。 <p>例如：`\\PublicShare\\DropboxFiles` <p>根資料夾是主要的父資料夾，會作為所有檔案相關動作的相對路徑。 | 
+   | **根資料夾** | 是 | <*root-folder-name*> | 您檔案系統的根資料夾，例如，如果您已安裝內部部署的資料閘道，則為內部部署資料閘道安裝所在電腦上的本機資料夾，或電腦可以存取的網路共用資料夾。 <p>例如：`\\PublicShare\\DropboxFiles` <p>根資料夾是主要的父資料夾，會作為所有檔案相關動作的相對路徑。 | 
    | **驗證類型** | 否 | <*auth-type*> | 您檔案系統使用的驗證類型，例如 **Windows** | 
-   | **使用者名稱** | 是 | <*domain*>\\<*username*> | 先前所安裝資料閘道的使用者名稱 | 
-   | **密碼** | 是 | <*your-password*> | 先前所安裝資料閘道的密碼 | 
+   | **使用者名稱** | 是 | <*domain*>\\<*username*> | 您的檔案系統所在電腦的使用者名稱 | 
+   | **密碼** | 是 | <*your-password*> | 您的檔案系統所在電腦的密碼 | 
    | **閘道** | 是 | <*installed-gateway-name*> | 先前所安裝閘道的名稱 | 
    ||| 
 

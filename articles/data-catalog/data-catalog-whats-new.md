@@ -2,18 +2,18 @@
 title: Azure 資料目錄的新功能
 description: 本文提供新增至 Azure 資料目錄之新功能的概觀。
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 61f837fbe7f53cdf9f313e5498c6f99ea14203a7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 782f68c52285e787b9dfc6d21352ab2d53876085
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047000"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353136"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 資料目錄的新功能
 **Azure 資料目錄** 的更新會定期發行。 並非所有發行版本都會包含新的使用者對應功能，某些版本會著重在後端服務功能。 本頁特別強調已加入 Azure 資料目錄服務的新使用者對應功能。
@@ -137,8 +137,8 @@ Azure 資料目錄於 2017 年 9 月新增了下列功能：
 
 * 允許目錄系統管理員定義商務詞彙與階層以建立常用商務詞彙的商務詞彙。 使用者可以標記包含詞彙的已註冊資料資產，讓您更輕鬆地探索和了解目錄的內容。 如需詳細資訊，請參閱 [如何設定控管標籤的商務詞彙](data-catalog-how-to-business-glossary.md)  
 * 「資料目錄商務字彙」增強功能，可讓使用者以單一作業更新多個字彙字詞。 使用者可以選取多個字詞來編輯下列欄位︰
-  * 父系字詞︰使用者可以選取新的父系字詞，而所有選取的字詞都會更新為所選父系字詞的子系。 如果選取的字詞都具有相同的父系，該父系就會顯示在文字方塊中，否則父系字詞欄位會設為空白。   
-  * 標記和專案關係人︰使用者可以使用與標記多個資料資產相同的體驗，來新增和移除多個字彙字詞的標記和專案關係人。
+  * 父系字詞：使用者可以選取新的父系字詞，而所有選取的字詞都會更新為所選父系字詞的子系。 如果選取的字詞都具有相同的父系，該父系就會顯示在文字方塊中，否則父系字詞欄位會設為空白。   
+  * 標記和專案關係人：使用者可以使用與標記多個資料資產相同的體驗，來新增和移除多個字彙字詞的標記和專案關係人。
 
 > [!NOTE]
 > 商務詞彙只能在標準版 Azure 資料目錄中使用。 免費版不提供控管標記或商務詞彙的功能。
@@ -153,7 +153,7 @@ Azure 資料目錄於 2017 年 9 月新增了下列功能：
 
 * Azure 資料目錄的資料來源註冊工具會提供您最近重新設計過的資料來源選取體驗。 資料來源註冊工具已更新，讓您可以更輕鬆地找到並選取 Azure 資料目錄支援的資料來源。
 * Azure 資料目錄入口網站及資料來源註冊工具支援額外 10 種語言。 除了英文之外，Azure 資料目錄現已支援德文、西班牙文、法文、義大利文、日文、韓文、葡萄牙文、俄文、簡體中文及繁體中文。 Azure 資料目錄會根據 Windows 或使用者的網頁瀏覽器中設定的語言喜好設定，提供當地語系化的使用者體驗。
-* 針對商務持續性及災害復原，支援 Azure 資料目錄資料的異地複寫功能。 現在所有 Azure 資料目錄的內容 (包括資料來源元資料及群眾外包註解)，會在兩個 Azure 區域之間複寫，且客戶不需支付額外的成本。 Azure 區域是預先配對的，兩個區域至少相隔 500 英哩，且遵循 [業務持續性和災害復原 (BCDR)：Azure 配對的區域](../best-practices-availability-paired-regions.md)一文中所述的對應。
+* 針對商務持續性及災害復原，支援 Azure 資料目錄資料的異地複寫功能。 現在所有 Azure 資料目錄的內容 (包括資料來源元資料及群眾外包註解)，會在兩個 Azure 區域之間複寫，且客戶不需支付額外的成本。 Azure 區域是預先配對的，兩個區域至少相隔 500 英哩，且遵循以下文章內容所述：[業務持續性和災害復原 (BCDR)：Azure 配對的區域](../best-practices-availability-paired-regions.md)。
 * 支援變更 Azure 資料目錄所使用的 Azure 訂用帳戶。 Azure 資料目錄的系統管理員可以使用 Azure 資料目錄入口網站中的 [設定] 頁面，針對計費功能選取不同的 Azure 訂用帳戶。
 
 ## <a name="whats-new-for-january-2016"></a>2016 年 1 月的新功能

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 98b7481c22cc5f3c233de4c516d4be5f64bbe143
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: be994c9b3c9ee4f3c6ccd5c01e762c05f740be09
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198009"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469639"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>如何使用 Java SDK v7 上傳、下載及列出 Blob
 
@@ -167,7 +167,7 @@ for (ListBlobItem blobItem : container.listBlobs()) {
 
 ### <a name="download-blobs"></a>下載 Blob
 
-使用 [CloudBlob.DownloadToFile](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.downloadtofile#com_microsoft_azure_storage_blob__cloud_blob_downloadToFile_final_String) 將 Blob 下載到本機磁碟。
+使用 [CloudBlob.DownloadToFile](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.downloadtofile) 將 Blob 下載到本機磁碟。
 
 下列程式碼會下載上一節中上傳的 Blob，將 "_DOWNLOADED" 尾碼新增至 Blob 名稱，以便您在本機磁碟上看到這兩個檔案。 
 

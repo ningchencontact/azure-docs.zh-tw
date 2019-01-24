@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: bbc9ad4f15bdffa2c0f9b6f4b56f8b1701c83c47
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: d4b706a088769530e3994d8813b28f99d5a56df5
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636606"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411963"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>在 Azure 中開發 OpenShift 的一般必要條件
 
@@ -101,7 +101,7 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ## <a name="create-a-service-principal"></a>建立服務主體 
 OpenShift 會使用使用者名稱與密碼或服務主體與 Azure 進行通訊。 Azure 服務主體是安全性識別，可供您與應用程式、服務及諸如 OpenShift 等自動化工具搭配使用。 您可以控制和定義關於服務主體可以在 Azure 中執行哪些作業的權限。 最好的方式是將服務主體的權限限定於特定資源群組，而不是整個訂用帳戶。
 
-使用 [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) 建立服務主體，並輸出 OpenShift 所需的認證。
+使用 [az ad sp create-for-rbac](/cli/azure/ad/sp) 建立服務主體，並輸出 OpenShift 所需的認證。
 
 下列範例會建立服務主體，並將其參與者權限指派給名為 openshiftrg 的資源群組。
 

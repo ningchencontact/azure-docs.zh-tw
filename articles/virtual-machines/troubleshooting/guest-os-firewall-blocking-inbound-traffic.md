@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 19ba7013b461917c4aea8ae96f689d7e39859652
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a0da446385c592bfeda2e01e209ef1fb75b7de3
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134432"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213106"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM 客體 OS 防火牆封鎖輸入流量
 
@@ -142,7 +142,7 @@ ms.locfileid: "53134432"
 
 #### <a name="mitigation-1"></a>緩解措施 1
 
-請參閱 [如何啟用/停用客體 OS 上的防火牆規則]()。
+請參閱 [如何啟用/停用客體 OS 上的防火牆規則](enable-disable-firewall-rule-guest-os.md)。
 
 #### <a name="mitigation-2"></a>緩解措施 2
 

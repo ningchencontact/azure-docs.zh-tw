@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: diberry
-ms.openlocfilehash: 241227270aeede93b74d3d94c782dfe7eaf1fbf2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: af0629b8301fe6202c6a4325083cc69140bc7c2e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121697"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438185"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>將作用中且經過訓練的應用程式發佈至預備或生產端點
 
@@ -62,6 +62,6 @@ ms.locfileid: "54121697"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 請參閱[管理金鑰](./luis-how-to-manage-keys.md)，將金鑰新增至 LUIS 的 Azure 訂用帳戶金鑰，以及了解如何設定 Bing 拼字檢查金鑰並且在結果中包含所有意圖。
+* 請參閱[管理金鑰](./luis-how-to-azure-subscription.md)，將金鑰新增至 LUIS 的 Azure 訂用帳戶金鑰，以及了解如何設定 Bing 拼字檢查金鑰並且在結果中包含所有意圖。
 * 如需如何在測試主控台中測試已發佈應用程式的指示，請參閱[訓練和測試應用程式](luis-interactive-test.md)。
 

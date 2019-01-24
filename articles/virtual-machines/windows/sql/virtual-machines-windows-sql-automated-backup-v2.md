@@ -3,7 +3,7 @@ title: SQL Server 2016/2017 Azure VM 的自動備份 v2 | Microsoft Docs
 description: 說明在 Azure 中執行之 SQL Server 2016/2017 VM 的「自動備份」功能。 本文是專門針對使用 Resource Manager 的 VM。
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: jroth
-ms.openlocfilehash: 664a0036b8aa753de9636688d22afff0163f031f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 432df6d73b2eaa42645fe25ad9c743b7fcef06a8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246815"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331639"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure 虛擬機器的自動備份 v2 (Resource Manager)
 
@@ -88,7 +89,7 @@ ms.locfileid: "51246815"
 
 在星期一，您以下列設定啟用「自動備份 v2」：
 
-- 備份排程：**自動**
+- 備份排程：**手動**
 - 完整備份頻率：**每週**
 - 完整備份開始時間：**01:00**
 - 完整備份時間範圍：**1 小時**
@@ -101,13 +102,13 @@ ms.locfileid: "51246815"
 
 此案例說明「自動備份」只會在指定的時間範圍內運作，且每個資料庫每週會備份一次。 這也說明在無法一天內完成所有備份的情況下，可以跨多天執行備份。
 
-### <a name="scenario-2-daily-backups"></a>案例 2：每天備份
+### <a name="scenario-2-daily-backups"></a>案例 2：每日備份
 您有一部包含一些大型資料庫的 SQL Server VM。
 
 在星期一，您以下列設定啟用「自動備份 v2」：
 
 - 備份排程：手動
-- 完整備份頻率：每天
+- 完整備份頻率：每日
 - 完整備份開始時間：22:00
 - 完整備份時間範圍：6 小時
 
@@ -331,7 +332,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 ## <a name="next-steps"></a>後續步驟
 「自動備份 v2」會在 Azure VM 上設定受控備份。 因此，請務必 [檢閱受控備份的文件](https://msdn.microsoft.com/library/dn449496.aspx) ，以了解其行為和隱含意義。
 
-您可以在下列文章中找到 Azure VM 上 SQL Server 的其他備份和還原指引：[Azure 虛擬機器中的 SQL Server 備份和還原](virtual-machines-windows-sql-backup-recovery.md)。
+您可以在下列文章中找到適用於 Azure VM 上 SQL Server 的其他備份和還原指引：[Azure 虛擬機器中的 SQL Server 備份和還原](virtual-machines-windows-sql-backup-recovery.md)。
 
 如需有關其他可用之自動化工作的資訊，請參閱 [SQL Server IaaS 代理程式擴充功能](virtual-machines-windows-sql-server-agent-extension.md)。
 

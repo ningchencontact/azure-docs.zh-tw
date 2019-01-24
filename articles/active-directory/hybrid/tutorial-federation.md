@@ -4,7 +4,7 @@ description: 示範如何使用同盟來設定混合式身分識別環境。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b813a276c2047a41038408744637b3dd50aff863
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 9e13b6aca7fd6302fc521e549b0f5a587ead9ed5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163509"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472461"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>教學課程：將單一 AD 樹系環境整合至雲端
 
@@ -87,7 +87,7 @@ Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
 5. 按一下 [立即安裝] 。
 6. 輸入您的授權金鑰，然後按一下 [下一步]。
 7. 選取 [我接受授權條款]，然後按一下 [下一步]。
-8. 選取 [自訂:只安裝 Windows (進階)]
+8. 選取**自訂：只安裝 Windows (進階)**
 9. 按一下 [下一步] 
 10. 安裝完成之後，請重新啟動虛擬機器、登入並執行 Windows 更新，以確保 VM 為最新。  安裝最新的更新。
 

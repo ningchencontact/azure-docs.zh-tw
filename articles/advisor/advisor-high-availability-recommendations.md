@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 61e85861ab5829620699d07fe24b1ebfdfc7cbdc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 928fb5421297fedbffabc45db35a89a74026477e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839499"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305066"
 ---
 # <a name="advisor-high-availability-recommendations"></a>建議程式高可用性建議
 
@@ -35,20 +35,16 @@ Azure Advisor 可協助您確保和改善業務關鍵應用程式的持續性。
 
 若要為應用程式提供備援，建議您在可用性設定組中，將兩部以上的虛擬機器組成群組。 Advisor 會識別包含單一虛擬機器的可用性設定組，並建議將一部或多部虛擬機器新增至該可用性設定組。 這項組態可以確保在規劃或未規劃的維護事件發生期間，至少有一部虛擬機器可以使用，且符合 Azure 虛擬機器 SLA。 您可以選擇建立虛擬機器，或是將現有的虛擬機器新增至可用性設定組。  
 
+## <a name="use-managed-disks-to-improve-data-reliability"></a>使用受控磁碟可改善資料可靠性
+可用性設定組的虛擬機器若有磁碟共用儲存體帳戶或儲存體縮放單位，就無法從中斷期間的單一儲存體縮放單位失敗中復原。 Advisor 將識別這些可用性設定組，並建議移轉至 Azure 受控磁碟。 這將確保可用性設定組中不同虛擬機器的磁碟已經過充分隔離，以避免發生單一點失敗。 
+
 ## <a name="ensure-application-gateway-fault-tolerance"></a>確保應用程式閘道的容錯
+
 為確保應用程式閘道所支援的關鍵任務應用程式擁有商務持續性，Advisor 會識別未設定容錯功能的應用程式閘道執行個體，並建議可行的修復動作。 Advisor 可識別中型或大型的單一執行個體應用程式閘道，並建議再新增至少一個執行個體。 它也可識別單一或多重執行個體的小型應用程式閘道，並建議您移轉至中型或大型的 SKU。 Advisor 會建議這些動作，以確保應用程式閘道執行個體已設定為能夠符合這些資源目前的 SLA 需求。
-
-## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks"></a>改善虛擬機器磁碟的效能和可靠性
-
-Advisor 會識別使用標準磁碟的虛擬機器，並建議升級為進階磁碟。
- 
-針對執行時需要大量 I/O 之工作負載的虛擬機器，「Azure 進階儲存體」可提供高效能、低延遲的磁碟支援。 使用進階儲存體帳戶的虛擬機器磁碟會將資料儲存在固態硬碟 (SSD) 上。 為了讓應用程式發揮最佳效能，建議您將任何需要高 IOPS 的虛擬機器磁碟移轉到進階儲存體。 
-
-如果您的磁碟不需要高 IOPS，您可以讓磁碟留在標準儲存體中以節省成本。 標準儲存體會將虛擬機器磁碟資料儲存在硬碟機 (HDD) 而非 SSD 上。 您可以選擇將虛擬機器磁碟移轉到進階磁碟。 大部分的虛擬機器 SKU 都支援進階磁碟。 不過在某些情況下，如果您想要使用進階磁碟，您可能還需要升級虛擬機器 SKU。
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>防止意外刪除虛擬機器的資料
 
-設定虛擬機器備份可確保業務關鍵資料的可用性，並防止資料意外刪除或損毀。  Advisor 會識別未啟用備份的虛擬機器，並建議啟用備份。 
+設定虛擬機器備份可確保業務關鍵資料的可用性，並防止資料意外刪除或損毀。 Advisor 會識別未啟用備份的虛擬機器，並建議啟用備份。 
 
 ## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>請確定您在需要時可以存取「Azure Cloud Experts」
 
@@ -69,6 +65,10 @@ Advisor 會識別使用標準磁碟的虛擬機器，並建議升級為進階磁
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>在 Azure 儲存體帳戶上使用虛刪除來儲存及復原遭到意外覆寫或刪除的資料
 
 在儲存體帳戶上啟用[虛刪除](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)，可讓刪除的 Blob 轉換為虛刪除狀態，而不是永久刪除。 當資料遭到覆寫時，系統會產生虛刪除的快照集，以儲存覆寫資料的狀態。 這可讓您在意外刪除或覆寫資料時進行復原。 Advisor 會識別沒有啟用虛刪除的 Azure 儲存體帳戶，並建議您將其啟用。
+
+## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>將您的 VPN 閘道設定為主動-主動以得到連線復原能力
+
+在主動-主動設定中，VPN 閘道的兩個執行個體將對您的內部部署 VPN 裝置建立 S2S VPN 通道。 當一個閘道器執行個體發生計劃性維護事件或非計劃性事件時，系統會自動將流量切換到另一個主動 IPsec 通道。 Azure Advisor 將識別未設定為主動-主動的 VPN 閘道，並建議您設定它們以獲得高可用性。
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>如何存取建議程式中的高可用性建議
 

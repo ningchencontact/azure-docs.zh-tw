@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 52e034f9a0c11c2b27888d181304bc16c3369e4a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390018"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262756"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>如何整合 Azure API 管理與 Azure Application Insights
 
@@ -64,8 +64,10 @@ ms.locfileid: "49390018"
 6. 選取 [啟用] 方塊。
 7. 從 [目的地] 下拉式清單中，選取已連結的記錄器。
 8. 輸入 **100** 作為 [取樣 (%)]，然後勾選 [一律記錄錯誤] 核取方塊。
-9. 在 [本文的前幾個位元組] 欄位中，輸入 **1024**。
-10. 按一下 [檔案] 。
+9. 按一下 [檔案] 。
+
+> [!WARNING]
+> 覆寫 [本文的前幾個位元組] 欄位中的預設值 **0**，可能會大幅降低您 API 的效能。
 
 > [!NOTE]
 > 在幕後，名為 'applicationinsights' 的[診斷](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate)實體會建立於 API 層級。
@@ -76,7 +78,7 @@ ms.locfileid: "49390018"
 | 目的地                         | Azure Application Insights 記錄器 | 指定要使用的 Azure Application Insights 記錄器                                                                                                                                                                                                                                                                                           |
 | 取樣 (%)                        | decimal                           | 值為 0 到 100 (百分比)。 <br/> 指定將記錄至 Azure Application Insights 的要求百分比。 取樣為 0% 時，表示不會記錄任何要求，取樣為 100% 時，則表示會記錄所有要求。 <br/> 此設定可用來降低將要求記錄至 Azure Application Insights 所帶來的效能影響 (請參閱下一節)。 |
 | 一律記錄錯誤                   | 布林值                           | 如果選取此設定，則不論 [取樣] 設定為何，都會將所有失敗都記錄至 Azure Application Insights。                                                                                                                                                                                                                  |
-| 基本選項：標頭              | list                              | 指定針對要求和回應，將記錄至 Azure Application Insights 的標頭。  預設值：不會記錄任何標頭。                                                                                                                                                                                                             |
+| 基本選項：headers              | list                              | 指定針對要求和回應，將記錄至 Azure Application Insights 的標頭。  預設值：不會記錄任何標頭。                                                                                                                                                                                                             |
 | 基本選項：本文的前幾個位元組  | integer                           | 指定針對要求和回應，要記錄至 Azure Application Insights 的本文前幾個位元組數目。  預設值：不記錄本文。                                                                                                                                                                                              |
 | 進階選項：前端要求  |                                   | 指定是否要將「前端要求」記錄至 Azure Application Insights 及如何記錄。 「前端要求」是傳入至「Azure API 管理」服務的要求。                                                                                                                                                                        |
 | 進階選項：前端回應 |                                   | 指定是否要將「前端回應」記錄至 Azure Application Insights 及如何記錄。 「前端回應」是從「Azure API 管理」服務傳出的回應。                                                                                                                                                                   |

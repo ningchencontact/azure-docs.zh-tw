@@ -3,18 +3,18 @@ title: 在 Azure 自動化中啟動 Runbook
 description: 摘要說明可以用來在 Azure 自動化中啟動 Runbook 的不同的方法，並提供使用 Azure 入口網站和 Windows PowerShell 的詳細資訊。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2aea370d7de063805eb584cd7d90395ca725b4c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 41ea6e6a8c09217c0bb34e07bb911329121f8b7b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275482"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424960"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>在 Azure 自動化中啟動 Runbook
 下表可協助您判斷在 Azure 自動化中啟動 Runbook 的方法，最適合您的特定案例。 這篇文章包含有關使用 Azure 入口網站和 Windows PowerShell 啟動 Runbook 的詳細資料。 其他方法的詳細資訊在其他文件中提供，您可以從下列連結來存取。
@@ -179,4 +179,5 @@ jsmith
 ## <a name="next-steps"></a>後續步驟
 * 目前文件中的 Runbook 架構提供在 Azure 中管理資源的 Runbook 整體概觀，並利用 Hybrid Runbook Worker 進行內部部署。 若要了解如何在您的資料中心執行自動化 Runbook，請參閱 [混合式 Runbook 背景工作](automation-hybrid-runbook-worker.md)。
 * 若要深入了解如何建立模組化 Runbook，以供其他 Runbook 用於特定或一般函式，請參閱 [子 Runbook](automation-child-runbooks.md)。
+
 

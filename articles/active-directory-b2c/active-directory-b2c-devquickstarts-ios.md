@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 中的 iOS 應用程式使用 AppAuth | Mi
 description: 本文說明如何建立 iOS 應用程式，以使用 AppAuth 和 Azure Active Directory B2C 來管理使用者身分識別和驗證使用者。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8e25d2d7490955a043881b85c8c7e901e5e624f2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842267"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845413"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C：使用 iOS 應用程式登入
 
@@ -29,7 +29,7 @@ Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID 
 如果您是 OAuth2 或 OpenID Connect 新手，此範例組態可能不太適合您。 建議您查看 [我們在此記載的通訊協定簡短概觀](active-directory-b2c-reference-protocols.md)。
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>取得 Azure AD B2C 目錄
-您必須先建立目錄或租用戶，才可使用 Azure AD B2C。 目錄就是您所有使用者、應用程式、群組等項目的容器。 如果您還沒有此資源，請先 [建立 B2C 目錄](active-directory-b2c-get-started.md) 再繼續進行。
+您必須先建立目錄或租用戶，才可使用 Azure AD B2C。 目錄就是您所有使用者、應用程式、群組等項目的容器。 如果您還沒有此資源，請先 [建立 B2C 目錄](tutorial-create-tenant.md) 再繼續進行。
 
 ## <a name="create-an-application"></a>建立應用程式
 接著，您必須在 B2C 目錄中建立應用程式。 應用程式註冊會提供必要資訊給 Azure AD，讓它與應用程式安全地通訊。 如果要建立行動應用程式，請遵循[這些指示](active-directory-b2c-app-registration.md)。 請務必：
@@ -39,13 +39,11 @@ Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID 
 * 使用自訂配置設定**重新導向 URI** (例如，com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)。 您稍後需要此 URI。
 
 ## <a name="create-your-user-flows"></a>建立使用者流程
-在 Azure AD B2C 中，每個使用者體驗皆是由某個[使用者流程](active-directory-b2c-reference-policies.md)所定義。 此應用程式包含一個身分識別體驗：合併登入和註冊。 建立此使用者流程，如[使用者流程參考文章](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow)所述。 建立使用者流程時，請務必：
+在 Azure AD B2C 中，每個使用者體驗皆是由某個[使用者流程](active-directory-b2c-reference-policies.md)所定義。 此應用程式包含一個身分識別體驗：合併登入和註冊。 建立使用者流程時，請務必：
 
 * 在 [註冊屬性] 下方，選取 [顯示名稱] 屬性。  您也可以選取其他屬性。
 * 在 [應用程式宣告] 下方，選取 [顯示名稱] 和 [使用者的物件識別碼] 宣告。 您也可以選取其他宣告。
 * 建立每個使用者流程之後，請複製其 [名稱]。 當您儲存使用者流程時，使用者流程名稱前面會加上 `b2c_1_`。  您稍後需要用到此使用者流程名稱。
-
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 建立您的使用者流程後，就可以開始建置您的應用程式。
 

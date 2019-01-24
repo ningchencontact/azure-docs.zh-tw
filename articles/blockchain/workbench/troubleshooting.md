@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e205fce8b718e68200face33447e37cd3317298f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9f0f32bc1fb6b88dc85f09e13aebc60ff74ec723
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405479"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329728"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench 疑難排解
 
@@ -26,7 +26,7 @@ ms.locfileid: "49405479"
 * Application Insights
 * Azure 監視 (Log Analytics)
 
-您可以使用這些資訊來判斷後續步驟，並判斷問題的根本原因。 
+您可以使用這些資訊來判斷後續步驟，並判斷問題的根本原因。
 
 ## <a name="troubleshooting-script"></a>疑難排解指令碼
 
@@ -75,4 +75,4 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Workbench 架構](architecture.md)
+> [Azure Blockchain Workbench Application Insights 疑難排解指南](https://aka.ms/workbenchtroubleshooting) \(英文\)

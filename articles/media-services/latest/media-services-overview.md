@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 12/14/2018
+ms.date: 01/14/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: f959ce8d29975fc7c667185ef5bc2547825bccc0
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c58c31a0d6238720d643d5b1508a7ec04749887b
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406908"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352116"
 ---
 # <a name="what-is-azure-media-services-v3"></a>什麼是 Azure 媒體服務 v3？
 
@@ -34,12 +34,12 @@ Azure 媒體服務是雲端式平台，可讓您建置的解決方案擁有廣�
 * 以各種格式傳遞影片，使它們能在多種瀏覽器和裝置上播放。 不論是隨選播放或是即時串流傳遞至各種用戶端 (行動裝置、電視、電腦等)，視訊和音訊內容都必須適當地編碼和封裝。 若要了解如何傳遞和串流這類內容，請參閱[快速入門：編碼和串流檔案](stream-files-dotnet-quickstart.md)。
 * 將即時體育賽事串流至廣大的線上觀眾，例如足球、棒球、大專院校和高中體育競賽等等。 
 * 廣播公眾會議和活動，例如市政府、市議會會議，及立法機構。
-* 分析錄製的視訊或音訊內容。 例如，為了達到更高的客戶滿意度，組織可以擷取語音轉換文字，並建置搜尋索引和儀表板。 接著便可以從一般客訴、客訴來源及其他相關資料中獲取情報。 
+* 分析錄製的視訊或音訊內容。 例如，為了達到更高的客戶滿意度，組織可以擷取語音轉換文字，並建置搜尋索引和儀表板。 接著便可以從一般客訴、客訴來源及其他相關資料中獲取情報。
 * 建立訂閱影片服務，並在客戶需要限制對著作權所有作品的存取及使用時，串流受 DRM 保護的內容。
 * 傳遞離線內容，以在飛機、火車和汽車上播放。 當客戶預期會從網路中斷連線時，他們可能需要將內容下載到手機或平板電腦上播放。
-* 在影片加入標題和字幕，以建立更廣大的觀眾 (例如聽障人士或想要以其他語言閱讀的人)。 
-* 使用 Azure 媒體服務和 [Azure 認知服務 API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) 的語音文字轉換、翻譯成多語言等功能，實作教育電子化學習影片平台。
-* 啟用 Azure CDN 來達成大規模調整，以更妥善處理瞬間高負載 (例如，在產品上市活動開始時。) 
+* 使用 Azure 媒體服務和 [Azure 認知服務 API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) 的語音文字轉換、翻譯成多語言等功能，實作教育電子化學習影片平台。 
+* 搭配使用 Azure 媒體服務與 [Azure 認知服務 API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) 在影片加入標題和字幕，以服務更廣大的觀眾 (例如聽障人士或想要以其他語言閱讀的人)。
+* 啟用 Azure CDN 以達成大規模調整，進而妥善處理瞬間高負載 (例如，在產品上市活動開始時)。 
 
 ## <a name="v3-capabilities"></a>v3 功能
 
@@ -72,41 +72,7 @@ v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 API 不會從
 * 在取得 ContentKeyPolicy 時不傳回限制金鑰、 
 * 不傳回作業的 HTTP 輸入 URL 的查詢字串部分 (以移除簽章)。
 
-下列.NET 範例示範如何從現有的原則取得簽署金鑰。 您必須使用 **GetPolicyPropertiesWithSecretsAsync** 取得金鑰。
-
-```csharp
-private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
-    IAzureMediaServicesClient client,
-    string resourceGroupName,
-    string accountName,
-    string contentKeyPolicyName)
-{
-    ContentKeyPolicy policy = await client.ContentKeyPolicies.GetAsync(resourceGroupName, accountName, contentKeyPolicyName);
-
-    if (policy == null)
-    {
-        // Configure and create a new policy.
-        
-        . . . 
-        policy = await client.ContentKeyPolicies.CreateOrUpdateAsync(resourceGroupName, accountName, contentKeyPolicyName, options);
-    }
-    else
-    {
-        var policyProperties = await client.ContentKeyPolicies.GetPolicyPropertiesWithSecretsAsync(resourceGroupName, accountName, contentKeyPolicyName);
-        var restriction = policyProperties.Options[0].Restriction as ContentKeyPolicyTokenRestriction;
-        if (restriction != null)
-        {
-            var signingKey = restriction.PrimaryVerificationKey as ContentKeyPolicySymmetricTokenKey;
-            if (signingKey != null)
-            {
-                TokenSigningKey = signingKey.KeyValue;
-            }
-        }
-    }
-
-    return policy;
-}
-```
+請參閱[取得內容金鑰原則 - .NET](get-content-key-policy-dotnet-howto.md) 範例。
 
 ## <a name="how-can-i-get-started-with-v3"></a>如何開始使用 v3？
 

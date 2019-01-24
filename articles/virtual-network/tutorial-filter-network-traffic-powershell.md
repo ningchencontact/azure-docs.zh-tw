@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 92c1e706d3cbcff8bb0d66ddf4f2e73362a96af6
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: dfeff34de882602711ed375d81977ae501ec51cf
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064520"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428388"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>使用 PowerShell 透過網路安全性群組篩選網路流量
 
@@ -37,7 +37,7 @@ ms.locfileid: "54064520"
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，本文會要求使用 Azure PowerShell 模組版本 6.2.1 或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，本文會要求使用 Azure PowerShell 模組版本 6.2.1 或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-a-network-security-group"></a>建立網路安全性群組
 

@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/07/2019
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 2bb9d69487b8576cdae60a1a613a341898495f06
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a354d5d0242bfdbb618eb325c8157a7bed3d3b64
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903876"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263650"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>操作說明：針對企業應用程式，設定 SAML 權杖中發出的角色宣告
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>作法：針對企業應用程式，設定 SAML 權杖中發出的角色宣告
 
 藉由使用 Azure Active Directory (Azure AD)，您可以針對在授權應用程式之後所收到回應權杖中的角色宣告，自訂其宣告類型。
 
@@ -151,25 +151,29 @@ ms.locfileid: "48903876"
 
 8. 更新 [屬性] 資料表以定義自訂的角色宣告對應。
 
-9. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，如圖所示設定 SAML 權杖屬性，然後執行下列步驟。
+9. 在 [單一登入] 對話方塊的 [使用者屬性與宣告] 區段中，如圖所示設定 SAML 權杖屬性，然後執行下列步驟。
 
     | 屬性名稱 | 屬性值 |
     | -------------- | ----------------|
     | 角色名稱  | user.assignedroles |
 
-    a. 選取 [新增屬性] 來開啟 [新增屬性] 窗格。
+    a. 按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
+
+      ![[新增屬性] 按鈕](./media/active-directory-enterprise-app-role-management/editattribute.png)
+
+    b. 選取 [新增屬性] 以開啟 [管理使用者宣告] 窗格。
 
       ![[新增屬性] 按鈕](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
       ![[新增屬性] 窗格](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. 在 [名稱] 方塊中，視需要輸入屬性名稱。 此範例使用 [角色名稱] 作為宣告名稱。
-
-    c. 在 [值] 清單中，選取該列所顯示的值。
+    c. 在 [名稱] 方塊中，視需要輸入屬性名稱。 此範例使用 [角色名稱] 作為宣告名稱。
 
     d. 讓 [命名空間] 方塊保持空白。
 
-    e. 選取 [確定]。
+    e. 在 [來源屬性] 清單中，輸入該資料列所顯示的屬性值。
+
+    f. 選取 [ **儲存**]。
 
 10. 若要在識別提供者所起始的單一登入中測試應用程式，請登入[存取面板](https://myapps.microsoft.com)，並選取應用程式圖格。 在 SAML 權杖中，您應該會看到具有所指定宣告名稱之使用者的所有指派角色。
 

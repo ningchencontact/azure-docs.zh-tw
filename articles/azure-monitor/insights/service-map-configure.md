@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: ee0de5d03de29adddd8f77efbe7491603cc0e4c4
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ea1c44d95dfb00fdb2b0af9e5cd8560fdee3d361
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188787"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231337"
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中設定服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉以檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -335,7 +335,7 @@ Node localhost
 ```
 
 ## <a name="remove-the-dependency-agent"></a>移除 Dependency Agent
-### <a name="uinstall-agent-on-windows"></a>在 Windows 上解除安裝代理程式
+### <a name="uninstall-agent-on-windows"></a>在 Windows 上解除安裝代理程式
 系統管理員可透過控制台解除安裝 Windows Dependency Agent。
 
 系統管理員也可以執行 %Programfiles%\Microsoft Dependency Agent\Uninstall.exe，以解除安裝 Dependency Agent。

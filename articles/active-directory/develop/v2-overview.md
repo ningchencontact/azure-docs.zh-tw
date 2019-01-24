@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 88904b27e114c27dc7b1051c755d3c831c90554f
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286685"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232460"
 ---
 # <a name="about-v20"></a>關於 v2.0
 
@@ -30,13 +30,13 @@ v2.0 端點與平台已在預覽中，並持續增強。 現在，JavaScript 單
 > [!NOTE]
 > MSAL Android、iOS 與 .NET 仍有開發中的功能。 您可以使用它們來建置應用程式，並向我們傳送意見反應。
 
-Azure 入口網站開發人員體驗已經大幅更新，現在包含使用 ADAL 或 MSAL 建置的所有應用程式，並改善可用性。
+Azure 入口網站[應用程式註冊 (預覽)](quickstart-register-app.md) 體驗已經大幅更新，現在包含使用 ADAL 或 MSAL 建置的所有應用程式，並改善可用性。
 
 在過去，應用程式開發人員需要同時支援個人 Microsoft 帳戶和 Azure Active Directory (Azure AD) 中的公司帳戶時，必須整合這兩個不同的系統。 v2.0 端點與平台提供了一個簡化此程序的驗證 API 版本。 它使用單一整合讓使用者可從兩種類型的帳戶登入。 使用 v2.0 端點的應用程式也可以利用這其中一種帳戶，從 [Microsoft Graph API](https://developer.microsoft.com/graph) 取用 REST API。
 
 ## <a name="getting-started"></a>開始使用
 
-從下列清單選擇您最愛的平台，使用 Microsoft 開放原始碼程式庫與架構來建置應用程式。 您也可以使用 OAuth 2.0 和 OpenID Connect 通訊協定直接傳送和接收通訊協定訊息，而不使用驗證程式庫。
+從下列清單選擇您最愛的平台，使用 Microsoft 開放原始碼程式庫與架構來建置應用程式：
 
 [!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
@@ -46,14 +46,12 @@ Azure 入口網站開發人員體驗已經大幅更新，現在包含使用 ADAL
 
 * 探索[您可以使用 Azure AD v2.0 端點來建置的應用程式類型](v2-app-types.md)。
 * 了解使用 Azure AD v2.0 端點的[限制和條件約束](active-directory-v2-limitations.md)。
-* 如需 Azure AD v2.0 端點的概觀，請觀看這段影片：
-
->[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
 ## <a name="additional-resources"></a>其他資源
 
 探索有關 v2.0 的深入資訊：
 
+* [關於 Microsoft 身分識別平台](about-microsoft-identity-platform.md)
 * [v2.0 通訊協定參考](active-directory-v2-protocols.md)
 * [存取權杖參考](access-tokens.md)
 * [識別碼權杖參考](id-tokens.md)

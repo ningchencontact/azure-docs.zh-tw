@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.component: alerts
-ms.openlocfilehash: 2df24cfe217a9955a3abb08d042836821b083946
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580632"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465661"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>設定傳統計量警示使用 Webhook 通知非 Azure 系統
 您可以使用 Webhook 將 Azure 警示通知路由到其他系統以進行後處理或自訂動作。 您可以針對警示使用 Webhook，以將警示路由到會傳送簡訊、記錄錯誤、透過聊天或傳訊服務通知小組，或進行其他許多動作的服務。 
@@ -106,3 +106,4 @@ POST 作業對於所有以計量為基礎的警示會包含下列 JSON 承載和
 * 深入了解如何[使用邏輯應用程式透過 Twilio 從 Azure 警示傳送簡訊](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app) \(英文\)。
 * 深入了解如何[使用邏輯應用程式從 Azure 警示傳送 Slack 訊息](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app) \(英文\)。
 * 深入了解如何[使用邏輯應用程式從 Azure 警示將訊息傳送到 Azure 佇列](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app) \(英文\)。
+

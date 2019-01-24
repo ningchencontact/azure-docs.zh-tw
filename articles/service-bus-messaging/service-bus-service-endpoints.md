@@ -3,19 +3,20 @@ title: Azure 服務匯流排的虛擬網路服務端點和規則 | Microsoft Doc
 description: 將 Microsoft.ServiceBus 服務端點新增至虛擬網路。
 services: service-bus
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
-ms.author: clemensv
-ms.openlocfilehash: 87a89ffd627454752924bfc69e44da87b071b5e5
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.author: aschhab
+ms.openlocfilehash: 3e55da5a6ebb0db26b32f51d67f013cb65438104
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651430"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854797"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>搭配 Azure 服務匯流排使用虛擬網路服務端點
 

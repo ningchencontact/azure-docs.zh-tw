@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: e8d6d48461e41353057bd554b9e898d118e68ab0
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/17/2019
+ms.openlocfilehash: 9133f7f4dde080700b2b11a4c09df6d0610869f6
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545292"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388029"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>快速入門：設定從內部部署連線至 Azure SQL Database 受控執行個體的點對站連線
 
@@ -28,7 +28,7 @@ ms.locfileid: "53545292"
 此快速入門：
 
 - 使用在[建立受控執行個體](sql-database-managed-instance-get-started.md)中建立的資源作為起點。
-- 您的內部部署用戶端電腦上需要 PowerShell 5.1 與 Azure PowerShell 5.4.2 或更高版本。 如有需要，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0#install-the-azure-powershell-module)的指示。
+- 您的內部部署用戶端電腦上需要 PowerShell 5.1 與 Azure PowerShell 5.4.2 或更高版本。 如有需要，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0#install-the-azure-powershell-module)的指示。
 - 您的內部部署用戶端電腦上需要最新版 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)。
 
 ## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>將 VPN 閘道連結到您的受控執行個體虛擬網路

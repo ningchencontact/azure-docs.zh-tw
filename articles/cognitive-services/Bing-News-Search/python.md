@@ -8,73 +8,72 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 8ce8353df9a6f8354c56d9c9115645c0b7f2136a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6d5f21bd2ddcc08296551f061f02d792a5a545a7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251652"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260664"
 ---
 # <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>快速入門：使用 Python 和 Bing 新聞搜尋 REST API 來執行新聞搜尋
 
-本逐步解說示範呼叫 Bing 新聞搜尋 API，以及對產生的 JSON 物件進行後處理的簡單範例。 如需詳細資訊，請參閱 [Bing 新聞搜尋文件](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) \(英文\)。  
+使用本快速入門以第一次呼叫 Bing 新聞搜尋 API，並接收 JSON 回應。 這個簡單的 JavaScript 應用程式會將搜尋查詢傳送給 API，並處理結果。 雖然此應用程式是以 Python 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
-您可以按一下 [launch Binder] \(啟動 Binder\) 徽章，在 [MyBinder](https://mybinder.org) \(英文\) 上以 Jupyter Notebook 執行此範例： 
+您可以按一下 [launch Binder] \(啟動 Binder\) 徽章，在 [MyBinder](https://mybinder.org) \(英文\) 上以 Jupyter Notebook 執行此程式碼範例： 
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingNewsSearchAPI.ipynb)
 
+您也可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingNewsSearchv7.py) 上找到此範例的原始程式碼。
+
 ## <a name="prerequisites"></a>必要條件
 
-您必須有具備 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 啟用免費試用時，您必須提供存取金鑰。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-## <a name="running-the-walkthrough"></a>執行逐步解說
-首先將 Bing API 服務的 `subscription_key` 設定為您的 API 金鑰。
+另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
+## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
 
-```python
-subscription_key = None
-assert subscription_key
-```
-
-接下來，確認 `search_url` 端點正確無誤。 在撰寫本文時，Bing 搜尋 API 只使用一個端點。 如果您遇到授權錯誤，請對照 Azure 儀表板中的 Bing 搜尋端點以仔細檢查此值。
-
-
-```python
-search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
-```
-
-設定 `search_term` 尋找關於 Microsoft 的新聞文章。
-
-
-```python
-search_term = "Microsoft"
-```
-
-下列區塊使用 Python 中的 `requests` 程式庫，呼叫 Bing 搜尋 API 並將結果以 JSON 物件的形式傳回。 觀察我們透過 `headers` 字典傳入 API 金鑰，然後透過 `params` 字典搜尋字詞。 若要查看可用來篩選搜尋結果的選項完整清單，請參閱 [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) \(英文\) 文件。
-
+1. 在您慣用的 IDE 或編輯器中建立新的 Python 檔案，以及匯入要求模組。 針對您的訂用帳戶金鑰、端點和搜尋字詞建立變數。 您可以在 Azure 儀表板中找到您的端點。
 
 ```python
 import requests
 
-headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
-params  = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
-response = requests.get(search_url, headers=headers, params=params)
-response.raise_for_status()
-search_results = response.json()
+subscription_key = "your subscription key"
+search_term = "Microsoft"
+search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
 ```
 
-`search_results` 物件包含相關的新文章以及豐富的中繼資料。 例如，下列程式碼會擷取文章的描述。
+### <a name="create-parameters-for-the-request"></a>建立要求的參數
 
+1. 使用 `"Ocp-Apim-Subscription-Key"` 作為訂用帳戶金鑰，並將金鑰新增至新字典中。 對您的搜尋參數執行相同的動作。
 
-```python
-descriptions = [article["description"] for article in search_results["value"]]
-```
+    ```python
+    headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
+    params  = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
+    ```
+
+## <a name="send-a-request-and-get-a-response"></a>傳送要求並取得回應
+
+1. 以您的訂用帳戶金鑰和最後一個步驟中建立的字典物件，使用要求程式庫來呼叫 Bing 圖像式搜尋 API。
+
+    ```python
+    response = requests.get(search_url, headers=headers, params=params)
+    response.raise_for_status()
+    search_results = response.json()
+    ```
+
+2. `search_results` 包含來自 API 的回應 (JSON 物件)。 存取回應中包含的發行項描述。
+    
+    ```python
+    descriptions = [article["description"] for article in search_results["value"]]
+    ```
+
+## <a name="displaying-the-results"></a>顯示結果
 
 這些說明可以再轉譯為以**粗體**醒目提示搜尋關鍵字的資料表。
-
 
 ```python
 from IPython.display import HTML
@@ -85,10 +84,4 @@ HTML("<table>"+rows+"</table>")
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [將新聞分頁](paging-news.md)
-> [使用裝飾標記醒目提示文字](hit-highlighting.md)
-
-## <a name="see-also"></a>另請參閱 
-
- [搜尋網路上的新聞](search-the-web.md)  
- [試試看](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
+[建立單頁 Web 應用程式](tutorial-bing-news-search-single-page-app.md)

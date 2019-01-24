@@ -3,25 +3,25 @@ title: 在 Azure Active Directory B2C 中驗證、註冊、編輯設定檔 | Mic
 description: 如何使用 Azure Active Directory B2C 來建置包含登入、註冊及設定檔管理功能的 Windows 桌面應用程式。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 43da5b32fe3ad8891f89544d0f9bdbd1d4d127d0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 96cdbca1b0a5a75c24b9d0e75eaf1fc861bf764a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606177"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843118"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C：建置 Windows 桌面應用程式
 如果您利用 Azure Active Directory (Azure AD) B2C，只要幾個簡短的步驟，就在您的桌面應用程式中新增功能強大的自助式身分識別管理功能。 本文章說明如何建立 .NET Windows Presentation Foundation (WPF)「待辦事項清單」應用程式，其中包含使用者註冊、登入和設定檔管理的功能。 該應用程式將支援以使用者名稱或電子郵件來註冊及登入的功能。 它也會支援以社交帳戶 (例如 Facebook 和 Google) 來註冊及登入。
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>取得 Azure AD B2C 目錄
-您必須先建立目錄或租用戶，才可使用 Azure AD B2C。 目錄是適用於所有使用者、app、群組等項目的容器。 如果您還沒有此資源，請先 [建立 B2C 目錄](active-directory-b2c-get-started.md) ，再繼續進行本指南。
+您必須先建立目錄或租用戶，才可使用 Azure AD B2C。 目錄是適用於所有使用者、app、群組等項目的容器。 如果您還沒有此資源，請先 [建立 B2C 目錄](tutorial-create-tenant.md) ，再繼續進行本指南。
 
 ## <a name="create-an-application"></a>建立應用程式
 接著，您必須在 B2C 目錄中建立應用程式。 這會提供必要資訊給 Azure AD，讓它與應用程式安全地通訊。 若要建立應用程式，請遵循 [這些指示](active-directory-b2c-app-registration.md)。 請務必：
@@ -31,16 +31,14 @@ ms.locfileid: "53606177"
 * 複製指派給您的應用程式的 **應用程式識別碼** 。 稍後您將會用到此資訊。
 
 ## <a name="create-your-policies"></a>建立您的原則
-在 Azure AD B2C 中，每個使用者體驗皆是由某個 [原則](active-directory-b2c-reference-policies.md)所定義。 此程式碼範例包含三種身分識別體驗：註冊、登入和編輯設定檔。 您必須為每個類型建立一個原則，如 [原則參考文章](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow)中所述。 建立這三個原則時，請務必：
+在 Azure AD B2C 中，每個使用者體驗皆是由某個 [原則](active-directory-b2c-reference-policies.md)所定義。 此程式碼範例包含三種身分識別體驗：註冊、登入和編輯設定檔。 建立這些原則時，請務必：
 
 * 在識別提供者刀鋒視窗中，選擇 [使用者識別碼註冊] 或 [電子郵件註冊]。
 * 在註冊原則中，選擇 [顯示名稱]  和其他註冊屬性。
 * 針對每個原則選擇 [顯示名稱] 和 [物件識別碼] 宣告做為應用程式宣告。 您也可以選擇其他宣告。
 * 在您建立每個原則之後，請複製原則的 [名稱]  。 其前置詞應該為 `b2c_1_`。 稍後您將需要這些原則名稱。
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
-
-當您成功建立這三個原則之後，就可以開始建置您的 app。
+當您成功建立原則之後，就可以開始建置您的應用程式。
 
 ## <a name="download-the-code"></a>下載程式碼
 本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet)。 如要依照指示建置範例，請 [下載 .zip 檔案格式的基本架構專案](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip)。 您也可以複製基本架構：

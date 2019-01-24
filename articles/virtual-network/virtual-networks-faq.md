@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 5a92f4543f865141d446f5b681674961f6fef046
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 769dcd3be33ec5dfecf0607ab3e45a11486c48d4
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021028"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412864"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -52,7 +52,12 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。 它是專屬�
 * 網路組態檔 (netcfg - 僅適用於傳統 VNet)。 請參閱[使用網路組態檔設定 VNet](virtual-networks-using-network-configuration-file.md)一文。
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>我可以在 VNet 中使用哪些位址範圍？
-[RFC 1918](http://tools.ietf.org/html/rfc1918) 中定義的任何 IP 位址範圍。 例如：10.0.0.0/16。
+[RFC 1918](http://tools.ietf.org/html/rfc1918) 中定義的任何 IP 位址範圍。 例如：10.0.0.0/16。 您無法新增下列位址範圍︰
+* 224.0.0.0/4 (多點傳送)
+* 255.255.255.255/32 (廣播)
+* 127.0.0.0/8 (回送)
+* 169.254.0.0/16 (連結-本機)
+* 168.63.129.16/32 (內部 DNS)
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>我可以在 VNet 擁有公用 IP 位址嗎？
 是。 如需有關公用 IP 位址範圍的詳細資訊，請參閱[建立虛擬網路](manage-virtual-network.md#create-a-virtual-network)。 您無法直接從網際網路存取公用 IP 位址。

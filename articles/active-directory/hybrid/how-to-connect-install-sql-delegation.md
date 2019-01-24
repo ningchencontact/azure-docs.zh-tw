@@ -3,7 +3,7 @@ title: 使用 SQL 委派的管理員權限安裝 Azure AD Connect | Microsoft Do
 description: 本主題說明可使用僅有 SQL dbo 權限之帳戶來進行安裝的 Azure AD Connect 更新。
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: jparsons
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b951f541487d70bccb8a709f79a3674ef22eba3a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e4f1e60424e058f805e89fc3291cfa9a28390c8d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309547"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474895"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>使用 SQL 委派的管理員權限安裝 Azure AD Connect
 最新的 Azure AD Connect 組建之前的版本在部署需要 SQL 的設定時不支援管理委派。  想要安裝 Azure AD Connect 的使用者必須在 SQL 伺服器上擁有伺服器管理員 (SA) 權限。

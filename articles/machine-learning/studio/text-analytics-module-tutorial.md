@@ -1,26 +1,7 @@
 ---
-title: 建立文字分析模型 - Azure Machine Learning Studio | Microsoft Docs
-description: 如何在 Azure Machine Learning Studio 使用文字前置處理、N-Gram 或特徵雜湊來建立文字分析模型
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: ''
-ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2018
-ms.openlocfilehash: 11f4ad4ff1e8e2eab688596d393e63009f7e5624
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255477"
+標題：建立文字分析模型標題字尾： Azure Machine Learning Studio 說明：如何在 Azure Machine Learning Studio 使用文字前置處理、N-Gram 或特徵雜湊服務來建立文字分析模型: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:03/14/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中建立文字分析模型
 您可以使用 Azure Machine Learning 來建置和實行文字分析模型。 這些模型可協助您解決問題，例如，文件分類或情緒分析問題。

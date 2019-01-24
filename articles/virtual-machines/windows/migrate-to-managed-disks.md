@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: d280ad1180949167bb8ebfc6b21521736db0f55d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: disks
+ms.openlocfilehash: 5e2a485630b7e3c9cc5977170d7e7e7eeb3e6ff5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777139"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474212"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>將 Azure VM 移轉至 Azure 中的受控磁碟
 
@@ -37,7 +38,7 @@ Azure 受控磁碟可免除個別管理儲存體帳戶的需求，進而簡化�
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 將獨立 VM 和可用性設定組中的 VM 轉換成受控磁碟   | [將 VM 轉換成使用受控磁碟](convert-unmanaged-to-managed-disks.md) |
 | 將單一 VM 由受控磁碟上的傳統部署移轉到 Resource Manager 部署     | [移轉單一 VM](migrate-single-classic-to-resource-manager.md)  | 
-| 將 vNet 中的所有 VM 由受控磁碟上的傳統部署移轉到 Resource Manager 部署     | [將 IaaS 資源從傳統部署移轉至 Resource Manager 部署](migration-classic-resource-manager-ps.md)，然後[將 VM 從非受控磁碟轉換為受控磁碟](convert-unmanaged-to-managed-disks.md) | 
+| 將 vNet 中的所有 VM 由受控磁碟上的傳統部署移轉到 Resource Manager 部署     | [將 IaaS 資源從傳統部署移轉至 Resource Manager 部署](migration-classic-resource-manager-ps.md)，然後[將 VM 從非受控磁碟轉換為受控磁碟](convert-unmanaged-to-managed-disks.md) | 
 
 
 
@@ -64,20 +65,20 @@ Azure 受控磁碟可免除個別管理儲存體帳戶的需求，進而簡化�
 
 有七種型別的進階受控磁碟可以搭配 VM 使用，而且每種都有特定的 IOP 和輸送量限制。 為您的 VM 選擇進階磁碟類型時，請根據應用程式在容量、效能、延展性以及尖峰負載方面的需求，將這些限制納入考量。
 
-| 進階磁碟類型  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+| 進階磁碟類型  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| 磁碟大小           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| 每一磁碟的 IOPS       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
-| 每一磁碟的輸送量 | 每秒 25 MB  | 每秒 50 MB  | 每秒 100 MB | 每秒 125 MB |每秒 150 MB | 每秒 200 MB | 每秒 250 MB | 每秒 250 MB |
+| 磁碟大小           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| 每一磁碟的 IOPS       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
+| 每一磁碟的輸送量 | 每秒 25 MB  | 每秒 50 MB  | 每秒 100 MB | 每秒 125 MB |每秒 150 MB | 每秒 200 MB | 每秒 250 MB | 每秒 250 MB |
 
 **標準受控磁碟**
 
 有七種型別的標準受控磁碟可搭配 VM 使用。 每種類型的容量各不相同，但其 IOPS 和輸送量限制相同。 根據您應用程式的容量需求，選擇標準受控磁碟的類型。
 
-| 標準磁碟類型  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+| 標準磁碟類型  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
 |---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| 磁碟大小           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
-| 每一磁碟的 IOPS       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| 磁碟大小           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
+| 每一磁碟的 IOPS       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | 每一磁碟的輸送量 | 每秒 60 MB | 每秒 60 MB | 每秒 60 MB | 每秒 60 MB |每秒 60 MB | 每秒 60 MB | 每秒 60 MB | 每秒 60 MB | 
 
 ## <a name="disk-caching-policy"></a>磁碟快取原則

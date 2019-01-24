@@ -1,5 +1,5 @@
 ---
-title: 使用 C# 分析視訊內容中的不當題材
+title: 使用 C# 分析視訊內容中的不當題材 - 內容仲裁
 titlesuffix: Azure Cognitive Services
 description: 如何使用 Content Moderator SDK for .NET 分析視訊內容中的各種不當題材
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 80635354b228edc1a8c1334e5d59cf530a10083e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 70fe30e53635203d80aca2406c52b2ec08d0035c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008278"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265510"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>使用 C# 分析視訊內容中的不當題材
 

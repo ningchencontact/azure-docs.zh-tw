@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae090a8cd812868f63c9805b2f5b59769a715090
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 638020ab4f64d800bd9d42f226cb36701720f8d0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975265"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427185"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>了解適合您 LUIS 應用程式的語句
 
@@ -88,7 +88,7 @@ LUIS 會利用由 LUIS 模型建立者精挑細選的語句來建置有效的模
 
 ## <a name="testing-utterances"></a>測試語句 
 
-開發人員應該透過將語句傳送至[預測端點](luis-how-to-manage-keys.md) URL，以實際流量測試其 LUIS 應用程式。 這些語句可用來改善使用[檢閱語句](luis-how-to-review-endoint-utt.md)的意圖和實體效能。 使用 LUIS 網站測試窗格提交的測試，不會透過端點傳送，因此也不會提供給主動學習。 
+開發人員應該透過將語句傳送至[預測端點](luis-how-to-azure-subscription.md) URL，以實際流量測試其 LUIS 應用程式。 這些語句可用來改善使用[檢閱語句](luis-how-to-review-endoint-utt.md)的意圖和實體效能。 使用 LUIS 網站測試窗格提交的測試，不會透過端點傳送，因此也不會提供給主動學習。 
 
 ## <a name="review-utterances"></a>檢閱語句
 

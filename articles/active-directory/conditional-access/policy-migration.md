@@ -5,7 +5,7 @@ services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: c8431ee305c8a266a79f58e8b4ba4e6541f79f9b
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 8d7223d12b69ccf870b8b3db0fb577f3712d17f7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629866"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446930"
 ---
 # <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的原則移轉？ 
 

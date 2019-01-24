@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 0cccef6a50d6e93a13f27b8585fe7e605c75deb9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 92441e55d0a423e1e716d15166791c85fcf5d8ec
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025533"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434218"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>使用變更追蹤資訊，以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體 
 在本教學課程中，您會建立一個 Azure Data Factory 並讓其具有管線，以根據來源 Azure SQL Database 中的**變更追蹤**資訊，將差異資料載入到 Azure Blob 儲存體。  
@@ -144,7 +144,7 @@ ms.locfileid: "54025533"
     ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-依照[如何安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)中的指示，安裝最新的 Azure PowerShell 模組。
+依照[如何安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)中的指示，安裝最新的 Azure PowerShell 模組。
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 

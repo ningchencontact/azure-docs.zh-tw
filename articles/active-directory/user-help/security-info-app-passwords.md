@@ -3,7 +3,7 @@ title: 使用安全性資訊設定應用程式密碼 - Azure Active Directory | 
 description: 使用安全性資訊，設定自動產生的密碼 (應用程式密碼) 來與每個非瀏覽器應用程式搭配使用，此密碼與一般密碼不同。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: e527a0eaec433b96b5c37c5ec22f392a7166dfe8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 211e282dc4334753b90d050dc82c8bf35ad145cd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162439"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826202"
 ---
 # <a name="manage-app-passwords-using-security-info-preview"></a>使用安全性資訊管理應用程式密碼 (預覽)
 

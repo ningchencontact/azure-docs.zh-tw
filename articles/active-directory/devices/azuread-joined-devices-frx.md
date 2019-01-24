@@ -4,7 +4,7 @@ description: 本主題說明使用者如何在初次執行體驗期間設定加�
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: eaf0b3e3b607145598660dbb64cadd5a277360cb
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3693115d72d9928bea0ca8bbe4fae5858e0f3cb7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046317"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446420"
 ---
 # <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>教學課程：在初次執行期間向 Azure AD 加入新的 Windows 10 裝置
 

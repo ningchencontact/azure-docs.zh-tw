@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 8acbb33b396aa617936eb0333bd68fea60532425
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c452341567055e0272c8e6a90c43d6b886d6a928
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404651"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425589"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>從受控映像建立 VM
 
@@ -43,7 +43,7 @@ ms.locfileid: "47404651"
 
 您可以使用 PowerShell，透過針對 [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) Cmdlet 設定的簡化參數從映像建立 VM。 映像必須位在與您將要建立 VM 映像的同一個資源群組中。
 
-此範例需要 AzureRM 模組 5.6.0 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+此範例需要 AzureRM 模組 5.6.0 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
 
 針對 [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) 設定的簡化參數只會要求您提供名稱、資源群組和映像名稱，以便從映像建立 VM。 New-AzureRmVm 會使用 **-Name** 參數的值作為自動建立的所有資源名稱。 在此範例中，會對每個資源提供更詳細的名稱，但會讓 Cmdlet 自動建立這些資源。 您也可以事先建立資源 (例如虛擬網路)，並將資源名稱傳遞至 Cmdlet。 如果可藉由名稱找到資源，New-AzureRmVm 會使用現有的資源。
 

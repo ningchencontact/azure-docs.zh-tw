@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 756d00786005fb6de26ff363d4e233fc28b48687
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 01d73d9c42f99dde02a801af9967430c9735932d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426837"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320951"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory 2.0 和 OpenID Connect 通訊協定
 
@@ -86,7 +86,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 * 要求必須包含 `nonce` 參數。
 
 > [!IMPORTANT]
-> 若要成功要求識別碼權杖，[註冊入口網站](https://apps.dev.microsoft.com)中的應用程式註冊必須已啟用 Web 用戶端的**[隱含授與](v2-oauth2-implicit-grant-flow.md)**。 如果未啟用，則會傳回 `unsupported_response` 錯誤："The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'" (此用戶端的 'response_type' 輸入參數不允許使用所提供的值。預期的值為 'code')
+> 若要成功要求識別碼權杖，[註冊入口網站](https://apps.dev.microsoft.com)中的應用程式註冊必須已啟用 Web 用戶端的**[隱含授與](v2-oauth2-implicit-grant-flow.md)**。 如果未啟用，會傳回 `unsupported_response` 錯誤："The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'" (此用戶端的 'response_type' 輸入參數不允許使用所提供的值。預期的值為 'code')
 
 例如︰
 
@@ -207,7 +207,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 當您將使用者重新導向至 `end_session_endpoint` 時，v2.0 端點會清除瀏覽器中的使用者工作階段。 不過，使用者可能仍然登入其他使用 Microsoft 帳戶進行驗證的應用程式。 為了讓這些應用程式能同時將使用者登入，v2.0 端點會將 HTTP GET 要求傳送至使用者目前登入之所有應用程式的已註冊 `LogoutUrl`。 應用程式必須藉由清除任何可識別使用者的工作階段並傳回 `200` 回應，以回應此要求。 如果您想要在應用程式中支援單一登出，您必須在應用程式的程式碼中實作這類 `LogoutUrl`。 您可以從應用程式註冊入口網站設定 `LogoutUrl`。
 
-## <a name="protocol-diagram-access-token-acquisition"></a>通訊協定圖表：取得存取權杖
+## <a name="protocol-diagram-access-token-acquisition"></a>通訊協定圖表：存取權杖取得
 
 許多 Web 應用程式不僅需要將使用者登入，也需要使用 OAuth 來代表使用者存取 Web 服務。 這個案例結合了 OpenID Connect 來進行使用者驗證，同時又取得您使用 OAuth 授權碼流程時，可用來取得存取權杖的授權碼。
 

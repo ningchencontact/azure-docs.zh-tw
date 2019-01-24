@@ -1,25 +1,25 @@
 ---
 title: 教學課程：Facebook 內容仲裁 - Azure Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 使用 Content Moderator 來仲裁 Facebook 頁面。
+description: 在本教學課程中，您將了解如何使用機器學習型 Content Moderator 來協助仲裁 Facebook 文章和留言。
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 09/18/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 085ddaf757f2a11b4db4aadb22ad16009d29231e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255426"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260430"
 ---
 # <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>教學課程：使用 Content Moderator 進行 Facebook 內容仲裁
 
-在本教學課程中，我們將了解如何使用機器學習型 Content Moderator 來協助仲裁 Facebook 文章和留言。
+在本教學課程中，您將了解如何使用機器學習型 Content Moderator 來協助仲裁 Facebook 文章和留言。
 
 本教學課程會引導您完成下列步驟：
 
@@ -35,7 +35,7 @@ ms.locfileid: "53255426"
 
 ## <a name="create-a-content-moderator-team"></a>建立 Content Moderator 小組
 
-請參考[快速入門](quick-start.md)頁面，以註冊 Content Moderator 並建立小組。
+請參考[在 Web 上試用 Content Moderator](quick-start.md) 快速入門，以註冊 Content Moderator 並建立小組。
 
 ## <a name="configure-image-moderation-workflow-threshold"></a>設定影像仲裁工作流程 (閾值)
 
@@ -152,10 +152,6 @@ ms.locfileid: "53255426"
 ## <a name="license"></a>授權
 
 所有 Microsoft 認知服務 SDK 和範例都是透過 MIT 授權來獲得授權的。 如需詳細資料，請參閱[授權](https://microsoft.mit-license.org/) \(英文\)。
-
-## <a name="developer-code-of-conduct"></a>開發人員行為準則
-
-使用「認知服務」(包括此用戶端程式庫和範例) 的開發人員應當遵守 http://go.microsoft.com/fwlink/?LinkId=698895 中的「Microsoft 認知服務的開發人員行為準則」。
 
 ## <a name="next-steps"></a>後續步驟
 

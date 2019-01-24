@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 1/9/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 98d2d29e7822d9ca97ba488fcf67298a0b40efbf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608829"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265459"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure 資訊安全中心所支援的平台和功能
 
@@ -74,10 +74,10 @@ ms.locfileid: "53608829"
 |環境|Azure|非 Azure|Azure|非 Azure|
 |VMBA 威脅偵測警示|✔|✔|✔ (在支援的版本上)|✔|
 |網路型威脅偵測警示|✔|X|✔|X|
-|Windows Defender ATP 整合*|✔ (在支援的版本上)|✔|X|X|
+|Windows Defender ATP 整合|✔ (在支援的版本上)|✔|X|X|
 |遺漏修補程式|✔|✔|✔|✔|
 |安全性設定|✔|✔|✔|✔|
-|反惡意程式碼程式|✔|✔|X|X|
+|端點保護|✔|✔|X|X|
 |JIT VM 存取|✔|X|✔|X|
 |自適性應用程式控制|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
@@ -88,8 +88,27 @@ ms.locfileid: "53608829"
 |網路地圖|✔|X|✔|X|
 |自適性網路控制措施|✔|X|✔|X|
 
-\* 這些功能目前以公開預覽形式支援。
 
+### <a name="supported-endpoint-protection-solutions"></a>支援的端點保護解決方案
+
+下表提供的矩陣指出：
+ - 您是否可以使用 Azure 資訊安全中心安裝適用於您的每個解決方案。
+ - 資訊安全中心可以探索哪些端點保護解決方案。 如果探索到這些端點保護解決方案的其中一個，資訊安全中心不會建議安裝。
+
+| 端點保護| 平台 | 資訊安全中心安裝 | 資訊安全中心探索 |
+|------|------|-----|-----|
+| Windows Defender (Microsoft 反惡意程式碼軟體)| Windows Server 2016| 否，內建於 OS| 是 |
+| System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 (請參閱下列附註) | 透過延伸模組 | 是 |
+| Trend Micro – 所有版本 | Windows Server 系列  | 否 | 是 |
+| Symantec v12.1.1100+| Windows Server 系列  | 否 | 是 |
+| McAfee v10+ | Windows Server 系列  | 否 | 是 |
+| Kaspersky| Windows Server 系列  | 否 | 否  |
+| Sophos| Windows Server 系列  | 否 | 否  |
+
+> [!NOTE]
+> - 在 Windows Server 2008 R2 虛擬機器上偵測 System Center Endpoint Protection (SCEP) 需要安裝 SCEP (PowerShell 3.0 或更高版本)。
+>
+>
 
 ## <a name="supported-paas-features"></a>支援的 PaaS 功能 
 
@@ -109,6 +128,8 @@ ms.locfileid: "53608829"
 |訂用帳戶|✔| ✔|
 
 \* 這些功能目前以公開預覽形式支援。 
+
+
 
 ## <a name="next-steps"></a>後續步驟
 

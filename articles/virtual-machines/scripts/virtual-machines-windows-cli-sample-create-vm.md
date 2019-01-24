@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: 3aec436749918caa229304c35d0bdbe5ed84578f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e4e098373120e8dc889ffd0319c049f2a83160ad
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656121"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844546"
 ---
 # <a name="create-a-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 建立虛擬機器
 
@@ -52,7 +52,7 @@ az group delete --name myResourceGroup --yes
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_create) | 建立 Azure 虛擬網路和子網路。 |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_create) | 建立具有靜態 IP 位址和相關聯 DNS 名稱的公用 IP 位址。 |
 | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#az_network_nsg_create) | 建立網路安全性群組 (NSG)，做為網際網路和虛擬機器之間的安全性界限。 |
-| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#az_network_nic_create) | 建立虛擬網路卡，並將它連接至虛擬網路、子網路及 NSG。 |
+| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic) | 建立虛擬網路卡，並將它連接至虛擬網路、子網路及 NSG。 |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | 建立虛擬機器，並將它連線到網路卡、虛擬網路、子網路及 NSG。 此命令也會指定要使用的虛擬機器映像和管理認證。  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | 刪除資源群組，包括所有的巢狀資源。 |
 

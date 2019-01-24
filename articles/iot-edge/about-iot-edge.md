@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 08a6134d61c4f93f891488ef24a7b81e81645897
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6bd72fd91190c9ed54b4dfd3e7b1e957c375bd4c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089797"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230555"
 ---
 # <a name="what-is-azure-iot-edge"></a>什麼是 Azure IoT Edge
 
@@ -41,7 +41,7 @@ Azure IoT Edge 可讓您部署複雜的事件處理、機器學習、影像辨�
 
 ### <a name="bring-your-own-code"></a>自備程式碼
 
-當您要將自己的程式碼部署到裝置時，Azure IoT Edge 也支援該功能。 Azure IoT Edge 採用與其他 Azure IoT 服務相同的程式設計模型。 相同的程式碼可以在裝置上或在雲端中執行。 Azure IoT Edge 支援 Linux 和 Windows，因此您可以在您所選的平台撰寫程式碼。 它可支援 Java、.NET Core 2.0、Node.js、C 及 Python，所以您的開發人員可以用他們已知的語言撰寫程式碼，並使用現有的商務邏輯，而不需從頭撰寫。
+當您要將自己的程式碼部署到裝置時，Azure IoT Edge 也支援該功能。 Azure IoT Edge 採用與其他 Azure IoT 服務相同的程式設計模型。 相同的程式碼可以在裝置上或在雲端中執行。 Azure IoT Edge 支援 Linux 和 Windows，因此您可以在您所選的平台撰寫程式碼。 它可支援 Java、.NET Core 2.0、Node.js、C 及 Python，所以您的開發人員可以用他們已知的語言撰寫程式碼，並使用現有的商務邏輯。
 
 ## <a name="iot-edge-runtime"></a>IoT Edge 執行階段
 
@@ -49,23 +49,21 @@ Azure IoT Edge 執行階段可在 IoT Edge 裝置上啟用自訂和雲端邏輯�
 
 * 在裝置上安裝和更新工作負載。
 * 在裝置上維護 Azure IoT Edge 安全性標準。
-* 確保 IoT Edge 模組一律執行中。
+* 確定 IoT Edge 模組一律執行中。
 * 將模組健康情況報告至雲端，以便進行遠端監控。
-* 促進下游分葉裝置與 IoT Edge 裝置之間的通訊。
-* 促進 IoT Edge 裝置上模組之間的通訊。
-* 促進 IoT Edge 裝置與雲端之間的通訊。
+* 管理下游分葉裝置與 IoT Edge 裝置之間、IoT Edge 裝置上的模組之間，以及 IoT Edge 裝置與雲端之間的通訊。
 
 ![IoT Edge 執行階段會將深入解析和報告傳送至 IoT 中樞](./media/about-iot-edge/runtime.png)
 
-您可以全然決定如何使用 Azure IoT Edge 裝置。 此執行階段通常用於將 AI 部署至閘道，以便彙總及處理多個其他內部部署裝置上的資料，不過這只是選項之一。 不論是與閘道連線，還是直接與雲端連線，分葉裝置本身也可以是 Azure IoT Edge 裝置。
+您可以自行決定如何使用 Azure IoT Edge 裝置。 此執行階段通常用於將 AI 部署至閘道，以便彙總及處理多個其他內部部署裝置上的資料，不過此部署模型只是選項之一。 不論是與閘道連線，還是直接與雲端連線，分葉裝置本身也可以是 Azure IoT Edge 裝置。
 
-Azure IoT Edge 執行階段可在大量 IoT 裝置上執行，以便用各種不同的方式使用執行階段。 它可支援 Linux 和 Windows 作業系統，以及擷取硬體詳細資料。 如果您不需要處理很多資料，也不需要將伺服器調整至工業規模以執行資源密集的工作負載，那麼您也可以使用比 Raspberry Pi 3 更小的裝置。
+Azure IoT Edge 執行階段可在大量 IoT 裝置上執行，以便用各種不同的方式使用執行階段。 它可支援 Linux 和 Windows 作業系統，並擷取硬體詳細資料。 如果您不需要處理很多資料，也不需要使用工業化伺服器以執行資源密集的工作負載，那麼您也可以使用比 Raspberry Pi 3 更小的裝置。
 
 ## <a name="iot-edge-cloud-interface"></a>IoT Edge 雲端介面
 
 為企業裝置管理軟體的生命週期已十分複雜， 要為數百萬部異質性的 IoT 裝置管理軟體的生命週期就更加困難了。 您必須針對特定類型的裝置建立和設定工作負載、將工作負載大規模部署到您解決方案中的數百萬個裝置，並且進行監控以攔截任何異常裝置。 這些活動無法逐一為裝置進行，而必須大規模進行。
 
-Azure IoT Edge 能夠與 Azure IoT 解決方案加速器緊密整合，以針對您的解決方案需求提供一個控制平面。 雲端服務可讓使用者：
+Azure IoT Edge 能夠與 Azure IoT 解決方案加速器緊密整合，以針對您的解決方案需求提供一個控制平面。 雲端服務可讓您：
 
 * 建立並設定要在特定類型的裝置上執行的工作負載。
 * 將工作負載傳送到一組裝置。

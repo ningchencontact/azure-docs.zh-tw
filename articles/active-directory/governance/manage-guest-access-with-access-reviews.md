@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: d3cc5f5a7642ba827a46ab5cbc2b0da2cda38731
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4d1a9696587ae128b35970414c6c8753179c3f81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385120"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332569"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱來管理來賓存取權
 
@@ -43,11 +43,11 @@ ms.locfileid: "53385120"
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>建立和執行來賓的存取權檢閱
 
-首先，讓存取權檢閱出現在檢閱者的存取面板上。 以全域管理員或使用者帳戶管理員身分，移至[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。 
+首先，以全域管理員或使用者帳戶管理員身分，移至[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)，以確保存取權檢閱已可供貴組織使用。 
 
 Azure AD 可檢閱來賓使用者的幾個案例。
 
-選取下列其中一個：
+您可以檢閱：
 
  - Azure AD 中的一個群組，成員包含一或多個來賓。
  - 與 Azure AD 連線的應用程式，有一或多個來賓使用者指派至此。 
@@ -86,7 +86,7 @@ Azure AD 可檢閱來賓使用者的幾個案例。
 
 1. 若要開始應用程式的存取權檢閱，請選取檢閱只包含來賓，並讓使用者自行檢閱存取權。 如需詳細資訊，請參閱[建立存取權檢閱](create-access-review.md)。
 
-2. 要求每個來賓檢閱其自己的應用程式存取權。 根據預設，已接受邀請的每個來賓會收到 Azure AD 的電子郵件，其中的連結可連至您組織的存取面板以執行存取權檢閱。 Azure AD 會指示來賓如何[檢閱其存取權](perform-access-review.md)。
+2. 要求每個來賓檢閱其自己的應用程式存取權。 根據預設，已接受邀請的每個來賓都會收到 Azure AD 的電子郵件。 該電子郵件有一個連結可連至貴組織存取面板中的存取權檢閱。 Azure AD 會指示來賓如何[檢閱其存取權](perform-access-review.md)。
 
 3. 在檢閱者提供輸入後，停止存取權檢閱並套用變更。 如需詳細資訊，請參閱[完成存取權檢閱](complete-access-review.md)。
 
@@ -109,7 +109,7 @@ Azure AD 可檢閱來賓使用者的幾個案例。
 > [!NOTE]
 > 舊版的 Azure 入口網站不允許 UserType 是「來賓」的使用者具備系統管理存取權。 在某些情況下，您目錄中的系統管理員可能已使用 PowerShell 將來賓的 UserType 值變更為「成員」。 如果您的目錄之前有過這項變更，先前的查詢可能不會包括過去具有系統管理存取權限的所有使用者。 在此情況下，您需要變更來賓的 UserType 或在群組成員資格中手動加入來賓。
 
-1. 如果不存在適當的群組，請在 Azure AD 中建立成員是來賓的安全性群組。 比方說，您可以建立手動保留來賓成員資格的群組。 或者，您可針對 Contoso 租用戶中 UserType 屬性值為「來賓」的使用者，建立具有「Contoso 來賓」之類名稱的動態群組。  為了提高效率，請確定群組絕大多數是來賓 - 請勿選取包含不需要檢閱之使用者的群組。
+1. 如果不存在適當的群組，請在 Azure AD 中建立成員是來賓的安全性群組。 比方說，您可以建立手動保留來賓成員資格的群組。 或者，您可針對 Contoso 租用戶中 UserType 屬性值為「來賓」的使用者，建立具有「Contoso 來賓」之類名稱的動態群組。  為了提高效率，請確定群組絕大多數是來賓 - 請勿選取具有成員使用者的群組，因為不需要檢閱成員使用者。  此外請記住，身為群組成員的來賓使用者可以看見群組的其他成員。
 
 2. 若要開始該群組的存取權檢閱，請選取要做為成員的檢閱者。 如需詳細資訊，請參閱[建立存取權檢閱](create-access-review.md)。
 

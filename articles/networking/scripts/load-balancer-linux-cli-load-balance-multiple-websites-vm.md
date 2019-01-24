@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: 72a780f1870d05a714aaeec879004b6f06d8bb7f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9c768ac7c99026696d507b36501c3a1aca9f8a28
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29849132"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851397"
 ---
 # <a name="load-balance-multiple-websites"></a>進行多個網站的負載平衡
 
@@ -50,7 +50,7 @@ az group delete --name myResourceGroup --yes
 | 命令 | 注意 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_create) | 建立 Azure 虛擬網路和子網路。 |
+| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | 建立 Azure 虛擬網路和子網路。 |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_create) | 建立具有靜態 IP 位址和相關聯 DNS 名稱的公用 IP 位址。 |
 | [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_create) | 建立 Azure 負載平衡器。 |
 | [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#az_network_lb_probe_create) | 建立負載平衡器探查。 負載平衡器探查是用來監視負載平衡器集合中的每部 VM。 如有任何 VM 變得無法存取，就不會將流量路由至該 VM。 |

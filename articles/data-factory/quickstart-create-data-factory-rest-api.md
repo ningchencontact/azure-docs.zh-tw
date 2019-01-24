@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3fc09255c38b4bbe8d416b97ea14a77a4b3014a0
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: ae3fcfe4e76988d2ff9b7686566941db01ceb08e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305582"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426704"
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>使用 REST API 建立 Azure 資料處理站和管線
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 * **Azure 訂用帳戶**。 如果您沒有訂用帳戶，則可以建立[免費試用](https://azure.microsoft.com/pricing/free-trial/)帳戶。
 * **Azure 儲存體帳戶**。 您需要使用 Blob 儲存體作為**來源**和**接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)一文以取得建立步驟。
 * 在 Blob 儲存體中建立一個 **Blob 容器**，在容器中建立一個輸入**資料夾**，然後上傳一些檔案到資料夾中。 您可以使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)之類的工具連線到 Azure Blob 儲存體，建立 Blob 容器，上傳輸入檔，以及驗證輸出檔。
-* 安裝 **Azure PowerShell**。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。 本快速入門會使用 PowerShell 來叫用 REST API 呼叫。
+* 安裝 **Azure PowerShell**。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) 中的指示。 本快速入門會使用 PowerShell 來叫用 REST API 呼叫。
 * 請遵循[此指示](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**在 Azure Active Directory 中建立應用程式**。 記下這些值，您在稍後的步驟中會用到：**應用程式識別碼**、**驗證金鑰**和**租用戶識別碼**。 將應用程式指派給「**參與者**」角色。
 
 ## <a name="set-global-variables"></a>設定全域變數

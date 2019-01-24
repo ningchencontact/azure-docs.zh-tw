@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 444f1aaee496666745be548bcdfadf3a4f162699
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5d70e4beb97a23212bc85d529382d8e89f09336d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104058"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199911"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis 常見問題集
 了解 Azure Redis 快取常見問題、模式及最佳做法的解答。
@@ -120,7 +120,7 @@ Azure Cache for Redis 會以廣受使用的開放原始碼軟體 [Redis](https:/
 <a name="cache-performance"></a>
 
 ### <a name="azure-cache-for-redis-performance"></a>Azure Redis 快取效能
-下表顯示從 Iaas VM 使用 `redis-benchmark.exe` 對「Azure Redis 快取」端點測試各種大小的「標準」和「進階」快取時，觀察到的最大頻寬值。 針對 SSL 輸送量，Redis 基準可與 stunnel 搭配使用來連線到「Azure Redis 快取」端點。
+下表顯示從 IaaS VM 使用 `redis-benchmark.exe` 對「Azure Redis 快取」端點測試各種大小的「標準」和「進階」快取時，觀察到的最大頻寬值。 針對 SSL 輸送量，Redis 基準可與 stunnel 搭配使用來連線到「Azure Redis 快取」端點。
 
 >[!NOTE] 
 >這些值並非保證值，也沒有關於這些數字的 SLA，只代表一般情況。 您應該載入測試自己的應用程式，以判斷應用程式的正確快取大小。

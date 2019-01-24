@@ -4,7 +4,7 @@ description: 本教學課程會逐步引導您使用 Windows VM 系統指派的�
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: d032d8cc33d33954406ad45e64fc199d569abf41
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ff5ff237def4bbb5da1c62aca57bd09ee22e574b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620930"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432382"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure 儲存體
 
@@ -74,7 +74,7 @@ ms.locfileid: "51620930"
 
 1. 巡覽回到您新建立的儲存體帳戶。  
 2. 按一下左側面板中的 [存取控制 (IAM)] 連結。  
-3. 按一下頁面頂端的 [+ 新增] 以新增虛擬機器的新角色指派。
+3. 按一下頁面頂端的 [+ 新增角色指派]，以新增虛擬機器的新角色指派。
 4. 在 [角色] 下，從下拉式清單中，選取 [儲存體 Blob 資料讀取器 (預覽)]。 
 5. 在下一個下拉式清單的 [將存取權指派給] 下，選取 [虛擬機器]。  
 6. 接下來，請確保 [訂用帳戶] 下拉式清單中已列出適當的訂用帳戶，然後將 [資源群組] 設定為 [所有資源群組]。  

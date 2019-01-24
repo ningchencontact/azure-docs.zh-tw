@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 5641792c058d10bba1bfd468f3c5c90b9217226e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 29b76620494fbb325f8c43bf90a07c9df0faff56
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187648"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266328"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>收集搭配 DNS 分析預覽版解決方案使用 DNS 基礎結構的深入解析
 
@@ -76,11 +76,11 @@ DNS 分析可協助您︰
 
 如果您使用 Microsoft Monitoring Agent 連線到您的 Log Analytics 工作區，則會安裝下列管理組件：
 
-- Microsoft DNS 資料收集器智慧套件 (Microsft.IntelligencePacks.Dns)
+- Microsoft DNS 資料收集器智慧套件 (Microsoft.IntelligencePacks.Dns)
 
 如果您的 Operations Manager 管理群組已連線到 Log Analytics 工作區，當您新增此解決方案時，下列管理組件會安裝在 Operations Manager 中。 這些管理組件不需要任何組態或維護：
 
-- Microsoft DNS 資料收集器智慧套件 (Microsft.IntelligencePacks.Dns)
+- Microsoft DNS 資料收集器智慧套件 (Microsoft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS 分析組態 (Microsoft.IntelligencePack.Dns.Configuration)
 
 如需有關方案管理組件如何更新的詳細資訊，請參閱 [將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md)。

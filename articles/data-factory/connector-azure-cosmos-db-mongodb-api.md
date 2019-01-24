@@ -1,6 +1,6 @@
 ---
-title: 使用 Data Factory 將資料複製到 Azure Cosmos DB (MongoDB API)，或從中複製資料 | Microsoft Docs
-description: 了解如何使用 Data Factory 將資料從支援的來源資料存放區複製到 Azure Cosmos DB (MongoDB API)，或從 Azure Cosmos DB (MongoDB API) 複製到支援的接收存放區。
+title: 使用 Data Factory 將資料複製到 Azure Cosmos DB 的 MongoDB 版 API，或從中複製資料 | Microsoft Docs
+description: 了解如何使用 Data Factory 將資料從支援的來源資料存放區複製到 Azure Cosmos DB 的 MongoDB 版 API，或從 Azure Cosmos DB 的 MongoDB 版 API 複製到支援的接收存放區。
 services: data-factory, cosmosdb
 documentationcenter: ''
 author: linda33wj
@@ -12,27 +12,27 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: a28d0e819243810486179e7219ad3cb48487a299
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5d45e4cc8781f4c235c641c4c99f1720871d57fb
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107169"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358995"
 ---
-# <a name="copy-data-to-or-from-azure-cosmos-db-mongodb-api-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Cosmos DB (MongoDB API)，或從中複製資料
+# <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Cosmos DB 的 MongoDB 版 API，或從中複製資料
 
-本文概述如何使用 Azure Data Factory 中的複製活動將資料複製到 Azure Cosmos DB (MongoDB API)，或從中複製資料。 本文是以 [Azure Data Factory 中的複製活動](copy-activity-overview.md)為基礎，該文提供複製活動的一般概觀。
+本文概述如何使用 Azure Data Factory 中的複製活動將資料複製到 Azure Cosmos DB 的 MongoDB 版 API，或從中複製資料。 本文是以 [Azure Data Factory 中的複製活動](copy-activity-overview.md)為基礎，該文提供複製活動的一般概觀。
 
 >[!NOTE]
->此連接器只支援將資料複製到 Cosmos DB MongoDB API，或從中複製資料。 針對 SQL API，請參閱 [Cosmos DB SQL API 連接器](connector-azure-cosmos-db.md)。 目前不支援其他 API 類型。
+>此連接器僅支援將資料複製到 Azure Cosmos DB 的 MongoDB 版 API，或從中複製資料。 針對 SQL API，請參閱 [Cosmos DB SQL API 連接器](connector-azure-cosmos-db.md)。 目前不支援其他 API 類型。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
-您可以將資料從 Azure Cosmos DB (MongoDB API) 複製到任何支援的接收資料存放區，也可以將資料從任何支援的來源資料存放區複製到 Azure Cosmos DB (MongoDB API)。 如需複製活動作為來源和接收端支援的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md#supported-data-stores-and-formats)。
+您可以將資料從 Azure Cosmos DB 的 MongoDB 版 API 複製到任何支援的接收資料存放區，或將資料從任何支援的來源資料存放區複製到 Azure Cosmos DB 的 MongoDB 版 API。 如需複製活動作為來源和接收端支援的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md#supported-data-stores-and-formats)。
 
-您可以使用 Azure Cosmos DB (MongoDB API) 連接器：
+您可以使用 Azure Cosmos DB 的 MongoDB 版 API 連接器執行下列作業：
 
-- 從 Azure Cosmos DB [MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) 複製資料，或將資料複製到其中。
+- 從 [Azure Cosmos DB 的 MongoDB 版 API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) 複製資料，或將資料複製到其中。
 - 寫入 Azure Cosmos DB 作為 **insert** 或 **upsert**。
 - 依原樣匯入和匯出 JSON 文件，或從表格式資料集複製資料或將資料複製到其中。 範例包括 SQL 資料庫和 CSV 檔案。 若要依原樣將文件複製到 JSON 檔案或另一個 Azure Cosmos DB 集合或複製其中的文件，請參閱[匯入或匯出 JSON 文件](#importexport-json-documents)。
 
@@ -40,16 +40,16 @@ ms.locfileid: "54107169"
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-以下各節提供屬性的詳細資料，您可用來定義 Azure Cosmos DB (MongoDB API) 專屬的 Data Factory 實體。
+以下幾節將針對可用來為 Azure Cosmos DB 的 MongoDB 版 API 定義專屬 Data Factory 實體的屬性，提供其相關的詳細資料。
 
 ## <a name="linked-service-properties"></a>連結服務屬性
 
-以下是針對 Azure Cosmos DB (MongoDB API) 連結服務支援的屬性：
+以下是 Azure Cosmos DB 的 MongoDB 版 API 連結服務所支援的屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | **type** 屬性必須設定為 **CosmosDbMongoDbApi**。 | 是 |
-| connectionString |為 Azure Cosmos DB MongoDB API 指定連接字串。 其提供在 Azure 入口網站 -> [Cosmos DB] 刀鋒視窗 -> 主要或次要連接字串中，模式為 `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`。 <br/><br />將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 |是 |
+| connectionString |為 Azure Cosmos DB 的 MongoDB 版 API 指定連接字串。 其提供在 Azure 入口網站 -> [Cosmos DB] 刀鋒視窗 -> 主要或次要連接字串中，模式為 `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`。 <br/><br />將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 |是 |
 | 資料庫 | 您要存取的資料庫名稱。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定此屬性，則會使用預設的 Azure Integration Runtime。 |否 |
 
@@ -77,7 +77,7 @@ ms.locfileid: "54107169"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需定義資料集的區段和屬性完整清單，請參閱[資料集和連結服務](concepts-datasets-linked-services.md)。 以下是針對 Azure Cosmos DB (MongoDB API) 資料集支援的屬性：
+如需定義資料集的區段和屬性完整清單，請參閱[資料集和連結服務](concepts-datasets-linked-services.md)。 以下是 Azure Cosmos DB 的 MongoDB 版 API 資料集所支援的屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
@@ -92,7 +92,7 @@ ms.locfileid: "54107169"
     "properties": {
         "type": "CosmosDbMongoDbApiCollection",
         "linkedServiceName":{
-            "referenceName": "<Azure Cosmos DB MongoDB API linked service name>",
+            "referenceName": "<Azure Cosmos DB's API for MongoDB linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -104,11 +104,11 @@ ms.locfileid: "54107169"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-本節提供 Azure Cosmos DB (MongoDB API) 來源和接收支援的屬性清單。
+本節提供 Azure Cosmos DB 的 MongoDB 版 API 來源和接收支援的屬性清單。
 
 如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)。
 
-### <a name="azure-cosmos-db-mongodb-api-as-source"></a>Azure Cosmos DB (MongoDB API) 作為來源
+### <a name="azure-cosmos-dbs-api-for-mongodb-as-source"></a>以 Azure Cosmos DB 的 Mongo 版 API 作為來源
 
 複製活動的 [來源] 區段支援下列屬性：
 
@@ -134,7 +134,7 @@ ms.locfileid: "54107169"
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Cosmos DB MongoDB API input dataset name>",
+                "referenceName": "<Azure Cosmos DB's API for MongoDB input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -163,7 +163,7 @@ ms.locfileid: "54107169"
 ]
 ```
 
-### <a name="azure-cosmos-db-mongodb-api-as-sink"></a>Azure Cosmos DB (MongoDB API) 作為接收
+### <a name="azure-cosmos-dbs-api-for-mongodb-as-sink"></a>以 Azure Cosmos DB 的 Mongo 版 API 作為接收
 
 複製活動的 [接收] 區段支援下列屬性：
 
@@ -221,7 +221,7 @@ ms.locfileid: "54107169"
 
 ## <a name="schema-mapping"></a>結構描述對應
 
-若要從 Cosmos DB MongoDB API 複製資料到表格式接收或反向複製，請參閱[結構描述對應](copy-activity-schema-and-type-mapping.md#schema-mapping)。
+若要將資料從 Azure Cosmos DB 的 MongoDB 版 API 複製到表格式接收，或執行反向複製，請參閱[結構描述對應](copy-activity-schema-and-type-mapping.md#schema-mapping)。
 
 特別是針對寫入 Cosmos DB，請確認您從來源資料使用正確的物件識別碼填入 Cosmos DB，例如您在 SQL 資料庫資料表中有個「識別碼」資料行，並想要使用其值作為 MongoDB 中的文件識別碼，以插入/upsert，則必須根據 MongoDB strict 模式定義 (`_id.$oid`) 設定適當的結構描述對應，如下所示：
 

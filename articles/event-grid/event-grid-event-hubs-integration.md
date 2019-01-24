@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 12/13/2018
+ms.date: 01/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 450cbf4deace7d3edc1fcb50b8c3d8a91e936012
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6e8ca9d3a7fbdf1926ac642ac60a37d298af0129
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385409"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476848"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>教學課程：將巨量資料串流處理至資料倉儲
 Azure [Event Grid](overview.md) 是一項智慧型事件路由服務，可讓您對應用程式和服務發出的通知 (事件) 做出回應。 例如，它可以觸發 Azure 函式以處理已擷取至 Azure Blob 儲存體或 Azure Data Lake Storage 的事件中樞資料，並將資料移轉至其他資料存放庫。 此[事件中樞和事件方格整合範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)說明如何使用事件中樞與事件方格，將已擷取的事件中樞資料從 Blob 儲存體順暢地移轉至 SQL 資料倉儲。

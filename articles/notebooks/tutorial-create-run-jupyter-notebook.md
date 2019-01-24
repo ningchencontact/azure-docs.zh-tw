@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 123365f1aa149c0df158eedcc156280a3fe771d2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106665"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244575"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>教學課程：使用 Python 建立和執行 Jupyter Notebook
 
@@ -30,11 +30,11 @@ ms.locfileid: "53106665"
 
 1. 前往 [Azure Notebooks](https://notebooks.azure.com) 並登入。 (如需詳細資訊，請參閱[快速入門 - 登入 Azure Notebooks](quickstart-sign-in-azure-notebooks.md))。
 
-1. 從您的公用設定檔頁面中，選取頁面頂端的**我的專案**：
+1. 從您的公用設定檔頁面中，選取頁面頂端的 [我的專案]：
 
     ![瀏覽器視窗頂端的 [我的專案] 連結](media/quickstarts/my-projects-link.png)
 
-1. 在 [我的專案] 頁面上，選取 [+ 新增專案] (鍵盤快速鍵：n)；只有在瀏覽器視窗很窄時，該按鈕才會顯示為 **+**：
+1. 在 [我的專案] 頁面上，選取 [+ 新增專案] \(鍵盤快速鍵：n\)；只有在瀏覽器視窗很窄時，該按鈕才會顯示為 **+**：
 
     ![[我的專案] 頁面上的 [新增專案] 命令](media/quickstarts/new-project-command.png)
 
@@ -411,17 +411,13 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [說明] > [使用者
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>使用 Visual Studio Code 進行 Notebook 偵錯
 
-如果 Notebook 中的程式碼資料格並未以您預期的方式運作，則可能會有程式碼錯誤 (bug) 或其他缺失。 不過，除了使用 `print` 陳述式來顯示變數值，Jupyter Notebook 不會提供任何偵錯工具。
+如果 Notebook 中的程式碼資料格並未以您預期的方式運作，則可能會有程式碼錯誤 (bug) 或其他缺失。 不過，除了使用 `print` 陳述式來顯示變數值，Jupyter 環境通常不會提供任何偵錯工具。
 
-幸運的是，Visual Studio Code 的 Python 擴充功能可以在註解中使用 Markdown 資料格直接匯入 Jupyter Notebook 作為單一程式碼檔案。 您可以接著執行 Visual Studio Code 偵錯工具來逐步執行程式碼、設定中斷點、檢查狀態，以及進行其他操作。 
+幸運的是，您可以在這裡下載 Notebook 的 *.ipynb* 檔案，然後在 Visual Studio Code 中使用 Python 擴充功能開啟它。 擴充功能會直接將 Notebook 匯入為單一程式碼檔案，在註解中保留您的 Markdown 資料格。 一旦您匯入 Notebook 後，就可以使用 Visual Studio Code 偵錯工具來逐步執行程式碼、設定中斷點、檢查狀態，以及進行其他操作。 在更正程式碼之後，您接著要從 Visual Studio Code 將 *.ipynb* 檔案匯出，然後將它上傳回 Azure Notebooks。
 
-在您對程式碼進行更正後，儲存 .ipynb 檔案，然後將它上傳至 Azure Notebooks。
+如需詳細資訊，請參閱 Visual Studio Code 文章中的[針對 Jupyter Notebook 進行偵錯](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook)。
 
-如需詳細資訊，請參閱 Visual Studio Code 文件中的下列文章：
-
-- [VS Code 中 Jupyter Notebooks 的概觀](https://code.visualstudio.com/docs/languages/python#_jupyter-notebooks)
-- [Python 教學課程 - 設定及執行偵錯工具](https://code.visualstudio.com/docs/python/python-tutorial#_configure-and-run-the-debugger)
-- [編輯 - Jupyter 程式碼資料格](https://code.visualstudio.com/docs/python/editing#_jupyter-code-cells)
+另請參閱 [Visual Studio Code - Jupyter 支援](https://code.visualstudio.com/docs/python/jupyter-support)以了解適用於 Jupyter Notebook 的 Visual Studio Code。
 
 ## <a name="next-steps"></a>後續步驟
 

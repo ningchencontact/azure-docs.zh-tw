@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/26/2018
+ms.date: 12/27/2018
 ms.author: dkshir
-ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 465dd2a69ad42b8b6a88268eb35a1aa7d8d922c5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556096"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229391"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>教學課程：使用 Azure Digital Twins 來佈建建築物及監視運作狀況
 
@@ -30,6 +30,7 @@ ms.locfileid: "53556096"
 ## <a name="prerequisites"></a>必要條件
 
 本教學課程假設您已經[完成 Azure Digital Twins 設定](tutorial-facilities-setup.md)。 繼續之前，請確定您有：
+
 - [Azure 帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 - 執行中的 Digital Twins 執行個體。 
 - 在工作電腦上下載並解壓縮 [Digital Twins C# 範例](https://github.com/Azure-Samples/digital-twins-samples-csharp)。 
@@ -37,6 +38,7 @@ ms.locfileid: "53556096"
 - [Visual Studio Code](https://code.visualstudio.com/) 以探索範例程式碼。 
 
 ## <a name="define-conditions-to-monitor"></a>定義要監視的狀況
+
 您可以定義一組要在裝置或感應器資料中監視的特定狀況，稱之為「比對器」。 接著，您可以定義稱為「使用者定義的函式」的函式。 如果發生比對器所指定的狀況，這些函式可對來自空間和裝置的資料執行自訂邏輯。 如需詳細資訊，請閱讀[資料處理與使用者定義的函式](concepts-user-defined-functions.md)。 
 
 從 **occupancy-quickstart** 範例專案，在 Visual Studio Code 中開啟 **src\actions\provisionSample.yaml** 檔案。 請注意，以 **matchers** 類型開頭的區段。 此類型下的每個項目都會建立具有指定**名稱**的比對器。 比對器會監視 **dataTypeValue** 類型的感應器。 請注意，它與名為「聚焦會議室 A1」 的空間有何關聯，它具有包含幾個感應器的 **devices** 節點。 若要佈建會追蹤其中一個感應器的比對器，請確定其 **dataTypeValue** 符合該感應器的 **dataType**。 
@@ -48,14 +50,15 @@ ms.locfileid: "53556096"
         dataTypeValue: Temperature
 ```
 
-這個比對器會追蹤您在[第一個教學課程](tutorial-facilities-setup.md)中新增的 SAMPLE_SENSOR_TEMPERATURE 感應器。 這幾行也會出現在 provisionSample.yaml 檔案中，並已註解化。 您可以藉由移除每一行前面的 `#` 字元來將該行取消註解。 
+這個比對器會追蹤您在[第一個教學課程](tutorial-facilities-setup.md)中新增的 SAMPLE_SENSOR_TEMPERATURE 感應器。 這幾行也會出現在 provisionSample.yaml 檔案中，並已註解化。 您可以藉由移除每一行前面的 `#` 字元來將該行取消註解。
 
-<a id="udf" />
+<a id="udf"></a>
 
 ## <a name="create-a-user-defined-function"></a>建立使用者定義的函式
+
 您可以使用使用者定義的函式來自訂感應器資料的處理方式。 這些函式是在發生比對器所描述的特定狀況時，可以在 Azure Digital Twins 執行個體內執行的自訂 JavaScript 程式碼。 您可以針對您想要監視的每個感應器，建立比對器和使用者定義的函式。 如需詳細資訊，請閱讀[資料處理與使用者定義的函式](concepts-user-defined-functions.md)。 
 
-在範例 provisionSample.yaml 檔案中，尋找以 **userdefinedfunctions** 類型開頭的區段。 這一節會佈建具有指定 **Name** 的使用者定義函式。 該函式會對 **matcherNames** 之下的比對器清單採取動作。 請注意，如何針對 UDF 提供您自己的 JavaScript 檔案作為 **script**。 
+在範例 provisionSample.yaml 檔案中，尋找以 **userdefinedfunctions** 類型開頭的區段。 這一節會佈建具有指定 **Name** 的使用者定義函式。 該函式會對 **matcherNames** 之下的比對器清單採取動作。 請注意，如何針對 UDF 提供您自己的 JavaScript 檔案作為 **script**。
 
 也請注意名為 **roleassignments** 的區段。 它會將「空間管理員」角色指派給使用者定義的函式。 此角色可讓它存取來自任何已佈建空間的事件。 
 
@@ -188,7 +191,7 @@ ms.locfileid: "53556096"
 > [!TIP]
 > 如果您在佈建過程中，收到類似於「I/O 作業因為執行緒結束或應用程式要求而中止」的錯誤訊息，請再次嘗試執行命令。 如果 HTTP 用戶端因為網路問題而逾時，就可能發生這種情形。
 
-<a id="simulate" />
+<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>模擬感應器資料
 
@@ -202,13 +205,13 @@ ms.locfileid: "53556096"
     dotnet restore
     ```
 
-1. 在您的編輯器中開啟 **appSettings.json** 檔案，然後編輯下列值：
+1. 在您的編輯器中開啟 [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) 檔案，然後編輯下列值：
 
    a. **DeviceConnectionString**：指派上一節輸出視窗中的 `ConnectionString` 值。 請完整複製這個字串 (在括號內)，讓模擬器可以與 IoT 中樞正確地連線。
 
    b. **Sensors** 陣列內的 **HardwareId**：因為您要模擬的事件來自已佈建到 Azure Digital Twins 執行個體的感應器，所以此檔案中的硬體識別碼和感應器名稱應該符合 provisionSample.yaml 檔案的 `sensors` 節點。
 
-      為溫度感應器新增項目。 appSettings.json 中的 **Sensors** 節點看起來應該如下所示：
+      為溫度感應器新增項目。 appsettings.json 中的 **Sensors** 節點看起來應該如下所示：
 
       ```JSON
       "Sensors": [{
@@ -233,6 +236,7 @@ ms.locfileid: "53556096"
    > 模擬範例不會直接與您的 Digital Twins 執行個體通訊，因此不會要求您進行驗證。
 
 ## <a name="get-results-of-the-user-defined-function"></a>取得使用者定義函式的結果
+
 每次您的執行個體收到裝置和感應器資料時，就會執行使用者定義的函式。 這一節會查詢您的 Azure Digital Twins 執行個體，以取得使用者定義的函式結果。 當會議室空出來、空氣新鮮且溫度適宜時，您會近乎即時地知道。 
 
 1. 開啟您用來佈建範例的命令視窗或新的命令視窗，再次移至範例的 **occupancy-quickstart\src** 資料夾。

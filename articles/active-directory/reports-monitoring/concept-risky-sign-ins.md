@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e4406a75ea1d9f1968d994ae2294b39ca7613d5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623854"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244710"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中有風險的登入報告
 
@@ -85,12 +85,11 @@ Azure AD 免費和基本版本會為您的使用者提供已偵測到的有風�
 
 ![有風險的登入](./media/concept-risky-sign-ins/93.png)
 
-
 ## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Azure AD 進階版本的有風險的登入報告
 
 Azure AD 進階版本中有風險的登入報告可為您提供：
 
-- 關於已偵測到之[風險事件類型](concept-risk-events.md)的彙總資訊
+- 關於已偵測到之[風險事件類型](concept-risk-events.md)的彙總資訊。 使用 **Azure AD Premium P1 版本**時，您授權未涵蓋的偵測會顯示為偵測到**有額外風險的登入**風險事件。 使用 **Azure AD Premium P2 版本**時，您會獲得有關所有基礎偵測的最詳細資訊。
 
 - 下載報告的選項
 

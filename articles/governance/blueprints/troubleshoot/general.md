@@ -4,17 +4,17 @@ description: 了解如何針對建立和指派藍圖的問題進行疑難排解
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 04c038eb11cc40cec3552feff183bea55b22bb57
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315515"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261922"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>針對使用 Azure 藍圖發生的錯誤進行疑難排解
 
@@ -52,6 +52,20 @@ ms.locfileid: "53315515"
 #### <a name="resolution"></a>解決方案
 
 變更藍圖，使其不會與錯誤詳細資料中的原則發生發生衝突。 如果此變更不可行，替代選項就是變更原則指派的範圍，使藍圖不再與原則產生衝突。
+
+### <a name="escape-function-parameter"></a>案例：藍圖參數是函式
+
+#### <a name="issue"></a>問題
+
+為函式的藍圖參數會先經過處理，再傳遞至成品。
+
+#### <a name="cause"></a>原因
+
+將使用如 `[resourceGroup().tags.myTag]` 等函式的藍圖參數傳遞至成品，會造成在成品上設定該函式處理過後的結果，而非動態函式。
+
+#### <a name="resolution"></a>解決方案
+
+若要將函式作為參數傳遞，請使用 `[` 逸出整個字串，讓藍圖參數看起來像 `[[resourceGroup().tags.myTag]`。 逸出字元會導致「藍圖」在處理藍圖時，將值視為字串。 接著「藍圖」會將函式置於成品上，讓它如預期般地為動態函式。
 
 ## <a name="next-steps"></a>後續步驟
 

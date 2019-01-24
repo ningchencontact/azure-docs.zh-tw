@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 MCM 之間的單一�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7f00799d-e3e9-4ba9-ae4a-fbca843ac5db
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 8b8ff27413888e1745bd9a83e2e2e8c7b77fba34
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ae38276e4ae3cd838a1cdb7f80712f80b0b928b8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847043"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816461"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>教學課程：Azure Active Directory 與 MCM 整合
 

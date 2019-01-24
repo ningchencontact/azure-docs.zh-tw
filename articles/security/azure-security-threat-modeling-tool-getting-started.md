@@ -3,9 +3,9 @@ title: 使用者入門 - Microsoft 威脅模型化工具 - Azure | Microsoft Doc
 description: 這是更深入的概觀，反白顯示動作中的威脅模型化工具。
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 340c92d2830069a9d957f4ece79416a707062629
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: jegeib
+ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096769"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359471"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>威脅模型化工具使用者入門
 
-雲端和企業安全性工具小組今年稍早將威脅模型化工具預覽發行為免費的**[按一下即可下載](https://aka.ms/tmtpreview)**。 傳遞機制中的變更可讓我們在客戶每次開啟它時，將最新的增強功能和錯誤修正傳送給客戶，讓它更容易維護及使用。
-此文章會引導您開始使用 Microsoft SDL 威脅模型化方法的程序，並且示範如何使用工具來開發很棒的威脅模型，作為安全性程序的骨幹。
+Microsoft Threat Modeling Tool 2018 已於 2018 年 9 月正式發行，**[按一下即可免費下載](https://aka.ms/threatmodelingtool)**。 傳遞機制中的變更可讓我們在客戶每次開啟它時，將最新的增強功能和錯誤修正傳送給客戶，讓它更容易維護及使用。
+本文章會引導您開始使用 Microsoft SDL 威脅模型化方法的程序，並且示範如何使用工具來開發很棒的威脅模型，作為安全性程序的骨幹。
 
 這篇文章是根據 SDL 威脅模型化方法的現有知識所建置的。 如需快速檢閱，請參閱**[威脅模型化 Web 應用程式](https://msdn.microsoft.com/library/ms978516.aspx)** 和 2006 年發佈的**[使用 STRIDE 方法發現安全性缺陷](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN 文件的封存版本。
 
@@ -67,13 +67,13 @@ ms.locfileid: "47096769"
 
 他們會進行開發其第一個威脅模型的程序。
 
-> Ricardo：Hi Cristina，我在威脅模型圖表上工作，而且想要確定我們的詳細資料正確。 您可以協助查看嗎？
+> Ricardo：Hi Cristina，我已處理過威脅模型圖表，想要確定我們的詳細資料正確無誤。 您可以協助查看嗎？
 > Cristina：當然。 讓我看看。
 > Ricardo 開啟工具，並且與 Cristina 共用他的畫面。
 
 ![基本威脅模型](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
-> Cristina：好的，看起來直接明瞭，但是可以為我逐步示範嗎？
+> Cristina：不錯，看起來直接明瞭，但可以為我逐步示範嗎？
 > Ricardo：當然！ 分解如下：
 > - 我們的人類使用者是繪製為外部實體 — 正方形
 > - 他們將命令傳送給我們的 Web 伺服器 — 圓形
@@ -111,7 +111,7 @@ Azure 範本有額外的詳細資料，可協助使用者不只了解什麼是�
 Ricardo 進入 [資訊洩漏] 底下的威脅時，他理解到存取控制計劃需要一些唯讀帳戶オ能進行稽核和報告產生。 他設想這是否為新的威脅，但是風險降低都相同，所以他據以附註威脅。
 他也更深入一些思考資訊洩漏，並且理解到備份磁帶需要加密，這是作業小組的作業。
 
-威脅不適用於設計，因為現有的風險降低或安全性保證可以從 [狀態] 下拉式清單變更為「不適用」。 有其他三個選擇：未啟動 – 預設選項、需要調查 – 用來追蹤項目，以及緩和 – 完全處理之後。
+威脅不適用於設計，因為現有的風險降低或安全性保證可以從 [狀態] 下拉式清單變更為「不適用」。 另外還有三個選項：未啟動 – 預設選項、需要調查 – 用來追蹤項目、已降低 – 完全處理之後。
 
 ## <a name="reports--sharing"></a>報告與共用
 
@@ -119,7 +119,7 @@ Ricardo 進入 [資訊洩漏] 底下的威脅時，他理解到存取控制計�
 
 ![互動資訊](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
-如果 Ricardo 想要改為共用檔案，他可以籍由在組織的 OneDrive 帳戶中儲存，來完成此操作。 一旦他那樣做，就可以複製文件連結，並且與同事共用。 
+如果 Ricardo 想要改為共用檔案，他可以籍由在組織的 OneDrive 帳戶中儲存，來完成這項操作。 一旦他那樣做，就可以複製文件連結，並且與同事共用。 
 
 ## <a name="threat-modeling-meetings"></a>威脅模型化會議
 
@@ -143,4 +143,4 @@ Ricardo 進入 [資訊洩漏] 底下的威脅時，他理解到存取控制計�
 
 ## <a name="next-steps"></a>後續步驟
 
-將您的問題、註解和考量傳送到 tmtextsupport@microsoft.com。 **[下載](https://aka.ms/tmtpreview)** 威脅模型化工具來開始。
+將您的問題、註解和考量傳送到 tmtextsupport@microsoft.com。 **[下載](https://aka.ms/threatmodelingtool)** 威脅模型化工具來開始。

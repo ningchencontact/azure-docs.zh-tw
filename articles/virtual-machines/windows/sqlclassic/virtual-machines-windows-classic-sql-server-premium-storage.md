@@ -3,7 +3,7 @@ title: 使用 Azure 進階儲存體搭配 SQL Server | Microsoft Docs
 description: 本文會使用以傳統部署模型建立的資源，並提供使用 Azure 進階儲存體搭配 Azure 虛擬機器上執行之 SQL Server 的指導方針。
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -14,20 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
-ms.author: jroth
-ms.openlocfilehash: 0b7e7f43724b3facd04b8da05ca054fd5ea0022b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: ac5b3bec9915574dd33d40ae2dcbc5aa3c91280a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317751"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332161"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
 ## <a name="overview"></a>概觀
 [Azure 進階儲存體](../premium-storage.md) 是新一代儲存體，可提供低延遲和高輸送量 IO。 它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。
 
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 
 本文提供移轉執行 SQL Server 的虛擬機器來執行進階儲存體的規劃與指導方針。 這包括 Azure 基礎結構 (網路功能、儲存體) 和客體 Windows VM 步驟。 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 中的範例示範一個全方位的端對端移轉，說明如何透過 PowerShell 來移動更大的 VM，以利用改進的本機 SSD 儲存體。
 
@@ -317,7 +318,7 @@ $origContext = New-AzureStorageContext  –StorageAccountName $origstorageaccoun
 $destContext = New-AzureStorageContext  –StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
 ```
 
-#### <a name="step-4-copy-blob-between-storage-accounts"></a>步驟 4：在儲存帳戶間複製 Blob
+#### <a name="step-4-copy-blob-between-storage-accounts"></a>步驟 4：在儲存體帳戶間複製 Blob
 
 ```powershell
 #Get Image VHD
@@ -549,7 +550,7 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 * 如果使用步驟 5ii，則新增 SQL1 做為新增 IP 位址資源的 [可能的擁有者]
 * 測試容錯移轉。
 
-#### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2.利用現有的次要項目：多站台
+#### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2.利用現有的次要項目：多網站
 如果您的節點分佈於一個以上的 Azure 資料中心 (DC)，或者您擁有混合式環境，則您可在這個環境中使用 Always On 設定來將停機時間降至最低。
 
 方法是針對內部部署或次要的 Azure DC，將 Always On 同步處理變更為「同步」，然後容錯移轉到該 SQL Server。 接著，將 VHD 複製到進階儲存體帳戶，並將機器重新部署到新的雲端服務。 更新接聽程式，然後進行容錯回復。
@@ -664,7 +665,7 @@ New-AzureService $destcloudsvc -Location $location
 #### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>步驟 3：新增叢集群組的 IP 位址資源 <Optional>
 如果您只有一個適用於叢集群組的 IP 位址且已將此位址指派給雲端子網路，請注意，如果您不小心在該網路上使雲端中的所有叢集節點離線，則叢集 IP 資源和叢集網路名稱無法變成上線狀態。 在此情況下，它會阻止更新其他叢集資源。
 
-#### <a name="step-4-dns-configuration"></a>步驟 4：DNS 設定
+#### <a name="step-4-dns-configuration"></a>步驟 4：DNS 組態
 實作流暢的轉換需取決於使用和更新 DNS 的方式。
 安裝 Always On 時，它會建立 Windows 叢集資源群組，如果您開啟容錯移轉叢集管理員，就會看見它至少具有三個資源，文件中所指的是下列這兩個資源：
 
@@ -860,7 +861,7 @@ ForEach ($disk in $diskobjects)
 Get-AzureStorageBlobCopyState -Blob "blobname.vhd" -Container $containerName -Context $xioContext
 ```
 
-#### <a name="step-11-register-os-disk"></a>步驟 11：註冊作業系統磁碟
+#### <a name="step-11-register-os-disk"></a>步驟 11：註冊 OS 磁碟
 
 ```powershell
 #Change storage account
@@ -1114,7 +1115,7 @@ ForEach ($disk in $diskobjects)
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 ```
 
-#### <a name="step-21-register-os-disk"></a>步驟 21：註冊作業系統磁碟
+#### <a name="step-21-register-os-disk"></a>步驟 21：註冊 OS 磁碟
 
 ```powershell
 #change storage account to the new XIO storage account

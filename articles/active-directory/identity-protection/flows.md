@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 397aa000da7ea70c12883622b60c0e3e6dded811
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: a0c351df535a1f2463c14a4719eac0e4c4896c2b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025291"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464199"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>使用 Azure AD Identity Protection 時的登入體驗
 透過 Azure Active Directory Identity Protection，您可以：

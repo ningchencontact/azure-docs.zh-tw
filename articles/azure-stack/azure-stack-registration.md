@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7413ebac82adce9f034d5ceec16ec76b9ad53f82
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002479"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359539"
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 
@@ -52,9 +52,9 @@ ms.locfileid: "54002479"
 
 - 訂用帳戶擁有者的帳戶使用者名稱和密碼。
 
-- 使用者帳戶必須具有 Azure 訂用帳戶的存取權，而且有權在與該訂用帳戶相關聯的目錄中建立身分識別應用程式和服務主體。
+- 使用者帳戶必須具有 Azure 訂用帳戶的存取權，而且有權在與該訂用帳戶相關聯的目錄中建立身分識別應用程式和服務主體。 建議您[建立註冊用的服務帳戶](azure-stack-registration-role.md)以使用最低權限管理向 Azure 註冊 Azure Stack，而不要使用全域管理員認證。
 
-- 註冊 Azure Stack 資源提供者 (請參閱下面的「註冊 Azure Stack 資源提供者」一節以取得詳細資料)。
+- 註冊 Azure Stack 資源提供者 (請參閱後續的「註冊 Azure Stack 資源提供者」一節以取得詳細資料)。
 
 註冊之後，就不需要 Azure Active Directory 全域管理員權限。 不過，某些作業可能需要全域管理員認證。 例如，需要獲派權限的資源提供者安裝程式指令碼或新功能。 您可以暫時恢復帳戶的全域管理員權限，或使用擁有「預設提供者訂用帳戶」的個別全域管理員帳戶。
 
@@ -68,11 +68,11 @@ ms.locfileid: "54002479"
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-確定輸出有傳回 **FullLanguageMode**。 如果傳回任何其他語言模式，則必須在另一部機器上執行註冊，或是必須將語言模式設定為 **FullLanguageMode**，才能繼續。
+確定輸出有傳回 **FullLanguageMode**。 如果傳回任何其他語言模式，則必須在另一部機器上執行註冊，或必須將語言模式設定為 **FullLanguageMode**，才能繼續。
 
 ### <a name="install-powershell-for-azure-stack"></a>安裝適用於 Azure Stack 的 PowerShell
 
-您必須使用適用於 Azure Stack 的最新 PowerShell 向 Azure 註冊。
+請使用適用於 Azure Stack 的最新 PowerShell 向 Azure 註冊。
 
 如果尚未安裝最新版本，請參閱[安裝適用於 Azure Stack 的 PowerShell](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install)。
 
@@ -101,7 +101,7 @@ Azure Stack 工具 GitHub 存放庫包含可支援 Azure Stack 功能 (包括註
 > [!NOTE]
 > 若 Azure Stack 註冊使用容量型計費模型，在這些年度訂用帳戶到期之後，須於重新註冊時變更唯一名稱，除非您[刪除過期的註冊](azure-stack-registration.md#change-the-subscription-you-use)並重新註冊 Azure。
 
-若要為您的 Azure Stack 部署決定雲端識別碼，請以電腦上可以存取特殊權限端點的系統管理員身分開啟 PowerShell，執行下列命令，然後記錄 **CloudID** 值： 
+若要確認 Azure Stack 部署的雲端識別碼，請以電腦上可以存取特殊權限端點的系統管理員身分開啟 PowerShell，並執行下列命令，然後記錄 **CloudID** 值： 
 
 ```powershell
 Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
@@ -147,7 +147,7 @@ Run: get-azurestackstampinformation
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. 接下來，在相同的 PowerShell 工作階段中，確定您已登入正確的 Azure PowerShell 環境。 這是用來註冊上述 Azure Stack 資源提供者的 Azure 帳戶。 要執行的 Powershell：
+6. 接下來，在相同的 PowerShell 工作階段中，確定您已登入正確的 Azure PowerShell 環境。 這是先前用來註冊 Azure Stack 資源提供者的 Azure 帳戶。 要執行的 Powershell：
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -170,7 +170,7 @@ Run: get-azurestackstampinformation
    ```
    如需有關 Set-AzsRegistration Cmdlet 的詳細資訊，請參閱[註冊參考](#registration-reference)。
 
-  處理程序將需要 10 到 15 分鐘的時間。 當命令完成時，您會看到此訊息：**「您的環境現在已使用提供的參數註冊並啟動」**。
+  此程序需要 10 到 15 分鐘的時間。 命令完成時，您會看到 **「您的環境現在已使用提供的參數註冊並啟動」** 的訊息。
 
 ## <a name="register-connected-with-capacity-billing"></a>使用容量計費來註冊已連線的環境
 
@@ -284,7 +284,7 @@ Run: get-azurestackstampinformation
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>在 Azure Stack 中建立啟用資源
 
-從 Get-AzsActivationKey 建立的啟用金鑰中取得檔案或文字後，返回 Azure Stack 環境。 接下來，您將使用該啟動金鑰在 Azure Stack 中建立啟用資源。 若要建立啟用資源，請執行下列 PowerShell Cmdlet：  
+從 Get-AzsActivationKey 建立的啟用金鑰中取得檔案或文字後，返回 Azure Stack 環境。 接下來，您將使用該啟用金鑰在 Azure Stack 中建立啟用資源。 若要建立啟用資源，請執行下列 PowerShell Cmdlet：  
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -306,9 +306,21 @@ Run: get-azurestackstampinformation
 
 2. 從儀表板中，選取 [Region management] \(區域管理\)。
 
+3. 選取 [屬性] 。 此刀鋒視窗會顯示您環境的狀態和詳細資料。 狀態可以是 [已註冊] 或 [未註冊]。
+
     [ ![[Region management] \(區域管理\) 圖格](media/azure-stack-registration/admin1sm.png "[Region management] \(區域管理\) 圖格") ](media/azure-stack-registration/admin1.png#lightbox)
 
-3. 選取 [屬性] 。 此刀鋒視窗會顯示您環境的狀態和詳細資料。 狀態可以是 [已註冊] 或 [未註冊]。 如果是已註冊，則會一併顯示您用來註冊 Azure Stack 的 Azure 訂用帳戶 ID，以及註冊資源群組和名稱。
+    若已註冊，屬性會包括：
+    
+    - **註冊訂用帳戶識別碼**：已註冊並且與 Azure Stack 相關聯的 Azure 訂用帳戶識別碼
+    - **註冊資源群組：** 相關聯的訂用帳戶中包含 Azure Stack 資源的 Azure 資源群組。
+
+4. 使用 Azure 入口網站檢視 Azure Stack 應用程式註冊。 使用與您用來註冊 Azure Stack 的訂用帳戶相關聯的帳戶，登入 Azure 入口網站。 切換至與 Azure Stack 相關聯的租用戶。
+5. 瀏覽至 [Azure Active Directory > 應用程式註冊 > 檢視所有應用程式]。
+
+    ![應用程式註冊](media/azure-stack-registration/app-registrations.png)
+
+    Azure Stack 應用程式註冊前面會加上 **Azure Stack**。
 
 或者，您也可以使用 Marketplace 管理功能來確認註冊是否已成功。 如果您在 [Marketplace Management] \(Marketplace 管理\) 刀鋒視窗中看到 Marketplace 項目清單，即表示您的註冊已成功。 不過，在已中斷連線的環境中，您則無法在 Marketplace 管理中看到 Marketplace 項目。 不過，您可以使用離線工具來確認註冊情況。
 
@@ -383,7 +395,7 @@ Run: get-azurestackstampinformation
 
 ### <a name="disable-or-enable-usage-reporting"></a>停用或啟用使用量報告功能
 
-針對使用容量計費模型的 Azure Stack 環境，請使用 **Set-AzsRegistration** 或 **Get-AzsRegistrationToken** Cmdlet 搭配 **UsageReportingEnabled** 參數來關閉使用量報告功能。 Azure Stack 預設會回報使用計量。 操作員如果使用容量或支援已中斷連線的環境，將必須關閉使用量報告功能。
+針對使用容量計費模型的 Azure Stack 環境，請使用 **Set-AzsRegistration** 或 **Get-AzsRegistrationToken** Cmdlet 搭配 **UsageReportingEnabled** 參數來關閉使用量報告功能。 Azure Stack 預設會回報使用計量。 操作員若使用容量或支援已中斷連線的環境，將必須關閉使用量報告功能。
 
 #### <a name="with-a-connected-azure-stack"></a>使用已連線的 Azure Stack
 
@@ -441,7 +453,7 @@ Run: get-azurestackstampinformation
 | ResourceGroupLocation | 字串 |  |
 | BillingModel | 字串 | 您的訂用帳戶所使用的計費模型。 此參數允許的值：Capacity、PayAsYouUse 和 Development。 |
 | MarketplaceSyndicationEnabled | True/False | 判斷是否可在入口網站中使用 Marketplace 管理功能。 如果在有網際網路連線的情況下註冊，則設定為 True。 如果在已中斷連線的環境中註冊，則設定為 False。 若為中斷連線的註冊，[離線摘要整合工具](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)可用於下載 Marketplace 項目。 |
-| UsageReportingEnabled | True/False | Azure Stack 預設會回報使用計量。 操作員如果使用容量或支援已中斷連線的環境，將必須關閉使用量報告功能。 此參數允許的值：True、False。 |
+| UsageReportingEnabled | True/False | Azure Stack 預設會回報使用計量。 操作員若使用容量或支援已中斷連線的環境，將必須關閉使用量報告功能。 此參數允許的值：True、False。 |
 | AgreementNumber | 字串 |  |
 | RegistrationName | 字串 | 如果您要在多個 Azure Stack 執行個體上，使用相同的 Azure 訂用帳戶識別碼執行註冊指令碼，請為註冊設定唯一的名稱。 此參數的預設值是 **AzureStackRegistration**。 不過，如果您在多個 Azure Stack 執行個體上使用相同的名稱，指令碼將會失敗。 |
 
@@ -463,7 +475,7 @@ Get-AzsRegistrationToken 會從輸入參數產生註冊權杖。
 | ResourceGroupLocation | 字串 |  |
 | BillingModel | 字串 | 您的訂用帳戶所使用的計費模型。 此參數允許的值：Capacity、PayAsYouUse 和 Development。 |
 | MarketplaceSyndicationEnabled | True/False |  |
-| UsageReportingEnabled | True/False | Azure Stack 預設會回報使用計量。 操作員如果使用容量或支援已中斷連線的環境，將必須關閉使用量報告功能。 此參數允許的值：True、False。 |
+| UsageReportingEnabled | True/False | Azure Stack 預設會回報使用計量。 操作員若使用容量或支援已中斷連線的環境，將必須關閉使用量報告功能。 此參數允許的值：True、False。 |
 | AgreementNumber | 字串 |  |
 
 

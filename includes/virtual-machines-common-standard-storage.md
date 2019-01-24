@@ -5,15 +5,15 @@ services: storage
 author: yuemlu
 ms.service: storage
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 01/08/2019
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ad57d373422e0fc310e51ac31f2a2e76999abf22
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264285"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193335"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>符合成本效益的標準儲存體及非受控和受控 Azure VM 磁碟
 
@@ -75,15 +75,7 @@ ms.locfileid: "51264285"
 
 ### <a name="standard-disks-limits"></a>標準磁碟限制
 
-不同於進階磁碟，標準磁碟沒有佈建每秒輸入/輸出作業 (IOPS) 和輸送量 (頻寬)。 標準磁碟的效能隨著磁碟附加的 VM 大小而不同，而非取決於磁碟大小。 您可能會達到下表中列出的效能限制。
-
-**標準磁碟限制 (受控和非受控)**
-
-| **VM 層**            | **基本層 VM** | **標準層 VM** |
-|------------------------|-------------------|----------------------|
-| 最大磁碟大小          | 32,767 GiB           | 32,767 GiB        |
-| 每一磁碟的 IOPS 上限為 8 KB | 最高 2,000         | 最高 2,000        |
-| 每一磁碟的最大頻寬 (MB/秒) | 最多 500 MB/秒     | 最多 500 MB/秒      |
+不同於進階磁碟，標準磁碟沒有佈建每秒輸入/輸出作業 (IOPS) 和輸送量 (頻寬)。 標準磁碟的效能隨著磁碟附加的 VM 大小和磁碟大小而不同。
 
 如果您的工作負載需要高效能、低延遲磁碟支援，您應該考慮使用進階儲存體。 若要知道進階儲存體的其他優點，請參閱[高效能進階儲存體和 Azure VM 磁碟](../articles/virtual-machines/windows/premium-storage.md)。
 

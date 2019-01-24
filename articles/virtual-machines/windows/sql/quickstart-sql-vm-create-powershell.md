@@ -3,7 +3,7 @@ title: 使用 Azure PowerShell 建立 SQL Server Windows VM | Microsoft Docs
 description: 本教學課程會示範如何使用 Azure PowerShell 建立 Windows SQL Server 2017 虛擬機器。
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
-ms.author: jroth
-ms.openlocfilehash: bebb153d5ff840a0eed7d6afffccd03a5236592d
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.date: 12/21/2018
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: e79b85a2dd47706ca83b6cbc2c59100b05574fab
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42024021"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425555"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 來建立 SQL Server Windows 虛擬機器
 
@@ -37,7 +38,7 @@ ms.locfileid: "42024021"
 
 ## <a id="powershell"></a> 取得 Azure PowerShell
 
-本快速入門需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+本快速入門需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
 
 ## <a name="configure-powershell"></a>設定 PowerShell
 
@@ -47,11 +48,11 @@ ms.locfileid: "42024021"
    Connect-AzureRmAccount
    ```
 
-1. 您會看到要輸入認證的登入畫面。 請使用與登入 Azure 入口網站相同的電子郵件和密碼。
+1. 您應該會看到輸入認證的畫面。 請使用與登入 Azure 入口網站相同的電子郵件和密碼。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-1. 使用唯一的資源群組名稱來定義變數。 若要簡化快速入門的其餘部分，其餘的命令會使用此名稱，作為其他資源名稱的基礎。
+1. 使用唯一的資源群組名稱來定義變數。 為了簡化快速入門的其餘部分，其餘命令將使用此名稱作為其他資源名稱的基礎。
 
    ```PowerShell
    $ResourceGroupName = "sqlvm1"
@@ -122,11 +123,11 @@ ms.locfileid: "42024021"
 
 ## <a name="create-the-sql-vm"></a>建立 SQL VM
 
-1. 定義您的認證來登入此 VM。 使用者名稱為 "azureadmin"。 在執行此命令之前，請務必先變更密碼。
+1. 定義您用來登入 VM 的認證。 使用者名稱為 "azureadmin"。 在執行此命令之前，請務必先變更 \<password>。
 
    ``` PowerShell
    # Define a credential object
-   $SecurePassword = ConvertTo-SecureString 'Change.This!000' `
+   $SecurePassword = ConvertTo-SecureString '<password>' `
       -AsPlainText -Force
    $Cred = New-Object System.Management.Automation.PSCredential ("azureadmin", $securePassword)
    ```
@@ -136,7 +137,7 @@ ms.locfileid: "42024021"
    ```PowerShell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
-   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13 | `
+   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
       Set-AzureRmVMOperatingSystem -Windows -ComputerName $VMName -Credential $Cred -ProvisionVMAgent -EnableAutoUpdate | `
       Set-AzureRmVMSourceImage -PublisherName "MicrosoftSQLServer" -Offer "SQL2017-WS2016" -Skus "SQLDEV" -Version "latest" | `
       Add-AzureRmVMNetworkInterface -Id $Interface.Id
@@ -150,7 +151,7 @@ ms.locfileid: "42024021"
 
 ## <a name="install-the-sql-iaas-agent"></a>安裝 SQL IaaS 代理程式
 
-若要取得入口網站整合與 SQL VM 的功能，您必須先安裝 [SQL Server IaaS 代理程式延伸模組](virtual-machines-windows-sql-server-agent-extension.md)。 若要在新的 VM 上安裝代理程式，請在其建立之後執行下列命令。
+若要取得入口網站整合與 SQL VM 的功能，您必須先安裝 [SQL Server IaaS 代理程式延伸模組](virtual-machines-windows-sql-server-agent-extension.md)。 若要在新的 VM 上安裝代理程式，請在 VM 建立後執行下列命令。
 
    ```PowerShell
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
@@ -158,37 +159,37 @@ ms.locfileid: "42024021"
 
 ## <a name="remote-desktop-into-the-vm"></a>從遠端桌面連接到 VM
 
-1. 使用下列命令會擷取新 VM 的公用 IP 位址。
+1. 使用下列命令擷取新 VM 的公用 IP 位址。
 
    ```PowerShell
    Get-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
-1. 然後取得傳回的 IP 位址，並將它以命令列參數傳遞至 **mstsc**，啟動新 VM 的遠端桌面工作階段。
+1. 將傳回的 IP 位址以命令列參數的形式傳至 **mstsc**，以啟動新 VM 的遠端桌面工作階段。
 
    ```
    mstsc /v:<publicIpAddress>
    ```
 
-1. 當提示輸入認證，請選擇不同帳戶的輸入認證。 輸入包含前置反斜線的使用者名稱 (例如，`\azureadmin`)，以及您先前在本快速入門中設定的密碼。
+1. 當提示輸入認證，請選擇不同帳戶的輸入認證。 輸入包含前置反斜線的使用者名稱 (例如 `\azureadmin`)，以及您先前在本快速入門中設定的密碼。
 
 ## <a name="connect-to-sql-server"></a>連接到 SQL Server
 
 1. 登入遠端桌面工作階段之後，從 [開始] 功能表啟動 **SQL Server Management Studio 2017**。
 
-1. 在 [連線到伺服器] 對話方塊中，保留預設值。 伺服器名稱為 VM 的名稱。 驗證已設為 [Windows 驗證]。 按一下 [ **連接**]。
+1. 在 [連線到伺服器] 對話方塊中，保留預設值。 伺服器名稱為 VM 的名稱。 驗證已設為 [Windows 驗證]。 選取 [ **連接**]。
 
-您現在已本機連線到 SQL Server。 如果您需要從遠端連線，就必須從入口網站或以手動方式[設定連線](virtual-machines-windows-sql-connect.md)。
+您現在已從本機連線到 SQL Server。 若要從遠端連線，您必須從入口網站或以手動方式[設定連線](virtual-machines-windows-sql-connect.md)。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不需要 SQL VM 持續執行，可以在不使用時將其停止，以避免不必要的費用。 下列命令會停止 VM，但會將其保留供未來使用。
+如果您不需要持續執行 VM，您可以在不使用時將其停止，以避免不必要的費用。 下列命令會停止 VM，但會將其保留供未來使用。
 
 ```PowerShell
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-您也可以使用 **Remove-AzureRmResourceGroup**命令，將與虛擬機器相關聯的所有資源永久刪除。 這也會永久刪除虛擬機器，因此請小心使用此命令。
+您也可以使用 **Remove-AzureRmResourceGroup**命令，將與虛擬機器相關聯的所有資源永久刪除。 這麼做也會永久刪除虛擬機器，因此請小心使用此命令。
 
 ## <a name="next-steps"></a>後續步驟
 

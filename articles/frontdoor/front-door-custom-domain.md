@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 58829bcd1b3c38b70929167beae5d8866483d616
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0e1c5e4c3e4b40fd04ca9d48aba9b1e5194d4261
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716492"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330920"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>教學課程：將自訂網域新增到您的前端
 本教學課程說明如何將自訂網域新增至您的 Front Door。 使用 Azure Front Door 進行應用程式傳遞時，如果您想要在使用者要求中顯示您自己的網域名稱，則需要自訂網域。 有可見的網域名稱對您的客戶而言較為方便，並且也有助於宣傳商標。
@@ -43,7 +43,7 @@ ms.locfileid: "53716492"
 
 ## <a name="create-a-cname-dns-record"></a>建立 CNAME DNS 記錄
 
-您必須先透過網域提供者建立正式名稱 (CNAME) 記錄指向您 Front Door 的預設前端主機 (例如 contose.azurefd.net)，才可搭配使用自訂網域與您的 Front Door。 CNAME 記錄是一種將來源網域名稱對應至目的地網域名稱的 DNS 記錄。 在 Azure Front Door Service 中，來源網域名稱是您的自訂網域名稱，而目的地網域名稱是您的 Front Door 預設主機名稱。 在 Front Door 驗證您所建立的 CNAME 記錄後，定址到來源自訂網域 (例如 www.contoso.com) 的流量即會路由至指定的目的地 Front Door 預設前端主機 (例如 contoso.azurefd.net)。 
+您必須先透過網域提供者建立正式名稱 (CNAME) 記錄，以指向您 Front Door 的預設前端主機 (例如 contoso.azurefd.net)，才能將自訂網域用於您的 Front Door。 CNAME 記錄是一種將來源網域名稱對應至目的地網域名稱的 DNS 記錄。 在 Azure Front Door Service 中，來源網域名稱是您的自訂網域名稱，而目的地網域名稱是您的 Front Door 預設主機名稱。 在 Front Door 驗證您所建立的 CNAME 記錄後，定址到來源自訂網域 (例如 www.contoso.com) 的流量即會路由至指定的目的地 Front Door 預設前端主機 (例如 contoso.azurefd.net)。 
 
 自訂網域及其子網域一次只能與單一 Front Door 相關聯。 不過，您可以使用多個 CNAME 記錄，將來自相同自訂網域的不同子網域用於不同的 Front Door。 您也可以將具有不同子網域的自訂網域對應至相同的 Front Door。
 

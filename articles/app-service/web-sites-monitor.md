@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d9f25b7a10b7a50663198120a895220b02818d7b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994941"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247236"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>監視 Azure App Service 中的應用程式
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 會在 [Azure 入口網站](https://portal.azure.com)中為 Web 應用程式、行動後端和 API 應用程式提供內建的監視功能。
@@ -141,14 +141,12 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 ## <a name="alerts-and-autoscale"></a>警示和自動調整
 應用程式或 App Service 方案的計量可以連接到警示。 如需詳細資訊，請參閱[接收警示通知](../monitoring-and-diagnostics/insights-alerts-portal.md)。
 
-基本、標準或進階 App Service 方案中裝載的 App Service 應用程式支援自動調整。 自動調整可讓您設定用以監視 App Service 方案計量的規則。 這些規則可以增加或減少執行個體計數，並視需要提供其他資源。 當應用程式過度佈建時，這些規則也可協助您節省成本。 
+基本、標準或進階 App Service 方案中裝載的 App Service 應用程式支援自動調整。 自動調整可讓您設定用以監視 App Service 方案計量的規則。 這些規則可以增加或減少執行個體計數，並視需要提供其他資源。 當應用程式過度佈建時，這些規則也可協助您節省成本。
 
 如需詳細資訊，請參閱[如何調整](../monitoring-and-diagnostics/insights-how-to-scale.md)和 [Azure 監視器自動調整的最佳做法](../azure-monitor/platform/autoscale-best-practices.md)。
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
-
-
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

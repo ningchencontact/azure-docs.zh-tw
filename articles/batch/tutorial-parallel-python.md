@@ -2,20 +2,20 @@
 title: 執行平行工作負載 - Azure Batch Python
 description: 教學課程 - 使用 Batch Python 用戶端程式庫透過 Azure Batch 中的 ffmpeg 平行處理媒體檔案
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 11/29/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 6bbaa9693bb8d8e54e78f1e83617449cd013ad48
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b5b6f1a1cbd4c06106b7817f9fc28d8d4a9cfc06
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158729"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306330"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>教學課程：使用 Python API 透過 Azure Batch 執行平行工作負載
 
@@ -65,7 +65,7 @@ git clone https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial.git
 pip install -r requirements.txt
 ```
 
-開啟檔案 `batch_python_tutorial_ffmpeg.py`。 使用您帳戶獨有的值來更新 Batch 和儲存體帳戶認證字串。 例如︰
+開啟檔案 `config.py`。 使用您帳戶獨有的值來更新 Batch 和儲存體帳戶認證字串。 例如︰
 
 
 ```Python
@@ -87,7 +87,7 @@ python batch_python_tutorial_ffmpeg.py
 當您執行範例應用程式時，主控台輸出大致如下。 在執行期間，集區的計算節點啟動後，您會在 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` 遇到暫停。 
    
 ```
-Sample start: 12/12/2017 3:20:21 PM
+Sample start: 11/28/2018 3:20:21 PM
 
 Container [input] created.
 Container [output] created.
@@ -103,7 +103,7 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 Success! All tasks completed successfully within the specified timeout period.
 Deleting container [input]....
 
-Sample end: 12/12/2017 3:29:36 PM
+Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
@@ -164,7 +164,7 @@ input_files = [
 
 ### <a name="create-a-pool-of-compute-nodes"></a>建立計算節點的集區
 
-接著，範例會呼叫 `create_pool` 以在 Batch 帳戶中建立計算節點集區。 這個已定義的函式會使用 [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) 類別來設定節點數目、VM 大小和集區設定。 在此，[VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) 物件會將 [ImageReference](/python/api/azure.batch.models.imagereference) 指定至 Azure Marketplace 中發佈的 Ubuntu Server 16.04 LTS 映像。 Batch 支援 Azure Marketplace 中各式各樣的 VM 映像，以及自訂 VM 映像。
+接著，範例會呼叫 `create_pool` 以在 Batch 帳戶中建立計算節點集區。 這個已定義的函式會使用 [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) 類別來設定節點數目、VM 大小和集區設定。 在此，[VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) 物件會將 [ImageReference](/python/api/azure.batch.models.imagereference) 指定至 Azure Marketplace 中發佈的 Ubuntu Server 18.04 LTS 映像。 Batch 支援 Azure Marketplace 中各式各樣的 VM 映像，以及自訂 VM 映像。
 
 使用已定義的常數可設定節點數目和 VM 大小。 Batch 支援專用節點和[低優先順序節點](batch-low-pri-vms.md)，而您可以在集區中使用其中一種或同時使用兩種。 專用節點會保留給您的集區使用。 低優先順序節點則會以較低的價格從 Azure 中的剩餘容量提供。 如果 Azure 沒有足夠的容量，便無法使用低優先順序節點。 此範例預設建立的集區只包含 5 個大小為 Standard_A1_v2 的低優先順序節點。 
 
@@ -179,10 +179,10 @@ new_pool = batch.models.PoolAddParameter(
         image_reference=batchmodels.ImageReference(
             publisher="Canonical",
             offer="UbuntuServer",
-            sku="16.04-LTS",
+            sku="18.04-LTS",
             version="latest"
             ),
-        node_agent_sku_id="batch.node.ubuntu 16.04"),
+        node_agent_sku_id="batch.node.ubuntu 18.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_DEDICATED_POOL_NODE_COUNT,
     target_low_priority_nodes=_LOW_PRIORITY_POOL_NODE_COUNT,

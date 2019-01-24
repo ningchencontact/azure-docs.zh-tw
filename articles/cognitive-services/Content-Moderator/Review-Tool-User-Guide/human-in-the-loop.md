@@ -1,22 +1,23 @@
 ---
-title: Content Moderator 中的電腦輔助內容審核和人力審查 | Microsoft Docs
+title: 將人力審查併入內容仲裁 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 機器與人力如何一起提供最佳的內容審核結果
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-ms.date: 03/16/2018
+ms.date: 01/10/2019
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: f1a3a401363866bdd803093e894615d90536f408
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 7d2e87ac5353f103e654f4dcb6656916e4b271ae
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854215"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264728"
 ---
-# <a name="review-tool-overview"></a>檢閱工具概觀
+# <a name="learn-about-the-review-tool"></a>深入了解審查工具
 
 當人機共同進行內容審核時，您就可以得到最佳結果。 機器可有效地擴大人力審核，而其中的預測信賴度必須在真實世界的內容中經過協助或調和。 結果是混合式內容審核程序，其效能會優於人力或機器單獨運作。
 

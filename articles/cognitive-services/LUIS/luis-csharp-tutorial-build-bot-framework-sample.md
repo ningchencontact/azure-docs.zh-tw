@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c3e142c65cdfe00fb26694063f7733d62882cc0c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 5be96fc93a5a6636ccac6faf456458b3bcb8423a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267363"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413714"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>C# 中使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
 
@@ -153,7 +153,7 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
 > 您無須對 Bot 程式碼進行任何修改，即可將 LUIS 應用程式重新定型。 請參閱[新增範例語句](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) \(英文\) 和[對您的 LUIS 應用程式進行定型和測試](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test) \(英文\)。 
 
 ## <a name="download-the-bot-to-debug"></a>下載 Bot 來進行偵錯
-如果您的 Bot 無法運作，請將專案下載到您的本機電腦，然後繼續[偵錯](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot)。 
+如果您的 Bot 無法運作，請將專案下載到您的本機電腦，然後繼續[偵錯](https://docs.microsoft.com/bot-framework/bot-service-debug-bot)。 
 
 ## <a name="learn-more-about-bot-framework"></a>深入了解 Bot Framework
 深入了解 [Bot Framework](https://dev.botframework.com/)，以及 [3.x](https://github.com/Microsoft/BotBuilder) 和 [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK。

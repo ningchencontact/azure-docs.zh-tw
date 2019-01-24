@@ -5,7 +5,7 @@ services: active-directory
 keywords: 企業狀態漫遊, windows 雲端
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 45bf554e457e48704684fe8ac3b32c29f3f646b2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 351a982fa9ca3c0975c425137220ec9872f0de04
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189269"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448120"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 漫遊設定參考
 以下是在 Windows 10 中進行漫遊或備份的所有設定的完整清單。 

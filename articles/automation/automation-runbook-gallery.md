@@ -3,18 +3,18 @@ title: Azure 自動化的 Runbook 和模組資源庫
 description: 來自 Microsoft 和社群的 Runbook 和模組可供您在 Azure 自動化環境中安裝及使用。  本文說明如何存取這些資源以及將您的 Runbook 貢獻至資源庫。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5b87d04466a2c94ed233edf4069ec1a30b10d03a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7330d826cb196a664f06198a0e83f73bd7763ef9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634315"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428097"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure 自動化的 Runbook 和模組資源庫
 您可以存取各種已由 Microsoft 和社群建置的案例，而不是在 Azure 自動化中建立您自己的 Runbook 和模組。  您可以不加修改地使用這些案例，或者使用它們做為起點並針對您的特定需求進行編輯。
@@ -108,4 +108,5 @@ PowerShell 模組包含您可以在 Runbook 中使用的 Cmdlet，您可以安�
 ## <a name="next-steps"></a>後續步驟
 * 若要開始使用 Runbook，請參閱 [在 Azure 自動化中建立或匯入 Runbook](automation-creating-importing-runbook.md)
 * 若要了解含有 Runbook 的 PowerShell 和 PowerShell 工作流程之間的差異，請參閱 [了解 PowerShell 工作流程](automation-powershell-workflow.md)
+
 

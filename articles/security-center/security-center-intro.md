@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/5/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 88aa9a9003363f86db9214c62adff962bbd345cf
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1c948527c919ed8f81f16cf30a986591b414662
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344154"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263551"
 ---
 # <a name="what-is-azure-security-center"></a>什麼是 Azure 資訊安全中心？
 
@@ -52,9 +52,11 @@ Azure 資訊安全中心可解決三項最急迫的安全性挑戰：
 
 從代理程式和從 Azure 收集的事件會在安全性分析引擎中相互關聯，為您提供量身打造應該遵循來確保工作負載安全的建議 (強化工作) 以及威脅偵測警示。 您應該儘速調查這類警示，確保您的工作負載並未遭受惡意攻擊。
 
+當您啟用資訊安全中心時，內建到資訊安全中心的安全性原則會反映在 Azure 原則中，並作為資訊安全中心類別下的內建方案。 內建方案會自動指派給所有註冊資訊安全中心的訂用帳戶 (免費或標準層)。 內建方案僅包含稽核原則。 如需有關 Azure 原則中資訊安全中心原則的詳細資訊，請參閱[搭配使用安全性原則](tutorial-security-policy.md)。
+
 ## <a name="strengthen-security-posture"></a>鞏固安全性現況
 
-Azure 資訊安全中心可讓您加強安全性狀態。 這表示其可協助您依照安全性最佳做法的建議，識別和執行建議的強化工作，並在機器、資料服務及應用程式全面實作。 這包括管理和強制執行安全性原則，以及確定 Azure 虛擬機器、非 Azure 伺服器及 Azure PaaS 服務符合規範。 資訊安全中心為您提供所需工具，讓您聚焦於網路安全性資產的可見性，全面檢視工作負載。
+Azure 資訊安全中心可讓您加強安全性狀態。 這表示其可協助您依照安全性最佳做法的建議，識別和執行建議的強化工作，並在機器、資料服務及應用程式全面實作。 這包括管理和強制執行安全性原則，以及確定 Azure 虛擬機器、非 Azure 伺服器及 Azure PaaS 服務符合規範。 資訊安全中心為您提供所需工具，讓您聚焦於網路安全性資產的可見性，全面檢視工作負載。 
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>管理組織安全性原則與合規性
 

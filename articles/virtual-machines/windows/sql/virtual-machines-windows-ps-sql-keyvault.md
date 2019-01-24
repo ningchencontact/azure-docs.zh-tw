@@ -3,7 +3,7 @@ title: 在 Azure (Resource Manager) 中的 Windows VM 上將 Key Vault 與 SQL S
 description: 了解如何自動化 SQL Server 加密的組態，以用於 Azure 金鑰保存庫。 本主題說明如何搭配「資源管理員」建立之 SQL Server 虛擬機器使用 Azure 金鑰保存庫整合。
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/30/2018
-ms.author: jroth
-ms.openlocfilehash: d80526768c59bbb746408a026915b3228747e18a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 6ad8eea21c10726b2c3eaf1e10bfd5efba4d1e48
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251165"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358689"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>在 Azure 虛擬機器上設定 SQL Server 的 Azure Key Vault 整合 (Resource Manager)
 
@@ -36,6 +37,10 @@ ms.locfileid: "51251165"
 啟用這項功能時，它會自動安裝 SQL Server 連接器、設定 EKM 提供者來存取 Azure 金鑰保存庫，並建立認證讓您存取您的保存庫。 如果您看到先前提及的內部部署文件中的步驟，您可以發現這項功能會自動執行步驟 2 和 3。 您唯一仍然需要手動進行的是建立金鑰保存庫和金鑰。 從那裡開始，會自動化 SQL VM 的整個設定。 這項功能完成此設定之後，您可以執行 T-SQL 陳述式以開始如往常一般加密您的資料庫或備份。
 
 [!INCLUDE [AKV Integration Prepare](../../../../includes/virtual-machines-sql-server-akv-prepare.md)]
+
+  >[!NOTE]
+  > EKM 提供者 1.0.4.0 版會透過 [SQL IaaS 延伸模組](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)安裝在 SQL Server VM 上。 升級 SQL IaaS 延伸模組並不會更新提供者版本。 如有需要 (例如，在移轉至 SQL 受控執行個體時)，請考慮以手動方式升級 EKM 提供者版本。
+
 
 ## <a name="enabling-and-configuring-akv-integration"></a>啟用及設定 AKV 整合
 您可以在佈建期間啟用 AKV 整合，或針對現有的 VM 設定這項整合。

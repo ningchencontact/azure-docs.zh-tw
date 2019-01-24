@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: f220aee3fa0d9a79723383fc31fec0eed2554bb4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 55828ea2235e42920a5179846d81711b1ada5dc2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833681"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261548"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>建立連線到 Azure 的影片索引器帳戶
 
@@ -97,6 +97,9 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 ## <a name="connect-to-azure-manually-advanced-option"></a>手動連線到 Azure (進階選項)
 
 如果連線到 Azure 失敗，您可嘗試手動連線來排解疑難問題。
+
+> [!NOTE]
+> 強烈建議在相同的區域中有下列三個帳戶：您要與媒體服務帳戶相連的 Video Indexer 帳戶，以及連線到相同媒體服務帳戶的 Azure 儲存體帳戶。
 
 ### <a name="create-and-configure-a-media-services-account"></a>建立及設定媒體服務帳戶
 

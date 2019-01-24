@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: f6a6a1deb55bf16c65982c0d58cd6d92559596af
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a57161fd379269f69ce4e83730a29588d9028b7a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728271"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351606"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安裝及升級 Azure 備份伺服器
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "52728271"
 >
 >
 
-您也可以保護基礎結構即服務 (IaaS) 工作負載，例如 Azure 中的 VM。
+Azure VM 中部署的 MABS 可以在 Azure 中備份 VM，但是應在相同的網域中才能啟用備份作業。 備份 Azure VM 與備份內部部署 VM 的程序相同，不過在 Azure 中部署 MABS 有一些限制。 如需限制詳細資訊，請參閱 [DPM 作為 Azure 虛擬機器](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure 有兩種用來建立和使用資源的部署模型：[Azure Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文提供的資訊和程序可供還原使用 Resource Manager 模型部署的 VM。

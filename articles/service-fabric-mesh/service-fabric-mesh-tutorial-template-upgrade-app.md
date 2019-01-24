@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c82e0cd5bd6a15ff33f51b4e88f68c13080f595d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d27cc555a8cf96a07818e83b342cf145d9e98a96
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967960"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265902"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>教學課程：升級 Service Fabric Mesh 中所執行的 Service Fabric 應用程式
 
@@ -47,13 +47,13 @@ ms.locfileid: "46967960"
 
 * 如果您沒有 Azure 訂用帳戶，您可以在開始前[建立免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-* 開啟 [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md)，或[在本機安裝 Azure CLI 和 Service Fabric Mesh CLI](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally)。
+* 開啟 [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md)，或[在本機安裝 Azure CLI 和 Service Fabric Mesh CLI](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli)。
 
 ## <a name="upgrade-application-configurations"></a>升級應用程式組態
 
 將應用程式部署到 Service Fabric Mesh 的其中一個主要優點是可讓您輕鬆更新應用程式組態。  例如，您服務的 CPU 或記憶體資源數目。
 
-本教學課程使用待辦事項清單樣本作為範例，該樣本[先前已完成部署](service-fabric-mesh-tutorial-template-deploy-app.md)，因此現在應已在執行中。 應用程式有兩個服務：WebFrontEnd 和 ToDoService。 每個服務一開始都會使用 0.5 個 CPU 資源進行部署。  若要檢視 WebFrontEnd 服務的 CPU 資源數，請執行下列內容：
+本教學課程使用待辦事項清單樣本作為範例，該樣本[先前已完成部署](service-fabric-mesh-tutorial-template-deploy-app.md)，因此現在應已在執行中。 應用程式有兩種服務：WebFrontEnd 和 ToDoService。 每個服務一開始都會使用 0.5 個 CPU 資源進行部署。  若要檢視 WebFrontEnd 服務的 CPU 資源數，請執行下列內容：
 
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp

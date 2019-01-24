@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 50e8e63c9508aa9e81222f242ca330637075e42d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034078"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199063"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引類型
 
@@ -29,6 +29,9 @@ Azure Cosmos DB 支援每個路徑的雜湊和範圍索引 (可針對 String、N
 
 - **雜湊索引**支援有效率的相等查詢和 JOIN 查詢。 針對大多數使用案例，雜湊索引並不需要比預設值 (3 個位元組) 更高的精確度。 資料類型可以是 String 或 Number。
 
+  > [!NOTE]
+  > Azure Cosmos 容器支援新的索引配置，不再使用雜湊索引類型。 如果您對於索引編製原則指定雜湊索引類型，在容器上的 CRUD 要求會以無訊息方式忽略索引類型，而且容器的回應只包含範圍索引類型。 所有新的 Cosmos 容器預設均使用新的索引配置。 
+  
 - **範圍索引**支援有效率的相等查詢、範圍查詢 (使用 >、<、>=、<=、!=) 和 ORDER BY 查詢。 根據預設，ORDER By 查詢也需要最大索引精確度 (-1)。 資料類型可以是 String 或 Number。
 
 - **空間索引**支援有效率的空間 (內部和距離) 查詢。 資料類型可以是 Point、Polygon 或 LineString。 Azure Cosmos DB 針對每個路徑也支援空間索引類型 (可針對 Point、Polygon 或 LineString 資料類型加以指定)。 位於指定路徑的值必須是有效的 GeoJSON 片段，例如 {"type":"Point", "coordinates": [0.0, 10.0]}。 Azure Cosmos DB 支援自動編製 Point、Polygon 及 LineString 資料類型的索引。
@@ -58,6 +61,9 @@ Azure Cosmos DB 支援每個路徑的雜湊和範圍索引 (可針對 String、N
 - 空間索引針對所有類型 (Points、LineString 及 Polygon) 一律都使用預設的索引精確度。 空間索引的預設索引精確度無法覆寫。
 
 當查詢使用 ORDER BY，但沒有針對所查詢路徑之最大精確度的範圍索引時，Azure Cosmos DB 就會傳回錯誤。
+
+> [!NOTE]
+> Azure Cosmos 容器支援新的索引配置，不再需要最大精確度值 (-1) 以外的自訂索引精確度。 使用此方法，路徑一律以最大精確度編製索引路徑。 如果您對於索引編製原則指定精確度值，在容器上的 CRUD 要求會以無訊息方式忽略精確度值，而且容器的回應只包含最大精確度值 (-1)。  所有新的 Cosmos 容器預設均使用新的索引配置。
 
 ## <a name="next-steps"></a>後續步驟
 

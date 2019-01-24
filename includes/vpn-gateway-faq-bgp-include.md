@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 01/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c6c67f6f1500ee90a1e0e4a04309f3f7aa2f6d05
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 894724b08876e96119bf72ce65e22c6ae884d8da
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "36338317"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306874"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>所有的 Azure VPN 閘道 SKU 上是否都支援 BGP？
 否，Azure **VpnGw1****VpnGw2****VpnGw3****Standard** 和 **HighPerformance** VPN 閘道支援 BGP。 **基本** SKU。
@@ -68,7 +68,7 @@ Azure VPN 閘道會通告下列路由至您的內部部署 BGP 裝置︰
 是，針對相同的 Azure VPN 閘道，您可以混合使用 BGP 和非 BGP 連線。
 
 ### <a name="does-azure-vpn-gateway-support-bgp-transit-routing"></a>Azure VPN 閘道是否支援 BGP 傳輸路由？
-是，可支援 BGP 傳輸路由，但例外狀況為 Azure VPN 閘道 **不會** 公告其他的 BGP 對等互連的預設路由。 若要啟用跨多個 Azure VPN 閘道的路由傳輸，您必須在所有中繼 VNet 對 VNet 連線上啟用 BGP。
+是，可支援 BGP 傳輸路由，但例外狀況為 Azure VPN 閘道 **不會** 公告其他的 BGP 對等互連的預設路由。 若要啟用跨多個 Azure VPN 閘道的路由傳輸，您必須在所有中繼 VNet 對 VNet 連線上啟用 BGP。 如需詳細資訊，請參閱[關於 BGP](../articles/vpn-gateway/vpn-gateway-bgp-overview.md)。
 
 ### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>是否可在 Azure VPN 閘道與我的內部部署網路之間擁有多個通道？
 是，您可在 Azure VPN 閘道與內部部署網路之間建立多個 S2S VPN 通道。 請注意，所有這些通道將會計入您 Azure VPN 閘道的通道總數，而您必須在這兩個通道上啟用 BGP。

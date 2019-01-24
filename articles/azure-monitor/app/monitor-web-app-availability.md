@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 480edbb508b875d53d972e9ac93fd4d119c7e54a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ca266df563cb7e50463548dd0e786cec8e886ec4
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119657"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359692"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>監視任何網站的可用性和回應性
 將 Web 應用程式或網站部署至任何伺服器之後，您可以設定測試來監視其可用性和回應性。 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果應用程式沒有回應或回應太慢，則會警告您。
@@ -208,7 +208,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 ![建立體驗](./media/monitor-web-app-availability/appinsights-71webtestUpload.png)
 
 > [!NOTE]
->  使用[新的整合警示](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)時，必須在警示體驗中設定**動作群組**的相關警示規則嚴重性和通知喜好設定。 若不進行下列步驟，您只會收到入口網站內部通知。
+>  使用[新的整合警示](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)時，**必須**在警示體驗中設定[動作群組](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)的相關警示規則嚴重性和通知喜好設定。 若不進行下列步驟，您只會收到入口網站內部通知。
 
 1. 儲存可用性測試之後，在 [詳細資料] 索引標籤上，按一下您剛剛建立之測試旁的省略符號。 按一下 [編輯警示]。
 ![儲存後編輯](./media/monitor-web-app-availability/9editalert.png)
@@ -295,7 +295,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 
 * *網站看似正常，但我看到測試失敗？為什麼 Application Insights 發出警示？*
 
-    * 您的測試是否啟用「剖析相依要求」？ 這會對於指令碼、影像之類的資源進行嚴格的檢查。這種類型的失敗可能在瀏覽器上不明顯。  請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。 如果其中有任何一個失敗，即使主要的 html 頁面載入正常，測試皆會回報為失敗。 若要使這類資源失敗的測試去敏化，只要從測試組態取消核取「剖析相依要求」即可。 
+    * 您的測試是否啟用「剖析相依要求」？ 這會對於指令碼、影像之類的資源進行嚴格的檢查。這種類型的失敗可能在瀏覽器上不明顯。 請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。 如果其中有任何一個失敗，即使主要的 html 頁面載入正常，測試皆會回報為失敗。 若要使這類資源失敗的測試去敏化，只要從測試組態取消核取「剖析相依要求」即可。 
 
     * 若要從暫時性網路標誌等降低雜訊的可能性，請確保已核取 [啟用測試失敗的重試次數] 組態。 您也可以從多個位置進行測試並據以管理警示規則臨界值，以免發生會造成過度警示的特定位置問題。
 

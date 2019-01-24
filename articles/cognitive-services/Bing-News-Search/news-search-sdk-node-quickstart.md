@@ -8,59 +8,68 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 02/12/2018
+ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 0fa78474d6400f890626859c32915c8657f92d4e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 8f45e0921748092af4702e03d557e52153a78ec0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249340"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258657"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的 Bing 新聞搜尋 SDK 來執行新聞搜尋
 
-Bing 新聞搜尋 SDK 包含用於新聞查詢以及剖析結果的 REST API 功能。 
+透過本快速入門開始使用適用於 Node.js 的 Bing 新聞搜尋 SDK 來搜尋新聞。 雖然 Bing 新聞搜尋具有與大部分程式設計語言相容的 REST API，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js) 上找到。
 
-[節點 Bing 新聞搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js)可從 Git Hub 取得。
+## <a name="prerequisites"></a>必要條件
 
-## <a name="application-dependencies"></a>應用程式相依性
-在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。 
+* [Node.js](https://nodejs.org/en/)
 
 若要使用 Bing 新聞搜尋 SDK 來設定主控台應用程式：
-* 在開發環境中執行 `npm install ms-rest-azure`。
-* 在開發環境中執行 `npm install azure-cognitiveservices-newssearch`。
+1. 在開發環境中執行 `npm install ms-rest-azure`。
+2. 在開發環境中執行 `npm install azure-cognitiveservices-newssearch`。
 
-## <a name="news-search-client"></a>新聞搜尋用戶端
-在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。 建立 `CognitiveServicesCredentials` 的執行個體：
-```
-const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
-```
-然後，將用戶端具現化：
-```
-const NewsSearchAPIClient = require('azure-cognitiveservices-newssearch');
-let client = new NewsSearchAPIClient(credentials);
-```
-使用用戶端以利用查詢文字搜尋，在本例中為 'Winter Olympics'：
-```
-client.newsOperations.search('Winter Olympics').then((result) => {
-    console.log(result.value);
-}).catch((err) => {
-    throw err;
-});
 
-```
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
+
+## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
+
+1. 建立 `CognitiveServicesCredentials` 執行個體。 針對您的訂用帳戶金鑰和搜尋字詞建立變數。
+
+    ```javascript
+    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
+    let search_term = 'Winter Olympics'
+    ```
+
+2. 具現化用戶端：
+    
+    ```javascript
+    const NewsSearchAPIClient = require('azure-cognitiveservices-newssearch');
+    let client = new NewsSearchAPIClient(credentials);
+    ```
+
+## <a name="send-a-search-query"></a>傳送搜尋查詢
+
+3. 使用用戶端以使用查詢字詞搜尋，本例中使用 "Winter Olympics"：
+    
+    ```javascript
+    client.newsOperations.search(search_term).then((result) => {
+        console.log(result.value);
+    }).catch((err) => {
+        throw err;
+    });
+    ```
+
 程式碼會將 `result.value` 項目列印到主控台，而不會剖析任何文字。 各個類別的結果 (若有的話) 將會包含：
-- _type:'NewsArticle'
-- _type:'WebPage'
-- _type:'VideoObject'
-- _type:'ImageObject'
 
-<!-- Remove until we can replace with santized version
-![News results](media/node-sdk-quickstart-results.png)
--->
+- `_type: 'NewsArticle'`
+- `_type: 'WebPage'`
+- `_type: 'VideoObject'`
+- `_type: 'ImageObject'`
 
 ## <a name="next-steps"></a>後續步驟
 
-[認知服務 Node.js SDK 範例](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+> [!div class="nextstepaction"]
+[建立單頁 Web 應用程式](tutorial-bing-news-search-single-page-app.md)

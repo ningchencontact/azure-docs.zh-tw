@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 69caec10c1be067cf9e8fc7ad83c8daeaced2bda
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 6a0061c03a10f5a5bd518c9ea01d8edd542e4e39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106679"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470557"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure 診斷 1.2 組態結構描述
 > [!NOTE]
@@ -200,3 +200,4 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |元素名稱|說明|  
 |------------------|-----------------|  
 |**DataSource**|要收集的 Windows 事件記錄檔。 必要屬性：<br /><br /> **name** - 說明要收集之 Windows 事件的 XPath 查詢。 例如︰<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> 若要收集所有事件，請指定 "*"。|
+

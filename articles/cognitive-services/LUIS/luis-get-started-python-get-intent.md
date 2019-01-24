@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: e4601b5b6156ace897df65cd42159a1193f8194a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7979d83971fa9f34fc4d30b91018a36b954c4fbe
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100118"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855851"
 ---
 # <a name="quickstart-get-intent-using-python"></a>快速入門：使用 Python 取得意圖
 在本快速入門中，會將將語句傳遞至 LUIS 端點，並取回意圖和實體。

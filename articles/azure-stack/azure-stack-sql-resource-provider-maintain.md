@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.reviewer: jiahan
+ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364082"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244982"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 資源提供者維護作業
 
@@ -32,16 +32,6 @@ SQL 資源提供者不會隨著 Azure Stack 提供，因為它是附加元件。
 ### <a name="provider-virtual-machine"></a>提供者虛擬機器
 
 因為資源提供者會在「使用者」虛擬機器上執行，所以您需要在必要的修補程式和更新釋出時加以套用。 您可以使用隨著修補和更新週期提供的 Windows 更新套件，將更新套用至 VM。
-
-## <a name="backuprestoredisaster-recovery"></a>備份/還原/災害復原
-
- 因為這是附加元件，所以不會在 Azure Stack 商務持續性災害復原 (BCDR) 過程中備份 SQL 資源提供者。 系統會提供下列作業的指令碼：
-
-- 備份狀態資訊 (儲存在 Azure Stack 儲存體帳戶中)。
-- 還原資源提供者 (如果需要完整堆疊復原)。
-
->[!NOTE]
->如果您必須進行復原，則必須先復原資料庫伺服器，才能復原資源提供者。
 
 ## <a name="updating-sql-credentials"></a>更新 SQL 認證
 

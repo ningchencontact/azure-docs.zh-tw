@@ -3,19 +3,19 @@ title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
 description: 指定 Azure Active Directory B2C 中自訂原則的 ContentDefinitions 元素。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f51b058b14525cc5a4af312696330a3a39ea44e1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 1fa5688b5895ed7418161234f6af06fecace631c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382730"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849374"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 

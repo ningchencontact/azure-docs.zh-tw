@@ -5,6 +5,7 @@ description: 此教學課程示範如何使用 Azure 入口網站以區域備援
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 18b5f82a5181f0bbf7024b302b802684ef676c8f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d2e81e4f2eda730dc064699f42ba7bfb49648082
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255324"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230827"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過標準 Load Balancer 將 VM 的負載平均分配至多個可用性區域
 
-負載平衡會將傳入要求分散到多部虛擬機器，藉此提供高可用性。 此教學課程逐步說明如何建立公用負載平衡器標準，以便平衡可用性區域間的 VM 負載。 萬一整個資料中心失敗或遺失，這有助於保護您的應用程式和資料免於受害。 透過區域備援，即便有一或多個可用性區域可能失敗，但是地區中只要有一個區域維持良好狀況，資料路徑就得以存留。 您會了解如何：
+負載平衡會將傳入要求分散到多部虛擬機器，藉此提供高可用性。 此教學課程逐步說明如何建立公用 Standard Load Balancer，以便平衡可用性區域間的 VM 負載。 萬一整個資料中心失敗或遺失，這有助於保護您的應用程式和資料免於受害。 透過區域備援，即便有一或多個可用性區域可能失敗，但是地區中只要有一個區域維持良好狀況，資料路徑就得以存留。 您會了解如何：
 
 > [!div class="checklist"]
 > * 建立標準負載平衡器

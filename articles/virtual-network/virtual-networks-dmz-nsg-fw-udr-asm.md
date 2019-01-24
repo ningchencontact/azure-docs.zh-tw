@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 9c2ebcfc376456f63896ebae8331136aff0cdb99
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 36d6733ddc73ace2026ea838cf8f701db95469e6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119436"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448461"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>範例 3 – 建置 DMZ 以透過防火牆、UDR 和 NSG 保護網路
 [返回 [安全性界限最佳作法] 頁面][HOME]
@@ -777,7 +777,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
         $FatalError = $true}
     Else { Write-Host "The network config file was found" -ForegroundColor Green
             If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
+                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation variable is correct and the network config file matches.' -ForegroundColor Yellow
                 $FatalError = $true}
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: d12edc2023deb69118d7c02e053cd2525f6ae684
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.subservice: autoscale
+ms.openlocfilehash: 736ff5565bb279d26e686421cc13f54a73b1c7e9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437719"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461088"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure 監視器自動調整的常用度量
 Azure 監視器的自動調整可讓您根據遙測資料 (度量) 增加或減少執行中執行個體的數目。 本文件說明您可能會使用的常用度量。 在 Azure 入口網站中，您可以選擇要作為調整依據的資源度量。 不過，您也可以選擇其他資源的任何度量來做為調整依據。
@@ -187,3 +187,4 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 > 若使用服務匯流排，資源群組的概念不存在，但 Azure Resource Manager 會建立每個區域的預設資源群組。 此資源群組通常是 'Default-ServiceBus-[region]' 的格式。 例如，'Default-ServiceBus-EastUS'、'Default-ServiceBus-WestUS'、'Default-ServiceBus-AustraliaEast' 等。
 >
 >
+

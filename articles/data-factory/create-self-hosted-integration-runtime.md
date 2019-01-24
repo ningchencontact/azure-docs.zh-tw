@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: 9a3e061902de53859ea98791048453db8cf00085
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021113"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331804"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -86,7 +86,7 @@ ms.locfileid: "54021113"
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>從下載中心安裝和註冊自我裝載 IR
 
 1. 瀏覽至 [Microsoft 整合執行階段下載頁面](https://www.microsoft.com/download/details.aspx?id=39717)。
-2. 依序選取 [下載]、適當的版本 (**32 位元**或 **64 位元**) 和 [下一步]。
+2. 選取 [下載]，選取 64 位元版本 (不支援 32 位元)，然後選取[下一步]。
 3. 直接執行 MSI 檔案或將它儲存至您的硬碟並執行。
 4. 在 [歡迎] 頁面上選取一個語言，然後按 [下一步]。
 5. 接受「Microsoft 軟體授權條款」，然後選取 [下一步]。

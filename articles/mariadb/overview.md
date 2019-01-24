@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 12/03/2018
-ms.openlocfilehash: 507425a6cffc6f3b49e117ebf5a604bf0d252164
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7fecc280d4e92df88f5f8e9b9e571273328d2458
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542011"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352303"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>什麼是適用於 MariaDB 的 Azure 資料？
 
@@ -45,7 +45,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="monitoring-and-alerting"></a>監視和警示
 
-如何決定何時要相應增加或減少？ 您可以使用「適用於 MariaDB 的 Azure 資料庫」內建的效能監視和警示功能，加上以虛擬核心為基礎的效能分級。 透過這些工具，您可以根據目前或計畫中的效能需求，快速評估相應增加或減少虛擬核心的影響。 <!--See [Alerts](howto-alert-on-metric.md) for details.-->
+如何決定何時要相應增加或減少？ 您可以使用「適用於 MariaDB 的 Azure 資料庫」內建的效能監視和警示功能，加上以虛擬核心為基礎的效能分級。 透過這些工具，您可以根據目前或計畫中的效能需求，快速評估相應增加或減少虛擬核心的影響。 如需詳細資訊，請參閱[警示](howto-alert-metric.md)。
 
 ## <a name="keep-your-app-and-business-running"></a>讓您的應用程式和業務持續運作
 
@@ -55,7 +55,7 @@ Azure 領先業界的 99.99% 可用性 SLA，並由受 Microsoft 管理之資料
 
 Azure 資料庫服務具有「適用於 MariaDB 的 Azure 資料庫」所秉承的資料安全性信念。 「適用於 MariaDB 的 Azure 資料庫」所提供的功能可限制存取、保護待用和移動中資料，並協助您監視活動。 如需 Azure 平台安全性的相關資訊，請造訪 [Azure 信任中心](https://www.microsoft.com/en-us/trustcenter/security) \(英文\)。
 
-「適用於 MariaDB 的 Azure 資料庫」服務針對待用資料使用儲存體加密。 磁碟上的資料 (包括備份資料) 都會加密。 (磁碟上由引擎在執行查詢時所建立的暫存檔不會加密)。該服務使用包含在 Azure 儲存體加密中的 AES 256 位元加密。 金鑰則由系統管理。 儲存體加密會一律啟用，且無法停用。
+適用於 MariaDB 的 Azure 資料庫服務針對待用資料會使用儲存體加密，並且符合 FIPS 140-2 規範。 磁碟上的資料 (包括備份資料) 都會加密。 (磁碟上由引擎在執行查詢時所建立的暫存檔不會加密)。該服務使用包含在 Azure 儲存體加密中的 AES 256 位元加密。 金鑰則由系統管理。 儲存體加密會一律啟用，且無法停用。
 
 根據預設，「適用於 MariaDB 的 Azure 資料庫」服務已設為針對跨網路的動態資料需要 [SSL 連線安全性](./concepts-ssl-connection-security.md)。 在您的資料庫伺服器和用戶端應用程式之間強制使用 SSL 連線，可將伺服器與應用程式之間的資料流加密，有助於抵禦「中間人」攻擊。 (選擇性) 如果用戶端應用程式不支援 SSL 連線能力，您可以停用需要 SSL 才能連線到資料庫服務的功能。
 

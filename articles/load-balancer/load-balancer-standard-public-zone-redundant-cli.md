@@ -1,7 +1,7 @@
 ---
 title: 使用 Azure CLI 來進行區域備援 VM 負載平衡
 titlesuffix: Azure Load Balancer
-description: 了解如何使用 Azure CLI 來建立具有區域備援前端的公用 Load Balancer Standard
+description: 了解如何使用 Azure CLI 來建立具有區域備援前端的公用 Standard Load Balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 82bb0387d8f1603b4b436bfe70d75d19b88f28b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250802"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197788"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>使用 Azure CLI 來進行跨所有可用性區域的 VM 負載平衡
 
-本文會逐步說明如何在不倚賴多個 DNS 記錄的情況下，建立具有區域備援前端的公用 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) 來達到區域備援的目的。 單一前端 IP 位址會自動具備區域備援。  現在為負載平衡器使用區域備援前端時，只需使用單一 IP 位址即可在單一地區內橫跨所有可用性區域，並連線至該地區內某虛擬網路中的任何 VM。 萬一整個資料中心失敗或遺失，使用可用性區域可保護您的應用程式和資料免於受害。
+本文會逐步說明如何在不倚賴多個 DNS 記錄的情況下，建立具有區域備援前端的公用 [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) 來達到區域備援的目的。 單一前端 IP 位址會自動具備區域備援。  現在為負載平衡器使用區域備援前端時，只需使用單一 IP 位址即可在單一地區內橫跨所有可用性區域，並連線至該地區內某虛擬網路中的任何 VM。 萬一整個資料中心失敗或遺失，使用可用性區域可保護您的應用程式和資料免於受害。
 
 如需有關搭配標準 Load Balancer 使用可用性區域的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
 
@@ -60,7 +60,7 @@ az network public-ip create \
 --sku Standard
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>建立 Azure Load Balancer Standard
+## <a name="create-azure-standard-load-balancer"></a>建立 Azure Standard Load Balancer
 本節將詳細說明如何建立及設定下列負載平衡器元件：
 - 前端 IP 集區，可接收負載平衡器上的連入網路流量。
 - 後端 IP 集區，前端集區在其中傳送負載平衡網路流量。

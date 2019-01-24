@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957687"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215111"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>遠端桌面服務未在 Azure VM 上啟動
 
 本文說明如何針對在遠端桌面服務 (或 TermService) 未啟動或無法啟動的問題，以及連線到 Azure 虛擬機器 (VM) 的問題進行疑難排解。
 
 > [!NOTE]  
-> Azure 建立和處理資源的部署模型有二種：[Azure Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文將說明如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不使用傳統部署模型。
+> Azure 建立和處理資源的部署模型有兩種：[Azure Resource Manager 和傳統模型](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文將說明如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不使用傳統部署模型。
 
 ## <a name="symptoms"></a>徵兆
 
@@ -37,14 +37,14 @@ ms.locfileid: "50957687"
 
 - 您使用事件檢視器從遠端檢視 VM 中的事件記錄檔。 您看到遠端桌面服務 (TermService)，沒有啟動或無法啟動。 下列記錄檔是範例：
 
-    **記錄名稱**：     系統 </br>
-    **來源**：        服務控制管理員 </br>
-    **日期**：          12/16/2017 11:19:36 AM</br>
-    **事件識別碼**：      7022</br>
-    **工作分類**：無</br>
-    **層級**：         錯誤</br>
-    **關鍵字**：      傳統</br>
-    **使用者**：          N/A</br>
+    **記錄檔名稱**：    系統 </br>
+    **來源**：      服務控制管理員 </br>
+    **日期**：        2017 年 12 月 16 日上午 11:19:36</br>
+    **事件識別碼**：    7022</br>
+    **工作類別**：None</br>
+    **層級**：       Error</br>
+    **關鍵字**：    傳統</br>
+    **使用者**：        N/A</br>
     **電腦**：vm.contoso.com</br>
     **描述**：遠端桌面服務啟動時無反應。 
 
@@ -112,7 +112,7 @@ ms.locfileid: "50957687"
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>TermService 服務因為拒絕存取問題而停止
 
-1. 連線至[序列主控台](serial-console-windows.md#)並開啟 PowerShell 執行個體。
+1. 連線至[序列主控台](serial-console-windows.md)並開啟 PowerShell 執行個體。
 2. 執行下列指令碼來下載處理程序監視工具：
 
    ```

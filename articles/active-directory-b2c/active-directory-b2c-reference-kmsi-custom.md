@@ -3,19 +3,19 @@ title: 讓我在 Azure Active Directory B2C 中保持登入 | Microsoft Docs
 description: 了解如何在 Azure Active Directory B2C 中啟用「讓我保持登入 (KMSI)」。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fcc81c8eb3a34b0bda5d91a1a67dd2e04e052967
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 517f476853866101cbb33103602494c11cd9e412
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967754"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852451"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中啟用「讓我保持登入 (KMSI)」
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: be9de3c10fdfd040b249dd8da568259c599d7215
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c4f78d8bb43b26814dc3a4b94109dfd8719cb48f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050382"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258827"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>使用 Ansible 在 Azure 中建立並設定 Azure Kubernetes Service 叢集
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 來管理 Azure Kubernetes Service (AKS)。 本文說明如何使用 Ansible 建立並設定 Azure Kubernetes Service 叢集。
@@ -28,7 +28,10 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 > 必須使用 Ansible 2.6，才能執行本教學課程中的下列範例腳本。 
 
 ## <a name="create-a-managed-aks-cluster"></a>建立受控 AKS 叢集
-下列 Ansible 劇本範例會建立一個資源群組，以及一個位於資源群組中的 AKS 叢集：
+本節中的程式碼會呈現用來建立資源群組的 Ansible 劇本範例，以及位於資源群組中的 AKS 叢集。
+
+> [!Tip]
+> 針對 `your_ssh_key` 預留位置，以單行格式且開頭為 "ssh-rsa" (不含引號) 的方式輸入 RSA 公開金鑰。 
 
   ```yaml
   - name: Create Azure Kubernetes Service
@@ -99,7 +102,8 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 
 上一節中的劇本範例會定義兩個節點。 如果叢集上需要較少或較多的容器工作負載，您可以輕鬆地調整節點數目。 本節中的劇本範例會將節點數從兩個增加為三個。 變更 **agent_pool_profiles** 區塊中的 **count** 值，即可修改節點計數。 
 
-在 **service_principal** 區塊中輸入您自己的 `ssh_key`、`client_id` 和 `client_secret`：
+> [!Tip]
+> 針對 `your_ssh_key` 預留位置，以單行格式且開頭為 "ssh-rsa" (不含引號) 的方式輸入 RSA 公開金鑰。 
 
 ```yaml
 - name: Scale AKS cluster

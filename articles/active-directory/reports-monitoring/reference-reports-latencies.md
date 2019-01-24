@@ -4,7 +4,7 @@ description: 深入了解在您的 Azure 入口網站中針對顯示報告事件
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2d2312d42a67f1596f976885a2f55054dda2aff7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623169"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816733"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 報告延遲
 
@@ -40,10 +40,14 @@ ms.locfileid: "51623169"
 > **延遲 (第 95 個百分位數)** 指的是報告 95% 記錄所花費的時間，**延遲 (第 99 個百分位數)** 指的則是報告 99% 記錄所花費的時間。 
 >
 
-| 報告 | 延遲 (第 95 個百分位數) |延遲 (第 99 個百分位數)|
-| :-- | --- | --- | 
-| 稽核記錄 | 2 分鐘  | 5 分鐘  |
-| 登入 | 2 分鐘  | 5 分鐘 |
+| 報告 | 延遲 (第 95 個百分位數) |延遲 (第 99 個百分位數)|將報告記錄的時間範圍|
+| :-- | --- | --- | --- |
+| 稽核記錄 | 2 分鐘  | 5 分鐘  | 2-60 分鐘 |
+| 登入 | 2 分鐘  | 5 分鐘 | 2-120 分鐘 |
+
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>在取得進階授權之後，我能夠多快能看見活動資料？
+
+如果您在使用免費授權時即已經有活動資料，您便可以在升級時立即看見該資料。 如果您沒有任何資料，則您升級到進階授權後，必須花一或兩天的時間，資料才會顯示在報告中。
 
 ## <a name="security-reports"></a>安全性報告
 

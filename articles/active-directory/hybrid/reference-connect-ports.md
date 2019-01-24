@@ -4,7 +4,7 @@ description: 本頁面為針對 Azure AD Connect 必須開啟之連接埠的技�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4ae221efe19d548c3b19cfcebc6728390cabf2b1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 38a344fb6e67beae6310480646d84a1fe7730f84
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306817"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461029"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>混合式身分識別所需的連接埠和通訊協定
 下列文件是關於實作混合式身分識別解決方案之連接埠和通訊協定的技術參考。 請使用下圖並參閱對應的資料表。

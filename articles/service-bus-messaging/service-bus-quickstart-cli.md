@@ -1,22 +1,22 @@
 ---
-title: 快速入門 - 使用 Azure CLI 和 Java 從 Azure 服務匯流排傳送和接收訊息 | Microsoft Docs
-description: 在本快速入門中，您將了解如何使用 Azure CLI 和範例 Java 應用程式來傳送和接收 Azure 服務匯流排訊息
+title: 快速入門 - 使用 Azure CLI 建立服務匯流排佇列 | Microsoft Docs
+description: 在本快速入門中，您會了解如何使用 Azure CLI 來建立服務匯流排佇列。 然後，您會使用 Java 應用程式範例在佇列中傳送和接收訊息。
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 522447b73454016bff5188d07b27702fa21cb748
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 781bca5c3083df9db326e4dc71438c71a7c02bc3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998671"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258319"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>快速入門：使用 Azure CLI 和 Java 傳送和接收訊息
+# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>快速入門：使用 Azure CLI 建立服務匯流排佇列
 
 Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提供安全的傳訊和可靠性。 典型的服務匯流排案例通常會牽涉到將兩個或更多應用程式、服務或程序彼此分開處理 (應用程式不需要同時上線)、傳輸狀態或資料變更，以及在應用程式之間傳送訊息。 
 
@@ -34,7 +34,7 @@ Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提�
 
 在 Azure 入口網站右上角的功能表中按一下 [Cloud Shell] 按鈕，然後從 [選取環境] 下拉式清單中選取 [Bash]。 
 
-## <a name="use-cli-to-create-resources"></a>使用 CLI 建立資源
+## <a name="use-the-azure-cli-to-create-resources"></a>使用 Azure CLI 來建立資源
 
 在 Cloud Shell 中，從 Bash 提示字元發出下列命令，以佈建服務匯流排資源。 請務必將所有預留位置取代為適當的值。
 
@@ -266,7 +266,7 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 在本文中，您已建立從佇列傳送和接收訊息所需的服務匯流排命名空間和其他資源。 若要深入了解如何撰寫用來傳送和接收訊息的程式碼，請繼續進行服務匯流排的下列教學課程：
 
 > [!div class="nextstepaction"]
-> [使用 CLI 和 Java 更新庫存](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [使用 Azure CLI 和 Java 更新庫存](./service-bus-tutorial-topics-subscriptions-cli.md)
 
 [免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

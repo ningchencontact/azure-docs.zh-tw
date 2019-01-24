@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: dd86b05e3e8178166624cf6478af920f67caadba
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 002520504bd611c6d786808ffe402eb1ba82636d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052491"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425854"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>使用 PowerShell 在 Azure Data Factory 中佈建 Azure-SSIS 整合執行階段
 本教學課程提供在 Azure Data Factory 中佈建 Azure-SSIS Integration Runtime (IR) 的步驟。 接著，您可以使用 SQL Server Data Tools (SSDT) 或 SQL Server Management Studio (SSMS)，將 SQL Server Integration Services (SSIS) 套件部署到 Azure 中的此執行階段並執行。 在本教學課程中，您會執行下列步驟：
@@ -41,7 +41,7 @@ ms.locfileid: "54052491"
     - 新增用戶端電腦的 IP 位址或 IP 位址範圍，其中包含資料庫伺服器之防火牆設定中用戶端電腦 IP 位址到用戶端 IP 位址清單。 如需詳細資訊，請參閱 [Azure SQL Database 伺服器層級和資料庫層級防火牆規則](../sql-database/sql-database-firewall-configure.md) 
     - 若要連線至資料庫伺服器，您可以使用伺服器管理員認證來執行 SQL 驗證，或使用 Azure Data Factory 受控識別來執行 Azure Active Directory (AAD) 驗證。  對於後者，您需要將 ADF 的受控識別新增到具有資料庫伺服器存取權的 AAD 群組，請參閱[使用 AAD 驗證建立 Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)。 
     - 確認您的 Azure SQL Database 伺服器沒有 SSIS 目錄 (SSISDB 資料庫)。 Azure-SSIS IR 的佈建不支援使用現有的 SSIS 目錄。 
-- **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。 您需要使用 PowerShell 來執行指令碼，以佈建在雲端中執行 SSIS 套件的 Azure-SSIS 整合執行階段。 
+- **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) 中的指示。 您需要使用 PowerShell 來執行指令碼，以佈建在雲端中執行 SSIS 套件的 Azure-SSIS 整合執行階段。 
 
 > [!NOTE]
 > - 如需 Data Factory 和 Azure-SSIS Integration Runtime 目前可用的 Azure 區域清單，請參閱[依區域的 ADF + SSIS IR 可用性](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all)。 

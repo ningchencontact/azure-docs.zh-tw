@@ -3,7 +3,7 @@ title: 遠端存取內部部署應用程式 - Azure Active Directory 應用程�
 description: Azure Active Directory 應用程式 Proxy 為內部部署 Web 應用程式提供安全的遠端存取。 單一登入 Azure AD 後，使用者可以透過外部 URL 或內部應用程式入口網站存取雲端和內部部署應用程式。 例如，應用程式 Proxy 可以為遠端桌面、SharePoint、Teams、Tableau、Qlik 和企業營運 (LOB) 應用程式提供遠端存取和單一登入。
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 94330c9d53b69d86ff05fe2f0164cb7559e9d389
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 48f06d0f8b36c129ab7fa99a037cf2ccdb5b7004
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159123"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473345"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>透過 Azure Active Directory 應用程式 Proxy 遠端存取內部部署應用程式 
 

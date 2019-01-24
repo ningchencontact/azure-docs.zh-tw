@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ce8c25ce6bb728c9d3a365821b3606613e322c11
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 2f16a8fdb124cd2ee69fbdef74f3999800b55157
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080479"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261991"
 ---
 # <a name="start-monitoring-your-website"></a>開始監視您的網站
 
 Azure Monitor Application Insights 可讓您輕鬆監視網站的可用性、效能和使用情形。 還可讓您快速識別並診斷應用程式的錯誤，不必等使用者回報。 Application Insights 提供伺服器端監視功能，以及用戶端/瀏覽器端監視功能。
 
-本快速入門將引導您新增[開放原始碼 Application Insights JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)，讓您了解您網站訪客的用戶端/瀏覽器端體驗。
+本快速入門將引導您新增 [open source Application Insights JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)，讓您了解您網站訪客的用戶端/瀏覽器端體驗。
 
 ## <a name="prerequisites"></a>必要條件
 

@@ -4,7 +4,7 @@ description: Azure 資源適用受控識別的已知問題。
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: b535939e200b533c06c97686897e283fb6cf57bc
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a23bd99b05184316ee1547ab0917547b5d0da18f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720179"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421924"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 資源適用受控識別的常見問題集與已知問題
 
@@ -63,13 +63,13 @@ Azure 資源適用受控識別虛擬機器擴充功能目前仍可供使用，�
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>如果我將訂用帳戶移到另一個目錄，系統是否會自動重新建立受控識別？
 
-否。 如果您將訂用帳戶移到另一個目錄，則必須手動重新建立受控識別，並重新授與 Azure RBAC 角色指派。
+沒有。 如果您將訂用帳戶移到另一個目錄，則必須手動重新建立受控識別，並重新授與 Azure RBAC 角色指派。
     - 若為系統指派的受控識別：停用然後重新啟用。
     - 若為使用者指派的受控識別：加以刪除、重新建立，然後重新連結至所需的資源 (例如虛擬機器)
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>可以使用受控識別來存取不同目錄/租用戶中的資源嗎？
 
-否。 受控識別目前不支援跨目錄案例。 
+沒有。 受控識別目前不支援跨目錄案例。 
 
 ### <a name="what-are-the-supported-linux-distributions"></a>支援的 Linux 散發套件有哪些？
 

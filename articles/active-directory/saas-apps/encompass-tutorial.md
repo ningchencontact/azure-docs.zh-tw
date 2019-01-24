@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Encompass 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 3b985248-056f-4d0f-9ce4-c017b38f5b50
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 1a179751cb8919e260c58564be6e14303f4d3f41
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6fd1e50d5531f1202468050f5efdcd3f6f9bb46e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845445"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825012"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-encompass"></a>教學課程：Azure Active Directory 與 Encompass 整合
 

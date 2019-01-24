@@ -3,19 +3,19 @@ title: Azure Active Directory B2C 中的授權碼流程 | Microsoft Docs
 description: 了解如何使用 Azure AD B2C 和 OpenID Connect 的驗證通訊協定來建置 web 應用程式。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6d976869f2a068c393a643bb97cae2f7ac1a470
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 17409bc763c89ac7898ee4533ecec90613f48674
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843184"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846042"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C：OAuth 2.0 授權碼流程
 在安裝於裝置上的應用程式中，您可以使用 OAuth 2.0 授權碼授與來存取受保護的資源，例如 Web API。 您可以使用 Azure Active Directory B2C (Azure AD B2C) 的 OAuth 2.0 實作，將註冊、登入及其他身分識別管理工作新增至行動及桌面應用程式。 這篇文章是與語言無關。 在本文中，我們將說明如何傳送及接收 HTTP 訊息，但不使用任何開放原始碼程式庫。

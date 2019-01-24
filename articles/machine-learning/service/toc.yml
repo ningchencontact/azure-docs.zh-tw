@@ -61,7 +61,7 @@ items:
     href: how-to-manage-workspace.md
   - name: 設定開發環境 
     items:
-    - name: 設定您的開發環境
+    - name: 設定開發環境
       displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
     - name: Visual Studio Code 擴充功能
@@ -107,9 +107,7 @@ items:
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
   - name: ONNX 模型
-    items:
-    - name: 建立和部署
-      href: how-to-build-deploy-onnx.md
+    href: how-to-build-deploy-onnx.md
   - name: 部署模型
     items:
     - name: 部署的位置和方式
@@ -131,6 +129,7 @@ items:
   - name: 監視 Web 服務
     items:
     - name: 收集和評估模型資料
+      displayName: track production
       href: how-to-enable-data-collection.md
     - name: 使用 Application Insights 進行監視
       href: how-to-enable-app-insights.md
@@ -143,7 +142,7 @@ items:
     displayName: vnet
     href: how-to-enable-virtual-network.md
   - name: 使用 Machine Learning CLI
-    displayName: cli command line command-line az ci/cd automate automated
+    displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: 匯出及刪除資料
     displayName: gdpr
@@ -174,11 +173,11 @@ items:
     href: resource-known-issues.md
   - name: 取得支援
     href: support-for-aml-services.md
-  - name: 比較 Microsoft 的 ML 產品
+  - name: 比較 ML 產品
     href: overview-more-machine-learning.md
-ms.openlocfilehash: a6975a6aaefb3a750ee73b1e9738f534be24f2ba
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 81173503e3afc8a93ae897072111a42c04049d65
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319712"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390469"

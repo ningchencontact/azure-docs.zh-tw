@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9542fe14cc262731ca0f2ade65e6e4dfafbc34d7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138818"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427503"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 應用程式 API v1 至 v2 的移轉指南
 第 1 版的[端點](https://aka.ms/v1-endpoint-api-docs)和[編寫](https://aka.ms/v1-authoring-api-docs) API 會被取代。 使用本指南可了解如何移轉到第 2 版的[端點](https://aka.ms/luis-endpoint-apis)和[編寫](https://aka.ms/luis-authoring-apis) API。 
@@ -112,7 +112,7 @@ v2 端點成功回應：
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [端點金鑰](luis-how-to-azure-subscription.md)會在 Azure 入口網站中產生。 您要在**[發佈](luis-how-to-manage-keys.md)** 頁面上指派金鑰給 LUIS 應用程式。 您不需要知道實際的金鑰值。 LUIS 會使用訂用帳戶名稱來進行指派。 
+Azure [端點金鑰](luis-how-to-azure-subscription.md)會在 Azure 入口網站中產生。 您要在**[發佈](luis-how-to-azure-subscription.md)** 頁面上指派金鑰給 LUIS 應用程式。 您不需要知道實際的金鑰值。 LUIS 會使用訂用帳戶名稱來進行指派。 
 
 ## <a name="new-versioning-route"></a>新的版本控制路由
 v2 模型現在包含在[版本](luis-how-to-manage-versions.md)中。 版本名稱是路由中的 10 個字元。 預設版本為 "0.1"。

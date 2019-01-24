@@ -14,16 +14,16 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: 2e3cec4564c509cd225a9bcd43185f6f5b344e8c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 473fb95de5da4a14c81d0fa3a5aafa33302d9ab2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833445"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258674"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>在 Azure Stack 中佈建虛擬器的磁碟儲存體
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 本文說明如何使用 Azure Stack 入口網站或使用 PowerShell 佈建虛擬機器磁碟儲存體。
 
@@ -129,45 +129,45 @@ ms.locfileid: "52833445"
 下列範例使用 PowerShell 命令來建立具有三個資料磁碟的 VM，且每個放在不同的容器中。
 
 第一個命令會建立虛擬機器物件，然後將它儲存在 $VirtualMachine 變數中。 此命令會指派虛擬機器的名稱和大小。
-  ```
+  ```powershell
   $VirtualMachine = New-AzureRmVMConfig -VMName "VirtualMachine" `
                                       -VMSize "Standard_A2"
   ```
 
 接下來三個命令會將三個資料磁碟的路徑指派給 $DataDiskVhdUri01、$DataDiskVhdUri02 和 $DataDiskVhdUri03 變數。 在 URL 中定義不同的路徑名稱，將磁碟分散至不同的容器。     
-  ```
+  ```powershell
   $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
   ```
 
-  ```
+  ```powershell
   $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.vhd"
   ```
 
-  ```
+  ```powershell
   $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
   ```
 
 最後三個命令會將資料磁碟新增到 $VirtualMachine 中儲存的虛擬機器。 每個命令可指定磁碟的名稱、位置和其他屬性。 每個磁碟的 URI 會儲存在 $DataDiskVhdUri01、$DataDiskVhdUri02 和 $DataDiskVhdUri03 中。
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
                   -Caching 'ReadOnly' -DiskSizeInGB 10 -Lun 0 `
                   -VhdUri $DataDiskVhdUri01 -CreateOption Empty
   ```
 
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
                  -Caching 'ReadOnly' -DiskSizeInGB 11 -Lun 1 `
                  -VhdUri $DataDiskVhdUri02 -CreateOption Empty
   ```
 
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
                   -Caching 'ReadOnly' -DiskSizeInGB 12 -Lun 2 `
                   -VhdUri $DataDiskVhdUri03 -CreateOption Empty
   ```
 
 使用下列 PowerShell 命令將 OS 磁碟和網路組態新增至 VM，然後啟動新的 VM。
-  ```
+  ```powershell
   #set variables
   $rgName = "myResourceGroup"
   $location = "local"
@@ -192,7 +192,7 @@ ms.locfileid: "52833445"
   $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
       -AllocationMethod Dynamic
 
-  # Create a network security group cnfiguration
+  # Create a network security group configuration
   $nsgName = "myNsg"
   $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
       -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
@@ -218,34 +218,34 @@ ms.locfileid: "52833445"
 ### <a name="add-data-disks-to-an-existing-virtual-machine"></a>將資料磁碟新增到現有的虛擬機器
 下列範例使用 PowerShell 命令將三個資料磁碟新增到現有的 VM。
 第一個命令會使用 **Get-AzureRmVM** Cmdlet 來取得名為 VirtualMachine 的虛擬機器。 此命令會將虛擬機器儲存在 *$VirtualMachine* 變數中。
-  ```
+  ```powershell
   $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
                                   -Name "VirtualMachine"
   ```
 接下來三個命令會將三個資料磁碟的路徑指派給 $DataDiskVhdUri01、 $DataDiskVhdUri02 和 $DataDiskVhdUri03 變數。  vhduri 中不同的路徑名稱表示放置磁碟的不同容器。
-  ```
+  ```powershell
   $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
   ```
-  ```
+  ```powershell
   $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.vhd"
   ```
-  ```
+  ```powershell
   $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
   ```
 
 
   接下來三個命令會將資料磁碟新增到 $VirtualMachine 變數中儲存的虛擬機器。 每個命令可指定磁碟的名稱、位置和其他屬性。 每個磁碟的 URI 會儲存在 $DataDiskVhdUri01、$DataDiskVhdUri02 和 $DataDiskVhdUri03 中。
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" `
                         -VhdUri $DataDiskVhdUri01 -LUN 0 `
                         -Caching ReadOnly -DiskSizeinGB 10 -CreateOption Empty
   ```
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk2" `
                         -VhdUri $DataDiskVhdUri02 -LUN 1 `
                         -Caching ReadOnly -DiskSizeinGB 11 -CreateOption Empty
   ```
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk3" `
                         -VhdUri $DataDiskVhdUri03 -LUN 2 `
                         -Caching ReadOnly -DiskSizeinGB 12 -CreateOption Empty
@@ -253,7 +253,7 @@ ms.locfileid: "52833445"
 
 
   最後一個命令會更新 -ResourceGroupName 的 $VirtualMachine 中儲存之虛擬機器的狀態。
-  ```
+  ```powershell
   Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
   ```
 <!-- Pending scripts  

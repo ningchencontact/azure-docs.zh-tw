@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: dukek
-ms.component: alerts
-ms.openlocfilehash: 2b427669fe692704343d5a3c2096df92cffb8d76
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 38cccf17980f5a6a2cf162cdecdc6aad40d4f38e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583981"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432552"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
 ## <a name="overview"></a>概觀 ##
@@ -108,3 +108,4 @@ ms.locfileid: "53583981"
 * 深入了解警示的[速率限制](../../azure-monitor/platform/alerts-rate-limiting.md)。
 * 取得[活動記錄警示的概觀](../../azure-monitor/platform/alerts-overview.md)，並了解如何收到警示。  
 * 了解如何[設定每當服務健康狀態通知公佈時的警示](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。
+

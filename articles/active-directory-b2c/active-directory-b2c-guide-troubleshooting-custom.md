@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 中針對自訂原則進行疑難排解 | 
 description: 了解在 Azure Active Directory B2C 中使用自訂原則時，解決錯誤的方法。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8bb95ae776c329e67e9f9936213a9f4c2a0c8f62
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: be3a3a50d3ace369964814bc7fcc0fa0d353a332
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842589"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54842897"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>針對 Azure AD B2C 自訂原則和身分識別體驗架構進行疑難排解
 

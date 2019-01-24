@@ -4,21 +4,23 @@ description: 了解使用 Resource Graph 查詢語言來瀏覽您的資源，並
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fe3c06973a053b3f71ee7952647493ab920ea80e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5dd891c7c715ea4e8d27e15ca30c57aae9e80ec2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309261"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853743"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>使用 Resource Graph 探索您的 Azure 資源
 
 Azure Resource Graph 提供了快速且大規模地探索與找出 Azure 資源的功能。 專為快速回應而設計，很適合用來了解您的環境以及組成您的 Azure 資源的屬性。
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="explore-virtual-machines"></a>探索虛擬機器
 
@@ -38,7 +40,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
 ```
 
 JSON 結果的結構類似於下列範例：
@@ -174,7 +176,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | summarize
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
 ```
 
 JSON 結果的結構類似於下列範例：
@@ -212,7 +214,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' and propert
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
 ### <a name="virtual-machines-connected-to-premium-managed-disks"></a>連線至進階受控磁碟的虛擬機器
@@ -234,7 +236,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and propert
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
+  Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
 結果是一份磁碟識別碼清單。
@@ -268,7 +270,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/disks' and id == '/subscript
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
 ```
 
 JSON 結果的結構類似於下列範例：

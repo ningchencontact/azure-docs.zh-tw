@@ -263,7 +263,7 @@ items:
       - name: Azure 應用程式
         items:
         - name: Azure 應用程式服務
-          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
+          href: app/azure-web-apps.md
         - name: Azure 雲端服務
           href: app/cloudservices.md
         - name: 新增連續監視
@@ -662,6 +662,8 @@ items:
         href: log-query/query-language.md
       - name: 語言差異
         href: log-query/data-explorer-difference.md
+      - name: 從記錄搜尋轉換
+        href: log-query/log-search-transition.md
       - name: 開始使用
         items:
         - name: 開始使用 Analytics 入口網站
@@ -702,6 +704,10 @@ items:
         items:
         - name: 範例
           href: log-query/examples.md
+        - name: 寫入有效率的查詢
+          href: log-query/log-query-performance.md
+        - name: 智慧分析
+          href: log-query/smart-analytics.md
         - name: 跨資源搜尋
           href: log-query/cross-workspace-query.md
         - name: 應用程式運算式
@@ -736,7 +742,7 @@ items:
           href: platform/alerts-metric.md
         - name: 在 Azure 監視器中建立、檢視及管理傳統計量警示
           href: platform/alerts-classic-portal.md
-        - name: 搭配動態閾值的警示
+        - name: 搭配動態閾值的計量警示
           href: platform/alerts-dynamic-thresholds.md
         - name: 在記錄檔上設定計量警示
           href: platform/alerts-metric-logs.md
@@ -1015,9 +1021,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 程式碼範例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 17eb4c93d7e8cb27175c2ffb0a4d0161863aa522
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: adf92fafe1c1c0fa855d3658c41dd3563d4b26b2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321461"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448681"

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: johndeu;
-ms.openlocfilehash: b4dec5430d93cd2634fc541ae688a6bc425f5491
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f29efb9a58c0b269f64d637fa3c5d59bb3610bbc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384678"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265885"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>針對即時串流中的計時中繼資料傳送訊號
 
@@ -89,7 +89,7 @@ AMF 訊息的名稱可用來區分相同類型的多個事件串流。  針對 [
 
 ---------------------------
 
-#### <a name="211-cancelation-and-updates"></a>2.1.1 取消與更新
+#### <a name="211-cancellation-and-updates"></a>2.1.1 取消與更新
 
 您可以透過傳送具有相同呈現時間與 ID 的多個訊息來取消或更新訊息。 呈現時間與 ID 可唯一識別事件，而且針對符合預滾動限制式之特定呈現時間所接收的最後一個訊息是針對其採取動作的訊息。 更新的事件會取代先前接收的任何訊息。 預滾動限制式是四秒。 系統將會針對在呈現時間前最後四秒接收的訊息採取動作。
 
@@ -157,7 +157,7 @@ MediaDataBox (‘mdat’) 方塊必須是下列格式：
 ------------------------------
 
 
-### <a name="224-cancelation-and-updates"></a>2.2.4 取消與更新
+### <a name="224-cancellation-and-updates"></a>2.2.4 取消與更新
 您可以透過傳送具有相同呈現時間與 ID 的多個訊息來取消或更新訊息。  呈現時間與 ID uniquely 可唯一識別事件。 針對符合預滾動限制式之特定呈現時間所接收的最後一個訊息是針對其採取動作的訊息。 更新的訊息會取代先前接收的任何訊息。  預滾動限制式是四秒。 系統將會針對在呈現時間前最後四秒接收的訊息採取動作。 
 
 

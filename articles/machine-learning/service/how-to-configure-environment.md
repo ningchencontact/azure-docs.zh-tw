@@ -1,7 +1,7 @@
 ---
 title: 設定 Python 開發環境
 titleSuffix: Azure Machine Learning service
-description: 了解如何在使用 Azure Machine Learning 服務時設定開發環境。 在本文中，您將了解如何使用 Conda 環境、建立組態檔，以及設定 Jupyter Notebook、Azure Notebooks、IDE 和資料科學虛擬機器。
+description: 了解如何在使用 Azure Machine Learning 服務時設定開發環境。 在本文中，您將了解如何使用 Conda 環境、建立組態檔，以及設定 Jupyter Notebook、Azure Notebooks、Azure Databricks、IDE、程式碼編輯器和資料科學虛擬機器。
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -10,14 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/14/2018
 ms.custom: seodec18
-ms.openlocfilehash: 46a1872d2ac5d1670620148edf7ee273580826d3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 4ef62157644e55ed291562f581389228b5776f51
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811268"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353221"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -242,12 +242,55 @@ Visual Studio Code 是跨平台的程式碼編輯器。 它依賴於 Python 支�
 
 準備您的 Databricks 叢集並取得範例 Notebook：
 
-1. 使用 4.x 版 Databricks 執行階段搭配 Python 3 來建立 [Databricks 叢集](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) (最好是高並行叢集)。 
+1. 使用下列設定建立 [Databricks 叢集](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)：
 
-1. 若要安裝適用於 Python `azureml-sdk[databricks]` PyPi 套件的 Azure Machine Learning SDK 並將其附加至您的叢集，請[建立程式庫](https://docs.databricks.com/user-guide/libraries.html#create-a-library)。  
-    當您完成時，便會附加程式庫，如下圖所示。 請注意這些[常見的 Databricks 問題](resource-known-issues.md#databricks)。
+    | 設定 | 值 |
+    |----|---|
+    | 叢集名稱 | yourclustername |
+    | Databricks 執行階段 | 任何非 ML 執行階段 (非 ML 4.x、5.x) |
+    | Python 版本 | 3 |
+    | 背景工作角色 | 2 個以上 |
 
-   ![安裝在 Databricks 上的 SDK ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
+    只有當您要在 Databricks 上使用自動化機器學習時，才使用這些設定：
+    
+    |   設定 | 值 |
+    |----|---|
+    | 背景工作節點 VM 類型 | 建議使用已記憶體最佳化的 VM |
+    | 啟用自動調整 | 取消選取 |
+    
+    Databricks 叢集中的背景工作節點數目決定自動化 ML 設定中並行反覆項目的上限數目。  
+
+    建立叢集將需要幾分鐘的時間。 請靜候至叢集運作，再繼續操作。
+
+1. 安裝 Azure Machine Learning SDK 套件並連結您的叢集。  
+
+    * 使用下列其中一個設定建立[程式庫](https://docs.databricks.com/user-guide/libraries.html#create-a-library) (只能選擇其中一個選項)：
+    
+        * 若要安裝不含自動化機器學習功能的 Azure Machine Learning SDK：
+            | 設定 | 值 |
+            |----|---|
+            |來源 | 上傳 Python Egg 或 PyPI
+            |PyPi 名稱 | azureml-sdk[databricks]
+    
+        * 若要安裝含有自動化機器學習功能的 Azure Machine Learning SDK：
+            | 設定 | 值 |
+            |----|---|
+            |來源 | 上傳 Python Egg 或 PyPI
+            |PyPi 名稱 | azureml-sdk[automl_databricks]
+    
+    * 請勿選取 [自動連結至所有叢集]
+
+    * 選取叢集名稱旁的 [連結]
+
+    * 確定狀態直到變更為 [已連結] 之前，沒有發生任何錯誤。 這需要幾分鐘的時間。
+
+    如果您有舊版 SDK，請從叢集的已安裝程式庫將它取消選取，並移至垃圾桶。 安裝新版 SDK，並重新啟動叢集。 如果在此之後發生問題，請中斷連結再重新連結叢集。
+
+    當您完成時，便會連結程式庫，如下圖所示。 請注意這些[常見的 Databricks 問題](resource-known-issues.md#databricks)。
+
+    * 如果您已安裝不含自動化機器學習的 Azure Machine Learning SDK ![Databricks 上已安裝不含自動化機器學習的 SDK](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+
+    * 如果您已安裝含有自動化機器學習的 Azure Machine Learning SDK ![Databricks 上已安裝含有自動化機器學習的 SDK](./media/how-to-configure-environment/automlonadb.jpg)
 
    如果此步驟失敗，請執行下列操作，重新啟動您的叢集：
 
@@ -257,13 +300,12 @@ Visual Studio Code 是跨平台的程式碼編輯器。 它依賴於 Python 支�
 
    c. 在 [程式庫] 索引標籤上，選取 [重新啟動]。
 
-1. 下載 [Azure Databricks/Azure Machine Learning SDK Notebook 封存檔案](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/Databricks_AMLSDK_github.dbc)。
+1. 下載 [Azure Databricks/Azure Machine Learning SDK Notebook 封存檔案](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc)。
 
    >[!Warning]
    > 有許多範例 Notebook 可與 Azure Machine Learning 服務搭配使用。 只有[這些範例 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) 可以搭配 Azure Databricks 使用。
-   > 
 
-1.  [將此封存檔案匯入](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive)到您的 Databricks 叢集並開始探索，如 [Machine Learning Notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) 頁面所述。
+1.  [將封存檔案匯入](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive)到您的 Databricks 叢集並開始探索，如 [Machine Learning Notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) \(英文\) 頁面所述。
 
 
 ## <a id="workspace"></a>建立工作區組態檔
@@ -311,6 +353,6 @@ Visual Studio Code 是跨平台的程式碼編輯器。 它依賴於 Python 支�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [使用 MNIST 資料集訓練 Azure Machine Learning 上的模型](tutorial-train-models-with-aml.md)
-- [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk)
-- [Azure Machine Learning 資料準備 SDK](https://aka.ms/data-prep-sdk)
+- 在 Azure Machine Learning 使用 MNIST 資料集[定型模型](tutorial-train-models-with-aml.md)] \(英文\)
+- 檢視[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk) \(英文\) 參考
+- 深入了解 [Azure Machine Learning 資料準備 SDK](https://aka.ms/data-prep-sdk) \(英文\)

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107424"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265408"
 ---
 # <a name="about-azure-vm-backup"></a>關於 Azure VM 備份
 
@@ -55,6 +55,10 @@ Azure 備份不會在備份過程中加密資料。 Azure 備份支援使用 Azu
         [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
         ""USEVSSCOPYBACKUP"="TRUE"
         ```
+        - 從提升權限的命令提示字元 (以系統管理員身分) 執行以下命令，以設定上述登錄機碼：
+          ```
+          REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f
+          ```
 - **Linux VM**：Azure 備份建立快照集時，為了確保 Linux VM 符合應用程式一致性，您可以使用 Linux 前置指令碼和後置指令碼架構。 您可以撰寫自己的自訂指令碼，以確保建立虛擬機器快照集時會有一致性。
     -  Azure 備份只會叫用您撰寫的前置指令碼和後置指令碼。
     - 如果前置指令碼和後置指令碼順利執行，Azure 備份會將復原點標記為應用程式一致。 但是，您要對使用自訂指令碼時的應用一致性負最終責任。
@@ -132,11 +136,10 @@ Azure 備份有許多關於訂用帳戶和保存庫的限制。
 
 設定虛擬機器備份時，建議您遵循下列做法：
 
-- 將保存庫升級至「立即 RP」。 請檢閱這些[優點](backup-upgrade-to-vm-backup-stack-v2.md)與[考量](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)，然後依照這些[指示](backup-upgrade-to-vm-backup-stack-v2.md#upgrade)繼續升級。  
 - 當會建立資料快照集來確保以最佳方式使用資源時，請考慮修改預設提供的原則時間 (例如， 如果您的預設原則時間是上午 12:00，請考慮以分鐘為單位遞增此時間)。
 - 針對「進階 VM」，非「立即 RP」功能的備份會配置 ~50% 的總儲存體帳戶空間。 備份服務需要此空間以將快照集複製到相同的儲存體帳戶，以及將其傳輸至保存庫。
 - 針對從單一保存庫還原 VM 的情況，強烈建議您使用不同的  [v2 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) 以確保不會對目標儲存體帳戶進行節流。 例如，每個 VM 都必須有不同的儲存體帳戶 (如果還原 10 個 VM，請考慮使用 10 個不同的儲存體帳戶)。
-- 從第 1 層儲存層 (快照集) 還原會在幾分鐘內完成 (因為是相同儲存體帳戶)，對比之下，第 2 層儲存層 (保存庫) 則需要數小時。 針對可在第 1 層取得資料的情況，建議您使用[立即 RP](backup-upgrade-to-vm-backup-stack-v2.md) 功能 (如果必須從保存庫還原資料，則將需要一些時間)。
+- 從第 1 層儲存層 (快照集) 還原會在幾分鐘內完成 (因為是相同儲存體帳戶)，對比之下，第 2 層儲存層 (保存庫) 則需要數小時。 針對可在第 1 層取得資料的情況，建議您使用[立即還原](backup-instant-restore-capability.md)功能 (如果必須從保存庫還原資料，則將需要一些時間)。
 - 對每一儲存體帳戶的磁碟數目限制，與在 IaaS VM 上執行的應用程式對磁碟的存取次數多寡有關。 請確認是否在單一儲存體帳戶上裝載了多個磁碟。 一般做法是，如果單一儲存體帳戶上有 5 到 10 個磁碟或更多磁碟，請將部分磁碟移至個別的儲存體帳戶來平衡負載。
 
 ## <a name="backup-costs"></a>備份成本

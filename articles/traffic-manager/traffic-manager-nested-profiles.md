@@ -1,9 +1,11 @@
 ---
-title: 巢狀流量管理員設定檔 | Microsoft Docs
+title: Azure 中的巢狀流量管理員設定檔
+titlesuffix: Azure Traffic Manager
 description: 這篇文章說明「Azure 流量管理員」的「巢狀設定檔」功能
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: kumud
-ms.openlocfilehash: 876305c7195a186671c30c4bdd9bb0c6b5331e9a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6fb6b3e4476efec87b15d175d354afab777e6830
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648593"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54228821"
 ---
 # <a name="nested-traffic-manager-profiles"></a>巢狀流量管理員設定檔
 
@@ -26,7 +28,7 @@ ms.locfileid: "49648593"
 
 下列範例說明如何在各種情況中使用巢狀流量管理員設定檔。
 
-## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>範例 1︰結合「效能」和「加權」流量路由
+## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>範例 1：結合「效能」和「加權」流量路由
 
 假設您將應用程式部署在下列 Azure 區域︰美國西部、西歐及東亞。 您使用流量管理員的「效能」流量路由方法，將流量分配給最靠近使用者的區域。
 
@@ -44,7 +46,7 @@ ms.locfileid: "49648593"
 
 當父設定檔使用「效能」流量路由方法時，必須指派位置給每個端點。 您需要在設定端點時指派位置。 選擇最接近部署的 Azure 區域。 Azure 區域是「網際網路延遲資料表」所支援的位置值。 如需詳細資訊，請參閱[流量管理員「效能」流量路由方法](traffic-manager-routing-methods.md#performance)。
 
-## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>範例 2︰巢狀設定檔中的端點監視
+## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>範例 2：巢狀設定檔中的端點監視
 
 「流量管理員」會主動監控每個服務端點的健康情況。 如果端點的狀況不良，流量管理員會將使用者導向替代端點，以維持服務的可用性。 這項端點監視及容錯移轉行為適用於所有流量路由方法。 如需詳細資訊，請參閱 [流量管理員端點監視](traffic-manager-monitoring.md)。 巢狀設定檔的端點監視有不同的運作方式。 使用巢狀設定檔時，父設定檔不會直接對子系執行健康狀態檢查， 子設定檔端點的健康狀態會用來計算子設定檔的整體健康狀態。 此健康狀態資訊會在巢狀設定檔階層中往上傳播。 父設定檔會使用這個彙總的健康狀態，來決定是否要將流量導向子設定檔。 如需巢狀設定檔健康狀態監視的完整詳細資料，請參閱[常見問題集](traffic-manager-FAQs.md#traffic-manager-nested-profiles)。
 
@@ -61,7 +63,7 @@ ms.locfileid: "49648593"
 > [!NOTE]
 > 「優先順序」流量路由方法會將所有流量分配給單一端點。 因此，如果子設定檔的 MinChildEndpoints 不是設為 '1'，則作用不大。
 
-## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>範例 3︰設定「效能」流量路由中容錯移轉區域的優先順序
+## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>範例 3：「效能」流量路由中具優先順序的容錯移轉區域
 
 「效能」流量路由方法的預設行為如下：當您的端點位於不同的地理位置時，即會將終端使用者路由傳送到「最靠近」(亦即網路延遲最低) 的端點。
 
@@ -73,7 +75,7 @@ ms.locfileid: "49648593"
 
 您可以對所有區域重複此模式。 將父設定檔中的三個端點全部取代為三個子設定檔，每個都提供容錯移轉優先順序。
 
-## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>範例 4︰控制相同區域中多個端點之間的「效能」流量路由
+## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>範例 4：控制相同區域中多個端點之間的「效能」流量路由
 
 假設在設定檔中使用「效能」流量路由方法，而此設定檔在特定區域有多個端點。 根據預設，導向該區域的流量會平均分散至該區域中所有可用的端點。
 
@@ -83,7 +85,7 @@ ms.locfileid: "49648593"
 
 ![搭配自訂區域內流量分配的「效能」流量路由][8]
 
-## <a name="example-5-per-endpoint-monitoring-settings"></a>範例 5︰每個端點的監視設定
+## <a name="example-5-per-endpoint-monitoring-settings"></a>範例 5：每個端點的監視設定
 
 假設您使用流量管理員，順暢地將流量從傳統內部部署網站移轉至裝載於 Azure 中的新雲端網站。 對於舊版的網站，您想要使用首頁 URI 來監視網站健康狀態。 但對於新的雲端網站，您實作一個包含額外檢查的自訂監視頁面 (路徑 '/monitor.aspx')。
 

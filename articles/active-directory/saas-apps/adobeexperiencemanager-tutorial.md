@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Adobe Experience Mana
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 88a95bb5-c17c-474f-bb92-1f80f5344b5a
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/25/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 536db4e4927c03cafff35a3e811727a566c79dbd
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 53d1bf57a4a6471fa224de5296484857ed388486
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062803"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821544"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>教學課程：Azure Active Directory 與 Adobe Experience Manager 整合
 
@@ -80,8 +80,8 @@ Adobe Experience Manager 與 Azure AD 整合提供下列優點：
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Adobe Experience Manager 單一登入](#configure-adobe-experience-manager-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[建立 Adobe Experience Manager 測試使用者](#create-adobe-experience-manager-test-user)** - 使 Adobe Experience Manager 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-5. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+5. **[建立 Adobe Experience Manager 測試使用者](#create-adobe-experience-manager-test-user)** - 使 Adobe Experience Manager 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -271,4 +271,3 @@ Adobe Experience Manager 與 Azure AD 整合提供下列優點：
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

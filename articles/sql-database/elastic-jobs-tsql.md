@@ -12,18 +12,18 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: eda71351b0375789d41808f9351cf000945b5f4c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606804"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449396"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 建立及管理彈性資料庫作業
 
 本文提供許多範例案例，說明如何透過 T-SQL 開始使用彈性作業。
 
-這些範例使用[*作業資料庫*](elastic-jobs-overview.md#job-database)中提供的[預存程序](#job-stored-procedures)和[檢視](#job-views)。
+這些範例使用[*作業資料庫*](sql-database-job-automation-overview.md#job-database)中提供的[預存程序](#job-stored-procedures)和[檢視](#job-views)。
 
 Transact-SQL (T-SQL) 可用來建立、設定、執行和管理作業。 目前不支援以 T-SQL 建立彈性作業代理程式，因此您必須先使用入口網站或 [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent) 建立*彈性作業代理程式*。
 
@@ -53,7 +53,7 @@ GO
 ## <a name="create-a-target-group-servers"></a>建立目標資料庫 (伺服器)
 
 下列範例說明如何對伺服器中的所有資料庫執行作業。  
-連線至[*作業資料庫*](elastic-jobs-overview.md#job-database)，然後執行下列命令：
+連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
 
 ```sql
@@ -78,7 +78,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ## <a name="exclude-a-single-database"></a>執行單一資料庫
 
 下列範例說明如何對伺服器中的所有資料庫 (名為 *MappingDB* 的資料庫除外) 執行作業。  
-連線至[*作業資料庫*](elastic-jobs-overview.md#job-database)，然後執行下列命令：
+連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -121,7 +121,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ## <a name="create-a-target-group-pools"></a>建立目標資料庫 (集區)
 
 下列範例說明如何以一或多個彈性集區中的所有資料庫作為目標。  
-連線至[*作業資料庫*](elastic-jobs-overview.md#job-database)，然後執行下列命令：
+連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -146,7 +146,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ## <a name="deploy-new-schema-to-many-databases"></a>將新的結構描述部署至多個資料庫
 
 下列範例說明如何將新的結構描述部署至所有資料庫。  
-連線至[*作業資料庫*](elastic-jobs-overview.md#job-database)，然後執行下列命令：
+連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
 
 ```sql
@@ -195,7 +195,7 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 2. internal_execution_id 的其他資料行 (資料類型為 uniqueidentifier)。
 3. internal_execution_id 資料行上名為 "IX_<TableName>_Internal_Execution_ID" 的非叢集索引。
 
-連線至[*作業資料庫*](elastic-jobs-overview.md#job-database)，然後執行下列命令：
+連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -266,7 +266,7 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 ## <a name="view-job-definitions"></a>檢視作業定義
 
 下列範例說明如何檢視目前的作業定義。  
-連線至[*作業資料庫*](elastic-jobs-overview.md#job-database)，然後執行下列命令：
+連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -287,7 +287,7 @@ select * from jobs.jobsteps
 ## <a name="begin-ad-hoc-execution-of-a-job"></a>開始執行臨機操作作業
 
 下列範例說明如何立即啟動作業。  
-連線至[*作業資料庫*](elastic-jobs-overview.md#job-database)，然後執行下列命令：
+連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -310,7 +310,7 @@ exec jobs.sp_start_job 'CreateTableTest', 1
 ## <a name="schedule-execution-of-a-job"></a>排程作業執行時間
 
 下列範例說明如何排程要在未來執行的作業。  
-連線至[*作業資料庫*](elastic-jobs-overview.md#job-database)，然後執行下列命令：
+連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -325,7 +325,7 @@ EXEC jobs.sp_update_job
 ## <a name="monitor-job-execution-status"></a>監視作業執行狀態
 
 下列範例說明如何檢視所有作業的執行狀態詳細資料。  
-連線至[*作業資料庫*](elastic-jobs-overview.md#job-database)，然後執行下列命令：
+連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -354,7 +354,7 @@ ORDER BY start_time DESC
 ## <a name="cancel-a-job"></a>取消工作
 
 下列範例說明如何取消作業。  
-連線至[*作業資料庫*](elastic-jobs-overview.md#job-database)，然後執行下列命令：
+連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -373,7 +373,7 @@ EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
 ## <a name="delete-old-job-history"></a>刪除舊作業歷程記錄
 
 下列範例說明如何刪除特定日期之前的作業歷程記錄。  
-連線至[*作業資料庫*](elastic-jobs-overview.md#job-database)，然後執行下列命令：
+連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -387,7 +387,7 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 ## <a name="delete-a-job-and-all-its-job-history"></a>刪除作業及其所有的作業歷程記錄
 
 下列範例說明如何刪除作業和所有相關的作業歷程記錄。  
-連線至[*作業資料庫*](elastic-jobs-overview.md#job-database)，然後執行下列命令：
+連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -402,7 +402,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 ## <a name="job-stored-procedures"></a>作業預存程序
 
-下列預存程序位於[作業資料庫](elastic-jobs-overview.md#job-database)中。
+下列預存程序位於[作業資料庫](sql-database-job-automation-overview.md#job-database)中。
 
 
 
@@ -1190,7 +1190,7 @@ GO
 
 ## <a name="job-views"></a>作業檢視
 
-[作業資料庫](elastic-jobs-overview.md#job-database)中提供下列檢視。
+[作業資料庫](sql-database-job-automation-overview.md#job-database)中提供下列檢視。
 
 
 |檢視  |說明  |

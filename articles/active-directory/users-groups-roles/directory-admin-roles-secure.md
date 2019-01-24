@@ -13,16 +13,16 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c2ee0834b0c6872d96bebe71231f1a9424ff261a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387075"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438145"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
-在現今的組織中，大部分甚或所有企業資產的安全性都取決於負責管理 IT 系統的特殊權限帳戶是否完整。 包括網路攻擊者在內的惡意人士通常會以管理帳戶和特殊權限存取的其他元素為目標，嘗試使用認證竊取攻擊快速取得敏感性資料和系統的存取權。 就雲端服務而言，預防和回應是雲端服務提供者和客戶的共同責任。 若想進一步了解端點和雲端有哪些最新威脅，請參閱 [Microsoft Security Intelligence Report](https://www.microsoft.com/security/sir/default.aspx)。 本文可協助您擬定適當計劃，以期消弭您目前的計劃與此處所述的指導方針之間的落差。
+在現今的組織中，大部分甚或所有企業資產的安全性都取決於負責管理 IT 系統的特殊權限帳戶是否完整。 包括網路攻擊者在內的惡意人士通常會以管理帳戶和特殊權限存取的其他元素為目標，嘗試使用認證竊取攻擊快速取得敏感性資料和系統的存取權。 就雲端服務而言，預防和回應是雲端服務提供者和客戶的共同責任。 若想進一步了解端點和雲端有哪些最新威脅，請參閱 [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report)。 本文可協助您擬定適當計劃，以期消弭您目前的計劃與此處所述的指導方針之間的落差。
 
 > [!NOTE] 
 > Microsoft 致力於達到最高水準的信任、透明度、標準一致性和法規遵循性。 請經由 [Microsoft 信任中心 - 安全性](https://www.microsoft.com/trustcenter/security)深入了解 Microsoft 全球事件回應小組如何降低對雲端服務的攻擊所造成的影響，所及 Microsoft 商業產品和雲端服務內建的安全性，並經由 [Microsoft 信任中心 - 合規性](https://www.microsoft.com/trustcenter/compliance)了解 Microsoft 的合規性目標。

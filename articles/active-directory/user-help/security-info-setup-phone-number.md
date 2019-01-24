@@ -3,7 +3,7 @@ title: 將安全性資訊設定為使用電話 - Azure Active Directory | Micros
 description: 設定您的安全性資訊，以使用行動裝置或公司電話號碼來驗證您的身分識別。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,16 +11,16 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 701a47a3907c77dbf5d51692e5d1ddc0c49ab985
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f33982a584f831fbab190d94ce89a8d7c93d7913
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390097"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825216"
 ---
 # <a name="set-up-security-info-to-use-phone-calls-preview"></a>將安全性資訊設定為使用電話 (預覽)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 要設定安全性資訊，您必須登入公司或學校帳戶，然後完成註冊程序。 如果您從未設定安全性資訊，系統將要求您立即進行設定。
 
@@ -56,7 +56,7 @@ ms.locfileid: "39390097"
 
 - **驗證器應用程式。** 下載並使用驗證器應用程式，以取得核准通知或隨機產生的核准代碼來進行雙步驟驗證或密碼重設。 如需如何設定和使用 Microsoft Authenticator 應用程式的逐步指示，請參閱[將安全性資訊設定為使用驗證器應用程式](security-info-setup-auth-app.md)。
 
-- **行動裝置簡訊。** 輸入您的行動裝置號碼，然後取得您將用來進行雙步驟驗證或密碼重設的代碼簡訊。 如需如何透過簡訊 (SMS) 驗證您身分識別的逐步指示，請參閱[將安全性資訊設定為使用簡訊 (SMS)](security-info-setup-text-msg.md)。
+- **行動裝置簡訊。** 輸入您的行動裝置號碼，然後取得將用來進行雙步驟驗證或密碼重設的代碼簡訊。 如需如何透過簡訊 (SMS) 驗證您身分識別的逐步指示，請參閱[將安全性資訊設定為使用簡訊 (SMS)](security-info-setup-text-msg.md)。
 
 - **電子郵件地址。** 輸入您的公司或學校電子郵件地址以接收用於密碼重設的電子郵件。 此選項不適用於雙步驟驗證。 如需如何設定電子郵件的逐步指示，請參閱[將安全性資訊設定為使用電子郵件](security-info-setup-email.md)。
 

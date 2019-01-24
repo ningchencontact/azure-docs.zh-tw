@@ -3,18 +3,18 @@ title: 我在 Azure 自動化中的第一個 Python Runbook
 description: 教學課程將逐步引導您建立、測試和發佈簡單的 Python Runbook。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/26/2018
+ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 386c2ecfdac44158f5d87034657491fa9598e3ad
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 13bb12c2c624bfd50933b624a28145172f521747
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018217"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427673"
 ---
 # <a name="my-first-python-runbook"></a>我的第一個 Python Runbook
 
@@ -26,7 +26,7 @@ ms.locfileid: "37018217"
 
 本教學課程將逐步引導您在「Azure 自動化」中建立 [Python Runbook](automation-runbook-types.md#python-runbooks)。 從您測試及發佈的簡單 Runbook 開始。 接著您會修改 Runbook 以實際管理 Azure 資源，在此情況下會啟動 Azure 虛擬機器。 最後您藉由新增 Runbook 參數，讓 Runbook 更穩固。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成此教學課程，您需要下列項目：
 
@@ -92,15 +92,15 @@ print("Hello World!")
 ## <a name="add-authentication-to-manage-azure-resources"></a>加入驗證來管理 Azure 資源
 
 您已測試並發行您的 Runbook，但是到目前為止，它似乎並不實用。 您想要讓它管理 Azure 資源。
-若要管理 Azure 資源，指令碼必須使用來自[自動化帳戶](automation-offering-get-started.md)的認證進行驗證。
+若要管理 Azure 資源，指令碼必須使用來自自動化帳戶的認證進行驗證。 為了協助您，您可以使用 [Azure 自動化公用程式套件](https://github.com/azureautomation/azure_automation_utility)更輕鬆地進行驗證並與 Azure 資源互動。
 
 > [!NOTE]
-> 必須使用服務主體功能建立自動化帳戶，才會有 runas 憑證。
+> 必須使用服務主體功能建立自動化帳戶，才會有執行身分憑證。
 > 如果您的自動化帳戶不是透過服務主體建立，您可以使用[使用適用於 Python 的 Azure 管理程式庫](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate)所述的方法來進行驗證。
 
 1. 按一下 [MyFirstRunbook-Python] 窗格上的 [編輯] 以開啟文字編輯器。
 
-1. 加入下列程式碼，對 Azure 進行驗證：
+2. 加入下列程式碼，對 Azure 進行驗證：
 
    ```python
    import os
@@ -160,7 +160,7 @@ async_vm_start = compute_client.virtual_machines.start("MyResourceGroup", "TestV
 async_vm_start.wait()
 ```
 
-其中 _MyResourceGroup_ 是包含虛擬機器的資源群組名稱，而 _TestVM_ 是您要啟動的虛擬機器名稱。 
+其中 _MyResourceGroup_ 是包含虛擬機器的資源群組名稱，而 _TestVM_ 是您要啟動的虛擬機器名稱。
 
 測試並再次執行 Runbook，看看它是否啟動虛擬機器。
 

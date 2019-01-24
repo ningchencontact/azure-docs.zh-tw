@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/10/2018
-ms.openlocfilehash: 4598c0ab02e7dcbb8fbc963a2939ab6f812832db
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/15/2019
+ms.openlocfilehash: cab1e47d6d0b40fab881d7948381b6294f52546d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713437"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303372"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>使用 Azure PowerShell 將 SQL Server 內部部署遷移至 Azure SQL Database
 在本文中，您會使用 Microsoft Azure PowerShell，將已還原至內部部署 SQL Server 2016 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉至 Azure SQL Database。 您可以使用 Microsoft Azure PowerShell 中的 `AzureRM.DataMigration` 模組，將資料庫從內部部署 SQL Server 執行個體移轉至 Azure SQL Database。
@@ -204,6 +204,13 @@ if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTas
 {
   write-host "migration task running"
 }
+```
+
+## <a name="deleting-the-dms-instance"></a>刪除 DMS 執行個體
+完成移轉之後，您可以刪除 Azure DMS 執行個體：
+
+```powershell
+Remove-AzureRmDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 ```
 
 ## <a name="next-steps"></a>後續步驟

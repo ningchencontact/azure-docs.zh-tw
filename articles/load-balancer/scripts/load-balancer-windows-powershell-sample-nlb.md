@@ -1,13 +1,10 @@
 ---
-title: PowerShell 範例 - 為目標為 VM 的流量進行負載平衡以達到高可用性 - Azure | Microsoft Docs
+title: PowerShell 範例 - 為目標為 VM 的流量進行負載平衡以達到高可用性 - Azure
+titlesuffix: Azure Load Balancer
 description: 此 Azure PowerShell 指令碼範例示範如何為目標為 VM 的流量進行負載平衡以達到高可用性
 services: load-balancer
 documentationcenter: load-balancer
 author: KumudD
-manager: jeconnoc
-editor: tysonn
-tags: ''
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: sample
@@ -15,13 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: 31fd1e7d10692a1fbb552a483ae00e0088785a67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0440c7e2d2e79e2b954f975167389cf7698a6370
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201016"
 ---
-# <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Azure PowerShell 指令碼範例：為目標為 VM 的流量進行負載平衡以達到高可用性
+# <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Azure PowerShell 指令碼範例：使用 VM 平衡流量負載以達到高可用性
 
 此 Azure PowerShell 指令碼範例會建立所需的一切，以執行數部依據高可用性和負載平衡組態所設定的 Windows 虛擬機器。 執行指令碼之後，您將擁有三部已加入至 Azure 可用性設定組並可透過 Azure Load Balancer 存取的虛擬機器。
 

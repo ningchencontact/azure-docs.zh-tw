@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 5af1d91a51b090821b5bbb314834db0d5cbe6a26
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 9ada31066b905ca4335acf78ae87534e4c359651
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45606858"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331855"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱來管理使用者存取權
 
@@ -44,11 +44,11 @@ ms.locfileid: "45606858"
 
 2. 決定是否要讓每個使用者檢閱自己的存取權，或讓一個或多個使用者檢閱每個人的存取權。
 
-3. 讓存取權檢閱出現在檢閱者的存取面板上。 以全域管理員或使用者帳戶管理員身分，移至[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
+3. 以全域管理員或使用者帳戶管理員身分，移至[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
 
-4. 開始存取權檢閱。 如需詳細資訊，請參閱[建立存取權檢閱](create-access-review.md)。
+4. 建立存取權檢閱。 如需詳細資訊，請參閱[建立存取權檢閱](create-access-review.md)。
 
-5. 要求檢閱者提供意見。 根據預設，他們會各自收到來自 Azure AD 的電子郵件，其中的連結可連至存取面板以[執行其存取權檢閱](perform-access-review.md)。
+5. 存取權檢閱開始時，要求檢閱者提供輸入。 根據預設，他們會各自收到來自 Azure AD 的電子郵件，其中的連結可連至存取面板以[執行其存取權檢閱](perform-access-review.md)。
 
 6. 如果檢閱者有沒有指定的輸入，則您可以要求 Azure AD 將提醒傳送給他們。 依預設，Azure AD 會在結束日期過半時自動將提醒傳送給尚未回應的檢閱者。
 

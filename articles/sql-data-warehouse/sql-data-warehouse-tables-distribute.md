@@ -10,17 +10,17 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 36db91cd7c4dad3c28c0c110ee837ca6d1284959
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b272dd1c5b12c9f171c7e8c7c346f4d6cd4b777
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575371"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413867"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中設計分散式資料表的指引
 在 Azure SQL 資料倉儲中設計雜湊分散式資料表和循環配置資源分散式資料表的建議。
 
-本文假設您已熟悉「SQL 資料倉儲」中的資料散發和資料移動概念。  如需詳細資訊，請參閱[Azure SQL 資料倉儲 - 大量平行處理 (MPP) 架構](massively-parallel-processing-mpp-architecture.md)。 
+本文假設您已熟悉「SQL 資料倉儲」中的資料散發和資料移動概念。  如需詳細資訊，請參閱[Azure SQL 資料倉儲 - 大量平行處理 (MPP) 架構](massively-parallel-processing-mpp-architecture.md)。 
 
 ## <a name="what-is-a-distributed-table"></a>什麼是分散式資料表？
 分散式資料表會顯示為單一資料表，但資料列實際上會儲存在 60 個散發。 這些資料列是透過雜湊或循環配置資源演算法來散發。  
@@ -29,11 +29,11 @@ ms.locfileid: "45575371"
 
 另一個資料表儲存體選項是將小型資料表複寫到所有計算節點。 如需詳細資訊，請參閱[複寫資料表的設計指引](design-guidance-for-replicated-tables.md)。 若要在三個選項中快速做選擇，請參閱[資料表概觀](sql-data-warehouse-tables-overview.md)中的分散式資料表。 
 
-在資料表設計過程中，請儘可能了解您的資料及查詢資料的方式。  例如，請思考一下下列問題：
+在資料表設計過程中，請儘可能了解您的資料及查詢資料的方式。  例如，請思考一下下列問題：
 
-- 資料表的大小為何？   
-- 資料表的重新整理頻率為何？   
-- 我是否在資料倉儲中有事實資料表和維度資料表？   
+- 資料表的大小為何？   
+- 資料表的重新整理頻率為何？   
+- 我是否在資料倉儲中有事實資料表和維度資料表？   
 
 
 ### <a name="hash-distributed"></a>雜湊分散式
@@ -147,7 +147,7 @@ where two_part_name in
     from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
-    having min(row_count * 1.000)/max(row_count * 1.000) > .10
+    having (max(row_count * 1.000) - min(row_count * 1.000))/max(row_count * 1.000) >= .10
     )
 order by two_part_name, row_count
 ;

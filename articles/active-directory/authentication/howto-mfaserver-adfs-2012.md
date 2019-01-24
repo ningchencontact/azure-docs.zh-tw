@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 663ed2f42f59093252506fc5bb5fe2581d4dd200
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6e5c85345939d23cb4fccf422c9e3f151e9fdbeb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160207"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425402"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>設定 Azure Multi-Factor Authentication Server 以搭配 Windows Server 中的 AD FS 運作
 
@@ -147,7 +147,7 @@ ms.locfileid: "39160207"
 
 ## <a name="troubleshooting-logs"></a>針對記錄進行疑難排解
 
-若要協助針對 MFA Server AD FS 配接器問題進行疑難排解，請使用下列步驟來啟用額外記錄功能。
+若要協助針對 MFA Server AD FS 配接器問題進行疑難排解，請使用下列步驟來啟用額外的記錄功能。
 
 1. 在 MFA Server 介面中，開啟 [AD FS] 區段並勾選 [啟用記錄] 核取方塊。
 2. 在每部 AD FS 伺服器上，使用 **regedit.exe** 來建立字串值登錄機碼 `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Positive Networks\PhoneFactor\InstallPath`，其值為 `C:\Program Files\Multi-Factor Authentication Server\` (或您選擇的其他目錄)。  **請注意，尾端反斜線很重要。**

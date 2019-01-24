@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 8a680f1c745bed7745691ad337ed887cc4fc05c5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 017de43074d4b68c69526ddcc96f98ae826dcd65
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716611"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808726"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>從媒體服務 v2 移動至 v3 的移轉指導
 
@@ -43,15 +43,16 @@ ms.locfileid: "53716611"
 
 ### <a name="new-features"></a>新功能
 
-* 對於檔案型作業處理，您可以使用 HTTP(S) URL 作為輸入。
-    您不需要已經將內容儲存在 Azure 中，也不需要建立 Asset。
+* 對於檔案型作業處理，您可以使用 HTTP(S) URL 作為輸入。<br/>您不需要已經將內容儲存在 Azure 中，也不需要建立 Asset。
 * 介紹檔案型作業處理的 [Transform](transforms-jobs-concept.md) 概念。 Transform 可用來建置可重複使用的組態、建立 Azure Resource Manager 範本，並隔離多個客戶或租用戶之間的處理設定。
 * 一個 Asset 可以有[多個 StreamingLocator](streaming-locators-concept.md)，各自具有不同的 [動態封裝] 和 [動態加密] 設定。
 * [內容保護](content-key-policy-concept.md)可支援多索引鍵功能。
 * 使用媒體服務將單一位元速率貢獻饋送轉碼為有多個位元速率的輸出資料流時，您可以串流處理長達 24 小時的即時事件。
-* LiveEvent 上新的低延遲即時串流處理支援。
+* LiveEvent 上新的低延遲即時串流處理支援。 如需詳細資訊，請參閱[延遲](live-event-latency.md)。
 * LiveEvent 預覽版可支援動態封裝和動態加密。 這可在預覽版上實現內容保護，以及 DASH 和 HLS 封裝。
 * LiveOuput 在使用上比 v2 API 中的 Program 實體更簡單。 
+* 改進的 RTMP 支援 (更高的穩定性及更多來源編碼器支援)。
+* RTMPS 安全內嵌。<br/>當您建立 LiveEvent 時，您會取得 4 個內嵌 URL。 4 個內嵌 URL 幾乎完全相同，並有相同的串流權杖 (AppId)，只有連接埠號碼部分不同。 其中兩個 URL 是 RTMPS 的主要部分和備份。   
 * 您對實體已經有角色型存取控制 (RBAC)。 
 
 ## <a name="changes-from-v2"></a>從 v2 的變更

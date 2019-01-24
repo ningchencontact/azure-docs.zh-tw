@@ -3,18 +3,18 @@ title: Azure 自動化中的 Runbook 輸出與訊息
 description: 描述如何在 Azure 自動化中建立及擷取 Runbook 的輸出與錯誤訊息。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc1ef2a3ab09ec5b86d1dc0b4c139afd43ba356d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 82382ecc3adf0d0621f51438a082f7807b031fc9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969119"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431209"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure 自動化中的 Runbook 輸出與訊息
 大部分 Azure 自動化 Runbook 都有一些輸出形式。 此輸出可能是給使用者的錯誤訊息，或是您想要與另一個 Runbook 搭配使用的物件。 Windows PowerShell 提供 [多個資料流](/powershell/module/microsoft.powershell.core/about/about_redirection) 從指令碼或工作流程傳送輸出。 Azure 自動化會以不同方式處理這些資料流中的每一個。 建立 Runbook 時，應遵循如何使用每個資料流的最佳做法。
@@ -234,4 +234,5 @@ Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 ## <a name="next-steps"></a>後續步驟
 * 若要深入了解 Runbook 執行方式、如何監視 Runbook 工作，以及其他技術性詳細資料，請參閱 [追蹤 Runbook 工作](automation-runbook-execution.md)
 * 若要了解如何設計和使用子 Runbook，請參閱 [Azure 自動化中的子 Runbook](automation-child-runbooks.md)
+
 

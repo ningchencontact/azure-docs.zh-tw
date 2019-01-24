@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 5eb04f30fd6766b8df65998b8a4d53797b8341ba
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 95ebdd74fa8be433c7a31f79ad36d4645bc57318
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053546"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354513"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB .NET SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](sql-api
 ### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 
 * 修正跨分割區 Order By 查詢在邊角案例中的 KeyNotFoundException。
-* 修正在 LINQ 查詢的 select 子句中，JsonPropery 屬性未被接受的錯誤 (bug)。
+* 修正在 LINQ 查詢的 select 子句中，JsonProperty 屬性未被接受的錯誤。
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 

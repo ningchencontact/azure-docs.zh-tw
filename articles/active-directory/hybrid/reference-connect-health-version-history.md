@@ -4,7 +4,7 @@ description: 本文件說明 Azure AD Connect Health 的版本和已包含在這
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 08d1589b8b215471983dc76a836dd89f83fd8204
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 25024e5753720ab6e1efcab290d453f944442a4e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053393"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477088"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health：版本發行歷程記錄
 Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Connect Health。 本文列出已發行的版本和功能。

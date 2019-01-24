@@ -12,32 +12,32 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be737550aa1cff22bc413ee8ce243f8d8588f6a5
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3c9fe597957057dc61da5c2b1cf6f9216711764a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29972335"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247838"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>部署 StorSimple Virtual Array：在 VMware 中佈建
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>概觀
-本教學課程說明如何在執行 VMware ESXi 5.0、5.5 或 6.0 的主機系統上佈建及連線到 StorSimple 虛擬陣列。 本文適用於在 Azure 入口網站及 Microsoft Azure 政府服務雲端部署 StorSimple Virtual Array。
+本教學課程說明如何在執行 VMware ESXi 5.0、5.5、6.0 或 6.5 的主機系統上佈建及連線到 StorSimple 虛擬陣列。 本文適用於在 Azure 入口網站及 Microsoft Azure 政府服務雲端部署 StorSimple Virtual Array。
 
 您需要有系統管理員權限，才能佈建並連接至虛擬裝置。 佈建及初始安裝程序可能需要大約 10 分鐘的時間才能完成。
 
 ## <a name="provisioning-prerequisites"></a>佈建的必要條件
-在執行 VMware ESXi 5.0、5.5 或 6.0 的主機系統上佈建虛擬裝置的必要條件如下。
+在執行 VMware ESXi 5.0、5.5、6.0 或 6.5 的主機系統上，佈建虛擬裝置的必要條件如下。
 
 ### <a name="for-the-storsimple-device-manager-service"></a>StorSimple 裝置管理員服務
 在您開始前，請確定：
 
 * 您已完成 [準備入口網站以使用 StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)中的所有步驟。
-* 您已經從 Azure 入口網站下載適用於 VMware 的虛擬裝置映像。 如需詳細資訊，請參閱[準備入口網站以使用 StorSimple Virtual Array 指南](storsimple-virtual-array-deploy1-portal-prep.md)的**步驟 3︰下載虛擬裝置映像**。
+* 您已經從 Azure 入口網站下載適用於 VMware 的虛擬裝置映像。 如需詳細資訊，請參閱**步驟 3：下載虛擬裝置映像** (在[準備入口網站以使用 StorSimple Virtual Array 指南](storsimple-virtual-array-deploy1-portal-prep.md)中)。
 
 ### <a name="for-the-storsimple-virtual-device"></a>對於 StorSimple 虛擬裝置
 在您部署虛擬裝置之前，請確定：
@@ -62,10 +62,10 @@ ms.locfileid: "29972335"
 2. 在 Hypervisor 中佈建虛擬裝置。
 3. 啟動虛擬裝置，並取得 IP 位址。
 
-## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>步驟 1：確認主機系統符合最低的虛擬裝置需求
+## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>步驟 1：確定主機系統符合基本的虛擬裝置需求
 若要建立虛擬裝置，您將需要：
 
-* 能夠存取執行 VMware ESXi 伺服器 5.0、5.5 或 6.0 的主機系統。
+* 能夠存取執行 VMware ESXi 伺服器 5.0、5.5、6.0 或 6.5 的主機系統。
 * 您系統上的 VMware vSphere 用戶端，以便管理 ESXi 主機。
 
   * 至少 4 顆核心。
@@ -99,7 +99,7 @@ ms.locfileid: "29972335"
 7. 畫面會出現 [資料存放區瀏覽器]  視窗。
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image6.png)
-8. 在工具列上，按一下 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image7.png) 圖示來建立新資料夾。 然後指定資料夾的名稱，並把該名稱記下來。 您稍後在建立虛擬機器時，將會使用該資料夾名稱 (建議的最佳做法)。 按一下 [SERVICEPRINCIPAL] 。
+8. 在工具列上，按一下 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image7.png) 圖示來建立新資料夾。 然後指定資料夾的名稱，並把該名稱記下來。 您稍後在建立虛擬機器時，將會使用該資料夾名稱 (建議的最佳做法)。 按一下 [確定]。
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image8.png)
 9. [資料存放區瀏覽器] 的左窗格中會出現新的資料夾。
@@ -128,7 +128,7 @@ ms.locfileid: "29972335"
 17. 在 [儲存體]  頁面上，選取您要用來佈建虛擬機器的資料存放區。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
-18. 在 [虛擬機器版本] 頁面上，選取 [虛擬機器版本: 8]。
+18. 在 [虛擬機器版本] 頁面上，選取 [虛擬機器版本：8]。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
 19. 在 [客體作業系統] 頁面上，將 [客體作業系統] 選取為 [Windows]。 而對於 [版本]，請從下拉式清單中選取 [Microsoft Windows Server 2012 (64 位元)]。
@@ -188,7 +188,7 @@ ms.locfileid: "29972335"
 > [!NOTE]
 > 我們建議您不要在您的虛擬陣列上安裝 VMware 工具 (如同上面所佈建)。 安裝 VMware 工具將導致不支援的組態。
 
-## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>步驟 3：啟動虛擬裝置，並取得 IP 位址
+## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>步驟 3：啟動虛擬裝置並取得 IP 位址
 請執行下列步驟來啟動您的虛擬裝置，並連線到該虛擬裝置。
 
 #### <a name="to-start-the-virtual-device"></a>啟動虛擬裝置
@@ -235,7 +235,7 @@ ms.locfileid: "29972335"
        >
        >
 
-如果裝置不符合最低設定需求，橫幅文字中會出現錯誤訊息 (如下所示)。 您必須修改裝置設定，讓裝置有足夠的資源來符合最低需求。 然後您就可以將裝置重新啟動，並連線到該裝置。 請參閱 [步驟 1：確認主機系統符合最低的虛擬裝置需求](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)中的最低組態需求。
+如果裝置不符合最低設定需求，橫幅文字中會出現錯誤訊息 (如下所示)。 您必須修改裝置設定，讓裝置有足夠的資源來符合最低需求。 然後您就可以將裝置重新啟動，並連線到該裝置。 參閱[步驟 1：確認主機系統符合最低的虛擬裝置需求](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)中的最低組態需求。
 
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image46.png)
 

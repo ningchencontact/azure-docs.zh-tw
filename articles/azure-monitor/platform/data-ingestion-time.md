@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: d8d8e344ce9ee317a7f864492514162b1dc085f9
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5db963b1ffea656455c06092c82ac95e85d87826
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884620"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213122"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Log Analytics 中的資料擷取時間
 Azure Log Analytics 是 Azure 監視器中的高階資料服務，服務對象為每月需傳送數 TB 資料的上千名客戶。 而在 Log Analytics 收集資料後，資料需要多久時間方能轉為可用狀態，是經常受到詢問的問題。 本文會說明影響這種延遲的不同因素。
@@ -46,7 +46,7 @@ Azure Log Analytics 是 Azure 監視器中的高階資料服務，服務對象�
 若要確保 Log Analytics 代理程式是輕量型，代理程式會緩衝記錄，並定期將其上傳至 Log Analytics。 上傳頻率在 30 秒到 2 分鐘之間，視資料類型而定。 大部分的資料會在 1 分鐘內上傳。 網路狀況可能會對此資料的延遲產生負面影響，而難以達到 Log Analytics 擷取點。
 
 ### <a name="azure-logs-and-metrics"></a>Azure 記錄和計量 
-活動記錄資料需要大約 5 分鐘的時間才能在 Log Analytics 中使用。 診斷記錄和計量資料可能需要 1-5 分鐘才能變成可用狀態，視 Azure 服務而定。 然後，記錄需要再花費 30 到 60 秒，而資料計量需要 3 分鐘以傳送至 Log Analytics 擷取點。
+活動記錄資料需要大約 5 分鐘的時間才能在 Log Analytics 中使用。 診斷記錄和計量資料可能需要 1 到 15 分鐘才能變成可用狀態，視 Azure 服務而定。 可供處理後，記錄則需要再花費 30 到 60 秒，而資料計量需要 3 分鐘以傳送至 Log Analytics 擷取點。
 
 ### <a name="management-solutions-collection"></a>管理解決方案集合
 某些解決方案不會從代理程式收集其資料，而且可能使用會造成額外延遲的收集方法。 某些解決方案會定期收集資料，而不嘗試近乎即時的收集。 特定範例包括以下內容：
@@ -73,22 +73,60 @@ Log Analytics 的首要任務是確保不會遺失客戶資料，因此系統具
 
 
 ## <a name="checking-ingestion-time"></a>檢查擷取時間
-您可以使用**活動訊號**資料表以預估代理程式資料的延遲。 由於每分鐘發送一次活動訊號，因此目前時間與最後一次活動訊號記錄之間的差異最好盡量接近一分鐘。
+對於不同的資源，在不同的情況下，擷取時間可能不盡相同。 您可以使用記錄查詢來識別您環境的特定行為。
 
-您可以使用下列查詢以列出電腦的最高延遲時間。
+### <a name="ingestion-latency-delays"></a>擷取延遲
+您可以比較 [ingestion_time()](/azure/kusto/query/ingestiontimefunction) 函式與 _TimeGenerated_ 欄位的結果來測量特定記錄的延遲。 這項資料可以搭配各種彙總，用來了解延遲的運作方式。 檢查擷取時間的一些百分位數，取得大量資料的深入解析。 
 
-    Heartbeat 
-    | summarize IngestionTime = now() - max(TimeGenerated) by Computer 
-    | top 50 by IngestionTime asc
+例如，下列查詢會顯示當天有最高擷取時間的電腦： 
 
+``` Kusto
+Heartbeat
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by Computer 
+| top 20 by percentile_E2EIngestionLatency_95 desc  
+```
  
-在大型環境中請使用以下查詢，總結電腦總計不同百分比的延遲。
+如果您想要向下切入到特定電腦經過一段時間的擷取時間，請使用也會將圖形中的資料視覺化的下列查詢： 
 
-    Heartbeat 
-    | summarize IngestionTime = now() - max(TimeGenerated) by Computer 
-    | summarize percentiles(IngestionTime, 50,95,99)
+``` Kusto
+Heartbeat 
+| where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
+| extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
+| summarize percentiles(E2EIngestionLatencyMin,50,95) by bin(TimeGenerated,30m) 
+| render timechart  
+```
+ 
+下列查詢可以用來依據電腦 IP 位址所在的國家/地區顯示電腦擷取時間： 
 
+``` Kusto
+Heartbeat 
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
+```
+ 
+來自代理程式的不同資料類型可能有不同的擷取延遲時間，因此先前的查詢無法搭配其他類型使用。 下列查詢可以用來檢查各種 Azure 服務的擷取時間： 
 
+``` Kusto
+AzureDiagnostics 
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
+```
+
+### <a name="resources-that-stop-responding"></a>停止回應的資源 
+在某些情況下，資源將會停止傳送資料。 若要了解資源是否正在傳送資料，請查看可以由標準 [TimeGenerated] 欄位識別的最新記錄。  
+
+「活動訊號」資料表可以用來檢查 VM 的可用性，因為代理程式活動訊號會每分鐘傳送一次。 可用下列查詢列出最近尚未回報活動訊號的使用中電腦： 
+
+``` Kusto
+Heartbeat  
+| where TimeGenerated > ago(1d) //show only VMs that were active in the last day 
+| summarize NoHeartbeatPeriod = now() - max(TimeGenerated) by Computer  
+| top 20 by NoHeartbeatPeriod desc 
+```
 
 ## <a name="next-steps"></a>後續步驟
 * 若要了解 Log Analytics，請參閱[服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/)。

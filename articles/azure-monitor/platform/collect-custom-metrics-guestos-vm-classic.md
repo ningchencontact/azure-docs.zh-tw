@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: ''
-ms.openlocfilehash: 9f13e0783a53b096da47f3afe3f830d24cc281a4
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: ''
+ms.openlocfilehash: f4e0d1c16abda74e92cd0c5fa86191464cc4d131
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325317"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476762"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>將客體 OS 計量傳送到 Windows 虛擬機器的 Azure 監視器資料存放區 (傳統)
 
@@ -201,3 +201,4 @@ Azure 監視器[診斷擴充功能](https://docs.microsoft.com/azure/monitoring-
 
 ## <a name="next-steps"></a>後續步驟
 - 深入了解[自訂計量](metrics-custom-overview.md)。
+

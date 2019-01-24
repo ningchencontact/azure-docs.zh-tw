@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ae498cc6aea573e1c610cb50d96552f30be4d75e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 32b457858598ed3dec4a1398cb45310dba877bf3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140875"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447899"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>使用 Spark 資料探索和模型化
 
@@ -54,7 +54,7 @@ ms.locfileid: "53140875"
 
 - [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)：此檔案使用[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)所述的 NYC 計程車車程和費用資料集，來提供如何在 Spark 2.0 叢集中執行資料探索、模型化和評分的相關資訊。 Notebook 可能是很好的起點，可快速瀏覽我們針對 Spark 2.0 所提供的程式碼。 如需更多分析 NYC 計程車資料的 Notebook 詳細資訊，請參閱這份清單中的下一個 Notebook。 請參閱此清單之後比較這些 Notebook 的附註。 
 - [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb)：此檔案使用[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)所述的 NYC 計程車車程和費用資料集，來示範如何執行資料整頓 (Spark SQL 和資料架構作業)、探索、模型化和評分。
-- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb):此檔案使用 2011 和 2012 年的知名航空公司準時起飛資料集，來示範如何執行資料整頓 (Spark SQL 和資料架構作業)、探索、模型化和評分。 我們在模型化之前將航班資料集與機場天氣資料 (例如風速、溫度、高度等等) 整合，因此可以在模型中包含這些天氣功能。
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb)：此檔案使用 2011 和 2012 年的知名航空公司準時起飛資料集，來示範如何執行資料整頓 (Spark SQL 和資料架構作業)、探索、模型化和評分。 我們在模型化之前將航班資料集與機場天氣資料 (例如風速、溫度、高度等等) 整合，因此可以在模型中包含這些天氣功能。
 
 <!-- -->
 
@@ -433,7 +433,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
         labPt = LabeledPoint(line.tipped, features)
         return  labPt
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
     def parseRowOneHotBinary(line):
         features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
                                             line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 

@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: danlep
-ms.openlocfilehash: 0231e402848e617a46ca70470ba4d3272ace59f7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: disks
+ms.openlocfilehash: 1f186e410718ce30f48602ce907afb6206597638
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30904500"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465763"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>使用 SCP 將檔案移入和移出 Linux VM
 
@@ -56,7 +57,7 @@ SCP 會針對傳輸層使用 SSH。 SSH 會處理目的地主機上的驗證，�
 
 針對第一個範例，我們會將用來部署自動化的 Azure 組態檔向上複製到 Linux VM。 由於這個檔案包含 Azure API 認證，其中包含祕密，因此安全性很重要。 SSH 提供的加密通道可保護此檔案的內容。
 
-下列命令會將本機 *.azure/config* 檔案複製到 FQDN 為 *myserver.eastus.cloudapp.azure.com* 的 Azure VM。Azure VM 上的管理使用者名稱是 *azureuser*。 此檔案的目標為 */home/azureuser/* 目錄。 請在此命令中使用您自己的值來替代。
+下列命令會將本機 *.azure/config* 檔案複製到 FQDN 為 *myserver.eastus.cloudapp.azure.com* 的 Azure VM。 Azure VM 上的管理使用者名稱是 *azureuser*。 此檔案的目標為 */home/azureuser/* 目錄。 請在此命令中使用您自己的值來替代。
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config

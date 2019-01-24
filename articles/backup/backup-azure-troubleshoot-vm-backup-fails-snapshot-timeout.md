@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a0f002266764ace07482023a0412366b90acec63
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789852"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353953"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或擴充功能相關的問題
 
@@ -52,7 +52,7 @@ ms.locfileid: "53789852"
 * 如果每日觸發多個備份，也會發生此問題。 目前，我們建議每日只能觸發一個備份，因為立即 RP 會保留 7 天，而一段指定時間內只能讓 18 個立即 RP 與 VM 相關聯。 <br>
 
 建議的動作：<br>
-若要解決此問題，請移除 VM 資源群組的鎖定，並重試此作業以觸發清除動作。 
+若要解決此問題，請移除 VM 資源群組的鎖定，並重試此作業以觸發清除動作。
 > [!NOTE]
     > 備份服務會建立與 VM 資源群組不同的資源群組，來儲存還原點集合。 建議客戶請勿鎖定建立給備份服務使用的資源群組。 備份服務建立的資源群組命名格式為：AzureBackupRG_`<Geo>`_`<number>` 例如：AzureBackupRG_northeurope_1
 
@@ -105,14 +105,14 @@ ms.locfileid: "53789852"
 **錯誤碼**：UserErrorUnsupportedDiskSize <br>
 **錯誤訊息**：Azure 備份目前不支援容量大於 1023 GB 的磁碟 <br>
 
-備份磁碟大小超過 1023GB 的 VM 時，備份作業可能會失敗，因為您的保存庫並未升級到 Azure VM 備份堆疊 V2。 升級至 Azure VM 備份堆疊 V2 將提供最高 4 TB 支援。 請檢閱這些[優點](backup-upgrade-to-vm-backup-stack-v2.md)與[考量](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)，然後依照這些[指示](backup-upgrade-to-vm-backup-stack-v2.md#upgrade)繼續升級。  
+備份磁碟大小超過 1023GB 的 VM 時，備份作業可能會失敗，因為您的保存庫並未升級到「立即還原」。 升級至「立即還原」將提供最高 4TB 支援，請參閱這篇[文章](backup-instant-restore-capability.md)。  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - 目前 Azure 備份不支援標準 SSD 磁碟
 
 **錯誤碼**：UserErrorStandardSSDNotSupported <br>
 **錯誤訊息**：目前 Azure 備份不支援標準 SSD 磁碟 <br>
 
-目前 Azure 備份只針對升級至 Azure VM 備份堆疊 V2 的保存庫支援標準 SSD 磁碟。 請檢閱這些[優點](backup-upgrade-to-vm-backup-stack-v2.md)與[考量](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)，然後依照這些[指示](backup-upgrade-to-vm-backup-stack-v2.md#upgrade)繼續升級。
+目前 Azure 備份只針對升級至[立即還原](backup-instant-restore-capability.md)的保存庫支援標準 SSD 磁碟。
 
 
 ## <a name="causes-and-solutions"></a>原因和解決方案
@@ -122,33 +122,8 @@ ms.locfileid: "53789852"
 
 備份延伸模組需要連線到 Azure 公用 IP 位址，才能正確運作。 延伸模組會將命令傳送至 Azure 儲存體端點 (HTTPS URL) 來管理 VM 的快照集。 如果延伸模組無法存取公用網際網路，則備份最終會失敗。
 
-您可以部署 Proxy 伺服器來路由傳送 VM 流量。
-##### <a name="create-a-path-for-https-traffic"></a>建立 HTTPS 流量的路徑
-
-1. 如果您已有網路限制 (例如，網路安全性群組)，請部署 HTTPS Proxy 伺服器來路由傳送流量。
-2. 若要允許從 HTTPS Proxy 伺服器存取網際網路，可將規則新增到網路安全性群組 (如果您有一個)。
-
-若要了解如何設定 VM 備份的 HTTPS Proxy，請參閱[準備環境以備份 Azure 虛擬機器](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
-
-已備份的 VM，抑或用於路由傳送流量的 Proxy 伺服器需要存取 Azure 公用 IP 位址
-
 ####  <a name="solution"></a>解決方法
-若要解決此問題，請嘗試下列其中一個方法：
-
-##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>允許存取對應該區域的 Azure 儲存體
-
-您可以使用[服務標籤](../virtual-network/security-overview.md#service-tags)，允許連線至特定區域的儲存體。 請確定允許存取儲存體帳戶的規則優先順序，高於封鎖網際網路存取的規則。
-
-![網路安全性群組與區域的儲存體標籤](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
-
-若要了解設定服務標記的逐步程序，請觀看[這個影片](https://youtu.be/1EjLQtbKm1M)。
-
-> [!WARNING]
-> 儲存體服務標籤處於預覽狀態。 僅在特定區域中提供使用。 如需區域清單，請參閱[儲存體的服務標籤](../virtual-network/security-overview.md#service-tags)。
-
-如果您使用 Azure 受控磁碟，您可能需要在防火牆上開啟其他連接埠 (連接埠 8443)。
-
-此外，如果您的子網路沒有互聯網輸出流量的路由，則您需要將含有服務標籤「Microsoft.Storage」的服務端點新增至您的子網路。
+若要解決網路問題，請參閱[建立網路連線](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)
 

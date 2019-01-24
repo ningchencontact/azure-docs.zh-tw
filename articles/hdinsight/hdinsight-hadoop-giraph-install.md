@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3ee1cfaa9e5eb08b2fe6ee7d210dcb84a8c39d78
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ec80be0ece3596eab418ac39507954142944e34a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715319"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260482"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>在 Windows 型 HDInsight 叢集上安裝和使用 Apache Giraph
 
@@ -153,7 +153,7 @@ ms.locfileid: "53715319"
 
     ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
-## <a name="install-giraph-using-aure-powershell"></a>使用 Aure PowerShell 安裝 Giraph
+## <a name="install-giraph-using-azure-powershell"></a>使用 Azure PowerShell 安裝 Giraph
 請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。  此範例示範如何使用 Azure PowerShell 安裝 Apache Spark。 您需要自訂指令碼以使用 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)。
 
 ## <a name="install-giraph-using-net-sdk"></a>使用 .NET SDK 安裝 Giraph

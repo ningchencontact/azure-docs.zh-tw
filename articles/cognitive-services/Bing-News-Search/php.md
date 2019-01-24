@@ -8,29 +8,31 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f34f86fe7fba09bfbc5a05814fb4e39ee40c003b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: cd9dabfc7e462eace8fb8ae5d01359d19010c137
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252434"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261820"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>快速入門：使用 PHP 和 Bing 新聞搜尋 REST API 來執行新聞搜尋
 
-本文說明如何在 Azure 上使用屬於 Microsoft 認知服務的 Bing 新聞搜尋 API。 雖然本文是以 PHP 部署，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。 
+使用本快速入門來進行您對「Bing 影像搜尋 API」的第一次呼叫，並接收 JSON 回應。 這個簡單的 JavaScript 應用程式會將搜尋查詢傳送給 API，並顯示原始結果。
 
-程式碼範例已撰寫為可在 PHP 5.6 下運作。
-
-請參閱 [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)了解 API 的技術詳細資料。
+雖然此應用程式是以 PHP 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
 ## <a name="prerequisites"></a>必要條件
 
-您必須有具備 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 您需要有啟動免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
+* PHP 5.6 或更新版本
 
-## <a name="bing-news-search"></a>Bing 新聞搜尋
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
+
+另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
+
+## <a name="run-the-application"></a>執行應用程式
 
 [Bing 新聞搜尋 API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) 會從 Bing 搜尋引擎傳回新聞結果。
 
@@ -198,8 +200,4 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [將新聞分頁](paging-news.md)
-> [使用裝飾標記醒目提示文字](hit-highlighting.md)
-> [搜尋網路上的新聞](search-the-web.md)  
-> [試試看](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
-
+[建立單頁 Web 應用程式](tutorial-bing-news-search-single-page-app.md)

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad04b229e4c6ace3f87ba6e800c0a7c82eb76d92
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 10c8c0043d04d99ad10e475f903979edb0ddcb70
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633949"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266887"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>如何在 Azure 上安裝和設定 SAP HANA (大型執行個體)
 
@@ -87,7 +87,7 @@ HANA 大型執行個體單位可以連接到這個 SMT 執行個體。 (如需�
 
 根據 [SAP 支援附註 #1999997 - 常見問題集：SAP HANA 記憶體](https://launchpad.support.sap.com/#/notes/1999997/E)，已傳遞作業系統映像的交換空間會設為 2 GB。 身為客戶，如果您想要使用不同的設定，則必須自行設定。
 
-[SUSE Linux Enterprise Server 12 SP1 for SAP 應用程式](https://www.suse.com/products/sles-for-sap/hana)是針對 Azure 上的 SAP HANA (大型執行個體) 安裝的 Linux 的分佈。 這個特定的分佈提供現成 SAP 特有功能，(包括預先設定的參數，有效地在 SLES 上執行 SAP)。
+[SUSE Linux Enterprise Server 12 SP1 for SAP 應用程式](https://www.suse.com/products/sles-for-sap/download/)是針對 Azure 上的 SAP HANA (大型執行個體) 安裝的 Linux 的分佈。 這個特定的分佈提供現成 SAP 特有功能，(包括預先設定的參數，有效地在 SLES 上執行 SAP)。
 
 請參閱 SUSE 網站上的[資源程式庫/技術白皮書](https://www.suse.com/products/sles-for-sap/resource-library#white-papers)和 SAP Community Network (SCN) 上的 [SAP on SUSE](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)，以取得與在 SLES 上部署 SAP HANA 相關的有用資源 (包括高可用性的設定、SAP 作業特定的安全性強化等等)。
 
@@ -117,9 +117,9 @@ HANA 大型執行個體單位可以連接到這個 SMT 執行個體。 (如需�
 - [SAP 支援附註 #2247020 - SAP HANA DB：適用於 RHEL 6.7 的建議作業系統設定](https://launchpad.support.sap.com/#/notes/2247020)
 - [SAP 支援附註 #1391070 – Linux UUID 解決方案](https://launchpad.support.sap.com/#/notes/1391070)
 - [SAP 支援附註 #2228351 - Linux：RHEL 6 或 SLES 11 上的 SAP HANA Database SPS 11 修訂版 110 (或更新版本)](https://launchpad.support.sap.com/#/notes/2228351)
-- [SAP 支援附註 #2397039 - 常見問題集：SAP on RHEL](https://launchpad.support.sap.com/#/notes/2397039)
-- [SAP 支援附註 #1496410 - Red Hat Enterprise Linux 6.x：安裝和升級](https://launchpad.support.sap.com/#/notes/1496410)
-- [SAP 支援附註 #2002167 - Red Hat Enterprise Linux 7.x：安裝和升級](https://launchpad.support.sap.com/#/notes/2002167)
+- [SAP 支援附註 #2397039 - 常見問題集：RHEL 上的 SAP](https://launchpad.support.sap.com/#/notes/2397039)
+- [SAP 支援附註 #1496410 - Red Hat Enterprise Linux 6.x：安裝與升級](https://launchpad.support.sap.com/#/notes/1496410)
+- [SAP 支援附註 #2002167 - Red Hat Enterprise Linux 7.x：安裝與升級](https://launchpad.support.sap.com/#/notes/2002167)
 
 ### <a name="time-synchronization"></a>時間同步處理
 
@@ -201,7 +201,7 @@ S72m HANA 大型執行個體單元的 df -h 命令輸出應該像這樣：
 
 您也可以透過使用 hdbparam 架構，在安裝 SAP HANA 資料庫之後設定這些參數。 
 
-在 SAP HANA 2.0，hdbparam 架構已被取代。 因此，必須使用 SQL 命令來設定參數。 如需詳細資訊，請參閱 [SAP 附註 #2399079：在 HANA 2 中已刪除 hdbparam (英文)](https://launchpad.support.sap.com/#/notes/2399079)。
+在 SAP HANA 2.0，hdbparam 架構已被取代。 因此，必須使用 SQL 命令來設定參數。 如需詳細資訊，請參閱 [SAP 附註 #2399079：在 HANA 2 中刪除 hdbparam](https://launchpad.support.sap.com/#/notes/2399079)。
 
 若要深入了解適用於您的架構的儲存配置，請參閱 [HLI 支援案例](hana-supported-scenario.md)。
 

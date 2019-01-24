@@ -7,14 +7,14 @@ author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 81a902c6cf6b9b3491933e4bc14dc1e774185869
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726285"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305446"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>驗證 Azure 認知服務要求
 
@@ -58,6 +58,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
+以下影片將示範如何使用認知服務金鑰。 
+
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>使用多服務訂用帳戶金鑰進行驗證
 
 >[!WARNING]
@@ -66,6 +68,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 此選項也會使用訂用帳戶金鑰來驗證要求。 主要差異在於，訂用帳戶金鑰未繫結至特定服務，而是單一金鑰可用來驗證多個認知服務的要求。 如需區域可用性、支援功能和定價的詳細資訊，請參閱[認知服務定價](https://azure.microsoft.com/pricing/details/cognitive-services/)。
 
 在每個要求中，訂用帳戶金鑰提供作為 `Ocp-Apim-Subscription-Key` 標頭。
+
+[![認知服務的多服務訂用帳戶金鑰示範](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ### <a name="supported-regions"></a>支援區域
 

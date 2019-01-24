@@ -13,15 +13,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 31e675b101d903af5dd4a07fee3bc56fbc3353d9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: bb5d7306558f46f84d1f4a1b7a61332bf767479f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412783"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267040"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>重設離線 Azure VM 的本機 Windows 密碼
-您可以使用 [Azure 入口網站或 Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 在 Azure 中重設 VM 的本機 Windows 密碼 (假設已安裝 Azure 客體代理程式)。 這個方法是為 Azure VM 重設密碼的主要方式。 如果您遇到 Azure 客體代理程式沒有回應，或無法在上傳自訂映像後進行安裝等問題，您可以手動重設 Windows 密碼。 此文章將詳細說明如何將來源 OS 虛擬磁碟連接至另一部 VM，以重設本機帳戶密碼。 此文章中所述的步驟不適用於 Windows 網域控制站。 
+您可以使用 [Azure 入口網站或 Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 在 Azure 中重設 VM 的本機 Windows 密碼 (假設已安裝 Azure 客體代理程式)。 這個方法是為 Azure VM 重設密碼的主要方式。 如果您遇到 Azure 客體代理程式沒有回應，或無法在上傳自訂映像後進行安裝等問題，您可以手動重設 Windows 密碼。 本文將詳細說明如何將來源 OS 虛擬磁碟連接至另一部 VM，以重設本機帳戶密碼。 本文中所述的步驟不適用於 Windows 網域控制站。 
 
 > [!WARNING]
 > 只能使用此程序做為最後手段。 一律先嘗試使用 [Azure 入口網站或 Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 重設密碼。
@@ -37,6 +37,19 @@ ms.locfileid: "50412783"
 * 從疑難排解 VM 卸離 VM 的 OS 磁碟。
 * 使用原始虛擬磁碟，透過 Resource Manager 範本建立 VM。
 * 當新的 VM 開機時，您建立的組態檔會更新所需使用者的密碼。
+
+> [!NOTE]
+> 您無法自動進行下列程序：
+>
+> - 建立疑難排解 VM
+> - 連結作業系統磁碟
+> - 重新建立原始 VM
+> 
+> 若要這樣做，請使用 [Azure VM 復原指令碼](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md) \(英文\)。 如果您選擇使用 Azure VM 復原指令碼，您可以使用「詳細步驟」一節中的下列程序：
+> 1. 略過步驟 1 和 2，做法是使用指令碼將受影響 VM 的作業系統磁碟連結到復原 VM。
+> 2. 遵循步驟 3–6 套用緩和措施。
+> 3. 略過步驟 7 – 9，做法是使用指令碼重建 VM。
+> 4. 遵循步驟 10 和 11。
 
 ## <a name="detailed-steps"></a>詳細步驟
 
@@ -128,7 +141,7 @@ ms.locfileid: "50412783"
      
      ![選取儲存體帳戶 Blob](./media/reset-local-password-without-agent/select_storage_details.png)
      
-     選取您的來源 VM OS VHD，然後按一下 [URL] 名稱旁的 [複製] 按鈕：
+     選取您的來源 VM OS VHD，然後按一下 [URL] 名稱旁邊的 [複製] 按鈕：
      
      ![複製磁碟 URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. 從來源 VM 的 OS 磁碟建立 VM：

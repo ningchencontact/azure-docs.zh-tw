@@ -1,23 +1,23 @@
 ---
 title: 程式碼範例 - Content Moderator (C#)
 titlesuffix: Azure Cognitive Services
-description: 在應用程式中使用 Content Moderator
+description: 透過 REST API 呼叫在應用程式中使用 Content Moderator。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: sample
-ms.date: 01/10/2018
+ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: cf259842091e0b3ee6127f9139cfc325687e8676
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 92e3f087d5ec4d1233243cee381b64c6fedb3be0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343124"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264235"
 ---
-# <a name="rest-api-samples-in-c"></a>C# 中的 REST API 範例
+# <a name="content-moderator-rest-samples-in-c"></a>使用 C# 的 Content Moderator REST 範例
 
 下列清單包括使用 Azure Content Moderator API 所建置之程式碼範例的連結。
 

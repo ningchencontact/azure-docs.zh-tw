@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2434c04260c223fdcc03bc7f91a6fd147e1d8503
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616192"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264088"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -21,7 +21,7 @@ Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Window
 
 本指南摘要說明儲存體總管中常見的問題解決方案。
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>錯誤：憑證鏈結中的自我簽署憑證 (和類似錯誤)
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Error:憑證鏈結中的自我簽署憑證 (和類似錯誤)
 
 憑證錯誤是由下列兩種情況的其中一個所造成：
 
@@ -100,7 +100,7 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 如果您透過使用者介面無法移除連結的帳戶或儲存體資源，則可以刪除下列資料夾，以手動刪除連結的所有資源：
 
 * Windows：`%AppData%/StorageExplorer`
-* macOS：`/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
+* macOS：`/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux：`~/.config/StorageExplorer`
 
 > [!NOTE]

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: 8b56c338a62e88748be2a140e743c43b54da4b2d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.subservice: alerts
+ms.openlocfilehash: 1aeafa9fb2fc4d275e15d1a911adea7d3f3220dc
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259864"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467225"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure 監視器中的記錄警示
 此文章提供記錄警示的詳細資料，記錄警示是 [Azure 警示](../../azure-monitor/platform/alerts-overview.md) 內所支援的其中一種警示類型，可讓使用者使用 Azure 的分析平台來作為基礎警示。
@@ -123,3 +123,4 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 * 了解 [Azure 警示](../../azure-monitor/platform/alerts-overview.md)。
 * 深入了解 [Application Insights](../../azure-monitor/app/analytics.md)。
 * 深入了解 [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)。    
+

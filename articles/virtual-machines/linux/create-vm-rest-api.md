@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 3eeaee9bc6320231f10aa85227e2f43756181806
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 22a800e65c0f64dfa897433d1ea983006ed62250
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433475"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412184"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>透過 REST API 建立使用 SSH 驗證的 Linux 虛擬機器
 
@@ -35,7 +35,7 @@ Azure 中的 Linux 虛擬機器 (VM) 包含各種資源，例如磁碟和網路�
 在建立及提交要求之前，您需要：
 
 * 您訂用帳戶的 `{subscription-id}`
-  * 如果您有多個訂用帳戶，請參閱[使用多個訂用帳戶](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)
+  * 如果您有多個訂用帳戶，請參閱[使用多個訂用帳戶](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
 * 您事先建立的 `{resourceGroupName}`
 * 相同資源群組中的[虛擬網路介面](../../virtual-network/virtual-network-network-interface.md)
 * SSH 金鑰組 (如果您還沒有的話，可以[產生新的金鑰組](mac-create-ssh-keys.md))
@@ -63,7 +63,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 以下是用來建立要求本文的常用定義：
 
-| 名稱                       | 必要 | 類型                                                                                | 說明  |
+| Name                       | 必要 | 類型                                                                                | 說明  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | 字串                                                                              | 資源位置。 |
 | name                       |          | 字串                                                                              | 虛擬機器的名稱。 |
@@ -137,7 +137,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 建立或更新虛擬機器的作業會有兩個成功的回應：
 
-| 名稱        | 類型                                                                              | 說明 |
+| Name        | 類型                                                                              | 說明 |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 確定      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Created | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 建立時間     |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: cd55e97edb6cd0b4a2a3eceee406ce5718db8bd4
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 041cc302f05b109de2b79697dd048a6bc0752a4f
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186492"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232918"
 ---
 # <a name="using-service-map-solution-in-azure"></a>在 Azure 中使用服務對應解決方案
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以藉由服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序、輸入和輸出連線的延遲，和連接埠之間的連線。

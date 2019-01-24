@@ -8,263 +8,87 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 01/30/2018
+ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 5b3e68765fbcff12dcb5337aec38623b8994882c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 66f743273f9937902c3d39a0fc4dd2f034ab8d10
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156794"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260239"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing 新聞搜尋 SDK 來執行新聞搜尋
 
-Bing 新聞搜尋 SDK 包含用於新聞查詢以及剖析結果的 REST API 功能。 
+透過本快速入門開始使用適用於 C# 的 Bing 新聞搜尋 SDK 來搜尋新聞。 雖然 Bing 新聞搜尋具有與大部分程式設計語言相容的 REST API，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) 上找到。
 
-[C# Bing 新聞搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch)可從 Git Hub 取得。
+## <a name="prerequisites"></a>必要條件
 
-## <a name="application-dependencies"></a>應用程式相依性
-在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。  
+* 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+* [Json.NET](https://www.newtonsoft.com/json) 架構 (以 NuGet 套件形式提供)。
+* 如果您使用 Linux/MacOS，則可以使用 [Mono](http://www.mono-project.com/)來執行此應用程式。
+
+* [Bing 新聞搜尋 SDK 的 NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0)。 安裝此套件也會安裝：
+    * Microsoft.Rest.ClientRuntime
+    * Microsoft.Rest.ClientRuntime.Azure
+    * Newtonsoft.Json
 
 若要使用 Bing 新聞搜尋 SDK 來設定主控台應用程式，請在 Visual Studio 中瀏覽至 [方案總管] 中的 `Manage NuGet Packages` 選項。  新增 `Microsoft.Azure.CognitiveServices.Search.NewsSearch` 套件。
 
-安裝 [NuGet 新聞搜尋 SDK 套件](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0)也會安裝相依性，包括：
-* Microsoft.Rest.ClientRuntime
-* Microsoft.Rest.ClientRuntime.Azure
-* Newtonsoft.Json
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-## <a name="news-search-client"></a>新聞搜尋用戶端
-若要建立 `NewsSearchClient` 的執行個體，請新增 using 指示詞：
-```
-using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
+另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
-```
-然後，將用戶端具現化：
-```
-var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+## <a name="create-and-initialize-a-project"></a>建立專案並將其初始化
 
+1. 在 Visual Studio 中建立新的 C# 主控台解決方案。 然後將下列內容新增至主要程式碼檔案。
+    
+    ```csharp
+    using System;
+    using System.Linq;
+    using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
+    ```
 
-```
-使用用戶端以利用查詢文字搜尋：
-```
-var newsResults = client.News.SearchAsync(query: "Quantum  Computing", market: "en-us", count: 10).Result;
-Console.WriteLine("Search news for query \"Quantum  Computing\" with market and count");
+2. 為您的 API 金鑰建立變數 (搜尋字詞)，然後以該變數具現化新聞搜尋用戶端。
 
-```
-剖析先前查詢結果中所傳回的新聞：
-```
-if (newsResults.Value.Count > 0)
-{
-    var firstNewsResult = newsResults.Value[0];
+    ```csharp
+    var key = "YOUR-ACCESS-KEY";
+    var searchTerm = "Quantum Computing";
+    var client = new NewsSearchClient(new ApiKeyServiceClientCredentials(key));
+    ```
 
-    Console.WriteLine($"TotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
-    Console.WriteLine($"News result count: {newsResults.Value.Count}");
-    Console.WriteLine($"First news name: {firstNewsResult.Name}");
-    Console.WriteLine($"First news url: {firstNewsResult.Url}");
-    Console.WriteLine($"First news description: {firstNewsResult.Description}");
-    Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-    Console.WriteLine($"First news provider: {firstNewsResult.Provider[0].Name}");
-}
+## <a name="send-a-request-and-parse-the-result"></a>傳送要求並剖析結果
 
-else
-{
-    Console.WriteLine("Couldn't find news results!");
-}
+1. 使用用戶端將搜尋要求傳送至 Bing 新聞搜尋服務：
+    ```csharp
+    var newsResults = client.News.SearchAsync(query: searchTerm, market: "en-us", count: 10).Result;
+    ```
 
-```
-## <a name="complete-console-application"></a>完成主控台應用程式
+2. 如果傳回任何結果，請加以剖析：
 
-下列主控台應用程式會執行先前定義的查詢，並搜尋新聞中是否有 "Quantum Computing"。 要求包括 `market` 和 `count` 參數。 程式碼會驗證結果數目，並印出第一個新聞結果的 `totalEstimatedMatches`、`name`、`url`、`description`、`published time` 以及 `provider` 的 `name`。
-
-```
-using System;
-using System.Linq;
-using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
-
-namespace NewsSrchSDK
-{
-    class Program
+    ```csharp
+    if (newsResults.Value.Count > 0)
     {
-        static void Main(string[] args)
-        {
-            var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
-
-            try
-            {
-                var newsResults = client.News.SearchAsync(query: "Quantum  Computing", market: "en-us", count: 10).Result;
-                Console.WriteLine("Search news for query \"Quantum  Computing\" with market and count");
-
-                if (newsResults == null)
-                {
-                    Console.WriteLine("Didn't see any news result data..");
-                }
-                else
-                {
-                    if (newsResults.Value.Count > 0)
-                    {
-                        var firstNewsResult = newsResults.Value.First();
-
-                        Console.WriteLine($"TotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
-                        Console.WriteLine($"News result count: {newsResults.Value.Count}");
-                        Console.WriteLine($"First news name: {firstNewsResult.Name}");
-                        Console.WriteLine($"First news url: {firstNewsResult.Url}");
-                        Console.WriteLine($"First news description: {firstNewsResult.Description}");
-                        Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-                        Console.WriteLine($"First news provider: {firstNewsResult.Provider.First().Name}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find news results!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-
-            // Include these methods to run queries explained under headings following.
-            // NewsSearchWithFilters(client);
-            // NewsCategory(client);
-            // TrendingTopics(client);
-
-            Console.WriteLine("Any key to exit...");
-            Console.ReadKey();
-        }
-
+        var firstNewsResult = newsResults.Value[0];
+    
+        Console.WriteLine($"TotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
+        Console.WriteLine($"News result count: {newsResults.Value.Count}");
+        Console.WriteLine($"First news name: {firstNewsResult.Name}");
+        Console.WriteLine($"First news url: {firstNewsResult.Url}");
+        Console.WriteLine($"First news description: {firstNewsResult.Description}");
+        Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
+        Console.WriteLine($"First news provider: {firstNewsResult.Provider[0].Name}");
     }
-}
-
-```
-## <a name="recent-news-freshness-and-sortby-parameters"></a>最新 news、freshness 和 sortBy 參數
-下列程式碼使用 `freshness` 和 `sortBy` 參數來搜尋最新新聞中是否有 "Artificial Intelligence"。 它會驗證結果數目，並印出第一個新聞結果的 `totalEstimatedMatches`、`name`、`url`、`description`、`published time` 和提供者 `name`。
-```
-        public static void NewsSearchWithFilters(NewsSearchClient client)
-        {
-            try
-            {
-                var newsResults = client.News.SearchAsync(query: "Artificial Intelligence", market: "en-us", freshness: "Week", sortBy: "Date").Result;
-                Console.WriteLine("Search most recent news for query \"Artificial Intelligence\" with freshness and sortBy");
-
-                if (newsResults == null)
-                {
-                    Console.WriteLine("Didn't see any news result data..");
-                }
-                else
-                {
-                    if (newsResults.Value.Count > 0)
-                    {
-                        var firstNewsResult = newsResults.Value.First();
-
-                        Console.WriteLine($"\r\nTotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
-                        Console.WriteLine($"News result count: {newsResults.Value.Count}");
-                        Console.WriteLine($"First news name: {firstNewsResult.Name}");
-                        Console.WriteLine($"First news url: {firstNewsResult.Url}");
-                        Console.WriteLine($"First news description: {firstNewsResult.Description}");
-                        Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-                        Console.WriteLine($"First news provider: {firstNewsResult.Provider.First().Name}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find news results!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-        }
-
-```
-
-## <a name="category-news-safe-search"></a>分類新聞、安全搜尋
-下列程式碼使用安全搜尋，搜尋分類新聞中是否有電影和電視娛樂。  它會驗證結果數目，並印出第一個新聞結果的 `category`、`name`、`url`、`description`、`published time` 和提供者 `name`。
-```
-        public static void NewsCategory(NewsSearchClient client)
-        {
-            try
-            {
-                var newsResults = client.News.CategoryAsync(category: "Entertainment_MovieAndTV", market: "en-us", safeSearch: "strict").Result;
-                Console.WriteLine("Search category news for movie and TV entertainment with safe search");
-
-                if (newsResults == null)
-                {
-                    Console.WriteLine("Didn't see any news result data..");
-                }
-                else
-                {
-                    if (newsResults.Value.Count > 0)
-                    {
-                        var firstNewsResult = newsResults.Value.First();
-
-                        Console.WriteLine($"\r\nNews result count: {newsResults.Value.Count}");
-                        Console.WriteLine($"First news category: {firstNewsResult.Category}");
-                        Console.WriteLine($"First news name: {firstNewsResult.Name}");
-                        Console.WriteLine($"First news url: {firstNewsResult.Url}");
-                        Console.WriteLine($"First news description: {firstNewsResult.Description}");
-                        Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-                        Console.WriteLine($"First news provider: {firstNewsResult.Provider.First().Name}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find news results!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-        }
-
-```
-## <a name="trending-topics"></a>趨勢主題
-下列程式碼會在 Bing 中搜尋新聞趨勢主題。 它會驗證結果數目，並印出第一個新聞結果的 `name`、`text of query`、`webSearchUrl`、`newsSearchUrl` 和 `image.Url`。
-```
-        public static void TrendingTopics(NewsSearchClient client)
-        {
-            try
-            {
-                var trendingTopics = client.News.TrendingAsync(market: "en-us").Result;
-                Console.WriteLine("Search news trending topics in Bing");
-
-                if (trendingTopics == null)
-                {
-                    Console.WriteLine("Didn't see any news trending topics..");
-                }
-                else
-                {
-                    if (trendingTopics.Value.Count > 0)
-                    {
-                        var firstTopic = trendingTopics.Value.First();
-
-                        Console.WriteLine($"\r\nTrending topics count: {trendingTopics.Value.Count}");
-                        Console.WriteLine($"First topic name: {firstTopic.Name}");
-                        Console.WriteLine($"First topic query: {firstTopic.Query.Text}");
-                        Console.WriteLine($"First topic image url: {firstTopic.Image.Url}");
-                        Console.WriteLine($"First topic webSearchUrl: {firstTopic.WebSearchUrl}");
-                        Console.WriteLine($"First topic newsSearchUrl: {firstTopic.NewsSearchUrl}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Couldn't find news trending topics!");
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("Encountered exception. " + ex.Message);
-            }
-        }
-
-```
+    
+    else
+    {
+        Console.WriteLine("Couldn't find news results!");
+    }
+    Console.WriteLine("Enter any key to exit...");
+    Console.ReadKey();
+    ```
 
 ## <a name="next-steps"></a>後續步驟
 
-[認知服務 .NET SDK 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+> [!div class="nextstepaction"]
+[建立單頁 Web 應用程式](tutorial-bing-news-search-single-page-app.md)

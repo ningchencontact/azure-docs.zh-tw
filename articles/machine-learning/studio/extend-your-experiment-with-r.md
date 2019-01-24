@@ -1,26 +1,8 @@
 ---
-title: 使用 R 擴充您的實驗 - Azure Machine Learning Studio | Microsoft Docs
-description: 如何利用「執行 R 指令碼」模組，透過 R 語言擴充 Azure Machine Learning Studio 的功能。
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 2c038a45-ba4d-42ea-9a88-e67391ef8c0a
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: 74f08421de893a4fe8916a052f8a32134cd222a5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272060"
+標題：透過 R 擴展您的經驗 titleSuffix: Azure Machine Learning Studio 說明：如何利用「執行 R 指令碼」模組，透過 R 語言擴充 Azure Machine Learning Studio 的功能。
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:03/20/2017
 ---
 # <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio：透過 R 擴展您的經驗 
 您可以利用[執行 R 指令碼][execute-r-script]模組，透過 R 語言擴充 Azure Machine Learning Studio 的功能。

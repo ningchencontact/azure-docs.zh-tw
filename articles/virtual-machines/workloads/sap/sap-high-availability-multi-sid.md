@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 570c427166c07e93d3c8a7d3be079d9007238243
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 05fda1b4f71f67714b4723e15533d3555d497249
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656817"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321665"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>建立 SAP NetWeaver 多 SID 組態
 
@@ -55,7 +55,7 @@ Microsoft 在 2016 年 9 月發行的功能，可讓您使用 Azure 內部負載
 本文將著重於如何將單一 ASCS/SCS 安裝移至 SAP 多 SID 組態，方法是將其他 SAP ASCS/SCS 叢集執行個體安裝至現有 Windows Server 容錯移轉叢集 (WSFC) 叢集。 完成此程序之後，您將已設定 SAP 多 SID 叢集。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 您已經設定用於一個 SAP ASCS/SCS 執行個體的 WSFC 叢集，如 [Windows VM 上的高可用性 SAP NetWeaver 指南][sap-ha-guide]所述及如下圖所示。
 
 ![高可用性的 SAP ASCS/SCS 執行個體][sap-ha-guide-figure-6001]
@@ -72,7 +72,7 @@ Microsoft 在 2016 年 9 月發行的功能，可讓您使用 Azure 內部負載
 >一個 WSFC 叢集中 SAP ASCS/SCS 執行個體數目上限等於每個 Azure 內部負載平衡器的私人前端 IP 數目上限。
 >
 
-如需更多有關負載平衡器限制的資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager] 中的「每個負載平衡器的私人前端 IP」。
+如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager] 中的「每個負載平衡器的私人前端 IP」。
 
 具有兩個高度可用 SAP 系統的完整配置畫面如下所示：
 
@@ -208,7 +208,7 @@ foreach ($Port in $Ports) {
 
 $ILB | Set-AzureRmLoadBalancer
 
-Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
+Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
 
 ```
 在執行指令碼之後，結果會顯示在 Azure 入口網站中，如下列螢幕擷取畫面所示︰

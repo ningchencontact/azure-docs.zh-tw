@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Greenhouse 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 78ec1766-4f79-4f16-9a66-d5584c4b6151
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 14cdf0ddf648fb4441785106d3a8123d73a4bde9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 39bc573fea09654c5f87c218b1ea0fb3ece5d2bc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835891"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815203"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>教學課程：Azure Active Directory 與 Greenhouse 整合
 

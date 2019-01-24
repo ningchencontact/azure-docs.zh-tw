@@ -4,7 +4,7 @@ description: 本文章列出 Azure AD Connect 和 Azure AD Sync 的所有版本
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 780a4c5cd590b4fa1b4dd5b29fab738cb9a8bb6a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e5d98b1d10051fee6ee5299fcdd8376434109603
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608438"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469748"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。

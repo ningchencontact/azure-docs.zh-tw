@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: ad490630d3ce5d625bce05c75c20fa71a7aa2d29
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9e9c0b141987f8af563944c8eee216b8218846c
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014535"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352881"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
@@ -135,7 +135,7 @@ ms.locfileid: "54014535"
 執行下列命令，在您的 SQL 資料庫中建立預存程序：
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -302,7 +302,7 @@ END
     ![預存程序活動 - SQL 帳戶](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. 切換至 [預存程序] 索引標籤，然後執行下列步驟： 
 
-    1. 針對 [預存程序名稱]，選取 **sp_write_watermark**。 
+    1. 針對 [預存程序名稱]，選取 **usp_write_watermark**。 
     2. 若要指定預存程序參數的值，請按一下 [匯入參數]，然後輸入參數的下列值： 
 
         | Name | 類型 | 值 | 

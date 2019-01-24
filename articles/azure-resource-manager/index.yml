@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: de92f8d8be6744f7004da4cc662b31a387e8920a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9ead8d485a12a6c21b653bc6e1f8536781f762d1
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385579"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54380969"
 documentType: LandingData
 title: Azure Resource Manager 文件
 metadata:
@@ -49,6 +49,7 @@ sections:
     items:
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts">利用 Resource Manager 範本參考</a>。
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-multiple-instances">為 Azure 資源建立多個執行個體</a>。
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-move-resources">移動資源</a>。
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources">設定資源部署順序</a>。
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-conditions">使用條件</a>。
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-key-vault">整合 Azure Key Vault</a>。
@@ -57,6 +58,7 @@ sections:
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">部署 SQL 延伸模組</a>。
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-secure-artifacts">保障範本成品安全性</a>。
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/deployment-manager-tutorial">使用安全部署做法</a>。
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot">疑難排解範本部署</a>。
 - title: 範例
   items:
   - type: paragraph

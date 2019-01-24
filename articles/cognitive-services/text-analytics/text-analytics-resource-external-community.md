@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 01/14/2019
 ms.author: heidist
-ms.openlocfilehash: fbea686ba0f67cdab79f1553344bd99dd105fc00
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 139699fac1a84273174f2c3bd30da2a911de46b8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605244"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302251"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>文字分析認知服務的外部和社群內容
 
@@ -25,9 +25,9 @@ ms.locfileid: "45605244"
 
 + [Text Analytics API original announcement (Azure blog)](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/) (文字分析 API 原始宣告 (Azure 部落格))
 
-+ [Using Text Analytics Key Phrase Cognitive Services API from PowerShell (MSDN blog)](https://blogs.msdn.microsoft.com/riteshmodi/2017/03/24/text-analytics-key-phrase-cognitive-services-powershell/) (使用 PowerShell 的文字分析關鍵片語認知服務 API (MSDN 部落格))
++ [使用 PowerShell 的文字分析關鍵片語認知服務 API (AutomationNext 部落格)](https://automationnext.wordpress.com/tag/text-analytics/)
 
-+ [R Quick tip: Microsoft Cognitive Services’ Text Analytics API (R Bloggers)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/) (R 快速提示：Microsoft 認知服務的文字分析 API (R 部落客))
++ [R 快速提示：Microsoft 認知服務的文字分析 API (R 部落客)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
 
 + [Sentiment analysis in Logic App using SQL Server data (TechNet blog)](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx) (邏輯應用程式中使用 SQL Server 資料的情感分析 (TechNet 部落格))
 
@@ -49,5 +49,5 @@ ms.locfileid: "45605244"
 
 ## <a name="see-also"></a>另請參閱
 
- [StackOverflow: Azure Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)  (StackOverflow：Azure 文字分析 API)  
- [StackOverflow: Azure Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive) (StackOverflow：Azure 認知服務)
+ [StackOverflow：Azure 文字分析 API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow：Azure 認知服務](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

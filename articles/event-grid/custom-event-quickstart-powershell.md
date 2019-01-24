@@ -3,18 +3,18 @@ title: 將自訂事件傳送至 Web 端點 - 事件方格、PowerShell
 description: 使用 Azure 事件方格和 PowerShell 發佈自訂主題，以及訂閱該主題的事件。 事件是由 Web 應用程式處理。
 services: event-grid
 keywords: ''
-author: tfitzmac
-ms.author: tomfitz
+author: spelluru
+ms.author: spelluru
 ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 46278d0663cd748f88fcfa13d0688ec89a17bd89
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 002a3e3817b663807154fab595489a6fb640105d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096666"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472597"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>快速入門：使用 PowerShell 和事件方格將自訂事件路由傳送至 Web 端點
 
@@ -26,7 +26,7 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azur
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-本文需要您執行最新版本的 Azure PowerShell。 如果您需要安裝或升級，請參閱[安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)。
+本文需要您執行最新版本的 Azure PowerShell。 如果您需要安裝或升級，請參閱[安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 

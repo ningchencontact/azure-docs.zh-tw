@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 01/11/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 6a52355360ef2c892cb45af77366e09864cd7837
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: f4657209dfda2b515e29b4d462368ae6b5c1eae7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51611789"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302488"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>快速入門：使用 Visual Studio Code 建立 Azure Resource Manager 範本
 
@@ -55,7 +55,7 @@ ms.locfileid: "51611789"
 
 ## <a name="edit-the-template"></a>編輯範本
 
-若要了解如何使用 Visual Studio Code 編輯範本，您可以在 `outputs` 區段中再新增一個元素。
+若要體驗如何使用 Visual Studio Code 編輯範本，您可以在 `outputs` 區段中再新增一個元素，以顯示儲存體 URI。
 
 1. 將多一個輸出新增至已匯出的範本：
 
@@ -89,12 +89,12 @@ ms.locfileid: "51611789"
 
 ## <a name="deploy-the-template"></a>部署範本
 
-有許多方法可用來部署範本。  在本快速入門中，您會使用 Azure Cloud Shell。 Cloud Shell 支援 Azure CLI 和 Azure PowerShell。
+有許多方法可用來部署範本。  在本快速入門中，您會使用 Azure Cloud Shell。 Cloud Shell 是 Web 應用程式，無需任何設定。 其支援 Azure CLI 和 Azure PowerShell。
 
 1. 登入 [Azure Cloud Shell](https://shell.azure.com)
 
     ![Azure 入口網站的 Cloud Shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-2. 在 Cloud Shell 的左上角，它會顯示 **PowerShell** 或 **Bash**。 若要使用 CLI，您必須開啟 Bash 工作階段。 若要執行 PowerShell，您必須開啟 PowerShell 工作階段。 選取向下箭號，以在 Bash 與 PowerShell 之間切換。 請參閱上一個螢幕擷取畫面。 切換時必須重新啟動殼層。
+2. 藉由選取左上角的 **PowerShell** 或 **Bash** 來選擇您慣用的環境。 若要使用 CLI，您必須開啟 Bash 工作階段。 若要執行 Azure PowerShell，您必須開啟 PowerShell 工作階段。 選取向下箭號，以在 Bash 與 PowerShell 之間切換。 請參閱上一個螢幕擷取畫面。 切換時必須重新啟動殼層。
 3. 選取 [上傳/下載檔案]，然後選取 [上傳]。
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
@@ -107,9 +107,9 @@ ms.locfileid: "51611789"
     
     ---
 
-    您必須先上傳範本檔案，才能從殼層加以部署。
-5. 選取您在前一節中儲存的檔案。 預設名稱為 **azuredeploy.json**。
-6. 從 Cloud Shell 執行 **ls** 命令，以確認已成功上傳檔案。 您也可以使用 **cat** 命令來確認範本內容。 下圖顯示從 Bash 執行命令的情形。  您從 PowerShell 工作階段使用相同的命令。
+    選取您在前一節中儲存的檔案。 預設名稱為 **azuredeploy.json**。 範本檔案必須能夠從殼層中存取。
+
+    您可以選擇性地使用 **ls** 命令和 **cat** 命令來確認檔案是否已成功上傳。 
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
 
@@ -120,7 +120,7 @@ ms.locfileid: "51611789"
     ![Azure 入口網站的 Cloud Shell 列出檔案](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
     
     ---
-7. 從 Cloud Shell 執行下列命令。 選取要顯示 PowerShell 程式碼或 CLI 程式碼的索引標籤。
+4. 從 Cloud Shell 執行下列命令。 選取要顯示 PowerShell 程式碼或 CLI 程式碼的索引標籤。
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```azurecli
@@ -163,7 +163,7 @@ ms.locfileid: "51611789"
 
     outputs 區段中的儲存體帳戶名稱和儲存體 URL 會在螢幕擷取畫面上醒目提示。 您在下一個步驟中需要此儲存體帳戶名稱。
 
-7. 執行下列 CLI 或 PowerShell 命令，以列出新建立的儲存體帳戶：
+5. 執行下列 CLI 或 PowerShell 命令，以列出新建立的儲存體帳戶：
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```azurecli
@@ -183,6 +183,8 @@ ms.locfileid: "51611789"
     ```
     
     ---
+
+若要深入了解使用 Azure 儲存體帳戶的相關資訊，請參閱[快速入門：使用 Azure 入口網站上傳、下載及列出 Blob](../storage/blobs/storage-quickstart-blobs-portal.md)。
 
 ## <a name="clean-up-resources"></a>清除資源
 

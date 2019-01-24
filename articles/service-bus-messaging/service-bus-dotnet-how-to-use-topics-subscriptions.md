@@ -3,23 +3,23 @@ title: 開始使用 Azure 服務匯流排主題和訂用帳戶 | Microsoft Docs
 description: 撰寫使用服務匯流排傳訊主題和訂用帳戶的 C# .NET Core 主控台應用程式。
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 09/03/2018
-ms.author: spelluru
-ms.openlocfilehash: d48d658883324637e1026ac00312ade86ccc1400
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 535dd04efd9f150365b24ae175ee90fbb247305f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230575"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846671"
 ---
 # <a name="get-started-with-service-bus-topics"></a>開始使用服務匯流排主題
 

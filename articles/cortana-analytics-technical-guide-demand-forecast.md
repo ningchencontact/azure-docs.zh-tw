@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d055b6775c9c788ecbb3a868055fa2402a537a83
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427058"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231167"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>能源需求預測之 Cortana Intelligence 解決方案範本的技術指南
 ## <a name="overview"></a>**概觀**
@@ -163,7 +163,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 
 1. 在 Azure 串流分析 (ASA) 中加入 Power BI 輸出。
 
-   * 您必須依照 [Azure 串流分析及 Power BI：適用於串流資料即時可見度的即時分析儀表板](stream-analytics/stream-analytics-power-bi-dashboard.md)中的指示，將 Azure 串流分析作業的輸出設定為 Power BI 儀表板。
+   * 您需要遵照 [Azure 串流分析與 Power BI：適用於串流資料即時可見度的即時分析儀表板](stream-analytics/stream-analytics-power-bi-dashboard.md)中的指示，將 Azure 串流分析作業的輸出設定為 Power BI 儀表板。
    * 找出 [Azure 入口網站](https://portal.azure.com)中的串流分析作業。 作業名稱應該是︰您的解決方案名稱+"streamingjob"+隨機數字+"asapbi" (也就是 demostreamingjob123456asapbi)。
    * 針對 ASA 工作加入 PowerBI 輸出。 將 [輸出別名] 設定為 **‘PBIoutput’**。 將 [資料集名稱] 和 [資料表名稱] 命名為 **‘EnergyStreamData’**。 新增了輸出之後，按一下頁面底部的 [啟動]  以啟動串流分析作業。 您應該會收到確認訊息 (例如，「串流分析作業 myteststreamingjob12345asablob 啟動成功」)。
 2. 登入 [Power BI 線上版](https://www.powerbi.com)
@@ -200,7 +200,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 2. 更新冷路徑 Power BI 檔案的資料來源
 
    * 確定您已安裝最新版本的 [Power BI Desktop](https://powerbi.microsoft.com/desktop)。
-   * 在您下載的 **"DemandForecastingDataGeneratorv1.0"** 資料夾中，按兩下 **‘Power BI Template\DemandForecastPowerBI.pbix’** 檔案。 初始的視覺效果是根據虛擬資料所形成。 **注意：** 如果您看到錯誤訊息，請確定您已安裝最新版本的 Power BI Desktop。
+   * 在您下載的 **"DemandForecastingDataGeneratorv1.0"** 資料夾中，按兩下 **‘Power BI Template\DemandForecastPowerBI.pbix’** 檔案。 初始的視覺效果是根據虛擬資料所形成。 **附註：** 如果您看到錯誤訊息，請確定您已安裝最新版本的 Power BI Desktop。
 
      一旦開啟，請在檔案的頂端按一下 [編輯查詢] 。 在快顯視窗中，按兩下右面板上的 [來源]。
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic1.png)
@@ -218,7 +218,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 4. (選擇性) 排程資料來源的重新整理。
 
    * 若要排程資料的重新整理，請將滑鼠移到 **EnergyBPI-Final** 資料集，按一下 ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic3.png)，然後選擇 [排程重新整理]。
-     **附註：** 如果您看到警告訊息，請按一下 [編輯認證]，並確定您的資料庫認證與步驟 1 中所述相同。
+     **附註：** 如果看到警告訊息，請按一下 [編輯認證]，並確定您的資料庫認證與步驟 1 中所述相同。
 
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic4.png)
    * 展開 **排程重新整理** 一節。 開啟「將您的資料保持最新」。

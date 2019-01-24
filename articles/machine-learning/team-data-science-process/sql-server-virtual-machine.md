@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d14f03be3f6d62c201218f5073ba9af61765f55c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6b2890e90fd0a4d66ff8f62c6645584509eb0b29
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136438"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446896"
 ---
 # <a name="heading"></a>在 Azure 上處理 SQL Server 虛擬機器中的資料
 本文件涵蓋如何探索資料及如何針對儲存於 Azure 上之 SQL Server VM 中的資料產生功能。 使用 SQL整理資料或使用 Python 這類程式設計語言，即可完成此動作。
@@ -132,7 +132,7 @@ ms.locfileid: "53136438"
 Python 中的 [Pandas 程式庫](http://pandas.pydata.org/) 提供一組豐富的資料結構和資料分析工具，可用來對 Python 程式設計進行資料操作。 下列程式碼會將從 SQL Server 資料庫傳回的結果讀取至 Pandas 資料框架：
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
+    data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 
 現在您可以利用[在資料科學環境中處理 Azure Blob 資料](data-blob.md)一文中說明的方式來使用 Pandas 資料框架。
 

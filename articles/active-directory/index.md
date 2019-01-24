@@ -6,25 +6,137 @@ description: Azure Active Directory (Azure AD) 是 Microsoft 的多租用戶雲�
 services: active-directory
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
-ms.date: 11/30/2018
+ms.date: 01/16/2019
 ms.author: mtillman
-ms.openlocfilehash: 38efd682c530e79bdea3747bd6f14faa10d399c4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5984ff3547a30a7140f34f89660787d00063d302
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723341"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472971"
 ---
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure Active Directory 文件</h1>
-        <p>Azure Active Directory (Azure AD) 是多租用戶雲端式目錄和身分識別管理服務。</p>
-        <hr style="margin: 30px 0;" />
+        <p>Azure Active Directory (Azure AD) 是多租用戶雲端式目錄和身分識別管理服務。</p><p></p>
+        <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
+            <li>
+                <a href="fundamentals/active-directory-whatis.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_overview.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>什麼是 Azure AD？</h3>
+                                <p>深入了解 Azure Active Directory，包括可用的授權類型和相關聯的功能類型。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/add-custom-domain.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_get-started.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>新增自訂網域名稱</h3>
+                                <p>了解如何新增貴組織的網域名稱來建立熟悉的使用者名稱。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/customize-branding.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>新增公司商標</h3>
+                                <p>了解如何將貴組織的標誌和色彩配置新增至您的 Azure AD 登入頁面。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/add-users-azure-active-directory.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>建立群組和新增成員</h3>
+                                <p>了解如何建立基本群組以及如何新增或移除成員。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>將角色指派給使用者</h3>
+                                <p>了解如何根據所需要的權限角色，指派及移除使用者。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="/learn/modules/secure-azure-resources-with-conditional-access/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>學習</h3>
+                                <p>了解如何使用條件式存取來保護您的 Azure 資源</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+        </ul>
         <ul class="pivots">
             <li>
                 <a href="#products"></a>
@@ -35,59 +147,6 @@ ms.locfileid: "52723341"
                             <li class="fullSpan">
                                 <a href="#index1" data-linktype="self-bookmark"></a>
                                 <ul class="cardsF cols cols4" id="index1" style="float: left; display: flex; width: 100%; border-bottom: 1px var(--grey-lighter) solid;">  
-                                    <li>
-                                        <ul class="cardsB panelContent" id="cardtypes-B" style="float: left; display: flex; width: 100%;">
-                                            <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="fundamentals/index.yml">了解基礎知識</a></h3> 
-                                                                    <p>
-                                                                        <a href="fundamentals/active-directory-whatis.md">什麼是 Azure AD？</a><br>
-                                                                        <a href="fundamentals/add-custom-domain.md">新增自訂網域名稱</a><br>
-                                                                        <a href="fundamentals/customize-branding.md">新增公司商標</a><br>
-                                                                        <a href="fundamentals/add-users-azure-active-directory.md">建立群組和新增成員</a><br>
-                                                                        <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">將角色指派給使用者</a><br>
-                                                                        <a href="fundamentals/active-directory-how-subscriptions-associated-directory.md">與 Azure 訂用帳戶建立關聯</a><br>
-                                                                        <a href="fundamentals/index.yml"><i>更多資訊 &gt;</i></a>
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="/learn/">透過 Microsoft Learn 增進您的技巧</a></h3> 
-                                                                    <p>
-                                                                        <a href="/learn/modules/secure-azure-resources-with-conditional-access/">透條件式存取保護 Azure 資源</a><br>
-                                                                        <a href="/learn/browse/?products=azure-active-directory"><i>更多互動式學習 &gt;</i></a><br>
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li>
                                         <div class="cardSize">
                                             <div class="cardPadding">
@@ -125,13 +184,6 @@ ms.locfileid: "52723341"
                                                             <a href="/azure/active-directory-b2c/index"><i>更多資訊 &gt;</i></a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="conditional-access/index.yml">條件式存取</a></h3>
-                                                        <p>
-                                                            <a href="conditional-access/overview.md">何謂條件式存取？</a><br>
-                                                            <a href="conditional-access/app-based-mfa.md">特定應用程式需要 MFA</a><br>
-                                                            <a href="conditional-access/location-condition.md">以位置為基礎的條件</a><br>
-                                                            <a href="conditional-access/index.yml"><i>更多資訊 &gt;</i></a>
-                                                            </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,7 +194,15 @@ ms.locfileid: "52723341"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="develop/index.yml">開發人員</a></h3>
+                                                        <h3><a href="conditional-access/index.yml">條件式存取</a></h3>
+                                                        <p>
+                                                            <a href="conditional-access/overview.md">何謂條件式存取？</a><br>
+                                                            <a href="conditional-access/app-based-mfa.md">特定應用程式需要 MFA</a><br>
+                                                            <a href="conditional-access/location-condition.md">以位置為基礎的條件</a><br>
+                                                            <a href="conditional-access/index.yml"><i>更多資訊 &gt;</i></a>
+                                                            </p>
+                                                        <br><br>
+                                                           <h3><a href="develop/index.yml">開發人員</a></h3>
                                                         <p>
                                                             <a href="develop/about-microsoft-identity-platform.md">關於 Microsoft 身分識別平台</a><br>
                                                             <a href="develop/v2-oauth2-auth-code-flow.md">OAuth 2.0 程式碼流程授與</a><br>
@@ -166,6 +226,16 @@ ms.locfileid: "52723341"
                                                             <a href="/azure/active-directory-domain-services/index"><i>更多資訊 &gt;</i></a>
                                                         </p>
                                                         <br><br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
                                                         <h3><a href="users-groups-roles/index.yml">企業使用者</a></h3>
                                                         <p>
                                                             <a href="users-groups-roles/groups-create-rule.md">建立動態群組</a><br>
@@ -181,16 +251,7 @@ ms.locfileid: "52723341"
                                                             <a href="hybrid/how-to-connect-install-custom.md">Azure AD Connect 自訂安裝</a><br>
                                                             <a href="hybrid/index.yml"><i>更多資訊 &gt;</i></a>
                                                         </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
+                                                        <br><br>
                                                         <h3><a href="governance/index.yml">身分識別治理</a></h3>
                                                         <p>
                                                             <a href="governance/create-access-review.md">建立存取權檢閱</a><br>
@@ -206,8 +267,17 @@ ms.locfileid: "52723341"
                                                             <a href="identity-protection/howto-unblock-user.md">如何將使用者解除封鎖</a><br>
                                                             <a href="identity-protection/index.yml"><i>更多資訊 &gt;</i></a>
                                                         </p>
-                                                        <br><br>
-                                                        <h3><a href="managed-identities-azure-resources/index.yml">適用於 Azure 資源的受控識別</a></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3><a href="privileged-identity-management/index.yml">適用於 Azure 資源的受控識別</a></h3>
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">使用 Windows VM 存取 Azure SQL</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md"> Azure VM 取得權杖</a><br>

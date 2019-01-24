@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Predictix Ordering �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 2fe2f976-e97f-4368-9695-3e1624409e8b
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: f805fde861413fe84f1ad15ade1ce2923a9531ce
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7dadb3f8680acee0c67e03ad719826f93c8486ae
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011720"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809018"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>教學課程：Azure Active Directory 與 Predictix Ordering 整合
 

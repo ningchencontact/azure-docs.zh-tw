@@ -2,20 +2,22 @@
 title: Azure SQL Database 的資料表稽核、TDS 重新導向及 IP 端點 | Microsoft Docs
 description: 了解在 Azure SQL Database 中實作資料表稽核時的稽核、TDS 重新導向及 IP 端點變更。
 services: sql-database
-author: giladm
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: giladm
+author: ronitr
+ms.author: ronitr
 ms.reviewer: vanto
-ms.openlocfilehash: 9fcb070f41d699cef3ef11ba9b8feb6cdfd83ae5
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 607351718ddffbea5fa4dbbae333d81aac230f9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541209"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258946"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - 資料表稽核的舊版用戶端支援與 IP 端點變更
 
@@ -41,7 +43,7 @@ ms.locfileid: "45541209"
 * JDBC (雖然 JDBC 支援 TDS 7.4，但並未完整支援 TDS 重新導向功能)
 * Tedious (適用於 Node.JS)
 
-**備註：** 上述伺服器 FDQN 修改可能會對於套用 SQL Server 層級稽核原則有所助益，不需要每個資料庫中的組態步驟 (暫存緩和)。
+**備註：** 上述伺服器 FQDN 修改可能會對於套用 SQL Server 層級稽核原則有所助益，不需要每個資料庫中的組態步驟 (暫存緩和)。
 
 ## <a id="subheading-2"></a>啟用稽核的 IP 端點變更
 請注意，當您啟用「資料表稽核」時，您資料庫的 IP 端點將會變更。 如果您有嚴格的防火牆設定，請適當更新這些防火牆設定。

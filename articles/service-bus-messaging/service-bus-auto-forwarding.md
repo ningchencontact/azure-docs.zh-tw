@@ -3,23 +3,23 @@ title: 自動轉送 Azure 服務匯流排傳訊實體 | Microsoft Docs
 description: 如何將服務匯流排佇列或訂用帳戶鏈結至另一個佇列或主題。
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 608510f76d54cc5f3e10587a6f9d1306612672ad
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 8b51a4b8690d2184223bf33c7e863287de431d62
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391092"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853148"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>使用自動轉寄鏈結服務匯流排實體
 
@@ -37,7 +37,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 建立來源實體的時候，目的地實體必須存在。 如果目的地實體不存在，服務匯流排會在被要求建立來源實體時傳回例外狀況。
 
-您可以使用自動轉寄來相應放大個別主題。 服務匯流排會將[特定主題的訂用帳戶數目](service-bus-quotas.md)限制為 2,000。 您可以透過建立第二層主題來容納其他訂用帳戶。 即使您不受服務匯流排訂用帳戶數目限制約束，但新增第二層主題可以改善主題的整體輸送量。
+您可以使用自動轉寄來相應放大個別主題。 服務匯流排會將[特定主題的訂用帳戶數目](service-bus-quotas.md)限制為 2,000。 您可以藉由建立第二層主題來容納其他訂用帳戶。 即使您不受服務匯流排訂用帳戶數目限制約束，但新增第二層主題可以改善主題的整體輸送量。
 
 ![自動轉寄案例][0]
 

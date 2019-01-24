@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 963960657fb8c16307dbf062c0b16cd74a4a7b3f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 3caf838fec3a5c0ab847ded85b269df7a66859e0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101712"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266740"
 ---
 # <a name="advisor-performance-recommendations"></a>建議程式效能建議
 
@@ -32,7 +32,7 @@ Azure Advisor 會識別設定較長 TTL 的流量管理員設定檔，並且建�
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>使用 SQL DB Advisor 來改善資料庫效能
 
-建議程式可針對所有的 Azure 資源提供一致的合併建議檢視。 它會與 SQL Database 建議程式整合，以提供改善 SQL Azure 資料庫效能的相關建議。 SQL Database 建議程式會藉由分析您的使用歷程記錄來評估 SQL Azure 資料庫的效能。 接著會提供最適合用於執行資料庫之一般工作負載的建議事項。 
+建議程式可針對所有的 Azure 資源提供一致的合併建議檢視。 它會與 SQL Database 建議程式整合，以提供改善 SQL Azure 資料庫效能的相關建議。 SQL Database 建議程式會藉由分析您的使用歷程記錄來評估 SQL Azure 資料庫的效能。 接著會提供最適合用於執行資料庫之一般工作負載的建議事項。
 
 > [!NOTE]
 > 若要取得建議，資料庫必須持續使用一週，而且那一週之內必須有一些一致的活動。 相較於隨機蹦出的活動，一致的查詢模式更有利於 SQL Database Advisor 最佳化。
@@ -43,7 +43,7 @@ Azure Advisor 會識別設定較長 TTL 的流量管理員設定檔，並且建�
 
 Azure 建議程式整合了最佳作法建議，以供提升應用程式服務體驗和探索相關的平台功能。 應用程式服務建議的範例如下︰
 * 偵測應用程式執行階段與緩和選項已耗盡記憶體或 CPU 資源的執行個體。
-* 偵測共置資源 (如 Web 應用程式和資料庫) 可改善效能並降低成本的執行個體。 
+* 偵測共置資源 (如 Web 應用程式和資料庫) 可改善效能並降低成本的執行個體。
 
 如需應用程式服務建議的詳細資訊，請參閱 [Azure App Service 的最佳作法](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)。
 
@@ -75,7 +75,10 @@ Advisor 會識別不是複寫資料表、但可因轉換而受益的資料表，
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>將儲存體帳戶移轉至 Azure Resource Manager 以取得所有最新的 Azure 功能
 
-將儲存體帳戶部署模型移轉到 Azure Resource Manager (ARM)，可使用範本部署、其他安全性選項，以及可升級至 GPv2 帳戶，以利用 Azure 儲存體的最新功能。 Advisor 會識別任何使用傳統部署模型的獨立儲存體帳戶，並建議移轉至 ARM 部署模型。 
+將儲存體帳戶部署模型移轉到 Azure Resource Manager (ARM)，可使用範本部署、其他安全性選項，以及可升級至 GPv2 帳戶，以利用 Azure 儲存體的最新功能。 Advisor 會識別任何使用傳統部署模型的獨立儲存體帳戶，並建議移轉至 ARM 部署模型。
+
+> [!NOTE]
+> Azure 監視器中的傳統警示已宣布於 2019 年 6 月淘汰，建議您將傳統儲存體帳戶升級為 ARM，以在新平台上保留警示功能。 如需詳細資訊，請參閱[傳統警示洶汰](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)。
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>如何在建議程式中存取效能建議
 
@@ -92,4 +95,3 @@ Advisor 會識別不是複寫資料表、但可因轉換而受益的資料表，
 * [Advisor 成本建議](advisor-performance-recommendations.md)
 * [Advisor 高可用性建議](advisor-high-availability-recommendations.md)
 * [Advisor 安全性建議](advisor-security-recommendations.md)
-

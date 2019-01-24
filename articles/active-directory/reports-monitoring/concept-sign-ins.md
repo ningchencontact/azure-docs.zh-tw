@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5607dd0f3c682915f1a64edcc5e946491bab5279
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e1b1102594e7e4470c08cb0f18068dd368c0fe7a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653351"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245084"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告
 
@@ -44,7 +44,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 * 此外，任何使用者 (非系統管理員) 都可以存取自己的登入 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>您需要哪項 Azure AD 授權才能存取登入活動？
-* 租用戶必須要有相關聯的 Azure AD Premium 授權，才能查看活動報告中的所有登入。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 來升級 Azure Active Directory 版本。
+* 租用戶必須要有相關聯的 Azure AD Premium 授權，才能查看活動報告中的所有登入。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 來升級 Azure Active Directory 版本。 請注意，如果您在升級前沒有任何活動資料，則在升級至進階授權之後，報告需要幾天的時間才會顯示出資料。
 
 ## <a name="sign-ins-report"></a>登入報告
 
@@ -54,7 +54,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 * 一週內有多少使用者登入？
 * 這些登入的狀態為何？
 
-您可以藉由在 [Azure入口網站](https://portal.azure.com)的 [Azure Active Directory] 刀鋒視窗中，選取 [活動] 區段的 [登入]，來存取登入報告。
+您可以藉由在 [Azure入口網站](https://portal.azure.com)的 [Azure Active Directory] 刀鋒視窗中，選取 [活動] 區段的 [登入]，來存取登入報告。 請注意，最多可能需要兩個小時，入口網站中才會出現一些登入記錄。
 
 ![登入活動](./media/concept-sign-ins/61.png "登入活動")
 
@@ -233,6 +233,12 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 [登入]  選項會提供您的應用程式的所有登入事件的完整概觀。
 
 ![登入活動](./media/concept-sign-ins/11.png "登入活動")
+
+## <a name="office-365-activity-logs"></a>Office 365 活動記錄
+
+您可以從 [Office 365 系統管理中心](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)檢視 Office 365 活動記錄。 雖然 Office 365 活動和 Azure AD 活動記錄共用許多目錄資源，但只有 Office 365 系統管理員中心提供 Office 365 活動記錄的完整檢視。 
+
+您也可以透過使用 [Office 365 管理 API](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview)，以程式設計的方式存取 Office 365 活動記錄。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -3,18 +3,18 @@ title: 在 Azure 自動化中編輯文字式 Runbook
 description: 本文提供使用文字式編輯器在 Azure 自動化中使用 PowerShell 和 PowerShell 工作流程 Runbook 的不同程序。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b17fc82d6e9cbda6ffa94ac2ee5c97835b089a7e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: cbe13c9167ebccdd55d54ddd99ba11c6d58b01e8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399714"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429928"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>在 Azure 自動化中編輯文字式 Runbook
 
@@ -103,3 +103,4 @@ Publish-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $auto
 * [認證](automation-credentials.md)
 * [排程](automation-schedules.md)
 * [變數](automation-variables.md)
+

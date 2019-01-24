@@ -3,25 +3,25 @@ title: Azure 自動化中的憑證資產
 description: 憑證可以安全地儲存在 Azure 自動化中，使得 Runbook 或 DSC 組態可以存取憑證，以向 Azure 和協力廠商資源進行驗證。  這篇文章說明憑證的詳細資料，以及如何以文字和圖形化編寫形式加以使用。
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7aeb9a9557694f8773af4fe67f47950bf82afe87
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 714bf5f915cb588a99552a8bbbc5ffa76aa16846
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621406"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426126"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure 自動化中的憑證資產
 
 憑證可以安全地儲存在 Azure 自動化中，使得 Runbook 或 DSC 組態可以透過使用 Azure Resource Manager 資源的 **Get-AzureRmAutomationCertificate** 活動來存取憑證。 這個功能可讓您建立使用憑證進行驗證的 Runbook 和 DSC 設定，或將它們新增至 Azure 或協力廠商資源。
 
 >[!NOTE]
->Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一金鑰儲存在 Azure 自動化中。 此金鑰會儲存在 Key Vault 中。 在儲存安全資產之前，系統會從 Key Vault 載入金鑰，然後用來加密資產。
+>Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一金鑰儲存在 Azure 自動化中。 此金鑰會儲存在系統管理的 Key Vault 中。 在儲存安全資產之前，系統會從 Key Vault 載入金鑰，然後用來加密資產。 此程序是由 Azure 自動化所管理。
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell Cmdlet
 針對 AzureRM，下表中的 Cmdlet 可透過 Windows PowerShell 來建立和管理自動化認證資產。 它們附屬於 [AzureRM.Automation 模組](/powershell/azure/overview)，而此模組可供在自動化 Runbook 和 DSC 設定中使用。
@@ -121,3 +121,4 @@ print cert
 ## <a name="next-steps"></a>後續步驟
 
 - 若要深入了解使用連結控制您的 Runbook 設計用來執行的活動之邏輯流程，請參閱[圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)。 
+

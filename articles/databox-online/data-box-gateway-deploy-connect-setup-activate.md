@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5e83eb46a4d62c6aaf0862d4bb1aa046c5d64dde
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 02780a9e9702a41f677595d74b9861ea6a51b572
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120508"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260425"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>教學課程：連線、設定、啟用 Azure 資料箱閘道 (預覽) 
 
@@ -94,7 +94,7 @@ ms.locfileid: "54120508"
    
    在 [Web Proxy]  頁面中：
    
-   1. 以下列格式提供 **Web Proxy URL**：「 http://&lt;host-IP 位址」或「FDQN&gt;:連接埠號碼」。 請注意，此處不支援 HTTPS URL。
+   1. 以此格式提供 **Web Proxy URL**：「 http://&lt;主機 IP 位址或 FQDN&gt;:連接埠號碼」。 請注意，此處不支援 HTTPS URL。
    2. 將 [驗證] 指定為 [基本] 或 [無]。
    3. 如果要使用驗證功能，您也必須提供 [使用者名稱] 和 [密碼]。
    4. 按一下 [套用]。 這將會驗證並套用您設定的 Web Proxy 設定。

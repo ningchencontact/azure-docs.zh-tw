@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4de4a5a659f38577c1261b169a43df560bf05495
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cd84948b5895a628fc94cc2946156d9fa2284369
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971261"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352309"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>設定 Azure VPN 閘道的 OpenVPN 用戶端 (預覽)
 
@@ -72,6 +72,10 @@ ms.locfileid: "52971261"
 7. 按兩下設定檔檔案以在 Tunnelblik 中建立設定檔。
 8. 從應用程式資料夾啟動 Tunnelblik。
 9. 按一下系統匣中的 Tunnelblik 圖示並挑選連線。
+
+> [!IMPORTANT]
+>OpenVPN 通訊協定僅支援 iOS 11.0 和更新版本以及 MacOS 10.13 和更新版本。
+>
 
 ## <a name="linux"></a>Linux 用戶端
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 181f37fb72584e18cc963ba1ffde070379a1b0c6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 12d5c2448bc6a5241f6aa4e283acdf9c5a0f602a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961410"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265646"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>使用 ASDK 來驗證 Azure Stack 備份
 部署 Azure Stack 及佈建使用者資源 (例如供應項目、方案、配額和訂用帳戶) 之後，您應該[啟用 Azure Stack 基礎結構備份](../azure-stack-backup-enable-backup-console.md)。 排程及執行定期基礎結構備份，可確保在發生重大硬體或服務失敗時不會遺失基礎結構管理資料。

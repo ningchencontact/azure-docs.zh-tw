@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: cea5cb924914cff1195520d6bd28a8b62fce8698
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049957"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264405"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>將來自 Azure 監視器的資料視覺化
 本文會概要介紹用以將儲存在 Azure 監視器中的記錄和計量資料視覺化的可用方法。
@@ -32,7 +32,7 @@ ms.locfileid: "54049957"
 ### <a name="advantages"></a>優點
 - 深入整合至 Azure。 可將各種視覺效果釘選到多個 Azure 頁面的儀表板，包括計量分析、記錄分析和 Application Insights。
 - 支援計量和記錄。
-- 可結合來自多個來源的資料，包括來自[計量瀏覽器](../azure-monitor/platform/metrics-charts.md)、[Log Analytics 查詢](../azure-monitor/log-query/log-query-overview.md)以及 Application Insights 中的[對應](../azure-monitor/app/app-map.md)和[可用性]()的輸出結果。
+- 可結合來自多個來源的資料，包括來自[計量瀏覽器](../azure-monitor/platform/metrics-charts.md)、[Log Analytics 查詢](../azure-monitor/log-query/log-query-overview.md)以及 Application Insights 中[對應](../azure-monitor/app/app-map.md)和可用性的輸出結果。
 - 個人或共用儀表板的選項。 與 Azure [角色型驗證 (RBAC)](../role-based-access-control/overview.md) 整合。
 - 自動重新整理。 計量的重新整理端看時間範圍而定，最少五分鐘。 記錄每一分鐘就會重新整理一次。
 - 使用時間戳記和自訂參數以參數化計量儀表板。

@@ -3,18 +3,18 @@ title: 將 Azure 自動化作業資料轉送到 Log Analytics
 description: 本文示範如何將作業狀態和 Runbook 作業串流傳送到 Azure Log Analytics，以提供額外的深入解析和管理。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8a1f7e367b3f8f06e33bbcd11f8090c9578c1d30
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0125c64a96929db9c8846ca7ad731fa3dc795f98
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269561"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432960"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>從「自動化」將工作狀態和工作資料流轉送到 Log Analytics
 
@@ -183,3 +183,4 @@ Log Analytics 可以為您的自動化作業提供更高的操作可見性，並
 * 若要了解如何從 Runbook 建立及擷取輸出與錯誤訊息，請參閱 [Runbook 輸出與訊息](automation-runbook-output-and-messages.md)。
 * 若要深入了解 Runbook 執行方式、如何監視 Runbook 作業，以及其他技術性詳細資料，請參閱[追蹤 Runbook 作業](automation-runbook-execution.md)。
 * 若要深入了解 Log Analytics 和資料收集來源，請參閱[在 Log Analytics 中收集 Azure 儲存體資料概觀](../azure-monitor/platform/collect-azure-metrics-logs.md)。
+

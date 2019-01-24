@@ -13,12 +13,12 @@ caps.latest.revision: 55
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 2e487bd3fda787cf9f869cc352de4c97d5c1678b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 90a11c5bb81a0d29f5f8a1c1696732453aa4b1ab
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002172"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331686"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure 雲端服務定義 WorkerRole 結構描述
 Azure 背景工作角色是適用於一般開發的角色，並可為 Web 角色執行背景處理。
@@ -41,11 +41,11 @@ Azure 背景工作角色是適用於一般開發的角色，並可為 Web 角色
       <InputEndpoint name="<input-endpoint-name>" protocol="[http|https|tcp|udp]" localPort="<local-port-number>" port="<port-number>" certificate="<certificate-name>" loadBalancerProbe="<load-balancer-probe-name>" />
       <InternalEndpoint name="<internal-endpoint-name" protocol="[http|tcp|udp|any]" port="<port-number>">
          <FixedPort port="<port-number>"/>
-         <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>
+         <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>
       </InternalEndpoint>
      <InstanceInputEndpoint name="<instance-input-endpoint-name>" localPort="<port-number>" protocol="[udp|tcp]">
          <AllocatePublicPortFrom>
-            <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>
+            <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>
          </AllocatePublicPortFrom>
       </InstanceInputEndpoint>
     </Endpoints>
@@ -210,7 +210,7 @@ Azure 背景工作角色是適用於一般開發的角色，並可為 Web 角色
 |連接埠|int|必要。 外部端點的連接埠。 您可以指定所選擇的任何通訊埠編號，但服務中每個角色指定的連接埠號碼必須是唯一的。<br /><br /> 可能的值範圍介於 1 到 65535 (含) (Azure SDK 1.7 版或更高版本)。|
 |憑證|字串|HTTPS 端點的必要項。 `Certificate` 元素所定義的憑證名稱。|
 |localPort|int|選用。 指定用於端點上內部連線的通訊埠。 `localPort` 屬性會將端點上的外部連接埠對應至角色上的內部連接埠。 這對於一個角色必須與不同於對外連接埠之連接埠上的內部元件通訊的情節很有用。<br /><br /> 如果未指定，`localPort` 的值會與 `port` 屬性相同。 將 `localPort` 的值設定為 “*”，可使用執行階段 API 自動指派可探索的未配置連接埠。<br /><br /> 可能的值範圍介於 1 到 65535 (含) (Azure SDK 1.7 版或更高版本)。<br /><br /> 在使用 Azure SDK 1.3 版或更新版本時，才能使用 `localPort` 屬性。|
-|ignoreRoleInstanceStatus|布林值|選用。 當這個屬性的值設定為 `true` 時，就會忽略服務的狀態，且負載平衡器不會移除端點。 將此值設定為 `true` 適用於服務的偵錯忙碌執行個體。 預設值為 `false`。 **注意：** 即使角色不是處於就緒狀態，端點仍可以接收流量。|
+|ignoreRoleInstanceStatus|布林值|選用。 當這個屬性的值設定為 `true` 時，就會忽略服務的狀態，且負載平衡器不會移除端點。 將此值設定為 `true` 適用於服務的偵錯忙碌執行個體。 預設值為 `false`。 **附註：** 即使角色不是處於就緒狀態，端點仍可以接收流量。|
 |loadBalancerProbe|字串|選用。 與輸入端點相關聯之負載平衡器探查的名稱。 如需詳細資訊，請參閱 [LoadBalancerProbe 結構描述](schema-csdef-loadbalancerprobe.md)。|
 
 ##  <a name="InternalEndpoint"></a> InternalEndpoint

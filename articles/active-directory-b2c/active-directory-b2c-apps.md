@@ -3,19 +3,19 @@ title: 可以在 Azure Active Directory B2C 中使用的應用程式類型 | Mic
 description: 了解您可以在 Azure Active Directory B2C 中使用的應用程式類型。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 01/11/2019
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: acb99468000028abd3a8292844b2ac129a4c95ae
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721964"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844784"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>可以在 Active Directory B2C 中使用的應用程式類型
 
@@ -41,7 +41,7 @@ Azure Active Directory (Azure AD) B2C 支援各種現代應用程式架構的驗
 
 ## <a name="web-applications"></a>Web 應用程式
 
-對於裝載於伺服器且透過瀏覽器存取的 Web 應用程式 (包括 .NET、PHP、Java、Ruby、Python 及 Node.js)，Azure AD B2C 支援使用 [OpenID Connect](active-directory-b2c-reference-protocols.md) 的所有使用者體驗。 這包括登入、註冊和設定檔管理。 在 OpenID Connect 的 Azure AD B2C 實作中，Web 應用程式會向 Azure AD 發出驗證要求，以起始這些使用者體驗。 要求的結果是 `id_token`。 這個安全性權杖代表使用者的身分識別。 它也以宣告形式提供使用者的相關資訊：
+對於裝載於伺服器且透過瀏覽器存取的 Web 應用程式 (包括 .NET、PHP、Java、Ruby、Python 及 Node.js)，Azure AD B2C 支援使用 [OpenID Connect](active-directory-b2c-reference-protocols.md) 的所有使用者體驗。 在 OpenID Connect 的 Azure AD B2C 實作中，Web 應用程式會向 Azure AD 發出驗證要求，以起始使用者體驗。 要求的結果是 `id_token`。 這個安全性權杖代表使用者的身分識別。 它也以宣告形式提供使用者的相關資訊：
 
 ```
 // Partial raw id_token
@@ -68,7 +68,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 6. `id_token` 已經過驗證並已設定工作階段 cookie。
 7. 系統會將安全的頁面傳回給使用者。
 
-使用接收自 Azure AD 的公開簽署金鑰來驗證 `id_token` ，就足以驗證使用者的身分識別。 這也會設定工作階段 Cookie，在後續頁面要求上可用來識別使用者。
+使用接收自 Azure AD 的公開簽署金鑰來驗證 `id_token` ，就足以驗證使用者的身分識別。 此程序也會設定工作階段 Cookie，在後續頁面要求上可用來識別使用者。
 
 若要查看此案例的實際運作情形，請在[使用者入門](active-directory-b2c-overview.md)一節的 Web 應用程式登入程式碼範例中擇一試用。
 
@@ -124,58 +124,18 @@ Web API 接收的權杖可以來自許多類型的用戶端，包括 Web 應用�
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Web API 鏈結 (代理者流程)
 
-許多架構中都有一個 Web API 需要呼叫另一個下游 Web API，而兩者都受 Azure AD B2C 保護。 此案例常見於有 Web API 後端的原生用戶端。 這接著會呼叫 Microsoft 線上服務，例如 Azure AD Graph API。
+許多架構中都有一個 Web API 需要呼叫另一個下游 Web API，而兩者都受 Azure AD B2C 保護。 此情況常見於有 Web API 後端的原生用戶端，而且會呼叫 Azure AD 圖形 API 等 Microsoft 線上服務。
 
 使用 OAuth 2.0 JWT 持有人認證授與可支援此鏈結的 Web API 案例，亦稱為代理者流程。  不過，Azure AD B2C 目前未實作代理者流程。
 
-### <a name="reply-url-values"></a>回覆 URL
-
-目前，已向 Azure AD B2C 註冊的應用程式僅限使用一組受限的回覆 URL 值。 Web 應用程式和服務的回覆 URL 必須以配置 `https` 開頭，而且所有回覆 URL 值必須共用單一 DNS 網域。 例如，您不能註冊具有下列其中一個回覆 URL 的 Web 應用程式︰
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-註冊系統會將現有回覆 URL 的整個 DNS 名稱與您要新增之回覆 URL 的 DNS 名稱做比較。 如果下列任一條件成立，新增 DNS 名稱的要求就會失敗：
-
-- 新回覆 URL 的整個 DNS 名稱與現有回覆 URL 的 DNS 名稱不相符。
-- 新回覆 URL 的整個 DNS 名稱不是現有回覆 URL 的子網域。
-
-例如，如果應用程式具有下列回覆 URL：
-
-`https://login.contoso.com`
-
-您可以在其中新增，就像這樣：
-
-`https://login.contoso.com/new`
-
-在此情況下，DNS 名稱會完全相符。 或者，您可以這樣做：
-
-`https://new.login.contoso.com`
-
-在此情況下，您參照的是 login.contoso.com 的 DNS 子網域。 如果您想要有一個以 login-east.contoso.com 和 login-west.contoso.com 做為回覆 URL 的應用程式，就必須依下列順序新增這些回覆 URL︰
-
-`https://contoso.com`
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-您可以新增後面兩個，因為它們是第一個回覆 URL (contoso.com) 的子網域。 
-
-當您建立行動/原生應用程式時，您會定義**重新導向 URI** 而不是**回覆 URL**。 選擇重新導向 URI 時，有兩個重要考量︰
-
-- **唯一**：每個應用程式的重新導向 URI 的配置都應該是唯一。 在範例 `com.onmicrosoft.contoso.appname://redirect/path`中，`com.onmicrosoft.contoso.appname` 為配置。 應該遵循這個模式。 如果兩個應用程式共用相同配置，使用者會看到 [選擇應用程式] 對話方塊。 如果使用者選擇不正確的項目，則會登入失敗。
-- **完整**︰重新導向 URI 必須有配置和路徑。 路徑的網域後面必須至少包含一個正斜線。 例如，`//contoso/` 可正常運作，而 `//contoso` 會失敗。 確定重新導向 URI 中沒有任何特殊字元，例如底線。
-
 ### <a name="faulted-apps"></a>發生錯誤的應用程式
 
-下列情況不得編輯 Azure AD B2C 應用程式：
+請勿以下列方式編輯 Azure AD B2C 應用程式：
 
 - 在其他應用程式管理入口網站上，例如 [應用程式註冊入口網站](https://apps.dev.microsoft.com/)。
 - 使用圖形 API 或 PowerShell。
 
-如果您在 Azure 入口網站外部編輯 Azure AD B2C 應用程式，它會變成錯誤的應用程式並且無法再搭配 Azure AD B2C 使用。 您必須刪除應用程式並重新加以建立。
+如果您在 Azure 入口網站外部編輯 Azure AD B2C 應用程式，它會變成錯誤的應用程式並且無法再搭配 Azure AD B2C 使用。 刪除應用程式並重新加以建立。
 
 若要刪除應用程式，請移至[應用程式註冊入口網站](https://apps.dev.microsoft.com/)並在此刪除應用程式。 為了讓應用程式得以顯示，您必須是應用程式的擁有者 (而不只是租用戶的系統管理員)。
 

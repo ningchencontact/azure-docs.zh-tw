@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 42ed9091ff7ab8059ba253f62726b30899d6e697
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b948616aa21d390cedc877b0a09e272815abc82a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036049"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358553"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>教學課程：送回 Azure 資料箱，並確認資料上傳至 Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "51036049"
 
 ## <a name="prerequisites"></a>必要條件
 
-在開始之前，請確定您已完成[教學課程：將資料複製到 Azure 資料箱並確認](data-box-deploy-copy-data.md)。
+開始之前，請確定您已完成[教學課程：將資料複製到 Azure 資料箱並確認](data-box-deploy-copy-data.md)。
 
 ## <a name="ship-data-box-back"></a>寄回資料箱
 
@@ -37,9 +37,7 @@ ms.locfileid: "51036049"
 
     如果裝置是在歐洲運送，電子墨水顯示器不會顯示出貨標籤。 相反地，回寄出貨標籤會在正面出貨標籤底下的透明袋中。 移除舊的出貨標籤，並確定出貨標籤清楚可見。
     
-3. 如果是在美國辦理裝置退貨，請排程由 UPS 取貨。 如果是在歐洲經由 DHL 辦理裝置退貨，請造訪 DHL 的網站並且指定空運提單號碼，要求他們取貨。 移至該國家/地區的 DHL Express 網站，然後選擇 [Book a Courier Collection > eReturn Shipment] \(預約快遞收貨 > eReturn 出貨\)。 
-
-    指定運貨單號碼，然後按一下 [Schedule Pickup] (排程取貨) 以安排取貨。
+3. 如果要送回裝置，請安排由 UPS 取貨。 若要安排取貨，請電洽當地的 UPS (國家/地區特定的免付費電話號碼)，或將資料箱送至離您最近的集貨處。
 
 4. 一旦貨運業者收取資料箱並進行掃描，入口網站的訂單狀態會更新為 [已取貨]。 此外，也會顯示追蹤識別碼。
 

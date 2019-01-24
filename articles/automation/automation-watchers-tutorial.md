@@ -3,17 +3,17 @@ title: 在 Azure 自動化帳戶中建立監看員工作
 description: 了解如何在 Azure 自動化帳戶中建立監看員工作，以監看在資料夾中建立的新檔案。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 4068ce42babb786ca33e1b0d41fdfefc7d3f78be
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7870aca696ec61e707c5c774fd43e6d64c0cab82
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282767"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436751"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>建立 Azure 自動化監看員工作，以追蹤本機電腦上的檔案變更
 
@@ -153,3 +153,4 @@ Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 
 > [!div class="nextstepaction"]
 > [我的第一個 PowerShell Runbook](automation-first-runbook-textual-powershell.md)。
+

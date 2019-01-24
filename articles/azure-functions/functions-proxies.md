@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 81f76b31f7af3643e2b654e8e26c70d0481d60b8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 507927934c442c8b217ed8fea371f505bb517d35
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017101"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198706"
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions Proxy
 
@@ -151,7 +151,7 @@ Proxies.json 是由 Proxy 物件定義，該物件包含具名 Proxy 及其定�
 
 ### <a name="disableProxies"></a>停用個別的 Proxy
 
-您可以將 `"disabled": true` 新增至 `proxies.json` 檔案中的 Proxy，以停用個別的 Proxy。 這會導致符合 matchCondidtion 的任何要求傳回 404。
+您可以將 `"disabled": true` 新增至 `proxies.json` 檔案中的 Proxy，以停用個別的 Proxy。 這會導致符合 matchCondition 的任何要求傳回 404。
 ```json
 {
     "$schema": "http://json.schemastore.org/proxies",

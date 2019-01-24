@@ -1,5 +1,5 @@
 ---
-title: 新功能 版本資訊 - Azure 媒體服務 v3 | Microsoft Docs
+title: Azure 媒體服務 v3 版本資訊 | Microsoft Docs
 description: 為了讓您隨時掌握最新的開發訊息，本文提供 Azure 媒體服務 v3 最新資訊。
 services: media-services
 documentationcenter: ''
@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: 4db84deb344921d329e81e0f0c9c3a97923430f3
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: bf80f78cc464fe274e83eca2f8afa420c2a8c453
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156488"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229951"
 ---
-# <a name="whats-new-in-azure-media-services-v3"></a>Azure Media Services v3 有哪些新功能？
+# <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊
 
 為了讓您隨時掌握最新的開發訊息，本文提供下列相關資訊：
 
@@ -33,6 +33,15 @@ ms.locfileid: "54156488"
 > 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-sdk)、CLI 或其中一個支援的 SDK。
 
 如需詳細資訊，請參閱[從媒體服務 v2 移至 v3 的移轉指導](migrate-from-v2-to-v3.md#known-issues)。
+
+## <a name="december-2018"></a>2018 年 12 月
+
+來自 V3 API GA 版本的更新包括：
+       
+* **PresentationTimeRange** 屬性不再是 **AssetFilters** 和 **AccountFilters** 的「必要」項目。 
+* **Jobs** 和 **Transforms** 的 $Top 和 $skip 查詢選項已移除，並新增了 $orderby。 在加入新的排序功能時，我們發現以前 $top 和 $skip 選項 (即使並未實作) 會意外公開。
+* 已重新啟用列舉擴充性。 此功能已在 SDK 的預覽版本中啟用，但在 GA 版本中意外停用。
+* 兩個預先定義的串流原則已重新命名。 **SecureStreaming** 現在重新命名為 **MultiDrmCencStreaming**。 **SecureStreamingWithFairPlay** 現在重新命名為 **Predefined_MultiDrmStreaming**。
 
 ## <a name="november-2018"></a>2018 年 11 月
 

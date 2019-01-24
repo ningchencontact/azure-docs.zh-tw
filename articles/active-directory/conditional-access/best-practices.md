@@ -5,7 +5,7 @@ services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4e9f5a9318db813b1a0f16d3599f74fd98e53ffc
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 62bb9b6b4b0edd9e45b317c3c4e18872bae2eec4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818052"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452831"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory 中條件式存取的最佳做法
 

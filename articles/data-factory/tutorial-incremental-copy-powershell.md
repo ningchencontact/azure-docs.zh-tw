@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: bd331aa39ddb6db3f4b5301394f53817c677cb73
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1c074b4e7cee7a05611fd88b601e6e1f9fa559ce
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352204"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439199"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
@@ -60,7 +60,7 @@ ms.locfileid: "54352204"
 ## <a name="prerequisites"></a>先決條件
 * **Azure SQL Database**。 您需要使用資料庫作為來源資料存放區。 如果您沒有 SQL 資料庫，請參閱[建立 Azure SQL Database](../sql-database/sql-database-get-started-portal.md)，按照步驟來建立 SQL 資料庫。
 * **Azure 儲存體**。 您需要使用 Blob 儲存體作為接收資料存放區。 如果您沒有儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)，按照步驟來建立儲存體帳戶。 建立名為 adftutorial 的容器。 
-* **Azure PowerShell**(英文)。 遵循[安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。
+* **Azure PowerShell**(英文)。 遵循[安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) 中的指示。
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>在 SQL 資料庫中建立資料來源資料表
 1. 開啟 SQL Server Management Studio。 在 [伺服器總管] 中，以滑鼠右鍵按一下資料庫，然後選擇 [新增查詢]。
