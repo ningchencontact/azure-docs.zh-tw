@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 2a2d5f9c85a881dad8f53f81a39c84d4a34b632e
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 7a136f34a7dd9fada23a4225b60223220c92c665
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360185"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440451"
 ---
 組織有大規模的運算需求。 這些 Big Compute 工作負載包括工程設計和分析、財務風險計算、影像轉譯、複雜模型、Monte Carlo 模擬等等。 
 
@@ -95,7 +95,7 @@ N 系列 VM 功能 NVIDIA GPU 是專為需要大量運算或需要大量圖形�
 
 * [使用 Resource Manager 範本安裝及設定 CycleCloud](https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud)
 
-* [手動設定 CycleCloud](https://docs.microsoft.com/azure/cyclecloud/quickstart-installation)
+* [手動設定 CycleCloud](https://docs.microsoft.com/azure/cyclecloud/installation)
 
 ## <a name="azure-batch"></a>Azure Batch
 

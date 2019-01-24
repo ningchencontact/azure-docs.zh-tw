@@ -4,19 +4,19 @@ description: 本文概述 Azure 自動化中的自動化安全性和自動化帳
 keywords: 自動化安全性、安全的自動化、自動化驗證
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
 ROBOTS: NOINDEX
-ms.openlocfilehash: 327bb15ab8536dca85b4cbb07216080b135c769a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 60175a5b9309c08d5fdab997469a9d0526afaefe
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194898"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437958"
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Azure 自動化中的驗證簡介  
 Azure 自動化可讓您針對 Azure、內部部署以及其他雲端提供者 (例如 Amazon Web Services (AWS)) 的資源自動執行工作。  為了讓 Runbook 執行其必要動作，其必須有權能以訂用帳戶內的最少必要權限，安全地存取資源。
@@ -49,3 +49,4 @@ Azure Resource Manager 提供了角色型存取控制來對 Azure AD 使用者�
 | Azure 傳統執行身分帳戶 |Azure 傳統 |[使用 Azure 執行身分帳戶驗證 Runbook](automation-sec-configure-azure-runas-account.md) |
 | Windows 驗證 |內部部署資料中心 |[驗證混合式 Runbook 背景工作角色的 Runbook](automation-hybrid-runbook-worker.md) |
 | AWS 認證 |Amazon Web Services |[使用 Amazon Web Services (AWS) 驗證 Runbook](automation-config-aws-account.md) |
+

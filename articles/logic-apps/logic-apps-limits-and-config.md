@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: ef3d26112c631ee0ed3c754394339092020add53
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: c33952f893d5ef2cfb9020acbf813d30b6c105e7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332535"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469727"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -265,7 +265,7 @@ ms.locfileid: "54332535"
 
 若要支援 [Microsoft 管理的連接器](../connectors/apis-list.md)所進行的呼叫，請根據您邏輯應用程式的所在區域，使用這些連接器使用的「所有」[輸出](#outbound) IP 位址設定您的防火牆。 這些位址會出現在本節中的**輸出**標題底下，並且依照區域排序。 
 
-對於 [Azure Government](/azure-government/documentation-government-welcome) 和 [Azure 中國 21Vianet](/azure/china/china-welcome)，目前無法使用針對連接器保留的 IP 位址。
+對於 [Azure Government](../azure-government/documentation-government-overview.md) 和 [Azure 中國 21Vianet](/azure/china/china-welcome)，目前無法使用針對連接器保留的 IP 位址。
 
 > [!IMPORTANT]
 > 

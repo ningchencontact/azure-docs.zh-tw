@@ -5,7 +5,7 @@ services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.component: conditional-access
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 12/10/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c40db6c253899d7aab21d277e93b23dd0c6feb97
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 7ffb3bfb4985f56e7e2e81a2a6d08a6ff7469fdb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314001"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445400"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>作法：使用條件式存取從未受信任的網路要求 MFA 以進行存取   
 
@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) 可讓使用者從任何位置單一登入到�
 
 本文假設您已熟悉以下各項： 
 
-- Azure AD 條件式存取[基本概念](overview.md) 
+- Azure AD 條件式存取的[基本概念](overview.md) 
 - 在 Azure 入口網站中設定條件式存取原則的[最佳做法](best-practices.md)
 
 

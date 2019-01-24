@@ -3,18 +3,18 @@ title: 從 Orchestrator 遷移到 Azure 自動化
 description: 描述如何將 Runbook 和整合套件從 System Center Orchestrator 移轉到 Azure 自動化。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 80b0523f8442e30e6af329263be454fa545933d6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: ae47cba8f8e9a7cdf914c0b3ea5dfb9fa6c259a9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275272"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432892"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>從 Orchestrator 移轉到 Azure 自動化 (Beta)
 [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) 中的 Runbook 是根據來自專為 Orchestrator 編寫的整合套件的活動，而 Azure 自動化中的 Runbook 則是根據 Windows PowerShell。  [圖形化 Runbook](automation-runbook-types.md#graphical-runbooks) 外觀都類似 Orchestrator Runbook，其活動代表 PowerShell Cmdlet、子 Runbook 和資產。
@@ -134,3 +134,4 @@ Orchestrator 中的 Runbook 會使用 **叫用 Runbook** 活動來啟動其他 R
 * [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 * [Orchestrator 標準活動](https://technet.microsoft.com/library/hh403832.aspx)
 * [下載 System Center Orchestrator 遷移工具組](https://www.microsoft.com/en-us/download/details.aspx?id=47323)
+

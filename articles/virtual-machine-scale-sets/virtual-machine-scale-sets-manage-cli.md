@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
-ms.openlocfilehash: bbed197eb78e34c6e53802dfcfdcc192f780df33
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 84e01c319ab058c9abb05cd9882f4c25bea5cffb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465654"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462026"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>使用 Azure CLI 管理虛擬機器擴展集
 在虛擬機器擴展集生命週期期間，您可能需要執行一或多個管理工作。 此外，您可以建立指令碼來自動化各種生命週期工作。 此文章詳述一些可讓您執行這些工作的一般 Azure CLI 命令。
@@ -37,7 +37,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>檢視擴展集中的 VM
-若要檢視擴展集中的 VM 執行個體清單，請使用 [az vmss list-instances](/cli/azure/vmss#list-instances)。 下列範例列出 myResourceGroup 資源群組中，名稱為 myScaleSet 擴展集內的所有虛擬機器執行個體。 針對這些名稱提供您自己的值：
+若要檢視擴展集中的 VM 執行個體清單，請使用 [az vmss list-instances](/cli/azure/vmss)。 下列範例列出 myResourceGroup 資源群組中，名稱為 myScaleSet 擴展集內的所有虛擬機器執行個體。 針對這些名稱提供您自己的值：
 
 ```azurecli
 az vmss list-instances \
@@ -46,7 +46,7 @@ az vmss list-instances \
     --output table
 ```
 
-若要檢視特定 VM 執行個體的其他資訊，請將 `--instance-id` 參數新增至 [az vmss get-instance-view](/cli/azure/vmss#get-instance-view)，並指定要檢視的執行個體。 下列範例檢視 myScaleSet 擴展集和 myResourceGroup 資源群組中 VM 執行個體 *0* 的相關資訊。 輸入您自己的名稱，如下所示：
+若要檢視特定 VM 執行個體的其他資訊，請將 `--instance-id` 參數新增至 [az vmss get-instance-view](/cli/azure/vmss)，並指定要檢視的執行個體。 下列範例檢視 myScaleSet 擴展集和 myResourceGroup 資源群組中 VM 執行個體 *0* 的相關資訊。 輸入您自己的名稱，如下所示：
 
 ```azurecli
 az vmss get-instance-view \
@@ -108,7 +108,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 
 
 ### <a name="start-vms-in-a-scale-set"></a>啟動擴展集中的 VM
-若要啟動擴展集中的一或多個 VM，請使用 [az vmss start](/cli/azure/vmss#az_vmss_start)。 `--instance-ids` 參數可讓您指定啟動一或多個 VM。 如果您未指定執行個體識別碼，則會啟動擴展集中的所有 VM。 若要啟動多個 VM，請以空格分隔每個執行個體識別碼。
+若要啟動擴展集中的一或多個 VM，請使用 [az vmss start](/cli/azure/vmss)。 `--instance-ids` 參數可讓您指定啟動一或多個 VM。 如果您未指定執行個體識別碼，則會啟動擴展集中的所有 VM。 若要啟動多個 VM，請以空格分隔每個執行個體識別碼。
 
 下列範例啟動 myScaleSet 擴展集和 myResourceGroup 資源群組中的執行個體 *0*。 提供您自己的值，如下所示︰
 

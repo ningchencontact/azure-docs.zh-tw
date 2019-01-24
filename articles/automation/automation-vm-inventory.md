@@ -3,19 +3,19 @@ title: 使用清查收集來管理 Azure 虛擬機器 | Microsoft Docs
 description: 使用清查收集來管理虛擬機器
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: 清查、自動化、變更、追蹤
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9fabaa2be850e5b15f10fc78adb14dfd5c112906
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403605"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426041"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>使用清查收集來管理 Azure 虛擬機器
 
@@ -116,7 +116,7 @@ ms.locfileid: "49403605"
 3. 在清單中，選取您要中斷連線的虛擬機器。 虛擬機器在 [OMS 連線] 資料行中，**這個工作區**文字旁邊會出現綠色核取記號。
 
    >[!NOTE]
-   >OMS 現在稱為 Log Analytics。
+   >OMS 現在稱為「Log Analytics」。
    
 4. 在下一個頁面的頂端，選取 [中斷連線]。
 5. 在確認視窗中，選取 [是]。
@@ -126,3 +126,4 @@ ms.locfileid: "49403605"
 
 * 若要了解在虛擬機器上管理檔案和登錄設定的變更，請參閱[使用變更追蹤解決方案來追蹤環境中的軟體變更](../log-analytics/log-analytics-change-tracking.md)。
 * 若要了解在虛擬機器上管理 Windows 和套件更新，請參閱 [Azure 中的更新管理解決方案](../operations-management-suite/oms-solution-update-management.md)。
+

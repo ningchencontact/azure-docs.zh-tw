@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: 09a19b92a496650f94be208d4f463f1fb3fa4256
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d95ede3b6e99d6791a2642c6059281dedca3fcf2
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001850"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423155"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>設定 Azure Key Vault 防火牆和虛擬網路
 
@@ -79,7 +79,7 @@ ms.locfileid: "54001850"
 
 以下說明如何使用 PowerShell 設定 Key Vault 防火牆和虛擬網路：
 
-1. 安裝最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)，然後[登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
+1. 安裝最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)，然後[登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
 
 2. 列出可用的虛擬網路規則。 如果您還沒有為此金鑰保存庫設定任何規則，清單會是空的。
    ```PowerShell

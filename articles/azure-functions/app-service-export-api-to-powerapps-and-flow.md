@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: 53aa40c047b2b5201cd74c0409d56e97d2880eb0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9f4bbf91b09abeb917fd9f49482881e33bf788ec
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602846"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413929"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>將 Azure 裝載 API 匯出至 PowerApps 和 Microsoft Flow
 
@@ -156,7 +156,7 @@ PowerApps 和 Microsoft Flow 支援一系列提供自訂連接器驗證的識別
 
 - 若要設定 API 的註冊，請使用 [App Service 驗證/授權](../app-service/configure-authentication-provider-aad.md)功能。
 
-- 若要設定連接器的註冊，請依照[新增 Azure AD 應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application)中的步驟執行。 註冊必須具有 API 和 `https://msmanaged-na.consent.azure-apim.net/redirect` 之回覆 URL 的委派存取權。 
+- 若要設定連接器的註冊，請依照[新增 Azure AD 應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)中的步驟執行。 註冊必須具有 API 和 `https://msmanaged-na.consent.azure-apim.net/redirect` 之回覆 URL 的委派存取權。 
 
 如需詳細資訊，請參閱 [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) 和 [Microsoft Flow](https://flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/) 中的 Azure AD 註冊範例。 這些範例將 Azure Resource Manager 當作 API。如果您遵循這些步驟，請替換 API。
 

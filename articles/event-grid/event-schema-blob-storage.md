@@ -2,21 +2,21 @@
 title: Azure Event Grid blob 儲存體事件結構描述
 description: 描述 Azure Event Grid blob 儲存體事件的屬性
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
-ms.author: tomfitz
-ms.openlocfilehash: 11524f8868a0102e30b06f3385a26b1bd06aae6e
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.date: 01/17/2019
+ms.author: spelluru
+ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141088"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469725"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>blob 儲存體的 Azure Event Grid 事件結構描述
 
-本文提供 blob 儲存體事件的屬性與結構描述。 如需事件結構描述的簡介，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。
+本文提供 blob 儲存體事件的屬性與結構描述。 如需事件結構描述的簡介，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。
 
 如需範例指令碼和教學課程的清單，請參閱[儲存體事件來源](event-sources.md#storage)。
 
@@ -83,7 +83,7 @@ blob 刪除事件的結構描述如下：
   "metadataVersion": "1"
 }]
 ```
- 
+ 
 ## <a name="event-properties"></a>事件屬性
 
 事件具有下列的最高層級資料：
