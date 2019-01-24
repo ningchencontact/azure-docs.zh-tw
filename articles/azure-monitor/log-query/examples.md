@@ -28,7 +28,7 @@ ms.locfileid: "52885045"
 ## <a name="events"></a>活動
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>搜尋說明為「密碼編譯」的應用程式層級事件
-此範例會搜尋 **Events** 資料表，找出 **EventLog** 是_應用程式_且 **RenderedDescription** 包含_密碼編譯_的記錄。 包含過去 24 小時的記錄。
+此範例會搜尋 **Events** 資料表，找出 **EventLog** 是 _Application_ 且 **RenderedDescription** 包含 _cryptographic_ 的記錄。 包含過去 24 小時的記錄。
 
 ```Kusto
 Event
@@ -38,7 +38,7 @@ Event
 ```
 
 ### <a name="search-events-related-to-unmarshaling"></a>搜尋解除封送處理相關的事件
-搜尋 **Event** 和 **SecurityEvents** 資料表，找出提到_解除封送處理_的記錄。
+搜尋 **Event** 和 **SecurityEvents** 資料表，找出提到 _unmashaling_ 的記錄。
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"
@@ -208,7 +208,7 @@ Perf
 ## <a name="protection-status"></a>保護狀態
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>電腦未回報的保護狀態持續時間
-此範例會列出具有_未回報_保護狀態的電腦，和它們處於這個狀態的持續時間。
+此範例會列出具有 _Not Reporting_ 保護狀態的電腦，和它們處於這個狀態的持續時間。
 
 ```Kusto
 ProtectionStatus
@@ -249,7 +249,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>計算與權限相關的安全性事件數目
-此範例會顯示 **securityEvent** 記錄的數目，其中**活動**資料行包含完整詞彙_權限_。 查詢適用於過去 30 分鐘內建立的記錄。
+此範例會顯示 **securityEvent** 記錄的數目，其中 **Activity** 資料行包含完整詞彙 _Permissions_。 查詢適用於過去 30 分鐘內建立的記錄。
 
 ```Kusto
 SecurityEvent
