@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 9fe9952c3885e0e6145141bac7db13694dcdbd11
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 36f1b39ca4cef33a8cfcdb295b5c4d59e1128a0c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259660"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426840"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>快速入門：使用 Azure PowerShell 建立服務匯流排佇列
 Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提供安全的傳訊和絕對的可靠性。 典型的服務匯流排案例通常會牽涉到將兩個或更多應用程式、服務或程序彼此分開處理，以及傳輸狀態或資料變更。 此類案例可能牽涉到在另一個應用程式或服務中排程多個批次作業，或觸發訂單履行。 例如，零售公司可能會將其銷售點資料傳送至後端辦公室或區域配送中心，以進行補貨和庫存更新。 在此案例中，用戶端應用程式會對服務匯流排佇列傳送及接收訊息。
@@ -263,4 +263,4 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 > [使用 Azure PowerShell 更新庫存](./service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[安裝和設定 Azure PowerShell]: /powershell/azure/install-azurerm-ps
+[安裝和設定 Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps

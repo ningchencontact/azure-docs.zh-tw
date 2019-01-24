@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: ddef3ba2f1fa14445b0a06670d8f18abe76911ab
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: c2d577bd4c89046136a3465ff554e9662dd0ce19
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230351"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478122"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>使用事件中樞串流最忙碌路徑中的 Azure 診斷資料
 Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機器 (VM) 的度量和記錄檔，再將結果傳輸至 Azure 儲存體。 從 2016 年 3 月 (SDK 2.9) 的時間範圍開始，您可以使用 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，將 Azure 診斷傳送至自訂的資料來源，並立即傳輸最忙碌路徑資料。
@@ -514,3 +514,4 @@ namespace EventHubListener
 
 <!-- Images. -->
 [0]: ../../event-hubs/media/event-hubs-streaming-azure-diags-data/dashboard.png
+

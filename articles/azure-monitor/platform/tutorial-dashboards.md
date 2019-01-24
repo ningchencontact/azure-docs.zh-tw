@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: e31c957e9ef24079d6917109ec9c5f85928bfbd7
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.subservice: logs
+ms.openlocfilehash: ebadf69d5740dc9b9907880917516419129db170
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260970"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468825"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
@@ -209,3 +209,4 @@ ms.locfileid: "54260970"
 * [將資源診斷記錄串流至**事件中樞**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [使用 Azure 監視器 REST API 變更資源診斷設定](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [使用 Log Analytics 分析來自 Azure 儲存體的記錄](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+

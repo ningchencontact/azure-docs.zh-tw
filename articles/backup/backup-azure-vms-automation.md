@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 847adc9f304e9da62129948616f0a3485b33ee7b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f0a18931c037a1cf34d8a296a6330264bc8d38af
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199522"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424506"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>使用 PowerShell 來備份及還原虛擬機器
 
@@ -41,7 +41,7 @@ ms.locfileid: "54199522"
 
 開始：
 
-1. [下載最新版本的 PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (所需的最低版本為：1.4.0)
+1. [下載最新版本的 PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (所需的最低版本為：1.4.0)
 
 2. 輸入下列命令，以找到可用的 Azure 備份 PowerShell Cmdlet：
 

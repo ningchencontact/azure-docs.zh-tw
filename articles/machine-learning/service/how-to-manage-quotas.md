@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1ef0fc9037548a58d9b0a4f46c212a43796d529b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6a08a5a79a8a072bd4621a7e200e84c2c71c9cd4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231592"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475062"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>管理及要求 Azure 資源的配額
 
@@ -46,7 +46,7 @@ ms.locfileid: "54231592"
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-如需配額限制的詳細資訊與最新清單，請查看[這裡](https://docs.microsoft.com/azure/azure-subscription-service-limits#subscription-limits-1)的全 Azure 配額文章。
+如需配額限制的詳細資訊與最新清單，請查看[這裡](https://docs.microsoft.com/azure/azure-subscription-service-limits)的全 Azure 配額文章。
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning Compute
 就 Azure Machine Learning Compute 而言，對於訂用帳戶中的每個區域允許的核心數目與特有計算資源數目，均有預設的配額限制。 此配額不同於上述 VM 核心配額，而且目前在兩個資源類型之間不共用核心限制。

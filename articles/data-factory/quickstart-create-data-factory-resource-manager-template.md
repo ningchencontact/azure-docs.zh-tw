@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 5e0d13593fb807f95ba024d527b6720b6abb4a86
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 90f9ffeba2871aaa96a4da4cdbdf949a8e7db1bf
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306143"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436428"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>教學課程：使用 Azure Resource Manager 範本建立 Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ ms.locfileid: "54306143"
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-依照[如何安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)中的指示，安裝最新的 Azure PowerShell 模組。
+依照[如何安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)中的指示，安裝最新的 Azure PowerShell 模組。
 
 ## <a name="resource-manager-templates"></a>Resource Manager 範本
 若要了解一般的 Azure Resource Manager 範本，請參閱[撰寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)。

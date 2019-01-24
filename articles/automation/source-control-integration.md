@@ -3,18 +3,18 @@ title: Azure 自動化中的原始檔控制整合
 description: 本文說明在 Azure 自動化中與 GitHub 的原始檔控制整合。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94d948267286ad716aa200cb5aa858acf2eb2624
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 400cf53172fbd1ce5803cf3de298749afbf45cd4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330758"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430189"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自動化中的原始檔控制整合
 
@@ -144,3 +144,4 @@ Source Control Sync Summary:
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解 Runbook 類型、其優點和限制，請參閱 [Azure 自動化 Runbook 類型](automation-runbook-types.md)
+

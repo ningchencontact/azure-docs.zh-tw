@@ -4,7 +4,7 @@ description: 管理您使用 Azure Multi-Factor Authentication 的方式，包�
 services: active-directory
 keywords: 多重要素驗證用戶端, 驗證的問題, 相互關聯識別碼
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: richagi
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
-ms.openlocfilehash: c3fd74731dbed2c2f36d97b3cb42b383f8e4ca0f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 762033bbe05b9e1ee497180e004eb8aaa47ba195
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345084"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827392"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>管理您的雙步驟驗證設定
 本文章回答有關如何更新雙步驟驗證或 Multi-Factor Authentication 的設定。 如果您登入帳戶時遇到問題，請參閱[雙步驟驗證遇到困難](multi-factor-authentication-end-user-troubleshoot.md)以取得疑難排解說明。

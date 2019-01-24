@@ -4,7 +4,7 @@ description: 了解如何使用 Azure 監視器將 Azure Active Directory 記錄
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7509081bbf43aeaf39570f84afef81b6dd5a39fe
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8b9189ef3fff75023316d5272bd93c136106cf94
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621661"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824672"
 ---
 # <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>使用 Azure 監視器將 Azure AD 記錄與 Log Analytics 整合 (預覽)
 
@@ -41,7 +41,7 @@ Ignite 工作階段中的下列影片，會示範在特定使用者案例中針�
 
 您可以將稽核活動記錄和登入活動記錄路由到 Log Analytics，以進行深入分析。 
 
-* **稽核記錄**：[稽核記錄活動報告](concept-audit-logs.md)可讓您對每個在租用戶中執行的工作存取歷程記錄。
+* **稽核記錄檔**：[稽核記錄活動報告](concept-audit-logs.md)可讓您對每個在租用戶中執行的工作存取歷程記錄。
 * **登入記錄**：透過[登入活動報告](concept-sign-ins.md)，您可以判斷是誰執行了稽核記錄中所報告的工作。
 
 > [!NOTE]

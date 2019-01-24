@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: 2f10a231c4edc3e01d3f8c5f7f4db1854f83044d
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e6d6c47726b21a241b379366bd1fde6c6b90e223
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392397"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462007"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>透過 Azure CLI 將 OS 磁碟連結到復原 VM，以對 Linux VM 進行疑難排解
 如果 Linux 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是 `/etc/fstab` 中的項目無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure CLI 將虛擬硬碟連接至另一個 Linux VM，以修正任何錯誤，然後重新建立原始 VM。 
@@ -35,7 +35,7 @@ ms.locfileid: "49392397"
 
 若為使用受控磁碟的 VM，請參閱[藉由連結新的 OS 磁碟來針對受控磁碟 VM 進行疑難排解](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk)。
 
-若要執行這些疑難排解步驟，您需要安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/reference-index#az_login) 登入 Azure 帳戶。
+若要執行這些疑難排解步驟，您需要安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/reference-index) 登入 Azure 帳戶。
 
 在下列範例中，請以您自己的值取代參數名稱。 範例參數名稱包含 `myResourceGroup`、`mystorageaccount` 和 `myVM`。
 
@@ -69,7 +69,7 @@ URI 類似於 **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd**�
 
 復原 VM 的第一個步驟是刪除 VM 資源本身。 刪除 VM 時，虛擬硬碟會留在儲存體帳戶中。 刪除 VM 之後，您需要將虛擬硬碟連結至另一個 VM，以進行疑難排解並解決錯誤。
 
-使用 [az vm delete](/cli/azure/vm#az_vm_delete) 刪除 VM。 下列範例會從資源群組 `myResourceGroup` 中刪除 VM `myVM`：
+使用 [az vm delete](/cli/azure/vm) 刪除 VM。 下列範例會從資源群組 `myResourceGroup` 中刪除 VM `myVM`：
 
 ```azurecli
 az vm delete --resource-group myResourceGroup --name myVM 

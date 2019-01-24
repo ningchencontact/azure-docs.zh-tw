@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/19/2018
-ms.openlocfilehash: 102d89564d41bb8985f95790e7e4811ce30a590f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: eb18fd521ca885b37c60c4f3a53e2bce1508fda2
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723105"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382821"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>教學課程：在線上使用 DMS 將 PostgreSQL 移轉至適用於 PostgreSQL 的 Azure 資料庫
 您可以使用 Azure 資料庫移轉服務，在最短的停機時間內將資料庫從內部部署 PostgreSQL 執行個體移轉至[適用於 PostgreSQL 的 Azure 資料庫](https://docs.microsoft.com/azure/postgresql/)。 換句話說，移轉可在最短的應用程式停止運作時間內完成。 在此教學課程中，您會在 Azure 資料庫移轉服務中使用線上移轉活動，將 **DVD 出租**範例資料庫從內部部署的 PostgreSQL 9.6 執行個體移轉至適用於 PostgreSQL 的 Azure 資料庫。

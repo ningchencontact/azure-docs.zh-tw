@@ -3,18 +3,18 @@ title: Azure 自動化中的連接資產
 description: Azure 自動化中的連接資產包含從 Runbook 或 DSC 設定連接到外部服務或應用程式所需的資訊。 這篇文章說明連接的詳細資料，以及如何以文字和圖形化編寫形式加以使用。
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9687276323598d8600aa6930df8ef18bcc171cc1
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: e00eb5756d34c7ca8cecc741b4832c583a6ed087
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358825"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439012"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自動化中的連接資產
 
@@ -164,3 +164,4 @@ azure_credential = get_automation_runas_credential(runas_connection)
 - 閱讀[圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)，以了解如何引導和控制您的 Runbook 中的邏輯流程。  
 
 - 若要進一步了解 Azure 自動化如何使用 PowerShell 模組，以及建立自有 PowerShell 模組來做為 Azure 自動化內整合模組的最佳做法，請參閱[整合模組](automation-integration-modules.md)。  
+

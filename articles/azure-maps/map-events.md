@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b9174d98dd6d4dfb5353d6976d074bb4c91373dc
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 16455719f05688793e2aee6f10fa00a707d553c0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678316"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469523"
 ---
 # <a name="interact-with-the-map---mouse-events"></a>與地圖互動 - 滑鼠事件
 
-本文會示範如何使用[地圖類別](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)[事件](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener)屬性來醒目提示地圖上及不同地圖圖層上的事件。 此外，也會示範如何使用地圖類別事件屬性來醒目提示您與 HTML 標記互動時的事件。
+本文會示範如何使用[地圖類別](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)[事件](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)屬性來醒目提示地圖上及不同地圖圖層上的事件。 此外，也會示範如何使用地圖類別事件屬性來醒目提示您與 HTML 標記互動時的事件。
 
 ## <a name="interact-with-the-map"></a>與地圖互動
 

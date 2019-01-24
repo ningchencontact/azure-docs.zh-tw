@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Cherwell 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ad891f99-179e-4487-834d-35f3bc01c1ec
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/25/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1713e2c46c18c92330872ebf82d7e033af1c38e1
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: a94ecbaf75472a3352f62a3681ca6a8ff9b41684
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063936"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827069"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>教學課程：Azure Active Directory 與 Cherwell 整合
 
@@ -78,8 +78,8 @@ ms.locfileid: "54063936"
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Cherwell 單一登入](#configure-cherwell-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[建立 Cherwell 測試使用者](#create-cherwell-test-user)** - 使 Cherwell 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-5. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+5. **[建立 Cherwell 測試使用者](#create-cherwell-test-user)** - 使 Cherwell 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -109,7 +109,7 @@ ms.locfileid: "54063936"
     > [!NOTE]
     > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Cherwell 用戶端支援小組](https://csm.cherwell.com/contact)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-4. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
+5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
@@ -201,4 +201,3 @@ ms.locfileid: "54063936"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

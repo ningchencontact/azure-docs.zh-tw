@@ -3,9 +3,9 @@ title: Azure 服務匯流排配對的命名空間 |Microsoft Docs
 description: 配對的命名空間實作詳細資料和成本
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
-ms.author: spelluru
-ms.openlocfilehash: ac663cc382fcacd4960843c25aa6c95191210116
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 35c643b9bb4f348b790577e560eaf14d3a19802f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395197"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848339"
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>配對命名空間實作詳細資料和成本影響
 

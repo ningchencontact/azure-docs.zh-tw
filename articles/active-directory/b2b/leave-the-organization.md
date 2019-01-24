@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: cea882bd1ba2ba12d34690fb47ec1afd6edf5c4c
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 423de49faa20289a7c5663ae621f890b63a5752c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982165"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428506"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>以來賓使用者的身分從組織離職
 

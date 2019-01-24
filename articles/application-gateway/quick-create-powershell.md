@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/11/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9edfa85105bbc20cf7f149d4c31b60d9e570a7ad
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 35af6a6113fd61c7faee7eb371f416fa7f2507dd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243724"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423352"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "54243724"
 
 如果您選擇在本機安裝和使用 Azure PowerShell，在執行本教學課程時，您必須使用 Azure PowerShell 模組 3.6 版或更新版本。
 
-1. 若要尋找版本，請執行 `Get-Module -ListAvailable AzureRM`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 
+1. 若要尋找版本，請執行 `Get-Module -ListAvailable AzureRM`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 
 2. 若要建立與 Azure 的連線，請執行 `Login-AzureRmAccount`。
 
 ## <a name="create-a-resource-group"></a>建立資源群組

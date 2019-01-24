@@ -3,19 +3,19 @@ title: 使用 Azure 自動化追蹤變更
 description: 「變更追蹤」解決方案可協助您識別您環境中發生的軟體及 Windows 服務變更。
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d08471a3e0faa99cb245709cf72f9af097bc495
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: d29a2020d7e7a16e0bac0802a887a28e12630f03
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213207"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433011"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
@@ -279,3 +279,4 @@ Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移�
 > [對您環境中的變更進行疑難排解](automation-tutorial-troubleshoot-changes.md)
 
 * 使用 [Log Analytics 中的記錄檔搜尋](../log-analytics/log-analytics-log-searches.md) ，檢視詳細的變更追蹤資料。
+

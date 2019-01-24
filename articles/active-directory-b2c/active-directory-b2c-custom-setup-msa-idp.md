@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 中使用自訂原則新增 Microsoft 帳�
 description: 透過 OpenID 連線 (OIDC) 通訊協定使用 Microsoft 作為識別提供者的範例。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d53bbd10cbe822a91f201b7ba702b27b5ac0a6f9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d377b3f6dda864e9ab18dd716127ef6a6bed27c7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887235"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845585"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 Microsoft 帳戶進行登入
 
@@ -49,7 +49,7 @@ ms.locfileid: "48887235"
 4. 在 [概觀] 頁面上，選取 [識別體驗架構 - 預覽]。
 5. 選取 [原則金鑰]，然後選取 [新增]。
 6. 針對 [選項] 選擇 `Manual`。
-7. 輸入原則金鑰的 [名稱]。 例如：`MSASecret`。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
+7. 輸入原則金鑰的 [名稱]。 例如： `MSASecret`。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
 8. 在 [祕密] 中，輸入您先前記錄的密碼。
 9. 針對 [金鑰使用方法]，選取 `Signature`。
 10. 按一下頁面底部的 [新增] 。
@@ -123,7 +123,7 @@ ms.locfileid: "48887235"
 2. 尋找並複製包含 `Id="SignUpOrSignIn"` 之 **UserJourney** 元素的整個內容。
 3. 開啟 *TrustFrameworkExtensions.xml*，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
 4. 貼上您複製的整個 **UserJourney** 元素內容作為 **UserJourneys** 元素的子系。
-5. 重新命名使用者旅程圖的識別碼。 例如：`SignUpSignInMSA`。
+5. 重新命名使用者旅程圖的識別碼。 例如： `SignUpSignInMSA`。
 
 ### <a name="display-the-button"></a>顯示按鈕
 
@@ -147,13 +147,13 @@ ms.locfileid: "48887235"
     <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
     ```
     
-    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的 **Id**。 例如：`MSA-OIDC`。
+    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的 **Id**。 例如： `MSA-OIDC`。
 
 3. 儲存 TrustFrameworkExtensions.xml 檔案，並再次上傳它以供驗證。
 
 ## <a name="create-an-azure-ad-b2c-application"></a>建立 Azure AD B2C 應用程式
 
-與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 本節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
+與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 此節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
@@ -168,7 +168,7 @@ ms.locfileid: "48887235"
 更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
 
 1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 複本，並將它重新命名。 例如，將它重新命名為 SignUpSignInMSA.xml。
-2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如：`SignUpSignInMSA`。
+2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInMSA`。
 3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如：`http://contoso.com/B2C_1A_signup_signin_msa`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignInMSA) 的識別碼。
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。

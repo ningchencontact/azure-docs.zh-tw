@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
-ms.component: autoscale
-ms.openlocfilehash: 640a939f6f9aabb00ad830f9ba27e396b329ce7f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.subservice: autoscale
+ms.openlocfilehash: 0535c84a8ee0776c2c35a46d3c7510a2cd615cf6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439615"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469486"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>開始在 Azure 中自動調整規模
 本文說明如何在 Microsoft Azure 入口網站中為您的資源設定自動調整規模。
@@ -133,3 +133,4 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 [12]: ./media/autoscale-get-started/scale-definition-json.png
 [13]: ./media/autoscale-get-started/disable-autoscale.png
 [14]: ./media/autoscale-get-started/set-manualscale.png
+

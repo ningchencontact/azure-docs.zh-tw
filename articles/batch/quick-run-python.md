@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: f1d949c4ea13cd9329f1e1049a1de7778246e7f6
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 3a2e48697efbe0f4969a8fae20c050a38645ed6f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302437"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462074"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>快速入門：使用 Python API 執行您的第一個 Batch 作業
 
@@ -174,7 +174,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>建立 Batch 作業
 
-Batch 作業是一或多項工作的邏輯群組。 作業包含工作通用的設定，例如優先順序以及要執行工作的集區。 應用程式會使用 [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) 類別在您的集區上建立作業。 [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) 方法會將集區提交至 Batch 服務。 一開始作業沒有任何工作。
+Batch 作業是一或多項工作的邏輯群組。 作業包含工作通用的設定，例如優先順序以及要執行工作的集區。 應用程式會使用 [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) 類別在您的集區上建立作業。 [job.add](/python/api/azure.batch.operations.joboperations) 方法會將集區提交至 Batch 服務。 一開始作業沒有任何工作。
 
 ```python
 job = batch.models.JobAddParameter(

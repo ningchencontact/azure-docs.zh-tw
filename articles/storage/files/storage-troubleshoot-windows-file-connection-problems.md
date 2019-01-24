@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: a7ab2e76280458326539fe83d3507dfb4e4a486e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 8723d7f113a77266d1ee883e41bade1721fa1afa
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023075"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848949"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 
@@ -40,11 +40,11 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>原因 2：在儲存體帳戶上已啟用虛擬網路或防火牆規則 
 
-如果在儲存體帳戶上設定虛擬網路 (VNET) 和防火牆規則，網路流量將遭拒絕存取，除非用戶端 IP 位址或虛擬網路獲准存取。
+如果在儲存體帳戶上設定虛擬網路 (VNET) 和防火牆規則，網路流量將會被拒絕存取，除非用戶端 IP 位址或虛擬網路獲准存取。
 
 ### <a name="solution-for-cause-2"></a>原因 2 的解決方案
 
-請確認已經在儲存體帳戶上正確設定虛擬網路和防火牆規則。 若要測試虛擬網路或防火牆規則是否造成問題，請暫時將儲存體帳戶上的設定變更為**允許從所有網路存取**。 若要深入了解，請參閱[設定 Azure 儲存體防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)。
+確認已經在儲存體帳戶上正確設定虛擬網路和防火牆規則。 若要測試虛擬網路或防火牆規則是否造成問題，請暫時將儲存體帳戶上的設定變更為 [允許來自所有網路的存取]。 若要深入了解，請參閱[設定 Azure 儲存體防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)。
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>當您嘗試掛接或取消掛接 Azure 檔案共用時發生錯誤 53、錯誤 67 或錯誤 87
@@ -61,7 +61,7 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 
 若要檢查您的防火牆或 ISP 是否封鎖連接埠 445，請使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 工具或 `Test-NetConnection` Cmdlet。 
 
-若要使用 `Test-NetConnection` Cmdlet，則必須安裝 AzureRM PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)以獲得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resoure-group-name>`。
+若要使用 `Test-NetConnection` Cmdlet，則必須安裝 AzureRM PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)以獲得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resoure-group-name>`。
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -69,12 +69,12 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 
     # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
     # already logged in.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
     # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
   
     
 如果連線成功，您應會看見下列輸出：
@@ -125,13 +125,13 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 <a id="accessdeniedportal"></a>
 ## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>瀏覽至入口網站中的 Azure 檔案共用時發生「拒絕存取」錯誤
 
-您瀏覽至入口網站中的 Azure 檔案共用時，可能會出現下列錯誤：
+當您瀏覽至入口網站中的 Azure 檔案共用時，可能會接收到下列錯誤：
 
 拒絕存取  
 您沒有存取權  
-您似乎無權存取此內容。 若要存取，請連絡擁有者。  
+您似乎沒有此內容的存取權。 若要取得存取權，請連絡擁有者。  
 
-### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>原因 1：您的使用者帳戶沒有儲存體帳戶的存取權
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>原因 1：您的使用者帳戶沒有該儲存體帳戶的存取權
 
 ### <a name="solution-for-cause-1"></a>原因 1 的解決方案
 
@@ -141,7 +141,7 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 
 ### <a name="solution-for-cause-2"></a>原因 2 的解決方案
 
-請確認已經在儲存體帳戶上正確設定虛擬網路和防火牆規則。 若要測試虛擬網路或防火牆規則是否造成問題，請暫時將儲存體帳戶上的設定變更為**允許從所有網路存取**。 若要深入了解，請參閱[設定 Azure 儲存體防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)。
+確認已經在儲存體帳戶上正確設定虛擬網路和防火牆規則。 若要測試虛擬網路或防火牆規則是否造成問題，請暫時將儲存體帳戶上的設定變更為 [允許來自所有網路的存取]。 若要深入了解，請參閱[設定 Azure 儲存體防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)。
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>從 Windows 中的 Azure 檔案服務複製檔案或將檔案複製到其中的速度變慢

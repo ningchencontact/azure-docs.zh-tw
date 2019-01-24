@@ -3,23 +3,23 @@ title: 如何搭配 Ruby 使用 Azure 服務匯流排佇列 | Microsoft Docs
 description: 了解如何使用 Azure 中的服務匯流排佇列。 程式碼範例以 Ruby 撰寫。
 services: service-bus-messaging
 documentationcenter: ruby
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 0a11eab2-823f-4cc7-842b-fbbe0f953751
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 08/10/2017
-ms.author: spelluru
-ms.openlocfilehash: 26015ec1a3bf294e466902992ff13f1bc4693f04
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 01/10/2019
+ms.author: aschhab
+ms.openlocfilehash: 3ec1e2eef4990b16942022a83ba393eab94a91f3
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702335"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856769"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>如何將服務匯流排佇列搭配 Ruby 使用
 

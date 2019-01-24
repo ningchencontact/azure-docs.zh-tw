@@ -3,19 +3,19 @@ title: 在 Azure 自動化 Runbook 中部署 Azure Resource Manager 範本
 description: 如何從 Runbook 部署儲存在 Azure 儲存體中的 Azure Resource Manager 範本
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell, runbook, json, azure 自動化
-ms.openlocfilehash: fe7a3632936e13a0762ebc0afcc357965e019146
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: d13f21da88ae3fb9dfa67b11285e0c3e984d5e5b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918601"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421806"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>在 Azure 自動化 PowerShell Runbook 中部署 Azure Resource Manager 範本
 
@@ -32,7 +32,7 @@ ms.locfileid: "42918601"
 * Azure 訂用帳戶。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或[註冊免費帳戶](https://azure.microsoft.com/free/)。
 * [自動化帳戶](automation-sec-configure-azure-runas-account.md) ，用來保存 Runbook 以及向 Azure 資源驗證。  此帳戶必須擁有啟動和停止虛擬機器的權限。
 * 用來儲存 Resource Manager 範本的 [Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)
-* 本機電腦上安裝的 Azure Powershell。 如需如何取得 Azure PowerShell 的詳細資訊，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0)。
+* 本機電腦上安裝的 Azure Powershell。 如需如何取得 Azure PowerShell 的詳細資訊，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.1.0)。
 
 ## <a name="create-the-resource-manager-template"></a>建立 Resource Manager 範本
 
@@ -248,4 +248,5 @@ Get-AzureRmStorageAccount
 * 若要開始使用 Azure 儲存體，請參閱 [Azure 儲存體簡介](../storage/common/storage-introduction.md)。
 * 若要尋找其他實用的 Azure 自動化 Runbook，請參閱 [Azure 自動化的 Runbook 和模組資源庫](automation-runbook-gallery.md)。
 * 若要尋找其他實用的 Resource Manager 範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)
+
 

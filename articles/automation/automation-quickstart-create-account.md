@@ -7,14 +7,14 @@ ms.author: csand
 ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: eea14dc781d2282bcd311b307c41270320007c39
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: d15b3859d5eccbd58d7f5b7902be84c94ec16b73
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319714"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429237"
 ---
 # <a name="create-an-azure-automation-account"></a>建立 Azure 自動化帳戶
 
@@ -71,3 +71,4 @@ ms.locfileid: "54319714"
 
 > [!div class="nextstepaction"]
 > [自動化快速入門 - 建立 Runbook](./automation-quickstart-create-runbook.md)
+

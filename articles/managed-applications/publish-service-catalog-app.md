@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: a2e6e78268f97136533b4f72ce28373642b6c394
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7e9db85fb91dd0c9a33cc8205bdb30a648dfd38a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801262"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438732"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>建立及發佈受控應用程式定義
 
@@ -30,7 +30,7 @@ ms.locfileid: "48801262"
 
 在本文中，受控應用程式只有一個儲存體帳戶。 它是用來說明發佈受控應用程式的步驟。 如需完整範例，請參閱[適用於 Azure 受控應用程式之範例專案](sample-projects.md)。
 
-本文中的 PowerShell 範例需要 Azure PowerShell 6.2 或更新版本。 如有需要，[請更新您的版本](/powershell/azure/install-azurerm-ps)。
+本文中的 PowerShell 範例需要 Azure PowerShell 6.2 或更新版本。 如有需要，[請更新您的版本](/powershell/azure/azurerm/install-azurerm-ps)。
 
 ## <a name="create-the-resource-template"></a>建立資源範本
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d7c2909e59643378e765fa51e2d261cbdc106822
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: bdec2d699e8448c8e2303dfbabcb4d176a9ca389
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354995"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430376"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>檢視 Azure Marketplace 和 AppSource 供應項目的發佈狀態
 
@@ -46,7 +46,7 @@ ms.locfileid: "54354995"
 
 ![諮詢服務的 [狀態] 索引標籤顯示錯誤](./media/consulting-service-error.png)
 
-最後一個 Azure 應用程式狀態的範例顯示重大 Microsoft 檢閱問題。  它包含 VSTS 項目的熱連結，其中包含此檢閱問題的詳細資訊。  如需詳細資訊，請參閱[發佈 Azure 應用程式供應項目]()。
+最後一個 Azure 應用程式狀態的範例顯示重大 Microsoft 檢閱問題。  它包含 VSTS 項目的熱連結，其中包含此檢閱問題的詳細資訊。  如需詳細資訊，請參閱[發佈 Azure 應用程式供應項目](cpp-publish-offer.md)。
 
 ![顯示檢閱問題的 Azure 應用程式 [狀態] 索引標籤](../azure-applications/media/status-tab-ms-review.png)
 

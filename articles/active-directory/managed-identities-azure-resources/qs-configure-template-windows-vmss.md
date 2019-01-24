@@ -4,7 +4,7 @@ description: 使用 Azure Resource Manager 範本在虛擬機器擴展集上設�
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4bfaed3d908574eff3521cedcef4b117d45e1ca2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6498079950310e52fcb16172a34b9848e6a98e8b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220914"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429016"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>使用範本在 Azure 虛擬機器擴展集上設定 Azure 資源受控識別
 
@@ -146,7 +146,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    如果您的 apiVersion 為 `2018-06-01` 且您的 VM 同時具有系統與使用者指派的受控識別，請從識別類型中移除 `SystemAssigned`，並保留 `UserAssigned` 以及 userAssignedIdentities 字典值。
 
-   **Microsoft.Compute/virtualMachineScaleSets API 2018-06-01 版與更早版本**
+   **Microsoft.Compute/virtualMachineScaleSets API 2018-06-01 版**
 
    若您的 apiVersion 為 `identityIds` 且您的虛擬機器擴展集同時具有系統與使用者指派的受控識別，請從識別類型中移除 `2017-12-01`，並保留 `SystemAssigned` 以及使用者指派受控識別的 `UserAssigned` 陣列。 
    
@@ -279,7 +279,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     ]
    ```
 
-   **Microsoft.Compute/virtualMachines API 2017-12-01 版與更早版本**
+   **Microsoft.Compute/virtualMachines API 版本 2017-12-01**
 
    ```json
    "resources": [

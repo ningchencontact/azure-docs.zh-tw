@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/7/2018
 ms.author: victorh
-ms.openlocfilehash: a10314d4c396298f018459e56252d0d0d1656f08
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c27c31bc2f21cfae9036849973301a66a437de42
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107781"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435234"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>使用 Azure 入口網站來建立具有 HTTP 到 HTTPS 重新導向功能的應用程式閘道
 
@@ -29,7 +29,7 @@ ms.locfileid: "54107781"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-本教學課程需要 Azure PowerShell 模組 3.6 版或更新版本，才能建立憑證和安裝 IIS。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 若要在本教學課程中執行命令，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+本教學課程需要 Azure PowerShell 模組 3.6 版或更新版本，才能建立憑證和安裝 IIS。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 若要在本教學課程中執行命令，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-a-self-signed-certificate"></a>建立自我簽署憑證
 

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
-ms.component: alerts
-ms.openlocfilehash: 0ab496b884506b013c6a4abb2dff1e1feff4fc72
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.subservice: alerts
+ms.openlocfilehash: 207d1f7f5eb4db4203f2595a06f943e8ae69881e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342981"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432025"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>如何透過「Azure 監視器」警示觸發複雜動作
 
@@ -298,3 +298,4 @@ Logic Apps 有許多不同的連接器，可讓您在各種應用程式和資料
 * 取得 [Azure 活動記錄警示的概觀](../../azure-monitor/platform/alerts-overview.md)，並了解如何接收警示。  
 * 了解如何[設定 Azure 服務健康狀態通知公佈時的警示](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。
 * 深入了解[動作群組](../../azure-monitor/platform/action-groups.md)。
+

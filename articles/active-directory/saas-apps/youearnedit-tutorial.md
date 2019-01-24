@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 YouEarnedIt 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3011d44d-dfcf-4061-888f-cff90fbc8150
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: fd65d6a5d210b4b0549236ec39844e36480b10c9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5b3746a1e29f436c277fd238e13fd46010941824
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790253"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825983"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>教學課程：Azure Active Directory 與 YouEarnedIt 整合
 
@@ -78,8 +78,8 @@ YouEarnedIt 與 Azure AD 整合提供下列優點：
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 YouEarnedIt 單一登入](#configure-youearnedit-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[建立 YouEarnedIt 測試使用者](#create-youearnedit-test-user)** - 在 YouEarnedIt 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
-5. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+5. **[建立 YouEarnedIt 測試使用者](#create-youearnedit-test-user)** - 在 YouEarnedIt 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -104,22 +104,24 @@ YouEarnedIt 與 Azure AD 整合提供下列優點：
 
     ![YouEarnedIt 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ 
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
+
     | 環境  | 模式  |
     |:--- |:--- |
     | Production | `https://<company name>.youearnedit.com/users/sign_in` |
     | 沙箱  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
     b. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
+
     | 環境  | 模式  |
     |:--- |:--- |
     | Production | `<company name>.youearnedit.com` |
     | 沙箱  |`<company name>.sandbox.youearnedit.com` |
 
-    > [!NOTE] 
+    > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡指派給您的 YouEarnedIt Customer Success Manager 以取得這些值。
 
-4. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
+5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
@@ -192,11 +194,10 @@ YouEarnedIt 與 Azure AD 整合提供下列優點：
 
 在本節中，您要在 YouEarnedIt 中建立名為 Britta Simon 的使用者。 請與指派給您的 YouEarnedIt Customer Success Manager 合作，在 YouEarnedIt 平台中新增使用者。
 
->[!NOTE]
->YouEarnedIt 預期識別提供者會在 NameID 屬性中提供 EmailAddress 或 UserName。 如果在資料庫中找不到對應的 UserName 或 EmailAddress 或者不完全相符，則驗證會失敗。 這會要求在 SSO 整合之前，將帳戶匯入 YouEarnedIt 系統 (通常透過 API 或 CSV 匯入)。
+> [!NOTE]
+> YouEarnedIt 預期識別提供者會在 NameID 屬性中提供 EmailAddress 或 UserName。 如果在資料庫中找不到對應的 UserName 或 EmailAddress 或者不完全相符，則驗證會失敗。 這會要求在 SSO 整合之前，將帳戶匯入 YouEarnedIt 系統 (通常透過 API 或 CSV 匯入)。
 
-
-### <a name="test-single-sign-on"></a>測試單一登入 
+### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -209,4 +210,3 @@ YouEarnedIt 與 Azure AD 整合提供下列優點：
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

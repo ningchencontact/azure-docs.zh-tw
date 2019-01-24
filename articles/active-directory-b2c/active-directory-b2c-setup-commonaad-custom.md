@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 中使用自訂原則來設定多租用戶
 description: 使用自訂原則新增多租用戶 Azure AD 識別提供者 - Azure Active Directory B2C。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ef0becd55df43d7ae648a4cbaa5e1a2358fc1910
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e5e3af95dc0a28207d9c95c66bc729b9255115de
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636929"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857177"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定多租用戶 Azure Active Directory 的登入
 

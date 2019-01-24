@@ -3,18 +3,18 @@ title: 建立獨立的 Azure 自動化帳戶
 description: 本文會逐步引導您在 Azure 自動化中建立、測試和使用範例安全性主體驗證。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2e419da4ed84f3d202113f9616050c3e7c29f240
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 1590a02503a12be870dab14a1ccffdd3cf64a282
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322039"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426602"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>建立獨立的 Azure 自動化帳戶
 
@@ -112,3 +112,4 @@ ms.locfileid: "54322039"
 * 若要開始使用 PowerShell Runbook，請參閱[我的第一個 PowerShell Runbook](automation-first-runbook-textual-powershell.md)。
 * 若要開始使用 PowerShell 工作流程 Runbook，請參閱 [我的第一個 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md)。
 * 若要開始使用 Python2 Runbook，請參閱[我的第一個 Python2 Runbook](automation-first-runbook-textual-python2.md)。
+
