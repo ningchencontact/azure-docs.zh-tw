@@ -303,4 +303,3 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
 > [使用 Azure Functions 建立無伺服器 API](functions-create-serverless-api.md)
 
 若要深入了解 Logic Apps，請參閱 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)。
-
