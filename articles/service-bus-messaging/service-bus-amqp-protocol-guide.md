@@ -3,23 +3,23 @@ title: Azure 服務匯流排和事件中樞的 AMQP 1.0 通訊協定指南 | Mic
 description: Azure 服務匯流排和事件中樞的 AMQP 1.0 運算式和說明的通訊協定指南
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: clemensv
-ms.openlocfilehash: 70f07b3925eb91d91dfbd623f8f1611ac31a1b6f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 88f586fac4392e880efc3ef611a7c03177582bff
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542504"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856701"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure 服務匯流排和事件中樞的 AMQP 1.0 通訊協定指南
 
@@ -134,7 +134,7 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 
 當傳輸進入其中一種終止狀態「已接受」、「已拒絕」或「已解除」時，訊息鎖定就會解除。 終止狀態為「已接受」時，就會從服務匯流排中移除訊息。 它會保留在服務匯流排中，並將在傳輸達到任何其他狀態時，傳遞給下一個接收者。 服務匯流排會在因為重複拒絕或解除而達到實體所允許的最大傳遞計數時，自動將訊息移到實體寄不出的信件佇列中。
 
-現在，即使是服務匯流排 API 也不會直接公開這種選項，較低層級的 AMQP 通訊協定用戶端可以使用連結信用額度模型，藉由核發大量的連結信用額度，將針對每個接收要求核發一單位信用額度的「提取式」模型變成「推送式」模型，然後接收可用的訊息，而不需要任何進一步的互動。 推送是透過 [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) 或 [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) 屬性設定來支援。 如果兩者均不為零，則 AMQP 用戶端會使用它做為連結信用額度。
+現在，即使是服務匯流排 API 也不會直接公開這種選項，較低層級的 AMQP 通訊協定用戶端可以使用連結信用額度模型，藉由核發大量的連結信用額度，將針對每個接收要求核發一單位信用額度的「提取式」模型變成「推送式」模型，然後接收可用的訊息，而不需要任何進一步的互動。 推送是透過 [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 或 [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) 屬性設定來支援。 如果兩者均不為零，則 AMQP 用戶端會使用它做為連結信用額度。
 
 在此內容中，務必了解實體內訊息鎖定的到期時鐘會在從實體取得訊息時啟動，而不是在訊息放在網路上時啟動。 每當用戶端藉由核發連結信用額度來表示接收訊息的整備性，因此預期會主動提取網路上的訊息並準備好處理它們。 否則訊息鎖定可能會在訊息傳遞之前過期。 使用連結信用流量控制應直接反映出可立即準備處理分派給接收者的可用訊息。
 
@@ -227,14 +227,14 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 | to |應用程式定義的目的地識別碼，服務匯流排無法加以解譯。 |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
 | 主旨 |應用程式定義的訊息用途識別碼，服務匯流排無法加以解譯。 |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | reply-to |應用程式定義的回覆路徑指示器，服務匯流排無法加以解譯。 |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| correlation-id |應用程式定義的相互關聯識別碼，服務匯流排無法加以解譯。 |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
-| Content-Type |應用程式為內文定義的內容類型識別碼，服務匯流排無法加以解譯。 |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
+| correlation-id |應用程式定義的相互關聯識別碼，服務匯流排無法加以解譯。 |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| Content-Type |應用程式為內文定義的內容類型識別碼，服務匯流排無法加以解譯。 |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |應用程式為內文定義的內容編碼識別碼，服務匯流排無法加以解譯。 |無法透過服務匯流排 API 存取。 |
 | absolute-expiry-time |宣告訊息會過期的絕對立即時刻。 在輸入時忽略 (觀察到標頭 TTL)，在輸出時授權具權威性。 |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | creation-time |宣告訊息的建立時間。 服務匯流排未使用 |無法透過服務匯流排 API 存取。 |
 | group-id |應用程式為一組相關訊息所定義的識別碼。 用於服務匯流排工作階段。 |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |用以識別訊息在工作階段內的相對序號的計數器。 服務匯流排會忽略。 |無法透過服務匯流排 API 存取。 |
-| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="message-annotations"></a>訊息註解
 
@@ -283,7 +283,7 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
-| | . . . <br/>交易式工作<br/>其他連結上<br/> . . . |
+| | 上也提供本文中使用的原始碼。 . 上也提供本文中使用的原始碼。 <br/>交易式工作<br/>其他連結上<br/> 上也提供本文中使用的原始碼。 . 上也提供本文中使用的原始碼。 |
 | transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
 | | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
 

@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 0c819e4efb158baa2150b00368c618c5467a01e0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/17/2019
+ms.openlocfilehash: 60c7483e698a07fcf86438798f6bb5013a7417ce
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966767"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391146"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL 透明資料加密：「攜帶您自己的金鑰」支援
 
@@ -116,7 +116,7 @@ ms.locfileid: "52966767"
 
 ### <a name="azure-key-vault-configuration-steps"></a>Azure Key Vault 設定步驟
 
-- 安裝 [PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)
+- 安裝 [PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-5.6.0)
 - 對金鑰保存庫使用 [PowerShell 啟用「虛刪除」屬性](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell)，在兩個不同的區域中建立兩個 Azure Key Vault (使用 AKV 入口網站時尚不適用此選項 – 但 SQL 則需要此選項)。
 - 這兩個 Azure Key Vault 必須位於屬於相同 Azure 區域的兩個區域中，如此才能執行金鑰的備份與還原。  如果您的兩個金鑰保存庫必須位於不同的地理區域，以符合 SQL 異地災害復原需求，請遵循 [BYOK 程序](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)，以便從內部部署 HSM 匯入金鑰。
 - 在第一個金鑰保存庫中建立新的金鑰：  

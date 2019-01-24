@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
 ms.component: common
-ms.openlocfilehash: 6384af5368fe722d6c9307d56d8a071ebcd17bf0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2f9c7e791bf77c2387dbe9ba58b3ef70abe8fb89
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226969"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411263"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>以 C++ 列出 Azure 儲存體資源
 列表作業是許多使用 Azure 儲存體的開發案例的關鍵。 本文說明如何使用 Microsoft Azure Storage Client Library for C++ 中提供的列表 API，以最有效率的方式列舉 Azure 儲存體中的物件。
@@ -77,7 +77,7 @@ do
     }
     else
     {
-        process_diretory(it->as_directory());
+        process_directory(it->as_directory());
     }
 }
 

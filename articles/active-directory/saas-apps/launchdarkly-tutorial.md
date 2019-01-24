@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 LaunchDarkly 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3f0671bc-f93f-496e-b465-b9ce8c6633fa
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 9677d021de9cb89760afad3db583e6954790ecad
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: d67afb6c8cba36e6f63cd9d25d753a29441a4834
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971175"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809236"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>教學課程：Azure Active Directory 與 LaunchDarkly 整合
 

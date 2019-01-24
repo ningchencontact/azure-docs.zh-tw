@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Microsoft Azure 文件
 description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。
-ms.openlocfilehash: c8ba57b9173fbbfa4e00472972921073f32cb2f7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 936200f304a1c2f923797b3664e4b2ecd9799e65
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017785"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425675"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -434,7 +434,7 @@ ms.locfileid: "53017785"
                                     </ul>
                                 </div>
                                 <div class="group">
-                                    <h3>網路</h3>
+                                    <h3>網路功能</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/networking/networking-overview">
@@ -3318,7 +3318,7 @@ ms.locfileid: "53017785"
                                                     <a href="/powershell/azure/get-started-azureps">開始使用</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/azure/install-azurerm-ps">下載 PowerShell</a>
+                                                    <a href="/powershell/azure/azurerm/install-azurerm-ps">下載 PowerShell</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/overview">參考</a>

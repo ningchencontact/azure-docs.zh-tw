@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: dc6994cd682997dd00e76b57b4996ebad1f73fbb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 844feb7999f88f63c9406c9f430d1d076cd032df
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352388"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390683"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>針對 Azure Stack Kubernetes 部署進行疑難排解
 

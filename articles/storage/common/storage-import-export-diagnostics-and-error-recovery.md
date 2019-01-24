@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 2a54752f933b91265d0aa8add61ca0707615931b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8a5c25cd5836c3bde630684eff24da7dc8b62fc6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526322"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855800"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Azure 匯入/匯出作業的診斷和錯誤復原
-針對每個已處理的磁碟機，Azure 匯入/匯出服務會在相關聯的儲存體帳戶中建立錯誤記錄檔。 您也可以在呼叫 [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 或 [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) 作業時，將 `LogLevel` 屬性設定為 `Verbose` 來啟用詳細資訊記錄。
+針對每個已處理的磁碟機，Azure 匯入/匯出服務會在相關聯的儲存體帳戶中建立錯誤記錄檔。 您也可以在呼叫 [Put Job](/rest/api/storageimportexport/jobs) 或 [Update Job Properties](/rest/api/storageimportexport/jobs) 作業時，將 `LogLevel` 屬性設定為 `Verbose` 來啟用詳細資訊記錄。
 
  根據預設，記錄會寫入名為 `waimportexport` 的容器。 您可以在呼叫 `Put Job` 或 `Update Job Properties` 作業時，設定 `DiagnosticsPath` 屬性以指定不同的名稱。 記錄會使用下列的命名慣例儲存為區塊 blob︰`waies/jobname_driveid_timestamp_logtype.xml`。
 
- 您可以藉由呼叫 [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) 作業來擷取工作的記錄 URI。 會針對每個磁碟機在 `VerboseLogUri` 屬性中傳回詳細資訊記錄檔的 URI，而在 `ErrorLogUri` 屬性中會傳回錯誤記錄檔的 URI。
+ 您可以藉由呼叫 [Get Job](/rest/api/storageimportexport/jobs) 作業來擷取工作的記錄 URI。 會針對每個磁碟機在 `VerboseLogUri` 屬性中傳回詳細資訊記錄檔的 URI，而在 `ErrorLogUri` 屬性中會傳回錯誤記錄檔的 URI。
 
 您可以使用記錄資料來識別下列問題。
 

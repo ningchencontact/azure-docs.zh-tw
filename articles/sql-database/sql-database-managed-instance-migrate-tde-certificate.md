@@ -11,17 +11,17 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 08/09/2018
-ms.openlocfilehash: 078a64bf625fad15b66a3c4e6e31e798f675fc33
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 01/17/2019
+ms.openlocfilehash: c6d0d2eec61375760ee3dc4e4b100b24cef2b405
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161772"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388792"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>將受 TDE 保護之資料庫的憑證移轉到 Azure SQL Database 受控執行個體
 
-使用原生還原選項將受到[透明資料加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)保護的資料庫移轉到 Azure SQL Database 受控執行個體時，來自內部部署或 IaaS SQL Server 的對應憑證必須在資料庫還原之前進行移轉。 此文章會逐步引導您進行將憑證手動移轉到 Azure SQL Database 受控執行個體的程序：
+使用原生還原選項將受到[透明資料加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)保護的資料庫移轉到 Azure SQL Database 受控執行個體時，來自內部部署或 IaaS SQL Server 的對應憑證必須在資料庫還原之前進行移轉。 本文會逐步引導您進行將憑證手動移轉到 Azure SQL Database 受控執行個體的程序：
 
 > [!div class="checklist"]
 > * 將憑證匯出至個人資訊交換 (.pfx) 檔案
@@ -39,7 +39,7 @@ ms.locfileid: "47161772"
 
 - [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) 命令列工具會安裝在內部部署伺服器或其他電腦上，可以存取匯出為檔案的憑證。 Pvk2Pfx 工具屬於[企業 Windows 驅動程式套件](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)，這是一個獨立式命令列環境。
 - 已安裝 [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) 5.0 版或更新版本。
-- [已安裝且已更新](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) AzureRM PowerShell 模組。
+- [已安裝且已更新](https://docs.microsoft.com/powershell/azure/install-az-ps) AzureRM PowerShell 模組。
 - [AzureRM.Sql 模組](https://www.powershellgallery.com/packages/AzureRM.Sql) 4.10.0 版或更新版本。
   在 PowerShell 中執行下列命令以安裝/更新 PowerShell 模組：
 

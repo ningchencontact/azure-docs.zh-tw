@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Promapp 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 418d0601-6e7a-4997-a683-73fa30a2cfb5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 6ed07ea3cc625c518d6733f7a86f4542f91f425c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 392bd8cf660ce1e394d25693bf1cd74d882fb028
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017111"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810129"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>教學課程：Azure Active Directory 與 Promapp 整合
 

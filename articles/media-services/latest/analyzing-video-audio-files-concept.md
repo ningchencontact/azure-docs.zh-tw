@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 95d3f0aac4acdfbd70dcadd8db5c13456e83a7e7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 20aef7f971b4c4bf8dcff98c633aa0b0aa69811a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344307"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828174"
 ---
 # <a name="analyzing-video-and-audio-files"></a>分析視訊和音訊檔案
 
@@ -148,7 +148,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 |name|臉部名稱。 它可以是 Unknown #0、已識別的名人或客戶培訓人員。|
 |信賴度|臉部識別信賴。|
 |說明|名人的描述。 |
-|thumbnalId|該臉部的縮圖識別碼。|
+|thumbnailId|該臉部的縮圖識別碼。|
 |knownPersonId|如果是已知人物，則為其內部識別碼。|
 |referenceId|若為 Bing 名人，則為其 Bing 識別碼。|
 |referenceType|目前只是 Bing。|

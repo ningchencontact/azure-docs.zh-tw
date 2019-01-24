@@ -3,18 +3,18 @@ title: 管理多部 Azure 虛擬機器的更新
 description: 本文說明如何管理 Azure 虛擬機器的更新。
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3897225ef6ed7fcc0db75e82058e5b5b273ccbd4
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: ac2d1c1fb59988c8b95fda6b92bb9ae0332fc0e0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214023"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427418"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -198,3 +198,4 @@ Linux 代理程式必須能夠存取更新存放庫。
 ## <a name="next-steps"></a>後續步驟
 
 - 若要深入了解「更新管理」(包括記錄、輸出和錯誤)，請參閱 [Azure 中的更新管理解決方案](../operations-management-suite/oms-solution-update-management.md)。
+

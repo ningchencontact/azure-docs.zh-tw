@@ -3,18 +3,18 @@ title: 管理 Azure 自動化資料
 description: 本文章包含用於管理 Azure 自動化環境的多個主題。  目前將資料保留和備份 Azure 自動化災害復原併入 Azure 自動化中。
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 05da900e9ddf4cbb99df5c6d62ddb569059e2c4b
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: b133947a7daf1977f084ee4008599882b51d9e8b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146346"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428472"
 ---
 # <a name="managing-azure-automation-data"></a>管理 Azure 自動化資料
 本文章包含用於管理 Azure 自動化環境的多個主題。
@@ -76,4 +76,5 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 | 日本東部 |日本西部 |
 
 萬一主區域資料遺失，Microsoft 會嘗試將它復原。 如果主要資料無法復原，則會執行異地容錯移轉，而且將透過受影響客戶的訂用帳戶將此情況通知他們。
+
 

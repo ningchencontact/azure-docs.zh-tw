@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 5f76b117b01090864e1bf33e986e8ec96f0bf376
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 23c53982919ad29c639a6441f206abb35ddb7a1b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599929"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430786"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>使用 PowerShell 在可用性區域中建立 Windows 虛擬機器
 
@@ -29,7 +29,7 @@ ms.locfileid: "31599929"
 
 若要使用可用性區域，請在[支援的 Azure 區域](../../availability-zones/az-overview.md#regions-that-support-availability-zones)中建立虛擬機器。
 
-確定您已安裝最新版本的 Azure PowerShell 模組。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+確定您已安裝最新版本的 Azure PowerShell 模組。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
