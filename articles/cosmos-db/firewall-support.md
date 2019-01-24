@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 84e56610cb0f9090d8cacc461a73bf41d05f2251
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2bb3665f0d0ab15f212741a6ce032fcd7ac2620d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033480"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358108"
 ---
 # <a name="ip-firewall-for-azure-cosmos-accounts"></a>Azure Cosmos 帳戶的 IP 防火牆
 
@@ -19,7 +19,7 @@ ms.locfileid: "54033480"
 
 ## <a id="ip-access-control-overview"></a>IP 存取控制概觀
 
-根據預設，只要要求伴隨有效的授權權杖，就可以從網際網路存取 Azure Cosmos 帳戶。 若要設定 IP 原則型存取控制，使用者必須以 CIDR (無類別網域間路由) 形式提供這組 IP 位址或 IP 位址範圍，以作為允許存取指定 Azure Cosmos 帳戶的用戶端 IP 清單。 套用此組態之後，任何源自此允許清單外部電腦的要求都會收到 404 (找不到) 回應。 使用 IP 防火牆時，建議允許 Azure 入口網站存取您的帳戶。 需具備存取權，才能使用資料總管，以及為您的帳戶擷取 Azure 入口網站上顯示的計量。
+根據預設，只要要求伴隨有效的授權權杖，就可以從網際網路存取 Azure Cosmos 帳戶。 若要設定 IP 原則型存取控制，使用者必須以 CIDR (無類別網域間路由) 形式提供這組 IP 位址或 IP 位址範圍，以作為允許存取指定 Azure Cosmos 帳戶的用戶端 IP 清單。 套用此組態之後，任何源自此允許清單外部機器的要求都會收到 403 (禁止) 回應。 使用 IP 防火牆時，建議允許 Azure 入口網站存取您的帳戶。 需具備存取權，才能使用資料總管，以及為您的帳戶擷取 Azure 入口網站上顯示的計量。
 
 您可以結合具有子網路的 IP 型防火牆與 VNET 存取控制。 結合它們，即可將存取權限制為任何具有公用 IP 和/或來自 VNET 內特定子網路的來源。 若要深入了解如何使用子網路和 VNET 型存取控制，請參閱[從虛擬網路存取 Azure Cosmos DB 資源](vnet-service-endpoint.md)。
 

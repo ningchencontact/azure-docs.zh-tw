@@ -1,22 +1,23 @@
 ---
-title: Azure Content Moderator 中的認證 | Microsoft Docs
-description: 管理要搭配 API 使用的 Content Moderator 認證。
+title: 在 Azure Content Moderator 中管理認證 - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: 管理您使用 API 時所需的 Content Moderator 認證。
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/25/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5910961ee54c953ea241baf9bce78b79b0dfeaea
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3d183870938f44cd71f1dab4105eec390ba12d94
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260086"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266140"
 ---
-# <a name="manage-credentials"></a>管理認證
+# <a name="manage-content-moderator-service-credentials"></a>管理 Content Moderator 服務認證
 
 您的 Content Moderator 認證會建立於下列位置：
 
@@ -32,7 +33,7 @@ ms.locfileid: "51260086"
 ![Azure 入口網站中的 Content Moderator 金鑰](images/credentials-azure-portal-keys.PNG)
 
 ### <a name="use-the-azure-account-with-the-review-tool-and-review-api"></a>使用 Azure 帳戶搭配審查工具和審查 API
-若要使用您的 Azure 金鑰搭配審查 API，請複製下列螢幕擷取畫面中列在 [屬性] 畫面上的 [資源識別碼]，並將它輸入於審查工具認證畫面的 [列入白名單的資源識別碼] 欄位中，如以下**資源識別碼**一節所示。 
+若要使用您的 Azure 金鑰搭配審查 API，請複製下列螢幕擷取畫面中列在 [屬性] 畫面上的 [資源識別碼]，並將它輸入於審查工具認證畫面的 [列入允許清單的資源識別碼] 欄位中，如以下**資源識別碼**一節所示。 
 
 > [!NOTE]
 > Content Moderator 訂用帳戶的區域應符合審核小組的區域，以便辨識您的小組及存取小組資料。 例如，在此頁面的影像中，[美國西部] 區域 **(4)** 包含 Content Moderator Azure 訂用帳戶和您的審核小組。

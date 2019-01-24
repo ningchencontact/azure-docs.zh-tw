@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: bbe957d4327770daee51f8a46d90978373fed53a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3363b0bbd98b125f0108ca842d5c0b6b9941bf9e
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317010"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330376"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
@@ -250,5 +250,7 @@ az group deployment operation list \
 
 
 ## <a name="next-steps"></a>後續步驟
+
+* 若要進行疑難排解教學課程，請參閱[教學課程：對 Resource Manager 範本部署進行疑難排解](./resource-manager-tutorial-troubleshoot.md)
 * 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](resource-group-audit.md)。
 * 若要了解部署期間可採取哪些動作來判斷錯誤，請參閱 [檢視部署作業](resource-manager-deployment-operations.md)。

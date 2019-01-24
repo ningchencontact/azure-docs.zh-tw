@@ -1,23 +1,23 @@
 ---
 title: 影像仲裁 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 使用影像仲裁來審核不適當的影像
+description: 使用內容仲裁的電腦輔助影像仲裁以及人工審核工具來審核成人和猥褻內容的影像。
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 044aa9a127aa8130340719147314961ddb38167a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 952777af0a233f0233f14c749fe0ebfdeaa8344a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852702"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262926"
 ---
-# <a name="image-moderation"></a>影像仲裁
+# <a name="learn-image-moderation-concepts"></a>了解影像仲裁概念
 
 使用內容仲裁的電腦輔助影像仲裁以及[人工審核工具](Review-Tool-User-Guide/human-in-the-loop.md)來審核成人和猥褻內容的影像。 掃描影像的文字內容並擷取該文字，然後偵測臉部。 您可以根據自訂清單比對影像，並採取進一步的動作。
 

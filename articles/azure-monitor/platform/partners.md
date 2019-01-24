@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 6ed8bae2e1571722f7a9a0030a48e64c4f7fbc60
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: ''
+ms.openlocfilehash: 90ad5306c1594381409ed2bcbe767e2ffd055531
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106659"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473957"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 監視器合作夥伴整合
 | 合作夥伴 |  |  |
@@ -249,3 +249,4 @@ Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk 文件。"
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic 文件。"
 [turbonomic-doc]: https://turbonomic.com/solutions/technologies/azure-cloud/ "Turbonomic 簡介。"
+

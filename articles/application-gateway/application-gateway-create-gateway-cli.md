@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: victorh
-ms.openlocfilehash: d6bbf6f555afe53b749ac68be38b26eb6980a9aa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 66a9ea5abcff4609288e9ce7c93912313db6e163
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999591"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850598"
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>使用 Azure CLI 建立應用程式閘道
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>建立網路資源 
 
-使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) 建立虛擬網路和子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create) 建立公用 IP 位址。
+使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) 建立虛擬網路和子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip) 建立公用 IP 位址。
 
 ```azurecli-interactive
 az network vnet create \

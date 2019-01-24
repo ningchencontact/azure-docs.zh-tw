@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 26bccc07e402288db696bce8a2371cab9ef7aff9
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055076"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320079"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中樞術語詞彙
 本文會列出 IoT 中樞文章中使用的一些常見術語。
@@ -114,9 +114,6 @@ Azure IoT 中樞中的自動裝置管理，可將管理大群大型裝置的許�
 ## <a name="device-identity"></a>裝置身分識別
 裝置識別身分是指派給每個在[身分識別登錄](#identity-registry)中註冊之裝置的唯一識別碼。
 
-## <a name="module-identity"></a>模組身分識別
-模組身分識別是針對屬於裝置的每個模組所指派的唯一識別碼。 模組身分識別也會登錄在[身分識別登錄](#identity-registry)中。
-
 ## <a name="device-management"></a>裝置管理
 裝置管理涵蓋與管理 IoT 方案中的裝置相關聯的完整生命週期，包括規劃、佈建、設定、監視及淘汰。
 
@@ -131,15 +128,6 @@ Azure IoT 中樞中的自動裝置管理，可將管理大群大型裝置的許�
 
 ## <a name="device-twin"></a>裝置對應項
 [裝置對應項](iot-hub-devguide-device-twins.md)是存放裝置狀態資訊 (例如中繼資料、組態和狀況) 的 JSON 文件。 [IoT 中樞](#iot-hub)會為您在 IoT 中樞佈建的每個裝置保存裝置對應項。 裝置對應項可讓您同步處理裝置與解決方案後端之間的[裝置狀況](#device-condition)和組態。 您可以查詢裝置對應項，以找出特定裝置和查詢長時間執行作業的狀態。
-
-## <a name="module-twin"></a>模組對應項
-和裝置對應項類似，模組對應項是存放模組狀態資訊 (例如中繼資料、組態和狀況) 的 JSON 文件。 IoT 中樞會為您在 IoT 中樞的裝置身分識別下所佈建的每個模組身分識別，都存留一個模組對應項。 模組對應項可讓您同步處理模組與解決方案後端之間的模組條件和設定。 您可以查詢模組對應項，以找出特定模組和查詢長時間執行作業的狀態。
-
-## <a name="twin-queries"></a>對應項查詢
-[裝置與模組對應項查詢](iot-hub-devguide-query-language.md)使用類似 SQL 的 IoT 中樞查詢語言，從裝置對應項或模組對應項擷取資訊。 您可以使用相同的 IoT 中樞查詢語言，來對在 IoT 中樞執行的 [](#job)擷取相關資訊。
-
-## <a name="twin-synchronization"></a>對應項同步處理
-對應項同步處理會使用裝置對應項或模組對應項中的[所需屬性](#desired-properties)來設定您的裝置或模組，並從其中擷取[報告屬性](#reported-properties)以儲存在對應項中。
 
 ## <a name="direct-method"></a>直接方法
 [直接方法](iot-hub-devguide-direct-methods.md)可讓您藉由叫用 IoT 中樞上的 API，觸發方法以在裝置上執行。
@@ -190,6 +178,17 @@ Azure IoT 解決方案加速器將多個 Azure 服務封裝在一起成為解決
 
 ## <a name="job"></a>工作 (Job)
 解決方案後端可以使用[作業](iot-hub-devguide-jobs.md)來排程和追蹤已向 IoT 中樞註冊之一組裝置的活動。 這些活動包括更新裝置對應項[所需屬性](#desired-properties)、更新裝置對應項[標籤](#tags)，以及叫用[直接方法](#direct-method)。 [IoT 中樞](#iot-hub)也可使用作業從[身分識別登錄](#identity-registry)[匯入和匯出](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)資料。
+
+## <a name="modules"></a>模組
+在裝置端，IoT 中樞裝置 SDK 可讓您建立會個別向 IoT 中樞建立獨立連線的[模組](iot-hub-devguide-module-twins.md)。 這項功能可讓您針對裝置上的不同元件使用不同的命名空間。
+
+模組身分識別和模組對應項所提供的功能，和[裝置身分識別](#device-identity)與[裝置對應項](#device-twin)所提供的功能相同，但是更為細微。 如此更細微的控制，可讓相容裝置 (例如管理多個元件的作業系統型裝置或韌體裝置) 隔離那些元件的設定和條件。
+
+## <a name="module-identity"></a>模組身分識別
+模組身分識別是針對屬於裝置的每個模組所指派的唯一識別碼。 模組身分識別也會登錄在[身分識別登錄](#identity-registry)中。
+
+## <a name="module-twin"></a>模組對應項
+和裝置對應項類似，模組對應項是存放模組狀態資訊 (例如中繼資料、組態和狀況) 的 JSON 文件。 IoT 中樞會為您在 IoT 中樞的裝置身分識別下所佈建的每個模組身分識別，都存留一個模組對應項。 模組對應項可讓您同步處理模組與解決方案後端之間的模組條件和設定。 您可以查詢模組對應項，以找出特定模組和查詢長時間執行作業的狀態。
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) 是 [IoT 中樞](#iot-hub)支援用來與裝置通訊的其中一種傳訊通訊協定。 如需 IoT 中樞支援的傳訊通訊協定詳細資訊，請參閱[使用 IoT 中樞傳送及接收訊息](iot-hub-devguide-messaging.md)。
@@ -256,6 +255,12 @@ Azure 訂用帳戶是發生帳單的地方。 您建立的每個 Azure 資源，
 
 ## <a name="token-service"></a>權杖服務
 您可以使用權杖服務來實作裝置的驗證機制。 建立具備 **DeviceConnect** 權限的 IoT 中樞[共用存取原則](#shared-access-policy)，以建立「裝置範圍」權杖。 這些權杖可讓裝置連接到 IoT 中樞。 裝置可使用自訂驗證機制來向權杖服務進行驗證。 如果裝置驗證成功，則權杖服務會發出 SAS 權杖以供裝置用來存取您的 IoT 中樞。
+
+## <a name="twin-queries"></a>對應項查詢
+[裝置與模組對應項查詢](iot-hub-devguide-query-language.md)使用類似 SQL 的 IoT 中樞查詢語言，從裝置對應項或模組對應項擷取資訊。 您可以使用相同的 IoT 中樞查詢語言，來對在 IoT 中樞執行的 [](#job)擷取相關資訊。
+
+## <a name="twin-synchronization"></a>對應項同步處理
+對應項同步處理會使用裝置對應項或模組對應項中的[所需屬性](#desired-properties)來設定您的裝置或模組，並從其中擷取[報告屬性](#reported-properties)以儲存在對應項中。
 
 ## <a name="x509-client-certificate"></a>X.509 用戶端憑證
 裝置可以使用 X.509 憑證向 [IoT 中樞](#iot-hub)進行驗證。 使用 X.509 憑證是使用 [SAS 權杖](#shared-access-signature)的替代方式。

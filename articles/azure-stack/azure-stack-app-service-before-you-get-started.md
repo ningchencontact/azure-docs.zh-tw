@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 31fe0ede202b72a3e71c8028543ef0677a44a335
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275664"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413017"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>開始使用 Azure Stack 上的 App Service 之前
 
@@ -61,11 +61,11 @@ Azure Stack 1802 更新已增加對容錯網域的支援。 Azure Stack 上的 A
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>適用於 Azure Stack 的 Azure Resource Manager 根憑證
 
-在可以連線到 Azure Stack 整合式系統或 Azure Stack 開發套件主機上具特殊權限端點的電腦上，開啟已提高權限的 PowerShell 工作階段。
+在可以連線到 Azure Stack 整合式系統或 Azure Stack 開發套件主機上特殊權限端點的電腦上，開啟已提高權限的 PowerShell 工作階段。
 
 從您解壓縮協助程式指令碼所在的資料夾執行 *Get-AzureStackRootCert.ps1* 指令碼。 此指令碼會在與 App Service 建立憑證時所需之指令碼相同的資料夾中建立根憑證。
 
-當您執行下列 PowerShell 命令時，必須提供具特殊權限端點和 AzureStack\CloudAdmin 的認證。
+當您執行下列 PowerShell 命令時，必須提供特殊權限的端點和 AzureStack\CloudAdmin 的認證。
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
@@ -327,7 +327,7 @@ Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從�
 請遵循下列步驟：
 
 1. 以 azurestack\AzureStackAdmin 身分開啟 PowerShell 執行個體。
-2. 移至您在[先決條件步驟](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)中下載並解壓縮的指令碼位置。
+2. 移至您在[先決條件步驟](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started)中下載並解壓縮的指令碼位置。
 3. [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 4. 執行 **Create-AADIdentityApp.ps1** 指令碼。 當系統提示時，請輸入您部署 Azure Stack 時使用的 Azure AD 租用戶識別碼。 例如，輸入 **myazurestack.onmicrosoft.com**。
 5. 在 [認證] 視窗中，輸入您的 Azure AD 服務管理帳戶和密碼。 選取 [確定] 。
@@ -371,7 +371,7 @@ Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從�
 請遵循下列步驟：
 
 1. 以 azurestack\AzureStackAdmin 身分開啟 PowerShell 執行個體。
-2. 移至您在[先決條件步驟](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)中下載並解壓縮的指令碼位置。
+2. 移至您在[先決條件步驟](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started)中下載並解壓縮的指令碼位置。
 3. [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 4. 執行 **Create-ADFSIdentityApp.ps1** 指令碼。
 5. 在 [認證] 視窗中，輸入您的 AD FS 雲端管理帳戶和密碼。 選取 [確定] 。

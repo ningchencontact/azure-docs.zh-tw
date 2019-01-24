@@ -4,7 +4,7 @@ description: 適用於 Azure 資源的受控識別概觀。
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 3b9c8ea3dba5fdbd3e25293873ab1ae6854b3b83
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b3a86748d9b7a420b9a7f9ab60c6841cbf403f09
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728103"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439080"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>什麼是適用於 Azure 資源的受控識別？
 
@@ -38,9 +38,9 @@ Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識
 
 下列字詞適用於 Azure 資源文件集的所有受控識別：
 
-- **用戶端識別碼**：Azure AD 所產生的唯一識別碼，會在其初始佈建期間繫結至應用程式和服務主體。
-- **主體識別碼**：適用於您受控識別之服務主體物件的物件識別碼，可用來將角色型存取授與 Azure 資源。
-- **Azure Instance Metadata Service (IMDS)**：透過 Azure Resource Manager 建立之所有 IaaS VM 可存取的 REST 端點。 端點可以在已知的非可路由 IP 位址 (169.254.169.254) 取得，該位址只能從 VM 內存取。
+- **用戶端識別碼** - Azure AD 所產生的唯一識別碼，會在其初始佈建期間繫結至應用程式和服務主體。
+- **主體識別碼** - 適用於您受控識別之服務主體物件的物件識別碼，可用來將角色型存取授與 Azure 資源。
+- **Azure Instance Metadata Service (IMDS)** - REST 端點，可透過 Azure Resource Manager 建立的所有 IaaS VM 來存取。 端點可以在已知的非可路由 IP 位址 (169.254.169.254) 取得，該位址只能從 VM 內存取。
 
 ## 適用於 Azure 資源的受控識別如何運作？<a name="how-does-it-work"></a>
 

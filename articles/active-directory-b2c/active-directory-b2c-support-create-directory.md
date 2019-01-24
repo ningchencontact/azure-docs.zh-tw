@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 中針對建立租用戶進行疑難排解
 description: 關於建立 Azure Active Directory 或 Azure Active Directory B2C 租用戶的問題與解決方法。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1d510f51ed28c28c698437f905c4911a8c32e5ce
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1abd25f9c12c949b1c807aca3a4378ac493bd877
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234981"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54842353"
 ---
 # <a name="troubleshoot-creating-an-azure-active-directory-or-azure-active-directory-b2c-tenant"></a>針對建立 Azure Active Directory 或 Azure Active Directory B2C 租用戶進行疑難排解 
 

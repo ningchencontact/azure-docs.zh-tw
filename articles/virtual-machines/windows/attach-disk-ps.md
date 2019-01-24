@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: cynthn
-ms.openlocfilehash: cd11bb8ae8f22705feb7eebeafde385fcf11fdcd
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.component: disks
+ms.openlocfilehash: b293a60240622b5c8e417bf61de83ae8817e203f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637080"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477119"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>使用 PowerShell 將資料磁碟連結至 Windows VM
 
@@ -28,11 +29,11 @@ ms.locfileid: "49637080"
 
 首先，請檢閱下列提示：
 * 虛擬機器的大小會控制您可以連接的資料磁碟數目。 如需相關資訊，請參閱[虛擬機器的大小](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
-* 若要使用進階儲存體，您將需要一個啟用「進階儲存體」的 VM 類型，例如 DS 系列或 GS 系列的虛擬機器。 如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 若要使用進階儲存體，您將需要一個啟用「進階儲存體」的 VM 類型，例如 DS 系列或 GS 系列的虛擬機器。 如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文。
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-為了在本機安裝及使用 PowerShell，本教學課程需要 Azure PowerShell 模組 6.0.0 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+為了在本機安裝及使用 PowerShell，本教學課程需要 Azure PowerShell 模組 6.0.0 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>將空的資料磁碟新增至虛擬機器

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 8a4016a227f4f464d839c01cea38965aa06932c8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9c707b6465761d2ebc7ddb3296d0ccd3fb9394fd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963708"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851006"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>使用 Azure CLI 以建立具有內部重新導向的應用程式閘道
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>建立網路資源 
 
-使用 [az network vnet create](/cli/azure/network/vnet#az-net) 建立名為 myVNet 的虛擬網路，以及名為 myAGSubnet 的子網路。 然後您可以使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create)，以新增伺服器後端集區所需且名為 *myBackendSubnet* 的子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create) 建立名為 myAGPublicIPAddress 的公用 IP 位址。
+使用 [az network vnet create](/cli/azure/network/vnet) 建立名為 myVNet 的虛擬網路，以及名為 myAGSubnet 的子網路。 然後您可以使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet)，以新增伺服器後端集區所需且名為 *myBackendSubnet* 的子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip) 建立名為 myAGPublicIPAddress 的公用 IP 位址。
 
 ```azurecli-interactive
 az network vnet create \
@@ -103,7 +103,7 @@ az network application-gateway create \
 
 需要接聽程式才能讓應用程式閘道將流量適當地路由到後端集區。 在本教學課程中，您會為兩個網域建立兩個接聽程式。 在此範例中，會為 *www.contoso.com* 和 *www.contoso.org* 網域建立接聽程式。
 
-使用 [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create)，以新增路由流量時所需的後端接聽程式。
+使用 [az network application-gateway http-listener create](/cli/azure/network/application-gateway)，以新增路由流量時所需的後端接聽程式。
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>新增重新導向設定
 
-使用 [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create) 來新增重新導向設定，以在應用程式閘道中將流量從 *www.consoto.org* 傳送至 *www.contoso.com*。
+使用 [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config) 來新增重新導向設定，以在應用程式閘道中將流量從 *www.consoto.org* 傳送至 *www.contoso.com*。
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -139,7 +139,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-routing-rules"></a>新增路由規則
 
-系統會依據規則的建立順序來處理規則，而且會根據傳送至應用程式閘道的 URL，使用符合 URL 的第一條規則將流量導向。 此教學課程中不需要所建立的預設基本規則。 在此範例中，您會建立名為 *contosoComRule* 和 *contosoOrgRule* 的兩個新規則，並刪除已建立的預設規則。  您可以使用 [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create) 來新增規則。
+系統會依據規則的建立順序來處理規則，而且會根據傳送至應用程式閘道的 URL，使用符合 URL 的第一條規則將流量導向。 此教學課程中不需要所建立的預設基本規則。 在此範例中，您會建立名為 *contosoComRule* 和 *contosoOrgRule* 的兩個新規則，並刪除已建立的預設規則。  您可以使用 [az network application-gateway rule create](/cli/azure/network/application-gateway) 來新增規則。
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -197,7 +197,7 @@ az vmss extension set \
 
 ## <a name="create-cname-record-in-your-domain"></a>在網域中建立 CNAME 記錄
 
-在以公用 IP 位址建立應用程式閘道之後，您可以取得 DNS 位址並用以在網域中建立 CNAME 記錄。 您可以使用 [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show) 來取得應用程式閘道的 DNS 位址。 複製 DNSSettings 的 *fqdn* 值，並用來作為所建立 CNAME 記錄的值。 不建議使用 A-records，因為重新啟動應用程式閘道時，可能會變更 VIP。
+在以公用 IP 位址建立應用程式閘道之後，您可以取得 DNS 位址並用以在網域中建立 CNAME 記錄。 您可以使用 [az network public-ip show](/cli/azure/network/public-ip) 來取得應用程式閘道的 DNS 位址。 複製 DNSSettings 的 *fqdn* 值，並用來作為所建立 CNAME 記錄的值。 不建議使用 A-records，因為重新啟動應用程式閘道時，可能會變更 VIP。
 
 ```azurecli-interactive
 az network public-ip show \

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 207dad0386ec53be1e8a860a85fe6670d8542043
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 015cbadef57a3e306fea4321db4b12c3a3918683
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422638"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433776"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>整合 API 管理與 Azure 中的 Service Fabric
 
@@ -38,7 +38,7 @@ ms.locfileid: "52422638"
 開始之前：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI](/cli/azure/install-azure-cli)。
+* 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)或 [Azure CLI](/cli/azure/install-azure-cli)。
 * 在網路安全性群組中建立安全的 [Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
 * 如果您部署 Windows 叢集，請設定 Windows 開發環境。 安裝 [Visual Studio 2017](https://www.visualstudio.com) 和 **Azure 開發**、**ASP.NET 和 Web 開發**以及 **.NET Core 跨平台開發**工作負載。  然後設定 [.NET 開發環境](service-fabric-get-started.md)。
 

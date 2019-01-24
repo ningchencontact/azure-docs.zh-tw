@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 中使用自訂原則來設定以 LinkedIn
 description: 在 Azure Active Directory B2C 中使用自訂原則來設定以 Google 帳戶進行登入。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b5022e1475b9f15738dd015e16946b754fcd49c9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d6f1f312e9f23a2996cf0e7604df20d4eb3c4064
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887303"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845737"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 LinkedIn 帳戶進行登入
 
@@ -23,9 +23,9 @@ ms.locfileid: "48887303"
 
 此文章說明如何在 Azure Active Directory (Azure AD) B2C 中透過使用[自訂原則](active-directory-b2c-overview-custom.md)，讓使用者能夠從 LinkedIn 帳戶登入。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 完成[在 Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
+- 完成在 [Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 - 如果您還沒有 LinkedIn 帳戶，請在 [LinkedIn 註冊頁面](https://www.linkedin.com/start/join)建立一個帳戶。
 - LinkedIn 應用程式會要求您提供一個 80 X 80 像素的標誌影像來代表您的應用程式。
 
@@ -68,7 +68,7 @@ ms.locfileid: "48887303"
 您可以藉由將 LinkedIn 帳戶新增至原則擴充檔中的 **ClaimsProviders** 元素，將其定義成宣告提供者。
 
 1. 開啟 *TrustFrameworkExtensions.xml*。
-2. 尋找 **ClaimsProviders** 元素。 如果不存在，請在根元素下新增它。
+2. 尋找 **ClaimsProviders** 元素。 如果不存在，請在根元素下新增。
 3. 新增新的 **ClaimsProvider**，如下所示：
 
     ```xml
@@ -124,7 +124,7 @@ ms.locfileid: "48887303"
 到目前為止，您已設定原則，讓 Azure AD B2C 知道如何與您的 LinkedIn 帳戶進行通訊。 嘗試上傳原則的擴充檔案，這只是為了確認它到目前為止沒有任何問題。
 
 1. 在 Azure AD B2C 租用戶的 [自訂原則] 頁面上，選取 [上傳原則]。
-2. 啟用 [覆寫現有的原則]，然後瀏覽並選取 [TrustFrameworkExtensions.xml] 檔案。
+2. 啟用 [覆寫現有的原則]，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
 3. 按一下 [上傳] 。
 
 ## <a name="register-the-claims-provider"></a>註冊宣告提供者
@@ -142,7 +142,7 @@ ms.locfileid: "48887303"
 **ClaimsProviderSelection** 元素類似於註冊或登入畫面上的識別提供者按鈕。 如果您為 LinkedIn 帳戶新增 **ClaimsProviderSelection** 元素，當使用者登陸頁面時，就會出現新按鈕。
 
 1. 在您建立的使用者旅程圖中，尋找包含 `Order="1"` 的 **OrchestrationStep** 元素。
-2. 在 **ClaimsProviderSelects** 底下，新增下列元素。 將 **TargetClaimsExchangeId** 的值設定成適當的值，例如 `LinkedInExchange`：
+2. 在 **ClaimsProviderSelects** 底下新增下列元素。 將 **TargetClaimsExchangeId** 的值設定成適當的值，例如 `LinkedInExchange`：
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
@@ -161,7 +161,7 @@ ms.locfileid: "48887303"
     
     將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的 **Id**。 例如： `LinkedIn-OAUTH`。
 
-3. 儲存*TrustFrameworkExtensions.xml* 檔案，並再次上傳它以供驗證。
+3. 儲存 TrustFrameworkExtensions.xml 檔案，並再次上傳它以供驗證。
 
 ## <a name="create-an-azure-ad-b2c-application"></a>建立 Azure AD B2C 應用程式
 
@@ -171,17 +171,17 @@ ms.locfileid: "48887303"
 2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 4. 選取 [應用程式]，然後選取 [新增]。
-5. 輸入應用程式的名稱，例如 *testapp1*。
-6. 針對 [Web 應用程式 / Web API]，選取 `Yes`，然後針對 [回覆 URL] 輸入 `https://jwt.ms`。
+5. 輸入應用程式的名稱，例如 testapp1。
+6. 針對 [Web 應用程式 / Web API] ，選取 `Yes`，然後y在 [回覆 URL] 欄位輸入 `https://jwt.ms`。
 7. 按一下頁面底部的 [新增] 。
 
 ## <a name="update-and-test-the-relying-party-file"></a>更新並測試信賴憑證者檔案
 
 更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
 
-1. 在您的工作目錄中建立一份 *SignUpOrSignIn.xml* 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInLinkedIn.xml*。
+1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInLinkedIn.xml*。
 2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInLinkedIn`。
 3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如 `http://contoso.com/B2C_1A_signup_signin_linkedin`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignLinkedIn) 的識別碼。
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。
-6. 確定 [選取應用程式] 欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行]來進行測試。
+6. 確定 [選取應用程式] 欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行] 來進行測試。

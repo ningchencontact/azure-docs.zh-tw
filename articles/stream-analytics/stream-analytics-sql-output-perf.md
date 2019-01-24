@@ -9,18 +9,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/21/2018
-ms.openlocfilehash: 623d03c96866392ef245fb924cbf6600e7850ffe
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 794e2f3db44c29707400f96970159578d9e83f2d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47057705"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303270"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure 串流分析輸出至 Azure SQL Database
 
 本文會討論使用 Azure 串流分析將資料載入 Azure SQL Dtabase 時，達到更佳寫入輸送效能的祕訣。
 
-Azure 串流分析中的 SQL 輸出支援平行寫入作為選項。 此選項允許[完全平行](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs)作業拓撲，可將多個輸出資料分割平行寫入目的地資料表。 但是，在 Azure 串流分析中啟用此選項可能仍不足以達到更高的輸送量，因為它相當倚賴您的 Azure SQL Database 資料庫設定及資料表結構描述。 索引、叢集索引鍵、索引填滿因數及壓縮的選擇會影響載入資料表所需的時間。 如需如何最佳化您 Azure SQL Database，以根據內部效能評定改善查詢及載入效能的詳細資訊，請參閱 [SQL 資料庫效能指導](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance)。
+Azure 串流分析中的 SQL 輸出支援平行寫入作為選項。 此選項允許[完全平行](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs)作業拓撲，可將多個輸出資料分割平行寫入目的地資料表。 但是，在 Azure 串流分析中啟用此選項可能仍不足以達到更高的輸送量，因為它相當倚賴您的 Azure SQL Database 資料庫設定及資料表結構描述。 索引、叢集索引鍵、索引填滿因數及壓縮的選擇會影響載入資料表所需的時間。 如需如何最佳化您 Azure SQL Database，以根據內部效能評定改善查詢及載入效能的詳細資訊，請參閱 [SQL 資料庫效能指導](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance)。 在對 SQL Azure 資料庫進行平行寫入的情況下，系統並無法保證寫入順序。
 
 以下是每一種服務中的某些設定，可協助改善您解決方案的整體輸送量。
 

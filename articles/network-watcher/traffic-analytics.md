@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338578"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429084"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -99,9 +99,6 @@ Log Analytics 工作區必須存在於下列區域：
 |                   | 參與者            |
 |                   | 讀取者                 |
 |                   | 網路參與者    |
-|傳統            | 帳戶管理員  |
-|                   | 服務管理員  |
-|                   | 共同管理員       |
 
 如果您的帳戶未指派給其中一個內建角色，則必須指派給一個[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)，且該角色已獲得下列訂用帳戶層級的動作：
 
@@ -176,7 +173,7 @@ New-AzureRmStorageAccount `
 
 針對要啟用流量分析的任何其他 NSG 重複前述步驟。 流量記錄中的資料會傳送至工作區，因此請確定您所在國家/地區的當地法律和規範允許在工作區所在的區域中進行資料儲存。
 
-您也可以使用 AzureRm PowerShell 模組版本 6.2.1 或更新版本中的 [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell Cmdlet 來設定流量分析。 執行 `Get-Module -ListAvailable AzureRM` 來了解您安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+您也可以使用 AzureRm PowerShell 模組版本 6.2.1 或更新版本中的 [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell Cmdlet 來設定流量分析。 執行 `Get-Module -ListAvailable AzureRM` 來了解您安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
 
 ## <a name="view-traffic-analytics"></a>檢視流量分析
 

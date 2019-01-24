@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.author: juliako
-ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91e24fb274c1f9895046e8e2e7d760d02d196ccd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788203"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354173"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒體服務 v3 進行即時串流
 
@@ -29,6 +29,22 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 - 媒體服務中的元件可讓您內嵌、預覽、封裝、記錄、加密實況活動，並向客戶廣播這些活動，或是向 CDN 廣播以進一步發佈。
 
 本文提供詳細的概觀、指引，並包含使用媒體服務進行即時串流所需之主要元件的圖表。
+
+## <a name="live-streaming-workflow"></a>即時串流工作流程
+
+即時串流工作流程的步驟如下：
+
+1. 建立 [即時事件]。
+2. 建立新的 [資產] 物件。
+3. 建立 [即時輸出] 並使用您建立的資產名稱。
+4. 如果想要使用 DRM 加密內容，請建立 [串流原則] 和 [內容金鑰]。
+5. 如果不是使用 DRM，請使用內建的 [串流原則] 類型來建立 [串流定位器]。
+6. 列出 [串流原則] 上的路徑，以取得要使用的 URL (這些具有決定性)。
+7. 取得您想要串流的來源 [串流端點] 主機名稱 (確定此串流端正在執行)。 
+8. 結合步驟 6 的 URL 和步驟 7 的主機名稱，即可取得完整的 URL。
+9. 如果想要停止讓 [即時事件] 可供檢視，您必須藉由刪除 [串流定位器] 來停止串流事件。
+
+如需詳細資訊，請參閱以 [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) 範例為基礎的[即時串流教學課程](stream-live-tutorial-with-api.md)。
 
 ## <a name="overview-of-main-components"></a>主要元件概觀
 
@@ -89,9 +105,10 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) 可讓您控制傳出即時資料流的屬性，例如錄製了多少資料流 (例如雲端 DVR 的容量)，以及檢視者是否可以開始觀看即時資料流。 **LiveEvent** 和其 **LiveOutput** 之間的關聯性就像傳統的電視廣播，其中頻道 (**LiveEvent**) 表示持續的視訊資料流，而錄製 (**LiveOutput**) 的範圍限制在特定時間區段 (例如下午 6:30 至下午 7:00 的晚間新聞)。 您可以使用數位視訊錄影機 (DVR) 錄製電視，而 LiveEvent 中對等的功能是透過 ArchiveWindowLength 屬性來管理。 它是 ISO-8601 時間範圍持續時間 (例如 PTHH:MM:SS)，可指定 DVR 的容量，並且可設定為最小 3 分鐘至最大 25 小時的值。
 
-
 > [!NOTE]
-> **LiveOutput** 在建立時開始，並在刪除時結束。 當您刪除 **LiveOutput** 時，您不是刪除基礎的 **Asset** 和 Asset 中的內容。  
+> **LiveOutput** 在建立時開始，並在刪除時結束。 當您刪除 **LiveOutput** 時，您不是刪除基礎的 **Asset** 和 Asset 中的內容。 
+>
+> 如果您已在資產上發佈 **LiveOutput** 的 [串流定位器]，將可繼續檢視此事件 (最大為 DVR 視窗長度)，直到 [串流定位器] 的結束時間或直到您刪除定位器為止 (以先到者為準)。   
 
 如需詳細資訊，請參閱[使用雲端 DVR](live-event-cloud-dvr.md)。
 
@@ -110,21 +127,6 @@ LiveEvent 只要其狀態轉換為「**執行中**」，即會開始計費。 �
 ## <a name="latency"></a>Latency
 
 如需 LiveEvent 延遲的詳細資訊，請參閱[延遲](live-event-latency.md)。
-
-## <a name="live-streaming-workflow"></a>即時串流工作流程
-
-即時串流工作流程的步驟如下：
-
-1. 建立 LiveEvent。
-2. 建立新的資產物件。
-3. 建立 LiveOutput 並使用您建立的資產名稱。
-4. 如果想要使用 DRM 加密內容，請建立「串流原則」和「內容金鑰」。
-5. 如果不是使用 DRM，請使用內建的「串流原則」類型來建立「串流定位器」。
-6. 列出「串流原則」上的路徑，以取得要使用的 URL (這些具有決定性)。
-7. 取得您想要串流的來源「串流端點」主機名稱。 
-8. 結合步驟 6 的 URL 和步驟 7 的主機名稱，即可取得完整的 URL。
-
-如需詳細資訊，請參閱以 [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) 範例為基礎的[即時串流教學課程](stream-live-tutorial-with-api.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

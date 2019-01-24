@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: eb5f508916ef0944a61d556725ae1ba04123584b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 71e8e363a02e08a099d9051c7f851e11bbd9b80b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258299"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467276"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>什麼是 Bing 影像搜尋 API？
 
@@ -32,7 +32,7 @@ Bing 影像搜尋 API 可讓您在應用程式中使用 Bing 的認知影像搜�
 
 | 功能                                                                                                                                                                                 | 說明                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [即時建議搜尋字詞](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries#using-and-suggesting-search-terms) | 使用 [Bing 自動建議 API](../bing-autosuggest/get-suggested-search-terms.md) 隨著使用者的輸入顯示建議的搜尋字詞，以改善您的應用程式體驗。 |
+| [即時建議搜尋字詞](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) | 使用 [Bing 自動建議 API](../bing-autosuggest/get-suggested-search-terms.md) 隨著使用者的輸入顯示建議的搜尋字詞，以改善您的應用程式體驗。 |
 | [篩選及限制影像結果](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#filtering-images)                       | 藉由編輯查詢參數來篩選 Bing 所傳回的影像。                                                                                                       |
 | [裁剪縮圖及調整其大小，並加以顯示](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/resize-and-crop-thumbnails)                                                | 為 Bing 影像搜尋所傳回的影像編輯及顯示縮圖預覽。                                                                                      |
 | [樞紐和擴充使用者搜尋查詢](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries#pivoting-the-query)               | 在查詢中納入及顯示 Bing 建議的搜尋字詞，以擴充您的搜尋功能。                                                                    |

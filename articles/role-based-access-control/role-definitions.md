@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 416565a248fc9ef0861b5309d71fdac3b8fccc22
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ea022ce9b02fd54be7959f5e9521ca5dc34e4e7b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116056"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426416"
 ---
 # <a name="understand-role-definitions"></a>了解角色定義
 
@@ -165,13 +165,21 @@ Bob 的權限僅限於[儲存體 Blob 資料參與者 (預覽)](built-in-roles.m
 
 | 工具  | 版本  |
 |---------|---------|
-| [Azure PowerShell](/powershell/azure/install-azurerm-ps) | 5.6.0 或更新版本 |
+| [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) | 5.6.0 或更新版本 |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 或更新版本 |
 | [Azure for .NET](/dotnet/azure/) | 2.8.0-預覽或更新版本 |
 | [Azure SDK for Go](/go/azure/azure-sdk-go-install) | 15.0.0 或更新版本 |
 | [Azure for Java](/java/azure/) | 1.9.0 或更新版本 |
 | [Azure for Python](/python/azure) | 0.40.0 或更新版本 |
 | [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 或更新版本 |
+
+若要在 REST API 中檢視及使用資料作業，您必須將 **api-version** 參數設為下列版本或更新版本：
+
+- 2018-01-01-preview
+
+Azure 入口網站也可讓使用者透過 Azure AD 預覽體驗來瀏覽及管理佇列與 Blob 容器的內容。 若要查看及管理佇列或 Blob 容器的內容，請按一下儲存體帳戶概觀上的 [使用 Azure AD 預覽版探索資料]。
+
+![使用 Azure AD 預覽版探索佇列和 Blob 容器](./media/role-definitions/rbac-dataactions-browsing.png)
 
 ## <a name="actions"></a>動作
 
@@ -214,7 +222,7 @@ Bob 的權限僅限於[儲存體 Blob 資料參與者 (預覽)](built-in-roles.m
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-`AssignableScopes` 屬性指定角色可指派的範圍 (管理群組 (目前處於預覽階段)、訂用帳戶、資源群組或資源)。 您可以讓角色僅指派給需要它的訂用帳戶或資源群組，不會干擾其餘訂用帳戶或資源群組的使用者體驗。 您至少必須使用一個管理群組、訂用帳戶、資源群組或資源識別碼。
+`AssignableScopes` 屬性指定角色可指派的範圍 (訂用帳戶、資源群組或資源)。 您可以讓角色僅指派給需要它的訂用帳戶或資源群組，不會干擾其餘訂用帳戶或資源群組的使用者體驗。 您至少必須使用一個訂用帳戶、資源群組或資源識別碼。
 
 內建角色的 `AssignableScopes` 設定為根目錄範圍 (`"/"`)。 根目錄範圍表示角色可指派給所有範圍。 有效的可指派範圍範例包括：
 

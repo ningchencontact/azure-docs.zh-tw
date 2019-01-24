@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: 992b27622328bab85fcfaf06ad5a941aceed446f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 39c92c870991ce2398b27efd189f1219777afdd7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051453"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425317"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本建立事件中樞
 Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可接收和處理數百萬個事件。 事件中樞可以處理及儲存分散式軟體和裝置所產生的事件、資料或遙測。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)和[事件中樞功能](event-hubs-features.md)。
@@ -32,7 +32,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 ## <a name="prerequisites"></a>必要條件
 若要完成本快速入門，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-如果您想要使用 **Azure PowerShell** 來部署 Resource Manager 範本，請[安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0)。
+如果您想要使用 **Azure PowerShell** 來部署 Resource Manager 範本，請[安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0)。
 
 如果您想要使用 **Azure CLI** 來部署 Resource Manager 範本，請[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
@@ -163,7 +163,7 @@ az account set --subscription <Name of your Azure subscription>
 若要使用 Azure CLI 部署資源，請切換到 C:\EventHubsQuickStart\ARM\ 資料夾，然後執行下列命令：
 
 > [!IMPORTANT]
-> 在 az group create 命令中指定 Azure 資源群組的名稱。 .
+> 在 az group create 命令中指定 Azure 資源群組的名稱。 上也提供本文中使用的原始碼。
 
 ```azurecli
 # Create an Azure resource group

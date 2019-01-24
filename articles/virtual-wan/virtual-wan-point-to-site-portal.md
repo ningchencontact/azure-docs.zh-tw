@@ -2,18 +2,18 @@
 title: 使用 Azure 虛擬 WAN 來與 Azure 建立點對站連線 | Microsoft Docs
 description: 在本教學課程中，了解如何使用 Azure 虛擬 WAN 來與 Azure 建立點對站 VPN 連線。
 services: virtual-wan
-author: cherylmc
+author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 01/07/2019
-ms.author: cherylmc
+ms.author: alzam
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 9d5533932ef9ab521b623c18a0c3a27b663c56f8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 87b8543d8cb658b46ab5e589a310a17a69508a47
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077397"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411385"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>教學課程：使用 Azure 虛擬 WAN 建立點對站連線 (預覽)
 
@@ -117,7 +117,7 @@ P2S 設定會定義用於連線遠端用戶端的參數。
 4. 請核取 [包含點對站閘道]。
 5. 挑選 [閘道縮放單位] 和 [點對站組態]，以及用戶端的 [位址集區]。
 6. 按一下 [確認]。 
-7. 此作業最多可能需要 30 分鐘的時間才能完成。
+7. 此作業最多可能需要 30 分鐘才能完成。
 
 ## <a name="vnet"></a>6.將 VNet 連線至中樞
 

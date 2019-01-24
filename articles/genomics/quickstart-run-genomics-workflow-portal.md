@@ -7,13 +7,13 @@ manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
-ms.date: 12/07/2017
-ms.openlocfilehash: 152aa51c6dee12216dc9e5fac70f43f638c2c8da
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/11/2019
+ms.openlocfilehash: 4c8d488021ca12a704a5c0a06bb0c491588bcaed
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242852"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261684"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>快速入門：透過 Microsoft Genomics 服務執行工作流程
 
@@ -21,8 +21,8 @@ ms.locfileid: "51242852"
 
 只需幾個步驟就可開始使用： 
 1.  設定：透過 Azure 入口網站建立 Microsoft Genomics 帳戶，並在本機環境中安裝 Microsoft Genomics Python 用戶端。 
-2.  上傳輸入資料：透過 Azure 入口網站建立 Microsoft Azure 儲存體帳戶，並上傳輸入檔案。 必須配對並讀取輸入檔案 (fastq 或 bam 檔案)。
-3.  執行：使用 Microsoft Genomics 命令列介面，透過 Microsoft Genomics 服務執行工作流程。 
+2.  上傳輸入檔案：透過 Azure 入口網站建立 Microsoft Azure 儲存體帳戶，並上傳輸入檔案。 必須配對並讀取輸入檔案 (fastq 或 bam 檔案)。
+3.  請執行：使用 Microsoft Genomics 命令列介面，透過 Microsoft Genomics 服務執行工作流程。 
 
 如需有關 Microsoft Genomics 的詳細資訊，請參閱[什麼是 Microsoft Genomics？](overview-what-is-genomics.md)
 
@@ -38,9 +38,9 @@ ms.locfileid: "51242852"
 
  |**設定**          |  **建議的值**  | **欄位描述** |
  |:-------------       |:-------------         |:----------            |
- |帳戶名稱         | MyGenomicsAccount     |請選擇唯一的帳戶識別碼。 如需有效的名稱，請參閱[命名規則](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |訂用帳戶         | 您的訂用帳戶名稱|這是您 Azure 服務的計費單位 - 如需關於您訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.azure.com/Subscriptions) |      
  |資源群組       | MyResourceGroup       |  資源群組可讓您將多個 Azure 資源 (儲存體帳戶、Genomics 帳戶等) 群組為單一群組來簡化管理。 如需詳細資訊，請參閱[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)。 如需有效的資源群組名稱，請參閱[命名規則](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |帳戶名稱         | MyGenomicsAccount     |請選擇唯一的帳戶識別碼。 如需有效的名稱，請參閱[命名規則](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |位置                   | 美國西部 2                    |    可在美國西部 2、西歐和東南亞提供服務 |
 
 
@@ -112,28 +112,22 @@ Microsoft Genomics 服務預期會輸入儲存為 Azure 儲存體帳戶中的區
 
 ![儲存體建立刀鋒視窗](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "存放建立刀鋒視窗")
 
-使用下列資訊設定儲存體帳戶，如上圖所示。 使用儲存體帳戶的大部分標準選項，僅將帳戶指定為 blob 儲存體，而非一般用途。 Blob 儲存體的下載及上傳速度可能快 2-5 倍。 
+使用下列資訊設定儲存體帳戶，如上圖所示。 使用儲存體帳戶的大部分標準選項，僅將帳戶指定為 blob 儲存體，而非一般用途。 Blob 儲存體的下載及上傳速度可能快 2-5 倍。  建議使用預設的部署模型：Resource Manager。  
 
 
  |**設定**          |  **建議的值**  | **欄位描述** |
  |:-------------------------       |:-------------         |:----------            |
- |名稱         | MyStorageAccount     |請選擇唯一的帳戶識別碼。 如需有效的名稱，請參閱[命名規則](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
- |部署模型         | Resource Manager| Resource Manager 是建議的部署模型。 如需詳細資訊，請參閱[了解資源管理員部署](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) |      
- |帳戶類型       | Blob 儲存體       |  Blob 儲存體的下載及上傳速度可能比一般用途的快 2-5 倍。 |
- |效能                  | 標準                   | 預設值是 [標準]。 如需標準和進階儲存體帳戶的詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
- |複寫                  | 本地備援儲存體                  | 本地備援儲存體會在您建立儲存體帳戶的區域資料中心內複寫資料。 如需詳細資訊，請參閱 [Azure 儲存體複寫](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
- |需要安全傳輸                  | 已停用                 | 預設值為停用。 如需有關資料傳輸安全性的詳細資訊，請參閱[需要安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)    |
- |存取層                  | 經常性存取                   | 經常性存取表示會更頻繁地存取儲存體帳戶中的物件。    |
  |訂用帳戶         | 您的 Azure 訂用帳戶 |如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.azure.com/Subscriptions) |      
  |資源群組       | MyResourceGroup       |  您可以選取相同的資源群組作為 Genomics 帳戶。 如需有效的資源群組名稱，請參閱[命名規則](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
- |位置                  | 美國西部 2                  | 使用相同位置作為 Genomics 帳戶的位置，可減少輸出費用並降低延遲。 可在美國西部2、美國西部 2、西歐和東南亞提供 Genomics 服務    |
- |虛擬網路                | 已停用                   | 預設值為停用。 如需詳細資訊，請參閱 [Azure 虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)    |
+ |儲存體帳戶名稱         | MyStorageAccount     |請選擇唯一的帳戶識別碼。 如需有效的名稱，請參閱[命名規則](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |位置                  | 美國西部 2                  | 使用相同位置作為 Genomics 帳戶的位置，可減少輸出費用並降低延遲。  | 
+ |效能                  | 標準                   | 預設值是 [標準]。 如需標準和進階儲存體帳戶的詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
+ |帳戶類型       | Blob 儲存體       |  Blob 儲存體的下載及上傳速度可能比一般用途的快 2-5 倍。 |
+ |複寫                  | 本地備援儲存體                  | 本地備援儲存體會在您建立儲存體帳戶的區域資料中心內複寫資料。 如需詳細資訊，請參閱 [Azure 儲存體複寫](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
+ |存取層                  | 經常性存取                   | 經常性存取表示會更頻繁地存取儲存體帳戶中的物件。    |
 
 
-
-
-
-然後，按一下 [建立] 來建立儲存體帳戶。 如同建立 Genomics 帳戶，您可以按一下最上層功能表列中的 [通知] 來監視部署程序。 
+然後，按一下 `Review + create` 來建立儲存體帳戶。 如同建立 Genomics 帳戶，您可以按一下最上層功能表列中的 [通知] 來監視部署程序。 
 
 
 ## <a name="upload-input-data-to-your-storage-account"></a>將輸入資料上傳至儲存體帳戶
@@ -156,6 +150,11 @@ Microsoft Genomics 服務預期會使用配對的結束讀取作為輸入檔案�
 
 
 ![Genomics 設定](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics 設定")
+
+
+如果您想要執行 GATK4，請將 `process_name` 參數設定為 gatk4 或 gatk4-promo。 如需有關 GATK4 促銷活動的詳細資訊，請瀏覽[此頁面](https://aka.ms/msgatk4)。
+
+根據預設，Genomics 服務會輸出 VCF 檔案。 如果您想要 gVCF 輸出而不是 VCF 輸出 (相當於 GATK 3.x 中的 `-emitRefConfidence` 及 GATK 4.x 中的 `emit-ref-confidence`)，請將 `emit_ref_confidence` 參數新增至您的 `config.txt`，並將其設定為 `gvcf`，如上圖所示。  若要變更回 VCF 輸出，請從 `config.txt` 檔案中移除此參數，或將 `emit_ref_confidence` 參數設定為 `none`。 
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-the-microsoft-genomics-client"></a>將工作流程提交至 Microsoft Genomics 用戶端 Microsoft Genomics 服務
 

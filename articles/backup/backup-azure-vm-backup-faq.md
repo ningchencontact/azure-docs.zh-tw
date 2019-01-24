@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 063b13f76e2fcbe4df0b13d7e77e34718ec756d4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 31a708f3a0da76ab13e789b099f312cca1f86e08
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041283"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332246"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>常見問題集 - Azure 備份
 
@@ -57,14 +57,13 @@ ms.locfileid: "54041283"
 沒有。 您本機電腦上的日期與時間會在本機套用目前的日光節約時間。 針對排定備份所設定的時間可能會因為 DST 而與當地時間不同。
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>我可以將多少個資料磁碟連結到由 Azure 備份所備份的 VM？
-Azure 備份可以備份最多具有 16 個磁碟的 VM。 已在[最新版](backup-upgrade-to-vm-backup-stack-v2.md)的 Azure VM 備份堆疊 V2 中提供對 16 個磁碟的支援。
+Azure 備份可以備份最多具有 16 個磁碟的 VM。 [立即還原](backup-instant-restore-capability.md)中提供 16 個磁碟的支援。
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Azure 備份是否支援標準 SSD 受控磁碟？
-Azure 備份支援[標準 SSD 受控磁碟](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)。 SSD 受控磁碟會為 Azure VM 提供新類型的耐久性儲存體。 已在[最新版](backup-upgrade-to-vm-backup-stack-v2.md)的 Azure VM 備份堆疊 V2 中提供對 SSD 受控磁碟的支援。
+Azure 備份支援[標準 SSD 受控磁碟](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)。 SSD 受控磁碟會為 Azure VM 提供新類型的耐久性儲存體。 [立即還原](backup-instant-restore-capability.md)中提供 SSD 受控磁碟的支援。
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>我們可以備份具有已啟用寫入加速器 (WA) 之磁碟的 VM 嗎？
-您無法在已啟用 WA 的磁碟上建立快照集。 不過，Azure 備份服務可以從備份中排除已啟用 WA 的磁碟。 僅針對已升級到 Azure VM 備份堆疊 V2 的訂用帳戶，提供對具有已啟用 WA 之磁碟的 VM 進行磁碟排除的支援。 若要升級到 Azure VM 備份堆疊 V2，請參閱這篇[文章](backup-upgrade-to-vm-backup-stack-v2.md)。 此功能目前適用於日本東部、北歐、東南亞、美國東部、美國西部 2、西歐和美國東部 2。
-
+您無法在已啟用 WA 的磁碟上建立快照集。 不過，Azure 備份服務可以從備份中排除已啟用 WA 的磁碟。 僅針對已升級到「立即還原」的訂用帳戶，提供對具有已啟用 WA 之磁碟的 VM 進行磁碟排除的支援。
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>我的 VM 具有寫入加速器 (WA) 磁碟並已安裝 SAP HANA。 該如何備份？
 Azure 備份無法備份已啟用 WA 的磁碟，但可從備份中排除該磁碟。 不過，備份將不會提供資料庫一致性，因為系統不會備份已啟用 WA 之磁碟的相關資訊。 如果您想要作業系統磁碟備份以及未啟用 WA 的磁碟備份，您可以使用此設定來備份磁碟。
@@ -77,7 +76,7 @@ Azure 備份無法備份已啟用 WA 的磁碟，但可從備份中排除該磁�
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>如何決定是否只要還原磁碟，還是要還原整個 VM？
 將 VM 還原視為 Azure VM 的快速建立選項。 此選項會變更磁碟名稱、磁碟所使用的容器、公用 IP 位址和網路介面名稱。 變更會在建立 VM 時維護唯一的資源。 VM 不會新增至可用性設定組。
 
-您想要執行下列動作時可使用的還原磁碟選項：
+如果您想要，您可以使用還原磁碟選項：
   * 自訂所建立的 VM。 例如，變更大小。
   * 新增備份時不存在的組態設定
   * 控制所建立資源的命名慣例。
@@ -104,7 +103,7 @@ Azure 備份無法備份已啟用 WA 的磁碟，但可從備份中排除該磁�
 針對受控磁碟，Azure VM 會在還原為受控磁碟時，藉由在範本中提供選項來啟用還原為可用性設定組。 此範本具有稱為**可用性設定組**的輸入參數。
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>我們該如何取得更快速的還原效能？
-如需更快速的還原效能，建議您移至 VM 備份堆疊 V2，並使用[立即 RP 功能](backup-upgrade-to-vm-backup-stack-v2.md)。
+為了更快速的還原效能，我們會採用[立即還原](backup-instant-restore-capability.md)功能。
 
 ## <a name="manage-vm-backups"></a>管理 VM 備份
 

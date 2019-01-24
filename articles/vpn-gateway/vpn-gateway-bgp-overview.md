@@ -2,27 +2,20 @@
 title: BGP 與 Azure VPN 閘道概觀 | Microsoft Docs
 description: 本文提供 BGP 與 Azure VPN 閘道的概觀。
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
 manager: rossort
-editor: ''
-tags: ''
-ms.assetid: f8c3985c-c128-4f34-835c-0e88742bf36e
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 01/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 13a17eb3d78e70a09864bf218f1027d6e98486a6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 91e9fe1eb6b3df0b64d05f2b1e300403a9e01db9
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38720045"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306517"
 ---
-# <a name="overview-of-bgp-with-azure-vpn-gateways"></a>BGP 與 Azure VPN 閘道概觀
+# <a name="about-bgp-with-azure-vpn-gateway"></a>關於 BGP 與 Azure VPN 閘道
 這篇文章提供 Azure VPN 閘道中的 BGP (邊界閘道協定) 支援概觀。
 
 BGP 是常用於網際網路的標準路由通訊協定，可交換兩個或多個網路之間的路由和可執行性資訊。 在 Azure 虛擬網路的內容中使用時，BGP 會啟用 Azure VPN 閘道，以及內部部署 VPN 裝置 (稱為 BGP 對等互連或鄰近項目) 來交換「路由」，其會通知這兩個閘道對要通過閘道的首碼或所涉及之路由器的可用性和可執行性。 BGP 也可以傳播從一個 BGP 對等互連到所有其他 BGP 對等所識別的 BGP 閘道，來啟用多個網路之間的傳輸路由。 

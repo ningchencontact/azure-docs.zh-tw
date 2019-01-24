@@ -6,14 +6,14 @@ author: jamesbak
 ms.service: storage
 ms.author: jamesbak
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 6b2812e31174c4e5d61ae9941563e39357de9522
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e4e75c65178c4bbedcf781c2fbf2149a94a702cd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107084"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321189"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>教學課程：使用 Azure Databrick 擷取、轉換和載入資料
 
@@ -42,6 +42,30 @@ ms.locfileid: "54107084"
 * [建立 Azure Data Lake Storage Gen2 帳戶](data-lake-storage-quickstart-create-account.md)。
 * 從 [U-SQL 範例和問題追蹤](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json)存放庫下載 (**small_radio_json.json**)，並記下檔案的儲存路徑。
 * 登入 [Azure 入口網站](https://portal.azure.com/)。
+
+## <a name="set-aside-storage-account-configuration"></a>設定儲存體帳戶組態
+
+您將需要儲存體帳戶的名稱，以及檔案系統端點 URI。
+
+若要在 Azure 入口網站中取得您的儲存體帳戶名稱，請選擇 [所有服務]，並以*儲存體*一詞篩選。 然後，選取 [儲存體帳戶]，並找出您的儲存體帳戶。
+
+若要取得檔案系統端點 URI，請選擇 [屬性]，並在 [屬性] 窗格中尋找 [主要 ADLS 檔案系統端點] 欄位的值。
+
+將這兩個值貼到文字檔中。 您很快就會用到這些值。
+
+<a id="service-principal"/>
+
+## <a name="create-a-service-principal"></a>建立服務主體
+
+依照下列主題中的指引建立服務主體：[操作說明：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
+
+在執行該文章中的步驟時，您必須執行一些特定動作。
+
+:heavy_check_mark:在執行該文章的[建立 Azure Active Directory 應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)一節中的步驟時，請確實將 [建立] 對話方塊的 [登入 URL] 欄位設為您剛才收集到的端點 URI。
+
+:heavy_check_mark:在執行該文章的[將應用程式指派給角色](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role)一節中的步驟時，請確實將您的應用程式指派給 [Blob 儲存體參與者角色]。
+
+:heavy_check_mark:在執行該文章的[取得值以便登入](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)一節中的步驟時，請將租用戶識別碼、應用程式識別碼和驗證金鑰值貼到文字檔中。 您很快就會用到這些資料。
 
 ## <a name="create-the-workspace"></a>建立工作區
 
@@ -101,35 +125,36 @@ ms.locfileid: "54107084"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，移至您所建立的 Azure Databricks 工作區，然後選取 [啟動工作區]。
 
-1. 在左側選取 [工作區]。 從 [工作區] 下拉式清單選取 [建立] > [Notebook]。
+2. 在左側選取 [工作區]。 從 [工作區] 下拉式清單選取 [建立] > [Notebook]。
 
     ![在 Databricks 中建立 Notebook](./media/data-lake-storage-handle-data-using-databricks/databricks-create-notebook.png "在 Databricks 中建立 Notebook")
 
-1. 在 [建立 Notebook] 對話方塊中，輸入 Notebook 的名稱。 選取 [Scala] 作為語言，然後選取您先前建立的 Spark 叢集。
+3. 在 [建立 Notebook] 對話方塊中，輸入 Notebook 的名稱。 選取 [Scala] 作為語言，然後選取您先前建立的 Spark 叢集。
 
     ![為 Databricks 中的 Notebook 提供詳細資料](./media/data-lake-storage-handle-data-using-databricks/databricks-notebook-details.png "為 Databricks 中的 Notebook 提供詳細資料")
 
     選取 [建立] 。
 
-1. 在第一個 Notebook 資料格中輸入下列程式碼，然後執行程式碼。 請以您自己的值取代範例中括號內顯示的預留位置：
+4. 將下列程式碼區塊複製並貼到第一個資料格中，但先不要執行此程式碼。
 
     ```scala
-    %python%
-    configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-     
+    val configs = Map(
+    "fs.azure.account.auth.type" -> "OAuth",
+    "fs.azure.account.oauth.provider.type" -> "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+    "fs.azure.account.oauth2.client.id" -> "<application-id>",
+    "fs.azure.account.oauth2.client.secret" -> "<authentication-key>"),
+    "fs.azure.account.oauth2.client.endpoint" -> "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+    "fs.azure.createRemoteFileSystemDuringInitialization"->"true")
+
     dbutils.fs.mount(
-        source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
-        mount_point = "/mnt/<mount-name>",
-        extra_configs = configs)
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/<directory-name>",
+    mountPoint = "/mnt/<mount-name>",
+    extraConfigs = configs)
     ```
 
-1. 選取 Shift+Enter 鍵以執行程式碼。
+5. 在此程式碼區塊中，將此程式碼區塊中的 `storage-account-name`、`application-id`、`authentication-id` 和 `tenant-id` 預留位置值取代為您在執行[備妥儲存體帳戶組態](#config)和[建立服務主體](#service-principal)小節中的步驟時所收集到的值。 將 `file-system-name`、`directory-name` 和 `mount-name` 預留位置值設為您要為檔案系統、目錄和掛接點指定的任何名稱。
 
-現在，會為儲存體帳戶建立檔案系統。
+6. 按 **SHIFT + ENTER** 鍵以執行此區塊中的程式碼。
 
 ## <a name="upload-the-sample-data"></a>上傳範例資料
 

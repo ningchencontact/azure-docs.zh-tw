@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a882ad2bbb700c7d1a1c812d7a05aa14b8038f9a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237959"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359930"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
@@ -71,8 +71,10 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 ### <a name="what-to-know"></a>注意事項
 您應了解下列技術的操作方式：
 
-- [Windows 叢集技術](https://technet.microsoft.com/library/hh831579.aspx)
-- [SQL Server 容錯移轉叢集執行個體](https://msdn.microsoft.com/library/ms189134.aspx)。
+- [Windows 叢集技術](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [SQL Server 容錯移轉叢集執行個體](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)。
+
+其中一個重要差異在於，在 Azure IaaS VM 客體容錯移轉叢集上，我們建議每個伺服器 (叢集節點) 使用單一 NIC，以及單一的子網路。 Azure 網路有實體備援，因此 Azure IaaS VM 客體叢集上不需要額外的 NIC 和子網路。 雖然叢集驗證報告會發出節點只能在單一網路上連線的警告，但您可以放心地在 Azure IaaS VM 客體容錯移轉叢集上忽略此警告。 
 
 此外，您也應對下列技術有大概了解：
 
@@ -112,11 +114,11 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
    - 按一下頁面底部的 [新增] 。
    - 在 [建立可用性設定組] 刀鋒視窗中，設定下列值︰
       - **名稱**：可用性設定組的名稱。
-      - **訂用帳戶**：您的 Azure 訂用帳戶。
-      - **資源群組**︰若您想要使用現有的群組，請按一下 [使用現有的群組] 並從下拉式清單中選取群組。 否則，選擇 [建立新的] 並輸入群組名稱。
-      - **位置**︰設定您計劃建立虛擬機器的位置。
-      - **容錯網域**︰使用預設值 (3)。
-      - **更新網域**︰使用預設值 (5)。
+      - 訂用帳戶：您的 Azure 訂用帳戶。
+      - **資源群組**：若您想要使用現有的群組，請按一下 [使用現有的] 並從下拉式清單中選取該群組。 否則，選擇 [建立新的] 並輸入群組名稱。
+      - **位置**：設定您計劃建立虛擬機器的位置。
+      - **容錯網域**：使用預設值 (3)。
+      - **更新網域**：使用預設值 (5)。
    - 按一下 [建立] 來建立可用性設定組。
 
 1. 在可用性設定組中建立虛擬機器。
@@ -139,7 +141,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
    按照您喜好的付款方式購買 SDL Server 授權，並選擇合適的映像：
 
-   - **每次使用授權時付款**：費用會以秒鐘計算，且會包含下列 SQL Server 授權：
+   - **依使用量付費授權**：費用會以秒計算，且會包含下列 SQL Server 授權：
       - **Windows Server Datacenter 2016 上的 SQL Server 2016 Enterprise 版本**
       - **Windows Server Datacenter 2016 上的 SQL Server 2016 Standard 版本**
       - **Windows Server Datacenter 2016 上的 SQL Server 2016 Developer 版本**
@@ -312,7 +314,7 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
    ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-## <a name="step-3-test-failover-cluster-failover"></a>步驟 3︰測試容錯移轉叢集的容錯移轉
+## <a name="step-3-test-failover-cluster-failover"></a>步驟 3：測試容錯移轉叢集的容錯移轉
 
 在容錯移轉叢集管理員中，請確認您可以將儲存體資源移至其他叢集節點。 如果您可以透過**容錯移轉叢集管理員**連接至容錯移轉叢集，並且能將儲存體從一個節點移到另一個，則您可以設定 FCI。
 
@@ -363,14 +365,14 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
 1. 使用下列項目設定負載平衡器：
 
-   - **名稱**︰用以識別負載平衡器的名稱。
-   - **類型**︰負載平衡器分為公開或私人兩種類型。 私人負載平衡器可從相同的 VNET 內存取。 大部分的 Azure 應用程式都能使用私人負載平衡器。 若您的應用程式需要直接透過網際網路存取 SQL Server，請使用公開負載平衡器。
-   - **虛擬網路**︰與虛擬機器相同的網路。
-   - **子網路**︰與虛擬機器相同的子網路。
-   - **私人 IP 位址**︰與您指派至 SQL Server FCI 叢集網路資源相同的 IP 位址。
+   - **名稱**：能識別負載平衡器的名稱。
+   - **類型**：負載平衡器分為公開或私人兩種類型。 私人負載平衡器可從相同的 VNET 內存取。 大部分的 Azure 應用程式都能使用私人負載平衡器。 若您的應用程式需要直接透過網際網路存取 SQL Server，請使用公開負載平衡器。
+   - **虛擬網路**：與虛擬機器相同的網路。
+   - **子網路**：與虛擬機器相同的子網路。
+   - **私人 IP 位址**：與您指派至 SQL Server FCI 叢集網路資源相同的 IP 位址。
    - **訂用帳戶**：您的 Azure 訂用帳戶。
-   - **資源群組**︰使用與虛擬機器相同的資源群組。
-   - **位置**︰使用與虛擬機器相同的 Azure 位置。
+   - **資源群組**：使用與虛擬機器相同的資源群組。
+   - **位置**：使用與虛擬機器相同的 Azure 位置。
    請參閱下圖︰
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
@@ -395,11 +397,11 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
 1. 在 [新增健全狀況探查] 刀鋒視窗中，<a name="probe"></a>設定健全狀況探查參數︰
 
-   - **名稱**：健全狀況探查的名稱。
+   - **名稱**：健康情況探查的名稱。
    - **通訊協定**：TCP。
-   - **連接埠**︰設為可用的 TCP 連接埠。 此連接埠需要開啟防火牆的連接埠。 使用與您在防火牆設定健全狀況探查[相同的連接埠](#ports)。
+   - **連接埠**：設為可用的 TCP 連接埠。 此連接埠需要開啟防火牆的連接埠。 使用與您在防火牆設定健全狀況探查[相同的連接埠](#ports)。
    - **間隔**：5 秒。
-   - **狀況不良臨界值**：2 次連續失敗。
+   - **狀況不良閾值**：2 次連續失敗。
 
 1. 按一下 [確定]。
 
@@ -411,15 +413,15 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
 1. 設定負載平衡規則參數：
 
-   - **名稱**︰負載平衡規則的名稱。
-   - **前端 IP 位址**︰使用 SQL Server FCI 叢集網路資源的 IP 位址。
+   - **名稱**：負載平衡規則的名稱。
+   - **前端 IP 位址**：使用 SQL Server FCI 叢集網路資源的 IP 位址。
    - **連接埠**：設定為 SQL Server FCI TCP 連接埠。 預設執行個體連接埠為 1433。
-   - **後端連接埠**：此值使用的連接埠與您啟用**浮動 IP (伺服器直接回傳)** 時的**連接埠**值相同。
-   - **後端集區**︰使用您稍早設定的後端集區名稱。
-   - **健全狀況探查**：使用您稍早設定的健全狀況探查。
+   - **後端連接埠**：此值所使用的連接埠，與您啟用 [浮動 IP (伺服器直接回傳)] 時的 [連接埠] 值相同。
+   - **後端集區**：使用您稍早設定的後端集區名稱。
+   - **健康情況探查**：使用您稍早設定的健康情況探查。
    - **工作階段持續性**：無。
-   - **閒置逾時 (分鐘)**：4。
-   - **浮動 IP (伺服器直接回傳)**：已啟用。
+   - **閒置逾時 (分鐘)**：4.
+   - **浮動 IP (伺服器直接回傳)**：已啟用
 
 1. 按一下 [確定]。
 
@@ -442,13 +444,13 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
 在上述指令碼中，設定您環境的值。 下列清單說明這些值：
 
-   - `<Cluster Network Name>`：Windows Server 容錯移轉叢集網路名稱。 在 **[容錯移轉叢集管理員]** > **[網路]** 中，以滑鼠右鍵按一下網路，然後按一下 [內容]。 正確的值在 [一般] 索引標籤的 [名稱] 底下。 
+   - `<Cluster Network Name>`：網路的 Windows Server 容錯移轉叢集名稱。 在 **[容錯移轉叢集管理員]** > **[網路]** 中，以滑鼠右鍵按一下網路，然後按一下 [內容]。 正確的值在 [一般] 索引標籤的 [名稱] 底下。 
 
    - `<SQL Server FCI IP Address Resource Name>`：SQL Server FCI IP 位址資源名稱。 在 **[容錯移轉叢集管理員]** > **[角色]** 中，SQL Server FCI 角色的 [伺服器名稱] 底下，以滑鼠右鍵按一下 IP 位址資源，然後按一下 [內容]。 正確的值在 [一般] 索引標籤的 [名稱] 底下。 
 
    - `<ILBIP>`：ILB IP 位址。 此位址在 Azure 入口網站中會設定為 ILB 前端位址。 這也是 SQL Server FCI IP 位址。 您可以在 [容錯移轉叢集管理員] 中，您找到 `<SQL Server FCI IP Address Resource Name>` 所在位置的相同內容頁面上找到該位址。  
 
-   - `<nnnnn>`：您在負載平衡器健全狀況探查中設定的探查連接埠。 任何未使用的 TCP 連接埠都有效。 
+   - `<nnnnn>`：您在負載平衡器健康情況探查中設定的探查連接埠。 任何未使用的 TCP 連接埠都有效。 
 
 >[!IMPORTANT]
 >叢集參數的子網路遮罩必須是 TCP IP 廣播位址：`255.255.255.255`。

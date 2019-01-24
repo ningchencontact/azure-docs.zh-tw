@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: 224756785d5609cf40bc0f62ff76a1ba44206b1b
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.subservice: autoscale
+ms.openlocfilehash: c30ec060eca2bc0c2f5a85565ec6ed23bce6be4e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388245"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464743"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>開始在 Azure 中依自訂計量自動調整規模
 本文說明如何在 Azure 入口網站中依自訂計量調整您資源的規模。
@@ -51,3 +51,4 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 [5]: ./media/autoscale-custom-metric/scale-setting-new-web-app.png
 [6]: ./media/autoscale-custom-metric/scale-by-custom-metric.png
 [7]: ./media/autoscale-custom-metric/autoscale-setting-custom-metrics-ai.png
+

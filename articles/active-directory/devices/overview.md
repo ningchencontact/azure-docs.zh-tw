@@ -4,7 +4,7 @@ description: 了解裝置管理如何協助您控制存取您環境中資源的�
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f239b3ef6881f9ea1be043b7d27f061e015ae3be
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: e7cc11fd35049bf55c848293fa5aaafbdd7b7370
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037356"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452763"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的裝置管理？
 

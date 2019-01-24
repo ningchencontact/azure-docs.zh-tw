@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 148a83cb57675e2e8bda8147041987180df998f0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 25a05df42029fe444b8d5ceddb2972f779f1b232
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037390"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358723"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>從虛擬網路存取 Azure Cosmos DB 資源
 
 您可以設定 Azure Cosmos 帳戶，以只允許從虛擬網路 (VNET) 的特定子網路存取。 藉由啟用[服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)，即可存取虛擬網路內子網路中的 Azure Cosmos DB，來自該子網路的流量會傳送至 Azure Cosmos DB，並具備子網路和虛擬網路的身分識別。 Azure Cosmos DB 服務端點啟用之後，可以將它新增至您的 Azure Cosmos 帳戶以限制對子網路的存取。
 
-根據預設，如果要求伴隨有效的授權權杖，就可以從任何來源存取 Azure Cosmos 帳戶。 當您在 VNET 內新增一或多個子網路時，只有來自那些子網路的要求會取得有效回應。 來自任何其他來源的要求將會收到 404 (找不到) 回應。 
+根據預設，如果要求伴隨有效的授權權杖，就可以從任何來源存取 Azure Cosmos 帳戶。 當您在 VNET 內新增一或多個子網路時，只有來自那些子網路的要求會取得有效回應。 來自任何其他來源的要求將會收到 403 (禁止) 回應。 
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
@@ -34,7 +34,7 @@ ms.locfileid: "54037390"
 
 ### <a name="will-virtual-network-acls-and-ip-firewall-reject-requests-or-connections"></a>虛擬網路 ACL 與 IP 防火牆會拒絕要求或連線嗎？ 
 
-在新增了 IP 防火牆或虛擬網路存取規則時，只有來自已允許來源的要求能取得有效回應。 系統會拒絕其他要求，並顯示 404 (找不到)。 請務必區別 Azure Cosmos 帳戶的防火牆和連線層級防火牆。 來源仍可連線至服務，且連線本身不會被拒絕。
+在新增了 IP 防火牆或虛擬網路存取規則時，只有來自已允許來源的要求能取得有效回應。 系統會拒絕其他要求，並顯示 403 (禁止)。 請務必區別 Azure Cosmos 帳戶的防火牆和連線層級防火牆。 來源仍可連線至服務，且連線本身不會被拒絕。
 
 ### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>當我在子網路上啟用 Azure Cosmos DB 的服務端點時，我的要求開始遭到封鎖。 發生什麼情形？
 

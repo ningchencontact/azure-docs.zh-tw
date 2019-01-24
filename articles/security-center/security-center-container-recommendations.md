@@ -14,15 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5f6334f80b9c48832facba97b816d254baeb94bc
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b5cb1fe623062816955278da7b0a9e63cbc19254
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341298"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258470"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>了解 Azure 資訊安全中心容器建議
 
+當您在生產環境中移轉您的單體應用程式，以執行關鍵任務、容器化的雲端原生應用程式時，您可以充分運用容器的功能，包括簡單又快速的部署和更新功能。 隨著部署的容器數目持續增加，安全性解決方案必須準備就緒，才能讓您看見容器的安全性狀態，並協助保護容器抵禦威脅。
+
+Azure 資訊安全中心提供下列功能協助您保護您的容器：
+
+- **可看見在 IaaS Linux 電腦上裝載的容器**<br>在 Azure 資訊安全中心，[容器] 索引標籤會顯示透過 Docker 部署的所有虛擬機器。 在虛擬機器上探索安全性問題時，資訊安全中心會提供與電腦上容器相關的其他資訊，例如 Docker 版本及在主機上執行的映像數目。
+
+    ![容器索引標籤](./media/security-center-container-recommendations/docker-recommendation.png)
+
+
+- **根據 Docker 的 CIS 基準提出安全性建議**<br>資訊安全中心會掃描您的 Docker 組態，並透過提供一份所有經評估為失敗規則的清單，讓您能夠看見錯誤的組態。 資訊安全中心提供指導方針協助您快速解決這些問題，並節省時間。 資訊安全中心會持續評估 Docker 設定，並提供給您其最新狀態。
+
+    ![容器索引標籤](./media/security-center-container-recommendations/container-cis-benchmark.png)
+
+- **即時偵測容器威脅**<br> 資訊安全中心會透過 AuditD 元件針對 Linux 電腦上的容器提供即時威脅偵測。 警示會找出數個可疑的 Docker 活動，例如在主機上建立特殊權限的容器、在 Docker 容器內執行安全殼層 (SSH) 伺服器的跡象，或使用密碼編譯採礦程式。 您可以使用這項資訊來快速修復安全性問題，並改善您容器的安全性。
+
+    ![容器索引標籤](./media/security-center-container-recommendations/docker-threat-detection.png)
 
 ## <a name="recommendations"></a>建議
 使用下表作為參考，協助您了解裝載於 IaaS Linux 機器上的可用容器，以及 Docker 設定的安全性評估。

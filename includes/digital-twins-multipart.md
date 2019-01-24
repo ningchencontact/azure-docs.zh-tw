@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 6eb7993b4dbec3ab4901dc7071d18eae98ab8ae4
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: ac6b008597b6d6e557a0cc412c00c2202231bc3d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079250"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267722"
 ---
 > [!NOTE]
 > 多部分要求通常需要三個資訊片段：
@@ -26,11 +26,11 @@ ms.locfileid: "54079250"
 >
 > **Content-Type** 和 **Content-Disposition** 可能會依使用案例而有所不同。
 
-可以透過程式設計的方式 (透過 C#)、透過 REST 用戶端或 [Postman](https://www.getpostman.com/) 等工具進行多部分要求。 REST 用戶端工具可能對複雜的多部分要求具有不同程度的支援。 請確認哪一種工具最適合您的需求。
+可以透過程式設計的方式 (透過 C#)、透過 REST 用戶端或 [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi) 等工具進行多部分要求。 REST 用戶端工具可能對複雜的多部分要求具有不同程度的支援。 組態設定可能會隨著工具而略有不同。 確認哪一種工具最適合您的需求。
 
 > [!IMPORTANT]
-> 針對 Azure Digital Twins 管理 API 發出的多部分要求有兩個部分：
-> * 由 **Content-Type** 和 **Content-Disposition** 宣告的 Blob 中繼資料 (例如相關聯的 MIME 類型)
+> 針對 Azure Digital Twins 管理 API 發出的多部分要求通常有兩個部分：
+> * 由 **Content-Type** 和/或 **Content-Disposition** 宣告的 Blob 中繼資料 (例如相關聯的 MIME 類型)
 > * Blob 內容，其中包含要上傳之檔案的非結構化內容
 >
 > 兩個部分都不需要 **PATCH** 要求。 針對 **POST** 或建立作業，兩者皆為必要。

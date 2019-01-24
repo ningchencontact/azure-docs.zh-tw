@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bf39e22c0edc23d2e452d96103c8933e0a47af9e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602183"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304403"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>使用 Azure 診斷記錄和 Windows 事件轉送進行 Azure 記錄整合
 
 
 >[!IMPORTANT]
-> Azure 記錄整合功能將於 2019/06/01 淘汰。 AzLog 下載將於 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
+> Azure 記錄整合功能將於 2019/06/01 淘汰。 AzLog 下載已在 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
 
 只有在無法從安全性資訊與事件管理 (SIEM) 廠商取得 [Azure 監視器](../monitoring-and-diagnostics/monitoring-get-started.md)連接器時，才應該使用 Azure 記錄整合。
 
@@ -85,7 +85,7 @@ Azure 記錄整合安裝至少需要下列項目︰
 
 ## <a name="install-azure-log-integration"></a>安裝 Azure 記錄整合
 
-若要安裝 Azure 記錄整合，請下載 [Azure 記錄整合](https://www.microsoft.com/download/details.aspx?id=53324)安裝檔案。 完成安裝程序。 選擇是否要提供遙測資訊給 Microsoft。
+執行設定常式。 選擇是否要提供遙測資訊給 Microsoft。
 
 Azure 記錄整合服務會從其安裝所在的電腦收集遙測資料。  
 
@@ -245,7 +245,6 @@ Azure 記錄整合服務會從其安裝所在的電腦收集遙測資料。
 
 若要深入了解 Azure 記錄整合，請參閱下列文章：在嘗試執行本文中的步驟之前，您必須先檢閱＜開始使用＞一文並完成此處的步驟。
 
-* [Azure 記錄的 Azure 記錄整合](https://www.microsoft.com/download/details.aspx?id=53324)。 下載中心會納入 Azure 記錄整合的詳細資料、系統需求和安裝指示。
 * [Azure 記錄整合簡介](security-azure-log-integration-overview.md)。 本文為您介紹 Azure 記錄整合、其主要功能以及運作方式。
 * [合作夥伴設定步驟](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/)。 此部落格文章說明如何設定 Azure 記錄整合，以搭配使用合作夥伴解決方案 Splunk、HP ArcSight 和 IBM QRadar。 描述我們目前有關如何設定 SIEM 元件的指引。 如需其他詳細資料，請洽詢您的 SIEM 廠商。
 * [Azure 記錄整合常見問題集 (FAQ)](security-azure-log-integration-faq.md)。 此常見問題集會回答 Azure 記錄整合的相關常見問題。

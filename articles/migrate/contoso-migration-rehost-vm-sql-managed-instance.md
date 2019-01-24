@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 35d2234ee52516c4ebf3e354e1ab6890144cdd5d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879463"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826610"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso 移轉：在 Azure VM 和 SQL Database 受控執行個體上重新裝載內部部署應用程式
 
@@ -238,7 +238,7 @@ Contoso 會考量下列因素：
     
 *需要其他協助？*
 
-了解如何[設定受控執行個體的路由](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal#create-new-route-table-and-a-route)。
+了解如何[設定受控執行個體的路由](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal)。
 
 ### <a name="create-a-managed-instance"></a>建立受控執行個體
 

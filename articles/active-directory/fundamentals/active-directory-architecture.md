@@ -3,7 +3,7 @@ title: 架構概觀 - Azure Active Directory | Microsoft Docs
 description: 了解什麼是 Azure Active Directory 租用戶，以及如何使用 Azure Active Directory 管理 Azure。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 6d53de431ea619dfc8865ef23439146517d37764
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7667f7b52f9130c9793a86a185a15f8dec1ae063
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013293"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452151"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>什麼是 Azure Active Directory 架構？
 Azure Active Directory (Azure AD) 可讓您安全地管理您使用者的 Azure 服務和資源存取權。 Azure AD 隨附一套完整的身分識別管理功能。 如需 Azure AD 功能的詳細資訊，請參閱[什麼是 Azure Active Directory？](active-directory-whatis.md)

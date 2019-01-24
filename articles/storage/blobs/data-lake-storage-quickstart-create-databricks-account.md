@@ -7,19 +7,19 @@ ms.author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/06/2018
-ms.openlocfilehash: c820d2172c3e38d9d744e645d7c0e8b4749b42cd
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.date: 01/14/2019
+ms.openlocfilehash: 49039e742ebd4354f9a52572ffdc69e95bf7f85e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743369"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321206"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
 
 本快速入門說明如何使用 Azure Databricks 執行 Apache Spark 作業，以對已啟用 Azure Data Lake Storage Gen2 預覽版的儲存體帳戶所儲存的資料執行分析。
 
-您會透過 Spark 作業分析電台頻道訂閱資料，以根據人口統計資料深入了解免費/付費的使用方式。
+在 Spark 作業中，您將分析電台頻道訂用帳戶資料，以根據人口統計資料深入了解免費/付費的使用情形。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -27,12 +27,31 @@ ms.locfileid: "53743369"
 
 - [建立啟用 Data Lake Storage Gen2 的儲存體帳戶](data-lake-storage-quickstart-create-account.md)
 
+<a id="config"/>
+
 ## <a name="set-aside-storage-account-configuration"></a>設定儲存體帳戶組態
 
-> [!IMPORTANT]
-> 本教學課程進行期間，您必須能夠存取儲存體帳戶名稱和存取金鑰。 在 Azure 入口網站中，選取 [所有服務]，然後篩選 [儲存體]。 選取 [儲存體帳戶]，並找出您針對本教學課程所建立的帳戶。
->
-> 從 [概觀] 將儲存體帳戶的**名稱**複製到文字編輯器中。 接下來，選取 [存取金鑰]，並將 [key1] 的值複製到文字編輯器，以供後續命令使用。
+您將需要儲存體帳戶的名稱，以及檔案系統端點 URI。
+
+若要在 Azure 入口網站中取得您的儲存體帳戶名稱，請選擇 [所有服務]，並以*儲存體*一詞篩選。 然後，選取 [儲存體帳戶]，並找出您的儲存體帳戶。
+
+若要取得檔案系統端點 URI，請選擇 [屬性]，並在 [屬性] 窗格中尋找 [主要 ADLS 檔案系統端點] 欄位的值。
+
+將這兩個值貼到文字檔中。 您很快就會用到這些值。
+
+<a id="service-principal"/>
+
+## <a name="create-a-service-principal"></a>建立服務主體
+
+依照下列主題中的指引建立服務主體：[操作說明：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
+
+在執行該文章中的步驟時，您必須執行一些特定動作。
+
+:heavy_check_mark:在執行該文章的[建立 Azure Active Directory 應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)一節中的步驟時，請確實將 [建立] 對話方塊的 [登入 URL] 欄位設為您剛才收集到的端點 URI。
+
+:heavy_check_mark:在執行該文章的[將應用程式指派給角色](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role)一節中的步驟時，請確實將您的應用程式指派給 [Blob 儲存體參與者角色]。
+
+:heavy_check_mark:在執行該文章的[取得值以便登入](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)一節中的步驟時，請將租用戶識別碼、應用程式識別碼和驗證金鑰值貼到文字檔中。 您很快就會用到這些資料。
 
 ## <a name="create-an-azure-databricks-workspace"></a>建立 Azure Databricks 工作區
 
@@ -58,7 +77,7 @@ ms.locfileid: "53743369"
 
     選取 [釘選到儀表板]，然後按一下 [建立]。
 
-3. 工作區建立需要幾分鐘的時間。 建立工作區期間，入口網站右側會顯示 [提交 Azure Databricks 部署] 圖格。 您可能需要在儀表板上向右捲動以查看此圖格。 另外在畫面頂端附近還會顯示一個進度列。 您可以查看任何進度區域。
+3. 建立工作區需要一些時間。 建立工作區時，右側會顯示 [提交 Azure Databricks 部署] 圖格。 若要查看標題，您可能需要在儀表板上向右捲動。 此外，畫面頂端附近會顯示進度列。 您可以查看任何進度區域。
 
     ![Databricks 部署圖格](./media/data-lake-storage-quickstart-create-databricks-account/databricks-deployment-tile.png "Databricks 部署圖格")
 
@@ -77,7 +96,7 @@ ms.locfileid: "53743369"
     接受下列值以外的所有其他預設值：
 
     * 輸入叢集的名稱。
-    * 建立具有 **5.1 搶鮮版 (Beta)** 執行階段的叢集。
+    * 建立具有 **5.1** 執行階段的叢集。
     * 務必要選取 [在停止活動 120 分鐘後終止] 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
 
 4. 選取 [建立叢集]。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
@@ -100,49 +119,26 @@ ms.locfileid: "53743369"
 
     選取 [建立] 。
 
-4. 將 Databricks 工作區連線到您的 ADLS Gen2 帳戶。 我們支援三個連線機制：使用 OAuth 裝載、使用 OAuth 直接存取，以及使用共用金鑰直接存取。 
+4. 將下列程式碼區塊複製並貼到第一個資料格中，但先不要執行此程式碼。
 
-    下方會以個別範例顯示每個機制。 測試範例時，請記得使用您自己的值取代範例中括號內的預留位置值：
+   ```scala
+   spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
+   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
+   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
-    **使用 OAuth 裝載**     
-        
-    ```scala
-    %python%
-    configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-    
-    dbutils.fs.mount(
-        source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
-        mount_point = "/mnt/<mount-name>",
-        extra_configs = configs)
-    ```
+   ```
+ 
+    > [!NOTE]
+    > 此程式碼區塊會使用 OAuth 直接存取 Data Lake Gen2 端點，但也有其他方法可將 Databricks 工作區連線至您的 Data Lake Storage Gen2 帳戶。 例如，您可以使用 OAuth 來掛接檔案系統，或透過共用金鑰使用直接存取。 <br>若要查看這些方法的範例，請參閱 Azure Databricks 網站上的 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 一文。
 
-    **使用 OAuth 直接存取**
+5. 在此程式碼區塊中，將此程式碼區塊中的 `storage-account-name`、`application-id`、`authentication-id` 和 `tenant-id` 預留位置值取代為您在執行[備妥儲存體帳戶組態](#config)和[建立服務主體](#service-principal)小節中的步驟時所收集到的值。  將 `file-system-name` 預留位置值設為您要為檔案系統指定的任何名稱。
 
-    ```scala
-    spark.conf.set("fs.azure.account.auth.type.<account-name>.dfs.core.windows.net": "OAuth")
-    spark.conf.set("fs.azure.account.oauth.provider.type.<account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-    spark.conf.set("fs.azure.account.oauth2.client.id.<account-name>.dfs.core.windows.net": "<service-client-id>")
-    spark.conf.set("fs.azure.account.oauth2.client.secret.<account-name>.dfs.core.windows.net": "<service-credentials>")
-    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<account-name>.dfs.core.windows.net": "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
-
-    dbutils.fs.ls("abfss://<file-system-name>@<account-name>.dfs.core.windows.net/")
-    ```
-        
-    **使用共用金鑰直接存取** 
-
-    ```scala    
-    spark.conf.set("fs.azure.account.key.<account-name>.dfs.core.windows.net", "<account-key>")
-
-    dbutils.fs.ls("abfss://<file-system-name>@<account-name>.dfs.core.windows.net/")
-    ```
-
-5. 在一個資料格中輸入程式碼，然後按 **SHIFT + ENTER** 執行它。
-
-現在，會為儲存體帳戶建立檔案系統。
+6. 按 **SHIFT + ENTER** 鍵以執行此區塊中的程式碼。
 
 ## <a name="ingest-sample-data"></a>內嵌範例資料
 
@@ -154,7 +150,7 @@ ms.locfileid: "53743369"
 
 在資料格中按 **SHIFT + ENTER** 執行程式碼。
 
-現在，在此資料格下面的一個新資料格中，輸入下列程式碼 (以您稍早使用的相同值取代括號中的值)：
+現在，在此資料格下方的新資料格中輸入下列程式碼，並將括號中的值取代為您稍早使用的相同值：
 
     dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<file-system>@<account-name>.dfs.core.windows.net/")
 
@@ -172,7 +168,7 @@ ms.locfileid: "53743369"
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/<PATH>/small_radio_json.json"
+     path  "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/<PATH>/small_radio_json.json"
     )
     ```
 

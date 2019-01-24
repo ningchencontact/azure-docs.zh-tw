@@ -1,21 +1,21 @@
 ---
 title: 使用 .NET 來建立影片審核項目 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 如何使用 Content Moderator SDK for .NET 來建立影片審核項目
+description: 本文提供資訊和範例程式碼，可協助您快速開始將 C# 搭配 Content Moderator SDK 使用，以建立影片審核項目。
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 284ee24bbb0a15d107acf85e2d58072a0ecbbc6e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e9fb82c864c721a9df2e3b31d04e68c824404f81
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219035"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262506"
 ---
 # <a name="create-video-reviews-using-net"></a>使用 .NET 來建立影片審核項目
 
@@ -33,10 +33,9 @@ ms.locfileid: "47219035"
 
 本文同時也假設您已經熟悉 Visual Studio 和 C#。
 
-## <a name="sign-up-for-content-moderator"></a>設定 Content Moderator
+## <a name="sign-up-for-content-moderator"></a>註冊 Content Moderator
 
-您必須有訂用帳戶金鑰，才能透過 REST API 或 SDK 使用 Content Moderator 服務。
-請參考[快速入門](quick-start.md)，以了解如何取得金鑰。
+您必須有訂用帳戶金鑰，才能透過 REST API 或 SDK 使用 Content Moderator 服務。 請依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱 Content Moderator 並取得金鑰。
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>如果未在上一個步驟中完成審核工具帳戶的註冊，請於此時註冊
 

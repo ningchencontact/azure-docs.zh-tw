@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 12/17/2018
 ms.author: dkshir
-ms.openlocfilehash: b21e5a87561757e2991a7b9addce0d1f3383204f
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 28433f8f3f181c507521cb12f064df045ae21d9d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557711"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212187"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>教學課程：部署 Azure Digital Twins 及設定空間圖形
 
@@ -33,9 +33,7 @@ ms.locfileid: "53557711"
 > * 修改 Digital Twins 範例應用程式。
 > * 佈建您的建築物。
 
-
 這些教學課程會使用並修改[尋找可用會議室快速入門](quickstart-view-occupancy-dotnet.md)所用的相同範例，以涵蓋更詳細且深入的概念。
-
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -45,7 +43,7 @@ ms.locfileid: "53557711"
 
 - [Visual Studio Code](https://code.visualstudio.com/) 以探索範例程式碼。 
 
-<a id="deploy" />
+<a id="deploy"></a>
 
 ## <a name="deploy-digital-twins"></a>部署 Digital Twins
 
@@ -53,8 +51,7 @@ ms.locfileid: "53557711"
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
-
-<a id="permissions" />
+<a id="permissions"></a>
 
 ## <a name="grant-permissions-to-your-app"></a>將權限授與應用程式
 
@@ -64,19 +61,20 @@ Digital Twins 會使用 [Azure Active Directory](../active-directory/fundamental
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
-
 ## <a name="configure-the-digital-twins-sample"></a>設定 Digital Twins 範例
 
 本節將逐步引導您設定透過 [Digital Twins REST API](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index) 通訊的 Azure Digital Twins 應用程式。 
 
 ### <a name="download-the-sample"></a>下載範例
+
 如果您已經針對[尋找可用會議室快速入門](quickstart-view-occupancy-dotnet.md)下載範例，您可以略過這些步驟。
 
-1. 下載 [Digital Twins .NET 範例](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip)。 
-2. 將電腦上 zip 資料夾的內容解壓縮。 
+1. 下載 [Digital Twins .NET 範例](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip)。
+2. 將電腦上 zip 資料夾的內容解壓縮。
 
 ### <a name="explore-the-sample"></a>探索範例
-在擷取的範例資料夾中，開啟 Visual Studio Code 中的檔案 **digital-twins-samples-csharp\digital-twins-samples.code-workspace**。 此檔案包含兩個專案： 
+
+在擷取的範例資料夾中，開啟 Visual Studio Code 中的檔案 **digital-twins-samples-csharp\digital-twins-samples.code-workspace**。 此檔案包含兩個專案：
 
 * 您可以使用佈建範例 **occupancy-quickstart** 來設定和佈建[空間智慧圖形](concepts-objectmodel-spatialgraph.md#graph)。 此圖形是實體空間與其所含資源的數位化影像。 它會使用[物件模型](concepts-objectmodel-spatialgraph.md#model)來定義智慧型建築物的物件。 如需 Digital Twin 和 REST API 的完整清單，請瀏覽[此 REST API 文件](https://docs.westcentralus.azuresmartspaces.net/management/swagger)，或針對[您的執行個體](#deploy)所建立的管理 API URL。
 
@@ -89,6 +87,7 @@ Digital Twins 會使用 [Azure Active Directory](../active-directory/fundamental
 * 模擬範例 **device-connectivity** 可模擬感應器資料，並將資料傳送到針對您的 Digital Twins 執行個體所佈建的 IoT 中樞。 您會[在佈建空間圖形之後，在下一個教學課程中](tutorial-facilities-udf.md#simulate)使用此範例。 用來設定此範例的感應器和裝置識別碼，應該與您要用來佈建圖形的感應器和裝置識別碼相同。
 
 ### <a name="configure-the-provisioning-sample"></a>設定佈建範例
+
 1. 開啟命令視窗，然後移至所下載的範例。 執行以下命令：
 
     ```cmd/sh
@@ -101,10 +100,10 @@ Digital Twins 會使用 [Azure Active Directory](../active-directory/fundamental
     dotnet restore
     ```
 
-1. 在 Visual Studio Code 中，開啟 **occupancy-quickstart** 專案中的 **appSettings.json** 檔案。 更新下列值：
+1. 在 Visual Studio Code 中，開啟 **occupancy-quickstart** 專案中的 [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) 檔案。 更新下列值：
    * **ClientId**：輸入 Azure AD 應用程式註冊的應用程式識別碼。 您在[設定應用程式權限](#permissions)的章節中記下了這個識別碼。
    * **Tenant**：輸入 [Azure AD 租用戶](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)的目錄識別碼。 您也在[設定應用程式權限](#permissions)的章節中記下了這個識別碼。
-   * **BaseUrl**：輸入您的 Digital Twins 執行個體 URL。 若要取得此 URL，以您執行個體的值取代此 URL 中的預留位置：_https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_。 您也可以從[部署區段](#deploy)修改「管理 API URL」，藉此來取得此 URL。 將 **swagger/** 取代為 **api/v1.0/**。
+   * **BaseUrl**：輸入您的 Digital Twins 執行個體 URL。 若要取得此 URL，以您執行個體的值取代此 URL 中的預留位置：`https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`。 您也可以從[部署區段](#deploy)修改「管理 API URL」，藉此來取得此 URL。 將 **swagger/** 取代為 **api/v1.0/**。
 
 1. 查看您可以使用此範例來探索的 Digital Twins 功能清單。 執行以下命令：
 
@@ -112,10 +111,11 @@ Digital Twins 會使用 [Azure Active Directory](../active-directory/fundamental
     dotnet run
     ```
 
-<a id="provision-spaces" />
+<a id="provision-spaces"></a>
 
 ## <a name="understand-the-provisioning-process"></a>了解佈建程序
-本節說明範例如何佈建建築物的空間圖表。 
+
+本節說明範例如何佈建建築物的空間圖表。
 
 在 Visual Studio Code 中，瀏覽至 **occupancy-quickstart\src\actions** 資料夾並開啟 **provisionSample.cs** 檔案。 請注意下列函式：
 
@@ -137,15 +137,16 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 ```
 
-此函式會使用相同資料夾中的 **provisionSample.yaml**。 開啟此檔案，並記下辦公大樓的階層：Venue、Floor、Area 和 Rooms。 上述任何實體空間均可包含「裝置」和「感應器」。 每個項目都有預先定義的 `type`&mdash;例如，Floor、Room。 
+此函式會使用相同資料夾中的 [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml)。 開啟此檔案，並記下辦公大樓的階層：Venue、Floor、Area 和 Rooms。 上述任何實體空間均可包含「裝置」和「感應器」。 每個項目都有預先定義的 `type`&mdash;例如，Floor、Room。
 
 範例 **yaml** 檔案會顯示使用 `Default` Digital Twins 物件模型的空間圖形。 此模型可提供適用於大部分類型的泛型名稱。 對於大樓來說，使用泛型名稱就已足夠。 例如，對 SensorDataType 使用 Temperature，對 SpaceBlobType 使用 Map。 範例空間類型是子類型為 FocusRoom、ConferenceRoom 等等的 Room。 
 
 如果您必須針對不同類型的場地 (例如工廠) 建立空間圖形，您可能需要不同的物件模型。 您可以在命令列上針對佈建範例執行 `dotnet run GetOntologies` 命令，以找出可供使用的模型。 
 
-如需空間圖形和物件模型的詳細資訊，請參閱[了解 Digital Twins 物件模型和空間智慧圖形](concepts-objectmodel-spatialgraph.md)。 
+如需空間圖形和物件模型的詳細資訊，請參閱[了解 Digital Twins 物件模型和空間智慧圖形](concepts-objectmodel-spatialgraph.md)。
 
 ### <a name="modify-the-sample-spatial-graph"></a>修改範例空間圖形
+
 **provisionSample.yaml** 檔案包含下列節點：
 
 - **resources**：`resources` 節點會建立 Azure IoT 中樞資源來與您設定中的裝置進行通訊。 位於您圖形根節點的 IoT 中樞，可以與您圖形中的所有裝置和感應器通訊。  
@@ -168,22 +169,19 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 > [!TIP]
 > 您可以使用 [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer)來檢視和修改空間圖。
 
-
 ## <a name="clean-up-resources"></a>清除資源
 
 至此，如果您不想要再探索 Azure Digital Twins，請放心地刪除在本教學課程中建立的資源：
 
 1. 從 [Azure 入口網站](http://portal.azure.com)的左側功能表中，選取 [所有資源]，選取您的 Digital Twins 資源群組，然後選取 [刪除]。
-   
+
     > [!TIP]
     > 如果您在刪除 Digital Twins 執行個體時遇到問題，已推出的服務更新中具有修正程式。 請重試刪除執行個體。
 
-1. 如有必要，請刪除工作電腦上的應用程式範例。 
-
+1. 如有必要，請刪除工作電腦上的應用程式範例。
 
 ## <a name="next-steps"></a>後續步驟
 
 若要了解如何實作自訂邏輯來監視範例建築物的狀況，請繼續進行本系列的下一個教學課程： 
 > [!div class="nextstepaction"]
 > [教學課程：佈建建築物及監視運作狀況](tutorial-facilities-udf.md)
-

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 71987fcde08c5098d98d21405ce79e61d3094424
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6c8f48ce71e11d1de0c28b4dab5327ab03e54f28
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186050"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231779"
 ---
 # <a name="manage-workspaces"></a>管理工作區
 
@@ -40,7 +40,7 @@ ms.locfileid: "53186050"
 
 * 資料儲存體的地理位置
 * 用來定義不同使用者存取權的資料隔離
-* 設定組態的範圍 (例如保留期和資料上限)
+* 設定組態的範圍 (例如[定價層](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier)、[保留期](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)和[資料上限](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#daily-cap)) 
 
 從耗用量的觀點來看，建議您建立愈少工作區愈好。 這可讓管理和查詢體驗變得更容易且快速。 但是，根據上述特性，您在下列情況下可能想要建立多個工作區︰
 
@@ -145,96 +145,6 @@ Log Analytics 參與者角色包含下列 Azure 動作：
 - 資源 - 僅存取指定的工作區
 
 建議您在資源層級 (工作區) 執行指派，以確保存取控制正確無誤。  使用[自訂角色](../../role-based-access-control/custom-roles.md)建立具備所需特定權限的角色。
-
-## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>將現有的工作區連結到 Azure 訂用帳戶
-建立時，所有在 2016 年 9 月 26 日之後建立的工作區都必須連結到 Azure 訂用帳戶。 當您登入時，在這個日期之前建立的工作區必須連結到工作區。 如果您從 Azure 入口網站建立工作區，或將工作區連結到 Azure 訂用帳戶，則會連結 Azure Active Directory 作為您的組織帳戶。
-
-### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>在 Azure 入口網站中將工作區連結到 Azure 訂用帳戶
-1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。  
-
-2. 在 [Log Analytics 訂用帳戶] 窗格上按一下 [新增]。  
-
-    ![工作區清單](./media/manage-access/workspace-link-existing-01.png)
-
-3. 在 [Log Analytics 工作區] 窗格中，按一下 [連結現有的]。  
-
-4. 按一下 [進行必要設定] 。  
-
-5. 您會看到尚未連結到您 Azure 帳戶的工作區清單。 選取工作區。  
-   
-6. 需要時，您可以變更下列項目的值：
-   * 訂用帳戶
-   * 資源群組
-   * 位置
-   * 定價層  
-
-7. 按一下 [確定]。 工作區現在已連結到您的 Azure 帳戶。
-
-> [!NOTE]
-> 如果您看不到想要連結的工作區，則您的 Azure 訂用帳戶沒有使用 OMS 入口網站建立之工作區的存取權。  若要從 OMS 入口網站授與此帳戶的存取權，請參閱[將使用者新增至現有的工作區](#add-a-user-to-an-existing-workspace)。
->
->
-
-## <a name="upgrade-a-workspace-to-a-paid-plan"></a>將工作區升級為付費方案
-OMS 有三種工作區方案類型：**免費**、**獨立**，以及 **OMS**。  如果您是使用「免費」方案，則每天傳送至 Log Analytics 的限制是 500 MB 的資料。  如果您超過此數量，則需要將工作區變更為付費方案，避免收集不到超出此限制的資料。 您隨時都可以變更方案類型。  如需 OMS 定價的詳細資訊，請參閱[價格詳細資料](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing)。
-
-### <a name="using-entitlements-from-an-oms-subscription"></a>使用 OMS 訂用帳戶的權利
-若要使用來自購買 OMS E1、OMS E2 OMS 或 OMS Add-On for System Center 的權利，請選擇 OMS Log Analytics 的 [OMS] 方案。
-
-當您購買 OMS 訂用帳戶時，會將權利新增至 Enterprise 合約。 依此合約建立的任何 Azure 訂用帳戶都享有此權利。 這些訂用帳戶中的所有工作區都使用 OMS 權利。
-
-若要確保將工作區的使用量套用到 OMS 訂用帳戶的權利，您需要︰
-
-1. 在 Azure 訂用帳戶中建立工作區，這個 Azure 訂用帳戶屬於包含 OMS 訂用帳戶的 Enterprise 合約
-
-2. 選取工作區的 [OMS] 方案
-
-> [!NOTE]
-> 如果您的工作區是在 2016 年 9 月 26 日之前建立，而且您的 Log Analytics 定價方案是 [進階]，此工作區會使用 OMS Add-On for System Center 的權利。 變更為 [OMS] 定價層，也可以使用權利。
->
->
-
-在 Azure 入口網站中看不到 OMS 訂用帳戶權利。 您可以看到企業版入口網站中的權利和使用量。  
-
-如果需要變更工作區所連結的 Azure 訂用帳戶，則可以使用 Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) Cmdlet。
-
-### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>透過 Enterprise 合約使用 Azure 承諾
-如果您沒有 OMS 訂用帳戶，則會分別支付 OMS 的每個元件，而且使用量會出現在您的 Azure 帳單上。
-
-在您的 Azure 訂用帳戶連結的企業註冊上，如果您還有 Azure 承諾用量金額，則 Log Analytics 的使用量會自動從剩餘的承諾用量金額中扣抵。
-
-如果需要變更工作區所連結的 Azure 訂用帳戶，則可以使用 Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) Cmdlet。  
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>在 Azure 入口網站中將工作區變更為付費定價層
-1. 在 Azure 入口網站的 [Log Analytics 訂用帳戶] 窗格中，選取工作區。
-
-2. 在 [工作區] 窗格的 [一般] 下方，選取 [定價層]。  
-
-3. 在 [定價層] 下方選取定價層，然後按一下 [選取]。  
-    ![選取的定價方案](./media/manage-access/workspace-pricing-tier-info.png)
-
-> [!NOTE]
-> 如果您的工作區連結到自動化帳戶，必須先刪除任何**自動化和控制**解決方案以及取消連結自動化帳戶，才可以選取 [獨立 (每 GB)] 定價層。 在 [工作區] 刀鋒視窗的 [一般] 之下，按一下 [解決方案] 以查看和刪除解決方案。 若要取消連結自動化帳戶，請按一下 [定價層] 刀鋒視窗上的自動化帳戶名稱。
->
->
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>在 OMS 入口網站中將工作區變更為付費定價層
-
-若要使用 OMS 入口網站變更定價層，您必須有 Azure 訂用帳戶。
-
-1. 在 OMS 入口網站中，按一下 [設定] 圖格。
-
-2. 按一下 [帳戶] 索引標籤，然後按一下 [Azure 訂用帳戶和行動數據方案] 索引標籤。
-
-3. 按一下您想要使用的定價層。
-
-4. 按一下 [檔案] 。  
-
-    ![訂用帳戶和行動數據方案](./media/manage-access/subscription-tab.png)
-
-新的行動數據方案會顯示在網頁頂端的 OMS 入口網站功能區中。
-
-![OMS 功能區](./media/manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>後續步驟
 * 請參閱 [Log Analytics 代理程式概觀](../../azure-monitor/platform/log-analytics-agent.md)，從您資料中心或其他雲端環境中的電腦收集資料。

@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d4a40b07ef70d8dd43eb410ba396057551cd483
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249892"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304385"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>管理 Azure Stack 的儲存體容量 
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 本文中的資訊可協助 Azure Stack 雲端操作員監視和管理其 Azure Stack 部署的儲存容量。 Azure Stack 儲存體基礎結構會配置 Azure Stack 部署的總儲存容量子集，以便用於**儲存體服務**。 儲存體服務會將租用戶的資料儲存在磁碟區上對應到部署節點的共用中。
 

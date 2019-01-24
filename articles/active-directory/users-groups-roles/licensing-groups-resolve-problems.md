@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 54e562cca800a19829b985e3fd529368350104a1
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211531"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329473"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>識別及解決 Azure Active Directory 中群組的授權指派問題
 
@@ -118,6 +118,12 @@ Azure AD 會嘗試將群組中指定的所有授權指派給每位使用者。 �
 
 您可以看到未被指派授權的使用者，並查看此問題所影響的產品。
 
+## <a name="what-happens-when-a-group-with-licenses-assigned-is-deleted"></a>刪除已指派授權的群組時會發生什麼事？
+
+您必須移除指派給群組的所有授權，才能刪除該群組。 不過，移除群組中所有使用者的授權可能需要一些時間。 從群組中移除授權指派時，如果使用者已指派了相依的授權，或者存在禁止移除授權的 Proxy 位址衝突問題，則可能會出現故障。 如果使用者的授權相依於由於刪除群組而被移除的授權，則對使用者的授權指派將從繼承轉換到直接。
+
+例如，請考慮已指派 Office 365 E3/E5 且啟用商務用 Skype 服務方案的群組。 另外，假設該群組的一些成員直接指派了音訊會議授權。 刪除群組時，群組型授權將嘗試移除所有使用者的 Office 365 E3/E5。 因為音訊會議依賴商務用 Skype，因此對於指派了音訊會議的任何使用者，群組型授權會將 Office 365 E3/E5 授權轉換為直接授權指派。
+
 ## <a name="how-do-you-manage-licenses-for-products-with-prerequisites"></a>如何為具有必要條件的產品來管理授權？
 
 您可能擁有的某些 Microsoft Online 產品是「附加元件」。 附加元件規定使用者或群組啟用必要條件服務方案，才能指派授權給他們。 使用以群組為基礎的授權時，系統會要求必要條件和附加元件服務方案必須出現在相同的群組中。 這是為了確保新增至群組的所有使用者都可以收到完整有效的產品。 讓我們思考一下以下的範例：
@@ -146,8 +152,6 @@ Azure AD 會嘗試將群組中指定的所有授權指派給每位使用者。 �
 
 > [!TIP]
 > 您可以針對每個必要條件服務方案建立多個群組。 比方說，如果您對使用者同時使用 Office 365 企業版 E1 和 Office 365 企業版 E3，則可以建立兩個群組來授權 Microsoft 工作場所分析：一個使用 E1 作為必要條件，另一個使用 E3 作為必要條件。 這可讓您將附加元件散發給 E1 和 E3 使用者，而不會耗用額外的授權。
-
-
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>如何強制處理群組中的授權來解決錯誤？
 

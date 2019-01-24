@@ -1,6 +1,6 @@
 ---
 title: Cloud Foundry 如何與 Azure 整合 | Microsoft Docs
-description: 說明 Cloud Foundry 如何利用 Azure 服務來提升企業體驗
+description: 描述 Cloud Foundry 如何利用 Azure 服務來提升企業體驗
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: a9f5f22cbd6e7cb39e1abb2ef712ffcfc27f55a4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 908b7e40c0509d7034b86985ac0775635726a6b9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406138"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329798"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>整合 Cloud Foundry 與 Azure
 
 [Cloud Foundry](https://docs.cloudfoundry.org/) 是一個在雲端提供者的 IaaS 平台上執行的 PaaS 平台。 它可以跨雲端提供者提供一致的應用程式部屬體驗。 此外，它也可以與各種 Azure 服務整合，可提供企業級 HA、延展性並節省成本。
-[Cloud Foundry 有 6 個子系統](https://docs.cloudfoundry.org/concepts/architecture/)，可以線上彈性調整，包括：路由、驗證、應用程式生命週期管理、服務管理、傳訊及監視。 針對每個子系統，您可以設定 Cloud Foundry 來利用對應的 Azure 服務。 
+有 [6 個 Cloud Foundry 的子系統](https://docs.cloudfoundry.org/concepts/architecture/) \(英文\)，可有彈性地線上調整，包括：路由、驗證、應用程式生命週期管理、服務管理、傳訊和監視。 針對每個子系統，您可以設定 Cloud Foundry 來利用對應的 Azure 服務。 
 
 ![Azure 整合架構上的 Cloud Foundry](media/CFOnAzureEcosystem-colored.png)
 

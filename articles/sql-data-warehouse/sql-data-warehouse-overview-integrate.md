@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 5b302be582bd22a7b38601c90f5fe475062afb26
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0d9d10214f8bc61a914de3f72ddae13679f2811e
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239666"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358502"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>將其他服務與 SQL 資料倉儲整合
 除了其核心功能，SQL 資料倉儲可讓使用者整合許多其他 Azure 中的服務。 其中一些服務包括：
@@ -41,7 +41,7 @@ Azure Data Factory 提供使用者一個受控平台，以建立複雜的擷取�
 * **預存程序**：協調 SQL 資料倉儲上的預存程序的執行。
 * **複製**：使用 ADF 將資料移到「SQL 資料倉儲」中。 這項作業可以在幕後使用 ADF 的標準資料移動機制或 PolyBase。 
 
-如需詳細資訊，請參閱[與 Azure Data Factory 整合](sql-data-warehouse-get-started-visualize-with-power-bi.md)。
+如需詳細資訊，請參閱[與 Azure Data Factory 整合](https://docs.microsoft.com/en-us/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json)。
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 Azure Machine Learning 是完全受控的分析服務，可讓您使用一組大型預測工具建立複雜模型。 SQL 資料倉儲可支援做為模型的來源和目的地，具備下列功能：
@@ -54,7 +54,7 @@ Azure Machine Learning 是完全受控的分析服務，可讓您使用一組大
 ## <a name="azure-stream-analytics"></a>Azure 串流分析
 Azure 串流分析是複雜、完全受控的基礎結構，可處理和取用產生自 Azure 事件中樞的事件資料。  與 SQL 資料倉儲的整合可讓串流資料有效地處理並與相關資料一起儲存以啟用更深入、更進階的分析。  
 
-* **工作輸出：** 將來自資料流分析工作的輸出直接傳送到 SQL 資料倉儲。
+* **作業輸出：** 將來自資料流分析工作的輸出直接傳送到 SQL 資料倉儲。
 
 如需詳細資訊，請參閱[與 Azure 串流分析整合](sql-data-warehouse-integrate-azure-stream-analytics.md)。
 

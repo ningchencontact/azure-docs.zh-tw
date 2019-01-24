@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a023d9f600f63d1ead4cf7c7e2a3cceec794d28b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f4456ed81fba4648f5bc3efaa415b1e44e5e415
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972585"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852111"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>教學課程 - 如何使用 cloud-init 在首次開機時於 Azure 中自訂 Linux 虛擬機器
 
@@ -171,7 +171,7 @@ az keyvault certificate create \
 
 
 ### <a name="prepare-certificate-for-use-with-vm"></a>準備要與 VM 搭配使用的憑證
-若要在 VM 建立程序期間使用憑證，使用 [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions) 來取得憑證的識別碼。 VM 需要特定格式的憑證，才能在開機時將其插入，因此請將憑證轉換為 [az vm secret format](/cli/azure/vm#az-vm-secret-format)。 下列範例會將這些命令的輸出指派給變數，以方便在後續步驟中使用：
+若要在 VM 建立程序期間使用憑證，使用 [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions) 來取得憑證的識別碼。 VM 需要特定格式的憑證，才能在開機時將其插入，因此請將憑證轉換為 [az vm secret format](/cli/azure/vm)。 下列範例會將這些命令的輸出指派給變數，以方便在後續步驟中使用：
 
 ```azurecli-interactive
 secret=$(az keyvault secret list-versions \

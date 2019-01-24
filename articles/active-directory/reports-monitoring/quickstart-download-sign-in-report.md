@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3e20af1c90f0e8a7a582d2d01dc4218a14496c40
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: ce242066df427163048a2ef51e79ffd98eadbc7d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653283"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214907"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站下載登入報告
 
@@ -31,7 +31,7 @@ ms.locfileid: "53653283"
 
 您需要：
 
-* 一個 Azure Active Directory 租用戶，而且您必須具有進階版授權以顯示登入活動報告。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 來升級 Azure Active Directory 版本。
+* 一個 Azure Active Directory 租用戶，而且您必須具有進階版授權以顯示登入活動報告。 請參閱[開始使用 Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 來升級 Azure Active Directory 版本。 請注意，如果您在升級前沒有任何活動資料，則在升級至進階授權之後，報告需要幾天的時間才會顯示出資料。
 * 所擔任的租用戶角色為**安全性系統管理員**、**安全性讀取者**、**報告讀取者**或**全域系統管理員**的使用者。 此外，租用戶中的任何使用者都可以存取自己的登入資訊。
 
 ## <a name="quickstart-download-a-sign-in-report"></a>快速入門：下載登入報告

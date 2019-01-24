@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: d2db9d426da58b3783b07210165a55cc6ec27658
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: abcf3100dc5252db9e3a5e7b446417333a9b37ca
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185948"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321886"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Log Analytics 記錄中的標準屬性
 [Log Analytics](../log-query/log-query-overview.md) 中的資料會儲存為一組記錄，每筆記錄分別屬於具有一組唯一屬性的特定資料類型。 有許多資料類型都具有多種類型之間通用的標準屬性。 本文將說明這些屬性，並提供在查詢中加以使用的範例。
@@ -84,6 +84,70 @@ AzureActivity
    | summarize LoggedOnAccounts = makeset(Account) by _ResourceId 
 ) on _ResourceId  
 ```
+
+## <a name="isbillable"></a>\_IsBillable
+**\_IsBillable** 屬性會指定擷取的資料是否可計費。 **\_IsBillable** 等於 _false_ 的資料會免費收集，且費用不會計入您的 Azure 帳戶。
+
+### <a name="examples"></a>範例
+若要取得傳送計費資料類型的電腦清單，請使用下列查詢：
+
+> [!NOTE]
+> 請謹慎使用這些查詢搭配 `union withsource = tt *`，因為執行跨資料類型掃描相當昂貴。 
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName
+```
+
+加以延伸，即可傳回每小時傳送計費資料類型的電腦計數：
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
+
+## <a name="billedsize"></a>\_BilledSize
+如果 **\_IsBillable** 為 true，**\_BilledSize** 屬性可指定將計入 Azure 帳戶的資料大小 (以位元組為單位)。
+
+### <a name="examples"></a>範例
+若要查看每部電腦擷取的可計費事件的大小，請使用大小以位元組計算的 `_BilledSize` 屬性：
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
+```
+
+若要查看每部電腦所擷取的事件計數，請使用下列查詢：
+
+```Kusto
+union withsource = tt *
+| summarize count() by Computer | sort by count_ nulls last
+```
+
+若要查看每部電腦所擷取的可計費事件計數，請使用下列查詢： 
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last
+```
+
+如果您想要查看有哪些可計費資料類型的計數正在傳送資料到特定的電腦，請使用下列查詢：
+
+```Kusto
+union withsource = tt *
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last 
+```
+
 
 ## <a name="next-steps"></a>後續步驟
 

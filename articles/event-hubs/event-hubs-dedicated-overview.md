@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ed1fedab45ce59af2c67ed8a2ef60714d26d5801
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091021"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402331"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>事件中樞專用的概觀
 
@@ -32,7 +32,7 @@ ms.locfileid: "53091021"
 | --- |:---:|:---:|:---:|
 | 輸入事件 | 按百萬個事件付費 | 已包括 |
 | 輸送量單位 (每秒 1 MB 輸入，每秒 2 MB 輸出) | 按小時付費 | 已包括 |
-| 訊息大小 | 256 KB | 1 MB |
+| 訊息大小 | 1 MB | 1 MB |
 | 發行者原則 | 是 | 是 |   
 | 用戶群組 | 20 | 20 |
 | 訊息重播 | 是 | 是 |
@@ -47,7 +47,6 @@ ms.locfileid: "53091021"
 使用事件中樞專用時，有以下的優點：
 
 * 使用單一租用戶裝載，不會受到其他租用戶的干擾。
-* 相較於標準的 256 KB，訊息大小增加至 1 MB。
 * 可重複每次效能。
 * 容量保證符合您暴增的需求。
 * 包含事件中樞的[擷取](event-hubs-capture-overview.md)功能，以提供與微批次和長期保留的整合。

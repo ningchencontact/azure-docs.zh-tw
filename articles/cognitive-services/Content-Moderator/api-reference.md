@@ -1,7 +1,7 @@
 ---
 title: API 參考 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 了解 Content Moderator 的內容審核和審查 API。
+description: 了解 Content Moderator 的各種內容仲裁和審查 API。
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -10,19 +10,19 @@ ms.component: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: ecc22b097c14fc7597d8ee0e31f9691098a2211d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a64b2f7ce54d5ace26ad18c0ca1a9facb66245e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229742"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266955"
 ---
 # <a name="content-moderator-api-reference"></a>Content Moderator API 參考
 
-您可透過下列方式開始使用 Azure Content Moderator API：(另請參閱[管理認證](review-tool-user-guide/credentials.md))。
+您可以透過下列方式開始使用 Azure Content Moderator API：(另請參閱[管理認證](review-tool-user-guide/credentials.md))
 
 - 在 Azure 入口網站中，[訂閱 Content Moderator API](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)。
-- 註冊 [Content Moderator 審查工具](https://contentmoderator.cognitive.microsoft.com/)。 請參閱[快速入門](quick-start.md)。
+- 註冊 [Content Moderator 審查工具](https://contentmoderator.cognitive.microsoft.com/)。 請參閱[在 Web 上試用 Content Moderator](quick-start.md)。
 
 ## <a name="moderation-apis"></a>仲裁 API
 

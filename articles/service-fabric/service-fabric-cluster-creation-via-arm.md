@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: ba870cf722f95fb6516e1969350d3d25ba280a8c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 06e0509f05352a023651d7121aa89e18e375ef32
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043782"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428320"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>使用 Azure Resource Manager 來建立 Service Fabric 叢集 
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ az account set --subscription $subscriptionId
 下列命令可以建立 Windows 或 Linux 叢集，您需要指定適用的作業系統。 PowerShell/CLI 命令也會在指定的 CertificateOutputFolder 中輸出憑證，但是請確定已建立憑證資料夾。 此命令也需要其他參數如 VM SKU。
 
 > [!NOTE]
-> 下列 PowerShell 命令僅適用於 Azure Resource Manager PowerShell 6.1 以上的版本。 若要檢查 Azure Resource Manager PowerShell 的目前版本，請執行下列 PowerShell 命令 "Get-Module AzureRM"。 遵循[此連結](/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0)即可升級 Azure Resource Manager PowerShell 版本。 
+> 下列 PowerShell 命令僅適用於 Azure Resource Manager PowerShell 6.1 以上的版本。 若要檢查 Azure Resource Manager PowerShell 的目前版本，請執行下列 PowerShell 命令 "Get-Module AzureRM"。 遵循[此連結](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.3.0)即可升級 Azure Resource Manager PowerShell 版本。 
 >
 >
 
@@ -292,7 +292,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 如需使用範本的 JSON 語法和屬性，請參閱[叢集範本參考](/azure/templates/microsoft.servicefabric/clusters)。
 
 <!-- Links -->
-[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[azure-powershell]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template

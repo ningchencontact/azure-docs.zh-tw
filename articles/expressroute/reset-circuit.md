@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: anzaman
 ms.custom: seodec18
-ms.openlocfilehash: 7b88ba6e00cbec05263fe5bc8e795cda95beee04
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e94ba2f7f6981355f4736683b891fbdced001d03
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093659"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425334"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>重設失敗的 ExpressRoute 電路
 
@@ -21,7 +21,7 @@ ms.locfileid: "53093659"
 
 ## <a name="reset-a-circuit"></a>重設線路
 
-1. 安裝最新版的 Azure Resource Manager PowerShell Cmdlet。 如需詳細資訊，請參閱[安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)。
+1. 安裝最新版的 Azure Resource Manager PowerShell Cmdlet。 如需詳細資訊，請參閱[安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)。
 
 2. 以提高的權限開啟 PowerShell 主控台並連線至您的帳戶。 使用下列範例來協助您連接：
 

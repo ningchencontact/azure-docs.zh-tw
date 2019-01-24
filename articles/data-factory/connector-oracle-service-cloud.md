@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3cf59db2e6f8fcffd9eefc38fcd22c25ba646456
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b65bcfa5252a150c8101322eaf6d84ce46eef755
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018631"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352286"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Oracle Service Cloud 複製資料 (預覽)
 
@@ -47,7 +47,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | type | 類型屬性必須設定為：**OracleServiceCloud** | 是 |
 | host | Oracle Service Cloud 執行個體的 URL。  | 是 |
 | username | 您用來存取 Oracle Service Cloud 伺服器的使用者名稱。  | 是 |
-| password | 密碼，與您在使用者名稱金鑰中提供的使用者名稱相對應。 您可以選擇將這個欄位標記為 SecureString 將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 是 |
+| password | 密碼，與您在使用者名稱金鑰中提供的使用者名稱相對應。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |

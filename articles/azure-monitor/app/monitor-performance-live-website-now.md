@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1558d8e8392ff49e2661e9f8bc41e41c5bbc6dd5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 463b2e8c7e349fa46737a9d630bd027fb28e7780
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189843"
+ms.locfileid: "54199380"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>在執行階段使用 Application Insights 狀態監視器檢測 Web 應用程式
 
@@ -96,14 +96,14 @@ ms.locfileid: "54189843"
 - 確認 applicationInsights.config 檔案在您的目標應用程式目錄中，並且包含您的 ikey。
 
 - 如果您懷疑資料會遺失，可以在 [Analytics](../log-query/get-started-portal.md) 中執行簡單查詢，列出目前正在傳送遙測的所有雲端角色。
-
 ```Kusto
 union * | summarize count() by cloud_RoleName, cloud_RoleInstance
 ```
 
 - 如果您需要確認已成功附加 Application Insights，則可以在命令視窗中執行 [Sysinternals 控制代碼](https://docs.microsoft.com/sysinternals/downloads/handle)以確認 IIS 已載入 applicationinsights.dll。
-
-`handle.exe /p w3wp.exe`
+```cmd
+handle.exe /p w3wp.exe
+```
 
 
 ### <a name="cant-connect-no-telemetry"></a>無法連接？ 沒有遙測資料？
@@ -113,7 +113,7 @@ union * | summarize count() by cloud_RoleName, cloud_RoleInstance
 ### <a name="unable-to-login"></a>無法登入
 
 * 如果無法登入狀態監視器，請改用命令列進行安裝。 狀態監視器嘗試登入以收集您的 ikey，但您可以使用下列命令以手動方式提供： 
-```
+```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
 Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
 ```
@@ -123,7 +123,7 @@ Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-0
 啟用 Application Insights 後，您可能會發生此錯誤。 這是因為安裝程式會在 bin 目錄中取代此 dll。
 若要修正更新您的 web.config：
 
-```
+```xml
 <dependentAssembly>
     <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51"/>
     <bindingRedirect oldVersion="0.0.0.0-4.*.*.*" newVersion="4.0.2.1"/>

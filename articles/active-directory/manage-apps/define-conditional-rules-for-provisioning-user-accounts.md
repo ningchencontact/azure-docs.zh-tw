@@ -4,7 +4,7 @@ description: 在支援使用者佈建自動化的應用程式中，了解如何�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b62679332a45127d7c1a45593c162182886a7150
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 84c4939a93adbb8983cae87fdaa2727904010b03
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719353"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461241"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>含範圍篩選器的屬性型應用程式佈建
 本文的目標在於說明如何使用範圍篩選條件來定義以屬性為基礎的規則，以決定將哪些使用者佈建到應用程式。

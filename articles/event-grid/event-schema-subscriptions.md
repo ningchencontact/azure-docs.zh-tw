@@ -2,21 +2,21 @@
 title: Azure 事件格線訂用帳戶的事件結構描述
 description: 描述 Azure 事件格線針對訂用帳戶事件所提供的屬性
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 10/12/2018
-ms.author: tomfitz
-ms.openlocfilehash: ae6513c503b930d9c953f5245a9c98ea096109bb
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 01/12/2019
+ms.author: spelluru
+ms.openlocfilehash: 04bb19c074edff08677d759fb386608f6905e979
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310227"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473430"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>針對訂用帳戶的 Azure 事件格線事件結構描述
 
-本文提供針對 Azure 訂用帳戶事件的屬性和結構描述。 如需事件結構描述的簡介，請參閱 [Azure 事件格線事件結構描述](event-schema.md)。
+本文提供針對 Azure 訂用帳戶事件的屬性和結構描述。 如需事件結構描述的簡介，請參閱 [Azure 事件格線事件結構描述](event-schema.md)。
 
 Azure 訂用帳戶和資源群組會發出相同的事件類型。 事件類型與資源變更或動作有關。 主要的差異在於資源群組所發出的事件是針對資源群組內的資源，而 Azure 訂用帳戶發出的事件是針對整個訂用帳戶上的資源。
 

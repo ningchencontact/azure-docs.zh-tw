@@ -11,24 +11,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: e4e1b3cb823d08948c31aa6486c08a930a377dfa
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 147242e7d5d62204198360f580848cd997850d09
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161951"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332518"
 ---
-# <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 回報 Azure Stack 使用情況資料 
+# <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 回報 Azure Stack 使用情況資料
 
-使用量資料 (也稱為取用資料) 代表所使用的資源量。 
+使用量資料 (也稱為取用資料) 代表所使用的資源量。
 
 使用取用型計費模型的 Azure Stack 多節點系統應該向 Azure 回報使用量資料以供計費。 Azure Stack 操作員應該設定其 Azure Stack 執行個體，以向 Azure 回報使用量資料。
 
-> [!NOTE]
-> 對採用依使用量付費授權模型的 Azure Stack 多節點使用者而言，使用量資料回報是必要功能。 對採用容量授權模型的客戶而言，則為選用功能 (請參閱[購買方式頁面](https://azure.microsoft.com/overview/azure-stack/how-to-buy/))。 對於 Azure Stack 開發套件使用者，Azure Stack 操作員可以回報使用量資料，並測試此功能。 不過，使用者不會因為其造成的任何使用量而需要付費。 
+> [!IMPORTANT]
+> 所有工作負載都[必須部署在租用戶訂用帳戶底下](#are-users-charged-for-the-infrastructure-vms)，才符合 Azure Stack 的授權條款。
+
+對採用依使用量付費授權模型的 Azure Stack 多節點使用者而言，使用量資料回報是必要功能。 對採用容量授權模型的客戶而言，則為選用功能 (請參閱[購買方式頁面](https://azure.microsoft.com/overview/azure-stack/how-to-buy/))。 對於 Azure Stack 開發套件使用者，Azure Stack 操作員可以回報使用量資料，並測試此功能。 不過，使用者不會因為其造成的任何使用量而需要付費。
 
 ![計費流程](media/azure-stack-usage-reporting/billing-flow.png)
 
@@ -75,7 +77,7 @@ ms.locfileid: "52161951"
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>使用基礎結構 VM 是否需要付費？
 
-否。 某些 Azure Stack 資源提供者 VM 的使用量資料會回報給 Azure，但這些 VM 以及在部署期間為了啟用 Azure Stack 基礎結構所建立的 VM，都沒有費用。  
+沒有。 某些 Azure Stack 資源提供者 VM 的使用量資料會回報給 Azure，但這些 VM 以及在部署期間為了啟用 Azure Stack 基礎結構所建立的 VM，都沒有費用。  
 
 使用者只需針對在租用戶訂用帳戶下執行的 VM 付費。 必須將所有工作負載部署在租用戶訂用帳戶底下，才符合 Azure Stack 的授權條款。
 

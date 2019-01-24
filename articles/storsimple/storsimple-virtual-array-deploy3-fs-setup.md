@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf507fb21b314a6811db1c1e45a4356381caada1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f699e40a4a31b6d57b12a43ae307806d3f010015
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111846"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267176"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>部署 StorSimple Virtual Array - 透過 Azure 入口網站設定為檔案伺服器
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -28,7 +28,7 @@ ms.locfileid: "23111846"
 ## <a name="introduction"></a>簡介
 本文章說明如何執行初始安裝程序、為 StorSimple 檔案伺服器註冊、完成裝置安裝程序，以及建立並連接至 SMB 共用。 我們提供一系列如何將虛擬陣列完全部署為檔案伺服器或 iSCSI 伺服器的佈署教學課程，而這是該系列的最後一篇文章。
 
-安裝及設定程序可能需要大約 10 分鐘的時間才能完成。 本文中的資訊僅適用於部署 StorSimple Virtual Array。 關於 StorSimple 8000 系列裝置的部署，請參閱︰[部署執行 Update 2 的 StorSimple 8000 系列裝置](storsimple-deployment-walkthrough-u2.md)。
+安裝及設定程序可能需要大約 10 分鐘的時間才能完成。 本文中的資訊僅適用於部署 StorSimple Virtual Array。 關於 StorSimple 8000 系列裝置的部署，請參閱：[部署執行 Update 2 的 StorSimple 8000 系列裝置](storsimple-deployment-walkthrough-u2.md)。
 
 ## <a name="setup-prerequisites"></a>安裝的必要條件
 在您設定及安裝 StorSimple Virtual Array 之前，請先確定：
@@ -49,7 +49,7 @@ ms.locfileid: "23111846"
    請使用您在上一個步驟記下的連線 URL。 您會看到錯誤指出網站的安全性憑證有問題。 請按一下 [繼續瀏覽此網頁] 。
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image2.png)
-2. 以 **StorSimpleAdmin** 身分登入虛擬陣列的 Web UI。 輸入您於[在 Hyper-V 中佈建 StorSimple Virtual Array](storsimple-virtual-array-deploy2-provision-hyperv.md) 或[在 VMware 中佈建 StorSimple Virtual Array](storsimple-virtual-array-deploy2-provision-vmware.md) 的「步驟 3：啟動虛擬陣列」中所變更的裝置系統管理員密碼。
+2. 以 **StorSimpleAdmin** 身分登入虛擬陣列的 Web UI。 輸入您[在 Hyper-V 中佈建 StorSimple Virtual Array](storsimple-virtual-array-deploy2-provision-hyperv.md) 或[在 VMware 中佈建 StorSimple Virtual Array](storsimple-virtual-array-deploy2-provision-vmware.md) 的「步驟 3：啟動虛擬陣列」中所變更的裝置系統管理員密碼。
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
 3. 您將會前往 [首頁] 頁面。 此頁面說明設定虛擬陣列並向 StorSimple 裝置管理員服務註冊時所需的各種設定。 [網路設定]、[Web Proxy 設定] 及 [時間設定] 是可省略的。 只有 [裝置設定] 及 [雲端設定] 是必要的設定。
@@ -87,7 +87,7 @@ ms.locfileid: "23111846"
    
    在 [Web Proxy]  頁面中：
    
-   1. 以下列格式提供 **Web Proxy URL**：「http://&lt;host-IP 位址」或「FDQN&gt;:連接埠號碼」。 請注意，此處不支援 HTTPS URL。
+   1. 以此格式提供 **Web Proxy URL**：「 http://&lt;主機 IP 位址或 FQDN&gt;:連接埠號碼」。 請注意，此處不支援 HTTPS URL。
    2. 將 [驗證] 指定為 [基本] 或 [無]。
    3. 如果要使用驗證功能，您也必須提供 [使用者名稱] 和 [密碼]。
    4. 按一下 [套用]。 這將會驗證並套用您設定的 Web Proxy 設定。
@@ -98,12 +98,12 @@ ms.locfileid: "23111846"
     在 [時間設定]  頁面中：
     
     1. 根據裝置部署的地理位置，從下拉式清單中選取 [時區]  。 裝置的預設時區是太平洋標準時間。 裝置將針對所有排程的操作使用這個時區。
-    2. 指定裝置的 [主要 NTP 伺服器]  ，或是接受預設值 time.windows.com。請確定您的網路允許 NTP 流量從您的資料中心通過網際網路。
+    2. 指定裝置的 [主要 NTP 伺服器]  ，或是接受預設值 time.windows.com。 請確定您的網路允許 NTP 流量從您的資料中心通過網際網路。
     3. (選擇性) 指定裝置的 [次要 NTP 伺服器]  。
     4. 按一下 [Apply (套用)] 。 這將會驗證並套用您設定的時間設定。
 11. 設定裝置的雲端設定。 在此步驟中，您將會完成本機裝置設定，然後向您的 StorSimple 裝置管理員服務註冊裝置。
     
-    1. 輸入您在 **步驟 2：取得服務註冊金鑰** 中取得的 StorSimple Virtual Array [服務註冊金鑰](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) 。
+    1. 輸入**服務註冊金鑰**，這是您在[步驟 2：取得 StorSimple Virtual Array 的服務註冊金鑰](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key)中取得的金鑰。
     2. 如果這是您向此服務註冊的第一個裝置，則會出現**服務資料加密金鑰**。 複製這個金鑰，並將它儲存在安全的位置。 這個金鑰需要與服務註冊金鑰搭配使用，才能向 StorSimple 裝置管理員服務註冊其他裝置。 
        
        如果這不是您向此服務註冊的第一個裝置，您將必須提供服務資料加密金鑰。 如需詳細資訊，請參閱使用本機 Web UI 取得 [服務資料加密金鑰](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) 。
@@ -117,7 +117,7 @@ ms.locfileid: "23111846"
     
     ![設定檔案伺服器](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
-## <a name="step-2-configure-the-device-as-file-server"></a>步驟 2︰將裝置設定為檔案伺服器
+## <a name="step-2-configure-the-device-as-file-server"></a>步驟 2：將裝置設定為檔案伺服器
 在 [Azure 入口網站](https://portal.azure.com/)中執行下列步驟，完成必要的裝置設定。
 
 #### <a name="to-configure-the-device-as-file-server"></a>若要將裝置設定為檔案伺服器
@@ -200,7 +200,7 @@ ms.locfileid: "23111846"
 您現在必須連接至您在上一個步驟所建立的一或多個共用。 請在連接至 StorSimple Virtual Array 的 Windows Server 主機上執行這些步驟。
 
 #### <a name="to-connect-to-the-share"></a>如何連線至共用
-1. 按下 ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R 鍵，然後在 [執行] 視窗中，指定 &#92;&#92;&lt;檔案伺服器名稱&gt; 做為路徑，「檔案伺服器名稱」要換成您指派給檔案伺服器的裝置名稱。 按一下 [SERVICEPRINCIPAL] 。
+1. 按下 ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R 鍵，然後在 [執行] 視窗中，指定 &#92;&#92;&lt;檔案伺服器名稱&gt; 做為路徑，「檔案伺服器名稱」要換成您指派給檔案伺服器的裝置名稱。 按一下 [確定]。
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
 2. 這會開啟 [檔案總管]。 您應該會看到所建立的共用以資料夾形式呈現。 選取並按兩下某個共用 (資料夾)，就能檢視該共用的內容。

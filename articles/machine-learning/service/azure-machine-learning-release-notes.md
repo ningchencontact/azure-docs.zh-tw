@@ -11,16 +11,36 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 157591897adb7495382b540dc1517c4c652a2632
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5341c4901ca2a7aa0b4935e13d06c8fb5a1f0d1b
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190711"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304087"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
 本文章會說明 Azure Machine Learning 服務的版本。 
+
+## <a name="2019-01-14"></a>2019-01-14
+
+### <a name="azure-machine-learning-sdk-for-python-v108"></a>Azure Machine Learning SDK for Python v1.0.8
+
++ **SDK 參考文件**： https://aka.ms/aml-sdk
+
++ **錯誤修正**：此版本主要包含次要錯誤修正
+
+### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Azure Machine Learning Data Prep SDK v1.0.7
+
++ **SDK 參考文件**： https://aka.ms/data-prep-sdk
+
++ **新功能**
+  + 資料存放區改善 (記載於[資料存放區操作指南](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+    + 已新增以相應增加方式從中讀取和寫入至 Azure 檔案共用和 ADLS 資料存放區的功能。
+    + 使用資料存放區時，Data Prep 現在支援使用服務主體驗證，而非互動式驗證。
+    + 已新增 wasb 和 wasbs url 的支援。
+
+## <a name="2019-01-09"></a>2019-01-09
 
 ### <a name="azure-machine-learning-data-prep-sdk-v106"></a>Azure Machine Learning 資料準備 SDK v1.0.6
 
@@ -29,7 +49,7 @@ ms.locfileid: "54190711"
 + **錯誤修正**
   + 已修正與從 Spark 上公開可讀取的 Azure Blob 容器讀取相關的 Bug
 
-## <a name="2018-12-20"></a>2018-12-20： 
+## <a name="2018-12-20"></a>2018-12-20 
 
 ### <a name="azure-machine-learning-sdk-for-python-v106"></a>Azure Machine Learning SDK for Python v1.0.6
 
@@ -114,7 +134,7 @@ Azure Machine Learning 服務現已正式運作。
   + 了解如何[建立您的第一個管線](how-to-create-your-first-pipeline.md)
   + 了解如何[使用管線執行批次預測](how-to-run-batch-predictions.md)
 + Azure Machine Learning 計算目標
-  + [範例 Notebook] (https://aka.ms/aml-notebooks) 現在已更新為使用新的受控計算。
+  + [範例 Notebook](https://aka.ms/aml-notebooks) 現在已更新為使用新的受控計算。
   + [了解這個計算](how-to-set-up-training-targets.md#amlcompute)。
 
 ### <a name="azure-portal-new-features"></a>Azure 入口網站：新功能
@@ -135,7 +155,7 @@ Azure Machine Learning 服務現已正式運作。
 
 + **重大變更** 
   * azureml.train.widgets 命名空間已移至 azureml.widgets。
-  * azureml.core.compute.AmlCompute 取代了下列類別 - azureml.core.compute.BatchAICompute 和 azureml.core.compute.DSVMCompute。 第二個類別將會在後續版本中移除。 AmlCompute 類別現在有更簡易的定義，只需 vm_size 和 max_nodes 即可，並且會在提交作業時自動將叢集規模調整為 0 到 max_nodes。 我們已對 [Notebook 範例] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) 更新此資訊，這應該能提供使用範例給您參考。 希望您喜歡此簡化功能和後續版本中的許多有趣功能！
+  * azureml.core.compute.AmlCompute 取代了下列類別 - azureml.core.compute.BatchAICompute 和 azureml.core.compute.DSVMCompute。 第二個類別將會在後續版本中移除。 AmlCompute 類別現在有更簡易的定義，只需 vm_size 和 max_nodes 即可，並且會在提交作業時自動將叢集規模調整為 0 到 max_nodes。 我們已對[範例 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) 更新此資訊，這應該能提供使用範例給您參考。 希望您喜歡此簡化功能和後續版本中的許多有趣功能！
 
 ### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning Data Prep SDK v0.5.1 
 

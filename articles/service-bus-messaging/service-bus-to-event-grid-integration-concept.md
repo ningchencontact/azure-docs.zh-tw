@@ -3,9 +3,9 @@ title: Azure 服務匯流排與 Event Grid 的整合概觀 | Microsoft Docs
 description: 描述服務匯流排傳訊與 Event Grid 的整合
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
-ms.author: spelluru
-ms.openlocfilehash: 2173a24eb3bbaafe9dcf25461eb5357ba3a6e7ad
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.author: aschhab
+ms.openlocfilehash: 41514ca5911544da8608e0c7ebad18b33c33b494
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166894"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856905"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure 服務匯流排與 Event Grid 的整合概觀
 
@@ -36,10 +36,7 @@ Azure 服務匯流排已開始與 Azure Event Grid 進行全新整合。 此功�
 ![19][]
 
 ### <a name="verify-that-you-have-contributor-access"></a>確認您具有參與者存取權
-
-移至您的服務匯流排命名空間，然後選取如下所示的 [存取控制 (IAM)]：
-
-![1][]
+移至您的服務匯流排命名空間，然後選取 [存取控制 (IAM)]，然後選取 [角色指派] 索引標籤。確認您具有命名空間的參與者存取權。 
 
 ### <a name="events-and-event-schemas"></a>事件和事件結構描述
 
@@ -155,7 +152,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>PowerShell 指示
 
-確定您已安裝 Azure PowerShell。 [下載安裝程式](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0)。 選取 [Windows + X]，然後以系統管理員權限開啟新的 PowerShell 主控台。 或者，也可以在 Azure 入口網站中使用命令 shell。
+確定您已安裝 Azure PowerShell。 [下載安裝程式](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.4.0)。 選取 [Windows + X]，然後以系統管理員權限開啟新的 PowerShell 主控台。 或者，也可以在 Azure 入口網站中使用命令 shell。
 
 ```PowerShell-interactive
 Connect-AzureRmAccount

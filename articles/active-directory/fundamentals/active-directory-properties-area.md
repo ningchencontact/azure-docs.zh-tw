@@ -3,7 +3,7 @@ title: 新增組織的隱私權資訊 - Azure Active Directory | Microsoft Docs
 description: 以下相關指示說明如何將組織的隱私權資訊新增至 Azure Active Directory 的 [屬性] 區域。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 50fcafbdef4fc09532d03ae145183dd45c381c73
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bfbb9a035c3f7a00de1610f1240448ff7b0b4abf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083830"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452593"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>使用 Azure Active Directory 新增組織的隱私權資訊
 本文說明租用戶系統管理員如何透過 Azure 入口網站，將隱私權相關資訊新增至組織的 Azure Active Directory (Azure AD) 租用戶。

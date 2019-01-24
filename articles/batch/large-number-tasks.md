@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 3c683b24db2899ee680988c7bedc760d6bb8ec73
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fae5b9ee84c9352bbeb6f14b1f3a6006ce4804e8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052812"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261667"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>將大量工作提交至 Batch 作業
 
@@ -45,7 +45,7 @@ Batch API 提供了有效率地以「集合」形式，將工作新增至作業�
 * 下列 API 支援更大的工作集合 - 僅受限於提交用戶端上的 RAM 可用性。 這些 API 會以透明方式，針對較低層級的 API 將工作集合分割為「區塊」，並且在新增工作失敗時重試。
 
     * [.NET API](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet)
-    * [Java API](/java/api/com.microsoft.azure.batch.protocol._tasks.addcollectionasync?view=azure-java-stable)
+    * [Java API](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync?view=azure-java-stable)
     * [Azure Batch CLI 擴充功能](batch-cli-templates.md)與 Batch CLI 範本
     * [Python SDK 擴充功能](https://pypi.org/project/azure-batch-extensions/)
 
@@ -65,7 +65,7 @@ Batch API 提供了有效率地以「集合」形式，將工作新增至作業�
 
 下列 C# 程式碼片段會顯示使用 Batch .NET API 新增大量工作時，所要進行的設定。
 
-若要增加工作輸送量，請針對 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet) 的 [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 屬性增加值。 例如︰
+若要增加工作輸送量，請針對 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet) 的 [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 屬性增加值。 例如︰
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()

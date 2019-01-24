@@ -1,21 +1,21 @@
 ---
 title: 從 API 主控台中使用內容審核工作流程 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 了解如何從 API 主控台中使用內容審核工作流程。
+description: 在 Azure Content Moderator 中使用「工作流程作業」，以使用檢閱 API 來建立或更新工作流程，或取得工作流程詳細資料。
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 02/05/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 4ef8951b30fa7aede08a1af3c834192b5ed18649
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 24c451dda398cfa65dd24a4500871c67943b79bf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223845"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259444"
 ---
 # <a name="workflows-from-the-api-console"></a>API 主控台中的工作流程
 
@@ -81,8 +81,8 @@ ms.locfileid: "47223845"
 針對 **team**、**workflowname** 和 **Ocp-Apim-Subscription-Key** (您的訂用帳戶識別碼) 輸入值：
 
 - **team**：您設定[審核工具帳戶](https://contentmoderator.cognitive.microsoft.com/)時所建立的小組識別碼。 
-- **workflowname**：您工作流程的名稱。 使用 `default`。
-- **Ocp-Apim-Subscription-Key**：位於 [設定] 索引標籤上。如需詳細資訊，請參閱[概觀](overview.md)。
+- **workflowname**：工作流程的名稱。 使用 `default`。
+- **Ocp-Apim-Subscription-Key**：位於 [設定] 索引標籤。如需詳細資訊，請參閱[概觀](overview.md)。
 
   ![取得查詢參數和標頭](images/workflow-get-default.PNG)
 
@@ -140,7 +140,7 @@ ms.locfileid: "47223845"
 
 - **team**：您設定[審核工具帳戶](https://contentmoderator.cognitive.microsoft.com/)時所建立的小組識別碼。 
 - **workflowname**：新工作流程的名稱。
-- **Ocp-Apim-Subscription-Key**：位於 [設定] 索引標籤上。如需詳細資訊，請參閱[概觀](overview.md)。
+- **Ocp-Apim-Subscription-Key**：位於 [設定] 索引標籤。如需詳細資訊，請參閱[概觀](overview.md)。
 
   ![[工作流程 - 建立或更新] 主控台查詢參數和標頭](images/workflow-console-parameters.PNG)
 

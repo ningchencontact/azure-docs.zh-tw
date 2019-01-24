@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 0b232ed8bacfeb896fd5ee6ff9e2a58b71dc1517
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 92c493a59cc14d61b09e59bdf0fa23be72b7137a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162946"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232544"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>驗證有哪些可用的方法？
 
 密碼遭竊和身分遭盜用的新聞報導時有所聞。 在密碼以外要求使用第二個因素，可立即強化組織的安全性。 Microsoft Azure Active Directory (Azure AD) 包含 Azure Multi-Factor Authentication (Azure MFA) 與 Azure AD 自助式密碼重設 (SSPR) 等功能，可協助系統管理員透過額外的驗證方法保護其組織和使用者。
 
-當使用者需要存取敏感的應用程式、重設其密碼或啟用 Windows Hello 時，系統可能會要求他們提供額外的驗證，以證實其真實身分。
+案例很多，包括：登入應用程式、重設其密碼、啟用 Windows Hello 等等，系統可能會要求使用者提供額外驗證來證明他們確實是本人。
 
 額外的驗證可能以下列驗證方法的形式執行：
 

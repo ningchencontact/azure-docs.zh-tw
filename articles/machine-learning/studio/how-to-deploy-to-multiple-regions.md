@@ -1,26 +1,8 @@
 ---
-title: 將 Studio Web 服務部署到多個區域 - Azure Machine Learning Studio | Microsoft Docs
-description: 將新的 Web 服務部署 (複製) 到其他區域的步驟。 輕鬆地將 Web 服務部署到多個區域，而不需要多個訂用帳戶或工作區。
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-editor: cgronlun
-ms.assetid: 36c60411-f2db-4ee2-9b66-b1f1d77a8f44
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.custom: seodec18
-ms.author: amlstudiodocs
-ms.openlocfilehash: 742f462ebc3bd191a045be2a0213b1d8bc52adc5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252672"
+標題：將 Studio Web 服務部署到多個區域 titleSuffix: Azure Machine Learning Studio 說明：將新的 Web 服務部署 (複製) 到其他區域的步驟。 輕鬆地將 Web 服務部署到多個區域，而不需要多個訂用帳戶或工作區。
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:04/19/2017
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service-to-multiple-regions"></a>將 Azure Machine Learning Studio Web 服務部署到多個區域
 

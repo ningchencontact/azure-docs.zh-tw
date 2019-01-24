@@ -3,19 +3,19 @@ title: 教學課程：使用傳遞驗證 (PTA) 整合單一 AD 樹系 | Microsof
 description: 示範如何使用傳遞驗證來設定混合式身分識別環境。
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 140161e88ee572d728a7f9c923c9528ea6755cc1
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6bbf9cbea0671aaa73ddc5402f3102eea3154e6c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165448"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467898"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>教學課程：使用傳遞驗證整合單一 AD 樹系 (PTA)
 
@@ -84,7 +84,7 @@ Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
 5. 按一下 [立即安裝] 。
 6. 輸入您的授權金鑰，然後按一下 [下一步]。
 7. 選取 [我接受授權條款]，然後按一下 [下一步]。
-8. 選取 [自訂:只安裝 Windows (進階)]
+8. 選取**自訂：只安裝 Windows (進階)**
 9. 按一下 [下一步] 
 10. 安裝完成之後，請重新啟動虛擬機器、登入並執行 Windows 更新，以確保 VM 為最新。  安裝最新的更新。
 

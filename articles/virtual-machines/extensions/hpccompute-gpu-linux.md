@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/15/2018
+ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: e36390bbdc243237c97d605d4721fc1ad2cbe0ea
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 3e3d31f146fb49fdab8d955754572e4ea74dd3f6
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498878"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198383"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>適用於 Linux 的 NVIDIA GPU 驅動程式擴充功能
 
@@ -38,8 +38,8 @@ ms.locfileid: "52498878"
 | 配送映像 | 版本 |
 |---|---|
 | Linux：Ubuntu | 16.04 LTS、18.04 LTS |
-| Linux：Red Hat Enterprise Linux | 7.3、7.4、7.5 |
-| Linux：CentOS | 7.3、7.4、7.5 |
+| Linux：Red Hat Enterprise Linux | 7.3、7.4、7.5、7.6 |
+| Linux：CentOS | 7.3、7.4、7.5、7.6 |
 
 ### <a name="internet-connectivity"></a>網際網路連線
 
@@ -71,7 +71,7 @@ ms.locfileid: "52498878"
 
 ### <a name="properties"></a>properties
 
-| 名稱 | 值 / 範例 | 資料類型 |
+| Name | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | publisher | Microsoft.HpcCompute | 字串 |
@@ -82,7 +82,7 @@ ms.locfileid: "52498878"
 
 所有設定都是選用的。 預設行為是如果驅動程式安裝未要求，則不更新核心，並會安裝最新支援的驅動程式和 CUDA 工具組 (若適用)。
 
-| 名稱 | 說明 | 預設值 | 有效值 | 資料類型 |
+| Name | 說明 | 預設值 | 有效值 | 資料類型 |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | 即使驅動程式安裝不需要，也會更新核心 | false | true、false | 布林值 |
 | driverVersion | NV：GRID 驅動程式版本<br> NC/ND：CUDA 工具組版本。 系統會自動安裝所選 CUDA 的最新驅動程式。 | 最新 | GRID："410.71"、"390.75"、"390.57"、"390.42"<br> CUDA："10.0.130"、"9.2.88"、"9.1.85" | 字串 |

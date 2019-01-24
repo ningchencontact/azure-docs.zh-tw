@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: af7e280c7dcd82c18e91ded759756c3826342cd3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: autoscale
+ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53587270"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474824"
 ---
 # <a name="understand-autoscale-settings"></a>了解自動調整設定
 自動調整設定可協助您確保執行中的資源數量正確，能夠處理變動的應用程式負載。 您可以設定根據指出負載或效能的計量，或是在排定的日期和時間，觸發自動調整設定。 本文將詳細探討自動調整設定的剖析。 本文開頭是設定的結構描述和屬性，然後逐步說明可以設定的各種設定檔類型。 最後，本文會討論 Azure 中的自動調整功能如何評估在任何指定的時間要執行哪個設定檔。
@@ -310,3 +310,4 @@ ms.locfileid: "53587270"
 * [Azure 監視器自動調整的最佳作法](../../azure-monitor/platform/autoscale-best-practices.md)
 * [使用自動調整動作傳送電子郵件和 Webhook 警示通知](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [自動調整 REST API](https://msdn.microsoft.com/library/dn931953.aspx)
+

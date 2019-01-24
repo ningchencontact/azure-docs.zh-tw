@@ -4,7 +4,7 @@ description: 會造成您無法登入您使用 Azure AD 所開發應用程式的
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2dade35b05a07b649282ae00bb6fee354adcd195
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 017d2c6e49b47d11db3c9599a3e769f066496eee
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845467"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472649"
 ---
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>登入自訂開發應用程式的問題
 

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 0a629b9b068694960178c1c5727ba2f38b0e8af7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7d45c11345312fe48312bd4e744433397a17a62d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190323"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359318"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>使用 Azure CLI 建立適用於 MariaDB 的 Azure 資料庫伺服器
 
@@ -59,10 +59,10 @@ version | **10.2** | MariaDB 主要引擎版本。
 admin-user | myadmin | 適用於系統管理員登入的使用者名稱。 **admin-user** 參數不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
 admin-password | 您的密碼 | 系統管理員使用者的密碼。 您的密碼必須包含 8 到 128 個字元。 它必須包含下列類別中三種類別的字元：英文大寫字母、英文小寫字母、數字及非英數字元。
 
-**sku-name** 參數值會遵循慣例 *pricing tier*\_*compute generation*\_*vCores*，如下列範例所示：
-+ `--sku-name B_Gen5_4` 會對應至基本定價層、 第 5 代計算世代及 4 個 vCore。
-+ `--sku-name GP_Gen5_32` 會對應至一般用途定價層、第 5 代計算世代及 32 個 vCore。
-+ `--sku-name MO_Gen5_2` 會對應至記憶體最佳化定價層、第 5 代計算世代及 2 個 vCore。
+sku-name 參數值會遵循慣例 {pricing tier}\_{compute generation}\_{vCores}，如下列範例所示：
++ `--sku-name B_Gen5_1` 對應於基本、第 5 代和 1 個虛擬核心。 此選項是最小的可用 SKU。
++ `--sku-name GP_Gen5_32` 對應於一般用途、第 5 代和 32 個 vCore。
++ `--sku-name MO_Gen5_2` 對應於記憶體最佳化、第 5 代和 2 個 vCore。
 
 如需各區域和階層的有效值，請參閱[定價層](./concepts-pricing-tiers.md)。
 

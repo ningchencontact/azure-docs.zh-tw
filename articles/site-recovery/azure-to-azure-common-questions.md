@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 20311f904356f16b34f64d0aaf6ed438ba692857
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7e70fe52646c2f61e97b4eee2badd7884d95d5f5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155145"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260459"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>常見問題：Azure 對 Azure 複寫
 
@@ -42,7 +42,7 @@ ms.locfileid: "54155145"
 ### <a name="can-i-replicate-zone-pinned-azure-vms-to-another-region"></a>我是否可以將區域固定的 Azure VM 複寫到另一個區域？
 是的，您可以[將區域固定的 VM 複寫到另一個區域](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region)。
 
-### <a name="can-i-exclude-disks"></a>我是否可以排除磁碟？
+### <a name="can-i-exclude-disks"></a>是否可排除磁碟嗎？
 
 是的，您可以使用 Power Shell 在設定防護時排除磁碟。 如需詳細資訊，請參閱 [PowerShell 指引](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine)。
 
@@ -55,7 +55,7 @@ ms.locfileid: "54155145"
 ### <a name="can-i-replicate-vms-to-any-azure-region"></a>我可以將 VM 複寫至任何 Azure 區域嗎？
 透過 Site Recovery，您可以複寫和復原相同地理叢集內任何兩個區域之間的 VM。 定義地理叢集時皆已考量資料延遲和主權範圍。 如需詳細資訊，請參閱 Site Recovery [區域支援對照表](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support)。
 
-### <a name="does-site-recovery-require-internet-connectivity"></a>Site Recovery 是否需要網際網路連線能力？
+### <a name="does-site-recovery-require-internet-connectivity"></a>Site Recovery 是否需要網際網路連線？
 
 否，Site Recovery 不需要網際網路連線能力。 但它確實需要能夠存取 Site Recovery URL 和 IP 範圍，如[這篇文章](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)所述。
 
@@ -74,10 +74,16 @@ ms.locfileid: "54155145"
 
 現今，大多數應用程式都可以妥善地從當機時保持一致快照集復原。 對無資料庫作業系統及檔案伺服器、DHCP 伺服器和列印伺服器之類的應用程式而言，通常使用當機時保持一致復原點就已足夠。
 
+### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>當機時保持一致復原點產生的頻率為何？
+Site Recovery 會每 5 分鐘建立一次當機時保持一致復原點。
+
 ### <a name="what-is-an-application-consistent-recovery-point"></a>什麼是應用程式一致復原點？ 
 應用程式一致復原點是從應用程式一致快照集建立的。 應用程式一致快照集所擷取的資料與當機時保持一致快照集相同，但多了記憶體內的所有資料，以及所有進行中的交易。 
 
 由於有這些額外的內容，因此應用程式一致快照集包含最多內容，且需要最長的執行時間。 建議您針對資料庫作業系統和 SQL Server 之類的應用程式，使用應用程式一致復原點。
+
+### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>應用程式一致復原點產生的最小頻率為何？
+Site Recovery 可以建立應用程式一致復原點的最小頻率為 1 小時。
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>復原點要如何產生和儲存？
 為了了解 Site Recovery 如何產生復原點，我們將以一個複寫原則為例，此複寫原則的復原點保留週期為 24 小時，而應用程式一致頻率快照集為 1 小時。
@@ -154,6 +160,9 @@ Site Recovery 會在容錯移轉時嘗試提供 IP 位址。 如果另一部虛�
 ### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>如果我在兩個 Azure 區域之間進行複寫，當我的主要區域發生意外中斷時，會發生什麼情況？
 您可以在中斷之後觸發容錯移轉。 Site Recovery 不需要來自主要區域的連線即可執行容錯移轉。
 
+### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>什麼是虛擬機器容錯移轉的 RTO？
+Site Recovery 有 [2 小時的 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)。 不過在大部分情況下，Site Recovery 會在幾分鐘內容錯移轉虛擬機器。 若要計算 RTO，您可以移置容錯移轉作業查看它啟動 VM 所花的時間。 針對復原計畫 RTO，請參閱下節。 
+
 ## <a name="recovery-plan"></a>復原計畫
 
 ### <a name="what-is-a-recovery-plan"></a>什麼是復原方案？
@@ -163,7 +172,7 @@ Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助�
 - 定義虛擬機器間的相依性，讓應用程式能夠正確地啟動
 - 搭配自訂的手動動作自動執行復原，以完成虛擬機器容錯移轉以外的工作
 
-[深入了解](site-recovery-create-recovery-plans.md) 復原方案。
+[深入了解](site-recovery-create-recovery-plans.md) 復原計劃。
 
 ### <a name="how-is-sequencing-achieved-in-a-recovery-plan"></a>復原方案中是如何進行排序的？
 
@@ -181,7 +190,7 @@ Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助�
 ## <a name="reprotection-and-failback"></a>重新保護和容錯回復 
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>從主要區域容錯移轉至災害復原區域後，DR 區域中的 VM 是否會自動受到保護？
-否。 當您將 Azure VM 從一個區域[容錯移轉](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)至另一個區域時，VM 會在 DR 區域中以未受保護的狀態啟動。 若要將 VM 容錯回復到到主要區域，您必須[重新保護](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect)次要區域中的 VM。
+沒有。 當您將 Azure VM 從一個區域[容錯移轉](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)至另一個區域時，VM 會在 DR 區域中以未受保護的狀態啟動。 若要將 VM 容錯回復到到主要區域，您必須[重新保護](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect)次要區域中的 VM。
 
 ### <a name="at-the-time-of-reprotection-does-site-recovery-replicate-complete-data-from-the-secondary-region-to-the-primary-region"></a>進行重新保護時，Site Recovery 是否會從次要區域將完整的資料複寫到主要區域？
 這需視情況而定。 例如，如果來源區域 VM 存在，便只會同步來源磁碟與目標磁碟之間的變更。 Site Recovery 會藉由比較磁碟來計算出差異，然後才傳輸資料。 此程序通常需要幾小時的時間。 如需有關在重新保護期間會發生之情況的詳細資訊，請參閱[重新保護已容錯移轉到主要區域的 Azure VM]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)。
@@ -190,7 +199,7 @@ Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助�
 進行重新保護之後，容錯回復所需的時間通常與從主要區域容錯移轉至次要區域類似。 
 
 ## <a name="security"></a>安全性
-### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>複寫資料是否會傳送到 Site Recovery 服務？
+### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>複寫資料會傳送到 Site Recovery 服務嗎？
 否，Site Recovery 不會攔截複寫的資料，也不會擁有任何關於您虛擬機器上執行哪些項目的資訊。 只有協調複寫與容錯移轉所需的中繼資料會被傳送給 Site Recovery 服務。  
 Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正在進行 SOC2 和 FedRAMP JAB 評定程序。
 

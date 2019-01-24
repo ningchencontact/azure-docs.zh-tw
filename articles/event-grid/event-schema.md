@@ -6,18 +6,18 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/20/2018
+ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: f7be7e5f5e51a47b95d39047af9bcf08e463ca34
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186106"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470609"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 事件結構描述
 
-本文說明出現在所有事件中的屬性和結構描述。 事件包含一組五個必要字串屬性和一個必要資料物件。 這些屬性通用於任何發行者的所有事件。 資料物件含有各發行者特有的屬性。 系統主題下的屬性專屬於資源提供者，像是 Microsoft Azure 儲存體或 Azure 事件中樞。
+本文說明出現在所有事件中的屬性和結構描述。 事件包含一組五個必要字串屬性和一個必要資料物件。 這些屬性通用於任何發行者的所有事件。 資料物件含有各發行者特有的屬性。 系統主題下的屬性專屬於資源提供者，像是 Microsoft Azure 儲存體或 Azure 事件中樞。
 
 事件來源會將事件以陣列型態傳送至 Azure 事件方格，陣列中可包含數個事件物件。 張貼事件到事件方格主題時，陣列總大小最大為 1 MB。 陣列中的每個事件會限制為 64 KB。 如果事件或陣列超過大小限制，您會收到 **413 承載太大**回應。
 

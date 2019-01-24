@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: dfb9db14f37efeb5ad83ef54fcc4613724d28a15
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c8c7d94e216f45551ed869b2ba921f3c79e6307a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229735"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452678"
 ---
 # <a name="get-started"></a>快速入門：使用 Azure PowerShell 建立公用負載平衡器
 本快速入門示範如何使用 Azure PowerShell 建立基本負載平衡器。 若要測試負載平衡器，您要部署兩部執行 Windows Server 的虛擬機器 (VM)，並平衡兩部 VM 間 Web 應用程式的負載。
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，本文會要求使用 Azure PowerShell 模組版本 5.4.1 或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。 
+如果您選擇在本機安裝和使用 PowerShell，本文會要求使用 Azure PowerShell 模組版本 5.4.1 或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。 
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -277,7 +277,7 @@ for ($i=1; $i -le 2; $i++)
  
 使用自訂網頁在兩部後端 VM 上安裝 IIS，如下所示：
 
-1. 取得負載平衡器的公用 IP 位址。 使用 `Get-AzureRmPublicIPAdress` 取得負載平衡器的公用 IP 位址。
+1. 取得負載平衡器的公用 IP 位址。 使用 `Get-AzureRmPublicIPAddress` 取得負載平衡器的公用 IP 位址。
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `

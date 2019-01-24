@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 2/14/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7971c1399cc905353e271e8774c0e7ad36ca79a9
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 873c6f8b815b99425efb578e5129099493e8c657
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869243"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437873"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中備份虛擬機器
 Azure PowerShell 模組用於從命令列或在指令碼中建立和管理 Azure 資源。 您可以定期建立備份以保護您的資料。 Azure 備份會建立復原點，其可儲存在異地備援復原保存庫中。 本文詳述如何使用 Azure PowerShell 模組備份虛擬機器 (VM)。 您也可以使用 [Azure CLI](quick-backup-vm-cli.md) 或 [Azure 入口網站](quick-backup-vm-portal.md)來執行這些步驟。
 
 本快速入門能夠在現有的 Azure VM 上進行備份。 如果您需要建立 VM，您可以[使用 Azure PowerShell 來建立 VM](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)。
 
-本快速入門需要 Azure PowerShell 模組 4.4 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+本快速入門需要 Azure PowerShell 模組 4.4 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
 
 
 ## <a name="log-in-to-azure"></a>登入 Azure

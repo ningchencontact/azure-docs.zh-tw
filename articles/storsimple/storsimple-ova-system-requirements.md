@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d01523f326bd7e2518bff06e62ae62db8f318d3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7e5cf79613bdbd62427e99a0d1f2aa29ed8f85be
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24815223"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245186"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple Virtual Array 系統需求
 ## <a name="overview"></a>概觀
@@ -42,7 +42,7 @@ ms.locfileid: "24815223"
 | **Hypervisor** | **版本** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 和更新版本 |
-| VMware ESXi |5.0、5.5 和 6.0 <br> (不支援 6.5。) |
+| VMware ESXi |5.0、5.5、6.0 和 6.5。 |
 
 > [!IMPORTANT]
 > 請勿在您的 StorSimple Virtual Array 上安裝 VMware 工具，這樣會導致不支援的設定。
@@ -95,11 +95,11 @@ ms.locfileid: "24815223"
 | **連接埠號碼<sup>1</sup>** | **內或外** | **連接埠範圍** | **必要** | **注意事項** |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |外 |WAN |否 |輸出連接埠用於網際網路存取以擷取更新。 <br></br>輸出 Web Proxy 可由使用者設定。 |
-| TCP 443 (HTTPS) |外 |WAN |yes |輸出連接埠用來存取雲端中的資料。 <br></br>輸出 Web Proxy 可由使用者設定。 |
+| TCP 443 (HTTPS) |外 |WAN |是 |輸出連接埠用來存取雲端中的資料。 <br></br>輸出 Web Proxy 可由使用者設定。 |
 | UDP 53 (DNS) |外 |WAN |在某些情況下，請參閱附註。 |只有當您使用網際網路 DNS 伺服器時，才需要此連接埠。 <br></br> 注意，如果部署的是檔案伺服器，建議使用本機 DNS 伺服器。 |
 | UDP 123 (NTP) |外 |WAN |在某些情況下，請參閱附註。 |只有當您使用網際網路 NTP 伺服器時，才需要此連接埠。<br></br> 注意，如果部署的是檔案伺服器，建議將時間與您的 Active Directory 網域控制站同步。 |
-| TCP 80 (HTTP) |在 |LAN |yes |這是 StorSimple 裝置上用於本機管理的本機 UI 的輸入連接埠。 <br></br> 注意，透過 HTTP 存取本機 UI 會自動重新導向至 HTTPS。 |
-| TCP 443 (HTTPS) |在 |LAN |yes |這是 StorSimple 裝置上用於本機管理的本機 UI 的輸入連接埠。 |
+| TCP 80 (HTTP) |在 |LAN |是 |這是 StorSimple 裝置上用於本機管理的本機 UI 的輸入連接埠。 <br></br> 注意，透過 HTTP 存取本機 UI 會自動重新導向至 HTTPS。 |
+| TCP 443 (HTTPS) |在 |LAN |是 |這是 StorSimple 裝置上用於本機管理的本機 UI 的輸入連接埠。 |
 | TCP 3260 (iSCSI) |在 |LAN |否 |此連接埠用來透過 iSCSI 存取資料。 |
 
 <sup>1</sup> 公用網際網路上沒有必須開啟的輸入連接埠。
@@ -117,7 +117,7 @@ ms.locfileid: "24815223"
 > [!NOTE]
 > 
 > * 裝置 (來源) IP 應該一律設定為所有啟用雲端功能的網路介面。 
-> * 目的地 IP 應該設為 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)。
+> * 目的地 IP 應該設定為 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)。
 > 
 > 
 

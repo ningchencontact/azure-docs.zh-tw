@@ -1,27 +1,8 @@
 ---
-title: 適用於 Machine Learning Studio 的 PowerShell 模組 - Azure | Microsoft Docs
-description: 適用於 Azure Machine Learning 的 PowerShell 模組提供公開預覽模式。 您可以使用 PowerShell 來建立及管理工作區、實驗、Web 服務等。
-keywords: 實驗、線性迴歸、機器學習服務演算法、機器學習服務教學課程、預測性模型技術、資料科學實驗
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=haining, previous-author=hning86
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/15/2017
-ms.openlocfilehash: 6539ec36c23feccfa52c8214784590106fa5a01e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257517"
+標題：適用於 Machine Learning Studio 的 PowerShell 模組 titleSuffix: Azure Machine Learning Studio 說明：適用於 Azure Machine Learning 的 PowerShell 模組提供公開預覽模式。 您可以使用 PowerShell 來建立及管理工作區、實驗、Web 服務等。
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date:03/15/2017
 ---
 # <a name="powershell-module-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的 PowerShell 模組
 適用於 Azure Machine Learning 的 PowerShell 模組是一款功能強大的工具，它能讓您使用 Windows PowerShell 來管理工作區、實驗、資料集、傳統的 Web 服務等。

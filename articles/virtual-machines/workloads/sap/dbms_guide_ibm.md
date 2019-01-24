@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/11/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 945dcf5776867a9b892a879569a4b58890cb1975
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2c496f78650be6fc19197c82dc9534fbd256ac45
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075504"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422587"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 IBM DB2 Azure 虛擬機器 DBMS 部署
 
@@ -235,7 +235,7 @@ ms.locfileid: "39075504"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -321,16 +321,16 @@ ms.locfileid: "39075504"
 
 | 附註編號 | 標題 |
 | --- | --- |
-| [1928533] |Azure 上的 SAP 應用程式︰支援的產品和 Azure VM 類型 |
-| [2015553] |Microsoft Azure 上的 SAP：支援的必要條件 |
+| [1928533] |Azure 上的 SAP 應用程式：支援的產品和 Azure VM 類型 |
+| [2015553] |Microsoft Azure 上的 SAP：支援必要條件 |
 | [1999351] |疑難排解適用於 SAP 且已強化的 Azure 監視功能 |
 | [2178632] |Microsoft Azure 上的 SAP 主要監視度量 |
-| [1409604] |Windows 上的虛擬化︰增強型監視功能 |
-| [2191498] |Linux 和 Azure 上的 SAP：增強型監視功能 |
-| [2233094] |DB6︰Azure 上使用 IBM DB2 for Linux, UNIX, and Windows 的應用程式 - 其他資訊 |
+| [1409604] |Windows 上的虛擬化：增強型監視 |
+| [2191498] |Linux 上搭配 Azure 的 SAP：增強型監視 |
+| [2233094] |DB6：Azure 上使用 Linux、UNIX 和 Windows 版 IBM DB2 的應用程式 - 其他資訊 |
 | [2243692] |Microsoft Azure (IaaS) VM 上的 Linux：SAP 授權問題 |
 | [1984787] |SUSE LINUX Enterprise Server 12：安裝注意事項 |
-| [2002167] |Red Hat Enterprise Linux 7.x：安裝和升級 |
+| [2002167] |Red Hat Enterprise Linux 7.x：安裝與升級 |
 | [1597355] |適用於 Linux 的交換空間建議 |
 
 在閱讀本文件之前，您應該先參閱[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)文件，以及 [Azure 上的 SAP 工作負載文件](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)中的其他指南。 

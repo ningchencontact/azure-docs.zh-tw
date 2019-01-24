@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6045d6daf2abace6e2b38bd6fd6e22516e3a60a0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f55906aa9de6faa5979ecedbc3ef288f164fd6c8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227418"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261940"
 ---
-# <a name="quickstart-start-moderation-jobs-using-net"></a>快速入門：使用 .NET 啟動仲裁作業
+# <a name="quickstart-start-moderation-jobs-using-net"></a>快速入門：使用 .NET 來啟動審核作業
 
 本文提供資訊和範例程式碼，可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 來執行下列操作：
  
@@ -30,8 +30,7 @@ ms.locfileid: "47227418"
 
 ## <a name="sign-up-for-content-moderator"></a>註冊 Content Moderator
 
-您必須有訂用帳戶金鑰，才能透過 REST API 或 SDK 使用 Content Moderator 服務。
-請參考[快速入門](quick-start.md)，以了解如何取得金鑰。
+您必須有訂用帳戶金鑰，才能透過 REST API 或 SDK 使用 Content Moderator 服務。 請依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱 Content Moderator 並取得金鑰。
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>如果未在上一個步驟中完成審核工具帳戶的註冊，請於此時註冊
 

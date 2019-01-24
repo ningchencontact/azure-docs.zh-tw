@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/11/2019
-ms.openlocfilehash: 43ee1cb33d5d747671cde7463c8f2fcb6e020662
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.date: 01/17/2019
+ms.openlocfilehash: 8d108df187e7d1fe549f284cffe3c5cbe4d56f7c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246512"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389929"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL Database 受控執行個體的管理 API 參考
 
@@ -29,7 +29,7 @@ ms.locfileid: "54246512"
 
 ## <a name="powershell-create-and-manage-a-managed-instance"></a>PowerShell：建立和管理受控執行個體
 
-若要使用 Azure PowerShell 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 PowerShell 指令程式。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+若要使用 Azure PowerShell 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 PowerShell 指令程式。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
 > [!TIP]
 > 如需 PowerShell 範例指令碼，請參閱[指令碼快速入門：使用 PowerShell 程式庫建立 Azure SQL 受控執行個體](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/)。

@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.reviewer: fiseraci
+ms.openlocfilehash: 4ffbf552b2c35039ceadfdf6940873a22cb194aa
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902836"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306534"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack 的身分識別概觀
 
 Azure Stack 要求以 Active Directory 所支援的 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者。 提供者的選擇是您第一次部署 Azure Stack 時所做的一次性決定。 本文中的概念和授權詳細資料可協助您選擇適當的識別提供者。
 
-選擇 Azure AD 或 AD FS 可能會由您用來部署 Azure Stack 的模式所決定：
+選擇 Azure AD 或 AD FS 會由您用來部署 Azure Stack 的模式所決定：
 
 - 當您在連線模式下部署時，可以使用 Azure AD 或 AD FS。
 - 當您在沒有網際網路連線的中斷連線模式下部署時，僅支援 AD FS。
@@ -34,7 +34,7 @@ Azure Stack 要求以 Active Directory 所支援的 Azure Active Directory (Azur
 如需您擁有之選項 (取決於您的 Azure Stack 環境) 的詳細資訊，請參閱下列文章：
 
 - Azure Stack 部署套件：[身分識別考量](azure-stack-datacenter-integration.md#identity-considerations)。
-- Azure Stack 整合式系統：[適用於 Azure Stack 整合式系統的部署規劃決策](azure-stack-deployment-decisions.md)。
+- Azure Stack 整合式系統：[Azure Stack 整合式系統的部署規劃決策](azure-stack-deployment-decisions.md)。
 
 ## <a name="common-concepts-for-identity"></a>身分識別的一般概念
 
@@ -155,8 +155,8 @@ Azure Stack 的身分識別包括使用者帳戶、群組和服務主體。
 
 若要向識別提供者進行驗證並收到 JSON Web 權杖，您必須具有下列資訊：
 
-1. **身分識別系統 (授權單位) 的 URL**：可以觸達識別提供者的 URL。 例如：*https://login.windows.net*。
-2. **Azure Resource Manager 的應用程式識別碼 URI**：已向識別提供者註冊之 Azure Resource Manager 的唯一識別碼。 此識別碼也是每個 Azure Stack 安裝中的唯一識別碼。
+1. **身分識別系統 (授權) 的 URL**：可以連線至您識別提供者的 URL。 例如：*https://login.windows.net*。
+2. **Azure Resource Manager 的應用程式識別碼 URI**：已向識別提供者註冊的 Azure Resource Manager 唯一識別碼。 此識別碼也是每個 Azure Stack 安裝中的唯一識別碼。
 3. **認證**：您用來向識別提供者驗證的認證。
 4. **Azure Resource Manager 的 URL**：URL 是 Azure Resource Manager 服務的位置。 例如， https://management.azure.com 或 https://management.local.azurestack.external。
 

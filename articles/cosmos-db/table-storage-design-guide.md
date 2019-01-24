@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 9784d08a8e3e471a8b516c3bc285430c537857a8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5b418f28cb8cb48d8c9ee369289c899c7f6525bc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044173"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331957"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 儲存體資料表設計指南：設計可擴充且效能良好的資料表
 
@@ -213,7 +213,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 * 次佳的是***範圍查詢***，它使用 **PartitionKey**，並篩選特定範圍的 **RowKey** 值，以傳回多個實體。 **PartitionKey** 值會識別特定的分割，而 **RowKey** 值會識別該分割中實體的子集。 例如：$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
 * 再其次是***分割掃描***，它使用 **PartitionKey**，並篩選另一個非索引鍵的，可傳回多個實體。 **PartitionKey** 值會識別特定的分割，而屬性值會選取該分割中實體的子集。 例如：$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
 * ***資料表掃描***不包含 **PartitionKey**，且效率不佳，因為它會依序在所有組成資料表的分割中搜尋是否有任何相符的實體。 無論您的篩選是否使用 **RowKey**，它都會執行資料表掃描。 例如：$filter=LastName eq 'Jones'  
-* 傳回多個實體的查詢，在傳回時會以 **PartitionKey** 和 **RowKey** 順序排序。 若要避免重新排序用戶端中的實體，請選擇定義最常見的排序次序的 **RowKey** 。  
+* 傳回多個實體的 Azure 表格儲存體查詢，在傳回時會以 **PartitionKey** 和 **RowKey** 順序排序。 若要避免重新排序用戶端中的實體，請選擇定義最常見的排序次序的 **RowKey** 。 Azure 資料表 API 在 Azure Cosmso DB 中傳回的查詢結果不會依照分割索引鍵或資料列索引鍵排序。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
 
 使用 "**or**" 指定以 **RowKey** 值為基礎的篩選條件，會產生資料分割掃描且不被當作範圍查詢。 因此，您應該避免會使用下列篩選條件的搜尋：例如 $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
 
@@ -251,7 +251,13 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 * [索引實體模式](#index-entities-pattern) - 維護索引實體，啟用有效的搜尋以傳回實體清單。  
 
 ### <a name="sorting-data-in-the-table-service"></a>在表格服務中排序資料
-資料表服務會先根據 **PartitionKey**、再根據 **RowKey** 傳回以遞增方式排序的實體。 這些索引鍵是字串值，若要確保能正確排序數字值，您應該將它們轉換成固定長度，並以零填補它們。 例如，如果您用來做為 **RowKey** 的員工識別碼值是整數值，您應將員工識別碼 **123** 轉換為 **00000123**。  
+
+系統會先根據 **PartitionKey**再根據 **RowKey**，以遞增順序排序傳回的查詢結果。
+
+> [!NOTE]
+> Azure 資料表 API 在 Azure Cosmso DB 中傳回的查詢結果不會依照分割索引鍵或資料列索引鍵排序。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
+
+Azure 儲存體資料表中的索引鍵是字串值，可確保能正確排序數字值，您應該將它們轉換成固定長度，並以零填補它們。 例如，如果您用來做為 **RowKey** 的員工識別碼值是整數值，您應將員工識別碼 **123** 轉換為 **00000123**。 
 
 許多應用程式都需要使用以不同順序排序的資料：例如，依名稱或加入日期為員工排序。 [資料表設計模式](#table-design-patterns) 一節中的下列模式可因應如何為您的實體取代排序次序：  
 

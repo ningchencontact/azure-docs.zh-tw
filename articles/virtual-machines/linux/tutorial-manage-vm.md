@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bc548ea23249f89fadcec481cc97b6ca3ed2b909
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613421"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466851"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>教學課程：使用 Azure CLI 來建立和管理 Linux VM
 
@@ -211,7 +211,7 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>調整 VM 的大小
 
-在部署 VM 之後，可以調整其大小以增加或減少資源配置。 您可以使用 [az vm show](/cli/azure/vm#az_vm_show) 檢視 VM 目前的大小：
+在部署 VM 之後，可以調整其大小以增加或減少資源配置。 您可以使用 [az vm show](/cli/azure/vm) 檢視 VM 目前的大小：
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
@@ -228,7 +228,7 @@ az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --qu
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-如果目前的叢集上沒有所需的大小，則必須先將 VM 解除配置，才能進行調整大小作業。 請使用 [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) 命令將 VM 停止並解除配置。 請注意，重新開啟 VM 電源之後，可能會移除暫存磁碟上的任何資料。 公用 IP 位址也會變更，除非使用的是靜態 IP 位址。 
+如果目前的叢集上沒有所需的大小，則必須先將 VM 解除配置，才能進行調整大小作業。 請使用 [az vm deallocate]( /cli/azure/vm) 命令將 VM 停止並解除配置。 請注意，重新開啟 VM 電源之後，可能會移除暫存磁碟上的任何資料。 公用 IP 位址也會變更，除非使用的是靜態 IP 位址。 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM

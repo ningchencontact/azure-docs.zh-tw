@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: d9afc62b4ab5d5d83394dcaaacf85a7642a2ba22
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 27ba79e9168e098717e91e5a7179b5bc419ef86c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260591"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438400"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用標記來組織 Azure 資源
 
@@ -31,7 +31,7 @@ ms.locfileid: "52260591"
 
 ## <a name="powershell"></a>PowerShell
 
-本文的範例需要 Azure PowerShell 6.0 版或更新版本。 如果您的版本不是 6.0 版或更新版本，請[更新您的版本](/powershell/azure/install-azurerm-ps)。
+本文的範例需要 Azure PowerShell 6.0 版或更新版本。 如果您的版本不是 6.0 版或更新版本，請[更新您的版本](/powershell/azure/azurerm/install-azurerm-ps)。
 
 若要查看*資源群組*的現有標籤，請使用：
 

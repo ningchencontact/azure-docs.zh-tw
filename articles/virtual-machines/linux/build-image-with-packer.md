@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/03/2018
 ms.author: cynthn
-ms.openlocfilehash: f84626c5a487d52f53a2c8bf492a124c87599ed0
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e283f21b65706860e198e2deca933f1986073cab
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932388"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413221"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>如何在 Azure 中使用 Packer 來建立 Linux 虛擬機器映像
 Azure 中的每個虛擬機器 (VM) 都是透過映像所建立，而映像則會定義 Linux 散發套件和作業系統版本。 映像中可包含預先安裝的應用程式與組態。 Azure Marketplace 提供了許多第一方和第三方映像，這些映像適用於最常見的散發套件和應用程式環境，而您也可以建立自己自訂的映像，以符合您的需求。 本文詳述如何使用開放原始碼工具 [Packer](https://www.packer.io/)，在 Azure 中定義並建置自訂映像。
@@ -201,7 +201,7 @@ Packer 需要幾分鐘的時間來建置 VM、執行佈建程式並清除部署�
 
 
 ## <a name="create-vm-from-azure-image"></a>從 Azure 映像建立 VM
-您現在可以使用 [az vm create](/cli/azure/vm#az_vm_create) 從您的映像建立 VM。 指定您使用 `--image` 參數所建立的映像。 下列範例會從 myPackerImage 建立名為 myVM 的 VM，並產生 SSH 金鑰 (如果您還未擁有這些金鑰的話)︰
+您現在可以使用 [az vm create](/cli/azure/vm) 從您的映像建立 VM。 指定您使用 `--image` 參數所建立的映像。 下列範例會從 myPackerImage 建立名為 myVM 的 VM，並產生 SSH 金鑰 (如果您還未擁有這些金鑰的話)︰
 
 ```azurecli
 az vm create \

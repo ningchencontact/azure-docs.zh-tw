@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
-ms.date: 10/26/2018
+ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 5e8e675b32bfd4c741b82b1ab341a80adbb0529d
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: d9b5473e87d83912dd2f33c00e983e346226e4aa
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741635"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54242942"
 ---
 # <a name="what-is-azure-custom-vision"></a>什麼是 Azure 自訂視覺服務？
 
@@ -27,7 +27,7 @@ Azure 自訂視覺服務 API 是一項認知服務，可讓您建置、部署和
 
 ### <a name="classification-and-object-detection"></a>分類和物件偵測
 
-自訂視覺功能可以細分成兩項功能。 **影像分類**會將分類的分布情形指派給每個影像。 **物件偵測**也相類似，但它也會傳回影像中已套用的標記所在位置的座標。
+自訂視覺功能可以細分成兩項功能。 **影像分類**會將分類的分布情形指派給每個影像。 同時支援多類別 (一個影像一個標記) 和多標籤 (一個影像任意數目的標記) 分類模型。 **物件偵測**與多標籤分類類似，但也會傳回影像中已套用的標籤所在位置的座標。
 
 ### <a name="optimization"></a>最佳化
 
@@ -39,6 +39,10 @@ Azure 自訂視覺服務 API 是一項認知服務，可讓您建置、部署和
 自訂視覺服務可作為一組的原生 SDK，也可透過[自訂視覺服務首頁](https://customvision.ai/)上的 Web 介面來使用。 您可以透過上述一或兩種介面來建立、測試和訓練模型。
 
 ![Chrome 瀏覽器視窗中的自訂視覺服務首頁](media/browser-home.png)
+
+## <a name="data-privacy-and-security"></a>資料隱私權和安全性
+
+和所有認知服務一樣，使用自訂視覺服務的開發人員應該要了解 Microsoft 對於客戶資料的政策。 請參閱 Microsoft 信任中心上的[認知服務頁面](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices)，以進行深入了解。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 12f7a4cb5db084d6e2c179bf8acd641c814dcbd0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 68c69413322d87fc557686701c474730d2ed8405
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719790"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358279"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>使用 CLI 將 App Service 應用程式連線至 Cosmos DB
 
-此範例指令碼會使用適用於 MongoDB API 的 Cosmos DB 和 App Service 應用程式來建立 Azure Cosmos DB 帳戶。 然後使用應用程式設定，將 MongoDB 連接字串連結到 Web 應用程式。
+此範例指令碼會使用 Azure Cosmos DB 的 MongoDB 版 API 和 App Service 應用程式來建立 Azure Cosmos DB 帳戶。 然後使用應用程式設定，將 MongoDB 連接字串連結到 Web 應用程式。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

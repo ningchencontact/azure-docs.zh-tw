@@ -11,18 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 00c4d750d0617d36ab476719ce31c8038065511c
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d8c4d28d6f5fdcc66e512375448f4b1d5fc9b8ed
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807205"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359165"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 註冊
-您可以向 Azure 註冊 Azure Stack 開發套件 (ASDK) 安裝，以便從 Azure 下載市集項目，以及設定向 Microsoft 回報商務資料的功能。 必須註冊才能支援完整的 Azure Stack 功能，包括 Marketplace 摘要整合。 我們建議您註冊，因為它可讓您測試重要的 Azure Stack 功能，例如市集摘要整合和使用方式報告。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務。 您可以在註冊時所使用的訂用帳戶下看到這項資訊。 然而，ASDK 使用者將不需針對回報的任何使用方式支付費用。
+您可以向 Azure 註冊 Azure Stack 開發套件 (ASDK) 安裝，以便從 Azure 下載市集項目，以及設定向 Microsoft 回報商務資料的功能。 必須註冊才能支援完整的 Azure Stack 功能，包括 Marketplace 摘要整合。 需要註冊才能讓您測試重要的 Azure Stack 功能，例如市集摘要整合和使用方式報告。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務。 您可以在註冊時所使用的訂用帳戶下看到這項資訊。 然而，ASDK 使用者將不需針對回報的任何使用方式支付費用。
 
 如果您尚未註冊 ASDK，您可能會看到 [需要啟用] 警告警示，提示您註冊 Azure Stack 開發套件。 這是預期的行為。
 
@@ -37,6 +37,8 @@ $ExecutionContext.SessionState.LanguageMode
 
 確定輸出有傳回 **FullLanguageMode**。 如果傳回任何其他語言模式，則必須在另一部電腦上執行註冊，或是必須將語言模式設定為 **FullLanguageMode**，才能繼續。
 
+用於註冊的 Azure AD 帳戶必須具有 Azure 訂用帳戶的存取權，而且有權在與該訂用帳戶相關聯的目錄中建立身分識別應用程式和服務主體。 建議您[建立註冊用的服務帳戶](..\azure-stack-registration-role.md)以使用最低權限管理向 Azure 註冊 Azure Stack，而不要使用全域管理員認證。
+
 ## <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 請遵循這些步驟來向 Azure 註冊 ASDK。
 
@@ -45,7 +47,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 1. 以系統管理員身分開啟 PowerShell 主控台。  
 
-2. 執行下列 PowerShell 命令，以向 Azure 註冊 ASDK 安裝。 您必須登入 Azure 訂用帳戶和本機 ASDK 安裝。 如果您還沒有 Azure 訂用帳戶，您可以[在此建立免費的 Azure 帳戶](https://azure.microsoft.com/free/?b=17.06)。 註冊 Azure Stack 不會對您的 Azure 訂用帳戶收取任何費用。<br><br>如果您要在多個 Azure Stack 執行個體上，使用相同的 Azure 訂用帳戶識別碼執行註冊指令碼，請在執行 **Set-AzsRegistration** Cmdlet 時，為註冊設定唯一的名稱。 **RegistrationName** 參數的預設值是 **AzureStackRegistration**。 不過，如果您在多個 Azure Stack 執行個體上使用相同的名稱，指令碼將會失敗。
+2. 執行下列 PowerShell 命令，以向 Azure 註冊 ASDK 安裝。 您必須登入 Azure 訂用帳戶和本機 ASDK 安裝。 如果您還沒有 Azure 訂用帳戶，您可以[在此建立免費的 Azure 帳戶](https://azure.microsoft.com/free/?b=17.06)。 註冊 Azure Stack 不會對您的 Azure 訂用帳戶收取任何費用。<br><br>執行 **Set-AzsRegistration** Cmdlet 時，請設定註冊的唯一名稱。 **RegistrationName** 參數的預設值是 **AzureStackRegistration**。 不過，如果您在多個 Azure Stack 執行個體上使用相同的名稱，指令碼將會失敗。
 
     ```PowerShell  
     # Add the Azure cloud subscription environment name. 

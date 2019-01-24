@@ -3,19 +3,19 @@ title: 使用 Azure 自動化追蹤變更
 description: 「變更追蹤」解決方案可協助您識別您環境中發生的軟體及 Windows 服務變更。
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/12/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: d29a2020d7e7a16e0bac0802a887a28e12630f03
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408913"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433011"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
@@ -51,15 +51,14 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 * Debian GNU/Linux 8 和 9
 * Ubuntu Linux 14.04 LTS 和 16.04 LTS
 
-## <a name="enable-change-tracking-and-inventory"></a>啟用變更追蹤和清查
+## <a name="onboard"></a>啟用變更追蹤和清查
 
-若要開始追蹤變更，您必須為自動化帳戶啟用變更追蹤和清查解決方案。
+若要開始追蹤變更，您必須啟用變更追蹤和清查解決方案。 有許多方法可讓機器上線來變更追蹤和清查。 下列是使解決方案上線的建議和支援方式。
 
-1. 在 Azure 入口網站中，瀏覽至您的自動化帳戶
-2. 選取 [組態] 下的 [變更追蹤]。
-3. 選取現有的 Log Analytics 工作區或 [建立新的工作區]，然後按一下 [啟用]。
-
-這會為您的自動化帳戶啟用解決方案。 啟用解決方案可能需要 15 分鐘。 解決方案啟用時，會有藍色橫幅通知您。 瀏覽回 [變更追蹤] 頁面，以管理解決方案。
+* [從虛擬機器](automation-onboard-solutions-from-vm.md)
+* [從瀏覽多部電腦](automation-onboard-solutions-from-browse.md)
+* [從自動化帳戶](automation-onboard-solutions-from-automation-account.md)
+* [使用 Azure 自動化 Runbook](automation-onboard-solutions.md)
 
 ## <a name="configuring-change-tracking-and-inventory"></a>設定變更追蹤和清查
 
@@ -280,3 +279,4 @@ Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移�
 > [對您環境中的變更進行疑難排解](automation-tutorial-troubleshoot-changes.md)
 
 * 使用 [Log Analytics 中的記錄檔搜尋](../log-analytics/log-analytics-log-searches.md) ，檢視詳細的變更追蹤資料。
+

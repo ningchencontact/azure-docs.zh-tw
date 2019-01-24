@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/08/2018
+ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: 3dc574b3aab3600895376c0271b5c6224a70d3b6
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fe1f08b7b597a2e521f2b13af1d0a4a4d7d4b7a2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119200"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213995"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS 入口網站移至 Azure
 
@@ -92,7 +92,7 @@ Azure 入口網站存取管理功能，比在 OMS 入口網站中的存取管理
 OMS 行動裝置應用程式將會連同 OMS 入口網站一併終止。 您不必使用 OMS 行動裝置應用程式來存取有關 IT 基礎結構、 儀表板和已儲存查詢的資訊，而可以直接從您的行動裝置瀏覽器中存取 Azure 入口網站。 若要收到警示，請設定 [Azure 動作群組](../../azure-monitor/platform/action-groups.md)，即可以簡訊 或語音電話的形式接收通知
 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights Connector 與解決方案
-[Application Insights Connector](../../azure-monitor/platform/app-insights-connector.md) 可用來將 Application Insights 資料包含到 Log Analytics 工作區中。 若要啟用整個基礎結構和應用程式資料的可見度，則需要複製此資料。 由於 Application Insights 在 2019 年 3 月延伸資料保留，且能夠執行[跨資源查詢](../../azure-monitor/log-query/cross-workspace-query.md)，因此不需要從您的 Application Insights 資源複製資料並傳送到 Log Analytics。 此外，連接器會將應用程式屬性的子集傳送到 Log Analytics，而跨資源查詢提供您更多彈性。  
+[Application Insights Connector](../../azure-monitor/platform/app-insights-connector.md) 可用來將 Application Insights 資料包含到 Log Analytics 工作區中。 若要啟用整個基礎結構和應用程式資料的可見度，則需要複製此資料。 由於 Application Insights 在 2019 年 3 月延伸資料保留支援，且能夠執行[跨資源查詢](../../azure-monitor/log-query/cross-workspace-query.md)，而且能夠[檢視多個 Azure 監視器 Application Insights 資源](../log-query/unify-app-resource-data.md)，因此不需要從您的 Application Insights 資源複製資料並傳送到 Log Analytics。 此外，連接器會將應用程式屬性的子集傳送到 Log Analytics，而跨資源查詢提供您更多彈性。  
 
 因此在 2019 年 3 月 30 日，Application Insights Connector 將會從 Marketplace 淘汰並移除，且 OMS 入口網站也會一併淘汰，現有連線將繼續運作到 2019 年 6 月 30 日。 隨著 OMS 入口網站被淘汰，將無法從入口網站設定及移除現有連線。 於 2019 年 1 月提供的 REST API 將會支援此作業，通知將會張貼在 [Azure 更新](https://azure.microsoft.com/updates/)上。 
 

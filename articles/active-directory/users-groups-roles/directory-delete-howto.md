@@ -9,18 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 01/07/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39682ac04b914809aec36f46889feb5c4b59af51
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139681"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243877"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>刪除 Azure Active Directory 租用戶
+
 刪除租用戶時，也會一併刪除租用戶中包含的所有資源。 在刪除之前，您必須盡可能縮減租用戶的相關資源，使其就緒。 只有 Azure Active Directory (Azure AD) 全域管理員可從入口網站刪除 Azure AD 租用戶。
 
 ## <a name="prepare-the-tenant-for-deletion"></a>讓租用戶準備好刪除
@@ -59,17 +60,17 @@ ms.locfileid: "50139681"
 有效 (試用 30 天)  | 資料可供全體存取    | <li>使用者可以正常存取 Office 365 檔案或應用程式<li>管理員可以正常存取 Office 365 系統管理中心及資源 
 過期 (30 天)   | 資料可供全體存取    | <li>使用者可以正常存取 Office 365 檔案或應用程式<li>管理員可以正常存取 Office 365 系統管理中心及資源
 停用 (30 天) | 資料僅供管理員存取  | <li>使用者無法存取 Office 365 檔案或應用程式<li>管理員可以存取 Office 365 系統管理中心，但無法指派授權或更新使用者
-取消佈建 (「停用」後 30 天) | 資料已刪除 (若沒有其他使用中的服務，就會自動刪除) | <li>使用者無法存取 Office 365 檔案或應用程式<li>管理員可以存取 Office 365 系統管理中心以購買及管理其他訂用帳戶 
+取消佈建 (「停用」後 30 天) | 資料已刪除 (若沒有其他使用中的服務，就會自動刪除) | <li>使用者無法存取 Office 365 檔案或應用程式<li>管理員可以存取 Office 365 系統管理中心以購買及管理其他訂用帳戶
 
 您可以使用商務用 Microsoft Store 系統管理中心讓訂用帳戶進入**取消佈建**狀態，以在 3 天內刪除。 這項功能即將在 Office 365 系統管理中心推出。
 
 1. 使用在租用戶中身分為全域管理員的帳戶登入[商務用 Microsoft Store 系統管理中心](https://businessstore.microsoft.com/manage/)。 若您嘗試刪除初始預設網域為 contoso.onmicrosoft.com 的 “Contoso” 租用戶，請使用 admin@contoso.onmicrosoft.com 這樣的 UPN 登入。
 
-2. 前往 [管理] 索引標籤，選取 [產品與服務]，然後選擇您要取消的訂用帳戶。 在按一下 [取消] 後，重新整理頁面。
+2. 前往 [管理] 索引標籤，選取 [產品與服務]，然後選擇您要取消的訂用帳戶，並選取 [刪除]。
   
   ![用於刪除訂用帳戶的 [刪除] 連結](./media/directory-delete-howto/delete-command.png)
   
-3. 選取 [刪除] 以刪除訂用帳戶並接受條款及條件。 所有資料都會在三天內永久刪除。 若您改變了心意，在這三天內都可以重新啟用訂用帳戶。
+3. 選取 [刪除訂用帳戶] 以接受條款及條件並刪除訂用帳戶。 所有資料都會在三天內永久刪除。 若您改變了心意，在未來三天內都可以重新啟用訂用帳戶。
   
   ![條款及條件](./media/directory-delete-howto/delete-terms.png)
 

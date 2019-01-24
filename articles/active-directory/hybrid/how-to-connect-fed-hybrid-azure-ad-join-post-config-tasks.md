@@ -4,7 +4,7 @@ description: 此文件詳盡說明要完成加入混合式 Azure AD 所需的後
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 16fc7f1bb69efe94ce87f213627b78a4afa0fcc2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 31bf3c7ba2365f3fdfd6f2da1dbd1942ada1327e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999240"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475453"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>加入混合式 Azure AD 的後置設定工作
 

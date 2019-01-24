@@ -4,7 +4,7 @@ description: 了解 Azure AD Connect 的 Synchronization Service Manager 中的 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 592fcd80b80ecbd101dd559aa8baf78a60aaa517
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5c3931fd75ea8e0780b8a7b4f613c865267074c1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306847"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466800"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>使用連接器搭配 Auzre AD Connect Sync Service Manager
 
@@ -30,7 +30,7 @@ ms.locfileid: "46306847"
 [連接器] 索引標籤可用來管理同步處理引擎連接的所有系統。
 
 ## <a name="connector-actions"></a>連接器動作
-| 動作 | 註解 |
+|  動作 | 註解 |
 | --- | --- |
 | 建立 |請勿使用。 若要連接到其他的 AD 樹系，請使用安裝精靈。 |
 | properties |用於網域和 OU 篩選。 |
@@ -66,7 +66,7 @@ ms.locfileid: "46306847"
 
 先選取一個 [範圍] 。 您可以依據資料 (RDN、DN、錨點、子樹狀目錄) 或物件狀態 (所有其他選項) 進行搜尋。  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
-例如，如果您進行樹狀子目錄的搜尋，將會取得某一個 OU 中的所有物件。  
+ 例如，如果您進行樹狀子目錄的搜尋，將會取得某一個 OU 中的所有物件。  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 您可以從此格線選取物件、選取「屬性」，然後[跟隨物件](tshoot-connect-object-not-syncing.md)，從來源連接器空間、通過 Metaverse，再到目標連接器空間。
 

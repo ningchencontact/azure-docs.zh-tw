@@ -1,28 +1,10 @@
 ---
-title: 簡易實驗 - Azure Machine Learning Studio | Microsoft Docs
-description: 此機器學習服務教學課程會引導您輕鬆進行資料科學實驗。 我們將使用迴歸演算法預測汽車價格。
-keywords: 實驗、線性迴歸、機器學習服務演算法、機器學習服務教學課程、預測性模型技術、資料科學實驗
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cgronlun
-ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 03/20/2017
-ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262413"
+標題：簡單實驗 titleSuffix: Azure Machine Learning Studio 說明：此機器學習服務教學課程會引導您輕鬆進行資料科學實驗。 我們將使用迴歸演算法預測汽車價格。
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: tutorial
+
+author: garyericson ms.author: garye ms.custom: seodec18 ms.date:03/20/2017
 ---
+
 # <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>教學課程：在 Azure Machine Learning Studio 中建立您的第一個資料科學實驗
 
 如果您從未使用過 **Azure Machine Learning Studio**，本教學課程很適合您。

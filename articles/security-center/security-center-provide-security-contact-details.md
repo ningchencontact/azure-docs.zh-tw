@@ -12,19 +12,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2018
+ms.date: 1/9/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1948cee033ecb8b50fdd75513a07766490568600
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3c2da9830a8ddbce842d959ba086bf4eb30d5fdb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337252"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258759"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>在 Azure 資訊安全中心提供安全性連絡人詳細資料
 Azure 資訊安全中心會建議您針對您的 Azure 訂用帳戶提供安全性連絡人詳細資料 (如果您還沒有這麼做)。 如果 Microsoft 安全性回應中心 (MSRC) 發現您的客戶資料遭到非法或未經授權的對象存取，Microsoft 會使用此資訊連絡您。 MSRC 執行 Azure 網路和基礎結構的選取安全性監視，並接收來自協力廠商的威脅情報和濫用客訴。
 
-在每天第一個警示發生時且僅針對高嚴重性警示，才會傳送電子郵件通知。 電子郵件喜好設定只能針對訂用帳戶原則設定。 在訂用帳戶內的資源群組會繼承這些設定。
+在每天第一個警示發生時且僅針對高嚴重性警示，才會傳送電子郵件通知。 電子郵件喜好設定只能針對訂用帳戶原則設定。 在訂用帳戶內的資源群組會繼承這些設定。 
+
+所傳送的警示電子郵件通知：
+- 僅針對高嚴重性的警示傳送
+- 每日傳送給各警示類型的一個電子郵件收件者  
+- 在一天內不會傳送給單一收件者超過 3 個電子郵件訊息
+- 每個電子郵件訊息均包含單一警示，而非警示的彙總
+ 
+例如，如果電子郵件訊息已傳送警示表示您即將遭受 RDP 攻擊，您在同一天內不會收到另一個表示您即將遭受 RDP 攻擊的電子郵件訊息，即使是另一個警示已觸發。 
+ 
 
 > [!NOTE]
 > 本文件將使用範例部署來介紹服務。  這不是逐步指南。

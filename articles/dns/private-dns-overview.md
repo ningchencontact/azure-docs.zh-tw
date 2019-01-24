@@ -5,20 +5,20 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 012/5/2018
+ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 4d817e71cffd782bdcfdfb91492dbd5d08fb8479
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e426e38ce5366f7c0d8b8bc20a639d827ea9e261
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967090"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200510"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>將 Azure DNS 用於私人網域
 
 「網域名稱系統」(DNS) 會負責將服務名稱轉譯 (或解析) 為其 IP 位址。 Azure DNS 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構來提供名稱解析。 除了支援網際網路對向 DNS 網域之外，Azure DNS 現在也支援私人 DNS 網域作為預覽版功能。
 
-Azure DNS 提供一個可靠、安全的 DNS 服務，讓您不必新增自訂 DNS 解決方案，就能管理及解析虛擬網路中的網域名稱。 藉由使用私人 DNS 區域，您就可以使用自己的自訂網域名稱，而不是現今可用的 Azure 提供名稱。 使用自訂網域名稱可協助您量身打造虛擬網路架構，來充分滿足您的組織需求。 它可以為虛擬網路內的虛擬機器 (VM) 及虛擬網路之間提供名稱解析。 此外，您還可以利用水平分割檢視來設定區域名稱，使私人與公用 DNS 區域能夠共用相同名稱。
+Azure DNS 提供一個可靠、安全的 DNS 服務，讓您不必新增自訂 DNS 解決方案，就能管理及解析虛擬網路中的網域名稱。 藉由使用私人 DNS 區域，您就可以使用自己的自訂網域名稱，而不是現今可用的 Azure 提供名稱。 使用自訂網域名稱可協助您量身打造虛擬網路架構，來充分滿足您的組織需求。 它可以為虛擬網路內的虛擬機器 (VM) 及虛擬網路之間提供名稱解析。 此外，您還可以利用水平分割檢視來設定區域名稱，使私人與公用 DNS 區域能夠共用名稱。
 
 如果您指定了註冊虛擬網路，在已註冊至私人區域的該虛擬網路中，將無法從 Azure PowerShell 和 AzureCLI API 檢視或擷取來自該虛擬網路虛擬機器的 DNS 記錄，但虛擬機器記錄實際上已註冊，且將會成功解析。
 
@@ -61,7 +61,7 @@ Azure DNS 提供以下功能：
 
 ## <a name="limitations"></a>限制
 
-Azure DNS 受到下列限制：
+Azure DNS 有下列限制：
 
 * 每個私人區域只能有 1 個註冊虛擬網路。
 * 每個私人區域最多可以有 10 個解析虛擬網路。
@@ -70,8 +70,8 @@ Azure DNS 受到下列限制：
 * 如果您指定了註冊虛擬網路，在已註冊至私人區域的該虛擬網路中，將無法從 Azure PowerShell 和 AzureCLI API 檢視或擷取來自該虛擬網路 VM 的 DNS 記錄。 但虛擬機器記錄實際上已註冊，且將會成功解析。
 * 反向 DNS 只適用於註冊虛擬網路中的私人 IP 空間。
 * 未在私人區域中註冊的私人 IP (例如：在作為解析虛擬網路連結至私人區域的虛擬網路中，虛擬機器的私人 IP) 反向 DNS，將會傳回 internal.cloudapp.net 作為 DNS 尾碼。 但是此尾碼將無法解析。
-* 虛擬網路一開始 (也就是第一次) 連結到私人區域作為註冊或解析虛擬網路時，必須是空的 (也就是沒有任何虛擬機器記錄存在)。 不過，對於未來要作為註冊或解析虛擬網路連結到其他私人區域的虛擬網路，則可為非空白。
-* 此階段不支援條件式轉送 (例如，啟用 Azure 和 OnPrem 網路之間的解析)。 如需客戶可如何透過其他機制實現此案例的詳細資訊，請參閱[虛擬機器與角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
+* 您第一次將虛擬網路連結至作為註冊或解析虛擬網路的私人區域時，虛擬網路必須完全空白。 不過，對於未來要作為註冊或解析虛擬網路連結到其他私人區域的虛擬網路，則可為非空白。
+* 同時，此階段不支援條件式轉送 (例如，啟用 Azure 和 OnPrem 網路之間的解析)。 如需客戶可如何透過其他機制實現此案例的詳細資訊，請參閱[虛擬機器與角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 如需 Azure DNS 中私人區域的常見問題和解答，包括針對特定作業類型可預期的特定 DNS 註冊和解析行為，請參閱[常見問題集](./dns-faq.md#private-dns)。  
 

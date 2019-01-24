@@ -1,23 +1,23 @@
 ---
 title: 仲裁工作流程 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 搭配內容仲裁使用工作流程。
+description: 將工作流程搭配審核 API 的工作作業使用，以根據內容原則和閾值，自動化人在迴路 (human-in-the-loop) 審核項目。
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 02/04/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 3de45c62eb208671cc2d1d4de5309d2f9d75adc9
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3a3ff5ed325205c5ae17aaff053127f4e84504bf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226869"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262654"
 ---
-# <a name="moderation-workflows"></a>仲裁工作流程
+# <a name="automate-moderation-reviews-with-workflows"></a>自動化工作流程的仲裁審核
 
 Content Moderator 包含用來管理工作流程的工具和 API。 您可以搭配[審核 API 的工作作業](review-api.md)使用工作流程，以根據內容原則和閾值，自動建立人在迴路 (human-in-the-loop) 審核項目。
 
@@ -219,8 +219,8 @@ Content Moderator 的工作流程功能可讓您定義及使用自訂工作流�
 [Workflow - Get] \(工作流程 - 取得\) 作業可接受下列輸入：
 
 - **team**：您設定[審核工具帳戶](https://contentmoderator.cognitive.microsoft.com/)時所建立的小組識別碼。 
-- **workflowname**：您工作流程的名稱。 一開始請使用 `default`。
-- **Ocp-Apim-Subscription-Key**：位於 [設定] 索引標籤上。如需詳細資訊，請參閱[概觀](overview.md)。
+- **workflowname**：工作流程的名稱。 一開始請使用 `default`。
+- **Ocp-Apim-Subscription-Key**：位於 [設定] 索引標籤。如需詳細資訊，請參閱[概觀](overview.md)。
 
 如果作業成功，[Response status] \(回應狀態\) 就會是 `200 OK`，而 [Response content] \(回應內容\) 方塊則會以 JSON 格式顯示工作流程定義。
 若要深入了解，請參閱[工作流程 API 主控台快速入門](try-review-api-job.md)。
@@ -232,8 +232,8 @@ Content Moderator 的工作流程功能可讓您定義及使用自訂工作流�
 [Workflow - Create or Update] \(工作流程 - 建立或更新\) 作業可接受下列輸入：
 
 - **team**：您設定[審核工具帳戶](https://contentmoderator.cognitive.microsoft.com/)時所建立的小組識別碼。 
-- **workflowname**：您工作流程的名稱。 一開始請使用 `default`。
-- **Ocp-Apim-Subscription-Key**：位於 [設定] 索引標籤上。如需詳細資訊，請參閱[概觀](overview.md)。
+- **workflowname**：工作流程的名稱。 一開始請使用 `default`。
+- **Ocp-Apim-Subscription-Key**：位於 [設定] 索引標籤。如需詳細資訊，請參閱[概觀](overview.md)。
 
 如果作業成功，[Response status] \(回應狀態\) 就會是 `200 OK`，而 [Response content] \(回應內容\) 方塊則會顯示 `true`。 若要深入了解，請[試用 `Create` 作業](try-review-api-job.md)。
 

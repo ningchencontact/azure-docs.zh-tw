@@ -3,19 +3,19 @@ title: Azure Active Directory B2C 中開發人員的自訂原則使用注意事�
 description: 開發人員在使用自訂原則來設定和維護 Azure AD B2C 時的注意事項。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ea884f6fecc1e8a0de1f6a0f8a4daafcdf612e9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e0a3a295350fc75915cd839d4ac0da8e03866907
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272692"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844971"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Azure Active Directory B2C 自訂原則公開預覽版的版本資訊
 所有 Azure Active Directory B2C (Azure AD B2C) 客戶現在已可評估自訂原則功能集 (公開預覽狀態)。 此功能集的適用對象是正在建置最複雜身分識別解決方案的進階身分識別開發人員。  

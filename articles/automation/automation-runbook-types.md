@@ -3,18 +3,18 @@ title: Azure 自動化 Runbook 類型
 description: '描述您在 Azure 自動化中可使用的各種 Runbook，以及您在決定使用何種類型時應該納入的考量。 '
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ad24f53c7ca58756aa4028c8af2e4a83cfcfe76a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 572d887a14aa25e45f0ad74660c5d3fbb1d32851
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984317"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425623"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure 自動化 Runbook 類型
 
@@ -115,3 +115,4 @@ Python 2 下的 Python Runbook 編譯。  您可以在 Azure 入口網站中使�
 * 若要深入了解如何編寫圖形化 Runbook，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)
 * 若要了解適用於 Runbook 的 PowerShell 和 PowerShell 工作流程之間的差異，請參閱 [了解 Windows PowerShell 工作流程](automation-powershell-workflow.md)
 * 如需如何建立或匯入 Runbook 的詳細資訊，請參閱 [建立或匯入 Runbook](automation-creating-importing-runbook.md)
+

@@ -76,6 +76,8 @@ items:
       href: howto-create-webhooks.md
     - name: 在 Microsoft Flow 中建置工作流程
       href: howto-add-microsoft-flow.md
+    - name: 在 Azure Logic Apps 中建置工作流程
+      href: howto-build-azure-logic-apps.md
     - name: 觸發 Azure Functions
       href: howto-trigger-azure-functions.md
     - name: 匯出您的資料
@@ -97,6 +99,8 @@ items:
       href: howto-prepare-images.md
     - name: 從 Azure 管理入口網站管理 IoT Central
       href: howto-manage-iot-central-from-portal.md
+    - name: 從 Azure PowerShell 管理 IoT Central
+      href: howto-manage-iot-central-from-powershell.md
     - name: 如同 CSP，建立和管理應用程式
       href: howto-create-and-manage-applications-as-CSP.md
     - name: 設定首頁
@@ -137,9 +141,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: 支援的瀏覽器
     href: iot-central-supported-browsers.md
-ms.openlocfilehash: 045599c517c9ba4c85b0e2bb7d7bec6c531b0439
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 2606d8867f5a4c85c648667301e8be21882e2179
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407757"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445825"

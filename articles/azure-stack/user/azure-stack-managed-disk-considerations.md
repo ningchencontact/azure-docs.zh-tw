@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: ecbd555809799619d61a7ff33911b7f28dcb3005
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159361"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262705"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 受控磁碟：差異與注意事項
 
@@ -65,14 +65,14 @@ Azure Stack 受控磁碟支援下列 API 版本：
 
 - 2017-03-30
 
-## <a name="known-issues"></a>已知問題
+## <a name="configuration"></a>組態
 
-在 1808 之後套用更新後，在部署具有「受控磁碟」的 VM 時，您可能會遇到下列問題：
+套用 1808 或更新版本的更新後，您必須先執行下列設定，再使用受控磁碟：
 
-- 如果訂用帳戶是在 1808 更新之前建立的，部署具有受控磁碟的 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請針對每個訂用帳戶遵循下列步驟：
+- 如果訂用帳戶是 1808 版更新之前建立的，請遵循下列步驟來更新訂用帳戶。 否則，在此訂用帳戶中部署 VM 可能會失敗，並出現錯誤訊息「磁碟管理員發生內部錯誤。」
    1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 按一下 [資源提供者]，按一下 [Microsoft.Compute]，然後按一下 [重新註冊]。
    2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [Azure Stack - 受控磁碟] 已列出。
-- 如果您已設定多租用戶環境，則在與來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請依照[這篇文章](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步驟重新設定您的每個來賓目錄。
+- 如果您使用多個租用戶環境，請要求您的雲端操作員 (可以是您自己組織中的或來自服務提供者) 依照[本文](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的下列步驟重新設定每個來賓目錄。 否則，在與該來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，並出現錯誤訊息「磁碟管理員發生內部錯誤。」
 
 
 ## <a name="next-steps"></a>後續步驟

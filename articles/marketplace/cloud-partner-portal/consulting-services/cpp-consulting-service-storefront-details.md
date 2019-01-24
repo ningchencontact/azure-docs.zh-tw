@@ -1,5 +1,5 @@
 ---
-title: Azure 與 Dynamcis 365 諮詢服務供應項目 - 輸入電子店面詳細資料 | Microsoft Docs
+title: Azure 與 Dynamcis 365 諮詢服務供應項目 - 輸入店面詳細資料 | Microsoft Docs
 description: 在 Cloud Partner 入口網站的 Azure 或 Dynamcis 365 諮詢服務供應項目中定義電子店面詳細資料的指南。
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -14,85 +14,85 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f587ca92c83680526a277a571eea98e73b82d902
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345164"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230946"
 ---
 # <a name="storefront-details-tab"></a>電子店面詳細資料索引標籤
 
-接下來，您需要輸入電子店面的詳細資料。 [電子店面詳細資料] 會由下列區段組成：
+本文說明如何輸入您店面的詳細資料。 [電子店面詳細資料] 索引標籤由下列區段組成：
 
--   產品/服務詳細資料
--   發行者資訊
--   清單詳細資料
--   行銷成品
+-   **產品/服務詳細資料**
+-   **發行者資訊**
+-   **清單詳細資料**
+-   **行銷成品**
 
-![建立新的諮詢服務供應項目 - 電子店面詳細資料索引標籤](media/consultingoffer-storefront-details.png)
+![建立新的諮詢服務供應項目 - [電子店面詳細資料] 索引標籤](media/consultingoffer-storefront-details.png)
 
 ## <a name="offer-details"></a>供應項目詳細資料
 
-[產品/服務詳細資料] 區段包含下列欄位：
+[產品/服務詳細資料] 區段包含下列方塊：
 
--   供應項目摘要
--   供應項目描述
+-   **供應項目摘要**
+-   **供應項目描述**
 
 ### <a name="offer-summary"></a>供應項目摘要
 
-[供應項目摘要] 是顯示在供應項目名稱底下的供應項目簡短描述。 輸入供應項目摘要時，請使用純文字，且不應包含分行符號。 下列是供應項目摘要及其對應之供應項目名稱的良好範例：
+[供應項目摘要] 是顯示在供應項目名稱底下的供應項目簡短描述。 使用純文字來輸入供應項目摘要，其中不含任何分行符號。 下列是良好的供應項目摘要及其對應之供應項目名稱的範例。
 
 *範例 1*
 
--   **供應項目名稱：** 雲端分析：3 天的工作坊
--   **供應項目摘要：** Microsoft Azure 和 Power BI 的概觀、目前環境的評量，以及迷你 POC。
+-   **供應項目名稱**：雲端分析：3 天的工作坊
+-   **供應項目摘要**：Microsoft Azure 和 Power BI 的概觀、目前環境的評量，以及迷你 POC。
 
 *範例 2*
 
--   **供應項目名稱：** 工業 Azure IoT：30 天的概念證明
--   **供應項目摘要：** 建立工業連線的產品試驗，以安全地將現場的設備連線到 Azure IoT 中樞解決方案 (含儀表板、報表和通知)。
+-   **供應項目名稱**：工業 Azure IoT：30 天的概念證明
+-   **供應項目摘要**：建立工業連線的產品試驗，以安全地將現場的設備連線到 Azure IoT 中樞解決方案 (含儀表板、報表和通知)。
 
 *範例 3*
 
--   **供應項目名稱：** 專業服務：1 小時的簡報
--   **供應項目摘要：** 預先設定且已擴充之 Dynamics 365 for Operations 解決方案的概觀和示範，該解決方案可針對專業服務提供專案、計費和資源的增強管理。
+-   **供應項目名稱**：專業服務：1 小時的簡報
+-   **供應項目摘要**：預先設定且已擴充之 Dynamics 365 for Operations 解決方案的概觀和示範，該解決方案可針對專業服務提供專案、計費和資源的增強管理。
 
 *範例 4*
 
--   **供應項目名稱：** 您世界中的 Power BI：4 小時的工作坊
--   **供應項目摘要：** 啟動並執行您的第一個儀表板，並了解最佳做法。 最多 12 個學生 (現場指導)。
+-   **供應項目名稱**：您世界中的 Power BI：4 小時的工作坊
+-   **供應項目摘要**：啟動並執行您的第一個儀表板，並了解最佳做法。 最多 12 個學生 (現場指導)。
 
 *範例 5*
 
--   **供應項目名稱：** Dynamics 和專案：3 天的評量
--   **供應項目摘要：** 專為專業服務公司及專案導向業務所設計之 ERP 解決方案的需求收集與評量。
+-   **供應項目名稱**：Dynamics 和專案：3 天的評量
+-   **供應項目摘要**：專為專業服務公司及專案導向業務所設計之 ERP 解決方案的需求收集與評量。
 
 ### <a name="offer-description"></a>供應項目描述
 
-在此處輸入諮詢服務供應項目的描述。 良好的供應項目描述會涵蓋參與活動的確切詳細資料，包括其活動情況和客戶最後可獲得的資訊。 它應該清楚地協助客戶了解他們能獲得的項目。 您的供應項目描述必須包含供應項目如何與您要提供諮詢服務的 Microsoft 產品相關聯。
+在 [供應項目描述] 方塊中輸入諮詢服務供應項目的描述。 良好的供應項目描述涵蓋業務開發實際情況的確切詳細資料，以及客戶獲得的最終交付項目。 它應該清楚地協助客戶了解他們能獲得的項目。 包括您的供應項目與您提供諮詢服務的 Microsoft 產品有何關聯。
 
-請勿在您的 [供應項目描述] 中包含連絡您的電子郵件連結或電話號碼。 您的供應項目將包含 [與我連絡] 按鈕，以將潛在客戶上傳到您可在供應項目上識別出的潛在客戶管理目標。
+請勿在您的供應項目描述中包含您的電子郵件地址或電話號碼。 您的供應項目隨附 [與我連絡] 按鈕，可將潛在客戶上傳到您針對供應項目所識別的潛在客戶管理目標。
 
-您會以 Markdown 格式輸入供應項目描述。 如果您不熟悉如何使用 Markdown 或 HTML 格式設定，您可以在[如何使用 Markdown 來撰寫 Docs](https://docs.microsoft.com/contribute/how-to-write-use-markdown) 上檢閱資源。
+以 Markdown 格式輸入供應項目描述。 如果您不熟悉如何使用 Markdown 或 HTML 格式，請參閱[如何使用 Markdown 來撰寫 Docs](https://docs.microsoft.com/contribute/how-to-write-use-markdown)。
 
-使用這些格式可確保您的供應項目對於客戶有最大的可讀性。
+使用這些格式以確保客戶能輕鬆地閱讀您的供應項目。
 
-請讓供應項目描述保持簡短且符合字元數限制，因為使用者並不喜歡閱讀冗長的文字。 您仍然可以選擇上傳詳細描述您供應項目的行銷摺頁冊、資料表和其他文件。
+請讓供應項目描述保持簡短且符合字元數限制，因為使用者並不喜歡閱讀冗長的文字。 您也可以上傳詳細描述您供應項目的行銷摺頁冊、資料表和其他文件。
 
-下列範例示範撰寫良好的 [供應項目描述]，以及其相關名稱和摘要：
+下列範例示範撰寫良好的供應項目描述，以及其相關名稱和摘要：
 
-**供應項目名稱：** 雲端分析：3 天的工作坊
+**供應項目名稱**：雲端分析：3 天的工作坊
 
-**供應項目摘要：** Microsoft Azure 和 Power BI 的概觀、目前環境的評量，以及迷你 POC。
+**供應項目摘要**：Microsoft Azure 和 Power BI 的概觀、目前環境的評量，以及迷你 POC。
 
-**供應項目描述：** 這個為期 3 天的工作坊適用於技術和業務負責人，並且會在客戶的場地現場舉辦。
+**供應項目描述**：這個為期 3 天的工作坊適用於技術和業務負責人，並且會在客戶的場地現場舉辦。
 
-***議程***
+議程
 
 第 1 天
 
--   著重於如何在 Microsoft 雲端內使用 Azure Data Lake、HDInsight 或 Azure SQL 資料倉儲來保護、調整，以及組織資料。
+-   著重於如何在 Microsoft 雲端內使用 Azure Data Lake、Azure HDInsight 或 Azure SQL 資料倉儲來保護、調整，以及組織資料。
 
 第 2 天
 
@@ -100,11 +100,13 @@ ms.locfileid: "53345164"
 
 第 3 天
 
--   涵蓋如何使用 Power BI 繪製可採取動作的深入解析並讓分析能夠運作，包含共同建置 Power BI 儀表板的共同作業課程。
+-   涵蓋如何使用 Power BI 繪製可採取動作的見解並讓分析能夠運作，且包含共同建置 Power BI 儀表板的共同作業課程。
 
-在工作坊結束時，客戶將能夠定義在 Microsoft 雲端中的資料和分析解決方案的概略計劃和藍圖。
+交付項目
 
-格式如下列之供應項目的範例 Markdown 檔案：
+在工作坊結束時，客戶將能定義在 Microsoft 雲端中的資料和分析解決方案的概略計劃和實作藍圖。
+
+下列範例是先前供應項目的 Markdown 檔案：
 
     This 3-day workshop is for technical and business leaders and is held on-site at the client’s facility.
 
@@ -112,15 +114,15 @@ ms.locfileid: "53345164"
 
       **Day 1**
 
-      * Focuses on how to secure, scale, and organize data within the Microsoft cloud using Azure Data Lake, HDInsight, or Azure SQL Data Warehouse
+      * Focuses on how to secure, scale, and organize data within the Microsoft cloud by using Azure Data Lake, Azure HDInsight, or Azure SQL Data Warehouse.
 
       **Day 2**
 
-      * Covers how to configure and deploy advanced analytics solutions with Microsoft R and Azure Machine Learning
+      * Covers how to configure and deploy advanced analytics solutions with Microsoft R and Azure Machine Learning.
 
       **Day 3**
 
-      * Covers how to draw actionable insights and operationalize analytics with Power BI, including a collaborative session to co-build a Power BI dashboard.
+      * Covers how to draw actionable insights and operationalize analytics with Power BI and includes a collaborative session to cobuild a Power BI dashboard.
 
 
       ### Deliverables
@@ -131,11 +133,11 @@ ms.locfileid: "53345164"
 
 **MPN 識別碼**
 
-您的 9 位數 Microsoft 合作夥伴網路 (MPN) 識別碼。 如果您沒有 MPN 識別碼，可以移至 Microsoft 合作夥伴中心取得。
+輸入您的九位數 Microsoft 合作夥伴網路 (MPN) 識別碼。 如果您沒有 MPN 識別碼，您可以在 Microsoft 合作夥伴中心取得一個。
 
 **合作夥伴中心識別碼**
 
-新增合作夥伴中心識別碼 (若有識別碼)。
+如果有的話，請輸入新的合作夥伴中心識別碼。
 
 **MPN 識別碼**
 
@@ -146,18 +148,18 @@ ms.locfileid: "53345164"
 
 **諮詢服務類型**
 
-Microsoft 僅會著重於固定範圍、固定期間、估計或固定的價格 (或免費)，主要是提供給單一客戶的售前導向諮詢服務供應項目，以及在現場或以虛擬方式進行的評量、實作、概念證明、簡報或工作坊供應項目。 AppSource 諮詢服務市集不支援適用於受控或訂閱服務的清單。
+Microsoft 僅著重於固定範圍、固定期間、估計或固定價格 (或免費)，且主要為適用於單一客戶的發行前導向諮詢服務供應項目。 服務類型有評估、簡報、實作、證明概念，以及進行現場或虛擬研討會供應項目。 AppSource 諮詢服務市集不支援適用於受控或訂閱服務的清單。
 
 >[!Note]
 >AppSource 諮詢服務不是適合用於訂閱或依需求訓練的市集。
 
 下列五種類型的供應項目包含：
 
--   **評量：** 對客戶環境的評估，以判斷解決方案的適用性，並提供估計的成本和時間。
--   **簡報：** 使用架構、示範和客戶範例來引起客戶興趣的解決方案或諮詢服務介紹。 簡報必須是現場進行。
--   **實作：** 完整安裝以產生完全可行的解決方案。 針對此試驗，Microsoft 建議您將解決方案限制為可在一週 (或更少) 內實作。
--   **概念證明：** 可以判斷解決方案是否將符合客戶需求的有限範圍實作。
--   **工作坊：** 在客戶場地舉行的互動式參與活動，可以根據客戶的資料或環境量身打造訓練課程、簡報、評量或示範。
+-   **評估**：對客戶環境的評估，以判斷解決方案的適用性，並提供估計的成本和時間。
+-   **簡報**：可以介紹解決方案或諮詢服務，使用架構、示範和客戶範例引起客戶的興趣。 簡報必須是現場進行。
+-   **實作**：完整安裝以產生完全可行的解決方案。 針對此試驗，Microsoft 建議您將解決方案限制為可在一週 (或更少) 內實作。
+-   **概念證明**：可以判斷解決方案是否符合客戶需求的有限範圍實作。
+-   **研討會**：在客戶場地舉行的互動式參與活動，可以根據客戶的資料或環境量身打造訓練課程、簡報、評量或示範。
 
 **國家/地區可用性**
 
@@ -172,13 +174,13 @@ Microsoft 僅會著重於固定範圍、固定期間、估計或固定的價格 
 
 **Duration**
 
-在 [持續時間] 底下選擇數字 (如 3、4 等)，然後選取 [小時]、[天]、或 [週]。
+在 [持續時間] 底下選取數字 (如 3 或 4)，然後選取 [小時]、[天]、或 [週]。
 
 **主要產品**
 
-若要發佈到 Azure Marketplace，請選取 [Azure] 作為主要產品，然後選取相關的 [解決方案區域]。
+若要發佈至 Azure Marketplace，請選取 [Azure] 作為主要產品。 然後選取相關的 [解決方案區域]。
 
-若要發佈至 AppSource，請選取 [Dynamics 365]、[Power BI] 或 [PowerApps] 作為您主要的產品。 您也可以選取其他相關的「適用產品」，然後您的諮詢服務供應項目在 AppSource 上，就會在每個這些產品相關聯的清單中都顯示。
+若要發佈至 AppSource，請選取 [Dynamics 365]、[Power BI] 或 [PowerApps] 作為您主要的產品。 您也可以選取其他相關的**適用產品**。 然後您的諮詢服務供應項目就會於 AppSource 上，在與每個這些產品相關聯的清單中顯示。
 
 **相關專長認證**
 
@@ -188,23 +190,23 @@ Microsoft 僅會著重於固定範圍、固定期間、估計或固定的價格 
 
 **公司標誌 (.png 格式，48 x 48 像素)**
 
-上傳在供應項目資源庫檢視頁面中，會出現在您供應項目磚上的影像。 該影像必須為 .png 影像且解析度為 48 x 48 像素。
+上傳在供應項目資源庫檢視頁面中，出現在您供應項目磚上的影像。 該影像必須為 .png 影像且解析度為 48 x 48 像素。
 
-**公司標誌公司標誌 (.png 格式，216 x 216 像素)**
+**公司標誌 (.png 格式，216 x 216 像素)**
 
-上傳會出現在供應項目詳細資料頁面上的影像。 該影像必須為 .png 影像且解析度為 216 x 216 像素。
+上傳會在您的供應項目詳細資料頁面顯示的影像。 該影像必須為 .png 影像且解析度為 216 x 216 像素。
 
-**影片 (最多 4 個)**
+**影片 (限四個)**
 
 上傳最多四個客戶案例研究影片，或客戶參考影片。 如果沒有這些影片，可以上傳說明與供應項目相關的公司專業知識。 如果您有 Power BI 或 PowerApps 解決方案展示工具，請在此上傳展示工具影片。 影片連結必須是 YouTube 或 Vimeo。
 
-**文件 (最多 3 個)**
+**文件 (限三個)**
 
-上傳詳細描述您的諮詢服務供應項目的行銷摺頁冊。 或者，您也可以上傳公司概觀、資料表或案例研究。 請確定您的文件會使用推薦產品目前的名稱，而且不會推薦 Microsoft 競爭產品。
+上傳詳細描述您的諮詢服務供應項目的行銷摺頁冊。 您也可以上傳公司概觀、資料表或個案研究。 請確定您的文件會使用推薦產品目前的名稱，而且不會推薦 Microsoft 競爭產品。
 
-**螢幕擷取畫面 (最多 5 個)**
+**螢幕擷取畫面 (限五個)**
 
-上傳最多五個影像，提供有關供應項目、供應項目交付項目或公司的更多資訊。 例如，行銷摺頁冊的片段，簡報的相關投影片，或是顯示公司趨勢或專業知識的影像。
+上傳最多五個影像，提供有關您的供應項目、其交付項目或公司的更多資訊。 一些範例如，行銷摺頁冊的片段，簡報的相關投影片，或是顯示公司趨勢或專業知識的影像。
 
 ## <a name="next-steps"></a>後續步驟
 

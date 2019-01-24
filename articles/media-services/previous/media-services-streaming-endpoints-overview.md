@@ -7,20 +7,19 @@ author: Juliako
 writer: juliako
 manager: femila
 editor: ''
-ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 06f219b9cf7d17e80699aebc1082b14e2de45c8b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240217"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359982"
 ---
 # <a name="streaming-endpoints-overview"></a>串流端點概觀 
 
@@ -28,20 +27,26 @@ ms.locfileid: "50240217"
 
 在「Microsoft Azure 媒體服務」(AMS) 中，**串流端點**代表可以直接將內容傳遞給用戶端播放程式應用程式，或傳遞給「內容傳遞網路」(CDN) 以進行進一步散發的串流服務。 媒體服務也提供順暢的 Azure CDN 整合。 來自 StreamingEndpoint 服務的輸出資料流可以是即時資料流、隨選視訊，也可以是媒體服務帳戶中漸進式的資產下載。 每個「Azure 媒體服務」帳戶皆包含一個預設的 StreamingEndpoint。 您可以在該帳戶下建立額外的 StreamingEndpoint。 StreamingEndpoint 有 1.0 和 2.0 兩個版本。 從 2017 年 1 月 10 日開始，所有新建立的 AMS 帳戶都會包含 2.0 版**預設** StreamingEndpoint。 您新增到此帳戶的額外串流端點也將會是 2.0 版。 這項變更不會影響現有的帳戶，現有的 StreamingEndpoint 會是 1.0 版並可升級到 2.0 版。 隨著這項變更，將會有行為、計費及功能變更 (如需詳細資訊，請參閱下列**串流類型和版本**一節)。
 
-此外，從 2.15 版開始 (2017 年 1 月發行)，Azure 媒體服務將下列屬性新增至串流端點實體︰**CdnProvider**、**CdnProfile**、**FreeTrialEndTime**、**StreamingEndpointVersion**。 如需這些屬性的詳細概觀，請參閱[這裡](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 
+Azure 媒體服務已將下列屬性新增至串流端點實體：**CdnProvider**、**CdnProfile**、**FreeTrialEndTime**、**StreamingEndpointVersion**。 如需這些屬性的詳細概觀，請參閱[這裡](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 
 
 當您建立 Azure 媒體服務帳戶時，系統會為您建立預設標準串流端點 (處於**已停止**狀態)。 您無法刪除預設串流端點。 根據目標區域中的 Azure CDN 可用性而定，依預設，新建立的預設串流端點也包含 "StandardVerizon" CDN 提供者整合。 
-
->[!NOTE]
->啟動串流端點之前可以停用 Azure CDN 整合。
+                
+> [!NOTE]
+> 啟動串流端點之前可以停用 Azure CDN 整合。 無論您是否啟用 CDN，`hostname` 和串流 URL 都會保持不變。
 
 本主題簡化串流端點提供的主要功能。
+
+## <a name="naming-conventions"></a>命名慣例
+
+針對預設端點：`{AccountName}.streaming.mediaservices.windows.net`
+
+針對任何額外端點：`{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>串流類型和版本
 
 ### <a name="standardpremium-types-version-20"></a>標準/進階類型 (2.0 版)
 
-從媒體服務的 2017 年 1 月版本開始，您有兩種串流類型︰**標準**和**進階**。 這些類型是串流端點 "2.0" 版的一部分。
+從媒體服務的 2017 年 1 月版本開始，將會提供兩種串流類型︰「標準」和「進階」。 這些類型是串流端點 "2.0" 版的一部分。
 
 類型|說明
 ---|---
@@ -92,7 +97,7 @@ IP 篩選/G20/自訂主機|是|是
 
 ## <a name="migration-between-types"></a>在類型之間移轉
 
-從 | 至 | 動作
+從 | 至 |  動作
 ---|---|---
 傳統|標準|需要選擇加入
 傳統|進階| 調整 (其他串流單位)

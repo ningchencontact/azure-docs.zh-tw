@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2018
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 511fb425c6b31d204c88094ec5b1a49316495a0a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435560"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431515"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
 
@@ -45,13 +45,13 @@ ms.locfileid: "53435560"
 
 ## <a name="prerequisites"></a>必要條件
 
-進行本教學課程時，您必須在本機執行 PowerShell。 您必須安裝 Azure PowerShell 模組 6.12.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 驗證 PowerShell 版本之後，請執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+進行本教學課程時，您必須在本機執行 PowerShell。 您必須安裝 Azure PowerShell 模組 6.12.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。 驗證 PowerShell 版本之後，請執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
 
 要讓此案例正常運作有三項重要需求：
 
-- 輪輻子網路上使用者定義的路由會指向 Azure 防火牆 IP 位址，作為預設閘道。 此路由表上的 BGP 路由傳播必須 [已停用]。
-- 中樞閘道子網路上使用者定義的路由必須指向防火牆 IP 位址，作為輪輻網路的下一個躍點。
-- Azure 防火牆子網路不需要任何使用者定義的路由，因為它從 BGP 得知路由。
+- 輪輻子網路上使用者定義的路由 (UDR) 會指向 Azure 防火牆 IP 位址，作為預設閘道。 此路由表上的 BGP 路由傳播必須 [已停用]。
+- 中樞閘道子網路上的 UDR 必須指向防火牆 IP 位址，作為輪輻網路的下一個躍點。
+- Azure 防火牆子網路不需要任何 UDR，因為可從 BGP 得知路由。
 - 請務必在將 VNet-Hub 對等互連至 VNet-Spoke 時設定 **AllowGatewayTransit**，以及在將 VNet-Spoke 對等互連至 VNet-Hub 時設定 **UseRemoteGateways**。
 
 請參閱本教學課程中的[建立路由](#create-routes)一節，了解如何建立這些路由。
@@ -60,7 +60,7 @@ ms.locfileid: "53435560"
 >「Azure 防火牆」必須能夠直接連線到網際網路。 如果您已啟用透過 ExpressRoute 或「應用程式閘道」以強制通道連線至內部部署環境的功能，就必須搭配將 **NextHopType** 值設定為 **Internet** 來設定 UDR 0.0.0.0/0，然後將其指派給 **AzureFirewallSubnet**。
 
 >[!NOTE]
->即使 UDE 指向「Azure 防火牆」作為預設閘道，系統仍會直接路由傳送直接對等互連之 VNet 間的流量。 在此案例中若要將子網路對子網路流量傳送到防火牆，UDR 必須在這兩個子網路上同時明確包含目標子網路網路首碼。
+>即使 UDR 指向「Azure 防火牆」作為預設閘道，系統仍會直接路由直接對等互連之 VNet 間的流量。 在此案例中若要將子網路對子網路流量傳送到防火牆，UDR 必須在這兩個子網路上同時明確包含目標子網路網路首碼。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

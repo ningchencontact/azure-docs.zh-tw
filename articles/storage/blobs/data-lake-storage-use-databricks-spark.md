@@ -6,14 +6,14 @@ author: dineshmurthy
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: dineshm
-ms.openlocfilehash: b0382d31f9d16228ca3447ace9c7d4f171b206f6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e72a4f71a42a892d14fad076b124426f0c32ac7d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548981"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321801"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>教學課程：使用 Spark 以 Azure Databricks 存取 Data Lake Storage Gen2 預覽版資料
 
@@ -36,12 +36,31 @@ ms.locfileid: "53548981"
 2. 選取 [下載]，然後將結果儲存到您的機器。
 3. 記下所下載資料的檔案名稱與路徑；在稍後的步驟中，您將需要此資訊。
 
-若要完成本教學課程，您需要有一個具有分析功能的儲存體帳戶。 建議您完成該主題的相關[快速入門](data-lake-storage-quickstart-create-account.md)以建立一個帳戶。 在您建立帳戶之後，請瀏覽至該儲存體帳戶來擷取組態設定。
+若要完成本教學課程，您需要有一個具有分析功能的儲存體帳戶。 建議您完成該主題的相關[快速入門](data-lake-storage-quickstart-create-account.md)以建立一個帳戶。 
 
-1. 在 [設定] 底下，選取 [存取金鑰]。
-2. 選取 [key1] 旁邊的 [複製] 按鈕以複製金鑰值。
+## <a name="set-aside-storage-account-configuration"></a>設定儲存體帳戶組態
 
-本教學課程的後續步驟需要用到帳戶名稱和金鑰。 請開啟文字編輯器，並設定帳戶名稱和金鑰以供日後參考。
+您將需要儲存體帳戶的名稱，以及檔案系統端點 URI。
+
+若要在 Azure 入口網站中取得您的儲存體帳戶名稱，請選擇 [所有服務]，並以*儲存體*一詞篩選。 然後，選取 [儲存體帳戶]，並找出您的儲存體帳戶。
+
+若要取得檔案系統端點 URI，請選擇 [屬性]，並在 [屬性] 窗格中尋找 [主要 ADLS 檔案系統端點] 欄位的值。
+
+將這兩個值貼到文字檔中。 您很快就會用到這些值。
+
+<a id="service-principal"/>
+
+## <a name="create-a-service-principal"></a>建立服務主體
+
+依照下列主題中的指引建立服務主體：[操作說明：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
+
+在執行該文章中的步驟時，您必須執行一些特定動作。
+
+:heavy_check_mark:在執行該文章的[建立 Azure Active Directory 應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)一節中的步驟時，請確實將 [建立] 對話方塊的 [登入 URL] 欄位設為您剛才收集到的端點 URI。
+
+:heavy_check_mark:在執行該文章的[將應用程式指派給角色](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role)一節中的步驟時，請確實將您的應用程式指派給 [Blob 儲存體參與者角色]。
+
+:heavy_check_mark:在執行該文章的[取得值以便登入](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)一節中的步驟時，請將租用戶識別碼、應用程式識別碼和驗證金鑰值貼到文字檔中。 您很快就會用到這些資料。
 
 ## <a name="create-a-databricks-cluster"></a>建立 Databricks 叢集
 
@@ -63,22 +82,24 @@ ms.locfileid: "53548981"
 14. 在 [名稱] 欄位中輸入您所選擇的名稱，然後選取 [Python] 作為語言。
 15. 其他所有欄位可保留其預設值。
 16. 選取 [建立] 。
-17. 將下列程式碼貼到 [Cmd 1] 資料格中。 請以您自己的值取代範例中括號內顯示的預留位置：
+17. 將下列程式碼區塊複製並貼到第一個資料格中，但先不要執行此程式碼。
 
-    ```scala
-    %python%
+    ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-        
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": "<application-id>",
+           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
+
     dbutils.fs.mount(
-        source = "abfss://dbricks@<account-name>.dfs.core.windows.net/folder1",
-        mount_point = "/mnt/flightdata",
-        extra_configs = configs)
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    mount_point = "/mnt/flightdata",
+    extra_configs = configs)
     ```
-18. 按 **SHIFT + ENTER** 以執行程式碼單元。
+18. 在此程式碼區塊中，將此程式碼區塊中的 `storage-account-name`、`application-id`、`authentication-id` 和 `tenant-id` 預留位置值取代為您在執行[備妥儲存體帳戶組態](#config)和[建立服務主體](#service-principal)小節中的步驟時所收集到的值。 請將 `file-system-name` 預留位置取代為您要為檔案系統指定的任何名稱。
+
+19. 按 **SHIFT + ENTER** 鍵以執行此區塊中的程式碼。
 
 ## <a name="ingest-data"></a>擷取資料
 

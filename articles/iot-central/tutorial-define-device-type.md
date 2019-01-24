@@ -1,22 +1,22 @@
 ---
 title: 在 Azure IoT Central 中定義新的裝置類型 | Microsoft Docs
 description: 本教學課程將為建置者說明如何在 Azure IoT Central 應用程式中定義新的裝置類型。 您會定義類型的遙測、狀態、屬性和設定。
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
-ms.openlocfilehash: dd81c10bcda6665de7ffabe94a4c1be991687797
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+manager: philmea
+ms.openlocfilehash: d50059fb6fe03309609c91b56fb3763bad32e46b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963581"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199964"
 ---
-# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>教學課程：在 Azure IoT 中心應用程式中定義新的裝置類型
+# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>教學課程：在 Azure IoT Central 應用程式中定義新的裝置類型
 
 本教學課程將為建置者說明如何使用裝置範本在 Microsoft Azure IoT Central 應用程式中定義新的裝置類型。 裝置範本會定義裝置類型的遙測、狀態、屬性和設定。
 

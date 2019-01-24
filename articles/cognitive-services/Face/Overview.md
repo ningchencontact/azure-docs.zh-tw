@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1916aa94dcf7528ce898ef37eac29c1017f03f15
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633456"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231881"
 ---
 # <a name="what-is-the-azure-face-api"></a>什麼是 Azure 臉部 API？
 
@@ -74,6 +74,10 @@ Azure 臉部 API 是一項認知服務，可提供演算法來偵測、辨識和
 
 - [Microsoft 臉部 API：Windows 用戶端程式庫和範例](https://github.com/Microsoft/Cognitive-Face-Windows) - WPF 應用程式，會示範數個關於臉部偵測、分析和識別的案例。
 - [FamilyNotes UWP 應用程式](https://github.com/Microsoft/Windows-appsample-familynotes) - 通用 Windows 平台 (UWP) 應用程式，會在家庭記事分享案例中使用臉部識別以及語音、Cortana、筆跡和相機。
+
+## <a name="data-privacy-and-security"></a>資料隱私權和安全性
+
+和所有認知服務一樣，使用臉部服務的開發人員應該要了解 Microsoft 對於客戶資料的政策。 請參閱 Microsoft 信任中心上的[認知服務頁面](https://www.microsoft.com/en-us/trustcenter/cloudservices/cognitiveservices)，以進行深入了解。
 
 ## <a name="next-steps"></a>後續步驟
 

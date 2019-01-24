@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 11/14/2018
-ms.openlocfilehash: 775c9990c85feb3e9e180af6470e7c9a1aa124f3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 318778a83c82b0ddb88f8bbd852442ab389fedb3
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808973"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352252"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>什麼是 Azure Database for PostgreSQL？
 
@@ -46,9 +46,9 @@ ms.locfileid: "53808973"
 Azure 領先業界的 99.99% 可用性服務等級協定 (SLA) (Microsoft 受控資料中心的全球網路提供支援)，可協助讓您的應用程式 24 小時全年無休地運作。 使用每一 Azure Database for PostgreSQL 伺服器，您可以利用內建的安全性、容錯功能，以及可能需要另外設計、購買、建置和管理的資料保護功能。 使用適用於 PostgreSQL 的 Azure 資料庫時，每個定價層都會提供一組完整的業務持續性功能和選項，讓您能夠用來啟動和執行，並持續維持該狀態。 您可以使用[時間點還原](howto-restore-server-portal.md)將資料庫回復成先前的狀態，最久可至 35 天前。 此外，如果裝載資料庫的資料中心發生中斷情形，您可以從最新備份的異地備援複本還原資料庫。
 
 ## <a name="secure-your-data"></a>保護您的資料
-Azure 資料庫服務一向重視資料安全性，Azure Database for PostgreSQL 以限制存取、保護靜止和移動中資料及協助監視活動等功能承襲了這項傳統。 如需 Azure 平台安全性的相關資訊，請造訪 [Azure 信任中心 (英文)](https://azure.microsoft.com/overview/trusted-cloud/)。
+Azure 資料庫服務一向重視資料安全性，Azure Database for PostgreSQL 以限制存取、保護靜止和移動中資料及協助監視活動等功能承襲了這項傳統。 如需 Azure 平台安全性的相關資訊，請造訪 [Azure 信任中心](https://azure.microsoft.com/overview/trusted-cloud/) \(英文\)。
 
-適用於 PostgreSQL 的 Azure 資料庫服務針對靜止資料使用儲存體加密。 包含備份在內的資料會在磁碟上加密 (不包括執行查詢時由引擎所建立的暫存檔案)。 該服務使用包含在 Azure 儲存體加密中的 AES 256 位元加密，且金鑰是由系統進行管理。 儲存體加密會一律啟用，且無法停用。
+適用於 PostgreSQL 的 Azure 資料庫服務針對待用資料會使用儲存體加密，並且符合 FIPS 140-2 規範。 包含備份在內的資料會在磁碟上加密 (不包括執行查詢時由引擎所建立的暫存檔案)。 該服務使用包含在 Azure 儲存體加密中的 AES 256 位元加密，且金鑰是由系統進行管理。 儲存體加密會一律啟用，且無法停用。
 
 根據預設，適用於 PostgreSQL 的 Azure 資料庫服務已設為針對跨網路的動態資料需要 [SSL 連線安全性](./concepts-ssl-connection-security.md)。 在您的資料庫伺服器和用戶端應用程式之間強制使用 SSL 連線，可將伺服器與應用程式之間的資料流加密，有助於抵禦「中間人」攻擊。 (選擇性) 如果您的用戶端應用程式不支援 SSL 連線能力，您可以停用需要 SSL 才能連接到您資料庫服務的功能。
 
@@ -63,4 +63,4 @@ Azure 資料庫服務一向重視資料安全性，Azure Database for PostgreSQL
 ## <a name="next-steps"></a>後續步驟
 - 如需成本比較和計算機，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/postgresql/)。
 - 從[建立您的第一個 Azure Database for PostgreSQL](./quickstart-create-server-database-portal.md) 開始。
-- 使用 Python、PHP、Ruby、C\#、Java、Node.js 建立您的第一個應用程式：[連線庫](./concepts-connection-libraries.md)
+- 使用 Python、PHP、Ruby、C\#、Java、Node.js 建置您的第一個應用程式：[連線程式庫](./concepts-connection-libraries.md)

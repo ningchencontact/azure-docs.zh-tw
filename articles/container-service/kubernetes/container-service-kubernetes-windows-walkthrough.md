@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: dfc1d2128e1cf3b4d6b4d9e5141116a2b2ff9c0d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 90608e95cee6b5b7231419c2c65c39741f106b0f
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000609"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412630"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(已淘汰) 部署適用於 Windows 容器的 Kubernetes 叢集
 
@@ -65,7 +65,7 @@ az acs create --orchestrator-type=kubernetes \
 
 若要從用戶端電腦連線到 Kubernetes 叢集，請使用 [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/) (Kubernetes 命令列用戶端)。 
 
-如果您是使用 Azure CloudShell，就已安裝 `kubectl`。 如果您想要在本機進行安裝，可以使用 [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) 命令。
+如果您是使用 Azure CloudShell，就已安裝 `kubectl`。 如果您想要在本機進行安裝，可以使用 [az acs kubernetes install-cli](/cli/azure/acs/kubernetes) 命令。
 
 下列 Azure CLI 範例會將 `kubectl` 安裝到您的系統。 在 Windows 上，以系統管理員身分執行此命令。
 

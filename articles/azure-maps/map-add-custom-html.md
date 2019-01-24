@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 21689cf7fe3df7ca7e362ba49824fadd5daaa3ea
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 5df3b9541dafad64e012519802b09b19ef199a03
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888761"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231729"
 ---
 # <a name="add-html-markers-to-the-map"></a>在地圖中新增 HTML 標記
 
@@ -77,7 +77,7 @@ HTML 標記的好處之一是您可以使用 CSS 來實現許多完美的自訂�
 <iframe height='500' scrolling='no' title='在 HTML 標記中新增滑鼠事件' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆 <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>在 HTML 標記中新增滑鼠事件</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
 
-如果 `htmlContent` 是字串 (也就是類似預設值)，您可以建立 DOM 元素並於其中新增 innerHTML 字串，然後新增 DOM 元素 htmlContent。 the like the default), you can create a DOM element and add the string as innerHTML to it, then add the DOM element as the htmlContent. 如果 `htmlContent` 是樣板化字串，您必須先尋找/取代字串中的 `{text}` 和 `{color}` 值。
+如果 `htmlContent` 是字串 (也就是 類似預設值)，您可以建立 DOM 元素並於其中新增 innerHTML 字串，然後新增 DOM 元素 htmlContent。 如果 `htmlContent` 是樣板化字串，您必須先尋找/取代字串中的 `{text}` 和 `{color}` 值。
 
 <br/>
 

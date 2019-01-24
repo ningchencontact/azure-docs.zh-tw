@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6ca819b20bd033cc4081fb98a0c22c23aed05a28
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 403f1cee04da17086a55adfbaed28388afd24d29
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263987"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54211813"
 ---
 # <a name="azure-managed-disks-overview"></a>Azure 受控磁碟概觀
 
@@ -37,7 +37,7 @@ Azure 受控磁碟會管理 VM 磁碟相關的[儲存體帳戶](../articles/stor
 
 ### <a name="highly-durable-and-available"></a>高耐久性及可用性
 
-Azure 磁碟設計成確保可用性達 99.999%。 得知有三個資料複本，因此有高持久性，這可讓您更安心。 如果一個或甚至兩個複本遇到問題，其餘複本有助於確保資料的持續性，以及遇到失敗時的高容錯力。 此結構讓 Azure 針對 IaaS 磁碟穩定地展現企業級持久性，提供領先界業的年度零失敗率。 
+Azure 磁碟設計成確保可用性達 99.999%。 得知有三個資料複本，因此有高持久性，這可讓您更安心。 如果一個或甚至兩個複本遇到問題，其餘複本有助於確保資料的持續性，以及遇到失敗時的高容錯力。 此結構讓 Azure 針對 IaaS 磁碟穩定地展現企業級持久性，提供領先界業的年度零失敗率。
 
 ### <a name="granular-access-control"></a>細微的存取控制
 
@@ -45,7 +45,7 @@ Azure 磁碟設計成確保可用性達 99.999%。 得知有三個資料複本�
 
 ### <a name="azure-backup-service-support"></a>Azure 備份服務支援
 
-搭配受控磁碟使用 Azure 備份服務，以建立具有時間型備份、簡易虛擬機器還原，以及備份保留原則的備份作業。 受控磁碟僅支援本地備援儲存體 (LRS) 作為複寫選項。 單一區域內會保留三份資料複本。 針對區域性災害復原，您必須使用 [Azure 備份服務](../articles/backup/backup-introduction-to-azure-backup.md)來備份位於不同區域的虛擬機器磁碟，並以 GRS 儲存體帳戶作為備份保存庫。 目前 Azure 備份最多可支援 4TB 的磁碟大小。 您需要[將虛擬機器備份堆疊升級為 V2](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md)，以支援 4TB 的磁碟。 如需詳細資訊，請參閱[針對具有受控磁碟的虛擬機器使用 Azure 備份服務](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)。
+搭配受控磁碟使用 Azure 備份服務，以建立具有時間型備份、簡易虛擬機器還原，以及備份保留原則的備份作業。 受控磁碟僅支援本地備援儲存體 (LRS) 作為複寫選項。 單一區域內會保留三份資料複本。 針對區域性災害復原，您必須使用 [Azure 備份服務](../articles/backup/backup-introduction-to-azure-backup.md)來備份位於不同區域的虛擬機器磁碟，並以 GRS 儲存體帳戶作為備份保存庫。 目前 Azure 備份支援最多 4TB 磁碟的磁碟大小，關於 4TB 磁碟的支援，請參閱[立即還原](../articles/backup/backup-instant-restore-capability.md)。 如需詳細資訊，請參閱[針對具有受控磁碟的虛擬機器使用 Azure 備份服務](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)。
 
 ## <a name="pricing-and-billing"></a>價格和計費
 
@@ -63,7 +63,7 @@ Azure 磁碟設計成確保可用性達 99.999%。 得知有三個資料複本�
 
 讓我們仔細看看這些選項。
 
-**儲存體類型︰** 受控磁碟提供 3 個效能層級︰[標準 HDD](../articles/virtual-machines/windows/standard-storage.md)、[標準 SSD](../articles/virtual-machines/windows/disks-standard-ssd.md) 和[進階](../articles/virtual-machines/windows/premium-storage.md)。 受控磁碟的計費取決於您為磁碟選取的儲存體類型。
+**儲存體類型：** 受控磁碟提供 3 個效能層級：[標準 HDD](../articles/virtual-machines/windows/standard-storage.md)、[標準 SSD](../articles/virtual-machines/windows/disks-standard-ssd.md) 和[進階](../articles/virtual-machines/windows/premium-storage.md)。 受控磁碟的計費取決於您為磁碟選取的儲存體類型。
 
 **磁碟大小**：受控磁碟的計費取決於磁碟的佈建大小。 Azure 會將佈建大小對應 (無條件進位) 至下表中指定的最接近受控磁碟選項。 每一個受控磁碟對應至其中一個支援的佈建大小，並據此計費。 例如，如果您建立標準受控磁碟，並指定佈建大小 200 GB，則會依據 S15 磁碟類型的定價向您收費。
 
@@ -91,7 +91,7 @@ Azure 磁碟設計成確保可用性達 99.999%。 得知有三個資料複本�
 
 進階受控磁碟沒有交易成本。
 
-**輸出資料傳輸**： [輸出資料傳輸](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure 資料中心送出的資料) 會產生頻寬使用量費用。
+**輸出資料傳輸**：[輸出資料傳輸](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure 資料中心送出的資料) 會產生頻寬使用量費用。
 
 如需受控磁碟價格的詳細資訊，請參閱[受控磁碟價格](https://azure.microsoft.com/pricing/details/managed-disks)。
 

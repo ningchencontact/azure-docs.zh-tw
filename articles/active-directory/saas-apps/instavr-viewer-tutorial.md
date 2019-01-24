@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 InstaVR Viewer 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 13ffa29f-d0a5-4b21-b296-cfd76f380940
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c63e7d03c0fc17e9892617aaeca94803c671acea
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b0548ec2bb580c2898f610f00fd5ba911b314114
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194851"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823031"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>教學課程：Azure Active Directory 與 InstaVR Viewer 整合
 
@@ -79,8 +79,8 @@ ms.locfileid: "53194851"
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 InstaVR Viewer 單一登入](#configure-instavr-viewer-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[建立 InstaVR Viewer 測試使用者](#create-instavr-viewer-test-user)** - 使 InstaVR Viewer 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-5. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+5. **[建立 InstaVR Viewer 測試使用者](#create-instavr-viewer-test-user)** - 使 InstaVR Viewer 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -105,13 +105,13 @@ ms.locfileid: "53194851"
 
     ![InstaVR Viewer 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`。
-    
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
+
     > [!NOTE]
     > 登入 URL 沒有固定的模式。 它會在 InstaVR Viewer 客戶進行 Web 封裝時產生。 對每個客戶和封裝而言，它都是唯一的。 若要取得確切的登入 URL，您需要登入您的 InstaVR Viewer 執行個體並進行 Web 封裝。
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`。 
-    
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
+
     > [!NOTE]
     > 識別碼值不是實際值。 使用實際的識別碼值來更新此值，稍後會在本教學課程中說明。
 

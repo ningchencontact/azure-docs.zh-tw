@@ -16,12 +16,12 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 345d62f4045e7b9279d52acf70cc340d088f5db0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d2e849b4a6101cd10ce17e52056efdfe2f903381
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961326"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267108"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>何謂 Azure Stack 開發套件？
 [Microsoft Azure Stack 整合系統](../azure-stack-poc.md)的大小範圍為 4 到 16 個節點，並且由硬體合作夥伴與 Microsoft 共同支援。 您可以使用 Azure Stack 整合系統，來為生產環境工作負載啟用新案例。 如果您是管理整合系統基礎結構並提供服務的 Azure Stack 操作員，請參閱我們的[操作員文件](https://docs.microsoft.com/azure/azure-stack)。
@@ -61,7 +61,7 @@ ASDK 的設計目的是要為下列人員提供 Azure 一致的混合式雲端�
 依預設，當您部署 ASDK 時，Azure Stack 會包含下列的「基礎服務」：
 - 計算
 - 儲存體
-- 網路
+- 網路功能
 - Key Vault
 
 利用這些基礎服務，您可用最少的設定，將基礎結構即服務 (IaaS) 提供給您的使用者。

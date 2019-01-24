@@ -1,36 +1,28 @@
 ---
-title: 在 Azure 應用程式閘道上裝載多個網站 | Microsoft Docs
-description: 本頁面提供「應用程式閘道」多站台支援的概觀。
-documentationcenter: na
+title: 在 Azure 應用程式閘道上裝載多個網站
+description: 本頁面提供「Azure 應用程式閘道」多站台支援的概觀。
 services: application-gateway
-author: amsriva
-manager: rossort
-editor: ''
-ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 1/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 645f68d836babf11f32fc391e6dacc9430f0070c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04aca43e7220b0d5f644ca4f03db3a7442972728
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22704756"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358463"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>應用程式閘道多站台裝載
 
-多站台裝載可讓您在相同的應用程式閘道執行個體上設定多個 Web 應用程式。 此功能可讓您將最多 20 個網站新增到一個應用程式閘道，為您的部署設定更有效率的拓撲。 每個網站都可以導向到自己的後端集區。 在下列範例中，應用程式閘道會從兩個後端伺服器集區 (名為 ContosoServerPool 和 FabrikamServerPool) 為 contoso.com 和 fabrikam.com 的流量提供服務。
+多站台裝載可讓您在相同的應用程式閘道執行個體上設定多個 Web 應用程式。 此功能可讓您將最多 100 個網站新增到一個應用程式閘道，為您的部署設定更有效率的拓撲。 每個網站都可以導向到自己的後端集區。 在下列範例中，應用程式閘道會從兩個後端伺服器集區 (名為 ContosoServerPool 和 FabrikamServerPool) 為 contoso.com 和 fabrikam.com 的流量提供服務。
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
 > [!IMPORTANT]
 > 規則會依照其列在入口網站中的順序進行處理。 強烈建議纖設定多站台接聽程式，再設定基本接聽程式。  這可確保流量路由傳送到右邊後端。 如果先列出了基本接聽程式，且該接聽程式符合傳入的要求，就會由該接聽程式處理。
 
-對 http://contoso.com 的要求會路由傳送至 ContosoServerPool，而 http://fabrikam.com 則會路由傳送至 FabrikamServerPool。
+對 http://contoso.com 的要求會路由傳送至 ContosoServerPool，而對 http://fabrikam.com 的要求則會路由傳送至 FabrikamServerPool。
 
 同樣地，相同父系網域的兩個子網域也可以裝載在相同的應用程式閘道部署上。 使用子網域的範例可能包括單一應用程式閘道部署上裝載的 http://blog.contoso.com 和 http://app.contoso.com。
 
@@ -130,4 +122,3 @@ ms.locfileid: "22704756"
 ## <a name="next-steps"></a>後續步驟
 
 了解多站台裝載之後，請移至 [使用多站台裝載建立應用程式閘道](application-gateway-create-multisite-azureresourcemanager-powershell.md) ，以建立能夠支援多個 Web 應用程式的應用程式閘道。
-

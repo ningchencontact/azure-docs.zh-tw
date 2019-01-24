@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: d23ed383bee3346cfbb20c6935dd3630e137c179
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 72e990516ce6ae3276c6db6f12d1a5dda4d0386f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573890"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432501"
 ---
 # <a name="reset-a-vpn-gateway"></a>重設 VPN 閘道
 
@@ -62,7 +62,7 @@ VPN 閘道是由兩個在「作用中-待命」設定中執行的 VM 執行個�
 
 ### <a name="resource-manager-deployment-model"></a>資源管理員部署模型。
 
-**Reset-AzureRmVirtualNetworkGateway** 是可用來重設閘道的 Cmdlet。 執行重設之前，請確認您已安裝最新版的 [Resource Manager PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0)。 下列範例會重設 TestRG1 資源群組中名為 VNet1GW 的虛擬網路閘道：
+**Reset-AzureRmVirtualNetworkGateway** 是可用來重設閘道的 Cmdlet。 執行重設之前，請確認您已安裝最新版的 [Resource Manager PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0)。 下列範例會重設 TestRG1 資源群組中名為 VNet1GW 的虛擬網路閘道：
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1

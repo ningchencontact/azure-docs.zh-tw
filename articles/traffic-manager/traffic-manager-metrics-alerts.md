@@ -1,8 +1,7 @@
 ---
-title: Azure 流量管理員中的計量與警示 | Microsoft Docs
+title: Azure 流量管理員中的計量與警示
 description: 本文描述在 Azure 中的流量管理員可使用的計量。
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: bb7817b082da11de3071925d01a3402902410a6f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0bce0d407246ceab05c3951dc976884dd6f15b08
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437957"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200185"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>流量管理員的計量與警示
 
@@ -24,15 +23,15 @@ ms.locfileid: "53437957"
 
 ## <a name="metrics-available-in-traffic-manager"></a>在流量管理員中可用的計量 
 
-流量管理員會依設定檔提供以下計量。客戶可以取用這些計量，進而了解其流量管理員使用情況，以及設定檔下端點的狀態。  
+流量管理員會依設定檔提供下列計量，客戶可以使用這些計量了解其流量管理員使用情況，以及設定檔下端點的狀態。  
 
 ### <a name="queries-by-endpoint-returned"></a>傳回的依端點查詢數
 使用[此計量](../azure-monitor/platform/metrics-supported.md)來檢視流量管理員設定檔在指定期間內處理的查詢數目。 您也可以在端點的細微層級來檢視相同的資訊，這樣有助於了解端點在來自流量管理員的查詢回應中被傳回幾次。
 
-在下方的範例中，圖 1 顯示流量管理員設定檔傳回的所有查詢回應。 
+在下列範例中，圖 1 顯示流量管理員設定檔傳回的所有查詢回應。 
 
   
-![流量管理員計量 - 所有查詢的彙總檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
+![所有查詢的彙總檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
 *圖 1：所有查詢的彙總檢視*
   
@@ -66,4 +65,4 @@ ms.locfileid: "53437957"
 
 ## <a name="next-steps"></a>後續步驟
 - 深入了解 [Azure 監視器服務](../azure-monitor/platform/metrics-supported.md)
-- 深入了解如何[使用 Azure 監視器建立新的圖表](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)
+- 深入了解如何[使用 Azure 監視器建立圖表](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)

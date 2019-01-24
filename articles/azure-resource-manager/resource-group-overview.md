@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
+ms.date: 01/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: 24646c9448a70af228085c99f03ab844e5af7e9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c447efba4fe6a3e3b969ea228a60e1ba8dd39f9d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053137"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320866"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 應用程式的基礎結構通常由許多元件所組成 – 或許是虛擬機器、儲存體帳戶和虛擬網路，或者 web 應用程式、資料庫、資料庫伺服器和第三方服務。 您看不到這些元件作為個別的實體，而是看到它們作為單一實體相關且彼此相依的組件。 您會想要將其當成群組來部署、管理和監視。 Azure Resource Manager 可讓您將方案中的資源作為群組使用。 您可以透過單一、協調的作業來部署、更新或刪除方案的所有資源。 您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。 Resource Manager 會提供安全性、稽核和標記功能，以協助您在部署後管理您的資源。 
@@ -37,7 +37,7 @@ Resource Manager 會提供一致的管理層，以透過 Azure portal 執行工�
 如果您不熟悉 Azure Resource Manager，則您可能不熟悉一些詞彙。
 
 * **資源** - 透過 Azure 提供的可管理項目。 部分常見資源有虛擬機器、儲存體帳戶、Web 應用程式、資料庫和虛擬網路，但這只是其中一小部分。
-* **資源群組** - 保留 Azure 方案相關資源的容器。 資源群組可以包含方案的所有資源，或只包含您要以群組方式管理的資源。 您可決定如何根據對組織最有利的方式，將資源配置到資源群組。 請參閱 [資源群組](#resource-groups)。
+* **資源群組** - 保留 Azure 方案相關資源的容器。 資源群組包含您要以群組的形式管理的資源。 您可決定如何根據對組織最有利的方式，將資源配置到資源群組。 請參閱 [資源群組](#resource-groups)。
 * **資源提供者** - 提供可透過 Resource Manager 部署及管理之資源的一項服務。 每個資源提供者都會提供作業，以便能運用所部署的資源。 部分常見資源提供者有 Microsoft.Compute (提供虛擬機器資源)、Microsoft.Storage (提供儲存體帳戶資源) 和 Microsoft.Web (提供與 Web 應用程式相關的資源)。 請參閱 [資源提供者](#resource-providers)。
 * **Resource Manager 範本** - 定義一或多個要部署至資源群組之資源的 JavaScript 物件標記法 (JSON) 檔案。 它也會定義所部署資源之間的相依性。 範本可用來以一致性方式重複部署資源。 請參閱 [範本部署](#template-deployment)。
 * **宣告式語法** - 可讓您陳述「以下是我想要建立的項目」而不需要撰寫一連串程式設計命令來加以建立的語法。 Resource Manager 範本便是宣告式語法的其中一個範例。 在該檔案中，您可以定義要部署至 Azure 之基礎結構的屬性。 

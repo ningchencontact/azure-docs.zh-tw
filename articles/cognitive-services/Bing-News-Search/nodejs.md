@@ -8,96 +8,85 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 17307aaac531924b02c92ac37151d10bfbc48143
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 82769655741fe6dcf1ccbd988e1ad0bfa2a5ec42
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252298"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262162"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>快速入門：使用 Node.js 和 Bing 新聞搜尋 REST API 來執行新聞搜尋
 
-本文說明如何在 Azure 上使用屬於 Microsoft 認知服務的 Bing 新聞搜尋 API。 雖然本文使用 Node.js，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求及剖析 JSON。 
+使用本快速入門來進行您對「Bing 影像搜尋 API」的第一次呼叫，並接收 JSON 回應。 這個簡單的 JavaScript 應用程式會將搜尋查詢傳送給 API，並顯示原始結果。
 
-範例是以 JavaScript 撰寫的，並且在 Node.js 6 下執行。
+雖然此應用程式是以 JavaScript 撰寫並在 Node.js 中執行的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
-請參閱 [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)了解 API 的技術詳細資料。
+[GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js) 上有此範例的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
-您必須有具備 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 您需要有啟動免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
+* 最新版的 [Node.js](https://nodejs.org/en/download/)。
 
-## <a name="bing-news-search"></a>Bing 新聞搜尋
+* [JavaScript 要求程式庫](https://github.com/request/request)
 
-[Bing 新聞搜尋 API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) 會從 Bing 搜尋引擎傳回新聞結果。
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-1. 在您最愛的 IDE 或編輯器中建立新的 Node.js 專案。
-2. 新增下方提供的程式碼。
-3. 以訂用帳戶有效的存取金鑰來取代 `subscriptionKey` 值。
-4. 執行程式。
+另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
-```javascript
-'use strict';
+## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
 
-let https = require('https');
+1. 在您最愛的 IDE 或編輯器中建立新的 JavaScript 檔案，並設定嚴謹度 和 https 需求。
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    ```javascript
+    'use strict';
+    let https = require('https');
+    ```
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'enter key here';
+2. 建立適用於 API 端點、影像 API 搜尋路徑、您訂用帳戶金鑰及搜尋字詞的變數。
+    ```javascript
+    let subscriptionKey = 'enter key here';
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/news/search';
+    let term = 'Microsoft';
+    ```
 
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this host against
-// the endpoint for your Bing Search instance in your Azure dashboard.
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/news/search';
+## <a name="handle-and-parse-the-response"></a>處理及剖析回應
 
-let term = 'Microsoft';
+1. 定義一個名為 `response_handler` 的函式，此函式會接受 HTTP 呼叫 `response` 作為參數。 在此函式內，執行下列步驟：
 
-let response_handler = function (response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-    });
-    response.on('end', function () {
-        console.log('\nRelevant Headers:\n');
-        for (var header in response.headers)
-            // header keys are lower-cased by Node.js
-            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                 console.log(header + ": " + response.headers[header]);
-        body = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log('\nJSON Response:\n');
-        console.log(body);
-    });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
+    1. 定義一個變數來包含 JSON 回應本文。  
+        ```javascript
+        let response_handler = function (response) {
+            let body = '';
+        };
+        ```
 
-let bing_news_search = function (search) {
-  console.log('Searching news for: ' + term);
-  let request_params = {
-        method : 'GET',
-        hostname : host,
-        path : path + '?q=' + encodeURIComponent(search),
-        headers : {
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
+    2. 當呼叫 **data** 旗標時，儲存回應本文
+        ```javascript
+        response.on('data', function (d) {
+            body += d;
+        });
+        ```
 
-    let req = https.request(request_params, response_handler);
-    req.end();
-}
-bing_news_search(term);
-```
+    3. 出現 **end** 旗標的信號時，即可檢視 JSON 和標頭。
 
-**回應**
+        ```javascript
+        response.on('end', function () {
+            console.log('\nRelevant Headers:\n');
+            for (var header in response.headers)
+                // header keys are lower-cased by Node.js
+                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                     console.log(header + ": " + response.headers[header]);
+            body = JSON.stringify(JSON.parse(body), null, '  ');
+            console.log('\nJSON Response:\n');
+            console.log(body);
+         });
+        ```
+
+## <a name="json-response"></a>JSON 回應
 
 如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
@@ -195,8 +184,4 @@ bing_news_search(term);
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [將新聞分頁](paging-news.md)
-> [使用裝飾標記醒目提示文字](hit-highlighting.md)
-> [搜尋網路上的新聞](search-the-web.md)  
-> [試試看](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
-
+[建立單頁 Web 應用程式](tutorial-bing-news-search-single-page-app.md)

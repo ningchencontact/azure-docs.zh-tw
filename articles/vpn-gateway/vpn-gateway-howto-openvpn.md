@@ -1,18 +1,18 @@
 ---
-title: 如何設定 Azure VPN 閘道上的 OpenVPN：PowerShell |Microsoft Docs
+title: 如何在 Azure VPN 閘道上設定 OpenVPN：PowerShell| Microsoft Docs
 description: 為 Azure VPN 閘道設定 OpenVPN 的步驟
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 01/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 958f4f46ec6ba407df7c739b7c62aa1489458485
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1dad960b0877cddf3be9afc01e3e687ebe4702c0
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408271"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357822"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway-preview"></a>為 Azure 點對站 VPN 閘道設定 OpenVPN (預覽)
 
@@ -47,7 +47,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="vnet"></a>1.建立點對站 VPN
 
-如果您還沒有正常運作的點對站台環境，請依照指示來建立一個。 請參閱[建立點對站 VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md)，來建立及設及使用原生 Azure 憑證驗證的點對站 VPN 閘道。
+如果您還沒有正常運作的點對站台環境，請依照指示來建立一個。 請參閱[建立點對站 VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md)，來建立及設及使用原生 Azure 憑證驗證的點對站 VPN 閘道。 請注意，IKEv2 點對站不支援基本 SKU。
 
 ## <a name="cmdlets"></a>2.安裝 PowerShell Cmdlet
 

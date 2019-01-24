@@ -7,14 +7,14 @@ ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 4aafff81957943fc19f0f6d2fce8a41f7be58d16
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: d1563e819666a428258c34d55be8f9b6980a151a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34056256"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436008"
 ---
 # <a name="create-an-azure-automation-runbook"></a>建立 Azure 自動化 Runbook
 
@@ -102,3 +102,4 @@ ms.locfileid: "34056256"
 
 > [!div class="nextstepaction"]
 > [自動化方法 - Runbook 類型](./automation-runbook-types.md)
+

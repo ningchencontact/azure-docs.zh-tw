@@ -1,19 +1,19 @@
 ---
 title: 將管理事件的 Azure 警示移轉至活動記錄警示
-description: 管理事件的警示將於 10 月 1 日移除。 藉由移轉現有警示來做準備。
+description: 管理事件的警示將於 10 月 1 日移除。 藉由遷移現有警示來做準備。
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
-ms.component: alerts
-ms.openlocfilehash: 8fd7161208f6303e03deaacca6a1e2fad24ec45e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 55d0269aaa330f928a9d037eec6a3445825a5ed3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580871"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470336"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>將管理事件的 Azure 警示移轉至活動記錄警示
 
@@ -116,3 +116,4 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 * 檢閱[活動記錄警示 webhook 結構描述](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 * 深入了解[服務通知](../../azure-monitor/platform/service-notifications.md)
 * 深入了解[動作群組](../../azure-monitor/platform/action-groups.md)
+

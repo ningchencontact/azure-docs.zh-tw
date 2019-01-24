@@ -1,23 +1,23 @@
 ---
-title: Azure Active Directory 中的大型組織使用者、群組、授權和角色 | Microsoft Docs
+title: 使用者、群組、授權和角色概觀 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory 中使用者與指派的授權、系統管理員角色、群組成員資格之間的關聯性
 keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 10/01/2018
+ms.date: 01/14/2019
 ms.topic: overview
 ms.service: active-directory
 ms.workload: identity
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: 7f588766ead19f2cbca22aab596e6dc9d0210791
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 2689ec400b7d29c9f086481056e5f554d7fde95a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48019911"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321954"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>大型組織的使用者、群組、授權和角色
 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Content Moderator 中審查文字 | Microsoft Docs
+title: 在 Azure Content Moderator 中審查文字 - 內容仲裁
 description: 了解如何在 Content Moderator 中審查文字，以查看其分數和偵測到的標記。 請使用此資訊來判斷內容適當與否。
 services: cognitive-services
 author: sanjeev3
@@ -7,16 +7,16 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 60a8d03a6562c9a66c2f6781ebbc330c989b343e
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 005e6ed853cbc6013d74e7ff479097dcbb0a1043
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852090"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259558"
 ---
-# <a name="review-text"></a>檢閱文字
+# <a name="let-human-reviewers-review-text"></a>讓人力審核者審核文字
 
 您可以透過 Azure Content Moderator，使用分數和偵測到的標記來審查文字。 請使用此資訊來判斷內容適當與否。 
 

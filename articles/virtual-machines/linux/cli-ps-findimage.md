@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9fed56746f5b26269f6a70aeedd06ba9b19548f
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 2ff08b0f155be54ee57d2d9999c47aa56a366d09
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018820"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852196"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Marketplace 中尋找 Linux VM 映像
-此主題描述如何在 Azure Marketplace 中使用 Azure CLI 尋找 VM 映像。 當您使用 CLI、Resource Manager 範本或其他工具以程式設計方式建立 VM 時，使用此資訊來指定 Marketplace 映像。
+本主題描述如何在 Azure Marketplace 中使用 Azure CLI 尋找 VM 映像。 當您使用 CLI、Resource Manager 範本或其他工具以程式設計方式建立 VM 時，使用此資訊來指定 Marketplace 映像。
 
 也請透過 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 店面、[Azure 入口網站](https://portal.azure.com)或 [Azure PowerShell](../windows/cli-ps-findimage.md) 瀏覽可用的映像和供應項目。 
 
@@ -128,7 +128,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>瀏覽映像 
-要在位置中找到映像的另一個方法是在序列中執行 [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers)、[az vm image list-offers](/cli/azure/vm/image#az_vm_image_list_offers) 和 [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) 命令。 您可以使用這些命令來判斷下列的值：
+要在位置中找到映像的另一個方法是在序列中執行 [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers)、[az vm image list-offers](/cli/azure/vm/image) 和 [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) 命令。 您可以使用這些命令來判斷下列的值：
 
 1. 列出映像發行者。
 2. 針對指定的發行者，列出其供應項目。
@@ -171,7 +171,7 @@ westus      akamai-technologies
 westus      akumina
 ...
 ```
-使用此資訊從特定的發行者尋找供應項目。 例如，針對位於美國西部位置的 *Canonical* 發行者，執行 `azure vm image list-offers` 可尋找供應項目。 傳遞位置和發行者，如下列範例所示：
+使用這項資訊從特定的發行者尋找供應項目。 例如，針對位於美國西部位置的 *Canonical* 發行者，執行 `azure vm image list-offers` 可尋找供應項目。 傳遞位置和發行者，如下列範例所示：
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 33e0b66541e5ead5f3c05d2310ecc07e8a62324c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/17/2019
+ms.openlocfilehash: 0a0a5a046bd1afefe3f4c72e713a0dafe0c856e4
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728120"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390374"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>對 Azure SQL Database 使用虛擬網路服務端點和規則
 
@@ -118,8 +118,9 @@ RBAC 替代方案：
 
 - 虛擬網路規則只套用至 Azure Resource Manager 虛擬網路，而不是[傳統部署模型][arm-deployment-model-568f]網路。
 
-- 開啟 Azure SQL Database 的虛擬網路服務端點也可啟用 MySQL 和 PostgreSQL Azure 服務的端點。 不過，開啟端點時，嘗試從端點連線到您的 MySQL 或 PostgreSQL 執行個體將會失敗。
-  - 根本原因是該 MySQL 和 PostgreSQL 目前不支援執行 ACL。
+- 開啟 Azure SQL Database 的虛擬網路服務端點也可啟用 MySQL 和 PostgreSQL Azure 服務的端點。 不過，開啟端點時，嘗試從端點連線到您的 MySQL 或 PostgreSQL 執行個體可能會失敗。
+  - 根本原因是 MySQL 和 PostgreSQL 可能未設定虛擬網路規則。 您必須為適用於 MySQL 和 PostgreSQL 的 Azure 資料庫設定虛擬網路規則，設定之後就能成功連線。
+
 - 在防火牆上，IP 位址範圍會套用到下列網路項目，但虛擬網路規則不這麼做：
   - [站對站 (S2S) 虛擬私人網路 (VPN)][vpn-gateway-indexmd-608y]
   - 透過 [ExpressRoute][expressroute-indexmd-744v] 的內部部署
@@ -172,7 +173,7 @@ Azure 儲存體已實作功能，可讓您限制連線至 Azure 儲存體帳戶�
 PolyBase 通常用於將資料從 Azure 儲存體帳戶載入 Azure SQL 資料倉儲。 如果您正在載入資料的來源 Azure 儲存體帳戶限制只能存取一組 VNet 子網路，從 PolyBase 到帳戶的連線會中斷。 如需透過連線至固定到 VNet 的 Azure 儲存體的 Azure SQL 資料倉儲來啟用 PolyBase 匯入和匯出案例，請按照下列所示的步驟進行：
 
 #### <a name="prerequisites"></a>必要條件
-1.  使用此[指南](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)安裝 Azure PowerShell。
+1.  使用此[指南](https://docs.microsoft.com/powershell/azure/install-az-ps)安裝 Azure PowerShell。
 2.  如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此[指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)先升級至一般用途 v2。
 3.  您必須開啟 Azure 儲存體帳戶 [防火牆與虛擬網路] 設定功能表下方的 [允許信任的 Microsoft 服務存取此儲存體帳戶]。 如需詳細資訊請參閱此[指南](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
  

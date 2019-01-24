@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ce2c3bffecd691acd5eb26b999c63fd2bb5dd510
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 12c4241da2f4a65205d128d72f86ce2bc91a853c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015334"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435578"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立 Data Factory 管線來移動資料
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ ms.locfileid: "54015334"
 
 ## <a name="prerequisites"></a>必要條件
 - 請完成[教學課程必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)一文中所列的必要條件。
-- 安裝 **Azure PowerShell**。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。
+- 安裝 **Azure PowerShell**。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) 中的指示。
 
 ## <a name="steps"></a>步驟
 以下是您會在本教學課程中執行的步驟：

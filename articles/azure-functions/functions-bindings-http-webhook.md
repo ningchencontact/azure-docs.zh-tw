@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 8d2bd74609447463b7ff857aa1037eaf5b6e3abb
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dc9c3b6740533ae26cf395e436908a359cadf8d9
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726998"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321308"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 觸發程序和繫結
 
@@ -53,7 +53,7 @@ HTTP 觸發程序可讓您透過 HTTP 要求叫用函式。 您可以使用 HTTP
 * [C#](#trigger---c-example)
 * [C# 指令碼 (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [Java](#trigger---java-example)
+* [Java](#trigger---java-examples)
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
@@ -332,10 +332,14 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-### <a name="trigger---java-example"></a>觸發程序 - Java 範例
+### <a name="trigger---java-examples"></a>觸發程序 - Java 範例
 
-下列範例示範 *function.json* 檔案中的觸發程序繫結，以及使用此繫結的 [Java 函式](functions-reference-java.md)。 此函式會傳回 HTTP 狀態碼 200 回應，以及會在觸發端要求本文前面加上 "Hello, " 問候語的要求本文。
+* [讀取查詢字串的參數](#read-parameter-from-the-query-string-java)
+* [從 POST 要求讀取主體](#read-body-from-a-post-request-java)
+* [從路由讀取參數](#read-parameter-from-a-route-java)
+* [從 POST 要求讀取 POJO 主體](#read-pojo-body-from-a-post-request-java)
 
+下列範例示範 *function.json* 檔案中的 HTTP 觸發程序繫結，以及使用該繫結的個別 [Java 函式](functions-reference-java.md)。 
 
 以下是 *function.json* 檔案：
 
@@ -358,17 +362,181 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 }
 ```
 
-以下是 Java 程式碼：
+#### <a name="read-parameter-from-the-query-string-java"></a>讀取查詢字串的參數 (Java)  
+
+此範例會從查詢字串中讀取名為 ```id``` 的參數，並使用它來建立傳回至用戶端且內容類型為 ```application/json``` 的 JSON 文件。 
 
 ```java
-@FunctionName("hello")
-public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
-                        final ExecutionContext context)
-    {
-        // default HTTP 200 response code
-        return String.format("Hello, %s!", request);
+    @FunctionName("TriggerStringGet")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("GET parameters are: " + request.getQueryParameters());
+
+        // Get named parameter
+        String id = request.getQueryParameters().getOrDefault("id", "");
+
+        // Convert and display
+        if (id.isEmpty()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String name = "fake_name";
+            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                         "\"description\": \"" + name + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
     }
+```
+
+#### <a name="read-body-from-a-post-request-java"></a>從 POST 要求讀取主體 (Java)  
+
+此範例會讀取 POST 要求的主體，作為 ```String```，並使用它來建立傳回至用戶端且內容類型為 ```application/json``` 的 JSON 文件。
+
+```java
+    @FunctionName("TriggerStringPost")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Request body is: " + request.getBody().orElse(""));
+
+        // Check request body
+        if (!request.getBody().isPresent()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String body = request.getBody().get();
+            final String jsonDocument = "{\"id\":\"123456\", " + 
+                                         "\"description\": \"" + body + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
+    }
+```
+
+#### <a name="read-parameter-from-a-route-java"></a>從路由讀取參數 (Java)  
+
+此範例會從路由路徑讀取名為 ```id``` 的必要參數，和選用參數 ```name```，然後使用這些參數來建立傳回至用戶端且內容類型為 ```application/json``` 的 JSON 文件。 T
+
+```java
+    @FunctionName("TriggerStringRoute")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET}, 
+              authLevel = AuthorizationLevel.ANONYMOUS,
+              route = "trigger/{id}/{name=EMPTY}") // name is optional and defaults to EMPTY
+            HttpRequestMessage<Optional<String>> request,
+            @BindingName("id") String id,
+            @BindingName("name") String name,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Route parameters are: " + id);
+
+        // Convert and display
+        if (id == null) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                         "\"description\": \"" + name + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
+    }
+```
+
+#### <a name="read-pojo-body-from-a-post-request-java"></a>從 POST 要求讀取 POJO 內文 (Java)  
+
+以下是此範例中所參照 ```ToDoItem``` 類別的程式碼：
+
+```java
+
+public class ToDoItem {
+
+  private String id;
+  private String description;  
+
+  public ToDoItem(String id, String description) {
+    this.id = id;
+    this.description = description;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+  
+  @Override
+  public String toString() {
+    return "ToDoItem={id=" + id + ",description=" + description + "}";
+  }
 }
+
+```
+
+此範例會讀取 POST 要求的主體。 要求主體會自動還原序列化至 ```ToDoItem``` 物件，並傳回至用戶端，且內容類型為 ```application/json```。 ```ToDoItem``` 參數會在指派給 ```HttpMessageResponse.Builder``` 類別的 ```body``` 屬性時，由 Functions 執行階段序列化。
+
+```java
+    @FunctionName("TriggerPojoPost")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<ToDoItem>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Request body is: " + request.getBody().orElse(null));
+
+        // Check request body
+        if (!request.getBody().isPresent()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final ToDoItem body = request.getBody().get();
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(body)
+                          .build();
+        }
+    }
 ```
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性

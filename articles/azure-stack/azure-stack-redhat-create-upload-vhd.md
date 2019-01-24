@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: 397f07c23d1c272e540741a339b57a8e1bcce198
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b9b8c44cd0afa7e156cfa7a20ff47316fa5242d7
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104007"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320611"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>準備適用於 Azure Stack 的 Red Hat 型虛擬機器
 
@@ -670,6 +670,6 @@ ms.locfileid: "54104007"
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在可以開始使用您的 Red Hat Enterprise Linux 虛擬硬碟在 Azure Stack 建立新的虛擬機器。 如果您是第一次將 VHD 檔案上傳至 Azure Stack，請參閱[使用 Marketplace 工具組建立及發行 Marketplace 項目](azure-stack-marketplace-publisher.md)。
+您現在可以開始使用您的 Red Hat Enterprise Linux 虛擬硬碟在 Azure Stack 建立新的虛擬機器。 如果您是第一次將 VHD 檔案上傳至 Azure Stack，請參閱[建立及發行 Marketplace 項目](azure-stack-create-and-publish-marketplace-item.md)。
 
 如需已通過認證可執行 Red Hat Enterprise Linux 的 Hypervisor 詳細資訊，請參閱 [Red Hat 網站](https://access.redhat.com/certified-hypervisors)。

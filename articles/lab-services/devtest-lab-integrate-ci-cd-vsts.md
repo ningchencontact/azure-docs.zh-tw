@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bcc39f2d8cf1ca0440f8028464d9041435914477
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082946"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263402"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>將 Azure DevTest Labs 整合到 Azure DevOps 持續整合和傳遞管線
 您可以使用安裝在 Azure DevOps 中的 *Azure DevTest Labs 工作*擴充功能，輕鬆地整合您的 CI/CD 組建和發行管線與 Azure DevTest Labs。 此延伸模組會安裝三項工作： 
@@ -85,7 +85,7 @@ ms.locfileid: "53082946"
 
 1. 將指令碼簽入您的來源控制系統中。 請將其命名為 **GetLabVMParams.ps1** 之類的名稱。
 
-   當您在建立發行管線的過程中對代理程式執行此指令碼時，如果您使用 *Azure 檔案複製*或*目標機器上的 PowerShell* 之類的工作步驟，指令碼將會收集您將應用程式部署至 VM 所需的值。 您通常會使用這些工作將應用程式部署至 Azure VM。 這些工作需要 VM 資源群組名稱、IP 位址和完整的網域名稱 (FDQN) 之類的值。
+   當您在建立發行管線的過程中對代理程式執行此指令碼時，如果您使用 *Azure 檔案複製*或*目標機器上的 PowerShell* 之類的工作步驟，指令碼將會收集您將應用程式部署至 VM 所需的值。 您通常會使用這些工作將應用程式部署至 Azure VM。 這些工作需要 VM 資源群組名稱、IP 位址和完整的網域名稱 (FQDN) 之類的值。
 
 ## <a name="create-a-release-pipeline-in-release-management"></a>在 Release Management 中建立發行管線
 若要建立發行管線，請執行下列動作：

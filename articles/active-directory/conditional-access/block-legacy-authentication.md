@@ -5,7 +5,7 @@ services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.component: conditional-access
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2abf0afb3b6e1cd80168fa3f295297551b9bf7ce
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 466e12877a63a32f461267a489573183b9da9734
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755150"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451301"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>作法：使用條件式存取封鎖對 Azure AD 的舊式驗證   
 

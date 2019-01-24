@@ -4,14 +4,14 @@ description: 概括介紹 Azure Migrate 服務的已知問題以及常見錯誤�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189491"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261225"
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
@@ -28,6 +28,18 @@ ms.locfileid: "54189491"
    ![停止探索](./media/troubleshooting-general/stop-discovery.png)
 
 - 刪除 VM：基於設備的設計方式，刪除 VM 並不會有所反映，即使您停止探索後再重新啟動也一樣。 這是因為後續探索中的資料會附加至較舊的探索，而且不會受到覆寫。 在此情況下，您可以藉由從群組中移除 VM 並重新計算評定，以直接忽略入口網站中的 VM。
+
+### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>刪除 Azure Migrate 專案和相關的 Log Analytics 工作區
+
+當您刪除 Azure Migrate 專案時，系統會刪除移轉專案，以及所有群組和評量。 不過，如果您已將 Log Analytics 工作區附加到該專案，系統並不會自動刪除該 Log Analytics 工作區。 這是因為相同的 Log Analytics 工作區可能已用於多個使用案例。 如果您也想要刪除 Log Analytics 工作區，便必須手動進行。
+
+1. 瀏覽到附加到專案的 Log Analytics 工作區。
+   a. 如果您尚未刪除移轉專案，便可以在 [基本資訊] 區段的專案概觀頁面中找到該工作區的連結。
+
+   ![LA 工作區](./media/troubleshooting-general/LA-workspace.png)
+
+   b. 如果您已經刪除移轉專案，請按一下 Azure 入口網站左窗格中的 [資源群組]，然後移至建立該工作區的資源群組，並瀏覽到該工作區。
+2. 遵循[這篇文章](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace)中的指示來刪除工作區。
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>移轉專案建立失敗，發生「要求必須包含使用者識別標頭」錯誤。
 
@@ -80,13 +92,13 @@ esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/conto
 
    ![專案位置](./media/troubleshooting-general/geography-location.png)
 
-## <a name="collector-errors"></a>收集器錯誤
+## <a name="collector-issues"></a>收集器問題
 
 ### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Azure Migrate 收集器的部署失敗，發生錯誤：提供的資訊清單檔案無效：OVF 資訊清單項目無效。
 
 1. 藉由檢查其雜湊值，驗證是否正確下載了 Azure Migrate 收集器 OVA 檔案。 請參閱[文章](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance)以驗證雜湊值。 如果雜湊值不相符，請再次下載 OVA 檔案並重試部署。
 2. 如果仍然失敗，且您使用 VMware vSphere 用戶端部署 OVF，請嘗試透過 vSphere Web 用戶端部署它。 如果仍然失敗，請嘗試使用不同的網頁瀏覽器。
-3. 如果您是使用 vSphere Web 用戶端，並嘗試在 vCenter Server 6.5 上部署它，請嘗試依照下列步驟直接在 ESXi 主機上部署 OVA：
+3. 如果您是使用 vSphere Web 用戶端，並嘗試在 vCenter Server 6.5 或 6.7上部署它，請嘗試依照下列步驟直接在 ESXi 主機上部署 OVA：
   - 使用 Web 客戶端 (https://<*主機 IP 位址*>/ui) 直接連線至 ESXi 主機 (而不是 vCenter Server)
   - 移至首頁 > 清查
   - 按一下 [檔案] > 部署 OVF 範本 > 瀏覽至 OVA 並完成部署
@@ -156,6 +168,17 @@ Azure Migrate 收集器會下載 PowerCLI，然後將它安裝到設備上。 Po
 2. 如果步驟 1 失敗，請嘗試透過 IP 位址連線到 vCenter Server。
 3. 識別連線至 vCenter 的正確連接埠號碼。
 4. 最後，請檢查 vCenter 伺服器是否啟動且正在執行。
+
+### <a name="antivirus-exclusions"></a>防毒排除項目
+
+若要強化 Azure Migrate 設備，您需要將設備中的下列資料夾從防毒掃描中排除：
+
+- 具有 Azure Migrate 服務二進位檔的資料夾。 排除所有子資料夾。
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate Web 應用程式。 排除所有子資料夾。
+  %SystemDrive%\inetpub\wwwroot
+- 資料庫和記錄檔的本機快取。 Azure Migrate 服務需要此資料夾的 RW 存取。
+  %SystemDrive%\Profiler
 
 ## <a name="dependency-visualization-issues"></a>相依性視覺效果問題
 

@@ -12,16 +12,16 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 34277aaa6ad6c5b22fb1691af83091e49d3bf5c1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 08571ac8b7e13bc0f414b481a481132793ba865d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021317"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452746"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 建立彈性作業代理程式
 
-[彈性作業](elastic-jobs-overview.md)可讓您以平行方式跨多個資料庫執行一或多個 Transact-SQL (T-SQL) 指令碼。
+[彈性作業](sql-database-job-automation-overview.md#elastic-database-jobs)可讓您以平行方式跨多個資料庫執行一或多個 Transact-SQL (T-SQL) 指令碼。
 
 在本教學課程中，您將了解跨多個資料庫執行查詢所需的步驟：
 
@@ -65,7 +65,7 @@ ms.locfileid: "54021317"
 
 ## <a name="create-required-resources"></a>建立所需的資源
 
-要建立彈性作業代理程式，必須要有作為[作業資料庫](elastic-jobs-overview.md#job-database)的資料庫 (S0 或更高版本)。 
+要建立彈性作業代理程式，必須要有作為[作業資料庫](sql-database-job-automation-overview.md#job-database)的資料庫 (S0 或更高版本)。 
 
 *下列指令碼會建立新的資源群組、伺服器，以及作為作業資料庫的資料庫。下列指令碼也會建立含有 2 個空白資料庫的第二個伺服器，以對其執行作業。*
 
@@ -210,7 +210,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 ## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>定義您要對其執行作業的目標資料庫
 
-[目標群組](elastic-jobs-overview.md#target-group)可定義一或多個將會執行作業步驟的資料庫。 
+[目標群組](sql-database-job-automation-overview.md#target-group)可定義一或多個將會執行作業步驟的資料庫。 
 
 下列程式碼片段會建立兩個目標群組：*ServerGroup* 和 *ServerGroupExcludingDb2*。 *ServerGroup* 會以執行時存在於伺服器上的所有資料庫為目標，*ServerGroupExcludingDb2* 則會以伺服器上的所有資料庫為目標，但 *TargetDb2* 除外：
 

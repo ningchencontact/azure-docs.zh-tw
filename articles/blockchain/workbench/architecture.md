@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 91dd0f262d1a7e661a6f9e0c4974087503dde3e1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 83c5e1405c402a1c6c98f9dbcaaf74891eb75e6d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240571"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330631"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 架構
 
@@ -44,6 +44,8 @@ Workbench 會為 Web 和行動裝置 (iOS、Android) 提供自動產生的用戶
 * 針對常見案例部署 Microsoft 所提供的智慧合約。 例如，資產傳輸案例。
 * 上傳並部署他們自己的智慧合約。
 * 在特定角色的內容中對使用者指派智慧合約的存取權。
+
+如需詳細資訊，請參閱 [GitHub 上的 Azure Blockchain Workbench 範例用戶端應用程式](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-development-kit/connect/mobile/blockchain-workbench/workbench-client)。
 
 ## <a name="gateway-service-api"></a>閘道服務 API
 
@@ -82,7 +84,7 @@ Blockchain Workbench 會自動部署兩種類型的事件消費者。 其中一�
 
 ## <a name="transaction-builder-and-signer"></a>交易產生器和簽署者
 
-如果輸入訊息代理人上的訊息需要寫入至區塊鏈，將會由 DLT 取用者負責處理。 DLT 取用者是一個服務，其會擷取訊息 (其中包含所要執行交易的中繼資料)，然後將資訊傳送至「交易產生器和簽署者」。 「交易產生器和簽署者」會將以資料為基礎的區塊鏈交易與所需的 區塊鏈目的地組合在一起。 一經組合，便會簽署交易。 私密金鑰會儲存在 Azure Key Vault。
+如果輸入訊息代理人上的訊息需要寫入至區塊鏈，將會由 DLT 取用者負責處理。 DLT 取用者是一項服務，其會擷取訊息 (其中包含所要執行交易的中繼資料)，然後將資訊傳送至「交易產生器和簽署者」。 「交易產生器和簽署者」會將以資料為基礎的區塊鏈交易與所需的 區塊鏈目的地組合在一起。 一經組合，便會簽署交易。 私密金鑰會儲存在 Azure Key Vault。
 
  Blockchain Workbench 會從 Key Vault 擷取適當的私密金鑰，並在 Key Vault 外簽署交易。 一經簽署，交易就會傳送至交易路由器和總帳。
 
@@ -109,7 +111,7 @@ Azure 儲存體可用來儲存合約以及與合約相關聯的中繼資料。
 
 從採購單和提貨單、到新聞和醫學影像所使用的圖片，再到源自 Continuum 的影片 (包括警用隨身攝影機和強檔電影)，文件在許多以區塊鏈為中心的案例中都扮演一定角色。 文件不適合直接放在區塊鏈上。
 
-Blockchain Workbench 能夠使用區塊鏈商務邏輯來新增文件或其他媒體內容。 文件或媒體內容的雜湊會儲存在區塊鏈中，實際的文件或媒體內容則會儲存在 Azure 儲存體中。 相關聯的交易資訊會傳遞至輸入訊息代理人、進行封裝、簽署，並路由傳送到區塊鏈。 此程序會觸發事件，這些事件會透過輸出訊息代理人來共用。 SQL DB 會取用此資訊，並將其傳送至 DB 以便稍後進行查詢。 下游系統也可取用這些事件以採取適當行動。
+Blockchain Workbench 能夠使用區塊鏈商務邏輯來新增文件或其他媒體內容。 文件或媒體內容的雜湊會儲存在區塊鏈中，實際的文件或媒體內容則會儲存在 Azure 儲存體中。 相關聯的交易資訊會傳遞至輸入訊息代理人、加以封裝、簽署，並路由傳送至區塊鏈。 此程序會觸發事件，這些事件會透過輸出訊息代理人來共用。 SQL DB 會取用這項資訊，並將其傳送至 DB 以便稍後進行查詢。 下游系統也可取用這些事件以採取適當行動。
 
 ## <a name="monitoring"></a>監視
 

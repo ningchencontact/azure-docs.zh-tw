@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 4ead84ef415dcb85682b15414380055d8799b54c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bbeccd03fffb699c95d52d50ec5c45e38b43ef51
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051215"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430393"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>使用 PowerShell 備份和還原 Azure 檔案共用
 
@@ -34,7 +34,7 @@ ms.locfileid: "54051215"
 ## <a name="setup-and-registration"></a>設定和註冊
 
 > [!NOTE]
-> 如[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0)中所述，AzureRM 模組中新功能的支援於 2018 年 11 月結束。 透過現在正式推出的新 Az PowerShell 模組，提供對 Azure 檔案共用備份的支援。
+> 如[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)中所述，AzureRM 模組中新功能的支援於 2018 年 11 月結束。 透過現在正式推出的新 Az PowerShell 模組，提供對 Azure 檔案共用備份的支援。
 
 請依照下列步驟開始。
 

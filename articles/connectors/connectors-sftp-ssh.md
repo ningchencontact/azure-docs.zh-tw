@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
-ms.date: 10/31/2018
-ms.openlocfilehash: 336288aaf3817fe267d58a225249bf54cca691bc
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 01/15/2019
+ms.openlocfilehash: e0f0230241bdffa97b94c88eb4b2d76fd44bcdea
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979092"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320781"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>藉由使用 SSH 和 Azure Logic Apps 來監視、建立及管理 SFTP 檔案
 
@@ -27,7 +27,7 @@ ms.locfileid: "50979092"
 * 取得檔案內容與中繼資料。
 * 將封存檔案解壓縮到資料夾。
 
-相較於 [SFTP 連接器](../connectors/connectors-create-api-sftp.md)，SFTP-SSH 連接器可讀取或寫入最大 *1GB* 的檔案。 對於大於 1 GB 的檔案，您可以使用 SFTP-SSH 連接器並[對大型訊息進行區塊化以方便處理](../logic-apps/logic-apps-handle-large-messages.md)。 如需其他差異的資訊，請檢閱本文章稍後的[比較 SFTP-SSH 和 SFTP](#comparison) 一節。
+相較於 [SFTP 連接器](../connectors/connectors-create-api-sftp.md)，SFTP-SSH 連接器可讀取或寫入最大 *1GB* 的檔案。 如需其他差異的資訊，請檢閱本文章稍後的[比較 SFTP-SSH 和 SFTP](#comparison) 一節。
 
 您可以使用觸發程序來監視 SFTP 伺服器上的事件，並讓輸出可供其他動作使用。 您可以使用動作，在 SFTP 伺服器上執行各種工作。 您也可以讓邏輯應用程式中的其他動作使用 SFTP 動作的輸出。 例如，如果您定期從 SFTP 伺服器擷取檔案，可以藉由使用 Office 365 Outlook 連接器或 Outlook.com 連接器，傳送關於那些檔案及其內容的電子郵件警示。
 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
@@ -48,7 +48,7 @@ ms.locfileid: "50979092"
   > * **加密演算法**：DES-EDE3-CBC、DES-EDE3-CFB、 DES-CBC、AES-128-CBC、AES-192-CBC 和 AES-256-CBC
   > * **指紋**：MD5
 
-* 相較於 SFTP 連接器，可讀取或寫入最大 *1GB* 的檔案。 對於大於 1 GB 的檔案，請將[大型訊息進行區塊化以方便處理](../logic-apps/logic-apps-handle-large-messages.md)。 
+* 相較於 SFTP 連接器，可讀取或寫入最大 *1GB* 的檔案，但可處理 50 MB 的資料，而非 1 GB 的資料。
 
 * 提供**建立資料夾**動作，可在 SFTP 伺服器上指定的路徑中建立資料夾。
 
@@ -122,7 +122,7 @@ ms.locfileid: "50979092"
 
 SFTP-SSH 觸發程序的運作方式是會輪詢 SFTP 檔案系統，然後尋找自上次輪詢後已變更的所有檔案。 某些工具可讓您在檔案變更時保留時間戳記。 在這些情況下，您必須停用此功能，以便讓您的觸發程序可以運作。 以下是一些常見的設定：
 
-| SFTP 用戶端 | 動作 | 
+| SFTP 用戶端 |  動作 | 
 |-------------|--------| 
 | Winscp | 移至 [選項] > [喜好設定] > [傳輸] > [編輯] > [保留時間戳記] > [停用] |
 | FileZilla | 移至 [傳輸] > [保留傳輸檔案的時間戳記] > [停用] | 
@@ -137,13 +137,13 @@ SFTP-SSH 觸發程序的運作方式是會輪詢 SFTP 檔案系統，然後尋�
 
 ## <a name="examples"></a>範例
 
-### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH 觸發程序：當新增或修改檔案時
+### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH 觸發：當新增或修改檔案時
 
 此觸發程序會在 SFTP 伺服器上新增或變更了檔案時，啟動邏輯應用程式工作流程。 舉例來說，您可以新增條件來檢查檔案的內容，並根據內容是否符合指定條件來取得內容。 接著，您可以新增要取得檔案內容的動作，並將該內容放置於 SFTP 伺服器上的資料夾中。 
 
 **企業範例**：您可以使用此觸發程序，來監視代表客戶訂單的新檔案 SFTP 資料夾。 然後，您可以使用 SFTP 動作 (例如**取得檔案內容**)，來取得訂單的內容以進一步處理，並將該訂單儲存在訂單資料庫中。
 
-### <a name="sftp---ssh-action-get-content"></a>SFTP - SSH 動作：取得內容
+### <a name="sftp---ssh-action-get-content"></a>SFTP - SSH 動作：取得文字
 
 此動作會從 SFTP 伺服器上的檔案取得內容。 舉例來說，您可以新增來自上一個範例中的觸發程序，以及新增檔案內容必須符合的條件。 如果條件為 true，則可以執行會取得內容的動作。 
 

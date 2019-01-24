@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 8084f32ac8cc2184d93796468ad66fb73398e876
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e3a3a9946c3352be0409d1a773408e17302911fc
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783777"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304800"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>使用 NewTek TriCaster 編碼器來傳送單一位元速率的即時串流
 > [!div class="op_single_selector"]
@@ -39,18 +39,21 @@ ms.locfileid: "33783777"
 >
 >
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
+
 * [建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)
 * 確定有執行中的「串流端點」。 如需詳細資訊，請參閱 [在媒體服務帳戶中管理串流端點](media-services-portal-manage-streaming-endpoints.md)
 * 安裝最新版的 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 工具。
 * 啟動工具並連接到您的 AMS 帳戶。
 
 ## <a name="tips"></a>祕訣
+
 * 請盡可能使用實體的有線網際網路連線。
 * 判斷頻寬需求的一項法則是將串流位元速率加倍。 雖然這不是強制性需求，卻有助於減輕網路阻塞的影響。
 * 使用軟體型編碼器時，請關閉任何不必要的程式。
 
 ## <a name="create-a-channel"></a>建立通道
+
 1. 在 AMSE 工具中，瀏覽至 [Live] 索引標籤，然後在通道區域內按一下滑鼠右鍵。 從功能表選取 [建立通道...]  。
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
@@ -75,7 +78,8 @@ ms.locfileid: "33783777"
 >
 >
 
-## <a id=configure_tricaster_rtmp></a>設定 NewTek TriCaster 編碼器
+## <a name="a-idconfiguretricasterrtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>設定 NewTek TriCaster 編碼器
+
 在本教學課程中，我們會使用下列輸出設定。 本章節的其餘部分將詳細說明組態步驟。
 
 **視訊**：
@@ -90,9 +94,10 @@ ms.locfileid: "33783777"
 
 * 轉碼器：AAC (LC)
 * 位元速率：192 kbps
-* 取樣速率：44.1 kHz
+* 採樣速率：44.1 kHz
 
 ### <a name="configuration-steps"></a>組態步驟
+
 1. 依據使用的視訊輸入來源建立新的 **NewTek TriCaster** 專案。
 2. 進入該專案後，請尋找 [資料流]  按鈕，然後按一下該按鈕旁邊的齒輪圖示，以存取串流組態功能表。
 
@@ -131,6 +136,7 @@ ms.locfileid: "33783777"
 >
 
 ## <a name="test-playback"></a>測試播放
+
 瀏覽至 AMSE 工具，然後以滑鼠右鍵按一下要測試的通道。 在功能表中，將滑鼠游標停留在 [播放預覽]，並選取 [使用 Azure 媒體播放器]。  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
@@ -140,6 +146,7 @@ ms.locfileid: "33783777"
 如果收到錯誤，則必須重設通道，且編碼器設定需要調整。 如需指引，請參閱[疑難排解](media-services-troubleshooting-live-streaming.md)一文。  
 
 ## <a name="create-a-program"></a>建立程式
+
 1. 一旦確認通道播放沒問題後，請建立程式。 在 AMSE 工具的 [Live] 索引標籤下，於程式區域內按一下滑鼠右鍵，並選取 [建立新的程式]。  
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
@@ -156,12 +163,15 @@ ms.locfileid: "33783777"
 串流現在已經可以內嵌於播放程式中，或散發給某個對象，以供即時檢視。  
 
 ## <a name="troubleshooting"></a>疑難排解
+
 如需指引，請參閱[疑難排解](media-services-troubleshooting-live-streaming.md)一文。
 
 ## <a name="next-step"></a>後續步驟
+
 檢閱媒體服務學習路徑。
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>提供意見反應
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

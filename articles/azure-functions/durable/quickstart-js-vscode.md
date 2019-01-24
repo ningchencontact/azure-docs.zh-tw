@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 0db76e80b2ff7400e7c2914efbd2bbcb24d9b005
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034313"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359454"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>使用 JavaScript 建立第一個耐久函式
 
@@ -94,7 +94,7 @@ ms.locfileid: "54034313"
 
 ## <a name="create-an-activity-function"></a>建立活動函式
 
-1. 重複上一節的步驟，以使用 HTTP 觸發程序範本建立第三個函式。 但這次將函式命名為 `SayHello`。
+1. 重複上一節的步驟，以使用 HTTP 觸發程序範本建立第三個函式。 但這次將函式命名為 `E1_SayHello`。
 
 2. 開啟新函式的 index.js 檔案，並以下列程式碼取代內容：
 
@@ -121,9 +121,11 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 
     ![Azure 本機輸出](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. 將 HTTP 要求的 URL 貼到瀏覽器的網址列，以及查看協調流程的狀態。
+4. 將 `{functionName}` 取代為 `OrchestratorFunction`。
 
-5. 若要停止偵錯，請按 Shift + F1。
+5. 使用 [Postman](https://www.getpostman.com/) 或 [cURL](https://curl.haxx.se/) 之類的工具，將 HTTP POST 要求傳送至 URL 端點。
+
+6. 若要停止偵錯，請在 VS Code 中按 Shift + F1。
 
 確認函式在本機電腦上正確執行之後，就可以將專案發佈到 Azure。
 

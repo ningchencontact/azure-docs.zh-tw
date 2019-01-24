@@ -3,18 +3,18 @@ title: Azure 自動化中的連接資產
 description: Azure 自動化中的連接資產包含從 Runbook 或 DSC 設定連接到外部服務或應用程式所需的資訊。 這篇文章說明連接的詳細資料，以及如何以文字和圖形化編寫形式加以使用。
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: e00eb5756d34c7ca8cecc741b4832c583a6ed087
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284535"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439012"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自動化中的連接資產
 
@@ -23,7 +23,17 @@ ms.locfileid: "52284535"
 建立連接時，您必須指定 *連接類型*。 連接類型是定義一組屬性的範本。 連接會定義在其連接類型中定義的每一個屬性的值。 如果整合模組包含連線類型，且已匯入您的自動化帳戶，連線類型是在整合模組中加入 Azure 自動化或使用 [Azure 自動化 API](https://msdn.microsoft.com/library/azure/mt163818.aspx)建立。 否則，您必須建立中繼資料檔案來指定自動化連線類型。  如需有關於此的進一步資訊，請參閱[整合模組](automation-integration-modules.md)。  
 
 >[!NOTE]
->Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一金鑰儲存在 Azure 自動化中。 此金鑰會儲存在 Key Vault 中。 在儲存安全資產之前，系統會從 Key Vault 載入金鑰，然後用來加密資產。
+>Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一金鑰儲存在 Azure 自動化中。 此金鑰會儲存在系統管理的 Key Vault 中。 在儲存安全資產之前，系統會從 Key Vault 載入金鑰，然後用來加密資產。 此程序由 Azure 自動化所管理。
+
+## <a name="connection-types"></a>連線類型
+
+Azure 自動化中有三種可用的內建連線：
+
+* **Azure** - 此連線可用來管理傳統資源。
+* **AzureClassicCertificate** - 此連線由 **AzureClassicRunAs** 帳戶所使用。
+* **AzureServicePrincipal** - 此連線由 **AzureRunAs** 帳戶所使用。
+
+在大部分情況下，您並不需要建立連線資源，因為這項資源會在您建立 [RunAs 帳戶](manage-runas-account.md)時建立。
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell Cmdlet
 
@@ -154,3 +164,4 @@ azure_credential = get_automation_runas_credential(runas_connection)
 - 閱讀[圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)，以了解如何引導和控制您的 Runbook 中的邏輯流程。  
 
 - 若要進一步了解 Azure 自動化如何使用 PowerShell 模組，以及建立自有 PowerShell 模組來做為 Azure 自動化內整合模組的最佳做法，請參閱[整合模組](automation-integration-modules.md)。  
+

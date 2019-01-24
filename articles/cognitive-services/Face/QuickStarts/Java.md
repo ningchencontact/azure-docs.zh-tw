@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 7656d8247cfb16df9989638b7e8ad2ffd3ff445f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2c035734d443eba01af6f167681ae289401dbcb4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851665"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212867"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>快速入門：使用 REST API 和 Java 偵測影像中的人臉
 
@@ -31,14 +31,16 @@ ms.locfileid: "51851665"
 ## <a name="create-the-java-project"></a>建立 Java 專案
 
 在您的 IDE 中建立新的命令列 Java 應用程式，並以 **main** 方法新增 **Main** 類別。 然後，將 Maven 存放庫中的下列通用程式庫下載到您專案的 `lib` 目錄：
-* `org.apache.httpcomponents:httpclient:4.2.4`
+* `org.apache.httpcomponents:httpclient:4.5.6`
+* `org.apache.httpcomponents:httpcore:4.4.10`
 * `org.json:json:20170516`
+* `commons-logging:commons-logging:1.1.2`
 
 ## <a name="add-face-detection-code"></a>新增臉部偵測程式碼
 
 開啟您專案的 Main 類別。 在這裡，您將新增載入影像及偵測臉部所需的程式碼。
 
-### <a name="import-packages"></a>匯入封裝
+### <a name="import-packages"></a>匯入套件
 
 在檔案頂端新增下列 `import` 陳述式。
 
@@ -54,7 +56,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -92,7 +94,7 @@ private static final String faceAttributes =
 將以下方法新增至 **main** 方法。 此方法會建構對臉部 API 發出的 REST 呼叫，以偵測遠端影像中的臉部資訊 (`faceAttributes` 字串會指定要擷取的臉部屬性)。 然後將輸出資料寫入 JSON 字串。
 
 ```Java
-HttpClient httpclient = new DefaultHttpClient();
+HttpClient httpclient = HttpClientBuilder.create().build();
 
 try
 {

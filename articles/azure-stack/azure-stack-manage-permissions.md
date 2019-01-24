@@ -11,25 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: ab61e1f892f46ad36df741b7a72afcfcbaa0ed87
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 26ce7139b856fc2f8d7d2cad549b3dd3c0f5e406
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376930"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304678"
 ---
 # <a name="manage-role-based-access-control"></a>管理角色型存取控制
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 Azure Stack 中的使用者可以是訂用帳戶、資源群組或服務中每個執行個體的讀者、擁有者或參與者。 例如，使用者 A 對於訂用帳戶 1 可能擁有讀者權限，但對於虛擬機器 7 則具備擁有者權限。
 
- - 讀者：使用者可以檢視所有項目，但無法進行任何變更。
- - 參與者：使用者可以管理除了存取以外的所有項目
- - 擁有者：使用者可以管理所有項目，包括存取資源。
+ - 讀取器：使用者可以檢視所有事項，但無法進行任何變更。
+ - 參與者：使用者可以管理一切，但無法管理對資源的存取。
+ - 擁有者：使用者可以管理一切，包括對於資源的存取。
 
 ## <a name="set-access-permissions-for-a-user"></a>設定使用者的存取權限
 

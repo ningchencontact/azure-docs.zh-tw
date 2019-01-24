@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4a4f1691162ab9c9fbd5bc8802ecf7ebc4894d74
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e143c0c8ef09af49aed656d479bcad4dd35e2211
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193666"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351793"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>已知問題與針對 Azure Machine Learning 服務進行疑難排解
  
@@ -44,12 +44,8 @@ pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ## <a name="databricks"></a>Databricks
 
 Databricks 與 Azure Machine Learning 問題。
-
-1. Databricks 叢集建議：
-   
-   使用 Python 3 將 Azure Databricks 叢集建立為 v4.x。 建議使用高並行存取叢集。
  
-2. 已安裝更多套件時，在 Databricks 上安裝 AML SDK 會失敗。
+1. 已安裝更多套件時，在 Databricks 上安裝 AML SDK 會失敗。
 
    有些套件 (例如 `psutil`) 會導致發生衝突。 若要避免發生安裝錯誤，請透過凍結 lib 版本來安裝套件。 此問題與 Databricks 有關，和 Azure ML SDK 無關 - 您可能也會在其他程式庫遇到相同的問題。 範例：
    ```python
@@ -57,9 +53,10 @@ Databricks 與 Azure Machine Learning 問題。
    ```
    或者，如果您持續遇到 Python 程式庫的安裝問題，可以使用初始化指令碼。 這個方法不是正式的支援方法。 您可以參考[這份文件](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)。
 
-3. 在 Databricks 上使用自動化機器學習時，如果看到 `Import error: numpy.core.multiarray failed to import`
+2. 在 Databricks 上使用自動化機器學習時，如果您想要取消某個回合並開始新的實驗回合，請重新啟動您的 Azure Databricks 叢集。
 
-   因應措施：使用「在[安裝和附加](https://docs.databricks.com/user-guide/libraries.html#create-a-library)上建立程式庫」，將 Python 程式庫 `numpy==1.14.5` 匯入到您的 Databricks 叢集中。
+3. 在自動化機器學習設定中，如果您有超過 10 個反覆項目，請在提交回合時將 show_output 設定為 False。
+
 
 ## <a name="azure-portal"></a>Azure 入口網站
 如果您從 SDK 或入口網站的共用連結直接檢視工作區，將無法在延伸模組中檢視包含訂用帳戶資訊的一般 [概觀] 頁面。 您也無法切換至另一個工作區。 如果要檢視另一個工作區，因應措施是直接前往 [Azure 入口網站](https://portal.azure.com)並搜尋工作區名稱。

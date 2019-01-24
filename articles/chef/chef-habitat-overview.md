@@ -8,35 +8,30 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 4847d9ce551c9acf1e4fb6325c770187b2cfd89f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2bdcd4c504822a2e60156b0ac565465e0cf23a85
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052286"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358518"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>使用 Habitat 將應用程式部署至 Azure
-[Habitat](https://www.habitat.sh/) 是此類開放原始碼的先驅，提供了管理應用程式的全新方法。 Habitat 可以讓應用程式及其自動化成為部署的單位。 以輕量型的 "habitat" 包裝應用程式後，執行階段環境 (無論是容器、裸機或 PaaS) 就不再是重點，也不會再限制應用程式。 
+[Habitat](https://www.habitat.sh/) 是應用程式封裝與執行階段系統，可將應用程式和其自動化結合為部署單位。 這會為應用程式創造強大的便利性，可讓應用程式部署到容器、虛擬機器、裸機或 PaaS，而不需要重寫或重新封裝。
 
-本文說明使用 Habitat 的優點。
+本文將說明使用 Habitat 的主要優點。
 
-## <a name="support-for-the-modern-application"></a>對於現代應用程式的支援
-Habitat 套件包含應用程式在其整個生命週期執行所需的所有項目。 Habitat 的核心元件是：
-- 封裝格式 - Habitat 套件中的應用程式是不可部分完成的、固定的及可稽核的。
-- Habitat 監督員會在知曉套件的對等關係、升級策略及安全性原則的情形下，執行應用程式套件。 Habitat 監督員可在任何環境下設定及管理應用程式。
-- Habitat 生態系統也會提供建置服務 (該服務採用 Habitat 建置計劃)、建立 Habitat 套件並且將其發行至 Depot。
+## <a name="modernize-and-move-legacy-applications"></a>更新及搬移舊版應用程式
+藉由使用 Habitat 重新封裝舊版應用程式，即可從較舊的作業系統和中介軟體中釋放這些舊版應用程式。 產生的成品具可攜性，並可輕鬆地將平台更換到較新的基礎結構上，例如雲端中執行的虛擬機器或容器。
+
+## <a name="accelerate-container-adoption"></a>加速容器採用
+Habitat 能夠精確地表示執行階段相依性，藉此解決複雜微服務導向應用程式的持續部署。 超越個別元件的簡單藍/綠部署，且無須產生複雜的協調流程即可建構複雜的部署行為。
 
 ## <a name="run-any-application-anywhere"></a>在任何位置執行任何應用程式
-有了 Habitat，應用程式就可以不經修改，在任何執行階段環境下執行。 應用程式可以是從裸機和虛擬機器到容器 (例如 Docker)、叢集管理系統 (例如 Mesosphere 或 Kubernetes) 及 PaaS 系統 (例如 Pivotal Cloud Foundry) 的所有項目。
-
-## <a name="easily-port-legacy-applications"></a>輕鬆地連接繼承應用程式
-當繼承應用程式是包裝在 Habitat 套件中時，應用程式就與它們原始設計所在的環境無關。 套件可以快速地移到更現代的環境，例如雲端或容器。 此外，因為 Habitat 套件有標準、向外的介面，所以繼承應用程式會變得更容易管理。
-
-## <a name="improve-the-container-experience"></a>改善容器體驗
-Habitat 會降低在生產環境中管理容器的複雜度。 藉由讓容器內的應用程式組態自動化，Habitat 可以解決開發人員將容器型應用程式從開發環境移至生產環境時，所面對的挑戰。
+有了 Habitat，應用程式就可以不經修改，在任何執行階段環境下執行。 這包括從裸機和虛擬機器到容器 (例如 Docker)、叢集管理系統 (例如 Mesosphere 或 Kubernetes) 及 PaaS 系統 (例如 Pivotal Cloud Foundry) 的所有項目。
 
 ## <a name="integrate-into-the-chef-devops-workflow"></a>整合至 Chef DevOps 工作流程
-Habitat 專案是由 Chef 協辦。 Habitat 會利用 Chef 對基礎結構自動化的深厚經驗，為應用程式帶來所未有的自動化功能。 Chef 可提供對於 Habitat 的商務支援，並且確保 Habitat 與 Chef 傳遞之間的無縫整合，讓應用程式發行週期 (從開發到部署) 自動化。
+Habitat 專案 Chef 軟體的其中一開放原始碼專案，具有強大的社群支援。 Habitat 會利用 Chef 對基礎結構自動化的深厚經驗，為應用程式帶來所未有的自動化功能。 Chef 可提供對於 Habitat 的商務支援，並且建置 Habitat 與 Chef Automate 之間的無縫整合，讓應用程式發行週期 (從開發到部署) 完全自動化。
 
 ## <a name="next-steps"></a>後續步驟
-* [使用 Chef 在 Azure 上建立 Windows 虛擬機器](/azure/virtual-machines/windows/chef-automation)
+
+* [試用 Habitat](https://www.habitat.sh/learn/)

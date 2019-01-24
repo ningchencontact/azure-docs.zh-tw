@@ -1,59 +1,33 @@
 ---
-title: 使用 Azure SQL Database 受控執行個體進行複寫 | Microsoft Docs
-description: 了解如何搭配 Azure SQL Database 受控執行個體使用 SQL Server 複寫
+title: 在 Azure SQL Database 受控執行個體中設定複寫 | Microsoft Docs
+description: 了解如何在 Azure SQL Database 受控執行個體中設定異動複寫
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: 4a272b028e1e3ef2778227f259c0b1b980af885d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/16/2019
+ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547587"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360083"
 ---
-# <a name="replication-with-sql-database-managed-instance"></a>使用 SQL Database 受控執行個體進行複寫
+# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>在 Azure SQL Database 受控執行個體中設定複寫
 
-複寫可在 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)的公開預覽版上使用。 受控執行個體可以裝載發行者、散發者和訂閱者資料庫。
-
-## <a name="common-configurations"></a>一般設定
-
-一般情況下，發行者和散發者必須都位在雲端或內部部署中。 不支援下列設定：
-
-- **發行者與本機散發者在受控執行個體上**
-
-   ![Replication-with-azure-sql-db-single-managed-instance-publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
-
-   在單一受控執行個體上設定發行者和 散發者資料庫。
-
-- **發行者與遠端散發者在受控執行個體上**
-
-   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
-
-   在兩個受控執行個體上設定發行者和散發者。 在此設定中：
-
-  - 這兩個受控執行個體位於相同的 vNet。
-
-  - 這兩個受控執行個體位於相同的位置。
-
-- **發行者和散發者在內部部署，而訂閱者在受控執行個體上**
-
-   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
-
-   在此設定中，Azure SQL Database 是訂閱者。 此設定支援從內部部署移轉至 Azure。 在訂閱者角色中，SQL Database 不需要受控執行個體，但是您可以使用 SQL Database 受控執行個體作為從內部部署移轉至 Azure 的步驟。 如需 Azure SQL Database 訂閱者的詳細資訊，請參閱[複寫至 SQL Database](replication-to-sql-database.md)。
+異動複寫可讓您將資料從 SQL Server 或 Azure SQL Database 受控執行個體的資料庫複寫到受控執行個體中，或將您的受控執行個體資料庫中所做的變更推送到其他 SQL Server、Azure 單一資料庫或其他受控執行個體中。 複寫 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)的公開預覽功能。 受控執行個體可以裝載發行者、散發者和訂閱者資料庫。 如需可用組態的相關資訊，請參閱[異動複寫組態](sql-database-managed-instance-transactional-replication.md#common-configurations)。
 
 ## <a name="requirements"></a>需求
 
 Azure SQL Database 上的發行者和散發者需要：
 
-- Azure SQL Database 受控執行個體。
+- 不在異地災害復原組態中的 Azure SQL Database 受控執行個體。
 
    >[!NOTE]
    >未設定受控執行個體的 Azure SQL Database 只能是訂閱者。
@@ -74,7 +48,13 @@ Azure SQL Database 上的發行者和散發者需要：
 
 - 訂閱者可以是內部部署、Azure SQL Database 中的單一資料庫，或 Azure SQL Database 彈性集區中的集區資料庫。
 
-- 單向或雙向複寫
+- 單向或雙向複寫。
+
+不支援下列功能：
+
+- 可更新的訂用帳戶。
+
+- 作用中的異地複寫。
 
 ## <a name="configure-publishing-and-distribution-example"></a>設定發行與散發範例
 
@@ -87,7 +67,7 @@ Azure SQL Database 上的發行者和散發者需要：
 
    在下列範例指令碼中，以此資料庫的名稱取代 `<Publishing_DB>`。
 
-4. 使用散發者的 SQL 驗證建立資料庫使用者。 請參閱[建立資料庫使用者](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users)。 使用安全的密碼。
+4. 使用散發者的 SQL 驗證建立資料庫使用者。 使用安全的密碼。
 
    在下列範例指令碼中，搭配此 SQL Server 帳戶資料庫使用者名稱和密碼使用 `<SQL_USER>` 和 `<PASSWORD>`。
 
@@ -188,15 +168,8 @@ Azure SQL Database 上的發行者和散發者需要：
                 @job_password = N'<PASSWORD>'
    GO
    ```
-
-## <a name="limitations"></a>限制
-
-不支援下列功能：
-
-- 可更新的訂用帳戶
-
-- 使用中的異地複寫
-
+   
 ## <a name="see-also"></a>另請參閱
 
+- [異動複寫](sql-database-managed-instance-transactional-replication.md)
 - [什麼是受控執行個體？](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

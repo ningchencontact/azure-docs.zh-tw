@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 5a1883412a5285c4916c43a5c6ad81168096dd7f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 1e4c978a8767154fb6a1f9a822cb0dd8d1b8796e
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993557"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331022"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(即將淘汰) Azure Container Service DC/OS 叢集中容器的負載平衡
 
@@ -97,7 +97,7 @@ az acs list --resource-group myResourceGroup --query "[0].agentPoolProfiles[0].f
 }
 ```
 
-請使用 DC/OS CLI 來執行應用程式。 Marathon 預設會將應用程式部署到私人叢集。 這表示上述部署只能透過您的負載平衡器進行存取，此舉通常是所需的行為。
+請使用 DC/OS CLI 來執行應用程式。 Marathon 依預設會將應用程式部署至私人叢集。 這表示上述部署只能透過您的負載平衡器進行存取，此舉通常是所需的行為。
 
 ```azurecli-interactive
 dcos marathon app add hello-web.json

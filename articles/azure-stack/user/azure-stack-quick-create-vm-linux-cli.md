@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 1/14/2019
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: fdf9ecd9b6133f05c1b2bda9c32d763d067a0243
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 77194de0b175ae66c0a119a816f32b152f269e56
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304579"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413340"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入門：在 Azure Stack 中使用 Azure CLI 建立 Linux 伺服器虛擬機器
 
@@ -73,7 +73,7 @@ az vm create \
 
 ## <a name="open-port-80-for-web-traffic"></a>針對 Web 流量開啟連接埠 80
 
-因為此虛擬機器即將執行 IIS 網頁伺服器，所以您需要對網際網路流量開啟連接埠 80。 使用 [az vm open-port](/cli/azure/vm#open-port) 命令來開啟所需的連接埠。
+因為此虛擬機器即將執行 IIS 網頁伺服器，所以您需要對網際網路流量開啟連接埠 80。 使用 [az vm open-port](/cli/azure/vm) 命令來開啟所需的連接埠。
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM

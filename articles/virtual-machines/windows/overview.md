@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a58644deb8d1325fd466d2a4d3a1fc927c83b685
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: bc9907930283e07ef8df826d2e7653b96f116518
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720249"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852043"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虛擬機器概觀
 
@@ -49,7 +49,7 @@ Azure 虛擬機器可用於許多用途。 部分範例如下：
 * VM 需要的相關資源
 
 ### <a name="naming"></a>命名
-虛擬機器指派一個[名稱](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)給它，而它設定一個電腦名稱作為作業系統的一部分。 VM 的名稱最多可為 15 個字元。
+虛擬機器指派一個[名稱](/azure/architecture/best-practices/naming-conventions)給它，而它設定一個電腦名稱作為作業系統的一部分。 VM 的名稱最多可為 15 個字元。
 
 如果您使用 Azure 來建立作業系統磁碟，則電腦名稱和虛擬機器名稱為相同。 如果您[上傳並使用您自己的映像](upload-generalized-managed.md) (該映像包含先前所設定的作業系統)，並用它來建立虛擬機器，則名稱可能會不同。 我們建議您，當您上傳自己的映像檔時，將作業系統中的電腦名稱設為與虛擬機器的名稱相同。
 
@@ -63,7 +63,7 @@ Azure 中所建立的所有資源分散在世界各地的多個[地理區域](ht
 | Azure 入口網站 |當您建立 VM 時，請從清單中選取位置。 |
 | Azure PowerShell |使用 [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) 命令。 |
 | REST API |使用[列出位置](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations)作業。 |
-| Azure CLI |使用 [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_list_locations) 作業。 |
+| Azure CLI |使用 [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest) 作業。 |
 
 ### <a name="vm-size"></a>VM 大小
 您使用的 VM [大小](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)是由所您要執行的工作負載所決定。 您所選的大小會決定例如處理電源、記憶體和儲存體容量等因素。 Azure 提供了各種不同的大小，以支援許多類型的用法。

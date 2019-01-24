@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: a476af9ceb1b664a458f7f07a5a7b3945b1ad881
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 601c23bbcddeaeff89e1d1b1a4be8cb6b0256e51
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036557"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258776"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>了解虛擬機器擴展集範本
 [Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)是部署相關資源群組的絕佳方式。 本教學課程系列說明如何建立最基本的可行擴展集範本，以及如何修改此範本來配合各種案例。 所有範例皆來自這個 [GitHub 存放庫](https://github.com/gatneil/mvss)。 
@@ -70,7 +70,7 @@ Resource Manager 範本也可讓您定義以後要在範本中使用的變數。
    "resources": [
 ```
 
-所有資源都必須要有 `type`、`name`、`apiVersion` 及 `location` 屬性。 這個範例的第一個資源具有類型 [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)、名稱 `myVnet`，以及 apiVersion `2016-03-30`。 (若要了解資源類型的最新 API 版本，請參閱 [Azure Resource Manager 範本參考](/azure/templates/)。)
+所有資源都必須要有 `type`、`name`、`apiVersion` 及 `location` 屬性。 這個範例的第一個資源具有類型 [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)名稱 `myVnet`，以及 apiVersion `2016-03-30`。 (若要了解資源類型的最新 API 版本，請參閱 [Azure Resource Manager 範本參考](/azure/templates/)。)
 
 ```json
      {

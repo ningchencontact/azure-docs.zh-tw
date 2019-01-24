@@ -3,7 +3,7 @@ title: 將目錄角色指派給使用者 - Azure Active Directory | Microsoft Do
 description: 有關如何使用 Azure Active Directory 將系統管理員和非系統管理員角色指派給使用者的指示。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: e8646893d6dd57fd3f743f450f438cd962f02b36
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ea5fd592dfbebd59df0cbd72c49093ffe383feeb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095115"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448749"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>使用 Azure Active Directory 將系統管理員和非系統管理員角色指派給使用者
 如果貴組織的使用者需要管理 Azure Active Directory (Azure AD) 資源的權限，您必須根據使用者需要權限才能執行的動作，在 Azure AD 中為使用者指派適當的角色。

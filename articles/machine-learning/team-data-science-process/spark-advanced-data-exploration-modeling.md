@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4aa7e8b45f3791212280226b396ed9eb0f86538c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 422c0477accab65b53071d22d067d96547bfeb8a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135469"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450554"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>使用 Spark 進階資料探索和模型化
 
@@ -403,7 +403,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
         labPt = LabeledPoint(line.tipped, features)
         return  labPt
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
     def parseRowOneHotBinary(line):
         features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
                                             line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
@@ -667,7 +667,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 
 截距：-0.0111216486893
 
-執行上述儲存格所花費的時間︰14.43 秒
+執行上述儲存格所花費的時間：14.43 秒
 
 **使用標準度量評估二進位分類模型**
 

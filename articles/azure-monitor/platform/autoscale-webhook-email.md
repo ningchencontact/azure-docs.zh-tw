@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: c655f117009c0c7c682ad92a951edc7e12255bc2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: autoscale
+ms.openlocfilehash: 248167eca532beb957c723f5074fc1546982efc8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325425"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463299"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>使用自動調整動作在 Azure 監視器中傳送電子郵件和 Webhook 警示通知
 本文將告訴您如何設定觸發程序，讓您可以根據 Azure 中的自動調整動作呼叫特定的 Web URl 或傳送電子郵件。  
@@ -120,3 +120,4 @@ Webhook 可以使用權杖型驗證來驗證，您會在其中儲存 Webhook URI
 | oldCapacity |是 |自動調整進行調整動作時的當前 (舊) 執行個體計數 |
 | newCapacity |是 |自動調整要將資源調整為此數目的新執行個體計數 |
 | properties |否 |選用。 <索引鍵, 值> 組 (例如，字典 <字串, 字串>)。 properties 欄位是選擇性的。 在自訂 UI 或邏輯應用程式的工作流程中，您可以輸入可使用承載傳遞的索引鍵和值。 另一個將自訂屬性傳回給連出 Webhook 呼叫的替代做法，是使用 Webhook URI 本身 (做為查詢參數) |
+

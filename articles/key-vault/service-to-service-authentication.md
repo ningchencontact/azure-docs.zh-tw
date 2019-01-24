@@ -12,12 +12,12 @@ ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: e3239d57b34af396ee4b23f3b9b01b367eb3daa6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 216a2e31074f7afe944611de12fe2d45d9d236cf
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050110"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413748"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 進行 Azure Key Vault 的服務對服務驗證
 
@@ -55,7 +55,7 @@ ms.locfileid: "54050110"
 
 `AzureServiceTokenProvider` 類別會快取記憶體中的權杖，並在到期之前從 Azure AD 擷取權杖。 因此，您不再需要先檢查到期日，再呼叫 `GetAccessTokenAsync` 方法。 當您想要使用權杖時，可直接呼叫方法。 
 
-`GetAccessTokenAsync` 方法需要資源識別碼。 若要深入了解，請參閱[哪些 Azure 服務支援 Azure 資源的受控識別](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity)。
+`GetAccessTokenAsync` 方法需要資源識別碼。 若要深入了解，請參閱[哪些 Azure 服務支援 Azure 資源的受控識別](https://docs.microsoft.com/azure/active-directory/msi-overview)。
 
 
 <a name="samples"></a>

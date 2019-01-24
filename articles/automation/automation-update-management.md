@@ -3,18 +3,18 @@ title: Azure 中的更新管理解決方案
 description: 本文旨在協助您了解如何利用 Azure 更新管理解決方案來管理 Windows 和 Linux 電腦的更新。
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0066a4ea5d91369bf6724dbaea4743a10bd8db0b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 8635d943120f0e79b8efcfe1f9be0b74d8bb4fac
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631850"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433895"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -125,6 +125,15 @@ Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠
 > [!NOTE]
 > 就使用 Operations Manager 代理程式的系統而言，若要能夠完全受控於「更新管理」，則必須將代理程式更新為 Microsoft Monitoring Agent。 若要深入了解如何更新代理程式，請參閱[如何升級 Operations Manager 代理程式](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents)。
 
+## <a name="onboard"></a>啟用更新管理
+
+若要開始修補系統，您需要啟用更新管理解決方案。 有許多方法可讓機器上線至更新管理。 下列是使解決方案上線的建議和支援方式：
+
+* [從虛擬機器](automation-onboard-solutions-from-vm.md)
+* [從瀏覽多部電腦](automation-onboard-solutions-from-browse.md)
+* [從自動化帳戶](automation-onboard-solutions-from-automation-account.md)
+* [使用 Azure 自動化 Runbook](automation-onboard-solutions.md)
+  
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>確認非 Azure 機器已上線
 
 若要確認直接連線的機器正與 Log Analytics 通訊，您可以在幾分鐘之後執行下列其中一個記錄搜尋。
@@ -606,3 +615,4 @@ CentOS 預設並不支援依更新分類來部署更新。 為了適當部署 Ce
 * 針對更新部署狀態[建立警示](automation-tutorial-update-management.md#configure-alerts)。
 
 * 若要了解如何透過 REST API 與「更新管理」進行互動，請參閱[軟體更新設定](/rest/api/automation/softwareupdateconfigurations)
+

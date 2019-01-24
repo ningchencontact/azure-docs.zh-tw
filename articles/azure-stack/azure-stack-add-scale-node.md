@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 3ce74cdb610f2902133459b913f53bb7809cb4b7
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ff068ff5aa4401a80f2220df79fdac93db21cfb3
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982992"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232867"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>在 Azure Stack 中新增更多縮放單位節點
 
@@ -105,6 +105,7 @@ Azure Stack 操作員可藉由新增更多實體電腦，以增加現有縮放�
 
 ### <a name="status-for-the-add-node-operation"></a>新增節點作業的狀態 
 **針對縮放單位：**
+
 |狀態               |說明  |
 |---------------------|---------|
 |執行中              |所有節點均有效參與縮放單位。|
@@ -115,6 +116,7 @@ Azure Stack 操作員可藉由新增更多實體電腦，以增加現有縮放�
 
 
 **針對縮放單位節點：**
+
 |狀態                |說明  |
 |----------------------|---------|
 |執行中               |節點正有效參與縮放單位。|
@@ -129,16 +131,16 @@ Azure Stack 操作員可藉由新增更多實體電腦，以增加現有縮放�
 以下是新增節點時常見的問題。 
 
 **案例 1：** 新增縮放單位節點作業失敗，但有一或多個節點會列示為「已停止」狀態。  
-- 補救措施：使用修復作業來修復一或多個節點。 一次只能執行一個修復作業。
+- 補救：使用修復作業來修復一或多個節點。 一次只能執行一個修復作業。
 
 **案例 2：** 已新增一或多個縮放單位節點，但儲存體擴充失敗。 在此案例中，縮放單位節點物件報告了「執行中」狀態，但「設定儲存體」工作並未啟動。  
-- 補救措施：執行下列 PowerShell Cmdlet，以使用具特殊權限的端點檢視儲存體健康情況：
+- 補救：執行下列 PowerShell Cmdlet，以使用具特殊權限的端點檢視儲存體健康情況：
   ```powershell
      Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
   ```
  
 **案例 3：** 您收到警示，指出儲存體相應放大作業失敗。  
-- 補救措施：在此情況下，儲存體設定工作已失敗。 發生此問題時，您必須連絡支援人員。
+- 補救：在此情況下，儲存體設定工作已失敗。 發生此問題時，您必須連絡支援人員。
 
 
 ## <a name="next-steps"></a>後續步驟 

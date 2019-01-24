@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fdb316f5f5c1f67dbb92fe8847c0ffacce46ae07
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: cb36b9514d98fe32f20e740fbb578ac7daada79c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789087"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478394"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 傳遞驗證：常見問題集
 
@@ -109,7 +109,7 @@ ms.locfileid: "53789087"
 
 「傳遞驗證代理程式」只要正在執行，就會維持作用中並持續處理使用者登入要求。 如果您想要將「驗證代理程式」解除安裝，請移至 [控制台] -> [程式集] -> [程式和功能]，然後將 [Microsoft Azure AD Connect 驗證代理程式] 和 [Microsoft Azure AD Connect 代理程式更新程式] 程式都解除安裝。
 
-如果您在完成上述步驟後查看 [Azure Active Directory 管理中心](https://aad.portal.azure.com)上的 [傳遞驗證] 刀鋒視窗，您將會看到「驗證代理程式」顯示為 [非作用中]。 這是_預期行為_。 幾天後，「驗證代理程式」就會自動從清單中卸除。
+如果您在完成上述步驟後查看 [Azure Active Directory 管理中心](https://aad.portal.azure.com)上的 [傳遞驗證] 刀鋒視窗，您將會看到「驗證代理程式」顯示為 [非作用中]。 這是 _預期行為_ 。 幾天後，「驗證代理程式」就會自動從清單中卸除。
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>我已使用 AD FS 登入 Azure AD。 要如何改為使用傳遞驗證？
 

@@ -3,7 +3,7 @@ title: 適用於 Linux 的 Azure N 系列 GPU 驅動程式設定 | Microsoft Doc
 description: 如何針對 Azure 中執行 Linux 的 N 系列 VM 設定 NVIDIA GPU 驅動程式
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 01/09/2019
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 822261e74f7da941ac89090e5d493c4be18bc307
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: df78852e309054bb5c27a779b37bb2310d9f7a01
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038879"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201035"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在執行 Linux 的 N 系列 VM 上安裝 NVIDIA GPU 驅動程式
 
@@ -51,9 +51,9 @@ lspci | grep -i NVIDIA
 
 然後執行您的配送映像特有的安裝命令。
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+### <a name="ubuntu"></a>Ubuntu 
 
-1. 下載並安裝 CUDA 驅動程式。
+1. 從 NVIDIA 網站下載並安裝 CUDA 驅動程式。 例如，針對 Ubuntu 16.04 LTS：
   ```bash
   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
@@ -97,7 +97,7 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS 或 Red Hat Enterprise Linux 7.3 或 7.4
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS 或 Red Hat Enterprise Linux
 
 1. 更新核心 (建議)。 若您選擇不要更新核心，請務必確認 `kernel-devel` 和 `dkms` 版本適合您的核心。
 
@@ -174,7 +174,7 @@ sudo reboot
 
 若要在 NV 或 NVv2 系列 VM 上安裝 NVIDIA GRID 驅動程式，請以 SSH 連線至每個 VM，並遵循您 Linux 發行版本的步驟。 
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+### <a name="ubuntu"></a>Ubuntu 
 
 1. 執行 `lspci` 命令。 請確認 NVIDIA M60 卡可以顯示為 PCI 裝置。
 
@@ -207,7 +207,7 @@ sudo reboot
 5. 下載並安裝 GRID 驅動程式：
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
 
   chmod +x NVIDIA-Linux-x86_64-grid.run
 
@@ -272,7 +272,7 @@ sudo reboot
 5. 下載並安裝 GRID 驅動程式：
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
 
   chmod +x NVIDIA-Linux-x86_64-grid.run
 

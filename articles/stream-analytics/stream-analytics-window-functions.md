@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 2650058e277bc0338c779655ce381be046fb120a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 04c19e7e51777db4c59bfab3d5a8a7598560556a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893639"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231643"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>串流分析時間範圍函式簡介
 在即時串流案例中，針對時間範圍中內含的資料執行作業是常見的模式。 串流分析具備對時間範圍函式的原生支援，可讓開發人員輕鬆地撰寫複雜的串流處理工作。
 
-您可以選擇四種時間範圍：[**輪轉**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics)、[**跳動**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics)、[**滑動**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics)以及[**工作階段**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics)時間範圍。  您要在串流分析工作的查詢語法子句 [**GROUP BY**](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) 中使用時間範圍函式。
+有四種時間範圍可以選擇：[輪轉][](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics)、[跳動][](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics)、[滑動][](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) 和 [工作階段][](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) 視窗。  您要在串流分析工作的查詢語法子句 [**GROUP BY**](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) 中使用時間範圍函式。
 
 所有[時間範圍](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics)作業都會在時間範圍**結束**時輸出結果。 時間範圍的輸出會是以使用的彙總函式為基礎的單一事件。 此輸出事件會有時間範圍結束的時間戳記，所有時間範圍函式都是以固定長度定義。 
 
@@ -40,7 +40,7 @@ ms.locfileid: "33893639"
 
 ![Stream Analytics 滑動時間範圍](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
-## <a name="session-window-preview"></a>工作階段時間範圍 (預覽)
+## <a name="session-window"></a>工作階段時間範圍
 工作階段時間範圍函式會將相近時間送達的事件分組，並將沒有任何資料的時間範圍篩選掉。 它有三個主要參數：逾時、最大持續期限和資料分割索引鍵 (選擇性)。
 
 ![Stream Analytics 工作階段時間範圍](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)

@@ -1,34 +1,35 @@
 ---
-title: 在 Azure Content Moderator 中審核影像 | Microsoft Docs
-description: 審核工具可讓人力審核者審核影像。
+title: 檢閱標記的影像 - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: 了解審查工具如何讓人力審核者在入口網站審查影像。
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 08/06/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 655c4b6d142c9f792a3b16c6b20d53efef51ea5b
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 14bcac5a16baa5566525952d29111566583c7b84
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852821"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259218"
 ---
-# <a name="review-moderated-images"></a>審核已審核的影像
+# <a name="let-human-reviewers-review-images"></a>讓人力審核者審核影像
 
-在您註冊內容審核並取得訂用帳戶金鑰之後，您可以試用影像審核功能。
+在您註冊內容審核並取得訂用帳戶金鑰之後，您可以試用影像審查功能。
 
-1.  開啟[人力審核工具](https://contentmoderator.cognitive.microsoft.com/)並登入。 
-2.  按一下 [嘗試] 索引標籤，並上傳一些影像進行審核。
-3.  按一下 [審核] 索引標籤，然後選取 [影像]。
+1.  開啟[人力審查工具](https://contentmoderator.cognitive.microsoft.com/)並登入。 
+2.  按一下 [嘗試] 索引標籤，並上傳一些影像進行審查。
+3.  按一下 [審查] 索引標籤，然後選取 [影像]。
 
   ![顯示審核工具的 Chrome 瀏覽器，其中 [審核影像] 選項已反白顯示](images/review-images-1.png)
 
-  影像會與審核工具所指派的任何標籤一起顯示。 當您審核影像時，影像無法提供您小組中其他審核者使用。
+  影像會與審查工具所指派的任何標籤一起顯示。 當您審查影像時，影像無法提供您小組中其他審查者使用。
 
-4.  移動「要顯示的審核」滑桿 (1) 以調整畫面上顯示的影像數目。 按一下已標記或未標記的按鈕 (2)，據以排序影像。 按一下標記 (3) 加以開啟或關閉。
+4.  移動「要顯示的審查」滑桿 (1) 以調整畫面上顯示的影像數目。 按一下已標記或未標記的按鈕 (2)，據以排序影像。 按一下標記 (3) 加以開啟或關閉。
 
   ![顯示含已標記影像供審核之審核工具的 Chrome 瀏覽器](images/review-images-2.png)
  
@@ -40,6 +41,6 @@ ms.locfileid: "51852821"
 
   ![仲裁詳細資料列在不同窗格的影像](images/review-images-4.png)
  
-7.  在您視需要審核並更新標記指派後，請按 [下一步] 以提交您的審核。
+7.  在您視需要審查並更新標記指派後，請按 [下一步] 以提交您的審查。
 
-在您提交之後，您大約有五秒的時間可按 [上一步] 按鈕，以返回上一個畫面並再次審核影像。 在這之後，影像不再存在於 [提交] 佇列中，而且無法再使用 [上一步] 按鈕。
+在您提交之後，您大約有五秒的時間可按 [上一步] 按鈕，以返回上一個畫面並再次審查影像。 在這之後，影像不再存在於 [提交] 佇列中，而且無法再使用 [上一步] 按鈕。

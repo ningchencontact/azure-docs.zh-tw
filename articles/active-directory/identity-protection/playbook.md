@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory identity protection, cloud discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 02d402b7de82631ce459c60cb42e5335c7e7cfe3
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 7e706b1dd9c7dd79285666885cb6ada89d8126b2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003295"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460519"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection 腳本
 
@@ -115,7 +115,7 @@ ms.locfileid: "40003295"
 
 ### <a name="user-risk-security-policy"></a>使用者風險安全性原則
 
-如需詳細資訊，請參閱[使用者風險安全性原則](overview.md#user-risk-security-policy)。
+如需詳細資訊，請參閱[如何設定使用者風險原則](howto-user-risk-policy.md)。
 
 ![使用者風險](./media/playbook/02.png "腳本")
 
@@ -140,7 +140,7 @@ ms.locfileid: "40003295"
 
 ### <a name="sign-in-risk-security-policy"></a>登入風險安全性原則
 
-如需詳細資訊，請參閱[使用者風險安全性原則](overview.md#user-risk-security-policy)。
+如需詳細資訊，請參閱[如何設定登入風險原則](howto-sign-in-risk-policy.md)。
 
 ![登入風險](./media/playbook/01.png "腳本")
 

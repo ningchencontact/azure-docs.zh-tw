@@ -3,7 +3,7 @@ title: 將現有的 Azure 訂用帳戶新增至您的租用戶 - Azure Active Di
 description: 以下相關指示說明如何將現有的 Azure 訂用帳戶新增至您的 Azure Active Directory 租用戶。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 09/13/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 4e4d4d9f34c8220ba70c64f073557f0293881c3e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 20c4be3741fa1e728cf59a148beb5adbc87b89c0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083864"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452016"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>將 Azure 訂用帳戶關聯或新增至您的 Azure Active Directory 租用戶
 Azure 訂用帳戶有與 Azure Active Directory (Azure AD) 之間的信任關係，這表示訂用帳戶信任 Azure AD 來驗證其使用者、服務與裝置。 多個訂用帳戶可以信任相同的 Azure AD 目錄，但每個訂用帳戶都只能信任單一目錄。

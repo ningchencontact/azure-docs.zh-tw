@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 860294ebc7fbadd3eeefc4298ec740ca7f704587
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2b114a4aed812a91a9f6c4ed43f57411e47ea677
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714389"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260023"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>快速入門：使用 Node Web 應用程式從 Azure Key Vault 設定及擷取祕密 
 
-此快速入門說明如何將祕密儲存在 Key Vault 中，以及如何使用 Web 應用程式擷取它。 若要查看祕密值，您必須在 Azure 上執行此作業。 此快速入門使用 Node.js 與適用於 Azure 資源的受控識別。
+本快速入門說明如何將祕密儲存在 Key Vault 中，以及如何使用 Web 應用程式加以擷取。 若要查看祕密值，您必須在 Azure 上執行此作業。 此快速入門使用 Node.js 與適用於 Azure 資源的受控識別。
 
 > [!div class="checklist"]
 > * 建立 Key Vault。
@@ -66,7 +66,7 @@ az group create --name "<YourResourceGroupName>" --location "East US"
 
 ## <a name="create-an-azure-key-vault"></a>建立 Azure Key Vault
 
-接下來，您會使用在上一個步驟中建立的資源群組建立 Key Vault。 雖然 “ContosoKeyVault” 作為此文章中的 Key Vault 名稱，但您必須使用唯一的名稱。 請提供下列資訊：
+接下來，您會使用在上一個步驟中建立的資源群組建立 Key Vault。 雖然 “ContosoKeyVault” 作為本文中的 Key Vault 名稱，但您必須使用唯一的名稱。 請提供下列資訊：
 
 * Vault 名稱 - **在這裡選取 Key Vault 名稱**。
 * 資源群組名稱 - **在這裡選取資源群組名稱**。
@@ -94,7 +94,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 ```
 
-此命令會顯示祕密資訊，包括 URI。 完成這些步驟之後，您的 Azure Key Vault 中應該會有密碼的 URI。 記下此資訊。 您在稍後的步驟中需要此資訊。
+此命令會顯示祕密資訊，包括 URI。 完成這些步驟之後，您的 Azure Key Vault 中應該會有密碼的 URI。 記下這項資訊。 您在稍後的步驟中需要此資訊。
 
 ## <a name="clone-the-repo"></a>複製存放庫
 

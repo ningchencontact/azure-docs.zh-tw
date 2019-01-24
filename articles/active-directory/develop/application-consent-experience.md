@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: zawad
-ms.openlocfilehash: e3e333594b32cff018f02cd1d3b32eaf44c11a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3193e9ac6ac5e90584bbf548142b7573d61c310a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903852"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413068"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>了解 Azure AD 應用程式同意體驗
 
@@ -84,4 +84,4 @@ ms.locfileid: "48903852"
 
 ## <a name="next-steps"></a>後續步驟
 - 取得有關 [Azure AD 同意架構如何實作同意](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework)的逐步概觀。
-- 深入了解[多租用戶應用程式如何使用同意架構](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)來實作「使用者」與「系統管理員」同意，進而支援更進階的多層應用程式模式。
+- 深入了解[多租用戶應用程式如何使用同意架構](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)來實作「使用者」與「系統管理員」同意，進而支援更進階的多層應用程式模式。

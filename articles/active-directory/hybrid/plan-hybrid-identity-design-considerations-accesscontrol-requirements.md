@@ -4,7 +4,7 @@ description: 說明身分識別的要件，以及針對混合式環境中的使�
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a92d3237300fcd29fecf49d78b2866f8bd7e6a6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f71fc7547ef60cdc3d038705dbb04d396affdf0a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247699"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478224"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>判斷混合式身分識別解決方案的存取控制需求
 當組織正在設計他們的混合式身分識別解決方案時，也可以利用這個機會，針對他們正規劃來讓使用者使用的資源檢閱存取需求。 您可以橫跨下列這四種身分識別要件來存取資料：

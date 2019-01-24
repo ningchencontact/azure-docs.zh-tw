@@ -1,19 +1,19 @@
 ---
 title: 透過 NFS 將資料複製到您的 Microsoft Azure 資料箱 | Microsoft Docs
-description: 了解如何將資料複製到您的 Azure 資料箱
+description: 了解如何透過 NFS 將資料複製到您的 Azure 資料箱
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/20/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 7ba6bc2cf3cf5286719bc6da519aabb364302af3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 1cd88e24b945bc6ce627b25b0645bf961039037b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550244"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359811"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>教學課程：透過 NFS 將資料複製到 Azure 資料箱 
 
@@ -44,12 +44,13 @@ ms.locfileid: "53550244"
 
 在區塊 Blob 與分頁 Blob 共用底下，第一層實體是容器，而第二層實體是 Blob。 在 Azure 檔案共用底下，第一層實體是共用，第二層實體是檔案。
 
-請思考一下下列範例。 
-
-- 儲存體帳戶：*Mystoracct*
-- 區塊 Blob 的共用：*Mystoracct_BlockBlob/my-container/blob*
-- 分頁 Blob 的共用：*Mystoracct_PageBlob/my-container/blob*
-- 檔案的共用：*Mystoracct_AzFile/my-share*
+下表顯示您資料箱上的共用 UNC 路徑，以及用於上傳資料的 Azure 儲存體路徑 URL。 最終的 Azure 儲存體路徑 URL 可以衍生自 UNC 共用路徑。
+ 
+|                   |                                                            |
+|-------------------|--------------------------------------------------------------------------------|
+| Azure 區塊 Blob | <li>共用的 UNC 路徑：`//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>Azure 儲存體 URL：`https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| Azure 分頁 Blob  | <li>共用的 UNC 路徑：`//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>Azure 儲存體 URL：`https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| Azure 檔案       |<li>共用的 UNC 路徑：`//<DeviceIPAddres>/<StorageAccountName_AzFile>/<ShareName>/files/a.txt`</li><li>Azure 儲存體 URL：`https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |
 
 如果您使用 Linux 主機電腦，請執行下列步驟設定資料箱，以允許 NFS 用戶端的存取。
 
@@ -71,14 +72,17 @@ ms.locfileid: "53550244"
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
+    **一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾**。 在區塊 Blob 和分頁 Blob 底下建立的資料夾，代表資料以 Blob 形式上傳至的容器。 您無法將檔案直接複製到儲存體帳戶中的 $root 資料夾。
+
 ## <a name="copy-data-to-data-box"></a>將資料複製到資料箱
 
-連線至資料箱共用後，下一個步驟是複製資料。 在複製資料之前，請務必檢閱下列注意事項：
+連線至資料箱共用後，下一個步驟是複製資料。 開始複製資料之前，請檢閱下列注意事項：
 
 - 確實將資料複製到與適當資料格式相對應的共用。 例如，將區塊 Blob 資料複製到區塊 Blob 的共用。 如果資料格式不符合適當的共用類型，則在稍後步驟中，資料上傳至 Azure 的作業將會失敗。
 -  複製資料時，請確定資料大小符合 [Azure 儲存體和資料箱限制](data-box-limits.md)中所述的大小限制。 
 - 如果資料 (由資料箱上傳) 同時由資料箱以外的其他應用程式上傳，則可能導致上傳作業失敗和資料損毀。
 - 建議您不要同時使用 SMB 與 NFS，或將相同的資料複製到 Azure 上的相同最終目的地。 在這種情況下，無法判斷最後的結果。
+- **一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾**。 在區塊 Blob 和分頁 Blob 底下建立的資料夾，代表資料以 Blob 形式上傳至的容器。 您無法將檔案直接複製到儲存體帳戶中的 $root 資料夾。
 
 如果您使用 Linux 主機電腦，請使用類似於 Robocopy 的複製公用程式。 在 Linux 中有替代工具可供使用，包括 [rsync](https://rsync.samba.org/)、[FreeFileSync](https://www.freefilesync.org/)、[Unison](https://www.cis.upenn.edu/~bcpierce/unison/) 或 [Ultracopier](https://ultracopier.first-world.info/)。  
 
@@ -117,6 +121,10 @@ ms.locfileid: "53550244"
      其中，j 會指定平行處理數目，X = 平行複製數目
 
      建議您一開始先使用 16 個平行複製，然後再根據可用的資源增加執行緒數目。
+
+- 為了確保資料完整性，在複製資料時會計算內嵌的總和檢查碼。 複製完成後，請確認您的裝置上已使用的空間和可用空間。
+    
+   ![確認儀表板上的可用空間和已使用的空間](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ## <a name="prepare-to-ship"></a>準備寄送
 

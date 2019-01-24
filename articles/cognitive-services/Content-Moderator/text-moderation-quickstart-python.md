@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Python 分析文字內容中的不當題材
+title: 快速入門：在 Python 中分析文字內容 - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: 如何使用 Content Moderator SDK for Python 來分析文字內容中的各種不當題材
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 11/19/2018
+ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: acafd666b2d3791450499ebdf173ffb67ad2c932
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6aace9301050877d452b69bd7d1c741f50dae558
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106797"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264083"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>快速入門：使用 Python 分析文字內容中的不當題材
 

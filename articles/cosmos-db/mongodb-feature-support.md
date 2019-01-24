@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 7bf8258524b0b5e73c1a499fb6d3578098a0821e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 08638f0b55c84a6b0e42d3782246ef5b2ce833f3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039158"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359063"
 ---
 # <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>使用 Azure Cosmos DB 適用於 MongoDB 的 API 支援 MongoDB 功能和語法
 
@@ -20,13 +20,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 藉由使用 Azure Cosmos DB 適用於 MongoDB 的 API，您除了可享有慣用的 MongoDB 權益外，還可使用 Cosmos DB 提供的所有企業功能：[全域發佈](distribute-data-globally.md)、[自動分區](partition-data.md)、可用性和延遲保證、每個欄位的自動編製索引、待用加密、備份等功能。
 
-## <a name="mongodb-protocol-support"></a>MongoDB 通訊協定支援
+## <a name="protocol-support"></a>通訊協定支援
 
-Azure Cosmos DB 適用於 MongoDB 的 API 預設會與 MongoDB 伺服器 **3.2** 版相容。 以下列出支援的運算子及任何限制或例外狀況。 目前只有在預覽功能中，才提供 MongoDB **3.4** 版中新增的功能或查詢運算子。 任何能解析這些通訊協定的用戶端驅動程式，都應該能夠連線到 Azure Cosmos DB 適用於 MongoDB 的 API。
+Azure Cosmos DB 的 MongoDB 版 API 依預設會與 MongoDB 伺服器 **3.2** 版相容。 以下列出支援的運算子及任何限制或例外狀況。 目前只有在預覽功能中，才提供 MongoDB **3.4** 版中新增的功能或查詢運算子。 任何能解析這些通訊協定的用戶端驅動程式，都應該能夠連線到 Azure Cosmos DB 適用於 MongoDB 的 API。
 
 目前只在另一個預覽功能中，也提供了 [MongoDB 彙總管線](#aggregation-pipeline)。
 
-## <a name="mongodb-query-language-support"></a>MongoDB 查詢語言支援
+## <a name="query-language-support"></a>查詢語言支援
 
 Azure Cosmos DB 適用於 MongoDB 的 API 可完整支援 MongoDB 查詢語言結構。 目前支援的作業、運算子、階段、命令和選項詳細清單如下所示。
 
