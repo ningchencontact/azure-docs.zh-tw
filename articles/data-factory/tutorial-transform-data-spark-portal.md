@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: 34580687c047e842bfbfa12730c7c2d9868187b0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: be9ed1d840eab5478dee4d212705211c0967bdbd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014143"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427962"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動來轉換雲端中的資料
 在本教學課程中，您會使用 Azure 入口網站來建立 Azure Data Factory 管線。 此管線使用 Spark 活動和隨選 Azure HDInsight 連結服務來轉換資料。 
@@ -37,7 +37,7 @@ ms.locfileid: "54014143"
 > [!NOTE]
 > HdInsight 僅支援標準層的一般用途儲存體帳戶。 請確定帳戶不是進階或僅限 Blob 儲存體帳戶。
 
-* **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。
+* **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) 中的指示。
 
 
 ### <a name="upload-the-python-script-to-your-blob-storage-account"></a>將 Python 指令碼上傳至 Blob 儲存體帳戶

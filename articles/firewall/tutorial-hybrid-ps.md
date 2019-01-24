@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2018
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: fc02f754682046ead3f546fc1253e1c9ac0a63b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 511fb425c6b31d204c88094ec5b1a49316495a0a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261463"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431515"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
 
@@ -45,7 +45,7 @@ ms.locfileid: "54261463"
 
 ## <a name="prerequisites"></a>必要條件
 
-進行本教學課程時，您必須在本機執行 PowerShell。 您必須安裝 Azure PowerShell 模組 6.12.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 驗證 PowerShell 版本之後，請執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+進行本教學課程時，您必須在本機執行 PowerShell。 您必須安裝 Azure PowerShell 模組 6.12.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。 驗證 PowerShell 版本之後，請執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
 
 要讓此案例正常運作有三項重要需求：
 

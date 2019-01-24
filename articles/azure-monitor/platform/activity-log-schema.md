@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
-ms.component: logs
-ms.openlocfilehash: d5e57442a163c8a93adc39517285bd88affab2fe
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.subservice: logs
+ms.openlocfilehash: 9ad3ca2233237c9cb4aea0a7bd0c476f48613a9c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353051"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438230"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活動記錄事件結構描述
 透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。 資料的結構描述取決於您是在入口網站、PowerShell、CLI，或直接透過 REST API 讀取資料，還是[使用記錄設定檔，將資料串流處理至儲存體或事件中樞](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。 下列範例顯示透過入口網站、PowerShell、CLI 和 REST API 提供的結構描述。 本文結尾會提供這些屬性與 [Azure 診斷記錄結構描述](./tutorial-dashboards.md)的對應。
@@ -795,3 +795,4 @@ ms.locfileid: "54353051"
 ## <a name="next-steps"></a>後續步驟
 * [深入了解活動記錄檔 (之前的稽核記錄檔)](../../azure-monitor/platform/activity-logs-overview.md)
 * [將 Azure 活動記錄檔串流至事件中樞](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+

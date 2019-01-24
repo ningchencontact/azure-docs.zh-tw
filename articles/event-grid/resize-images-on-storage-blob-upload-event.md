@@ -2,22 +2,22 @@
 title: 使用 Azure Event Grid 以自動調整上傳映像的大小 | Microsoft Docs
 description: Azure Event Grid 可在 Azure 儲存體的 Blob 上傳項目上觸發。 您可以使用此將上傳至 Azure 儲存體的映像檔案傳送至其他服務 (例如 Azure Functions)，以調整大小和其他改善功能。
 services: event-grid, functions
-author: ggailey777
+author: spelluru
 manager: jpconnoc
 editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/29/2018
-ms.author: glenga
+ms.date: 01/19/2019
+ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 4d35ab9df17055b798207aafd0e0bdf3b17426fb
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 4a7e6189914728fac24e51f3b2dee66cc0bd8a05
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188465"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463706"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>教學課程：使用 Event Grid 自動調整已上傳映像的大小
 

@@ -3,7 +3,7 @@ title: 在 Azure Active Directory 中規劃條件式存取原則 | Microsoft Doc
 description: 在本文中，您將了解如何為 Azure Active Directory 規劃條件式存取原則。
 services: active-directory
 author: MarkusVi
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.component: conditional-access
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2018
 ms.author: markvi
 ms.reviewer: martincoetzer
-ms.openlocfilehash: 1c483b7f3fcb22aa617ff55699cb8f4d4da95912
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1911dd189e21a6d29b2bf1ba3d179b41e948f469
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355000"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450502"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>作法：在 Azure Active Directory 中規劃條件式存取部署
 
@@ -54,7 +54,7 @@ Azure Active Directory 條件式存取可讓您的雲端應用程式保護登上
 
 |發生「此情況」時：|則執行「此動作」：|
 |-|-|
-|嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組<br>透過：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如登入風險)|封鎖對應用程式的存取|
+|嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組<br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如登入風險)|封鎖對應用程式的存取|
 |嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組<br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如登入風險)|授與存取權 (滿足所有需求)：<br>- 需求 1 (例如 MFA)<br>- 需求 2 (例如裝置合規性)|
 |嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組<br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如登入風險)|授與存取權 (滿足需求之一)：<br>- 需求 1 (例如 MFA)<br>- 需求 2 (例如裝置合規性)|
 

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: a551856d5be1df63f4376c76c50ed53564afc175
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2469eef981246da9bfd9132ea0164395078fd164
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465026"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468449"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli"></a>使用 Azure CLI 將應用程式安裝到虛擬機器擴展集
 此指令碼會建立執行 Ubuntu 的虛擬機器擴展集，並使用自訂指令碼擴充功能來安裝基本 Web 應用程式。 執行指令碼之後，您就可以透過網頁瀏覽器來存取 Web 應用程式。
@@ -45,7 +45,7 @@ az group delete --name myResourceGroup
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](/cli/azure/ad/group#az_ad_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az group create](/cli/azure/ad/group) | 建立用來存放所有資源的資源群組。 |
 | [az vmss create](/cli/azure/vmss#az_vmss_create) | 建立虛擬機器擴展集，並將它連線到虛擬網路、子網路及網路安全性群組。 若要將流量散發到多個虛擬機器執行個體，也會建立負載平衡器。 此命令也會指定要使用的 VM 映像和管理認證。  |
 | [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) | 安裝 Azure 自訂指令碼擴充功能，以執行指令碼來準備每個 VM 執行個體上的資料磁碟。 |
 | [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) | 建立負載平衡器規則，將 TCP 通訊埠 80 上的流量散發至擴展集中的 VM 執行個體。 |

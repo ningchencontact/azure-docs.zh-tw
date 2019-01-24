@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 2fd60aa635fdea078a2b5c4b724318798d57573d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 533120bd13d9aad48e62b7799e5f1167b6098d37
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359575"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413799"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立 Azure Database for PostgreSQL
 Azure Database for PostgreSQL 是一個受控服務，可讓您在雲端執行、管理及調整高可用性 PostgreSQL 資料庫。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 本快速入門說明如何使用 Azure CLI 在 [Azure 資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)中建立 Azure Database for PostgreSQL 伺服器。
@@ -209,7 +209,7 @@ pgAdmin 是搭配 PostgreSQL 使用的開放原始碼工具。 您可以從 [pgA
 az group delete --name myresourcegroup
 ```
 
-若您只想要刪除一個新建立的伺服器，則可執行 [az postgres server delete](/cli/azure/postgres/server#az_postgres_server_delete) 命令。
+若您只想要刪除一個新建立的伺服器，則可執行 [az postgres server delete](/cli/azure/postgres/server) 命令。
 ```azurecli-interactive
 az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```

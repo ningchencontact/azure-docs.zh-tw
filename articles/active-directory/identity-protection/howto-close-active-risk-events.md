@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 11b6766533da65f55430d55bd8aa0b7067783e0c
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: b1077eefbe57b6440caa0171fb7429485eeeb78e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267465"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469180"
 ---
-# <a name="how-to-close-active-risk-events"></a>如何：關閉作用中風險事件
+# <a name="how-to-close-active-risk-events"></a>作法：關閉進行中的風險事件
 
 利用[風險事件](../reports-monitoring/concept-risk-events.md)，Azure Active Directory 會偵測可能遭入侵使用者帳戶的指標。 系統管理員會想要取得所有已關閉的風險事件，所以受影響的使用者不再有風險。
 
-此文章概述您可用於關閉作用中風險事件的其他選項。
+本文概述您可用於關閉作用中風險事件的其他選項。
 
 ## <a name="options-to-close-risk-events"></a>用於關閉風險事件的選項 
 

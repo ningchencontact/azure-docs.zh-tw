@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 45751af66b1b050d4d36d1b8aee52dc6a5d8cc7b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247498"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382415"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>應用程式閘道的常見問題集
 
@@ -213,22 +213,6 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 ### <a name="does-application-gateway-support-connection-draining"></a>應用程式閘道是否支援連線清空？
 
 是。 您可以設定連線清空來變更後端集區內的成員而不會中斷運作。 這可讓現有的連線持續傳送到先前的目的地，直到該連線關閉或可設定的逾時過期。 連線清空只會等候目前執行中的連線完成。 應用程式閘道並不會知道應用程式的工作階段狀態。
-
-### <a name="what-are-application-gateway-sizes"></a>應用程式閘道大小有哪些？
-
-應用程式閘道目前提供三種大小：**小型**、**中型**和**大型**。 小型執行個體大小是針對開發和測試案例。
-
-如需應用程式閘道限制的完整清單，請瀏覽[應用程式閘道服務限制](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)。
-
-下表顯示每個應用程式閘道執行個體，在啟用 SSL 卸載時的平均效能輸送量：
-
-| 平均後端頁面回應大小 | 小型 | 中 | 大型 |
-| --- | --- | --- | --- |
-| 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
-| 100 KB |35 Mbps |100 Mbps |200 Mbps |
-
-> [!NOTE]
-> 這些值是應用程式閘道輸送量的近似值。 實際的輸送量會依據不同的環境詳細資料而有所不同，例如平均頁面大小、後端執行個體位置，以及提供一個頁面所需的處理時間。 如需實際效能數字，您需自行執行測試。 這些值僅供容量規劃指引使用。
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>是否可在中斷的情況下，將執行個體大小從中型變成大型？
 
