@@ -4,7 +4,7 @@ description: 修正在安裝存取面板的瀏覽器擴充功能時所遇到的�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 46f1d49e210a483b8e7645d7eba84ad21ed477da
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7fe743e3cfb137877485e7b227f868063359fc19
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190509"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474399"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>安裝存取面板的瀏覽器擴充功能
 

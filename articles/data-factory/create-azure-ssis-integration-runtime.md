@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b772aa314316906a4079e3d6b8b4e0aeb0f54fba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4339782304f1bc175f1066954f1050bc00f25005
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022983"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434235"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中建立 Azure-SSIS Integration Runtime
 本文提供在 Azure Data Factory (ADF) 中佈建 Azure-SSIS Integration Runtime (IR) 的步驟。 接著，您可以使用 SQL Server Data Tools (SSDT) 或 SQL Server Management Studio (SSMS)，在 Azure 的這個整合執行階段上部署並執行 SQL Server Integration Services (SSIS) 封裝。 
@@ -50,7 +50,7 @@ ms.locfileid: "54022983"
     - 您要將 SSISDB 裝載於具有虛擬網路服務端點的 Azure SQL Database 伺服器中，或裝載於位於虛擬網路內部的受控執行個體中。 
     - 您想要從在 Azure-SSIS IR 上執行的 SSIS 封裝連線至內部部署資料存放區。 
 
-- **Azure PowerShell**(英文)。 如果您想要執行 PowerShell 指令碼來佈建 Azure-SSIS IR，請遵循[如何安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 上的指示。 
+- **Azure PowerShell**(英文)。 如果您想要執行 PowerShell 指令碼來佈建 Azure-SSIS IR，請遵循[如何安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) 上的指示。 
 
 ### <a name="region-support"></a>區域支援
 如需目前可使用 ADF 和 Azure-SSIS IR 的 Azure 區域清單，請參閱[依區域的 ADF + SSIS IR 可用性](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all)。 

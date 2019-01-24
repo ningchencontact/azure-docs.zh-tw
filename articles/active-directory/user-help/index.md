@@ -4,19 +4,14 @@ title: 適用於驗證、應用程式以及裝置管理的使用者說明 - Azur
 description: 使用者說明可協助人員設定及使用安全性資訊、雙步驟驗證、自助式密碼重設、裝置管理、Microsoft Authenticator 應用程式和「我的應用程式」入口網站等服務。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3ee8834a2ff8b9126fea38b19df115474c36a9e9
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41927033"
 ---
+
 # <a name="user-help-for-authentication-apps-and-device-management"></a>適用於驗證、應用程式和裝置管理的使用者說明
 
 我們製作了本說明內容，協助您設定及使用安全性資訊和雙步驟驗證，同時了解如何重設密碼及註冊並加入您的 Azure Active Directory 裝置，以及設定並使用 Microsoft Authenticator 應用程式和「我的應用程式」入口網站。

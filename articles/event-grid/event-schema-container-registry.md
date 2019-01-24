@@ -2,22 +2,22 @@
 title: Azure Event Grid 的 Container Registry 事件結構描述
 description: 描述利用 Azure Event Grid 提供給 Container Registry 事件的屬性
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/20/2018
-ms.author: tomfitz
-ms.openlocfilehash: 9ed918a7402abcbe79e302421f3b2ac725857464
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.date: 01/13/2019
+ms.author: spelluru
+ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188648"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462839"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Container Registry 的 Azure Event Grid 事件結構描述
 
-本文提供 Container Registry 事件的屬性與結構描述。 如需事件結構描述的簡介，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。
+本文提供 Container Registry 事件的屬性與結構描述。 如需事件結構描述的簡介，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。
 
 ## <a name="available-event-types"></a>可用的事件類型
 
@@ -117,8 +117,6 @@ blob 儲存體會發出下列事件類型：
 | 動作 | 字串 | 包含所提供事件的動作。 |
 | 目標 | 物件 | 事件的目標。 |
 | 要求 | 物件 | 產生事件的要求。 |
-| actor | 物件 | 起始事件的代理程式。 在大部分的情況下，此值可能來自要求的授權內容。 |
-| 來源 | 物件 | 產生事件的登錄節點。 也就是說，actor 啟始事件，而 source 產生事件。 |
 
 target 物件具有下列屬性：
 
@@ -129,7 +127,6 @@ target 物件具有下列屬性：
 | digest | 字串 | 如 Registry V2 HTTP API 規格所定義的內容摘要。 |
 | length | integer | 內容的位元組數目。 [與大小相同] 欄位。 |
 | repository | 字串 | 存放庫名稱。 |
-| url | 字串 | 內容的直接 URL。 |
 | tag | 字串 | 標籤名稱。 |
 
 request 物件具有下列屬性：
@@ -141,19 +138,6 @@ request 物件具有下列屬性：
 | host | 字串 | 登錄執行個體的外部可存取主機名稱，如內送要求上的 http 主機標頭所指定。 |
 | method | 字串 | 產生事件的要求方法。 |
 | userAgent | 字串 | 要求的使用者代理程式標頭。 |
-
-actor 物件具有下列屬性：
-
-| 屬性 | 類型 | 說明 |
-| -------- | ---- | ----------- |
-| name | 字串 | 主旨或使用者名稱，與產生事件的要求內容相關聯。 |
-
-source 物件具有下列屬性：
-
-| 屬性 | 類型 | 說明 |
-| -------- | ---- | ----------- |
-| addr | 字串 | 產生事件的登錄節點 IP 或主機名稱和連接埠。 一般而言，此值與執行中的連接埠會由 os.Hostname() 進行解析。 |
-| instanceID | 字串 | 執行中的應用程式執行個體。 會在每次重新啟動後變更。 |
 
 ## <a name="next-steps"></a>後續步驟
 

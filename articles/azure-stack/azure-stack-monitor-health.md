@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
-ms.openlocfilehash: 9a925a01cae75124dc56b0c2bc5cc931a6e04100
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4e332023e4e3a6efcca8f8a9c7961e299ebf9247
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721609"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473787"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>在 Azure Stack 中監視健康情況和警示
 
@@ -26,7 +26,7 @@ ms.locfileid: "53721609"
 
 Azure Stack 包含基礎結構監視功能，可協助您檢視 Azure Stack 區域的健康情況和警示。 [區域管理] 圖格預設會釘選在「預設提供者訂用帳戶」的系統管理員入口網站上，當中會列出 Azure Stack 的所有已部署區域。 此圖格會顯示每個區域的作用中重要和警告警示數目。 此圖格是您進入 Azure Stack 健康情況和警示功能的進入點。
 
-![[區域管理] 圖格](media/azure-stack-monitor-health/image1.png)
+![區域管理磚](media/azure-stack-monitor-health/image1.png)
 
 ## <a name="understand-health-in-azure-stack"></a>了解 Azure Stack 中的健康情況
 

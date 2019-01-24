@@ -1,0 +1,64 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure 原則文件
+metadata:
+  title: Azure 原則文件 - 教學課程、API 參考
+  description: Azure 原則可協助您進行管理，同時透過原則定義讓您的資源強制執行規則並產生效果，避免發生 IT 問題。 當您使用 Azure 原則時，資源會符合您的公司標準及服務等級協定規範。 了解如何使用快速入門、教學課程和範例來建立、指派和管理原則定義。
+  services: azure-policy
+  author: DCtheGeek
+  manager: carmonm
+  ms.service: azure-policy
+  ms.topic: landing-page
+  ms.date: 01/23/2019
+  ms.author: dacoulte
+abstract:
+  description: Azure 原則可協助您進行管理，同時透過原則定義讓您的資源強制執行規則並產生效果，避免發生 IT 問題。 當您使用 Azure 原則時，資源會符合您的公司標準及服務等級協定規範。 了解如何使用快速入門、教學課程和範例來建立、指派和管理原則定義。
+sections:
+  - title: 5 分鐘快速入門
+    items:
+      - type: paragraph
+        text: 了解如何在 Azure 中建立、指派和管理原則定義。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/portal.svg
+            text: Azure 入口網站
+            href: ./assign-policy-portal
+          - image:
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: ./assign-policy-powershell
+          - image:
+              src: ./media/cli.svg
+            text: Azure CLI
+            href: ./assign-policy-azurecli
+  - title: 逐步教學課程
+    items:
+      - type: paragraph
+        text: 了解如何在 Azure 中建立、指派和管理原則定義。
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">建立和管理 Azure 原則</a>
+  - title: 範例
+    items:
+      - type: paragraph
+        text: 使用下列 JSON 範例協助您在 Azure 中建立原則定義。
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/governance/policy/samples/index">Azure PowerShell</a>
+  - title: 參考
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令列
+            html: <p><a href="/cli/azure/policy">Azure CLI</a></p>
+          - title: PowerShell
+            html: '<p><a href="/powershell/module/az.resources/#policies">Azure PowerShell</a></p>'
+          - title: REST API
+            html: <p><a href="/rest/api/policy-insights/policyevents">事件</a></p><p><a href="/rest/api/policy-insights/policystates">狀態</a></p><p><a href="/rest/api/resources/policyassignments">指派</a></p><p><a href="/rest/api/resources/policydefinitions">原則定義</a></p><p><a href="/rest/api/resources/policysetdefinitions">計劃定義</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">已追蹤原則的資源</a></p><p><a href="/rest/api/policy-insights/remediations">補救</a></p>

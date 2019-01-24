@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Kiteworks 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f7984aaf-ab1f-4a85-9646-a9523f5275d9
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 986640c6af07c5a7ad85cfe8ca1f3d5b8a8aae84
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 627d2733c01a33a243978df552cf268dde983c5f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845989"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>教學課程：將 Azure Active Directory 與 Kiteworks 整合
 
