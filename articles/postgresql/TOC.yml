@@ -104,6 +104,10 @@ items:
       href: concepts-connectivity.md
     - name: 使用 Azure Kubernetes Service (AKS) 開發
       href: concepts-aks.md
+  - name: 複寫
+    items:
+    - name: 讀取複本
+      href: concepts-read-replicas.md
 - name: 使用說明指南
   items:
   - name: 建立使用者
@@ -172,6 +176,10 @@ items:
     items:
     - name: Azure 入口網站
       href: howto-restart-server-portal.md
+  - name: 複寫
+    items:
+    - name: 管理讀取複本 Azure 入口網站
+      href: howto-read-replicas-portal.md
 - name: 參考
   items:
   - name: Azure CLI
@@ -222,9 +230,9 @@ items:
     href: partners-migration-postgresql.md
   - name: 資料庫移轉指南
     href: https://datamigration.microsoft.com/
-ms.openlocfilehash: 73cdb90edc790dc29a3896ecf75c18b03dd52a44
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 61b78ac5b542e130fd7182b0c30810ff9c98ee78
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200712"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383035"
