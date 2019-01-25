@@ -634,18 +634,14 @@ items:
         href: platform/view-designer-parts.md
       - name: 篩選器
         href: platform/view-designer-filters.md
-    - name: 儀表板
-      items:
-      - name: 記錄檔
-        href: platform/dashboards.md
-      - name: '[應用程式]'
-        href: app/app-insights-dashboards.md
     - name: Power BI
       items:
       - name: 匯出記錄檔資料
         href: platform/powerbi.md
       - name: 匯出應用程式資料
         href: app/export-power-bi.md
+    - name: 儀表板
+      href: app/app-insights-dashboards.md
     - name: 將資料傳送到 Grafana
       href: platform/grafana-plugin.md
   - name: 分析資料
@@ -969,7 +965,7 @@ items:
   - name: 結構描述
     items:
     - name: 診斷記錄服務、類別和結構描述
-      href: platform/tutorial-dashboards.md
+      href: platform/diagnostic-logs-schema.md
     - name: 活動記錄事件結構描述
       href: platform/activity-log-schema.md
     - name: Azure 診斷延伸結構描述
@@ -1021,9 +1017,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 程式碼範例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: adf92fafe1c1c0fa855d3658c41dd3563d4b26b2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 3a3770418ff8463ec2afa39105a1722addc7c3d2
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448681"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888017"
