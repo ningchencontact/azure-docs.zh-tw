@@ -40,13 +40,13 @@ items:
   - name: 實體
     href: entities-overview.md
     items:
-    - name: 帳戶篩選器和資產篩選器
+    - name: 帳戶和資產篩選條件
       href: filters-dynamic-manifest-overview.md
     - name: Assets
       href: assets-concept.md
     - name: 內容金鑰原則
       href: content-key-policy-concept.md
-    - name: 即時事件與即時輸出
+    - name: LiveEvents 和 LiveOutputs
       href: live-events-outputs-concept.md
     - name: 串流端點
       href: streaming-endpoint-concept.md
@@ -203,9 +203,9 @@ items:
     href: frequently-asked-questions.md
   - name: Azure 雲端和區域
     href: azure-clouds-regions.md
-ms.openlocfilehash: c30302fa289ade85870db3e89fa70f5e79f61a99
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: dfafe49ba2f520bdc44c5a3e3cad0201d6e56da5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881370"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810851"

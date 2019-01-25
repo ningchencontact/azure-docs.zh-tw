@@ -36,8 +36,8 @@ items:
   - name: 高度可用性與可靠性
     href: ../hdinsight-high-availability-linux.md
     maintainContext: true
-  - name: 比較儲存體選項
-    href: ../hdinsight-hadoop-compare-storage-options.md
+  - name: Data Lake Storage Gen2
+    href: ../hdinsight-hadoop-data-lake-storage-gen2.md
     maintainContext: true
 - name: 作法
   items:
@@ -50,9 +50,6 @@ items:
       maintainContext: true
     - name: 使用 Azure Data Lake Storage
       href: ../hdinsight-hadoop-use-data-lake-store.md
-      maintainContext: true
-    - name: 使用 Azure Data Lake Store Gen2
-      href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
       maintainContext: true
   - name: 使用 Apache Hadoop 進行批次查詢
     items:
@@ -325,8 +322,6 @@ items:
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
-    - name: 自動調整 HDInsight 叢集
-      href: ../hdinsight-autoscale-clusters.md
     - name: 縮放 HDInsight 叢集
       href: ../hdinsight-scaling-best-practices.md
       maintainContext: true
@@ -566,9 +561,9 @@ items:
   - name: HDInsight 適用的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 3bdc132e4b9b7f47fb1d65f540baa744f5afc5a8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 45797e5440f0d01ec3049fff2ff5f7fdf5858d5b
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472784"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321687"
