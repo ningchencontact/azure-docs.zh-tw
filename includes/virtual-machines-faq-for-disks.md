@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553356"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841398"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -101,6 +101,10 @@ ms.locfileid: "53553356"
 
 是，受控磁碟和非受控磁碟都受到支援。 我們建議您使用受控磁碟來處理新的工作負載，並將您目前的工作負載移轉至受控磁碟。
 
+**是否可以在相同的虛擬機器上共置非受控和受控磁碟？**
+
+沒有。
+
 **如果我建立大小為 128 GB 的磁碟，然後將大小增加至 130 GiB，我是否必須支付下一層級磁碟大小 (256 GiB) 的費用？**
 
 是。
@@ -124,10 +128,6 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 **哪裡可以找到 Azure Resource Manager 範本範例以建立具有受控磁碟的 VM**
 * [使用受控磁碟的範本清單](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
-
-**是否可以在相同的虛擬機器上共置非受控和受控磁碟？**
-
-沒有。
 
 **從 Blob 建立磁碟時，與該來源 Blob 是否有任何繼續存在的關係？**
 
