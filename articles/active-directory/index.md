@@ -5,22 +5,22 @@ title: Azure Active Directory 文件 - 教學課程和 API 參考 | Microsoft Do
 description: Azure Active Directory (Azure AD) 是 Microsoft 的多租用戶雲端式目錄，也是身分識別管理服務，將核心目錄服務、應用程式存取管理、身分識別保護結合在單一解決方案中。
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: landing-page
-ms.date: 01/16/2019
-ms.author: mtillman
-ms.openlocfilehash: 5984ff3547a30a7140f34f89660787d00063d302
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 01/24/2019
+ms.author: barbkess
+ms.openlocfilehash: e8e422e6ba69669b24fc141b2688d6777ab85384
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472971"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900964"
 ---
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure Active Directory 文件</h1>
-        <p>Azure Active Directory (Azure AD) 是多租用戶雲端式目錄和身分識別管理服務。</p><p></p>
+        <p>Azure Active Directory (Azure AD) 是多租用戶雲端式身分識別和存取管理服務。</p><p></p>
         <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
             <li>
                 <a href="fundamentals/active-directory-whatis.md">

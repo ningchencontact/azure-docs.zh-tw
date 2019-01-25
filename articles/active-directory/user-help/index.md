@@ -10,8 +10,13 @@ ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
+ms.openlocfilehash: c6fe14c9f67d6ce2f432b57b2cbbd0d026cebe85
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901627"
 ---
-
 # <a name="user-help-for-authentication-apps-and-device-management"></a>適用於驗證、應用程式和裝置管理的使用者說明
 
 我們製作了本說明內容，協助您設定及使用安全性資訊和雙步驟驗證，同時了解如何重設密碼及註冊並加入您的 Azure Active Directory 裝置，以及設定並使用 Microsoft Authenticator 應用程式和「我的應用程式」入口網站。
@@ -81,7 +86,10 @@ ms.author: lizross
                     <div class="cardText">
                         <h3>Microsoft Authenticator 應用程式說明</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">開始使用</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-overview">概觀</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">下載並安裝應用程式</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-add-accounts-overview">新增您的帳戶</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">使用應用程式登入</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">備份及復原帳戶認證</a>
                         </p>
                     </div>
