@@ -18,7 +18,7 @@ items:
   - name: 新功能
     href: whats-new.md
   expanded: true
-- name: 教學課程
+- name: 開始使用
   items:
   - name: 建立您的第一個實驗
     displayName: quickstart
@@ -41,16 +41,6 @@ items:
     - name: 6 - 存取 Web 服務
       displayName: consume
       href: walkthrough-6-access-web-service.md
-  - name: 透過 R 開始使用
-    href: r-quickstart.md
-- name: 範例
-  items:
-  - name: 可用的資料集
-    href: use-sample-datasets.md
-  - name: Azure AI 資源庫
-    href: gallery-how-to-use-contribute-publish.md
-- name: 概念
-  items:
   - name: 適用於初學者的資料科學
     items:
     - name: 1 - 五個問題
@@ -63,6 +53,19 @@ items:
       href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
     - name: 5 - 複製其他人的工作
       href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
+  - name: R 快速入門
+    href: r-quickstart.md
+- name: 範例
+  items:
+  - name: 實驗範例
+    displayName: gallery
+    href: sample-experiments.md
+  - name: 範例資料集
+    href: use-sample-datasets.md
+  - name: Azure AI 資源庫
+    href: gallery-how-to-use-contribute-publish.md
+- name: 概念
+  items:
   - name: 模型管理
     displayName: deploy, consume, web service
     href: deploy-consume-web-service-guide.md
@@ -100,9 +103,6 @@ items:
     - name: 使用 PowerShell 建立模型
       displayName: endpoint, endpoints
       href: create-models-and-endpoints-with-powershell.md
-    - name: 嘗試在 AI 資源庫中進行實驗
-      displayName: gallery
-      href: sample-experiments.md
     - name: 選擇演算法
       href: algorithm-choice.md
     - name: 演算法功能提要
@@ -208,6 +208,8 @@ items:
     href: web-service-error-codes.md
   - name: REST 管理 API
     href: /rest/api/machinelearning
+  - name: Resource Manager 範本
+    href: /azure/templates/microsoft.machinelearning/allversions
 - name: 資源
   items:
   - name: Azure 藍圖
@@ -222,9 +224,9 @@ items:
     href: support-aml-studio.md
   - name: 比較 ML 產品
     href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 859ee01c65eaa7e02b5afc2740b6a7e6e6ca29e6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 585310705bebbceb0aa4576977ef096704d87483
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810545"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424780"
