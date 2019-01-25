@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.reviewer: anajod
+ms.openlocfilehash: da6c9fa416d19916243860178d15619306aaf3c0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714843"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305310"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 來建立異地分散應用程式解決方案
 
@@ -93,7 +93,7 @@ ms.locfileid: "53714843"
 
 ### <a name="obtain-a-custom-domain-and-configure-dns"></a>取得自訂網域並設定 DNS
 
-更新 DNS 區域檔案，以建立 Web 應用程式並發佈網域。 然後，Azure AD 會驗證自訂網域名稱的擁有權。 對於 Azure 中的 Azure/Office 365/外部 DNS 記錄使用 [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal)，或在[不同的 DNS 註冊機構](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)新增 DNS 項目。
+更新網域的 DNS 區域檔案。 然後，Azure AD 會驗證自訂網域名稱的擁有權。 對於 Azure 中的 Azure/Office 365/外部 DNS 記錄使用 [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal)，或在[不同的 DNS 註冊機構](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)新增 DNS 項目。
 
 1. 向公用註冊機構註冊自訂網域。
 
@@ -106,7 +106,7 @@ ms.locfileid: "53714843"
 設定混合式 CI/CD 以將 Web 應用程式部署至 Azure 和 Azure Stack，並自動將變更推送至這兩個雲端。
 
 > [!Note]  
-> 需要適當映像聯合執行的 Azure Stack (Windows Server 和 SQL) 及 App Service 部署。 檢閱 App Service 文件中適用於 Azure Stack 操作員的「[開始使用 Azure Stack 上的 App Service 之前](/articles/azure-stack/azure-stack-app-service-before-you-get-started)」區段。
+> 需要適當映像聯合執行的 Azure Stack (Windows Server 和 SQL) 及 App Service 部署。 檢閱 App Service 文件中適用於 Azure Stack 操作員的[開始使用 Azure Stack 上的 App Service 之前](../azure-stack-app-service-before-you-get-started.md)區段。
 
 #### <a name="add-code-to-azure-repos"></a>將程式碼新增至 Azure Repos
 
@@ -273,7 +273,7 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 
 -   透過新增 Azure AD 提供的 DNS 項目來更新網域的 DNS 區域檔案。
 
-例如，若要新增 DNS 項目 fornorthwindcloud.comandwww.northwindcloud.com，請設定 thenorthwindcloud.com 根網域的 DNS 設定。
+例如，若要對 northwindcloud.com 和 www.northwindcloud.com 新增 DNS 項目，請設定 northwindcloud.com 根網域的 DNS 設定。
 
 > [!Note]  
 >  網域名稱可使用 [Azure 入口網站](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain)來購買。  
@@ -302,7 +302,7 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 
 2.  新增 CNAME 記錄以將子網域對應至應用程式的預設主機名稱。
 
-  在 www.northwindcloud.com 網域範例中，請新增將名稱 www 對應至 <app\_name>.azurewebsites.net 的 CNAME 記錄。
+  在 www.northwindcloud.com 網域範例中，請新增將名稱對應至 <app\_name>.azurewebsites.net 的 CNAME 記錄。
 
 新增 CNAME 之後，DNS 記錄分頁看起來如下列範例所示：
 

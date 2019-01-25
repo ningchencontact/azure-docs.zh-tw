@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: dc8b8e37224201062d0cf53174f3248f04ca0cc3
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 5e3b42b1e1f72ccc4d1127f2926ee53c51d66291
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789751"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470506"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什麼是 Azure 診斷延伸模組
 Azure 診斷延伸模組是 Azure 中的代理程式，可對部署的應用程式收集診斷資料。 您可以使用來自許多不同來源的診斷延伸模組。 目前支援 Azure 雲端服務 (傳統) Web 和背景工作角色、虛擬機器、虛擬機器擴展集和 Service Fabric。 其他 Azure 服務有不同的診斷方法。 請參閱 [Azure 中的監視概觀](../../azure-monitor/overview.md)。
@@ -85,3 +85,4 @@ Azure 診斷延伸模組可以收集下列類型的資料：
 ## <a name="general-articles"></a>一般文章
 * 了解如何[在 Azure 診斷中使用效能計數器](../../cloud-services/diagnostics-performance-counters.md)。
 * 如果您在開始診斷，或是在 Azure 儲存體資料表中尋找資料時遇到問題，請參閱[針對 Azure 診斷進行疑難排解](diagnostics-extension-troubleshooting.md)
+

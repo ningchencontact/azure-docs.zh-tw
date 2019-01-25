@@ -6,22 +6,22 @@ documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 337ee0edc3d6e644415b2b3f7524d829d0e3c692
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 5059e4c00fc3bcbee76f8f5a3746b4d8783d901b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246461"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359267"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒體編碼器高階工作流程格式和轉碼器
+
 > [!NOTE]
 > 如有進階編碼器的問題，請傳送電子郵件到 mepd@microsoft.com。
 > 
@@ -38,9 +38,11 @@ ms.locfileid: "50246461"
 **Media Encoder Premium Workflow** 支援 [本](#closed_captioning) 章節所述的隱藏式字幕。 
 
 ## <a id="input_formats"></a>Media Encoder Premium Worflow 輸入格式和轉碼器
+
 下節列出此媒體處理器支援做為輸入的轉碼器和檔案格式。
 
 ### <a name="input-containerfile-formats"></a>輸入容器/檔案格式
+
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
@@ -51,6 +53,7 @@ ms.locfileid: "50246461"
 * AVI (未壓縮 8 位元/10 位元)
 
 ### <a name="input-video-codecs"></a>輸入視訊轉碼器
+
 * AVC 8 位元/10 位元，高達 4:2:2，包括 AVCIntra
 * Avid DNxHD (使用 MXF)
 * DVCPro/DVCProHD (使用 MXF)
@@ -61,6 +64,7 @@ ms.locfileid: "50246461"
 * Windows Media 視訊/VC-1
 
 ### <a name="input-audio-codecs"></a>輸入音訊轉碼器
+
 * AES (SMPTE 331M 和 302M，AES3-2003)
 * Dolby® E
 * Dolby® Digital (AC3)
@@ -71,9 +75,11 @@ ms.locfileid: "50246461"
 * WAV/PCM
 
 ## <a id="output_format"></a>Media Encoder Premium Worflow 輸出格式和轉碼器
+
 下節列出此媒體處理器支援做為輸出的轉碼器和檔案格式。
 
 ### <a name="output-containerfile-formats"></a>輸出容器/檔案格式
+
 * Adobe® Flash® F4V
 * MXF (OP1a、XDCAM 和 AS02)
 * DPP (包括 AS11)
@@ -85,6 +91,7 @@ ms.locfileid: "50246461"
 * MPEG-TS 
 
 ### <a name="output-video-codecs"></a>輸出視訊轉碼器
+
 * AVC (H.264；8 位元；高達 High Profile、Level 5.2；4K Ultra HD；AVC Intra)
 * Avid DNxHD (使用 MXF)
 * DVCPro/DVCProHD (使用 MXF)
@@ -92,8 +99,13 @@ ms.locfileid: "50246461"
 * MPEG-1
 * Windows Media 視訊/VC-1
 * JPEG 縮圖建立
+* HEVC (H.265、8 位元和 10 位元、主要和主要 10 設定檔)
+
+  特定案例提供 HDR 10 支援，請連絡 mepd@microsoft.com 以取得詳細資訊
+
 
 ### <a name="output-audio-codecs"></a>輸出音訊轉碼器
+
 * AES (SMPTE 331M 和 302M，AES3-2003)
 * Dolby® Digital (AC3)
 * Dolby® Digital Plus (E-AC3) 高達 7.1
@@ -106,6 +118,7 @@ ms.locfileid: "50246461"
 >如果編碼成 Dolby® Digital (AC3)，則輸出只能寫入到 ISO MP4 檔案。
 
 ## <a id="closed_captioning"></a>支援隱藏式字幕
+
 內嵌時， **Media Encoder Premium Workflow** 支援：
 
 1. SCC 檔案
@@ -122,14 +135,18 @@ ms.locfileid: "50246461"
 5. SRT 副標題檔案
 6. DVB 副標題資料流
 
-注意：Azure 媒體服務並不支援透過串流傳遞上述所有的輸出格式。
+> [!NOTE]
+> Azure 媒體服務並不支援透過串流傳遞上述所有的輸出格式。
 
 ## <a name="known-issues"></a>已知問題
+
 如果您的輸入視訊不包含隱藏式字幕，輸出資產仍然會包含空白 TTML 檔案。 
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>提供意見反應
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

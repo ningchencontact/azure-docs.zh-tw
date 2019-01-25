@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/27/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: e03d913e1887bceb9267207e3a9abea93ab6d000
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c8aa08dc189a77a206ea24b535aedf64454838c7
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568025"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359403"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure 資料箱：常見問題集
 
@@ -114,6 +114,9 @@ A. 如果系統錯誤 LED 指示燈亮起，表示您的系統健康情況不良
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>問： 我無法在 Azure 入口網站中存取資料箱解除鎖定密碼。 為什麼會這樣？
 A. 如果您無法在 Azure 入口網站中存取解除鎖定密碼，請檢查您的訂用帳戶與儲存體帳戶的權限。 請確定您有資源群組層級的參與者或擁有者權限。 如果沒有，則您至少需要擁有資料箱操作員角色權限，才能看到存取認證。
+
+### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>問： 資料箱是否支援連接埠通道設定？ 是否支援 MPIO？
+A. 我們在資料箱上不支援連接埠通道設定、多重路徑 IO (MPIO) 設定或 vLAN 設定。
 
 ## <a name="track-status"></a>追蹤狀態
 
@@ -223,17 +226,17 @@ A.  Azure 資料箱服務原生提供的報表可讓您用於監管鏈文件。 
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>哪種報表類型可提供用來支援監管鏈？
 A.  下列報表類型可用來支援監管鏈：
 
-- DHL 與 UPS 的運輸物流。
+- UPS 的運輸物流。
 - 開啟電源和使用者共用存取的記錄。
 - 針對成功擷取到資料箱的每個檔案具有 64 位元循環冗餘檢查 (CRC-64) 或總和檢查碼的資訊清單檔。
 - 無法上傳到 Azure 儲存體帳戶的檔案報表。
 - 在資料複製到 Azure 儲存體帳戶後，對資料箱裝置的清理 (根據 NIST 800 88R1 標準)。
 
-### <a name="are-the-carrier-tracking-logs--from-upsdhl-available"></a>是否提供貨運公司追蹤記錄 (來自 UPS/DHL)？ 
+### <a name="are-the-carrier-tracking-logs-from-ups-available"></a>是否提供貨運公司追蹤記錄 (來自 UPS)？ 
 A.  貨運公司追蹤記錄可從資料箱訂單記錄中擷取。 當您的裝置送回到 Azure 資料中心，並清除裝置上的資料之後，就會將此報表提供給您。 若立即需要，您也可以直接移至貨運公司的網站，使用訂單追蹤號碼來取得追蹤資訊。
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>我是否可以親自將資料箱送到 Azure 資料中心？ 
-A.  否。 目前 Azure 資料中心不接受由客戶或是 UPS/DHL 以外的貨運公司寄送資料箱。
+A.  沒有。 目前 Azure 資料中心不接受由客戶或是 UPS 以外的貨運公司寄送資料箱。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 4d343520ebfb7820cf1de769233e262f89862f14
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.date: 01/17/2019
+ms.openlocfilehash: 92cd67a4b57fcab51f30b4dd9e6c773a056aec8b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754232"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391032"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>使用 PowerShell 在多個 SQL Database 之間進行同步處理
  
@@ -26,12 +26,12 @@ ms.locfileid: "53754232"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，必須使用 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，必須使用 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 如需 SQL 資料同步的概觀，請參閱[使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步處理資料](../sql-database-sync-data.md)。
 
 > [!IMPORTANT]
-> Azure SQL 資料同步目前**不**支援 Azure SQL Database 受控執行個體。
+> 「Azure SQL 資料同步」目前**不**支援「Azure SQL Database 受控執行個體」。
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -369,7 +369,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 
 -   概觀 - [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步資料](../sql-database-sync-data.md)
 -   設定資料同步
-    - 在入口網站 - [教學課程：設定 SQL 資料同步以同步處理 Azure SQL Database 與內部部署 SQL Server 之間的資料](../sql-database-get-started-sql-data-sync.md)
+    - 在入口網站中 - [教學課程：設定 SQL 資料同步以同步處理 Azure SQL Database 與內部部署 SQL Server 之間的資料](../sql-database-get-started-sql-data-sync.md)
     - 透過 PowerShell
         -  [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](sql-database-sync-data-between-azure-onprem.md)
 -   資料同步代理程式 - [適用於 Azure SQL 資料同步的資料同步代理程式](../sql-database-data-sync-agent.md)

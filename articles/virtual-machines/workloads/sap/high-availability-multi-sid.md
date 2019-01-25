@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9d7fb03cf5dbcd7455f0d4e8f4a69bb1c6d23a83
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0440d1b0c3045feb6d670dae2645590febfa5bc6
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497080"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320152"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>建立 SAP NetWeaver 多 SID 組態
 
@@ -471,7 +471,7 @@ Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負�
 >一個 WSFC 叢集中 SAP ASCS/SCS 執行個體數目上限等於每個 Azure 內部負載平衡器的私人前端 IP 數目上限。
 >
 
-如需更多有關負載平衡器限制的資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager] 中的「每個負載平衡器的私人前端 IP」。
+如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager] 中的「每個負載平衡器的私人前端 IP」。
 
 具有兩個高度可用 SAP 系統的完整配置畫面如下所示：
 
@@ -607,7 +607,7 @@ foreach ($Port in $Ports) {
 
 $ILB | Set-AzureRmLoadBalancer
 
-Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
+Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
 
 ```
 在執行指令碼之後，結果會顯示在 Azure 入口網站中，如下列螢幕擷取畫面所示︰

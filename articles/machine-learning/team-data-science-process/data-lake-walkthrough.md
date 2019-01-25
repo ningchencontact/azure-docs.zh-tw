@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8549a35eed0c1f61c087b9056e4564577170f5f6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9c6e88eb2e3f3e1b6e6ce2b7f8984799397af582
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141810"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451608"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>使用 Azure Data Lake 的可調式資料科學：完整的逐步解說
 本逐步解說示範如何使用 Azure Data Lake，在 NYC 計程車車程和車費資料集上執行資料探索和二元分類，以預測車費是否會支付小費。 其中，從取得資料開始，經過模型訓練，然後部署 Web 服務來發佈模型，從頭到尾逐步引導您完成 [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)。
@@ -374,7 +374,7 @@ Azure Blob 中的資料位置是以 **wasb://container_name@blob_storage_account
 
 對於每個層級的乘客計數，計算記錄數、平均小費金額、小費金額變異數、小費車程的百分比。
 
-    // contigency table
+    // contingency table
     @trip_summary8 =
         SELECT passenger_count,
                COUNT(*) AS cnt,

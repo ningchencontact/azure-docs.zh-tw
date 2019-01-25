@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 11/6/2018
 ms.author: victorh
-ms.openlocfilehash: bed406f90c8da62919337c1fa9f30221b0ba8d90
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 6ea72c2caebeeb46b0973ba700d40670340204d7
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752719"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353187"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web 應用程式防火牆要求大小限制與排除清單
 
@@ -22,10 +22,10 @@ Azure 應用程式閘道 Web 應用程式防火牆 (WAF) 提供 Web 應用程式
 
 ![要求大小限制](media/application-gateway-waf-configuration/waf-requestsizelimit.png)
 
-Web 應用程式可讓使用者設定介於上下限範圍之間的要求大小限制。 下列是兩個可用的大小限制：
+Web 應用程式可讓您設定介於上下限範圍之間的要求大小限制。 下列是兩個可用的大小限制：
 
 - 要求本文大小欄位的上限是以 KB 為單位指定，而且控制整體的要求大小限制，但不包括任何檔案上傳。 此欄位值的範圍可從最小 1 KB 到最大 128 KB。 要求本文大小的預設值為 128 KB。
-- 檔案上傳限制欄位是以 MB 為單位指定，而且它會控管允許的檔案上傳大小上限。 這個欄位的最小值為 1MB，最大值為 500 MB。 檔案上傳限制的預設值為 100 MB。
+- 檔案上傳限制欄位是以 MB 為單位指定，而且它會控管允許的檔案上傳大小上限。 當中型 SKU 的最大值為 100 MB 時，大型 SKU 執行個體的這個欄位其最小值為 1MB，最大值為 500 MB。 檔案上傳限制的預設值為 100 MB。
 
 WAF 也可提供可設定的旋鈕，以便開啟或關閉要求本文檢查。 根據預設，要求本文檢查是啟用的。 如果關閉要求本文檢查，WAF 就不會評估 HTTP 訊息本文的內容。 在此情況下，WAF 會繼續針對標頭、Cookie 與 URI 強制執行 WAF 規則。 如果要求本文檢查關閉，則最大要求本文大小欄位就不適用，而且也無法設定。 關閉要求本文檢查可讓要傳送給 WAF 的訊息大於 128 KB，但不會檢查訊息本文是否有漏洞。
 
@@ -33,7 +33,7 @@ WAF 也可提供可設定的旋鈕，以便開啟或關閉要求本文檢查。 
 
 ![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
-WAF 排除清單可讓使用者略過 WAF 評估的特定要求屬性。 常見範例是用於驗證或密碼欄位的 Active Directory 插入式權杖。 這類屬性較可能包含特殊字元，而會觸發 WAF 規則的誤判。 一旦屬性新增至 WAF 排除清單，該屬性就不會列入任何已設定和作用中 WAF 規則的考慮。 排除清單的範圍是全域的。
+WAF 排除清單可讓您略過 WAF 評估的特定要求屬性。 常見範例是用於驗證或密碼欄位的 Active Directory 插入式權杖。 這類屬性較可能包含特殊字元，而會觸發 WAF 規則的誤判。 一旦屬性新增至 WAF 排除清單，任何已設定和作用中 WAF 規則就不會考慮該屬性。 排除清單的範圍是全域的。
 
 下列屬性可以新增至排除清單：
 
@@ -55,6 +55,40 @@ WAF 排除清單可讓使用者略過 WAF 評估的特定要求屬性。 常見�
 - **包含**：此運算子會比對包含與指定之選取器值相符的所有欄位。
 
 在所有情況下，比對都不會區分大小寫，且不允許使用規則運算式作為選取器。
+
+### <a name="examples"></a>範例
+
+下列 Azure PowerShell 程式碼片段示範排除項目的使用：
+
+```azurepowershell
+// exclusion 1: exclude request head start with xyz
+// exclusion 2: exclude request args equals a
+
+$exclusion1 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
+
+$exclusion2 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
+
+// add exclusion lists to the firewall config
+
+$firewallConfig = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+```
+
+下列 json 程式碼片段示範排除項目的使用：
+
+```json
+"webApplicationFirewallConfiguration": {
+          "enabled": "[parameters('wafEnabled')]",
+          "firewallMode": "[parameters('wafMode')]",
+          "ruleSetType": "[parameters('wafRuleSetType')]",
+          "ruleSetVersion": "[parameters('wafRuleSetVersion')]",
+          "disabledRuleGroups": [],
+          "exclusions": [
+            {
+                "matchVariable": "RequestArgNames",
+                "selectorMatchOperator": "StartsWith",
+                "selector": "a^bc"
+            }
+```
 
 ## <a name="next-steps"></a>後續步驟
 

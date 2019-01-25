@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 6d463ca73fb533b8a44c2019a478f2df0162cb23
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 207836baaaa30dca24edeab93e9bd1c4a1ac67e6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791440"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359080"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>快速入門：使用 .NET Core 將文字轉換為語音
 
@@ -232,9 +232,10 @@ dotnet run
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [文字轉換語音 API 參考](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+> [在 GitHub 上探索 .NET 範例](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NETCore) \(英文\)
 
 ## <a name="see-also"></a>另請參閱
 
+* [文字轉換語音 API 參考](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
 * [建立自訂語音調](how-to-customize-voice-font.md)
 * [錄製語音樣本來建立自訂語音](record-custom-voice-samples.md)

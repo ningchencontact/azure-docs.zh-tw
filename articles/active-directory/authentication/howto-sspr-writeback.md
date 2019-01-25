@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: ce1bcb26b3a3510b22ced57471016999156bb0cf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5ec079e0dfecbd6c4752bab2b8eb821fb01fdabd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040654"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432348"
 ---
 # <a name="how-to-configure-password-writeback"></a>操作說明：設定密碼回寫
 
@@ -52,6 +52,7 @@ ms.locfileid: "54040654"
 * Microsoft 365 E3 或 A3
 * Microsoft 365 E5 或 A5
 * Microsoft 365 F1
+* Microsoft 365 商務版
 
 > [!WARNING]
 > 獨立的 Office 365 授權方案不支援「自助式密碼重設/變更/使用內部部署回寫來解鎖」，而且需要您具備上述其中一個方案，這項功能才能運作。

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 1926f0bcf7efca786e97bd973601888e5a8d4463
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efb8887085ad1f6f47667b1305191e514de74330
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966498"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468161"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>使用 Azure CLI 從自訂磁碟上傳並建立 Linux VM
 
@@ -41,7 +41,7 @@ ms.locfileid: "46966498"
 az group create --name myResourceGroup --location westus
 ```
 
-使用 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 建立儲存體帳戶以存放您的虛擬磁碟。 下列範例會建立名為 `mystorageaccount` 的儲存體帳戶：
+使用 [az storage account create](/cli/azure/storage/account) 建立儲存體帳戶以存放您的虛擬磁碟。 下列範例會建立名為 `mystorageaccount` 的儲存體帳戶：
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
@@ -69,7 +69,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-使用 [az vm create](/cli/azure/vm#az_vm_create)，為您的磁碟指定 URI (`--image`)。 下列範例會使用先前上傳的虛擬磁碟來建立名為 `myVM` 的 VM：
+使用 [az vm create](/cli/azure/vm)，為您的磁碟指定 URI (`--image`)。 下列範例會使用先前上傳的虛擬磁碟來建立名為 `myVM` 的 VM：
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
@@ -132,7 +132,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-使用 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 為自訂磁碟和 VM 建立儲存體帳戶。 您從自訂磁碟建立、具有非受控磁碟的任何 VM 都必須位於與該磁碟相同的儲存體帳戶中。 
+使用 [az storage account create](/cli/azure/storage/account) 為自訂磁碟和 VM 建立儲存體帳戶。 您從自訂磁碟建立、具有非受控磁碟的任何 VM 都必須位於與該磁碟相同的儲存體帳戶中。 
 
 下列範例會在先前建立的資源群組中建立名為 `mystorageaccount` 的儲存體帳戶：
 
@@ -186,9 +186,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-the-vm"></a>建立 VM
-若要使用非受控磁碟來建立 VM，請使用 [az vm create](/cli/azure/vm#az_vm_create) 指定磁碟的 URI (`--image`)。 下列範例會使用先前上傳的虛擬磁碟來建立名為 `myVM` 的 VM：
+若要使用非受控磁碟來建立 VM，請使用 [az vm create](/cli/azure/vm) 指定磁碟的 URI (`--image`)。 下列範例會使用先前上傳的虛擬磁碟來建立名為 `myVM` 的 VM：
 
-您需搭配 [az vm create](/cli/azure/vm#az_vm_create) 指定 `--image` 參數，以指向您的自訂磁碟。 請確保 `--storage-account` 與儲存您自訂磁碟的儲存體帳戶相符。 您不需使用與自訂磁碟相同的容器來儲存您的 VM。 上傳您的自訂磁碟之前，請確定會使用與先前步驟中相同的方式來建立任何額外的容器。
+您需搭配 [az vm create](/cli/azure/vm) 指定 `--image` 參數，以指向您的自訂磁碟。 請確保 `--storage-account` 與儲存您自訂磁碟的儲存體帳戶相符。 您不需使用與自訂磁碟相同的容器來儲存您的 VM。 上傳您的自訂磁碟之前，請確定會使用與先前步驟中相同的方式來建立任何額外的容器。
 
 下列範例會從您的自訂磁碟建立名為 `myVM` 的 VM：
 

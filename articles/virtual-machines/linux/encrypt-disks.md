@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: b80c2fe44ddd15e0e31a83e5baab37736dc57fca
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 2a057c311a8b080b695492664df0eaabc5609b35
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913762"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856786"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>如何在 Azure 中將 Linux 虛擬機器加密
 
@@ -41,7 +41,7 @@ Linux VM 上的待用虛擬磁碟會使用 [dm-crypt](https://wikipedia.org/wiki
 
 1. 在 Azure 金鑰保存庫中建立密碼編譯金鑰。
 1. 將密碼編譯金鑰設定為可用於磁碟加密。
-1. 針對您的虛擬磁碟啟用磁碟加密。
+1. 為您的虛擬磁碟啟用磁碟加密。
 1. 系統會從 Azure Key Vault 要求所需的密碼編譯金鑰。
 1. 虛擬磁碟會使用所提供的密碼編譯金鑰進行加密。
 
@@ -162,7 +162,7 @@ az vm encryption enable \
     --name myVM \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
-    --volume-type all
+    --volume-type data
 ```
 
 

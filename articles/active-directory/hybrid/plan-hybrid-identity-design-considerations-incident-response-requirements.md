@@ -4,7 +4,7 @@ description: 判斷混合式身分識別解決方案的監視和報告功能，�
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: baa1d1fec6438b937ba783adcc86c4f74fa1a6db
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5a5b166e9b90ede5f5c51b2c288ce1d2d6290ba6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306037"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464828"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>判斷混合式身分識別解決方案的事件回應需求
 中大型組織最可能具備適當的 [安全性事件回應](https://technet.microsoft.com/library/cc700825.aspx) ，可協助 IT 根據事件層級來採取動作。 身分識別管理系統是事件回應程序中的重要元件，因為它可以用來協助識別對目標執行特定動作的人員。 混合式身分識別解決方案必須能夠提供監視和報告功能，讓 IT 可用來採取動作以識別和減緩潛在威脅。 在一般事件回應計畫中，您可以將計畫分為下列階段：

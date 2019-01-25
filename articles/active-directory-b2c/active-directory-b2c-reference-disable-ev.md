@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 中的取用者註冊期間停用電子郵
 description: 示範如何在 Azure Active Directory B2C 中的取用者註冊期間停用電子郵件驗證的主題。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0a03be96895ea88ae033fd56df861b985317295b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 7bfbf4da0b5af447eaa88f9c9187a67a7998d0e4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52719193"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54842880"
 ---
 # <a name="disable-email-verification-during-consumer-sign-up-in-azure-active-directory-b2c"></a>在取用者於 Azure Active Directory B2C 中註冊期間停用電子郵件驗證 
 啟用時，Azure Active Directory (Azure AD) B2C 會提供讓使用者透過提供電子郵件地址並建立本機帳戶來註冊應用程式的能力。 Azure AD B2C 可透過要求取用者在註冊程序期間驗證其身分以確保電子郵件地址的有效性。 它也會防止惡意自動化程序為應用程式產生假帳戶。

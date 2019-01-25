@@ -4,7 +4,7 @@ description: Azure Active Directory Domain Services 概觀
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2017
+ms.date: 01/10/2019
 ms.author: ergreenl
-ms.openlocfilehash: c424ae1865a710593e509372dc2424c0b8b516a0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ef8395f7fab2b2673c4eadd1eb6db6405432b75a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155162"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856093"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>概觀
@@ -65,10 +65,10 @@ Azure Active Directory Domain Services 所佈建的受控網域的幾個顯著�
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>混合式組織的 Azure AD 網域服務
 具有混合式 IT 基礎結構的組織會混合取用雲端資源和內部部署資源。 這類組織會從其內部部署目錄同步身分識別資訊到其 Azure AD 租用戶。 隨著混合式組織尋求將他們的更多內部部署應用程式移轉至雲端，尤其是舊版目錄感知應用程式，Azure AD 網域服務對組織而言可說是非常有用。
 
-Litware Corporation 已部署 [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)，以便從其內部部署目錄同步身分識別資訊到其 Azure AD 租用戶。 同步處理的身分識別資訊包括使用者帳戶、用於驗證的認證雜湊 (密碼同步) 與群組成員資格。
+Litware Corporation 已部署 [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)，以便從其內部部署目錄同步身分識別資訊到其 Azure AD 租用戶。 同步處理的身分識別資訊包括使用者帳戶、用於驗證的認證 (密碼雜湊同步) 與群組成員資格。
 
 > [!NOTE]
-> **混合式組織必須使用密碼同步處理，才能使用 Azure AD 網域服務**。 這是因為在 Azure AD 網域服務提供的受控網域中需要使用者的認證，才能透過 NTLM 或 Kerberos 驗證方法驗證這些使用者。
+> **混合式組織必須使用密碼雜湊同步處理，才能使用 Azure AD Domain Services**。 這是因為在 Azure AD 網域服務提供的受控網域中需要使用者的認證，才能透過 NTLM 或 Kerberos 驗證方法驗證這些使用者。
 >
 >
 

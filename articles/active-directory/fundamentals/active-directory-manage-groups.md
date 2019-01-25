@@ -3,7 +3,7 @@ title: 使用群組管理應用程式和資源存取權 - Azure Active Directory
 description: 了解如何使用 Azure Active Directory 群組來管理貴組織雲端式應用程式、內部部署應用程式以及資源的存取權。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 5a706a2a879ae3b4c4adb2690faa77846474ce49
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4c014392f0626a29c0ecf5f0371a3fd52ea9d163
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087281"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447967"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>使用 Azure Active Directory 群組來管理應用程式和資源的存取權
 Azure Active Directory (Azure AD) 可協助您使用貴組織的群組來管理雲端式應用程式、內部部署應用程式以及資源。 資源既可以是目錄的一部分 (例如，透過目錄中的角色來管理物件的權限)，也可以在目錄外部 (例如，用於軟體即服務 (SaaS) 應用程式、Azure 服務、SharePoint 網站以及內部部署資源)。

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 01/16/2019
 ms.author: sethm
-ms.openlocfilehash: 570c1adc2f4615e78cbe5656c13b0e22b863baf7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3fcbf2b3160d57e56a59ba9c374c9b1b2a75a159
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192633"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330240"
 ---
 # <a name="store-service-principal-credentials-in-key-vault"></a>將服務主體認證儲存在 Key Vault 中
 
@@ -83,7 +83,7 @@ Azure Stack 中的 Key Vault 可協助保護雲端應用程式和服務所使用
 
 2. 在 [祕密] 窗格中，選取 [產生/匯入]。
 
-3. 在 [建立祕密] 窗格中，從選項清單中選取 [手動]。
+3. 在 [建立祕密] 窗格中，從選項清單中選取 [手動]。 如果您已使用憑證建立服務主體，請從下拉式清單中選取憑證，然後上傳檔案。
 
 4. 輸入從服務主體複製的**應用程式識別碼**作為金鑰的名稱。 金鑰名稱只能包含英數字元和連字號 (-) 字元。
 

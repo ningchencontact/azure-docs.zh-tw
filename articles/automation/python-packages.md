@@ -3,18 +3,18 @@ title: 管理 Azure 自動化中的 Python 2 封裝
 description: 本文說明如何管理 Azure 自動化中的 Python 2 封裝。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5974a8e622ca0969b2a7b5ee9500766ac95398c9
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: de0998dffeac54db5311bbcde1c9499488b23556
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45987219"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434965"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>管理 Azure 自動化中的 Python 2 封裝
 

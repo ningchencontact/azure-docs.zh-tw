@@ -3,7 +3,7 @@ title: 將最近刪除的使用者還原或永久移除- Azure Active Directory 
 description: 如何使用 Azure Active Directory 檢視可還原的使用者、還原已刪除的使用者，或是永久刪除使用者。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 066c9189e0c3cea409a99217e0ab4b46002df1f9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 995a6a9da637c23663c51fe2f4b175741f5849b6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556776"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450314"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>使用 Azure Active Directory 將最近刪除的使用者還原或移除
 刪除使用者之後，其帳戶會維持在暫時停權狀態 30 天。 在這 30 天期間，可以還原該使用者帳戶及其所有屬性。 30 天期限過後，系統會自動將該使用者永久刪除。
@@ -59,9 +59,6 @@ ms.locfileid: "53556776"
 2. 選取 [還原使用者]。
 
     ![[使用者 - 已刪除的使用者] 頁面上顯示反白的 [還原使用者] 選項](media/active-directory-users-restore/users-deleted-users-restore-user.png)
-
->[!NOTE]
->之前，當使用者從內部部署同步處理範圍中移除並在雲端中刪除時，帳戶的 DirSyncEnabled 狀態已錯誤設定為 "False"。 如果之後手動從 Azure AD 資源回收筒還原該使用者，則會顯示「僅限雲端」帳戶的不正確狀態。 現在已修正此問題，若使用者從同步範圍中移除，然後虛刪除，再手動從 Azure AD 資源回收筒還原，DirSyncEnabled 狀態的值一律會保持 “True”。
 
 ## <a name="permanently-delete-a-user"></a>永久刪除使用者
 您可以從目錄中永久刪除使用者，不需等到 30 天後自動刪除。 無論是您、其他系統管理員還是 Microsoft 客戶支援服務，均無法還原已永久刪除的使用者。

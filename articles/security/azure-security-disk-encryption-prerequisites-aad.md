@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/09/2019
+ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 071f07e9d485a5fab5f2ce3d23a383e974001143
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: f992b4539711d66c51e423eae94c40a325842241
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158006"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267159"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure 磁碟加密必要條件 (舊版)
 
@@ -37,7 +37,7 @@ ms.locfileid: "54158006"
 - 只有特定以 Azure 資源庫為基礎的 Linux 伺服器散發套件和版本可支援 Azure 磁碟加密。 如需目前支援的版本清單，請參閱 [Azure 磁碟加密常見問題集](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)。
 - Azure 磁碟加密需要您的金鑰保存庫和 VM 位於相同的 Azure 區域和訂用帳戶中。 若在不同的區域設定資源，會導致 Azure 磁碟加密功能啟用失敗。
 
-## <a name="bkmk_LinuxPrereq"></a> Linux Iaas VM 的其他先決條件 
+## <a name="bkmk_LinuxPrereq"></a> Linux IaaS VM 的其他先決條件 
 
 - Linux 的 Azure 磁碟加密要求 VM 上要有 7 GB 的 RAM，才能在[受支援的映像](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)上啟用 OS 磁碟加密。 OS 磁碟加密程序完成之後，就可以將 VM 設定為使用較少的記憶體來執行。
 - 在啟用加密之前，所要加密的資料磁碟必須在 /etc/fstab 中正確列出。 請為此項目使用永續性區塊裝置名稱，原因是採用「/dev/sdX」格式的裝置名稱不一定會在重新開機時與相同的磁碟相關聯，在套用加密後尤其如此。 如需此行為的詳細資訊，請參閱：[針對 Linux VM 裝置名稱變更進行疑難排解](../virtual-machines/linux/troubleshoot-device-names-problems.md)
@@ -147,7 +147,7 @@ ms.locfileid: "54158006"
 
 ## <a name="prerequisite-workflow-for-key-vault-and-the-azure-ad-app"></a>Key Vault 和 Azure AD 應用程式的先決條件工作流程
 
-如果您已經熟悉 Azure 磁碟加密的 Key Vault 和 Azure AD 必要條件，您可以使用 [Azure 磁碟加密必要條件 PowerShell 指令碼](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )。 如需有關使用必要指令碼的詳細資訊，請參閱 [VM 加密快速入門](quick-encrypt-vm-powershell.md)和 [Azure 磁碟加密附錄](azure-security-disk-encryption-appendix.md#bkmk_prereq-script)。 
+如果您已經熟悉 Azure 磁碟加密的 Key Vault 和 Azure AD 必要條件，您可以使用 [Azure 磁碟加密必要條件 PowerShell 指令碼](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )。 如需有關使用必要指令碼的詳細資訊，請參閱 [VM 加密快速入門](quick-encrypt-vm-powershell.md)和 [Azure 磁碟加密附錄](azure-security-disk-encryption-appendix.md#bkmk_prereq-script)。 
 
 1. 建立金鑰保存庫。 
 2. 設定 Azure AD 應用程式和服務主體。

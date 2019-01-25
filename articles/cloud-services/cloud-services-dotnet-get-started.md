@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 966536b7129a91f4c6fd8dd7bf0270be660bdf81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716101"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332059"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
 
@@ -357,7 +357,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 ### <a name="set-project-references"></a>設定專案參考
 1. 在 ContosoAdsWeb 專案中，設定 ContosoAdsCommon 專案的參考。 以滑鼠右鍵按一下 ContosoAdsWeb 專案，然後按一下 [參考]  -  [新增參考]。 在 [參考管理員] 對話方塊中，於左側窗格選取 [方案 - 專案]，選取 [ContosoAdsCommon]，然後按一下 [確定]。
-2. 在 ContosoAdsWorker 專案中，設定 ContosAdsCommon 專案的參考。
+2. 在 ContosoAdsWorker 專案中，設定 ContosoAdsCommon 專案的參考。
 
     ContosoAdsCommon 將包含將由前端與後端使用的 Entity Framework 資料模型和內容類別。
 3. 在 ContosoAdsWorker 專案中，設定 `System.Drawing`的參照。
@@ -380,7 +380,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 3. 在 ContosoAdsCloudService 專案中，於 [角色] 下的 ContosoAdsWeb 上按一下滑鼠右鍵，然後按一下 [屬性]。
 
     ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. 在 **ContosAdsWeb [Role]** 屬性視窗中，按一下 [設定] 索引標，然後按 [新增設定]。
+4. 在 **ContosoAdsWeb [Role]** 屬性視窗中，按一下 [設定] 索引標籤，然後按一下 [新增設定]。
 
     將 [服務組態] 保持設為 [所有組態]。
 5. 新增名為 *StorageConnectionString*的設定。 將 [類型] 設為 *ConnectionString*，並將 [值] 設為 *UseDevelopmentStorage=true*。

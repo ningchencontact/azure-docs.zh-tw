@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Blackboard Learn 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 0b8ca505-61ea-487c-9a3e-fa50c936df0c
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/25/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9aa03146608796f1a2d26d44b4e76b0331f8c5be
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3b57bea85b76b69b1826a81aa582f5326db588cb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063551"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811565"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>教學課程：Azure Active Directory 與 Blackboard Learn 整合
 
@@ -79,8 +79,8 @@ ms.locfileid: "54063551"
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Blackboard Learn 單一登入](#configure-blackboard-learn-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[建立 Blackboard Learn 測試使用者](#create-blackboard-learn-test-user)** - 使 Blackboard Learn 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-5. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+5. **[建立 Blackboard Learn 測試使用者](#create-blackboard-learn-test-user)** - 使 Blackboard Learn 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -117,7 +117,7 @@ ms.locfileid: "54063551"
     ![映像](common/edit-attribute.png)
 
 6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟。 在這裡，我們已將 Userprincipalname 對應為唯一的使用者屬性，但您可以將它對應到適當的值，此值必須可在組織內唯一識別該使用者，並且對應到 Blackboard Learn 使用者名稱欄位。
-    
+
     | Name | 來源屬性|
     | ---------------| --------------- |
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | user.userprincipalname |
@@ -140,11 +140,11 @@ ms.locfileid: "54063551"
 
     g. 按一下 [檔案] 。
 
-4. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載] 以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
+7. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載] 以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-6. 在 [設定 Blackboard Learn] 區段上，依據您的需求複製適當的 URL。
+8. 在 [設定 Blackboard Learn] 區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -226,4 +226,3 @@ ms.locfileid: "54063551"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

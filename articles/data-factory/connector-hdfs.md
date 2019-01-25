@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 01/16/2019
 ms.author: jingwang
-ms.openlocfilehash: a5df9d4d323158ee52c872b0122fdd28d9f74979
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 161683b48ae66edc621981142c538f8bce44a2b6
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019855"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352167"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>使用 Azure Data Factory 從 HDFS 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,6 +39,9 @@ ms.locfileid: "54019855"
 ## <a name="prerequisites"></a>必要條件
 
 若要從不可公開存取的 HDFS 複製資料，您需要設定「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](concepts-integration-runtime.md) 一文。
+
+> [!NOTE]
+> 請確定 Integration Runtime 可以存取 Hadoop 叢集的**所有** [名稱節點伺服器]:[名稱節點連接埠] 和 [資料節點伺服器]:[資料節點連接埠]。 預設 [名稱節點連接埠] 是 50070，而預設 [資料節點連接埠] 是 50075。
 
 ## <a name="getting-started"></a>開始使用
 

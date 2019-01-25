@@ -1,32 +1,32 @@
 ---
-title: 快速入門：開始使用 Content Moderator
+title: 快速入門：在 Web 上試用 Content Moderator - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 如何開始使用 Content Moderator。
+description: 在此快速入門中，您將使用線上「Content Moderator 審核工具」，無須撰寫任何程式碼，即可測試 Content Moderator 的基本功能。
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 259919f3b7cb0b614450c94f876cff933a5e01e8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 382401bd8ca073bec6f77fadf1096e42ab1e1d72
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852685"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266462"
 ---
-# <a name="quickstart-get-familiar-with-content-moderator"></a>快速入門：熟悉 Content Moderator
+# <a name="quickstart-try-content-moderator-on-the-web"></a>快速入門：在 Web 上試用 Content Moderator
 
 在此快速入門中，您將使用線上「Content Moderator 審核工具」，無須撰寫任何程式碼，即可測試 Content Moderator 的基本功能。 如果您想要將此服務更快整合至您的應用程式，請參閱[後續步驟](#next-steps)一節中的其他快速入門。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 網頁瀏覽器
 
 ## <a name="set-up-the-review-tool"></a>設定審核工具
-「Content Moderator 審核工具」是一個 Web 型工具，可讓人工審核者協助認知服務進行決策。 在此指南中，您將完成設定審核工具的簡短程序，以便了解 Content Moderator 服務如何運作。 請前往 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)網站並註冊。
+「Content Moderator 審核工具」是一個 Web 型工具，可讓人工審核者協助認知服務進行決策。 在本指南中，您將完成設定審核工具的簡短程序，以便了解 Content Moderator 服務如何運作。 請前往 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)網站並註冊。
 
 ![Content Moderator 首頁](images/homepage.PNG)
 

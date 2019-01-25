@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/11/2019
+ms.lastreviewed: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: 035284e23d3b600cbf1cbd5500a9821c2c628b05
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.reviewer: jiahan
+ms.openlocfilehash: ea8669189b5fc8d797fc03f579ea52e7c11a7078
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156199"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246954"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 SQL Server 資源提供者
 
@@ -59,8 +60,11 @@ _僅適用於整合式系統安裝_。 您必須提供 [Azure Stack 部署 PKI �
 
 ## <a name="deploy-the-sql-resource-provider"></a>部署 SQL 資源提供者
 
-安裝妥所有先決條件項目之後，請執行 **DeploySqlProvider.ps1** 指令碼來部署 SQL 資源提供者。 DeploySqlProvider.ps1 指令碼是從您針對 Azure Stack 版本下載的 SQL 資源提供者二進位檔中解壓縮而來。
+安裝所有先決條件項目之後，您可以執行 **DeploySqlProvider.ps1** 指令碼來部署 SQL 資源提供者。 DeploySqlProvider.ps1 指令碼是從您針對 Azure Stack 版本下載的 SQL 資源提供者二進位檔中解壓縮而來。
 
+ > [!IMPORTANT]
+ > 在部署資源提供者之前，請先檢閱版本資訊，以了解有哪些新功能、修正，以及任何可能對部署造成影響的已知問題。
+ 
 若要部署 SQL 資源提供者，請開啟**新的**已提升權限 PowerShell 視窗 (不是 PowerShell ISE)，然後變更至您解壓縮 SQL 資源提供者二進位檔的目錄。 建議您使用新的 PowerShell 視窗，以避免已載入的 PowerShell 模組可能造成的問題。
 
 請執行 DeploySqlProvider.ps1 script 指令碼，這會完成下列工作：
@@ -133,6 +137,10 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Clear the existing login information from the Azure PowerShell context.
+Clear-AzureRMContext -Scope CurrentUser -Force
+Clear-AzureRMContext -Scope Process -Force
 
 # Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
 . $tempDir\DeploySQLProvider.ps1 `

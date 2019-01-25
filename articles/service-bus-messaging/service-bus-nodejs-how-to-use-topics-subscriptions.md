@@ -3,9 +3,9 @@ title: 如何搭配 Node.js 使用 Azure 服務匯流排主題和訂用帳戶 | 
 description: 了解如何從 Node.js 應用程式，在 Azure 中使用服務匯流排主題和訂用帳戶。
 services: service-bus-messaging
 documentationcenter: nodejs
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: spelluru
-ms.openlocfilehash: 00ae254a9e9d40ec88802f2f46666aff72cb242a
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.author: aschhab
+ms.openlocfilehash: a5d0f457d06bd4e4e655d8f3ebc712f4d6ee7523
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377628"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849901"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>如何透過 Node.js 使用服務匯流排主題和訂用帳戶
 

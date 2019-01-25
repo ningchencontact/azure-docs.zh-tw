@@ -1,7 +1,7 @@
 ---
 title: 使用 Azure CLI 來建立具有區域前端的 Standard Load Balancer
 titlesuffix: Azure Load Balancer
-description: 了解如何使用 Azure CLI 來建立具有區域公用 IP 位址前端的公用 Load Balancer Standard
+description: 了解如何使用 Azure CLI 來建立具有區域公用 IP 位址前端的公用 Standard Load Balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: f1a6777a99c2237fc4d201fa5c87eaea88117866
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 813f11dae31261b4211480570a4801de19e74437
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185625"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199200"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>使用 Azure CLI 來建立具有區域前端的公用 Load Balancer Standard
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>使用 Azure CLI 來建立具有區域前端的 Standard Load Balancer
 
-本文會逐步說明如何使用標準公用 IP 位址，來建立具有區域前端的公用 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard)。 在此案例中，您需為前端和後端執行個體指定特定區域，以讓您的資料路徑和資源與特定區域搭配運作。
+本文會逐步說明如何使用標準公用 IP 位址，來建立具有區域前端的公用 [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard)。 在此案例中，您需為前端和後端執行個體指定特定區域，以讓您的資料路徑和資源與特定區域搭配運作。
 
 如需關於搭配使用可用性區域和標準 Load Balancer 的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
 
@@ -61,7 +61,7 @@ az network public-ip create \
 --zone 1
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>建立 Azure Load Balancer Standard
+## <a name="create-azure-standard-load-balancer"></a>建立 Azure Standard Load Balancer
 本節將詳細說明如何建立及設定下列負載平衡器元件：
 - 前端 IP 集區，可接收負載平衡器上的連入網路流量。
 - 後端 IP 集區，前端集區在其中傳送負載平衡網路流量。
@@ -69,7 +69,7 @@ az network public-ip create \
 - 負載平衡器規則，可定義如何將流量分散至 VM。
 
 ### <a name="create-the-load-balancer"></a>建立負載平衡器
-使用 [az network lb create](/cli/azure/network/lb#az-network-lb-create) 來建立標準負載平衡器。 下列範例會建立名為 *myLoadBalancer* 的負載平衡器，並將 *myPublicIP* 位址指派給前端 IP 設定。
+使用 [az network lb create](/cli/azure/network/lb#az-network-lb-create) 來建立 Standard Load Balancer。 下列範例會建立名為 *myLoadBalancer* 的負載平衡器，並將 *myPublicIP* 位址指派給前端 IP 設定。
 
 ```azurecli-interactive
 az network lb create \

@@ -13,18 +13,35 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 687e47eff000679f24088a59297a258a1469f3fd
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 735f1d7cce8621a29e5a582917d3eea8ee399b8f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106268"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319642"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>驗證即服務的版本資訊
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 本文包含有「Azure Stack 驗證即服務」的版本資訊。
+
+## <a name="version-402"></a>4.0.2 版
+
+2019 年 1 月 7 日
+
+如果您執行 Azure Stack 每月更新驗證工作流程，而且您的 OEM 更新套件版本不是 1810 或更高版本，您就會在進行 OEM 更新步驟時收到錯誤。 這是一個錯誤 (bug)。 正在開發修正程式。風險降低步驟如下所示：
+
+1.  如往常一樣執行 OEM 更新。
+2.  在成功套用套件之後執行 Test-AzureStack 並儲存輸出。
+3.  取消測試。
+4.  將儲存的輸出傳送至 VaaSHelp@microsoft.com，以接收回合的傳遞結果。
+
+## <a name="version-402"></a>4.0.2 版
+
+2018 年 11 月 30 日
+
+- 內部錯誤修正
 
 ## <a name="version-401"></a>4.0.1 版
 

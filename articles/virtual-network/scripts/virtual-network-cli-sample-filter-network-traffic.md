@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 427403443de55ddf55c5026af80509e792ab5d97
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 179a30524aed3063384673c11c4dd3b0424ce2a4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980884"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473906"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>篩選輸入和輸出 VM 網路流量的指令碼範例
 
@@ -55,7 +55,7 @@ az group delete --name MyResourceGroup --yes
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | 建立公用 IP 位址以從網際網路存取 VM。 |
 | [az network nic create](/cli/azure/network/nic#az_network_nic_create) | 建立虛擬網路介面，並將它們連結到虛擬網路的前端和後端子網路。 |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | 建立與前端和後端子網路關聯的網路安全性群組 (NSG)。 |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |建立對特定子網路允許或封鎖特定連接埠的 NSG 規則。 |
+| [az network nsg rule create](/cli/azure/network/nsg/rule) |建立對特定子網路允許或封鎖特定連接埠的 NSG 規則。 |
 | [az vm create](/cli/azure/vm#az_vm_create) | 建立虛擬機器，並將 NIC 連結到每個 VM。 此命令也會指定要使用的虛擬機器映像和系統管理認證。 |
 | [az group delete](/cli/azure/group#az_group_delete) | 刪除資源群組及其包含的所有資源。 |
 

@@ -3,18 +3,18 @@ title: 將 Blob 儲存體事件傳送至 Web 端點 - 入口網站 | Microsoft D
 description: 使用 Azure Event Grid 和 Azure 入口網站來建立 Blob 儲存體帳戶，並訂閱其事件。 將事件傳送到 Webhook。
 services: event-grid
 keywords: ''
-author: tfitzmac
-ms.author: tomfitz
+author: spelluru
+ms.author: spelluru
 ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 6fd48ecd6def6a4fcd56751b6a137f75b16896ef
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2b8b06a540af99cad45bed4068dd55773eaf38d0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086958"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468568"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>快速入門：使用 Azure 入口網站將 Blob 儲存體事件路由傳送至 Web 端點
 

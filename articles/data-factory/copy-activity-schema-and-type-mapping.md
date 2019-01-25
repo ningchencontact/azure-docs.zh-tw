@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1a3855b7b95224e0f872764f6710f9fa907780a7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025448"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358706"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>複製活動中的結構描述對應
 本文說明 Azure Data Factory 複製活動在執行資料複製時，如何將來源資料中的結構描述和資料類型對應到接收資料。
@@ -142,7 +142,7 @@ ms.locfileid: "54025448"
 
 ## <a name="schema-mapping"></a>結構描述對應
 
-在階層形狀的資料與表格形狀的資料之間複製資料時，適用結構描述對應，例如從 MongoDB/REST 複製到文字檔案，以及從 SQL 複製到 Azure Cosmos DB MongoDB API。 複製活動的 `translator` 區段支援下列屬性：
+在階層形狀的資料與表格形狀的資料之間複製資料時 (例如，從 MongoDB/REST 複製到文字檔案，以及從 SQL 複製到 Azure Cosmos DB 的 MongoDB 版 API 時)，適用結構描述對應。 複製活動的 `translator` 區段支援下列屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |

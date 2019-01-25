@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8df43a9b2c518e77d14dd5cb392b042b0b4846e2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8543f00ccaecd8fd3f46132b05c2af925e6de10a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407961"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352354"
 ---
 # <a name="using-a-cloud-dvr"></a>使用雲端 DVR
 
@@ -35,7 +35,10 @@ ms.locfileid: "53407961"
 **LiveEvent** 支援最多三個同時執行的 **LiveOutput**，所以您可以從一個即時資料流建立最多 3 個錄製/封存。 這可讓您視需要發行和封存事件的不同部分。 假設您需要廣播 24 小時全年無休的即時線性饋送，並建立一天中不同節目的「錄製」，以提供給客戶作為可追趕觀看的隨選內容。 在此案例中，您首先建立主要 LiveOutput，其封存時間範圍為 1 小時或更短 (這是檢視者會觀看的主要即時資料流)。 您可以為此 **LiveOutput** 建立 **StreamingLocator**，並將它發佈到您的應用程式或網站作為「即時」饋送。 **LiveEvent** 在執行的同時，您可以在節目開始的時候 (或 5 分鐘前，以提供稍後修剪的控點)，透過程式設計方式建立第二個同時執行的 **LiveOutput**。 此第二個 **LiveOutput** 可以在節目結束 5 分鐘後刪除。 對於此地二個 **Asset**，您可以建立新的 **StreamingLocator** 來發佈此節目，作為您應用程式目錄中的隨選資產。 只要來自第一個 **LiveOutput** 的「即時」饋送繼續廣播線性饋送，您就可以針對想要共用為點播視訊的其他節目界限或精選重複此程序多次。 
 
 > [!NOTE]
-> **LiveOutput** 在建立時開始，並在刪除時結束。 當您刪除 **LiveOutput** 時，您不是刪除基礎的 **Asset** 和 Asset 中的內容。  
+> **LiveOutput** 在建立時開始，並在刪除時結束。 當您刪除 **LiveOutput** 時，您不是刪除基礎的 **Asset** 和 Asset 中的內容。 
+>
+> 如果您已在資產上發佈 **LiveOutput** 的 [串流定位器]，將可繼續檢視此事件 (最大為 DVR 視窗長度)，直到 [串流定位器] 的結束時間或直到您刪除定位器為止 (以先到者為準)。   
+  
 
 ## <a name="next-steps"></a>後續步驟
 

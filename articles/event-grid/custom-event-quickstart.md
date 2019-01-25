@@ -3,18 +3,18 @@ title: 將自訂事件傳送至 Web 端點 - 事件方格、Azure CLI | Microsof
 description: 使用 Azure 事件方格和 Azure CLI 發佈自訂主題，以及訂閱該主題的事件。 事件是由 Web 應用程式處理。
 services: event-grid
 keywords: ''
-author: tfitzmac
-ms.author: tomfitz
+author: spelluru
+ms.author: spelluru
 ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 12fbc23e372042b54a987015273c004b32a9584a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d135b89d2b053e5d8d98a1319ae21759f3ff5594
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104419"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462244"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>快速入門：使用 Azure CLI 和事件方格將自訂事件路由傳送至 Web 端點
 

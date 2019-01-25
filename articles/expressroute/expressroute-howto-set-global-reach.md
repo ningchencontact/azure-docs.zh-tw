@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 3df107f8854469b50c5e8483515388b5c93fb244
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ab1098ca65ad92cffdbe1dfb24fd43fcc8f10eae
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383267"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431666"
 ---
 # <a name="configure-expressroute-global-reach-preview"></a>設定 ExpressRoute Global Reach (預覽)
 本文可協助您使用 PowerShell 設定 ExpressRoute Global Reach。 如需詳細資訊，請參閱 [ExpressRouteRoute Global Reach](expressroute-global-reach.md)。
@@ -26,7 +26,7 @@ ms.locfileid: "53383267"
 
 在開始進行設定之前，請先確認下列情況︰
 
-* 您已安裝最新版 Azure PowerShell。 如需詳細資訊，請參閱[安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)。
+* 您已安裝最新版 Azure PowerShell。 如需詳細資訊，請參閱[安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)。
 * 您了解 ExpressRoute 線路佈建[工作流程](expressroute-workflows.md)。
 * 您的 ExpressRoute 線路處於已佈建狀態。
 * 您的 ExpressRoute 線路上已設定 Azure 私用對等互連。  

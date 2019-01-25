@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 5283782188eaebe3997b6de31b087da74cf10486
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e118249cf2aaf07aeb4f337636a46d088102bca8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620127"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261174"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 端點中的權限和同意
 
@@ -164,7 +164,7 @@ Microsoft 生態系統中的某些高特權權限可以設定為「受系統管�
 2. 找出 [Microsoft Graph 權限] 區段，然後新增您應用程式所需的權限。
 3. [儲存] 應用程式註冊。
 
-### <a name="recommended-sign-the-user-in-to-your-app"></a>建議︰將使用者登入您的應用程式
+### <a name="recommended-sign-the-user-in-to-your-app"></a>建議使用：將使用者登入您的應用程式
 
 通常，當您建置使用系統管理員同意端點的應用程式時，應用程式會需要一個可供系統管理員核准應用程式權限的頁面或檢視。 此頁面可以是應用程式註冊流程的一部分、應用程式設定的一部分，或是專用的「連接」流程。 在許多情況下，應用程式只在使用者利用工作或學校 Microsoft 帳戶登入之後顯示此「連接」檢視是很合理的。
 

@@ -1,27 +1,8 @@
 ---
-title: Machine Learning Studio 適用之 R 語言的快速入門教學課程 - Azure | Microsoft Docs
-description: 請透過此 R 程式設計教學課程快速開始搭配 Azure Machine Learning Studio 使用 R 語言來建立預測解決方案。
-keywords: 快速入門,r 語言,r 程式設計語言,r 程式設計教學課程
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/06/2017
-ms.openlocfilehash: ddd9c1fd8b51c6ae43878cf50ee16737511c82e9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278656"
+標題：R 語言所適用的快速入門教學課程 titleSuffix: Azure Machine Learning Studio 說明：請透過此 R 程式設計教學課程快速開始搭配 Azure Machine Learning Studio 使用 R 語言來建立預測解決方案。
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:01/06/2017
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio 適用之 R 程式設計語言的快速入門教學課程
 

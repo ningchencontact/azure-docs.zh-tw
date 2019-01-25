@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ac3c3d8f2a5ae37f1d32f9781f0cdbec0b293e8
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 85c284c2a0e49d7fa20c0ec342878ffdf9d47387
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42141870"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261157"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>使用 Azure 備份還原已加密 VM 的金鑰保存庫金鑰與密碼
 本文將討論如果您的金鑰和密碼不存在於金鑰保存庫中時，如何使用 Azure VM 備份還原已加密的 Azure VM。 這些步驟也可用於您想要為已還原的 VM 另外維護一份金鑰 (金鑰加密金鑰) 與密碼 (BitLocker 加密金鑰) 時。
@@ -28,8 +28,8 @@ ms.locfileid: "42141870"
 
 > [!NOTE]
 > 一旦還原加密 VM 的磁碟後，請確定：
-> 1. 系統會將還原磁碟作業詳細資料填入 $details，如[還原 [磁碟] 區段中的 PowerShell 步驟](backup-azure-vms-automation.md#restore-an-azure-vm)中所述
-> 2. 僅在**將金鑰和秘密還原至金鑰保存庫之後**，才應該從還原的硬碟建立 VM。
+> * 系統會將還原磁碟作業詳細資料填入 $details，如[還原 [磁碟] 區段中的 PowerShell 步驟](backup-azure-vms-automation.md#restore-an-azure-vm)中所述
+> * 僅在**將金鑰和秘密還原至金鑰保存庫之後**，才應該從還原的硬碟建立 VM。
 >
 >
 
@@ -61,7 +61,10 @@ PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile
 ```
 
 ## <a name="restore-secret"></a>還原密碼
-使用上面所產生的 JSON 檔案來取得秘密名稱和值，並將其饋送至設定祕密 Cmdlet，以將祕密 (BEK) 放回金鑰保存庫中。 **如果使用 BEK 和 KEK 加密您的 VM，請使用下列 Cmdlet。**
+
+使用上面所產生的 JSON 檔案來取得秘密名稱和值，並將其饋送至設定祕密 Cmdlet，以將祕密 (BEK) 放回金鑰保存庫中。 如果**使用 BEK 和 KEK 加密您的 VM**，請使用這些 Cmdlet。
+
+**如果使用 BEK 和 KEK 加密您的 Windows VM，請使用這些 Cmdlet。**
 
 ```
 PS C:\> $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
@@ -71,17 +74,27 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-如果**只使用 BEK 加密**您的 VM，請從 JSON 產生密碼 Blob 檔案並提供給還原密碼 Cmdlet，以將密碼 (BEK) 放回金鑰保存庫中。
+**如果使用 BEK 和 KEK 加密您的 Linux VM，請使用這些 Cmdlet。**
+
+```
+PS C:\> $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
+PS C:\> $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
+PS C:\> $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
+PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'LinuxPassPhraseFileName';'DiskEncryptionKeyEncryptionKeyURL' = $encryptionObject.OsDiskKeyAndSecretDetails.KeyUrl;'MachineName' = 'vm-name'}
+PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
+```
+
+使用上面所產生的 JSON 檔案來取得秘密名稱和值，並將其饋送至設定祕密 Cmdlet，以將祕密 (BEK) 放回金鑰保存庫中。 如果**僅使用 BEK 加密您的 VM**，請使用這些 Cmdlet。
 
 ```
 PS C:\> $secretDestination = 'C:\secret.blob'
 PS C:\> [io.file]::WriteAllBytes($secretDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyVaultSecretBackupData))
 PS C:\> Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $secretDestination -Verbose
-```
+  ```
 
 > [!NOTE]
-> 1. 可透過參考 $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl 的輸出，並使用祕密之後的文字來取得 $secretname 的值/ 例如輸出秘密 URL 是 https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 且祕密名稱是 B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
-> 2. DiskEncryptionKeyFileName 標記的值與祕密名稱相同。
+> * 可透過參考 $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl 的輸出，並使用祕密之後的文字來取得 $secretname 的值/ 例如輸出秘密 URL 是 https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 且祕密名稱是 B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> * DiskEncryptionKeyFileName 標記的值與祕密名稱相同。
 >
 >
 
@@ -111,9 +124,9 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 ```
 
 > [!NOTE]
-> 1. 可透過參考 $rp1.KeyAndSecretDetails.SecretUrl 的輸出，並根據祕密之後的文字來取得 $secretname 的值/ 例如輸出秘密 URL 是 https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 且祕密名稱就是 B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
-> 2. DiskEncryptionKeyFileName 標記的值與祕密名稱相同。
-> 3. 還原回金鑰並使用 [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) Cmdlet 後，便可從金鑰保存庫取得 DiskEncryptionKeyEncryptionKeyURL 的值
+> * 可透過參考 $rp1.KeyAndSecretDetails.SecretUrl 的輸出，並根據祕密之後的文字來取得 $secretname 的值/ 例如輸出秘密 URL 是 https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 且祕密名稱就是 B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> * DiskEncryptionKeyFileName 標記的值與祕密名稱相同。
+> * 還原回金鑰並使用 [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) Cmdlet 後，便可從金鑰保存庫取得 DiskEncryptionKeyEncryptionKeyURL 的值
 >
 >
 

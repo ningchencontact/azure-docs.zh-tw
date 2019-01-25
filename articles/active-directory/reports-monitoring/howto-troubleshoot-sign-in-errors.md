@@ -4,7 +4,7 @@ description: 了解如何在 Azure 入口網站中使用 Azure Active Directory 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -13,12 +13,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 47a89da808e2f53cf8dfc901c64eba3d78842d13
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: f39557b21e8c54f565ddbb6764d697968d3bbee6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652025"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823757"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>作法：使用 Azure Active Directory 報告對登入錯誤進行疑難排解
 

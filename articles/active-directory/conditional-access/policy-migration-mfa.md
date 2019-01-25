@@ -5,7 +5,7 @@ services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 20a15bf94826df0b058be59ff242c46878ea26dd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 042553e08868a5874a162ad2f4669c92a0a0a5ec
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630070"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452270"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>在 Azure 入口網站中移轉要求多重要素驗證的傳統原則 
 

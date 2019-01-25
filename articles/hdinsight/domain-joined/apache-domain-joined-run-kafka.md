@@ -7,13 +7,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: 0d9ad11ab9a53cf5de51dd3f262dc16054be5d85
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/14/2019
+ms.openlocfilehash: 9e6ebd45f08d2479c73e0753fe1e8df3455df1e1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438603"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265289"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Apache Kafka 原則 (預覽)
 
@@ -50,7 +50,7 @@ ms.locfileid: "53438603"
 
 請參閱[使用企業安全性套件建立 HDInsight 叢集](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster)，以了解如何建立 **sales_user** 和 **marketing_user** 網域使用者。 在生產情節中，網域使用者來自 Active Directory 租用戶。
 
-## <a name="create-ranger-policy"></a>建立 Ranger 原則 
+## <a name="create-ranger-policy"></a>建立 Ranger 原則
 
 為 **sales_user** 和 **marketing_user** 建立 Ranger 原則。
 
@@ -74,7 +74,7 @@ ms.locfileid: "53438603"
 
    ![Apache Ranger 管理員 UI 建立原則](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
 
-   >[!NOTE]   
+   >[!NOTE]
    >如果 [選取使用者] 未自動填入網域使用者，請稍候 Ranger 與 Azure AD 同步處理。
 
 4. 按一下 [新增] 以儲存規則。
@@ -94,17 +94,15 @@ ms.locfileid: "53438603"
 
 ## <a name="create-topics-in-a-kafka-cluster-with-esp"></a>在 Kafka 叢集中使用 ESP 建立主題
 
-若要建立 **salesevents** 和 **marketingspend** 這兩個主題：
+建立兩個主題，`salesevents` 和 `marketingspend`：
 
 1. 下列命令可用來開啟與叢集的 SSH 連線：
 
    ```bash
-   ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net
+   ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   將 `SSHUSER` 取代為叢集的 SSH 使用者，並將 `CLUSTERNAME` 取代為叢集的名稱。 出現提示時，請輸入 SSH 使用者帳戶的密碼。 如需搭配 HDInsight 使用 `scp` 的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)。
-
-   在生產情節中，在叢集建立期間設定的網域使用者可以將 SSH 連線到叢集。
+   將 `DOMAINADMIN` 取代為[叢集建立](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-hdinsight-cluster-with-esp)期間設定的叢集管理使用者，並將 `CLUSTERNAME` 取代為您的叢集名稱。 出現提示時，請輸入管理使用者帳戶的密碼。 如需搭配 HDInsight 使用 `SSH` 的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)。
 
 2. 下列命令可用來將叢集名稱儲存到變數，並安裝 JSON 剖析公用程式 `jq`。 出現提示時，請輸入 Kafka 叢集名稱。
 
@@ -113,14 +111,15 @@ ms.locfileid: "53438603"
    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
    ```
 
-3. 使用下列命令來取得 Kafka 訊息代理程式主機和 Apache Zookeeper 主機。 出現提示時，輸入叢集管理員帳戶的密碼。
+3. 下列命令可用來取得 Kafka 訊息代理程式主機。 出現提示時，輸入叢集管理員帳戶的密碼。
 
    ```bash
-   export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
-> [!Note]  
-> 繼續操作之前，您可能需要設定開發環境 (如果您尚未設定)。 您將需要 Java JDK、Apache Maven 和具有 SCP 的 SSH 用戶端等元件。 如需詳細資訊，請參閱下列[設定指示](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)。
+
+   > [!Note]  
+   > 繼續操作之前，您可能需要設定開發環境 (如果您尚未設定)。 您將需要 Java JDK、Apache Maven 和具有 SCP 的 SSH 用戶端等元件。 如需詳細資訊，請參閱[設定指示](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)。
+   
 1. 下載[已加入 Apache Kafka 網域的產生者/取用者範例](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)。
 
 1. 依照**建置並部署範例**底下的步驟 2 和 3 進行操作 (在[教學課程：使用 Apache Kafka Producer 和 Consumer API](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example) 中)
@@ -132,13 +131,9 @@ ms.locfileid: "53438603"
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 
-   >[!NOTE]   
-   >只有 Kafka 服務的程序所有人 (例如根使用者) 才能寫入 Zookeeper znode `/config/topics`。 非特殊權限使用者建立主題時，不會強制執行Ranger 原則。 這是因為 `kafka-topics.sh` 指令碼會直接與 Zookeeper 進行通訊來建立主題。 雖然訊息代理程式端上的監看員會監看並據此建立主題，但是項目仍會加入到 Zookeeper 節點。 無法透過 Ranger 外掛程式進行授權，而且會透過 Kafka 訊息代理程式使用 `sudo` 執行上述命令。
-
-
 ## <a name="test-the-ranger-policies"></a>測試 Ranger 原則
 
-根據設定的 Ranger 原則，**sales_user** 可產生/取用主題 **salesevents**，但是無法產生/取用主題 **marketingspend**。 相反地，**marketing_user** 可產生/取用主題 **marketingspend**，而無法產生/取用主題 **salesevents**。
+根據設定的 Ranger 原則，**sales_user** 可產生/取用主題 `salesevents`，但是無法產生/取用主題 `marketingspend`。 相反地，**marketing_user** 可產生/取用主題 `marketingspend`，而無法產生/取用主題 `salesevents`。
 
 1. 對於叢集開啟新的 SSH 連線。 下列命令可用來以 **sales_user1** 身分登入：
 
@@ -152,59 +147,51 @@ ms.locfileid: "53438603"
    export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf"
    ```
 
-3. 上一節中的訊息代理程式和 Zookeeper 名稱可用來設定下列環境變數：
+3. 上一節中的訊息代理程式名稱可用來設定下列環境變數：
 
    ```bash
-   export KAFKABROKERS=<brokerlist>:9092 
+   export KAFKABROKERS=<brokerlist>:9092
    ```
 
    範例： `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
+4. 依照**建置並部署範例**底下的步驟 3 進行操作 (在[教學課程：使用 Apache Kafka Producer 和 Consumer API](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example))，以確定 `kafka-producer-consumer.jar` 也可供 **sales_user**使用。
+
+5. 藉由執行下列命令，確認 **sales_user1** 可產生至主題 `salesevents`：
+
    ```bash
-   export KAFKAZKHOSTS=<zklist>:2181
+   java -jar kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
    ```
 
-   範例： `export KAFKAZKHOSTS=zk1-khdicl.contoso.com:2181,zk2-khdicl.contoso.com:2181`
-
-4. 確認 **sales_user1** 可產生至主題 **salesevents**。
-   
-   下列命令可用來啟動主題 **salesevents** 的主控台產生者：
+6. 下列命令可用來取用主題 `salesevents`：
 
    ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic salesevents --security-protocol SASL_PLAINTEXT
+   java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
-   然後，在主控台上輸入一些訊息。 按下 **Ctrl + C** 可結束主控台產生者。
+   請確認您能夠讀取訊息。
 
-5. 下列命令可用來取用主題 **salesevents**：
-
-   ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic salesevents --security-protocol PLAINTEXTSASL --from-beginning
-   ```
- 
-6. 確認您在上一個步驟中輸入的訊息會出現，而且 **sales_user1** 不會產生至主題 **marketingspend**。
-
-   從如上所示的同一個 SSH 視窗，執行下列命令來產生主題 **marketingspend**：
+7. 藉由在相同 ssh 視窗中執行下列命令，確認 **sales_user1** 無法產生至主題 `marketingspend`：
 
    ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic marketingspend --security-protocol SASL_PLAINTEXT
+   java -jar kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
    ```
 
-   發生授權錯誤，可予以忽略。 
+   發生授權錯誤，可予以忽略。
 
-7. 請注意，無法從主題 **salesevents** 取用 **marketing_user1**。
+8. 請注意，無法從主題 `salesevents` 取用 **marketing_user1**。
 
-   重複執行上述步驟 1-3，不過這次是以 **marketing_user1** 身分執行。
+   重複執行上述步驟 1-4，不過這次是以 **marketing_user1** 身分執行。
 
-   下列命令可用來取用主題 **salesevents**：
+   下列命令可用來取用主題 `salesevents`：
 
    ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic marketingspend --security-protocol PLAINTEXTSASL --from-beginning
+   java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
    先前的訊息不會出現。
 
-8. 從 Ranger UI 檢視稽核存取事件。
+9. 從 Ranger UI 檢視稽核存取事件。
 
    ![Ranger UI 原則稽核](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 

@@ -1,26 +1,8 @@
 ---
-title: 重新定型傳統 Web 服務 - Azure Machine Learning Studio | Microsoft Docs
-description: 了解如何在 Azure Machine Learning 中以程式設計方式重新定型模型，以及使用新定型的模型來更新 Web 服務。
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: 5aa52805afcd50ebf7a9ac0ddcae95f21dd329f1
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554753"
+標題：重新定型傳統 Web 服務 titleSuffix: Azure Machine Learning Studio description:了解如何在 Azure Machine Learning 中以程式設計方式重新定型模型，以及使用新定型的模型來更新 Web 服務。
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date:2017/04/19
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>重新定型傳統 Azure Machine Learning Studio Web 服務
 您部署的預測性 Web 服務是預設評分端點。 預設端點會與原始定型和計分實驗同步，因此無法取代預設端點的定型模型。 若要重新訓練 Web 服務，必須在 Web 服務新增新端點。

@@ -2,22 +2,17 @@
 title: 以 Azure 應用程式閘道設定端對端 SSL
 description: 本文說明如何使用 PowerShell 以 Azure 應用程式閘道設定端對端 SSL
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 5ea022d38970122b88ae35c592af3e4a9351190b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 32dd31c659e1906e8cf59f4c6d06c2b4436284cd
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945326"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214057"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>使用 PowerShell 以應用程式閘道設定端對端 SSL
 
@@ -25,7 +20,7 @@ ms.locfileid: "49945326"
 
 Azure 應用程式閘道支援為流量進行端對端加密。 應用程式閘道會在應用程式閘道終止 SSL 連線。 閘道接著會對流量套用路由規則、重新加密封包，並根據所定義的路由規則將封包轉送至適當的後端伺服器。 任何來自 Web 伺服器的回應都會經歷相同的程序而回到使用者端。
 
-應用程式閘道支援定義自訂 SSL 選項。 它也支援停用下列通訊協定版本；**TLSv1.0**、**TLSv1.1** 和 **TLSv1.2**，也會定義要使用那個加密套件以及偏好的順序。 若要深入了解可設定的 SSL 選項，請參閱 [SSL 原則概觀](application-gateway-SSL-policy-overview.md)。
+應用程式閘道支援定義自訂 SSL 選項。 也支援停用下列通訊協定版本：**TLSv1.0**、**TLSv1.1** 和 **TLSv1.2**，也會定義要使用哪個加密套件以及偏好的順序。 若要深入了解可設定的 SSL 選項，請參閱 [SSL 原則概觀](application-gateway-SSL-policy-overview.md)。
 
 > [!NOTE]
 > 預設會停用 SSL 2.0 和 SSL 3.0，並且無法啟用。 這些版本被認為並不安全，因此不能搭配應用程式閘道使用。
@@ -45,9 +40,9 @@ Azure 應用程式閘道支援為流量進行端對端加密。 應用程式閘�
 
 ## <a name="before-you-begin"></a>開始之前
 
-若要對應用程式閘道設定端對端 SSL，則需要閘道憑證和後端伺服器憑證。 閘道憑證可用來加密和解密透過 SSL 傳送過來的流量。 閘道憑證必須採用「個人資訊交換」(PFX) 格式。 此檔案格式可允許將私密金鑰匯出，而應用程式閘道需要這個匯出的金鑰來執行流量的加密和解密。
+若要對應用程式閘道設定端對端 SSL，則需要閘道憑證和後端伺服器憑證。 閘道憑證用來根據 SSL 通訊協定規格衍生對稱金鑰。 接下來，對稱金鑰可以用來加密和解密傳送至閘道的流量。 閘道憑證必須採用「個人資訊交換」(PFX) 格式。 此檔案格式可允許將私密金鑰匯出，而應用程式閘道需要這個匯出的金鑰來執行流量的加密和解密。
 
-若要加密端對端 SSL，後端必須已加入到應用程式閘道的允許清單。 您需要將後端伺服器的公開憑證上傳至應用程式閘道。 新增憑證可確保應用程式閘道只會與已知的後端執行個體通訊。 這會進而保護端對端通訊。
+若要加密端對端 SSL，後端必須已加入到應用程式閘道的允許清單。 將後端伺服器的公開憑證上傳至應用程式閘道。 新增憑證可確保應用程式閘道只會與已知的後端執行個體通訊。 這會進而保護端對端通訊。
 
 下列各節將說明設定程序。
 
@@ -258,7 +253,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -
 
    ```
 
-   3. 最後，更新閘道。 請注意，此最後一個步驟是漫長的工作。 完成時，應用程式閘道上便已設定端對端 SSL。
+   3. 最後，更新閘道。 此最後一個步驟是漫長的工作。 完成時，應用程式閘道上便已設定端對端 SSL。
 
    ```powershell
    $gw | Set-AzureRmApplicationGateway

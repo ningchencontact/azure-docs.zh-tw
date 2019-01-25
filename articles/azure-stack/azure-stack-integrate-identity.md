@@ -2,20 +2,20 @@
 title: Azure Stack 資料中心整合 - 身分識別
 description: 了解如何將 Azure Stack AD FS 與您的資料中心 AD FS 整合
 services: azure-stack
-author: jeffgilb
+author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/08/19
-ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.date: 01/23/19
+ms.author: patricka
+ms.reviewer: thoroet
 keywords: ''
-ms.openlocfilehash: 63ac30728cceae76f869f5529905cd6d3dde9ae2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4f599379de07a9628ee81425ddac2374411bdf97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263781"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852757"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 資料中心整合 - 身分識別
 您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者來部署 Azure Stack。 請先選擇識別提供者，才能部署 Azure Stack。 使用 AD FS 的部署也稱為在中斷連線模式中部署 Azure Stack。
@@ -193,16 +193,21 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 
 在此程序中，請使用可與 Azure Stack 中具特殊權限端點通訊、且可存取您在上一個步驟中所建立中繼資料檔案的電腦。
 
-1. 開啟已提高權限的 [Windows PowerShell] 工作階段。
+1. 開啟已提高權限的 Windows PowerShell 工作階段，然後連線到特殊權限端點。
 
    ```PowerShell  
    $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
-   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. 使用適用於您環境的參數，執行下列命令來更新預設提供者訂用帳戶的擁有者：
+2. 既然您已連接到特殊權限端點，請使用適用於您環境的參數執行下列命令：
+
+    ```PowerShell
+    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
+    ```
+
+3. 使用適用於您環境的參數，執行下列命令來更新預設提供者訂用帳戶的擁有者：
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"

@@ -4,15 +4,15 @@ description: 提供 Azure Migrate 中收集器設備的相關資訊。
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/14/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104197"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262603"
 ---
 # <a name="about-the-collector-appliance"></a>關於收集器設備
 
@@ -126,12 +126,9 @@ ms.locfileid: "54104197"
 
 收集器會連線至 vCenter Server，然後查詢 VM 中繼資料和效能計數器。 以下是您針對此連線所需的項目。
 
-- 僅支援 vCenter Server 5.5、6.0 及 6.5 版。
+- 僅支援 vCenter Server 5.5、6.0、6.5 及 6.7 版。
 - 您需要有一個具備以下摘要說明之權限的唯讀帳戶，才能進行探索。 只有能夠以該帳戶存取的資料中心才可供您存取來進行探索。
 - 您預設會透過 FQDN 或 IP 位址連線至 vCenter Server。 如果 vCenter Server 在不同的連接埠上進行接聽，您就需使用 *IPAddress:Port_Number* 或 *FQDN:Port_Number* 形式來與其連線。
-- 若要收集儲存體和網路功能的效能資料，必須將 vCenter Server 的統計資料設定設為層級 3。
-- 如果層級低於 3，還是能夠進行探索，但不會收集效能資料。 可能會收集一些計數器，但其他計數器則會設定為零。
-- 如果未收集儲存體和網路功能的效能資料，就會根據 CPU 和記憶體的效能資料，以及磁碟和網路介面卡的設定資料，提出評量大小建議。
 - 收集器應該能透過網路看到 vCenter Server。
 
 #### <a name="account-permissions"></a>帳戶權限

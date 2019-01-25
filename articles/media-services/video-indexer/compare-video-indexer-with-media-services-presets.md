@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: juliako
-ms.openlocfilehash: 758a3b30717e3bf516c1bceb5c255c397a6072cc
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 968614d183fe6857336ea92791ba4f1d279a5016
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291381"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198094"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>比較 Azure 媒體服務 v3 預設值與影片索引子 
 
@@ -33,7 +33,7 @@ ms.locfileid: "52291381"
 |媒體深入解析|[增強](video-indexer-output-json-v2.md) |[基礎](../latest/intelligence-concept.md)|
 |體驗|請參閱支援功能的完整清單︰ <br/> [概觀](video-indexer-overview.md)|僅傳回影片深入解析|
 |計費|[媒體服務定價](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[媒體服務定價](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
-|法規遵循|TBD|媒體服務符合多項認證。 請參閱 [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) 並搜尋「媒體服務」，以確認它是否符合相關憑證。|
+|法規遵循|[Azure 合規性](https://aka.ms/AzureCompliance)|媒體服務符合多項認證。 請參閱 [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) 並搜尋「媒體服務」，以確認它是否符合相關憑證。|
 |免費試用|美國東部|尚未提供|
 |可用性 |美國西部、東亞、北歐|請參閱 [Azure 狀態](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)。|
 

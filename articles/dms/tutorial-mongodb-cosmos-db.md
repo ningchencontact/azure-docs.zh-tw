@@ -1,6 +1,6 @@
 ---
-title: 教學課程：使用 Azure 資料庫移轉服務在離線狀態下將 MongoDB 移轉至 Azure Cosmos DB Mongo API | Microsoft Docs
-description: 了解如何使用 Azure 資料庫移轉服務，在離線狀態下從內部部署 MongoDB 遷移至 Azure Cosmos DB Mongo API。
+title: 教學課程：使用 Azure 資料庫移轉服務在離線狀態下將 MongoDB 遷移至 Azure Cosmos DB 的 Mongo 版 API | Microsoft Docs
+description: 了解如何使用 Azure 資料庫移轉服務，在離線狀態下從內部部署 MongoDB 遷移至 Azure Cosmos DB 的 Mongo 版 API。
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/11/2018
-ms.openlocfilehash: 4651c9afab99577622af71297e1fb6465a20097f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b4f8d2bdbce20fc7a932280edc26cb3ddfbe6471
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713092"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247600"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-db-mongo-api-offline-using-dms"></a>教學課程：使用 DMS 在離線狀態下將 MongoDB 移轉至 Azure Cosmos DB Mongo API
-您可以使用 Azure 資料庫移轉服務，在離線狀態下將資料庫從內部部署或雲端的 MongoDB 執行個體 (單次) 移轉至 Azure Cosmos DB Mongo API。
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>教學課程：使用 DMS 在離線狀態下將 MongoDB 遷移至 Azure Cosmos DB 的 Mongo 版 API
+您可以使用 Azure 資料庫移轉服務，在離線狀態下將資料庫從內部部署或雲端的 MongoDB 執行個體 (單次) 移轉至 Azure Cosmos DB 的 Mongo 版 API。
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
@@ -28,11 +28,11 @@ ms.locfileid: "53713092"
 > * 執行移轉。
 > * 監視移轉。
 
-在本教學課程中，您會使用「Azure 資料庫移轉服務」，將「Azure 虛擬機器」所裝載 MongoDB 中的 **Wingtips** 資料集移轉至「適用於 MongoDB 的 Azure Cosmos DB」API。 如果您尚未設定 MongoDB 來源，請參閱[在 Azure 中的 Windows VM 上安裝及設定 MongoDB](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb) 一文。
+在本教學課程中，您會使用 Azure 資料庫移轉服務，從裝載在 Azure 虛擬機器中的 MongoDB，將其中的某個資料集遷移至 Azure Cosmos DB 的 Mongo 版 API。 如果您尚未設定 MongoDB 來源，請參閱[在 Azure 中的 Windows VM 上安裝及設定 MongoDB](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb) 一文。
 
 ## <a name="prerequisites"></a>必要條件
 若要完成本教學課程，您需要：
-- [建立適用於 MongoDB 的 Azure Cosmos DB API 帳戶](https://ms.portal.azure.com/#create/Microsoft.DocumentDB)。
+- [建立 Azure Cosmos DB 的 Mongo 版 API 帳戶](https://ms.portal.azure.com/#create/Microsoft.DocumentDB)。
 - 使用 Azure Resource Manager 部署模型來建立 Azure 資料庫移轉服務的 VNET，其使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 提供站對站連線能力給您的內部部署來源伺服器。
 - 確定您的 Azure 虛擬網路 (VNET)「網路安全性群組」規則不會封鎖下列通訊埠：443、53、9354、445 及 12000。 如需 Azure VNET NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
 - 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 MongoDB 伺服器 (依預設會使用 TCP 連接埠 27017)。
@@ -66,7 +66,7 @@ ms.locfileid: "53713092"
 
 5. 選取現有的虛擬網路 (VNET) 或建立新的虛擬網路。
 
-    VNET 會為 Azure 資料庫移轉服務提供來源 SQL Server 和目標 Azure SQL Database 執行個體的存取權。
+    VNET 會為 Azure 資料庫移轉服務提供來源 MongoDB 執行個體和目標 Azure Cosmos DB 帳戶的存取權。
 
     如需有關如何在 Azure 入口網站中建立 VNET 的詳細資訊，請參閱[使用 Azure 入口網站建立虛擬網路](https://aka.ms/DMSVnet)一文。
 
@@ -103,7 +103,7 @@ ms.locfileid: "53713092"
    您也可以使用連接字串模式，並為 Blob 存放區檔案容器 (您已在其中傾印您想要遷移的集合資料) 提供位置。
 
    > [!NOTE]
-   > Azure 資料庫移轉服務也可以將 bson 文件或 json 文件遷移至 Azure Cosmos DB Mongo API 集合。
+   > Azure 資料庫移轉服務也可以將 bson 文件或 json 文件遷移至 Azure Cosmos DB 的 Mongo 版 API 集合。
     
    如果無法解析 DNS 名稱，您也可以使用 IP 位址。
 
@@ -112,7 +112,7 @@ ms.locfileid: "53713092"
 2. 選取 [ **儲存**]。
 
 ## <a name="specify-target-details"></a>指定目標詳細資料
-1. 在 [移轉目標詳細資料] 畫面上，對目標 Azure Cosmos DB 帳戶指定連線詳細資料，此帳戶就是要作為 MongoDB 資料遷移目的地的預先佈建 Azure Cosmos DB MongoDB 帳戶。
+1. 在 [移轉目標詳細資料] 畫面上，對目標 Azure Cosmos DB 帳戶指定連線詳細資料，此帳戶就是要作為 MongoDB 資料遷移目的地的預先佈建 Azure Cosmos DB Mongo 版 API 帳戶。
 
     ![指定目標詳細資料](media/tutorial-mongodb-to-cosmosdb/dms-specify-target.png)
 
@@ -163,7 +163,7 @@ ms.locfileid: "53713092"
 
 ## <a name="verify-data-in-cosmos-db"></a>確認 Cosmos DB 中的資料
 
-- 在移轉完成之後，您可以檢查「適用於 MongoDB 的 Azure Cosmos DB」API 帳戶，以確認所有集合都已成功移轉。
+- 在移轉完成之後，您可以檢查 Azure Cosmos DB 帳戶，以確認所有集合都已成功移轉。
 
     ![活動狀態已完成](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
 

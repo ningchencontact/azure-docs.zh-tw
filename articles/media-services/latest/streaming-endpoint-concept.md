@@ -9,20 +9,26 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 8f3bcc3c631f17880c66e482234effcc4ea6424d
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e286617897ecc9201c3880affd0a974f7330305a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744518"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359627"
 ---
 # <a name="streaming-endpoints"></a>串流端點
 
 在「Microsoft Azure 媒體服務」(AMS) 中，[串流端點](https://docs.microsoft.com/rest/api/media/streamingendpoints)實體代表可以直接將內容傳遞給用戶端播放程式應用程式，或傳遞給「內容傳遞網路」(CDN) 以進行進一步散發的串流服務。 來自串流端點服務的輸出串流可以是即時資料流，或媒體服務帳戶中的隨選視訊資產。 當您建立媒體服務帳戶時，系統會為您建立**預設**串流端點 (處於已停止狀態)。 您無法刪除**預設**串流端點。 您可以在帳戶下建立額外的串流端點。 若要開始串流處理視訊，您需要啟動串流端點，以便從中串流處理視訊。 
 
-## <a name="streamingendpoint-types"></a>StreamingEndpoint 類型  
+## <a name="naming-convention"></a>命名慣例
+
+針對預設端點：`{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+
+針對任何額外端點：`{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+
+## <a name="types"></a>類型  
 
 **StreamingEndpoint** 有兩種類型：「標準」和「進階」。 類型會根據您為串流端點配置的縮放單位數 (`scaleUnits`) 來定義。 
 
@@ -37,13 +43,16 @@ ms.locfileid: "53744518"
 
 您應該在大部分情況下啟用 CDN。 不過，如果您預期同時觀看人數最多不會超過 500 人，則建議您停用 CDN，因為 CDN 的功能是依據同時觀看人數進行最佳調整。
 
+> [!NOTE]
+> 無論您是否啟用 CDN，串流端點 `hostname` 和串流 URL 都保持不變。
+
 ### <a name="detailed-explanation-of-how-caching-works"></a>詳細說明快取的運作方式
 
 新增 CDN 時並沒有特定的頻寬值，因為在已啟用 CDN 的串流端點上，所需的頻寬量會有所不同。 這大部分取決於內容類型、熱門程度、位元速率及通訊協定。 CDN 只會快取要求的內容。 這表示，熱門內容會直接從 CDN 提供 (前提是已快取視訊片段)。 快取實況內容的機率很高，因為通常會有許多人觀看一模一樣的內容。 隨選內容可能比較難處理，因為可能會有一些內容很熱門，有一些內容較不受歡迎。 如果您有數百萬個不是很熱門的視訊資產 (每週只有 1 個或 2 個觀看者)，但觀看這些不同視訊的人有數千位，則 CDN 會變得較不具效率。 因為此快取遺漏，您會增加串流端點上的負載。
  
 您也需要考量彈性資料流的運作方式。 每個個別的視訊片段都會快取為自有的實體。 例如，如果某個影片第一次有人觀看，而此觀看者跳著觀看幾個幾秒鐘的片段，則只有與此觀看者所觀看內容相關聯的視訊片段會快取到 CDN。 因為有彈性資料流，您通常會有 5 到 7 個位元速率不同的視訊。 如果一個人觀看某個位元速率，而另一個人觀看不同的位元速率，則這些位元速率會分別在 CDN 中快取。 即使兩個人觀看相同的位元速率，視訊也可能透過不同的通訊協定來串流處理。 每個通訊協定 (HLS、MPEG DASH、Smooth Streaming) 會分別進行快取。 因此，每一個位元速率和通訊協定都會分別進行快取，而且只會快取已要求的那些視訊片段。
  
-## <a name="streamingendpoint-properties"></a>StreamingEndpoint 屬性 
+## <a name="properties"></a>properties 
 
 本節將詳細說明一些 StreamingEndpoint 的屬性。 如需如何建立新串流端點的範例及所有屬性的說明，請參閱[串流端點](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)。 
 

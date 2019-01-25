@@ -4,14 +4,14 @@ description: 解說 Azure Migrate 的相關常見問題
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2efa450b6b0cfa299370df3941224f4f64e91b4b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975469"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230759"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - 常見問題集 (FAQ)
 
@@ -53,6 +53,7 @@ Azure Migrate 目前支援以歐洲、北美洲和 Azure Government 作為專案
 **地理位置** | **中繼資料儲存位置**
 --- | ---
 Azure Government | 美國政府維吉尼亞州
+亞洲 | 東南亞
 歐洲 | 北歐或西歐
 美國 | 美國東部或美國中西部
 
@@ -63,6 +64,17 @@ Azure Government | 美國政府維吉尼亞州
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>我可以使用 OVA 範本來強化 VM 設定嗎？
 
 您可以將額外元件 (例如防毒元件) 新增到 OVA 範本中，只要 Azure Migrate 設備運作所需的通訊和防火牆規則保持不變即可。   
+
+### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>若要強化 Azure Migrate 設備，建議的防毒 (AV) 排除項目為何？
+
+您需要將設備中的下列資料夾從防毒掃描中排除：
+
+- 具有 Azure Migrate 服務二進位檔的資料夾。 排除所有子資料夾。
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate Web 應用程式。 排除所有子資料夾。
+  %SystemDrive%\inetpub\wwwroot
+- 資料庫和記錄檔的本機快取。 Azure Migrate 服務需要此資料夾的 RW 存取。
+  %SystemDrive%\Profiler
 
 ## <a name="discovery"></a>探索
 
@@ -136,6 +148,7 @@ Azure Migrate 支援兩種探索，分別是設備為基礎及代理程式為基
 
 您在單一移轉專案中可探索 1500 台虛擬機器。 如果您的內部部署環境中有多台機器，請[進一步了解](how-to-scale-assessment.md)如何在 Azure Migrate 中探索大型環境。
 
+
 ## <a name="assessment"></a>評量
 
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Azure Migrate 是否支援以 Enterprise 合約 (EA) 為基礎的成本估計？
@@ -144,6 +157,13 @@ Azure Migrate 目前不支援 [Enterprise 合約支援方案供應項目](https:
 
   ![折扣](./media/resources-faq/discount.png)
 
+### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>如同內部部署調整大小和以效能為基礎的調整大小之間的差異為何？
+
+當您將調整大小準則指定為如同內部部署調整大小時，Azure Migrate 不會考慮 VM 的效能資料，而會根據內部部署設定調整 VM 的大小。 如果調整大小準則是以效能為基礎，則會根據使用率資料調整大小。 例如，假設有一個內部部署 VM，其具有 4 個核心及 8GB 記憶體，以及 50% 的 CPU 使用率和 50% 的記憶體使用率。 如果調整大小準則為如同內部部署調整大小，則系統會建議具有 4 個核心和 8GB 記憶體的 Azure VM SKU；如果調整大小準則是以效能為基礎，則系統會建議 2 個核心和 4 GB 記憶體的 VM SKU，因為其在建議大小時會以使用率百分比為基礎。 同樣地，對於磁碟而言，磁碟調整大小取決於兩個評估屬性：調整大小準則和儲存體類型。 如果調整大小準則是以效能為基礎，且儲存體類型是自動的，則磁碟的 IOPS 和輸送量值會被用於辨別目標磁碟類型 (標準或進階)。 如果調整大小準則是以效能為基礎，且儲存體類型是進階的，則建議使用進階磁碟；Azure 中的進階磁碟 SKU 是根據內部部署磁碟的大小所選取的。 當調整大小準則與內部部署調整大小相同，且儲存體類型是標準或進階時，則會使用相同的邏輯來執行磁碟調整大小。
+
+### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>效能歷程記錄和百分位數使用率對大小建議有何影響？
+
+這些屬性僅適用於以效能為基礎的調整大小。 Azure Migrate 會收集內部部署機器的效能記錄，並用其來建議在 Azure 中的 VM 大小和磁碟類型。 收集器設備會持續分析內部部署環境，每 20 秒便收集一次即時使用情況資料。 設備會彙總 20 秒範例，然後每 15 分鐘建立一個單一資料點。 為了建立單一資料點，設備會從所有 20 秒範例中選取尖峰值並將其傳送給 Azure。 當您在 Azure 中建立評估時，Azure Migrate 會根據效能持續時間和效能記錄的百分位數值，計算有效的使用率值，並將其用於調整大小。 例如，如果您已將效能持續時間設定為 1 天，並將百分位數值設定為 95 百分位數，Azure Migrate 會使用收集器針對過去一天所傳送的 15 分鐘取樣點，以遞增順序排序它們，並挑選第 95 個百分位數值作為有效使用率。 第 95 個百分位數值可確保您會忽略任何極端值，其在您選擇第 99 個百分位數的情況下很可能會出現。 如果您想選擇該期間的尖峰使用量，但不想錯過任何極端值，您應該選取第 99 個百分位數。
 
 ## <a name="dependency-visualization"></a>相依性視覺效果
 

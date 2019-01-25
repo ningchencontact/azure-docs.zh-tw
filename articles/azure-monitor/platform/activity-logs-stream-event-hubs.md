@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: b58b7c7ebc3547153f805f762c4caf3511a5a709
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: logs
+ms.openlocfilehash: aaaec6e02c9280801fbf7e3b5a8eaa1ae4a1ff43
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717496"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429764"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>將 Azure 活動記錄檔串流至事件中樞
 您可以藉由下列任一方式，將 [Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)近乎即時地串流至任何應用程式：
@@ -102,4 +102,5 @@ ms.locfileid: "53717496"
 * [將活動記錄檔封存至儲存體帳戶](../../azure-monitor/platform/archive-activity-log.md)
 * [閱讀 Azure 活動記錄檔的概觀](../../azure-monitor/platform/activity-logs-overview.md)
 * [根據活動記錄檔事件設定警示](../../azure-monitor/platform/alerts-log-webhook.md)
+
 

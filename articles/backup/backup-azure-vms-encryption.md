@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40f8f1e9470201292c9dee27187d2155c879e13b
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6793a83002029c009e3d4e124b4386feabecd5f8
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583063"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201069"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>使用 Azure 備份來備份及還原加密的虛擬機器
 本文討論使用 Azure 備份來備份和還原虛擬機器 (VM) 的步驟。 它也提供有關支援的案例、必要條件的詳細資料，以及的錯誤案例的疑難排解步驟。
@@ -128,6 +128,8 @@ ms.locfileid: "53583063"
 順利提供權限之後，您可以繼續為已加密的 VM 啟用備份。
 
 ## <a name="restore-an-encrypted-vm"></a>還原已加密的 VM
+除了先前提供使用 Azure AD 對 Azure 加密的 VM 進行還原的支援以外，Azure 備份現在也支援[在沒有 Azure AD 的情況下還原 Azure 加密的 VM](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad)。<br>
+
 若要還原加密的 VM，請先遵循[選擇 VM 還原組態](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration)之「還原備份的磁碟」一節中的步驟來還原磁碟。 之後，您可以使用下列其中一個選項：
 
 * 遵循[從還原的磁碟建立 VM](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 中的 PowerShell 步驟，從還原的磁碟建立完整的 VM。

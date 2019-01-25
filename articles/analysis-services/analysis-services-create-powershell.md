@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b5b00da1c920d249283625e4970510ea00bafc8
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 01bd8b5d1f8ed0d78f3331b4150df37ef0a1049e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190719"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426772"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>快速入門：建立伺服器 - PowerShell
 
@@ -23,7 +23,7 @@ ms.locfileid: "54190719"
 
 - **Azure 訂用帳戶**：瀏覽 [Azure 免費試用](https://azure.microsoft.com/offers/ms-azr-0044p/)來建立帳戶。
 - **Azure Active Directory**：您的訂用帳戶必須與 Azure Active Directory 租用戶相關聯，而且您必須在該目錄中有一個帳戶。 若要深入了解，請參閱[驗證和使用者權限](analysis-services-manage-users.md)。
-- **Azure PowerShell 模組 4.0 版或更新版本**。 若要尋找版本，請執行 ` Get-Module -ListAvailable AzureRM`。 若要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+- **Azure PowerShell 模組 4.0 版或更新版本**。 若要尋找版本，請執行 ` Get-Module -ListAvailable AzureRM`。 若要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
 
 ## <a name="import-azurermanalysisservices-module"></a>Import AzureRm.AnalysisServices 模組
 

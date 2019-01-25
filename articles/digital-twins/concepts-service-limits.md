@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 1e7b6ed7c401bed741142dfc02efc7990cf67f6e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: cc873ad441c93a7fce54c275e9f7d52f0b044319
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118807"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302420"
 ---
 # <a name="public-preview-service-limits"></a>公開預覽服務限制
 
@@ -35,7 +35,7 @@ ms.locfileid: "54118807"
 
 接著，每個 Azure Digital Twins 執行個體可以有：
 
-- 僅一個 **IoTHub** 資源。
+- 在服務佈建期間只會自動建立一個內嵌 **IoTHub** 資源。
 - 僅一個事件類型為 **DeviceMessage** 的 **EventHub** 端點。
 - 最多三個事件類型為 **SensorChange**、**SpaceChange**、**TopologyOperation** 或 **UdfCustom** 的 **EventHub**、**ServiceBus** 或 **EventGrid** 端點。
 

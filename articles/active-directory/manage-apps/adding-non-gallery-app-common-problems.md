@@ -4,7 +4,7 @@ description: 了解新增不在資源庫內的自訂應用程式時的常見問�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 290e68e8367570bee3497a039f98d140a8d3ffe1
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d75befa6671cd21ec519faa0540802b501886ece
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423621"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462262"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>新增不在資源庫內的應用程式時遇到問題
 

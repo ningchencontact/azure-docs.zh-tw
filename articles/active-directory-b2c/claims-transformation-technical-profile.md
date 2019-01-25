@@ -3,25 +3,25 @@ title: 定義 Azure Active Directory B2C 自訂原則中的宣告轉換技術設
 description: 定義 Azure Active Directory B2C 自訂原則中的宣告轉換技術設定檔。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fd1e2aa5162ce9263d521edf3ae11e0508353b46
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0cad532b950d7add0bde06482948e748e09abbb7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382444"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856718"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定義 Azure Active Directory B2C 自訂原則中的宣告轉換技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
- 宣告轉換技術設定檔可讓您呼叫輸出宣告轉換，以操作宣告值、驗證宣告，或設定一組輸出宣告的預設值。
+宣告轉換技術設定檔可讓您呼叫輸出宣告轉換，以操作宣告值、驗證宣告，或設定一組輸出宣告的預設值。
 
 ## <a name="protocol"></a>通訊協定
 
@@ -33,7 +33,7 @@ ms.locfileid: "44382444"
 <TechnicalProfile Id="Facebook-OAUTH-UnLink">
     <DisplayName>Unlink Facebook</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-  ...    
+  ...
 ```
 
 ## <a name="output-claims"></a>輸出宣告
@@ -53,16 +53,16 @@ ms.locfileid: "44382444"
 
 ```XML
 <ClaimsTransformations>
-  <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider" 
+  <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider"
 TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="IdentityProvider2"
 TransformationClaimType="identityProvider" />
-      <InputClaim ClaimTypeReferenceId="AlternativeSecurityIds" 
+      <InputClaim ClaimTypeReferenceId="AlternativeSecurityIds"
 TransformationClaimType="collection" />
     </InputClaims>
     <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds" 
+      <OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds"
 TransformationClaimType="collection" />
     </OutputClaims>
   </ClaimsTransformation>
@@ -85,7 +85,7 @@ TransformationClaimType="collection" />
 
 ```XML
 <UserJourney Id="AccountUnLink">
-  <OrchestrationSteps>    
+  <OrchestrationSteps>
     ...
     <OrchestrationStep Order="8" Type="ClaimsExchange">
       <ClaimsExchanges>
@@ -98,7 +98,6 @@ TransformationClaimType="collection" />
   </OrchestrationSteps>
 </UserJourney>
 ```
-
 
 ## <a name="use-a-validation-technical-profile"></a>使用驗證技術設定檔
 
@@ -122,19 +121,19 @@ TransformationClaimType="collection" />
 
 ```XML
 <TechnicalProfile Id="Validate-Email">
-    <DisplayName>Unlink Facebook</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <DisplayName>Unlink Facebook</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="emailRepeat" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="email" />
-  </OutputClaims>          
+  </OutputClaims>
   <OutputClaimsTransformations>
-        <OutputClaimsTransformation ReferenceId="AssertEmailAreEqual" />
-    </OutputClaimsTransformations>
-    <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
-</TechnicalProfile> 
+    <OutputClaimsTransformation ReferenceId="AssertEmailAreEqual" />
+  </OutputClaimsTransformations>
+  <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+</TechnicalProfile>
 ```
 
 自我判斷技術設定檔可以呼叫驗證技術設定檔，並顯示 **UserMessageIfClaimsTransformationStringsAreNotEqual** 中繼資料中指定的錯誤訊息。
@@ -155,5 +154,5 @@ TransformationClaimType="collection" />
   <ValidationTechnicalProfiles>
     <ValidationTechnicalProfile ReferenceId="Validate-Email" />
   </ValidationTechnicalProfiles>
-</TechnicalProfile>  
+</TechnicalProfile>
 ```

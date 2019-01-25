@@ -3,7 +3,7 @@ title: 將您的工作裝置加入組織的網路 - Azure Active Directory | Mic
 description: 了解如何將您的工作裝置加入組織的網路。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.component: user-help
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 34d3c12c83aeac7e92aa019abc38d9c4109883bd
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 9a860135d8b8bf5e3e0699e408365c7de9466aef
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180478"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820388"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>將您的工作裝置加入組織的網路
 將您工作用的 Windows 10 裝置加入組織的網路，如此就能存取可能受限的資源。

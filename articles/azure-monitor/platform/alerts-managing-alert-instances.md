@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 29c2f58e4b4bea50d156192c818f8f91bbfeab4e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.subservice: alerts
+ms.openlocfilehash: 0324fffdfaaa512c3610d5389d68dba2164f8d55
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283684"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436445"
 ---
 # <a name="manage-alert-instances"></a>管理警示執行個體
 透過 Azure 監視器的[整合警示體驗](https://aka.ms/azure-alerts-overview)，您現在可以在單一窗格，看到整個 Azure 跨越多個訂用帳戶中所有不同類型的警示。 此文章逐步引導您檢視警示執行個體，以及深入使用入口網站來找到特定警示執行個體進行疑難排解。
@@ -43,3 +43,4 @@ ms.locfileid: "53283684"
  
 1.  按一下任何警示執行個體，隨即會開啟 [警示詳細資料] 頁面，讓您將深入了解到該特定警示執行個體的相關資訊。   
 ![警示詳細資料](media/alerts-managing-alert-instances/alert-details.jpg)  
+

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 52caae38c21fe403735b8479ec2e721ef38f521e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 01/17/2019
+ms.openlocfilehash: f43c2cd5a3c155258cd698f6b55854bc0df9f861
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845785"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388599"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>在 Azure SQL Database 中建立及管理邏輯伺服器和單一資料庫
 
@@ -57,7 +57,7 @@ ms.locfileid: "52845785"
 
 ## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell：受控邏輯伺服器和資料庫
 
-若要使用 Azure PowerShell 建立及管理 Azure SQL 邏輯伺服器、單一和集區資料庫和邏輯伺服器防火牆，請使用下列 PowerShell 指令程式。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+若要使用 Azure PowerShell 建立及管理 Azure SQL 邏輯伺服器、單一和集區資料庫和邏輯伺服器防火牆，請使用下列 PowerShell 指令程式。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
 > [!TIP]
 > 如需 PowerShell 範例指令碼，請參閱[使用 PowerShell 建立單一 Azure SQL Database 並設定邏輯伺服器防火牆規則](scripts/sql-database-create-and-configure-database-powershell.md)和[使用 PowerShell 監視和調整單一 SQL Database](scripts/sql-database-monitor-and-scale-database-powershell.md)。

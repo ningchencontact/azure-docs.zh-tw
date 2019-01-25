@@ -9,25 +9,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/08/2017
 ms.custom: seodec2018
-ms.openlocfilehash: 40291b105eb39b44da0b0697f5808d819291e457
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5a39021367c2f51125876081e9174eb372d7b9c9
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630208"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353153"
 ---
-# <a name="indexes-in-azure-search"></a>Azure 搜尋服務中的索引
-> [!div class="op_single_selector"]
-> * [概觀](search-what-is-an-index.md)
-> * [入口網站](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
-> 
-> 
+# <a name="indexes-and-indexing-overview-in-azure-search"></a>Azure 搜尋服務中的索引和編製索引概觀
 
-在 Azure 搜尋服務中，索引是對 Azure 搜尋服務所使用的文件和其他建構所做的持續性儲存。 文件是索引中單一單位的可搜尋資料。 例如，電子商務零售商可能會有儲存了每個銷售項目的文件、新聞組織可能會有儲存了每篇文章的文件，類似情況不一而足。 對應這些概念到更熟悉的資料庫同等項目：索引在概念上類似於資料表，而文件大致上相當於資料表中的資料列。
+在 Azure 搜尋服務中，*索引*是 Azure 搜尋服務上的*文件*及其他用於經篩選和全文搜尋的建構所做的持續性儲存。 文件是索引中單一單位的可搜尋資料。 例如，電子商務零售商可能會有儲存了每個銷售項目的文件、新聞組織可能會有儲存了每篇文章的文件，類似情況不一而足。 對應這些概念到更熟悉的資料庫同等項目：索引在概念上類似於資料表，而文件大致上相當於資料表中的資料列。
 
-當您新增/上傳文件並提交搜尋查詢到 Azure 搜尋服務時，您是將要求提交到搜尋服務中的特定索引。
+當您新增或上傳文件，或提交搜尋查詢到 Azure 搜尋服務時，您是將要求傳送到搜尋服務中的特定索引。 將文件新增至索引的程序稱為*編製索引*。
 
 ## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Azure 搜尋服務索引中的欄位類型和屬性
 您在定義結構描述時必須指定索引中每個欄位的名稱、類型和屬性。 欄位類型可分類該欄位中儲存的資料。 個別欄位上設定的屬性可指定使用欄位的方式。 下列幾個資料表列舉您可以指定的類型和屬性。

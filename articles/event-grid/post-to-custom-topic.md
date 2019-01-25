@@ -2,18 +2,18 @@
 title: 張貼事件以自訂 Azure Event Grid 主題
 description: 描述如何針對 Azure Event Grid 將事件張貼到自訂主題
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.author: tomfitz
-ms.openlocfilehash: e4256de1d9112d785b6d1cd52067fc99144a0a04
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.date: 01/17/2019
+ms.author: spelluru
+ms.openlocfilehash: b219e9475151ecd14d8b45db9501a06cde05875b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303329"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470591"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>針對 Azure Event Grid 張貼到自訂主題
 

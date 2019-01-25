@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/04/2018
 ms.author: douglasl
-ms.openlocfilehash: a8ac93d5a820b7d15b46efceb5db383d5b83a804
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b7d536a9dc411dfd6420278ed42116b546315f3e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019804"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436700"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
 在本教學課程中，您會使用 Azure 入口網站建立 Data Factory 管線，以在 Azure 虛擬網路 (VNet) 中的 HDInsight 叢集上，使用 Hive 活動來轉換資料。 您會在本教學課程中執行下列步驟：
@@ -40,7 +40,7 @@ ms.locfileid: "54019804"
 - **HDInsight 叢集。** 請遵循這篇文章來建立 HDInsight 叢集，並將它加入您在上一個步驟中建立的虛擬網路：[使用 Azure 虛擬網路延伸 Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md)。 以下是虛擬網路中的 HDInsight 設定範例。 
 
     ![虛擬網路中的 HDInsight](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
-- **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。
+- **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) 中的指示。
 - **虛擬機器**。 建立 Azure 虛擬機器，並將它加入您 HDInsight 叢集所在的相同虛擬網路。 如需詳細資訊，請參閱[如何建立虛擬機器](../virtual-network/quick-create-portal.md#create-virtual-machines)。 
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>將 Hive 指令碼上傳至 Blob 儲存體帳戶

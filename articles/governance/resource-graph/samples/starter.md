@@ -4,17 +4,17 @@ description: 使用 Azure Resource Graph 執行一些入門查詢。
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: a1e54c4f78f502c6ae354ecdf4dd3c4b48a3457b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 85d54503e980d8c51128c8b5235197759a536003
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310176"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852349"
 ---
 # <a name="starter-resource-graph-queries"></a>入門 Resource Graph 查詢
 
@@ -36,6 +36,8 @@ ms.locfileid: "53310176"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
 
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+
 ## <a name="language-support"></a>語言支援
 
 Azure CLI (透過擴充功能) 與 Azure PowerShell (透過模組) 支援 Azure Resource Graph。 在執行下列任何查詢之前，請檢查您的環境已準備就緒。 請參閱 [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) 與 [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module)，以了解安裝及驗證所選殼層環境的步驟。
@@ -53,7 +55,7 @@ az graph query -q "summarize count()"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "summarize count()"
+Search-AzGraph -Query "summarize count()"
 ```
 
 ## <a name="list-resources"></a>列出依名稱排序的資源
@@ -70,7 +72,7 @@ az graph query -q "project name, type, location | order by name asc"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "project name, type, location | order by name asc"
+Search-AzGraph -Query "project name, type, location | order by name asc"
 ```
 
 ## <a name="show-vms"></a>依名稱遞減順序顯示所有虛擬機器
@@ -88,7 +90,7 @@ az graph query -q "project name, location, type| where type =~ 'Microsoft.Comput
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
+Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
 ## <a name="show-sorted"></a>依名稱顯示前五個虛擬機器及其作業系統類型
@@ -106,7 +108,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project n
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
 ## <a name="count-os"></a>依作業系統類型計算的虛擬機器計數
@@ -124,7 +126,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | summarize
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
 撰寫相同查詢的另一種方式是 `extend` 屬性，並為其提供臨時的名稱，以便用於查詢，在此情況下為 **os**。 **os** 接著會由 `summarize` 與 `count()` 使用，如同上述範例所述。
@@ -140,7 +142,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | extend os
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
 > [!NOTE]
@@ -159,7 +161,7 @@ az graph query -q "where type contains 'storage' | distinct type"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type contains 'storage' | distinct type"
+Search-AzGraph -Query "where type contains 'storage' | distinct type"
 ```
 
 ## <a name="list-publicip"></a>列出所有公用 IP 位址
@@ -178,7 +180,7 @@ az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddr
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
 ```
 
 ## <a name="count-resources-by-ip"></a>計算具有按訂用帳戶設定之 IP 位址的資源計數
@@ -195,7 +197,7 @@ az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddr
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
 ```
 
 ## <a name="list-tag"></a>列出具有特定標籤值的資源
@@ -212,7 +214,7 @@ az graph query -q "where tags.environment=~'internal' | project name"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name"
+Search-AzGraph -Query "where tags.environment=~'internal' | project name"
 ```
 
 若也要提供資源具有哪些標籤和其值，請將 **tags** 屬性新增至 `project` 關鍵字。
@@ -227,7 +229,7 @@ az graph query -q "where tags.environment=~'internal' | project name, tags"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name, tags"
+Search-AzGraph -Query "where tags.environment=~'internal' | project name, tags"
 ```
 
 ## <a name="list-specific-tag"></a>列出具有特定標籤值的所有儲存體帳戶
@@ -244,7 +246,7 @@ az graph query -q "where type =~ 'Microsoft.Storage/storageAccounts' | where tag
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
+Search-AzGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
 > [!NOTE]

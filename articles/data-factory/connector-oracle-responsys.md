@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9510b26b56d1602787e35006379a40ce1cbd21d9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7440a08bd8ceb85cc569e1bb6d7c4ee1e52178a4
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015163"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352150"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Oracle Responsys 複製資料 (預覽)
 
@@ -47,7 +47,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | type | 類型屬性必須設定為：**Responsys** | 是 |
 | endpoint | Respopnsys 伺服器的端點  | 是 |
 | clientId | 與 Respopnsys 應用程式相關聯的用戶端識別碼。  | 是 |
-| clientSecret | 與 Respopnsys 應用程式相關聯的用戶端密碼。 您可以選擇將這個欄位標記為 SecureString 將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 是 |
+| clientSecret | 與 Respopnsys 應用程式相關聯的用戶端密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |

@@ -4,7 +4,7 @@ description: 識別哪些是企業在內部部署和雲端之間同步處理所�
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 593eaa71-17eb-4c16-8c98-43cc62987e65
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 0a7d0b69df4610f85791da82b9d2e15a363a844c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ad14e443f7176a0acb2da3529348fba452f76dee
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308677"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477952"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>判斷目錄同步處理需求
 同步處理的重點是根據使用者的內部部署身分識別，為他們提供雲端中的身分識別。 不論使用者是否將使用同步處理的帳戶來進行驗證或同盟驗證，他們仍然需要在雲端中具備身分識別。  這個身分識別必須定期維護和更新。  更新可以有許多形式，範圍可從標題變更到密碼變更。  

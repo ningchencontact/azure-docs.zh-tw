@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bc044c8b59c939163336ecab01546fc26a7a2643
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6e5bcd6d9923b4051d44d51ff1a2534bc5e02f41
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806403"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445655"
 ---
 <a name="publish-an-azure-managed-application-to-azure-marketplace"></a>將 Azure 受控應用程式發行到 Azure Marketplace 
 ========================================================
@@ -29,7 +29,7 @@ ms.locfileid: "48806403"
 <a name="pre-requisites-for-publishing-a-managed-application"></a>發行受控應用程式的先決條件 
 ---------------------------------------------------
 
-列於 Azure Marketplace 的先決條件
+列於 Azure Marketplace 的必要條件
 
 1.  技術需求
 
@@ -117,7 +117,7 @@ SKU 會出現在 Azure Marketplace 中父供應項目下，它會顯示為 azure
 
 **名稱**
 
-您供應項目的顯示名稱。 此名稱會顯示在 Azure Marketplace 與 Azure 入口網站中。 它最多不能超過 50 個字元。 建議在產品中包含明顯的品牌名稱。 請勿包含您的公司名稱，除非這是您的行銷方式。 如果您在自己的網站行銷此供應項目，請確認名稱與您網站的名稱相同。
+您供應項目的顯示名稱。 此名稱會顯示在 Azure Marketplace 與 Azure 入口網站中。 它最多不能超過 50 個字元。 建議在產品中包含明顯的品牌名稱。 請勿包含您的公司名稱，除非這是您的行銷方式。 如果您在自己的網站行銷這項供應項目，請確認名稱與您網站的名稱相同。
 
 按一下 [儲存] 以儲存您的進度。 下一個步驟是為您的供應項目新增 SKU。
 

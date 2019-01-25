@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 2192e3d2a344a31717c59c813123ed0c807a2841
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c62ed151e1b09482c227f59ee5264de01d425255
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256548"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477805"
 ---
 # <a name="bing-image-search-api-upgrade-guide"></a>Bing 影像搜尋 API 升級指南
 
@@ -74,9 +74,9 @@ Blocked|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>查詢參數
 
-- 將 `modulesRequested` 查詢參數重新命名為 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules)。  
+- 將 `modulesRequested` 查詢參數重新命名為 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)。  
 
-- 將 Annotations 重新命名為 Tags。 請參閱 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules) 查詢參數上的 Tags。  
+- 將 Annotations 重新命名為 Tags。 請參閱 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 查詢參數上的 Tags。  
 
 - 將支援的 ShoppingSources 篩選值市場清單變更為僅限 en-US。 請參閱 [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype)。  
 
@@ -98,7 +98,7 @@ Blocked|InvalidRequest.Blocked
 - 下列查詢參數目前只有搭配 `/images/details` 端點才有效。  
 
     -   [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken)  
-    -   [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules)  
+    -   [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)  
     -   [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imgurl)  
     -   [cab](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cab)  
     -   [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  

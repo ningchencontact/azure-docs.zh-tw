@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
-ms.reviewer: ''
-ms.openlocfilehash: e4e1701a145a36fce93db3812b67c307b342da5c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.reviewer: unknown
+ms.openlocfilehash: 754a0002aca52462910abe50825cff0254a7068f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127477"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244149"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Azure Stack 中的服務供應項目概觀
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 [Microsoft Azure Stack](azure-stack-poc.md) 是一個混合式雲端平台，可讓您從資料中心提供服務。 作為服務提供者，您可以提供服務給租用戶。 在企業或政府機構中，您可以提供內部部署服務給您的員工。 
 
@@ -47,7 +47,7 @@ ms.locfileid: "46127477"
 
 規劃供應項目時，請記住下列重點：
 
-**試用供應項目**：您可以使用試用供應項目來吸引新使用者，接著升級到其他服務。 若要建立試用供應項目，請建立小型的[基本方案](azure-stack-plan-offer-quota-overview.md#base-plan)與選用的大附加元件方案。
+**試用版供應項目**：您可以使用試用供應項目來吸引新使用者，接著升級到其他服務。 若要建立試用供應項目，請建立小型的[基本方案](azure-stack-plan-offer-quota-overview.md#base-plan)與選用的大附加元件方案。
 
 **容量規劃**：您可能會擔心有使用者擷取大量資源，而妨礙所有使用者使用系統。 若要協助改善效能，您可以[設定方案與配額](azure-stack-plan-offer-quota-overview.md#plans)來規劃使用方式。
 

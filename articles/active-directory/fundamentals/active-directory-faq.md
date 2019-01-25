@@ -3,7 +3,7 @@ title: 常見問題集 (FAQ) - Azure Active Directory | Microsoft Docs
 description: 有關 Azure 及 Azure Active Directory、密碼管理和應用程式存取的常見問題與解答。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: a3571ff24c36b7f2129f60348414d4d178ef30d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f10b22270ed31c98bc3bb30128a7f31ff113409d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084085"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452610"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>關於 Azure Active Directory 的常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -58,7 +58,7 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 - - -
 **問：是否有報告可顯示 Azure AD 使用者授權何時即將過期？**
 
-**答：** 否。  目前無法使用此功能。
+**答：** 沒有。  目前無法使用此功能。
 
 - - -
 
@@ -209,4 +209,4 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 - - -
 **問：是否可以設定與 Azure AD 之間的安全 LDAP 連線？**
 
-**答：** 否。 Azure AD 不支援 LDAP 通訊協定。 不過，您也可以使用 Azure AD Domain Services 設定安全 LDAP。
+**答：** 沒有。 Azure AD 不支援 LDAP 通訊協定。 不過，您也可以使用 Azure AD Domain Services 設定安全 LDAP。

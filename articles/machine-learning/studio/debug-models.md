@@ -1,34 +1,17 @@
 ---
-title: 為模型偵錯 - Azure Machine Learning Studio | Microsoft Docs
-description: 如何在 Azure Machine Learning Studio 中，針對定型模型和計分模型模組所產生的錯誤進行偵錯。
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
-ms.openlocfilehash: 0464dec9e747e57e4b95a691aeb5a0992cf8d9cc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268881"
+標題：偵錯您的模型標題字尾： Azure Machine Learning Studio 說明：如何在 Azure Machine Learning Studio 中，針對定型模型和計分模型模組所產生的錯誤進行偵錯。
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:03/14/2017
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中為模型偵錯
 
-本文將說明為什麼執行模型時可能會發生以下任一個失敗的潛在原因：
+執行模型時，您可能會遇到下列錯誤：
 
 * [定型模型][train-model]模組產生錯誤 
 * [計分模型][score-model]模組產生不正確的結果 
 
+這篇文章會說明這些錯誤的可能原因。
 
 
 ## <a name="train-model-module-produces-an-error"></a>定型模型模組產生錯誤
@@ -59,15 +42,15 @@ ms.locfileid: "53268881"
 1. 來自[定型模型][train-model]模組的定型模型輸出。
 2. 與用來定型模型之資料集不同的計分資料集。
 
-即使實驗成功，[計分模型][score-model]模組可能還是會產生不正確的結果。 有幾個情況可能會導致這個結果：
+即使實驗成功，[計分模型][score-model]模組可能還是會產生不正確的結果。 有幾個情況可能會導致這個問題發生：
 
 1. 如果指定的 [標籤] 經過分類，且迴歸模型的資料已定型，則[計分模型][score-model]模組將會產生不正確的輸出。 這是因為迴歸需要持需回應變數。 在此情況下，更適合使用分類模型。 
 
-2. 同樣地，如果分類模型針對 [標籤] 資料行中包含浮點數的資料集進行訓練，它可能會產生非預期的結果。 這是因為分類需要離散回應變數，該變數僅允許涉及一組有限且通常比較小的類別的值。
+2. 同樣地，如果分類模型針對 [標籤] 資料行中包含浮點數的資料集進行訓練，它可能會產生非預期的結果。 這是因為分類需要離散回應變數，該變數僅允許涉及一組有限且小的類別的值。
 
 3. 如果計分資料集不包含用來定型模型的所有特徵，[計分模型][score-model]會產生錯誤。
 
-4. 如果計分資料集中的資料列在其任何特徵中含有遺漏值或無限值，[計分模型][score-model]將不會產生對應於該資料列的任何輸出。
+4. 如果計分資料集中的資料列在其任何特徵中含有遺漏值或無限值，[計分模型][score-model]不會產生對應於該資料列的任何輸出。
 
 5. 對於計分資料集中的所有資料列，[計分模型][score-model]可能會產生相同的輸出。 例如，使用決策樹系嘗試分類時，如果選擇每個分葉節點範例的最小數目大於可用的訓練範例數目時，可能會發生這個情況。
 

@@ -4,17 +4,17 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 6bb7db5d57508d448f88a30623b7f30e88a0a821
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d66f36e737e100a0d8e60b85b51f6dcf632e6d3e
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736750"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54404668"
 ---
 | 資源 | 免費 | 共用 | 基本 | 標準 | 進階 (v2) | 隔離 </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | 每個 [App Service 方案](../articles/app-service/overview-hosting-plans.md)<sup>1</sup>的 [Web、Mobile 或 API Apps](https://azure.microsoft.com/services/app-service/) |10 |100 |無限制<sup>2</sup> |無限制<sup>2</sup> |無限制<sup>2</sup> |無限制<sup>2</sup>|
-| [App Service 計劃](../articles/app-service/overview-hosting-plans.md) |每個區域 1 個 |每個資源群組 10 個 |每個資源群組 100 個 |每個資源群組 100 個 |每個資源群組 100 個 |每個資源群組 100 個|
+| [App Service 計劃](../articles/app-service/overview-hosting-plans.md) |每個區域 10 個 |每個資源群組 10 個 |每個資源群組 100 個 |每個資源群組 100 個 |每個資源群組 100 個 |每個資源群組 100 個|
 | 計算執行個體類型 |共用 |共用 |專用<sup>3</sup> |專用<sup>3</sup> |專用<sup>3</sup></p> |專用<sup>3</sup>|
 | [相應放大](../articles/app-service/web-sites-scale.md) (執行個體上限) |1 個共用 |1 個共用 |3 個專用<sup>3</sup> |10 個專用<sup>3</sup> |20 個專用<sup>3</sup>|100 個專用<sup>4</sup>|
 | 儲存體<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|

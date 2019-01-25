@@ -4,7 +4,7 @@ description: 如何對使用者指派的受控識別建立、列出、刪除和�
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: d54820acf8742ad2f95e8cc8527d9e252ffe3c30
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a8fd6fedb83d61541746ea4204e8fcab3d3d7bab
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720114"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428744"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>使用 Azure 入口網站對使用者指派的受控識別建立、列出、刪除或指派角色
 
@@ -62,6 +62,8 @@ ms.locfileid: "52720114"
 ## <a name="delete-a-user-assigned-managed-identity"></a>刪除使用者指派的受控識別
 
 若要刪除使用者指派的受控識別，您的帳戶需要[受控識別參與者](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)角色指派。
+
+將使用者指派的識別從受指派的 VM 或任何資源中刪除，並不會將它移除。  若要從虛擬機器移除使用者指派的識別，請參閱[從 VM 移除使用者指派的受控識別](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm)。
 
 1. 使用與 Azure 訂用帳戶相關聯的帳戶登入 [Azure 入口網站](https://portal.azure.com)，以刪除使用者指派的受控識別。
 2. 選取的使用者指派的受控識別，然後按一下 [刪除]。

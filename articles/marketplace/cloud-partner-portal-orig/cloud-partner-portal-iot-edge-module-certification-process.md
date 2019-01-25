@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c37ed908b61ca54957affed3f81526353bc3f53b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c8056bd4912605a4cd3ee333b1be87d4f3a6d5ba
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389559"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198043"
 ---
 # <a name="the-iot-edge-module-certification-process"></a>IoT Edge 模組認證程序
 
@@ -42,7 +42,7 @@ ms.locfileid: "49389559"
 
 -   **模組對應項**是儲存在 IoT 中樞的 JSON 文件，其中包含模組執行個體的狀態資訊，包括中繼資料、設定和條件。
 
--   **SDK** 用來以多種語言開發自訂模組，例如：C\#、C、Python、Java 和 Node.JS。
+-   **SDK** 用來以多種語言開發自訂模組，例如：C\#、C、Python、JAVA 和 Node.JS。
 
 ## <a name="the-onboarding-process-for-an-iot-edge-module"></a>IoT Edge 模組的上架程序
 
@@ -118,7 +118,7 @@ ms.locfileid: "49389559"
     - [C\#](https://hub.docker.com/_/mysql/)
     - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
     - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-    - [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._product_info?view=azure-java-stable)
+    - [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
 
 -   對於未使用 IoT 模組 SDK 的模組，在 Cloud Partner 入口網站中提供的深入解析會較不精確。 例如下載次數。
 

@@ -4,18 +4,18 @@ title: 適用於驗證、應用程式以及裝置管理的使用者說明 - Azur
 description: 使用者說明可協助人員設定及使用安全性資訊、雙步驟驗證、自助式密碼重設、裝置管理、Microsoft Authenticator 應用程式和「我的應用程式」入口網站等服務。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3ee8834a2ff8b9126fea38b19df115474c36a9e9
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: c6fe14c9f67d6ce2f432b57b2cbbd0d026cebe85
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41927033"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901627"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>適用於驗證、應用程式和裝置管理的使用者說明
 
@@ -86,7 +86,10 @@ ms.locfileid: "41927033"
                     <div class="cardText">
                         <h3>Microsoft Authenticator 應用程式說明</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">開始使用</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-overview">概觀</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">下載並安裝應用程式</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-add-accounts-overview">新增您的帳戶</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">使用應用程式登入</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">備份及復原帳戶認證</a>
                         </p>
                     </div>

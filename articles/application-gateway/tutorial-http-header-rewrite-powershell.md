@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 8bc0d53080d0653ae630765d8a656cbe8d50b24c
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4784ac8ac619a1b9a00f2e869d796d05dd9658df
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971564"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434405"
 ---
 # <a name="tutorial-create-an-application-gateway-and-rewrite-http-headers"></a>教學課程：建立應用程式閘道及重寫 HTTP 標題
 
@@ -37,7 +37,7 @@ ms.locfileid: "53971564"
 
 ## <a name="prerequisites"></a>必要條件
 
-進行本教學課程時，您必須在本機執行 Azure PowerShell。 您必須安裝 Az 模組 1.0.0 版或更新版本。 請執行 `Import-Module Az`，然後執行 `Get-Module Az` 來尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 驗證 PowerShell 版本之後，請執行 `Login-AzAccount` 以建立與 Azure 的連線。
+進行本教學課程時，您必須在本機執行 Azure PowerShell。 您必須安裝 Az 模組 1.0.0 版或更新版本。 請執行 `Import-Module Az`，然後執行 `Get-Module Az` 來尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。 驗證 PowerShell 版本之後，請執行 `Login-AzAccount` 以建立與 Azure 的連線。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 

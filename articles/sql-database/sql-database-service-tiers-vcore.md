@@ -12,19 +12,19 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 01/08/2019
-ms.openlocfilehash: 9d5a1493316fbfa9a703655f37a40276ee3ffaf7
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 6b5ff7294735048347c500d64b411f16bda5422f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156811"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212924"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>V 核心服務層、Azure Hybrid Benefit 及移轉
 
 虛擬核心形式的採購模型可讓您獨立地調整計算和儲存體資源、符合內部部署效能，並獲得最佳價格。 它也可讓您選擇硬體世代：
 
 - Gen 4 - 最多 24 個以 Intel E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 PP (實體核心)，每一核心 7 GB，連結的 SSD
-- Gen 5 - 最多 80 個以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 LP (超執行緒)，5.1。 每一核心 GB，快速 eNVM SSD
+- Gen 5 - 最多 80 個以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 LP (超執行緒)，每一核心 5.1 GB，快速 eNVM SSD
 
 V 核心模型還可讓您使用[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) 來節省成本。
 

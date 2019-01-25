@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: zarhoads
-ms.openlocfilehash: 024cf099dd65db036ae0b68d7094a60427ffa69c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 300391d9a5079eefc90ba06ba819fc6d8a91ca05
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119879"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851686"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>如何在 Azure 中建立有多個網路介面卡的 Linux 虛擬機器
 
@@ -67,7 +67,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>建立及設定多個 NIC
-使用 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 建立兩個 NIC。 下列範例會建立兩個連接網路安全性群組的 NIC (名為 myNic1 和 myNic2)，以及一個連接到各個子網路的 NIC：
+使用 [az network nic create](/cli/azure/network/nic) 建立兩個 NIC。 下列範例會建立兩個連接網路安全性群組的 NIC (名為 myNic1 和 myNic2)，以及一個連接到各個子網路的 NIC：
 
 ```azurecli
 az network nic create \
@@ -105,7 +105,7 @@ az vm create \
 ## <a name="add-a-nic-to-a-vm"></a>將 NIC 新增至 VM
 先前的步驟建立了一個有多個 NIC 的 VM。 您也可以使用 Azure CLI 將 NIC 新增至現有的 VM。 不同的 [VM 大小](sizes.md) 支援不同數量的 NIC，因此可據以調整您的 VM。 如有需要，您可以[調整 VM 的大小](change-vm-size.md)。
 
-使用 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 建立另一個 NIC。 下列範例會建立一個名為 myNic3 的 NIC，此 NIC會連線到後端子網路與在先前步驟中建立的網路安全性群組：
+使用 [az network nic create](/cli/azure/network/nic) 建立另一個 NIC。 下列範例會建立一個名為 myNic3 的 NIC，此 NIC會連線到後端子網路與在先前步驟中建立的網路安全性群組：
 
 ```azurecli
 az network nic create \
@@ -132,7 +132,7 @@ az vm nic add \
     --nics myNic3
 ```
 
-使用 [az vm start](/cli/azure/vm#az_vm_start) 啟用 VM：
+使用 [az vm start](/cli/azure/vm) 啟用 VM：
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -156,7 +156,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-使用 [az vm start](/cli/azure/vm#az_vm_start) 啟用 VM：
+使用 [az vm start](/cli/azure/vm) 啟用 VM：
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM

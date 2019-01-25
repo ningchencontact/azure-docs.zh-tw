@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/9/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.openlocfilehash: 8b478c1ba60df679d69d5fced660836c16079e6a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.reviewer: fiseraci
+ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727084"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306449"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基礎結構安全性狀態
 
@@ -70,7 +71,7 @@ Azure Stack 中的每個元件 (Hyper-V 主機和虛擬機器兩者) 都受到�
 在已連線的情況下，一天當中會套用防毒定義及引擎更新多次。 在連線中斷的情況下，則會隨每月 Azure Stack 更新套用反惡意程式碼軟體更新。 如需詳細資訊，請參閱[更新 Azure Stack 上的 Windows Defender 防毒軟體](azure-stack-security-av.md)。
 
 ## <a name="constrained-administration-model"></a>限制型管理模型
-Azure Stack 中的管理是透過使用三個進入點來控制的，每個進入點都有特定的目的： 
+Azure Stack 中的管理是透過三個進入點來控制，每個進入點都有特定的目的： 
 1. [系統管理員入口網站](azure-stack-manage-portals.md)針對日常管理作業提供點選體驗。
 2. Azure Resource Manager 會透過 PowerShell 和 Azure CLI 所使用的 REST API 公開「系統管理員入口網站」的所有管理作業。 
 3. 針對特定的低階作業 (例如資料中心整合或支援案例)，Azure Stack 公開了一個稱為[具特殊權限的端點](azure-stack-privileged-endpoint.md)的 PowerShell 端點。 這個端點只公開一組已加入白名單中的 Cmdlet，並且經常受到稽核。

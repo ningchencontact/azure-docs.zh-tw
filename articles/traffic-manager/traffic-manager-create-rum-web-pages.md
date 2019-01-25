@@ -4,6 +4,7 @@ description: 設定您的網頁將實際使用者度量傳送給流量管理員
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 19a641ba86333047b90c36cef242d524ccad5fe1
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c994190ed4ccbd8e5b90f17b70ec6b65477fb0d8
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138160"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232000"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>如何使用網頁將實際使用者度量傳送給 Azure 流量管理員
 

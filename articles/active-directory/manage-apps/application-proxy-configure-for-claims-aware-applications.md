@@ -4,7 +4,7 @@ description: 如何發佈接受 ADFS 宣告的內部部署 ASP.NET 應用程式�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: b8c69ebec2258581954e26dc6181d5f4b57f461c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6313bc8f3245966d22e904f96a90674b27d396f7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137696"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472921"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>在應用程式 Proxy 中使用宣告感知應用程式
 [宣告感知應用程式](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx)會執行重新導向至 Security Token Service (STS)。 STS 會向使用者要求認證以交換權杖，然後將使用者重新導向至應用程式。 有幾種方法可以讓應用程式 Proxy 進行這些重新導向。 請按照本文的說明來設定對宣告感知應用程的部署。 

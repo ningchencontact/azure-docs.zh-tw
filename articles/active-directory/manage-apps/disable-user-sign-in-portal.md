@@ -4,7 +4,7 @@ description: 如何在 Azure Active Directory 中停用企業應用程式，讓�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 08/28/2017
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 39e926a392cbd87eff23e25d9708792ec7c40a2c
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 4355b1a17f3cf9c8d25b97d63a39cdf8343181b8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368706"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476269"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中停用企業應用程式的使用者登入
 在 Azure Active Directory (Azure AD) 中，您可以輕鬆停用企業應用程式，讓任何使用者都無法登入它。 您必須具備適當的權限，才能管理企業應用程式，而且必須是目錄的全域管理員。

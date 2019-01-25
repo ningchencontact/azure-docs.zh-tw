@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: f0addcc0b6220bcf877c3cac20f2d1376eb19e61
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: c6a8322998b391b9021292a3a7213ded56b67feb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191066"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263351"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>如何使用適用於 VM 的 Azure 監視器 (預覽) 來停用對虛擬機器的監視
 
@@ -31,7 +31,7 @@ ms.locfileid: "54191066"
 * Log Analytics 工作區，此工作區會儲存收集自 VM 及其他來源的監視資料。
 * 工作區中設定的效能計數器集合，此集合會更新連線至工作區之所有 VM 上的監視設定。
 * 工作區中設定的兩個監視解決方案 - **InfrastructureInsights** 和 **ServiceMap**，這兩個解決方案會更新連線至工作區之所有 VM 上的監視設定。
-* 兩個 Azure 虛擬機器延伸模組 - **MicrosoftMonitoringAgent** 和 **DepenendencyAgent**，這兩個延伸模組會收集資料並將資料傳送給工作區。
+* 兩個 Azure 虛擬機器延伸模組，**MicrosoftMonitoringAgent** 和 **DependencyAgent**，皆會收集資料並將資料傳送給工作區。
 
 準備使用「適用於 VM 的 Azure 監視器」來停用對虛擬機器的監視時，請考量下列做法：
 
@@ -43,7 +43,7 @@ ms.locfileid: "54191066"
 
 ## <a name="complete-removal-of-azure-monitor-for-vms"></a>完成適用於 VM 的 Azure 監視器的移除
 
-下列步驟說明如果您仍然需要 Log Analytics 工作區，要如何完整移除「適用於 VM 的 Azure 監視器」。 您將從工作區中移除 **InfastructureInsights** 和 **ServiceMap** 解決方案。  
+下列步驟說明如果您仍然需要 Log Analytics 工作區，要如何完整移除「適用於 VM 的 Azure 監視器」。 您即將從工作區中移除 **InfrastructureInsights** 和 **ServiceMap** 解決方案。  
 
 >[!NOTE]
 >如果您在啟用「適用於 VM 的 Azure 監視器」之前使用「服務對應」監視解決方案，且仍然倚賴該解決方案，請勿依照下方步驟 6 所述移除該解決方案。  

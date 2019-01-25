@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 13e42ae9b25c769a468a8c9839fd1aaf0abf2787
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191695"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213139"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>對 Azure 資料箱磁碟中的問題進行疑難排解
 
@@ -96,12 +96,11 @@ ms.locfileid: "54191695"
 
 原因可能是未整理的檔案系統。 
 
-- 將磁碟機重新掛接為讀取不適用於資料箱磁碟。 此情節不適用於由 dislocker 解密的磁碟機。 
-- 重新掛接為讀寫沒有用。 您可能已經使用下列命令成功重新掛接磁碟機： 
+將磁碟機重新掛接為讀寫不適用於資料箱磁碟。 此情節不適用於由 dislocker 解密的磁碟機。 您可能已經使用下列命令成功重新掛接磁碟機： 
 
     `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
 
-   雖然已經成功重新掛接，但資料不會保存。
+雖然已經成功重新掛接，但資料不會保存。
 
 **解決方案**
 
@@ -125,11 +124,11 @@ ms.locfileid: "54191695"
  
 如果是此情況，請參閱[磁碟機掛接為唯讀](#issue-drive-getting-mounted-as-read-only)的解決方法。
 
-如果不是這種情況，請從您的系統[下載診斷記錄檔](#download-diagnostic-logs)，並[連絡 Microsoft 支援服務](data-box-disk-contact-microsoft-support.md)。
+如果不是此情況，請複製有資料箱磁碟解除鎖定工具的資料夾之中的記錄，並[連絡 Microsoft 支援服務](data-box-disk-contact-microsoft-support.md)。
 
 ## <a name="deployment-issues-for-windows"></a>Windows 部署問題
 
-本節詳細說明一些當使用 Linux 用戶端進行資料複製時，於資料箱磁碟部署期間最常面臨的問題
+本節詳細說明一些當使用 Windows 用戶端進行資料複製時，於資料箱磁碟部署期間最常面臨的問題
 
 ### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>問題：無法從 BitLocker 將磁碟機解除鎖定
  
@@ -139,7 +138,7 @@ ms.locfileid: "54191695"
 
 **解決方案**
 
-若要將資料箱磁碟解除鎖定，您需要使用「資料箱磁碟解除鎖定工具」，並提供來自 Azure 入口網站的密碼。
+若要將資料箱磁碟解除鎖定，您需要使用「資料箱磁碟解除鎖定工具」，並提供來自 Azure 入口網站的密碼。 如需詳細資訊，請移至[教學課程：針對 Azure 資料箱磁碟解除封裝、連線然後解除鎖定](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey)。
  
 ### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>問題：無法解除鎖定或驗證某些磁碟區。 連絡 Microsoft 支援服務。
  
@@ -155,7 +154,7 @@ ms.locfileid: "54191695"
 
 您可以安裝 [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) \(英文\) 並重試作業。
  
-如果您仍然無法將磁碟區解除鎖定，請[連絡 Microsoft 支援服務](data-box-disk-contact-microsoft-support.md)。
+如果您仍然無法將磁碟區解除鎖定，請複製有資料箱磁碟解除鎖定工具的資料夾之中的記錄，並[連絡 Microsoft 支援服務](data-box-disk-contact-microsoft-support.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

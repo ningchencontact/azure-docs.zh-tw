@@ -4,7 +4,7 @@ description: 針對自助應用程式存取的相關問題進行疑難排解
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 3a8e0ca54766f36ba3343f420d751f2e40a8033b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1c3d4c12af6321643c6ed916c9ae6541f902fd24
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355038"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468704"
 ---
 # <a name="problem-using-self-service-application-access"></a>使用自助應用程式存取時遇到問題
 
@@ -73,7 +73,7 @@ ms.locfileid: "44355038"
  >
  >
 
-13. **選擇性：** **對於公開角色的應用程式**，若要將已獲得自助存取核准的使用者指派給角色，請按一下 [在此應用程式中應為使用者指派的角色為?] 旁的選取控制項，以選取要為這些使用者指派的角色。
+13. **選擇性：****對於公開角色的應用程式**，若要將已獲得自助存取核准的使用者指派給角色，請按一下 [在此應用程式中應為使用者指派的角色為?] 旁的選取控制項，以選取要為這些使用者指派的角色。
 
 14. 按一下刀鋒視窗頂端的 [儲存] 按鈕以完成此動作。
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 464e15b7fce706f07ff6a28c39fd4247fd8bf381
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3902e6ae93159266de9f9e9cc0f355a37976a8ed
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352643"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425657"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從內部部署 SQL Server 中的多個資料表，載入到 Azure SQL Database。    
@@ -222,7 +222,7 @@ END
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-依照[安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示，安裝最新的 Azure PowerShell 模組。
+依照[安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) 中的指示，安裝最新的 Azure PowerShell 模組。
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 1. 定義資源群組名稱的變數，以便稍後在 PowerShell 命令中使用。 將下列命令文字複製到 PowerShell，以雙引號指定 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱，然後執行命令。 例如 `"adfrg"`。 

@@ -4,7 +4,7 @@ description: 針對您嘗試登入使用存取面板時可能遇到的問題進�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviwer: japere,asteen
-ms.openlocfilehash: d2670d8f018fc26b7017fba40b5aff4310900dab
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 34a4da2c14b84b9e539fc2d3e755a523cf3574c9
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188686"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847232"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>登入存取面板網站時遇到問題
 
@@ -159,7 +159,7 @@ ms.locfileid: "54188686"
 
 若要啟用自助式密碼重設，請遵循下列部署步驟︰
 
--   [讓使用者重設其 Azure Active Directory 密碼](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
+-   [讓使用者重設其 Azure Active Directory 密碼](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 -   [讓使用者重設或變更其 Active Directory 內部部署密碼](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
 

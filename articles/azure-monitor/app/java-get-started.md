@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 01/10/2019
 ms.author: lagayhar
-ms.openlocfilehash: b662f5c4baa9c4c6e7689f3f463761dbd456f33f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: e16432022c8c8525c95fab46bc61197f67fb8f37
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074167"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260052"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>在 Java Web 專案中開始使用 Application Insights
 
@@ -75,7 +75,7 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 ```
 
 * *建置或總和檢查碼驗證錯誤？* 嘗試使用特定版本，例如：`<version>2.0.n</version>`。 您可以在 [SDK 版本資訊](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)或 [Maven 成品](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
-* *需要更新為新的 SDK？*  請重新整理專案的相依項目。
+* *需要更新為新的 SDK？* 請重新整理專案的相依項目。
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>如果您使用 Gradle... <a name="gradle-setup" />
 如果您的專案已設定為要使用 Gradle 建置，請將下列程式碼合併至 build.gradle 檔案。
@@ -359,6 +359,14 @@ Application Insights 中會顯示兩種類型的資料︰彙總資料 (儲存並
 ## <a name="monitor-method-calls-and-external-dependencies"></a>監視方法呼叫和外部相依性
 [安裝 Java 代理程式](java-agent.md) 以記錄指定的內部方法和透過 JDBC 發出的呼叫與計時資料。
 
+## <a name="w3c-distributed-tracing"></a>W3C 分散式追蹤
+
+Application Insights Java SDK 現在支援 [W3C 分散式追蹤](https://w3c.github.io/trace-context/)。
+
+我們的[相互關聯](correlation.md#w3c-distributed-tracing)文章會進一步說明內送 SDK 組態。
+
+外寄 SDK 組態則定義於 [AI-Agent.xml](java-agent.md) 檔案中。
+
 ## <a name="performance-counters"></a>效能計數器
 開啟 [設定]、[伺服器]，可看到一些效能計數器。
 
@@ -433,7 +441,7 @@ Application Insights 中會顯示兩種類型的資料︰彙總資料 (儲存並
 </Channel>
 ```
 
-如果您使用 SpringBoot 入門版，請將下列項目新增至組態檔 (application.properies)：
+如果您使用 SpringBoot 入門版，請將下列項目新增至組態檔 (application.properties)：
 
 ```yml
 azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->

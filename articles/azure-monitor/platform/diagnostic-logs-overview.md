@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: 88cd6bac85a8f255c33c1834485b8f90a04b8ee4
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.subservice: logs
+ms.openlocfilehash: 44950a467e99fb7968d838345d80c8e28aee62b9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305378"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467463"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>收集並取用來自 Azure 資源的記錄資料
 
@@ -236,3 +236,4 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 * [將資源診斷記錄串流至**事件中樞**](diagnostic-logs-stream-event-hubs.md)
 * [使用 Azure 監視器 REST API 變更資源診斷設定](https://docs.microsoft.com/rest/api/monitor/)
 * [使用 Log Analytics 分析來自 Azure 儲存體的記錄](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: overview
-ms.date: 10/22/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 076948e7434802af7f0ad47f279335009817d40e
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f7fef00cfff9295036d7545470f86e27314e6451
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209578"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258692"
 ---
 # <a name="what-is-azure-content-moderator"></a>什麼是 Azure Content Moderator？
 
@@ -58,6 +58,9 @@ Content Moderator 服務也包含以 Web 為基礎的[人工審核工具](Review
 
 您可以使用審核 API，根據您指定的篩選條件來設定文字、影像和影片內容的小組審核。 然後，人工仲裁者可做出最終的仲裁決策。 人工輸入不會訓練服務，但在服務與人工審核小組的搭配運作下，開發人員將可在效率和精確度之間取得適當的平衡。
 
+## <a name="data-privacy-and-security"></a>資料隱私權和安全性
+和所有認知服務一樣，使用 Content Moderator 服務的開發人員應該要了解 Microsoft 對於客戶資料的政策。 請參閱 Microsoft 信任中心上的[認知服務頁面](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices)，以進行深入了解。
+
 ## <a name="next-steps"></a>後續步驟
 
-依照[快速入門](quick-start.md)開始使用 Content Moderator。
+請遵循[在 Web 上試用 Content Moderator](quick-start.md) 中的指示，以開始使用 Content Moderator 服務。

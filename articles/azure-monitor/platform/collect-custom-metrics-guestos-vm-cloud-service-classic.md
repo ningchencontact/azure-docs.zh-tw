@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: 31cbdb2d343f4cc8d30decb587df135c3f374467
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: metrics
+ms.openlocfilehash: e971414cfcd069a4aa8a212f64927407be83ad39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325321"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470931"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>將客體作業系統計量傳送至 Azure 監視器計量存放區的傳統雲端服務 
 
@@ -189,3 +189,4 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解[自訂計量](metrics-custom-overview.md)。
+

@@ -1,26 +1,8 @@
 ---
-title: 在 Machine Learning Studio 中解譯模型結果 - Azure | Microsoft Docs
-description: 如何針對使用和視覺化評分模型輸出的演算法選擇最佳的參數設定。
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: 9f8ff93efb74bca427cf74351af9d2442f9ab757
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276480"
+標題：在 Machine Learning Studio 中解譯模型結果標題字尾： Azure Machine Learning Studio 說明：如何針對使用和視覺化評分模型輸出的演算法選擇最佳的參數設定。
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:11/29/2017
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中解譯模型結果
 本主題說明如何視覺化和解譯 Azure Machine Learning Studio 中的預測結果。 在您訓練好模型並完成其預測 (「模型評分」) 之後，您必須了解和解譯預測結果。

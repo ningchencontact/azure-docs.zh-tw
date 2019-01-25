@@ -13,19 +13,19 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1940908cc0120ed5a69ae6603ec101d020b0ef3f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722068"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359862"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
 Azure Functions 在兩種不同的模式中執行：取用方案或 Azure App Service 方案。 取用方案會在程式碼執行時自動配置計算能力。 您的應用程式會在需要處理負載時相應放大，並在程式碼未執行時相應減少。 您不必支付閒置虛擬機器的費用，或預先保留容量。
 
 > [!NOTE]  
-> [Linux 裝載](functions-create-first-azure-function-azure-cli-linux.md)目前僅適用於 App Service 方案。
+> Linux 適用的取用量方案[現正處於公開預覽](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/)。
 
 如果您還不熟悉 Azure Functions，請參閱 [Azure Functions 概觀](functions-overview.md)。
 

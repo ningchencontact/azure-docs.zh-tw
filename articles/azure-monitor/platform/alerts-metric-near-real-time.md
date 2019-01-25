@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
-ms.component: alerts
-ms.openlocfilehash: be9f8079480438b194f0d5779ac0da50328b5dd3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 8235ba65d9e2e000995d338c200a61845911fbff
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53587267"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426738"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure 監視器中計量警示所支援的資源
 
@@ -124,3 +124,4 @@ Azure 監視器現已可支援[新的計量警示類型](../../azure-monitor/pla
 * 深入了解新的[警示體驗](../../azure-monitor/platform/alerts-overview.md)。
 * 了解 [Azure 中的記錄警示](../../azure-monitor/platform/alerts-unified-log.md)。
 * 深入了解 [Azure 中的警示](../../azure-monitor/platform/alerts-overview.md)。
+

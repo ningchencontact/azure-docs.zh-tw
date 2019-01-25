@@ -3,18 +3,18 @@ title: 使用 Azure 自動化中的 SCCM 集合進行目標更新 - 更新管理
 description: 本文旨在協助您設定 System Center Configuration Manager，以使用此解決方案來管理 SCCM 受控電腦的更新。
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f3ab50c4fdc080b157212bcc662a2acf6629483d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c3b595e9c4d4b98814d1b68adede97204bf3eb96
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097959"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422723"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>整合 System Center Configuration Manager 與更新管理
 
@@ -51,3 +51,4 @@ ms.locfileid: "53097959"
 在執行此設定變更之後，您可以遵循[建立更新部署](automation-tutorial-update-management.md#schedule-an-update-deployment)中所述的步驟來建立新的部署，然後在 [類型] 下拉式清單中選取 [已匯入的群組]，以選取適當的 Configuration Manager 集合。
 
 ## <a name="next-steps"></a>後續步驟
+

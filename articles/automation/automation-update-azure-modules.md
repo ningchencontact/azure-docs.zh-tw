@@ -3,18 +3,18 @@ title: 更新 Azure 自動化中的 Azure 模組
 description: 本文說明現在要如何更新 Azure 自動化中預設提供的通用 Azure PowerShell 模組。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5a60dd9af60328759e332514c8af061e50382798
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c0636a3e1fa50f90c68393aea910f36d38d8eaf5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634859"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437262"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>如何更新 Azure 自動化中的 Azure PowerShell 模組
 
@@ -72,4 +72,5 @@ ms.locfileid: "53634859"
 ## <a name="next-steps"></a>後續步驟
 
 * 若要深入了解整合模組，以及如何建立自訂模組以進一步整合自動化與其他系統、服務或解決方案，請參閱[整合模組](automation-integration-modules.md)。
+
 

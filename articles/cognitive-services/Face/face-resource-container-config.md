@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 18c9eace306522f9ac9f04e19b9571db67561ae0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: eabbe8d771520d5b1d5360a3d86b96d27ea08277
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725046"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359437"
 ---
 # <a name="configure-containers"></a>設定容器
 
@@ -116,7 +116,7 @@ ms.locfileid: "53725046"
   臉部容器會使用 Azure 儲存體和 Azure Cosmos DB 來將這四種資料類型散發至永續性儲存體上。 Blob 和佇列資料是由 Azure 儲存體負責處理。 中繼資料和快取資料是由 Azure Cosmos DB 來處理。 如果停止或移除臉部容器，該容器之儲存體中的所有資料都會繼續存放在 Azure 儲存體和 Azure Cosmos DB 中。  
   Azure 儲存體案例所使用的資源具有下列額外需求
   * Azure 儲存體資源必須使用 StorageV2 帳戶類型
-  * Azure Cosmos DB 資源必須使用 Azure Cosmos DB for MongoDB API
+  * Azure Cosmos DB 資源必須使用 Azure Cosmos DB 的 MongoDB 版 API
 
 儲存體案例和相關的組態設定是由 `CloudAI` 組態區段底下的 `Storage` 物件所管理。 `Storage` 物件提供下列組態設定：
 

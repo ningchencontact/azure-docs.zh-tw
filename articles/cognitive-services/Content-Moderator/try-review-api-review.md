@@ -1,21 +1,21 @@
 ---
 title: 透過 API 主控台使用人力審查來審核內容 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 了解如何在 Content Moderator API 主控台中建立人力審查。
+description: 使用審查 API 的審查作業，建立影像或文字審查以便進行人工審核。
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: bb95341a09f09ce8020f34476e720270fd401909
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9d2daad06ad6cb97fe562db98cab57c4ed970a60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219748"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260204"
 ---
 # <a name="create-reviews-from-the-api-console"></a>從 API 主控台建立審查
 
@@ -29,7 +29,7 @@ ms.locfileid: "47219748"
 - **teamName**：您在設定審查工具帳戶時所建立的小組名稱。 
 - **ContentId**：這個字串會傳遞至 API 並透過回呼傳回。 ContentId 適合用於建立內部識別項或中繼資料與審核作業結果的關聯。
 - **中繼資料**：在回呼期間傳回至 API 端點的自訂金鑰-值組。 如果金鑰是審查工具中定義的簡短代碼，則會顯示為標記。
-- **Ocp-Apim-Subscription-Key**：位於 [設定] 索引標籤上。如需詳細資訊，請參閱[概觀](overview.md)。
+- **Ocp-Apim-Subscription-Key**：位於 [設定] 索引標籤。如需詳細資訊，請參閱[概觀](overview.md)。
 
 存取測試主控台的最簡單方式就是經由 [認證] 視窗。
 

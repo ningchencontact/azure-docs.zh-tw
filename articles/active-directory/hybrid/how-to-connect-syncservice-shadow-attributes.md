@@ -4,7 +4,7 @@ description: 描述陰影屬性如何在 Azure AD Connect 同步處理服務中�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 62278fa031c28fb32f882e438df0194c4db04efd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 12067b4413924717228547fccdc3ef07d07beaf8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310557"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470370"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 同步處理服務陰影屬性
 大部分屬性是以它們在內部部署 Active Directory 中的相同方式，在 Azure AD 中表示。 但是某些屬性有一些特殊處理，而且在 Azure AD 中的屬性值可能不同於 Azure AD Connect 同步處理。

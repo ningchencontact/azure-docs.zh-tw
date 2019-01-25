@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c2ffa623ad7a6c6da5b799d2c7d5f35c9f65e503
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340771"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215400"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>長期函式中的 HTTP API (Azure Functions)
 
@@ -96,9 +96,9 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
 | taskHub    | 查詢字串    | [工作中樞](durable-functions-task-hubs.md)的名稱。 如果未指定，則會假設為目前函式應用程式的工作中樞名稱。 |
 | connection | 查詢字串    | 儲存體帳戶之連接字串的**名稱**。 如果未指定，則會假設為函式應用程式的預設連接字串。 |
 | systemKey  | 查詢字串    | 叫用 API 所需的授權金鑰。 |
-| showInput  | 查詢字串    | 選擇性參數。 如果設定為 `false`，則執行輸入將會包含在回應承載中。|
-| showHistory| 查詢字串    | 選擇性參數。 如果設定為 `true`，則協調流程執行歷程記錄將會包含在回應承載中。|
-| showHistoryOutput| 查詢字串    | 選擇性參數。 如果設定為 `true`，則活動輸出將會包含在協調流程執行歷程記錄中。|
+| showInput  | 查詢字串    | 選用參數；僅限單一執行個體要求。 如果設定為 `false`，則執行輸入將會包含在回應承載中。|
+| showHistory| 查詢字串    | 選用參數；僅限單一執行個體要求。 如果設定為 `true`，則協調流程執行歷程記錄將會包含在回應承載中。|
+| showHistoryOutput| 查詢字串    | 選用參數；僅限單一執行個體要求。 如果設定為 `true`，則活動輸出將會包含在協調流程執行歷程記錄中。|
 | createdTimeFrom  | 查詢字串    | 選擇性參數。 指定時，會篩選所傳回執行個體的清單，這些執行個體是在指定 ISO8601 時間戳記當時或之後建立的。|
 | createdTimeTo    | 查詢字串    | 選擇性參數。 指定時，會篩選傳回執行個體的清單，這些執行個體是在指定 ISO8601 時間戳記當時或之前建立的。|
 | runtimeStatus    | 查詢字串    | 選擇性參數。 指定時，會根據所傳回執行個體的執行階段狀態來篩選所傳回執行個體的清單。 若要查看可能的執行階段狀態值清單，請參閱[查詢執行個體](durable-functions-instance-management.md)主題。 |
@@ -146,7 +146,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&conne
 | output          | JSON      | 執行個體的 JSON 輸出。 如果執行個體不是已完成狀態，則這個欄位是 `null`。 |
 | createdTime     | 字串    | 執行個體建立的時間。 使用 ISO 8601 延伸標記法。 |
 | lastUpdatedTime | 字串    | 執行個體保存的時間。 使用 ISO 8601 延伸標記法。 |
-| historyEvents   | JSON      | 包含協調流程執行歷程記錄的 JSON 陣列。 這個欄位為 `null`，除非 `showHistory` 查詢字串參數設定為 `true`。  |
+| historyEvents   | JSON      | 包含協調流程執行歷程記錄的 JSON 陣列。 這個欄位為 `null`，除非 `showHistory` 查詢字串參數設定為 `true`。 |
 
 以下是範例回應承載，其中包含協調流程執行歷程記錄和活動輸出 (針對可讀性格式化)：
 

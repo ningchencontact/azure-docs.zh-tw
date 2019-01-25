@@ -3,18 +3,18 @@ title: 使用 Webhook 啟動 Azure 自動化 Runbook
 description: 可讓用戶端透過 HTTP 呼叫在 Azure 自動化中啟動 Runbook 的 Webhook。  本文說明如何建立 Webhook，以及如何進行呼叫以啟動 Runbook。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 381f8c5fb59379c0494dabcd22f4675be9535837
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 19a771d75cd1f2a2a18a3a4c42fcc34e55afb111
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016686"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438842"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 Webhook 啟動 Azure 自動化 Runbook
 
@@ -226,3 +226,4 @@ $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ## <a name="next-steps"></a>後續步驟
 
 * 若要了解如何使用 Azure 自動化來對 Azure 警示採取動作，請參閱[使用警示來觸發 Azure 自動化 Runbook](automation-create-alert-triggered-runbook.md)。
+

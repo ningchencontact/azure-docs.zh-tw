@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/11/2019
+ms.lastreviewed: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: c7b002a0730e94e9507aed273b9be4fe35de5bf0
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.reviewer: jiahan
+ms.openlocfilehash: 5609cb3cfeab7cbaae493403aac68b0ce56d299a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159395"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244608"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 MySQL 資源提供者
 
@@ -65,7 +66,10 @@ _僅適用於整合式系統安裝_。 您必須提供 [Azure Stack 部署 PKI �
 
 ## <a name="deploy-the-resource-provider"></a>部署資源提供者
 
-安裝妥所有先決條件項目之後，請執行 **DeployMySqlProvider.ps1** 指令碼來部署 MYSQL 資源提供者。 DeployMySqlProvider.ps1 指令碼是從您針對 Azure Stack 版本下載的 MySQL 資源提供者二進位檔中解壓縮而來。
+安裝所有先決條件項目之後，您可以執行 **DeployMySqlProvider.ps1** 指令碼來部署 MYSQL 資源提供者。 DeployMySqlProvider.ps1 指令碼是從您針對 Azure Stack 版本下載的 MySQL 資源提供者安裝檔案中解壓縮而來。
+
+ > [!IMPORTANT]
+ > 在部署資源提供者之前，請先檢閱版本資訊，以了解有哪些新功能、修正，以及任何可能對部署造成影響的已知問題。
 
 若要部署 MySQL 資源提供者，請開啟新的已提升權限 PowerShell 視窗 (不是 PowerShell ISE)，然後變更至您解壓縮 MySQL 資源提供者二進位檔的目錄。 建議您使用新的 PowerShell 視窗，以避免已載入的 PowerShell 模組可能造成的問題。
 
@@ -134,6 +138,10 @@ $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysq
 # And the cloudadmin credential required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# Clear the existing login information from the Azure PowerShell context.
+Clear-AzureRMContext -Scope CurrentUser -Force
+Clear-AzureRMContext -Scope Process -Force
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force

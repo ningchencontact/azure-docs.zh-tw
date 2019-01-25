@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: b5f1247c43dcbd836c684dbf41bafd0d319e5f7c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: cd458ba08f12e9553233a1dd3d7caf03acda56c6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230470"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463502"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 診斷 1.3 版和更新版本的組態結構描述
 > [!NOTE]
@@ -693,3 +693,4 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
  *樹狀結構：根目錄 - DiagnosticsConfiguration - IsEnabled*
 
  布林值。 使用 `true` 來啟用診斷或 `false` 來停用診斷。
+

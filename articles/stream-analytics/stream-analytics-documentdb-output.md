@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: c5017817c0f823a149dd0f9bced48ecca9f3c488
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1f142d7551859396b789ee0594880f077e4a7f9f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106561"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267125"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure 串流分析輸出至 Azure Cosmos DB  
 「串流分析」可以將 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 設定為 JSON 輸出的目標，讓您能夠針對非結構化的 JSON 資料進行資料封存和低延遲查詢。 本文件涵蓋實作這種組態的一些最佳作法。
@@ -58,16 +58,17 @@ Azure Cosmos DB [無限制](../cosmos-db/partition-data.md)是建議的資料分
 我們正在取代寫入至多個固定容器，因此這不是將串流分析作業相應放大的建議方法。 [Cosmos DB 中的資料分割與調整](../cosmos-db/sql-api-partition-data.md)一文提供進一步的詳細資料。
 
 ## <a name="cosmos-db-settings-for-json-output"></a>適用於 JSON 輸出的 Cosmos DB 設定
-如果在「串流分析」中建立 Cosmos DB 作為輸出，將會產生如以下所示的資訊提示。 本節說明屬性定義。
 
+如果在「串流分析」中建立 Cosmos DB 作為輸出，將會產生如以下所示的資訊提示。 本節說明屬性定義。
 
 ![documentdb 串流分析輸出畫面](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-欄位           | 說明 
--------------   | -------------
-輸出別名    | 在您的 ASA 查詢中參照此輸出時所用的別名   
-帳戶名稱    | Azure Cosmos DB 帳戶的名稱或端點 URI 
-帳戶金鑰     | Azure Cosmos DB 帳戶的共用存取金鑰
-資料庫        | Azure Cosmos DB 資料庫名稱
-集合名稱 | 要使用的集合之集合名稱。 `MyCollection` 是範例有效輸入 - 必須有名稱為 `MyCollection` 的集合存在。  
-文件識別碼     | 選用。 輸出事件中的資料行名稱，輸出事件是作為唯一索引鍵，插入或更新作業必須依據該索引鍵。 如果保留空白，所有事件都會插入，沒有更新選項。
+|欄位           | 說明|
+|-------------   | -------------|
+|輸出別名    | 在您的 ASA 查詢中參照此輸出時所用的別名。|
+|訂用帳戶    | 選擇您的 Azure 訂用帳戶。|
+|帳戶識別碼      | Azure Cosmos DB 帳戶的名稱或端點 URI。|
+|帳戶金鑰     | Azure Cosmos DB 帳戶的共用存取金鑰。|
+|資料庫        | Azure Cosmos DB 資料庫名稱。|
+|集合名稱模式 | 要使用的集合之集合名稱。 `MyCollection` 是範例有效輸入 - 必須有名稱為 `MyCollection` 的集合存在。  |
+|文件識別碼     | 選用。 輸出事件中的資料行名稱，輸出事件是作為唯一索引鍵，插入或更新作業必須依據該索引鍵。 如果保留空白，所有事件都會插入，沒有更新選項。|

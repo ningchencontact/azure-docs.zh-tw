@@ -3,7 +3,7 @@ title: 建立基本群組並新增成員 - Azure Active Directory | Microsoft Do
 description: 關於如何使用 Azure Active Directory 建立基本群組的指示。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 08/22/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 22ed8abe436a7419b0b95afb8249b8ff07daa39c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 50900bb58fdec909a5922e0e33873a97ce2a72dc
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062191"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448809"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>使用 Azure Active Directory 建立基本群組並新增成員
 您可以使用 Azure Active Directory (Azure AD) 入口網站建立基本群組。 基於此文章的目的，一個基本的群組會由資源擁有者 (系統管理員) 新增到單一資源，並包含需要存取該資源的特定成員 (員工)。 如需更複雜的案例，包括動態成員資格和規則建立，請參閱[Azure Active Directory 使用者管理文件](../users-groups-roles/index.yml)。

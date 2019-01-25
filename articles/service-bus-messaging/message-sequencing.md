@@ -3,26 +3,26 @@ title: Azure 服務匯流排訊息排序和時間戳記 | Microsoft 文件
 description: 利用時間戳記保留服務匯流排訊息序列和順序
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
-ms.author: spelluru
-ms.openlocfilehash: 631c4334b1e2ca37dfc87709718b6639c2762c5c
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 8665d0a1fccecf5521a553a894e2a55e52384ec3
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857681"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851380"
 ---
 # <a name="message-sequencing-and-timestamps"></a>訊息排序和時間戳記
 
-排序和時間戳記是隨時可以在所有服務匯流排實體和介面上啟用的兩個功能，您可以透過接收或瀏覽之訊息的 [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) 和 [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) 屬性予以啟用。
+排序和時間戳記是隨時可以在所有服務匯流排實體和介面上啟用的兩項功能，您可以透過接收或瀏覽之訊息的 [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) 和 [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) 屬性予以啟用。
 
 在重視訊息絕對順序和/或客戶需要值得信賴之訊息唯一識別碼的情況下，訊息代理程式會為訊息加上與佇列或主題相關的連貫遞增序號。 對於分割的實體，發行的序號與分割區相關。
 
@@ -36,7 +36,7 @@ ms.locfileid: "48857681"
 
 ## <a name="scheduled-messages"></a>排定的訊息
 
-您可以將訊息提交到佇列或主題，以利延遲處理。例如，排定作業讓系統在某個時間處理。 此功能實現可靠的分散式時間型排程器。
+您可以將訊息提交到佇列或主題，以利延遲處理。例如，排定作業讓系統在某個時間處理。 這項功能實現可靠的分散式時間型排程器。
 
 排定之訊息在定義的加入佇列時間到來之前，不會在佇列中具體化。 在時間到來之前，您可以取消排定的訊息。 取消即是刪除訊息。
 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 12/19/2018
 ms.author: juliako
-ms.openlocfilehash: cd020566b61dac7da37b24f10eebfc69b19073cb
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fcce16ed3cf7009c596f30ebc33f58de02f018a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720946"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811633"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>教學課程：編碼以 URL 為基礎的遠端檔案及串流處理影片 - REST
 
@@ -191,7 +191,7 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 
 ### <a name="create-a-job"></a>建立工作
 
-[作業](https://docs.microsoft.com/rest/api/media/jobs)是要媒體服務將已建立的轉換套用至指定輸入視訊或音訊內容的實際要求。 **作業**會指定輸入影片的位置、輸出的位置等資訊。
+[作業](https://docs.microsoft.com/rest/api/media/jobs)是要媒體服務將已建立的**轉換**套用至指定輸入視訊或音訊內容的實際要求。 **作業**會指定輸入影片的位置、輸出的位置等資訊。
 
 在此範例中，作業的輸入會以 HTTPS URL ("https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/") 為基礎。
 

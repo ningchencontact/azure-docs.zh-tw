@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: db0a16fa44dd23cbc32159889fe8b8ec28c77a5f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 93046fa8225d8c85172d113d3c7f9e979c336770
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992554"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331430"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(已淘汰) 使用 Azure DevOps Services 搭配 Docker Swarm 在 Azure Container Service 上部署多容器應用程式的完整 CI/CD 管線
 
@@ -137,7 +137,7 @@ Microsoft 提供 Azure DevOps Services 擴充功能，以在 Azure Pipelines 程
 * ProductsApi
 * Proxy
 * RatingsApi
-* RecommandationsApi
+* RecommendationsApi
 * ShopFront
 
 您需要為每個映像新增兩個 [Docker] 步驟，一個是建置映像，另一個是將映像推送至 Azure 容器登錄。 

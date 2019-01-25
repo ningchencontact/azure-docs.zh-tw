@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2ab696436a8cf139eff92edc3b8ff2c27b40a7aa
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 15354cd7472e7cffb7a40ca431bc23eb65b9a9a9
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018376"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845889"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>在 Azure Stack 中搭配 Azure CLI 使用 API 版本設定檔
 
@@ -212,16 +212,13 @@ Write-Host "Python Cert store was updated to allow the Azure Stack CA root certi
       ```
     * AD FS 環境
 
-        * 使用網頁瀏覽器以使用者身分登入：  
-              ```azurecli  
-              az login
-              ```
         * 使用網頁瀏覽器搭配裝置代碼以使用者身分登入：  
-              ```azurecli  
-              az login --use-device-code
-              ```
-        > [!Note]  
-        >執行此命令可提供您一個 URL 以及必須用來進行驗證的代碼。
+           ```azurecli  
+           az login --use-device-code
+           ```
+
+           > [!NOTE]  
+           >執行此命令可提供您一個 URL 以及必須用來進行驗證的代碼。
 
         * 以服務主體身分登入：
         

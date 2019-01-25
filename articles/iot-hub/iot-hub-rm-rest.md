@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 06f05da839ebca2ae53e255acce7f07d1989673c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6da222086f29c4b492652d924b4d98e9780eaa53
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539766"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434592"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>使用資源提供者 REST API 建立 IoT 中樞 (.NET)
 
@@ -23,7 +23,7 @@ ms.locfileid: "38539766"
 您可透過程式設計方式，使用 [IoT 中樞資源提供者 REST API][lnk-rest-api] 建立和管理 Azure IoT 中樞。 本教學課程說明如何使用「IoT 中樞資源提供者 REST API」從 C# 程式建立 IoT 中樞。
 
 > [!NOTE]
-> Azure 有兩種不同的部署模型可建立和處理資源：[Azure Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。  本文涵蓋使用 Azure Resource Manager 部署模型的部分。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Azure Resource Manager 和傳統模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文涵蓋使用 Azure Resource Manager 部署模型的部分。
 
 若要完成此教學課程，您需要下列項目：
 
@@ -188,7 +188,7 @@ ms.locfileid: "38539766"
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 

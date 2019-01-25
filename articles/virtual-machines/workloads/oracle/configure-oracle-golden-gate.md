@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: f0ae48cadf2e90dc685a24aff54d89f86a11c287
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cb5ad6f351cdeadb999b1a62c225f23937c5b92e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494288"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413816"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>在 Azure Linux VM 上實作 Oracle Golden Gate 
 
@@ -59,7 +59,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
+使用 [az group create](/cli/azure/group) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
 下列範例會在 `westus` 位置建立名為 `myResourceGroup` 的資源群組。
 

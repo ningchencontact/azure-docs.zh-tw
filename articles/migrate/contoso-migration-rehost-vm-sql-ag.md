@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 5ff8f5c51f17375208fdb32e521bfc85ee3f0c77
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c1fdd09023c07808226c95ed82d0c22e09d09ec4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880211"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267380"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso 移轉：在 Azure VM 和 SQL Server AlwaysOn 可用性群組上重新裝載內部部署應用程式
 

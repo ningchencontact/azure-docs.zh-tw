@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: 8c04c9fffbb85bb4db7a369b0dbbad6279f5d6f6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5a5d052052be447ea2ccbd9231d3b03d38c7615c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420076"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266938"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>使用 Azure 在 Linux 虛擬機器上設定 Tomcat7
 Apache Tomcat (或直接稱為 Tomcat，以往也稱為 Jakarta Tomcat) 是 Apache Software Foundation (ASF) 開發的開放原始碼 Web 伺服器和 Servlet 容器。 Tomcat 會實作 Sun Microsystems 提供的 Java Servlet 和 JavaServer Pages (JSP) 規格。 Tomcat 提供用來執行 Java 程式碼的純 Java HTTP 網頁伺服器環境。 在最簡單的組態中，Tomcat 會在單一作業系統處理序中執行。 此程序會執行 Java 虛擬機器 (JVM)。 從瀏覽器到 Tomcat 的每個 HTTP 要求都會以 Tomcat 程序中個別的執行緒形式予以處理。  
 
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有兩種：[Azure Resource Manager](../../../resource-manager-deployment-model.md) 和傳統。 本文說明如何使用傳統部署模型。 我們建議讓大部分的新部署使用 Resource Manager 模型。 若要透過 Resource Manager 範本使用 Open JDK 與 Tomcat 部署 Ubuntu VM 的詳細資訊，請參閱[本文](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/)。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Azure Resource Manager 和傳統模型](../../../resource-manager-deployment-model.md)。 本文說明如何使用傳統部署模型。 我們建議讓大部分的新部署使用 Resource Manager 模型。 若要透過 Resource Manager 範本使用 Open JDK 與 Tomcat 部署 Ubuntu VM 的詳細資訊，請參閱[本文](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/)。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 在本文中，您將在 Linux 映像上安裝 Tomcat7 並且部署於 Azure 中。  
@@ -37,11 +37,11 @@ Apache Tomcat (或直接稱為 Tomcat，以往也稱為 Jakarta Tomcat) 是 Apac
 * 如何準備 Tomcat7 的虛擬機器。
 * 如何安裝 Tomcat7。
 
-假設您已經有 Azure 訂用帳戶。  如果沒有，您可以在 [Azure 網站](https://azure.microsoft.com/)上註冊免費試用版。 如果您擁有 MSDN 訂用帳戶，請參閱 [Microsoft Azure 特價：MSDN、MPN 及 BizSpark 優惠](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39)。 若要深入了解 Azure，請參閱 [什麼是 Azure？](https://azure.microsoft.com/overview/what-is-azure/)。
+假設您已經有 Azure 訂用帳戶。  如果沒有，您可以在 [Azure 網站](https://azure.microsoft.com/)上註冊免費試用版。 如果您有 MSDN 訂用帳戶，請參閱 [Microsoft Azure 特價：MSDN、MPN 及 BizSpark 優惠](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39)。 若要深入了解 Azure，請參閱 [什麼是 Azure？](https://azure.microsoft.com/overview/what-is-azure/)。
 
 本文假設您有 Tomcat 和 Linux 的基本操作知識。  
 
-## <a name="phase-1-create-an-image"></a>第 1 階段：建立映像。
+## <a name="phase-1-create-an-image"></a>第 1 階段：建立映像
 在這個階段，您將在 Azure 中使用 Linux 映像建立虛擬機器。  
 
 ### <a name="step-1-generate-an-ssh-authentication-key"></a>步驟 1：產生 SSH 驗證金鑰
@@ -114,7 +114,7 @@ TCP 連接埠 8080 是 Tomcat 用於接聽的預設連接埠號碼。 如果使�
 4. 下載之後，按一下可執行檔 Putty.exe。 在 PuTTY 組態中，使用從虛擬機器屬性取得的主機名稱和連接埠號碼設定基本選項。   
 ![顯示 PuTTY 組態主機名稱和連接埠選項的螢幕擷取畫面][9]
 
-5. 在左窗格中，按一下 [連線]  > [SSH]  > [驗證]，然後按一下 [瀏覽] 來指定 privateKey.ppk 檔案的位置。 PrivateKey.ppk 檔案包含 PuTTYgen 稍早在本文的＜第 1 階段：建立映像＞一節中產生的私密金鑰。  
+5. 在左窗格中，按一下 [連線]  > [SSH]  > [驗證]，然後按一下 [瀏覽] 來指定 privateKey.ppk 檔案的位置。 PrivateKey.ppk 檔案包含 PuTTYgen 稍早在本文的「第 1 階段：建立映像」一節中產生的私密金鑰。  
 ![顯示連線目錄階層和 [瀏覽] 按鈕的螢幕擷取畫面][10]
 
 6. 按一下 [開啟] 。 您可能會收到警告訊息方塊。 如果您已正確設定 DNS 名稱和連接埠號碼，按一下 [是] 。
@@ -123,10 +123,10 @@ TCP 連接埠 8080 是 Tomcat 用於接聽的預設連接埠號碼。 如果使�
 7. 系統會提示您輸入使用者名稱。  
 ![螢幕擷取畫面，其中顯示輸入使用者名稱的位置][12]
 
-8. 輸入您稍早在本文的＜第 1 階段：建立映像＞一節中用來建立虛擬機器的使用者名稱。 您會看到類似下列的畫面：  
+8. 輸入您稍早在本文的「第 1 階段：建立映像」一節中用來建立虛擬機器的使用者名稱。 您會看到類似下列的畫面：  
 ![顯示驗證確認的螢幕擷取畫面][13]
 
-## <a name="phase-3-install-software"></a>第 3 階段：安裝軟體
+## <a name="phase-3-install-software"></a>階段 3：安裝軟體
 在這個階段，您會安裝 Java 執行階段環境、Tomcat7 和其他 Tomcat7 元件。  
 
 ### <a name="java-runtime-environment"></a>Java 執行階段環境
@@ -141,7 +141,7 @@ Tomcat 是以 Java 撰寫的。 如需有關如何取得完整支援之 Java 執
 您可以使用如下所示的命令，測試是否已正確安裝 Java 執行階段環境：  
     java -version  
 
-您應該會看見如以下的訊息：![OpenJDK 安裝成功訊息][14]
+您應該會看見類似下方的訊息：![成功的 OpenJDK 安裝訊息][14]
 
 
 ### <a name="install-tomcat7"></a>安裝 Tomcat7
@@ -164,7 +164,7 @@ Tomcat 是以 Java 撰寫的。 如需有關如何取得完整支援之 Java 執
 
     sudo apt-get install tomcat7-user         #tools to create user instances  
 
-## <a name="phase-4-configure-tomcat7"></a>第 4 階段：設定 Tomcat7
+## <a name="phase-4-configure-tomcat7"></a>階段 4：設定 Tomcat7
 在這個階段，您可以管理 Tomcat。
 
 ### <a name="start-and-stop-tomcat7"></a>啟動和停止 Tomcat7
@@ -207,12 +207,12 @@ Tomcat7 伺服器會在您進行安裝時自動啟動。 您也可以使用下�
 ## <a name="common-issues"></a>常見問題
 ### <a name="cant-access-the-virtual-machine-with-tomcat-and-moodle-from-the-internet"></a>無法從網際網路存取使用 Tomcat 和 Moodle 的虛擬機器
 #### <a name="symptom"></a>徵狀  
-  Tomcat 正在執行中，但無法使用瀏覽器來查看 Tomcat 預設頁面。
+   Tomcat 正在執行中，但無法使用瀏覽器來查看 Tomcat 預設頁面。
 #### <a name="possible-root-cause"></a>可能的根本原因   
 
   * Tomcat 接聽連接埠與虛擬機器上用於 Tomcat 流量的端點私人連接埠不同。  
 
-     檢查您的公用連接埠和私人連接埠端點設定，並確定私人連接埠與 Tomcat 接聽連接埠相同。 請參閱本文＜第 1 階段：建立映像＞一節，以取得為虛擬機器設定端點的指示。  
+     檢查您的公用連接埠和私人連接埠端點設定，並確定私人連接埠與 Tomcat 接聽連接埠相同。 請參閱本文「第 1 階段：建立映像」一節，以取得為虛擬機器設定端點的指示。  
 
      若要決定 Tomcat 接聽連接埠，請開啟 /etc/httpd/conf/httpd.conf (Red Hat 版本) 或 /etc/tomcat7/server.xml (Debian 版本)。 Tomcat 接聽連接埠預設為 8080。 下列是一個範例：  
 

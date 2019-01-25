@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Application Insights 撰寫程式碼來追蹤要求 | Microsoft Docs
-description: 使用 Application Insights 撰寫程式碼來追蹤要求，讓您可以取得要求的設定檔
+description: 使用 Application Insights 撰寫程式碼來追蹤要求，以取得要求的設定檔。
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,19 +12,20 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 20f408d9dd32c3fd7a0e319e4051483e3aa54dd9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 978f9a341eec2f16b9f6fe3d164e97805d7a8e93
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081731"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359626"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>使用 Application Insights 撰寫程式碼來追蹤要求
 
-若要在 [效能] 頁面上查看您應用程式的設定檔，Application Insights 必須追蹤您應用程式的要求。 Application Insights 可針對以經過檢測的架構 (例如 ASP.net 和 ASP.Net Core) 為基礎的應用程式，自動追蹤其要求。 但是對於其他應用程式，例如 Azure 雲端服務背景工作角色和 Service Fabric 無狀態 API，您必須撰寫程式碼來告訴 Application Insights 何處是您要求的開頭與結尾。 撰寫此程式碼後，要求遙測就會傳送至 Application Insights，您會在 [效能] 頁面上看到遙測資料，而系統將會針對這些要求收集設定檔。 
+若要在 [效能] 頁面上檢視應用程式的設定檔，Azure Application Insights 必須追蹤對應用程式的要求。 Application Insights 可針對在已經過檢測的架構中建置的應用程式，自動追蹤其要求。 ASP.NET 與 ASP.NET Core 是其中的兩個範例。 
 
-以下是手動追蹤要求所需採取的步驟：
+對於其他應用程式，例如 Azure 雲端服務背景工作角色和 Service Fabric 無狀態 API，您必須撰寫程式碼向 Application Insights 指出何處是您要求的開頭與結尾。 在您撰寫此程式碼之後，要求遙測資料就會傳送至 Application Insights。 您可以在 [效能] 頁面上檢視遙測資料，而系統將會為這些要求收集設定檔。 
 
+若要手動追蹤要求，請執行下列作業：
 
   1. 在應用程式存留期早期新增下列程式碼：  
 
@@ -36,7 +37,7 @@ ms.locfileid: "54081731"
         ```
       如需這個全域檢測金鑰設定的詳細資訊，請參閱[搭配 Application Insights 使用 Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md)。  
 
-  1. 針對您想要檢測的任何程式碼片段，在其周圍新增 `StartOperation<RequestTelemetry>` **USING** 陳述式，如下列範例所示：
+  1. 針對您想要檢測的任何程式碼片段，在其周圍新增 `StartOperation<RequestTelemetry>` **using** 陳述式，如下列範例所示：
 
         ```csharp
         using Microsoft.ApplicationInsights;

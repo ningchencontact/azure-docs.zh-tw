@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: d0d6ed03b6e28df9767e24170ebf5ec92bb9fe9a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 01f72b8d41c1a973c7d187f519a43ce62929a23e
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434727"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359352"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 
@@ -88,7 +88,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 請遵循[部署 Windows 混合式 Runbook 背景工作角色](../automation-windows-hrw-install.md)中的步驟來重新安裝混合式背景工作角色，或是為 Linux [部署 Linux 混合式 Runbook 背景工作角色](../automation-linux-hrw-install.md)。
 
-## <a name="windows"></a> Windows
+## <a name="windows"></a>Windows
 
 如果您在嘗試讓解決方案在虛擬機器上線時遇到問題，請查看本機電腦上 [應用程式及服務記錄檔] 底下的 [Operations Manager] 事件記錄檔中，是否有事件識別碼為 **4502** 且事件訊息包含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** 的事件。
 
@@ -177,6 +177,11 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 |`0x8024402C`     | 如果您使用 WSUS 伺服器，請確定 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` 登錄機碼底下 `WUServer` 和 `WUStatusServer` 的登錄值具有正確的 WSUS 伺服器。        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | 確定 Windows Update 服務 (wuauserv) 正在執行而未停用。        |
 |任何其他一般例外狀況     | 搜尋網際網路來尋找可能的解決方案，並與您當地的 IT 支援人員合作。         |
+
+此外，您可以下載並執行 [Windows Update 疑難排解員](https://support.microsoft.com/help/4027322/windows-update-troubleshooter)，以檢查機器上的 Windows Update 是否有任何問題。
+
+> [!NOTE]
+> [Windows Update 疑難排解員](https://support.microsoft.com/help/4027322/windows-update-troubleshooter)指出其適用標的為 Windows 用戶端，但實際上也可在 Windows Server 上運作。
 
 ## <a name="linux"></a>Linux
 

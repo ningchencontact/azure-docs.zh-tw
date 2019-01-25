@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/02/2018
+ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: b6aaf98ca3b5581691b6c70783be5250b506056c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 53945559be01b6e9f5778f5df096f7fcbb24a03f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990955"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214482"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>使用加速網路建立 Linux 虛擬機器
 
@@ -31,9 +31,9 @@ ms.locfileid: "46990955"
 
 如果沒有加速網路，進出 VM 的所有網路流量都必須周遊主機和虛擬交換器。 虛擬交換器對網路流量提供所有原則強制執行，例如網路安全性群組、存取控制清單、隔離性以及其他網路虛擬化服務。 若要深入了解虛擬交換器，請閱讀 [Hyper-V Network Virtualization and Virtual Switch (Hyper-V 網路虛擬化和虛擬交換器)](https://technet.microsoft.com/library/jj945275.aspx) 文章。
 
-如果使用加速網路，網路流量就會先送達 VM 的網路介面 (NIC)，然後轉送到 VM。 虛擬交換器套用的所有網路原則現在皆已卸載，並在硬體中套用。 在硬體中套用原則會讓 NIC 略過主機和虛擬交換器，同時在主機中維護套用的所有原則，直接將網路流量轉送到 VM。
+如果使用加速網路，網路流量就會先送達虛擬機器的網路介面 (NIC)，然後轉送到 VM。 虛擬交換器套用的所有網路原則現在皆已卸載，並在硬體中套用。 在硬體中套用原則會讓 NIC 略過主機和虛擬交換器，同時在主機中維護套用的所有原則，直接將網路流量轉送到 VM。
 
-加速網路的優點只適用於已啟用此功能的 VM。 為了獲得最佳結果，最好在至少兩部連線到相同 Azure 虛擬網路 (VNet) 的 VM 上啟用此功能。 當透過 VNet 通訊或連線內部部署時，此功能對整體延遲的影響可以降到最低。
+加速網路的優點只適用於已啟用此功能的 VM。 為了獲得最佳結果，最好在至少兩部連線到相同 Azure 虛擬網路 (VNet) 的虛擬機器上啟用此功能。 當透過 VNet 通訊或連線內部部署時，此功能對整體延遲的影響可以降到最低。
 
 ## <a name="benefits"></a>優點
 * **較低的延遲 / 較高的每秒封包數目 (pps)：** 從資料路徑移除虛擬交換器會減少主機中封包在處理原則時所花的時間，並增加 VM 內可處理的封包數目。
@@ -62,8 +62,9 @@ ms.locfileid: "46990955"
 ### <a name="regions"></a>區域
 適用於所有公用 Azure 區域和 Azure 政府雲端。
 
-### <a name="network-interface-creation"></a>網路介面建立 
-您只能對新的 NIC 啟用加速網路。 無法對現有 NIC 來啟用。
+<!-- ### Network interface creation 
+Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
+removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>在執行中的 VM 上啟用加速網路
 支援的 VM 大小若沒啟用加速網路，則只能在停止或解除配置 VM 時啟用此功能。  
 ### <a name="deployment-through-azure-resource-manager"></a>透過 Azure Resource Manager 進行部署
@@ -188,10 +189,10 @@ ssh azureuser@<your-public-ip-address>
 
 從 Bash 殼層中，輸入 `uname -r`，並確認核心版本是下列其中一個版本或更高版本：
 
-* **Ubuntu 16.04**: 4.11.0-1013
-* **SLES SP3**: 4.4.92-6.18
-* **RHEL**: 7.4.2017120423
-* **CentOS**: 7.4.20171206
+* **Ubuntu 16.04**：4.11.0-1013
+* **SLES SP3**：4.4.92-6.18
+* **RHEL**：7.4.2017120423
+* **CentOS**：7.4.20171206
 
 
 確認 Mellanox VF 裝置已使用 `lspci` 命令向 VM 公開。 傳回的輸出大致如下列所示：

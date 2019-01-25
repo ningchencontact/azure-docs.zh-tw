@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
+ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: f9cc6f5c35b528d3a545293b9a946bc3eda3d7ac
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339327"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259959"
 ---
 # <a name="working-with-security-policies"></a>使用安全性原則
 
@@ -28,12 +28,15 @@ ms.locfileid: "53339327"
 
 如需有關如何使用 PowerShell 設定原則的指示，請參閱[快速入門：使用 Azure RM PowerShell 模組建立原則指派，以識別不符合規範的資源](../azure-policy/assign-policy-definition-ps.md)。
 
+>[!NOTE]
+> 資訊安全中心已開始進行其與 Azure 原則的整合。 現有客戶會自動遷移至 Azure 原則中新的內建方案，而不是資訊安全中心先前的安全性原則。 除了 Azure 原則中新方案的目前狀態以外，這項變更不會影響您的資源或環境。
+
 ## <a name="what-are-security-policies"></a>什麼是安全性原則？
 安全性原則會定義工作負載的所需設定，並且協助確保符合公司或法規安全性需求。 在 Azure 原則中，您可以為 Azure 訂用帳戶定義原則，並按照工作負載的類型或資料的機密性訂定這些原則。 例如，對於使用個人識別資訊等規範資料的應用程式，其需要的安全性層級可能比工作負載還高。 若要跨訂用帳戶或針對管理群組設定原則，請在 [Azure 原則](../azure-policy/azure-policy-introduction.md)中設定。
 
-
-
 您的安全性原則會推動您在 Azure 資訊安全中心中取得的安全性建議。 您可以監視它們的合規性，以幫助您識別潛在的弱點並減輕威脅。 如需如何決定哪個選項適合您的詳細資訊，請參閱[內建安全性原則](security-center-policy-definitions.md)的清單。
+
+當您啟用資訊安全中心時，內建到資訊安全中心的安全性原則會反映在 Azure 原則中，並作為資訊安全中心類別下的內建方案。 內建方案會自動指派給所有註冊資訊安全中心的訂用帳戶 (免費或標準層)。 內建方案僅包含稽核原則。 
 
 
 ### <a name="management-groups"></a>管理群組
@@ -57,8 +60,6 @@ Azure 原則由下列元件組成：
 - **方案**是原則的集合。
 - **指派**是將方案或原則套用至特定範圍 (管理群組、訂用帳戶或資源群組)。
 
-資源會根據指派給它的原則進行評估，並根據資源符合的原則數目來接收合規比率。
-
 ## <a name="view-security-policies"></a>檢視安全性原則
 
 若要在資訊安全中心檢視安全性原則：
@@ -76,12 +77,9 @@ Azure 原則由下列元件組成：
   資料表中的資料行會顯示：
 
  - **原則方案指派** – 資訊安全中心[內建的原則](security-center-policy-definitions.md)和方案，已指派給訂用帳戶或管理群組。
- - **合規性** - 管理群組、訂用帳戶或工作區的整體合規性分數。 此分數是指派的加權平均值。 單一指派中原則數目的加權平均因子，以及套用指派的資源數目。
-
- 例如，如果訂用帳戶有兩個 VM 以及已指派五個原則的方案，則您的訂用帳戶中有 10 項評估。 如果其中一個 VM 不符合兩個原則，您訂用帳戶指派的整體合規性分數為 80%。
-
  - **涵蓋範圍** - 識別執行管理群組、訂用帳戶或工作區的定價層 (免費或標準)。  若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。
  - **設定** – 訂用帳戶具有 [編輯設定] 連結。 選取 [編輯設定] 可讓您更新每個訂用帳戶或管理群組的[資訊安全中心設定](security-center-policies-overview.md)。
+ - **安全分數** - [安全分數](security-center-secure-score.md)可供測量您工作負載的安全性狀態，並協助您排列改進建議的優先順序。
 
 2. 選取要檢視其原則的訂用帳戶或管理群組。
 

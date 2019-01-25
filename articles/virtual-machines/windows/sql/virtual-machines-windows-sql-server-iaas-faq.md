@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339394"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358978"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>在 Azure 中 Windows 虛擬機器上執行的 SQL Server 常見問題集
 
@@ -49,13 +49,19 @@ ms.locfileid: "53339394"
 
    是。 Azure 只會為每個主要版本維護一個映像。 例如，發行新的 SQL Server Service Pack 後，Azure 會將新的映像新增至該 Service Pack 的資源庫。 前一個 Service Pack 的 SQL Server 映像會立即從 Azure 入口網站中移除。 不過，在接下來三個月仍可用於從 PowerShell 佈建。 三個月之後，便無法再使用前一個 Service Pack 映像。 如果 SQL Server 版本在達到其生命週期結尾時就不提供支援，也適用此移除原則。
 
+
+1. **較舊而未顯示在 Azure 入口網站中的 SQL Server 映像是否可供部署？**
+
+   是，請使用 PowerShell。 如需使用 PowerShell 部署 SQL Server VM 的詳細資訊，請參閱[如何使用 Azure PowerShell 佈建 SQL Server 虛擬機器](virtual-machines-windows-ps-sql-create.md)。
+
 1. **可以從 SQL Server VM 建立 VHD 映像嗎？**
 
    可以，但有幾點需要考量。 如果您將此 VHD 部署至 Azure 中的新 VM，則入口網站不會出現 [SQL Server 組態] 區段。 您接下來必須透過 PowerShell 管理 SQL Server 組態選項。 此外，將按照映像原先所在的 SQL VM 的費率向您收費。 即使您在部署前先從 VHD 移除 SQL Server 也是如此。 
 
 1. **是否可以設定虛擬機器資源庫中未顯示的組態 (例如 Windows 2008 R2 + SQL Server 2012)？**
 
-   否。 針對包含 SQL Server 的虛擬機器資源庫映像，您必須選取其中一個提供的映像。
+   沒有。 針對包含 SQL Server 的虛擬機器資源庫映像，您必須透過 Azure 入口網站或 [PowerShell](virtual-machines-windows-ps-sql-create.md) 選取其中一個提供的映像。 
+
 
 ## <a name="creation"></a>建立
 
@@ -88,7 +94,7 @@ ms.locfileid: "53339394"
 
 1. **切換授權模型是否必須讓 SQL Server 停機？**
 
-   否。 [變更授權模型](virtual-machines-windows-sql-ahb.md)不需要將 SQL Server 停機，因為變更會立即生效，且不需要重新啟動 VM。 
+   沒有。 [變更授權模型](virtual-machines-windows-sql-ahb.md)不需要將 SQL Server 停機，因為變更會立即生效，且不需要重新啟動 VM。 
 
 1. **CSP 訂用帳戶是否能啟用 Azure Hybrid Benefit？**
 
@@ -96,7 +102,7 @@ ms.locfileid: "53339394"
 
 1. **使用新的 SQL VM 資源提供者註冊我的 VM 是否會產生額外的成本？**
 
-   否。 SQL VM 資源提供者只會在 Azure VM 上啟用額外的 SQL Server 管理，而不會產生任何額外費用。 
+   沒有。 SQL VM 資源提供者只會在 Azure VM 上啟用額外的 SQL Server 管理，而不會產生任何額外費用。 
 
 1. **SQL VM 資源提供者是否適用於所有客戶？**
  

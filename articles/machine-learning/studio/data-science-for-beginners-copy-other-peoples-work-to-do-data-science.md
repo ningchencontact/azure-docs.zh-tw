@@ -1,27 +1,8 @@
 ---
-title: 複製其他人的資料科學範例 - Azure Machine Learning Studio | Microsoft Docs
-description: 資料科學的商業機密：讓其他人為您工作。 從 Azure AI 資源庫取得機器學習服務範例。
-keywords: 資料科學範例, 機器學習範例, 叢集演算法, 叢集演算法範例
-services: machine-learning
-documentationcenter: na
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cjgronlund
-ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/05/2018
-ms.openlocfilehash: acd0899396ac5a47dade5fac16e451b2029ec0c2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260373"
+標題：複製其他人的資料科學範例 titleSuffix： Azure Machine Learning Studio description:'資料科學的商業機密：讓其他人為您工作。 從 Azure AI 資源庫取得機器學習服務範例。'
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: seodec18 ms.date:2018/01/05
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>複製其他人的工作進行資料科學
 ## <a name="video-5-data-science-for-beginners-series"></a>影片 5：適用於初學者的資料科學系列

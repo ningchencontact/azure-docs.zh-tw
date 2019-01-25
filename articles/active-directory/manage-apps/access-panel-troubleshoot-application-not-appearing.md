@@ -4,7 +4,7 @@ description: 針對應用程式為什麼未出現在存取面板上進行疑難�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviwer: japere
-ms.openlocfilehash: 9e3b1976cf11df77b8a5570c83f055001be8bb46
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3ed2a6cdd16483460ecd32314c424952d7667c0f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355205"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474042"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>指派的應用程式未出現在存取面板上
 
@@ -488,7 +488,7 @@ Azure AD 不提供取得中繼資料的 URL。 中繼資料只能擷取為 XML �
 
 11. 將滑鼠停留在清單中的**使用者**上方，以顯示**核取方塊**。 按一下使用者設定檔照片或標誌旁邊的核取方塊，將使用者新增至 [已選取] 清單。
 
-12. **選擇性︰** 如果您想要**新增多位使用者**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**全名**或**電子郵件地址**，然後按一下核取方塊，將此使用者新增至 [已選取] 清單。
+12. **選擇性：** 如果您想要**新增多位使用者**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**全名**或**電子郵件地址**，然後按一下核取方塊，將此使用者新增至 [已選取] 清單。
 
 13. 當您完成選取使用者時，按一下 [選取] 按鈕，將他們新增到要指派至應用程式的使用者和群組清單。
 
@@ -606,7 +606,7 @@ Azure AD 不提供取得中繼資料的 URL。 中繼資料只能擷取為 XML �
 
 11. 將滑鼠停留在清單中的**群組**上方，以顯示**核取方塊**。 按一下群組設定檔照片或標誌旁邊的核取方塊，將使用者新增至 [已選取] 清單。
 
-12. **選擇性︰** 如果您想要**新增多個群組**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**完整群組名稱**，然後按一下核取方塊，將此群組新增至 [已選取] 清單。
+12. **選擇性：** 如果您想要**新增多個群組**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**完整群組名稱**，然後按一下核取方塊，將此群組新增至 [已選取] 清單。
 
 13. 當您完成選取群組時，按一下 [選取] 按鈕，將它們新增到要指派給應用程式的使用者和群組清單。
 

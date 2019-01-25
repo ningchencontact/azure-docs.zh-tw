@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: c9a66036902f346a7a9fd337416cbe85acca7856
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 429c7c266357b4808ab3ebbb7f346cf22d9f479c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200928"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855379"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 
@@ -272,7 +272,7 @@ public class Function {
 
 ## <a name="metadata"></a>中繼資料
 
-有幾個觸發程序會將[觸發程序中繼資料](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties)與輸入資料一起傳送。 您可以使用註釋 `@BindingName` 繫結至觸發程序中繼資料
+有幾個觸發程序會將[觸發程序中繼資料](/azure/azure-functions/functions-triggers-bindings)與輸入資料一起傳送。 您可以使用註釋 `@BindingName` 繫結至觸發程序中繼資料
 
 
 ```Java

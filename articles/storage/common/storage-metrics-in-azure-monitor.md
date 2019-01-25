@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 51c0fefc0d18127da1f5fc513b493407510a071b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 4bae38b7596504d8de452e445c05e1c973aba78a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994431"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354575"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure 監視器中的 Azure 儲存體計量
 
@@ -341,6 +341,7 @@ Azure 儲存體會提供下列 Azure 監視器容量計量。
 | BlobCapacity | 儲存體帳戶中所使用的 Blob 儲存體總計。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 <br/> 維度：BlobType ([定義](#metrics-dimensions)) |
 | BlobCount    | 儲存體帳戶中所儲存的 Blob 物件數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 <br/> 維度：BlobType ([定義](#metrics-dimensions)) |
 | ContainerCount    | 儲存體帳戶中的容器數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
+| IndexCapacity     | ADLS Gen2 階層式索引使用的儲存體容量 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 
 ### <a name="table-storage"></a>表格儲存體
 
@@ -368,7 +369,7 @@ Azure 儲存體會提供下列 Azure 監視器容量計量。
 
 ## <a name="transaction-metrics"></a>交易度量
 
-交易計量會每隔一分鐘就從 Azure 儲存體傳送到 Azure 監視器。 系統會同時提供帳戶和服務層級 (Blob 儲存體、表格儲存體、Azure 檔案和佇列儲存體) 的所有交易計量。 時間粒紋會定義用來呈現計量值的時間間隔。 所有交易計量支援的時間粒紋為 PT1H 和 PT1M。
+對儲存體帳戶的每個要求，都會發出從 Azure 儲存體到 Azure 監視器的交易計量。 在您的儲存體帳戶上沒有活動的情況下，該期間內交易計量上不會有資料。 系統會同時提供帳戶和服務層級 (Blob 儲存體、表格儲存體、Azure 檔案和佇列儲存體) 的所有交易計量。 時間粒紋會定義用來呈現計量值的時間間隔。 所有交易計量支援的時間粒紋為 PT1H 和 PT1M。
 
 Azure 儲存體會提供下列 Azure 監視器交易計量。
 

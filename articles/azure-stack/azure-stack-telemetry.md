@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 6b73cf04d768381bcc0e27cc76b6c2a25d4d9a2c
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 190a80d5807dcc8ad9666d3ba450691bc6453b41
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341050"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265612"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遙測
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 Azure Stack 遙測會透過「已連線使用者體驗」自動將系統資料上傳至 Microsoft。 Microsoft 小組會使用 Azure Stack 遙測蒐集的資料來改善客戶體驗。 此資料也用於安全性、健康狀態、品質和效能分析。
 
@@ -33,7 +33,7 @@ Azure Stack 遙測會透過「已連線使用者體驗」自動將系統資料�
 > [!NOTE]
 > 您也可以將 Azure Stack 設定為將使用量資訊轉送至 Azure 進行計費。 選擇隨用隨付計費方式的多節點 Azure Stack 客戶一定要這麼做。 使用量報告是經由遙測獨立進行控制，而選擇容量模式的多節點客戶或 Azure Stack 開發套件的使用者不需使用此功能。 若為上述案例，可以[使用註冊指令碼](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting)來關閉使用量報告。
 
-Azure Stack 遙測是以 Windows Server 2016「已連線使用者體驗與遙測」元件為基礎，該元件使用 [Windows 事件追蹤 (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) 追蹤記錄技術來蒐集及儲存事件和資料。 Azure Stack 元件會使用相同的技術，發佈使用公用作業系統事件記錄和追蹤 API 所蒐集的事件和資料。 Azure Stack 元件範例包括下列提供者：網路資源、儲存體資源、監視資源和更新資源。 「已連線使用者體驗與遙測」元件使用 SSL 加密資料，並使用憑證關聯透過 HTTPS 將資料傳輸至 Microsoft 資料管理服務。
+Azure Stack 遙測是以 Windows Server 2016「已連線使用者體驗與遙測」元件為基礎，該元件使用 [Windows 事件追蹤 (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) 追蹤記錄技術來蒐集及儲存事件和資料。 Azure Stack 元件會使用相同的技術，發佈使用公用作業系統事件記錄和追蹤 API 所蒐集的事件和資料。 這些 Azure Stack 元件的範例包括以下提供者：網路資源、儲存體資源、監視資源和更新資源。 「已連線使用者體驗與遙測」元件使用 SSL 加密資料，並使用憑證關聯透過 HTTPS 將資料傳輸至 Microsoft 資料管理服務。
 
 > [!IMPORTANT]
 > 若要啟用遙測資料流程，必須在您的網路中開放連接埠 443 (HTTPS)。 「已連線使用者體驗與遙測」元件會連線到 Microsoft 資料管理服務 (位於 https://v10.vortex-win.data.microsoft.com )。 「已連線使用者體驗與遙測」元件也會連線到 https://settings-win.data.microsoft.com 來下載組態資訊。
@@ -112,7 +112,7 @@ Microsoft 不打算蒐集敏感性資料，例如信用卡號碼、使用者名�
 在開發套件主機上部署 Azure Stack 之前，先開機進入 CloudBuilder.vhdx，然後在已提高權限的 PowerShell 視窗中執行下列指令碼：
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host

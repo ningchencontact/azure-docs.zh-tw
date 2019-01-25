@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 06719f3a92dae805081ea85c346df97ebed0e0dc
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a885fda23bb76091705ebe388f40a6eae7b56416
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078065"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351504"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署期間使用 Azure Key Vault 以傳遞安全的參數值
 
@@ -84,7 +84,7 @@ Add-Type -AssemblyName System.Web
 [System.Web.Security.Membership]::GeneratePassword(16,3)
 ```
 
-若要使用 Resource Manager 範本，請參閱[教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault)。
+如需使用 Resource Manager 範本：請參閱[教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault)。
 
 > [!NOTE]
 > 每個 Azure 服務都有特定的密碼需求。 例如，Azure 虛擬機器的需求可在[建立 VM 時的密碼需求為何？](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)上找到。

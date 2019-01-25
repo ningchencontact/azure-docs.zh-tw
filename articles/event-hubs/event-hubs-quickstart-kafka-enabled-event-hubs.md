@@ -1,6 +1,6 @@
 ---
 title: 串流處理至啟用 Kafka 的事件中樞 - Azure 事件中樞 | Microsoft Docs
-description: 本文提供有關如何使用 Kafka 通訊協定和 API 串流處理至 Azure 事件中樞。
+description: 本文提供關於如何使用 Kafka 通訊協定和 API 串流至 Azure 事件中樞的資訊。
 services: event-hubs
 author: basilhariri
 ms.author: bahariri
@@ -8,12 +8,12 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.openlocfilehash: d6e293b80df1ab227a3100040a54b189f48d8027
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19d903a4083c432ac3932189ad8a6890be9014fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102804"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354224"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>串流至適用於 Apache Kafka 的事件中樞
 本快速入門說明如何串流至已啟用 Kafka 的事件中樞，而不需要變更通訊協定用戶端或執行您自己的叢集。 您將了解如何僅在應用程式中變更設定，就能讓產生者和取用者與已啟用 Kafka 的事件中樞交談。 Azure 事件中樞支援 [Apache Kafka 1.0 版](https://kafka.apache.org/10/documentation.html)。
@@ -34,13 +34,13 @@ ms.locfileid: "53102804"
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>建立已啟用 Kafka 的事件中樞命名空間
 
-1. 登入 [Azure 入口網站][Azure 入口網站]，然後按一下畫面左上方的 [建立資源]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下畫面左上方的 [建立資源]。
 
 2. 搜尋事件中樞，並選取選項，如下所示：
     
     ![在入口網站中搜尋事件中樞](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. 提供唯一名稱並在命名空間上啟用 Kafka。 按一下頁面底部的 [新增] 。
+3. 提供唯一名稱並在命名空間上啟用 Kafka。 按一下頁面底部的 [新增] 。 注意：只有標準和專用層事件中樞可支援適用於 Kafka 的事件中樞。 對於任何 Kafka 作業，基本層事件中樞都會傳回「主題授權錯誤」作為回應。
     
     ![建立命名空間](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  

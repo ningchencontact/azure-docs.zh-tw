@@ -3,18 +3,18 @@ title: 疑難排解 - Azure 自動化混合式 Runbook 背景工作角色
 description: 本文提供針對 Azure 自動化混合式 Runbook 背景工作角色進行疑難排解的資訊
 services: automation
 ms.service: automation
-ms.component: ''
+ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 57897060e79ffbd750b47b21e97bb16d651f835c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 9f83a0cf97acfd0bed990cc832ac08eb23c29ef1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583505"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434453"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>混合式 Runbook 背景工作的疑難排解
 
@@ -186,3 +186,4 @@ Start-Service -Name HealthService
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
 * 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
+

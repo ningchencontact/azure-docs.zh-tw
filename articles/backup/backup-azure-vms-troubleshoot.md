@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: 9bbaf23999c04eba5157ebe7dff73ed47418c99a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 1714a29e4b27f6363d748ceb180f56ba98c713bb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634179"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809521"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
 您可以利用下表列出的資訊，針對使用 Azure 備份時所發生的錯誤進行疑難排解：
@@ -42,7 +42,7 @@ ms.locfileid: "53634179"
 | 快照集作業失敗，因為設定的剖析失敗。 |此錯誤是因為 **MachineKeys** 目錄上的權限已變更︰**%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**。 <br> 執行下列命令，並確認 **MachineKeys** 目錄上的權限是預設的︰<br>**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**。 <br><br>預設的權限如下︰ <ul><li>所有人：(R,W) <li>BUILTIN\Administrators：(F)</ul> 如果您發現 **MachineKeys** 目錄中的權限不同於預設權限，請依照下列步驟來修正權限，刪除憑證，並觸發備份： <ol><li>修正 **MachineKeys** 目錄上的權限。 在目錄中使用 Explorer 安全性屬性和進階安全性設定，來將權限重設為預設值。 從目錄中移除所有使用者物件 (預設值除外)，然後確定 [所有人] 權限有下列特殊存取權︰ <ul><li>列出資料夾/讀取資料 <li>讀取屬性 <li>讀取擴充屬性 <li>建立檔案/寫入資料 <li>建立資料夾/附加資料<li>寫入屬性<li>寫入擴充屬性<li>讀取權限 </ul><li>刪除 [發給] 是傳統部署模型或 **Windows Azure CRP 憑證產生器**的所有憑證：<ol><li>[在本機電腦主控台上開啟憑證](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx) \(機器翻譯\)。<li>在 [個人] > [憑證] 底下，刪除 [核發對象] 是傳統部署模型或 **Windows Azure CRP 憑證產生器**的所有憑證。</ol> <li>觸發 VM 備份作業。 </ol>|
 | Azure 備份服務沒有足夠的 Azure Key Vault 權限以備份加密的虛擬機器。 |請使用[從還原的磁碟建立 VM](backup-azure-vms-automation.md) 中的步驟，在 PowerShell 中為備份服務提供這些權限。 |
 |快照集延伸模組安裝失敗，發生錯誤「COM+ 無法與 Microsoft Distributed Transaction Coordinator 通話」。 | 從提升權限的命令提示字元中，啟動 Windows 服務 **COM+ System Application**。 例如 **net start COMSysApp**。 如果服務無法啟動，請採取下列步驟：<ol><li> 確定**分散式交易協調器**服務的登入帳戶是 [Network Service]。 如果不是，請將登入帳戶變更為 **Network Service**，然後重新啟動服務。 然後嘗試啟動 **COM+ System Application**。<li>如果 **COM+ System Application** 無法啟動，請使用下列步驟解除安裝並安裝**分散式交易協調器**服務： <ol><li>停止 MSDTC 服務。 <li>開啟命令提示字元，**cmd**。 <li>執行命令 ```msdtc -uninstall```。 <li>執行命令 ```msdtc -install```。 <li>啟動 MSDTC 服務。 </ol> <li>啟動 Windows 服務 **COM+ System Application**。 **COM+ System Application** 啟動後，請從 Azure 入口網站觸發備份作業。</ol> |
-|  快照集作業失敗，因為發生 COM+ 錯誤。 | 建議從提升權限的命令提示字元重新啟動 Windows 服務 **COM+ System Application**，其命令為 **net start COMSysApp**。 如果問題持續發生，請重新啟動 VM。 如果重新啟動 VM 沒有幫助，請嘗試[移除 VMSnapshot 延伸模組](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load)，並手動觸發備份。 |
+|  快照集作業失敗，因為發生 COM+ 錯誤。 | 建議從提升權限的命令提示字元重新啟動 Windows 服務 **COM+ System Application**，其命令為 **net start COMSysApp**。 如果問題持續發生，請重新啟動 VM。 如果重新啟動 VM 沒有幫助，請嘗試[移除 VMSnapshot 延伸模組](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout)，並手動觸發備份。 |
 | 備份無法凍結 VM 的一或多個掛接點，以取得檔案系統一致快照集。 | 請執行下列步驟： <ul><li>使用 **'tune2fs'** 命令檢查所有已裝載裝置的檔案系統狀態。 例如 **tune2fs -l /dev/sdb1 \**。| 對 [檔案系統狀態] 進行 grep。 <li>使用 **'umount'** 命令來卸載所有檔案系統狀態不清潔的裝置。 <li> 使用 **'fsck'** 命令對這些裝置執行檔案系統一致性檢查。 <li> 重新裝載裝置並嘗試備份。</ol> |
 | 快照集作業失敗，因為無法建立安全網路通訊通道。 | <ol><li> 在提高權限的模式中執行 **regedit.exe**，來開啟登錄編輯程式。 <li> 識別系統中存在的所有 .NET Framework 版本。 它們位於登錄機碼 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft** 的階層下。 <li> 針對登錄機碼中的每個 .NET Framework，新增下列機碼︰ <br> **SchUseStrongCrypto"=dword:00000001**。 </ol>|
 | 快照集作業失敗，因為無法安裝適用於 Visual Studio 2012 的 Visual C++ 可轉散發套件。 | 瀏覽至 C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion，並安裝 vcredist2012_x64。 確定允許此服務安裝的登錄機碼值已設定為正確的值。 也就是說，登錄機碼 **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** 的值已設定為 **3**，而非 **4**。 <br><br>如果您仍遇到安裝問題，請從提高權限的命令提示字元執行 **MSIEXEC /UNREGISTER**，再執行 **MSIEXEC /REGISTER**，以重新啟動安裝服務。  |
@@ -57,6 +57,7 @@ ms.locfileid: "53634179"
 | 備份無法取消作業： <br>請等候作業完成。 |None |
 
 ## <a name="restore"></a>Restore
+
 | 錯誤詳細資料 | 因應措施 |
 | --- | --- |
 | 還原失敗，發生雲端內部錯誤。 |<ol><li>您嘗試還原的雲端服務是使用 DNS 設定所設定。 您可以檢查： <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**。<br>如果已設定 [位址]，則 DNS 設定便已設定。<br> <li>您嘗試還原到其中的雲端服務是使用 **ReservedIP** 所設定，而雲端服務中的現有 VM 目前處於停止狀態。 您可以使用下列 PowerShell Cmdlet 來檢查雲端服務是否已保留 IP：**$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName**。 <br><li>您嘗試將具有下列特殊網路組態的虛擬機器還原至相同的雲端服務： <ul><li>負載平衡器設定下的虛擬機器，內部與外部。<li>具有多個保留 IP 的虛擬機器。 <li>具有多個 NIC 的虛擬機器。 </ul><li>在 UI 中選取新的雲端服務，或參閱適用於具有特殊網路組態之 VM 的[還原考量](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)。</ol> |
@@ -100,7 +101,7 @@ ms.locfileid: "53634179"
 * 若要更新 Linux VM 代理程式，請遵循[更新 Linux VM 代理程式](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)一文中的指示。
 
     > [!NOTE]
-    > 請一律使用散發套件存放庫來更新代理程式。 
+    > 請一律使用散發套件存放庫來更新代理程式。
 
     請勿從 GitHub 下載代理程式程式碼。 如果最新的代理程式不適用於您的散發套件，請連絡散發套件支援以了解如何取得最新的代理程式。 您也可以在 GitHub 存放庫中查看最新的 [Windows Azure Linux 代理程式](https://github.com/Azure/WALinuxAgent/releases)資訊。
 

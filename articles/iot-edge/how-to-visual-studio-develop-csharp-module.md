@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 01/10/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9a6c892a71c452a0c6c0dcd43509e345280a810e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3091e53b47d85e3e58c32b255dc9dcebd54ab2c5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054914"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264932"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>使用 Visual Studio 2017 來開發適用於 Azure IoT Edge 的 C# 模組並針對其進行偵錯 (預覽)
 
@@ -27,8 +27,11 @@ Azure IoT Edge Tools for Visual Studio 提供下列優點：
 - 以 C# 撰寫 Azure IoT 模組程式碼，同時享有 Visual Studio 開發的所有優點。
 - 使用 UI 管理 Azure IoT Edge 裝置與模組。
 
-此文章說明如何使用 Azure IoT Edge Tools for Visual Studio 2017 以 C# 開發 IoT Edge 模組。 您也將學習如何將專案部署到 Azure IoT Edge 裝置。
+此文章說明如何使用 Azure IoT Edge Tools for Visual Studio 2017 以 C# 開發 IoT Edge 模組。 您也將學習如何將專案部署到 Azure IoT Edge 裝置。 
 
+  > [!TIP]
+  > Visual Studio 所建立的 IoT Edge 專案結構與 Visual Studio Code 中的 IoT Edge 專案結構不同。
+  
 ## <a name="prerequisites"></a>必要條件
 
 此文章假設您使用執行 Windows 的電腦或虛擬機器作為開發電腦。 您的 IoT Edge 裝置可以是另一部實體裝置。
@@ -58,7 +61,7 @@ Visual Studio 2017 備妥之後，您也需要下列工具和元件：
 
 1. 從 [工具] 功能表中，選取 [擴充功能和更新]。 依序展開 [已安裝] > [工具]，您可以找到 **Azure IoT Edge Tools** 和 **Cloud Explorer for Visual Studio**。
 
-1. 記下已安裝的版本。 您可以將此版本與 Visual Studio Marketplace 上的最新版本進行比較 ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS)、[Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge))
+1. 記下已安裝的版本。 您可以將此版本與 Visual Studio Marketplace 上的最新版本進行比較 ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS)、[Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools))
 
 1. 如果您的版本比 Visual Studio Marketplace 提供的版本舊，請依照下一節中的說明在 Visual Studio 中更新您的工具。
 

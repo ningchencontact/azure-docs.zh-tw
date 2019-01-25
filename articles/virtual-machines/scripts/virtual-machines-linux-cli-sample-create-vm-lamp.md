@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 1764fc15a888fbe15cc14b990721240d1baf3c40
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: cb8815db5e16603ca4578f6d3d943cbef62e49af
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29851661"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461140"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>在負載平衡虛擬機器擴展集中部署 LAMP 堆疊
 
@@ -59,7 +59,7 @@ az group delete -n myResourceGroup
 | [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | 建立擴充功能，該擴充功能在 VM 部署上執行自訂指令碼 |
 | [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | 在 VM 執行個體上執行自訂指令碼，該執行個體是在擴充功能套用至擴展集之前部署的。 |
 | [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | 藉由新增更多 VM 執行個體以相應增加擴展集。 當這些執行個體部署時，自訂指令碼會在上面執行。 |
-| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_list) | 取得範例建立之 VM 的 IP 位址。 |
+| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | 取得範例建立之 VM 的 IP 位址。 |
 | [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | 取得由負載平衡器使用的前端和後端連接埠。 |
 
 ## <a name="next-steps"></a>後續步驟

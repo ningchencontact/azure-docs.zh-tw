@@ -1,6 +1,7 @@
 ---
-title: 概觀 - Azure Machine Learning Studio | Microsoft Docs
-description: 從已準備就緒可供使用之演算法與模組的程式庫快速建置模型的拖放工具 - Azure ML Studio 概觀。
+title: 什麼是
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio 是可從已準備就緒可供使用的演算法與模組程式庫快速建置模型的拖放工具。
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: b1c0d3da6dba4bf56baaf583d89c58fdc13ef83f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 04c9803909fb5dfd1072840a0c1d7e33814ad1a3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250513"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264355"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什麼是 Azure Machine Learning Studio？
 Microsoft Azure Machine Learning Studio 是共同作業式的拖放工具，您可以用來依據您的資料建置、測試及部署預測分析解決方案。 Machine Learning Studio 會以 Web 服務方式發佈模型，讓自訂應用程式或 BI 工具 (例如 Excel) 都能夠很容易地使用。

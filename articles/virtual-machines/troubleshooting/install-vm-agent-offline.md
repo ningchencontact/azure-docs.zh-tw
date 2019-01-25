@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e9fc8351b5e9a4f2274f0906d4071f86dcbcff26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192051"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259677"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>在離線模式安裝 Azure 虛擬機器代理程式 
 
@@ -35,6 +35,14 @@ Azure 虛擬機器代理程式 (VM 代理程式) 提供有用的功能，例如�
 ## <a name="how-to-install-the-vm-agent-in-offline-mode"></a>以離線模式安裝 VM 代理程式
 
 請使用下列步驟，以離線模式安裝 VM 代理程式。
+
+> [!NOTE]
+> 您可以將以離線模式安裝 VM 代理程式的程序自動化。
+> 若要這樣做，請使用 [Azure VM 復原指令碼](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md) \(英文\)。 如果您選擇使用 Azure VM 復原指令碼，您可以使用下列程序：
+> 1. 透過使用指令碼將受影響 VM 的 OS 磁碟連結到復原 VM 來略過步驟 1。
+> 2. 遵循步驟 2–10 以套用風險降低措施。
+> 3. 透過使用指令碼重建 VM 來略過步驟 11。
+> 4. 遵循步驟 12。
 
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>步驟 1：將 VM 的 OS 磁碟附加至另一個 VM 當做資料磁碟
 

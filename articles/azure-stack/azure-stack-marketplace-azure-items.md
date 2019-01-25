@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 05a0e0d88f09853274d6bc6b65f66cf66369f77d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.reviewer: unknown
+ms.openlocfilehash: d006deb83ca16860eb669548ae8563304f7937fa
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044190"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306602"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 可用的 Azure Marketplace 項目
 
@@ -32,18 +32,18 @@ ms.locfileid: "54044190"
 
 |  | 項目名稱 | 說明 | 發行者 | OS 類型 |
 | --- | --- | --- | --- | --- |
-|![SQL IaaS 延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 延伸模組](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **下載此延伸模組以在 Windows Marketplace 項目上部署任何 SQL Server - 此延伸模組是必要延伸模組。** | Microsoft |  Windows |
-|![自訂指令碼延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [自訂指令碼擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **請將此更新下載到附隨版的 Windows 自訂指令碼擴充功能中。** | Microsoft |  Windows |
-|![PowerShell DSC 延伸模組](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 延伸模組](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **下載這個隨附版「PowerShell DSC 延伸模組」的更新。已更新成支援 TLS v1.2。** | Microsoft |  Windows |
-| ![Microsoft Antimalware 延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Antimalware 延伸模組](https://docs.microsoft.com/azure/security/azure-security-antimalware)| 適用於 Azure 的 Microsoft Antimalware 是一個針對應用程式和租用戶環境所提供的單一代理程式解決方案，其設計可於無人為介入的情況下在背景中執行。 **下載這個隨附版 Antimalware 延伸模組的更新。** | Microsoft |  Windows |
-| ![Microsoft Azure 診斷擴充功能](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Azure 診斷擴充功能](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| Microsoft Azure 診斷是 Azure 中可對部署的應用程式啟用診斷資料收集的功能。 **下載這個附隨版 Windows 診斷擴充功能的更新。** | Microsoft |  Windows || ![Microsoft 監視擴充功能](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 監視代理程式擴充功能](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Microsoft 監視代理程式擴充功能搭配 OMS 使用，以提供虛擬機器的監視功能。 **下載這個附隨版 Windows 監視代理程式擴充功能的更新。** | Microsoft |  Windows |
+|![SQL IaaS 延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 延伸模組](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **下載此延伸模組以在 Windows Marketplace 項目上部署任何 SQL Server - 此延伸模組是必要延伸模組。** | Microsoft | Windows |
+|![自訂指令碼延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [自訂指令碼擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **請將此更新下載到附隨版的 Windows 自訂指令碼擴充功能中。** | Microsoft | Windows |
+|![PowerShell DSC 延伸模組](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 延伸模組](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **下載這個隨附版「PowerShell DSC 延伸模組」的更新。已更新成支援 TLS v1.2。** | Microsoft | Windows |
+| ![Microsoft Antimalware 延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Antimalware 延伸模組](https://docs.microsoft.com/azure/security/azure-security-antimalware)| 適用於 Azure 的 Microsoft Antimalware 是一個針對應用程式和租用戶環境所提供的單一代理程式解決方案，其設計可於無人為介入的情況下在背景中執行。 **下載這個隨附版 Antimalware 延伸模組的更新。** | Microsoft | Windows |
+| ![Microsoft Azure 診斷擴充功能](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Azure 診斷擴充功能](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| Microsoft Azure 診斷是 Azure 中可對部署的應用程式啟用診斷資料收集的功能。 **下載這個附隨版 Windows 診斷擴充功能的更新。** | Microsoft | Windows || ![Microsoft 監視擴充功能](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 監視代理程式擴充功能](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Microsoft 監視代理程式擴充功能搭配 OMS 使用，以提供虛擬機器的監視功能。 **下載這個附隨版 Windows 監視代理程式擴充功能的更新。** | Microsoft | Windows |
 |![自訂指令碼延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [自訂指令碼擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)|**下載這個隨附版「適用於 Linux 的自訂指令碼延伸模組」的更新。此延伸模組有多個版本，您應該同時下載 1.5.2.1 和 2.0.x。** | Microsoft | Linux |
 | ![適用於 Linux 的 VM 存取](media/azure-stack-marketplace-azure-items/cse.png) | [適用於 Linux 的 VM 存取](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **請將此更新下載到附隨版的 VMAccess for Linux 擴充功能中。如果您打算使用 Debian Linux VM，這個更新很重要。** | Microsoft | Linux |
 | ![適用於 Linux 的 Acronis Backup 延伸模組](media/azure-stack-marketplace-azure-items/acronis.png) | [適用於 Linux 的 Acronis Backup 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | 適用於 Microsoft Azure 的 Acronis Backup 擴充功能，是 Acronis Backup 資料保護產品系列的一部分。 | Acronis International GmbH. | Linux |
-| ![適用於 Windows 的 Acronis Backup 延伸模組](media/azure-stack-marketplace-azure-items/acronis.png) | [適用於 Windows 的 Acronis Backup 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | 適用於 Microsoft Azure 的 Acronis Backup 擴充功能，是 Acronis Backup 資料保護產品系列的一部分。 | Acronis International GmbH. |  Windows |
+| ![適用於 Windows 的 Acronis Backup 延伸模組](media/azure-stack-marketplace-azure-items/acronis.png) | [適用於 Windows 的 Acronis Backup 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | 適用於 Microsoft Azure 的 Acronis Backup 擴充功能，是 Acronis Backup 資料保護產品系列的一部分。 | Acronis International GmbH. | Windows |
 | ![適用於 Linux 的 CloudLink SecureVM 延伸模組](media/azure-stack-marketplace-azure-items/cloudlink.png) | [適用於 Linux 的 CloudLink SecureVM 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 輕鬆而有自信地控制、監視及加密 VM。 | Dell EMC | Linux |
-| ![適用於 Windows 的 CloudLink SecureVM 延伸模組](media/azure-stack-marketplace-azure-items/cloudlink.png) | [適用於 Windows 的 CloudLink SecureVM 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 輕鬆而有自信地控制、監視及加密 VM。 | Dell EMC |  Windows |
-| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [適用於 Windows 的 Kaspersky Hybrid Cloud Security Agent](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | 使用 Kaspersky Hybrid Cloud Security 時，您可以透過 Azure 擴充功能直接在雲端工作負載中佈建網路安全性功能。 | Kaspersky 實驗室 |  Windows |
+| ![適用於 Windows 的 CloudLink SecureVM 延伸模組](media/azure-stack-marketplace-azure-items/cloudlink.png) | [適用於 Windows 的 CloudLink SecureVM 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 輕鬆而有自信地控制、監視及加密 VM。 | Dell EMC | Windows |
+| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [適用於 Windows 的 Kaspersky Hybrid Cloud Security Agent](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | 使用 Kaspersky Hybrid Cloud Security 時，您可以透過 Azure 擴充功能直接在雲端工作負載中佈建網路安全性功能。 | Kaspersky 實驗室 | Windows |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [適用於 Linux 的 Kaspersky Hybrid Cloud Security Agent](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.kesl-linux-arm?tab=Overview) | 使用 Kaspersky Hybrid Cloud Security 時，您可以透過 Azure 擴充功能直接在雲端工作負載中佈建網路安全性功能。 | Kaspersky 實驗室 | Linux |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft 虛擬機器映像和解決方案範本
@@ -90,7 +90,7 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux 是最受歡迎其中一個 Linux 散發套件。 | credativ |
 | ![CentOS 型 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic)  |
 | ![CentOS 型 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic)  |
-| ![CentOS 型 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic) |
+| ![CentOS 型 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic) |
 | ![CentOS 型 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic) |
 | ![CentOS 型 7.5-LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 7.5-LVM](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic) |
 | ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
@@ -243,7 +243,7 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | 此解決方案會使用以 ACS-Engine 產生的範本來部署 Kubernetes 叢集，並以獨立叢集的形式執行。<br>**此解決方案範本還需要 Ubuntu Server 16.04 LTS 和 Custom Script for Linux 2.0。**| Microsoft |
 | ![Service Fabric 叢集](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric 叢集](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | 此解決方案會部署在虛擬機器擴展集上以獨立叢集的形式執行的 Service Fabric。 <br>**要使用此解決方案範本，您還必須下載 Windows Server 2016 Datacenter**| Microsoft |
 | ![NRI mPLAT Suite - Multi-Cloud Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - Multi-Cloud Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | 可用來監視、設定、佈建、自動化及治理任何工作負載或雲端的單一虛擬管理介面。 | NRI |
-| ![NooBaa Hybrid AWS S3 相容 - 社群版](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybird AWS S3 相容 - 社群版](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | 橫跨公用和內部部署容量資源的 S3 相容存體服務。 | NooBaa |
+| ![NooBaa Hybrid AWS S3 相容 - 社群版](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 相容 - 社群版](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | 橫跨公用和內部部署容量資源的 S3 相容存體服務。 | NooBaa |
 | ![NetFoundry Gateway for Multipoint、Zero Trust Azure Stack Connections](media/azure-stack-marketplace-azure-items/netfoundry.png) | [NetFoundry Gateway for Multipoint、Zero Trust Azure Stack Connections](https://azuremarketplace.microsoft.com/marketplace/apps/tata_communications.netfoundry_cloud_gateway) | 透過領先業界的「零信任」安全性、5 倍的 VPN 輸送量，和不限數目的並行使用者，在 Azure Stack 與任何位置之間，使用任何網路連線進行僅限軟體的多點連線。 | NetFoundry |
 | ![Palo Alto VM-Series Next Generation Firewall](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-Series Next Generation Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM-Series 新一代防火牆可讓客戶安全地將其應用程式和資料移轉至 Azure Stack，藉由應用程式白名單功能和威脅防護原則保護它們免於已知和未知的威脅。 **此映像必須要有範本才能部署；請參閱這篇[文章](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)以取得重要資訊。**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall 會偵測已知和未知的漏洞，並防止 Web 應用程式上的攻擊。 **請同時下載兩個 PT Marketplace 項目。** | Positive Technologies |

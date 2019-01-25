@@ -4,7 +4,7 @@ description: 在 Azure 入口網站中開啟應用程式 Proxy，並安裝反向
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: d382a71de34e6c1527d810b0576e518b9101cf7d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6d370f9fb7fc67c9df5e08a06de38db8e97c6fb0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132749"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471900"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>應用程式 Proxy 和 Qlik Sense 
 Azure Active Directory 應用程式 Proxy 和 Qlik Sense 已搭配運作，可確保您能夠輕鬆使用「應用程式 Proxy」來為 Qlik Sense 部署提供遠端存取。  

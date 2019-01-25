@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44788e1e1f53c4a939326b4fb3d6b672a9ef514e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 75a1a8763125e1e93691e2a28bc90a6d02ed7c40
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157525"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246325"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型
 
@@ -384,3 +384,4 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 * [教學課程：定型模型](tutorial-train-models-with-aml.md)會使用受控計算目標來定型模型。
 * 擁有定型的模型之後，請了解[部署模型的方式和位置](how-to-deploy-and-where.md)。
 * 檢視 [RunConfiguration 類別](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK 參考。
+* [透過 Azure 虛擬網路使用 Azure Machine Learning 服務](how-to-enable-virtual-network.md)

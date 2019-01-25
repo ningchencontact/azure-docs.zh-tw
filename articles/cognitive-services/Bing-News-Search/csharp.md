@@ -8,189 +8,135 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 20a5e24a4fce2bb8dc817cb74c2a58a1bc304fae
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 4461b4abf88ea7079d02f35d6b8c5f3a4aed8b6d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250411"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261905"
 ---
-# <a name="quickstart-perform-a-news-search-using-c-and-the-bing-news-search-rest-api"></a>快速入門：使用 C# 和 Bing 新聞搜尋 REST API 來執行新聞搜尋
+# <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>快速入門：使用 C# 和 Bing 新聞搜尋 REST API 來搜尋新聞
 
-本文示範如何在 Azure 上使用屬於 Microsoft 認知服務的 Bing 搜尋 API。 雖然本文是以 C# 部署，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。 
+使用本快速入門以第一次呼叫 Bing 新聞搜尋 API，並檢視 JSON 回應。 這個簡單的 C# 應用程式會將新聞搜尋查詢傳送給 API，並顯示回應。 此範例的完整程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingNewsSearchv7.cs) 上找到。
 
-範例程式碼以 C# 撰寫為 .Net Core 應用程式，且具有最低的外部相依性，您也可以使用 Mono 在 Linux 或 Mac OS X 上加以執行。
-
-請參閱 [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)了解 API 的技術詳細資料。
+雖然此應用程式是以 C# 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
 ## <a name="prerequisites"></a>必要條件
 
-您必須有具備 **Bing 搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 啟用免費試用時，您必須提供存取金鑰。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
+* 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+* [Json.NET](https://www.newtonsoft.com/json) 架構 (以 NuGet 套件形式提供)。
+* 如果您使用 Linux/MacOS，則可以使用 [Mono](http://www.mono-project.com/)來執行此應用程式。
 
-## <a name="bing-news-search"></a>Bing 新聞搜尋
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-[Bing 新聞搜尋 API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) 會從 Bing 搜尋引擎傳回新聞結果。
+另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
-1. 在 Visual Studio 中建立新的主控台解決方案 (Community Edition 即適用)。
-1. 將 Program.cs 取代為下面提供的程式碼。
-1. 以訂用帳戶有效的存取金鑰來取代 `accessKey` 值。
-1. 執行程式。
+## <a name="create-and-initialize-a-project"></a>建立專案並將其初始化
 
-```csharp
-using System;
-using System.Text;
-using System.Net;
-using System.IO;
-using System.Collections.Generic;
+1. 在 Visual Studio 中建立新的 C# 主控台解決方案。 然後將下列命名空間新增至主要程式碼檔案。
+    
+    ```csharp
+    using System;
+    using System.Text;
+    using System.Net;
+    using System.IO;
+    using System.Collections.Generic;
+    ```
 
-namespace BingNewsSearchCSharpCore
-{
+2. 建立適用於 API 端點、您訂用帳戶金鑰及搜尋字詞的變數。
 
-    class Program
+    ```csharp
+    const string accessKey = "enter key here";
+    const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
+    const string searchTerm = "Microsoft";
+    ```
+## <a name="create-a-struct-to-format-the-bing-news-search-response"></a>建立結構來製作 Bing 新聞搜尋回應的格式
+
+1. 定義 `SearchResult` 結構以包含影像搜尋結果及 JSON 標頭資訊。
+
+    ```csharp
+    struct SearchResult
     {
-        // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
-
-        // Replace the accessKey string value with your valid access key.
-        const string accessKey = "enter key here";
-
-        // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-        // search APIs.  In the future, regional endpoints may be available.  If you
-        // encounter unexpected authorization errors, double-check this value against
-        // the endpoint for your Bing News search instance in your Azure dashboard.
-        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
-
-        const string searchTerm = "Microsoft";
-
-        // Used to return news search results including relevant headers
-        struct SearchResult
-        {
-            public String jsonResult;
-            public Dictionary<String, String> relevantHeaders;
-        }
-
-        static void Main()
-        {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.WriteLine("Searching news for: " + searchTerm);
-
-            SearchResult result = BingNewsSearch(searchTerm);
-
-            Console.WriteLine("\nRelevant HTTP Headers:\n");
-            foreach (var header in result.relevantHeaders)
-                Console.WriteLine(header.Key + ": " + header.Value);
-
-            Console.WriteLine("\nJSON Response:\n");
-            Console.WriteLine(JsonPrettyPrint(result.jsonResult));
-
-            Console.Write("\nPress Enter to exit ");
-            Console.ReadLine();
-        }
-
-        /// <summary>
-        /// Performs a Bing News search and return the results as a SearchResult.
-        /// </summary>
-        static SearchResult BingNewsSearch(string searchQuery)
-        {
-            // Construct the URI of the search request
-            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery);
-
-            // Perform the Web request and get the response
-            WebRequest request = HttpWebRequest.Create(uriQuery);
-            request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
-            HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
-            string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-            // Create result object for return
-            var searchResult = new SearchResult();
-            searchResult.jsonResult = json;
-            searchResult.relevantHeaders = new Dictionary<String, String>();
-
-            // Extract Bing HTTP headers
-            foreach (String header in response.Headers)
-            {
-                if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
-                    searchResult.relevantHeaders[header] = response.Headers[header];
-            }
-
-            return searchResult;
-        }
-
-        /// <summary>
-        /// Formats the given JSON string by adding line breaks and indents.
-        /// </summary>
-        /// <param name="json">The raw JSON string to format.</param>
-        /// <returns>The formatted JSON string.</returns>
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
-
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            int offset = 0;
-            int indentLength = 3;
-
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\'':
-                        if (quote) ignore = !ignore;
-                        break;
-                }
-
-                if (quote)
-                    sb.Append(ch);
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-            }
-
-            return sb.ToString().Trim();
-        }
+        public String jsonResult;
+        public Dictionary<String, String> relevantHeaders;
     }
-}
-```
+    ```
 
-**回應**
+## <a name="create-and-handle-a-news-search-request"></a>建立及處理新聞搜尋要求
+
+建立一個名為 `BingNewsSearch` 的方法來執行對 API 的呼叫，並將傳回類型設定為稍早建立的 `SearchResult` 結構。 在方法中，執行下列步驟：
+
+1. 建構搜尋要求的 URI。 請注意，搜尋字詞 `toSearch` 必須先格式化，才能附加到字串。
+
+    ```csharp
+    static SearchResult BingNewsSearch(string toSearch){
+
+        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
+    //...
+    ```
+
+2. 執行 Web 要求並取得 JSON 字串形式的回應。
+
+    ```csharp
+    WebRequest request = WebRequest.Create(uriQuery);
+    request.Headers["Ocp-Apim-Subscription-Key"] = subscriptionKey;
+    HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
+    string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
+    ```
+
+3. 建立搜尋結果物件並擷取 Bing HTTP 標頭。 然後傳回 `searchResult`。
+
+    ```csharp
+    // Create the result object for return
+    var searchResult = new SearchResult()
+    {
+        jsonResult = json,
+        relevantHeaders = new Dictionary<String, String>()
+    };
+
+    // Extract Bing HTTP headers
+    foreach (String header in response.Headers)
+    {
+        if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
+            searchResult.relevantHeaders[header] = response.Headers[header];
+    }
+    return searchResult;
+    ```
+
+3. 建立搜尋結果物件並擷取 Bing HTTP 標頭。 然後傳回 `searchResult`。
+
+    ```csharp
+    // Create the result object for return
+    var searchResult = new SearchResult()
+    {
+        jsonResult = json,
+        relevantHeaders = new Dictionary<String, String>()
+    };
+
+    // Extract Bing HTTP headers
+    foreach (String header in response.Headers)
+    {
+        if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
+            searchResult.relevantHeaders[header] = response.Headers[header];
+    }
+    return searchResult;
+    ```
+
+## <a name="process-the-response"></a>處理回應
+
+1. 在主要方法中，呼叫 `BingNewsSearch()` 並儲存傳回的回應。 然後將 JSON 還原序列化成物件。 接著，您可以檢視回應的值。
+
+    ```csharp
+    SearchResult result = BingNewsSearch(searchTerm);
+    //deserialize the JSON response
+    dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result.jsonResult);
+    Console.WriteLine(jsonObj["value"][0])
+    ```
+
+## <a name="json-response"></a>JSON 回應
 
 如以下範例所示，成功的回應會以 JSON 格式來傳回：
 
@@ -288,7 +234,4 @@ namespace BingNewsSearchCSharpCore
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [將新聞分頁](paging-news.md)
-> [使用裝飾標記醒目提示文字](hit-highlighting.md)
-> [搜尋網路上的新聞](search-the-web.md)  
-> [試試看](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
+> [建立單頁 Web 應用程式](tutorial-bing-news-search-single-page-app.md)

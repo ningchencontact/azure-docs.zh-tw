@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 58ee6c7239e3a71fed9a9ab987b962abcc9c0508
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4a7b239010d57e3f352ee29afe267273391ffbcd
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085191"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461819"
 ---
 # <a name="delete-an-azure-cache-for-redis"></a>刪除 Azure Cache for Redis
 
@@ -40,7 +40,7 @@ ms.locfileid: "53085191"
 
 | 命令 | 注意 |
 |---|---|
-| [az redis 刪除](https://docs.microsoft.com/cli/azure/redis#az_redis_delete) | 刪除 Azure Cache for Redis 執行個體。 |
+| [az redis 刪除](https://docs.microsoft.com/cli/azure/redis) | 刪除 Azure Cache for Redis 執行個體。 |
 
 
 ## <a name="next-steps"></a>後續步驟

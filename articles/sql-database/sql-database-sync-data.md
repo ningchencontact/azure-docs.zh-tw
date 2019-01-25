@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: a287f985ce015ac6b886f4e5c2b86d6b3793e7d5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2afdd3f78a99d9aae5e84bc2fdf1b21cbdc150d2
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721830"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306381"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料
 
@@ -26,7 +26,27 @@ ms.locfileid: "53721830"
 > [!IMPORTANT]
 > 「Azure SQL 資料同步」目前**不**支援「Azure SQL Database 受控執行個體」。
 
-## <a name="architecture-of-sql-data-sync"></a>SQL 資料同步的架構
+## <a name="when-to-use-data-sync"></a>使用資料同步的時機
+
+如果您需要讓多個 Azure SQL Database 或 SQL Server 資料庫之間的資料保持在最新狀態，資料同步就很有用。 以下是資料同步主要的使用案例：
+
+-   **混合式資料同步：** 使用資料同步，您可以讓內部部署資料庫與 Azure SQL Database 之間的資料保持同步，以啟用混合式應用程式。 此功能對於考慮移轉至雲端，而且想要將部分應用程式放在 Azure 的客戶很有吸引力。
+
+-   **分散式應用程式：** 在許多情況下，將不同的工作負載分散到不同的資料庫之間很有幫助。 例如，如果您有大型的實際執行資料庫，但也必須針對這些資料執行報告或分析工作負載，此時有第二個資料庫分擔這額外的工作負載就很有幫助。 這個方法可以減少對您實際執行工作負載的效能影響。 您可以使用「資料同步」，讓這兩個資料庫保持同步。
+
+-   **全域散發應用程式：** 許多企業會跨多個區域，甚至數個國家/地區。 若要盡可能降低網路延遲，最好讓資料靠近您所在的區域。 使用資料同步，您就可以輕鬆地讓全世界各個區域中的資料庫保持同步。
+
+資料同步並非適合下列案例使用的解決方案：
+
+| 案例 | 某些建議的解決方案 |
+|----------|----------------------------|
+| 災害復原 | [Azure 異地備援備份](sql-database-automated-backups.md) |
+| 讀取級別 | [使用唯讀複本對唯讀查詢工作負載進行負載平衡 (預覽)](sql-database-read-scale-out.md) |
+| ETL (OLTP 到 OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 或 [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| 從內部部署 SQL Server 移轉至 Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+|||
+
+## <a name="overview-of-sql-data-sync"></a>SQL Data Sync 概觀
 
 資料同步以「同步群組」的概念為基礎。 「同步群組」是您想要同步的資料庫群組。
 
@@ -50,26 +70,6 @@ ms.locfileid: "53721830"
 
 -   **衝突解決原則**是群組層級原則，可以是*中樞獲勝*或*成員獲勝*。
 
-## <a name="when-to-use-data-sync"></a>使用資料同步的時機
-
-如果您需要讓多個 Azure SQL Database 或 SQL Server 資料庫之間的資料保持在最新狀態，資料同步就很有用。 以下是資料同步主要的使用案例：
-
--   **混合式資料同步：** 使用資料同步，您可以讓內部部署資料庫與 Azure SQL Database 之間的資料保持同步，以啟用混合式應用程式。 此功能對於考慮移轉至雲端，而且想要將部分應用程式放在 Azure 的客戶很有吸引力。
-
--   **分散式應用程式：** 在許多情況下，將不同的工作負載分散到不同的資料庫之間很有幫助。 例如，如果您有大型的實際執行資料庫，但也必須針對這些資料執行報告或分析工作負載，此時有第二個資料庫分擔這額外的工作負載就很有幫助。 這個方法可以減少對您實際執行工作負載的效能影響。 您可以使用「資料同步」，讓這兩個資料庫保持同步。
-
--   **全域散發應用程式：** 許多企業會跨多個區域，甚至數個國家/地區。 若要盡可能降低網路延遲，最好讓資料靠近您所在的區域。 使用資料同步，您就可以輕鬆地讓全世界各個區域中的資料庫保持同步。
-
-資料同步並非適合下列案例使用的解決方案：
-
-| 案例 | 某些建議的解決方案 |
-|----------|----------------------------|
-| 災害復原 | [Azure 異地備援備份](sql-database-automated-backups.md) |
-| 讀取級別 | [使用唯讀複本對唯讀查詢工作負載進行負載平衡 (預覽)](sql-database-read-scale-out.md) |
-| ETL (OLTP 到 OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 或 [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
-| 從內部部署 SQL Server 移轉至 Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
-|||
-
 ## <a name="how-does-data-sync-work"></a>資料同步如何運作？ 
 
 -   **追蹤資料變更：** 資料同步會追蹤使用 insert、update 和 delete 觸發程序的變更。 變更會記錄在使用者資料庫中的資料表。 請留意，BULK INSERT 預設不會引發觸發程序。 如果沒有指定 FIRE_TRIGGERS，就不會執行 insert 觸發程序。 新增 FIRE_TRIGGERS 選項，資料同步就能追蹤那些插入。 
@@ -79,6 +79,14 @@ ms.locfileid: "53721830"
 -   **解決衝突：** 資料同步提供兩個衝突解決選項：「中樞獲勝」或「成員獲勝」。
     -   如果您選取 [中樞獲勝]，中樞的變更永遠會覆寫成員的變更。
     -   如果您選取 [成員獲勝]，成員的變更永遠會覆寫中樞的變更。 如果有多個成員，最終的值則取決於哪一個成員先同步。
+
+## <a name="compare-data-sync-with-transactional-replication"></a>比較資料同步與異動複寫
+
+| | 資料同步 | 異動複寫 |
+|---|---|---|
+| 優點 | - 主動-主動支援<br/>- 在內部部署與 Azure SQL Database 之間雙向進行 | - 更低的延遲性<br/>- 交易一致性<br/>- 移轉後重複使用現有的拓撲 |
+| 缺點 | - 5 分鐘或更多的延遲<br/>- 無交易一致性<br/>- 更高的效能影響 | - 無法從 Azure SQL Database 單一資料庫發佈<br/>- 高維護成本 |
+| | | |
 
 ## <a name="get-started-with-sql-data-sync"></a>開始使用 SQL 資料同步
 

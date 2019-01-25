@@ -1,27 +1,8 @@
 ---
-title: 將來自線上資料來源的資料匯入 Machine Learning Studio - Azure | Microsoft Docs
-description: 本文說明對從不同來源匯入線上資料的支援，以及將資料從這些來源移至 Azure Machine Learning Studio 實驗所需的資訊。
-keywords: 匯入資料、資料格式、資料類型、資料來源、定型資料
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 701b93fe-765b-4d15-a1cf-9b607f17add6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: a81765620b31af8a23d70d35cf8f86fc4b8e0033
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256089"
+標題：將來自線上資料來源的資料匯入 Machine Learning Studio titleSuffix: Azure Machine Learning Studio description:本文說明對從不同來源匯入線上資料的支援，以及將資料從這些來源移至 Azure Machine Learning Studio 實驗所需的資訊。
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:2017/11/29
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>將來自線上資料來源的資料匯入 Azure Machine Learning Studio 
 本文說明對從不同來源匯入線上資料的支援，以及將資料從這些來源移至 Azure Machine Learning Studio 實驗所需的資訊。

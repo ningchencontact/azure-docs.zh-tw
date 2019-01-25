@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: e733b82e1b5870d98de5d65771bd621d9bffdf44
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4188fb413cc1001b6e4813fe69518a016c8c0656
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024884"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354258"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory 中的取得中繼資料活動
 GetMetadata 活動可用來取出 Azure Data Factory 中任何資料的**中繼資料**。 這個活動可以在下列案例使用：

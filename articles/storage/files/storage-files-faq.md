@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 70370db841a08ae8ee62bda83bec4b1b9e2e7cf2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: cce2254ef54483e7d0c4d26fbc4b08de3b2366c3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001527"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825148"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>關於 Azure 檔案服務的常見問題集 (FAQ)
 [Azure 檔案](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)來存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
@@ -298,7 +298,7 @@ ms.locfileid: "54001527"
     
     如果您需要檔案快照集功能，請前往 [Azure 檔案服務 UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) \(英文\)，讓我們知道。
 
-* <a id="encypted-snapshots"></a>
+* <a id="encrypted-snapshots"></a>
 **我可以建立已加密檔案共用的共用快照集嗎？**  
     您可以對已啟用待用加密的 Azure 檔案共用擷取共用快照集。 您可以將共用快照集內的檔案還原至已加密的檔案共用。 如果您的共用已加密，則共用快照集也會加密。
 

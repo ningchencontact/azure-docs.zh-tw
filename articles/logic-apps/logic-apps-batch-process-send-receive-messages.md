@@ -8,13 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
-ms.date: 08/19/2018
-ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 01/16/2019
+ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410148"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352507"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>在 Azure Logic Apps 中傳送、接收及批次處理訊息
 
@@ -54,16 +54,23 @@ ms.locfileid: "47410148"
 
    ![新增 [批次訊息] 觸發程序](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
-3. 設定批次接收者屬性： 
+3. 設定批次接收者的屬性： 
 
    | 屬性 | 說明 | 
    |----------|-------------|
    | **批次模式** | - **內嵌**：用來定義批次觸發程序內的發行準則 <br>- **整合帳戶**：透過[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)，可定義多個發行準則組態。 透過整合帳戶，您可以在同一個地方維護上述所有組態，而不是在個別的邏輯應用程式中進行維護。 | 
    | **批次名稱** | 您的批次名稱 (在此範例中為 "TestBatch")，只適用於 [內嵌] 批次模式 |  
-   | **發行準則** | 僅適用於 [內嵌] 批次模式，可選取在處理每個批次之前要先符合的準則： <p>- **以訊息計數為基礎**：要在批次中收集的訊息數目，例如 10 則訊息 <br>- **以容量大小為基礎**：批次大小上限 (以位元組為單位)，例如 100 MB <br>- **以排程為基礎**：批次發行之間的間隔和頻率，例如 10 分鐘。 最小週期是 60 秒或 1 分鐘。 小數的分鐘值會無條件進位至 1 分鐘。 若要指定開始日期和時間，請選擇 [顯示進階選項]。 <br>- **全選**：使用所有指定的準則。 | 
+   | **發行準則** | 僅適用於 [內嵌] 批次模式，可選取在處理每個批次之前要先符合的準則： <p>- **以訊息計數為依據**：根據批次所收集的訊息數目來發行批次。 <br>- **以大小為依據**：根據批次收集的所有訊息大小總計 (以位元組為單位) 來發行批次。 <br>- **排程**：根據週期性排程 (其可指定間隔和頻率) 來發行批次。 在進階選項中，您也可以選取時區並提供開始日期和時間。 <br>- **全選**：使用所有指定的準則。 | 
+   | **訊息計數** | 要在批次中收集的訊息數目，例如 10 則訊息。 批次的限制為 8,000 則訊息。 | 
+   | **批次大小** | 要在批次中收集的大小總計 (以位元組為單)，例如 10 MB。 批次的大小限制為 80 MB。 | 
+   | **排程** | 批次發行之間的間隔和頻率，例如 10 分鐘。 最小週期是 60 秒或 1 分鐘。 小數的分鐘會無條件進位至 1 分鐘。 若要指定時區或開始日期和時間，請選擇 [顯示進階選項]。 | 
    ||| 
-   
-   此範例會選取所有準則：
+
+   > [!NOTE]
+   > 
+   > 如果您在觸發程序仍有未傳送訊息的批次時變更發行準則，觸發程序就會使用更新後的發行準則來處理未傳送的訊息。 
+
+   此範例會顯示所有準則，但是供您自己測試，只嘗試一個準則：
 
    ![提供批次觸發程序詳細資料](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 
@@ -76,7 +83,7 @@ ms.locfileid: "47410148"
 
    2. 在搜尋方塊中，輸入「傳送電子郵件」作為篩選條件。
    根據您的電子郵件提供者，選取電子郵件連接器。
-      
+
       例如，如果您有私人帳戶，例如 @outlook.com 或 @hotmail.com，請選取 Outlook.com 連接器。 
       如果您有 Gmail 帳戶，請選取 Gmail 連接器。 
       此範例使用 Office 365 Outlook。 
@@ -98,7 +105,7 @@ ms.locfileid: "47410148"
 
      ![從動態內容清單中，選取 [分割名稱]](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
 
-     在稍後的區段中，您可以指定唯一的分割索引鍵，將目標批次分成邏輯子集，以便可以傳送訊息至該處。 
+     稍後在批次傳送者中，您可以指定唯一的分割索引鍵，將目標批次分成邏輯子集，以便可以傳送訊息至該處。 
      每個集合都有一個由批次傳送者邏輯應用程式產生的唯一數字。 
      這項功能可讓您使用具有多個子集的單一批次，並用您提供的名稱定義每個子集。
 
@@ -127,10 +134,10 @@ ms.locfileid: "47410148"
 
 * 請務必讓批次接收者和批次傳送者共用相同的 Azure 區域和 Azure 訂用帳戶。 如果未共用，您就無法在建立批次傳送者時選取批次接收者，原因是兩者並無法看到彼此。
 
-1. 建立具有名稱 "BatchSender" 的另一個邏輯應用程式
+1. 建立具有此名稱的另一個邏輯應用程式："BatchSender"
 
    1. 在搜尋方塊中，輸入 "recurrence" 作為篩選條件。 
-   選取此觸發程序：**定期 - 排程**
+   選取此觸發程序：**週期 - 排程**
 
       ![新增「定期 - 排程」觸發程序](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-sender.png)
 
@@ -143,7 +150,7 @@ ms.locfileid: "47410148"
    1. 在定期觸發程序下方，選擇 [新增步驟]。
 
    2. 在搜尋方塊中，輸入 "batch" 作為篩選條件。 
-   選取 [動作] 清單，然後選取此動作：**選擇包含批次觸發程序的 Logic Apps 工作流程 - 將訊息傳送給批次**
+   選取 [動作] 清單，然後選取這個動作：**選擇包含批次觸發程序的 Logic Apps 工作流程 - 將訊息傳送給批次**
 
       ![選取 [選擇包含批次觸發程序的 Logic Apps 工作流程]](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 

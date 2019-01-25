@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 0f223660f8dc99b590f8aa80a03d60fcbf3aa5d3
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.component: disks
+ms.openlocfilehash: 9bc230846714264d514b7e15962a2c99c838c7de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232574"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465100"
 ---
 # <a name="create-a-snapshot"></a>建立快照集
 
@@ -43,7 +44,7 @@ ms.locfileid: "50232574"
 
 下列步驟示範如何複製 VHD 磁碟、建立快照集組態，以及使用 [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet 建立磁碟的快照集。 
 
-開始之前，請確定您擁有最新版的 AzureRM.Compute PowerShell 模組 (必須是 5.7.0 版或更新版本)。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，請執行 [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) 以建立與 Azure 的連線。
+開始之前，請確定您擁有最新版的 AzureRM.Compute PowerShell 模組 (必須是 5.7.0 版或更新版本)。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，請執行 [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) 以建立與 Azure 的連線。
 
 1. 設定一些參數： 
 

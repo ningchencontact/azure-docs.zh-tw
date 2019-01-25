@@ -12,27 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 01/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: f168c005c729ae75a5369b80b3dc5eab03ee0243
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d0b455261649fad95a92f7ad75f7af26d633cf5a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311316"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476881"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>更換 Azure Stack 中的實體磁碟
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 本文說明更換 Azure Stack 中實體磁碟的一般程序。 如果實體磁碟故障，您應該儘快更換它。
 
 您可將此程序用於整合系統，以及用於具有熱插拔磁碟的開發套件部署。
 
-實際的磁碟更換步驟會因原始設備製造商 (OEM) 硬體廠商而異。 如需您系統專屬的詳細步驟，請參閱廠商的現場可更換單元 (FRU) 文件。 
+實際的磁碟更換步驟會因原始設備製造商 (OEM) 硬體廠商而異。 如需您系統專屬的詳細步驟，請參閱廠商的現場可更換單元 (FRU) 文件。
 
 ## <a name="review-disk-alert-information"></a>檢閱磁碟警示資訊
-當磁碟故障時，您會收到通知您實體磁碟連線中斷的警示。 
+當磁碟故障時，您會收到通知您實體磁碟連線中斷的警示。
 
  ![顯示實體磁碟連線中斷的警示](media/azure-stack-replace-disk/DiskAlert.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "30311316"
 
 為了避免在整合系統中使用不支援的磁碟，系統會封鎖您廠商不支援的磁碟。 如果您嘗試使用不支援的磁碟，將會有新警示通知您因為不支援該磁碟的型號或韌體，所以已將該磁碟隔離。
 
-在您更換磁碟之後，Azure Stack 會自動探索新磁碟，並啟動虛擬磁碟修復程序。  
+在您更換磁碟之後，Azure Stack 會自動探索新磁碟，並啟動虛擬磁碟修復程序。
  
  ## <a name="check-the-status-of-virtual-disk-repair"></a>檢查虛擬磁碟修復狀態
  

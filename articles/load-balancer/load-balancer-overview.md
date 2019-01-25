@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 7b0a837bf23145c5ac5e5775d4324582fa3a6b20
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e66acd6a94b891ac3f727fddb7a88a9c56f465d3
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120830"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246563"
 ---
 # <a name="what-is-azure-load-balancer"></a>什麼是 Azure Load Balancer？
 
@@ -153,7 +153,13 @@ Load Balancer 支援基本和標準 SKU，兩者在案例規模、功能、價�
 *圖：使用公用和內部 Load Balancer 來進行多層式應用程式負載平衡*
 
 ## <a name="pricing"></a>價格
-標準 Load Balancer 使用量的收費是根據設定的負載平衡規則數量，以及處理輸入和輸出的資料量而定。 如需標準 Load Balancer 的定價資訊，請瀏覽 [Load Balancer 定價](https://azure.microsoft.com/pricing/details/load-balancer/)頁面。
+
+使用 Standard Load Balancer 需要付費。
+
+- 已設定的負載平衡和輸出規則數目 (輸入 NAT 規則不會計入規則總數)
+- 所處理的輸入和輸出資料量與規則無關。 
+
+如需標準 Load Balancer 的定價資訊，請瀏覽 [Load Balancer 定價](https://azure.microsoft.com/pricing/details/load-balancer/)頁面。
 
 基本 Load Balancer 則是免費提供。
 

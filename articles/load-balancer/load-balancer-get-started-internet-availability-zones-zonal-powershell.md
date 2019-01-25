@@ -1,10 +1,11 @@
 ---
-title: 建立具有區域前端 IP 的公用 Standard Load Balancer - Azure PowerShell
+title: 建立具有區域前端的 Load Balancer - Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: 了解如何使用 Azure PowerShell 來建立具有區域公用 IP 位址前端的公用 Load Balancer Standard
+description: 了解如何使用 Azure PowerShell 來建立具有區域前端的 Standard Load Balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: da30bce34425d3537f9610c6e1f64ded4a836fd7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 861759eec266f0ab66d30a466c06e7d2ee14bf06
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100679"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247152"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-powershell"></a>使用 Azure PowerShell 來建立具有區域前端的公用 Load Balancer Standard
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-powershell"></a>使用 Azure PowerShell 來建立具有區域前端的 Standard Load Balancer
 
-本文會逐步說明如何使用標準公用 IP 位址，來建立具有區域前端的公用 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard)。 若要了解可用性區域如何與標準 Load Balancer 搭配運作，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。 
+本文會逐步說明如何使用標準公用 IP 位址，來建立具有區域前端的公用 [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard)。 若要了解可用性區域如何與標準 Load Balancer 搭配運作，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -86,7 +87,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
 ```
 
 ## <a name="create-a-load-balancer"></a>建立負載平衡器
-使用下列命令建立 Load Balancer Standard：
+使用下列命令建立 Standard Load Balancer：
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBalancer' -Location westeurope `

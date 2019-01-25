@@ -1,26 +1,8 @@
 ---
-title: 步驟 3：建立新的 Machine Learning Studio 實驗 - Azure | Microsoft Docs
-description: 開發預測解決方案逐步解說的步驟 3：在 Azure Machine Learning Studio 中建立新的定型實驗。
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: garye
-editor: cgronlun
-ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.openlocfilehash: 5f3f73e2c2cb281887e795d974403a17cffd5978
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260781"
+標題：「步驟 3：建立新的 Machine Learning Studio 實驗」標題字尾： Azure Machine Learning Studio 說明：「開發預測性解決方案逐步解說的步驟 3：在 Azure Machine Learning Studio 中建立新的定型實驗。」
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:03/23/2017
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>逐步解說步驟 3：建立新的 Azure Machine Learning Studio 實驗
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)

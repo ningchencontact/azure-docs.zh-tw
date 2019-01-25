@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: d42b6b857f04c191ebdfb1687c8ee2adcad95d26
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054278"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214295"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Web 活動
 使用 Web 活動可以從 Data Factory 管線呼叫自訂的 REST 端點。 您可以傳遞資料集和連結服務，以供活動取用和存取。
@@ -115,7 +115,7 @@ linkedServices | 傳遞至端點的連結服務清單。 | 連結服務參考的
 
 ### <a name="managed-identity"></a>受控識別
 
-將使用資料處理站的受控身分識別指定為其要求存取權杖的資源 URI。 若要呼叫 Azure 資源管理 API，請使用 `https://management.azure.com/`。
+將使用資料處理站的受控身分識別指定為其要求存取權杖的資源 URI。 若要呼叫 Azure 資源管理 API，請使用 `https://management.azure.com/`。 如需受控識別如何運作的詳細資訊，請參閱 [Azure 資源的受控識別](/azure/active-directory/managed-identities-azure-resources/overview)概觀頁面。
 
 ```json
 "authentication": {

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/11/2018
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c574e3ab82f97f5fffc7c834a53d19df93fc426f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714742"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448937"
 ---
 # <a name="what-is-azure-application-gateway"></a>什麼是 Azure 應用程式閘道？
 
@@ -78,7 +78,7 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 
 ## <a name="multiple-site-hosting"></a>多網站裝載
 
-多網站裝載可讓您在相同的應用程式閘道執行個體上設定多個網站。 此功能可讓您將最多 20 個網站新增到一個應用程式閘道，為您的部署設定更有效率的拓撲。 每個網站都可以導向到自己的集區。 例如，應用程式閘道可以從兩個伺服器集區 (名為 ContosoServerPool 和 FabrikamServerPool) 為 `contoso.com` 和 `fabrikam.com` 處理流量。
+多網站裝載可讓您在相同的應用程式閘道執行個體上設定多個網站。 此功能可讓您將最多 100 個網站新增到一個應用程式閘道，為您的部署設定更有效率的拓撲。 每個網站都可以導向到自己的集區。 例如，應用程式閘道可以從兩個伺服器集區 (名為 ContosoServerPool 和 FabrikamServerPool) 為 `contoso.com` 和 `fabrikam.com` 處理流量。
 
 對 `http://contoso.com` 的要求會路由傳送至 ContosoServerPool，而對 `http://fabrikam.com` 的要求則會路由傳送至 FabrikamServerPool。
 
@@ -102,7 +102,7 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 
 ## <a name="websocket-and-http2-traffic"></a>Websocket 和 HTTP/2 流量
 
-應用程式閘道可對 WebSocket 和 HTTP/2 通訊協定提供原生支援。 使用者無法進行設定來選擇要啟用或停用 WebSocket 支援。 可以使用 Azure PowerShell 來啟用 HTTP/2 支援。
+應用程式閘道可對 WebSocket 和 HTTP/2 通訊協定提供原生支援。 使用者無法進行設定來選擇要啟用或停用 WebSocket 支援。
 
 WebSocket 和 HTTP/2 通訊協定都可透過長時間執行的 TCP 連線，讓伺服器與用戶端之間能進行全雙工通訊。 此功能可讓網頁伺服器和用戶端之間進行互動性更高的通訊，此通訊可以是雙向的，而不需要像 HTTP 型實作所要求的進行輪詢。 不同於 HTTP，這些通訊協定的負荷很低，而且可以對多個要求/回應重複使用相同的 TCP 連線，進而提升資源使用效率。 這些通訊協定設計為透過傳統 HTTP 連接埠 80 和 443 進行運作。
 
@@ -113,6 +113,22 @@ HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。
 應用程式閘道現在支援重新撰寫內送 HTTP 要求以及外送 HTTP 回應之標頭的能力。 當要求/回應封包在用戶端與後端集區之間移動時，您將能夠新增、移除或更新 HTTP 要求和回應標頭。 您可以重新撰寫這兩個標準 (定義於 [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt) \(英文\) 中) 以及非標準的標頭欄位。  
 
 如需此公開預覽功能的詳細資訊，請參閱[重新撰寫 HTTP 標頭](rewrite-http-headers.md)。
+
+## <a name="sizing"></a>調整大小
+
+應用程式閘道目前提供三種大小：**小型**、**中型**和**大型**。 小型執行個體大小是針對開發和測試案例。
+
+如需應用程式閘道限制的完整清單，請瀏覽[應用程式閘道服務限制](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)。
+
+下表顯示每個應用程式閘道執行個體，在啟用 SSL 卸載時的平均效能輸送量：
+
+| 平均後端頁面回應大小 | 小型 | 中 | 大型 |
+| --- | --- | --- | --- |
+| 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> 這些值是應用程式閘道輸送量的近似值。 實際的輸送量會依據不同的環境詳細資料而有所不同，例如平均頁面大小、後端執行個體位置，以及提供一個頁面所需的處理時間。 如需實際效能數字，您需自行執行測試。 這些值僅供容量規劃指引使用。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 92e16104edb46298d6e503b7546449ed71041047
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 236b7543772f9e6df9c7ba7f1a9365153593a929
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005745"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473175"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL 資料倉儲 - 大量平行處理 (MPP) 架構
 了解 Azure SQL 資料倉儲如何將大量平行處理 (MPP) 與 Azure 儲存體結合，以達到高效能和延展性。 
@@ -51,7 +51,7 @@ SQL 資料倉儲會使用 Azure 儲存體來保護您使用者資料的安全。
 
 計算節點提供計算能力。 散發會對應到計算節點以進行處理。 當您需要支付更多計算資源的費用時，SQL 資料倉儲會將散發重新對應到可用的計算節點。 計算節點數目範圍是從 1 到 60，取決於資料倉儲的服務等級。
 
-每個計算節點都有會在系統檢視中顯示的節點識別碼。 您可以在名稱開頭為 sys.pdw_nodes 的系統檢視中尋找 node_id 資料行，以查看計算節點識別碼。 如需這些系統檢視的清單，請參閱 [MPP 系統檢視](sql-data-warehouse-reference-tsql-statements.md)。
+每個計算節點都有會在系統檢視中顯示的節點識別碼。 您可以在名稱開頭為 sys.pdw_nodes 的系統檢視中尋找 node_id 資料行，以查看計算節點識別碼。 如需這些系統檢視的清單，請參閱 [MPP 系統檢視](http://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7)。
 
 ### <a name="data-movement-service"></a>資料移動服務
 資料移動服務 (DMS) 是資料傳輸技術，可協調計算節點之間的資料移動。 某些查詢需要資料移動，以確保平行查詢會傳回精確的結果。 若資料移動是必要的，DMS 確保正確的資料會到達正確的位置。 

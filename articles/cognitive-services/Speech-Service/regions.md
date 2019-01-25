@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: mahilleb
 ms.custom: seodec18
-ms.openlocfilehash: d41213d72d40555d8dc5aeab76040fc556dae774
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e33bf7cd98cdd5862af6f4d68d3d73de1a07d229
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091640"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413153"
 ---
 # <a name="speech-service-supported-regions"></a>語音服務支援的區域
 
@@ -46,11 +46,24 @@ ms.locfileid: "53091640"
 
 ### <a name="intent-recognition"></a>意圖辨識
 
-語音 SDK 的**意圖辨識**與 LUIS 支援的區域相同。 如需可用區域的完整清單，請參閱[發佈區域與端點](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions)。
+透過語音 SDK 進行**意圖辨識**的可用區域如下所示：
 
-可透過語音 SDK 用於**意圖辨識**的區域列在 [Language Understanding 服務區域頁面](/azure/cognitive-services/luis/luis-reference-regions)上。
+ 全球區域 | 區域 | 語音 SDK 參數
+ ------|-------|--------
+ 亞洲 | 東亞 | `eastasia`
+ 亞洲 | 東南亞 | `southeastasia`
+ 澳大利亞 | 澳洲東部 | `australiaeast`
+ 歐洲 | 北歐 | `northeurope`
+ 歐洲 | 西歐 | `westeurope`
+ 北美洲 | 美國東部 | `eastus`
+ 北美洲 | 美國東部 2 | `eastus2`
+ 北美洲 | 美國中南部 | `southcentralus`
+ 北美洲 | 美國中西部 | `westcentralus`
+ 北美洲 | 美國西部 | `westus`
+ 北美洲 | 美國西部 2 | `westus2`
+ 南美洲 | 巴西南部 | `brazilsouth`
 
-針對每個列出的發佈區域，使用提供的 **API 區域名稱**。 例如，使用 `westus` 代表美國西部。
+這是 [Language Understanding 服務 (LUIS)](/azure/cognitive-services/luis/luis-reference-regions)所支援的發行區域子集。
 
 ## <a name="rest-apis"></a>REST API
 
@@ -58,12 +71,12 @@ ms.locfileid: "53091640"
 
 ### <a name="speech-to-text"></a>語音轉文字
 
-如需語音轉換文字參考文件，請參閱 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text)。
+如需語音轉換文字參考文件，請參閱 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)。
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 ### <a name="text-to-speech"></a>文字轉換語音
 
-如需文字轉換語音參考文件，請參閱 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text)。
+如需文字轉換語音參考文件，請參閱 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)。
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

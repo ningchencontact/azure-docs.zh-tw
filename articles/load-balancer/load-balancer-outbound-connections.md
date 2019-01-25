@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 09de0a3aa0303e169d0b90690016909b29dc4a9b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d8ca70efd3b1ba77b1b1bb0e11a9234e5fd440c4
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190963"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201375"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的輸出連線
 
@@ -91,9 +91,9 @@ SNAT 連接埠會預先配置，如[了解 SNAT 和 PAT](#snat) 一節所述。 
 
 ### <a name="multife"></a>輸出流程的多個前端
 
-#### <a name="load-balancer-standard"></a>Load Balancer Standard
+#### <a name="standard-load-balancer"></a>Standard Load Balancer
 
-當[多個 (公用) IP 前端](load-balancer-multivip-overview.md)存在時，Load Balancer Standard 會同時使用輸出流程的所有候選項目。 如果已針對輸出連線啟用負載平衡規則，則將每個前端乘以可用預先配置 SNAT 連接埠的數目。
+當[多個 (公用) IP 前端](load-balancer-multivip-overview.md)存在時，Standard Load Balancer 會同時使用輸出流程的所有候選項目。 如果已針對輸出連線啟用負載平衡規則，則將每個前端乘以可用預先配置 SNAT 連接埠的數目。
 
 您可以使用新的負載平衡規則選項，選擇隱藏前端 IP 位址，不要用於輸出連線：
 

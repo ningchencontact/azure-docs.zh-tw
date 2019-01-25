@@ -4,7 +4,7 @@ description: 討論問題範圍，為疑難排解登入針對密碼單一登入�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ca41f209cab6d2f8d3b4930d3a464fb6a9421132
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 6365cce6dee6496d87247a98333bc056679636d0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191848"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468717"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>登入針對密碼單一登入設定之 Azure AD 資源庫應用程式的問題
 

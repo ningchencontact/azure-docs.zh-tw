@@ -3,7 +3,7 @@ title: 如何使用 Azure Active Directory Power BI 內容套件 | Microsoft Doc
 description: 了解如何使用 Azure Active Directory Power BI 內容套件
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: ''
@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: eeabbf70650b4304788d1cd6a40d5924a22f3650
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651447"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812738"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>如何使用 Azure Active Directory Power BI 內容套件
 
@@ -101,13 +101,45 @@ Azure AD Power BI 內容套件中包含下列報告。 這些報告包含**過�
 
 確認新版的內容套件如預期般運作後，您就可以透過刪除與舊版相關聯的基礎報表和資料庫來移除舊版。
 
-## <a name="still-having-issues"></a>仍然有問題嗎？ 
+## <a name="troubleshoot-content-pack-errors"></a>針對內容套件錯誤進行疑難排解
 
-請參閱我們的[疑難排解指南](troubleshoot-content-pack.md)。 如需使用 Power BI 的一般說明，請參閱這些[說明文章](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)。
+使用內容套件時，您可能會遇到下列錯誤： 
+
+- [重新整理失敗](#refresh-failed) 
+- [無法更新資料來源認證](#failed-to-update-data-source-credentials) 
+- [匯入資料的時間太長](#data-import-is-too-slow) 
+
+如需使用 Power BI 的一般說明，請參閱這些[說明文章](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)。
+
+### <a name="refresh-failed"></a>重新整理失敗 
+ 
+**此錯誤的呈現方式**：從 Power BI 寄送電子郵件，或是重新整理記錄中的失敗狀態。 
+
+
+| 原因 | 修正方式 |
+| ---   | ---        |
+| 若連線到內容套件的使用者認證已重設，但卻未在內容套件的連線設定中加以更新，即會導致重新整理失敗錯誤。 | 在 Power BI 中，找出對應到 Azure AD 活動記錄儀表板 (**Azure Active Directory 活動記錄**) 的資料集、選擇 [排程重新整理]，然後輸入您的 Azure AD 認證。 |
+| 重新整理可能會因為基礎內容套件中的資料問題而失敗。 | [提出支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)。|
  
+ 
+### <a name="failed-to-update-data-source-credentials"></a>無法更新資料來源認證 
+ 
+**此錯誤的呈現方式**：在 Power BI 中，當您連線到 Azure AD 活動記錄內容套件時。 
+
+| 原因 | 修正方式 |
+| ---   | ---        |
+| 連線的使用者既不是全域系統管理員，也不是安全性讀取者或安全性系統管理員。 | 使用非全域系統管理員或安全性讀取者或安全性系統管理員的帳戶來存取內容套件。 |
+| 您的租用戶不是 Premium 租用戶，或者沒有任何具備 Premium 授權檔案的使用者。 | [提出支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)。|
  
+### <a name="data-import-is-too-slow"></a>資料匯入速度太慢 
+ 
+**此錯誤的呈現方式**：在 Power BI 中，於連線到內容套件後，資料匯入程序就會開始準備您的儀表板以用於 Azure AD 活動記錄。 您會看見此訊息：**正在匯入資料...**，然後再也沒有任何進展。  
+
+| 原因 | 修正方式 |
+| ---   | ---        |
+| 根據您的租用戶大小而定，此步驟所需的時間可能從數分鐘到 30 分鐘。 | 如果訊息未在一小時內變更以顯示您的儀表板，請[提出支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)。|
+  
 ## <a name="next-steps"></a>後續步驟
 
 * [安裝 Power BI 內容套件](quickstart-install-power-bi-content-pack.md)。
-* [針對內容套件錯誤進行疑難排解](troubleshoot-content-pack.md)。
 * [什麼是 Azure AD 報告？](overview-reports.md)

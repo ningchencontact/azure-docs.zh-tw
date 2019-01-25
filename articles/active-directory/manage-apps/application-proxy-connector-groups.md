@@ -3,7 +3,7 @@ title: 在 Azure AD 應用程式 Proxy 中使用連接器群組在個別的網�
 description: 涵蓋如何建立和管理「Azure AD 應用程式 Proxy」中的連接器群組。
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: e2e78eae924cf079ccc03d3f907cd64194b98921
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2cc624cf47cddfe12532bdc7bf8cdc9a2858bb49
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139019"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468612"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>使用連接器群組在個別的網路和位置上發佈應用程式
 

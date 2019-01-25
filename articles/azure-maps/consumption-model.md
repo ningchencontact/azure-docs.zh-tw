@@ -18,7 +18,7 @@ ms.locfileid: "34600624"
 # <a name="consumption-model"></a>耗用模型
 
 連線路由會提供一組參數，以詳細說明載具特定的耗用模型。
-視 **vehicleEngineType** 的值而定，支援兩種主要的耗用模型：_燃燒_和_電子_。 在同一要求中指定屬於不同模型的參數，會發生錯誤。
+視 **vehicleEngineType** 的值而定，支援兩種主要的耗用模型：_Combustion_ 和 _Electric_。 在同一要求中指定屬於不同模型的參數，會發生錯誤。
 耗用模型不能搭配 **travelMode** 值 _bicycle_ 和 _pedestrian_。
 
 ## <a name="parameter-constraints-for-consumption-model"></a>耗用模型的參數限制式
@@ -38,7 +38,7 @@ ms.locfileid: "34600624"
 
 ## <a name="combustion-consumption-model"></a>燃燒耗用模型
 
-**vehicleEngineType** 設為_燃燒_時，會使用燃燒耗用模型。
+**vehicleEngineType** 設為 _combustion_ 時，會使用燃燒耗用模型。
 屬於此模型的參數清單如下。 請參閱 [參數] 區段，取得詳細說明。
 
 * constantSpeedConsumptionInLitersPerHundredkm
@@ -53,7 +53,7 @@ ms.locfileid: "34600624"
 
 ## <a name="electric-consumption-model"></a>電子耗用模型
 
-**vehicleEngineType** 設為_電子_時，會使用電子耗用模型。
+**vehicleEngineType** 設為 _electric_ 時，會使用電子耗用模型。
 屬於此模型的參數清單如下。 請參閱 [參數] 區段，取得詳細說明。
 
 * constantSpeedConsumptionInkWhPerHundredkm

@@ -3,7 +3,7 @@ title: Azure AD Connect：使用 SAML 2.0 識別提供者來進行單一登入 |
 description: 本文件描述如何使用符合 SAML 2.0 規範的 Idp 進行單一登入。
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8f8503f560985e1170105199212734dd704d81c1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d7211cdec2e1de1aafd8d81289ab399f25b3c26a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743522"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463128"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>使用 SAML 2.0 識別提供者 (IdP) 來進行單一登入
 

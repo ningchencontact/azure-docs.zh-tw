@@ -3,18 +3,18 @@ title: 使用 Azure 自動化將伺服器設定為所需狀態並管理漂移
 description: 教學課程 - 使用 Azure Automation State Configuration 管理伺服器組態
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 000875e4e591bcfe94ec99f8b16c8ec40bf52cf4
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cb070b57b6d84f87e467b53369420bdc463e0bd8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629877"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434950"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>將伺服器設定為預期狀態並管理漂移
 
@@ -33,7 +33,7 @@ Azure Automation State Configuration 可讓您指定伺服器的組態，並且�
 
 - Azure 自動化帳戶。 如需建立 Azure 自動化執行身分帳戶的指示，請參閱 [Azure 執行身分帳戶](automation-sec-configure-azure-runas-account.md)。
 - 執行 Windows Server 2008 R2 或更新版本的 Azure Resource Manager VM (不是傳統)。 如需建立 VM 的指示，請參閱 [在 Azure 入口網站中建立第一個 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
-- Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+- Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
 - 熟悉 Desired State Configuration (DSC)。 如需 DSC 的詳細資訊，請參閱 [Windows PowerShell 預期狀態設定概觀](https://docs.microsoft.com/powershell/dsc/overview)
 
 ## <a name="log-in-to-azure"></a>登入 Azure

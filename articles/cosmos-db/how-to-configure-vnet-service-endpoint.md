@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 37cc7dcb3157459f6f6387323cc44d6f97954e92
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ac5dd4d43ec6e0248a5a9939015a344bad421280
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035809"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438978"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>從虛擬網路存取 Azure Cosmos DB 資源
 
@@ -87,7 +87,7 @@ ms.locfileid: "54035809"
 
 若要使用 Azure PowerShell 對 Azure Cosmos DB 帳戶設定服務端點，請使用下列步驟：  
 
-1. 安裝 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 並[登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。  
+1. 安裝 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 並[登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。  
 
 1. 對現有的虛擬網路子網路啟用服務端點。  
 

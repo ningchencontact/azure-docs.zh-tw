@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Expiration Reminder �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3df3d73e-80a4-4b35-bd3d-90bc4f6f6afd
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 04874eff4375ac57a8c8e15a11399ca650bd5c15
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: aa5c8a69422c74efad74926cfaec544d5ee2f126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020518"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811055"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expiration-reminder"></a>教學課程：Azure Active Directory 與 Expiration Reminder 整合
 
@@ -78,8 +78,8 @@ ms.locfileid: "53020518"
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Expiration Reminder 單一登入](#configure-expiration-reminder-single-sign-on)** - 設定應用程式端的單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[建立 Expiration Reminder 測試使用者](#create-expiration-reminder-test-user)** - 在 Expiration Reminder 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
-5. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+5. **[建立 Expiration Reminder 測試使用者](#create-expiration-reminder-test-user)** - 在 Expiration Reminder 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -104,7 +104,7 @@ ms.locfileid: "53020518"
 
     ![Expiration Reminder 網域及 URL 單一登入資訊](common/sp-signonurl.png)
 
-    在 [登入 URL] 文字方塊中，輸入 URL：`https://app.expirationreminder.net/account/sso`。
+    在 [登入 URL] 文字方塊中，輸入 URL：`https://app.expirationreminder.net/account/sso`
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (原始)]，並儲存在您的電腦上。
 

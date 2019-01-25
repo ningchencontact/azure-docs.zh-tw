@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387424"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413544"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>使用 Azure 地圖服務搜尋服務來尋找地址
 
@@ -158,7 +158,7 @@ ms.locfileid: "49387424"
     |-----|------------|
     | number | true |
 
-    如果 [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數隨著要求傳送，回應可能會包含街道邊 (左/右)，以及該號碼的位移位置。
+    如果 [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 查詢參數隨著要求傳送，回應可能會包含街道邊 (左/右)，以及該號碼的位移位置。
   
 6. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
@@ -166,7 +166,7 @@ ms.locfileid: "49387424"
     |-----|------------|
     | returnSpeedLimit | true |
   
-    當設定 [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數時，回應會傳回已張貼的速度限制。
+    當設定 [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 查詢參數時，回應會傳回已張貼的速度限制。
 
 7. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
@@ -174,7 +174,7 @@ ms.locfileid: "49387424"
     |-----|------------|
     | returnRoadUse | true |
 
-    當設定 [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數時，回應會傳回街道層級的反向地理代碼道路使用陣列。
+    當設定 [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 查詢參數時，回應會傳回街道層級的反向地理代碼道路使用陣列。
 
 8. 將下列機碼值組加入 **Params** 區段並按一下 [傳送]：
 
@@ -182,7 +182,7 @@ ms.locfileid: "49387424"
     |-----|------------|
     | roadUse | true |
 
-    您可以使用 [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 查詢參數，將反向地理代碼限制為特定類型的道路使用。
+    您可以使用 [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 查詢參數，將反向地理代碼限制為特定類型的道路使用。
   
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>使用反向地址交叉街道搜尋來搜尋交叉街道
 

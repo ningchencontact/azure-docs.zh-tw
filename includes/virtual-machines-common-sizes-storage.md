@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 680bf282c2ab269bad19654c6602e4543a6e92ca
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: b4de9efbe85d5ab497bccd1742df23ddc1b3af43
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53748466"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354654"
 ---
 儲存體最佳化 VM 大小提供高磁碟輸送量和 IO，適用於巨量資料、SQL、NoSQL 資料庫、資料倉儲及大型交易資料庫。  範例包括 Cassandra、MongoDB、Cloudera 及 Redis。 本文提供有關每個最佳化大小的 vCPU、資料磁碟和 NIC 數量，以及本機儲存體輸送量和網路頻寬的資訊。
 
-Lsv2 系列以在全核心加速為 2.55GHz 且最大加速為 3.0GHz 之 [AMD EPYC<sup>TM</sup> 7551 處理器](https://www.amd.com/en/products/epyc-7000-series)上執行的高輸送量、低延遲、直接對應的本機 NVMe 儲存體為特色。 Lsv2 系列 VM 提供採用同時多執行緒設定且具有 8 到 80 個 vCPU 的大小。  每一 vCPU 有 8 GiB 記憶體，每 8 個 vCPU 有一個 1.92 TB NVMe SSD M.2 裝置，在 L80s v2 上最高可達 19.2 TB (10 x 1.92 TB)。
+Lsv2 系列以在全核心加速為 2.55GHz 且最大加速為 3.0GHz 之 [AMD EPYC &trade; 7551 處理器](https://www.amd.com/en/products/epyc-7000-series)上執行的高輸送量、低延遲、直接對應的本機 NVMe 儲存體為特色。 Lsv2 系列 VM 提供採用同時多執行緒設定且具有 8 到 80 個 vCPU 的大小。  每一 vCPU 有 8 GiB 記憶體，每 8 個 vCPU 有一個 1.92 TB NVMe SSD M.2 裝置，在 L80s v2 上最高可達 19.2 TB (10 x 1.92 TB)。
 
 Ls 系列使用[Intel® Xeon® 處理器 E5 v3 系列](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html)，提供最多 32 個 vCPU。 Ls 系列會取得與 G/GS 系列相同的 CPU 效能，而且每個 vCPU 會有 8 GiB 的記憶體。
 
@@ -54,7 +54,7 @@ ACU：180-240
 
 進階儲存體快取：不支援
  
-| 大小          | vCPU | 記憶體 (GiB) | 暫存儲存體 (GiB) | 資料磁碟數上限 | 最大暫存儲存體輸送量 (IOPS / MBps) | 最大未快取磁碟輸送量 (IOPS / MBps) | 最大 NIC/預期的網路頻寬 (Mbps) | 
+| 大小          | vCPU | 記憶體 (GiB) | 暫存儲存體 (GiB) | 最大資料磁碟 | 最大暫存儲存體輸送量 (IOPS / MBps) | 最大未快取磁碟輸送量 (IOPS / MBps) | 最大 NIC/預期的網路頻寬 (Mbps) | 
 |----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
 | Standard_L4s   | 4  | 32  | 678   | 16 | 20,000 / 200 | 5,000 / 125  | 2 / 4,000  | 
 | Standard_L8s   | 8  | 64  | 1,388 | 32 | 40,000 / 400 | 10,000 / 250 | 4 / 8,000  | 

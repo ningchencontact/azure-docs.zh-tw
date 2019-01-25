@@ -4,7 +4,7 @@ description: Azure 監視器 (預覽) 中的 Azure Active Directory 活動記錄
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 298d4a7a003963e3466b595243c294679f581346
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8b3e1aec21f3829e32a4be5775858b3aa8d5e70e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582179"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811910"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure 監視器 (預覽) 中的 Azure AD 活動記錄
 
@@ -116,6 +116,12 @@ ms.locfileid: "53582179"
 **問：在執行動作後，多久會在儲存體帳戶中顯示對應的記錄？**
 
 **答**：就 Azure 儲存體帳戶而言，延遲介於執行動作後的 5 到 15 分鐘之間。
+
+---
+
+**問：如果系統管理員變更診斷設定的保留期間，會發生什麼情況？**
+
+**答**：新的保留原則將套用於變更後所收集的記錄。 原則變更前所收集的記錄不受影響。
 
 ---
 

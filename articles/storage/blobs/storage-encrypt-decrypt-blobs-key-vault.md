@@ -1,5 +1,5 @@
 ---
-title: 教學課程︰在 Azure 儲存體中使用 Azure Key Vault 加密和解密 Blob | Microsoft Docs
+title: 教學課程：在 Azure 儲存體中使用 Azure Key Vault 加密和解密 Blob | Microsoft Docs
 description: 如何使用 Microsoft Azure 儲存體的用戶端加密並搭配 Azure Key Vault 來加密和解密 Blob。
 services: storage
 author: tamram
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 092ffa5ed34a8e0a05b69c3fae86ab7299760ac2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 213190863702ec5a7f2ae764c8e2d892764740f9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233094"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332195"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>教學課程：在 Microsoft Azure 儲存體中使用 Azure 金鑰保存庫加密和解密 Blob
 ## <a name="introduction"></a>簡介
@@ -52,7 +52,7 @@ ms.locfileid: "51233094"
 
 請記下向 Azure Active Directory 註冊應用程式時所產生的 ClientID 和 ClientSecret。
 
-在金鑰保存庫中建立這兩個金鑰。 我們在教學課程的其餘部分假設您已使用下列名稱：ContosoKeyVault 和 TestRSAKey1。
+在金鑰保存庫中建立這兩個金鑰。 我們假設您在其餘的教學課程中會使用下列名稱：ContosoKeyVault and TestRSAKey1。
 
 ## <a name="create-a-console-application-with-packages-and-appsettings"></a>使用封裝與 AppSettings 建立主控台應用程式
 在 Visual Studio 中，建立新的主控台應用程式。
@@ -136,7 +136,7 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 > 
 > 金鑰保存庫用戶端會與 REST API 互動，並了解金鑰保存庫中包含的兩種項目的 JSON Web 金鑰和密碼。
 > 
-> 金鑰保存庫延伸模組似乎是特別為 Azure 儲存體中的用戶端加密而建立的類別。 它們根據金鑰解析程式的概念，包含金鑰 (IKey) 和類別的介面。 您需要知道 IKey 的兩個實作：RSAKey 和 SymmetricKey。 現在，它們剛好與金鑰保存庫中所包含的項目重疊，但目前是獨立的類別 (因此，金鑰保存庫用戶端所擷取的金鑰和密碼不實作 IKey)。
+> 金鑰保存庫延伸模組似乎是特別為 Azure 儲存體中的用戶端加密而建立的類別。 它們根據金鑰解析程式的概念，包含金鑰 (IKey) 和類別的介面。 有兩個 IKey 的實作您需要知道：RSAKey 和 SymmetricKey。 現在，它們剛好與金鑰保存庫中所包含的項目重疊，但目前是獨立的類別 (因此，金鑰保存庫用戶端所擷取的金鑰和密碼不實作 IKey)。
 > 
 > 
 
@@ -184,7 +184,7 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 ```
 
 > [!NOTE]
-> 有幾個其他種類的解析程式可簡化金鑰管理，包括：AggregateKeyResolver 和 CachingKeyResolver。
+> 還有幾個其他種的解析程式可讓金鑰管理更容易，包括：AggregateKeyResolver 和 CachingKeyResolver。
 > 
 > 
 
@@ -208,7 +208,7 @@ $enc = [System.Convert]::ToBase64String($b)
 $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 
 // Substitute the VaultName and Name in this command.
-$secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
+$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
 
 在主控台應用程式中，您可以使用像以前一樣的呼叫來擷取這個密碼做為 SymmetricKey。

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: e784185cfc7f2c588db354bab1cfb36934b9c417
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 8e577a95fc3cda3aafe1273cbc6b4e3c4fbb0317
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585861"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304344"
 ---
 # <a name="optimize-sql-server-performance"></a>將 SQL Server 效能最佳化
 
@@ -121,7 +121,7 @@ Azure Stack 虛擬機器上有三種主要的磁碟類型︰
 - 請根據您預期的負載量，決定與您的儲存體集區相關聯的磁碟數量。 請注意，各虛擬機器大小所允許連接的資料磁碟數量皆不同。 如需詳細資訊，請參閱 [Azure Stack 中支援的虛擬機器大小](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes)。
 - 為了獲得資料磁碟所能實現的最大 IOPS，建議您新增[虛擬機器大小](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes)所支援的最大資料磁碟數目，並使用磁碟等量分割。
 - **NTFS 配置單位大小：** 格式化資料磁碟時，建議您針對資料/記錄檔案和 TempDB，採用 64 KB 的配置單位大小。
-- **磁碟管理做法︰** 移除資料磁碟時，請於變更期間停止 SQL Server 服務。 此外，請勿變更磁碟的快取設定，這麼做並不會改善效能。
+- **磁碟管理實務：** 移除資料磁碟時，請於變更期間停止 SQL Server 服務。 此外，請勿變更磁碟的快取設定，這麼做並不會改善效能。
 
 > [!WARNING]  
 > 如果在這些作業進行期間無法停止 SQL Server，可能會造成資料庫損毀。

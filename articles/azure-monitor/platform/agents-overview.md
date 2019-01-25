@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 5a40e215c6dd5bf4dc1178595716f95ae21adcb4
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: dececc961e40d83cf44442dc61054bc8833208f0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438195"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265023"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 監視代理程式概觀 
 Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或其他雲端提供者中，且執行 Microsoft Windows 和 Linux 的虛擬機器收集不同類型的資料。 三種可用來監視 VM 的代理程式類型為：
@@ -76,5 +76,5 @@ Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱 [Log Analytics 代理程式概觀](../../azure-monitor/platform/log-analytics-agent.md)，以檢閱將代理程式部署至 Auzre、資料中心或其他雲端環境所裝載的機器時需符合哪些要求，以及支援的方法。
+- 請參閱 [Log Analytics 代理程式概觀](../../azure-monitor/platform/log-analytics-agent.md)，以檢閱將代理程式部署至 Azure、資料中心或其他雲端環境所裝載的機器時需符合哪些要求，以及支援的方法。
 

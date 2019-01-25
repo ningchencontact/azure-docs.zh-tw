@@ -5,22 +5,23 @@ description: Azure 標準 Load Balancer 功能概觀
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 2eb2fbb1d184bf58923748278d4989a271adf434
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438756"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352575"
 ---
-# <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer Standard 概觀
+# <a name="azure-standard-load-balancer-overview"></a>Azure Standard Load Balancer 概觀
 
 Azure Load Balancer 可讓您調整您的應用程式，並為您的服務建立高可用性。 對於所有的 TCP 和 UDP 應用程式，Load Balancer 皆可用於輸入和輸出案例，並可提供低延遲和高輸送量，且最多可相應增加為數百萬個流程。 
 
@@ -89,12 +90,12 @@ Standard Load Balancer 會新增對 [HTTPS 健康情況探查](load-balancer-cus
 
 | 計量 | 說明 |
 | --- | --- |
-| VIP 可用性 | Load Balancer Standard 會持續運用從區域內到 Load Balancer 前端再一直到支援您 VM 之 SDN 堆疊的資料路徑。 只要狀況良好的執行個體持續存在，測量就會依循與您應用程式的負載平衡流量相同的路徑。 此外，也會驗證您客戶所使用的資料路徑。 此測量對您的應用程式來說是看不見的，也不會干擾到其他作業。|
-| DIP 可用性 | Load Balancer Standard 使用分散式健康情況探查服務，可根據您的組態設定監視應用程式端點的健康情況。 這個計量會提供 Load Balancer 集區中每個個別執行個體端點的彙總檢視，或各端點篩選過的檢視。  您可以看到 Load Balancer 藉由健康情況探查設定如何檢視應用程式的健康情況。
-| SYN 封包 | Load Balancer Standard 不會終止 TCP 連線，或是與 TCP 或 UDP 封包流程互動。 流程及其交握一律是在來源與 VM 執行個體之間進行。 若要針對您的 TCP 通訊協定案例進行進一步疑難排解，您可使用 SYN 封包計數器來了解已進行多少次 TCP 連線嘗試。 此計量會回報已收到的 TCP SYN 封包數。|
-| SNAT 連線 | Load Balancer Standard 會回報偽裝為「公用 IP」位址前端的連出流程數目。 SNAT 連接埠是可耗盡的資源。 此計量可以指出應用程式有多依賴 SNAT 來處理連出的起始流程。  系統會回報成功和失敗之連出 SNAT 流程的計數器，而且可用來對連出流程的健康情況進行疑難排解及了解。|
-| 位元組計數器 | Load Balancer Standard 會回報每個前端處理的資料。|
-| 封包計數器 | Load Balancer Standard 會回報每個前端處理的封包。|
+| VIP 可用性 | Standard Load Balancer 會在資料路徑上持續運用，從區域內到 Load Balancer 前端，再一路到支援 VM 的 SDN 堆疊。 只要狀況良好的執行個體持續存在，測量就會依循與您應用程式的負載平衡流量相同的路徑。 此外，也會驗證您客戶所使用的資料路徑。 此測量對您的應用程式來說是看不見的，也不會干擾到其他作業。|
+| DIP 可用性 | 標準 Load Balancer 使用分散式健康情況探查服務，可根據您的組態設定監視應用程式端點的健康情況。 這個計量會提供 Load Balancer 集區中每個個別執行個體端點的彙總檢視，或各端點篩選過的檢視。  您可以看到 Load Balancer 藉由健康情況探查設定如何檢視應用程式的健康情況。
+| SYN 封包 | 標準 Load Balancer 不會終止 TCP 連線，也不會與 TCP 或 UDP 封包流程互動。 流程及其交握一律是在來源與 VM 執行個體之間進行。 若要針對您的 TCP 通訊協定案例進行進一步疑難排解，您可使用 SYN 封包計數器來了解已進行多少次 TCP 連線嘗試。 此計量會回報已收到的 TCP SYN 封包數。|
+| SNAT 連線 | Standard Load Balancer 會回報偽裝為公用 IP 位址前端的輸出流程數目。 SNAT 連接埠是可耗盡的資源。 此計量可以指出應用程式有多依賴 SNAT 來處理連出的起始流程。  系統會回報成功和失敗之連出 SNAT 流程的計數器，而且可用來對連出流程的健康情況進行疑難排解及了解。|
+| 位元組計數器 | Standard Load Balancer 會報告每個前端處理的資料。|
+| 封包計數器 | Standard Load Balancer 會報告每個前端處理的封包。|
 
 請檢閱[標準 Load Balancer 診斷的詳細討論](load-balancer-standard-diagnostics.md)。
 
@@ -202,7 +203,7 @@ SKU 是不可變動的。 請依照本節中的步驟從一個資源 SKU 移到�
 
 ## <a name="region-availability"></a>區域可用性
 
-Load Balancer Standard 目前已在所有公用雲端地區推出。
+Standard Load Balancer 目前已在所有公用雲端地區推出。
 
 ## <a name="sla"></a>SLA
 
@@ -210,7 +211,12 @@ Load Balancer Standard 目前已在所有公用雲端地區推出。
 
 ## <a name="pricing"></a>價格
 
-標準 Load Balancer 為計費產品，根據所設定的負載平衡規則數目以及處理的所有輸入和輸出資料計算費用。 如需標準 Load Balancer 的定價資訊，請瀏覽 [Load Balancer 定價](https://aka.ms/lbpricing)頁面。
+使用 Standard Load Balancer 需要付費。
+
+- 已設定的負載平衡和輸出規則數目 (輸入 NAT 規則不會計入規則總數)
+- 所處理的輸入和輸出資料量與規則無關。 
+
+如需標準 Load Balancer 的定價資訊，請瀏覽 [Load Balancer 定價](https://azure.microsoft.com/pricing/details/load-balancer/)頁面。
 
 ## <a name="limitations"></a>限制
 

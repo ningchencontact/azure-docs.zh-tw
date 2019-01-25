@@ -4,17 +4,17 @@ description: Azure 藍圖可用來建立、定義和部署成品。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9e44a44b76e79375076f71cf808d6d30eebc5cdb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b66a1c2c12a97ea8754377a138b51a4ca1739c21
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311417"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320679"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>使用 REST API 定義和指派 Azure 藍圖
 
@@ -68,8 +68,8 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 在每個 REST API URI 中有一些變數，需要您以自己的值取代它們：
 
-- `{YourMG}` - 以您的管理群組名稱取代
-- `{subscriptionId}` - 以您的訂用帳戶 ID 取代
+- `{YourMG}` - 取代為您的管理群組識別碼
+- `{subscriptionId}` - 以您的訂用帳戶識別碼取代
 
 1. 建立初始_藍圖_物件。 **要求本文**包含藍圖的屬性、要建立的任何資源群組，以及所有藍圖層級參數。 這些參數會在指派期間設定，並且供後續步驟中新增的成品使用。
 
@@ -130,7 +130,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 在訂用帳戶中新增角色指派。 **要求本文**定義成品的_種類_，屬性對應至角色定義識別碼，而且主體身分識別當作值的陣列傳遞。 在下列範例中，授與指定角色的主體身分識別是設定給藍圖指派期間設定的參數。
+1. 在訂用帳戶中新增角色指派。 **要求本文**定義成品的_種類_，屬性對應至角色定義識別碼，而且主體身分識別當作值的陣列傳遞。 在下列範例中，授與指定角色的主體身分識別是設定給藍圖指派期間設定的參數。 此範例使用 GUID 為 `b24988ac-6180-42a0-ab88-20f7382dd24c` 的_參與者_內建角色。
 
    - REST API URI
 
@@ -150,7 +150,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 在訂用帳戶中新增原則指派。 **要求本文**會定義成品的_種類_、對應至原則或方案定義的屬性，以及設定用來定義藍圖參數 (藍圖指派期間設定) 的原則指派。
+1. 在訂用帳戶中新增原則指派。 **要求本文**會定義成品的_種類_、對應至原則或方案定義的屬性，以及設定用來定義藍圖參數 (藍圖指派期間設定) 的原則指派。 此範例使用 [將標籤及其預設值套用至資源群組] 內建原則，GUID 為 `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`。
 
    - REST API URI
 
@@ -178,7 +178,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 在訂用帳戶為儲存標記新增另一個儲存體標記 (重複使用 _storageAccountType_ 參數)。 這個新增的原則指派成品示範藍圖上定義的參數可供多個成品使用。 在此範例中，會使用 **storageAccountType** 來設定資源群組的標記。 此值會提供在下一個步驟中建立的儲存體帳戶的相關資訊。
+1. 在訂用帳戶為儲存標記新增另一個儲存體標記 (重複使用 _storageAccountType_ 參數)。 這個新增的原則指派成品示範藍圖上定義的參數可供多個成品使用。 在此範例中，會使用 **storageAccountType** 來設定資源群組的標記。 此值會提供在下一個步驟中建立的儲存體帳戶的相關資訊。 此範例使用 [將標籤及其預設值套用至資源群組] 內建原則，GUID 為 `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`。
 
    - REST API URI
 
@@ -292,7 +292,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 在資源群組下新增角色指派。 類似於先前的角色指派項目，下列範例為**擁有者**角色使用定義識別碼，並為它提供藍圖的不同參數。
+1. 在資源群組下新增角色指派。 類似於先前的角色指派項目，下列範例為**擁有者**角色使用定義識別碼，並為它提供藍圖的不同參數。 此範例使用 GUID 為 `8e3af657-a8ff-443c-a75c-2fe8c4bcb635` 的_擁有者_內建角色。
 
    - REST API URI
 

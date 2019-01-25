@@ -263,7 +263,7 @@ items:
       - name: Azure 應用程式
         items:
         - name: Azure 應用程式服務
-          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
+          href: app/azure-web-apps.md
         - name: Azure 雲端服務
           href: app/cloudservices.md
         - name: 新增連續監視
@@ -634,18 +634,14 @@ items:
         href: platform/view-designer-parts.md
       - name: 篩選器
         href: platform/view-designer-filters.md
-    - name: 儀表板
-      items:
-      - name: 記錄檔
-        href: platform/dashboards.md
-      - name: '[應用程式]'
-        href: app/app-insights-dashboards.md
     - name: Power BI
       items:
       - name: 匯出記錄檔資料
         href: platform/powerbi.md
       - name: 匯出應用程式資料
         href: app/export-power-bi.md
+    - name: 儀表板
+      href: app/app-insights-dashboards.md
     - name: 將資料傳送到 Grafana
       href: platform/grafana-plugin.md
   - name: 分析資料
@@ -662,6 +658,8 @@ items:
         href: log-query/query-language.md
       - name: 語言差異
         href: log-query/data-explorer-difference.md
+      - name: 從記錄搜尋轉換
+        href: log-query/log-search-transition.md
       - name: 開始使用
         items:
         - name: 開始使用 Analytics 入口網站
@@ -702,6 +700,8 @@ items:
         items:
         - name: 範例
           href: log-query/examples.md
+        - name: 寫入有效率的查詢
+          href: log-query/log-query-performance.md
         - name: 智慧分析
           href: log-query/smart-analytics.md
         - name: 跨資源搜尋
@@ -738,7 +738,7 @@ items:
           href: platform/alerts-metric.md
         - name: 在 Azure 監視器中建立、檢視及管理傳統計量警示
           href: platform/alerts-classic-portal.md
-        - name: 搭配動態閾值的警示
+        - name: 搭配動態閾值的計量警示
           href: platform/alerts-dynamic-thresholds.md
         - name: 在記錄檔上設定計量警示
           href: platform/alerts-metric-logs.md
@@ -965,7 +965,7 @@ items:
   - name: 結構描述
     items:
     - name: 診斷記錄服務、類別和結構描述
-      href: platform/tutorial-dashboards.md
+      href: platform/diagnostic-logs-schema.md
     - name: 活動記錄事件結構描述
       href: platform/activity-log-schema.md
     - name: Azure 診斷延伸結構描述
@@ -1017,9 +1017,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 程式碼範例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: a0dc6965328ed73059342f36d89d5fdd405bfc9d
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3a3770418ff8463ec2afa39105a1722addc7c3d2
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352609"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888017"

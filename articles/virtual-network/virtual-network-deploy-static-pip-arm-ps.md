@@ -1,182 +1,81 @@
 ---
-title: 建立具有靜態公用 IP 位址的 VM - Azure PowerShell | Microsoft Docs
+title: 建立具有靜態公用 IP 位址的 VM - PowerShell | Microsoft Docs
 description: 了解如何使用 PowerShell 建立具有靜態公用 IP 位址的 VM。
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ad975ab9-d69f-45c1-9e45-0d3f0f51e87e
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 08/08/2018
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68656db0b76a29e7ab36fd6fa9ad4647712233ee
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f5ddc4a85148cee3e8c8b4d2bf1955f233ebdbc1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696578"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426517"
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>使用 PowerShell 建立具有靜態公用 IP 位址的 VM
+# <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>使用 PowerShell 建立具有靜態公用 IP 位址的虛擬機器
 
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](virtual-network-deploy-static-pip-arm-portal.md)
-> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-> * [PowerShell (傳統)](virtual-networks-reserved-public-ip.md)
+您可以建立具有靜態公用 IP 位址的虛擬機器。 公用 IP 位址可讓您從網際網路與虛擬機器通訊。 指派靜態公用 IP 位址 (而非動態位址)，以確保位址永遠不會變更。 深入了解[靜態公用 IP 位址](virtual-network-ip-addresses-overview-arm.md#allocation-method)。 若要將指派給現有虛擬機器的公用 IP 位址從動態變更為靜態，或要處理私人 IP 位址，請參閱[新增、變更或移除 IP 位址](virtual-network-network-interface-addresses.md)。 公用 IP 位址有[象徵性費用](https://azure.microsoft.com/pricing/details/ip-addresses)，而每個訂用帳戶可用的公用 IP 位址數目都有[限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
-[!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
+## <a name="create-a-virtual-machine"></a>建立虛擬機器
 
-> [!NOTE]
-> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用 Resource Manager 部署模型，Microsoft 建議大部分的新部署使用此模型，而不是傳統部署模型。
+您可以從本機電腦或使用 Azure Cloud Shell 來完成下列步驟。 若要使用您的本機電腦，請確定已[安裝 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json)。 若要使用 Azure Cloud Shell，請選取後續任何命令方塊右上角的 [試試看]。 Cloud Shell 可讓您登入 Azure。
 
-[!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
+1. 如果使用 Cloud Shell，請跳至步驟 2。 開啟命令工作階段，然後使用 `Connect-AzureRmAccount` 登入 Azure。
+2. 使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 命令建立資源群組。 下列範例會在美國東部 Azure 區域中建立一個資源群組：
 
-[!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
+   ```azurepowershell-interactive
+   New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+   ```
 
-## <a name="start-your-script"></a>啟動指令碼
-[這裡](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1)可以下載所使用之完整的 PowerShell 指令碼。 請遵循下列步驟來變更指令碼來讓指令碼在環境中運作。
+3. 使用 [New-AzureRmVM](/powershell/module/AzureRM.Compute/New-AzureRmVM) 命令建立虛擬機器。 `-AllocationMethod "Static"` 選項可將靜態公用 IP 位址指派給虛擬機器。 下列範例會建立 Windows Server 虛擬機器，其具有名為 *myPublicIpAddress* 的靜態、基本 SKU 公用 IP 位址。 出現提示時，請提供使用者名稱與密碼以作為虛擬機器的登入認證：
 
-根據要用於部署的值來變更下列變數的值。 下列值對應至本文中使用的案例：
+   ```azurepowershell-interactive
+   New-AzureRmVm `
+     -ResourceGroupName "myResourceGroup" `
+     -Name "myVM" `
+     -Location "East US" `
+     -PublicIpAddressName "myPublicIpAddress" `
+     -AllocationMethod "Static"
+   ```
 
-```powershell
-# Set variables resource group
-$rgName                = "IaaSStory"
-$location              = "West US"
+   如果公用 IP 位址必須是標準 SKU，您必須在不同的步驟中[建立公用 IP 位址](virtual-network-public-ip-address.md#create-a-public-ip-address)[建立網路介面](virtual-network-network-interface.md#create-a-network-interface)[將公用 IP 位址指派給網路介面](virtual-network-network-interface-addresses.md#add-ip-addresses)，然後[透過網路介面建立虛擬機器](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm)。 深入了解[公用 IP 位址 SKU](virtual-network-ip-addresses-overview-arm.md#sku)。 如果虛擬機器將會新增至公用 Azure Load Balancer 的後端集區，則虛擬機器公用 IP 位址的 SKU 必須符合負載平衡器公用 IP 位址的 SKU。 如需詳細資訊，請參閱 [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus)。
 
-# Set variables for VNet
-$vnetName              = "WTestVNet"
-$vnetPrefix            = "192.168.0.0/16"
-$subnetName            = "FrontEnd"
-$subnetPrefix          = "192.168.1.0/24"
+4. 使用 [Get-azurermpublicipaddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 檢視指派的公用 IP 位址，並確認它已建立為靜態位址：
 
-# Set variables for storage
-$stdStorageAccountName = "iaasstorystorage"
+   ```azurepowershell-interactive
+   Get-AzureRmPublicIpAddress `
+     -ResourceGroupName "myResourceGroup" `
+     -Name "myPublicIpAddress" `
+     | Select "IpAddress", "PublicIpAllocationMethod" `
+     | Format-Table
+   ```
 
-# Set variables for VM
-$vmSize                = "Standard_A1"
-$diskSize              = 127
-$publisher             = "MicrosoftWindowsServer"
-$offer                 = "WindowsServer"
-$sku                   = "2012-R2-Datacenter"
-$version               = "latest"
-$vmName                = "WEB1"
-$osDiskName            = "osdisk"
-$nicName               = "NICWEB1"
-$privateIPAddress      = "192.168.1.101"
-$pipName               = "PIPWEB1"
-$dnsName               = "iaasstoryws1"
+   Azure 已從您建立虛擬機器所在區域使用的位址中指派公用 IP 位址。 您可以針對 Azure [公開](https://www.microsoft.com/download/details.aspx?id=56519)、[美國政府](https://www.microsoft.com/download/details.aspx?id=57063)、[中國](https://www.microsoft.com/download/details.aspx?id=57062)及[德國](https://www.microsoft.com/download/details.aspx?id=57064)雲端，下載範圍 (前置詞) 清單。
+
+> [!WARNING]
+請勿修改虛擬機器的作業系統內的 IP 位址設定。 作業系統不會察覺 Azure 公用 IP 位址。 雖然您可以將私人 IP 位址設定新增至作業系統，但是建議不要這麼做 (除非有需要)，而且在閱讀[將私人 IP 位址新增至作業系統](virtual-network-network-interface-addresses.md#private)之後才能這麼做。
+
+## <a name="clean-up-resources"></a>清除資源
+
+您可以使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 來移除不再需要的資源群組，以及其所包含的所有資源：
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
-
-## <a name="create-the-necessary-resources-for-your-vm"></a>為 VM 建立必要的資源
-建立 VM 之前，您需要供 VM 使用的資源群組、VNet、公用 IP 及 NIC。
-
-1. 建立新的資源群組。
-
-    ```powershell
-    New-AzureRmResourceGroup -Name $rgName -Location $location
-    ```
-
-2. 建立 VNet 和子網路。
-
-    ```powershell
-    $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName `
-        -AddressPrefix $vnetPrefix -Location $location
-
-    Add-AzureRmVirtualNetworkSubnetConfig -Name $subnetName `
-        -VirtualNetwork $vnet -AddressPrefix $subnetPrefix
-
-    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-    ```
-
-3. 建立公用 IP 資源。 
-
-    ```powershell
-    $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName `
-        -AllocationMethod Static -DomainNameLabel $dnsName -Location $location
-    ```
-
-4. 使用公用 IP 為上述建立之子網路中的 VM 建立網路介面 (NIC)。 請注意，第一個 Cmdlet 會從 Azure 擷取 VNet，這是必要的，因為已執行 `Set-AzureRmVirtualNetwork` 來變更現有的 VNet。
-
-    ```powershell
-    $vnet = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-    $subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $subnetName
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
-        -Subnet $subnet -Location $location -PrivateIpAddress $privateIPAddress `
-        -PublicIpAddress $pip
-    ```
-
-5. 建立裝載 VM 作業系統磁碟機的儲存體帳戶。
-
-    ```powershell
-    $stdStorageAccount = New-AzureRmStorageAccount -Name $stdStorageAccountName `
-    -ResourceGroupName $rgName -Type Standard_LRS -Location $location
-    ```
-
-## <a name="create-the-vm"></a>建立 VM
-現在所有必要的資源已準備就緒，您可以建立新的 VM。
-
-1. 為 VM 建立設定物件。
-
-    ```powershell
-    $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
-    ```
-
-2. 取得 VM 本機系統管理員帳戶的認證。
-
-    ```powershell
-    $cred = Get-Credential -Message "Type the name and password for the local administrator account."
-    ```
-
-3. 建立 VM 設定物件。
-
-    ```powershell
-    $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName `
-        -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-    ```
-
-4. 設定 VM 的作業系統映像。
-
-    ```powershell
-    $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher `
-        -Offer $offer -Skus $sku -Version $version
-    ```
-
-5. 設定作業系統磁碟。
-
-    ```powershell
-    $osVhdUri = $stdStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $osDiskName + ".vhd"
-    $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage
-    ```
-
-6. 將 NIC 新增至 VM。
-
-    ```powershell
-    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id -Primary
-    ```
-
-7. 建立 VM。
-
-    ```powershell
-    New-AzureRmVM -VM $vmConfig -ResourceGroupName $rgName -Location $location
-    ```
-
-8. 儲存指令碼檔案。
-
-## <a name="run-the-script"></a>執行指令碼
-
-進行任何必要的變更之後，執行先前的指令碼。 幾分鐘後，會建立虛擬機器。
-
-## <a name="set-ip-addresses-within-the-operating-system"></a>設定作業系統內的 IP 位址
-
-您絕不應手動指派在虛擬機器作業系統內已指派給 Azure 虛擬機器的公用 IP 位址。 建議您不要靜態指派在 VM 作業系統內已指派給 Azure 虛擬機器的私人 IP，除非必要，例如[將多個 IP 位址指派給 Windows VM](virtual-network-multiple-ip-addresses-powershell.md) 時。 如果您確實手動設定作業系統內的私人 IP 位址，請確保它的位址與指派給 Azure [網路介面](virtual-network-network-interface-addresses.md#change-ip-address-settings)的私人 IP 位址相同，否則您可能會失去與虛擬機器的連線。 深入了解[私人 IP 位址](virtual-network-network-interface-addresses.md#private)設定。
 
 ## <a name="next-steps"></a>後續步驟
 
-任何網路流量均可流入和流出本文所建立的 VM。 您可以在網路安全性群組內定義輸入和輸出安全性規則，以限制網路介面和 (或) 子網路可以流入和流出的流量。 若要深入了解網路安全性群組，請參閱[網路安全性群組概觀](security-overview.md)。
+- 深入了解 Azure 中的[公用 IP 位址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
+- 深入了解所有[公用 IP 位址設定](virtual-network-public-ip-address.md#create-a-public-ip-address)
+- 深入了解[私人 IP 位址](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses)，並將[靜態私人 IP 位址](virtual-network-network-interface-addresses.md#add-ip-addresses)指派給 Azure 虛擬機器
+- 深入了解如何建立 [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 和 [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器

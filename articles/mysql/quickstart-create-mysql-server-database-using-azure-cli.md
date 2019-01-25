@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 7544da2357e5b30ef54260d56cd8c969901f893e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 10c971bfbb68e51c701a74e4540be9b198ae8171
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189162"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359607"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 建立 Azure Database for MySQL 伺服器
 本快速入門說明如何使用 Azure CLI，在大約 5 分鐘內於 Azure 資源群組中建立 Azure Database for MySQL 伺服器。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
@@ -57,7 +57,7 @@ admin-password | *安全密碼* | 系統管理員使用者的密碼。 其必須
 
 
 sku-name 參數值會遵循慣例 {pricing tier}\_{compute generation}\_{vCores}，如下列範例所示：
-+ `--sku-name B_Gen4_1` 對應於基本、第 4 代和 1 個虛擬核心。
++ `--sku-name B_Gen4_1` 對應於基本、第 4 代和 1 個虛擬核心。 此選項是最小的可用 SKU。
 + `--sku-name GP_Gen5_32` 對應於一般用途、第 5 代和 32 個 vCore。
 + `--sku-name MO_Gen5_2` 對應於記憶體最佳化、第 5 代和 2 個 vCore。
 

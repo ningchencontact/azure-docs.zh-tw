@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 51952196bd2c44ba79e96266436860106a0753c4
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 875eb20a05a96d094a17229699bb2d87b3377a62
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793507"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359896"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 本文提供有關備份 Azure 檔案服務的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -94,11 +94,14 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 
 ## <a name="manage-backup"></a>管理備份
 
+### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares-br"></a>我是否可以使用 PowerShell 來設定/管理/還原 Azure 檔案共用的備份？ <br/>
+是。 請參閱[這裡](backup-azure-afs-automation.md)的詳細文件
+
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-it-br"></a>我可以存取 Azure 備份所產生的快照集並加以裝載嗎？ <br/>
 在入口網站、PowerShell 或 CLI 中檢視快照集，即可存取 Azure Backup 所產生的所有快照集。 若要深入了解 Azure 檔案共用快照集，請參閱 [Azure 檔案的共用快照集 (預覽) 概觀](../storage/files/storage-snapshots-files.md)。
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups-br"></a>我可以為備份設定的保留期上限為何？ <br/>
-Azure 檔案共用的備份可讓您保留每日備份長達 120 天。
+Azure 檔案共用的備份可讓您設定保留期最高達 180 天的原則。 不過，若使用 [PowerShell 中的「隨選備份」選項](backup-azure-afs-automation.md#trigger-an-on-demand-backup)，您的復原點甚至可保留長達 10 年。
 
 ### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share-br"></a>變更 Azure 檔案共用的備份原則時，會發生什麼狀況？ <br/>
 在檔案共用上套用新原則後，就會遵循新原則的排程和保留期。 如果延長保留期，會標示現有的復原點，以依據新的原則加以保留。 如果縮短保留期，則會標示現有的復原點，以便在下次清除作業中剪除並刪除。

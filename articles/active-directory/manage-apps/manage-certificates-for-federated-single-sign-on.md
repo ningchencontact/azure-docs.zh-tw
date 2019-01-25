@@ -4,7 +4,7 @@ description: 了解如何自訂同盟憑證的到期日期，以及如何更新�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: 0f6e690bc80ae8004fba4faf53c0403b0cb7edd9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 48f001ab0634451b1e339b346e03f5d15cdbf9c6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035331"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463842"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>在 Azure Active Directory 中管理同盟單一登入的憑證
 本文涵蓋各種與 Azure Active Directory (Azure AD) 建立憑證，以對 SaaS 應用程式建立同盟單一登入 (SSO) 相關的常見問題和相關資訊。 從 Azure AD 應用程式資源庫，或使用非資源庫的應用程式範本新增應用程式。 使用同盟 SSO 選項以設定應用程式。

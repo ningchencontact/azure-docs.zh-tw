@@ -3,7 +3,7 @@ title: 使用 Azure Active Directory 管理應用程式 | Microsoft Docs
 description: 本文章說明整合 Azure Active Directory 與您的內部部署、雲端和 SaaS 應用程式的優點。
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: overview
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2018
 ms.author: barbkess
 ms.reviewer: arvinh
-ms.openlocfilehash: 577be6669442befec0c14a275505e2eebed72611
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: b0075c57faf8e980ab2d561a4e3ba589c992238c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418087"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464764"
 ---
 # <a name="application-management-with-azure-active-directory"></a>搭配 Azure Active Directory 的應用程式管理
 

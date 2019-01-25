@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: dc1de1bb43295d2ff9f260613ae568cdd2fbe6ae
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 624091d4b5c1e17a301d9087f56ec5f9b0fecc5c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103473"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198774"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log Analytics 中的自訂記錄檔
 Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Linux 電腦上的文字檔案收集事件。 許多應用程式會將資訊記錄到文字檔而非標準的記錄服務，例如 Windows 事件記錄檔或 Syslog。 收集之後，您可以在查詢中，將資料剖析成個別的欄位，或將收集期間的資料擷取至個別的欄位。
@@ -164,6 +164,18 @@ Log Analytics 會從每個自訂記錄檔收集新的項目，間隔大約為每
 我們使用「自訂欄位」來定義 *EventTime*、*Code*、*Status* 和 *Message* 欄位，而且我們可以在查詢所傳回的記錄中看到差異。
 
 ![有自訂欄位的記錄檔查詢](media/data-sources-custom-logs/query-02.png)
+
+## <a name="alternatives-to-custom-logs"></a>自訂記錄的替代方案
+如果您的資料符合列出的條件時，可使用自訂記錄，但是在下列情況下，您需要另一個策略：
+
+- 資料不符合所需的結構，例如有不同格式的時間戳記。
+- 記錄檔不符合需求，例如檔案編碼或不受支援的資料夾結構。
+- 資料需要前置處理或收集前篩選。 
+
+在使用自訂記錄無法收集資料的情況下，請考慮下列的替代策略：
+
+- 使用自訂指令碼或其他方法，將資料寫入至 Log Analytics 收集的 [Windows 事件](data-sources-windows-events.md)或 [Syslog](data-sources-syslog.md)。 
+- 使用 [HTTP 資料收集器 API](data-collector-api.md) 將資料直接傳送到 Log Analytics。 [使用 Azure 自動化 Runbook 收集 Log Analytics 中的資料](runbook-datacollect.md)提供在 Azure 自動化中使用 Runbook 的範例。
 
 ## <a name="next-steps"></a>後續步驟
 * 請參閱[在 Log Analytics 剖析文字資料](../log-query/parse-text.md)，以了解將每個匯入的記錄項目剖析成多個屬性的方法。

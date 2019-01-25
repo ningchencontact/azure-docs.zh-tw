@@ -3,18 +3,18 @@ title: 將自訂事件傳送至事件中樞 - 事件方格、Azure CLI
 description: 使用 Azure 事件格線和 Azure CLI 來發佈主題，以及訂閱該事件。 事件中樞可用於端點。
 services: event-grid
 keywords: ''
-author: tfitzmac
-ms.author: tomfitz
+author: spelluru
+ms.author: spelluru
 ms.date: 10/09/2018
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 08039932583fce24db9cd264a15f31b6df782627
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fd087c2afe50870289b008906b28605fdd558311
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086892"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475181"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>快速入門：使用 Azure CLI 和事件方格將自訂事件路由至 Azure 事件中樞
 

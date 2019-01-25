@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2017
-ms.openlocfilehash: 9870eac87204f24993ab71e373dcab3a8ead3e89
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a53fee8ee492de4d9eaa8b45a8d4a88e692da02d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075331"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410365"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>以 Terraform 和 HCL 建立 VM 叢集
 
@@ -32,7 +32,7 @@ ms.locfileid: "54075331"
 ## <a name="1-set-up-azure-authentication"></a>1.設定 Azure 驗證
 
 > [!NOTE]
-> 如果您是[使用 Terraform 環境變數](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables)，或是在 [Azure Cloud Shell](terraform-cloud-shell.md) 中執行本教學課程，請略過此小節。
+> 如果您是[使用 Terraform 環境變數](/azure/virtual-machines/linux/terraform-install-configure)，或是在 [Azure Cloud Shell](terraform-cloud-shell.md) 中執行本教學課程，請略過此小節。
 
 在本節中，您會產生一個 Azure 服務主體，以及兩個包含來自安全性主體之認證的 Terraform 設定檔。
 

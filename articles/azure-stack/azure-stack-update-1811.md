@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/15/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 15f358f76504436dd6a3cf6a39b10531a9e1b376
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055161"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267312"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 更新
 
@@ -40,9 +40,9 @@ Azure Stack 1811 更新組建編號為 **1.1811.0.101**。
 Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，請務必先安裝 1809 的[最新 Azure Stack Hotfix](#azure-stack-hotfixes)。
 
 > [!TIP]  
-> 請訂閱下列 *RRS* 或 *Atom* 摘要，以掌握最新的 Azure Stack Hotfix：
-> - RRS： https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
-> - Atom： https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
+> 請訂閱下列 *RSS* 或 *Atom* 摘要，以掌握最新的 Azure Stack Hotfix：
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ### <a name="azure-stack-hotfixes"></a>Azure Stack Hotfix
 
@@ -82,7 +82,7 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
     then resume the update.
     Exception: The Certificate path does not exist: [certificate path here]` 
  
-    適當地匯入必要的延伸主機憑證之後，您便可以從系統管理員入口網站繼續進行 1811 更新。 雖然 Microsoft 建議 Azure Stack 操作員讓縮放單位在更新期間進入維護模式，但因缺少延伸主機憑證而造成的失敗應該不會影響現有的工作負載或服務。  
+    適當地匯入必要的延伸主機憑證之後，您便可以從系統管理員入口網站繼續進行 1811 更新。 雖然 Microsoft 建議 Azure Stack 操作員在更新期間排程維護時段，但因缺少延伸主機憑證而造成的失敗應該不會影響現有的工作負載或服務。  
 
     在安裝此更新的期間，於設定延伸主機時會無法使用 Azure Stack 使用者入口網站。 延伸主機的設定最多可能需要 5 小時的時間。 在這段期間，您可以檢查更新狀態，或是使用 [Azure Stack 系統管理員 PowerShell 或具有特殊權限的端點](azure-stack-monitor-update.md)來繼續安裝失敗的更新。
 
@@ -254,6 +254,22 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 ### <a name="compute"></a>計算
 
 - 建立新的 Windows 虛擬機器 (VM) 時，[設定] 刀鋒視窗會要求您必須選取公用輸入連接埠，才能繼續進行操作。 在 1811 中，這是必要設定，但沒有作用。 這是因為此功能倚賴「Azure 防火牆」，但在 Azure Stack 中並未實作此防火牆。 您可以選取 [沒有任何公用的輸入連接埠] 或任何其他選項來繼續建立 VM。 此設定將不會有任何作用。
+
+- 在建立新的 Windows 虛擬機器 (VM) 時，可能會顯示下列錯誤：
+
+   `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
+
+   如果您啟用 VM 上的開機診斷，但刪除您的開機診斷儲存體帳戶，就會發生此錯誤。 若要解決此問題，請重新建立儲存體帳戶，該帳戶的名稱與您先前使用的名稱相同。
+
+- 建立 [Dv2 系列 VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes) 時，D11-14v2 VM 可讓您分別建立 4、8、16 和 32 個資料磁碟。 不過，建立 VM 窗格會顯示 8、16、32 和 64 個資料磁碟。
+
+- 在 Azure Stack 上的使用量記錄可能有非預期的大小寫；例如：
+
+   `{"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/
+   virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":
+   "{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}`
+
+   在此範例中，資源群組的名稱應為 **AndrewRG**。 您可以放心地忽略此不一致的狀況。
 
 <!-- 3235634 – IS, ASDK -->
 - 若要部署大小包含 **v2** 後置詞的 VM (例如 **Standard_A2_v2**)，請將後置詞指定為 **Standard_A2_v2** (小寫 v)。 請勿使用 **Standard_A2_V2** (大寫 V)。 這適用於全域 Azure，並且在 Azure Stack 上有不一致的問題。

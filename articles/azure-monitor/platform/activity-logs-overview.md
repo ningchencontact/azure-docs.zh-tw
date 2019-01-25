@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: 7f454cb0979fb2379490d4b275b14afee8706f0f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: logs
+ms.openlocfilehash: f5d09600829a3efa2682721bf4aedbed7e5cf969
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715370"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439063"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活動記錄監視訂用帳戶活動
 
@@ -185,3 +185,4 @@ az monitor log-profiles delete --name <profile name>
 ## <a name="next-steps"></a>後續步驟
 * [深入了解活動記錄檔 (之前的稽核記錄檔)](../../azure-resource-manager/resource-group-audit.md)
 * [將 Azure 活動記錄檔串流至事件中樞](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+

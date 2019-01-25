@@ -3,9 +3,9 @@ title: 如何搭配 Java 使用 Azure 服務匯流排主題 | Microsoft Docs
 description: 使用 Azure 中的服務匯流排主題和訂用帳戶。
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
 ms.service: service-bus-messaging
 ms.workload: tbd
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/17/2018
-ms.author: spelluru
-ms.openlocfilehash: 501d15ebbb373c100dd735e97bebf2f085a9579e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.author: aschhab
+ms.openlocfilehash: cd2d5812d1b61e1d8fcc00fbc824be8ceac696de
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241305"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849952"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>如何透過 Java 使用服務匯流排主題和訂用帳戶
 
@@ -67,7 +67,7 @@ ms.locfileid: "50241305"
 1. 按一下 [所有資源]，然後按一下新建立的命名空間名稱。
 2. 在命名空間視窗中，按一下 [共用存取原則]。
 3. 在 [共用存取原則] 畫面中，按一下 **RootManageSharedAccessKey**。
-4. 在 [原則: RootManageSharedAccessKey] 視窗中，按一下 [主要連接字串] 旁邊的 [複製] 按鈕，將連接字串複製到剪貼簿以供後續使用。 將此值貼到記事本或一些其他暫存位置。
+4. 在 [原則：RootManageSharedAccessKey] 視窗中，按一下 [主要連接字串] 旁邊的 [複製] 按鈕，將連接字串複製到剪貼簿以供後續使用。 將此值貼到記事本或一些其他暫存位置。
 
     ![connection-string](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
 5. 重複前一個步驟，複製 [主要金鑰] 的值並貼到暫存位置以供後續使用。

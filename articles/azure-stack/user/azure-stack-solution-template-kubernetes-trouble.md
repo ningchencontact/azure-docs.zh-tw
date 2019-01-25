@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 472dfc04cea65cab39d177bb214c417d229b71d2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 844feb7999f88f63c9406c9f430d1d076cd032df
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956715"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390683"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>針對 Azure Stack Kubernetes 部署進行疑難排解
 

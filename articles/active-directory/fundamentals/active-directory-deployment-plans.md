@@ -3,7 +3,7 @@ title: 部署方案 - Azure Active Directory | Microsoft Docs
 description: 如何部署眾多 Azure Active Directory 功能的相關端對端指引。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: f471f1183a7d0d695b5817003fe70a018787731d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6ca6d0ab9f18665f6e271bedba63ce98996ba7db
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094775"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445978"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 部署方案
 在尋找有關如何部署某些 Azure Active Directory (Azure AD) 功能的端對端指引嗎？ 下列部署方案會逐步帶您了解商業價值、規劃考量、設計，以及要成功推出數個較常見的 Azure AD 功能所需進行的操作程序。 

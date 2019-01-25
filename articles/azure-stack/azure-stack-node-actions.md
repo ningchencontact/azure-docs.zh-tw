@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: ced6e2edb570e12b17d14e0552030902161b5d53
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7e01feff1344557c90f23bb006520111f58e437a
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725247"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302675"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的縮放單位節點動作
 
@@ -74,9 +74,9 @@ ms.locfileid: "53725247"
 
 節點的作業狀態會決定哪些選項可供使用。
 
-您將必須安裝 Azure Stack PowerShell 模組。 這些 Cmdlet 位於 **Azs.Fabric.Admin** 模組中。 若要安裝或確認「適用於 Azure Stack 的 PowerShell」安裝，請參閱[安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
+您必須安裝 Azure Stack PowerShell 模組。 這些 Cmdlet 位於 **Azs.Fabric.Admin** 模組中。 若要安裝或確認「適用於 Azure Stack 的 PowerShell」安裝，請參閱[安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 
-## <a name="stop"></a>停止
+## <a name="stop"></a>Stop
 
 **停止**動作會關閉節點電源。 此動作就像您按下電源按鈕一樣。 它不會傳送關機信號給作業系統。 針對計劃性停止作業，請一律先嘗試關機作業。 
 
@@ -92,7 +92,7 @@ ms.locfileid: "53725247"
 
 如需詳細資訊，請參閱[Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode)。
 
-## <a name="start"></a>啟動
+## <a name="start"></a>Start
 
 **啟動**動作會開啟節點電源。 此動作就像您按下電源按鈕一樣。 
  

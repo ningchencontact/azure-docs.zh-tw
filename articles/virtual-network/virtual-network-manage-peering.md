@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 39cb9f606e6829fe8265a40216de5312c3e7e60b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 10f8b6b2b1ab6249eff4776c8cba869d72f448c5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075186"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851669"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>建立、變更或刪除虛擬網路對等互連
 
@@ -32,7 +32,7 @@ ms.locfileid: "54075186"
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果使用入口網站，請開啟 https://portal.azure.com ，並使用具有[必要的權限](#permissions)而可與對等互連搭配運作的帳戶來登入。
-- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您要在本機執行 PowerShell，則還需要使用具有[必要的權限](#permissions)而可與對等互連搭配運作的帳戶來執行 `Connect-AzureRmAccount`，以建立與 Azure 的連線。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您要在本機執行 PowerShell，則還需要使用具有[必要的權限](#permissions)而可與對等互連搭配運作的帳戶來執行 `Connect-AzureRmAccount`，以建立與 Azure 的連線。
 - 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您要在本機執行 Azure CLI，則還需要使用具有[必要的權限](#permissions)而可與對等互連搭配運作的帳戶來執行 `az login`，以建立與 Azure 的連線。
 
 您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)中所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
@@ -87,7 +87,7 @@ ms.locfileid: "54075186"
 
 **命令**
 
-- **Azure CLI**：[az network vnet peering list](/cli/azure/network/vnet/peering#az_network_vnet_peering_list) 可列出虛擬網路的對等互連，[az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) 可顯示特定對等互連的設定，而 [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) 則可變更對等互連設定。
+- **Azure CLI**：[az network vnet peering list](/cli/azure/network/vnet/peering) 可列出虛擬網路的對等互連，[az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) 可顯示特定對等互連的設定，而 [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) 則可變更對等互連設定。
 - **PowerShell**:[Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) 可擷取檢視對等互連設定，[Set-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering) 則可變更設定。
 
 ## <a name="delete-a-peering"></a>刪除對等互連
@@ -107,7 +107,7 @@ ms.locfileid: "54075186"
 
 **命令**
 
-- **Azure CLI**：[az network vnet peering delete](/cli/azure/network/vnet/peering#az_network_vnet_peering_delete)
+- **Azure CLI**：[az network vnet peering delete](/cli/azure/network/vnet/peering)
 - **PowerShell**:[Remove-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering)
 
 ## <a name="requirements-and-constraints"></a>需求和限制 
@@ -144,7 +144,7 @@ ms.locfileid: "54075186"
 
 如果您的帳戶未指派給上述其中一個角色，則必須指派給[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，且該角色已獲指派下表中的必要動作：
 
-|  動作 | Name |
+| 動作 | Name |
 |---|---|
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | 建立從虛擬網路 A 到虛擬網路 B 的對等互連時所需。虛擬網路 A 必須為虛擬網路 (資源管理員)                            |
 | Microsoft.Network/virtualNetworks/peer/action                   | 建立從虛擬網路 B (資源管理員) 到虛擬網路 A 的對等互連時所需                                                                                |

@@ -173,11 +173,11 @@ items:
     href: resource-known-issues.md
   - name: 取得支援
     href: support-for-aml-services.md
-  - name: 比較 Microsoft 的 ML 產品
+  - name: 比較 ML 產品
     href: overview-more-machine-learning.md
-ms.openlocfilehash: 471928ec98a4fe037078e121a38286f30919d186
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 794879b4c80522de1a8cf3874268a1efb0cab6b4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359199"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844716"

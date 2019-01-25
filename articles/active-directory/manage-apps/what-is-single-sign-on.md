@@ -3,7 +3,7 @@ title: 單一登入應用程式 - Azure Active Directory | Microsoft Docs
 description: 了解在 Azure Active Directory (Azure AD) 中設定應用程式時，如何選擇單一登入方法。 使用單一登入使用者就不需要記住每個應用程式的密碼，且可以簡化帳戶管理。
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: b7e75753f8d7a9316dd1cc644dc22c42ef284736
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 452ec35f9a759bd09befb8c5a03a7fc5b3fb8ed2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190044"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463349"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory 中的單一登入應用程式
 了解在 Azure Active Directory (Azure AD) 中設定應用程式時，如何選擇最適當的單一登入方法。 

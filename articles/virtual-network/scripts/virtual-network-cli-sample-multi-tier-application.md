@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: ce3e86abc714a06d722a23115f8d89080e188ce5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 134135d2cfa337bf2c2d7379327df83b429a35b1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946131"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851567"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>為多層式應用程式建立網路的指令碼範例
 
@@ -50,14 +50,14 @@ az group delete --name MyResourceGroup --yes
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az group create](/cli/azure/group) | 建立用來存放所有資源的資源群組。 |
 | [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | 建立 Azure 虛擬網路和前端子網路。 |
-| [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | 建立後端子網路。 |
+| [az network subnet create](/cli/azure/network/vnet/subnet) | 建立後端子網路。 |
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | 建立公用 IP 位址以從網際網路存取 VM。 |
 | [az network nic create](/cli/azure/network/nic#az_network_nic_create) | 建立虛擬網路介面，並將它們連結到虛擬網路的前端和後端子網路。 |
-| [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | 建立與前端和後端子網路關聯的網路安全性群組 (NSG)。 |
+| [az network nsg create](/cli/azure/network/nsg) | 建立與前端和後端子網路關聯的網路安全性群組 (NSG)。 |
 | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |建立對特定子網路允許或封鎖特定連接埠的 NSG 規則。 |
-| [az vm create](/cli/azure/vm#az_vm_create) | 建立虛擬機器，並將 NIC 連結到每個 VM。 此命令也會指定要使用的虛擬機器映像和系統管理認證。 |
+| [az vm create](/cli/azure/vm) | 建立虛擬機器，並將 NIC 連結到每個 VM。 此命令也會指定要使用的虛擬機器映像和系統管理認證。 |
 | [az group delete](/cli/azure/group#az_group_delete) | 刪除資源群組及其包含的所有資源。 |
 
 ## <a name="next-steps"></a>後續步驟

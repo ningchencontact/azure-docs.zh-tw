@@ -3,7 +3,7 @@ title: 刪除群組 - Azure Active Directory | Microsoft Docs
 description: 關於如何使用 Azure Active Directory 刪除群組的指示。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 08/29/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 405e86506f13472886878eb18557121c752e9464
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 0e50abb4c7aa5641d92bf0a9f5c4516fc29125e2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062293"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452560"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>使用 Azure Active Directory 刪除群組
 您有可能基於任何原因而刪除 Azure Active Directory (Azure AD) 群組，但通常是因為您：

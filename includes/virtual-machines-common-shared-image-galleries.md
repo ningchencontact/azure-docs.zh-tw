@@ -5,20 +5,17 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 48404c8b6f45ab79a9136154c44c7fd44572a3e6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: c65fb1f0f635e79d594a7f080124827e3218f612
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51678170"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193338"
 ---
-共用映像庫服務可協助您圍繞自訂 VM 映像來建置結構和組織。 共用映像庫提供三個主要的價值主張：
-- 簡易管理
-- 調整自訂映像
-- 共用映像 - 與不同的使用者、服務主體或組織內的 AD 群組共用映像，以及使用多重區域複寫與不同區域共用映像
+共用映像庫服務可協助您圍繞自訂受控虛擬機器映像來建置結構和組織。 使用共用映像庫，即可在組織內對於不同的使用者、服務主體或 AD 群組共用您的映像。 共用映像可以複寫至多個區域，以更快速調整您的部署。
 
 根據映像的建立方式，受控映像可能是完整 VM (包括任何連結的資料磁碟) 或僅含 OS 磁碟的複本。 當您從映像建立 VM 時，映像中 VHD 的複本可用來建立新 VM 的磁碟。 受控映像會保留在儲存體中，而且可以一再用來建立新的 VM。
 
@@ -28,10 +25,10 @@ ms.locfileid: "51678170"
 
 | 資源 | 說明|
 |----------|------------|
-| **受控映像** | 這是基準映像，既可單獨使用，也可用來在映像庫中建立多個**共用映像版本**。|
+| **受控映像** | 這是基本映像，既可單獨使用，也可用來在映像庫中建立個**映像版本**。 受控映像是從一般化 VM 建立的。 受控映像是一種特殊的 VHD 類型，可用來產生多個 VM，現在可以用來建立共用映像版本。 |
 | **映像庫** | 和 Azure Marketplace 一樣，**映像庫**是用於管理和共用映像的存放庫，但您可以控制哪些使用者能夠存取。 |
-| **資源庫映像** | 映像會在資源庫內定義，並帶有映像資訊以及在內部使用時所需滿足的需求。 這包括映像是 Windows 還是 Linux、版本資訊以及最小和最大的記憶體需求。 這類映像是 Resource Manager 部署模型中的資源，但不會直接用於建立 VM。 這是映像類型的定義。 |
-| **共用映像版本** | **映像版本**是在使用資源庫時用來建立 VM 的項目。 您可以視需要為環境準備多個映像版本。 和受控映像一樣，當您使用**映像版本**來建立 VM 時，系統會使用映像版本來建立 VM 的新磁碟。 映像版本可以使用多次。 |
+| **映像定義** | 映像會在資源庫內定義，並帶有映像資訊以及在內部使用時所需滿足的需求。 這包括映像是 Windows 還是 Linux、版本資訊以及最小和最大的記憶體需求。 這是映像類型的定義。 |
+| **映像版本** | **映像版本**是在使用資源庫時用來建立 VM 的項目。 您可以視需要為環境準備多個映像版本。 和受控映像一樣，當您使用**映像版本**來建立 VM 時，系統會使用映像版本來建立 VM 的新磁碟。 映像版本可以使用多次。 |
 
 <br>
 
@@ -44,21 +41,19 @@ ms.locfileid: "51678170"
 
 | 資源庫建立區域  | 版本複寫目的地 |
 |--------------------|----------------------|
-| 美國中西部    |美國中南部|
-| 美國東部 2          |美國東部|
-| 美國中南部   |美國東部 2|
-| 東南亞     |美國西部|
-| 西歐        |美國西部 2|
-|                    |美國中部|
-|                    |美國中北部|
-|                    |加拿大中部|
-|                    |加拿大東部|
-|                    |北歐|
-|                    |西歐|
-|                    |印度南部|
-|                    |東南亞|
+| 美國中西部    |所有公用區域 &#42;|
+| 美國東部 2          ||
+| 美國中南部   ||
+| 東南亞     ||
+| 西歐        ||
+| 美國西部            ||
+| 美國東部            ||
+| 加拿大中部     ||
+|                    ||
 
 
+
+&#42; 若要複寫至澳大利亞中部和澳大利亞中部 2，您需要將您的訂用帳戶列入白名單。 若欲要求加入白名單，請移至： https://www.microsoft.com/en-au/central-regions-eligibility/
 
 ## <a name="scaling"></a>調整大小
 共用映像庫可讓您指定要讓 Azure 保留的映像複本數目。 這對於有多個 VM 的部署案例很有幫助，因為 VM 部署可以分散到不同複本，減少執行個體建立程序由於單一複本多載而遭到節流的機會。
@@ -67,7 +62,9 @@ ms.locfileid: "51678170"
 
 
 ## <a name="replication"></a>複寫
-共用映像庫也可讓您自動地將映像複寫到其他 Azure 區域。 每個共用映像版本皆可複寫到不同區域，實際情形取決於何者對組織有利。 舉例來說，一律將最新映像複寫到多個區域，而讓所有較舊的版本只留在 1 個區域中。 這有助於節省共用映像版本的儲存體成本。 作為共用映像版本複寫目的地的區域可在共用映像版本建立之後更新。 複寫到不同區域所需的時間取決於所複製的資料量，以及作為版本複寫目的地的區域數目。 在某些情況下，這可能需要幾小時的時間。 複寫進行期間，您可以檢視每個區域的複寫狀態。 某個區域完成映像複寫後，您就可以在該區域使用該映像版本部署 VM 或 VMSS。
+共用映像庫也可讓您自動地將映像複寫到其他 Azure 區域。 每個共用映像版本皆可複寫到不同區域，實際情形取決於何者對組織有利。 舉例來說，一律將最新映像複寫到多個區域，而讓所有較舊的版本只留在 1 個區域中。 這有助於節省共用映像版本的儲存體成本。 
+
+作為共用映像版本複寫目的地的區域可在共用映像版本建立之後更新。 複寫到不同區域所需的時間取決於所複製的資料量，以及作為版本複寫目的地的區域數目。 在某些情況下，這可能需要幾小時的時間。 複寫進行期間，您可以檢視每個區域的複寫狀態。 某個區域完成映像複寫後，您就可以在該區域使用該映像版本部署 VM 或 VMSS。
 
 ![圖形：顯示如何複寫映像](./media/shared-image-galleries/replication.png)
 
@@ -87,6 +84,25 @@ ms.locfileid: "51678170"
 使用共用映像庫服務不會有額外費用。 您只會支付下列資源的費用：
 - 儲存共用映像版本的儲存體成本。 這取決於版本的複本數目以及作為版本複寫目的地的區域數目。
 - 從版本的來源區域複寫至要複寫之區域的網路輸出費用。
+
+## <a name="sdk-support"></a>SDK 支援
+
+下列 SDK 支援建立共用映像資源庫：
+
+- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
+- [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Go](https://docs.microsoft.com/go/azure/)
+
+## <a name="templates"></a>範本
+
+您可以使用範本建立共用映像庫資源。 有數個 Azure 快速入門範本可以使用： 
+
+- [建立共用映像資源庫](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [在共用映像資源庫中建立映像定義](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
+- [在共用映像資源庫中建立映像版本](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [從映像版本建立 VM](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>常見問題集 
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0b27cd314dd03375b2d2e6ba537cda74e2ec4310
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c01d911a59647956914518aa62a616823241ab3b
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313236"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304919"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>整合 Azure Active Directory 稽核記錄
 
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) 稽核事件可協助您識別 Azure Active Di
 
 
 >[!IMPORTANT]
-> Azure 記錄整合功能將於 2019/06/01 淘汰。 AzLog 下載將於 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
+> Azure 記錄整合功能將於 2019/06/01 淘汰。 AzLog 下載已在 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>整合 Azure Active Directory 稽核記錄的步驟
 
@@ -73,7 +73,7 @@ Azure Active Directory (Azure AD) 稽核事件可協助您識別 Azure Active Di
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Azure 記錄整合，請參閱：
 
-* [Azure 記錄的 Microsoft Azure 記錄整合](https://www.microsoft.com/download/details.aspx?id=53324)：此下載中心頁面會提供關於 Azure 記錄整合的詳細資料、系統需求和安裝指示。
-* [Azure 記錄整合簡介](security-azure-log-integration-overview.md)：本文會為您介紹 Azure 記錄整合、其主要功能以及運作方式。
+* [Azure 記錄的 Microsoft Azure 記錄整合](https://www.microsoft.com/download/details.aspx?id=53324)：下載中心頁面會提供 Azure 記錄整合的詳細資料、系統需求和安裝指示。
+* [Azure 記錄整合簡介](security-azure-log-integration-overview.md)：本文為您介紹 Azure 記錄整合、其主要功能以及運作方式。
 * [Azure 記錄整合常見問題集](security-azure-log-integration-faq.md)：本文提供 Azure 記錄整合的相關問題解答。
-* [Azure 診斷和 Azure 稽核記錄的新功能](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/)：此部落格文章為您介紹 Azure 稽核記錄和其他功能，協助您深入了解您的 Azure 資源的作業。
+* [Azure 診斷和 Azure 稽核記錄的新功能](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) \(英文\)：此部落格文章為您介紹 Azure 稽核記錄和其他功能，協助您深入了解您的 Azure 資源的作業。

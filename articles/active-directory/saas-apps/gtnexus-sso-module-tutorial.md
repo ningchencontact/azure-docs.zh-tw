@@ -1,10 +1,10 @@
 ---
-title: 教學課程：Azure Active Directory 與 Flex Global View 整合 | Microsoft Docs
-description: 了解如何設定 Azure Active Directory 與 Flex Global View 之間的單一登入。
+title: 教學課程：Azure Active Directory 與 GTNexus SSO 系統整合 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 GTNexus SSO 系統之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e677a161-1662-4eb3-b48a-b2835470b59e
 ms.service: Azure-Active-Directory
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: ae466dc4bce6ab7068622272651c22d70fc84fff
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 7f2c494e381e2f2be2433f628a87742290c26bde
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54067494"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809321"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-flex-global-view"></a>教學課程：Azure Active Directory 與 Flex Global View 整合
+# <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>教學課程：Azure Active Directory 與 GTNexus SSO 系統整合
 
-在本教學課程中，您將了解如何整合 Flex Global View 與 Azure Active Directory (Azure AD)。
-Flex Global View 與 Azure AD 整合可提供下列優點：
+在本教學課程中，您會了解如何整合 GTNexus SSO 系統與 Azure Active Directory (Azure AD)。
+GTNexus SSO 系統與 Azure AD 整合提供下列優點：
 
-* 您可以在 Azure AD 中控制可存取 Flex Global View 的人員。
-* 您可以讓使用者使用其 Azure AD 帳戶自動登入 Flex Global View (單一登入)。
+* 您可以在 Azure AD 中控制可存取 GTNexus SSO 系統的人員。
+* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 GTNexus SSO 系統 (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -35,22 +35,22 @@ Flex Global View 與 Azure AD 整合可提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Flex Global View 的整合，您需要下列項目：
+若要設定 GTNexus SSO 系統與 Azure AD 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 已啟用 Flex Global View 單一登入的訂用帳戶
+* 已啟用 GTNexus SSO 系統單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Flex Global View 支援由 **IDP** 起始的 SSO
+* GTNexus SSO 系統支援 **IDP** 初始化的 SSO
 
-## <a name="adding-flex-global-view-from-the-gallery"></a>從資源庫新增 Flex Global View
+## <a name="adding-gtnexus-sso-system-from-the-gallery"></a>從資源庫新增 GTNexus SSO 系統
 
-若要進行將 Flex Global View 整合到 Azure AD 中的設定，您必須從資源庫將 Flex Global View 新增到受控 SaaS 應用程式清單。
+若要設定將 GTNexus SSO 系統整合到 Azure AD 中，您需要從資源庫將 GTNexus SSO 系統新增到受控 SaaS 應用程式清單。
 
-**若要從資源庫新增 Flex Global View，請執行下列步驟：**
+**若要從資源庫新增 GTNexus SSO 系統，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -64,31 +64,31 @@ Flex Global View 與 Azure AD 整合可提供下列優點：
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中輸入 **Flex Global View**，並從結果面板中選取 [Flex Global View]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **GTNexus SSO 系統**，從結果面板中選取 [GTNexus SSO 系統]，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![結果清單中的 Flex Global View](common/search-new-app.png)
+     ![結果清單中的 GTNexus SSO 系統](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Flex Global View 搭配運作的 Azure AD 單一登入。
-若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Flex Global View 中相關使用者之間的連結關聯性。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 GTNexus SSO 系統設定及測試 Azure AD 單一登入。
+若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 GTNexus SSO 系統中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Flex Global View 搭配運作的 Azure AD 單一登入，您必須完成下列建置組塊：
+若要設定及測試與 GTNexus SSO 系統搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[設定 Flex Global View 單一登入](#configure-flex-global-view-single-sign-on)** - 在應用程式端設定單一登入設定。
+2. **[設定 GTNexus SSO 系統單一登入](#configure-gtnexus-sso-system-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Flex Global View 測試使用者](#create-flex-global-view-test-user)** - 使 Flex Global View 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+5. **[建立 GTNexus SSO 系統試使用者](#create-gtnexus-sso-system-test-user)** - 讓 GTNexus SSO 系統中對應的 Britta Simon 連結到使用者在 Azure AD 中的代表項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 Flex Global View 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要設定與 GTNexus SSO 系統搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 **Flex Global View** 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [GTNexus SSO 系統] 應用程式整合頁面上，選取 [單一登入]。
 
     ![設定單一登入連結](common/select-sso.png)
 
@@ -110,7 +110,7 @@ Flex Global View 與 Azure AD 整合可提供下列優點：
 
     ![映像](common/browse-upload-metadata.png)
 
-    c. 當中繼資料檔案成功上傳後，會自動在 [Flex Global View] 區段文字方塊中填入 [識別碼] 及 [回覆 URL] 值：
+    c. 當中繼資料檔案成功上傳後，會自動在 [GTNexus SSO 系統] 區段文字方塊中填入 [識別碼] 及 [回覆 URL] 值：
 
     ![映像](common/idp-intiated.png)
 
@@ -121,9 +121,9 @@ Flex Global View 與 Azure AD 整合可提供下列優點：
 
     ![憑證下載連結](common/metadataxml.png)
 
-### <a name="configure-flex-global-view-single-sign-on"></a>設定 Flex Global View 單一登入
+### <a name="configure-gtnexus-sso-system-single-sign-on"></a>設定 GTNexus SSO 系統單一登入
 
-若要在 **Flex Global View** 端設定單一登入，您必須將已下載的 [同盟中繼資料 XML] 傳送給 [Flex Global View 支援小組](mailto:support@gtnexus.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **GTNexus SSO 系統**端設定單一登入，您必須將已下載的 [同盟中繼資料 XML] 傳送給 [GTNexus SSO 系統支援小組](mailto:support@gtnexus.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -152,15 +152,15 @@ Flex Global View 與 Azure AD 整合可提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Flex Global View 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 GTNexus SSO 系統的存取權授與 Britta Simon，使其能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Flex Global View]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [GTNexus SSO 系統]。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Flex Global View]。
+2. 在應用程式清單中，選取 [GTNexus SSO 系統]。
 
-    ![應用程式清單中的 Flex Global View 連結](common/all-applications.png)
+    ![應用程式清單中的 GTNexus SSO 系統連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -176,15 +176,15 @@ Flex Global View 與 Azure AD 整合可提供下列優點：
 
 7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
 
-### <a name="create-flex-global-view-test-user"></a>建立 Flex Global View 測試使用者
+### <a name="create-gtnexus-sso-system-test-user"></a>建立 GTNexus SSO 系統測試使用者
 
-在本節中，您會在 Flex Global View 中建立名為 Britta Simon 的使用者。 請與  [Flex Global View 支援小組](mailto:support@gtnexus.com) 合作，在 Flex Global View 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 GTNexus SSO 系統中建立名為 Britta Simon 的使用者。 與 [GTNexus SSO 系統支援小組](mailto:support@gtnexus.com) 合作，在 GTNexus SSO 系統平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Flex Global View] 圖格時，應該會自動登入您已設定 SSO 的 Flex Global View。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [GTNexus SSO 系統] 圖格時，應該會自動登入您已設定 SSO 的 GTNexus SSO 系統。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

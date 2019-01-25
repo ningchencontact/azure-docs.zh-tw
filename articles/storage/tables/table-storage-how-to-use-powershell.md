@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/14/2018
 ms.author: rogarana
 ms.component: cosmosdb-table
-ms.openlocfilehash: 9aa3431e91196d7c33582d17494ddf0c32fba704
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: af76f67ba97b820d8571fd4f6bd3409396fb27ce
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634468"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433181"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 執行 Azure 資料表儲存體作業 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,7 +32,7 @@ Azure 資料表儲存體是 NoSQL 資料存放區，您可以用來儲存和查�
 
 本做法文章示範如何在新的資源群組中建立新的 Azure 儲存體帳戶，以便在完成時輕鬆地將它移除。 如果您想要使用現有的儲存體帳戶，則可以改為那麼做。
 
-這些範例需要 Azure PowerShell 模組 `AzureRM` 4.4.0 版或更新版本。 在 PowerShell 視窗中，執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果未顯示任何項目，或者您必須升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+這些範例需要 Azure PowerShell 模組 `AzureRM` 4.4.0 版或更新版本。 在 PowerShell 視窗中，執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果未顯示任何項目，或者您必須升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 

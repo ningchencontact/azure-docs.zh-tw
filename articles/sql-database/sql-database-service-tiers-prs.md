@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 98b1072dc560de79e40fc4f802203459633dda28
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6ce99e70d57fd8d29b0f5cb2bd1084accfc4757
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440155"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262960"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database 進階 RS 服務層 (預覽狀態) 進入淘汰階段 - 移轉選項
 

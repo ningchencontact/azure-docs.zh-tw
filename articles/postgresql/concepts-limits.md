@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/12/2018
-ms.openlocfilehash: 4616ab535e7edca6d5f919824e9cadaf90886d5f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 1/22/2019
+ms.openlocfilehash: 843107b8d251c2073ba9e02beacb16ab7615eca6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548556"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470727"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的限制
 下列各節說明資料庫服務中的容量和功能限制。
@@ -33,7 +33,7 @@ ms.locfileid: "53548556"
 |記憶體最佳化| 4| 500|
 |記憶體最佳化| 8| 960|
 |記憶體最佳化| 16| 1900|
-|記憶體最佳化| 32| 3000|
+|記憶體最佳化| 32| 1900|
 
 當連線超過限制時，則可能會收到下列錯誤：
 > 嚴重錯誤︰很抱歉，已經有太多用戶端

@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 中使用自訂原則來設定密碼變更
 description: 了解如何在 Azure Active Directory B2C 中使用自訂原則以讓使用者變更其密碼。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b39c330b555be6b74760c5966e770284fa9da437
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: aa5be1df1737c56689786f5255203b771b15d179
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579187"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843663"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定密碼變更
 

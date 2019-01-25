@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 11/28/2018
-ms.openlocfilehash: 4b8c67cfff89b54b4776ebc8b4586cd8f52950b3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 01/15/2019
+ms.openlocfilehash: 201ba431a4382741815536db2bb4d08f0068be80
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342607"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329536"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入門：建立 Azure SQL Database 受控執行個體
 
@@ -47,6 +47,7 @@ ms.locfileid: "53342607"
    |**受控執行個體名稱**|任何有效名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|
    |**受控執行個體系統管理員登入**|任何有效的使用者名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 請勿使用 "serveradmin"，因為這是保留的伺服器層級角色。|
    |**密碼**|任何有效密碼|密碼長度至少必須有 16 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
+   |**定序**|您要用於受控執行個體的定序|如需定序的相關資訊，請參閱[定序](https://docs.microsoft.com/sql/t-sql/statements/collations)。|
    |**位置**|要在其中建立受控執行個體的位置|如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。|
    |**虛擬網路**|選取 [建立新的虛擬網路] 或有效的虛擬網路與子網路。| 如果網路/子網路呈現灰色，您必須先[修改成符合網路需求](sql-database-managed-instance-configure-vnet-subnet.md)後，才能選取它作為新的受控執行個體目標。 如需關於設定受控執行個體網路環境的需求資訊，請參閱[設定 Azure SQL Database 受控執行個體的 VNet](sql-database-managed-instance-connectivity-architecture.md)。 |
    |**資源群組**|新的或現有的資源群組|如需有效的資源群組名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|

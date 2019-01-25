@@ -4,7 +4,7 @@ description: 使用 Azure 入口網站在 Azure VM 上設定 Azure 資源的受�
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
 ms.author: daveba
-ms.openlocfilehash: f0d207bb5db8d27765c608f07a9d2ed9dc2f08dd
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: d3f8fe41174e6c75a8546c0c987acd56fc5921c9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514990"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436186"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>使用 Azure 入口網站在虛擬機器上設定 Azure 資源的受控識別
 

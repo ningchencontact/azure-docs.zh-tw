@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: f05c0469dffa074501a301802412901ead3d1e69
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 98ff96b70951cb289fe6a83ad59eb83a6522e42c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720810"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433344"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>取得 Azure 資訊安全中心的全租用戶可見性
 本文可協助您先執行數個可充分發揮 Azure Security Center 效用的動作，以著手使用。 執行這些動作可讓您檢視所有連結至 Azure Active Directory 租用戶的 Azure 訂用帳戶，並以彙總的方式跨多個訂用帳戶套用安全性原則，以有效而大規模地管理組織的安全性狀態。
@@ -108,7 +108,7 @@ Azure Active Directory 租用戶管理員並沒有 Azure 訂用帳戶的直接�
 
 
 #### <a name="assign-rbac-roles-to-users-with-powershell"></a>使用 PowerShell 將 RBAC 角色指派給使用者： 
-1. 安裝 [Azure PowerShell](/powershell/azure/install-azurerm-ps)。
+1. 安裝 [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)。
 2. 執行下列命令： 
 
     ```azurepowershell

@@ -14,30 +14,30 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cb3730718c366cbf3fe9caecceeb4e65855ac8c4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dae86dcdd3ada10164be0120b49a8f5f7b642ccd
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345220"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231626"
 ---
-# <a name="publish-consulting-service-offer"></a>發佈諮詢服務供應項目
+# <a name="publish-a-consulting-service-offer"></a>發佈諮詢服務供應項目
 
 當您完成 [供應項目設定]、[電子店面詳細資料] 和 [連絡人] 之後，請選取 [發佈] 並提供電子郵件地址。 當 Microsoft 準備發佈您的供應項目時，您會收到一封電子郵件，讓您在上線之前先預覽。 您隨時可以返回入口網站來檢查供應項目的狀態。
 
-在發佈程序期間，供應項目可能會顯示為 [發行已取消] 或 [發佈失敗] 狀態。 此狀態是程序的正常部分，並可讓 Microsoft 對您的供應項目進行編輯。 如果您看到供應項目處於 [發行已取消] 狀態，請讓它保持該狀態。
+在發佈程序期間，供應項目可能會顯示為 [發行已取消] 或 [發佈失敗] 狀態。 這些指定是程序的正常部分，並可讓 Microsoft 對您的供應項目進行編輯。 如果您的供應項目顯示 [發佈已取消]，請保持該狀態。
 
-**潛在客戶目的地**
+## <a name="lead-destination"></a>潛在客戶目的地
 
-您可以選取將儲存您潛在客戶的 CRM 系統。 我們會於您於此處所選的 CRM 系統上，寫入在 AppSource (潛在客戶) 上試用您應用程式的終端使用者詳細資料。
+您可以選取已儲存潛在客戶資訊的 CRM 系統。 在您於此處選取的 CRM 系統中，我們寫入在 AppSource 上試用應用程式的使用者相關資訊。
 
-請根據您所選取的 CRM 系統，按一下下面相對應的 URL 來取得完成下一組欄位的資訊
+根據您選擇的 CRM 系統，從下列清單選取對應的 URL，了解如何填寫下一組欄位的資訊。
 
-* 如果您具備下列其中一個 CRM 系統，請選取 [[Azure 資料表](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table)]：Salesforce、Marketo、Microsoft Dynamics CRM。 
+如果您具備下列其中一個 CRM 系統，請選取 [[Azure 資料表](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table)]：  
 * [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo)
 * [Microsoft Dynamics CRM](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)
 * [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce)
 
-**後續步驟**
+## <a name="next-steps"></a>後續步驟
 
-繼續發佈供應項目。
+繼續了解如何發佈供應項目。

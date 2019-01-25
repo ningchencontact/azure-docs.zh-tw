@@ -4,7 +4,7 @@ description: 了解使用者在為不在資源庫內的自訂應用程式設定�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 223532a169dc1655d8c20a7bd60ecb68d9b5052b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7d0ed35c28717fdbabc4a549f090779e9438b8a7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834293"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469690"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>為不在資源庫內的應用程式設定密碼單一登入時遇到的問題
 

@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 01/12/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 463ab617051bf97bb3b1c38ed431c4b6936a9c90
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5abc13a39db3f1061e3df76857645d8075feade5
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118688"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245747"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的模組，並對其進行偵錯
 
@@ -133,7 +133,7 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
 
 ### <a name="set-up-iot-edge-simulator-for-iot-edge-solution"></a>設定 IoT Edge 解決方案的 IoT Edge 模擬器
 
-在您的開發電腦中，您可以藉由啟動 IoT Edge 模擬器來執行 IoT Edge 解決方案，而不安裝 IoT Edge 安全性精靈。
+在您的開發電腦上，您可以藉由啟動 IoT Edge 模擬器來執行 IoT Edge 解決方案，而不安裝 IoT Edge 安全性精靈。
 
 1. 在左側的裝置總管中，以滑鼠右鍵按一下您的 IoT Edge 裝置識別碼，然後選取 [設定 IoT Edge 模擬器] 以使用裝置連接字串啟動模擬器。
 1. 您可以在整合式終端機中檢閱進度詳細資料，了解 IoT Edge 模擬器是否已成功設定。
@@ -160,7 +160,7 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
        dotnet build
        ```
 
-     - 開啟檔案 `program.cs` 並新增中斷點。
+     - 開啟檔案 `Program.cs` 並新增中斷點。
 
      - 選取 [檢視] > [偵錯] 以巡覽至 Visual Studio Code 偵錯檢視。 從下拉式清單中選取偵錯設定 [*&lt;您的模組名稱&gt;* 本機偵錯 (.NET Core)]。
 
@@ -222,7 +222,7 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
 
 ### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>建置並執行要偵錯的容器，並在附加模式中偵錯
 
-1. 開啟您的模組檔 (`program.cs`、`app.js`、`App.java` 或 `<your module name>.cs`) 並新增中斷點。
+1. 開啟您的模組檔 (`Program.cs`、`app.js`、`App.java` 或 `<your module name>.cs`) 並新增中斷點。
 
 1. 在 Visual Studio Code 總管檢視中，以滑鼠右鍵按一下解決方案的 `deployment.debug.template.json` 檔案，然後選取 [在模擬器中建置並執行 IoT Edge 解決方案]。 您可以在相同的視窗中查看所有模組容器記錄。 您也可以巡覽至 Docker 檢視以監看容器狀態。
 
@@ -241,17 +241,17 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
 >
 > 對於以 C# (包括 Azure Functions) 撰寫的模組，此範例是以 `Dockerfile.amd64.debug` 的偵錯版本為基礎，其中包含建置它時容器映像中的 .NET Core 命令列偵錯工具 (VSDBG)。 針對 C# 模組進行偵錯之後，建議您針對已可供生產環境使用的 IoT Edge 模組，直接使用 Dockerfile (不含 VSDBG)。
 
-## <a name="debug-a-module-with-iot-edge-runtime"></a>使用 IoT Edge 執行階段偵錯模組
+## <a name="debug-a-module-with-the-iot-edge-runtime"></a>使用 IoT Edge 執行階段偵錯模組
 
 在每個模組資料夾中，會有不同容器類型的多個 Docker 檔案。 請使用任何副檔名為 **.debug** 的檔案來建置測試用模組。
 
-使用 IoT Edge 執行階段偵錯模組時，您的模組會在 IoT Edge 執行階段以外的執行階段執行。 IoT Edge 裝置和您的 VS Code 可以位於相同電腦中，通常情形則位於不同的電腦中 (VS Cod 位於開發電腦中，IoT Edge 執行階段和模組在另一部實體電腦中執行)。 需要在 VS Code 中為您的偵錯工作階段執行下列步驟。
+使用此方法進行模組偵錯時，您的模組會在 IoT Edge 執行階段以外的執行階段執行。 IoT Edge 裝置和 Visual Studio Code 可以位於相同電腦上，或通常 Visual Studio Code 位於開發電腦上，而 IoT Edge 執行階段和模組則是在另一部實體電腦上執行。 若要從 Visual Studio Code 進行偵錯，您必須：
 
-- 設定您的 IoT Edge 裝置，使用 **.debug** Dockerfile 組建 IoT Edge 模組，並部署至 IoT Edge 裝置。 
-- 公開模組的 IP 和連接埠以供偵錯工具連結使用。
-- 更新 `launch.json` 檔案，以便 VS Code 可連結到遠端電腦之容器中的流程。
+- 設定您的 IoT Edge 裝置，使用 **.debug** Dockerfile 建置 IoT Edge 模組，然後部署至 IoT Edge 裝置。
+- 公開模組的 IP 和連接埠，以便連結偵錯工具。
+- 更新 `launch.json`，以便 Visual Studio Code 可連結到遠端電腦上容器中的程序。 這個檔案位於您工作區的 `.vscode` 資料夾中，每當您新增支援偵錯的模組時，此檔案都會更新。
 
-### <a name="build-and-deploy-your-module-and-deploy-to-iot-edge-device"></a>組建及部署您的模組，並部署到 IoT Edge 裝置
+### <a name="build-and-deploy-your-module-to-the-iot-edge-device"></a>建置您的模組並且部署到 IoT Edge 裝置
 
 1. 在 Visual Studio Code 中開啟 `deployment.debug.template.json` 檔案，其中包含您模組映像的偵錯版本並設定適當的 `createOptions` 值。
 
@@ -294,34 +294,55 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
 1. 在 Visual Studio Code 總管檢視的 [Azure IoT 中樞裝置] 區段中：
    1. 以滑鼠右鍵按一下 IoT Edge 裝置識別碼，然後選取 [建立單一裝置的部署]。
 
+      > [!TIP]
+      > 若要確認您所選擇的裝置是 IoT Edge 裝置，請選取該裝置以展開模組清單，並確認 **$edgeHub** 和 **$edgeAgent** 是否存在。 每個 IoT Edge 都裝置包含這兩個模組。
+
    1. 巡覽至您解決方案的 **config** 資料夾，選取 `deployment.debug.amd64.json` 檔案，然後選取 [選取 Edge 部署資訊清單]。
 
 您會看到部署已順利建立，而且整合式終端機中會有部署識別碼。
 
-您可以透過在終端機中執行 `docker ps` 命令來檢查您的容器狀態。 如果 VS Code 和 IoT Edge 執行階段是在相同電腦上執行，您也可以在 Visual Studio Code Docker 檢視中檢查狀態。
+您可以透過在終端機中執行 `docker ps` 命令來檢查您的容器狀態。 如果 Visual Studio Code 和 IoT Edge 執行階段是在相同電腦上執行，您也可以在 Visual Studio Code Docker 檢視中檢查狀態。
 
-### <a name="expose-the-ip-and-port-of-the-module-for-the-debugger-to-attach"></a>公開模組的 IP 和連接埠以供偵錯工具連結使用
+### <a name="expose-the-ip-and-port-of-the-module-for-the-debugger"></a>公開偵錯工具的模組 IP 和連接埠
 
-如果您的模組在與 VS Code 相同的電腦上執行。 您正在使用 localhost 連結容器，而且您已在 **.debug** Dockerfile、模組容器 CreateOptions 和 `launch.json` 中，擁有正確的連接埠設定。 您可以跳過本節。 如果您的模組和 VS Code 在不同的機器中執行，請針對每種語言遵循下列步驟。
+如果您的模組在與 Visual Studio Code 相同的電腦上執行，則可略過這一節，因為您使用 localhost 連結至容器且 **.debug** Dockerfile、模組的容器 `createOptions` 設定及 `launch.json` 檔案 中已經有正確的連接埠設定。 如果您的模組和 Visual Studio Code 在不同的機器上執行，請針對您的開發語言遵循下列步驟。
 
-  - **C#、C# 函式**：[在您的開發電腦和 IoT Edge 裝置上設定 SSH 通道](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes) (英文) 編輯要連結的 `launch.json` 檔案。
-  - **Node.js**：請確定模組已可供偵錯工具進行連結，並且可以從外部存取偵錯項目機器的 9229 連接埠。 您可以在偵錯工具機器上開啟 [http://%3cdebuggee-machine-IP%3e:9229/json]http://<debuggee-machine-IP>:9229/json，以驗證此操作。 此 URL 應該顯示關於要偵錯之 Node.js 的資訊。 然後在偵錯工具機器上，開啟 VS Code，編輯 `launch.json` 檔案，以便「<module-name> 遠端偵錯 (Node.js)」設定檔 (或者，如果模組是以 Windows 容器執行，則為「<module-name> 遠端偵錯 (Windows 容器中的 Node.js)」設定檔) 的位址值是偵錯項目機器的 IP。
-  - **Java**︰執行 `ssh -f <username>@<edgedevicehost> -L 5005:127.0.0.1:5005 -N`，以建立到邊緣裝置的 ssh 通道，然後編輯要連結的 `launch.json` 檔案。 您可以在[這裡](https://code.visualstudio.com/docs/java/java-debugging)深入了解設定。 
-  - **Python**：在程式碼 `ptvsd.enable_attach(('0.0.0.0', 5678))` 中，將 0.0.0.0 變更為 IoT Edge 裝置的 IP 位址。 再次組建、推送及部署您的 IoT Edge 模組。 在開發電腦中的 `launch.json` 中，更新 `"host"` `"localhost"`，將 `"localhost"` 變更為遠端 IoT Edge 裝置的公用 IP 位址。
+- **C#，包括 Azure Functions**
 
+  [在您的開發電腦和 IoT Edge 裝置上設定 SSH 通道](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes)，然後編輯要連結的 `launch.json` 檔案。
+
+- **Node.js**
+
+  - 確定要偵錯的電腦上的模組正在執行並可供偵錯工具連結，而且可在外部存取連接埠 9229。 您可以在偵錯工具機器上開啟 `http://<target-machine-IP>:9229/json`，以驗證此操作。 此 URL 應顯示所要偵錯 Node.js 模組的相關資訊。
+  
+  - 在開發電腦上開啟 Visual Studio Code，然後編輯 `launch.json`，以便 ***&lt;您的模組名稱&gt;* 遠端偵錯 (Node.js)** 設定檔 (或者，如果模組是以 Windows 容器的形式執行，則為 ***&lt;您的模組名稱&gt;* 遠端偵錯 (Windows 容器中的 Node.js)** 設定檔) 的位址值是所偵錯電腦的 IP。
+
+- **Java**
+
+  - 執行 `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`，對要偵錯的電腦建置 SSH 通道。
+  
+  - 在您的開發電腦上開啟 Visual Studio Code 並編輯 `launch.json` 中的 ***&lt;您的模組名稱&gt;* 遠端偵錯 (Java)** 設定檔，以便連結至目標電腦。 若要深入了解如何使用 Visual Studio Code 來編輯 `launch.json` 及偵錯 Java，請參閱[設定偵錯工具](https://code.visualstudio.com/docs/java/java-debugging#_configuration)。
+
+- **Python**
+
+  - 請確定要偵錯的電腦上的連接埠 5678 已開放且可供存取。
+
+  - 在您先前插入 `main.py` 的程式碼 `ptvsd.enable_attach(('0.0.0.0', 5678))` 中，將 **0.0.0.0** 變更為要偵錯的電腦 IP 位址。 再次建置、推送及部署您的 IoT Edge 模組。
+
+  - 在您的開發電腦上開啟 Visual Studio Code，然後編輯 `launch.json`，以便 ***&lt;您的模組名稱&gt;* 遠端偵錯 (Python)** 設定檔的 `host` 值使用目標電腦的 IP 位址，而非 `localhost`。
 
 ### <a name="debug-your-module"></a>對模組進行偵錯
-
-Visual Studio Code 會將偵錯設定資訊保留在您工作區中 `.vscode` 資料夾的 `launch.json` 檔案。 這個 `launch.json` 檔案在您建立新 IoT Edge 解決方案時產生。 每當您新增支援偵錯的模組時，此檔案都會更新。
 
 1. 在 Visual Studio Code 偵錯檢視中，選取模組的偵錯設定檔。 偵錯選項名稱應該類似 [*&lt;您的模組名稱&gt;* 遠端偵錯]
 
 1. 開啟適用於您開發語言的模組檔並新增中斷點：
-   - **C#、C# 函式**：開啟檔案 `Program.cs` 並新增中斷點。
-   - **Node.js**：開啟檔案 `app.js`，並新增中斷點。
-   - **Java**︰開啟檔案 `App.java` 並新增中斷點。
-   - **Python**：開啟 `main.py`，並在您已新增 `ptvsd.break_into_debugger()` 行的回呼方法中新增中斷點。
-   - **C**：開啟檔案 `main.c` 並新增中斷點。
+
+   - **Azure Function (C#)**：將您的中斷點新增至檔案 `<your module name>.cs`。
+   - **C#**：將您的中斷點新增至檔案 `Program.cs`。
+   - **Node.js**：將您的中斷點新增至檔案 `app.js`。
+   - **Java**︰將您的中斷點新增至檔案 `App.java`。
+   - **Python**：在您已新增 `ptvsd.break_into_debugger()` 行的回呼方法中，將您的中斷點新增至檔案 `main.py`。
+   - **C**：將您的中斷點新增至檔案 `main.c`。
 
 1. 選取 [開始偵錯] 或選取 **F5**。 選取所要連結的流程。
 

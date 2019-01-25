@@ -5,19 +5,20 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 4726383d96b0bd17f346f7391ed968c5f96bef1e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7a6f6909791fcf60f6c691a830cab85241ae803c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239248"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432484"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>如何要求使用者使用雙步驟驗證
+
 您可以採取下列方法之一來要求使用雙步驟驗證，這兩者都需要使用全域管理員帳戶。 第一種是為每個使用者啟用 Azure Multi-Factor Authentication (MFA)。 當您分別為每位使用者進行啟用時，這些使用者在每次登入時都會執行雙步驟驗證 (但有一些例外，例如當他們從受信任的 IP 位址登入時，或開啟了 _已記住裝置_ 功能)。 第二個選項是設定條件式存取原則，以在某些情況下要求使用雙步驟驗證。
 
 > [!TIP]
@@ -25,7 +26,7 @@ ms.locfileid: "50239248"
 
 ## <a name="choose-how-to-enable"></a>選擇啟用方式
 
-**藉由變更使用者狀態來啟用** - 這是要求使用雙步驟驗證的傳統方法，本文會加以討論。 這種方法適用於雲端 Azure MFA 和 Azure MFA Server。 如果使用這種方法，則會要求使用者在**每次**登入時執行雙步驟驗證，並且會覆寫條件式存取原則。
+**藉由變更使用者狀態來啟用** - 這是要求使用雙步驟驗證的傳統方法，本文會加以討論。 這種方法適用於雲端 Azure MFA 和 Azure MFA Server。 如果使用這種方法，則會要求使用者在**每次**登入時執行雙步驟驗證，並且會覆寫條件式存取原則。 這是用於有 Office 365 或 Microsoft 365 商務版授權的方法，因為這些不包含條件式存取功能。
 
 由條件式存取原則啟用 - 這是最具彈性的方法，可為您的使用者啟用雙步驟驗證。 啟用條件式存取原則，只適用於雲端 Azure MFA，而且是 Azure AD 的進階功能。 如需這個方法的詳細資訊，請參閱[部署雲端式 Azure Multi-Factor Authentication](howto-mfa-getstarted.md)。
 
@@ -42,7 +43,7 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 | 狀態 | 說明 | 受影響的非瀏覽器應用程式 | 受影響的瀏覽器應用程式 | 受影響的新式驗證 |
 |:---:|:---:|:---:|:--:|:--:|
 | 已停用 |未註冊 Azure MFA 之新使用者的預設狀態。 |否 |否 |否 |
-| 已啟用 |已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 |否。  它們會繼續運作，直到註冊程序完成為止。 | 是。 工作階段到期之後，必須進行 Azure MFA 註冊。| 是。 存取權杖到期之後，必須進行 Azure MFA 註冊。 |
+| 已啟用 |已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 |沒有。  它們會繼續運作，直到註冊程序完成為止。 | 是。 工作階段到期之後，必須進行 Azure MFA 註冊。| 是。 存取權杖到期之後，必須進行 Azure MFA 註冊。 |
 | 已強制 |已註冊使用者，而且使用者已完成 Azure MFA 的註冊程序。 |是。 應用程式需要應用程式密碼。 |是。 在登入時需要使用 Azure MFA。 | 是。 在登入時需要使用 Azure MFA。 |
 
 使用者的狀態會反映系統管理員是否已在 Azure MFA 中註冊他們，以及他們是否已完成註冊程序。

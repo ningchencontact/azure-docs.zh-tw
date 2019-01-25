@@ -3,9 +3,9 @@ title: 如何搭配 Python 使用 Azure 服務匯流排主題 | Microsoft Docs
 description: 了解如何從 Python 使用 Azure 服務匯流排主題和訂用帳戶。
 services: service-bus-messaging
 documentationcenter: python
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 09/20/2018
-ms.author: spelluru
-ms.openlocfilehash: ba95eb7742af611cc3365fdb07b75c785ba42681
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: 280901c4b7af9cc65163ebc453a54fb7ec5d5111
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406884"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849391"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>如何透過 Python 使用服務匯流排主題和訂用帳戶
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-此文章說明如何使用服務匯流排主題和訂用帳戶。 相關範例是以 Python 撰寫，並且使用 [Azure Python SDK 套件][Azure Python package]。 涵蓋的案例包括**建立主題和訂用帳戶**、**建立訂用帳戶篩選器**、**傳送訊息至主題**、**接收訂用帳戶的訊息**，以及**刪除主題和訂用帳戶**。 如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#next-steps)一節。
+本文說明如何使用服務匯流排主題和訂用帳戶。 相關範例是以 Python 撰寫，並且使用 [Azure Python SDK 套件][Azure Python package]。 涵蓋的案例包括**建立主題和訂用帳戶**、**建立訂用帳戶篩選器**、**傳送訊息至主題**、**接收訂用帳戶的訊息**，以及**刪除主題和訂用帳戶**。 如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 

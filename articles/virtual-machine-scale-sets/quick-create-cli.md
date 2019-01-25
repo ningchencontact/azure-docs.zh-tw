@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: zarhoads
-ms.openlocfilehash: b306766a300af1b6b4d5b85c29ce8c06d1888222
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 57e7bb04bcf8831b8807e6abdd8959bc2a08de68
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471062"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848779"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>快速入門：使用 Azure CLI 建立虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據 CPU、記憶體需求或網路流量等資源使用量進行自動調整。 其後，Azure 負載平衡器會將流量分配到擴展集中的多個 VM 執行個體。 在本快速入門中，您會使用 Azure CLI 建立虛擬機器擴展集，並部署範例應用程式。
@@ -34,7 +34,7 @@ ms.locfileid: "49471062"
 
 
 ## <a name="create-a-scale-set"></a>建立擴展集
-請先使用 [az group create](/cli/azure/group#az_group_create) 建立資源群組，才可以建立擴展集。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+請先使用 [az group create](/cli/azure/group) 建立資源群組，才可以建立擴展集。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -88,7 +88,7 @@ az network lb rule create \
 
 
 ## <a name="test-your-scale-set"></a>測試您的擴展集
-若要查看有效的擴展集，請在網頁瀏覽器中存取範例 Web 應用程式。 使用 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) 取得負載平衡器的公用 IP 位址。 下列範例會取得建立作為擴展集一部分的 myScaleSetLBPublicIP IP 位址︰
+若要查看有效的擴展集，請在網頁瀏覽器中存取範例 Web 應用程式。 使用 [az network public-ip show](/cli/azure/network/public-ip) 取得負載平衡器的公用 IP 位址。 下列範例會取得建立作為擴展集一部分的 myScaleSetLBPublicIP IP 位址︰
 
 ```azurecli-interactive
 az network public-ip show \

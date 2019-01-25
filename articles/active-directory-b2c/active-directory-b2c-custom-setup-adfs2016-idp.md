@@ -3,25 +3,25 @@ title: 在 Azure Active Directory B2C 中使用自訂原則新增 ADFS 作為 SA
 description: 在 Azure Active Directory B2C 中使用 SAML 通訊協定和自訂原則來設定 ADFS 2016
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7f74da682c72f9effb4dbac49b316ff17f03b534
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 6a371bbe34368e5373589575f367d4b352320ecd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275882"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856446"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則將 ADFS 新增為 SAML 識別提供者
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-此文章將示範如何在 Azure Active Directory (Azure AD) B2C 中使用[自訂原則](active-directory-b2c-overview-custom.md)來允許以 ADFS 使用者帳戶登入。 將 [SAML 技術設定檔](saml-technical-profile.md)新增至自訂原則，以啟用登入。
+本文將示範如何在 Azure Active Directory (Azure AD) B2C 中使用[自訂原則](active-directory-b2c-overview-custom.md)來允許以 ADFS 使用者帳戶登入。 將 [SAML 技術設定檔](saml-technical-profile.md)新增至自訂原則，以啟用登入。
 
 ## <a name="prerequisites"></a>必要條件
 

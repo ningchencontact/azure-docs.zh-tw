@@ -4,7 +4,7 @@ description: 了解如何下載和使用 PowerShell 指令碼來存取登入記�
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4afe0c73-aee8-47f1-a6cb-2d71fd6719d1
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8b9097a62ca4bfa67fb5eb35e06f7834df6691e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ad34a5c3d72ec1f7fce0b56a85fd7c9cba007366
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622800"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824570"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>教學課程：如何下載和使用指令碼以便存取登入記錄
 
@@ -33,7 +33,7 @@ ms.locfileid: "51622800"
 
 您需要
 
-* 具有進階 (P1/P2) 授權的 Azure Active Directory 租用戶。 
+* 具有進階 (P1/P2) 授權的 Azure Active Directory 租用戶。 請注意，如果您在升級前沒有任何活動資料，則在升級至進階授權之後，報告需要幾天的時間才會顯示出資料。 
 * 所擔任的租用戶角色為**全域系統管理員**、**安全性系統管理員**、**安全性讀取者**或**報告讀取者** 的使用者。 此外，任何使用者都可以存取自己的登入資訊。 
 * 如果您想要在 Windows 10 電腦上執行所下載的指令碼，請[設定 AzureRM 模組並設定執行原則](concept-sign-ins.md#running-the-script-on-a-windows-10-machine)。
 

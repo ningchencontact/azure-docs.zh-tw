@@ -3,18 +3,18 @@ title: 使用 Azure 自動化檢視檔案內容變更
 description: 使用 [變更追蹤] 的檔案內容變更功能檢視已變更的檔案。
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0582505d66bbef3064359fa4047676c4ba60b4e9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870174"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437996"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>檢視正在使用 [變更追蹤] 追蹤的檔案內容
 
@@ -26,7 +26,7 @@ ms.locfileid: "37870174"
 
 * 使用的儲存體帳戶只能連線 1 個自動化帳戶。
 
-* 您的自動化帳戶已啟用 [變更追蹤][](automation-change-tracking.md)。
+* 您的自動化帳戶已啟用 [變更追蹤](automation-change-tracking.md)。
 
 ## <a name="enable-file-content-tracking"></a>啓用檔案內容追蹤
 
@@ -76,3 +76,4 @@ ms.locfileid: "37870174"
 > [對您環境中的變更進行疑難排解](automation-tutorial-troubleshoot-changes.md)
 
 * 使用 [Log Analytics 中的記錄檔搜尋](../log-analytics/log-analytics-log-searches.md) ，檢視詳細的變更追蹤資料。
+

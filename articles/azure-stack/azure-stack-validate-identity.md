@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/23/2018
+ms.date: 12/04/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 0a46344893c8ad62bd85f9abb84d434c0331d507
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.reviewer: unknown
+ms.openlocfilehash: 9ca777275aa4aa09a16c0248f6e3b1ecc76ac5b2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984191"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267329"
 ---
 # <a name="validate-azure-identity"></a>驗證 Azure 身分識別 
 使用 Azure Stack 整備檢查程式工具 (AzsReadinessChecker) 來驗證 Azure Active Directory (Azure AD) 是否已準備好與 Azure Stack 搭配使用。 開始部署 Azure Stack 之前，請先驗證 Azure 身分識別解決方案。  
@@ -48,7 +48,7 @@ ms.locfileid: "49984191"
 **Azure Active Directory 環境：**
  - 識別您將用於 Azure Stack 的 Azure AD 帳戶，並確保它是 Azure Active Directory 全域管理員。
  - 識別 Azure AD 租用戶名稱。 租用戶名稱必須是 Azure Active Directory 的「主要」網域名稱。 例如，contoso.onmicrosoft.com。 
- - 識別您會使用的 AzureEnvironment：AzureCloud、AzureGermanCloud 或 AzureChinaCloud。
+ - 識別您將使用的 AzureEnvironment。 環境名稱參數的支援值為 AzureCloud、AzureChinaCloud 或 AzureUSGovernment，視您使用哪一個 Azure 訂用帳戶而定。
 
 ## <a name="validate-azure-identity"></a>驗證 Azure 身分識別 
 1. 在符合先決條件的電腦上，開啟系統管理 PowerShell 提示字元，然後執行下列命令以安裝 AzsReadinessChecker：  
@@ -59,10 +59,10 @@ ms.locfileid: "49984191"
    > `$serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant"` 
 
 3. 從 PowerShell 提示字元中，執行下列命令以開始驗證 Azure AD。 
-   - 將 AzureEnvironment 的值指定為 AzureCloud、AzureGermanCloud 或 AzureChinaCloud。  
+   - 指定 AzureEnvironment 的環境名稱值。 環境名稱參數的支援值為 AzureCloud、AzureChinaCloud 或 AzureUSGovernment，視您使用哪一個 Azure 訂用帳戶而定。  
    - 指定 Azure Active Directory 租用戶名稱來取代 contoso.onmicrosoft.com。 
 
-   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AADDirectoryTenantName contoso.onmicrosoft.com`
+   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com`
 4. 在此工具執行之後，請檢閱輸出。 確認安裝需求的狀態是**正常**。 驗證成功時會出現類似下圖的輸出： 
  
 ````PowerShell
@@ -137,7 +137,7 @@ Invoke-AzsAzureIdentityValidation Completed
 ````
 **原因** - 帳戶無法登入指定的 Azure Active Directory (AADDirectoryTenantName)。 在此範例中，AzureChinaCloud 會指定為 AzureEnvironment。
 
-**解決方式** - 確認此帳戶對指定的 Azure 環境是有效的。 在 PowerShell 中，執行下列命令來確認此帳戶對特定環境是有效的：Login-AzureRmAccount – EnvironmentName AzureChinaCloud 
+**解決方式** - 確認此帳戶對指定的 Azure 環境是有效的。 在 PowerShell 中，執行下列命令以確認此帳戶是特定環境的有效帳戶： Login-AzureRmAccount – EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>帳戶不是系統管理員 
  
 ````PowerShell
