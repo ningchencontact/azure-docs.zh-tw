@@ -28,7 +28,7 @@ ms.locfileid: "52885045"
 ## <a name="events"></a>活動
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>搜尋說明為「密碼編譯」的應用程式層級事件
-此範例會搜尋 **Events** 資料表，找出 **EventLog** 是 _Application_ 且 **RenderedDescription** 包含 _cryptographic_ 的記錄。 包含過去 24 小時的記錄。
+此範例會搜尋 **Events** 資料表，找出 **EventLog** 是 _Application_ 且 **RenderedDescription** 包含 _cryptographic_ 的記錄。包含過去 24 小時的記錄。
 
 ```Kusto
 Event
@@ -249,7 +249,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>計算與權限相關的安全性事件數目
-此範例會顯示 **securityEvent** 記錄的數目，其中**活動**資料行包含完整詞彙 _Permissions_。 查詢適用於過去 30 分鐘內建立的記錄。
+此範例會顯示 **securityEvent** 記錄的數目，其中 **Activity** 資料行包含完整詞彙 _Permissions_。查詢適用於過去 30 分鐘內建立的記錄。
 
 ```Kusto
 SecurityEvent
