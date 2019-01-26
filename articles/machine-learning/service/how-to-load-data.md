@@ -310,4 +310,4 @@ dataflow.to_pandas_dataframe().head()
 |1|1011871|Stearns Homestead 農民市集|http://Stearnshomestead.com |6975 Ridge Road|帕爾馬|凱霍加郡|
 |2|1011878|100 Mile Market|http://www.pfcmarkets.com |507 Harrison St|卡拉馬朱|卡拉馬朱|
 |3|1009364|106 南主幹道農民市集|http://thetownofsixmile.wordpress.com/ |106 南主幹道|六英里|||
-|4|1010691|第 10 街社區農民市集|https://agrimissouri.com/.. 。 |10th Street and Poplar|拉馬爾|巴頓|
+|4|1010691|第 10 街社區農民市集|https://agrimissouri.com/.. |10th Street and Poplar|拉馬爾|巴頓|
