@@ -26,7 +26,7 @@ Azure Front Door Service 可傳遞大型檔案且檔案大小沒有上限。 Fro
 
 </br>當區塊抵達 Front Door 環境之後，就會被快取並立即提供給使用者。 然後 Front Door 會以平行方式預先提取下一個區塊。 此預先擷取可確保內容會領先使用者一個區塊，以降低延遲。 此程序一直持續到整個檔案下載完畢 (如有要求)、取得所有位元組範圍 (如有要求)，或用戶端終止連線。
 
-</br>如需位元組範圍要求的詳細資訊，請參閱 [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html)。
+</br>如需位元組範圍要求的詳細資訊，請參閱 [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html)。
 Front Door 會在接收到任何區塊之後進行快取，因此不需要在 Front Door 快取上快取整個檔案。 快取會提供後續的檔案或位元組範圍要求。 如果不會快取所有區塊，就會使用預先擷取來向後端要求區塊。 此最佳化依賴後端的功能來支援位元組範圍要求；如果後端不支援位元組範圍要求，則此最佳化無效。
 
 ## <a name="file-compression"></a>檔案壓縮
