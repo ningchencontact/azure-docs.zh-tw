@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6187ee202fc51abaeac81b84c7d665cee9efcf59
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 343bfd063363b26f3c56d666354e15049e9c4511
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793881"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911977"
 documentType: LandingData
 title: Bing 自訂搜尋文件
 metadata:
-  title: Bing 自訂搜尋文件 - 教學課程和 API 參考 - Microsoft 認知服務 | Microsoft Docs
-  description: 了解如何使用 Bing 自訂搜尋入口網站來建立自訂搜尋執行個體
+  title: Bing 自訂搜尋 API 文件 - 教學課程、快速入門和 API 參考 - Microsoft 認知服務 | Microsoft Docs
+  description: 了解如何使用 Bing 自訂搜尋入口網站和 API 來建立自訂搜尋體驗
   services: cognitive-services
   author: v-deken
   manager: cgronlun
@@ -18,11 +18,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/07/2018
+  ms.date: 01/16/2019
   ms.author: v-deken
 abstract:
-  description: 了解如何使用 Bing 自訂搜尋，為您感興趣的主題建立量身訂做的搜尋體驗。 例如，如果您擁有提供搜索體驗的自行車網站，則可以指定 Bing 搜尋的網域、子網站和網頁。 快速入門、教學課程和 API 參考指南會示範操作方法。
+  description: 使用 Bing 自訂搜尋 API 來建立您關心的各個主題之搜尋執行個體。 指定要搜尋的網域和網頁並調整搜尋排名，以完全自訂您的搜尋體驗。
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-custom-search/overview
+      html: <p>了解 Bing 自訂搜尋 API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: 什麼是 Bing 自訂搜尋 API？
+    - href: /azure/cognitive-services/bing-custom-search/quick-start
+      html: <p>了解如何量身訂做您的搜尋體驗，來建立網站的自訂檢視。</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 建立自訂 Bing 搜尋執行個體
+    - href: /azure/cognitive-services/bing-custom-search/hosted-ui
+      html: <p>了解如何輕鬆地將託管的 UI 與網頁和 Web 應用程式整合。</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 設定託管的 UI 體驗
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
@@ -32,7 +53,7 @@ sections:
     items:
     - image:
         src: media/logo_Csharp.svg
-      href: call-endpoint-csharp
+      href: sdk-csharp-quick-start
       text: C&#35;
     - image:
         src: media/logo_java.svg
@@ -59,7 +80,7 @@ sections:
     className: cardsD
     items:
     - title: API
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">Bing 自訂搜尋 API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference">Bing 自訂自動建議 API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference">Bing 自訂影像搜尋 API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference">Bing 自訂影片搜尋 API v7</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">自訂搜尋 API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference">自訂自動建議 API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference"> 自訂影像搜尋 API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference">Bing 自訂影片搜尋 API v7</a></p>
     - title: SDK
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customsearch?view=azure-java-stable">Java - 自訂搜尋</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customimagesearch?view=azure-java-stable">Java - 自訂影像搜尋</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/customsearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch">Go - 自訂搜尋</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch">Go - 自訂影像搜尋</a></p>
     - title: PowerShell

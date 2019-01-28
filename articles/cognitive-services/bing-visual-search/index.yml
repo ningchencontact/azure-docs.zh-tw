@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 62bb4c70c2a5068c90196acc2a1898ceeaa6945c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 337c48d96a2ee679eda24500d9cb1a8d2581b2c7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787665"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912896"
 documentType: LandingData
-title: Bing 圖像式搜尋文件
+title: Bing 圖像式搜尋 API 文件
 metadata:
   document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
-  title: Bing 圖像式搜尋文件 - 教學課程和 API 參考
-  description: 了解如何使用 Bing 圖像式搜尋 API 取得深入解析的影像。 教學課程會示範如何建置使用此服務的應用程式。
+  title: Bing 圖像式搜尋 API 文件 - 教學課程、快速入門和 API 參考 | Microsoft Docs
+  description: 了解如何使用 Bing 圖像式搜尋 API 取得深入解析的影像。
   services: cognitive-services
   author: swhite-msft
   manager: rosh
@@ -19,15 +19,36 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/24/2018
+  ms.date: 01/16/2019
   ms.author: scottwhi
 abstract:
-  description: Bing 圖像式搜尋 API 提供的體驗與 Bing.com/images 類似，都會傳回深入解析的映像，例如視覺效果類似的影像、影像中找到的產品購物來源，以及相關搜尋。
+  description: Bing 圖像式搜尋 API 可對 Bing.com/images 上顯示的影像提供類似的影像詳細資料。 上傳影像或提供影像 URL，此 API 即可識別各種不同的詳細資料，包括外觀上類似的影像、購物來源、包含影像的網頁等等。
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-visual-search/overview
+      html: <p>了解 Bing 圖像式搜尋 API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: 什麼是 Bing 圖像式搜尋 API？
+    - href: /azure/cognitive-services/bing-visual-search/concepts/sending-queries
+      html: <p>了解如何將搜尋要求傳送至 Bing 圖像式搜尋 API。</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 傳送搜尋查詢
+    - href: /azure/cognitive-services/bing-visual-search/tutorial-visual-search-insights-token
+      html: <p>使用 Bing 影像搜尋 API 的深入解析權杖，將影像上傳至 Bing 圖像式搜尋 API</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 搜尋新聞
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
-    text: 透過將影像傳送至 Bing 並取回深入解析的影像，開始使用 Bing 圖像式搜尋 API：
+    text: 使用 Bing 圖像式搜尋 API 取得影像的深入解析：
   - type: table
     style: dataMatrix
     columns:
@@ -40,12 +61,12 @@ sections:
     - image:
         src: media/index/logo_python.svg
     rows:
-    - title: 第一個查詢
+    - title: ''
       values:
-      - href: quickstarts/csharp
-      - href: quickstarts/java
-      - href: quickstarts/nodejs
-      - href: quickstarts/python
+      - href: visual-search-sdk-c-sharp
+      - href: java
+      - href: visual-search-sdk-node
+      - href: visual-search-sdk-python
 - title: 逐步教學課程
   items:
   - type: paragraph
@@ -53,7 +74,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-bing-visual-search-single-page-app">單一頁面 Web 應用程式</a> | <a href="tutorial-bing-visual-search-single-page-app-source">原始程式碼</a>
+    - html: <a href="tutorial-bing-visual-search-single-page-app">單頁 Web 應用程式</a>
 - title: 參考
   items:
   - type: list

@@ -86,6 +86,22 @@ items:
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: 4- 清除叢集並刪除基礎結構
       href: service-fabric-tutorial-standalone-clean-up.md
+- name: 最佳作法
+  items:
+  - name: Service Fabric 最佳做法概觀
+    href: service-fabric-best-practices-overview.md
+  - name: 安全性
+    href: service-fabric-best-practices-security.md
+  - name: 網路功能
+    href: service-fabric-best-practices-networking.md
+  - name: 計算規劃和調整
+    href: service-fabric-best-practices-capacity-scaling.md
+  - name: 基礎結構即程式碼
+    href: service-fabric-best-practices-infrastructure-as-code.md
+  - name: 監視和診斷
+    href: service-fabric-best-practices-monitoring.md
+  - name: 實際執行整備檢查清單
+    href: service-fabric-production-readiness-checklist.md
 - name: 範例
   items:
   - name: 程式碼範例
@@ -702,10 +718,6 @@ items:
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: 針對本機叢集進行疑難排解
       href: service-fabric-troubleshoot-local-cluster-setup.md
-  - name: 最佳作法
-    items:
-    - name: 實際執行整備檢查清單
-      href: service-fabric-production-readiness-checklist.md
 - name: 參考
   items:
   - name: Azure PowerShell
@@ -827,9 +839,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: abf77c080d6093e9028f82ccac7b20d24389bdbb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5b487a8212cabb6809a9152e10dde7a1c9c7158f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352473"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913524"

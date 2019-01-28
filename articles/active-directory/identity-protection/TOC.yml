@@ -20,27 +20,45 @@ items:
   expanded: false
 - name: 使用說明指南
   items:
-  - name: 啟用 Azure AD Identity Protection
-    href: enable.md
-  - name: 設定 MFA 註冊原則
-    href: howto-mfa-policy.md
-  - name: 設定登入風險原則
-    href: howto-sign-in-risk-policy.md
-  - name: 設定使用者風險原則
-    href: howto-user-risk-policy.md
-  - name: 關閉進行中的風險事件
-    href: howto-close-active-risk-events.md
-  - name: 解除封鎖使用者
-    href: howto-unblock-user.md
-  - name: 模擬風險事件
-    href: playbook.md
-  - name: 使用 Microsoft Graph API
-    href: graph-get-started.md
-  - name: 常見問題集
-    href: faqs.md
+  - name: 身分識別保護
+    items:
+    - name: 啟用 Azure AD Identity Protection
+      href: enable.md
+    - name: 設定 MFA 註冊原則
+      href: howto-mfa-policy.md
+    - name: 設定登入風險原則
+      href: howto-sign-in-risk-policy.md
+    - name: 設定使用者風險原則
+      href: howto-user-risk-policy.md
+    - name: 關閉進行中的風險事件
+      href: howto-close-active-risk-events.md
+    - name: 解除封鎖使用者
+      href: howto-unblock-user.md
+    - name: 模擬風險事件
+      href: playbook.md
+    - name: 常見問題集
+      href: faqs.md
+  - name: 身分識別保護 (已重新整理)
+    items:
+    - name: 概觀
+      href: overview-v2.md
+    - name: 安全性概觀
+      href: security-overview.md
+    - name: 調查有風險的使用者和登入記錄
+      href: howto-investigate-risky-users-signins.md
+    - name: 設定風險原則
+      href: howto-configure-risk-policies.md
+    - name: 改善偵測精確度
+      href: howto-improve-detection-accuracy.md
+    - name: 常見問題和已知問題
+      href: known-issues.md
   expanded: true
 - name: 參考
   items:
+  - name: 使用 Microsoft Graph API
+    href: graph-get-started.md
+  - name: 風險事件
+    href: risk-events-reference.md
   - name: 詞彙
     href: glossary.md
 - name: 資源
@@ -57,9 +75,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 8e684f77d25e4ee685b715e8394faf00e3998be9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8c48b383ccd2ac30dc9598cd2da0f043afae43dc
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423291"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910941"

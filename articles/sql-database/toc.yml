@@ -9,6 +9,8 @@ items:
     href: sql-database-paas-vs-sql-server-iaas.md
 - name: 快速入門
   items:
+  - name: 受控執行個體快速入門
+    href: sql-database-managed-instance-quickstart-guide.md
   - name: 建立
     items:
     - name: 單一資料庫
@@ -688,9 +690,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: 解除安裝彈性工作 (取代)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 95ea4f676202fe06a1761c98ddb7e3e1a6f12708
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: a991b2f6a7ac90d38c653b4daf12948b1b800638
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447984"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078197"
