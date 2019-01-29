@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/12/2018
+ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2e631a0605385f8d55c652a26739b23a0945674f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 541d1473b21056e24c6b04b86414936a02b7d9d5
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077245"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382585"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教學課程：使用 Kestrel 將 HTTPS 端點新增至 ASP.NET Core Web API 前端服務
 
@@ -158,7 +158,9 @@ serviceContext =>
         }))
 ```
 
-此外，新增下列方法，以便 Kestrel 在 `Cert:\LocalMachine\My` 存放區中使用主體來尋找憑證。  如果您使用上一個 PowerShell 命令建立了自我簽署的憑證，請將 "&lt;your_CN_value&gt;" 取代為 "mytestcert"，或使用您憑證的 CN。
+此外，新增下列方法，以便 Kestrel 在 `Cert:\LocalMachine\My` 存放區中使用主體來尋找憑證。  
+
+如果您使用上一個 PowerShell 命令建立了自我簽署的憑證，請將 "&lt;your_CN_value&gt;" 取代為 "mytestcert"，或使用您憑證的 CN。
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -347,7 +349,7 @@ if ($cert -eq $null)
 
 ## <a name="install-certificate-on-cluster-nodes"></a>在叢集節點上安裝憑證
 
-將應用程式部署至 Azure 之前，將憑證安裝到遠端叢集節點的 `Cert:\LocalMachine\My` 存放區中。  當前端 Web 服務在叢集節點上啟動時，啟動指令碼會查閱憑證並設定存取權限。
+將應用程式部署至 Azure 之前，將憑證安裝到所有遠端叢集節點的 `Cert:\LocalMachine\My` 存放區中。  服務可以移至叢集的不同節點。  當前端 Web 服務在叢集節點上啟動時，啟動指令碼會查閱憑證並設定存取權限。
 
 首先，將憑證匯出至 PFX 檔案。 開啟 certlm.msc 應用程式，並巡覽至 **Personal**>**Certificates**。  以滑鼠右鍵按一下 mytestcert，然後選取 [所有工作]>[匯出]。
 

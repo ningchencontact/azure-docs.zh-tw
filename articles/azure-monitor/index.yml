@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5b8d5e639711b91d380b5f14de48be6a80fb0263
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d0fbabdae9b560a882bd4681eb9e681fd2a0398a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820762"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101765"
 documentType: LandingData
 title: Azure 監視器文件
 metadata:
@@ -16,7 +16,7 @@ metadata:
   ms.service: azure-monitor
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 01/22/2019
+  ms.date: 01/25/2019
   ms.author: bwren
 abstract:
   description: Azure 監視器現在包括 Log Analytics 與 Application Insights，它提供複雜的工具讓您用來收集並分析遙測，讓您可以將您雲端與內部部署資源與應用程式的效能與可用性最佳化。 它可協助您了解您的應用程式表現如何，並主動識別影響它們的問題以及它們所依賴的資源。
@@ -63,7 +63,7 @@ sections:
       text: 訂用帳戶稽核和警示
       href: /azure/monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription
   - type: paragraph
-    text: 了解如何使用 Azure Application Insights 開始監視您的應用程式。
+    text: 了解如何使用 Azure 監視器 Application Insights 開始監視您的應用程式。
   - type: list
     style: icon48
     items:

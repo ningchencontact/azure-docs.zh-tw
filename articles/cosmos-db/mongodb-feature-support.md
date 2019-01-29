@@ -7,14 +7,14 @@ ms.topic: overview
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 08638f0b55c84a6b0e42d3782246ef5b2ce833f3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ed440b5d4a95689c6b6d9f1986dfe35ea47e4298
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359063"
+ms.locfileid: "54390403"
 ---
-# <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>使用 Azure Cosmos DB 適用於 MongoDB 的 API 支援 MongoDB 功能和語法
+# <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB 適用於 MongoDB 的 API：支援的功能和語法
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以使用任何開放原始碼 MongoDB 用戶端[驅動程式](https://docs.mongodb.org/ecosystem/drivers)來與 Azure Cosmos DB 適用於 MongoDB 的 API 通訊。 Azure Cosmos DB 適用於 MongoDB 的 API 需遵循 MongoDB [有線通訊協定](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)，才能使用現有的用戶端驅動程式。
 

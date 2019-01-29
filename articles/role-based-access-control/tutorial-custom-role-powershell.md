@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 1e3043a6053625f8363e9035e59b53275714a827
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f49f6f03b6d9f1c51cada58ae782bbc364fc9d66
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300604"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427282"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立自訂角色
 
-如果內建的角色無法滿足您組織的特定需求，您可以建立自己的[自訂角色](built-in-roles.md)。 在此教學課程中，您會使用 Azure PowerShell 建立名為讀者支援票證的自訂角色。 自訂角色可讓使用者檢視訂用帳戶中的一切，也可開啟支援票證。
+如果[內建角色](built-in-roles.md)不符合組織的特定需求，您可以建立自己的自訂角色。 在此教學課程中，您會使用 Azure PowerShell 建立名為讀者支援票證的自訂角色。 自訂角色可讓使用者檢視訂用帳戶中的一切，也可開啟支援票證。
 
 在本教學課程中，您了解如何：
 
@@ -39,7 +39,7 @@ ms.locfileid: "43300604"
 若要完成本教學課程，您需要：
 
 - 建立自訂角色的權限，例如[擁有者](built-in-roles.md#owner)或[使用者存取管理員](built-in-roles.md#user-access-administrator)
-- 已在本機安裝 [Azure PowerShell](/powershell/azure/install-azurerm-ps)
+- 已在本機安裝 [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
 
 ## <a name="sign-in-to-azure-powershell"></a>登入 Azure PowerShell
 

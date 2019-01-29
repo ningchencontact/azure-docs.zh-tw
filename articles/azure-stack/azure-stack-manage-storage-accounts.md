@@ -11,36 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8eed0b4f2d14d22bdd9eddac9dbb4c0e02404975
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 149da2c186ae1e0c3fa5af14a630a0edef7deb25
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302709"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470268"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>在 Azure Stack 中管理儲存體帳戶
+
 了解如何在 Azure Stack 中管理儲存體帳戶，以便根據業務需求來尋找、復原及回收儲存體容量。
 
-## <a name="find"></a>尋找儲存體帳戶
+## <a name="find-a-storage-account"></a>尋找儲存體帳戶
 區域中的儲存體帳戶清單可在 Azure Stack 中，透過下列方式檢視：
 
 1. 登入[管理入口網站](https://adminportal.local.azurestack.external)。
 
-2. 在 [系統管理]底下選取 [所有服務]  >  [區域管理]。
+2. 選取 [所有服務] > [儲存體帳戶]。
 
-3. 從 [資源提供者] 清單中選取 [儲存體]。
-   
-   ![儲存體資源提供者](media/azure-stack-manage-storage-accounts/image1.png)
-
-5. 在 [儲存體] 中選取 [儲存體帳戶]。
-   
-   ![](media/azure-stack-manage-storage-accounts/image2.png)
-   
-   所顯示的刀鋒視窗就是在該區域中的儲存體帳戶清單。
-   
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
 預設會顯示前 10 個帳戶。 您可以按一下清單底部的 [載入更多] 連結，選擇擷取更多項目。
@@ -99,7 +90,7 @@ ms.locfileid: "54302709"
   如果已刪除的帳戶已經被記憶體回收，您的帳戶就不會顯示在帳戶清單中。 在此情況下，便無法復原該帳戶。 請參閱本文中的[回收容量](#reclaim)。
 
 ## <a name="set-the-retention-period"></a>設定保留期限
-保留期限設定可讓雲端操作員指定時間間隔天數 (介於 0 到 9999 天)，在此期間，任何已刪除的帳戶都可能復原。 預設保留期限設定為 0 天。 將值設定為 "0" 表示立即不保留任何已刪除的帳戶，並標示供定期記憶體回收。
+保留期限設定可讓雲端操作員指定時間間隔天數 (介於 0 到 9999 天)，在此期間，任何已刪除的帳戶都可能復原。 預設保留期限設定為 0 天。 將值設定為 "0" 表示立即不再保留任何已刪除的帳戶，並標示為供定期記憶體回收。
 
 **變更保留期限：**
 

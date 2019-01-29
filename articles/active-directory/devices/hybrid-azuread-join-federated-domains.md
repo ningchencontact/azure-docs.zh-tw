@@ -4,7 +4,7 @@ description: 了解如何設定適用於同盟網域的混合式 Azure Active Di
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2f904690187f6f2b020cb9cc32f9a20712d8bb53
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: af1495af69255c7daa7de94da6ce0321c13d7599
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107560"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448206"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>教學課程：設定適用於同盟網域的混合式 Azure Active Directory Join
 
@@ -73,11 +73,11 @@ ms.locfileid: "54107560"
 
 要使用混合式 Azure AD Join，您的裝置必須能夠從組織的網路中存取下列 Microsoft 資源：  
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
+- https\://enterpriseregistration.windows.net
+- https\://login.microsoftonline.com
+- https\://device.login.microsoftonline.com
 - 組織的 STS (同盟網域)
-- https://autologon.microsoftazuread-sso.com (如果您正在使用或預計要使用無縫 SSO)
+- https\://autologon.microsoftazuread-sso.com (如果您正在使用或預計要使用無縫 SSO)
 
 從 Windows 10 1803 開始，如果同盟網域 (例如 AD FS) 即時生效的混合式 Azure AD Join 失敗，我們將依賴 Azure AD Connect 來同步 Azure AD 中後續要用來為混合式 Azure AD Join 完成裝置註冊的電腦物件。
 

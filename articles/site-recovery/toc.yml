@@ -5,6 +5,8 @@ items:
   items:
   - name: 關於 Site Recovery
     href: site-recovery-overview.md
+  - name: Site Recovery 最新功能
+    href: site-recovery-whats-new.md
 - name: 快速入門
   items:
   - name: 將 Azure VM 複寫到另一個區域
@@ -452,9 +454,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 服務更新
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: c81028216a6af1fac6b6da261395d4fded3d8500
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 8cbe1fe9d7cbd22dfb16661b87b8758c41da5d70
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382498"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191180"

@@ -9,12 +9,12 @@ ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 380a7be6a42109f90da5dbd39ea557c06be4be6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2d6926b9d6a9b5bc4f3744fbd6fe8864a925ff17
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253698"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819742"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 開發 Azure 檔案服務
 
@@ -58,8 +58,8 @@ API | 使用時機 | 注意
 ## <a name="use-nuget-to-install-the-required-packages"></a>使用 NuGet 來安裝必要的封裝
 您必須在您的專案中參考下列兩個套件，才能完成本教學課程︰
 
-* [適用於 .NET 的 Microsoft Azure 儲存體用戶端資源庫](https://www.nuget.org/packages/WindowsAzure.Storage/)︰此封裝可供以程式設計方式存取儲存體帳戶中的資料資源。
-* [適用於 .NET 的 Microsoft Azure Configuration Manager 程式庫](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)︰此套件提供一個類別，無論您的應用程式於何處執行，均可用來剖析組態檔中的連接字串。
+* [適用於 .NET 的 Microsoft Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)：此套件可讓您以程式設計方式存取儲存體帳戶中的資料資源。
+* [適用於 .NET 的 Microsoft Azure Configuration Manager 程式庫](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)：此套件提供一個類別，無論您的應用程式於何處執行，均可用來剖析組態檔中的連接字串。
 
 您可以使用 NuGet 來取得這兩個封裝。 請遵循下列步驟：
 
@@ -324,8 +324,8 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 您可以用相同方式將 Blob 複製到檔案。 如果來源物件為 Blob，則請建立 SAS，以便在複製作業期間授權該 Blob 存取權。
 
-## <a name="share-snapshots-preview"></a>共用快照集 (預覽)
-從 Azure 儲存體用戶端程式庫的 8.5 版開始，您可以建立共用快照集 (預覽)。 您也可以列出或瀏覽共用快照集，並將共用快照集刪除。 共用快照集是唯讀的，因此共用快照集上不允許任何寫入作業。
+## <a name="share-snapshots"></a>共用快照集
+從 Azure 儲存體用戶端程式庫的 8.5 版開始，您可以建立共用快照集。 您也可以列出或瀏覽共用快照集，並將共用快照集刪除。 共用快照集是唯讀的，因此共用快照集上不允許任何寫入作業。
 
 **建立共用快照集**
 

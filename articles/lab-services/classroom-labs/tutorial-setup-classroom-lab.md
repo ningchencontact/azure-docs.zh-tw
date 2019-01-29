@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: babff55d6684feb1f0414970616260be96b994f4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: d0d02f491f14cc6e0664d79bcfd2cda44d433b5b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706002"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389953"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>教學課程：設定教室實驗室 
 您將在本教學課程中設定教室實驗室，且其中包含教室中學生所使用的虛擬機器。  
@@ -93,7 +93,7 @@ ms.locfileid: "51706002"
 1. 您會看到實驗室的**儀表板**。 
     
     ![教室實驗室儀表板](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-4. 切換到 [虛擬機器] 頁面，確認您看到虛擬機器處於 [未指派] 狀態。 這些虛擬機器尚未指派給任何學生。 它們應處於 [已停止] 狀態。 您可以在此頁面上啟動學生 VM、連線到 VM、停止 VM，以及刪除 VM。 您可以在此頁面啟動 VM，或是讓學生啟動 VM。 
+4. 選取左側功能表上的 [虛擬機器] 或選取 [虛擬機器] 圖格，以切換到 [虛擬機器] 頁面。 確認您看到處於 [未指派] 狀態的虛擬機器。 這些虛擬機器尚未指派給任何學生。 它們應處於 [已停止] 狀態。 您可以在此頁面上啟動學生 VM、連線到 VM、停止 VM，以及刪除 VM。 您可以在此頁面啟動 VM，或是讓學生啟動 VM。 
 
     ![已停止狀態的虛擬機器](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -112,19 +112,12 @@ ms.locfileid: "51706002"
 ## <a name="send-registration-link-to-students"></a>將註冊連結傳送給學生
 
 1. 如果您尚未在 [使用者] 頁面上，請切換至該檢視。 
-2. 選取 [取得註冊連結] 圖格。
+2. 選取工具列上的 [取得註冊連結]。
+1. 在 [使用者註冊] 對話方塊中，選取 [複製] 按鈕。 連結會複製到剪貼簿中。
 
-    ![學生註冊連結](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. 在 [使用者註冊] 對話方塊中，選取 [複製] 按鈕。 連結會複製到剪貼簿中。 
-
-    ![學生註冊連結](../media/tutorial-setup-classroom-lab/registration-link.png)
-2. 在 [使用者註冊] 對話方塊上，選取 [關閉]。 
-4. 將註冊連結分享給學生，讓他們能夠註冊課程。 如果您已啟用 [限制選項] 設定，而且有一份使用者清單，請執行下列動作：
-    1. 選取清單中使用者的**電子郵件地址**。 
-    2. 您可從預設電子郵件程式看見已填入 [收件人] 地址的視窗。 
-    3. 貼上您之前複製的 [註冊 URL]。 
-    4. 傳送**電子郵件**。
-
+    ![註冊連結](../media/tutorial-setup-classroom-lab/registration-link.png)
+1. 在 [使用者註冊] 對話方塊上，選取 [關閉]。 
+2. 將註冊連結分享給學生，讓他們能夠註冊課程。
 
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已建立教室實驗室並已設定實驗室。 若要了解學生可以如何使用註冊連結，來存取實驗室中的 VM，請前往下一個教學課程：

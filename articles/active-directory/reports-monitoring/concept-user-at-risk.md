@@ -3,7 +3,7 @@ title: Azure Active Directory 入口網站中標幟為有風險的使用者安�
 description: 了解 Azure Active Directory 入口網站中標幟為有風險的使用者安全性報告
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
@@ -11,15 +11,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/13/2018
+ms.date: 01/17/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9a7a3877970d5ecf3b86471b94fbb1bf6e5efbb4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: de9cf73ba7ad68d84e43a7774617959f9c3789ee
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621066"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810749"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Azure 入口網站中標幟為有風險的使用者報告
 
@@ -55,19 +55,16 @@ Azure AD 免費和基本版本中標幟為有風險的使用者報告，會提�
 
 ![有風險的登入](./media/concept-user-at-risk/03.png)
 
-選取使用者，即會開啟相關的使用者資料刀鋒視窗。 針對有風險的使用者，您可以檢閱使用者的登入記錄，如有必要，請重設密碼。
-
-![有風險的登入](./media/concept-user-at-risk/46.png)
-
+選取使用者時會提供登入資訊。 針對有風險的使用者，您可以檢閱使用者的登入記錄，如有必要，請重設密碼。
 
 此對話方塊會提供選項以便：
 
 - 下載報告
-
 - 搜尋使用者
 
-![有風險的登入](./media/concept-user-at-risk/16.png)
+    ![有風險的登入](./media/concept-user-at-risk/16.png)
 
+如需詳細資訊，您必須要有進階授權。
 
 ## <a name="users-at-risk-report-for-azure-ad-premium-editions"></a>Azure AD 進階版本的有風險使用者報告
 

@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 4f1ab6d955c81ce6f7b141eef42341f43bb379f6
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 9670d67fa1eb79e9e5e8c81726c10cc78767fb74
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165312"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435456"
 ---
 # <a name="what-is-azure-data-box-gateway-preview"></a>什麼是 Azure 資料箱閘道 (預覽)？ 
 
@@ -39,7 +39,10 @@ Azure 資料箱閘道是可讓您順利將資料傳送到 Azure 的儲存體解�
 
 - **資料傳輸容易** - 使將資料移入及移出 Azure 儲存體和使用區域網路共用一樣容易。  
 - **高效能** - 免於網路資料傳輸的麻煩，傳入和傳出 Azure 都具有高效能。 
-- **快速存取** - 為內部部署檔案的快速存取快取最新的檔案。  
+- **營業時間內的快速存取和高資料擷取速率** - 資料箱閘道具有您在佈建虛擬裝置時定義為本機容量大小的本機快取。 資料磁碟大小應依據[虛擬裝置最低需求](data-box-gateway-system-requirements.md#specifications-for-the-virtual-device)指定。 本機快取可提供下列優點：
+    - 本機快取允許高速率的資料擷取。 在尖峰營業時間內擷取大量資料時，快取可以保存資料並將它上傳至雲端。
+    - 本機快取允許特定臨界值內的快速讀取存取。 在達到裝置容量的 50-60% 之前，來自裝置的所有讀取都是從使其變快速的快取進行存取。 一旦裝置上已用的空間高於此臨界值，裝置就會開始移除本機檔案。 
+ 
 - **限制頻寬使用量** - 當系統在尖峰營運時段對網路進行節流以限制使用量時，資料也可以寫入至 Azure。  
 
 ## <a name="key-capabilities"></a>主要功能
@@ -67,7 +70,7 @@ Azure 資料箱閘道是可讓您順利將資料傳送到 Azure 的儲存體解�
 | 虛擬處理器 (核心)   | 最少 4 個 |            
 | 記憶體  | 最少 8 GB|
 | 可用性|單一節點|
-| 磁碟| 作業系統磁碟：250 GB <br> 資料磁碟：最少 2 TB，精簡佈建且必須以 SSD 支援|
+| 磁碟| OS 磁碟：250 GB <br> 資料磁碟：最少 2 TB、精簡佈建且必須以 SSD 為後盾|
 | 網路介面|1 或多個虛擬網路介面|
 | 原生的檔案共用通訊協定|SMB 和 NFS  |
 | 安全性| 驗證以解除存取裝置和資料的鎖定 <br> 資料傳輸使用 AES-256 位元加密|

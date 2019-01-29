@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 737dc40bafa519d59bcbc0ff6510a89cb3a840fa
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c8aa7050163c2b58ca68adcf9a9b4d0bc96bb126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263195"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808352"
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -57,7 +57,7 @@ Azure Migrate 可協助您：
 
 **屬性** | **詳細資料**
 --- | ---
-**目標位置** | 要作為移轉目的地的 Azure 位置。<br/><br/>Azure Migrate 目前支援 33 個區域作為移轉目標位置。 [查看區域](https://azure.microsoft.com/global-infrastructure/services/)。 根據預設，目標區域會設定為美國西部 2。
+**目標位置** | 要作為移轉目的地的 Azure 位置。<br/><br/>Azure Migrate 目前支援 33 個區域作為移轉目標位置。 [查看區域](https://azure.microsoft.com/global-infrastructure/services/)。 根據預設，目標區域會設定為美國東部。
 **儲存體類型** | 您想要為屬於評估的所有 VM 配置的受控磁碟類型。 如果調整大小準則為「作為內部部署調整大小」，您可以將目標磁碟類型指定為進階磁碟 (預設值)、標準 SSD 磁碟或標準 HDD 磁碟。 對於「效能型調整大小」，以及上述選項，您也可以選取 [自動] 選項，該選項會確保根據 VM 的效能資料自動建議磁碟大小。 例如，如果您想要達成 [99.9% 的單一執行個體 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)，則可能需要將儲存體類型指定為進階受控磁碟，如此可確保將評估中的所有磁碟建議為進階受控磁碟。 請注意，Azure Migrate 只支援將受控磁碟用於進行移轉評估。
 **保留執行個體** |  您在 Azure 中是否有[保留執行個體](https://azure.microsoft.com/pricing/reserved-vm-instances/)。 Azure Migrate 會據以預估成本。
 **調整大小準則** | 您可以根據內部部署 VM (預設值) 的**效能歷程記錄**來調整大小，或使用**作為內部部署**，而不考量效能歷程記錄。

@@ -2,19 +2,19 @@
 title: Azure 訊息比較 - 事件方格、事件中樞、服務匯流排
 description: 描述三個 Azure 訊息服務 - Azure 事件方格、事件中樞和服務匯流排。 建議針對不同案例挑選服務。
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
 ms.date: 12/07/2018
-ms.author: tomfitz
+ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 0eeded4e6bfe9041b360441d1e7b2a5c7dd4a099
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 80a2f9aa07f67c4d149a1ef8245f5e3269a751b3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166518"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469843"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>選擇 Azure 訊息服務 - 事件方格、事件中樞和服務匯流排
 
@@ -77,7 +77,7 @@ Azure 事件中樞是巨量資料管線。 它有助於擷取、保留和重送�
 
 ### <a name="service-bus"></a>服務匯流排
 
-服務匯流排適用於傳統的企業應用程式。 這些企業應用程式需要交易、排序、重複偵測和瞬間一致性。 服務匯流排可讓雲端原生應用程式提供可靠的狀態轉換管理以供業務處理使用。 要處理不可遺失或重複的高價值訊息時，請使用 Azure 服務匯流排。 服務匯流排也可以協助混合式雲端解決方案之間高度安全的通訊，並可將現有的內部部署系統連接到雲端解決方案。
+服務匯流排適用於傳統的企業應用程式。 這些企業應用程式需要交易、排序、重複偵測和瞬間一致性。 服務匯流排可讓[雲端原生](https://azure.microsoft.com/overview/cloudnative/)應用程式提供可靠的狀態轉換管理以供商務程序使用。 要處理不可遺失或重複的高價值訊息時，請使用 Azure 服務匯流排。 服務匯流排也可以協助混合式雲端解決方案之間高度安全的通訊，並可將現有的內部部署系統連接到雲端解決方案。
 
 服務匯流排是代理傳訊系統。 它可將訊息儲存在「訊息代理程式」(例如，佇列) 中，直到取用方準備接收這些訊息為止。
 

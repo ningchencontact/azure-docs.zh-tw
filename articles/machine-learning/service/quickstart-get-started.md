@@ -9,25 +9,23 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 12/04/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14c500d77cc0e67aaade5e6be490f599f39bfad5
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e3569f560224ab8c9a64ababb2fcea7e96e87367
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807715"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812449"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>快速入門：利用 Azure 入口網站開始使用 Azure Machine Learning
 
-在本快速入門中，您會使用 Azure 入口網站來建立 Azure Machine Learning 工作區。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。 本快速入門使用雲端資源，因此不需要安裝。 若要改為設定您自己的 Jupyter Notebook 伺服器，請參閱[快速入門：使用 Python 來開始使用 Azure Machine Learning](quickstart-create-workspace-with-python.md)。  
+使用 Azure 入口網站來建立 Azure Machine Learning 工作區。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。 本快速入門使用雲端資源，因此不需要安裝。 若要改為設定您自己的 Jupyter Notebook 伺服器，請參閱[快速入門：使用 Python 來開始使用 Azure Machine Learning](quickstart-create-workspace-with-python.md)。  
  
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
-
 在本快速入門中，您會執行下列動作：
 
 * 在您的 Azure 訂用帳戶中建立工作區。
-* 試著在 Azure Notebook 中使用 Python 並記錄多個反覆項目中的值。
+* 試著在 Jupyter Notebook 中使用 Python 加以執行，並記錄多次反覆運算的值。
 * 在工作區中檢視記錄的值。
 
 下列 Azure 資源可在區域內取得時，就會自動新增至您的工作區：
@@ -46,14 +44,14 @@ ms.locfileid: "53807715"
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-在工作區頁面上，選取 `Explore your Azure Machine Learning service Workspace`。
-
- ![探索工作區](./media/quickstart-get-started/explore_aml.png)
-
 
 ## <a name="use-the-workspace"></a>使用工作區
 
-現在會看到工作區如何協助您管理機器學習服務指令碼。 在本節中，您會執行下列步驟：
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
+
+
+
+現在，請了解工作區如何協助您管理機器學習服務指令碼。 在本節中，您會執行下列步驟：
 
 * 在 Azure Notebooks 中開啟 Notebook。
 * 執行程式碼來建立一些記錄的值。
@@ -63,46 +61,57 @@ ms.locfileid: "53807715"
 
 ### <a name="open-a-notebook"></a>開啟 Notebook 
 
-Azure Notebooks 會為 Jupyter Notebook 提供免費的雲端平台，其會利用您執行 Machine Learning 所需的一切來預先設定。  
+[Azure Notebooks](https://notebooks.azure.com) 會為 Jupyter Notebook 提供免費的雲端平台，其中預先設定了您執行 Machine Learning 所需的一切。 在您的工作區中，您可以啟動此平台以開始使用 Azure Machine Learning 服務工作區。
 
-選取 `Open Azure Notebooks` 嘗試您的第一個實驗。
+1. 在工作區頁面上，選取 [探索您的 Azure Machine Learning 服務工作區]。
+
+ ![探索工作區](./media/quickstart-get-started/explore_aml.png)
+
+1. 選取 [開啟 Azure Notebooks]，在 Azure Notebooks 中嘗試您的第一個實驗。  Azure Notebooks 是一項個別的服務，可讓您在雲端中免費執行 Jupyter Notebook。  當您使用服務的這個連結時，有關於如何連線到工作區的資訊將會新增至您在 Azure Notebooks 中建立的程式庫。
 
  ![開啟 Azure Notebooks](./media/quickstart-get-started/explore_ws.png)
 
-您的組織可能需要[系統管理員的同意](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent)，您才能登入。
+1. 登入 Azure Notebooks。  請確實使用您用來登入 Azure 入口網站的相同帳戶進行登入。 您的組織可能需要[系統管理員的同意](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent)，您才能登入。
 
-使用您用來登入 Azure 入口網站的相同帳戶來登入 Azure Notebooks。  登入之後，即會開啟新索引標籤並出現 `Clone Library` 提示。 選取 `Clone`。
+1. 登入之後，即會開啟新索引標籤並出現 `Clone Library` 提示。 複製此程式庫時，會將一組 Notebook 和其他檔案載入您的 Azure Notebooks 帳戶中。  這些檔案有助於您探索 Azure Machine Learning 的功能。
 
+1. 取消核取 [公用]，使您不會與他人共用您的工作區資訊。
+
+1. 選取 [複製]。
+
+ ![複製程式庫](./media/quickstart-get-started/clone.png)
+
+1. 如果您看到專案狀態為「已停止」，請按一下 [以免費計算執行]，以使用免費的 Notebook 伺服器。
+
+    ![以免費計算執行專案](./media/quickstart-get-started/run-project.png)
 
 ### <a name="run-the-notebook"></a>執行 Notebook
 
-除了兩個 Notebook，您還會看見 `config.json` 檔案。 此組態檔包含您建立的工作區相關資訊。  
+在此專案的檔案清單中，您會看到 `config.json` 檔案。 此組態檔包含與您在 Azure 入口網站中建立的工作區有關的資訊。  此檔案可讓您的程式碼連線至工作區以及在其中新增資訊。
 
-選取 `01.run-experiment.ipynb` 來開啟 Notebook。
+1. 選取 **01.run-experiment.ipynb** 以開啟 Notebook。
 
-一次執行一個資料格 (Shift + Enter)。 或者選取 `Cells` > `Run All` 來執行整個 Notebook。 當您在資料格旁邊看到星號 __*__ 時，表示它正在執行中。 該資料格的程式碼完成後，就會出現一個數字。 
+1. 狀態區域會指示您等待核心啟動。  核心準備就緒後，此訊息就會消失。
+
+    ![等待核心啟動](./media/quickstart-get-started/wait-for-kernel.png)
+
+1. 核心啟動後，請使用 **Shift+Enter** 逐一執行資料格。 或者，選取 [資料格] > [全部執行] 以執行整個 Notebook。 如果您在資料格旁邊看到星號 __*__，表示資料格正在執行中。 該資料格的程式碼完成後，就會出現一個數字。 
+
+1. 依照 Notebook 中的指示驗證您的 Azure 訂用帳戶。
 
 在 Notebook 中的所有資料格都執行完成後，您可以在工作區中檢視記錄的值。
 
 ## <a name="view-logged-values"></a>檢視記錄的值
 
-在 Notebook 中執行所有資料格之後，請回到入口網站頁面。  
+1. `run` 資料格的輸出包含連回 Azure 入口網站的連結，可讓您在工作區中檢視實驗結果。 
 
-選取 `View Experiments`。
+    ![檢視實驗](./media/quickstart-get-started/view_exp.png)
 
-![檢視實驗](./media/quickstart-get-started/view_exp.png)
+1. 按一下 [連結至 Azure 入口網站]，在您的工作區中檢視執行的相關資訊。  此連結會在 Azure 入口網站中開啟您的工作區。
 
-關閉 `Reports` 快顯。
+1. 您看到的記錄值繪圖已自動建立於工作區中。 每當您使用相同的名稱參數記錄多個值時，系統就會自動為您產生繪圖。
 
-選取 `my-first-experiment`。
-
-查看您剛才進行的執行相關資訊。 向下捲動頁面以找出執行表格。 選取執行號碼連結。
-
- ![執行歷程記錄連結](./media/quickstart-get-started/report.png)
-
-您會看到已自動建立所記錄值的繪圖。 每當您使用相同的名稱參數記錄多個值時，系統就會自動為您產生繪圖。
-
-   ![檢視歷程記錄](./media/quickstart-get-started/plots.png)
+   ![檢視歷程記錄](./media/quickstart-get-started/web-results.png)
 
 用於大致估計 pi 的程式碼會使用隨機值，因此您的圖會顯示不同的值。  
 

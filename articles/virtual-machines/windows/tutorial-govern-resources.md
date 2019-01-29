@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 6377a54cc862bb5f62726c3ce91a41cc6eb0763d
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 6b36cdecb178a7189773abbfe963411e19764401
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311383"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438655"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>教學課程：了解如何使用 Azure PowerShell 來控管 Windows 虛擬機器
 
@@ -27,7 +27,7 @@ ms.locfileid: "49311383"
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-本文的範例需要 Azure PowerShell 6.0 版或更新版本。 如果您要在本機執行 PowerShell，但沒有 6.0 版或更新版本，請[更新您的版本](/powershell/azure/install-azurerm-ps)。 您也需要執行 `Connect-AzureRmAccount` 來建立與 Azure 的連線。 針對本機安裝，您還必須[下載 Azure AD PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD/)以建立新的 Azure Active Directory 群組。
+本文的範例需要 Azure PowerShell 6.0 版或更新版本。 如果您要在本機執行 PowerShell，但沒有 6.0 版或更新版本，請[更新您的版本](/powershell/azure/azurerm/install-azurerm-ps)。 您也需要執行 `Connect-AzureRmAccount` 來建立與 Azure 的連線。 針對本機安裝，您還必須[下載 Azure AD PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD/)以建立新的 Azure Active Directory 群組。
 
 ## <a name="understand-scope"></a>了解範圍
 

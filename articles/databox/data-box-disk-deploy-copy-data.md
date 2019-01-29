@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 10750b5005810ec9034d2b4c7907578949ca6821
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 97c33a5dc2eb43644081579b5d1c0172ce953906
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155196"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449345"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>教學課程：將資料複製到 Azure 資料箱磁碟並確認
 
@@ -161,7 +161,7 @@ ms.locfileid: "54155196"
     
     如需 Robocopy 命令的詳細資訊，請移至 [Robocopy 和數個範例](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx)。
 
-6. 開啟目標資料夾，以檢視並確認已複製的檔案。 如果您在複製程序期間遇到任何錯誤，請下載記錄檔以進行疑難排解。 記錄檔位於 robobopy 命令所指定的位置。
+6. 開啟目標資料夾，以檢視並確認已複製的檔案。 如果您在複製程序期間遇到任何錯誤，請下載記錄檔以進行疑難排解。 記錄檔位於 robocopy 命令所指定的位置。
  
 > [!IMPORTANT]
 > - 您必須負責確保將資料複製到資料夾中，該資料夾對應至適當的資料格式。 例如，將區塊 Blob 資料複製到區塊 Blob 的資料夾。 如果資料格式與適當資料夾 (儲存體類型) 不相符，則在稍後步驟中，資料上傳至 Azure 會失敗。

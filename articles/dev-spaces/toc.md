@@ -28,6 +28,7 @@
 ### [使用自訂 NuGet 摘要](how-to/use-custom-nuget-feed.md)
 ### [使用 Kubectl 搭配 Azure 開發人員空間](how-to/use-kubectl-with-azure-dev-spaces.md)
 ### [升級 Azure Dev Spaces 工具](how-to/upgrade-tools.md)
+### [適用於 Azure Dev Space 的業務持續性和災害復原](how-to/dev-spaces-business-continuity.md)
 
 ## [疑難排解](troubleshooting.md)
 

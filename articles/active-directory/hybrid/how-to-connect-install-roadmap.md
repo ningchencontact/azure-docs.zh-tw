@@ -3,7 +3,7 @@ title: Azure AD Connect 和 Azure AD Connect Health 安裝藍圖。 | Microsoft 
 description: 此文件提供適用於安裝 Azure AD Connect 和 Connect Health 的安裝選項和路徑概觀。
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5da946ff0c9bdda91668999db2fccdd12a67c0d2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 149c6436101750811af9ba3051ab715dd9eac021
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253188"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462330"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 和 Azure AD Connect Health 安裝藍圖
 
@@ -55,7 +55,7 @@ ms.locfileid: "51253188"
 |支援的拓撲 | [Azure AD Connect 的拓撲](plan-connect-topologies.md)|
 |設計概念 | [Azure AD Connect 的設計概念](plan-connect-design-concepts.md)|
 |用於安裝的帳戶 | [進一步了解 Azure AD Connect 認證和權限](reference-connect-accounts-permissions.md)|
-|作業規劃 | [Azure AD Connect 同步處理：作業工作和考量](how-to-connect-sync-operations.md)|
+|作業規劃 | [Azure AD Connect 同步：作業工作和考量](how-to-connect-sync-operations.md)|
 |使用者登入選項 | [Azure AD Connect 使用者登入選項](plan-connect-user-signin.md)|
 
 ## <a name="configure-sync-features"></a>設定同步處理功能
@@ -76,12 +76,12 @@ Azure AD Connect 隨附數個您可以選擇性地開啟或預設為啟用的功
 ### <a name="next-steps-to-configure-sync-features"></a>設定同步處理功能的後續步驟
 |話題 |連結|  
 | --- | --- |
-|設定篩選 | [Azure AD Connect 同步處理：設定篩選](how-to-connect-sync-configure-filtering.md)|
+|設定篩選 | [Azure AD Connect 同步：設定篩選](how-to-connect-sync-configure-filtering.md)|
 |密碼雜湊同步處理 | [密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md)|
 |傳遞驗證 | [傳遞驗證](how-to-connect-pta.md)
 |密碼回寫 | [開始使用密碼管理](../authentication/quickstart-sspr.md)|
 |裝置回寫 | [在 Azure AD Connect 中啟用裝置回寫](how-to-connect-device-writeback.md)|
-|防止意外刪除 | [Azure AD Connect 同步處理：防止意外刪除](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
+|防止意外刪除 | [Azure AD Connect 同步：防止意外刪除](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
 |自動升級 | [Azure AD Connect：自動升級](how-to-connect-install-automatic-upgrade.md)|
 
 ## <a name="customize-azure-ad-connect-sync"></a>自訂 Azure AD Connect 同步處理
@@ -97,10 +97,10 @@ Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預
 |話題 |連結|  
 | --- | --- |
 |所有 Azure AD Connect 同步處理文章 | [Azure AD Connect 同步處理](how-to-connect-sync-whatis.md)|
-|技術概念 | [Azure AD Connect 同步處理：技術概念](how-to-connect-sync-technical-concepts.md)|
-|了解預設組態 | [Azure AD Connect 同步處理：了解預設組態](concept-azure-ad-connect-sync-default-configuration.md)|
-|了解使用者和連絡人 | [Azure AD Connect 同步處理：了解使用者和連絡人](concept-azure-ad-connect-sync-user-and-contacts.md)|
-|宣告式佈建 | [Azure AD Connect 同步處理：了解宣告式佈建運算式](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|
+|技術概念 | [Azure AD Connect 同步：技術概念](how-to-connect-sync-technical-concepts.md)|
+|了解預設組態 | [Azure AD Connect 同步：了解預設組態](concept-azure-ad-connect-sync-default-configuration.md)|
+|了解使用者和連絡人 | [Azure AD Connect 同步：了解使用者和連絡人](concept-azure-ad-connect-sync-user-and-contacts.md)|
+|宣告式佈建 | [Azure AD Connect Sync：了解宣告式佈建運算式](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|
 |變更預設組態 | [變更預設組態的最佳作法](how-to-connect-sync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>設定同盟功能
@@ -158,13 +158,13 @@ Azure AD Connect Health 入口網站會顯示警示、效能監視和使用情�
     
 ![Azure AD Connect Health 入口網站](./media/whatis-hybrid-identity-health/portalsidebar.png)
 
-* **快速入門**︰當您選取此選項時，[快速入門] 刀鋒視窗隨即開啟。 您可以選取 [取得工具] 下載 Azure AD Connect Health 代理程式。 您也可以存取文件，並提供意見反應。
-* **Azure Active Directory Connect (同步處理)**：此選項會顯示 Azure AD Connect Health 目前正在監視的 Azure AD Connect 伺服器。 [同步錯誤] 項目會依照類別顯示第一個上線同步處理服務的基本同步錯誤。 當您選取 [同步處理服務] 時，開啟的刀鋒視窗會顯示 Azure AD Connect 伺服器的相關資訊。 如需深入了解這些功能，請參閱[使用 Azure AD Connect Health 進行同步處理](how-to-connect-health-sync.md)。
-* **Active Directory Federation Services**：此選項會顯示 Azure AD Connect Health 目前正在監視的所有 AD FS 服務。 當您選取執行個體時，開啟的刀鋒視窗會顯示該服務執行個體的相關資訊。 這項資訊包括概觀、屬性、警示、監視和使用情況分析。 如需深入了解這些功能，請參閱[搭配 AD FS 使用 Azure AD Connect Health](how-to-connect-health-adfs.md)。
+* **快速入門**：當您選取此選項時，[快速入門] 刀鋒視窗隨即開啟。 您可以選取 [取得工具] 下載 Azure AD Connect Health 代理程式。 您也可以存取文件，並提供意見反應。
+* **Azure Active Directory Connect (同步)**：此選項會顯示 Azure AD Connect Health 目前正在監視的 Azure AD Connect 伺服器。 [同步錯誤] 項目會依照類別顯示第一個上線同步處理服務的基本同步錯誤。 當您選取 [同步處理服務] 時，開啟的刀鋒視窗會顯示 Azure AD Connect 伺服器的相關資訊。 如需深入了解這些功能，請參閱[使用 Azure AD Connect Health 進行同步處理](how-to-connect-health-sync.md)。
+* **Active Directory 同盟服務**：此選項會顯示 Azure AD Connect Health 目前正在監視的所有 AD FS 服務。 當您選取執行個體時，開啟的刀鋒視窗會顯示該服務執行個體的相關資訊。 這項資訊包括概觀、屬性、警示、監視和使用情況分析。 如需深入了解這些功能，請參閱[搭配 AD FS 使用 Azure AD Connect Health](how-to-connect-health-adfs.md)。
 * **Active Directory Domain Services**：此選項會顯示 Azure AD Connect Health 目前正在監視的所有 AD DS 樹系。 當您選取樹系時，開啟的刀鋒視窗會顯示該樹系的相關資訊。 這項資訊包括基本資訊概觀、網域控制站儀表板、複寫狀態儀表板、警示和監視。 如需深入了解這些功能，請參閱[在 AD DS 使用 Azure AD Connect Health](how-to-connect-health-adds.md)。
-* **設定**︰本節包含開啟或關閉下列功能的選項︰
+* **設定**：本節包含開啟或關閉下列功能的選項︰
 
-  - [設定]  項目包含代理程式的基本組態。 自動升級設定可將 Azure AD Connect Health 代理程式自動更新為最新版本：您將會在發佈最新版的 Azure AD Connect Health 代理程式時，自動更新為最新版本。 此選項預設為啟用狀態。 僅允許 Microsoft 存取您的 Azure AD 目錄的健康狀況資料供疑難排解之用：如果啟用此選項，Microsoft 可以看到您所看到的相同資料。 這項資訊可能有助於進行問題的疑難排解和協助。 此選項預設為停用狀態。
+  - [設定]  項目包含代理程式的基本組態。 自動更新設定能將 Azure AD Connect Health 代理程式自動更新為最新版本：您將會在發佈最新版的 Azure AD Connect Health 代理程式時，自動更新為最新版本。 此選項預設為啟用狀態。 僅允許 Microsoft 存取您的 Azure AD 目錄的健康狀況資料供疑難排解之用：如果啟用此選項，Microsoft 可以看到您所看到的相同資料。 這項資訊可能有助於進行問題的疑難排解和協助。 此選項預設為停用狀態。
 * **角色型存取控制 (IAM)** 是用來管理角色基底中 Connect Health 資料存取權的區段。 
 
 ## <a name="next-steps"></a>後續步驟

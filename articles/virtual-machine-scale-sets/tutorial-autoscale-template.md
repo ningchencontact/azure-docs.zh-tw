@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: e1257cbe14d8d0fe9dc6d9b0f2a48dbb8b3cc6e4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 81c33818733b2896f98e1f3a3648b4fe9b823211
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466543"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413850"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>教學課程：使用 Azure 範本自動調整虛擬機器擴展集
 當建立擴展集時，您會定義您想要執行的 VM 執行個體數目。 當您的應用程式需求變更時，您可以自動增加或減少 VM 執行個體數目。 自動調整的能力可讓您在整個應用程式的生命週期中，跟上客戶的需求或對應用程式效能變更做出回應。 在本教學課程中，您將了解如何：
@@ -164,7 +164,7 @@ az group deployment create \
 ## <a name="generate-cpu-load-on-scale-set"></a>在擴展集上產生 CPU 負載
 若要測試自動調整規則，請擴展集中的 VM 執行個體上產生 CPU 負載。 這種模擬的 CPU 負載會使自動調整規則相應放大，並增加 VM 執行個體數目。 當模擬的 CPU 負載隨後減輕時，自動調整規則即會相應縮小，並減少 VM 執行個體數目。
 
-首先，請使用 [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info)，列出連線至擴展集中的 VM 執行個體的位址和連接埠：
+首先，請使用 [az vmss list-instance-connection-info](/cli/azure/vmss)，列出連線至擴展集中的 VM 執行個體的位址和連接埠：
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -194,7 +194,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-當 **stress** 顯示類似於 stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd 的輸出時，請按 Enter 鍵返回提示。
+當 **stress** 顯示類似於 stress: info: [2688] dispatching hogs:*10 cpu, 0 io, 0 vm, 0 hdd* 的輸出時，請按 Enter 鍵返回提示。
 
 若要確認 **stress** 產生了 CPU 負載，請使用 **top** 公用程式檢查作用中的系統負載：
 
@@ -209,7 +209,7 @@ Ctrl-c
 exit
 ```
 
-使用先前的 [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) 中所列的連接埠號碼，連線至第二個 VM 執行個體：
+使用先前的 [az vmss list-instance-connection-info](/cli/azure/vmss) 中所列的連接埠號碼，連線至第二個 VM 執行個體：
 
 ```azurecli-interactive
 ssh azureuser@13.92.224.66 -p 50003
@@ -222,7 +222,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-同樣地，當 **stress** 顯示類似於 stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd 的輸出時，請按 Enter 鍵返回提示。
+再次，當 **stress** 顯示類似於 stress: info: [2713] dispatching hogs:*10 cpu, 0 io, 0 vm, 0 hdd* 的輸出時，請按 Enter 鍵返回提示。
 
 關閉第二個 VM 執行個體的連線。 **stress** 會繼續對 VM 執行個體執行。
 

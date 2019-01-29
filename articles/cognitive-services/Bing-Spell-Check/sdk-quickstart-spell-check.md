@@ -1,5 +1,5 @@
 ---
-title: 快速入門：Bing 拼字檢查 SDK，C#
+title: 快速入門：Bing 拼字檢查 SDK (C#)
 titlesuffix: Azure Cognitive Services
 description: 設定拼字檢查 SDK 主控台應用程式
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 3050bc06c30c29efe7ba5294cbbee2aea1a6055b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9ae21e66c178ceb9c6aab814c6528da032ce0b30
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311597"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382112"
 ---
-# <a name="quickstart-bing-spell-check-sdk-with-c"></a>快速入門：搭配使用 Bing 拼字檢查 SDK 與 C#
+# <a name="quickstart-bing-spell-check-sdk-with-c"></a>快速入門：採用 C# 的 Bing 拼字檢查 SDK
 
 Bing 拼字檢查 SDK 包含了 REST API 用來進行拼字檢查的功能。
 
@@ -46,10 +46,10 @@ using Microsoft.Azure.CognitiveServices.Language.SpellCheck;
 var client = new SpellCheckClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 ```
 
-使用用戶端來檢查拼字：
+使用用戶端來檢查文字的拼字。 `acceptLanguage` 是選用參數：
 
 ```cs
-var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US").Result;
+var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US", market: "en-US").Result;
 Console.WriteLine("Correction for Query# \"bill gatas\"");
 ```
 
@@ -95,7 +95,7 @@ if (result?.Body.FlaggedTokens?.Count > 0)
 ```cs
 using System;
 using System.Linq;
-using Microsoft.Azure.CognitiveServices.SpellCheck;
+using Microsoft.Azure.CognitiveServices.Language.SpellCheck;
 
 namespace SpellCheckSDK
 {
@@ -107,7 +107,7 @@ namespace SpellCheckSDK
 
             try
             {
-                var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US").Result;
+                var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US", market:"en-US").Result;
                 Console.WriteLine("Correction for Query# \"bill gatas\"");
 
                 // SpellCheck Results

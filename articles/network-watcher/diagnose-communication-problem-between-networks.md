@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: d89c5a3f2545edd7c02b67fa9d2e2b78937a9791
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c8d1f659078a36bc57e92b01e6e32502be7a0ea9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779519"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434745"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站診斷網路之間的通訊問題
 
@@ -33,10 +33,10 @@ ms.locfileid: "32779519"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用 VPN 診斷，您必須具有現有且正在執行中的 VPN 閘道。 如果您沒有現有 VPN 閘到可以診斷，可以使用 [PowerShell 指令碼](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)部署一個閘道。 您可以從下列位置執行 PowerShell 指令碼：
-    - **本機 PowerShell 安裝**：指令碼需要 AzureRM PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+    - **本機 PowerShell 安裝**：指令碼需要 AzureRM PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
     - **Azure Cloud Shell**：[Azure Cloud Shell](https://shell.azure.com/powershell) 已安裝並設定最新版本的 PowerShell，會將您登入到 Azure。
 
 指令碼建立 VPN 閘道大約需要一小時。 剩餘步驟會假設您要診斷由此指令碼部署的閘道。 如果您改為診斷自己的現有閘道，則結果將會不同。
@@ -49,8 +49,8 @@ ms.locfileid: "32779519"
 
 如果您已經在美國東部區域中啟用網路監看員，請跳至[診斷閘道](#diagnose-a-gateway)。
 
-1. 在入口網站中，選取 [所有服務]。 在 [篩選] 方塊中，輸入*網路監看員*。 當結果中出現**網路監看員**時，請加以選取。
-2. 選取 [區域]、展開它，然後選取 [美國東部] 右邊的 [...]，如下圖所示：
+1. 在入口網站中，選取 [所有服務]。 在 [篩選條件] 方塊中，輸入*網路監看員*。 當結果中出現**網路監看員**時，請加以選取。
+2. 選取 [地區]、展開它，然後選取 [美國東部] 右邊的 [...]，如下圖所示：
 
     ![啟用網路監看員](./media/diagnose-communication-problem-between-networks/enable-network-watcher.png)
 

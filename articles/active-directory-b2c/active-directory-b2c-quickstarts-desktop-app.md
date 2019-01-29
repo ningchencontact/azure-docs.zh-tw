@@ -3,20 +3,20 @@ title: 快速入門 - 設定使用 Azure Active Directory B2C 登入傳統型應
 description: 執行範例 ASP.NET 傳統型應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b018872eb1bd8575004fc50124c8ab8b77564b15
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: a16cbdb441436e95ad1cdbe4880855b5eb05281e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247567"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854867"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 登入傳統型應用程式 
 
@@ -60,7 +60,7 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
 ## <a name="edit-your-profile"></a>編輯您的設定檔
 
-Azure AD B2C 提供讓使用者更新其設定檔的功能。 範例 Web 應用程式會對工作流程使用 Azure AD B2C 編輯設定檔原則。 
+Azure AD B2C 提供讓使用者更新其設定檔的功能。 範例 Web 應用程式會對工作流程使用 Azure AD B2C 編輯設定檔使用者流程。 
 
 1. 在應用程式功能表列中，按一下 [編輯設定檔] 以編輯您建立的設定檔。
 

@@ -3,7 +3,7 @@ title: Azure AD Connect：開始使用快速設定 | Microsoft Docs
 description: 了解如何下載、安裝和執行 Azure AD Connect 的安裝精靈。
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: b6ce45fd-554d-4f4d-95d1-47996d561c9f
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 14ed452759aa74abf5eaa2ae37a39f6172889313
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b3b90950ea0ade8064680e813958b0575d11aab6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233315"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467990"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>使用快速設定開始使用 Azure AD Connect
 當您有單一樹系拓撲和用於驗證的**密碼雜湊同步處理**時，便可使用 Azure AD Connect [快速設定](how-to-connect-password-hash-synchronization.md)。 **快速設定** 是預設選項，並且會用在最常部署的案例。 只要簡短地按幾下即可將內部部署目錄擴充至雲端。
@@ -62,7 +62,7 @@ ms.locfileid: "51233315"
 ## <a name="next-steps"></a>後續步驟
 安裝了 Azure AD Connect 之後，您可以 [驗證安裝和指派授權](how-to-connect-post-installation.md)。
 
-深入了解這些在安裝時啟用的功能︰[自動升級](how-to-connect-install-automatic-upgrade.md)、[防止意外刪除](how-to-connect-sync-feature-prevent-accidental-deletes.md)和 [Azure AD Connect Health](how-to-connect-health-sync.md)。
+深入了解這些在安裝時啟用的功能︰[自動升級](how-to-connect-install-automatic-upgrade.md)、[防止意外刪除](how-to-connect-sync-feature-prevent-accidental-deletes.md)及 [Azure AD Connect Health](how-to-connect-health-sync.md)。
 
 深入了解這些常見主題︰[排程器和如何觸發同步處理](how-to-connect-sync-feature-scheduler.md)。
 

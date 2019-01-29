@@ -2,8 +2,8 @@
 title: 使用 Azure 通知中樞將通知傳送給特定使用者 | Microsoft Docs
 description: 了解如何使用通用 Windows 平台 (UWP) 應用程式將通知傳送給特定使用者。
 documentationcenter: windows
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 services: notification-hubs
 ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
@@ -13,23 +13,25 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/04/2018
-ms.author: dimazaid
-ms.openlocfilehash: d2d0e878aed5b200852e56a29ce0430305d4efc6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: e1df8b486a6e57d4c0a860652ef7e71e4dc76f9e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251537"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451811"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知傳送給特定使用者
+
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>概觀
-本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。 ASP.NET WebAPI 後端是用來驗證用戶端。 後端在驗證用戶端應用程式使用者時，會自動將標記新增至通知登錄。 後端會使用此標記將通知傳送給特定使用者。 
+
+本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。 ASP.NET WebAPI 後端是用來驗證用戶端。 後端在驗證用戶端應用程式使用者時，會自動將標記新增至通知登錄。 後端會使用此標記將通知傳送給特定使用者。
 
 > [!NOTE]
-> 您可以在 [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers) 上找到本教學課程的完整程式碼。 
+> 您可以在 [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers) 上找到本教學課程的完整程式碼。
 
 在本教學課程中，您會執行下列步驟：
 
@@ -42,31 +44,29 @@ ms.locfileid: "51251537"
 > * 更新用戶端專案的程式碼
 > * 測試應用程式
 
-
 ## <a name="prerequisites"></a>必要條件
-本教學課程的建置基礎，是通知中樞以及您在[教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)教學課程中建立的 Visual Studio 專案。 因此，請先加以完成，再開始進行本教學課程。 
+
+本教學課程以您在以下教學課程中建立的通知中樞和 Visual Studio 專案為基礎：[教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)。 因此，請先加以完成，再開始進行本教學課程。
 
 > [!NOTE]
 > 如果您使用 Azure App Service 中的 Mobile Apps 作為後端服務，請參閱本教學課程的 [Mobile Apps 版本](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) 。
 
-
-&nbsp;
-
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## <a name="update-the-code-for-the-client-project"></a>更新用戶端專案的程式碼
-在本節中，您會更新您為[教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)教學課程完成之專案中的程式碼。 此專案應已與 Windows 市集產生關聯。 此外它也應設定成使用您的通知中樞。 在本節中，您會新增程式碼以呼叫新的 WebAPI 後端，並使用它來註冊和傳送通知。
 
-1. 在 Visual Studio 中，開啟您為[教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)建立的解決方案。
+在本節中，您會更新已針對以下教學課程完成之專案中的程式碼：[教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)。 此專案應已與 Windows 市集產生關聯。 此外它也應設定成使用您的通知中樞。 在本節中，您會新增程式碼以呼叫新的 WebAPI 後端，並使用它來註冊和傳送通知。
+
+1. 在 Visual Studio 中，開啟您為以下教學課程所建立的方案：[教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)。
 2. 在方案總管中，以滑鼠右鍵按一下 **WindowsApp** 專案，然後按一下 [管理 NuGet 套件]。
 3. 在左側，按一下 [線上] 。
 4. 在 [搜尋] 方塊中，輸入 **Http Client**。
 5. 在 [結果] 清單中按一下 **System.Net.Http**，然後按一下 [安裝]。 完成安裝。
 6. 回到 NuGet [搜尋] 方塊，輸入 **Json.net**。 安裝 **Newtonsoft.json** 套件，然後關閉 [NuGet 套件管理員] 視窗。
-8. 在方案總管的 **WindowsApp** 專案中按兩下 **MainPage.xaml**，在 Visual Studio 編輯器中開啟該檔案。
-9. 在 **MainPage.xaml** XML 程式碼中，將 `<Grid>` 區段取代為下列程式碼：此程式碼會新增使用者用於驗證的使用者名稱和密碼文字方塊。 它也會加入通知訊息的文字方塊，以及應接收通知的使用者名稱標記：
+7. 在方案總管的 **WindowsApp** 專案中按兩下 **MainPage.xaml**，在 Visual Studio 編輯器中開啟該檔案。
+8. 在 `MainPage.xaml` XML 程式碼中，使用下列程式碼取代 `<Grid>` 區段：此程式碼會新增使用者用來進行驗證的使用者名稱和密碼文字方塊。 它也會新增通知訊息的文字方塊，以及應接收通知的使用者名稱標記：
 
-    ```xml   
+    ```xml
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -116,9 +116,9 @@ ms.locfileid: "51251537"
         </StackPanel>
     </Grid>
     ```
-11. 在 [方案總管] 中，開啟 [(Windows 8.1)] 和 [(Windows Phone 8.1)] 專案的 **MainPage.xaml.cs** 檔案。 在這兩個檔案頂端加入下列 `using` 陳述式：
+9. 在 [方案總管] 中，開啟 [(Windows 8.1)] 和 [(Windows Phone 8.1)] 專案的 `MainPage.xaml.cs` 檔案。 在這兩個檔案頂端加入下列 `using` 陳述式：
 
-    ```csharp    
+    ```csharp
     using System.Net.Http;
     using Windows.Storage;
     using System.Net.Http.Headers;
@@ -126,15 +126,15 @@ ms.locfileid: "51251537"
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
-12. 在 **WindowsApp** 專案的 **MainPage.xaml.cs** 中，將下列成員新增至 `MainPage` 類別。 請務必將 `<Enter Your Backend Endpoint>` 取代為您先前取得的實際後端端點。 例如： `http://mybackend.azurewebsites.net`。
-    
+10. 在 **WindowsApp`MainPage` 專案的 `MainPage.xaml.cs` 中，將下列成員新增至**  類別。 請務必將 `<Enter Your Backend Endpoint>` 取代為您先前取得的實際後端端點。 例如： `http://mybackend.azurewebsites.net`。
+
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
-13. 將下面的程式碼新增到 [(Windows 8.1)] 和 [(Windows Phone 8.1)] 專案之 **MainPage.xaml.cs** 中的 MainPage 類別。
-    
+11. 將下面的程式碼新增到 [(Windows 8.1)] 和 [(Windows Phone 8.1)] 專案之 `MainPage.xaml.cs` 中的 MainPage 類別。
+
     `PushClick` 方法是 [傳送推播] 按鈕的 click 處理常式。 它會呼叫後端以觸發所有裝置的通知，而所有裝置都具有符合 `to_tag` 參數的使用者名稱標記。 通知訊息會以要求主體的 JSON 內容形式傳送。
-    
+
     `LoginAndRegisterClick` 方法是 [登入並註冊] 按鈕的 click 處理常式。 它會在本機儲存體中儲存基本驗證權杖 (代表驗證配置使用的任何權杖)，然後使用 `RegisterClient` 來註冊使用後端的通知。
 
     ```csharp
@@ -188,7 +188,7 @@ ms.locfileid: "51251537"
         // The tag passed here can be whatever other tags you may want to use.
         try
         {
-            // The device handle used is different depending on the device and PNS. 
+            // The device handle used is different depending on the device and PNS.
             // Windows devices use the channel uri as the PNS handle.
             await new RegisterClient(BACKEND_ENDPOINT).RegisterAsync(channel.Uri, new string[] { "myTag" });
 
@@ -213,19 +213,19 @@ ms.locfileid: "51251537"
         ApplicationData.Current.LocalSettings.Values["AuthenticationToken"] = token;
     }
     ```
-1. 開啟 **App.xaml.cs** 檔案。 在 `InitNotificationsAsync()` in the `OnLaunched()` 的呼叫。 取消註解或刪除對 `InitNotificationsAsync()`的呼叫。 此按鈕處理常式會初始化通知註冊。
+12. 開啟 `App.xaml.cs` 並且在 `OnLaunched()` 事件處理常式中尋找對 `InitNotificationsAsync()` 的呼叫。 取消註解或刪除對 `InitNotificationsAsync()`的呼叫。 此按鈕處理常式會初始化通知註冊。
 
     ```csharp
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
         //InitNotificationsAsync();
     ```
-1. 以滑鼠右鍵按一下 **WindowsApp** 專案、按一下 [新增]，然後按一下 [類別]。 將類別命名為 **RegisterClient.cs**，然後按一下 [確定] 以產生類別。
-   
-   為了註冊推播通知，此類別會包裝連絡應用程式後端所需的 REST 呼叫。 它也會在本機儲存通知中心所建立的 *registrationIds* ，如 [從您的應用程式後端註冊](https://msdn.microsoft.com/library/dn743807.aspx)中的詳細說明。 當您按一下 [登入並註冊] 按鈕時，系統會使用儲存在本機儲存體中的授權權杖。
-2. 在 RegisterClient.cs 檔案開頭加入下列 `using` 陳述式：
+13. 以滑鼠右鍵按一下 **WindowsApp** 專案、按一下 [新增]，然後按一下 [類別]。 將類別命名為 `RegisterClient.cs`，然後按一下 [確定] 以產生類別。
 
-    ```csharp   
+   為了註冊推播通知，此類別會包裝連絡應用程式後端所需的 REST 呼叫。 它也會在本機儲存通知中心所建立的 *registrationIds* ，如 [從您的應用程式後端註冊](https://msdn.microsoft.com/library/dn743807.aspx)中的詳細說明。 當您按一下 [登入並註冊] 按鈕時，系統會使用儲存在本機儲存體中的授權權杖。
+14. 在 RegisterClient.cs 檔案開頭加入下列 `using` 陳述式：
+
+    ```csharp
     using Windows.Storage;
     using System.Net;
     using System.Net.Http;
@@ -234,8 +234,8 @@ ms.locfileid: "51251537"
     using System.Threading.Tasks;
     using System.Linq;
     ```
-3. 在 `RegisterClient` 類別定義中加入下列程式碼。
-   
+15. 在 `RegisterClient` 類別定義中加入下列程式碼。
+
     ```csharp
     private string POST_URL;
 
@@ -321,24 +321,26 @@ ms.locfileid: "51251537"
 
     }
     ```
-4. 儲存您的所有變更。
+16. 儲存您的所有變更。
 
 ## <a name="test-the-application"></a>測試應用程式
+
 1. 在這兩種 Windows 系統上啟動應用程式。
 2. 輸入 [使用者名稱]和 [密碼]，如下列畫面所示。 它應該與您在 Windows Phone 上輸入的使用者名稱和密碼不同。
 3. 按一下 [登入並註冊]  ，並確認顯示您已登入的對話方塊。 此程式碼也會啟用 [傳送推播] 按鈕。
-   
+
     ![][14]
 5. 然後，在 [收件者使用者名稱標記] 欄位中，輸入已註冊的使用者名稱。 輸入通知訊息，然後按一下 [傳送推播] 。
 6. 只有已經使用相符使用者名稱標記所註冊的裝置才會收到通知訊息。
-   
+
     ![][15]
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已學會如何針對具有與其註冊相關聯標記的使用者，將通知推送至這些特定使用者。 若要了解如何推送以位置為基礎的通知，請繼續進行下列教學課程： 
+
+在本教學課程中，您已學會如何針對具有與其註冊相關聯標記的使用者，將通知推送至這些特定使用者。 若要了解如何推送以位置為基礎的通知，請繼續進行下列教學課程：
 
 > [!div class="nextstepaction"]
->[推送以位置為基礎的通知](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+>[推送以位置為基礎的通知](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [9]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
 [10]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png
@@ -348,8 +350,6 @@ ms.locfileid: "51251537"
 [14]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-windows-instance-username.png
 [15]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-notification-received.png
 [16]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-wp-send-message.png
-
-
 
 <!-- URLs. -->
 [Get started with Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md

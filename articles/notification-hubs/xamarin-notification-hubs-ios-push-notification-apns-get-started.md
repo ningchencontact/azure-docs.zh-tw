@@ -4,8 +4,8 @@ description: 在本教學課程中，您將了解如何使用 Azure 通知中樞
 services: notification-hubs
 keywords: ios 推播通知,推播訊息,推播通知
 documentationcenter: xamarin
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/23/2018
-ms.author: dimazaid
-ms.openlocfilehash: 4704d9bb04f6dc69c69df434562c03b868baf045
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: f81066489d09bd6abef3f96ed83bea1108f99b77
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917698"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447440"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 Xamarin.iOS 應用程式
 
@@ -44,11 +44,11 @@ ms.locfileid: "42917698"
 
 ## <a name="prerequisites"></a>必要條件
 
-- **Azure 訂用帳戶**。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
-- 最新版的 [Xcode][Install Xcode]
-- iOS 10 (或更新版本) 相容的裝置
-- [Apple Developer Program](https://developer.apple.com/programs/) 成員資格。
-- [Visual Studio for Mac]
+* **Azure 訂用帳戶**。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+* 最新版的 [Xcode][Install Xcode]
+* iOS 10 (或更新版本) 相容的裝置
+* [Apple Developer Program](https://developer.apple.com/programs/) 成員資格。
+* [Visual Studio for Mac]
   
   > [!NOTE]
   > 基於 iOS 推播通知的組態需求，您必須在實體 iOS 裝置 (iPhone 或 iPad) 上部署和測試範例應用程式，而不是在模擬器中。
@@ -84,19 +84,19 @@ ms.locfileid: "42917698"
 
      ![Visual Studio - 選取應用程式類型][31]
 
-2. 輸入應用程式名稱和組織識別碼，然後按 [下一步] 和 [建立]
+2. 輸入應用程式名稱和組織識別碼，然後按 [下一步] 和 [建立]。
 
 3. 在 [方案] 檢視中，按兩下 *Into.plist*，並確定 [身分識別] 下方的套件組合識別碼符合您在建立佈建設定檔時所使用的套件組合識別碼。 在 [簽署] 下方，確定您已於 [小組] 下方選取您的開發人員帳戶，已選取 [自動管理簽署]，並已自動選取您的簽署憑證和佈建設定檔。
 
     ![Visual Studio- iOS 應用程式組態][32]
 
-4. 在 [解決方案] 檢視中按兩下 *Entitlements.plist*，並確定已核取 [啟用推播通知]**。
+4. 在 [解決方案] 檢視中按兩下 `Entitlements.plist`，並確定已核取 [啟用推播通知]。
 
     ![Visual Studio- iOS 權利組態][33]
 
 5. 新增 Azure 傳訊套件。 在 [方案] 檢視中，以滑鼠右鍵按一下專案，然後選取 [新增] > [新增 NuGet 套件]。 搜尋 **Xamarin.Azure.NotificationHubs.iOS**，並將此套件新增至專案中。
 
-6. 在您的類別中新增檔案，將其命名為 **Constants.cs**，然後新增下列變數，並以您的「中樞名稱」和先前記下的「DefaultListenSharedAccessSignature」取代字串常值預留位置。
+6. 在您的類別中新增檔案，將其命名為 `Constants.cs`，然後新增下列變數並以 先前記下的 `hubname` 和 `DefaultListenSharedAccessSignature` 取代字串常值預留位置。
 
     ```csharp
     // Azure app-specific connection string and hub path
@@ -104,19 +104,19 @@ ms.locfileid: "42917698"
     public const string NotificationHubName = "<Azure Notification Hub Name>";
     ```
 
-7. 在 **AppDelegate.cs**中，新增下列 using 陳述式：
+7. 在 `AppDelegate.cs` 中新增下列 using 陳述式：
 
     ```csharp
     using WindowsAzure.Messaging;
     ```
 
-8. 宣告 **SBNotificationHub**的執行個體：
+8. 宣告 `SBNotificationHub` 的執行個體：
 
     ```csharp
     private SBNotificationHub Hub { get; set; }
     ```
 
-9. 在 **AppDelegate.cs** 中，更新 **FinishedLaunching()** 以符合下列程式碼：
+9. 在 `AppDelegate.cs` 中，更新 `FinishedLaunching()` 以符合下列程式碼：
 
     ```csharp
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
@@ -145,7 +145,7 @@ ms.locfileid: "42917698"
     }
     ```
 
-10. 覆寫 **AppDelegate.cs** 中的 **RegisteredForRemoteNotifications()** 方法：
+10. 在 `AppDelegate.cs` 中覆寫 `RegisteredForRemoteNotifications()` 方法：
 
     ```csharp
     public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -168,7 +168,7 @@ ms.locfileid: "42917698"
     }
     ```
 
-11. 覆寫 **AppDelegate.cs** 中的 **ReceivedRemoteNotification()** 方法：
+11. 在 `AppDelegate.cs` 中覆寫 `ReceivedRemoteNotification()` 方法：
 
     ```csharp
     public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -177,7 +177,7 @@ ms.locfileid: "42917698"
     }
     ```
 
-12. 在 **AppDelegate.cs** 中建立下列 **ProcessNotification()** 方法：
+12. 在 `AppDelegate.cs` 中建立 `ProcessNotification()` 方法：
 
     ```csharp
     void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
@@ -216,7 +216,7 @@ ms.locfileid: "42917698"
     ```
 
     > [!NOTE]
-    > 您可以選擇覆寫 **FailedToRegisterForRemoteNotifications()** 以處理沒有網路連線等的情況。 這點特別重要，因為使用者可能在離線模式下 (例如飛機) 啟動您的應用程式，而您希望針對您的應用程式來處理推播傳訊案例。
+    > 您可以選擇覆寫 `FailedToRegisterForRemoteNotifications()` 以處理沒有網路連線等的情況。 這點特別重要，因為使用者可能在離線模式下 (例如飛機) 啟動您的應用程式，而您希望針對您的應用程式來處理推播傳訊案例。
 
 13. 在您的裝置上執行應用程式。
 
@@ -239,24 +239,19 @@ ms.locfileid: "42917698"
 [6]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png
 [7]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png
 [213]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-console-app.png
-
 [215]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-scheduler1.png
 [216]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-scheduler2.png
-
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [31]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-ios-app.png
 [32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-app-settings.png
 [33]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-entitlements-settings.png
 
-
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Visual Studio for Mac]: https://visualstudio.microsoft.com/vs/mac/
-
 [Local and Push Notification Programming Guide]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
 [Apple Push Notification Service]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Apple Push Notification Service fwlink]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
 [Azure 入口網站]: https://portal.azure.com

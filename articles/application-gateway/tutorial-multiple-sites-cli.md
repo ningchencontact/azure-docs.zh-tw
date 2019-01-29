@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 27db76087165e37db936e802a01ddc4ecd269f4c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b1f1bb268223eb55270ff5dab5dbb346f6299d09
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874425"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856242"
 ---
-# <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>教學課程：使用 Azure CLI 以建立裝載多個網站的應用程式閘道
+# <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>教學課程：使用 Azure CLI 建立裝載多個網站的應用程式閘道
 
 您可以使用 Azure CLI，在建立[應用程式閘道](overview.md)時設定[裝載多個網站](multiple-site-overview.md)。 在本教學課程中，您可以使用虛擬機器擴展集定義後端位址集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本教學課程假設您擁有多個網域，並使用 *www.contoso.com* 和 *www.fabrikam.com* 的範例。
 
@@ -122,7 +122,7 @@ az network application-gateway address-pool create \
 
 ### <a name="add-backend-listeners"></a>新增後端接聽程式
 
-使用 [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create)，以新增路由流量時所需的後端接聽程式。
+使用 [az network application-gateway http-listener create](/cli/azure/network/application-gateway)，以新增路由流量時所需的後端接聽程式。
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 會以規則列出的順序進行處理，而且不論精確性為何，都會使用相符的第一個規則將流量進行導向。 例如，如果您在相同的連接埠上同時使用基本接聽程式的規則和多站台接聽程式的規則，則必須將多站台接聽程式的規則列於基本接聽程式的規則之前，多站台規則才能如預期般運作。 
 
-在此範例中，您會建立兩個新規則，並刪除您在建立應用程式閘道時所建立的預設規則。 您可以使用 [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create) 來新增規則。
+在此範例中，您會建立兩個新規則，並刪除您在建立應用程式閘道時所建立的預設規則。 您可以使用 [az network application-gateway rule create](/cli/azure/network/application-gateway) 來新增規則。
 
 ```azurecli-interactive
 az network application-gateway rule create \
