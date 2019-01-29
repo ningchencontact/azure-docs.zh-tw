@@ -41,13 +41,13 @@ Microsoft Translator 團隊已發行第 3 版 (V3) 的翻譯工具文字 API。 
 
 | V2 API 方法   | V3 API 相容性 |
 |:----------- |:-------------|
-| 翻譯     | [翻譯](reference/v3-0-translate.md)          |
+| Translate     | [翻譯](reference/v3-0-translate.md)          |
 | TranslateArray      | [翻譯](reference/v3-0-translate.md)        |
 | GetLanguageNames      | [語言](reference/v3-0-languages.md)         |
 | GetLanguagesForTranslate     | [語言](reference/v3-0-languages.md)       |
 | GetLanguagesForSpeak      | [Microsoft 語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| 口語     | [Microsoft 語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| 偵測     | [偵測](reference/v3-0-detect.md)         |
+| Speak     | [Microsoft 語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Detect     | [偵測](reference/v3-0-detect.md)         |
 | DetectArray     | [偵測](reference/v3-0-detect.md)         |
 | AddTranslation     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
 | AddTranslationArray    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
@@ -75,12 +75,12 @@ Microsoft Translator V3 的定價方式與 V2 相同，即依字元計價，包�
 
 | V3 方法   | 需計費的字元 |
 |:----------- |:-------------|
-| 語言     | 未提交任何字元就不會計算，而不會產生費用。          |
-| 翻譯     | 計費將取決於提交了多少個字元進行翻譯，以及這些字元翻譯成多少種語言。 若提交了 50 個字元，且要求 5 種語言，則會以 50x5 計算。           |
-| 音譯     | 會計算提交以進行音譯的字元數。         |
-| 字典查閱和範例     | 會計算針對字典查閱和範例而提交的字元數。         |
+| Languages     | 未提交任何字元就不會計算，而不會產生費用。          |
+| Translate     | 計費將取決於提交了多少個字元進行翻譯，以及這些字元翻譯成多少種語言。 若提交了 50 個字元，且要求 5 種語言，則會以 50x5 計算。           |
+| Transliterate     | 會計算提交以進行音譯的字元數。         |
+| Dictionary lookup & example     | 會計算針對字典查閱和範例而提交的字元數。         |
 | BreakSentence     | 不收費。       |
-| 偵測     | 不收費。      |
+| Detect     | 不收費。      |
 
 ## <a name="v3-end-points"></a>V3 結束點
 
