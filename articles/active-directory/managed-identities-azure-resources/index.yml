@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c4613654e5f1da6ef55c1f648fff1687b21fe87d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: fd9c4513c2cda3fb6283e748f2458043b02ab482
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901933"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203567"
 documentType: LandingData
 title: 適用於 Azure 資源的 Azure AD 受控識別文件
 metadata:
@@ -12,7 +12,7 @@ metadata:
   title: 適用於 Azure 資源的 Azure AD 受控識別文件
   description: 了解如何使用適用於 Azure 資源的受控識別安全地驗證 Azure 雲端服務，而不需要保留您原始程式碼中的認證。
   services: active-directory
-  ms.component: msi
+  ms.subservice: msi
   author: priyamohanram
   manager: daveba
   ms.service: active-directory

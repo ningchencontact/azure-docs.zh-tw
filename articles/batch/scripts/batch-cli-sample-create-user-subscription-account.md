@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: abe98cb809c47b6803d638b8e3f042189d2cc2b4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe5dbfa368de400b4aad476c4aefbb70628d1145
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999268"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852146"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>CLI 範例：在使用者訂用帳戶模式中建立 Batch 帳戶
 
@@ -47,7 +47,7 @@ az group delete --name myResourceGroup
 
 | 命令 | 注意 |
 |---|---|
-| [az 角色指派建立](/cli/azure/role#az-role-assignment-create) | 為使用者、群組或服務主體建立新的角色指派。 |
+| [az role assignment create](/cli/azure/role) | 為使用者、群組或服務主體建立新的角色指派。 |
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-create) | 建立金鑰保存庫。 |
 | [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) | 更新指定的 Key Vault 的安全性原則。 |

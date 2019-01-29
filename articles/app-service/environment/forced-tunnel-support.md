@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 89827cdc7d29a817c83fd16ec2a4340f06c8343c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 36324ccd9b6e9470c93949efed6c29a9b8d3ab61
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272724"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389295"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>設定 App Service Environment 搭配強制通道
 
-App Service Environment (ASE) 是在客戶的 Azure 虛擬網路之中的 Azure App Service 部署。 許多客戶將其 Azure 虛擬網路設定為內部部署網路 (具備 VPN 或 Azure ExpressRoute 連線) 的擴充。 當您將網際網路繫結流量重新導向至您的 VPN 或虛擬設備時，就會使用強制通道。 這通常是安全性需求的一部分，用以檢查和稽核所有的輸出流量。 
+App Service Environment (ASE) 是在客戶的 Azure 虛擬網路之中的 Azure App Service 部署。 許多客戶將其 Azure 虛擬網路設定為內部部署網路 (具備 VPN 或 Azure ExpressRoute 連線) 的擴充。 當您將網際網路繫結流量重新導向至您的 VPN 或虛擬設備時，就會使用強制通道。 虛擬設備通常用來檢查和稽核輸出網路流量。 
 
 ASE 有一些外部相依性，[App Service Environment 網路架構][network]文件會予以說明。 通常所有 ASE 輸出相依性流量都必須都通過與 ASE 一起佈建的 VIP。 如果您變更往返 ASE 的流量路由，但未遵循以下的資訊，您的 ASE 將會停止運作。
 
@@ -62,24 +62,21 @@ ASE 有一些外部相依性，[App Service Environment 網路架構][network]�
 
 ## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>將您的 ASE 子網路設定為略過 BGP 路由 ## 
 
-您可以將您的 ASE 子網路設定為略過所有 BGP 路由。  若已經設定此項目，ASE 將能夠存取其相依性，而不發生任何問題。  不過，您必須建立 UDR，才能讓您的應用程式存取內部部署資源。
+您可以將您的 ASE 子網路設定為略過所有 BGP 路由。  若已設定為忽略 BGP 路由，ASE 將能夠存取其相依項目，而不會發生任何問題。  不過，您必須建立 UDR，才能讓您的應用程式存取內部部署資源。
 
 若要將您的 ASE 子網路設定為略過 BGP 路由：
 
 * 如果您還沒有 UDR，請加以建立並將它指派給您的 ASE 子網路。
 * 在 Azure 入口網站中，開啟指派給 ASE 子網路的路由表 UI。  選取組態。  將 BCP 路由傳播設定為 [停用]。  按一下 [儲存]。 將它關閉的相關文件位於[建立路由表][routetable]文件中。
 
-執行這項操作之後，您的應用程式就不再能夠觸達內部部署環境。 若要解決此問題，請編輯指派給 ASE 子網路的 UDR，並新增內部部署位址範圍的路由。 下一個躍點類型應該設定為虛擬網路閘道。 
+將 ASE 子網路設定為忽略所有 BGP 路由之後，您的應用程式便無法再觸達內部部署環境。 若要讓您的應用程式能夠存取內部部署資源，請編輯指派給 ASE 子網路的 UDR，並新增內部部署位址範圍的路由。 下一個躍點類型應該設定為虛擬網路閘道。 
 
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>使用服務端點設定您的 ASE ##
 
- > [!NOTE]
-   > 使用 SQL 的服務端點不適用於美國政府區域中的 ASE。  下列資訊僅適用於 Azure 公用區域。  
-
 若要從您的 ASE 路由傳送所有輸出流量 (移至 Azure SQL 和 Azure 儲存體的流量除外)，請執行下列步驟：
 
-1. 您可以建立路由表並將它指派給 ASC 子網路。 請在 [App Service Environment 管理位址][management]尋找符合您區域的位址。 為下一個躍點為網際網路的位址建立路由。 這是必要作業，因為 App Service Environment 輸入環境流量必須從它傳送至的相同位址回覆。   
+1. 您可以建立路由表並將它指派給 ASC 子網路。 請在 [App Service Environment 管理位址][management]尋找符合您區域的位址。 為下一個躍點為網際網路的位址建立路由。 這些是必要路由，因為 App Service Environment 輸入環境流量必須從它傳送至的相同位址回覆。   
 
 2. 在您的 ASE 子網路中使用 Azure SQL 和 Azure 儲存體啟用服務端點。  完成此步驟後，您可以使用強制通道設定您的 VNet。
 
@@ -91,7 +88,7 @@ ASE 有一些外部相依性，[App Service Environment 網路架構][network]�
 
 透過 Azure SQL 執行個體在子網路上啟用服務端點時，從該子網路連線的所有 Azure SQL 執行個體都必須啟用服務端點。 如果您想要從相同的子網路存取多個 Azure SQL 執行個體，您就無法在一個 Azure SQL 執行個體啟用服務端點，而不要在另一個執行個體上啟用。  Azure 儲存體與 Azure SQL 的運作方式不同。  當您使用 Azure 儲存體啟用服務端點時，您會封鎖您的子網路存取該資源，，但仍可存取其他 Azure 儲存體帳戶 (即使它們未啟用服務端點)。  
 
-如果您設定對網路篩選設備使用強制通道，請記住，除了 Azure SQL 和 Azure 儲存體以外，ASE 還具有一些相依性。 您必須允許對這些相依項目的流量，否則 ASE 無法正常運作。
+如果您設定對網路篩選設備使用強制通道，請記住，除了 Azure SQL 和 Azure 儲存體以外，ASE 還具有一些相依性。 如果封鎖對這些相依項目的流量，則 ASE 無法正常運作。
 
 ![服務端點使用強制通道][2]
 
@@ -99,7 +96,7 @@ ASE 有一些外部相依性，[App Service Environment 網路架構][network]�
 
 若要從您的 ASE 傳輸所有輸出流量 (移至 Azure 儲存體的流量除外)，請執行下列步驟：
 
-1. 您可以建立路由表並將它指派給 ASC 子網路。 請在 [App Service Environment 管理位址][management]尋找符合您區域的位址。 為下一個躍點為網際網路的位址建立路由。 這是必要作業，因為 App Service Environment 輸入環境流量必須從它傳送至的相同位址回覆。 
+1. 您可以建立路由表並將它指派給 ASC 子網路。 請在 [App Service Environment 管理位址][management]尋找符合您區域的位址。 為下一個躍點為網際網路的位址建立路由。 這些是必要路由，因為 App Service Environment 輸入環境流量必須從它傳送至的相同位址回覆。 
 
 2. 在您的 ASE 子網路中使用 Azure 儲存體啟用服務端點
 

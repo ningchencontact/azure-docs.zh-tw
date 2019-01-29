@@ -3,19 +3,19 @@ title: 什麼是 Azure Active Directory B2C？ | Microsoft Docs
 description: 了解如何使用 Azure Active Directory B2C 建立和管理應用程式登入體驗。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fdb856f92bf790df0065cfc74ce5896f1d10c47b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: b667934fefe0b9afb5aeca786839f5e105be2c4d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954093"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844988"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>什麼是 Azure Active Directory B2C？
 
@@ -60,9 +60,9 @@ Azure AD B2C 會依序與身分識別提供者、客戶、其他系統和本機�
 
 Azure AD B2C 可防止對您應用程式發動的拒絕服務和密碼攻擊。 Azure AD B2C 使用偵測和降低風險的技術 (例如 SYN Cookie) 及速率和連線限制來保護資源，避免遭受拒絕服務的攻擊。 此外也包含風險降低機制，以防範暴力密碼破解攻擊和字典密碼破解攻擊。
 
-#### <a name="built-in-policies"></a>內建原則
+#### <a name="user-flows"></a>使用者流程
 
-每個傳送至 Azure AD B2C 的要求都會指定一個原則。 原則會控制您的應用程式與 Azure AD B2C 互動的行為模式。 對於最常用的身分識別工作則預先定義了內建原則，這些工作包括註冊、登入和設定檔編輯。  比方說，註冊原則可讓進行下列設定來控制行為：
+每個傳送至 Azure AD B2C 的要求會指定使用者流程，這是一個可控制應用程式與 Azure AD B2C 互動行為的原則。 在 Azure AD B2C 入口網站中，可以取得針對最常用身分識別工作預先定義的使用者流程，而這些工作包括註冊、登入和設定檔編輯。  比方說，註冊使用者流程可讓進行下列設定來控制行為：
 
 - 客戶可用來註冊應用程式的社交帳戶
 - 對客戶收集的資料，例如名字或郵遞區號
@@ -104,11 +104,11 @@ Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為「跨�
 
 在設定應用程式以使用 Azure AD B2C 之前，您必須先建立 Azure AD B2C 租用戶，並註冊您的應用程式。 若要註冊您的應用程式，請完成[教學課程：註冊應用程式以啟用使用 Azure AD B2C 的註冊和登入](tutorial-register-applications.md)中的步驟。
   
-如果您是 ASP.NET Web 應用程式開發人員，請使用[教學課程：使用 Azure AD B2C 啟用透過帳戶的 Web 應用程式驗證](active-directory-b2c-tutorials-web-app.md)中的步驟設定您的應用程式，以進行帳戶驗證。
+如果您是 ASP.NET Web 應用程式開發人員，請使用[教學課程：使用 Azure AD B2C 讓 Web 應用程式透過帳戶進行驗證](active-directory-b2c-tutorials-web-app.md)中的步驟設定您的應用程式，以進行帳戶驗證。
 
-如果您是桌面應用程式開發人員，請使用[教學課程：使用 Azure AD B2C 啟用透過帳戶的桌面應用程式驗證](active-directory-b2c-tutorials-desktop-app.md)中的步驟設定您的應用程式，以進行帳戶驗證。
+如果您是桌面應用程式開發人員，請使用[教學課程：使用 Azure AD B2C 讓桌面應用程式透過帳戶進行驗證](active-directory-b2c-tutorials-desktop-app.md)中的步驟設定您的應用程式，以進行帳戶驗證。
 
-如果您是使用 Node.js 的單一頁面應用程式開發人員，請使用[教學課程：使用 Azure AD B2C 啟用透過帳戶的單一頁面應用程式驗證](active-directory-b2c-tutorials-spa.md)中的步驟設定您的應用程式，以進行帳戶驗證。
+如果您是使用 Node.js 的單頁應用程式開發人員，請使用[教學課程：使用 Azure AD B2C 讓單頁應用程式透過帳戶進行驗證](active-directory-b2c-tutorials-spa.md)中的步驟設定您的應用程式，以進行帳戶驗證。
 
 ## <a name="next-steps"></a>後續步驟
 

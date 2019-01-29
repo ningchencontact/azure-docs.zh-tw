@@ -3,7 +3,7 @@ title: Azure 快速入門 - 使用 DSC 設定 VM | Microsoft Docs
 description: 使用 Desired State Configuration 在 Linux 虛擬機器上設定 LAMP 堆疊
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 keywords: dsc, 設定, 自動化
 author: KrisBash
 ms.author: krbash
@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7a9e394213ef40b995cb048c71f14a190e5e7970
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c0a7bb9dfe8553515816efd53785dbe661cee0fa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243687"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431583"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>使用 Desired State Configuration 來設定 Linux 虛擬機器
 
@@ -108,7 +108,7 @@ configuration LAMPServer {
 
 ## <a name="compile-a-configuration"></a>編譯設定
 
-DSC 設定必須先編譯成節點設定 (MOF 文件)，才可以指派至節點。 編譯程式會驗證設定，並允許輸入參數值。 若要深入了解編譯設定，請參閱：[編譯 Azure 自動化 DSC 中的設定](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
+DSC 設定必須先編譯成節點設定 (MOF 文件)，才可以指派至節點。 編譯程式會驗證設定，並允許輸入參數值。 若要深入了解如何編譯組態，請參閱：[編譯 Azure 自動化 DSC 中的組態](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
 
 若要編譯設定：
 
@@ -145,3 +145,4 @@ DSC 設定必須先編譯成節點設定 (MOF 文件)，才可以指派至節點
 * 若要深入了解 PowerShell Desired State Configuration，請參閱 [PowerShell Desired State Configuration 概觀](https://docs.microsoft.com/powershell/dsc/overview)。
 * 若要深入了解從 PowerShell 管理 Automation DSC，請參閱 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
 * 若要了解如何將 DSC 報告轉寄給 Log Analytics 以進行報告及警示，請參閱[將 DSC 報告轉寄給 Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
+

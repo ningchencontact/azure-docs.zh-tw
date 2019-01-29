@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 2497793ce5d24ed2516636e76b8b947417dd9f74
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: afcf64b79b08ae76f56f57569905945489c2933e
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039940"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382883"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>將執行 Windows Server 2008 的伺服器移轉到 Azure
 
@@ -119,7 +119,7 @@ ms.locfileid: "54039940"
 1. 若要建立新的複寫原則，請按一下 [Site Recovery 基礎結構] > [複寫原則] > [+複寫原則]。
 2. 在 [建立複寫原則]中，指定原則名稱。
 3. 在 [RPO 閾值] 中，指定復原點目標 (RPO) 限制。 如果複寫 RPO 超過此限制，則會產生警示。
-4. 在 [復原點保留] 中，指定每個復原點的保留週期長度 (以小時為單位)。 複寫的 VM 可以還原至一個週期內的任何時間點。 複寫至進階儲存體的電腦支援最長保留 24 小時，標準儲存體則是 72 小時。
+4. 在 [復原點保留] 中，指定每個復原點的保留週期長度 (以小時為單位)。 複寫的 VM 可以還原至此時間範圍內的任何時間點。 複寫至進階儲存體的電腦支援最長保留 24 小時，標準儲存體則是 72 小時。
 5. 在 [應用程式一致的快照頻率] 中，指定 [關閉]。 按一下 [確定]  以建立原則。
 
 此原則會自動與設定伺服器產生關聯。
@@ -154,13 +154,13 @@ ms.locfileid: "54039940"
 2. 在 [容錯移轉] 中，選取要容錯移轉的目標**復原點**。 選取最新的復原點。
 3. 選取 [Shut down machine before beginning failover] \(先將機器關機再開始容錯移轉)。 Site Recovery 會先嘗試關閉伺服器，再觸發容錯移轉。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
 4. 確認 Azure VM 如預期般出現在 Azure 中。
-5. 在 [複寫的項目] 中，以滑鼠右鍵按一下 VM > [完成移轉]。 這會執行以下動作：
+5. 在 [複寫的項目] 中，以滑鼠右鍵按一下伺服器 > [完成移轉]。 這會執行以下動作：
 
-    - 完成移轉程序、停止 AWS VM 的複寫，並停止 VM 的 Site Recovery 計費。
+    - 完成移轉程序、停止伺服器的複寫，並停止伺服器的 Site Recovery 計費。
     - 此步驟會清除複寫資料。 但並不會刪除已遷移的 VM。
 
    ![完成移轉](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]
-> **請勿取消正在進行中的容錯移轉**：在容錯移轉開始之前，VM 複寫已停止。 如果您取消正在進行的容錯移轉，容錯移轉會停止，但 VM 不會再次複寫。
+> **請勿取消正在進行中的容錯移轉**：在容錯移轉開始之前，伺服器複寫已停止。 如果您取消正在進行的容錯移轉，容錯移轉會停止，但伺服器不會繼續複寫。

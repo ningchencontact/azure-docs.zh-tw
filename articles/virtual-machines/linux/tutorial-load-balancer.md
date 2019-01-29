@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: b37f8c53e9528919da3aaf0acf66376876bd64b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 47e3f449ef3ef0b732dfcef2af595ce5ccd24f16
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470875"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856412"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>教學課程：使用 Azure CLI 平衡 Azure 中 Linux 虛擬機器的負載以建立高可用性應用程式
 
@@ -53,7 +53,7 @@ Azure Load Balancer 是 Layer-4 (TCP、UDP) 負載平衡器，可將連入流量
 
 
 ## <a name="create-azure-load-balancer"></a>建立 Azure Load Balancer
-本節將詳細說明如何建立及設定負載平衡器的每個元件。 請先使用 [az group create](/cli/azure/group#az_group_create) 建立資源群組，才可建立負載平衡器。 下列範例會在 eastus 位置建立名為 myResourceGroupLoadBalancer 的資源群組：
+本節將詳細說明如何建立及設定負載平衡器的每個元件。 請先使用 [az group create](/cli/azure/group) 建立資源群組，才可建立負載平衡器。 下列範例會在 eastus 位置建立名為 myResourceGroupLoadBalancer 的資源群組：
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus
@@ -226,7 +226,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-您現在可以使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM。 下列範例會建立三部 VM 並產生 SSH 金鑰 (如果尚未存在的話)︰
+您現在可以使用 [az vm create](/cli/azure/vm) 建立 VM。 下列範例會建立三部 VM 並產生 SSH 金鑰 (如果尚未存在的話)︰
 
 ```bash
 for i in `seq 1 3`; do

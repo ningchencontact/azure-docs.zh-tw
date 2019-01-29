@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/22/2016
+ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: de68c59987a7ec1198c344cc22978ebed09c75e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6463759dbd217cd054f838c09c7cfcf99a06aa2c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271347"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390825"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>App Service 環境的自訂組態設定
 ## <a name="overview"></a>概觀
-因為 App Service 環境對單一客戶是隔離的，所以有某些專門套用到 App Service 環境的組態設定。 本文記錄各種可供 App Service 環境使用的特定自訂。
+因為 App Service 環境 (ASEs) 對單一客戶是隔離的，所以有某些專門套用到 App Service 環境的組態設定。 本文記錄各種可供 App Service 環境使用的特定自訂。
 
 如果您沒有 App Service 環境，請參閱 [如何建立 App Service 環境](app-service-web-how-to-create-an-app-service-environment.md)。
 
@@ -65,10 +65,11 @@ ms.locfileid: "53271347"
 不過，送出變更後，約需 30 分鐘乘以 App Service 環境中前端數量的時間，變更才會生效。
 例如，如果 App Service 環境有四個前端，大約需要兩個小時才能完成組態更新。 實行組態變更時，App Service 環境上就不會進行其他調整作業或組態變更作業。
 
-## <a name="disable-tls-10"></a>停用 TLS 1.0
-客戶的常見問題是，尤其是處理 PCI 規範稽核的客戶，如何明確停用其應用程式的 TLS 1.0。
+## <a name="disable-tls-10-and-tls-11"></a>停用 TLS 1.0 和 TLS 1.1
 
-透過下列 **clusterSettings** 項目可以停用 TLS 1.0︰
+如果您想要依照應用程式基礎來管理應用程式的 TLS 設定，您可以使用[強制使用 TLS 設定](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-tls-versions)文件所提供的指導方針。 
+
+如果您想要停用 ASE 中所有應用程式的所有輸入 TLS 1.0 和 TLS 1.1 流量，您可以設定下列 **clusterSettings** 項目：
 
         "clusterSettings": [
             {
@@ -76,6 +77,8 @@ ms.locfileid: "53271347"
                 "value": "1"
             }
         ],
+
+設定的名稱指出 1.0，但若已設定，它會同時停用 TLS 1.0 與 TLS 1.1。
 
 ## <a name="change-tls-cipher-suite-order"></a>變更 TLS 加密套件順序
 來自客戶的另一個問題是，他們是否可以修改由其伺服器交涉的加密的清單，而這可透過修改 **clusterSettings** 來達成，如下所示。 您可以從[此 MSDN 文章](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx)擷取可用加密套件的清單。

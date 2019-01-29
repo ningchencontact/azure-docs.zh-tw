@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: d5a832909f060ad8c8b3f0e7c7ea4504e5e5aadb
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4025dcc5824991baa9a52dbb912a5c07f4273d58
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943465"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383300"
 ---
 1. 在瀏覽器中開啟[適用於 Jenkins 的 Azure Marketplace 映像](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview)。
 
@@ -53,6 +53,7 @@ ms.locfileid: "36943465"
     - **公用 IP 位址** - IP 位址名稱預設為您在上一頁中以尾碼為 -IP 指定的 Jenkins 名稱。 您可以選取選項來變更該預設值。
     - **網域名稱標籤** - 為 Jenkins 虛擬機器指定完整 URL 值。
     - **Jenkins 版本類型** - 從選項中選取所需的版本類型：`LTS`、`Weekly build` 或 `Azure Verified`。 `LTS` 和 `Weekly build` 選項在 [Jenkins LTS Release Line](https://jenkins.io/download/lts/) (英文) 一文中有說明。 `Azure Verified` 選項是指已經過驗證可在 Azure 上執行的 [Jenkins LTS 版本](https://jenkins.io/download/lts/) (英文)。 
+    - **JDK 類型** - 要安裝的 JDK。 預設值為 OpenJDK 經過測試、認證的 Zulu 組建。
 
     ![在 [設定] 索引標籤中輸入 Jenkins 的虛擬機器設定。](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-settings.png)
 

@@ -11,12 +11,12 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 81afda4227484c19b49ffc4c399e52576629da34
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: eb4d94d93a72844cfa869bd74aef6eeb34b0f8e9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321869"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817498"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>教學課程：準備建立迴歸模型所需的資料
 
@@ -37,7 +37,7 @@ ms.locfileid: "54321869"
 
 ## <a name="get-the-notebook"></a>取得 Notebook
 
-為了方便起見，此教學課程以 [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb) 形式提供。 在 Azure Notebooks 或您自己的 Jupyter Notebook 伺服器中執行 **regression-part1-data-prep.ipynb** Notebook。
+為了方便起見，此教學課程以 [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb) 形式提供。 在 [Azure Notebooks](https://notebooks.azure.com/) 或您自己的 Jupyter Notebook 伺服器中執行 **regression-part1-data-prep.ipynb** Notebook。
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -1066,7 +1066,7 @@ package.save(file_path)
 
 若要繼續進行本教學課程的第二部分，您必須在目前的目錄中保留 **dflows.dprep** 檔案。
 
-如果您不打算繼續進行第二部分，請在目前的目錄中刪除 **dflows.dprep** 檔案。 無論您是在本機還是 Azure Notebooks 中執行，均請刪除此檔案。
+如果您不打算繼續進行第二部分，請在目前的目錄中刪除 **dflows.dprep** 檔案。 無論您是在本機還是 [Azure Notebooks](https://notebooks.azure.com/) 中執行，均請刪除此檔案。
 
 ## <a name="next-steps"></a>後續步驟
 

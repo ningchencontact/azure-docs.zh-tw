@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/14/2019
+ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 3bd86fe8708d2cbb8cbddac4ca35d5afdc68d2e3
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: bac0b2933d4b6d4a88ebbb0402bba0ffd508b395
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306075"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474365"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器映像
 
@@ -42,21 +41,21 @@ ms.locfileid: "54306075"
     > [!IMPORTANT]  
     >  Azure Stack 不支援動態磁碟 VHD。 對連結至 VM 的動態磁碟調整大小，會導致 VM 處於失敗狀態。 若要解決這個問題，請刪除 VM，但不要刪除 VM 的磁碟 (儲存體帳戶中的 VHD Blob)。 然後，將 VHD 從動態磁碟轉換為固定磁碟，並重新建立虛擬機器。
 
-   * 將映像上傳到 Azure Stack blob 儲存體比上傳到 Azure blob 儲存體有效率，因為將映像推送到 Azure Stack 映像存放庫所需的時間較短。
+   - 將映像上傳到 Azure Stack blob 儲存體比上傳到 Azure blob 儲存體有效率，因為將映像推送到 Azure Stack 映像存放庫所需的時間較短。
 
-   * 上傳 [Windows VM 映像](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/)時，請務必以[設定 Azure Stack 操作員的 PowerShell 環境](azure-stack-powershell-configure-admin.md)步驟取代「登入 Azure」步驟。  
+   - 上傳 [Windows VM 映像](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/)時，請務必以[設定 Azure Stack 操作員的 PowerShell 環境](azure-stack-powershell-configure-admin.md)步驟取代「登入 Azure」步驟。  
 
-   * 記下您上傳映像的 blob 儲存體 URI。 blob 儲存體 URI 的格式如下：*&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd。
+   - 記下您上傳映像的 blob 儲存體 URI。 blob 儲存體 URI 的格式如下：*&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd。
 
-   * 若要讓 Blob 可供匿名存取，請移至將 VM 映像 VHD 上傳時的儲存體帳戶 Blob 容器。 選取 [Blob]，然後選取 [存取原則]。 您可以選擇性地產生容器的共用存取簽章，並將其包含在 Blob URI 中。 此步驟會確保 Blob 可用於將此項目新增為映像。 如果 Blob 不可供匿名存取，則建立的 VM 映像會處於失敗狀態。
+   - 若要讓 Blob 可供匿名存取，請移至將 VM 映像 VHD 上傳時的儲存體帳戶 Blob 容器。 選取 [Blob]，然後選取 [存取原則]。 您可以選擇性地產生容器的共用存取簽章，並將其包含在 Blob URI 中。 此步驟會確保 Blob 可用於將此項目新增為映像。 如果 Blob 不可供匿名存取，則建立的 VM 映像會處於失敗狀態。
 
-   ![移至儲存體帳戶 Blob](./media/azure-stack-add-vm-image/image1.png)
+    ![移至儲存體帳戶 Blob](./media/azure-stack-add-vm-image/image1.png)
 
-   ![將 Blob 存取權設定為公用](./media/azure-stack-add-vm-image/image2.png)
+    ![將 Blob 存取權設定為公用](./media/azure-stack-add-vm-image/image2.png)
 
-2. 以操作員身分登入 Azure Stack。 在功能表中，選取 [所有服務]。 接著，在 [系統管理] 類別底下，選取 [計算] > [VM 映像] > [新增]。
+2. 以操作員身分登入 Azure Stack。 在功能表中，選取 [計算] > [新增] 下方的 [所有服務] > [映像]。
 
-3. 在 [新增 VM 映像] 底下，輸入虛擬機器映像的發行者、供應項目、SKU 及版本。 這些名稱區段指的是 Resource Manager 範本中的 VM 映像。 請務必正確選取 **osType** 值。 針對 [OS 磁碟 Blob URI]，輸入上傳映像所在的 Blob URI。 然後，選取 [建立] 以開始建立 VM 映像。
+3. 在 [建立映像] 下方，輸入名稱、訂用帳戶、資源群組、位置、OS 磁碟、OS 類型、儲存體 Blob URI、帳戶類型和主機快取。 然後，選取 [建立] 以開始建立 VM 映像。
 
    ![開始建立映像](./media/azure-stack-add-vm-image/image4.png)
 

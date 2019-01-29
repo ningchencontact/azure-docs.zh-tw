@@ -1,20 +1,20 @@
 ---
 title: 在入口網站中建立 Azure 搜尋服務 - Azure 搜尋服務
-description: 在 Azure 入口網站中佈建 Azure 搜尋服務。 選擇資源群組、區域、SKU 或定價層。
+description: 在 Azure 入口網站中佈建 Azure 搜尋服務資源。 選擇資源群組、區域、SKU 或定價層。
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/02/2019
+ms.date: 01/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: dfb6ccac01933ea114694de361c2f1d4d5a649b0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6d71ad9bdc7744898480fb2cc6743e59131ec588
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230521"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423437"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務
 
@@ -22,7 +22,7 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 
 在本文中，請了解如何在 [Azure 入口網站](https://portal.azure.com/)中建立 Azure 搜尋服務資源。 
 
-![入口網站中的 Azure 搜尋服務資源](media/search-create-service-portal/azure-search-resource-label.png)
+[ ![動畫 GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif) ](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 是否偏好使用 PowerShell？ 請使用 Azure Resource Manager [服務範本](https://azure.microsoft.com/resources/templates/101-azure-search-create/)。 如需入門說明，請參閱[使用 PowerShell 管理 Azure 搜尋服務](search-manage-powershell.md)。
 
@@ -37,7 +37,7 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 2. 按一下左上角的加號 (「+ 建立資源」)。
 3. 使用搜尋列尋找「Azure 搜尋服務」，或透過 [Web] > [Azure 搜尋服務] 瀏覽至資源。
 
-![](./media/search-create-service-portal/find-search3.png)
+![瀏覽至 Azure 搜尋服務資源](./media/search-create-service-portal/find-search3.png "瀏覽至 Azure 搜尋服務的路徑")
 
 ## <a name="name-the-service-and-url-endpoint"></a>為服務和 URL 端點命名
 
@@ -64,7 +64,9 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 > 刪除資源群組也會刪除其中的服務。 針對使用多個服務的原型專案，將它們全部放入同一個資源群組，在專案結束之後就能更容易清除。 
 
 ## <a name="select-a-hosting-location"></a>選取裝載位置 
-做為 Azure 服務，Azure 搜尋服務可以裝載於世界各地的資料中心。 請注意，各地理位置的[價格可能不同](https://azure.microsoft.com/pricing/details/search/) 。
+做為 Azure 服務，Azure 搜尋服務可以裝載於世界各地的資料中心。 各地理位置的[價格可能不同](https://azure.microsoft.com/pricing/details/search/)。
+
+如果您打算使用認知搜尋，請選擇[功能的適用區域](cognitive-search-quickstart-blob.md#supported-regions)。
 
 ## <a name="select-a-pricing-tier-sku"></a>選取定價層 (SKU)
 [Azure 搜尋服務目前提供多個定價層](https://azure.microsoft.com/pricing/details/search/)︰免費、基本或標準。 每一層都有自己的[容量和限制](search-limits-quotas-capacity.md)。 請參閱[選擇定價層或 SKU](search-sku-tier.md) 以取得指導方針。
@@ -77,7 +79,21 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 
 請記得將您的服務釘選到儀表板，以方便在登入時存取。
 
-![](./media/search-create-service-portal/new-service3.png)
+![釘選到儀表板](./media/search-create-service-portal/new-service3.png "將資源釘選到儀表板以便存取")
+
+## <a name="get-a-key-and-url-endpoint"></a>取得金鑰和 URL 端點
+
+除了少數例外狀況以外，使用新服務時，您需要提供 URL 端點和授權 API 金鑰。 快速入門、教學課程 (例如[探索 Azure 搜尋服務 REST API (Postman)](search-fiddler.md) 和[如何從 .NET 使用 Azure 搜尋服務](search-howto-dotnet-sdk.md))、範例和自訂程式碼全都需要端點和金鑰，才能在特定資源上執行。
+
+1. 在服務概觀頁面中，找出並複製頁面左側的 URL 端點。 
+
+   ![包含 URL 端點的服務概觀頁面](./media/search-create-service-portal/url-endpoint.png "URL 端點和其他服務詳細資料")
+
+2. 在左側導覽窗格中選取 [金鑰]，然後複製任一系統管理員金鑰 (它們是相等的)。 在您的服務上建立、更新及刪除物件時，需要系統管理員 API 金鑰。
+
+   ![顯示主要和次要金鑰的金鑰頁面](./media/search-create-service-portal/admin-api-keys.png "可供授權的系統管理員 API 金鑰")
+
+入口網站工作不需要端點和金鑰。 入口網站已透過系統管理員權限連結至您的 Azure 搜尋服務資源。 如需入口網站教學課程，請開始使用[教學課程：Azure 搜尋服務中的匯入、索引和查詢](search-get-started-portal.md)。
 
 ## <a name="scale-your-service"></a>調整您的服務
 可能需要幾分鐘的時間來建立服務 (視層級而定，15 分鐘或更多)。 佈建完您的服務之後，您可以調整它以符合您的需求。 由於您為「Azure 搜尋服務」選擇了「標準」層，因此您可以在兩個維度調整服務︰複本和資料分割。 如果您選擇的是「基本」層，則只能新增複本。 如果您佈建的是免費服務，則無法進行調整。
@@ -95,14 +111,14 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 2. 在左導覽窗格中，選取 [設定] > [調整]。
 3. 您可以使用滑桿來新增任何一種類型的資源。
 
-![](./media/search-create-service-portal/settings-scale.png)
+![新增容量](./media/search-create-service-portal/settings-scale.png "透過複本和分割區新增容量")
 
 > [!Note] 
 > 關於單一服務中允許的搜尋單位總數 (複本 * 分割區 = 搜尋單位總數)，每一層各有不同的[限制](search-limits-quotas-capacity.md)。
 
 ## <a name="when-to-add-a-second-service"></a>新增第二個服務的時機
 
-大部分的客戶都是使用在提供[正確資源平衡](search-sku-tier.md)的層上佈建的單一服務。 單一服務可以裝載多個索引 (數量受限於[所選層的最大限制](search-capacity-planning.md))，且每個索引都互相隔離。 在 Azure 搜尋服務中，要求只能導向到單一索引，以降低意外或刻意從相同服務的其他索引中擷取資料的機會。
+大部分的客戶都是使用在提供[正確資源平衡](search-sku-tier.md)的層次上佈建的單一服務。 單一服務可以裝載多個索引 (數量受限於[所選層的最大限制](search-capacity-planning.md))，且每個索引都互相隔離。 在 Azure 搜尋服務中，要求只能導向到單一索引，以降低意外或刻意從相同服務的其他索引中擷取資料的機會。
 
 雖然大部分的客戶只使用單一服務，但如果操作需求包含下列項目，則可能需要服務備援：
 

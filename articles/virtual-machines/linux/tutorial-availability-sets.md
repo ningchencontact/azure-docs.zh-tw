@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: f7bf5e233307703dca522974d52a86bc193186b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9391db9bf270511f734a31a621985f5b6ad31ec0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465826"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848728"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立及部署高可用性的虛擬機器
 
@@ -70,7 +70,7 @@ az vm availability-set create \
 
 您必須將 VM 建立於可用性設定組內，才能確保 VM 會在硬體中正確地分散。 建立可用性設定組之後，就無法在其中新增現有的 VM。
 
-透過 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM 時，使用 `--availability-set` 參數來指定可用性設定組的名稱。
+透過 [az vm create](/cli/azure/vm) 建立 VM 時，使用 `--availability-set` 參數來指定可用性設定組的名稱。
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

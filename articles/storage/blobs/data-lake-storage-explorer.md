@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Azure 儲存體總管在已啟用 Azure Data Lake Storage Gen2 的物件儲存體中建立 blob
+title: '快速入門：使用 Azure 儲存體總管來管理 Azure Data Lake Storage Gen2 中的資料 '
 description: 在本快速入門中，您將了解如何使用 Azure 儲存體總管搭配 Azure Data Lake Storage Gen2 帳戶建立檔案系統、目錄及檔案。 接下來您會了解如何將檔案下載到本機電腦，以及如何檢視目錄中的所有檔案。
 services: storage
 author: tamram
@@ -9,14 +9,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: e556dbe377f5bba6cbd727ac69c3d4fb9127a2c9
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 5b46d5644536123a9ef3dfc7be87e34d03ee4c4f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385613"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423591"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>快速入門：使用 Azure 儲存體總管在物件儲存體中建立 Blob
+# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>快速入門：使用 Azure 儲存體總管來管理 Azure Data Lake Storage Gen2 帳戶中的資料
 
 在本快速入門中，您將了解如何使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)建立目錄和 Blob。 接下來您會了解如何將 Blob 下載到本機電腦，以及如何檢視目錄中的所有 Blob。 您也將了解如何建立 Blob 的快照集、管理目錄存取原則，以及建立共用的存取簽章。
 

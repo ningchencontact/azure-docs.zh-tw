@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 8ea4a615cff02cad1030f10b408fe047f1208a60
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819215"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451709"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>教學課程：對裝置問題進行疑難排解並加以修正
 
@@ -84,6 +84,6 @@ Contoso 會在現場測試新的**原型**裝置。 身為 Contoso 操作員，�
 
 ## <a name="next-steps"></a>後續步驟
 
-本教學課程示範如何使用警示來識別您的裝置問題，以及如何在這些裝置上採取行動來解決問題。 若要了解如何將實體裝置連線到您的解決方案加速器，請繼續閱讀操作說明文章。
+本教學課程示範如何使用警示來識別您的裝置問題，以及如何在這些裝置上採取行動來解決問題。 若要了解如何將真實裝置連線到您的解決方案加速器，請繼續閱讀操作說明文章。
 
 您現在已了解如何管理裝置問題，建議進行的下一個步驟是了解如何[將裝置連線到遠端監視解決方案加速器](iot-accelerators-connecting-devices.md)。

@@ -8,14 +8,14 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: f70f3804bb1c6f385081b56fe6139b1b680a95cf
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f4c29526f675cab461153b4749c4f6edc237dada
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055008"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467327"
 ---
-# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>教學課程：使用流量管理員控制加權端點的流量路由 
+# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>教學課程：使用流量管理員控制加權端點的流量路由
 
 本教學課程說明如何使用 Azure 流量管理員，透過加權路由方法控制端點之間的使用者流量路由。 在此路由方法中，您需要在流量管理員設定檔設定中指派權數給每個端點。 隨後，使用者流量會根據指派給每個端點的權數進行路由。 權數是 1 到 1,000 之間的整數。 指派給端點的權數值越高，其優先順序越高。
 
@@ -36,7 +36,7 @@ ms.locfileid: "54055008"
 - 在不同 Azure 區域中執行的兩個基本網站執行個體：美國東部和西歐。
 - 用來測試流量管理員的兩個測試 VM：一個位於美國東部，另一個位於西歐。 測試 VM 可用來說明流量管理員如何將使用者流量路由傳送至端點獲派權數較高的網站。
 
-### <a name="sign-in-to-azure"></a>登入 Azure 
+### <a name="sign-in-to-azure"></a>登入 Azure
 
 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -89,24 +89,24 @@ ms.locfileid: "54055008"
 在本節中，您會在兩個 VM (&mdash;myIISVMEastUS 和 myIISVMWEurope&mdash;) 上安裝 IIS 伺服器，然後更新預設網頁。 自訂的網頁會顯示您從網頁瀏覽器瀏覽網站時所連線的 VM 名稱。
 
 1. 在左側功能表上，選取 [所有資源]。 從資源清單中，選取 **myResourceGroupTM1** 資源群組中的 **myIISVMEastUS**。
-2. 在 [概觀] 頁面上，選取 [連線]。 在 [連線至虛擬機器] 中，選取 [下載 RDP 檔案]。 
-3. 開啟下載的 .rdp 檔案。 如果出現提示，請選取 [連線]。 輸入您在建立 VM 時所指定的使用者名稱和密碼。 您可能需要選取 [其他選擇] > [使用不同的帳戶]，以指定您在建立 VM 時輸入的認證。 
+2. 在 [概觀] 頁面上，選取 [連線]。 在 [連線至虛擬機器] 中，選取 [下載 RDP 檔案]。
+3. 開啟下載的 .rdp 檔案。 如果出現提示，請選取 [連線]。 輸入您在建立 VM 時所指定的使用者名稱和密碼。 您可能需要選取 [其他選擇] > [使用不同的帳戶]，以指定您在建立 VM 時輸入的認證。
 4. 選取 [確定] 。
 5. 您可能會在登入過程中收到憑證警告。 如果您收到警告，請選取 [是] 或 [繼續] 以繼續進行連線。
 6. 在伺服器桌面上，瀏覽至 [Windows 系統管理工具] > [伺服器管理員]。
 7. 在 VM1 上開啟 Windows PowerShell。 使用下列命令安裝 IIS 伺服器及更新預設 .htm 檔案。
     ```powershell-interactive
     # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # Remove default .htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    remove-item C:\inetpub\wwwroot\iisstart.htm
     
     #Add custom .htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     ```
 
-     ![安裝 IIS 和自訂網頁](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
+    ![安裝 IIS 和自訂網頁](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
 
 8. 關閉與 **myIISVMEastUS** 的 RDP 連線。
 9. 重複步驟 1 至 8。 與 **myResourceGroupTM2** 資源群組內的 **myIISVMWEurope** VM 建立 RDP 連線，以安裝 IIS 並自訂其預設網頁。
@@ -180,8 +180,8 @@ ms.locfileid: "54055008"
     |  Weight      | 輸入 **100**。        |
     |        |           |
 
-4. 重複步驟 2 和 3，以針對公用 IP 位址 **myIISVMWEurope-ip** 新增另一個名為 **myWestEuropeEndpoint** 的端點。 此位址與名為 myIISVMWEurope 的 IIS 伺服器 VM 相關聯。 針對 [權數]，輸入 **25**。 
-5.  這兩個端點新增完畢後，會顯示在 [流量管理員設定檔] 中，且其監視狀態為 [線上]。
+4. 重複步驟 2 和 3，以針對公用 IP 位址 **myIISVMWEurope-ip** 新增另一個名為 **myWestEuropeEndpoint** 的端點。 此位址與名為 myIISVMWEurope 的 IIS 伺服器 VM 相關聯。 針對 [權數]，輸入 **25**。
+5. 這兩個端點新增完畢後，會顯示在 [流量管理員設定檔] 中，且其監視狀態為 [線上]。
 
 ## <a name="test-the-traffic-manager-profile"></a>測試流量管理員設定檔
 若要檢視運作中的流量管理員，請完成下列步驟：
@@ -189,28 +189,28 @@ ms.locfileid: "54055008"
 2. 檢視流量管理員的運作。
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>決定流量管理員設定檔的 DNS 名稱
-在本教學課程中，為了簡單起見，您可使用流量管理員設定檔的 DNS 名稱來瀏覽網站。 
+在本教學課程中，為了簡單起見，您可使用流量管理員設定檔的 DNS 名稱來瀏覽網站。
 
 您可以決定流量管理員設定檔的 DNS 名稱，如下所示：
 
-1.  在入口網站的搜尋列中，搜尋您在上一節建立的流量管理員設定檔名稱。 在顯示的結果中，選取流量管理員設定檔。
+1. 在入口網站的搜尋列中，搜尋您在上一節建立的流量管理員設定檔名稱。 在顯示的結果中，選取流量管理員設定檔。
 1. 選取 [概觀]。
 2. 流量管理員設定檔會顯示其 DNS 名稱。 在生產部署中，您會使用 DNS CNAME 記錄，將虛名網域名稱設定為指向流量管理員網域名稱。
 
    ![流量管理員 DNS 名稱](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-dns-name.png)
 
 ### <a name="view-traffic-manager-in-action"></a>檢視流量管理員的運作
-在本節中，您可以檢視運作中的流量管理員。 
+在本節中，您可以檢視運作中的流量管理員。
 
 1. 在左側功能表上，選取 [所有資源]。 從資源清單中，選取 **myResourceGroupTM1** 資源群組中的 **myVMEastUS**。
-2. 在 [概觀] 頁面上，選取 [連線]。 在 [連線至虛擬機器] 中，選取 [下載 RDP 檔案]。 
-3. 開啟下載的 .rdp 檔案。 如果出現提示，請選取 [連線]。 輸入您在建立 VM 時指定的使用者名稱和密碼。 您可能需要選取 [其他選擇] > [使用不同的帳戶]，以指定您在建立 VM 時輸入的認證。 
+2. 在 [概觀] 頁面上，選取 [連線]。 在 [連線至虛擬機器] 中，選取 [下載 RDP 檔案]。
+3. 開啟下載的 .rdp 檔案。 如果出現提示，請選取 [連線]。 輸入您在建立 VM 時指定的使用者名稱和密碼。 您可能需要選取 [其他選擇] > [使用不同的帳戶]，以指定您在建立 VM 時輸入的認證。
 4. 選取 [確定] 。
-5. 您可能會在登入過程中收到憑證警告。 如果您收到警告，請選取 [是] 或 [繼續] 以繼續進行連線。 
+5. 您可能會在登入過程中收到憑證警告。 如果您收到警告，請選取 [是] 或 [繼續] 以繼續進行連線。
 6. 在 VM myVMEastUS 的網頁瀏覽器中，輸入流量管理員設定檔的 DNS 名稱，以檢視您的網站。 您會路由至裝載於 IIS 伺服器 myIISVMEastUS 上的網站，因為其指派的權數較高 (**100**)。 為 IIS 伺服器 myIISVMWEurope 指派的端點權數值較低 (**25**)。
 
    ![測試流量管理員設定檔](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
-   
+
 ## <a name="delete-the-traffic-manager-profile"></a>刪除流量管理員設定檔
 當您不再需要您在本教學課程中建立的資源群組時，您可加以刪除。 若要這麼做，請選取資源群組 (**ResourceGroupTM1** 或 **ResourceGroupTM2**)，然後選取 [刪除]。
 
@@ -218,5 +218,3 @@ ms.locfileid: "54055008"
 
 > [!div class="nextstepaction"]
 > [根據使用者的地理位置將流量路由至特定端點](traffic-manager-configure-geographic-routing-method.md)
-
-

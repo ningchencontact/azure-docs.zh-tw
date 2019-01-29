@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 34ca5667b5bf47bec8c48a7e5836b7d51ad08724
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 88225ee7aeefd9030e754f2b1abc66e4c05e5c6b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986812"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431163"
 ---
-# <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>教學課程：針對 B2B 來賓使用者強制執行多重要素驗證
+# <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>教學課程：為 B2B 來賓使用者強制執行多重要素驗證
 
 當與外部 B2B 來賓使用者共同作業時，使用多重要素驗證 (MFA) 原則來保護您的應用程式是個不錯的做法。 如此一來，外部使用者在存取您的資源時，將不僅只是需要使用者名稱和密碼。 在 Azure Active Directory (Azure AD) 中，您可以使用要求使用 MFA 進行存取的條件式存取原則來達成此目標。 MFA 原則可以在租用戶、應用程式或個別來賓使用者層級強制執行，方式就像針對您自己組織的成員啟用這些原則一樣。
 
@@ -30,7 +30,7 @@ ms.locfileid: "45986812"
 3.  系統要求使用者完成 MFA 挑戰。 
 4.  使用者設定與 A 公司搭配使用的 MFA，然後選擇其 MFA 選項。 系統允許使用者存取應用程式。
 
-在此教學課程中，您將：
+在本教學課程中，您將：
 
 > [!div class="checklist"]
 > * 在設定 MFA 之前先測試登入體驗。
@@ -41,9 +41,9 @@ ms.locfileid: "45986812"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程中的案例，您需要：
+若要完成本教學課程中的案例，您需要：
 
  - **Azure AD Premium 版的存取權**，這包括條件式存取原則功能。 若要強制執行 MFA，您必須建立 Azure AD 條件式存取原則。 請注意，不論合作夥伴是否具備 MFA 功能，MFA 原則一律會在您個組織強制執行。 如果您已為組織設定 MFA，將必須確定您有足夠的 Azure AD Premium 授權可供來賓使用者使用。 
  - 一個可供您新增至租用戶目錄作為來賓使用者並用來登入的**有效外部電子郵件帳戶**。 如果您不知道如何建立來賓帳戶，請參閱[在 Azure 入口網站中新增 B2B 來賓使用者](add-users-administrator.md)。
@@ -137,6 +137,6 @@ ms.locfileid: "45986812"
 4.  選取測試使用者，然後選取 [刪除使用者]。
 5.  在左窗格中，選取 [Azure Active Directory]。
 6.  在 [安全性] 底下，選取 [條件式存取]。
-7.  在 [原則名稱] 清單中，選取您測試原則的操作功能表 (...)，然後選取 [刪除]。 選取 [是] 以進行確認。
+7.  在 [原則名稱] 清單中，選取您測試原則的操作功能表 (...)，然後選取 [刪除]。 選取 [是]  加以確認。
 ## <a name="next-steps"></a>後續步驟
 在此教學課程中，您已建立會要求來賓使用者在登入您其中一個雲端應用程式時使用 MFA 的條件式存取原則。 若要深入了解如何新增共同作業的來賓使用者，請參閱[在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者](add-users-administrator.md)。

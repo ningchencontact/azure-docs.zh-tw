@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: daee5a2073e78ca5bb9e0eb0386617d7638ab930
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a0eb3ed26b0e8641cf4e1004c2c162c799dd8999
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988509"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463757"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>教學課程：使用 Azure CLI 來建立和管理 Linux 虛擬機器的 Azure 虛擬網路
 
@@ -208,7 +208,7 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-只可以在連接埠 *22* 和連接埠 *80* 上存取前端 VM。 所有其他的傳入流量會在網路安全性群組遭到封鎖。 以視覺化方式檢視 NSG 規則組態可能有幫助。 以 [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) 命令傳回 NSG 規則組態。 
+只可以在連接埠 *22* 和連接埠 *80* 上存取前端 VM。 所有其他的傳入流量會在網路安全性群組遭到封鎖。 以視覺化方式檢視 NSG 規則組態可能有幫助。 以 [az network rule list](/cli/azure/network/nsg/rule) 命令傳回 NSG 規則組態。 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG --output table
@@ -285,7 +285,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-只可以從前端子網路在連接埠 *22* 和連接埠 *3306* 上存取後端 VM。 所有其他的傳入流量會在網路安全性群組遭到封鎖。 以視覺化方式檢視 NSG 規則組態可能有幫助。 以 [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) 命令傳回 NSG 規則組態。 
+只可以從前端子網路在連接埠 *22* 和連接埠 *3306* 上存取後端 VM。 所有其他的傳入流量會在網路安全性群組遭到封鎖。 以視覺化方式檢視 NSG 規則組態可能有幫助。 以 [az network rule list](/cli/azure/network/nsg/rule) 命令傳回 NSG 規則組態。 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table

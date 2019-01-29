@@ -1,6 +1,6 @@
 ---
 title: 透過 Azure 媒體服務 v3 進行即時串流 | Microsoft Docs
-description: 本教學課程將逐步解說使用 .NET Core 透過媒體服務 v3 進行即時串流的步驟。
+description: 本教學課程將逐步解說透過媒體服務 v3 使用 .NET Core 進行即時串流的步驟。
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/28/2018
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 858c062c2b3d61b38247e323bf70d2768d33b257
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c51a36f4380199de1ac62ef3f0c32bd0a8f06c01
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969330"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811208"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>教學課程：使用 API 透過媒體服務 v3 進行即時串流
 
@@ -89,7 +89,7 @@ ms.locfileid: "53969330"
 
 ### <a name="create-a-live-event"></a>建立即時事件
 
-本節說明如何建立**傳遞**類型的 LiveEvent (LiveEventEncodingType 設定為 [無])。 如果您想要建立已啟用即時編碼功能的 LiveEvent，請將 LiveEventEncodingType 設定為 Standard。 
+本節說明如何建立**傳遞**類型的 LiveEvent (LiveEventEncodingType 設定為 [無])。 如果您想要建立已啟用即時編碼功能的 LiveEvent，請將 LiveEventEncodingType 設定為 **Standard**。 
 
 您在建立即時事件時也可以進行下列指定：
 
@@ -100,8 +100,12 @@ ms.locfileid: "53969330"
 * 內嵌和預覽的 IP 限制。 您可以定義允許將視訊內嵌到這個 LiveEvent 的 IP 位址。 允許的 IP 位址可以指定為單一 IP 位址 (例如 ‘10.0.0.1’)、使用 IP 位址和 CIDR 子網路遮罩的 IP 範圍 (例如 ‘10.0.0.1/22’)，或是使用 IP 位址和小數點十進位子網路遮罩的 IP 範圍 (例如 '10.0.0.1(255.255.252.0)')。
     
     如果未指定 IP 位址而且也未定義規則，則任何 IP 位址都不允許。 若要允許任何 IP 位址，請建立規則，並設定 0.0.0.0/0。
+    
+    IP 位址必須採用下列其中一個格式：具有 4 個數字、CIDR 位址範圍的 IpV4 位址。
 
-在建立事件時，您可以指定要自動加以啟動。 
+* 在建立事件時，您可以指定要自動加以啟動。 
+
+    當自動啟動設為 true 時，即時事件將會在建立後隨即啟動。 這表示，在即時事件執行後就會馬上開始計費。 您必須在 LiveEvent 資源上明確呼叫停止，才能中止進一步計費。 如需詳細資訊，請參閱 [LiveEvent 狀態和計費](live-event-states-billing.md)。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 

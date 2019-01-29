@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: a6833e2a492a9fb0a6a73a24c9f9d17638958dca
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: cfbbe9a5297627dec69683b819aabd721b3c33d7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975724"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470778"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>為內部部署 VMware VM 設定災害復原至 Azure
 
@@ -181,7 +181,7 @@ Site Recovery 會使用指定的設定連線至 VMware 伺服器並探索 VM。
 6. 在 [目標] 中，選取您想要在其中建立容錯移轉 VM 的訂用帳戶和資源群組。 我們會使用 Resource Manager 部署模型。 
 7. 選取您要用來複寫資料的 Azure 儲存體帳戶，以及 Azure VM 在容錯移轉後所要連線的 Azure 網路和子網路。
 8. 選取 [立即設定選取的機器]，將網路設定套用到您啟用複寫的所有 VM 上。 選取 [稍後設定] 以選取每部機器的 Azure 網路。
-9. 在 [虛擬機器] > [選取虛擬機器] 中，選取您要複寫的每部機器。 您只能選取可以啟用複寫的機器。 然後選取 [確定]。
+9. 在 [虛擬機器] > [選取虛擬機器] 中，選取您要複寫的每部機器。 您只能選取可以啟用複寫的機器。 然後選取 [確定]。 如果您無法檢視/選取任何特定虛擬機器，請按一下 [[這裡]](https://aka.ms/doc-plugin-VM-not-showing) 以解決問題。
 10. 在 [屬性] > [設定屬性] 中，選取處理序伺服器要用來在電腦上自動安裝行動服務的帳戶。
 11. 在 [複寫設定] > [設定複寫設定] 中，確認已選取正確的複寫原則。
 12. 選取 [啟用複寫]。 Site Recovery 會在 VM 已啟用複寫時安裝行動服務。

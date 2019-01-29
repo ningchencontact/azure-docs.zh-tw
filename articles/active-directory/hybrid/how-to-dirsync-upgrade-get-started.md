@@ -1,10 +1,10 @@
 ---
-title: Azure AD Connect︰從 DirSync 升級 | Microsoft Docs
+title: Azure AD Connect：從 DirSync 升級 | Microsoft Docs
 description: 了解如何從 DirSync 升級至 Azure AD Connect。 本文說明從 DirSync 升級至 Azure AD Connect 的步驟
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: baf52da7-76a8-44c9-8e72-33245790001c
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 41bbc2fd57617bb4bafb121f9c766b1f673dd075
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9ec2cdd26db03698a3093336b500cb66e2125c50
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228618"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467803"
 ---
-# <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect︰從 DirSync 升級
+# <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect：從 DirSync 升級
 Azure AD Connect 是 DirSync 的後續產品。 您會在本主題中了解可從 DirSync 升級的方式。 這些步驟不適用於從另一個版本的 Azure AD Connect 或從 Azure AD Sync 升級。
 
 在開始安裝 Azure AD Connect 之前，請務必要[下載 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) 並完成 [Azure AD Connect：硬體和必要條件](how-to-connect-install-prerequisites.md)中的必要條件步驟。 特別是，您會想要閱讀下列各項，因為這些領域與 DirSync 有所不同︰
@@ -136,7 +136,7 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。 這些密碼�
 1. 執行 Azure AD Connect Installer (MSI)。
 2. 當您看到 [歡迎使用 Azure AD Connect]  畫面時，請按一下視窗右上角的 "X" 結束安裝精靈。
 3. 開啟命令提示字元。
-4. 從 Azure AD Connect 的安裝位置 (預設值：C:\Program Files\Microsoft Azure Active Directory Connect)，執行下列命令：`AzureADConnect.exe /ForceExport`。
+4. 從 Azure AD Connect 的安裝位置 (預設值：C:\Program Files\Microsoft Azure Active Directory Connect) 執行下列命令：`AzureADConnect.exe /ForceExport`。
 5. 按一下 [匯出設定]  按鈕。 在不同的伺服器上安裝 Azure AD Connect 時，這些設定會從目前的 DirSync 移轉到新的 Azure AD Connect 安裝。
 
 ![分析完成](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
@@ -149,7 +149,7 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。 這些密碼�
 1. 執行 Azure AD Connect Installer (MSI)。
 2. 當您看到 [歡迎使用 Azure AD Connect]  畫面時，請按一下視窗右上角的 "X" 結束安裝精靈。
 3. 開啟命令提示字元。
-4. 從 Azure AD Connect 的安裝位置 (預設值：C:\Program Files\Microsoft Azure Active Directory Connect)，執行下列命令：`AzureADConnect.exe /migrate`。
+4. 從 Azure AD Connect 的安裝位置 (預設值：C:\Program Files\Microsoft Azure Active Directory Connect) 執行下列命令：`AzureADConnect.exe /migrate`。
    Azure AD Connect 安裝精靈會啟動，您會看到下列畫面：  
    ![輸入您的 Azure AD 認證](./media/how-to-dirsync-upgrade-get-started/ImportSettings.png)
 5. 選取從 DirSync 安裝所匯出的設定檔案。
@@ -213,7 +213,7 @@ Azure AD Connect 現在是作用中的伺服器，您不可切換回使用現有
 ## <a name="next-steps"></a>後續步驟
 安裝了 Azure AD Connect 之後，您可以 [驗證安裝和指派授權](how-to-connect-post-installation.md)。
 
-深入了解這些在安裝時啟用的新功能︰[自動升級](how-to-connect-install-automatic-upgrade.md)、[防止意外刪除](how-to-connect-sync-feature-prevent-accidental-deletes.md)和 [Azure AD Connect Health](how-to-connect-health-sync.md)。
+深入了解這些在安裝時啟用的新功能︰[自動升級](how-to-connect-install-automatic-upgrade.md)、[防止意外刪除](how-to-connect-sync-feature-prevent-accidental-deletes.md)及 [Azure AD Connect Health](how-to-connect-health-sync.md)。
 
 深入了解這些常見主題︰[排程器和如何觸發同步處理](how-to-connect-sync-feature-scheduler.md)。
 

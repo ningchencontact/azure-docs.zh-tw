@@ -3,19 +3,19 @@ title: 快速入門 - 設定使用 Azure Active Directory B2C 登入 ASP.NET 應
 description: 執行範例 ASP.NET Web 應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c4fa3f9cbba558cd743f85119dd9e91bd73ce062
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: af83b1dc3638425ff3d4dbe7777d81a83e98995a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250592"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843084"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 登入 ASP.NET 應用程式
 
@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
     範例解決方案中有兩個專案：
 
-    - **TaskWebApp** - 建立和編輯工作清單的 Web 應用程式。 此 Web 應用程式會使用**註冊或登入**原則來註冊或登入使用者。
+    - **TaskWebApp** - 建立和編輯工作清單的 Web 應用程式。 此 Web 應用程式會使用**註冊或登入**使用者流程來註冊或登入使用者。
     - **TaskService** - 支援建立、讀取、更新和刪除工作清單功能的 Web API。 此 Web API 會受到 Azure AD B2C 的保護，且由 Web 應用程式呼叫。
 
 ## <a name="run-the-application-in-visual-studio"></a>在 Visual Studio 中執行應用程式
@@ -67,7 +67,7 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
 ## <a name="edit-your-profile"></a>編輯您的設定檔
 
-Azure Active Directory B2C 提供讓使用者更新其設定檔的功能。 範例 Web 應用程式會對工作流程使用 Azure AD B2C 編輯設定檔原則。 
+Azure Active Directory B2C 提供讓使用者更新其設定檔的功能。 範例 Web 應用程式會對工作流程使用 Azure AD B2C 編輯設定檔使用者流程。 
 
 1. 在應用程式功能表列中按一下您的設定檔名稱，然後選取 [編輯設定檔] 以編輯您建立的設定檔。
 

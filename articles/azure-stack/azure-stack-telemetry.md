@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 190a80d5807dcc8ad9666d3ba450691bc6453b41
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 471232fee5245426afce89993d9faebccc6a8ea8
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265612"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389386"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遙測
 
@@ -40,7 +40,7 @@ Azure Stack 遙測是以 Windows Server 2016「已連線使用者體驗與遙測
 
 ## <a name="privacy-considerations"></a>隱私權考量
 
-ETW 服務會將遙測資料傳送回到受保護的雲端儲存體。 最小權限原則會支配遙測資料的存取權。 只有具備有效商務需求的 Microsoft 人員，才能夠存取遙測資料。 Microsoft 不會與第三方共用客戶個人資料，但客戶自行決定或基於 [Microsoft 隱私權聲明](https://privacy.microsoft.com/PrivacyStatement)中所述的有限用途除外。 我們會與 OEM 和夥伴共用商務報告，其中包含匿名的彙總資料。 內部 Microsoft 小組 (包括隱私權、法務及資料管理利害關係人) 會進行資料共用決策。
+ETW 服務會將遙測資料傳送回到受保護的雲端儲存體。 最小權限主體會支配遙測資料的存取權。 只有具備有效商務需求的 Microsoft 人員，才能夠存取遙測資料。 Microsoft 不會與第三方共用客戶個人資料，但客戶自行決定或基於 [Microsoft 隱私權聲明](https://privacy.microsoft.com/PrivacyStatement)中所述的有限用途除外。 我們會與 OEM 和夥伴共用商務報告，其中包含匿名的彙總資料。 內部 Microsoft 小組 (包括隱私權、法務及資料管理利害關係人) 會進行資料共用決策。
 
 Microsoft 相信並實踐資訊最小化。 我們努力以只蒐集所需的資訊為目標，而且只有在提供服務所需或進行分析時才會加以儲存。 許多有關 Azure Stack 系統和 Azure 服務運作方式的資訊會在六個月內刪除。 摘要或彙總資料將會保留更長一段時間。
 

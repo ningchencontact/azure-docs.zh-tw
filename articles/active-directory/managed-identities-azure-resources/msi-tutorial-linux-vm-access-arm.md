@@ -4,7 +4,7 @@ description: 本教學課程會逐步引導您在 Linux VM 上利用使用者指
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 638946f0ffa8b6540f55fb7a22ac17bd262269bf
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d9683c95c050826143e3e30931c808a5b464d7e5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621678"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431991"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>教學課程：在 Linux VM 上利用使用者指派的受控識別來存取 Azure Resource Manager
 
@@ -84,10 +84,10 @@ az identity create -g <RESOURCE GROUP> -n <UAMI NAME>
 
 使用者指派的受控識別可以由多個 Azure 資源上的用戶端使用。 請使用下列命令，將使用者指派的受控識別指派給單一虛擬機器。 針對 `-IdentityID` 參數，請使用前一個步驟中所傳回的 `Id` 屬性。
 
-使用 [az vm assign-identity](/cli/azure/vm#az-vm-assign-identity)，將使用者指派的受控識別指派給 Linux VM。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VM NAME>` 參數的值。 至於 `--identities` 參數值，請使用前一個步驟中所傳回的 `id` 屬性。
+使用 [az vm identity assign](/cli/azure/vm#az-vm-identity-assign)，將使用者指派的受控識別指派給 Linux VM。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VM NAME>` 參數的值。 至於 `--identities` 參數值，請使用前一個步驟中所傳回的 `id` 屬性。
 
 ```azurecli-interactive
-az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAMI NAME>"
+az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAMI NAME>"
 ```
 
 ## <a name="grant-your-user-assigned-managed-identity-access-to-a-resource-group-in-azure-resource-manager"></a>在 Azure Resource Manager 中，將存取資源群組的權利，授予使用者指派的受控識別 

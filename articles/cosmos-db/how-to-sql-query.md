@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2a88b130c92f7b9074fd248afc97f0ea6b4c13bb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042133"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452950"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>從 Azure Cosmos DB 查詢資料的 SQL 查詢範例
 
@@ -506,7 +506,7 @@ IN 關鍵字可用來檢查指定的值是否符合清單中的任何值。 例�
 
 和其他查詢運算子一樣，如果任何項目中的條件運算式遺漏了參考屬性，或者要比較的類型不同，則查詢結果會將那些項目排除在外。
 
-聯合 (??) 運算子可用來有效率地檢查屬性是否存在 (也稱為 已定義) 於項目中。 針對半結構化或混合類型的資料執行查詢時，此運算子非常有用。 例如，此查詢會傳回 "lastName" (如果存在) 或 "surname" (如果不存在)。
+聯合 (??) 運算子可用來有效率地檢查項目中是否存在屬性。 針對半結構化或混合類型的資料執行查詢時，此運算子非常有用。 例如，此查詢會傳回 "lastName" (如果存在) 或 "surname" (如果不存在)。
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName

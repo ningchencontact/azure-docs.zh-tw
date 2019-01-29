@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2017
+ms.date: 01/17/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: a130351131f59511ef4f60b579197da96f9334e6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 27a114378cf72e766e894dc0dd6886197f56a841
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720723"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390262"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>教學課程：使用 Application Insights 監視和診斷 Service Fabric 上的 ASP.NET Core 應用程式
 
@@ -59,7 +59,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="set-up-an-application-insights-resource"></a>設定 Application Insights 資源
 
-Application Insights 是 Azure 的應用程式效能管理平台，也是 Service Fabric 建議的應用程式監視和診斷平台。 若要建立 Application Insights 資源，請瀏覽至 [Azure 入口網站](https://portal.azure.com)。 在左導覽功能表上按一下 [建立資源]，以開啟 Azure Marketplace。 按一下 [監視 + 管理]，然後按一下 [Application Insights]。
+Application Insights 是 Azure 的應用程式效能管理平台，也是 Service Fabric 建議的應用程式監視和診斷平台。 若要建立 Application Insights 資源，請瀏覽至 [Azure 入口網站](https://portal.azure.com)。 在左導覽功能表上按一下 [建立資源]，以開啟 Azure Marketplace。 按一下 [Application Insights]。
 
 ![建立新的 AI 資源](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource.png)
 
@@ -76,13 +76,8 @@ Application Insights 是 Azure 的應用程式效能管理平台，也是 Servic
 
 請遵循下列步驟來設定 VotingWeb 和 VotingData 服務的 Application Insights：
 
-1. 以滑鼠右鍵按一下服務名稱，然後按一下 [設定 Application Insights...]。
-
-    ![設定 AI](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
->[!NOTE]
->視專案類型而定，當您以滑鼠右鍵按一下服務名稱時，您可能需要按一下 [新增]-> [Application Insights 遙測...]
-
-2. 按一下 [開始免費試用]。
+1. 以滑鼠右鍵按一下服務名稱，然後選取 [新增 設定 -> Application Insights 遙測...]。    
+2. 按一下 [開始使用]。
 3. 登入您的帳戶 (這也用來設定您的 Azure 訂用帳戶)，並選取您在其中建立 Application Insights 資源的訂用帳戶。 從 [資源] 下拉式清單中，在 [現有的 Application Insights 資源] 下尋找資源。 按一下 [註冊] 將 Application Insights 新增至您的服務。
 
     ![註冊 AI](./media/service-fabric-tutorial-monitoring-aspnet/register-ai.png)
@@ -101,8 +96,8 @@ Application Insights 有兩個 Service Fabric 特定的 NuGet，可依情節來�
 2. 在 [NuGet - 方案] 視窗的頂端導覽功能表上，按一下 [瀏覽]，並勾選搜尋列旁邊的 [包含發行前版本] 方塊。
 3. 搜尋 `Microsoft.ApplicationInsights.ServiceFabric.Native`，然後按一下適當的 NuGet 套件。
 
->[!NOTE]
->如果在安裝 Application Insights 套件之前未預先安裝 Microsoft.ServiceFabric.Diagnostics.Internal 套件，您可能需要以類似方式安裝該套件
+    >[!NOTE]
+    >如果在安裝 Application Insights 套件之前未預先安裝 Microsoft.ServiceFabric.Diagnostics.Internal 套件，您可能需要以類似方式安裝該套件
 
 4. 在右側，按一下應用程式中兩個服務 (**VotingWeb** 和 **VotingData**) 旁邊的兩個核取方塊，然後按一下 [安裝]。
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)

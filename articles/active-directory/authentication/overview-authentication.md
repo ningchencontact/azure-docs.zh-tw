@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 92c493a59cc14d61b09e59bdf0fa23be72b7137a
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3437aed01efe137a5e67dfc09427c1048fa3e4e2
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232544"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423133"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>驗證有哪些可用的方法？
 
@@ -56,6 +56,6 @@ Azure Multi-Factor Authentication (MFA) 是 Microsoft 的雙步驟驗證解決�
 
 若要開始使用自助式密碼重設，請參閱[啟用 SSPR 的快速入門文章](quickstart-sspr.md)。
 
-在[運作方式：Azure AD 自助式密碼重設](concept-sspr-howitworks.md)一文中深入了解自助式密碼重設
+在以下文章中深入了解自助式密碼重設：[運作方式：Azure AD 自助式密碼重設](concept-sspr-howitworks.md)
 
-在[運作方式：Azure Multi-Factor Authentication](concept-mfa-howitworks.md) 一文中深入了解 Azure Multi-factor Authentication
+在以下文章中深入了解 Azure Multi-Factor Authentication：[運作方式：Azure Multi-Factor Authentication](concept-mfa-howitworks.md)

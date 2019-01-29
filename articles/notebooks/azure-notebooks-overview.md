@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ffceeeeb5a55b0fab1dd1cf91aebfcd4cfd852ef
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246206"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848592"
 ---
 # <a name="overview-of-azure-notebooks"></a>Azure Notebooks 概觀
 
 Azure Notebooks 是免費的裝載服務，無需任何安裝程序，就能用來在雲端中開發和執行 Jupyter Notebooks。 [Jupyter](https://jupyter.org/) (前稱 IPython) 是開放原始碼專案，可輕鬆將 Markdown 文字、可執行程式碼、持續性資料、圖形以及視覺效果統整至名為「筆記本」(影像由 jupyter.org 提供) 的單一且可分享的畫布上：
 
-[![](https://jupyter.org/assets/jupyterpreview.png "Jupyter 筆記本")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Jupyter Notebook 的範例](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 因為程式碼、圖形和說明文字的強大組合，Jupyter 成為了許多用途的熱門選擇，這些用途包括資料科學教學、資料清除和轉換、數值模擬、統計模型和開發機器學習模型。
 
@@ -57,7 +57,7 @@ Azure Notebooks 可協助您快速開始使用原型化、資料科學、學術�
 
 Azure Notebooks 是一項免費服務，但為防濫用，每個專案都限制只能使用 4 GB 的記憶體和 1 GB 的資料。 超過這些限制的合法使用者會看到 Captcha 查問，通過後才能繼續執行筆記本。
 
-若要解除所有限制，請以使用 Azure Active Directory 的帳戶 (例如公司帳戶) 登入 Azure Notebooks。 如果該帳戶與 Azure 訂用帳戶相關聯，您可以使用 Azure 資料科學虛擬機器計算層。
+若要解除所有限制，請以使用 Azure Active Directory 的帳戶 (例如公司帳戶) 登入 Azure Notebooks。 如果該帳戶與 Azure 訂用帳戶相關聯，則您可以連線至該訂用帳戶內的任何 Azure 資料科學虛擬機器執行個體。 如需詳細資訊，請參閱[管理和設定專案 - 計算層](configure-manage-azure-notebooks-projects.md#compute-tier)。
 
 ## <a name="available-kernels-and-environments"></a>可用的核心和環境
 

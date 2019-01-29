@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 01/06/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 466f7614026866bb038f3c73b23e28e34d9f2e30
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 01c88b9bc64bc1541e97aff26e41c360acfaf6bd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321011"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809967"
 ---
 # <a name="what-is-azure-event-grid"></a>什麼是 Azure 事件方格？
 
@@ -65,7 +65,7 @@ Azure Event Grid 中有五個概念可讓您開始進行：
 * **事件** - 發生了什麼事。
 * **事件來源** - 事件發生位置。
 * **主題** - 要作為發行者所傳送之事件的目的地端點。
-* **事件訂閱** - 用來路由傳送事件的端點或內建機制，有時會路由傳送到多個處理常式。 處理常式也會使用訂閱來智慧地篩選內送事件。
+* **事件訂閱** - 用來路由傳送事件的端點或內建機制，有時會路由至多個處理常式。 處理常式也會使用訂閱來智慧地篩選內送事件。
 * **事件處理常式** - 對事件做出回應的應用程式或服務。
 
 如需這些概念的詳細資訊，請參閱 [Azure Event Grid 中的概念](concepts.md)。

@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 098973e2ece3477ec87b154c0304c4ca7e0246d1
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5bd27ed71e93edc10fd86395121c524cb54c98e7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163265"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427605"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>教學課程：完成 Azure Multi-Factor Authentication 試驗推出
 
@@ -29,7 +29,7 @@ ms.locfileid: "39163265"
 
 * 可運作且至少已啟用試用版授權的 Azure AD 租用戶。
 * 具有全域系統管理員權限的帳戶。
-* 您已知其測試用密碼的非系統管理員測試使用者；如果您需要建立使用者，請參閱[快速入門：將新的使用者新增至 Azure Active Directory](../add-users-azure-active-directory.md) 一文。
+* 您知道其密碼可供測試的非系統管理員測試使用者；如果您需要建立使用者，請參閱[快速入門：將使用者新增至 Azure Active Directory](../add-users-azure-active-directory.md) 中的資訊。
 * 該名非系統管理員使用者所屬的測試用試驗群組；如果您需要建立群組，請參閱[在 Azure Active Directory 中建立群組和新增使用者](../active-directory-groups-create-azure-portal.md)一文。
 
 ## <a name="enable-azure-multi-factor-authentication"></a>啟用 Azure Multi-Factor Authentication

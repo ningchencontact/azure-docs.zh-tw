@@ -4,7 +4,7 @@ description: 了解如何使用 Azure 入口網站下載登入報告
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 9131f208-1f90-4cc1-9c29-085cacd69317
 ms.service: active-directory
@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ce242066df427163048a2ef51e79ffd98eadbc7d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 7b16fb718e689eec8ea016b513d866390b2328e0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214907"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815546"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站下載登入報告
 
-在此快速入門中，您將學到如何下載您租用戶過去 24 小時內的登入資料。
+在此快速入門中，您將學到如何下載您租用戶過去 24 小時內的登入資料。 您可以從 Azure 入口網站最多下載 5000 筆記錄。 這些記錄會依「時間上最近」方式來排序，因此根據預設，您會取得最近的 5000 筆記錄。 
 
 ## <a name="prerequisites"></a>必要條件
 

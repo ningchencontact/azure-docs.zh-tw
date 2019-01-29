@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 715a8e5bab9e5d16b8c0e54298101df856d51a9a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: e83d6e2f14f8665f8eb0c58a4dc41c7c2ecc792d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309854"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464250"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>教學課程：了解如何使用 Azure CLI 控管 Linux 虛擬機器
 
@@ -177,7 +177,7 @@ az group delete --name myResourceGroup
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-若要將標籤套用至虛擬機器，請使用 [az resource tag](/cli/azure/resource#az_resource_tag) 命令。 資源上的任何現有標記都不會保留。
+若要將標籤套用至虛擬機器，請使用 [az resource tag](/cli/azure/resource) 命令。 資源上的任何現有標記都不會保留。
 
 ```azurecli-interactive
 az resource tag -n myVM \
@@ -188,7 +188,7 @@ az resource tag -n myVM \
 
 ### <a name="find-resources-by-tag"></a>依標籤尋找資源
 
-若要尋找具有某標籤名稱和值的資源，請使用 [az resource list](/cli/azure/resource#az_resource_list) 命令：
+若要尋找具有某標籤名稱和值的資源，請使用 [az resource list](/cli/azure/resource) 命令：
 
 ```azurecli-interactive
 az resource list --tag Environment=Test --query [].name

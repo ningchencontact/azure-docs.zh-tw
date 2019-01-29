@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: ab52206230c4dfe2d92c97f1e291ee00a086c570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470858"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422893"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>教學課程：在 Azure DevTest Labs 中存取實驗室
 在本教學課程中，您會使用[教學課程：在 Azure DevTest Labs 中建立實驗室](tutorial-create-custom-lab.md)中建立的實驗室。
@@ -68,14 +68,16 @@ ms.locfileid: "49470858"
 1. 在 [虛擬機器] 頁面的工具列上，選取 [取消認領]。 
 
     ![取消認領 VM](./media/tutorial-use-custom-lab/unclaim-vm-menu.png)
-1. VM 會先關機然後再取消認領。 
+1. VM 會先關機然後再取消認領。 您可以在通知中查看此作業的狀態。  
+3. 按一下頂端麵包屑導航功能表中的實驗室名稱，以瀏覽回 DevTest Lab 頁面。 
+    
+    ![巡覽回實驗室](./media/tutorial-use-custom-lab/breadcrumb-to-lab.png)
+1. 確認您在底部的 [可認領虛擬機器] 清單中看到 VM。
 
-    ![取消認領狀態](./media/tutorial-use-custom-lab/unclaim-status.png) 
-1. 取消認領作業完成之後，您會看到 VM 出現底部的 [可認領虛擬機器] 清單中。 
     
 ## <a name="next-steps"></a>後續步驟
 本教學課程會示範如何存取和使用透過 Azure DevTest Labs 建立的實驗室。 若要深入了解如何存取和使用實驗室中的 VM，請參閱 
 
 > [!div class="nextstepaction"]
-> [作法：在實驗室中使用 VM](devtest-lab-add-vm.md)
+> [操作說明：在實驗室中使用 VM](devtest-lab-add-vm.md)
 

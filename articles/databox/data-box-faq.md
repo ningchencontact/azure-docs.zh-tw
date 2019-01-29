@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: c8aa08dc189a77a206ea24b535aedf64454838c7
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359403"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449566"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure 資料箱：常見問題集
 
@@ -192,7 +192,9 @@ A.  在傳輸期間，資料箱上的下列功能可協助保護資料。
 
 ### <a name="q-i-have-finished-prepare-to-ship-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>問： 我已完成「準備寄送」並將裝置關機。 是否還可以將更多資料新增到資料箱中？
 A. 是。 您可以將裝置開機，並新增更多資料。 一旦您完成資料複製，將需要再次執行**準備寄送**。
-  
+
+### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>問： 我收到我的裝置，但無法開機？ 如何將裝置送回？
+A. 如果您的裝置無法開機，請移至您在 Azure 入口網站中的訂單。 下載出貨標籤並將該標籤貼在裝置上。 如需詳細資訊，請移至[下載出貨標籤](data-box-portal-admin.md#download-shipping-label)。
 
 ## <a name="verify-and-upload"></a>確認和上傳
 

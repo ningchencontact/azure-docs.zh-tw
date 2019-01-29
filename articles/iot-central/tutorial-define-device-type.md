@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d50059fb6fe03309609c91b56fb3763bad32e46b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0aef8c5e055eb43576ea0ecc7ef8bf09d22d6ed3
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199964"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412898"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>教學課程：在 Azure IoT Central 應用程式中定義新的裝置類型
 
@@ -75,7 +75,7 @@ ms.locfileid: "54199964"
 
 ## <a name="create-a-new-custom-device-template"></a>建立新的自訂裝置範本
 
-身為建置者，您可以在應用程式中建立和編輯裝置範本。 當您建立裝置範本時，Azure IoT Central 會從範本產生模擬裝置。 模擬裝置會產生遙測資料，讓您可先測試應用程式的行為，再連接實體裝置。
+身為建置者，您可以在應用程式中建立和編輯裝置範本。 當您建立裝置範本時，Azure IoT Central 會從範本產生模擬裝置。 模擬裝置會產生遙測資料，讓您可先測試應用程式的行為，再連接真實裝置。
 
 若要將新的裝置範本新增至應用程式，您必須移至 [應用程式建置者] 頁面。 若要這麼做，請選擇左側導覽功能表上的 [應用程式建立器]。
 
@@ -155,7 +155,7 @@ ms.locfileid: "54199964"
 
 ## <a name="define-event-measurement"></a>定義事件測量
 
-您可以使用事件來定義裝置所傳送的時間點資料，以指出具有重要性的事項，例如錯誤或元件失敗。 如同遙測測量，Azure IoT Central 也可模擬裝置事件，而讓您能夠先測試應用程式的行為，再連接實體裝置。 您可以在 [測量] 檢視中為您的裝置類型定義事件測量。
+您可以使用事件來定義裝置所傳送的時間點資料，以指出具有重要性的事項，例如錯誤或元件失敗。 如同遙測測量，Azure IoT Central 也可模擬裝置事件，而讓您能夠先測試應用程式的行為，再連接真實裝置。 您可以在 [測量] 檢視中為您的裝置類型定義事件測量。
 
 1. 若要新增 [風扇馬達錯誤] 事件測量，請選擇 [新增測量]。 然後，選擇 [事件] 作為測量類型：
 
@@ -191,7 +191,7 @@ ms.locfileid: "54199964"
 
 ## <a name="define-state-measurement"></a>定義狀態測量
 
-您可以使用 [狀態] 來定義和視覺化裝置或其元件在一段時間內的狀態。 如同遙測測量，Azure IoT Central 也可模擬裝置狀態，而讓您能夠先測試應用程式的行為，再連接實體裝置。 您可以在 [測量] 檢視中為您的裝置類型定義狀態測量。
+您可以使用 [狀態] 來定義和視覺化裝置或其元件在一段時間內的狀態。 如同遙測測量，Azure IoT Central 也可模擬裝置狀態，而讓您能夠先測試應用程式的行為，再連接真實裝置。 您可以在 [測量] 檢視中為您的裝置類型定義狀態測量。
 
 1. 若要新增 [風扇模式]，請選擇 [新增測量]。 然後，選擇 [狀態] 作為測量類型：
 

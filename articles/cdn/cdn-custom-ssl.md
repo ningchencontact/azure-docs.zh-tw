@@ -12,20 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c7540ed2715d13921f005ed9b217f7bfb9cd0a0a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5b8277c0688d0fd08dfa81cb7d5f7155840843c0
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092078"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413578"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>教學課程：在 Azure CDN 自訂網域上設定 HTTPS
-
-> [!IMPORTANT]
-> 這項功能不適用於**來自 Akamai 的標準 Azure CDN** 產品。 如需 Azure 內容傳遞網路 (CDN) 功能的比較，請參閱[比較 Azure CDN 產品功能](cdn-features.md)。
 
 本教學課程示範如何針對與 Azure CDN 端點相關聯的自訂網域，啟用 HTTPS 通訊協定。 在您的自訂網域上使用 HTTPS 通訊協定 (例如 https:\//www.contoso.com)，確保在網際網路上傳送機密資料時能經由 TLS/SSL 加密安全地傳遞。 當網頁瀏覽器透過 HTTPS 連線到網站時，它會驗證網站的安全性憑證，並確認憑證是由合法的憑證授權單位所核發的。 此程序可提供安全性，並讓 Web 應用程式免於遭受攻擊。
 
@@ -37,7 +34,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 - 容易啟用：從 [Azure 入口網站](https://portal.azure.com)按一下就能佈建。 您也可以使用 REST API 或其他開發工具來啟用此功能。
 
-- 可以使用完整憑證管理：為您處理所有憑證採購及管理。 憑證會在到期之前自動佈建並更新，進而消除因為憑證到期而中斷服務的風險。
+- 可使用完整憑證管理：為您處理所有憑證採購及管理。 憑證會在到期之前自動佈建並更新，進而消除因為憑證到期而中斷服務的風險。
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
@@ -65,7 +62,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 依照下列步驟啟用自訂網域的 HTTPS︰
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至**來自 Microsoft 的標準 Azure CDN**、**來自 Verizon 的標準 Azure CDN**或**來自 Verizon 的進階 Azure CDN** 設定檔。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至**來自 Microsoft 的標準 Azure CDN**、**來自 Akamai 的標準 Azure CDN**、**來自 Verizon 的標準 Azure CDN** 或**來自 Verizon 的進階 Azure CDN** 設定檔。
 
 2. 在 CDN 端點清單中，選取包含自訂網域的端點。
 
@@ -171,7 +168,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
 您的 CNAME 記錄應該採用下列格式，其中「名稱」是您的自訂網域名稱，而「值」則是您的 CDN 端點主機名稱：
 
-| 名稱            | 類型  | 值                 |
+| Name            | 類型  | 值                 |
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azureedge.net |
 
@@ -187,6 +184,9 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>自訂網域未對應至您的 CDN 端點
 
 如果您端點的 CNAME 記錄項目已不存在或包含 cdnverify 子網域，請依照此步驟中的其餘指示進行操作。
+
+>[!NOTE]
+>自訂網域擁有權的電子郵件驗證目前不適用於**來自 Akamai 的 Azure CDN** 設定檔。 此功能目前為待處理項目 (backlog)。 
 
 在您的自訂網域上啟用 HTTPS 之後，DigiCert CA 會根據網域的 [WHOIS](http://whois.domaintools.com/) 註冊資訊連絡其註冊人，以驗證網域的所有權。 連絡方式為透過電子郵件地址 (預設) 或列示在 WHOIS 註冊資訊中的電話號碼。 必須先完成網域驗證才能在您的自訂網域上啟用 HTTPS。 您有六個工作天可以核准網域。 未在六個工作天內核准的要求將會自動遭到取消。 
 
@@ -302,15 +302,11 @@ We encountered an unexpected error while processing your HTTPS request. Please t
     
     SAN 憑證遵循和專用憑證相同的加密與安全性標準。 所有發行的 SSL 憑證都使用 SHA-256 來加強伺服器安全性。
 
-5. *是否可以搭配 Akamai 的 Azure CDN 使用自訂網域 HTTPS？*
-
-    目前，這項功能不適用於**來自 Akamai 的標準 Azure CDN** 設定檔。 Microsoft 正在進行相關工作，以在未來的幾個月內支援這項功能。
-
-6. *是否需要我的 DNS 提供者的憑證授權單位授權記錄？*
+5. *是否需要我的 DNS 提供者的憑證授權單位授權記錄？*
 
     否，目前不需要憑證授權單位授權記錄。 不過，如果您的確有一個授權記錄，它必須包含 DigiCert 作為有效的 CA。
 
-7. *在 2018 年 6 月 20 日，來自 Verizon 的 Azure CDN 預設開始使用專用憑證搭配 SNI TLS/SSL。如果使用主體別名 (SAN) 憑證和以 IP 為基礎的 TLS/SSL ，我的現有自訂網域會發生什麼狀況？*
+6. *在 2018 年 6 月 20 日，來自 Verizon 的 Azure CDN 預設開始使用專用憑證搭配 SNI TLS/SSL。如果使用主體別名 (SAN) 憑證和以 IP 為基礎的 TLS/SSL ，我的現有自訂網域會發生什麼狀況？*
 
     如果 Microsoft 分析只有對您的應用程式進行 SNI 用戶端要求，則您現有的網域將在未來幾個月中逐漸移轉至單一憑證。 如果 Microsoft 偵測到有一些對您的應用程式進行的非 SNI 用戶端要求，您的網域會保持使用 SAN 憑證搭配以 IP 為基礎的 TLS/SSL。 在任何情況下，不論您的用戶端要求是 SNI 還是非 SNI，您對於這些要求的服務或支援都不會中斷。
 

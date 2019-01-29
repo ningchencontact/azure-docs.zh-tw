@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 70c5fa5de627b69623b1cce6929615f4e99e2a05
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 5174bb696b456a66cfc0666ac5c475437e441d82
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410796"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848847"
 ---
-# <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>教學課程：移除 Azure 中執行的 Service Fabric 叢集
+# <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>教學課程：移除在 Azure 中執行的 Service Fabric 叢集
 
 本教學課程是系列中的第四部分，示範如何刪除 Azure 中執行的 Service Fabric 叢集。 若要完全刪除 Service Fabric 叢集，您也必須刪除叢集所使用的資源。 做法有兩種︰刪除叢集所在的資源群組 (這會刪除叢集資源和資源群組中的所有其他資源)，或明確刪除叢集資源和其相關聯資源 (而不是資源群組中的其他資源)。
 
@@ -44,13 +44,13 @@ ms.locfileid: "47410796"
 開始進行本教學課程之前：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI](/cli/azure/install-azure-cli)。
+* 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)或 [Azure CLI](/cli/azure/install-azure-cli)。
 * 在 Azure 上，建立安全的 [Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>刪除包含 Service Fabric 叢集的資源群組
 刪除叢集及其取用之所有資源的最簡單方式，就是刪除資源群組。
 
-登入 Azure 並選取您要移除叢集的訂用帳戶識別碼。  您可以登入[Azure 入口網站](http://portal.azure.com)找到您的訂用帳戶識別碼。 使用 [Remove-AzureRMResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) Cmdlet 或 [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) 命令刪除資源群組和所有叢集資源。
+登入 Azure 並選取您要移除叢集的訂用帳戶識別碼。  您可以登入[Azure 入口網站](http://portal.azure.com)找到您的訂用帳戶識別碼。 使用 [Remove-AzureRMResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) Cmdlet 或 [az group delete](/cli/azure/group?view=azure-cli-latest) 命令刪除資源群組和所有叢集資源。
 
 ```powershell
 Connect-AzureRmAccount

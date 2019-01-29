@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 926a339bc8214c989da4ef934ae41012eea58d1e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ed275638c1b217f18d5d1335b9d039879ae55004
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120728"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846299"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教學課程：新增內部部署應用程式以便透過 Azure Active Directory 中的應用程式 Proxy 進行遠端存取
 
@@ -181,6 +181,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
     | **後端應用程式逾時** | 只有當您的應用程式太慢而無法驗證和連線時，才將此值設定為 [長]。 |
     | **使用僅限 HTTP Cookie** | 將此值設定為 [是]，讓應用程式 Proxy Cookie 在 HTTP 回應標頭中包含 HTTPOnly 旗標。 如果使用遠端桌面服務，請將此值設定為 [否]。|
     | **使用安全的 Cookie**| 將此值設定為 [是]，以透過安全的通道 (例如加密的 HTTPS 要求) 傳輸 Cookie。
+    | **使用永續性 Cookie**| 將此值的設定保留為 [否]。 只有無法在程序之間共用 Cookie 的應用程式，才應使用此設定。 如需 Cookie 設定的詳細資訊，請參閱 [Azure Active Directory 中用來存取內部部署應用程式的 Cookie 設定](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)
     | **轉譯標頭中的 URL** | 除非您的應用程式需要驗證要求中的原始主機標頭，否則請將此值保留為 [是]。 |
     | **轉譯應用程式主體中的 URL** | 除非您有其他內部部署應用程式的硬式編碼 HTML 連結，且未使用自訂網域，否則請將此值保留為 [否]。 如需詳細資訊，請參閱[使用應用程式 Proxy 連結轉譯](application-proxy-configure-hard-coded-link-translation.md)。<br><br>如果您打算使用 Microsoft Cloud App Security (MCAS) 監視此應用程式，請將此值設定為 [是]。 如需詳細資訊，請參閱[使用 Microsoft Cloud App Security 與 Azure Active Directory 設定即時應用程式存取監視](application-proxy-integrate-with-microsoft-cloud-application-security.md) |
    

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2fc25235325db8a403c2b258dd5e4b3effc46ace
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dda4f68046b81d96cfe92d5e8b09eab23df0003b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971955"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846300"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>使用 Azure CLI 設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -74,11 +74,11 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 在此練習中，您可以合併組態，或只選擇您需要使用的一個組態。 所有組態都會使用 VNet 對 VNet 連線類型。 網路流量會在彼此直接連線的 VNet 之間流動。 在此練習中，來自 TestVNet4 的流量不會路由傳送至 TestVNet5。
 
-* [位於相同訂用帳戶中的 VNet：](#samesub)此組態的步驟會使用 TestVNet1 和 TestVNet4。
+* [位於相同訂用帳戶中的 VNet：](#samesub)此組態的步驟是使用 TestVNet1 和 TestVNet4。
 
   ![v2v 圖表](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-* [位於不同訂用帳戶中的 VNet：](#difsub)此組態的步驟會使用 TestVNet1 和 TestVNet5。
+* [位於不同訂用帳戶中的 VNet：](#difsub)此組態的步驟使用 TestVNet1 和 TestVNet5。
 
   ![v2v 圖表](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
@@ -97,22 +97,22 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 **TestVNet1 的值︰**
 
-* VNet 名稱︰TestVNet1
-* 資源群組︰TestRG1
+* VNet 名稱：TestVNet1
+* 資源群組：TestRG1
 * 位置：美國東部
 * TestVNet1：10.11.0.0/16 和 10.12.0.0/16
 * FrontEnd：10.11.0.0/24
 * BackEnd：10.12.0.0/24
 * GatewaySubnet：10.12.255.0/27
 * GatewayName：VNet1GW
-* 公用 IP: VNet1GWIP
+* 公用 IP：VNet1GWIP
 * VPNType：RouteBased
 * Connection(1to4)：VNet1toVNet4
-* Connection(1to5)：VNet1toVNet5 (適用於不同訂用帳戶中的 Vnet)
+* Connection(1to5)：VNet1toVNet5 (適用於不同訂用帳戶中的 VNet)
 
 **TestVNet4 的值︰**
 
-* VNet 名稱︰TestVNet4
+* VNet 名稱：TestVNet4
 * TestVNet2：10.41.0.0/16 和 10.42.0.0/16
 * FrontEnd：10.41.0.0/24
 * BackEnd：10.42.0.0/24
@@ -122,7 +122,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 * GatewayName：VNet4GW
 * 公用 IP：VNet4GWIP
 * VPNType：RouteBased
-* 連線︰VNet4toVNet1
+* 連線：VNet4toVNet1
 
 ### <a name="Connect"></a>步驟 1 - 連線至您的訂用帳戶
 
@@ -133,7 +133,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 1. 建立資源群組。
 
   ```azurecli
-  az group create -n TestRG1  -l eastus
+  az group create -n TestRG1  -l eastus
   ```
 2. 建立 TestVNet1 及其子網路。 此範例會建立名為 TestVNet1 的虛擬網路和名為 FrontEnd 的子網路。
 
@@ -148,11 +148,11 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 4. 建立後端子網路。
   
   ```azurecli
-  az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
+  az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
   ```
 5. 建立閘道子網路。 請注意，閘道子網路會命名為 'GatewaySubnet'。 此名稱是必要的。 在此範例中，閘道子網路使用 /27。 雖然您可以建立小至 /29 的閘道子網路，我們建議您選取至少 /28 或 /27，建立包含更多位址的較大子網路。 這將允許足夠的位址，以容納您未來可能需要的其他組態。
 
-  ```azurecli 
+  ```azurecli 
   az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestRG1 --address-prefix 10.12.255.0/27
   ```
 6. 要求一個公用 IP 位址，以配置給您將建立給 VNet 使用的閘道。 請注意，AllocationMethod 是動態的。 您無法指定想要使用的 IP 位址。 該 IP 位址會以動態方式配置給您的閘道。
@@ -171,7 +171,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 1. 建立資源群組。
 
   ```azurecli
-  az group create -n TestRG4  -l westus
+  az group create -n TestRG4  -l westus
   ```
 2. 建立 TestVNet4。
 
@@ -182,13 +182,13 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 3. 為 TestVNet4 建立其他子網路。
 
   ```azurecli
-  az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
-  az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
+  az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
+  az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
   ```
 4. 建立閘道子網路。
 
   ```azurecli
-   az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g TestRG4 --address-prefix 10.42.255.0/27
+   az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g TestRG4 --address-prefix 10.42.255.0/27
   ```
 5. 要求公用 IP 位址。
 
@@ -218,18 +218,18 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
   範例輸出︰
 
   ```
-  "activeActive": false, 
-  "bgpSettings": { 
-    "asn": 65515, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-   }, 
-  "enableBgp": false, 
-  "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
-  "gatewayDefaultSite": null, 
-  "gatewayType": "Vpn", 
-  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW", 
-  "ipConfigurations":
+  "activeActive": false, 
+  "bgpSettings": { 
+    "asn": 65515, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+   }, 
+  "enableBgp": false, 
+  "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
+  "gatewayDefaultSite": null, 
+  "gatewayType": "Vpn", 
+  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW", 
+  "ipConfigurations":
   ```
 
   複製引號中 **"id":** 之後的值。
@@ -247,7 +247,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 3. 建立 TestVNet1 至 TestVNet4 的連線。 在此步驟中，您會從 TestVNet1 建立連線至 TestVNet4。 範例會一個共用金鑰。 您可以使用自己的值，作為共用金鑰。 但請務必確認該共用金鑰必須適用於這兩個連線。 建立連線可能需要一段時間才能完成。
 
   ```azurecli
-  az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
+  az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
   ```
 4. 建立 TestVNet4 至 TestVNet1 的連線。 此步驟類似上面的步驟，只不過您是建立 TestVNet4 至 TestVNet1 的連線。 請確認共用的金鑰相符。 建立連線需花費數分鐘的時間。
 
@@ -284,7 +284,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 **TestVNet5 的值︰**
 
-* VNet 名稱︰TestVNet5
+* VNet 名稱：TestVNet5
 * 資源群組：TestRG5
 * 位置：日本東部
 * TestVNet5：10.51.0.0/16 和 10.52.0.0/16
@@ -294,7 +294,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 * GatewayName：VNet5GW
 * 公用 IP：VNet5GWIP
 * VPNType：RouteBased
-* 連線︰VNet5toVNet1
+* 連線：VNet5toVNet1
 * ConnectionType：VNet2VNet
 
 ### <a name="TestVNet5"></a>步驟 7 - 建立及設定 TestVNet5
@@ -304,7 +304,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 1. 確定您已連線到訂用帳戶 5，然後建立資源群組。
 
   ```azurecli
-  az group create -n TestRG5  -l japaneast
+  az group create -n TestRG5  -l japaneast
   ```
 2. 建立 TestVNet5。
 
@@ -362,7 +362,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
   複製 "id:" 的輸出。 透過電子郵件或其他方法，將 VNet 閘道 (VNet5GW) 的識別碼和名稱傳送給訂用帳戶 1 的系統管理員。
 
-3. **[訂用帳戶 1]** 在此步驟中，您會從 TestVNet1 建立連線至 TestVNet5。 您可以將自己的值使用於共用金鑰，不過，共用金鑰必須符合這兩個連線。 建立連線可能需要一段時間才能完成。 確定您已連接到訂用帳戶 1。
+3. **[訂用帳戶 1]** 在此步驟中，您會從 TestVNet1 建立連線至 TestVNet5。 您可以將自己的值使用於共用金鑰，不過，共用金鑰必須符合這兩個連線。 建立連線可能需要一段時間才能完成。 確定您已連接到訂用帳戶 1。
 
   ```azurecli
   az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW

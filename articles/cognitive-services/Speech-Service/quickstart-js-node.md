@@ -1,23 +1,23 @@
 ---
-title: 快速入門：使用語音服務 SDK 在 Node.js 中以 JavaScript 辨識語音
+title: 快速入門：辨識語音，Node.js - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用語音服務 SDK 在 Node.js 中以 JavaScript 辨識語音
+description: 您可以使用本指南，透過適用於 Node.js 的語音 SDK 建立語音轉換文字的主控台應用程式。 完成之後，您可以使用電腦的麥克風將語音即時轉譯為文字。
 services: cognitive-services
 author: fmegen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: 35652b169067bc545fa0d1fcc977bbaee79ec3aa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e0ae916687ca32835dd8daf6e5059b8f6eea0ff6
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724420"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382173"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-nodejs-using-the-speech-service-sdk"></a>快速入門：使用語音服務 SDK 在 Node.js 中以 JavaScript 辨識語音
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的語音 SDK 來辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -29,9 +29,9 @@ ms.locfileid: "53724420"
 * 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 * 目前版本的 [Node.js](https://nodejs.org) \(英文\)。
 
-## <a name="create-a-new-project-folder"></a>建立新專案資料夾
+## <a name="create-a-new-project"></a>建立新專案
 
-建立新的空資料夾，並將它初始化為新的 JavaScript 和 Node.js 專案。
+建立新的資料夾及初始化專案。
 
 ```sh
 npm init -f
@@ -39,13 +39,17 @@ npm init -f
 
 這將會以預設值初始化 package.json 檔案。 您後續應該會再度編輯此檔案。
 
-## <a name="install-the-speech-sdk-for-javascript-into-that-folder"></a>將適用於 JavaScript 的語音 SDK 安裝到該資料夾
+## <a name="install-the-speech-sdk"></a>安裝語音 SDK
 
-透過 `npm install microsoft-cognitiveservices-speech-sdk` 將語音 SDK 新增到您的 Node.js 專案。
+將語音 SDK 新增到您的 Node.js 專案。
 
-這將會從 npmjs 下載並安裝最新版本的語音 SDK，以及任何所需的必要條件。 SDK 將會被安裝到您專案資料夾的 `node_modules` 目錄中。
+```
+npm install microsoft-cognitiveservices-speech-sdk
+```
 
-## <a name="using-the-speech-sdk"></a>使用語音 SDK
+這會從 npmjs 下載並安裝最新版本的語音 SDK，以及任何所需的必要條件。 SDK 將會被安裝到您專案資料夾的 `node_modules` 目錄中。
+
+## <a name="use-the-speech-sdk"></a>使用語音 SDK
 
 在資料夾中建立名為 `index.js` 的新檔案，並使用文字編輯器開啟此檔案。
 
@@ -58,7 +62,7 @@ npm init -f
 
 [!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
-## <a name="running-the-sample-from-command-line"></a>從命令列執行範例
+## <a name="run-the-sample"></a>執行範例
 
 若要啟動應用程式，請將 `YourSubscriptionKey`、`YourServiceRegion` 及 `YourAudioFile.wav` 納入您的設定。 您可以呼叫下列命令來執行它：
 
@@ -88,7 +92,7 @@ SpeechRecognitionResult {
 }
 ```
 
-## <a name="running-the-sample-from-visual-studio-code"></a>從 Visual Studio Code 執行範例
+## <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>透過 Visual Studio Code 安裝及使用語音 SDK
 
 您也可以從 Visual Studio Code 執行範例。 請遵循這些步驟來安裝、開啟及執行快速入門：
 

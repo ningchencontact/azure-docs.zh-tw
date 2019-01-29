@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: 2b53b8a97f4e794110dc482db09a0d376247a678
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 1867702f0b33332ea4fa52374cd1452c3bc51a55
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299634"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436972"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>教學課程：將 Windows 容器中的 .NET 應用程式部署到 Azure Service Fabric
 
@@ -164,7 +164,7 @@ Service Fabric 應用程式執行於叢集，也就是一組連接網路的虛�
 
     a. 在 [叢集名稱] 欄位中指定叢集的名稱，以及您想要使用的訂用帳戶和位置。 記下叢集資源群組的名稱。
 
-    b. 您可以選擇是否修改節點的數目。 根據預設，您有三個節點，這是測試 Service Fabric 案例所需的最少節點數。
+    b. 選用：您可以修改節點數目。 根據預設，您有三個節點，這是測試 Service Fabric 案例所需的最少節點數。
 
     c. 選取 [憑證] 索引標籤。在此索引標籤中，輸入要用來保護叢集憑證的密碼。 此憑證可協助保護您的叢集。 您也可以修改您要儲存憑證的路徑。 Visual Studio 也可以為您匯入憑證，因為這是要將應用程式發佈至叢集所需的項目。
 
@@ -269,7 +269,7 @@ Remove-AzureRmResourceGroup -Name $clusterresourcegroupname
 在本教學課程的下一個部分，了解如何[將具有 CI/CD 的容器應用程式部署到 Service Fabric 叢集](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md)。
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
-[link-azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[link-azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs
 [link-servicefabric-containers]: service-fabric-get-started-containers.md

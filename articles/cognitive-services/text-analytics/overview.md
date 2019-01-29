@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 0fe4a9f05e0f6d1abed7b906cc5cd89854885ae5
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 42477a69616024ae9564d3665a47ff00161ea792
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53992850"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451039"
 ---
 # <a name="what-is-text-analytics"></a>什麼是文字分析？
 
@@ -68,7 +68,7 @@ ms.locfileid: "53992850"
 
 | 限制 | 值 |
 |------------------------|---------------|
-| 單一文件的大小上限 | 依 `String.Length` 測量的 5,000 個字元。 |
+| 單一文件的大小上限 | 依 [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) 測量的 5,000 個字元。 |
 | 整體要求的大小上限 | 1 MB |
 | 要求中的文件數上限 | 1,000 份文件 |
 

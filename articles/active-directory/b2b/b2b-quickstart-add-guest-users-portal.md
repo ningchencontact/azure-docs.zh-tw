@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: ed49eed6dbfce9a71f13770e3ddcaec6557cf875
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 5e62d8679a76c024b0dcada5cfaad50659fcd4c8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986540"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431673"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中將來賓使用者新增到您的目錄
 
@@ -59,10 +59,10 @@ ms.locfileid: "45986540"
 4. 在 [從資源庫新增] 底下，搜尋 **Salesforce**，然後選取它。
 
     ![選取 Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
-5. 選取 [新增]。
+5. 選取 [新增] 。
 6. 在 [管理] 下，選取 [單一登入]，然後在 [單一登入模式] 下，選取 [密碼登入]，然後按一下 [儲存]。
 7. 在 [管理] 下選取 [使用者和群組] > [新增使用者] > [使用者和群組]。
-8. 使用 [搜尋] 方塊來搜尋測試使用者 (如有必要)，並選取清單中的測試使用者。 接著，按一下 [選取]。
+8. 使用 [搜尋] 方塊來搜尋測試使用者 (如有必要)，並選取清單中的測試使用者。 然後按一下 [選取] 。
 9. 選取 [指派]。 
 
 ## <a name="accept-the-invitation"></a>接受邀請

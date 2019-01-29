@@ -3,19 +3,19 @@ title: 教學課程 - 讓傳統型應用程式能夠使用 Azure Active Director
 description: 關於如何使用 Azure Active Directory B2C 為 .NET 傳統型應用程式提供使用者登入的教學課程。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
-ms.date: 2/28/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: a7a861ccff168655d866d8c9205160bface79c9e
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 357b9f4d307624db838b22581097799d7d7fef4c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913405"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856990"
 ---
 # <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>教學課程：讓傳統型應用程式能夠使用 Azure Active Directory B2C 向帳戶進行驗證
 
@@ -25,7 +25,7 @@ ms.locfileid: "50913405"
 
 > [!div class="checklist"]
 > * 在您的 Azure AD B2C 租用戶中註冊範例傳統型應用程式。
-> * 建立使用者註冊、登入、編輯設定檔和密碼重設的原則。
+> * 建立使用者註冊、登入、編輯設定檔和密碼重設的使用者流程。
 > * 將範例應用程式設定為使用您的 Azure AD B2C 租用戶。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -57,7 +57,7 @@ ms.locfileid: "50913405"
     | **包含 Web 應用程式 / Web API** | 否 | 針對傳統型應用程式選取 [否]。 |
     | **包含原生用戶端** | 是 | 這是傳統型應用程式，因此會被視為原生用戶端。 |
     | **重新導向 URI** | 預設值 | 在 OAuth 2.0 回應中 Azure AD B2C 將使用者代理程式重新導向至的唯一識別碼。 |
-    | **自訂重新導向 URI** | `com.onmicrosoft.contoso.appname://redirect/path` | 輸入 `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path` 原則會將權杖傳送到此 URI。 |
+    | **自訂重新導向 URI** | `com.onmicrosoft.contoso.appname://redirect/path` | 輸入 `com.onmicrosoft.<your tenant name>.<any app name>://redirect/path` 使用者流程會將權杖傳送到此 URI。 |
     
 3. 按一下 [建立]  以註冊您的應用程式。
 
@@ -67,65 +67,89 @@ ms.locfileid: "50913405"
 
 請記下 [應用程式用戶端識別碼]。 此識別碼可唯一識別應用程式，後續在本教學課程中設定應用程式時將會用到。
 
-## <a name="create-policies"></a>建立原則
+## <a name="create-user-flows"></a>建立使用者流程
 
-Azure AD B2C 原則會定義使用者工作流程。 例如，登入、註冊、變更密碼以及編輯設定檔，都是常見的工作流程。
+Azure AD B2C 使用者流程會定義身分識別工作的使用者體驗。 例如，登入、註冊、變更密碼以及編輯設定檔，都是常見的使用者流程。
 
-### <a name="create-a-sign-up-or-sign-in-policy"></a>建立註冊或登入原則
+### <a name="create-a-sign-up-or-sign-in-user-flow"></a>建立註冊或登入使用者流程
 
-若要註冊要存取並登入傳統型應用程式的使用者，請建立**註冊或登入原則**。
+若要註冊要存取並登入傳統型應用程式的使用者，請建立**註冊或登入使用者流程**。
 
-1. 在 Azure AD B2C 入口網站頁面中選取 [註冊或登入原則]，然後按一下 [新增]。
+1. 在 Azure AD B2C 入口網站頁面中選取 [使用者流程]，然後按一下 [新增使用者流程]。
+2. 在 [建議] 索引標籤上，按一下 [註冊並登入]。
 
-    若要設定您的原則，請使用下列設定：
+    若要設定您的使用者流程，請使用下列設定：
 
-    ![新增註冊或登入原則](media/active-directory-b2c-tutorials-desktop-app/add-susi-policy.png)
-
-    | 設定      | 建議的值  | 說明                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **名稱** | SiUpIn | 輸入原則的 [名稱]。 原則名稱前面會加上 **B2C_1_**。 您在範例程式碼中會使用完整的原則名稱 **B2C_1_SiUpIn**。 | 
-    | **身分識別提供者** | 電子郵件註冊 | 用來唯一識別使用者的身分識別提供者。 |
-    | **註冊屬性** | 顯示名稱和郵遞區號 | 選取在註冊期間要對使用者收集的屬性。 |
-    | **應用程式宣告** | 顯示名稱、郵遞區號、使用者是新的、使用者的物件識別碼 | 選取要包含在[存取權杖](../active-directory/develop/developer-glossary.md#access-token)中的[宣告](../active-directory/develop/developer-glossary.md#claim)。 |
-
-2. 按一下 [建立] 以建立原則。 
-
-### <a name="create-a-profile-editing-policy"></a>建立設定檔編輯原則
-
-若要允許使用者自行重設其使用者設定檔資訊，請建立**設定檔編輯原則**。
-
-1. 在 Azure AD B2C 入口網站頁面中選取 [設定檔編輯原則]，然後按一下 [新增]。
-
-    若要設定您的原則，請使用下列設定：
+    ![新增註冊或登入使用者流程](media/active-directory-b2c-tutorials-desktop-app/add-susi-user-flow.png)
 
     | 設定      | 建議的值  | 說明                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **名稱** | SiPe | 輸入原則的 [名稱]。 原則名稱前面會加上 **B2C_1_**。 您在範例程式碼中會使用完整的原則名稱 **B2C_1_SiPe**。 | 
-    | **身分識別提供者** | 本機帳戶登入 | 用來唯一識別使用者的身分識別提供者。 |
-    | **設定檔屬性** | 顯示名稱和郵遞區號 | 選取使用者在設定檔編輯期間可修改的屬性。 |
-    | **應用程式宣告** | 顯示名稱、郵遞區號、使用者的物件識別碼 | 選取在設定檔編輯成功後要包含在[存取權杖](../active-directory/develop/developer-glossary.md#access-token)中的[宣告](../active-directory/develop/developer-glossary.md#claim)。 |
+    | **名稱** | SiUpIn | 輸入使用者流程的 [名稱]。 使用者流程名稱前面會加上 **B2C_1_**。 您在範例程式碼中會使用完整的使用者流程名稱 **B2C_1_SiUpIn**。 | 
+    | **識別提供者** | 電子郵件註冊 | 用來唯一識別使用者的身分識別提供者。 |
 
-2. 按一下 [建立] 以建立原則。 
+3.  在 [使用者屬性和宣告] 底下，按一下 [顯示更多] 並選取下列設定：
 
-### <a name="create-a-password-reset-policy"></a>建立密碼重設原則
+    ![新增使用者屬性和宣告](media/active-directory-b2c-tutorials-desktop-app/add-attributes-and-claims.png)
 
-若要在您的應用程式上啟用密碼重設，您必須建立**密碼重設原則**。 此原則會說明取用者在密碼重設期間的體驗，以及應用程式在重設成功時所將收到的權杖內容。
+    | 欄      | 建議值  | 說明                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **收集屬性** | 顯示名稱和郵遞區號 | 選取在註冊期間要對使用者收集的屬性。 |
+    | **傳回宣告** | 顯示名稱、郵遞區號、使用者是新的、使用者的物件識別碼 | 選取要包含在[存取權杖](../active-directory/develop/developer-glossary.md#access-token)中的[宣告](../active-directory/develop/developer-glossary.md#claim)。 |
 
-1. 在 Azure AD B2C 入口網站頁面中選取 [密碼重設原則]，然後按一下 [新增]。
+4. 按一下 [確定]。
 
-    若要設定您的原則，請使用下列設定。
+5. 按一下 [建立] 以建立使用者流程。 
+
+### <a name="create-a-profile-editing-user-flow"></a>建立設定檔編輯使用者流程
+
+若要允許使用者自行重設其使用者設定檔資訊，請建立**設定檔編輯使用者流程**。
+
+1. 在 Azure AD B2C 入口網站頁面中選取 [使用者流程]，然後按一下 [新增使用者流程]。
+2. 在 [建議] 索引標籤上，按一下 [設定檔編輯]。
+
+    若要設定您的使用者流程，請使用下列設定：
 
     | 設定      | 建議的值  | 說明                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **名稱** | SSPR | 輸入原則的 [名稱]。 原則名稱前面會加上 **B2C_1_**。 您在範例程式碼中會使用完整的原則名稱 **B2C_1_SSPR**。 | 
-    | **身分識別提供者** | 使用電子郵件地址重設密碼 | 這是用來唯一識別使用者的身分識別提供者。 |
-    | **應用程式宣告** | 使用者的物件識別碼 | 選取在密碼重設成功後要包含在[存取權杖](../active-directory/develop/developer-glossary.md#access-token)中的[宣告](../active-directory/develop/developer-glossary.md#claim)。 |
+    | **名稱** | SiPe | 輸入使用者流程的 [名稱]。 使用者流程名稱前面會加上 **B2C_1_**。 您在範例程式碼中會使用完整的使用者流程名稱 **B2C_1_SiPe**。 | 
+    | **識別提供者** | 本機帳戶登入 | 用來唯一識別使用者的身分識別提供者。 |
 
-2. 按一下 [建立] 以建立原則。 
+3. 在 [使用者屬性] 底下，按一下 [顯示更多] 並選取下列設定：
+
+    | 欄      | 建議值  | 說明                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **收集屬性** | 顯示名稱和郵遞區號 | 選取使用者在設定檔編輯期間可修改的屬性。 |
+    | **傳回宣告** | 顯示名稱、郵遞區號、使用者的物件識別碼 | 選取在設定檔編輯成功後要包含在[存取權杖](../active-directory/develop/developer-glossary.md#access-token)中的[宣告](../active-directory/develop/developer-glossary.md#claim)。 |
+
+4. 按一下 [確定]。
+5. 按一下 [建立] 以建立使用者流程。 
+
+### <a name="create-a-password-reset-user-flow"></a>建立密碼重設使用者流程
+
+若要在您的應用程式上啟用密碼重設，您必須建立**密碼重設使用者流程**。 此使用者流程描述取用者在密碼重設期間的體驗，以及應用程式在重設成功時所將收到的權杖內容。
+
+1. 在 Azure AD B2C 入口網站頁面中選取 [使用者流程]，然後按一下 [新增使用者流程]。
+2. 在 [建議] 索引標籤上，按一下 [密碼重設]。
+
+    若要設定您的使用者流程，請使用下列設定。
+
+    | 設定      | 建議的值  | 說明                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **名稱** | SSPR | 輸入使用者流程的 [名稱]。 使用者流程名稱前面會加上 **B2C_1_**。 您在範例程式碼中會使用完整的使用者流程名稱 **B2C_1_SSPR**。 | 
+    | **識別提供者** | 使用電子郵件地址重設密碼 | 這是用來唯一識別使用者的身分識別提供者。 |
+
+3. 在 [應用程式宣告] 底下，按一下 [顯示更多] 並選取下列設定：
+
+    | 欄      | 建議的值  | 說明                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **傳回宣告** | 使用者的物件識別碼 | 選取在密碼重設成功後要包含在[存取權杖](../active-directory/develop/developer-glossary.md#access-token)中的[宣告](../active-directory/develop/developer-glossary.md#claim)。 |
+
+4. 按一下 [確定]。
+5. 按一下 [建立] 以建立使用者流程。 
 
 ## <a name="update-desktop-app-code"></a>更新傳統型應用程式程式碼
 
-現在，您已註冊傳統型應用程式並建立原則，接下來您必須將應用程式設定為使用您的 Azure AD B2C 租用戶。 在本教學課程中，您會設定範例傳統型應用程式。 
+現在，您已註冊傳統型應用程式並建立使用者流程，接下來您必須將應用程式設定為使用您的 Azure AD B2C 租用戶。 在本教學課程中，您會設定範例傳統型應用程式。 
 
 [下載 Zip 檔案](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip)、[瀏覽存放庫](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)，或從 GitHub 複製範例。
 
@@ -135,7 +159,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 
 範例 WPF 傳統型應用程式會示範傳統型應用程式如何使用 Azure AD B2C 進行使用者註冊、登入及呼叫受保護的 Web API。
 
-您必須將此應用程式變更為使用您租用戶中的應用程式註冊，以及設定您所建立的原則。 
+您必須將此應用程式變更為使用您租用戶中的應用程式註冊，以及設定您所建立的使用者流程。 
 
 若要變更應用程式設定：
 
@@ -148,7 +172,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
     private static string ClientId = "The Application ID for your desktop app registered in your tenant";
     ```
 
-3. 使用您在上一個步驟中建立的「註冊或登入原則」名稱來更新 **PolicySignUpSignIn** 變數。 請記得包含 B2C_1_ 首碼。
+3. 使用您在上一個步驟中建立的「註冊或登入使用者流程」名稱來更新 **PolicySignUpSignIn** 變數。 請記得包含 B2C_1_ 首碼。
 
     ```C#
     public static string PolicySignUpSignIn = "B2C_1_SiUpIn";
@@ -162,11 +186,11 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 
 ### <a name="sign-up-using-an-email-address"></a>使用電子郵件地址註冊
 
-1. 按一下 [登入] 按鈕，註冊成為傳統型應用程式的使用者。 這會使用您在上一個步驟中定義的 **B2C_1_SiUpIn** 原則。
+1. 按一下 [登入] 按鈕，註冊成為傳統型應用程式的使用者。 這會使用您在上一個步驟中定義的 **B2C_1_SiUpIn** 使用者流程。
 
 2. Azure AD B2C 會顯示含有註冊連結的登入頁面。 由於您還沒有帳戶，因此請按一下 [立即註冊] 連結。 
 
-3. 註冊工作流程會顯示一個使用電子郵件地址來收集並驗證使用者身分識別的頁面。 註冊工作流程也會收集使用者的密碼，以及在原則中定義的要求屬性。
+3. 註冊工作流程會顯示一個使用電子郵件地址來收集並驗證使用者身分識別的頁面。 註冊工作流程也會收集使用者的密碼，以及在使用者流程中定義的要求屬性。
 
     請使用有效的電子郵件地址，並使用驗證碼進行驗證。 設定密碼。 輸入要求的屬性值。 
 
@@ -185,7 +209,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何建立 Azure AD B2C 租用戶、建立原則，以及將範例傳統型應用程式更新為使用您的 Azure AD B2C 租用戶。 請繼續進行下一個教學課程，以了解如何從傳統型應用程式註冊、設定及呼叫受保護的 Web API。
+在本教學課程中，您已了解如何建立 Azure AD B2C 租用戶、建立使用者流程，以及將範例傳統型應用程式更新為使用您的 Azure AD B2C 租用戶。 請繼續進行下一個教學課程，以了解如何從傳統型應用程式註冊、設定及呼叫受保護的 Web API。
 
 > [!div class="nextstepaction"]
 > 

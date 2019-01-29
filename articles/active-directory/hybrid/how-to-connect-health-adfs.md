@@ -4,7 +4,7 @@ description: 這是如何監視內部部署 AD FS 基礎結構的 Azure AD Conne
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d93207e6a5f0acabcf348981e799e801c39f48b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3d74a78d60959dc404165d0ac8c4483b8bd36a29
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278832"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464072"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>使用 Azure AD Connect Health 監視 AD FS
 下列文件適用於使用 Azure AD Connect Health 來監視 AD FS 基礎結構。 如需使用 Azure AD Connect Health 來監視 Azure AD Connect (同步處理) 的詳細資訊，請參閱 [使用適用於同步處理的 Azure AD Connect Health](how-to-connect-health-sync.md)。此外，如需使用 Azure AD Connect Health 來監視 Active Directory 網域服務的詳細資訊，請參閱 [在 AD DS 使用 Azure AD Connect Health](how-to-connect-health-adds.md)。
@@ -56,16 +56,16 @@ Azure AD Connect Health 使用情況分析會分析您的同盟伺服器的驗�
 | 網路位置 | 根據使用者的網路位置，為要求總數分組。 它可以是內部網路或外部網路。 這個分組對於了解流量百分比是來自內部網路還是外部網路非常有幫助。 |
 
 
-**度量：失敗要求總數** - 同盟服務所處理的失敗要求總數。  (此度量僅能在適用於 Windows Server 2012 R2 的 AD FS 上使用)
+**計量：失敗要求總數** - 同盟服務所處理的失敗要求總數。 (此度量僅能在適用於 Windows Server 2012 R2 的 AD FS 上使用)
 
 |分組依據 | 分組是什麼意思，為什麼分組很有用？ |
 | --- | --- |
-| 錯誤類型 | 根據預先定義的錯誤類型，顯示錯誤數目。 這個分組對於了解常見的錯誤類型非常有幫助。 <ul><li>不正確的使用者名稱或密碼：由於不正確的使用者名稱或密碼而導致錯誤。</li> <li>「外部網路鎖定」：由於從外部網路收到已鎖定的使用者送來的要求而導致失敗 </li><li> 「已過期的密碼」：由於使用者以過期密碼登入而導致失敗。</li><li>「已停用的帳戶」：由於使用者以停用的帳戶登入而導致失敗。</li><li>「裝置驗證」：由於使用者無法使用裝置驗證來驗證而導致失敗。</li><li>「使用者憑證驗證」：由於憑證無效，使用者無法通過驗證而導致失敗。</li><li>"MFA"：由於使用者無法使用 Multi-Factor Authentication 通過驗證而導致失敗。</li><li>「其他認證」：「發行授權」：由於授權失敗而導致失敗。</li><li>「發行委派」：由於發行委派錯誤而導致失敗。</li><li>「權杖接受」：由於 ADFS 拒絕來自協力廠商識別提供者的權杖而導致失敗。</li><li>「通訊協定」：由於通訊協定錯誤而導致失敗。</li><li>「未知」：全部攔截。 無法歸入已定義的類別內的其他任何失敗。</li> |
+| 錯誤類型 | 根據預先定義的錯誤類型，顯示錯誤數目。 這個分組對於了解常見的錯誤類型非常有幫助。 <ul><li>使用者名稱或密碼不正確：因使用者名稱或密碼不正確而產生的錯誤。</li> <li>「外部網路鎖定」：由於從外部網路收到已鎖定的使用者送來的要求而導致失敗 </li><li> 「密碼已過期」：由於使用者以過期密碼登入而導致失敗。</li><li>「帳戶已停用」：由於使用者以停用的帳戶登入而導致失敗。</li><li>「裝置驗證」：由於使用者無法使用裝置驗證來驗證而導致失敗。</li><li>「使用者憑證驗證」：由於憑證無效，使用者無法通過驗證而導致失敗。</li><li>"MFA"：由於使用者無法使用多重要素驗證通過驗證而導致失敗。</li><li>「其他認證」:「撤銷授權」：由於授權失敗而導致失敗。</li><li>「發行委派」：由於發行委派錯誤而導致失敗。</li><li>「權杖接受」：由於 ADFS 拒絕第三方識別提供者提供的權杖而導致失敗。</li><li>「通訊協定」：由於通訊協定錯誤而導致失敗。</li><li>「未知」：全部攔截。 無法歸入已定義的類別內的其他任何失敗。</li> |
 | 伺服器 | 依伺服器為錯誤分組。 此分組對於了解跨伺服器的錯誤分佈非常有幫助。 分佈不平均可能是伺服器處於錯誤狀態的指標。 |
 | 網路位置 | 根據要求的網路位置 (內部網路與外部網路)，為錯誤分組。 此分組對於了解失敗的要求類型非常有幫助。 |
 |  Application | 根據目標應用程式 (信賴憑證者)，為失敗分組。 此分組對於了解哪個目標應用程式將看到最多錯誤數目非常有幫助。 |
 
-**度量︰使用者計數** - 使用 AD FS 主動驗證的唯一使用者平均數目
+**計量：使用者計數** - 使用 AD FS 主動驗證的唯一使用者平均數目
 
 |分組依據 | 分組是什麼意思，為什麼分組很有用？ |
 | --- | --- |
@@ -82,7 +82,7 @@ Azure AD Connect Health 效能監視會提供關於度量的監視資訊。 選�
 ## <a name="top-50-users-with-failed-usernamepassword-logins"></a>使用者名稱/密碼登入失敗的前 50 個使用者
 AD FS 伺服器上驗證要求失敗的常見原因之一就是要求所提供的認證無效，也就是錯誤的使用者名稱或密碼。 使用者通常是因為密碼太複雜、忘記密碼或打錯字，才會發生這種情況。
 
-但還是有其他原因會導致 AD FS 伺服器所處理的要求數量超出預期，例如：可快取使用者認證的應用程式和到期的認證，或嘗試以一系列的常見密碼登入帳戶的惡意使用者。 這兩個範例都是可能導致要求激增的正當理由。
+但還是有其他原因會導致 AD FS 伺服器所處理的要求數目超出預期，例如：可快取使用者認證的應用程式和到期的認證，或嘗試以一系列的常見密碼登入帳戶的惡意使用者。 這兩個範例都是可能導致要求激增的正當理由。
 
 Azure AD Connect Health for ADFS 會提供一份報告，內容有關因為使用者名稱或密碼無效而登入嘗試失敗的前 50 個使用者。 處理伺服器陣列中所有 AD FS 伺服器所產生的稽核事件，即可達成此報告。
 
@@ -132,7 +132,7 @@ AD FS 客戶可能會向網際網路公開密碼驗證端點，以提供驗證�
 > 
 
 ### <a name="what-is-in-the-report"></a>報告內容
-「具風險的 IP 報告」中的每個項目會顯示有關已超過指定閾值之失敗 AD FS 登入活動的彙總資訊。 此報告可提供下列資訊：![Azure AD Connect Health 入口網站](./media/how-to-connect-health-adfs/report4a.png)
+「具風險的 IP 報告」中的每個項目會顯示有關已超過指定閾值之失敗 AD FS 登入活動的彙總資訊。 其中提供下列資訊：![Azure AD Connect Health 入口網站](./media/how-to-connect-health-adfs/report4a.png)
 
 | 報告項目 | 說明 |
 | ------- | ----------- |
@@ -192,7 +192,7 @@ AD FS 客戶可能會向網際網路公開密碼驗證端點，以提供驗證�
 
 ### <a name="faq"></a>常見問題集
 1. 為何我會在報告中看到私人 IP 位址範圍？  <br />
-系統會篩選出私人 IP 位址 (10.x.x.x、172.x.x.x 和 192.168.x.x<i></i>) 和 Exchange IP 位址，並在 IP 允許清單中將這些位址標示為 True。 如果您看見私人 IP 位址範圍，則很可能表示您的外部負載平衡器未在將要求傳遞至 Web 應用程式 Proxy 伺服器時傳送用戶端 IP 位址。
+系統會篩選出私人 IP 位址 (10.x.x.x、172.x.x.x 和 192.168.x.x<i></i>) 和 Exchange IP 位址，並在 IP 白名單中將這些位址標示為 True。 如果您看見私人 IP 位址範圍，則很可能表示您的外部負載平衡器未在將要求傳遞至 Web 應用程式 Proxy 伺服器時傳送用戶端 IP 位址。
 
 2. 為何我會在報告中看到負載平衡器 IP 位址？  <br />
 如果您看見負載平衡器 IP 位址，則很可能表示您的外部負載平衡器未在將要求傳遞至 Web 應用程式 Proxy 伺服器時傳送用戶端 IP 位址。 請正確設定您的負載平衡器，以傳遞轉送用戶端 IP 位址。 

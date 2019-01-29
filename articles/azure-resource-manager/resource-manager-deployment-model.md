@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 704bbe5cc566833ef1279e84f0fab9f363dfaa11
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 97dffa4952354864f90f75ffb909228eb4202e77
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841621"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382806"
 ---
-# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager vs. 傳統部署：了解資源的部署模型和狀態
+# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 與傳統部署：了解資源的部署模型和狀態
 
 > [!NOTE]
 > 本文中所提供的資訊，僅會在您從傳統部署遷移至 Azure Resource Manager 部署時使用。
@@ -153,6 +153,7 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
 一組完整的入門範本可在 [Azure Resource Manager 快速入門範本](https://azure.microsoft.com/documentation/templates/)中找到。
 
 ## <a name="next-steps"></a>後續步驟
+
 * 針對定義虛擬機器、儲存體帳戶和虛擬網路的範本，若需該範本的建立逐步解說，請參閱 [Resource Manager 範本逐步解說](resource-manager-template-walkthrough.md)。
 * 若要查看部署範本的命令，請參閱 [使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 

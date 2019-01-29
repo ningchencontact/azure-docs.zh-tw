@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 640f03cd35ac74df9c7b25352ab294c35c4ec0ea
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437141"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430666"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>教學課程：從登入畫面重設 Azure AD 密碼
 
@@ -32,6 +32,7 @@ ms.locfileid: "53437141"
    * [已加入 Azure AD 的機器](../device-management-azure-portal.md)或
    * [已加入混合式 Azure AD 的機器](../device-management-hybrid-azuread-joined-devices-setup.md) (可透過網路連線至網域控制站)。
 * 必須啟用 Azure AD 自助式密碼重設。
+* 如果您的 Windows 10 機器是設置在 Proxy 伺服器或防火牆之後，應該允許對 `passwordreset.microsoftonline.com` 和 `ajax.aspnetcdn.com` 的 HTTPS 流量 (443)。
 
 ## <a name="configure-reset-password-link-using-intune"></a>使用 Intune 來設定重設密碼連結
 
@@ -126,8 +127,6 @@ Azure AD 稽核記錄會包含 IP 位址相關資訊以及發生密碼重設的 
    * Explorer.exe 會取代為自訂殼層
 
 此功能不適用於已部署 802.1x 網路驗證及使用 [在使用者登入後立即執行] 選項的網路。 針對已部署 802.1x 網路驗證的網路，建議您使用機器驗證來啟用此功能。
-
-如果您的 Windows 10 機器是在 Proxy 伺服器或防火牆後面，應該允許對 passwordreset.microsoftonline.com 和 ajax.aspnetcdn.com 的 HTTPS 流量 (443)。
 
 針對「已加入混合式網域」的案例，有一種案例是 SSPR 工作流程無需 Active Directory 網域控制站即可完成。 第一次使用新密碼時，必須要能夠與網域控制站連線。
 
