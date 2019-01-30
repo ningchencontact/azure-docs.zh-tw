@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Clarizen 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 510bf383848725f3864c40af02c2b309370237f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8c66d8eec6d3967026c17db9ce8d616b97d25931
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438081"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807723"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>教學課程：Azure Active Directory 與 Clarizen 整合
 
@@ -98,7 +98,7 @@ ms.locfileid: "39438081"
 
     ![識別碼和回覆 URL 方塊](./media/clarizen-tutorial/tutorial_clarizen_02.png)
 
-    a. 在 [識別碼] 方塊中，以下列形式輸入值：[Clarizen]
+    a. 在 [識別碼] 方塊中，以下列形式輸入值：**Clarizen**
 
     b. 在 [回覆 URL] 方塊中，使用下列模式輸入 URL：**https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
 
@@ -188,7 +188,7 @@ ms.locfileid: "39438081"
 
 ### <a name="create-a-clarizen-test-user"></a>建立 Clarizen 測試使用者
 
-本節的目標是在 Clarizen 中建立名為 Britta Simon 的使用者。 Clarizen 支援自動使用者佈建，該功能預設為啟用。 您可以在[這裡](clarizen-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
+本節的目標是在 Clarizen 中建立名為 Britta Simon 的使用者。
 
 **如果您需要手動建立使用者，請執行下列步驟：**
 
@@ -196,11 +196,11 @@ ms.locfileid: "39438081"
 
 1. 以系統管理員身分登入您的 Clarizen 公司網站。
 
-1. 按一下 [人員] 。
+2. 按一下 [人員] 。
 
     ![按一下 [人員]](./media/clarizen-tutorial/create_aaduser_001.png "人員")
 
-1. 按一下 [邀請使用者] 。
+3. 按一下 [邀請使用者] 。
 
     ![[邀請使用者] 按鈕](./media/clarizen-tutorial/create_aaduser_002.png "邀請使用者")
 
@@ -251,7 +251,6 @@ ms.locfileid: "39438081"
 
 * [如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
-* [設定使用者佈建](clarizen-provisioning-tutorial.md)
 
 <!--Image references-->
 

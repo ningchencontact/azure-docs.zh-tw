@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 IMPAC Risk Manager �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 4d77390e-898c-4258-a562-a1181dfe2880
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: c086d58a7de4897f93699d2c22b6598896eb50e7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ca0ea482b1cfb2f7af962ae1b7537f79bb60a62b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434475"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823142"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>教學課程：Azure Active Directory 與 IMPAC Risk Manager 整合
 
@@ -188,7 +188,7 @@ IMPAC Risk Manager 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-impac-risk-manager-test-user"></a>建立 IMPAC Risk Manager 測試使用者
 
-在本節中，您要在 IMPAC Risk Manager 中建立名為 Britta Simon 的使用者。 與 [IMPAC Risk Manager 支援小組](mailto:rmsupport@Impac.co.nz)合作，在 IMPAC Risk Manager 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您要在 IMPAC Risk Manager 中建立名為 Britta Simon 的使用者。 請與 [IMPAC Risk Manager 支援小組](mailto:rmsupport@Impac.co.nz)合作，在 IMPAC Risk Manager 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -225,7 +225,7 @@ IMPAC Risk Manager 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [IMPAC Risk Manager] 圖格時，應該會自動登入您的 IMPAC Risk Manager 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7fc40945588c272ae0ae80ba17b7b3752cab4306
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4d62885743a4e50ece1c032c7b3405d8766d95cd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353306"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850581"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -245,7 +245,7 @@ image = ContainerImage.create(name = "myimage",
     **估計時間**：約 3 分鐘。
 
     > [!TIP]
-    > 如果部署期間發生錯誤，請使用 `service.get_logs()` 來檢視 AKS 服務記錄。 記錄資訊可能會指出發生錯誤的原因。
+    > 如果部署期間發生錯誤，請使用 `service.get_logs()` 來檢視服務記錄。 記錄資訊可能會指出發生錯誤的原因。
 
 如需詳細資訊，請參閱 [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) \(英文\) 和 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) \(英文\) 類別的參考文件。
 
@@ -300,7 +300,7 @@ from azureml.core.compute import AksCompute, ComputeTarget
 resource_group = 'myresourcegroup'
 cluster_name = 'mycluster'
 
-# Attatch the cluster to your workgroup
+# Attach the cluster to your workgroup
 attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
@@ -335,7 +335,7 @@ print(service.state)
 **估計時間**：約 3 分鐘。
 
 > [!TIP]
-> 如果部署期間發生錯誤，請使用 `service.get_logs()` 來檢視 AKS 服務記錄。 記錄資訊可能會指出發生錯誤的原因。
+> 如果部署期間發生錯誤，請使用 `service.get_logs()` 來檢視服務記錄。 記錄資訊可能會指出發生錯誤的原因。
 
 如需詳細資訊，請參閱 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) \(英文\) 和 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) \(英文\) 類別的參考文件。
 

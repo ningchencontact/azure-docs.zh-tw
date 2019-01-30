@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Sprinklr 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b33938a1-25a5-484c-8e75-7dc6de2d534d
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b5f240091cf5ce9331ada818c218db04f508dbc8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 062671313e42e6c936135dafb3d7d2a5c8adef82
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241798"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816631"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>教學課程：Azure Active Directory 與 Sprinklr 整合
 

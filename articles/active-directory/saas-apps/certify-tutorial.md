@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Certify 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 0b36e020-175a-4534-b341-85260739f889
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 68f1863ed8a901a93a1fe0626671a429adc96e61
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49f6f1044e3a29b2d81a70f0ed3b9c6468bd2e72
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433480"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812840"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certify"></a>教學課程：Azure Active Directory 與 Certify 整合
 

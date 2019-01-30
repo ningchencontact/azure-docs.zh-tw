@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 LCVista 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 8db80d6e-3275-419f-aa39-6115a7bc9800
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 1ec1783e6c9caabfbc5e03849b6d4c04b1f33d23
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 12e3719cb292ef0f2132597e6b849f79f596ff7c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448150"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827800"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>教學課程：Azure Active Directory 與 LCVista 整合
 
@@ -190,7 +190,7 @@ LCVista 與 Azure AD 整合提供下列優點：
  
 ### <a name="creating-a-lcvista-test-user"></a>建立 LCVista 測試使用者
 
-在本節中，您要在 LCVista 中建立名為 Britta Simon 的使用者。 若要在 LCVista 應用程式中新增使用者，您必須連絡 [LCVista 用戶端支援小組](https://lcvista.com/contact)。 
+在本節中，您要在 LCVista 中建立名為 Britta Simon 的使用者。 若要在 LCVista 應用程式中新增使用者，您必須連絡 [LCVista 用戶端支援小組](https://lcvista.com/contact)。 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -224,7 +224,7 @@ LCVista 與 Azure AD 整合提供下列優點：
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
-在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。 在存取面板中按一下 [LCVista] 圖格，系統會將您重新導向至組織登入頁面。 成功登入之後，系統會將您登入 LCVista 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。 在存取面板中按一下 [LCVista] 圖格，系統會將您重新導向至組織登入頁面。 成功登入之後，系統會將您登入 LCVista 應用程式。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

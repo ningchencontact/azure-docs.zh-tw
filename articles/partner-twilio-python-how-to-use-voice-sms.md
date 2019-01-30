@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 63eb894c64919826922fa60f4e12894542a97c69
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: e6cfd9e72dc1a38e4ed0c11320336ccc4b44a2c0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994160"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447355"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>如何在 Python 中透過 Twilio 使用語音和簡訊功能
 本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。 涵蓋的案例包括打電話和傳送簡訊 (SMS)。 如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱 [後續步驟](#NextSteps) 一節。
@@ -47,8 +47,8 @@ API 採用 Twilio 動詞。例如，**&lt;Say&gt;** 動詞指示 Twilio 在通�
 以下是 Twilio 動詞清單。 如需了解其他動詞和功能，請參閱 [Twilio 標記語言文件][twiml]。
 
 * **&lt;撥打&gt;**：使撥號者接通另一支電話。
-* **&lt;收集&gt;**：收集電話按鍵上輸入的號碼。
-* **&lt;掛斷&gt;**：結束通話。
+* **&lt;Gather&gt;**：收集電話按鍵上輸入的號碼。
+* **&lt;Hangup&gt;**：結束通話。
 * **&lt;暫停&gt;**：靜候一段指定的秒數。
 * **&lt;播放&gt;**：播放音訊檔案。
 * **&lt;佇列&gt;**：新增至呼叫端佇列。
@@ -56,7 +56,7 @@ API 採用 Twilio 動詞。例如，**&lt;Say&gt;** 動詞指示 Twilio 在通�
 * **&lt;重新導向&gt;**：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
 * **&lt;拒絕&gt;**：拒絕 Twilio 號碼的來電而不計費。
 * **&lt;說話&gt;**：將來電的文字轉換成語音。
-* **&lt;SMS&gt;**：傳送簡訊。
+* **&lt;Sms&gt;**：傳送簡訊。
 
 ### <a id="TwiML"></a>TwiML
 TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如何處理來電或簡訊。
@@ -88,7 +88,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
   3. 新增**連接埠 80** 的**傳出規則**。 務必允許來自任何位址的傳入。
 
 ### <a name="set-the-dns-name-label"></a>設定 DNS 名稱標籤
-  1. 移至 [公用 IP 位址] [azure_ips] 頁面。
+  1. 移至 [公用 IP 位址][azure_ips] 頁面。
   2. 選取與您的虛擬機器對應的公用 IP 位址。
   3. 在 [組態] 區段中設定 [DNS 名稱標籤]。 在此範例的情況下，它看起來類似 *your-domain-label*.centralus.cloudapp.azure.com
 

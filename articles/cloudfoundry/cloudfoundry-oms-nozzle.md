@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
-ms.service: virtual-machines-linux
+ms.service: azure-monitor
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 198d6e596faf47528c508a9323ab22de563dfc62
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404897"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819028"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>部署適用於 Cloud Foundry 系統監控的 Azure Log Analytics Nozzle
 
@@ -63,8 +63,8 @@ Nozzle 也需要 Loggregator Firehose 和 Cloud Controller 的存取權限。 �
 1. 在 Azure 入口網站中，搜尋 Azure Marketplace 中的服務清單，然後選取 [Log Analytics]。
 2. 選取 [建立]，然後選取下列項目的選項：
 
-   * **Log Analytics 工作區**：輸入您工作區的名稱。
-   * **訂用帳戶**：如果您擁有多個訂用帳戶，請選擇與 CF 部署相同的訂用帳戶。
+   * **Log Analytics 工作區**：輸入工作區的名稱。
+   * 訂用帳戶：如果您擁有多個訂用帳戶，請選擇與 CF 部署相同的訂用帳戶。
    * **資源群組**：您可以建立新的資源群組，或使用與 CF 部署相同的資源群組。
    * **位置**：輸入位置。
    * **定價層**：選取 [確定] 以完成。
@@ -78,7 +78,7 @@ Nozzle 也需要 Loggregator Firehose 和 Cloud Controller 的存取權限。 �
 3. 在搜尋視窗中輸入 "Cloud Foundry"，選取 [Cloud Foundry Monitoring Solution]。
 4. 這會載入 Cloud Foundry 監視解決方案範本首頁，按一下 [建立] 以啟動範本刀鋒視窗。
 5. 輸入必要參數：
-    * **訂用帳戶**：選取 Log Analytics 工作區的 Azure 訂用帳戶，通常與 Cloud Foundry 部署相同。
+    * 訂用帳戶：選取 Log Analytics 工作區的 Azure 訂用帳戶，通常與 Cloud Foundry 部署相同。
     * **資源群組**：選取現有的資源群組，或為 Log Analytics 工作區建立一個新的資源群組。
     * **資源群組位置**：選取資源群組的位置。
     * **OMS_Workspace_Name**：如果工作區不存在，請輸入工作區名稱，範本會建立新的工作區。

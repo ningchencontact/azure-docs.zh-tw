@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Veracode 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 4fe78050-cb6d-4db9-96ec-58cc0779167f
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: a295885d67e674e1cef7cbeb0480b8031d405a92
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: de6a9069d73f4cfe55372eae77d712a893cc348c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423158"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817047"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>教學課程：Azure Active Directory 與 Veracode 整合
 
@@ -106,7 +106,7 @@ Veracode 與 Azure AD 整合提供下列優點：
  
     ![單一登入對話方塊](./media/veracode-tutorial/tutorial_veracode_samlbase.png)
 
-1. 在 [Veracode 網域和 URL] 區段中，使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。 
+1. 在 [Veracode 網域及 URL] 區段上，使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。 
 
     ![設定單一登入](./media/veracode-tutorial/tutorial_veracode_url.png)
 
@@ -264,7 +264,7 @@ Veracode 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Veracode] 圖格時，應該會自動登入您的 Veracode 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

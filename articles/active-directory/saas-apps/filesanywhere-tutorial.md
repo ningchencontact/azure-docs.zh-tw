@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 FilesAnywhere 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 220b5a486f5bb5d22c671ac6935e610a6eef62cf
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2dab43499d5f55474117f88cfaa1cecd1a50bf3e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115980"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822037"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>教學課程：Azure Active Directory 與 FilesAnywhere 整合
 

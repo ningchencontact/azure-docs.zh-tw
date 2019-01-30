@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 SD Elements 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f0386307-bb3b-4810-8d4b-d0bfebda04f4
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 4d5c830df47ff212d2f4d93eb48001ce3a3e2207
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 93f838ac846415de0f3caf14b36f4bdf36b241ee
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446919"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814795"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>教學課程：Azure Active Directory 與 SD Elements 整合
 
@@ -112,7 +112,7 @@ SD Elements 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/sd-elements-tutorial/tutorial_sdelements_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<tenantname>.sdelements.com/sso/saml2/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<tenantname>.sdelements.com/sso/saml2/metadata`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<tenantname>.sdelements.com/sso/saml2/acs/`
 

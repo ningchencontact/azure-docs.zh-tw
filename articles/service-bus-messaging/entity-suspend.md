@@ -3,22 +3,22 @@ title: Azure 服務匯流排暫止傳訊實體 | Microsoft 文件
 description: 暫止及重新啟動 Azure 服務匯流排訊息實體。
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
-ms.author: spelluru
-ms.openlocfilehash: 3e3c0fdf4133fa1f44a67f4f7e0df1995c0a23f0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 8feee92e9105259bddf45114ac48a54347266cd7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701971"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845994"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>暫止及重新啟動傳訊實體 (停用)
 
@@ -38,8 +38,8 @@ ms.locfileid: "43701971"
 
 可以為佇列設定的狀態為：
 
--   **Active**：佇列作用中。
--   **Disabled**：佇列已暫止。
+-   **使用中**：佇列作用中。
+-   **已停用**：佇列已暫止。
 -   **SendDisabled**：佇列已部分暫止，目前允許接收。
 -   **ReceiveDisabled**：佇列已部分暫止，目前允許傳送。
 
@@ -59,7 +59,6 @@ Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName m
 
 若要深入了解服務匯流排傳訊，請參閱下列主題：
 
-* [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 * [服務匯流排佇列、主題和訂用帳戶](service-bus-queues-topics-subscriptions.md)
 * [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服務匯流排主題和訂用帳戶](service-bus-dotnet-how-to-use-topics-subscriptions.md)

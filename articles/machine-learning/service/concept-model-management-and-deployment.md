@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 467af0f04708c9c6758531fb1cd71d79e9ddd6d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 44f61d7b90018b76b1903a04d219dcf0226f95e0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302964"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852315"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>使用 Azure Machine Learning Service 來管理、部署及監視模型
 
@@ -39,7 +39,7 @@ ms.locfileid: "54302964"
 
 模型註冊可讓您在 Azure 雲端自己的工作區中儲存模型和控制模型版本。 模型註冊可讓您更輕鬆地組織和追蹤已定型模型。
  
-已註冊的模型是透過名稱和版本來識別。 每次註冊與現有模型名稱相同的模型時，登錄都會遞加版本。 您也可以在可於搜尋模型時使用的註冊期間提供額外中繼資料標記。 Azure Machine Learning 服務支援儲存的模型為可使用 Python 3 載入的任何模型。 
+已註冊的模型是透過名稱和版本來識別。 每次註冊與現有模型名稱相同的模型時，登錄都會遞加版本。 您也可以在可於搜尋模型時使用的註冊期間提供額外中繼資料標記。 Azure Machine Learning 服務支援可使用 Python 3 載入的任何模型。 
 
 您無法刪除映像正在使用的模型。
 
@@ -63,7 +63,7 @@ ms.locfileid: "54302964"
 Azure Machine Learning 支援最熱門架構，但一般而言，任何可使用 PIP 安裝的架構可以運作。
 
 建立工作區時，因此為該工作區使用的其他數個其他 Azure 資源。
-所有用來建立映像的物件都會儲存在您工作區的 Azure 儲存體帳戶中。 映像會建立並儲存在 Azure Container Registry 中。 建立映像時，您可以提供額外的中繼資料標籤，而映像登錄也會儲存它們，並可以對其查詢以找到您的映像。
+所有用來建立映像的物件都會儲存在您工作區的 Azure 儲存體帳戶中。 您可以在建立映像時提供額外的中繼資料標記。 映像登錄也會儲存中繼資料標記，並可透過查詢標記尋找您的映像。
 
 如需詳細資訊，請參閱[部署模型](how-to-deploy-and-where.md#configureimage)的設定和註冊映像一節。
 

@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Dow Jones Factiva 之
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b36e97e8-37a6-4096-a894-530427ee1331
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 117ca9b5dc617ec982823e7653f67fc5e64ea003
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3f7d0f4fdde3e3ce46e4398500505085639ac33a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425896"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807434"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>教學課程：Azure Active Directory 與 Dow Jones Factiva 整合
 

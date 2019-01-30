@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 12/12/2018
-ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.date: 01/22/2019
+ms.openlocfilehash: 420d3c256f9bf2d0884e98312a5a66aea08b13bc
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584491"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450876"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控執行個體資源限制概觀
 
@@ -39,7 +39,8 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 | 硬體 | Intel E5 2673 v3 (Haswell) 2.4-GHz 處理器，附加 SSD 虛擬核心 = 1 PP (實體核心) | Intel E5 2673 v4 (Broadwell) 2.3-GHz 處理器，快速 eNVM SSD，虛擬核心 = 1 LP (超執行緒) |
 | 計算 | 8 個、16 個、24 個虛擬核心 | 8 個、16 個、24 個、32 個、40 個、64 個、80 個虛擬核心 |
 | 記憶體 | 每個虛擬核心 7GB | 每個虛擬核心 5.1 GB |
-| 儲存體上限 (商務關鍵) | 1 TB | 1 TB、2 TB 或 4 TB，視核心數目而定 |
+| 最大儲存體 (一般用途) |  8 TB | 1 TB |
+| 儲存體上限 (商務關鍵) | 8 TB | 1 TB、2 TB 或 4 TB，視核心數目而定 |
 
 ### <a name="service-tier-characteristics"></a>服務層的特性
 
@@ -53,8 +54,7 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 | 每個資料庫的儲存體上限 | 取決於每個執行個體的最大儲存體大小 | 取決於每個執行個體的最大儲存體大小 |
 | 每個執行個體的資料庫數目上限 | 100 | 100 |
 | 每個執行個體的資料庫檔案數上限 | 最多 280 個 | 每個資料庫 32,767 個檔案 |
-| 資料/記錄 IOPS (大約) | 每個檔案 500-7500<br/>\*[視檔案大小而定](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (每個虛擬核心 1375) |
-| 執行個體記錄輸送量 | 每個執行個體 22MB/秒 | 每個虛擬核心 3MB/秒<br/>最大 48MB/秒 |
+| 資料/記錄 IOPS (大約) | 每個檔案 500-7500<br/>\*[取決於檔案大小] (https://docs.microsoft.com/azure/virtual-machines ce 記錄輸送量 | 每個執行個體 22MB/秒 | 每個虛擬核心 3MB/秒<br/>最大 48MB/秒 |
 | 資料輸送量 (大約) | 每個檔案 100-250 MB/秒<br/>\*[視檔案大小而定](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 每個虛擬核心 24-48MB/秒 |
 | IO 延遲 (大約) | 5-10 毫秒 | 1-2 毫秒 |
 | 最大 tempDB 大小 | 192-1920 GB (每個虛擬核心 24 GB) | 沒有限制 - 受到執行個體儲存體大小上限的限制 |

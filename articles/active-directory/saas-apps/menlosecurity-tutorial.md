@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Menlo Security 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9e63fe6b-0ad0-405d-9e41-6a1a40a41df8
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: jeedes
-ms.openlocfilehash: a1f7458d52ffdee4cb48e4be0f553e3d57413249
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 70b6693afe1a57e8acd62500d74f860dffc7c692
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428840"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808692"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>教學課程：Azure Active Directory 與 Menlo Security 整合
 
@@ -143,11 +143,11 @@ ms.locfileid: "39428840"
 
     c. 在 [SAML 提供者] 下選取 [Azure Active Directory]。
 
-    d. **SAML 2.0 端點**：將您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 貼上。
+    d. **SAML 2.0 Endpoint** \(SAML 2.0 端點\)：貼上您從 Azure 入口網站複製的 **SAML 單一登入服務 URL**。
 
-    e. **服務識別項 (發行者)**︰將您從 Azure 入口網站複製的 **SAML 實體識別碼**貼上。
+    e. **Service Identifier (Issuer)** \(服務識別碼 (簽發者)\)：貼上您從 Azure 入口網站複製的 **SAML 實體識別碼**。
 
-    f. **X.509 憑證**：在記事本中，將您從 Azure 入口網站下載的**憑證 (Base64)** 開啟，並在此方塊中將它貼上。
+    f. **X.509 Certificate** \(X.509 憑證\)：在記事本中開啟您從 Azure 入口網站下載的**憑證 (Base64)**，然後將其貼在此方塊中。
 
     g. 按一下 [儲存]  來儲存這些設定。
 
@@ -188,7 +188,7 @@ ms.locfileid: "39428840"
  
 ### <a name="creating-a-menlo-security-test-user"></a>建立 Menlo Security 測試使用者
  
-在本節中，您要在 Menlo Security 中建立名為 Britta Simon 的使用者。 使用 [Menlo Security 用戶端支援小組](https://www.menlosecurity.com/menlo-contact)，在 Menlo Security 平台新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您要在 Menlo Security 中建立名為 Britta Simon 的使用者。 請與  [Menlo Security 用戶端支援小組](https://www.menlosecurity.com/menlo-contact)合作，以在 Menlo Security 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

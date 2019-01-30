@@ -3,6 +3,7 @@
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:02/05/2018
 ---
+
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>使用 Azure Resource Manager 部署 Azure Machine Learning Studio 工作區
 
 使用 Azure Resource Manager 部署範本提供了可擴充的方式來部署具有驗證和重試機制的互連元件，為您節省時間。 若要設定 Azure Machine Learning 工作區，例如，您需要先設定 Azure 儲存體帳戶，然後再部署您的工作區。 假想您要對數百個工作區手動進行此動作。 簡單的替代方法是使用 Azure Resource Manager 範本來部署 Azure Machine Learning 工作區和所有相依性。 這篇文章會帶領您逐步完成此程序。 如需 Azure Resource Manager 的詳細概觀，請參閱 [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)。
@@ -125,10 +126,8 @@ Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |
 * 深入了解 [編寫 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)。 
 * 看看 [Azure 快速入門範本儲存機制](https://github.com/Azure/azure-quickstart-templates)。 
 * 觀看這段 [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39)影片。 
-
-<!--Image references-->
-[1]: ./media/deploy-with-resource-manager-template/azuresubscription.png
-[2]: ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
+* 請參閱 [Resource Manager 範本參考說明](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
+<!--Image references--> [1]: ./media/deploy-with-resource-manager-template/azuresubscription.png [2]: ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
 
 
 <!--Link references-->

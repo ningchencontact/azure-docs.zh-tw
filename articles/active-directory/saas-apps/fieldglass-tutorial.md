@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Fieldglass 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2510195f-d5b1-4684-b3da-283fb8619df2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: a14aeb55d9e5756660708e9e63a867a66a54a7b6
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 0d8c1dc6d0044992692151465aa2b37f6a23445b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443947"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822224"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>教學課程：Azure Active Directory 與 Fieldglass 整合
 

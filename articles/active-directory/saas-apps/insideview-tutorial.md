@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 InsideView 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c489a7ab-6b1f-4efb-8a66-8bc13bca78c3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: fd004302018bf032675957c12e58759a0d4ed6e5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 06bdae468a15bfbc9c3aab3f9f6f4ddd81e0f678
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436269"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812483"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>教學課程：Azure Active Directory 與 InsideView 整合
 
@@ -141,7 +141,7 @@ InsideView 與 Azure AD 整合提供下列優點：
    
     a. 在 [STS 名稱]  文字方塊中，輸入您的組態名稱。
 
-    b. 在 [SamlP/WS-Fed 來路不明端點] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
+    b. 在 [SamlP/WS-Fed Unsolicited EndPoint] \(SamlP/WS-Fed 來路不明端點\) **** 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
     
     c. 開啟您從 Azure 入口網站下載的 base-64 編碼憑證，將它的內容複製到您的剪貼簿，然後在 [STS 憑證] 文字方塊貼上。
 

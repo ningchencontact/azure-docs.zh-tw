@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 MaxxPoint 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 15ba026e-96fc-4ae8-b135-0169da810e99
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: ca10db225947fbd98b8d5919cdaa371710b0ce46
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b4cf7c8388b0a5a278298fff274ba49d542bae36
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442661"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806958"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>教學課程：Azure Active Directory 與 MaxxPoint 整合
 

@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 LinkedIn Sales Naviga
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7a9fa8f3-d611-4ffe-8d50-04e9586b24da
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: f0e34a614251cf11c9547d749fef58dfa8ca623a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b4a30259c4aa00530e5aadd2cb98c19b63bd5d8a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425192"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817022"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>教學課程：Azure Active Directory 與 LinkedIn Sales Navigator 整合
 
@@ -261,7 +261,7 @@ LinkedIn Sales Navigator 應用程式支援及時 (JIT) 使用者佈建，而在
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您按一下存取面板中的 [LinkedIn Sales Navigator] 圖格時，系統應該會將您重新導向至組織的頁面，您必須在其中提供您個人的 LinkedIn 帳戶詳細資料。 它會連結您的個人帳戶與您的 LinkedIn 商務帳戶。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+當您按一下存取面板中的 [LinkedIn Sales Navigator] 圖格時，系統應該會將您重新導向至組織的頁面，您必須在其中提供您個人的 LinkedIn 帳戶詳細資料。 它會連結您的個人帳戶與您的 LinkedIn 商務帳戶。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

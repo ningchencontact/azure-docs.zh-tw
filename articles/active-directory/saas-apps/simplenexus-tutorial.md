@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 SimpleNexus 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 89821a05-88e2-4579-b144-0123b2b9cb95
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 25379fd5ecc4c3aa129e9ae7e6cd8049be794150
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bd620913b34c18197de337c46fa45a6b3a0337b8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433862"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>教學課程：Azure Active Directory 與 SimpleNexus 整合
 

@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 ThousandEyes 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 790e3f1e-1591-4dd6-87df-590b7bf8b4ba
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b6af7a3322b1a01c1d822df78d827121c19e21e1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 046832913a07c99310280d37ac1c6792692dd0cf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444397"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824706"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>教學課程：Azure Active Directory 與 ThousandEyes 整合
 
@@ -46,7 +46,7 @@ ThousandEyes 與 Azure AD 整合提供下列優點：
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
 - 除非必要，否則請勿使用生產環境。
-- 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用供應項目](https://azure.microsoft.com/pricing/free-trial/)。
+- 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用版供應項目](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
@@ -259,7 +259,7 @@ ThousandEyes 與 Azure AD 整合提供下列優點：
 
 當您在「存取面板」中按一下 [ThousandEyes] 圖格時，應該會自動登入您的 ThousandEyes 應用程式。
 
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

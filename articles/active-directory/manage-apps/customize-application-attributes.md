@@ -4,7 +4,7 @@ description: 了解 Azure Active Directory 中 SaaS 應用程式有哪些屬性�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c54df9c4a01dbdb7713d03ff81108f28a60ec727
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ead99afaf0399c060424d310d8f4011b2a50aad2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355210"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473719"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>在 Azure Active Directory 中自訂 SaaS 應用程式的使用者佈建屬性對應
 Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等等的協力廠商 SaaS 應用程式。 如果您啟用了第三方 SaaS 應用程式的使用者佈建，Azure 入口網站會以「屬性對應」的形式控制其屬性值。
@@ -64,8 +64,8 @@ Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等�
 在上一節中，我們已為您介紹屬性對應類型屬性。
 除了這個屬性之外，屬性對應也支援下列屬性：
 
-- **來源屬性** - 來源系統的使用者屬性 (例如：Azure Active Directory)。
-- **目標屬性** – 目標系統中的使用者屬性 (例如：ServiceNow)。
+- **來源屬性** - 來源系統中的使用者屬性 (例如：Azure Active Directory)。
+- **目標屬性** - 目標系統中的使用者屬性 (例如：ServiceNow)。
 - **使用此屬性比對物件** – 是否應該將此對應用於唯一識別來源與目標系統之間的使用者。 這通常會在 Azure AD 中的 userPrincipalName 或 mail 屬性上加以設定，通常會對應至目標應用程式中的使用者名稱欄位。
 - **比對優先順序** – 您可以設定多個比對屬性。 具有多個屬性時，系統會以此欄位定義的順序進行評估。 只要找到相符項目，便不會評估進一步比對屬性。
 - **套用此對應**

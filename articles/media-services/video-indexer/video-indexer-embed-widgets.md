@@ -7,21 +7,23 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 12/25/2018
+ms.date: 01/21/2019
 ms.author: juliako
-ms.openlocfilehash: 2c07cfcba473e2e27f14ff0118e6ca8a8f484df1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: d5ec82decbb441c27fd0c5e8f1132caa126edbc1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791809"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807740"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>將影片索引子小工具內嵌到應用程式中
 
 本文說明如何將影片索引子小工具內嵌到應用程式中。 影片索引子支援將兩種類型的小工具內嵌到應用程式中：**認知深入解析**和**播放器**。 
 
 > [!NOTE]
-> 從 2018 年 2 月 1 日開始，第 1 版**認知深入解析**小工具將會被取代。 內嵌的 URL 版本將預設為 `version=2`。
+> 從 2018 年 2 月 1 日開始，第 1 版**認知見解**小工具將會被取代。 內嵌的 URL 版本將預設為 `version=2`。
+
+從第 2 版開始，小工具基底 URL 包括帳戶的區域。 例如，美國西部區域中的帳戶會產生：`https://wus2.videoindexer.ai/embed/insights/...`。
 
 ## <a name="widget-types"></a>小工具類型
 
@@ -69,7 +71,7 @@ ms.locfileid: "53791809"
 
 如果您想要內嵌**私人**影片，您必須在 **iframe** 的 **src** 屬性中傳入存取權杖：
 
-     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>
+`https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
 請使用[**取得深入解析小工具**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) API 取得認知深入解析小工具內容，或使用[**取得影片存取權杖**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)，並將其新增為 URL 的查詢參數，如前所述。 請將此 URL 指定為 **iframe** 的 **src** 值。
 
@@ -94,13 +96,13 @@ ms.locfileid: "53791809"
 
 本節說明如何達成兩個影片索引子小工具之間的互動，而讓使用者在點按您應用程式上的深入解析控制項時，即可將播放器跳到相關的時間點。
 
-    <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> 
+`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> `
 
 1. 複製**播放器**小工具的內嵌程式碼。
 2. 複製**認知深入解析**的內嵌程式碼。
 3. 新增[**中繼程序檔案**](https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js)以處理兩個小工具之間的通訊：
 
-    <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>
+`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>`
 
 現在，當使用者點按您應用程式上的深入解析控制項時，播放器即會跳到相關的時間點。
 
@@ -110,11 +112,7 @@ ms.locfileid: "53791809"
 
 本節說明如何使用 [AMP 外掛程式](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js)達成**認知深入解析**小工具與 Azure 媒體播放器執行個體之間的互動。
  
-1. 新增 AMP 播放器的影片索引子外掛程式。
-
-        <script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>
-
-
+1. 新增 AMP 播放器的影片索引子外掛程式。<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
 2. 使用影片索引子外掛程式將 Azure 媒體播放器具現化。
 
         // Init Source
@@ -209,7 +207,6 @@ ms.locfileid: "53791809"
         
         </script>
 
-
 如需詳細資訊，請參閱[此示範](https://codepen.io/videoindexer/pen/YEyPLd)。
 
 ## <a name="adding-subtitles"></a>新增字幕
@@ -219,30 +216,41 @@ ms.locfileid: "53791809"
 ## <a name="customizing-embeddable-widgets"></a>自訂可內嵌的小工具
 
 ### <a name="cognitive-insights-widget"></a>認知深入解析小工具
-您可以選擇您想要的深入解析類型，只要將其指定為下列 URL 參數的值，並新增至您取得的內嵌程式碼 (從 API 或 Web 應用程式) 即可：
 
-**&widgets=** \<您想要的小工具清單>
+您可以選擇您想要的深入解析類型，只要將其指定為下列 URL 參數的值，並新增至您取得的內嵌程式碼 (從 API 或 Web 應用程式) 即可：`&widgets=<list of wanted widgets>`。
 
 可能的值為：人員、關鍵字、情緒、文字記錄、搜尋。
 
-例如，如果您想要內嵌僅包含人員和搜尋深入解析的小工具，iframe 內嵌 URL 將顯示如下︰ https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search
+例如，如果您想要內嵌僅包含人員和搜尋見解的小工具，iframe 內嵌 URL 將顯示如下︰
 
-iframe 視窗的標題也可藉由將 **&title=**<YourTitle> 提供給 iframe URL 來自訂。 (它將會自訂 html \<title> 值)。
-例如，如果您想要為 iframe 視窗提供標題 "MyInsights"，URL 將顯示如下︰ https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights。 請注意，只有您需要在新視窗中開啟深入解析時，才適用此選項。
+`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
+
+iframe 視窗的標題也可透過將 `&title=<YourTitle>` 提供給 iframe URL 來自訂。 (它將會自訂 html \<title> 值)。
+    
+例如，若您想要為您的 iframe 視窗指定標題 "MyInsights"，URL w看起來會像這樣：
+
+`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights`
+
+請注意，只有您需要在新視窗中開啟深入解析時，才適用此選項。
 
 ### <a name="player-widget"></a>播放器小工具
+
 在內嵌影片索引子播放器時，您可以藉由指定 iframe 的大小來選擇播放器的大小。
 
 例如︰
 
-    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />
+`<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
 根據預設，影片索引子播放器會根據從使用來源語言 (在影片上傳時選取的) 的影片中擷取的影片文字記錄，自動產生隱藏式輔助字幕。
 
-如果您想要內嵌不同的語言，您可以新增 **&captions=< Language | ”all” | “false” >** 以內嵌播放器 URL；如果想要有所有可用語言的標題，則可以加上 "all" 值。
-如果您想要依預設顯示標題，您可以傳入 **&showCaptions=true**
+如果您想要內嵌不同的語言，您可以新增 `&captions=< Language | ”all” | “false” >` 以內嵌播放器 URL；如果想要有所有可用語言的標題，則可以加上 "all" 值。
+如果您想要依預設顯示標題，您可以傳入 `&showCaptions=true`。
 
-此時，內嵌 URL 將顯示如下︰ https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian。 如果您想要停用標題，您可以為標題參數傳入 "false" 值。
+內嵌 URL 將顯示如下︰ 
+
+`https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian`
+
+如果您想要停用標題，您可以為標題參數傳入 "false" 值。
 
 自動播放 – 根據預設，播放器會自動開始播放影片。 您可以在上述的內嵌 URL 中傳入 &autoplay=false，以選擇不自動播放。
 

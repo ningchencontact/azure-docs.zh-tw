@@ -4,7 +4,7 @@ description: 說明如何針對 Azure AD Connect 同步處理期間發生的錯�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c94ecc223c4e2c0533c23e58823bb203064ceef6
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 34a719c8fb62a2b993320d1bd9f97f9d47abf494
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250439"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463301"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>針對同步處理期間的錯誤進行疑難排解
 將身分識別資料從 Windows Server Active Directory (AD DS) 同步處理至 Azure Active Directory (Azure AD) 時，可能會發生錯誤。 本文提供不同類型的同步處理錯誤概觀、某些可能導致這些錯誤的案例，以及修正錯誤的可能方式。 本文包含常見的錯誤類型，不一定涵蓋所有可能的錯誤。

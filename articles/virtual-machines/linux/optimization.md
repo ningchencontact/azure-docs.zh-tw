@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 91e9cb6b436cc78a0c5bd4769d38622abda4c04d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: disks
+ms.openlocfilehash: 6cccf31842825c3e4d50aa67165d19f8ac471695
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977565"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478156"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上最佳化 Linux VM
 您可以從命令列或入口網站，輕鬆建立 Linux 虛擬機器 (VM)。 本教學課程示範如何在 Microsoft Azure 平台上設定，以確保將其效能最佳化。 本主題會使用 Ubuntu Server VM，但您也可以使用 [自己的映像做為範本](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)來建立 Linux 虛擬機器。  
@@ -132,7 +133,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 以下是一些連往其他資源的實用連結： 
 
-* [Premium 儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](premium-storage.md)
+* [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](premium-storage.md)
 * [Azure Linux 代理程式使用者指南](../extensions/agent-linux.md)
 * [在 Azure Linux VM 上最佳化 MySQL 效能](classic/optimize-mysql.md)
 * [在 Linux 上設定軟體 RAID](configure-raid.md)

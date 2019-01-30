@@ -1,10 +1,10 @@
 ---
-title: 教學課程：Azure Active Directory 與 Aha! | Microsoft Docs
+title: 教學課程：Azure Active Directory 與 Aha! 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Aha! 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ad955d3d-896a-41bb-800d-68e8cb5ff48d
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 30f0f316727cfcf20daa58c35d0ba11c25311898
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d46467947116da6f6e5439a54e0315f216961819
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044113"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813214"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-aha"></a>教學課程：Azure Active Directory 與 Aha!
+# <a name="tutorial-azure-active-directory-integration-with-aha"></a>教學課程：Azure Active Directory 與 Aha! 整合
 
 在本教學課程中，您會了解如何將 Aha! 與 Azure Active Directory (Azure AD) 整合。
 
@@ -235,7 +235,7 @@ Aha! 的佈建是自動化工作。 沒有您適用的動作項目。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
-如果要測試您的單一登入設定，請開啟存取面板。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如果要測試您的單一登入設定，請開啟存取面板。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

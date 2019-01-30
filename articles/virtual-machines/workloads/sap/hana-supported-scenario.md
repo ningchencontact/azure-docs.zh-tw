@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576488"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855450"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA 大型執行個體的支援案例
 本文件說明 HANA 大型執行個體 (HLI) 的支援案例以及其架構詳細資料。
@@ -32,7 +32,7 @@ ms.locfileid: "45576488"
 讓我們來了解文件中所用詞彙和定義。
 
 - SID：HANA 系統的系統識別碼。
-- HLI：Hana 大型執行個體。
+- HLI：HANA 大型執行個體。
 - DR：災害復原網站。
 - 標準 DR：具有僅用於 DR 用途專用資源的系統設定。
 - 多用途 DR：DR 網站上設定為使用非生產環境的系統，搭配設定為用於 DR 事件的生產執行個體。 
@@ -56,7 +56,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 每個佈建的伺服器都已預先設定乙太網路介面集。 以下是每個 HLI 單位上設定的乙太網路介面詳細資訊。
 
-- **A**：此介面用於用戶端存取。
+- **答**：此介面用於用戶端存取。
 - **B**：此介面用於節點對節點通訊。 此介面已在所有伺服器上設定 (無論請求的拓撲為何)，但僅用於 
 - 相應放大案例。
 - **C**：此介面用於節點對儲存體連線能力。
@@ -237,7 +237,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
 - 針對 MCOS：磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
 - 在 DR 上：磁碟區和裝載點已在 DR HLI 單位上針對生產 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。 
-- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。
+- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)文件。
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
 
@@ -286,7 +286,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
 - 針對 MCOS：磁碟區大小發佈是根據記憶體中的資料庫大小而定。 請參閱[概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)一節，以了解多 SID 環境支援記憶體中哪種資料庫大小。
 - 在 DR 上：磁碟區和裝載點已在 DR HLI 單位上針對生產 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。 
-- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。 
+- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)文件。 
 - 在 DR 上：資料、記錄備份、記錄、QA 的共用磁碟區 (標示為「QA 執行個體安裝」) 已針對 QA 執行個體安裝進行設定。
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
@@ -395,7 +395,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 - STONITH：已針對 STONITH 安裝程式設定 SBD。 不過，STONITH 的使用是選擇性的。
 - 在 DR 上：**需要兩組儲存體磁碟區**，以用於主要和次要節點複寫。
 - 在 DR 上：磁碟區和裝載點已在 DR HLI 單位上針對生產 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。 
-- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。 
+- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)文件。 
 - 在 DR 上：資料、記錄備份、記錄、QA 的共用磁碟區 (標示為「QA 執行個體安裝」) 已針對 QA 執行個體安裝進行設定。
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
@@ -559,7 +559,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 ### <a name="key-considerations"></a>主要考量
 - /usr/sap/SID 是 /hana/shared/SID 的符號連結。
 -  在 DR 上：磁碟區和裝載點已在 DR HLI 單位上針對生產 HANA 執行個體安裝進行設定 (標示為「針對 HANA 安裝為必要」)。 
-- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)文件。 
+- 在 DR 上：從生產網站透過快照集複寫資料、記錄備份和共用磁碟區 (標示為「儲存體複寫」)。 這些磁碟區僅會在容錯移轉期間進行裝載。 如需詳細資訊，請參閱[災害復原容錯移轉程序](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)文件。 
 - **SKU 類型一類別**的開機磁碟區已複寫到 DR 節點。
 
 

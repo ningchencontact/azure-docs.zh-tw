@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Weekdone 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 34921f9a-5637-4420-ab4c-9beb34421909
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 7f7946ece91013696969dafda17b02c972f4b780
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 869deb1b68d30041b6780151a5712099982bd9b7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230398"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807944"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>教學課程：Azure Active Directory 與 Weekdone 整合
 
@@ -33,7 +33,7 @@ Weekdone 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Weekdone 整合，您需要下列項目：
 
@@ -110,18 +110,18 @@ Weekdone 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/weekdone-tutorial/tutorial_weekdone_url1.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://weekdone.com/a/<tenant>/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://weekdone.com/a/<tenant>/metadata`
 
     > [!NOTE]
     > 您可以使用相同的 URL 從 Weekdone 擷取中繼資料檔案。
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://weekdone.com/a/<tenantname>`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://weekdone.com/a/<tenantname>`
 
 4. 按一下 [顯示進階 URL 設定]。 如果您想要以 **SP** 起始模式設定應用程式：
 
     ![設定單一登入](./media/weekdone-tutorial/tutorial_weekdone_url2.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://weekdone.com/a/<tenantname>`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://weekdone.com/a/<tenantname>`
      
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 請連絡 [Weekdone 客戶支援小組](mailto:hello@weekdone.com)以取得這些值。 

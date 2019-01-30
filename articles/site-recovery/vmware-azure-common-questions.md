@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 90f3a4571e485e52a47eda34eacf6367aef35933
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 703d255a962dbac7a430404835c6d45c358d99a7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320985"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478083"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -43,7 +43,23 @@ ms.locfileid: "54320985"
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>我的 Azure 帳戶是否需要建立 VM 的權限？
 如果您是訂用帳戶管理員，則會具有所需的複寫權限。 如果您不是，則需要必要權限才能在您設定 Site Reocvery 時指定的資源群組和虛擬網路中建立 Azure VM，且需要寫入至所選儲存體帳戶的權限。 [深入了解](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)。
 
+## <a name="azure-site-recovery-components-upgrade"></a>Azure Site Recovery 元件升級
 
+### <a name="my-mobility-agentconfiguration-serverprocess-server-version-is-very-old-and-my-upgrade-has-failed-how-should-i-upgrade-to-latest-version"></a>我的行動代理程式/設定伺服器/處理序伺服器版本非常舊，而我的升級失敗。 我要如何升級至最新版本？
+
+Azure Site Recovery 會遵循 N-4 支援模型。 請參閱我們的[支援聲明](https://aka.ms/asr_support_statement)，以了解有關如何從非常舊的版本升級的詳細資料。
+
+### <a name="where-can-i-find-the-release-notesupdate-rollups-of-azure-site-recovery"></a>哪裡可以找到 Azure Site Recovery 的版本資訊/更新彙總套件？
+
+如需版本資訊的詳細資訊，請參閱[文件](https://aka.ms/asr_update_rollups)。 您可以在每個更新彙總中找到個別元件的安裝連結。
+
+### <a name="how-should-i-upgrade-site-recovery-components-for-on-premises-vmware-or-physical-site-to-azure"></a>如何將內部部署 VMware 或實體站台的 Site Recovery 元件升級至 Azure？
+
+請參閱[此處](https://aka.ms/asr_vmware_upgrades)所提供的指導方針升級您的元件。
+
+## <a name="is-reboot-of-source-machine-mandatory-for-each-upgrade"></a>每次升級都需要重新啟動來源機器嗎？
+
+雖然建議，但並不是每次升級都必須這麼做。 如需明確的指導方針，請參閱[此處](https://aka.ms/asr_vmware_upgrades)。
 
 ## <a name="on-premises"></a>內部部署
 
@@ -142,7 +158,7 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 雖然可行，但執行組態伺服器的 Azure VM 將需要與您的內部部署 VMware 基礎結構和 VM 通訊。 這會加入延遲，並影響進行中的複寫。
 
 ### <a name="how-do-i-update-the-configuration-server"></a>如何更新組態伺服器？
-[深入了解](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)如何更新組態伺服器。 您可以在 [Azure 更新頁面](https://azure.microsoft.com/updates/?product=site-recovery)中找到最新的更新資訊。 您也可以直接從 [Microsoft 下載中心](https://aka.ms/asrconfigurationserver)下載最新版的設定伺服器。
+[深入了解](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)如何更新組態伺服器。 您可以在 [Azure 更新頁面](https://azure.microsoft.com/updates/?product=site-recovery)中找到最新的更新資訊。 您也可以直接從 [Microsoft 下載中心](https://aka.ms/asrconfigurationserver)下載最新版的設定伺服器。 如果您的版本比目前版本早 4 個版本，請參閱我們的[支援聲明](https://aka.ms/asr_support_statement)以取得升級指導方針。
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>我是否應該備份已部署的組態伺服器？
 建議對於組態伺服器進行定期排程的備份。 為了成功容錯回復，進行容錯回復的虛擬機器必須存在於組態伺服器資料庫，而且組態伺服器必須執行中且處於連線狀態。 您可在[此處](vmware-azure-manage-configuration-server.md)深入了解常見組態伺服器管理工作。

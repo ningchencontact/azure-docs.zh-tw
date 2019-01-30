@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Peoplecart 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: c83b5d9d-2638-4689-b9f0-f56a9159e7a0
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: bfd2032df8cdb2b7b65a0740ba075d4ea00cbd51
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6934334f5982c14cd040c3ccb6b15f6b2ae6bb5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427919"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826098"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peoplecart"></a>教學課程：Azure Active Directory 與 Peoplecart 整合
 
@@ -204,7 +204,7 @@ Peoplecart 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Peoplecart] 圖格時，應該會看到 Peoplecart 應用程式的登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

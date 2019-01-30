@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Innotas 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: eb9e9c2c-4b09-4177-bbab-423fd657448e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 036acb48b305cd94da32ccc96b727e4e8ae143b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d5c080b7fa5b00225854443a79f69d2e5ba39c6f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437227"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815223"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innotas"></a>教學課程：Azure Active Directory 與 Innotas 整合
 

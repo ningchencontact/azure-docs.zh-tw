@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Mindflash 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bdf91993-aaaa-4598-89b7-77ef8ca065d5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: e1b709944ce638579458680ecdbf3a5b7766eb13
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1d9518e02a726ffb0e1a4d852a68fcdc5dcd5080
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421486"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820559"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>教學課程：Azure Active Directory 與 Mindflash 整合
 
@@ -231,7 +231,7 @@ Mindflash 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Mindflash] 圖格時，應該會看到 Mindflash 應用程式的登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

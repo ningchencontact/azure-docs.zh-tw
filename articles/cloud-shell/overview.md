@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 85d054be6b72c736ec66384b9caec71208f36802
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1ad85a57762ae4fba30e1699b38eaa52d45ab26e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869358"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447202"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 的概觀
 Azure Cloud Shell 是可經由瀏覽器存取的互動式殼層，應用在 Azure 資源管理上。
@@ -57,11 +57,16 @@ Cloud Shell 提供一種以開放原始碼 Monaco Editor 為基礎的整合式�
 
 [深入了解 Cloud Shell 編輯器](using-cloud-shell-editor.md)。
 
+### <a name="integrated-with-docsmicrosoftcom"></a>與 docs.microsoft.com 整合
+
+您可以直接從 [docs.microsoft.com](https://docs.microsoft.com)上裝載的文件使用 Cloud Shell。 它整合在 [Microsoft Learn](https://docs.microsoft.com/learn/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 和 [Azure CLI documentation](https://docs.microsoft.com/cli/azure) 中 - 按一下程式碼片段中的 [試試看] 按鈕，即可開啟沈浸式殼層體驗。 
+
 ### <a name="multiple-access-points"></a>多個存取點
 您可以從下列位置使用 Cloud Shell 這個彈性的工具：
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Azure CLI「試試看」文件](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
+* [Azure CLI 文件](https://docs.microsoft.com/cli/azure)
+* [Azure PowerShell 文件](https://docs.microsoft.com/powershell/azure/overview)
 * [Azure 行動裝置應用程式](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [VS Code Azure 帳戶擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

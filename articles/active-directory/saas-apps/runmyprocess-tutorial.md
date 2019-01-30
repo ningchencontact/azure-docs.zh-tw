@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 RunMyProcess 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d31f7395-048b-4a61-9505-5acf9fc68d9b
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 8cfdbac75036e59cf4acebe07c76ff758b74cdd2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7e7148b178b2fbbb2d2009889b1a80b56f3a1152
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439322"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807893"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-runmyprocess"></a>教學課程：Azure Active Directory 與 RunMyProcess 整合
 

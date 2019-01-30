@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 FirmPlay - Employee A
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: a6799629-7546-43f8-a966-956db32864b1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: abc29480e5f5531857cbf973d5386727c3d7f2ac
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 929494d5d802dbc545c750386a286029c4bf962d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114523"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809797"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>教學課程：Azure Active Directory 與 FirmPlay - Employee Advocacy for Recruiting 整合
 
@@ -95,7 +95,7 @@ FirmPlay - Employee Advocacy for Recruiting 與 Azure AD 整合提供下列優�
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-1. **[建立 FirmPlay - Employee Advocacy for Recruiting 測試使用者](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)** - 在 FirmPlay - Employee Advocacy for Recruiting 中建立一個與 Azure AD 中代表 Britta Simon 的項目連結的 Britta Simon 對應項目。
+1. **[建立 FirmPlay - Employee Advocacy for Recruiting 測試使用者](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)** - 在 FirmPlay:Employee Advocacy for Recruiting 中建立一個與 Azure AD 中代表 Britta Simon 的項目連結的 Britta Simon 對應項目。
 1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 

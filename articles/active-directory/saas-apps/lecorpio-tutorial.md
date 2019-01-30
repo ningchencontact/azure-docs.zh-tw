@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Lecorpio 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: jeedes
-ms.openlocfilehash: 2dff30709fae08ffc17908f3ea9d1f540f5e79ed
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7ac08c7bb076e501f917126be19127e2c7a0fa7e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442491"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808250"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>教學課程：Azure Active Directory 與 Lecorpio 整合
 

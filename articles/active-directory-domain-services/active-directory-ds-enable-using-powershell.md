@@ -4,7 +4,7 @@ description: 使用 PowerShell 啟用 Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: ergreenl
-ms.openlocfilehash: b58df5ebf5332688424ac6ed2eeb9679487bcdc4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 5ebb9f706d2e59b9c1227cec6fcc0e0619374069
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240251"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855001"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>使用 PowerShell 啟用 Azure Active Directory Domain Services
 本文說明如何使用 PowerShell 啟用 Azure Active Directory (AD) Domain Services。
@@ -31,7 +31,7 @@ ms.locfileid: "50240251"
 請遵循文章中的指示[安裝 Azure AD PowerShell 模組並連線至 Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json)。
 
 ### <a name="install-and-configure-azure-powershell"></a>安裝並設定 Azure PowerShell
-請遵循文章中的指示[安裝 Azure PowerShell 模組並連線至 Azure 訂用帳戶](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json)。
+請遵循文章中的指示[安裝 Azure PowerShell 模組並連線至 Azure 訂用帳戶](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json)。
 
 
 ## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>工作 2：在 Azure AD 目錄中建立必要的服務主體
@@ -41,7 +41,7 @@ ms.locfileid: "50240251"
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
-## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>工作 3：建立和設定「AAD DC 系統管理員」群組
+## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>工作 3：建立和設定 'AAD DC Administrators' 群組
 下一個工作是建立系統管理員群組，將用來在受控網域上委派系統管理工作。
 ```powershell
 # Create the delegated administration group for AAD Domain Services.
@@ -117,7 +117,7 @@ $Vnet=New-AzureRmVirtualNetwork `
 ```
 
 
-## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>工作 7：佈建 Azure AD Domain Services 的受控網域
+## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>工作 7：佈建 Azure AD Domain Services 受控網域
 輸入下列 PowerShell 命令，針對您的目錄啟用 Azure AD Domain Services：
 
 ```powershell

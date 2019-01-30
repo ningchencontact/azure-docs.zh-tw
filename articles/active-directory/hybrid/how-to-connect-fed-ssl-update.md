@@ -2,10 +2,10 @@
 title: Azure AD Connect - 更新 AD FS 伺服器陣列的 SSL 憑證 | Microsoft Docs
 description: 本文件詳述使用 Azure AD Connect 更新 AD FS 伺服器陣列 SSL 憑證的步驟。
 services: active-directory
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
-ms.service: active-directory
+ms.service: active-directory  
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.component: hybrid
 author: billmath
 ms.custom: seohack1
 ms.author: billmath
-ms.openlocfilehash: 8320eae9e1c12123a4379887124dee810998c4e3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cd9d20065c0be580c415100fae470b362b19a3de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309527"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474589"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>更新 Active Directory Federation Services (AD FS) 伺服器陣列的 SSL 憑證
 
@@ -37,12 +37,12 @@ ms.locfileid: "46309527"
 
 ## <a name="prerequisites"></a>必要條件
 
-* **AD FS 伺服器陣列**︰請確定您的 AD FS 伺服器陣列是 Windows Server 2012 R2 型或更新版本。
-* **Azure AD Connect**︰請確定 Azure AD Connect 版本為 1.1.553.0 或更新版本。 您會使用工作「更新 AD FS SSL 憑證」。
+* **AD FS 伺服器陣列**：請確定您的 AD FS 伺服器陣列是 Windows Server 2012 R2 型或更新版本。
+* **Azure AD Connect**：請確定 Azure AD Connect 的版本為 1.1.553.0 或更新版本。 您會使用工作「更新 AD FS SSL 憑證」。
 
 ![更新 SSL 工作](./media/how-to-connect-fed-ssl-update/updatessltask.png)
 
-## <a name="step-1-provide-ad-fs-farm-information"></a>步驟 1︰提供 AD FS 伺服器陣列資訊
+## <a name="step-1-provide-ad-fs-farm-information"></a>步驟 1：提供 AD FS 伺服器陣列資訊
 
 Azure AD Connect 會透過下列方式，嘗試自動取得 AD FS 伺服器陣列的相關資訊︰
 1. 自 AD FS (Windows Server 2016 或更新版本) 查詢伺服器陣列資訊。
@@ -59,7 +59,7 @@ Azure AD Connect 會透過下列方式，嘗試自動取得 AD FS 伺服器陣�
 >[!NOTE]
 > 在 Azure AD Connect 中從 AD FS 伺服器陣列的伺服器清單中移除伺服器是本機作業，並且會更新 Azure AD Connect 在本機維護之 AD FS 伺服器陣列的資訊。 Azure AD Connect 不會修改 AD FS 上的組態以反映變更。    
 
-## <a name="step-2-provide-a-new-ssl-certificate"></a>步驟 2︰提供新的 SSL 憑證
+## <a name="step-2-provide-a-new-ssl-certificate"></a>步驟 2：提供新的 SSL 憑證
 
 確認 AD FS 伺服器陣列伺服器的相關資訊之後，Azure AD Connect 會要求新的 SSL 憑證。 提供使用密碼保護的 PFX 憑證以繼續安裝。
 
@@ -72,7 +72,7 @@ Azure AD Connect 會透過下列方式，嘗試自動取得 AD FS 伺服器陣�
 -   憑證信任鏈結有效。
 -   憑證使用密碼保護。
 
-## <a name="step-3-select-servers-for-the-update"></a>步驟 3︰選取用於更新的伺服器
+## <a name="step-3-select-servers-for-the-update"></a>步驟 3：選取用於更新的伺服器
 
 在下一個步驟中，選取 SSL 憑證需要更新的伺服器。 無法選取離線的伺服器進行更新。
 

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 1/23/2019
 ms.author: cwatson
-ms.openlocfilehash: 94d574d16b1b9951ab91a09023f9193723f850a7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4490db0c479abdda19957be98335edeefc08bb59
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583352"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808743"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>新增或變更 Azure 訂用帳戶系統管理員
 
@@ -67,14 +67,14 @@ Azure 有數個不同的角色。 若要管理對資源的存取，您可以使�
 
 ### <a name="adding-a-guest-user-as-a-co-administrator"></a>將來賓使用者新增為共同管理員
 
-獲指派「共同管理員」角色的來賓使用者可能會發現與具備「共同管理員」角色的成員使用者相比有些差異。 請考慮下列狀況：
+獲指派「共同管理員」角色的[來賓使用者](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md)可能會發現與具備「共同管理員」角色的成員使用者相比有些差異。 請考慮下列狀況：
 
 - 具有 Azure AD 公司或學校帳戶的使用者 A 是 Azure 訂用帳戶的服務管理員。
 - 使用者 B 具有 Microsoft 帳戶。
 - 使用者 A 將「共同管理員」角色指派給使用者 B。
 - 使用者 B 可以執行幾乎所有操作，但無法在 Azure AD 目錄中註冊應用程式或查閱使用者。
 
-您會預期使用者可以管理所有項目。 此差異的原因在於 Microsoft 帳戶是以來賓使用者而不是成員使用者身分新增至訂用帳戶。 在 Azure AD 中，來賓使用者與成員使用者具有不同的預設權限。 例如，成員使用者能夠在 Azure AD 中讀取其他使用者，來賓使用者不能。 成員使用者能夠在 Azure AD 中註冊新的服務主體，來賓使用者不能。 如果來賓使用者需要能夠執行這些工作，有一個可能的解決方案，就是指派來賓使用者所需的特定 Azure AD 系統管理員角色。 例如，在先前的案例中，您可以指派[目錄讀者](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers)角色以讀取其他使用者，以及指派[應用程式開發人員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer)角色，以便能夠建立服務主體。 如需有關成員使用者和來賓使用者及其權限的詳細資訊，請參閱 [Azure Active Directory 中的預設使用者權限是什麼？](../active-directory/fundamentals/users-default-permissions.md)
+您會預期使用者可以管理所有項目。 此差異的原因在於 Microsoft 帳戶是以來賓使用者而不是成員使用者身分新增至訂用帳戶。 在 Azure AD 中，來賓使用者與成員使用者具有不同的預設權限。 例如，成員使用者能夠在 Azure AD 中讀取其他使用者，來賓使用者不能。 成員使用者能夠在 Azure AD 中註冊新的服務主體，來賓使用者不能。 如果來賓使用者需要能夠執行這些工作，有一個可能的解決方案，就是指派來賓使用者所需的特定 Azure AD 系統管理員角色。 例如，在先前的案例中，您可以指派[目錄讀者](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers)角色以讀取其他使用者，以及指派[應用程式開發人員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer)角色，以便能夠建立服務主體。 如需有關成員使用者和來賓使用者及其權限的詳細資訊，請參閱 [Azure Active Directory 中的預設使用者權限是什麼？](../active-directory/fundamentals/users-default-permissions.md) 
 
 請注意，[適用於 Azure 資源的內建角色](../role-based-access-control/built-in-roles.md)與 [Azure AD 系統管理員角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md)不同。 內建的角色不會授與任何 Azure AD 存取權。 如需詳細資訊，請參閱[了解各種不同角色](../role-based-access-control/rbac-and-directory-admin-roles.md)。
 

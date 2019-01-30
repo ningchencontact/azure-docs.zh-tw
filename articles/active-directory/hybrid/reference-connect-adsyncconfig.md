@@ -2,18 +2,18 @@
 title: Azure AD Connect：ADSyncConfig PowerShell 參考 | Microsoft Docs
 description: 本文件提供 ADSyncConfig.psm1 PowerShell 模組的參考資訊。
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 84be07eeb112711de35853162b798b5f6ed0b2aa
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 1d2d921e02b56e951b4239c15471995eaf3cd0d1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422757"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813571"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect：ADSyncConfig PowerShell 參考
 以下文件提供 Azure AD Connect 所隨附 ADSyncConfig.psm1 PowerShell 模組的參考資訊。
@@ -1367,7 +1367,7 @@ Show-ADSyncADObjectPermissions [-ADobjectDN] <String> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>描述
-此函式會傳回目前設定的所有 AD 權限，用於 -ADobjectDN 參數中提供的指定 AD 物件。
+此函式會傳回目前為 -ADobjectDN 參數中所提供之指定 AD 物件設定的所有 AD 權限。
 ADobjectDN 必須以 DistinguishedName 格式提供。
 
 ### <a name="examples"></a>範例

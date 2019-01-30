@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 LearnUpon 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b11c6315-c79d-4f34-9610-bd17070ab7c7
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 27d7949be97dc9f64f3c0855f4f7b936312bf7a8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4ee701a45a4eddd1a3095d4e7cf01dc5aa994722
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438662"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811491"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>教學課程：Azure Active Directory 與 LearnUpon 整合
 
@@ -248,7 +248,7 @@ LearnUpon 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下「存取面板」中的 LearnUpon 磚時，您應該會自動登入 LearnUpon 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

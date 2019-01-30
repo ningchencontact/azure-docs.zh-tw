@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Atomic Learning 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 495f54a6-e6c4-41b0-aafa-a6283d33efc8
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 57239be1b4976d1c42a9bbee5520c1149c7d5091
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5a002357f179fd6ba866fbf288510e527daca682
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425284"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819402"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>教學課程：Azure Active Directory 與 Atomic Learning 整合
 
@@ -202,7 +202,7 @@ ms.locfileid: "39425284"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Atomic Learning] 圖格時，應該會自動登入您的 Atomic Learning 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

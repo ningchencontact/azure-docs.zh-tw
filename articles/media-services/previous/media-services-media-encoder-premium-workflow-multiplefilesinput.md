@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 31bd3d54b085922de0ec822731eae79fe9a9943b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e2a856dbc3bdf72ad03601618a9d48bb54665f7b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262092"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812058"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>搭配進階編碼器使用多個輸入檔案和元件屬性
 ## <a name="overview"></a>概觀
@@ -268,13 +268,13 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>範例 1：在視訊頂端覆疊影像
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>範例 1：在視訊上方覆疊影像
 
 ### <a name="presentation"></a>展示
 請設想視訊編碼時要在輸入視訊上覆疊標誌影像的範例。 在此範例中，輸入視訊的名稱為 "Microsoft_HoloLens_Possibilities_816p24.mp4"，而標誌的名稱為 "logo.png"。 您應執行下列步驟：
 
 * 使用工作流程檔案建立工作流程資產 (參閱下列範例)。
-* 建立媒體資產，其中包含兩個檔案︰MyInputVideo.mp4 (主要檔案) 和 MyLogo.png。
+* 建立媒體資產，其中包含兩個檔案：MyInputVideo.mp4 (主要檔案) 與 MyLogo.png。
 * 使用上述輸入資產將工作傳送至「媒體編碼器高階工作流程」媒體處理器，並指定下列組態字串。
 
 組態:
@@ -351,7 +351,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 *覆疊位置*
 
 若要將視訊串流編碼成 H.264，請將 AVC 視訊編碼器和 AAC 編碼器元件加入至設計工具介面。 連接接點。
-設定 AAC 編碼器，然後選取「音訊格式轉換/預設值 : 2.0 (L, R)」。
+設定 AAC 編碼器，然後選取 [音訊格式轉換/預設值:2.0 (L, R)]。
 
 ![音訊和視訊編碼器](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 

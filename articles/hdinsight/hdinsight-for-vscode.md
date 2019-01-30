@@ -4,18 +4,18 @@ description: 了解如何使用適用於 Visual Studio Code 的 Azure HDInsight 
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
 documentationcenter: ''
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/27/2017
-ms.openlocfilehash: c86fd2affa08999ae574f55315c6a0b32fa58fca
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.date: 12/15/2018
+ms.openlocfilehash: cd7c4014752fb5fa014fd8b5204206cd4efbfdce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076785"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818518"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -50,11 +50,11 @@ Azure HDInsight 工具可以安裝在 VSCode 支援的平台上，包括 Windows
 
    ![HDInsight for Visual Studio Code Python 安裝](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
-## <a name="open-hdinsight-workspace"></a>開啟 HDInsight 工作區
+## <a name="open-hdinsight-work-folder"></a>開啟 HDInsight 工作資料夾
 
-先在 VS Code 中建立工作區，才能連線到 Azure。
+先在 VS Code 中建立工作資料夾，才能連線到 Azure。
 
-### <a name="to-open-a-workspace"></a>開啟工作區
+### <a name="to-open-a-work-folder"></a>開啟工作資料夾
 
 1. 在 [檔案] 功能表上，選取 [開啟資料夾]。 然後將現有的資料夾指定為工作資料夾，或建立一個新資料夾。 該資料夾會出現在左窗格中。
 
@@ -77,7 +77,7 @@ Azure HDInsight 工具可以安裝在 VSCode 支援的平台上，包括 Windows
     ![「適用於 Visual Studio Code 的 HDInsight 工具」登入](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
 3. 若要登入，請遵循 [輸出] 窗格中的登入指示。
-    + 在全域環境中，HDInsight 登入將會觸發 Azure 登入程序。
+    + 對於 Azure 全域環境，**HDInsight：登入**命令將會在 HDInsight 總管中觸發**登入 Azure** 動作，反之亦然。
 
         ![Azure 的登入指示](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
@@ -140,7 +140,7 @@ Azure HDInsight 工具可以安裝在 VSCode 支援的平台上，包括 Windows
 若要測試連線，您可以列出 HDInsight 叢集：
 
 ### <a name="to-list-hdinsight-clusters-under-your-azure-subscription"></a>列出 Azure 訂用帳戶底下的 HDInsight 叢集
-1. 開啟工作區，然後連線到 Azure。 如需詳細資訊，請參閱[開啟 HDInsight 工作區](#open-hdinsight-workspace)和[連線到 Azure](#connect-to-hdinsight-cluster)。
+1. 開啟工作資料夾，然後連線到 Azure。 如需詳細資訊，請參閱[開啟 HDInsight 工作資料夾](#open-hdinsight-work-folder)和[連線到 Azure](#connect-to-hdinsight-cluster)。
 
 2. 在指令碼編輯器上按一下滑鼠右鍵，然後從快顯功能表選取 [HDInsight：列出叢集]。 
 
@@ -149,7 +149,7 @@ Azure HDInsight 工具可以安裝在 VSCode 支援的平台上，包括 Windows
     ![設定預設叢集組態](./media/hdinsight-for-vscode/list-cluster-result.png)
 
 ## <a name="set-a-default-cluster"></a>設定預設叢集
-1. 開啟工作區，然後連線到 Azure。 請參閱[開啟 HDInsight 工作區](#open-hdinsight-workspace)和[連線到 Azure](#connect-to-hdinsight-cluster)。
+1. 開啟工作資料夾並連線到 Azure。 請參閱[開啟 HDInsight 工作資料夾](#open-hdinsight-work-folder)和[連線到 Azure](#connect-to-hdinsight-cluster)。
 
 2. 在指令碼編輯器上按一下滑鼠右鍵，然後從快顯功能表選取 [HDInsight：設定預設叢集]。 
 
@@ -195,7 +195,12 @@ Azure HDInsight 工具可以安裝在 VSCode 支援的平台上，包括 Windows
 
 ### <a name="to-submit-interactive-pyspark-queries-to-hdinsight-spark-clusters"></a>若要將互動式 PySpark 查詢提交至 HDInsight Spark 叢集。
 
-1. 建立新的工作資料夾和副檔名為 .py 的新指令碼檔案 (如果您還沒有這兩個項目)。
+1. 建立新的工作資料夾和新的 .py 檔案 (如果您還沒有這兩個項目)。
+
+    > [!NOTE]
+    > VSCode 會建議您安裝 Python 擴充功能以使用 .py 檔案。 您可以安裝擴充功能或關閉對話方塊。
+    > 
+    >![HDInsight for Visual Studio Code Python 安裝](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
 2. 連線到 Azure 帳戶 (如果您尚未這樣做)。
 
@@ -213,36 +218,19 @@ Azure HDInsight 工具可以安裝在 VSCode 支援的平台上，包括 Windows
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. 反白顯示此指令碼。 在指令碼編輯器上按一下滑鼠右鍵，然後選取 [HDInsight：PySpark 互動式]，或使用捷徑 **Ctrl + Alt + I**。
+4. 如果尚未安裝 Python 環境，請安裝，並請參閱[設定 Visual Studio Code 的 PySpark 互動式環境](set-up-pyspark-interactive-environment.md)。
 
-5. 如果您尚未在 VS Code 中安裝 **Python** 擴充功能，請選取 [安裝] 按鈕，如下圖所示：
+5. 反白顯示此指令碼。 在指令碼編輯器上按一下滑鼠右鍵，然後選取 [HDInsight：PySpark 互動式]，或使用捷徑 **Ctrl + Alt + I**。
 
-    ![HDInsight for Visual Studio Code Python 安裝](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
-
-6. 如果尚未安裝 Python 環境，請在您的系統中進行安裝。 
-   - 針對 Windows，請下載並安裝 [Python](https://www.python.org/downloads/)。 然後確定 `Python` 和 `pip` 位於您的系統路徑中。
-
-   - 如需適用於 macOS 和 Linux 的指示，請參閱[設定 Visual Studio Code 的 PySpark 互動式環境](set-up-pyspark-interactive-environment.md)。
-
-7. 選取一個叢集來提交 PySpark 查詢。 不久之後，右邊的新索引標籤中就會顯示查詢結果：
+6. 選取一個叢集來提交 PySpark 查詢。 不久之後，右邊的新索引標籤中就會顯示查詢結果：
 
    ![提交 Python 作業結果](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
-8. 此工具也支援 **SQL 子句**查詢。
+7. 此工具也支援 **SQL 子句**查詢。
 
    ![提交 Python 作業結果](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) 當您執行查詢時，提交狀態會顯示在底部狀態列的左邊。 當狀態為 [PySpark 核心 (忙碌)] 時，請勿提交其他查詢。 
 
 >[!NOTE]  
 >叢集可以維護工作階段資訊。 已定義的變數、函式和對應值會保留在工作階段中，以便相同叢集的多個服務呼叫進行參考。 
-
-### <a name="to-disable-environment-check"></a>停用環境檢查
-
-根據預設，在提交互動式 PySpark 查詢時，HDInsight 工具將會檢查環境並安裝相依的套件。 若要停用環境檢查，請在 [使用者設定] 下方將 **hdinsight.disablePysparkEnvironmentValidation** 設定為 [是]。
-
-   ![在設定中設定環境檢查](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check.png)
-
-或者，在出現快顯對話方塊時按一下 [停用驗證] 按鈕。
-
-   ![在對話方塊中設定環境檢查](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check-dialog.png)
 
 ### <a name="pyspark3-is-not-supported-with-spark2223"></a>Spark2.2/2.3 不支援 PySpark3
 

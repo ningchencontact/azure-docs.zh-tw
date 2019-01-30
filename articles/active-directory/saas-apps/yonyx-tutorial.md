@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Yonyx Interactive Gui
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 07db4e01-319b-4cb6-9b93-4577bffd3cbc
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: a7166ac295c8bac3c7bb8d2e053a6f49fe533cc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3a5ac71b04c3984499638d2032a065f768b7fe95
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448945"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815016"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>教學課程：Azure Active Directory 與 Yonyx Interactive Guides 整合
 
@@ -212,7 +212,7 @@ Yonyx Interactive Guides 與 Azure AD 整合提供下列優點：
 
 當您在「存取面板」中按一下 Yonyx Interactive Guides 圖格時，應該會自動登入您的 Yonyx Interactive Guides 應用程式。
 
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

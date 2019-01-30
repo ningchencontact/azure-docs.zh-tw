@@ -4,21 +4,23 @@ description: 此操作說明將逐步引導您補救不符合「Azure 原則」�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 093b49bea167efb12b941f8f0baff6fbdae5be25
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 054ce3d3483c3515e89c36eafc5d9a771e8e608d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312641"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844138"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>補救不符合 Azure 原則規範的資源
 
 您可以透過「補救」讓不符合 **deployIfNotExists** 原則規範的資源變成符合規範狀態。 若要完成補救，需指示「原則」在您現有的資源上執行所指派原則的 **deployIfNotExists** 效果。 本文說明了解和完成使用「原則」來進行補救所需的步驟。
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>補救安全性的運作方式
 
@@ -51,7 +53,7 @@ az role definition list --name 'Contributor'
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmRoleDefinition -Name 'Contributor'
+Get-AzRoleDefinition -Name 'Contributor'
 ```
 
 ## <a name="manually-configure-the-managed-identity"></a>手動設定受控識別
@@ -70,23 +72,23 @@ Get-AzureRmRoleDefinition -Name 'Contributor'
 若要在指派原則的期間建立受控識別，必須定義 **Location** 並使用 **AssignIdentity**。 下列範例會取得 [部署 SQL DB 透明資料加密] 內建原則的定義、設定目標資源群組，然後建立指派。
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+# Login first with Connect-Azccount if not using Cloud Shell
 
 # Get the built-in "Deploy SQL DB transparent data encryption" policy definition
-$policyDef = Get-AzureRmPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
+$policyDef = Get-AzPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
 
 # Get the reference to the resource group
-$resourceGroup = Get-AzureRmResourceGroup -Name 'MyResourceGroup'
+$resourceGroup = Get-AzResourceGroup -Name 'MyResourceGroup'
 
 # Create the assignment using the -Location and -AssignIdentity properties
-$assignment = New-AzureRmPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
+$assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
 ```
 
 `$assignment` 變數現在包含受控識別的主體識別碼，以及建立原則指派時所傳回的標準值。 透過 `$assignment.Identity.PrincipalId` 即可存取它。
 
 ### <a name="grant-defined-roles-with-powershell"></a>使用 PowerShell 來授與已定義的角色
 
-您必須先透過 Azure Active Directory 完成新受控識別的複寫，才能將所需的角色授與它。 完成複寫之後，下列範例會逐一查看 `$policyDef` 中的原則定義來尋找 **roleDefinitionIds**，然後使用 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) 將角色授與新的受控識別。
+您必須先透過 Azure Active Directory 完成新受控識別的複寫，才能將所需的角色授與它。 完成複寫之後，下列範例會逐一查看 `$policyDef` 中的原則定義來尋找 **roleDefinitionIds**，然後使用 [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 將角色授與新的受控識別。
 
 ```azurepowershell-interactive
 # Use the $policyDef to get to the roleDefinitionIds array
@@ -96,7 +98,7 @@ if ($roleDefinitionIds.Count -gt 0)
 {
     $roleDefinitionIds | ForEach-Object {
         $roleDefId = $_.Split("/") | Select-Object -Last 1
-        New-AzureRmRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+        New-AzRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
     }
 }
 ```

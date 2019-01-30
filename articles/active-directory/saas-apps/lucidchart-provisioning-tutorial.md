@@ -1,11 +1,11 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 LucidChart 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 LucidChart 來自動佈建使用者 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 將使用者帳戶自動佈建和取消佈建至 LucidChart。
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 011fa2dcce390597337ec583c1d5704177fda251
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d914f14d2b7a50e700e53b55cd43e699cf560a76
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347181"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810358"
 ---
-# <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>教學課程︰設定 LucidChart 來自動佈建使用者
+# <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>教學課程：設定 LucidChart 來自動佈建使用者
 
 
 本教學課程旨在說明您需要在 LucidChart 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 LucidChart。 
@@ -71,7 +71,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![LucidChart 佈建](./media/lucidchart-provisioning-tutorial/LucidChart1.png)
 
-5. 在 [管理員認證] 區段下，輸入您的 LucidChart 帳戶所產生的 [祕密權杖] \(您可以在帳戶下找到權杖：[小組] > [API 整合] > [SCIM])。 
+5. 在 [管理員認證] 區段底下，輸入您的 LucidChart 帳戶所產生的 [祕密權杖] \(您可以在您的帳戶下找到此權杖：[小組] > [API 整合] > [SCIM]\)。 
 
     ![LucidChart 佈建](./media/lucidchart-provisioning-tutorial/LucidChart2.png)
 

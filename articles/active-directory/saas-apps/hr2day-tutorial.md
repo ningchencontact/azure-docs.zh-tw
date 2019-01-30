@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 HR2day by Merces 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 853d08c9-27b1-48d4-b8e7-3705140eb67f
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 984e2e9999a2aba7a595034f1fec8bafb976f310
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 327e6d94cbabd679531935ba330d3096d73f8897
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441606"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821017"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>教學課程：Azure Active Directory 與 HR2day by Merces 整合
 
@@ -88,9 +88,9 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
 若要搭配 HR2day by Merces 來設定及測試 Azure AD 單一登入，您需要完成下列構成要素：
 
-1. [設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)：讓您的使用者能夠使用此功能。
-1. [建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)：使用 Britta Simon 測試 Azure AD 單一登入。
-1. [建立 HR2day by Merces 測試使用者](#creating-an-hr2day-by-merces-test-user)：在 HR2day by Merces 中建立對應的 Britta Simon，以連結到該使用者在 Azure AD 中的代表項目。
+1. [設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on):讓使用者能夠使用此功能。
+1. [建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)：使用 Britta Simon 來測試 Azure AD 單一登入。
+1. [建立 HR2day by Merces 測試使用者](#creating-an-hr2day-by-merces-test-user)：在 HR2day by Merces 中建立一個與 Azure AD 中代表使用者之項目連結的 Britta Simon 對應項目。
 1. [指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)：讓 Britta Simon 能夠使用 Azure AD 單一登入。
 1. [測試單一登入](#testing-single-sign-on)：驗證設定是否能夠運作。
 
@@ -182,7 +182,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
 **若要在 Azure AD 中建立測試使用者，請採取下列步驟：**
 
-1. 在 **Azure 入口網站** 的左方瀏覽窗格中，選取 [Azure Active Directory] 圖示。
+1. 在 **Azure 入口網站** 的左方瀏覽窗格中，選取 **[Azure Active Directory]** 圖示。
 
     ![建立 Azure AD 測試使用者](./media/hr2day-tutorial/create_aaduser_01.png) 
 

@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Collaborative Innovat
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bba95df3-75a4-4a93-8805-b3a8aa3d4861
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 14dc0befdfe92970c194de852f6ef2dc98080ae7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 402b8be8ea3a569679baa833ef52fef9769bac30
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442059"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819555"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>教學課程：Azure Active Directory 與 Collaborative Innovation 整合
 

@@ -1,10 +1,10 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 Box 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 Box 來自動佈建使用者 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Box 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 1c959595-6e57-4954-9c0d-67ba03ee212b
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 3dac1d18a021c8d6c1b6e3db370c60b9aa782f1c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 58ab80b9cdf6fbcfa8aebeeac837687ded41ae39
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625346"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821804"
 ---
-# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>教學課程︰設定 Box 來自動佈建使用者
+# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>教學課程：設定 Box 來自動佈建使用者
 
 本教學課程旨在說明您需要在 Box 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Box。
 

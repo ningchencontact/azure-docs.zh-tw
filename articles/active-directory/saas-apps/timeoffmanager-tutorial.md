@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 TimeOffManager 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 3685912f-d5aa-4730-ab58-35a088fc1cc3
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: e7f0f6bb778dedeea61b74b5ca0c2edbadd5279b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4ca13640f64c88164aa98c5434c252d844cebd72
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430282"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825168"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>教學課程：Azure Active Directory 與 TimeOffManager 整合
 
@@ -258,7 +258,7 @@ TimeOffManager 支援即時使用者佈建。 沒有您適用的動作項目。
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 TimeOffManager 圖格時，應該會自動登入您的 TimeOffManager 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+當您在存取面板中按一下 TimeOffManager 圖格時，應該會自動登入您的 TimeOffManager 應用程式。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

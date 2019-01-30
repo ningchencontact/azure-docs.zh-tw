@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Kintone 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c2b947dc-e1a8-4f5f-b40e-2c5180648e4f
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 693211245ee98849548bee4a52f7e424dd8b4cc6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 76e58ab9c7df77341e74c45cee438ac947ba507e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430452"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822411"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>教學課程：Azure Active Directory 與 Kintone 整合
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 1a0e196f4d96494aca1c19a7527ac7d81837fb5c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34606472"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818552"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>適用於 DPM 和 Azure 備份伺服器的離線備份工作流程
 Azure 備份有數個可提升效率的內建功能，能在資料初始完整備份至 Azure 的期間節省網路和儲存體成本。 初始完整備份通常會傳輸大量資料，且需要較多網路頻寬，相較之下，後續備份只會傳輸差異/增量部分。 Azure 備份會壓縮初始備份。 透過離線植入程序，Azure 備份可以使用磁碟將壓縮後的初始備份資料離線上傳至 Azure。
@@ -42,7 +42,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 > * 使用 System Center Data Protection Manager (SC DPM) 來備份所有工作負載和檔案 
 > * 使用「Microsoft Azure 備份伺服器」來備份所有工作負載和檔案 <br/>
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 起始「離線備份」工作流程之前，請先確定已符合下列先決條件
 * 已建立[復原服務保存庫](backup-azure-recovery-services-vault-overview.md)。 若要建立保存庫，請參閱[這篇文章](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)中的步驟
 * 已在 Windows Server/Windows 用戶端 (依據適用情況) 上安裝「Azure 備份」代理程式、「Azure 備份伺服器」或 SC DPM，並已向「復原服務保存庫」註冊該電腦。 請確定只使用[最新版的 Azure 備份](https://go.microsoft.com/fwlink/?linkid=229525)。 
@@ -59,7 +59,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
 * 已建立具有足夠磁碟空間來存放初始複本的內部或外部暫存位置 (可能是網路共用或電腦上任何額外的磁碟機)。 例如：若您正在嘗試備份 500 GB 的檔案伺服器，請確定預備區域至少有 500 GB 的空間  (由於壓縮的關係，實際使用量會較少)。
 * 針對將送到 Azure 的磁碟，確保僅使用 2.5 英吋的 SSD，或是 2.5 英吋或 3.5 英吋的 SATA II/III 內部硬碟。 您可以使用高達 10 TB 的硬碟。 檢查 [Azure 匯入/匯出服務文件](../storage/common/storage-import-export-requirements.md#supported-hardware)以取得服務所支援的最新磁碟機組合。
-* SATA 磁碟機必須連接至要執行將備份資料從「暫存位置」複製到 SATA 磁碟機之作業的電腦 (稱為「複本電腦」)。 請確定已在「複本電腦」上啟用 Bitlocker 
+* SATA 磁碟機必須連接至要執行將備份資料從「暫存位置」複製到 SATA 磁碟機之作業的電腦 (稱為「複本電腦」)。 請確定已在「複本電腦」上啟用 BitLocker 
 
 ## <a name="workflow"></a>工作流程
 本節資訊可協助您完成離線備份工作流程，以便將您的資料傳遞至 Azure 資料中心，並上傳至 Azure 儲存體。 若您有關於匯入服務或處理程序任何層面的問題，請參閱稍早的 [匯入服務概觀](../storage/common/storage-import-export-service.md) 參考文件。
@@ -74,10 +74,10 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
     輸入的說明如下：
 
-    * **預備位置**：初始備份所寫入的暫時儲存體位置。 暫存位置可能位於網路共用或本機電腦上。 如果複本電腦和來源電腦不同，則建議您指定預備位置的完整網路路徑。
+    * **暫存位置**：寫入初始備份副本的暫時儲存位置。 暫存位置可能位於網路共用或本機電腦上。 如果複本電腦和來源電腦不同，則建議您指定預備位置的完整網路路徑。
     * **Azure 匯入作業名稱**：Azure 匯入服務和 Azure 備份在追蹤磁碟上傳送至 Azure 之資料的傳輸活動時所使用的唯一名稱。
-    * **Azure 發佈設定**：提供發佈設定檔案的本機路徑。
-    * **Azure 訂用帳戶 ID**：您從中下載「Azure 發佈設定」檔案之訂用帳戶的 Azure 訂用帳戶 ID。 
+    * **Azure 發行設定**：提供發佈設定檔案的本機路徑。
+    * **Azure 訂用帳戶識別碼**：您從中下載「Azure 發佈設定」檔案之訂用帳戶的 Azure 訂用帳戶 ID。 
     * **Azure 儲存體帳戶**：與「Azure 發佈設定」檔案關聯之 Azure 訂用帳戶中的儲存體帳戶名稱。
     * **Azure 儲存體容器**：Azure 儲存體帳戶中備份資料的匯入目的地儲存體 Blob 名稱。
 

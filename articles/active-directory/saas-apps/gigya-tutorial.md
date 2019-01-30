@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Gigya 之間的單一
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2c7d200b-9242-44a5-ac8a-ab3214a78e41
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 3759cfdb30620622912c5866e43f81699ac37eb7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e57943e6ee227548459c6060814165ef4fe5b337
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424667"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825607"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>教學課程：Azure Active Directory 與 Gigya 整合
 

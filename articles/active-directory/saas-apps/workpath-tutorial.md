@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Workpath 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 320b0daf-14be-4813-b59b-25a6a5070690
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 894304081fb8206b2137c9ed6124b306111eb6cf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5d11c59f053e96dcad5047105cef887a17e25a53
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433612"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811107"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>教學課程：Azure Active Directory 與 Workpath 整合
 
@@ -112,7 +112,7 @@ ms.locfileid: "39433612"
 
     ![設定單一登入](./media/workpath-tutorial/tutorial_workpath_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://api.workpath.com/v1/saml/metadata/<instancename>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://api.workpath.com/v1/saml/metadata/<instancename>`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://api.workpath.com/v1/saml/assert/<instancename>`
 
@@ -159,7 +159,7 @@ ms.locfileid: "39433612"
 
     ![設定單一登入](./media/workpath-tutorial/tutorial_general_400.png)
 
-1. 在 [Workpath Configuration] \(Workpath 設定) 區段上，按一下 [Configure Workpath] \(設定 Workpath) 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+1. 在 [Workpath Configuration] \(Workpath 設定) 區段上，按一下 [Configure Workpath] \(設定 Workpath) 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL]、[SAML 實體識別碼] 和 [SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/workpath-tutorial/tutorial_workpath_configure.png) 
 
@@ -202,7 +202,7 @@ ms.locfileid: "39433612"
  
 ### <a name="creating-a-workpath-test-user"></a>建立 Workpath 測試使用者
 
-Workpath 支援 Just-In-Time 使用者佈建。 驗證之後，會在應用程式中自動建立使用者。 
+Workpath 支援 Just-In-Time 使用者佈建。 驗證之後，會在應用程式中自動建立使用者。 
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
@@ -240,7 +240,7 @@ Workpath 支援 Just-In-Time 使用者佈建。 驗證之後，會在應用程�
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Workpath] 圖格時，應該會自動登入您的 Workpath 應用程式。
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

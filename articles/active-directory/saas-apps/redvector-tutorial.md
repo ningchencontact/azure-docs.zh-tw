@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 RedVector 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 99042f39-0ab2-475b-8df8-3016d7f875e9
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 2fa92644872706623dd969c96469eb2e5cd581a9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f73c4ce43ebdd60ab447c10e6dca50d6fbb59ccc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448602"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813444"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redvector"></a>教學課程：Azure Active Directory 與 RedVector 整合
 

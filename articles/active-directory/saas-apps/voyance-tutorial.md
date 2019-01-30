@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Voyance 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 539dc1f9-64c9-4dce-b259-2b0b49dcf857
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: ce72fb75729574c9645025459b67fd3eab597bb1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3fc0b30bf283612425e59b2d32e0817b6b0f9d4f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432172"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827902"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-voyance"></a>教學課程：Azure Active Directory 與 Voyance 整合
 
@@ -110,7 +110,7 @@ Voyance 與 Azure AD 整合提供下列優點：
 
     ![IDP 的 Voyance 網域和 URL 單一登入資訊](./media/voyance-tutorial/tutorial_voyance_url1.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.nyansa.com`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.nyansa.com`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<companyname>.nyansa.com/saml/create/`
 

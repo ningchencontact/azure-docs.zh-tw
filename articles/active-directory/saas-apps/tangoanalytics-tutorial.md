@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Tango Analytics 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2f7555d3-e9ba-40b2-9b3a-2f0ab38a4c08
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: eb0e309eed5594f806a65bc3f2820cdb9a861309
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cf9ea3b841fc798f0b4313c3a3935f562cb7fd45
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449123"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tango-analytics"></a>教學課程：Azure Active Directory 與 Tango Analytics 整合
 
@@ -166,7 +166,7 @@ Tango Analytics 與 Azure AD 整合提供下列優點：
  
 ### <a name="creating-a-tango-analytics-test-user"></a>建立 Tango Analytics 測試使用者
 
-在本節中，您要在 Tango Analytics 中建立名為 Britta Simon 的使用者。 請與 [Tango Analytics 支援小組](mailto:support@tangoanalytics.com)合作，在 Tango Analytics 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Tango Analytics 中建立名為 Britta Simon 的使用者。 請與 [Tango Analytics 支援小組](mailto:support@tangoanalytics.com)合作，在 Tango Analytics 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -203,7 +203,7 @@ Tango Analytics 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Tango Analytics 圖格時，應該會自動登入您的 Tango Analytics 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

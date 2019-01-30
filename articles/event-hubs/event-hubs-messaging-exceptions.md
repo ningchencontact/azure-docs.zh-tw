@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 013386d86d29b75591a938b2805bde25ecf176d3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f40bd280a1f3b5a1bffc0c72d56e76a6d19b343c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104454"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851057"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>事件中樞傳訊例外狀況
 
@@ -46,11 +46,11 @@ ms.locfileid: "53104454"
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | 與作業相關聯的實體不存在或已被刪除。 | 確定實體已存在。 | 重試將無助益。 |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | 用戶端無法建立事件中樞連線。 |確定提供的主機名稱正確，且主機可以連線。 | 如果有間歇性的連線問題，重試也許有幫助。 |
 | [Microsoft.ServiceBus.Messaging ServerBusyException ](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | 服務目前無法處理要求。 | 用戶端可以等待一段時間，然後再重試作業。 <br /> 請參閱 [ServerBusyException](#serverbusyexception)。 | 用戶端可以在特定間隔後重試。 如果重試產生不同的例外狀況，請檢查該例外狀況的重試行為。 |
-| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | 可能會在下列情況中擲回的一般傳訊例外狀況：利用屬於不同實體類型 (例如主題) 的名稱或路徑嘗試建立 [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) 。 嘗試傳送大於 256 KB 的訊息。 處理要求時伺服器或服務發生錯誤。 如需詳細資訊，請參閱例外狀況訊息。 此例外狀況通常是暫時性例外狀況。 | 查看程式碼，並確定訊息內文只使用可序列化的物件 (或使用自訂序列化程式)。 查看文件來了解支援的屬性值類型，並且只使用支援的類型。 查看 [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception#Microsoft_ServiceBus_Messaging_MessagingException_IsTransient) 屬性。 如果該屬性為 **True**，您就可以重試作業。 | 重試行為未定義，而且可能沒有幫助。 |
+| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | 可能會在下列情況中擲回的一般傳訊例外狀況：利用屬於不同實體類型 (例如主題) 的名稱或路徑嘗試建立 [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) 。 嘗試傳送大於 1 MB 的訊息。 處理要求時伺服器或服務發生錯誤。 如需詳細資訊，請參閱例外狀況訊息。 此例外狀況通常是暫時性例外狀況。 | 查看程式碼，並確定訊息內文只使用可序列化的物件 (或使用自訂序列化程式)。 查看文件來了解支援的屬性值類型，並且只使用支援的類型。 查看 [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) 屬性。 如果該屬性為 **True**，您就可以重試作業。 | 重試行為未定義，而且可能沒有幫助。 |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) | 嘗試在該服務命名空間中以另一個實體已在使用的名稱建立實體。 | 刪除現有的實體，或選擇不同的名稱來建立實體。 | 重試將無助益。 |
 | [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) | 傳訊實體已達到允許的大小上限。 如果在個別取用者群組層級開啟的接收者數目已達到上限 (5)，便可能發生此例外狀況。 | 從實體或其子佇列接收訊息，在實體中建立空間。 <br /> 請參閱 [QuotaExceededException](#quotaexceededexception) | 如果在此同時已移除訊息，重試可能會有幫助。 |
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.servicebus.messaging.messagingentitydisabledexception) | 在停用的實體上要求執行階段作業。 |啟用實體。 | 如實體在過渡期間被啟用，重試可能會有幫助。 |
-| [Microsoft.ServiceBus.Messaging MessageSizeExceededException](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) <br /><br/> [Microsoft.Azure.EventHubs MessageSizeExceededException](/dotnet/api/microsoft.azure.eventhubs.messagesizeexceededexception) | 訊息裝載超過 256K 的限制。 這項 256k 的限制是以訊息總計為準，可包括系統屬性和任何 .NET 負荷。 | 減少訊息裝載大小，然後再重試作業。 |重試將無助益。 |
+| [Microsoft.ServiceBus.Messaging MessageSizeExceededException](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) <br /><br/> [Microsoft.Azure.EventHubs MessageSizeExceededException](/dotnet/api/microsoft.azure.eventhubs.messagesizeexceededexception) | 訊息承載超過 1 MB 的限制。 這項 1 MB 的限制是以訊息總計為準，可包括系統屬性和任何 .NET 負荷。 | 減少訊息裝載大小，然後再重試作業。 |重試將無助益。 |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
 [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) 指出已超過某特定實體的配額。

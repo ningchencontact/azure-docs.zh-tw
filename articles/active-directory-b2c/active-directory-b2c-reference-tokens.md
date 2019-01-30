@@ -3,19 +3,19 @@ title: Azure Active Directory B2C 中的權杖參考 | Microsoft Docs
 description: 在 Azure Active Directory B2C 中簽發的權杖類型
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d1c9101f10342f98803a4ace420abbed5d49ba23
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 47cfd5820c80a0f53772f5424f674603acdaf18d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880109"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848932"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C：權杖參考
 
@@ -81,8 +81,8 @@ CQhoFA
 | 代碼雜湊 |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |只有當 ID 權杖與 OAuth 2.0 授權碼一起簽發時，權杖才會包含代碼雜湊。 代碼雜湊可用來驗證授權碼的真實性。 如需如何執行此驗證的詳細資訊，請參閱 [OpenID Connect 規格](https://openid.net/specs/openid-connect-core-1_0.html) \(英文\)。  |
 | 存取權杖雜湊 |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |只有當 ID 權杖與 OAuth 2.0 存取權杖一起簽發時，權杖才會包含存取權杖雜湊。 存取權杖雜湊可用來驗證存取權杖的真實性。 如需如何執行此驗證的詳細資訊，請參閱 [OpenID Connect 規格](https://openid.net/specs/openid-connect-core-1_0.html) \(英文\)。  |
 | Nonce |`nonce` |`12345` |Nonce 是用來緩和權杖重新執行攻擊的策略。 您的應用程式可以使用 `nonce` 查詢參數，在授權要求中指定 Nonce。 您在要求中提供的值將只會在 ID 權杖的 `nonce` 宣告中發出 (未經修改)。 這可讓您的應用程式根據在要求上指定的值驗證此值，使應用程式的工作階段與給定的 ID 權杖產生關聯。 您的應用程式應在 ID 權杖驗證程序中執行這項驗證。 |
-| 主體 |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |這是權杖聲稱資訊時所針對的主體，例如應用程式的使用者。 這個值不可變，而且無法重新指派或重複使用。 它可用來安全地執行授權檢查，例如當權杖用於存取資源時。 根據預設，主體宣告會填入目錄中使用者的物件識別碼。 若要深入了解，請參閱 [Azure Active Directory B2C︰權杖、工作階段及單一登入設定](active-directory-b2c-token-session-sso.md)。 |
-| 驗證內容類別參考 |`acr` |不適用 |目前未使用 (較舊的原則除外)。 若要深入了解，請參閱 [Azure Active Directory B2C︰權杖、工作階段及單一登入設定](active-directory-b2c-token-session-sso.md)。 |
+| 主體 |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |這是權杖聲稱資訊時所針對的主體，例如應用程式的使用者。 這個值不可變，而且無法重新指派或重複使用。 它可用來安全地執行授權檢查，例如當權杖用於存取資源時。 根據預設，主體宣告會填入目錄中使用者的物件識別碼。 若要深入了解，請參閱 [Azure Active Directory B2C：權杖、工作階段及單一登入組態](active-directory-b2c-token-session-sso.md)。 |
+| 驗證內容類別參考 |`acr` |不適用 |目前未使用 (較舊的原則除外)。 若要深入了解，請參閱 [Azure Active Directory B2C：權杖、工作階段及單一登入組態](active-directory-b2c-token-session-sso.md)。 |
 | 信任架構原則 |`tfp` |`b2c_1_sign_in` |這是用來取得 ID 權杖的原則名稱。 |
 | 驗證期間 |`auth_time` |`1438535543` |此宣告是使用者上次輸入認證的時間，以新紀元時間表示。 |
 

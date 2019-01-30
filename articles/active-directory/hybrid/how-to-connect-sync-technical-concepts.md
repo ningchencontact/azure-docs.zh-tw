@@ -4,7 +4,7 @@ description: 說明 Azure AD Connect 同步的技術概念。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df3f244b70b52b6145b664c4e575c66542ada5b9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2bf9876fc551b9ab0eb24c03a17f3d789c00530e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309577"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463485"
 ---
-# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect 同步處理：技術概念
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect 同步：技術概念
 本文是 [了解架構](how-to-connect-sync-technical-concepts.md)主題的摘要。
 
 Azure AD Connect 同步建置在一個穩固的中繼目錄同步處理平台上。
@@ -86,7 +86,7 @@ Metaverse 是鄰近連接器空間中所有聯結的身份識別的合併檢視�
 每當規則判斷需要建立新的連接器空間物件，此即稱為佈建。 不過，因為此作業只會在連接器空間中進行，所以在執行匯出之前不會影響已連接的資料來源。
 
 ## <a name="additional-resources"></a>其他資源
-* [Azure AD Connect 同步處理：自訂同步處理選項](how-to-connect-sync-whatis.md)
+* [Azure AD Connect Sync：自訂同步處理選項](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)
 
 <!--Image references-->

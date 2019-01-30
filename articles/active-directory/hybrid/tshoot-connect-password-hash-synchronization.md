@@ -4,7 +4,7 @@ description: 本文提供有關如何針對密碼雜湊同步處理問題進行�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 036933c6b6e86856871c5f59f08fea20a0343ad7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 23787c777f20025d9310fac2efe0f429d66c4586
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310017"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470438"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>針對使用 Azure AD Connect 同步執行的密碼雜湊同步處理進行疑難排解
 本主題提供如何針對密碼雜湊同步處理問題進行疑難排解的步驟。 如果密碼未如預期般同步，可能會影響一部分使用者或所有使用者。
@@ -417,5 +417,5 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 ## <a name="next-steps"></a>後續步驟
 * [使用 Azure AD Connect 同步來實作密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md) \(英文\)
-* [Azure AD Connect 同步：自訂同步處理選項](how-to-connect-sync-whatis.md)
+* [Azure AD Connect Sync：自訂同步處理選項](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)

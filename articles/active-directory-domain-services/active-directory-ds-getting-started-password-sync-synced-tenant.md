@@ -1,10 +1,10 @@
 ---
-title: Azure AD 網域服務︰啟用密碼同步處理 | Microsoft Docs
+title: Azure AD Domain Services：啟用密碼同步化 | Microsoft Docs
 description: 開始使用 Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: ergreenl
-ms.openlocfilehash: 813d1d17f2d9b80c2e96f771fc346e553c59e95b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be947e2867f00c34e5a0b66893765647349c7eeb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234199"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854202"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>啟用 Azure Active Directory Domain Services 的密碼同步
 在先前工作中，您已啟用 Azure Active Directory (Azure AD) 租用戶的 Azure Active Directory Domain Services。 下一項工作是啟用 NT LAN Manager (NTLM) 和 Kerberos 驗證所需的認證雜湊與 Azure AD Domain Services 的同步。 設定認證同步處理後，使用者即可使用他們的公司認證來登入受控網域。
@@ -52,7 +52,7 @@ ms.locfileid: "51234199"
 
 **[下載 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)**
 
-建議版本：**1.1.614.0** - 已於 2017 年 9 月 5 日發佈。
+建議的版本：**1.1.614.0**：已於 2017 年 9 月 5 日發行。
 
 > [!WARNING]
 > 您「必須」安裝建議的最新 Azure AD Connect 版本，才能將傳統密碼認證 (NTLM 和 Kerberos 驗證所需的認證) 同步處理到 Azure AD 租用戶。 此功能無法在舊版的 Azure AD Connect 中使用，或與舊版 DirSync 工具搭配使用。

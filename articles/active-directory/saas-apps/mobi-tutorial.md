@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 MOBI 之間的單一�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: a410cabf-a47b-43fb-8c88-d45f5911e148
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 4d0ba2dbc074f40d4d3843ea983e7f45d5c888aa
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b1b145549f8a73f3e8033f1929988b8c98fb619b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449565"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823448"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobi"></a>教學課程：Azure Active Directory 與 MOBI
 
@@ -110,7 +110,7 @@ MOBI 與 Azure AD 整合提供下列優點：
 
     ![MOBI 網域與 URL 單一登入資訊](./media/mobi-tutorial/tutorial_mobi_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.thefutureis.mobi`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.thefutureis.mobi`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.thefutureis.mobi/saml_consume`
 
@@ -170,7 +170,7 @@ MOBI 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-mobi-test-user"></a>建立 MOBI 測試使用者
 
-在本節中，您要在 MOBI 中建立名為 Britta Simon 的使用者。 請與 [MOBI 支援小組](mailto:sso@mobiwm.com) 合作，在 MOBI 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 MOBI 中建立名為 Britta Simon 的使用者。 請與 [BI 支援小組](mailto:sso@mobiwm.com)合作，在 BI 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -207,7 +207,7 @@ MOBI 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 MOBI 磚時，應該會自動登入您的 MOBI 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

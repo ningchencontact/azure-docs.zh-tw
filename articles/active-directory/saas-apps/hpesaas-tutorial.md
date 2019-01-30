@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 HPE SaaS 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 314003d6-ca66-4456-88c3-934254d4a9a2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: jeedes
-ms.openlocfilehash: c8932714f9a9ebcbda82177be2fde37497f71d7b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 19d98ec8157d6e2ce748a5cc95ee46c40c16c562
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445054"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814693"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>教學課程：Azure Active Directory 與 HPE SaaS 整合
 
@@ -46,7 +46,7 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
 - 除非必要，否則請勿使用生產環境。
-- 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用供應項目](https://azure.microsoft.com/pricing/free-trial/)。
+- 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用版供應項目](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
@@ -202,7 +202,7 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [HPE SaaS] 磚時，應該會自動登入您的 HPE SaaS 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

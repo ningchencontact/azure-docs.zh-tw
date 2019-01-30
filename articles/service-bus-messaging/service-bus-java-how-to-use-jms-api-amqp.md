@@ -3,9 +3,9 @@ title: 如何使用 AMQP 1.0 與 Java 服務匯流排 API 搭配 | Microsoft Doc
 description: 如何搭配 Azure 服務匯流排和 Advanced Message Queuing Protodol (AMQP) 1.0 使用 Java Message Service (JMS)。
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
-ms.author: spelluru
-ms.openlocfilehash: fbd74b227afd2191616100d74c7864eacf015add
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: aschhab
+ms.openlocfilehash: f0c3aac95b1d19dc3f217cc146532254d8740ca0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308065"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853284"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0
 進階訊息佇列通訊協定 (AMQP) 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以用來建置強大的跨平台訊息應用程式。
 
 在服務匯流排中支援 AMQP 1.0 代表您現在能夠從一組平台中使用有效率的二進位通訊協定，來運用佇列與發佈/訂閱代理傳訊功能。 此外，您還可以建置使用混合語言、架構及作業系統所建置之元件所組成的應用程式。
 
-此文章說明如何利用常用的 Java 訊息服務 (JMS) API 標準，從 Java 應用程式使用服務匯流排傳訊功能 (佇列和發佈/訂閱主題)。 這是說明如何使用服務匯流排 .NET API 達到相同效用的[附屬文章](service-bus-amqp-dotnet.md)。 您可以同時使用這兩個指南了解使用 AMQP 1.0 的跨平台訊息。
+本文說明如何利用常用的 Java 訊息服務 (JMS) API 標準，從 Java 應用程式使用服務匯流排傳訊功能 (佇列和發佈/訂閱主題)。 這是說明如何使用服務匯流排 .NET API 達到相同效用的[附屬文章](service-bus-amqp-dotnet.md)。 您可以同時使用這兩個指南了解使用 AMQP 1.0 的跨平台訊息。
 
 ## <a name="get-started-with-service-bus"></a>開始使用服務匯流排
 本指南假設您已經有服務匯流排命名空間，其中包含名稱為 **basicqueue** 的佇列。 如果沒有，您可以使用 [Azure 入口網站](service-bus-create-namespace-portal.md)建立[命名空間和佇列](https://portal.azure.com)。 如需有關如何建立服務匯流排命名空間和佇列的相關詳細資訊，請參閱[開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)。

@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: ca266df563cb7e50463548dd0e786cec8e886ec4
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d3127b7f9bea9a35d9ac25d0724700cad72fa509
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359692"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857143"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>監視任何網站的可用性和回應性
 將 Web 應用程式或網站部署至任何伺服器之後，您可以設定測試來監視其可用性和回應性。 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果應用程式沒有回應或回應太慢，則會警告您。
@@ -192,7 +192,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 
 在[這裡](../../azure-monitor/app/transaction-diagnostics.md)深入了解端對端交易診斷體驗。
 
-按一下例外狀況資料列，以查看造成綜合可用性測試失敗的伺服器端例外狀況有關的詳細資料。 您也可以取得[偵錯快照集](../../azure-monitor/app/snapshot-debugger.md)進行更多樣化的程式碼層級診斷。
+按一下例外狀況資料列，以查看造成綜合可用性測試失敗的伺服器端例外狀況的詳細資料。 您也可以取得[偵錯快照集](../../azure-monitor/app/snapshot-debugger.md)進行更多樣化的程式碼層級診斷。
 
 ![伺服器端診斷](./media/monitor-web-app-availability/open-instance-4.png)
 
@@ -203,7 +203,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 3. 平均測試持續時間高於閾值
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>對於 Y 個位置之中有 X 個回報失敗所發出的警示
-您建立新的可用性測試，預設會在[新的整合警示體驗](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)中啟用 X/Y 個位置警示規則。 您可以選取「傳統」選項選擇退出，也可以選擇停用警示規則。
+您建立新的可用性測試，預設會在[新的整合警示體驗](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)中啟用 X/Y 個位置警示規則。 您可以選取「傳統」選項來選擇退出，也可以選擇停用警示規則。
 
 ![建立體驗](./media/monitor-web-app-availability/appinsights-71webtestUpload.png)
 
@@ -297,9 +297,9 @@ Web 測試外掛程式提供將時間參數化的方法。
 
     * 您的測試是否啟用「剖析相依要求」？ 這會對於指令碼、影像之類的資源進行嚴格的檢查。這種類型的失敗可能在瀏覽器上不明顯。 請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。 如果其中有任何一個失敗，即使主要的 html 頁面載入正常，測試皆會回報為失敗。 若要使這類資源失敗的測試去敏化，只要從測試組態取消核取「剖析相依要求」即可。 
 
-    * 若要從暫時性網路標誌等降低雜訊的可能性，請確保已核取 [啟用測試失敗的重試次數] 組態。 您也可以從多個位置進行測試並據以管理警示規則臨界值，以免發生會造成過度警示的特定位置問題。
+    * 若要從暫時性網路標誌等降低雜訊的可能性，請確保已核取 [啟用測試失敗的重試次數] 組態。 您也可以從更多位置進行測試並據以管理警示規則閾值，以免發生會造成過度警示的位置特定問題。
 
-    * 從可用性體驗中按一下任何一個紅點，或從 [搜尋總管] 中按一下任何可用性失敗，查看為什麼回報失敗的詳細資料。 測試結果以及相關聯伺服器端遙測資料 (如果啟用) 應該有助於您了解測試失敗的原因。 暫時性問題的常見原因是網路或連線問題。 
+    * 從可用性體驗中按一下任何一個紅點，或從 [搜尋總管] 中按一下任何可用性失敗，查看為什麼回報失敗的詳細資料。 測試結果以及相關聯的伺服器端遙測資料 (如已啟用) 應該有助於您了解測試失敗的原因。 暫時性問題的常見原因是網路或連線問題。 
 
     * 測試逾時？ 我們會在 2 分鐘後中止測試。 如果您進行的 ping 或多步驟測試超過 2 分鐘的時間，我們會回報失敗。 請考慮將測試分成可在較短的持續時間內完成的多個測試。
 
@@ -356,6 +356,22 @@ Web 測試外掛程式提供將時間參數化的方法。
 * *如何使用用戶端憑證執行測試？*
 
     很抱歉，我們不支援此功能。
+
+## <a name="who-receives-the-classic-alert-notifications"></a>誰會收到 (傳統) 警示通知？
+
+本節僅適用於傳統警示，並協助您將警示通知最佳化，以確保只有您所需的收件者會收到通知。 若要深入了解[傳統警示](../platform/alerts-classic.overview.md)和新警示體驗之間的差異，請參閱[警示概觀文章](../platform/alerts-overview.md)。 若要控制新警示體驗中的警示通知，請使用[動作群組](../platform/action-groups.md)。
+
+* 我們建議針對傳統警示通知使用特定的收件者。
+
+* 如果是有關 Y 個位置之中有 X 個失敗的警示，[大量/群組] 核取方塊選項 (如已啟用) 就會傳送給具有管理員/共同管理員角色的使用者。  基本上，「訂用帳戶」的「所有」管理員都將收到通知。
+
+* 如果是有關可用性計量的警示 (或這方面的任何 Application Insights 計量)，[大量/群組] 核取方塊選項 (如已啟用) 就會傳送給訂用帳戶中具有擁有者、參與者或讀者角色的使用者。 實際上，「所有」有權存取 Application Insights 資源之訂用帳戶的使用者都在涵蓋範圍內，而且將會收到通知。 
+
+> [!NOTE]
+> 如果您目前使用 [大量/群組] 核取方塊選項並停用它，則您將無法還原變更。
+
+如果您需要根據使用者的角色來通知他們，請使用新警示體驗/近乎即時警示。 使用[動作群組](../platform/action-groups.md)，您可以為具有任一個參與者/擁有者/讀者角色 (不會結合來作為單一選項) 的使用者設定電子郵件通知。
+
 
 
 ## <a name="next"></a>接續步驟

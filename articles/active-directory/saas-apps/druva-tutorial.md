@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Druva 之間的單一
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: ab92b600-1fea-4905-b1c7-ef8e4d8c495c
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 985304244acdfafa4fa99dbbe876f35b3e6c58b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 24f0a74f5abb625ba7350c2bd3a500fc2f296575
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439356"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824689"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>教學課程：Azure Active Directory 與 Druva 整合
 
@@ -282,7 +282,7 @@ Druva 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 Druva 圖格時，應該會自動登入您的 Druva 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

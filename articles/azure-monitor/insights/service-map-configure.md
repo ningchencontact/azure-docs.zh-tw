@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: ea1c44d95dfb00fdb2b0af9e5cd8560fdee3d361
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 808fe41928a99ffc797c96a02305d81765318780
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231337"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381660"
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中設定服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉以檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -210,7 +210,7 @@ ForEach-Object {
 "apiVersion": "2017-03-30",
 "location": "[resourceGroup().location]",
 "dependsOn": [
-"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+    "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
 ],
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
@@ -305,32 +305,32 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 configuration ServiceMap {
 
-Import-DscResource -ModuleName xPSDesiredStateConfiguration
+    Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
-$DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
+    $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
 
-Node localhost
-{ 
-    # Download and install the Dependency agent
-    xRemoteFile DAPackage 
+    Node localhost
     {
-        Uri = "https://aka.ms/dependencyagentwindows"
-        DestinationPath = $DAPackageLocalPath
-    }
+        # Download and install the Dependency agent
+        xRemoteFile DAPackage 
+        {
+            Uri = "https://aka.ms/dependencyagentwindows"
+            DestinationPath = $DAPackageLocalPath
+        }
 
-    xPackage DA
-    {
-        Ensure="Present"
-        Name = "Dependency Agent"
-        Path = $DAPackageLocalPath
-        Arguments = '/S'
-        ProductId = ""
-        InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
-        InstalledCheckRegValueName = "DisplayName"
-        InstalledCheckRegValueData = "Dependency Agent"
-        DependsOn = "[xRemoteFile]DAPackage"
+        xPackage DA
+        {
+            Ensure="Present"
+            Name = "Dependency Agent"
+            Path = $DAPackageLocalPath
+            Arguments = '/S'
+            ProductId = ""
+            InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
+            InstalledCheckRegValueName = "DisplayName"
+            InstalledCheckRegValueData = "Dependency Agent"
+            DependsOn = "[xRemoteFile]DAPackage"
+        }
     }
-  }
 }
 ```
 
@@ -387,7 +387,7 @@ Microsoft Dependency Agent 建置於 Microsoft Visual Studio 執行階段程式�
 
 * 您的伺服器是否將記錄和效能資料傳送到 Log Analytics？ 移至 [記錄搜尋]，然後為您的電腦執行下列查詢︰ 
 
-        Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
 您是否在結果中取得各種事件？ 是否為最新的資料？ 如果是，您的 Log Analytics 代理程式會正確運作並與 Log Analytics 通訊。 如果不是，請檢查您伺服器上的代理程式︰[適用於 Windows 的 Log Analytics 代理程式疑難排解](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues)或[適用於 Linux 的 Log Analytics 代理程式疑難排解](../../azure-monitor/platform/agent-linux-troubleshoot.md)。
 

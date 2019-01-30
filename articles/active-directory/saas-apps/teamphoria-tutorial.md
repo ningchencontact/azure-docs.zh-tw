@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Teamphoria 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d569c705-6f0f-4ec1-b485-ba82526b5d32
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 554930b18a271a677aeb5e82c3e62a94965a8e7f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8232af95cf8414df67343f5004975b11df4488a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439604"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826712"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>教學課程：Azure Active Directory 與 Teamphoria 整合
 
@@ -142,13 +142,13 @@ Teamphoria 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
-    a. **顯示名稱**：在管理頁面上輸入外掛程式的顯示名稱。
+    a. **顯示名稱**：輸入管理頁面上外掛程式的顯示名稱。
 
-    b. **按鈕名稱**︰索引標籤的名稱，會在用於透過 SSO 登入的登入頁面上顯示。
+    b. **按鈕名稱**：索引標籤的名稱，會在用於透過 SSO 登入的登入頁面上顯示。
 
-    c. **憑證**︰在 [記事本] 中開啟您稍早從 Azure 入口網站下載的憑證，複製相同的內容並貼到這裡的方塊中。
+    c. **憑證**：在記事本中開啟您稍早從 Azure 入口網站下載的憑證，複製相同的內容並貼到這裡的方塊中。
 
-    d. **進入點**︰貼上稍早從 Azure 入口網站複製的 **SAML 單一登入服務 URL**。
+    d. **進入點**：貼上稍早從 Azure 入口網站複製的 [SAML 單一登入服務 URL]。
 
     e. 將選項切換為 [開啟]，然後按一下 [儲存]。
 
@@ -245,7 +245,7 @@ Teamphoria 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-如果要測試您的單一登入設定，請開啟存取面板。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如果要測試您的單一登入設定，請開啟存取面板。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 62a9fd6eee15618e7153fd84030840b429e214ed
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ee5cc1f185640c9ea22ceb80b1fabb20df245fe2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833511"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823075"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>管理實體伺服器災害復原的組態伺服器
 
@@ -264,7 +264,7 @@ ProxyPassword="Password"
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>將組態伺服器刪除或取消註冊 (PowerShell)
 
-1. [安裝](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模組
+1. [安裝](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模組
 2. 使用命令登入您的 Azure 帳戶
     
     `Connect-AzureRmAccount`

@@ -3,19 +3,19 @@ title: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的日
 description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的日期宣告轉換範例。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6a49e940c988d25da1e6f6a3c6f372e15fd2136f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405815"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850054"
 ---
 # <a name="date-claims-transformations"></a>日期宣告轉換
 
@@ -83,7 +83,7 @@ ms.locfileid: "49405815"
 - 輸入宣告：
     - **leftOperand**：2018-10-01T15:00:00.0000000Z
     - **rightOperand**：2018-10-01T14:00:00.0000000Z
-- 結果：擲回錯誤
+- 結果︰擲回錯誤
 
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
@@ -113,7 +113,7 @@ ms.locfileid: "49405815"
 - 輸入宣告：
     - **inputClaim**：2019-06-01
 - 輸出宣告：
-    - **outputClaim**：1559347200 (June 1, 2019 12:00:00 AM)
+    - **outputClaim**：1559347200 (2019 年 6 月 1 日上午 12:00:00)
 
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
@@ -134,7 +134,7 @@ ms.locfileid: "49405815"
 ### <a name="example"></a>範例
 
 * 輸出宣告：
-    * **currentDateTime**：1534418820 (August 16, 2018 11:27:00 AM)
+    * **currentDateTime**：1534418820 (2018 年 8 月 16 日上午 11:27:00)
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 

@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 CA PPM 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ca9d5e71-e429-4891-8d10-3498e7210e89
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: a0fd2b111ae904e94830b067f9a60409a5499ed0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 777e1c5003cb9da418de1a2fd1e8c568dd779cdb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421276"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814167"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>教學課程：Azure Active Directory 與 CA PPM 整合
 
@@ -112,7 +112,7 @@ ms.locfileid: "39421276"
 
     ![設定單一登入](./media/cappm-tutorial/tutorial_cappm_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://ca.ondemand.saml.20.post.<companyname>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://ca.ondemand.saml.20.post.<companyname>`
     
     b. 在 [回覆 URL] 文字方塊中，輸入：`https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
 

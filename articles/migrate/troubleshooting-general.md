@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261225"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827936"
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
@@ -286,7 +286,7 @@ Azure Migrate 可讓您將相依性視覺化的持續時間最多為一小時。
 | 751       | UnableToConnectToServer        | 因為發生錯誤 %ErrorMessage;，所以無法連線至 vCenter Server '%Name;'     | 請查看錯誤訊息，以取得詳細資料。                                                             | 請解決問題，然後再試一次。                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | 伺服器 '%Name;' 並非 vCenter Server。                                  | 請提供 vCenter Server 詳細資料。                                                                       | 請使用正確的 vCenter Server 詳細資料重試作業。                                                                                   |
 | 753       | InvalidLoginCredentials        | 因為發生錯誤 %ErrorMessage;，所以無法連線至 vCenter Server '%Name;' | 因為登入認證無效，所以無法連線到 vCenter Server。                             | 確認提供的登入認證正確。                                                                                    |
-| 754       | NoPerfDataAvaialable           | 沒有可用的效能資料。                                               | 檢查 vCenter Server 中的統計資料等級。 該等級必須設為 3，才可取得效能資料。 | 將統計資料等級變更為 3 (5 分鐘、30 分鐘及 2 小時的持續時間)，並於等待至少一天後再進行嘗試。                   |
+| 754       | NoPerfDataAvailable           | 沒有可用的效能資料。                                               | 檢查 vCenter Server 中的統計資料等級。 該等級必須設為 3，才可取得效能資料。 | 將統計資料等級變更為 3 (5 分鐘、30 分鐘及 2 小時的持續時間)，並於等待至少一天後再進行嘗試。                   |
 | 756       | NullInstanceUUID               | 發現 InstanceUUID 為 null 的電腦                                  | vCenter Server 可能有不適當的物件。                                                      | 請解決問題，然後再試一次。                                                                                                           |
 | 757       | VMNotFound                     | 找不到虛擬機器                                                  | 虛擬機器可能已刪除：%VMID;                                                                | 確定於設定 vCenter 清查範圍時所選取的虛擬機器，在探索期間存在                                      |
 | 758       | GetPerfDataTimeout             | VCenter 要求已逾時。訊息 %Message;                                  | vCenter Server 認證不正確                                                              | 檢查 vCenter Server 認證，確認可連線到 vCenter Server。 重試作業。 若問題持續發生，請連絡支援人員。 |

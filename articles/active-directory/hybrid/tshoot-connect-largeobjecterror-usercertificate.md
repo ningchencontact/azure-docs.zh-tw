@@ -4,7 +4,7 @@ description: 本主題針對 userCertificate 屬性所造成的 LargeObject 錯�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 0882976df898d36f1d5a5ff06e0de5c747613719
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ffc8832fa2da9d4bfad23752a5bc767ace2b573e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306067"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478615"
 ---
-# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 同步︰處理 userCertificate 屬性所造成的 LargeObject 錯誤 | Microsoft Docs
+# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 同步：處理 userCertificate 屬性所造成的 LargeObject 錯誤 | Microsoft Docs
 
 Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個憑證值。 如果 Azure AD Connect 匯出至 Azure AD 的物件有 15 個以上的值，Azure AD 會傳回 **LargeObject** 錯誤，訊息為︰
 
@@ -41,7 +41,7 @@ Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個
 ## <a name="mitigation-options"></a>緩和選項
 在解決 LargeObject 錯誤之前，同一個物件的其他屬性變更無法匯出至 Azure AD。 若要解決錯誤，您可以考慮下列選項︰
 
- * 將 Azure AD Connect 升級至 1.1.524.0 組建版本或更新版本。 在 Azure AD Connect 1.1.524.0 組建版本中，現成的同步處理規則已更新成如果屬性有 15 個以上的值，則不匯出屬性 userCertificate 和 userSMIMECertificate。 如需如何升級 Azure AD Connect 的詳細資訊，請參閱 [Azure AD Connect：從舊版升級到最新版本](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version)一文。
+ * 將 Azure AD Connect 升級至 1.1.524.0 組建版本或更新版本。 在 Azure AD Connect 1.1.524.0 組建版本中，現成的同步處理規則已更新成如果屬性有 15 個以上的值，則不匯出屬性 userCertificate 和 userSMIMECertificate。 如需有關如何升級 Azure AD Connect 的詳細資料，請參閱 [Azure AD Connect：從舊版升級到最新版本](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version)一文。
 
  * 在 Azure AD Connect 中實作**輸出同步規則**，以匯出 **Null 值，而不是有 15 個以上憑證值之物件的實際值**。 對於有 15 個值以上的物件，如果您不需要將任何憑證值匯出至 Azure AD，此選項就很適合。 如需有關如何實作此同步規則的詳細資訊，請參閱下一節：[實作同步規則以限制 userCertificate 屬性的匯出](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute)。
 
@@ -116,7 +116,7 @@ Azure AD 會在 **userCertificate** 屬性上強制執行最大限制 **15** 個
 
     | 屬性 | 值 | 詳細資料 |
     | --- | --- | --- |
-    | 名稱 | 提供名稱 | 例如，「輸出至 AAD – userCertificate 的自訂覆寫」 |
+    | Name | 提供名稱 | 例如，「輸出至 AAD – userCertificate 的自訂覆寫」 |
     | 說明 | 提供描述 | 例如，「如果 userCertificate 屬性有 15 個以上的值，匯出 NULL」。 |
     | 連線系統 | 選取 Azure AD 連接器 |
     | 連線系統物件類型 | **user** | |

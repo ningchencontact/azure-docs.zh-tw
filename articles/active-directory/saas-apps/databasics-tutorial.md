@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 DATABASICS 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: a37ded45-84c8-4e88-8d9b-c5b9443eb0d4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b177b4e4e6ef66c03ef6c868dcfde9a5277c36d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a74deb18263e25b95665c709cd62343293d49c0e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420908"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818297"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-databasics"></a>教學課程：Azure Active Directory 與 DATABASICS 整合
 
@@ -168,7 +168,7 @@ DATABASICS 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-databasics-test-user"></a>建立 DATABASICS 測試使用者
 
-在本節中，您要在 DATABASICS 中建立名為 Britta Simon 的使用者。 請與 [DATABASICS 支援小組](https://www.data-basics.com/support/)合作，在 DATABASICS 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 DATABASICS 中建立名為 Britta Simon 的使用者。 請與 [DATABASICS 支援小組](https://www.data-basics.com/support/)合作，在 DATABASICS 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -205,7 +205,7 @@ DATABASICS 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 DATABASICS 磚時，應該會自動登入 DATABASICS 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

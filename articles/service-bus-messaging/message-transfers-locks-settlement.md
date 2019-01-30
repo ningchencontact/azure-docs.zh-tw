@@ -3,22 +3,22 @@ title: Azure 服務匯流排訊息傳輸、鎖定和安置 | Microsoft Docs
 description: 服務匯流排訊息傳輸和安置作業概觀
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: spelluru
-ms.openlocfilehash: a1835e26f67427f84abd8a3cf24ad196fec8e99d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.author: aschhab
+ms.openlocfilehash: a78409a15acb4e60fc4200778d0f33b3fb566e85
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854417"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846434"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>訊息傳輸、鎖定和安置
 
@@ -96,7 +96,7 @@ for (int i = 0; i < 100; i++)
 
 ## <a name="settling-receive-operations"></a>安置接收作業
 
-對於接收作業，服務匯流排 API 用戶端會啟用兩個不同的 Explicit 模式：「接收並刪除」和「查看鎖定」。
+對於接收作業，服務匯流排 API 用戶端會啟用兩個不同的 Explicit 模式：*Receive-and-Delete* 和 *Peek-Lock*。
 
 [接收並刪除](/dotnet/api/microsoft.servicebus.messaging.receivemode)模式會告知訊息代理程式，考慮它傳送給接收用戶端且在傳送時已安置的所有訊息。 那就表示訊息會被視為在訊息代理程式將其放在線路上之後立即取用。 如果訊息傳輸失敗，訊息就會遺失。
 

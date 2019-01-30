@@ -8,84 +8,51 @@ author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 10/27/2017
-ms.openlocfilehash: bf47915ba93a4a3a7dec338395cfe0ce6aa3cdf6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 1/17/2019
+ms.openlocfilehash: ef33d8962848636ee53ac6fd3f084b9c2a59e29d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993822"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820561"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>設定 Visual Studio Code 的 PySpark 互動式環境
 
-下列步驟說明如何在執行 [HDInsight: PySpark 互動式] 時安裝 Python 套件。
+下列步驟說明如何在 VS Code 中設定 PySpark 互動式環境。
 
-## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>在 macOS 和 Linux 上設定 PySpark 互動式環境
-如果您使用 **python 3.x**，則需要針對下列步驟使用 **pip3** 命令：
+我們會使用 **python/pip** 命令在您的首頁路徑中建置虛擬環境。 如果想要使用其他版本，您需要手動變更 **python/pip** 命令的預設版本。 請參閱[更新替代項目](https://linux.die.net/man/8/update-alternatives)了解更多詳細資料。
 
-1. 確定已安裝 **Python** 和 **pip**。
+1. 安裝 [Python](https://www.python.org/) 和 [pip](https://pip.pypa.io/en/stable/installing/)。
+   
+   + 從 [https://pip.pypa.io/en/stable/installing](https://www.python.org/) 安裝 Python。
+   + 從 [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) 安裝 pip。 (如果未在安裝 Python 時安裝)
+   + 使用下列命令驗證是否已成功安裝 Python 和 pip。 (選用)
  
-    ![Python pip 版本](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+        ![Python pip 版本](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-2.  安裝 Jupyter。
-    ```
-    sudo pip install jupyter
-    ```
-   您會在 Linux 和 macOS 上看見下列錯誤訊息：
+    > [!NOTE]
+    > 建議您以手動方式安裝 Python，不要使用 MacOS 預設版本。
 
-   ![錯誤 1](./media/set-up-pyspark-interactive-environment/error1.png)
 
-   ```Resolve:
-    sudo pip uninstall asyncio
-    sudo pip install trollies
-    ```
+2. 執行下列命令來安裝 **virtualenv**。
+   
+   ```
+   pip install virtualenv
+   ```
 
-3. 安裝 **libkrb5-dev** (僅適用 Linux)。 您可能會看到下列錯誤訊息：
-
-   ![錯誤 2](./media/set-up-pyspark-interactive-environment/error2.png)
+3. 僅限 Linux，如果出現錯誤訊息，請執行下列命令安裝必要套件。
+   
+    ![Python pip 版本](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
        
-   ```Resolve:
+   ```
    sudo apt-get install libkrb5-dev 
    ```
 
-3. 安裝 **sparkmagic**。
    ```
-   sudo pip install sparkmagic
-   ```
-
-4. 執行下列程式碼來確定已正確安裝 **ipywidgets**：
-   ```
-   sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
-   ```
-   ![安裝包裝函式核心](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
- 
-
-5. 安裝包裝函式核心。 執行 **pip show sparkmagic**。 輸出會顯示 **sparkmagic** 安裝的路徑。 
-
-    ![sparkmagic 位置](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
-   
-6. 移至該位置，然後執行：
-
-   ```Python2
-   sudo jupyter-kernelspec install sparkmagic/kernels/pysparkkernel   
-   ```
-   ```Python3
-   sudo jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel
+   sudo apt-get install python-dev
    ```
 
-   ![jupyter kernelspec install](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-install.png)
-7. 檢查安裝狀態。
-
-    ```
-    jupyter-kernelspec list
-    ```
-    ![jupyter kernelspec list](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
-
-    對於可用的核心： 
-    - **python2** 和 **pysparkkernel** 對應至 **python 2.x**。 
-    - **python3** 和 **pyspark3kernel** 對應至 **python 3.x**。 
-
-8. 重新啟動 VS Code，然後返回執行 [HDInsight: PySpark 互動式] 的指令碼編輯器。
+4. 重新啟動 VS Code，然後返回執行 [HDInsight: PySpark 互動式] 的指令碼編輯器。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,12 +9,12 @@ ms.component: design
 ms.date: 12/03/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: d3c42c13e58156013167b8570a8845ce9de08b3b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2aa513617f24201dfb341f9ab72ab9e3a221450d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884515"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819351"
 ---
 # <a name="azure-sql-data-warehouse-gen2-support-for-lower-compute-tiers"></a>Azure SQL 資料倉儲 Gen2 支援較低的計算層級
 
@@ -29,7 +29,7 @@ Microsoft 透過卸除下一代資料倉儲進入點，為想要評估一個安�
 客戶可以選擇部署新的 Gen2 執行個體，也可以升級現有的 Gen1 資料倉儲執行個體，以便體驗新一代資料倉儲的彈性與效能。 
 
 請試用 [Azure SQL 資料倉儲計算最佳化 Gen2 層級。](https://azure.microsoft.com/services/sql-data-warehouse/?v=17.44)
-將 [Azure SQL 倉儲計算最佳化 Gen1 升級至 Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation)。若要了解 Azure SQL 資料倉儲 Gen2 的運作方式，請觀看 [Microsoft Mechanics 影片。](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be)
+將 [Azure SQL 資料倉儲計算最佳化 Gen1 升級至 Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation)。若要了解 Azure SQL 資料倉儲 Gen2 的運作方式，請觀看 [Microsoft Mechanics 影片。](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be)
 
 
 ## <a name="supported-regions-for-lower-compute-tiers"></a>支援較低計算層級的區域
@@ -52,4 +52,4 @@ Microsoft 透過卸除下一代資料倉儲進入點，為想要評估一個安�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [深入了解](upgrade-to-latest-generation.md)如何升級 SQL 資料倉儲以將效能發揮到極限。 
+- [深入了解](upgrade-to-latest-generation.md)如何升級 SQL 資料倉儲以計算最佳化效能。 

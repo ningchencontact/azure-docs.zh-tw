@@ -1,10 +1,10 @@
 ---
-title: 教學課程：Azure Active Directory 與 O.C.  Tanner - AppreciateHub 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 與 O.C. Tanner - AppreciateHub 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 O.C. 之間的單一登入。 Tanner - AppreciateHub 中建立名為 Britta Simon 的使用者。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: dee8fbca-0b60-4a21-8917-1fb6919de5a0
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a3c6641c3fd9402ede2176e3c5c3f3ec15ed9de
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a2234db09ecd8d2b3f654a18017d50f43c8caca6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438700"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822292"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>教學課程：Azure Active Directory 與 O.C.  Tanner - AppreciateHub 的人員
+# <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>教學課程：Azure Active Directory 與 O.C. Tanner - AppreciateHub 整合
 
 在本教學課程中，您會了解如何將 O.C.  Tanner - AppreciateHub 與 Azure Active Directory (Azure AD) 整合。
 

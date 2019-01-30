@@ -1,10 +1,10 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 ServiceNow 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 ServiceNow 來自動佈建使用者 | Microsoft Docs
 description: 了解如何將使用者帳戶從 Azure AD 自動佈建和取消佈建至 ServiceNow。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 4d6f06dd-a798-4c22-b84f-8a11f1b8592a
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 8d05e314cb31aaba96e7db79e0e4dd287e6d2184
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7ee10bcd06877b33669b79e104f0d32f87301c28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426899"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813257"
 ---
-# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>教學課程︰以 Azure Active Directory 設定 ServiceNow 來自動佈建使用者
+# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>教學課程：以 Azure Active Directory 設定 ServiceNow 來自動佈建使用者
 
 本教學課程旨在說明您需要在 ServiceNow 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 ServiceNow。
 
 > [!NOTE]
-> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](./../active-directory-saas-app-provisioning.md)。
+> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -50,7 +50,7 @@ ms.locfileid: "39426899"
 
 Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使用者應接收對指定應用程式的存取權。 在自動使用者帳戶佈建的內容中，只有「已指派」至 Azure AD 中的應用程式之使用者和群組會進行同步處理。
 
-在設定並啟用佈建服務之前，您必須決定 Azure AD 中的哪些使用者及/或群組代表需要 ServiceNow 應用程式存取權的使用者。 一旦決定後，您可以將這些使用者指派給 ServiceNow 應用程式，方法是遵循以下指示：[將使用者或群組指派給企業應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+在設定並啟用佈建服務之前，您必須決定 Azure AD 中的哪些使用者及/或群組代表需要 ServiceNow 應用程式存取權的使用者。 一旦決定後，您可以依照此處的指示，將這些使用者指派給 ServiceNow 應用程式︰[將使用者或群組指派給企業應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 
 > [!IMPORTANT]
@@ -100,7 +100,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 這會對 [使用者和群組] 區段中指派給 ServiceNow 的任何使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄，此記錄會描述您 ServiceNow 應用程式上佈建服務所執行的所有動作。
 
-如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

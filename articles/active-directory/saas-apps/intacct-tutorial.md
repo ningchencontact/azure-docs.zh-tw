@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Intacct 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 92518e02-a62c-4b1b-a8e9-2803eb2b49ac
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: d834ca75085878350e257cc1c50e60fc1bf28484
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d7075894bde20f56c9323568ceffe8cad4118cbc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447334"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810086"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>教學課程：Azure Active Directory 與 Intacct 整合
 

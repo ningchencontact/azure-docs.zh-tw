@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: deab8298d09972a4e60be5c72d6d7e43dc2683e6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329985"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828089"
 ---
 # <a name="publish-azure-application-offer"></a>發佈 Azure 應用程式供應項目
 
@@ -36,7 +36,7 @@ ms.locfileid: "54329985"
 |  **發佈步驟**           | <bpt id="p1">**</bpt>Time<ept id="p1">**</ept>    | **說明**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | 檢查必要條件         | < 15 分鐘    | 檢查供應項目資訊和供應項目設定。                        |
-| 驗證受影響的營收設定 | < 15 分鐘  |      |
+| 驗證受影響的營收設定 | < 15 分鐘  | 已檢查供應項目的 Azure 資源使用狀況。             |
 | 認證                  | < 1 天     | Azure 認證團隊會分析供應項目。 掃描供應項目中是否有病毒、惡意程式碼、安全合規性和安全性問題。 檢查供應項目以查看它是否符合所有資格條件。 如需詳細資訊，請參閱[必要條件](./cpp-prerequisites.md)。 若發現問題，將提供意見反應。 |
 | 試用產品驗證          | < 2 小時   | (選擇性) 如果有試用產品，則 Microsoft 會驗證它是否可以部署及複寫。  |
 | 封裝和潛在客戶開發註冊 | < 1 小時  | 供應項目的技術資產會封裝供客戶使用，潛在客戶系統也設定且部署完畢。 |

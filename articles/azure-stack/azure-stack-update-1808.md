@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 8d477997e71843307f6c756a6974a23267842015
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: b91da771587dea60048a83471ec1f585690f2a33
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244965"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848609"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 更新
 
@@ -268,7 +268,7 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
 
    1. 如果訂用帳戶是在 1808 更新之前建立的，部署具有受控磁碟的 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請針對每個訂用帳戶遵循下列步驟：
       1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 按一下 [資源提供者]，按一下 [Microsoft.Compute]，然後按一下 [重新註冊]。
-      2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [Azure Stack - 受控磁碟] 已列出。
+      2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [AzureStack-DiskRP-Client] 角色已列出。
    2. 如果您已設定多租用戶環境，則在與來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請依照下列步驟執行︰
       1. 套用 [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4481066/)。
       2. 依照[這篇文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步驟，重新設定您的每個來賓目錄。

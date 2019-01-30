@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, AD FS 管理, AAD Connect, 連線, 登入, AD FS 自訂, 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 02256c3e45d198fe35c0b3686bf4c1bc6f64c51a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244452"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463893"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自訂 Active Directory Federation Services
 本文說明如何使用 Azure Active Directory (Azure AD) Connect 管理及自訂 Active Directory Federation Services (AD FS)。 它也包含您可能需要進行以完整設定 AD FS 伺服器陣列的其他常見 AD FS 工作。
@@ -76,8 +76,8 @@ ms.locfileid: "51244452"
 ![替代識別碼屬性的選擇](./media/how-to-connect-fed-management/attributeselection.png)
 
 AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
-1. **設定正確的發行宣告集**︰Azure AD 信賴憑證者信任中的發行宣告規則，會修改為使用選取的 UserPrincipalName 屬性來作為使用者的替代識別碼。
-2. **在 AD FS 設定中啟用替代登入識別碼**︰AD FS 設定會進行更新，讓 AD FS 可以使用替代識別碼在適當樹系中查詢使用者。 此設定支援 Windows Server 2012 R2 (含 KB2919355) 或更新版本上的 AD FS。 如果 AD FS 伺服器是 2012 R2，Azure AD Connect 會檢查是否有必要的 KB 存在。 如果未偵測到必要 KB，則系統會在設定完成之後顯示警告，如下所示︰
+1. **設定正確的發行宣告集**：Azure AD 信賴憑證者信任中的發行宣告規則會修改成使用選取的 UserPrincipalName 屬性來作為使用者的替代識別碼。
+2. **在 AD FS 設定中啟用替代登入識別碼**：AD FS 設定會進行更新，讓 AD FS 可以使用替代識別碼在適當樹系中查詢使用者。 此設定支援 Windows Server 2012 R2 (含 KB2919355) 或更新版本上的 AD FS。 如果 AD FS 伺服器是 2012 R2，Azure AD Connect 會檢查是否有必要的 KB 存在。 如果未偵測到必要 KB，則系統會在設定完成之後顯示警告，如下所示︰
 
     ![2012 R2 上缺少 KB 的警告](./media/how-to-connect-fed-management/kbwarning.png)
 
@@ -220,21 +220,21 @@ Azure AD Connect 可在將物件同步處理至 Azure AD 時，讓您指定要�
 
 此外，使用**新增**而非**發出**，您可以避免為實體新增傳出發出，而可以使用這些值做為中間值。 在您建立要做為固定 ID 的值之後，您將在後續的規則中發出宣告。
 
-**規則 2：檢查使用者是否存在 ms-ds-consistencyguid**
+**規則 2：檢查使用者是否有 ms-ds-consistencyguid**
 
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
 此規則會定義稱為 **idflag** 的暫時旗標，如果沒有為使用者填入 **ms-ds-concistencyguid**，則此旗標會設為 **useguid**。 背後邏輯是實際上 AD FS 不允許空的宣告。 因此，當您在「規則 1」中新增宣告 http://contoso.com/ws/2016/02/identity/claims/objectguid 和 http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid 時，只有已為使用者填入值時，您最終才會具有 **msdsconsistencyguid** 宣告。 如果未填入，AD FS 會看到它將具有空值，並因此立即捨棄。 所有物件都會有 **objectGuid**，因此執行規則 1 之後，宣告一律會在該處。
 
-**規則 3：發出 ms-ds-consistencyguid 為固定 ID (如果有的話)**
+**規則 3：發出 ms-ds-consistencyguid (如果存在) 作為固定 ID**
 
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
 
 這是隱含的 **存在** 檢查。 如果宣告的值存在，則發出做為固定 ID。 上述範例使用 **nameidentifier** 宣告。 您必須為您的環境中的固定 ID 將此宣告變更為適當的宣告類型。
 
-**規則 4：發出 objectGuid 做為固定 ID，如果未出現 ms-ds-consistencyGuid**
+**規則 4：如果 ms-ds-consistencyGuid 不存在，便發出 objectGuid 作為固定 ID**
 
     c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
     && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]

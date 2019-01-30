@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1398db59199c62e90f8cf5654586bda1c24f2541
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: ac97cf3e269652dc33ce4211947b45631228a697
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055042"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463272"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安裝和執行 LUIS Docker 容器
  
@@ -113,7 +113,8 @@ LUIS 容器需要以已定型或發佈的 LUIS 應用程式來回應使用者語
 |預備|Get, Post|Azure 和容器|`{APPLICATION_ID}_STAGING.gz`|
 |Production|Get, Post|Azure 和容器|`{APPLICATION_ID}_PRODUCTION.gz`|
 
->**重要事項：** 請勿將 LUIS 套件檔案重新命名、更改或解壓縮。
+> [!IMPORTANT]
+> 請勿將 LUIS 套件檔案重新命名、更改或解壓縮。
 
 ### <a name="packaging-prerequisites"></a>封裝必要條件
 
@@ -383,3 +384,4 @@ LUIS 容器會使用您 Azure 帳戶上的 _Language Understanding_ 資源將帳
 
 * 檢閱[設定容器](luis-container-configuration.md)以了解組態設定
 * 參閱[常見問題集 (FAQ)](luis-resources-faq.md) 來解決與 LUIS 功能相關的問題。
+* 使用更多[認知服務容器](../cognitive-services-container-support.md)

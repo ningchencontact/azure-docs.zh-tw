@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 HubSpot 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 57343ccd-53ea-4e62-9e54-dee2a9562ed5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 76a19668453b35b39359bef442f7f34a06623cbe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 2806288378e5fa080164155b97a47a7046ecbba1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432406"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814897"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>教學課程：Azure Active Directory 與 HubSpot 整合
 
@@ -101,7 +101,7 @@ HubSpot 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][4]
 
-2. 在 [選取單一登入方法] 對話方塊上，按一下 [SAML] 模式的 [選取] 以啟用單一登入。
+2. 在 [選取單一登入方法] 對話方塊上，按一下 [SAML] 模式的 [選取]，啟用單一登入。
 
     ![設定單一登入](./media/hubspot-tutorial/tutorial_general_301.png)
 
@@ -164,7 +164,7 @@ HubSpot 與 Azure AD 整合提供下列優點：
 
     d. 在 [識別提供者單一登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL] 值。
 
-    e. 在「記事本」中開啟所下載的**憑證 (Base64)** 檔案。 將其內容複製到剪貼簿，然後貼到 [X.509 憑證] 方塊中。
+    e. 在「記事本」中開啟所下載的 **憑證 (Base64)** 檔案。 將其內容複製到剪貼簿，然後貼到 [X.509 憑證] **** 方塊中。
 
     f. 按一下 [確認]。
 
@@ -172,11 +172,11 @@ HubSpot 與 Azure AD 整合提供下列優點：
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者]，然後選取 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
     ![建立 Azure AD 使用者][100]
 
-2. 選取畫面頂端的 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]。
 
     ![建立 Azure AD 測試使用者](./media/hubspot-tutorial/create_aaduser_01.png) 
 
@@ -186,10 +186,10 @@ HubSpot 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，鍵入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 依序選取 [屬性]、[顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
     d. 選取 [建立] 。
 
@@ -233,7 +233,7 @@ HubSpot 需以手動方式佈建。
 
 在本節中，您會將 HubSpot 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式] 和 [所有應用程式]。
 
     ![指派使用者][201]
 
@@ -258,7 +258,7 @@ HubSpot 需以手動方式佈建。
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 在存取面板中按一下 [HubSpot] 圖格時，您應該會取得 HubSpot 應用程式的自動登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

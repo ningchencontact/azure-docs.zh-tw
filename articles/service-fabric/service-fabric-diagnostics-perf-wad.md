@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 0675e06564fcacf5f7d14ef6986762f36df18b1b
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: a6941e28bdfd922a68ff484c57031326a9aa5c0b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290317"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452627"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>使用 Windows Azure 診斷延伸模組進行效能監視
 
-此文件說明如何以 Windows 叢集的 Windows Azure 診斷 (WAD) 延伸模組逐步設定效能計數器集合。 若為 Linux 叢集，請設定 [Log Analytics 代理程式](service-fabric-diagnostics-oms-agent.md)以收集您節點的效能計數器。 
+本文件說明如何以 Windows 叢集的 Windows Azure 診斷 (WAD) 延伸模組逐步設定效能計數器集合。 若為 Linux 叢集，請設定 [Log Analytics 代理程式](service-fabric-diagnostics-oms-agent.md)以收集您節點的效能計數器。 
 
  > [!NOTE]
 > 應該在您的叢集上部署 WAD 延伸模組，以便這些步驟產生效用。 如果未設定，請參閱[使用 Windows Azure 診斷的事件彙總和收集](service-fabric-diagnostics-event-aggregation-wad.md)。  

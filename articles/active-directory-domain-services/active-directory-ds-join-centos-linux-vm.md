@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory Domain Services：將 CentOS VM 加入至受控網域 | Microsoft Docs
+title: Azure Active Directory Domain Services：將 CentOS VM 加入受控網域 | Microsoft Docs
 description: 將 CentOS Linux 虛擬機器加入至 Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: cfa0ab1fdf72e3d363b5845c8602b0bea7ff6a12
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 3a321246c948c38abc5840fd4e2113a648151a21
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155179"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850394"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>將 CentOS Linux 虛擬機器加入至受控網域
 本文說明如何將 Azure 中的 CentOS Linux 虛擬機器加入至 Azure AD Domain Services 受控網域。
@@ -87,7 +87,7 @@ sudo vi /etc/hosts
     ```
 
     > [!NOTE]
-    > **疑難排解：** 如果 [領域探索] 找不到受控網域：  
+    > **疑難排解：** 如果「領域探索」找不到您的受控網域：  
       * 確定可從虛擬機器觸達網域 (請嘗試 ping)。  
       * 檢查虛擬機器已確實部署到有提供受控網域的相同虛擬網路上。
       * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受控網域的網域控制站。  

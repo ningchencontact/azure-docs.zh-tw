@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: 830052341c4f0e3488c8e63da59cbef1f72e158a
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 20bb0cb6982bcbea6b18989099322cfd3389b0b0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42146352"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819626"
 ---
-# <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>將 IoT 裝置連接到 Azure：IoT 中樞和事件中樞
+# <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>將 IoT 裝置連線到 Azure：IoT 中樞和事件中樞
 
 Azure 提供專為不同連線和通訊類型所開發的服務，協助您連接資料與雲端的強大功能。 「Azure IoT 中樞」和「Azure 事件中樞」都是雲端服務，可擷取大量資料並處理或儲存該資料來獲得業務見解。 這兩種服務的共通點在於支援低延遲時間和高可靠性的資料擷取，不過它們是為不同目的而設計的服務。 IoT 中樞的開發目的，在於解決大規模將 IoT 裝置連接到 Azure 雲端的獨特需求，而事件中樞則是為巨量資料串流所設計。 這也是為什麼 Microsoft 建議使用 Azure IoT 中樞將 IoT 裝置連接到 Azure
 
@@ -30,13 +30,14 @@ Azure IoT 中樞是雲端閘道，可連接 IoT 裝置來收集資料，獲得�
 | IoT 功能 | IoT 中樞標準層 | IoT 中樞基本層 | 事件中樞 |
 | --- | --- | --- | --- |
 | 裝置到雲端傳訊 | ![勾選][checkmark] | ![勾選][checkmark] | ![勾選][checkmark] |
-| 通訊協定：HTTPS、AMQP、透過 webSocket 的 AMQP | ![勾選][checkmark] | ![勾選][checkmark] | ![勾選][checkmark] |
-| 通訊協定：MQTT、透過 webSocket 的 MQTT | ![勾選][checkmark] | ![勾選][checkmark] |  |
+| 通訊協定：HTTPS、AMQP、透過 WebSocket 的 AMQP | ![勾選][checkmark] | ![勾選][checkmark] | ![勾選][checkmark] |
+| 通訊協定：MQTT、透過 WebSocket 的 MQTT | ![勾選][checkmark] | ![勾選][checkmark] |  |
 | 每部裝置身分識別 | ![勾選][checkmark] | ![勾選][checkmark] |  |
 | 從裝置上傳檔案 | ![勾選][checkmark] | ![勾選][checkmark] |  |
 | 裝置佈建服務 | ![勾選][checkmark] | ![勾選][checkmark] |  |
 | 雲端到裝置傳訊 | ![勾選][checkmark] |  |  |
 | 裝置對應項和裝置管理 | ![勾選][checkmark] |  |  |
+| 裝置串流 (預覽) | ![勾選][checkmark] |  |  |
 | IoT Edge | ![勾選][checkmark] |  |  |
 
 即使唯一的使用案例是裝置到雲端資料擷取，仍強烈建議您使用「IoT 中樞」，因為它可提供專為 IoT 裝置連線設計的服務。 

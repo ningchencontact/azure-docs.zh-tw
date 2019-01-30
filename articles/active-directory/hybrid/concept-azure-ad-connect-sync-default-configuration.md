@@ -4,7 +4,7 @@ description: 本文說明 Azure AD Connect Sync 的預設組態。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bd708d279649138fcb17362491da4eb7539c478b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6de48b0f4c7c69ab0c6acb4099234b853d2c1523
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308747"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478564"
 ---
-# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 同步處理：了解預設組態
+# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 同步：了解預設組態
 本文說明現成可用的組態規則。 其中說明這些規則以及這些規則對組態有何影響。 本文也會引導您完成 Azure AD Connect 同步處理的預設組態。其目的是讓讀者了解組態模型 (名為宣告式佈建) 在實際範例中的運作情形。 本文假設您已使用安裝精靈安裝並設定 Azure AD Connect Sync。
 
 若要了解組態模型的詳細資訊，請參閱 [了解宣告式佈建](concept-azure-ad-connect-sync-declarative-provisioning.md)。
@@ -51,7 +51,7 @@ ms.locfileid: "46308747"
   * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
 * 請勿同步處理不會在 Exchange Online 中運作的物件。
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
-  此位元遮罩 (&amp;H21C07000) 會篩選掉下列物件：
+   此位元遮罩 (&H21C07000) 會篩選掉下列物件：
   * 擁有郵件功能的公用資料夾 (自 1.1.524.0 版起為預覽版功能)
   * 系統服務員信箱
   * 信箱資料庫信箱 (系統信箱)
@@ -59,7 +59,7 @@ ms.locfileid: "46308747"
   * 非萬用群組 (不會對使用者套用，但因舊版因素而存在)
   * 信箱計劃
   * 探索信箱
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`。 請不要同步處理任何複寫犧牲者物件。
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)` 。 請不要同步處理任何複寫犧牲者物件。
 
 適用的屬性規則如下：
 
@@ -78,12 +78,12 @@ ms.locfileid: "46308747"
 * 連絡人必須擁有郵件功能。 這會使用下列規則來驗證：
   * `IsPresent([proxyAddresses]) = True)`。 必須填入 proxyAddresses 屬性。
   * 可在 proxyAddresses 屬性或郵件屬性中找到主要電子郵件地址。 存在的 \@ 可用來證實內容是電子郵件地址。 下列其中一個規則必須評估為 True。
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`。 是否有含有 "SMTP:" 的項目，如果有，是否可在字串中找到 \@？
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`。 是否已填入郵件屬性，如果是，是否可在字串中找到 \@？
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))` 。 是否有含有 "SMTP:" 的項目，如果有，是否可在字串中找到 \@？
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)` 。 是否已填入郵件屬性，如果是，是否可在字串中找到 \@？
 
 下列連絡人物件 **不會** 同步處理至 Azure AD：
 
-* `IsPresent([isCriticalSystemObject])`。 請確定沒有標記為重要的連絡人物件進行同步處理。 不應該是任何使用預設組態的項目。
+* `IsPresent([isCriticalSystemObject])` 。 請確定沒有標記為重要的連絡人物件進行同步處理。 不應該是任何使用預設組態的項目。
 * `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`。
 * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`。 這些物件無法在 Exchange Online 中運作。
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`。 請不要同步處理任何複寫犧牲者物件。
@@ -99,10 +99,10 @@ ms.locfileid: "46308747"
 
 下列群組物件 **不會** 同步處理至 Azure AD：
 
-* `IsPresent([isCriticalSystemObject])`。 請確定 Active Directory 中多項現成可用的物件 (例如內建的系統管理員群組) 不會同步處理。
+* `IsPresent([isCriticalSystemObject])` 。 請確定 Active Directory 中多項現成可用的物件 (例如內建的系統管理員群組) 不會同步處理。
 * `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`。 DirSync 所使用的舊版群組。
 * `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`。 角色群組。
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`。 請不要同步處理任何複寫犧牲者物件。
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)` 。 請不要同步處理任何複寫犧牲者物件。
 
 ### <a name="foreignsecurityprincipal-out-of-box-rules"></a>ForeignSecurityPrincipal 現成可用的規則
 FSP 會聯結至 Metaverse 中的「任何」(\*) 物件。 實際上，此聯結只會針對使用者和安全性群組執行。 此組態可確保跨樹系成員資格會進行解析，並正確地顯示在 Azure AD 中。
@@ -134,7 +134,7 @@ SRE 是一項資源套件工具，會隨 Azure AD Connect Sync 一起安裝。�
 
 ![同步處理規則 (輸入)](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
-在此窗格中，您會看到所有為您的組態建立的同步處理規則。 表格中的每一行都是一個同步處理規則。 在 [規則類型] 的左下方會列出兩種不同類型：[輸入] 和 [輸出]。 [輸入] 和 [輸出] 來自 Metaverse 的檢視。 您主要會將重點放在本概觀中的輸入規則。 實際的同步處理規則清單取決於在 AD 中偵測到的結構描述。 在上圖中，帳戶樹系 (fabrikamonline.com) 沒有任何服務 (例如 Exchange 和 Lync)，而且也沒有為這些服務建立任何同步處理規則。 不過，在資源樹系 (res.fabrikamonline.com) 中，您可找到這些服務的同步處理規則。 規則的內容會隨著偵測到的版本而有所不同。 比方說，在 Exchange 2013 的部署中，屬性流程比在 Exchange 2010/2007 中設定的多。
+在此窗格中，您會看到所有為您的組態建立的同步處理規則。 表格中的每一行都是一個同步處理規則。 [規則類型] 的左下方會列出兩種不同類型：[輸入] 和 [輸出]。 [輸入] 和 [輸出] 來自 Metaverse 的檢視。 您主要會將重點放在本概觀中的輸入規則。 實際的同步處理規則清單取決於在 AD 中偵測到的結構描述。 在上圖中，帳戶樹系 (fabrikamonline.com) 沒有任何服務 (例如 Exchange 和 Lync)，而且也沒有為這些服務建立任何同步處理規則。 不過，在資源樹系 (res.fabrikamonline.com) 中，您可找到這些服務的同步處理規則。 規則的內容會隨著偵測到的版本而有所不同。 比方說，在 Exchange 2013 的部署中，屬性流程比在 Exchange 2010/2007 中設定的多。
 
 ### <a name="synchronization-rule"></a>同步處理規則
 同步處理規則是一個組態物件，當滿足條件時會有一組屬性進行流動。 此規則也會用來說明連接器空間中物件與 Metaverse 中物件的關係 (稱為**聯結**或**相符項目**)。 同步處理規則具有優先順序值，指出它們彼此之間的關係。 具有較低數值的同步處理規則具有較高的優先順序，而在發生屬性流程衝突時，較高的優先順序會在衝突解決過程中勝出。
@@ -145,7 +145,7 @@ SRE 是一項資源套件工具，會隨 Azure AD Connect Sync 一起安裝。�
 
 ![同步處理規則警告](./media/concept-azure-ad-connect-sync-default-configuration/warningeditrule.png)
 
-同步處理規則具有四個組態區段：說明、範圍篩選器、聯結規則及轉換。
+「同步化規則」有四個設定區段：[Description] \(描述\)、[Description] \(範圍篩選\)、[Join rules] \(聯結規則\) 及 [Transformations] \(轉換\)。
 
 #### <a name="description"></a>說明
 第一個區段提供基本資訊，例如名稱和說明。
@@ -187,7 +187,7 @@ SRE 是一項資源套件工具，會隨 Azure AD Connect Sync 一起安裝。�
 
 若要將此組態放在內容中，則在帳戶-資源樹系部署中，預計會在帳戶樹系中找到啟用的帳戶，並在具有 Exchange 和 Lync 設定的資源樹系中找到停用的帳戶。 您目前看到的同步處理規則包含登入所需的屬性，而這些屬性應從具有已啟用帳戶的樹系流出。 這些屬性流程會全部放在一個同步處理規則中。
 
-轉換可具有不同類型：Constant、Direct 和 Expression。
+轉換可具有不同類型：[常數]、[直接] 及 [運算式]。
 
 * Constant 流程會一律流送硬式編碼值。 在上述例子中，一律會在名為 **accountEnabled** 的 Metaverse 屬性中設定 **True** 值。
 * Direct 流程一律會將來源中的屬性值依現狀流動至目標屬性。
@@ -219,7 +219,7 @@ NULL
 ### <a name="putting-it-all-together"></a>總整理
 我們現在對同步處理規則已有足夠的認識，而能夠了解組態如何在不同的同步處理規則下運作。 如果您觀察某個使用者以及提供給 Metaverse 的屬性，則會以下列順序套用規則：
 
-| 名稱 | 註解 |
+| Name | 註解 |
 |:--- |:--- |
 | In from AD - User Join |聯結連接器空間物件與 Metaverse 的規則。 |
 | In from AD – UserAccount Enabled |登入 Azure AD 和 Office 365 所需的屬性。 我們想從已啟用的帳戶取得這些屬性。 |
@@ -236,6 +236,6 @@ NULL
 
 **概觀主題**
 
-* [Azure AD Connect 同步處理：了解及自訂同步處理](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 同步：了解並自訂同步處理](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)
 

@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 vxMaintain 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 590c7961444a36c8958fd82aaf67b05ee2213e74
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433989"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819895"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>教學課程：Azure Active Directory 與 vxMaintain 整合
 
@@ -161,7 +161,7 @@ ms.locfileid: "39433989"
  
 ### <a name="create-a-vxmaintain-test-user"></a>建立 vxMaintain 測試使用者
 
-在本節中，您會在 vxMaintain 中建立測試使用者 Britta Simon。 若要在 vxMaintain 平台中新增使用者，請與 [vxMaintain 支援小組](https://www.hubspot.com/company/contact) 合作。 使用 SSO 之前，請先建立並啟用使用者。
+在本節中，您會在 vxMaintain 中建立測試使用者 Britta Simon。 若要在 vxMaintain 平台中新增使用者，請與 [vxMaintain 支援小組](https://www.hubspot.com/company/contact) 合作。 使用 SSO 之前，請先建立並啟用使用者。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -195,7 +195,7 @@ ms.locfileid: "39433989"
 
 在存取面板中選取 [vxMaintain] 圖格時，應該會自動登入您的 vxMaintain 應用程式。
 
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

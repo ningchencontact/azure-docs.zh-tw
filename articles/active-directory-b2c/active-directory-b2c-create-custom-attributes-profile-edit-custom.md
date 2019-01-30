@@ -3,21 +3,21 @@ title: 在 Azure Active Directory B2C 中將您自己的屬性新增至自訂原
 description: 逐步解說如何使用擴充屬性 (Property) 和自訂屬性 (Attribute)，並將其包含於使用者介面中。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5513e0ff434862ea7eee42cb94ff2a0f67f6d390
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7ebce84e6d8d3e7b1b8d3852951127ce954f9019
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338739"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854049"
 ---
-# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C︰在自訂設定檔編輯原則中使用自訂屬性
+# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C：在自訂設定檔編輯原則中使用自訂屬性
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -25,7 +25,7 @@ ms.locfileid: "43338739"
 
 ## <a name="prerequisites"></a>必要條件
 
-依照 [Azure Active Directory B2C：開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟執行。
+依照 [Azure Active Directory B2C：開始使用自訂原則](active-directory-b2c-get-started-custom.md)一文中的步驟進行操作。
 
 ## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-ad-b2c-by-using-custom-policies"></a>使用自訂屬性，利用自訂原則來收集您的客戶在 Azure AD B2C 中的相關資訊
 您的 Azure AD B2C 目錄隨附一組內建屬性。 範例包括**名字**、**姓氏**、**區/鄉/鎮/市**、**郵遞區號**及 **userPrincipalName**。 您通常必須建立自有屬性，例如下列範例：
@@ -53,14 +53,14 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
 2. 在左方的導覽功能表中，選取 [Azure Active Directory]。 您可能需要選取 [更多服務] 才能找到它。
 3. 選取 [應用程式註冊]。 選取 [新增應用程式註冊]。
 4. 提供下列項目：
-    * Web 應用程式的名稱：**WebApp-GraphAPI-DirectoryExtensions**。
-    * 應用程式類型︰**Web 應用程式/API**。
+    * Web 應用程式的名稱︰**WebApp-GraphAPI-DirectoryExtensions**。
+    * 應用程式類型：**Web 應用程式/API**。
     * 登入 URL：**https://{租用戶名稱}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions**。
 5. 選取 [建立] 。
 6. 選取新建立的 Web 應用程式。
 7. 選取 [設定] > [必要權限]。
 8. 選取 API [Windows Azure Active Directory]。
-9. 在 [應用程式權限] 的 [讀取及寫入目錄資料] 輸入核取記號。 然後選取 [儲存]。
+9. 勾選下列應用程式權限︰[讀取及寫入目錄資料]。 然後選取 [儲存]。
 10. 選擇 [授與權限]，然後確認 [是]。
 11. 將下列識別碼複製到剪貼簿並加以儲存：
     * **應用程式識別碼**。 範例： `103ee0e6-f92d-4183-b576-8c3739027780`.
@@ -70,7 +70,7 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
 
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>修改您的自訂原則以新增 **ApplicationObjectId**
 
-當您依照 [Azure Active Directory B2C：開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟執行時，便已經下載並修改名為 **TrustFrameworkBase.xml**、**TrustFrameworkExtensions.xml**、**SignUpOrSignin.xml**、**ProfileEdit.xml** 及 **PasswordReset.xml** 的[範例檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) \(英文\)。 在此步驟中，您可以對那些檔案進行更多修改。
+當您依照 [Azure Active Directory B2C：開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟進行操作後，便已下載和修改名為 **TrustFrameworkBase.xml**、**TrustFrameworkExtensions.xml**、**SignUpOrSignin.xml**、**ProfileEdit.xml**, 及 **PasswordReset.xml** 的[範例檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip)。 在此步驟中，您可以對那些檔案進行更多修改。
 
 * 開啟 TrustFrameworkBase.xml 檔案，並新增 `Metadata` 區段，如下列範例所示。 插入您先前為 `ApplicationObjectId` 值記錄的物件識別碼，以及為 `ClientId` 值記錄的應用程式識別碼： 
 

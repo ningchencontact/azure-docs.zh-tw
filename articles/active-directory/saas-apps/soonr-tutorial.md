@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Soonr Workplace 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b75f5f00-ea8b-4850-ae2e-134e5d678d97
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: jeedes
-ms.openlocfilehash: af62db250a6d428797de0d39b852272326f2b6a8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7dd02aee83d42421cdda57f4feb54dde790db68c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442562"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809143"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-soonr-workplace"></a>教學課程：Azure Active Directory 與 Soonr Workplace 整合
 
@@ -112,7 +112,7 @@ ms.locfileid: "39442562"
 
     ![設定單一登入](./media/soonr-tutorial/tutorial_soonr_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<servername>.soonr.com/singlesignon/saml/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<servername>.soonr.com/singlesignon/saml/metadata`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<servername>.soonr.com/singlesignon/saml/SSO`
 

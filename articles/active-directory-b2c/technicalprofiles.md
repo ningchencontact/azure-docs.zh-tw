@@ -3,19 +3,19 @@ title: TechnicalProfiles | Microsoft Docs
 description: 指定 Azure Active Directory B2C 中自訂原則的 TechnicalProfiles 元素。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 45ea2a28b4b2fb3d55d7ae949152e6f51b5d3162
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c17159e1fa901e8219d1727769d234719c4321c6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566528"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856548"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -108,7 +108,7 @@ ms.locfileid: "51566528"
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
-| 名稱 | 是 | Azure AD B2C 所支援的有效通訊協定名稱，可用來作為技術設定檔的一部分。 可能的值：`OAuth1`、`OAuth2`、`SAML2`、`OpenIdConnect`、`WsFed`、`WsTrust`、`Proprietary`、`session management`、`self-asserted` 或 `None`。 |
+| Name | 是 | Azure AD B2C 所支援的有效通訊協定名稱，可用來作為技術設定檔的一部分。 可能的值：`OAuth1`、`OAuth2`、`SAML2`、`OpenIdConnect`、`WsFed`、`WsTrust`、`Proprietary`、`session management`、`self-asserted` 或 `None`。 |
 | 處理常式 | 否 | 當通訊協定名稱設為 `Proprietary` 時，請指定 Azure AD B2C 用於判斷通訊協定處理常式之組件的完整名稱。 |
 
 ### <a name="metadata"></a>中繼資料
@@ -280,7 +280,7 @@ ms.locfileid: "51566528"
 - **OnItemExistenceInStringCollectionClaim**，僅在項目存在於字串集合宣告中時執行。 
 - **OnItemAbsenceInStringCollectionClaim**，僅在項目存在於字串集合宣告中時執行。
 
-使用 **OnClaimsExistence****OnItemExistenceInStringCollectionClaim** 或 **OnItemAbsenceInStringCollectionClaim**，要求您提供下列中繼資料：**ClaimTypeOnWhichToEnable** 可指定要評估的宣告類型，**ClaimValueOnWhichToEnable** 可指定要比較的值。
+使用 **OnClaimsExistence**、**OnItemExistenceInStringCollectionClaim** 或 **OnItemAbsenceInStringCollectionClaim** 時，您必須提供下列中繼資料：**ClaimTypeOnWhichToEnable** 可指定要評估的宣告類型，**ClaimValueOnWhichToEnable** 可指定要比較的值。
 
 只有在 **identityProviders** 字串集合包含 `facebook.com` 的值時，才會執行下列技術設定檔：
 

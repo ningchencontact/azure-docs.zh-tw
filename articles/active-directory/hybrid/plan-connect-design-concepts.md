@@ -1,10 +1,10 @@
 ---
-title: Azure AD Connect：設計概念 |Microsoft Docs
+title: Azure AD Connect：設計概念 | Microsoft Docs
 description: 本主題詳細說明特定的實作設計領域
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.workload: Identity
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bf5384333504df023e98650934c77192f23f9f71
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 3d6141ac1fabe1a0391e6ad23276e5bc5ea1afb6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945989"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471768"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：設計概念
 本文件旨在說明 Azure AD Connect 實作設計期間必須考量的領域。 本文件是特定領域的深入探討，而在其他文件中也會簡短描述這些概念。

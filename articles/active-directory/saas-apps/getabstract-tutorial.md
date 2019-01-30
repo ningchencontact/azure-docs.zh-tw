@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Getabstract 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 2b63d048-b529-4fad-9e90-f244323409dd
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 1bb43f65bd77315be398a9c22e7fc1500de07754
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 11515f74ae95cc317fe27de323da2de6c46c163c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424815"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825097"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>教學課程：Azure Active Directory 與 Getabstract 整合
 
@@ -184,7 +184,7 @@ Getabstract 與 Azure AD 整合提供下列優點：
 
 本節目標是在 Getabstract 中建立名為 Britta Simon 的使用者。 Getabstract 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 當您嘗試存取 Getabstract 時，如果 Getabstract 還沒有使用者，它就會建立新的使用者。
 >[!Note]
->如果您需要手動建立使用者，請連絡 [Getabstract 支援小組](https://www.getabstract.com/en/contact)
+>如果您需要手動建立使用者，請與 [Getabstract 支援小組](https://www.getabstract.com/en/contact)連絡
 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
@@ -222,7 +222,7 @@ Getabstract 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Getabstract] 圖格時，應該會自動登入您的 Getabstract 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Huddle 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 8389ba4c-f5f8-4ede-b2f4-32eae844ceb0
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 050a5a210ab10a557b149513a0416b188f4618ba
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d9d145aa5da636574426f1ff4ad978eb857ab252
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885898"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>教學課程：Azure Active Directory 與 Huddle 整合
 
@@ -184,7 +184,7 @@ Huddle 與 Azure AD 整合提供下列優點：
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
     b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
-    例如，BrittaSimon@contoso.com
+    例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
@@ -249,7 +249,7 @@ Huddle 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Huddle ] 圖格時，您應該會取得 Huddle 應用程式的自動登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

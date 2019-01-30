@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Mercer BenefitsCentra
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 3788b28c-49aa-4208-9acd-630362008e89
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 963aff019c849b2637819296185e138d531ddef2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0bb6b5ac2a52f559461077d6318eee8ed52aedc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422530"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809508"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>教學課程：Azure Active Directory 與 Mercer BenefitsCentral (MBC) 整合
 
@@ -110,7 +110,7 @@ ms.locfileid: "39422530"
 
     ![Mercer BenefitsCentral (MBC) 網域與 URL 單一登入資訊](./media/mercerhrs-tutorial/tutorial_mercerhrs_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `stg.mercerhrs.com/saml2.0`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`stg.mercerhrs.com/saml2.0`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
 
@@ -205,7 +205,7 @@ ms.locfileid: "39422530"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下存取面板中的 Mercer BenefitsCentral (MBC) 磚時，您應該會自動登入 Mercer BenefitsCentral (MBC) 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

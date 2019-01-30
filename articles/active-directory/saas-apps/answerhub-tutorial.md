@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 AnswerHub 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 447a3911bc1f021fb1ca2658716de1910b5379b6
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3bced675ad074de7050aee08d2a63b4831ba3606
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044067"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810341"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>教學課程：Azure Active Directory 與 AnswerHub 整合
 
@@ -257,7 +257,7 @@ ms.locfileid: "39044067"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [AnswerHub] 圖格時，應該會自動登入您的 AnswerHub 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

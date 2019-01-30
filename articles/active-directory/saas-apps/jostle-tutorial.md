@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Jostle 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9ca4ca1f-8f68-4225-81a6-1666b486d6a8
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: b988d908b995b1144837c8642a8864a87e2fc61a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fb048ed9752f3e06a08abc4410c394de0bebdb21
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437513"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>教學課程：Azure Active Directory 與 Jostle 整合
 
@@ -210,7 +210,7 @@ Jostle 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Jostle] 圖格時，您應該會取得 Jostle 應用程式的自動登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

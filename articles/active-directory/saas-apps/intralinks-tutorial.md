@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Intralinks 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 147f2bf9-166b-402e-adc4-4b19dd336883
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 44cae95cfd01f8d6fbd6ddb4a11e9af290042ffa
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 09866fbaa1ddea68b84013633040d28b3e930aad
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038069"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814336"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>教學課程：Azure Active Directory 與 Intralinks 整合
 
@@ -256,7 +256,7 @@ Intralinks 會針對其他所有 Intralinks 應用程式使用相同的 SSO 身�
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Intralinks] 圖格時，應該會自動登入您的 Intralinks 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

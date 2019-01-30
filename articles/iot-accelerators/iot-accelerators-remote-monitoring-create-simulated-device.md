@@ -8,19 +8,19 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: 06909c06087219cdfa6edccbfed70ea1694e5a03
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7a7a32cf1d67e9a4bbe49996b258164eb25c3763
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633720"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446760"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>建立及測試新模擬裝置
 
 遠端監視解決方案加速器可讓您定義自己的模擬裝置。 本文會示範如何定義新的模擬燈泡裝置，然後在本機進行測試。 解決方案加速器中包含冷卻器和卡車等模擬裝置。 不過，您可以定義自己的模擬裝置，以在部署實際裝置之前，先測試您的 IoT 解決方案。
 
 > [!NOTE]
-> 本文說明如何使用裝置模擬服務中裝載的模擬裝置。 如果您想要建立實體裝置，請參閱[將裝置連線到遠端監視解決方案加速器](iot-accelerators-connecting-devices.md)。
+> 本文說明如何使用裝置模擬服務中裝載的模擬裝置。 如果您想要建立真實裝置，請參閱[將裝置連線到遠端監視解決方案加速器](iot-accelerators-connecting-devices.md)。
 
 本操作指南會示範如何自訂裝置模擬微服務。 此微服務會是遠端監視解決方案加速器的一部份。 為說明裝置模擬的功能，本操作指南會使用 Contoso IoT 應用程式中的兩個情節：
 

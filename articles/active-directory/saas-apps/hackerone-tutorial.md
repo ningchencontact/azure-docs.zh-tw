@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 HackerOne 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 229d1efb-b6a5-4df8-9839-5d551487db4e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 4e33ad66fe0ced9a426a608f4193ff52dec4f7ee
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fe070505970516efcd4e2ae46dedff2792f95b08
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441828"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817192"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>教學課程：Azure Active Directory 與 HackerOne 整合
 
@@ -148,9 +148,9 @@ HackerOne 與 Azure AD 整合提供下列優點：
 
     a. 在 [電子郵件網域] 文字方塊中，輸入註冊的網域。
 
-    b. 在 [單一登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 **「SAML 單一登入服務 URL」** 值。
+    b. 在  ****[Single Sign On URL] \(單一登入 URL\) **文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL]** 值。
 
-    c. 在從 Azure 入口網站下載的記事本中開啟您的**憑證檔**，將它的內容複製到您的剪貼簿，然後在 [X.509 憑證]  文字方塊貼上。
+    c. 在記事本中開啟您從 Azure 入口網站下載的**憑證檔**，將其內容複製到您的剪貼簿，然後貼到 [X509 Certificate] \(X509 憑證\) 文字方塊中。
     
     d. 按一下 [檔案] 。
 

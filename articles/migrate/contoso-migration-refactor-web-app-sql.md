@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: eb046ceebf9c6233fa5178d18603add2f0c26a29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 94ed136b48c53bd582a8b3ad210d421764b9f0f6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608012"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808454"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso 移轉：將內部部署應用程式重構至 Azure Web 應用程式和 Azure SQL 資料庫
 

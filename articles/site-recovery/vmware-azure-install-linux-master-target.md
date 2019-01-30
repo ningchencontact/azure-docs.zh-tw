@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: befc979b84c5ace3b8c787b184e52f09ada9ea2b
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7ff73051abc5168b4dc3852a9008adc22d7d56c6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321394"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811854"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>安裝 Linux 主要目標伺服器以便進行容錯回復
 您可以在將虛擬機器容錯移轉至 Azure 之後，將虛擬機器容錯回復至內部部署網站。 若要進行容錯回復，您需要在從 Azure 到內部部署網站的過程中重新保護虛擬機器。 針對此程序，您需要內部部署的主要目標伺服器以接收流量。 
@@ -185,7 +185,7 @@ Azure Site Recovery 主要目標伺服器需要特定版本的 Ubuntu，因此�
 #### <a name="download-and-install-additional-packages"></a>下載並安裝其他套件
 
 > [!NOTE]
-> 請確定您有網際網路連線以便下載並安裝其他套件。 若沒有網際網路連線，則必須以手動方式尋找這些 RPM 套件並加以安裝。
+> 請確定您有網際網路連線以便下載並安裝其他套件。 若沒有網際網路連線，則必須以手動方式尋找這些 Deb 套件並加以安裝。
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 

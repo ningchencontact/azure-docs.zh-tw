@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Softeon WMS 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 07c5de0d-90aa-43b3-b24e-0cc334b2f9b0
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 158879a78fca70bd46e56fcd369e0ac494f79652
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 89a84b3fbdb5a0d4d66bedc726ff06ce1c6079f1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422224"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-softeon-wms"></a>教學課程：Azure Active Directory 與 Softeon WMS 整合
 
@@ -207,7 +207,7 @@ Softeon WMS 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下 [存取面板] 中的 [Softeon WMS] 圖格時，您應該會看到 Softeon WMS 應用程式的登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

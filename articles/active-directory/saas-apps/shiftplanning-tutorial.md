@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Humanity 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 5858300027d77b6057e059960f1c997b4bfc1e56
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a656535dee20d3133ab93d3aec4529cb59158f7d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429003"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814082"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>教學課程：Azure Active Directory 與 Humanity 整合
 
@@ -258,7 +258,7 @@ ms.locfileid: "39429003"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 按一下存取面板中的 [Humanity] 圖格，應會自動登入您的 Humanity 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

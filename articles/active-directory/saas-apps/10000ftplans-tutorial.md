@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 10,000ft Plans 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b60c955e-8fa3-4872-a897-c4e81fd7beac
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: cc6b1036d98aca62360ed8a935d2d1719c7f4069
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 91c485d17b12a973f08660687a4135ff140a84b9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230347"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>教學課程：Azure Active Directory 與 10,000ft Plans 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36230347"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 10,000ft Plans 整合，您需要下列項目：
 

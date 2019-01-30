@@ -4,7 +4,7 @@ description: 本文件詳述 Azure AD Connect 中可用的裝置選項
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: c0ff679c-7ed5-4d6e-ac6c-b2b6392e7892
 ms.service: active-directory
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c21b4b8996d7dae62c2aa1937c2876a66f6f82bd
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 95c631c38b975c71d5e026d33391792ee811bbc6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320555"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477068"
 ---
 # <a name="azure-ad-connect-device-options"></a>Azure AD Connect：裝置選項
 
 下列文件提供與 Azure AD Connect 中的各種可用裝置選項有關的資訊。 您可以使用 Azure AD Connect 來設定下列兩項作業： 
-* **加入混合式 Azure AD**：如果您的環境具有內部部署 AD 使用量，而且您想要獲得 Azure AD 的好處，您可以實作已加入混合式 Azure AD 的裝置。 這些裝置會加入您的內部部署 Active Directory 和您的 Azure Active Directory。
+* **混合式 Azure AD Join**：如果您的環境具有內部部署 AD 使用量，而且您想要獲得 Azure AD 的好處，您可以實作已加入混合式 Azure AD 的裝置。 這些裝置會加入您的內部部署 Active Directory 和您的 Azure Active Directory。
 * **裝置回寫**：裝置回寫用於對 AD FS (2012 R2 或更高版本) 保護的裝置啟用裝置型條件式存取
 
 ## <a name="configure-device-options-in-azure-ad-connect"></a>設定 Azure AD Connect 中的裝置選項

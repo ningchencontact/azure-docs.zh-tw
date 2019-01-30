@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Recognize 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: cfad939e-c8f4-45a0-bd25-c4eb9701acaa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b2d5acfcb722845d7f346668597c073319f273f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49d501a07f2efa6e9c6e20dfe2a026badf13f624
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448779"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824145"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>教學課程：Azure Active Directory 與 Recognize 整合
 
@@ -46,7 +46,7 @@ ms.locfileid: "39448779"
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
 - 除非必要，否則請勿使用生產環境。
-- 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用供應項目](https://azure.microsoft.com/pricing/free-trial/)。
+- 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用版供應項目](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
@@ -117,7 +117,7 @@ ms.locfileid: "39448779"
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://recognizeapp.com/<your-domain>`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Recognize 客戶支援小組](mailto:support@recognizeapp.com)以取得登入 URL，而且您可以從 [SSO 設定] 區段 (本教學課程稍後會說明) 中開啟 [服務提供者中繼資料 URL] 以取得識別碼值。 . 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Recognize 用戶端支援小組](mailto:support@recognizeapp.com)以取得登入 URL，而您則可以從 [SSO Settings] \(SSO 設定\) 區段 (本教學課程稍後會說明) 中開啟 [Service Provider Metadata URL] \(服務提供者中繼資料 URL\) 以取得 [Identifier] \(識別碼\) 值。 上也提供本文中使用的原始碼。 
  
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -127,7 +127,7 @@ ms.locfileid: "39448779"
 
     ![設定單一登入](./media/recognize-tutorial/tutorial_general_400.png)
 
-1. 在 [Recognize 組態] 區段上，按一下 [設定 Recognize] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+1. 在 [Recognize 組態] 區段上，按一下 [設定 Recognize] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL]、[SAML 實體識別碼] 和 [SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/recognize-tutorial/tutorial_recognize_configure.png) 
 
@@ -161,7 +161,7 @@ ms.locfileid: "39448779"
    
     ![在應用程式端設定單一登入](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-1. 在空白瀏覽器下方開啟**中繼資料 URL 連結**，以下載中繼資料文件。 然後，從檔案中複製 EntityDescriptor 值 (entityID) 值，然後貼到 Azure 入口網站中 [Recognize 網域及 URL] 區段的 [識別碼] 文字方塊中。
+1. 在空白瀏覽器下方開啟**中繼資料 URL 連結**，以下載中繼資料文件。 然後，從檔案中複製 EntityDescriptor 值 (entityID)，並貼到 Azure 入口網站上 [Recognize 網域及 URL] 區段的 ****[識別碼] 文字方塊中。
     
     ![在應用程式端設定單一登入](./media/recognize-tutorial/tutorial_recognize_004.png)
 
@@ -258,7 +258,7 @@ ms.locfileid: "39448779"
 
 本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。
 
-當您在 [存取面板] 中按一下 [Recognize] 圖格時，應該會自動登入您的 Recognize 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+當您在 [存取面板] 中按一下 [Recognize] 圖格時，應該會自動登入您的 Recognize 應用程式。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

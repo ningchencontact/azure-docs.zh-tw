@@ -4,7 +4,7 @@ description: 本文詳述何謂風險事件。
 services: active-directory
 keywords: azure active directory identity protection, 安全性, 風險, 風險層級, 弱點, 安全性原則
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4bca7ed2f10ce6b0231a260a9cf5b7468476343f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 7c352b92edede8bb986a00d5db846bda7b299df2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652144"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808080"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 風險事件
 
@@ -44,6 +44,9 @@ Azure Active Directory 目前會偵測六種風險事件類型：
 - [從不熟悉的位置登入](#sign-in-from-unfamiliar-locations) 
 
 ![風險事件](./media/concept-risk-events/91.png)
+
+> [!IMPORTANT]
+> 有時，您可能會發現在[登入報告](concept-sign-ins.md)中沒有相對應登入項目的風險事件。 這是因為 Identity Protection 會同時評估**互動式**和**非互動式**登入的風險，而登入報告則只會顯示互動式登入的部分。
 
 您針對偵測到風險事件所獲得的深入解析會與您的 Azure AD 訂用帳戶息息相關。 
 

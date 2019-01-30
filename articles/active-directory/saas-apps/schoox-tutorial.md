@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Schoox 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: f8b4cdcc-cbf6-4229-9427-05632e33f942
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 3f26809d934708ecad2e3dda69a8cfc25e02d58a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9ea9bac0aac5fe491da14f077fa6615343013742
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051395"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807281"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-schoox"></a>教學課程：Azure Active Directory 與 Schoox 整合
 
@@ -172,7 +172,7 @@ Schoox 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-schoox-test-user"></a>建立 Schoox 測試使用者
 
-在本節中，您會在 Schoox 中建立名為 Britta Simon 的使用者。 與 [Schoox 支援小組](https://www.schoox.com/help/)合作，在 Schoox 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Schoox 中建立名為 Britta Simon 的使用者。 請與 [Schoox 支援小組](https://www.schoox.com/help/)合作，在 Schoox 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -209,7 +209,7 @@ Schoox 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Schoox 磚時，應該會自動登入您的 Schoox 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -4,7 +4,7 @@ description: 說明 Azure AD Connect 中的宣告式佈建組態模型。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9242ffc0c87ee9f314745463b8287ad7531a982d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 45b145d9a8922bc3da50cef7d9fa7aacf260417d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310287"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471764"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 同步處理：了解宣告式佈建
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 同步：了解宣告式佈建
 本主題說明 Azure AD Connect 中的組態模型。 此模型稱為宣告式佈建，它可讓您輕鬆地進行組態變更。 本主題中所述的許多項目都是進階的，而且在大部分客戶案例中並非必要。
 
 ## <a name="overview"></a>概觀
@@ -48,7 +48,7 @@ ms.locfileid: "46310287"
 範圍可定義為群組和子句。 子句位於群組中。 邏輯 AND 使用於群組中的所有子句之間。 例如，(department =IT AND country = Denmark)。 邏輯 OR 使用於群組之間。
 
 ![範圍](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
-此圖中的範圍應該讀為 (department = IT AND country = Denmark) OR (country=Sweden)。 如果群組 1 或 2 群組評估為 true，規則便在範圍中。
+ 此圖中的範圍應該讀為 (department = IT AND country = Denmark) OR (country=Sweden)。 如果群組 1 或 2 群組評估為 true，規則便在範圍中。
 
 範圍模組支援下列作業。
 
@@ -68,13 +68,13 @@ ms.locfileid: "46310287"
 ## <a name="join"></a>聯結
 同步處理管線中的聯結模組負責尋找來源中物件和目標中物件之間的關聯性。 在輸入規則上，此關聯性是連接器空間中的物件找到對 Metaverse 中物件的關聯性。  
 ![聯結 cs 與 mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
-目標在於查看應該相關聯的 Metaverse 中是否已經有一個物件 (由另一個連接器建立)。 比方說，在帳戶-資源樹系中，帳戶樹系中的使用者應該與資源樹系中的使用者聯結。
+ 目標在於查看應該相關聯的 Metaverse 中是否已經有一個物件 (由另一個連接器建立)。 比方說，在帳戶-資源樹系中，帳戶樹系中的使用者應該與資源樹系中的使用者聯結。
 
 聯結大多數使用於輸入規則，以將連接器空間物件與相同的 Metaverse 物件聯結在一起。
 
 聯結會定義為一或多個群組。 在群組中，您有一些子句。 邏輯 AND 使用於群組中的所有子句之間。 邏輯 OR 使用於群組之間。 群組的處理順序為從上而下。 當一個群組在目標中恰巧找到一個相符的物件，則不會評估任何其他聯結規則。 如果找到零個或多個物件，則處理會繼續下一個規則群組。 基於這個理由，應該最先建立最明確的規則，而最後建立比較模糊的規則。  
 ![聯結定義](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
-此圖中的聯結會從上而下處理。 首先，同步處理管線會查看是否有相符的 employeeID。 如果沒有，第二個規則會查看帳戶名稱是否可用來將物件聯結在一起。 如果也不相符，則第三個 (最後一個) 規則會使用使用者名稱尋找更模糊的相符項目。
+ 此圖中的聯結會從上而下處理。 首先，同步處理管線會查看是否有相符的 employeeID。 如果沒有，第二個規則會查看帳戶名稱是否可用來將物件聯結在一起。 如果也不相符，則第三個 (最後一個) 規則會使用使用者名稱尋找更模糊的相符項目。
 
 如果所有聯結規則經評估後沒有完全相符的項目，則會使用 [說明] 頁面上的 [連結類型]。 如果此選項設定為 [佈建] ，則目標中會建立新的物件。  
 ![佈建或聯結](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
@@ -91,7 +91,7 @@ ms.locfileid: "46310287"
 刪除 Metaverse 物件後，所有與標示要 [佈建]  的輸出同步處理規則相關聯的物件都會標示要刪除。
 
 ## <a name="transformations"></a>轉換
-轉換用來定義屬性應如何從來源流動到目標。 流程可以有下列其中一種 **流程類型**︰直接、常數或運算式。 直接流程，讓屬性值依現狀流動，而不進行其他轉換。 常數值可設定指定的值。 運算式會使用宣告式佈建運算式語言來表示應該如何轉換。 如需運算式語言的詳細資料，請參閱 [了解宣告式佈建運算式語言](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) 主題。
+轉換用來定義屬性應如何從來源流動到目標。 流程可以有下列其中一種 **流程類型**︰[直接]、[常數] 或 [運算式]。 直接流程，讓屬性值依現狀流動，而不進行其他轉換。 常數值可設定指定的值。 運算式會使用宣告式佈建運算式語言來表示應該如何轉換。 如需運算式語言的詳細資料，請參閱 [了解宣告式佈建運算式語言](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) 主題。
 
 ![佈建或聯結](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
 
@@ -123,11 +123,11 @@ ms.locfileid: "46310287"
 
 在 *Out to AD - User Exchange hybrid* 可以找到下列流程：  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
-此運算式的意思是︰如果使用者信箱位於 Azure AD 中，則將屬性從 Azure AD 傳送至 AD。 如果並非如此，請勿將任何項目送回 Active Directory。 在此情況下，它會在 AD 中保留現有的值。
+ 此運算式的意思是︰如果使用者信箱位於 Azure AD 中，則將屬性從 Azure AD 傳送至 AD。 如果並非如此，請勿將任何項目送回 Active Directory。 在此情況下，它會在 AD 中保留現有的值。
 
 ### <a name="importedvalue"></a>ImportedValue
 函式 ImportedValue 與其他所有函式都不同，其屬性名稱必須以引號 (而非方括號) 括住：  
-`ImportedValue("proxyAddresses")`。
+`ImportedValue("proxyAddresses")` 。
 
 通常在同步處理期間，屬性會使用預期的值，即使它尚未匯出或在匯出期間 (「協定塔的頂端」) 收到錯誤。 輸入同步處理會假設尚未到達已連接目錄的屬性最後還是會到達。 在某些情況下，請務必只同步處理已連接目錄所確認的值 (「全像圖和差異匯入協定塔」)。
 
@@ -158,9 +158,9 @@ ms.locfileid: "46310287"
 
 **概觀主題**
 
-* [Azure AD Connect 同步處理：了解及自訂同步處理](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 同步：了解並自訂同步處理](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)
 
 **參考主題**
 
-* [Azure AD Connect 同步處理：函式參考](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect 同步：函式參考](reference-connect-sync-functions-reference.md)

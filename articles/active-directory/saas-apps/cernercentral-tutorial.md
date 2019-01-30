@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Cerner Central 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d2bc549d-d286-4679-854e-bb67c62b0475
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 400aa0a50c0f05937011adf62f76d1d96fde3fc2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 82541e8d4eb0a3f603fd70e5ba6724debb4e006c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447535"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808132"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>教學課程：Azure Active Directory 與 Cerner Central 整合
 
@@ -205,7 +205,7 @@ ms.locfileid: "39447535"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 [Cerner Central] 圖格時，應該會自動登入您的 Cerner Central 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+當您在「存取面板」中按一下 [Cerner Central] 圖格時，應該會自動登入您的 Cerner Central 應用程式。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

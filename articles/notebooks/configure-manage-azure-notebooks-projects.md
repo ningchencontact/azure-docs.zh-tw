@@ -11,28 +11,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: d948be88fd75202dea010520d3531f151d6934b0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104079"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847538"
 ---
 # <a name="manage-and-configure-projects"></a>管理及設定專案
 
 Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Notebook 執行所在) 的組態，以及檔案資料夾和描述性中繼資料。 Azure Notebooks 的專案儀表板可讓您管理檔案，或者設定專案的特性：
 
+- 專案要在哪個計算層上執行，該層可以為免費層或 Azure 虛擬機器。
 - 專案中繼資料包括名稱、描述、共用專案時使用的識別碼，以及專案為公用或私用。
-- 您可以使用與其他任何檔案系統相同的方式，來管理專案的 Notebook、資料和其他檔案。
-- 您會透過啟動指令碼或直接透過終端機來設定專案的環境。
-- 若是透過終端機，您具有記錄的存取權。
+- 專案的筆記本、資料和其他檔案，管理它們就和在其他檔案系統中管理一樣。
+- 專案的環境，您可以透過啟動指令碼或直接透過終端機來管理。
+- 記錄檔，您可以透過終端機存取。
 
 > [!Note]
-> 除非專案擁有者讓您成為共同作業者，否則您無法管理未擁有的專案。 在其他情況下，您無法使用這裡所述的管理和設定功能。
+> 此處所述的管理和設定功能僅適用於最初建立專案的專案擁有者。 不過，您可以將專案複製到您自己的帳戶中，在此情況下您會成為擁有者，並可以視需要設定專案。
 
 每當您執行 Notebook 或其他檔案時，Azure Notebooks 會啟動基礎虛擬機器。 伺服器會自動儲存檔案，並且在處於非使用狀態 60 分鐘之後關閉。 您也可以使用 [關機] 命令 (鍵盤快速鍵：h)，隨時停止伺服器。
+
+## <a name="compute-tier"></a>計算層
+
+專案儀表板上的 [執行] 下拉式清單是您選取專案要在上面執行之計算層的位置。 根據預設，專案是在**免費計算**層上執行，受限為 4GB 的記憶體和 1GB 的資料，以防止不當使用：
+
+![專案儀表板上的計算層下拉式清單](media/project-compute-tier-list.png)
+
+您可以藉由使用已佈建在 Azure 訂用帳戶中的其他虛擬機器來繞過這些限制。 您也必須在該虛擬機器上安裝 Jupyter。 資料科學虛擬機器映像是很好的選擇，因為它們預設就包含 Jupyter。
+
+您可以使用下拉式清單中的 [直接計算] 選項，連線至任何已適當設定的 Azure 虛擬機器。 選取此選項會提示您輸入名稱 (會在清單中顯示)、VM 的 IP 位址和連接埠 (通常是 8000，這是 JupyterHub 接聽的預設連接埠)，以及 VM 認證：
+
+![收集 [直接計算] 選項伺服器資訊的提示](media/project-compute-tier-direct.png)
+
+如果下列條件成立，下拉式清單也會顯示[資料科學虛擬機器 (DSVM)](/azure/machine-learning/data-science-virtual-machine) 執行個體。 (如果未符合這些條件中的任一個，您仍然可以使用 [直接連線] 選項連線到 DSVM，並輸入從 Azure 入口網站取得的值。)
+
+- 您以使用 Azure Active Directory (AAD) 的帳戶 (如公司帳戶) 登入 Azure Notebooks。
+- 您的帳戶已連接到 Azure 訂用帳戶。
+- 您在該訂用帳戶 (至少有「讀取者」存取權) 有一或多個虛擬機器是使用適用於 Linux (Ubuntu) 的資料科學虛擬機器映像。
+
+![專案儀表板上的下拉式清單中的資料科學虛擬機器執行個體](media/project-compute-tier-dsvm.png)
+
+當您選取 DSVM 執行個體時，Azure Notebooks 可能會提示您輸入您在建立 VM 時使用的特定機器認證。
+
+若要建立新的 DSVM 執行個體，請依照[建立 Ubuntu 資料科學 VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro) 中的指示執行。 您「必須」使用**適用於 Linux (Ubuntu) 的資料科學虛擬機器**映像，因為 Azure Notebooks 不會顯示使用 Windows 或 CentOS 映像的 DSVM。
 
 ## <a name="edit-project-metadata"></a>編輯專案中繼資料
 

@@ -3,18 +3,18 @@ title: Azure 自動化 Hybrid Runbook Worker
 description: 本文提供有關安裝和使用混合式 Runbook 背景工作角色的資訊，它是 Azure 自動化的一項功能，可供您在本機資料中心內或雲端提供者的機器上用來執行 Runbook。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d42a9458afa6244e0b6d8e7deb420a8ac49a130f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 1671a068611d9f5842c2cb09f3b83b18dd483921
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634161"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820677"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>使用混合式 Runbook 背景工作角色將資料中心內或雲端的資源自動化
 
@@ -101,7 +101,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 若要讓混合式 Runbook 背景工作角色與自動化進行通訊，需要下列連接埠和 URL：
 
-* 連接埠︰只需要 TCP 443 以便進行傳出網際網路存取。
+* 連接埠：只需 TCP 443，就能對外存取網際網路。
 * 全域 URL：*.azure-automation.net
 * US Gov 維吉尼亞州的全域 URL： *.azure automation.us
 * 代理程式服務： https://\<workspaceId\>.agentsvc.azure-automation.net
@@ -115,6 +115,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 | 美國中西部 | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | 美國中南部 |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
 | 美國東部 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
+| 美國西部 2 |wus2-jobruntimedata-prod-su1.azure-automation.net</br>wus2-agentservice-prod-1.azure-automation.net |
 | 加拿大中部 |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
 | 西歐 |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
 | 北歐 |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
@@ -151,3 +152,4 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 ## <a name="next-steps"></a>後續步驟
 
 若要了解如何設定您的 Runbook，將您在內部部署資料中心或其他雲端環境中的程序自動化，請參閱[在混合式 Runbook 背景工作角色上執行 Runbook](automation-hrw-run-runbooks.md)。
+

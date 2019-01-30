@@ -4,7 +4,7 @@ description: 說明如何針對使用 Azure AD Connect 時發生的 SQL 連線�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5e56f429cd866ed8d0500e427d1927bbef0beb34
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d8f8c9a6034461c9dae9a00c6ff112740733e793
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310307"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474433"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>對 Azure AD Connect 的 SQL 連線問題進行疑難排解
 本文說明如何針對 Azure AD Connect 和 SQL Server 間的連線問題進行疑難排解。 

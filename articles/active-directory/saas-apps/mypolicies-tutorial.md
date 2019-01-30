@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 myPolicies 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bf79e858-1dfb-4ab3-a6df-74b2d5a878d2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: jeedes
-ms.openlocfilehash: f4c34d224c65a6e339f12def01079a87247d2d60
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f8d6db758f01e3ef46a8c770477e1231ee8a8c08
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429109"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809270"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>教學課程：Azure Active Directory 與 myPolicies 整合
 
@@ -112,7 +112,7 @@ myPolicies 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/mypolicies-tutorial/tutorial_mypolicies_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<tenantname>.mypolicies.com/`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<tenantname>.mypolicies.com/`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<tenantname>.mypolicies.com/users/auth/saml/callback`
 
@@ -191,7 +191,7 @@ myPolicies 與 Azure AD 整合提供下列優點：
  
 ### <a name="creating-a-mypolicies-test-user"></a>建立 myPolicies 測試使用者
 
-在本節中，您要在 myPolicies 中建立名為 Britta Simon 的使用者。 請與 [myPolicies 支援小組](mailto:support@mypolicies.com)合作，在 myPolicies 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 myPolicies 中建立名為 Britta Simon 的使用者。 請與 [myPolicies 支援小組](mailto:support@mypolicies.com)合作，在 myPolicies 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -228,7 +228,7 @@ myPolicies 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 myPolicies 圖格時，應該會自動登入您的 myPolicies 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e241317231f3c607c373cb8a54e4b5bf6601b8e7
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620756"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54457048"
 ---
 > [!div class="op_single_selector"]
 > * [Windows 上的 C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -37,7 +37,7 @@ ms.locfileid: "52620756"
 * 回應從解決方案中的**裝置**頁面觸發的動作。
 * 回應從解決方案中的**裝置**頁面傳送的設定變更。
 
-若要完成此教學課程，您需要一個有效的 Azure 帳戶。  如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+若要完成此教學課程，您需要一個有效的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="before-you-start"></a>開始之前
 
@@ -62,7 +62,7 @@ ms.locfileid: "52620756"
 
 1. 選擇 [+ 新增裝置]，然後選擇 [實體]作為 [裝置類型]：
 
-    ![新增實體裝置](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![新增真實裝置](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. 輸入 **Physical-chiller** 作為裝置識別碼。 選擇 [對稱金鑰] 和 [自動產生金鑰] 選項：
 

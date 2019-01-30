@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 中的 LinkedIn 整合資料共用 | Microsoft Docs
-description: 說明 LinkedIn 帳戶連線如何在 Azure Active Directory 中透過 Microsoft 應用程式共用資料
+title: Azure Active Directory 中的 LinkedIn 整合資料共用與同意 | Microsoft Docs
+description: 說明 LinkedIn 整合如何在 Azure Active Directory 中透過 Microsoft 應用程式共用資料
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 01/22/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 25060f41528c59d252adbc854704c6060becd907
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 776c793fb797e9388f0852773315f27cd42dde25
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319116"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471713"
 ---
-# <a name="user-consent-and-linkedin-account-connections-data-sharing"></a>使用者同意和 LinkedIn 帳戶連線資料共用
+# <a name="linkedin-integration-data-sharing-and-consent"></a>LinkedIn 整合資料共用與同意
 
 身為 Azure Active Directory (Azure AD) 管理員，您可以讓您組織中的使用者同意將其 Microsoft 公司或學校帳戶連接到其 LinkedIn 帳戶。 使用者連接帳戶時，某些 Microsoft 應用程式和服務會提供 LinkedIn 的資訊和重點摘要。 使用者也可以預期本身使用 LinkedIn 的網路體驗會得到改善，也會獲得更多 Microsoft 的資訊。
 
-若要查看 Microsoft 應用程式和服務中的 LinkedIn 資訊，使用者必須同意連接本身的 Microsoft 與 LinkedIn 帳戶。 使用者首次按一下來查看某人在 Outlook、OneDrive 或 SharePoint Online 的個人檔案卡片上顯示的 LinkedIn 資訊時，系統會提示使用者連接其帳戶。 LinkedIn 帳戶連線不會向您的使用者完全啟用，必須等到使用者同意接受此體驗並連接自己帳戶。
+若要查看 Microsoft 應用程式和服務中的 LinkedIn 資訊，使用者必須同意連接自己的 Microsoft 與 LinkedIn 帳戶。 使用者首次按一下來查看某人在 Outlook、OneDrive 或 SharePoint Online 的個人檔案卡片上顯示的 LinkedIn 資訊時，系統會提示使用者連接其帳戶。 LinkedIn 帳戶連線不會向您的使用者完全啟用，必須等到使用者同意接受此體驗並連接自己帳戶。
 
 [!INCLUDE [active-directory-gdpr-note](../../../includes/gdpr-hybrid-note.md)]
 
@@ -31,13 +31,13 @@ ms.locfileid: "54319116"
 
 可存取 Microsoft 應用程式和服務中的 LinkedIn 資訊，使用者就更容易與組織內外的同事、客戶和合作夥伴溝通互動，並建立起專業的人際關係。 新的使用者可以加快與同事建立聯繫的速度，更加深入了解同事，並輕鬆獲得更多資訊。 下列範例顯示了 LinkedIn 資訊在 Microsoft 應用程式中的個人檔案卡片上的顯示方式：
 
-![啟用 LinkedIn 帳戶連線](./media/linkedin-user-consent/display-example.png)
+![啟用 LinkedIn 整合](./media/linkedin-user-consent/display-example.png)
 
-## <a name="enable-and-announce-linkedin-account-connections"></a>啟用並宣佈 LinkedIn 帳戶連線
+## <a name="enable-and-announce-linkedin-integration"></a>啟用並宣佈 LinkedIn 整合
 
 您必須是 Azure Active Directory 管理員，才能管理您組織的設定。 您可以啟用所有使用者的連線，也可以僅啟用特定一組使用者的設定。
 
-1. 若要啟用或停用帳戶連線整合，請按照 [LinkedIn 帳戶連線](linkedin-integration.md)中的步驟進行。
+1. 若要啟用或停用整合，請依照 [LinkedIn 整合](linkedin-integration.md)中的步驟進行操作。
 2. 您在組織中宣佈整合 LinkedIn 時，請告知使用者參閱 [Microsoft 應用程式和服務中的 LinkedIn 資訊](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381) (英文) 的常見問題集。 本文會提供 LinkedIn 資訊的顯示位置、連接帳戶方法等資訊。
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>使用者同意 Microsoft 與 LinkedIn 的資料存取

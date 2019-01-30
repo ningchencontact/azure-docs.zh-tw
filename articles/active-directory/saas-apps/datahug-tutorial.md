@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Datahug 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 5c0dc1ea-7ff4-4554-b60b-0f2fa9f5abaa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-ms.openlocfilehash: b3c67d794bd5947dc377cbdb7578e23ff3e05390
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a7a7a9cffa2dab3cc50a393f15d7419728502f8e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441504"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814218"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>教學課程：Azure Active Directory 與 Datahug 整合
 
@@ -112,7 +112,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/datahug-tutorial/tutorial_datahug_ur1.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://apps.datahug.com/identity/<uniqueID>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://apps.datahug.com/identity/<uniqueID>`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://apps.datahug.com/identity/<uniqueID>/acs`
 
@@ -240,7 +240,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
-當您在存取面板中按一下 [Datahug] 磚時，應該會自動登入您的 Datahug 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+當您在存取面板中按一下 [Datahug] 磚時，應該會自動登入您的 Datahug 應用程式。 如需有關「存取面板」的詳細資訊，請參閱 [存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

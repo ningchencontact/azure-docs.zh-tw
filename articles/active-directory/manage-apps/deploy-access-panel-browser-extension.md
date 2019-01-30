@@ -4,7 +4,7 @@ description: 如何使用群組原則針對我的 app 入口網站部署 Interne
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be3950d199b4362caa5fcd3f66b948802cfa1c49
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3a48b2ce4689490b3a38917edfb776a6ea28c478
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877471"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463434"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>如何使用群組原則部署 Internet Explorer 的存取面板延伸模組
 本教學課程示範如何使用群組原則，在您的使用者電腦上遠端安裝 Internet Explorer 的存取面板延伸模組。 需要登入使用 [密碼單一登入](what-is-single-sign-on.md#password-based-sso)設定的應用程式的 Internet Explorer 使用者，都需要此延伸模組。
@@ -80,7 +80,7 @@ ms.locfileid: "52877471"
 3. 以滑鼠右鍵按一下 [軟體安裝]，然後選取 [新增] > [套件...]
    
     ![建立新的軟體安裝套件](./media/deploy-access-panel-browser-extension/new-package.png)
-4. 移至共用資料夾，該資料夾包含[步驟 1：建立發佈點](#step-1-create-the-distribution-point)的安裝程式套件，選取 .msi 檔案，然後按一下 [開啟]。
+4. 移至共用資料夾 (此資料夾包含來自[步驟 1：建立發佈點](#step-1-create-the-distribution-point)的安裝程式套件)，選取 .msi 檔案，然後按一下 [開啟]。
    
    > [!IMPORTANT]
    > 如果共用位於相同的伺服器上，確認您是透過網路檔案路徑存取此 .msi，，而不是本機檔案路徑。
@@ -97,7 +97,7 @@ ms.locfileid: "52877471"
 ## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>步驟 4：自動啟用 Internet Explorer 的延伸模組
 除了執行安裝程式之外，Internet Explorer 的每個延伸模組必須明確啟用才能使用。 遵循下列步驟以使用群組原則啟用存取面板延伸模組：
 
-1. 在 [群組原則管理編輯器]  視窗中，移至下列其中一個路徑，根據您在 [步驟 3：指派安裝套件](#step-3-assign-the-installation-package)中選擇的設定類型而定：
+1. 在 [群組原則管理編輯器] 視窗中，移至下列其中一個路徑 (視您在[步驟 3：指派安裝套件](#step-3-assign-the-installation-package)中選擇的設定類型而定)：
    
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
@@ -151,7 +151,7 @@ ms.locfileid: "52877471"
 ## <a name="step-6-testing-the-deployment"></a>步驟 6：測試部署
 請遵循下列步驟以確認延伸模組是否成功部署：
 
-1. 如果您使用 [電腦組態] 進行部署，請登入屬於您在 [步驟 2：建立群組原則物件](#step-2-create-the-group-policy-object)中選取之 OU 的用戶端電腦。 如果您使用 [使用者組態] 進行部署，請務必以屬於該 OU 的使用者身分登入。
+1. 如果您已使用 [電腦設定] 來進行部署，請登入屬於您在[步驟 2：建立群組原則物件](#step-2-create-the-group-policy-object)中所選 OU 的用戶端機器。 如果您使用 [使用者組態] 進行部署，請務必以屬於該 OU 的使用者身分登入。
 2. 可能要登入好幾次才能讓群組原則變更完全更新至此電腦。 若要強制更新，開啟 [命令提示字元] 視窗，然後執行下列命令：`gpupdate /force`
 3. 您必須重新啟動電腦才能進行安裝。 安裝延伸模組時，開機可能需要比平常更多的時間。
 4. 重新開機之後，開啟 **Internet Explorer**。 在視窗的右上角按一下 [工具] 的齒輪圖示，然後選取 [管理附加元件]。

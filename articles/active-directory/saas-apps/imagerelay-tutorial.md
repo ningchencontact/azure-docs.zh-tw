@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Image Relay 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 65bb5990-07ef-4244-9f41-cd28fc2cb5a2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 326f12ff3923855b09462d4909d37638d4010b48
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0671d2f5ad4be34926c8e3d2b22711c4af5fd435
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435004"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812092"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>教學課程：Azure Active Directory 與 Image Relay 整合
 

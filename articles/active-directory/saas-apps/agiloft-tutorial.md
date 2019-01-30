@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Agiloft 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: aca13814-cdbd-46b8-93dc-1578099c5ee4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: jeedes
-ms.openlocfilehash: f11d705cceb05c9e9cd0b340a680684eecf4f5d9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f851bd260c18509a3233bb3401383e0e04ba6259
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054194"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>教學課程：Azure Active Directory 與 Agiloft 整合
 
@@ -161,13 +161,13 @@ Agiloft 與 Azure AD 整合提供下列優點：
     
     ![Agiloft 設定](./media/agiloft-tutorial/setup4.png) 
 
-    a. 在 [IdP 實體識別碼/簽發者] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
+    a. 在 ****[IdP Entity Id / Issuer] \(IdP 實體識別碼 / 簽發者\) 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] **** 值。
 
-    b. 在 [IdP 登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [單一登入服務 URL] 值。
+    b. 在 ****[IdP Login URL] \(IdP 登入 URL\) 文字方塊中，貼上您從 Azure 入口網站複製的 [單一登入服務 URL] **** 值。
 
-    c. 在 [Idp 登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
+    c. 在 ****[IdP Logout URL] \(IdP 登出 URL\) 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] **** 值。
 
-    d. 在記事本中開啟您從 Azure 入口網站下載的 **base-64 編碼憑證**，將憑證的內容複製到剪貼簿，再貼到 [IdP 提供的 X.509 憑證內容] 文字方塊。
+    d. 在記事本中開啟您從 Azure 入口網站下載的 **base-64 編碼憑證**，將憑證的內容複製到剪貼簿，再貼到 ****[IdP Provided X.509 certificate contents] \(IdP 提供的 X.509 憑證內容\) 文字方塊中。
 
     e. 按一下 [完成] 。
 
@@ -246,7 +246,7 @@ Agiloft 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Agiloft 磚時，應該會自動登入您的 Agiloft 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

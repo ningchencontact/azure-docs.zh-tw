@@ -1,10 +1,10 @@
 ---
-title: 教學課程：Azure Active Directory 與 Salesforce 沙箱整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 與 Salesforce Sandbox 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Salesforce Sandbox 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 48dcb4a3b1e06ab62905092055ba1b48bd0dddb7
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 33d39e617bd55b88d8f04785d937faf176463ee5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114491"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808811"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>教學課程：Azure Active Directory 與 Salesforce 沙箱整合
+# <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>教學課程：Azure Active Directory 與 Salesforce Sandbox 整合
 
 在本教學課程中，您會了解如何整合 Salesforce Sandbox 與 Azure Active Directory (Azure AD)。
 
 沙箱讓您能夠針對不同用途 (例如開發、測試和訓練) 在個別環境中建立貴組織的多個複本，而不會危害 Salesforce 生產環境組織中的資料和應用程式。
-如需詳細資訊，請參閱[沙箱概觀](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5)。
+如需更多詳細資料，請參閱 [Sandbox 概觀](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5)。
 
 Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
@@ -107,11 +107,11 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入連結][4]
 
-2. 按一下畫面頂端的 [變更單一登入模式] 以選取 [SAML] 模式。
+2. 按一下畫面頂端的 [變更單一登入模式]，選取 [SAML] 模式。
 
       ![設定單一登入連結](./media/salesforce-sandbox-tutorial/tutorial_general_300.png)
 
-3. 在 [選取單一登入方法] 對話方塊上，按一下 [SAML] 模式的 [選取] 以啟用單一登入。
+3. 在 [選取單一登入方法] 對話方塊上，按一下 [SAML] 模式的 [選取]，啟用單一登入。
 
     ![設定單一登入連結](./media/salesforce-sandbox-tutorial/tutorial_general_301.png)
 
@@ -219,7 +219,7 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-25. 在 [SAML 單一登入設定] 頁面上，欄位會自動填入資料，在 [名稱] 文字方塊中輸入組態的名稱 (例如：*SPSSOWAAD_Test*) 並按一下 [儲存]。
+25. 在 [SAML 單一登入設定] 頁面上，欄位會自動填入資料，請在 [名稱] 文字方塊中輸入設定的名稱 (例如：*SPSSOWAAD_Test*)，然後按一下 [儲存]。
 
     ![設定單一登入](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
@@ -244,11 +244,11 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者]，然後選取 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
     ![建立 Azure AD 使用者][100]
 
-2. 選取畫面頂端的 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]。
 
     ![建立 Azure AD 測試使用者](./media/salesforce-sandbox-tutorial/create_aaduser_01.png) 
 
@@ -258,10 +258,10 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，鍵入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
-    c. 依序選取 [屬性]、[顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
     d. 選取 [建立] 。
 
@@ -304,7 +304,7 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Salesforce Sandbox] 圖格時，應該會自動登入您的 Salesforce Sandbox 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

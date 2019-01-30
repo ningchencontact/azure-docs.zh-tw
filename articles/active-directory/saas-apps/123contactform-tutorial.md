@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 123ContactForm 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 5211910a-ab96-4709-959a-524c4d57c43e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: ecbe627697fc4f8b5fbfecf96c3cb65d9ffe4607
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 450fc8df69eb5ffb99cb6548e80cd4d3628e7419
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054347"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819436"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>教學課程：Azure Active Directory 與 123ContactForm 整合
 
@@ -112,7 +112,7 @@ ms.locfileid: "39054347"
 
     ![設定單一登入](./media/123contactform-tutorial/url1.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
 
@@ -229,7 +229,7 @@ ms.locfileid: "39054347"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [123ContactForm] 圖格時，應該會自動登入您的 123ContactForm 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

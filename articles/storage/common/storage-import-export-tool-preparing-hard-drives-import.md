@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: b16a476f1960c79c378cd3aa18eae789c289eb54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 44d39dcfd8c271cc97a88da7d1f0bec84bd866df
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244027"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828361"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>準備匯入工作的硬碟
 
@@ -109,11 +109,11 @@ H,Format,SilentMode,Encrypt,
 
 | 欄位 | 值 |
 | --- | --- |
-| DriveLetter | **[必要]**<br/> 每個提供給工具做為目的地的磁碟機上都必須有一個簡單的 NTFS 磁碟區，並已指派磁碟機代號。<br/> <br/>**範例**R 或 r |
+| DriveLetter | **[必要]**<br/> 每個提供給工具做為目的地的磁碟機上都必須有一個簡單的 NTFS 磁碟區，並已指派磁碟機代號。<br/> <br/>**範例**：R 或 r |
 | FormatOption | **[必要]** Format &#124; AlreadyFormatted<br/><br/> **Format**︰指定這個將格式化磁碟上的所有資料。 <br/>**AlreadyFormatted**︰指定此值時，工具會略過格式化。 |
-| SilentOrPromptOnFormat | **[必要]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**︰提供這個值可讓使用者以無訊息模式執行工具。 <br/>**PromptOnFormat**︰工具會提示使用者確認針對每種格式的動作是否是想要的。<br/><br/>如果未設定，命令將會中止並顯示錯誤訊息："Incorrect value for SilentOrPromptOnFormat: none" \(SilentOrPromptOnFormat 的值不正確：無\) |
+| SilentOrPromptOnFormat | **[必要]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**︰提供這個值可讓使用者以無訊息模式執行工具。 <br/>**PromptOnFormat**：工具會提示使用者確認針對每種格式的動作是否是想要的。<br/><br/>如果未設定，命令將會中止並顯示錯誤訊息："Incorrect value for SilentOrPromptOnFormat: none" |
 | 加密 | **[必要]** Encrypt &#124; AlreadyEncrypted<br/> 這個欄位的值決定要加密和不加密的磁碟。 <br/><br/>**Encrypt**︰工具將格式化磁碟機。 如果 "FormatOption" 欄位的值是 "Format"，則此值需為 "Encrypt"。 如果在此情況下指定 "AlreadyEncrypted"，則會造成下列錯誤：「指定 Format 時，也必須指定 Encrypt」。<br/>**AlreadyEncrypted**︰工具將使用 "ExistingBitLockerKey" 欄位中提供的 BitLockerKey 解密磁碟機。 如果 "FormatOption" 欄位的值是 "AlreadyFormatted"，這個值可以是 "Encrypt" 或 "AlreadyEncrypted" |
-| ExistingBitLockerKey | **[必要]** 如果 "Encryption" 欄位的值是 "AlreadyEncrypted"<br/> 這個欄位的值是與特定磁碟相關聯的 BitLocker 金鑰。 <br/><br/>如果 "Encryption" 欄位的值為 "Encrypt"，此欄位應保留空白。  如果在此情況下指定 BitLocker 金鑰，則會造成下列錯誤：「不應指定 Bitlocker 金鑰」。<br/>  **範例**：060456-014509-132033-080300-252615-584177-672089-411631|
+| ExistingBitLockerKey | **[必要]** 如果 "Encryption" 欄位的值是 "AlreadyEncrypted"<br/> 這個欄位的值是與特定磁碟相關聯的 BitLocker 金鑰。 <br/><br/>如果 "Encryption" 欄位的值為 "Encrypt"，此欄位應保留空白。  如果在此情況下指定 BitLocker 金鑰，則會造成下列錯誤：「不應指定 BitLocker 金鑰」。<br/>  **範例**：060456-014509-132033-080300-252615-584177-672089-411631|
 
 ##  <a name="preparing-disk-for-import-job"></a>準備匯入工作的磁碟
 
@@ -341,7 +341,7 @@ WAImportExport 工具擁有 WAImportExport V1 工具的所有功能。 WAImportE
 
 #### <a name="how-can-i-enable-bitlocker-on-my-machine"></a>如何啟用我電腦上的 BitLocker？
 
-簡易的檢查方式是以滑鼠右鍵按一下系統磁碟機上。 它會顯示 Bitlocker 的選項 (如果此功能已開啟)。 如果此功能已關閉，您就不會看到它。
+簡易的檢查方式是以滑鼠右鍵按一下系統磁碟機上。 它會顯示 BitLocker 的選項 (如果此功能已開啟)。 如果此功能已關閉，您就不會看到它。
 
 ![檢查 BitLocker](./media/storage-import-export-tool-preparing-hard-drives-import/BitLocker.png)
 

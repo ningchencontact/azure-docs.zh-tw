@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Allocadia 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c415fc55-6dc1-49f2-a8a2-2fc6e3790d65
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: jeedes
-ms.openlocfilehash: a25fbd4daaa4d1fb09d788ba7ab61392ffb100f2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bebd375365e36026e02aa0d7f447a8b0c3529139
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043909"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807862"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>教學課程：Azure Active Directory 與 Allocadia 整合
 

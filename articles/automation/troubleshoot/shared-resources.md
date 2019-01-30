@@ -8,12 +8,12 @@ ms.date: 12/3/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ce78c86cdae9a06100fd17d00e0229805e42983b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 911f592c43865ea8bdfe85c1ad1071c7112ae9b6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848454"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475436"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>針對共用資源的錯誤進行疑難排解
 
@@ -39,6 +39,65 @@ ms.locfileid: "52848454"
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
+### <a name="module-fails-to-import"></a>案例：無法匯入模組，或無法在匯入之後執行 Cmdlet
+
+#### <a name="issue"></a>問題
+
+模組無法匯入或匯入成功，但沒有擷取到任何 Cmdlet。
+
+#### <a name="cause"></a>原因
+
+模組可能無法成功匯入 Azure 自動化的部分常見原因如下：
+
+* 結構不符合「自動化」所需的結構。
+* 模組相依於另一個尚未部署到您自動化帳戶的模組。
+* 模組在資料夾中遺失其相依性。
+* 您使用 `New-AzureRmAutomationModule` Cmdlet 來上傳模組，但您尚未提供完整的儲存路徑，或是尚未使用可公開存取的 URL 來載入模組。
+
+#### <a name="resolution"></a>解決方案
+
+下列任何一個解決方案都可以修正此問題：
+
+* 確認模組依照下列格式：ModuleName.Zip **->** ModuleName 或版本號碼 **->** (ModuleName.psm1、ModuleName.psd1)
+* 開啟 .psd1 檔案，並且查看該模組是否有任何相依性。 如果有，請將這些模組上傳至自動化帳戶。
+* 請確定任何參考的 .dll 會出現在模組資料夾。
+
+### <a name="all-modules-suspended"></a>案例：Update-AzureModule.ps1 會在更新模組時暫止
+
+#### <a name="issue"></a>問題
+
+使用 [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) Runbook 來更新 Azure 模組時，模組更新的更新程序會暫止。
+
+#### <a name="cause"></a>原因
+
+使用 `Update-AzureModule.ps1` 指令碼時，用來判斷要同時更新多少個模組的預設設定為 10。 同時更新太多模組時，更新程序很容易發生錯誤。
+
+#### <a name="resolution"></a>解決方案
+
+同一個自動化帳戶中需要所有 AzureRM 模組的情況並不常見。 建議僅匯入您需要的 AzureRM 模組。
+
+> [!NOTE]
+> 避免匯入 **AzureRM** 模組。 匯入 **AzureRM** 模組會導致匯入所有 **AzureRM.\*** 模組，不建議這樣做。
+
+如果更新程序暫止，您需要將 `SimultaneousModuleImportJobCount` 參數新增至 `Update-AzureModules.ps1` 指令碼，並提供低於預設值 10 的值。 如果您實作此邏輯，建議您從 3 或 5 的值開始。 `SimultaneousModuleImportJobCount` 是 `Update-AutomationAzureModulesForAccount` 系統 Runbook 的參數，可用來更新 Azure 模組。 此變更會讓程序執行時間變得更長，但更有可能完成。 下列範例顯示參數以及要在 Runbook 中放置它的位置：
+
+ ```powershell
+         $Body = @"
+            {
+               "properties":{
+               "runbook":{
+                   "name":"Update-AutomationAzureModulesForAccount"
+               },
+               "parameters":{
+                    ...
+                    "SimultaneousModuleImportJobCount":"3",
+                    ... 
+               }
+              }
+           }
+"@
+```
+
 ## <a name="run-as-accounts"></a>執行身分帳戶
 
 ### <a name="unable-create-update"></a>案例：您無法建立或更新執行身分帳戶
@@ -59,7 +118,7 @@ You do not have permissions to create…
 
 若要建立或更新執行身分帳戶，您必須具備執行身分帳戶所用資源的適當權限。 若要深入了解建立或更新執行身分帳戶所需的權限，請參閱[執行身分帳戶權限](../manage-runas-account.md#permissions)。
 
-如果問題是由鎖定造成，請確認鎖定可以移除並瀏覽至已鎖定的資源，以滑鼠右鍵按一下鎖定並選擇 [刪除] 來移除鎖定。
+如果問題是因為鎖定而造成的，請確認鎖定可以移除。 然後，瀏覽至已鎖定的資源、以滑鼠右鍵按一下鎖定，然後選擇 [刪除] 以移除鎖定。
 
 ## <a name="next-steps"></a>後續步驟
 

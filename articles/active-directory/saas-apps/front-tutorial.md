@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Front 之間的單一
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 88270b6d-2571-434a-b139-b6ccc3a2b19f
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: d0bdf3ff282152f92e1b661bf19768489d1a029b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 72bbd6b39e6a2f59b718071f11882c37ef571cae
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438608"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826372"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>教學課程：Azure Active Directory 與 Front 整合
 
@@ -110,7 +110,7 @@ ms.locfileid: "39438608"
 
     ![設定單一登入](./media/front-tutorial/tutorial_front_url1.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.frontapp.com`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.frontapp.com`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<companyname>.frontapp.com/sso/saml/callback`
      
@@ -199,7 +199,7 @@ ms.locfileid: "39438608"
  
 ### <a name="create-a-front-test-user"></a>建立 Front 測試使用者
 
-在本節中，您會於 Front 建立名為 Britta Simon 的使用者。 請與 [Front 客戶支援小組](mailto:support@frontapp.com)合作，在 Front 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會於 Front 建立名為 Britta Simon 的使用者。 請與 [Front 用戶端支援小組](mailto:support@frontapp.com)合作，在 Front 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

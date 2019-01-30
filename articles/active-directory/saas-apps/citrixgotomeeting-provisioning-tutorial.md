@@ -1,10 +1,10 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 GoToMeeting 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 GoToMeeting 來自動佈建使用者 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 GoToMeeting 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 0f59fedb-2cf8-48d2-a5fb-222ed943ff78
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d2dafd409c6c7b2be06a6f18c3d392aff681efe
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1368bccfd71013f4f3c84148be1e74ffc98e3a51
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345772"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815679"
 ---
-# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>教學課程︰設定 GoToMeeting 來自動佈建使用者
+# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>教學課程：設定 GoToMeeting 來自動佈建使用者
 
 本教學課程旨在說明您需要在 GoToMeeting 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 GoToMeeting。
 

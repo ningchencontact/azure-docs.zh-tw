@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 15Five 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2fb301c2-7d7a-4046-8ee1-7dc9e7684806
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 3cc0d9122fd7335bc29c7f35c1163cb39d3481b8
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 13d3bc8c83ad921c781f067f53e9562965a6417a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054296"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813469"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>教學課程：Azure Active Directory 與 15Five 整合
 
@@ -224,7 +224,7 @@ ms.locfileid: "39054296"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [15Five] 磚時，應該會看到 15Five 應用程式的登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

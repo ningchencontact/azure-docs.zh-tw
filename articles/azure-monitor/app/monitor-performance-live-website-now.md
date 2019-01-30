@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 463b2e8c7e349fa46737a9d630bd027fb28e7780
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2c8c8233e8d471b0f1934df9ff7e0f2b4b3e3860
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199380"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819130"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>在執行階段使用 Application Insights 狀態監視器檢測 Web 應用程式
 
@@ -32,11 +32,13 @@ ms.locfileid: "54199380"
 
 ![App Insights 概觀圖表的螢幕擷取畫面，包含失敗的要求、伺服器回應時間和伺服器要求的相關資訊](./media/monitor-performance-live-website-now/overview-graphs.png)
 
-下列三種途徑均可讓您將 Application Insights 套用至 .NET Web 應用程式：
+下列兩種途徑可讓您將 Application Insights 套用至 .NET Web 應用程式：
 
 * **建置階段：**[新增 Application Insights SDK][greenbrown] 至您的 Web 應用程式程式碼。
 * **執行階段：** 如下所述，檢測伺服器上的 Web 應用程式，而不需重建並重新部署程式碼。
-* **兩者：** 將 SDK 建置到您的 Web 應用程式程式碼中，同時套用執行階段延伸模組。 集合兩者之優點。
+
+> [!NOTE]
+> 如果您使用建置階段檢測，執行階段檢測將無法運作，即使已開啟它也一樣。
 
 以下是您可在每種途徑中取得的優勢摘要︰
 

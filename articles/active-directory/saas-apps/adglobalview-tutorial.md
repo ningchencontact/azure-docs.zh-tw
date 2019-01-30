@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 ADP GlobalView 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ffb6464f-714d-41a9-869a-2b7e5ae9f125
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 11a3df06cbd1c3f34bfd5b04c1f6dfc41cab8187
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8ac0856dcadb92b79090a6520ef29707fd7a3bae
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223107"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813673"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>教學課程：Azure Active Directory 與 ADP GlobalView 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36223107"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 ADP GlobalView 的整合，您需要下列項目：
 

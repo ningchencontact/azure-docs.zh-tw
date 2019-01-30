@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 BeeLine 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 0726859d-1dac-44a0-810b-da56d89039ee
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 6ae549d7a58c35438345e43a178a3ea12630efe7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bc1859ae14dfe0328479e775ed058cdec12bfcc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444329"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822819"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>教學課程：Azure Active Directory 與 BeeLine 整合
 
@@ -112,7 +112,7 @@ ms.locfileid: "39444329"
 
     ![設定單一登入](./media/beeline-tutorial/tutorial_beeline_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://projects.beeline.net/<instancename>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://projects.beeline.net/<instancename>`
 
     b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
     | |

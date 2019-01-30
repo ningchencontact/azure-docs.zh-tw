@@ -1,10 +1,10 @@
 ---
-title: 教學課程︰Azure Active Directory 與 SensoScientific Wireless Temperature Monitoring System 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 與 SensoScientific Wireless Temperature Monitoring System 整合 | Microsoft Docs
 description: 了解如何在 Azure Active Directory 與 SensoScientific Wireless Temperature Monitoring System 之間設定單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ee9a924d-ccde-45b0-ab40-877f82f5dfa2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 139a40f339c2f403999f1c3b7fe65192d45c84fd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 131d430217ca299698be6fb7e45a0c8270184864
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426916"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824470"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>教學課程︰Azure Active Directory 與 SensoScientific Wireless Temperature Monitoring System 整合
+# <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>教學課程：Azure Active Directory 與 SensoScientific Wireless Temperature Monitoring System 整合
 
 在本教學課程中，您會了解如何將 SensoScientific Wireless Temperature Monitoring System 與 Azure Active Directory (Azure AD) 進行整合。
 
@@ -180,7 +180,7 @@ ms.locfileid: "39426916"
  
 ### <a name="creating-a-sensoscientific-wireless-temperature-monitoring-system-test-user"></a>建立 SensoScientific Wireless Temperature Monitoring System 測試使用者
 
-若要使 Azure AD 使用者能夠登入 SensoScientific Wireless Temperature Monitoring System，必須將他們佈建到 SensoScientific Wireless Temperature Monitoring System。 使用 [SensoScientific Wireless Temperature Monitoring System 支援小組](https://www.sensoscientific.com/contact-us/) 在 SensoScientific Wireless Temperature Monitoring System 平台新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+若要使 Azure AD 使用者能夠登入 SensoScientific Wireless Temperature Monitoring System，必須將他們佈建到 SensoScientific Wireless Temperature Monitoring System。 請與 [SensoScientific Wireless Temperature Monitoring System 支援小組](https://www.sensoscientific.com/contact-us/)合作，在 SensoScientific Wireless Temperature Monitoring System 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -214,7 +214,7 @@ ms.locfileid: "39426916"
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
-在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。 在存取面板中按一下 [SensoScientific Wireless Temperature Monitoring System] 圖格，系統會將您自動登入 SensoScientific Wireless Temperature Monitoring System 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。 在存取面板中按一下 [SensoScientific Wireless Temperature Monitoring System] 圖格，系統會將您自動登入 SensoScientific Wireless Temperature Monitoring System 應用程式。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

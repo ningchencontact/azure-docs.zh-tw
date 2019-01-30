@@ -1,11 +1,11 @@
 ---
-title: Azure AD Connect 同步處理：變更 AD DS 帳戶密碼 | Microsoft Docs
+title: Azure AD Connect 同步：變更 AD DS 帳戶密碼 | Microsoft Docs
 description: 本主題文件說明如何在變更 AD DS 帳戶的密碼後更新 Azure AD Connect。
 services: active-directory
 keywords: AD DS 帳戶, Active Directory 帳戶, 密碼
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 051ff6aa4e650f884a4712376b5dc420cc86fc3a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1b487651e938beadcada78eaf51b3f50beb7acf1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305487"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470526"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>變更 AD DS 帳戶密碼
 AD DS 帳戶指的是 Azure AD Connect 用來與內部部署 Active Directory 進行通訊的使用者帳戶。 如果您變更 AD DS 帳戶的密碼，您必須以新密碼更新 Azure AD Connect 同步處理服務。 否則，同步處理服務就無法再正確地與內部部署 Active Directory 進行同步處理，而且您會遇到下列錯誤︰
@@ -54,6 +54,6 @@ AD DS 帳戶指的是 Azure AD Connect 用來與內部部署 Active Directory �
 ## <a name="next-steps"></a>後續步驟
 **概觀主題**
 
-* [Azure AD Connect 同步處理：了解及自訂同步處理](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 同步：了解並自訂同步處理](how-to-connect-sync-whatis.md)
 
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)

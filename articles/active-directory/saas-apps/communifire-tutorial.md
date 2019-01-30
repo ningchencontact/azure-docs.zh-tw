@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Communifire 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: de2a164d-2115-43e7-a9ed-e54f483f4aeb
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 590d8fe0e974587effc7d8a3c59546b5684b146c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 44cb5c847ea6c4186001f789de8c7ce04842af38
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446226"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811361"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-communifire"></a>教學課程：Azure Active Directory 與 Communifire 整合
 
@@ -110,7 +110,7 @@ Communifire 與 Azure AD 整合提供下列優點：
 
     ![Communifire 網域與 URL 單一登入資訊](./media/communifire-tutorial/tutorial_communifire_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.communifire.com`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.communifire.com`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.communifire.com/SAML/AssertionConsumerService.aspx`
 
@@ -177,7 +177,7 @@ Communifire 與 Azure AD 整合提供下列優點：
 本節的目標是要在 Communifire 中建立名為 Britta Simon 的使用者。 Communifire 支援預設啟用的 Just-In-Time 佈建。 嘗試存取 Communifire 期間，會在儲存設定檔詳細資料後建立新的使用者 (如果尚不存在)。
 
 >[!Note]
->如果您需要手動建立使用者，請連絡 [Communifire 支援小組](https://my.axerosolutions.com/spaces/77/communifire-support/help/welcome)。
+>如果您需要手動建立使用者，請連絡 [Communifire 支援小組](https://my.axerosolutions.com/spaces/77/communifire-support/help/welcome)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -214,7 +214,7 @@ Communifire 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Communifire] 圖格時，應該會自動登入您的 Communifire 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

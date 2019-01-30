@@ -4,7 +4,7 @@ description: 說明宣告式佈建運算式。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 26c835e6c2f658f7ad852fdd02dc8974db33e47b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 488309d9d78834896a939c66ccdc7515310103de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306047"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460486"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect 同步處理：了解宣告式佈建運算式
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect 同步：了解宣告式佈建運算式
 Azure AD Connect 同步處理是以 Forefront Identity Manager 2010 中最先引進的宣告式佈建為基礎。 它可讓您實作完整的身分識別整合商務邏輯，而不需要撰寫已編譯的程式碼。
 
 宣告式佈建最主要的部分是在屬性流程中使用運算式語言。 使用的語言是 Microsoft® Visual Basic® for Applications (VBA) 的子集。 此語言用於 Microsoft Office，而且擁有 VBScript 經驗的使用者也可以辨識它。 宣告式佈建運算式語言只會使用函式，而不是結構化語言。 沒有任何方法或陳述式。 函式會改為巢狀函式來表示程式流程。
@@ -37,7 +37,7 @@ Azure AD Connect 同步處理是以 Forefront Identity Manager 2010 中最先引
 * 參數以百分比符號識別：%ParameterName%
 * 字串常數以引號括住：例如 "Contoso" (注意：必須使用一般引號 ""，而非智慧引號 “”)
 * 數值不加引號，而且必須是十進位。 十六進位值前面會加上 &H。 例如，98052、&HFF
-* 布林值以兩個常數表示：True、False。
+* 布林值以下列常數表示：True、False。
 * 內建常數和常值只以其名稱表示：NULL、CRLF、IgnoreThisFlow
 
 ### <a name="functions"></a>Functions
@@ -93,10 +93,10 @@ Active Directory 連接器對於輸入同步處理規則提供下列參數：
 
 **概觀主題**
 
-* [Azure AD Connect 同步處理：了解及自訂同步處理](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 同步：了解並自訂同步處理](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)
 
 **參考主題**
 
-* [Azure AD Connect 同步處理：函式參考](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect 同步：函式參考](reference-connect-sync-functions-reference.md)
 

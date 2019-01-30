@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 BenSelect 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ffa17478-3ea1-4356-a289-545b5b9a4494
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 9af2de667085ef736c3ae37b75e3c67981161267
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8fd01dc9757d358a33dae0d053e560af647652c9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434273"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809712"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benselect"></a>教學課程：Azure Active Directory 與 BenSelect 整合
 

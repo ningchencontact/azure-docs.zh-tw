@@ -4,7 +4,7 @@ description: 使用 Azure Resource Manager 範本將 Windows Server 虛擬機器
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: a083bd2fe730f9723330abf9bce03d760b7442d8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157253"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856633"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>使用 Resource Manager 範本將 Windows Server 虛擬機器加入受控網域
 本文示範如何使用 Resource Manager 範本，將 Windows Server 虛擬機器加入至 Azure Active Directory Domain Services 之受控網域。
@@ -38,11 +38,11 @@ ms.locfileid: "50157253"
 
 ## <a name="install-and-configure-required-tools"></a>安裝並設定必要的工具
 您可以使用下列選項之一來執行這份文件所述的步驟：
-* **Azure PowerShell**：[安裝和設定](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
+* **Azure PowerShell**：[安裝及設定](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) \(英文\)
 * **Azure CLI**：[安裝及設定](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
-## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>選項 1：佈建新的 Windows Server VM，並將它加入至受控網域
+## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>選項 1：佈建新的 Windows Server VM，並將它加入受控網域
 **快速入門範本名稱**：[201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 
 若要部署 Windows Server 虛擬機器，並將它加入至受控網域，請執行下列步驟：
@@ -59,7 +59,7 @@ ms.locfileid: "50157253"
 11. 在 [要加入的網域] 中，指定受控網域之 DNS 網域名稱。
 12. 在 [網域使用者名稱]，指定受控網域上的使用者帳戶名稱，您應使用它將 VM 加入受控網域。
 13. 在 [網域密碼] 中，使用 'domainUsername' 參數指定網域使用者帳戶參照到的密碼。
-14. 選擇性：您可以指定自訂 OU 的 **OU 路徑**，在其中新增虛擬機器。 如果您未指定此參數的值，要將虛擬機器新增到受控網域上的預設 **AAD DC 電腦** OU。
+14. 選用：您可以指定自訂 OU 的 **OU 路徑**，在其中新增虛擬機器。 如果您未指定此參數的值，要將虛擬機器新增到受控網域上的預設 **AAD DC 電腦** OU。
 15. 在 [VM 系統管理員使用者名稱] 欄位中，指定虛擬機器的本機系統管理員帳戶名稱。
 16. 在 [VM 系統管理員密碼] 欄位中，指定虛擬機器的本機系統管理員密碼。 提供虛擬機器的強式本機系統管理員密碼，以防止暴力密碼破解攻擊。
 17. 按一下 [我同意上方所述的條款及條件]。
@@ -87,7 +87,7 @@ ms.locfileid: "50157253"
 8. 在 [網域加入使用者名稱]，指定受控網域上的使用者帳戶名稱，您應使用它將 VM 加入受控網域。
 9. 在 [網域加入使用者密碼] 中，使用 'domainUsername' 參數指定網域使用者帳戶參照到的密碼。
 10. 在 [網域 FQDN] 中，指定受控網域之 DNS 網域名稱。
-11. 選擇性：您可以指定自訂 OU 的 **OU 路徑**，在其中新增虛擬機器。 如果您未指定此參數的值，要將虛擬機器新增到受控網域上的預設 **AAD DC 電腦** OU。
+11. 選用：您可以指定自訂 OU 的 **OU 路徑**，在其中新增虛擬機器。 如果您未指定此參數的值，要將虛擬機器新增到受控網域上的預設 **AAD DC 電腦** OU。
 12. 按一下 [我同意上方所述的條款及條件]。
 13. 按一下 [購買] 來佈建虛擬機器。
 

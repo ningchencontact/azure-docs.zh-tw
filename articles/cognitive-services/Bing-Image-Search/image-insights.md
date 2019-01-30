@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 280c646a3265ff7ab9a3d32412a2be2e3989e22e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bb17916fb4d9b9b3ae1481ead7508214f5956c70
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297464"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464267"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>使用 Bing 影像搜尋 API 取得影像見解
 
@@ -216,10 +216,10 @@ Host: api.cognitive.microsoft.com
 
 矩形的值相對於原始影像的高度與寬度，且是在 0.0 到 1.0 之間的範圍。 例如，如果影像是 300x200，且區域的左上角位於點 (10, 20)，右下角位於點 (290, 150)，則正規化的矩形是：  
 
--   Left: 10 / 300 = 0.03333...  
--   Top:  20 / 200 = 0.1  
--   Right: 290 / 300 = 0.9667...  
--   Bottom: 150 / 200 = 0.75  
+-   左：10 / 300 = 0.03333...  
+-   上：20 / 200 = 0.1  
+-   右：290 / 300 = 0.9667...  
+-   下：150 / 200 = 0.75  
 
 您可以使用 Bing 在後續見解呼叫中傳回的區域。 例如，針對已辨識的實體取得在視覺效果上類似的影像。 如需詳細資訊，請參閱[裁剪影像以使用視覺效果類似和實體辨識模組](#croppingimages)。 以下顯示區域欄位和您用來裁剪影像的查詢參數之間的對應。  
 
@@ -408,7 +408,7 @@ Host: api.cognitive.microsoft.com
 }
 ```
 
-若要取得一份在線上提供該產品的商家清單 (請參閱 [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offer-offercount) 欄位)，請再次呼叫 API，然後將 `modules` 設定為 ShoppingSources。 然後，將 `insightsToken` 查詢參數設定為在產品摘要影像中找到的權杖。  
+若要取得一份在線上提供該產品的商家清單 (請參閱 [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 欄位)，請再次呼叫 API，然後將 `modules` 設定為 ShoppingSources。 然後，將 `insightsToken` 查詢參數設定為在產品摘要影像中找到的權杖。  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=ShoppingSources&insightsToken=ccid_hb3uRvUk*mid_BF5C252A47F2C765...&mkt=en-us HTTP/1.1    

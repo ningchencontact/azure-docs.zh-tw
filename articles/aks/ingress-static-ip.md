@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 3e65fc863d065e68948f417fcc22ececcf5271c8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8b05a770c58e1d796e2658fe5a3bd5aa1808825c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515432"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469981"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用靜態公用 IP 位址建立輸入控制器
 
@@ -184,6 +184,19 @@ spec:
 $ kubectl apply -f certificates.yaml
 
 certificate.certmanager.k8s.io/tls-secret created
+```
+
+若要確認已成功建立憑證，請使用 `kubectl describe certificate tls-secret` 命令。
+
+如果已發出憑證，您將會看到類似下列的輸出：
+```
+Type    Reason          Age   From          Message
+----    ------          ----  ----          -------
+  Normal  CreateOrder     11m   cert-manager  Created new ACME order, attempting validation...
+  Normal  DomainVerified  10m   cert-manager  Domain "demo-aks-ingress.eastus.cloudapp.azure.com" verified with "http-01" validation
+  Normal  IssueCert       10m   cert-manager  Issuing certificate...
+  Normal  CertObtained    10m   cert-manager  Obtained certificate from ACME server
+  Normal  CertIssued      10m   cert-manager  Certificate issued successfully
 ```
 
 ## <a name="run-demo-applications"></a>執行示範應用程式

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 13e42ae9b25c769a468a8c9839fd1aaf0abf2787
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: f7b3cc638e28e4f28694f668660a28ffe6e9fa51
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213139"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817991"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>對 Azure 資料箱磁碟中的問題進行疑難排解
 
@@ -68,7 +68,7 @@ ms.locfileid: "54213139"
 
 | 錯誤訊息/工具行為      | 建議                                                                                               |
 |-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| None<br><br>資料箱磁碟解除鎖定工具損毀。                                                                            | 未安裝 Bitlocker。 請確定執行資料箱磁碟解除鎖定工具的主機電腦已安裝 BitLocker。                                                                            |
+| None<br><br>資料箱磁碟解除鎖定工具損毀。                                                                            | 未安裝 BitLocker。 請確定執行資料箱磁碟解除鎖定工具的主機電腦已安裝 BitLocker。                                                                            |
 | 不支援最新版本的 .NET Framework。 支援的版本是 4.5 版和更新版本。<br><br>工具結束並且有訊息。  | 未安裝 .NET 4.5。 請在執行資料箱磁碟解除鎖定工具的主機電腦上，安裝 .NET 4.5 或更新版本。                                                                            |
 | 無法解除鎖定或驗證任何磁碟區。 連絡 Microsoft 支援服務。  <br><br>此工具無法解除鎖定或驗證任何已鎖定的磁碟機。 | 此工具無法使用提供的通行金鑰，解除鎖定任何已鎖定的磁碟機。 連絡 Microsoft 支援服務以進行後續步驟。                                                |
 | 下列磁碟區已解除鎖定並經過驗證。 <br>磁碟區磁碟機代號：E:<br>無法使用下列通行金鑰解除鎖定任何磁碟區：werwerqomnf、qwerwerqwdfda <br><br>此工具會解除鎖定部分磁碟機，並列出成功和失敗的磁碟機代號。| 部分成功。 無法使用提供的通行金鑰解除鎖定部分磁碟機。 連絡 Microsoft 支援服務以進行後續步驟。 |

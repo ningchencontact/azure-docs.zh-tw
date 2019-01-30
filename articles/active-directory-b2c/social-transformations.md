@@ -3,19 +3,19 @@ title: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的社
 description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的社交帳戶宣告轉換範例。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d9b592e7f61b87860e4f6fa2aa4d46e253b6257e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d9ef8f9c68a09e998c393584ceb6e3be53f91a9c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382681"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848796"
 ---
 # <a name="social-accounts-claims-transformations"></a>社交帳戶宣告轉換
 
@@ -63,10 +63,10 @@ ms.locfileid: "44382681"
 ### <a name="example"></a>範例
 
 - 輸入宣告：
-    - **key**: 12334
-    - **identityProvider**: Facebook.com
+    - **金鑰**：12334
+    - **identityProvider**：Facebook.com
 - 輸出宣告：
-    - **alternativeSecurityId**: { "issuer": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
+    - **alternativeSecurityId**：{ "issuer": "facebook.com", "issuerUserId":"MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
 
 ## <a name="additemtoalternativesecurityidcollection"></a>AddItemToAlternativeSecurityIdCollection
 
@@ -74,7 +74,7 @@ ms.locfileid: "44382681"
 
 | Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | 字串 | 要加入輸出宣告的 ClaimType。 |
+| InputClaim | item | 字串 | 要新增至輸出宣告的 ClaimType。 |
 | InputClaim | collection | alternativeSecurityIdCollection | 宣告轉換使用的 ClaimTypes (如果在原則中可用)。 如果已提供，則宣告轉換會在集合結尾加入 `item`。 |
 | OutputClaim | collection | alternativeSecurityIdCollection | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 新集合包含來自輸入 `collection` 和 `item` 的項目。 |
 
@@ -100,10 +100,10 @@ ms.locfileid: "44382681"
 ### <a name="example"></a>範例
 
 - 輸入宣告：
-    - **item**: { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" }
-    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]
+    - **item**：{ "issuer": "facebook.com", "issuerUserId":"MTIzNDU=" }
+    - **collection**：[ { "issuer": "live.com", "issuerUserId":"MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]
 - 輸出宣告：
-    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+    - **collection**：[ { "issuer": "live.com", "issuerUserId":"MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId":"MTIzNDU=" } ]
 
 ## <a name="getidentityprovidersfromalternativesecurityidcollectiontransformation"></a>GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation
 
@@ -128,7 +128,7 @@ ms.locfileid: "44382681"
 ```
 
 - 輸入宣告：
-    - **alternativeSecurityIdCollection**: [ { "issuer": "google.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+    - **alternativeSecurityIdCollection**：[ { "issuer": "google.com", "issuerUserId":"MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId":"MTIzNDU=" } ]
 - 輸出宣告：
     - **identityProvidersCollection**: [ "facebook.com", "google.com" ]
 
@@ -165,6 +165,6 @@ ms.locfileid: "44382681"
 
 - 輸入宣告：
     - **identityProvider**: facebook.com
-    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+    - **collection**：[ { "issuer": "live.com", "issuerUserId":"MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId":"MTIzNDU=" } ]
 - 輸出宣告：
-    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]
+    - **collection**：[ { "issuer": "live.com", "issuerUserId":"MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]

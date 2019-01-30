@@ -1,11 +1,11 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 ThousandEyes 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 ThousandEyes 來自動佈建使用者 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 來自動佈建並取消佈建使用者帳戶至 ThousandEyes。
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: d2912c687d4968a239d5af747df4115ffd71bbeb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2df899e6cb0078cdf949c3f8257719b00554e85b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345755"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815713"
 ---
-# <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>教學課程︰設定 ThousandEyes 來自動佈建使用者
+# <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>教學課程：設定 ThousandEyes 來自動佈建使用者
 
 
 本教學課程旨在說明您需要在 ThousandEyes 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 ThousandEyes。 
@@ -74,7 +74,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![ThousandEyes 佈建](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. 在 [管理員認證] 區段下，輸入您的 ThousandEyes 帳戶所產生的 [祕密權杖] \(您可以在 ThousandEyes 帳戶下找到權杖：[安全性與驗證])。 
+5. 在 [管理員認證] 區段底下，輸入您 ThousandEyes 帳戶所產生的 [OAuth Bearer Token] \(OAuth 持有人權杖\) (您可以在 ThousandEyes 帳戶的 [Profile] \(設定檔\) 區段底下找到或產生權杖)。
 
     ![ThousandEyes 佈建](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 

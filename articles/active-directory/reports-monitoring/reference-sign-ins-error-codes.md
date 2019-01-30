@@ -4,7 +4,7 @@ description: 登入活動報告錯誤碼參考。
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f8d3c3017a914f261c7e4f8bbe0e42d1edf8a9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0de3ced9974941399875ca98991430f10d4f8525
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622426"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820150"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登入活動報告錯誤碼 
 
@@ -135,7 +135,7 @@ ms.locfileid: "51622426"
 |53002|所使用的應用程式不是已核准進行條件式存取的應用程式。 使用者所使用的應用程式，必須是已核准使用的應用程式清單其中一個，才能取得存取權。|
 |53003|因為條件式存取原則，存取遭到封鎖。|
 |53004|使用者必須先完成多重要素驗證註冊程序，才能存取此內容。 使用者應該註冊多重要素驗證。|
-|65001|應用程式 X 沒有存取應用程式 Y 的權限，或已撤銷此權限。 或者，使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。針對此使用者和資源傳送互動式授權要求。 或者，使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。將授權要求傳送給租用戶管理員，以代表應用程式 Y 對資源 Z 採取行動。|
+|65001|應用程式 X 沒有存取應用程式 Y 的權限，或已撤銷此權限。 或者，使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。針對此使用者和資源傳送互動式授權要求。 或者，使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。請將授權要求傳送給租用戶管理員，以代表應用程式Y 針對資源Z 採取行動。|
 |65004|使用者不同意存取應用程式。 讓使用者重試登入，並同意應用程式|
 |65005|應用程式所需資源存取清單不包含資源可探索的應用程式，或用戶端應用程式已要求存取未在其所需資源存取清單中指定的資源，或 Graph 服務傳回不正確的要求或找不到資源。 如果應用程式支援 SAML，則可能是您在設定應用程式時所使用的識別碼 (實體) 不正確。 請嘗試使用下列連結中針對 SAML 所列出的解決方案：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
 |70000|授與無效，原因如下：<ul><li>所要求 SAML 2.0 判斷提示的主體確認方法無效</li><li>V2 上不支援應用程式 OnBehalfOf 流程</li><li>未使用工作階段金鑰簽署主要的重新整理權杖</li><li>外部重新整理權杖無效</li><li>所取得的存取權授與，是不同租用戶的。</li></ul>|
@@ -160,7 +160,7 @@ ms.locfileid: "51622426"
 |80001|驗證代理程式無法連線至 Active Directory。 請確定能看到使用者登入要求處理 DC、且已加入網域的機器上，已安裝驗證代理程式。|
 |80002|內部錯誤。 密碼驗證要求逾時。我們無法將驗證要求傳送至內部的混合式識別服務。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
 |80003|驗證代理程式收到無效的回應。 嘗試對 Active Directory 內部部署進行驗證時，發生未知錯誤。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
-|80005|驗證代理程式：處理驗證代理程式所傳來的回應時，發生未知錯誤。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
+|80005|驗證代理程式：處理「驗證代理程式」所傳來的回應時，發生未知錯誤。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。|
 |80007|驗證代理程式無法驗證使用者的密碼。|
 |80010|驗證代理程式無法連線將密碼解密。 |
 |80011|驗證代理程式無法擷取加密金鑰。|

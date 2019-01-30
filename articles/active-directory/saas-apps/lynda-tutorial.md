@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Lynda.com 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f6c92789-8b64-4049-bac9-8cb928398433
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 12f61e30321514b6e1283e04c5723d9fe2a4e054
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b6d9e52063fe83853b50fc21e7db2461facc841
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449599"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825437"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>教學課程：Azure Active Directory 與 Lynda.com 整合
 
@@ -200,7 +200,7 @@ Lynda.com 與 Azure AD 整合有下列優點：
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
-如果要測試您的單一登入設定，請開啟存取面板。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如果要測試您的單一登入設定，請開啟「存取面板」。 如需有關「存取面板」的詳細資訊，請參閱 [存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

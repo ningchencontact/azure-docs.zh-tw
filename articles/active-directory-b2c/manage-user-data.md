@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 中管理使用者資料 | Microsoft Docs
 description: 了解如何在 Azure AD B2C 中刪除或匯出使用者資料。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 49e9efa537ad1f2a1d7f06dd7f8a68a409c7d4e0
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fc49191fe6141470ddd5304bdd12cec1d40bd1ee
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145549"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854015"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中管理使用者資料
 
@@ -47,7 +47,7 @@ ms.locfileid: "42145549"
 Azure AD B2C 使用者資料僅限於：
 
 - **儲存在 Azure Active Directory 中的資料**：在 Azure AD B2C 驗證使用者過程中，可以使用物件識別碼，或是電子郵件地址或使用者名稱等登入名稱來擷取資料。 
-- **使用者特定的稽核事件報告**：您可以使用物件識別碼為資料編製索引。
+- **使用者特定的稽核事件報告**：您可以使用物件識別碼編製資料索引。
 
 在下列匯出資料流程的範例中，所述由應用程式執行的步驟，亦可由後端處理序來執行，或由具有目錄中系統管理員角色的使用者來執行：
 

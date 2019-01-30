@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: raynew
-ms.openlocfilehash: d3e6a17ba9d0712d921d8e0a1d0bcbcd68ce5cfb
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360432"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812551"
 ---
 # <a name="azure-backup-architecture"></a>Azure 備份架構
 
@@ -163,7 +163,7 @@ Azure 備份會根據備份類型提供不同的代理程式。
 - Azure VM 會使用磁碟來儲存其作業系統、應用程式和資料。
 - Azure VM 至少有兩個磁碟。 一個用於作業系統，一個是暫存磁碟。 VM 也可能有應用程式資料的資料磁碟。 磁碟會儲存為 VHD。
 - 在 Azure 的標準或進階儲存體帳戶中，VHD 會儲存為分頁 Blob。
-    - 標準儲存體：為執行的工作負載不受延遲影響的 VM 提供可靠、低成本的磁碟支援。 標準儲存體可以使用標準 SSD 磁碟。
+    - 標準儲存體：為執行的工作負載不受延遲影響的 VM 提供可靠、低成本的磁碟支援。 標準儲存體可以使用標準 SSD 磁碟或標準 HDD 磁碟。
     - 進階儲存體：高效能磁碟支援。 使用進階 SSD 磁碟。
 - 磁碟有不同的效能層級：
     - 標準 HDD 磁碟：採用 HDD，可用於符合成本效益的儲存。

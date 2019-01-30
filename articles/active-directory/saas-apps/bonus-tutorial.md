@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Bonusly 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 29fea32a-fa20-47b2-9e24-26feb47b0ae6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 175c00d36491fbf43149aef9a590219b330581c1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 181577c6a170d28679e1ca486dc2a8c5a596f20d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422972"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>教學課程：Azure Active Directory 與 Bonusly 整合
 
@@ -143,7 +143,7 @@ ms.locfileid: "39422972"
 
     c. 在 [IdP 登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
 
-    d. 在 [憑證指紋] 文字方塊中貼上從 Azure 入口網站複製的 [指紋] 值。
+    d. 將從 Azure 入口網站複製的 ****[指紋] 值貼到 [Cert Fingerprint] \(憑證指紋\) 文字方塊中。
    
 1. 按一下 [檔案] 。
 

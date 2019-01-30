@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: e535d1c2c581e20667a1ccf10fc97fcf988bc91a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3e8342a719bf9ae7174195f88b97972d7f13193c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001818"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465780"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中支援的 Kubernetes 版本
 
@@ -41,17 +41,18 @@ AKS 支援 Kubernetes 的四個次要版本：
 az aks get-versions --location eastus --output table
 ```
 
-輸出會類似下列範例，會顯示 Kubernetes 版本 1.11.5 是可用的最新版本：
+輸出類似下列範例，其中顯示 Kubernetes 版本 *1.12.4* 是可用的最新版本：
 
 ```
 KubernetesVersion    Upgrades
--------------------  ----------------------
-1.11.5               None available
-1.11.4               1.11.5
-1.10.9               1.11.4, 1.11.5
-1.10.8               1.10.9, 1.11.4, 1.11.5
-1.9.11               1.10.8, 1.10.9
-1.9.10               1.9.11, 1.10.8, 1.10.9
+-------------------  -----------------------
+1.12.4               None available
+1.11.6               1.12.4
+1.11.5               1.11.6, 1.12.4
+1.10.12              1.11.5, 1.11.6
+1.10.9               1.10.12, 1.11.5, 1.11.6
+1.9.11               1.10.9, 1.10.12
+1.9.10               1.9.11, 1.10.9, 1.10.12
 1.8.15               1.9.10, 1.9.11
 1.8.14               1.8.15, 1.9.10, 1.9.11
 ```

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: 7b742840f461744e0be8c7a4ab4d9b392238de4e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232680"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828310"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何建置 Smooth Streaming Windows 市集應用程式
 
@@ -142,7 +142,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
    MediaElement 控制項會用來播放媒體。 下一個課程將使用名稱為 sliderProgress 的滑動軸控制項來控制媒體進度。
 3. 按 **CTRL+S** 儲存檔案。
 
-MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Smooth Streaming 支援，您必須依副檔名和 MIME 類型來註冊 Smooth Streaming 位元組資料流處理常式。  若要註冊，請使用 Windows.Media 命名空間的 MediaExtensionManager.RegisterByteStremHandler 方法。
+MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Smooth Streaming 支援，您必須依副檔名和 MIME 類型來註冊 Smooth Streaming 位元組資料流處理常式。  若要註冊，請使用 Windows.Media 命名空間的 MediaExtensionManager.RegisterByteStreamHandler 方法。
 
 在此 XAML 檔案中，有些事件處理常式會與控制項相關聯。  您必須定義那些事件處理常式。
 

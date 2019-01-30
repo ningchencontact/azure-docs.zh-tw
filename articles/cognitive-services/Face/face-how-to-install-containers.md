@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: ac273ac7d4c6c371670e6b8a8170274602a5318b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 310311c22be25960b15f20d573624f50b0f618b1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536537"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474807"
 ---
 # <a name="install-and-run-containers"></a>安裝及執行容器
 
@@ -178,3 +178,4 @@ POST http://localhost:5000/face/v1.0/detect
 * 檢閱[臉部概觀](Overview.md)以深入了解偵測與識別臉部  
 * 參閱[臉部 API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) \(英文\) 以取得容器所支援之方法的詳細資訊。
 * 參閱[常見問題集 (FAQ)](FAQ.md) 來解決與臉部功能相關的問題。
+* 使用更多[認知服務容器](../cognitive-services-container-support.md)

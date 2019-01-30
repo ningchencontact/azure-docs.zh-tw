@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 RolePoint 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 68d37f40-15da-45f5-a9e1-d53f78e786d1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 1cefb855e089f540946dbd11005f384c33027df7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d16e2ebf6f2a170a65d9e471f0c4a19a3a31ded2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439691"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827834"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>教學課程：Azure Active Directory 與 RolePoint 整合
 

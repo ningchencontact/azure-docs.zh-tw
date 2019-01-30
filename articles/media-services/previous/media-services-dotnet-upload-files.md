@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: juliako
-ms.openlocfilehash: 9edfa8ea0c9e469d09cef7ddbd1c7edda4484b47
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 43da365a6424fa9d489db1f5cd74ff6aeb8f0d7c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444624"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819878"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>使用 .NET 將檔案上傳至媒體服務帳戶
 > [!div class="op_single_selector"]
@@ -54,9 +54,9 @@ ms.locfileid: "42444624"
   
     如果您的資產是儲存體加密，必須設定資產傳遞原則。 如需詳細資訊，請參閱[設定資產傳遞原則](media-services-dotnet-configure-asset-delivery-policy.md)。
 
-如果您指定使用 **CommonEncrypted** 選項或 **EnvelopeEncypted** 選項加密資產，則需要建立資產與 **ContentKey** 的關聯。 如需詳細資訊，請參閱 [如何建立 ContentKey](media-services-dotnet-create-contentkey.md)。 
+如果您指定使用 **CommonEncrypted** 選項或 **EnvelopeEncrypted** 選項加密資產，則需要建立資產與 **ContentKey** 的關聯。 如需詳細資訊，請參閱 [如何建立 ContentKey](media-services-dotnet-create-contentkey.md)。 
 
-如果您指定使用 **StorageEncrypted** 選項來加密資產，則 Media Services SDK for .NET 會建立資產的 **StorateEncrypted** 和 **ContentKey**。
+如果您指定使用 **StorageEncrypted** 選項來加密資產，則 Media Services SDK for .NET 會建立資產的 **StorageEncrypted** 和 **ContentKey**。
 
 本文顯示如何使用 Media Services .NET SDK 以及 Media Services .NET SDK 擴充功能，以將檔案上傳到媒體服務資產。
 

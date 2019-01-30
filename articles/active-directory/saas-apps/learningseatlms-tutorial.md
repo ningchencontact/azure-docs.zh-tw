@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Learning Seat LMS 之
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bb056fcf-4135-478e-85b1-5015d1f07b85
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 1043c8f7468fd7775ff1e38d12a3dce0b379c915
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b0190cd84674abc62ee68f9d0a160a6cb0cd45c0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443260"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815509"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>教學課程：Azure Active Directory 與 Learning Seat LMS 整合
 
@@ -111,7 +111,7 @@ Learning Seat LMS 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/learningseatlms-tutorial/tutorial_learnconnect_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.learningseatlms.com`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.learningseatlms.com`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
 
@@ -207,7 +207,7 @@ Learning Seat LMS 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。 
 
-在存取面板中按一下 [Learning Seat LMS] 圖格，系統會將您自動登入 Learning Seat LMS 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+在存取面板中按一下 [Learning Seat LMS] 圖格，系統會將您自動登入 Learning Seat LMS 應用程式。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

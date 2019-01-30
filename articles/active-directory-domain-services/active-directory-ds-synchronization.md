@@ -4,7 +4,7 @@ description: 了解 Azure Active Directory Domain Services 受控網域中的同
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: e0fc1b64514adb710ebcbdd417f65e9e3b3b3d66
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 40b66b85f88cde28cc6a1c52cb456157d8acd68c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155553"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846928"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 受控網域中的同步處理
 下圖說明同步處理在 Azure AD Domain Services 受控網域中的運作方式。

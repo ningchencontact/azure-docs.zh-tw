@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Trakopolis 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 73d67c3e-4b4b-4d3b-aa58-6699ea1ccea3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 4f85ad5618132b86b01296d7aebae0c2aad09164
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: af872295e52323744ff50179471abd9319b5cb9d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443582"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakopolis"></a>教學課程：Azure Active Directory 與 Trakopolis 整合
 
@@ -169,7 +169,7 @@ Trakopolis 與 Azure AD 整合提供下列優點：
  
 ### <a name="creating-a-trakopolis-test-user"></a>建立 Trakopolis 測試使用者
 
-在本節中，您要在 Trakopolis 中建立名為 Britta Simon 的使用者。 請與 [Trakopolis 支援小組](mailto:support@cantelematics.com)合作，以便在 Trakopolis 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Trakopolis 中建立名為 Britta Simon 的使用者。 請與 [Trakopolis 支援小組](mailto:support@cantelematics.com)合作，在 Trakopolis 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

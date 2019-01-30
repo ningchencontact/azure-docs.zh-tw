@@ -2,18 +2,19 @@
 title: Azure 服務匯流排地理災害復原 | Microsoft Docs
 description: 如何使用地理區域，在 Azure 服務匯流排中進行容錯移轉並執行災害復原
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/14/2018
-ms.author: spelluru
-ms.openlocfilehash: 42960222efb1ade1b48a1d0db56ae3fb0349d174
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: d98ff2c5b9d18c36e7d16ec19d3e136be03b8d4c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695386"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847997"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure 服務匯流排地理災害復原
 
@@ -35,13 +36,13 @@ Azure 服務匯流排的地理災害復原功能就是一個災害復原解決�
 
 本文中使用下列術語：
 
--  別名：所設定之災害復原設定的名稱。 別名提供單一穩定完整網域名稱 (FQDN) 連接字串。 應用程式會使用這個別名連接字串連接到命名空間。 
+-  *別名*：您所設定的災害復原設定的名稱。 別名提供單一穩定完整網域名稱 (FQDN) 連接字串。 應用程式會使用這個別名連接字串連接到命名空間。 
 
--  主要/次要命名空間：對應到別名的命名空間。 主要命名空間是「主動」並且會接收訊息 (這可以是現有或新的命名空間)。 次要命名空間是「被動」，並不會收到訊息。 這兩者間的中繼資料會進行同步處理，因此，這兩者均能順暢地接受訊息，而不需進行任何應用程式程式碼或連接字串變更。 若要確保只有主動命名空間會接收訊息，您必須使用別名。 
+-  *主要/次要命名空間*：對應到別名的命名空間。 主要命名空間是「主動」並且會接收訊息 (這可以是現有或新的命名空間)。 次要命名空間是「被動」，並不會收到訊息。 這兩者間的中繼資料會進行同步處理，因此，這兩者均能順暢地接受訊息，而不需進行任何應用程式程式碼或連接字串變更。 若要確保只有主動命名空間會接收訊息，您必須使用別名。 
 
--  中繼資料：佇列、主題和訂用帳戶之類的實體，及其與命名空間關聯之服務的屬性。 請注意，只有實體及其設定會自動複寫。 不會複寫訊息。 
+-  *中繼資料*：佇列、主題和訂用帳戶之類的實體，及其與命名空間關聯之服務的屬性。 請注意，只有實體及其設定會自動複寫。 不會複寫訊息。 
 
--  容錯移轉：啟用次要命名空間的程序。
+-  *容錯移轉*：啟用次要命名空間的程序。
 
 ## <a name="setup-and-failover-flow"></a>設定和容錯移轉流程
 
@@ -121,7 +122,6 @@ Azure 服務匯流排的地理災害復原功能就是一個災害復原解決�
 
 若要深入了解服務匯流排傳訊，請參閱下列文章：
 
-* [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 * [服務匯流排佇列、主題和訂用帳戶](service-bus-queues-topics-subscriptions.md)
 * [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服務匯流排主題和訂用帳戶](service-bus-dotnet-how-to-use-topics-subscriptions.md)

@@ -4,7 +4,7 @@ description: 如何使用群組原則針對我的 app 入口網站部署 Interne
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ebd949460f826c9529b9f392bc4a7f4918ee170
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7ccaf272a79268ecd781821593a6041d5653a39b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715035"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471883"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>疑難排解 Internet explorer 的存取面板延伸模組
 這篇文章可協助您疑難排解下列問題：
@@ -28,7 +28,7 @@ ms.locfileid: "44715035"
 * 使用 Internet Explorer 時無法透過「我的 app」入口網站存取您的 app。
 * 即使您已經安裝軟體，還是看到「安裝軟體」訊息。
 
-如果您是管理員，另請參閱： [如何使用群組原則部署 Internet Explorer 的存取面板延伸模組](deploy-access-panel-browser-extension.md)
+如果您是系統管理員，也請參閱：[如何使用群組原則部署 Internet Explorer 的存取面板擴充功能](deploy-access-panel-browser-extension.md)
 
 ## <a name="run-the-diagnostic-tool"></a>執行診斷工具
 您可以下載並執行「存取面板」診斷工具來診斷存取面板延伸模組的安裝問題：

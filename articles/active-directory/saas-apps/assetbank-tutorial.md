@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Asset Bank 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 3006ad6e-8831-41cd-94aa-7e7ae770ce7b
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 9127ef7605227293a10b21c2111396e8c7939b82
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1a1100c509b4474620fb7e386934c78ee0f086a3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437272"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811650"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asset-bank"></a>教學課程：Azure Active Directory 與 Asset Bank 整合
 

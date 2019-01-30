@@ -4,12 +4,12 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2eacb55eaf355a4eef17b9e16075d8d12167266d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 44eea4ec4fd335cd0061807521f96f2887751f7a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164396"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54457093"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>準備驗證 Azure Resource Manager 要求
 您必須使用 [Azure Resource Manager][lnk-authenticate-arm]搭配 Azure Active Directory (AD) 來驗證所有針對資源執行的作業。 最簡單的設定方式是使用 PowerShell 或 Azure CLI。
@@ -42,7 +42,7 @@ ms.locfileid: "50164396"
    
    * **{Display name}：** 應用程式的顯示名稱，如 **MySampleApp**
    * **{Home page URL}：** 應用程式首頁的 URL，如 **http://mysampleapp/home**。 此 URL 不需要指向實際的應用程式。
-   * **{Application identifier}：** 唯一識別碼，如 **http://mysampleapp**。 此 URL 不需要指向實際的應用程式。
+   * **{Application identifier}：** 唯一識別碼，例如 **http://mysampleapp**。 此 URL 不需要指向實際的應用程式。
    * **{Password}：** 您用來驗證應用程式的密碼。
      
      ```powershell
@@ -69,4 +69,4 @@ ms.locfileid: "50164396"
 * 密碼
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps

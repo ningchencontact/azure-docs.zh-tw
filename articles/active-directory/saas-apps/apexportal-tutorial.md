@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Apex Portal 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: db204a46-6460-4ace-bdbb-4353846723ad
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 4c267313e4851e621b57aa1d2bddc73118405776
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 25fb68d3f29e0b3589e582551b88cc1cc7b5392f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054228"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819844"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>教學課程：Azure Active Directory 與 Apex Portal
 
@@ -110,7 +110,7 @@ ms.locfileid: "39054228"
 
     ![Apex Portal 網域與 URL 單一登入資訊](./media/apexportal-tutorial/tutorial_apexonline_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<customer name>.apexanalytix.com/saml/sso.aspx`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<customer name>.apexanalytix.com/saml/sso.aspx`
 
@@ -189,9 +189,9 @@ ms.locfileid: "39054228"
 ### <a name="create-an-apex-portal-test-user"></a>建立 Apex Portal 測試使用者
 
 本節的目標是要在 Apex Portal 中建立名為 Britta Simon 的使用者。 Apex Portal 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 Apex Portal 時，如果使用者還不存在，就會建立新使用者。
- 
-> [!NOTE]
-> 如果您需要手動建立使用者，則必須連絡 [Apex Portal 支援小組](mailto:support@apexanalytix.com)。
+ 
+> [!NOTE]
+> 如果您需要手動建立使用者，則需要與 [Apex Portal 支援小組](mailto:support@apexanalytix.com)連絡。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -228,7 +228,7 @@ ms.locfileid: "39054228"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Apex Portal] 圖格時，應該會自動登入您的 Apex Portal 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

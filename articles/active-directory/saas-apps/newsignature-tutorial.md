@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Cloud Management Port
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 4ea9f47c-25ca-42b0-a878-9e7aa6f34973
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 0cd14a308758701e207e0b1ee6d3591c4b0347bd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 896a40bf9358d446eb7d02666d8ec956f9623e91
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427630"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>教學課程：Azure Active Directory 與 Cloud Management Portal for Microsoft Azure 整合
 
@@ -225,7 +225,7 @@ ms.locfileid: "39427630"
 本節的目標是要使用存取面板來測試您的 Azure AD 單一登入組態。
 當您在存取面板中按一下 [Cloud Management Portal for Microsoft Azure] 磚時，應該會自動登入您的 Cloud Management Portal for Microsoft Azure 應用程式。
 
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -3,19 +3,19 @@ title: Predicates 與 PredicateValidations - Azure Active Directory B2C | Micros
 description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的社交帳戶宣告轉換範例。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d00bbddc6523f75b3208a41296b5b94f9f06a5ed
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 24aa6bf67b3b841b950e047a5c2509f04a3546b7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432166"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850853"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 與 PredicateValidations
 
@@ -262,7 +262,7 @@ ms.locfileid: "47432166"
 當您定義基本驗證之後，可將它們組合在一起，然後建立一組您可在原則中使用的密碼原則：
 
 - **SimplePassword** 會驗證 DisallowedWhitespace、AllowedAADCharacters 及 IsLengthBetween8And64
-- **StrongPassword** 會驗證 DisallowedWhitespace、AllowedAADCharacters、IsLengthBetween8And64。 最後一個群組 `CharacterClasses` 會搭配設定為 3 的 `MatchAtLeast` 來執行一組額外的述詞。 使用者密碼長度必須介於 8 到 16 個字元之間，並具備下列其中三個字元：小寫、大寫、數字或符號。
+- **StrongPassword** 會驗證 DisallowedWhitespace、AllowedAADCharacters、IsLengthBetween8And64。 最後一個群組 `CharacterClasses` 會搭配設定為 3 的 `MatchAtLeast` 來執行一組額外的述詞。 使用者密碼長度必須介於 8 到 16 個字元之間，並具備下列字元其中三種：小寫、大寫、數字或符號。
 - **CustomPassword** 只會驗證 DisallowedWhitespace、AllowedAADCharacters。 因此，只要字元有效，使用者就能提供任意長度的任何密碼。
 
 ```XML

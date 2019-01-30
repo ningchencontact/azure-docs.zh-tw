@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Wdesk 之間的單一
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 06900a91-a326-4663-8ba6-69ae741a536e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ff4d38240bf44cdb3112730b6f6962feed09a6a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ee4e81d0af1648aa4ee61501c231585cf0b1cbfa
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444431"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811769"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>教學課程：Azure Active Directory 與 Wdesk 整合
 
@@ -112,7 +112,7 @@ ms.locfileid: "39444431"
 
     ![設定單一登入](./media/wdesk-tutorial/tutorial_wdesk_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
 
@@ -271,7 +271,7 @@ ms.locfileid: "39444431"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Wdesk] 圖格時，應該會自動登入您的 Wdesk 應用程式。
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 
 ## <a name="additional-resources"></a>其他資源

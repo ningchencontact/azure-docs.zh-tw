@@ -4,17 +4,17 @@ description: Azure 原則評估和效果會決定合規性。 了解如何取得
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 3bbd9bc7f213f117b2389f0a2526a75fef6f0234
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318375"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853624"
 ---
 # <a name="getting-compliance-data"></a>取得合規性資料
 
@@ -29,6 +29,8 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 
 > [!WARNING]
 > 如果合規性狀態報告為**未註冊**，請確認您已註冊 **Microsoft.PolicyInsights** 資源提供者，且使用者有適當的角色型存取控制 (RBAC) 權限，如[此處](../overview.md#rbac-permissions-in-azure-policy)所述。
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>評估觸發程序
 
@@ -145,9 +147,9 @@ Azure 入口網站示範視覺化並了解您環境中合規性狀態的圖形�
 若要在 Azure PowerShell 中使用下列範例，請透過此範例程式碼建構驗證權杖。 然後以字串取代範例中的 $restUri，以擷取稍後可供剖析的 JSON 物件。
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+# Login first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -283,29 +285,33 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-在 PowerShell 資源庫中，會以 [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights) 形式提供適用於原則的 Azure PowerShell 模組。 您可以使用 PowerShellGet，透過 `Install-Module -Name AzureRM.PolicyInsights` 來安裝模組 (請確定您已安裝最新的 [Azure PowerShell](/powershell/azure/install-azurerm-ps))：
+在 PowerShell 資源庫中，會以 [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights) 形式提供適用於原則的 Azure PowerShell 模組。 您可以使用 PowerShellGet，透過 `Install-Module -Name Az.PolicyInsights` 來安裝模組 (請確定您已安裝最新的 [Azure PowerShell](/powershell/azure/install-az-ps))：
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
-Install-Module -Name AzureRM.PolicyInsights
+Install-Module -Name Az.PolicyInsights
 
 # Import the downloaded module
-Import-Module AzureRM.PolicyInsights
+Import-Module Az.PolicyInsights
 
-# Login with Connect-AzureRmAccount if not using Cloud Shell
-Connect-AzureRmAccount
+# Login with Connect-AzAccount if not using Cloud Shell
+Connect-AzAccount
 ```
 
-模組有三個 Cmdlet：
+模組擁有下列 Cmdlet：
 
-- `Get-AzureRmPolicyStateSummary`
-- `Get-AzureRmPolicyState`
-- `Get-AzureRmPolicyEvent`
+- `Get-AzPolicyStateSummary`
+- `Get-AzPolicyState`
+- `Get-AzPolicyEvent`
+- `Get-AzPolicyRemediation`
+- `Remove-AzPolicyRemediation`
+- `Start-AzPolicyRemediation`
+- `Stop-AzPolicyRemediation`
 
 範例：取得不符合規範資源數最高之最上層指派原則的狀態摘要。
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyStateSummary -Top 1
+PS> Get-AzPolicyStateSummary -Top 1
 
 NonCompliantResources : 15
 NonCompliantPolicies  : 1
@@ -316,7 +322,7 @@ PolicyAssignments     : {/subscriptions/{subscriptionId}/resourcegroups/RG-Tags/
 範例：取得最近評估之資源的狀態記錄 (預設是依時間戳記遞減排序)。
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyState -Top 1
+PS> Get-AzPolicyState -Top 1
 
 Timestamp                  : 5/22/2018 3:47:34 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -342,7 +348,7 @@ PolicyDefinitionCategory   : tbd
 範例：取得所有不符合規範虛擬網路資源的詳細資料。
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
+PS> Get-AzPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
 
 Timestamp                  : 5/22/2018 4:02:20 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -368,7 +374,7 @@ PolicyDefinitionCategory   : tbd
 範例：取得與不符合規範虛擬網路資源相關且在特定日期後發生的事件。
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
+PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
 
 Timestamp                  : 5/19/2018 5:18:53 AM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -393,16 +399,16 @@ TenantId                   : {tenantId}
 PrincipalOid               : {principalOid}
 ```
 
-您可以透過 Azure PowerShell Cmdlet `Get-AzureRmADUser` 使用 [PrincipalOid] 欄位來取得特定使用者。 以您從上一個範例取得的回應取代 **{principalOid}**。
+您可以透過 Azure PowerShell Cmdlet `Get-AzADUser` 使用 [PrincipalOid] 欄位來取得特定使用者。 以您從上一個範例取得的回應取代 **{principalOid}**。
 
 ```azurepowershell-interactive
-PS> (Get-AzureRmADUser -ObjectId {principalOid}).DisplayName
+PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
 ## <a name="log-analytics"></a>Log Analytics
 
-如果您有一個 [Log Analytics](../../../log-analytics/log-analytics-overview.md) 工作區，其中 `AzureActivity` 解決方案已繫結至您的訂用帳戶，則您也可以使用簡單的 Kusto 查詢和 `AzureActivity` 資料表，以檢視來自評估週期的不符合規範結果。 有了 Log Analytics 中的詳細資訊，您便可以設定警示來監看不符合規範的情況。
+如果您有一個 [Log Analytics](../../../log-analytics/log-analytics-overview.md) 工作區，其中 `AzureActivity` 解決方案已繫結至您的訂用帳戶，則您也可以使用簡單的 Azure 資料總管查詢和 `AzureActivity` 資料表，以檢視來自評估週期的不符合規範結果。 有了 Log Analytics 中的詳細資訊，您便可以設定警示來監看不符合規範的情況。
 
 ![使用 Log Analytics 的原則合規性](../media/getting-compliance-data/compliance-loganalytics.png)
 

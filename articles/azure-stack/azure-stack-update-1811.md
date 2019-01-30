@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0c681e7406f5c0c6e205f9dc54ee5eea63b40252
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267312"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853233"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 更新
 
@@ -191,6 +191,8 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 
 ## <a name="known-issues-with-the-update-process"></a>關於更新程序的已知問題
 
+- 當您執行 **Test-AzureStack** 之後，在相同的特殊權限端點 (PEP) 工作階段中執行 **Get-AzureStackLog** PowerShell Cmdlet 時，**Get-AzureStackLog** 會失敗。 若要解決此問題，請關閉您在其中執行 **Test-AzureStack** 的 PEP 工作階段，然後開啟新的工作階段來執行 **Get-AzureStackLog**。
+
 - 在安裝 1811 更新的期間，請確保所有系統管理員入口網站執行個體在此期間都已關閉。 使用者入口網站可以保持開啟，但系統管理員入口網站必須關閉。
 
 - 執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 時，如果 **AzsInfraRoleSummary** 或 **AzsPortalApiSummary** 測試失敗，系統會提示您搭配 `-Repair` 旗標來執行 **Test-AzureStack**。  如果您執行此命令，它會失敗並顯示下列錯誤訊息：`Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  在未來的版本中會修正此問題。
@@ -312,7 +314,7 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 
    - 如果訂用帳戶是在 1808 更新之前建立的，部署具有受控磁碟的 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請針對每個訂用帳戶遵循下列步驟：
       1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 選取 [資源提供者]，然後選取 [Microsoft.Compute]，接著按一下 [重新註冊]。
-      2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [Azure Stack - 受控磁碟] 已列出。
+      2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [AzureStack-DiskRP-Client] 角色已列出。
    - 如果您已設定多租用戶環境，則在與來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請依照[這篇文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步驟重新設定您的每個來賓目錄。
 
 - 所建立的 Ubuntu 18.04 VM 如果已啟用 SSH 授權，將不會允許您使用 SSH 金鑰來登入。 因應措施是，在佈建後使用「適用於 Linux 的 VM 存取」延伸模組來實作 SSH 金鑰，或使用密碼型驗證。

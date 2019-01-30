@@ -9,12 +9,12 @@ ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 4016471be05c1062eb389ab4851330f3a80dbcb2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ae798ecf2ba5f53cdfdef45b74677615d2e0a06d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969021"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446998"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>透過 Node.js 後端和 Node.js 裝置開始使用 IoT 中樞模組身分識別和模組對應項
 

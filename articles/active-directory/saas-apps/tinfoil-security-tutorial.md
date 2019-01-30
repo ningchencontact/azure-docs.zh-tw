@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 TINFOIL SECURITY 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: da02da92-e3b0-4c09-ad6c-180882b0f9f8
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 4f25768cc7e4f5865c6cfa96ebfe3b0df97deeb6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5dbf831677157f660f2c0a8dd2acefe1f6a218a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421367"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>教學課程：Azure Active Directory 與 TINFOIL SECURITY 整合
 
@@ -252,7 +252,7 @@ ms.locfileid: "39421367"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [TINFOIL SECURITY] 圖格時，應該會自動登入 TINFOIL SECURITY 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+當您在存取面板中按一下 [TINFOIL SECURITY] 圖格時，應該會自動登入 TINFOIL SECURITY 應用程式。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

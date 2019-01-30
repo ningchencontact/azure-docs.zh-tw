@@ -3,19 +3,19 @@ title: Azure Active Directory B2C 中的使用者移轉方法 | Microsoft Docs
 description: 討論有關使用圖形 API (以及選擇性地使用 Azure AD B2C 自訂原則) 來進行使用者移轉的核心概念和進階概念。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4bb1542df9001463b245405c40293b6867d4b401
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 4d4affa0ff950aa353e11c01f3d5d5b5f2b2ccb1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365072"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849442"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C：使用者移轉
 當您將識別提供者移轉到 Azure Active Directory B2C (Azure AD B2C) 時，可能也需要移轉使用者帳戶。 本文說明如何將任何識別提供者的現有使用者帳戶移轉至 Azure AD B2C。 本文章並非是為了做出規定，而是要說明數個案例。 每種方法是否適合則屬開發人員的責任。
@@ -214,7 +214,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 ### <a name="step-26-sign-in-with-migrated-users-with-password"></a>步驟 2.6：使用已移轉的使用者登入 (使用密碼)
 利用使用者的密碼執行移轉前程序之後，帳戶便可供使用，使用者就能使用 Azure AD B2C 登入您的應用程式。 如果您無法存取使用者的密碼，請繼續瀏覽下一節。
 
-## <a name="step-3-help-users-reset-their-password"></a>步驟 3：幫助使用者重設密碼
+## <a name="step-3-help-users-reset-their-password"></a>步驟 3：協助使用者重設密碼
 如果您使用隨機密碼移轉使用者，使用者就必須重設密碼。 若要協助他們重設密碼，請傳送有連結的歡迎電子郵件以重設密碼。
 
 若要取得密碼重設原則的連結，請執行下列動作：
@@ -247,7 +247,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 若要追蹤密碼的變更，您可以使用 Azure 資料表。 當您使用命令列參數 `2` 執行移轉前程序時，就是在 Azure 資料表中建立使用者實體。 您的服務會執行下列動作：
 
-- 在登入時，Azure AD B2C 原則會叫用您的移轉 RESTful 服務，傳送電子郵件訊息作為輸入宣告。 此服務會在 Azure 資料表中搜尋電子郵件地址。 如果已有地址，服務會擲回錯誤訊息：*您必須變更密碼*。
+- 在登入時，Azure AD B2C 原則會叫用您的移轉 RESTful 服務，傳送電子郵件訊息作為輸入宣告。 此服務會在 Azure 資料表中搜尋電子郵件地址。 如果已有地址，服務會擲回錯誤訊息：「您必須變更密碼」。
 
 - 使用者成功變更密碼之後，請從 Azure 資料表移除實體。
 

@@ -4,7 +4,7 @@ description: 本主題描述 Azure AD Connect 同步處理的作業工作以及�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 11390f1ad777d20e31c263b4a694ae5cb31f3fd3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c4dc5ae107cc8babbd425edd6c5de428e130fc3a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305807"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467531"
 ---
-# <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect 同步處理：作業工作和考量
+# <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect 同步：作業工作和考量
 本主題的目標在於描述 Azure AD Connect 同步處理的操作工作。
 
 ## <a name="staging-mode"></a>預備模式
@@ -74,8 +74,8 @@ ms.locfileid: "46305807"
 
 #### <a name="verify"></a>Verify
 1. 啟動 CMD 命令提示字元並移至 `%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. 執行：`csexport "Name of Connector" %temp%\export.xml /f:x` 連接器名稱可以在同步處理服務中找到。 它的名稱類似 Azure AD 的 "contoso.com – AAD"。
-3. 執行：`CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` 您在 %temp% 中有名稱為 export.csv 的檔案，可在 Microsoft Excel 中加以檢查。 此檔案包含即將匯出的所有變更。
+2. 請執行：`csexport "Name of Connector" %temp%\export.xml /f:x` 您可以在「同步處理服務」中找到「連接器」的名稱。 它的名稱類似 Azure AD 的 "contoso.com – AAD"。
+3. 請執行：`CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` 您在 %temp% 中有名稱為 export.csv、可在 Microsoft Excel 中檢查的檔案。 此檔案包含即將匯出的所有變更。
 4. 對資料或組態進行必要的變更並再次執行這些步驟 (匯入和同步處理和驗證)，直到要匯出的變更皆如預期進行。
 
 **了解 export.csv 檔案** 此檔案的大部分都簡單易懂。 要了解內容所需的一些縮寫：
@@ -152,9 +152,9 @@ write-host "Importing XML" -ForegroundColor Yellow
 $resolvedXMLtoimport=Resolve-Path -Path ([Environment]::ExpandEnvironmentVariables($xmltoimport))
 
 #use an XmlReader to deal with even large files
-$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
+$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
 $result=$reader.ReadToDescendant('cs-object')
-do 
+do 
 {
     #create the object placeholder
     #adding them up here means we can enforce consistency
@@ -271,5 +271,5 @@ $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeI
 ## <a name="next-steps"></a>後續步驟
 **概觀主題**  
 
-* [Azure AD Connect 同步處理：了解及自訂同步處理](how-to-connect-sync-whatis.md)  
+* [Azure AD Connect 同步：了解並自訂同步處理](how-to-connect-sync-whatis.md)  
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)  

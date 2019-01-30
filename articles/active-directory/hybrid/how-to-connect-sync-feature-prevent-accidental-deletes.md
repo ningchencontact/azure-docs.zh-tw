@@ -4,7 +4,7 @@ description: 本主題說明 Azure AD Connect 中的防止意外刪除 (可防�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6a535d776da216029b905fb604ed378449a81082
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 25bc3d0c0517278f20cba4fd4beb2fc4d82b66f1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309707"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464148"
 ---
-# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 同步處理：防止意外刪除
+# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 同步：防止意外刪除
 本主題說明 Azure AD Connect 中的防止意外刪除 (可防止意外刪除) 功能。
 
 安裝 Azure AD Connect 時，依預設會啟用防止意外刪除的功能，並設定為不允許超過 500 個刪除項目的匯出。 這項功能是專門用來保護您免於意外的組態變更及內部部署目錄的變更，因為這會影響許多使用者和其他物件。
@@ -68,5 +68,5 @@ ms.locfileid: "46309707"
 ## <a name="next-steps"></a>後續步驟
 **概觀主題**
 
-* [Azure AD Connect 同步處理：了解及自訂同步處理](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 同步：了解並自訂同步處理](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)

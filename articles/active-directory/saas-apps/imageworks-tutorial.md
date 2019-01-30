@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 IMAGE WORKS 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 635d86a1-b512-442d-8851-3b18ec1a24a5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d0ee49bf2a792e855ed020eba74db1d15278fad
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4f1636d32782bcef31c1cea98eb9e91d6d7a5878
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442678"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826288"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>教學課程：Azure Active Directory 與 IMAGE WORKS 整合
 
@@ -169,7 +169,7 @@ ms.locfileid: "39442678"
  
 ### <a name="create-a-image-works-test-user"></a>建立 IMAGE WORKS 測試使用者
 
-在本節中，您要在 IMAGE WORKS 中建立名為 Britta Simon 的使用者。 請與 [IMAGE WORKS 支援小組](mailto:iw-sd-support@fujifilm.com)合作，在 IMAGE WORKS 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 IMAGE WORKS 中建立名為 Britta Simon 的使用者。 請與 [IMAGE WORKS 支援小組](mailto:iw-sd-support@fujifilm.com)合作，在 IMAGE WORKS 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -206,7 +206,7 @@ ms.locfileid: "39442678"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [IMAGE WORKS] 圖格時，應該會自動登入您的 IMAGE WORKS 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

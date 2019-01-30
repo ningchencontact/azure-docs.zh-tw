@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
+ms.date: 01/23/2019
 ms.author: cwatson
-ms.openlocfilehash: b9b1496c71e61fce815d225310c8beb57e8f9b19
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e1d9c348f83600b48f4b202c8660d9387dfc5484
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584565"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856362"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>了解 Microsoft Azure 帳單
 若要了解您的 Azure 帳單，請比較您包含詳細每日使用量檔案的發票，與 Azure 入口網站中的成本管理報告。
 
 本文不適用於 Azure Enterprise 合約客戶 (EA 客戶)。 若您是 EA 客戶，請參閱[了解 Azure Enterprise 合約客戶的帳單](billing-understand-your-bill-ea.md)。  
+
+如需 Azure 雲端解決方案提供者 (Azure CSP) 計畫的計費方式說明 (包括計費週期、定價和使用量)，請參閱 [Azure CSP 計費概觀](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/)。
 
 ## <a name="charges"></a>檢閱您的費用
 
@@ -42,7 +44,7 @@ ms.locfileid: "52584565"
  | 發票 (PDF) | 詳細使用量 (CSV)|
  | --- | --- |
 |計費週期 | 計費期間 |
- |名稱 |計量類別 |
+ |Name |計量類別 |
  |類型 |計量子類別 |
  |資源 |計量名稱 |
  |區域 |計量區域 |

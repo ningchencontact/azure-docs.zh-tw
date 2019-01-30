@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 BenefitHub 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 4069fe32-a452-463f-973e-7aa0baa4c2fa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 0a838e003fa4fde6c4a1d458cc6dadf6c6672842
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ee0e91cfc106cd065c233e3bba09ca2ceba04bb1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426865"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815747"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>教學課程：Azure Active Directory 與 BenefitHub 整合
 
@@ -190,7 +190,7 @@ ms.locfileid: "39426865"
  
 ### <a name="creating-a-benefithub-test-user"></a>建立 BenefitHub 測試使用者
 
-在本節中，您會在 BenefitHub 中建立名為 Britta Simon 的使用者。 請與 [BenefitHub 支援小組](https://www.benefithub.com/Home/ContactUs)合作，在 BenefitHub 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您會在 BenefitHub 中建立名為 Britta Simon 的使用者。 請與 [BenefitHub 支援小組](https://www.benefithub.com/Home/ContactUs)合作，在 BenefitHub 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -227,7 +227,7 @@ ms.locfileid: "39426865"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [BenefitHub] 圖格時，應該會自動登入您的 BenefitHub 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

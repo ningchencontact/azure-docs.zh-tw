@@ -8,15 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 30ad0c5ee069df4cd58cb76b779f611d0272d571
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0f8d6290e779872d73b0cf7a9d0d820d2ea5e007
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741584"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848150"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight 的作業系統修補 
-HDInsight 作為受控 Apache Hadoop 服務，會負責修補 HDInsight 叢集所使用之基礎 VM 的作業系統。 自 2016 年 8 月 1 日起，我們已變更以 Linux 為基礎之 HDInsight 叢集 (3.4 版或更新版本) 的客體 OS 修補原則。 新原則的目標是大幅減少因為修補而產生的重新開機次數。 新的原則將會在每個星期一或星期四 UTC 上午 12 時開始，以交錯方式在任何指定叢集的節點之間，繼續修補 Linux 叢集上的虛擬機器 (VM)。 不過，任何指定的 VM 每隔 30 天只會因為客體 OS 修補而最多重新開機一次。 此外，新建立的叢集在叢集建立之後，也不會在 30 天內第一次重新開機。 VM 重新開機後，修補便會生效。
+
+> [!IMPORTANT]
+> Ubuntu 映像在發行後的 3 個月內就會變成可用於建立新的 HDInsight 叢集。 截至 2019 年 1 月為止，執行中的叢集都**不會**自動修補。 客戶必須使用指令碼動作或其他機制修補執行中的叢集。
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>如何為以 Linux 為基礎的 HDInsight 叢集設定作業系統修補排程
 HDInsight 叢集中的虛擬機器有時候需要重新開機，以便系統可以安裝重要的安全性修補程式。 自 2016 年 8 月 1 日起，新式的以 Linux 為基礎的 HDInsight 叢集 (3.4 版或更新版本) 會使用下列排程來重新開機︰

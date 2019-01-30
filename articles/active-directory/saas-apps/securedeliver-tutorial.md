@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 SECURE DELIVER 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: fccd5668-fe6f-4e6d-a9ce-ba4f321c33d1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 3c3d06d3b44b837af8da3c638dd6f1428c5086cc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ff097be4d54e3e4ea85966ae94c65be507830c3d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448392"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809287"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secure-deliver"></a>教學課程：Azure Active Directory 與 SECURE DELIVER 整合
 

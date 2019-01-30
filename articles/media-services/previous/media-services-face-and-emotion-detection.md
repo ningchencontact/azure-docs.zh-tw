@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 859e75819f96edd527fceb143faf8357738ce80e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5aab8a5d48b7a7d17aa44b74d65ee70cb9322944
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784457"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817549"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>使用 Azure 媒體分析偵測臉部和情緒
 ## <a name="overview"></a>概觀
@@ -42,7 +42,7 @@ ms.locfileid: "33784457"
 本文提供有關 **Azure 媒體臉部偵測器**的詳細資料，並示範如何搭配適用於 .NET 的媒體服務 SDK 來使用它。
 
 ## <a name="face-detector-input-files"></a>臉部偵測器輸入檔案
-影片檔案。 目前支援下列格式：MP4、MOV 及 WMV。
+影片檔案。 目前支援下列格式：MP4、MOV 與 WMV。
 
 ## <a name="face-detector-output-files"></a>臉部偵測器輸出檔案
 臉部偵測器和追蹤 API 能提供高精確度的臉部位置偵測和追蹤功能，並能在單一影片中偵測到最多 64 個人類臉部。 正面的臉部能提供最佳結果，而側面的臉部和較小的臉部 (小於或等於 24x24 像素) 可能就無法取得相同的精確度。
@@ -152,7 +152,7 @@ ms.locfileid: "33784457"
 #### <a name="attribute-descriptions"></a>屬性描述
 | 屬性名稱 | 說明 |
 | --- | --- |
-| Mode |Faces：僅臉部偵測。<br/>PerFaceEmotion：將每個臉部偵測的情緒單獨傳回。<br/>AggregateEmotion：傳回該畫面中所有臉部的平均情緒值。 |
+| 模式 |臉部：僅臉部偵測。<br/>PerFaceEmotion：將每個臉部偵測的情緒單獨傳回。<br/>AggregateEmotion：傳回該畫面中所有臉部的平均情緒值。 |
 | AggregateEmotionWindowMs |在已選取 AggregateEmotion 模式時使用。 指定要用來產生每個彙總結果之影片的長度，以毫秒為單位。 |
 | AggregateEmotionIntervalMs |在已選取 AggregateEmotion 模式時使用。 指定產生彙總結果的頻率。 |
 
@@ -418,7 +418,7 @@ namespace FaceDetection
             task.InputAssets.Add(asset);
 
             // Add an output asset to contain the results of the job.
-            task.OutputAssets.AddNew("My Face Detectoion Output Asset", AssetCreationOptions.None);
+            task.OutputAssets.AddNew("My Face Detection Output Asset", AssetCreationOptions.None);
 
             // Use the following event handler to check job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);

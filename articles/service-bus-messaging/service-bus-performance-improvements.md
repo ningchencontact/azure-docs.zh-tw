@@ -3,18 +3,19 @@ title: 使用 Azure 服務匯流排提升效能的最佳做法 |Microsoft Docs
 description: 描述如何使用服務匯流排來在交換代理訊息時將效能最佳化。
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: cfce11546249310ce00e5f19ba81520cc9dd78cf
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392630"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848561"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服務匯流排傳訊的效能改進最佳作法
 
@@ -36,7 +37,7 @@ AMQP 和 SBMP 會更有效率，因為只要傳訊處理站存在，它們就會
 
 ## <a name="reusing-factories-and-clients"></a>重複使用處理站和用戶端
 
-服務匯流排用戶端物件，例如 [QueueClient][QueueClient] 或 [MessageSender][MessageSender]，會透過也提供內部連接管理的 [MessagingFactory][MessagingFactory] 物件來建立。 當您傳送一個訊息，並在傳送下一個訊息時重新建立傳訊處理站或佇列、主題及訂用帳戶用戶端之後，建議您不要將其關閉。 關閉傳訊處理站會刪除服務匯流排服務的連接，並在重新建立處理站時建立新的連接。 建立連接是成本高昂的作業，您可以藉由重新使用多項作業的相同處理站和用戶端物件來避免此作業。 您可以安全地使用 [QueueClient][QueueClient] 物件，從並行非同步作業和多個執行緒傳送訊息。 
+服務匯流排用戶端物件，例如 [QueueClient][QueueClient] 或 [MessageSender][MessageSender]，會透過也提供內部連接管理的 [MessagingFactory][MessagingFactory] 物件來建立。 當您傳送一個訊息，並在傳送下一個訊息時重新建立傳訊處理站或佇列、主題及訂用帳戶用戶端之後，建議您不要將其關閉。 關閉傳訊處理站會刪除服務匯流排服務的連接，並在重新建立處理站時建立新的連接。 建立連接是成本高昂的作業，您可以藉由重新使用多項作業的相同處理站和用戶端物件來避免此作業。 您可以安全地使用這些用戶端物件，從多個執行緒進行並行的非同步作業。 
 
 ## <a name="concurrent-operations"></a>並行作業
 
@@ -71,7 +72,7 @@ AMQP 和 SBMP 會更有效率，因為只要傳訊處理站存在，它們就會
 
 ## <a name="receive-mode"></a>接收模式
 
-建立佇列或訂用帳戶用戶端時，您可以指定接收模式：「查看鎖定」或「接收與刪除」。 預設接收模式是 [PeekLock][PeekLock]。 以此模式操作時，用戶端會傳送要求，以接收來自服務匯流排的訊息。 用戶端收到訊息後，它會傳送要求以完成訊息。
+建立佇列或訂用帳戶用戶端時，您可以指定接收模式：「查看鎖定」或「接收並刪除」。 預設接收模式是 [PeekLock][PeekLock]。 以此模式操作時，用戶端會傳送要求，以接收來自服務匯流排的訊息。 用戶端收到訊息後，它會傳送要求以完成訊息。
 
 將接收模式設為 [ReceiveAndDelete][ReceiveAndDelete] 時，兩個步驟會在單一要求中結合。 這些步驟可減少整體的作業數目並可改善整體訊息輸送量。 此效能改善的風險為遺失訊息。
 
@@ -127,42 +128,13 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 預先擷取並不會影響可計費的傳訊作業數目，而且僅適用於服務匯流排用戶端通訊協定。 HTTP 通訊協定不支援預先擷取。 同步和非同步接收作業皆可使用預先擷取。
 
-## <a name="express-queues-and-topics"></a>快速佇列和主題
-
-快速實體可提高輸送量並縮短延遲，而只有在「標準」傳訊層才支援這些實體。 在[進階命名空間](service-bus-premium-messaging.md)中建立的實體不支援快速選項。 使用快速實體時，如果訊息傳送至佇列或主題，訊息不會立即儲存在訊息存放區。 相反地，它會快取在記憶體中。 如果訊息保留在佇列中超過幾秒鐘，它會自動寫入至穩定儲存體，藉此保護它免於因中斷而遺失。 將訊息寫入記憶體快取會增加輸送量並減少延遲，因為訊息傳送時沒有存取穩定儲存體。 在幾秒鐘內取用的訊息不會寫入至訊息存放區。 下列範例會建立快速主題。
-
-```csharp
-TopicDescription td = new TopicDescription(TopicName);
-td.EnableExpress = true;
-namespaceManager.CreateTopic(td);
-```
-
-如果將包含不能遺失之重要資訊的訊息傳送至快速實體，傳送者可以強制服務匯流排立即藉由將 [ForcePersistence][ForcePersistence] 屬性設為 **true** 來將訊息儲存到穩定儲存體。
-
-> [!NOTE]
-> 快速實體並不支援交易。
-
-## <a name="partitioned-queues-or-topics"></a>分割的佇列或主題
-
-服務匯流排會在內部使用相同的節點和訊息存放區來處理和儲存傳訊實體 (佇列或主題) 的所有訊息。 另一方面，[分割的佇列或主題](service-bus-partitioning.md)會在多個節點和訊息存放區中散佈。 分割的佇列和主題不僅會產生比一般佇列和主題更高的輸送量，也會展現較優異的可用性。 若要建立分割的實體，請將 [EnablePartitioning][EnablePartitioning] 屬性設為 **true**，如下列範例所示。 如需分割實體的詳細資訊，請參閱[分割的傳訊實體][Partitioned messaging entities]。
-
-> [!NOTE]
-> [Premium SKU](service-bus-premium-messaging.md) 不支援分割的實體。 
-
-```csharp
-// Create partitioned queue.
-QueueDescription qd = new QueueDescription(QueueName);
-qd.EnablePartitioning = true;
-namespaceManager.CreateQueue(qd);
-```
-
 ## <a name="multiple-queues"></a>多個佇列
 
-如果您不能使用分割的佇列或主題，或無法由單一分割佇列或主題處理預期的負載，您必須使用多個傳訊實體。 使用多個實體時，請針對每個實體建立專屬用戶端，而不是讓所有實體使用相同的用戶端。
+如果您無法由單一分割佇列或主題處理預期的負載，您必須使用多個傳訊實體。 使用多個實體時，請針對每個實體建立專屬用戶端，而不是讓所有實體使用相同的用戶端。
 
 ## <a name="development-and-testing-features"></a>開發與測試功能
 
-服務匯流排有一項專門用於開發的功能，此功能**永遠不應該用在生產組態**：[TopicDescription.EnableFilteringMessagesBeforePublishing][]。
+服務匯流排有一個專門用於開發的功能，此功能**永遠不應該用在生產設定**：[TopicDescription.EnableFilteringMessagesBeforePublishing][]。
 
 當新的規則或篩選器新增至主題時，您可以使用 [TopicDescription.EnableFilteringMessagesBeforePublishing][] 來確認新的篩選運算式如預期般運作。
 

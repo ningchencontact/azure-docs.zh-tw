@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: juliako
-ms.openlocfilehash: aee2477e0633974cba42ab26e102323cb9606810
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d96ed28be2fcb3941591854662f9aa20faf04e5d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784547"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810154"
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>使用 .NET SDK 設定資產傳遞原則
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "33784547"
 
 如果您想要傳遞儲存體加密資產，就必須設定資產的傳遞原則。 資產可以串流處理之前，串流伺服器會移除儲存體加密，並使用指定的傳遞原則來串流您的內容。 例如，若要傳遞使用進階加密標準 (AES) 信封加密金鑰加密的資產，請將原則類型設定為 **DynamicEnvelopeEncryption**。 如果您要移除儲存體加密，並且不受阻礙地串流資產，請將原則類型設定為 **NoDynamicEncryption**。 下列範例示範如何設定這些原則類型。
 
-視您如何設定資產傳遞原則而定，您可以動態封裝、加密，以及串流下列串流通訊協定：Smooth Streaming、HLS 和 MPEG DASH。
+視您如何設定資產傳遞原則而定，您可以動態封裝、加密及串流下列串流通訊協定：Smooth Streaming、HLS 與 MPEG DASH。
 
 下列清單顯示您用來串流 Smooth、HLS 和 DASH 的格式。
 
@@ -79,7 +79,7 @@ MPEG DASH
 ```
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 資產傳遞原則
 
-下列 **CreateAssetDeliveryPolicy** 方法會建立 **AssetDeliveryPolicy**，而後者設定成將動態一般加密 (**DynamicCommonEncryption**) 套用至 Smooth Streaming 通訊協定 (將會封鎖其他通訊協定進行串流處理)。 此方法會採用兩個參數：**Asset** (您要套用傳遞原則的資產) 和 **IContentKey** (**CommonEncryption** 類型的內容金鑰，如需詳細資訊，請參閱：[建立內容金鑰](media-services-dotnet-create-contentkey.md#common_contentkey))。
+下列 **CreateAssetDeliveryPolicy** 方法會建立 **AssetDeliveryPolicy**，而後者設定成將動態一般加密 (**DynamicCommonEncryption**) 套用至 Smooth Streaming 通訊協定 (將會封鎖其他通訊協定進行串流處理)。 此方法接受兩個參數：**Asset** (您要套用傳遞原則的資產) 和 **IContentKey** (**CommonEncryption** 類型的內容金鑰，如需詳細資訊，請參閱：[建立內容金鑰](media-services-dotnet-create-contentkey.md#common_contentkey)。
 
 如需建立 AssetDeliveryPolicy 時可以指定之值的相關資訊，請參閱[定義 AssetDeliveryPolicy 時使用的類型](#types) 一節。
 
@@ -120,7 +120,7 @@ Azure 媒體服務也可讓您加入 Widevine 加密。 下列範例會示範 Pl
 
         // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
         // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
-        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
+        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamic Encryption 
         // to append /? KID =< keyId > to the end of the url when creating the manifest.
         // As a result Widevine license acquisition URL will have KID appended twice, 
         // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
@@ -156,7 +156,7 @@ Azure 媒體服務也可讓您加入 Widevine 加密。 下列範例會示範 Pl
 > 
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption 資產傳遞原則
-下列 **CreateAssetDeliveryPolicy** 方法會建立 **AssetDeliveryPolicy**，而後者設定成將動態信封加密 (**DynamicEnvelopeEncryption**) 套用至 Smooth Streaming、HLS 及 DASH 通訊協定 (若您決定不指定某些通訊協定，系統將會封鎖它們進行串流處理)。 此方法會採用兩個參數：**Asset** (您要套用傳遞原則的資產) 和 **IContentKey** (**EnvelopeEncryption** 類型的內容金鑰，如需詳細資訊，請參閱：[建立內容金鑰](media-services-dotnet-create-contentkey.md#envelope_contentkey))。
+下列 **CreateAssetDeliveryPolicy** 方法會建立 **AssetDeliveryPolicy**，而後者設定成將動態信封加密 (**DynamicEnvelopeEncryption**) 套用至 Smooth Streaming、HLS 及 DASH 通訊協定 (若您決定不指定某些通訊協定，系統將會封鎖它們進行串流處理)。 此方法接受兩個參數：**Asset** (您要套用傳遞原則的資產) 和 **IContentKey** (**EnvelopeEncryption** 類型的內容金鑰，如需詳細資訊，請參閱：[建立內容金鑰](media-services-dotnet-create-contentkey.md#envelope_contentkey)。
 
 如需建立 AssetDeliveryPolicy 時可以指定之值的相關資訊，請參閱[定義 AssetDeliveryPolicy 時使用的類型](#types) 一節。   
 
@@ -166,7 +166,7 @@ Azure 媒體服務也可讓您加入 Widevine 加密。 下列範例會示範 Pl
 
         //  Get the Key Delivery Base Url by removing the Query parameter.  The Dynamic Encryption service will
         //  automatically add the correct key identifier to the url when it generates the Envelope encrypted content
-        //  manifest.  Omitting the IV will also cause the Dynamice Encryption service to generate a deterministic
+        //  manifest.  Omitting the IV will also cause the Dynamic Encryption service to generate a deterministic
         //  IV for the content automatically.  By using the EnvelopeBaseKeyAcquisitionUrl and omitting the IV, this
         //  allows the AssetDelivery policy to be reused by more than one asset.
         //
@@ -283,7 +283,7 @@ Azure 媒體服務也可讓您加入 Widevine 加密。 下列範例會示範 Pl
         None = 0,
 
         /// <summary>
-        /// Use PlayReady License acquistion protocol
+        /// Use PlayReady License acquisition protocol
         ///
         </summary>
         PlayReadyLicense = 1,
@@ -295,7 +295,7 @@ Azure 媒體服務也可讓您加入 Widevine 加密。 下列範例會示範 Pl
         BaselineHttp = 2,
 
         /// <summary>
-        /// Use Widevine License acquistion protocol
+        /// Use Widevine License acquisition protocol
         ///
         </summary>
         Widevine = 3

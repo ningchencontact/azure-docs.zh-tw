@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: juliako
-ms.openlocfilehash: 618316b6b5979c65bc8906ea7d07c4f4fdf0930d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1477242e10918a9836ceea15d418fb462e193b1b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124605"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811735"
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>使用 Azure 媒體服務實作容錯移轉串流
 
@@ -62,7 +62,7 @@ ms.locfileid: "46124605"
 1. 使用 Visual Studio 建立一個包含 C# Console Application 專案的新方案。 輸入 **HandleRedundancyForOnDemandStreaming** 做為名稱，然後按一下 [確定]。
 2. 在與 **HandleRedundancyForOnDemandStreaming.csproj** 專案檔案相同的層級上建立 **SupportFiles** 資料夾。 在 **SupportFiles** 資料夾下建立 **OutputFiles** 和 **MP4Files** 資料夾。 將 .mp4 檔案複製到 **MP4Files** 資料夾  (在此範例中，會使用 **BigBuckBunny.mp4** 檔案)。 
 3. 使用 **Nuget** 將參考新增至與媒體服務相關的 DLL。 在 **Visual Studio 主要功能表**中，選取 [工具] > [Library Package Manager] > [Package Manager Console]。 在主控台視窗中輸入 **Install-package windowsazure.mediaservices**，然後按下 Enter。
-4. 新增此專案所需的其他參考：System.Configuration、System.Runtime.Serialization 和 System.Web。
+4. 新增此專案所需的其他參考：System.Configuration、System.Runtime.Serialization 與 System.Web。
 5. 將預設新增至 **Programs.cs** 檔的 **using** 陳述式取代為下列陳述式：
    
         using System;
@@ -178,7 +178,7 @@ ms.locfileid: "46124605"
                 CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
         
                 // Check if the AssetFiles are now  associated with the asset.
-                Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
+                Console.WriteLine("Asset files associated with the {0} asset:", targetAsset.Name);
                 foreach (var af in targetAsset.AssetFiles)
                 {
                     Console.WriteLine(af.Name);

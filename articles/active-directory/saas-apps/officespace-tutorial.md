@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 OfficeSpace Software 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 95d8413f-db98-4e2c-8097-9142ef1af823
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 7162645f41d26f1496bdec9c4d694e749bfec6a1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2f299b41e1def13c0d5e646cc515894c85e97a02
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449524"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826695"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>教學課程：Azure Active Directory 與 OfficeSpace Software 整合
 

@@ -3,23 +3,23 @@ title: Azure 服務匯流排的交易處理概觀 | Microsoft Docs
 description: Azure 服務匯流排不可部分完成交易和傳送方式概觀
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: spelluru
-ms.openlocfilehash: bc0e0bfb8d4dc8637c191785a98f5d15e086cbf5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 09/22/2018
+ms.author: aschhab
+ms.openlocfilehash: 69dc9c974c259f51ac0c6c9d64bfcda7ee65e181
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696426"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844580"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>服務匯流排交易處理概觀
 

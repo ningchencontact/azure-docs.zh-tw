@@ -1,11 +1,11 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 LinkedIn Elevate 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 LinkedIn Elevate 來自動佈建使用者 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 來自動佈建並取消佈建使用者帳戶至 LinkedIn Elevate。
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: fdba165fc66c07c39ecb242b572fbbe12e96a720
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3c45388878675f5e0ee7df486747c7df41729694
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215824"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807996"
 ---
-# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>教學課程︰設定 LinkedIn Elevate 來自動佈建使用者
+# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>教學課程：設定 LinkedIn Elevate 來自動佈建使用者
 
 
 本教學課程旨在說明您需要在 LinkedIn Elevate 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 LinkedIn Elevate。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -57,7 +57,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 本節會引導您將 Azure AD 連接至 LinkedIn Elevate 的 SCIM 使用者帳戶佈建 API，以及根據 Azure AD 中的使用者和群組指派，設定佈建服務以在 LinkedIn Elevate 中建立、更新和停用指派的使用者帳戶。
 
-**提示︰** 您也可以選擇啟用 LinkedIn Elevate 的 SAML 型單一登入，請遵循 [Azure 入口網站](https://portal.azure.com)中提供的指示。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。
+**秘訣：** 您也可以選擇依照 [Azure 入口網站](https://portal.azure.com)中提供的指示，為 LinkedIn Elevate 啟用「SAML 單一登入」。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>若要在 Azure AD 中設定自動使用者帳戶佈建至 LinkedIn Elevate︰
@@ -120,7 +120,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 這會啟動在 [使用者和群組] 區段中指派給 LinkedIn Elevate 的任何使用者和/或群組之初始同步處理。 請注意，初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄，此記錄會描述您 LinkedIn Elevate 應用程式上佈建服務所執行的所有動作。
 
-如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
 
 ## <a name="additional-resources"></a>其他資源

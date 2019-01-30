@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 01/21/2019
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 53c719fbeb31d605bd9dff170a798b262d44698a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f3a67c2eddba2b7bd734237466243da8f43a862a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634264"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848643"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>在 Azure Blob 儲存體中儲存業務關鍵資料
 
@@ -197,7 +197,7 @@ Az.Storage 預覽模組支援固定儲存體。  若要啟用此功能，請依�
 
 **此功能是否適用於國家雲和政府雲？**
 
-固定儲存體目前僅適用於 Azure 公用區域。 如果您對特定國家雲有興趣，請寄送電子郵件：azurestoragefeedback@microsoft.com。
+Azure 公用、Azure 中國和 Azure Government 區域提供不可變的儲存體。 如果您的區域不提供不可變的儲存體，請傳送電子郵件至 azurestoragefeedback@microsoft.com。
 
 ## <a name="sample-powershell-code"></a>PowerShell 範例程式碼
 

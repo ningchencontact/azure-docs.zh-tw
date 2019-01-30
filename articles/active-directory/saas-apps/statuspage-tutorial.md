@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 StatusPage 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f6ee8bb3-df43-4c0d-bf84-89f18deac4b9
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: e79eb2473760fd1eb7ccc3816ac73cce7c801f3e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0ea399ee510c235eca915416d77cabc1388044f9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445359"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>教學課程：將 Azure Active Directory 與 StatusPage 整合
 

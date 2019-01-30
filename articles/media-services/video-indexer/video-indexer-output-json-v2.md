@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: e83b634c11d0349f4917c063cde54e03fa1cac40
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554651"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810698"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>檢查 v2 API 產生的影片索引子輸出
 
@@ -166,7 +166,7 @@ ms.locfileid: "53554651"
 |audioEffects|[audioEffects](#audioEffects) 維度。|
 |人氣|[情緒](#sentiments)維度。|
 |visualContentModeration|[visualContentModeration](#visualcontentmoderation) 維度。|
-|textualConentModeration|[textualConentModeration](#textualconentmoderation) 維度。|
+|textualContentModeration|[textualContentModeration](#textualcontentmoderation) 維度。|
 |emotions| [表情](#emotions)維度。|
 |topics|[主題](#topics)維度。|
 
@@ -187,7 +187,7 @@ ms.locfileid: "53554651"
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -334,7 +334,7 @@ id|區塊的識別碼。|
 |name|臉部的名稱。 這可以是 'Unknown #0、已識別的名人或客戶培訓人員。|
 |信賴度|臉部識別信賴。|
 |說明|名人的描述。 |
-|thumbnalId|該臉部的縮圖識別碼。|
+|thumbnailId|該臉部的縮圖識別碼。|
 |knownPersonId|如果是已知人物，則為其內部識別碼。|
 |referenceId|若為 Bing 名人，則為其 Bing 識別碼。|
 |referenceType|目前只有 Bing。|
@@ -662,7 +662,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 ] 
 ```
 
-#### <a name="textualconentmoderation"></a>textualConentModeration 
+#### <a name="textualcontentmoderation"></a>textualContentModeration 
 
 |Name|說明|
 |---|---|

@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 LiquidFiles 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: cb517134-0b34-4a74-b40c-5a3223ca81b6
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: f1fc9be81cb5ada628c253351746dbaf11fe3b84
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 37b7f24cc3baf34e3a63eb10fc01e0c3e9016ec2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446089"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824978"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>教學課程：Azure Active Directory 與 LiquidFiles 整合
 

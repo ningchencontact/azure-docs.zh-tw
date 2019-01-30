@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 SAML SSO for Bamboo b
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: f00160c7-f4cc-43bf-af18-f04168d3767c
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 95aada1303a807034d22689f71cea37696df4154
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6fb5b67c5df54fc5edfb14e0392e14fc1be239a6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432451"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>教學課程：Azure Active Directory 與 SAML SSO for Bamboo by resolution GmbH 整合
 
@@ -110,7 +110,7 @@ SAML SSO for Bamboo by resolution GmbH 與 Azure AD 整合提供下列優點：
 
     ![SAML SSO for Bamboo by resolution GmbH 網域和 URL 單一登入資訊](./media/bamboo-tutorial/tutorial_bamboo_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<server-base-url>/plugins/servlet/samlsso`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<server-base-url>/plugins/servlet/samlsso`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -245,7 +245,7 @@ SAML SSO for Bamboo by resolution GmbH 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下 [存取面板] 中的 [SAML SSO for Bamboo by resolution GmbH] 磚時，您應該會自動登入 SAML SSO for Bamboo by resolution GmbH 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

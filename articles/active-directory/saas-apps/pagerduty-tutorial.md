@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 PagerDuty 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 0e571880d9893c0027c200c6f49dc704fea09ead
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 703bc11ec7b0de0e8b0cfe3b99b7516afe8cac0b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443693"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810018"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>教學課程：Azure Active Directory 與 PagerDuty 整合
 
@@ -253,7 +253,7 @@ PagerDuty 需以手動方式佈建。
 
 在存取面板中按一下 PagerDuty 圖格時，應該會自動登入 PagerDuty 應用程式。
 
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

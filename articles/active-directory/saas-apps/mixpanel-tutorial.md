@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Mixpanel 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: a2df26ef-d441-44ac-a9f3-b37bf9709bcb
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ec0b27defdc4c859415e78e1cb6e43f5ed0b208
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8475cccdac5c864171ac0bad0ad16ed6d6849ecc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435072"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>教學課程：Azure Active Directory 與 Mixpanel 整合
 
@@ -237,7 +237,7 @@ Mixpanel 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Mixpanel] 磚時，應該會自動登入您的 Mixpanel 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

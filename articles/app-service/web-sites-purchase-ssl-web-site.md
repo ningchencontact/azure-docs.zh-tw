@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714295"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820779"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>購買及設定 Azure App Service 的 SSL 憑證
 
@@ -50,7 +50,7 @@ ms.locfileid: "53714295"
 | 設定 | 說明 |
 |-|-|
 | Name | App Service 憑證的易記名稱。 |
-| 裸網域主機名稱 | 這是購買程序的其中一個最重要的步驟。 使用您已對應至應用程式的根網域名稱。 請「勿」在網域名稱前面加上 `www`。 |
+| 裸網域主機名稱 | 如果您在這裡指定根網域，就會取得憑證以「同時」保護根網域和 `www` 子網域。 若只要保護所有子網域，請在這裡指定子網域的完整網域名稱 (例如 `mysubdomain.contoso.com`)。 |
 | 訂用帳戶 | 裝載 Web 應用程式的資料中心。 |
 | 資源群組 | 包含憑證的資源群組。 您可以使用新的資源群組，或為您的 App Service 應用程式選取相同的資源群組。 |
 | 憑證 SKU | 決定要建立的憑證類型：標準憑證或[萬用字元憑證](https://wikipedia.org/wiki/Wildcard_certificate)。 |
@@ -77,7 +77,7 @@ ms.locfileid: "53714295"
 | 存取原則| 定義應用程式以及允許的保存庫資源存取權。 您可以稍後設定它，並遵循[將金鑰保存庫的存取權授與數個應用程式](../key-vault/key-vault-group-permissions-for-apps.md)中的步驟。 |
 | 虛擬網路存取 | 限制某些 Azure 虛擬網路的保存庫存取權。 您可以稍後設定它，並遵循[設定 Azure Key Vault 防火牆和虛擬網路](../key-vault/key-vault-network-security.md)中的步驟。 |
 
-在選取保存庫之後，關閉 [Key Vault 存放庫] 頁面。 [存放區] 選項應顯示綠色核取記號，表示成功。 讓頁面保持開啟，以供下一個步驟使用。
+選取保存庫之後，關閉 [Key Vault 存放庫] 頁面。 [存放區] 選項應顯示綠色核取記號，表示成功。 讓頁面保持開啟，以供下一個步驟使用。
 
 ## <a name="verify-domain-ownership"></a>確認網域擁有權
 
@@ -125,7 +125,7 @@ ms.locfileid: "53714295"
 
 如果您需要重設憑證金鑰，請選取 [App Service 憑證](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders)頁面中的憑證，然後從左側導覽中選取 [重設金鑰和同步處理] 選項。
 
-按一下 [重設金鑰] 按鈕來啟動處理程序。 此程序需要 1 - 10 分鐘才能完成。
+按一下 [重設金鑰] 按鈕來啟動處理序。 此程序需要 1 - 10 分鐘才能完成。
 
 ![插入重設 SSL 金鑰的影像](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 

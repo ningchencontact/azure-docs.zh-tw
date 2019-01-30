@@ -4,7 +4,7 @@ description: 本主題說明當遇到 LocalDB 10 GB 限制的問題時，如何�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 410559ab03f0e0be71f2eba27ed71c9f7cf05862
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 445137d268650f71bdc4d64342bc23d2b6da6daa
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238534"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474656"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect：如何從 LocalDB 10-GB 的限制復原
 Azure AD Connect 需要 SQL Server 資料庫來儲存身分識別資料。 您可以使用 Azure AD Connect 安裝的預設 SQL Server 2012 Express LocalDB 或使用您自己的完整 SQL。 SQL Server Express 會實行 10 GB 的大小限制。 使用 LocalDB 且達到這個限制時，Azure AD Connect 同步處理服務無法再啟動或正確同步處理。 本文提供復原步驟。
@@ -100,7 +100,7 @@ Azure AD Connect 需要 SQL Server 資料庫來儲存身分識別資料。 您�
 ## <a name="long-term-solution--migrate-to-full-sql"></a>長期解決方案 – 移轉至完整的 SQL
 一般情況下，問題顯示 10 GB 資料庫大小不足，Azure AD Connect 無法再同步處理您的內部部署 Active Directory 到 Azure AD。 建議您改為使用完整版的 SQL Server。 您無法直接將現有的 Azure AD Connect 部署取代為完整版的 SQL 資料庫 LocalDB。 相反地，您必須部署新的 Azure AD Connect 伺服器與 SQL 的完整版本。 建議您將部署新 Azure AD Connect 伺服器 (含 SQL DB) 做為預備伺服器的變換移轉，其位於現有 Azure AD Connect 伺服器 (含 LocalDB) 旁。 
 * 如需有關如何使用 Azure AD Connect 設定遠端 SQL 的指示，請參閱 [Azure AD Connect 的自訂安裝](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom)文章。
-* 如需 Azure AD Connect 升級的變換移轉指示，請參閱 [Azure AD Connect︰從舊版升級至最新版本](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration)文章。
+* 如需有關 Azure AD Connect 升級的變換移轉指示，請參閱下列文章：[Azure AD Connect︰從舊版升級到最新版本](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration)。
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。

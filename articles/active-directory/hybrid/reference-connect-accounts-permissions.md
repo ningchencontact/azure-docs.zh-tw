@@ -1,10 +1,10 @@
 ---
-title: Azure AD Connect：帳戶與權限 | Microsoft 文件
+title: Azure AD Connect：帳戶與權限 | Microsoft Docs
 description: 本主題描述使用和建立的帳戶以及所需的權限。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308778"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478598"
 ---
-# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶與權限
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶和權限
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>用於 Azure AD Connect 的帳戶
 
@@ -39,9 +39,9 @@ Azure AD Connect 會使用 3 個帳戶，以便將資訊從內部部署或 Windo
 
 除了這三個用來執行 Azure AD Connect 的帳戶，您另外還需要下列帳戶以便安裝 Azure AD Connect。  它們是：
 
-- **本機系統管理員帳戶**：安裝 Azure AD Connect 且在電腦上具有本機系統管理員權限的系統管理員。
+- **本機系統管理員帳戶**：安裝 Azure AD Connect 且在機器上具有本機系統管理員權限的系統管理員。
 
-- **AD DS 企業系統管理員帳戶**：選擇性地用來建立上述「AD DS 連接器帳戶」。
+- **AD DS 企業系統管理員帳戶**：可視需要用來建立上述「AD DS 連接器帳戶」。
 
 - **Azure AD 全域系統管理員帳戶**：用來建立 Azure AD Connector 帳戶和設定 Azure AD。
 
@@ -149,7 +149,7 @@ AD DS 企業系統管理員帳戶可用來設定內部部署 Active Directory。
 | --- | --- | --- |
 | 執行安裝精靈的使用者 |本機伺服器的系統管理員 |更新二進位檔案。 |
 | 執行安裝精靈的使用者 |ADSyncAdmins 的成員 |對同步處理規則和其他組態進行變更。 |
-| 執行安裝精靈的使用者 |如果您使用同步處理引擎資料庫的完整 SQL Server: DBO (或類似選項) |變更資料庫層級，例如更新含有新資料行的資料表。 |
+| 執行安裝精靈的使用者 |如果您使用完整 SQL Server：同步處理引擎資料庫的 DBO (或類似選項) |變更資料庫層級，例如更新含有新資料行的資料表。 |
 
 ## <a name="more-about-the-created-accounts"></a>已建立帳戶的相關資訊
 ### <a name="ad-ds-connector-account"></a>AD DS 連接器帳戶

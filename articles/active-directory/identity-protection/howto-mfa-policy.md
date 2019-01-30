@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 792a1fc2403e672c973577efd7a05c9c81d45ad4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 47c742e486c01d2861889419a56c252e74f1e316
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054076"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469826"
 ---
-# <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>如何：設定多重要素驗證註冊原則
+# <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>作法：設定多重要素驗證註冊原則
 
 Azure AD Identity Protection 可讓您設定原則，協助您管理首次多重要素驗證 (MFA) 註冊。 本文說明哪個原則可用於設定。
 

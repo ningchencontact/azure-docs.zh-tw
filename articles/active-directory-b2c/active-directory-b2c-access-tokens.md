@@ -3,21 +3,21 @@ title: 在 Azure Active Directory B2C 中要求存取權杖 | Microsoft Docs
 description: 本文將說明如何設定用戶端應用程式，並取得存取權杖。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2043e0fc9fa63903073311856e7e8d31fb34c506
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f3db56c7ce61960fca0e5347b2385bcc65a88354
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015344"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845141"
 ---
-# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C︰要求存取權杖
+# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C：要求存取權杖
 
 存取權杖 (在 Azure AD B2C 的回應中表示為 **access\_token**) 是一種安全性權杖形式，用戶端可用來存取受 [授權伺服器](active-directory-b2c-reference-protocols.md)保護的資源，例如 web API。 存取權杖統稱為[JWT](active-directory-b2c-reference-tokens.md)，且包含關於預期資源伺服器和伺服器授與權限的資訊。 在呼叫資源伺服器時，存取權杖必須出現在 HTTP 要求中。
 
@@ -105,8 +105,8 @@ scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread%20openid%20offline_ac
 
 OpenID Connect 標準會指定數個特殊的「範圍」值。 下列特殊範圍代表「存取使用者設定檔」的權限︰
 
-* **openid**︰這會要求識別碼權杖
-* **offline\_access**︰這會要求重新整理權杖 (使用[授權碼流程](active-directory-b2c-reference-oauth-code.md))。
+* **openid**：這會要求一個識別碼權杖
+* **offline\_access**：這會要求一個重新整理權杖 (使用[授權碼流程](active-directory-b2c-reference-oauth-code.md))。
 
 如果 `/authorize` 要求中的 `response_type` 參數包含 `token`，則 `scope` 參數必須包含至少一個會授與的資源範圍 (`openid` 與 `offline_access` 以外)。 否則，`/authorize` 要求將會結束並發生失敗。
 
@@ -114,7 +114,7 @@ OpenID Connect 標準會指定數個特殊的「範圍」值。 下列特殊範�
 
 在成功產生**存取\_權杖** (從 `/authorize` 或 `/token` 端點)，會出現下列宣告︰
 
-| 名稱 | 宣告 | 說明 |
+| Name | 宣告 | 說明 |
 | --- | --- | --- |
 |對象 |`aud` |權杖授與存取權的單一資源之應用程式識別碼。 |
 |影響範圍 |`scp` |授與給資源的權限。 多個授與權限將會以空格隔開。 |

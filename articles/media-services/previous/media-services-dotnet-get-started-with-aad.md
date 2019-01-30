@@ -4,32 +4,32 @@ description: 本主題說明如何使用 Azure Active Directory (Azure AD) 驗�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: b8f58f4010590dc40d5e8dc7ac1b634f161a807d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e829d617aa978f94b99cc9d018b5ca863eaaef0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784567"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807315"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>使用 Azure AD 驗證搭配 .NET 存取 Azure 媒體服務 API
 
 從 windowsazure.mediaservices 4.0.0.4 開始，Azure 媒體服務支援以 Azure Active Directory (Azure AD) 為主的驗證。 本主題說明如何使用 Azure AD 驗證搭配 Microsoft .NET 存取 Azure 媒體服務 API。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 一個 Azure 帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
 - 媒體服務帳戶。 如需詳細資訊，請參閱[使用 Azure 入口網站建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)。
 - 最新的 [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) 封裝。
-- 熟讀[使用 AAD 驗證存取 Azure 媒體服務 API 概觀](media-services-use-aad-auth-to-access-ams-api.md)主題。 
+- 熟讀[使用 Azure AD 驗證存取 Azure 媒體服務 API 概觀](media-services-use-aad-auth-to-access-ams-api.md)主題。 
 
 使用 Azure AD 驗證搭配 Azure 媒體服務時，您可以下列其中一種方式進行驗證：
 
@@ -80,7 +80,7 @@ ms.locfileid: "33784567"
 
 這些參數的值位於 **AzureEnvironments.AzureCloudEnvironment**。 **AzureEnvironments.AzureCloudEnvironment** 常數是 .NET SDK 中的協助程式，用來取得公用 Azure 資料中心正確的環境變數設定。 
 
-它包含預先定義的環境設定，只用於存取公用資料中心的媒體服務。 對於 sovereign 或政府雲端區域，分別可以使用 **AzureChinaCloudEnvironment****AzureUsGovernmentEnvrionment** 或 **AzureGermanCloudEnvironment**。
+它包含預先定義的環境設定，只用於存取公用資料中心的媒體服務。 對於 sovereign 或政府雲端區域，分別可以使用 **AzureChinaCloudEnvironment**、**AzureUsGovernmentEnvironment** 或 **AzureGermanCloudEnvironment**。
 
 下列程式碼範例會建立權杖：
     
@@ -97,14 +97,14 @@ ms.locfileid: "33784567"
 
 下列範例說明如何建立 Azure AD 權杖和內容：
 
-    namespace AADAuthSample
+    namespace AzureADAuthSample
     {
         class Program
         {
             static void Main(string[] args)
             {
                 // Specify your Azure AD tenant domain, for example "microsoft.onmicrosoft.com".
-                var tokenCredentials = new AzureAdTokenCredentials("{YOUR AAD TENANT DOMAIN HERE}", AzureEnvironments.AzureCloudEnvironment);
+                var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", AzureEnvironments.AzureCloudEnvironment);
     
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
     
@@ -122,7 +122,7 @@ ms.locfileid: "33784567"
     }
 
 >[!NOTE]
->如果您收到指出「遠端伺服器傳回一個錯誤: (401) 未經授權」的例外狀況，請參閱使用 Azure AD 驗證存取 Azure 媒體服務 API 概觀的[存取控制](media-services-use-aad-auth-to-access-ams-api.md#access-control)一節。
+>如果您收到例外狀況指出「遠端伺服器傳回錯誤：(401) 未授權」，請參閱《使用 Azure AD 驗證存取 Azure 媒體服務 API 概觀》的[存取控制](media-services-use-aad-auth-to-access-ams-api.md#access-control)一節。
 
 ## <a name="use-service-principal-authentication"></a>使用服務主體驗證
     
@@ -158,7 +158,7 @@ ms.locfileid: "33784567"
     
 下列範例說明如何建立 Azure AD 權杖和內容：
 
-    namespace AADAuthSample
+    namespace AzureADAuthSample
     {
     
         class Program

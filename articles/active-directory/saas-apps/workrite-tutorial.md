@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Workrite 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 2a5c2956-a011-4d5c-877b-80679b6587b5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: dd6a58656d91ff8dacbba36050198cba19f4d1e2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 089f642e015646768bc1e2eca6a04a3b9b7fc8be
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437982"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824910"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workrite"></a>教學課程：Azure Active Directory 與 Workrite 整合
 

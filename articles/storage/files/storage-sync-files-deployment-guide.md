@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a1e315c7837f682e3b12624387902599138c957f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 1b3e33c47d4188ba273fb232e2e166a2c33cb1b1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322005"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463825"
 ---
 # <a name="deploy-azure-file-sync"></a>部署 Azure 檔案同步
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -36,7 +36,13 @@ ms.locfileid: "54322005"
 
     > [!Note]  
     > Azure 檔案同步在 Windows Server 2012 R2 或 Windows Server 2016 上尚未支援 PowerShell 6+。
-* 要與 Azure 檔案同步搭配使用的伺服器上須有 Azure PowerShell 模組。如需如何安裝 Azure PowerShell 模組的詳細資訊，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 一律建議使用最新版的 Azure PowerShell 模組。 
+* Az 和 AzureRM PowerShell 模組。
+    - 可以依照此處的指示來安裝 Az 模組：[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 
+    - 可以藉由執行下列 PowerShell Cmdlet 來安裝 AzureRM PowerShell 模組：
+    
+        ```PowerShell
+        Install-Module AzureRM
+        ```
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>準備 Windows Server 以搭配 Azure 檔案同步使用
 針對要與 Azure 檔案同步搭配使用的每個伺服器 (包括容錯移轉叢集中的每個伺服器節點)，停用 [Internet Explorer 增強式安全性設定]。 此動作只需要在初始伺服器註冊時執行。 您可以在註冊伺服器後重新啟用它。
@@ -70,61 +76,6 @@ Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 
 ---
 
-## <a name="install-the-azure-file-sync-agent"></a>安裝 Azure 檔案同步代理程式
-Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能夠和 Azure 檔案共用進行同步處理。 
-
-# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
-您可以從 [Microsoft 下載中心](https://go.microsoft.com/fwlink/?linkid=858257) \(英文\) 下載該代理程式。 下載之後，請按兩下 MSI 套件以啟動 Azure 檔案同步代理程式安裝。
-
-> [!Important]  
-> 如果您打算將 Azure 檔案同步搭配容錯移轉叢集使用，則必須在叢集中的每個節點上安裝 Azure 檔案同步代理程式。 叢集中的每個節點都必須經過註冊，才能使用 Azure 檔案同步。
-
-建議您採取下列動作︰
-- 保留預設的安裝路徑 (C:\Program Files\Azure\StorageSyncAgent)，以簡化疑難排解和伺服器維護。
-- 啟用 Microsoft Update 以將 Azure 檔案同步保持在最新狀態。 Azure 檔案同步代理程式的所有更新 (包括功能更新和 Hotfix) 都會從 Microsoft Update 進行。 建議安裝最新的 Azure 檔案同步更新。如需詳細資訊，請參閱 [Azure 檔案同步更新原則](storage-sync-files-planning.md#azure-file-sync-agent-update-policy)。
-
-當 Azure 檔案同步代理程式安裝結束時，伺服器註冊 UI 會自動開啟。 您必須先有儲存體同步服務才能註冊；請參閱下一節以了解如何建立儲存體同步服務。
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-執行下列 PowerShell 程式碼，下載適合您作業系統的 Azure 檔案同步代理程式版本，並將其安裝在您的系統上。
-
-> [!Important]  
-> 如果您打算將 Azure 檔案同步搭配容錯移轉叢集使用，則必須在叢集中的每個節點上安裝 Azure 檔案同步代理程式。 叢集中的每個節點都必須經過註冊，才能使用 Azure 檔案同步。
-
-```PowerShell
-# Gather the OS version
-$osver = [System.Environment]::OSVersion.Version
-
-# Download the appropriate version of the Azure File Sync agent for your OS.
-if ($osver.Equals([System.Version]::new(10, 0, 14393, 0))) {
-    Invoke-WebRequest `
-        -Uri https://go.microsoft.com/fwlink/?linkid=875004 `
-        -OutFile "StorageSyncAgent.exe" 
-}
-elseif ($osver.Equals([System.Version]::new(6, 3, 9600, 0))) {
-    Invoke-WebRequest `
-        -Uri https://go.microsoft.com/fwlink/?linkid=875002 `
-        -OutFile "StorageSyncAgent.exe" 
-}
-else {
-    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2 and Windows Server 2016")
-}
-
-# Extract the MSI from the install package
-$tempFolder = New-Item -Path "afstemp" -ItemType Directory
-Start-Process -FilePath ".\StorageSyncAgent.exe" -ArgumentList "/C /T:$tempFolder" -Wait
-
-# Install the MSI. Start-Process is used to PowerShell blocks until the operation is complete.
-# Note that the installer currently forces all PowerShell sessions closed - this is a known issue.
-Start-Process -FilePath "$($tempFolder.FullName)\StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
-
-# Note that this cmdlet will need to be run in a new session based on the above comment.
-# You may remove the temp folder containing the MSI and the EXE installer
-Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
-```
-
----
-
 ## <a name="deploy-the-storage-sync-service"></a>部署儲存體同步服務 
 部署 Azure 檔案同步的第一步，先將**儲存體同步服務**資源放到所選訂用帳戶的資源群組中。 建議您佈建需要的少數資源群組即可。 您將在伺服器與此資源之間建立信任關係，而一個伺服器只能註冊到一個儲存體同步服務。 因此，建議您根據需要部署多個儲存體同步服務，以分隔伺服器群組。 請記住，不同儲存體同步服務中的伺服器不可以彼此同步。
 
@@ -147,7 +98,7 @@ Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
 與 Azure 檔案同步管理 Cmdlet 互動之前，您必須匯入 DLL 並建立 Azure 檔案同步管理內容。 這是必要的，因為 Azure 檔案同步管理 Cmdlet 還不是 Azure PowerShell 模組的一部分。
 
 > [!Note]  
-> 在包含 Azure 檔案同步管理 Cmdlet 的 StorageSync.Management.PowerShell.Cmdlets.dll 套件中，其中的 Cmdlet (刻意地) 具有未經核准的動詞命令 (`Login`)。 已選擇 `Login-AzureStorageSync` 名稱來符合 Azure PowerShell 模組中的 `Login-AzAccount` Cmdlet 別名。 系統將會移除此錯誤訊息 (和 Cmdlet)，Azure 檔案同步代理程式會新增至 Azure PowerShell 模組。
+> 在包含 Azure 檔案同步管理 Cmdlet 的 StorageSync.Management.PowerShell.Cmdlets.dll 套件中，其中的 Cmdlet (刻意地) 具有未經核准的動詞命令 (`Login`)。 已選擇 `Login-AzureStorageSync` 名稱來符合 Azure PowerShell 模組中的 `Login-AzAccount` Cmdlet 別名。 當 Azure 檔案同步代理程式會新增至 Azure PowerShell 模組時，系統將會移除此錯誤訊息 (和 Cmdlet)。
 
 ```PowerShell
 $acctInfo = Login-AzAccount
@@ -212,6 +163,61 @@ Login-AzureRmStorageSync `
 ```PowerShell
 $storageSyncName = "<my-storage-sync-service>"
 New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
+```
+
+---
+
+## <a name="install-the-azure-file-sync-agent"></a>安裝 Azure 檔案同步代理程式
+Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能夠和 Azure 檔案共用進行同步處理。 
+
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+您可以從 [Microsoft 下載中心](https://go.microsoft.com/fwlink/?linkid=858257) \(英文\) 下載該代理程式。 下載之後，請按兩下 MSI 套件以啟動 Azure 檔案同步代理程式安裝。
+
+> [!Important]  
+> 如果您打算將 Azure 檔案同步搭配容錯移轉叢集使用，則必須在叢集中的每個節點上安裝 Azure 檔案同步代理程式。 叢集中的每個節點都必須經過註冊，才能使用 Azure 檔案同步。
+
+建議您採取下列動作︰
+- 保留預設的安裝路徑 (C:\Program Files\Azure\StorageSyncAgent)，以簡化疑難排解和伺服器維護。
+- 啟用 Microsoft Update 以將 Azure 檔案同步保持在最新狀態。 Azure 檔案同步代理程式的所有更新 (包括功能更新和 Hotfix) 都會從 Microsoft Update 進行。 建議安裝最新的 Azure 檔案同步更新。如需詳細資訊，請參閱 [Azure 檔案同步更新原則](storage-sync-files-planning.md#azure-file-sync-agent-update-policy)。
+
+當 Azure 檔案同步代理程式安裝結束時，伺服器註冊 UI 會自動開啟。 您必須先有儲存體同步服務才能註冊；請參閱下一節以了解如何建立儲存體同步服務。
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+執行下列 PowerShell 程式碼，下載適合您作業系統的 Azure 檔案同步代理程式版本，並將其安裝在您的系統上。
+
+> [!Important]  
+> 如果您打算將 Azure 檔案同步搭配容錯移轉叢集使用，則必須在叢集中的每個節點上安裝 Azure 檔案同步代理程式。 叢集中的每個節點都必須經過註冊，才能使用 Azure 檔案同步。
+
+```PowerShell
+# Gather the OS version
+$osver = [System.Environment]::OSVersion.Version
+
+# Download the appropriate version of the Azure File Sync agent for your OS.
+if ($osver.Equals([System.Version]::new(10, 0, 14393, 0))) {
+    Invoke-WebRequest `
+        -Uri https://go.microsoft.com/fwlink/?linkid=875004 `
+        -OutFile "StorageSyncAgent.exe" 
+}
+elseif ($osver.Equals([System.Version]::new(6, 3, 9600, 0))) {
+    Invoke-WebRequest `
+        -Uri https://go.microsoft.com/fwlink/?linkid=875002 `
+        -OutFile "StorageSyncAgent.exe" 
+}
+else {
+    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2 and Windows Server 2016")
+}
+
+# Extract the MSI from the install package
+$tempFolder = New-Item -Path "afstemp" -ItemType Directory
+Start-Process -FilePath ".\StorageSyncAgent.exe" -ArgumentList "/C /T:$tempFolder" -Wait
+
+# Install the MSI. Start-Process is used to PowerShell blocks until the operation is complete.
+# Note that the installer currently forces all PowerShell sessions closed - this is a known issue.
+Start-Process -FilePath "$($tempFolder.FullName)\StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
+
+# Note that this cmdlet will need to be run in a new session based on the above comment.
+# You may remove the temp folder containing the MSI and the EXE installer
+Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
 ```
 
 ---

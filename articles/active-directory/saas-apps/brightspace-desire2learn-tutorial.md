@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Brightspace by Desire
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: e2d3065b-1f6c-4c45-af78-0d5da3266999
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 6e1f586350a47b70da1b297b608feb9011363dec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 28bd444bffd67e9c13df597d103019610243be33
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437512"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823550"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>教學課程：Azure Active Directory 與 Brightspace by Desire2Learn 整合
 
@@ -214,7 +214,7 @@ ms.locfileid: "39437512"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Brightspace by Desire2Learn] 圖格時，應該會自動登入您的 Brightspace by Desire2Learn 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

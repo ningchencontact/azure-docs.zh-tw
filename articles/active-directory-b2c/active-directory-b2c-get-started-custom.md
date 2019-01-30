@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 中開始使用自訂原則 | Microsoft Do
 description: 如何開始使用 Azure Active Directory B2C 自訂原則。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b4ff8b607f9fded02a519b5f2a3abdfeedf93d88
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 235b72393801717bb5d7258d6492dc4c943fe232
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181768"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852298"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中開始使用自訂原則
 
@@ -44,7 +44,7 @@ ms.locfileid: "47181768"
 3. 在 [名稱] 中輸入 `TokenSigningKeyContainer`。 可能會自動加入前置詞 `B2C_1A_`。
 4. 針對 [金鑰類型] 選取 [RSA]。
 5. 針對 [金鑰使用方法] 選取 [簽章]。
-6. 按一下頁面底部的 [新增]。
+6. 按一下頁面底部的 [新增] 。
 
 ### <a name="create-the-encryption-key"></a>建立加密金鑰
 
@@ -53,7 +53,7 @@ ms.locfileid: "47181768"
 3. 在 [名稱] 中輸入 `TokenEncryptionKeyContainer`。 可能會自動加入前置詞 `B2C_1A`_。
 4. 針對 [金鑰類型] 選取 [RSA]。
 5. 針對 [金鑰使用方法] 選取 [加密]。
-6. 按一下頁面底部的 [新增]。
+6. 按一下頁面底部的 [新增] 。
 
 ### <a name="create-the-facebook-key"></a>建立 Facebook 金鑰
 
@@ -64,11 +64,11 @@ ms.locfileid: "47181768"
 3. 針對 [名稱] 輸入 `FacebookSecret`。 可能會自動加入前置詞 `B2C_1A_`。
 4. 在 [祕密] 中，輸入 developers.facebook.com 提供給您的 Facebook 祕密，或輸入 `0` 作為預留位置。 這是祕密，而非應用程式識別碼。
 5. 針對 [金鑰使用方法] 選取 [簽章]。
-6. 按一下頁面底部的 [新增]。
+6. 按一下頁面底部的 [新增] 。
 
 ## <a name="register-applications"></a>註冊應用程式
 
-Azure AD B2C 會要求您註冊兩個應用程式，以用來註冊和登入使用者︰IdentityExperienceFramework (Web 應用程式) 和 ProxyIdentityExperienceFramework (原生應用程式)，並具有來自 IdentityExperienceFramework 應用程式的委派權限。 本機帳戶只存在於您的租用戶。 您的使用者會使用唯一的電子郵件地址/密碼組合進行註冊，以存取您租用戶所註冊的應用程式。
+Azure AD B2C 會要求您註冊兩個用來註冊和登入使用者的應用程式：IdentityExperienceFramework (Web 應用程式)，以及具有來自 IdentityExperienceFramework 應用程式之委派權限的 ProxyIdentityExperienceFramework (原生應用程式)。 本機帳戶只存在於您的租用戶。 您的使用者會使用唯一的電子郵件地址/密碼組合進行註冊，以存取您租用戶所註冊的應用程式。
 
 ### <a name="register-the-identityexperienceframework-application"></a>註冊 IdentityExperienceFramework 應用程式
 
@@ -77,7 +77,7 @@ Azure AD B2C 會要求您註冊兩個應用程式，以用來註冊和登入使�
 3. 針對 [名稱] 輸入 `IdentityExperienceFramework`。
 4. 針對 [應用程式類型] 選擇 [Web 應用程式/API]。
 5. 針對 [登入 URL] 輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`，其中 `your-tenant-name` 是您的 Azure AD B2C 租用戶網域名稱。
-6. 按一下頁面底部的 [新增]。 
+6. 按一下頁面底部的 [新增] 。 
 7. 建立之後，複製應用程式識別碼，並儲存它以供日後使用。
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>註冊 ProxyIdentityExperienceFramework 應用程式
@@ -86,12 +86,12 @@ Azure AD B2C 會要求您註冊兩個應用程式，以用來註冊和登入使�
 2. 針對 [名稱] 輸入 `ProxyIdentityExperienceFramework`。
 3. 針對 [應用程式類型] 選擇 [原生]。
 4. 針對 [重新導向 URI] 輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`，其中 `yourtenant` 是您的 Azure AD B2C 租用戶。
-5. 按一下頁面底部的 [新增]。 建立之後，複製應用程式識別碼，並儲存它以供日後使用。
+5. 按一下頁面底部的 [新增] 。 建立之後，複製應用程式識別碼，並儲存它以供日後使用。
 6. 在 [設定] 頁面上，選取 [必要權限]，然後選取 [新增]。
 7. 選取 [選取 API]。
 8. 搜尋並選取 [IdentityExperienceFramework]，然後按一下 [選取]。
 9. 選取 [存取 IdentityExperienceFramework] 旁的核取方塊、按一下 [選取]，然後按一下 [完成]。
-10. 選取 [授與權限]，然後選取 [是] 以確認。
+10. 選取 [授與權限]，然後選取 [是] 加以確認。
 
 ## <a name="download-starter-pack-and-modify-policies"></a>下載入門套件和修改原則
 
@@ -117,7 +117,7 @@ Azure AD B2C 會要求您註冊兩個應用程式，以用來註冊和登入使�
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. 在 SocialAndLocalAccounts 資料夾中，透過使用您的租用戶名稱取代 `yourtenant.onmicrosoft.com` 以編輯所有檔案。 例如：`contosoTenant.onmicrosoft.com`。 如果您需要 XML 編輯器，請[試用 Visual Studio 程式碼](https://code.visualstudio.com/download)，這是一個輕巧的跨平台編輯器。
+2. 在 SocialAndLocalAccounts 資料夾中，透過使用您的租用戶名稱取代 `yourtenant.onmicrosoft.com` 以編輯所有檔案。 例如： `contosoTenant.onmicrosoft.com`。 如果您需要 XML 編輯器，請[試用 Visual Studio 程式碼](https://code.visualstudio.com/download)，這是一個輕巧的跨平台編輯器。
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>將應用程式識別碼新增至自訂原則
 

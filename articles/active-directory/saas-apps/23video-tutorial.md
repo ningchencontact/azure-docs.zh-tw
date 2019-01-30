@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 23 Video 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 5e73dd1d-3995-4a73-b9cf-1b2318d49cb3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 8b4b41551a1679948518846a63eee87bbd1bbfd9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6dc05b5ac26dfc9ef7eebf770d9f5378e8a85657
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222652"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823975"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>教學課程：Azure Active Directory 與 23 Video 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36222652"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定與 23 Video 的 Azure AD 整合，您需要下列項目：
 
@@ -112,9 +112,9 @@ ms.locfileid: "36222652"
 
     ![設定單一登入](./media/23video-tutorial/tutorial_23video_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.23video.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<subdomain>.23video.com`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://www.23video.com/saml/trust/<uniqueid>`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://www.23video.com/saml/trust/<uniqueid>`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [23 Video 用戶端支援小組](mailto:support@23company.com)以取得這些值。 

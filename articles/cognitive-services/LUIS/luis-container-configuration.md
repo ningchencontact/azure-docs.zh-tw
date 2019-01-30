@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: e8e838fae0da3a47fe1b3ec8d412f956f5f28034
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975504"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468330"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>設定 Language Understanding 的 Docker 容器 
 
@@ -35,6 +35,7 @@ Language Understanding (LUIS) 容器執行階段環境可使用 `docker run` 命
 |是|[計費](#billing-setting)|指定 Azure 上服務資源的端點 URI。|
 |是|[Eula](#eula-setting)| 表示您已接受容器的授權。|
 |否|[Fluentd](#fluentd-settings)|將記錄 (和選擇性的計量資料) 寫入至 Fluentd 伺服器。|
+|否|[HTTP Proxy](#http-proxy-credentials-settings)|設定 HTTP proxy 來進行輸出要求。|
 |否|[記錄](#logging-settings)|提供適用於容器的 ASP.NET Core 記錄支援。 |
 |是|[裝載](#mount-settings)|從主機電腦將資料讀取和寫入至容器，以及從容器將資料讀取和寫回主機電腦。|
 
@@ -77,6 +78,10 @@ Language Understanding (LUIS) 容器執行階段環境可使用 `docker run` 命
 
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+
+## <a name="http-proxy-credentials-settings"></a>HTTP Proxy 認證設定
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>記錄設定
  
@@ -189,3 +194,4 @@ ApiKey={APPLICATION_ID} \
 
 * 檢閱[如何安裝及執行容器](luis-container-howto.md)
 * 參閱[常見問題集 (FAQ)](luis-resources-faq.md) 來解決與 LUIS 功能相關的問題。
+* 使用更多[認知服務容器](../cognitive-services-container-support.md)

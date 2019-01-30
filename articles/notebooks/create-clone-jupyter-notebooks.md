@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 151d945bbeda9f7dd496f8469f8f858e8369da8f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164410"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844053"
 ---
 # <a name="create-and-clone-projects"></a>建立及複製專案
 
@@ -30,7 +30,7 @@ Azure Notebooks 會將您的 Jupyter Notebooks 和相關檔案整理成邏輯群
 
 `https://notebooks.azure.com/<userID>/projects` 所在的 [我的專案]儀表板是您檢視、管理和建立專案的位置：
 
-[![](media/my-projects-dashboard.png "Azure Notebooks 中的 [我的專案] 儀表板")](media/my-projects-dashboard.png#lightbox)
+[![Azure Notebooks 中的 [我的專案] 儀表板](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 您在儀表板上可進行的操作，取決於您是否使用該帳戶所擁有的使用者識別碼登入而定：
 
@@ -106,8 +106,8 @@ Azure Notebooks 會將您的 Jupyter Notebooks 和相關檔案整理成邏輯群
 
 - [探索範例筆記本](azure-notebooks-samples.md)
 - [作法：設定和管理專案](configure-manage-azure-notebooks-projects.md)
-- [作法：從筆記本內安裝套件](install-packages-jupyter-notebook.md)
+- [操作說明：從 Notebook 內安裝套件](install-packages-jupyter-notebook.md)
 - [作法：放映投影片](present-jupyter-notebooks-slideshow.md)
 - [作法：使用資料檔案](work-with-project-data-files.md)
-- [作法：存取資料資源](access-data-resources-jupyter-notebooks.md)
-- [作法：使用 Azure 機器學習服務](use-machine-learning-services-jupyter-notebooks.md)
+- [操作說明：存取資料資源](access-data-resources-jupyter-notebooks.md)
+- [操作說明：使用 Azure Machine Learning 服務](use-machine-learning-services-jupyter-notebooks.md)

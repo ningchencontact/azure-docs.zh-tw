@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/30/2018
+ms.date: 01/23/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 97f884a45a0a07e2b4c48f39483c70248e7a492e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e550eeba9b154e271cdad9df5cdfe9a308efbbe9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620372"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820303"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>驗證與授權錯誤碼
 
@@ -79,7 +79,7 @@ ms.locfileid: "52620372"
 | AADSTS50058 | UserInformationNotProvided - 這表示使用者並未登入。 這是常見的錯誤，當使用者未經驗證且尚未登入時就會發生。</br>如果使用者先前登入的 SSO 內容中促成此錯誤，這表示 SSO 工作階段找不到或無效。</br>如果已指定 prompt=none，此錯誤可能會傳回給應用程式。 |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - 在要求中找不到租用戶識別資訊，或任何提供的認證均未隱含租用戶識別資訊。 使用者可以連絡租用戶管理員，協助解決問題。 |
 | AADSTS50061 | SignoutInvalidRequest - 登出要求無效。 |
-| AADSTS50064 | CredentialAuthenticationError - 認證驗證失敗。 |
+| AADSTS50064 | CredentialAuthenticationError - 使用者名稱或密碼上的認證驗證失敗。 |
 | AADSTS50068 | SignoutInitiatorNotParticipant - 登出失敗。 起始登出的應用程式不會參與目前的工作階段。 |
 | AADSTS50070 | SignoutUnknownSessionIdentifier - 登出失敗。 登出要求指定了不符合現有工作階段的名稱識別碼。 |
 | AADSTS50071 | SignoutMessageExpired - 登出要求已過期。 |
@@ -254,6 +254,7 @@ ms.locfileid: "52620372"
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - 此資源並未設定為接受僅限裝置的權杖。 |
 | AADSTS240001 | BulkAADJTokenUnauthorized - 使用者未經授權，無法在 Azure AD 中註冊裝置。 |
 | AADSTS240002 | RequiredClaimIsMissing - 無法使用 id_token 作為 `urn:ietf:params:oauth:grant-type:jwt-bearer` 授與。|
+| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - 在目錄/租用戶中找不到應用程式。 如果租用戶的系統管理員尚未安裝此應用程式或租用戶中的任何使用者尚未同意使用此應用程式，也可能會發生此錯誤。 可能是針對應用程式所設定的識別碼值不正確，或將驗證要求傳送給錯誤的租用戶。 |
 | AADSTS700020 | InteractionRequired - 存取權授與需要互動。 |
 | AADSTS700022 | InvalidMultipleResourcesScope - 所提供的輸入參數範圍值無效，因為它包含多個資源。 |
 | AADSTS700023 | InvalidResourcelessScope - 要求存取權杖時，所提供的輸入參數範圍值無效。 |

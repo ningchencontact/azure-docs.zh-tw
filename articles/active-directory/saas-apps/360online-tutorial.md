@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 360 Online 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: cda8eba6-843f-4a09-8c55-0aaf6e593d75
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: b45906c8ca22965865bc4bce5132677113bfb6db
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8f5a60566d65ea35934ff3847778d37990f4dc8c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227746"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-360-online"></a>教學課程：Azure Active Directory 與 360 Online
 
@@ -33,7 +33,7 @@ ms.locfileid: "36227746"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 360 Online 整合，您需要下列項目：
 
@@ -112,7 +112,7 @@ ms.locfileid: "36227746"
 
     ![設定單一登入](./media/360online-tutorial/tutorial_360online_url.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<company name>.public360online.com`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<company name>.public360online.com`
 
     > [!NOTE] 
     > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [360 Online 用戶端支援小組](mailto:360online@software-innovation.com)以取得這些值。 

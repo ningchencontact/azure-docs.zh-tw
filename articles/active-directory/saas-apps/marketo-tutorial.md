@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Marketo 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b88c45f5-d288-4717-835c-ca965add8735
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: bd647601249e22942596e78b66d0322857f3eaa4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ac6d7c23c6bb107ce6920cce600a57143dafc62d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448123"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816427"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>教學課程：Azure Active Directory 與 Marketo 整合
 
@@ -112,7 +112,7 @@ Marketo 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/marketo-tutorial/tutorial_marketo_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://saml.marketo.com/sp`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://saml.marketo.com/sp`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://login.marketo.com/saml/assertion/\<munchkinid\>`
 

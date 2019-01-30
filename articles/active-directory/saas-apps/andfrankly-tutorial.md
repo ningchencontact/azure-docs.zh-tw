@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 &frankly 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 1d702060-1b89-4e9d-9f01-ede4f1171c73
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 388203903f33d969a7796cf466078159e9b73ad0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 73acaeff6cbffc16aac1b30b9d63974c930c1537
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218092"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>教學課程：Azure Active Directory 與 &frankly 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36218092"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 &frankly 整合，您需要下列項目：
 
@@ -55,7 +55,7 @@ ms.locfileid: "36218092"
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-frankly-from-the-gallery"></a>從資源庫新增 &frankly
-若要設定將 &amp;frankly 整合到 Azure AD 中，您需要從資源庫將 &amp;frankly 新增到受控 SaaS 應用程式清單。
+若要設定將 &frankly 整合到 Azure AD 中，您需要從資源庫將 &amp;amp;frankly 新增到受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 &frankly，請執行下列步驟：**
 
@@ -114,13 +114,13 @@ ms.locfileid: "36218092"
 
     a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
 
 4. 按一下 [顯示進階 URL 設定]。 如果您想要以 **SP** 起始模式設定應用程式：
 
     ![設定單一登入](./media/andfrankly-tutorial/tutorial_andfrankly_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的「識別碼」、「登入 URL」及「回覆 URL」來更新這些值。 請連絡 [andfrankly 支援小組](mailto:help@andfrankly.com)以取得這些值。
 

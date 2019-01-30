@@ -7,42 +7,42 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2bb32ccaeb5960fa69dcdc356523abc199fd5f4f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: eb344d6da15a8faf8f05720ae9b1fd49bd42db2f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633788"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808191"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>什麼是 Azure 搜尋服務的「認知搜尋」？
 
-認知搜尋可藉由將 AI 演算法附加至索引管線，從不可搜尋的內容建立可搜尋的資訊。 AI 整合是透過*認知技能*執行的，可在使用搜尋索引的過程中擴充來源文件。 
+認知搜尋是 Azure 搜尋服務中的 AI 功能，可用來從影像、Blob 及其他非結構化的資料來源擷取文字，以擴充其內容並使它更容易在 Azure 搜尋服務索引中被找到。 系統會透過附加到索引管線的「認知技術」來進行擷取和擴充。 AI 擴充是以下列方式進行支援： 
 
-**自然語言處理**技能包括[實體辨識](cognitive-search-skill-named-entity-recognition.md)、語言偵測、[關鍵片語擷取](cognitive-search-skill-keyphrases.md)、文字操作和情感偵測。 透過這些技能，非結構化的文字會變成結構化文字，並對應至索引中可搜尋和可篩選的欄位。
++ **自然語言處理**技術，包括[實體辨識](cognitive-search-skill-entity-recognition.md)、[語言偵測](cognitive-search-skill-language-detection.md)、[關鍵片語擷取](cognitive-search-skill-keyphrases.md)、文字操作和[情感偵測](cognitive-search-skill-sentiment.md)。 透過這些技術，非結構化的文字將能取得新的型態，並對應為索引中可搜尋且可篩選的欄位。
 
-**影像處理**包括 [OCR](cognitive-search-skill-ocr.md) 和[視覺功能](cognitive-search-skill-image-analysis.md)的識別，例如臉部偵測、影像轉譯、影像辨識 (名人和地標)，或是色彩或影像方向之類的屬性。 您可以為影像內容建立可使用 Azure 搜尋服務的各種查詢功能來搜尋的文字表示法。
++ **影像處理**技術，包括[光學字元辨識 (OCR)](cognitive-search-skill-ocr.md) 和[視覺特徵](cognitive-search-skill-image-analysis.md)的識別，例如臉部偵測、影像轉譯、影像辨識 (名人和地標)，或是色彩或影像方向之類的屬性。 您可以為影像內容建立可使用 Azure 搜尋服務的各種查詢功能來搜尋的文字表示法。
 
 ![認知搜尋管線圖](./media/cognitive-search-intro/cogsearch-architecture.png "認知搜尋管線概觀")
 
-Azure 搜尋服務中的認知技能是以認知服務 API 中使用的相同 AI 演算法為基礎：[具名實體辨識 API](cognitive-search-skill-named-entity-recognition.md)、[關鍵片語擷取 API](cognitive-search-skill-keyphrases.md) 和 [OCR API](cognitive-search-skill-ocr.md) 只是其中幾項。 
+Azure 搜尋服務中的認知技術是以認知服務 API 中的機器學習模型為基礎：[電腦視覺](https://docs.microsoft.com/azure/cognitive-services/computer-vision/)和[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)。 
 
 在資料擷取階段中會套用自然語言和影像處理，且其結果會在 Azure 搜尋服務的可搜尋索引中成為文件撰寫的一部分。 資料會作為 Azure 資料集的來源，然後使用您所需的[內建技能](cognitive-search-predefined-skills.md)透過索引管線推送出去。 其架構是可延伸的，因此如果內建技能不敷使用，您可以建立及附加[自訂技能](cognitive-search-create-custom-skill-example.md)，以整合自訂處理。 其範例包括以特定領域為目標 (例如金融、科學出版品或醫藥) 的自訂實體模組或文件分類器。
 
 > [!NOTE]
-> 從 2018 年 12 月 21 日開始，您可以在認知服務資源與 Azure 搜尋服務的技能集之間建立關聯。 這可讓我們開始收取執行技能集的費用。 自這個日期起，我們也會開始收取文件萃取階段的影像擷取費用。 從文件中擷取文字的功能則繼續免費提供。
+> 從 2018 年 12 月 21 日開始，您可以[連結認知服務資源](cognitive-search-attach-cognitive-services.md)與 Azure 搜尋服務技術集。 這可讓我們開始收取執行技術集的費用。 自這個日期起，我們也會開始收取文件萃取階段中影像擷取的費用。 從文件中擷取文字的功能則繼續免費提供。
 >
-> 內建技能的執行會依現行的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)所述。 深入[了解](cognitive-search-attach-cognitive-services.md)。
+> 內建技術的執行包含在認知服務費用中，並會依現行的[預付型方案](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價包含在 Azure 搜尋服務費用中，目前會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)上所述。
 
 ## <a name="components-of-cognitive-search"></a>認知搜尋的元件
 
-認知搜尋是 [Azure 搜尋服務](search-what-is-azure-search.md)的預覽功能，適用於美國中南部和西歐區域的每一層。 
+認知搜尋是 [Azure 搜尋服務](search-what-is-azure-search.md)的預覽功能，並在[這些區域](#where-do-i-start)中受到支援。 
 
 認知搜尋管線以會搜耙資料來源並提供端對端索引處理的 [Azure 搜尋服務*索引子*](search-indexer-overview.md)為基礎。 技能現在已連結至索引子，會根據您所定義的技能集攔截及擴充文件。 完成索引編製後，您即可使用 [Azure 搜尋服務所支援的所有查詢類型](search-query-overview.md)，透過搜尋要求來存取內容。  如果您不熟悉索引子，本節將引導您逐步完成相關步驟。
 
-### <a name="source-data-and-document-cracking-phase"></a>來源資料和文件萃取階段
+### <a name="step-1-connection-and-document-cracking-phase"></a>步驟 1：連線和文件萃取階段
 
 在一開始執行管線時，您會有非結構化的文字或非文字內容 (例如影像和掃描的文件 JPEG 檔案)。 資料必須存在於可由索引子存取的 Azure 資料儲存體服務中。 索引子可以「萃取」來源文件，以從來源資料中擷取文字。
 
@@ -50,7 +50,7 @@ Azure 搜尋服務中的認知技能是以認知服務 API 中使用的相同 AI
 
  支援的來源包括 Azure Blob 儲存體、Azure 資料表儲存體、Azure SQL Database 和 Azure Cosmos DB。 文字型的內容可以從下列檔案類型中擷取：PDF、Word、PowerPoint、CSV 檔案。 如需完整的清單，請參閱[支援的格式](search-howto-indexing-azure-blob-storage.md#supported-document-formats)。
 
-### <a name="cognitive-skills-and-enrichment-phase"></a>認知技能和擴充階段
+### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>步驟 2：認知技能和擴充階段
 
 擴充是經由*認知技能*執行不可部分完成作業而進行的。 例如，當您從 PDF 取得文字內容後，您可以套用實體辨識語言偵測或關鍵片語擷取，在您的索引中產生在來源中原本無法使用的新欄位。 技能的集合會統合用於您的管線中，我們稱之為*技能集*。  
 
@@ -60,7 +60,7 @@ Azure 搜尋服務中的認知技能是以認知服務 API 中使用的相同 AI
 
 就內部而言，管線會產生擴充文件的集合。 您可以決定擴充文件的哪些部分應對應至搜尋索引中可編製索引的欄位。 例如，如果您套用關鍵片語擷取和實體辨識技能，則這些新欄位將會成為擴充文件的一部分，並且可對應至索引上的欄位。 若要深入了解輸入/輸出格式，請參閱[註解](cognitive-search-concept-annotations-syntax.md)。
 
-### <a name="search-index-and-query-based-access"></a>搜尋索引和以查詢為基礎的存取
+### <a name="step-3-search-index-and-query-based-access"></a>步驟 3：搜尋索引和以查詢為基礎的存取
 
 處理完成後，您即具有由擴充文件組成、可在 Azure 搜尋服務中進行全文檢索搜尋的搜尋主體。 [查詢索引](search-query-overview.md)是開發人員和使用者存取管線所產生之擴充內容的具體方式。 
 
@@ -88,21 +88,24 @@ Azure 搜尋服務中的認知技能是以認知服務 API 中使用的相同 AI
 | 資料來源  | 索引子用來與 Azure 上支援的外部資料來源類型連線的物件。 | 請參閱[索引子](search-indexer-overview.md)。 |
 | 索引 | 從定義欄位結構和使用方式的索引結構描述建置，並保存在 Azure 搜尋服務中的搜尋主體。 | [Azure 搜尋服務中的索引](search-what-is-an-index.md) | 
 
+<a name="where-do-i-start"></a>
 
 ## <a name="where-do-i-start"></a>我該從哪裡開始？
 
-**步驟 1：在提供 API 的區域中建立搜尋服務** 
+**步驟 1：在提供 API 的區域中[建立 Azure 搜尋服務資源](search-create-service-portal.md)** 
 
 + 美國中西部
 + 美國中南部
 + 美國東部
 + 美國東部 2
++ 美國西部
 + 美國西部 2
 + 加拿大中部
 + 西歐
 + 英國南部
 + 北歐
 + 巴西南部
++ 東亞
 + 東南亞
 + 印度中部
 + 澳洲東部

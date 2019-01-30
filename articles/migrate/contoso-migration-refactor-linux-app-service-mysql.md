@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6dd063f8d6520e3ee18dcb3899c1cca16d732707
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 60bd3aef20e39a9f451f54164ef3fb8ef682bc3e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608710"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809680"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Contoso 移轉：將 Contoso Linux 服務傳統應用程式重構至具有 Azure App Service、流量管理員和 Azure MySQL 的多重區域
 
@@ -254,7 +254,7 @@ Contoso 管理員會利用 MySQL 工具，使用備份與還原來遷移資料�
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench9.png)
 
-11. 他們可以在 Azure 入口網站的 MySQL 執行個體中，確認 [概觀] 中的伺服器名稱和登入。
+11. 他們可以在 Azure 入口網站的 MySQL 執行個體中，從 [概觀] 確認伺服器名稱和登入。
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench10.png)
 

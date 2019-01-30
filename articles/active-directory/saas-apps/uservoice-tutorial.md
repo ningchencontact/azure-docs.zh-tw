@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 UserVoice 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 684a405b-8932-46f6-b43a-4d97a42b6b87
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: f69955cb3e5419659e358e738c28f214fb7015b7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f8a30ba7eee7653e4a098df706450c6a4328cce9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429143"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819062"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>教學課程：Azure Active Directory 與 UserVoice 整合
 
@@ -125,7 +125,7 @@ UserVoice 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入儲存按鈕](./media/uservoice-tutorial/tutorial_general_400.png)
 
-1. 在 [UserVoice 組態] 區段上，按一下 [設定 UserVoice] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登入 URL] 和 [SAML 單一登入服務 URL]。
+1. 在 [UserVoice 組態] 區段上，按一下 [設定 UserVoice] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL] 和 [SAML 單一登入服務 URL]。
 
     ![UserVoice 組態](./media/uservoice-tutorial/tutorial_uservoice_configure.png) 
 
@@ -149,7 +149,7 @@ UserVoice 與 Azure AD 整合提供下列優點：
 
     c. 將您從 Azure 入口網站複製的 [登出 URL] 值，貼到 [SSO 遠端登出] 文字方塊中。
  
-    d. 將您從 Azure 入口網站複製的 [指紋] 值，貼到 [目前的憑證 SHA1 指紋] 文字方塊。
+    d. 將您從 Azure 入口網站複製的 [指紋] 值，貼到 ****[Current certificate SHA1 fingerprint] \(目前的憑證 SHA1 指紋\) 文字方塊中。
     
     e. 按一下 [儲存驗證設定] 。
 
@@ -256,7 +256,7 @@ UserVoice 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [UserVoice] 圖格時，應該會自動登入您的 UserVoice 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

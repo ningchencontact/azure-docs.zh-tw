@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 FactSet 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: f41072d1-b2a4-4c4d-9deb-101b52e29096
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: ca66ddb60be962ddbaf45af2932022e45340c1f8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e5aeab971c0de35ecc5a8f398b3ec85b2249d57c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438972"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817448"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-factset"></a>教學課程：Azure Active Directory 與 FactSet 整合
 
@@ -165,7 +165,7 @@ FactSet 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-factset-test-user"></a>建立 FactSet 測試使用者
 
-在本節中，您要在 FactSet 中建立名為 Britta Simon 的使用者。 請與 [FactSet 支援小組](mailto:support@factset.com)合作，在 FactSet 平台中加入使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您要在 FactSet 中建立名為 Britta Simon 的使用者。 請與 [FactSet 支援小組](mailto:support@factset.com)合作，在 FactSet 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -202,7 +202,7 @@ FactSet 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [FactSet] 磚時，應該會自動登入您的 FactSet 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

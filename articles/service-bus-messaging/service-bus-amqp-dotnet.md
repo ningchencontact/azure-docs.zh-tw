@@ -3,23 +3,23 @@ title: Azure 服務匯流排和 .NET 與 AMQP 1.0 | Microsoft Docs
 description: 搭配使用 .NET 的 Azure 服務匯流排與 AMQP
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
-ms.author: spelluru
-ms.openlocfilehash: ad789b7a65fd12abb2a6e92c7c8896677de80cec
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: f5713fe3333f291d8d28a6ef3df48572507661be
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702233"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853199"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>搭配使用 .NET 的服務匯流排與 AMQP 1.0
 
@@ -109,8 +109,8 @@ ms.locfileid: "43702233"
 
 * **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**：控制套用至連結的初始信用額度。 預設值為 0。
 * **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**︰控制在連線開啟時間進行交涉時所提供的 AMQP 框架大小上限。 預設值為 65,536 個位元組。
-* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**︰如果傳輸可分批進行，這個值會決定用於傳送配置的延遲上限。 預設由傳送者/接收者繼承。 個別的傳送者/接收者可以覆寫預設值 (20 毫秒)。
-* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**︰控制是否透過 SSL 連線建立 AMQP 連線。 預設值為 **true**。
+* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**：如果傳輸可分批進行，則此值會決定用於傳送配置的延遲上限。 預設由傳送者/接收者繼承。 個別的傳送者/接收者可以覆寫預設值 (20 毫秒)。
+* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**：控制是否透過 SSL 連線建立 AMQP 連線。 預設值為 **true**。
 
 ## <a name="next-steps"></a>後續步驟
 

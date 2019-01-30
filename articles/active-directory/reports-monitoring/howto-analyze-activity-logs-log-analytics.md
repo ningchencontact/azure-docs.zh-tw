@@ -4,7 +4,7 @@ description: 了解如何使用 Log Analytics 來分析 Azure Active Directory �
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
 ms.service: active-directory
@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2f0f5341ba6818f375d463638979c68689519227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 759a0da93544e2a17b71d762924981f05c3ea322
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624194"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810767"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>使用 Log Analytics 來分析 Azure AD 活動記錄 (預覽)
 
-當您[整合 Azure AD 活動記錄與 Log Analytics](howto-integrate-activity-logs-with-log-analytics.md) 後，您可以使用 Log Analytics 功能來取得環境的深入解析。 您也可以安裝[適用於 Azure AD 活動記錄的 Log Analytics 檢視](howto-install-use-log-analytics-views.md)，以存取您環境中稽核和登入事件的預建報表。
+在您[整合 Azure AD 活動記錄與 Log Analytics](howto-integrate-activity-logs-with-log-analytics.md) 之後，可以使用 Log Analytics 的強大功能來深入了解環境。 您也可以安裝[適用於 Azure AD 活動記錄的 Log Analytics 檢視](howto-install-use-log-analytics-views.md)，以存取您環境中稽核和登入事件的預建報表。
 
 在本文中，您將了解如何分析 Log Analytics 工作區中的 Azure AD 活動記錄。 
 
@@ -93,9 +93,9 @@ AuditLogs
 
 您也可以下載 Azure AD 活動記錄的預建 Log Analytics 檢視。 檢視會提供數個常見案例的相關報告，包含稽核和登入事件。 您也可以使用上一節中所述的步驟，在報表所提供的任何資料上設定警示。
 
-* **Azure AD 帳戶佈建事件**：此檢視會顯示與稽核佈建活動有關的報告，例如佈建的新使用者數目和佈建失敗、更新的使用者數目和更新失敗，以及取消佈建的使用者數目和對應的失敗。    
-* **登入事件**：此檢視會顯示與監視登入活動相關性最高的報告，例如依應用程式、使用者、裝置顯示的登入，以及追蹤一段時間內登入次數的摘要檢視。
-* **Users Performing Consent**：此檢視會顯示與使用者同意有關的報告，例如使用者的同意授與、授與同意的使用者所執行的登入，以及應用程式為所有以同意為基礎的應用程式執行的登入。 
+* **Azure AD 帳戶佈建事件**：此檢視會顯示與稽核佈建活動有關的報告，例如佈建的新使用者數目和佈建失敗次數、更新的使用者數目和更新失敗次數，以及取消佈建的使用者數目和對應的失敗次數。    
+* **登入事件**：此檢視會顯示與監視登入活動相關性最高的報告 (例如依應用程式、使用者、裝置區分的登入)，以及追蹤一段時間內登入次數的摘要檢視。
+* **執行同意的使用者**：此檢視會顯示與使用者同意有關的報告，例如依使用者區分的同意授與、依授與同意的使用者區分的登入，以及就所有以同意為基礎的應用程式而言，依應用程式區分的登入。 
 
 了解如何[安裝與使用適用於 Azure AD 活動記錄的 Log Analytics 檢視](howto-install-use-log-analytics-views.md)。 
 

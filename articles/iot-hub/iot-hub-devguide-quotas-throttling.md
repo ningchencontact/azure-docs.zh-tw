@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: b7ef5d2853cdf4a7b09aa52c510c268cb42a245f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 23dbc8d935e46fc4fb12257f360371d4cc61235a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395151"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827375"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>參考 - IoT 中樞配額和節流
 
@@ -47,9 +47,12 @@ ms.locfileid: "49395151"
 | 作業操作 <sup>1、3</sup> <br/> (建立、更新、列出、刪除) | 1.67/秒/單位 (100/分鐘/單位) | 1.67/秒/單位 (100/分鐘/單位) | 83.33/秒/單位 (5000/分鐘/單位) |
 | 作業裝置操作<sup>1</sup> <br/> (更新對應項，叫用直接方法) | 10/秒 | 10/秒或 1/秒/單位較高者 | 50/秒/單位 |
 | 設定與 Edge 部署<sup>1</sup> <br/> (建立、更新、列出、刪除) | 0.33/秒/單位 (20/分鐘/單位) | 0.33/秒/單位 (20/分鐘/單位) | 0.33/秒/單位 (20/分鐘/單位) |
+| 裝置串流初始速率<sup>4</sup> | 5 個新串流/秒 | 5 個新串流/秒 | 5 個新串流/秒 |
+| 同時連線之裝置串流的數目上限<sup>4</sup> | 50 | 50 | 50 |
+| 裝置串流資料轉送上限<sup>4</sup> (每日彙總量) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>「IoT 中樞」的基本層中不提供此功能。 如需詳細資訊，請參閱[如何選擇適合的 IoT 中樞](iot-hub-scaling.md)。 <br/><sup>2</sup>節流計量大小為 8 KB。 <br/><sup>3</sup>您一次只能有一個作用中裝置匯入/匯出作業。
+<sup>1</sup>「IoT 中樞」的基本層中不提供此功能。 如需詳細資訊，請參閱[如何選擇適合的 IoT 中樞](iot-hub-scaling.md)。 <br/><sup>2</sup>節流計量大小為 8 KB。 <br/><sup>3</sup>您一次只能有一個作用中裝置匯入/匯出作業。 <br/><sup>4</sup>IoT 中樞裝置串流僅供 S1、S2、S3 及 F1 SKU 使用。
 
 「裝置連線」節流會控制新裝置可與 IoT 中樞建立連線的速率。 「裝置連線」節流不會控制同時連線裝置的數目上限。 「裝置連線」速率節流受制於為 IoT 中樞佈建的單位數。
 

@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Kantega SSO for Bitbu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c41cdaaf-0441-493c-94c7-569615b7b1ab
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 6dee106d688d9f9a6ebc6dc26caa6a46db3f6850
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 8d8d42671a46465a32e3702f4839131bbf998883
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823889"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810120"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>教學課程：Azure Active Directory 與 Kantega SSO for Bitbucket 整合
 
@@ -323,7 +323,7 @@ Kantega SSO for Bitbucket 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Kantega SSO for Bitbucket 圖格時，應該會自動登入您的 Kantega SSO for Bitbucket 應用程式。
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

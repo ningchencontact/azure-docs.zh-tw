@@ -2,18 +2,19 @@
 title: 建立分割的 Azure 服務匯流排佇列和主題 | Microsoft Docs
 description: 說明如何使用多個訊息代理程式分割服務匯流排佇列和主題。
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: spelluru
-ms.openlocfilehash: 049b6969b33290edf6ef8a2ea437808d914057a9
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.author: aschhab
+ms.openlocfilehash: 48b7d7450503b27b5515e655be3f048f57c2238d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285062"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856582"
 ---
 # <a name="partitioned-queues-and-topics"></a>分割的佇列和主題
 
@@ -86,7 +87,7 @@ ns.CreateTopic(td);
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>進階主題：搭配交易使用分割的實體
 
-傳送做為交易一部分的訊息必須指定資料分割索引鍵。 索引鍵可以是下列屬性的其中一個：[SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid)、[PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 或 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid)。 傳送做為相同交易一部分的所有訊息必須指定相同的分割索引鍵。 如果您嘗試在交易內傳送沒有分割索引鍵的訊息，服務匯流排會傳回無效作業例外狀況。 如果您嘗試在相同交易內傳送多個具有不同分割索引鍵的訊息，服務匯流排會傳回無效作業例外狀況。 例如︰
+傳送做為交易一部分的訊息必須指定資料分割索引鍵。 金鑰可以是下列屬性其中之一：[SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid)、[PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 或 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) 屬性。 傳送做為相同交易一部分的所有訊息必須指定相同的分割索引鍵。 如果您嘗試在交易內傳送沒有分割索引鍵的訊息，服務匯流排會傳回無效作業例外狀況。 如果您嘗試在相同交易內傳送多個具有不同分割索引鍵的訊息，服務匯流排會傳回無效作業例外狀況。 例如︰
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();

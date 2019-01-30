@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 CloudPassage 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bfe1f14e-74e4-4680-ac9e-f7355e1c94cc
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: c44b9345da32f907efacfe2b7bb1cf09de0a6345
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 10ef9e0c07f6bad393fdb62de85456483284a998
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427528"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821306"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>教學課程：Azure Active Directory 與 CloudPassage 整合
 

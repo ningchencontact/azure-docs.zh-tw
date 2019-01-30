@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Trakstar 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 411cb8c3-95c6-4138-acf2-ffc7f663e89a
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 24f67ffab016420ca2603c1ae313fc22421be9e4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5380c909602053b1fd20e85c81099d1bb2c6614b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420781"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823788"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>教學課程：Azure Active Directory 與 Trakstar 整合
 

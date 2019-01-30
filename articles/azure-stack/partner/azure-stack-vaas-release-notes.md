@@ -13,18 +13,28 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 735f1d7cce8621a29e5a582917d3eea8ee399b8f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ce16ab3b723b9a6c87c7b980e3cc76c389609da6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319642"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847895"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>驗證即服務的版本資訊
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 本文包含有「Azure Stack 驗證即服務」的版本資訊。
+
+## <a name="version-405"></a>4.0.5 版
+2019 年 1 月 17 日
+
+-  更新磁碟識別測試以解決儲存體集區的不一致。 版本：5.1.14.0  -> 5.1.15.0
+-  更新 Azure Stack 每月更新驗證以解決已核准軟體和內容驗證的不一致。 版本：5.1.14.0  -> 5.1.15.0
+-  更新 OEM 延伸模組套件驗證以在 Azure Stack 更新步驟「之前」先執行必要的檢查。 版本：5.1.14.0 -> 5.1.15.0
+-  內部錯誤修正
+
+
 
 ## <a name="version-402"></a>4.0.2 版
 

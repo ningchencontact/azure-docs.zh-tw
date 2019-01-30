@@ -1,5 +1,5 @@
 ---
-標題：對 Machine Learning Studio Classic Web 服務的重新訓練進行疑難排解 titleSuffix: Azure Machine Learning Studio 說明：找出您在為 Azure Machine Learning Studio Web 服務重新訓練模型時所遇到的常見問題，並加以修正。
+標題：對 Machine Learning Studio Classic Web 服務的重新訓練進行疑難排解 titleSuffix: Azure Machine Learning Studio description:找出您在為 Azure Machine Learning Studio Web 服務重新定型模型時所遇到的常見問題，並加以修正。
 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date:11/01/2017
@@ -31,7 +31,7 @@ author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yaha
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>檢查是否有正確的 PATCH URL
 所使用的 PATCH URL 必須是與加入到評分 Web 服務的新評分端點相關聯的 URL。 有幾個方法可取得 PATCH URL：
 
-**選項 1：程式設計方式**
+**選項 1：以程式設計方式**
 
 若要取得正確的 PATCH URL：
 

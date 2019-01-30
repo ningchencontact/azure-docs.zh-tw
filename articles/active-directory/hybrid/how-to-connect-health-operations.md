@@ -4,7 +4,7 @@ description: 本文說明可以在您部署 Azure AD Connect Health 之後執行
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 7e0e2e19f2f21fa3199cbc4911fed3427cbc162c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 35bbc44a8a54071530806576294163cb7ba627ea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280502"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478292"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health 作業
 本主題說明您可以使用 Azure Active Directory (Azure AD) Connect Health 來執行的各種作業。
@@ -64,6 +64,7 @@ ms.locfileid: "51280502"
 
 1. 從 [伺服器清單] 刀鋒視窗中選取要移除的伺服器名稱，以開啟 [伺服器] 刀鋒視窗。
 2. 在 [伺服器] 刀鋒視窗中，從動作列中按一下 [刪除]。
+![Azure AD Connect Health 刪除伺服器的螢幕擷取畫面](./media/how-to-connect-health-operations/DeleteServer2.png)
 3. 在確認方塊中輸入伺服器名稱以確認。
 4. 按一下 [刪除] 。
 
@@ -86,8 +87,9 @@ Azure AD Connect Health for Azure Active Directory Domain Services：
 * 執行此動作之後，如果想要開始監視該服務，請在所有伺服器上解除安裝健康情況代理程式，再重新安裝。 執行此動作之後，如果想要重新開始監視相同的伺服器，請在該伺服器上解除安裝、重新安裝及註冊健康情況代理程式。
 
 #### <a name="to-delete-a-service-instance-from-the-azure-ad-connect-health-service"></a>從 Azure AD Connect Health 服務刪除服務執行個體
-1. 從 [服務清單] 刀鋒視窗中選取您想要移除的服務識別碼 (伺服陣列名稱)，以開啟 [服務] 刀鋒視窗。
-2. 在 [伺服器] 刀鋒視窗中，從動作列中按一下 [刪除]。
+1. 從 [服務清單] 刀鋒視窗中選取您想要移除的服務識別碼 (伺服陣列名稱)，以開啟 [服務] 刀鋒視窗。 
+2. 在 [服務] 刀鋒視窗上，從動作列中按一下 [刪除]。 
+![Azure AD Connect Health 刪除服務的螢幕擷取畫面](./media/how-to-connect-health-operations/DeleteServer.png)
 3. 在確認方塊中輸入服務名稱以確認 (例如：sts.contoso.com)。
 4. 按一下 [刪除] 。
    <br><br>
@@ -120,7 +122,7 @@ Azure AD Connect Health 支援在兩個層級上管理存取：
 #### <a name="step-1-select-the-appropriate-access-scope"></a>步驟 1：選取適當的存取範圍
 若要允許 Azure AD Connect Health 內的*所有服務執行個體*層級使用者存取，請開啟 Azure AD Connect Health 中的主要刀鋒視窗。<br>
 
-#### <a name="step-2-add-users-and-groups-and-assign-roles"></a>步驟 2：新增使用者和群組及指派角色
+#### <a name="step-2-add-users-and-groups-and-assign-roles"></a>步驟 2：新增使用者和群組並指派角色
 1. 從 [設定] 區段中，按一下 [使用者]。<br>
    ![Azure AD Connect Health 資源提要欄位的螢幕擷取畫面](./media/how-to-connect-health-operations/startRBAC.png)
 2. 選取 [新增] 。

@@ -3,7 +3,7 @@ title: 使用安全性資訊重設您的密碼 - Azure Active Directory | Micros
 description: 如何在您忘記密碼時，使用安全性資訊和雙步驟驗證來重設自己的密碼。
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: a95d5adb4ee0eb8aa71f7759e3f2b5520bda5ff4
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6bf8c548d81b3cade487f3188cdafae82b5776d9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347701"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815934"
 ---
 # <a name="reset-your-work-or-school-password"></a>重設您的工作密碼或學校密碼
 
@@ -159,7 +159,7 @@ ms.locfileid: "39347701"
 |當我嘗試變更密碼時，收到一個錯誤。 |您的密碼包含使密碼容易猜到的字組、片語或模式。| 請使用強度更高的密碼重試。|
 |在輸入我的使用者識別碼之後，會移至一個畫面指出「請連絡您的系統管理員」。|Microsoft 已判定您的使用者帳戶密碼會由您內部部署環境中的系統管理員所管理。 因此，您無法從 [無法存取您的帳戶] 連結重設密碼。 |請連絡您的系統管理員以獲得更多協助。|
 |在輸入我的使用者識別碼之後，出現了「您的帳戶未啟用密碼重設」錯誤。|您的系統管理員尚未設定您的帳戶，因此您可以重設自己的密碼。|您的系統管理員尚未針對組織開啟從 [無法存取您的帳戶] 連結重設密碼的功能，或尚未授權您使用該功能。<br><br> 若要重設密碼，您必須選取 [連絡系統管理員] 連結，以傳送電子郵件給公司的系統管理員，讓他們知道您想要重設密碼。|
-|在輸入我的使用者識別碼之後，出現了「我們無法驗證您的帳戶」錯誤。|登入程序無法驗證您的帳戶資訊。|有兩個原因會讓您看到此訊息。<br><br>1.您的系統管理員已為組織開啟密碼重設，但您尚未註冊使用此服務。 若要註冊密碼重設，請根據您的驗證方法參閱下列其中一篇文章：[將安全性資訊設定為使用驗證器應用程式 (預覽)](security-info-setup-auth-app.md)、[將安全性資訊設定為使用電話 (預覽)](security-info-setup-phone-number.md)、[將安全性資訊設定為使用簡訊 (預覽)](security-info-setup-text-msg.md)、[將安全性資訊設定為使用電子郵件 (預覽)](security-info-setup-email.md) 或[將安全性資訊設定為使用安全性問題 (預覽)](security-info-setup-questions.md)。<br><br>2.您的系統管理員尚未為組織開啟密碼重設。 在此情況下，您必須選取 [連絡系統管理員] 連結，以傳送電子郵件給公司的系統管理員，要求重設您的密碼。|
+|在輸入我的使用者識別碼之後，出現了「我們無法驗證您的帳戶」錯誤。|登入程序無法驗證您的帳戶資訊。|有兩個原因會讓您看到此訊息。<br><br>1.您的系統管理員已為組織開啟密碼重設，但您尚未註冊使用此服務。 若要註冊密碼重設，請根據您的驗證方法，參閱下列其中一篇文章：[將安全性資訊設定為使用驗證器應用程式 (預覽)](security-info-setup-auth-app.md)、[將安全性資訊設定為使用電話 (預覽)](security-info-setup-phone-number.md)、[將安全性資訊設定為使用簡訊 (預覽)](security-info-setup-text-msg.md)、[將安全性資訊設定為使用電子郵件 (預覽)](security-info-setup-email.md) 或[將安全性資訊設定為使用安全性問題 (預覽)](security-info-setup-questions.md)。<br><br>2.您的系統管理員尚未為組織開啟密碼重設。 在此情況下，您必須選取 [連絡系統管理員] 連結，以傳送電子郵件給公司的系統管理員，要求重設您的密碼。|
 
 ## <a name="next-steps"></a>後續步驟
 

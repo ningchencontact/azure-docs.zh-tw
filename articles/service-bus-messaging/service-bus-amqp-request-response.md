@@ -3,23 +3,23 @@ title: Azure 服務匯流排要求-回應架構作業中的 AMQP 1.0 | Microsoft
 description: Microsoft Azure 服務匯流排要求/回應架構作業的清單。
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 6ba3d8e4273d0f2ce2626d8876c386a3714d5355
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 113ed80910e396361396a9c1298fc04a55ac4800
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159089"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852470"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure 服務匯流排中的 AMQP 1.0：要求/回應架構作業
 
@@ -188,14 +188,14 @@ properties: {
   
 |Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 204︰沒有內容 – 沒有其他訊息|  
+|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 204：沒有內容 – 沒有其他訊息|  
 |statusDescription|字串|否|狀態的描述。|  
   
 回應訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
   
 |Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|上限|對應的清單|是|當中每個對應都代表一則訊息的訊息清單。|  
+| 上限|對應的清單|是|當中每個對應都代表一則訊息的訊息清單。|  
   
 代表訊息的對應必須包含下列項目：  
   
@@ -220,7 +220,7 @@ properties: {
   
 |Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|上限|對應的清單|是|當中每個對應都代表一則訊息的訊息清單。|  
+| 上限|對應的清單|是|當中每個對應都代表一則訊息的訊息清單。|  
   
 代表訊息的對應必須包含下列項目：  
   
@@ -308,7 +308,7 @@ properties: {
   
 |Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 204︰沒有內容 – 沒有其他訊息|  
+|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 204：沒有內容 – 沒有其他訊息|  
 |statusDescription|字串|否|狀態的描述。|  
   
 回應訊息本文必須由包含對應與下列項目的 **amqp-value** 區段所組成：  
@@ -344,14 +344,14 @@ properties: {
   
 |Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 204︰沒有內容 – 沒有其他訊息|  
+|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 204：沒有內容 – 沒有其他訊息|  
 |statusDescription|字串|否|狀態的描述。|  
   
 回應訊息本文必須由包含對應與下列項目的 **amqp-value** 區段所組成：  
   
 |Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|上限|對應的清單|是|當中每個對應都代表一則訊息的訊息清單。|  
+| 上限|對應的清單|是|當中每個對應都代表一則訊息的訊息清單。|  
   
  代表訊息的對應必須包含下列項目：  
   
@@ -449,7 +449,7 @@ properties: {
   
 |Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 204︰沒有內容 – 沒有其他訊息|  
+|StatusCode|int|是|HTTP 回應碼 [RFC2616]<br /><br /> 200：確定 – 有多個訊息<br /><br /> 204：沒有內容 – 沒有其他訊息|  
 |statusDescription|字串|否|狀態的描述。|  
   
 回應訊息本文必須由包含**對應**與下列項目的 **amqp-value** 區段所組成：  
@@ -662,7 +662,7 @@ sql-filter 對應必須包含下列項目：
   
 |Key|值類型|必要|值內容|  
 |---------|----------------|--------------|--------------------|  
-|上限|對應的清單|是|當中每個對應都代表一則訊息的訊息清單。|  
+| 上限|對應的清單|是|當中每個對應都代表一則訊息的訊息清單。|  
   
 代表訊息的對應必須包含下列項目：  
   

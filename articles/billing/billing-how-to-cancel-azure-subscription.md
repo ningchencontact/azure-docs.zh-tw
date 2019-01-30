@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 1/23/2019
 ms.author: cwatson
-ms.openlocfilehash: de5fd6e52ab93132920b1c98188cbea92b9900b5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 88ea3a5daa1a740ab545201bc48b612ea6a56a44
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584344"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810324"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>取消您的 Azure 訂用帳戶
 
@@ -37,10 +37,11 @@ ms.locfileid: "52584344"
 ## <a name="cancel-subscription-using-the-azure-portal"></a>使用 Azure 入口網站取消訂用帳戶
 
 1. 在 [Azure 入口網站的 [訂用帳戶] 頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中選取您的訂用帳戶。
-1. 選取您要取消的訂用帳戶，然後按一下 [取消訂用帳戶]。
+2. 選取您要取消的訂用帳戶。
+3. 選取[概觀]，然後選取 [取消訂用帳戶]。
 
     ![顯示 [取消] 按鈕的螢幕擷取畫面](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-1. 遵循提示並完成取消作業。
+3. 遵循提示並完成取消作業。
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>取消訂用帳戶之後會發生什麼情況？
 

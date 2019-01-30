@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 ITRP 之間的單一�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: e09716a3-4200-4853-9414-2390e6c10d98
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 0af96b750c7e316d1d394a00781f727358f2c4e8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1ba77414906f90d14809147e532379ae461008dc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428310"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>教學課程：Azure Active Directory 與 ITRP 整合
 
@@ -150,9 +150,9 @@ ITRP 與 Azure AD 整合提供下列優點：
 
     a. 按一下 [啟用] 。
 
-    b. 在 [遠端登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
+    b. 在 [Remote Log Out URL] \(遠端登出 URL\) **** 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
 
-    c. 在 [SAML SSO URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
+    c. 在 [SAML SSO URL] **** 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
 
     d. 在 [憑證指紋] 文字方塊中，貼上您從 Azure 入口網站複製的憑證 [指紋] 值。 
       

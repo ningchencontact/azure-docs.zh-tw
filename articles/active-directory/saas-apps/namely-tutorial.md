@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Namely 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9541d5c4-4c82-4b5b-b01a-6a3f75a2b7a1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 344de0d5f09d33146fd5065a7dc723038b492273
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b76dfa7d16da487798281f5f31b9915ca9716ebc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445098"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>教學課程：將 Azure Active Directory 與 Namely 整合
 

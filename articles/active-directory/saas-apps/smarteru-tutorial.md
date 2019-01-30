@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 SmarterU 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 95fe3212-d052-4ac8-87eb-ac5305227e85
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 12c7a2751b980ef7951be9043a62dbb1ec50a63d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0c12c55913653e547cce0c42bd06fb55b374a4a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439756"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>教學課程：Azure Active Directory 與 SmarterU 整合
 
@@ -199,7 +199,7 @@ SmarterU 需以手動方式佈建。
 
     a. 按一下 [新增使用者] 。
     
-    b. 在下列文字方塊中輸入該 Azure AD 使用者帳戶的相關屬性值：**主要電子郵件地址**、**員工識別碼**、**密碼**、**確認密碼**、**名字**、**姓氏**。
+    b. 在下列文字方塊中輸入該 Azure AD 使用者帳戶的相關屬性值：[主要電子郵件]、[員工識別碼]、[密碼]、[驗證密碼]、[名字]、[姓氏]。
     
     c. 按一下 [作用中] 。 
     
@@ -242,9 +242,9 @@ SmarterU 需以手動方式佈建。
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
- 
+ 
 當您在 [存取面板] 中按一下 [SmarterU] 圖格時，應該會自動登入您的 SmarterU 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 
 ## <a name="additional-resources"></a>其他資源

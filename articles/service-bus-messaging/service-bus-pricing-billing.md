@@ -3,9 +3,9 @@ title: 服務匯流排定價與計費 | Microsoft Docs
 description: 服務匯流排定價結構的概觀。
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
-ms.author: spelluru
-ms.openlocfilehash: db5f4bc7cc62c61f13258b919226efbf63165371
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406834"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852927"
 ---
 # <a name="service-bus-pricing-and-billing"></a>服務匯流排定價與計費
 
@@ -96,7 +96,7 @@ Azure 服務匯流排提供標準和[進階](service-bus-premium-messaging.md)�
 例如︰
 
 1. 10,000 台裝置均透過單一 AMQP 連線進行連線，並接收來自服務匯流排主題的命令。 裝置將遙測事件傳送到事件中樞。 如果所有裝置每天都連線 12 小時，則除了其他服務匯流排的任何主題費用外，還會有以下連線費用：10,000 個連線 * 12 小時 * 31 天 / 744 = 5,000 個代理連線。 超過每月 1,000 個代理連線的額度後，就會以每個代理連線 $0.03 美元的費率，對 4,000 個代理連線收費，總共 $120 美元。
-2. 10,000 台裝置透過 HTTP 從服務匯流排佇列接收訊息，並指定非零的逾時值。 如果所有裝置每天都連線 12 小時，則除了其他服務匯流排的任何費用外，您還會看到以下連線費用：10,000 個 HTTP 接收連線 * 每天 12 小時 * 31 天 / 744 = 5,000 個代理連線。
+2. 10,000 台裝置透過 HTTP 從服務匯流排佇列接收訊息，並指定非零的逾時值。 如果所有裝置每天連線 12 小時，您會看到下列連線費用 (除了其他任何服務匯流排費用)：10,000 個 HTTP 接收連線 * 每天 12 小時 * 31 天 / 744 小時 = 5,000 個代理連線。
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>佇列和主題/訂用帳戶需要代理連線費用嗎？
 

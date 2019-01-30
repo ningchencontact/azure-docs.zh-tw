@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2018
+ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: cfbe1ce39d7f68dd6ea2510b5c6cbddf4eb71710
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: e97ac849fa0e590dd2462d8e64b761da23576833
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331991"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845944"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>部署適用於 VM 的 Azure 監視器 (預覽)
 本文說明如何設定適用於 VM 的 Azure 監視器。 此服務會監視 Azure 虛擬機器 (VM) 和虛擬機器擴展集的作業系統健康情況，以及您環境中的虛擬機器。 此監控包括探索及對應可能會在其上裝載的應用程式相依性。 
@@ -303,113 +303,128 @@ ms.locfileid: "54331991"
 
 1. 在本機資料夾中將此檔案儲存為 *installsolutionsforvminsights.json*。
 
-1. 編輯 *WorkspaceName*、*ResourceGroupName* 和 *WorkspaceLocation* 的值。 *WorkspaceName* 的值是您 Log Analytics 工作區的完整資源識別碼，其中包含工作區名稱。 *WorkspaceLocation* 的值是定義工作區所在的區域。
+1. 擷取 *WorkspaceName*、*ResourceGroupName* 和 *WorkspaceLocation* 的值。 *WorkspaceName* 的值是您 Log Analytics 工作區的名稱。 *WorkspaceLocation* 的值是定義工作區所在的區域。
 
-1. 您已經準備好使用下列 PowerShell 命令部署此範本：
+1. 您已準備好部署此範本。
+ 
+    * 在包含範本的資料夾中使用下列 PowerShell 命令：
 
-    ```powershell
-    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
-    ```
+        ```powershell
+        New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+        ```
 
-    可能需要幾分鐘的時間才能完成設定變更。 完成之後，將會顯示如下的訊息並包含結果：
+        可能需要幾分鐘的時間才能完成設定變更。 完成之後，將會顯示如下的訊息並包含結果：
 
-    ```powershell
-    provisioningState       : Succeeded
-    ```
+        ```powershell
+        provisioningState       : Succeeded
+        ```
 
-### <a name="enable-by-using-azure-policy"></a>使用 Azure 原則啟用
-若要以可協助確保一致合規以及自動啟用新佈建之 VM 的方式，大規模啟用適用於 VM 的 Azure 監視器，建議使用 [Azure 原則](../../azure-policy/azure-policy-introduction.md)。 這些原則會：
+    * 使用 Azure CLI 來執行下列命令：
+    
+        ```azurecli
+        az login
+        az account set --subscription "Subscription Name"
+        az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
 
-* 部署 Log Analytics 代理程式和 Dependency Agent。
-* 報告合規性結果。
-* 補救不相容的 VM。
+        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
-若要在您的租用戶中，使用 Azure 原則啟用適用於 VM 的 Azure 監視器：
+        ```azurecli
+        provisioningState       : Succeeded
 
-- 將計畫指派給範圍：管理群組、訂用帳戶或資源群組
-- 檢閱和補救合規性結果
+### Enable by using Azure Policy
+To enable Azure Monitor for VMs at scale in a way that helps ensure consistent compliance and the automatic enabling of the newly provisioned VMs, we recommend [Azure Policy](../../azure-policy/azure-policy-introduction.md). These policies:
 
-如需有關指派 Azure 原則的詳細資訊，請參閱 [Azure 原則概觀](../../governance/policy/overview.md#policy-assignment)，並在繼續進行之前，檢閱[管理群組概觀](../../governance/management-groups/index.md)。
+* Deploy the Log Analytics agent and the Dependency agent.
+* Report on compliance results.
+* Remediate for non-compliant VMs.
 
-下表列出原則定義：
+To enable Azure Monitor for VMs by using Azure Policy in your tenant:
 
-|Name |說明 |類型 |
+- Assign the initiative to a scope: management group, subscription, or resource group
+- Review and remediate compliance results
+
+For more information about assigning Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md#policy-assignment) and review the [overview of management groups](../../governance/management-groups/index.md) before you continue.
+
+The policy definitions are listed in the following table:
+
+|Name |Description |Type |
 |-----|------------|-----|
-|[預覽]：啟用適用於 VM 的 Azure 監視器 |在指定的範圍 (管理群組、訂用帳戶或資源群組) 中啟用適用於虛擬機器 (VM) 的 Azure 監視器。 請使用 Log Analytics 工作區作為參數。 |方案 |
-|[預覽]：稽核 Dependency Agent 部署 – 未列出的 VM 映像 (OS) |如果 VM 映像 (OS) 未在清單中定義且未安裝代理程式，請將 VM 報告為不相容。 |原則 |
-|[預覽]：稽核 Log Analytics 代理程式部署 – 未列出的 VM 映像 (OS) |如果 VM 映像 (OS) 未在清單中定義且未安裝代理程式，請將 VM 報告為不相容。 |原則 |
-|[預覽]：部署適用於 Linux VM 的 Dependency Agent |如果 VM 映像 (OS) 未在清單中定義且未安裝代理程式，請部署適用於 Linux VM 的 Dependency Agent。 |原則 |
-|[預覽]：部署適用於 Windows VM 的 Dependency Agent |如果 VM 映像 (OS) 未在清單中定義且未安裝代理程式，請部署適用於 Windows VM 的 Dependency Agent。 |原則 |
-|[預覽]：部署適用於 Linux VM 的 Log Analytics 代理程式 |如果 VM 映像 (OS) 未在清單中定義且未安裝代理程式，請部署適用於 Linux VM 的 Log Analytics 代理程式。 |原則 |
-|[預覽]：部署適用於 Windows VM 的 Log Analytics 代理程式 |如果 VM 映像 (OS) 未在清單中定義且未安裝代理程式，請部署適用於 Windows VM 的 Log Analytics 代理程式。 |原則 |
+|[Preview]: Enable Azure Monitor for VMs |Enable Azure Monitor for the Virtual Machines (VMs) in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. |Initiative |
+|[Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Dependency Agent for Linux VMs |Deploy Dependency Agent for Linux VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Dependency Agent for Windows VMs |Deploy Dependency Agent for Windows VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Log Analytics Agent for Linux VMs |Deploy Log Analytics Agent for Linux VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Log Analytics Agent for Windows VMs |Deploy Log Analytics Agent for Windows VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
 
-獨立原則 (未包含在計畫中) 如下所述：
+Standalone policy (not included with the initiative) is described here:
 
-|Name |說明 |類型 |
+|Name |Description |Type |
 |-----|------------|-----|
-|[預覽]：稽核適用於 VM 的 Log Analytics 工作區 - 報告不相符 |如果 VM 未登入在原則/計畫指派中指定的 Log Analytics 工作區，請將其報告為不相容。 |原則 |
+|[Preview]: Audit Log Analytics Workspace for VM - Report Mismatch |Report VMs as non-compliant if they aren't logging to the Log Analytics workspace specified in the policy/initiative assignment. |Policy |
 
-#### <a name="assign-the-azure-monitor-initiative"></a>指派 Azure 監視器計畫
-利用此初始版本，您只能在 Azure 入口網站中建立原則指派。 若要了解如何完成這些步驟，請參閱 [從 Azure 入口網站建立原則指派](../../governance/policy/assign-policy-portal.md)。
+#### Assign the Azure Monitor initiative
+With this initial release, you can create the policy assignment only in the Azure portal. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../../governance/policy/assign-policy-portal.md).
 
-1. 若要在 Azure 入口網站中啟動 Azure 原則服務，請選取 [所有服務]，然後搜尋並選取 [原則]。
+1. To launch the Azure Policy service in the Azure portal, select **All services**, and then search for and select **Policy**.
 
-1. 在 [Azure 原則] 頁面的左窗格中，選取 [指派]。  
-    指派是已指派在特定範圍內發生的原則。
+1. In the left pane of the Azure Policy page, select **Assignments**.  
+    An assignment is a policy that has been assigned to take place within a specific scope.
     
-1. 在 [原則 - 指派] 頁面頂端，選取 [指派計畫]。
+1. At the top of the **Policy - Assignments** page, select **Assign Initiative**.
 
-1. 在 [指派計畫] 頁面上，按一下省略符號 (...)，並選取管理群組或訂用帳戶來選取 [範圍]。  
-    在我們的範例中，範圍會將原則指派限制為只對某個虛擬機器群組強制執行。
+1. On the **Assign Initiative** page, select the **Scope** by clicking the ellipsis (...), and select a management group or subscription.  
+    In our example, a scope limits the policy assignment to a grouping of virtual machines for enforcement.
     
-1. 在 [範圍] 頁面的底部，選擇 [選取] 來儲存變更。
+1. At the bottom of the **Scope** page, save your changes by selecting **Select**.
 
-1. (選擇性) 若要從範圍中移除一或多個資源，請選取 [排除項目]。
+1. (Optional) To remove one or more resources from the scope, select **Exclusions**.
 
-1. 選取 [計畫定義] 省略符號 (...) 來顯示可用定義的清單、選取 **[預覽] 啟用適用於 VM 的 Azure 監視器**，然後選擇 [選取]。  
-    [指派名稱] 方塊會自動填入您選取的計畫名稱，但您可加以變更。 您也可以新增選擇性的描述。 [指派者] 方塊會根據登入的使用者自動填入，而且此值是選擇性的。
+1. Select the **Initiative definition** ellipsis (...) to display the list of available definitions, select **[Preview] Enable Azure Monitor for VMs**, and then select **Select**.  
+    The **Assignment name** box is automatically populated with the initiative name you selected, but you can change it. You can also add an optional description. The **Assigned by** box is automatically populated based on who is logged in, and this value is optional.
     
-1. 在支援之區域的 [Log Analytics 工作區] 下拉式清單中，選取一個工作區。
+1. In the **Log Analytics workspace** drop-down list for the supported region, select a workspace.
 
     >[!NOTE]
-    >如果工作區超出指派的範圍之外，請將 [Log Analytics 參與者] 權限授與原則指派的主體識別碼。 否則，您可能會看到部署失敗，例如：`The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... `若要授與存取權，請檢閱[如何手動設定受控識別](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity)。
+    >If the workspace is beyond the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's Principal ID. If you don't do this, you might see a deployment failure such as: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... `
+    >To grant access, review [how to manually configure the managed identity](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
     >  
-    系統會選取 [受控識別] 核取方塊，因為要指派的計畫包含具有 *deployIfNotExists* 效果的原則。
+    The **Managed Identity** check box is selected, because the initiative being assigned includes a policy with the *deployIfNotExists* effect.
     
-1. 在 [管理身分識別位置] 下拉式清單中，選取適當的區域。
+1. In the **Manage Identity location** drop-down list, select the appropriate region.
 
-1. 選取 [指派]。
+1. Select **Assign**.
 
-#### <a name="review-and-remediate-the-compliance-results"></a>檢閱和補救合規性結果
+#### Review and remediate the compliance results
 
-您可以閱讀[識別非合規性結果](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources)，了解如何檢閱合規性結果。 在左窗格中，選取 [合規性]，然後根據所建立的指派，找出 **[預覽] 啟用適用於 VM 的 Azure 監視器**計畫中不符合的 VM。
+You can learn how to review compliance results by reading [identify non-compliance results](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). In the left pane, select **Compliance**, and then locate the **[Preview] Enable Azure Monitor for VMs** initiative for VMs that aren't compliant according to the assignment you created.
 
-![Azure VM 的原則合規性](./media/vminsights-onboard/policy-view-compliance-01.png)
+![Policy compliance for Azure VMs](./media/vminsights-onboard/policy-view-compliance-01.png)
 
-根據計畫包含的原則結果，VM 在下列案例中會回報為不符合規範：
+Based on the results of the policies included with the initiative, VMs are reported as non-compliant in the following scenarios:
 
-* 未部署 Log Analytics 或 Dependency Agent。  
-    此對於包含現有 VM 的範圍來說是典型案例。 若要解決此問題，請在不符合規範的原則上[建立補救工作](../../governance/policy/how-to/remediate-resources.md)，以部署必要的代理程式。  
-    - [預覽]: Deploy Dependency Agent for Linux VMs
-    - [預覽]: Deploy Dependency Agent for Windows VMs
-    - [預覽]: Deploy Log Analytics Agent for Linux VMs
-    - [預覽]: Deploy Log Analytics Agent for Windows VMs
+* Log Analytics or the Dependency agent isn't deployed.  
+    This scenario is typical for a scope with existing VMs. To mitigate it, deploy the required agents by [creating remediation tasks](../../governance/policy/how-to/remediate-resources.md) on a non-compliant policy.  
+    - [Preview]: Deploy Dependency Agent for Linux VMs
+    - [Preview]: Deploy Dependency Agent for Windows VMs
+    - [Preview]: Deploy Log Analytics Agent for Linux VMs
+    - [Preview]: Deploy Log Analytics Agent for Windows VMs
 
-* 在原則定義中找不到 VM 映像 (OS)。  
-    部署原則的準則僅包含從已知 Azure VM 映像部署的 VM。 請參閱文件以了解 VM OS 是否受到支援。 如果不受支援，請複製部署原則，並加以更新/修改，使映像符合規範。  
-    - [預覽]：稽核 Dependency Agent 部署 – 未列出的 VM 映像 (OS)
-    - [預覽]：稽核 Log Analytics 代理程式部署 – 未列出的 VM 映像 (OS)
+* VM Image (OS) isn't identified in the policy definition.  
+    The criteria of the deployment policy include only VMs that are deployed from well-known Azure VM images. Check the documentation to see whether the VM OS is supported. If it isn't supported, duplicate the deployment policy and update or modify it to make the image compliant.  
+    - [Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted
+    - [Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted
 
-* VM 未登入指定的 Log Analytics 工作區。  
-    計畫範圍內的部分 VM 可以登入未在原則指派中指定的 Log Analytics 工作區。 此原則是一個工具，可找出哪些 VM 要回報至不符合規範的工作區。  
-    - [預覽]: Audit Log Analytics Workspace for VM - Report Mismatch
+* VMs aren't logging in to the specified Log Analytics workspace.  
+    It's possible that some VMs in the initiative scope are logging in to a Log Analytics workspace other than the one that's specified in the policy assignment. This policy is a tool to identify which VMs are reporting to a non-compliant workspace.  
+    - [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
 
-### <a name="enable-with-powershell"></a>使用 PowerShell 啟用
-若要針對多個 VM 或虛擬機器擴展集啟用適用於 VM 的 Azure 監視器，您可以使用 Azure PowerShell 資源庫中提供的 PowerShell 指令碼 [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0)。 此指令碼會在您的訂用帳戶中、在 *ResourceGroup* 所指定的範圍內資源群組中，逐一查看每個虛擬機器和虛擬機器擴展集，或逐一查看依 [名稱] 指定的單一 VM 或虛擬機器擴展集。 針對每個 VM 或虛擬機器擴展集，指令碼會確認是否已經安裝 VM 延伸模組。 如果未安裝 VM 延伸模組，則指令碼會嘗試重新加以安裝。 如果已安裝 VM 延伸模組，指令碼會安裝 Log Analytics 和 Dependency Agent VM 延伸模組。
+### Enable with PowerShell
+To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, you can use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0), available from the Azure PowerShell Gallery. This script iterates through every virtual machine and virtual machine scale set in your subscription, in the scoped resource group that's specified by *ResourceGroup*, or to a single VM or virtual machine scale set that's specified by *Name*. For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension is not installed, the script tries to reinstall it. If the VM extension is installed, the script installs the Log Analytics and Dependency agent VM extensions.
 
-此指令碼需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+This script requires Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). If you're running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
-若要取得指令碼引數詳細資料及使用方式範例的清單，請執行 `Get-Help`。
+To get a list of the script's argument details and example usage, run `Get-Help`.
 
 ```powershell
 Get-Help .\Install-VMInsights.ps1 -Detailed

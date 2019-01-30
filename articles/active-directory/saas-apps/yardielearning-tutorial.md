@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Yardi eLearning 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7ea58b54-ec5b-4576-8586-814b11d0f4fb
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 9a6bbb716957621daf4667a7e819c31eeedaa53a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9d5da9f1d49f666af4afc275e5ffa5f5afb6699e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437193"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811259"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>教學課程：Azure Active Directory 與 Yardi eLearning 整合
 

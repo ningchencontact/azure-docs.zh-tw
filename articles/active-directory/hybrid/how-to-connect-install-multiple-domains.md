@@ -4,7 +4,7 @@ description: 本文件說明如何使用 O365 與 Azure AD 安裝及設定多個
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8b5abe252ab9b3389680508537ea1d6f3823f910
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: abc01239a2bf61c39f99fe880bf17d7958a1597c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305757"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477919"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>與 Azure AD 同盟的多網域支援
 下列文件提供與 Office 365 或 Azure AD 網域同盟時，如何使用多個頂層網域和子網域的指引。
@@ -136,7 +136,7 @@ ms.locfileid: "46305757"
 ## <a name="support-for-subdomains"></a>對於子網域的支援
 在加入子網域時，因為 Azure AD 處理網域的方式，子網域將會繼承父項的設定。  所以，IssuerUri 需要與父項相符。
 
-因此，假設我有 bmcontoso.com，並接著加入 corp.bmcontoso.com。  來自 corp.bmcontoso.com 之使用者的 IssuerUri 必須是 **http://bmcontoso.com/adfs/services/trust。**  不過，以上針對 Azure AD 實作的標準規則，將會透過簽發者產生 **http://corp.bmcontoso.com/adfs/services/trust** 的權杖。 的權杖，這與網域所需的值不符，因此驗證將會失敗。
+因此，假設我有 bmcontoso.com，並接著加入 corp.bmcontoso.com。  來自 corp.bmcontoso.com 之使用者的 IssuerUri 必須是 **http://bmcontoso.com/adfs/services/trust。**  不過，以上針對 Azure AD 實作的標準規則，將會透過簽發者產生 **http://corp.bmcontoso.com/adfs/services/trust** 的權杖。  的權杖，這與網域所需的值不符，因此驗證將會失敗。
 
 ### <a name="how-to-enable-support-for-subdomains"></a>如何啟用對於子網域的支援
 為了解決此行為，需要更新 Microsoft Online 的 AD FS 信賴憑證者信任。  若要這樣做，您必須設定自訂宣告規則，以使其在建構自訂簽發者值時能夠從使用者的 UPN 尾碼移除任何子網域。
@@ -168,7 +168,7 @@ ms.locfileid: "46305757"
 ## <a name="next-steps"></a>後續步驟
 安裝了 Azure AD Connect 之後，您可以 [驗證安裝和指派授權](how-to-connect-post-installation.md)。
 
-深入了解這些在安裝時啟用的功能︰[自動升級](how-to-connect-install-automatic-upgrade.md)、[防止意外刪除](how-to-connect-sync-feature-prevent-accidental-deletes.md)和 [Azure AD Connect Health](how-to-connect-health-sync.md)。
+深入了解這些在安裝時啟用的功能︰[自動升級](how-to-connect-install-automatic-upgrade.md)、[防止意外刪除](how-to-connect-sync-feature-prevent-accidental-deletes.md)及 [Azure AD Connect Health](how-to-connect-health-sync.md)。
 
 深入了解這些常見主題︰[排程器和如何觸發同步處理](how-to-connect-sync-feature-scheduler.md)。
 

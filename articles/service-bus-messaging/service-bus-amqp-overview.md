@@ -3,28 +3,28 @@ title: Azure 服務匯流排的 AMQP 1.0 概觀 | Microsoft Docs
 description: 了解如何在 Azure 中使用 Advanced Message Queuing Protocol (AMQP)。
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2018
-ms.author: spelluru
-ms.openlocfilehash: 8fd87897a70b0a7bb629e185473374837cf1026e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 70a0463094f98612169e78e4bcdd4eac9c8ebf24
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701929"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844699"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>服務匯流排中的 AMQP 1.0 支援
 Azure 服務匯流排雲端服務和內部部署 [Service Bus for Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) 兩者都支援進階訊息佇列通訊協定 (AMQP) 1.0。 透過開放式標準通訊協定，AMQP 可讓您打造一個跨平台的混合式應用程式。 您可以透過使用不同語言和架構所建立，且在不同作業系統上執行的元件來建構應用程式。 所有這些元件都可以連線到服務匯流排，並有效地且不失真地順暢交換結構化的商業訊息。
 
-## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>簡介：何謂 AMQP 1.0 以及它為什麼很重要？
+## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>簡介：何謂 AMQP 1.0？它為什麼很重要？
 傳統上，訊息導向的中介軟體產品會採用專屬的通訊協定，以進行用戶端應用程式和代理程式之間的通訊。 這表示一旦選取特定的廠商訊息代理程式，您就必須使用該廠商的程式庫來連接用戶端應用程式與該代理程式。 結果便是您會一定程度地與該廠商相依，因為若要將應用程式移植到其他產品，將需要變更所有已連接應用程式的程式碼。 
 
 此外，從不同廠商連接訊息代理程式有些麻煩。 通常需要應用程式層級的橋接功能，才能在不同系統間移動訊息，以及轉換成這些系統專屬的訊息格式。 舉例來說，在將新的統一介面提供給較舊的不同系統使用，或在合併公司之後欲整合 IT 系統時，便常常有這種需求。
@@ -79,7 +79,7 @@ Azure 服務匯流排中的 AMQP 1.0 支援代表您現在能夠從一組平台�
 | Python |Apache Qpid Proton-Python |
 | C# |AMQP .Net Lite |
 
-**圖 2：AMQP 1.0 用戶端程式庫的資料表**
+**圖 2：AMQP 1.0 用戶端程式庫的表格**
 
 ## <a name="summary"></a>總結
 * AMQP 1.0 是一個既開放又可靠的訊息通訊協定，可以用來建置跨平台的混合應用程式。 AMQP 1.0 是一項 OASIS 標準。

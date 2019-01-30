@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 SCC LifeCycle 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9748bf38-ffc3-4d51-a1ae-207ce57104fa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: e24ef84ddbb4c3d1007f420f46c1f28888e2016e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1f92840a18422785661b486b1ee95958bd90d030
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447186"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809899"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>教學課程：Azure Active Directory 與 SCC LifeCycle 整合
 
@@ -46,7 +46,7 @@ SCC LifeCycle 與 Azure AD 整合提供下列優點：
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
 - 除非必要，否則請勿使用生產環境。
-- 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用供應項目](https://azure.microsoft.com/pricing/free-trial/)。
+- 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用版供應項目](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
@@ -118,8 +118,8 @@ SCC LifeCycle 與 Azure AD 整合提供下列優點：
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
     | |
     |--|--|
-    | `https://bs1.scc.com/<entity>`|
-    | `https://lifecycle.scc.com/<entity>`|
+    | `https://bs1.scc.com/<entity>`|
+    | `https://lifecycle.scc.com/<entity>`|
     
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [SCC LifeCycle 客戶支援小組](mailto:lifecycle.support@scc.com)以取得這些值。 
@@ -216,7 +216,7 @@ SCC LifeCycle 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [SCC LifeCycle] 圖格時，應該會自動登入您的 SCC LifeCycle 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 
