@@ -245,7 +245,7 @@ ms.locfileid: "54016625"
 您可以使用 Azure Resource Manager 範本來建立觸發程序。 如需逐步指示，請參閱[使用 Azure Resource Manager 範本建立 Azure Data Factory](quickstart-create-data-factory-resource-manager-template.md)。  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>將觸發程序開始時間傳遞給管線
-第 1 版 Azure Data Factory 支援使用下列系統變數來讀取或寫入分割的資料：**SliceStart****SliceEnd****WindowStart** 及 **WindowEnd**。 在目前版本的 Azure Data Factory 中，您可以使用管線參數來實現此行為。 觸發程序的開始時間和排程時間會設定為管線參數的值。 在以下範例中，會將觸發程序的排程時間傳遞給管線的 **scheduledRunTime** 參數來作為值：
+第 1 版 Azure Data Factory 支援使用下列系統變數來讀取或寫入分割的資料：**SliceStart** **SliceEnd** **WindowStart** 及 **WindowEnd**。 在目前版本的 Azure Data Factory 中，您可以使用管線參數來實現此行為。 觸發程序的開始時間和排程時間會設定為管線參數的值。 在以下範例中，會將觸發程序的排程時間傳遞給管線的 **scheduledRunTime** 參數來作為值：
 
 ```json
 "parameters": {

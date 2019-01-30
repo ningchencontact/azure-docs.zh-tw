@@ -81,7 +81,7 @@ Data Factory 目前僅支援資料從 Amazon Redshift 移至[支援的接收資�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需定義活動的區段和屬性清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。 **name****description**、**inputs** 資料表、**outputs** 資料表和 **policy** 屬性適用於所有活動。 **typeProperties** 區段中的可用屬性，會因為活動類型不同而有所差異。 就複製活動而言，屬性會根據資料來源和接收的類型而有所不同。
+如需定義活動的區段和屬性清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。 **name** **description**、**inputs** 資料表、**outputs** 資料表和 **policy** 屬性適用於所有活動。 **typeProperties** 區段中的可用屬性，會因為活動類型不同而有所差異。 就複製活動而言，屬性會根據資料來源和接收的類型而有所不同。
 
 對於複製活動，當來源類型為 **AmazonRedshiftSource** 時，**typeProperties** 區段中可使用下列屬性：
 
