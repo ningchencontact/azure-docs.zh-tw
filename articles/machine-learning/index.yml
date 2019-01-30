@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 865f7421172c3302333b1cbf465f66806b296759
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4581173f142170248a48d99683804bdb67f1703e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314375"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250670"
 abstract:
   description: 了解如何使用 Azure Machine Learning 產品，將智慧型演算法建置到應用程式與網站中。  教學課程、快速入門和 API 參考和範例示範。
 documentType: LandingData
@@ -12,7 +12,7 @@ metadata:
   author: j-martens
   description: 了解如何在應用程式、網站和 Bot 中融入智慧型演算法，透過自然的溝通方式，來查看、聆聽、述說及了解您的使用者需求。 教學課程、快速入門和 API 參考和範例示範。
   ms.author: jmartens
-  ms.component: core
+  ms.subservice: core
   ms.date: 12/04/2018
   ms.devlang: na
   ms.service: machine-learning
