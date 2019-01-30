@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: dcee7df0b5da53bd7014a26f1f09695fe874833d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244575"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849649"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>教學課程：使用 Python 建立和執行 Jupyter Notebook
 
@@ -128,7 +128,7 @@ ms.locfileid: "54244575"
 1. 因為您的環境設定中有 requirements.txt 檔案，所以您會看到訊息「等候您的容器完成準備」。 您可以選取 [確定] 以關閉訊息並繼續在 Notebook 中操作；不過，在完整設定環境之前，您無法執行程式碼資料格。
 1. 以單一空白程式碼資料格作為預設值，在 Jupyter 介面中開啟 Notebook。
 
-    [![](media/tutorial/tutorial-new-notebook.png "Azure Notebooks 中新 Notebook 的起始檢視")](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Azure Notebooks 中新 Notebook 的起始檢視](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Notebook 介面導覽
 
@@ -144,7 +144,7 @@ ms.locfileid: "54244575"
 (F) 表示 Notebook 是否受信任的指標 (預設值為 [不受信任])。
 (G) 用來執行 Notebook 的核心以及活動指標。
 
-[![](media/tutorial/tutorial-notebook-ui.png "Jupyter 介面的主要 UI 區域")](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Jupyter 介面的主要 UI 區域](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter 會提供主要 UI 元素的內建導覽。 選取 [說明] > [使用者介面導覽] 命令並點選快顯功能表，即可開始導覽。
 

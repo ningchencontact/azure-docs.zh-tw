@@ -1,10 +1,10 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 Netsuite OneWorld 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 Netsuite OneWorld 來自動佈建使用者 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Netsuite OneWorld 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 8a6d3994-ee33-4a6f-b0a2-9d0389467f16
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 81e590297283a8fe88d9257e201259056a3e3744
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ef0c2f12e36150b044047214c43e88090bd61f68
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823841"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826562"
 ---
-# <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>教學課程︰設定 Netsuite 來自動佈建使用者
+# <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>教學課程：設定 Netsuite 來自動佈建使用者
 
 本教學課程旨在說明您需要在 Netsuite OneWorld 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Netsuite。
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 79c95a53ace4fd5ab638587d1b74980812fbc273
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 20c1e2a4394c249b410a1253356d0ef96c30e970
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116958"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818892"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Contoso 移轉：將 Team Foundation Server 部署重構到 Azure DevOps Services
 
@@ -24,17 +24,17 @@ ms.locfileid: "49116958"
 --- | --- | ---
 [文章 1：概觀](contoso-migration-overview.md) | 簡單介紹 Contoso 的移轉策略、文章系列以及我們使用的範例應用程式。 | 可用
 [文章 2：部署 Azure 基礎結構](contoso-migration-infrastructure.md) | 描述 Contoso 如何準備其內部部署和 Azure 基礎結構來進行移轉。 所有 Contoso 移轉案例都使用相同的基礎結構。 | 可用
-[文章 3：評估內部部署資源](contoso-migration-assessment.md)  | 說明 Contoso 如何評定他們在 VMware 上執行的內部部署兩層式 SmartHotel 應用程式。 他們利用 [Azure Migrate](migrate-overview.md) 服務來評定應用程式 VM，以及利用 [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) 來評定應用程式 SQL Server 資料庫。 | 可用
+[文章 3：評定內部部署資源](contoso-migration-assessment.md)  | 說明 Contoso 如何評定他們在 VMware 上執行的內部部署兩層式 SmartHotel 應用程式。 他們利用 [Azure Migrate](migrate-overview.md) 服務來評定應用程式 VM，以及利用 [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) 來評定應用程式 SQL Server 資料庫。 | 可用
 [文章 4：重新裝載至 Azure VM 和 SQL 受控執行個體](contoso-migration-rehost-vm-sql-managed-instance.md) | 示範 Contoso 如何將 SmartHotel 應用程式遷移至 Azure。 他們使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 來遷移應用程式 Web VM，以及使用 [Azure 資料庫移轉](https://docs.microsoft.com/azure/dms/dms-overview)服務，將應用程式資料庫遷移至 SQL 受管理的執行個體。 | 可用
-[文章 5：重新裝載至 Azure VM](contoso-migration-rehost-vm.md) | 說明 Contoso 如何使用 Site Recovery 服務，將其 SmartHotel 遷移至 Azure IaaS VM。
+[文章 5：重新裝載到 Azure VM](contoso-migration-rehost-vm.md) | 說明 Contoso 如何使用 Site Recovery 服務，將其 SmartHotel 遷移至 Azure IaaS VM。
 [文章 6：重新裝載至 Azure VM 和 SQL Server 可用性群組](contoso-migration-rehost-vm-sql-ag.md) | 說明 Contoso 如何遷移 SmartHotel 應用程式。 他們使用 Site Recovery 來遷移應用程式 VM，以及使用資料庫移轉服務，將應用程式資料庫遷移至 SQL Server 可用性群組。 | 可用
-[文章 7：將 Linux 應用程式重新裝載至 Azure VM](contoso-migration-rehost-linux-vm.md) | 說明 Contoso 如何使用 Azure Site Recovery，將其 osTicket Linux 應用程式遷移至 Azure IaaS VM。
+[文章 7：將 Linux 應用程式重新裝載到 Azure VM](contoso-migration-rehost-linux-vm.md) | 說明 Contoso 如何使用 Azure Site Recovery，將其 osTicket Linux 應用程式遷移至 Azure IaaS VM。
 [文章 8：將 Linux 應用程式重新裝載至 Azure VM 和 Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | 示範 Contoso 如何遷移 osTicket Linux 應用程式。 他們會使用 Site Recovery 進行 VM 遷移，以及使用 MySQL Workbench 來遷移至 Azure MySQL Server 執行個體。 | 可用
-[文章 9：將應用程式重構到 Azure Web 應用程式和 Azure SQL 資料庫](contoso-migration-refactor-web-app-sql.md) | 說明 Contoso 如何將 SmartHotel 應用程式移轉至 Azure 容器型 Web 應用程式，以及如何將應用程式資料庫移轉至 Azure SQL Server。 | 可用
+[文章 9：將應用程式重構到 Azure Web 應用程式和 Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | 說明 Contoso 如何將 SmartHotel 應用程式移轉至 Azure 容器型 Web 應用程式，以及如何將應用程式資料庫移轉至 Azure SQL Server。 | 可用
 [文章 10：將 Linux 應用程式重構到 Azure App Service 和 Azure MySQL Server](contoso-migration-refactor-linux-app-service-mysql.md) | 說明 Contoso 如何使用 PHP 7.0 Docker 容器，將 osTicket Linux 應用程式移轉至 Azure App Service。 部署的程式碼基底會移轉至 GitHub。 應用程式資料庫會移轉至 Azure MySQL。 | 可用
 文章 11：在 Azure DevOps Services 中重構 TFS 部署 | 將 TFS 開發應用程式遷移至 Azure 中的 Azure DevOps Services | 本文
-[文章 12：在 Azure 容器 和 Azure SQL Database 上重新建構應用程式](contoso-migration-rearchitect-container-sql.md) | 說明 Contoso 如何將其 SmartHotel 應用程式移轉和重新建構至 Azure。 它們會將應用程式的 Web 層重新建構為 Windows 容器及 Azure SQL Database 中的應用程式資料庫。 | 可用
-[文章 13：重建 Azure 中的應用程式](contoso-migration-rebuild.md) | 示範 Contoso 如何使用各種 Azure 功能和服務 (包括 App Services、Azure Kubernetes、Azure Functions、認知服務及 Cosmos DB) 重建其 SmartHotel 應用程式。 | 可用
+[文章 12：在 Azure 容器和 Azure SQL Database 上重新架構應用程式](contoso-migration-rearchitect-container-sql.md) | 說明 Contoso 如何將其 SmartHotel 應用程式移轉和重新建構至 Azure。 它們會將應用程式的 Web 層重新建構為 Windows 容器及 Azure SQL Database 中的應用程式資料庫。 | 可用
+[文章 13：在 Azure 中重建應用程式](contoso-migration-rebuild.md) | 示範 Contoso 如何使用各種 Azure 功能和服務 (包括應用程式服務、Azure Kubernetes、Azure Functions、認知服務及 Cosmos DB) 重建其 SmartHotel 應用程式。 | 可用
 [文章 14：對 Azure 進行大規模移轉](contoso-migration-scale.md) | Contoso 在試驗完移轉組合後，準備對 Azure 進行完整規模的移轉。 | 可用
 
 
@@ -90,9 +90,9 @@ Contoso 會按照下列方式完成移轉程序：
 以下是 Contoso 完成移轉的方式：
 
 > [!div class="checklist"]
-> * **步驟 1：建立 Azure 儲存體帳戶**：在執行移轉程序期間將使用此儲存體帳戶。
+> * **步驟 1：建立 Azure 儲存體帳戶**：在移轉程序期間將使用此儲存體帳戶。
 > * **步驟 2：升級 TFS**：Contoso 會將其部署升級至 TFS 2018 Upgrade 2。 
-> * **步驟 3：驗證集合**：Contoso 會在準備移轉時驗證其 TFS 集合。
+> * **步驟 3：驗證集合**：為了準備移轉，Contoso 會驗證 TFS 集合。
 > * **步驟 4：建置準備檔案**：Contoso 會使用 TFS 移轉工具建立移轉檔案。 
 
 
@@ -175,7 +175,7 @@ Contoso 管理員會對 ContosoDev 集合資料庫執行 TFS 移轉工具而加�
 
      ![TFS](./media/contoso-migration-tfs-vsts/collection5.png)
 
-6. 他們再次執行驗證命令，並納入此值和他們的 Azure AD 名稱：**TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**。
+6. 他們再次執行驗證命令，並包含此值，以及他們的 Azure AD 名稱：**TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**。
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection7.png)
 
@@ -233,17 +233,17 @@ Contoso 管理員會對 ContosoDev 集合資料庫執行 TFS 移轉工具而加�
 
 
 
-## <a name="step-5-migrate-to-azure-devops-services"></a>步驟 5：遷移至 Azure DevOps Services
+## <a name="step-5-migrate-to-azure-devops-services"></a>步驟 5：移轉至 Azure DevOps Services
 
 在準備就緒後，Contoso 管理員此時已可專注於移轉工作。 執行移轉之後，他們會從使用 TFVC 改為使用 Git，以進行版本控制。
 
 在開始之前，管理員會排定開發小組的停機時間，使集合離線以進行移轉。 以下是移轉程序的步驟：
 
-1. **中斷集合的連結**：當集合已連結且連線時，集合的身分識別資料會位於 TFS 伺服器組態資料庫中。 當集合從 TFS 伺服器中斷連結時，它會取得該身分識別資料的複本，並將它封裝於集合以進行傳輸。 若沒有這項資料，則無法執行匯入的身分識別部分。 建議應在匯入完成前讓集合持續中斷連結，因為在匯入期間發生的變更是無法匯入的。
+1. **中斷集合的連結**：當集合已連結且連線時，集合的身分識別資料會位於 TFS 伺服器設定資料庫中。 當集合從 TFS 伺服器中斷連結時，它會取得該身分識別資料的複本，並將它封裝於集合以進行傳輸。 若沒有這項資料，則無法執行匯入的身分識別部分。 建議應在匯入完成前讓集合持續中斷連結，因為在匯入期間發生的變更是無法匯入的。
 2. **產生備份**：移轉程序的下一個步驟，是產生可匯入 Azure DevOps Services 中的備份。 資料層應用程式元件封裝 (DACPAC) 是一項 SQL Server 功能，可讓資料庫變更封裝成單一檔案，並部署至其他 SQL 執行個體。 它也可以直接還原至 Azure DevOps Services，因此可作為將集合資料放入雲端中的封裝方法。 Contoso 會使用 SqlPackage.exe 工具來產生 DACPAC。 此工具隨附於 SQL Server Data Tools 中。
-3. **上傳至儲存體**：DACPAC 建立後，他們將其上傳至 Azure 儲存體。 上傳之後，他們會取得共用存取簽章 (SAS)，以允許 TFS 移轉工具存取儲存體。
+3. **上傳至儲存體**：建立 DACPAC 之後，他們將它上傳到 Azure 儲存體。 上傳之後，他們會取得共用存取簽章 (SAS)，以允許 TFS 移轉工具存取儲存體。
 4. **填寫匯入**：接著，Contoso 可以在匯入檔案中填寫遺漏的欄位，包括 DACPAC 設定。 為此，他們會先指定要執行 **DryRun** 匯入，以確認一切都正常運作，再進行完整移轉。
-5. **執行試執行**：試執行匯入有助於測試集合移轉。 試執行的存留期間有限，且會在生產環境移轉執行之前刪除。 試執行會在一段時間後自動刪除。 在匯入完成後收到成功電子郵件中，會包含何時將刪除試執行的相關附註。 請記下該時間並據以進行規劃。
+5. **試執行**：試執行匯入，以協助測試集合移轉。 試執行的存留期間有限，且會在生產環境移轉執行之前刪除。 試執行會在一段時間後自動刪除。 在匯入完成後收到成功電子郵件中，會包含何時將刪除試執行的相關附註。 請記下該時間並據以進行規劃。
 6. **完成生產環境移轉**：在試執行移轉完成後，Contoso 管理員會更新 import.json，並再次執行匯入，以進行最後的移轉。
 
 
@@ -286,7 +286,7 @@ Contoso 管理員會對 ContosoDev 集合資料庫執行 TFS 移轉工具而加�
 Contoso 會建立可匯入 Azure DevOps Services 中的備份 (DACPAC)。
 
 - SQL Server Data Tools 中的 SqlPackage.exe 會用來建立 DACPAC。 使用 SQL Server Data Tools 安裝的 SqlPackage.exe 有多個不同版本，位於具有 120、130 和 140 等名稱的資料夾下。 務必要使用正確的版本來準備 DACPAC。
-- TFS 2018 匯入需要使用 140 資料夾中的 SqlPackage.exe 或更高版本。  就 CONTOSOTFS 而言，此檔案位於下列資料夾中：**C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\140**。
+- TFS 2018 匯入需要使用 140 資料夾中的 SqlPackage.exe 或更高版本。  對於 CONTOSOTFS，這個檔案位於資料夾：**C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\140**。
 
 
 Contoso 管理員會產生 DACPAC，如下所示：
@@ -341,9 +341,9 @@ DACPAC 建立後，Contoso 會將其上傳至 Azure 儲存體。
 
 Contoso 管理員稍早已填寫匯入規格檔案 (import.json) 的某些部分。 現在，他們必須新增其餘設定。
 
-他們開啟 import.json 檔案，並填寫下列欄位：• 位置：上面產生的 SAS 金鑰所在的位置。
-• Dacpac：將名稱設定為您上傳至儲存體帳戶的 DACPAC 檔案。 必須包含 ".dacpac" 副檔名。
-• ImportType：暫時設定為 DryRun。
+他們開啟 import.json 檔案，並填入下列欄位：•   Location：在上述步驟中產生之 SAS 金鑰的位置。
+•   Dacpac：將名稱設定為您上傳至儲存體帳戶的 DACPAC 檔案。 必須包含 ".dacpac" 副檔名。
+•   ImportType：目前設為 DryRun。
 
 
 ![匯入設定](./media/contoso-migration-tfs-vsts/import1.png)
@@ -418,7 +418,7 @@ Contoso 管理員會先進行試執行移轉，以確定一切都正常運作。
 
     ![Production](./media/contoso-migration-tfs-vsts/full1.png)
 
-3. 他們依照試執行的相同方式開始進行移轉：**TfsMigrator import /importFile:C:\TFSMigrator\import.json**。
+3. 他們按照試執行的步驟開始移轉：**TfsMigrator import /importFile:C:\TFSMigrator\import.json**。
 4. 此時會出現確認移轉的訊息，並警告資料可保留在安全的暫存區域中，最多七天。
 
     ![Production](./media/contoso-migration-tfs-vsts/full2.png)

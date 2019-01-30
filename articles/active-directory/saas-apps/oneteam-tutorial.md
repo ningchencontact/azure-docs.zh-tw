@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Oneteam 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2e94916c-64ae-4e1a-a8b5-bc6ef7d28c29
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 76b7c2ac18a683ccbe07c7c4cdc750399d8466c2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e44cd26e24c19c38a575f64eee590587f9464ba
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446966"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>教學課程：Azure Active Directory 與 Oneteam 整合
 
@@ -112,7 +112,7 @@ Oneteam 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/oneteam-tutorial/tutorial_oneteam_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://api.one-team.io/teams/<team name>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://api.one-team.io/teams/<team name>`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://api.one-team.io/teams/<team name>/auth/saml/callback`
 
@@ -216,7 +216,7 @@ Oneteam 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Oneteam] 圖格時，應該會自動登入您的 Oneteam 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

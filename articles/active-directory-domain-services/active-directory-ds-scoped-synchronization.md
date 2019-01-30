@@ -4,7 +4,7 @@ description: 設定從 Azure AD 到受控網域的限域同步處理
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: ae51151bd20d2c715d868e916f7bc633040efa40
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: b26fd93ae4a06f66281e25302d02ad25920e97b4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121515"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856429"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>設定從 Azure AD 到受控網域的限域同步處理
 此文章說明如何設定只將特定使用者帳戶從 Azure AD 目錄同步至 Azure AD Domain Services 受控網域。
@@ -79,7 +79,7 @@ ms.locfileid: "54121515"
   > 您必須將 'AAD DC Administrators' 群組包含在為限域同步處理設定的群組清單中。 如果未包含此群組，受控網域將無法供使用。
   >
 
-4. 現在，建立受控網域，並為受控網域啟用群組型限域同步處理。 請在 ```Properties``` 參數中包含 ```"filteredSync" = "Enabled"``` 屬性。 例如，請參閱以下從[工作 7：佈建 Azure AD Domain Services 的受控網域](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain)複製的指令碼片段。
+4. 現在，建立受控網域，並為受控網域啟用群組型限域同步處理。 請在 ```Properties``` 參數中包含 ```"filteredSync" = "Enabled"``` 屬性。 例如，查看下列複製自[工作 7：佈建 Azure AD Domain Services 受控網域](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain)的指令碼片段。
 
   ```powershell
   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"

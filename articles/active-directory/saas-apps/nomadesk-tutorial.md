@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Nomadesk 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d261b776-b48e-45f0-9722-0297adefabb8
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 705ea75665a5868d41b0887cdb11579db23ae076
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 13046d69d8f592679e4c50a5a0953ae430930a73
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449466"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828004"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>教學課程：Azure Active Directory 與 Nomadesk 整合
 
@@ -211,7 +211,7 @@ Nomadesk 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Nomadesk] 圖格時，應該會自動登入您的 Nomadesk 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

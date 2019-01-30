@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: e426e38ce5366f7c0d8b8bc20a639d827ea9e261
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200510"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826474"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>將 Azure DNS 用於私人網域
 
@@ -64,9 +64,9 @@ Azure DNS 提供以下功能：
 Azure DNS 有下列限制：
 
 * 每個私人區域只能有 1 個註冊虛擬網路。
-* 每個私人區域最多可以有 10 個解析虛擬網路。
+* 每個私人區域最多可以有 10 個解析虛擬網路。 這項功能正式上市時，將會移除此限制。
 * 特定虛擬網路只可以連結到單一私人區域作為註冊虛擬網路。
-* 特定虛擬網路可以連結到最多 10 個私人區域作為解析虛擬網路。
+* 特定虛擬網路可以連結到最多 10 個私人區域作為解析虛擬網路。 這項功能正式上市時，將會移除此限制。
 * 如果您指定了註冊虛擬網路，在已註冊至私人區域的該虛擬網路中，將無法從 Azure PowerShell 和 AzureCLI API 檢視或擷取來自該虛擬網路 VM 的 DNS 記錄。 但虛擬機器記錄實際上已註冊，且將會成功解析。
 * 反向 DNS 只適用於註冊虛擬網路中的私人 IP 空間。
 * 未在私人區域中註冊的私人 IP (例如：在作為解析虛擬網路連結至私人區域的虛擬網路中，虛擬機器的私人 IP) 反向 DNS，將會傳回 internal.cloudapp.net 作為 DNS 尾碼。 但是此尾碼將無法解析。

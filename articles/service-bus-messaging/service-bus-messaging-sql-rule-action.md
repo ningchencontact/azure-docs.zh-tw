@@ -3,9 +3,9 @@ title: Azure 中的 SQLRuleAction 語法參考 | Microsoft Docs
 description: SQLRuleAction 文法的詳細資料。
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: cd5bc1fb959872cfb98236feb5c32517ac7472ac
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 0f9365b72da1cec81eed82756097d32b1d72ca71
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394177"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847725"
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction 語法
 
@@ -123,9 +123,9 @@ ms.locfileid: "47394177"
   
  `<pattern>` 必須是評估為字串的運算式。 它會用來做為 LIKE 運算子的模式。      它可以包含下列萬用字元︰  
   
--   `%`︰任何零或多個字元的字串。  
+-   `%`：任何零或多個字元的字串。  
   
--   `_`︰任何單一字元。  
+-   `_`：任何單一字元。  
   
 ## <a name="escapechar"></a>escape_char  
   

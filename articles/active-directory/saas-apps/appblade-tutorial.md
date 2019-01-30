@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 AppBlade 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 3360d7aa-6518-4f99-88bd-b7f7258183e8
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 66c893a89138d7daf7d8118d8e2b1d8389d40ea4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 119647c4aeabc8f4a6dd3a1933fcfafe6b6cf5c2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229293"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813316"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appblade"></a>教學課程：Azure Active Directory 與 AppBlade 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36229293"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 AppBlade 整合，您需要下列項目：
 
@@ -112,7 +112,7 @@ ms.locfileid: "36229293"
 
     ![設定單一登入](./media/appblade-tutorial/tutorial_appblade_url.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.appblade.com/saml/<tenantid>`
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname>.appblade.com/saml/<tenantid>`
 
     > [!NOTE] 
     > 這不是真實的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [AppBlade 用戶端支援小組](mailto:support@appblade.com)以取得此值。 

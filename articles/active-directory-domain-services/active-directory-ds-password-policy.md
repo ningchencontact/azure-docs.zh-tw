@@ -4,7 +4,7 @@ description: 了解受控網域上的密碼原則
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: dcc1de5fa0ac1f394d0fe12fd24a1d6e745df83e
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 0bb3ccb3841b60f6c94ac1d6126bd2b0d44af092
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284599"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852681"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>受控網域上的密碼和帳戶鎖定原則
 此文章說明受控網域上的預設密碼原則。 它也涵蓋如何設定這些原則。
@@ -113,7 +113,7 @@ ms.locfileid: "52284599"
   ![套用 FGPP](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
-> **為自訂 OU 中的使用者帳戶套用自訂密碼原則：** 更細緻的密碼原則只能套用至群組。 若要只針對來自自訂 OU 的使用者設定自訂密碼原則，請建立一個包含該 OU 中使用者的群組。
+> **針對自訂 OU 中的使用者帳戶套用自訂密碼原則：** 已微調的密碼原則只能套用到群組。 若要只針對來自自訂 OU 的使用者設定自訂密碼原則，請建立一個包含該 OU 中使用者的群組。
 >
 >
 

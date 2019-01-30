@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 98ce2127cc9f60128767f8e4409134f2393ac84f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 5aca80a4ebeadc9e54cf99fb4a220c6ee7c37cae
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582418"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857007"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>使用 Azure 計費與成本管理避免非預期的費用
 
@@ -64,6 +64,24 @@ ms.locfileid: "53582418"
 
 按一下橫幅並遵循提示，即可移除消費限制。 如果您在註冊時未輸入信用卡資訊，則必須輸入信用卡資訊，才能移除消費限制。 如需詳細資訊，請參閱 [Azure 消費限制 - 運作方式以及啟用或移除方法](https://azure.microsoft.com/pricing/spending-limits/)。
 
+您可以使用 [Cloudyn](https://www.cloudyn.com/) 服務建立警示，就能在出現異常消費和超支風險時自動通知利害關係人。 您可以使用支援根據預算和成本閾值發出警示的報告來建立警示。 如需使用 Cloudyn 的詳細資訊，請參閱[教學課程：檢閱使用量和成本](../cost-management/tutorial-review-usage.md)。
+
+此範例使用 [隨時間變化的實際成本] 報告，在您的 Azure VM 消費接近總預算時通知您。 在此案例中，您的總預算為 20,000 美元，而您想要在成本接近預算的一半 (9000 美元) 時收到通知，並且在成本達到 10,000 美元時收到額外的警示。
+
+1. 在 Cloudyn 入口網站頂端的功能表中，選取 [成本] > [成本分析] > [隨時間變化的實際成本]。 
+2. 將 [群組] 設定為 [服務]，並將 [Filter on the service] \(服務上的篩選) 設定為 [Azure/VM]。 
+3. 在報告的右上方選取 [動作]，然後選取 [排程報告]。
+4. 若要依排定的間隔傳送報告電子郵件給自己，請在 [儲存或排程此報告] 方塊中選取 [排程] 索引標籤。 務必要選取 [透過電子郵件傳送]。 您所使用的任何標記、群組和篩選都會包含在以電子郵件傳送的報告中。 
+5. 選取 [閾值] 索引標籤，然後選取 [實際成本與閾值]。 
+   1. 在 [紅色警示] 閾值方塊中輸入 10000。 
+   2. 在 [黃色警示] 閾值方塊中輸入 9000。 
+   3. 在 [連續警示數目] 方塊中，輸入要接收的連續警示數目。 當您收到指定的警示總數時，就不會再傳送其他警示。 
+6. 選取 [ **儲存**]。
+
+    ![根據費用閾值顯示紅色警示和黃色警示的範例](./media/billing-getting-started/schedule-alert01.png)
+
+您也可以選擇 [成本百分比與預算] 閾值計量來建立警示。 這可讓您將閾值指定為預算的百分比，而不是貨幣值。
+
 ## <a name="ways-to-monitor-your-costs-when-using-azure-services"></a>使用 Azure 服務時監視成本的方式
 
 ### <a name="tags"></a> 將標記新增至您的資源以便將計費資料分組
@@ -90,7 +108,7 @@ ms.locfileid: "53582418"
 
     ![Azure 入口網站中成本分析檢視的螢幕擷取畫面](./media/billing-getting-started/cost-analysis.PNG)
 
-4. 您可以依照不同屬性來篩選，例如[標記](#tags)資源群組和時間範圍。 按一下 [套用] 可確認篩選條件，如果您需要將檢視匯出至逗號分隔值 (.csv) 檔案，請按 [下載]。
+4. 您可以依照不同屬性來篩選，例如[標記](#tags)、資源類型、資源群組和時間範圍。 按一下 [套用] 可確認篩選條件，如果您需要將檢視匯出至逗號分隔值 (.csv) 檔案，請按 [下載]。
 
 5. 此外，您可以按一下資源來查看您的每日支出記錄，以及每一天的成本是多少。
 

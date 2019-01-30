@@ -1,11 +1,11 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 Cerner Central 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 Cerner Central 來自動佈建使用者 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 以自動佈建使用者至 Cerner Central 中的名冊。
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 694274abb9a762bc6ca6309cbd56b0eb65bb5a5e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: eb34a6e7ded4c31c623031104aabbee16b5c4f1c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228776"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819470"
 ---
-# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>教學課程︰設定 Cerner Central 來自動佈建使用者
+# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>教學課程：設定 Cerner Central 來自動佈建使用者
 
 本教學課程旨在說明您需要在 Cerner Central 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Cerner Central 中的使用者名冊。 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -69,27 +69,27 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 1.  第一個步驟是確定管理 Cerner 與 Azure AD 整合的人員擁有 CernerCare 帳戶，必須有此帳戶才能存取完成指示所需的文件。 如有必要，請使用下列 URL 在每個適用的環境中建立 CernerCare 帳戶。
 
-   * 沙箱：https://sandboxcernercare.com/accounts/create
+   * 沙箱： https://sandboxcernercare.com/accounts/create
 
-   * 生產環境：https://cernercare.com/accounts/create  
+   * 生產環境： https://cernercare.com/accounts/create  
 
 2.  接下來，必須建立 Azure AD 的系統帳戶。 您可以使用下列指示，要求沙箱和生產環境的系統帳戶。
 
-   * 指示：https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+   * 指示： https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
-   * 沙箱：https://sandboxcernercentral.com/system-accounts/
+   * 沙箱： https://sandboxcernercentral.com/system-accounts/
 
-   * 生產環境：https://cernercentral.com/system-accounts/
+   * 生產環境： https://cernercentral.com/system-accounts/
 
 3.  接下來，產生每個系統帳戶的 OAuth 持有人權杖。 若要這樣做，請遵循下列指示。
 
-   * 指示：https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
+   * 指示： https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
-   * 沙箱：https://sandboxcernercentral.com/system-accounts/
+   * 沙箱： https://sandboxcernercentral.com/system-accounts/
 
-   * 生產環境：https://cernercentral.com/system-accounts/
+   * 生產環境： https://cernercentral.com/system-accounts/
 
-4. 最後，您需要針對 Cerner 中的沙箱和生產環境取得「使用者名冊領域識別碼」，以完成設定。 如需如何取得此識別碼的相關資訊，請參閱：https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM。 
+4. 最後，您需要針對 Cerner 中的沙箱和生產環境取得「使用者名冊領域識別碼」，以完成設定。 如需如何取得此識別碼的相關資訊，請參閱： https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM。 
 
 5. 現在您可以設定 Azure AD 將使用者帳戶佈建至 Cerner。 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式] 區段。
 
@@ -105,9 +105,9 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
    * 在 [租用戶 URL] 欄位中，以下列格式輸入 URL，並將 "User-Roster-Realm-ID" 取代為您在步驟 4 中取得的領域識別碼。
 
-> 沙箱：https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> 沙箱： https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-> 生產環境：https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> 生產環境： https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * 在 [祕密權杖] 欄位中，輸入您在步驟 3 中產生的 OAuth 持有人權杖，然後按一下 [測試連接]。
 
@@ -125,11 +125,11 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 這會啟動在 [使用者和群組] 區段中指派給 Cerner Central 的任何使用者和/或群組之首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄，此記錄會表描述您 Cerner Central 應用程式上佈建服務所執行的所有動作。
 
-如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
 ## <a name="additional-resources"></a>其他資源
 
-* [Cerner Central：使用 Azure AD 發佈身分識別資料](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
+* [Cerner Central：使用 Azure AD 來發佈身分識別資料](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD) \(英文\)
 * [教學課程：設定 Cerner Central 搭配 Azure Active Directory 進行單一登入](cernercentral-tutorial.md)
 * [管理企業應用程式的使用者帳戶佈建](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)

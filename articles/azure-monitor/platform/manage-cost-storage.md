@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 262c81dbf2c094b6a823a8320a0657f2767bc20c
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.subservice: ''
+ms.openlocfilehash: 418d334133e1c223f2349ce79a51b229072c31e9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332314"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475317"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>管理 Log Analytics 的使用量和成本
 
@@ -168,7 +168,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-請謹慎使用這些 `union withsource = tt *` 查詢，因為執行跨資料類型掃描相當昂貴。 
+請謹慎使用這些 `union withsource = tt *` 查詢，因為執行跨資料類型掃描的費用相當高昂。 
 
 加以延伸，即可傳回每小時傳送計費資料類型的電腦計數：
 
@@ -335,4 +335,5 @@ Azure 警示支援使用搜尋查詢的[記錄警示](alerts-unified-log.md)。
 * 變更[效能計數器組態](data-sources-performance-counters.md)。
 * 若要修改事件收集設定，請檢閱[事件記錄組態](data-sources-windows-events.md)。
 * 若要修改 syslog 收集設定，請檢閱 [Syslog 組態](data-sources-syslog.md)。
+
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353953"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816750"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或擴充功能相關的問題
 
@@ -113,6 +113,26 @@ ms.locfileid: "54353953"
 **錯誤訊息**：目前 Azure 備份不支援標準 SSD 磁碟 <br>
 
 目前 Azure 備份只針對升級至[立即還原](backup-instant-restore-capability.md)的保存庫支援標準 SSD 磁碟。
+
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 無法起始備份，因為另一個備份作業正在進行中。
+
+**錯誤碼**：UserErrorBackupOperationInProgress <br>
+**錯誤訊息**：無法起始備份，因為另一個備份作業正在進行中<br>
+
+您最近的備份作業失敗，因為現有備份作業正在進行中。 必須等到目前的作業完成，才能啟動新的備份作業。 請確定目前正在進行的備份作業已完成，再觸發或排定其他備份作業。 若要檢查備份作業狀態，請執行下列步驟：
+
+1. 登入 Azure 入口網站，按一下 [所有服務]。 輸入「復原服務」，然後按一下 [復原服務保存庫]。 復原服務保存庫清單隨即出現。
+2. 在復原服務保存庫清單中，選取其中已設定備份的保存庫。
+3. 在 [保存庫儀表板] 功能表中，按一下 [備份作業] 以顯示所有備份作業。
+
+    * 如果有正在進行中的備份作業，請等到該作業完成或取消備份作業。
+        * 若要取消備份作業，請以滑鼠右鍵按一下備份作業，然後按一下 [取消]，或使用 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)。
+    * 如果您已在不同的保存庫中重新設定備份，請確定舊的保存庫中沒有正在執行的備份作業。 若有的話，請取消備份作業。
+        * 若要取消備份作業，請以滑鼠右鍵按一下備份作業，然後按一下 [取消]，或使用 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+4. 請重試備份作業。
+
+如果排定的備份作業因費時過久而與下一個備份設定發生衝突，請檢閱[最佳做法](backup-azure-vms-introduction.md#best-practices)、[備份效能](backup-azure-vms-introduction.md#backup-performance)和[還原考量](backup-azure-vms-introduction.md#restore-considerations)。
+
 
 
 ## <a name="causes-and-solutions"></a>原因和解決方案

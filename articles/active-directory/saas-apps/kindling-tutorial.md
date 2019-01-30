@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Kindling 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 71229751-74eb-4c2c-abb4-07caa95754c7
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: af92553b0b88febf86eb9aebaad99c7c3ddff792
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0ee91afecb9c98249c4545bee244e8f4d2e2fc21
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428646"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kindling"></a>教學課程：Azure Active Directory 與 Kindling 整合
 

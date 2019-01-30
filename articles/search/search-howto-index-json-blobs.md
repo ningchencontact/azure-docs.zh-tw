@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6df8d9a5c1ca1e587834ea08f73b3dd9498f8537
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: cafb48f28e38794ce0757d50a5d87432b237e17c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753144"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467157"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>使用 Azure 搜尋服務 Blob 索引子為 JSON Blob 編製索引
 本文說明如何設定 Azure 搜尋服務 Blob 索引子，從 Azure Blob 儲存體中的 JSON blob 擷取結構化的內容。
@@ -23,6 +23,9 @@ ms.locfileid: "53753144"
 您可以使用[入口網站](#json-indexer-portal)、[REST API](#json-indexer-rest) 或 [.NET SDK](#json-indexer-dotnet) 為 JSON 內容編製索引。 這些方法的共通點是 JSON 文件，其位於 Azure 儲存體帳戶中的 Blob 容器內。 如需如何從其他非 Azure 平台推送 JSON 文件的指引，請參閱 [Azure 搜尋服務中的資料匯入](search-what-is-data-import.md)。
 
 Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 JSON 陣列。 Azure 搜尋服務中的 Blob 索引子可以剖析其中一種結構，取決於您如何設定在要求上的 **parsingMode** 參數。
+
+> [!IMPORTANT]
+> JSON Blob 編製索引已正式推出，但 JsonArray 剖析仍處於公開預覽狀態，且不應用於生產環境。 如需詳細資訊，請參閱 [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md)。 
 
 <a name="json-indexer-portal"></a>
 

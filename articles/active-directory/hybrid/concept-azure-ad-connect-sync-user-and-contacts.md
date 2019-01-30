@@ -1,10 +1,10 @@
 ---
-title: Azure AD Connect 同步處理：了解使用者、群組和連絡人 | Microsoft Docs
+title: Azure AD Connect 同步：了解使用者、群組和連絡人 | Microsoft Docs
 description: 說明 Azure AD Connect 同步處理中的使用者、群組和連絡人。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 8d204647-213a-4519-bd62-49563c421602
 ms.service: active-directory
 ms.workload: identity
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46d0ce28d6381662847917ce83c77780f1bd9e4c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c59065b21935336a77e3fb88c30f12cded341808
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310577"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473923"
 ---
-# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 同步處理：了解使用者、群組和連絡人
+# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 同步：了解使用者、群組和連絡人
 您可能有幾種不同的原因，而擁有多個 Active Directory 樹系並且具有幾種不同的部署拓撲。 常見的模型包括合併與收購之後的帳戶-資源部署與 GAL 同步處理的樹系。 雖然有單純的模型，但混合模型也同樣常見。 Azure AD Connect 同步處理中的預設組態不會採用任何特定的模型，但是根據在安裝指南中選取使用者比對的方式，可以觀察到不同的行為。
 
 在本主題中，我們將詳細解說預設組態在某些拓撲中的運作方式。 我們將詳細解說組態，以及可用來查看組態的同步處理規則編輯器。
@@ -73,6 +73,6 @@ ms.locfileid: "46310577"
 當物件匯出到 Azure AD 之後，則不允許再變更 sourceAnchor。 當物件匯出之後，Metaverse 屬性 **cloudSourceAnchor** 就會設為 Azure AD 所接受的 **sourceAnchor** 值。 如果 **sourceAnchor** 已變更且不符合 **cloudSourceAnchor**，規則 **Out to AAD - User Join** 將會擲回 **sourceAnchor 屬性已經變更**的錯誤。 在此情況下，必須先更正組態或資料，讓 Metaverse 中再度具有相同的 sourceAnchor，才能再次同步處理物件。
 
 ## <a name="additional-resources"></a>其他資源
-* [Azure AD Connect 同步處理：自訂同步處理選項](how-to-connect-sync-whatis.md)
+* [Azure AD Connect Sync：自訂同步處理選項](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)
 

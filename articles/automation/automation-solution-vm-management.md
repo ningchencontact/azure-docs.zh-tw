@@ -3,18 +3,18 @@ title: 「停機期間啟動/停止 VM」解決方案
 description: 此虛擬機器管理解決方案會依照排程啟動和停止 Azure Resource Manager 虛擬機器，並從 Log Analytics 主動監視。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f5c86a90325c9a6dcd521a97cb899b88b55198d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d9dfc70c7158c5f808367b8b2041725b03b9060d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194261"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846178"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案
 
@@ -59,7 +59,7 @@ ms.locfileid: "53194261"
    ![VM 管理的新增解決方案頁面](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
 4. 在 [新增解決方案] 頁面中，選取 [工作區]。 選取連結到自動化帳戶所在之同一 Azure 訂用帳戶的 Log Analytics 工作區。 如果您沒有工作區，請選取 [建立新工作區]。 在 [Log Analytics 工作區] 頁面上，執行下列步驟：
-   - 指定新 [Log Analytics 工作區] 的名稱。
+   - 為新的 **Log Analytics 工作區**指定名稱，例如 "ContosoLAWorkspace"。
    - 如果選取的預設值不合適，請從下拉式清單中選取要連結的 [訂用帳戶]。
    - 對於 [資源群組]，您可以建立新的資源群組，或選取現有的資源群組。
    - 選取 [位置] 。 目前可用的位置只有**澳大利亞東南部**、**加拿大中部**、**印度中部**、**美國東部**、**日本東部**、**東南亞**、**英國南部**和**西歐**。

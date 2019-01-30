@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3dedf5de1ac2c88a9a00fd5f62e0663b840c0fd9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 865d00d4a6608e422fdfca1297962913ee205827
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438518"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823431"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>設定自動化機器學習實驗
 
@@ -219,7 +219,8 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
 `iteration_timeout_minutes` |   限制特定反覆運算所花費的時間量 (分鐘)。 如果反覆運算超過指定的時間量，則會取消該反覆運算。 如果未設定，則反覆運算會繼續執行直到完成。 |   None
 `n_cross_validations`   |交叉驗證分割數目| None
 `validation_size`   |驗證集的大小，以所有訓練範例的百分比表示。|  None
-`preprocess` | True/False <br/>True 會啟用實驗，以對輸入執行前置處理。 以下是前置處理的子集<li>遺漏資料：插補遺漏資料 - 平均數值，最常出現的文字 </li><li>類別值：如果資料類型是數值，而唯一值的數目小於 5%，則會轉換為 one-hot 編碼 </li><li>如需完整清單，請查看 [GitHub 存放庫](https://aka.ms/aml-notebooks)</li><br/>注意：如果是疏鬆資料，則無法使用 preprocess = true |  False | 
+`preprocess` | True/False <br/>True 會啟用實驗，以對輸入執行前置處理。 以下是前置處理的子集<li>遺漏資料：插補遺漏資料 - 平均數值，最常出現的文字 </li><li>類別值：如果資料類型是數值，而唯一值的數目小於 5%，則會轉換為 one-hot 編碼 </li><li>如需完整清單，請查看 [GitHub 存放庫](https://aka.ms/aml-notebooks)</li><br/>注意：如果是疏鬆資料，則無法使用 preprocess = true |  False |
+`enable_cache`  | True/False <br/>設定為 True 會預先處理完成一次，然後針對所有反覆項目重複使用相同的已處理資料。 | True |
 `blacklist_models`  | 自動化機器學習實驗中有許多它會嘗試的不同演算法。 設定自動化機器學習以從實驗中排除特定演算法。 如果您知道特定演算法不適用於您的資料集，則有所幫助。 排除演算法可為您節省計算資源和訓練時間。<br/>允許的分類值<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>允許的迴歸值<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>允許的預測值<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   None
 `whitelist_models`  | 自動化機器學習實驗中有許多它會嘗試的不同演算法。 設定要為實驗包含的特定演算法。 如果您知道演算法不適用於您的資料集，這有所幫助。 <br/>允許的分類值<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>允許的迴歸值<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>允許的預測值<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  None
 `verbosity` |控制記錄層級，INFO 最詳細，CRITICAL 最簡要。 詳細資訊層級會使用與在 Python 記錄套件中所定義相同的值。 允許的值包括：<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
@@ -272,7 +273,7 @@ run = experiment.submit(automl_config, show_output=True)
 在每次反覆運算分類工作時會儲存下列計量。
 
 |主要計量|說明|計算|額外的參數
---|--|--|--|--|
+--|--|--|--|
 AUC_Macro| AUC 是「接收者作業特性曲線」下方的面積。 Macro 是每個類別 AUC 的算術平均值。  | [計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC 是「接收者作業特性曲線」下方的面積。 Micro 是透過將每個類別的真肯定和誤判結合在一起全域計算而得| [計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
 AUC_Weighted  | AUC 是「接收者作業特性曲線」下方的面積。 Weighted 是每個類別的分數，以每個類別中 true 執行個體數目為權重加權的算術平均值| [計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
@@ -298,7 +299,7 @@ weighted_accuracy|Weighted accuracy 是給予每個範例的權重等於範例�
 下列計量儲存在迴歸或預測工作的每個反覆項目中。
 
 |主要計量|說明|計算|額外的參數
---|--|--|--|--|
+--|--|--|--|
 explained_variance|Explained variance 是所給予資料集其變化的數學模型帳戶的比例。 它是原始資料其變異數中減少至錯誤變異數的百分比。 當錯誤的平均值為 0 時，它會等於 Explained variance。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|None|
 r2_score|R2 是與輸出平均值的基線模型相比的確定係數，或平方誤差減少的百分比。 當錯誤的平均值為 0 時，它會等於 Explained variance。|[計算](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|None|
 spearman_correlation|Spearman correlation (斯皮爾曼相關性) 是兩個資料集之間關係其單調性的非參數量值。 不同於 Pearson correlation (皮耳森相關性)，Spearman correlation 不假設這兩個資料集為常態分佈。 如同其他的相關係數，此相關係數的變化在 -1 到 +1 之間，其中 0 代表不相關。 -1 或 + 1 的相互關聯表示真正單純的關聯性。 正相關是指隨著 x 增加，y 也會增加。 負相關是指隨著 x 增加，y 會減少。|[計算](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|None|
@@ -321,7 +322,7 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error (�
 
 *   一旦完成實驗，您可以在任何反覆項目上使用 `explain_model` 方法。
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import explain_model
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
@@ -338,7 +339,7 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error (�
 
 *   若要檢視所有反覆項目的特徵重要性，請在 AutoMLConfig 中將 `model_explainability` 旗標設為`True`。  
 
-    ```
+    ```python
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  primary_metric = 'AUC_weighted',
@@ -355,7 +356,7 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error (�
 
     完成後，您可以使用 retrieve_model_explanation 方法來擷取特定反覆項目的特徵重要性。
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \

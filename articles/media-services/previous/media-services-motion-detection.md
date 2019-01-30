@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 8488b968fe2ab823479d70a98ba86be97b28f67d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12af87ab0a8b15528acbd9ce8a1bc92f478aba28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783617"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820966"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>使用 Azure 媒體分析偵測動作
 ## <a name="overview"></a>概觀
@@ -31,7 +31,7 @@ ms.locfileid: "33783617"
 本文提供有關 **Azure 媒體動作偵測器**的詳細資料，並示範如何搭配適用於 .NET 的媒體服務 SDK 來使用它。
 
 ## <a name="motion-detector-input-files"></a>動作偵測器輸入檔案
-影片檔案。 目前支援下列格式：MP4、MOV 及 WMV。
+影片檔案。 目前支援下列格式：MP4、MOV 與 WMV。
 
 ## <a name="task-configuration-preset"></a>工作組態 (預設)
 以 **Azure 媒體動作偵測器**建立工作時，您必須指定設定預設值。 
@@ -44,7 +44,7 @@ ms.locfileid: "33783617"
 | sensitivityLevel |字串：'low'、'medium'、'high' |設定要報告哪些動作的敏感度等級。 調整該項目可調整誤判的數目。 |'medium' |
 | frameSamplingValue |正整數 |設定演算法的執行頻率。 1 等於每個畫面，2 表示每 2 個畫面，依此類推。 |1 |
 | detectLightChange |布林值：'true'、'false' |設定是否要在結果中報告光源變化 |'False' |
-| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>範例：00:00:03 |指定要將 2 個事件合併及回報為 1 個事件的動作事件時間間隔。 |00:00:00 |
+| mergeTimeThreshold |Xs-time：Hh:mm:ss<br/>範例：00:00:03 |指定要將 2 個事件合併及回報為 1 個事件的動作事件時間間隔。 |00:00:00 |
 | detectionZones |偵測區域的陣列︰<br/>- 偵測區域是 3 個或更多個點的陣列<br/>- 點是介於 0 到 1 之間的 x 和 y 座標。 |描述要使用的多邊形偵測區域清單。<br/>結果會使用區域為識別碼報告，第一個為 'id':0 |涵蓋整個畫面的單一區域。 |
 
 ### <a name="json-example"></a>JSON 範例
@@ -280,7 +280,7 @@ namespace VideoMotionDetection
             task.InputAssets.Add(asset);
 
             // Add an output asset to contain the results of the job.
-            task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
+            task.OutputAssets.AddNew("My Video Motion Detection Output Asset", AssetCreationOptions.None);
 
             // Use the following event handler to check job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);

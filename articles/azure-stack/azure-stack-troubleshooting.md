@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/23/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: b6ec3283121a3403afb80ccad81f313decf16c88
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a74fb749e130b565c44c637bfc16ff09e3314a05
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957635"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857160"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack 疑難排解
 
@@ -32,11 +32,31 @@ ms.locfileid: "52957635"
 本節中針對疑難排解問題的建議衍生自數個來源，而且不保證能解決您的問題。 程式碼範例係依現況提供，而且無法保證程式碼會產生預期結果。 當產品功能改良時，此節可能也會更新。
 
 ## <a name="deployment"></a>部署
-### <a name="deployment-failure"></a>部署失敗
+### <a name="general-deployment-failure"></a>一般部署失敗
 若安裝失敗，您可以使用部署指令碼的 -rerun 選項從失敗的步驟重新開始部署。  
 
 ### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>在 ASDK 部署結束時，PowerShell 工作階段仍然會開啟，而且不會顯示任何輸出。
 此行為可能只是 PowerShell 命令視窗預設行為的結果 (當已選取它時)。 開發套件部署已成功，但當您選取視窗時，指令碼已暫停。 您可以尋找命令視窗標題列的「選取」字樣以驗證已完成安裝。  按 ESC 鍵以將它取消選取，之後將顯示完成訊息。
+
+### <a name="deployment-fails-due-to-lack-of-external-access"></a>因為缺少外部存取而部署失敗
+當部署在需要外部存取的階段失敗時，會傳回如下列範例的例外狀況：
+
+```
+An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
+```
+如果發生此錯誤，請檢閱[部署網路流量文件](deployment-networking.md)，確定符合所有最低網路需求。 另外也提供合作夥伴的網路檢查工具，作為協力廠商工具組的一部分。
+
+發生上述例外狀況的部署失敗，通常是因為連線到網際網路上的資源時發生問題
+
+若要確認這是否為您的問題，您可以執行下列步驟：
+
+1. 開啟 PowerShell
+2. 進入 WAS01 或任何 ERC VM 的 PSSession
+3. 執行 Cmdlet：Test-NetConnection login.windows.net -port 443
+
+如果此命令失敗，請確認 TOR 交換器和任何其他網路裝置已設定為[允許網路流量](azure-stack-network.md)。
 
 ## <a name="virtual-machines"></a>虛擬機器
 ### <a name="default-image-and-gallery-item"></a>預設映像與資源庫項目

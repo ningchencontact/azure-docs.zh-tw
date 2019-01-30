@@ -9,12 +9,12 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0894c3677b87fe48c130d648253dadd0d43429f4
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783177"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821442"
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>從 Azure Media Clipper 提交剪輯作業
 Azure Media Clipper 需要實作 **submitSubclipCallback** 方法，以處理剪輯作業提交。 此函式是用於將 Clipper 輸出的 HTTP POST 實作至 Web 服務。 此 Web 服務是您可以提交編碼作業的位置。 Clipper 的輸出是為轉譯作業的媒體編碼器標準編碼預設，或是動態資訊清單篩選條件呼叫的 REST API 裝載。 需要這個傳遞模型，因為媒體服務帳戶認證在用戶端瀏覽器中不安全。
@@ -31,7 +31,7 @@ Azure Media Clipper 需要實作 **submitSubclipCallback** 方法，以處理剪
 // Parameter:
 // - subclip: object that represents the subclip (output contract).
 //
-// Returns: a Promise object that, when resolved, retuns true if the operation was accept in the back-end; otherwise, returns false.
+// Returns: a Promise object that, when resolved, returns true if the operation was accept in the back-end; otherwise, returns false.
 var onSubmitSubclip = function (subclip) {
     var promise = new Promise(function (resolve, reject) {
         // TODO: perform the back-end AJAX request to submit the subclip job.
@@ -99,7 +99,7 @@ var subclipper = new subclipper({
     "type": "job",
 
     /* Required if "type" === "job" */
-    /* NOTE: This is the preset for the Media Encoder Standard (MES) processor that can be used in the back-end to sumit the subclip job.
+    /* NOTE: This is the preset for the Media Encoder Standard (MES) processor that can be used in the back-end to submit the subclip job.
     The encoding profile ("Codecs" property) depends on the "singleBitrateMp4Profile" and "multiBitrateMp4Profile" option parameters
     specified when creating the widget instance. */
     /* REFERENCE: https://docs.microsoft.com/azure/media-services/media-services-advanced-encoding-with-mes */

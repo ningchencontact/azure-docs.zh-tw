@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 91e24fb274c1f9895046e8e2e7d760d02d196ccd
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3be7ad84cf0d45276c136465d7247ec43621aceb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354173"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810953"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒體服務 v3 進行即時串流
 
@@ -34,23 +34,32 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 即時串流工作流程的步驟如下：
 
-1. 建立 [即時事件]。
-2. 建立新的 [資產] 物件。
-3. 建立 [即時輸出] 並使用您建立的資產名稱。
-4. 如果想要使用 DRM 加密內容，請建立 [串流原則] 和 [內容金鑰]。
-5. 如果不是使用 DRM，請使用內建的 [串流原則] 類型來建立 [串流定位器]。
-6. 列出 [串流原則] 上的路徑，以取得要使用的 URL (這些具有決定性)。
-7. 取得您想要串流的來源 [串流端點] 主機名稱 (確定此串流端正在執行)。 
-8. 結合步驟 6 的 URL 和步驟 7 的主機名稱，即可取得完整的 URL。
-9. 如果想要停止讓 [即時事件] 可供檢視，您必須藉由刪除 [串流定位器] 來停止串流事件。
+1. 確定 **StreamingEndpoint** 正在執行。 
+2. 建立 **LiveEvent**。 
+  
+    在建立事件時，您可以指定要自動啟動它。 或者，您可以在準備好開始進行串流處理時啟動事件。<br/> 當自動啟動設定為 true 時，即時事件將會在建立後隨即啟動。 這表示，在即時事件執行後就會馬上開始計費。 您必須在 LiveEvent 資源上明確呼叫停止，才能中止進一步計費。 如需詳細資訊，請參閱 [LiveEvent 狀態和計費](live-event-states-billing.md)。
+3. 取得內嵌 URL 並設定您的內部部署編碼器，以使用該 URL 來傳送貢獻摘要。<br/>請參閱[建議的即時編碼器](recommended-on-premises-live-encoders.md)。
+4. 取得預覽 URL 並使用它來確認實際上已收到來自編碼器的輸入。
+5. 建立新的 [資產] 物件。
+6. 建立 **LiveOutput** 並使用您建立的資產名稱。
 
-如需詳細資訊，請參閱以 [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) 範例為基礎的[即時串流教學課程](stream-live-tutorial-with-api.md)。
+     **LiveOutput** 會將串流封存到**資產**中。
+7. 使用內建的 **StreamingPolicy** 型別建立 **StreamingLocator**。
+
+    若您想要將內容加密，請檢閱[內容保護概觀](content-protection-overview.md)。
+8. 列出 [串流定位器] 上的路徑，以取得要使用的 URL (這些具有決定性)。
+9. 取得您想要串流的來源**串流端點**主機名稱。
+10. 結合步驟 8 的 URL 和步驟 9 的主機名稱，即可取得完整的 URL。
+11. 如果想要停止讓 [即時事件] 可供檢視，您必須停止串流事件並刪除 **StreamingLocator**。
+
+如需詳細資訊，請參閱[即時串流教學課程](stream-live-tutorial-with-api.md)。
 
 ## <a name="overview-of-main-components"></a>主要元件概觀
 
 若要使用媒體服務傳遞隨選或即時串流，至少需要一個 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)。 建立媒體服務帳戶時，**預設**的 StreamingEndpoint 會新增至「已停止」狀態的帳戶。 您必須啟動要將內容串流至檢視者的 StreamingEndpoint。 您可以使用預設的 **StreamingEndpoint**，或是使用需要的設定和 CDN 設定建立另一個自訂的 **StreamingEndpoint**。 您可以決定啟用多個 StreamingEndpoint，每個針對的 CDN 都不同，而且可為內容傳遞提供唯一的主機名稱。 
 
-在媒體服務中，[LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) 會負責內嵌和處理即時影片摘要。 當您建立 LiveEvent 時系統會建立輸入端點，您可用此端點從遠端編碼器傳送有效的訊號。 遠端即時編碼器使用 [RTMP](https://www.adobe.com/devnet/rtmp.html) 或是 [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (分散式 MP4) 通訊協定，傳送發佈摘要至該輸入端點。 Smooth streaming 內嵌通訊協定支援的 URL 配置為 `http://` 或 `https://`。 RTMP 內嵌通訊協定支援的 URL 配置為 `rtmp://` 或 `rtmps://`。 如需詳細資訊，請參閱[建議的即時串流編碼器](recommended-on-premises-live-encoders.md)。
+在媒體服務中，[LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) 會負責內嵌和處理即時影片摘要。 當您建立 LiveEvent 時系統會建立輸入端點，您可用此端點從遠端編碼器傳送有效的訊號。 遠端即時編碼器使用 [RTMP](https://www.adobe.com/devnet/rtmp.html) 或是 [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (分散式 MP4) 通訊協定，傳送發佈摘要至該輸入端點。 Smooth streaming 內嵌通訊協定支援的 URL 配置為 `http://` 或 `https://`。 RTMP 內嵌通訊協定支援的 URL 配置為 `rtmp://` 或 `rtmps://`。 如需詳細資訊，請參閱[建議的即時串流編碼器](recommended-on-premises-live-encoders.md)。<br/>
+建立 **LiveEvent** 時，您能以下列其中一種格式指定允許的 IP 位址：具有 4 個數字的 IpV4 位址、CIDR 位址範圍。
 
 一旦 **LiveEvent** 開始接收發佈摘要時，您可以使用其預覽端點 (預覽 URL) 來預覽及驗證是否在進一步發佈之前接收到即時串流。 確認預覽串流良好之後，您就可以使用 LiveEvent 讓即時串流透過一或多個 (預先建立的) **Streamingendpoint** 傳遞。 若要達成此目的，請在 **LiveEvent** 上建立新的 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)。 
 
@@ -62,14 +71,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 如有需要，您也可以套用 [動態篩選]，這可用來控制傳送至播放器的曲目編號、格式、位元速率及呈現方式時間範圍。 如需詳細資訊，請參閱 [篩選器與動態資訊清單](filters-dynamic-manifest-overview.md)。
 
-### <a name="new-capabilities-for-live-streaming-in-v3"></a>v3 中的即時串流的新功能
-
-有了媒體服務的 v3 API，您就能享用下列新功能：
-
-- 新的低延遲模式。 如需詳細資訊，請參閱[延遲](live-event-latency.md)。
-- 改進的 RTMP 支援 (更高的穩定性及更多來源編碼器支援)。
-- RTMPS 安全內嵌。<br/>當您建立 LiveEvent 時，您會取得 4 個內嵌 URL。 4 個內嵌 URL 幾乎完全相同，並有相同的串流權杖 (AppId)，只有連接埠號碼部分不同。 其中兩個 URL 是 RTMPS 的主要部分和備份。   
-- 使用媒體服務將單一位元速率貢獻饋送轉碼為有多個位元速率的輸出資料流時，您可以串流處理長達 24 小時的即時事件。 
+如需有關 v3 中即時串流新功能的資訊，請參閱[從 Media Services v2 移轉到 v3 的移轉指導方針](migrate-from-v2-to-v3.md)。
 
 ## <a name="liveevent-types"></a>LiveEvent 類型
 
@@ -108,7 +110,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 > [!NOTE]
 > **LiveOutput** 在建立時開始，並在刪除時結束。 當您刪除 **LiveOutput** 時，您不是刪除基礎的 **Asset** 和 Asset 中的內容。 
 >
-> 如果您已在資產上發佈 **LiveOutput** 的 [串流定位器]，將可繼續檢視此事件 (最大為 DVR 視窗長度)，直到 [串流定位器] 的結束時間或直到您刪除定位器為止 (以先到者為準)。   
+> 若您已使用 **StreamingLocator** 發行 **LiveOutput** 資產，**LiveEvent** (最長為 DVR 時段長度) 將繼續可檢視，直到 **StreamingLocator** 到期或被刪除，視孰者為早。
 
 如需詳細資訊，請參閱[使用雲端 DVR](live-event-cloud-dvr.md)。
 

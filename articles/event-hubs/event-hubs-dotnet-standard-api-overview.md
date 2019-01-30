@@ -9,18 +9,18 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: 9b952bd96828c4f2c140cb2d75cecb9379895a63
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: f8cd167d8de738674939180e0d81fc9282434155
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746638"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450442"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>事件中樞 .NET Standard API 概觀
 
 本文將摘要列出一些主要 Azure 事件中樞 [.NET Standard 用戶端 API](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)。 事件中樞目前有兩個 .NET Standard 用戶端程式庫︰
 
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)：提供所有基本執行階段作業。
+* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)：提供所有基本的執行階段作業。
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)：新增可讓您記錄處理過之事件的額外功能，並且是從事件中樞讀取的最簡單方式。
 
 ## <a name="event-hubs-client"></a>事件中樞用戶端

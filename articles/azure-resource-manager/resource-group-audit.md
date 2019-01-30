@@ -4,36 +4,34 @@ description: 使用活動記錄檢閱使用者動作和錯誤。 顯示 Azure �
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: fcdb3125-13ce-4c3b-9087-f514c5e41e73
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: 636e4d5216f87440463fbaecd7f6c7a5a25c7502
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: b702b6de5c9f33058e9b486547530d071969bd97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359386"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855377"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>檢視活動記錄以稽核對資源的動作
 
 透過活動記錄檔，您可以判斷︰
 
 * 訂用帳戶的資源在進行哪些作業
-* 誰起始作業 (雖然由後端服務起始的作業不會傳回使用者做為呼叫端)
+* 啟動作業的人員
 * 作業進行的時間
 * 作業的狀態
 * 其他可能協助您研究作業的屬性值
 
 活動記錄包含在您的資源上執行的所有寫入作業 (PUT、POST、DELETE)。 不包含讀取作業 (GET)。 如需資源動作的清單，請參閱 [Azure Resource Manager 資源提供者作業](../role-based-access-control/resource-provider-operations.md)。 您可以使用稽核記錄檔在進行疑難排解時發現錯誤，或是監視貴組織使用者修改資源的方式。
 
-活動記錄檔會保留 90 天。 您可以查詢任何的日期範圍，只要開始日期不是在過去 90 天以前。
+活動記錄會保留 90 天。 您可以查詢任何的日期範圍，只要開始日期不是在過去 90 天以前。
 
 您可以透過入口網站、PowerShell、Azure CLI、Insights REST API 或 [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/)擷取活動記錄檔中的資訊。
 
@@ -41,36 +39,39 @@ ms.locfileid: "54359386"
 
 1. 若要透過入口網站檢視活動記錄，請選取 [監視]。
 
-    ![檢視活動記錄檔](./media/resource-group-audit/select-monitor.png)
+    ![選取監視器](./media/resource-group-audit/select-monitor.png)
 
-   或者，若要自動篩選特定資源或資源群組的活動記錄檔，請選取 [活動記錄]。 請注意，選取的資源會自動篩選活動記錄檔。
+1. 選取 [活動記錄]。
 
-    ![依資源篩選](./media/resource-group-audit/filtered-by-resource.png)
-2. 在 [活動記錄] 中，您會看到最近作業的摘要。
+    ![選取活動記錄](./media/resource-group-audit/select-activity-log.png)
 
-    ![顯示動作](./media/resource-group-audit/audit-summary.png)
-3. 若要限制顯示的作業數目，可以選取不同的條件。 例如，下圖顯示變更 [時間範圍] 和 [事件起始者] 欄位，以檢視特定使用者或應用程式在上個月所採取的動作。 選取 [套用]  以檢視查詢的結果。
+1. 您會看到最近作業的摘要。 系統會將一組預設篩選套用至作業。
+
+    ![檢視最近作業的摘要](./media/resource-group-audit/audit-summary.png)
+
+1. 若要快速執行一組預先定義的篩選，請選取 [快速見解] 並挑選其中一個選項。
+
+    ![選取查詢](./media/resource-group-audit/quick-insights.png)
+
+1. 若要將焦點放在特定作業，請變更篩選或套用新的篩選。 例如，下圖顯示 [時間範圍] 和 [資源類型] 的新值已設為設為儲存體帳戶。 
 
     ![設定篩選選項](./media/resource-group-audit/set-filter.png)
 
-4. 如果您稍後需要再執行查詢，請選取 [釘選目前的篩選]，並為其指定名稱。
+1. 如果您稍後需要再執行查詢，請選取 [釘選目前的篩選]。
 
-    ![儲存查詢](./media/resource-group-audit/save-query.png)
-5. 若要快速執行查詢，可以選取其中一個內建的查詢，例如失敗的部署。
+    ![釘選篩選](./media/resource-group-audit/pin-filters.png)
 
-    ![選取查詢](./media/resource-group-audit/select-quick-query.png)
+1. 指定篩選的名稱。
 
-   選取的查詢會自動設定必要的篩選值。
+    ![名稱篩選](./media/resource-group-audit/name-filters.png)
 
-    ![檢視部署錯誤](./media/resource-group-audit/view-failed-deployment.png)
+1. 可在儀表板中使用篩選。
 
-6. 選取其中一項作業以查看事件的摘要。
-
-    ![檢視作業](./media/resource-group-audit/view-operation.png)  
+    ![在儀表板上顯示篩選](./media/resource-group-audit/show-dashboard.png)
 
 ## <a name="powershell"></a>PowerShell
 
-1. 若要擷取記錄檔項目，請執行 **Get-AzureRmLog** 命令。 您可提供額外的參數來篩選項目清單。 如果未指定開始和結束時間，則會傳回最後一個小時的項目。 例如，若要在過去一小時執行期間擷取資源群組的作業：
+* 若要擷取記錄檔項目，請執行 **Get-AzureRmLog** 命令。 您可提供額外的參數來篩選項目清單。 如果未指定開始和結束時間，則會傳回最後七天的項目。
 
   ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup
@@ -79,7 +80,7 @@ ms.locfileid: "54359386"
     下列範例示範如何使用活動記錄來研究指定期間所採取的作業。 以日期格式指定開始和結束日期。
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
+  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
   ```
 
     或者，您可以使用日期函數來指定日期範圍，例如過去 14 天。
@@ -88,62 +89,78 @@ ms.locfileid: "54359386"
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
   ```
 
-2. 視您指定的開始時間而定，先前的命令可以傳回該資源群組的一長串作業。 您可以提供搜尋準則，以篩選您所尋找的結果。 例如，假如您想研究 Web 應用程式停止執行的方式，可以執行下列命令：
-
-  ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
-  ```
-
-    並藉此了解停止動作是由 someone@contoso.com 所執行。
-
-  ```powershell
-  Authorization     :
-  Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-  Action    : Microsoft.Web/sites/stop/action
-  Role      : Subscription Admin
-  Condition :
-  Caller            : someone@contoso.com
-  CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
-  EventSource       : Administrative
-  EventTimestamp    : 8/28/2015 4:08:18 PM
-  OperationName     : Microsoft.Web/sites/stop/action
-  ResourceGroupName : ExampleGroup
-  ResourceId        : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-  Status            : Succeeded
-  SubscriptionId    : xxxxx
-  SubStatus         : OK
-  ```
-
-3. 您可以查閱由特定使用者採取的動作，即使是針對已不存在的資源群組。
+* 您可以查閱由特定使用者採取的動作，即使是針對已不存在的資源群組。
 
   ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
   ```
 
-4. 您可以篩選失敗的作業。
+* 您可以篩選失敗的作業。
 
   ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
   ```
 
-5. 您可以查看該項目的狀態訊息，專注於一個錯誤。
+* 您可以查看該項目的狀態訊息，專注於一個錯誤。
 
   ```azurepowershell-interactive
-  ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
+  ((Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
   ```
 
-    它會傳回：
+* 您可以選取特定值來限制傳回的資料。
 
-        code           message
-        ----           -------
-        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP.
+  ```azurepowershell-interactive
+  Get-AzureRmLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
+  ```
+
+* 視您指定的開始時間而定，先前的命令可以傳回該資源群組的一長串作業。 您可以提供搜尋準則，以篩選您所尋找的結果。 例如，您可以依照作業類型篩選。
+
+  ```azurepowershell-interactive
+  Get-AzureRmLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
+  ```
 
 ## <a name="azure-cli"></a>Azure CLI
 
-若要取出記錄項目，請執行 [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) 命令。
+* 若要擷取記錄項目，請搭配位移執行 [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) 命令，以指示時間範圍。
 
-  ```azurecli
-  az monitor activity-log list --resource-group <group name>
+  ```azurecli-interactive
+  az monitor activity-log list --resource-group ExampleGroup --offset 7d
+  ```
+
+  下列範例示範如何使用活動記錄來研究指定期間所採取的作業。 以日期格式指定開始和結束日期。
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --start-time 2019-01-01 --end-time 2019-01-15
+  ```
+
+* 您可以查閱由特定使用者採取的動作，即使是針對已不存在的資源群組。
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --caller someone@contoso.com --offset 5d
+  ```
+
+* 您可以篩選失敗的作業。
+
+  ```azurecli-interactive
+  az monitor activity-log list -g demoRG --status Failed --offset 1d
+  ```
+
+* 您可以查看該項目的狀態訊息，專注於一個錯誤。
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --status Failed --offset 1d --query [].properties.statusMessage
+  ```
+
+* 您可以選取特定值來限制傳回的資料。
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --offset 1d --query '[].{Operation: operationName.value, Status: status.value, SubStatus: subStatus.localizedValue}'
+  ```
+
+* 視您指定的開始時間而定，先前的命令可以傳回該資源群組的一長串作業。 您可以提供搜尋準則，以篩選您所尋找的結果。 例如，您可以依照作業類型篩選。
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
   ```
 
 ## <a name="rest-api"></a>REST API

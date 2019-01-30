@@ -3,19 +3,19 @@ title: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的一
 description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的一般宣告轉換範例。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8ff418c24e9171d452bca873c4b8f66ada2adb7c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8cae6ec9693c0fadba059e641fb75e68bbbaec92
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431321"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853083"
 ---
 # <a name="general-claims-transformations"></a>一般宣告轉換
 
@@ -60,7 +60,7 @@ ms.locfileid: "47431321"
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | plaintext | 字串 | 要加密的輸入宣告 |
 | InputClaim | salt | 字串 | Salt 參數。 您可以使用 `CreateRandomString` 宣告轉換來建立隨機值。 |
-| InputParameter | randomizerSecret | 字串 | 指向現有的 Azure AD B2C **原則金鑰**。 若要建立新的原則金鑰：在您的 Azure AD B2C 租用戶中，選取 [B2C 設定] > [識別體驗架構]。 若要檢視租用戶中可用的金鑰，請選取 [原則金鑰]。 選取 [新增] 。 針對 [選項]，選取 [手動]。 提供名稱 (可能會自動新增前置詞 B2C_1A_)。 在 [祕密] 方塊中，輸入任何您想要使用的祕密，例如 1234567890。 針對 [金鑰使用方法] 選取 [祕密]。 選取 [建立] 。 |
+| InputParameter | randomizerSecret | 字串 | 指向現有的 Azure AD B2C **原則金鑰**。 建立新金鑰：在您的 Azure AD B2C 租用戶中，選取 [B2C 設定] > [識別體驗架構]。 若要檢視租用戶中可用的金鑰，請選取 [原則金鑰]。 選取 [新增] 。 針對 [選項]，選取 [手動]。 提供名稱 (可能會自動新增前置詞 B2C_1A_)。 在 [祕密] 方塊中，輸入任何您想要使用的祕密，例如 1234567890。 針對 [金鑰使用方法] 選取 [祕密]。 選取 [建立] 。 |
 | OutputClaim | 雜湊 | 字串 | 叫用此宣告轉換之後所產生的 ClaimType。 設定於 `plaintext` inputClaim 中的宣告。 |
 
 ```XML
@@ -85,7 +85,7 @@ ms.locfileid: "47431321"
     - **salt**：487624568
     - **randomizerSecret**：B2C_1A_AccountTransformSecret
 - 輸出宣告： 
-    - **outputClaim**：CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U =
+    - **outputClaim**：CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=
 
 
 

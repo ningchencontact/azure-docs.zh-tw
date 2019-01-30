@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 xMatters OnDemand 之
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ca0633db-4f95-432e-b3db-0168193b5ce9
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d140cbdb0548de869c7aab6ba5da281046a215f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1086343f165ad61b2e4fe91b5d52996722a33646
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434107"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820983"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>教學課程：Azure Active Directory 與 xMatters OnDemand 整合
 
@@ -202,7 +202,7 @@ xMatters OnDemand 與 Azure AD 整合提供下列優點：
 
 ### <a name="creating-a-xmatters-ondemand-test-user"></a>建立 xMatters OnDemand 測試使用者
 
-本節的目標是在 xMatters OnDemand 中建立名為 Britta Simon 的使用者。 xMatters OnDemand 支援自動使用者佈建，該功能預設為啟用。 您可以在[這裡](xmatters-ondemand-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
+本節的目標是在 xMatters OnDemand 中建立名為 Britta Simon 的使用者。
 
 **如果您需要手動建立使用者，請執行下列步驟：**
 
@@ -263,13 +263,12 @@ xMatters OnDemand 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [xMatters OnDemand] 圖格時，應該會自動登入您的 xMatters OnDemand 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
-* [設定使用者佈建](xmatters-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 

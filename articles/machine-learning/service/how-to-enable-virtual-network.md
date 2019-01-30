@@ -1,7 +1,7 @@
 ---
-title: 在虛擬網路內執行實驗與推斷
+title: 在虛擬網路中執行實驗和推斷
 titleSuffix: Azure Machine Learning service
-description: 了解如何安全地執行機器學習服務實驗和在 Azure 虛擬網路內的推斷。 這篇文章教導您如何建立用於定型模型的計算目標，以及在 Azure 虛擬網路內執行推斷。 此外也說明受保護虛擬網路的需求，例如需要輸入和輸出連接埠。
+description: 在 Azure 虛擬網路中安全地執行機器學習實驗和推斷。 了解如何為模型定型建立計算目標，和如何在 Azure 虛擬網路中推斷。 此外也說明受保護虛擬網路的需求，例如需要輸入和輸出連接埠。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 1890f830f9b2a4b108328de056636335fd3746e3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 21c4a9042a64a58f67f1f94c300b6438895eea5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248600"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856276"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>在 Azure 虛擬網路內安全地執行實驗與推斷
 

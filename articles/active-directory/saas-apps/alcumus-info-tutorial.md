@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Alcumus Info Exchange
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d26034b8-f0d5-4f65-aa56-0fc168ceec8c
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 66ce8bb16e6e291742841766069b076c46a01c69
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d55aa873d0ad410b91dc678d1fe4784e00ed5487
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224593"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812466"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>教學課程：Azure Active Directory 與 Alcumus Info Exchange 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36224593"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Alcumus Info Exchange 整合，您需要下列項目：
 
@@ -114,7 +114,7 @@ ms.locfileid: "36224593"
 
     a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.info-exchange.com`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.info-exchange.com/Auth/`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.info-exchange.com/Auth/`
 
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Alcumus Info Exchange 支援小組](mailto:helpdesk@alcumusgroup.com)以取得這些值。

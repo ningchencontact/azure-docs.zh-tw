@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager 試用產品 | Microsoft Docs
-description: 使用 Azure Resource MAnager 建置 Markeplace 試用產品
+description: 使用 Azure Resource Manager 建置 Markeplace 試用產品
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 87e57a1ee417a4cc69308e8af80dd9b781d60aaf
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b7cbd69a4551605b71930a23f837b467177e3cc3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139260"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451352"
 ---
 <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 試用產品
 =================================
@@ -385,7 +385,7 @@ main-template.json                | [https://\<\...\>.blob.core.windows.net/\<\.
 1. 按一下 [存取控制 (IAM)]。
 1. 按一下 [角色指派] 索引標籤。![新增新的存取控制原則](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. 按一下 [新增角色指派]。
-1. 將角色設定為**參與者**。
+1. 將角色設定為 [參與者]。
 1. 輸入 Azure AD 應用程式的名稱，並選取 應用程式以指派角色。
     ![新增權限](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
 1. 按一下 [檔案] 。

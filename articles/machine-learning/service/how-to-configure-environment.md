@@ -10,14 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ef62157644e55ed291562f581389228b5776f51
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f53b3cec843ca8016c61a360025b5e731b96f55
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353221"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815866"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -55,7 +55,7 @@ ms.locfileid: "54353221"
 
 - 在 Windows 上，您需要命令提示字元或 Anaconda 提示字元 (由 Anaconda 和 Miniconda 安裝)。
 
-## <a id="anotebooks"></a>Azure Notebooks
+## <a id="aznotebooks"></a>Azure Notebooks
 
 [Azure Notebooks](https://notebooks.azure.com) (預覽) 是 Azure 雲端中的互動式開發環境。 這是開始使用 Azure Machine Learning 環境最簡單的方式。
 
@@ -64,17 +64,21 @@ ms.locfileid: "54353221"
 
 若要開始使用 Azure Notebooks 進行開發，請參閱[開始使用 Azure Machine Learning 服務](quickstart-get-started.md)。
 
+根據預設，Azure Notebooks 使用免費服務層，其限制為 4 GB 記憶體和 1GB 資料。 不過，您可以將資料科學虛擬機器執行個體附加到 Azure Notebooks 專案來移除這些限制。 如需詳細資訊，請參閱[管理和設定 Azure Notebooks 專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)。
+
 ## <a id="dsvm"></a>資料科學虛擬機器
 
 DSVM 是自訂的虛擬機器 (VM) 映像。 它是針對使用下列項目預先設定的資料科學工作而設計：
 
-  - TensorFlow、PyTorch、Scikit-learn、XGBoost 及 Azure Machine Learning SDK 等套件。
-  - Spark 獨立版和 Drill 等常用的資料科學工具。
-  - Azure CLI、AzCopyy 及儲存體總管等 Azure 工具。
-  - Visual Studio Code、PyCharm 及 RStudio 等整合式開發環境 (IDE)。
-  - Jupyter Notebook 伺服器。 
+  - TensorFlow、PyTorch、Scikit-learn、XGBoost 及 Azure Machine Learning SDK 等套件
+  - Spark 獨立版和 Drill 等常用的資料科學工具
+  - Azure CLI、AzCopy 及儲存體總管等 Azure 工具
+  - Visual Studio Code 和 PyCharm 等整合式開發環境 (IDE)
+  - Jupyter Notebook 伺服器
 
-Azure Machine Learning SDK 適用於 Ubuntu 或 Windows版本的 DSVM。 若要使用 DSVM 作為開發環境，請執行下列操作：
+Azure Machine Learning SDK 適用於 Ubuntu 或 Windows版本的 DSVM。 但如果您也打算使用 DSVM 作為計算目標，則僅支援 Ubuntu。
+
+若要使用 DSVM 作為開發環境，請執行下列操作：
 
 1. 在下列其中一個環境中建立 DSVM：
 

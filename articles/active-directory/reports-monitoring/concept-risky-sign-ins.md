@@ -3,7 +3,7 @@ title: Azure Active Directory 入口網站中有風險的登入報告 | Microsof
 description: 了解 Azure Active Directory 入口網站中有風險的登入報告
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 402aae15ae4fe8e6961fbc76a4ddaa470b8c797a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244710"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807757"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中有風險的登入報告
 
@@ -61,9 +61,9 @@ Azure Active Directory (Azure AD) 會偵測使用者帳戶相關的可疑動作�
 
 Azure AD 免費和基本版本會為您的使用者提供已偵測到的有風險登入清單。 每個記錄都包含下列屬性：
 
-- **使用者** - 登入作業期間所使用的使用者名稱
-- **IP** - 用來連接至 Azure Active Directory 的裝置 IP 位址
-- **位置** - 用來連接至 Azure Active Directory 的位置
+- **使用者** - 在登入作業期間所使用的使用者名稱。
+- **IP** - 用來連線至 Azure Active Directory 的裝置 IP 位址。
+- **位置** - 用來連線至 Azure Active Directory 的位置。 這是根據追蹤、登錄資料、反向查詢及其他資訊，儘可能取得的近似值。
 - **登入時間** - 執行登入的時間
 - **狀態** - 登入狀態
 
@@ -106,6 +106,9 @@ Azure AD 進階版本中有風險的登入報告可為您提供：
 - 手動關閉風險事件。 
 
 ![有風險的登入](./media/concept-risky-sign-ins/457.png)
+
+> [!IMPORTANT]
+> 有時，您可能會發現在[登入報告](concept-sign-ins.md)中沒有相對應登入項目的風險事件。 這是因為 Identity Protection 會同時評估**互動式**和**非互動式**登入的風險，而登入報告則只會顯示互動式登入的部分。
 
 當您選取使用者時，即會取得這位使用者的詳細報告檢視，讓您能夠：
 

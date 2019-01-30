@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -16,14 +16,14 @@ ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ba5c3704d89f75617683ae886da1857d51251631
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 23a9efa5388e0089fd4e6297061ea7bf19b54b06
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306287"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468466"
 ---
-# <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory 傳遞驗證：將預覽驗證代理程式升級
+# <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory 傳遞驗證：升級預覽驗證代理程式
 
 ## <a name="overview"></a>概觀
 
@@ -59,18 +59,18 @@ ms.locfileid: "46306287"
 
 升級之前，請確定您已備妥下列項目：
 
-1. **建立僅限雲端的全域管理員帳戶**：在傳遞驗證代理程式無法正常運作的緊急情況下，若沒有僅限雲端的全域管理員帳戶可使用，則不要升級。 了解如何[新增僅限雲端管理員帳戶 (英文)](../active-directory-users-create-azure-portal.md)。 這是確保您不會被租用戶封鎖的關鍵步驟。
-2.  **確保高可用性**：如果先前未完成，則使用相關[指示](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)來安裝第二個獨立驗證代理程式，以提供高可用性來滿足登入要求。
+1. **建立僅限雲端的全域管理員帳戶**：在「傳遞驗證代理程式」無法正常運作的緊急情況下，若沒有僅限雲端的「全域管理員」帳戶可使用，請勿升級。 了解如何[新增僅限雲端管理員帳戶 (英文)](../active-directory-users-create-azure-portal.md)。 這是確保您不會被租用戶封鎖的關鍵步驟。
+2.  **確保高可用性**：如果先前未完成安裝第二個獨立「驗證代理程式」，請使用這些[指示](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)來完成安裝，以提供高可用性來滿足登入要求。
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>將 Azure AD Connect 伺服器上的驗證代理程式升級
 
 您必須先升級 Azure AD Connect，才能在同一部伺服器上升級驗證代理程式。 在主要伺服器和暫存 Azure AD Connect 伺服器上執行下列步驟：
 
-1. **升級 Azure AD Connect**：依照[本文](how-to-upgrade-previous-version.md)操作並升級至最新版的 Azure AD Connect。
-2. **解除預覽版的安裝驗證代理程式**：下載[此 PowerShell 指令碼](https://aka.ms/rmpreviewagent)並在伺服器上以系統管理員身分執行該指令碼。
-3. **下載最新版的驗證代理程式 (1.5.389.0 版或更新版本)**：使用您租用戶的全域管理員認證登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。 選取 [Azure Active Directory] -> [Azure AD Connect] -> [傳遞驗證] -> [下載代理程式]。 接受[服務條款](https://aka.ms/authagenteula)並下載最新版的驗證代理程式。 您也可以從[這裡](https://aka.ms/getauthagent)下載驗證代理程式。
-4. **安裝最新版的驗證代理程式**：執行在步驟 3 中下載的可執行檔。 出現提示時，提供您租用戶的全域管理員認證。
-5. **已安裝最新版本**：如之前所示，請移至 [控制台]-> [程式]-> [程式和功能]，並確認有 [Microsoft Azure AD Connect 驗證代理程式] 項目。
+1. **升級 Azure AD Connect**：依照這篇[文章](how-to-upgrade-previous-version.md)進行操作，並升級至最新的 Azure AD Connect 版本。
+2. **將預覽版驗證代理程式解除安裝**：下載[這個 PowerShell 指令碼](https://aka.ms/rmpreviewagent)，然後在伺服器上以系統管理員身分執行此指令碼。
+3. **下載最新版驗證代理程式 (1.5.389.0 或更新版本)**：使用租用戶的「全域管理員」認證來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。 選取 [Azure Active Directory] -> [Azure AD Connect] -> [傳遞驗證] -> [下載代理程式]。 接受[服務條款](https://aka.ms/authagenteula)並下載最新版的驗證代理程式。 您也可以從[這裡](https://aka.ms/getauthagent)下載驗證代理程式。
+4. **安裝最新版驗證代理程式**：執行在步驟 3 下載的可執行檔。 出現提示時，提供您租用戶的全域管理員認證。
+5. **確認已安裝最新版本**：如先前所示，移至 [控制台]-> [程式集]-> [程式和功能]，並確認有 [Microsoft Azure AD Connect 驗證代理程式] 項目。
 
 >[!NOTE]
 >完成前述步驟後，若到 [Azure Active Directory 管理中心](https://aad.portal.azure.com)查看傳遞驗證刀鋒視窗，將會發現每個伺服器有兩個驗證代理程式項目：一個項目會顯示驗證代理程式為**使用中**，另一個則顯示為**非使用中**。 這是 _預期行為_ 。 **非使用中**的項目會在幾天後自動卸除。
@@ -79,10 +79,10 @@ ms.locfileid: "46306287"
 
 在其他伺服器 (未安裝 Azure AD Connect) 上依照下列步驟來升級驗證代理程式：
 
-1. **解除預覽版的安裝驗證代理程式**：下載[此 PowerShell 指令碼](https://aka.ms/rmpreviewagent)並在伺服器上以系統管理員身分執行該指令碼。
-2. **下載最新版的驗證代理程式 (1.5.389.0 版或更新版本)**：使用您租用戶的全域管理員認證登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。 選取 [Azure Active Directory] -> [Azure AD Connect] -> [傳遞驗證] -> [下載代理程式]。 接受服務條款並下載最新版本。
-3. **安裝最新版的驗證代理程式**：執行在步驟 2 中下載的可執行檔。 出現提示時，提供您租用戶的全域管理員認證。
-4. **已安裝最新版本**：如之前所示，請移至 [控制台]-> [程式]-> [程式和功能]，並確認有一個叫做 [Microsoft Azure AD Connect 驗證代理程式] 的項目。
+1. **將預覽版驗證代理程式解除安裝**：下載[這個 PowerShell 指令碼](https://aka.ms/rmpreviewagent)，然後在伺服器上以系統管理員身分執行此指令碼。
+2. **下載最新版驗證代理程式 (1.5.389.0 或更新版本)**：使用租用戶的「全域管理員」認證來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。 選取 [Azure Active Directory] -> [Azure AD Connect] -> [傳遞驗證] -> [下載代理程式]。 接受服務條款並下載最新版本。
+3. **安裝最新版驗證代理程式**：執行在步驟 2 下載的可執行檔。 出現提示時，提供您租用戶的全域管理員認證。
+4. **確認已安裝最新版本**：如先前所示，移至 [控制台]-> [程式集]-> [程式和功能]，並確認有名為 **Microsoft Azure AD Connect 驗證代理程式**的項目。
 
 >[!NOTE]
 >完成前述步驟後，若到 [Azure Active Directory 管理中心](https://aad.portal.azure.com)查看傳遞驗證刀鋒視窗，將會發現每個伺服器有兩個驗證代理程式項目：一個項目會顯示驗證代理程式為**使用中**，另一個則顯示為**非使用中**。 這是 _預期行為_ 。 **非使用中**的項目會在幾天後自動卸除。

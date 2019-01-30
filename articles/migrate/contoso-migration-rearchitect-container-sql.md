@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6f894310157432a6e03e6ec4753f5efc2d8ac66d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 149a15353a7fd1d698af306971ecb0949db4c165
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267414"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817226"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Contoso 移轉：將內部部署應用程式重新建構至 Azure 容器和 Azure SQL Database
 
@@ -282,7 +282,7 @@ Contoso 必須有叢集憑證，才能允許 Azure DevOps Services 存取叢集�
 
 8. 為了部署 Azure DevOps Services，他們需要判斷憑證的 Base64 值。 其會使用 PowerShell 在本機開發人員工作站上進行此作業。 其會將輸出貼到文字檔以供日後使用。
 
-    ```
+    ```powershell
         [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
     ```
 
@@ -530,7 +530,7 @@ Contoso 管理員現在會設定 Azure DevOps Services 來執行建置和發行�
 5. 在入口網站中，開啟新的資料庫 > [集合] > [文件]，然後按一下 [新文件]。
 6. 他們會將下列 JSON 程式碼貼到文件視窗中。 這是單一推文形式的範例資料。
 
-    ```
+    ```json
     {
             "id": "2ed5e734-8034-bf3a-ac85-705b7713d911",
             "tweetId": 927750234331580911,
@@ -565,11 +565,11 @@ Contoso 管理員現在會設定 Azure DevOps Services 來執行建置和發行�
 
 2. 填入下列兩個參數：
 
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBEndpoint" Value="[URI]" />
    ```
    
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBAuthKey" Value="[Key]" />
    ```
 

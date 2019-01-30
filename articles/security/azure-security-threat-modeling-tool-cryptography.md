@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: be702571d178fc67eeb92de4e52a48d5bef72b18
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844646"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824621"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>安全性架構：密碼編譯 | 風險降低 
 | 產品/服務 | 文章 |
@@ -29,7 +29,7 @@ ms.locfileid: "52844646"
 | **IoT 裝置** | <ul><li>[在 IoT 裝置上安全地儲存密碼編譯金鑰](#keys-iot)</li></ul> | 
 | **IoT 雲端閘道** | <ul><li>[產生長度足夠的隨機對稱金鑰以向 IoT 中樞進行驗證](#random-hub)</li></ul> | 
 | **Dynamics CRM 行動用戶端** | <ul><li>[確定已備妥需要使用 PIN 並允許遠端抹除的裝置管理原則](#pin-remote)</li></ul> | 
-| **Dynamics CRM Outlook 用戶端** | <ul><li>[確定已備妥需要 PIN/密碼/自動鎖定並會加密所有資料的裝置管理原則 (例如 Bitlocker)](#bitlocker)</li></ul> | 
+| **Dynamics CRM Outlook 用戶端** | <ul><li>[確定已備妥需要 PIN/密碼/自動鎖定並會加密所有資料的裝置管理原則 (例如 BitLocker)](#bitlocker)</li></ul> | 
 | **Identity Server** | <ul><li>[確定在使用 Identity Server 時會變換簽署金鑰](#rolled-server)</li><li>[確定 Identity Server 會使用密碼編譯增強式用戶端識別碼和用戶端祕密](#client-server)</li></ul> | 
 
 ## <a id="cipher-length"></a>只使用核准的對稱區塊編碼器和金鑰長度
@@ -209,7 +209,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **參考**              | N/A  |
 | **步驟** | 確定已備妥需要使用 PIN 並允許遠端抹除的裝置管理原則 |
 
-## <a id="bitlocker"></a>確定已備妥需要 PIN/密碼/自動鎖定並會加密所有資料的裝置管理原則 (例如 Bitlocker)
+## <a id="bitlocker"></a>確定已備妥需要 PIN/密碼/自動鎖定並會加密所有資料的裝置管理原則 (例如 BitLocker)
 
 | 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
@@ -218,7 +218,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
-| **步驟** | 確定已備妥需要 PIN/密碼/自動鎖定並會加密所有資料的裝置管理原則 (例如 Bitlocker) |
+| **步驟** | 確定已備妥需要 PIN/密碼/自動鎖定並會加密所有資料的裝置管理原則 (例如 BitLocker) |
 
 ## <a id="rolled-server"></a>確定在使用 Identity Server 時會變換簽署金鑰
 

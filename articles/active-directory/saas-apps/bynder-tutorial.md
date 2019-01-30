@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Bynder 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 250dbdf2-faf5-48dd-be7c-d54502ef7528
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: fadbd6a2b1e1a3197822552e4cd18ab765b696c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dd7df59d25b109929777df0ee586a46f27cb4605
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440110"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821680"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bynder"></a>教學課程：Azure Active Directory 與 Bynder 整合
 
@@ -110,7 +110,7 @@ ms.locfileid: "39440110"
 
     ![Bynder 網域及 URL 單一登入資訊](./media/bynder-tutorial/tutorial_bynder_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<company name>.getbynder.com`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<company name>.getbynder.com`
     
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<company name>.getbynder.com/sso/SAML/authenticate/`
 
@@ -211,7 +211,7 @@ ms.locfileid: "39440110"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Bynder ] 圖格時，應該會自動登入您的 Bynder 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

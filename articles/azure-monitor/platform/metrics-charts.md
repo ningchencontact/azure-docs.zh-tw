@@ -5,15 +5,15 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/22/2019
 ms.author: vitalyg
-ms.component: metrics
-ms.openlocfilehash: 457c7e8904797955854c4c3e16a631cf6537e2b8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.subservice: metrics
+ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330070"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827443"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure 監視器計量瀏覽器
 
@@ -139,6 +139,17 @@ Microsoft Azure 中的計量是隨時間收集並儲存的一系列度量與計�
 
 ![計量影像](./media/metrics-charts/00013.png)
 
+## <a name="troubleshooting"></a>疑難排解
+
+*我看不到我的圖表上的任何資料。*
+
+* 篩選會套用至窗格上的所有圖表。 請確定，當您將焦點放在某個圖表時，您未在其他圖表上設定會排除所有資料的篩選。
+
+* 如果您想要在不同的圖表上設定不同的篩選，請在不同的刀鋒視窗中建立圖表，將它們儲存為個別的最愛圖表。 如果想要，您可以將這些圖表釘選到儀表板，以便並排查看兩者。
+
+* 如果您依據計量上未定義的屬性區分圖表，則圖表上不會有任何資料。 請嘗試清除分割 (分割)，或選擇不同的屬性。
+
 ## <a name="next-steps"></a>後續步驟
 
   閱讀[建立自訂 KPI 儀表板](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards)以了解使用計量建立可採取動作之儀表板的最佳做法。
+

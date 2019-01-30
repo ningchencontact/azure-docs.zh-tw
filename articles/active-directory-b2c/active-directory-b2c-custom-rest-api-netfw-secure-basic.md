@@ -3,19 +3,19 @@ title: 在 Azure Active Directory B2C 中使用 HTTP 基本驗證保護 RESTful 
 description: 使用 HTTP 基本驗證在您的 Azure AD B2C 中保護您的自訂 REST API 宣告交換。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e6cff4e2daf86b63bc0db0d4f2d537322d2841df
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: dcabcbbce78b83c0d4328e0f5b1088c172bcfedb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409298"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850670"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>使用 HTTP 基本驗證保護 RESTful 服務
 
@@ -219,7 +219,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ## <a name="step-2-publish-to-azure"></a>步驟 2：發佈至 Azure
 若要發佈您的專案，請在 [方案總管] 中，以滑鼠右鍵按一下 **Contoso.AADB2C.API**專案，然後選取 [發佈]。
 
-## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>步驟 3：將 RESTful 服務應用程式識別碼及應用程式密碼新增至 Azure AD B2C
+## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>步驟 3：將 RESTful 服務應用程式識別碼及應用程式祕密新增至 Azure AD B2C
 利用用戶端識別碼 (使用者名稱) 和密碼保護 RESTful 服務之後，您必須將認證儲存在您的 Azure AD B2C 租用戶中。 您的自訂原則在叫用 RESTful 服務時會提供認證。 
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>步驟 3.1：新增 RESTful 服務用戶端識別碼
@@ -239,16 +239,16 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 7. 針對 [金鑰使用方法] 選取 [簽章]。
 
-8. 選取 [建立]。
+8. 選取 [建立] 。
 
 9. 確認您已建立 `B2C_1A_B2cRestClientId` 金鑰。
 
-### <a name="step-32-add-a-restful-services-client-secret"></a>步驟 3.2：新增 RESTful 服務用戶端密碼
+### <a name="step-32-add-a-restful-services-client-secret"></a>步驟 3.2：新增 RESTful 服務用戶端祕密
 1. 在您的 Azure AD B2C 租用戶中，選取 [B2C 設定] > [識別體驗架構]。
 
-2. 選取 [原則金鑰] 以檢視您的租用戶中可用的金鑰。
+2. 選取**原則金鑰**以檢視您的租用戶中可用的金鑰。
 
-3. 選取 [新增]。
+3. 選取 [新增] 。
 
 4. 針對 [選項]，選取 [手動]。
 
@@ -259,7 +259,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 7. 針對 [金鑰使用方法] 選取 [簽章]。
 
-8. 選取 [建立]。
+8. 選取 [建立] 。
 
 9. 確認您已建立 `B2C_1A_B2cRestClientSecret` 金鑰。
 
@@ -270,7 +270,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 3. 找出 `<Metadata>` 元素。
 
-4. 將 *AuthenticationType* 變更為 *Basic*，如下所示：
+4. 將 AuthenticationType 變更為 Basic，如下所示：
     ```xml
     <Item Key="AuthenticationType">Basic</Item>
     ```

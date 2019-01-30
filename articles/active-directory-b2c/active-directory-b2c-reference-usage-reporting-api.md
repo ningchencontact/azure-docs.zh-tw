@@ -3,19 +3,19 @@ title: Azure Active Directory B2C 中的使用方式報告 API 範例和定義 |
 description: 取得關於 Azure AD B2C 租用戶使用者、驗證及多重要素驗證報告的相關指南和範例。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 544b0618f9135b684846c42bb7edeb37cf599883
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cce6d71864d1c3e957937e374e90ee95a99e9f3c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445529"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844352"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>透過報告 API 存取 Azure AD B2C 中的使用報告
 
@@ -28,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) 會根據使用者登入和 Azure Mult
 本文章著重於與計費活動有關的報告，而計費活動是以使用者數目、可計費的登入式驗證及多重要素驗證為根據。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 開始之前，您必須先完成[存取 Azure AD 報告 API 的必要條件](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)中的步驟。 建立應用程式、取得密碼，並授與對您的 Azure AD B2C 租用戶報告的存取權限。 這裡也提供了 Bash 指令碼和 Python 指令碼的範例。 
 
 ## <a name="powershell-script"></a>PowerShell 指令碼
@@ -97,18 +97,18 @@ if ($oauth.access_token -ne $null) {
 
 
 ## <a name="usage-report-definitions"></a>使用報告定義
-* **tenantUserCount**：過去 30 天，租用戶中每一天各類型識別提供者的使用者數目。 (`TimeStamp` 篩選器可選擇性提供從指定日期至目前日期的使用者計數)。 此報告提供：
+* **tenantUserCount**：過去 30 天中每一天，依識別提供者類型區分的租用戶中使用者數目。 (`TimeStamp` 篩選器可選擇性提供從指定日期至目前日期的使用者計數)。 此報告提供：
   * **TotalUserCount**：所有使用者物件的數目。
   * **OtherUserCount**：Azure Active Directory 使用者 (而非 Azure AD B2C 使用者) 的數目。
-  * **LocalUserCount**：Azure AD B2C 使用者帳戶的數目 (這些帳戶是以 Azure AD B2C 租用戶本機的認證所建立)。
+  * **LocalUserCount**：以 Azure AD B2C 租用戶本機認證建立的 Azure AD B2C 使用者帳戶數目。
 
 * **AlternateIdUserCount**：已向外部識別提供者 (例如 Facebook、Microsoft 帳戶或另一個 Azure Active Directory 租用戶，亦稱為 `OrgId`) 註冊的 Azure AD B2C 使用者數目。
 
-* **b2cAuthenticationCountSummary**：過去 30 天，每天及各類型驗證流程的每日可計費驗證次數摘要。
+* **b2cAuthenticationCountSummary**：過去 30 天，依天及驗證流程類型區分的每日可計費驗證次數摘要。
 
-* **b2cAuthenticationCount**：某段時間週期內的驗證次數。 預設值為過去 30 天。  (選擇性：開頭和結尾的 `TimeStamp` 參數會定義特定的期間)。輸出包括 `StartTimeStamp` (此租用戶的最早活動日期) 和 `EndTimeStamp` (最新的更新)。
+* **b2cAuthenticationCount**：某個時段內的驗證次數。 預設值為過去 30 天。  (選擇性：開始和結束 `TimeStamp` 參數會定義特定的時段)。輸出包括 `StartTimeStamp` (此租用戶的最早活動日期) 和 `EndTimeStamp` (最新的更新)。
 
-* **b2cMfaRequestCountSummary**：依日期及類型 (SMS 或語音) 區分的每日多重要素驗證次數摘要。
+* **b2cMfaRequestCountSummary**：依天及類型 (SMS 或語音) 區分的每日多重要素驗證次數摘要。
 
 
 ## <a name="limitations"></a>限制

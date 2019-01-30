@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Skills Manager 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: dab8debd-3b7b-4656-9bf0-1963ad8fce05
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: ee112cef53eec92ec449c66e0c927a78a087a32c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bdb053d1f9f85c446e4ac48b836c4b24bb40f93f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448052"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821808"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>教學課程：Azure Active Directory 與 Skills Manager 整合
 
@@ -110,7 +110,7 @@ Skills Manager 與 Azure AD 整合提供下列優點：
 
     ![Skills Manager 網域及 URL 單一登入資訊](./media/skillsmanager-tutorial/tutorial_skillsmanager_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://subdomain.skills-manager.com/kennametal`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://subdomain.skills-manager.com/kennametal`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://subdomain.skills-manager.com/public/SamlLogin2.aspx`
 
@@ -125,7 +125,7 @@ Skills Manager 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入儲存按鈕](./media/skillsmanager-tutorial/tutorial_general_400.png)
 
-1. 在 [Skills Manager 組態] 區段上，按一下 [設定 Skills Manager] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+1. 在 [Skills Manager 組態] 區段上，按一下 [設定 Skills Manager] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL]、[SAML 實體識別碼] 和 [SAML 單一登入服務 URL]。
 
     ![Skills Manager 組態](./media/skillsmanager-tutorial/tutorial_skillsmanager_configure.png) 
 
@@ -168,7 +168,7 @@ Skills Manager 與 Azure AD 整合提供下列優點：
   
 ### <a name="create-a-skills-manager-test-user"></a>建立 Skills Manager 測試使用者
 
-在本節中，您要在 Skills Manager 中建立名為 Britta Simon 的使用者。 與 [Skills Manager 支援小組](https://www.ibm.com/support/uk/?lnk=msu_uk)合作，在 Skills Manager 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Skills Manager 中建立名為 Britta Simon 的使用者。 請與 [Skills Manager 支援小組](https://www.ibm.com/support/uk/?lnk=msu_uk)合作，在 Skills Manager 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -205,7 +205,7 @@ Skills Manager 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Skills Manager 圖格時，應該會自動登入您的 Skills Manager 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

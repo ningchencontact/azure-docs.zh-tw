@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 0a20f7629fbc102ae05c51c7388bbfd6915d6204
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 15393f8e10fcda99820d0279d46edf88c7781ff8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257357"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811957"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>進階媒體編碼器 Premium 工作流程教學課程
 ## <a name="overview"></a>概觀
@@ -692,8 +692,8 @@ ms.locfileid: "51257357"
 
 首先，我們必須決定我們需要修剪影片的哪一個點到哪一個點。 為了讓它方便工作流程較不具技術性的使用者，請將兩個屬性發佈至圖形的根目錄。 若要這樣做，請以滑鼠右鍵按一下設計工具介面並選取 [新增屬性]：
 
-* 第一個屬性："ClippingTimeStart"，類型："TIMECODE"
-* 第二個屬性："ClippingTimeEnd"，類型："TIMECODE"
+* 第一個屬性：下列型別的 "ClippingTimeStart"："TIMECODE"
+* 第二個屬性：下列型別的 "ClippingTimeEnd"："TIMECODE"
 
 ![加入屬性對話方塊的剪輯開始時間](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
 

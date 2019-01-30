@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Igloo Software 之間
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2eb625c1-d3fc-4ae1-a304-6a6733a10e6e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: d49a08c6f57f5248f17539cd9d0467d132f7a63d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: daa00db39ac55cd14b7720b534313407a98dde2c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447402"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817736"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>教學課程：Azure Active Directory 與 Igloo Software 整合
 
@@ -260,7 +260,7 @@ Igloo Software 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在 [存取面板] 中按一下 [Igloo Software] 圖格時，您應該會自動登入您的 Igloo Software 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

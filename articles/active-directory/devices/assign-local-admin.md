@@ -4,7 +4,7 @@ description: 了解如何將 Azure 角色指派給 Windows 裝置的本機系統
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: a4671d383c46bf0b932ce528f4eacb7255bad5e7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 97e20d4c6695001148aa2d97d74288e27c537e46
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105401"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450468"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>如何管理已加入 Azure AD 的裝置上的本機系統管理員群組
 
@@ -106,7 +106,7 @@ Azure AD 也會將 Azure AD 裝置管理員角色新增至本機系統管理員�
 
 裝置管理員會指派給所有加入 Azure AD 的裝置。 這些管理員無法以一組特定的裝置為範圍。
 
-當您從裝置管理員角色中移除使用者時，這些使用者只要仍在裝置上處於登入狀態，就仍具有本機系統管理員權限。 權限會在下一次登入期間撤銷，或在經過 4 小時後，在新的主要重新整理權杖發出時撤銷。
+當您從裝置管理員角色中移除使用者時，這些使用者只要仍在裝置上處於登入狀態，就仍具有本機系統管理員權限。 權限會在下一次登入期間撤銷，或在經過 4 小時後，於簽發新的主要重新整理權杖時撤銷。
 
 
 

@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Rightscale 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 3a8d376d-95fb-4dd7-832a-4fdd4dd7c87c
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 6d251400baed6b15d96eb7a2ef64d4217631613b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cda9af9b732643300b8f212471beff066f47b6b3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435976"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827358"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>教學課程：Azure Active Directory 與 Rightscale 整合
 

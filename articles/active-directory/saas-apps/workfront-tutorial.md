@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Workfront 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: aab8bd2f-f9dd-42da-a18e-d707865687d7
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 41513f89838aca2dfabbc19072e973aa12cd0010
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d6e6914002bd5be7f8fff4822f383fc5ac058f87
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436381"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814914"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workfront"></a>教學課程：Azure Active Directory 與 Workfront 整合
 
@@ -117,7 +117,7 @@ ms.locfileid: "39436381"
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.attasksandbox.com/SAML2`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Workfront 客戶支援小組](https://www.workfront.com/contact-us/)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Workfront 客戶支援小組](https://www.workfront.com/services-and-support)以取得這些值。 
  
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -241,7 +241,7 @@ ms.locfileid: "39436381"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Workfront] 圖格時，應該會看到 Workfront 應用程式的登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

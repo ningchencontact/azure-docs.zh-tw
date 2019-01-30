@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 BC in the Cloud 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7dc40d2c-6349-40cb-b304-b098bd03a66c
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/1/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d9d2bb0dc44eab0a419efce0c26a8f30135285e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 33670ce210b7ca7bca276f463d029354dc3282fc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431652"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817481"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>教學課程：Azure Active Directory 與 BC in the Cloud 整合
 
@@ -166,7 +166,7 @@ ms.locfileid: "39431652"
  
 ### <a name="creating-a-bc-in-the-cloud-test-user"></a>建立 BC in the Cloud 測試使用者
 
-在本節中，您會在 BC in the Cloud 中建立名為 Britta Simon 的使用者。 請與 [BC in the Cloud 用戶端支援小組](https://www.bcinthecloud.com/supportcenter/)合作，在 BC in the Cloud 應用程式中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您會在 BC in the Cloud 中建立名為 Britta Simon 的使用者。 請與 [BC in the Cloud 用戶端支援小組](https://www.bcinthecloud.com/supportcenter/)合作，在 BC in the Cloud 應用程式中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -202,7 +202,7 @@ ms.locfileid: "39431652"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
- 當您在「存取面板」中按一下 [BC in the Cloud] 圖格時，應該會自動登入您的 BC in the Cloud 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+ 當您在「存取面板」中按一下 [BC in the Cloud] 圖格時，應該會自動登入您的 BC in the Cloud 應用程式。 如需有關「存取面板」的詳細資訊，請參閱 [存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

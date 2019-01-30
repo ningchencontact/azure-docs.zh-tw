@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Apptio 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: b23eba91-7698-47e7-ae75-0ceafd739965
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/6/2017
 ms.author: jeedes
-ms.openlocfilehash: ad5c8a61a83211147f5e4929a4f4f6fab738ba32
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9db26db9d55ce567c41b12283ba94599074844b3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043749"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816478"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apptio"></a>教學課程：Azure Active Directory 與 Apptio 整合
 
@@ -186,7 +186,7 @@ ms.locfileid: "39043749"
  
 ### <a name="create-an-apptio-test-user"></a>建立 Apptio 測試使用者
 
-在本節中，您要在 Apptio 中建立名為 Britta Simon 的使用者。 請與 [Apptio 支援小組](https://www.apptio.com/about/contact)合作，在 Apptio 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Apptio 中建立名為 Britta Simon 的使用者。 請與 [Apptio 支援小組](https://www.apptio.com/about/contact)合作，在 Apptio 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -223,7 +223,7 @@ ms.locfileid: "39043749"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Apptio 圖格時，應該會自動登入您的 Apptio 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

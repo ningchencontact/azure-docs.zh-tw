@@ -3,24 +3,24 @@ title: 在 Azure Active Directory B2C 中移轉具社交身分識別的使用者
 description: 討論使用圖形 API 將具社交身分識別的使用者移轉至 Azure AD B2C 的核心概念。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b9378face28b4d053dcd5f01b8f87126457cf339
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 0ca73b8bfaca481d3e0404d068a74e1a6b0e4dcb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445138"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846552"
 ---
-# <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C：遷移具社交識別的使用者
-當您計劃將識別提供者遷移到 Azure AD B2C 時，您可能也需要遷移具社交識別的使用者。 本文會說明如何將現有的社交識別帳戶 (例如：Facebook、LinkedIn、Microsoft 與 Google 帳戶) 遷移至 Azure AD B2C。 本文也適用於同盟身分識別，不過這些移轉較不常見。
+# <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C：遷移具有社交身分識別的使用者
+當您計劃將識別提供者遷移到 Azure AD B2C 時，您可能也需要遷移具社交識別的使用者。 本文說明如何將現有的社交身分識別帳戶 (例如：Facebook、LinkedIn、Microsoft 及 Google 帳戶) 移轉至 Azure AD B2C。 本文也適用於同盟身分識別，不過這些移轉較不常見。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文延續使用者移轉文章，內容著重在社交識別移轉。 請在開始前先閱讀[使用者移轉](active-directory-b2c-user-migration.md)。
 
 ## <a name="social-identities-migration-introduction"></a>社交識別移轉簡介
@@ -63,7 +63,7 @@ ms.locfileid: "37445138"
 * **userIdentities** - 一或多個 UserIdentity 記錄，該記錄會指定來自社交識別提供者的社交帳戶類型和唯一使用者識別碼。
 * [選用] **otherMails** - 僅針對社交帳戶，此為使用者的電子郵件地址 
 
-如需詳細資訊，請參閱：[圖形 API 參考](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+如需詳細資訊，請參閱[Graph API 參考](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>遷移社交帳戶 (僅限此帳戶)
 若要僅建立不含本機帳戶認證的社交帳戶。 請將 HTTPS POST 要求傳送至圖形 API。 要求本文包含要建立之社交帳戶使用者的屬性。 您最少必須指定必要的屬性。 
@@ -236,4 +236,4 @@ ms.locfileid: "37445138"
 > [!NOTE]
 > 如果您沒有使用您的資料更新此範例中的 UsersData.json 檔案，您可以使用本機帳戶認證範例來登入，但不要使用社交帳戶範例。 若要遷移您的社交帳戶，請提供實際資料。
 
-如需如何使用應用程式範例的詳細資訊，請參閱 [Azure Active Directory B2C：使用者移轉](active-directory-b2c-user-migration.md)
+如需有關如何使用範例應用程式的詳細資訊，請參閱 [Azure Active Directory B2C：使用者移轉](active-directory-b2c-user-migration.md)

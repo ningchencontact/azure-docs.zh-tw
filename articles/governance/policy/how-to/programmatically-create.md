@@ -4,17 +4,17 @@ description: 本文會逐步引導您以程式設計方式建立及管理 Azure 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 3c8fd185feff9a580e2d23926dcf60cb33121122
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: adeb963333ffc2b587d7468eb357fab8dc4d6bbe
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312471"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847045"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以程式設計方式建立原則並檢視合規性資料
 
@@ -22,18 +22,20 @@ ms.locfileid: "53312471"
 
 如需合規性相關資訊，請參閱[取得合規性資料](getting-compliance-data.md)。
 
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 開始之前，請確定您已符合下列必要條件：
 
 1. 請安裝 [ARMClient](https://github.com/projectkudu/ARMClient) (如果尚未安裝)。 此工具會將 HTTP 要求傳送至以 Azure Resource Manager 為基礎的 API。
 
-1. 將您的 AzureRM PowerShell 模組更新為最新版本。 如需最新版本的詳細資訊，請參閱 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)。
+1. 將您的 Azure PowerShell 模組更新為最新版本。 如需詳細資訊，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如需最新版本的詳細資訊，請參閱 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)。
 
 1. 使用 Azure PowerShell 來註冊「原則見解」資源提供者，以驗證您的訂用帳戶可與資源提供者搭配使用。 若要註冊資源提供者，您必須有權執行資源提供者的註冊動作作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
 
    ```azurepowershell-interactive
-   Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
+   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
    如需註冊及檢視資源提供者的詳細資訊，請參閱[資源提供者和類型](../../../azure-resource-manager/resource-manager-supported-services.md)。
@@ -72,13 +74,13 @@ ms.locfileid: "53312471"
 1. 使用 AuditStorageAccounts.json 檔案，執行下列命令來建立原則定義。
 
    ```azurepowershell-interactive
-   New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
+   New-AzPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
    此命令會建立名為_對公用網路開放的稽核儲存體帳戶_的原則定義。
-   如需您可使用的其他參數詳細資訊，請參閱 [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition)。
+   如需您可使用的其他參數詳細資訊，請參閱 [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition)。
 
-   若在未指定位置參數的情況下呼叫，`New-AzureRmPolicyDefinition` 會預設儲存工作階段內容中所選訂用帳戶的原則定義。 若要將定義儲存至不同位置，請使用下列參數：
+   若在未指定位置參數的情況下呼叫，`New-AzPolicyDefinition` 會預設儲存工作階段內容中所選訂用帳戶的原則定義。 若要將定義儲存至不同位置，請使用下列參數：
 
    - **SubscriptionId** - 儲存到不同的訂用帳戶。 需要 _GUID_ 值。
    - **ManagementGroupName** - 儲存至管理群組。 需要_字串_值。
@@ -86,21 +88,21 @@ ms.locfileid: "53312471"
 1. 建立原則定義之後，您可以執行下列命令來建立原則指派：
 
    ```azurepowershell-interactive
-   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
-   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
-   New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
+   $rg = Get-AzResourceGroup -Name 'ContosoRG'
+   $Policy = Get-AzPolicyDefinition -Name 'AuditStorageAccounts'
+   New-AzPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
    ```
 
    以您想要的資源群組名稱取代 _ContosoRG_。
 
-   `New-AzureRmPolicyAssignment` 上的 **Scope** 參數也適用訂用帳戶和管理群組。 此參數會使用 `Get-AzureRmResourceGroup` 上 **ResourceId** 屬性傳回的完整資源路徑。 以下是每個容器的 **Scope** 模式。
+   `New-AzPolicyAssignment` 上的 **Scope** 參數也適用訂用帳戶和管理群組。 此參數會使用 `Get-AzResourceGroup` 上 **ResourceId** 屬性傳回的完整資源路徑。 以下是每個容器的 **Scope** 模式。
    將 `{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源群組名稱、訂用帳戶識別碼和管理群組名稱。
 
    - 資源群組 - `/subscriptions/{subId}/resourceGroups/{rgName}`
    - 訂用帳戶 - `/subscriptions/{subId}/`
    - 管理群組 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-如需使用 Azure Resource Manager PowerShell 模組來管理資源原則的詳細資訊，請參閱 [AzureRM.Resources](/powershell/module/azurerm.resources/#policies)。
+如需使用 Azure Resource Manager PowerShell 模組來管理資源原則的詳細資訊，請參閱 [Az.Resources](/powershell/module/az.resources/#policies)。
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>使用 ARMClient 來建立及指派原則定義
 
@@ -230,7 +232,7 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 如需本文中查詢與命令的詳細資訊，請檢閱以下文章。
 
 - [Azure REST API 資源](/rest/api/resources/)
-- [Azure RM PowerShell 模組](/powershell/module/azurerm.resources/#policies)
+- [Azure PowerShell 模組](/powershell/module/az.resources/#policies)
 - [Azure CLI 原則命令](/cli/azure/policy?view=azure-cli-latest)
 - [資源提供者 REST API 參考](/rest/api/policy-insights)
 - [使用 Azure 管理群組來組織資源](../../management-groups/overview.md)

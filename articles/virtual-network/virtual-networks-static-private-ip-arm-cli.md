@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ffcf483b2852ec87c263573a97b4508d5b5d39c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a6e217194508feae3b227b5ef65b02d0305a22a7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997466"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852893"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>使用 Azure CLI 設定虛擬機器的私人 IP 位址
 
@@ -44,7 +44,7 @@ ms.locfileid: "46997466"
 
 1. 安裝並設定最新的 [Azure CLI](/cli/azure/install-azure-cli) (若您尚未這樣做)，並使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。
 
-2. 使用 [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) 命令來建立 VM 的公用 IP。 輸出後顯示的清單可說明所使用的參數。
+2. 使用 [az network public-ip create](/cli/azure/network/public-ip) 命令來建立 VM 的公用 IP。 輸出後顯示的清單可說明所使用的參數。
 
     > [!NOTE]
     > 視您的環境而定，您可能會想要或需要為此步驟和後續步驟中的引數使用不同的值。
@@ -71,7 +71,7 @@ ms.locfileid: "46997466"
     }
     ```
 
-   * `--resource-group`︰要在其中建立公用 IP 之資源群組的名稱。
+   * `--resource-group`：要在其中建立公用 IP 之資源群組的名稱。
    * `--name`：公用 IP 的名稱。
    * `--location`：要在其中建立公用 IP 的 Azure 區域。
 
@@ -123,7 +123,7 @@ ms.locfileid: "46997466"
     
     參數：
 
-    * `--private-ip-address`：NIC 的靜態私人 IP 位址。
+    * `--private-ip-address`：NIC 的靜態私人 IP 位址
     * `--vnet-name`：要在其中建立 NIC 之 VNet 的名稱。
     * `--subnet`：要在其中建立 NIC 之子網路的名稱。
 
@@ -157,7 +157,7 @@ ms.locfileid: "46997466"
    
    基本 [az vm create](/cli/azure/vm#az_vm_create) 參數以外的參數。
 
-   * `--nics`︰VM 所連接至之 NIC 的名稱。
+   * `--nics`：VM 所連接至之 NIC 的名稱。
    
 建議您不要靜態指派在 VM 作業系統內已指派給 Azure 虛擬機器的私人 IP，除非必要，例如[將多個 IP 位址指派給 Windows VM](virtual-network-multiple-ip-addresses-cli.md) 時。 如果您確實手動設定作業系統內的私人 IP 位址，請確保它的位址與指派給 Azure [網路介面](virtual-network-network-interface-addresses.md#change-ip-address-settings)的私人 IP 位址相同，否則您可能會失去與虛擬機器的連線。 深入了解[私人 IP 位址](virtual-network-network-interface-addresses.md#private)設定。
 

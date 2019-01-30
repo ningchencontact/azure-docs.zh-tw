@@ -3,22 +3,22 @@ title: 使用 Azure AD 驗證搭配 REST 存取 Azure 媒體服務 API | Microso
 description: 了解如何使用 Azure Active Directory 驗證搭配 REST 存取 Azure 媒體服務 API。
 services: media-services
 documentationcenter: ''
-author: willzhan
-manager: cfowler
+author: juliako
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2017
+ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: b44c5b29f41f08ac5c1d5e6aa3c37f8c15ae7c54
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 17c25181709e6c75de2d23fb02fd55c0e6e41ae3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984652"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818025"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>使用 Azure AD 驗證搭配 REST 存取 Azure 媒體服務 API
 
@@ -45,12 +45,12 @@ ms.locfileid: "45984652"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+- 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
 - [使用 Azure 入口網站建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)。
-- 請先複習＜[使用 AAD 驗證存取 Azure 媒體服務 API 概觀](media-services-use-aad-auth-to-access-ams-api.md)＞一文。
-- 安裝 [Postman](https://www.getpostman.com/) \(英文\) REST 用戶端，來執行在本文中示範的 REST API。 
+- 請先複習[使用 Azure AD 驗證存取 Azure 媒體服務 API 概觀](media-services-use-aad-auth-to-access-ams-api.md)一文。
+- 安裝 [Postman](https://www.getpostman.com/) REST 用戶端，來執行在本文中示範的 REST API。 
 
-    在本教學課程中，我們使用的是 **Postman**，但任何 REST 工具都適用。 其他替代方案為：搭配 REST 外掛程式的 **Visual Studio Code**，或 **Telerik Fiddler**。 
+    在此教學課程中，我們使用的是 **Postman**，但任何 REST 工具都適用。 其他替代方式為：搭配 REST 外掛程式的 **Visual Studio Code**，或 **Telerik Fiddler**。 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>從 Azure 入口網站取得驗證資訊
 
@@ -60,7 +60,7 @@ ms.locfileid: "45984652"
 
 |設定|範例|說明|
 |---|-------|-----|
-|Azure Active Directory 租用戶網域|microsoft.onmicrosoft.com|Azure AD 即 Secure Token Service (STS) 端點會透過以下格式建立： https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD 會核發存取資源所需的 JWT (存取權杖)。|
+|Azure Active Directory 租用戶網域|microsoft.onmicrosoft.com|Azure AD 即 Secure Token Service (STS) 端點會透過以下格式建立： https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD 會核發存取資源所需的 JWT (存取權杖)。|
 |REST API 端點|https://amshelloworld.restv2.westus.media.azure.net/api/|您的應用程式中發出之所有媒體服務 REST API 呼叫，都是針對此端點。|
 |用戶端識別碼 (應用程式識別碼)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 應用程式 (用戶端) 識別碼。 需要用戶端識別碼，才能取得存取權杖。 |
 |用戶端密碼|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 應用程式金鑰 (用戶端秘密)。 需要用戶端秘密，才能取得存取權杖。|
@@ -118,7 +118,7 @@ ms.locfileid: "45984652"
 
 ## <a name="get-the-access-token-using-postman"></a>使用 Postman 取得存取權杖
 
-本節示範如何使用 **Postman** 來執行 REST API，從而傳回 JWT 持有人權杖 (存取權杖)。 若要呼叫任何媒體服務 REST API，您必須將「授權」標頭新增至呼叫，並將 "Bearer *your_access_token*" 的值新增至每個呼叫 (如本教學課程的下一節所示)。 
+本節示範如何使用 **Postman** 來執行 REST API，從而傳回 JWT 持有人權杖 (存取權杖)。 若要呼叫任何媒體服務 REST API，您必須將「授權」標頭新增至呼叫，並將 "Bearer *your_access_token*" 的值新增至每個呼叫 (如本教學課程的下一節所示)。 
 
 1. 開啟 **Postman**。
 2. 選取 [POST] 。
@@ -144,8 +144,8 @@ ms.locfileid: "45984652"
     或者，按一下 Postman 視窗右邊的 [大量編輯]，並將下列主體貼上 (取代用戶端識別碼和祕密值)：
 
         grant_type:client_credentials
-        client_id:{Your Client ID that you got from your AAD Application}
-        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        client_id:{Your Client ID that you got from your Azure AD Application}
+        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
         resource:https://rest.media.azure.net
 
 8. 按 [傳送]。
@@ -188,5 +188,5 @@ ms.locfileid: "45984652"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 在[存取 Azure 媒體服務要進行的 Azure AD 驗證：均透過 REST API](https://github.com/willzhan/WAMSRESTSoln) \(英文\) 中嘗試此範例程式碼
+* 在 [Azure 媒體服務存取的 Azure AD 驗證：均透過 REST API](https://github.com/willzhan/WAMSRESTSoln) 中嘗試此範例程式碼
 * [使用 .NET 上傳檔案](media-services-dotnet-upload-files.md)

@@ -8,17 +8,17 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 10/05/2018
-ms.openlocfilehash: 19e6693de673eae6fe0b885580975c4cefc35d60
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/22/2019
+ms.openlocfilehash: a22512a960426cc21f4f012e06b9df4fa86e637e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725143"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807264"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別驗證及存取資源
 
-若要存取其他 Azure Active Directory (Azure AD) 租用戶中的資源並驗證您的身分識別而不登入，您的邏輯應用程式可以使用[受控識別](../active-directory/managed-identities-azure-resources/overview.md) (先前稱為「受控服務識別」或 MSI)，而不使用認證或祕密。 Azure 會為您管理此身分識別，並協助保護您的認證，因為您不需要提供或輪替使用祕密。 此文章示範如何為您的邏輯應用程式建立並使用系統指派的受控識別。 如需受控識別的詳細資訊，請參閱[什麼是適用於 Azure 資源的受控識別？](../active-directory/managed-identities-azure-resources/overview.md)
+若要存取其他 Azure Active Directory (Azure AD) 租用戶中的資源並驗證您的身分識別而不登入，您的邏輯應用程式可以使用[受控識別](../active-directory/managed-identities-azure-resources/overview.md) (先前稱為「受控服務識別」或 MSI)，而不使用認證或祕密。 Azure 會為您管理此身分識別，並協助保護您的認證，因為您不需要提供或輪替使用祕密。 本文示範如何為您的邏輯應用程式設定並使用系統指派的受控識別。 如需受控識別的詳細資訊，請參閱[什麼是適用於 Azure 資源的受控識別？](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
 > 您目前最多可擁有 10 個邏輯應用程式工作流程，而且每個 Azure 訂用帳戶中具有系統指派的受控識別。
@@ -29,40 +29,42 @@ ms.locfileid: "52725143"
 
 * 您要在其中使用系統指派之受控識別的邏輯應用程式。 如果您沒有邏輯應用程式，請參閱[建立第一個邏輯應用程式工作流程](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-<a name="create-identity"></a>
+<a name="enable-identity"></a>
 
-## <a name="create-managed-identity"></a>建立受控識別
+## <a name="enable-managed-identity"></a>啟用受控識別
 
-您可以透過 Azure 入口網站、Azure Resource Manager 範本或 Azure PowerShell，來為您的邏輯應用程式建立或啟用系統指派的受控識別。 
+針對系統指派的受控識別，您不需要手動建立該身分識別。 若要為您的邏輯應用程式設定系統指派的受控識別，您可以使用下列方式： 
+
+* [Azure 入口網站](#azure-portal) 
+* [Azure 資源管理員範本](#template) 
+* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
+
+<a name="azure-portal"></a>
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-若要透過 Azure 入口網站為您的邏輯應用程式啟用系統指派的受控識別，請在邏輯應用程式的工作流程設定中開啟 [向 Azure Active Directory 註冊] 設定。
+若要透過 Azure 入口網站為您的邏輯應用程式啟用系統指派的受控識別，請在邏輯應用程式的身分識別設定中開啟 [系統指派] 設定。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的邏輯應用程式設計工具中，開啟邏輯應用程式。
 
-1. 請遵循下列步驟： 
+1. 在邏輯應用程式功能表的 [設定] 下，選取 [身分識別]。 
 
-   1. 在邏輯應用程式功能表的 [設定] 下，選取 [工作流程設定]。 
+1. 在 [系統指派] > [狀態] 下，選擇 [開啟]。 然後，選擇 [儲存] > [是]。
 
-   1. 在 **[受控服務識別]** > 
-    **[向 Azure Active Directory 註冊]** 下，選擇 **[開啟]**。
+   ![開啟受控識別設定](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
 
-   1. 當您完成時，在工具列上選擇 [儲存]。
+   您的邏輯應用程式現在於 Azure Active Directory 中已註冊系統指派的受控識別：
 
-      ![開啟受控識別設定](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
+   ![適用於物件識別碼的 GUID](./media/create-managed-service-identity/object-id.png)
 
-      您的邏輯應用程式現在已在 Azure Active Directory 中，使用下列屬性和值來註冊系統指派的受控識別：
+   | 屬性 | 值 | 說明 | 
+   |----------|-------|-------------| 
+   | **物件識別碼** | <*identity-resource-ID*> | 代表 Azure AD 租用戶中邏輯應用程式之系統指派受控識別的全域唯一識別碼 (GUID) | 
+   ||| 
 
-      ![主體識別碼與租用戶識別碼的 GUID](./media/create-managed-service-identity/principal-tenant-id.png)
+<a name="template"></a>
 
-      | 屬性 | 值 | 說明 | 
-      |----------|-------|-------------| 
-      | **主體識別碼** | <*principal-ID*> | 代表 Azure AD 租用戶中之邏輯應用程式的全域唯一識別碼 (GUID) | 
-      | **租用戶識別碼** | <*Azure-AD-tenant-ID*> | 代表您的邏輯應用程式已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 
-      ||| 
-
-### <a name="deployment-template"></a>部署範本
+### <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本
 
 當您想要自動建立並部署邏輯應用程式之類的 Azure 資源，您可以使用 [Azure Resource Manager 範本](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)。 若要透過範本為您的邏輯應用程式建立系統指派的受控識別，請在部署範本中將 `"identity"` 元素與 `"type"` 屬性新增到您的邏輯應用程式工作流程定義： 
 
@@ -109,7 +111,7 @@ ms.locfileid: "52725143"
 
 | 屬性 | 值 | 說明 | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | 代表 Azure AD 租用戶中之邏輯應用程式的全域唯一識別碼 (GUID) | 
+| **principalId** | <*principal-ID*> | 代表 Azure AD 租用戶中的邏輯應用程式，且有時會以「物件識別碼」或 `objectID` 之形式呈現的全域唯一識別碼 (GUID) | 
 | tenantId | <*Azure-AD-tenant-ID*> | 代表邏輯應用程式現在已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 
 ||| 
 
@@ -150,11 +152,23 @@ ms.locfileid: "52725143"
 
 1. 提供該動作的必要詳細資料，例如要求**方法**與您要呼叫之資源的 **URI** 位置。
 
+   例如，假設您是搭配[這些支援 Azure AD 的 Azure 服務之一](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)來使用 Azure Active Directory (Azure AD) 驗證。 
+   在 [URI] 方塊中，輸入該 Azure 服務的端點 URL。 
+   因此，假設您是使用 Azure Resource Manager，請在 [URI] 屬性中輸入此值：
+
+   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
+
 1. 在 HTTP 動作中，選擇 [顯示進階選項]。 
 
-1. 從 [驗證] 清單中，選取 [受控服務識別]，然後它會顯示供您設定的 [受眾] 屬性：
+1. 從 [驗證] 清單中，選取 [受控識別]。 在您選取此驗證之後，[Audience] 屬性會顯示，並搭配預設資源識別碼值：
 
-   ![選取 [受控服務識別]](./media/create-managed-service-identity/select-managed-service-identity.png)
+   ![選取 [受控識別]](./media/create-managed-service-identity/select-managed-service-identity.png)
+
+   > [!IMPORTANT]
+   > 
+   > 在 [Audience] 屬性中，資源識別碼值必須完全符合 Azure AD 所預期的值，包括任何必要的結尾斜線。 
+   > 您可以在這個[描述支援 Azure AD 之 Azure 服務的表格中](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)找到這些資源識別碼值。 
+   > 例如，如果您是使用 Azure Resource Manager 資源識別碼，請確定 URI 具有結尾斜線。
 
 1. 繼續按照您想要的方式建置邏輯應用程式。
 
@@ -162,23 +176,21 @@ ms.locfileid: "52725143"
 
 ## <a name="remove-managed-identity"></a>移除受控識別
 
-若要在您的邏輯應用程式上停用系統指派的受控識別，您可以依照透過 Azure 入口網站、Azure Resource Manager 部署範本或 Azure PowerShell 建立身分識別的類似步驟來停用。 
+若要在您的邏輯應用程式上停用系統指派的受控識別，您可以依照透過 Azure 入口網站、Azure Resource Manager 部署範本或 Azure PowerShell 設定身分識別的類似步驟來停用它。 
 
 當您刪除邏輯應用程式時，Azure 會自動將您邏輯應用程式的系統指派身分識別從 Azure AD 移除。
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-1. 在邏輯應用程式設計工具中，開啟您的邏輯應用程式。
+若要透過 Azure 入口網站為您的邏輯應用程式移除系統指派的受控識別，請在邏輯應用程式的身分識別設定中關閉 [系統指派] 設定。
 
-1. 請遵循下列步驟： 
+1. 在 [Azure 入口網站](https://portal.azure.com)的邏輯應用程式設計工具中，開啟邏輯應用程式。
 
-   1. 在邏輯應用程式功能表的 [設定] 下，選取 [工作流程設定]。 
-   
-   1. 在 [受控服務識別] 下，針對 [向 Azure Active Directory 註冊] 屬性選擇 [關閉]。
+1. 在邏輯應用程式功能表的 [設定] 下，選取 [身分識別]。 
 
-   1. 當您完成時，在工具列上選擇 [儲存]。
+1. 在 [系統指派] > [狀態] 下，選擇 [關閉]。 然後，選擇 [儲存] > [是]。
 
-      ![關閉受控識別設定](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
+   ![關閉受控識別設定](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
 
 ### <a name="deployment-template"></a>部署範本
 
@@ -194,4 +206,3 @@ ms.locfileid: "52725143"
 
 * 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
 * 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
-

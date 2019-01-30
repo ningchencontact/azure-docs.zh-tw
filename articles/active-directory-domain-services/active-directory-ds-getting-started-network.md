@@ -4,7 +4,7 @@ description: 使用 Azure 入口網站啟用 Azure Active Directory Domain Servi
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: 70dee552ec575f4969593eac4e91fdbb18b426f1
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d73d9d269ce4c78c87e718aed752206f88276770
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156182"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857025"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站啟用 Azure Active Directory Domain Services
 
@@ -44,14 +44,14 @@ ms.locfileid: "50156182"
   > **啟用 Azure AD Domain Services 後，無法將受控網域移至不同的虛擬網路。** 挑選要啟用受控網域的適當虛擬網路。 建立受控網域之後，您無法在未刪除受控網域的情況下，將其移動至不同的虛擬網路。 在繼續之前，建議您檢閱 [Azure Active Directory Domain Services 的網路考量](active-directory-ds-networking.md)。  
   >
 
-4. **建立虛擬網路：** 若要建立新的虛擬網路，請按一下 [新建]。 針對 Azure AD Domain Services 使用專用子網路。 例如，建立具有名稱 'DomainServices' 的子網路，讓其他系統管理員容易了解子網路內部署的內容。 完成後，按一下 [確定]。
+4. **建立虛擬網路：** 按一下 [新建] 以建立新的虛擬網路。 針對 Azure AD Domain Services 使用專用子網路。 例如，建立具有名稱 'DomainServices' 的子網路，讓其他系統管理員容易了解子網路內部署的內容。 完成後，按一下 [確定]。
 
     ![挑選虛擬網路](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
   > [!WARNING]
   > 請務必挑選私人 IP 位址空間內的位址空間。 不是您所擁有的 IP 位址位於公用位址空間中會導致 Azure AD 網域服務內發生錯誤。
 
-5. **現有的虛擬網路：** 如果您計畫挑選現有的虛擬網路，[使用虛擬網路延伸模組建立專用子網路](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)，然後挑選該子網路。 按一下 [虛擬網路] 以選取現有的虛擬網路。 按一下 [子網路] 以挑選現有虛擬網路中的專用子網路，在其中啟用新的受控網域。 完成後，按一下 [確定]。
+5. **現有的虛擬網路：** 如果您計畫挑選現有的虛擬網路，請[使用虛擬網路延伸模組來建立專用子網路](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)，然後挑選該子網路。 按一下 [虛擬網路] 以選取現有的虛擬網路。 按一下 [子網路] 以挑選現有虛擬網路中的專用子網路，在其中啟用新的受控網域。 完成後，按一下 [確定]。
 
     ![挑選虛擬網路內的子網路](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 

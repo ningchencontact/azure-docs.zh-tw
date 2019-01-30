@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 BGS Online 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 4fd6b29b-1b46-4fd1-9f5e-16b1c9d892cd
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 3e0da76410c00b8ec0865b094d15237f4f932fb5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9d0424c5a0cb8a8d2b6e5b9f028484613949c3da
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421385"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827885"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bgs-online"></a>教學課程：Azure Active Directory 與 BGS Online 整合
 

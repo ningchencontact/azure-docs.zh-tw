@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 LinkedIn Elevate 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2ad9941b-c574-42c3-bd0f-5d6ec68537ef
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8b11b5e3e420577590e95c6839673f54c52d078b
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 209f87a77ff6e18fa08943385d9cf61bbf915089
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116171"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>教學課程：Azure Active Directory 與 LinkedIn Elevate 整合
 
@@ -240,7 +240,7 @@ LinkedIn Elevate 應用程式支援即時使用者佈建，且在驗證後會在
 
 ## <a name="additional-resources"></a>其他資源
 
-* [教學課程︰以 Azure Active Directory 設定自動使用者佈建的 LinkedIn Elevate](linkedinelevate-provisioning-tutorial.md)
+* [教學課程：以 Azure Active Directory 設定 LinkedIn Elevate 來自動佈建使用者](linkedinelevate-provisioning-tutorial.md)
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
 * [設定使用者佈建](linkedinelevate-provisioning-tutorial.md)

@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Jobbadmin 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c5208b0d-66a3-49ed-9aad-70d21f54aee0
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 86b83d06e7cfbaf790752eb7a2f8b74d2911e9f4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1422a681c47c2e05a53ee85800672b958bce1f67
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437608"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815459"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>教學課程：Azure Active Directory 與 Jobbadmin 整合
 
@@ -172,7 +172,7 @@ Jobbadmin 與 Azure AD 整合提供下列優點：
 
 若要讓 Azure AD 使用者可以登入 Jobbadmin，則必須將他們佈建到 Jobbadmin。
  
-請連絡 [Jobbadmin 支援小組](https://www.jobbnorge.no/om-oss/kontakt-oss)取得在 Jobbadmin 端新增的使用者。
+請與 [Jobbadmin 支援小組](https://www.jobbnorge.no/om-oss/kontakt-oss)連絡，以在 Jobbadmin 端新增使用者。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -209,7 +209,7 @@ Jobbadmin 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下存取面板中的 [Jobbadmin] 圖格時，您應該會看到 Jobbadmin 應用程式的登入頁面。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: e2d65c107d57d50bc15d5a1cd1698491bb607e25
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b0a047c4bf2c0c95896699e50e943277a138ecca
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262228"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809019"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>使用會建立多位元速率串流的內部部署編碼器執行即時串流
 
@@ -89,7 +89,7 @@ ms.locfileid: "51262228"
 媒體服務會使用多位元速率分散 MP4 和多位元速率 RTMP 做為串流通訊協定來支援內嵌即時摘要。 選取 RTMP 內嵌串流通訊協定時，會為通道建立兩個 ingest(input) 端點：
 
 * **主要 URL**：指定通道主要 RTMP 內嵌端點的完整 URL。
-* **次要 URL** (選用)：指定通道次要 RTMP 內嵌端點的完整 URL。
+* **次要 URL** (選擇性)：指定通道次要 RTMP 內嵌端點的完整 URL。
 
 如果您想要改善內嵌串流的持久性、容錯 (以及編碼器容錯移轉和容錯)，特別是針對下列案例，請使用次要 URL：
 
@@ -115,7 +115,7 @@ ms.locfileid: "51262228"
 您可以選擇透過 SSL 連線來內嵌 Fragmented MP4 (Smooth Streaming) 即時資料流。 若要透過 SSL 擷取，請務必將擷取 URL 更新為 HTTPS。 目前，您無法內嵌 RTMP over SSL。
 
 #### <a id="keyframe_interval"></a>主要畫面格間隔
-當您使用內部部署即時編碼器來產生多位元速率資料流時，主要畫面格間隔會指定圖片群組 (GOP) 持續期間以供該外部編碼器使用。 在通道收到此內送串流之後，您可以再將即時串流傳遞至下列任一形式的用戶端播放應用程式：Smooth Streaming、HTTP 動態調適性串流 (DASH) 及 HTTP 即時串流 (HLS)。 在執行即時資料流時，會一律動態封裝 HLS。 依預設，媒體服務會根據從即時編碼器收到的主要畫面格間隔，自動計算 HLS 區段封裝比例 (每一個區段的片段)。
+當您使用內部部署即時編碼器來產生多位元速率資料流時，主要畫面格間隔會指定圖片群組 (GOP) 持續期間以供該外部編碼器使用。 當通道收到此內送串流之後，您能以下列任一格式將您的即時串流傳遞到用戶端播放應用程式：Smooth Streaming、HTTP (DASH) 上的動態彈性資料流，以及 HTTP 即時串流 (HLS)。 在執行即時資料流時，會一律動態封裝 HLS。 依預設，媒體服務會根據從即時編碼器收到的主要畫面格間隔，自動計算 HLS 區段封裝比例 (每一個區段的片段)。
 
 下表顯示如何計算區段持續時間：
 
@@ -127,7 +127,7 @@ ms.locfileid: "51262228"
 
 您可以設定通道的輸出並在 ChannelOutputHls 上設定 FragmentsPerSegment，即可變更每個區段比例的片段。
 
-您也可以在 ChanneInput 上設定 KeyFrameInterval 屬性，即可變更主要畫面格間隔值。 如果您明確設定 KeyFrameInterval，就會透過先前所述的規則計算 FragmentsPerSegment HLS 區段封裝比率。  
+您也可以透過在 ChannelInput 上設定 KeyFrameInterval 屬性，以變更主要畫面格間隔值。 如果您明確設定 KeyFrameInterval，就會透過先前所述的規則計算 FragmentsPerSegment HLS 區段封裝比率。  
 
 如果您明確設定 KeyFrameInterval 和 FragmentsPerSegment，媒體服務會使用您所設定的值。
 
@@ -177,10 +177,10 @@ ms.locfileid: "51262228"
 通道目前狀態的可能值包括︰
 
 * **已停止**：這是通道建立後的初始狀態。 在此狀態下，通道屬性可以更新，但是不允許串流。
-* **啟動中**：正在啟動通道。 在此狀態期間允許任何更新或串流。 如果發生錯誤，通道會回到**已停止**狀態。
-* **執行中**︰通道可以處理即時串流。
-* **停止中**：正在停止通道。 在此狀態期間允許任何更新或串流。
-* **刪除中**：正在刪除通道。 在此狀態期間允許任何更新或串流。
+* **正在啟動**：正在啟動通道。 在此狀態期間允許任何更新或串流。 如果發生錯誤，通道會回到**已停止**狀態。
+* **Running**：通道可以處理即時串流。
+* **正在停止**：正在停止通道。 在此狀態期間允許任何更新或串流。
+* **正在刪除**：正在刪除通道。 在此狀態期間允許任何更新或串流。
 
 下表顯示通道狀態如何對應至計費模式。
 
@@ -197,7 +197,7 @@ ms.locfileid: "51262228"
 | 標準 | 注意 |
 | --- | --- |
 | CEA-708 和 EIA-608 (708/608) |CEA-708 和 EIA-608 是美國和加拿大的隱藏式字幕標準。<p><p>目前只有編碼的輸入資料流附帶字幕時，才能播放字幕。 您使用的即時媒體編碼器，必須可以將 608 或 708 字幕插入至已傳送至媒體服務的已編碼資料流。 媒體服務會將內含字幕的內容傳遞給您的檢視器。 |
-| .ismt 裡面附帶字幕 (Smooth Streaming 文字播放軌) |媒體服務動態封裝功能可讓您的用戶端傳送以下任何格式的內容：DASH、HLS 或 Smooth Streaming。 不過，如果您內嵌 Fragmented MP4 (Smooth Streaming) 而且在 .ismt 裡面附帶字幕 (Smooth Streaming 文字播放軌)，您就只能將資料流傳遞至 Smooth Streaming 用戶端。 |
+| .ismt 裡面附帶字幕 (Smooth Streaming 文字播放軌) |媒體服務動態封裝功能可讓您的用戶端以下列任一格式來串流內容：DASH、HLS 或 Smooth Streaming。 不過，如果您內嵌 Fragmented MP4 (Smooth Streaming) 而且在 .ismt 裡面附帶字幕 (Smooth Streaming 文字播放軌)，您就只能將資料流傳遞至 Smooth Streaming 用戶端。 |
 | SCTE-35 |SCTE-35 是數位訊號系統，可用來提示廣告插入。 下游接收端會使用信號並根據分配的時間，將廣告切割成資料流。 SCTE 35 必須以鬆散播放軌的形式傳送至輸入資料流中。<p><p>目前，唯一支援附帶廣告訊號的輸入資料流格式是 Fragmented MP4 (Smooth Streaming)。 唯一支援的輸出格式也是 Smooth Streaming。 |
 
 ## <a id="considerations"></a>考量

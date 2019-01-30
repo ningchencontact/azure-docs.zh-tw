@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 48eb76e7e076b8496b32878b2292447b1ccbf7f6
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 738bdd303d6e8e41df179021ebca521100ace325
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977118"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828072"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>將 Windows VM 上的虛擬磁碟加密
 如需強化虛擬機器 (VM) 安全性與法規遵循，可以將 Azure 中的虛擬磁碟加密。 磁碟會使用 Azure Key Vault 中受保護的密碼編譯金鑰進行加密。 您可控制這些密碼編譯金鑰，並可稽核其使用情況。 本文說明如何使用 Azure PowerShell 將 Windows VM 上的虛擬磁碟加密。 您也可以[使用 Azure CLI 將 Linux VM 加密](../linux/encrypt-disks.md)。
 
 ## <a name="overview-of-disk-encryption"></a>磁碟加密概觀
-Windows VM 上的虛擬磁碟在待用時是使用 Bitlocker 進行加密。 將 Azure 中的虛擬磁碟加密完全免費。 密碼編譯金鑰會使用軟體保護功能儲存在 Azure Key Vault 中，或者您可以在 FIPS 140-2 第 2 級標準認證的硬體安全性模組 (HSM) 中匯入或產生金鑰。 密碼編譯金鑰會用來加密及解密連結到 VM 的虛擬磁碟。 您可保有這些密碼編譯金鑰的控制權，並可稽核其使用情況。 
+Windows VM 上的虛擬磁碟在待用時是使用 BitLocker 進行加密。 將 Azure 中的虛擬磁碟加密完全免費。 密碼編譯金鑰會使用軟體保護功能儲存在 Azure Key Vault 中，或者您可以在 FIPS 140-2 第 2 級標準認證的硬體安全性模組 (HSM) 中匯入或產生金鑰。 密碼編譯金鑰會用來加密及解密連結到 VM 的虛擬磁碟。 您可保有這些密碼編譯金鑰的控制權，並可稽核其使用情況。 
 
 將 VM 加密的程序如下所示：
 

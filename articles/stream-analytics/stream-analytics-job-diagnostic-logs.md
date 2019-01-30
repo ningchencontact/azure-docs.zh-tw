@@ -7,61 +7,85 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: db3c9874676e3240f6896c1e1ff8f873360c20d5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 34f994bfca8bdeaffde6732572f47aeaa86b2ac5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090817"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818926"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>使用析診斷記錄對 Azure 串流分進行疑難排解
 
-有時候，Azure 串流分析作業會非預期地停止處理。 請務必要設法解決這類事件的問題。 事件發生的原因可能是非預期的查詢結果、裝置的連線狀況，或未預期的服務中斷。 串流分析中的診斷記錄可協助您在事件發生當下找出問題原因，並減少復原時間。
+有時候，Azure 串流分析作業會非預期地停止處理。 請務必要設法解決這類事件的問題。 錯誤發生的原因可能是非預期的查詢結果、裝置的連線狀況，或未預期的服務中斷。 串流分析中的診斷記錄可協助您在事件發生當下找出問題原因，並減少復原時間。
 
 ## <a name="log-types"></a>記錄類型
 
-串流分析提供開兩種記錄類型： 
-* [活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (一律開啟)。 活動記錄可讓您對所執行作業有深入的了解。
-* [診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (可設定)。 診斷記錄可讓您更深入地了所有與作業相關的發生事件。 診斷記錄會在作業建立時開始執行，並在作業刪除時結束。 這些記錄涵蓋作業更新時與作業執行時的情形。
+串流分析提供開兩種記錄類型：
+
+* [活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (永遠啟動) 可讓您對所執行作業有深入的了解。
+
+* [診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (可設定) 可讓您更深入地了所有與作業相關的發生事件。 診斷記錄會在作業建立時開始執行，並在作業刪除時結束。 這些記錄涵蓋作業更新時與作業執行時的情形。
 
 > [!NOTE]
 > 您可以使用 Azure 儲存體、Azure 事件中樞和 Azure Log Analytics 等服務來分析不一致的資料。 這些服務將會依據各自的計價模式向您收取費用。
->
 
-## <a name="turn-on-diagnostics-logs"></a>開啟診斷記錄
+## <a name="debugging-using-activity-logs"></a>使用活動記錄進行偵錯
 
-診斷記錄預設為 [關閉]。 若要開啟診斷記錄，請完成下列步驟︰
+活動記錄預設會開啟，可以對 Stream Analytics 作業所執行的作業提供高層級的見解。 活動記錄中出現的資訊可能有助於找出影響您工作之問題的根本原因。 執行下列步驟，以在 Stream Analytics 中使用活動記錄：
 
-1.  登入 Azure 入口網站並前往串流作業刀鋒視窗。 在 [監視] 下，選取 [診斷記錄]。
+1. 登入 Azure 入口網站，並在 [概觀] 下選取 [活動記錄]。
+
+   ![Stream Analytics 活動記錄](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
+
+2. 您可以看到一份已執行的作業清單。 任何造成您的作業 (job) 失敗的任何作業 (operation) 都會出現紅色的資訊泡泡。
+
+3. 按一下作業，以查看其摘要檢視。 這裡的資訊通常是有限的。 若要深入了解作業的相關資訊，請按一下 [JSON]。
+
+   ![Stream Analytics 活動記錄作業摘要](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
+
+4. 向下捲動至 JSON 的 [屬性] 區段，該區段提供導致作業失敗的錯誤的詳細資料。 在此範例中，失敗是由於超出範圍的緯度值的執行階段錯誤。
+
+   ![JSON 錯誤詳細資料](./media/stream-analytics-job-diagnostic-logs/error-details.png)
+
+5. 您可以根據 JSON 中的錯誤訊息採取修正動作。 在此範例中，需要檢查以確保緯度值是介於 -90 度和 90 度之間。
+
+6. 如果活動記錄中的錯誤訊息無法幫助識別根本原因，請啟用診斷記錄，並使用 Log Analytics。
+
+## <a name="send-diagnostics-to-log-analytics"></a>將診斷傳送至 Log Analytics
+
+強烈建議您啟用診斷記錄，並將其傳送至 Log Analytics。 診斷記錄預設為 [關閉]。 若要開啟診斷記錄，請完成下列步驟︰
+
+1.  登入 Azure 入口網站，然後瀏覽至您的 Stream Analytics 作業。 在 [監視] 下，選取 [診斷記錄]。 然後選取 [開啟診斷]。
 
     ![瀏覽到診斷記錄的刀鋒視窗](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  選取 [開啟診斷]。
+2.  在 [診斷設定] 中建立 [名稱]，然後核取 [傳送至 Log Analytics] 旁邊的方塊。 然後，新增現有的 Log Analytics 工作區或建立新的 **Log Analytics 工作區**。 核取 [記錄] 下的 [執行] 和 [編寫]，以及 [計量] 下的 [AllMetrics] 核取方塊。 按一下 [檔案] 。
 
-    ![開啟串流分析診斷記錄](./media/stream-analytics-job-diagnostic-logs/turn-on-diagnostic-logs.png)
+    ![診斷記錄的設定](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3.  在 [診斷設定] 頁面的 [狀態]  上，選取 [開啟]。
+3. 當您的 Stream Analytics 作業啟動時，診斷記錄會路由傳送至 Log Analytics 工作區。 瀏覽至 Log Analytics 工作區，然後選擇 [一般] 區段下的 [記錄]。
 
-    ![變更診斷記錄的狀態](./media/stream-analytics-job-diagnostic-logs/save-diagnostic-log-settings.png)
+   ![[一般] 區段下的 Log Analytics 記錄](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
-4.  設定封存目標 (儲存體帳戶、事件中樞、Log Analytics)。 然後選取您要收集的記錄類別 (執行、編寫)。 
+4. 您可以[撰寫自己的查詢](../azure-monitor/log-query/get-started-portal.md)來搜尋字詞、識別趨勢、分析模式，以及提供以資料為基礎的深入解析。 例如，您可以撰寫查詢以篩選僅具有訊息「串流處理工作失敗」的診斷記錄。 Azure Stream Analytics 的診斷記錄會儲存在 **AzureDiagnostics** 資料表中。
 
-5.  儲存新的診斷組態。
+   ![診斷查詢和結果](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-query.png)
 
-設定診斷大約需要 10 分鐘才會生效。 之後，記錄會開始出現在設定的封存目標中 (您可以在 [診斷記錄]頁面中看到這些記錄)：
+5. 如果您的查詢正在搜尋正確的記錄，請選取 [儲存] 並提供 [名稱] 和 [類別] 進行儲存。 然後，您可以透過選取 [新增警示規則] 來建立警示。 接下來，指定警示條件。 選取 [條件]，並輸入臨界值以及評估此自訂記錄搜尋的頻率。  
 
-![瀏覽到診斷記錄的刀鋒視窗 - 封存目標](./media/stream-analytics-job-diagnostic-logs/view-diagnostic-logs-page.png)
+   ![診斷記錄搜尋查詢](./media/stream-analytics-job-diagnostic-logs/search-query.png)
 
-如需有關診斷設定的詳細資訊，請參閱[收集並取用來自 Azure 資源的診斷資料](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)。
+6. 在建立警示規則之前，請選擇動作群組並指定警示的詳細資訊 (例如名稱和描述)。 您可以將各種作業的診斷記錄路由到相同的 Log Analytics 工作區。 這可讓您設定一次警示之後即適用於所有作業。  
 
 ## <a name="diagnostics-log-categories"></a>診斷記錄類別
 
 我們目前會擷取兩種診斷記錄︰
 
-* **編寫**。 擷取作業編寫相關記錄：作業建立、新增及刪除輸入與輸出、新增及更新查詢、開始及停止作業。
-* **執行**。 擷取作業執行期間發生的事件︰
+* **編寫**：擷取與作業編寫作業相關之記錄事件，例如作業建立、新增及刪除輸入與輸出、新增及更新查詢、開始及停止作業。
+
+* **執行**：擷取作業執行期間發生的事件。
     * 連線錯誤
     * 資料處理錯誤，包括：
         * 不符合查詢定義的事件 (不相符的欄位類型與值或遺漏欄位等)
@@ -80,7 +104,7 @@ category | 記錄類別 (**執行**或**編寫**)。
 operationName | 記錄的作業名稱。 例如，**傳送事件︰SQL 輸出寫入失敗至 mysqloutput**。
 status | 作業的狀態。 例如，**失敗**或**成功**。
 層級 | 記錄層級。 例如，**錯誤**、**警告**或**資訊**。
-properties | 記錄項目特定詳細資料 (序列化為 JSON 字串)。 如需詳細資訊，請參閱下列幾節。
+properties | 記錄項目特定詳細資料 (序列化為 JSON 字串)。 如需詳細資訊，請參閱本文中下列幾節。
 
 ### <a name="execution-log-properties-schema"></a>執行記錄屬性結構描述
 

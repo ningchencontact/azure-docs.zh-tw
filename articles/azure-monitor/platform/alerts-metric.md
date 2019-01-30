@@ -6,17 +6,17 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.component: alerts
-ms.openlocfilehash: 4aa6f8fdf4eaa8e439c1a8c8c0202cf49a04433c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 117b65265c853194e93a97fe5e2b2dcc6e9f5bc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584294"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807383"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>使用 Azure 監視器建立、檢視及管理計量警示
 
-想在其中一個計量超過閾值時收到通知，可以利用 Azure 監視器中的計量警示。 計量警示可在一系列的多維度平台計量、自訂計量、Application Insights 標準和自訂計量上運作。 在此文章中，我們將會說明如何透過 Azure 入口網站與 Azure CLI 建立、檢視及管理計量警示規則。 您也可以使用[另一篇文章](../../azure-monitor/platform/alerts-enable-template.md)中所述的 Azure Resource Manager 範本，來建立計量警示規則。
+想在其中一個計量超過閾值時收到通知，可以利用 Azure 監視器中的計量警示。 計量警示可在一系列的多維度平台計量、自訂計量、Application Insights 標準和自訂計量上運作。 在此文章中，我們將會說明如何透過 Azure 入口網站與 Azure CLI 建立、檢視及管理計量警示規則。 您也可以使用[另一篇文章](alerts-metric-create-templates.md)中所述的 Azure Resource Manager 範本，來建立計量警示規則。
 
 您可以從[計量警示概觀](alerts-metric-overview.md)深入了解計量警示工作的運作方式。
 
@@ -31,23 +31,23 @@ ms.locfileid: "53584294"
     > [!TIP]
     > 大部分的資源刀鋒視窗也都有 [警示] (位於 [監視] 下的資源功能表)，您也可以從該處建立警示。
 
-3. 在載入的內容窗格中，按一下 [選取目標]，選取您要修改的目標資源。 使用 [訂用帳戶] 與 [資源類型] 下拉式清單尋找您要監視的資源。 您也可以使用搜尋列來尋找您的資源。
+3. 在載入的內容窗格中，按一下 [選取目標]，選取您要發出警示的目標資源。 使用 [訂用帳戶] 與 [資源類型] 下拉式清單尋找您要監視的資源。 您也可以使用搜尋列來尋找您的資源。
 
-4. 如果選取的資源有可對其建立警示的計量，位於右下方的 [可用訊號] 會包含計量。 您可以檢視此[文章](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)中的計量警示支援的完整資源類型清單
+4. 如果選取的資源有可對其建立警示的計量，位於右下方的 [可用訊號] 會包含計量。 您可以檢視此[文章](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)中的計量警示所支援資源類型的完整清單。
 
-5. 選取目標資源之後，請按一下 [新增準則]
+5. 選取目標資源之後，請按一下 [新增準則]。
 
 6. 您會看到該資源支援的訊號清單，請選取您要對其建立警示的計量。
 
-7. 您會看到過去 6 小時的計量圖表。 定義 [期間]、[頻率]、[運算子] 與 [閾值]，這可決定計量警示規則的評估邏輯。
+7. (選擇性) 藉由調整 [期限] 和 [彙總] 來精簡計量。 如果計量具有維度，您將會看到顯示 [維度] 資料表。 為每個維度選取一或多個值。 計量警示會對所選值的所有組合評估其條件。 [深入了解對多維度計量發出警示的運作方式](alerts-metric-overview.md)。 **Select \*** 也可以讓您選取任何維度。 **Select \*** 會將選擇動態擴充至維度的所有目前與未來值。
 
-8. 使用計量圖表可以判斷哪些是合理的閾值。
+8. 您會看到過去 6 小時的計量圖表。 定義警示參數；[條件類型]、[頻率]、[運算子] 與 [閾值] 或 [敏感度]，這可決定計量警示規則的評估邏輯。 [深入了解動態閾值條件類型和敏感度選項](alerts-dynamic-thresholds.md)。
 
-9. (選擇性) 如果計量具有維度，您將會看到顯示維度資料表。 為每個維度選取一或多個值。 計量警示會對所選值的所有組合評估其條件。 [深入了解對多維度計量發出警示的運作方式](alerts-metric-overview.md)。 **Select \*** 也可以讓您選取任何維度。 **Select \*** 會將選擇動態擴充至維度的所有目前與未來值。
+9. 使用靜態閾值時，計量圖表可以協助判斷哪些是合理的閾值。 使用動態臨界值時，計量圖表會顯示以最近使用的資料為基礎的計算臨界值。
 
 10. 按一下 [完成]
 
-11. (選擇性) 如果您想要監視複雜的警示規則，請新增另一個準則
+11. (選擇性) 如果您想要監視複雜的警示規則，請新增另一個準則。 目前使用者可以使用具有動態閾值準則的警示規則作為單一準則。
 
 12. 填寫 [警示詳細資料]，例如 [警示規則名稱]、[描述] 與 [嚴重性]
 
@@ -73,7 +73,7 @@ ms.locfileid: "53584294"
 
 4. 按一下要編輯之計量警示規則的名稱
 
-5. 在 [編輯規則] 中，按一下要編輯的 [警示準則]。 您可以視需要變更計量、閾值與其他欄位
+5. 在 [編輯規則] 中，按一下要編輯的 [警示準則]。 您可以視需要變更計量、閾值條件與其他欄位
 
     > [!NOTE]
     > 建立計量警示之後，就無法編輯 [目標資源] 與 [警示規則名稱]。
@@ -92,10 +92,10 @@ ms.locfileid: "53584294"
     az monitor metrics alert --help
     ```
 
-3. 您可以建立簡單的計量警示規則，監視 VM 上的平均 CPU 百分比是否大於 70
+3. 您可以建立簡單的計量警示規則，監視 VM 上的平均 CPU 百分比是否大於 90
 
     ```azurecli
-    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90"
+    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
     ```
 
 4. 您可以使用下列命令來檢視資源群組中的所有計量警示
@@ -117,17 +117,19 @@ ms.locfileid: "53584294"
 6. 您可以使用下列命令來停用計量警示規則。
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} -enabled false
+    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
     ```
 
 7. 您可以使用下列命令來刪除計量警示規則。
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} -enabled false
+    az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
 
 ## <a name="next-steps"></a>後續步驟
 
 - [使用 Azure Resource Manager 範本建立計量警示](../../azure-monitor/platform/alerts-enable-template.md)。
 - [了解計量警示的運作方式](alerts-metric-overview.md)。
+- [了解計量警示如何搭配動態閾值條件運作](alerts-dynamic-thresholds.md)。
 - [了解計量警示的 Webhook 結構描述](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
+

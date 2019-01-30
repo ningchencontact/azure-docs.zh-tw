@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 LockPath Keylight 之
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 234a32f1-9f56-4650-9e31-7b38ad734b1a
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 18fbcc785491ca8a0631f54750412bc0f12254c1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c4ad094cb6a0268d7e9b1f44be619dfb61804145
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421442"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827018"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>教學課程：Azure Active Directory 與 LockPath Keylight 整合
 

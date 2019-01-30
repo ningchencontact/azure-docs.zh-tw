@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: b1f4d278079b81b4a224dc4712426d1f078de110
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: edfd908166e4334bdfda0f043cba727cb0370405
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020399"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853590"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Application Insights 智慧偵測規則
 
@@ -154,6 +154,17 @@ ms.locfileid: "54020399"
 | 偵測到潛在記憶體流失 (預覽) | extension_memoryleakextension |
 | 偵測到潛在安全性問題 (預覽) | extension_securityextensionspackage |
 | 偵測到資源使用率問題 (預覽) | extension_resourceutilizationextensionspackage |
+
+## <a name="who-receives-the-classic-alert-notifications"></a>誰會收到 (傳統) 警示通知？
+
+本節僅適用於智慧偵測傳統警示，並協助您將警示通知最佳化，以確保只有您所需的收件者會收到通知。 若要深入了解 [傳統警示](../platform/alerts-classic.overview.md 和新警示體驗之間的差異，請參閱[警示概觀文章](../platform/alerts-overview.md)。 目前智慧偵測警示只支援傳統警示體驗。 [Azure 雲端服務中的智慧偵測警示](./proactive-cloud-services.md)是一個例外。 若要控制 Azure 雲端服務中智慧偵測警示的警示通知，請使用[動作群組](../platform/action-groups.md)。
+
+* 我們建議針對智慧偵測/傳統警示通知使用特定的收件者。
+
+* 如已啟用 [大量/群組] 核取方塊選項，系統就會將智慧偵測警示傳送給訂用帳戶中具有擁有者、參與者或讀者角色的使用者。 實際上，「所有」有權存取 Application Insights 資源訂用帳戶的使用者都在涵蓋範圍內，而且將會收到通知。 
+
+> [!NOTE]
+> 如果您目前使用 [大量/群組] 核取方塊選項並停用它，您將無法還原變更。
 
 ## <a name="next-steps"></a>後續步驟
 

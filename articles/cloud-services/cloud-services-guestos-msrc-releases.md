@@ -11,17 +11,68 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/22/2019
 ms.author: raiye
-ms.openlocfilehash: 154b925cc173a1a8fac697e347759764807a3052
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0a9b811f3781cd181c17b9ed92b9ca653ee91af0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107900"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828446"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 已引進更新的特定[系列][family-explain]會持續推出更新。
+
+>[!NOTE]
+>我們目前正在將 1 月客體 OS 推展到已設定要自動更新的雲端服務 VM。 推展完成時，我們會透過 Azure 入口網站和組態檔來提供此版本，以便您可以手動更新。 下列修補程式會包含在 1 月客體 OS 中。 此清單會隨時變動。
+
+## <a name="january-2019-guest-os"></a>2019 年 1 月客體 OS
+
+| 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| --- | --- | --- | --- | --- |
+| Rel 19-01 | [4480961] | Windows 10 安全性 | 5.27 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480964] | Windows 安全性 | 4.62 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480972] | Windows 安全性 | 3.69 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480960] | Windows 安全性 | 2.82 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480074] | .Net 4.x 安全性 | 4.62 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480075] | .Net 4.x 安全性 | 3.69 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480076] | .Net 4.x 安全性 | 2.82 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480086] | .Net 3.x 安全性 | 4.62 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480083] | .Net 3.x 安全性 | 3.69 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480085] | .Net 3.x 安全性 | 2.82 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480979] | 閃爍 | 3.69, 4.62, 5.27 | 2019 年 1 月 8 日 |
+| Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 2019 年 1 月 8 日 |
+| N/A | [4471318] | 十二月份非安全性彙總套件 | 2.82 | 2018 年 12 月 11 日 |
+| N/A | [4470641] | 十二月份非安全性彙總套件 .NET 3.x | 2.82 | 2018 年 12 月 11 日 |
+| N/A | [4470637] | 十二月份非安全性彙總套件 .NET 4.x | 2.82 | 2018 年 12 月 11 日 |
+| N/A | [4471330] | 十二月份非安全性彙總套件 | 3.69 | 2018 年 12 月 11 日 |
+| N/A | [4470629] | 十二月份非安全性彙總套件 .NET 3.x | 3.69 | 2018 年 12 月 11 日 |
+| N/A | [4470623] | 十二月份非安全性彙總套件 .NET 4.x | 3.69 | 2018 年 12 月 11 日 |
+| N/A | [4471320] | 十二月份非安全性彙總套件 | 4.62 | 2018 年 12 月 11 日 |
+| N/A | [4470630] | 十二月份非安全性彙總套件 .NET 3.x | 4.62 | 2018 年 12 月 11 日 |
+| N/A | [4470622] | 十二月份非安全性彙總套件 .NET 4.x | 4.62 | 2018 年 12 月 11 日 |
+
+[4480961]: http://support.microsoft.com/kb/4480961
+[4480964]: http://support.microsoft.com/kb/4480964
+[4480972]: http://support.microsoft.com/kb/4480972
+[4480960]: http://support.microsoft.com/kb/4480960
+[4480074]: http://support.microsoft.com/kb/4480074
+[4480075]: http://support.microsoft.com/kb/4480075
+[4480076]: http://support.microsoft.com/kb/4480076
+[4480086]: http://support.microsoft.com/kb/4480086
+[4480083]: http://support.microsoft.com/kb/4480083
+[4480085]: http://support.microsoft.com/kb/4480085
+[4480979]: http://support.microsoft.com/kb/4480979
+[4480965]: http://support.microsoft.com/kb/4480965
+[4471318]: http://support.microsoft.com/kb/4471318
+[4470641]: http://support.microsoft.com/kb/4470641
+[4470637]: http://support.microsoft.com/kb/4470637
+[4471330]: http://support.microsoft.com/kb/4471330
+[4470629]: http://support.microsoft.com/kb/4470629
+[4470623]: http://support.microsoft.com/kb/4470623
+[4471320]: http://support.microsoft.com/kb/4471320
+[4470630]: http://support.microsoft.com/kb/4470630
+[4470622]: http://support.microsoft.com/kb/4470622
 
 ## <a name="december-2018-guest-os"></a>2018 年 12 月客體 OS
 

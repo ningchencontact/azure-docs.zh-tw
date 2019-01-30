@@ -1,11 +1,11 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 LinkedIn Sales Navigator 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 LinkedIn Sales Navigator 來自動佈建使用者 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 來自動佈建並取消佈建使用者帳戶至 LinkedIn Sales Navigator。
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 544fcb2c10d2efc4ee02f9ce70c6ce06214c85cd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3e8d77dd0796d289c4f1c93f88e93756518ec244
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215244"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823567"
 ---
-# <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>教學課程︰設定 LinkedIn Sales Navigator 來自動佈建使用者
+# <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>教學課程：設定 LinkedIn Sales Navigator 來自動佈建使用者
 
 
 本教學課程旨在說明您需要在 LinkedIn Sales Navigator 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 LinkedIn Sales Navigator。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -121,7 +121,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 這會啟動在 [使用者和群組] 區段中指派給 LinkedIn Sales Navigator 的任何使用者和/或群組之初始同步處理。 請注意，初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄，此記錄會描述您 LinkedIn Sales Navigator 應用程式上佈建服務所執行的所有動作。
 
-如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
 
 ## <a name="additional-resources"></a>其他資源

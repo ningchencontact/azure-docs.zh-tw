@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Bridge 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 3dbb6499-80c1-4d00-a0b4-e0ad5522cf0f
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 4d15cbb4d0aa2905f36f88565690e359c1942ff4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 481a115e8a0888fb9b9b66e8840d2158212a4f34
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441038"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823176"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridge"></a>教學課程：Azure Active Directory 與 Bridge 整合
 

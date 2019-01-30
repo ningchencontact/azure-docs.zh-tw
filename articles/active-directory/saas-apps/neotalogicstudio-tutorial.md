@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Neota Logic Studio �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 842605e6-a91d-42cc-a0bb-e23e67173ae2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 667d2a5217f5c2aa29432a99cd0e07fc8d7b3ca7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6f2c91a9b94aeff1c0fa7ad7df137a30055230b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447031"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827035"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>教學課程：Azure Active Directory 與 Neota Logic Studio 整合
 
@@ -130,7 +130,7 @@ Neota Logic Studio 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/neotalogicstudio-tutorial/tutorial_general_400.png)
 
-1. 若要為您的應用程式設定 SSO，請連絡 [Neota Logic Studio支援小組](https://www.neotalogic.com/contact-us/)並提供所下載的**中繼資料 XML** 檔案。
+1. 若要為您的應用程式設定 SSO，請連絡 [Neota Logic Studio支援小組](https://www.neotalogic.com/contact-us/)，並向他們提供所下載的**中繼資料 XML** 檔案。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -168,7 +168,7 @@ Neota Logic Studio 與 Azure AD 整合提供下列優點：
  
 ### <a name="creating-a-neota-logic-studio-test-user"></a>建立 Neota Logic Studio 測試使用者
 
-在本節中，您要在 Neota Logic Studio 中建立名為 Britta Simon 的使用者。 與 [Neota Logic Studio 客戶支援小組](https://www.neotalogic.com/contact-us/)合作，在 Neota Logic Studio 平台新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您要在 Neota Logic Studio 中建立名為 Britta Simon 的使用者。 請與 [Neota Logic Studio 用戶端支援小組](https://www.neotalogic.com/contact-us/)合作，在 Neota Logic Studio 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -204,7 +204,7 @@ Neota Logic Studio 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-在存取面板中按一下 [Neota Logic Studio] 圖格，系統會將您重新導向組織登入頁面。 成功登入之後，系統會將您登入 Neota Logic Studio 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+在存取面板中按一下 [Neota Logic Studio] 圖格，系統會將您重新導向組織登入頁面。 成功登入之後，系統會將您登入 Neota Logic Studio 應用程式。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

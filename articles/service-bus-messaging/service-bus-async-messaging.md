@@ -3,23 +3,23 @@ title: 服務匯流排非同步傳訊 |Microsoft Docs
 description: 「Azure 服務匯流排」非同步傳訊說明。
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: 9bacce96e65a7aef611bec3ddae8b1872d5f9fae
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 0ecc277e1b9bd94558c54b1c808fdc24f47c402e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391458"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845073"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>非同步傳訊模式和高可用性
 
@@ -75,8 +75,8 @@ Azure 資料中心失敗的最可能原因是服務匯流排或相依系統的�
 ## <a name="paired-namespaces"></a>配對的命名空間
 [配對的命名空間][paired namespaces]功能支援下列案例︰資料中心內的「服務匯流排」實體或部署變得無法使用。 雖然此事件不常發生，但分散式系統仍然必須準備好處理情況最糟的案例。 通常會因為服務匯流排所依賴的某個元素遇到短期問題而發生此事件。 為了維護中斷期間的應用程式可用性，服務匯流排使用者可以使用兩個不同的命名空間 (最好位於不同的資料中心) 來裝載其傳訊實體。 本節的其餘部分使用下列術語：
 
-* 主要命名空間︰與您的應用程式互動進行傳送和接收作業的命名空間。
-* 次要命名空間: 做為主要命名空間之備份的命名空間。 應用程式邏輯不會與此命名空間互動。
+* 主要命名空間：與您的應用程式互動進行傳送和接收作業的命名空間。
+* 次要命名空間：做為主要命名空間之備份的命名空間。 應用程式邏輯不會與此命名空間互動。
 * 容錯移轉間隔︰在應用程式從主要命名空間切換至次要命名空間之前接受正常失敗的時間量。
 
 配對的命名空間支援「傳送可用性」。 傳送可用性保留了傳送訊息的能力。 若要使用傳送可用性，您的應用程式必須符合下列需求：

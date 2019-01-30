@@ -4,7 +4,7 @@ description: 使用 Azure 入口網站啟用 Azure Active Directory Domain Servi
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: a795691959c744f5358966d62449882e514eb8eb
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 07dbc96e94c736b4e4c80dd212f0674bfeffce45
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155077"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850411"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站啟用 Azure Active Directory Domain Services
 本文說明如何使用 Azure 入口網站啟用 Azure Active Directory Domain Services (Azure AD DS)。
@@ -63,7 +63,7 @@ ms.locfileid: "50155077"
    > **用於選取 DNS 網域名稱的指導方針**
    > * **內建網域名稱：** 根據預設，精靈會為您指定目錄的預設/內建網域名稱 (使用 **.onmicrosoft.com** 尾碼)。 如果您選擇透過網際網路啟用受控之網域的安全 LDAP 存取，則在從這個網域名稱的公用 CA 建立公用 DNS 記錄或取得安全 LDAP 憑證時應該會發生問題。 Microsoft 擁有 .onmicrosoft.com 網域，因此 CA 不會為這個網域發行憑證保證。
    * **自訂網域名稱：** 您也可以輸入自訂網域名稱。 在此範例中，自訂網域名稱是 contoso100.com。
-   * **網域尾碼：** 我們一般會建議您避免使用不可路由的網域名稱尾碼。 例如，最好避免使用 DNS 網域名稱 'contoso.local' 來建立網域。 '.local' DNS 尾碼是不可路由的，因此會導致 DNS 解析發生問題。
+   * **非路由式網域尾碼：** 我們通常會建議您避免使用非路由式網域名稱尾碼。 例如，最好避免使用 DNS 網域名稱 'contoso.local' 來建立網域。 '.local' DNS 尾碼是不可路由的，因此會導致 DNS 解析發生問題。
    * **網域前置詞限制：** 指定網域名稱的前置詞 (例如，contoso100.com 網域名稱中的 contoso100) 必須包含 15 個以內的字元。 您無法使用超過 15 個字元的前置詞來建立受控網域。
    * **網路名稱衝突：** 確定虛擬網路中還沒有您為受控網域選擇的 DNS 網域名稱。 具體來說，請檢查是否有下列情況︰
        * 您在虛擬網路上已有包含相同 DNS 網域名稱的 Active Directory 網域。

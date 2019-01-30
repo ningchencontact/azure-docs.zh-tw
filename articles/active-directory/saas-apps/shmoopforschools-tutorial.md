@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Shmoop For Schools �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 1d75560a-55b3-42e9-bda1-92b01c572d8e
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: b5826fd3067ac337808b9e27040dee808cd6a01c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5c1dbf6429387c02f226e4005164e8824abdc102
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045952"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818943"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>教學課程：Azure Active Directory 與 Shmoop For Schools 整合
 
@@ -120,7 +120,7 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
     ![設定單一登入](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
     > [!NOTE]
-    > Shmoop For Schools 支援兩個使用者角色：**老師**和**學生**。 在 Azure AD 中設定這些角色，以便您可以將使用者指派為適當的角色。 若要了解如何在 Azure AD 中設定角色，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../../role-based-access-control/role-assignments-portal.md)。
+    > Shmoop For Schools 支援兩種使用者角色：**老師**和**學生**。 在 Azure AD 中設定這些角色，以便您可以將使用者指派為適當的角色。 若要了解如何在 Azure AD 中設定角色，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](../../role-based-access-control/role-assignments-portal.md)。
     
 5. 在 [單一登入] 對話方塊的 [使用者屬性] 區段中，設定 SAML 權杖屬性，如先前映像所示。  然後採取下列步驟：
 
@@ -146,7 +146,7 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+7. 在 ****[SAML 簽署憑證] 區段上，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]，並將它貼到記事本中。
 
     ![憑證下載連結](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
@@ -227,7 +227,7 @@ Shmoop For Schools 與 Azure AD 整合提供下列優點：
 
 當您在存取面板中選取 [Shmoop For Schools] 圖格時，應該會自動登入您的 Shmoop For Schools 應用程式。
 
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

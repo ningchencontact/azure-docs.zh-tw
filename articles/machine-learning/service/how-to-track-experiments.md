@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c45023a462a5c01dfde806d7abbb9714aaf09b85
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 99b3a65feb232526cffecac4fec68d56fcd16ccb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189467"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846280"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>使用 Azure Machine Learning 追蹤實驗與訓練計量
 
@@ -128,10 +128,10 @@ ms.locfileid: "53189467"
 
 此範例擴展上述的基本 sklearn Ridge 模型。 它執行簡單的參數掃掠以掃掠模型的 Alpha 值，以在實驗下的執行中擷取計量和定型的模型。 此範例會針對使用者管理的環境在本機上執行。 
 
-1. 建立定型指令碼。 這個程式碼會使用 ```%%writefile%%```，將定型程式碼寫出到指令碼資料夾以作為 ```train.py```。
+1. 建立定型指令碼 `train.py`。
 
   ```python
-  %%writefile $project_folder/train.py
+  # train.py
 
   import os
   from sklearn.datasets import load_diabetes
@@ -182,10 +182,11 @@ ms.locfileid: "53189467"
   
   ```
 
-2. ```train.py``` 指令碼參考 ```mylib.py```。 此檔案可讓您取得要在 ridge 模型中使用的 Alpha 值清單。
+2. `train.py` 指令碼參考 `mylib.py`，可讓您取得要在 Ridge 模型中使用的 Alpha 值清單。
 
   ```python
-  %%writefile $script_folder/mylib.py
+  # mylib.py
+  
   import numpy as np
 
   def get_alphas():
@@ -216,7 +217,31 @@ ms.locfileid: "53189467"
   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
   run = experiment.submit(src)
   ```
+
+## <a name="cancel-a-run"></a>取消執行
+在提交執行之後，只要您知道實驗的名稱和執行識別碼，即使您已失去物件參考仍可將它取消。 
+
+```python
+from azureml.core import Experiment
+exp = Experiment(ws, "my-experiment-name")
+
+# if you don't know the run id, you can list all runs under an experiment
+for r in exp.get_runs():  
+    print(r.id, r.get_status())
+
+# if you know the run id, you can "rehydrate" the run
+from azureml.core import get_run
+r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
   
+# check the returned run type and status
+print(type(r), r.get_status())
+
+# you can only cancel a run if the status is Running
+if r.get_status() == 'Running':
+    r.cancel()
+```
+請注意，目前只有 ScriptRun 和 PipelineRun 型別支援取消作業。
+
 ## <a name="view-run-details"></a>檢視執行詳細資料
 
 ### <a name="monitor-run-with-jupyter-notebook-widgets"></a>使用 Jupyter Notebook 小工具執行監視

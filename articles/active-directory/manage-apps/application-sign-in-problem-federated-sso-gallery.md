@@ -4,7 +4,7 @@ description: 當登入您已使用 Azure AD 針對 SAML 型同盟單一登入設
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8d910ffcf966e98def33a42a6452baea9f4b3998
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8a21f1ac0839a37455fe06537242edc6e43731a4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355198"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477295"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>登入針對同盟單一登入設定之資源庫應用程式的問題
 
@@ -34,7 +34,7 @@ ms.locfileid: "44355198"
 
 ## <a name="application-not-found-in-directory"></a>在目錄中找不到應用程式
 
-*錯誤 AADSTS70001：在目錄中找不到識別碼為 ‘ https://contoso.com’ 的應用程式*。
+*錯誤 AADSTS70001：在目錄中未找到具有識別碼 ‘https://contoso.com’ 的應用程式*。
 
 **可能的原因**
 
@@ -66,7 +66,7 @@ ms.locfileid: "44355198"
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>回覆位址不符合為應用程式設定的回覆位址。
 
-*錯誤 AADSTS50011：回覆位址 ‘ https://contoso.com’ 不符合為應用程式設定的回覆位址*
+*錯誤 AADSTS50011：回覆地址 ‘https://contoso.com’ 與為應用程式設定的回覆地址不符*
 
 **可能的原因**
 
@@ -133,7 +133,7 @@ SAML 要求中的 AssertionConsumerServiceURL 值不符合在 Azure AD 中設定
 
 11. 將滑鼠停留在清單中的**使用者**上方，以顯示**核取方塊**。 按一下使用者設定檔照片或標誌旁邊的核取方塊，將使用者新增至 [已選取] 清單。
 
-12. **選擇性︰** 如果您想要**新增多位使用者**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**全名**或**電子郵件地址**，然後按一下核取方塊，將此使用者新增至 [已選取] 清單。
+12. **選擇性：** 如果您想要**新增多位使用者**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**全名**或**電子郵件地址**，然後按一下核取方塊，將此使用者新增至 [已選取] 清單。
 
 13. 當您完成選取使用者時，按一下 [選取] 按鈕，將他們新增到要指派至應用程式的使用者和群組清單。
 
@@ -228,7 +228,7 @@ Azure AD 不支援應用程式為單一登入傳送的 SAML 要求。 以下為�
 
 ## <a name="certificate-or-key-not-configured"></a>未設定憑證或金鑰
 
-*錯誤 AADSTS50003︰未設定簽署金鑰。*
+*錯誤 AADSTS50003：未設定簽署金鑰。*
 
 **可能的原因**
 
@@ -261,6 +261,19 @@ Azure AD 不支援應用程式為單一登入傳送的 SAML 要求。 以下為�
 10. 勾選 [Make new certificate active (啟用新憑證)] 以覆寫作用中的憑證。 然後按一下窗格頂端的 [儲存]，並按 [接受] 以啟動變換憑證。
 
 11. 在 [SAML 簽署憑證] 區段下，按一下 [移除] 以移除**未使用**的憑證。
+
+## <a name="saml-request-not-present-in-the-request"></a>要求中沒有 SAML 要求
+
+*錯誤 AADSTS750054：SAMLRequest 或 SAMLResponse 必須在 HTTP 要求中以查詢字串參數的形式存在，才能進行 SAML 重新導向繫結。*
+
+**可能的原因**
+
+Azure AD 無法識別 HTTP 要求中 URL 參數內的 SAML 要求。 如果應用程式未使用「HTTP 重新導向繫結」將 SAML 要求傳送給 Azure AD，就可能發生此情況。
+
+**解決方案**
+
+應用程式需要使用「HTTP 重新導向繫結」來傳送編碼成位置標頭的 SAML 要求。 如需有關如何進行此實作的詳細資訊，請參閱 [SAML 通訊協定規格文件](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf) \(英文\) 中的＜HTTP 重新導向繫結＞一節。
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>自訂傳送至應用程式的 SAML 宣告時發生問題
 

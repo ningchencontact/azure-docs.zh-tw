@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Vodeclic 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: d77a0f53-e3a3-445e-ab3e-119cef6e2e1d
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: fb985b389139bfd8d54e6c54d101bbfa8a68a6d4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8f53082a2f6a33e934c2e3138d08725ffdf4fa2b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444618"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>教學課程：Azure Active Directory 與 Vodeclic 整合
 
@@ -170,7 +170,7 @@ ms.locfileid: "39444618"
  
 ### <a name="create-a-vodeclic-test-user"></a>建立 Vodeclic 測試使用者
 
-在本節中，您會在 Vodeclic 中建立名為 Britta Simon 的使用者。 請與 [Vodeclic 支援小組](mailto:hotline@vodeclic.com)合作，以在 Vodeclic 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Vodeclic 中建立名為 Britta Simon 的使用者。 請與 [Vodeclic 支援小組](mailto:hotline@vodeclic.com)合作，在 Vodeclic 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 > [!NOTE]
 > 根據應用程式需求，您可能需要將您的電腦列入允許清單中。 若要這麼做，您必須將公用 IP 位址分享給 [Vodeclic 支援小組](mailto:hotline@vodeclic.com)。
@@ -211,7 +211,7 @@ ms.locfileid: "39444618"
 
 當您在存取面板中選取 [Vodeclic] 圖格時，應該會自動登入您的 Vodeclic 應用程式。
 
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

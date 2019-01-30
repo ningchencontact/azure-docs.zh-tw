@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 itslearning 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 60587ba3-1396-4b8a-9ac1-e22a98e5e0ac
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: c6fc86d5179a5f7113e955ebc8f6b8994f30cb26
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9bd913c7894b47acd22814f7ad2e7fc70816ee9e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446076"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>教學課程：Azure Active Directory 與 itslearning 整合
 
@@ -167,7 +167,7 @@ itslearning 與 Azure AD 整合提供下列優點：
  
 ### <a name="creating-an-itslearning-test-user"></a>建立 itslearning 測試使用者
 
-在本節中，您要在 itslearning 中建立名為 Britta Simon 的使用者。 與 [itslearning 用戶端支援小組](mailto:support@itslearning.com)合作，在 itslearning 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 itslearning 中建立名為 Britta Simon 的使用者。 請與  [itslearning 用戶端支援小組](mailto:support@itslearning.com)合作，在 itslearning 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -207,7 +207,7 @@ itslearning 與 Azure AD 整合提供下列優點：
 
   ![登入](./media/itslearning-tutorial/login.png)
 
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

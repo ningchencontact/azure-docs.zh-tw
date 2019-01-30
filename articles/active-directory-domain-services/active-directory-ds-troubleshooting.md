@@ -4,7 +4,7 @@ description: Azure AD 網域服務的疑難排解指南
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
-ms.openlocfilehash: e2b7eb4f5be5e73e70f883f9510e7fc6a13d6bea
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 8b752585fc72b7f4be8e7b9320290f8ad56f53c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156081"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844648"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD 網域服務 - 疑難排解指南
 這篇文章提供設定或管理 Azure Active Directory (AD) 網域服務時，可能會遇到的問題之疑難排解提示。
@@ -128,7 +128,7 @@ if ($sp -ne $null)
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Azure Active Directory Domain Services 受控的網域
 如果 Azure AD 租用戶中有一或多個使用者無法登入新建立的受控網域，請執行下列疑難排解步驟：
 
-* **使用 UPN 格式進行登入：** 嘗試使用 UPN 格式 (例如，joeuser@contoso.com) 進行登入，而非使用 SAMAccountName 格式 ('CONTOSO\joeuser')。 對於 UPN 前置詞過長或與受控網域上其他使用者相同的使用者，可能會自動產生 SAMAccountName。 UPN 格式保證是 Azure AD 租用戶內唯一的格式。
+* **使用 UPN 格式登入：** 嘗試使用 UPN 格式 (例如，'joeuser@contoso.com') 登入，而非使用 SAMAccountName 格式 ('CONTOSO\joeuser')。 對於 UPN 前置詞過長或與受控網域上其他使用者相同的使用者，可能會自動產生 SAMAccountName。 UPN 格式保證是 Azure AD 租用戶內唯一的格式。
 
 > [!NOTE]
 > 建議使用 UPN 格式來登入 Azure AD 網域服務受控網域。
@@ -136,8 +136,8 @@ if ($sp -ne $null)
 >
 
 * 確定您已根據《入門指南》中所述的步驟來 [啟用密碼同步處理](active-directory-ds-getting-started-password-sync.md) 。
-* **外部帳戶** 確定受影響的使用者帳戶不是 Azure AD 租用戶中的外部帳戶。 外部帳戶的範例包括 Microsoft 帳戶 (例如 joe@live.com) 或來自外部 Azure AD 目錄的使用者帳戶。 因為 Azure Active Directory Domain Services 沒有這類使用者帳戶的認證，這些使用者會無法登入受控網域。
-* **同步處理的帳戶：** 如果受影響的使用者帳戶會從內部部署目錄同步處理，請確認：
+* **外部帳戶：** 確定受影響的使用者帳戶不是 Azure AD 租用戶中的外部帳戶。 外部帳戶的範例包括 Microsoft 帳戶 (例如 joe@live.com) 或來自外部 Azure AD 目錄的使用者帳戶。 因為 Azure Active Directory Domain Services 沒有這類使用者帳戶的認證，這些使用者會無法登入受控網域。
+* **同步處理的帳戶：** 如果受影響的使用者帳戶會從內部部署目錄進行同步處理，請確認：
 
   * 您已部署或更新為 [Azure AD Connect 的最新版本](https://www.microsoft.com/download/details.aspx?id=47594)。
   * 您已設定 Azure AD Connect 以 [執行完整同步處理](active-directory-ds-getting-started-password-sync.md)。
@@ -146,7 +146,7 @@ if ($sp -ne $null)
 
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
-* **僅限雲端帳戶**：如果受影響的使用者帳戶是僅限雲端的使用者帳戶，請確定在您啟用 Azure AD 網域服務之後，使用者已變更其密碼。 這個步驟會導致產生 Azure AD 網域服務所需的認證雜湊。
+* **僅雲端帳戶**：如果受影響的使用者帳戶是僅雲端的使用者帳戶，請確定使用者已在您啟用 Azure AD Domain Services 之後變更其密碼。 這個步驟會導致產生 Azure AD 網域服務所需的認證雜湊。
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>受控網域有一或多個警示
 

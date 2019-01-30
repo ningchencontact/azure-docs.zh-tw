@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 OnTrack 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: d2cafba2-3b4a-4471-ba34-80f6a96ff2b9
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 82e0788ad2f1e49cb593e504adc1e826516d4616
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6da60497ccb2a88cdba2a848a82c3fb0fc174525
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424720"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808522"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>教學課程：Azure Active Directory 與 OnTrack 整合
 
@@ -196,7 +196,7 @@ OnTrack 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-an-ontrack-test-user"></a>建立 OnTrack 測試使用者
 
-在本節中，您要在 OnTrack 中建立名為 Britta Simon 的使用者。 請與 [OnTrack 支援小組](mailto:CustomerService@insigniagroup.com) 合作，在 OnTrack 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 OnTrack 中建立名為 Britta Simon 的使用者。 請與 [OnTrack 支援小組](mailto:CustomerService@insigniagroup.com)合作，在 OnTrack 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -233,7 +233,7 @@ OnTrack 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 OnTrack 圖格時，應該會自動登入您的 OnTrack 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

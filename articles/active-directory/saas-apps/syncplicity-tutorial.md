@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Syncplicity 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 896a3211-f368-46d7-95b8-e4768c23be08
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b74ca178d3bf380dc759ce0325d4047891a39d3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 657373d1b9ee7e66ffca495bba598c11bd3f3933
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422387"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807557"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>教學課程：Azure Active Directory 與 Syncplicity 整合
 

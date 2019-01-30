@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2a5383952f64edb08717b1a100c74352c9b4246f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 848d6ffbccc809df1ab5c012c38174e13eacc391
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187972"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828245"
 ---
 # <a name="content-protection-overview"></a>內容保護概觀
 
@@ -39,12 +39,12 @@ ms.locfileid: "54187972"
 
 1. Azure 媒體服務程式碼
   
-  * PlayReady、Widevine 和/或 FairPlay 授權範本。 範本可讓您設定每個已使用 DRM 的使用權限
-  * 授權傳遞授權可根據 JWT 中的宣告指定授權檢查的邏輯
-  * 內容金鑰、串流通訊協定與套用的對應 DRM，定義 DRM 加密
+  * 設定 PlayReady、Widevine 和/或 FairPlay 的授權範本。 範本可讓您設定每個已使用之 DRM 的權力與權限。
+  * 定義授權傳遞授權，根據 JWT 中的宣告指定授權檢查的邏輯。
+  * 透過指定內容金鑰與應該使用的串流處理通訊協定，來設定 DRM 加密。
 
   > [!NOTE]
-  > 您可以使用多種加密類型 (AES-128、PlayReady、Widevine、FairPlay) 來加密每個資產。 請參閱[串流通訊協定和加密類型](#streaming-protocols-and-encryption-types)，以查看哪些組合可行。
+  > 您可以使用多種加密類型 (AES-128、PlayReady、Widevine、FairPlay) 來加密每項資產。 請參閱[串流通訊協定和加密類型](#streaming-protocols-and-encryption-types)，以查看哪些組合可行。
   
   下列文章說明使用 AES 和 (或) DRM 加密內容的步驟： 
   

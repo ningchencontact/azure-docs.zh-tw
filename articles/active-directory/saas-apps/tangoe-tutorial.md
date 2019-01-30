@@ -1,10 +1,10 @@
 ---
-title: 教學課程：Azure Active Directory 與 Tangoe 命令高階行動裝置整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 與 Tangoe Command Premium Mobile 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Tangoe 命令高階行動裝置之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 2b0b544c-9c2c-49cd-862b-ec2ee9330126
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a477d8e10b9be4aa90cc80341c787facaabc520
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5d26c75bb4eecdafe8bcfe2a81e5842e1cb0a25c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438744"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820063"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>教學課程：Azure Active Directory 整合 Tangoe 命令高階行動裝置
+# <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>教學課程：Azure Active Directory 與 Tangoe Command Premium Mobile 整合
 
 在本教學課程中，您會了解如何整合 Tangoe 命令高階行動裝置與 Azure Active Directory (Azure AD)。
 
@@ -210,7 +210,7 @@ Tangoe 命令高階行動裝置應用程式需要在應用程式中佈建所有�
 
 在本節中，您會使用存取面板來測試您的 Azure AD SSO 組態。
 
-當您按一下存取面版中的 [Tangoe 命令高階行動裝置] 圖格，您應該會自動登入 Tangoe 命令高階行動裝置應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+當您按一下存取面版中的 [Tangoe 命令高階行動裝置] 圖格，您應該會自動登入 Tangoe 命令高階行動裝置應用程式。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

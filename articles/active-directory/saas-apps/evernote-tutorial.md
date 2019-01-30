@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Evernote 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 7a9282f5418737b583e29d99893df3fc81f52955
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8ba80e113de8ea6754d8d2d6446fb26498904e12
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442627"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>教學課程：Azure Active Directory 與 Evernote 整合
 
@@ -144,7 +144,7 @@ Evernote 與 Azure AD 整合提供下列優點：
 
     ![憑證設定](./media/evernote-tutorial/tutorial_evernote_certx.png)
     
-    a.  **啟用 SSO：** 預設會啟用 SSO (按一下 [停用單一登入] 以移除 SSO 需求)
+    a.  **啟用 SSO：** 預設會啟用 SSO (按一下 [Disable Single Sign-on] \(停用單一登入\) 即可移除 SSO 需求)
 
     b. 將您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值，貼到 [SAML HTTP 要求 URL] 文字方塊中。
 

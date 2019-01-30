@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Achieve3000 之間的
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 83a83d07-ff9c-46c4-b5ba-25fe2b2cd003
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 72e327f3cfa81b1ff27fcad743f5bb9a98737ed9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bdee3d64348b734488f7fb19bf6c57353908ae9b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053601"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822717"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>教學課程：Azure Active Directory 與 Achieve3000 整合
 
@@ -186,7 +186,7 @@ Achieve3000 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-an-achieve3000-test-user"></a>建立 Achieve3000 測試使用者
 
-在本節中，您要在 Achieve3000 中建立名為 Britta Simon 的使用者。 與 [Achieve3000 支援小組](https://www.achieve3000.com/contact-us/)合作，在 Achieve3000 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您要在 Achieve3000 中建立名為 Britta Simon 的使用者。 請與 [Achieve3000 支援小組](https://www.achieve3000.com/contact-us/)合作，在 Achieve3000 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -223,7 +223,7 @@ Achieve3000 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Achieve3000 圖格時，應該會自動登入您的 Achieve3000 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

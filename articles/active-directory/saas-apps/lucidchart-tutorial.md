@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Lucidchart 之間的�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 1068d364-11f3-43b5-bd6d-26f00ecd5baa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 45dbf350bc874d48b077ba8f7d67819eff741df2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b53ddb800bfd2eaf1f85c3a00f55d9f03bdc7c9f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448035"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816597"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lucidchart"></a>教學課程：Azure Active Directory 與 Lucidchart 整合
 
@@ -225,7 +225,7 @@ Lucidchart 與 Azure AD 整合有下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 按一下存取面板中的 [Lucidchart] 圖格，應會自動登入您的 Lucidchart 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

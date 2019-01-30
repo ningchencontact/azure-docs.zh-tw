@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a68e4f70dac7aace9d49a41ecf282525ce6b1fd6
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 665ceabe062fce454db377a384b1d12ba6868c40
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752872"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851720"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>向私用 Docker 容器登錄進行驗證
 
@@ -33,6 +33,8 @@ az acr login --name <acrName>
 ```
 
 當您使用 `az acr login` 來進行登入時，CLI 會使用您執行 [az login](/cli/azure/reference-index#az-login) 時所建立的權杖，以順暢地向登錄驗證您的工作階段。 在您以此方式登入之後，系統會快取您的認證，而後續的 `docker` 命令就不會要求提供使用者名稱和密碼。 如果您的權杖過期，您可以再次使用 `az acr login` 命令進行重新驗證來重新整理該權杖。 使用 `az acr login` 搭配 Azure 身分識別可提供[角色型存取](../role-based-access-control/role-assignments-portal.md)功能。
+
+在某些情況下，您可能會想在 Azure AD 中，使用自己的個別身分識別登入登錄庫。 針對跨服務案例，或針對您不想管理個別存取權的工作群組處理其需求時，也可以使用 [Azure 資源的受控識別](container-registry-authentication-managed-identity.md)登入。
 
 ## <a name="service-principal"></a>服務主體
 

@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Hosted Graphite 之�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: a1ac4d7f-d079-4f3c-b6da-0f520d427ceb
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: c64e54b80b6295358036d054af14ebe85432d3f6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8aefa0580e6a9a1e446dd4861a5627ea2a4d36ce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437374"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>教學課程：Azure Active Directory 與 Hosted Graphite 整合
 

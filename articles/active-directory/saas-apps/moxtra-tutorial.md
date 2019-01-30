@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Moxtra 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2aed2d4b-1dcd-4839-8fed-9419d107c61c
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: efb9d72de3b408ce741ed96aa2aecd2ed45e293c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ee8931f1f9121f3e645b2f94eece919ae6b19075
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428934"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>教學課程：Azure Active Directory 與 Moxtra 整合
 
@@ -163,7 +163,7 @@ ms.locfileid: "39428934"
    
     ![設定單一登入](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
-    a. 在 [名稱] 文字方塊中，輸入您的設定名稱 (例如：*SAML*)。 
+    a. 在 [Name] \(名稱\) 文字方塊中，輸入您的設定名稱 (例如：*SAML*)。 
   
     b. 在 [IdP 實體識別碼] 文字方塊中，貼上您從 Azure 入口網站複製的 **「SAML 實體識別碼」** 值。 
  
@@ -279,7 +279,7 @@ ms.locfileid: "39428934"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Moxtra] 磚時，應該會自動登入您的 Moxtra 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

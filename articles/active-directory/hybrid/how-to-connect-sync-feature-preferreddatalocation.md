@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory Connect 同步處理：設定 Office 365 中多地理位置功能的慣用資料位置 | Microsoft Docs
+title: Azure Active Directory Connect 同步：設定 Office 365 中多地理位置功能的慣用資料位置 | Microsoft Docs
 description: 說明如何利用 Azure Active Directory Connect 同步處理，將 Office 365 使用者資源放在使用者附近。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1dfc01d0f2f0f5f3eae58fd6c889fee3ad306135
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2fde653c6520b743990ae837f1553004793fefa2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623022"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470693"
 ---
-# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 同步處理：設定 Office 365 資源的慣用資料位置
+# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 同步：設定 Office 365 資源的慣用資料位置
 本主題的目的在於逐步解說如何在 Azure Active Directory (Azure AD) Connect 同步處理中設定慣用資料位置的屬性。當某人在 Office 365 中使用多地理位置功能時，您可使用這個屬性來指定使用者 Office 365 資料的地理位置。 (「區域」與「地區」這兩個詞可交換使用。)
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>啟用慣用資料位置的同步處理
@@ -125,7 +125,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
     | 屬性 | 值 | 詳細資料 |
     | --- | --- | --- |
-    | 名稱 | 提供名稱 | 例如，“In from AD – User preferredDataLocation” |
+    | Name | 提供名稱 | 例如，“In from AD – User preferredDataLocation” |
     | 說明 | *提供自訂描述* |  |
     | 連線系統 | 挑選內部部署 Active Directory 連接器 |  |
     | 連線系統物件類型 | **使用者** |  |
@@ -154,7 +154,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
     | 屬性 | 值 | 詳細資料 |
     | ----- | ------ | --- |
-    | 名稱 | 提供名稱 | 例如，“Out to Azure AD – User preferredDataLocation” |
+    | Name | 提供名稱 | 例如，“Out to Azure AD – User preferredDataLocation” |
     | 說明 | 提供描述 ||
     | 連線系統 | 選取 Azure AD 連接器 ||
     | 連線系統物件類型 | **使用者** ||
@@ -261,5 +261,5 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 概觀主題：
 
-* [Azure AD Connect 同步處理：了解及自訂同步處理](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 同步：了解並自訂同步處理](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)

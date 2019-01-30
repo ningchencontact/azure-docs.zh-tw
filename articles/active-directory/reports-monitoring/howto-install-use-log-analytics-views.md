@@ -4,7 +4,7 @@ description: 了解如何安裝與使用適用於 Azure Active Directory 的 Log
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fbe5515f05c66fb0763943c20ed8aaa4374e3d87
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624636"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825199"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>安裝與使用適用於 Azure Active Directory 的 Log Analytics 檢視
 
@@ -50,8 +50,8 @@ Azure Active Directory 的 Log Analytics 檢視可協助您分析和搜尋 Azure
 
 2. 在進入工作區後，選取 [工作區摘要]。 您應該會看到下列三個檢視：
 
-    * **Azure AD 帳戶佈建事件**：此檢視會顯示與稽核佈建活動有關的報告，例如佈建的新使用者數目和佈建失敗、更新的使用者數目和更新失敗，以及取消佈建的使用者數目和對應的失敗。    
-    * **登入事件**：此檢視會顯示與監視登入活動相關性最高的報告，例如依應用程式、使用者、裝置顯示的登入，以及追蹤一段時間內登入次數的摘要檢視。
+    * **Azure AD 帳戶佈建事件**：此檢視會顯示與稽核佈建活動有關的報告，例如佈建的新使用者數目和佈建失敗次數、更新的使用者數目和更新失敗次數，以及取消佈建的使用者數目和對應的失敗次數。    
+    * **登入事件**：此檢視會顯示與監視登入活動相關性最高的報告 (例如依應用程式、使用者、裝置區分的登入)，以及追蹤一段時間內登入次數的摘要檢視。
 
 3. 選取其中一個檢視，以跳到個別的報告。 您也可以設定任何報告參數的警示。 例如，我們將設定發生任何登入錯誤時的警示。 為此，請依序選取 [登入事件] 檢視、[一段時間的登入錯誤] 報告和 [Analytics]，以開啟詳細資料頁面，內含構成報告的實際查詢。 
 

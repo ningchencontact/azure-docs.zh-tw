@@ -4,7 +4,7 @@ description: 簡介如何使用 Azure AD 自動佈建、解除佈建，以及跨
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: edd8e08ee20e7e6331701b55b3d58ebad3848408
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311448"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478479"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建
 
@@ -103,7 +103,7 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 
 * **管理員認證**必須提供給 Azure AD 佈建服務，讓它可連線至應用程式所提供的使用者管理 API。 此區段也可讓您在認證失敗或佈建作業進入[隔離](#quarantine)狀態時，啟用電子郵件通知。
 
-* 可設定**屬性對應**，指定來源系統中的欄位 (如：Azure AD) 其內容應同步至目標系統中的哪個欄位 (如：ServiceNow)。 如果目標應用程式可支援，則此區段可讓您選擇性地設定群組佈建 (除了使用者帳戶以外)。 「相符的屬性」可讓您選取使用哪些欄位來比對系統之間的帳戶。 「[運算式](functions-for-customizing-application-data.md)」可讓您在將值寫入目標系統之前修改及轉換從來源系統取出的值。 如需詳細資訊，請參閱[自訂屬性對應](customize-application-attributes.md)。
+* 可以設定**屬性對應**，以指定要將來源系統 (例如：Azure AD) 中哪些欄位的內容同步至目標系統 (例如：ServiceNow) 中的哪些欄位。 如果目標應用程式可支援，則此區段可讓您選擇性地設定群組佈建 (除了使用者帳戶以外)。 「相符的屬性」可讓您選取使用哪些欄位來比對系統之間的帳戶。 「[運算式](functions-for-customizing-application-data.md)」可讓您在將值寫入目標系統之前修改及轉換從來源系統取出的值。 如需詳細資訊，請參閱[自訂屬性對應](customize-application-attributes.md)。
 
 ![設定](./media/user-provisioning/provisioning_settings1.PNG)
 
@@ -265,7 +265,7 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>對 SaaS 應用程式的自動使用者佈建是否適用於 Azure AD 中的巢狀群組？
 
-否。 設定為 [只同步已指派的使用者與群組] 時，Azure AD 使用者佈建服務無法讀取或佈建位於巢狀群組中的使用者。 此服務只能讀取和佈建在明確指派的群組中屬於直接成員的使用者。
+沒有。 設定為 [只同步已指派的使用者與群組] 時，Azure AD 使用者佈建服務無法讀取或佈建位於巢狀群組中的使用者。 此服務只能讀取和佈建在明確指派的群組中屬於直接成員的使用者。
 
 這是「應用程式的群組型指派」所受到的限制，對單一登入也會產生影響，相關說明請見[使用群組管理 SaaS 應用程式的存取權](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps )。
 

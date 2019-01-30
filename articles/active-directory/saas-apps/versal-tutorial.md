@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Versal 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 5b2e53c0-61a3-4954-ae46-8c28c6368bfd
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeedes
-ms.openlocfilehash: a6e1f73218efb11da475f3e67188863c3b99de97
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a2d7661a9e837bebc873e54865f9b7c4259faf24
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421333"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816512"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-versal"></a>教學課程：Azure Active Directory 與 Versal 整合
 

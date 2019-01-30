@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Lessonly.com 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 8c9dc6e6-5d85-4553-8a35-c7137064b928
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 050e8efed38c40d8c7da292c0d6865869a07c9f9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d9f1cfb125c2fa5cd513ae7c2e20c41b8d98f01b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121704"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>教學課程：Azure Active Directory 與 Lessonly.com 整合
 
@@ -126,7 +126,7 @@ ms.locfileid: "43121704"
     | `https://<companyname>.lessonly.com/auth/saml/metadata`|
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Lessonly.com 用戶端支援小組](mailto:dev@lessonly.com)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Lessonly.com 用戶端支援小組](mailto:support@lessonly.com)以取得這些值。 
 
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -165,7 +165,7 @@ ms.locfileid: "43121704"
 
     ![設定單一登入](./media/lessonly-tutorial/tutorial_lessonly.com_configure.png)
 
-1. 若要在 **Lessonly.com** 端設定單一登入，您必須將已下載的「憑證 (Base64)」、「登出 URL、SAML實體辨識碼和 SAML 單一登入服務 URL」 傳送給 [Lessonly.com 支援小組](mailto:dev@lessonly.com)。
+1. 若要在 **Lessonly.com** 端設定單一登入，您必須將已下載的「憑證 (Base64)」、「登出 URL、SAML實體辨識碼和 SAML 單一登入服務 URL」 傳送給 [Lessonly.com 支援小組](mailto:support@lessonly.com)。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -208,7 +208,7 @@ ms.locfileid: "43121704"
 在這一節沒有您需要進行的動作項目。 嘗試存取 Lessonly.com 時，如果使用者還不存在，就會建立新使用者。
 
 > [!NOTE]
-> 如果您需要手動建立使用者，您需要連絡 [Lessonly.com 支援小組](mailto:dev@lessonly.com)。
+> 如果您需要手動建立使用者，您需要連絡 [Lessonly.com 支援小組](mailto:support@lessonly.com)。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

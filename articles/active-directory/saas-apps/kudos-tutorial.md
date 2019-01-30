@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Kudos 之間的單一
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 39c47ce6-4944-47ba-8f53-3afa95398034
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 878bbe16e2d33375c160c17d458654541e2f4174
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e20a58542f4bc8220e9474a746d90dd89e5c5cb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435174"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824893"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>教學課程：Azure Active Directory 與 Kudos 整合
 
@@ -251,7 +251,7 @@ Kudos 需以手動的方式佈建。
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Kudos] 圖格時，應該會自動登入您的 Kudos 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+當您在存取面板中按一下 [Kudos] 圖格時，應該會自動登入您的 Kudos 應用程式。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -3,7 +3,7 @@ title: 註冊自助式密碼重設 - Azure Active Directory | Microsoft Docs
 description: 註冊 Azure AD 自助式密碼重設的驗證資料
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.assetid: ''
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
-ms.openlocfilehash: f8b4fb8861760d2b5b10f61b3ab6a8c718f849b6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2a9e65e36e31f4b2b382fac2bd9898580be18900
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106474"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821663"
 ---
 # <a name="register-for-self-service-password-reset"></a>註冊自助式密碼重設
 
@@ -32,8 +32,8 @@ ms.locfileid: "47106474"
 2. 輸入您的使用者名稱和您系統管理員所提供的密碼。
 3. 視您的 IT 人員如何設定而定，下列一或多個選項可供您進行設定及驗證。 如果您的系統管理員具有權限可使用您的資訊，他們可以填入一些您的資訊。
     * **辦公室電話**：只有您的系統管理員可以設定此選項。
-    * **驗證電話**：將這個選項設為另一個您可以存取的電話號碼。 例如，可以接收簡訊或電話的行動電話。
-    * **驗證電子郵件**：將此選項設定為替代電子郵件地址，您可加以存取而不需要使用所需重設的密碼。
+    * **驗證電話**：將此選項設定為另一個您可以存取的電話號碼。 例如，可以接收簡訊或電話的行動電話。
+    * **驗證電子郵件**：將此選項設定為您無須使用所要重設之密碼即可存取的替代電子郵件地址。
     * **安全性問題**：您的系統管理員已核准這份問題清單以供您回答。 您不可以使用相同的問題或回答一次以上。
 4. 提供並確認您系統管理員所需的資訊。 如果可以使用多個選項，建議您註冊多個方法。 當其中一種方法無法使用時，這可為您提供彈性。 例如，當您在旅行時，無法接聽您的辦公室電話。
 

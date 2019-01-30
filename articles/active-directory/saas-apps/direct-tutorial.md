@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 direct 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7c2cd1f0-d14c-42f0-94a8-9b800008b285
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e693a721e5556970607fafd8ff187d3b06c913e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6bb197b820b9f4262eb5c93665c46c14f9497d0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092881"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>教學課程：Azure Active Directory 與 direct 整合
 
@@ -118,7 +118,7 @@ direct 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/direct-tutorial/tutorial_direct_url1.png)
 
-     在 [登入 URL] 文字方塊中，輸入 URL：`https://direct4b.com/sso` 
+     在 [登入 URL] 文字方塊中，輸入 URL：`https://direct4b.com/sso` 
 
 5. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -164,7 +164,7 @@ direct 與 Azure AD 整合提供下列優點：
 
 ### <a name="creating-a-direct-test-user"></a>建立 direct 測試使用者
 
-在本節中，您要在 direct 中建立名為 Britta Simon 的使用者。 請與 [direct 支援小組](https://direct4b.com/ja/support.html#inquiry)合作，在 direct 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您要在 direct 中建立名為 Britta Simon 的使用者。 請與 [direct 支援小組](https://direct4b.com/ja/support.html#inquiry)合作，在 direct 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -208,9 +208,9 @@ direct 與 Azure AD 整合提供下列優點：
 
     a. 按一下存取面板中的 [direct] 圖格，系統就會將您重新導向至應用程式登入頁面。
 
-    b. 在顯示的文字方塊中輸入您的 `subdomain`，然後按 '次へ (下一步)'，您應該就會自動登入您的 **direct** 應用程式。
+    b. 在顯示的文字方塊中輸入您的 `subdomain`，然後按 [次へ] \(下一步\)，您應該就會自動登入您的 **direct** 應用程式。
 
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

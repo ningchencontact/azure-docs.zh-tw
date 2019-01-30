@@ -1,10 +1,10 @@
 ---
-title: 教學課程：Azure Active Directory 與 Icertis 合約管理平台整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 與 Icertis Contract Management 平台整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 Icertis 合約管理平台之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 6627e6dd-f559-4cd4-a509-f6d9a4961b49
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 8a158f2edb5fd9c9b72f4de2dcb27cf6b3c71874
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4d467c582e6d1226d6c8b1b20015ce5680a692c4
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444979"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828021"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>教學課程：Azure Active Directory 與 Icertis 合約管理平台整合
+# <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>教學課程：Azure Active Directory 與 Icertis Contract Management 平台整合
 
 在本教學課程中，您可以了解如何整合 Icertis 合約管理平台與 Azure Active Directory (Azure AD)。
 

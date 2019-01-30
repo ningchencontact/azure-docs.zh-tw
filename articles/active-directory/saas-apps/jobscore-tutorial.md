@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 JobScore 之間的單
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 30f51b32-e55c-4c66-96e8-50a2f9c2194a
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 8fbe30d37c8fb906c829d5e76771155dfeb76fce
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9ec6fe07fb74ddd27c7d4237b8c93b6567e13427
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449140"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815968"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscore"></a>教學課程：Azure Active Directory 與 JobScore 整合
 

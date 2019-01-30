@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 97de65acf724d12afd131ede25713e8f29d30bad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579782"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477629"
 ---
 # <a name="configure-recognize-text-containers"></a>設定辨識文字容器
 
@@ -32,6 +32,7 @@ ms.locfileid: "53579782"
 * [計費](#billing-configuration-setting)
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [HTTP Proxy 認證設定](#http-proxy-credentials-settings)
 * [記錄](#logging-configuration-settings)
 * [裝載](#mounts-configuration-settings)
 
@@ -116,6 +117,11 @@ ms.locfileid: "53579782"
 | `TlsConnectionEstablishmentTimeoutMs` | 整數  | 向 Fluentd 伺服器建立 SSL/TLS 連線的逾時，以毫秒為單位。 預設值是 10000 毫秒 (10 秒)。<br/> 如果將 `UseTLS` 設定為 false，便會忽略此值。 |
 | `UseTLS` | BOOLEAN | 指出容器是否應使用 SSL/TLS 來與 Fluentd 伺服器通訊。 預設值為 False。 |
 
+
+## <a name="http-proxy-credentials-settings"></a>HTTP Proxy 認證設定
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>Logging 組態設定
 
 `Logging` 組態設定能管理適用於您容器的 ASP.NET Core 記錄支援。 針對您的容器，您可以使用適用於 ASP.NET Core 應用程式的相同組態設定和值。 電腦視覺容器支援下列記錄提供者：
@@ -164,3 +170,7 @@ ms.locfileid: "53579782"
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
   ```
+
+## <a name="next-steps"></a>後續步驟
+
+* 使用更多[認知服務容器](../cognitive-services-container-support.md)

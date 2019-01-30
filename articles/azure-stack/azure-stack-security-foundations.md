@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: fba4020c5e947c135d9e17cfb1d0b2a79ad8a502
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306449"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819334"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基礎結構安全性狀態
 
@@ -41,7 +41,7 @@ Azure Stack 的安全性狀態是針對防禦新式威脅而設計的，且建�
 由於 Microsoft 是以整合系統的形式提供 Azure Stack，因此會由 Microsoft 定義 Azure Stack 基礎結構的安全性狀態。 就像在 Azure 中一樣，租用戶需負責定義其租用戶工作負載的安全性狀態。 本文件提供有關 Azure Stack 基礎結構之安全性狀態的基礎知識。
 
 ## <a name="data-at-rest-encryption"></a>待用資料加密
-所有 Azure Stack 基礎結構和租用戶待用資料都會以 Bitlocker 加密。 此加密可為 Azure Stack 儲存體元件實際遺失或遭竊的情況提供防護。 如需詳細資訊，請參閱 [Azure Stack 中的待用資料加密](azure-stack-security-bitlocker.md)。
+所有 Azure Stack 基礎結構和租用戶待用資料都會以 BitLocker 加密。 此加密可為 Azure Stack 儲存體元件實際遺失或遭竊的情況提供防護。 如需詳細資訊，請參閱 [Azure Stack 中的待用資料加密](azure-stack-security-bitlocker.md)。
 
 ## <a name="data-in-transit-encryption"></a>傳輸中資料加密
 Azure Stack 基礎結構元件使用以 TLS 1.2 加密的通道進行通訊。 加密憑證會由基礎結構自行管理。 

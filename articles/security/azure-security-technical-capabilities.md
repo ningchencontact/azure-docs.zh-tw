@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: b58d6315c4399a7bb23514eb90ab5a94acda2592
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c74c208e77539833c2bc5e1323713191e29aec64
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249025"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820235"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
 
@@ -179,7 +179,7 @@ RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需
 
 在雲端保護資料的其中一個關鍵是考慮您的資料可能會發生的狀態，以及哪些控制項適用於該狀態。 如要了解 Azure 資料安全性和加密最佳做法，相關建議將以下列資料的狀態為主。
 
-- 待用︰這包括實體媒體 (磁碟或光碟) 上以靜態方式存在的所有資訊儲存物件、容器和類型。
+- 待用：這包括實體媒體 (磁碟或光碟) 上以靜態方式存在的所有資訊儲存物件、容器和類型。
 
 - 傳輸中︰當資料在元件、位置或程式之間傳送，例如透過網路、透過服務匯流排 (從內部部署至雲端，反之亦然，包括諸如 ExpressRoute 的混合式連線)，或在輸入/輸出過程中，它會被視為移動中。
 
@@ -216,7 +216,7 @@ RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需
 
 對於您所使用的每個存放區，利用現有的待用加密支援。
 
-- Azure 儲存體：請參閱[待用資料的 Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/storage-service-encryption)。
+- Azure 儲存體：請參閱[待用資料的 Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/storage-service-encryption)
 
 - SQL Azure：請參閱[透明資料加密 (TDE)、SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
 
@@ -248,7 +248,7 @@ PaaS v1 目前不支援 Azure 磁碟加密。 因此，您必須使用應用程�
 
 由於待用加密涉及到主機、基礎結構和租用戶資料的加密，因此如果系統失敗或有惡意活動而導致金鑰遺失，就可能意味著所有加密資料也將跟著遺失。 因此，您所設計的待用加密解決方案務必要有完整的災害復原劇本，以便能從系統失敗和惡意活動中復原。
 
-實作待用加密的服務通常仍會受到加密金鑰或主機磁碟機上尚未加密之資料 (例如，在主機作業系統的分頁檔中) 的影響。因此，服務必須確保其服務的主機磁碟區已加密。 為了方便您做到這一點，計算團隊已啟用主機加密的部署，以供您使用 [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) NKP 以及 DCM 服務與代理程式的擴充功能來加密主機磁碟區。
+實作待用加密的服務通常仍會受到加密金鑰或主機磁碟機上尚未加密之資料 (例如，在主機作業系統的分頁檔中) 的影響。因此，服務必須確保其服務的主機磁碟區已加密。 為了做到這一點，計算團隊已啟用主機加密的部署，其會使用 [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) \(英文\) NKP 以及 DCM 服務與代理程式的擴充來加密主機磁碟區。
 
 大部分服務會實作在標準 Azure VM 上。 這類服務應該會在計算團隊將其啟用時自動獲得[主機加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)。 在計算團隊管理的叢集中執行的服務，皆已在 Windows Server 2016 推出時自動啟用主機加密。
 

@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 Synergi 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 73c970e1-f1ba-420b-b225-414fdf93b140
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 91b831be10f71b8f7e5f4226a697ed92eadfd68c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 30d678d50408fb41e844ff474c464c4c467fed5e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446259"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-synergi"></a>教學課程：Azure Active Directory 與 Synergi 整合
 
@@ -110,7 +110,7 @@ Synergi 與 Azure AD 整合提供下列優點：
 
     ![Synergi 網域與 URL 單一登入資訊](./media/synergi-tutorial/tutorial_synergi_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<company name>.irmsecurity.com`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<company name>.irmsecurity.com`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<company name>.irmsecurity.com/sso/<organization id>`
 
@@ -168,7 +168,7 @@ Synergi 與 Azure AD 整合提供下列優點：
   
 ### <a name="create-a-synergi-test-user"></a>建立 Synergi 測試使用者
 
-在本節中，您要在 Synergi 中建立名為 Britta Simon 的使用者。 請與 [Synergi 支援小組](https://www.irmsecurity.com/contact/)合作，在 Synergi 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Synergi 中建立名為 Britta Simon 的使用者。 請與 [Synergi 支援小組](https://www.irmsecurity.com/contact/)合作，在 Synergi 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -205,7 +205,7 @@ Synergi 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在 [存取面板] 中按一下 [Synergi] 圖格時，應該會自動登入您的 Synergi 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354547"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471815"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
 
 在 Azure 搜尋服務中，[資源是建立](search-create-service-portal.md)在定價層或該服務之存留期內固定的 SKU。 層包括**免費**、**基本**或**標準**，其中**標準**在數個組態和容量都有提供。 大部分客戶一開始都會使用**免費**層來進行評估，然後再晉升到**標準**層以進行開發與生產環境部署。 您可以完成**免費**層上的所有快速入門和教學課程，包括耗用大量資料之認知搜尋的快速入門和教學課程。 
 
-層決定容量，而不是功能，並透過下列方式區分：
+層級會反映裝載服務之硬體的特性 (而非功能)，並會依下列方式來加以區分：
 
 + 您可以建立的索引數目
 + 分割區的大小和速度 (實體儲存體)
@@ -63,7 +63,7 @@ SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 
 ### <a name="billing-for-image-extraction-in-cognitive-search"></a>認知搜尋服務中的影像擷取計費
 
-如果您在認知服務編製索引管線中從檔案擷取影像，在您的 Azure 搜尋服務帳單中會針對該作業收費。 觸發影像擷取的參數是[索引子設定](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters)中的 **imageAction**。 如果 **imageAction** 設為 none (預設值)，則不會有影像擷取的費用。
+如果您在認知服務編製索引管線中從檔案擷取影像，在您的 Azure 搜尋服務帳單中會針對該作業收費。 觸發影像擷取的參數是[索引子設定](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)中的 **imageAction**。 如果 **imageAction** 設為 none (預設值)，則不會有影像擷取的費用。
 
 價格有可能會變更，但一律會在 Azure 搜尋服務的[價格詳細資料](https://azure.microsoft.com/pricing/details/search/)頁面記載。 
 

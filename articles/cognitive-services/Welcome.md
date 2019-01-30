@@ -7,14 +7,14 @@ manager: cgronlund
 ms.service: cognitive-services
 ms.component: ''
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/17/2018
 ms.author: nitinme
-ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 60bf74135e760e837de7e5548bcb60f6c7b8dd0c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025390"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475232"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure 認知服務是什麼？
 
@@ -89,6 +89,14 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 認知服務中的 API 裝載於持續成長且受 Microsoft 管理的資料中心網路上。 您可以在 [Azure 區域清單](https://azure.microsoft.com/regions)中找到每個 API 的區域可用性。
 
 尋找我們尚未支援的區域嗎？ 藉由在我們的 [UserVoice 論壇](https://cognitive.uservoice.com/) \(英文\) 中提出功能要求，來讓我們知道。
+
+## <a name="supported-cultural-languages"></a>支援的文化特性語言
+
+ 認知服務以服務層支援各種不同的文化特性語言。 您可以在[支援的語言清單](language-support.md)中找到每個 API 的語言可用性。
+
+ ## <a name="container-support"></a>容器支援
+
+ 認知服務在 Azure 雲端或內部部署中提供部署容器。 深入了解[認知服務容器](cognitive-services-container-support.md)。
 
 ## <a name="support"></a>支援
 

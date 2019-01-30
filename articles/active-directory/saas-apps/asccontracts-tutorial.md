@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 ASC Contracts 之間�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f7f54202-1581-4e55-a97e-02633ff9382d
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: jeedes
-ms.openlocfilehash: f5eaa61af2c44265f36662e8a3b1f8ff8a747afe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5737bd76e7809035f21103f45a20fa8306061f30
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449548"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823295"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>教學課程：Azure Active Directory 與 ASC Contracts
 
@@ -112,12 +112,12 @@ ASC Contracts 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/asccontracts-tutorial/tutorial_asccontracts_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.asccontracts.com/shibboleth`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.asccontracts.com/shibboleth`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.asccontracts.com/shibboleth.sso/login`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 ASC Networks Inc. (ASC) 小組 (電話是 **613.599.6178**) 以取得這些值。
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 ASC Networks Inc.(ASC) 小組 (電話是 **613.599.6178**) 以取得這些值。
 
 1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -127,7 +127,7 @@ ASC Contracts 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/asccontracts-tutorial/tutorial_general_400.png)
 
-1. 若要在 **ASC Contracts** 端設定單一登入，請致電 ASC Networks Inc. (ASC) 支援小組 (電話是 **613.599.6178**)，並向他們提供所下載的**中繼資料 XML**。 他們將會此應用程式設定妥當，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要在 **ASC Contracts** 端設定單一登入，請致電 ASC Networks Inc.(ASC) 支援小組 (電話是 **613.599.6178**)，並向他們提供所下載的**中繼資料 XML**。 他們將會此應用程式設定妥當，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -165,7 +165,7 @@ ASC Contracts 與 Azure AD 整合提供下列優點：
  
 ### <a name="creating-an-asc-contracts-test-user"></a>建立 ASC Contracts 測試使用者
 
-與 ASC Networks Inc. (ASC) 支援小組 (電話是 **613.599.6178**) 合作，以將使用者新增到 ASC Contracts 平台。
+請與 ASC Networks Inc.(ASC) 支援小組 (電話是 **613.599.6178**) 合作，在 ASC Contracts 平台新增使用者。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -201,7 +201,7 @@ ASC Contracts 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [ASC Contracts] 圖格時，應該會自動登入您的 ASC Contracts 應用程式。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+當您在存取面板中按一下 [ASC Contracts] 圖格時，應該會自動登入您的 ASC Contracts 應用程式。 如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

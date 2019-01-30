@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: 5262c99fae965201d4f9519495163d0e16836a7a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f5695da01752d701e1b688700580982f2d2e6154
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726537"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827409"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>關於 Azure 備份代理程式的問題
 本文包含常見問題的解答，可協助您快速了解 Azure 備份代理程式元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -33,7 +33,7 @@ ms.locfileid: "52726537"
 * 唯讀磁碟區：必須為可寫入磁碟區，才能使磁碟區陰影複製服務 (VSS) 正常運作。
 * 離線磁碟區：必須為線上磁碟區，才能使 VSS 正常運作。
 * 網路共用：必須為本機磁碟區，才能使用線上備份來備份伺服器。
-* 受 Bitlocker 保護的磁碟區：磁碟區必須先解除鎖定才能執行備份。
+* 受 BitLocker 保護的磁碟區：磁碟區必須先解除鎖定才能執行備份。
 * 檔案系統識別碼：NTFS 是唯一支援的檔案系統。
 
 ### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>我可以從伺服器備份何種類型的檔案和資料夾？<br/>

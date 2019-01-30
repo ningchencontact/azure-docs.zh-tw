@@ -3,19 +3,19 @@ title: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的 JS
 description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的 JSON 宣告轉換範例。
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d712286cb4ea5e67474ec11d56d99eaf2cabec3e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e7096773f2aaa39abd965b4697f45a3b3f80f136
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433067"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850836"
 ---
 # <a name="json-claims-transformations"></a>JSON 宣告轉換
 
@@ -52,7 +52,7 @@ ms.locfileid: "47433067"
 ### <a name="example"></a>範例
 
 - 輸入宣告：
-    - **inputJson**：{"emailAddress": "someone@example.com", "displayName": "Someone"}
+    - **inputJson**：{"emailAddress": "someone@example.com", "displayName":"Someone"}
 - 輸入參數：
     - **claimToExtract**：emailAddress
 - 輸出宣告： 
@@ -111,7 +111,7 @@ ms.locfileid: "47433067"
     - **displayName**："Someone"
     - **membershipNum**：6353399
     - **active**：true
-    - **birthdate** 1980-09-23T00:00:00Z
+    - **birthdate**：1980-09-23T00:00:00Z
 
 ## <a name="getnumericclaimfromjson"></a>GetNumericClaimFromJson
 
@@ -150,7 +150,7 @@ ms.locfileid: "47433067"
 ### <a name="example"></a>範例
 
 - 輸入宣告：
-    - **inputJson**：{"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
+    - **inputJson**：{"emailAddress": "someone@example.com", "displayName":"Someone", "id" :6353399}
 - 輸入參數
     - **claimToExtract**：id
 - 輸出宣告： 
