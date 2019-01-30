@@ -78,7 +78,7 @@ Microsoft Translator V3 的定價方式與 V2 相同，即依字元計價，包�
 | Languages     | 未提交任何字元就不會計算，而不會產生費用。          |
 | Translate     | 計費將取決於提交了多少個字元進行翻譯，以及這些字元翻譯成多少種語言。 若提交了 50 個字元，且要求 5 種語言，則會以 50x5 計算。           |
 | Transliterate     | 會計算提交以進行音譯的字元數。         |
-| Dictionary lookup & example     | 會計算針對字典查閱和範例而提交的字元數。         |
+| Dictionary lookup &amp; example     | 會計算針對字典查閱和範例而提交的字元數。         |
 | BreakSentence     | 不收費。       |
 | Detect     | 不收費。      |
 
