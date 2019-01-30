@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/21/2018
+ms.date: 01/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 55c9d9942272821de5724568ff58fe27c1641eb2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 9fd64e4a9eb100b00dc4597042321b21466f2c7d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54012092"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54414462"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>在我的點對站台組態中可以有多少個 VPN 用戶端端點？
 
@@ -70,7 +70,7 @@ Azure 支援兩種點對站 VPN 選項：
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure 支援採用 Windows 的 IKEv2 VPN 嗎？
 
-Windows 10 和 Server 2016 都支援 IKEv2。 不過，若要使用 IKEv2，您必須在本機安裝更新並設定登錄機碼值。 Windows 10 之前的作業系統版本不受支援，且只能使用 SSTP。
+Windows 10 和 Server 2016 都支援 IKEv2。 不過，若要使用 IKEv2，您必須在本機安裝更新並設定登錄機碼值。 Windows 10 之前的作業系統版本不受支援，且只能使用 SSTP 或 OpenVPN 通訊協定。
 
 若要針對 IKEv2 準備 Windows 10 或 Server 2016：
 

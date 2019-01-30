@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: ca412e94f65c7e1ed9a547ec9dcabc62fac7d42f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 45c77aa63159a8e62f65c0e250c0ace95b0d344e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741822"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429900"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>預覽：強制執行 Windows Server Active Directory 的 Azure AD 密碼保護
 

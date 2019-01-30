@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: cda439973c584a57cadc30de7fb931732682de00
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 73d14ebf8ed365659ec547469cd903d5db22c561
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092452"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428608"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Execute SSIS 套件活動執行 SSIS 套件
 本文描述如何使用 Execute SSIS 套件活動，在 Azure Data Factory 管線執行 SSIS 套件。 
@@ -59,7 +59,7 @@ ms.locfileid: "50092452"
 5. 選取 Data Factory 的 [位置]  。 只有受到 Data Factory 支援的位置才會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他位置。
 6. 選取 [釘選到儀表板]。     
 7. 按一下頁面底部的 [新增] 。
-8. 在儀表板上，您會看到狀態如下的下列圖格︰**正在部署資料處理站**。 
+8. 在儀表板上，您會看到狀態如下的下列圖格︰**部署 Data Factory**。 
 
     ![部署資料處理站圖格](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。
@@ -137,7 +137,7 @@ ms.locfileid: "50092452"
 ## <a name="run-a-package-with-powershell"></a>使用 PowerShell 執行套件
 在本節中，您會使用 Azure PowerShell 來建立 Data Factory 管線，其中具有要執行 SSIS 套件的執行 SSIS 套件活動。 
 
-依照[如何安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)中的指示，安裝最新的 Azure PowerShell 模組。 
+依照[如何安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)中的指示，安裝最新的 Azure PowerShell 模組。 
 
 ### <a name="create-a-data-factory"></a>建立 Data Factory
 您可以使用具有 Azure SSIS IR 的同一個資料處理站，也可以建立另一個資料處理站。 下列程序提供建立資料處理站的步驟。 您可以使用此資料處理站中的執行 SSIS 套件活動建立管線。 執行 SSIS 套件活動會執行您的 SSIS 套件。 

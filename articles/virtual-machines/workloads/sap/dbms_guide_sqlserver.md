@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 78ad40796a31e0c803b892e0c1b50e66b32c2b0a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430165"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425871"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>適用於 SAP NetWeaver 的 SQL Server Azure 虛擬機器 DBMS 部署
 
@@ -235,7 +235,7 @@ ms.locfileid: "49430165"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -418,12 +418,12 @@ SQL Server 緩衝集區擴充搭配 SAP 工作負載時所得到的體驗有好�
 
 
 ### <a name="automated-backup-for-sql-server"></a>適用於 SQL Server 2016+ 的自動備份
-「自動備份」可為在 Azure 的 Windows VM 中執行的 SQL Server Standard 與 Enterprise 版提供自動備份服務。 此服務是由 [SQL Server IaaS 代理程式延伸模組](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)提供的，並會自動在 Azure 入口網站中安裝於 SQL Server Windows 虛擬機器映像上。 如果您部署自己的 OS 映像時，連帶安裝了 SQL Server，則必須另外再安裝 VM 延伸模組。 至於相關的步驟，請參閱這篇[文章](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)。
+自動備份可為在 Azure 的 Windows VM 中執行的 SQL Server Standard 與 Enterprise 版提供自動備份服務。 此服務是由 [SQL Server IaaS 代理程式延伸模組](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)提供的，並會自動在 Azure 入口網站中安裝於 SQL Server Windows 虛擬機器映像上。 如果您部署自己的 OS 映像時，連帶安裝了 SQL Server，則必須另外再安裝 VM 延伸模組。 至於相關的步驟，請參閱這篇[文章](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)。
 
 如需進一步了解這個方法的功能，請參閱下列文章：
 
-- SQL Server 2014：[SQL Server 2014 虛擬機器的自動備份 (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup) \(機器翻譯\)
-- SQL Server 2016/2017：[Azure 虛擬機器的自動備份 v2 (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2) \(機器翻譯\)
+- SQL Server 2014：[SQL Server 2014 虛擬機器的自動備份 (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)
+- SQL Server 2016/2017：[Azure 虛擬機器的自動備份 v2 (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2)
 
 仔細看這份文件，您會發現 SQL Server 最新版本的功能已得到改善。 如需進一步了解 SQL Server 的自動備份功能，請參閱 [SQL Server Managed Backup to Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-2017) \(機器翻譯\) 這篇文章。 理論上的備份大小限制為 12 TB。  自動備份可以讓大小達到 12 TB，是一種好方法。 由於多個 blob 會以平行方式寫入，因此輸送量每秒會超過 100 MB。 
  

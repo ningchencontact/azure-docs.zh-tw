@@ -3,7 +3,7 @@ title: Azure 資訊安全中心的安全分數 | Microsoft Docs
 description: " 使用 Azure 資訊安全中心的安全分數，設定安全性建議的優先權。 "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 4bc426e291a47ae42e7628ad911e2960e654819f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: monhaber
+ms.openlocfilehash: 4c7f272cbf98fefbf70e917634fb623c9e1b6a3b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261293"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425879"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>改善您 Azure 資訊安全中心的安全分數
 
@@ -45,7 +45,7 @@ ms.locfileid: "54261293"
 2. 您可以在頂端看到安全性分數重點：
    - [整體安全性分數] 代表每個所選訂用帳戶每個原則的分數
    - [依類別計的安全分數] 顯示最需要注意的資源
-   - [依安全性分數的重要建議] 提供建議清單，如果您修復其中的項目將能大幅改善您的安全性分數。
+   - [依安全性分數的重要建議] 提供建議清單，如果您實作其中的項目將能大幅改善您的安全性分數。
  
    ![安全分數](./media/security-center-secure-score/secure-score-dashboard.png)
 

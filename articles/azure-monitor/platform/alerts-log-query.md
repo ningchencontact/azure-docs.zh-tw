@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.component: alerts
-ms.openlocfilehash: 9cd745cedd6d870262e412709e4e104c1406558e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.subservice: alerts
+ms.openlocfilehash: 36be305e60806ba2cdea260fc46bc329c43284cb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54234061"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429781"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Azure 監視器中的記錄警示查詢
 [以 Azure 監視器記錄為基礎的警示規則](alerts-unified-log.md)會定期執行，因此您應該確定已撰寫規則將額外負荷和延遲降至最低。 這篇文章對於撰寫記錄警示的有效查詢以及轉換現有查詢的程序提供建議。 
@@ -222,3 +222,4 @@ on Hour
 ## <a name="next-steps"></a>後續步驟
 - 了解 [Azure 監視器中的記錄警示](alerts-log.md)。
 - 了解[記錄查詢](../log-query/log-query-overview.md)。
+

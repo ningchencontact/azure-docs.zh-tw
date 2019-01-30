@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 7d7de02c96b9a17144b446b9ed86ebcbacd51162
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: a936626301c8e1a866817264342cc2c84130e158
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025000"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425905"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
@@ -65,7 +65,7 @@ ms.locfileid: "50025000"
 
 * **使用者**：嘗試進行密碼重設註冊作業的使用者。
 * **角色**：使用者在目錄中的角色。
-* **日期和時間**：嘗試的日期和時間。
+* **日期和時間**：嘗試日期和時間。
 * **已註冊資料**：使用者在密碼重設註冊期間提供哪些驗證資料。
 
 ## <a name="description-of-the-report-values-in-the-azure-portal"></a>Azure 入口網站中報告值的說明
@@ -88,7 +88,7 @@ ms.locfileid: "50025000"
 * [解除鎖定使用者帳戶 (自助式)](#activity-type-unlock-user-account-self-service)：指出使用者已使用 Active Directory 的帳戶解除鎖定而不重設功能，成功解除鎖定其 Active Directory 帳戶，而沒有從 [Azure AD 密碼重設入口網站](https://passwordreset.microsoftonline.com)重設其密碼。
 * [使用者已註冊自助式密碼重設](#activity-type-user-registered-for-self-service-password-reset)：指出使用者已根據目前指定的租用戶密碼重設原則，註冊所有必要的資訊，以便能夠重設其密碼。
 
-### <a name="activity-type-blocked-from-self-service-password-reset"></a>活動類型︰封鎖自助式密碼重設
+### <a name="activity-type-blocked-from-self-service-password-reset"></a>活動類型：封鎖自助式密碼重設
 
 下列清單詳細說明此活動︰
 
@@ -146,7 +146,7 @@ ms.locfileid: "50025000"
 * **活動狀態**：
   * _成功_：指出使用者已成功完成密碼重設流程的特定步驟。
   * _失敗_：指出密碼重設流程的特定步驟失敗。 您可以選取該資料列，以查看 [活動狀態原因] 類別，深入了解失敗發生的原因。
-* **活動狀態原因**：請參閱下的表以取得[所有允許的重設活動狀態原因](#allowed-values-for-details-column)。
+* **活動狀態原因**： 請參閱下的表以取得[所有允許的重設活動狀態原因](#allowed-values-for-details-column)。
 
 ### <a name="activity-type-unlock-a-user-account-self-service"></a>活動類型：解除鎖定使用者帳戶 (自助式)
 
@@ -159,7 +159,7 @@ ms.locfileid: "50025000"
   * _成功_：指出使用者已成功解除鎖定其帳戶。
   * _失敗_：指出使用者解除鎖定帳戶失敗。 您可以選取該資料列，以查看 [活動狀態原因] 類別，深入了解失敗發生的原因。
 
-### <a name="activity-type-user-registered-for-self-service-password-reset"></a>活動類型︰使用者已註冊自助式密碼重設
+### <a name="activity-type-user-registered-for-self-service-password-reset"></a>活動類型：使用者已註冊自助式密碼重設
 
 下列清單詳細說明此活動︰
 

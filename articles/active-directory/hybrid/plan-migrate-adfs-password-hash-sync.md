@@ -1,9 +1,9 @@
 ---
 title: Azure AD Connect：從同盟移轉至 Azure AD 的密碼雜湊同步處理 | Microsoft Docs
-description: 將混合式身分識別環境從同盟移至密碼雜湊同步處理的相關資訊。
+description: 本文有如何將混合式身分識別環境從同盟移至密碼雜湊同步處理的相關資訊。
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
@@ -11,418 +11,447 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a14e630c23af3e0228bf4806851f29cfab199215
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c6c13d0e27edd5563f10df59ce7af585a345bfab
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103973"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463332"
 ---
-# <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>從同盟移轉至 Azure AD 的密碼雜湊同步處理
-下列文件提供從 AD FS 移至密碼雜湊同步處理的相關指引。
+# <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>從同盟移轉至 Azure Active Directory 的密碼雜湊同步處理
 
->[!NOTE]
->您可以在[此處](https://aka.ms/ADFSTOPHSDPDownload)下載本文件複本。
+本文說明如何將組織的網域從 Active Directory 同盟服務 (AD FS) 移至密碼雜湊同步處理。
 
+您可以[下載本文](https://aka.ms/ADFSTOPHSDPDownload)。
 
-## <a name="prerequisites-for-the-migration"></a>移轉的必要條件 
-移轉之前必須符合下列先決條件。
+## <a name="prerequisites-for-migrating-to-password-hash-synchronization"></a>用於遷移至密碼雜湊同步處理的必要條件
+
+若要從使用 AD FS 遷移至使用密碼雜湊同步處理，您必須滿足下列必要條件。
+
 ### <a name="update-azure-ad-connect"></a>更新 Azure AD Connect
 
-若要成功執行移轉到傳遞驗證的步驟，至少應有 [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0。 此版本包含執行登入轉換方式的重大變更，而且可將從同盟移轉到雲端驗證的整體時間從數小時縮減至數分鐘。
+若要成功完成遷移至使用密碼雜湊同步處理所需執行的步驟，您必須擁有 [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 或更新版本。 在 Azure AD Connect 1.1.819.0 中，用來執行登入轉換的方式有了巨大變化。 在這個版本中，從 AD FS 遷移至雲端驗證所需的整體時間，已從可能需要數小時縮短為只要幾分鐘。
 
 > [!IMPORTANT]
-> 過時的文件、工具和部落格文章上，註明了當從同盟網域轉換成受控網域時，使用者轉換是必要的步驟。 請注意，現在不再需要轉換使用者，而且 Microsoft 正在努力更新說明文件和工具來反映此項變更。
+> 在過時的文件、工具和部落格上，您可能看過在從同盟身分識別轉換為受控識別時，必要進行使用者轉換的資訊。 現已不再需要*轉換使用者*。 Microsoft 正努力更新文件和工具，以反映這項變化。
 
-若要將 Azure AD Connect 更新至最新版本，請依照本[更新指示](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version)操作。
+若要更新 Azure AD Connect，請完成 [Azure AD Connect：升級至最新版本](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version)中的步驟。
 
 ### <a name="password-hash-synchronization-required-permissions"></a>密碼雜湊同步處理所需的權限
 
-Azure AD Connect 可使用「快速設定」或「自訂安裝」來設定。 如果使用 [自訂安裝] 選項，可能會沒有密碼雜湊同步處理的[必要權限](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-accounts-permissions)。
+您可以使用快速設定或自訂安裝來設定 Azure AD Connect。 如果使用 [自訂安裝] 選項，可能會沒有密碼雜湊同步處理所需的[必要權限](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-accounts-permissions)。
 
-Azure AD Connect AD DS 服務帳戶需要下列權限才能同步處理密碼雜湊。
+Azure AD Connect Active Directory Domain Services (AD DS) 服務帳戶需要有下列權限才能同步處理密碼雜湊：
 
 * 複寫目錄變更
-
 * 複寫目錄變更 (全部)
 
-現在正是時候來驗證這些權限是否已準備好供樹系中所有網域使用。
+現在是時候驗證這些權限是否已準備好供樹系中的所有網域使用。
 
-### <a name="plan-migration-method"></a>規劃移轉方法
+### <a name="plan-the-migration-method"></a>規劃移轉方法
 
-有兩種方法可以從同盟驗證移轉至密碼雜湊同步處理和無縫 SSO。 您使用的方法將取決於原本設定 AD FS 的方式。 
+您可以從兩種方法中做選擇，以從同盟身分識別管理遷移至密碼雜湊同步處理和無縫單一登入 (SSO)。 您會使用的方法取決於 AD FS 執行個體原本的設定方式。
 
+* **Azure AD Connect**。 如果您原本使用 Azure AD Connect 來設定 AD FS，則「必須」使用 Azure AD Connect 精靈來變更密碼雜湊同步處理。
 
+   ‎當您變更使用者登入方法時，Azure AD Connect 會自動執行 **Set-MsolDomainAuthentication** Cmdlet。 Azure AD Connect 會自動將 Azure AD 租用戶中所有已驗證的同盟網域解除同盟。
 
-- **選項 A：使用 Azure AD Connect**。 如果原本是使用 Azure AD Connect 設定 AD FS，則必須透過 Azure AD Connect 精靈來變更做為使用者登入方式使用的密碼雜湊同步處理。   
-使用 Azure AD Connect 時，若要變更使用者登入方式，就會自動幫您執行 Set-MsolDomainAuthentication Cmdlet，因此您會無法控制 Azure AD Connect 將您 Azure 租用戶中所有經過驗證的同盟網域解除同盟。
+   > [!NOTE]
+   > 目前，如果您原本使用 Azure AD Connect 來設定 AD FS，則在將使用者登入變更為密碼雜湊同步處理時，系統會將租用戶中所有網域解除同盟的情形就無法避免。 ‎
+* **Azure AD Connect 搭配 PowerShell**。 只有原本並非使用 Azure AD Connect 來設定 AD FS 時，才可以使用這個方法。 針對這個選項，您仍必須透過 Azure AD Connect 精靈變更使用者登入方法。 此選項的核心差異是，精靈不會自動執行 **Set-MsolDomainAuthentication** Cmdlet。 使用此選項時，您可以完整控制要以怎樣的順序轉換哪些網域。
 
-> [!NOTE]
-> 此時，如果原先是使用 AAD Connect 設定 AD FS，將使用者登入方式變更成密碼雜湊同步處理時，就無法避免會將租用戶中所有網域解除同盟。  
-
-
-
-- **選項 B：使用 Azure AD Connect 和 PowerShell**。 只有在原先並非以 Azure AD Connect 設定 AD FS 的情況下，才可使用此方法。 您仍需要透過 Azure AD Connect 精靈變更使用者登入方法，但主要差異在於此方式不會自動執行 Set-MsolDomainAuthentication Cmdlet，因為此方式不知道您的 AD FS 伺服器陣列，所以您可以完全控制要轉換的網域和順序。
-
-若要了解您應該使用何種方式，請執行下一節中的步驟。
+若要了解您應該使用何種方法，請完成後面幾節的步驟。
 
 #### <a name="verify-current-user-sign-in-settings"></a>請確認目前的使用者登入設定
 
-使用全域系統管理員帳戶登入 Azure AD 入口網站[https://aad.portal.azure.com](https://aad.portal.azure.com/)，確認您目前的使用者登入設定。
+若要確認目前的使用者登入設定：
 
-在 [使用者登入] 區段中，確認 [同盟] 設為 [已啟用]，而 [無縫單一登入] 和 [傳遞驗證] 設為 [已停用]。 也請確認密碼同步處理的狀態應顯示為 [已停用]，除非先前已啟用。
+1. 使用全域系統管理員帳戶登入 [Azure AD 入口網站](https://aad.portal.azure.com/)。
+2. 在 [使用者設定]  區段中，確認下列設定：
+   * [同盟] 已設定為 [啟用]。
+   * [無縫單一登入] 已設定為 [停用]。
+   * [傳遞驗證] 已設定為 [停用]。
 
-![圖 5](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image1.png)
+   ![螢幕擷取畫面：Azure AD Connect [使用者登入] 區段中的設定](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image1.png)
 
-#### <a name="verify-azure-ad-connect-configuration"></a>確認 Azure AD Connect 設定
+#### <a name="verify-the-azure-ad-connect-configuration"></a>確認 Azure AD Connect 設定
 
-   1. 前往您的 Azure AD Connect 伺服器並啟動 Azure AD Connect，然後選取 [設定]。 
-   2. 在 [其他工作] 畫面中，選取 [檢視目前的設定]，然後選取 [下一步]。</br>
-   ![圖 31](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image2.png)</br>
-   
-   3. 在 [Review Your Solution]\(檢視您的解決方案\) 畫面中，記下密碼同步處理的狀態。</br> 
+1. 在 Azure AD Connect 伺服器上，開啟 Azure AD Connect。 選取 [設定] 。
+2. 在 [其他工作] 頁面上，選取 [檢視目前的設定]，然後選取 [下一步]。<br />
 
-   如果密碼雜湊同步處理目前設定為 [已停用]，請務必按照本指南的步驟將之啟用。 如果密碼雜湊同步處理目前設定為 [已啟用]，您可以放心地略過本指南的[步驟 1 – 啟用密碼雜湊同步處理](#step-1--enable-password-hash-synchronization)一節。
-   4. 在 [Review Your Solution]\(檢視您的解決方案\) 畫面中，向下捲動至 [Active Directory Federation Services (AD FS)]。</br>
- 
-   如果您在此區段看到 AD FS 設定，可以安心認定原先是透過 Azure AD Connect 設定 AD FS，因此可以透過 Azure AD Connect 的 [變更使用者登入] 選項將同盟網域轉換至受控網域；本節的**選項 A：使用 Azure AD Connect 從同盟轉換至密碼雜湊同步處理**會詳述此程序。
-   5. 如果看不到目前設定中所列的 Active Directory 同盟服務，則必須透過 PowerShell 將同盟網域手動轉換至受控網域，此程序會在**選項 B - 使用 Azure AD Connect 和 PowerShell 從同盟轉換至密碼雜湊同步處理**一節中詳述。
+   ![螢幕擷取畫面：[其他工作] 頁面上已選取 [檢視目前的設定] 選項](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image2.png)<br />
+3. 在 [檢閱解決方案] 頁面上，請注意 [密碼雜湊同步處理] 狀態。<br /> 
+
+   * 如果 [密碼雜湊同步處理] 設定為 [停用]，請完成本文中的步驟將其啟用。
+   * 如果 [密碼雜湊同步處理] 設定為 [啟用]，則可以略過本文中的**步驟 1：啟用密碼雜湊同步處理**一節。
+4. 在 [檢閱解決方案] 頁面上，捲動至 [Active Directory 同盟服務 (AD FS)]。<br />
+
+   * ‎如果本區段中出現 AD FS 設定，就可以放心地假設 AD FS 原本是使用 Azure AD Connect 進行設定的。 您可以藉由使用 Azure AD Connect 的 [變更使用者登入] 選項，將網域從同盟身分識別轉換為受控識別。 **選項 A：使用 Azure AD Connect 從同盟轉換至密碼雜湊同步處理**一節會詳述此程序。
+   * 如果目前的設定未列出 AD FS，則必須手動使用 PowerShell 將網域從同盟身分識別轉換為受控識別。 如需此程序的詳細資訊，請參閱**選項 B：使用 Azure AD Connect 和 PowerShell 從同盟轉換至密碼雜湊同步處理**一節。
 
 ### <a name="document-current-federation-settings"></a>文件目前的同盟設定
 
-您可以執行 Get-MsolDomainFederationSettings Cmdlet 來尋找目前的同盟設定。
-
-此命令為：
+若要尋找您目前的同盟設定，請執行 **Get-MsolDomainFederationSettings** Cmdlet：
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
 ```
 
-例如︰
+範例：
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 ```
-驗證可能已針對同盟設計和部署說明文件所自訂的任何設定，尤其是 PreferredAuthenticationProtocol、SupportsMfa 及 PromptLoginBehavior。
 
-以下提供這些設定相關功能的詳細資訊。
+請確認可能已為同盟設計和部署文件所自訂的任何設定。 具體來說，請尋找 **PreferredAuthenticationProtocol**、**SupportsMfa** 和 **PromptLoginBehavior** 中的自訂。
 
-[Active Directory 同盟服務提示=登入參數支援](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)  
-‎[Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
+如需詳細資訊，請參閱這些文章：
+
+* [AD FS prompt=login 參數支援](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
+* [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> 如果 SupportsMfa 值目前設為「True」，表示您使用的是內部部署的 MFA 解決方案，會將第二個因素挑戰納入使用者驗證流程中。 如此就不再適用於 Azure AD 的驗證情節，而您必須改用 Azure MFA (雲端式) 服務來執行相同的函式。 繼續進行之前，請先仔細評估您的 MFA 需求，並確定您了解如何運用 Azure MFA、授權意涵以及轉換網域之前的一般使用者註冊程序。 [https://aka.ms/deploymentplans](https://aka.ms/deploymentplans) 有提供更加詳盡的 Azure MFA 部署指南。
+> 如果 **SupportsMfa** 設定為 **True**，表示您是使用內部部署多重要素驗證解決方案來將第二個要素挑戰納入使用者驗證流程中。 此設定不再適用於 Azure AD 驗證案例。 
+>
+> 請改用 Azure Multi-factor Authentication 雲端式服務來執行相同的函式。 在繼續之前，請仔細評估您的多重要素驗證需求。 在轉換網域之前，請先確定您已了解 Azure Multi-Factor Authentication 使用方式、授權含意和使用者註冊程序。
 
-#### <a name="backup-federation-settings"></a>備份同盟設定
+#### <a name="back-up-federation-settings"></a>備份同盟設定
 
-雖然在此程序期間不會變更 AD FS 伺服器陣列上的其他信賴憑證者，但建議先確定您的 AD FS 伺服器陣列目前擁有有效備份可供還原。 您可以使用免費的 Microsoft [AD FS 快速還原工具](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool)來還原。 這項工具可將 AD FS 備份和還原到現有的伺服陣列或新的伺服器陣列。
+雖然在本文所說明的程序執行期間並不會變更 AD FS 伺服器陣列中的其他信賴憑證者，但建議您先確定 AD FS 伺服器陣列目前有有效的備份可供還原。 您可以使用免費的 Microsoft [AD FS 快速還原工具](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool)來建立目前的有效備份。 您可以使用此工具來備份 AD FS，以及還原現有的伺服器陣列或建立新的伺服器陣列。
 
-如果您選擇不使用 AD FS 快速還原工具，至少應匯出「Microsoft Office 365 身分識別平台」信賴憑證者信任，以及您新增的任何相關聯自訂宣告規則。 您可以透過下列 PowerShell 範例執行這項作業
+如果您選擇不使用 AD FS 快速還原工具，則至少應匯出「Microsoft Office 365 身分識別平台」信賴憑證者信任，以及您已新增的任何相關聯自訂宣告規則。 您可以使用下列 PowerShell 範例，匯出信賴憑證者信任和相關聯的宣告規則：
 
 ``` PowerShell
 (Get-AdfsRelyingPartyTrust -Name "Microsoft Office 365 Identity Platform") | Export-CliXML "C:\temp\O365-RelyingPartyTrust.xml"
 ```
 
-## <a name="deployment-considerations-and-ad-fs-usage"></a>部署考量和 AD FS 使用方式
+## <a name="deployment-considerations-and-using-ad-fs"></a>部署考量和 AD FS 的使用方式
 
-### <a name="validate-your-current-ad-fs-usage"></a>驗證目前的 AD FS 使用方式
+本節說明部署考量和關於使用 AD FS 的詳細資料。
 
-從同盟轉換成受控之前，應該仔細查看您目前針對 Azure AD/Office 365 和其他應用程式 (信賴憑證者信任) 使用 AD FS 的方式。 尤其應考量下列表格中的內容：
+### <a name="current-ad-fs-use"></a>目前的 AD FS 使用方式
 
-| 假設情形| 對應行動 |
+從同盟身分識別轉換成受控身分識別之前，應先仔細查看您目前對 Azure AD、Office 365 和其他應用程式 (信賴憑證者信任) 使用 AD FS 的方式。 具體而言，請考量下表所說明的案例：
+
+| 假設情形 | 對應行動 |
 |-|-|
-| 您要保留 AD FS 供其他應用程式使用。| 您會同時使用 AD FS 與 Azure AD，因而需要考慮一般使用者體驗。 在某些情況下，使用者可能需要進行兩次驗證，一次是 Azure AD (會在此將 SSO 向外轉發到 Office 365 等其他應用程式)，另一次則是為了任何仍繫結至 AD FS 作為信賴憑證者信任的應用程式。 |
-| AD FS 是高度自訂且仰賴 onload.js 檔案中特定的自訂設定，而 onload.js 檔案無法在 Azure AD 中複製 (例如您已變更登入體驗，所以使用者只能輸入 SamAccountName 格式的使用者名稱，而不是 UPN，或是會有高度品牌化的登入體驗)| 您必須確認 Azure AD 可以滿足您目前的自訂需求後再繼續。 如需詳細資訊和指引，請參閱 AD FS 商標和 AD FS 自訂區段。|
-| 您正透過 AD FS 封鎖舊版驗證用戶端。| 請考慮以[舊版驗證的條件式存取控制](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)和 [Exchange Online 用戶端存取規則](https://aka.ms/EXOCAR)來更換控制項，以封鎖目前在 AD FS 上的舊版驗證用戶端。|
-| 您要求使用者向 AD FS 進行驗證時，對內部部署 MFA 伺服器解決方案執行 MFA。| 您無法透過內部部署 MFA 解決方案將 MFA 挑戰納入受控網域的驗證流程，但是可以在網域轉換後使用 Azure MFA 服務繼續執行此操作。 如果使用者目前並未使用 Azure MFA，就會需要一次性的使用者註冊步驟，您必須對此做好準備並告知給使用者。|
-| 您目前使用 AD FS 中的存取控制原則 (AuthZ 規則) 來控管 Office 365 的存取權。| 請考慮將這些更換成對等的 Azure AD [條件式存取原則](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)和 [Exchange Online 用戶端存取規則](https://aka.ms/EXOCAR)。|
+| 您打算繼續將 AD FS 用於 Azure AD 和 Office 365 以外的其他應用程式。 | 在轉換網域之後，您將使用 AD FS 和 Azure AD。 請考量使用者體驗。 在某些情況下，使用者可能需要進行兩次驗證：一次是對 Azure AD (此時使用者會取得對其他應用程式的 SSO 存取權，例如 Office 365)，另一次則是針對任何仍繫結至 AD FS 作為信賴憑證者信任的應用程式。 |
+| 您的 AD FS 執行個體經過高度自訂，且仰賴 onload.js 檔案中特定的自訂設定 (例如您已變更登入體驗，使得使用者的使用者名稱必須採用 **SamAccountName** 格式，而非使用者主體名稱 (UPN)，或是您的組織已將登入體驗高度品牌化)。 在 Azure AD 中無法複製 onload.js 檔案。 | 在繼續作業之前，您必須確認 Azure AD 可符合您目前的自訂需求。 如需詳細資訊和指引，請參閱 AD FS 商標和 AD FS 自訂的相關章節。|
+| 您 AD FS 使用來封鎖舊版驗證用戶端。| 請考慮使用[條件式存取控制](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)和 [Exchange Online 用戶端存取規則](http://aka.ms/EXOCAR)的組合，以取代封鎖舊版驗證用戶端的 AD FS 控制項。 |
+| 當使用者向 AD FS 進行驗證時，您要求使用者依據內部部署多重要素驗證伺服器解決方案執行多重要素驗證。| 在受控識別網域中，您無法透過內部部署多重要素驗證解決方案將多重要素驗證挑戰插入驗證流程中。 不過，您可以在轉換網域後使用 Azure Multi-factor Authentication 服務進行多重要素驗證。<br /><br /> 如果您的使用者目前未使用 Azure Multi-factor Authentication，則需執行一次性的使用者註冊步驟。 您必須準備好計劃性的註冊，並將其傳達給使用者。 |
+| 您目前使用 AD FS 中的存取控制原則 (AuthZ 規則) 來控管對 Office 365 的存取。| 請考慮將這些原則替換為對等的 Azure AD [條件式存取原則](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)和 [Exchange Online 用戶端存取規則](http://aka.ms/EXOCAR)。|
 
-### <a name="considerations-for-common-ad-fs-customizations"></a>常見的 AD FS 自訂考量
+### <a name="common-ad-fs-customizations"></a>常見的 AD FS 自訂
 
-#### <a name="inside-corporate-network-claim"></a>公司網路內部宣告
+本節說明常見的 AD FS 自訂。
 
-如果使用者在公司網路內部進行驗證，就會由 AD FS 發出 InsideCorporateNetwork 宣告。 此宣告可以傳遞至 Azure AD，並根據使用者的網路位置用來略過多重要素驗證。 如需進一步了解如何判斷目前是否在 AD FS 中啟用此功能，請參閱[同盟使用者適用的可信任 IP](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud)。
+#### <a name="insidecorporatenetwork-claim"></a>InsideCorporateNetwork 宣告
 
-一旦您的網域都轉換成密碼雜湊同步處理，便再也無法使用 InsideCorporateNetwork 宣告。 可使用 [Azure AD 中的具名位置](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations)來取代這項功能。
+如果進行驗證的使用者位於公司網路內部，AD FS 就會發出 **InsideCorporateNetwork** 宣告。 此宣告後續可傳至 Azure AD。 此宣告可根據使用者的網路位置用來略過多重要素驗證。 若要了解如何判斷 AD FS 中目前是否已啟用這項功能，請參閱[同盟使用者的可信任 IP](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud)。
 
-一旦設定了具名位置，所有已設定要包含/排除網路位置「所有可信任位置」和「MFA 可信任 IP」的條件式存取原則都必須更新，以反映新建立的具名位置。
+在您的網域轉換成密碼雜湊同步處理後，即無法使用 **InsideCorporateNetwork** 宣告。 您可以使用 [Azure AD 中的具名位置](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations)來取代這項功能。
 
-如需條件式存取中位置條件的詳細資訊，請參閱 [Active Directory 條件式存取位置](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)。
+設定具名位置之後，您必須更新所有已設定要包含或排除**所有可信任位置**或 **MFA 可信任 IP** 網路值的條件式存取原則，以反映新的具名位置。
 
-#### <a name="hybrid-azure-ad-joined-devices"></a>混合式 Azure AD 已加入裝置
+如需與條件式存取中的**位置**條件有關的詳細資訊，請參閱 [Active Directory 條件式存取位置](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)。
 
-將裝置加入 Azure AD 即可讓您建立條件式存取規則，強制裝置達到您的安全性與合規性存取標準，而讓使用者得以使用公司工作帳戶或學校帳戶登入裝置，而不是用個人帳號登入。 混合式 Azure AD 已加入裝置可讓您將已加入 AD 網域的裝置加入 Azure AD。 可能已使用此功能設定同盟環境。
+#### <a name="hybrid-azure-ad-joined-devices"></a>已加入混合式 Azure AD 的裝置
 
-為了確保網域轉換至密碼雜湊同步處理後，Hybrid Join 仍然適用於加入此網域的任何新裝置，必須將 Azure AD Connect 設定為同步 Windows 10 適用的 Active Directory 電腦帳戶和 Azure AD。 若是 Windows 7 和 Windows 8 的電腦帳戶，混合式加入會使用無縫 SSO 註冊 Azure AD 中的電腦，您就不必像 Windows 10 裝置那樣同步處理這些帳戶。 但是您必須將更新的 workplacejoin.exe 檔案 (透過 .msi) 部署到這些舊版用戶端，讓他們可以使用無縫 SSO 自行註冊。 [下載 .msi](https://www.microsoft.com/download/details.aspx?id=53554)。 
+將裝置加入 Azure AD 時，您可以建立條件式存取規則，強制裝置符合您的存取標準，以維護安全性和合規性。 此外，使用者也可使用組織的公司或學校帳戶 (而非個人帳戶) 來登入裝置。 使用已加入混合式 Azure AD 的裝置時，您可以將已加入 Active Directory 網域的裝置加入 Azure AD。 您的同盟環境可能已設定成使用這項功能。
 
-如需詳細資訊，請參閱[如何設定已加入 Azure Active Directory 的混合式裝置](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup)。
+為了確保在網域轉換至密碼雜湊同步處理後，任何加入網域的裝置都可繼續使用混合式加入，對於 Windows 10 用戶端，您必須使用 Azure AD Connect 將 Active Directory 電腦帳戶同步至 Azure AD。 
+
+對於 Windows 8 和 Windows 7 電腦帳戶，混合式加入會使用無縫 SSO 在 Azure AD 中註冊電腦。 您不需要像 Windows 10 裝置那樣同步處理 Windows 8 和 Windows 7 電腦帳戶。 但您必須將更新的 workplacejoin.exe 檔案 (透過 .msi 檔案) 部署到 Windows 8 和 Windows 7 用戶端，使其可使用無縫 SSO 進行註冊。 [下載 .msi 檔案](https://www.microsoft.com/download/details.aspx?id=53554)。
+
+如需詳細資訊，請參閱[設定已加入混合式 Azure AD 的裝置](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup)。
 
 #### <a name="branding"></a>商標
 
-您的組織可能會有[自訂的 ADFS 登入頁面](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization)來顯示更多有關組織的資訊。 若是如此，可考慮製作相似的[自訂 Azure AD 登入頁面](https://docs.microsoft.com/azure/active-directory/customize-branding)。
+如果您的組織[自訂了 ADFS 登入頁面](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization)以顯示更多有關組織的資訊，請考慮以類似的方式[自訂 Azure AD 登入頁面](https://docs.microsoft.com/azure/active-directory/customize-branding)。
 
-使用類似的自訂時，外觀上應該會有些許改變。 建議在與一般使用者的通訊中加入預期內的改變。
+雖然可進行類似的自訂，但轉換後的登入頁面在外觀上應該會有些許改變。 您可以在與使用者的通訊中提供關於預期改變的資訊。
 
 > [!NOTE]
-> 公司商標只有在您已購買 Azure AD 的「進階」或「基本」授權，或擁有 Office 365 授權時，才可供使用。
+> 只有在購買 Azure Active Directory 的「進階」或「基本」授權後，或擁有 Office 365 授權時，才可使用組織商標。
 
-## <a name="planning-deployment-and-support"></a>規劃部署和支援
+## <a name="plan-deployment-and-support"></a>規劃部署和支援
+
+完成本節說明的工作有助於您規劃部署和支援。
 
 ### <a name="plan-the-maintenance-window"></a>規劃維護時間範圍
 
-當網域轉換程序本身相對快速時，在網域轉換完成後，Azure AD 可能仍會將部分驗證要求傳送到您的 AD FS 伺服器，時間最長可達 4 小時。 在這四小時期間內，視不同的服務端快取而定，Azure AD 可能不會接受驗證，而且使用者會收到錯誤，因為他們依然能夠成功地向 AD FS 進行驗證，但由於現在已移除該同盟信任，Azure AD 不會再接受使用者發出的權杖。
+雖然網域轉換程序很快就可完成，但在網域轉換完成後，Azure AD 可能會繼續將某些驗證要求傳送到您的 AD FS 伺服器，時間最長可達四小時。 在這四小時內，視服務端快取之不同，Azure AD 可能不會接受這些驗證。 使用者可能會收到錯誤。 使用者仍可順利對 AD FS 進行驗證，但 Azure AD 不會再接受使用者發出的權杖，因為該同盟信任此時已移除。
 
-> [!NOTE]
-> 這只會影響在這段後轉換期間，透過瀏覽器存取服務的使用者，直到清除服務端快取為止。 舊版用戶端 (Exchange ActiveSync、Outlook 2010/2013) 應該不會受到影響，因為 Exchange Online 會將其認證中的快取保留一段時間，以無訊息方式重新驗證使用者，不需要返回到 AD FS。 一旦清除此快取後，這些用戶端儲存在裝置上的認證就能以無訊息方式重新驗證用戶端，因此使用者應該不會因為網域轉換程序而收到任何密碼提示。 相反地，若是新式驗證用戶端 (Office 2013/2016、IOS 及 Android 應用程式)，則會使用有效的重新整理權杖取得新的存取權杖，以便繼續存取資源，而不必返回 AD FS，因此在網域轉換程序中不會收到任何密碼提示，而且不需要任何額外的設定就能繼續運作。
+只有在服務端快取尚未清除的這段轉換後期間透過網頁瀏覽器存取服務的使用者，才會受到影響。 舊版用戶端 (Exchange ActiveSync、Outlook 2010/2013) 應該不受影響，因為 Exchange Online 會將其認證的快取保留一段時間。 快取可用來以無訊息方式重新驗證使用者。 使用者不需要返回 AD FS。 在此快取清除後，將會使用為這些用戶端儲存在裝置上的認證重新進行自我驗證。 使用者應該不會因為網域轉換程序而看到任何密碼提示。 
+
+新式驗證用戶端 (Office 2016 和 Office 2013、iOS 和 Android 應用程式) 會使用有效的重新整理權杖取得新的存取權杖，以繼續存取資源，而不會返回 AD FS。 這些用戶端不會因為網域轉換程序而收到任何密碼提示。 用戶端無需額外設定即可繼續運作。
 
 > [!IMPORTANT]
-> 請勿關閉您的 AD FS 環境或移除 Office 365 信賴憑證者信任，除非您已經使用雲端驗證確認所有使用者都已驗證成功。
+> 在您確認所有使用者都可使用雲端驗證成功通過驗證之前，請勿關閉您的 AD FS 環境或移除 Office 365 信賴憑證者信任。
 
 ### <a name="plan-for-rollback"></a>規劃復原作業
 
-如果找到主要問題而且無法快速解決，您可能需決定將解決方案復原至同盟。 請務必規劃無法如預期部署時的因應措施。 如果部署時網域或使用者轉換失敗，或是需要復原至同盟，請務必要知道如何減輕任何中斷情況，並降低對使用者的影響。
+如果發生無法快速解決的重大問題，您可能會決定將解決方案復原至同盟。 請務必規劃無法如預期進行部署時的因應措施。 如果部署期間的網域或使用者轉換失敗，或是需要復原至同盟，您必須了解如何因應任何中斷情況，並降低對使用者的影響。
 
-#### <a name="rolling-back"></a>復原
+#### <a name="to-roll-back"></a>復原
 
-如需特定的部署詳細資料，請參閱您的同盟設計和部署文件。 此流程應該包含：
+若要進行復原規劃，請參閱同盟設計和部署文件，以取得特定部署的詳細資料。 此程序應該包含下列工作：
 
-* 使用 Convert-MSOLDomainToFederated 將受控網域轉換成同盟網域 
-
+* 使用 **Convert-MSOLDomainToFederated** Cmdlet 將受控網域轉換成同盟網域。
 * 必要時設定其他宣告規則。
 
-### <a name="plan-change-communications"></a>規劃變更消息通知
+### <a name="plan-communications"></a>規劃通訊
 
-規劃部署和支援的其中一項要點是，務必主動向一般使用者通知所做的變更以及可能經歷或必須執行的內容。 
+規劃部署和支援的要點之一，是務必主動告知使用者即將發生的變更。 使用者須事先得知他們可能面臨的情況，以及必要的應變措施。 
 
-部署密碼雜湊同步處理和無縫 SSO 之後，存取 Office 365 以及透過 Azure AD 驗證的其他相關聯資源時，會變更使用者登入體驗。 外部網路的使用者現在只會看到 Azure AD 登入頁面，而不是重新導向至外部 Web 應用程式 Proxy 伺服器所呈現的表單式頁面。
+在部署密碼雜湊同步處理和無縫 SSO 之後，使用者在存取 Office 365 以及透過 Azure AD 進行驗證的其他資源時，其登入體驗將有所變更。 在網路外部的使用者只會看到 Azure AD 登入頁面。 這些使用者不會重新導向至對外的 Web 應用程式 Proxy 伺服器所顯示的表單式頁面。
 
-通知的策略規劃包含多項要素。 其中包含：
+請在您的通訊策略中納入下列要項︰
 
-* 透過以下方式通知使用者即將推出和已發行的功能
-  * 電子郵件和其他內部通訊管道
-  * 海報等視覺物件
-  * 執行即時或其他通訊
-* 決定自訂人員、傳送通訊人員以及時間。
+* 使用以下方式通知使用者即將推出和已發行的功能：
+   * 電子郵件和其他內部通訊管道。
+   * 海報等視覺物件。
+   * 執行即時或其他通訊。
+* 決定自訂通訊的人員、傳送通訊的人員，及其時間。
 
-## <a name="implementing-your-solution"></a>實作您的解決方案
+## <a name="implement-your-solution"></a>實作您的解決方案
 
-既已規劃了解決方案，便準備進一步實作。 實作包含下列要素：
+您已規劃解決方案。 現在，您可加以實作。 實作涉及下列要素：
 
-1. 啟用密碼雜湊同步處理
+* 啟用密碼雜湊同步處理。
+* 準備無縫 SSO。
+* 將登入方法變更成密碼雜湊同步處理，並啟用無縫 SSO。
 
-2. 準備無縫單一登入
+### <a name="step-1-enable-password-hash-synchronization"></a>步驟 1：啟用密碼雜湊同步處理
 
-3. 將登入方法變更成密碼雜湊同步處理，並啟用無縫 SSO
+實作此解決方案的第一個步驟，便是使用 Azure AD Connect 精靈來啟用密碼雜湊同步處理。 密碼雜湊同步處理是選用功能，在使用同盟的環境中即可加以啟用。 驗證流程不會受到影響。 在此情況下，Azure AD Connect 將會開始同步處理密碼雜湊，而不影響使用同盟來登入的使用者。
 
-### <a name="step-1--enable-password-hash-synchronization"></a>步驟 1 – 啟用密碼雜湊同步處理
+因此，建議您在變更網域的登入方法之前，先完成此步驟以做好準備工作。 然後，您便會擁有充裕的時間來確認密碼雜湊同步處理是否有正常運作。
 
-實作此解決方案的第一個步驟，便是在 Azure AD Connect 精靈中啟用密碼雜湊同步處理。 密碼雜湊同步處理是選用功能，可以在使用同盟的環境中啟用，而不會對驗證流程產生任何影響。 在此情況下，Azure AD Connect 將會開始同步處理密碼雜湊，而不影響使用同盟的使用者登入。
+若要啟用密碼雜湊同步處理：
 
-因此，建議在變更網域登入方法之前，請先執行此步驟作為準備工作。 如此可讓您有充裕的時間驗證密碼雜湊同步處理是否能正常運作。
+1. 在 Azure AD Connect 伺服器上，開啟 Azure AD Connect 精靈，然後選取 [設定]。
+2. 選取 [自訂同步處理選項]，然後選取 [下一步]。
+3. 在 [連線到 Azure AD] 頁面上，輸入全域管理員帳戶的使用者名稱和密碼。
+4. 在 [連接您的目錄] 頁面上，選取 [下一步]。
+5. 在 [網域和 OU 篩選] 頁面上，選取 [下一步]。
+6. 在 [選用功能] 頁面上選取 [密碼同步處理]，然後選取 [下一步]。
+ 
+   ![螢幕擷取畫面：[選用功能] 頁面上已選取密碼同步處理選項](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image6.png)<br />
+7. 在其餘頁面上選取 [下一步]。 在最後一個頁面上，選取 [設定]。
+8. Azure AD Connect 會在下次同步時開始同步處理密碼雜湊。
 
-啟用密碼雜湊同步處理：
+在啟用密碼雜湊同步處理後，Azure AD Connect 同步處理範圍中所有使用者的密碼雜湊將會重新進行雜湊處理並寫入至 Azure AD。 根據使用者數量，這項作業可能需要數分鐘或數小時。
 
-   1. 在 Azure AD Connect 伺服器上開啟精靈，然後選取 [設定]。
-   2. 選取 [自訂同步處理選項]，然後選取 [下一步]。
-   3. 在 [Connect to Azure AD] \(連線到 Azure AD\) 畫面中，提供全域系統管理員的使用者名稱和密碼。
-   4. 在 [Connect your directories] \(連線您的目錄\) 畫面中，按一下 [下一步]。
-   5. 在 [Domain and OU filtering] \(網域與 OU 篩選\)畫面中，按一下 [下一步]。
-   6. 在 [選用功能] 畫面中選取 [密碼同步處理]，然後選取 [下一步]。
-   ![圖 21](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image6.png)</br>
-   7. 在所有其餘的畫面中選取 [下一步]，然後在最後一個畫面選取 [設定]。
-   8. Azure AD Connect 將會在下次同步時，開始同步處理密碼雜湊。
+若是用於規劃目的，請估計 1 小時內大約會處理 20,000 名使用者。
 
-一旦啟用密碼雜湊同步處理，Azure AD Connect 同步處理範圍中所有使用者的密碼雜湊將會重新雜湊並寫入 Azure AD。 根據使用者數量，這項作業可能需要數分鐘到數小時。
+若要確認密碼雜湊同步處理是否有正常運作，請在 Azure AD Connect 精靈中完成**疑難排解**工作：
 
-若是用於規劃目的，請估計 1 小時內大約可處理 20,000 名使用者。
+1. 在您的 Azure AD Connect 伺服器上，使用 [以系統管理員身分執行] 選項開啟新的 Windows PowerShell 工作階段。
+2. 執行 `Set-ExecutionPolicy RemoteSigned` 或 `Set-ExecutionPolicy Unrestricted`。
+3. 啟動 Azure AD Connect 精靈。
+4. 移至 [其他工作] 頁面，選取 [疑難排解]，然後選取 [下一步]。
+5. 在 [疑難排解] 頁面上，選取 [啟動]，以在 PowerShell 中啟動疑難排解功能表。
+6. 在主功能表上，選取 [針對密碼雜湊同步處理進行疑難排解]。
+7. 在子功能表上，選取 [密碼雜湊同步處理完全無法運作]。
 
-若要驗證密碼雜湊同步處理可正確運作，請使用 Azure AD Connect 精靈中的疑難排解工作。
+如需針對問題進行疑難排解，請參閱[針對使用 Azure AD Connect 同步執行的密碼雜湊同步處理進行疑難排解](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization)。
 
-   1. 在您的 Azure AD Connect 伺服器上，使用 [以系統管理員身分執行] 選項開啟新的 Windows PowerShell 工作階段。
-   2. 執行 Set-ExecutionPolicy RemoteSigned 或 Set-ExecutionPolicy Unrestricted.
-   3. 啟動 Azure AD Connect 精靈。
-   4. 瀏覽至 [其他工作] 頁面，選取 [疑難排解]，然後按 [下一步]。
-   5. 在 [疑難排解] 頁面上，按一下 [啟動]，以在 PowerShell 中啟動疑難排解功能表。
-   6. 在主功能表中，選取 [Troubleshoot password hash synchronization]\(疑難排解密碼雜湊同步處理的問題\)。
-   7. 在子功能表中，選取 [Password hash synchronization does not work]\(密碼雜湊同步處理完全無法運作\)。
+### <a name="step-2-prepare-for-seamless-sso"></a>步驟 2：準備無縫 SSO
 
-如果您發現問題，請使用[本文章](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization)的資訊進行疑難排解。
+若要讓裝置使用無縫 SSO，必須使用 Active Directory 中的群組原則，將 Azure AD URL 新增至使用者的內部網路區域設定。
 
-### <a name="step-2--prepare-for-seamless-sso"></a>步驟 2 - 準備無縫 SSO
+根據預設，網頁瀏覽器會自動從 URL 計算正確的區域 (網際網路或內部網路)。 例如，**http:\/\/contoso/** 會對應至內部網路區域，而 **http:\/\/intranet.contoso.com** 會對應至網際網路區域 (因為 URL 包含句點)。 您必須明確地將 URL 新增至瀏覽器的內部網路區域，瀏覽器才會將 Kerberos 票證傳送給雲端端點 (例如 Azure AD URL)。
 
-若是您的裝置要使用無縫 SSO，則必須使用 Active Directory 中的群組原則，將 Azure AD URL 新增至使用者的內部網路區域設定。
-
-瀏覽器預設會自動從指定的 URL 計算正確的區域 (網際網路或內部網路)。 例如，"http://contoso/" 會對應到內部網路區域，而 "http://intranet.contoso.com/" 則會對應到網際網路區域 (因為 URL 包含句點)。 除非將 URL 明確地新增至瀏覽器的內部網路區域，否則瀏覽器不會將 Kerberos 票證傳送給雲端端點 (例如 Azure AD URL)。
-
-請依照[步驟將必要變更](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start)套用到您的裝置。
+請完成向您的裝置[推行](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start)必要變更的步驟。
 
 > [!IMPORTANT]
-> 執行這項變更不會修改使用者登入 Azure AD 的方式。 但是，繼續執行步驟 3 之前請將此設定套用到所有裝置，這點非常重要。 另外請注意，使用者登入未收到這項設定的裝置時，只需輸入使用者名稱和密碼即可登入 Azure AD。
+> 執行這項變更並不會修改使用者登入 Azure AD 的方式。 不過，請務必先將此組態套用到您所有的裝置，再繼續作業。 使用者在登入尚未取得此組態的裝置時，只需輸入使用者名稱和密碼即可登入 Azure AD。
 
-### <a name="step-3--change-sign-in-method-to-phs-and-enable-seamless-sso"></a>步驟 3 – 將登入方法變更為 PHS 並啟用無縫 SSO
+### <a name="step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso"></a>步驟 3：將登入方法變更為密碼雜湊同步處理，並啟用無縫 SSO
 
-#### <a name="option-a---switch-from-federation-to-phs-by-using-azure-ad-connect"></a>選項 A - 使用 Azure AD Connect 從同盟轉換至 PHS
+您有兩個選項可將登入方法變更為密碼雜湊同步處理，並啟用無縫 SSO。
 
-如果最初使用 Azure AD Connect 設定 AD FS，請使用此方法。 如果最初並非使用 Azure AD Connect 設定 AD FS，就無法使用此方法。 先**變更使用者登入方法**
+#### <a name="option-a-switch-from-federation-to-password-hash-synchronization-by-using-azure-ad-connect"></a>選項 A：使用 Azure AD Connect 從同盟轉換至密碼雜湊同步處理
 
-   1. 在 Azure AD Connect 伺服器上開啟精靈。
-   2. 選取 [變更使用者登入]，然後選取 [下一步]。
-   ![圖 27](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image7.png)</br>
-   3. 在 [Connect to Azure AD] \(連線到 Azure AD\) 畫面中，提供**全域系統管理員**的使用者名稱和密碼。
-   4. 在 [使用者登入] 畫面中，將選項按鈕從 [與 AD FS 同盟] 變更成 [密碼雜湊同步處理]，並且請務必勾選此方塊。請勿轉換使用者帳戶，此步驟已遭到取代，且日後會從 AAD Connect 版本中移除。 也請選取 [啟用單一登入]，然後選取 [下一步]。
-   ![圖 29](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image8.png)</br>
+如果您最初是以 Azure AD Connect 設定 AD FS 環境，請使用此方法。 如果您最初「並非」使用 Azure AD Connect 來設定 AD FS 環境，請勿使用此方法。
+
+首先，請變更登入方法：
+
+1. 在 Azure AD Connect 伺服器上，開啟 Azure AD Connect 精靈。
+2. 選取 [變更使用者登入]，然後選取 [下一步]。 
+
+   ![螢幕擷取畫面：[其他工作] 頁面上的 [變更使用者登入] 選項](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image7.png)<br />
+3. 在 [連線到 Azure AD] 頁面上，輸入全域管理員帳戶的使用者名稱和密碼。
+4. 在 [使用者登入] 頁面上，選取 [密碼雜湊同步處理] 按鈕。 請務必要選取 [不要轉換使用者帳戶] 核取方塊。 該選項已淘汰。 選取 [啟用單一登入]，然後選取 [下一步]。
+
+   ![螢幕擷取畫面：[啟用單一登入] 頁面](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image8.png)<br />
+
+   > [!NOTE]
+   > 開始使用 Azure AD Connect 1.1.880.0 版，在預設情況下會選取 [無縫單一登入] 核取方塊。
+
+   > [!IMPORTANT]
+   > 您可以放心地忽略警告；這些警告是用於說明使用者轉換和完整的密碼雜湊同步處理均是從同盟轉換成雲端驗證時所需的步驟。 請注意，您不必再執行這些步驟。 如果仍會看到這些警告，請確定您執行的是否是最新版的 Azure AD Connect，以及是否在使用本指南的最新版本。 如需詳細資訊，請參閱[更新 Azure AD Connect](#update-azure-ad-connect) 一節。
+
+5. 在 [啟用單一登入] 頁面上，輸入網域系統管理員帳戶的認證，然後選取 [下一步]。
+
+   ![螢幕擷取畫面：[啟用單一登入] 頁面](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
+
+   > [!NOTE]
+   > 必須要有網域系統管理員帳戶認證，才能啟用無縫 SSO。 此程序會完成下列需要更高權限的動作。 網域系統管理員帳戶認證不會儲存在 Azure AD Connect 或 Azure AD 中。 網域系統管理員帳戶認證只會用來開啟功能。 此程序順利完成後，即會捨棄認證。
+   >
+   > 1. 在您的內部部署 Active Directory 執行個體中建立名為 AZUREADSSOACC 的電腦帳戶 (代表 Azure AD)。
+   > 2. 安全地與 Azure AD 共用電腦帳戶的 Kerberos 解密金鑰。
+   > 3. 建立兩個 Kerberos 服務主體名稱 (SPN)，以代表 Azure AD 在登入期間使用的兩個 URL。
+
+6. 在 [已可設定] 頁面上，確定已選取 [在設定完成時開始同步處理程序] 核取方塊。 然後，選取 [設定]。
+
+      ![[已可設定] 頁面的螢幕擷取畫面](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image10.png)<br />
+
+   > [!IMPORTANT]
+   > 至此，所有已同盟的網域都會變更為受控驗證。 密碼雜湊同步處理是新的驗證方法。
+
+7. 在 Azure AD 入口網站中，選取 [Azure Active Directory] > [Azure AD Connect]。
+8. 確認下列設定：
+   * [同盟] 設為 [停用]。
+   * [無縫單一登入] 設為 [啟用]。
+   * [密碼同步處理] 設為 [啟用]。<br /> 
+
+   ![此螢幕擷取畫面顯示 [使用者登入] 區段中的設定 ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+
+跳到[測試和下一個步驟](#testing-and-next-steps)。
+
+   > [!IMPORTANT]
+   > 略過**選項 B：使用 Azure AD Connect 和 PowerShell 從同盟轉換至密碼雜湊同步處理**一節。 如果您選擇了選項 A，將登入方法變更成密碼雜湊同步處理並啟用無縫 SSO，則不適用該節提供的步驟。
+
+#### <a name="option-b-switch-from-federation-to-password-hash-synchronization-using-azure-ad-connect-and-powershell"></a>選項 B：使用 Azure AD Connect 和 PowerShell 從同盟轉換至密碼雜湊同步處理
+
+如果您最初並不是以 Azure AD Connect 設定同盟網域，請使用此選項。 在此程序進行期間，您會啟用無縫 SSO，並從同盟網域轉換至受控網域。
+
+1. 在 Azure AD Connect 伺服器上，開啟 Azure AD Connect 精靈。
+2. 選取 [變更使用者登入]，然後選取 [下一步]。
+3. 在 [連線到 Azure AD] 頁面上，輸入全域管理員帳戶的使用者名稱和密碼。
+4. 在 [使用者登入] 頁面上，選取 [密碼雜湊同步處理] 按鈕。 選取 [啟用單一登入]，然後選取 [下一步]。
+
+   在啟用密碼雜湊同步處理之前：![螢幕擷取畫面：顯示 [使用者登入] 頁面上的 [不要設定] 選項](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
+
+   在啟用密碼雜湊同步處理之後：![螢幕擷取畫面：顯示 [使用者登入] 頁面上的新選項](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
-   > 開始使用 Azure AD Connect 版本 1.1.880.0，在預設情況下會啟用 [無縫單一登入] 核取方塊。
-   
-   > [!IMPORTANT]
-   > 您可以放心地忽略警告；這些警告是用於說明使用者轉換和完整的密碼雜湊同步處理均是從同盟轉換成雲端驗證時所需的步驟。 請注意，已不再需要執行這些步驟，日後的 Azure AD Connect 版本不會提供轉換使用者的選項。 如果仍會看到這些警告，請確認您執行的是否是最新版的 Azure AD Connect，以及是否在使用本指南的最新版本。 如需詳細資訊，請參閱[更新 Azure AD Connect](#_Update_Azure_AD) 一節。
-   
-   5. 在 [啟用單一登入] 畫面中，輸入網域系統管理員帳戶的認證，然後選取 [下一步]。
-   ![圖 35](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)</br>
-   
+   > 開始使用 Azure AD Connect 1.1.880.0 版，在預設情況下會選取 [無縫單一登入] 核取方塊。
+
+5. 在 [啟用單一登入] 頁面上，輸入網域系統管理員帳戶的認證，然後選取 [下一步]。
+
    > [!NOTE]
-   > 需要網域系統管理員認證才能啟用無縫單一登入，因為此程序會執行下列這些需要較高權限的動作。 網域管理員認證不會儲存在 Azure AD Connect 或 Azure AD 中。 這些只能用來啟用此功能，而且成功完成後即捨棄
-   >  * 名為 AZUREADSSOACC 的電腦帳戶 (代表 Azure AD) 是在您的內部部署 Active Directory (AD) 中建立。
-   >  * 電腦帳戶的 Kerberos 解密金鑰可安全地與 Azure AD 共用。
-   >  * 此外，系統會建立兩個 Kerberos 服務主體名稱 (SPN)，以代表 Azure AD 登入期間所使用的兩個 URL。
-   >  * 網域管理員認證不會儲存在 Azure AD Connect 或 Azure AD 中。 這些只能用來啟用此功能，而且成功完成後即捨棄
-   
-   6. 在 [Ready to Configure]\(準備進行設定\) 畫面上，請確定已勾選 [Start Synchronization process when configuration completes]\(設定完成時啟動同步處理流程\) 此核取方塊。 然後選取 [設定]。
-   ![圖 36](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image10.png)</br>
-   
+   > 必須要有網域系統管理員帳戶認證，才能啟用無縫 SSO。 此程序會完成下列需要更高權限的動作。 網域系統管理員帳戶認證不會儲存在 Azure AD Connect 或 Azure AD 中。 網域系統管理員帳戶認證只會用來開啟功能。 此程序順利完成後，即會捨棄認證。
+   >
+   > 1. 在您的內部部署 Active Directory 執行個體中建立名為 AZUREADSSOACC 的電腦帳戶 (代表 Azure AD)。
+   > 2. 安全地與 Azure AD 共用電腦帳戶的 Kerberos 解密金鑰。
+   > 3. 建立兩個 Kerberos 服務主體名稱 (SPN)，以代表 Azure AD 在登入期間使用的兩個 URL。
+
+6. 在 [已可設定] 頁面上，確定已選取 [在設定完成時開始同步處理程序] 核取方塊。 然後，選取 [設定]。
+
+   ![螢幕擷取畫面：顯示 [準備好設定] 頁面上的 [設定] 按鈕](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image15.png)<br />
+   當您選取 [設定] 按鈕時，系統便會依照上一個步驟的指定來設定無縫 SSO。 其不會修改密碼雜湊同步處理設定，因為已於之前啟用。
+
    > [!IMPORTANT]
-   > 此時您所有的同盟網域都會變更為受控驗證，現在會使用密碼雜湊同步處理作為驗證的方法。
-       
-   7. 開啟 [Azure AD 入口網站]、選取 [Azure Active Directory]，然後選取 [Azure AD Connect]。
-   8. 確認同盟 [已停用]，同時 [無縫單一登入] 和 [密碼同步處理] 設為 [已啟用]。  
-  ![圖 37](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)</br>
-   9. 請前往[測試和下一個步驟](#testing-and-next-steps)。
-   
-   > [!IMPORTANT]
-   > 略過「選項 B - 使用 Azure AD Connect 和 PowerShell 從同盟轉換至 密碼雜湊同步處理」一節，因為該節中的步驟不適用。  
+   > 這次不會變更使用者的登入方式。
 
-#### <a name="option-b---switch-from-federation-to-phs-using-azure-ad-connect-and-powershell"></a>選項 B - 使用 Azure AD Connect 和 PowerShell 從同盟轉換至 PHS
+7. 在 Azure AD 入口網站中，確認這些設定：
+   * [同盟] 已設定為 [啟用]。
+   * [無縫單一登入] 設為 [啟用]。
+   * [密碼同步處理] 設為 [啟用]。
 
-如果您的同盟一開始不是使用 Azure AD Connect 設定，請使用此選項。
-
-您將在此程序中啟用 [無縫式 SSO]，並且從同盟網域轉換至受控網域。
-
-   1. 在 Azure AD Connect 伺服器上開啟精靈。
-   2. 選取 [變更使用者登入]，然後選取 [下一步]。 
-   3. 在 [Connect to Azure AD] \(連線到 Azure AD\) 畫面中，提供全域系統管理員的使用者名稱和密碼。
-   4. 在 [使用者登入] 畫面中，將選項按鈕從 [不設定] 變更成 [密碼雜湊同步處理]、選取 [啟用單一登入]，然後選取 [下一步]。
-   
-   變更前：![圖 20](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)</br>
-
-   變更後：  
-   ![圖 22](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)</br>
-   
-   > [!NOTE]
-   > 開始使用 Azure AD Connect 版本 1.1.880.0，在預設情況下會啟用 [無縫單一登入] 核取方塊。
-   
-   5. 在 [啟用單一登入] 畫面中，輸入網域系統管理員帳戶的認證，然後選取 [下一步]。
-   
-   > [!NOTE]
-   > 需要網域系統管理員認證才能啟用無縫單一登入，因為此程序會執行下列這些需要較高權限的動作。 網域管理員認證不會儲存在 Azure AD Connect 或 Azure AD 中。 這些只能用來啟用此功能，而且成功完成後即捨棄。
-   > * 名為 AZUREADSSOACC 的電腦帳戶 (代表 Azure AD) 是在您的內部部署 Active Directory (AD) 中建立。
-   > * 電腦帳戶的 Kerberos 解密金鑰可安全地與 Azure AD 共用。
-   > * 此外，系統會建立兩個 Kerberos 服務主體名稱 (SPN)，以代表 Azure AD 登入期間所使用的兩個 URL。
-   
-   6. 在 [Ready to Configure]\(準備進行設定\) 畫面上，請確定已勾選 [Start Synchronization process when configuration completes]\(設定完成時啟動同步處理流程\) 此核取方塊。 然後選取 [設定]。
-   ![圖 41](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image15.png)</br>
-   選取 [設定] 時，會按照預覽步驟設定無縫 SSO。 不會修改密碼雜湊同步處理設定，因為之前已經啟用此功能。
-   
-   > [!IMPORTANT]
-   > 此時不會變更使用者的登入方式。  
-   
-   7. 在 Azure AD 入口網站中，請確認 [同盟] 持續設為 [已啟用]，而且 [無縫單一登入] 現在也設為 [已啟用]。
-   ![圖 42](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image16.png)
+   ![此螢幕擷取畫面顯示 [使用者登入] 區段中的設定](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image16.png)
 
 #### <a name="convert-domains-from-federated-to-managed"></a>從同盟網域轉換成受控網域
 
 此時，同盟仍是已啟用狀態，而且可供您的網域運作。 若要繼續部署，每個網域必須從同盟轉換為受控，以便強迫透過密碼雜湊同步處理執行使用者驗證。
 
 > [!IMPORTANT]
-> 並非所有網域都需要同時轉換，您可選擇從生產租用戶上的測試網域，或是使用者數量最少的網域開始。
+> 您不需要同時轉換所有網域。 您可以選擇從生產租用戶上的測試網域開始，或是從使用者數量最少的網域開始。
 
-使用 Azure AD PowerShell 模組執行轉換。
+使用 Azure AD PowerShell 模組完成轉換：
 
-   1. 開啟 [PowerShell] 並使用 [全域系統管理員] 帳戶登入 Azure AD。  
-   2. 若要轉換第一個網域，請執行下列命令：  
-   
+1. 在 PowerShell 中，使用全域管理員帳戶登入 Azure AD。
+2. 若要轉換第一個網域，請執行下列命令：
+
    ``` PowerShell
-   Set-MsolDomainAuthentication -Authentication Managed -DomainName <domainname>
+   Set-MsolDomainAuthentication -Authentication Managed -DomainName <domain name>
    ```
-   
-   3. 開啟 [Azure AD 入口網站]、選取 [Azure Active Directory]，然後選取 [Azure AD Connect]。
-   4. 確認已透過執行下列命令的方式，將網域轉換成受控：
-   
+
+3. 在 Azure AD 入口網站中，選取 [Azure Active Directory] > [Azure AD Connect]。
+4. 確認已透過執行下列命令的方式，將網域轉換成受控：
+
    ``` PowerShell
-   Get-MsolDomain -DomainName <domainname>
+   Get-MsolDomain -DomainName <domain name>
    ```
 
 ## <a name="testing-and-next-steps"></a>測試和下一個步驟
 
-### <a name="test-authentication-with-phs"></a>使用 PHS 測試驗證
+完成下列工作以確認密碼雜湊同步處理，並完成轉換程序。
 
-如果您的租用戶使用同盟，會從 Azure AD 登入頁面將使用者重新導向至您的 AD FS 環境。 現在，租用戶已設定為使用密碼雜湊同步處理，而不是同盟，系統不會將使用者重新導向至 AD FS，而是直接透過 Azure AD 登入頁面登入。
+### <a name="test-authentication-by-using-password-hash-synchronization"></a>使用密碼雜湊同步處理來測試驗證 
 
-以 InPrivate 模式開啟 Internet Explorer 可避免無縫 SSO 將您自動登入並前往 Office 365 登入頁面 ([https://portal.office.com](https://portal.office.com/))。 輸入使用者的 UPN，然後按一下 [下一步]。 請務必輸入從內部部署 Active Directory 同步，而且先前已建立同盟的混合式使用者 UPN。 使用者會看到須輸入使用者名稱和密碼的畫面。
+如果您的租用戶先前使用同盟身分識別，則使用者會從 Azure AD 登入頁面重新導向至您的 AD FS 環境。 現在，租用戶已設定為使用密碼雜湊同步處理，而不是同盟驗證，因此使用者不會重新導向至 AD FS。 此時使用者會直接在 Azure AD 登入頁面中登入。
 
-![圖 9](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image18.png)
+若要測試密碼雜湊同步處理：
 
-![圖 12](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image19.png)
+1. 以 InPrivate 模式開啟 Internet Explorer，使無縫 SSO 不會將您自動登入。
+2. 移至 Office 365 登入頁面 ([http://portal.office.com](http://portal.office.com/))。
+3. 輸入使用者 UPN，然後選取 [下一步]。 請務必輸入從內部部署 Active Directory 執行個體同步，且先前已使用同盟驗證的混合式使用者 UPN。 您輸入使用者名稱和密碼的頁面顯示如下：
 
-您輸入密碼後，系統應會將您重新導向至 Office 365 入口網站。
+   ![此螢幕擷取畫面顯示您輸入使用者名稱的登入頁面](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image18.png)
 
-![圖 17](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image20.png)
+   ![此螢幕擷取畫面顯示您輸入密碼的登入頁面](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image19.png)
 
-### <a name="test-seamless-single-sign-on"></a>測試無縫單一登入
+4. 在您輸入密碼並選取 [登入] 後，會重新導向至 Office 365 入口網站。
 
-登入連線到公司網路的網域加入機器。 開啟 Internet Explorer，並前往下列其中一個 URL：  
-  
-‎[https://myapps.microsoft.com/contoso.com](https://myapps.microsoft.com/contoso.com) [https://myapps.microsoft.com/contoso.onmicrosoft.com](https://myapps.microsoft.com/contoso.onmicrosoft.com) (使用您的網域取代 Contoso)。
+   ![顯示 Office 365 入口網站的螢幕擷取畫面](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image20.png)
 
-系統會立即將使用者重新導向至 Azure AD 登入頁面並顯示「正在嘗試將您登入」訊息，然後應不會提示您輸入使用者名稱或密碼。
 
-![圖 24](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image21.png)
+### <a name="test-seamless-sso"></a>測試無縫 SSO
 
-然後，會將使用者重新導向並成功登入存取面板：
+1. 登入連線到公司網路的網域加入機器。
+2. 在 Internet Explorer 或 Chrome 中，移至下列其中一個 URL (請將 "contoso" 取代為您的網域)：
 
-> [!NOTE]
-> 無縫單一登入適用於支援網域提示的 Office 365 服務 (例如 myapps.microsoft.com/contoso.com)。 Office 365 入口網站 (portal.office.com) 目前不支援網域提示，因此會預期使用者必須輸入 UPN。 一旦輸入 UPN，無縫單一登入便可代表使用者擷取 Kerberos 票證並記錄，而且不需要輸入密碼。 
+   * https:\/\/myapps.microsoft.com/contoso.com
+   * https:\/\/myapps.microsoft.com/contoso.onmicrosoft.com
 
-> [!TIP]
-> 請考慮[在 Windows 10 上部署混合式 Azure AD Join](https://docs.microsoft.com/azure/active-directory/device-management-introduction)，以改善單一登入體驗。
+   使用者會隨即重新導向至 Azure AD 登入頁面，且頁面上會顯示「正在嘗試將您登入」訊息。 系統不會提示使用者輸入使用者名稱和密碼。<br />
 
-### <a name="removal-of-the-relying-party-trust"></a>移除信賴憑證者信任
+   ![顯示 Azure AD 登入頁面和訊息的螢幕擷取畫面](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image21.png)<br />
+3. 使用者會重新導向，並成功登入存取面板：
 
-一旦確認所有使用者和用戶端都透過 Azure AD 成功驗證，便可視為安全地移除 Office 365 信賴憑證者信任。
+   > [!NOTE]
+   > 無縫 SSO 適用於支援網域提示的 Office 365 服務 (例如 myapps.microsoft.com/contoso.com)。 Office 365 入口網站 (portal.office.com) 目前不支援網域提示。 使用者必須輸入 UPN。 輸入 UPN 之後，無縫 SSO 會代表使用者擷取 Kerberos 票證。 使用者無須輸入密碼即可登入。
 
-如果 AD FS 未用於其他用途 (已設定其他信賴憑證者信任)，現在即可安全地解除委任 AD FS。
+   > [!TIP]
+   > 請考慮[在 Windows 10 上部署混合式 Azure AD Join](https://docs.microsoft.com/azure/active-directory/device-management-introduction)，以改善 SSO 體驗。
+
+### <a name="remove-the-relying-party-trust"></a>移除信賴憑證者信任
+
+在您確認所有使用者和用戶端都已透過 Azure AD 成功驗證之後，即可安全地移除 Office 365 信賴憑證者信任。
+
+如果 AD FS 未用於其他用途 (即其他信賴憑證者信任)，則此時即可安全地解除委任 AD FS。
 
 ### <a name="rollback"></a>復原
 
-如果找到主要問題而且無法快速解決，您可能需決定將解決方案復原至同盟。
+如果您發現無法快速解決的重大問題，您可以選擇將解決方案復原至同盟。
 
-如需特定的部署詳細資料，請參閱您的同盟設計和部署文件。 此流程應該包含：
+請參閱同盟設計和部署文件，以取得特定部署的詳細資料。 此程序應會進行下列工作：
 
-* 使用 Convert-MSOLDomainToFederated 將受控網域轉換成同盟網域
+* 使用 **Convert-MSOLDomainToFederated** Cmdlet 將受控網域轉換成同盟驗證。
+* 如有必要，請設定其他宣告規則。
 
-* 必要時設定其他宣告規則。
+### <a name="sync-userprincipalname-updates"></a>同步 userPrincipalName 更新
 
-### <a name="enable-synchronization-of-userprincipalname-updates"></a>同步處理 userPrincipalName 更新
+在過去，除非下列兩項條件都成立，否則即無法從內部部署環境使用同步服務更新 **UserPrincipalName** 屬性：
 
-在過去，除非下列兩項條件都成立，否則皆會將透過內部部署使用同步處理服務的 UserPrincipalName 屬性更新封鎖：
+* 使用者位於受控 (非同盟) 識別網域中。
+* 使用者尚未獲得指派的授權。
 
-* 使用者受到管理 (非同盟)。
-
-* 使用者尚未指派授權。
-
-如需有關如何確認或啟用這項功能的指示，請參閱下列文章：
-
-[同步處理 userPrincipalName 更新](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features)。
+若要了解如何驗證或開啟這項功能，請參閱[同步 userPrincipalName 更新](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features)。
 
 ### <a name="troubleshooting"></a>疑難排解
 
@@ -430,18 +459,18 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 
 [針對 Azure Active Directory 密碼雜湊同步處理進行疑難排解](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization)
 
-[針對 Azure Active Directory 無縫單一登入進行疑難排解](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sso)  
+[針對 Azure Active Directory 無縫單一登入進行疑難排解](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sso)
 
-## <a name="roll-over-the-seamless-sso-kerberos-decryption"></a>變換無縫 SSO Kerberos 解密
+## <a name="roll-over-the-seamless-sso-kerberos-decryption-key"></a>變換無縫 SSO Kerberos 解密金鑰
 
-請務必經常變換在內部部署 AD 樹系中建立之 AZUREADSSOACC 電腦帳戶 (這表示 Azure AD) 的 Kerberos 解密金鑰。 強烈建議至少每隔 30 天變換一次 Kerberos 解密金鑰，以便和 Active Directory 網域成員提交密碼變更的方式保持一致。 由於沒有任何相關聯的裝置連接至 AZUREADSSOACC 電腦帳戶物件，因此需要手動執行變換。
+請務必經常變換 AZUREADSSOACC 電腦帳戶 (代表 Azure AD) 的 Kerberos 解密金鑰。 AZUREADSSOACC 電腦帳戶會建立於您的內部部署 Active Directory 樹系中。 強烈建議至少每 30 天變換一次 Kerberos 解密金鑰，以便和 Active Directory 網域成員提交密碼變更的方式保持一致。 AZUREADSSOACC 電腦帳戶物件並未連結任何相關聯的裝置，因此您必須手動執行變換。
 
-請在執行 Azure AD Connect 的內部部署伺服器上執行下列步驟，開始變換 Kerberos 解密金鑰。
+請在執行 Azure AD Connect 的內部部署伺服器上起始無縫 SSP Kerberos 解密金鑰的變換。
 
-[如何才能變換 AZUREADSSOACC 電腦帳戶的 Kerberos 解密金鑰](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq)？
+如需詳細資訊，請參閱[如何才能變換 AZUREADSSOACC 電腦帳戶的 Kerberos 解密金鑰？](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure AD Connect 的設計概念](plan-connect-design-concepts.md)
-- [選擇正確的驗證](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)
-- [支援的拓撲](plan-connect-design-concepts.md)
+* 了解 [Azure AD Connect 設計概念](plan-connect-design-concepts.md)。
+* 選擇[正確的驗證](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)。
+* 了解[支援的拓撲](plan-connect-design-concepts.md)。
