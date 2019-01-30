@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: a43988f8d4d6ae318f409cf1e79d8ad2ff8c8af1
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 00d5cb48053fe3f34152f29fb20fec8c4a20166f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247821"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426160"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>建立、變更或刪除虛擬網路
 
@@ -29,7 +29,7 @@ ms.locfileid: "54247821"
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
-- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
 - 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 - 您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)中所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
@@ -43,7 +43,7 @@ ms.locfileid: "54247821"
         - 255.255.255.255/32 (廣播)
         - 127.0.0.0/8 (回送)
         - 169.254.0.0/16 (連結-本機)
-        - 168.63.129.16/32 (內部 DNS)
+        - 168.63.129.16/32 (內部 DNS、DHCP 和 Azure Load Balancer [健康情況探查](../load-balancer/load-balancer-custom-probe-overview.md#probesource))
 
       雖然在建立虛擬網路時，只能定義一個位址範圍，但您可以在建立虛擬網路後，新增更多位址範圍至位址空間。 若要了解如何將位址範圍新增至現有的虛擬網路，請參閱[新增或移除位址範圍](#add-or-remove-an-address-range)。
 
@@ -111,7 +111,7 @@ ms.locfileid: "54247821"
 - 255.255.255.255/32 (廣播)
 - 127.0.0.0/8 (回送)
 - 169.254.0.0/16 (連結-本機)
-- 168.63.129.16/32 (內部 DNS)
+- 168.63.129.16/32 (內部 DNS、DHCP 和 Azure Load Balancer [健康情況探查](../load-balancer/load-balancer-custom-probe-overview.md#probesource))
 
 新增或移除位址範圍：
 
@@ -125,7 +125,7 @@ ms.locfileid: "54247821"
 
 **命令**
 
-- Azure CLI：[az network vnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- Azure CLI：[az network vnet update](/cli/azure/network/vnet)
 - PowerShell：[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
 
 ## <a name="change-dns-servers"></a>變更 DNS 伺服器
@@ -147,7 +147,7 @@ ms.locfileid: "54247821"
 
 **命令**
 
-- Azure CLI：[az network vnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- Azure CLI：[az network vnet update](/cli/azure/network/vnet)
 - PowerShell：[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
 
 ## <a name="delete-a-virtual-network"></a>刪除虛擬網路
@@ -169,7 +169,7 @@ ms.locfileid: "54247821"
 
 若要針對虛擬網路執行工作，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派下表中所列適當動作的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
 
-|  動作                                  |   Name                                |
+| 動作                                  |   Name                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   讀取虛擬網路              |
 |Microsoft.Network/virtualNetworks/write  |   建立或更新虛擬網路  |

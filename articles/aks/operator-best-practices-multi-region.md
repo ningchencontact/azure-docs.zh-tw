@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 622cdd36a1ecf582c4cdb883b12753ee2a75d50e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853978"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382441"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>因應 Azure Kubernetes Service (AKS) 中商務持續性和災害復原的最佳做法
 

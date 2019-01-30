@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 33512b47eff75421ce07b02f9c17ae3028152568
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3262720f52bc75ba5d430e941da25568a105fe0d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276242"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391255"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>適用於 Azure Stack 整合式系統的 Azure 中斷連線部署規劃決策
 在您決定[如何將 Azure Stack 整合到您的混合式雲端環境](azure-stack-connection-models.md)之後，即可接著完成您的 Azure Stack 部署決策。
@@ -49,7 +49,7 @@ ms.locfileid: "53276242"
 |Marketplace – 能夠直接從 Azure Marketplace 選取及新增資源庫套件|受損 – 當您以中斷連線模式 (沒有任何網際網路連線) 中部署 Azure Stack 時，您無法透過 Azure Stack 入口網站下載 Marketplace 項目。 不過，您可使用 [Marketplace 摘要整合工具](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity)將 Marketplace 項目下載至具有網際網路連線的電腦，再將其傳輸至 Azure Stack 環境。|
 |使用 Azure Active Directory 同盟帳戶來管理 Azure Stack 部署|無法使用 – 這項功能需要連線到 Azure。 必須改為使用具有本機 Active Directory 執行個體的 AD FS。|
 |應用程式服務|受損 - WebApps 可能需要存取網際網路以取得更新的內容。|
-|命令列介面 (CLI)|受損 – CLI 降低了服務準則在驗證和佈建方面的功能。|
+|命令列介面 (CLI)|受損 – CLI 降低了服務主體在驗證和佈建方面的功能。|
 |Visual Studio – Cloud Discovery|受損 – Cloud Discovery 會探索不同的雲端，或完全無法運作。|
 |Visual Studio – AD FS|受損 – 只有 Visual Studio Enterprise 支援 AD FS。
 遙測|無法使用 – Azure Stack 的遙測資料，以及相依於遙測資料的任何第三方資源庫套件。|

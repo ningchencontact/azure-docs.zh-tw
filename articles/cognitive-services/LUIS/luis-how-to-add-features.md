@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: 39a6ead041b1783a3effcb9659c59ea788cd2bf6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 4f2343e1c6b95c495f03cd94ee58164c546f4b76
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139498"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382180"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>使用片語清單來提升字組清單訊號
 
@@ -27,6 +27,8 @@ ms.locfileid: "53139498"
 片語清單會新增至應用程式網域的詞彙，作為向 LUIS 指示這些字的第二個信號。
 
 ## <a name="add-phrase-list"></a>新增片語清單
+
+LUIS 讓每個應用程式最多有 10 個片語清單。 
 
 1. 在 [我的應用程式] 頁面上按一下應用程式的名稱，接著按一下 [建置]，然後在應用程式的左窗格中按一下 [片語清單]，即可開啟您的應用程式。 
 

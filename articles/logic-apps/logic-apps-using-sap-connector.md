@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 1738f02d28a4eb9ff5cbb51c73bc50ddf3c9a68b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 27da87c11ca35be72690965a2359ff6ff6b9f999
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231333"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391287"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SAP 系統
 
@@ -38,7 +38,7 @@ SAP 連接器會透過[內部部署資料閘道](https://www.microsoft.com/downl
 
 * Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 
-* 您要用來存取 SAP 系統的邏輯應用程式，以及啟動邏輯應用程式工作流程的觸發程序。 如果您還不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+* 您要用來存取 SAP 系統的邏輯應用程式，以及啟動邏輯應用程式工作流程的觸發程序。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 * 您的 <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP 應用程式伺服器</a>或 <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP 訊息伺服器</a>
 
@@ -71,7 +71,7 @@ SAP 連接器會透過[內部部署資料閘道](https://www.microsoft.com/downl
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，建立空白的邏輯應用程式，以開啟邏輯應用程式設計工具。 
 
-2. 在搜尋方塊中，輸入「http 要求」做為篩選條件。 從觸發程序清單中選取此觸發程序：[要求 - 收到 HTTP 要求時]
+2. 在搜尋方塊中，輸入「http 要求」做為篩選條件。 從觸發程序清單中，選取此觸發程序：**要求 - 收到 HTTP 要求時**
 
    ![新增 HTTP 要求觸發程序](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -92,7 +92,7 @@ SAP 連接器會透過[內部部署資料閘道](https://www.microsoft.com/downl
 
    ![新增動作](./media/logic-apps-using-sap-connector/add-action.png) 
 
-2. 在搜尋方塊中，輸入「sap」作為篩選條件。 從 [動作] 清單中，選取此動作：**傳送訊息至 SAP**
+2. 在搜尋方塊中，輸入「sap」作為篩選條件。 從 [動作] 清單中，選取此動作：**將訊息傳送至 SAP**
   
    ![選取 SAP 傳送動作](media/logic-apps-using-sap-connector/select-sap-send-action.png)
 
@@ -159,7 +159,7 @@ SAP 連接器會透過[內部部署資料閘道](https://www.microsoft.com/downl
 
 1. 在邏輯應用程式設計工具的 SAP 動作之下，依序選擇 [新增步驟]  >  [新增動作]。
 
-2. 在搜尋方塊中，輸入「回應」做為篩選條件。 從 [動作] 清單中，選取此動作：[要求 - 回應]
+2. 在搜尋方塊中，輸入「回應」做為篩選條件。 從 [動作] 清單中，選取此動作：**要求 - 回應**
 
 3. 在 [內文] 方塊內按一下，動態內容清單隨即顯示。 從該清單的 [傳送至 SAP] 之下，選取 [內文] 欄位。 
 
@@ -269,7 +269,7 @@ SAP 連接器會透過[內部部署資料閘道](https://www.microsoft.com/downl
 
 1. 在 Azure 入口網站中，建立空白的邏輯應用程式，以開啟邏輯應用程式設計工具。 
 
-2. 在搜尋方塊中，輸入「http 要求」做為篩選條件。 從觸發程序清單中選取此觸發程序：[要求 - 收到 HTTP 要求時]
+2. 在搜尋方塊中，輸入「http 要求」做為篩選條件。 從觸發程序清單中，選取此觸發程序：**要求 - 收到 HTTP 要求時**
 
    ![新增 HTTP 要求觸發程序](./media/logic-apps-using-sap-connector/add-trigger.png)
 

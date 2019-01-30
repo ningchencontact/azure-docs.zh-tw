@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 2eb2fbb1d184bf58923748278d4989a271adf434
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d914242b6a29e05e5b97ad11a1bde6f894113e43
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352575"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382569"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure Standard Load Balancer 概觀
 
@@ -173,33 +173,33 @@ SKU 是不可變動的。 請依照本節中的步驟從一個資源 SKU 移到�
 >[!IMPORTANT]
 >請完整檢閱這份文件以了解 SKU 之間的差異，並小心檢查您的案例。  您可能需要根據您的案例進行額外的變更。
 
-### <a name="migrate-from-basic-to-standard-sku"></a>從 Basic 移轉到 Standard SKU
+### <a name="migrate-from-basic-to-standard-sku"></a>從基本 SKU 移轉到標準 SKU
 
 1. 視需要針對 Load Balancer 和「公用 IP」建立一個新的 Standard 資源。 重新建立您的規則和探查定義。  如果您先前使用對 443/tcp 的 TCP 探查，請考慮將此探查通訊協定變更為 HTTPS 探查並新增路徑。
 
 2. 在 NIC 或子網路上建立新的或更新現有的 NSG，以將已負載平衡的流量、探查及任何其他您想要允許的流量列入允許清單。
 
-3. 從所有 VM 執行個體中移除 Basic SKU 資源 (看 Load Balancer 和「公用 IP」哪一個適用)。 請務必也移除可用性設定組的所有 VM 執行個體。
+3. 從所有 VM 執行個體中移除基本 SKU 資源 (看 Load Balancer 和「公用 IP」哪一個適用)。 請務必也移除可用性設定組的所有 VM 執行個體。
 
-4. 將所有 VM 執行個體附加至新的 Standard SKU 資源。
+4. 將所有 VM 執行個體附加至新的標準 SKU 資源。
 
-### <a name="migrate-from-standard-to-basic-sku"></a>從 Standard 移轉到 Basic SKU
+### <a name="migrate-from-standard-to-basic-sku"></a>從標準 SKU 移轉到基本 SKU
 
 1. 視需要針對 Load Balancer 和「公用 IP」建立一個新的 Basic 資源。 重新建立您的規則和探查定義。  將 HTTPS 探查變更為對 443/tcp 的 TCP 探查。 
 
-2. 從所有 VM 執行個體中移除 Standard SKU 資源 (看 Load Balancer 和「公用 IP」哪一個適用)。 請務必也移除可用性設定組的所有 VM 執行個體。
+2. 從所有 VM 執行個體中移除標準 SKU 資源 (看 Load Balancer 和「公用 IP」哪一個適用)。 請務必也移除可用性設定組的所有 VM 執行個體。
 
-3. 將所有 VM 執行個體附加至新的 Basic SKU 資源。
+3. 將所有 VM 執行個體附加至新的基本 SKU 資源。
 
 >[!IMPORTANT]
 >
->在 Basic 和 Standard SKU 的使用上有一些限制。
+>在基本和標準 SKU 的使用上有一些限制。
 >
->只有在 Standard SKU 中才有提供「HA 連接埠」和 Standard SKU 的「診斷」。 您無法既從 Standard SKU 移轉到 Basic SKU 又同時保留這些功能。
+>只有在標準 SKU 中才有提供「HA 連接埠」和標準 SKU 的「診斷」。 您無法既從 Standard SKU 移轉到基本 SKU 又同時保留這些功能。
 >
 >如本文所述，基本和標準 SKU 之間有許多差異。  請確實加以了解，並做好相關準備。
 >
->Load Balancer 和 Public IP 資源必須使用相符的 SKU。 您無法將 Basic SKU 資源與 Standard SKU 資源混用。 您無法將獨立虛擬機器、可用性設定組資源中的虛擬機器或虛擬機器擴展集資源同時連結到這兩個 SKU。
+>Load Balancer 和 Public IP 資源必須使用相符的 SKU。 您無法將基本 SKU 資源與標準 SKU 資源混用。 您無法將獨立虛擬機器、可用性設定組資源中的虛擬機器或虛擬機器擴展集資源同時連結到這兩個 SKU。
 
 ## <a name="region-availability"></a>區域可用性
 

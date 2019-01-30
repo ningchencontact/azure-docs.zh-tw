@@ -9,34 +9,29 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: 46ad8beb81f42fa19b832c63355488f31da023f8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a5d6a5c6191b69d554e0a79dc1303faeddecc6c3
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259371"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382397"
 ---
 # <a name="convert-data-format-of-utterances"></a>轉換語句的資料格式
 LUIS 會使用認知服務語音服務，在預測之前將口語語句轉換成文字語句。 
 
 ## <a name="speech-to-intent-conversion-concepts"></a>語音意圖轉換概念
-LUIS 的語音轉換文字功能可讓您將口頭語句傳送到端點並接收 LUIS 預測回應。 此流程整合了[語音](https://docs.microsoft.com/azure/cognitive-services/Speech)服務與 LUIS。 
+LUIS 的語音轉換文字功能可讓您將口頭語句傳送到端點並接收 LUIS 預測回應。 此流程整合了[語音](https://docs.microsoft.com/azure/cognitive-services/Speech)服務與 LUIS。 透過[教學課程](../speech-service/how-to-recognize-intents-from-speech-csharp.md)，深入了解語音轉換到意圖的更多資訊。
 
 ### <a name="key-requirements"></a>重要需求
-您不必為此整合建立 **Bing 語音 API** 金鑰。 在 Azure 入口網站中建立的 **Language Understanding** 金鑰適用於此整合。 請勿使用 LUIS 啟動器金鑰，該金鑰不適用於此整合。
+您不必為此整合建立 **Bing 語音 API** 金鑰。 在 Azure 入口網站中建立的 **Language Understanding** 金鑰適用於此整合。 請勿使用 LUIS 入門金鑰。
 
-### <a name="new-endpoint"></a>新增端點 
-此整合建立了新的端點和[價格](luis-boundaries.md#key-limits)模式。 端點透過[語音 SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk) 能夠接受語音和文字語句，讓您將此端點當作單一端點。 
+### <a name="pricing-tier"></a>定價層
+此整合會使用與一般 Language Understanding 定價層不同的[定價](luis-boundaries.md#key-limits)模型。 
 
 ### <a name="quota-usage"></a>配額使用方式
 相關資訊請參閱[重要限制](luis-boundaries.md#key-limits)。 
-
-### <a name="data-retention"></a>資料保留
-透過語音 SDK 傳送到端點的資料，無論是語音還是文字，都只能用來增強您的語音模式。 除了您的模式之外，不會在一般容量中增強語音或 LUIS。 刪除 LUIS 應用程式後，也會刪除保留的資料。
-
-<!-- TBD: Machine translation conversion concepts -->
 
 ## <a name="next-steps"></a>後續步驟
 

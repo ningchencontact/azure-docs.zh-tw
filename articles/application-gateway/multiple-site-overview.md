@@ -1,29 +1,21 @@
 ---
-title: 在 Azure 應用程式閘道上裝載多個網站 | Microsoft Docs
-description: 本頁面提供「應用程式閘道」多站台支援的概觀。
-documentationcenter: na
+title: 在 Azure 應用程式閘道上裝載多個網站
+description: 本文提供「Azure 應用程式閘道」多站台支援的概觀。
 services: application-gateway
-author: amsriva
-manager: rossort
-editor: ''
-ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 1/17/2019
 ms.author: amsriva
-ms.openlocfilehash: df98559a9476190d683812bf9f63d8ad9c4d3f0e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5c3fd92b3aa21b749a0c8ff435a1e5c12da4f57d
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160506"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381991"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>應用程式閘道多站台裝載
 
-多站台裝載可讓您在相同的應用程式閘道執行個體上設定多個 Web 應用程式。 此功能可讓您將最多 20 個網站新增到一個應用程式閘道，為您的部署設定更有效率的拓撲。 每個網站都可以導向到自己的後端集區。 在下列範例中，應用程式閘道會從兩個後端伺服器集區 (名為 ContosoServerPool 和 FabrikamServerPool) 為 contoso.com 和 fabrikam.com 的流量提供服務。
+多站台裝載可讓您在相同的應用程式閘道執行個體上設定多個 Web 應用程式。 此功能可讓您將最多 100 個網站新增到一個應用程式閘道，為您的部署設定更有效率的拓撲。 每個網站都可以導向到自己的後端集區。 在下列範例中，應用程式閘道會從兩個後端伺服器集區 (名為 ContosoServerPool 和 FabrikamServerPool) 為 contoso.com 和 fabrikam.com 的流量提供服務。
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 

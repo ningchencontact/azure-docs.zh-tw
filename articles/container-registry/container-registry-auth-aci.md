@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 32b1788d73e1c323d93b40b778bc64a1ba45c4ad
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855828"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390671"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>使用來自 Azure 容器執行個體的 Azure Container Registry 進行驗證
 
@@ -24,7 +24,7 @@ ms.locfileid: "48855828"
 
 您應該在**無周邊案例**中從 ACI 使用服務主體進行驗證，例如，在以自動化或其他自動方式建立容器執行個體的應用程式或服務中。
 
-例如，如果您有每晚都會執行的自動化指令碼，並建立一個[以工作為基礎的容器執行個體](../container-instances/container-instances-restart-policy.md)來處理某些資料，它可以使用具有僅提取 (讀取器) 權限的服務主體來向登錄進行驗證。 您接著可以替換服務主體的認證，或完全撤銷其存取權，而不會影響其他服務和應用程式。
+例如，如果您有每晚都會執行的自動化指令碼，並建立一個[以工作為基礎的容器執行個體](../container-instances/container-instances-restart-policy.md)來處理某些資料，它可以使用具有僅提取權限的服務主體來向登錄進行驗證。 您接著可以替換服務主體的認證，或完全撤銷其存取權，而不會影響其他服務和應用程式。
 
 停用登錄[管理使用者](container-registry-authentication.md#admin-account)時，也應使用服務主體。
 

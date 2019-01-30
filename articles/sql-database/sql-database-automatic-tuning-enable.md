@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e5f1f2fe3745ae2817b73b2500ee90a59fc283e1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1de0f9b77bd1248d77f182a2e32e490c2814f42b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607076"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382775"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>啟用自動調整以監視查詢並改進工作負載效能
 
@@ -87,6 +87,10 @@ Azure SQL Database 可讓您個別指定每個資料庫的自動調整設定。 
    ```
    
 將個別的調整選項設定成 [ON]，將會覆寫該資料庫所繼承的任何設定，並啟用該調整選項。 將它設定成 [OFF]，也會覆寫資料庫所繼承的任何設定，並停用該調整選項。 指定為 [DEFAULT] 的自動調整選項，將會繼承資料庫層級自動調整設定的組態。  
+
+> [!IMPORTANT]
+> 如果為[作用中異地複寫](sql-database-auto-failover-group.md)，則只需要在主要資料庫上設定自動調整。 自動套用的調整動作 (例如，建立或刪除範例索引) 會自動複寫到唯讀次要複本。 嘗試在唯讀次要複本上透過 T-SQL 啟用自動調整會導致失敗，因為不支援在唯讀次要複本上使用不同的調整設定。
+>
 
 若要深入了解如何使用 T-SQL 選項來設定自動調整，請參閱 [SQL Database 邏輯伺服器的 ALTER DATABASE SET 選項 (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)。
 

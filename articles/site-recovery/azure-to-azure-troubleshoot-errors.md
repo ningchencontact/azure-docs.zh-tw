@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 8023129bf700793447b63f0686acd22f6ac2b25c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 44801663165b85edc988dab8ae2b668ef0e613b7
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265000"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381595"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
 
@@ -230,6 +230,10 @@ Azure Site Recovery 目前要求來源區域資源群組和虛擬機器應該位
 - 您使用 Site Recovery 啟用 Azure VM 的複寫，然後刪除包含 Site Recovery 保存庫的資源群組，但是並未明確停用 VM 上的複寫。
 
 ### <a name="fix-the-problem"></a>修正問題
+
+>[!NOTE] 
+>
+>請務必在使用下列指令碼之前，先更新 ""AzureRM.Resources"" 模組。 
 
 您可以使用[移除過時 ASR 組態指令碼](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)，並移除 Azure VM 上的過時 Site Recovery 組態。 在移除過時的設定之後，您應該就能看到該 VM。
 

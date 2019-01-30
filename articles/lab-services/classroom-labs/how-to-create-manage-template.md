@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 8bd64aaa51faf968c0c7ae374daad3de4ca3a343
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 2f34b6c71c448f7273ba7477f18f5abb8f89cdec
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706852"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391191"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>在 Azure 實驗室服務中建立和管理教室範本
 實驗室中的範本是所有使用者的虛擬機器據以建立的基底虛擬機器映像。 設定範本虛擬機器以便能確實設定您要提供給實驗室使用者的虛擬機器。 您可以提供要給實驗室使用者查看的範本名稱與描述。 然後，發佈範本以便讓範本 VM 的執行個體可供實驗室使用者使用。 當您發佈範本時，Azure 實驗室服務會使用範本在實驗室中建立 VM。 在此程序中建立的 VM 數目與實驗室中允許的使用者數量上限相同 (此上限可在實驗室的使用原則中設定)。 所有虛擬機器都有與範本相同的設定。
@@ -85,14 +85,14 @@ ms.locfileid: "51706852"
     
     ![教室實驗室儀表板](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
 
-## <a name="set-up-a-template-after-creating-a-lab"></a>在建立實驗室之後設定範本 
-您也可以在建立實驗室之後設定範本。   
-
+ 
 ## <a name="set-or-update-template-title-and-description"></a>設定或更新範本標題和描述
 使用下列步驟，第一次設定標題和描述，且稍後加以更新。 
 
 1. 在 [範本] 區段中，將滑鼠移到範本的**名稱**或範本的**描述**上方，並加以選取。 
 2. 輸入範本的**新名稱**或**新描述**，並按下 **ENTER**。
+
+    ![範本名稱和描述](../media/how-to-create-manage-template/template-name-description.png)
 
 ## <a name="set-up-or-update-a-template-vm"></a>設定或更新範本 VM
  您可連線到範本 VM，在其上安裝任何必要的軟體，再將它提供給您的學生使用。 使用下列步驟，第一次設定範本 VM或更新 VM。 
@@ -100,30 +100,28 @@ ms.locfileid: "51706852"
 1. 請等候範本虛擬機器準備就緒。 準備就緒時，應會啟用 [啟動] 按鈕。 若要啟動 VM，請選取 [啟動]。
 
     ![啟動範本 VM](../media/tutorial-setup-classroom-lab/start-template-vm.png)
-1. 若要連線到 VM，請選取 [連線]，然後依照指示執行。 
+1. 檢閱警告，然後選取 [啟動]。 
 
-    ![連線至範本 VM](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
+    ![啟動範本 - 警告](../media/how-to-create-manage-template/start-template-warning.png)
+1. 啟動之後，若要連線到 VM，請選取 [連線]，然後依照指示執行。 
 1. 安裝學生使用實驗室所需的任何軟體 (例如，Visual Studio、Azure 儲存體總管等)。 
 2. 中斷範本 VM 的連線 (關閉您的遠端桌面工作階段)。 
 3. 選取 [停止] 以**停止** VM 範本。 
 
-    ![停止範本 VM](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
-
-
-## <a name="publish-the-template-vm"></a>發佈範本 VM
+## <a name="publish-the-template-vm"></a>發佈範本 VM  
 如果您未在建立實驗室時發行範本，也可以之後再發佈。 在發佈之前，請先連線至範本 VM，然後為其更新軟體。 當您發佈範本時，Azure 實驗室服務會使用範本在實驗室中建立 VM。 在此程序中建立的 VM 數目與實驗室中允許的使用者數量上限相同 (此上限可在實驗室的使用原則中設定)。 所有虛擬機器都有與範本相同的設定。 
 
 1. 選取 [範本] 區段中的 [發佈]。 
 
     ![發佈範本 VM](../media/tutorial-setup-classroom-lab/public-access.png)
-1. 在 [發佈範本] 訊息方塊上檢閱訊息，然後選取 [發佈]。 視要建立多少 VM (這與實驗室中允許的使用者數目相同) 而定，此程序可能需要一些時間。
+1. 在 [發佈範本] 訊息方塊上檢閱訊息，然後選取 [發佈]。 此程序可能需要一些時間，視正在建立的 VM 數目而定。
     
     > [!IMPORTANT]
     > 範本發行後就無法取消發行。 但可以重新發佈範本。 
-4. 切換到 [虛擬機器] 頁面，確認您看到虛擬機器處於 [未指派] 狀態。 這些虛擬機器尚未指派給任何學生。 
+4. 等候範本狀態變更為 [已發佈]。 
 
-    ![虛擬機器](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. 請等候 VM 建立。 它們應處於 [已停止] 狀態。 您可以在此頁面上啟動學生 VM、連線到 VM、停止 VM，以及刪除 VM。 您可以在此頁面啟動 VM，或是讓學生啟動 VM。 
+    ![發佈狀態](../media/how-to-create-manage-template/publish-status.png)
+1. 切換到 [虛擬機器] 頁面，確認您看到虛擬機器處於 [未指派] 狀態。 這些虛擬機器尚未指派給任何學生。 請等候 VM 建立。 它們應處於 [已停止] 狀態。 您可以在此頁面上啟動學生 VM、連線到 VM、停止 VM，以及刪除 VM。 您可以在此頁面啟動 VM，或是讓學生啟動 VM。 
 
     ![已停止狀態的虛擬機器](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 

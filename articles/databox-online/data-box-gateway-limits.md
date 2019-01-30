@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 01/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 60078845c98f2e241b00e184303dce0c860629e9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f01fb88bf0ea726b421111a262bdfdd68cd3d38c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49164428"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388431"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure 資料箱閘道限制 (預覽)
 
@@ -35,8 +35,8 @@ ms.locfileid: "49164428"
 
 | 說明 | 值 |
 |---|---|
-|否。 (每個裝置的檔案) |1 億 <br> 限制約為每 2 TB 的磁碟空間可以有 2 千 5 百萬個檔案，最大限制為 1 億個 |
-|否。 (每個裝置的共用) |24 |
+|沒有。 (每個裝置的檔案) |1 億 <br> 限制約為每 2 TB 的磁碟空間可以有 2 千 5 百萬個檔案，最大限制為 1 億個 |
+|沒有。 (每個裝置的共用) |24 |
 |寫入至共用的檔案大小上限|針對 2 TB 的虛擬裝置，檔案大小上限為 500 GB。 <br> 檔案大小上限會以上述比例隨著資料磁碟大小增加，直到達到上限 5 TB 為止。 |
 
 ## <a name="azure-storage-limits"></a>Azure 儲存體限制
@@ -57,9 +57,9 @@ ms.locfileid: "49164428"
 下列注意事項適用於正移至 Azure 的資料。
 
 - 我們建議不要將多個裝置寫入至相同的容器。
-- 如果雲端中現有的 Azure 物件 (例如 Blob 或檔案) 與要複製的物件同名，裝置將會覆寫雲端中的檔案。 
+- 如果雲端中現有的 Azure 物件 (例如 Blob 或檔案) 與要複製的物件同名，裝置將會覆寫雲端中的檔案。
 - 在共用資料夾下建立的空目錄階層 (不含任何檔案) 則不會上傳至 Blob 容器。
-
+- 如果要複製的檔案超過裝置大小，則建議使用 *Robocopy* 或 *rsync* 以確保不會複製失敗。
 
 ## <a name="azure-storage-account-size-and-object-size-limits"></a>Azure 儲存體帳戶大小和物件大小限制
 

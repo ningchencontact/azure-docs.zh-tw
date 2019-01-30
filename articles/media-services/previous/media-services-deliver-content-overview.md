@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: juliako
-ms.openlocfilehash: ae0ff36c7e83120a9571e0f87788c25193027616
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3e968c71b87f7227dc4bd2e3f4ee486719b65e40
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240132"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388143"
 ---
 # <a name="deliver-content-to-customers"></a>將內容傳遞給客戶
 當您將串流或點播視訊內容傳遞給客戶時，您的目標是在不同的網路條件下將高品質的視訊傳遞到各種裝置。
@@ -61,7 +61,7 @@ ms.locfileid: "51240132"
 * OnDemandOrigin 定位器。 這些定位器可用來串流媒體 (例如，MPEG-DASH、HLS 或 Smooth Streaming) 或漸進式下載檔案。
 * 共用存取簽章 (SAS) URL 定位器。 這些定位器可用來將媒體檔案下載到本機電腦。
 
-「存取原則」  可用來定義權限 (例如讀取、寫入和列出)，以及用戶端可存取特定資產多久的時間。 請注意，建立 OrDemandOrigin 定位器時，不應使用列出權限 (AccessPermissions.List)。
+「存取原則」  可用來定義權限 (例如讀取、寫入和列出)，以及用戶端可存取特定資產多久的時間。 請注意，建立 OnDemandOrigin 定位器時，不應使用列出權限 (AccessPermissions.List)。
 
 定位器有到期日。 Azure 入口網站會為定位器設定 100 年後的到期日。
 
@@ -77,7 +77,7 @@ ms.locfileid: "51240132"
 建立定位器時，由於 Azure 儲存體需要執行一些儲存體和傳播程序，因此有時候會延遲 30 秒的時間。
 
 ## <a name="adaptive-streaming"></a>調適性串流處理
-調適性位元速率技術可讓視訊播放器應用程式判斷網路狀況，並由數種位元速率中進行選擇。 當網路通訊降級時，用戶端可以選取較低的位元速率，讓播放能夠以較低的視訊品質繼續。 當網路狀況改善時，用戶端可以切換至較高的位元速率，以提高視訊品質。 Azure 媒體服務支援下列調適性位元速率技術：HTTP 即時串流 (HLS)、Smooth Streaming 和 MPEG-DASH。
+調適性位元速率技術可讓視訊播放器應用程式判斷網路狀況，並由數種位元速率中進行選擇。 當網路通訊降級時，用戶端可以選取較低的位元速率，讓播放能夠以較低的視訊品質繼續。 當網路狀況改善時，用戶端可以切換至較高的位元速率，以提高視訊品質。 Azure 媒體服務支援下列自適性技術：HTTP 即時串流 (HLS)、Smooth Streaming 和 MPEG-DASH。
 
 若要提供漸進式下載 URL 給使用者，您必須先建立 OnDemandOrigin 定位器。 建立定位器可針對包含您要串流之內容的資產，提供其基底路徑。 不過，若要能夠串流此內容，您還需要進一步修改此路徑。 若要建構串流資訊清單檔案的完整 URL，您必須串連定位器的路徑值和資訊清單 (filename.ism) 的檔案名稱。 接著，在定位器路徑後面附加 **/Manifest** 和適當的格式 (如果需要)。
 

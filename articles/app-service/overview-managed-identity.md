@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 5e09401c37d40c99d3f8bbb643d104c0105812f4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 413473b856d76f9ebeff9669eb1facc54d89b509
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729865"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382531"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用 App Service 和 Azure Functions 的受控身分識別
 
@@ -26,7 +26,7 @@ ms.locfileid: "53729865"
 > [!Important] 
 > 如果您跨越訂用帳戶/租用戶移轉應用程式，App Service 和 Azure Functions 的受控身分識別將無法正常運作。 應用程式將必須取得新的身分識別，這可透過停用並重新啟用功能來實現。 請參閱下方的[移除身分識別](#remove)。 下游資源也必須更新存取原則，才能使用新的身分識別。
 
-此主題示範如何為 App Service 和 Azure Functions 應用程式建立受控應用程式身分識別，以及如何使用它來存取其他資源。 Azure Active Directory 的受控身分識別，可讓應用程式輕鬆存取其他受到 AAD 保護的資源 (例如 Azure Key Vault)。 身分識別由 Azure 平台負責管理，因此您不需要佈建或輪替任何密碼。 如需有關 ADD 中受控身分識別的詳細資訊，請參閱 [Azure 資源的受控身分識別](../active-directory/managed-identities-azure-resources/overview.md)。
+此主題示範如何為 App Service 和 Azure Functions 應用程式建立受控應用程式身分識別，以及如何使用它來存取其他資源。 Azure Active Directory 的受控身分識別，可讓應用程式輕鬆存取其他受到 AAD 保護的資源 (例如 Azure Key Vault)。 身分識別由 Azure 平台負責管理，因此您不需要佈建或輪替任何密碼。 如需有關 AAD 中受控身分識別的詳細資訊，請參閱 [Azure 資源的受控身分識別](../active-directory/managed-identities-azure-resources/overview.md)。
 
 您的應用程式可以授與兩種類型的身分識別： 
 - **系統指派的身分識別**會繫結至您的應用程式，如果您的應用程式已刪除，則會被刪除。 應用程式只能有一個系統指派的身分識別。 系統指派的身分識別支援通常適用於 Windows 應用程式。 
@@ -260,7 +260,7 @@ ms.locfileid: "53729865"
 
 1. 將對 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 及任何其他必要 NuGet 套件的參考新增到您的應用程式。 以下範例也使用 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)。
 
-2.  將下列程式碼新增至您的應用程式，將其目標修改成正確的資源。 此範例示範兩種使用 Azure Key Vault 的方式：
+2. 將下列程式碼新增至您的應用程式，將其目標修改成正確的資源。 此範例示範兩種使用 Azure Key Vault 的方式：
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -277,12 +277,12 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 ### <a name="using-the-rest-protocol"></a>使用 REST 通訊協定
 
 採用受控身分識別的應用程式有兩個已定義的環境變數：
+
 - MSI_ENDPOINT
 - MSI_SECRET
 
 **MSI_ENDPOINT** 是應用程式要求權杖的來源本機 URL。 若要取得資源的權杖，請向該端點提出包含以下參數的 HTTP GET 要求：
 
-> [!div class="mx-tdBreakAll"]
 > |參數名稱|在|說明|
 > |-----|-----|-----|
 > |resource|查詢|資源的 AAD 資源 URI，也就是要取得權杖的目標資源。 這可能是其中一個[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)，或任何其他資源 URI。|
@@ -290,10 +290,8 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 > |secret|頁首|MSI_SECRET 環境變數的值。|
 > |clientid|查詢|(選擇性) 要使用之使用者指派的身分識別的識別碼。 如果省略，則使用系統指派的身分識別。|
 
-
 成功的 200 OK 回應包括含以下屬性的 JSON 本文：
 
-> [!div class="mx-tdBreakAll"]
 > |屬性名稱|說明|
 > |-------------|----------|
 > |access_token|所要求的存取權杖。 呼叫端 Web 服務可以使用此權杖來向接收端 Web 服務進行驗證。|
@@ -301,24 +299,27 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 > |resource|接收端 Web 服務的應用程式識別碼 URI。|
 > |token_type|表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖使用方式 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) \(英文\)。|
 
-
 該回應與 [AAD 服務對服務存取權杖要求的回應](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)。
 
-> [!NOTE] 
+> [!NOTE]
 > 環境變數會在程序初次啟動時進行設定，因此您在應用程式上啟用受控身分識別前，可能需要重新啟動應用程式或重新部署其程式碼，才可讓您的程式碼使用 `MSI_ENDPOINT` 和 `MSI_SECRET`。
 
 ### <a name="rest-protocol-examples"></a>REST 通訊協定範例
+
 範例要求如下所示：
+
 ```
 GET /MSI/token?resource=https://vault.azure.net&api-version=2017-09-01 HTTP/1.1
 Host: localhost:4141
 Secret: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
+
 範例回應如下所示：
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
- 
+
 {
     "access_token": "eyJ0eXAi…",
     "expires_on": "09/14/2017 00:00:00 PM +00:00",
@@ -328,7 +329,9 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>程式碼範例
+
 <a name="token-csharp"></a>若要以 C# 提出這項要求：
+
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -336,10 +339,12 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
     return await client.GetAsync(String.Format("{0}/?resource={1}&api-version={2}", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource, apiversion));
 }
 ```
+
 > [!TIP]
 > 對於 .NET 語言，您也可以使用 [Microsoft.Azure.Services.AppAuthentication](#asal) 而不需要自行製作要求。
 
 <a name="token-js"></a>以 Node.JS 提出：
+
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -355,6 +360,7 @@ const getToken = function(resource, apiver, cb) {
 ```
 
 <a name="token-powershell"></a>以 PowerShell 提出：
+
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -370,12 +376,12 @@ $accessToken = $tokenResponse.access_token
 ```json
 "identity": {
     "type": "None"
-}    
+}
 ```
 
 以這種方式將系統指派的身分識別移除，也會從 AAD 刪除它。 當您刪除應用程式資源時，系統指派的身分識別會自動從 AAD 移除。
 
-> [!NOTE] 
+> [!NOTE]
 > 還可以設定另一個應用程式設定：WEBSITE_DISABLE_MSI，這只會停用本機權杖服務。 不過，系統會將身分識別留在原地，且工具仍會將受控身分識別顯示為「開啟」或「已啟用」。 因此，不建議使用這個設定。
 
 ## <a name="next-steps"></a>後續步驟

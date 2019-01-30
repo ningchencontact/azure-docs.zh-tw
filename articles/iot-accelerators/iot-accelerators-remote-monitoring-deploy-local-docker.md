@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: cf3c30d33e618ae3fd9d4ad942c77d211a414e82
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 208526b745a117c9ee14bab21f8a5ce05accd1fe
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601146"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382232"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>本機部署遠端監視解決方案加速器 - Docker
 
@@ -35,7 +35,7 @@ ms.locfileid: "53601146"
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
-* [Visual Studio](https://visualstudio.microsoft.com/)
+* [Visual Studio](https://visualstudio.microsoft.com/) - 如果您打算對微服務進行變更。
 * [Node.js v8](https://nodejs.org/) - 此軟體是指令碼用來建立 Azure 資源之 PCS CLI 的先決條件。 不要使用 Node.js v10。
 
 > [!NOTE]

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 366ff0b59835ca3a28cafd5de77c0bd645ff58c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984223"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424637"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>診斷虛擬機器網路流量篩選問題
 
@@ -77,7 +77,7 @@ NSG 可讓您針對流入和流出 VM 的流量，控制流量的類型。 您�
 
 ## <a name="diagnose-using-powershell"></a>使用 PowerShell 進行診斷
 
-您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您是從電腦執行 PowerShell，便需要 *AzureRM* PowerShell 模組 6.0.1 版或更新的版本。 請在您的電腦上執行 `Get-Module -ListAvailable AzureRM`，以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，還需要執行 `Login-AzureRmAccount` 以使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
+您可以執行 [Azure Cloud Shell](https://shell.azure.com/powershell) 中採用的命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式殼層。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 如果您是從電腦執行 PowerShell，便需要 *AzureRM* PowerShell 模組 6.0.1 版或更新的版本。 請在您的電腦上執行 `Get-Module -ListAvailable AzureRM`，以尋找已安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，還需要執行 `Login-AzureRmAccount` 以使用具有[必要權限](virtual-network-network-interface.md#permissions)的帳戶登入 Azure。
 
 使用 [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup) 來取得網路介面的有效安全性規則。 下列範例會針對名為 *myVMVMNic* 的網路介面取得有效的安全性規則，該介面位於名為 *myResourceGroup* 的資源群組中：
 
@@ -175,7 +175,7 @@ az vm show \
 | 通訊協定                | TCP                                                                                |
 | 動作                  | 允許                                                                              |
 | 優先順序                | 100                                                                                |
-| 名稱                    | Allow-HTTP-All                                                                     |
+| Name                    | Allow-HTTP-All                                                                     |
 
 當您建立規則之後，系統就會允許從網際網路經由連接埠 80 進行輸入，因為該規則的優先順序高於名為 *DenyAllInBound* 且會拒絕該流量的預設安全性規則。 了解如何[建立安全性規則](manage-network-security-group.md#create-a-security-rule)。 如果有不同的 NSG 同時關聯至網路介面和子網路，您就必須在那兩個 NSG 中建立相同的規則。
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: a161d2223dacb618f1e2eeb6443fffae18cc7259
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3ae0a67a8aa2d403a72b0e20471c2044dbf557bf
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354854"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389071"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>使用 Active Directory 同盟服務將 Kubernetes 部署至 Azure Stack
 
@@ -48,7 +48,7 @@ ms.locfileid: "54354854"
 
 使用 AD FS 作為您的身分識別解決方案時，需要與您的 Azure Stack 系統管理員一起設定服務主體。 服務主體可讓您的應用程式存取 Azure Stack 資源。
 
-1. 您的 Azure Stack 系統管理員為您提供憑證和服務主體的資訊。 這項資訊應如下所示：
+1. Azure Stack 系統管理員為您提供憑證和服務主體的資訊。 這項資訊應如下所示：
 
     ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -59,7 +59,7 @@ ms.locfileid: "54354854"
         RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
     ```
 
-2. 將您的新服務主體指派為您訂用帳戶的參與者角色。 如需指示，請參閱[指派角色](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal)。
+2. 將您的新服務主體指派為訂用帳戶的參與者角色。 如需指示，請參閱[指派角色](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal)。
 
 3. 建立金鑰保存庫以儲存憑證進行部署。
 

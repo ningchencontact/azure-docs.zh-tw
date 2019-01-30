@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: abcf3100dc5252db9e3a5e7b446417333a9b37ca
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 27c732a2ddd21401ffbefa727cbb8001ec288293
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321886"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381958"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Log Analytics 記錄中的標準屬性
 [Log Analytics](../log-query/log-query-overview.md) 中的資料會儲存為一組記錄，每筆記錄分別屬於具有一組唯一屬性的特定資料類型。 有許多資料類型都具有多種類型之間通用的標準屬性。 本文將說明這些屬性，並提供在查詢中加以使用的範例。

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413473"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382911"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
@@ -29,9 +29,9 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新事�
 
 和許多其他支援 Webhook 的服務一樣，「事件方格」也會先要求您證明具有 Webhook 端點的「擁有權」，然後才開始將事件傳遞給該端點。 此需求可避免惡意使用者利用事件癱瘓您的端點。 當您使用下列三種 Azure 服務的任一種時，Azure 基礎結構將會自動處理這項驗證：
 
-* Azure Logic Apps、
-* Azure 自動化、
-* 適用於事件方格觸發程序的 Azure Functions。
+* Azure Logic Apps，使用[事件格線連接器](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)進行驗證
+* Azure 自動化，透過 [Webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md) 進行驗證
+* Azure Functions，使用[事件格線觸發程序](../azure-functions/functions-bindings-event-grid.md)進行驗證
 
 如果您使用任何其他類型的端點 (例如以 HTTP 觸發程序為基礎的 Azure 函式)，則您的端點程式碼必須參與和「事件方格」的驗證交握。 「事件方格」支援兩種驗證訂用帳戶的方式。
 

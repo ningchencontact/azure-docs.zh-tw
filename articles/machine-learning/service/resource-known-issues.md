@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e143c0c8ef09af49aed656d479bcad4dd35e2211
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5634a1aae32b3e9895bf5c5b72837f29223bca27
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351793"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381831"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>已知問題與針對 Azure Machine Learning 服務進行疑難排解
  
@@ -32,11 +32,16 @@ pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
 ## <a name="trouble-creating-azure-machine-learning-compute"></a>無法建立 Azure Machine Learning Compute
+
 在極少數的情況下，一些使用者在 GA 發行之前就從 Azure 入口網站建立 Azure Machine Learning 工作區，可能會導致無法在該工作區上建立 Azure Machine Learning Compute。 您可以對該服務提出支援要求，或透過入口網站或 SDK 來建立新的工作區，以立即自行解除鎖定。 
 
 ## <a name="image-building-failure"></a>映像建置失敗
 
 部署 Web 服務時，映像建置失敗。 因應措施是將 "pynacl==1.2.1" 當成 pip 相依性新增到 Conda 檔案，以用於映像設定。  
+
+## <a name="deployment-failure"></a>部署失敗
+
+如果您觀察到 'DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' 終止於 < Signals.SIGKILL:9> - 請將部署中所使用 VM 的 SKU 變更為具有更多記憶體的 SKU。
 
 ## <a name="fpgas"></a>FPGA
 您將無法在 FPGA 上部署模型，直到您已針對 FPGA 配額提出要求並已獲得核准。 若要要求存取權，請填妥配額要求表單： https://aka.ms/aml-real-time-ai

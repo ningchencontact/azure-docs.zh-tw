@@ -6,14 +6,14 @@ manager: hegate
 ms.author: avneet723
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/25/2018
+ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a30311f8b171d80e036b4e554b2f1026b43c8a67
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e4a48312dc516010b7a7fe1471ba7e555a2f92f2
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604766"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382262"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>本機部署遠端監視解決方案加速器 - Visual Studio
 
@@ -48,16 +48,9 @@ ms.locfileid: "53604766"
 
 在本節中，您會執行遠端監視微服務。 原生執行 Web UI、Docker 中的裝置模擬服務，以及 Visual Studio 中的微服務。
 
-### <a name="run-the-web-ui"></a>執行 Web UI
-
-在此步驟中，您會啟動 Web UI。 瀏覽到存放庫本機複本中的 **webui** 資料夾，然後執行下列命令：
-
-```cmd
-npm install
-npm start
-```
-
 ### <a name="run-the-device-simulation-service"></a>執行裝置模擬服務
+
+開啟新的命令提示字元視窗，以確保能夠存取上一節中 **start.cmd** 指令碼設定的環境變數。
 
 執行下列命令以啟動裝置模擬服務的 Docker 容器。 該服務會模擬遠端監視解決方案的裝置。
 
@@ -94,11 +87,22 @@ npm start
 1. 在資源清單中，按一下 [串流分析作業]。
 1. 在串流分析作業 [概觀] 頁面上，按一下 [啟動] 按鈕。 接著，按一下 [啟動] 以立即啟動作業。
 
+### <a name="run-the-web-ui"></a>執行 Web UI
+
+在此步驟中，您會啟動 Web UI。 開啟新的命令提示字元視窗，以確保能夠存取 **start.cmd** 指令碼設定的環境變數。 瀏覽到存放庫本機複本中的 **webui** 資料夾，然後執行下列命令：
+
+```cmd
+npm install
+npm start
+```
+
+啟動完成時，您的瀏覽器會顯示頁面 **http://localhost:3000/dashboard**。 此頁面上的錯誤一如預期。 若要檢視沒有錯誤的應用程式，請完成下列步驟。
+
 ### <a name="configure-and-run-nginx"></a>設定和執行 NGINX
 
 設定反向 Proxy 伺服器，以連結 Web 應用程式與在本機電腦上執行的微服務：
 
-* 將 **webui\scripts\localhost** 資料夾中的 **nginx.conf** 檔案複製到 **nginx\conf** 安裝目錄。
+* 將 **nginx.conf** 檔案從存放庫本機複本中的 **webui\scripts\localhost** 資料夾複製到 **nginx\conf** 安裝目錄。
 * 執行 **nginx**。
 
 如需執行 **nginx** 的詳細資訊，請參閱[適用於 Windows 的 nginx](https://nginx.org/en/docs/windows.html) \(英文\)。

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: e11db0cacb14ab94c40ebbf6cac356a08cc016f1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 81a47a730978a9ecdda7a09bbad0707d436fb116
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352677"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388479"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>將 Kubernetes 新增至 Azure Stack Marketplace
 
@@ -60,7 +60,7 @@ ms.locfileid: "54352677"
 
     e. 選取 [供應項目]。 選取您所建立供應項目的名稱。 記下訂用帳戶識別碼。
 
-## <a name="create-a-service-principle-and-credentials-in-ad-fs"></a>在 AD FS 中建立服務主體與認證
+## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>在 AD FS 中建立服務主體與認證
 
 如果您要為您的身分識別管理服務使用 Active Directory 同盟服務 (AD FS)，您必須為部署 Kubernetes 叢集的使用者建立服務主體。
 
@@ -117,7 +117,7 @@ ms.locfileid: "54352677"
     - 使用已提升權限的提示字元開啟 PowerShell。 執行下列程式碼，並將參數更新為您的值：
 
         ```PowerShell  
-        #Create service principle using the certificate
+        #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
         #certificate store location. Eg. Cert:\LocalMachine\My
@@ -132,7 +132,7 @@ ms.locfileid: "54352677"
         # Creating a PSSession to the ERCS PrivilegedEndpoint
         $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-        # Get Service Principle Information
+        # Get Service principal Information
         $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
 
         # Get Stamp information
@@ -167,7 +167,7 @@ ms.locfileid: "54352677"
         $ServicePrincipal
         ```
 
-    - 服務主體詳細資料看起來像下列程式碼片段
+    - 服務主體詳細資料類似於下列程式碼片段
 
         ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

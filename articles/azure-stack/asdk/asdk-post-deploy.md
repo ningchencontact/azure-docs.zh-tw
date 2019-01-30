@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 756d07562503fa94ea2ea737a5f610d8bf3101aa
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 5c379e0bc6789950b05f75731937ed9bc1b44565
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260357"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391215"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 安裝後設定工作
 
@@ -44,6 +44,19 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 > 在安裝必要版本之前，請務必[解除安裝任何現有的 Azure PowerShell 模組](../azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules)。
 
 - **具有來自 ASDK 主機電腦的網際網路連線**。 執行下列 PowerShell 指令碼，以在開發套件安裝上安裝這些模組：
+
+  - Azure Stack 1811 或更新版本：
+
+    ``` PowerShell
+    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
+    Install-Module -Name AzureRm.BootStrapper
+
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+
+    # Install Azure Stack Module Version 1.6.0.
+    Install-Module -Name AzureStack -RequiredVersion 1.6.0
+    ```
 
   - Azure Stack 1808 或更新版本：
 

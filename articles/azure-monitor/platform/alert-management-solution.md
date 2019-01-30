@@ -13,16 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1dee53f633d8b5edf893e2f6c83430d7c1a69022
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341587"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382959"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics 中的警示管理方案
 
 ![Alert Management icon](media/alert-management-solution/icon.png)
+
+> [!NOTE]
+>  Azure 監視器現在支援[大規模管理警示](https://aka.ms/azure-alerts-overview)的增強功能，包括由[監視工具 (例如 SCOM、Zabbix 或 Nagios)](https://aka.ms/managing-alerts-other-monitoring-services) 所產生的警示。
+>  
+
 
 警示管理解決方案可協助您分析 Log Analytics 儲存機制中的所有警示。  這些警示可能來自各種來源，包括[由 Log Analytics 所建立](../../azure-monitor/platform/alerts-overview.md)或[從 Nagios 或 Zabbix 匯入](../../azure-monitor/learn/quick-collect-linux-computer.md)的來源。 此解決方案也會從所有[連線的 System Center Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md)匯入警示。
 

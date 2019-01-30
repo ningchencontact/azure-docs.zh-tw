@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 08/20/2018
 ms.author: juliako
-ms.openlocfilehash: 2d3219f6f2617fec941e308febb2e47efa184170
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3814041359884fc2862b0e90a58aabd1ad26c4cb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943224"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382130"
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>使用 Azure 媒體服務之即時串流的概觀
 
@@ -27,6 +27,7 @@ ms.locfileid: "33943224"
 > 從 2018 年 5 月 12 日開始，即時通道將不再支援 RTP/MPEG-2 傳輸串流內嵌通訊協定。 請從 RTP/MPEG-2 移轉到 RTMP 或分散式 MP4 (Smooth Streaming) 內嵌通訊協定。
 
 ## <a name="overview"></a>概觀
+
 使用 Azure 媒體服務傳遞即時串流時，通常涉及下列元件：
 
 * 相機，用來廣播事件。
@@ -49,7 +50,7 @@ ms.locfileid: "33943224"
 
 在 Azure 媒體服務中， **通道** 代表處理即時串流內容的管線。 通道可以用下列方式接收即時輸入串流：
 
-* 內部部署即時編碼器會傳送多位元速率 **RTMP** 或 **Smooth Streaming** (分散的 MP4) 到針對**即時通行**傳遞所設定的通道。 **即時通行**傳遞就是擷取的串流會通過**通道**，無需進一步的處理。 您可以使用下列輸出多位元速率 Smooth Streaming 的即時編碼器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco 和 Elemental。 下列即時編碼器會輸出 RTMP：Adobe Flash Media Live Encoder (FMLE)、Telestream Wirecast、Haivision、Teradek 和 Tricaster 轉碼器。  即時編碼器也會將單一位元速率串流傳送至無法用於即時編碼的通道，但是不建議您使用此方法。 接到要求時，媒體服務會傳遞串流給客戶。
+* 內部部署即時編碼器會傳送多位元速率 **RTMP** 或 **Smooth Streaming** (分散的 MP4) 到針對**即時通行**傳遞所設定的通道。 **即時通行**傳遞就是擷取的串流會通過**通道**，無需進一步的處理。 您可以使用下列輸出多位元速率 Smooth Streaming 的即時編碼器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco 和 Elemental。 下列即時編碼器會輸出 RTMP：Adobe Flash Media Live Encoder (FMLE)、Telestream Wirecast、Haivision、Teradek 和 Tricaster 轉錄器。  即時編碼器也會將單一位元速率串流傳送至無法用於即時編碼的通道，但是不建議您使用此方法。 接到要求時，媒體服務會傳遞串流給客戶。
 
   > [!NOTE]
   > 如果您在很長一段時間內進行多個事件，而且已投資內部部署編碼器時，使用傳遞方法是進行即時串流的最經濟實惠方式。 請參閱 [價格](https://azure.microsoft.com/pricing/details/media-services/) 詳細資料。
@@ -63,24 +64,25 @@ ms.locfileid: "33943224"
 * **標準** – 如果您打算使用媒體服務將單一位元速率即時串流編碼成多位元速率串流，請選擇這個值。 對於快速相應增加的非頻繁事件來說，這是較為經濟的方法。 請注意即時編碼有計費影響，而且您應該記住將即時編碼通道保持在「執行中」狀態會產生費用。  建議您在即時串流事件完成之後立即停止執行的通道，以避免額外的每小時費用。
 
 ## <a name="comparison-of-channel-types"></a>通道類型的比較
+
 下表提供了媒體服務所支援的兩種通道類型比較指南
 
 | 功能 | 傳遞通道 | 標準通道 |
 | --- | --- | --- |
-| 單一位元速率輸入會在雲端編碼為多重位元速率 |否 |yes |
+| 單一位元速率輸入會在雲端編碼為多重位元速率 |否 |是 |
 | 最大解析度、分層數目 |1080p、8 層、60+fps |720p、6 層、30 fps |
 | 輸入通訊協定 |RTMP、Smooth Streaming |RTMP、Smooth Streaming |
 | 價格 |請參閱 [定價頁面](https://azure.microsoft.com/pricing/details/media-services/) 並按一下 [即時影片] 索引標籤 |請參閱 [定價頁面](https://azure.microsoft.com/pricing/details/media-services/) |
 | 最長執行時間 |全天候 |8 小時 |
-| 插入靜態圖像支援 |否 |yes |
-| 廣告訊號支援 |否 |yes |
-| 傳遞 CEA 608/708 字幕 |yes |yes |
-| 在比重摘要內能從短暫延遲中復原的能力 |yes |否 (經過 6 秒以上且未有任何輸入資料時，通道便會中斷) |
-| 支援未統一輸入的 GOP |yes |否 – 輸入必須為固定式 2 秒 GOP |
-| 支援變動畫面播放速率輸入 |yes |否 – 輸入必須為固定畫面播放速率。<br/>輕微的差異可以接受，例如：處於高速動態場景的情況。 但編碼器無法降至 10 個畫面/秒的標準。 |
+| 插入靜態圖像支援 |否 |是 |
+| 廣告訊號支援 |否 |是 |
+| 傳遞 CEA 608/708 字幕 |是 |是 |
+| 支援未統一輸入的 GOP |是 |否 – 輸入必須為固定式 2 秒 GOP |
+| 支援變動畫面播放速率輸入 |是 |否 – 輸入必須為固定畫面播放速率。<br/>輕微的差異可以接受，例如：處於高速動態場景的情況。 但編碼器無法降至 10 個畫面/秒的標準。 |
 | 在輸入摘要遺失時自動關閉通道 |否 |經過 12 個小時，如果沒有程式仍在執行 |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>使用可從內部部署編碼器接收多位元速率即時串流的通道 (傳遞)
+
 下圖顯示 **即時通行** 工作流程中涉及的 AMS 平台主要部分。
 
 ![即時工作流程](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
@@ -88,6 +90,7 @@ ms.locfileid: "33943224"
 如需詳細資訊，請參閱 [使用通道，從內部部署編碼器接收多位元速率即時串流](media-services-live-streaming-with-onprem-encoders.md)。
 
 ## <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>使用啟用的通道來以 Azure 媒體服務執行即時編碼
+
 下圖顯示 AMS 平台的主要部分，與通道可以使用媒體服務執行即時編碼的即時串流工作流程有關。
 
 ![即時工作流程](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
@@ -95,12 +98,16 @@ ms.locfileid: "33943224"
 如需詳細資訊，請參閱 [使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>通道和其相關元件的說明
+
 ### <a name="channel"></a>通道
+
 在媒體服務中， [通道](https://docs.microsoft.com/rest/api/media/operations/channel)負責處理即時資料流內容。 通道會提供輸入端點 (內嵌 URL)，接著您再提供給即時轉碼器。 通道從即時轉碼器接收即時輸入資料流，再透過一或多個 StreamingEndpoint 進行串流處理。 通道也會提供預覽端點 (預覽 URL)，您可在進一步處理和傳遞之前先用來預覽及驗證您的資料流。
 
 您可在建立通道時取得內嵌 URL 和預覽 URL。 通道不需處於啟動狀態也可以取得這些 URL。 當您準備好要開始從即時轉碼器推播資料給通道時，就必須先啟動通道。 即時轉碼器開始內嵌資料後，您就可以預覽您的資料流。
 
 每個媒體服務帳戶可以包含多個通道、多個程式和多個 StreamingEndpoints。 根據頻寬和安全性需求，StreamingEndpoint 服務可以專屬於一或多個通道。 任何 StreamingEndpoint 可以從任何通道中提取。
+
+建立通道時，您能以下列其中一種格式指定允許的 IP 位址：具有 4 個數字的 IpV4 位址、CIDR 位址範圍。
 
 ### <a name="program"></a>程式
 [程式](https://docs.microsoft.com/rest/api/media/operations/program) 可讓您控制即時資料流區段的發佈和儲存體。 通道會管理程式。 通道和程式的關聯性非常類似於傳統媒體，此處的通道有常數內容資料流，而程式的範圍是該通道上的某些計時事件。

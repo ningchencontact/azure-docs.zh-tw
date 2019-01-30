@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582491"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383009"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常見問題集
 
@@ -35,7 +35,6 @@ ms.locfileid: "52582491"
 
 您的帳戶必須符合下列其中一項才能啟用流量分析：
 
-- 您的帳戶必須指派給下列其中一個訂用帳戶層級的角色：帳戶管理員、服務管理員或共同管理員。
 - 您的帳戶必須擁有訂用帳戶範圍中下列任一個角色型存取控制 (RBAC) 角色：擁有者、參與者、讀者或網路參與者。
 - 如果您的帳戶未指派給其中一個之前列出的角色，則必須指派給一個自訂角色，且該角色已獲得下列訂用帳戶層級的動作。
             
@@ -61,7 +60,7 @@ ms.locfileid: "52582491"
 如果看不到任何輸出，請聯絡個別訂用帳戶管理員，取得執行命令的權限。 如需詳細資料，請參閱[使用 Azure PowerShell 管理角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)。
 
 
-## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>在哪些 Azure 區域中可使用流量分析？
+## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>在哪些 Azure 區域中可使用流量分析？
 
 您可以在下列任何支援的區域中使用 NSG 的流量分析：
 - 加拿大中部
@@ -114,7 +113,7 @@ Log Analytics 工作區必須存在於下列區域：
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>可以在不同的訂用帳戶中儲存原始記錄檔嗎？
 
-否。 您可以將原始記錄檔儲存在已針對流量記錄啟用 NSG 的任何儲存體帳戶中。 但是儲存體帳戶和原始記錄檔必須位於相同的訂用帳戶和區域中。
+沒有。 您可以將原始記錄檔儲存在已針對流量記錄啟用 NSG 的任何儲存體帳戶中。 但是儲存體帳戶和原始記錄檔必須位於相同的訂用帳戶和區域中。
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>因為發生「找不到」錯誤而無法設定 NSG 進行流量分析，該怎麼辦？
 
@@ -133,7 +132,7 @@ Log Analytics 工作區必須存在於下列區域：
 
 第一次時，儀表板最久可能需要 30 分鐘才會出現。 解決方案必須先彙總足夠資料以衍生有意義的見解， 然後才能產生報告。 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>收到下列訊息時該怎麼辦：「在選取的時間間隔內，我們無法在此工作區中找到任何資料。 請嘗試變更時間間隔，或選取不同的工作區。」？
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>收到下列訊息時該怎麼辦：「在選取的時間間隔內，於此工作區中找不到任何資料。 請嘗試變更時間間隔，或選取不同的工作區。」？
 
 請嘗試下列選項：
 - 在上方列中變更時間間隔。
@@ -233,8 +232,8 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 地理地圖頁面包含兩大區段：
     
-- **橫幅**：地理地圖上方的橫幅會提供各種按鈕，可選取流量發佈篩選條件 (例如部署、國家/地區流量及惡意)。 當您選取按鈕時，個別篩選條件便會套用至地圖。 例如，如果您選取 [使用中] 按鈕，地圖就會將部署中的使用中資料中心醒目提示。
-- **地圖**：橫幅下方的 [地圖] 區段會顯示 Azure 資料中心與國家/地區之間的流量分配。
+- **橫幅**地理地圖上方的橫幅會提供各種按鈕，可選取流量發佈篩選條件 (例如部署、國家/地區流量及惡意)。 當您選取按鈕時，個別篩選條件便會套用至地圖。 例如，如果您選取 [使用中] 按鈕，地圖就會將部署中的使用中資料中心醒目提示。
+- **地圖**橫幅下方的 [地圖] 區段會顯示 Azure 資料中心與國家/地區之間的流量分配。
     
 ### <a name="keyboard-navigation-on-the-banner"></a>橫幅上的鍵盤瀏覽
     
@@ -263,8 +262,8 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 虛擬網路拓樸頁面包含兩個主要區段：
     
-- **橫幅**：虛擬網路拓撲上方的橫幅會提供各種按鈕，可選取流量發佈篩選器 (例如連線的虛擬網路、 中斷連線的虛擬網路及公用 IP)。 當您選取按鈕時，個別篩選條件便會套用至拓撲。 例如，如果您選取 [使用中] 按鈕，拓撲會將部署中的使用中虛擬網路醒目提示。
-- **拓樸**：橫幅下方的 [拓撲] 區段會顯示虛擬網路的流量分配。
+- **橫幅**虛擬網路拓撲上方的橫幅會提供各種按鈕，可選取流量發佈篩選器 (例如連線的虛擬網路、 中斷連線的虛擬網路及公用 IP)。 當您選取按鈕時，個別篩選條件便會套用至拓撲。 例如，如果您選取 [使用中] 按鈕，拓撲會將部署中的使用中虛擬網路醒目提示。
+- **拓撲**：橫幅下方的 [拓撲] 區段會顯示虛擬網路的流量分配。
     
 ### <a name="keyboard-navigation-on-the-banner"></a>橫幅上的鍵盤瀏覽
     
@@ -285,8 +284,8 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 虛擬子網路拓樸頁面包含兩個主要區段：
     
-- **橫幅**：虛擬子網路拓撲上方的橫幅會提供各種按鈕，可選取流量發佈篩選器 (例如使用中、媒體及閘道子網路)。 當您選取按鈕時，個別篩選條件便會套用至拓撲。 例如，如果您選取 [使用中] 按鈕，拓撲會醒目提示部署中的使用中虛擬子網路。
-- **拓樸**：橫幅下方的 [拓撲] 區段會顯示虛擬子網路的流量分配。
+- **橫幅**虛擬子網路拓撲上方的橫幅會提供各種按鈕，可選取流量發佈篩選器 (例如使用中、媒體及閘道子網路)。 當您選取按鈕時，個別篩選條件便會套用至拓撲。 例如，如果您選取 [使用中] 按鈕，拓撲會醒目提示部署中的使用中虛擬子網路。
+- **拓撲**：橫幅下方的 [拓撲] 區段會顯示虛擬子網路的流量分配。
     
 ### <a name="keyboard-navigation-on-the-banner"></a>橫幅上的鍵盤瀏覽
     

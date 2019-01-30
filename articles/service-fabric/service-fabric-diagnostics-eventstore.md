@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2018
+ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: b66373b6847b96a4fcbc1a0c9da42d285d089a9d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4a23d8c1e72ec453724514e4d1638c5a223d1644
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727880"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389215"
 ---
 # <a name="eventstore-service-overview"></a>EventStore 服務概觀
 
@@ -34,6 +34,7 @@ ms.locfileid: "52727880"
 * 確認正確處理您針對叢集採取的管理動作
 * 取得 Service Fabric 如何與特定實體互動的「快照集」
 
+![EventStore](media/service-fabric-diagnostics-eventstore/eventstore.png)
 
 若要查看 EventStore 中可用事件的完整清單，請參閱 [Service Fabric 事件](service-fabric-diagnostics-event-generation-operational.md)。
 
@@ -53,7 +54,7 @@ ms.locfileid: "52727880"
 * 分割區複本：特定分割區 (以 `partitionId` 識別) 內所有複本 / 執行個體中的事件
 * 分割區複本：特定複本 / 執行個體 (以 `replicaId` 和 `partitionId` 識別) 中的事件
 
-若要深入了解 API，請參閱 [EventStore API 參考] ((https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)。
+若要深入了解 API，請參閱 [EventStore API 參考](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)。
 
 EventStore 服務還能將叢集中的事件相互關聯。 透過同時間寫入的事件，您可以追溯到彼此影響的相異實體；EventStore 服務能連結這些事件，協助您找出叢集中活動的原因。 例如，如果某個應用程式在未引發變更的情況下成為不良狀況，EventStore 也會查看平台公開的其他事件，因而可能會將這個狀況與 `Error` 或 `Warning` 事件相互關聯。 這有助於縮短偵測失敗及分析根本原因的時間。
 

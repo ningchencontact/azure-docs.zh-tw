@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a5619db18ef326b160bf9f4a1fbacbd6b3e9f012
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 4e3a79c28fc0e67fbf22e4d0fde3de9528d3edf4
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319455"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382625"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 備份 - 常見問題集
 本文提供「Azure 備份」服務的常見問題解答。
@@ -230,7 +230,7 @@ Azure 備份的儲存體架構透過最佳化儲存資料以進行快速還原�
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>傳送至 Azure 的資料會經過加密嗎？
 
-是。 資料會在內部部署機器上以 AES256 加密。 資料會透過安全的 HTTPS 連結來傳送。
+是。 資料會在內部部署機器上以 AES256 加密。 資料會透過安全的 HTTPS 連結來傳送。 在雲端中傳輸的資料僅受到儲存體和復原服務之間的 HTTPS 連結保護。 iSCSI 通訊協定保護復原服務和使用者電腦之間傳輸的資料。 安全通道用於保護 iSCSI 通道。
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>位於 Azure 的備份資料也會經過加密嗎？
 

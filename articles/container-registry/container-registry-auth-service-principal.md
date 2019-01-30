@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 3aa986efd4986eb1d96c0f013d997486e6e8ae2c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754198"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390930"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>使用服務主體進行 Azure Container Registry 驗證
 
@@ -47,9 +47,7 @@ Azure AD *服務主體*提供您訂用帳戶內 Azure 資源的存取權。 您�
 
 ## <a name="next-steps"></a>後續步驟
 
-一旦為服務主體授與容器登錄的存取權之後，您就可以在應用程式和服務中使用它的認證進行登錄互動。
-
-儘管設定個別應用程式來使用服務主體認證不在本文的範圍內，但您可以在這裡找到一些特定服務和平台的指示：
+一旦為服務主體授與容器登錄的存取權之後，您就可以在應用程式和服務中使用它的認證進行無周邊登錄互動。 您可以使用服務主體認證，從使用 Azure 容器登錄進行驗證的任何 Azure 服務。 範例包括：
 
 * [從 Azure Kubernetes Service 對 Azure Container Registry 進行驗證 (AKS)](container-registry-auth-aks.md)
 * [使用來自 Azure 容器執行個體 (ACI) 的 Azure Container Registry 進行驗證](container-registry-auth-aci.md)

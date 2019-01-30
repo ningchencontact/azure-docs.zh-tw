@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: d0826d60d766874ddd186bcf406ea987134dab16
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 49c043853cede0a20e3d61011ded40e57d7a0303
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385850"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389431"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Azure Service Fabric 安全性檢查清單
 本文提供便於使用的檢查清單，以協助您保護 Azure Service Fabric 環境。
@@ -48,6 +48,8 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署�
 
 
 ## <a name="next-steps"></a>後續步驟
+
+- [Service Fabric 安全性最佳做法](azure-service-fabric-security-best-practices.md)
 - [Service Fabric 叢集升級程序與您的期望](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade)
 - [在 Visual Studio 中管理 Service Fabric 應用程式](https://docs.microsoft.com/azure/service-fabric/service-fabric-manage-application-in-visual-studio)。
 - [Service Fabric 健康狀態模型簡介](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction)。

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788390"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382753"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>使用資源管理員部署模型將 Windows Server 或用戶端備份至 Azure
 本文說明如何 Resource Manager 部署模型將 Windows Server (或 Windows 用戶端) 檔案和資料夾備份至 Azure。
@@ -48,9 +48,9 @@ ms.locfileid: "53788390"
 
 6. 在 [資源群組] 區段中︰
 
-    * 如果您想建立新的資源群組，請選取 [新建]。
+    * 按一下 [選取現有的]  下拉式功能表，以查看可用的資源群組清單。
     或
-    * 選取 [使用現有的]﹐然後按一下下拉式功能表，以查看可用的資源群組清單。
+    * 如果您想建立新的資源群組，請選取 [新建]。
 
   如需資源群組的完整資訊，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。
 
@@ -70,21 +70,21 @@ ms.locfileid: "53788390"
 
 1. 從 [復原服務保存庫] 刀鋒視窗，按一下 [新增保存庫]。
 
-    ![從復原服務保存庫清單中選取新的保存庫](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![從復原服務保存庫清單中選取新的保存庫](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    當您選取保存庫時，[復原服務保存庫] 刀鋒視窗會縮小﹐而 [設定] 刀鋒視窗 (頂端有保存庫名稱) 和 [保存庫詳細資料] 刀鋒視窗隨即開啟。
+    當您選取保存庫時，[復原服務保存庫] 刀鋒視窗會縮小﹐而 [概觀] 刀鋒視窗 (*頂端有保存庫名稱*) 和 [保存庫詳細資料] 刀鋒視窗隨即開啟。
 
-    ![檢視新保存庫的儲存體組態](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+    ![檢視新保存庫的儲存體組態](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 
-2. 在新保存庫的 [設定] 刀鋒視窗中，使用垂直滑桿捲動至 [管理] 區段，然後按一下 [備份基礎結構]。
+2. 在 [設定] 區段下的新保存庫中，移至 [屬性]。
 
-  [備份基礎結構] 刀鋒視窗隨即開啟。
+  [屬性] 刀鋒視窗隨即開啟。
 
-3. 在 [備份基礎結構] 刀鋒視窗中，按一下 [備份設定]開啟 [備份設定] 刀鋒視窗。
+3. 在 [屬性] 刀鋒視窗中，按一下 [備份設定] 刀鋒視窗下的 [更新]。 [備份設定] 刀鋒視窗隨即開啟。
 
-  ![為新保存庫設定儲存體組態](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+  ![為新保存庫設定儲存體組態](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-4. 為保存庫選擇適當的儲存體複寫選項。
+4. 為保存庫選擇適當的儲存體複寫選項，然後按一下 [儲存]。
 
   ![儲存體組態選項](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
@@ -183,7 +183,7 @@ ms.locfileid: "53788390"
 
 ### <a name="to-create-a-backup-schedule"></a>建立備份排程
 
-在您想要備份的機器上設定備份排程。 請注意，為備份設定的時間可能會與本機電腦時間不同，因為 Azure 備份不會將日光節約時間 (DST) 納入考量。 
+在您想要備份的機器上設定備份排程。 請注意，為備份設定的時間可能會與本機電腦時間不同，因為 Azure 備份不會將日光節約時間 (DST) 納入考量。
 1. 開啟 Microsoft Azure 備份代理程式。 您可以透過在您的電腦中搜尋 **Microsoft Azure 備份**來找出備份。
 
     ![啟動 Azure 備份代理程式](./media/backup-configure-vault/snap-in-search.png)

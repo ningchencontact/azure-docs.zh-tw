@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 01/17/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: fe64011991732c7493d8efd06516efc664b674a4
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 9c99de88ee1e3054a04512c72b9f9f41886663da
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752770"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391067"
 ---
 # <a name="install-powershell-for-azure-stack"></a>安裝適用於 Azure Stack 的 PowerShell
 
@@ -84,7 +84,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 ## <a name="4-connected-install-powershell-for-azure-stack-with-internet-connectivity"></a>4.已連線：在具備網際網路連線能力的情況下安裝適用於 Azure Stack 的 PowerShell
 
-Azure Stack 需要 Azure Stack 版本 1808 的 **2018-03-01-hybrid** API 版本設定檔。 透過安裝 **AzureRM.Bootstrapper** 模組可以使用該設定檔。 除了 AzureRM 模組外，您也應該安裝 Azure Stack 特有的 Azure PowerShell 模組。 您所需的 API 版本設定檔和 Azure Stack PowerShell 模組，將取決於您正在執行的 Azure Stack 版本。
+Azure Stack 需要 Azure Stack 版本 1808 或更新版本的 **2018-03-01-hybrid** API 版本設定檔。 透過安裝 **AzureRM.Bootstrapper** 模組可以使用該設定檔。 除了 AzureRM 模組外，您也應該安裝 Azure Stack 特有的 Azure PowerShell 模組。 您所需的 API 版本設定檔和 Azure Stack PowerShell 模組，將取決於您正在執行的 Azure Stack 版本。
 
 執行下列 PowerShell 指令碼，在開發工作站上安裝這些模組：
 
@@ -120,8 +120,19 @@ Azure Stack 需要 Azure Stack 版本 1808 的 **2018-03-01-hybrid** API 版本�
 > [!Note]
 > 若要將 Azure PowerShell 從 **2017-03-09-profile** 升級到 **2018-03-01-hybrid**，請參閱[移轉指南](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md)。
 
+- Azure Stack 1811 或更新版本。
 
-- Azure Stack 1808 或更新版本。
+    ```PowerShell
+    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRm.BootStrapper
+
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+
+    Install-Module -Name AzureStack -RequiredVersion 1.6.0
+    ```
+
+- Azure Stack 1809 或先前版本。
 
     ```PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
@@ -132,14 +143,6 @@ Azure Stack 需要 Azure Stack 版本 1808 的 **2018-03-01-hybrid** API 版本�
 
     Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
-
-- Azure Stack 1807 或先前版本。
-
-  ```PowerShell
-  Install-Module -Name AzureRm.BootStrapper
-  Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-  Install-Module -Name AzureStack -RequiredVersion 1.4.0
-  ```
 
 執行下列命令來確認安裝：
 
@@ -175,7 +178,18 @@ Get-Module -Name "Azs*" -ListAvailable
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
     ```
 
-  - Azure Stack 1808 或更新版本。
+  - Azure Stack 1811 或更新版本。
+
+    ```PowerShell
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+    ```
+
+  - Azure Stack 1809 或先前版本。
 
     ```PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -184,20 +198,6 @@ Get-Module -Name "Azs*" -ListAvailable
     $Path = "<Path that is used to save the packages>"
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
-    ```
-
-  - Azure Stack 1807 或先前版本。
-
-    > [!Note]
-    若要從 1.2.11 版升級，請參閱[移轉指南](https://aka.ms/azspowershellmigration)。
-
-    ```PowerShell
-    Import-Module -Name PowerShellGet -ErrorAction Stop
-    Import-Module -Name PackageManagement -ErrorAction Stop
-
-    $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.4.0
     ```
 
 2. 將下載的套件複製到 USB 裝置。

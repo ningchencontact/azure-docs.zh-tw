@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/18/2019
 ms.author: raynew
-ms.openlocfilehash: b6713eabec62b1658b54dcb29231ddbfb2faceb7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7c01c8ec8c4957900688fed7ca09830f792a7886
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107492"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413408"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -112,7 +112,8 @@ SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.18][9.18 UR] | SP1 3.12.4
 多佇列區塊 IO 裝置 | 不支援。
 使用 HP CCISS 儲存體控制器的實體伺服器 | 不支援。
 裝置/掛接點的命名慣例 | 裝置名稱或掛接點名稱應該是唯一名稱。 請確定沒有任何兩個裝置/掛接點的名稱僅有大小寫之別。 </br> 範例：不允許將相同虛擬機器的兩個裝置命名為 *device1* 和 *Device1*。
-目錄 | [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)之前， <br/> 1.下列目錄 (若設為獨立磁碟分割/檔案系統) 必須都位於來源伺服器的同一個 OS 磁碟：/(root)、/boot、/usr、/usr/local、/var、/etc。</br>2. /boot 應該位於磁碟分割區，而不是 LVM 磁碟區。<br/><br/> 自 [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)及更新版本起，即不適用上述限制。
+目錄 | [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)之前， <br/> 1.下列目錄 (若設為獨立磁碟分割/檔案系統) 必須都位於來源伺服器的同一個 OS 磁碟：/(root)、/boot、/usr、/usr/local、/var、/etc。</br>2. /boot 應該位於磁碟分割區，而不是 LVM 磁碟區。<br/><br/> 自 [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)及更新版本起，即不適用上述限制。 不支援在跨多個磁碟的 LVM 磁碟區上執行 /boot。
+開機目錄 | 不支援在虛擬機器上有多個開機磁碟 <br/><br/> 無法保護不含開機磁碟的機器
 
 可用空間需求 | /root 分割區上為 2 GB <br/><br/> 安裝資料夾 XFSv5 上為 250 MB | 自行動服務 9.10 版開始，支援 XFS 檔案系統上的 XFSv5 功能，例如中繼資料總和檢查碼。 使用 xfs_info 公用程式來檢查磁碟分割的 XFS 超級區塊。 若 ftype 設為 1，則代表使用了 XFSv5 功能。
 
@@ -157,6 +158,7 @@ Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | 是
 ## <a name="storage"></a>儲存體
 **元件** | **支援**
 --- | ---
+動態磁碟 | 作業系統磁碟必須是基本磁碟。 <br/><br/>資料磁碟可以是動態磁碟
 主機 NFS | VMware 為是<br/><br/> 實體伺服器為否
 主機 SAN (iSCSI/FC) | 是
 主機 vSAN | VMware 為是<br/><br/> 實體伺服器為 N/A
@@ -240,7 +242,7 @@ VM 名稱 | 從 1 到 63 個字元。<br/><br/> 只能使用字母、數字和�
 
 **名稱** | **說明** | **最新版本下載指示**
 --- | --- | --- | --- | ---
-組態伺服器 | 協調內部部署 VMware 伺服器與 Azure 之間的通訊  <br/><br/>  安裝在內部部署 VMware 伺服器上 | 若為全新安裝，請按一下[這裡](vmware-azure-deploy-configuration-server.md)。 若要將現有元件升級為最新版本，請按一下[這裡](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。
+組態伺服器 | 協調內部部署 VMware 伺服器與 Azure 之間的通訊  <br/><br/> 安裝在內部部署 VMware 伺服器上 | 若為全新安裝，請按一下[這裡](vmware-azure-deploy-configuration-server.md)。 若要將現有元件升級為最新版本，請按一下[這裡](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。
 處理序伺服器|預設會安裝在組態伺服器上。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。 隨著部署規模擴大，您可以新增額外的個別處理序伺服器，以處理日較大的複寫流量。| 若為全新安裝，請按一下[這裡](vmware-azure-set-up-process-server-scale.md)。 若要將現有元件升級為最新版本，請按一下[這裡](vmware-azure-manage-process-server.md#upgrade-a-process-server)。
 行動服務 | 協調內部部署 VMware 伺服器/實體伺服器和 Azure/次要站台間複寫<br/><br/> 安裝於 VMware VM 上或您想要複寫的實體伺服器上 | 若為全新安裝，請按一下[這裡](vmware-azure-install-mobility-service.md)。 若要將現有元件升級為最新版本，請按一下[這裡](vmware-physical-mobility-service-overview.md#update-the-mobility-service)。
 

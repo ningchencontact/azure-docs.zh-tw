@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6612e3fb5368d8d5a4f59c0e5eefc8ef24c04aec
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: de009d1dbc979a534b0fed8cee2afc867c5b79d4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656919"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426908"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>SAP NetWeaver 的高可用性架構和案例
 
@@ -287,6 +287,19 @@ Azure 中的 SAP 高可用性與內部部署實體或虛擬環境中的 SAP 高�
 * 備援 SAP 應用程式伺服器。  
 * 具有兩個以上節點 (例如 VM) 的叢集，會保護例如 SAP ASCS/SCS 執行個體或 DBMS 的 SPOF。
 
+
+### <a name="azure-availability-zones"></a>Azure 可用性區域
+Azure 正在不同的 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)到處推廣 [Azure 可用性區域](https://docs.microsoft.com/azure/availability-zones/az-overview)的概念。 有提供可用性區域的 Azure 區域會有多個資料中心，而這些資料中心與電力來源、冷卻及網路無關。 之所以在單一 Azure 區域 (region) 中提供不同區域 (zone)，是要讓您可跨兩個或三個所提供的可用性區域來部署應用程式。 假設電力來源和/或網路中的問題只會影響一個可用性區域基礎結構，那麼 Azure 區域內的應用程式部署仍然可完全正常運作。 由於可能會失去單一區域內的一些 VM，因此最後會造成部分產能降低。 但其他兩個區域中的 VM 仍舊會繼續執行。 [Azure 可用性區域](https://docs.microsoft.com/azure/availability-zones/az-overview)會列出提供可用性區域的 Azure 區域。
+
+使用可用性區域時有一些考量事項。 考量清單如下：
+
+- 您無法在可用性區域內部署 Azure 可用性設定組。 您必須選擇可用性區域或可用性設定組作為 VM 的部署框架。
+- 您無法使用[基本 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus)，來建立以 Windows 容錯移轉叢集服務或 Linux Pacemaker 為基礎的容錯移轉叢集解決方案。 您必須改為使用 [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- Azure 可用性區域並未保證同一區域內的不同可用性區域之間會相隔一定距離
+- 在不同 Azure 區域內的不同 Azure 可用性區域之間，網路延遲可能會隨著所在的 Azure 區域而有所不同。 有時候，因為某個可用性區域到作用中 DBMS VM 的網路延遲對商務程序的影響來說並不大，因此身為客戶的您可以合情合理地執行部署在不同區域的 SAP 應用程式層。 然而，也會有客戶的情況是某個可用性區域中的作用中 DBMS VM 與另一個可用性區域中 VM 內的 SAP 應用程式執行個體之間的延遲太久，而不適合 SAP 商務程序的運轉。 因此，如果延遲太久，部署架構就必須與應用程式的主動/主動架構不同，或與主動/被動架構不同。
+- 必須使用 [Azure 受控磁碟](https://azure.microsoft.com/services/managed-disks/)才能部署至 Azure 可用性區域 
+
+
 ### <a name="planned-and-unplanned-maintenance-of-virtual-machines"></a>虛擬機器的規劃和未規劃維護
 
 兩種類型的 Azure 平台事件會影響虛擬機器的可用性：
@@ -305,13 +318,13 @@ Azure 中的 SAP 高可用性與內部部署實體或虛擬環境中的 SAP 高�
 如需詳細資訊，請參閱 [Azure 儲存體複寫][azure-storage-redundancy]。
 
 ### <a name="azure-managed-disks"></a>Azure 受控磁碟
-受控磁碟是 Azure Resource Manager 的新資源類型，可用來取代儲存在 Azure 儲存體帳戶的虛擬硬碟 (VHD)。 受控磁碟會自動對齊它們所連接之虛擬機器的可用性設定組。 它們會增加虛擬機器和在其上執行之服務的可用性。
+在 Azure Resource Manager 中，建議使用的資源類型是受控磁碟，可非儲存在 Azure 儲存體帳戶中的虛擬硬碟 (VHD)。 受控磁碟會自動對齊其所連結虛擬機器的 Azure 可用性設定組。 它們會增加虛擬機器和在其上執行之服務的可用性。
 
 如需詳細資訊，請參閱 [Azure 受控磁碟概觀][azure-storage-managed-disks-overview]。
 
 由於受控磁碟可以簡化虛擬機器的部署和管理，因此建議您使用受控磁碟。
 
-SAP 目前僅支援進階受控磁碟。 如需詳細資訊，請參閱 SAP 附註 [1928533]。
+
 
 ## <a name="utilizing-azure-infrastructure-high-availability-to-achieve-higher-availability-of-sap-applications"></a>使用 Azure 基礎結構高可用性達到 SAP 應用程式的更高可用性
 
@@ -336,9 +349,9 @@ SAP 目前僅支援進階受控磁碟。 如需詳細資訊，請參閱 SAP 附�
 
 對於 SAP 應用程式伺服器和對話方塊執行個體，您通常不需要特定的高可用性解決方案。 您可以透過備援來達成高可用性，而且您會在 Azure 虛擬機器之不同的執行個體中，設定多個對話方塊執行個體。 您應該至少要有兩個 SAP 應用程式執行個體安裝在 Azure 虛擬機器的兩個執行個體中。
 
-![圖 1：高可用性 SAP 應用程式伺服器][sap-ha-guide-figure-2000]
+![圖 1：高可用性的 SAP 應用程式伺服器][sap-ha-guide-figure-2000]
 
-_**圖 1：** 高可用性 SAP 應用程式伺服器_
+_**圖 1：** 高可用性的 SAP 應用程式伺服器_
 
 所有裝載 SAP 應用程式伺服器執行個體的虛擬機器都必須放置在同一個 Azure 可用性設定組中。 Azure 可用性設定組可確保：
 
@@ -361,7 +374,7 @@ _**圖 2：** Azure 可用性設定組中 SAP 應用程式伺服器的高可用�
 
 如需詳細資訊，請參閱 SAP NetWeaver 文件之 Azure 虛擬機器規劃和實作的 [Azure 可用性設定組][planning-guide-3.2.3]一節。
 
-**僅限非受控的磁碟：** 由於 Azure 儲存體帳戶是潛在的單一失敗點，因此您務必擁有至少兩個 Azure 儲存體帳戶，且至少要將兩個虛擬機器分散到其中。 在理想的設定中，執行 SAP 對話方塊執行個體的每一個虛擬機器磁碟會部署在不同的儲存體帳戶中。
+**僅限非受控磁碟：** 由於 Azure 儲存體帳戶是潛在的單一失敗點，因此您務必擁有至少兩個 Azure 儲存體帳戶，且至少要將兩個虛擬機器分散到其中。 在理想的設定中，執行 SAP 對話方塊執行個體的每一個虛擬機器磁碟會部署在不同的儲存體帳戶中。
 
 > [!IMPORTANT]
 > 我們強烈建議您針對 SAP 高可用性安裝使用 Azure 受控磁碟。 因為受控磁碟會針對所連接的虛擬機器，自動配合其可用性設定組，提高了虛擬機器和其上所執行服務的可用性。  
@@ -374,15 +387,18 @@ _**圖 2：** Azure 可用性設定組中 SAP 應用程式伺服器的高可用�
 
 您可以使用 WSFC 解決方案來保護 SAP ASCS/SCS 執行個體。 解決方案有兩種變化：
 
-* **藉由使用叢集共用磁碟將 SAP ASCS/SCS 執行個體組成叢集**：如需此架構的詳細資訊，請參閱[藉由使用叢集共用磁碟將 Windows 容錯移轉叢集上的 SAP ASCS/SCS 執行個體組成叢集][sap-high-availability-guide-wsfc-shared-disk]。   
+* **使用叢集化的共用磁碟進行 SAP ASCS/SCS 執行個體叢集處理**：如需此架構的詳細資訊，請參閱[使用叢集共用磁碟於 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 執行個體叢集處理][sap-high-availability-guide-wsfc-shared-disk]。   
 
-* **藉由使用檔案共用將 SAP ASCS/SCS 執行個體組成叢集**：如需此架構的詳細資訊，請參閱[藉由使用檔案共用將 Windows 容錯移轉叢集上的 SAP ASCS/SCS 執行個體組成叢集][sap-high-availability-guide-wsfc-file-share]。
+* **使用檔案共用進行 SAP ASCS/SCS 執行個體叢集處理**：如需此架構的詳細資訊，請參閱[使用檔案共用於 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 執行個體叢集處理][sap-high-availability-guide-wsfc-file-share]。
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Linux 上 SAP ASCS/SCS 執行個體的高可用性架構
 
 > ![Linux][Logo_Linux] Linux
 >
 如需藉由使用 SLES 叢集架構將 SAP ASCS/SCS 執行個體組成叢集的詳細資訊，請參閱[SAP NetWeaver 在適用於 SAP 應用程式之 SUSE Linux Enterprise Server 上的 Azure VM 高可用性][sap-suse-ascs-ha]。
+
+如需如何使用 Red Hat 叢集架構來進行 SAP ASCS/SCS 執行個體叢集處理的詳細資訊，請參閱 [Red Hat Enterprise Linux 上 SAP NetWeaver 的 Azure 虛擬機器高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
+
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>叢集 SAP ASCS/SCS 執行個體的 SAP NetWeaver 多重 SID 設定
 
@@ -400,9 +416,9 @@ _**圖 2：** Azure 可用性設定組中 SAP 應用程式伺服器的高可用�
 
 DBMS 也是 SAP 系統的單一連絡點。 您需要使用高可用性的解決方案來保護它。 下圖顯示在 Azure 中使用 Windows Server 容錯移轉叢集和 Azure 內部負載平衡器的 SQL Server Always On 高可用性解決方案的範例。 SQL Server AlwaysOn 會使用自己的 DBMS 複寫來複寫 DBMS 資料和記錄檔。 在此情況下，您不需要叢集共用磁碟，以簡化整個設定。
 
-![圖 3：高可用性 SAP DBMS，使用 SQL Server Always On 的範例][sap-ha-guide-figure-2003]
+![圖 3：高可用性的 SAP DBMS，使用 SQL Server AlwaysOn 的範例][sap-ha-guide-figure-2003]
 
-_**圖 3：** 高可用性 SAP DBMS，使用 SQL Server Always On 的範例_
+_**圖 3：** 高可用性的 SAP DBMS，使用 SQL Server AlwaysOn 的範例_
 
 如需有關使用 Azure Resource Manager 部署模型在 Azure 中將 SQL Server DBMS 組成叢集的詳細資訊，請參閱下列文章：
 

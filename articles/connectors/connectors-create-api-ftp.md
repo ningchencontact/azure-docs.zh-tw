@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: a14f045193c01b8c26019314ddde4c2116d8bad6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d57a80ec2a1ebfca173d7eaa165de4d344af2ccf
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232812"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391101"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來建立、監視及管理 FTP 檔案
 
@@ -26,7 +26,7 @@ ms.locfileid: "50232812"
 * 取得檔案內容與中繼資料。
 * 將封存檔案解壓縮到資料夾。
 
-您可以使用觸發程序，從 FTP 伺服器收到回應，並且讓輸出可供其他動作使用。 您可以在邏輯應用程式中使用動作，對 FTP 伺服器上的檔案執行工作。 您也可以讓其他動作使用 FTP 動作的輸出。 例如，如果您定期從 FTP 伺服器擷取檔案，可以藉由使用 Office 365 Outlook 連接器或 Outlook.com 連接器，傳送關於這些檔案及其內容的電子郵件。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
+您可以使用觸發程序，從 FTP 伺服器收到回應，並且讓輸出可供其他動作使用。 您可以在邏輯應用程式中使用執行動作來管理 FTP 伺服器上的檔案。 您也可以讓其他動作使用 FTP 動作的輸出。 例如，如果您定期從 FTP 伺服器取得檔案，可以藉由使用 Office 365 Outlook 連接器或 Outlook.com 連接器，傳送關於這些檔案及其內容的電子郵件。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
 > 除非您使用[區塊來處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)，否則 FTP 連接器僅支援 50 MB 以下的檔案。 
@@ -39,7 +39,7 @@ ms.locfileid: "50232812"
 
 * FTP 主機伺服器位址和帳戶認證
 
-  要使用 FTP 連接器，FTP 伺服器必須可從網際網路來存取，並設定為以「被動」模式運作。 認證會授權邏輯應用程式建立連線並存取 FTP 帳戶。
+  要使用 FTP 連接器，FTP 伺服器必須可從網際網路來存取，並設定為以「被動」模式運作。 認證允許邏輯應用程式建立連線並存取 FTP 帳戶。
 
 * [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識
 
@@ -72,19 +72,22 @@ ms.locfileid: "50232812"
 
 此觸發程序會在偵測到 FTP 伺服器上有檔案新增或變更時，啟動邏輯應用程式工作流程。 因此舉例來說，您可以新增條件，檢查檔案的內容，並且根據該內容是否符合指定條件，來決定是否取得該內容。 最後，您可以新增會取得檔案內容的動作，並將該內容放置於 SFTP 伺服器上的資料夾中。 
 
-**企業範例**：您可以使用此觸發程序，來監視代表客戶訂單的新檔案 FTP 資料夾。 然後，您可以使用 FTP 動作 (例如**取得檔案內容**)，取得訂單的內容以進一步處理，並儲存在訂單資料庫中。
+**企業範例**：您可以使用此觸發程序，來監視說明客戶訂單的新檔案 FTP 資料夾。 然後，您可以使用 FTP 動作 (例如**取得檔案內容**)，取得訂單的內容以進一步處理，並儲存在訂單資料庫中。
 
 有效且正常運作的邏輯應用程式需要有一個觸發程序和至少一個動作。 因此，請務必在新增觸發程序之後新增動作。
 
-以下範例可說明此觸發程序：**新增或修改檔案時**
+以下是顯示此觸發程序的範例：**當新增或修改檔案時**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
 
-1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "ftp" 作為篩選條件。 在觸發程序清單下選取此觸發程序：**新增或修改檔案時 - FTP**
+1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "ftp" 作為篩選條件。 在觸發程序清單底下，選取此觸發程序：**當新增或修改欄位時 - FTP**
 
    ![尋找並選取 FTP 觸發程序](./media/connectors-create-api-ftp/select-ftp-trigger.png)  
 
 1. 為您的連線提供必要的詳細資料，然後選擇 [建立]。
+
+   根據預設，此連接器會以文字格式傳送檔案。 
+   若要以二進位格式傳送檔案，例如，在使用編碼的位置和時間，選取**二進位傳輸**。
 
    ![建立 FTP 伺服器連線](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
@@ -98,7 +101,7 @@ ms.locfileid: "50232812"
 
 邏輯應用程式已具有觸發程序，接著請新增在邏輯應用程式發現新檔案或編輯過的檔案時，所要執行的動作。 針對此範例，您可以新增 FTP 動作，用以取得新內容或更新過的內容。
 
-### <a name="ftp-action-get-content"></a>FTP 動作：取得內容
+### <a name="ftp-action-get-content"></a>FTP 動作：取得文字
 
 此動作會在 FTP 伺服器上有檔案新增或更新時，從該檔案取得內容。 舉例來說，您可以新增來自上一個範例中的觸發程序，以及會在有檔案新增或編輯後取得該檔案內容的動作。 
 

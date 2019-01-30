@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d66e27d860d18a37ffd9c6355b8d769116f26d73
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993771"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391242"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>檢視 Service Fabric 容器服務的記錄
 Azure Service Fabric 是一種容器協調器，可支援 [Linux 和 Windows 容器](service-fabric-containers-overview.md)。  本文說明如何檢視執行中容器服務或無作用容器的容器記錄，以便您診斷問題並進行疑難排解。
@@ -43,6 +43,8 @@ Azure Service Fabric 是一種容器協調器，可支援 [Linux 和 Windows 容
  ```
 
 **ContainersRetentionCount** 設定會指定容器失敗時要保留的容器數目。 如果指定負數值，就會保留所有失敗的容器。 如果未指定 **ContainersRetentionCount** 屬性，就不會保留任何容器。 **ContainersRetentionCount** 屬性也支援應用程式參數，因此使用者可以為測試和生產叢集指定不同的值。 使用此功能時，請使用位置限制將容器服務鎖定在特定節點上，以避免容器服務移到其他節點上。 使用此功能的所有容器皆需要手動移除。
+
+設定 **RunInteractive** 對應到 Docker 的 `--interactive` 和 `tty`[旗標](https://docs.docker.com/engine/reference/commandline/run/#options)。 在資訊清單檔中將此設定設為 true 時，這些旗標用於啟動容器。  
 
 ### <a name="rest"></a>REST
 使用[取得部署在節點上的容器記錄](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode)作業，來取得已損毀容器的記錄。 指定執行容器的節點名稱、應用程式名稱、服務資訊清單名稱，以及程式碼套件名稱。  指定 `&Previous=true`。 回應包含的容器記錄會來自程式碼套件執行個體的無作用容器。
