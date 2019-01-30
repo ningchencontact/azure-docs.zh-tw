@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: fa2e834b142d5df4751b46f6dac2db9b3a10a463
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244982"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391316"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 資源提供者維護作業
 
-SQL 資源提供者會在鎖定的虛擬機器上執行。 若要啟用維護作業，您必須更新虛擬機器的安全性。 若要使用最低權限原則執行此作業，您可以使用 [PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/jea/overview) 端點 *DBAdapterMaintenance*。 資源提供者安裝套件包含這項作業的指令碼。
+SQL 資源提供者會在鎖定的虛擬機器上執行。 若要啟用維護作業，您必須更新虛擬機器的安全性。 若要使用最低權限主體執行此作業，您可以使用 [PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/jea/overview) 端點 *DBAdapterMaintenance*。 資源提供者安裝套件包含這項作業的指令碼。
 
 ## <a name="patching-and-updating"></a>修補和更新
 

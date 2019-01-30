@@ -17,14 +17,14 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: afcdb7c64f4431e920f1f1fbce1e1e6d3e4db79c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 11132426bb8adb6ede564e706e18f3eddd649bef
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424947"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401872"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>操作說明：針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>作法：針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
 
 現在 Azure Active Directory (Azure AD) 已支援大部分企業應用程式的單一登入，包括 Azure AD 資源庫中預先整合的應用程式，以及自訂應用程式。 當使用者利用 SAML 2.0 通訊協定來透過 Azure AD 向應用程式驗證時，Azure AD 會將權杖傳送給應用程式 (透過 HTTP POST)。 然後，應用程式會驗證並使用權杖將使用者登入，而不會提示輸入使用者名稱和密碼。 這些 SAML 權杖包含關於使用者的資訊片段 (稱為「宣告」)。
 
@@ -58,7 +58,7 @@ ms.locfileid: "52424947"
 
 選取 `NameIdentifier` (或 NameID) 宣告的所需來源。 您可以從下列選項選取。
 
-| 名稱 | 說明 |
+| Name | 說明 |
 |------|-------------|
 | 電子郵件 | 使用者的電子郵件地址 |
 | userprincipalName | 使用者的使用者主體名稱 (UPN) |
@@ -81,7 +81,7 @@ ms.locfileid: "52424947"
 
 ## <a name="adding-claims"></a>新增宣告
 
-新增宣告時，您可以指定屬性名稱 (不必根據 SAML 規格嚴格遵循 URI 模式)。 將值設定為儲存在目錄中的任何使用者屬性。
+新增宣告時，您可以指定屬性名稱 (不必根據 SAML 規格嚴格遵循 URI 模式)。 將此值設為目錄中儲存的任何使用者屬性，或使用常數值作為貴組織中所有使用者的靜態項目。
 
 ![新增使用者屬性][7]
 

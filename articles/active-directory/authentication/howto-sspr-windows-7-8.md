@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 1465ba23f6fed85f0d4164f8e3fdc8c38be43ad3
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 1b488e938cf314eef18117ffd33f582319260162
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427720"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438774"
 ---
-# <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>如何：從 Windows 7、8 和 8.1 啟用密碼重設
+# <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>作法：從 Windows 7、8 和 8.1 啟用密碼重設
 
 身為系統管理員，您已啟用自助式密碼重設 (SSPR)，但使用者卻一直連絡服務台來要求重設其密碼，原因是他們無法進入瀏覽器視窗來存取 [SSPR 入口網站](https://aka.ms/sspr)。 在 Windows 10 電腦上，您可以使用[從登入畫面重設 Azure AD 密碼](tutorial-sspr-windows.md)教學課程，在登入畫面啟用 [重設密碼] 連結，下列指導方針會協助您讓 Windows 7、8 和 8.1 使用者能夠在 Windows 登入畫面使用 SSPR 重設其密碼。
 
@@ -74,7 +74,7 @@ Azure AD 事件會包含 IP 位址相關資訊以及發生密碼重設的 Client
 HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
 ```
 
-* 若要啟用詳細資訊記錄，請建立 REG_DWORD: “EnableLogging”，並將它設定為 1。
+* 若要啟用詳細資訊記錄，請建立 REG_DWORD:“EnableLogging”，並將其設定為 1。
 * 若要停用詳細資訊記錄，請將 REG_DWORD “EnableLogging” 變更為 0。
 
 如果您的 Windows 7、8 和 8.1 機器是設置在 Proxy 伺服器或防火牆之後，應該允許對 passwordreset.microsoftonline.com 的 HTTPS 流量 (443)。

@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 60c709108da041dc1e54ba69d3b1b153accebc19
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138070"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401396"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Azure 事件中樞的程式設計指南
 本文會討論一些使用 Azure 事件中樞來撰寫程式碼的常見案例。 它假設使用者對事件中樞已有初步了解。 如需事件中樞的概念概觀，請參閱 [事件中樞概觀](event-hubs-what-is-event-hubs.md)。
@@ -92,7 +92,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 
 分批傳送事件可以協助增加輸送量。 您可使用 [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API 來建立批次，資料物件稍後可針對 [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) 呼叫新增至該批次。
 
-單一批次不能超過每個事件 256 KB 的限制。 此外，批次中的每個訊息都會使用相同的身分識別。 確保批次未超過最大事件大小是傳送者的責任。 如果超過的話，系統會產生用戶端 **Send** 錯誤。 您可以使用協助程式方法 [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) 以確保批次不超過 256 KB。 您會從 [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API 取得空 [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch)，然後使用 [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) 新增事件來建立批次。 
+單一批次不能超過每個事件 1 MB 的限制。 此外，批次中的每個訊息都會使用相同的身分識別。 確保批次未超過最大事件大小是傳送者的責任。 如果超過的話，系統會產生用戶端 **Send** 錯誤。 您可以使用協助程式方法 [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) 以確保批次不超過 1 MB。 您會從 [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API 取得空 [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch)，然後使用 [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) 新增事件來建立批次。 
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>以非同步方式傳送和大規模傳送
 

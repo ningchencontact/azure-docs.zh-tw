@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 33a9cc0a7b3d18004e19d73a0d9b91bf33cdb055
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 8a546845adb32823e89b814377bcf3e469562445
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408824"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413663"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 進階威脅偵測
 
@@ -56,7 +56,7 @@ Azure Identity Protection 可用以協助保護您的帳戶和身分識別的一
 -   提供基本工作流程來追蹤調查。
 -   讓您輕鬆存取補救動作 (例如重設密碼)。
 
-[以風險為基礎的條件式存取原則](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#risky-sign-ins)
+[風險條件式存取原則](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 -   封鎖登入或要求 Multi-Factor Authentication 挑戰，以阻止高風險登入。
 -   封鎖或保護有風險的使用者帳戶。
 -   要求使用者註冊 Multi-Factor Authentication。
@@ -213,7 +213,7 @@ Azure 資訊安全中心在世界各地設有資訊安全研究和資料科學�
 
 ## <a name="advanced-threat-detection-features-other-azure-services"></a>進階威脅偵測功能：其他 Azure 服務
 
-### <a name="virtual-machines-microsoft-antimalware"></a>虛擬機器︰Microsoft Antimalware
+### <a name="virtual-machines-microsoft-antimalware"></a>虛擬機器：Microsoft Antimalware
 
 適用於 Azure 的 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) 是針對應用程式和租用戶環境所提供的單一代理程式解決方案，其設計可於無人為介入的情況下在背景中執行。 您可依據應用程式工作負載需求，選擇預設的基本安全性或進階的自訂組態 (包括反惡意程式碼監視) 來部署保護。 Azure Antimalware 是自動安裝在所有 Azure PaaS 虛擬機器之 Azure 虛擬機器的安全性選項。
 
@@ -239,7 +239,7 @@ Azure 資訊安全中心在世界各地設有資訊安全研究和資料科學�
 
 -   **排除項目**：可讓應用程式和服務管理員設定特定的檔案、處理序及磁碟機，以因應效能和其他原因將其從保護和掃描中排除。
 
--   **反惡意程式碼軟體事件收集**：記錄作業系統事件記錄檔中反惡意程式碼軟體服務健康狀態、可疑的活動以及其所採取的補救動作，並將它們收集至客戶的 Azure 儲存體帳戶。
+-   **Antimalware 事件收集**：記錄作業系統事件記錄檔中反惡意程式碼軟體服務健康狀態、可疑的活動以及其所採取的補救動作，並將它們收集至客戶的 Azure 儲存體帳戶。
 
 ### <a name="azure-sql-database-threat-detection"></a>Azure SQL Database 威脅偵測
 

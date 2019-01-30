@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: b9ab32764e6a5e780625618d0efa3d2a9c19cd35
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e0b664c14cba845c43e3b0202de5fe033bf2186
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983526"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434626"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>建立、變更或刪除公用 IP 位址
 
@@ -34,7 +34,7 @@ ms.locfileid: "46983526"
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
-- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 - 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
 您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)中所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
@@ -50,10 +50,10 @@ ms.locfileid: "46983526"
 
     |設定|必要？|詳細資料|
     |---|---|---|
-    |名稱|是|名稱必須是您選取的資源群組中唯一的名稱。|
+    |Name|是|名稱必須是您選取的資源群組中唯一的名稱。|
     |SKU|是|在 SKU 推出之前所建立的公用 IP 位址全都是**基本** SKU 的公用 IP 位址。  建立公用 IP 位址之後，即無法變更 SKU。 獨立虛擬機器、可用性設定組內的虛擬機器，或虛擬機器擴展集，可以使用基本或標準 SKU。  不允許混用可用性設定組或擴展集內虛擬機器之間的 SKU。 **基本** SKU：如果您要在支援可用性區域的區域中建立公用 IP 位址，**可用性區域**設定依預設會設為「無」。 您可以選擇選取可用性區域，以確保您公用 IP 位址的特定區域。 **標準** SKU：標準 SKU 公用 IP 可與虛擬機器或負載平衡器前端建立關聯。 如果您要在支援可用性區域的區域中建立公用 IP 位址，**可用性區域**設定依預設會設為「區域備援」。 如需可用性區域的詳細資訊，請參閱**可用性區域**設定。 如果您要將位址與標準負載平衡器建立關聯，則需要標準 SKU。 若要深入了解標準負載平衡器，請參閱 [Azure 負載平衡器標準 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 當您將標準 SKU 的公用 IP 位址指派給虛擬機器的網路介面時，必須使用[網路安全性群組](security-overview.md#network-security-groups)明確地允許預定的流量。 在建立和關聯網路安全性群組並明確地允許所要流量前，與資源進行的通訊都會失敗。|
     |IP 版本|是| 選取 IPv4 或 IPv6。 公用的 IPv4 位址可指派給數個 Azure 資源，而 IPv6 公用 IP 位址只可指派給網際網路面向的負載平衡器。 負載平衡器可將 IPv6 的流量負載分散到 Azure 虛擬機器。 深入了解[將 IPv6 流量負載分散到虛擬機器](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 如果您選取**標準 SKU**，則無法選擇 *IPv6*。 使用**標準 SKU** 時，您只能建立 IPv4 位址。|
-    |IP 位址指派|是|**動態︰** 只有在公用 IP 位址與 Azure 資源相關聯，且第一次啟動資源之後，才會指派動態位址。 動態位址指派給資源時可以變更 (例如指派給虛擬機器，而虛擬機器停止 (解除配置)，然後再重新開機)。 如果虛擬機器已重新開機或停止 (但未解除配置)，則位址維持不變。 當公用 IP 位址資源與其所關聯的資源中斷關聯時，便會釋放動態位址。 **靜態︰** 建立公用 IP 位址時會指派靜態位址。 刪除公用 IP 位址資源之前，不會釋出靜態位址。 如果位址與資源沒有關聯，您可以在位址建立後變更指派方法。 如果位址與資源相關聯，您可能無法變更指派方法。 如果您選取 [IPv6] 作為 [IP 版本]，則指派方法為「動態」。 如果您為 [SKU] 選取 [標準]，則指派方法為「靜態」。|
+    |IP 位址指派|是|**動態：** 只有在公用 IP 位址與 Azure 資源相關聯，且第一次啟動資源之後，才會指派動態位址。 動態位址指派給資源時可以變更 (例如指派給虛擬機器，而虛擬機器停止 (解除配置)，然後再重新開機)。 如果虛擬機器已重新開機或停止 (但未解除配置)，則位址維持不變。 當公用 IP 位址資源與其所關聯的資源中斷關聯時，便會釋放動態位址。 **靜態︰** 建立公用 IP 位址時會指派靜態位址。 刪除公用 IP 位址資源之前，不會釋出靜態位址。 如果位址與資源沒有關聯，您可以在位址建立後變更指派方法。 如果位址與資源相關聯，您可能無法變更指派方法。 如果您選取 *IPv6* 作為 **IP 版本**，則指派方法為「動態」。 如果您為 **SKU** 選取*標準*，則指派方法為「靜態」。|
     |閒置逾時 (分鐘)|否|不需依賴用戶端傳送保持連線訊息，讓 TCP 或 HTTP 連線保持開啟的分鐘數。 如果您選取 IPv6 作為 **IP 版本**，則無法變更此值。 |
     |DNS 名稱標籤|否|在您建立名稱的 Azure 位置 (跨越所有訂用帳戶和所有位置) 中必須是唯一的。 Azure 會在其 DNS 中自動登錄名稱和 IP 位址，以便您連線至具有此名稱的資源。 Azure 會將 *location.cloudapp.azure.com* (其中 location 是您選取的位置) 之類的預設子網路附加至您提供的名稱 ，以建立完整的 DNS 名稱。 如果您選擇兩個位址版本都建立，則會指派相同的 DNS 名稱給 IPv4 和 IPv6 位址。 Azure 預設 DNS 包含 IPv4 A 和 IPv6 AAAA 名稱記錄，並且會在查詢 DNS 名稱時回應這兩個記錄。 用戶端選擇要與哪一個位址 (IPv4 或 IPv6) 通訊。 可改為 (或同時) 使用具有預設尾碼的 DNS 名稱標籤，您可以使用 Azure DNS 服務來設定 DNS 名稱，其具有解析為公用 IP 位址的自訂尾碼。 如需詳細資訊，請參閱[使用具有 Azure 公用 IP 位址的 Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)。|
     |建立 IPv6 (或 IPv4) 位址|否| 顯示 IPv6 或 IPv4 取決於您選取的 **IP 版本**。 例如，如果您選取 **IPv4** 作為 **IP 版本**，則此處會顯示 **IPv6**。 如果您為 **SKU** 選取「標準」，則無法建立 IPv6 位址。
@@ -62,7 +62,7 @@ ms.locfileid: "46983526"
     |訂用帳戶|是|所在的[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)必須與您想要與公用 IP 位址建立關聯的資源相同。|
     |資源群組|是|所在的[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)可以與您想要與公用 IP 位址建立關聯的資源相同或不同。|
     |位置|是|所在的[位置](https://azure.microsoft.com/regions) (也稱為區域) 必須與您想要與公用 IP 位址建立關聯的資源相同。|
-    |可用性區域| 否 | 只有在您選取受支援的位置時，才會出現此設定。 如需受支援位置的清單，請參閱[可用性區域概觀](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 如果您選取**基本** SKU，則會自動為您選取「無」。 如果您想要保證特定區域，可選取特定區域。 或選擇非區域備援。 如果您選取**標準** SKU：會自動為您選取區域備援，並針對區域失敗進行資料路徑復原。 如果您希望保證對區域失敗無法復原的特定區域，則可選取特定區域。
+    |可用性區域| 否 | 只有在您選取受支援的位置時，才會出現此設定。 如需受支援位置的清單，請參閱[可用性區域概觀](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 如果您選取**基本** SKU，則會自動為您選取「無」。 如果您想要保證特定區域，可選取特定區域。 或選擇非區域備援。 如果您選取**標準** SKU：系統會自動為您選取區域備援，並針對區域失敗進行資料路徑復原。 如果您希望保證對區域失敗無法復原的特定區域，則可選取特定區域。
 
 **命令**
 
@@ -106,7 +106,7 @@ ms.locfileid: "46983526"
 
 若要針對公用 IP 位址執行工作，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派下表所列適當動作的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
 
-| 動作                                                             | 名稱                                                           |
+|  動作                                                             | Name                                                           |
 | ---------                                                          | -------------                                                  |
 | Microsoft.Network/publicIPAddresses/read                           | 讀取公用 IP 位址                                          |
 | Microsoft.Network/publicIPAddresses/write                          | 建立或更新公用 IP 位址                           |

@@ -4,7 +4,7 @@ description: 描述 Azure AD Connect 同步處理服務的服務端功能。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8d351e41eac3c820b9295b3b5cf314428bebc746
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f5a251c3e867035ecc00d449c4fbc1cf980a4f1f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242988"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461207"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 同步處理服務功能
 Azure AD connect 同步處理功能有兩個元件：
@@ -56,7 +56,7 @@ Azure AD connect 同步處理功能有兩個元件：
 | DirSyncFeature | 註解 |
 | --- | --- |
 | DeviceWriteback |[Azure AD Connect：啟用裝置回寫](how-to-connect-device-writeback.md) |
-| DirectoryExtensions |[Azure AD Connect 同步處理：目錄擴充](how-to-connect-sync-feature-directory-extensions.md) |
+| DirectoryExtensions |[Azure AD Connect 同步：目錄擴充](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |如果屬性是另一個物件的複本，即會將該屬性隔離，而不會在匯出期間導致整個物件失敗。 |
 | 密碼雜湊同步處理 |[使用 Azure AD Connect 同步來實作密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md) \(英文\) |
 |傳遞驗證|[使用 Azure Active Directory 傳遞驗證來進行使用者登入](how-to-connect-pta.md)|

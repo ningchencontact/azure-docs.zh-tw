@@ -3,18 +3,18 @@ title: Azure 自動化中的原始檔控制整合 - 舊版
 description: 本文說明在 Azure 自動化中與 GitHub 的原始檔控制整合。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eae44572d142bf256779545dea35012c78cf99e6
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045843"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434864"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure 自動化中的原始檔控制整合 - 舊版
 
@@ -65,7 +65,7 @@ ms.locfileid: "47045843"
      
      | **參數** | **值** |
      |:--- |:--- |
-     | 名稱 |Microsoft.Azure.Automation.SourceControl.Connection |
+     | Name |Microsoft.Azure.Automation.SourceControl.Connection |
      | 類型 |字串 |
      | 值 |{"Branch":\<您的分支名稱>,"RunbookFolderPath":\<Runbook 資料夾路徑>,"ProviderType":\<GitHub 的值為 1>,"Repository":\<您的儲存機制名稱>,"Username":\<您的 GitHub 使用者名稱>} |
 
@@ -73,7 +73,7 @@ ms.locfileid: "47045843"
 
     |**參數**            |**值** |
     |:---|:---|
-    | 名稱  | Microsoft.Azure.Automation.SourceControl.OauthToken |
+    | Name  | Microsoft.Azure.Automation.SourceControl.OauthToken |
     | 類型 | Unknown(Encrypted) |
     | 值 | <*已加密的 OAuthToken*> |  
 
@@ -99,7 +99,7 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
 1. 當您按一下 [簽入] 時，將會出現一個確認訊息，按一下 [是] 繼續進行。  
    
     ![簽入訊息](media/automation-source-control-integration-legacy/automation_07_CheckinMessage.png)
-2. 簽入會啟動原始檔控制 Runbook： **Sync-MicrosoftAzureAutomationAccountToGitHubV1**。 此 Runbook 會連接到 GitHub 並將 Azure 自動化中的變更推送至您的儲存機制。 若要檢視簽入工作歷程記錄，請回到 [原始檔控制整合] 索引標籤，按一下以開啟 [存放庫同步處理] 分頁。 此分頁會顯示所有的原始檔控制工作。  選取您要檢視的工作並按一下以檢視詳細資料。  
+2. 簽入會啟動原始檔控制 Runbook：**Sync-MicrosoftAzureAutomationAccountToGitHubV1**。 此 Runbook 會連接到 GitHub 並將 Azure 自動化中的變更推送至您的儲存機制。 若要檢視簽入工作歷程記錄，請回到 [原始檔控制整合] 索引標籤，按一下以開啟 [存放庫同步處理] 分頁。 此分頁會顯示所有的原始檔控制工作。  選取您要檢視的工作並按一下以檢視詳細資料。  
    
     ![簽入 Runbook](media/automation-source-control-integration-legacy/automation_08_CheckinRunbook.png)
    
@@ -110,7 +110,7 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
 3. 修改過的 Runbook 名稱會當作輸入參數傳送至簽入 Runbook。 在 [存放庫同步處理] 分頁中展開 Runbook，即可[檢視作業詳細資料](automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)。  
    
     ![簽入輸入](media/automation-source-control-integration-legacy/automation_09_CheckinInput.png)
-4. 在工作完成時重新整理您的 GitHub 儲存機制，即可檢視變更。  您的存放庫中應有一項認可，其認可訊息為：已在 Azure 自動化中更新 Runbook 名稱。  
+4. 在工作完成時重新整理您的 GitHub 儲存機制，即可檢視變更。  您的存放庫中應有一項認可，其認可訊息為：**已在 Azure 自動化中更新 Runbook 名稱。**  
 
 ### <a name="sync-runbooks-from-source-control-to-azure-automation"></a>將原始檔控制中的 Runbook 同步處理至 Azure 自動化
 [存放庫同步處理] 分頁上的 [同步處理] 按鈕可讓您將存放庫的 Runbook 資料夾路徑中的所有 Runbook 提取至您的自動化帳戶。 相同的儲存機制可以同步處理至多個自動化帳戶。 以下是同步處理 Runbook 的步驟：
@@ -118,7 +118,7 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
 1. 從您設定原始檔控制的自動化帳戶，開啟 [原始檔控制整合/存放庫同步處理] 分頁，然後按一下 [同步處理]。系統會出現一個確認訊息提示您，按一下 [是] 繼續進行。  
    
     ![同步處理按鈕](media/automation-source-control-integration-legacy/automation_10_SyncButtonwithMessage.png)
-2. 同步處理會啟動 Runbook： **Sync-MicrosoftAzureAutomationAccountFromGitHubV1**。 此 Runbook 會連接到 GitHub 並將儲存機制中的變更提取至 Azure 自動化。 您應該會在此動作的 [存放庫同步處理] 分頁看到新作業。 若要檢視同步處理工作的詳細資料，按一下以開啟作業詳細資料分頁。  
+2. 同步會啟動 Runbook：**Sync-MicrosoftAzureAutomationAccountFromGitHubV1**。 此 Runbook 會連接到 GitHub 並將儲存機制中的變更提取至 Azure 自動化。 您應該會在此動作的 [存放庫同步處理] 分頁看到新作業。 若要檢視同步處理工作的詳細資料，按一下以開啟作業詳細資料分頁。  
    
     ![同步處理 Runbook](media/automation-source-control-integration-legacy/automation_11_SyncRunbook.png)
 
@@ -139,7 +139,8 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
 ## <a name="next-steps"></a>後續步驟
 如需原始檔控制整合的詳細資訊，請參閱下列資源：  
 
-* [Azure 自動化：Azure 自動化中的原始檔控制整合](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
+* [Azure Automation:Azure 自動化中的原始檔控制整合](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
 * [票選您最喜愛的原始檔控制系統](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
-* [Azure 自動化：使用 Azure DevOps 整合 Runbook 原始檔控制](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+* [Azure Automation:使用 Azure DevOps 整合 Runbook 原始檔控制](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+
 

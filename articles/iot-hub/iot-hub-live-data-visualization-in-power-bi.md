@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: a533bd6ee447479f08add23833bf5acdde5c4d40
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a55e77853a1c9466892f686f34d17a5e84b11ba7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155094"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411280"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>使用 Power BI 將 Azure IoT 中樞的即時感應器資料視覺化
 
@@ -57,13 +57,13 @@ ms.locfileid: "50155094"
 
 2. 輸入作業的以下資訊。
 
-   **作業名稱**：作業名稱。 此名稱必須是全域唯一的。
+   **作業名稱**：作業的名稱。 此名稱必須是全域唯一的。
 
-   **資源群組**︰使用 IoT 中樞所用的相同資源群組。
+   **資源群組**：使用 IoT 中樞所用的相同資源群組。
 
-   **位置**︰使用與資源群組相同的位置。
+   **位置**：使用與資源群組相同的位置。
 
-   **釘選至儀表板**︰核取此選項可讓您從儀表板輕鬆地存取 IoT 中樞。
+   **釘選到儀表板**：核取此選項可讓您從儀表板輕鬆地存取 IoT 中樞。
 
    ![在 Azure 中建立串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 
@@ -75,13 +75,15 @@ ms.locfileid: "50155094"
 
 2. 在 [作業拓撲] 之下，按一下 [輸入]。
 
-3. 在 [輸入] 窗格中，按一下 [新增]，然後輸入下列資訊︰
+3. 在 [輸入] 窗格中，按一下 [新增資料流輸入]，然後輸入下列資訊︰
 
-   **輸入別名**︰輸入的唯一別名。
+   **輸入別名**：輸入的唯一別名，然後選取下面的 [手動提供 IoT 中樞設定]。
 
-   **來源**︰選取 [IoT 中樞]。
+   **來源**：選取 [IoT 中樞]。
+   
+   **端點**：按一下 [傳訊]。
 
-   **取用者群組**︰選取您剛建立的取用者群組。
+   **取用者群組**：選取您剛建立的取用者群組。
 
 4. 按一下頁面底部的 [新增] 。
 
@@ -91,23 +93,19 @@ ms.locfileid: "50155094"
 
 1. 在 [作業拓撲] 之下，按一下 [輸出]。
 
-2. 在 [輸出] 窗格中，按一下 [新增]，然後輸入下列資訊︰
+2. 在 [輸出] 窗格中，按一下 [新增] 和 [Power BI]，然後輸入下列資訊︰
 
-   **輸出別名**︰輸出的唯一別名。
+   **輸出別名**：輸出的唯一別名。
 
-   **接收器**︰選取 [Power BI]。
+   **群組工作區**：選取您的目標群組工作區。
+
+   **資料集名稱**：輸入資料集名稱。
+
+   **資料表名稱**：輸入資料表名稱。
 
 3. 按一下 [授權]，然後登入您的 Power BI 帳戶。
 
-4. 授權之後，輸入以下資訊：
-
-   **群組工作區**︰選取您的目標群組工作區。
-
-   **資料集名稱**︰輸入資料集名稱。
-
-   **資料表名稱**︰輸入資料表名稱。
-
-5. 按一下頁面底部的 [新增] 。
+4. 按一下頁面底部的 [新增] 。
 
    ![在 Azure 中將輸出新增至串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
@@ -135,13 +133,13 @@ ms.locfileid: "50155094"
 
 2. 登入您的 [Power BI](https://powerbi.microsoft.com/en-us/) 帳戶。
 
-3. 請移至建立串流分析作業輸出時所設定的群組工作區。
+3. 按一下您所使用的工作區 [我的工作區]。
 
-4. 按一下 [串流資料集]。
+4. 按一下 [資料集]。
 
    您應該會看到在建立串流分析作業輸出時所指定的資料集。
 
-5. 在 [動作] 之下，按一下第一個圖示以建立報告。
+5. 對於您所建立的資料集，按一下 [新增報告] (資料集名稱右邊的第一個圖示)。
 
    ![建立 Microsoft Power BI 報告](./media/iot-hub-live-data-visualization-in-power-bi/7_create-power-bi-report-microsoft.png)
 
@@ -165,9 +163,11 @@ ms.locfileid: "50155094"
 
 8. 按一下 [儲存] 以儲存報告。
 
-9. 按一下 [檔案] > [發佈到網站]。
+9. 按一下左窗格中的 [報告]，然後按一下您剛建立的報告。
 
-10. 按一下 [建立內嵌程式碼]，然後按一下 [發佈]。
+10. 按一下 [檔案] > [發佈到網站]。
+
+11. 按一下 [建立內嵌程式碼]，然後按一下 [發佈]。
 
 您會取得可與任何人共用以供存取報告的報告連結，以及取得程式碼片段以將報告整合到您的部落格或網站。
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: adsolank;juliako;johndeu
-ms.openlocfilehash: 7366ab573360e046ae112a32c32b292ebaeb8178
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b6e0b2027dd4edbf1688a6c71efe2dde37fbbf96
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228550"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473362"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>使用 Azure Media Indexer 編輯媒體檔案索引
 Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。 您可以處理一份媒體檔或是批次處理多個媒體檔案。  
@@ -247,16 +247,16 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 ### <a id="preset"></a> Azure 媒體索引器的工作預設
 在工作旁邊提供選擇性工作預設，即可自訂從 Azure 媒體索引器處理。  下表說明此組態 xml 的格式。
 
-| 名稱 | 必要 | 說明 |
+| Name | 必要 | 說明 |
 | --- | --- | --- |
-| **input** |false |您想要編製索引的資產檔案。</p><p>Azure 媒體索引器支援下列媒體檔案格式︰MP4、WMV、MP3、M4A、WMA、AAC、WAV。</p><p>您可以在 **input** 元素的 **name** 或 **list** 屬性中指定檔案名稱 (如下所示)。如果您未指定要編制索引的資產檔案，則會選擇主要檔案。 如果未設定主要資產檔案，則會對輸入資產中的第一個檔案編製索引。</p><p>若要明確指定資產檔案名稱，請執行︰<br/>`<input name="TestFile.wmv">`<br/><br/>您也可以一次對多個資產檔案編制索引 (最多 10 個檔案)。 作法：<br/><br/><ol class="ordered"><li><p>建立文字檔 (資訊清單檔) 並指定 .lst 副檔名。 </p></li><li><p>將輸入資產中所有資產檔案名稱的清單加入至此資訊清單檔案。 </p></li><li><p>將此資訊檔案新增 (上傳) 到資產。  </p></li><li><p>在輸入的 list 屬性中指定資訊清單檔的名稱。<br/>`<input list="input.lst">`</li></ol><br/><br/>附註︰如果您在資訊清單檔中新增超過 10 個檔案，編製索引作業將失敗，並出現 2006 錯誤碼。 |
+| **input** |false |您想要編製索引的資產檔案。</p><p>Azure 媒體索引器支援下列媒體檔案格式︰MP4、WMV、MP3、M4A、WMA、AAC、WAV。</p><p>您可以在 **input** 元素的 **name** 或 **list** 屬性中指定檔案名稱 (如下所示)。如果您未指定要編制索引的資產檔案，則會選擇主要檔案。 如果未設定主要資產檔案，則會對輸入資產中的第一個檔案編製索引。</p><p>若要明確指定資產檔案名稱，請執行︰<br/>`<input name="TestFile.wmv">`<br/><br/>您也可以一次對多個資產檔案編制索引 (最多 10 個檔案)。 作法：<br/><br/><ol class="ordered"><li><p>建立文字檔 (資訊清單檔) 並指定 .lst 副檔名。 </p></li><li><p>將輸入資產中所有資產檔案名稱的清單加入至此資訊清單檔案。 </p></li><li><p>將資訊檔案新增 (上傳) 到資產。  </p></li><li><p>在輸入的 list 屬性中指定資訊清單檔的名稱。<br/>`<input list="input.lst">`</li></ol><br/><br/>注意：如果您在資訊清單檔中新增超過 10 個檔案，編製索引作業將失敗，並出現 2006 錯誤碼。 |
 | **metadata** |false |用於詞彙調節之指定資產檔案的中繼資料。  適合用來準備 Indexer 以辨識非標準詞彙文字，例如專有名詞。<br/>`<metadata key="..." value="..."/>` <br/><br/>您可以提供預先定義的**索引鍵**的**值**。 目前支援下列索引鍵：<br/><br/>"title" 和 "description" - 用於詞彙調整，以微調您的工作的語言模型及改進語音辨識準確度。  值會植入網際網路搜尋來尋找內容相關的文字文件，並使用內容來加強索引工作期間的內部字典。<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **features** <br/><br/> 在 1.2 版中新增。 目前唯一支援的功能是語音辨識 ("ASR")。 |false |語音辨識功能具有下列設定索引鍵︰<table><tr><th><p>Key</p></th>        <th><p>說明</p></th><th><p>範例值</p></th></tr><tr><td><p>語言</p></td><td><p>要在多媒體檔案中辨識的自然語言。</p></td><td><p>英文、西班牙文</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>所需輸出字幕格式的分號分隔清單 (如果有的話)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>布林值旗標，用來指定是否需要 AIB 檔案 (適用於 SQL Server 和客戶索引器 IFilter)。  如需詳細資訊，請參閱 <a href="https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案</a>。</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>布林值旗標，用於指定是否需要關鍵字 XML 檔案。</p></td><td><p>True; False。 </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>布林值旗標，用於指定是否強制完整字幕 (不管信賴等級為何)。  </p><p>預設值為 false，在此情況下，會省略最終字幕輸出中信賴等級小於 50% 的單字和片語並以省略符號 ("...") 取代。  省略符號適合用於字幕品質控制和稽核。</p></td><td><p>True; False。 </p></td></tr></table> |
+| **features** <br/><br/>  在 1.2 版中新增。 目前唯一支援的功能是語音辨識 ("ASR")。 |false |語音辨識功能具有下列設定索引鍵︰<table><tr><th><p>Key</p></th>        <th><p>說明</p></th><th><p>範例值</p></th></tr><tr><td><p>語言</p></td><td><p>要在多媒體檔案中辨識的自然語言。</p></td><td><p>英文、西班牙文</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>所需輸出字幕格式的分號分隔清單 (如果有的話)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>布林值旗標，用來指定是否需要 AIB 檔案 (適用於 SQL Server 和客戶索引器 IFilter)。  如需詳細資訊，請參閱 <a href="https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案</a>。</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>布林值旗標，用於指定是否需要關鍵字 XML 檔案。</p></td><td><p>True; False。 </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>布林值旗標，用於指定是否強制完整字幕 (不管信賴等級為何)。  </p><p>預設值為 false，在此情況下，會省略最終字幕輸出中信賴等級小於 50% 的單字和片語並以省略符號 ("...") 取代。  省略符號適合用於字幕品質控制和稽核。</p></td><td><p>True; False。 </p></td></tr></table> |
 
 ### <a id="error_codes"></a>錯誤碼
 如果發生錯誤，Azure 媒體索引器應回報下列其中一個錯誤碼：
 
-| 代碼 | 名稱 | 可能的原因 |
+| 代碼 | Name | 可能的原因 |
 | --- | --- | --- |
 | 2000 |無效的組態 |無效的組態 |
 | 2001 |無效的輸入資產 |遺漏輸入資產或資產是空的。 |

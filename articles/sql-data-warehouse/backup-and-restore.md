@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e060075fbcf6a5083e51b753e119cb5471129a79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308460"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465168"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的備份與還原
 了解「Azure SQL 資料倉儲」中備份與還原的運作方式。 使用資料倉儲快照集將您的資料倉儲還原或複製到主要區域中的先前還原點。 使用資料倉儲異地備援備份來還原至不同的地理區域。 
@@ -86,7 +86,7 @@ SQL 資料倉儲每天都會對[配對的資料中心](../best-practices-availab
 
 您可以保留已還原的資料倉儲和目前的資料倉儲，或是刪除它們其中之一。 如果您想要以已還原的資料倉儲取代目前的資料倉儲，便可以使用 [ALTER DATABASE (Azure SQL 資料倉儲)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) 搭配 MODIFY NAME 選項來將它重新命名。 
 
-若要還原資料倉儲，請參閱[使用 Azure 入口網站來還原資料倉儲](sql-data-warehouse-restore-database-portal.md)、[使用 PowerShell 來還原資料倉儲](sql-data-warehouse-restore-database-powershell.md)或[使用 T-SQL 來還原資料倉儲](sql-data-warehouse-restore-database-rest-api.md)。
+若要還原資料倉儲，請參閱[使用 Azure 入口網站來還原資料倉儲](sql-data-warehouse-restore-database-portal.md)、[使用 PowerShell 來還原資料倉儲](sql-data-warehouse-restore-database-powershell.md)或[使用 REST API 來還原資料倉儲](sql-data-warehouse-restore-database-rest-api.md)。
 
 若要還原已刪除或暫停的資料倉儲，您可以[建立支援票證](sql-data-warehouse-get-started-create-support-ticket.md)。 
 

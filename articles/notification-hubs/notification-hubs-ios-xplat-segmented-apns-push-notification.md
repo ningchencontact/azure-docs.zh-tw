@@ -3,8 +3,8 @@ title: 使用 Azure 通知中樞將通知推送至特定 iOS 裝置| Microsoft D
 description: 在本教學課程中，您將了解如何使用 Azure 通知中樞將推播通知傳送至特定的 iOS 裝置。
 services: notification-hubs
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 6ead4169-deff-4947-858c-8c6cf03cc3b2
 ms.service: notification-hubs
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: 18caf2b1b96052d93737c8a9815e2e6643a52a67
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: aaaeb4e101147c19af5bd1dc7071cca273255863
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918057"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449754"
 ---
-# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至特定 iOS 裝置
+# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推播至特定 iOS 裝置
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -41,7 +41,7 @@ ms.locfileid: "42918057"
 
 ## <a name="prerequisites"></a>必要條件
 
-這個主題會以您在[教學課程：使用 Azure 通知中樞將通知推播至 iOS 應用程式][get-started]中所建立的應用程式為基礎。 在開始進行本教學課程之前，您必須先完成[教學課程：使用 Azure 通知中樞將通知推播至 iOS 應用程式][get-started]。
+本主題以您在以下教學課程中建立的應用程式為基礎：[教學課程：使用 Azure 通知中樞將通知推播至 iOS 應用程式][get-started]。 開始本教學課程之前，您必須已完成[教學課程：使用 Azure 通知中樞將通知推播至 iOS 應用程式][get-started]。
 
 ## <a name="add-category-selection-to-the-app"></a>在應用程式中新增類別選項
 
@@ -59,7 +59,7 @@ ms.locfileid: "42918057"
     ![Xcode 介面產生器][3]
 
 2. 在輔助編輯器中，建立所有參數的出口，並將其命名為 "WorldSwitch"、"PoliticsSwitch"、"BusinessSwitch"、"TechnologySwitch"、"ScienceSwitch"、"SportsSwitch"
-3. 為按鈕建立名為 **subscribe** \(訂閱\) 的動作。 您的 ViewController.h 應該包含下列程式碼：
+3. 為按鈕建立名為 `subscribe` 的動作；您的 `ViewController.h` 應包含下列程式碼：
 
     ```objc
     @property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
@@ -135,7 +135,7 @@ ms.locfileid: "42918057"
 
     此類別會使用本機儲存體來儲存和擷取此裝置接收到的新聞類別。 此外，它也包含使用 [範本](notification-hubs-templates-cross-platform-push-messages.md) 註冊來註冊這些類別的方法。
 
-7. 在 AppDelegate.h 檔案中，新增 Notifications.h 的匯入陳述式，並新增 Notifications 類別執行個體的屬性：
+7. 在 `AppDelegate.h` 檔案中，新增 `Notifications.h` 的匯入陳述式，並新增 `Notifications` 類別執行個體的屬性：
 
     ```objc
     #import "Notifications.h"
@@ -143,9 +143,8 @@ ms.locfileid: "42918057"
     @property (nonatomic) Notifications* notifications;
     ```
 
-8. 在 AppDelegate.m 的 **didFinishLaunchingWithOptions** 方法中，於方法的開頭處加入程式碼來初始化通知執行個體。  
-
-    `HUBNAME` 與 `HUBLISTENACCESS` (定義於 hubinfo.h 中) 的 `<hub name>` 及 `<connection string with listen access>` 預留位置，應已用稍早取得之 *DefaultListenSharedAccessSignature* 的通知中樞名稱與連接字串所取代。
+8. 在 `AppDelegate.m` 的 `didFinishLaunchingWithOptions` 方法中，於方法的開頭處加入程式碼來初始化通知執行個體。  
+    `HUBNAME` 與 `HUBLISTENACCESS` (定義於 `hubinfo.h` 中) 的 `<hub name>` 和 `<connection string with listen access>` 預留位置，應已用稍早取得的 *DefaultListenSharedAccessSignature* 的通知中樞名稱與連接字串所取代
 
     ```objc
     self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
@@ -154,7 +153,7 @@ ms.locfileid: "42918057"
     > [!NOTE]
     > 因為隨用戶端應用程式散佈的憑證通常不安全，您應只將接聽存取權的金鑰隨用戶端應用程式散佈。 您的應用程式可透過接聽存取權來註冊通知，但無法修改現有的註冊或無法傳送通知。 在安全的後端服務中，會使用完整存取金鑰來傳送通知和變更現有的註冊。
 
-9. 在 AppDelegate.m 的 **didRegisterForRemoteNotificationsWithDeviceToken** 方法中，使用下列程式碼來取代方法中的程式碼，以將裝置權杖傳遞給 notifications 類別。 Notifications 類別會為通知執行與類別之間的註冊。 如果使用者變更類別選取項目，則可以呼叫 `subscribeWithCategories` 方法以回應 [subscribe] \(訂閱\) 按鈕來更新它們。
+9. 在 `AppDelegate.m` 的 `didRegisterForRemoteNotificationsWithDeviceToken` 方法中，使用下列程式碼來取代方法中的程式碼，以將裝置權杖傳遞給 `notifications` 類別。 `notifications` 類別會為通知執行與類別之間的註冊。 如果使用者變更類別選取項目，則可以呼叫 `subscribeWithCategories` 方法以回應 [subscribe] \(訂閱\) 按鈕來更新它們。
 
     > [!NOTE]
     > 由於 Apple 推播通知服務 (APNS) 所指派的裝置權杖可能隨時會變更，因此您應經常註冊通知以避免通知失敗。 此範例會在應用程式每次啟動時註冊通知。 若是經常執行 (一天多次) 的應用程式，如果距離上次註冊的時間不到一天，則您可能可以略過註冊以保留頻寬。
@@ -173,9 +172,9 @@ ms.locfileid: "42918057"
     }];
     ```
 
-    此時，**didRegisterForRemoteNotificationsWithDeviceToken** 方法中不應有其他程式碼。
+    此時，`didRegisterForRemoteNotificationsWithDeviceToken` 方法中不應有任何其他程式碼。
 
-10. 完成[開始使用通知中樞][get-started]教學課程時，下列方法應該已出現在 AppDelegate.m 中。 否則，請予以新增。
+10. 完成[開始使用通知中樞][get-started]教學課程時，下列方法應該已出現在 `AppDelegate.m` 中。 否則，請予以新增。
 
     ```objc
     -(void)MessageBox:(NSString *)title message:(NSString *)messageText
@@ -195,7 +194,7 @@ ms.locfileid: "42918057"
 
     此方法會顯示簡易 **UIAlert**，以處理應用程式執行時接收到的通知。
 
-11. 在 ViewController.m 中，新增 AppDelegate.h 的匯入陳述式，並將下列程式碼複製到 XCode 所產生的 **subscribe** 方法中。 此程式碼會更新通知註冊，以使用使用者在使用者介面中所選擇的新類別標記。
+11. 在 `ViewController.m` 中，新增 `AppDelegate.h` 的 `import` 陳述式，並將下列程式碼複製到 XCode 所產生的 `subscribe` 方法中。 此程式碼會更新通知註冊，以使用使用者在使用者介面中所選擇的新類別標記。
 
     ```objc
     #import "Notifications.h"
@@ -220,9 +219,9 @@ ms.locfileid: "42918057"
     }];
     ```
 
-    此方法會建立類別的 **NSMutableArray**，並使用 **Notifications** 類別在本機儲存體中儲存清單，並在您的通知中樞註冊對應標籤。 變更類別時，系統會使用新類別重新建立註冊。
+    此方法會建立類別的 `NSMutableArray`，並使用 `Notifications` 類別在本機儲存體中儲存清單，並在通知中心註冊對應標記。 變更類別時，系統會使用新類別重新建立註冊。
 
-3. 在 ViewController.m 中，於 **viewDidLoad** 方法中新增下列程式碼，以根據先前儲存的類別來設定使用者介面。
+12. 在 `ViewController.m` 中，於 `viewDidLoad` 方法中新增下列程式碼，以根據先前儲存的類別來設定使用者介面。
 
     ```objc
     // This updates the UI on startup based on the status of previously saved categories.
@@ -239,11 +238,11 @@ ms.locfileid: "42918057"
     if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
     ```
 
-應用程式現在可以在裝置本機儲存體中儲存一組類別，以用來在每次應用程式啟動時於通知中樞註冊。 使用者可以在執行階段變更選取的類別，然後按一下 [訂閱]  方法來更新裝置的註冊。 接下來，您會更新應用程式，以直接在應用程式本身傳送即時新聞通知。
+應用程式現在可以在裝置本機儲存體中儲存一組類別，以用來在每次應用程式啟動時於通知中樞註冊。 使用者可以在執行階段變更選取的類別，然後按一下 `subscribe` 方法來更新裝置的註冊。 接下來，您會更新應用程式，以直接在應用程式本身傳送即時新聞通知。
 
 ## <a name="optional-send-tagged-notifications"></a>(選擇性) 傳送加註標記的通知
 
-如果您無法存取 Visual Studio，可以跳到下一節，並從應用程式本身傳送通知。 您也可以使用通知中樞的 [偵錯] 索引標籤，從 [Azure 入口網站] 傳送正確的範本通知。 
+如果您無法存取 Visual Studio，可以跳到下一節，並從應用程式本身傳送通知。 您也可以使用通知中樞的 [偵錯] 索引標籤，從 [Azure 入口網站] 傳送正確的範本通知。
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -312,7 +311,7 @@ ms.locfileid: "42918057"
     }
     ```
 
-2. 在 `ViewController.m` 中，更新 [Send Notification] \(傳送通知\) 動作，如下列程式碼所示。 這會使它個別使用每個標記來傳送通知，並傳送至多個平台。
+2. 在 `ViewController.m` 中更新 `Send Notification` 動作，如下列程式碼所示。 這會使它個別使用每個標記來傳送通知，並傳送至多個平台。
 
     ```objc
     - (IBAction)SendNotificationMessage:(id)sender
@@ -349,23 +348,15 @@ ms.locfileid: "42918057"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已將廣播通知傳送至註冊相關類別的特定 iOS 裝置。 若要了解如何推送當地語系化的通知，請繼續進行下列教學課程： 
+在本教學課程中，您已將廣播通知傳送至註冊相關類別的特定 iOS 裝置。 若要了解如何推送當地語系化的通知，請繼續進行下列教學課程：
 
 > [!div class="nextstepaction"]
 >[推送當地語系化的通知](notification-hubs-ios-xplat-localized-apns-push-notification.md)
-
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-subscribed.png
 [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
-
-
-
-
-
-
-
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: librown
-ms.openlocfilehash: b09bb65cdb571c9df95d1922f4132abe5b77907c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0179f87787c91a90edb54a1956a6f10d1dffc4b1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963942"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434184"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>使用 Microsoft Authenticator 應用程式進行無密碼的手機登入 (公開預覽)
 
@@ -37,16 +37,21 @@ Microsoft Authenticator 應用程式可用來登入任何 Azure AD 帳戶 (而�
 
 ### <a name="steps-to-enable"></a>啟用的步驟
 
-確保您有 Azure Active Directory V2 PowerShell 模組的最新公開預覽版本。 您可藉由執行下列命令，解除安裝後並重新安裝來確認這點：
+1. 確保您有 Azure Active Directory V2 PowerShell 模組的最新公開預覽版本。 您可藉由執行下列命令，解除安裝後並重新安裝來確認這點：
+    ```powershell
+    Uninstall-Module -Name AzureADPreview
+    Install-Module -Name AzureADPreview
+    ```
 
-1. `Uninstall-Module -Name AzureADPreview`
-2. `Install-Module -Name AzureADPreview`
+2. 向 Azure AD 租用戶進行驗證，以使用 Azure AD V2 PowerShell 模組。 使用的帳戶必須是安全性管理員或全域管理員。
+    ```powershell
+    Connect-AzureAD
+    ```
 
-您可以使用下列 PowerShell 命令，啟用無密碼的手機登入預覽版：
-
-1. `Connect-AzureAD`
-   1. 在驗證對話方塊中，使用租用戶中的帳戶登入。 此帳戶必須是安全性管理員或全域管理員。
-1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+3. 建立 Authenticator 登入原則：
+    ```powershell
+    New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
+    ```
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>我的使用者如何啟用手機登入？
 

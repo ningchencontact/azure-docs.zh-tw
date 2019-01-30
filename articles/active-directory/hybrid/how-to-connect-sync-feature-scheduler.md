@@ -4,7 +4,7 @@ description: 本主題說明 Azure AD Connect 同步處理中內建的排程器�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d8deb03d03446c1452d73a7c08df4cf14ffcd5b5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8099194feed3761e32686ab15e8738b10ffd4e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304557"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462312"
 ---
-# <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 同步處理：排程器
+# <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 同步：排程器
 本主題說明 Azure AD Connect 同步處理 (又稱為 同步處理引擎) 中內建的排程器。
 
 此功能是隨組建 1.1.105.0 (於 2016 年 2 月發行) 一起導入。
@@ -71,7 +71,7 @@ Azure AD Connect 同步處理會使用排程器來同步處理您內部部署目
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
 語法： `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
-d - 天、HH - 小時、mm - 分鐘、ss - 秒
+ d - 天、HH - 小時、mm - 分鐘、ss - 秒
 
 範例： `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
 將排程器變更為每隔 3 小時執行一次。
@@ -165,7 +165,7 @@ Get-ADSyncConnectorRunStatus
 ```
 
 ![連接器執行狀態](./media/how-to-connect-sync-feature-scheduler/getconnectorrunstatus.png)  
-在上圖中，第一行是來自同步處理引擎處於閒置狀態時。 第二行則是從 Azure AD 連接器執行時。
+ 在上圖中，第一行是來自同步處理引擎處於閒置狀態時。 第二行則是從 Azure AD 連接器執行時。
 
 ## <a name="scheduler-and-installation-wizard"></a>排程器和安裝精靈
 如果您啟動安裝精靈，則排程器將會暫時停用。 此行為是因為系統會假設您進行組態變更，而如果同步處理引擎正在執行中，將會無法套用這些設定。 基於這個理由，請勿讓安裝精靈保持開啟，因為這會阻止同步處理引擎執行任何同步處理動作。

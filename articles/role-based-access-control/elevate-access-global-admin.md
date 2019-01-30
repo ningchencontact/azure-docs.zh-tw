@@ -1,6 +1,6 @@
 ---
-title: 提高 Azure Active Directory 中全域管理員的存取權 | Microsoft Docs
-description: 描述如何使用 Azure 入口網站或 REST API 提高 Azure Active Directory 中全域管理員的存取權。
+title: 提高存取權以管理所有 Azure 訂用帳戶和管理群組 | Microsoft Docs
+description: 描述如何使用 Azure 入口網站或 REST API 提高 Azure Active Directory 中全域管理員的存取權，以管理所有訂用帳戶和管理群組。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,32 +12,34 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2f66078a817f5e6ad7296df11634a1a6130a055
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 7552018c32078295c164023f909a604c6522c32f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321660"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437465"
 ---
-# <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>提高 Azure Active Directory 中全域管理員的存取權
+# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>提高存取權以管理所有 Azure 訂用帳戶和管理群組
 
-如果您是 Azure Active Directory (Azure AD) 中的[全域管理員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator)，有時可能需要執行下列作業：
-
-- 當使用者失去存取權時，重新取得 Azure 訂用帳戶的存取權
-- 授權其他使用者或您自己存取 Azure 訂用帳戶
-- 查看組織中的所有 Azure 訂用帳戶
-- 允許自動化應用程式 (例如發票處理或稽核應用程式) 存取所有 Azure 訂用帳戶
-
-本文將說明可以在 Azure AD 中提高存取權的不同方式。
+身為 Azure Active Directory (Azure AD) 中的全域管理員，您可能沒有目錄中所有訂用帳戶與管理群組的存取權。 本文將說明您可以如何提高所有訂用帳戶和管理群組的存取權。
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="overview"></a>概觀
+## <a name="why-would-you-need-to-elevate-your-access"></a>為什麼您需要提高存取權？
 
-Azure AD 和 Azure 資源會獨立地受到保護。 也就是說，Azure AD 角色指派不會將存取權授與 Azure 資源，而 Azure 角色指派不會將存取權授與 Azure AD。 不過，如果您是Azure AD 中的全域管理員，您可以藉由指派存取權給自己，來存取您目錄中的所有 Azure 訂用帳戶與管理群組。 如果您沒有 Azure 訂用帳戶資源 (例如虛擬機器或儲存體帳戶) 的存取權，而且想要使用全域管理員權限來取得這些資源的存取權，您可以使用這項功能來達成。
+如果您是全域管理員，有時可能需要執行下列作業：
+
+- 當使用者失去存取權時，重新取得 Azure 訂用帳戶或管理群組的存取權
+- 授權其他使用者或您自己存取 Azure 訂用帳戶或管理群組
+- 查看組織中的所有 Azure 訂用帳戶或管理群組
+- 允許自動化應用程式 (例如發票處理或稽核應用程式) 存取所有 Azure 訂用帳戶或管理群組
+
+## <a name="how-does-elevate-access-work"></a>提高存取權的運作方式為何？
+
+Azure AD 和 Azure 資源會獨立地受到保護。 也就是說，Azure AD 角色指派不會將存取權授與 Azure 資源，而 Azure 角色指派不會將存取權授與 Azure AD。 不過，如果您是Azure AD 中的[全域管理員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator)，您可以藉由指派存取權給自己，來存取您目錄中的所有 Azure 訂用帳戶與管理群組。 如果您沒有 Azure 訂用帳戶資源 (例如虛擬機器或儲存體帳戶) 的存取權，而且想要使用全域管理員權限來取得這些資源的存取權，您可以使用這項功能來達成。
 
 當您提高存取權時，您會在根範圍上 (`/`) 獲派 Azure 中的[使用者存取管理員](built-in-roles.md#user-access-administrator)角色。 這可讓您檢視所有資源，並指派目錄中任何訂用帳戶或管理群組的存取權。 您可以使用 PowerShell 來移除使用者存取管理員的角色指派。
 
@@ -65,9 +67,19 @@ Azure AD 和 Azure 資源會獨立地受到保護。 也就是說，Azure AD 角
 
 1. 按一下 [儲存] 儲存您的設定。
 
-   這個設定不是全域屬性，而且只會套用至目前登入的使用者。
+   這個設定不是全域屬性，而且只會套用至目前登入的使用者。 您無法為全域管理員角色的所有成員提高存取權。
 
-1. 執行您需要以更高存取權完成的工作。 當您完成時，將開關設回 [否]。
+1. 登出再重新登入，以重新整理您的存取權。
+
+    您現在應該有目錄中所有訂用帳戶和管理群組的存取權。 您會發現您已在根範圍上獲派「使用者存取系統管理員」角色。
+
+   ![根範圍的訂用帳戶角色指派 - 螢幕擷取畫面](./media/elevate-access-global-admin/iam-root.png)
+
+1. 執行您需要以更高存取權執行的變更。
+
+    如需有關指派角色的資訊，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](role-assignments-portal.md)。 如果您使用 Azure AD Privileged Identity Management (PIM)，請參閱[在 PIM 中探索要管理的 Azure 資源](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md)或[在 PIM 中指派 Azure 資源角色](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)。
+
+1. 當您完成時，請將 [Azure 資源的存取管理] 切換回 [否]。 由於這是專屬於每個使用者的設定，因此您必須以用來提高存取權的相同使用者身分來等入。
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -89,16 +101,22 @@ RoleDefinitionName : User Access Administrator
 RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9
 ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
+CanDelegate        : False
 ```
 
 ### <a name="remove-a-role-assignment-at-the-root-scope-"></a>移除根目錄範圍 (/) 的角色指派
 
-若要移除根目錄範圍 (`/`) 某位使用者的「使用者存取系統管理員」角色指派，請使用 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 命令。
+若要移除根目錄範圍 (`/`) 某位使用者的「使用者存取系統管理員」角色指派，請遵循以下步驟。
 
-```azurepowershell
-Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
-  -RoleDefinitionName "User Access Administrator" -Scope "/"
-```
+1. 以可移除所提高存取權的使用者身分登入。 此身分可以是用來提高存取權的相同使用者，或另一位在根目錄範圍具有所提高存取權的全域管理員。
+
+
+1. 請使用 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 命令來移除「使用者存取系統管理員」角色指派。
+
+    ```azurepowershell
+    Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+      -RoleDefinitionName "User Access Administrator" -Scope "/"
+    ```
 
 ## <a name="rest-api"></a>REST API
 

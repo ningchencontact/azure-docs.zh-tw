@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 0fa695218bb1112324ef2ddac80e52f927a5971b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9ff75cbd0a4915cdf7045be9a45d11075dda15bd
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045291"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402314"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 可程式性指南
 
@@ -135,7 +135,7 @@ U-SQL 目前使用 .Net Framework 4.5 版。 因此，請確定您自己的組�
 
 最後請注意，每一個 U-SQL 資料庫所包含的任何指定組件只能有一個版本。 例如，如果您同時需要第 7 版和第 8 版的 NewtonSoft Json.Net 程式庫，您需要將它們註冊到兩個不同的資料庫。 此外，每個指令碼所參考的指定組件 DLL 只能有一個版本。 在這方面，U-SQL 會遵循 C# 組件的管理和版本設定語意。
 
-## <a name="use-user-defined-functions-udf"></a>使用使用者定義函式：UDF
+## <a name="use-user-defined-functions-udf"></a>使用使用者定義的函式：UDF
 U-SQL 使用者定義函數 (簡稱 UDF) 會編寫常式，以接受參數、執行動作 (例如複雜計算)，以及傳回該動作結果的值。 UDF 的傳回值只能是單一純量。 U-SQL UDF 可以和任何其他 C# 純量函式一樣，在 U-SQL 基底指令碼中進行呼叫。
 
 我們建議您將 U-SQL 使用者定義函式初始化為**公用**且**靜態**的函式。
@@ -504,7 +504,7 @@ SqlUserDefinedType 是 UDT 定義的必要屬性 (attribute)。
 
 * SqlUserDefinedTypeAttribute (類型格式器)
 
-* 輸入格式器︰需要參數來定義 UDT 格式器--明確地說，必須在這裡傳遞 `IFormatter` 介面的類型。
+* 類型格式器：需要參數來定義 UDT 格式器--明確地說，必須在這裡傳遞 `IFormatter` 介面的類型。
 
 ```
 [SqlUserDefinedType(typeof(MyTypeFormatter))]
@@ -534,7 +534,7 @@ public class MyTypeFormatter : IFormatter<MyType>
 * **序列化**：使用指定根將物件或物件圖形序列化到所提供的串流。
 
 `MyType` 執行個體：類型的執行個體。  
-`IColumnWriter` writer / `IColumnReader` 讀取器：基礎資料行串流。  
+`IColumnWriter` 寫入器 / `IColumnReader` 讀取器：基礎資料行串流。  
 `ISerializationContext` 內容：定義一組旗標的列舉，可在序列化期間指定串流的來源或目的地內容。
 
 * **中繼**：指定來源或目的地內容不是持續性存放區。
@@ -895,7 +895,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-## <a name="use-user-defined-aggregates-udagg"></a>使用使用者定義彙總：UDAGG
+## <a name="use-user-defined-aggregates-udagg"></a>使用使用者定義的彙總：UDAGG
 使用者定義彙總是指並非 U-SQL 現成提供的彙總相關函式。 其範例包括用來執行自訂數學計算、字串串連、使用字串之操作等彙總。
 
 使用者定義彙總的基底類別定義如下所示：
@@ -946,7 +946,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
 * T1：要累積的第一個參數
-* T2：要累積的第二個參數
+* T2：要累積的第一個參數
 * TResult：傳回終止的類型
 
 例如︰
@@ -1025,7 +1025,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 在此使用案例中，我們會串連特定使用者的類別 GUID。
 
-## <a name="use-user-defined-objects-udo"></a>使用使用者定義物件：UDO
+## <a name="use-user-defined-objects-udo"></a>使用使用者定義的物件：UDO
 U-SQL 可讓您定義自訂可程式性物件，我們將它稱為使用者定義物件，簡稱 UDO。
 
 以下是 U-SQL 中的 UDO 清單：
@@ -1067,11 +1067,11 @@ U-SQL 指令碼中通常會明確地呼叫 UDO 以做為下列 U-SQL 陳述式�
 ## <a name="use-user-defined-extractors"></a>使用使用者定義擷取器
 U-SQL 可讓您使用 EXTRACT 陳述式來匯入外部資料。 EXTRACT 陳述式可以使用內建的 UDO 擷取器：  
 
-* Extractors.Text()︰可從不同編碼的分隔文字檔進行擷取。
+* *Extractors.Text()*：可從不同編碼的分隔文字檔進行擷取。
 
-* Extractors.Csv()︰可從不同編碼的逗號分隔值 (CSV) 檔案進行擷取。
+* *Extractors.Csv()*：可從不同編碼的逗號分隔值 (CSV) 檔案進行擷取。
 
-* Extractors.Tsv()︰可從不同編碼的定位鍵分隔值 (TSV) 檔案進行擷取。
+* *Extractors.Tsv()*：可從不同編碼的逗號分隔值 (CSV) 檔案進行擷取。
 
 它很適合用來開發自訂擷取器。 在匯入資料期間，如果我們想要執行下列任何作業，這會很有幫助：
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>使用使用者定義輸出器
 使用者定義輸出器是另一個 U-SQL UDO，其可讓您擴充內建的 U-SQL 功能。 和擷取器類似，系統也有數個內建輸出器。
 
-* Outputters.Text()︰將資料寫入不同編碼的分隔文字檔。
-* Outputters.Csv()︰將資料寫入不同編碼的逗號分隔值 (CSV) 檔案。
-* Outputters.Tsv()︰將資料寫入不同編碼的定位鍵分隔值 (TSV) 檔案。
+* *Outputters.Text()*：將資料寫入不同編碼的分隔文字檔。
+* *Outputters.Csv()*：將資料寫入不同編碼的逗號分隔值 (CSV) 檔案。
+* *Outputters.Tsv()*：將資料寫入不同編碼的逗號分隔值 (CSV) 檔案。
 
 自訂輸出器可讓您以自訂的定義格式寫入資料。 這可適用於下列工作︰
 
@@ -1300,7 +1300,7 @@ string val = row.Get<string>(col.Name)
 
 這種方法可讓您為任何中繼資料結構描述建置彈性的輸出器。
 
-會使用 `System.IO.StreamWriter` 將輸出資料寫入檔案。 資料流參數會設為 `output.BaseStrea` 做為 `IUnstructuredWriter output` 的一部分。
+會使用 `System.IO.StreamWriter` 將輸出資料寫入檔案。 資料流參數會設為 `output.BaseStream` 做為 `IUnstructuredWriter output` 的一部分。
 
 請注意，必須在每個資料列反覆項目之後排清檔案的資料緩衝區。 此外，`StreamWriter` 物件必須可用於啟用可處置的屬性 (預設值) 與**使用**關鍵字︰
 
@@ -1775,7 +1775,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 ```
 103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
-303 Y0AB2CD34XY458890   Shevrolet,Cruise,2010,4Dr,32455
+303 Y0AB2CD34XY458890   Chevrolet,Cruise,2010,4Dr,32455
 210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
 ```
 

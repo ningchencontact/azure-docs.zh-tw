@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 3848e2caefbc8fdfb30f36272f1b13e120312a7c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185013"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439097"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 輸出規則
 
-除了輸入之外，Azure Load Balancer 還需要提供來自虛擬網路的輸出連線。  輸出規則可以簡單地設定公用 [Standard Load Balancer](load-balancer-standard-overview.md) 的輸出網路位址轉譯。  您可以完整宣告式控制輸出連線，以針對您的特定需求擴充和調整此功能。
+除了輸入之外，Azure Load Balancer 還提供來自虛擬網路的輸出連線。  輸出規則可以簡單地設定公用 [Standard Load Balancer](load-balancer-standard-overview.md) 的輸出網路位址轉譯。  您可以完全透過宣告來控制輸出連線，以針對您的特定需求擴充和調整此功能。
 
 ![Load Balancer 輸出規則](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
@@ -73,7 +73,7 @@ API 版本 "2018-07-01" 允許輸出規則定義建構如下：
 
 此外，您還可以直接搭配使用[公用 IP 首碼](https://aka.ms/lbpublicipprefix)與輸出規則。  使用公用 IP 首碼可以更輕鬆地擴充和簡化源自 Azure 部署的流程允許清單。 您可以在 Load Balancer 資源內設定前端 IP 設定，直接參考公用 IP 位址首碼。  這可讓 Load Balancer 獨佔公用 IP 首碼，而輸出規則將會自動使用輸出連線之公用 IP 首碼內包含的所有公用 IP 位址。  公用 IP 首碼範圍內的每個 IP 位址都會為每個 IP 位址提供 51,200 個暫時連接埠，以供 Load Balancer 當成 SNAT 連接埠使用。   
 
-使用此選項作為輸出規則必須完整控制公用 IP 首碼時，您不能有從公用 IP 首碼建立的個別公用 IP 位址資源。  如果您需要更精細的控制，則可以從公用 IP 首碼建立個別公用 IP 位址資源，並將多個公用 IP 位址個別指派給輸出規則的前端。
+使用此選項作為輸出規則時，必須具有完整控制公用 IP 首碼，因此您不能有從公用 IP 首碼建立的個別公用 IP 位址資源。  如果您需要更精細的控制，則可以從公用 IP 首碼建立個別公用 IP 位址資源，並將多個公用 IP 位址個別指派給輸出規則的前端。
 
 ### <a name="snatports"></a> 調整 SNAT 連接埠配置
 
@@ -208,6 +208,7 @@ disableOutboundSNAT 參數預設為 false，這表示負載平衡規則**確實*
 - 可設定輸出閒置逾時的範圍為 4 到 66 分鐘 (240 到 4000 秒)。
 - Load Balancer 不支援輸出 NAT 的 ICMP。
 - 入口網站無法用來設定或檢視輸出規則。  請改為使用範本、REST API、Az CLI 2.0 或 PowerShell。
+- 輸出規則只能套用至主要 NIC 和主要 IP 組態。
 
 ## <a name="next-steps"></a>後續步驟
 

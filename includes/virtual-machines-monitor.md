@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54242368"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54404669"
 ---
 您可以利用許多機會，藉由收集、檢視及分析診斷和記錄資料來監視 VM。 若要執行簡單的 VM [監視](../articles/azure-monitor/overview.md)，您可以在 Azure 入口網站中使用 VM 的 [概觀] 畫面。 您可以使用[擴充功能](../articles/virtual-machines/windows/extensions-features.md)來設定 VM 診斷，以收集其他計量資料。 您也可以使用更進階的監視選項，例如 [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 和 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)。
 
@@ -60,13 +60,11 @@ ms.locfileid: "54242368"
 
 - [將診斷記錄儲存到儲存體帳戶](../articles/azure-monitor/platform/archive-diagnostic-logs.md)以利稽核或手動檢查。 您可以使用 [資源診斷設定] 來指定保留時間 (以天為單位)。
 - [將診斷記錄串流至事件中樞](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)，以供第三方服務或自訂的分析解決方案 (如 PowerBI) 擷取。
-- 使用 [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md) 分析診斷記錄。
+- 使用 [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md) 分析診斷記錄。
 
 ## <a name="advanced-monitoring"></a>進階監視
 
-- [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/) 可提供雲端和內部部署資產的監視、警示和警示補救功能。 您可以在 [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) 或 [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) 上安裝擴充功能，以便安裝 OMS 代理程式，並將 VM 註冊到現有的 OMS 工作區中。
-
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) 是 OMS 中的一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。
+- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) 是一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。 您可以在 [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) 或 [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) 上安裝擴充功能，以便安裝 Log Analytics 代理程式，並將 VM 註冊到現有的 Log Analytics 工作區中。
 
     針對 Windows 和 Linux VM，收集記錄和度量的建議方式是安裝 Log Analytics 代理程式。 在 VM 上安裝 Log Analytics 代理程式的最簡單方式是透過 [Log Analytics VM 擴充功能](../articles/log-analytics/log-analytics-azure-vm-extension.md)。 使用擴充可以簡化安裝程序，並自動設定代理程式將資料傳送到您指定的 Log Analytics 工作區。 代理程式也會自動升級，以確保您擁有最新的功能和修正程式。
 

@@ -1,5 +1,5 @@
 ---
-title: 建立路由型 Azure VPN 閘道：PowerShell | Microsoft Docs
+title: 建立路由式 Azure VPN 閘道：PowerShell | Microsoft Docs
 description: 使用 PowerShell 來快速建立路由型 VPN 閘道
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: c441ad93507fcf8dc1425129156232d2c50c08d1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9460f184e3da6769048b30ca743169c5a6044bd0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466421"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431839"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>使用 PowerShell 來建立路由型 VPN 閘道
 
@@ -22,7 +22,7 @@ ms.locfileid: "49466421"
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 Azure PowerShell 模組 5.3.0 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 Azure PowerShell 模組 5.3.0 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 

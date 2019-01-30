@@ -9,17 +9,22 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b07c71a9365fca3a2e5d7c837acf689af980afdd
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: dbbff7644d0c9375a4d2a145769d09a786b01c25
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075816"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412320"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 認知技能
+
+光學字元辨識 (OCR) 技能可辨識影像檔案中的列印和手寫文字。 這項技能會使用認知服務中[電腦視覺](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)所提供的機器學習模型。 **OCR** 技能對應至下列功能：
+
++ 當 textExtractionAlgorithm 設定為 "handwritten" 時，會使用 ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) 功能。
++ 當 textExtractionAlgorithm 設定為 "printed" 時，英文以外的語言會使用 ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) 功能。 若為英文，則會對列印的文字使用新的 ["Recognize Text"](../cognitive-services/computer-vision/concept-recognizing-text.md) 功能。
 
 **OCR** 技能可從影像檔擷取文字。 支援的檔案格式包括：
 
@@ -30,12 +35,9 @@ ms.locfileid: "54075816"
 + .GIF
 
 > [!NOTE]
-> 從 2018 年 12 月 21 日開始，您可以在認知服務資源與 Azure 搜尋服務的技能集之間建立關聯。 這可讓我們開始收取執行技能集的費用。 自這個日期起，我們也會開始收取文件萃取階段的影像擷取費用。 從文件中擷取文字的功能則繼續免費提供。
+> 從 2018 年 12 月 21 日開始，您可以[連結認知服務資源](cognitive-search-attach-cognitive-services.md)與 Azure 搜尋服務技能集。 這可讓我們開始收取執行技能集的費用。 自這個日期起，我們也會開始收取文件萃取階段中影像擷取的費用。 從文件中擷取文字的功能則繼續免費提供。
 >
-> 內建技能的執行會依現行的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)所述。 [深入](cognitive-search-attach-cognitive-services.md)了解。
->
->  OCR 技能對應至下列認知服務功能：當 textExtractionAlgorithm 設定為 "handwritten" 時，會使用 ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) 功能。
->  當 textExtractionAlgorithm 設定為 "printed" 時，英文以外的語言會使用 ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) 功能。 若為英文，則會對列印的文字使用新的 ["Recognize Text"](../cognitive-services/computer-vision/concept-recognizing-text.md) 功能。
+> [內建認知技能](cognitive-search-predefined-skills.md)執行會以[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services)收費，費率與直接執行工作時一樣。 影像擷取是 Azure 搜尋服務費用，目前是以預覽版定價提供。 如需詳細資訊，請參閱 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)或[計費方式](search-sku-tier.md#how-billing-works)。
 
 ## <a name="skill-parameters"></a>技能參數
 
@@ -136,9 +138,9 @@ ms.locfileid: "54075816"
 
 文字合併常見的使用案例，是將影像的文字表示法 (來自 OCR 技能的文字，或影像標題) 合併至文件的內容欄位。 
 
-下列範例技能集會建立 [merged_text] 欄位以包含文件的文字內容，以及內嵌至該文件之每一個映像的 OCRed 文字。 
+下列的範例技能集會建立 *merged_text* 欄位。 此欄位包含文件的文字內容，以及該文件每個內嵌影像中經過 OCR 處理的文字。 
 
-#### <a name="request-body-syntax"></a>要求本文語法
+#### <a name="request-body-syntax"></a>要求本文的語法
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",

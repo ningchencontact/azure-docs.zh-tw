@@ -10,14 +10,14 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: dbe853172c0f0e49408bd4a2dd630a69659421d3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 153ddcc1ba0da6171963ec91511fafe84023ecf8
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260596"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401959"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>使用 Azure Machine Learning Studio 分析客戶流失
+# <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>使用 Azure Machine Learning Studio 分析客戶流失
 ## <a name="overview"></a>概觀
 本文提供使用 Azure Machine Learning 建置客戶流失分析專案的參考實作。 在本文中將討論關聯的一般模型，可全面性地解決產業客戶流失的問題。 對於以機器學習建立的模型，我們也衡量其正確性，同時評定進一步開發的方向。  
 

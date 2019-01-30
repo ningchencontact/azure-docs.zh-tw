@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 27b952fb1a901ff716f25cc7d512f860f639fb02
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 688194c8d5ec0c2594d8c7178d8cae3925b8e482
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632613"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413361"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>語音服務 API 支援的語言和區域
 
@@ -63,6 +63,9 @@ Microsoft 語音辨識 API 支援下列語言。 每個語言有不同的自訂�
 ## <a name="text-to-speech"></a>文字轉換語音
 
 文字轉換語音 REST API 支援這些語音，且各支援依地區設定所識別的特定語言和方言。
+
+> [!IMPORTANT]
+> 標準、自訂和神經語音的定價各不相同。 如需其他資訊，請瀏覽[定價](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)頁面。
 
 ### <a name="neural-voices-preview"></a>神經語音 (預覽)
 

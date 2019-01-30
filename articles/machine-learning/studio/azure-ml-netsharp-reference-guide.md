@@ -1,17 +1,17 @@
 ---
-標題：Net# 神經網路 titleSuffix: Azure Machine Learning Studio description:Net# 類神經網路規格語言的語法，以及如何使用 Net# 與 Azure Machine Learning Studio 建立自訂類神經網路模型的範例。
+標題：使用 Net# titleSuffix 建立自訂的類神經網路： Azure Machine Learning Studio description:適用於 Net# 類神經網路規格語言的語法指南。 了解如何在 Azure Machine Learning Studio 中建立自訂的類神經網路模型。
 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: reference
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:2018/03/01
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的 Net# 類神經規格語言指南
 
-Net# 是由 Microsoft 所開發的語言，可用來定義類神經網路架構。 使用 Net# 定義類神經網路的結構，可讓您定義如深度類神經網路或任意維度的迴旋，而這些項目都可改善影像、音訊或視訊等資料的學習。
+Net # 是由 Microsoft 開發的語言，用來定義複雜的類神經網路架構，例如，任意維度的深度神經網路或迴旋。 您可以使用複雜的結構來改善影像、視訊或音訊等的資料學習。
 
 您可以在這些內容中使用 Net# 架構規格：
 
 + 在 Microsoft Azure Machine Learning Studio 中的所有類神經網路模組︰[多元化類神經網路](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network)，[二元化類神經網路](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)，和[類神經網路迴歸](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ MicrosoftML 中的類神經網路功能：針對 R 語言為 [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) 和 [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)，針對 Python 為 [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network)。
++ Microsoft ML Server 中的類神經網路功能：針對 R 語言為 [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) 和 [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)，針對 Python 為 [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network)。
 
 
 本文說明使用 Net# 開發自訂類神經網路所需的基本概念和語法： 
@@ -26,7 +26,7 @@ Net# 是由 Microsoft 所開發的語言，可用來定義類神經網路架構�
 
 類神經網路的組成結構，包含以層組織的節點，和節點之間的加權連線 (或邊緣)。 這些連線是雙向的，且每個連線都有來源節點和目的地節點。  
 
-每個可訓練的層 (隱藏或輸出層) 都有一或多個**連線套件組合**。 連線套組由來源層和來自該來源層之連線的規格所組成。 一個套件組合中的所有連線會共用相同的來源層和相同的目的地層。 在 Net# 中，連線套組會被視為由套組的目的地層所屬。
+每個可訓練的層 (隱藏或輸出層) 都有一或多個**連線套件組合**。 連線套組由來源層和來自該來源層之連線的規格所組成。 一個套件組合中的所有連線會共用來源層和目的地層。 在 Net# 中，連線套組會被視為由套組的目的地層所屬。
 
 Net# 支援多種不同的連線套組，可讓您自訂輸入對應至隱藏層和對應至輸出的方式。
 
@@ -34,9 +34,9 @@ Net# 支援多種不同的連線套組，可讓您自訂輸入對應至隱藏層
 
 此外，Net# 也支援下列四種進階連線套組：
 
-+ **篩選套組**。 使用者可使用來源層節點和目的地層節點的位置來定義述詞。 只要述詞為 True，即會連接節點。
++ **篩選套組**。 您可以使用來源層節點和目的地層節點的位置來定義述詞。 只要述詞為 True，即會連接節點。
 
-+ **迴旋套組**。 使用者可在來源層中定義小型的節點臨近地區。 目的地層中的每個節點都會連接到來源層中的一個節點鄰區。
++ **迴旋套組**。 您可以在來源層中定義小型的節點臨近地區。 目的地層中的每個節點都會連接到來源層中的一個節點鄰區。
 
 + **集區套組**和**回應正規化套組**。 這些套組類似於可供使用者在來源層中定義小型節點臨近地區的迴旋套組。 差別在於這些套組中的邊緣加權無法訓練。 因此會將預先定義的函數套用至來源節點值來判斷目的地節點值。
 
@@ -245,7 +245,7 @@ hidden P1 [5, 12, 12]
 
 ## <a name="response-normalization-bundles"></a>回應正規化套組
 
-**回應正規化**是一種本端正規化配置，最早是由 Geoffrey Hinton 等人發表於 [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) 報告中。 
+**回應正規化**是一種本端正規化配置，最早是由 Geoffrey Hinton 等人發表於 [ImageNet Classification with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) 報告中。 
 
 回應正規化可用來輔助類神經網路中的一般化。 當一個神經元在非常高的啟動層級上引發時，本端回應正規化層將會抑制周遭神經元的啟動層級。 此動作會使用三個參數 (`α`、`β` 和 `k`) 與迴旋結構 (或鄰區分布型態) 來完成。 目的地層中的每個神經元 **y**，會分別對應至來源層中的一個神經元 **x**。 **y** 的啟用層級來自於下列公式，其中，`f` 是神經元的啟用層級，`Nx` 是核心 (或是包含 **x** 的鄰區中各神經元的集合)，如下列迴旋結構所定義：  
 

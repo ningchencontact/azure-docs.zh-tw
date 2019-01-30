@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: dc4cd28fe61c422f65f47c74c7cbc4686d73ab77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: d9fd7544c61b021bbb5db32087847cbeaddd3918
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628829"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431719"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的報告
 

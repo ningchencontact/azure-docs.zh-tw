@@ -5,7 +5,7 @@ services: active-directory
 keywords: identity protection, conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies, Identity Protection, 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 09528aab5f694aa017f9f16e2675d3c36c1bead3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7cf427ed7be91db2b243c28bb66513b25045ffc0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822121"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468483"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>快速入門：針對 Azure Active Directory Identity Protection 偵測到工作階段風險時封鎖存取  
 

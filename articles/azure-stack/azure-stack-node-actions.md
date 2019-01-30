@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 7e01feff1344557c90f23bb006520111f58e437a
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 90910580fd7fc766376569de3ce43fc5ce297e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302675"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469197"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的縮放單位節點動作
 
@@ -148,10 +148,26 @@ ms.locfileid: "54302675"
 
 若要執行修復動作，請開啟已提升權限的 PowerShell 提示字元，然後執行下列 Cmdlet：
 
-  ````PowerShell
+  ```PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
-  ````
+  ```
+
+## <a name="shutdown"></a>Shutdown
+
+**關機**動作會先將所有作用中工作負載移至該相同縮放單位中的其餘節點。 然後，此動作會以正常程序關閉縮放單位節點。
+
+啟動已關閉的節點之後，您必須執行[繼續](#resume)動作。 先前已在節點上執行的工作負載不會容錯回復。
+
+如果關機作業失敗，請嘗試使用[清空](#drain)作業，接著再使用關機作業。
+
+若要執行關機動作，請開啟已提升權限的 PowerShell 提示字元，然後執行下列 Cmdlet：
+
+  ```PowerShell
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
+  ```
+
+
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解 Azure Stack 網狀架構系統管理員模組，請參閱 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.5.0)。
+若要深入了解 Azure Stack 網狀架構系統管理員模組，請參閱 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)。

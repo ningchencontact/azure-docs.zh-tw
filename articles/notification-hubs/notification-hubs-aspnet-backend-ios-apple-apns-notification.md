@@ -2,8 +2,8 @@
 title: 使用 Azure 通知中樞將通知推送至特定使用者 | Microsoft Docs
 description: 了解如何使用 Azure 通知中樞將推播通知傳送至特定的使用者。
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 services: notification-hubs
 ms.assetid: 1f7d1410-ef93-4c4b-813b-f075eed20082
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/13/2018
-ms.author: dimazaid
-ms.openlocfilehash: 270311af94d0c0551626fc2906cade84e0c60664
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 4ecac47de08b458eac375f8f5e774c396aeb2f5d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918959"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448103"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至特定使用者
 
@@ -52,21 +52,21 @@ ms.locfileid: "42918959"
    > [!NOTE]
    > 本節假設您已使用空白組織名稱來設定您的專案。 否則，您需要在所有類別名稱的前方加上您的組織名稱。
 
-2. 在 **Main.storyboard** 中，從物件程式庫新增螢幕擷取畫面中顯示的元件。
+2. 在 `Main.storyboard` 檔案中，從物件程式庫新增螢幕擷取畫面中顯示的元件。
 
     ![在 Xcode 介面產生器中編輯腳本][1]
 
    * **使用者名稱**：含有預留位置文字 ( *輸入使用者名稱*) 的 UITextField，位於傳送結果標籤正下方且受到左右邊界限制並位於傳送結果標籤正下方。
    * **密碼**：含有預留位置文字 ( *輸入密碼*) 的 UITextField，位於使用者名稱文字欄位正下方且受到左右邊界限制並位於使用者文字欄位正下方。 勾選 [ **傳回金鑰** ] 底下屬性偵測器中的 [ *安全文字輸入*] 選項。
-   * **登入**：密碼文字欄位正下方標記的 UIButton，並取消勾選 [控制項內容] 底下屬性偵測器中的 [啟用] 選項。
+   * **登入**：密碼文字欄位正下方標記的 UIButton，並取消勾選 [控制項內容] 底下屬性偵測器中的 [啟用] 選項
    * **WNS**：當中樞中已設定 Windows 通知服務時，用來啟用傳送通知至該服務的標籤與開關。 請參閱 [Windows 入門](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)教學課程。
-   * **GCM**：當中樞中已設定 Google Cloud Messaging 時，用來啟用傳送通知至該服務的標籤與開關。 請參閱 [Android 入門](notification-hubs-android-push-notification-google-gcm-get-started.md) 教學課程。
+   * **GCM**：當中樞中已設定 Google 雲端通訊時，用來啟用傳送通知至該服務的標籤與開關。 請參閱 [Android 入門](notification-hubs-android-push-notification-google-gcm-get-started.md) 教學課程。
    * **APNS**：啟用傳送通知給 Apple 平台通知服務之功能的標籤與開關。
    * **收件者使用者名稱：** 含有預留位置文字 (*收件者使用者名稱標記*) 的 UITextField，位於 GCM 標籤正下方，且受到左右邊界與 GCM 正下方的限制。
 
     在 [開始使用通知中心 (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) 教學課程中已經新增一些元件。
 
-3. **Ctrl** 可拖曳檢視中的元件到 **ViewController.h**，並新增這些新的輸出。
+3. **Ctrl** 可拖曳檢視中的元件到 `ViewController.h`，並新增這些新的輸出。
 
     ```objc
     @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
@@ -86,13 +86,13 @@ ms.locfileid: "42918959"
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. 在 **ViewController.h** 中，在匯入陳述式後面新增以下的 `#define`。 將 *<輸入您的後端端點\>* 預留位置替換成上一節中用來部署應用程式後端的目的地 URL。 例如：*http://you_backend.azurewebsites.net*。
+4. 在 `ViewController.h` 中，在匯入陳述式後面新增以下的 `#define`。 將 `<Enter Your Backend Endpoint>` 預留位置替換成上一節中用來部署應用程式後端的目的地 URL。 例如：*http://your_backend.azurewebsites.net*。
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
     ```
 
-5. 在您的專案中，建立一個名為 **RegisterClient** 的新 **Cocoa Touch class** 作為與您建立之 ASP.NET 後端互動的介面。 建立繼承自 `NSObject`的類別。 然後在 RegisterClient.h 中新增下列程式碼。
+5. 在您的專案中，建立一個名為 `RegisterClient` 的新 Cocoa Touch 類別，作為與您所建立 ASP.NET 後端互動的介面。 建立繼承自 `NSObject`的類別。 然後，將下列程式碼新增至 `RegisterClient.h`。
 
     ```objc
     @interface RegisterClient : NSObject
@@ -288,9 +288,9 @@ ms.locfileid: "42918959"
 
     此程式碼會實作在指引文章[從您的應用程式後端註冊](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend)中所說明的邏輯，方法是使用 NSURLSession 來對您的應用程式後端執行 REST 呼叫，然後使用 NSUserDefaults 來將自通知中樞傳回的 registrationId 儲存於本機。
 
-    此類別需要設定其 **authorizationHeader** 屬性，才能正常運作。 此屬性是在登入後由 **ViewController** 類別所設定。
+    此類別需要設定其 `authorizationHeader` 屬性，才能正常運作。 此屬性是在登入後由 `ViewController` 類別所設定。
 
-8. 在 ViewController.h 中，為 RegisterClient.h 新增 `#import` 陳述式。 然後為裝置權杖新增宣告，並參照 `@interface` 區段中的 `RegisterClient` 執行個體：
+8. 在 `ViewController.h` 中，為 `RegisterClient.h` 新增 `#import` 陳述式。 然後為裝置權杖新增宣告，並參照 `@interface` 區段中的 `RegisterClient` 執行個體：
 
     ```objc
     #import "RegisterClient.h"
@@ -312,7 +312,7 @@ ms.locfileid: "42918959"
     ```
 
     > [!NOTE]
-    > 下列片段不是安全驗證結構描述，您應將 **createAndSetAuthenticationHeaderWithUsername:AndPassword:** 的實作替代成特定的驗證機制，使該機制產生註冊用戶端類別所利用的驗證權杖，例如 OAuth、Active Directory。
+    > 下列片段不是安全驗證結構描述，您應將 `createAndSetAuthenticationHeaderWithUsername:AndPassword:` 的實作替代成特定的驗證機制，使該機制產生註冊用戶端類別所利用的驗證權杖，例如 OAuth、Active Directory。
 
 10. 然後在 `ViewController.m` 的 `@implementation` 區段中新增以下程式碼，這會新增實作以設定裝置權杖與驗證標頭。
 
@@ -444,7 +444,7 @@ ms.locfileid: "42918959"
     }
     ```
 
-13. 在 **ViewDidLoad**函數中，新增下列內容以具現化 RegisterClient 執行個體，並設定文字欄位的委派。
+13. 在 `ViewDidLoad` 函數中，新增下列內容以具現化 `RegisterClient` 執行個體，並設定文字欄位的委派。
 
     ```objc
     self.UsernameField.delegate = self;
@@ -453,7 +453,7 @@ ms.locfileid: "42918959"
     self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
     ```
 
-14. 現在於 **AppDelegate.m** 中，移除 `application:didRegisterForPushNotificationWithDeviceToken:` 方法中的所有內容，並使用下列內容取代它，以確定檢視控制器包含從 APN 擷取的最新裝置權杖：
+14. 現在於 `AppDelegate.m` 中，移除 `application:didRegisterForPushNotificationWithDeviceToken:` 方法中的所有內容，並使用下列內容取代它 (確定檢視控制器包含從 APNs 擷取的最新裝置權杖)：
 
     ```objc
     // Add import to the top of the file
@@ -467,7 +467,7 @@ ms.locfileid: "42918959"
     }
     ```
 
-15. 最後，在 **AppDelegate.m**中，確定您有下列方法：
+15. 最後，在 `AppDelegate.m` 中，確定您有下列方法：
 
     ```objc
     - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -497,8 +497,7 @@ ms.locfileid: "42918959"
 在本教學課程中，您已學會如何針對具有與其註冊相關聯標記的使用者，將通知推送至這些特定使用者。 若要了解如何推送以位置為基礎的通知，請繼續進行下列教學課程： 
 
 > [!div class="nextstepaction"]
->[推送以位置為基礎的通知](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
-
+>[推送以位置為基礎的通知](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png

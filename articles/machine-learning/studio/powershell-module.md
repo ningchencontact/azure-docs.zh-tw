@@ -25,7 +25,7 @@ Machine Learning PowerShell 模組是以 .NET 為基礎的 DLL 模組，它能�
 * 執行實驗 ([Start-AmlExperiment](https://github.com/hning86/azuremlps#start-amlexperiment))
 * 利用預測性實驗建立 Web 服務 ([New-AmlWebService](https://github.com/hning86/azuremlps#new-amlwebservice))
 * 在發佈的 Web 服務上建立端點 ([Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint))
-* 叫用 RRS 和/或 BES Web 服務端點 ([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) 和 [Invoke-AmlWebServicBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
+* 叫用 RRS 和/或 BES Web 服務端點 ([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) 和 [Invoke-AmlWebServiceBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
 
 以下是使用 PowerShell 執行現有實驗的簡單範例︰
 

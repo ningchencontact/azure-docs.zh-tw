@@ -4,7 +4,7 @@ description: 逐步說明如何 CURL 進行 REST API 呼叫，在 Azure VMSS 上
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 42664c4f550d17ce8bb2840e88ae45a660608942
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 17c40fca9bb07a2da3fcd575d142c2e197d73bec
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425356"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433272"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>使用 REST API 呼叫在虛擬機器擴展集上設定 Azure 資源受控識別
 

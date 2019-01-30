@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: cd2399e25889cdc9c885b76e002e47415c0629e5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 977d40ba6fdb00f47f4ff32e60642ee3ab102da2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984367"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413629"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>使用 Azure CLI 搭配 Azure 儲存體
 
@@ -197,7 +197,7 @@ az storage account create \
 
 您可以在 Azure 訂用帳戶中有多個儲存體帳戶。 若要選取其中一個來用於所有後續的儲存體命令，您可以設定下列環境變數︰
 
-首先，使用 [az storage account keys list](/cli/azure/storage/account/keys#list) 命令顯示您的儲存體帳戶金鑰：
+首先，使用 [az storage account keys list](/cli/azure/storage/account/keys) 命令顯示您的儲存體帳戶金鑰：
 
 ```azurecli-interactive
 az storage account keys list \
@@ -244,7 +244,7 @@ az storage container create --name <container_name>
 
 * `off` (預設值)︰容器資料為帳戶擁有者私有。
 * `blob`：Blob 的公用讀取權限。
-* `container`︰整個容器的公用讀取和清單權限。
+* `container`：整個容器的公用讀取和清單權限。
 
 如需詳細資訊，請參閱 [管理對容器與 Blob 的匿名讀取權限](../blobs/storage-manage-access-to-resources.md)。
 

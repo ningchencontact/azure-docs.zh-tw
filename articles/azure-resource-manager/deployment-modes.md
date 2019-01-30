@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4347254df59c62085b2bfb195496bf479cf7b35
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 105a836f609859825c273ed9fba9dd46237bcaa9
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344570"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447933"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 部署模式
 
@@ -26,7 +26,7 @@ ms.locfileid: "51344570"
 
 部署資源時：
 
-* 在完整模式中，Resource Manager 會**刪除**現存於資源群組中但未在範本內指定的資源。
+* 在完整模式中，Resource Manager 會**刪除**現存於資源群組中但未在範本內指定的資源。 不過，那些仍受到指定，但因為條件評估沒過而未部署的資源並不會刪除。
 * 在累加模式中，Resource Manager 會讓現存於資源群組中但未在範本內指定的資源**保持不變**。
 
 在這兩種模式中，Resource Manager 都會嘗試建立範本內指定的所有資源。 如果資源已存在於資源群組中，且其設定保持不變，此作業不會導致任何變更。 如果您變更資源的屬性值，則會以這些新值來更新資源。 如果您嘗試更新現有資源的位置或類型，部署會失敗並發生錯誤。 相反地，請以您需要的位置或類型部署新的資源。

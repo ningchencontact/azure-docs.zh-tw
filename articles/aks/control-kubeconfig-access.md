@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: ae45a268536f6a8fcb4ab27336a1281837cf5dc7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 40588ec29eb6f7c33ba5e1d6071caf5c8ed43424
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045101"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450162"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>使用 Azure 角色型存取控制來定義 Azure Kubernetes Service (AKS) 中的 Kubernetes 組態檔存取權
 
-您可以使用 `kubectl` 工具與 Kubernetes 叢集互動。 Azure CLI 可讓您使用 `kubectl` 輕鬆地存取連線到 AKS 叢集所需的認證和組態資訊。 若要限制可取得該 Kubernetes 組態 (*kubeconfig*) 資訊的人員，以及其之後擁有的權限，您可以使用 Azure 角色型存取控制 (RBAC)。
+您可以使用 `kubectl` 工具與 Kubernetes 叢集互動。 Azure CLI 可讓您使用 `kubectl` 輕鬆地存取連線到 AKS 叢集所需的認證和組態資訊。 若要限制可取得該 Kubernetes 組態 (*kubeconfig*) 資訊的人員，並限制他們之後擁有的權限，您可以使用 Azure 角色型存取控制 (RBAC)。
 
 本文將說明如何指派 RBAC 角色，以限制誰可以取得 AKS 叢集的組態資訊。
 
@@ -128,7 +128,7 @@ az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 
 ## <a name="next-steps"></a>後續步驟
 
-若要加強 AKS 叢集的安全性和存取，請[整合 Azure Active Directory 驗證][aad-integration]。
+若要加強 AKS 叢集存取的安全性，請[整合 Azure Active Directory 驗證][aad-integration]。
 
 <!-- LINKS - external -->
 [kubectl-config-use-context]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config

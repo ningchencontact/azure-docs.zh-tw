@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/07/2019
+ms.date: 01/18/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 901dfc502470e52600e3a0fafe3f6b91b7686197
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: e78599a350aff4d0aba5603e8ad7959c945f1aca
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201324"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439148"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Azure 上 SAP 工作負載的規劃和部署檢查清單 
 
@@ -36,6 +36,7 @@ ms.locfileid: "54201324"
 
 1. 概要設計文件 – 本文件應該包含：
     1. Azure 上目前的 SAP 元件和應用程式清查，以及目標應用程式清查
+    2. 建立並使用責任指派矩陣 (RACI)，以定義各個相關合作夥伴的責任和指派。 從規劃和第一個部署的最高層級開始，然後往愈來愈細微的層級進行
     2. 概要的解決方案架構
     3. 關於 Azure 部署區域的決策。 如需 Azure 區域的清單，請參閱 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)。 如需了解每個 Azure 區域中可用的服務，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)一文
     4. 用來從內部部署環境連線至 Azure 的網路架構。 請開始熟悉 [Azure 的虛擬資料中心藍圖](https://docs.microsoft.com/azure/architecture/vdc/)
@@ -46,7 +47,7 @@ ms.locfileid: "54201324"
     3.  商務持續性和災害復原架構
     4.  詳細的 OS、DB、核心及 SAP 支援套件版本。 並不假設 SAP NetWeaver 或 S/4HANA 所支援的任何 OS 版本在 Azure VM 中都受到支援。 此情況也同樣適用於 DBMS 版本。 下列來源必須經過檢查並視需要升級：SAP 版本、DBMS 版本或 OS 版本，以便符合及處於 SAP 和 Azure 支援的範圍。 您必須在 SAP 和 Azure 支援的版本組合內，才能獲得 SAP 和 Microsoft 的完整支援。 必要時，您必須為升級某些軟體元件做規劃。 如需有關所支援 SAP、OS 及 DBMS 軟體的詳細資料，請參閱下列位置所記載的內容：
         1.  SAP 支援附註 [#1928533](https://launchpad.support.sap.com/#/notes/1928533) \(英文\)。 此附註定義了 Azure VM 中支援的最低 OS 版本。 此外，它也定義了大多數非 HANA 資料庫所需的最低資料庫版本。 此附註也顯示各種不同支援 SAP 之 Azure VM 類型的 SAP 大小。
-        2.  SAP 支援附註 [#2039619](https://launchpad.support.sap.com/#/notes/2039619) \(英文\)。 此附註定義了 Azure 上的 Oracle 支援對照表。 請注意，在適用於 SAP 的 Azure 工作負載中，Oracle 僅支援以 Windows 和 Oracle Linux 作為客體 OS。 這個支援聲明也適用於執行 SAP 執行個體的 SAP 應用程式層。 不過，Oracle 並不支援 SAP Central Services 的高可用性。 因此，您可能需要有一個專供 SAP Central Services 使用的不同 OS，此 OS 不連線至 Oracle DBMS
+        2.  SAP 支援附註 [#2039619](https://launchpad.support.sap.com/#/notes/2039619) \(英文\)。 此附註定義了 Azure 上的 Oracle 支援對照表。 請注意，在適用於 SAP 的 Azure 工作負載中，Oracle 僅支援以 Windows 和 Oracle Linux 作為客體 OS。 這個支援聲明也適用於執行 SAP 執行個體的 SAP 應用程式層。 不過，在 Oracle Linux 中，Oracle 並不支援 SAP Central Services 的高可用性。 針對 Windows，Windows 容錯移轉叢集的容錯移轉解決方案可由 SAP 支援且適用於 SAP Central Services，並可與作為 DBMS 層的 Oracle 搭配使用。 
         3.  SAP 支援附註 [#2235581](https://launchpad.support.sap.com/#/notes/2235581) \(英文\) 提供各種不同 OS 版本上 SAP HANA 的支援對照表
         4.  支援 SAP HANA 的 Azure VM 和 [HANA 大型執行個體](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 皆列在[這裡](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
         5.  [SAP 產品可用性對照表](https://support.sap.com/en/) \(英文\)
@@ -56,14 +57,18 @@ ms.locfileid: "54201324"
         2.  [在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共用的 SAP ASCS/SCS 執行個體多重 SID 高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share)
     6.  高可用性和災害復原架構
         1.  根據 RTO 和 RPO 定義高可用性和災害復原架構架構應有的樣貌
-        2.  針對相同時區內的高可用性，請檢查所需的 DBMS 在 Azure 中必須提供的功能。 大多數 DBMS 都會提供同步熱待命伺服器的同步方法，這也是我們針對生產環境系統建議採用的方法。
+        2.  針對相同時區內的高可用性，請檢查所需的 DBMS 在 Azure 中必須提供的功能。 大多數 DBMS 都會提供同步熱待命伺服器的同步方法，這也是我們針對生產環境系統建議採用的方法。 也請查看 SAP 相關文件來了解不同資料庫，請從[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)及相關文件開始查看
+            1.  若 Windows 容錯移轉叢集服務搭配使用適用於 DBMS 層的共用磁碟組態 (如[此處](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017)所述的 SQL Sever 狀況)，則「無法」受到支援。 替代解決方案：
+                1.  [SQL Server AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups) 
+                2.  [Oracle 資料保護](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+                3.  [HANA 系統複寫](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         3.  針對跨不同 Azure 區域的災害復原，請檢查不同 DBMS 廠商所提供的可能性。 這些廠商大多數都支援非同步複寫或記錄傳送
         4.  針對 SAP 應用程式層，請定義您是要在相同的 Azure 區域中還是 DR 區域中，執行業務迴歸測試系統 (這些最好是您生產環境部署的複本)。 在後者的情況下，您可以將該業務迴歸系統作為您生產環境的目標
-        5.  如果您決定不要在 DR 網站中複寫非生產環境系統，請研究如何以 Azure Site Recovery 作為將 SAP 應用程式層複寫至 Azure DR 區域的可行方法。 另請參閱[設定多層式 SAP NetWeaver 應用程式部署的災害復原](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap) 
+        5.  如果您決定不要在 DR 網站中放置非生產環境系統，請研究如何以 Azure Site Recovery 作為將 SAP 應用程式層複寫至 Azure DR 區域的可行方法。 另請參閱[設定多層式 SAP NetWeaver 應用程式部署的災害復原](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap) 
         6.  如果您決定使用運用 [Azure 可用性區域](https://docs.microsoft.com/azure/availability-zones/az-overview)的組合式 HA/DR 設定，請熟悉可提供「可用性區域」的 Azure 區域，並熟悉可能因兩個「可用性區域」間的網路延遲變長而造成的限制  
 3.  客戶/合作夥伴應該建立一份所有 SAP 介面 (SAP 和非 SAP) 的清查。 
 4.  基礎服務設計的設計 - 此設計會包含的項目如下
-    1.  Active Directory 和 DSN 設計
+    1.  Active Directory 和 DNS 設計
     2.  Azure 內的網路拓撲和不同 SAP 系統的指派
     3.  適用於管理 Azure 中基礎結構和 SAP 應用程式之各個不同小組的[角色型存取](https://docs.microsoft.com/azure/role-based-access-control/overview)結構
     3.  資源群組拓撲 
@@ -78,7 +83,7 @@ ms.locfileid: "54201324"
 9.  定義您 (客戶)、系統整合者、Microsoft 及其他相關對象之間定期的設計和部署檢閱步調
 
  
-## <a name="pilot-phase-optional"></a>試驗階段 (選擇性)
+## <a name="pilot-phase-strongly-recommended"></a>試驗階段 (強烈建議)
  
 試驗可以在專案規劃和準備之前或以平行方式執行。 此階段也可用來測試在規劃和準備階段中所制定的方法和設計。 試驗階段可延展至真實的概念證明。 建議您在試驗部署期間，除了安全性設計之外，也設定及驗證完整的 HA/DR 解決方案。 在某些客戶案例中，也可以在這個階段進行延展性測試。 其他客戶則會使用 SAP 沙箱系統的部署作為試驗階段。 因此，我們會假設您已識別出要移轉至 Azure 以執行試驗的系統。
 
@@ -100,6 +105,8 @@ ms.locfileid: "54201324"
         3.  透過 M 系列將「Azure 寫入加速器」用於 DBMS 記錄磁碟機。 請注意[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)中所記載的寫入加速器限制和使用方式
         4.  針對不同的 DBMS 類型，請參閱[一般 SAP 相關 DBMS 文件](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)，以及一般文件帶您前往的 DBMS 特定文件
         5.  針對 SAP HANA，有更多詳細資料記載於 [SAP HANA 在 Azure 上的基礎結構設定和作業](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
+        6.  請絕對避免透過裝置識別碼將 Azure 資料磁碟掛接到 Azure Linux VM。 相反地，請使用全域唯一識別碼 (UUID)。 舉例來說，使用圖形工具來掛接 Azure 資料磁碟時應多加留意。 請仔細檢查 /etc/fstab 中的項目，以確定磁碟是使用 UUID 來掛接
+            1.  在 [這裡](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)
     3.  網路功能
         1.  測試和評估 VNet 基礎結構，以及跨不同 Azure 虛擬網路或在這些虛擬網路內的 SAP 應用程式分佈
             1.  根據下列條件，評估單一 Azure 虛擬網路內，中樞與輪輻虛擬網路架構或微分割的方法：
@@ -134,11 +141,11 @@ ms.locfileid: "54201324"
             1.   SameSubNetDelay = 2
             2.   SameSubNetThreshold = 15
 4.   測試您的高可用性和災害復原程序
-    1.   藉由關閉 VM 或讓作業系統進入緊急模式，以了解您的容錯移轉設定是否按照設計的方式運作，來模擬容錯移轉情況。 
+    1.   藉由關閉 VM (Windows 客體 OS) 或讓作業系統進入緊急模式 (Linux 客體 OS)，以了解您的容錯移轉設定是否按照設計的方式運作，來模擬容錯移轉情況。 
     2.   測量執行容錯移轉所花費的時間。 如果花費的時間太長，請考慮：
         1.   針對 SUSE Linux，使用 SBD 裝置而不是「Azure 隔離代理程式」來加速容錯移轉
         2.   針對 SAP HANA，如果重新載入資料花費的時間太長，請考慮佈建更多儲存體頻寬
-    3.   測試備份和還原順序，並視需要進行調整
+    3.   測試備份/還原順序及時間，並視需要進行調整。 請不只確定備份時間是否足夠。 也請測試還原，並了解還原活動的時間。 請確定還原時間在您的 RTO SLA 內，而您的 RTO 取決於資料庫或 VM 還原程序
     4.   完整測試區域 DR 功能和架構
 5.  安全性檢查
     1.  測試您所實作 Azure 角色型存取 (RBAC) 架構的有效性。 目標是要對不同小組的存取和權限進行區分和限制。 舉例來說，SAP 基礎小組成員應該要能夠部署 VM，並將磁碟從 Azure 儲存體指派給指定的 Azure 虛擬網路。 不過，SAP 基礎小組不應該能夠建立自己的虛擬網路，或變更現有虛擬網路的設定。 另一方面，網路小組的成員則不應該能夠將 VM 部署至 SAP 應用程式和 DBMS VM 執行所在的虛擬網路中。 網路小組的成員也不應該能夠變更 VM 的屬性，或甚至刪除 VM 或磁碟。  
@@ -160,7 +167,8 @@ ms.locfileid: "54201324"
 3.  測試並定義您是要為 Azure 中的 VM 建立自己的 OS 映像，還是要使用來自 Azure 映像資源庫的映像。 如果您要使用來自 Azure 資源庫的映像，請務必使用可反映與您 OS 廠商之支援合約的正確映像。 針對某些 OS 廠商，Azure 資源庫提供自備授權映像。 其他 OS 映像的支援則包含在 Azure 的報價中。 如果您決定建立自己的 OS 映像，您可以在下列文章中找到相關文件：
     1.  您可以根據[這份文件](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)，建立 Azure 中所部署 Windows VM 的一般化映像
     2.  您可以根據[這份文件](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image)，建立 Azure 中所部署 Linux VM 的一般化映像
-3.  確定您滿足 SAP 的 Microsoft 支援合約相關支援需求。 如需相關資訊，請參閱 SAP 支援附註 [#2015553](https://launchpad.support.sap.com/#/notes/2015553) \(英文\)。 針對 HANA 大型執行個體，請參閱[上架需求](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-onboarding-requirements)文件
+3.  如果您使用 Azure VM 資源庫中的 SUSE 和 Red Hat Linux 映像，您必須使用 Azure VM 資源庫中由 Linux 廠商提供的 SAP 適用映像
+4.  確定您滿足 SAP 的 Microsoft 支援合約相關支援需求。 如需相關資訊，請參閱 SAP 支援附註 [#2015553](https://launchpad.support.sap.com/#/notes/2015553) \(英文\)。 針對 HANA 大型執行個體，請參閱[上架需求](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-onboarding-requirements)文件
 4.  確定正確的人員會收到[計劃性維護通知](https://azure.microsoft.com/blog/a-new-planned-maintenance-experience-for-your-virtual-machines/)，以便您能夠及時選擇 VM 的停機和重新開機
 5.  不斷查看 [Channel9](https://channel9.msdn.com/) 這類頻道上 Microsoft 簡報的 Azure 文件，以了解可能適用於您部署的新功能
 6.  查看與 Azure 相關的 SAP 附註 (例如支援附註 [#1928533](https://launchpad.support.sap.com/#/notes/1928533))，以了解新的 VM SKU 或新支援的 OS 和 DBMS 版本。 比較新 VM 類型與舊 VM 類型的定價，以便您能夠部署具有最佳性價比的 VM
@@ -178,7 +186,7 @@ ms.locfileid: "54201324"
 
  
 ## <a name="production-preparation-phase"></a>生產環境準備階段 
-在這個階段，您要收集非生產環境部署的所有經驗和知識，並將其套用在未來的生產環境部署中。 除了先前的階段之外，您還需要準備目前裝載位置與 Azure 之間資料傳輸的工作。 
+在這個階段中，您要收集非生產環境部署的所有經驗和知識，並將其套用在未來的生產環境部署中。 除了先前的階段之外，您還需要準備目前裝載位置與 Azure 之間資料傳輸的工作。 
 
 1.  先進行您生產環境系統的必要 SAP 版本升級，再移至 Azure
 2.  針對在移轉生產環境系統後所必須進行的功能和業務測試，與業務擁有者達成一致意見
@@ -189,8 +197,7 @@ ms.locfileid: "54201324"
     3.  使用已在 SAP SWPM 工具中實作的 SAP Migration Monitor 來執行異質移轉
     4.  如果您需要結合 SAP 版本升級，請使用 [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) \(英文\) 程序。 請記住，並非所有來源與目標 DBMS 之間的組合都受到支援。 如需詳細資訊，請參閱適用於不同 DMO 版本的特定 SAP 支援附註。 例如 [SUM 2.0 SP04 的資料庫移轉選項 (DMO)](https://launchpad.support.sap.com/#/notes/2644872) \(英文\)
     5.  測試在需要移動備份或 SAP 匯出檔案的情況下，透過網際網路進行資料傳輸與透過 ExpressRoute 進行資料傳輸，何者的輸送量較佳。 請注意，針對透過網際網路移動資料的情況，您可能需要變更某些您必須為未來生產環境備妥的 NSG/ASG 安全性規則
-3.  在將系統從舊平台移至 Azure 之前，先收集資源耗用量資料，例如 CPU 使用率、儲存體輸送量及 IOPS 資料。 特別是從 DBMS 層單位收集，但也從應用程式層單位收集。 此外，也請測量網路和儲存體延遲
-4.  。
+3.  在將系統從舊平台移至 Azure 之前，先收集資源耗用量資料，例如 CPU 使用率、儲存體輸送量及 IOPS 資料。 特別是從 DBMS 層單位收集，但也從應用程式層單位收集。 此外，也請測量網路和儲存體延遲。
 4.  再次驗證 SAP 支援附註、SAP HANA 硬體目錄及 SAP PAM 上的資源，以確定在針對 Azure 支援的 VM、這些 VM 中支援的 OS 版本，以及支援的 SAP 和 DBMS 版本方面，沒有任何變更 
 4.  調整部署指令碼以配合您對 VM 類型和 Azure 功能決定的最新變更
 5.  部署基礎結構和應用程式之後，完成一系列檢查來進行驗證：
@@ -202,6 +209,8 @@ ms.locfileid: "54201324"
     6.  已針對對延遲敏感的磁碟或要求[單一 VM SLA 達到 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) 的情況，使用「Azure 進階儲存體」
     7.  檢查是否已正確部署「Azure 寫入加速器」
         1.  確定在 VM 內，已在各個需要「Azure 寫入加速器」支援的磁碟上正確建置儲存空間或等量磁碟區
+            1.  查看[在 Linux 上設定軟體 RAID](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
+            2.  查看[在 Azure 中的 Linux VM 上設定 LVM](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
     8.  已採用獨佔方式使用 [Azure 受控磁碟](https://azure.microsoft.com/services/managed-disks/)
     9.  已將 VM 部署至正確的「可用性設定組」和「可用性區域」
     10. 確定在於 SAP 應用程式層和 SAP DBMS 層使用的 VM 上已啟用 [Azure 加速網路](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)功能

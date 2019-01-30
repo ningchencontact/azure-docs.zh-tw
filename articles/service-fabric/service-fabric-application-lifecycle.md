@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 61fddbdc2da255f1c0609d46f4672b57e372536a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 4336121cf00c9df5e0fa53472fd741bea5f63bbd
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697555"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472801"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Service Fabric 應用程式生命週期
 如同其他平台，Azure Service Fabric 上的應用程式通常會經歷下列階段：設計、開發、測試、部署、升級、維護和移除。 從開發到部署、到每日管理、維護，以及最終的解除委任，Service Fabric 為雲端應用程式的完整應用程式生命週期提供第一等的支援。 服務模型可以啟用數個不同的角色，在應用程式生命週期中獨立參與。 本文章提供 API 的概觀以及其使用方式，這些 API 是由不同的角色在 Service Fabric 應用程式生命週期的各個階段使用。
@@ -36,7 +36,7 @@ ms.locfileid: "43697555"
 * **服務開發人員**：開發模組化和泛型服務，可以重新制定目的以及在相同類型或不同類型的多個應用程式中使用。 例如，佇列服務可以用於建立票證應用程式 ( 技術支援中心) 或電子商務應用程式 (購物車)。
 * **應用程式開發人員**：藉由整合服務集合來建立應用程式，以滿足部分特定需求或案例。 例如，電子商務網站可能會整合「JSON 無狀態前端服務」、「拍賣可設定狀態服務」和「佇列可設定狀態服務」，以建立拍賣解決方案。
 * **應用程式系統管理員**：進行應用程式組態 (填入組態範本參數)、部署 (對應至可用的資源)，以及服務品質的決策。 例如，應用程式系統管理員會決定應用程式的語言地區設定 (例如，在美國使用美式英文、在日本使用日文)。 以不同方式部署的應用程式可以有不同的設定。
-* **運算子**：根據應用程式組態和應用程式系統管理員所指定的需求，部署應用程式。 例如，操作員佈建和部署應用程式，並確保它在 Azure 中執行。 操作員會監視應用程式健康狀況和效能資訊，並視需要維護實體基礎結構。
+* **操作員**：根據應用程式組態和應用程式系統管理員所指定的需求，部署應用程式。 例如，操作員佈建和部署應用程式，並確保它在 Azure 中執行。 操作員會監視應用程式健康狀況和效能資訊，並視需要維護實體基礎結構。
 
 ## <a name="develop"></a>開發
 1. *服務開發人員*使用[可靠的執行者](service-fabric-reliable-actors-introduction.md)或[可靠的服務](service-fabric-reliable-services-introduction.md)程式設計模型來開發不同類型的服務。
@@ -70,7 +70,7 @@ ms.locfileid: "43697555"
 4. 「運算子」會使用 [**CopyApplicationPackage** 方法](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient#System_Fabric_FabricClient_ApplicationManagementClient_CopyApplicationPackage_System_String_System_String_System_String_)或 [**Copy-ServiceFabricApplicationPackage** Cmdlet](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)，將更新的應用程式封裝上傳至叢集映像存放區。 應用程式封裝包含應用程式資訊清單和服務封裝集合。
 5. 「運算子」使用 [**ProvisionApplicationAsync** 方法](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient#System_Fabric_FabricClient_ApplicationManagementClient_ProvisionApplicationAsync_System_String_System_TimeSpan_System_Threading_CancellationToken_)、[**Register-ServiceFabricApplicationType** Cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/register-servicefabricapplicationtype)，或[**佈建應用程式** REST 作業](https://docs.microsoft.com/rest/api/servicefabric/provision-an-application)，在目標叢集中佈建新版本的應用程式。
 6. 「運算子」使用 [**UpgradeApplicationAsync** 方法](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient#System_Fabric_FabricClient_ApplicationManagementClient_UpgradeApplicationAsync_System_Fabric_Description_ApplicationUpgradeDescription_System_TimeSpan_System_Threading_CancellationToken_)、[**Start-ServiceFabricApplicationUpgrade** Cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade) 或[**升級應用程式** REST 作業升級應用程式](https://docs.microsoft.com/rest/api/servicefabric/upgrade-an-application)，將目標應用程式升級為新版本。
-7. 「運算子」使用 [**GetApplicationUpgradeProgressAsync** 方法](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient#System_Fabric_FabricClient_ApplicationManagementClient_GetApplicationUpgradeProgressAsync_System_Uri_System_TimeSpan_System_Threading_CancellationToken_)、[**Get-ServiceFabricApplicationUpgrade** Cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricapplicationupgrade)，或[**取得應用程式升級進度** REST 作業](https://docs.microsoft.com/rest/api/servicefabric/get-the-progress-of-an-application-upgrade1)，檢查升級進度。
+7. 「運算子」使用 [**GetApplicationUpgradeProgressAsync** 方法](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient)、[**Get-ServiceFabricApplicationUpgrade** Cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricapplicationupgrade)，或[**取得應用程式升級進度** REST 作業](https://docs.microsoft.com/rest/api/servicefabric/get-the-progress-of-an-application-upgrade1)，檢查升級進度。
 8. 如果需要，「運算子」使用 [**UpdateApplicationUpgradeAsync** 方法](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient#System_Fabric_FabricClient_ApplicationManagementClient_UpdateApplicationUpgradeAsync_System_Fabric_Description_ApplicationUpgradeUpdateDescription_System_TimeSpan_System_Threading_CancellationToken_)、[**Update-ServiceFabricApplicationUpgrade** Cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade)或[**更新應用程式升級** REST 作業](https://docs.microsoft.com/rest/api/servicefabric/update-an-application-upgrade)，修改並重新套用目前應用程式升級的參數。
 9. 如果需要，「運算子」使用 [**RollbackApplicationUpgradeAsync** 方法](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient#System_Fabric_FabricClient_ApplicationManagementClient_RollbackApplicationUpgradeAsync_System_Uri_System_TimeSpan_System_Threading_CancellationToken_)、[**Start-ServiceFabricApplicationRollback** Cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback)，或[**回復應用程式升級** REST 作業](https://docs.microsoft.com/rest/api/servicefabric/rollback-an-application-upgrade)，回復目前的應用程式升級。
 10. Service Fabric 會升級在叢集中執行的目標應用程式，而不會遺失任何其組成服務的可用性。

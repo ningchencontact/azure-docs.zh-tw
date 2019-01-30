@@ -1,24 +1,17 @@
 ---
-title: Azure DNS 委派概觀 | Microsoft Docs
+title: Azure DNS 委派概觀
 description: 了解如何變更網域委派及使用 Azure DNS 名稱伺服器提供網域主機代管。
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: a00cc00dee3a505f88abef3ecf99f49aa027c30b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: d1de1212280c6767862233f990c9fc5e0cf97473
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170499"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461020"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>使用 Azure DNS 的 DNS 區域委派
 
@@ -58,13 +51,16 @@ Azure DNS 提供具權威性的 DNS 服務。  它不提供遞迴 DNS 服務。 
 ![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
 1. 用戶端會向其本機 DNS 伺服器要求 `www.partners.contoso.net`。
-1. 本機 DNS 伺服器沒有記錄，因此會對其根名稱伺服器提出要求。
-1. 根名稱伺服器沒有記錄，但知道 `.net` 名稱伺服器的位址，所以會將該位址提供給 DNS 伺服器
-1. DNS 會將要求傳送至 `.net` 名稱伺服器，而它沒有記錄，但是知道 contoso.net 名稱伺服器的位址。 在此情況下，這是在 Azure DNS 中託管的 DNS 區域。
-1. `contoso.net` 區域沒有記錄，但知道 `partners.contoso.net` 的名稱伺服器並以該名稱伺服器回應。 在此情況下，這是在 Azure DNS 中託管的 DNS 區域。
-1. DNS 伺服器會向`partners.contoso.net` 區域要求 `partners.contoso.net` 的 IP 位址。 它包含 A 記錄並以此 IP 位址回應。
-1. DNS 伺服器會將此 IP 位址提供給用戶端
-1. 用戶端會連線至網站`www.partners.contoso.net`。
+2. 本機 DNS 伺服器沒有記錄，因此會對其根名稱伺服器提出要求。
+3. 根名稱伺服器沒有記錄，但知道 `.net` 名稱伺服器的位址，所以會將該位址提供給 DNS 伺服器
+4. 本機 DNS 伺服器將要求傳送至 `.net` 名稱伺服器。
+5. `.net` 名稱伺服器沒有記錄，但是知道 `contoso.net` 名稱伺服器的位址。 在此情況下，它會回應在 Azure DNS 中裝載的 DNS 區域所包含的名稱伺服器位址。
+6. 本機 DNS 伺服器將要求傳送至 Azure DNS 中裝載的 `contoso.net` 區域所包含的名稱伺服器。
+7. `contoso.net` 區域沒有記錄，但知道 `partners.contoso.net` 的名稱伺服器，並以其位址回應。 在此案例中，這是在 Azure DNS 中裝載的 DNS 區域。
+8. 本機 DNS 伺服器將要求傳送至 `partners.contoso.net` 區域的名稱伺服器。
+9. `partners.contoso.net` 區域具有 A 記錄，並以此 IP 位址回應。
+10. 本機 DNS 伺服器將此 IP 位址提供給用戶端
+11. 用戶端會連線至網站`www.partners.contoso.net`。
 
 每個委派實際上有兩份 NS 記錄：一份在上層區域中指向子區域，另一份在子區域本身。 'contoso.net' 區域包含 'contoso.net' 的 NS 記錄 (除了 'net' 中的 NS 記錄之外)。 這些記錄稱為授權 NS 記錄，位於子區域的頂點。
 

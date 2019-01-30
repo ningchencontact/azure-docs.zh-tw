@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As a IT Pro or decision maker I am trying to learn about identity mangement capabilities in Azure
-ms.openlocfilehash: 84ab35c269af66f58f3886a5dd0606ce69a11be9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d1933e58cae522b03ced29183440e226d47dfdf9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255876"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435051"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure 身分識別管理安全性概觀
 
@@ -101,7 +101,7 @@ RBAC 是建置於 Azure Resource Manager 上的授權系統，可提供更細緻
 
 在 Azure 入口網站中，報告會按照下列類別加以區分：
 
-* **異常報告**：包含我們發現異常的登入事件。 我們的目標在於使您注意這類活動，並讓您決定事件是否可疑。
+* **異常報告**：包含發現異常的登入事件。 我們的目標在於使您注意這類活動，並讓您決定事件是否可疑。
 * **整合式應用程式報告**：可供深入了解雲端應用程式在組織中的使用方式。 Azure AD 提供與數千個雲端應用程式的整合。
 * **錯誤報告**：指出將帳戶佈建至外部應用程式時可能發生的錯誤。
 * **使用者特定報告**：顯示特定使用者的裝置登入活動資料。
@@ -124,8 +124,8 @@ Azure AD B2C 是高可用性的全域身分識別管理服務，可用於處理�
 深入了解：
 
 * [什麼是 Azure Active Directory B2C？](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Azure Active Directory B2C 預覽：在您的應用程式中註冊與登入取用者](../active-directory-b2c/active-directory-b2c-overview.md)
-* [Azure Active Directory B2C 預覽：應用程式類型](../active-directory-b2c/active-directory-b2c-apps.md)
+* [Azure Active Directory B2C (預覽)：在您的應用程式中註冊及登入消費者](../active-directory-b2c/active-directory-b2c-overview.md)
+* [Azure Active Directory B2C 預覽版：應用程式類型](../active-directory-b2c/active-directory-b2c-apps.md)
 
 ## <a name="device-registration"></a>裝置註冊
 
@@ -154,9 +154,8 @@ Azure AD 裝置註冊是裝置型[條件式存取](../active-directory/active-di
 
 深入了解：
 
-* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
-* [Azure AD Privileged Identity Management 中的角色](../active-directory/privileged-identity-management/pim-roles.md)
-* [Azure AD Privileged Identity Management：如何新增或移除使用者角色](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
+* [什麼是 Azure AD Privileged Identity Management？](../active-directory/privileged-identity-management/pim-configure.md)
+* [在 PIM 中指派 Azure AD 目錄角色](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## <a name="identity-protection"></a>身分識別保護
 
@@ -165,7 +164,7 @@ Azure AD Identity Protection 是一項安全性服務，可供整合檢視會影
 深入了解：
 
 * [Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md)
-* [第 9 頻道：Azure AD 和身分識別展示：Identity Protection 預覽](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [第 9 頻道：Azure AD 和身分識別示範：身分識別保護預覽版](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>混合式身分識別管理/Azure AD connect
 

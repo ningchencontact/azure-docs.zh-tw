@@ -4,7 +4,7 @@ description: 針對物件未同步至 Azure AD 的原因進行疑難排解。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b66aeb0832058c56e63c56c0420c7793eb2a632a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5b64472c6388a642c817fb67c97e963ecfa14c2c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306557"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478649"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>針對未同步至 Azure AD 的物件進行疑難排解
 
@@ -65,7 +65,7 @@ Synchronization Service Manager 中的 [作業] 索引標籤是您應該開始�
 
 * 如果錯誤來自 **SyncRulesEngine**，則呼叫堆疊資訊首先具備物件上所有屬性的清單。 向下捲動，直到您看到 **InnerException =>** 標題為止。  
   ![Sync Service Manager](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)  
-  下一行會顯示錯誤。 在上圖中，錯誤是來自所建立的自訂同步處理規則 Fabrikam。
+   下一行會顯示錯誤。 在上圖中，錯誤是來自所建立的自訂同步處理規則 Fabrikam。
 
 如果錯誤本身未提供足夠的資訊，則請查看資料本身。 您可以按一下帶有物件識別碼的連結，然後繼續針對[連接器空間匯入的物件](#cs-import)進行疑難排解。
 

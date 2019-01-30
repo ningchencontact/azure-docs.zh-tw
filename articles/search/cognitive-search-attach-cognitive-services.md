@@ -7,28 +7,28 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 01/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5bffeacaa07f90a11c374061eb6c0d36fc8f86a9
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: bfa9bbb9816148182b79a8231f2ddb3e46433804
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351453"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413238"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>在 Azure 搜尋服務中連結認知服務資源與技能 
 
-推動[認知搜尋](cognitive-search-concept-intro.md)管線來處理非結構化資料的 AI 演算法是以[**認知服務資源**](https://azure.microsoft.com/services/cognitive-services/)為基礎的。 [**電腦視覺**](https://azure.microsoft.com/services/cognitive-services/computer-vision/)這類資源會提供影像分析，以及可從影像檔擷取文字和結構的光學字元辨識 (OCR)，而[**文字分析**](https://azure.microsoft.com/services/cognitive-services/text-analytics/)則提供自然語言處理，例如實體辨識和關鍵片語擷取等。
+推動[認知搜尋管線](cognitive-search-concept-intro.md)的 AI 演算法，而這些管線用來處理 Azure 搜尋服務編製索引作業中的非結構化資料。 這些演算法是以[認知服務資源](https://azure.microsoft.com/services/cognitive-services/)為基礎，包括可供影像分析和光學字元辨識 (OCR) 的[電腦視覺](https://azure.microsoft.com/services/cognitive-services/computer-vision/)，以及可供實體辨識、關鍵片語擷取和其他擴充的[文字分析](https://azure.microsoft.com/services/cognitive-services/text-analytics/)。
 
 您可以免費擴充數目有限的文件，或是針對較大型且較頻繁的工作負載連結可計費的認知服務資源。 在本文中，了解如何將「認知服務」資源與您的認知技能建立關聯，以在 [Azure 搜尋服務編製索引](search-what-is-an-index.md)期間擴充資料。
 
-如果您的管線僅由[自訂技能](cognitive-search-create-custom-skill-example.md)組成，則不須附加「認知服務」資源。
+如果您的管線包含與認知服務 API 不相關的技能，您仍然應該連結認知服務資源。 這麼做可覆寫限制您每天少量擴充的**免費**資源。 未繫結至認知服務 API 的技能完全免費。 這些技能包括：[自訂技能](cognitive-search-create-custom-skill-example.md)、[文字合併](cognitive-search-skill-textmerger.md)、[文字分隔器](cognitive-search-skill-textsplit.md)及[塑形器](cognitive-search-skill-shaper.md)。
 
 > [!NOTE]
 > 從 2018 年 12 月 21 日開始，您可以將認知服務資源與 Azure 搜尋服務技能建立關聯。 這可讓我們收取技能執行的費用。 自這個日期起，我們也會開始收取文件萃取階段中影像擷取的費用。 從文件中擷取文字的功能則繼續免費提供。
 >
-> [內建認知技能](cognitive-search-predefined-skills.md)的執行會以[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services)收費，費率與直接執行工作時一樣。 影像擷取是 Azure 搜尋服務的可計費事件，目前是以預覽版定價提供。 如需詳細資訊，請參閱 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)或[計費方式](search-sku-tier.md#how-billing-works)。
+> [內建認知技能](cognitive-search-predefined-skills.md)執行會以[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services)收費，費率與直接執行工作時一樣。 影像擷取是 Azure 搜尋服務費用，目前是以預覽版定價提供。 如需詳細資訊，請參閱 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)或[計費方式](search-sku-tier.md#how-billing-works)。
 
 
 ## <a name="use-free-resources"></a>使用免費資源
@@ -52,7 +52,9 @@ ms.locfileid: "54351453"
 
 ## <a name="use-billable-resources"></a>使用計費資源
 
-針對每天為數超過 20 個文件的工作負載，您需要使用計費的「認知服務」資源。
+對於每天為數超過 20 項擴充的工作負載，您需要連結可計費的認知服務資源。 
+
+您只需支付呼叫認知服務 API 的技能費用。 非 API 型技能 (例如[自訂技能](cognitive-search-create-custom-skill-example.md)、[文字合併](cognitive-search-skill-textmerger.md)、[文字分隔器](cognitive-search-skill-textsplit.md)及[塑形器](cognitive-search-skill-shaper.md)技能) 不計費。
 
 1. 在 [匯入資料] 精靈的 [附加認知服務] 中，選取現有的資源或按一下 [建立新的認知服務資源]。
 

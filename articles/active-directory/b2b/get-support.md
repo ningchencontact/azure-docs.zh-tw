@@ -8,24 +8,24 @@ ms.topic: reference
 ms.date: 05/26/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 1474bf13a6d364fcbd90adee09a1a60bcafc2ccb
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9a4e50934b33bde8d58c8ec1a2d8ae2917fac131
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985272"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438553"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>取得 B2B 共同作業的支援
 
 您已詳細閱讀文件，您的操作都正確，但仍然無法正常運作嗎？ 開啟支援票證 (需有支援方案)：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)，瀏覽至 [說明和支援] 刀鋒視窗，選取 [新增支援要求]︰
-  - 問題類型：技術
+  - 問題類型：技術需求
   - 訂用帳戶：選擇受影響的訂用帳戶
     - 服務：Active Directory
-    - 支援方案︰選擇相關的支援方案
+    - 支援方案：選擇相關的支援方案
 
   ![新增支援要求](media/get-support/new-support-request.png)
 

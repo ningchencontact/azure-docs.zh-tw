@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 513067f09d8cac64ca747ff217c84667c5469d82
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 19ac1819c3b098597819ec75adcedeca929e802d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248255"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464539"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>將語言偵測容器部署到 Azure Kubernetes 服務
 
@@ -38,7 +38,7 @@ ms.locfileid: "54248255"
 
 此程序會載入並執行語言偵測的認知服務容器範例。 此範例有兩個容器，一個用於用戶端應用程式，一個用於認知服務容器。 您需要將這些映像推送到您自己的 Azure Container Registry。 當這些映像出現在您自己的登錄之後，請建立 Azure Kubernetes Service 來存取這些映像並執行容器。 容器執行時，使用 **kubectl** CLI 來監看容器效能。 使用 HTTP 要求存取用戶端應用程式，並查看結果。 
 
-
+![執行範例容器的概念](../media/how-tos/container-instance-sample/containers.png)
 
 ## <a name="the-sample-containers"></a>範例容器
 
@@ -407,8 +407,8 @@ az group delete --name cogserv-container-rg
 
 ## <a name="next-steps"></a>後續步驟 
 
-> [!div class="nextstepaction"]
-> [使用文字分析連線服務](../vs-text-connected-service.md)
+* 使用更多[認知服務容器](../../cognitive-services-container-support.md)
+* 使用文字分析連線服務](../vs-text-connected-service.md)
 
 
 <!--

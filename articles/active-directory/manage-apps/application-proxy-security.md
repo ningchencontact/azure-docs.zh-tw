@@ -4,7 +4,7 @@ description: 涵蓋使用 Azure AD 應用程式 Proxy 的安全性考量
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 985ea1f16cff010041d61d808280cb47f2b77aa9
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 23ea1806c1670b73883384a0e4981f362bad90f0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618354"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472717"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 遠端存取應用程式的安全性考量
 
@@ -48,7 +48,7 @@ Azure AD 應用程式 Proxy 依賴 Azure AD Security Token Service (STS) 來進�
 
 使用[條件式存取](../conditional-access/overview.md)，就可以定義允許哪些流量存取後端應用程式上的限制。 您可以位置、驗證強度和使用者風險狀況作為基礎，來建立限制登入的原則。
 
-您也可以使用條件式存取來設定 Multi-Factor Authentication 原則，為您的使用者驗證新增另一層的安全性。 
+您也可以使用條件式存取來設定 Multi-Factor Authentication 原則，為您的使用者驗證新增另一層的安全性。 此外，您的應用程式也可透過 Azure AD 條件式存取路由至 Microsoft Cloud App Security，以透過[存取權](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad)和[工作階段](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad)原則提供即時的監視與控制能力
 
 ### <a name="traffic-termination"></a>流量終止
 
@@ -92,7 +92,7 @@ Microsoft 會監看個別應用程式和整個訂用帳戶的傳輸模式。 如
 
 Azure AD 應用程式 Proxy 是由兩個部分組成︰
 
-* 雲端架構服務︰此服務會在 Azure 中執行，且外部用戶端/使用者會連線到此服務。
+* 雲端架構服務：此服務會在 Azure 中執行，且外部用戶端/使用者會連線到此服務。
 * [內部部署連接器](application-proxy-connectors.md)︰這是內部部署元件，此連接器會接聽來自 Azure AD 應用程式 Proxy 服務的要求，並處理對內部應用程式的連線。 
 
 以下為建立連接器與應用程式 Proxy 服務之間流量的時機︰
@@ -110,8 +110,8 @@ Azure AD 應用程式 Proxy 是由兩個部分組成︰
 
 第一次設定連接器時，會發生下列流程事件：
 
-1. 連接器註冊服務會做為連接器安裝的一部分。 系統會提示使用者輸入其 Azure AD 系統管理員認證。 接著會向 Azure AD 應用程式 Proxy 服務顯示此驗證的必要權杖。
-2. 應用程式 Proxy 服務會評估權杖。 它會檢查使用者在租用戶是否為公司系統管理員。 如果使用者不是系統管理員，就會終止流程。
+1. 連接器註冊服務會做為連接器安裝的一部分。 系統會提示使用者輸入其 Azure AD 系統管理員認證。 接著會向 Azure AD 應用程式 Proxy 服務顯示此驗證的必要權杖。
+2. 應用程式 Proxy 服務會評估權杖。 它會檢查使用者在租用戶是否為公司系統管理員。 如果使用者不是系統管理員，就會終止流程。
 3. 連接器會產生用戶端憑證要求，並與權杖一起傳遞至應用程式 Proxy 服務。 服務接著會驗證權杖，並簽署用戶端憑證要求。
 4. 連接器可以使用此用戶端憑證，以便未來與應用程式 Proxy 服務通訊。
 5. 連接器會使用其用戶端憑證從服務執行系統設定資料的初始提取，而它現在已準備好接受要求。
@@ -176,7 +176,7 @@ Azure AD 應用程式 Proxy 是由兩個部分組成︰
 
 在收到回應後，連接器會建立對應用程式 Proxy 服務的輸出連線，以傳回標頭詳細資料，並開始串流傳回的資料。
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5.服務會將資料串流給使用者。 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5.服務會將資料串流給使用者。 
 
 應用程式的一些處理可能會在這裡發生。 如果您將應用程式中的應用程式 Proxy 應用程式設定為轉譯標頭或 URL，會視需要在此步驟進行該處理。
 

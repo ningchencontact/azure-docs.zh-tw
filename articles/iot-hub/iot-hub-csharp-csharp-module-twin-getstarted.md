@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 51849f8ed09d98ab4636d6fc752599b993f58e6f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 7a6362ea33a27b27798f1304e779099fca60cdd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514310"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446556"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>透過 .NET 後端和 .NET 裝置開始使用 IoT 中樞模組身分識別和模組對應項
 
@@ -52,11 +52,11 @@ ms.locfileid: "51514310"
 
 在這一節中，您會在模擬裝置上建立 .NET 主控台應用程式，以便更新模組對應項報告的屬性。
 
-1. **建立 Visual Studio 專案：** 在 Visual Studio 中，使用 [主控台應用程式 (.NET Framework)] 專案範本，將 Visual C# Windows 傳統桌面專案新增至現有的解決方案中。 確定 .NET Framework 為 4.6.1 或更新版本。 將專案命名為 **UpdateModuleTwinReportedProperties**。
+1. **建立 Visual Studio 專案：** 在 Visual Studio 中，使用 [主控台應用程式 (.NET Framework)] 專案範本，將 Visual C# Windows 傳統桌面專案新增至現有的解決方案。 確定 .NET Framework 為 4.6.1 或更新版本。 將專案命名為 **UpdateModuleTwinReportedProperties**。
 
     ![建立 Visual Studio 專案](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG)
 
-2. **安裝最新的 Azure IoT 中樞 .NET 裝置 SDK**：模組身分識別和模組對應項均處於公開預覽狀態。 它只能在 IoT 中樞發行前版本裝置 SDK 中取得。 在 Visual Studio 中，開啟[工具] > [Nuget 套件管理員] > [管理解決方案的 Nuget 套件]。 搜尋 Microsoft.Azure.Devices.Client。 確定您已核取 [包含發行前版本] 核取方塊。 選取最新版本並安裝。 您現在可以存取所有的模組功能。 
+2. **安裝最新的 Azure IoT 中樞 .NET 裝置 SDK：** 模組身分識別與模組對應項都處於公開預覽階段。 這只能在 IoT 中樞發行前版本裝置 SDK 中取得。 在 Visual Studio 中，開啟[工具] > [Nuget 套件管理員] > [管理解決方案的 Nuget 套件]。 搜尋 Microsoft.Azure.Devices.Client。 確定您已核取 [包含發行前版本] 核取方塊。 選取最新版本並安裝。 您現在可以存取所有的模組功能。 
 
     ![安裝 Azure IoT Hub .NET 服務 SDK V1.16.0-preview-005](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 

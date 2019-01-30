@@ -8,26 +8,27 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: e63354152f8821c5ce975563639c8b87fb332bd4
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 0480b3d3037a6b0a0dcd4d35965020f794ad8273
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313984"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412479"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>具名實體辨識認知技能
 
 **具名實體辨識**技能會從文字擷取具名實體。 可用實體包括下列類型：`person`、`location` 以及 `organization`。
 
+> [!IMPORTANT]
+> 具名實體辨識技能已淘汰，並由 [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) 取代。 將於 2019 年 2 月 15 日停止支援。 請遵循[已淘汰的認知搜尋技能](cognitive-search-skill-deprecated.md)中的建議，以移轉至支援的技能。
+
 > [!NOTE]
-> <ul>
-> <li>
-> 從 2018 年 12 月 21 日開始，您可以在認知服務資源與 Azure 搜尋服務的技能集之間建立關聯。 這可讓我們開始收取執行技能集的費用。 自這個日期起，我們也會開始收取文件萃取階段的影像擷取費用。 從文件中擷取文字的功能則繼續免費提供。>
-> 內建技能的執行會依現行的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)所述。 [深入](cognitive-search-attach-cognitive-services.md)了解。</li>
-> <li> 已淘汰具名實體辨識技能；從 2019 年 2 月 15 日起將不再正式支援。 請遵循<a href="cognitive-search-skill-deprecated.md">即將淘汰的認知搜尋技能</a>頁面中所列的建議，以移轉至支援的技能</li>
+> 從 2018 年 12 月 21 日開始，您可以[連結認知服務資源](cognitive-search-attach-cognitive-services.md)與 Azure 搜尋服務技能集。 這可讓我們開始收取執行技能集的費用。 自這個日期起，我們也會開始收取文件萃取階段中影像擷取的費用。 從文件中擷取文字的功能則繼續免費提供。
+>
+> [內建認知技能](cognitive-search-predefined-skills.md)執行會以[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services)收費，費率與直接執行工作時一樣。 影像擷取是 Azure 搜尋服務費用，目前是以預覽版定價提供。 如需詳細資訊，請參閱 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)或[計費方式](search-sku-tier.md#how-billing-works)。
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill

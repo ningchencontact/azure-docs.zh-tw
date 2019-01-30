@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 6eb2452507c3adcb8532a0dd2e50ad701e35cd7f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579213"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448715"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>使用 SQL Server Integration Services (SSIS) 對 U-SQL 作業進行排程
 
@@ -40,9 +40,9 @@ Azure Data Lake Analytics 工作能讓使用者將 U-SQL 作業提交至 Azure D
 
 ## <a name="scenario-1-use-inline-script-call-tvfs-and-stored-procs"></a>案例 1：使用內嵌指令碼呼叫 TVF 和預存程序
 
-在 Azure Data Lake Analytics 工作編輯器中，將 [SourceType] 設定為 [DiretInput]，並將 U-SQL 陳述式置於 [USQLStatemnt] 中。
+在 Azure Data Lake Analytics 工作編輯器中，將 [SourceType] 設定為 [DirectInput]，並將 U-SQL 陳述式置於 [USQLStatement] 中。
 
-若要使維護和程式碼管理更為輕鬆，請只使用簡短的 U-SQL 指令碼作為指令碼指令碼，例如您可以呼叫 U-SQL 資料庫中的現有資料表值函式和預存程序。 
+若要使維護和程式碼管理更為輕鬆，請只使用簡短的 U-SQL 指令碼作為內嵌指令碼，例如，您可以呼叫 U-SQL 資料庫中現有的資料表值函式和預存程序。 
 
 ![編輯 SSIS 工作中的內嵌 U-SQL 指令碼](./media/data-lake-analytics-schedule-jobs-ssis/edit-inline-usql-script-in-ssis.png)
 
@@ -119,7 +119,7 @@ Azure Data Lake Analytics 工作能讓使用者將 U-SQL 作業提交至 Azure D
 
 您可以透過使用 Azure Feature Pack 中的 **Azure Blob 下載工作**，來在 Azure Blob 儲存體中使用 U-SQL 檔案。 此方法可讓您使用雲端上的指令碼。
 
-其步驟與[案例 2：在 Azure Data Lake Store 中使用 U-SQL 檔案](#scenario-2-use-u-sql-files-in-azure-data-lake-store)類似。 將 Azure Data Lake Store 檔案系統工作變更為 Azure Blob 下載工作。 [深入了解 Azure Blob 下載工作](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017)。
+其步驟類似於[案例 2：在 Azure Data Lake Store 中使用 U-SQL 檔案](#scenario-2-use-u-sql-files-in-azure-data-lake-store)。 將 Azure Data Lake Store 檔案系統工作變更為 Azure Blob 下載工作。 [深入了解 Azure Blob 下載工作](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017)。
 
 控制流程如下所示。
 

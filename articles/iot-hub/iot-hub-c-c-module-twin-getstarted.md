@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 80d96bcb6b6073987f07ed6954f25023ab1133a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 853dc443a994601e3900ed16da534254f6af07db
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247512"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452426"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>透過 C 後端和 C 裝置開始使用 IoT 中樞模組身分識別和模組對應項
 

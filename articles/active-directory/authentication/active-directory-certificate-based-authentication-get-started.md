@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
-ms.openlocfilehash: 3172ba12fbbd0135d1a5a3684145787c83aad040
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7d8c0a837f5618580c5e76e5ca97e19844b95698
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242410"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427163"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>開始在 Azure Active Directory 中使用憑證式驗證
 
@@ -43,7 +43,7 @@ ms.locfileid: "50242410"
 - 您的用戶端裝置必須至少可以存取一個發出用戶端憑證的憑證授權單位。
 - 用於戶端驗證的用戶端憑證必須已經發給您的用戶端。
 
-## <a name="step-1-select-your-device-platform"></a>步驟 1︰選取裝置平台
+## <a name="step-1-select-your-device-platform"></a>步驟 1：選取裝置平台
 
 第一個步驟中，針對您要處理的裝置平台，您需要檢閱下列項目︰
 
@@ -55,7 +55,7 @@ ms.locfileid: "50242410"
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
-## <a name="step-2-configure-the-certificate-authorities"></a>步驟 2︰設定憑證授權單位
+## <a name="step-2-configure-the-certificate-authorities"></a>步驟 2：設定憑證授權單位
 
 若要在 Azure Active Directory 中設定您的憑證授權單位，為每個憑證授權單位下載下列項目：
 
@@ -133,7 +133,7 @@ ms.locfileid: "50242410"
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
 
-## <a name="step-3-configure-revocation"></a>步驟 3︰設定撤銷
+## <a name="step-3-configure-revocation"></a>步驟 3：設定撤銷
 
 若要撤銷用戶端憑證，Azure Active Directory 會從和憑證授權單位資訊一起上傳的 URL 中，擷取憑證撤銷清單 (CRL) 並加以快取。 在 CRL 中，上次發佈的時間戳記 ([生效日期] 屬性) 是用來確保 CRL 依然有效。 定期參考 CRL 以撤銷對清單所列憑證的存取權。
 
@@ -161,7 +161,7 @@ ms.locfileid: "50242410"
 
 您設定的日期必須是未來的日期。 如果不是未來的日期，則不會設定 **StsRefreshTokensValidFrom** 屬性。 如果是未來的日期，才會將 **StsRefreshTokensValidFrom** 設定為目前的時間 (而非 Set-MsolUser 命令指示的日期)。
 
-## <a name="step-4-test-your-configuration"></a>步驟 4︰測試組態
+## <a name="step-4-test-your-configuration"></a>步驟 4：測試組態
 
 ### <a name="testing-your-certificate"></a>測試您的憑證
 

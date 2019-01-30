@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b98b9e0a10f142cb0177e7e5ea831b61f79a4b7a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304657"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412813"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect：啟用裝置回寫
 > [!NOTE]
@@ -32,13 +32,13 @@ ms.locfileid: "46304657"
 
 * 對 ADFS (2012 R2 或更高版本) 保護的應用程式 (信賴憑證者信任)，根據裝置啟用條件式存取。
 
-這提供額外的安全性，確保只授權信任的裝置才能存取應用程式。 如需條件式存取的詳細資訊，請參閱[使用條件式存取管理風險](../active-directory-conditional-access-azure-portal.md)和[使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](../active-directory-conditional-access-automatic-device-registration-setup.md)。
+這提供額外的安全性，確保只授權信任的裝置才能存取應用程式。 如需條件式存取的詳細資訊，請參閱[使用條件式存取管理風險](../active-directory-conditional-access-azure-portal.md)和[使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](../../active-directory/active-directory-device-registration-on-premises-setup.md)。
 
 > [!IMPORTANT]
 > <li>裝置必須位於使用者所在的樹系中。 由於裝置必須回寫到單一樹系中，因此這項功能目前並不支援利用多重使用者樹系的部署。</li>
 > <li>只有一個裝置註冊設定物件可以新增至內部部署 Active Directory 樹系。 這項功能與會將內部部署 Active Directory 同步至多個 Azure AD 目錄的拓撲不相容。</li>
 
-## <a name="part-1-install-azure-ad-connect"></a>第 1 部分：安裝 Azure AD Connect
+## <a name="part-1-install-azure-ad-connect"></a>第 1 部分：安裝 Azure AD Connect。
 使用自訂或快速設定安裝 Azure AD Connect。 Microsoft 建議您在啟用裝置回寫之前，首先讓所有使用者和群組成功完成同步處理。
 
 ## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>第 2 部分：在 Azure AD Connect 中啟用裝置回寫功能
@@ -60,7 +60,7 @@ ms.locfileid: "46304657"
     a. **提供企業系統管理員認證**：如果針對裝置需要回寫的樹系提供企業系統管理員認證，則 Azure AD Connect 會在裝置回寫的設定期間自動準備樹系。
 
     b. **下載 PowerShell 指令碼**：Azure AD Connect 會自動產生 PowerShell 指令碼，以便針對裝置回寫準備 Active Directory。 為了避免無法在 Azure AD Connect 中提供企業系統管理員認證，建議下載 PowerShell 指令碼。 將下載的 PowerShell 指令碼 **CreateDeviceContainer.psq** 提供給要回寫裝置之樹系的企業系統管理員。
-    ![準備 Active Diretory 樹系](./media/how-to-connect-device-writeback/devicecontainercreds.png)
+    ![準備 Active Directory 樹系](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     執行下列作業以準備 Active Directory 樹系：
     * 如果尚未存在，請在 CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn] 下方建立並設定新的容器和物件。
@@ -81,7 +81,7 @@ ms.locfileid: "46304657"
    ![Active Directory 管理中心已註冊的裝置清單](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
 ## <a name="enable-conditional-access"></a>啟用條件式存取
-如需如何啟用此案例的詳細指示，請參閱 [使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](../active-directory-conditional-access-automatic-device-registration-setup.md)。
+如需如何啟用此案例的詳細指示，請參閱 [使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](../../active-directory/active-directory-device-registration-on-premises-setup.md)。
 
 ## <a name="troubleshooting"></a>疑難排解
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>回寫核取方塊仍然停用
@@ -125,7 +125,7 @@ ms.locfileid: "46304657"
 
 ## <a name="additional-information"></a>其他資訊
 * [使用條件式存取管理風險](../active-directory-conditional-access-azure-portal.md)
-* [使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](../active-directory-device-registration-on-premises-setup.md)
+* [使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。

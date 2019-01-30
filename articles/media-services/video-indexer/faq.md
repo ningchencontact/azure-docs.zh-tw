@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: ff3aa86fee7fc30cfc18edc3b413a4378df69662
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306963"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402042"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -28,18 +28,17 @@ ms.locfileid: "54306963"
 
 ### <a name="what-can-i-do-with-video-indexer"></a>影片索引器有何用途？
 
-影片索引器可以對媒體檔案執行以下類型的作業：
+Video Indexer 可以對媒體檔案執行的一些作業包括：
 
 * 識別並擷取語音，以及識別說話者。
 * 識別並擷取影片中的螢幕上文字。
-* 識別視訊檔中的物件並為其加上標籤。
-* 從音訊曲目和視訊中的螢幕上文字識別品牌，例如 Microsoft。
+* 在影片檔案中偵測物件。
+* 從音訊曲目和視訊中的螢幕上文字識別品牌 (例如：Microsoft)。
 * 根據名人的資料庫和使用者定義的臉部資料庫偵測並辨識臉部。
-* 從以口說與視覺文字為基礎的視訊和音訊內容擷取關鍵字。
-* 擷取所討論的主題，但不一定要在以口說與視覺文字為基礎的音訊和視訊內容中明確提及。
+* 擷取所討論的主題，但不一定要在音訊和視訊內容中明確提及。
 * 從音訊曲目建立隱藏式輔助字幕或字幕。
 
-如需詳細資訊，請參閱[概觀](video-indexer-overview.md)。
+如需詳細資訊和更多 Video Indexer 功能，請參閱[概觀](video-indexer-overview.md)。
 
 ### <a name="how-do-i-get-started-with-video-indexer"></a>如何開始使用影片索引器？
 

@@ -2,18 +2,18 @@
 title: 監視 Azure 事件格線訊息傳遞
 description: 說明如何監視 Azure 事件格線訊息的傳遞。
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2018
-ms.author: tomfitz
-ms.openlocfilehash: 625f3e228bb28c85e68fb592914fb2191baf3e4e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 01/22/2019
+ms.author: spelluru
+ms.openlocfilehash: fdd18b833794c25cb90188ba8bc418d4785492ba
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626984"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464786"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>監視事件格線訊息傳遞 
 
@@ -29,8 +29,8 @@ Event Grid 提供持久的傳遞。 它針對每個訂用帳戶傳遞每則訊�
 
 對於主題，計量為：
 
-* **發行成功**：已將事件成功傳送至主題，並以 2xx 回應來處理。
-* **發行失敗**：已將事件傳送至主題，但遭到拒絕且有錯誤碼。
+* **發佈成功**：已將事件成功傳送至主題，並以 2xx 回應來處理。
+* **發佈失敗**：已將事件傳送至主題，但遭到拒絕且有錯誤碼。
 * **不相符**：已將事件成功發佈至主題，但與事件訂閱不符。 已捨棄事件。
 
 對於訂閱，計量為：
@@ -38,7 +38,7 @@ Event Grid 提供持久的傳遞。 它針對每個訂用帳戶傳遞每則訊�
 * **傳遞成功**：已將事件成功傳遞至訂閱的端點，並已收到 2xx 回應。
 * **傳遞失敗**：已將事件傳送至訂閱的端點，但收到了 4xx 或 5xx 回應。
 * **已過期事件**：事件並未傳遞且已傳送所有的重試嘗試。 已捨棄事件。
-* **已比對的事件**：主題中的事件已由事件訂閱加以比對。
+* **相符的事件**：主題中的事件已由事件訂閱加以比對。
 
 ## <a name="event-subscription-status"></a>事件訂閱狀態
 

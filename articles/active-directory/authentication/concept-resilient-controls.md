@@ -3,19 +3,19 @@ title: 使用 Azure Active Directory 來建立具彈性的存取控制管理策�
 description: 本文件提供有關組織所應採用策略的指引，這些策略可提供靈活彈性，以在發生未預期的中斷情況期間降低鎖定風險
 services: active-directory
 author: martincoetzer
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: caabc5a396c015b806778bfc5887b0708897101e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9e13b8872fab89bef6ec952fe2ee0b901a25092e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101916"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452542"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>使用 Azure Active Directory 來建立具彈性的存取控制管理策略
 
@@ -119,30 +119,48 @@ ms.locfileid: "54101916"
 * 使用在未達到特定驗證層級時，會限制應用程式內的存取而不直接切換回完整存取的原則。 例如︰
   * 設定一個將受限工作階段宣告傳送給 Exchange 和 SharePoint 的備份原則。
   * 如果您的組織使用 Microsoft Cloud App Security，請考慮切換回會牽涉 MCAS 的原則，然後 MCAS 就會允許唯讀存取而非上傳。
+* 為您的原則命名，以確定在中斷期間可以輕易找到這些原則。 請在原則名稱中包含下列元素：
+  * 原則的標籤號碼。
+  * 用來指出此原則僅供緊急狀況使用的文字。 例如︰**ENABLE IN EMERGENCY**
+  * 適用的*中斷情況*。 例如︰**在 MFA 中斷期間**
+  * 以序號顯示您必須啟動原則的順序。
+  * 適用的應用程式。
+  * 適用的控制項。
+  * 所需的條件。
+  
+應變原則的這個命名標準將顯示如下： 
 
-下列範例：**範例 A - 用以還原對任務關鍵性共同作業應用程式之存取權的應變 CA 原則**是一個典型的公司應變措施。 在此案例中，組織通常會針對所有 Exchange Online 和 SharePoint Online 存取要求使用 MFA，而在此情況下，中斷係指客戶的 MFA 提供者發生中斷狀況 (不論是 Azure MFA、內部部署 MFA 提供者，還是協力廠商 MFA)。 此原則可降低此中斷狀況的風險，方法是允許特定的目標使用者從受信任的 Windows 裝置存取這些應用程式，但只有在從受信任的公司網路存取應用程式時才允許。 它也會將緊急帳戶和核心系統管理員從這些限制中排除。 此範例將需要一個具名的網路位置 **CorpNetwork** 和一個安全性群組 **ContingencyAccess** (含有目標使用者)、一個名為 **CoreAdmins** 的群組 (含有核心系統管理員)，以及一個名為 **EmergencyAccess** 的群組 (含有緊急存取帳戶)。 此應變措施需要四個原則來提供所需的存取權。
+`
+EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
+`
+
+下列範例：**範例 A - 用以還原對任務關鍵性共同作業應用程式之存取權的應變 CA 原則**是一個典型的公司應變措施。 在此案例中，組織通常會針對所有 Exchange Online 和 SharePoint Online 存取要求使用 MFA，而在此情況下，中斷係指客戶的 MFA 提供者發生中斷狀況 (不論是 Azure MFA、內部部署 MFA 提供者，還是協力廠商 MFA)。 此原則可降低此中斷狀況的風險，方法是允許特定的目標使用者從受信任的 Windows 裝置存取這些應用程式，但只有在從受信任的公司網路存取應用程式時才允許。 它也會將緊急帳戶和核心系統管理員從這些限制中排除。 目標使用者將得以存取 Exchange Online 和 SharePoint Online，而其他使用者仍將因中斷而無法存取應用程式。 此範例將需要一個具名的網路位置 **CorpNetwork** 和一個安全性群組 **ContingencyAccess** (含有目標使用者)、一個名為 **CoreAdmins** 的群組 (含有核心系統管理員)，以及一個名為 **EmergencyAccess** 的群組 (含有緊急存取帳戶)。 此應變措施需要四個原則來提供所需的存取權。 
 
 **範例 A - 用以還原對任務關鍵性共同作業應用程式之存取權的應變 CA 原則：**
 
 * 原則 1：針對 Exchange 和 SharePoint 要求要有「已加入網域」的裝置
+  * 名稱：EM001 - ENABLE IN EMERGENCY:MFA Disruption[1/4] - Exchange SharePoint - 需要混合式 Azure AD Join
   * 使用者和群組：包含 ContingencyAccess。 排除 CoreAdmins 和 EmergencyAccess
   * 雲端應用程式：Exchange Online 和 SharePoint Online
   * 條件：任意
   * 授與控制權：要求已加入網域
   * 狀態：已停用
 * 原則 2：封鎖 Windows 以外的平台
+  * 名稱：EM002 - ENABLE IN EMERGENCY:MFA Disruption[2/4] - Exchange SharePoint - 封鎖 Windows 以外的存取
   * 使用者和群組：包含所有使用者。 排除 CoreAdmins 和 EmergencyAccess
   * 雲端應用程式：Exchange Online 和 SharePoint Online
   * 條件：裝置平台包含所有平台，但 Windows 除外
   * 授與控制權：區塊
   * 狀態：已停用
 * 原則 3：封鎖 CorpNetwork 以外的網路
+  * 名稱：EM003 - ENABLE IN EMERGENCY:MFA Disruption[3/4] - Exchange SharePoint - 封鎖公司網路以外的存取
   * 使用者和群組：包含所有使用者。 排除 CoreAdmins 和 EmergencyAccess
   * 雲端應用程式：Exchange Online 和 SharePoint Online
   * 條件：位置包含任何位置，但 CorpNetwork 除外
   * 授與控制權：區塊
   * 狀態：已停用
 * 原則 4：明確封鎖 EAS
+  * 名稱：EM004 - ENABLE IN EMERGENCY:MFA Disruption[4/4] - Exchange - 封鎖所有使用者的 EAS
   * 使用者和群組：包含所有使用者
   * 雲端應用程式：包含 Exchange Online
   * 條件：用戶端應用程式：Exchange Active Sync
@@ -163,12 +181,14 @@ ms.locfileid: "54101916"
 **範例 B - 應變 CA 原則：**
 
 * 原則 1：封鎖不在 SalesContingency 小組中的所有人員
+  * 名稱：EM001 - ENABLE IN EMERGENCY:Device Compliance Disruption[1/2] - Salesforce - 封鎖 SalesforceContingency 以外的所有使用者
   * 使用者和群組：包含所有使用者。 排除 SalesAdmins 和 SalesforceContingency
   * 雲端應用程式：Salesforce。
   * 條件：None
   * 授與控制權：區塊
   * 狀態：已停用
 * 原則 2：封鎖來自行動平台以外任何平台的銷售小組 (以縮小受攻擊面區域)
+  * 名稱：EM002 - ENABLE IN EMERGENCY:Device Compliance Disruption[2/2] - Salesforce - 封鎖 iOS 和 Android 以外的所有平台
   * 使用者和群組：包含 SalesforceContingency。 排除 SalesAdmins
   * 雲端應用程式：Salesforce
   * 條件：裝置平台包含所有平台，但 iOS 和 Android 除外
@@ -179,7 +199,7 @@ ms.locfileid: "54101916"
 
 1. 將 SalesAdmins 和 SalesforceContingency 從 Salesforce 的現有裝置合規性原則中排除。 確認 SalesforceContingency 群組中的使用者可以存取 Salesforce。
 2. 啟用原則 1：確認 SalesContingency 外的使用者無法存取 Salesforce。 確認 SalesAdmins 和 SalesforceContingency 中的使用者可以存取 Salesforce。
-3. 啟用原則 2：確認 SalesContigency 群組中的使用者無法從其 Windows/Mac 膝上型電腦存取 Salesforce，但仍可從其行動裝置存取。 確認 SalesAdmin 仍可從任何裝置存取 Salesforce。
+3. 啟用原則 2：確認 SalesContingency 群組中的使用者無法從其 Windows/Mac 膝上型電腦存取 Salesforce，但仍可從其行動裝置存取。 確認 SalesAdmin 仍可從任何裝置存取 Salesforce。
 4. 停用 Salesforce 的現有裝置合規性原則。
 
 ### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>即使您已同盟或使用傳遞驗證，仍部署密碼雜湊同步
@@ -215,14 +235,14 @@ ms.locfileid: "54101916"
 
 ## <a name="after-a-disruption"></a>在中斷情況發生後
 
-您必須在造成中斷情況的服務還原之後，將隨著所啟用應變計劃進行的變更復原。 
+在造成中斷情況的服務還原之後，將隨著所啟用應變計劃進行的變更復原。 
 
 1. 啟用一般原則
 2. 停用您的應變原則。 
 3. 將您在中斷情況發生期間所進行和記載的任何其他變更復原。
 4. 如果您使用了緊急存取帳戶，請記得重新產生認證，並在您的緊急存取帳戶程序中一併實際保護新的認證詳細資料。
 5. 繼續進行[將在可疑活動導致中斷情況後所回報的所有風險事件分級](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins)。
-6. [使用 PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) 來撤銷所有已簽發的重新整理權杖，以將一組使用者設為目標。 對於在中斷情況發生期間所使用的特殊權限帳戶來說，撤銷所有重新整理權杖尤其重要，此做法將強制他們重新驗證並符合所還原原則的控制措施。
+6. [使用 PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) 來撤銷所有已簽發的重新整理權杖，以將一組使用者設為目標。 對於在中斷情況發生期間所使用的特殊權限帳戶來說，撤銷所有重新整理權杖是很重要的，此做法將強制他們重新驗證並符合所還原原則的控制措施。
 
 ## <a name="emergency-options"></a>緊急選項
 

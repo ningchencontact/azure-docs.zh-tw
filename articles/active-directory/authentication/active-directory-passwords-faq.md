@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 50edabb395380c8b0185736205834dd65e47317f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7cbeeefe24e6f399c959484eea8aebede4598d20
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425240"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424654"
 ---
 # <a name="password-management-frequently-asked-questions"></a>密碼管理常見問題集
 
@@ -40,7 +40,7 @@ ms.locfileid: "52425240"
   >
 * **問：如果針對群組啟用密碼重設，之後又決定針對所有人啟用，我的使用者需要重新註冊嗎？**
 
-  > **答：** 否。 已填入驗證資料的使用者不需要重新註冊。
+  > **答：** 沒有。 已填入驗證資料的使用者不需要重新註冊。
   >
   >
 * **問：我是否可以代表我的使用者定義密碼重設資料？**
@@ -60,7 +60,7 @@ ms.locfileid: "52425240"
   >
 * **問：我的使用者是否必須先註冊才能使用密碼重設？**
 
-  > **答：** 否。 如果您代表使用者定義足夠的驗證資訊，使用者就不需要註冊。 只要您已將儲存在目錄中適當欄位的資料正確格式化，密碼重設就能運作。
+  > **答：** 沒有。 如果您代表使用者定義足夠的驗證資訊，使用者就不需要註冊。 只要您已將儲存在目錄中適當欄位的資料正確格式化，密碼重設就能運作。
   >
   >
 * **問：我是否可以代表我的使用者同步處理或設定驗證電話、驗證電子郵件或備用驗證電話欄位？**
@@ -75,7 +75,7 @@ ms.locfileid: "52425240"
   >
 * **問：使用者何時會被視為已註冊？**
 
-  > **答︰** 當使用者所註冊的重設密碼方法數已至少達到您在 [Azure 入口網站](https://portal.azure.com)中設定的 [需要重設的方法數] 時，便會視為已完成 SSPR 註冊。
+  > **答：** 當使用者所註冊的重設密碼方法數已至少達到您在 [Azure 入口網站](https://portal.azure.com)中設定的 [需要重設的方法數] 時，便會視為已完成 SSPR 註冊。
   >
   >
 
@@ -160,7 +160,7 @@ ms.locfileid: "52425240"
   >
 * **問：使用者是否可以將同一個安全性問題註冊多次？**
 
-  > **答：** 否。 使用者註冊特定問題之後，便無法再次註冊該問題。
+  > **答：** 沒有。 使用者註冊特定問題之後，便無法再次註冊該問題。
   >
   >
 * **問：是否可以針對註冊和重設設定安全性問題的最小限制？**
@@ -191,12 +191,12 @@ ms.locfileid: "52425240"
 
 ## <a name="password-change"></a>密碼變更
 
-* **問︰我的使用者應該到何處變更密碼？**
+* **問：我的使用者應該到何處變更密碼？**
 
-  > **答︰** 使用者可以在出現個人資料圖片或圖示的任何位置變更其密碼 (例如在其 [Office 365](https://portal.office.com) 入口網站或[存取面板](https://myapps.microsoft.com)的右上角)。 使用者可以從[存取面板設定檔頁面](https://account.activedirectory.windowsazure.com/r#/profile)變更其密碼。 如果使用者的密碼已到期，Azure AD 登入頁面也可能自動要求使用者變更密碼。 最後，如果使用者想要變更其密碼，也可以直接瀏覽至 [Azure AD 密碼變更入口網站](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)。
+  > **答：** 使用者可以在出現個人資料圖片或圖示的任何位置變更其密碼 (例如在其 [Office 365](https://portal.office.com) 入口網站或[存取面板](https://myapps.microsoft.com)的右上角)。 使用者可以從[存取面板設定檔頁面](https://account.activedirectory.windowsazure.com/r#/profile)變更其密碼。 如果使用者的密碼已到期，Azure AD 登入頁面也可能自動要求使用者變更密碼。 最後，如果使用者想要變更其密碼，也可以直接瀏覽至 [Azure AD 密碼變更入口網站](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)。
   >
   >
-* **問︰當我使用者的內部部署密碼到期時，Office 入口網站是否會通知他們？**
+* **問：當我使用者的內部部署密碼到期時，Office 入口網站是否會通知他們？**
 
   > **答：** 是，目前如果您使用「Active Directory 同盟服務」(AD FS)，就可以傳送通知。 如果您使用 AD FS，請依照[使用 AD FS 來傳送密碼原則宣告](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) \(機器翻譯\) 一文中的指示進行操作。 如果您使用密碼雜湊同步處理，則目前還無法傳送通知。 我們不會從內部部署目錄同步處理密碼原則，因此無法對雲端體驗發佈到期通知。 在上述任一情況下，也可以[透過 PowerShell 通知密碼即將到期的使用者](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx) \(英文\)。
   >
@@ -252,12 +252,12 @@ ms.locfileid: "52425240"
   > **答：** 密碼回寫會立即進行。 它是同步管線，基本上的運作與密碼雜湊同步處理不同。 密碼回寫可以讓使用者即時取得密碼重設或變更作業成功的回應。 成功回寫密碼的平均時間低於 500 毫秒。
   >
   >
-* **問︰如果我的內部部署帳戶已停用，這對我的雲端帳戶和存取權有何影響？**
+* **問：如果我的內部部署帳戶已停用，這對我的雲端帳戶和存取權有何影響？**
 
-  > **答︰** 如果您的內部部署識別碼已停用，您的雲端識別碼和存取權也會在下一次透過 Azure AD Connect 進行同步處理時停用。 此同步處理預設會每 30 分鐘執行一次。
+  > **答：** 如果您的內部部署識別碼已停用，您的雲端識別碼和存取權也會在下一次透過 Azure AD Connect 進行同步處理時停用。 此同步處理預設會每 30 分鐘執行一次。
   >
   >
-* **問︰如果我的內部部署帳戶受到內部部署 Active Directory 密碼原則限制，當我變更密碼時，SSPR 是否會遵守此原則？**
+* **問：如果我的內部部署帳戶受到內部部署 Active Directory 密碼原則限制，當我變更密碼時，SSPR 是否會遵守此原則？**
 
   > **答：** 是，SSPR 會依據並遵守內部部署 Active Directory 密碼原則。 此原則包括一般 Active Directory 網域密碼原則，以及任何以使用者為目標的已定義、更精細密碼原則。
   >

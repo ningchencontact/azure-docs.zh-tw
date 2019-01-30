@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Active Directory 中啟用 LinkedIn 連線整合 | Microsoft Docs
-description: 說明如何在 Azure Active Directory 中為 Microsoft 應用程式啟用或停用 LinkedIn 帳戶連線
+title: 在 Azure Active Directory 中啟用 LinkedIn 整合 | Microsoft Docs
+description: 說明如何在 Azure Active Directory 中為 Microsoft 應用程式啟用或停用 LinkedIn 整合
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,23 +8,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 01/22/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 0eaa2656313ecd9b64503051265dc16285f0a1f3
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 44bd03a8f710cf4b61e063688c9532dc6cce6480
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44492816"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465593"
 ---
-# <a name="linkedin-account-connections"></a>LinkedIn 帳戶連絡人
+# <a name="linkedin-integration"></a>LinkedIn 整合
 
-在本文中，您可以了解如何在 Azure Active Directory (Azure AD) 系統管理中心啟用或停用您租用戶的 LinkedIn 帳戶連線。
+在本文中，您將了解如何在 Azure Active Directory (Azure AD) 系統管理中心啟用或停用租用戶的 LinkedIn 整合。
 
 > [!IMPORTANT]
-> LinkedIn 帳戶連線設定即將推出，以供 Azure AD 租用戶使用。 當它推出以供您的租用戶使用時，預設會加以啟用。 
+> LinkedIn 整合設定即將推出，以供 Azure AD 租用戶使用。 當它推出以供您的租用戶使用時，預設會加以啟用。
 > 
 > 例外狀況：
 > * 此設定不適用於使用 Microsoft Cloud for US Government、Microsoft Cloud Germany 或中國 21Vianet 管理之 Azure 和 Office 365 的客戶。
@@ -33,20 +33,20 @@ ms.locfileid: "44492816"
 
 > 只有在啟用整合*且*如果您允許使用者同意應用程式存取公司資料時，整合才會生效。 如需同意設定的相關資訊，請參閱[如何移除使用者的應用程式存取](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment)。
 
-## <a name="enable-or-disable-linkedin-account-connections-for-your-tenant-in-the-azure-portal"></a>在 Azure 入口網站中為租用戶啟用或停用 LinkedIn 帳戶連線
+## <a name="enable-or-disable-linkedin-integration-for-your-users-in-the-azure-portal"></a>在 Azure 入口網站中為使用者啟用或停用 LinkedIn 整合
 
-您可以以啟用或停用整個租用戶的 LinkedIn 帳戶連線，或是僅針對您租用戶中選取的使用者。
+您可以以啟用或停用整個租用戶的 LinkedIn 整合，或是僅針對您租用戶中選取的使用者。
 
 1. 使用具有 Azure AD 租用戶全域管理員身分的帳戶來登入 [Azure Active Directory 系統管理中心](https://aad.portal.azure.com/)。
 2. 選取 [使用者]。
 3. 在 [使用者] 刀鋒視窗上，選取 [使用者設定]。
-4. 在 [LinkedIn 帳戶連線] 之下：
-  * 選取 [是] 可啟用您租用戶中所有使用者的 LinkedIn 帳戶連線
-  * 選取 [已選取] 只啟用所選租用戶使用者的 LinkedIn 帳戶連線
-  * 選取 [否] 可停用所有使用者的 LinkedIn 帳戶連線 ![啟用 LinkedIn 帳戶連線](./media/linkedin-integration/linkedin-integration.png)
+4. 在 [LinkedIn 整合] 下：
+  * 選取 [是] 可為您租用戶中的所有使用者啟用 LinkedIn 整合
+  * 選取 [已選取] 只會為選取的租用戶使用者啟用 LinkedIn 整合
+  * 選取 [否] ****  可為所有![啟用 LinkedIn 整合](./media/linkedin-integration/linkedin-integration.png)的使用者停用 LinkedIn 整合
 5. 當您完成時，選取 [儲存] 會儲存您的設定。
 
-## <a name="enable-or-disable-linkedin-account-connections-for-your-tenant-using-group-policy"></a>使用群組原則，啟用或停用租用戶的 LinkedIn 帳戶連線
+## <a name="enable-or-disable-linkedin-integration-for-your-users-in-group-policy"></a>在群組原則中為使用者啟用或停用 LinkedIn 整合
 
 1. 下載 [Office 2016 系統管理範本檔案 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
 2. 解壓縮 **ADMX** 檔案，並將其複製到中央存放區。
@@ -70,6 +70,7 @@ ms.locfileid: "44492816"
 * [LinkedIn 說明中心](https://www.linkedin.com/help/linkedin)
 
 ## <a name="next-steps"></a>後續步驟
-使用下列連結，在 Azure 入口網站中查看您目前的 LinkedIn 帳戶連線設定：
 
-[設定 LinkedIn 帳戶連線](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings) 
+使用下列連結在 Azure 入口網站中查看您目前的 LinkedIn 整合設定：
+
+[在 Azure 入口網站中檢視您目前的 LinkedIn 整合設定](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/UserSettings)

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
-ms.openlocfilehash: 2a835e7cd9d4c45c1c39c3c135705cb4dff0e6fb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 190d81fc7811e4afdb32555407716f60f5b9a2d1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842181"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476133"
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中套用更新
 
@@ -50,13 +50,11 @@ ms.locfileid: "52842181"
 
 2. 在篩選方塊中，輸入 **update**，然後選取 [updateadminaccount] 儲存體帳戶。
 
-    ![顯示如何搜尋 updateadminaccount](media/azure-stack-apply-updates/ApplyUpdates2.png)
-
 3. 在儲存體帳戶詳細資料的 [服務] 底下，選取 [Blob]。
  
     ![顯示如何移至儲存體帳戶的 Blob](media/azure-stack-apply-updates/ApplyUpdates3.png) 
- 
-4. 在 [Blob 服務] 底下，選取 [容器] 來建立容器。 輸入名稱 (例如 *Update-1709*)，然後選取 [確定]。
+
+4. 在 [Blob 服務] 底下，選取 [容器] 來建立容器。 輸入名稱 (例如 *Update-1811*)，然後選取 [確定]。
  
      ![顯示如何在儲存體帳戶中新增容器](media/azure-stack-apply-updates/ApplyUpdates4.png)
 
@@ -66,12 +64,12 @@ ms.locfileid: "52842181"
 
 6. 在 [上傳 Blob] 底下，按一下資料夾圖示，瀏覽至更新套件的 .exe 檔，然後按一下檔案總管視窗中的 [開啟]。
   
-7. 在 [上傳 Blob] 底下，按一下 [上傳]。 
+7. 在 [上傳 Blob] 底下，按一下 [上傳]。
   
     ![顯示要在哪裡上傳每個套件檔案](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. 針對 *PackageName*.bin 和 Metadata.xml 檔案重複步驟 6 和 7。 請勿匯入 Supplemental Notice.txt 檔案 (如果包含)。
-9. 完成時，您可以檢閱通知 (入口網站右上角中的鈴鐺圖示)。 通知應該會指出已完成上傳。 
+8. 針對 *PackageName*.bin 和 Metadata.xml 檔案重複步驟 6 和 7。 請勿匯入 Supplemental Notice.txt 檔案 (如果包含)。
+9. 完成時，您可以檢閱通知 (入口網站右上角中的鈴鐺圖示)。 通知應該會指出已完成上傳。
 10. 瀏覽回儀表板上的 [更新] 圖格。 此圖格應該會指出有可用的更新。 按一下此圖格即可檢視新加入的更新套件。
 11. 若要安裝更新，請選取標示為 [就緒] 的套件，然後在該套件上按一下滑鼠右鍵並選取 [立即更新]，或按一下靠近頂端的 [立即更新] 動作。
 12. 當您按一下安裝更新套件時，可以在 [更新執行詳細資料] 區域中檢視狀態。 您也可以從這裡按一下 [下載完整記錄] 來下載記錄檔。

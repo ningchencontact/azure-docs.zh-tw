@@ -3,8 +3,8 @@ title: 使用 Azure 通知中樞將當地語系化通知推送至 iOS 裝置| Mi
 description: 了解如何使用 Azure 通知中樞將當地語系化的通知推送至 iOS 裝置。
 services: notification-hubs
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 484914b5-e081-4a05-a84a-798bbd89d428
 ms.service: notification-hubs
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: d19fc4290f32359d3af66d96512f65abb17f5d34
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 56662a40df6abeb672992a2da4c04692e7280021
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918618"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451692"
 ---
-# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>教學課程：了解如何使用 Azure 通知中樞將當地語系化通知推送至 iOS 裝置 
+# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>教學課程：了解如何使用 Azure 通知中樞將當地語系化通知推播至 iOS 裝置
 
 > [!div class="op_single_selector"]
 > * [Windows 市集 C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
@@ -63,7 +63,7 @@ ms.locfileid: "42918618"
 
 ```json
 {
-    aps:{
+    aps: {
         alert: "$(News_French)"
     }
 }
@@ -73,14 +73,14 @@ ms.locfileid: "42918618"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 完成[將通知推送至特定的 iOS 裝置](notification-hubs-ios-xplat-segmented-apns-push-notification.md)教學課程並具備該教學課程中的程式碼，因為本教學課程是以該程式碼為基礎。
-- Visual Studio 2017 是選擇性的。
+* 完成[將通知推送至特定的 iOS 裝置](notification-hubs-ios-xplat-segmented-apns-push-notification.md)教學課程並具備該教學課程中的程式碼，因為本教學課程是以該程式碼為基礎。
+* Visual Studio 2017 是選擇性的。
 
 ## <a name="update-the-app-user-interface"></a>更新應用程式使用者介面
 
 在本節中，您會修改在[使用通知中樞傳送即時新聞]主題中所建立的即時新聞應用程式，以使用範本來傳送當地語系化的即時新聞。
 
-在您的 **MainStoryboard_iPhone.storyboard** 中，新增具有三種語言的分段控制：英文、法文與中文。
+在您的 `MainStoryboard_iPhone.storyboard` 中，新增三種語言的分段控制：英文、法文和中文。
 
 ![建立 iOS UI 分鏡腳本][13]
 
@@ -90,7 +90,7 @@ ms.locfileid: "42918618"
 
 ## <a name="build-the-ios-app"></a>建置 iOS 應用程式
 
-1. 在您的 Notification.h 中新增 *retrieveLocale* 方法，然後修改儲存和訂閱方法，如下列程式碼所示：
+1. 在您的 `Notification.h` 中新增 `retrieveLocale` 方法，然後修改儲存和訂閱方法，如下列程式碼所示：
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
@@ -101,7 +101,7 @@ ms.locfileid: "42918618"
 
     - (int) retrieveLocale;
     ```
-    在您的 Notification.m 中新增地區設定參數，並將其儲存在使用者預設值中，以修改 *storeCategoriesAndSubscribe* 方法：
+    在您的 `Notification.m` 中新增 `locale` 參數，並將其儲存在使用者預設值中，以修改 `storeCategoriesAndSubscribe` 方法：
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
@@ -139,7 +139,7 @@ ms.locfileid: "42918618"
     }
     ```
 
-    您使用的是 registerTemplateWithDeviceToken 方法，而非 registerNativeWithDeviceToken。 您在註冊範本時必須提供 json 範本，以及範本的名稱 (因為應用程式可能會註冊不同的範本)。 請確實將您的類別註冊為標籤，因為要確保能夠收到這些新聞的通知。
+    您應使用方法 `registerTemplateWithDeviceToken`，而不是 `registerNativeWithDeviceToken`。 您在註冊範本時必須提供 json 範本，以及範本的名稱 (因為應用程式可能會註冊不同的範本)。 請確實將您的類別註冊為標籤，因為要確保能夠收到這些新聞的通知。
 
     加入方法，從使用者預設設定擷取地區設定：
 
@@ -153,13 +153,13 @@ ms.locfileid: "42918618"
     }
     ```
 
-2. 在已修改 Notifications 類別之後，您必須確保 ViewController 會使用新的 UISegmentControl。 請在 *viewDidLoad* 方法中新增下列程式碼行，以確實顯示目前選取的地區設定：
+2. 在已修改 `Notifications` 類別之後，您必須確保 `ViewController` 會使用新的 `UISegmentControl`。 請在 `viewDidLoad` 方法中新增下列程式碼行，以確實顯示目前選取的地區設定：
 
     ```objc
     self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
     ```
 
-    接著，在 *subscribe* 方法中，將您對 *storeCategoriesAndSubscribe* 的呼叫變更為下列程式碼：
+    接著，在 `subscribe` 方法中，將您對 `storeCategoriesAndSubscribe` 的呼叫變更為下列程式碼：
 
     ```objc
     [notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
@@ -174,7 +174,7 @@ ms.locfileid: "42918618"
     }];
     ```
 
-3. 最後，您必須在 AppDelegate.m 中更新 *didRegisterForRemoteNotificationsWithDeviceToken* 方法，以便能在應用程式啟動時正確重新整理您的註冊。 使用下列程式碼，針對通知的 *subscribe* 方法，變更您的方法呼叫：
+3. 最後，您必須在 AppDelegate.m 中更新 `didRegisterForRemoteNotificationsWithDeviceToken` 方法，以便能在應用程式啟動時正確重新整理您的註冊。 使用下列程式碼，針對通知的 `subscribe` 方法，變更您的方法呼叫：
 
     ```obj-c
     NSSet* categories = [self.notifications retrieveCategories];
@@ -261,20 +261,14 @@ ms.locfileid: "42918618"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已將當地語系化通知傳送至 iOS 裝置。 若要了解如何將通知推送至 iOS 應用程式的特定使用者，請繼續進行下列教學課程： 
+在本教學課程中，您已將當地語系化通知傳送至 iOS 裝置。 若要了解如何將通知推送至 iOS 應用程式的特定使用者，請繼續進行下列教學課程：
 
 > [!div class="nextstepaction"]
 >[將通知推送給特定使用者](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 
 <!-- Images. -->
-
 [13]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
 [14]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
-
-
-
-
-
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
@@ -292,7 +286,6 @@ ms.locfileid: "42918618"
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [JavaScript and HTML]: ../get-started-with-push-js.md
-
 [Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx

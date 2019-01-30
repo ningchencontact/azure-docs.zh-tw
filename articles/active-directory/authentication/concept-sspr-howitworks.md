@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be7aa43ec6001be78fb405290914f19174559530
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426199"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435714"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>運作方式：Azure AD 自助式密碼重設
 
@@ -150,7 +150,7 @@ ms.locfileid: "52426199"
 
 如果此選項設定為 [是]，則*所有管理員*會收到一封電子郵件 (送至 Azure AD 中歸檔的主要電子郵件地址)。 此電子郵件會通知他們有其他管理員已使用 SSPR 變更其密碼。
 
-範例︰環境中有四個系統管理員。 管理員 A 使用 SSPR 重設其密碼。 管理員 B、C 和 D 收到一封電子郵件，警示他們密碼已重設。
+範例：環境中有四個系統管理員。 管理員 A 使用 SSPR 重設其密碼。 管理員 B、C 和 D 收到一封電子郵件，警示他們密碼已重設。
 
 ## <a name="on-premises-integration"></a>內部部署整合
 
@@ -185,7 +185,7 @@ ms.locfileid: "52426199"
 
 所有企業對企業 (B2B) 組態完全支援密碼重設和變更。 下列三種案例支援 B2B 使用者密碼重設：
 
-   * **來自具備現有 Azure AD 租用戶之合作夥伴組織的使用者**：如果您合作的組織具備現有的 Azure AD 租用戶，我們會*遵守該租用戶中啟用的任何密碼重設原則*。 若要讓密碼重設得以運作，合作夥伴組織只需要確定已啟用 Azure AD SSPR。 若為 Office 365 的客戶，則不需收取額外費用，按照[開始使用密碼管理](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords)指南中的步驟即可啟用。
+   * **使用者來自具備現有 Azure AD 租用戶的合作夥伴組織**：如果您合作的組織具備現有的 Azure AD 租用戶，我們會「遵守該租用戶中啟用的任何密碼重設原則」。 若要讓密碼重設得以運作，合作夥伴組織只需要確定已啟用 Azure AD SSPR。 若為 Office 365 的客戶，則不需收取額外費用，按照[開始使用密碼管理](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords)指南中的步驟即可啟用。
    * **使用自助式註冊功能註冊的使用者**：如果您合作的組織是使用[自助式註冊](../users-groups-roles/directory-self-service-signup.md)功能進入租用戶，我們會讓他們利用其註冊的電子郵件重設密碼。
    * **B2B 使用者**：任何使用新的 [Azure AD B2B 功能](../active-directory-b2b-what-is-azure-ad-b2b.md)建立的新 B2B 使用者，也能夠利用其在邀請程序期間註冊的電子郵件重設其密碼。
 

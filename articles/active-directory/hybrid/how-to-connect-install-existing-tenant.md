@@ -1,10 +1,10 @@
 ---
-title: Azure AD Connect︰當您已經有 Azure AD 時 | Microsoft Docs
+title: Azure AD Connect：當您已經有 Azure AD 時 | Microsoft Docs
 description: 本主題描述當您有現有的 Azure AD 租用戶時，如何使用 Connect。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6425c2cd77cc32e296c75504d3fd01a5b5e583e9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6f0c16a86d4e3dbe582f1471d2b94e1ec85b70b5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305787"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475914"
 ---
-# <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect︰當您有存在的租用戶
+# <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect：當您有現有的租用戶時
 大部分說明如何使用 Azure AD Connect 的主題會假設您開始使用新的 Azure AD 租用戶，而且沒有任何使用者或其他物件。 但如果您開始使用 Azure AD 租用戶，且以使用者和其他物件填入，而現在想要使用 Connect，則這個主題很適用於您。
 
 ## <a name="the-basics"></a>基本概念

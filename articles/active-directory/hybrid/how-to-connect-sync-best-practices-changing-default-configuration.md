@@ -4,7 +4,7 @@ description: 提供變更 Azure AD Connect 同步處理預設組態的最佳作�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7638a031-1635-4942-94c3-fce8f09eed5e
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad19916dc49c2bee870eef77611d120cc66b44cd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f071d97df6932bec5ae4161511ba33369cc1828c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306237"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461172"
 ---
-# <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 同步處理：變更預設組態的最佳作法
+# <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 同步：變更預設組態的最佳做法
 本主題的目的旨在說明支援及不支援的 Azure AD Connect 同步處理變更。
 
 Azure AD Connect 所建立的組態適用於大部分同步內部部署 Active Directory 與 Azure AD 的「現狀」環境。 不過，在某些情況下，組態必須套用某些變更以滿足特定需要或需求。
@@ -73,5 +73,5 @@ Azure AD Connect 同步處理會使用安裝精靈所建立的服務帳戶執行
 ## <a name="next-steps"></a>後續步驟
 **概觀主題**
 
-* [Azure AD Connect 同步處理：了解及自訂同步處理](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 同步：了解並自訂同步處理](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)

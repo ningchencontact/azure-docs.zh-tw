@@ -79,8 +79,12 @@ items:
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: 使用 DMS 遷移至受控執行個體
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: 確保資料庫的安全
-    href: sql-database-security-tutorial.md
+  - name: Azure SQL Database 中的安全性
+    items:
+    - name: 單一資料庫安全性
+      href: sql-database-security-tutorial.md
+    - name: 使用 Azure AD 登入的受控執行個體
+      href: sql-database-managed-instance-aad-security-tutorial.md
   - name: 實作異地分散資料庫
     href: sql-database-implement-geo-distributed-database.md
   - name: 設定 Azure SQL 資料同步
@@ -692,9 +696,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: 解除安裝彈性工作 (取代)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 7d7e85b3a7934b03395960d5dcbdc1141f0effd8
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b69adc5f54e2566f62049225ccb0fc438a33ca6e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101086"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226803"

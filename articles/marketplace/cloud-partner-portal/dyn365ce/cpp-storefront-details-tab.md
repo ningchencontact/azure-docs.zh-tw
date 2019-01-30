@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 62220104329e36fbb2e6f7d3b5b48bcaeaba3660
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081760"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445057"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 for Customer Engagement 店面詳細資料索引標籤
 
@@ -76,7 +76,7 @@ ms.locfileid: "54081760"
 |      欄位            |    說明                 |
 |  ---------------      |  ---------------               |
 | 供應項目標誌 (png 格式，48x48) | 上傳將在您應用程式的搜尋頁面上顯示的影像。 格式為 PNG，大小必須是 48 x 48 像素。 |
-| 供應項目標誌 (png 格式，216x216) | 上傳將在您應用程式的詳細資料頁面上顯示的影像。 格式為 PNG，大小必須是 216 x 216 像素。 |
+| 供應項目標誌 (png 格式，216x216) | 上傳將在您應用程式詳細資料頁面上顯示的影像。 格式為 PNG，大小必須是 216 x 216 像素。 |
 | 影片                | 上傳應用程式的促銷或教學影片，最多四部。  請為每部影片填寫影片名稱、URL (僅限 YouTube 或 Vimeo)，以及採用 PNG 格式、大小為 1280 x 720 像素的相關縮圖。  | 
 | 文件             | 上傳 PDF 格式的產品促銷或教學文件，最多三份。  請提供每份文件的文件名稱。  |
 | 螢幕擷取畫面           | 以 PNG 格式、1280 x 720 像素的大小上傳應用程式 UI 的影像，最多五個。  這些螢幕擷取畫面會出現在您應用程式的 AppSource 詳細資料頁面上。 |

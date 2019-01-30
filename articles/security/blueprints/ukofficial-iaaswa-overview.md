@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d40e23a7cc113a9db297a7dbf00a2372063dfb52
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d5b759fcde66a2a9be86cc15cba1ead1765ba248
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059210"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413391"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 安全性與合規性藍圖 - 適用於 UK OFFICIAL 的三層式 IaaS Web 應用程式
 
@@ -129,9 +129,9 @@ ms.locfileid: "39059210"
 
 ### <a name="deployment-architecture"></a>部署架構：
 
-**內部部署網路**：實作於組織中的私人區域網路。
+**內部部署網路**：在組織內實作的私人區域網路。
 
-**生產環境 VNet**：生產環境 [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) (虛擬網路) 會裝載在 Azure 中執行的應用程式及其他作業資源。 每個 VNet 可能會包含數個可用來隔離及管理網路流量的子網路。
+**生產 VNet**：生產環境 [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) (虛擬網路) 會裝載在 Azure 中執行的應用程式及其他作業資源。 每個 VNet 可能會包含數個可用來隔離及管理網路流量的子網路。
 
 **網路層**：處理傳入的 HTTP 要求。 回應會透過此層傳回。
 
@@ -145,20 +145,20 @@ ms.locfileid: "39059210"
 
 **管理 VNet**：此 [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 所包含的資源能針對在生產環境 VNet 中執行的工作負載，實作管理與監視功能。
 
-**Jumpbox**：也稱為[防禦主機](https://en.wikipedia.org/wiki/Bastion_host) \(英文\)，這個位於網路上的安全 VM，可供系統管理員用來連線到生產環境 VNet 中的 VM。 Jumpbox 具有 NSG，能夠儘允許來自安全清單上公用 IP 位址的遠端流量。 若要允許遠端桌面 (RDP) 流量，必須在 NSG 中定義該流量的來源。 生產環境資源的管理是使用安全的 Jumpbox VM 透過 RDP 進行。
+**Jumpbox**：也稱為[防禦主機](https://en.wikipedia.org/wiki/Bastion_host) \(英文\)，這個位於網路上的安全 VM，可供系統管理員用來連線到生產環境 VNet 中的 VM。 Jumpbox 具有 NSG，只允許來自安全清單上公用 IP 位址的遠端流量。 若要允許遠端桌面 (RDP) 流量，必須在 NSG 中定義該流量的來源。 生產環境資源的管理是使用安全的 Jumpbox VM 透過 RDP 進行。
 
 **使用者定義的路由**：[使用者定義的路由](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)會用來定義 Azure VNet 內 IP 流量的流程。
 
 **網路對等互連的 VNET**：生產環境 VNet 和管理 VNet 會使用 [VNet 對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)來連線。
 系統仍然會將這些 VNet 作為不同的資源來管理，但針對這些虛擬機器的所有連線用途則會顯示為單一資源。 這些網路會使用私人 IP 位址與彼此進行直接通訊。 VNet 對等互連的 VNet 皆需位於同一個 Azure 區域。
 
-**網路安全性群組**：[NSG](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 包含能允許或拒絕 VNet 內之流量的存取控制清單。 NSG 可以用來保護子網路或個別 VM 層級的流量。
+**網路安全性群組**：[NSG](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 包含能允許或拒絕 VNet 內流量的存取控制清單。 NSG 可以用來保護子網路或個別 VM 層級的流量。
 
 **Active Directory Domain Services (AD DS)**：此架構會提供專用的 [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) 部署。
 
 **記錄與稽核**：[Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)會擷取在您訂用帳戶中的資源上所採取的作業，例如起始作業的人員、作業發生的時間、作業的狀態，以及可能有助於您研究作業的其他屬性值。 Azure 活動記錄為可擷取訂用帳戶上所有動作的 Azure 平台服務。 必要時可將記錄封存或匯出。
 
-**網路監視與警示**：[Azure 網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)是一個可針對 VNet 內的網路流量提供網路封包擷取、流程記錄、拓撲工具及診斷的平台服務。
+**網路監視和警示**：[Azure 網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)是一個可針對 VNet 內的網路流量提供網路封包擷取、流程記錄、拓撲工具及診斷的平台服務。
 
 ## <a name="guidance-and-recommendations"></a>指引與建議
 
@@ -172,7 +172,7 @@ ms.locfileid: "39059210"
 
 **活動記錄**：設定 [Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)，以針對在訂用帳戶中資源上所執行的作業提供深入解析。
 
-**診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)是由資源發出的所有記錄。 這些記錄可能包含 Windows 事件系統記錄、Blob、資料表和佇列記錄。
+**診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)是資源發出的所有記錄。 這些記錄可能包含 Windows 事件系統記錄、Blob、資料表和佇列記錄。
 
 **防火牆記錄**：應用程式閘道會提供完整的診斷和存取記錄。 防火牆記錄檔可供已啟用 WAF 的應用程式閘道資源使用。
 
@@ -186,7 +186,7 @@ ms.locfileid: "39059210"
 
 [在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針](https://msdn.microsoft.com/library/azure/jj156090.aspx)。
 
-**Active Directory 整合**：作為專用 AD DS 架構的替代方案，客戶可能會想要使用 [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-azure-active-directory) 整合或 [Azure 中已加入內部部署樹系的 Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest)。
+**Active Directory 整合**：作為專用 AD DS 架構的替代方案，客戶可能會想要使用 [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) 整合或 [Azure 中已加入內部部署樹系的 Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest)。
 
 ### <a name="security"></a>安全性
 
@@ -210,7 +210,7 @@ ms.locfileid: "39059210"
 
 **網際網路存取**：此參考架構會運用 [Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)作為網際網路面向閘道和負載平衡器。 作為 [Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)的替代項目，有些客戶可能也會考慮使用協力廠商網路虛擬裝置來取得額外的網路安全性層。
 
-**Azure 資訊安全中心**：[Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)能提供訂用帳戶中資源之安全性狀態的集中檢視，並提供有助於預防資源被入侵的相關建議。 它也可以用來啟用更細微的原則。 例如，可將原則套用到特定的資源群組，來使企業能夠調整針對風險的作法。 建議客戶在其 Azure 訂用帳戶中啟用 Azure 資訊安全中心。
+**Azure 資訊安全中心**：[Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)可供集中檢視訂用帳戶中資源的安全性狀態，並提供有助於預防資源遭到入侵的相關建議。 它也可以用來啟用更細微的原則。 例如，可將原則套用到特定的資源群組，來使企業能夠調整針對風險的作法。 建議客戶在其 Azure 訂用帳戶中啟用 Azure 資訊安全中心。
 
 ## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>NCSC 雲端安全性原則合規性文件
 

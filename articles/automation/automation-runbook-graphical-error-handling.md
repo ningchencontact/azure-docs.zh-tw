@@ -3,18 +3,18 @@ title: Azure 自動化之圖形化 Runbook 中的錯誤處理
 description: 本文說明如何在 Azure 自動化的圖形化 Runbook 中實作錯誤處理邏輯。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 14112a9a9f64f20540a8f7e1d37cd31017238e59
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d7fe38334b71334d4dae9235643117efdf5fbd5d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192705"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436683"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure 自動化之圖形化 Runbook 中的錯誤處理
 
@@ -26,11 +26,11 @@ Runbook 應該包含錯誤處理。 若要驗證活動的輸出，或以圖形�
 
 執行期間可能發生的 PowerShell 錯誤類型為終止或非終止。 終止和非終止錯誤之間的差異如下︰
 
-* **終止錯誤**︰執行期間所發生的嚴重錯誤，此錯誤會完全終止命令 (或指令碼執行)。 範例包括不存在的 Cmdlet、防止 Cmdlet 執行的語法錯誤，或其他嚴重錯誤。
+* **終止錯誤**：執行期間所發生的嚴重錯誤，此錯誤會完全終止命令 (或指令碼執行)。 範例包括不存在的 Cmdlet、防止 Cmdlet 執行的語法錯誤，或其他嚴重錯誤。
 
-* **非終止錯誤**︰非嚴重錯誤，會允許繼續執行，而不理會失敗。 範例包括操作錯誤，例如找不到檔案錯誤和權限問題。
+* **非終止錯誤**：非嚴重錯誤，會允許繼續執行，而不理會失敗。 範例包括操作錯誤，例如找不到檔案錯誤和權限問題。
 
-Azure 自動化的圖形化 Runbook 已納入錯誤處理功能。 您現在可以將例外狀況變成非終止錯誤，並建立活動之間的錯誤連結。 此處理可讓 Runbook 作者捕捉到錯誤，以及管理已實現或非預期的狀況。  
+Azure 自動化的圖形化 Runbook 已納入錯誤處理功能。 您現在可以將例外狀況變成非終止錯誤，並建立活動之間的錯誤連結。 此處理可讓 Runbook 作者捕捉到錯誤，以及管理已實現或非預期的狀況。  
 
 ## <a name="when-to-use-error-handling"></a>何時使用錯誤處理
 
@@ -69,3 +69,4 @@ Azure 自動化的圖形化 Runbook 已納入錯誤處理功能。 您現在可�
 * 若要深入了解圖形化 Runbook 中的連結和連結類型，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md#links-and-workflow)。
 
 * 若要深入了解 Runbook 執行方式、如何監視 Runbook 作業，以及其他技術性詳細資料，請參閱[追蹤 Runbook 作業](automation-runbook-execution.md)。
+

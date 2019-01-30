@@ -4,7 +4,7 @@ description: 使用 Azure 虛擬機器 Azure 資源的受控識別服務主體�
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: bf363e4b03fb604e1b9af0d30b6e4ac471a41821
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ce25c05d2b3de3fcf6b7318b90590b84f3ee9c52
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980282"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423182"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>如何使用 Azure VM 的 Azure 資源受控識別進行登入 
 
@@ -83,8 +83,8 @@ Azure 資源的受控識別提供[服務主體物件](../develop/developer-gloss
 
 以下所示的回應可能代表虛擬機器的 Azure 資源受控識別未正確設定：
 
-- PowerShell：Invoke-WebRequest：無法連線到遠端伺服器
-- CLI：MSI：無法從 'http://localhost:50342/oauth2/token' 擷取權杖，包含 HTTPConnectionPool(主機='localhost'，連接埠=50342) 錯誤 
+- PowerShell：*Invoke-WebRequest︰無法連線到遠端伺服器*
+- CLI：*MSI：無法從 'http://localhost:50342/oauth2/token' 擷取權杖，包含 HTTPConnectionPool(主機='localhost'，連接埠=50342) 錯誤* 
 
 如果您收到這些錯誤的其中一個，請返回 [Azure 入口網站](https://portal.azure.com)中的 Azure 虛擬機器，並且：
 

@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 597b8f59ef6991f7868d3de481e98ed9a459077b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 0eebfd8b75f428d3b8f6024ed6ee71c18c1309f6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050790"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435969"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>針對組態伺服器問題進行疑難排解
 
@@ -58,6 +58,16 @@ ms.locfileid: "54050790"
 
 如果服務在安裝行動代理程式並向設定伺服器註冊時，無法從傳輸連線讀取資料，就會發生此錯誤。 若要解決此問題，請確定已在來源電腦上啟用 TLS 1.0。
 
+## <a name="vcenter-discovery-failures"></a>vCenter 探索失敗
+
+若要解決 vCenter 探索失敗，請確保該 vCenter 伺服器已加入至 byPass 清單的 Proxy 設定。若要執行這項活動，
+
+- 請從[此處](https://aka.ms/PsExec)下載 PsExec 工具，以存取系統使用者內容。
+- 藉由執行下列命令列   psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"，在系統使用者內容中開啟 Internet Explorer
+- 在 IE 中新增 Proxy 設定，然後重新啟動 tmanssvc 服務。
+- 若要設定 DRA Proxy 設定，請執行   cd C:\Program Files\Microsoft Azure Site Recovery Provider
+- 接下來，執行 DRCONFIGURATOR.EXE /configure /AddBypassUrls [新增[組態伺服器部署](vmware-azure-deploy-configuration-server.md#configure-settings)的**設定 vCenter Server/vSphere ESXi 伺服器**步驟進行期間所提供的 IP 位址/FQDN]
+
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>變更設定伺服器的 IP 位址
 
 強烈建議不要變更設定伺服器的 IP 位址。 確定指派給設定伺服器的所有 IP 位址皆為靜態位址。 請勿使用 DHCP IP 位址。
@@ -70,7 +80,7 @@ ms.locfileid: "54050790"
 
 無法建立驗證 Site Recovery 所需的憑證。 請先確定您是以本機系統管理員身分執行安裝程式，再重新執行安裝程式。
 
-## <a name="register-the-source-machine-with-the-configuration-server"></a>向設定伺服器註冊來源電腦
+## <a name="register-source-machine-with-configuration-server"></a>向設定伺服器註冊來源電腦
 
 ### <a name="if-the-source-machine-runs-windows"></a>如果來源電腦執行 Windows
 

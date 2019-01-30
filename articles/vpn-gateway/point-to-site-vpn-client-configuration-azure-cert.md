@@ -5,26 +5,26 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 11d23102ca807ab1ddf41f1d0e72aed8a8513ac8
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 0f834c88a22aca52a861309681ea0da204b2a552
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636640"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412060"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔
 
-VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 Windows、Mac IKEv2 VPN 或 Linux 用戶端所需的設定，以透過使用原生 Azure 憑證驗證的點對站連線來連線至 VNet。 如需點對站連線的詳細資訊，請參閱[關於點對站 VPN](point-to-site-about.md)。
+VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 Windows、Mac IKEv2 VPN 或 Linux 用戶端所需的設定，以透過使用原生 Azure 憑證驗證的點對站連線來連線至 VNet。
+
+用戶端組態檔是 VNet 所使用之 VPN 組態特有的檔案。 如果您在產生 VPN 用戶端組態檔後對「點對站 VPN 組態」進行任何變更 (例如 VPN 通訊協定類型或驗證類型)，請務必為使用者裝置產生新的 VPN 用戶端組態檔。 
+
+* 如需點對站連線的詳細資訊，請參閱[關於點對站 VPN](point-to-site-about.md)。
+* 如需 OpenVPN 相關指示，請參閱[設定 P2S 的 OpenVPN](vpn-gateway-howto-openvpn.md) 和[設定 OpenVPN 用戶端](vpn-gateway-howto-openvpn-clients.md)。
 
 >[!IMPORTANT]
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
->
-
->[!NOTE]
->用戶端組態檔是 VNet 所使用之 VPN 組態特有的檔案。 如果您在產生 VPN 用戶端組態檔後對「點對站 VPN 組態」進行任何變更 (例如 VPN 通訊協定類型或驗證類型)，請務必為使用者裝置產生新的 VPN 用戶端組態檔。
->
 >
 
 ## <a name="generate"></a>產生 VPN 用戶端組態檔

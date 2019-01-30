@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 535c65f58ac9a3f39faa347ca853bfa410b7f182
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185321"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432756"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>適用於 Windows 的虛擬機器序列主控台
 
@@ -53,6 +53,9 @@ Azure 入口網站上的虛擬機器 (VM) 序列主控台可讓您存取 Windows
   1. 向下捲動至 [支援與疑難排解] 區段，然後選取 [序列主控台]。 這會開啟含有序列主控台的新窗格，並開始連線。
 
 ## <a name="enable-serial-console-functionality"></a>啟用序列主控台功能
+
+> [!NOTE]
+> 如果您在序列主控台中沒有看到任何項目，請確定您的 VM 上已啟用開機診斷。
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>在自訂或舊版的映像中啟用序列主控台
 Azure 上的新版 Windows Server 映像預設會啟用[特殊系統管理主控台](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC)。 在伺服器版本的 Windows 上可支援 SAC，但在用戶端版本 (例如 Windows 10、Windows 8 或 Windows 7) 上則不支援。
@@ -237,6 +240,7 @@ Web 通訊端已關閉或無法開啟。 | 您可能需要將 `*.console.azure.c
 在 SAC 中貼到 PowerShell 中時，如果原始內容中有重複字元，就會產生第三個字元。 | 因應措施是執行 `Remove-Module PSReadLine` 從目前的工作階段中卸載 PSReadLine 模組。 此動作不會刪除或解除安裝模組。
 某些鍵盤輸入會產生奇怪的 SAC 輸出 (例如 **[A**、**[3~**)。 | SAC 提示字元不支援 [VT100](https://aka.ms/vtsequences) 逸出序列。
 貼上長字串沒有作用。 | 序列主控台會將貼上至終端機的字串長度限制為 2048 個字元，以防止多載序列連接埠頻寬。
+序列主控台無法與儲存體帳戶防火牆搭配使用。 | 根據設計，序列主控台無法與開機診斷儲存體帳戶上啟用的儲存體帳戶防火牆搭配使用。
 
 
 ## <a name="frequently-asked-questions"></a>常見問題集

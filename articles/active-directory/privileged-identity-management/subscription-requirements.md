@@ -1,6 +1,6 @@
 ---
-title: 使用 PIM 的訂用帳戶需求 - Azure | Microsoft Docs
-description: 說明要使用 Azure AD Privileged Identity Management (PIM) 的訂用帳戶和授權需求。
+title: 使用 PIM 的授權需求 - Azure | Microsoft Docs
+description: 說明要使用 Azure AD Privileged Identity Management (PIM) 的授權需求。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,53 +13,55 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 06/01/2017
+ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 1554895dcba0c09a3a2e19c284a1cd6f0416cfe1
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: dd4fa72b3e0b57ab227146eae6e2c7d20d0ce47a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190605"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424212"
 ---
-# <a name="subscription-requirements-to-use-pim"></a>使用 PIM 的訂用帳戶需求
+# <a name="license-requirements-to-use-pim"></a>使用 PIM 的授權需求
 
-Azure AD Privileged Identity Management 可在 Azure AD 的 Premium P2 Edition 中使用。 如需 P2 的其他功能資訊以及其與 Premium P1 的比較詳細資訊，請參閱 [Azure Active Directory 版本](../active-directory-editions.md)。
+若要使用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)，目錄必須具有有效的授權。 此外，也必須指派授權給管理員和相關的使用者。 本文說明使用 PIM 的授權需求。
 
->[!NOTE]
-Azure Active Directory (Azure AD) Privileged Identity Management 處於預覽狀態時，不會對嘗試服務的租用戶進行任何授權檢查。  現在，Azure AD Privileged Identity Management 已公開上市，必須存在試用或付費訂用帳戶，租用戶才能在 2016 年 12 月之後繼續使用 Privileged Identity Management。
-  
+## <a name="prerequisites"></a>必要條件
 
-## <a name="confirm-your-trial-or-paid-subscription"></a>確認試用或付費訂用帳戶
+若要使用 PIM，目錄必須具有下列其中一個付費或試用授權：
 
-如果您不確定您的組織是否有試用或購買的訂用帳戶時，您可以使用適用於 Windows PowerShell V1 的 Azure Active Directory 模組中包含的命令，檢查您的租用戶中是否有訂用帳戶。 
-1. 開啟 PowerShell 視窗。
-2. 輸入 `Connect-MsolService` 以在您的租用戶中以使用者身分進行驗證。
-3. 輸入 `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`。
+- Azure AD Premium P2
+- Enterprise Mobility + Security (EMS) E5
 
-此命令會擷取您租用戶中的訂用帳戶清單。 如果未傳回任何資料行，您必須取得 Azure AD Premium P2 試用版、購買 Azure AD Premium P2 訂用帳戶或 EMS E5 訂用帳戶，才能使用 Azure AD Privileged Identity Management。  若要取得試用版並開始使用 Azure AD Privileged Identity Management，請參閱[開始使用 Azure AD Privileged Identity Management](pim-getting-started.md)。
+如需詳細資訊，請參閱[什麼是 Azure Active Directory？](../fundamentals/active-directory-whatis.md)。
 
-如果此命令傳回一個資料行，其中的 SkuPartNumber 為 "AAD_PREMIUM_P2" 或 "EMSPREMIUM" 且 IsTrial 為 "True"，這表示 Azure AD Premium P2 試用版已存在於租用戶。  如果訂用帳戶狀態為未啟用，而且您未購買 Azure AD Premium P2 或 EMS E5 訂用帳戶，則您必須購買 Azure AD Premium P2 訂用帳戶或 EMS E5 訂用帳戶，才能繼續使用 Azure AD Privileged Identity Management。
+## <a name="which-users-must-have-licenses"></a>哪些使用者必須有授權？
 
-您可以透過 [Microsoft Enterprise 合約](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)、[Open Volume 授權方案](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)與[雲端解決方案提供者方案](https://partner.microsoft.com/cloud-solution-provider)取得 Azure AD Premium P2。 Azure 和 Office 365 訂閱者也可以線上購買 Azure AD Premium P2。  如需關於 Azure AD Premium 價格或線上訂購方式的詳細資訊，請瀏覽 [Azure Active Directory 價格](https://azure.microsoft.com/pricing/details/active-directory/)。
+會與 PIM 互動或可從 PIM 獲益的每個管理員或使用者都必須具有授權。 範例包括：
 
-## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>Azure AD Privileged Identity Management 不適用於租用戶
+- 有使用 PIM 所管理 Azure AD 角色的管理員
+- 有使用 PIM 所管理 Azure 資源角色的管理員
+- 指派給「特殊權限角色管理員」角色的管理員
+- 指派為有資格成為目錄角色 (可使用 PIM 來管理) 的使用者
+- 能夠在 PIM 中核准/拒絕要求的使用者
+- 指派給 Azure 資源角色 (透過及時或直接 (以時間為基礎) 的方式指派) 的使用者  
+- 指派給存取權檢閱的使用者
+- 執行存取權檢閱的使用者
 
-在下列情況下，Azure AD Privileged Identity Management 無法再適用於租用戶︰
-- 您的組織使用預覽狀態的 Azure AD Privileged Identity Management，且未購買 Azure AD Premium P2 訂用帳戶或 EMS E5 訂用帳戶。
-- 您的組織擁有的 Azure AD Premium P2 或 EMS E5 試用版已過期。
-- 您的組織購買的訂用帳戶已過期。
+如需如何指派授權給使用者的相關資訊，請參閱[使用 Azure Active Directory 入口網站指派或移除授權](../fundamentals/license-users-groups.md)。
 
-當 Azure AD Premium P2 訂用帳戶或 EMS E5 訂用帳戶過期，或使用預覽狀態 Azure AD Privileged Identity Management 的組織未取得 Azure AD Premium P2 或 EMS E5 訂用帳戶時：
+## <a name="what-happens-when-a-license-expires"></a>授權過期會發生什麼狀況？
+
+如果 Azure AD Premium P2、EMS E5 或試用版授權過期，目錄中就無法再使用 PIM 功能：
 
 - Azure AD 角色的永久角色指派不會受到影響。
-- 使用者無法再利用 Azure 入口網站中的 Azure AD Privileged Identity Management 擴充以及 Azure AD Privileged Identity Management 的 Graph API Cmdlet 和 PowerShell 介面，來啟動特殊權限的角色、管理特殊權限的存取權，或執行特殊權限角色的存取檢閱。
+- 使用者無法再利用 Azure 入口網站中的 PIM 服務以及 PIM 的 Graph API Cmdlet 和 PowerShell 介面，來啟動特殊權限的角色、管理特殊權限的存取權，或執行特殊權限角色的存取檢閱。
 - Azure AD 角色的合格角色指派將會遭到移除，因為使用者將無法再啟動特殊權限的角色。
-- Azure AD 角色的任何進行中存取檢閱將會結束，而且 Azure AD Privileged Identity Management 組態設定將會遭到移除。
-- Azure AD Privileged Identity Management 將不再傳送有關角色指派變更的電子郵件。
+- Azure AD 角色的任何進行中存取檢閱將會結束，而且 PIM 組態設定將會遭到移除。
+- PIM 將不再傳送有關角色指派變更的電子郵件。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [開始使用 PIM](pim-getting-started.md)
-- [您可以在 PIM 中管理的 Azure AD 目錄角色](pim-roles.md)
+- [您無法在 PIM 中管理的角色](pim-roles.md)

@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 12/12/2018
-ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/18/2019
+ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789902"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411742"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>針對行動服務推送安裝問題進行疑難排解
 
@@ -141,6 +141,14 @@ ms.locfileid: "53789902"
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>開機與系統磁碟分割/磁碟區不是同一個磁碟 (錯誤識別碼：95309)
 
 9.20 之前的版本不支援開機和系統磁碟分割/磁碟區位於不同磁碟的設定。 從 [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)開始支援這樣的設定。 請使用最新版本以取得此支援。
+
+## <a name="boot-disk-not-found-errorid-95310"></a>找不到開機磁碟 (ErrorID：95310)
+
+無法保護不含開機磁碟的虛擬機器。 這是為了確保在容錯移轉作業期間順利復原虛擬機器。 缺少開機磁碟會導致無法在容錯移轉之後啟動機器。 確定虛擬機器包含開機磁碟，然後重試此作業。 另請注意，不支援同部電腦上有多個開機磁碟。
+
+## <a name="multiple-boot-disks-found-errorid-95311"></a>找到多個開機磁碟 (ErrorID：95311)
+
+具有多個開機磁碟的虛擬機器不是[支援的組態](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)。
 
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>系統磁碟分割位於多個磁碟上 (錯誤識別碼：95313)
 

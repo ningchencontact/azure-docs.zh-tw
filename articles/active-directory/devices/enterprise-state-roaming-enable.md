@@ -5,7 +5,7 @@ services: active-directory
 keywords: 企業狀態漫遊, windows 雲端, 如何啟用企業狀態漫遊
 documentationcenter: ''
 author: tanning
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 9dc223015f85d83278d48494bf05693c7932bdde
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 3e6b2d09c2b3c204fc62428ab53a4d4e33d57eac
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50128778"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448375"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>在 Azure Active Directory 中啟用企業狀態漫遊
 任何具有 Azure AD Premium 或 Enterprise Mobility + Security (EMS) 授權的組織都可以使用企業狀態漫遊。 如需有關如何取得 Azure AD 訂用帳戶的詳細資訊，請參閱 [Azure AD 產品頁面](https://azure.microsoft.com/services/active-directory)。
@@ -41,7 +41,7 @@ ms.locfileid: "50128778"
 若要讓 Windows 10 裝置使用企業狀態漫遊服務，裝置必須使用 Azure AD 身分識別進行驗證。 對於已加入 Azure AD 的裝置，使用者的主要登入身分識別就是其 Azure AD 身分識別，不需要額外設定。 對於使用內部部署 Active Directory 的裝置，IT 管理員必須[設定已加入混合式 Azure Active Directory 的裝置](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps)。 
 
 ## <a name="data-storage"></a>資料儲存體
-企業狀態漫遊資料裝載於一或多個 [Azure 區域](https://azure.microsoft.com/regions/)，這些區域最符合 Azure Active Directory 執行個體中設定的國家/區域值。 企業狀態漫遊的資料是根據三個主要地理區域來分割︰北美洲、EMEA 和 APAC。 適用於租用戶的企業狀態漫遊資料是位於本機的地理區域中，並不會跨區域複寫。  例如︰
+企業狀態漫遊資料裝載於一或多個 [Azure 區域](https://azure.microsoft.com/regions/)，這些區域最符合 Azure Active Directory 執行個體中設定的國家/區域值。 企業狀態漫遊的資料根據三個主要地理區域來分割︰北美洲、EMEA 和 APAC。 適用於租用戶的企業狀態漫遊資料是位於本機的地理區域中，並不會跨區域複寫。  例如︰
 
 國家/區域值 | 將其資料裝載於
 ---------------------|-------------------------
@@ -77,7 +77,7 @@ EMEA 國家/地區，例如，法國或尚比亞 | 歐洲內的一個或多個 A
 
 * **使用者刪除**：在 Azure AD 中刪除使用者時，使用者帳戶漫遊資料會在 90 至 180 天後刪除。 
 * **目錄刪除**：在 Azure AD 中刪除整個目錄是即時作業。 與該目錄相關聯的所有設定資料會在 90 至 180 天後刪除。 
-* **依要求刪除**：如果 Azure AD 管理員想要手動刪除特定使用者的資料或設定資料，管理員可以向 [Azure 支援](https://azure.microsoft.com/support/)提出票證。 
+* **依要求刪除**：如果 Azure AD 管理員想要手動刪除特定使用者的資料或設定資料，管理員可以透過 [Azure 支援](https://azure.microsoft.com/support/)開立票證。 
 
 ### <a name="stale-data-deletion"></a>刪除過時資料
 一年 (「保留期限」) 未存取的資料將視為過時，可能會從 Microsoft 雲端中刪除。 保留期限可能有所變更，但不會小於 90 天。 過時的資料可能是一組特定的 Windows/應用程式設定或使用者的所有設定。 例如︰

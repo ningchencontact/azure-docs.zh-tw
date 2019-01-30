@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 12/12/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 21baa89293c74ec49720bffc2506e20789fe9e55
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b897b50edf4d5a7eeabacc6da1505e165f2bb21a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411253"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431736"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-december-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 12 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 12 月導入的新功能和變更。
@@ -53,6 +53,9 @@ ALTER DATABASE [Database Name] SET QUERY_STORE = ON;
 Azure SQL 資料倉儲 Gen2 現可支援較低的支援層級。 客戶可從 100 cDWU ([資料倉儲單位](https://docs.microsoft.com/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu)) 開始使用，在數分鐘內調整為 30,000 cDWU，體驗 Azure SQL 資料倉儲卓越的效能、彈性及安全性功能。 自 2018 年 12 月中起，這些[地區](https://docs.microsoft.com/azure/sql-data-warehouse/gen2-lower-tier-regions)的客戶即可在較低的運算層級享有 Gen2 的效能和彈性，其餘地區則會在 2019 年跟進。
 
 注重價值的客戶希望能全面評估安全的高效能資料倉儲的所有益處，且不想要猜測決定最適合的試用環境，而 Microsoft 降低了次世代資料倉儲服務的入門門檻，對這些客戶敞開了大門。 客戶最低可從 100 cDWU 開始，比目前 500 cDWU 的入門門檻更低。 SQL 資料倉儲 Gen2 會進一步支援暫停和繼續的作業，不單只將彈性侷限在運算方面。 Gen2 也支援無限制資料行存放區的儲存體容量，每個查詢的記憶體增加 2.5 倍，最多可達 128 個並行查詢，還具備[調適性快取](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/)功能。 與同價格的 Gen1 一樣的資料倉儲單位相比，上述功能的效能平均高出五倍。 在保證內建資料保護功能的 Gen2 中，異地備援備份是標準功能。 Azure SQL Data Warehouse Gen2 時刻做好充足準備，只待您開始調整級別。
+
+## <a name="columnstore-background-merge"></a>資料行存放區背景合併
+根據預設，Azure SQL 資料倉儲 (Azure SQL DW) 會使用稱為[資料列群組](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression)的微型分割，以資料行格式儲存資料。 有時候，因為在建置索引或載入資料時記憶體受到限制，資料列群組可能會經過壓縮，且使用的壓縮大小低於最佳的 1 百萬個資料列。 資料列群組也可能會因為刪除操作而變得零碎。 小型或零碎的資料列群組會耗用更高的記憶體，執行查詢時的效率也不好。 使用這一版的 Azure SQL DW 時，資料行存放區的背景維護工作會合併經過壓縮的小型資料列群組，以建立較大型的資料列群組，從而更加充分地利用記憶體並加快查詢的執行速度。
 
 ## <a name="next-steps"></a>後續步驟
 現在您已稍微了解 SQL 資料倉儲，請了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary]在您認識新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  

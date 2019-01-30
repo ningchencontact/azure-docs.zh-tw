@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 01/21/2019
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 0f0de122dc3dbd770e91a8412430423bee222b30
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 085923dd124a4f973a709f0e59a07ad4137c6901
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577939"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438490"
 ---
-# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>操作說明：重新啟用已停用的存取控制服務命名空間
+# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>作法：重新啟用已停用的存取控制服務命名空間
 
 我們在 2017 年 11 月宣布 Microsoft Azure 存取控制服務 (ACS) 這項 Azure Active Directory (Azure AD) 服務，將於 2018 年 11 月 7 日淘汰。
 
@@ -32,7 +32,7 @@ ms.locfileid: "51577939"
 
 ## <a name="why-your-namespace-is-disabled"></a>為何您的命名空間遭到停用
 
-如果您還沒有選擇加入延長時間，我們將從 2018 年 11 月 7 日開始停用 ACS 命名空間。 如果您錯過延長機會並仍想要加入延長至 2019 年 2 月 4 日的行列，請遵循下列各節中的指示。
+如果您還沒有選擇加入延長時間，我們將從 2018 年 11 月 7 日開始停用 ACS 命名空間。 您必須已要求延長到 2019 年 2 月 4 日；否則您將無法透過 PowerShell 啟用命名空間。
 
 > [!NOTE]
 > 您必須是訂用帳戶的服務管理員或共同管理員，才能執行 PowerShell 命令並要求延長。
@@ -57,7 +57,7 @@ ms.locfileid: "51577939"
 
         若要取得特定命令的說明，請執行：
 
-        ```
+        ```powershell
         Get-Help [Command-Name] -Full
         ```
     
@@ -79,18 +79,45 @@ ms.locfileid: "51577939"
 
 ## <a name="request-an-extension"></a>要求延長
 
-1. 移至 `https://{your-namespace}.accesscontrol.windows.net` 以瀏覽至您 ACS 命名空間的管理入口網站。
-1. 選取 [閱讀條款] 按鈕來閱讀[已更新使用規定](https://azure.microsoft.com/support/legal/access-control/)，這會將您導向到包含已更新使用規定的頁面。
+我們將於 2019 年 1 月 21 日開始採用新的延長要求。
 
-    [![選取 [閱讀條款] 按鈕](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png#lightbox)
+我們將開始對已要求延長至 2019 年 2 月 4 日的客戶停用命名空間。 您仍然可以透過 PowerShell 重新啟用命名空間，但命名空間將會在 48 小時之後再次停用。
 
-1. 在頁面頂端的橫幅上選取 [要求延長]。 只有在您閱讀完[已更新使用規定](https://azure.microsoft.com/support/legal/access-control/)之後，按鈕才會啟用。
+2019 年 3 月 4 日之後，客戶將無法再透過 PowerShell 重新啟用任何命名空間。
 
-    [![選取 [要求延長] 按鈕](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png#lightbox)
+系統將不會再自動核准更久的延長時間。 如果您需要額外的時間來進行遷移，請連絡 [Azure 支援](https://portal.azure.com/#create/Microsoft.Support)來提供詳細的移轉時間軸。
 
-1. 註冊延長要求之後，頁面會重新整理並在頁面頂端顯示新橫幅。
+### <a name="to-request-an-extension"></a>要求延長
 
-    [![包含已重新整理橫幅的更新後頁面](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
+1. 登入 Azure 入口網站，並建立[新的支援要求](https://portal.azure.com/#create/Microsoft.Support)。
+1. 填入新的支援要求表單，如下列範例所示。
+
+    | 支援要求欄位 | 值 |
+    |-----------------------|--------------------|
+    | **問題類型** | `Technical` |
+    | **訂用帳戶** | 設為您的訂用帳戶 |
+    | **服務** | `All services` |
+    | **Resource** | `General question/Resource not available` |
+    | **問題類型** | `ACS to SAS Migration` |
+    | **主旨** | 描述問題 |
+
+  ![新的技術支援要求](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+
+<!--
+
+1. Navigate to your ACS namespace's management portal by going to `https://{your-namespace}.accesscontrol.windows.net`.
+1. Select the **Read Terms** button to read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/), which will direct you to a page with the updated Terms of Use.
+
+    [![Select the Read Terms button](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png#lightbox)
+
+1. Select **Request Extension** on the banner at the top of the page. The button will only be enabled after you read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/).
+
+    [![Select the Request Extension button](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png#lightbox)
+
+1. After the extension request is registered, the page will refresh with a new banner at the top of the page.
+
+    [![Updated page with refreshed banner](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
+-->
 
 ## <a name="help-and-support"></a>說明及支援
 
@@ -99,4 +126,4 @@ ms.locfileid: "51577939"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 檢閱[操作說明：從 Azure 存取控制服務遷移](active-directory-acs-migration.md)中的 ACS 淘汰相關資訊。
+- 在以下文件中檢閱有關 ACS 淘汰的資訊：[操作說明：從 Azure 存取控制服務遷移](active-directory-acs-migration.md)。

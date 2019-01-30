@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 60bd7cc2084ce64477cf89a5fd28d9a505fbfbfb
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 22ccc11d1eb74fd868fd740f02311baeb5ac5987
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852634"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433606"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>快速入門：如何使用 Azure PowerShell 建立和查詢 Azure SQL 資料倉儲
 
@@ -23,7 +23,7 @@ ms.locfileid: "51852634"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-本教學課程需要 Azure PowerShell 模組 5.1.1 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找您目前擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 
+本教學課程需要 Azure PowerShell 模組 5.1.1 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找您目前擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 
 
 
 > [!NOTE]
@@ -131,7 +131,7 @@ New-AzureRmSqlDatabase `
 選擇性參數如下：
 
 - **CollationName**：未指定定序時的預設值為 SQL_Latin1_General_CP1_CI_AS。 無法變更資料庫的定序。
-- **MaxSizeBytes**︰資料庫的預設大小上限為 10 GB。
+- **MaxSizeBytes**：資料庫的預設大小上限為 10 GB。
 
 如需參數選項的詳細資訊，請參閱 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)。
 

@@ -4,7 +4,7 @@ description: 說明什麼是 Azure AD 租用戶，以及如何透過 Azure Activ
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: infrastructure-services
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7b16e3ff5be21c52f354f0dcbb5dd91b4509e65e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957922"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461190"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>使用主領域探索原則為應用程式設定 Azure Active Directory 登入行為
 
@@ -239,7 +239,7 @@ Get-AzureADPolicy
 
 請記下要列出指派之原則的 **ObjectID**。
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>步驟 2：列出已被指派原則的服務主體。  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>步驟 2：列出已被指派原則的服務主體  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c1e9c831681867e6a6238159599af39cbab10b7e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 2ea62a826b9f99e264cb1b2242f8d8108453d8e7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806649"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448758"
 ---
 # <a name="dynamics-365-solution-preparation"></a>Dynamics 365 解決方案準備
 

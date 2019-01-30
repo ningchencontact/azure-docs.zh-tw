@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B 共同作業授權指導方針 | Microsoft Docs
+title: Azure Active Directory B2B 共同作業授權指引 | Microsoft Docs
 description: Azure Active Directory B2B 共同作業不需要 Azure AD 付費授權，但您也可以取得付費功能給 B2B 來賓使用者
 services: active-directory
 ms.service: active-directory
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: d80794511f334cd6dc5af418e24fc774b7d8728f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d89fb86209af2074794d5a5abcdcebadec904799
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867505"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434269"
 ---
-# <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Azure Active Directory B2B 共同作業授權指導方針
+# <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Azure Active Directory B2B 共同作業授權指引
 
 使用 Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業時，您可以邀請「外部使用者」(或「來賓使用者」) 來使用您的付費 Azure AD 服務。 針對您指派給使用者的每個付費 Azure AD 授權，在「外部使用者額度」下，您最多可以邀請 5 位使用者。
 

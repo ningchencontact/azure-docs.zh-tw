@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f16bf06d03511223b54542ad7a389f78d37f3ea9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 06db540600be323b3129d64d18739582f6d9f2d0
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235066"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412635"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>使用 Visual Studio 偵錯 Service Fabric 應用程式
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "51235066"
 
 
 ## <a name="debug-a-local-service-fabric-application"></a>偵錯本機 Service Fabric 應用程式
-您可以在本機電腦開發叢集中開發和偵錯 Azure Service Fabric 應用程式來節省時間和金錢。 Visual Studio 2017 或 Visual Studio 2015 可以將應用程式部署至本機叢集，並自動將偵錯工具連線至您應用程式的所有執行個體。
+您可以在本機電腦開發叢集中開發和偵錯 Azure Service Fabric 應用程式來節省時間和金錢。 Visual Studio 2017 或 Visual Studio 2015 可以將應用程式部署至本機叢集，並自動將偵錯工具連線至您應用程式的所有執行個體；必須以 Administrator 身分執行 Visual Studio，才能連線偵錯工具。
 
 1. 遵循 [設定 Service Fabric 開發環境](service-fabric-get-started.md)中的步驟來啟動本機開發叢集。
 2. 按 **F5** 或按一下 [偵錯]  >  [開始偵錯]。

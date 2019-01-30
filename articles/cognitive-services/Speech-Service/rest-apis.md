@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b7f5d4683f0042b95399b86cd4f53c93518c3c56
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 765d93780ad45eaaca61d4deb5f6607ef70ee432
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330665"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413680"
 ---
 # <a name="speech-service-rest-apis"></a>語音服務 REST API
 
@@ -453,16 +453,17 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ### <a name="audio-outputs"></a>音訊輸出
 
-此清單列出了每個要求中系統做為 `X-Microsoft-OutputFormat` 標頭的傳送的支援音訊格式。 每個格式皆包含位元速率和編碼類型。 語音服務支援 24 KHz 和 16 KHz 的音訊輸出。
+此清單列出了每個要求中系統做為 `X-Microsoft-OutputFormat` 標頭的傳送的支援音訊格式。 每個格式皆包含位元速率和編碼類型。 語音服務支援 24 KHz、16 KHz 和 8 KHz 的音訊輸出。
 
 |||
 |-|-|
 | `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
-| `riff-8khz-8bit-mono-mulaw` | `riff-16khz-16bit-mono-pcm` |
-| `audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3` |
-| `audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm` |
-| `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3` |
-| `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3` |
+| `riff-8khz-8bit-mono-alaw` | `riff-8khz-8bit-mono-mulaw` |
+| `riff-16khz-16bit-mono-pcm` | `audio-16khz-128kbitrate-mono-mp3` |
+| `audio-16khz-64kbitrate-mono-mp3` | `audio-16khz-32kbitrate-mono-mp3` |
+| `raw-24khz-16bit-mono-pcm` | `riff-24khz-16bit-mono-pcm` |
+| `audio-24khz-160kbitrate-mono-mp3` | `audio-24khz-96kbitrate-mono-mp3` |
+| `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
 > 如果您選取的語音和輸出格式具有不同的位元速率，則會視需要重新進行音訊取樣。 不過，24KHz 語音不支援 `audio-16khz-16kbps-mono-siren` 和 `riff-16khz-16kbps-mono-siren` 輸出格式。

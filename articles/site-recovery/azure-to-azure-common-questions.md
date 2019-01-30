@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 7e70fe52646c2f61e97b4eee2badd7884d95d5f5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a277e392acb8587e05bb78d1d8dacce40bf91f56
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260459"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449549"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>常見問題：Azure 對 Azure 複寫
 
@@ -101,8 +101,8 @@ Site Recovery 會每 5 分鐘建立一次當機時保持一致復原點。 使�
 ### <a name="how-far-back-can-i-recover"></a>最多可復原至多久之前？
 您可以使用的最舊復原點為 72 小時。
 
-### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-pruned"></a>如果我的複寫原則為 24 小時，但某個問題導致 Site Recovery 超過 24 小時無法產生復原點，會發生什麼情況？ 我先前的復原點會被剪除嗎？
-不會，在此情況下，Site Recovery 會保留您先前的所有復原點。 
+### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>如果我的複寫原則為 24 小時，但某個問題導致 Site Recovery 超過 24 小時無法產生復原點，會發生什麼情況？ 我先前的復原點是否會遺失？
+不會，Site Recovery 會保留您先前所有的復原點。 根據復原點保留期間 (在此案例中為 24 小時)，只有在新的復原點產生時，Site Recovery 才會替換掉最舊的復原點。 在此情況下，由於不會因某些問題而產生任何新的復原點，因此在到達保留期間後，舊的復原點仍將維持不變。
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>在 VM 上啟用複寫之後，我要如何變更複寫原則？ 
 移至 [Site Recovery 保存庫] > [Site Recovery 基礎結構] > [複寫原則]。 選取您想要編輯的原則，然後儲存變更。 此外，任何變更都會套用到現有的所有複寫。 

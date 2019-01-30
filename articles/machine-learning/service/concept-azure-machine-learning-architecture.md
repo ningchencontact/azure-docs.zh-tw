@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4d201669bf627cf9b591958f3372760c0c990db9
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: a5a5b306341780ead737def90306fe6cb6a47db1
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808089"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401961"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -28,7 +28,7 @@ ms.locfileid: "53808089"
 
 1. 使用 **Python** 開發機器學習服務定型指令碼。
 1. 建立並設定**計算目標**。
-1. **提交指令碼**至設定的計算目標以在該環境中執行。 在定型期間，計算目標會將執行記錄儲存至**資料存放區**。 在該處，記錄會儲存至**實驗**。
+1. **提交指令碼**至設定的計算目標以在該環境中執行。 在訓練期間，可以從**資料存放區**讀取或寫入指令碼。 而執行的記錄會在**工作區**中儲存為**執行**，並歸類在**實驗**之下。
 1. **查詢實驗**取得目前和過去回合的記錄計量。 如果計量未指出所要的結果，請回到步驟 1 並逐一查看您的指令碼。
 1. 找到令人滿意的回合之後，請在**模型登錄**中註冊保存的模型。
 1. 開發評分指令碼。

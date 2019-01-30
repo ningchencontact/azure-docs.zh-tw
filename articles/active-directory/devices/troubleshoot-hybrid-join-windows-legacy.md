@@ -4,7 +4,7 @@ description: 針對已加入混合式 Azure Active Directory 的下層裝置進�
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b5fd5a9544e27092c8b65e18d59701421fc59ef5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 546f9054978f0b9fbe6bb9063905c982de627442
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800854"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445281"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解 
 
-此文章僅適用於下列裝置： 
+本文章僅適用於下列裝置： 
 
 - Windows 7 
 - Windows 8.1 
@@ -35,12 +35,12 @@ ms.locfileid: "48800854"
 
 對於 Windows 10 或 Windows Server 2016，請參閱[針對已加入混合式 Azure Active Directory 的 Windows 10 和 Windows Server 2016 裝置進行疑難排解](troubleshoot-hybrid-join-windows-current.md)。
 
-此文章假設您[設定已加入混合式 Azure Active Directory 的裝置](hybrid-azuread-join-plan.md)來支援下列案例：
+本文章假設您[設定已加入混合式 Azure Active Directory 的裝置](hybrid-azuread-join-plan.md)來支援下列案例：
 
 - 裝置型條件式存取
 
 
-此文章提供有關如何解決潛在問題的疑難排解指導方針。  
+本文章提供有關如何解決潛在問題的疑難排解指引。  
 
 **您應該知道的事情：** 
 
@@ -116,7 +116,7 @@ ms.locfileid: "48800854"
 
     ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
-您也可以在事件記錄檔的 [應用程式及服務記錄檔] > [Microsoft-Workplace Join] 底下找到狀態資訊
+您也可在事件記錄中找到此資訊，記錄位於：**應用程式和服務記錄\Microsoft-Workplace Join**
   
 **混合式 Azure AD 加入失敗的最常見原因包括：** 
 

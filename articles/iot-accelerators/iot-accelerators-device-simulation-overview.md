@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: 69e3708ef4c31e2dd91b5f50baecc46ea129cf33
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 173963470a77932186b3c51f17ccb406b32a13f3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345288"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452219"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>裝置模擬解決方案加速器概觀
 
@@ -28,7 +28,7 @@ ms.locfileid: "53345288"
 
 ![範例無人機模擬](media/iot-accelerators-device-simulation-overview/dronesimulation.png)
 
-您可以利用「裝置模擬」來定義裝置模型，以模擬您的實體裝置。 此模型包含訊息格式、對應項屬性及方法。 您也可以使用 JavaScript 來模擬複雜的裝置行為。
+您可以利用「裝置模擬」來定義裝置模型，以模擬您的實際裝置。 此模型包含訊息格式、對應項屬性及方法。 您也可以使用 JavaScript 來模擬複雜的裝置行為。
 
 您可以針對一到數千個連線至任何 IoT 中樞的裝置執行模擬。 為了協助測試，您可以視需要搭配「裝置模擬」部署一個 IoT 中樞作為獨立環境。
 

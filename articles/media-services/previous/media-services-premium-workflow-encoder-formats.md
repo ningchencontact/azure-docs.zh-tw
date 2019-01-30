@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5059e4c00fc3bcbee76f8f5a3746b4d8783d901b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: c38ca56bc71215ed7fb64d346571ca517a79914f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359267"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450195"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒體編碼器高階工作流程格式和轉碼器
 
@@ -31,9 +31,9 @@ ms.locfileid: "54359267"
 
 本文包含 **Media Encoder Premium Workflow** 編碼器公開預覽版本支援的輸入與輸出檔案格式以及轉碼器清單。
 
-[Media Encoder Premium Worflow 輸入格式和轉碼器](#input_formats)
+[媒體編碼器高階工作流程輸入格式和轉碼器](#input_formats)
 
-[Media Encoder Premium Worflow 輸出格式和轉碼器](#output_formats)
+[媒體編碼器高階工作流程輸出格式和轉碼器](#output_formats)
 
 **Media Encoder Premium Workflow** 支援 [本](#closed_captioning) 章節所述的隱藏式字幕。 
 

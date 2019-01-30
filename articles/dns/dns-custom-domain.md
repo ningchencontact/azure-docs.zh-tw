@@ -1,23 +1,18 @@
 ---
-title: 整合 Azure DNS 與您的 Azure 資源 | Microsoft Docs
+title: 將 Azure DNS 與 Azure 資源整合
 description: 了解如何使用 Azure DNS 為您的 Azure 資源提供 DNS。
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 1/19/2018
+ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8e8a09ede66213247b306c77938dbff30651fee5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b513e898e25397f54b8f7f7590a4466523a705ff
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727143"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401413"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>使用 Azure DNS 為 Azure 服務提供自訂網域設定
 
@@ -33,7 +28,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 
 若要設定 Azure 函式應用程式的自訂網域，建立 CNAME 記錄以及函數應用程式本身的組態需。
  
-瀏覽至 [其他]  >  [函數應用程式]，選取您的函數應用程式。 按一下 [平台功能]，然後按一下 [網路] 下方的[自訂網域]。
+瀏覽至 [函式應用程式]，選取您的函式應用程式。 按一下 [平台功能]，然後按一下 [網路] 下方的[自訂網域]。
 
 ![函數應用程式刀鋒視窗](./media/dns-custom-domain/functionapp.png)
 
@@ -51,9 +46,9 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 |TTL 單位     | 小時        | 使用小時作為時間量值單位         |
 |Alias     | adatumfunction.azurewebsites.net        | 您正在為其建立別名的 DNS 名稱，在此範例中是 adatumfunction.azurewebsites.net (預設提供給函數應用程式的 DNS 名稱)。        |
 
-瀏覽回到您的函數應用程式，按一下 [平台功能]，再按一下 [網路] 下的 [自訂網域]，然後按一下[主機名稱] 下的 [+ 新增主機名稱]。
+瀏覽回到您的函數應用程式，按一下 [平台功能]，再按一下 [網路] 下的 [自訂網域]，然後按一下 [自訂主機名稱] 下的 [+ 新增主機名稱]。
 
-在 [新增主機名稱] 刀鋒視窗的 [主機名稱] 文字欄位中輸入 CNAME 記錄，然後按一下 [驗證]。 如果能夠找到記錄，就會出現 [新增主機名稱] 按鈕。 按一下 [新增主機名稱] 以新增別名。
+在 [新增主機名稱] 刀鋒視窗的 [主機名稱] 文字欄位中輸入 CNAME 記錄，然後按一下 [驗證]。 如果找到記錄，就會出現 [新增主機名稱] 按鈕。 按一下 [新增主機名稱] 以新增別名。
 
 ![函數應用程式的新增主機名稱刀鋒視窗](./media/dns-custom-domain/functionaddhostname.png)
 
@@ -86,7 +81,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 
 以下步驟引導您設定 App Service Web 應用程式的自訂網域。
 
-瀏覽至 [Web 與行動]  >  [App Service]，選取您要設定自訂網域名稱的資源，然後按一下 [自訂網域]。
+瀏覽至 [App Service]，選取您要設定自訂網域名稱的資源，然後按一下 [自訂網域]。
 
 記下眼前 [自訂網域] 刀鋒視窗中的 URL，這個位址要作為建立之 DNS 記錄的別名。
 
@@ -149,7 +144,7 @@ Azure DNS 提供自訂網域的 DNS，可用於任何支援自訂網域或具有
 
 下列步驟引導您使用 asverify 方法設定 CDN 端點的 CNAME 記錄。 這個方法可確保沒有任何停機時間。
 
-瀏覽至 [網路]  >  [CDN 設定檔]，選取您的 CDN 設定檔，然後按一下 [一般] 下的 [端點]。
+瀏覽至 [網路] > [CDN 設定檔]，選取您的 CDN 設定檔。
 
 選取您使用的端點，按一下 [+ 自訂網域]。 請注意 [端點主機名稱]，因為這個值是 CNAME 記錄指向的記錄。
 

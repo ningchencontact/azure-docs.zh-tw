@@ -10,19 +10,19 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ae1373901ca22b39cf99173ae2a9280128491522
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9d2836f49fb92ab13f8e4170f2aab044c810cf3c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313806"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437151"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>快速入門：使用 PowerShell 暫停與繼續 Azure SQL 資料倉儲中的計算
 使用 PowerShell 來暫停 Azure SQL 資料倉儲中的計算以節省成本。 在您準備好使用資料倉儲時[繼續計算](sql-data-warehouse-manage-compute-overview.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-本教學課程需要 Azure PowerShell 模組 5.1.1 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找您目前擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+本教學課程需要 Azure PowerShell 模組 5.1.1 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找您目前擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
 
 ## <a name="before-you-begin"></a>開始之前
 

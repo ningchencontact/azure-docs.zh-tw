@@ -3,7 +3,7 @@ title: Azure Redis 快取常見問題集 | Microsoft Docs
 description: 了解 Azure Redis 快取常見問題、模式及最佳做法的解答
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: wesmc
-ms.openlocfilehash: 5d70e4beb97a23212bc85d529382d8e89f09336d
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.author: yegu
+ms.openlocfilehash: 3a0fb06acd9fc798f1528a1487ae0682135187ca
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199911"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402384"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis 常見問題集
 了解 Azure Redis 快取常見問題、模式及最佳做法的解答。
@@ -210,7 +210,7 @@ StackExchange.Redis 有許多選項。 本節談論一些常見設定。 如需 
       * 此指引可以疏解每個 `ConnectionMultiplexer` 的延遲。
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>我可以使用哪些 Azure Redis 快取用戶端？
-Redis 最大的好處是，有許多用戶端支援許多不同的開發語言。 如需最新的用戶端清單，請參閱 [Redis 用戶端](https://redis.io/clients)。 如需涵蓋數個不同語言和用戶端的教學課程，請參閱[如何使用 Azure Redis 快取](cache-dotnet-how-to-use-azure-redis-cache.md)，然後從文章頂端的語言切換器中按一下所需的語言。
+Redis 最大的好處是，有許多用戶端支援許多不同的開發語言。 如需最新的用戶端清單，請參閱 [Redis 用戶端](https://redis.io/clients)。 如需涵蓋數個不同語言和用戶端的教學課程，請參閱[如何使用 Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) 以及目錄中的同層級文章。
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -259,7 +259,7 @@ Redis 最大的好處是，有許多用戶端支援許多不同的開發語言�
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Azure Redis 快取為什麼沒有像一些其他 Azure 服務有 MSDN 類別庫參考？
 「Microsoft Azure Redis 快取」是以熱門的開放原始碼「Azure Redis 快取」為基礎，且透過許多程式設計語言的各種 [Redis 用戶端](https://redis.io/clients) 都存取此快取。 每個用戶端都有自己的 API，可使用 [Redis 命令](https://redis.io/commands)對「Azure Redis 快取」執行個體發出呼叫。
 
-因為每個用戶端都不同，所以 MSDN 上沒有一個集中式類別參考，每個用戶端都會維護其專屬的參考文件。 除了參考文件之外，還有數個教學課程，示範如何使用不同的語言和快取用戶端來開始使用「Azure Redis 快取」。 若要存取這些教學課程，請參閱[如何使用 Azure Redis 快取](cache-dotnet-how-to-use-azure-redis-cache.md)，然後從文章頂端的語言切換器中按一下所需的語言。
+因為每個用戶端都不同，所以 MSDN 上沒有一個集中式類別參考，每個用戶端都會維護其專屬的參考文件。 除了參考文件之外，還有數個教學課程，示範如何使用不同的語言和快取用戶端來開始使用「Azure Redis 快取」。 若要存取這些教學課程，請參閱[如何使用 Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) 以及目錄中的同層級文章。
 
 ### <a name="can-i-use-azure-cache-for-redis-as-a-php-session-cache"></a>是否可以使用 Azure Redis 快取作為 PHP 工作階段快取？
 是，若要使用「Azure Redis 快取」作為 PHP 工作階段快取，請在 `session.save_path` 中指定「Azure Redis 快取」執行個體的連接字串。

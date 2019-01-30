@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect 傳遞驗證, 安裝 Active Directory, Azure AD 的必要元件, SSO, 單一登入
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 437800483004cdbff89814579137f4057133d0fb
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 423edfecb7bfd69de9ef004686db4a05824d0857
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913782"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465423"
 ---
-# <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory 傳遞驗證：技術深入探討
+# <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory 傳遞驗證：深入技術性討論
 本文概述 Azure Active Directory (Azure AD)傳遞驗證的運作方式。 如需深層技術和安全性資訊，請參閱[安全性深入探討](how-to-connect-pta-security-deep-dive.md)一文。
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Azure Active Directory 傳遞驗證運作方式
@@ -54,9 +54,9 @@ ms.locfileid: "50913782"
 - [快速入門](how-to-connect-pta-quick-start.md)：開始使用 Azure AD 傳遞驗證。
 - [從 AD FS 遷移到傳遞驗證](https://aka.ms/adfstoPTADP) \(英文\) - 從 AD FS (或其他同盟技術) 遷移到傳遞驗證的詳細指南。
 - [智慧鎖定](../authentication/howto-password-smart-lockout.md)：在租用戶中設定智慧鎖定功能以保護使用者帳戶。
-- [常見問題集](how-to-connect-pta-faq.md)：常見問題集的答案。
+- [常見問題集](how-to-connect-pta-faq.md)：取得常見問題的解答。
 - [疑難排解](tshoot-connect-pass-through-authentication.md)：了解如何解決傳遞驗證功能的常見問題。
-- [安全性深入探討](how-to-connect-pta-security-deep-dive.md)：取得傳遞驗證功能上的深入技術資訊。
+- [安全性深入探討](how-to-connect-pta-security-deep-dive.md)：取得傳遞驗證功能的深入技術資訊。
 - [Azure AD 無縫 SSO](how-to-connect-sso.md)：深入了解此互補功能。
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect)：使用 Azure Active Directory 論壇提出新功能要求。
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) \(英文\)：使用 Azure Active Directory 論壇提出新功能要求。
 

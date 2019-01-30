@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: f484eaf127c1dda0e3389e237ace75f51401a806
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/22/2019
+ms.openlocfilehash: b0b4a89aaf9b00b30e6b4759c8aa168f06d0d008
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959865"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462465"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL Database 和資料倉儲的透明資料加密
 
@@ -60,6 +60,9 @@ Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰�
 - 主動式異地複寫
 - 建立資料庫複本
 - 將備份檔案還原至 Azure SQL 受控執行個體
+
+> [!IMPORTANT]
+> 不允許在 Azure SQL 受控執行個體中手動為服務管理的 TDE 所加密的資料庫建立「僅限複製」備份，因為無法存取用於加密的憑證。 請使用時間點還原功能將此類型的資料庫移至另一個受控執行個體。
 
 當您匯出以透明資料加密保護的資料庫時，匯出的資料庫內容並不會加密。 這個匯出的內容會儲存在未加密的 BACPAC 檔案中。 請務必適當保護 BACPAC 檔案，並在新的資料庫匯入完成後啟用透明資料加密。
 

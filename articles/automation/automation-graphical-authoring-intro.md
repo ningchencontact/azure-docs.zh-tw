@@ -3,18 +3,18 @@ title: Azure 自動化中的圖形化編寫
 description: 圖形化編寫可讓您建立 Azure 自動化的 Runbook，而不使用程式碼。 本文章提供圖形化編寫的簡介和開始建立圖形化 Runbook 所需的所有詳細資料。
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a4cd2cec56a15660a03ac111b1b8962d531479ad
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d637436721ff464f58e41069bb00746fcd82410
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233672"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427231"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 自動化中的圖形化編寫
 
@@ -324,7 +324,7 @@ Runbook 可能需要來自使用者的輸入內容 (透過 Azure 入口網站啟
 
 | 屬性 | 說明 |
 |:--- |:--- |
-| 名稱 |參數的唯一名稱。 這只能包含數字字元，而且不能包含空格。 |
+| Name |參數的唯一名稱。 這只能包含數字字元，而且不能包含空格。 |
 | 說明 |輸入參數的選擇性描述。 |
 | 類型 |對參數值預期的資料型別。 提示您輸入時，Azure 入口網站會對每個參數提供適當的資料類型控制項。 |
 | 強制 |指定是否必須提供參數的值。 如果您未對未定義預設值的每個強制參數提供值，則無法啟動 Runbook。 |

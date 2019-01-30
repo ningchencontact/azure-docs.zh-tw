@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 50e70ab9be87c15816dc6471a2a29afd0f17d907
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c1a1da9fd0fff09bab027c4b4cc4e3085c5439f2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301240"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411099"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>資料倉儲單位 (DWU) 和計算資料倉儲單位 (cDWU)
 選擇理想的資料倉儲單位 (DWU、cDWU) 數目以獲得最佳價格與效能，以及如何變更單位數目的建議。 
@@ -90,6 +90,8 @@ SQL 資料倉儲是一個相應放大系統，可以佈建大量的計算以及�
 ## <a name="permissions"></a>權限
 
 變更資料倉儲單位需要 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) 中所述的權限。 
+
+SQL DB 參與者和 SQL Server 參與者等 Azure 資源內建角色可以變更 DWU 設定。 
 
 ## <a name="view-current-dwu-settings"></a>檢視目前的 DWU 設定
 

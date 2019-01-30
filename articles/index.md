@@ -6,12 +6,12 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 32500e4c7319411555e028889d6ec94150776250
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6ff3aa57ceedbf9cfe4920cc8c3ca2327a1f882c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306585"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246808"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1428,6 +1428,12 @@ Azure 服務和功能導覽 </a>
                                             <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
                                                 <p>API 管理</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure-sphere/">
+                                                <img src="media/index/azure_sphere.svg" alt="" />
+                                                <p>Azure Sphere</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -4276,6 +4282,25 @@ Azure 服務和功能導覽 </a>
                                                 <div class="cardText">
                                                     <h3>API 管理</h3>
                                                     <p>透過安全且大規模的方式將 API 發佈給開發人員、合作夥伴和員工</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure-sphere/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_sphere.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Sphere</h3>
+                                                    <p>建立高度安全且已連線的 MCU 動力裝置</p>
                                                 </div>
                                             </div>
                                         </div>

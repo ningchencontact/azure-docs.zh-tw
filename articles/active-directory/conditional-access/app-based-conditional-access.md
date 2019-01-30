@@ -5,7 +5,7 @@ services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 20beff7accbc987842141fa7ece9c17f11b0032e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415384"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448800"
 ---
-# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>作法：透過條件式存取要求必須從已核准用戶端應用程式存取雲端應用程式 
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>作法：透過條件式存取要求必須從已核准的用戶端應用程式存取雲端應用程式 
 
 您的員工使用行動裝置來處理個人和工作事務。 在維護員工的生產力時，您也希望能預防資料遺失。 有了 Azure Active Directory (Azure AD) 條件式存取，您可以將雲端應用程式的存取限制為能保護公司資料的已核准用戶端應用程式。  
 
@@ -110,11 +110,11 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 作為雲端應用程式。
 
     ![條件式存取](./media/app-based-conditional-access/07.png)
 
-4. **條件：**[條件] 需要設定 [裝置平台] 和 [用戶端應用程式]：
+4. **條件：** 您必須設定 [裝置平台] 和 [用戶端應用程式] 作為 [條件]：
 
     a. [裝置平台] 請選取 [Android] 和 [iOS]。
 
@@ -140,11 +140,11 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 作為雲端應用程式。
 
     ![條件式存取](./media/app-based-conditional-access/07.png)
 
-4. **條件：**[條件] 需要設定 [用戶端應用程式 (預覽)]。 
+4. **條件：** 您必須設定 [用戶端應用程式 (預覽)] 作為 [條件]。 
 
     a. [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [Exchange ActiveSync 用戶端]。
 
@@ -191,11 +191,11 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 做為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 作為雲端應用程式。 
 
     ![條件式存取](./media/app-based-conditional-access/02.png)
 
-4. **條件：**[條件] 需要設定 [裝置平台] 和 [用戶端應用程式]：
+4. **條件：** 您必須設定 [裝置平台] 和 [用戶端應用程式] 作為 [條件]：
 
     a. [裝置平台] 請選取 [Android] 和 [iOS]。
 
@@ -222,11 +222,11 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。 線上 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 作為雲端應用程式。 線上 
 
     ![條件式存取](./media/app-based-conditional-access/07.png)
 
-4. **條件：**[條件] 需要設定 [用戶端應用程式]：
+4. **條件：** 您必須設定 [用戶端應用程式] 作為 [條件]：
 
     a. [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [Exchange ActiveSync 用戶端]。
 
@@ -275,11 +275,11 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 做為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 作為雲端應用程式。 
 
      ![條件式存取](./media/app-based-conditional-access/02.png)
 
-4. **條件：**[條件] 需要設定 [裝置平台] 和 [用戶端應用程式]。 
+4. **條件：** 您必須設定 [裝置平台] 和 [用戶端應用程式] 作為 [條件]。 
  
     a. [裝置平台] 請選取 [Android] 和 [iOS]。
 
@@ -311,11 +311,11 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 作為雲端應用程式。 
 
     ![條件式存取](./media/app-based-conditional-access/07.png)
 
-4. **條件：**[條件] 需要設定 [用戶端應用程式]。 
+4. **條件：** 您必須設定 [用戶端應用程式] 作為 [條件]。 
 
     [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [Exchange ActiveSync 用戶端]。
 
@@ -371,11 +371,11 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 做為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 和 [Office 365 SharePoint Online] 作為雲端應用程式。 
 
      ![條件式存取](./media/app-based-conditional-access/02.png)
 
-4. **條件：**[條件] 需要設定 [裝置平台] 和 [用戶端應用程式]。 
+4. **條件：** 您必須設定 [裝置平台] 和 [用戶端應用程式] 作為 [條件]。 
  
     a. [裝置平台] 請選取 [Android] 和 [iOS]。
 
@@ -407,11 +407,11 @@ Azure Active Directory 條件式存取，可讓您將雲端應用程式的存取
 
 2. **使用者和群組**：每個條件式存取原則必須至少選取一個使用者或群組。
 
-3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 做為雲端應用程式。 
+3. **雲端應用程式：** 您必須選取 [Office 365 Exchange Online] 作為雲端應用程式。 
 
     ![條件式存取](./media/app-based-conditional-access/07.png)
 
-4. **條件：**[條件] 需要設定 [用戶端應用程式 (預覽)]。 
+4. **條件：** 您必須設定 [用戶端應用程式 (預覽)] 作為 [條件]。 
 
     [用戶端應用程式 (預覽)] 需選取 [行動裝置應用程式和桌面用戶端] 和 [Exchange ActiveSync 用戶端]。
 

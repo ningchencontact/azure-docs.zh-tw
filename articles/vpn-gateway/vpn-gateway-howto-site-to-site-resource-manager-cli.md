@@ -1,5 +1,5 @@
 ---
-title: 將內部部署網路連線至 Azure 虛擬網路：站對站 VPN：CLI | Microsoft Docs
+title: 將內部部署網路連線到 Azure 虛擬網路：站對站 VPN：CLI | Microsoft Docs
 description: 透過公用網際網路建立從內部部署網路至 Azure 虛擬網路之 IPsec 連線的步驟。 這些步驟可協助您使用 CLI 建立跨單位的站對站 VPN 閘道連線。
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 73bf57721f670c06042b9b7a00f53126a6d1b145
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f7c07dbffaa179434fd30b2fdbc92fa661cdc516
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957066"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412116"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>使用 CLI 建立具有站對站 VPN 連線的虛擬網路
 
@@ -49,21 +49,21 @@ ms.locfileid: "49957066"
 ```
 #Example values
 
-VnetName                = TestVNet1 
-ResourceGroup           = TestRG1 
-Location                = eastus 
-AddressSpace            = 10.11.0.0/16 
-SubnetName              = Subnet1 
-Subnet                  = 10.11.0.0/24 
-GatewaySubnet           = 10.11.255.0/27 
-LocalNetworkGatewayName = Site2 
+VnetName                = TestVNet1 
+ResourceGroup           = TestRG1 
+Location                = eastus 
+AddressSpace            = 10.11.0.0/16 
+SubnetName              = Subnet1 
+Subnet                  = 10.11.0.0/24 
+GatewaySubnet           = 10.11.255.0/27 
+LocalNetworkGatewayName = Site2 
 LNG Public IP           = <VPN device IP address>
 LocalAddrPrefix1        = 10.0.0.0/24
-LocalAddrPrefix2        = 20.0.0.0/24   
-GatewayName             = VNet1GW 
-PublicIP                = VNet1GWIP 
-VPNType                 = RouteBased 
-GatewayType             = Vpn 
+LocalAddrPrefix2        = 20.0.0.0/24   
+GatewayName             = VNet1GW 
+PublicIP                = VNet1GWIP 
+VPNType                 = RouteBased 
+GatewayType             = Vpn 
 ConnectionName          = VNet1toSite2
 ```
 
@@ -83,7 +83,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="VNet"></a>3.建立虛擬網路
 
-如果您還沒有虛擬網路，請使用 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) 命令建立一個。 在建立虛擬網路時，請確定您指定的位址空間沒有與您在內部部署網路上所擁有的任何位址空間重疊。
+如果您還沒有虛擬網路，請使用 [az network vnet create](/cli/azure/network/vnet) 命令建立一個。 在建立虛擬網路時，請確定您指定的位址空間沒有與您在內部部署網路上所擁有的任何位址空間重疊。
 
 >[!NOTE]
 >為了讓此 VNet 連線到內部部署位置，您需要與內部部署網路系統管理員協調，以切割出此虛擬網路專用的 IP 位址範圍。 如果 VPN 連線的兩端存在重複的位址範圍，流量就不會如預期的方式進行路由。 此外，如果您想要將此 VNet 連線到另一個 VNet，則位址空間不能與其他 VNet 重疊。 因此，請謹慎規劃您的網路組態。
@@ -118,7 +118,7 @@ az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubn
 * --gateway-ip-address 是內部部署 VPN 裝置的 IP 位址。 VPN 裝置不能位於 NAT 後方。
 * --local-address-prefixes 是內部部署位址空間。
 
-使用 [az network local-gateway create](/cli/azure/network/local-gateway#az_network_local_gateway_create) 命令新增具有多個位址首碼的區域網路閘道：
+使用 [az network local-gateway create](/cli/azure/network/local-gateway) 命令新增具有多個位址首碼的區域網路閘道：
 
 ```azurecli-interactive
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
@@ -147,7 +147,7 @@ az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocati
 使用 [az network vnet-gateway create](/cli/azure/network/vnet-gateway#az_network_vnet_gateway_create) 命令建立 VPN 閘道。 如果您使用 '--no-wait' 參數執行此命令，您不會看到任何意見反應或輸出。 此參數允許在背景中建立閘道。 大約需要 45 分鐘的時間來建立閘道。
 
 ```azurecli-interactive
-az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
 ```
 
 ## <a name="VPNDevice"></a>8.設定 VPN 裝置

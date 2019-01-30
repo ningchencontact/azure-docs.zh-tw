@@ -9,12 +9,12 @@ ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 4f9a30bf25cea1e80f53596be9eea6ae57a79889
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246458"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402280"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>使用 Azure Data Lake Analytics 來分析網站記錄
 了解如何使用資料湖分析來分析網站記錄，特別是找出哪些訪客來源在嘗試瀏覽網站時遇到錯誤。
@@ -165,7 +165,7 @@ U-SQL 應用程式基本上是 U-SQL 指令碼。 若要深入了解 U-SQL，請
 
 1. 在 [伺服器總管] 中，依序展開 [Azure]、[Data Lake Analytics]、您的 Data Lake Analytics 帳戶，以及 [儲存體帳戶]，然後用滑鼠右鍵按一下預設的 Data Lake 儲存體帳戶，再按一下 [總管]。
 2. 按兩下 [範例] 來開啟資料夾，然後再連按兩下 [輸出]。
-3. 按兩下 **UnsuccessfulResponsees.log**。
+3. 按兩下 **UnsuccessfulResponses.log**。
 4. 您也可以按兩下工作的圖形檢視內的輸出檔，直接瀏覽至輸出。
 
 ## <a name="see-also"></a>另請參閱

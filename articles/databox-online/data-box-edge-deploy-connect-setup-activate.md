@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5477807e4cff6dc745ccfd0383fd216719a7aa5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c50aece847119dd0d2421553e9e9827c2168e553
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259597"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451641"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>教學課程：連線、設定及啟用 Azure Data Box Edge (預覽) 
 
@@ -87,7 +87,7 @@ ms.locfileid: "54259597"
     - 您可以將網路介面設定為 IPv4。
 
     >[!NOTE] 
-    > 我們建議您不要將網路介面的本機 IP 位址從靜態切換成 DHCP，除非您有另一個連接到裝置的 IP 位址。 如果使用一個網路介面並切換至 DHCP，就無法判斷 DHCP 位址。 如果您想要變更為 DHCP 位址，請等到裝置已向服務註冊之後再變更。 然後，您就可以在您服務的 Azure 入口網站中於 [裝置屬性] 中檢視所有介面卡的 IP。
+    > 我們建議您不要將網路介面的本機 IP 位址從靜態切換成 DCHP，除非您有另一個連接到裝置的 IP 位址。 如果使用一個網路介面並切換至 DHCP，就無法判斷 DHCP 位址。 如果您想要變更為 DHCP 位址，請等到裝置已向服務註冊之後再變更。 然後，您就可以在您服務的 Azure 入口網站中於 [裝置屬性] 中檢視所有介面卡的 IP。
 
 1. (選擇性) 在左側窗格中，選取 [Web Proxy 設定]，然後設定 Web Proxy 伺服器。 雖然 Web Proxy 設定是選用的，但如果您使用 Web Proxy，便只能在此頁面上設定它。
    

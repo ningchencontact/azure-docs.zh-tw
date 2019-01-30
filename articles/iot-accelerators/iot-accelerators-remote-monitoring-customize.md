@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 53361ed460917fff42008283429967eff2e80ab2
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345091"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462194"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>自訂遠端監視解決方案加速器
 
@@ -77,7 +77,7 @@ ms.locfileid: "51345091"
 
 ## <a name="customize-the-layout"></a>自訂版面配置
 
-遠端監視解決方案中的每個頁面都是由一組控制項所組成，這在原始程式碼中稱為*面板*。 [儀表板] 頁面是由五個面板所組成：概觀、地圖、警示、遙測及 Analytics。 您可以在 [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) \(英文\) GitHub 存放庫中找到定義每個頁面及其面板的原始程式碼。 例如，定義 [儀表板] 頁面、其版面配置，以及頁面上面板的程式碼位於 [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) \(英文\) 資料夾中。
+遠端監視解決方案中的每個頁面都是由一組控制項所組成，這在原始程式碼中稱為*面板*。 [儀表板] 頁面由五個面板所組成：概觀、地圖、警示、遙測及 Analytics。 您可以在 [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) \(英文\) GitHub 存放庫中找到定義每個頁面及其面板的原始程式碼。 例如，定義 [儀表板] 頁面、其版面配置，以及頁面上面板的程式碼位於 [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) \(英文\) 資料夾中。
 
 由於面板會管理自己的版面配置及大小，因此您可以輕易地修改頁面的版面配置。 對 `src/components/pages/dashboard/dashboard.js` 檔案中的 **PageContent** 元素進行下列變更：
 
@@ -365,7 +365,7 @@ ms.locfileid: "51345091"
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
       totalWarningCount: (acc.totalWarningCount || 0) + (isWarning ? 1 : 0),
       totalCriticalCount: (acc.totalCriticalCount || 0) + (isCritical ? 1 : 0),
-      alarmsPerDeviceId: updatedAlarmsPerDeviceId
+      alertsPerDeviceId: updatedAlertsPerDeviceId
     };
     ```
 

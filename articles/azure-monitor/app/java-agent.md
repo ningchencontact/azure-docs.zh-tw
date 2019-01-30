@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: dbca662f38f13833a4b9e642a4d8f690017d999a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b7710b081668bf07d40718baf1d84314246861f5
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262127"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412387"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>監視 Java Web 應用程式中的相依性、擷取到的例外狀況和方法執行時間
 
@@ -96,6 +96,23 @@ ms.locfileid: "54262127"
 
 > [!NOTE]
 > AI-Agent.xml 與代理程式 jar 檔案應在同一個資料夾中。 它們通常一起放在專案的 `/resources` 資料夾中。 
+
+### <a name="spring-rest-template"></a>Spring Rest 範本
+
+為了讓 Application Insights 成功檢測使用 Spring 的 Rest 範本所做的 HTTP 呼叫，則需使用 Apache HTTP 用戶端。 根據預設，Spring 的 Rest 範本不會設定為使用 Apache HTTP 用戶端。 在 Spring Rest 範本的建構函式中指定 [HttpComponentsClientHttpRequestfactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/client/HttpComponentsClientHttpRequestFactory.html)，該範本會使用 Apache HTTP。
+
+以下是如何使用 Spring Beans 來執行此作業的範例。 這是一個非常簡單的範例，其使用處理站類別的預設設定。
+
+```java
+@bean
+public ClientHttpRequestFactory httpRequestFactory() {
+return new HttpComponentsClientHttpRequestFactory()
+}
+@Bean(name = 'myRestTemplate')
+public RestTemplate dcrAccessRestTemplate() {
+    return new RestTemplate(httpRequestFactory())
+}
+```
 
 #### <a name="enable-w3c-distributed-tracing"></a>啟用 W3C 分散式追蹤
 

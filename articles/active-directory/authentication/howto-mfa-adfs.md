@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: afb28488fc47f018b6d192eb1b65a54499ac8ff9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 868af1903623f612a7a987c1247bd138bcf26002
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666358"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430529"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>使用 Azure Multi-Factor Authentication 與 AD FS 保護雲端資源
 
@@ -63,7 +63,7 @@ ms.locfileid: "43666358"
    ![雲端](./media/howto-mfa-adfs/trustedip2.png)
 5. 在 [新增轉換宣告規則精靈] 上，從下拉式清單選取 [通過或篩選傳入宣告]，然後按 [下一步]。
    ![雲端](./media/howto-mfa-adfs/trustedip3.png)
-6. 在 [宣告規則名稱] 旁邊的方塊中，命名您的規則。 例如：InsideCorpNet。
+6. 在 [宣告規則名稱] 旁邊的方塊中，命名您的規則。 例如︰InsideCorpNet。
 7. 從 [連入宣告類型] 旁邊的下拉式清單中，選取 [位於公司網路之內]。
    ![雲端](./media/howto-mfa-adfs/trustedip4.png)
 8. 按一下 [完成] 。

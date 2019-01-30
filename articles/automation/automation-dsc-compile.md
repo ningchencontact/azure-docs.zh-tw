@@ -3,18 +3,18 @@ title: 編譯 Azure Automation State Configuration 中的組態
 description: 此文章說明如何針對 Azure 自動化編譯期望狀態設定 (DSC) 組態。
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca3c29101e17a7970ba782b5c49267bf9f18482e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d49ab32ace1ad0900c4867a41aba56900ef2bcaa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257151"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423403"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>編譯 Azure Automation State Configuration 中的 DSC 組態
 

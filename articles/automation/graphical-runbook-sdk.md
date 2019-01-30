@@ -3,18 +3,18 @@ title: Azure 自動化圖形化 Runbook SDK 概觀
 description: 本文說明如何使用 Azure 自動化圖形化 Runbook SDK
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 702af8311887afc94e7127704d3377e944503324
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: bc9f1feff6d8d45e52c8621d1ec4b36e0a4a4a76
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39240383"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434252"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>使用 Azure 自動化圖形化 Runbook SDK
 
@@ -103,7 +103,7 @@ var initializeRunbookVariable = runbook.AddActivity(
 |WorkflowScriptActivity     | 在 Runbook 的內容中執行 PowerShell 或 PowerShell 工作流程程式碼 (取決於 Runbook 類型) 的區塊。 這是功能強大的工具，但請勿過度使用：UI 會將這個指令碼區塊顯示為文字；執行引擎會將提供的區塊視為黑箱，且不會嘗試分析其內容，除了基本的語法檢查之外。 如果您只需要叫用單一 PowerShell 命令，建議使用 CommandActivity。        |
 
 > [!NOTE]
-> 請勿從提供的類別衍生您自己的活動：Azure 自動化將無法使用 Runbook 搭配自訂活動類型。
+> 請勿從提供的類別衍生您自己的活動：Azure 自動化無法使用自訂活動類型的 Runbook。
 
 必須提供 CommandActivity 和 InvokeRunbookActivity 參數作為值描述項，而非直接值。 值描述項會指定實際參數值的產生方式。 目前提供下列值描述項：
 
@@ -119,7 +119,7 @@ var initializeRunbookVariable = runbook.AddActivity(
 |PowerShellExpressionValueDescriptor     | 指定自由格式 PowerShell 運算式，在即將叫用活動之前才會加以評估。  <br/>這是功能強大的工具，但請勿過度使用：UI 會將這個運算式顯示為文字；執行引擎會將提供的區塊視為黑箱，且不會嘗試分析其內容，除了基本的語法檢查之外。 如果可能的話，最好使用更明確的值描述項。      |
 
 > [!NOTE]
-> 請勿從提供的類別衍生您自己的值描述項：Azure 自動化將無法使用 Runbook 搭配自訂值描述項類型。
+> 請勿從提供的類別衍生您自己的值描述項：Azure 自動化無法使用自訂值描述項類型的 Runbook。
 
 將連線活動的連結具現化，並將其新增至 Runbook：
 
@@ -146,3 +146,4 @@ var serialized = RunbookSerializer.Serialize(runbook);
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解 Azure 自動化中的圖形化 Runbook，請參閱[圖形化撰寫簡介](automation-graphical-authoring-intro.md)
+

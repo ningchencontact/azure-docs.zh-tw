@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: 1ada74f5c85ef327957ec4981e83f68bcafea858
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 95d443eeebf2fe5a8fad185210f88576a5f21f6a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188754"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435290"
 ---
 # <a name="url-path-based-routing-overview"></a>URL 路徑型路由概觀
 
@@ -23,7 +23,7 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-對 http://contoso.com/video/* 的要求會路由至 VideoServerPool，而對 http://contoso.com/images/* 的要求則會路由至 ImageServerPool。 如果沒有任何路徑模式相符，則會選取 DefaultServerPool。
+對 http\://contoso.com/video/* 的要求會路由傳送至 VideoServerPool，而 http\://contoso.com/images/* 則會路由傳送至 ImageServerPool。 如果沒有任何路徑模式相符，則會選取 DefaultServerPool。
 
 > [!IMPORTANT]
 > 規則會依照其列在入口網站中的順序進行處理。 強烈建議纖設定多站台接聽程式，再設定基本接聽程式。  這可確保流量路由傳送到右邊後端。 如果先列出了基本接聽程式，且該接聽程式符合傳入的要求，就會由該接聽程式處理。

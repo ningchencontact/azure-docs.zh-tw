@@ -4,7 +4,7 @@ description: 說明如何在 Azure AD Connect 同步處理中設定篩選。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ec136b418e78f82486d9d38f361e411c3d00c31
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 886ac908d2e294f4627f95b35d93ea49a9e1607a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306357"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472325"
 ---
-# <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 同步處理：設定篩選
+# <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 同步：設定篩選
 使用篩選功能可讓您控制內部部署目錄中的哪些物件應該出現在 Azure Active Directory 中。 預設組態會擷取所設定樹系中所有網域內的所有物件。 一般會建議使用者使用這個組態。 完整的全域通訊清單對於使用 Exchange Online 和商務用 Skype 等 Office 365 工作負載的使用者來說十分方便，因為如此一來，他們就可以傳送電子郵件和呼叫每個人。 使用預設設定時，所獲得的體驗與使用 Exchange 或 Lync 的內部部署實作相同。
 
 但是，您有時必須對預設組態進行一些變更。 這裡有一些範例：
@@ -185,6 +185,9 @@ Azure AD Connect 安裝精靈一律會建立此設定。
 
 ## <a name="attribute-based-filtering"></a>屬性型篩選
 請確定您是使用 2015 年 11 月 ([1.0.9125](reference-connect-version-history.md#1091250)) 或更新版本的組建，這些步驟才有作用。
+
+> [!IMPORTANT]
+>Microsoft 建議您不要修改 **Azure AD Connect** 所建立的預設規則。 如果您想要修改規則，請加以複製，並停用原始規則。 對複製的檔案進行您要的變更。 請注意，這麼做 (停用原始規則) 會遺漏任何 Bug 修正或透過該規則啟用的功能。
 
 屬性型篩選是最具彈性的物件篩選方式。 您可以使用[宣告式佈建](concept-azure-ad-connect-sync-declarative-provisioning.md)的強大功能來控制物件同步處理至 Azure AD 時的大多數層面。
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: concepts
 ms.date: 12/11/2018
 ms.author: barclayn
-ms.openlocfilehash: 44507e919b7ed827eb3c08101a04849faf92293c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ec814bf641dea6f47b907e9f9e2646dfcf84ade1
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310228"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451743"
 ---
 # <a name="frequently-asked-questions-faq"></a>常見問題集 (FAQ)
 
@@ -32,7 +32,7 @@ HSM 是用來保護及管理密碼編譯金鑰的實體運算裝置。 儲存在
 
 ### <a name="q-what-is-the-azure-dedicated-hsm-offering"></a>問：Azure 專用硬體安全模組 (HSM) 的供應項目是什麼？
 
-Azure 專用硬體安全模組 (HSM) 是雲端式服務，可提供裝載於 Azure 資料中心 (直接連線至客戶虛擬網路) 的 HSM。 這些 HSM是專用的網路設備 (Gemalto 的 SafeNet Network HSM 7 型號 A790)。 會直接部署至客戶的私人 IP 位址空間，Microsoft 並沒有任何對這些 HSM 密碼編譯功能的存取權。 只有客戶擁有對這些裝置的完整系統管理和密碼編譯控制權。 客戶需負責管理裝置，且可以直接從裝置取得完整的活動記錄。 專用 HSM 可協助客戶滿足法規/合規性需求，例如 FIPS 140-2 等級 3、HIPAA、PCI DSS、eIDAS 以及許多其他需求。
+Azure 專用硬體安全模組 (HSM) 是雲端式服務，可提供裝載於 Azure 資料中心 (直接連線至客戶虛擬網路) 的 HSM。 這些 HSM是專用的網路設備 (Gemalto 的 SafeNet Network HSM 7 型號 A790)。 會直接部署至客戶的私人 IP 位址空間，Microsoft 對於 HSM 的密碼編譯功能並沒有任何存取權。 只有客戶對這些裝置擁有完整的系統管理和密碼編譯控制權。 客戶需負責管理裝置，且可以直接從裝置取得完整的活動記錄。 專用 HSM 可協助客戶滿足法規/合規性需求，例如 FIPS 140-2 等級 3、HIPAA、PCI DSS、eIDAS 以及許多其他需求。
 
 ### <a name="q-what-hardware-is-used-for-dedicated-hsm"></a>問：專用 HSM 使用什麼硬體？
 
@@ -78,7 +78,7 @@ Azure 專用硬體安全模組 (HSM) 服務使用 SafeNet Luna Network HSM 7 (�
 
 ### <a name="q-can-i-encrypt-data-used-by-other-azure-services-using-keys-stored-in-dedicated-hsm"></a>問：問：我是否可以使用儲存在專用硬體安全模組 (HSM) 的金鑰，來加密用於其他 Azure 服務的資料？
 
-否。 您只能從您的虛擬網路內存取 Azure 專用硬體安全模組 (HSM)。
+沒有。 您只能從您的虛擬網路內存取 Azure 專用硬體安全模組 (HSM)。
 
 ### <a name="q-can-i-import-keys-from-an-existing-on-premises-hsm-to-dedicated-hsm"></a>問：我是否可以從現有內部部署硬體安全模組 (HSM) 將金鑰匯入專用硬體安全模組 (HSM)？
 
@@ -124,7 +124,7 @@ Azure 專用硬體安全模組 (HSM) 最適合移轉案例。 意即，如果您
 
 ### <a name="q-can-dedicated-hsm-be-used-with-office-365-customer-key-azure-information-protection-azure-data-lake-store-disk-encryption-azure-storage-encryption-azure-sql-tde"></a>問：專用硬體安全模組 (HSM) 是否可以搭配 Office 365 客戶金鑰、Azure 資訊保護、Azure Data Lake Store、磁碟加密、Azure 儲存體加密、Azure SQL TDE 使用？
 
-否。 專用 HSM 直接佈建於客戶的私人 IP 位址空間，因此無法由其他 Azure 或 Microsoft 服務存取。
+沒有。 專用 HSM 直接佈建於客戶的私人 IP 位址空間，因此無法由其他 Azure 或 Microsoft 服務存取。
 
 ## <a name="administration-access-and-control"></a>管理、存取和控制
 
@@ -138,7 +138,7 @@ Microsoft 對您的 HSM 並沒有任何管理或密碼編譯控制權。 Microso
 
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>問：Microsoft 或任何 Microsoft 員工是否可在我的專用硬體安全模組 (HSM) 中存取金鑰？
 
-否。 對於儲存在客戶配置專用 HSM 中的金鑰，Microsoft 並不具有任何存取權。
+沒有。 對於儲存在客戶配置專用 HSM 中的金鑰，Microsoft 並不具有任何存取權。
 
 ### <a name="q-can-i-upgrade-softwarefirmware-on-hsms-allocated-to-me"></a>問：是否可以為配置給我的硬體安全模組 (HSM) 升級軟體/韌體？
 
@@ -172,7 +172,7 @@ Gemalto HSM 用戶端軟體可用於管理 HSM 和分割區。
 
 ### <a name="can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>我是否能使用 Azure 專用硬體安全模組 (HSM) 將 Luna 5/6 HSM 從內部部署網路新增至高可用性群組？
 
-否。
+沒有。
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>問：問：我可以從單一應用程式將多少硬體安全模組 (HSM) 新增至相同高可用性設定？
 

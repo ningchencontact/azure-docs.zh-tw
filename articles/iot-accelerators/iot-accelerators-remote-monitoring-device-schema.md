@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 54e21e0b5f522b226ec1abb71a1c5ab5b245df05
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3c2bca45a7927689992cf44fb70199e246641760
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635522"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445417"
 ---
 # <a name="understand-the-device-model-schema"></a>了解裝置機型結構描述
 
@@ -22,7 +22,7 @@ ms.locfileid: "53635522"
 本文說明裝置機型結構描述，它會指定模擬裝置的功能和行為。 裝置機型會儲存在 JSON 檔案中。
 
 > [!NOTE]
-> 此裝置模型結構描述只適用於裝載於裝置模擬服務中的模擬裝置。 如果您想要建立實體裝置，請參閱[將裝置連線到遠端監視解決方案加速器](iot-accelerators-connecting-devices.md)。
+> 此裝置模型結構描述只適用於裝載於裝置模擬服務中的模擬裝置。 如果您想要建立真實裝置，請參閱[將裝置連線到遠端監視解決方案加速器](iot-accelerators-connecting-devices.md)。
 
 下列文章與目前的文章相關：
 

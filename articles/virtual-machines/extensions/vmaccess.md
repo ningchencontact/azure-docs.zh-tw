@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 20d806540b0aa814c88ef4ff69834283ba4a7722
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452049"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413833"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>使用 VMAccess 擴充功能搭配 Azure CLI 在 Linux VM 上管理系統管理使用者、SSH 及檢查或修復磁碟
 ## <a name="overview"></a>概觀
@@ -53,7 +53,7 @@ Linux VM 的磁碟顯示錯誤。 您不知怎麼重設 Linux VM的根密碼，�
 * 使用 Azure CLI 和必要的參數。
 * [使用 VMAccess 擴充功能會處理然後作為行動依據的原始 JSON 檔案](#use-json-files-and-the-vmaccess-extension)。
 
-下列範例會使用 [az vm user](/cli/azure/vm/user) 命令。 若要執行這些步驟，您需要安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。
+下列範例會使用 [az vm user](/cli/azure/vm/user) 命令。 若要執行這些步驟，您需要安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/reference-index) 來登入 Azure 帳戶。
 
 ## <a name="update-ssh-key"></a>更新 SSH 金鑰
 下列範例會更新名為 `myVM` 的 VM 上使用者 `azureuser` 的 SSH 金鑰：

@@ -10,16 +10,16 @@ ms.topic: conceptual
 f1_keywords:
 - mi.azure.sqlaudit.general.f1
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/12/2019
-ms.openlocfilehash: 716c4caa1b28cc40470d366e5fc6901de9462f9a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.date: 01/15/2019
+ms.openlocfilehash: 04c4bba2647b9b17b1282c9a1608fd2e9325f661
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267261"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427911"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>開始使用 Azure SQL Database 受控執行個體稽核
 
@@ -28,102 +28,135 @@ ms.locfileid: "54267261"
 - 協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
 - 啟用及推動遵循法規標準，但不保證符合法規。 如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)。
 
-## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>設定將伺服器的稽核儲存至 Azure 儲存體 
+## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>設定將伺服器的稽核儲存至 Azure 儲存體
 
 下節描述在您受控執行個體上進行稽核的設定。
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
-2. 下列步驟會建立儲存稽核記錄的 Azure 儲存體**容器**。
+1. 建立用來儲存稽核記錄的 Azure 儲存體**容器**。
 
-   - 巡覽至您要儲存稽核記錄的 Azure 儲存體。
+   1. 巡覽至您要儲存稽核記錄的 Azure 儲存體。
 
-     > [!IMPORTANT]
-     > 請在與受控執行個體伺服器相同的區域中使用儲存體帳戶，以避免跨區域讀取/寫入。
+      > [!IMPORTANT]
+      > 請在與受控執行個體伺服器相同的區域中使用儲存體帳戶，以避免跨區域讀取/寫入。
 
-   - 在儲存體帳戶中，移至 [概觀]，然後按一下 [Blob]。
+   1. 在儲存體帳戶中，移至 [概觀]，然後按一下 [Blob]。
 
-     ![瀏覽窗格][1]
+      ![Azure Blob 小工具](./media/sql-managed-instance-auditing/1_blobs_widget.png)
 
-   - 在上方功能表中，按一下 [+ 容器] 以建立新的容器。
+   1. 在上方功能表中，按一下 [+ 容器] 以建立新的容器。
 
-     ![瀏覽窗格][2]
+      ![建立 Blob 容器圖示](./media/sql-managed-instance-auditing/2_create_container_button.png)
 
-   - 提供一個容器 [名稱]，將公用存取層級設定為 [私人]，然後按一下 [確定]。
+   1. 提供一個容器 [名稱]，將公用存取層級設定為 [私人]，然後按一下 [確定]。
 
-     ![瀏覽窗格][3]
+     ![建立 Blob 容器設定](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
-   - 在容器清單中，按一下新建立的容器，然後按一下 [容器屬性]。
+1. 在為稽核記錄建立容器之後，有兩個方法可將該容器設定為稽核記錄的目標：[使用 T-SQL](#blobtsql) 或[使用 SQL Server Management Studio (SSMS) UI](#blobssms)：
 
-     ![瀏覽窗格][4]
+   - <a id="blobtsql"></a>使用 T-SQL 來設定稽核記錄的 Blob 儲存體：
 
-   - 按一下複製圖示來複製容器 URL，然後儲存 URL (例如，儲存在 [記事本] 中) 供之後使用。 容器 URL 的格式應為 `https://<StorageName>.blob.core.windows.net/<ContainerName>`
+     1. 在容器清單中，按一下新建立的容器，然後按一下 [容器屬性]。
 
-     ![瀏覽窗格][5]
+        ![Blob 容器屬性按鈕](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-3. 下列步驟會產生 Azure 儲存體 **SAS 權杖**，用來將受控執行個體稽核存取權限授予儲存體帳戶。
+     1. 按一下複製圖示來複製容器 URL，然後儲存 URL (例如，儲存在 [記事本] 中) 供之後使用。 容器 URL 的格式應為 `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
-   - 巡覽至您在上一個步驟中建立容器的 Azure 儲存體帳戶。
+        ![Blob 容器複製 URL](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
-   - 在 [儲存體設定] 功能表中按一下 [共用存取簽章]。
+     1. 產生 Azure 儲存體 **SAS 權杖**來將受控執行個體稽核存取權限授予儲存體帳戶：
 
-     ![瀏覽窗格][6]
+        - 巡覽至您在上一個步驟中建立容器的 Azure 儲存體帳戶。
 
-   - 請依照下列方式設定 SAS：
-     - **允許的服務**：Blob
-     - **開始日期**：若要避免時區相關的問題，建議使用昨天的日期。
-     - **結束日期**：選擇此 SAS 權杖到期的日期。 
+        - 在 [儲存體設定] 功能表中按一下 [共用存取簽章]。
 
-       > [!NOTE]
-       > 在過期時更新權杖，以避免稽核失敗。
+          ![[儲存體設定] 功能表中的 [共用存取簽章] 圖示](./media/sql-managed-instance-auditing/6_storage_settings_menu.png)
 
-     - 按一下 [產生 SAS]。
+        - 請依照下列方式設定 SAS：
 
-       ![瀏覽窗格][7]
+          - **允許的服務**：Blob
 
-   - 按一下 [產生 SAS] 後，SAS 權杖就會出現在底部。 按一下複製圖示來複製權杖，然後儲存權杖 (例如，儲存在 [記事本] 中) 供之後使用。
+          - **開始日期**：若要避免時區相關的問題，建議使用昨天的日期
 
-     > [!IMPORTANT]
-     > 將權杖開頭的問號 (“?”) 移除。
+          - **結束日期**：選擇此 SAS 權杖到期的日期
 
-     ![瀏覽窗格][8]
+            > [!NOTE]
+            > 在過期時更新權杖，以避免稽核失敗。
 
-4. 透過 SQL Server Management Studio (SSMS) 連線到您的受控執行個體。
+          - 按一下 [產生 SAS]。
+            
+            ![SAS 設定](./media/sql-managed-instance-auditing/7_sas_configure.png)
 
-5. 執行下列 T-SQL 陳述式，以使用您在上一個步驟中建立的容器 URL 和 SAS 權杖來**建立新的認證**：
+        - 按一下 [產生 SAS] 後，SAS 權杖就會出現在底部。 按一下複製圖示來複製權杖，然後儲存權杖 (例如，儲存在 [記事本] 中) 供之後使用。
 
-    ```SQL
-    CREATE CREDENTIAL [<container_url>]
-    WITH IDENTITY='SHARED ACCESS SIGNATURE',
-    SECRET = '<SAS KEY>'
-    GO
-    ```
+          ![複製 SAS 權杖](./media/sql-managed-instance-auditing/8_sas_copy.png)
 
-6. 執行下列 T-SQL 陳述式來建立新的伺服器稽核 (選擇您自己的稽核名稱，使用您在上一個步驟中建立的容器 URL)：
+          > [!IMPORTANT]
+          > 將權杖開頭的問號 (“?”) 移除。
 
-    ```SQL
-    CREATE SERVER AUDIT [<your_audit_name>]
-    TO URL ( PATH ='<container_url>' [, RETENTION_DAYS =  integer ])
-    GO
-    ```
+     1. 透過 SQL Server Management Studio (SSMS) 或任何其他支援的工具來連線至受控執行個體。
 
-    如果未指定，則 `RETENTION_DAYS` 預設為 0 (無限制的保留期)。
+     1. 執行下列 T-SQL 陳述式，以使用您在上一個步驟中建立的容器 URL 和 SAS 權杖來**建立新的認證**：
 
-    如需其他資訊：
-    - [受控執行個體、Azure SQL DB 和 SQL Server 之間的稽核差異](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
-    - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
-    - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+        ```SQL
+        CREATE CREDENTIAL [<container_url>]
+        WITH IDENTITY='SHARED ACCESS SIGNATURE',
+        SECRET = '<SAS KEY>'
+        GO
+        ```
 
-7. 建立您會針對 SQL Server 建立的「伺服器稽核規格」或「資料庫稽核規格」：
-    - [建立伺服器稽核規格 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-    - [建立資料庫稽核規格 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+     1. 執行下列 T-SQL 陳述式來建立新的伺服器稽核 (選擇您自己的稽核名稱，使用您在上一個步驟中建立的容器 URL)。 如果未指定，則 `RETENTION_DAYS` 預設為 0 (無限制的保留期)：
 
-8. 啟用您在步驟 6 中建立的伺服器稽核：
+        ```SQL
+        CREATE SERVER AUDIT [<your_audit_name>]
+        TO URL ( PATH ='<container_url>' [, RETENTION_DAYS =  integer ])
+        GO
+        ```
+
+      1. 藉由[建立伺服器稽核規格或資料庫稽核規格](#createspec)來繼續
+
+   - <a id="blobssms"></a>使用 SQL Server Management Studio (SSMS) 18 (預覽) 來設定稽核記錄的 Blob 儲存體：
+
+     1. 使用 SQL Server Management Studio (SSMS) UI 來連線至受控執行個體。
+
+     1. 展開 [物件總管] 的根節點。
+
+     1. 展開 [安全性] 節點，以滑鼠右鍵按一下 [稽核] 節點，然後按一下 [新增稽核]：
+
+        ![展開 [安全性] 和 [稽核] 節點](./media/sql-managed-instance-auditing/10_mi_SSMS_new_audit.png)
+
+     1. 確定 [稽核目的地] 中已選取 [URL]，然後按一下 [瀏覽]：
+
+        ![瀏覽 Azure 儲存體](./media/sql-managed-instance-auditing/11_mi_SSMS_audit_browse.png)
+
+     1. (選擇性) 登入您的 Azure 帳戶：
+
+        ![登入 Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
+
+     1. 從下拉式清單中選取訂用帳戶、儲存體帳戶和 Blob 容器，或者，藉由按一下 [建立] 來建立您自己的容器。 當您完成後，請按一下 [確定]：
+
+        ![選取 Azure 訂用帳戶、儲存體帳戶和 Blob 容器](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+
+     1. 在 [建立稽核] 對話方塊中按一下 [確定]。
+
+1. <a id="createspec"></a>在將 Blob 容器設定為稽核記錄的目標之後，請建立您會為 SQL Server 建立的伺服器稽核規格或資料庫稽核規格：
+
+   - [建立伺服器稽核規格 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [建立資料庫稽核規格 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+
+1. 啟用您在步驟 6 中建立的伺服器稽核：
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
     WITH (STATE=ON);
     GO
     ```
+
+如需其他資訊：
+
+- [受控執行個體、Azure SQL DB 和 SQL Server 之間的稽核差異](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
+- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 ## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>設定將伺服器的稽核儲存至事件中樞或 Log Analytics
 
@@ -141,7 +174,7 @@ ms.locfileid: "54267261"
 
 6. 按一下 [檔案] 。
 
-  ![瀏覽窗格][9]
+    ![設定診斷設定](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 
 7. 使用 **SQL Server Management Studio (SSMS)** 或任何其他支援的用戶端來連線至受控執行個體。
 
@@ -172,12 +205,12 @@ ms.locfileid: "54267261"
 
 - 使用系統函式 `sys.fn_get_audit_file` (T-SQL) 以表格格式傳回稽核記錄資料。 如需有關如何使用此函數的詳細資訊，請參閱 [sys.fn_get_audit_file 文件](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) (英文)。
 
-- 您可以使用工具 (例如 [Azure 儲存體總管](https://azure.microsoft.com/en-us/features/storage-explorer/)) 來查看稽核記錄。 在 Azure 儲存體中，稽核記錄是以 Blob 檔案集合的方式儲存在名為 sqldbauditlogs 的容器內。 如需有關儲存體資料夾階層、命名慣例、記錄格式的進一步詳細資訊，請參閱 [Blob 稽核記錄格式參考](https://go.microsoft.com/fwlink/?linkid=829599)。
+- 您可以使用工具 (例如 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)) 來查看稽核記錄。 在 Azure 儲存體中，稽核記錄會以 Blob 檔案集合的方式儲存在定義來儲存稽核記錄的容器內。 如需有關儲存體資料夾階層、命名慣例、記錄格式的進一步詳細資訊，請參閱 [Blob 稽核記錄格式參考](https://go.microsoft.com/fwlink/?linkid=829599)。
 
 - 如需稽核記錄耗用方法的完整清單，請參閱[開始使用 SQL 資料庫稽核](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)。
 
-> [!IMPORTANT]
-> 目前無法從 Azure 入口網站 ([稽核記錄] 窗格) 檢視「受控執行個體」的稽核記錄。
+  > [!IMPORTANT]
+  > 目前無法從 Azure 入口網站 ([稽核記錄] 窗格) 檢視「受控執行個體」的稽核記錄。
 
 ### <a name="consume-logs-stored-in-event-hub"></a>取用儲存在事件中樞中的記錄
 
@@ -213,12 +246,12 @@ SQL 稽核在受控執行個體、Azure SQL Database 和 SQL Server 內部部署
 - 如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)。
 
 <!--Image references-->
-[1]: ./media/sql-managed-instance-auditing/1_blobs_widget.png
-[2]: ./media/sql-managed-instance-auditing/2_create_container_button.png
-[3]: ./media/sql-managed-instance-auditing/3_create_container_config.png
-[4]: ./media/sql-managed-instance-auditing/4_container_properties_button.png
-[5]: ./media/sql-managed-instance-auditing/5_container_copy_name.png
-[6]: ./media/sql-managed-instance-auditing/6_storage_settings_menu.png
-[7]: ./media/sql-managed-instance-auditing/7_sas_configure.png
-[8]: ./media/sql-managed-instance-auditing/8_sas_copy.png
-[9]: ./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png
+
+
+
+
+
+
+
+
+

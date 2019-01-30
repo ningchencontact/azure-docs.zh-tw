@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190807"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411674"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 擴充
 
@@ -107,7 +107,7 @@ ms.locfileid: "54190807"
 
 **問題：** 使用者收到錯誤 [在連線模式 'ReadOnly' 中，找不到伺服器 '\<伺服器名稱>' 執行個體。]
 
-**解決方案：** 選取 [區隔處理伺服器與查詢集區] 選項時，使用預設連接字串 (不含 :rw) 的用戶端連線會重新導向至查詢集區複本。 如果查詢集區中的複本因為尚未完成同步處理而未上線，則重新導向的用戶端連線可能會失敗。 若要避免連線失敗，請選擇在相應放大和同步處理作業完成後，才能分開處理伺服器與查詢集區。 您可以使用記憶體和 QPU 計量來監視同步處理狀態。
+**解決方案：** 選取 [區隔處理伺服器與查詢集區] 選項時，使用預設連接字串 (不含 :rw) 的用戶端連線會重新導向至查詢集區複本。 如果查詢集區中的複本因為尚未完成同步處理而未上線，則重新導向的用戶端連線可能會失敗。 若要避免連線失敗，則在執行同步處理時，查詢集區中必須有至少兩部伺服器。 每部伺服器會個別同步，而其他伺服器則維持線上狀態。 如果您選擇在處理期間查詢集區中不要有處理中的伺服器，可以選擇從集區中移除該伺服器以供處理，然後在處理完成之後，但在同步處理之前，將它加回集區。 使用記憶體和 QPU 計量來監視同步處理狀態。
 
 ## <a name="related-information"></a>相關資訊
 

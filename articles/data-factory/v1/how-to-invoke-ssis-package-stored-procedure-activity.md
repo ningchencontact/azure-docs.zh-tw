@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Data Factory 叫用 SSIS 套件 - 預存程序活動 | Microsoft Docs
-description: 此文章說明如何使用預存程序活動從 Azure Data Factory 管線叫用 SQL Server Integration Services (SSIS) 套件。
+description: 本文描述如何使用預存程序活動從 Azure Data Factory 管線叫用 SQL Server Integration Services (SSIS) 封裝。
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,18 +13,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: eb9d35b132a0aa3f0702604444f8a760bf66cf9a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: c7731de810dab8b252294d694ace5df3f5d0a185
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275576"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427554"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 使用預存程序活動叫用 SSIS 套件
-此文章說明如何使用預存程序活動從 Azure Data Factory 管線叫用 SSIS 封裝。 
+本文描述如何使用預存程序活動從 Azure Data Factory 管線叫用 SSIS 封裝。 
 
 > [!NOTE]
-> 此文章適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[使用預存程序活動來叫用 SSIS 套件](../how-to-invoke-ssis-package-stored-procedure-activity.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[使用預存程序活動來叫用 SSIS 套件](../how-to-invoke-ssis-package-stored-procedure-activity.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -62,7 +62,7 @@ ms.locfileid: "52275576"
 5. 選取 Data Factory 的 [位置]  。 只有受到 Data Factory 支援的位置才會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他位置。
 6. 選取 [釘選到儀表板]。     
 7. 按一下頁面底部的 [新增] 。
-8. 在儀表板上，您會看到狀態如下的下列圖格︰**正在部署資料處理站**。 
+8. 在儀表板上，您會看到狀態如下的下列圖格︰**部署 Data Factory**。 
 
     ![部署資料處理站圖格](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。
@@ -165,7 +165,7 @@ ms.locfileid: "52275576"
 ## <a name="azure-powershell"></a>Azure PowerShell
 在本節中，您可以使用 Azure PowerShell 以叫用 SSIS 封裝的預存程序活動建立資料處理站管線。
 
-依照[如何安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)中的指示，安裝最新的 Azure PowerShell 模組。
+依照[如何安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)中的指示，安裝最新的 Azure PowerShell 模組。
 
 ### <a name="create-a-data-factory"></a>建立 Data Factory
 下列程序提供建立資料處理站的步驟。 您會在此資料處理站中建立具有預存程序活動的管線。 預存程序活動會執行 SSISDB 資料庫中的預存程序來執行 SSIS 套件。
@@ -227,7 +227,7 @@ ms.locfileid: "52275576"
         }
     ```
 2. 在 **Azure PowerShell** 中，切換至 **C:\ADF\RunSSISPackage** 資料夾。
-3. 執行 **New-AzureRmDataFactoryLinkedService** Cmdlet 以建立連結服務：**AzureSqlDatabaseLinkedService**。 
+3. 執行 **New-AzureRmDataFactoryLinkedService** Cmdlet 建立連結服務：**AzureSqlDatabaseLinkedService**。 
 
     ```powershell
     New-AzureRmDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"

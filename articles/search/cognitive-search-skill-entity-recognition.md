@@ -8,24 +8,24 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9745934891cd7ba99fa821377318e38134b7d2a5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 7a7fe9603716575c241ca78ebdc9b674888ca835
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311859"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452202"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>實體辨識認知技能
 
-**實體辨識**技能會從文字擷取實體。 
+**實體辨識**技能會從文字擷取實體。 這項技能會使用認知服務中[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)所提供的機器學習模型。
 
 > [!NOTE]
-> 從 2018 年 12 月 21 日開始，您可以在認知服務資源與 Azure 搜尋服務的技能集之間建立關聯。 這可讓我們開始收取執行技能集的費用。 自這個日期起，我們也會開始收取文件萃取階段的影像擷取費用。 從文件中擷取文字的功能則繼續免費提供。
+> 從 2018 年 12 月 21 日開始，您可以[連結認知服務資源](cognitive-search-attach-cognitive-services.md)與 Azure 搜尋服務技能集。 據此，我們將開始收取執行技術集的費用。 自這個日期起，我們也會開始收取文件萃取階段中影像擷取的費用。 從文件中擷取文字的功能則繼續免費提供。
 >
-> 內建技能的執行會依現行的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)所述。 [深入](cognitive-search-attach-cognitive-services.md)了解。
+> [內建認知技能](cognitive-search-predefined-skills.md)執行會以[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services)收費，費率與直接執行工作時一樣。 影像擷取是 Azure 搜尋服務費用，目前是以預覽版定價提供。 如需詳細資訊，請參閱 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)或[計費方式](search-sku-tier.md#how-billing-works)。
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -43,7 +43,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 | 類別    | 應擷取的類別陣列。  可能的類別類型：`"Person"`、`"Location"`、`"Organization"`、`"Quantity"`、`"Datetime"`、`"URL"`、`"Email"`。 如果未提供任何類別，則會傳回所有類型。|
 |defaultLanguageCode |  輸入文字的語言代碼。 支援下列語言：`de, en, es, fr, it`|
 |minimumPrecision | 未使用。 保留供未來使用。 |
-|includeTypelessEntites | 設定為 True 時，如果文字包含已知的實體，但無法分類為其中一個受支援的類別，則會作為 `"entities"` 複雜輸出欄位的一部分傳回。 預設值為 `false` |
+|includeTypelessEntities | 設定為 True 時，如果文字包含已知的實體，但無法分類為其中一個受支援的類別，則會作為 `"entities"` 複雜輸出欄位的一部分傳回。 預設值為 `false` |
 
 
 ## <a name="skill-inputs"></a>技能輸入

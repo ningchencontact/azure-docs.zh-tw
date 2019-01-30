@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5704cc21b14d83ebc30cd29f52102c751cfb11f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248005"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463213"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>使用 CLI 部署遠端監視解決方案加速器
 

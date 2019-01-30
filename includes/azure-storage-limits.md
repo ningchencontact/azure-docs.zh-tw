@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 1dd11e22361e25721effe2ed919f175d9cb1b9e4
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: e4fa42b6c32c3eb383eea4489ea109c0d496bdb9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249627"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54392690"
 ---
 下表說明 Azure 儲存體的預設限制。 *輸入*限制是指傳送至某個儲存體帳戶的所有資料 (要求)。 *輸出*限制是指從某個儲存體帳戶接收的所有資料 (回應)。
 
@@ -29,7 +29,7 @@ ms.locfileid: "54249627"
 | 一般用途 v1 儲存體帳戶的輸出上限 (美國區域) | 如果啟用 RA-GRS/GRS，則為 20 Gbps，LRS/ZRS 為 30 Gbps <sup>2</sup> |
 | 一般用途 v1 儲存體帳戶的輸出上限 (非美國區域) | 如果啟用 RA-GRS/GRS，則為 10 Gbps，LRS/ZRS 為 15 Gbps <sup>2</sup> |
 
-<sup>1</sup> Azure 儲存體帳戶會依照要求支援較高的輸入限制和 IOPS。 若要要求提高帳戶限制，請連絡 [Azure 支援](https://azure.microsoft.com/support/faq/)。
+<sup>1</sup> Azure 標準儲存體帳戶會依照要求支援較高的輸入限制。 若要要求提高帳戶的輸入限制，請連絡 [Azure 支援](https://azure.microsoft.com/support/faq/)。
 
 <sup>2</sup> [Azure 儲存體複寫](https://docs.microsoft.com/azure/storage/common/storage-redundancy)選項包括：
 * **RA-GRS**：讀取權限異地備援儲存體。 如果已啟用 RA-GRS，次要位置的輸出目標會與主要位置的輸出目標完全相同。

@@ -4,7 +4,7 @@ description: 如何針對在安裝應用程式 Proxy 代理程式連接器時可
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 2d528c04a9301998220b5564330f20ed014b68d6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a4e32697826b37f16bd0eacec3c5bfc34e94f73f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036921"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464641"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>安裝應用程式 Proxy 代理程式連接器時遇到問題
 
@@ -48,7 +48,7 @@ Microsoft AAD 應用程式 Proxy 連接器是內部網域元件，它會使用�
 
 ## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>確認電腦和後端元件支援應用程式 Prxoy 信任憑證
 
-**目標︰** 確認連接器電腦、後端 Proxy 和防火牆可支援由連接器針對未來信任所建立的憑證。
+**目標：** 確認連接器電腦、後端 Proxy 和防火牆可支援由連接器針對未來信任所建立的憑證。
 
 >[!NOTE]
 >連接器會嘗試建立由 TLS1.2 所支援的 SHA512 憑證。 如果電腦或後端防火牆及 Proxy 不支援 TLS1.2，則安裝會失敗。
@@ -63,7 +63,7 @@ Microsoft AAD 應用程式 Proxy 連接器是內部網域元件，它會使用�
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>確認是以系統管理員身分安裝連接器
 
-**目標︰** 確認嘗試安裝連接器的使用者是具有正確認證的系統管理員。 目前使用者必須是應用程式系統管理員或全域管理員，才能成功安裝。
+**目標：** 確認嘗試安裝連接器的使用者是具有正確認證的系統管理員。 目前使用者必須是應用程式系統管理員或全域管理員，才能成功安裝。
 
 **確認認證是否正確：**
 

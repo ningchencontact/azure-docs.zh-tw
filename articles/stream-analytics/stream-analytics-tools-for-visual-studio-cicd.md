@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
-ms.openlocfilehash: 2f3cc3b386dec0010b179455372fb49bcec55ffc
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 85cb23d865133f2ee769874aa5150ab13e04cd69
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558391"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410546"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>使用串流分析工具持續進行整合及開發
 本文說明如何使用適用於 Visual Studio 的 Azure 串流分析工具來設定持續整合及部署程序。
@@ -54,6 +54,8 @@ parameters.json 檔案中的預設參數來自 Visual Studio 專案中的設定�
     },
 ```
 深入了解如何[使用 Resource Manager 範本檔案和 Azure PowerShell 部署](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)。 深入了解如何[在 Resource Manager 範本中使用物件作為參數](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters)。
+
+若要使用 Azure Data Lake Store Gen1 的受控識別作為輸出接收端，您必須在部署至 Azure 之前，使用 PowerShell 提供服務主體的存取權。 深入了解如何[使用 Resource Manager 範本部署具有受控識別的 ADLS Gen1](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment)。
 
 
 ## <a name="command-line-tool"></a>命令列工具

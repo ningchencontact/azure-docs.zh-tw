@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 0d45d460b56f956a97779b46a72d0e4cd97a6b41
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: db5482fe17b9181097e13d446937bc489c3db8fe
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849695"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462822"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>管理 VMware VM 災害復原的設定伺服器
 
@@ -137,16 +137,18 @@ ms.locfileid: "52849695"
 - 如果您執行 9.7、9.8、9.9 或 9.10，就可以直接升級至 9.11。
 - 如果您執行 9.6 或更早版本，而且想要升級至 9.11，則在升級到 9.11 之前，必須先升級到 版本 9.7。
 
-[Azure 更新頁面](https://azure.microsoft.com/updates/?product=site-recovery)提供了升級至所有設定伺服器版本的更新彙總套件連結。
+如需 Azure Site Recovery 元件支援聲明的詳細指引，請參閱[這裡](https://aka.ms/asr_support_statement)。
+用來升級至組態伺服器所有版本的更新彙總連結，可以在[這裡](https://aka.ms/asr_update_rollups)取得。
 
 > [!IMPORTANT]
-> 每當發行新的 Azure Site Recovery 元件版本 'N' 時，'N-4' 以下的所有版本就會被視為不支援的版本。 我們一律建議您升級到可用的最新版本。
+> 每當發行新的 Azure Site Recovery 元件版本 'N' 時，'N-4' 以下的所有版本就會被視為不支援的版本。 我們一律建議您升級到可用的最新版本。</br>
+> 如需 Azure Site Recovery 元件支援聲明的詳細指引，請參閱[這裡](https://aka.ms/asr_support_statement)。
 
 升級伺服器，如下所示：
 
 1. 在保存庫中，移至 [管理] > [Site Recovery 基礎結構] > [組態伺服器]。
 2. 如果有可用的更新，[代理程式版本] > [資料行] 中會出現連結。
-    更新![](./media/vmware-azure-manage-configuration-server/update2.png)
+    ![更新](./media/vmware-azure-manage-configuration-server/update2.png)
 3. 將更新安裝程式檔案下載到組態伺服器上。
 
     ![更新](./media/vmware-azure-manage-configuration-server/update1.png)
@@ -158,6 +160,7 @@ ms.locfileid: "52849695"
     ![更新](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. 按一下 [完成] 以關閉安裝程式。
+8. 若要升級其餘 Site Recovery 元件，請參閱我們的[升級指引](https://aka.ms/asr_vmware_upgrades)。
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>將設定伺服器刪除或取消註冊
 
@@ -174,7 +177,7 @@ ms.locfileid: "52849695"
 
 您可以選擇使用 PowerShell 來刪除設定伺服器。
 
-1. [安裝](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模組。
+1. [安裝](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模組。
 2. 使用以下命令登入您的 Azure 帳戶：
 
     `Connect-AzureRmAccount`

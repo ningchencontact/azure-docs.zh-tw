@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 15a6a7f4753d51118d23d2e3c021010218d2d2d7
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451828"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434984"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>使用 Azure 原則來限制 Windows VM 上的延伸模組安裝
 
 如果您想要防止在 Windows VM 上使用或安裝特定的延伸模組，就可以使用 PowerShell 來建立 Azure 原則，以限制某個資源群組內 VM 的延伸模組。 
 
-本教學課程會使用 Cloud Shell 內的 Azure PowerShell，這會不斷更新至最新版本。 如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組版本 3.6 或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 
+本教學課程會使用 Cloud Shell 內的 Azure PowerShell，這會不斷更新至最新版本。 如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組版本 3.6 或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 
 
 ## <a name="create-a-rules-file"></a>建立規則檔
 

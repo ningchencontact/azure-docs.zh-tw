@@ -10,18 +10,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5266959e3c08721b79af8c11eb50b7a659e70ffc
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158851"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463026"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
-本文示範如何將 Azure 資源移至其他 Azure 訂用帳戶或相同訂用帳戶內的其他資源群組。 您可以使用 Azure 入口網站、Azure PowerShell、Azure CLI 或 REST API 來移動資源。
+本文示範如何將 Azure 資源移至其他 Azure 訂用帳戶或相同訂用帳戶內的其他資源群組。 您可以使用 Azure 入口網站、Azure PowerShell、Azure CLI 或 REST API 來移動資源。 若要進行教學課程，請參閱[教學課程：將 Azure 資源移至另一個資源群組或訂用帳戶](./resource-manager-tutorial-move-resources.md)。
 
 移動作業期間會同時鎖定來源群組和目標群組。 資源群組上的寫入和刪除作業將會封鎖，直到移動完成。 此鎖定表示您無法新增、更新或刪除資源群組中的資源，但不表示資源已遭到凍結。 例如，如果您將 SQL Server 和其資料庫移至新的資源群組，使用該資料庫的應用程式不會發生停機時間。 它仍可對資料庫讀取和寫入。
 
@@ -56,6 +56,7 @@ ms.locfileid: "54158851"
 * 自動化
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure 資料總管
 * 適用於 MySQL 的 Azure 資料庫
 * 適用於 PostgreSQL 的 Azure 資料庫
 * Azure DevOps - 購買非 Microsoft 延伸模組的 Azure DevOps 組織必須先[取消其購買](https://go.microsoft.com/fwlink/?linkid=871160)，才能在訂用帳戶之間移動帳戶。
@@ -98,7 +99,7 @@ ms.locfileid: "54158851"
 * 入口網站儀表板
 * Power BI - Power BI Embedded 和 Power BI 工作區集合
 * 公用 IP - 可以移動基本 SKU 公用 IP。 不能移動標準 SKU 公用 IP。
-* 復原服務保存庫 - 您必須註冊[有限的公開預覽](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) (英文)。
+* 復原服務保存庫 - 註冊[有限公開預覽](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault)的訂用帳戶。
 * Azure Cache for Redis - 如果 Azure Cache for Redis 執行個體已設定虛擬網路，該執行個體便無法移至不同的訂用帳戶。 請參閱[虛擬網路限制](#virtual-networks-limitations)。
 * 排程器
 * 搜尋 - 您無法在一個作業中移動不同區域中的數個搜尋資源， 而是要在不同作業中移動它們。
@@ -166,6 +167,7 @@ ms.locfileid: "54158851"
 尚未支援下列案例：
 
 * 憑證儲存在 Key Vault 中的虛擬機器可以移動至相同訂用帳戶中的新資源群組，但是無法跨訂用帳戶移動。
+* 位於可用性區域中的受控磁碟無法移至不同的訂用帳戶
 * 具有標準 SKU Load Balancer 或標準 SKU 公用 IP 的虛擬機器擴展集無法移動
 * 從 Marketplace 資源建立且附加方案的虛擬機器無法在資源群組或訂用帳戶之間移動。 在目前的訂用帳戶中取消佈建虛擬機器，然後於新訂用帳戶中再次部署。
 
@@ -305,7 +307,7 @@ ms.locfileid: "54158851"
 
 ### <a name="recovery-services-limitations"></a>復原服務限制
 
-若要移動復原服務保存庫，您必須註冊[有限的公開預覽](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) (英文)。
+ 若要移動復原服務保存庫，請註冊[有限公開預覽](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault)的訂用帳戶。
 
 目前每個區域一次可移動一個復原服務保存庫。 您無法移動負責備份 IaaS 虛擬機器中的 Azure 檔案服務、Azure 檔案同步或 SQL 的保存庫。
 

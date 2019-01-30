@@ -5,19 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.openlocfilehash: 1c05203de694cde882277bf269f3ff87438f9f26
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 1/22/2019
+ms.openlocfilehash: 6ebbaece66d9055fd2bff68eee873b012b4a6d50
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547723"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462415"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>讀取「適用於 MySQL 的 Azure 資料庫」中的複本
 
 讀取複本功能 (公開預覽) 可讓您將資料從「適用於 MySQL 的 Azure 資料庫伺服器」(主要) 複寫到相同 Azure 區域內的最多五部唯讀伺服器 (複本)。 唯讀複本會使用 MySQL 引擎的原生二進位記錄 (binlog) 檔案位置型複寫技術來進行非同步更新。 若要深入了解 binlog 複寫，請參閱 [MySQL binlog 複寫概觀](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) \(英文\)。
 
-在「適用於 MySQL 的 Azure 資料庫」服務中建立的複本是新的伺服器，而且可使用與正常/獨立 MySQL 伺服器一樣的方式來管理。 這些伺服器的費率與標準伺服器的費率相同。
+在「適用於 MySQL 的 Azure 資料庫」服務中建立的複本是新的伺服器，而且可使用與正常/獨立 MySQL 伺服器一樣的方式來管理。 針對每個讀取複本，系統每月會針對在 vCore 中所佈建的計算量，以及在儲存體中所佈建的容量 (以 GB 為單位) 向您收費。 
+
 
 若要深入了解 MySQL 複寫功能與問題，請參閱 [MySQL 複寫文件](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) \(英文\)。
 

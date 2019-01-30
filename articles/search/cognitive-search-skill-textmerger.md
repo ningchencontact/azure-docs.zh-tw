@@ -8,24 +8,22 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b29d32d39b4efb7e242a3ae3213512798622d1e9
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a3c64a26ed5ee7454fcfd22f47c1a161f65c6de7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314511"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445339"
 ---
 #    <a name="text-merge-cognitive-skill"></a>文字合併認知技能
 
 **文字合併**技能可將一組欄位中的文字合併成單一欄位。 
 
 > [!NOTE]
-> 從 2018 年 12 月 21 日開始，您可以在認知服務資源與 Azure 搜尋服務的技能集之間建立關聯。 這可讓我們開始收取執行技能集的費用。 自這個日期起，我們也會開始收取文件萃取階段的影像擷取費用。 從文件中擷取文字的功能則繼續免費提供。
->
-> 內建技能的執行會依現行的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)所述。 [深入](cognitive-search-attach-cognitive-services.md)了解。
+> 這項技能不受限於認知服務 API，您不需支付其使用費用。 不過，您仍然應該[連結認知服務資源](cognitive-search-attach-cognitive-services.md)，以覆寫限制您每天少量擴充的**免費**資源選項。
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill
@@ -111,7 +109,7 @@ Microsoft.Skills.Text.MergeSkill
       "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
       "context": "/document",
       "insertPreTag": " ",
-      "insertPostTag": " "
+      "insertPostTag": " ",
       "inputs": [
         {
           "name":"text", "source": "/document/content"

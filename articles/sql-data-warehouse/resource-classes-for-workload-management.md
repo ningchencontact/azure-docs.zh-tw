@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 8d0138d20e1a30ab3efc509eb71f17a6b1e4e8e5
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 9ed3ab89387afc78bd631416a683e11f4dc7054a
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287467"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402246"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中搭配使用工作負載管理與資源類別
 指引如何在 Azure SQL 資料倉儲中，使用資源類別來管理查詢的記憶體與並行存取。  
@@ -90,7 +90,7 @@ ms.locfileid: "43287467"
 ### <a name="default-resource-class"></a>預設的資源類別
 根據預設，每位使用者都是動態資源類別 **smallrc** 的成員。 
 
-服務管理員的資源類別是固定且無法變更的。  服務管理員是在佈建程序期間建立的使用者。
+服務管理員的資源類別固定為 smallrc 且無法變更。  服務管理員是在佈建程序期間建立的使用者。  此內容中的服務管理員是在建立採用新伺服器的新 SQL 資料倉儲執行個體時，針對「伺服器管理員登入」所指定的登入。
 
 > [!NOTE]
 > 定義為 Active Directory 管理員的使用者或群組，也會是服務管理員。

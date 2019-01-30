@@ -4,7 +4,7 @@ description: 為使用 Azure AD 登入第一方 Microsoft 應用程式 (如 Offi
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ab0face3c211a8ea1477f40167f80330f0423498
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 2a13df5fc609fe7cfddff91841e082c123d758f5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379259"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468715"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>登入 Microsoft 應用程式的問題
 
@@ -38,7 +38,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>一般應用程式存取問題考量事項
 
-以下為一般問題清單，如果您知道從何處開始疑難排解，您可以從這個清單向下切入，但建議您參閱以下的逐步解說以快速進行：[逐步解說：Microsoft 應用程式存取疑難排解步驟](#walkthrough-steps-to-troubleshoot-microsoft-application-access)。
+以下為一般問題清單，如果您知道從何處開始疑難排解，您可以從這個清單向下切入，但建議您參閱以下的逐步解說以快速進行：[逐步解說︰Microsoft 應用程式存取疑難排解步驟](#walkthrough-steps-to-troubleshoot-microsoft-application-access)。
 
 -   [使用者帳戶的問題](#problems-with-the-users-account)
 
@@ -74,11 +74,11 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
    * 確定使用者已獲**授權指派**。 [檢查使用者獲指派的授權](#check-a-users-assigned-licenses)或[檢查群組獲指派的授權](#check-a-groups-assigned-licenses)
 
-   * 如果將授權**指派至****靜態群組**，請確定**使用者屬於**該群組。 [檢查使用者的群組成員資格](#check-a-users-group-memberships)
+   * 如果將授權**指派至** **靜態群組**，請確定**使用者屬於**該群組。 [檢查使用者的群組成員資格](#check-a-users-group-memberships)
 
-   * 如果授權**指派至****動態群組**，請確定**動態群組規則設定正確**。 [檢查動態群組成員資格準則](#check-a-dynamic-groups-membership-criteria)
+   * 如果授權**指派至** **動態群組**，請確定**動態群組規則設定正確**。 [檢查動態群組成員資格準則](#check-a-dynamic-groups-membership-criteria)
 
-   * 如果授權**指派至****動態群組**，請確定動態群組已**完成處理**其成員資格，且**使用者為成員** (這可能需要一些時間)。 [檢查使用者的群組成員資格](#check-a-users-group-memberships)
+   * 如果授權**指派至** **動態群組**，請確定動態群組已**完成處理**其成員資格，且**使用者為成員** (這可能需要一些時間)。 [檢查使用者的群組成員資格](#check-a-users-group-memberships)
 
    *  一旦您確定授權已指派，請確定授權**尚未過期**。
 
@@ -204,7 +204,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 9.  從使用者清單中選取使用者，然後視需要 [啟用]、[停用] 或 [強制執行] 多重要素驗證。
 
-  * **注意**：如果使用者處理 [已強制] 狀態，您可以暫時將他們設為 [已停用]，讓他們回到各自的帳戶。 退回之後，您可以再次將其狀態變更為 [已啟用]，以要求他們在下次登入時重新註冊連絡資訊。 或者，您可以依照[檢查使用者的驗證連絡資訊](#check-a-users-authentication-contact-info)中的步驟，為他們確認或設定此資料。
+  * **注意**：如果使用者處於 [已強制] 狀態，您可以暫時將他們設為 [已停用]，讓他們回到各自的帳戶。 退回之後，您可以再次將其狀態變更為 [已啟用]，以要求他們在下次登入時重新註冊連絡資訊。 或者，您可以依照[檢查使用者的驗證連絡資訊](#check-a-users-authentication-contact-info)中的步驟，為他們確認或設定此資料。
 
 ### <a name="check-a-users-authentication-contact-info"></a>檢查使用者的驗證連絡資訊
 

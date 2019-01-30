@@ -12,21 +12,65 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: 61001d4926dcce68872a368afb5b28f2d3a8e2c0
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 6c3d3c831be52f56a1e0d3749ea2aa93fee0a955
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51818995"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401736"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>如何重設 Azure Windows VM 的網路介面 
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-停用預設的網路介面 (NIC) 或手動設定 NIC 的靜態 IP 之後，便無法連線到 Microsoft Azure Windows 虛擬機器 (VM)。 本文說明如何重設 Azure Windows VM 的網路介面，進而解決遠端連線問題。
+本文說明如何重設 Azure Windows VM 的網路介面，以在下列事項之後，解決無法連線到 Microsoft Azure Windows 虛擬機器 (VM) 時的問題：
+
+* 您停用預設網路介面 (NIC)。 
+* 您手動設定 NIC 的靜態 IP。 
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
+
 ## <a name="reset-network-interface"></a>重設網路介面
+
+### <a name="for-vms-deployed-in-resource-group-model"></a>適用於部署在資源群組模型中的 VM
+
+1.  移至 [Azure 入口網站](https://ms.portal.azure.com)。
+2.  選取受影響的虛擬機器。
+3.  選取 [網絡]，然後選取 VM 的網路介面。
+
+    ![網路介面位置](./media/reset-network-interface/select-network-interface-vm.png)
+    
+4.  選取 [IP 組態]。
+5.  選取 IP。 
+6.  如果 [私人 IP 指派] 不是 [靜態]，請將它變更為 [靜態]。
+7.  將 [IP 位址] 變更為子網路中可用的其他 IP 位址。
+8. 虛擬機器會重新啟動，以便對系統初始化新的 NIC。
+9.  嘗試使用 RDP 連線到您的電腦。 如果成功，您可以自行決定是否將私人 IP 位址變更回原始位址， 或是維持現有設定。 
+
+#### <a name="use-azure-powershell"></a>使用 Azure PowerShell
+
+1. 確定您已安裝[最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
+2. 開啟已提高權限的 Azure PowerShell 工作階段 (以系統管理員的身分執行)。 執行下列命令：
+
+    ```powershell
+    #Set the variables 
+    $SubscriptionID = "<Suscription ID>"
+    $VM = "<VM Name>"
+    $ResourceGroup = "<Resource Group>"
+    $VNET = "<Virtual Network>"
+    $IP = "NEWIP"
+
+    #Log in to the subscription 
+    Add-AzureRMAccount
+    Select-AzureRMSubscription -SubscriptionId $SubscriptionId 
+    
+    #Check whether the new IP address is available in the virtual network.
+    Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
+
+    #Add/Change static IP. This process will not change MAC address
+    Get-AzureRMVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzureRMVM
+    ```
+3. 嘗試使用 RDP 連線到您的電腦。  如果成功，您可以自行決定是否將私人 IP 位址變更回原始位址， 或是維持現有設定。
 
 ### <a name="for-classic-vms"></a>適用於傳統 VM
 
@@ -40,9 +84,9 @@ ms.locfileid: "51818995"
 4.  選取 [IP 位址]。
 5.  如果 [私人 IP 指派] 不是 [靜態]，請將它變更為 [靜態]。
 6.  將 [IP 位址] 變更為子網路中可用的其他 IP 位址。
-7.  選取 [儲存]。
+7.  選取 [ **儲存**]。
 8.  虛擬機器會重新啟動，以便對系統初始化新的 NIC。
-9.  嘗試使用 RDP 連線到您的電腦。 如果成功，您可以自行決定是否將私人 IP 位址變更回原始位址， 或是維持現有設定。 
+9.  嘗試使用 RDP 連線到您的電腦。 如果成功，您可以選擇將私人 IP 位址還原回原始位址。  
 
 #### <a name="use-azure-powershell"></a>使用 Azure PowerShell
 
@@ -68,44 +112,6 @@ ms.locfileid: "51818995"
     Get-AzureVM -ServiceName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
     ```
 3. 嘗試使用 RDP 連線到您的電腦。 如果成功，您可以自行決定是否將私人 IP 位址變更回原始位址， 或是維持現有設定。 
-
-### <a name="for-vms-deployed-in-resource-group-model"></a>適用於部署在資源群組模型中的 VM
-
-1.  移至 [Azure 入口網站]( https://ms.portal.azure.com)。
-2.  選取受影響的虛擬機器。
-3.  選取 [網路介面]。
-4.  選取和您的電腦相關聯的網路介面
-5.  選取 [IP 組態]。
-6.  選取 IP。 
-7.  如果 [私人 IP 指派] 不是 [靜態]，請將它變更為 [靜態]。
-8.  將 [IP 位址] 變更為子網路中可用的其他 IP 位址。
-9. 虛擬機器會重新啟動，以便對系統初始化新的 NIC。
-10. 嘗試使用 RDP 連線到您的電腦。 如果成功，您可以自行決定是否將私人 IP 位址變更回原始位址， 或是維持現有設定。 
-
-#### <a name="use-azure-powershell"></a>使用 Azure PowerShell
-
-1. 確定您已安裝[最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
-2. 開啟已提高權限的 Azure PowerShell 工作階段 (以系統管理員的身分執行)。 執行下列命令：
-
-    ```powershell
-    #Set the variables 
-    $SubscriptionID = "<Suscription ID>"
-    $VM = "<VM Name>"
-    $ResourceGroup = "<Resource Group>"
-    $VNET = "<Virtual Network>"
-    $IP = "NEWIP"
-
-    #Log in to the subscription 
-    Add-AzureRMAccount
-    Select-AzureRMSubscription -SubscriptionId $SubscriptionId 
-    
-    #Check whether the new IP address is available in the virtual network.
-    Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
-
-    #Add/Change static IP. This process will not change MAC address
-    Get-AzureRMVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzureRMVM
-    ```
-3. 嘗試使用 RDP 連線到您的電腦。  如果成功，您可以自行決定是否將私人 IP 位址變更回原始位址， 或是維持現有設定。 
 
 ## <a name="delete-the-unavailable-nics"></a>刪除無法使用的 NIC
 可以使用遠端桌面連線到機器之後，您必須刪除舊的 NIC 以避免潛在的問題：

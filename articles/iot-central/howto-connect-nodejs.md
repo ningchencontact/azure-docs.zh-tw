@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4d61810adb24bb56b849a0a07ad1f097a1c33744
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: cc6857750534dad2ded29178eb3f140fc25cce0d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198077"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410484"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>將一般用戶端應用程式連線到 Azure IoT 中心應用程式 (Node.js)
 
-本文說明如何以裝置開發人員身分，將代表實體裝置的一般 Node.js 應用程式連線到 Microsoft Azure IoT 中心應用程式。
+本文說明如何以裝置開發人員身分，將代表真實裝置的一般 Node.js 應用程式連線到 Microsoft Azure IoT 中心應用程式。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -97,7 +97,7 @@ ms.locfileid: "54198077"
 
 ### <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
 
-下列步驟示範如何建立用戶端應用程式，以實作您新增至應用程式的真實裝置。 在這裡，Node.js 應用程式代表實際的實體裝置。 
+下列步驟示範如何建立用戶端應用程式，以實作您新增至應用程式的真實裝置。 在這裡，Node.js 應用程式代表真實裝置。 
 
 1. 在電腦上建立名為 `connected-air-conditioner-adv` 的資料夾。 在命令列環境中瀏覽至該資料夾。
 

@@ -1,9 +1,9 @@
 ---
-title: Azure AD Connect：從同盟移轉至 Azure AD 的傳遞驗證 | Microsoft Docs
-description: 將混合式身分識別環境從同盟移至傳遞驗證的相關資訊。
+title: Azure AD Connect：從 Azure Active Directory 的同盟移轉至傳遞驗證 | Microsoft Docs
+description: 本文提供將混合式身分識別環境從同盟移轉至傳遞驗證的相關資訊。
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
@@ -11,400 +11,447 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c7d236769d5e9adca0402affc2d0eccdf78a6837
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: fe2ff3697d362119db2df682aacd89ebcf073059
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107747"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465627"
 ---
-# <a name="migrate-from-federation-to-pass-through-authentication-for-azure-ad"></a>從同盟移轉至 Azure AD 的傳遞驗證遷移
-下列文件提供從 AD FS 移至傳遞驗證的相關指引。
+# <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>從 Azure Active Directory 的同盟移轉至傳遞驗證
 
->[!NOTE]
->您可以在[此處](https://aka.ms/ADFSTOPTADPDownload)下載本文件複本。
+本文說明如何將組織的網域從 Active Directory 同盟服務 (AD FS) 移轉至傳遞驗證。
 
-## <a name="prerequisites-for-pass-through-authentication"></a>傳遞驗證的先決條件
-移轉之前必須符合下列先決條件。
+您可以[下載本文](https://aka.ms/ADFSTOPTADPDownload)。
+
+## <a name="prerequisites-for-migrating-to-pass-through-authentication"></a>移轉至傳遞驗證的必要條件
+
+若要從使用 AD FS 移轉至使用傳遞驗證，必須符合下列必要條件。
+
 ### <a name="update-azure-ad-connect"></a>更新 Azure AD Connect
 
-若要成功執行移轉到傳遞驗證的步驟，至少應有 [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0。 此版本包含執行登入轉換方式的重大變更，而且可將從同盟移轉到雲端驗證的整體時間從數小時縮減至數分鐘。
+若要順利完成移轉至使用傳遞驗證所需執行的步驟，您必須擁有 [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 或更新版本。 在 Azure AD Connect 1.1.819.0 中，執行登入轉換的方式有重大變更。 在此版本中，從 AD FS 移轉至雲端驗證的整體時間，已從可能需要數小時縮短為只要幾分鐘。
 
 > [!IMPORTANT]
-> 過時的文件、工具和部落格文章上，註明了當從同盟網域轉換成受控網域時，使用者轉換是必要的步驟。 不再需要**轉換使用者**，而且 Microsoft 正致力更新說明文件和工具來反映此項變更。
+> 過時的文件、工具和部落格中可能會提到，在將網域從同盟身分識別轉換為受控識別時，必須進行使用者轉換。 現已不再需要*轉換使用者*。 Microsoft 正著手更新文件和工具，以反映這項變更。
 
-若要將 Azure AD Connect 更新至最新版本，請依照本[更新指示](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version)操作。
+若要更新 Azure AD Connect，請完成 [Azure AD Connect：升級至最新版本](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version)中的步驟。
 
 ### <a name="plan-authentication-agent-number-and-placement"></a>規劃驗證代理程式編號和位置
 
-在 Azure AD Connect 伺服器以及內部部署 Windows 伺服器上部署輕量型代理程式，即可完成傳遞驗證。 代理程式的安裝位置盡可能靠近 Active Directory 網域控制站，可以降低延遲。
+要使用傳遞驗證，必須在 Azure AD Connect 伺服器上，以及您執行 Windows Server 的內部部署電腦上部署輕量型代理程式。 為了縮短延遲，代理程式的安裝位置應盡可能靠近 Active Directory 網域控制站。
 
-對大部分的客戶來說，二到三個驗證代理程式就足以提供高可用性和容量，而租用戶可以註冊 12 個以內的代理程式。 第一個代理程式一律安裝在 AAD Connect 伺服器上。 請參閱[網路流量估計和效能指引資訊](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-current-limitations)，了解代理程式的限制和代理程式的部署選項。
+對大多數客戶來說，二或三個驗證代理程式即足以提供高可用性和必要的容量。 一個租用戶最多可註冊 12 個代理程式。 第一個代理程式一律安裝於 Azure AD Connect 伺服器本身。 若要了解代理程式的限制與代理程式的部署選項，請參閱 [Azure AD 傳遞驗證：目前的限制](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-current-limitations)。
 
-### <a name="plan-migration-method"></a>規劃移轉方法
+### <a name="plan-the-migration-method"></a>規劃移轉方法
 
-有兩種方法可以從同盟驗證移轉至 PTA 和無縫 SSO。 您使用的方法將取決於原本設定 AD FS 的方式。
+要從同盟身分識別管理移轉至傳遞驗證和無縫單一登入 (SSO)，您可以從兩種方法中擇一使用。 所應使用的方法取決於您 AD FS 執行個體原本的設定方式。
 
-- **使用 Azure AD Connect**。 如果原本使用 Azure AD Connect 設定 AD FS，則*必須*透過 Azure AD Connect 精靈來執行傳遞驗證的變更。
+* **Azure AD Connect**。 如果您原本使用 Azure AD Connect 來設定 AD FS，則「必須」使用 Azure AD Connect 精靈來變更為傳遞驗證。
 
-使用 Azure AD Connect 時，若要變更使用者登入方式，會自動為您執行 Set-MsolDomainAuthentication Cmdlet，因此在 Azure AD 租用戶中所有已驗證同盟網域解除同盟的情況下，您就沒有控制權。  
-‎  
-> [!NOTE]
-> 此時，如果原先使用 AAD Connect 為您設定 AD FS，將使用者登入變更成傳遞驗證時會無法避免解除租用戶中所有網域的同盟。  
+   ‎當您變更使用者登入方法時，Azure AD Connect 會自動執行 **Set-MsolDomainAuthentication** Cmdlet。 Azure AD Connect 會自動將您 Azure AD 租用戶中所有已驗證的同盟網域解除同盟。
+
+   > [!NOTE]
+   > 目前，如果您原本使用 Azure AD Connect 來設定 AD FS，則在將使用者登入變更為傳遞驗證時，就無法避免系統會將租用戶中所有網域解除同盟的情形。
 ‎
-- **使用 Azure AD Connect 和 PowerShell**。 只有在原先並非以 Azure AD Connect 設定 AD FS 的情況下，才可使用此方法。 您仍需要透過 Azure AD Connect 精靈變更使用者登入方法，但主要差異在於此方式不會自動執行 Set-MsolDomainAuthentication Cmdlet，因為此方式不知道您的 AD FS 伺服器陣列，所以您可以完全控制要轉換的網域和順序。
+* **Azure AD Connect 搭配 PowerShell**。 只有原本並非使用 Azure AD Connect 來設定 AD FS 時，才可使用此方法。 使用此選項時，您仍須透過 Azure AD Connect 精靈變更使用者登入方法。 此選項最主要的差異在於，精靈不會自動執行 **Set-MsolDomainAuthentication** Cmdlet。 使用此選項時，您可以完整控制要轉換哪些網域，及其轉換順序。
 
-若要了解您應該使用何種方式，請執行下一節中的步驟。
+若要了解應使用何種方法，請完成後續幾節的步驟。
 
 #### <a name="verify-current-user-sign-in-settings"></a>請確認目前的使用者登入設定
 
-使用全域系統管理員帳戶登入 Azure AD 入口網站[https://aad.portal.azure.com](https://aad.portal.azure.com/)，確認您目前的使用者登入設定。 
+1. 使用全域管理員帳戶登入 [Azure AD 入口網站](https://aad.portal.azure.com/)。
+2. 在 [使用者登入] 區段中，確認下列設定：
+   * [同盟] 設為 [啟用]。
+   * [無縫單一登入] 設為 [停用]。
+   * [傳遞驗證] 設為 [停用]。
 
-在 [使用者登入] 區段中，確認 [同盟] 設為 [已啟用]，而 [無縫單一登入] 和 [傳遞驗證] 設為 [已停用]。 
-
-![圖 5](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image1.png)
+   ![此螢幕擷取畫面顯示 Azure AD Connect [使用者登入] 區段中的設定](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image1.png)
 
 #### <a name="verify-how-federation-was-configured"></a>確認同盟的設定方式
 
-   1. 前往您的 Azure AD Connect 伺服器並啟動 Azure AD Connect，然後選取 [設定]。
-   2. 在 [其他工作] 畫面中，選取 [檢視目前的設定]，然後選取 [下一步]。</br>
-   ![圖 31](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)</br>
-   3. 在 [Review Your Solution]\(檢視您的解決方案\) 畫面中，向下捲動至 [Active Directory Federation Services (AD FS)]。</br>
-   如果您在此區段看到 AD FS 設定，可以安心假設原先是透過 Azure AD Connect 設定 AD FS，因此可以透過 Azure AD Connect 的 [變更使用者登入] 選項將同盟網域轉換至受控網域；本節的**選項 1：使用 Azure AD Connect 設定傳遞驗證**會詳述此程序。  
-‎
-   4. 如果看不到目前設定中所列的 Active Directory 同盟服務，則必須透過 PowerShell 將同盟網域手動轉換至受控網域，此程序會在**選項 2 - 使用 Azure AD Connect 和 PowerShell 從同盟轉換至 PTA**一節中詳述。
+1. 在 Azure AD Connect 伺服器上，開啟 Azure AD Connect。 選取 [設定] 。
+2. 在 [其他工作] 頁面上選取 [檢視目前的設定]，然後選取 [下一步]。<br />
+ 
+   ![此螢幕擷取畫面顯示 [其他工作] 頁面上的 [檢視目前的設定] 選項](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
+3. 在 [檢閱解決方案] 頁面上，捲動至 [Active Directory 同盟服務 (AD FS)]。<br />
+
+   * 如果此區段中出現 AD FS 設定，您就可以放心假設 AD FS 原本是使用 Azure AD Connect 進行設定的。 您可以使用 Azure AD Connect 的 [變更使用者登入] 選項，將網域從同盟身分識別轉換為受控識別。 如需此程序的詳細資訊，請參閱**選項 1：使用 Azure AD Connect 設定傳遞驗證**一節。
+   * 如果目前的設定未列出 AD FS，則必須手動使用 PowerShell 將網域從同盟身分識別轉換為受控識別。 如需此程序的詳細資訊，請參閱**選項 2：使用 Azure AD Connect 和 PowerShell 從同盟轉換至傳遞驗證**一節。
 
 ### <a name="document-current-federation-settings"></a>文件目前的同盟設定
 
-您可以執行 Get-MsolDomainFederationSettings Cmdlet 來尋找目前的同盟設定。
-
-此命令為：
+若要尋找您目前的同盟設定，請執行 **Get-MsolDomainFederationSettings** Cmdlet：
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
 ```
 
-例如︰
+範例：
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 ```
 
+請確認可能已為您的同盟設計和部署文件自訂的任何設定。 具體來說，請尋找 **PreferredAuthenticationProtocol**、**SupportsMfa** 和 **PromptLoginBehavior** 中的自訂。
 
-驗證可能已針對同盟設計和部署說明文件所自訂的任何設定，尤其是 **PreferredAuthenticationProtocol**、**SupportsMfa** 及 **PromptLoginBehavior**。
+如需詳細資訊，請參閱這些文章：
 
-以下提供這些設定相關功能的詳細資訊。
-
-[Active Directory 同盟服務提示=登入參數支援](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)  
-‎[Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
+* [AD FS prompt=login 參數支援](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
+* [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> 如果 SupportsMfa 值目前設為「True」，表示您使用的是內部部署的 MFA 解決方案，會將第二個因素挑戰納入使用者驗證流程中。 如此就不再適用於 Azure AD 的驗證情節，而您必須改用 Azure MFA (雲端式) 服務來執行相同的函式。 繼續進行之前，請先仔細評估您的 MFA 需求，並確定您了解如何運用 Azure MFA、授權意涵以及轉換網域之前的一般使用者註冊程序。
+> 如果 **SupportsMfa** 設定為 **True**，表示您是使用內部部署多重要素驗證解決方案，將第二個要素挑戰納入使用者驗證流程中。 此設定不再適用於 Azure AD 驗證案例。 
+>
+> 請改用 Azure Multi-factor Authentication 雲端式服務來執行相同的功能。 在繼續之前，請仔細評估您的多重要素驗證需求。 在轉換網域之前，請先確定您已了解 Azure Multi-Factor Authentication 的使用方式、授權含意和使用者註冊程序。
 
-#### <a name="backup-federation-settings"></a>備份同盟設定
+#### <a name="back-up-federation-settings"></a>備份同盟設定
 
-雖然在此程序期間不會變更 AD FS 伺服器陣列上的其他信賴憑證者，但建議先確定您的 AD FS 伺服器陣列目前擁有有效備份可供還原。 您可以使用免費的 Microsoft [AD FS 快速還原工具](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool)來還原。 可使用這項工具將 AD FS 備份和還原到現有的伺服陣列或新的伺服器陣列。
+雖然在本文所說明的程序執行期間並不會變更 AD FS 伺服器陣列中的其他信賴憑證者，但建議您先確定 AD FS 伺服器陣列目前有有效的備份可供還原。 您可以使用免費的 Microsoft [AD FS 快速還原工具](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool)來建立目前的有效備份。 您可以使用此工具來備份 AD FS，以及還原現有的伺服器陣列或建立新的伺服器陣列。
 
-如果您選擇不使用 AD FS 快速還原工具，至少應匯出「Microsoft Office 365 身分識別平台」信賴憑證者信任，以及您新增的任何相關聯自訂宣告規則。 您可以透過下列 PowerShell 範例執行這項作業
+如果您選擇不使用 AD FS 快速還原工具，則至少應匯出「Microsoft Office 365 身分識別平台」信賴憑證者信任，以及您已新增的任何相關聯自訂宣告規則。 您可以使用下列 PowerShell 範例，匯出信賴憑證者信任和相關聯的宣告規則：
 
 ``` PowerShell
 (Get-AdfsRelyingPartyTrust -Name "Microsoft Office 365 Identity Platform") | Export-CliXML "C:\temp\O365-RelyingPartyTrust.xml"
 ```
 
-## <a name="deployment-considerations-and-ad-fs-usage"></a>部署考量和 AD FS 使用方式
+## <a name="deployment-considerations-and-using-ad-fs"></a>部署考量和 AD FS 的使用方式
 
-### <a name="validate-your-current-ad-fs-usage"></a>驗證目前的 AD FS 使用方式
+本節說明部署考量和關於使用 AD FS 的詳細資料。
 
-從同盟轉換成受控之前，應該仔細查看您目前針對 Azure AD/Office 365 和其他應用程式 (信賴憑證者信任) 使用 AD FS 的方式。 尤其應考量下列表格中的內容：
+### <a name="current-ad-fs-use"></a>目前的 AD FS 使用方式
 
-| 假設情形| 對應行動 |
+從同盟身分識別轉換成受控身分識別之前，應先仔細查看您目前對 Azure AD、Office 365 和其他應用程式 (信賴憑證者信任) 使用 AD FS 的方式。 具體而言，請考量下表所說明的案例：
+
+| 假設情形 | 對應行動 |
 |-|-|
-| 您要保留 AD FS 供其他應用程式使用。| 您會同時使用 AD FS 與 Azure AD，因而需要考慮一般使用者體驗。 在某些情況下，使用者可能需要進行兩次驗證，一次是 Azure AD (會在此將 SSO 向外轉發到 Office 365 等其他應用程式)，另一次則是為了任何仍繫結至 AD FS 作為信賴憑證者信任的應用程式。 |
-| AD FS 是高度自訂且仰賴 onload.js 檔案中的特定自訂設定 (此檔案無法在 Azure AD 中複製) (例如您已變更登入體驗，所以使用者只能輸入 SamAccountName 格式的使用者名稱，而不是 UPN，或是有大量品牌化的登入體驗)| 您必須確認 Azure AD 可以滿足您目前的自訂需求後再繼續。 如需詳細資訊和指引，請參閱 AD FS 商標和 AD FS 自訂區段。|
-| 您正透過 AD FS 封鎖舊版驗證用戶端。| 請考慮以[舊版驗證的條件式存取控制](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)和 [Exchange Online 用戶端存取規則](https://aka.ms/EXOCAR)來更換控制項，以封鎖目前在 AD FS 上的舊版驗證用戶端。 |
-| 您要求使用者向 AD FS 進行驗證時，對內部部署 MFA 伺服器解決方案執行 MFA。| 您無法透過內部部署 MFA 解決方案將 MFA 挑戰納入受控網域的驗證流程，但是可以在網域轉換後使用 Azure MFA 服務繼續執行此操作。 如果使用者目前未使用 Azure MFA，會涉及到一次性的使用者註冊步驟，您必須做好準備並傳達給使用者。 |
-| 您目前使用 AD FS 中的存取控制原則 (AuthZ 規則) 來控管 Office 365 的存取權。| 請考慮將這些更換成對等的 Azure AD [條件式存取原則](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)和 [Exchange Online 用戶端存取規則](https://aka.ms/EXOCAR)。|
+| 您打算繼續將 AD FS 用於 Azure AD 和 Office 365 以外的其他應用程式。 | 在轉換網域之後，您將使用 AD FS 和 Azure AD。 請考量使用者體驗。 在某些情況下，使用者可能需要進行兩次驗證：一次是對 Azure AD (此時使用者會取得對其他應用程式的 SSO 存取權，例如 Office 365)，另一次則是針對任何仍繫結至 AD FS 作為信賴憑證者信任的應用程式。 |
+| 您的 AD FS 執行個體經過高度自訂，且仰賴 onload.js 檔案中特定的自訂設定 (例如您已變更登入體驗，使得使用者的使用者名稱必須採用 **SamAccountName** 格式，而非使用者主體名稱 (UPN)，或是您的組織已將登入體驗高度品牌化)。 在 Azure AD 中無法複製 onload.js 檔案。 | 在繼續作業之前，您必須確認 Azure AD 可符合您目前的自訂需求。 如需詳細資訊和指引，請參閱 AD FS 商標和 AD FS 自訂的相關章節。|
+| 您 AD FS 使用來封鎖舊版驗證用戶端。| 請考慮使用[條件式存取控制](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)和 [Exchange Online 用戶端存取規則](http://aka.ms/EXOCAR)的組合，以取代封鎖舊版驗證用戶端的 AD FS 控制項。 |
+| 當使用者向 AD FS 進行驗證時，您要求使用者依據內部部署多重要素驗證伺服器解決方案執行多重要素驗證。| 在受控識別網域中，您無法透過內部部署多重要素驗證解決方案將多重要素驗證挑戰插入驗證流程中。 不過，您可以在轉換網域後使用 Azure Multi-factor Authentication 服務進行多重要素驗證。<br /><br /> 如果您的使用者目前未使用 Azure Multi-factor Authentication，則需執行一次性的使用者註冊步驟。 您必須準備好計劃性的註冊，並將其傳達給使用者。 |
+| 您目前使用 AD FS 中的存取控制原則 (AuthZ 規則) 來控管對 Office 365 的存取。| 請考慮將這些原則替換為對等的 Azure AD [條件式存取原則](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)和 [Exchange Online 用戶端存取規則](http://aka.ms/EXOCAR)。|
 
-### <a name="considerations-for-common-ad-fs-customizations"></a>常見的 AD FS 自訂考量
+### <a name="common-ad-fs-customizations"></a>常見的 AD FS 自訂
 
-#### <a name="inside-corporate-network-claim"></a>公司網路內部宣告
+本節說明常見的 AD FS 自訂。
 
-如果使用者在公司網路內部進行驗證，就會由 AD FS 發出 InsideCorporateNetwork 宣告。 此宣告可以傳遞至 Azure AD，並根據使用者的網路位置用來略過多重要素驗證。 如需進一步了解如何判斷目前是否在 AD FS 中啟用此功能，請參閱[同盟使用者適用的可信任 IP](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud)。
+#### <a name="insidecorporatenetwork-claim"></a>InsideCorporateNetwork 宣告
 
-一旦您的網域都轉換成傳遞驗證，便再也無法使用 InsideCorporateNetwork 宣告。 可使用 [Azure AD 中的具名位置](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations)來取代這項功能。
+如果進行驗證的使用者位於公司網路內部，AD FS 就會發出 **InsideCorporateNetwork** 宣告。 此宣告後續可傳至 Azure AD。 此宣告可根據使用者的網路位置用來略過多重要素驗證。 若要了解如何判斷目前是否可在 AD FS 中使用這項功能，請參閱[同盟使用者的可信任 IP](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud)。
 
-一旦設定了具名位置，所有已設定要包含/排除網路位置「所有可信任位置」和「MFA 可信任 IP」的條件式存取原則都必須更新，以反映新建立的具名位置。
+在您的網域轉換成傳遞驗證後，即無法使用 **InsideCorporateNetwork** 宣告。 您可以使用 [Azure AD 中的具名位置](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations)來取代這項功能。
 
-如需條件式存取中位置條件的詳細資訊，請參閱 [Active Directory 條件式存取位置](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)。
+設定具名位置之後，您必須更新所有已設定要包含或排除**所有可信任位置**或 **MFA 可信任 IP** 網路值的條件式存取原則，以反映新的具名位置。
 
-#### <a name="hybrid-azure-ad-joined-devices"></a>混合式 Azure AD 已加入裝置
+如需與條件式存取中的**位置**條件有關的詳細資訊，請參閱 [Active Directory 條件式存取位置](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)。
 
-將裝置加入 Azure AD 可讓您建立條件式存取規則，強制裝置符合您對於安全性與合規性的存取標準，而且可讓使用者登入使用組織的公司或學校帳戶之裝置，而不是個人帳號。 混合式 Azure AD 已加入裝置可讓您將已加入 AD 網域的裝置加入 Azure AD。 可能已使用此功能設定同盟環境。
+#### <a name="hybrid-azure-ad-joined-devices"></a>已加入混合式 Azure AD 的裝置
 
-為了確保網域轉換至傳遞驗證後，混合式加入仍然適用於加入此網域的任何新裝置，必須將 Azure AD Connect 設定為同步 Windows 10 適用的 Active Directory 電腦帳戶和 Azure AD。 若是 Windows 7 和 Windows 8 的電腦帳戶，混合式加入會使用無縫 SSO 註冊 Azure AD 中的電腦，您就不必像 Windows 10 裝置那樣同步處理這些帳戶。 但是您必須將更新的 workplacejoin.exe 檔案 (透過 .msi) 部署到這些舊版用戶端，讓他們可以使用無縫 SSO 自行註冊。 [下載 .msi](https://www.microsoft.com/download/details.aspx?id=53554)。
+將裝置加入 Azure AD 時，您可以建立條件式存取規則，強制裝置符合您的存取標準，以維護安全性和合規性。 此外，使用者也可使用組織的公司或學校帳戶 (而非個人帳戶) 來登入裝置。 使用已加入混合式 Azure AD 的裝置時，您可以將已加入 Active Directory 網域的裝置加入 Azure AD。 您的同盟環境可能已設定成使用這項功能。
 
-如需此需求的詳細資訊，請參閱[如何設定已加入 Azure Active Directory 的混合式裝置](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup)
+為了確保在網域轉換至傳遞驗證後，任何加入網域的裝置都可繼續使用混合式加入，對於 Windows 10 用戶端，您必須使用 Azure AD Connect 將 Active Directory 電腦帳戶同步至 Azure AD。
+
+對於 Windows 8 和 Windows 7 電腦帳戶，混合式加入會使用無縫 SSO 在 Azure AD 中註冊電腦。 您不需要像 Windows 10 裝置那樣同步處理 Windows 8 和 Windows 7 電腦帳戶。 但您必須將更新的 workplacejoin.exe 檔案 (透過 .msi 檔案) 部署到 Windows 8 和 Windows 7 用戶端，使其可使用無縫 SSO 進行註冊。 [下載 .msi 檔案](https://www.microsoft.com/download/details.aspx?id=53554)。
+
+如需詳細資訊，請參閱[設定已加入混合式 Azure AD 的裝置](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup)。
 
 #### <a name="branding"></a>商標
 
-您的組織可能會有[自訂的 ADFS 登入頁面](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization)來顯示更多有關組織的資訊。 若是如此，可考慮製作相似的[自訂 Azure AD 登入頁面](https://docs.microsoft.com/azure/active-directory/customize-branding)。
+如果您的組織[自訂了 ADFS 登入頁面](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization)以顯示更多有關組織的資訊，請考慮以類似的方式[自訂 Azure AD 登入頁面](https://docs.microsoft.com/azure/active-directory/customize-branding)。
 
-使用類似的自訂時，外觀上應該會有些許改變。 建議在與一般使用者的通訊中加入預期內的改變。
+雖然可進行類似的自訂，但轉換後的登入頁面在外觀上應該會有些許改變。 您可以在與使用者的通訊中提供關於預期改變的資訊。
 
 > [!NOTE]
-> 公司商標只有在您已購買 Azure AD 的「進階」或「基本」授權，或擁有 Office 365 授權時，才可供使用。
+> 只有在購買 Azure Active Directory 的「進階」或「基本」授權後，或擁有 Office 365 授權時，才可使用組織商標。
 
-## <a name="planning-for-smart-lockout"></a>規劃智慧鎖定
+## <a name="plan-for-smart-lockout"></a>規劃智慧鎖定
 
-Azure AD 智慧鎖定在使用傳遞驗證，而且在 Active Directory 中設定帳戶鎖定群組原則時，防範暴力密碼破解攻擊，並防止內部部署 Active Directory 帳戶遭到鎖定。 
+Azure AD 智慧鎖定可防範暴力密碼破解攻擊。 在使用傳遞驗證，且已在 Active Directory 中設定帳戶鎖定群組原則時，智慧鎖定可防止內部部署 Active Directory 帳戶遭到鎖定。
 
-深入了解[智慧鎖定功能以及如何編輯其設定](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)的詳細資訊。
+如需詳細資訊，請參閱 [Azure Active Directory 智慧鎖定](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)。
 
-## <a name="planning-deployment-and-support"></a>規劃部署和支援
+## <a name="plan-deployment-and-support"></a>規劃部署和支援
+
+完成本節說明的工作有助於您規劃部署和支援。
 
 ### <a name="plan-the-maintenance-window"></a>規劃維護時間範圍
 
-當網域轉換程序本身相對快速時，在網域轉換完成後，Azure AD 可能仍會將部分驗證要求傳送到您的 AD FS 伺服器，時間最長可達 4 小時。 在這四小時期間內，視不同的服務端快取而定，Azure AD 可能不會接受驗證，而且使用者會收到錯誤，因為他們依然能夠成功地向 AD FS 進行驗證，但由於現在已移除該同盟信任，Azure AD 不會再接受使用者發出的權杖。
+雖然網域轉換程序很快就可完成，但在網域轉換完成後，Azure AD 可能會繼續將某些驗證要求傳送到您的 AD FS 伺服器，時間最長可達四小時。 在這四小時內，視服務端快取之不同，Azure AD 可能不會接受這些驗證。 使用者可能會收到錯誤。 使用者仍可順利對 AD FS 進行驗證，但 Azure AD 不會再接受使用者發出的權杖，因為該同盟信任此時已移除。
 
-> [!NOTE]
-> 這只會影響在這段後轉換期間，透過瀏覽器存取服務的使用者，直到清除服務端快取為止。 舊版用戶端 (Exchange ActiveSync、Outlook 2010/2013) 應該不會受到影響，因為 Exchange Online 會將其認證中的快取保留一段時間，以無訊息方式重新驗證使用者，不需要返回到 AD FS。 一旦清除此快取後，這些用戶端儲存在裝置上的認證就能以無訊息方式重新驗證用戶端，因此使用者應該不會因為網域轉換程序而收到任何密碼提示。 相反地，若是新式驗證用戶端 (Office 2013/2016、IOS 及 Android 應用程式)，則會使用有效的重新整理權杖取得新的存取權杖，以便繼續存取資源，而不必返回 AD FS，因此在網域轉換程序中不會收到任何密碼提示，而且不需要任何額外的設定就能繼續運作。
+只有在服務端快取尚未清除的這段轉換後期間透過網頁瀏覽器存取服務的使用者，才會受到影響。 舊版用戶端 (Exchange ActiveSync、Outlook 2010/2013) 應該不受影響，因為 Exchange Online 會將其認證的快取保留一段時間。 快取可用來以無訊息方式重新驗證使用者。 使用者不需要返回 AD FS。 在此快取清除後，將會使用為這些用戶端儲存在裝置上的認證重新進行自我驗證。 使用者應該不會因為網域轉換程序而看到任何密碼提示。
+
+新式驗證用戶端 (Office 2016 和 Office 2013、iOS 和 Android 應用程式) 會使用有效的重新整理權杖取得新的存取權杖，以繼續存取資源，而不會返回 AD FS。 這些用戶端不會因為網域轉換程序而收到任何密碼提示。 用戶端無需額外設定即可繼續運作。
+
 > [!IMPORTANT]
-> 請勿關閉您的 AD FS 環境或移除 Office 365 信賴憑證者信任，除非您已經使用雲端驗證確認所有使用者都已驗證成功。
+> 在您確認所有使用者都可使用雲端驗證成功通過驗證之前，請勿關閉您的 AD FS 環境或移除 Office 365 信賴憑證者信任。
 
 ### <a name="plan-for-rollback"></a>規劃復原作業
 
-如果找到主要問題而且無法快速解決，您可能需決定將解決方案復原至同盟。 請務必規劃無法如預期部署時的因應措施。 如果部署時網域或使用者轉換失敗，或是需要復原至同盟，請務必要知道如何減輕任何中斷情況，並降低對使用者的影響。
+如果發生無法快速解決的重大問題，您可能會決定將解決方案復原至同盟。 請務必規劃無法如預期進行部署時的因應措施。 如果部署期間的網域或使用者轉換失敗，或是需要復原至同盟，您必須了解如何因應任何中斷情況，並降低對使用者的影響。
 
-#### <a name="rolling-back"></a>復原
+#### <a name="to-roll-back"></a>復原
 
-如需特定的部署詳細資料，請參閱您的同盟設計和部署文件。 此流程應該包含：
+若要進行復原規劃，請參閱同盟設計和部署文件，以取得特定部署的詳細資料。 此程序應該包含下列工作：
 
-* 使用 Convert-MSOLDomainToFederated 將受控網域轉換成同盟網域 
-
+* 使用 **Convert-MSOLDomainToFederated** Cmdlet 將受控網域轉換成同盟網域。
 * 必要時設定其他宣告規則。
 
-### <a name="plan-change-communications"></a>規劃變更消息通知
+### <a name="plan-communications"></a>規劃通訊
 
-規劃部署和支援的其中一項要點是，務必主動向一般使用者通知所做的變更以及可能經歷或必須執行的內容。 
+規劃部署和支援的要點之一，是務必主動告知使用者即將發生的變更。 使用者須事先得知他們可能面臨的情況，以及必要的應變措施。
 
-部署傳遞驗證和無縫 SSO 之後，存取 Office 365 以及透過 Azure AD 驗證的其他相關聯資源時，會變更使用者登入體驗。 外部網路的使用者現在只會看到 Azure AD 登入頁面，而不是重新導向至外部 Web 應用程式 Proxy 伺服器所呈現的表單式頁面。
+在部署傳遞驗證和無縫 SSO 之後，使用者在存取 Office 365 以及透過 Azure AD 進行驗證的其他資源時，其登入體驗將有所變更。 在網路外部的使用者只會看到 Azure AD 登入頁面。 這些使用者不會重新導向至對外的 Web 應用程式 Proxy 伺服器所顯示的表單式頁面。
 
-通知的策略規劃包含多項要素。 其中包含：
+請在您的通訊策略中納入下列要項︰
 
-* 透過以下方式通知使用者即將推出和已發行的功能
-  * 電子郵件和其他內部通訊管道
-  * 海報等視覺物件
-  * 執行即時或其他通訊
-* 決定自訂人員、傳送通訊人員以及時間。
+* 使用以下方式通知使用者即將推出和已發行的功能：
+   * 電子郵件和其他內部通訊管道。
+   * 海報等視覺物件。
+   * 執行即時或其他通訊。
+* 決定自訂通訊的人員、傳送通訊的人員，及其時間。
 
-## <a name="implementing-your-solution"></a>實作您的解決方案
+## <a name="implement-your-solution"></a>實作您的解決方案
 
-既已規劃了解決方案，便準備進一步實作。 實作包含下列要素：
+您已規劃解決方案。 現在，您可加以實作。 實作涉及下列要素：
 
-   1. 準備無縫單一登入
-   2. 將登入方法變更成傳遞驗證，並啟用無縫 SSO
+* 準備無縫 SSO。
+* 將登入方法變更成傳遞驗證，並啟用無縫 SSO。
 
-## <a name="step-1--prepare-for-seamless-sso"></a>步驟 1 - 準備無縫 SSO
+### <a name="step-1-prepare-for-seamless-sso"></a>步驟 1：準備無縫 SSO
 
-若是您的裝置要使用無縫 SSO，則必須使用 Active Directory 中的群組原則，將 Azure AD URL 新增至使用者的內部網路區域設定。
+若要讓裝置使用無縫 SSO，必須使用 Active Directory 中的群組原則，將 Azure AD URL 新增至使用者的內部網路區域設定。
 
-瀏覽器預設會自動從指定的 URL 計算正確的區域 (網際網路或內部網路)。 例如，"http://contoso/" 會對應到內部網路區域，而 "http://intranet.contoso.com/" 則會對應到網際網路區域 (因為 URL 包含句點)。 除非將 URL 明確地新增至瀏覽器的內部網路區域，否則瀏覽器不會將 Kerberos 票證傳送給雲端端點 (例如 Azure AD URL)。
+根據預設，網頁瀏覽器會自動從 URL 計算正確的區域 (網際網路或內部網路)。 例如，**http:\/\/contoso/** 會對應至內部網路區域，而 **http:\/\/intranet.contoso.com** 會對應至網際網路區域 (因為 URL 包含句點)。 您必須明確地將 URL 新增至瀏覽器的內部網路區域，瀏覽器才會將 Kerberos 票證傳送給雲端端點 (例如 Azure AD URL)。
 
-請依照[步驟將必要變更](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start)套用到您的裝置。
-
-> [!IMPORTANT]
-> 執行這項變更不會修改使用者登入 Azure AD 的方式。 但是，繼續執行步驟 3 之前請將此設定套用到所有裝置，這點非常重要。另外請注意，使用者登入未收到這項設定的裝置時，只需輸入使用者名稱和密碼即可登入 Azure AD。
-
-## <a name="step-2--change-sign-in-method-to-pta-and-enable-seamless-sso"></a>步驟 2 – 將登入方法變更為 PTA 並啟用無縫 SSO
-
-### <a name="option-a-configuring-pta-by-using-azure-ad-connect"></a>選項 A：使用 Azure AD Connect 設定 PTA
-
-如果最初使用 Azure AD Connect 設定 AD FS，請使用此方法。 如果最初並非使用 Azure AD Connect 設定 AD FS，就無法使用此方法。
+請完成向您的裝置[推行](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start)必要變更的步驟。
 
 > [!IMPORTANT]
-> 請記住，按照下列步驟操作後，所有網域都會從同盟轉換成受控。 如需詳細資訊，請查看「規劃移轉方法」一節。[](#_Plan_Migration_Method)
+> 執行這項變更並不會修改使用者登入 Azure AD 的方式。 不過，請務必先將此組態套用到您所有的裝置，再繼續作業。 使用者在登入尚未取得此組態的裝置時，只需輸入使用者名稱和密碼即可登入 Azure AD。
 
-首先，您必須變更登入方法：
+### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>步驟 2：將登入方法變更成傳遞驗證，並啟用無縫 SSO
 
-   1. 在 Azure AD Connect 伺服器上開啟精靈。
-   2. 選取 [變更使用者登入]，然後選取 [下一步]。 
-   3. 在 [Connect to Azure AD] \(連線到 Azure AD\) 畫面中，提供全域系統管理員的使用者名稱和密碼。
-   4. 在 [使用者登入] 畫面中，將選項按鈕從 [與 AD FS 同盟] 變更成 [傳遞驗證]、選取 [啟用單一登入]，然後選取 [下一步]。
-   5. 在 [啟用單一登入] 畫面中，輸入網域系統管理員帳戶的認證，然後選取 [下一步]。  
+您可以透過兩個選項將登入方法變更成傳遞驗證，並啟用無縫 SSO。
+
+#### <a name="option-a-configure-pass-through-authentication-by-using-azure-ad-connect"></a>選項 A：使用 Azure AD Connect 設定傳遞驗證
+
+如果您最初是以 Azure AD Connect 設定 AD FS 環境，請使用此方法。 如果您最初*並非*使用 Azure AD Connect 來設定 AD FS 環境，請勿使用此方法。
+
+> [!IMPORTANT]
+> 完成下列步驟之後，您所有的網域都會從同盟身分識別轉換成受控識別。 如需詳細資訊，請檢閱[規劃移轉方法](#plan-the-migration-method)。
+
+首先，請變更登入方法：
+
+1. 在 Azure AD Connect 伺服器上，開啟 Azure AD Connect 精靈。
+2. 選取 [變更使用者登入]，然後選取 [下一步]。 
+3. 在 [連線到 Azure AD] 頁面上，輸入全域管理員帳戶的使用者名稱和密碼。
+4. 在 [使用者登入] 頁面上選取 [傳遞驗證] 按鈕，再選取 [啟用單一登入]，然後選取 [下一步]。
+5. 在 [啟用單一登入] 頁面上，輸入網域系統管理員帳戶的認證，然後選取 [下一步]。
 
    > [!NOTE]
-   > 需要網域系統管理員認證才能啟用無縫單一登入，因為此程序會執行下列這些需要較高權限的動作。 網域管理員認證不會儲存在 Azure AD Connect 或 Azure AD 中。 這些只能用來啟用此功能，而且成功完成後即捨棄
+   > 必須要有網域系統管理員帳戶認證，才能啟用無縫 SSO。 此程序會完成下列需要更高權限的動作。 網域系統管理員帳戶認證不會儲存在 Azure AD Connect 或 Azure AD 中。 網域系統管理員帳戶認證只會用來開啟功能。 此程序順利完成後，即會捨棄認證。
    >
-   > * 名為 AZUREADSSOACC 的電腦帳戶 (代表 Azure AD) 是在您的內部部署 Active Directory (AD) 中建立。
-   > * 電腦帳戶的 Kerberos 解密金鑰可安全地與 Azure AD 共用。
-   > * 此外，系統會建立兩個 Kerberos 服務主體名稱 (SPN)，以代表 Azure AD 登入期間所使用的兩個 URL。
-   > * 網域管理員認證不會儲存在 Azure AD Connect 或 Azure AD 中。 這些只能用來啟用此功能，而且成功完成後即捨棄
+   > 1. 在您的內部部署 Active Directory 執行個體中建立名為 AZUREADSSOACC 的電腦帳戶 (代表 Azure AD)。
+   > 2. 安全地與 Azure AD 共用電腦帳戶的 Kerberos 解密金鑰。
+   > 3. 建立兩個 Kerberos 服務主體名稱 (SPN)，以代表 Azure AD 在登入期間使用的兩個 URL。
 
-   6. 在 [準備設定] 畫面中，請確定已選取 [設定完成時啟動同步處理程序] 核取方塊。 然後選取 [設定]。</br>
-   ![圖片](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)</br>
-   7. 開啟 [Azure AD 入口網站]、選取 [Azure Active Directory]，然後選取 [Azure AD Connect]。
-   8. 確認同盟 [已停用]，同時 [無縫單一登入] 和 [傳遞驗證] 設為 [已啟用]。</br>
-   ![圖片](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)</br>
+6. 在 [已可設定] 頁面上，確定已選取 [在設定完成時開始同步處理程序] 核取方塊。 然後，選取 [設定]。<br />
 
-接下來，您必須部署額外的驗證方法。 開啟 [Azure 入口網站]，瀏覽至 [Azure Active Directory]、[Azure AD Connect]，然後按一下 [傳遞驗證]。
+   ![[已可設定] 頁面的螢幕擷取畫面](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)<br />
+7. 在 Azure AD 入口網站中選取 [Azure Active Directory]，然後選取 [Azure AD Connect]。
+8. 確認下列設定：
+  * [同盟] 設為 [停用]。
+  * [無縫單一登入] 設為 [啟用]。
+  * [傳遞驗證] 設為 [啟用]。<br />
 
-從 [傳遞驗證]頁面上，按一下 [下載] 按鈕。 從 [下載] 代理程式畫面中，按一下 [接受條款並下載]。
+  ![此螢幕擷取畫面顯示 [使用者登入] 區段中的設定](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
 
-會開始下載額外的驗證代理程式。 在已加入網域的伺服器上安裝第二個驗證代理程式。 
+接著， 部署額外的驗證方法：
 
-> [!NOTE]
-> 第一個代理程式一律會安裝在 Azure AD Connect 伺服器，作為在 Azure AD Connect 工具的「使用者登入」一節中所做的部分設定變更。 任何額外的驗證代理程式應安裝在不同的伺服器上。 建議使用 2 至 3 個額外的驗證代理程式。 
+1. 在 Azure 入口網站中瀏覽至 [Azure Active Directory] > [Azure AD Connect]，然後選取 [傳遞驗證]。
+2. 在 [傳遞驗證] 頁面上，選取 [下載] 按鈕。
+3. 在 [下載代理程式] 頁面上，選取 [接受條款並下載]。
 
-執行驗證代理程式安裝。 在安裝期間，您必須提供**全域系統管理員**帳戶的認證。
-
-![圖 1243067202](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
-
-![圖 1243067210](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
-
-驗證代理程式安裝之後，您可以返回傳遞驗證代理程式健康情況頁面檢查其他代理程式的狀態。
-
-
-請前往測試和下一個步驟。
-
-> [!IMPORTANT]
-> 略過「選項 B」一節：使用 Azure AD Connect 和 PowerShell 從同盟轉換至 PTA，因為該節中的步驟不適用。  
-
-### <a name="option-b---switch-from-federation-to-pta-using-azure-ad-connect-and-powershell"></a>選項 B - 使用 Azure AD Connect 和 PowerShell 從同盟轉換至 PTA
-
-如果您的同盟一開始不是使用 Azure AD Connect 設定，請使用此選項。 首先，您必須啟用傳遞驗證：
-
-   1. 在 Azure AD Connect 伺服器上開啟精靈。
-   2. 選取 [變更使用者登入]，然後選取 [下一步]。
-   3. 在 [Connect to Azure AD] \(連線到 Azure AD\) 畫面中，提供全域系統管理員的使用者名稱和密碼。
-   4. 在 [使用者登入] 畫面中，將選項按鈕從 [不設定] 變更成 [傳遞驗證]、選取 [啟用單一登入]，然後選取 [下一步]。
-   5. 在 [啟用單一登入] 畫面中，輸入網域系統管理員帳戶的認證，然後選取 [下一步]。
-
-   > [!NOTE]
-   > 需要網域系統管理員認證才能啟用無縫單一登入，因為此程序會執行下列這些需要較高權限的動作。 網域管理員認證不會儲存在 Azure AD Connect 或 Azure AD 中。 這些只能用來啟用此功能，而且成功完成後即捨棄。
-   >
-   > * 名為 AZUREADSSOACC 的電腦帳戶 (代表 Azure AD) 是在您的內部部署 Active Directory (AD) 中建立。
-   > * 電腦帳戶的 Kerberos 解密金鑰可安全地與 Azure AD 共用。
-   > * 此外，系統會建立兩個 Kerberos 服務主體名稱 (SPN)，以代表 Azure AD 登入期間所使用的兩個 URL。
-
-   6. 在 [準備設定] 畫面中，請確定已選取 [設定完成時啟動同步處理程序] 核取方塊。 然後選取 [設定]。</br>
-   ‎![圖片](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image18.png)</br>
-   選取 [設定] 時，就會執行下列步驟：
-   * 安裝第一個傳遞驗證代理程式
-   * 啟用傳遞功能
-   * 啟用無縫單一登入。  
-   7. 確認 [同盟] 保持 [已停用]，而 [無縫登入] 和 [傳遞驗證] 現在都是 [已啟用]。
-   ![圖 2](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
-   8. 選取 [傳遞驗證] 並確認狀態為 [使用中]。</br>
-   
-   如果驗證代理程式未啟用，請遵循[這些疑難排解步驟](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication)，再繼續進行下一個步驟中的網域交談流程。 如果在驗證 PTA 代理程式已成功安裝之前轉換網域，而且其狀態在 Azure 入口網站中顯示為「使用中」，則可能導致驗證中斷。  
-   9. 接下來部署額外的驗證代理程式。 開啟 [Azure 入口網站]，瀏覽至 [Azure Active Directory]、[Azure AD Connect]，然後按一下 [傳遞驗證]。
-   10. 從 [傳遞驗證]頁面上，按一下 [下載] 按鈕。 從 [下載代理程式] 畫面中，按一下 [接受條款並下載]。
-   
-   會開始下載額外的驗證代理程式。 在已加入網域的伺服器上安裝第二個驗證代理程式。
+  額外的驗證代理程式會開始下載。 請在已加入網域的伺服器上安裝第二個驗證代理程式。 
 
   > [!NOTE]
-  > 第一個代理程式一律會安裝在 Azure AD Connect 伺服器，作為在 Azure AD Connect 工具的「使用者登入」一節中所做的部分設定變更。 任何額外的驗證代理程式應安裝在不同的伺服器上。 建議使用 2 至 3 個額外的驗證代理程式。
-  
-   11. 執行驗證代理程式安裝。 在安裝期間，您必須提供**全域系統管理員**帳戶的認證。</br>
-   ![圖 1243067215](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image23.png)</br>
-   ![圖 1243067216](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image24.png)</br>
-   12. 驗證代理程式安裝之後，您可以返回傳遞驗證代理程式健康情況頁面檢查其他代理程式的狀態。
+  > 第一個代理程式一律會安裝在 Azure AD Connect 伺服器上，成為在 Azure AD Connect 工具的**使用者登入**一節中所做的部分組態變更。 請將任何額外的驗證代理程式安裝在個別的伺服器上。 建議您應備有二或三個額外的驗證代理程式。 
 
-此時，同盟仍是已啟用狀態，而且可供您的網域運作。 若要繼續部署，每個網域必須從同盟轉換為受控，如此傳遞驗證便可開始為網域提供驗證要求。
+4. 執行驗證代理程式安裝。 在安裝期間，您必須輸入全域管理員帳戶的認證。
 
-並非所有網域都需要同時轉換，您可選擇從生產租用戶上的測試網域，或是使用者數量最少的網域開始。
+  ![此螢幕擷取畫面顯示 Microsoft Azure AD Connect 驗證代理程式套件頁面上的 [安裝] 按鈕](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-使用 Azure AD PowerShell 模組執行轉換。
+  ![顯示登入頁面的螢幕擷取畫面](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
-   1. 開啟 [PowerShell] 並使用 [全域系統管理員] 帳戶登入 Azure AD。
-   2. 若要轉換第一個網域，請執行下列命令：
+5. 安裝驗證代理程式之後，您可以回到傳遞驗證代理程式健康情況頁面檢查其他代理程式的狀態。
+
+跳到[測試和下一個步驟](#testing-and-next-steps)。
+
+> [!IMPORTANT]
+> 請略過**選項 B：使用 Azure AD Connect 和 PowerShell 從同盟轉換至傳遞驗證**一節。 如果您選擇了選項 A，將登入方法變更成傳遞驗證並啟用無縫 SSO，則不適用該節提供的步驟。 
+
+#### <a name="option-b-switch-from-federation-to-pass-through-authentication-by-using-azure-ad-connect-and-powershell"></a>選項 B：使用 Azure AD Connect 和 PowerShell 從同盟轉換至傳遞驗證
+
+如果您最初並不是以 Azure AD Connect 設定同盟網域，請使用此選項。
+
+首先，請啟用傳遞驗證：
+
+1. 在 Azure AD Connect 伺服器上，開啟 Azure AD Connect 精靈。
+2. 選取 [變更使用者登入]，然後選取 [下一步]。
+3. 在 [連線到 Azure AD] 頁面上，輸入全域管理員帳戶的使用者名稱和密碼。
+4. 在 [使用者登入] 頁面上，選取 [傳遞驗證] 按鈕。 選取 [啟用單一登入]，然後選取 [下一步]。
+5. 在 [啟用單一登入] 頁面上，輸入網域系統管理員帳戶的認證，然後選取 [下一步]。
+
+   > [!NOTE]
+   > 必須要有網域系統管理員帳戶認證，才能啟用無縫 SSO。 此程序會完成下列需要更高權限的動作。 網域系統管理員帳戶認證不會儲存在 Azure AD Connect 或 Azure AD 中。 網域系統管理員帳戶認證只會用來開啟功能。 此程序順利完成後，即會捨棄認證。
+   > 
+   > 1. 在您的內部部署 Active Directory 執行個體中建立名為 AZUREADSSOACC 的電腦帳戶 (代表 Azure AD)。
+   > 2. 安全地與 Azure AD 共用電腦帳戶的 Kerberos 解密金鑰。
+   > 3. 建立兩個 Kerberos 服務主體名稱 (SPN)，以代表 Azure AD 在登入期間使用的兩個 URL。
+
+6. 在 [已可設定] 頁面上，確定已選取 [在設定完成時開始同步處理程序] 核取方塊。 然後，選取 [設定]。<br />
+
+   ‎![顯示 [已可設定] 頁面和 [設定] 按鈕的螢幕擷取畫面](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image18.png)<br />
+   選取 [設定] 時，會執行下列步驟：
+
+   1. 安裝第一個傳遞驗證代理程式。
+   2. 啟用傳遞功能。
+   3. 啟用無縫 SSO。
+
+7. 確認下列設定：
+   * [同盟] 設為 [啟用]。
+   * [無縫單一登入] 設為 [啟用]。
+   * [傳遞驗證] 設為 [啟用]。
+   
+   ![此螢幕擷取畫面顯示 [使用者登入] 區段中的設定](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
+8. 選取 [傳遞驗證]，並確認狀態為 [使用中]。<br />
+   
+   如果驗證代理程式未啟用，請先完成某些[疑難排解步驟](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication)，再繼續進行下一個步驟中的網域轉換程序。 若未先驗證傳遞驗證代理程式已成功安裝，且其狀態在 Azure 入口網站中顯示為「使用中」，即進行網域轉換，可能導致驗證中斷。
+
+接著，部署額外的驗證代理程式：
+
+1. 在 Azure 入口網站中瀏覽至 [Azure Active Directory] > [Azure AD Connect]，然後選取 [傳遞驗證]。
+2. 在 [傳遞驗證] 頁面上，選取 [下載] 按鈕。 
+3. 在 [下載代理程式] 頁面上，選取 [接受條款並下載]。
  
- ``` PowerShell
- Set-MsolDomainAuthentication -Authentication Managed -DomainName <domainname>
- ```
+   驗證代理程式會開始下載。 請在已加入網域的伺服器上安裝第二個驗證代理程式。
+
+   > [!NOTE]
+   > 第一個代理程式一律會安裝在 Azure AD Connect 伺服器上，成為在 Azure AD Connect 工具的**使用者登入**一節中所做的部分組態變更。 請將任何額外的驗證代理程式安裝在個別的伺服器上。 建議您應備有二或三個額外的驗證代理程式。
  
-   3. 開啟 [Azure AD 入口網站]、選取 [Azure Active Directory]，然後選取 [Azure AD Connect]。  
-   4. 一旦轉換了所有同盟網域，請確認同盟 [已停用]，同時 [無縫單一登入] 和 [傳遞驗證] 設為 [已啟用]。</br>
-   ![圖片](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)</br>
+4. 執行驗證代理程式安裝。 在安裝期間，您必須輸入全域管理員帳戶的認證。<br />
+
+   ![此螢幕擷取畫面顯示 Microsoft Azure AD Connect 驗證代理程式套件頁面上的 [安裝] 按鈕](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image23.png)<br />
+   ![顯示登入頁面的螢幕擷取畫面](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image24.png)<br />
+5. 安裝驗證代理程式之後，您可以回到傳遞驗證代理程式健康情況頁面檢查其他代理程式的狀態。
+
+此時，同盟驗證仍是使用中狀態，且可供您的網域運作。 若要繼續進行部署，您必須將每個網域從同盟身分識別為受控識別，使傳遞驗證開始處理網域的驗證要求。
+
+您不需要同時轉換所有網域。 您可以選擇從生產租用戶上的測試網域開始，或是從使用者數量最少的網域開始。
+
+使用 Azure AD PowerShell 模組完成轉換：
+
+1. 在 PowerShell 中，使用全域管理員帳戶登入 Azure AD。
+2. 若要轉換第一個網域，請執行下列命令：
+ 
+   ``` PowerShell
+   Set-MsolDomainAuthentication -Authentication Managed -DomainName <domain name>
+   ```
+ 
+3. 在 Azure AD 入口網站中，選取 [Azure Active Directory] > [Azure AD Connect]。
+4. 在您轉換所有同盟網域之後，請確認下列設定：
+   * [同盟] 設為 [停用]。
+   * [無縫單一登入] 設為 [啟用]。
+   * [傳遞驗證] 設為 [啟用]。<br />
+
+   ![此螢幕擷取畫面顯示 [使用者登入] 區段中的設定](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
 
 ## <a name="testing-and-next-steps"></a>測試和下一個步驟
 
+完成下列工作以確認傳遞驗證，並完成轉換程序。
+
 ### <a name="test-pass-through-authentication"></a>測試傳遞驗證 
 
-如果您的租用戶使用同盟，會從 Azure AD 登入頁面將使用者重新導向至您的 AD FS 環境。 現在，租用戶已設定為使用傳遞驗證，而不是同盟，系統不會將使用者重新導向至 AD FS，而是直接透過 Azure AD 登入頁面登入。
+如果您的租用戶先前使用同盟身分識別，則使用者會從 Azure AD 登入頁面重新導向至您的 AD FS 環境。 現在，租用戶已設定為使用傳遞驗證，而不是同盟驗證，因此使用者不會重新導向至 AD FS。 此時使用者會直接在 Azure AD 登入頁面中登入。
 
-以 InPrivate 模式開啟 Internet Explorer 可避免無縫 SSO 將您自動登入並前往 Office 365 登入頁面 ([https://portal.office.com](https://portal.office.com/))。 輸入使用者的 **UPN**，然後按一下 [下一步]。 請務必輸入從內部部署 Active Directory 同步，而且先前已建立同盟的混合式使用者 UPN。 使用者會看到須輸入使用者名稱和密碼的畫面。
+若要測試傳遞驗證：
 
-![圖 18](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)
+1. 以 InPrivate 模式開啟 Internet Explorer，使無縫 SSO 不會將您自動登入。
+2. 移至 Office 365 登入頁面 ([http://portal.office.com](http://portal.office.com/))。
+3. 輸入使用者 UPN，然後選取 [下一步]。 請務必輸入從內部部署 Active Directory 執行個體同步，且先前已使用同盟驗證的混合式使用者 UPN。 您輸入使用者名稱和密碼的頁面顯示如下：
 
-![圖 19](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image28.png)
+   ![此螢幕擷取畫面顯示您輸入使用者名稱的登入頁面](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)
 
-您輸入密碼後，系統應會將您重新導向至 Office 365 入口網站。
+   ![此螢幕擷取畫面顯示您輸入密碼的登入頁面](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image28.png)
 
-![圖 23](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image29.png)
+4. 在您輸入密碼並選取 [登入] 後，會重新導向至 Office 365 入口網站。
 
-### <a name="test-seamless-single-sign-on"></a>測試無縫單一登入
+   ![顯示 Office 365 入口網站的螢幕擷取畫面](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image29.png)
 
-   1. 登入連線到公司網路的網域加入機器。 
-   2. 開啟 **Internet Explorer** 或 **Chrome**，並前往下列其中一個 URL：   
-      ‎  
-      ‎[https://myapps.microsoft.com/contoso.com](https://myapps.microsoft.com/contoso.com) [https://myapps.microsoft.com/contoso.onmicrosoft.com](https://myapps.microsoft.com/contoso.onmicrosoft.com) (使用您的網域取代 Contoso)。
+### <a name="test-seamless-sso"></a>測試無縫 SSO
 
-      系統會立即將使用者重新導向至 Azure AD 登入頁面並顯示「正在嘗試將您登入」訊息，然後應該不會提示您輸入使用者名稱或密碼。</br>
-   ![圖 24](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image30.png)</br>
-   3. 然後，會將使用者重新導向並成功登入存取面板：
+若要測試無縫 SSO：
 
-> [!NOTE]
-> 無縫單一登入適用於支援網域提示的 Office 365 服務 (例如 myapps.microsoft.com/contoso.com)。 Office 365 入口網站 (portal.office.com) 目前不支援網域提示，因此會預期使用者必須輸入 UPN。 一旦輸入 UPN，無縫單一登入便可代表使用者擷取 Kerberos 票證並記錄，而且不需要輸入密碼。
-> [!TIP]
-> 請考慮[在 Windows 10 上部署混合式 Azure AD Join](https://docs.microsoft.com/azure/active-directory/device-management-introduction)，以改善單一登入體驗。
+1. 登入已加入網域並連線到公司網路的機器。
+2. 在 Internet Explorer 或 Chrome 中，移至下列其中一個 URL (請將 "contoso" 取代為您的網域)：
 
-### <a name="removal-of-the-relying-party-trust"></a>移除信賴憑證者信任
+   * https:\/\/myapps.microsoft.com/contoso.com
+   * https:\/\/myapps.microsoft.com/contoso.onmicrosoft.com
 
-一旦確認所有使用者和用戶端都透過 Azure AD 成功驗證，便可視為安全地移除 Office 365 信賴憑證者信任。
+   使用者會隨即重新導向至 Azure AD 登入頁面，且頁面上會顯示「正在嘗試將您登入」訊息。 系統不會提示使用者輸入使用者名稱和密碼。<br />
 
-如果 AD FS 未用於其他用途 (已設定其他信賴憑證者信任)，現在即可安全地解除委任 AD FS。
+   ![顯示 Azure AD 登入頁面和訊息的螢幕擷取畫面](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image30.png)<br />
+3. 使用者會重新導向，並成功登入存取面板：
+
+   > [!NOTE]
+   > 無縫 SSO 適用於支援網域提示的 Office 365 服務 (例如 myapps.microsoft.com/contoso.com)。 Office 365 入口網站 (portal.office.com) 目前不支援網域提示。 使用者必須輸入 UPN。 輸入 UPN 之後，無縫 SSO 會代表使用者擷取 Kerberos 票證。 使用者無須輸入密碼即可登入。
+
+   > [!TIP]
+   > 請考慮[在 Windows 10 上部署混合式 Azure AD Join](https://docs.microsoft.com/azure/active-directory/device-management-introduction)，以改善 SSO 體驗。
+
+### <a name="remove-the-relying-party-trust"></a>移除信賴憑證者信任
+
+在您確認所有使用者和用戶端都已透過 Azure AD 成功驗證之後，即可安全地移除 Office 365 信賴憑證者信任。
+
+如果 AD FS 未用於其他用途 (即其他信賴憑證者信任)，則此時即可安全地解除委任 AD FS。
 
 ### <a name="rollback"></a>復原
 
-如果找到主要問題而且無法快速解決，您可能需決定將解決方案復原至同盟。
+如果您發現無法快速解決的重大問題，您可以選擇將解決方案復原至同盟。
 
-如需特定的部署詳細資料，請參閱您的同盟設計和部署文件。 此流程應該包含：
+請參閱同盟設計和部署文件，以取得特定部署的詳細資料。 此程序應會進行下列工作：
 
-* 使用 Convert-MSOLDomainToFederated 將受控網域轉換成同盟網域
-* 必要時設定其他宣告規則。
+* 使用 **Convert-MSOLDomainToFederated** Cmdlet 將受控網域轉換成同盟驗證。
+* 如有必要，請設定其他宣告規則。
 
-### <a name="enable-synchronization-of-userprincipalname-updates"></a>同步處理 userPrincipalName 更新
+### <a name="sync-userprincipalname-updates"></a>同步 userPrincipalName 更新
 
-在過去，除非下列兩項條件都成立，否則皆會將透過內部部署使用同步處理服務的 UserPrincipalName 屬性更新封鎖：
+在過去，除非下列兩項條件都成立，否則即無法從內部部署環境使用同步服務更新 **UserPrincipalName** 屬性：
 
-* 使用者受到管理 (非同盟)。
-* 使用者尚未指派授權。
+* 使用者位於受控 (非同盟) 識別網域中。
+* 使用者尚未獲得指派的授權。
 
-如需有關如何確認或啟用這項功能的指示，請參閱下列文章：
-
-[同步處理 userPrincipalName 更新](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features)。
+若要了解如何驗證或開啟這項功能，請參閱[同步 userPrincipalName 更新](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features)。
 
 ## <a name="roll-over-the-seamless-sso-kerberos-decryption-key"></a>變換無縫 SSO Kerberos 解密金鑰
 
-請務必經常變換在內部部署 AD 樹系中建立之 AZUREADSSOACC 電腦帳戶 (這表示 Azure AD) 的 Kerberos 解密金鑰。 強烈建議至少每隔 30 天變換一次 Kerberos 解密金鑰，以便和 Active Directory 網域成員提交密碼變更的方式保持一致。 由於沒有任何相關聯的裝置連接至 AZUREADSSOACC 電腦帳戶物件，因此需要手動執行變換。
+請務必經常變換 AZUREADSSOACC 電腦帳戶 (代表 Azure AD) 的 Kerberos 解密金鑰。 AZUREADSSOACC 電腦帳戶會建立於您的內部部署 Active Directory 樹系中。 強烈建議至少每 30 天變換一次 Kerberos 解密金鑰，以便和 Active Directory 網域成員提交密碼變更的方式保持一致。 AZUREADSSOACC 電腦帳戶物件並未連結任何相關聯的裝置，因此您必須手動執行變換。
 
-請在執行 Azure AD Connect 的內部部署伺服器上執行下列步驟，開始變換 Kerberos 解密金鑰。
+請在執行 Azure AD Connect 的內部部署伺服器上起始無縫 SSP Kerberos 解密金鑰的變換。
 
-[如何才能變換 AZUREADSSOACC 電腦帳戶的 Kerberos 解密金鑰](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq)？
+如需詳細資訊，請參閱[如何才能變換 AZUREADSSOACC 電腦帳戶的 Kerberos 解密金鑰？](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq)。
 
 ## <a name="monitoring-and-logging"></a>監視和記錄
 
-應監控執行驗證代理程式的伺服器，以維護解決方案的可用性。 除了一般的伺服器效能計數器，驗證代理程式還會公開可用來了解驗證統計資料和錯誤的效能物件。
+請監控執行驗證代理程式的伺服器，以維護解決方案的可用性。 除了一般伺服器效能計數器以外，驗證代理程式還會公開有助於您了解驗證統計資料和錯誤的效能物件。
 
-驗證代理程式會將作業記錄到「Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin」底下的 Windows 事件記錄檔。
+驗證代理程式會將作業記錄到位於 Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin 下方的 Windows 事件記錄中。
 
-必要時可以啟用疑難排解記錄檔。
+您也可以開啟記錄以進行疑難排解。
 
-請參閱關於[監視和記錄](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-Pass-through-authentication)的詳細資訊。
+如需詳細資訊，請參閱[對 Azure Active Directory 傳遞驗證進行疑難排解](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-Pass-through-authentication)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure AD Connect 的設計概念](plan-connect-design-concepts.md)
-- [選擇正確的驗證](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)
-- [支援的拓撲](plan-connect-design-concepts.md)
+* 了解 [Azure AD Connect 設計概念](plan-connect-design-concepts.md)。
+* 選擇[正確的驗證](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)。
+* 了解[支援的拓撲](plan-connect-design-concepts.md)。

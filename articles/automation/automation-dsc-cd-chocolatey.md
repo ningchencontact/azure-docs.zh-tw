@@ -3,18 +3,18 @@ title: 使用 Chocolatey 的 Azure 自動化狀態設定持續部署
 description: 使用 Azure 自動化狀態設定、DSC 和 Chocolatey 套件管理員執行 DevOps 持續部署。  具有完整 JSON Resource Manager 範本與 PowerShell 原始檔的範例。
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d3957038410e7a7d80e1ac710f0c227047b636a7
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 53ecff7df849d19ff7fe1d4c1c8dbd472326b06e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284790"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424450"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>使用範例：使用自動化狀態設定和 Chocolatey 持續部署至虛擬機器
 

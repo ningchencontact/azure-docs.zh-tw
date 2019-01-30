@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/17/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: c9f013a6af0b6d232eff32a9827006ce3247db3c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7b95c8b230714e1ba9306620e58628104cd676c9
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136390"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401636"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>將 ExpressRoute 相關虛擬網路從傳統移轉至 Resource Manager
 
@@ -38,6 +38,7 @@ ms.locfileid: "53136390"
 * 虛擬網路、閘道，以及虛擬網路中連結至相同訂用帳戶中 ExpressRoute 線路的相關聯部署，都可以移轉至 Resource Manager 環境，而不需要停機。 您可以依照稍後描述的步驟來移轉資源，例如虛擬網路、閘道，以及虛擬網路中部署的虛擬機器。 您必須確保虛擬網路在移轉之前都已正確設定。 
 * 虛擬網路、閘道，以及虛擬網路內與 ExpressRoute 線路位於不同訂用帳戶的相關聯部署，都需要一些停機時間，才能完成移轉。 本文件的最後一節描述移轉資源所需遵循的步驟。
 * 無法移轉同時具有「ExpressRoute 閘道」和「VPN 閘道」的虛擬網路。
+* 不支援 ExpressRoute 線路的跨訂用帳戶移轉。 如需詳細資訊，請參閱[無法移動的服務](../azure-resource-manager/resource-group-move-resources.md#services-that-cannot-be-moved)。
 
 ## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>將 ExpressRoute 線路從傳統移到 Resource Manager
 嘗試移轉已連結至 ExpressRoute 線路的資源之前，您必須先將 ExpressRoute 線路從傳統移至 Resource Manager 環境。 若要完成此工作，請參閱下列文章：

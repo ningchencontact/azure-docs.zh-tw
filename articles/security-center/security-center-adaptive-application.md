@@ -3,7 +3,7 @@ title: Azure 資訊安全中心的自適性應用程式控制 | Microsoft Docs
 description: 本文件協助您了解如何使用 Azure 資訊安全中心的自適性應用程式控制，將在 Azure VM 中執行的應用程式列入允許清單。
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: mbaldwin
 editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2018
-ms.author: rkarlin
-ms.openlocfilehash: e4538127b39e01f2e30f8b219c2ccee56cb4d2bc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.date: 01/21/2019
+ms.author: monhaber
+ms.openlocfilehash: b7a27dea9f521f14bfb4278eada636cb7e30c581
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262892"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427129"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Azure 資訊安全中心的自適性應用程式控制
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定應用程式控制。
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>什麼是 Azure 資訊安全中心的自適性應用程式控制？
-自適性應用程式控制是 Azure 資訊安全中心的智慧型自動化端對端應用程式允許清單解決方案。 其可協助您控制哪些應用程式可以在 Azure 中的 VM 上執行，且有助於強化 VM 以抵禦惡意程式碼。 資訊安全中心會利用機器學習技術來分析在 VM 中執行的應用程式，並協助您運用此情報來套用特定白名單規則。 這項功能可大幅簡化設定和維護應用程式白名單原則的程序，讓您可：
+自適性應用程式控制是 Azure 資訊安全中心的智慧型自動化端對端應用程式允許清單解決方案。 其可協助您控制哪些應用程式可以在 Azure 中的 VM 上執行，且有助於強化 VM 以抵禦惡意程式碼。 資訊安全中心會利用機器學習技術來分析在 VM 中執行的應用程式，並協助您運用此情報來套用特定允許清單規則。 這項功能可大幅簡化設定和維護應用程式白名單原則的程序，讓您可：
 
 - 封鎖執行惡意應用程式的嘗試或提出警示，包括反惡意程式碼解決方案可能遺漏的嘗試。
 - 符合您組織規定只能使用授權軟體的安全性原則。
@@ -88,7 +88,6 @@ ms.locfileid: "54262892"
 5. 一旦完成您的選擇，請選取 [建立]。 <br>
 選取 [建立] 之後，Azure 資訊安全中心會自動根據 Windows 伺服器 (AppLocker) 上可用的內建應用程式允許清單解決方案，建立適當的規則。
 
-
 > [!NOTE]
 > - 資訊安全中心會依賴至少兩週的資料，以建立基準，並且在每個虛擬機器群組填入唯一建議。 資訊安全中心標準層的新客戶預期會有標準行為，也就是他們的虛擬機器群組一開始會出現在 [不推薦] 索引標籤底下。
 > - 資訊安全中心的自適性應用程式控制不支援已由 GPO 或本機安全性原則啟用 AppLocker 原則的 VM。
@@ -122,7 +121,7 @@ ms.locfileid: "54262892"
    > - 如先前所述，根據預設，新的應用程式控制原則一律設定為「稽核」模式。 
    >
 
-4. 在 [原則擴充功能] 底下，您可以新增想允許的任何應用程式路徑。 新增路徑之後，資訊安全中心會針對所選 VM 群組內的 VM 更新應用程式允許清單原則，除了既有的規則外，再為這些應用程式建立適當的規則。
+4. 在 [原則擴充功能] 底下，新增想允許的任何應用程式路徑。 新增路徑之後，資訊安全中心會針對所選 VM 群組內的 VM 更新應用程式允許清單原則，除了既有的規則外，再為這些應用程式建立適當的規則。
 
 5. 檢閱 [最近的警示] 區段中列出的目前違規情形。 按下每一行以重新導向到 Azure 資訊安全中心內的 [警示] 頁面，並檢視 Azure 資訊安全中心在相關聯 VM 上偵測到的所有警示。
   - **警示**：已記錄的任何違規情形。

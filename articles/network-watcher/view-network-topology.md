@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 501659a93306342c7a212d135b4fdd89be096451
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992197"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428154"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>檢視 Azure 虛擬網路的拓撲
 
@@ -85,7 +85,7 @@ ms.locfileid: "46992197"
 
 您可以在下列步驟中執行命令：
 - 在 Azure Cloud Shell 中，選取位於任何命令右上方的**試試看**。 Azure Cloud Shell 是一個免費的互動式殼層，具有預先安裝和設定的通用 Azure 工具，可與您的帳戶搭配使用。
-- 從您的電腦執行 PowerShell。 如果您從電腦執行 PowerShell，則必須要使用 AzureRm 模組的 5.7.0 版或更新版本，才能執行本文中的步驟。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+- 從您的電腦執行 PowerShell。 如果您從電腦執行 PowerShell，則必須要使用 AzureRm 模組的 5.7.0 版或更新版本，才能執行本文中的步驟。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
 
 您所使用的帳戶必須具有必要的[權限](required-rbac-permissions.md)。
 
@@ -139,7 +139,7 @@ ms.locfileid: "46992197"
 在拓撲中傳回的所有資源都具有下列屬性：
 
 - **名稱**：資源的名稱
-- **識別碼**：資源的 URI。
+- **Id**：資源的 URI。
 - **位置**：資源所在的 Azure 區域。
 - **關聯性**：與所參考物件之關聯性的清單。 每個關聯性都具有下列屬性：
     - **AssociationType**：參考子物件與父系之間的關聯性。 有效值為 [包含] 或 [相關聯]。

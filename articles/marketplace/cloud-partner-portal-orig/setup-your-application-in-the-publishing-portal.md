@@ -1,6 +1,6 @@
 ---
 title: 在發佈入口網站中設定您的應用程式 | Microsoft Docs
-description: 在雲端發佈入口網站中設定您應用程式方法的說明。
+description: 關於如何在雲端發佈入口網站中設定應用程式的指示。
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9386f0e0bf552789b027df96e9e54ebcf31d7d34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805511"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448478"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>在發佈入口網站中設定您的應用程式
 
@@ -59,7 +59,7 @@ ms.locfileid: "48805511"
 
 此下拉式表單，可讓您選擇您想要在什麼發行者設定檔之下發佈此供應項目。 供應項目上架後，此欄位便會鎖住。
 
-### <a name="name"></a>名稱
+### <a name="name"></a>Name
 
 您供應項目的顯示名稱。 此為會出現在 [AppSource](https://appsource.microsoft.com/) 中的名稱。 它最多不能超過 50 個字元。
 
@@ -82,9 +82,9 @@ ms.locfileid: "48805511"
 
 以下是這些欄位的說明：
 
-* 您套件的檔案名稱：建立您 CRM AppSource 套件的 zip 檔案時，於上一步所建立的檔案名稱。 在上述範例中，其為 "Microsoft\_SamplePackage.zip"。
-* 您套件位置的 URL：此為包含上方指定套件檔案名稱的 Azure 儲存體帳戶 URL。 其為上一節步驟 9 時所建立的 URL。
-* 您套件檔案中有一個以上的 CRM 套件嗎：**只有**當您以其他套件支援 CRM 的多個版本時，才請選取 [是]。 對大部分的合作夥伴來說，應為 [否]。 若選擇了 [是]，則需要為每一個解決方案的版本，建立 AppSource 套件。 _注意：這並不是在詢問您是否有多個 **zip** 檔案。若您有多個 solution.zip 檔案，但只有一個版本，仍應選取 [否]。套件工具會自動將這些整合在一起。_
+* 套件的檔案名稱：您建立 CRM AppSource 套件的 zip 檔案時，在前述步驟中建立的檔案名稱。 在上述範例中，其為 "Microsoft\_SamplePackage.zip"。
+* 套件位置的 URL：此為上方指定的套件檔案名稱所屬 Azure 儲存體帳戶的 URL。 其為上一節步驟 9 時所建立的 URL。
+* 您的套件檔案中是否有多個 crm 套件：**只有**在您支援含有不同套件的多個 CRM 版本時，才選取 [是]。 對大部分的合作夥伴來說，應為 [否]。 若選擇了 [是]，則需要為每一個解決方案的版本，建立 AppSource 套件。 _注意：這並不是在詢問您是否有多個 **zip** 檔案。若您有多個 solution.zip 檔案，但只有一個版本，仍應選取 [否]。套件工具會自動將這些整合在一起。_
 
 ### <a name="crm-package-availability"></a>CRM 套件可用性
 
@@ -96,7 +96,7 @@ ms.locfileid: "48805511"
 
 ### <a name="offer-summary"></a>供應項目摘要
 
-此為供應項目價值主張的摘要。 其會出現在供應項目的搜尋頁面上， 且上限不可超過 100 個字元。
+這是供應項目價值主張的摘要。 其會出現在供應項目的搜尋頁面上， 且上限不可超過 100 個字元。
 
 ### <a name="offer-description"></a>供應項目描述
 
@@ -150,11 +150,11 @@ ms.locfileid: "48805511"
 
 ### <a name="offer-logo-png-format-48x48"></a>供應項目標誌 (PNG 格式，48x48)
 
-它將顯示在供應項目的搜尋頁面上。 **只允許 png 格式。** 上傳 48PX\*48PX 解析度的 PNG 影像
+它將顯示在供應項目的搜尋頁面上。 **只允許 png 格式。** 上傳 48PX\*48PX 解析度的 png 影像
 
 ### <a name="offer-logo-png-format-216x216"></a>供應項目標誌 (PNG 格式，216x216)
 
-其會出現在您應用程式詳細資料的頁面。 **只允許 PNG 格式。** 上傳 216PX\*216PX 解析度的 PNG 影像
+其會出現在您應用程式詳細資料的頁面。 **只允許 PNG 格式。** 上傳 216PX\*216PX 解析度的 png 影像
 
 ### <a name="videos"></a>影片
 
@@ -184,7 +184,7 @@ ms.locfileid: "48805511"
 
 ### <a name="lead-destination"></a>潛在客戶目的地
 
-選取將儲存您潛在客戶的 CRM 系統。 若您使用下列其中一個 CRM 系統，請於此處選取 [Azure 資料表]： Salesforce、Marketo 與 Microsoft Dynamics CRM。 我們會於您於此處所選的 CRM 系統上，寫入在 AppSource (潛在客戶) 上試用您應用程式的終端使用者詳細資料。 請根據您所選取的 CRM 系統，按一下下方相對應的 URL，以取得如何完成下一組欄位的資訊
+選取將儲存您潛在客戶的 CRM 系統。 如果您具備下列其中一個 CRM 系統，在此請選取 [Azure 資料表]：Salesforce、Marketo、Microsoft Dynamics CRM。 我們會於您於此處所選的 CRM 系統上，寫入在 AppSource (潛在客戶) 上試用您應用程式的終端使用者詳細資料。 請根據您所選取的 CRM 系統，按一下下面相對應的 URL 來取得完成下一組欄位的資訊
 
 * [Azure 資料表](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 * [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)
@@ -193,4 +193,4 @@ ms.locfileid: "48805511"
 
 ## <a name="storefront-details"></a>店面詳細資料
 
-合約詳細資料僅用於合作夥伴與 Microsoft 之間的內部溝通之用。 注意：請務必在這些欄位中使用會監看的電子郵件地址。 我們會使用此電子郵件與您連絡發佈至 AppSource 的進度。 客戶只看得見支援 URL。
+合約詳細資料僅用於合作夥伴與 Microsoft 之間的內部溝通之用。 注意：在這些欄位中請務必使用受到監視的電子郵件地址。 我們會使用此電子郵件與您連絡發佈至 AppSource 的進度。 客戶只看得見支援 URL。

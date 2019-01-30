@@ -4,7 +4,7 @@ description: 了解如何檢查使用者帳戶自動佈建作業的狀態，以�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: af5d7174a2726a6ff8a62477149606ec5d43e94e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: def3c6aea7b915e8665367d4da27c1314374000c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355068"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463060"
 ---
-# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>教學課程︰關於使用者帳戶自動佈建的報告
+# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>教學課程：關於使用者帳戶自動佈建的報告
 
 
 Azure Active Directory 含有[使用者帳戶佈建服務](user-provisioning.md)，可協助您在 SaaS 應用程式和其他系統中自動佈建和解除佈建使用者帳戶，以便進行端對端的身分識別生命週期管理。 對於 [Azure AD 應用程式庫](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)之 [精選] 區段中的所有應用程式和系統，Azure AD 支援已預先整合的使用者佈建連接器。
@@ -42,7 +42,7 @@ Azure Active Directory 含有[使用者帳戶佈建服務](user-provisioning.md)
 
 * **來源系統** - Azure AD 佈建服務用來進行同步處理的來源端使用者存放庫。 已預先整合的佈建連接器大多使用 Azure Active Directory 作為來源系統，但有一些例外 (範例︰Workday 的輸入同步處理)。
 
-* **目標系統** - Azure AD 佈建服務用來進行同步處理的目標端使用者存放庫。 這通常是 SaaS 應用程式 (範例︰Salesforce、ServiceNow、Google Apps、Dropbox for Business)，但在某些情況下，也可以是 Active Directory 之類的內部部署系統 (範例︰Workday 對 Active Directory 的輸入同步處理)。
+* **目標系統** - Azure AD 佈建服務用來進行同步處理的目標端使用者存放庫。 這通常是 SaaS 應用程式 (範例：Salesforce、ServiceNow、Google Apps、Dropbox for Business)，但在某些情況下，也可以是 Active Directory 之類的內部部署系統 (範例︰Workday 對 Active Directory 的輸入同步處理)。
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>從 Azure 管理入口網站取得佈建報告
@@ -68,7 +68,7 @@ Azure Active Directory 含有[使用者帳戶佈建服務](user-provisioning.md)
 
 系統管理員首先應該看的就是佈建摘要報告，以便了解佈建作業的作業健康情況。
 
- ![摘要報告](./media/check-status-user-account-provisioning/summary_report.PNG)
+ ![摘要報告](./media/check-status-user-account-provisioning/summary_report.PNG)
 
 ## <a name="provisioning-audit-logs"></a>佈建稽核記錄
 佈建服務所執行的活動全都會記錄在 Azure AD 稽核記錄中，您可以在 [帳戶佈建] 類別底下的 [稽核記錄] 索引標籤中檢視這些記錄。 所記錄的活動事件類型包括︰

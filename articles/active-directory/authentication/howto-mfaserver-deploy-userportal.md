@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 1bd9dd82fb72c3d6b0759139680647be764f273a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0c78974eb9775506f2ccbc6158eb03aa0c73be49
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161548"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431532"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Server 的使用者入口網站
 
@@ -65,7 +65,7 @@ Web 服務 SDK 必須受到 SSL 憑證保護。 自我簽署憑證適用於這�
    > [!NOTE]
    > 此 SSL 憑證通常是公開簽署的 SSL 憑證。
 
-4. 從任何電腦開啟網頁瀏覽器，並巡覽至安裝使用者入口網站的 URL (例如：https://mfa.contoso.com/MultiFactorAuth))。 確定未出現任何憑證警告或錯誤。
+4. 從任何電腦開啟網頁瀏覽器，並巡覽至安裝使用者入口網站的 URL (例如： https://mfa.contoso.com/MultiFactorAuth))。 確定未出現任何憑證警告或錯誤。
 
 ![MFA Server 使用者入口網站安裝](./media/howto-mfaserver-deploy-userportal/install.png)
 
@@ -104,7 +104,7 @@ Web 服務 SDK 必須受到 SSL 憑證保護。 自我簽署憑證適用於這�
     * 找出 **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** 值並將此預留位置 URL 變更為我們在步驟 2 中安裝的 Web 服務 SDK URL。
     * 儲存 Web.Config 檔案並關閉 [記事本]。
 
-6. 從任何電腦開啟網頁瀏覽器，並巡覽至安裝使用者入口網站的 URL (例如：https://mfa.contoso.com/MultiFactorAuth))。 確定未出現任何憑證警告或錯誤。
+6. 從任何電腦開啟網頁瀏覽器，並巡覽至安裝使用者入口網站的 URL (例如： https://mfa.contoso.com/MultiFactorAuth))。 確定未出現任何憑證警告或錯誤。
 
 如果您有關於在 IIS 伺服器上設定 SSL 憑證的問題，請參閱[如何在 IIS 上設定 SSL](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 一文。
 

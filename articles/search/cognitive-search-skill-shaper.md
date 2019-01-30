@@ -8,32 +8,35 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 627c53f7339dbc35d822a0bf6038ca0f1ea5e653
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313821"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410110"
 ---
 #   <a name="shaper-cognitive-skill"></a>塑形器認知技能
 
 **塑形器**技能會建立複雜類型，以支援複合欄位 (也稱為多部分欄位)。 複雜類型欄位有多個部分，但在 Azure 搜尋服務索引中會被視為單一項目。 在搜尋案例中有用的合併欄位範例，包括將名字和姓氏合併成單一欄位、將縣/市和區/鄉/鎮/市合併成單一欄位，或將姓名和出生日期合併成單一欄位來建立唯一的身分識別。
 
-塑形器技能可讓您實質上建立結構、定義該結構成員的名稱，並將值指派給每個成員。
+**塑形器**技能可讓您實質上建立結構、定義該結構成員的名稱，並將值指派給每個成員。
 
-根據預設，此技術會支援單一層級深度的物件。 對於更複雜的物件，則可以鏈結數個塑形器步驟。
+根據預設，此技術會支援單一層級深度的物件。 對於更複雜的物件，則可以鏈結數個**塑形器**步驟。
 
-在回應中，輸出名稱一律為 "output"。 就內部而言，管線可對應不同的名稱，例如以下範例中的 "analyzedText" 對應為 "output"，但塑形器技能本身會在回應中傳回 "output"。 如果您正在對擴充文件進行偵錯，並發現命名差異，或如果您建置自訂技能並自行建構回應，這可能十分重要。
+在回應中，輸出名稱一律為 "output"。 就內部而言，管線可對應不同的名稱，例如以下範例中的 "analyzedText" 對應為 "output"，但**塑形器**技能本身會在回應中傳回 "output"。 如果您正在對擴充文件進行偵錯，並發現命名差異，或如果您建置自訂技能並自行建構回應，這可能十分重要。
+
+> [!NOTE]
+> 這項技能不受限於認知服務 API，您不需支付其使用費用。 不過，您仍然應該[連結認知服務資源](cognitive-search-attach-cognitive-services.md)，以覆寫限制您每天少量擴充的**免費**資源選項。
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="sample-1-complex-types"></a>範例 1：複雜類型
 
-假設您要建立一個稱為 *analyzedText* 的結構，此結構有兩個成員，分別為：*text* 和 *sentiment*。 在 Azure 搜尋服務中，多部分的可搜尋欄位稱為*複雜類型*，目前預設尚未支援。 在此預覽中，塑形器技能可用來在索引中產生複雜類型的欄位。 
+假設您要建立一個稱為 *analyzedText* 的結構，此結構有兩個成員，分別為：*text* 和 *sentiment*。 在 Azure 搜尋服務中，多部分的可搜尋欄位稱為*複雜類型*，目前預設尚未支援。 在此預覽中，**塑形器**技能可用來在索引中產生複雜類型的欄位。 
 
 下列範例提供成員名稱做為輸入。 輸出結構 (您在 Azure 搜尋服務中的複雜欄位) 是透過 *targetName* 指定的。 
 
@@ -62,7 +65,7 @@ Microsoft.Skills.Util.ShaperSkill
 ```
 
 ### <a name="sample-input"></a>範例輸入
-提供此塑形器技能有用輸入的 JSON 文件可以是：
+提供此**塑形器**技能有用輸入的 JSON 文件可以是：
 
 ```json
 {
@@ -80,7 +83,7 @@ Microsoft.Skills.Util.ShaperSkill
 
 
 ### <a name="sample-output"></a>範例輸出
-塑形器技能會產生一個稱為 *analyzedText* 的新元素。此新元素結合了 *text* 和 *sentiment* 的元素。 
+**塑形器**技能會產生一個稱為 *analyzedText* 的新元素。此新元素結合了 *text* 和 *sentiment* 的元素。 
 
 ```json
 {

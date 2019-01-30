@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405609"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412043"
 ---
 # <a name="custom-roles-in-azure"></a>Azure 中的自訂角色
 
@@ -116,3 +116,4 @@ ms.locfileid: "47405609"
 - [使用 Azure PowerShell 建立自訂角色](custom-roles-powershell.md)
 - [使用 Azure CLI 建立自訂角色](custom-roles-cli.md)
 - [了解角色定義](role-definitions.md)
+- [針對 Azure 的各種 RBAC 問題進行疑難排解](troubleshooting.md)

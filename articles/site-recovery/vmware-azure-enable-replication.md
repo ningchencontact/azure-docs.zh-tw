@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 51470e9f8e0bffe18d1dc4007433246d084a5cb2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f160fc5f15ad9ca8994995c34d9eba7ee375c015
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846652"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424144"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>讓 VMware VM 能夠複寫至 Azure
 
@@ -59,7 +59,7 @@ ms.locfileid: "52846652"
 8. 選取 Azure VM 在容錯移轉後啟動時所要啟動的 Azure 網路和子網路。 此網路必須位於與復原服務保存庫相同的區域中。 選取 [立即設定選取的機器]，將網路設定套用至您選取要進行保護的所有機器。 選取 [稍後設定] 以選取每部機器的 Azure 網路。 如果您沒有網路，則必須[建立一個](#set-up-an-azure-network)。 若要使用 Resource Manager 建立網路，請按一下 [新建]。 選取子網路 (如果適用的話)，然後按一下 [確定]。
 
     ![啟用複寫目標設定](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. 在 [虛擬機器] > [選取虛擬機器] 中，選取您要複寫的每部機器。 您只能選取可以啟用複寫的機器。 然後按一下 [確定] 。
+9. 在 [虛擬機器] > [選取虛擬機器] 中，選取您要複寫的每部機器。 您只能選取可以啟用複寫的機器。 然後按一下 [確定] 。 如果您無法檢視/選取任何特定虛擬機器，請按一下[這裡](https://aka.ms/doc-plugin-VM-not-showing)以解決問題。
 
     ![啟用複寫選取虛擬機器](./media/vmware-azure-enable-replication/enable-replication5.png)
 10. 在 [屬性] > [設定屬性] 中，選取處理序伺服器要用來在電腦上自動安裝行動服務的帳戶。  

@@ -4,7 +4,7 @@ description: 在目錄同步處理期間如何使用 Azure AD Connect 來處理�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e20ae31ae64483d4d11b793f1c8656107413c05d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f3460520b8914a25807c77f631aa4c64f3b2efb0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406189"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464862"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>身分識別同步處理和重複屬性恢復功能
 「重複屬性恢復功能」是 Azure Active Directory 中的一項功能，可在執行 Microsoft 的其中一個同步處理工具時，用來消除 **UserPrincipalName** 和 **ProxyAddress** 衝突所造成的不便。
@@ -133,7 +133,7 @@ ProxyAddress 衝突的電子郵件通知範例如下所示︰
 ## <a name="resolving-conflicts"></a>解決衝突
 這些錯誤的疑難排解策略和解決技巧不得與過去處理重複屬性錯誤的方式不同。 唯一的差別在於計時器工作將會掃掠服務端上的租用戶，以在衝突解決後，自動將有問題的屬性新增至適當的物件。
 
-下列文章概述各種疑難排解和解決策略︰ [重複或無效的屬性會防止在 Office 365 中進行目錄同步作業](https://support.microsoft.com/kb/2647098)。
+下列文章概述各種疑難排解和解決策略︰[重複或無效的屬性使 Office 365 無法進行目錄同步處理](https://support.microsoft.com/kb/2647098)。
 
 ## <a name="known-issues"></a>已知問題
 沒有任何已知問題會導致資料遺失或服務降級。 其中有幾個是美觀的問題，其他問題會導致擲回標準「恢復前」重複屬性錯誤，而不是隔離衝突屬性，而別的問題會導致特定錯誤需要額外的手動修復。

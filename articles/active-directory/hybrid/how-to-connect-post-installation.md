@@ -4,7 +4,7 @@ description: 了解如何針對 Azure AD Connect 擴充預設組態和作業工�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: c18bee36-aebf-4281-b8fc-3fe14116f1a5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 878b483c1f644bcfe39824766ca5495f111d1864
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f9c9af94b15c78783f95fb92be548321a35b15a6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306217"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473209"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>接下來的步驟，以及如何管理 Azure AD Connect
 使用本文中的操作程序來自訂 Azure Active Directory (Azure AD) Connect，以符合您組織的需要和需求。  

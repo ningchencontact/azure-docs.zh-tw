@@ -1,11 +1,11 @@
 ---
-title: Azure AD Connect：針對傳遞驗證進行疑難排解 | Microsoft Docs
+title: Azure AD Connect：對傳遞驗證進行疑難排解 | Microsoft Docs
 description: 本文會說明如何針對 Azure Active Directory (Azure AD) 傳遞驗證進行疑難排解。
 services: active-directory
 keywords: 針對 Azure AD Connect 傳遞驗證進行疑難排解, 安裝 Active Directory, Azure AD, SSO, 單一登入的必要元件
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6172195a9914d841e480cd7ebbf9566616911378
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: db3dfc10d6936b063a225e48fd043b6208f10475
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686189"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472767"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>針對 Azure Active Directory 傳遞驗證進行疑難排解
 
@@ -137,7 +137,7 @@ ms.locfileid: "51686189"
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-您可以開啟命令提示字元並執行下列命令 (注意：請以您在記錄中看到的實際錯誤編號取代 '1328')，以取得錯誤 (前例中為 '1328') 的描述性詳細資料：
+您可以開啟命令提示字元並執行下列命令，以取得錯誤 (上述範例為 '1328') 的描述性詳細資料 (注意：請將 '1328' 取代為您在記錄檔中看到的實際錯誤號碼)：
 
 `Net helpmsg 1328`
 

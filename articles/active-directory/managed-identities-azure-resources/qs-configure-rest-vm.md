@@ -4,7 +4,7 @@ description: 逐步說明如何 CURL 進行 REST API 呼叫，在 Azure VM 上�
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 6f147aa7066db19c1be451b0a5ac49bfce9f571b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5240d46c1d754ec09f9d83a86424fdbd3cfaadb7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422928"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433300"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>使用 REST API 呼叫在 Azure VM 上設定 Azure 資源受控識別
 
@@ -27,7 +27,7 @@ ms.locfileid: "52422928"
 
 Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供自動受控系統識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
 
-在此文章中，使用 CURL 來呼叫 Azure Resource Manager REST 端點，即可了解如何在 Azure VM 上執行下列 Azure 資源受控識別作業：
+在本文中，使用 CURL 來呼叫 Azure Resource Manager REST 端點，即可了解如何在 Azure VM 上執行下列 Azure 資源受控識別作業：
 
 - 在 Azure VM 上啟用和停用系統指派受控識別
 - 在 Azure VM 上新增和移除使用者指派受控識別

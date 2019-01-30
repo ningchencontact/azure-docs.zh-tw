@@ -5,7 +5,7 @@ services: active-directory
 keywords: 什麼是企業狀態漫遊的群組原則和 MDM 設定, 企業狀態漫遊, windows 雲端
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: c6ec20b7467998d221858dfd852461ad33a64494
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 5ce3597bb52a22cfba6103b1d6cc5d0ff6371579
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035208"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447654"
 ---
 # <a name="group-policy-and-mdm-settings"></a>群組原則和 MDM 設定
 只在公司所擁有的裝置上使用這些群組原則和行動裝置管理 (MDM) 設定，因為這些原則會套用到使用者的整個裝置。 套用 MDM 原則來停用個人、使用者所擁有的裝置的設定同步處理，會對使用該裝置造成負面影響。 此外，在裝置上的其他使用者帳戶也會被原則影響。
@@ -32,7 +32,7 @@ ms.locfileid: "51035208"
 ## <a name="mdm-settings"></a>MDM 設定
 MDM 原則設定會套用至 Windows 10 及 Windows 10 行動裝置版。  Windows 10 行動裝置版支援僅適用於以 Microsoft 帳戶為基礎且透過使用者的 OneDrive 帳戶進行的漫遊。  如需哪些裝置支援以 Azure AD 為基礎的同步處理的詳細資訊，請參閱[裝置與端點](enterprise-state-roaming-windows-settings-reference.md)。
 
-| 名稱 | 說明 |
+| Name | 說明 |
 | --- | --- |
 | 允許 Microsoft 帳戶連接 |允許使用者在裝置上使用 Microsoft 帳戶進行驗證 |
 | 允許同步處理我的設定 |讓使用者能夠漫遊 Windows 設定和應用程式資料。停用此原則，將停用行動裝置上的同步處理及備份 |
@@ -42,7 +42,7 @@ MDM 原則設定會套用至 Windows 10 及 Windows 10 行動裝置版。  Windo
 
 這些設定位於：`Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
-| 名稱 | 說明 |
+| Name | 說明 |
 | --- | --- |
 | 帳戶：封鎖 Microsoft 帳戶 |此原則設定會防止使用者在這部電腦上新增新的 Microsoft 帳戶 |
 | 不要同步處理 |防止使用者漫遊 Windows 設定和應用程式資料 |

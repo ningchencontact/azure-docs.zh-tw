@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f5d48a074f8069e243af5644f86ad3c3d8f559b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634858"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412303"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>使用 RBAC 和 Azure 入口網站來管理存取權
 
@@ -166,6 +166,6 @@ ms.locfileid: "52634858"
 ## <a name="next-steps"></a>後續步驟
 
 * [教學課程：使用 RBAC 與 Azure 入口網站為使用者授與存取權](quickstart-assign-role-user-portal.md)
-* [教學課程 - 使用 RBAC 與 Azure PowerShell 為使用者授與存取權](tutorial-role-assignments-user-powershell.md)
-* [內建角色](built-in-roles.md)
+* [教學課程：使用 RBAC 與 Azure PowerShell 為使用者授與存取權](tutorial-role-assignments-user-powershell.md)
+* [針對 Azure 的各種 RBAC 問題進行疑難排解](troubleshooting.md)
 * [使用 Azure 管理群組來組織資源](../azure-resource-manager/management-groups-overview.md)

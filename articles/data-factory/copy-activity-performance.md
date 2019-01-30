@@ -88,7 +88,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 | 在以檔案為基礎的存放區之間複製資料 | 依據檔案的數量和大小，介於 4 到 32 之間。 |
 | 所有其他複製案例 | 4 |
 
-若要覆寫此預設值，請如下所示指定 **dataIntegrationUnits** 屬性的值。 **dataIntegrationUnits** 屬性的**允許值****最高為 256**。 根據您的資料模式，複製作業會在執行階段使用的 **實際 DIU 數目** 等於或小於所設定的值。 如需在為特定複製來源和接收設定更多單位時可能獲得之效能增益水準的相關資訊，請參閱 [效能參考](#performance-reference)。
+若要覆寫此預設值，請如下所示指定 **dataIntegrationUnits** 屬性的值。 **dataIntegrationUnits** 屬性的 **允許值** **最高為 256**。 根據您的資料模式，複製作業會在執行階段使用的 **實際 DIU 數目** 等於或小於所設定的值。 如需在為特定複製來源和接收設定更多單位時可能獲得之效能增益水準的相關資訊，請參閱 [效能參考](#performance-reference)。
 
 監視活動執行時，您可以在複製活動輸出中查看每個複製執行實際使用的資料整合單位。 請參閱[複製活動監視](copy-activity-overview.md#monitoring)了解詳細資料。
 
@@ -191,8 +191,8 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 | 屬性 | 說明 | 預設值 | 必要 |
 | --- | --- | --- | --- |
 | **enableStaging** |指定您是否要透過過渡暫存存放區複製資料。 |False |否 |
-| **linkedServiceName** |指定 [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) 連結服務的名稱，以代表您用來做為過渡暫存存放區的儲存體執行個體。 <br/><br/>  您無法使用具有共用存取簽章的儲存體來透過 PolyBase 將資料載入至 SQL 資料倉儲。 您可以將它用於其他所有案例。 |N/A |是，當 **enableStaging** 設為 TRUE |
-| **路徑** |指定要包含分段資料的 Blob 儲存體路徑。 如果未提供路徑，服務會建立容器來儲存暫存資料。 <br/><br/>  只有在使用具有共用存取簽章的儲存體時，或需要讓暫存資料位於特定位置時，才指定路徑。 |N/A |否 |
+| **linkedServiceName** |指定 [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) 連結服務的名稱，以代表您用來做為過渡暫存存放區的儲存體執行個體。 <br/><br/> 您無法使用具有共用存取簽章的儲存體來透過 PolyBase 將資料載入至 SQL 資料倉儲。 您可以將它用於其他所有案例。 |N/A |是，當 **enableStaging** 設為 TRUE |
+| **路徑** |指定要包含分段資料的 Blob 儲存體路徑。 如果未提供路徑，服務會建立容器來儲存暫存資料。 <br/><br/> 只有在使用具有共用存取簽章的儲存體時，或需要讓暫存資料位於特定位置時，才指定路徑。 |N/A |否 |
 | **enableCompression** |指定將資料複製到目的地之前，是否應該壓縮資料。 此設定可減少傳輸的資料量。 |False |否 |
 
 >[!NOTE]

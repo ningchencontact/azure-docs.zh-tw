@@ -2,17 +2,17 @@
 title: Azure 事件方格事件來源
 description: 描述支援的 Azure 事件方格事件來源
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.author: tomfitz
-ms.openlocfilehash: adef9d2f2d859c62d3b3b3a542536698fa668f9a
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 01/19/2019
+ms.author: spelluru
+ms.openlocfilehash: 44bd92568db3a762453e1d76a620e6c792cd8913
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498295"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476031"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure 事件方格中的事件來源
 
@@ -114,7 +114,7 @@ ms.locfileid: "46498295"
 |標題  |說明  |
 |---------|---------|
 | [教學課程：Azure 服務匯流排與 Azure 事件方格的整合範例](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 事件方格會從服務匯流排主題傳送訊息至函式應用程式和邏輯應用程式。 |
-| [概觀：Azure 服務匯流排與事件方格的整合](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | 整合服務匯流排與事件方格的概觀。 |
+| [概觀：Azure 服務匯流排與 Event Grid 的整合](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | 整合服務匯流排與事件方格的概觀。 |
 | [事件結構描述](event-schema-service-bus.md) | 顯示服務匯流排事件中的欄位。 |
 
 ## <a name="storage"></a>儲存體

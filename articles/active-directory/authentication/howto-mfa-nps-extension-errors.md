@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 3820aae1e926e51ffa88fabc94e3572b286162de
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 861dfacb556b646a288ce7cf7c749cec858f8bd5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634221"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432654"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>解決 Azure Multi-Factor Authentication NPS 擴充功能的錯誤訊息
 
@@ -41,8 +41,8 @@ ms.locfileid: "51634221"
 | 錯誤碼 | 錯誤訊息 | 疑難排解步驟 |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | 錯誤：userObjectSid 查閱失敗 | 請確認使用者存在於內部部署 Active Directory 執行個體中。 如果您使用跨樹系信任，請[連絡支援人員](#contact-microsoft-support)以取得進一步協助。 |
-| **ALTERNATE_LOGIN_ID_ERROR** | 錯誤：替代 LoginId 查閱失敗 | 請確認 LDAP_ALTERNATE_LOGINID_ATTRIBUTE 設定為[有效的 Active Directory 屬性](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx)。 <br><br> 如果 LDAP_FORCE_GLOBAL_CATALOG 設定為 True，或 LDAP_LOOKUP_FORESTS 設定具有非空白值，請確認您已設定通用類別目錄，且 AlternateLoginId 屬性已新增到其中。 <br><br> 如果 LDAP_LOOKUP_FORESTS 設定具有非空白值，請確認值是否正確。 如果有多個樹系名稱，名稱必須以分號分隔，而非空格。 <br><br> 如果上述步驟未能解決問題，請[連絡支援人員](#contact-microsoft-support)以取得更多協助。 |
-| **ALTERNATE_LOGIN_ID_ERROR** | 錯誤：替代 LoginId 值是空的 | 請確認已為使用者設定 AlternateLoginId 屬性。 |
+| **ALTERNATE_LOGIN_ID_ERROR** | Error:替代 LoginId 查閱失敗 | 請確認 LDAP_ALTERNATE_LOGINID_ATTRIBUTE 設定為[有效的 Active Directory 屬性](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx)。 <br><br> 如果 LDAP_FORCE_GLOBAL_CATALOG 設定為 True，或 LDAP_LOOKUP_FORESTS 設定具有非空白值，請確認您已設定通用類別目錄，且 AlternateLoginId 屬性已新增到其中。 <br><br> 如果 LDAP_LOOKUP_FORESTS 設定具有非空白值，請確認值是否正確。 如果有多個樹系名稱，名稱必須以分號分隔，而非空格。 <br><br> 如果上述步驟未能解決問題，請[連絡支援人員](#contact-microsoft-support)以取得更多協助。 |
+| **ALTERNATE_LOGIN_ID_ERROR** | Error:替代 LoginId 值是空的 | 請確認已為使用者設定 AlternateLoginId 屬性。 |
 
 ## <a name="errors-your-users-may-encounter"></a>您的使用者可能會遇到下列錯誤
 

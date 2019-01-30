@@ -4,7 +4,7 @@ description: 針對已加入混合式 Azure Active Directory 的 Windows 10 和 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1d96c1e8adee55127a50b2d7c374418c22bfec4c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f9a32058bb9d9cb2f1fa2d04c8002f06fa80edeb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050560"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446097"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>針對已加入混合式 Azure Active Directory 的 Windows 10 和 Windows Server 2016 裝置進行疑難排解 
 
@@ -59,8 +59,8 @@ ms.locfileid: "43050560"
     | Device State                                                         |  +----------------------------------------------------------------------+
     
         AzureAdJoined: YES
-     EnterpriseJoined: NO DeviceId: 5820fbe9-60c8-43b0-bb11-44aee233e4e7 Thumbprint: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: Microsoft Platform Crypto Provider TpmProtected: YES KeySignTest: : MUST Run elevated to test.
-                  Idp: login.windows.net TenantId: 72b988bf-86f1-41af-91ab-2d7cd011db47 TenantName: Contoso AuthCodeUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize AccessTokenUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token MdmUrl: https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc MdmTouUrl: https://portal.manage-beta.microsoft.com/TermsOfUse.aspx dmComplianceUrl: https://portal.manage-beta.microsoft.com/?portalAction=Compliance SettingsUrl: eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ== JoinSrvVersion: 1.0 JoinSrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/device/ JoinSrvId: urn:ms-drs:enterpriseregistration.windows.net KeySrvVersion: 1.0 KeySrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/key/ KeySrvId: urn:ms-drs:enterpriseregistration.windows.net DomainJoined: YES DomainName: CONTOSO
+     EnterpriseJoined:NO DeviceId:5820fbe9-60c8-43b0-bb11-44aee233e4e7 Thumbprint:B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider:Microsoft Platform Crypto Provider TpmProtected:YES KeySignTest: :MUST Run elevated to test.
+                  Idp: login.windows.net TenantId:72b988bf-86f1-41af-91ab-2d7cd011db47 TenantName:Contoso AuthCodeUrl:https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize AccessTokenUrl:https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token MdmUrl:https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc MdmTouUrl: https://portal.manage-beta.microsoft.com/TermsOfUse.aspx dmComplianceUrl:https://portal.manage-beta.microsoft.com/?portalAction=Compliance SettingsUrl: eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ== JoinSrvVersion:1.0 JoinSrvUrl:https://enterpriseregistration.windows.net/EnrollmentServer/device/ JoinSrvId: urn:ms-drs:enterpriseregistration.windows.net KeySrvVersion:1.0 KeySrvUrl:https://enterpriseregistration.windows.net/EnrollmentServer/key/ KeySrvId: urn:ms-drs:enterpriseregistration.windows.net DomainJoined:YES DomainName:CONTOSO
     
     +----------------------------------------------------------------------+
     | User State                                                           |  +----------------------------------------------------------------------+
@@ -69,7 +69,7 @@ ms.locfileid: "43050560"
                NgcKeyId: {C7A9AEDC-780E-4FDA-B200-1AE15561A46B}
         WorkplaceJoined: NO
           WamDefaultSet: YES
-    WamDefaultAuthority: organizations         WamDefaultId: https://login.microsoft.com       WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)           AzureAdPrt: YES
+    WamDefaultAuthority: organizations         WamDefaultId:https://login.microsoft.com       WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)           AzureAdPrt:是
 
 
 
@@ -77,7 +77,7 @@ ms.locfileid: "43050560"
 
 請檢閱下列欄位，並確定它們具有預期的值：
 
-### <a name="azureadjoined--yes"></a>AzureAdJoined : YES  
+### <a name="azureadjoined--yes"></a>AzureAdJoined :是  
 
 此欄位指出裝置是否已加入 Azure AD。 如果值為 **NO**，則尚未完成加入 Azure AD。 
 
@@ -103,19 +103,19 @@ ms.locfileid: "43050560"
 
 ---
 
-### <a name="domainjoined--yes"></a>DomainJoined : YES  
+### <a name="domainjoined--yes"></a>DomainJoined :是  
 
 此欄位指出裝置是否已加入內部部署 Active Directory。 如果值為 **NO**，則裝置無法執行混合式 Azure AD 加入。  
 
 ---
 
-### <a name="workplacejoined--no"></a>WorkplaceJoined : NO  
+### <a name="workplacejoined--no"></a>WorkplaceJoined :否  
 
 此欄位指出裝置是否已向 Azure AD 註冊為個人裝置 (標示為「已加入工作場所」)。 如果已加入網域的電腦同時加入混合式 Azure AD，此值應為 **NO**。 如果值為 **YES**，則在完成混合式 Azure AD 加入之前已新增工作或學校帳戶。 在此情況下，使用年度更新版的 Windows 10 (1607) 時會忽略該帳戶。
 
 ---
 
-### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet : YES 和 AzureADPrt : YES
+### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet :YES 和 AzureADPrt :是
   
 這些欄位指出使用者在登入裝置時，是否已順利向 Azure AD 進行驗證。 如果值為 **NO**，可能是因為：
 

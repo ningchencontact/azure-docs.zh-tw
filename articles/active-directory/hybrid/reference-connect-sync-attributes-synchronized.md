@@ -4,7 +4,7 @@ description: 列出要同步處理至 Azure Active Directory 的屬性。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 08633b52e6b7cfef28635925ad9fcf34e065e9bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 30ed7ff2026c64c7e40d43597a2747f1144ae125
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251793"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468591"
 ---
-# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步處理：將屬性同步處理至 Azure Active Directory
+# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步：將屬性同步處理至 Azure Active Directory
 本主題列出 Azure AD Connect 同步處理所同步處理的屬性。  
 屬性會依相關的 Azure AD App 來分組。
 
