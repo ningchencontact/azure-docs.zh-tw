@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 9502c0b5c3ea4b25b7a49448b75fdd43ff28762a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5fd5d551290c113e9001328562fd99282548ce3c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186983"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464291"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>如何使用適用於 VM 的 Azure 監視器 (預覽) 來繪製效能圖表
 適用於 VM 的 Azure 監視器包含一組以關鍵效能指標 (KPI) 為目標的效能圖表，可協助您判斷虛擬機器的執行狀況。 那些圖表會顯示一段時間的資源使用率，讓您能夠找出瓶頸、異常狀況，或切換至列出每部機器的檢視方塊，以根據所選計量來檢視資源使用率。 雖然在處理效能時要考量許多元素，不過適用於 VM 的 Azure 監視器著重於作業系統，如透過處理器、記憶體、網路介面卡和磁碟所顯示的。 效能可彌補健康狀態監視功能，並有助於揭示可能導致系統元件故障的問題、支援調整和最佳化以實現效率，或支援容量規劃。  
@@ -102,8 +102,8 @@ ms.locfileid: "54186983"
 
 ![直接從 VM 檢視查看 VM insights 效能](./media/vminsights-performance/vminsights-performance-directvm-01.png)
 
-## <a name="alerting-and-alert-management"></a>警示和警示管理 
-啟用作為「適用於 VM 的 Azure 監視器」一部分的效能計量不會包含預先設定的警示規則。 在您的 Azure VM 上偵測到對應於效能問題的[健康情況警示](vminsights-health.md#alerting-and-alert-management)時 (例如，CPU 使用率偏高、可用記憶體不足、磁碟 I/O、磁碟空間不足等)，這些健康情況警示只會套用到與「適用於 VM 的 Azure 監視器」所啟用的相同 Log Analytics 工作區連線的所有 VM。 
+## <a name="alerts"></a>警示 
+啟用作為「適用於 VM 的 Azure 監視器」一部分的效能計量不會包含預先設定的警示規則。 在您的 Azure VM 上偵測到對應於效能問題的[健康情況警示](vminsights-health.md#alerts)時 (例如，CPU 使用率偏高、可用記憶體不足、磁碟 I/O、磁碟空間不足等)，這些健康情況警示只會套用到與「適用於 VM 的 Azure 監視器」所啟用的相同 Log Analytics 工作區連線的所有 VM。 
 
 然而，我們只會在 Log Analytics 工作區收集並儲存您需要的效能計量子集。 如果監視策略需有包含其他效能計量的分析或警示，以有效評估虛擬機器的容量或健康情況，或者您需要能夠彈性指定自己的警示標準或邏輯，您可以在 Log Analytics 設定[效能計數器集合](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json)，並設定[記錄警示](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json)。 雖然 Log Analytics 可讓您執行其他資料類型的複雜分析，並提供較長保留期以進行趨勢分析，但另一方面，計量所佔空間不大，且能夠支援近乎即時的情節。 [Azure 診斷代理程式](../../virtual-machines/windows/monitor.md)會收集計量，並儲存於 Azure 監視器計量存放區，讓您能以較少延遲和較低成本建立警示。
 

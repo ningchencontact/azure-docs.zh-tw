@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 20b1c8673bfdb3b2207ed63749f79539c396642c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 887c0bd4246c7c4215cb4d97dfd96db5d2aba6cb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167650"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170013"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>什麼是 Azure AD 身分識別控管？
 
@@ -67,7 +67,7 @@ Azure AD Privileged Identity Management (PIM) 提供量身訂做的其他控制�
 
 雖然沒有適用於每位客戶的完美解決方案或建議，但下列組態指引 Microsoft 建議使用哪些基準原則來確保更安全且更有生產力的工作力。
 
-- [身分識別與裝置存取組態](/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [身分識別與裝置存取設定](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [保護特殊權限存取](../users-groups-roles/directory-admin-roles-secure.md)
 
 

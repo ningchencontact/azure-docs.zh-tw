@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7037c0b4c1021ac7b91134fa429a774f600a774f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3430ff2b292a3e5fe675c3a5f332a12a88d4bfbf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194159"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096784"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>適用於 Windows 的 Azure 效能診斷 VM 擴充功能
 
@@ -123,7 +123,7 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
 ## <a name="template-deployment"></a>範本部署
 可以使用 Azure Resource Manager 範本部署 Azure 虛擬機器擴充功能。 上一節中詳述的 JSON 結構描述可使用於 Azure Resource Manager 範本。 這會在 Azure Resource Manager 範本部署期間執行 Azure 效能診斷 VM 擴充功能。 以下是範例範本：
 
-````
+```
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -207,14 +207,14 @@ Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資�
     }
   ]
 }
-````
+```
 
 ## <a name="powershell-deployment"></a>PowerShell 部署
 `Set-AzureRmVMExtension` 命令可用來將 Azure 效能診斷 VM 擴充功能部署到現有的虛擬機器。
 
 PowerShell
 
-````
+```
 $PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }
 $ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
@@ -227,7 +227,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
     -Location WestUS
-````
+```
 
 ## <a name="information-on-the-data-captured"></a>所擷取資料的詳細資訊
 PerfInsights 工具會根據所選取的案例，收集各種記錄、組態和診斷資料。 如需詳細資訊，請參閱 [PerfInsights 文件](https://aka.ms/perfinsights)。

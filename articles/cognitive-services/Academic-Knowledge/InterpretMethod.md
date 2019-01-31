@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: e16a772caa5fba632f8544094e2d8b57ed4ca765
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d79e14fa48631ec6ce3cde42a7dbe300034782cb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902564"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171647"
 ---
 # <a name="interpret-method"></a>解譯事件
 
@@ -29,9 +29,9 @@ ms.locfileid: "48902564"
 
 ## <a name="request-parameters"></a>要求參數
 
-名稱     | 值 | 必要？  | 說明
+Name     | 值 | 必要？  | 說明
 ---------|---------|---------|---------
-**查詢**    | 文字字串 | 是 | 使用者所輸入的查詢。  如果 complete 設為 1，則查詢會解譯為一個前置詞，以供產生查詢自動完成建議。        
+**query**    | 文字字串 | 是 | 使用者所輸入的查詢。  如果 complete 設為 1，則查詢會解譯為一個前置詞，以供產生查詢自動完成建議。        
 **model**    | 文字字串 | 否  | 想要查詢的模型名稱。  目前，此值會預設為 latest。        
 **complete** | 0 或 1 | 否<br>預設值：0  | 1 表示根據文法與圖表資料產生自動完成建議。         
 **count**    | 數字 | 否<br>預設值︰10 | 要傳回的解譯數目上限。         
@@ -40,9 +40,9 @@ ms.locfileid: "48902564"
 <br>
   
 ## <a name="response-json"></a>回應 (JSON)
-名稱     | 說明
+Name     | 說明
 ---------|---------
-**查詢** |要求中的 *query* 參數。
+**query** |要求中的 *query* 參數。
 **interpretations** |0 個或更多種根據文法比對使用者輸入的各種方法陣列。
 **interpretations[x].logprob**  |解譯的相對自然對數機率。 較大的值表示越有可能。
 **interpretations[x].parse**  |XML 字串，可顯示如何解譯查詢的每個部分。

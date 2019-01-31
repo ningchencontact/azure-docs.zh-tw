@@ -8,22 +8,24 @@ manager: daveba
 editor: curtand
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/06/2017
+ms.date: 01/24/2019
 ms.author: ergreenl
-ms.openlocfilehash: 5ebb9f706d2e59b9c1227cec6fcc0e0619374069
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 758183efd6a6a2c2b8d172c52ad3bd5c5e12d969
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855001"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169125"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>使用 PowerShell 啟用 Azure Active Directory Domain Services
 本文說明如何使用 PowerShell 啟用 Azure Active Directory (AD) Domain Services。
+
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 ## <a name="task-1-install-the-required-powershell-modules"></a>工作 1：安裝必要的 PowerShell 模組
 
@@ -31,7 +33,7 @@ ms.locfileid: "54855001"
 請遵循文章中的指示[安裝 Azure AD PowerShell 模組並連線至 Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json)。
 
 ### <a name="install-and-configure-azure-powershell"></a>安裝並設定 Azure PowerShell
-請遵循文章中的指示[安裝 Azure PowerShell 模組並連線至 Azure 訂用帳戶](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json)。
+請遵循文章中的指示[安裝 Azure PowerShell 模組並連線至 Azure 訂用帳戶](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json)。
 
 
 ## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>工作 2：在 Azure AD 目錄中建立必要的服務主體
@@ -71,7 +73,7 @@ Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjec
 輸入下列 PowerShell 命令以註冊 Azure AD Domain Services 的資源提供者：
 ```powershell
 # Register the resource provider for Azure AD Domain Services with Resource Manager.
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
+Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
 ## <a name="task-5-create-a-resource-group"></a>工作 5：建立資源群組
@@ -81,7 +83,7 @@ $ResourceGroupName = "ContosoAaddsRg"
 $AzureLocation = "westus"
 
 # Create the resource group.
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $ResourceGroupName `
   -Location $AzureLocation
 ```
@@ -99,16 +101,16 @@ $ResourceGroupName = "ContosoAaddsRg"
 $VnetName = "DomainServicesVNet_WUS"
 
 # Create the dedicated subnet for AAD Domain Services.
-$AaddsSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+$AaddsSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name DomainServices `
   -AddressPrefix 10.0.0.0/24
 
-$WorkloadSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+$WorkloadSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name Workloads `
   -AddressPrefix 10.0.1.0/24
 
 # Create the virtual network in which you will enable Azure AD Domain Services.
-$Vnet=New-AzureRmVirtualNetwork `
+$Vnet=New-AzVirtualNetwork `
   -ResourceGroupName $ResourceGroupName `
   -Location westus `
   -Name $VnetName `
@@ -128,7 +130,7 @@ $VnetName = "DomainServicesVNet_WUS"
 $AzureLocation = "westus"
 
 # Enable Azure AD Domain Services for the directory.
-New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
   -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
@@ -163,7 +165,7 @@ $AzureLocation = "westus"
 Connect-AzureAD
 
 # Login to your Azure subscription.
-Connect-AzureRmAccount
+Connect-AzAccount
 
 # Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
@@ -188,24 +190,24 @@ $UserObjectId = Get-AzureADUser `
 Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 
 # Register the resource provider for Azure AD Domain Services with Resource Manager.
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
+Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 
 # Create the resource group.
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $ResourceGroupName `
   -Location $AzureLocation
 
 # Create the dedicated subnet for AAD Domain Services.
-$AaddsSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+$AaddsSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name DomainServices `
   -AddressPrefix 10.0.0.0/24
 
-$WorkloadSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+$WorkloadSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name Workloads `
   -AddressPrefix 10.0.1.0/24
 
 # Create the virtual network in which you will enable Azure AD Domain Services.
-$Vnet=New-AzureRmVirtualNetwork `
+$Vnet=New-AzVirtualNetwork `
   -ResourceGroupName $ResourceGroupName `
   -Location $AzureLocation `
   -Name $VnetName `
@@ -213,7 +215,7 @@ $Vnet=New-AzureRmVirtualNetwork `
   -Subnet $AaddsSubnet,$WorkloadSubnet
 
 # Enable Azure AD Domain Services for the directory.
-New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
   -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `

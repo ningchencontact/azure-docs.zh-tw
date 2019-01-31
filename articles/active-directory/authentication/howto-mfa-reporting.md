@@ -3,19 +3,19 @@ title: Azure MFA 的存取及使用報告 | Microsoft Docs
 description: 說明如何使用 Azure Multi-Factor Authentication 功能 - 報告。
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: d9fd7544c61b021bbb5db32087847cbeaddd3918
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 92c319460d9412436eb1a474431c07766fa87176
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431719"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078894"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的報告
 

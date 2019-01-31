@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 861b3302e065689a4ea9c0df0879f9c0df12e619
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526941"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454669"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>針對匯入作業準備硬碟
 若要準備匯入工作的一個或多個硬碟，請依照下列步驟執行︰
@@ -105,7 +105,7 @@ ms.locfileid: "39526941"
 |命令列參數|說明|
 |-----------------------------|-----------------|
 |**/sk:**<StorageAccountKey\>|`Optional.`將匯入資料的儲存體帳戶的儲存體帳戶金鑰。 您必須在命令中包含 **/sk:**<StorageAccountKey\> 或 **/csas:**<ContainerSas\>。|
-|**/csas:**<ContainerSas\>|`Optional`。 用於將資料匯入儲存體帳戶的容器 SAS。 您必須在命令中包含 **/sk:**<StorageAccountKey\> 或 **/csas:**<ContainerSas\>。<br /><br /> 這個參數的值開頭必須是容器名稱，後面加上問號 (?) 和 SAS Token。 例如︰<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> 權限 (無論是在 URL 或預存存取原則中指定) 必須包含讀取、寫入和刪除匯入工作，以及讀取、寫入和列出匯出工作。<br /><br /> 指定這個參數時，要匯入或匯出的所有 Blob 必須位於共用存取簽章中指定的容器內。|
+|**/csas:**<ContainerSas\>|`Optional` 。 用於將資料匯入儲存體帳戶的容器 SAS。 您必須在命令中包含 **/sk:**<StorageAccountKey\> 或 **/csas:**<ContainerSas\>。<br /><br /> 這個參數的值開頭必須是容器名稱，後面加上問號 (?) 和 SAS Token。 例如︰<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> 權限 (無論是在 URL 或預存存取原則中指定) 必須包含讀取、寫入和刪除匯入工作，以及讀取、寫入和列出匯出工作。<br /><br /> 指定這個參數時，要匯入或匯出的所有 Blob 必須位於共用存取簽章中指定的容器內。|
 |**/t:**<TargetDriveLetter\>|`Required.`目前複製工作階段中目標硬碟的磁碟機代號，不包含結尾的冒號。|
 |**/format**|`Optional.`當磁碟機需要進行格式化時請指定此參數；否則請省略。 此工具格式化磁碟機之前，會提示您從主控台進行確認。 若要隱藏確認，請指定 /silentmode 參數。|
 |**/silentmode**|`Optional.`指定此參數可隱藏格式化目標磁碟機的確認。|
@@ -172,7 +172,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 * [設定 Azure 匯入/匯出工具](storage-import-export-tool-setup-v1.md)
 * [在匯入程序期間設定屬性和中繼資料](storage-import-export-tool-setting-properties-metadata-import-v1.md)
 * [針對匯入作業準備硬碟的簡單工作流程](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
-* [常用命令快速參考](storage-import-export-tool-quick-reference-v1.md) 
+* [常用命令快速參考](storage-import-export-tool-quick-reference-v1.md) 
 * [利用複製記錄檔檢閱作業狀態](storage-import-export-tool-reviewing-job-status-v1.md)
 * [修復匯入作業](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [修復匯出作業](storage-import-export-tool-repairing-an-export-job-v1.md)

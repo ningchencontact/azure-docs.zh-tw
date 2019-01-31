@@ -1,20 +1,21 @@
 ---
-title: 關於 Bing 拼字檢查 API 的常見問題集 - Azure 認知服務 | Microsoft Docs
+title: Bing 拼字檢查 API 的常見問題集
+titlesuffix: Azure Cognitive Services
 description: 在 Azure 上取得 Bing 拼字檢查 API 相關常見問題的解答。
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: 87b1f3ed3e0aaa9f3c3c804dc9eac3ee60b4a565
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 90acc80b19058c2a7eb963f9e423883846519b2c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370219"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164923"
 ---
 # <a name="frequently-asked-questions-about-the-bing-spell-check-api"></a>Bing 拼字檢查 API 的常見問題集
 

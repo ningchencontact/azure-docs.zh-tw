@@ -5,17 +5,17 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9af4f5223dfe269ace459c8a7de07fe6dd0c2427
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 41383b5bbad0eb5c32b98c57f3ea35e6018993e8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973956"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218116"
 ---
 # <a name="part-of-speech-tagging"></a>詞性標記
 
@@ -39,7 +39,7 @@ Table  可以是您圍坐的地方 (或是數字的 2-D 輸出)，但您可以 "
 | ) | 右括號 | ) ] } |
 | ， | 逗號 | ， |
 | -- | 破折號 | -- |
-| . | 句子結束字元 | . ! ? |
+| 上也提供本文中使用的原始碼。 | 句子結束字元 | 上也提供本文中使用的原始碼。 ! ? |
 | ： | 冒號或省略符號 | : ; ... |
 | CC | 連接詞、對等連接詞 | and but or yet|
 | CD | 數字、基數 | nine 20 1980 '96 |

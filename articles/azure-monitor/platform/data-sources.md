@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9029676df6a878a6d3d5796928cbad9c20cd685
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020127"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889054"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure 監視器中資料的來源
 本文描述 Azure 監視器所收集的資料來源，這些資料可用來監視資源 (以及在資源上執行的應用程式) 健康情況和效能。 這些資源可能在 Azure、另一個雲端或內部部署中。  請參閱 [Azure 監視器所收集的資料](data-collection.md)，以取得這項資料儲存方式以及如何檢視它的詳細資訊。
@@ -61,7 +61,7 @@ Azure 中的監視資料來自各種來源，可分為多層，最高層是您�
 
 
 ### <a name="resource-diagnostic-logs"></a>資源診斷記錄
-活動記錄提供在 Azure 資源上執行作業的相關資訊，而資源層級[診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)則提供對於資源作業本身的深入解析。   這些記錄的組態需求與內容[因資源類型而異](../../azure-monitor/platform/tutorial-dashboards.md)。
+活動記錄提供在 Azure 資源上執行作業的相關資訊，而資源層級[診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)則提供對於資源作業本身的深入解析。   這些記錄的組態需求與內容[因資源類型而異](../../azure-monitor/platform/diagnostic-logs-schema.md)。
 
 您無法在 Azure 入口網站中直接檢視診斷記錄，但是您可以[將記錄傳送到 Azure 儲存體以進行封存](../../azure-monitor/platform/archive-diagnostic-logs.md)，以及將它們匯出至[事件中樞](../../event-hubs/event-hubs-about.md)以便重新導向至其他服務，或者匯出至 [Log Analytics](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) 以進行分析。 部分資源可以直接寫入到 Log Analytics，但是其他資源則需要先寫入到儲存體帳戶，然後再[匯入到 Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)。
 

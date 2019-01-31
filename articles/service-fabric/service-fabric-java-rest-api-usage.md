@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 987959742335940dca8eb57c54d593aea90dec15
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 116defb43126932c1a9ce0e7a9d588e731abff78
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111179"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182025"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric JAVA 用戶端 API
 
@@ -71,7 +71,7 @@ Service Fabric 用戶端 API 允許在 Azure、內部佈署、本機開發機器
     autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
     ```
    
-   下列命令會採用 ``servicefabric.json`` 規格檔案作為輸入，並在 ``java-rest-api-     code`` 資料夾中產生 java 用戶端程式碼，並在 ``servicefabricrest`` 命名空間中括住程式碼。 在此步驟之後，會發現 ``java-rest-api-code`` 資料夾產生了兩個資料夾 ``models``、``implemenation``，以及 ``ServiceFabricClientAPIs.java`` 和 ``package-info.java`` 兩個檔案。
+   下列命令會採用 ``servicefabric.json`` 規格檔案作為輸入，並在 ``java-rest-api-     code`` 資料夾中產生 java 用戶端程式碼，並在 ``servicefabricrest`` 命名空間中括住程式碼。 在此步驟之後，會發現 ``java-rest-api-code`` 資料夾產生了兩個資料夾 ``models``、``implementation``，以及 ``ServiceFabricClientAPIs.java`` 和 ``package-info.java`` 兩個檔案。
 
 
 ## <a name="include-and-use-the-generated-client-in-your-project"></a>在專案中加入並使用產生的客戶端

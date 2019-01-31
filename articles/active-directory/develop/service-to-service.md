@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8365f7e60dfb78aba16bea9708c99195a6b76b11
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a10bf35618d7f543957d1f839618397f08698d4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972890"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095423"
 ---
 # <a name="service-to-service-apps"></a>服務對服務應用程式
 
@@ -72,4 +72,4 @@ ms.locfileid: "46972890"
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解其他[應用程式類型和案例](app-types.md)
-- 深入了解 Azure AD [驗證基本概念](authentication-scenarios.md)
+- 了解 Azure AD [驗證基本概念](authentication-scenarios.md)

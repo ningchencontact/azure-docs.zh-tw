@@ -9,13 +9,13 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: cbrooksmsft
-ms.component: queues
-ms.openlocfilehash: 36fa2e5bc7eda7c47017713008aec2a245213462
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: queues
+ms.openlocfilehash: 1f2f52fc08ab4da4a7525f3018b7a9aea2f7c576
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521562"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457356"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>如何使用 C++ 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -104,7 +104,7 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
  queue.create_if_not_exists();  
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>作法：將訊息插入佇列中
+## <a name="how-to-insert-a-message-into-a-queue"></a>作法：將訊息插入佇列
 若要將訊息插入現有佇列，請先建立一個新的 **cloud_queue_message**。 接著，呼叫 **add_message** 方法。 **cloud_queue_message** 便可以從字串或 **byte** 陣列建立。 以下是建立佇列 (如果佇列不存在) 並插入訊息 'Hello, World' 的程式碼：
 
 ```cpp
@@ -171,7 +171,7 @@ queue.update_message(changed_message, std::chrono::seconds(60), true);
 std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 ```
 
-## <a name="how-to-de-queue-the-next-message"></a>作法：在下一個訊息清除佇列
+## <a name="how-to-de-queue-the-next-message"></a>作法：將下一個訊息清除佇列
 您的程式碼可以使用兩個步驟將訊息自佇列中清除佇列。 呼叫 **get_message** 時，您會取得佇列中的下一個訊息。 對於從此佇列讀取訊息的其他任何程式碼而言，將無法看到從 **get_message** 傳回的訊息。 若要完成從佇列中移除訊息的作業，您還必須呼叫 **delete_message**。 這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。 您的程式碼會在處理完訊息之後立即呼叫 **delete_message**。
 
 ```cpp

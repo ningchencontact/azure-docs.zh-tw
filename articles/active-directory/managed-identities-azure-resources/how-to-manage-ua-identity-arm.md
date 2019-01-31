@@ -3,23 +3,23 @@ title: 如何使用 Azure Resource Manager 來建立及刪除使用者指派的�
 description: 如何使用 Azure Resource Manager 來建立及刪除使用者指派受控識別的逐步說明。
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: daveba
-ms.openlocfilehash: 5270bcff74f8738bb8449a158e1da16c25157e61
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.author: priyamo
+ms.openlocfilehash: fb133ec9c19195568eb876526adaff193028cb16
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452848"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197478"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>使用 Azure Resource Manager 來建立、列出及刪除使用者指派的受控識別
 

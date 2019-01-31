@@ -7,16 +7,16 @@ author: diberry
 ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 7b294b9c528d0b7a93a3e287b37124a26d0851dd
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f7071d34f6167786012bd50be7b778fa08b46371
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138053"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216994"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>在 LUIS 應用程式中已遭取代的預先建置實體
 下列預先建立的實體均已被取代，也無法新增至新的 LUIS 應用程式。

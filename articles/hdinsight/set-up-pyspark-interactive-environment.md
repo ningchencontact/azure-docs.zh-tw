@@ -9,12 +9,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: ef33d8962848636ee53ac6fd3f084b9c2a59e29d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 45ba049717f2b9874bbac8d6493e13c2afc4b8f2
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820561"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910643"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>設定 Visual Studio Code 的 PySpark 互動式環境
 
@@ -22,9 +22,9 @@ ms.locfileid: "54820561"
 
 我們會使用 **python/pip** 命令在您的首頁路徑中建置虛擬環境。 如果想要使用其他版本，您需要手動變更 **python/pip** 命令的預設版本。 請參閱[更新替代項目](https://linux.die.net/man/8/update-alternatives)了解更多詳細資料。
 
-1. 安裝 [Python](https://www.python.org/) 和 [pip](https://pip.pypa.io/en/stable/installing/)。
+1. 安裝 [Python](https://www.python.org/downloads/) 和 [pip](https://pip.pypa.io/en/stable/installing/)。
    
-   + 從 [https://pip.pypa.io/en/stable/installing](https://www.python.org/) 安裝 Python。
+   + 從 [https://www.python.org/downloads/](https://www.python.org/downloads/) 安裝 Python。
    + 從 [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) 安裝 pip。 (如果未在安裝 Python 時安裝)
    + 使用下列命令驗證是否已成功安裝 Python 和 pip。 (選用)
  

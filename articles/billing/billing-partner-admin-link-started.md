@@ -4,19 +4,19 @@ description: 將合作夥伴識別碼連結到您用來管理客戶資源的使�
 services: billing
 author: dhirajgandhi
 manager: dhgandhi
-ms.author: cwatson
+ms.author: banders
 ms.date: 03/12/2018
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: eeb88627cbcc1736586defd403b19c19c9cdf56c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: c38b28a247feb94efd5f4b73e690d30aac9ed73a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579238"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900233"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>將合作夥伴識別碼連結到您的 Azure 帳戶
 

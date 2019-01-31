@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 175fa625a94626cde4d782abd1e9629530cab8b4
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: aeffe172fd422f18e2828c5274e9a2ed13cc546a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408499"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103355"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用適用於輸出流量的靜態公用 IP 位址
 
-根據預設，來自 Azure Kubernetes Service (AKS) 叢集的輸出 IP 位址會隨機指派。 例如，當您需要識別 IP 位址以存取外部服務時，這個設定並不理想。 您可能需要改為指派靜態 IP 位址，讓您可將其列入白名單以用於服務存取。
+根據預設，來自 Azure Kubernetes Service (AKS) 叢集的輸出 IP 位址會隨機指派。 例如，當您需要識別 IP 位址以存取外部服務時，這個設定並不理想。 您可能需要改為指派靜態 IP 位址，讓您可將其列入允許清單以用於服務存取。
 
 此文章示範如何在 AKS 叢集中，建立和使用靜態公用 IP 位址來與輸出流量搭配使用。
 
@@ -24,7 +24,7 @@ ms.locfileid: "47408499"
 
 此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
 
-您也必須安裝並設定 Azure CLI 版本 2.0.46 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
+您也必須安裝並設定 Azure CLI 版本 2.0.46 或更新版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="egress-traffic-overview"></a>輸出流量概觀
 
@@ -63,7 +63,7 @@ IP 位址即會顯示，如下列扼要範例輸出所示：
     "ipAddress": "40.121.183.52",
     [..]
   }
-````
+```
 
 您稍後可以使用 [az network public-ip list][az-network-public-ip-list] 命令來取得公用 IP 位址。 指定節點資源群組的名稱，然後查詢 *ipAddress*，如下列範例所示：
 

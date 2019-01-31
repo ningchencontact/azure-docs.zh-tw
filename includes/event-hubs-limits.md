@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/26/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: a49ce4e997a21e0db707c851f5ea46817bcb642e
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 84a51f65ef46c390f84308ab17cf83859a16c3b8
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49960172"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55428510"
 ---
 下表列出 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)的特定配額與限制。 如需事件中樞價格的相關資訊，請參閱[事件中樞價格](https://azure.microsoft.com/pricing/details/event-hubs/)。
 
@@ -24,7 +24,7 @@ ms.locfileid: "49960172"
 | 事件中樞內的資料分割數目 |實體 |- |32 |
 | 每一個事件中樞取用者群組數目 |實體 |- |20 |
 | 每個命名空間的 AMQP 連線數目 |命名空間 |對於其他連線的後續要求將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 |5,000 |
-| 事件中樞事件的大小上限|實體 |- |256 KB |
+| 事件中樞事件的大小上限|實體 |- |1 MB |
 | 事件中樞名稱的大小上限 |實體 |- |50 個字元 |
 | 每個取用者群組的非 epoch 接收者數目 |實體 |- |5 |
 | 事件資料的最大保留期間 |實體 |- |1-7 天 |

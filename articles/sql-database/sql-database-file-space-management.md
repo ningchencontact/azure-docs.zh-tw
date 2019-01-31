@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: d8ddbb2590852ed80ce02f147886dc125815fc23
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605951"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468626"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>以 Azure SQL Database 管理檔案空間
 本文說明 Azure SQL Database 中不同類型的儲存空間，以及需要明確管理為資料庫與彈性集區配置的檔案空間時所能採取的步驟。
@@ -27,6 +27,7 @@ ms.locfileid: "53605951"
 在 Azure SQL Database 的某些工作負載模式中，資料庫的基礎資料檔案配置可能會逐漸大於已使用資料頁數。 當使用的空間增加，隨後卻將資料刪除時，就會發生這種狀況。 原因是因為在資料刪除後，並不會自動回收已配置的檔案空間。
 
 在下列情況中，可能需要監視檔案空間使用量和壓縮資料檔案：
+
 - 當配置給檔案資料庫的檔案空間達到集區大小上限時，允許彈性集區中的資料成長。
 - 允許減少單一資料庫或彈性集區的大小上限。
 - 允許將單一資料庫或彈性集區變更為大小上限較低的不同服務層級或效能層級。
@@ -118,6 +119,7 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 下列查詢可用來判斷彈性集區的儲存體空間數量。  
 
 ### <a name="elastic-pool-data-space-used"></a>使用的彈性集區資料空間
+
 修改下列查詢，以傳回已使用的彈性集區資料空間量。  查詢結果以 MB 為單位。
 
 ```sql
@@ -234,9 +236,9 @@ ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ## <a name="next-steps"></a>後續步驟
 
 - 如需資料庫大小上限的相關資訊，請參閱：
-  - [適用於單一資料庫的 Azure SQL Database 以虛擬核心為基礎的購買模型限制](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases)
-  - [使用以 DTU 為基礎的購買模型的單一資料庫資源限制](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases)
-  - [針對彈性集區，Azure SQL Database 虛擬核心形式的購買模型限制](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools)
-  - [使用以 DTU 為基礎的購買模型的彈性集區資源限制](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools)
+  - [適用於單一資料庫的 Azure SQL Database 以虛擬核心為基礎的購買模型限制](sql-database-vcore-resource-limits-single-databases.md)
+  - [使用以 DTU 為基礎的購買模型的單一資料庫資源限制](sql-database-dtu-resource-limits-single-databases.md)
+  - [針對彈性集區，Azure SQL Database 虛擬核心形式的購買模型限制](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [使用以 DTU 為基礎的購買模型的彈性集區資源限制](sql-database-dtu-resource-limits-elastic-pools.md)
 - 如需有關 `SHRINKDATABASE` 命令的詳細資訊，請參閱 [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)。 
 - 如需索引分散和如何重建索引的詳細資訊，請參閱[重新組織與重建索引](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)。

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: bdf5b5188dd584c5eb20f72ff4a98ba6904bc53e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 6663e3fc48408de83e92f39e8c8070005818852d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702369"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097960"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure 串流分析 JavaScript 使用者定義彙總 (預覽)
  
@@ -28,7 +28,7 @@ ms.locfileid: "43702369"
 
 AccumulateOnly 彙總只會將新事件累積至其狀態，此演算法不會允許將值取消累積。 無法進行將事件資訊從狀態值取消累積的實作時，請選擇此彙總類型。 以下是 AccumulatOnly 彙總的 JavaScript 範本：
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can only be accumulated.
 function main() {
     this.init = function () {
@@ -43,13 +43,13 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ### <a name="accumulatedeaccumulate-aggregates"></a>AccumulateDeaccumulate 彙總
 
 AccumulateDeaccumulate 彙總可允許將先前累積的值從狀態中取消累積，例如從事件值清單中移除機碼值組，或從總和彙總的狀態中減去某個值。 以下是 AccumulateDeaccumulate 彙總的 JavaScript 範本：
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
 function main() {
     this.init = function () {
@@ -72,7 +72,7 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ## <a name="uda---javascript-function-declaration"></a>UDA - JavaScript 函式宣告
 
@@ -129,7 +129,7 @@ computeResult() 方法會根據目前的狀態傳回彙總結果。 呼叫此方
 1. 在 [新增函式] 檢視上，選取 [JavaScript UDA] 作為 [函式類型]，然後您就會在編輯器中看見預設的 UDA 範本。
 1. 填入 "TWA" 作為 UDA 別名，然後依下列方式變更函式實作：
 
-    ````JavaScript
+    ```JavaScript
     // Sample UDA which calculate Time-Weighted Average of incoming values.
     function main() {
         this.init = function () {
@@ -167,7 +167,7 @@ computeResult() 方法會根據目前的狀態傳回彙總結果。 呼叫此方
             return result;
         }
     }
-    ````
+    ```
 
 1. 按一下 [儲存] 按鈕之後，您的 UDA 就會顯示在函式清單上。
 
@@ -177,7 +177,7 @@ computeResult() 方法會根據目前的狀態傳回彙總結果。 呼叫此方
 
 在 Azure 入口網站中，開啟您的作業、編輯查詢，然後使用授權前置詞 "uda" 來呼叫 TWA() 函式。 例如︰
 
-````SQL
+```SQL
 WITH value AS
 (
     SELECT
@@ -191,13 +191,13 @@ SELECT
     uda.TWA(value) as NoseDoseTWA
 FROM value
 GROUP BY TumblingWindow(minute, 5)
-````
+```
 
 ## <a name="testing-query-with-uda"></a>使用 UDA 來測試查詢
 
 使用下列內容來建立一個本機 JSON 檔案，將此檔案上傳到「串流分析」作業中，然後測試上述查詢。
 
-````JSON
+```JSON
 [
   {"EntryTime": "2017-06-10T05:01:00-07:00", "NoiseLevelDB": 80, "DurationSecond": 22.0},
   {"EntryTime": "2017-06-10T05:02:00-07:00", "NoiseLevelDB": 81, "DurationSecond": 37.8},
@@ -223,7 +223,7 @@ GROUP BY TumblingWindow(minute, 5)
   {"EntryTime": "2017-06-10T05:20:00-07:00", "NoiseLevelDB": 113, "DurationSecond": 25.1},
   {"EntryTime": "2017-06-10T05:22:00-07:00", "NoiseLevelDB": 110, "DurationSecond": 5.3}
 ]
-````
+```
 
 ## <a name="get-help"></a>取得說明
 

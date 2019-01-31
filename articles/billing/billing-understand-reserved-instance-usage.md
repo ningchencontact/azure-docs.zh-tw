@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
-ms.author: cwatson
-ms.openlocfilehash: 81ee681fac4496ad2d5360f01926634373c23075
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: d3da7e73569d7860c7e4328b11ecc3f20cf648fc
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584480"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903616"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>了解隨用隨付型方案訂用帳戶的 Azure 保留使用量
 
@@ -27,7 +27,7 @@ ms.locfileid: "52584480"
 
 如果您是擁有 Enterprise 合約的客戶，請參閱[了解 Enterprise 註冊的保留使用量](billing-understand-reserved-instance-usage-ea.md)。
 
-此文章假設保留會套用至單一訂用帳戶。 如果此保留套用至多個訂用帳戶，則保留的權益可能會延伸到多個使用量 CSV 檔案。
+本文假設保留會套用至單一訂用帳戶。 如果此保留套用至多個訂用帳戶，則保留的權益可能會延伸到多個使用量 CSV 檔案。
 
 ## <a name="usage-for-reserved-virtual-machine-instances"></a>保留的虛擬機器執行個體使用量
 

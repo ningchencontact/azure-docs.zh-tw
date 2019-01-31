@@ -14,12 +14,13 @@ ms.topic: get-started-article
 ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: bac0b2933d4b6d4a88ebbb0402bba0ffd508b395
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.lastreviewed: 06/08/2018
+ms.openlocfilehash: dce158e600d3bf5dbcc552aff82959208d7b47f8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474365"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249056"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器映像
 
@@ -82,14 +83,14 @@ ms.locfileid: "54474365"
 
 3. 使用已提升權限的提示字元開啟 PowerShell，並執行：
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
       -version "<#.#.#>” `
       -OSType "<ostype>" `
       -OSUri "<osuri>"
-  ````
+  ```
 
   **Add-AzsPlatformimage** Cmdlet 會指定供 Azure Resource Manager 範本用來參考 VM 映像的值。 這些值包括：
   - **publisher**  
@@ -157,24 +158,24 @@ ms.locfileid: "54474365"
 
 5. 準備 VHD 格式 (非 VHDX) 的 Windows 或 Linux 作業系統映像，將該映像上傳到儲存體帳戶，並取得可供 PowerShell 擷取 VM 映像的 URI。  
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
-  ````
+  ```
 
 6. (選擇性) 您可以上傳資料磁碟陣列作為 VM 映像的一部分。 使用 New-DataDiskObject Cmdlet 建立資料磁碟。 從已提升權限的提示字元開啟 PowerShell，並執行：
 
-  ````PowerShell  
+  ```PowerShell  
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
-  ````
+  ```
 
 7. 使用已提升權限的提示字元開啟 PowerShell，並執行：
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
-  ````
+  ```
 
     如需 Add-AzsPlatformimage Cmdlet 和 New-DataDiskObject Cmdlet 的詳細資訊，請參閱 Microsoft PowerShell [Azure Stack 操作員模組文件](https://docs.microsoft.com/powershell/module/)。
 
@@ -188,13 +189,13 @@ ms.locfileid: "54474365"
 
 3. 使用已提升權限的提示字元開啟 PowerShell，並執行：
 
-  ````PowerShell  
+  ```PowerShell  
   Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `
     -sku "<sku>" `
     -version "<version>" `
-  ````
+  ```
   **Remove-AzsPlatformimage** Cmdlet 會指定供 Azure Resource Manager 範本用來參考 VM 映像的值。 這些值包括：
   - **publisher**  
     例如：`Canonical`  
