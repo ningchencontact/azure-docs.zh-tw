@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
-ms.author: sewatson
-ms.openlocfilehash: 3bdeb3255c8dc97d2867eca0b9cdec8223d31b21
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.author: kfollis
+ms.openlocfilehash: 4a2dee4ad90fb269268ec7d3e86def58f2444e3a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165344"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884723"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>在 Azure 入口網站中建立和共用儀表板
 您可以建立多個儀表板，並與可存取您 Azure 訂用帳戶的其他人共用。  本文說明建立/編輯、發佈和管理儀表板存取權的基本概念。

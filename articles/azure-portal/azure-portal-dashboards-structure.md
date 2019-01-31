@@ -1,6 +1,6 @@
 ---
 title: Azure 儀表板結構 | Microsoft Docs
-description: 此文章說明 Azure 儀表板的 JSON 結構
+description: 本文說明 Azure 儀表板的 JSON 結構
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: cwatson
-ms.openlocfilehash: 76f4a52b702a609d7181b9c6c0f2ce600d8a6aac
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.author: kfollis
+ms.openlocfilehash: a7e9acbe78ffdca2e615873cc4c33f86b250a429
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267982"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885688"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 儀表板結構
 此文件將使用下列儀表板做為範例，逐步說明 Azure 儀表板的結構：
@@ -291,7 +291,7 @@ ms.locfileid: "48267982"
 
 ## <a name="common-resource-properties"></a>通用資源屬性
 
-接下來要將 JSON 的相關區段細分。  最上層屬性、__識別碼__、__名稱__、__類型__、__位置__和__標籤__是所有 Azure 資源類型共同的屬性。 也就是說，這些與儀表板的內容無關。
+接下來要將 JSON 的相關區段加以細分。  最上層屬性、__識別碼__、__名稱__、__類型__、__位置__和__標籤__是所有 Azure 資源類型共同的屬性。 也就是說，這些與儀表板的內容無關。
 
 ### <a name="the-id-property"></a>識別碼屬性
 

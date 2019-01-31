@@ -7,19 +7,19 @@ author: barbkess
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: cb477ccba648a15c88f2e216b39d4ba1676d43c7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fd677a34caa5a1871808b31477e91746ec9fdccb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464607"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170397"
 ---
 # <a name="how-to-assign-users-to-applications"></a>將使用者指派至應用程式
 
@@ -55,9 +55,9 @@ ms.locfileid: "54464607"
 
 8.  系統管理員將第一方應用程式 (例如 [Microsoft Office 365](https://products.office.com/)) 的授權指派給使用者所屬的群組
 
-9.  [系統管理員同意應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)供所有使用者使用，然後使用者登入應用程式
+9.  [系統管理員同意應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)供所有使用者使用，然後使用者登入應用程式
 
-10. 使用者本身登入應用程式以[同意應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
+10. 使用者本身登入應用程式以[同意應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Azure Active Directory 管理應用程式](what-is-application-management.md)

@@ -8,19 +8,19 @@ manager: daveba
 ms.reviewer: joflore
 ms.assetid: e96aeecd-e113-454e-89c3-58c9f44cfd4c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 6624368e0438b8f41a0f90c5da3f7f00f4cbc86c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 3e316f0bf81d2ccc9ecdf86baceb641faacf074d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813554"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178438"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>教學課程：Azure Active Directory 與 SmartRecruiters 整合
 
@@ -233,7 +233,7 @@ SmartRecruiters 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 SmartRecruiters 磚時，應該會自動登入您的 SmartRecruiters 應用程式。
-如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

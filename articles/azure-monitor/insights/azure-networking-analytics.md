@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 4363d7a319eb31dbf020121bf2fa5c5630296c5a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 66bac977d05276833a357521a3a040c59b2f28fa
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191698"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900284"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Log Analytics 中的 Azure 網路監視解決方案
 
 Log Analytics 提供下列解決方案來監視您的網路︰
 * 網路效能監視器 (NPM) 以
- * 監視網路的健康狀態
+    * 監視網路的健康狀態
 * 要檢閱的 Azure 應用程式閘道分析
- * Azure 應用程式閘道記錄檔
- * Azure 應用程式閘道計量
+    * Azure 應用程式閘道記錄檔
+    * Azure 應用程式閘道計量
 * 監視和稽核雲端網路上網路活動的解決方案
-* [流量分析](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
-* Azure 網路安全性群組分析
+    * [流量分析](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * Azure 網路安全性群組分析
 
 ## <a name="network-performance-monitor-npm"></a>網路效能監視器 (NPM)
 
