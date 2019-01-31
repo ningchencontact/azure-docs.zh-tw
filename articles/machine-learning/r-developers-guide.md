@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: bc00bd3b61398355c663d133c0c9a66c2a52aa8d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 102191b885d2a4a9234b7783b0a51b09903d3abd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045874"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807451"
 ---
 # <a name="r-developers-guide-to-azure"></a>Azure 的 R 開發人員指南
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -40,7 +40,7 @@ Microsoft 已完全採用 R 程式設計語言作為資料科學家的頂級工�
 |[Azure Databricks](#azure-databricks)                            |支援 R 和其他語言的共同作業 Spark 環境               |
 |[Azure Machine Learning Studio](#azure-machine-learning-studio)  |在 Azure 的機器學習實驗中執行自訂的 R 指令碼                      |
 |[Azure Batch](#azure-batch)                                      |提供各種不同選項，以便以經濟實惠的方式跨叢集中的許多節點執行 R 程式碼|
-|[Azure Notebooks](#azure-notebooks)                              |免費 (但功能受限) 的雲端式 Jupyter Notebook 版本                  |
+|[Azure Notebooks](#azure-notebooks)                              |免費的雲端式 Jupyter Notebook 版本                  |
 |[Azure SQL Database](#azure-sql-database)                        |在 SQL Server 資料庫引擎內執行 R 指令碼                            |
 
 ## <a name="data-science-virtual-machine"></a>資料科學虛擬機器
@@ -65,8 +65,8 @@ DSVM 特別適用於小型的 R 開發人員團隊。  您不必為每位開發�
 ## <a name="ml-services-on-hdinsight"></a>HDInsight 上的 ML 服務
 [Microsoft ML 服務](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview)可讓資料科學家、統計學家以及 R 程式設計人員隨其所需存取 HDInsight 上可調整大小的分散式分析方法。  此解決方案所提供的最新功能，適用於幾乎任何大小的資料集上進行之以 R 為基礎的分析，且不論資料集是載入到 Azure Blob 或 Data Lake 儲存體。
 
-這是企業級解決方案，可讓您跨叢集調整 R 程式碼。  藉由利用 Microsoft <code>[RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler)</code> 套件中的函式，您在 HDInsight 上的 R 指令碼可以跨叢集中的許多節點平行執行資料處理函式。
-<ph id="ph1">&lt;code&gt;[RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler)&lt;/code&gt;</ph> package, your R scripts on HDInsight can run data processing functions in parallel across many nodes in a cluster.  這可讓 R 處理更大規模的資料，在工作站上執行的單一執行緒 R 就做不到這一點。
+這是企業級解決方案，可讓您跨叢集調整 R 程式碼。  利用 Microsoft 中的函式
+<code>[RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler)</code> 套件，您在 HDInsight 上的 R 指令碼可以跨叢集中的許多節點平行執行資料處理函式。  這可讓 R 處理更大規模的資料，在工作站上執行的單一執行緒 R 就做不到這一點。
 
 這項調整能力讓 HDInsight 上的 ML 服務成為絕佳選項，可讓 R 開發人員處理大規模資料集。  其提供彈性且可擴充的平台供您在雲端中執行 R 指令碼。
 
@@ -96,24 +96,25 @@ ML Studio 同時支援 R 和 Python。  您可以透過兩種方式搭配使用 
 如需在 ML Studio 實驗中使用 R 的完整介紹，請參閱 [Azure Machine Learning 的 R 程式設計語言快速入門教學課程。](https://docs.microsoft.com/azure/machine-learning/studio/r-quickstart)
 
 ### <a name="create-manage-and-deploy-experiments-from-your-local-r-environment"></a>從本機 R 環境建立、管理及部署實驗
-另一種搭配使用 R 與 ML Studio 的方式，是使用 <code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> 套件來監視和控制在 R 程式設計環境上所進行的測試程序。
-<ph id="ph1">&lt;code&gt;[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)&lt;/code&gt;</ph> package to monitor and control the experimentation process with the R programming environment.  此套件會由 Microsoft 維護，其可讓您在 Azure ML 中上傳和下載資料集，以便詢問實驗、將 R 函式發佈為 Azure ML Web 服務，以及透過現有 Web 服務執行 R 資料並擷取輸出。
+另一種搭配使用 R 與 ML Studio 的方式，是使用
+<code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> 套件來監視和控制在 R 程式設計環境上所進行的測試程序。  此套件會由 Microsoft 維護，其可讓您在 Azure ML 中上傳和下載資料集，以便詢問實驗、將 R 函式發佈為 Azure ML Web 服務，以及透過現有 Web 服務執行 R 資料並擷取輸出。
 
 此套件可讓您更容易地將 Azure ML 作為 R 程式碼的可調整部署平台。  您不必在 UI 中按一下並拖曳，而是可以使用您已熟悉的工具自動進行整個部署程序。
 
 ## <a name="azure-batch"></a>Azure Batch
 對於大規模的 R 作業，您可以使用 [Azure Batch](https://azure.microsoft.com/services/batch/)。  此服務可提供雲端級別的作業排程和計算管理，讓您可以跨數十個、數百個或數千個虛擬機器調整 R 工作負載。  因為它是一般化的運算平台，所以有幾個選項可供您在 Azure Batch 上執行 R 作業。
 
-其中一個選項是使用 Microsoft 的 <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> 套件。  此 R 套件是 `foreach` 套件的平行後端。  它可讓 `foreach` 迴圈的每次反覆運算在 Azure Batch 叢集內的節點上平行執行。  如需套件的簡介，請閱讀 [doAzureParallel：直接從 R 工作階段利用 Azure 的彈性計算](https://azure.microsoft.com/blog/doazureparallel/)部落格文章。
+其中一個選項是使用 Microsoft 的 <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> 套件。  此 R 套件是 `foreach` 套件的平行後端。  它可讓 `foreach` 迴圈的每次反覆運算在 Azure Batch 叢集內的節點上平行執行。  如需套件的簡介，請閱讀 [doAzureParallel：從 R 工作階段直接利用 Azure 的彈性運算](https://azure.microsoft.com/blog/doazureparallel/) \(英文\) 部落格文章。
 
 另一個在 Azure Batch 中執行 R 指令碼的選項，是在 Azure 入口網站中將程式碼與 "RScript.exe" 組合成 Batch 應用程式。  如需詳細的逐步解說，請參閱 [Azure Batch 上的 R 工作負載。](https://azure.microsoft.com/blog/r-workloads-on-azure-batch/)
 
 第三個選項是使用 [Azure 分散式資料工程工具組](https://github.com/Azure/aztk) (AZTK)，其可讓您使用 Azure Batch 中的 Docker 容器佈建隨選 Spark 叢集。  這可讓您以經濟實惠的方式在 Azure 中執行 Spark 作業。  藉由搭配使用 [SparklyR 與 AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK)，便可在雲端中以輕鬆且經濟實惠的方式相應放大 R 指令碼。
 
 ## <a name="azure-notebooks"></a>Azure Notebooks
+
 對於偏好使用 Notebook 來將程式碼帶入 Azure 的 R 開發人員來說，[Azure Notebook](https://notebooks.azure.com) 是低成本、低摩擦的方法。  它是一項免費服務，可供任何人在瀏覽器中使用 [Jupyter](https://jupyter.org/) 來開發和執行程式碼，Jupyter 是開放原始碼專案，可將 Markdown Prose、可執行程式碼和圖形合併至單一畫布。
 
-雖然 Azure Notebook 適用於小規模專案，但由於有某些限制，因此不適用於大規模的資料科學專案。  目前，此服務限制每個 Notebook 的程序只能使用 4 GB 記憶體，資料集只能有 1 GB。  不過，若要發佈較小型的分析，這會是簡單、免費的選項。
+Azure Notebooks 的免費服務層是適用於小規模專案的可行選項，因為它將每個 Notebook 的程序限制為 4 GB 記憶體和 1GB 資料集。 不過，如果您需要超過這些限制的計算和資料功能，您可以在資料科學虛擬機器執行個體中執行 Notebook。 如需詳細資訊，請參閱[管理和設定 Azure Notebooks 專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)。
 
 ## <a name="azure-sql-database"></a>連接字串
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 是 Microsoft 的智慧型、完全受控關聯式雲端資料庫服務。  它可讓您使用 SQL Server 的完整功能，而不需要麻煩地設定基礎結構。  這包括[機器學習服務](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017)，這是 SQL 服務最近新增的項目。
