@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: e97ac849fa0e590dd2462d8e64b761da23576833
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 1f6be45e7f53aff7f9b8957ca88efe7605e4a984
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845944"
+ms.locfileid: "54889037"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>部署適用於 VM 的 Azure 監視器 (預覽)
 本文說明如何設定適用於 VM 的 Azure 監視器。 此服務會監視 Azure 虛擬機器 (VM) 和虛擬機器擴展集的作業系統健康情況，以及您環境中的虛擬機器。 此監控包括探索及對應可能會在其上裝載的應用程式相依性。 
@@ -170,7 +170,7 @@ ms.locfileid: "54845944"
 | 檔案 | 作業系統 | 版本 | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) |  Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) |  Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## <a name="role-based-access-control"></a>角色型存取控制
 若要啟用並存取適用於 VM 的 Azure 監視器中的功能，您需要獲指派下列存取角色：
@@ -325,8 +325,9 @@ ms.locfileid: "54845944"
         az login
         az account set --subscription "Subscription Name"
         az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
+        ```
 
-        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
+        可能需要幾分鐘的時間才能完成設定變更。 完成之後，將會顯示如下訊息並包含結果：
 
         ```azurecli
         provisioningState       : Succeeded

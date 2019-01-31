@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: 1714a29e4b27f6363d748ceb180f56ba98c713bb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b3bfd7b2f2526dca0079a4411092ed21ee101bcd
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809521"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912726"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
 您可以利用下表列出的資訊，針對使用 Azure 備份時所發生的錯誤進行疑難排解：
@@ -21,10 +21,8 @@ ms.locfileid: "54809521"
 | 錯誤詳細資料 | 因應措施 |
 | ------ | --- |
 | 備份無法執行作業，因為虛擬機器 (VM) 已不存在： <br>請在不刪除備份資料的情況下停止保護虛擬機器。 如需詳細資訊，請參閱[停止保護虛擬機器](http://go.microsoft.com/fwlink/?LinkId=808124)。 |此錯誤會在已刪除主要 VM，但備份原則仍然在尋找 VM 來備份時發生。 若要修正此錯誤，請遵循下列步驟： <ol><li> 重新建立具有相同名稱和相同資源群組名稱 (**雲端服務名稱**) 的虛擬機器，<br>**or**</li><li> 停止保護虛擬機器 (不論是否刪除備份資料)。 如需詳細資訊，請參閱[停止保護虛擬機器](https://go.microsoft.com/fwlink/?LinkId=808124)。</li></ol> |
-| 因為虛擬機器沒有網路連線，所以快照集作業失敗： <br>請確定 VM 可以存取網路。 若要讓快照集成功，請將 Azure 資料中心 IP 範圍設為允許清單或設定 Proxy 伺服器以取得網路存取。 如需詳細資訊，請參閱[針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題](http://go.microsoft.com/fwlink/?LinkId=800034)。 <br><br>如果您已經使用 Proxy 伺服器，請確定已正確設定 Proxy 伺服器設定。 | 此錯誤會在您拒絕虛擬機器上的輸出網際網路連線時發生。 VM 快照集延伸模組需要網際網路連線，才能建立基礎磁碟的快照集。 請參閱 [ExtensionSnapshotFailedNoNetwork](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine)。 |
 | Azure 虛擬機器代理程式 (VM 代理程式) 無法與 Azure 備份服務通訊： <br>請確認 VM 具有網路連線，且 VM 代理程式是最新版且正在執行。 如需詳細資訊，請參閱[針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題](http://go.microsoft.com/fwlink/?LinkId=800034)。 |此錯誤會在 VM 代理程式發生問題，或對 Azure 基礎結構的網路存取被某種方式封鎖時發生。 深入了解[對 VM 快照集問題進行偵錯](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup)。 <br><br>如果 VM 代理程式未造成問題，請重新啟動 VM。 不正確的 VM 狀態可能會造成問題，重新啟動 VM 可重設此狀態。 |
 | VM 處於失敗的佈建狀態： <br>請將 VM 重新啟動，並確定 VM 正在執行或已關機。 | 此錯誤會在因其中一個延伸模組發生失敗，而使 VM 處於失敗的佈建狀態時發生。 請移至延伸模組清單，查看是否有失敗的延伸模組並將它移除，然後嘗試重新啟動虛擬機器。 如果所有延伸模組都是處於執行中的狀態，請檢查 VM 代理程式服務是否正在執行。 若否，請重新啟動 VM 代理程式服務。 |
-| 受控磁碟的 **VMSnapshot** 延伸模組作業失敗： <br>請重試備份作業。 如果問題持續發生，請遵循[針對 Azure 備份失敗進行疑難排解](http://go.microsoft.com/fwlink/?LinkId=800034)中的指示。 如果問題持續發生，請連絡 Microsoft 支援服務。 | Azure 備份服務無法觸發快照集時，就會發生此錯誤。 深入了解[對 VM 快照集問題進行偵錯](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtentionOperationFailed-vmsnapshot-extension-operation-failed)。 |
 | 備份無法複製虛擬機器的快照集，因為儲存體帳戶中的可用空間不足： <br>請確定儲存體帳戶具有與附加至虛擬機器之進階儲存體磁碟上的資料相等的可用空間。 | 針對 VM 備份堆疊 V1 上的進階 VM，我們會將快照集複製到儲存體帳戶。 此步驟是為了確定快照集上運作的備份管理流量不會限制可供使用進階磁碟的應用程式使用的 IOPS 數目。 <br><br>我們建議您僅配置 50% (17.5 TB) 的總儲存體帳戶空間。 然後 Azure 備份服務便可以將快照集複製到儲存體帳戶，並從儲存體帳戶中的這個複製位置將資料傳送到到保存庫。 |
 | 備份無法執行操作，因為 VM 代理程式沒有回應。 |此錯誤會在 VM 代理程式發生問題，或對 Azure 基礎結構的網路存取被某種方式封鎖時發生。 針對 Windows VM，請檢查服務中的 VM 代理程式服務狀態，以及代理程式是否出現在 [控制台] 的 [程式集] 中。 <br><br>請嘗試從 [控制台] 中刪除該程式，然後以 [VM 代理程式](#vm-agent)中所述的方式重新安裝代理程式。 重新安裝代理程式之後，請觸發臨機操作備份以確認它。 |
 | 復原服務延伸模組作業失敗： <br>請確定虛擬機器上有最新的 VM 代理程式，且 VM 代理程式服務正在執行中。 請重試備份作業。 如果備份作業失敗，請連絡 Microsoft 支援服務。 |此錯誤會在 VM 代理程式過期時發生。 請參閱[對 Azure 虛擬機器備份進行疑難排解](#updating-the-VM-agent)以更新 VM 代理程式。 |

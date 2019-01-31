@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: abc01239a2bf61c39f99fe880bf17d7958a1597c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fbd00a79ba02a8907d8f8ccfb222787877e2ee9c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477919"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183878"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>與 Azure AD 同盟的多網域支援
 下列文件提供與 Office 365 或 Azure AD 網域同盟時，如何使用多個頂層網域和子網域的指引。

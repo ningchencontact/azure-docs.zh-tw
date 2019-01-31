@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: cd44aa1dcc0ac5f97d39dee91fb547a333cb6ccf
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/27/2018
+ms.openlocfilehash: 8f53bbd65053fe9ac2bf49478944dc99dac3acfd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247702"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247845"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack 上的支援客體作業系統
 
@@ -47,7 +48,7 @@ Marketplace 映像適用於隨用隨付或 BYOL (EA/SPLA) 授權。 不支援在
 
 Marketplace 中有 Datacenter 版本可供下載；客戶可以自備包括其他版本在內的伺服器映像。 Marketplace 中沒有可用的 Windows 用戶端映像。
 
-## <a name="linux"></a>Linux
+## <a name="linux"></a> Linux
 
 列為 Marketplace 中可用的 Linux 發行版本包含必要的 Windows Azure Linux 代理程式 (WALA)。 如果您自備映像到 Azure Stack，請遵循[將 Linux 映像新增到 Azure Stack](azure-stack-linux.md) 中的方針。
 

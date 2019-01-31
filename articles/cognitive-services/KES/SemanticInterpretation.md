@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 5fcc7b760b5445e57b41787d8818ef11ed926e6c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2b0065dbdac8e3bdbc535f2d7d103b24110e1d02
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129347"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217266"
 ---
 # <a name="semantic-interpretation"></a>語意解譯
 
@@ -39,7 +39,7 @@ ms.locfileid: "46129347"
 |Bool|布林值|true<br/>false|
 |Int32|32 位元帶正負號的整數。  -2.1e9 至 2.1e9|123<br/>-321|
 |Int64|64 位元帶正負號的整數。 -9.2e18 和 9.2e18|9876543210|
-|兩倍|雙精確度浮點。 1.7e+/-308 (15 位數)|123.456789<br/>1.23456789e2|
+|Double|雙精確度浮點。 1.7e+/-308 (15 位數)|123.456789<br/>1.23456789e2|
 |Guid|全域唯一識別碼|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
 |查詢|指定索引中資料物件子集的查詢運算式|All()<br/>And(*q1*, *q2*)|
 
@@ -139,7 +139,7 @@ And(Composite(Query("academic#Author.Name", "harry shum"),
 
 系統變數會由服務預先定義，並可用來擷取系統目前狀態的各種相關統計資料。  以下是目前支援的系統變數集合：
 
-|名稱|類型|說明|
+|Name|類型|說明|
 |----|----|----|
 |IsAtEndOfQuery|Bool|如果目前的解譯符合所有輸入查詢文字，則成立|
 |IsBeyondEndOfQuery|Bool|如果目前的解譯有超出輸入查詢文字的完成建議，則成立|

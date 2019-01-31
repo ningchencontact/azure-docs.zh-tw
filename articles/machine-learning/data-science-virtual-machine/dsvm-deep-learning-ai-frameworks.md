@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: d266ee48a4248584ae22a9ba678d516fe28cd712
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 610b140fd6049842b993c17fd53bebf799f83f5c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259710"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453139"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>深度學習和 AI 架構
 [資料科學虛擬機器](https://aka.ms/dsvm) \(英文\) (DSVM) 和[深度學習 VM](https://aka.ms/dsvm/deeplearning) \(英文\) 支援數種深度學習架構，可協助建置具備預測性分析及能了解影像及語言之辨識能力的人工智慧 (AI) 應用程式。
@@ -108,7 +108,7 @@ jupyter notebook
 | 它是如何在 DSVM 上設定/安裝的？  | Caffe2 安裝在 [Python 2.7 (root) conda 環境](dsvm-languages.md#python-linux-and-windows-server-2012-edition)。 原始檔在 `/opt/caffe2`。 |
 | 範例的連結      | JupyterHub 中包含範例筆記本。 |
 | DSVM 上的相關工具      | Caffe      |
-| 如何使用/執行它？    | * 在終端機：啟用 [root Python 環境](dsvm-languages.md#python-linux-and-windows-server-2012-edition)，啟動 Python，然後匯入 caffe2。 <br/> * 在 JupyterHub 中：[連線到 JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後瀏覽至 Caffe2 目錄以尋找範例 Notebook。 某些筆記本會要求以 Python 程式碼設定 Caffe2 根，請輸入 /opt/caffe2。 |
+| 如何使用/執行它？    | * 在終端機：啟用 [root Python 環境](dsvm-languages.md#python-linux-and-windows-server-2012-edition)，啟動 Python，然後匯入 caffe2。 <br/> * 在 JupyterHub：[連線到 JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後瀏覽至 Caffe2 目錄以尋找範例筆記本。 某些筆記本會要求以 Python 程式碼設定 Caffe2 根，請輸入 /opt/caffe2。 |
 | 組建注意事項 | Caffe2 是從 Linux 上的原始檔組建，包括 CUDA、cuDNN 和 Intel MKL。 目前的認可是 0d9c0d48c6f20143d6404b99cc568efd29d5a4be，選取的理由是在測試的所有 GPU 和範例的穩定性。 |
 
 ## <a name="chainer"></a>Chainer
@@ -214,7 +214,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 深度學習架構      |
-| 支援的 DSVM 版本      | Linux     |
+| 支援的 DSVM 版本      |  Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | PyTorch 安裝在 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 中。  |
 | 範例的連結      | 隨附 Jupyter 筆記本範例，也可以在 /dsvm/samples/pytorch 中找到範例。      |
 | DSVM 上的相關工具      | Torch      |
@@ -226,7 +226,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 建立 MXNet 和 ONNX 模型 HTTP 端點的伺服器      |
-| 支援的 DSVM 版本      | Linux     |
+| 支援的 DSVM 版本      |  Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | 可在終端機上使用 _mxnet-model-server_。   |
 | 範例的連結      | 在 [MXNet 模型伺服器頁面](https://github.com/awslabs/mxnet-model-server)上尋找最新的範例。    |
 | DSVM 上的相關工具      | MXNet      |
@@ -236,7 +236,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 要在 TensorFlow 模型上執行推斷的伺服器      |
-| 支援的 DSVM 版本      | Linux     |
+| 支援的 DSVM 版本      |  Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | 可在終端機上使用 _tensorflow_model_server_。   |
 | 範例的連結      | 可從[線上](https://www.tensorflow.org/serving/)取得範例。      |
 | DSVM 上的相關工具      | TensorFlow      |

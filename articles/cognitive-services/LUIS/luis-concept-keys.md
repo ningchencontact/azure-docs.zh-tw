@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: ff7f25a9c1ac73c53587bb320ef3889a5bfa9dc5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 81744e2af75410da911ee17f2c4acd05d5a57051
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439114"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222588"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>LUIS 中的撰寫與查詢預測端點金鑰
 LUIS 使用兩個金鑰：[撰寫](#programmatic-key)和[端點](#endpoint-key)。 當您建立 LUIS 帳戶時，系統會自動為您建立撰寫金鑰。 當您已做好發佈 LUIS 應用程式的準備時，必須[建立端點金鑰](luis-how-to-azure-subscription.md)、[將它指派](luis-how-to-azure-subscription.md)給 LUIS 應用程式，然後[將它與端點查詢搭配使用](#use-endpoint-key-in-query)。 

@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 15354cd7472e7cffb7a40ca431bc23eb65b9a9a9
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: 6d494cbc53ce83cfe4aaef63653eab2da9b35937
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845889"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249938"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>在 Azure Stack 中搭配 Azure CLI 使用 API 版本設定檔
 
@@ -62,7 +63,7 @@ sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 1. 複製從 Azure Stack 操作員取得的 PEM 憑證，並記下檔案位置 (PATH_TO_PEM_FILE)。
 1. 視您開發工作站上的作業系統而定，執行下列區段中的命令。
 
-#### <a name="linux"></a>Linux
+#### <a name="linux"></a> Linux
 
 ```bash
 sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
