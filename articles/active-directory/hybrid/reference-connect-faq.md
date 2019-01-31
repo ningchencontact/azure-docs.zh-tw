@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 11141da09b5a231b2fb77a434369dcf0f00532de
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 21006e2e2b8be37e695e5c5119bd0f1cc3971e36
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463570"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165722"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常見問題集
 
@@ -88,7 +88,7 @@ ms.locfileid: "54463570"
 
 ## <a name="environment"></a>環境
 **問：是否支援在安裝 Azure AD Connect 之後重新命名伺服器？**  
-否。 變更伺服器名稱會使同步引擎無法連線到 SQL 資料庫執行個體，並且無法啟動此服務。
+沒有。 變更伺服器名稱會使同步引擎無法連線到 SQL 資料庫執行個體，並且無法啟動此服務。
 
 ## <a name="identity-data"></a>身分識別資料
 **問：Azure AD 中的 userPrincipalName (UPN) 屬性為什麼與內部部署的 UPN 不符？**  
@@ -110,7 +110,7 @@ ms.locfileid: "54463570"
 除了記載於本網站上的 Cmdlet，在 Azure AD Connect 中找到的其他 PowerShell Cmdlet 不支援客戶使用。
 
 **問：我是否可以使用在 Synchronization Service Manager 中找到的 [伺服器匯出/伺服器匯入] 選項，在伺服器之間移動組態？**  
-否。 此選項不會擷取所有組態設定，因此不應使用。 應改用精靈在第二部伺服器上建立基底組態，並使用同步處理規則編輯器產生 PowerShell 指令碼，以在伺服器之間移動任何自訂規則。 如需詳細資訊，請參閱[變換移轉](how-to-upgrade-previous-version.md#swing-migration)。
+沒有。 此選項不會擷取所有組態設定，因此不應使用。 應改用精靈在第二部伺服器上建立基底組態，並使用同步處理規則編輯器產生 PowerShell 指令碼，以在伺服器之間移動任何自訂規則。 如需詳細資訊，請參閱[變換移轉](how-to-upgrade-previous-version.md#swing-migration)。
 
 **問：是否可以針對 Azure 登入頁面進行密碼快取，以及是否可以因為此快取包含具有 *autocomplete = "false"* 屬性的密碼輸入元素而防止進行此快取？**  
 目前不支援修改**密碼**欄位的 HTML 屬性，包括自動完成標記。 我們目前正在開發適用於自訂 JavaScript 的功能，可讓您將任何屬性新增至 [密碼] 欄位。
@@ -166,7 +166,7 @@ Azure AD Connect 小組會對此服務提出頻繁的更新。 若要獲取錯�
 **問：我確信我已升級到 Azure AD Connect，但 Office 入口網站中仍提及 DirSync。這是為什麼？**  
 Office 小組正在處理 Office 入口網站更新，以反映目前的產品名稱。 它不會反映您所使用的同步處理工具。
 
-**問：我的自動升級狀態顯示「已暫停」。為何會暫停？應該加以啟用嗎？**  
+**問：我的自動升級狀態顯示「已暫停」。它為何會擱置？應該加以啟用嗎？**  
 在某些情況下，先前版本中引入的錯誤會讓自動升級狀態設定為「擱置」。 以手動方式啟用在技術上是可行的，但需要幾個複雜的步驟。 最佳做法是下載並安裝最新版的 Azure AD Connect。
 
 **問：我的公司有嚴格的變更管理需求，我想要控制其推出時間。我可以控制何時啟動自動升級嗎？**  

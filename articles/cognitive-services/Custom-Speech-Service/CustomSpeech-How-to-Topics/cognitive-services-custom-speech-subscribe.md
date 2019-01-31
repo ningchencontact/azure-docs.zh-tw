@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 84ef657af2cc3dc4a7168a815b5e51d6f4f33fd7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 74e4b9bb9a8baa6a28f1504c1e5a0e01e9ca56cd
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338364"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210093"
 ---
 # <a name="obtain-subscription-keys"></a>取得訂用帳戶金鑰
 
@@ -25,7 +25,7 @@ ms.locfileid: "49338364"
 ## <a name="get-a-subscription-key"></a>取得訂用帳戶金鑰
 1. 您可以透過兩種方式之一，從 Azure 入口網站取得訂用帳戶金鑰：
 
-    * 移至 [Azure 入口網站](https://ms.portal.azure.com)，然後藉由搜尋 _Cognitive Services_ 再選取 **[Cognitive Services APIs]** 來新增 Cognitive Services API。
+    * 移至 [Azure 入口網站](https://ms.portal.azure.com)，然後藉由搜尋_認知服務_再選取 [認知服務 API] 來新增認知服務 API。
 
       ![認知服務搜尋](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription.png)
 

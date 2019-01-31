@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 34c284f3fdd78d8b2f56ec7c36e139f9ac9d78bf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c31f104b3a7ae37d768a2a483a70385852dc47ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473498"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156814"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>透過強式識別解決方案規劃更高的資料安全性
 保護資料的第一個步驟是識別可以存取該資料的人員。 此外，您需要可與系統整合的身分識別解決方案，以提供驗證和授權功能。 驗證和授權常被混淆，兩者角色也常被誤解。 這兩者其實是不同的，如下圖所示：

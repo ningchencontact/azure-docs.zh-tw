@@ -2,19 +2,19 @@
 title: 支援適用於 Azure 資源的受控識別 Azure 服務
 description: 支援 Azure 資源和 Azure AD 驗證受控識別的服務清單
 services: active-directory
-author: daveba
-ms.author: daveba
+author: priyamohanram
+ms.author: priyamo
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 manager: daveba
-ms.openlocfilehash: 7591860d36a3d6472411321c60c608411ab4eb8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2ca70805a0806078613bb37ac1d2836dd8d626c8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437669"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180733"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支援適用於 Azure 資源的受控識別服務
 

@@ -6,18 +6,18 @@ author: eross-msft
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 20c4be3741fa1e728cf59a148beb5adbc87b89c0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 86ba8f77121e6d4f6358887e13b8f86a5e020f1b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452016"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103695"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>將 Azure 訂用帳戶關聯或新增至您的 Azure Active Directory 租用戶
 Azure 訂用帳戶有與 Azure Active Directory (Azure AD) 之間的信任關係，這表示訂用帳戶信任 Azure AD 來驗證其使用者、服務與裝置。 多個訂用帳戶可以信任相同的 Azure AD 目錄，但每個訂用帳戶都只能信任單一目錄。

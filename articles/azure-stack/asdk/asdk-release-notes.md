@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Stack 開發套件版本資訊 | Microsoft Docs
-description: Azure Stack 開發套件的改良功能、修正及已知問題。
+description: Azure Stack 開發套件的增強功能、修正及已知問題。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: d1ff154c42709f0c672b30f7ec51a436fb44ce13
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 12/21/2018
+ms.openlocfilehash: d3d776def9e031ca2bcc76d1b60a19f67a74b35a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724737"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240339"
 ---
 # <a name="asdk-release-notes"></a>ASDK 版本資訊 
  

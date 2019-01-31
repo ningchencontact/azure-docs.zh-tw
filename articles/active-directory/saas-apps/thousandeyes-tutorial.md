@@ -7,19 +7,19 @@ author: jeevansd
 manager: daveba
 ms.assetid: 790e3f1e-1591-4dd6-87df-590b7bf8b4ba
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 046832913a07c99310280d37ac1c6792692dd0cf
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 06de55fd2bd1064e93e38fe0ff0cfb13fdc1463a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824706"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175429"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>教學課程：Azure Active Directory 與 ThousandEyes 整合
 
@@ -259,7 +259,7 @@ ThousandEyes 與 Azure AD 整合提供下列優點：
 
 當您在「存取面板」中按一下 [ThousandEyes] 圖格時，應該會自動登入您的 ThousandEyes 應用程式。
 
-如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

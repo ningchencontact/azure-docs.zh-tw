@@ -8,19 +8,19 @@ manager: daveba
 ms.reviewer: joflore
 ms.assetid: 2263e583-3eb2-4a06-982d-33f5f54858f4
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 74fa3065e99b1844bb315d1dcfa3f0e7ad1f8fee
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d9e2ee219b1bfd2553d393c12670c530d1fb47a3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54814608"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182008"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>教學課程：Azure Active Directory 與 FileCloud 整合
 
@@ -231,7 +231,7 @@ FileCloud 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [FileCloud] 圖格時，應該會自動登入您的 FileCloud 應用程式。
-如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 
