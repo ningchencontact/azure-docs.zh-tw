@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: e3791c897722c9bbf50f58c126d7e4e573b2096f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2e974acb1a7583fbd1a961eda4daa3732fbeff7c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465809"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218168"
 ---
 # <a name="what-is-project-url-preview"></a>什麼是專案 URL 預覽？
 預覽 URL 端點使用 URL 查詢參數，並傳回 JSON 回應，其中包含目標資源的名稱、簡短描述，以及在預覽中顯示影像的連結。 回應也包含 [isFamilyFriendly](url-preview-reference.md#query-parameters) 旗標，指出 URL 是否包含成人、盜版或其他不合法的內容。 
@@ -26,7 +26,7 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 
 ```
 回應： 
-````
+```
 HTTP Headers:
 BingAPIs-TraceId: 3CC74C94769440C0851D9DF0869FCE7F
 BingAPIs-SessionId: 52219085A6364692958C9C83983A0DBA
@@ -44,7 +44,7 @@ X-MSEdge-Ref: Ref A: 3CC74C94769440C0851D9DF0869FCE7F Ref B: CO1EDGE0315 Ref C: 
   }
 }
 
-````
+```
 ## <a name="scenarios"></a>案例 
 
 URL 預覽 API 支援 Web 資源的簡短說明。 開發人員會使用它來建立豐富的預覽經驗。  使用者可以共用網頁、新聞、部落格、論壇等等，也可以將這些設為書籤。此 API 也可以用於內容仲裁。    

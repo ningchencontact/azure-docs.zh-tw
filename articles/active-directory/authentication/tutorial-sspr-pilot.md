@@ -3,19 +3,19 @@ title: 啟用 Azure AD SSPR 試驗
 description: 在本教學課程中，您將為試驗使用者群組啟用 Azure AD 自助式密碼重設
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 21f2081f5aae0bb93cb9066407140f5fd35dc06d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7b84e36ae447adcf36fae90b61564bc06c3bae89
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424018"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081546"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>教學課程：完成 Azure AD 自助式密碼重設試驗推出
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: ca1c26d62d3047ecdd8a29bc97457e7e2baef9a5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fa65eabecba062a7b5d875483d821dfdfb2d64b3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729658"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207729"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>快速入門：使用適用於 C# (UWP) 的語音 SDK 來翻譯語音
 
@@ -31,7 +31,7 @@ ms.locfileid: "53729658"
 本快速入門需要：
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* 語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
+* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 
@@ -262,7 +262,7 @@ ms.locfileid: "53729658"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [瀏覽 GitHub 上的 C# 範例](https://aka.ms/csspeech/samples)
+> [探索 GitHub 上的 C# 範例](https://aka.ms/csspeech/samples) \(英文\)
 
 ## <a name="see-also"></a>另請參閱
 

@@ -11,12 +11,13 @@ ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.openlocfilehash: 1d0e04e4fbc964400e8b5c1544344864f7e757a7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.lastreviewed: 11/02/2018
+ms.openlocfilehash: 844c81d71734ab17c93f60cb802686c209e04014
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019638"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239225"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>在 Azure Stack 上部署以太坊區塊鏈網路
 
@@ -72,7 +73,7 @@ ms.locfileid: "51019638"
     NAMEPREFIX | 用來作為所部署資源命名基底的字串。 | 1 到 6 個英數字元 | eth
     AUTHTYPE | 用來向虛擬機器驗證的方法。 | 密碼或 SSH 公開金鑰 | 密碼
     ADMINUSERNAME | 每個所部署 VM 的管理員使用者名稱 | 1 - 64 個字元 | gethadmin
-    ADMINPASSWORD (驗證類型 = 密碼)| 每個所部署虛擬機器的管理員帳戶密碼。 密碼必須包含下列其中 3 項要求：1 個大寫字元、1 個小寫字元、1 個數字與 1 個特殊字元。 <br />所有 VM 一開始都有相同的密碼，但您可以在佈建之後變更密碼。|12 - 72 個字元|
+    ADMINPASSWORD (驗證類型 = 密碼)| 每個所部署虛擬機器的管理員帳戶密碼。 密碼必須包含下列 3 個需求：1 個大寫字元、1 個小寫字元、1 個數字與 1 個特殊字元。 <br />所有 VM 一開始都有相同的密碼，但您可以在佈建之後變更密碼。|12 - 72 個字元|
     ADMINSSHKEY (驗證類型 = sshPublicKey) | 用於遠端登入的安全殼層金鑰。 | |
     GENESISBLOCK | 代表自訂創世區塊的 JSON 字串。  可選擇是否指定此參數的值。 | |
     ETHEREUMACCOUNTPSSWD | 用來保護以太坊帳戶的系統管理員密碼。 | |
@@ -122,7 +123,7 @@ ms.locfileid: "51019638"
     NAMEPREFIX | 用來作為所部署資源命名基底的字串。 | 1 到 6 個英數字元 | eth
     AUTHTYPE | 用來向虛擬機器驗證的方法。 | 密碼或 SSH 公開金鑰 | 密碼
     ADMINUSERNAME | 每個所部署 VM 的管理員使用者名稱 | 1 - 64 個字元 | gethadmin
-    ADMINPASSWORD (驗證類型 = 密碼)| 每個所部署虛擬機器的管理員帳戶密碼。 密碼必須包含下列其中 3 項要求：1 個大寫字元、1 個小寫字元、1 個數字與 1 個特殊字元。 <br />所有 VM 一開始都有相同的密碼，但您可以在佈建之後變更密碼。|12 - 72 個字元|
+    ADMINPASSWORD (驗證類型 = 密碼)| 每個所部署虛擬機器的管理員帳戶密碼。 密碼必須包含下列 3 個需求：1 個大寫字元、1 個小寫字元、1 個數字與 1 個特殊字元。 <br />所有 VM 一開始都有相同的密碼，但您可以在佈建之後變更密碼。|12 - 72 個字元|
     ADMINSSHKEY (驗證類型 = sshPublicKey) | 用於遠端登入的安全殼層金鑰。 | |
     CONSORTIUMMEMBERID | 與聯盟網路每個成員相關聯的識別碼。   | 這個識別碼在網路中應該是唯一的。 | 0
     NUMMININGNODES | 採礦節點的數目。 | 介於 2 到 15。 | 2

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 48d23f9d6d79e89e24c808a59b73854952c93240
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6ff49b3a08977b28ae6fa0971e5c7d72af158a46
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425436"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081206"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>透過 Visual Studio 建立與部署 Azure 資源群組
 使用 Visual Studio，您可以建立專案，將您的基礎結構和程式碼部署至 Azure。 例如，您可以為您的應用程式定義 Web 主機、網站和資料庫，並且部署該基礎結構與程式碼。 Visual Studio 針對部署常見案例提供許多不同的入門範本。 在本文中，您將會部署 Web 應用程式和 SQL Database。  
@@ -144,7 +144,7 @@ Visual Studio 也會提供 Intellisense 以協助您了解編輯範本時可以�
 5. 選擇 [部署] 按鈕，將專案部署至 Azure。 PowerShell 主控台會在 Visual Studio 執行個體的外部開啟。 出現提示時，請在 PowerShell 主控台中輸入 SQL Server 系統管理員密碼。 **PowerShell 主控台可能會隱藏在其他項目之後或在工作列中最小化。** 尋找此主控台並加以選取，以便提供密碼。
    
    > [!NOTE]
-   > Visual Studio 可能會要求您安裝 Azure PowerShell Cmdlet。 您需要 Azure PowerShell Cmdlet 才能成功部署資源群組。 如果出現提示，請予以安裝。 如需詳細資訊，請參閱[安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)。
+   > Visual Studio 可能會要求您安裝 Azure PowerShell Cmdlet。 您需要 Azure PowerShell Cmdlet 才能成功部署資源群組。 如果出現提示，請予以安裝。 如需詳細資訊，請參閱[安裝和設定 Azure PowerShell](/powershell/azure/install-az-ps)。
    > 
    > 
 6. 部署可能需要幾分鐘的時間。 您可在 [輸出]  視窗中查看部署的狀態。 部署完成時，最後一則訊息會表示成功部署，如下所示︰

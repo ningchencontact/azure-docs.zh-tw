@@ -16,12 +16,13 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: d2e849b4a6101cd10ce17e52056efdfe2f903381
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.lastreviewed: 10/25/2018
+ms.openlocfilehash: 9cfa06dfd0b38aa288502afbee30fb48ee7dd4e1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267108"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247658"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>何謂 Azure Stack 開發套件？
 [Microsoft Azure Stack 整合系統](../azure-stack-poc.md)的大小範圍為 4 到 16 個節點，並且由硬體合作夥伴與 Microsoft 共同支援。 您可以使用 Azure Stack 整合系統，來為生產環境工作負載啟用新案例。 如果您是管理整合系統基礎結構並提供服務的 Azure Stack 操作員，請參閱我們的[操作員文件](https://docs.microsoft.com/azure/azure-stack)。

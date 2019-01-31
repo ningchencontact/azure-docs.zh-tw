@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ce48e9a17ab6b63c7fb8caa752258e218ca51ba3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042048"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226378"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>將 Amazon Web Services (AWS) VM 移轉至 Azure
 
@@ -169,7 +169,7 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 
 針對您想要移轉的每部 VM 啟用複寫。 啟用複寫時，Site Recovery 會自動安裝行動服務。
 
-1. 移至 [Azure 入口網站](htts://portal.azure.com)。
+1. 移至 [Azure 入口網站](https://portal.azure.com)。
 1. 在保存庫頁面的 [使用者入門] 下，選取 [Site Recovery]。
 2. 在 [內部部署電腦與 Azure VM] 下，選取 [步驟 1:複寫應用程式]。 以下列資訊完成精靈頁面。 完成時在每個頁面上選取 [確定]：
     - 1:設定來源

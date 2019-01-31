@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: a27f6c017d9d648414637f900e0cf7c4be147bfe
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8319f2f5405271679d0c11d4ac68492cdec8fc14
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996338"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100116"
 ---
 # <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(已被取代) 搭配使用 ACR 與 Azure DC/OS 叢集以部署應用程式
 
@@ -131,7 +131,7 @@ docker run ubuntu --name base-image
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
-````
+```
 
 登入 Azure Container Registry。 以 loginServer 名稱取代名稱，以容器登錄的名稱取代 --username，並以其中一個提供的密碼取代 --password。
 

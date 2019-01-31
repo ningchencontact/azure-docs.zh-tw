@@ -3,23 +3,23 @@ title: 如何使用 Windows VM 系統指派的受控識別，來存取 Azure Dat
 description: 本教學課程說明如何使用 Windows VM 系統指派的受控識別，來存取 Azure Data Lake Store。
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2018
-ms.author: daveba
-ms.openlocfilehash: abc7d4bea47c84c3fba0ee04e8b1d6293e726b7a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: c1d1152c1f0b5345d91590efbd8826a9f2038f63
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424331"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151000"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>教學課程：使用 Windows VM 系統指派的受控識別，來存取 Azure Data Lake Store
 

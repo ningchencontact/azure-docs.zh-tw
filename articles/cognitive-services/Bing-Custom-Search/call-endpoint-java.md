@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: 65dc4f837a7b5d5cb3f41eacf9833ebd5a601bab
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f0f6981d899248877ca1cd1d580a004933815b96
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970945"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171825"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>快速入門：使用 Java 呼叫您的 Bing 自訂搜尋端點
 
@@ -23,7 +23,7 @@ ms.locfileid: "53970945"
 
 ## <a name="prerequisites"></a>必要條件
 
-- Bing 自訂搜尋執行個體。 請參閱[快速入門：建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)，以取得詳細資訊。
+- 「Bing 自訂搜尋」執行個體。 請參閱[快速入門：建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)，以取得詳細資訊。
 
 - 最新的 [Java 開發套件](https://www.oracle.com/technetwork/java/javase/downloads/index.html)  
 

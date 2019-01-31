@@ -7,25 +7,25 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 047c2af2626c9efca05dc3d3e554d57b4d559add
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 3a52610365c4e18333084e81a0f69e302fb5c191
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809100"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192038"
 ---
 # <a name="two-step-verification-overview"></a>雙步驟驗證概觀
-
->[!Important]
->本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
 
 您收到來自 IT 人員或老闆的一封電子郵件，表示組織已對您的帳戶新增額外的安全性驗證。 所以這是什麼意思？ 這表示您的組織採取額外的步驟，以確保您在登入時就是您所表明的人員。 這個額外驗證 (也稱為雙步驟驗證) 是透過您的使用者名稱、密碼及行動裝置或電話的組合進行。
 
 雙步驟驗證比只是使用密碼更安全，因為它依賴兩種形式的驗證：分別是您知道的資訊和您擁有的東西。 您知道的就是密碼。 您擁有的是您通常帶在身邊的手機或裝置。 雙步驟驗證有助於阻止惡意駭客偽裝成您，因為即使他們有您的密碼，他們也可能沒有您的裝置。
+
+>[!Important]
+>本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
 
 |文章 |說明 |
 |------|------------|

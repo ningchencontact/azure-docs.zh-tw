@@ -5,16 +5,16 @@ description: 自訂翻譯工具所提供的功能，類似於 Microsoft Translat
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: overview
-ms.openlocfilehash: f845c064ec3625d205ec346ddfc90c3a1b2c3d8d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e613f660d4d1abfd45b11d71c2abfda53331cc31
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874833"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211199"
 ---
 # <a name="what-is-custom-translator"></a>什麼是自訂翻譯工具？
 

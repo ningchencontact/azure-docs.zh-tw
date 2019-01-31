@@ -14,12 +14,13 @@ ms.topic: get-started-article
 ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 149da2c186ae1e0c3fa5af14a630a0edef7deb25
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.lastreviewed: 01/18/2019
+ms.openlocfilehash: 98ae15307b6d2859b583042ca788b825890a40be
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470268"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238766"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>在 Azure Stack 中管理儲存體帳戶
 
@@ -137,7 +138,7 @@ ms.locfileid: "54470268"
 ```PowerShell  
     $farm_name = (Get-AzsStorageFarm)[0].name
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
-````
+```
 
 如需詳細資訊，請參閱 [Azure Stack PowerShell 文件](https://docs.microsoft.com/powershell/azure/azure-stack/overview)。
  

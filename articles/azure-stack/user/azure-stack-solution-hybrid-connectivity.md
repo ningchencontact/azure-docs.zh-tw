@@ -14,12 +14,13 @@ ms.topic: tutorial
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 19c5e530822d1d9c2b4ec815b37b3373e8e39b02
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 84e952514b88620af565cf7e9775c055476fb530
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305973"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247556"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 設定混合式雲端連線
 

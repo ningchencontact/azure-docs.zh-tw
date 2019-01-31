@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: 9534a60e66f194bf653e1bfd28d6d6f2a96ba90a
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 30f7fd2a2169e798997b424ea16715940f810ccb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558714"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155182"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>快速入門：使用 Python 呼叫您的 Bing 自訂搜尋端點
 
@@ -23,7 +23,7 @@ ms.locfileid: "53558714"
 
 ## <a name="prerequisites"></a>必要條件
 
-- Bing 自訂搜尋執行個體。 請參閱[快速入門：建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)，以取得詳細資訊。
+- 「Bing 自訂搜尋」執行個體。 請參閱[快速入門：建立您的第一個 Bing 自訂搜尋執行個體](quick-start.md)，以取得詳細資訊。
 - [Python](https://www.python.org/) 2.x 或 3.x
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]

@@ -1,21 +1,21 @@
 ---
-title: 什麼是 Bing 實體搜尋？ | Microsoft Docs
+title: 什麼是 Bing 實體搜尋？
+titlesuffix: Azure Cognitive Services
 description: 了解如何使用 Bing 實體搜尋 API 來搜尋網路上的實體和地點。
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 0B54E747-61BF-42AA-8788-E25D63F625FC
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
-ms.topic: article
+ms.subservice: bing-entity-search
+ms.topic: overview
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: 275430bc6ee8f935978243e61f68713974648189
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 98d624b51835f88d34ec7ffd9658e40985482498
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008105"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181821"
 ---
 # <a name="what-is-bing-entity-search"></a>什麼是 Bing 實體搜尋？
 
@@ -48,7 +48,7 @@ Bing 實體搜尋 API 會將搜尋查詢傳送至 Bing，並取得包含實體�
 > [!NOTE]
 > 實體回應支援多個市場，但地點回應支援僅美國公司地點。 
 
-`entities` 欄位是包含 [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) 物件清單的 [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) 物件 (請參閱 `value` 欄位)。 此清單可能包含單一主控實體、多個去除混淆實體或兩者。 
+`entities` 欄位是包含 [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) 物件清單的 [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) 物件 (請參閱 `value` 欄位)。 此清單可能包含單一主控實體、多個去除混淆實體或兩者。 
 
 主控實體是 Bing 認為符合要求的唯一實體 (不會有哪個實體符合要求的模稜兩可情況)。 若可能有多個實體符合要求，清單會包含多個去除混淆實體。 例如，若要求使用電影系列的通用標題，清單可能會包含去除混淆實體。 但若要求指定系列中的特定標題，清單可能會包含單一主控實體。
 

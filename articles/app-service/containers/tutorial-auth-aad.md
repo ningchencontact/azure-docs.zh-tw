@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8ebaab260d38a3fe4f492f2545c5ec8b07990235
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ed056bf28881f391ed1ba16a875259e8e420b39d
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715234"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296078"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>教學課程：在 Linux 上的 Azure App Service 中對使用者進行端對端驗證和授權
 
@@ -317,7 +317,7 @@ git push frontend master
 
 您的應用程式已完成設定。 前端現在已可使用適當的存取權杖存取後端。
 
-如需如何為其他提供者進行此設定的相關資訊，請參閱[重新整理存取權杖](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-access-tokens)。
+如需如何為其他提供者進行此設定的相關資訊，請參閱[重新整理存取權杖](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-identity-provider-tokens)。
 
 ## <a name="call-api-securely-from-server-code"></a>從伺服器程式碼安全地呼叫 API
 

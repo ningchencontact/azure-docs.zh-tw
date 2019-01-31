@@ -3,23 +3,23 @@ title: 使用 VM 系統指派的受控識別來存取 Azure Key Vault
 description: 本教學課程會逐步引導您使用 Linux VM 系統指派的受控識別，以存取 Azure Resource Manager。
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: daveba
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: daveba
-ms.openlocfilehash: 388c2de437546ac0a415a5e061ce8bceb0a507d3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: a65e1adc4c843bb362ace4fe0778b4cbd18b4b4c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425096"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150201"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>教學課程：使用 VM 系統指派的受控識別來存取 Azure Key Vault 
 

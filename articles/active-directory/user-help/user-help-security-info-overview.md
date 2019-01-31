@@ -7,25 +7,25 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 1e55ad5c056bf76f8332ea84fa960b4482825bfe
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 918f711002530735b9b4e09273fac3021a97a091
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826151"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189131"
 ---
 # <a name="security-info-preview-overview"></a>安全性資訊 (預覽) 概觀
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
+在 [安全性資訊] 中設定雙步驟驗證和密碼重設資訊。 在最初設定安全性資訊之後，您就不必再做一次。 不過，您可以編輯您的資訊，隨時變更預設方法。
+
 >[!Important]
 >本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
-
-在 [安全性資訊] 中設定雙步驟驗證和密碼重設資訊。 在最初設定安全性資訊之後，您就不必再做一次。 不過，您可以編輯您的資訊，隨時變更預設方法。
 
 您可以新增下列任何方法，包括：
 

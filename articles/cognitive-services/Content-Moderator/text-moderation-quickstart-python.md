@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 6aace9301050877d452b69bd7d1c741f50dae558
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7952ea9a83e6a2a7689bfdf34e39c7862a6daf73
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264083"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217912"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>快速入門：使用 Python 分析文字內容中的不當題材
 
@@ -61,7 +61,7 @@ pip install azure-cognitiveservices-vision-contentmoderator
 
 ## <a name="query-the-moderator-service"></a>查詢仲裁者服務
 
-使用您的訂用帳戶金鑰和端點 URL，來建立 **ContentModeratorClient** 執行個體。 然後，使用其成員 **TextModerationOperations** 執行個體來呼叫仲裁 API。 如需如何呼叫它的詳細資訊，請參閱 **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python#screen-text)** \(英文\) 參考文件。
+使用您的訂用帳戶金鑰和端點 URL，來建立 **ContentModeratorClient** 執行個體。 然後，使用其成員 **TextModerationOperations** 執行個體來呼叫仲裁 API。 如需如何呼叫它的詳細資訊，請參閱 **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** \(英文\) 參考文件。
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
 

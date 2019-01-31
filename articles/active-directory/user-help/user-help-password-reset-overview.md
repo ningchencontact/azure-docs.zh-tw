@@ -7,23 +7,23 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 1d21a5ad906299ff05110d676490fc587e85cac4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 95ce737e46a23086d336b1972988a2581a869f38
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826678"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165739"
 ---
 # <a name="reset-password-overview"></a>重設密碼概觀
 
+如果您忘記密碼、公司支援人員不曾提供密碼給您，或您的帳戶遭鎖定，您可以使用安全性資訊和行動裝置來重設密碼。
+
 >[!Important]
 >本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
-
-如果您忘記密碼、公司支援人員不曾提供密碼給您，或您的帳戶遭鎖定，您可以使用安全性資訊和行動裝置來重設密碼。
 
 |文章 |說明 |
 |------|------------|

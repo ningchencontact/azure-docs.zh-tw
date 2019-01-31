@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 2a6378406272f502af107a151e69fe33954f7780
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 064466b73e03e9648b78c32b7e6ffcd83defd607
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187854"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079353"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>在 Azure 中建立靜態 HTML Web 應用程式
 
@@ -39,7 +39,7 @@ ms.locfileid: "54187854"
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 下一步，執行下列命令，將範例應用程式存放庫複製到您的快速入門目錄。

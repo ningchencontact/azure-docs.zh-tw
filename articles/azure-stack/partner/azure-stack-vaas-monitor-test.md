@@ -13,13 +13,14 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4107b18046b57d5b02fcd9d88be1752922735a08
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 04756481b676ed198120b67ca4368093ca8acead
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245577"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250869"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>監視和管理 VaaS 入口網站中的測試
 

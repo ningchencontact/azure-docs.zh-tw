@@ -3,23 +3,23 @@ title: 使用 Windows VM 系統指派的受控識別來存取 Azure 儲存體
 description: 本教學課程會逐步引導您使用 Windows VM 系統指派的受控識別，以存取 Azure 儲存體。
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: daveba
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
-ms.author: daveba
-ms.openlocfilehash: 3c253fbebff534b1dcaae8d75322fe524e82a368
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.date: 01/24/2019
+ms.author: priyamo
+ms.openlocfilehash: c19c5031c27ac37aee3707911268965912c20994
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421943"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158191"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>教學課程：使用 Windows VM 系統指派的受控識別，透過存取金鑰來存取 Azure 儲存體
 
@@ -36,6 +36,8 @@ ms.locfileid: "54421943"
 ## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶 
 
@@ -119,17 +121,17 @@ $keysContent = $keysResponse.Content | ConvertFrom-Json
 $key = $keysContent.keys[0].value
 ```
 
-接著，我們會建立一個名為 "test.txt" 的檔案。 然後，使用儲存體存取金鑰透過 `New-AzureStorageContent` Cmdlet 進行驗證，並將檔案上傳至 Blob 容器，然後下載該檔案。
+接著，我們會建立一個名為 "test.txt" 的檔案。 然後，使用儲存體存取金鑰透過 `New-AzStorageContent` Cmdlet 進行驗證，並將檔案上傳至 Blob 容器，然後下載該檔案。
 
 ```bash
 echo "This is a test text file." > test.txt
 ```
 
-請務必先使用 `Install-Module Azure.Storage` 安裝 Azure 儲存體 Cmdlet。 然後使用 `Set-AzureStorageBlobContent` PowerShell Cmdlet 上傳您剛才建立的 Blob：
+請務必先使用 `Install-Module Az.Storage` 安裝 Azure 儲存體 Cmdlet。 然後使用 `Set-AzStorageBlobContent` PowerShell Cmdlet 上傳您剛才建立的 Blob：
 
 ```powershell
-$ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT> -StorageAccountKey $key
-Set-AzureStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
+$ctx = New-AzStorageContext -StorageAccountName <STORAGE-ACCOUNT> -StorageAccountKey $key
+Set-AzStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
 ```
 
 回應：
@@ -146,10 +148,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-您也可以使用 `Get-AzureStorageBlobContent` PowerShell Cmdlet 來下載您剛剛上傳的 Blob：
+您也可以使用 `Get-AzStorageBlobContent` PowerShell Cmdlet 來下載您剛剛上傳的 Blob：
 
 ```powershell
-Get-AzureStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
+Get-AzStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
 ```
 
 回應：

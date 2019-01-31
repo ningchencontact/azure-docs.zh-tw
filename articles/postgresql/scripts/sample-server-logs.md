@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: cd4346c738e1c1c52ee181f764f827b1b1060650
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: eb6f1624a3fefbad829600d2280d4eaeedd188bc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547196"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179968"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>使用 Azure CLI 啟用並下載「適用於 PostgreSQL 的 Azure 資料庫」伺服器的伺服器慢速查詢記錄
 此範例 CLI 指令碼會啟用並下載單一「適用於 PostgreSQL 的 Azure 資料庫」伺服器的慢速查詢記錄。
@@ -37,7 +37,7 @@ ms.locfileid: "53547196"
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
 | [az postgres server create](/cli/azure/postgres/server#az_msql_server_create) | 建立主控資料庫的 PostgreSQL 伺服器。 |
-| [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) | 列出伺服器的設定值。 |
+| [az postgres server configuration list](/cli/azure/postgres/server/configuration) | 列出伺服器的設定值。 |
 | [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) | 更新伺服器的設定。 |
 | [az postgres server-logs list](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) | 列出伺服器的記錄檔。 |
 | [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) | 下載記錄檔。 |

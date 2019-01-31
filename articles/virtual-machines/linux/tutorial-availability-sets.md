@@ -3,7 +3,7 @@ title: 教學課程 - Azure 中 Linux VM 的高可用性 | Microsoft Docs
 description: 在本教學課程中，您會了解如何使用 Azure CLI 在可用性設定組中部署高可用性的虛擬機器
 documentationcenter: ''
 services: virtual-machines-linux
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9391db9bf270511f734a31a621985f5b6ad31ec0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: bace15a89f0dd820c69d51bee0a6b669cdf5ff73
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848728"
+ms.locfileid: "54885582"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立及部署高可用性的虛擬機器
 

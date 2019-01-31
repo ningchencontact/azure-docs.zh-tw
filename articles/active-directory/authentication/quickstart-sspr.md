@@ -3,19 +3,19 @@ title: 快速入門︰Azure AD 自助式密碼重設
 description: 在本快速入門中，您將快速設定 Azure AD 自助式密碼重設，以允許使用者重設自己的密碼
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f91178b1db3d35ae99e694f626e04bb54b9e10de
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 84d781bc0a42d75090f7c48480b4025269b9242e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426364"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079880"
 ---
 # <a name="quickstart-self-service-password-reset"></a>快速入門：自助式密碼重設
 

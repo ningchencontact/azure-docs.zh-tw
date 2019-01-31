@@ -6,18 +6,18 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
-ms.devlang: poweshell
+ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: f549f26cb3f9fdb2d805d2efb2c0e1706abe3edb
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: baad12379c01ac955f1b0e036398e5889f3681b2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23636968"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203193"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-powershell"></a>使用 PowerShell 取得受控資源群組中的資源並調整 VM 大小
 

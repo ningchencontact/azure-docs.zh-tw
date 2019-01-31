@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: 了解如何使用自動化機器學習來產生機器學習模型。 Azure Machine Learning 可以用自動化方式，為您執行資料前處理、演算法選擇及超參數選擇。 然後使用 Azure Machine Learning 服務來部署最終模型。
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 97910241cb4f903deeeb9ff6971839530903efe2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1e2746ef55f5c50ce9452b7a9d1ab060c69830db
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823006"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244262"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>教學課程：使用自動機器學習建置迴歸模型
 

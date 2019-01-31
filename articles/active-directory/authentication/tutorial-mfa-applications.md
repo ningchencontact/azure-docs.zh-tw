@@ -3,19 +3,19 @@ title: 啟用 Azure Multi-Factor Authentication 試驗
 description: 在本教學課程中，您將為試驗使用者群組啟用 Azure AD Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 5bd27ed71e93edc10fd86395121c524cb54c98e7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6a8ccc79267dcc01b0d11ba176a64d125a2caad4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427605"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080764"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>教學課程：完成 Azure Multi-Factor Authentication 試驗推出
 

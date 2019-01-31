@@ -4,7 +4,7 @@ description: 了解如何在 Azure 入口網站快速建立虛擬機器擴展
 keywords: 虛擬機器擴展集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/18
-ms.author: zarhoads
-ms.openlocfilehash: 723f1d36f22e11aff3af195e4c8adf7a3f8722ab
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: 7644940418b7322e5ec4b02b793219b44ae3aa97
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464789"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885144"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立虛擬機器擴展集
+# <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>快速入門：在 Azure 入口網站建立虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據 CPU、記憶體需求或網路流量等資源使用量進行自動調整。 其後，Azure 負載平衡器會將流量分配到擴展集中的多個 VM 執行個體。 在此快速入門中，您會在 Azure 入口網站中建立虛擬機器擴展集。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b1fa723863e6485e977e075986c3779efed1e689
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: cb3a60995a4edfe5eb00f1a5e88812146816806a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360618"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883699"
 ---
 # <a name="azure-backup-support-matrix"></a>Azure 備份支援矩陣
 
@@ -30,13 +30,13 @@ Azure 備份會使用復原服務保存庫來協調和管理備份，以及儲�
 保存庫中的機器 | 一個保存庫中最多可以有 1000 個 Azure VM。<br/><br/> 一個保存庫中最多可註冊 50 個執行 Azure 備份代理程式 (Microsoft Azure 復原服務代理程式 (MABS)) 的內部部署機器。
 保存庫儲存體中的資料來源 | 最大 54400 GB。 Azure VM 備份沒有限制。
 備份至保存庫 | Azure VM：一天一次；受 DPM/MABS 保護的機器：一天兩次；直接使用 MARS 代理程式備份的機器：一天三次。  
-移動保存庫 | 您可以在訂用帳戶和資源群組間移動備份復原服務保存庫。 [深入了解](backup-azure-move-recovery-services-vault.md)。
+移動保存庫 | 若要移動復原服務保存庫，您必須註冊個人預覽版。 若要試用，請來信至 AskAzureBackupTeam@microsoft.com。
 在保存庫之間移動資料 | 不支援在保存庫之間移動已備份的資料。
 儲存體複寫類型 | 您可以在備份儲存之前修改保存庫的儲存體複寫類型 (GRS/LRS)。 開始在保存庫中進行備份後，即無法修改複寫類型。
 
 
 
-## <a name="on-premises-backup-support"></a>內部部署備份支援 
+## <a name="on-premises-backup-support"></a>內部部署備份支援
 
 以下是您備份內部部署機器時所支援的項目。
 
@@ -44,8 +44,8 @@ Azure 備份會使用復原服務保存庫來協調和管理備份，以及儲�
 --- | --- | --- | ---
 **Windows 實體/虛擬機器 (沒有備份伺服器)** | 檔案、資料夾、系統狀態 | 備份至復原服務保存庫 | 一天備份三次。<br/><br/> 沒有應用程式感知備份。<br/><br/> 還原檔案、資料夾、磁碟區。
 **Linux 實體/虛擬機器 (沒有備份伺服器)** | 不支援備份。
-**使用 DPM 的實體/虛擬機器** | 檔案、資料夾、磁碟區、系統狀態、應用程式資料。 | 備份至 DPM (本機連結至 DPM 伺服器的磁碟) 或磁帶。<br/><br/> 然後，DPM 再備份至保存庫。 | 應用程式感知快照集<br/><br/> 備份和復原的完整細微性。<br/><br/> VM (Hyper-V/VMware) 支援 Linux。<br/><br/>. 不支援 Oracle。
-**使用 MABS 的實體/虛擬機器** | 檔案、資料夾、磁碟區、系統狀態、應用程式資料。 | 備份至 MABS (本機連結至 MABS 伺服器的磁碟)。 不支援磁帶<br/><br/> 然後，MABS 再備份至保存庫。 | 應用程式感知快照集<br/><br/> 備份和復原的完整細微性。<br/><br/> VM (Hyper-V/VMware) 支援 Linux。<br/><br/>. 不支援 Oracle。
+**使用 DPM 的實體/虛擬機器** | 檔案、資料夾、磁碟區、系統狀態、應用程式資料。 | 備份至 DPM (本機連結至 DPM 伺服器的磁碟) 或磁帶。<br/><br/> 然後，DPM 再備份至保存庫。 | 應用程式感知快照集<br/><br/> 備份和復原的完整細微性。<br/><br/> VM (Hyper-V/VMware) 支援 Linux。<br/><br/>上也提供本文中使用的原始碼。 不支援 Oracle。
+**使用 MABS 的實體/虛擬機器** | 檔案、資料夾、磁碟區、系統狀態、應用程式資料。 | 備份至 MABS (本機連結至 MABS 伺服器的磁碟)。 不支援磁帶<br/><br/> 然後，MABS 再備份至保存庫。 | 應用程式感知快照集<br/><br/> 備份和復原的完整細微性。<br/><br/> VM (Hyper-V/VMware) 支援 Linux。<br/><br/>上也提供本文中使用的原始碼。 不支援 Oracle。
 
 
 ## <a name="azure-vms"></a>Azure VM
@@ -65,8 +65,8 @@ Azure VM 資料磁碟大小 | 個別磁碟最多可達 4095 GB。
 **機器** | **位置** | **備份** | **特性**
 --- | --- | --- | ---
 **Azure VM (沒有備份伺服器)** | 檔案、資料夾、系統狀態 | 備份至保存庫。 | 一天備份一次。<br/><br/> Windows VM 的應用程式感知備份，Linux VM 的檔案一致備份。 您可以使用自訂指令碼為 Linux 機器設定應用程式一致性。<br/><br/> 還原 VM/磁碟。<br/><br/> 無法從 Azure VM 備份至內部部署位置。
-**使用 DPM 的 Azure VM** | 檔案、資料夾、磁碟區、系統狀態、應用程式資料。 | 備份至執行於 Azure 中的 DPM (本機連結至 DPM 伺服器的磁碟)。 不支援磁帶。<br/><br/> 然後，DPM 再備份至保存庫。 | 應用程式感知快照集<br/><br/> 備份和復原的完整細微性。<br/><br/> VM (Hyper-V/VMware) 支援 Linux。<br/><br/>. 不支援 Oracle。
-**使用 MABS 的 Azure VM** | 檔案、資料夾、磁碟區、系統狀態、應用程式資料。 | 備份至執行於 Azure 中的 MABS (本機連結至 MABS 伺服器的磁碟)。 不支援磁帶<br/><br/> 然後，MABS 再備份至保存庫。 | 應用程式感知快照集<br/><br/> 備份和復原的完整細微性。<br/><br/> VM (Hyper-V/VMware) 支援 Linux。<br/><br/>. 不支援 Oracle。
+**使用 DPM 的 Azure VM** | 檔案、資料夾、磁碟區、系統狀態、應用程式資料。 | 備份至執行於 Azure 中的 DPM (本機連結至 DPM 伺服器的磁碟)。 不支援磁帶。<br/><br/> 然後，DPM 再備份至保存庫。 | 應用程式感知快照集<br/><br/> 備份和復原的完整細微性。<br/><br/> VM (Hyper-V/VMware) 支援 Linux。<br/><br/>上也提供本文中使用的原始碼。 不支援 Oracle。
+**使用 MABS 的 Azure VM** | 檔案、資料夾、磁碟區、系統狀態、應用程式資料。 | 備份至執行於 Azure 中的 MABS (本機連結至 MABS 伺服器的磁碟)。 不支援磁帶<br/><br/> 然後，MABS 再備份至保存庫。 | 應用程式感知快照集<br/><br/> 備份和復原的完整細微性。<br/><br/> VM (Hyper-V/VMware) 支援 Linux。<br/><br/>上也提供本文中使用的原始碼。 不支援 Oracle。
 
 
 
@@ -77,8 +77,8 @@ Azure VM 資料磁碟大小 | 個別磁碟最多可達 4095 GB。
 以下是您備份 Linux 機器時所支援的項目。
 
 **備份** | **Linux (Azure 背書)**
---- | --- 
-**內部部署 Linux 機器 (不含 DPM 或 MABS)**。 | 沒有。 MARS 代理程式只能安裝在 Windows 機器上。 
+--- | ---
+**內部部署 Linux 機器 (不含 DPM 或 MABS)**。 | 沒有。 MARS 代理程式只能安裝在 Windows 機器上。
 **Azure VM (不含 DPM 或 MABS)** | 使用[自訂指令碼](backup-azure-linux-app-consistent.md)進行應用程式一致備份。<br/><br/> 檔案層級復原。<br/><br/> 從復原點或磁碟建立 VM 以進行還原。
 **使用 DPM 的內部部署機器/Azure VM** | Hyper-V 和 VMWare 上 Linux 來賓 VM 的檔案一致性備份<br/><br/> Hyper-V 和 VMWare Linux 來賓 VM 的 VM 還原</br></br> 不適用於 Azure VM 的檔案一致性備份
 **使用 MABS 的內部部署機器/Azure VM** | Hyper-V 和 VMWare 上 Linux 來賓 VM 的檔案一致性備份<br/><br/> Hyper-V 和 VMWare Linux 來賓 VM 的 VM 還原</br></br> 檔案一致性備份不適用於 Azure VM。
@@ -110,7 +110,7 @@ Azure 備份支援傳輸中和待用資料的加密：
 **機器** | **傳輸中** | **待用**
 --- | --- | ---
 不含 DPM/MABS 的內部部署 Windows 機器 | ![是][green] | ![是][green]
-Azure VM | ![是][green] | ![是][green] 
+Azure VM | ![是][green] | ![是][green]
 使用 DPM 的內部部署/Azure VM | ![是][green] | ![是][green]
 使用 MABS 的內部部署/Azure VM | ![是][green] | ![是][green]
 
@@ -121,7 +121,7 @@ Azure VM | ![是][green] | ![是][green]
 備份支援壓縮備份流量，如下表所說明。 請注意：
 
 - 對於 Azure VM，VM 擴充功能會透過儲存體網路直接從 Azure 儲存體帳戶讀取資料，因此不需要壓縮此流量。
-- 如果您使用 DPM 或 MABS，則可以先壓縮資料再將其備份至 DPM/MABS，以節省頻寬。 
+- 如果您使用 DPM 或 MABS，則可以先壓縮資料再將其備份至 DPM/MABS，以節省頻寬。
 
 **機器** | **壓縮到 MABS DPM (TCP)** | **壓縮到保存庫 (HTTPS)**
 --- | --- | ---
@@ -134,8 +134,8 @@ Azure VM | NA | NA
 
 ## <a name="retention-limits"></a>保留期限
 
-**設定** | **限制** 
---- | --- 
+**設定** | **限制**
+--- | ---
 每個受保護執行個體的復原點數目上限 (機器/工作負載) | 9999
 復原點的到期時間上限 | 沒有限制
 備份至 DPM/MABS 的頻率上限 | 每隔 15 分鐘 (SQL Server)<br/><br/> 一小時一次 (其他工作負載)。

@@ -6,16 +6,16 @@ services: cognitive-services
 author: chlandsi
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: chlandsi
-ms.openlocfilehash: 75411ebd50448c5f490a1f03fbbf25a61dbffaf8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 044d703af50a951e1c406014f3e00eb49c1632a2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718107"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209616"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>快速入門：使用語音服務 SDK 在 iOS 上以 Objective-C 辨識語音
 

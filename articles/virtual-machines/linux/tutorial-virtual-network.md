@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a0eb3ed26b0e8641cf4e1004c2c162c799dd8999
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8548fe53288b2f9c486c9ccdc42afa08f40b4ae1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463757"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181585"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>教學課程：使用 Azure CLI 來建立和管理 Linux 虛擬機器的 Azure 虛擬網路
 
@@ -169,7 +169,7 @@ NSG 規則定義允許或拒絕流量的網路連接埠。 規則可以包含來
 
 在某些情況下，預先建立 NSG 可能較有幫助，例如不應建立預設 SSH 規則時，或當 NSG 應該連結至子網路時。 
 
-使用 [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) 命令建立網路安全性群組。
+使用 [az network nsg create](/cli/azure/network/nsg) 命令建立網路安全性群組。
 
 ```azurecli-interactive 
 az network nsg create --resource-group myRGNetwork --name myBackendNSG

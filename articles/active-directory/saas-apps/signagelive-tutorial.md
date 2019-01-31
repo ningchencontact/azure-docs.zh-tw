@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a8b45850ef609f908450fbcf35aad6b5c87540b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c2e67adb93c34cc4421145964ee809e4423b4843
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818501"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101715"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>教學課程：Azure Active Directory 與 Signagelive 整合
 
@@ -104,7 +104,7 @@ Signagelive 與 Azure AD 整合提供下列優點：
 
     ![Signagelive 網域與 URL 單一登入資訊](common/sp-signonurl.png)
 
-    在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://login.signagelive.com/sso/<ORGANISATIONALUNITNAME>`
+    在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
     > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Signagelive 用戶端支援小組](mailto:support@signagelive.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

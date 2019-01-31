@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f541212cd549cde21bc3b2048bf633c57a911653
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: db642fea6dbf1bd1ebc53f5066d01dc4f9a5490f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967722"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095628"
 ---
 # <a name="what-is-authentication"></a>什麼是驗證？
 
@@ -121,7 +121,7 @@ Azure AD 所簽發的安全性權杖 (存取權杖和識別碼權杖) 包含宣�
 | 發出時間 | 記錄核發權杖的時間，通常用於權杖有效期限。 |
 | 簽發者 | 識別發出權杖的 STS，以及 Azure AD 租用戶。 |
 | 姓氏 | 提供 Azure AD 中設定的使用者姓氏。 |
-| 名稱 | 提供人類看得懂的值，用以識別權杖的主體。 |
+| Name | 提供人類看得懂的值，用以識別權杖的主體。 |
 | 物件識別碼 | 包含主體在 Azure AD 中不可變的唯一識別碼。 |
 | 角色 | 包含已授與使用者的 Azure AD 應用程式角色的易記名稱。 |
 | 影響範圍 | 指出授與用戶端應用程式的權限。 |

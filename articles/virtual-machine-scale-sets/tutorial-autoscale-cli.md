@@ -3,7 +3,7 @@ title: 教學課程 - 使用 Azure CLI 自動調整擴展集 | Microsoft Docs
 description: 了解如何使用 Azure CLI 隨著 CPU 需求的增加和減少自動調整虛擬機器擴展集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b30c3a2e9f06cf02f27636592634884a7c3fdfc8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fdc1cb7c4b95a72aa55ccce57b2fa331f7c9615d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471300"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170703"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>教學課程：如何使用 Azure CLI 自動調整虛擬機器擴展集
 
@@ -41,13 +41,13 @@ ms.locfileid: "49471300"
 
 ## <a name="create-a-scale-set"></a>建立擴展集
 
-使用 [az group create](/cli/azure/group#create) 來建立資源群組，如下所示：
+使用 [az group create](/cli/azure/group) 來建立資源群組，如下所示：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-現在使用 [az vmss create](/cli/azure/vmss#create) 建立虛擬機器擴展集。 下列範例會建立執行個體計數為「2」的擴展集，以及產生 SSH 金鑰 (如果不存在)︰
+現在使用 [az vmss create](/cli/azure/vmss) 建立虛擬機器擴展集。 下列範例會建立執行個體計數為「2」的擴展集，以及產生 SSH 金鑰 (如果不存在)︰
 
 ```azurecli-interactive
 az vmss create \
@@ -137,7 +137,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-當 **stress** 顯示類似於 stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd 的輸出時，請按 Enter 鍵返回提示。
+當 **stress** 顯示類似於 stress: info: [2688] dispatching hogs:*10 cpu, 0 io, 0 vm, 0 hdd* 的輸出時，請按 Enter 鍵返回提示。
 
 若要確認 **stress** 產生了 CPU 負載，請使用 **top** 公用程式檢查作用中的系統負載：
 
@@ -165,7 +165,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-同樣地，當 **stress** 顯示類似於 stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd 的輸出時，請按 Enter 鍵返回提示。
+再次，當 **stress** 顯示類似於 stress: info: [2713] dispatching hogs:*10 cpu, 0 io, 0 vm, 0 hdd* 的輸出時，請按 Enter 鍵返回提示。
 
 關閉第二個 VM 執行個體的連線。 **stress** 會繼續對 VM 執行個體執行。
 

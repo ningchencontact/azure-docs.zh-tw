@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 0f4b5e5605ed88aac2ffb979e2c009e0f0b99a98
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 667d32c825f61751970bbcaa47045929ad708490
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411419"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160261"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>透過網路虛擬設備路由流量的指令碼範例
 
@@ -56,7 +56,7 @@ az group delete --name MyResourceGroup --yes
 | [az network nic create](/cli/azure/network/nic#az_network_nic_create) | 建立虛擬網路介面並為它啟用 IP 轉送功能。 |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | 建立網路安全性群組 (NSG)。 |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | 建立允許對 VM 進行 HTTP 和 HTTPS 連接埠輸入的 NSG 規則。 |
-| [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| 將 NSG 和路由表與子網路建立關聯。 |
+| [az network vnet subnet update](/cli/azure/network/vnet/subnet)| 將 NSG 和路由表與子網路建立關聯。 |
 | [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| 為所有路由建立一個路由表。 |
 | [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| 建立路由，以透過 VM 在子網路與網際網路之間路由傳送流量。 |
 | [az vm create](/cli/azure/vm#az_vm_create) | 建立虛擬機器，並將 NIC 連結到此虛擬機器。 此命令也會指定要使用的虛擬機器映像和系統管理認證。 |
