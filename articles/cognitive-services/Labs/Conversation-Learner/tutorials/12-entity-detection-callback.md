@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a96cfcb07252dc4a9089eab2decaec9efb01a67b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 576dc6bd44360f73c4133907233e59e5f51837b1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064980"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212521"
 ---
 # <a name="how-to-use-entity-detection-callback"></a>如何使用實體偵測回呼
 
@@ -90,7 +90,7 @@ ms.locfileid: "54064980"
 1. 在左面板中按一下 [訓練對話]，然後按 [新增訓練對話] 按鈕。
 2. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "hi" (您好)
 3. 按一下 [評分動作] 按鈕。
-4. 選取 [Which city do you want?] \(您想要哪個城市?\) 回應
+4. 選取回應：「您想要哪座城市？」
 5. 在聊天面板中 (此處會顯示「輸入您的訊息...」)，輸入 "big apple" (大蘋果)
 6. 按一下 [評分動作] 按鈕。
     - 按一下此按鈕會觸發實體偵測回呼

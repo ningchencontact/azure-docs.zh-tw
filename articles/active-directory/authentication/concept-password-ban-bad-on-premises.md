@@ -3,19 +3,19 @@ title: Azure AD 密碼保護預覽
 description: 使用 Azure AD 密碼保護 (預覽) 在內部部署 Active Directory 中禁用弱式密碼
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 45c77aa63159a8e62f65c0e250c0ace95b0d344e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b99c1b99fe87c755d6092876ccd598d926289192
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429900"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077825"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>預覽：強制執行 Windows Server Active Directory 的 Azure AD 密碼保護
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9f0c4789e73659e5965440989c23a8cf673f7cd2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 33ada343738e113e8f14e1e5ac4a0e8aee481670
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309156"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185460"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>監視和診斷本機開發設定中的服務
 
@@ -51,7 +51,7 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
-`app.properties` 檔案所指向的資料夾必須存在。 建立 `app.properties` 檔案之後，您還必須修改 `<applicationfolder>/<servicePkg>/Code/` 資料夾中的進入點指令碼 `entrypoint.sh`，以將屬性 `java.util.logging.config.file` 設定為 `app.propertes` 檔案。 輸入如下列片段所示：
+`app.properties` 檔案所指向的資料夾必須存在。 建立 `app.properties` 檔案之後，您還必須修改 `<applicationfolder>/<servicePkg>/Code/` 資料夾中的進入點指令碼 `entrypoint.sh`，以將屬性 `java.util.logging.config.file` 設定為 `app.properties` 檔案。 輸入如下列片段所示：
 
 ```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
@@ -74,7 +74,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 
 第一個步驟是加入 System.Diagnostics.Tracing，使您可以將您的記錄檔寫入記憶體中、輸出串流或主控台檔案。  針對使用 EventSource 進行記錄，請將下列專案加入您的 project.json︰
 
-```
+```json
     "System.Diagnostics.StackTrace": "4.0.1"
 ```
 

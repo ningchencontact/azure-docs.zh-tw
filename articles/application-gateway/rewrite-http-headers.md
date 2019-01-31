@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198520"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103423"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>使用應用程式閘道來重寫 HTTP 標頭 (公開預覽)
 
@@ -94,8 +94,6 @@ HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | 會傳回用戶端所支援的加密方式          |
 | ciphers_used               | 會傳回用於所建立 SSL 連線的加密方式字串 |
-| client_latitude            | 可根據用戶端 IP 位址來判斷國家/地區、區域及縣市 |
-| client_longitude           | 可根據用戶端 IP 位址來判斷國家/地區、區域及縣市 |
 | client_port                | 用戶端連接埠                                                  |
 | client_tcp_rtt             | 有關用戶端 TCP 連線的資訊；是支援 TCP_INFO 通訊端選項之系統上的可用變數 |
 | client_user                | 使用 HTTP 驗證時，為驗證提供的使用者名稱 |

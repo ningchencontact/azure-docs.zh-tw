@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8a546845adb32823e89b814377bcf3e469562445
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: b2b247b50eff446776edfbf3a552e92af3c7dfff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413663"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228792"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 進階威脅偵測
 
@@ -115,7 +115,7 @@ Log Analytics 可協助您快速且輕鬆地了解任何環境的整體安全性
 
 與 Log Analytics 的大部分互動都會透過 Azure 入口網站，它可以在任何瀏覽器中執行，並讓您存取組態設定和多項工具來分析及處理所收集的資料。 從入口網站中，您可以使用：
 * [記錄搜尋](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches)，以建構查詢來分析收集的資料。
-* [儀表板](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards)，可使用最有價值搜尋的圖形檢視來自訂。
+* [儀表板](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards)，可使用最有價值搜尋的圖形檢視來自訂。
 * [解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)，提供額外的功能和分析工具。
 
 ![分析工具](./media/azure-threat-detection/azure-threat-detection-fig6.png)

@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 961bc2f5d8d619c5a1815b0f4be3b837f72513f4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 1f184d54c0d9edc8e203b697c06c2178436172ff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340030"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206931"
 ---
 # <a name="supported-languages"></a>支援的語言
 
@@ -36,7 +36,7 @@ Microsoft 語音辨識 API 在 `interactive` 和 `dictation` 模式下支援下�
 | en-GB | 英文 (英國) |pl-PL | 波蘭文 (波蘭) |
 | en-IN | 英文 (印度) | pt-BR | 葡萄牙文 (巴西)  |
 | en-NZ | 英文 (紐西蘭) |pt-PT | 葡萄牙文 (葡萄牙)  |
-| zh-TW | 英文 (美國) | ru-RU | 俄文 (俄羅斯) |
+| en-US | 英文 (美國) | ru-RU | 俄文 (俄羅斯) |
 | es-ES | 西班牙文 (西班牙) | sv-SE | 瑞典文 (瑞典) |
 | es-MX | 西班牙文 (墨西哥) |zh-CN | 中文 (普通話，簡體)  |
 | fi-FI | 芬蘭文 (芬蘭) |zh-HK | 中文 (香港特別行政區) |
@@ -51,6 +51,6 @@ Microsoft 語音辨識 API 在 `conversation` 模式下支援下列語言。
 |-----|-----|-----|-----|
 | ar-EG | 阿拉伯文 (埃及)，現代標準 | It-IT | 義大利文 (義大利) |
 | de-DE | 德文 (德國) | ja-JP | 日文 (日本) |
-| zh-TW | 英文 (美國) | pt-BR | 葡萄牙文 (巴西) |
+| en-US | 英文 (美國) | pt-BR | 葡萄牙文 (巴西) |
 | es-ES | 西班牙文 (西班牙) | ru-RU | 俄文 (俄羅斯) |
 | fr-FR | 法文 (法國) | zh-CN | 中文 (普通話，簡體) |

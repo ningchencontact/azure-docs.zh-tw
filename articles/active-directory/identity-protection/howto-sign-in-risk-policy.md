@@ -8,20 +8,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 1c3b7dc8e027169db51ab9ef50634a69a43cd3e0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ff346f9c842672b426a75eadaa278ca91de5d9c6
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462057"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297484"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>作法：設定登入風險原則
 
@@ -77,7 +77,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 如果您想要要求有風險的登入進行 MFA，您應該：
 
-1. 為受影響的使用者啟用 [Multi-Factor Authentication 註冊原則](#multi-factor-authentication-registration-policy)。
+1. 為受影響的使用者啟用 [Multi-Factor Authentication 註冊原則](howto-mfa-policy.md)。
 
 2. 要求受影響的使用者登入沒有風險的工作階段以執行 MFA 註冊。
 

@@ -3,19 +3,19 @@ title: 在雲端中開始使用 Azure MFA
 description: 透過條件式存取開始使用 Microsoft Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 1a5a5dc04f9ac663fe2e29fd81df5201435c1bc1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8f4991c00f133d97680bb76d6de627709847d275
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430157"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081087"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>部署雲端式 Azure Multi-Factor Authentication
 

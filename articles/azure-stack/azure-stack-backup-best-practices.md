@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: cca5fe492032c74a9922780f197065e9c2b40ad3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 11829256451990401b6de4bcf62f2b0b51010832
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966110"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241147"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基礎結構備份服務的最佳做法
 
@@ -36,7 +37,7 @@ ms.locfileid: "52966110"
 
 在部署每個 Azure Stack 雲端後，啟用基礎結構備份。 您可以使用 Azure Stack PowerShell，從任何可存取操作員管理 API 端點的用戶端/伺服器來排程備份。
 
-### <a name="networking"></a>網路
+### <a name="networking"></a>網路功能
 
 路徑的通用命名慣例 (UNC) 字串必須使用完整網域名稱 (FQDN)。 若無法進行名稱解析，也可以使用 IP 位址。 UNC 字串會指定資源的位置，例如共用的檔案或裝置。
 

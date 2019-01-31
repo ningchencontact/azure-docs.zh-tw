@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: f352e00d-68d3-4a77-bb92-717d055da56f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: dfe9ad20844eeae30327cf1eb3e9289d094900b2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c3160f86619a6eb7e8bec7bf6e1663fc9b139852
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794102"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156848"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>教學課程：Azure Active Directory 與 Zscaler One 整合
 
@@ -168,7 +168,7 @@ ms.locfileid: "53794102"
 
     b. 按一下 [設定 SAML]。
 
-11. 在 [編輯 SAML] 視窗上，執行下列步驟，然後按一下 [儲存]。  
+11. 在 [編輯 SAML] 視窗上執行下列步驟，然後按一下 [儲存]。  
             
     ![管理使用者和驗證](./media/zscaler-one-tutorial/ic800208.png "管理使用者和驗證")
     
@@ -278,11 +278,11 @@ ms.locfileid: "53794102"
 
     ![指派使用者][203]
 
-5. 在 [使用者和群組] 對話方塊中，從清單選取使用者 (例如 **Britta Simon**，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組] 對話方塊中，從清單中選取使用者 (例如 **Britta Simon**)，然後按一下畫面底部的 [選取] 按鈕。
 
     ![映像](./media/zscaler-one-tutorial/tutorial_zscalerone_users.png)
 
-6. 從 [選取角色] 對話方塊的清單中，選擇適當的使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+6. 從 [選取角色] 對話方塊的清單中選擇適當的使用者角色，然後按一下畫面底部的 [選取] 按鈕。
 
     ![映像](./media/zscaler-one-tutorial/tutorial_zscalerone_roles.png)
 

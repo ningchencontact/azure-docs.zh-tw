@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 07f5536641b55aadf9d8b2623bf4797b8dcd7bd5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4fa8f072d420a0245b9de65482ab4c97fa775bdf
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129245"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227296"
 ---
 # <a name="schema-format"></a>結構描述格式
 
@@ -46,7 +46,7 @@ ms.locfileid: "46129245"
 | 字串 | 字串 (1 到 1024 個字元) | equals、starts_with | "hello world" |
 | Int32 | 帶正負號的 32 位元整數 | equals、starts_with、is_between | 2016 |
 | Int64 | 帶正負號的 64 位元整數 | equals、starts_with、is_between | 9876543210 |
-| 兩倍 | 雙精確度浮點值 | equals、starts_with、is_between | 1.602e-19 |
+| Double | 雙精確度浮點值 | equals、starts_with、is_between | 1.602e-19 |
 | 日期 | 日期 (1400-01-01 到 9999-12-31) | equals、is_between | '2016-03-14' |
 | Guid | 全域唯一識別碼 | equals | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
 | Blob | 在內部壓縮的非索引資料 | *None* | 「讓地球上的每個人和每個組織有能力獲得更大成就」 |

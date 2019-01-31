@@ -6,16 +6,16 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: nolachar
-ms.openlocfilehash: b3bc7f90c9238ce58fd9dc8ac630987803d79bfd
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 7bacf2147dfbe4b6b33ae94d6bf66dcf8d072012
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368013"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220904"
 ---
 # <a name="custom-decision-service-workflow"></a>自訂決策服務工作流程
 

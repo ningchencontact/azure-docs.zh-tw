@@ -2,7 +2,7 @@
 title: Azure Batch 集區刪除完成事件 | Microsoft Docs
 description: Batch 集區刪除完成事件的參考。
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: bfcbcf40efc64ab1c79ee1a86e02502c68ad6d47
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: e715ccd0f5e79f9c640a3c060b0252b798748b4d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30310309"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474543"
 ---
 # <a name="pool-delete-complete-event"></a>集區刪除完成事件
 
@@ -36,7 +36,7 @@ ms.locfileid: "30310309"
 |元素|類型|注意|
 |-------------|----------|-----------|
 |id|字串|集區識別碼。|
-|startTime|Datetime|集區刪除開始時間。|
+|startTime|DateTime|集區刪除開始時間。|
 |EndTime|DateTime|集區刪除完成時間。|
 
 ## <a name="remarks"></a>備註

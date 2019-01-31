@@ -10,19 +10,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 026e37534169fda8dbbf5a568f72046bc6ff55f7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086500"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252042"
 ---
 # <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 入口網站
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 您可以使用 Azure Stack 入口網站來訂閱公用供應項目，以及使用這些供應項目所提供的服務。 如果您已使用全域 Azure 入口網站，便已熟悉該網站的運作方式。
 
@@ -60,7 +61,7 @@ ms.locfileid: "50086500"
 
     特別是，建議您檢閱下列文章來開始作業：
 
-    - [關鍵考量：使用 Azure Stack 的服務或組建 Azure Stack 應用程式](azure-stack-considerations.md)
+    - [主要考量：使用服務或為 Azure Stack 建置應用程式](azure-stack-considerations.md)
     - 在此文件的〈使用服務〉一節中，有針對每個服務所撰寫的〈考量〉文章。 〈考量〉頁面會說明 Azure 所提供的服務與 Azure Stack 所提供的相同服務彼此之間的差異。 如需範例，請參閱 [VM 考量](azure-stack-vm-considerations.md)。 〈使用服務〉一節中可能有 Azure Stack 專屬的其他資訊。
 
       您可以使用 Azure 文件作為服務的一般參考，但必須注意這些差異。 請注意，[快速入門教學課程] 圖格上的文件連結會指向 Azure 文件。
@@ -73,4 +74,4 @@ ms.locfileid: "50086500"
 
 ## <a name="next-steps"></a>後續步驟
 
-[關鍵考量：使用 Azure Stack 的服務或組建 Azure Stack 應用程式](azure-stack-considerations.md)
+[主要考量：使用服務或為 Azure Stack 建置應用程式](azure-stack-considerations.md)

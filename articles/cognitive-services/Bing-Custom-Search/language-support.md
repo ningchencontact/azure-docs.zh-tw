@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
-ms.topic: article
+ms.subservice: bing-custom-search
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
-ms.openlocfilehash: 73aa67ec4939aca28a28e1733a39c8517c2c38c5
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 24b14c4f0ca185a7916aeb19671a22ff46a23ee2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435650"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194843"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing 自訂搜尋 API 支援的語言和區域
 
@@ -111,5 +111,5 @@ Bing 自訂搜尋 API 支援三十多個國家/地區，許多國家/地區具�
 |台灣|繁體中文|zh-TW|
 |土耳其|土耳其文|tr-TR|
 |英國|English|en-GB|
-|美國|English|zh-TW|
+|美國|English|en-US|
 |美國|西班牙文|es-US|

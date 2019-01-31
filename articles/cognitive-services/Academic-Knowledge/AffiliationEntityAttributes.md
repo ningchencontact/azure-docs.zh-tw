@@ -6,22 +6,22 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 177fe9da8bbe821a69eae02d89a225e5d4009331
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 344b26b16f74cd44982e3c93fa69295792daa9a0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900473"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190618"
 ---
 # <a name="affiliation-entity"></a>服務機關實體
 
 <sub> *下列屬性專屬於服務機關實體。(Ty = '5') </sub>
 
-名稱    |說明                            |類型       | 作業
+Name    |說明                            |類型       | 作業
 ------- | ------------------------------------- | --------- | ----------------------------
 id      |實體識別碼                              |Int64      |Equals
 AfN     |服務機關標準化名稱        |字串     |Equals
@@ -31,6 +31,6 @@ ECC     |服務機關引用預估總數 |Int32      |None
 
 ## <a name="extended-metadata-attributes"></a>擴充中繼資料屬性 ##
 
-名稱    | 說明               
+Name    | 說明               
 --------|---------------------------    
 PC      |服務機關的論文計數

@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9b35c0fd412dd48137a3cb362f20fae067c80461
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3fe11bef6c505771ee1e3f2e12e647eafc7c45d1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792623"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212438"
 ---
 # <a name="demo-pizza-order"></a>示範：披薩訂單
 這段示範說明披薩訂購聊天機器人，可藉由下列動作來支援單一比薩訂購：

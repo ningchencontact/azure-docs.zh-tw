@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: 了解如何在 Azure 上使用 FPGA 為模型和深度類神經網路加速。 本文將介紹可現場程式化閘道陣列 (FPGA)，以及 Azure Machine Learning 服務如何在您將模型部署至 Azure FPGA 時提供即時人工智慧 (AI)。
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
 ms.date: 10/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3aa98026d7293f1486f5450cc9ab17057807c031
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: aaca3f346fafdc6ecde069676dbe0f089a26fca8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306110"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242989"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>什麼是 FPGA 和 Project Brainwave？
 

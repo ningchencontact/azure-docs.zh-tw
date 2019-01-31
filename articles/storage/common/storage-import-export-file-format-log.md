@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 2ae44edf0d9356000f64ab72fd609f1921cf095c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316575"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454839"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure 匯入/匯出服務記錄檔格式
 當 Microsoft Azure 匯入/匯出服務於匯入工作或匯出工作期間在磁碟機上執行動作時，記錄檔會寫入至與該工作相關聯的儲存體帳戶中的區塊 Blob。  
@@ -110,9 +110,9 @@ properties-status ::=
 |`Blob`|巢狀的 XML 元素|代表 Blob。|  
 |`Blob/BlobPath`|字串|Blob 的 URI。|  
 |`Blob/FilePath`|字串|磁碟機上檔案的相對路徑。|  
-|`Blob/Snapshot`|Datetime|Blob 快照集版本 (限匯出工作)。|  
+|`Blob/Snapshot`|DateTime|Blob 快照集版本 (限匯出工作)。|  
 |`Blob/Length`|整數 |Blob 總長度 (以位元組為單位)。|  
-|`Blob/LastModified`|Datetime|上次修改 Blob 的日期/時間 (限匯出工作)。|  
+|`Blob/LastModified`|DateTime|上次修改 Blob 的日期/時間 (限匯出工作)。|  
 |`Blob/ImportDisposition`|字串|Blob 的匯入配置 (限匯入工作)。|  
 |`Blob/ImportDisposition/@Status`|屬性、字串|匯入配置狀態。|  
 |`PageRangeList`|巢狀的 XML 元素|代表分頁 Blob 的頁面範圍清單。|  

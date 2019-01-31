@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: aac8713f94482e0fc809f24786b96d29b23b076a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.lastreviewed: 08/30/2018
+ms.openlocfilehash: 3e53d79682772be7eacb649148ceeaec7d9f2865
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343383"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247573"
 ---
 # <a name="about-deployment-network-traffic"></a>關於部署網路流量
 要確保部署能夠成功，就必須了解 Azure Stack 部署期間的網路流量流動方式。 本文會帶您看一遍部署程序進行期間預期會有的網路流量，讓您對應該會有的情形有所了解。

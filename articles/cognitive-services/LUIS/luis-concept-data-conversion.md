@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: a5d6a5c6191b69d554e0a79dc1303faeddecc6c3
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: c7495ba3f2dc453463038fd37147b4574536ca92
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382397"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215328"
 ---
 # <a name="convert-data-format-of-utterances"></a>轉換語句的資料格式
 LUIS 會使用認知服務語音服務，在預測之前將口語語句轉換成文字語句。 

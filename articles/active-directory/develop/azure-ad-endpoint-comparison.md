@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 11/28/2018
 ms.author: celested
 ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
 ms.custom: aaddev
-ms.openlocfilehash: 6c11062dbae18eed618fe7dde95daa55024d2ddd
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 82984687e1d51598b87c85564ebda74bf4b2daa2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444846"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098042"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>比較 Azure AD v2.0 端點與 v1.0 端點
 
@@ -128,7 +128,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 * 如果您想要或需要在應用程式中支援個人 Microsoft 帳戶，或您正在使用 2.0 版撰寫新的應用程式。 但在這樣做之前，請務必了解此文章中討論的限制。
 * 如果您正在移轉或更新依賴 SAML 的應用程式，則您無法使用 2.0 版。 請改為參閱 [v1.0 指南](v1-overview.md)。
 
-2.0 版端點會進化到排除此處所列的限制，屆時您只需要使用 2.0 版端點。 在此同時，請使用此文章來判斷 v2.0 端點是否適合您。 我們將持續更新此文章，以反映 2.0 版端點目前的狀態。 請記得回來重新評估您對 v2.0 功能的需求。
+2.0 版端點會進化到排除此處所列的限制，屆時您只需要使用 2.0 版端點。 在此同時，請使用本文來判斷 v2.0 端點是否適合您。 我們將持續更新此文章，以反映 2.0 版端點目前的狀態。 請記得回來重新評估您對 v2.0 功能的需求。
 
 ### <a name="restrictions-on-app-registrations"></a>應用程式註冊的限制
 
@@ -167,7 +167,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`  
 
-您可以新增後面兩個，因為它們是第一個重新導向 URL (contoso.com) 的子網域。 即將推出的版本將會移除此限制。
+您可以新增後面兩個，因為它們是第一個重新導向 URL (contoso.com) 的子網域。 即將推出的版本將會移除這項限制。
 
 另請注意，針對特定應用程式您只能有 20 個回覆 URL - 此限制會套用到註冊所支援的所有應用程式類型 (SPA、原生用戶端、Web 應用程式和服務)。  
 

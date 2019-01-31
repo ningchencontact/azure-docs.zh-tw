@@ -5,17 +5,17 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.subservice: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: e507a7c45e286473abe9b9e4365e80fb29eba2a4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1b70c5e71c585524579171782dfdeda308592b30
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47043985"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478676"
 ---
 若要了解 LUIS 預測端點所傳回的內容，請在網頁瀏覽器中檢視預測結果。 若要查詢公用應用程式，您需要自己的金鑰和應用程式識別碼。 公用 IoT 應用程式識別碼 (`df67dcdb-c37d-46af-88e1-8b97951ca1c2`) 會提供為第一個步驟中 URL 的一部分。
 

@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 2adf07cf2337611b9136af47ce6a35b617e2e9ff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828089"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177027"
 ---
 # <a name="publish-azure-application-offer"></a>發佈 Azure 應用程式供應項目
 
@@ -28,6 +28,7 @@ ms.locfileid: "54828089"
 下圖將展示供應項目「上線」發佈程序中主要的步驟。
 
 ![供應項目發佈步驟](./media/offer-publishing-steps.png)
+
 
 ## <a name="detailed-description-of-publishing-steps"></a>發佈步驟的詳細說明
 
@@ -44,12 +45,14 @@ ms.locfileid: "54828089"
 | Microsoft 檢閱                | 7 - 14 天 | Microsoft 會全面地檢閱您的 Azure 應用程式，如果發現問題就會傳送電子郵件給您。  此步驟的長度，取決於應用程式的複雜度、所發現的問題，以及您回應它們的速度。  |
 | 即時                           | < 1 天 | 供應項目推出、複寫到指定的區域，並開放給大眾使用。 |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
+
  
 您可以在 Cloud Partner 入口網站內供應項目的 [狀態] 索引標籤中，監視發佈程序。
 
 ![Azure 應用程式供應項目的 [狀態] 索引標籤](./media/offer-status-tab.png)
 
 完成發佈程序之後，您的供應項目將會列在 [Microsoft Azure Marketplace 應用程式類別](https://azuremarketplace.microsoft.com/marketplace/apps/)中。
+
 
 
 ## <a name="errors-and-review-feedback"></a>錯誤和檢閱意見

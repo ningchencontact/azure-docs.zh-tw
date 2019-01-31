@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 42aaafd346c6db9d4a8780628319720aa3f28134
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 986a7be49f8ae0f683b89596204845bb08eeaf2d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727710"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095765"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>備份與還原 Reliable Services 和 Reliable Actors
 Azure Service Fabric 是高可用性平台，跨多個節點之間複寫狀態以維護這個高可用性。  因此，即使叢集中的一個節點失敗，服務可以繼續。 雖然這個由平台提供的內建備援對於一些特定情況可能已經足夠，但是服務最好能夠備份資料 (到外部存放區)。
@@ -227,7 +227,7 @@ class MyCustomActorService : ActorService
   - 複本自從變成主要以來從未進行完整備份。
   - 自上次備份以來，某些記錄檔記錄已被截斷。
 
-啟用增量備份時，`KvsActorStateProvider` 不會使用循環緩衝區來管理其記錄資料列，也不會定期截斷。 如果使用者已有 45 分鐘沒有進行備份，系統會自動截斷記錄檔記錄。 您可以在 `KvsActorStateProvider` 建構函式中指定 `logTrunctationIntervalInMinutes` 來設定此間隔 (類似於啟用增量備份時)。 如果主要複本需要傳送其所有資料來建立另一個複本，也可能會截斷記錄檔記錄。
+啟用增量備份時，`KvsActorStateProvider` 不會使用循環緩衝區來管理其記錄資料列，也不會定期截斷。 如果使用者已有 45 分鐘沒有進行備份，系統會自動截斷記錄檔記錄。 您可以在 `KvsActorStateProvider` 建構函式中指定 `logTruncationIntervalInMinutes` 來設定此間隔 (類似於啟用增量備份時)。 如果主要複本需要傳送其所有資料來建立另一個複本，也可能會截斷記錄檔記錄。
 
 從備份鏈結還原時，類似於 Reliable Services，BackupFolderPath 應該包含一些子目錄，其中一個子目錄包含完整備份，而其他子目錄包含增量備份。 如果備份鏈結驗證失敗，還原 API 會擲回 FabricException 並傳回適當的錯誤訊息。 
 
