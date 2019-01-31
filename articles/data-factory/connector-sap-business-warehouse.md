@@ -166,28 +166,28 @@ ms.locfileid: "54022275"
 
 | SAP BW 資料類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| ACCP | int |
-| CHAR | 字串 |
-| CLNT | 字串 |
-| CURR | 十進位 |
-| CUKY | 字串 |
-| DEC | 十進位 |
-| FLTP | 兩倍 |
+| ACCP | Int |
+| CHAR | String |
+| CLNT | String |
+| CURR | Decimal |
+| CUKY | String |
+| DEC | Decimal |
+| FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
-| INT4 | int |
-| LANG | 字串 |
-| LCHR | 字串 |
+| INT4 | Int |
+| LANG | String |
+| LCHR | String |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | 十進位 |
+| QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | 字串 |
-| 單位 | 字串 |
-| DATS | 字串 |
-| NUMC | 字串 |
-| TIMS | 字串 |
+| STRING | String |
+| UNIT | String |
+| DATS | String |
+| NUMC | String |
+| TIMS | String |
 
 
 ## <a name="next-steps"></a>後續步驟
