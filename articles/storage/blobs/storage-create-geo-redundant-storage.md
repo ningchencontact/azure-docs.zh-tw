@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: e6b64c7545e7a36b9178af84f88ee89b498077b0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.subservice: blobs
+ms.openlocfilehash: 81cd6b073fb46b01b3b98543d8f92e2ef7b1ec1b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019091"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245373"
 ---
 # <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>教學課程：使用 Azure 儲存體讓應用程式資料具有高可用性
 
@@ -131,7 +131,7 @@ git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 
 在 Azure 入口網站中，瀏覽至您的儲存體帳戶。 在儲存體帳戶中選取 [設定] 下的 [存取金鑰]。 從主要或次要金鑰複製**連接字串**。 根據您的作業系統執行下列其中一個命令，將 \<yourconnectionstring\> 取代為您的實際連接字串。 此命令會將一個環境變數儲存至本機電腦。 在 Windows 中，必須重新載入**命令提示字元**或您所使用的殼層，才能使用此環境變數。 取代下列範例中的 **\<storageConnectionString\>**：
 
-### <a name="linux"></a>Linux
+### <a name="linux"></a> Linux
 
 ```
 export storageconnectionstring=\<yourconnectionstring\> 
@@ -148,7 +148,7 @@ setx storageconnectionstring "\<yourconnectionstring\>"
 
 在 Azure 入口網站中，瀏覽至您的儲存體帳戶。 在儲存體帳戶中選取 [設定] 下的 [存取金鑰]。 從主要或次要金鑰複製**連接字串**。 根據您的作業系統執行下列其中一個命令，將 \<yourconnectionstring\> 取代為您的實際連接字串。 此命令會將一個環境變數儲存至本機電腦。 在 Windows 中，必須重新載入**命令提示字元**或您所使用的殼層，才能使用此環境變數。 取代下列範例中的 **\<storageConnectionString\>**：
 
-### <a name="linux"></a>Linux
+### <a name="linux"></a> Linux
 
 ```
 export storageconnectionstring=\<yourconnectionstring\> 
@@ -165,7 +165,7 @@ setx storageconnectionstring "\<yourconnectionstring\>"
 
 在 Azure 入口網站中，瀏覽至您的儲存體帳戶。 在儲存體帳戶中選取 [設定] 下的 [存取金鑰]。 從主要或次要金鑰複製**連接字串**。 根據您的作業系統執行下列其中一個命令，將 \<yourconnectionstring\> 取代為您的實際連接字串。 此命令會將一個環境變數儲存至本機電腦。 在 Windows 中，必須重新載入**命令提示字元**或您所使用的殼層，才能使用此環境變數。 取代下列範例中的 **\<storageConnectionString\>**：
 
-### <a name="linux"></a>Linux
+### <a name="linux"></a> Linux
 
 ```
 export storageconnectionstring=\<yourconnectionstring\> 
