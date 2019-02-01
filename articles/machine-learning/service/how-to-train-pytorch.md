@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: 了解如何使用 PyTorch 估算器執行 PyTorch 的單一節點和分散式定型
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a6401c6059d8f72f344021879828b01c9ce77169
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e5528cdfc2efa2d5c257732c8b6b6df117421839
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100540"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250022"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務將 PyTorch 模型定型
 

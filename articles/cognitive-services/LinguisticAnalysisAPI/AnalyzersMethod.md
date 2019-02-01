@@ -6,17 +6,17 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 762ebf50999a88251dcd05824f2ed450cec97f04
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8bf13bffe763b88e95da94f885e30d271e36da42
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237392"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221676"
 ---
 # <a name="analyzers-method"></a>分析器方法
 
@@ -32,7 +32,7 @@ None
 <br>
 
 ## <a name="response-parameters"></a>回應參數
-名稱 | 類型 | 說明
+Name | 類型 | 說明
 -----|------|--------------
 語言 | 字串的清單 | 可以使用此分析器的兩個字母 ISO 語言代碼清單。
 id   | 字串 | 此分析器的唯一識別碼

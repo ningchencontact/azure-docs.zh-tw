@@ -13,29 +13,29 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: a4a7dd5541fe298675232ffa803f749e71f6a03f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c451377d6274c50f22e3b1d4cd32fb0f3edd9d9e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907486"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220387"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>將 Linux VM 移至另一個訂用帳戶或資源群組
-本文將逐步引導您了解如何在資源群組或訂用帳戶之間移動 Linux VM。 如果您在個人訂用帳戶中建立了 VM，而現在想要將它移至您的公司訂用帳戶以繼續工作，在訂用帳戶之間移動 VM 會很方便。
+本文將逐步引導您了解如何在資源群組或訂用帳戶之間移動 Linux 虛擬機器 (VM)。 如果您在個人訂用帳戶中建立了 VM，而現在想要將它移至您的公司訂用帳戶以繼續工作，在訂用帳戶之間移動 VM 會很方便。
 
 > [!IMPORTANT]
->此時，您無法移動受控磁碟。 
+>您無法在此時移動 Azure 受控磁碟。 
 >
->移動過程中會建立新的資源識別碼。 移動 VM 之後，您必須更新工具和指令碼以使用新的資源識別碼。 
+>移動過程中會建立新的資源識別碼。 在移動 VM 之後，您必須更新工具和指令碼以使用新的資源識別碼。 
 > 
 > 
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>使用 Azure CLI 移動 VM
 
 
-在使用 CLI 移動 VM 之前，您需要確定來源和目的地訂用帳戶存在於相同的租用戶。 若要檢查這兩個訂用帳戶是否有相同的租用戶識別碼，請使用 [az account show](/cli/azure/account#az_account_show)。
+在使用 Azure CLI 移動 VM 之前，您需要確定來源和目的地訂用帳戶存在於相同的租用戶內。 若要檢查這兩個訂用帳戶是否有相同的租用戶識別碼，請使用 [az account show](/cli/azure/account#az_account_show)。
 
 ```azurecli-interactive
 az account show --subscription mySourceSubscription --query tenantId
@@ -58,7 +58,7 @@ nsg=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/p
 pip=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIPAddress
 vnet=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet
 diag=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mydiagnosticstorageaccount
-storage=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageacountname    
+storage=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccountname    
 
 az resource move \
     --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag \
@@ -67,10 +67,10 @@ az resource move \
 
 如果您想要將 VM 及其資源移至不同的訂用帳戶，請加入 **--destination-subscriptionId** 參數以指定目的地訂用帳戶。
 
-如果系統要求您確認是否要移動指定的資源， 輸入 **Y** 確認您要移除資源。
+當系統要求您確認是否想要移動指定的資源時，請輸入 **Y** 來確認。
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
 ## <a name="next-steps"></a>後續步驟
-您可以在資源群組和訂用帳戶之間移動許多不同類型的資源。 如需詳細資訊，請參閱 [將資源移動到新的資源群組或訂用帳戶](../../resource-group-move-resources.md)。    
+您可以在資源群組和訂用帳戶之間移動許多不同類型的資源。 如需詳細資訊，請參閱[將資源移動到新的資源群組或訂用帳戶](../../resource-group-move-resources.md)。    
 

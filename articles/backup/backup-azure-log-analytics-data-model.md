@@ -2,19 +2,18 @@
 title: 適用於 Azure 備份的 Log Analytics 資料模型
 description: 本文將討論 Azure 備份資料的 Log Analytics 資料模型詳細資料。
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5921ca696076a16e39252a6cb3bfae98854b5a85
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877576"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299567"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>適用於 Azure 備份資料的 Log Analytics 資料模型
 您可以使用 Log Analytics 資料模型來建立報告。 透過資料模型，您可以依照自己的需求建立自訂查詢和儀表板，或自訂 Azure 備份資料。
@@ -281,4 +280,4 @@ ms.locfileid: "52877576"
 | ResourceType |文字 |要收集其資料的資源類型。 例如保存庫 |
 
 ## <a name="next-steps"></a>後續步驟
-一旦您檢閱建立 Azure 備份報告的資料模型後，就可以開始在 Log Analytics 中[建立儀表板](../azure-monitor/platform/dashboards.md)。
+一旦您檢閱建立 Azure 備份報告的資料模型後，就可以開始在 Log Analytics 中[建立儀表板](../azure-monitor/learn/tutorial-logs-dashboards.md)。

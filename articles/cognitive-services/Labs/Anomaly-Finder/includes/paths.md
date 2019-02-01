@@ -5,17 +5,17 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.component: anomaly-finder
+ms.subservice: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: fb02496d9c107a2c21acca6c65ef69fdfceb4597
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 80503ad154a9fc4d01614ffd2816f9d5fd497fdb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48904572"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228882"
 ---
 <a name="paths"></a>
 ## <a name="paths"></a>路徑
@@ -29,7 +29,7 @@ POST /anomalydetection
 
 #### <a name="parameters"></a>參數
 
-|類型|名稱|說明|結構描述|
+|類型|Name|說明|結構描述|
 |---|---|---|---|
 |**內文**|**body**  <br>*必要*|時間序列資料點和期限 (如果需要)。|[要求](#request)|
 

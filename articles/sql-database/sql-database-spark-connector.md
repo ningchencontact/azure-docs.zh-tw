@@ -2,19 +2,22 @@
 title: Spark 連接器與 Azure SQL Database 和 SQL Server| Microsoft Docs
 description: 了解如何使用適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
+ms.subservice: development
 ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/23/2018
+author: allenwux
 ms.author: xiwu
-ms.openlocfilehash: a422f65097466e4bbe5740c449d3ccf88701802b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/23/2018
+ms.openlocfilehash: 864cf49634e4f9452829a30ce4b260179bdeb8db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650157"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476208"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>使用適用於 Azure SQL Database 和 SQL Server 的 Spark 連接器加速即時巨量資料分析
 
@@ -158,7 +161,7 @@ collection.show()
 #### <a name="setup-requirement"></a>安裝需求
 如果您使用存取權杖型驗證模式，必須下載 [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java)及其相依項目，並將它們包含在 Java 建置路徑中。
 
-請參閱[使用 Azure Active Directory 驗證向 SQL Database 進行驗證](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)，以了解如何取得 Azure SQL Database 的存取權杖。
+請參閱[使用 Azure Active Directory 驗證向 SQL Database 進行驗證](sql-database-aad-authentication.md)，以了解如何取得 Azure SQL Database 的存取權杖。
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config

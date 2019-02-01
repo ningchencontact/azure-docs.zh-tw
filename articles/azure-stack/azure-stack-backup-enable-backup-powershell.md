@@ -14,16 +14,17 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 8fe7f0ddd630cfca0242af6cc1d728bdef163352
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.lastreviewed: 08/16/2018
+ms.openlocfilehash: 10d7303c4323305e177cf006b9a259a817dc695e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41948125"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247471"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>使用 PowerShell 啟用 Azure Stack 備份
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 使用 Windows PowerShell 啟用基礎結構備份服務，以定期備份：
  - 內部識別服務和根憑證
@@ -35,7 +36,7 @@ ms.locfileid: "41948125"
 
 ## <a name="prepare-powershell-environment"></a>準備 PowerShell 環境
 
-如需有關設定 PowerShell 環境的指示，請參閱[安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 若要登入 Azure Stack，請參閱[設定 Azure Stack PowerShell 環境](azure-stack-powershell-configure-admin.md)。
+如需設定 PowerShell 環境的指示，請參閱[安裝 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 若要登入 Azure Stack，請參閱[設定 Azure Stack PowerShell 環境](azure-stack-powershell-configure-admin.md)。
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>提供備份共用、認證和加密金鑰可啟用備份
 

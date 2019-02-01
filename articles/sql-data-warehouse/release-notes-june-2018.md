@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 6dff2d1886a560e3a7e2758816a884782e33787f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: cae02627c539e543d27ea188d521605f187ea8a0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287965"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475341"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 6 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 6 月導入的新功能和變更。 
@@ -23,7 +23,7 @@ Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 6 月導入的新
 ## <a name="user-defined-restore-points"></a>使用者定義的還原點
 SQL 資料倉儲每 8 小時自動拍攝資料倉儲的快照集，保證八小時復原點目標 (RPO)。 雖然此自動快照集可以減輕執行資料倉儲的管理負擔，但仍需要根據業務需求，在關鍵時刻拍攝快照集。 例如，在重要資料載入之前拍攝快照集或將新指令碼部署到資料倉儲中，以在作業之前啟用還原點。 
 
-SQL 資料倉儲目前透過 [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoin) Cmdlet 支援[使用者定義的還原點](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/)。
+SQL 資料倉儲目前透過 [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint) Cmdlet 支援[使用者定義的還原點](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/)。
 
 ```PowerShell
 New-AzureRmSqlDatabaseRestorePoint
@@ -50,7 +50,7 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## <a name="objectschemaname"></a>OBJECT_SCHEMA_NAME
-[OBJECT_SCHEMA_NAME()]() 函式會傳回結構描述範圍物件的資料庫結構描述名稱。 在進行物件結構描述驗證時，此函式在一般 ETL 工具中很常見。 
+[OBJECT_SCHEMA_NAME()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) 函式會傳回結構描述範圍物件的資料庫結構描述名稱。 在進行物件結構描述驗證時，此函式在一般 ETL 工具中很常見。 
 
 ```sql
 SELECT
