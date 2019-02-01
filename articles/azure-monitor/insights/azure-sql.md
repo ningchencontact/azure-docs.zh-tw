@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: f12aed12138b1b16fcce90401ea0d65bd083675f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546707"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884776"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>使用 Azure SQL 分析來監視 Azure SQL Database (預覽)
 
@@ -37,10 +37,10 @@ Azure SQL 分析是僅限雲端的監視解決方案，支援適用於 Azure SQL
 
 | 連接的來源 | 支援 | 說明 |
 | --- | --- | --- |
-| [Azure 診斷](../../azure-monitor/platform/collect-azure-metrics-logs.md) | **是** | Azure 會將 Azure 計量與記錄資料直接傳送至 Log Analytics。 |
-| [Azure 儲存體帳戶](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 否 | Log Analytics 不會從儲存體帳戶讀取資料。 |
-| [Windows 代理程式](../../azure-monitor/platform/agent-windows.md) | 否 | 解決方案不使用直接 Windows 代理程式。 |
-| [Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否 | 解決方案不使用直接 Linux 代理程式。 |
+| [Azure 診斷](../platform/collect-azure-metrics-logs.md) | **是** | Azure 會將 Azure 計量與記錄資料直接傳送至 Log Analytics。 |
+| [Azure 儲存體帳戶](../platform/collect-azure-metrics-logs.md) | 否 | Log Analytics 不會從儲存體帳戶讀取資料。 |
+| [Windows 代理程式](../platform/agent-windows.md) | 否 | 解決方案不使用直接 Windows 代理程式。 |
+| [Linux 代理程式](../learn/quick-collect-linux-computer.md) | 否 | 解決方案不使用直接 Linux 代理程式。 |
 | [System Center Operations Manager 管理群組](../platform/om-agents.md) | 否 | 解決方案不會使用從 Operations Manager 代理程式到 Log Analytics 的直接連線。 |
 
 ## <a name="configuration"></a>組態
@@ -185,7 +185,7 @@ Azure SQL 分析中的資料分析以 [Log Analytics 語言](../log-query/get-st
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>建立 Azure SQL Database 的警示
 
-您可以使用來自 Azure SQL Database 資源的資料，輕鬆[建立警示](../../azure-monitor/platform/alerts-metric.md)。 以下是您可以搭配記錄警示使用的一些實用[記錄查詢](../../azure-monitor/log-query/log-query-overview.md)：
+您可以使用來自 Azure SQL Database 資源的資料，輕鬆[建立警示](../platform/alerts-metric.md)。 以下是您可以搭配記錄警示使用的一些實用[記錄查詢](../log-query/log-query-overview.md)：
 
 #### <a name="high-cpu-on-azure-sql-database"></a>Azure SQL Database 上的高 CPU
 
@@ -297,6 +297,6 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>後續步驟
 
-- 使用 Log Analytics 中的[記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)來檢視詳細的 Azure SQL 資料。
-- [建立您自己的儀表板](../../azure-monitor/platform/dashboards.md)來顯示 Azure SQL 資料。
-- 在特定的 Azure SQL 事件發生時[建立警示](../../azure-monitor/platform/alerts-overview.md)。
+- 使用 Log Analytics 中的[記錄搜尋](../log-query/log-query-overview.md)來檢視詳細的 Azure SQL 資料。
+- [建立您自己的儀表板](../learn/tutorial-logs-dashboards.md)來顯示 Azure SQL 資料。
+- 在特定的 Azure SQL 事件發生時[建立警示](../platform/alerts-overview.md)。

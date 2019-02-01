@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 85c60cf25cd00826df6b48ed6714a646fa44a962
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5b17cf1bfae884e1fbdf47dabd78a1c6c3e1c7a0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474875"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151595"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>對 Azure AD Connect 的連線問題進行疑難排解
 這篇文章說明 Azure AD Connect 與 Azure AD 之間的連線的運作方式，以及如何疑難排解連線問題。 這些問題最有可能出現在具有 Proxy 伺服器的環境中。
@@ -167,17 +167,52 @@ Azure AD 目錄找不到或無法解析。 可能是您嘗試以未驗證網域�
 ### <a name="authentication-cancelled"></a>驗證取消
 已取消 Multi-Factor Authentication (MFA) 查問。
 
+<div id="connect-msolservice-failed">
+<!--
+  Empty div just to act as an alias for the "Connect To MS Online Failed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="connect-to-ms-online-failed"></a>連線到 MS Online 失敗
 驗證成功，但 Azure AD PowerShell 發生驗證問題。
+
+<div id="get-msoluserrole-failed">
+<!--
+  Empty div just to act as an alias for the "Azure AD Global Admin Role Needed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>需要 Azure AD 全域系統管理員角色
 已成功驗證使用者。 不過，未對使用者指派全域系統管理員角色。 這是對使用者[指派全域系統管理員角色的方式](../users-groups-roles/directory-assign-admin-roles.md)。 
 
+<div id="privileged-identity-management">
+<!--
+  Empty div just to act as an alias for the "Privileged Identity Management Enabled" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="privileged-identity-management-enabled"></a>已啟用 Privileged Identity Management
 驗證成功。 已啟用 Privileged Identity Management，而且您目前不是全域管理員。 如需詳細資訊，請參閱 [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md)。
 
+<div id="get-msolcompanyinformation-failed">
+<!--
+  Empty div just to act as an alias for the "Company Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="company-information-unavailable"></a>無法取得公司資訊
 驗證成功。 無法從 Azure AD 擷取公司資訊。
+
+<div id="get-msoldomain-failed">
+<!--
+  Empty div just to act as an alias for the "Domain Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### <a name="domain-information-unavailable"></a>無法取得網域資訊
 驗證成功。 無法從 Azure AD 擷取網域資訊。

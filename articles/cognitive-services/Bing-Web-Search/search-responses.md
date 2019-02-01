@@ -6,17 +6,17 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1d47d8e35a1be28b5610961c1b1c7b5d1492e871
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f76c9bfa5dc6a3542ace7025e0889ee64cd2e783
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250486"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188621"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web 搜尋 API 回應結構和回應類型  
 
@@ -296,7 +296,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 |*|乘法|
 |^|乘冪|
 |!|階乘|
-|.|十進位|
+|上也提供本文中使用的原始碼。|Decimal|
 |()|優先順序群組|
 |[]|函式|
 

@@ -7,19 +7,19 @@ author: jeevansd
 manager: daveba
 ms.assetid: 89c88e23-93ce-4970-9baa-1104c4e8fe4a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 34764a0558aaf5a63c353eb1d1d7180c21ca49c8
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 703b8a7c5a39ee38d5f365474f9338d490b7b980
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818858"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179526"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>教學課程：Azure Active Directory 與 Panopto 整合
 
@@ -240,7 +240,7 @@ Panopto 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Panopto] 圖格時，您應該會取得 Panopto 應用程式的自動登入頁面。
-如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

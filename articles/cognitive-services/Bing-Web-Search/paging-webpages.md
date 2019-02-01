@@ -7,16 +7,16 @@ author: swhite-msft
 manager: cgronlun
 ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: aahi
-ms.openlocfilehash: d161d377b3ad8792e1be9c9a86a7aa53ff185468
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 1ff4b7aa804dc3576462b3a30b94fdab8e1945e1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161311"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164277"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>如何逐頁檢視 Bing Web 搜尋 API 的搜尋結果
 

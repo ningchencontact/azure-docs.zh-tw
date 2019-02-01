@@ -6,16 +6,16 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
-ms.topic: article
+ms.subservice: bing-spell-check
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: nolachar
-ms.openlocfilehash: 7887c2005e45277c231b333bf073a3bf0a3350ad
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8eccfda4481fea4c305aeb59282fb5d24b845f9e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435625"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181396"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Bing 拼字檢查 API 支援的語言和區域
 

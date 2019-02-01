@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 205ba822b1221de34f3ee1ae25974a406f2013cb
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7897c677df38bb9b71222730a8b6a9ea11fb40bc
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438093"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912658"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大規模擷取、轉換和載入 (ETL)
 
@@ -138,3 +138,4 @@ Apache Flume 無法與 Azure HDInsight 搭配使用。  內部部署 Hadoop 安�
 
 * [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
 * [使用 Apache Hive 作為 ETL 工具](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 
+* [搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

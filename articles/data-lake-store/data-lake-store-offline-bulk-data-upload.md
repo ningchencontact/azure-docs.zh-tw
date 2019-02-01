@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: fc70089517bbc1aa90f95f1e0231f2c67f930090
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43b482324f0244baf52edbb8989a56dd12833331
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242189"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104327"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>使用 Azure 匯入/匯出服務將資料離線複製到 Azure Data Lake Storage Gen1
 在本文中，您將深入了解如何使用離線複製方法 (例如 [Azure 匯入/匯出服務](../storage/common/storage-import-export-service.md)) 將大型資料集 (>200 GB) 複製到 Azure Data Lake Storage Gen1 中。 具體來說，作為本文中範例的檔案是 339,420,860,416 個位元組，或在磁碟上大約是 319 GB。 讓我將此檔案稱為 319GB.tsv。
@@ -54,9 +54,9 @@ Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安
 2. 識別當資料被送至 Azure 資料中心時，將用來複製資料的 Azure 儲存體帳戶。
 3. 使用 [Azure 匯入/匯出工具](https://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409)，這是一個命令列公用程式。 以下是一個有關如何使用該工具的簡單程式碼片段。
 
-    ````
+    ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
-    ````
+    ```
     如需更多範例程式碼片段，請參閱[使用 Azure 匯入/匯出服務](../storage/common/storage-import-export-service.md)。
 4. 前述命令會在指定的位置建立日誌檔案。 使用此日誌檔案從 [Azure 入口網站](https://portal.azure.com)建立匯入作業。
 
@@ -72,7 +72,7 @@ Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安
 在本節中，我們會提供您可用來建立 Azure Data Factory 管線以供複製資料的 JSON 定義。 您可以從 [Azure 入口網站](../data-factory/tutorial-copy-data-portal.md)或 [Visual Studio](../data-factory/tutorial-copy-data-dot-net.md) 使用這些 JSON 定義。
 
 ### <a name="source-linked-service-azure-storage-blob"></a>來源連結服務 (Azure 儲存體 Blob)
-````
+```
 {
     "name": "AzureStorageLinkedService",
     "properties": {
@@ -83,10 +83,10 @@ Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安
         }
     }
 }
-````
+```
 
 ### <a name="target-linked-service-azure-data-lake-storage-gen1"></a>目標連結服務 (Azure Data Lake Storage Gen1)
-````
+```
 {
     "name": "AzureDataLakeStorageGen1LinkedService",
     "properties": {
@@ -99,9 +99,9 @@ Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安
         }
     }
 }
-````
+```
 ### <a name="input-data-set"></a>輸入資料集
-````
+```
 {
     "name": "InputDataSet",
     "properties": {
@@ -119,9 +119,9 @@ Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安
         "policy": {}
     }
 }
-````
+```
 ### <a name="output-data-set"></a>輸出資料集
-````
+```
 {
 "name": "OutputDataSet",
 "properties": {
@@ -137,9 +137,9 @@ Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安
     }
   }
 }
-````
+```
 ### <a name="pipeline-copy-activity"></a>管線 (複製活動)
-````
+```
 {
     "name": "CopyImportedData",
     "properties": {
@@ -186,7 +186,7 @@ Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安
         "pipelineMode": "Scheduled"
     }
 }
-````
+```
 如需詳細資訊，請參閱[使用 Azure Data Factory 從 Azure Data Lake Storage Gen1 來回複製資料](../data-factory/connector-azure-data-lake-store.md)。
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-storage-gen1"></a>在 Azure Data Lake Storage Gen1 中重新建構資料檔
@@ -205,7 +205,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 # Join  the files
 Join-AzureRmDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
-````
+```
 
 ## <a name="next-steps"></a>後續步驟
 * [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)

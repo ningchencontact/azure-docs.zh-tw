@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: f5610f03cb613c7da2f89da1a38b6bf058a4e0cc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: db2c55ec30e766496b98ef66b584df26f2dfe116
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714401"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239276"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>從系統管理入口網站啟用 Azure Stack 的備份
 透過系統管理入口網站啟用基礎結構備份服務，以便 Azure Stack 產生備份。 發生[嚴重失敗](./azure-stack-backup-recover-data.md)情況時，您可以透過雲端復原使用這些備份來還原環境。 雲端復原的目的在於確保您的操作員和使用者在復原完成後，可以重新登入入口網站。 使用者將會還原其訂用帳戶，包括角色型存取權限和角色、原始方案、供應項目，以及先前定義的計算、儲存體和網路配額。

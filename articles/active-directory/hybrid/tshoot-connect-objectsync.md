@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ed13014dd5ad559ed3793ff52ae410be9174ae2b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0a740a2e26e0f2dd6e4f6d8ea039b107dce65066
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461309"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158106"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>針對使用 Azure AD Connect 同步所執行的物件同步處理進行疑難排解
 本文提供使用疑難排解工作，針對物件同步處理問題進行疑難排解的步驟。 若要查看疑難排解如何在 Azure Active Directory (Azure AD) Connect 中運作，請觀賞[這段短片](https://aka.ms/AADCTSVideo)。

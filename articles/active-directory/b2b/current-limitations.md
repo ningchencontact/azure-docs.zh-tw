@@ -3,19 +3,19 @@ title: Azure Active Directory B2B 共同作業的限制 | Microsoft Docs
 description: Azure Active Directory B2B 共同作業目前的限制
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: f338d587759748e64a6cb4822494e7b6da367feb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c32e26ca0cea0ae571514bca9e4b0cd62208af09
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426993"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078316"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Azure AD B2B 共同作業的限制
 Azure Active Directory (Azure AD) B2B 共同作業目前受限於本文所述的限制。

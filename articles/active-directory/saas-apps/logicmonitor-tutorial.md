@@ -7,19 +7,19 @@ author: jeevansd
 manager: daveba
 ms.assetid: 496156c3-0e22-4492-b36f-2c29c055e087
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 5aa11c15e038c0af8447debba0cd385c944c0bce
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e8cf814399661c62d38b0d95a0074a2d36c9b4b4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812415"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187635"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>教學課程：Azure Active Directory 與 LogicMonitor 整合
 
@@ -244,7 +244,7 @@ LogicMonitor 與 Azure AD 整合有下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
  
 按一下存取面板中的 [LogicMonitor] 圖格，應會自動登入您的 LogicMonitor 應用程式。
-如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

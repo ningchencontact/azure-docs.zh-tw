@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: 了解如何使用 Azure Machine Learning 資料準備 SDK 來載入資料。 您可以載入不同類型的輸入資料、指定資料類型與參數，或使用 SDK 智慧型讀取功能來自動偵測檔案類型。
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: cforbe
 author: cforbe
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2478a5dd3f5d685253ef9145bec0a68ff324c6c3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 08dcb75fabc109a8869151402d3a448333beb556
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263810"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247522"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>使用 Azure Machine Learning 載入和讀取資料
 

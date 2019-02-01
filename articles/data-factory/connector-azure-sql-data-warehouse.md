@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 48f33dcf66c282ee75fe665531e1c9a4eb0d5382
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: c429945d4832710125a419b4e9a9b9165869ca97
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305939"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888680"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -554,28 +554,28 @@ NULL 值是一種特殊形式的預設值。 如果資料欄可以是 Null，Blo
 | binary | Byte[] |
 | bit | BOOLEAN |
 | char | String、Char[] |
-| 日期 | Datetime |
-| DateTime | Datetime |
-| datetime2 | Datetime |
+| 日期 | DateTime |
+| DateTime | DateTime |
+| datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
-| 十進位 | 十進位 |
+| Decimal | Decimal |
 | FILESTREAM 屬性 (varbinary(max)) | Byte[] |
-| Float | 兩倍 |
+| Float | Double |
 | 映像 | Byte[] |
 | int | Int32 |
-| money | 十進位 |
+| money | Decimal |
 | nchar | String、Char[] |
 | ntext | String、Char[] |
-| numeric | 十進位 |
+| numeric | Decimal |
 | nvarchar | String、Char[] |
-| real | 單一 |
+| real | Single |
 | rowversion | Byte[] |
-| smalldatetime | Datetime |
+| smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | 十進位 |
-| sql_variant | 物件 * |
+| smallmoney | Decimal |
+| sql_variant | Object |
 | text | String、Char[] |
-| 分析 | 時間範圍 |
+| 分析 | TimeSpan |
 | timestamp | Byte[] |
 | tinyint | Byte |
 | uniqueidentifier | Guid |

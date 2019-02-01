@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: cf0b53d13e65b0815c0501a70570788f7be599b1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3e8e63ec6bfc67cdda9df763795c6c8f35dc6011
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883393"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168155"
 ---
 # <a name="default-insights-tag"></a>預設深入解析標記
 
@@ -432,4 +432,4 @@ DocumentLevelSuggestions 深入解析會提供依據影像內容建議的搜尋�
 
 參考 Bing 如何顯示視覺物件深入解析的範例 (請參閱 [ Bing 深入解析使用方式的範例](bing-insights-usage.md))。
 
-若要快速開始使用您的第一個要求，請參閱 [C#](quickstarts/csharp.md) | [JAVA](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)。
+若要快速開始使用您的第一個要求，請參閱快速入門：[C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)。

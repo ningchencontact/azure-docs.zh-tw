@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7392459f0b80558aac22bd585c0d30bf4105d76f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339928"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224440"
 ---
 # <a name="get-started-with-custom-speech-service"></a>開始使用自訂語音服務
 
@@ -36,7 +36,7 @@ ms.locfileid: "49339928"
 ## <a name="creating-a-custom-acoustic-model"></a>建立自訂原音模型
 若要針對特殊網域自訂原音模型，您必須有語音資料集合。 這個集合是由一組含有語音資料的音訊檔，以及含有各音訊檔抄本的文字檔所組成的。 音訊資料要能代表您想要使用辨識器的案例
 
-例如：如果您想要更清楚地辨識吵雜工廠環境中的語音，音訊檔內就應該包含人們在吵雜工廠中說話的聲音。
+例如︰如果您想要更清楚地辨識吵雜工廠環境中的語音，音訊檔內就應該包含人們在吵雜工廠中說話的聲音。
 如果您想要讓單一演講者的表現發揮最佳效果，例如，您想要抄寫美國總統富蘭克林‧羅斯福的所有「爐邊談話」，則音訊檔內就應該包含許多只有該名演講者的範例。
 
 您可以在[這裡](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md)找到如何建立自訂原音模型的詳細說明。

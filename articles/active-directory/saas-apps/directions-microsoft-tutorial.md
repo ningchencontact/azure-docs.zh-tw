@@ -7,19 +7,19 @@ author: jeevansd
 manager: daveba
 ms.assetid: e0c8986f-2acd-418d-a306-437abc44b640
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 6e031a3893bff31814d81418692b84ef26d8f80a
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6d8e061368de42d4adb1150e4ea740c3ce149661
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54819708"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158752"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>教學課程：Azure Active Directory 與 Directions on Microsoft 整合
 
@@ -217,7 +217,7 @@ Directions on Microsoft 與 Azure AD 整合提供下列優點：
  
 當您在存取面板中按一下 [Directions on Microsoft] 圖格時，應該會自動登入您的 Directions on Microsoft 應用程式。
 
-如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

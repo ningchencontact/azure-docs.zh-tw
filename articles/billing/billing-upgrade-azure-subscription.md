@@ -4,7 +4,7 @@ description: 描述如何從免費訂用帳戶進行隨用隨付升級及需求
 keywords: 隨用隨付升級
 services: ''
 documentationcenter: ''
-author: jlian
+author: bandersmsft
 manager: alherz
 editor: ''
 tags: billing
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
-ms.author: cwatson
+ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9e5c877b2989f827eb5b157757708e09f1bbc3f
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 1cb6f2e35062649038ece7cd834c582ca9dccf7b
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274699"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900097"
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>將免費試用或 Microsoft Imagine Azure 訂用帳戶升級至隨用隨付
 

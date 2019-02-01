@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.component: files
-ms.openlocfilehash: 7f03af0fc338299da9b989d46e7bbfb83f3babeb
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.subservice: files
+ms.openlocfilehash: b39b6cf5936820d6e26ad5a17638a00c86fbf68a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945700"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457134"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 檔案的共用快照集概觀 
 Azure 檔案提供為檔案共用拍攝共用快照集的功能。 共用快照集能擷取該時間點的共用狀態。 在本文中，我們說明共用快照集提供哪些功能，以及如何在您的自訂使用案例中運用這些功能。

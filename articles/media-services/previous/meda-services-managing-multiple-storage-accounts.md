@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: aa9386182f521119012ea59fe6b64fb31099169e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 8c67ce4fd9597c66e795269972d2048ddd5a60c1
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620263"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886334"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>跨多個儲存體帳戶管理媒體服務資產
 從 Microsoft Azure 媒體服務 2.2 版起，您可以將多個儲存體帳戶附加至單一媒體服務帳戶。 將多個儲存體帳戶附加到媒體服務帳戶的能力提供下列優點：
@@ -70,7 +70,7 @@ ms.locfileid: "52620263"
 3. 在預設儲存體帳戶中建立新資產。
 4. 在指定的儲存體帳戶內建立編碼工作的輸出資產。
    
-```
+```cs
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System;
 using System.Collections.Generic;
@@ -123,9 +123,9 @@ namespace MultipleStorageAccounts
             Console.WriteLine("IsDefault: {0}", defaultStorageName.IsDefault);
 
             // Retrieve the name of a storage account that is not the default one.
-            var notDefaultStroageName = _context.StorageAccounts.Where(s => s.IsDefault == false).FirstOrDefault();
-            Console.WriteLine("Name: {0}", notDefaultStroageName.Name);
-            Console.WriteLine("IsDefault: {0}", notDefaultStroageName.IsDefault);
+            var notDefaultStorageName = _context.StorageAccounts.Where(s => s.IsDefault == false).FirstOrDefault();
+            Console.WriteLine("Name: {0}", notDefaultStorageName.Name);
+            Console.WriteLine("IsDefault: {0}", notDefaultStorageName.IsDefault);
 
             // Create the original asset in the default storage account.
             IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None,
@@ -133,7 +133,7 @@ namespace MultipleStorageAccounts
             Console.WriteLine("Created the asset in the {0} storage account", asset.StorageAccountName);
 
             // Create an output asset of the encoding job in the other storage account.
-            IAsset outputAsset = CreateEncodingJob(asset, notDefaultStroageName.Name, _singleInputFilePath);
+            IAsset outputAsset = CreateEncodingJob(asset, notDefaultStorageName.Name, _singleInputFilePath);
             if (outputAsset != null)
                 Console.WriteLine("Created the output asset in the {0} storage account", outputAsset.StorageAccountName);
 

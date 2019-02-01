@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7ebb9d683803a6c5a5a0fa25308b348eeea586c4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.lastreviewed: 12/06/2018
+ms.openlocfilehash: c7b0332d2a1df9d61b95b73699bf04f32e3165ff
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097891"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240534"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Azure Stack 上 Azure 監視器的受支援計量
 

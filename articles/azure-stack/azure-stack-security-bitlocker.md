@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: patricka
 ms.reviewer: fiseraci
+ms.lastreviewed: 12/06/2018
 keywords: ''
-ms.openlocfilehash: f9e76b255647f62b273fef8336ed845e365261cf
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 563534424cad7f3e02be07ad582be0b3966950b4
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728496"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237977"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack"></a>Azure Stack 中的待用資料加密
 
@@ -44,7 +45,7 @@ Get-AzsRecoveryKeys
 
 | 參數 | 說明 | 類型 | 必要 |
 |---------|---------|---------|---------|
-|*raw* | 會針對每個加密磁碟區之復原金鑰、電腦名稱及密碼識別碼之間的對應，傳回未經處理資料  | 參數 | 否 (專為支援案例設計)|
+|*未經處理* | 會針對每個加密磁碟區之復原金鑰、電腦名稱及密碼識別碼之間的對應，傳回未經處理資料  | 參數 | 否 (專為支援案例設計)|
 
 
 ## <a name="troubleshoot-issues"></a>針對問題進行疑難排解

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.openlocfilehash: 9dd471f70407191734b4c5a3aa84d5365a7beab8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 4ebd96613378bbd907beb5109343a2427b1300b0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125290"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095663"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>在採用 Enterprise Integration Pack 的 Azure Logic Apps 中建立對應，以轉換 XML 格式
 
@@ -88,7 +88,7 @@ ms.locfileid: "43125290"
 
   以下範例展示的對應參考名為 "XslUtilitiesLib" 的組件，並且從組件呼叫 `circumreference` 方法。
 
-  ````xml
+  ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
   <msxsl:script language="C#" implements-prefix="user">
@@ -109,13 +109,13 @@ ms.locfileid: "43125290"
      </circles>
     </xsl:template>
     </xsl:stylesheet>
-  ````
+  ```
 
 
 ### <a name="byte-order-mark"></a>位元組順序標記
 根據預設，轉換將會以位元組順序標記 (BOM) 開頭。 唯有在使用 [程式碼檢視] 編輯器時，您才可以取用這項功能。 若要停用這項功能，請為 `transformOptions` 屬性指定 `disableByteOrderMark`：
 
-````json
+```json
 "Transform_XML": {
     "inputs": {
         "content": "@{triggerBody()}",
@@ -129,7 +129,7 @@ ms.locfileid: "43125290"
     "runAfter": {},
     "type": "Xslt"
 }
-````
+```
 
 
 

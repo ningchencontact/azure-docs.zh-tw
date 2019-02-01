@@ -12,16 +12,16 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d430a9f1ddec785d236f2501178bd3c7d493f716
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264745"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470584"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>使用異地還原從資料庫備份復原多租用戶 SaaS 應用程式
 
-本教學課程會針對使用每一租用戶一個資料庫模型實作的多租用戶 SaaS 應用程式，探索其完整的災害復原案例。 您可使用[異地還原](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups)，將目錄和租用戶資料庫從自動維護的異地備援備份復原到替代的復原區域。 在中斷問題解決之後，您可使用[地理複寫](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)將變更的資料庫回復到其原始區域。
+本教學課程會針對使用每一租用戶一個資料庫模型實作的多租用戶 SaaS 應用程式，探索其完整的災害復原案例。 您可使用[異地還原](sql-database-recovery-using-backups.md)，將目錄和租用戶資料庫從自動維護的異地備援備份復原到替代的復原區域。 在中斷問題解決之後，您可使用[地理複寫](sql-database-geo-replication-overview.md)將變更的資料庫回復到其原始區域。
 
 ![Geo-restore-architecture](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
@@ -63,12 +63,12 @@ ms.locfileid: "54264745"
 本教學課程會使用 Azure SQL Database 和 Azure 平台的功能來因應下列挑戰：
 
 * [Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)，以盡快保留所有所需的容量。 Azure Resource Manager 範本是用來在復原區域中佈建原始伺服器和彈性集區的鏡像映像。 也會針對佈建新租用戶，建立不同的伺服器和集區。
-* [彈性資料庫用戶端程式庫](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL) 可建立及維護租用戶資料庫目錄。 擴充的目錄包含定期重新整理的集區和資料庫組態資訊。
-* EDCL 的[分區管理復原功能](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager)可在復原與活負過程中維護目錄內的資料庫位置項目。  
-* [異地還原](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery)可從自動維護的異地備援備份復原目錄和租用戶資料庫。 
+* [彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md) (EDCL) 可建立及維護租用戶資料庫目錄。 擴充的目錄包含定期重新整理的集區和資料庫組態資訊。
+* EDCL 的[分區管理復原功能](sql-database-elastic-database-recovery-manager.md)可在復原與活負過程中維護目錄內的資料庫位置項目。  
+* [異地還原](sql-database-disaster-recovery.md)可從自動維護的異地備援備份復原目錄和租用戶資料庫。 
 * 以租用戶優先順序發送的[非同步還原作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)，這些作業依照系統針對每個集區住列，並已批次方式處理，因此集區不會多載。 在執行之前或執行期間，如有必要，可以取消這些作業。   
-* [異地複寫](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)可在中斷之後將資料庫回復至原始區域。 當您使用異地複寫時，不會遺失任何資料且對租用戶的影響最小。
-* [SQL Server DNS 別名](https://docs.microsoft.com/azure/sql-database/dns-alias-overview)可讓目錄同步程序連線至使用中的目錄，無論目錄位於何處。  
+* [異地複寫](sql-database-geo-replication-overview.md)可在中斷之後將資料庫回復至原始區域。 當您使用異地複寫時，不會遺失任何資料且對租用戶的影響最小。
+* [SQL Server DNS 別名](dns-alias-overview.md)可讓目錄同步程序連線至使用中的目錄，無論目錄位於何處。  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>取得災害復原指令碼
 
@@ -378,4 +378,4 @@ ms.locfileid: "54264745"
 
 ## <a name="additional-resources"></a>其他資源
 
-[其他以 Wingtip SaaS 應用程式為基礎的教學課程](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+[其他以 Wingtip SaaS 應用程式為基礎的教學課程](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

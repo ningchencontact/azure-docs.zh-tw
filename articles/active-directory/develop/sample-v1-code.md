@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 46b66a6e718f18b76db6332487c350c2c199c342
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c6cf9681804f9576d6c13a52161843d64244b1e8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957769"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097685"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 程式碼範例 (v1.0 端點)
 
@@ -81,7 +81,7 @@ ms.locfileid: "49957769"
 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph | 呼叫 ASP.NET 或 ASP.NET Core 2.x Web API
 ------------------ | -------- | ---------- | -------------------- | -------------------------
 桌上型 (WPF)           | ![.NET/C#](media/sample-v2-code/logo_NET.png)  | 互動式 | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) 的一部分 | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
-行動裝置 (UWP)            | .![.NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | 互動式 | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> 這個範例會使用 [WAM](https://docs.microsoft.com/windows/uwp/security/web-account-manager)，而非 [ADAL.NET](https://aka.ms/adalnet)|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (使用 ADAL.NET 呼叫單一租用戶 Web API 的 UWP 應用程式) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (使用 ADAL.NET 呼叫多租用戶 Web API 的 UWP 應用程式)|
+行動裝置 (UWP)            | 上也提供本文中使用的原始碼。![.NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | 互動式 | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> 這個範例會使用 [WAM](https://docs.microsoft.com/windows/uwp/security/web-account-manager)，而非 [ADAL.NET](https://aka.ms/adalnet)|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (使用 ADAL.NET 呼叫單一租用戶 Web API 的 UWP 應用程式) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (使用 ADAL.NET 呼叫多租用戶 Web API 的 UWP 應用程式)|
 行動裝置 (Android、iOS、UWP)   | ![.NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | 互動式 | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
 行動裝置 (Android)           | ![Android/Java](media/sample-v2-code/logo_Android.png) | 互動式 |   [android](https://github.com/Azure-Samples/active-directory-android) |
 行動裝置 (iOS)           | ![iOS/Objective C 或 swift](media/sample-v2-code/logo_iOS.png) | 互動式 |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |

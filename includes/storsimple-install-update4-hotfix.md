@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: f0c631c765ba95602fb2ac3ab1fd72732793a199
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a775a38d15876850b8a821f9e827e0dd0c3772b6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263947"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55148018"
 ---
 <!--author=alkohli last changed: 01/23/18-->
 
@@ -54,7 +54,7 @@ ms.locfileid: "51263947"
    
     下面會顯示安裝第一級更新的範例輸出。 對於第一級更新，您需要指向特定檔案。
    
-        ````
+        ```
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
@@ -65,7 +65,7 @@ ms.locfileid: "51263947"
         be disrupted. Are you sure you want to continue?
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
-        ````
+        ```
 4. 當系統提示您確認 Hotfix 安裝時，請輸入 **Y** 。
 5. 使用 `Get-HcsUpdateStatus` Cmdlet 來監視更新。 會先在被動控制站上完成更新。 更新被動控制器之後，將進行容錯移轉，然後更新將套用到另一個控制器。 兩個控制器皆更新後，即更新完畢。
    

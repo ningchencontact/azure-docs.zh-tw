@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
-ms.component: blobs
-ms.openlocfilehash: 0663f569edd0dec47949053b6ecf7fe49fa24a17
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.subservice: blobs
+ms.openlocfilehash: 81e0e89a8ad17c92a707bae001d2861404cd0d10
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229297"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238834"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure 儲存體中的靜態網站代管
 Azure 儲存體 GPv2 帳戶可讓您直接從名為 *$web* 的儲存體容器提供靜態內容 (HTML、CSS、JavaScript 和影像檔)。 利用 Azure 儲存體中的代管，讓您能夠使用無伺服器架構，包括 [Azure Functions](/azure/azure-functions/functions-overview) 和其他 PaaS 服務。

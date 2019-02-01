@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
+ms.subservice: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a96a1de7828797f1124280fca95a3358210b55b7
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3b9c998351432a591ece0a61d60256aea89a6f8f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189713"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180886"
 ---
 # <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>在 PIM 中執行 Azure 資源角色的存取權檢閱
 適用於 Azure 資源的 Privileged Identity Management (PIM) 簡化了企業管理以特殊權限身分存取 Azure AD 中資源的方式。 

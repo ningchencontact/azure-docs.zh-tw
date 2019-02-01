@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 44950a467e99fb7968d838345d80c8e28aee62b9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467463"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885842"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>收集並取用來自 Azure 資源的記錄資料
 
@@ -31,7 +31,7 @@ ms.locfileid: "54467463"
 
 這些記錄也與客體 OS 層級診斷記錄不同。 客體 OS 診斷記錄是由虛擬機器內執行的代理程式或其他支援的資源類型所收集的記錄。 資源層級診斷記錄不需要代理程式，且會從 Azure 平台本身擷取資源特定的資料，而客體 OS 層級診斷記錄會從虛擬機器上執行的作業系統和應用程式擷取資料。
 
-並非所有資源皆支援此處所述的診斷記錄。 [本文包含一個章節，會列出哪些服務會支援診斷記錄](./../../azure-monitor/platform/tutorial-dashboards.md)。
+並非所有資源皆支援此處所述的診斷記錄。 [本文包含一個章節，會列出哪些服務會支援診斷記錄](./../../azure-monitor/platform/diagnostic-logs-schema.md)。
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>診斷記錄的用途
 以下是您可以利用診斷記錄進行的事：
@@ -229,7 +229,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 ## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>診斷記錄支援的服務、類別和結構描述
 
-如需支援的服務以及這些服務所使用之記錄類別和結構描述的完整清單，[請參閱這篇文章](../../azure-monitor/platform/tutorial-dashboards.md)。
+如需支援的服務以及這些服務所使用之記錄類別和結構描述的完整清單，[請參閱這篇文章](../../azure-monitor/platform/diagnostic-logs-schema.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

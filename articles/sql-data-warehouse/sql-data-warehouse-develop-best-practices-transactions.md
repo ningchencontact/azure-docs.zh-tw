@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/19/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: eb9c66c23440d2fd55c62de02b6c0070245c6d67
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: f5e0b2b75ac111f3221108936f84e5883aebfc1a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247914"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476259"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>將 Azure SQL 資料倉儲的交易最佳化
 了解如何在 Azure SQL 資料倉儲中將您的交易程式碼效能最佳化，同時將長時間回復的風險降至最低。
@@ -417,5 +417,5 @@ Azure SQL 資料倉儲可讓您視需要[暫停、繼續及調整](sql-data-ware
 * 將作業分成多個區塊；在資料列子集上運作
 
 ## <a name="next-steps"></a>後續步驟
-若要進一步了解隔離等級和交易限制，請參閱 [SQL 資料倉儲中的交易](sql-data-warehouse-develop-transactions.md)。  如需其他最佳做法的概觀，請參閱 [SQL 資料倉儲最佳做法](sql-data-warehouse-best-practices.md)。
+若要進一步瞭解隔離等級和交易式的限制，請參閱 [SQL 資料倉儲中的交易](sql-data-warehouse-develop-transactions.md) 。  如需其他最佳做法的概觀，請參閱 [SQL 資料倉儲最佳做法](sql-data-warehouse-best-practices.md)。
 

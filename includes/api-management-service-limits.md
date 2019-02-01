@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: e01eebe41010135d0dc0a2cb4170e6b6687ff546
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 646ebc79e3615b289b60e47c0a38595e7892d8cc
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292670"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55084844"
 ---
 | 資源 | 限制 |
 | --- | --- |
@@ -24,7 +24,7 @@ ms.locfileid: "52292670"
 | 最大快取回應大小 | 2MB |
 | 原則文件大小上限 | 256KB<sup>5</sup> | 
 | 每個服務執行個體的自訂閘道網域數目上限<sup>6</sup> | 20 | 
-| 每個訂用帳戶的服務執行個體數目上限<sup>7</sup> | 5 | 
+| 每個訂用帳戶的服務執行個體數目上限<sup>7</sup> | 20 | 
 | 每個服務執行個體的訂用帳戶數目上限<sup>7</sup> | 500 |
 | 每個服務執行個體的用戶端憑證數目上限<sup>7</sup> | 50 | 
 | 每個服務執行個體的 API 數目上限<sup>7</sup> | 50 | 

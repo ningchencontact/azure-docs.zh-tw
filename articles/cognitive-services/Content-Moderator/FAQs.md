@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: faq
 ms.date: 11/21/2016
 ms.author: sajagtap
-ms.openlocfilehash: ce61a89069caf90695a2cb6c54f61de8fa8cb112
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1c55ef6fdfefbd50442da63637ba98bc43865d27
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226927"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206097"
 ---
 # <a name="frequently-asked-questions-faq"></a>常見問題集 (FAQ)
 
@@ -32,7 +32,7 @@ Content Moderator 訂用帳戶包含檢閱工具和 API 的存取權。 您可�
 內容為您自己所有，未經您的同意，Microsoft 不得保存起來。 Microsoft 會使用業界領先的安全性措施來協助保護您的內容。
 
 #### <a name="can-i-use-content-moderator-to-screen-for-illegal-child-exploitation-images"></a>是否可以使用 Content Moderator 來篩選出不合法的孩童利用影像？
-否。 不過，合格組織可以使用[PhotoDNA Cloud Service](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") 來篩選出這方面的內容。
+沒有。 不過，合格組織可以使用[PhotoDNA Cloud Service](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") 來篩選出這方面的內容。
 
 #### <a name="up-to-how-many-review-teams-can-a-user-join-can-the-user-switch-between-teams"></a>使用者最多可以加入幾個檢閱小組？ 使用者是否可以轉換到不同小組？
 使用者一次可以加入一個小組。

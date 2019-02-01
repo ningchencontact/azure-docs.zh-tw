@@ -6,33 +6,33 @@ services: cognitive-services
 author: MikeDodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh
 ms.custom: seodec2018
-ms.openlocfilehash: 7536452d3ed0030b34e4f30deba56d6d8ae1957c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 458acef9224349d5e4c223999243322474daac3d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249306"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154928"
 ---
 # <a name="search-for-gif-images"></a>搜尋 GIF 影像 
 
 Bing 影像搜尋 API 可讓您同時跨整個網路搜尋最相關的 .gif 影像。  開發人員可以在各種交談情節中整合吸引人的 GIF。 
 
 下列 URL 是用於動畫 .gif 影像的查詢。
-````
+```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
-````
+```
 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) 參數指定搜尋字詞。  上述查詢還使用 [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype) 篩選參數來指定 `animatedGif`。
 
 若要查看結果的範例，請使用下列 URL 來搜尋 bing.com。
-````
+```
 https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif
 
-````
+```
 ## <a name="query-parameters"></a>查詢參數
 
 如需查詢參數和選項的詳細資訊，請參閱[影像搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters)。 範例位在[使用 Java 搜尋動畫 GIF 的範例](#gifExample)標題底下。
@@ -50,15 +50,15 @@ https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animate
 ## <a name="example-search-for-animated-gif-using-java"></a>使用 Java 搜尋動畫 GIF 的範例
 
 下列 URL 會搜尋動畫 .gif 影像：`q=interesting`
-````
+```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 
-````
+```
 如下列範例所示，此 URL 查詢需要 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers) 標頭。
 
 下列 Java 範例會建置並傳送要求。
 
-````
+```
 package gifSearch;
 import java.net.*;
 import java.util.*;
@@ -167,7 +167,7 @@ class SearchResults{
  }
 }
 
-````
+```
 
 ## <a name="results"></a>結果
 程式碼會取得下列結果作為 JSON 物件：

@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ed4bed77267790b10b44486f0e9c8242fe952cd8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601962"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207406"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>在 LUIS 入口網站中測試您的 LUIS 應用程式
 <a name="train-your-app"></a>
@@ -26,6 +26,7 @@ ms.locfileid: "53601962"
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
+
 ## <a name="test-an-utterance"></a>測試語句
 
 1. 在 [我的應用程式] 頁面上選取應用程式名稱，來存取應用程式。 
@@ -40,13 +41,8 @@ ms.locfileid: "53601962"
 
     ![互動式測試識別出錯誤意圖](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="clear-test-panel"></a>清除測試面板
-若要從測試主控台清除所有輸入的測試語句及其結果，請選取 [測試] 面板左上角的 [重新開始]。 
-
-## <a name="close-test-panel"></a>關閉測試面板
-若要關閉 [測試] 面板，請再次選取 [測試] 按鈕。
-
 ## <a name="inspect-score"></a>檢查分數
+
 您可在 [檢查] 面板中檢查測試結果的詳細資料。 
  
 1. [測試] 滑出面板開啟時，請針對您想要比較的語句選取 [檢查]。 
@@ -72,9 +68,11 @@ ms.locfileid: "53601962"
 ![具有情感分析之 [測試] 窗格的影像](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>修正相符模式的意圖
+
 若您有使用[模式](luis-concept-patterns.md)且語句有符合某個模式，但系統所預測的意圖是錯誤的，請選取模式旁邊的 [編輯] 連結，然後選取正確的意圖。
 
 ## <a name="compare-with-published-version"></a>與已發行的版本比較
+
 您可以搭配已發行的[端點](luis-glossary.md#endpoint)版本來測試應用程式的作用中版本。 在 [檢查] 面板中，選取 [與已發行比較]。 針對已發行模型所做的任何測試，將會從您的 Azure 訂用帳戶配額餘額中扣除。 
 
 ![[與已發行比較]](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
@@ -88,12 +86,14 @@ ms.locfileid: "53601962"
 ## <a name="additional-settings-in-test-panel"></a>[測試] 面板中的其他設定
 
 ### <a name="luis-endpoint"></a>LUIS 端點
+
 若您有數個 LUIS 端點，請使用 [測試] 面板 [發行] 窗格上的 [其他設定] 連結，以變更用於測試的端點。 若您不確定該使用哪一個端點，請選取預設的 [Starter_Key]。 
 
 ![已醒目提示 [其他選項] 的 [測試] 面板](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 
 ### <a name="view-bing-spell-check-corrections-in-test-panel"></a>在 [測試] 面板中檢視 Bing 拼字檢查的修正
+
 檢視拼字修正的需求： 
 
 * 已發行的應用程式
@@ -124,6 +124,7 @@ ms.locfileid: "53601962"
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="batch-testing"></a>批次測試
 請參閱批次測試的[概念](luis-concept-batch-test.md)，並了解[如何](luis-how-to-batch-test.md)測試語句批次。
 

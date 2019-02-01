@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 7ebce84e6d8d3e7b1b8d3852951127ce954f9019
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 1f79330f12117c6ade8884165d1538623e19c7ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854049"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175259"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C：在自訂設定檔編輯原則中使用自訂屬性
 
@@ -46,7 +46,6 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
 >Azure AD B2C 目錄通常包含名為 `b2c-extensions-app` 的 Web 應用程式。 此應用程式主要是供 B2C 內建原則用於透過 Azure 入口網站建立的自訂宣告。 我們僅建議進階使用者使用此應用程式來為 B2C 自訂原則註冊擴充屬性。  
 指示包含於本文的＜後續步驟＞一節中。
 
-
 ## <a name="create-a-new-application-to-store-the-extension-properties"></a>建立新的應用程式來儲存擴充屬性
 
 1. 開啟瀏覽工作階段並瀏覽至 [Azure 入口網站](https://portal.azure.com)。 使用您所要設定 B2C 目錄的系統管理認證來登入。
@@ -66,8 +65,6 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
     * **應用程式識別碼**。 範例： `103ee0e6-f92d-4183-b576-8c3739027780`.
     * **物件識別碼**。 範例： `80d8296a-da0a-49ee-b6ab-fd232aa45201`.
 
-
-
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>修改您的自訂原則以新增 **ApplicationObjectId**
 
 當您依照 [Azure Active Directory B2C：開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟進行操作後，便已下載和修改名為 **TrustFrameworkBase.xml**、**TrustFrameworkExtensions.xml**、**SignUpOrSignin.xml**、**ProfileEdit.xml**, 及 **PasswordReset.xml** 的[範例檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip)。 在此步驟中，您可以對那些檔案進行更多修改。
@@ -76,31 +73,31 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
 
     ```xml
     <ClaimsProviders>
-        <ClaimsProvider>
-          <DisplayName>Azure Active Directory</DisplayName>
-            <TechnicalProfile Id="AAD-Common">
+      <ClaimsProvider>
+        <DisplayName>Azure Active Directory</DisplayName>
+        <TechnicalProfile Id="AAD-Common">
           <DisplayName>Azure Active Directory</DisplayName>
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-              
+
           <!-- Provide objectId and appId before using extension properties. -->
           <Metadata>
             <Item Key="ApplicationObjectId">insert objectId here</Item>
             <Item Key="ClientId">insert appId here</Item>
           </Metadata>
           <!-- End of changes -->
-              
+
           <CryptographicKeys>
             <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
           </CryptographicKeys>
           <IncludeInSso>false</IncludeInSso>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
         </TechnicalProfile>
-        </ClaimsProvider>
+      </ClaimsProvider>
     </ClaimsProviders>
     ```
 
 > [!NOTE]
-> 當 **TechnicalProfile** 第一次寫入至新建立的擴充屬性時，您可能會遇到一次性錯誤。 擴充屬性會在第一次使用時建立。  
+> 當 **TechnicalProfile** 第一次寫入至新建立的擴充屬性時，您可能會遇到一次性錯誤。 擴充屬性會在第一次使用時建立。
 
 ## <a name="use-the-new-extension-property-or-custom-attribute-in-a-user-journey"></a>在使用者旅程圖中使用新的擴充屬性或自訂屬性
 
@@ -130,13 +127,13 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
 
     ```xml
     <BuildingBlocks>
-      <ClaimsSchema> 
-        <ClaimType Id="extension_loyaltyId"> 
-          <DisplayName>Loyalty Identification Tag</DisplayName> 
-          <DataType>string</DataType> 
-          <UserHelpText>Your loyalty number from your membership card</UserHelpText> 
-          <UserInputType>TextBox</UserInputType> 
-        </ClaimType> 
+      <ClaimsSchema>
+        <ClaimType Id="extension_loyaltyId">
+          <DisplayName>Loyalty Identification Tag</DisplayName>
+          <DataType>string</DataType>
+          <UserHelpText>Your loyalty number from your membership card</UserHelpText>
+          <UserInputType>TextBox</UserInputType>
+        </ClaimType>
       </ClaimsSchema>
     </BuildingBlocks>
     ```
@@ -157,7 +154,7 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
         <InputClaim ClaimTypeReferenceId="alternativeSecurityId" />
         <InputClaim ClaimTypeReferenceId="userPrincipalName" />
         <InputClaim ClaimTypeReferenceId="givenName" />
-            <InputClaim ClaimTypeReferenceId="surname" />
+        <InputClaim ClaimTypeReferenceId="surname" />
 
         <!-- Add the loyalty identifier -->
         <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -167,7 +164,7 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
         <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
         <OutputClaim ClaimTypeReferenceId="givenName" />
         <OutputClaim ClaimTypeReferenceId="surname" />
-        
+
         <!-- Add the loyalty identifier -->
         <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
         <!-- End of changes -->
@@ -279,15 +276,15 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
   ```xml
       <ClaimsProviders>
         <ClaimsProvider>
-              <DisplayName>Azure Active Directory</DisplayName>
-            <TechnicalProfile Id="AAD-Common">
-                <DisplayName>Azure Active Directory</DisplayName>
-                <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-                <!-- Provide objectId and appId before using extension properties. -->
-                <Metadata>
-                  <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
-                  <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
-                </Metadata>
+          <DisplayName>Azure Active Directory</DisplayName>
+          <TechnicalProfile Id="AAD-Common">
+            <DisplayName>Azure Active Directory</DisplayName>
+            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+            <!-- Provide objectId and appId before using extension properties. -->
+            <Metadata>
+              <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
+              <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
+            </Metadata>
   ```
 
 3. 與入口網站體驗保持一致性。 先使用入口網站 UI 建立這些屬性，然後在自訂原則中使用它們。 當您在入口網站中建立屬性 **ActivationStatus** 時，必須以下列方式參考它：
@@ -296,7 +293,6 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
   extension_ActivationStatus in the custom policy.
   extension_<app-guid>_ActivationStatus via Graph API.
   ```
-
 
 ## <a name="reference"></a>參考
 

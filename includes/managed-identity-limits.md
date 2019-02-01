@@ -4,17 +4,17 @@ description: 包含檔案
 services: active-directory
 author: daveba
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.topic: include
 ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 55814f5515649e0fc6d646d3580f281fd9ec37a5
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 7cdd2ce44cfa24b2b6bad2bb45260299bc8eda5f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860939"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252365"
 ---
 | 類別 | 限制 |
 | --- | --- |

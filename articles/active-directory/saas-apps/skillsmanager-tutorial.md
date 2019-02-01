@@ -8,19 +8,19 @@ manager: daveba
 ms.reviewer: joflore
 ms.assetid: dab8debd-3b7b-4656-9bf0-1963ad8fce05
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: bdb053d1f9f85c446e4ac48b836c4b24bb40f93f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 3ff4a9b1576a63e8684e191f5814384a94e729fa
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821808"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55173661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>教學課程：Azure Active Directory 與 Skills Manager 整合
 
@@ -125,7 +125,7 @@ Skills Manager 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入儲存按鈕](./media/skillsmanager-tutorial/tutorial_general_400.png)
 
-1. 在 [Skills Manager 組態] 區段上，按一下 [設定 Skills Manager] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL]、[SAML 實體識別碼] 和 [SAML 單一登入服務 URL]。
+1. 在 [Skills Manager 組態] 區段上，按一下 [設定 Skills Manager] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
     ![Skills Manager 組態](./media/skillsmanager-tutorial/tutorial_skillsmanager_configure.png) 
 
@@ -205,7 +205,7 @@ Skills Manager 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Skills Manager 圖格時，應該會自動登入您的 Skills Manager 應用程式。
-如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

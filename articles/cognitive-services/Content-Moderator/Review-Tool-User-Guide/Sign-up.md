@@ -5,16 +5,16 @@ services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: sajagtap
-ms.openlocfilehash: cd477a630178754e84fe67bbf3225b6b7e450ba5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6a813cbcb6a0335d80ae7763a43c68915659e99f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237939"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214240"
 ---
 # <a name="sign-up-for-content-moderator"></a>設定 Content Moderator #
 瀏覽至 [Content Moderator 註冊](https://contentmoderator.cognitive.microsoft.com/Account/Signup)頁面。 您可使用您的 Microsoft 帳戶註冊，或在 Content Moderator 網站上建立帳戶。

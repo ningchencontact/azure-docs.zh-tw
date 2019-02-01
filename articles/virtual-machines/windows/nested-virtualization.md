@@ -3,20 +3,20 @@ title: 如何在 Azure 虛擬機器中啟用巢狀虛擬化 | Microsoft Docs
 description: 如何在 Azure 虛擬機器中啟用巢狀虛擬化
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
-ms.author: zarhoads
+ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 1caf8455816bd86411a75821ee33516e8aad5de3
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 6a116c2f3d92b19f266be4d3b467a93fdeaced2c
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002258"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888961"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>如何在 Azure VM 中啟用巢狀虛擬化
 

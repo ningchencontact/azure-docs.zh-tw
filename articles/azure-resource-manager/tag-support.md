@@ -4,14 +4,14 @@ description: 顯示哪些 Azure 資源類型支援標記。 提供所有 Azure �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/11/2019
+ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4899409b225298c521935f2eeaf5e8e59a6833b3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267448"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884940"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 資源的標記支援
 本文將說明資源類型是否支援[標記](resource-group-using-tags.md)。
@@ -1107,6 +1107,16 @@ ms.locfileid: "54267448"
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
+| managedInstances | 是 |
+| managedInstances/databases | 是 |
+| managedInstances/databases/backupShortTermRetentionPolicies | 否 |
+| managedInstances/databases/schemas/tables/columns/sensitivityLabels | 否 |
+| managedInstances/databases/vulnerabilityAssessments | 否 |
+| managedInstances/databases/vulnerabilityAssessments/rules/baselines | 否 |
+| managedInstances/encryptionProtector | 否 |
+| managedInstances/keys | 否 |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | 否 |
+| managedInstances/vulnerabilityAssessments | 否 |
 | servers | 是 | 
 | servers/administrators | 否 | 
 | servers/communicationLinks | 否 | 

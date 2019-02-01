@@ -3,7 +3,7 @@ title: 了解您的 Azure 發票 | Microsoft Docs
 description: 了解如何閱讀並了解 Azure 訂用帳戶的使用情形和帳單
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: jureid
 editor: ''
 tags: billing
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: cwatson
-ms.openlocfilehash: 50909a51786bf6118c4fb867f2482c93bf59c28e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 506910ffa46cb3fbd4be9dcecf9df0f9fdd291e5
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581543"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901015"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>了解您 Microsoft Azure 發票上的字詞
 
@@ -99,7 +99,7 @@ ms.locfileid: "52581543"
 
 | 詞彙 |說明 |
 | --- | --- |
-| 名稱 |識別使用量的最上層服務 |
+| Name |識別使用量的最上層服務 |
 | 類型 |定義可能會影響費率的 Azure 服務類型 |
 | 資源 |識別耗用計量的量值單位 |
 | 區域 |針對以資料中心位置作為基礎所定價的某些服務，識別資料中心的位置 |

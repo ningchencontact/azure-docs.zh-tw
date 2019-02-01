@@ -7,7 +7,7 @@ documentationcenter: ''
 author: MarkusVi
 manager: daveba
 editor: ''
-ms.component: devices
+ms.subservice: devices
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
 ms.service: active-directory
 ms.workload: identity
@@ -18,12 +18,12 @@ ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 417b909e4a5272b993a4696c1ef8d6718e055738
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f1547e424805358cf700930f087fb4c900998f02
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452933"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093997"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>針對 Azure Active Directory 中的企業狀態漫遊設定進行疑難排解
 
@@ -175,7 +175,7 @@ ms.locfileid: "54452933"
 
 ---
 
-### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>事件識別碼 1098A：錯誤：0xCAA5001C 權杖代理人作業失敗  
+### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>事件識別碼 1098A：Error:0xCAA5001C 權杖代理人作業失敗  
 
 在 [事件檢視器] 中的 [AAD]/[可操作] 記錄 底下，此錯誤可能會顯示在事件 1104：AAD 雲端 AP 外掛程式取得權杖呼叫傳回錯誤：0xC000005F。 如果缺少權限或擁有權屬性，就會發生這個問題。  
 

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3186261b935d48343eab2fd818cd8ed936f41f3f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463740"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472775"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異
 
@@ -228,7 +228,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="distributed-transactions"></a>分散式交易
 
-受控執行個體中目前不支援 MSDTC 和[彈性交易](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview)。
+受控執行個體中目前不支援 MSDTC 和[彈性交易](sql-database-elastic-transactions-overview.md)。
 
 ### <a name="extended-events"></a>擴充事件
 
@@ -279,8 +279,8 @@ WITH PRIVATE KEY (<private_key_options>)
 - 不支援 `FROM CERTIFICATE`、`FROM ASYMMETRIC KEY` 和 `FROM SID` 建立的 SQL 登入。 請參閱 [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql)。
 - 支援使用 [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) 語法或 [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) 語法建立的 Azure Active Directory (AAD) 登入 (**公開預覽**)。
 - 不支援使用 `CREATE LOGIN ... FROM WINDOWS` 語法建立的 Windows 登入。 使用 Azure Active Directory 登入和使用者。
-- 建立執行個體的 Azure Active Directory (Azure AD) 使用者具有[不受限制的系統管理員權限](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts)。
-- 您可以使用 `CREATE USER ... FROM EXTERNAL PROVIDER` 語法建立非系統管理員的 Azure Active Directory (Azure AD) 資料庫層級使用者。 請參閱 [CREATE USER ...FROM EXTERNAL PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
+- 建立執行個體的 Azure Active Directory (Azure AD) 使用者具有[不受限制的系統管理員權限](sql-database-manage-logins.md#unrestricted-administrative-accounts)。
+- 您可以使用 `CREATE USER ... FROM EXTERNAL PROVIDER` 語法建立非系統管理員的 Azure Active Directory (Azure AD) 資料庫層級使用者。 請參閱 [CREATE USER ...FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users)
 
 ### <a name="polybase"></a>Polybase
 

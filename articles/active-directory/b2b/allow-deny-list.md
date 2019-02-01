@@ -3,19 +3,19 @@ title: 允許或封鎖對特定組織的 B2B 使用者的邀請 - Azure Active D
 description: 說明系統管理員如何使用 Azure 入口網站或 PowerShell 設定存取或拒絕清單，以允許或封鎖來自特定網域的 B2B 使用者。
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: d0458fa9c40c5a6681a3f691cbb3d6a02f01ce66
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d5a39efd932225eb2f71acdba742c88095df8ec9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429053"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098777"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>允許或封鎖對特定組織的 B2B 使用者的邀請
 
@@ -86,71 +86,71 @@ ms.locfileid: "54429053"
 1. 以提高權限使用者的身分開啟 Windows PowerShell (以系統管理員的身分執行)。 
 2. 執行下列命令，以確認您是否已在電腦上安裝任何版本的「適用於 Windows PowerShell 的 Azure Active Directory 模組」：
 
-   ````powershell  
+   ```powershell  
    Get-Module -ListAvailable AzureAD*
-   ````
+   ```
 
 如果未安裝此模組，或您沒有必要的版本，請執行下列其中一個動作：
 
 - 若未傳回任何結果，請執行下列命令，以安裝最新版的 AzureADPreview 模組：
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - 如果結果中僅顯示 AzureAD 模組，請執行下列命令，以安裝 AzureADPreview 模組： 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - 如果結果中僅顯示 AzureADPreview 模組，但版本低於 2.0.0.98，請執行下列命令加以更新： 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-   ````
+   ```
 
 - 如果結果中顯示了 AzureAD 和 AzureADPreview 模組，但 AzureADPreview 模組的版本低於 2.0.0.98，請執行下列命令加以更新： 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-    ````
+    ```
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>使用 AzureADPolicy Cmdlet 設定原則
 
 若要建立允許或拒絕清單，請使用 [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) Cmdlet。 下列範例說明如何設定會封鎖 "live.com" 網域的拒絕清單。
 
-````powershell 
+```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
 
 New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
-````
+```
 
 以下顯示相同的範例，但內含原則定義。
 
-````powershell  
+```powershell  
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
-````
+```
 
 若要設定允許或拒絕清單原則，請使用 [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) Cmdlet。 例如︰
 
-````powershell   
+```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
-````
+```
 
 若要取得原則，請使用 [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) Cmdlet。 例如︰
 
-````powershell
+```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
-````
+```
 
 若要移除原則，請使用 [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) Cmdlet。 例如︰
 
-````powershell
+```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 
-````
+```
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 2fce90f971d13b94c73012d4089cca05739c5440
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 7f6e95b28482ed6d75bb76773da05aebd1855a66
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853705"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093379"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 網路功能模式
-您可以將 Azure Service Fabric 叢集與其他的 Azure 網路功能整合起來。 此文章說明如何建立使用下列功能的叢集︰
+您可以將 Azure Service Fabric 叢集與其他的 Azure 網路功能整合起來。 本文說明如何建立使用下列功能的叢集︰
 
 - [現有虛擬網路或子網路](#existingvnet)
 - [靜態公用 IP 位址](#staticpublicip)
@@ -37,7 +37,7 @@ Service Fabric 有一個方面是其他網路功能所沒有的。 [Azure 入口
 
 ## <a name="templates"></a>範本
 
-所有 Service Fabric 範本都位於 [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking) 中。 使用下列 Powershell 命令應該可以依原樣部署範本。 如果您要部署現有 Azure 虛擬網路範本或靜態公用 IP 範本，請先閱讀此文章的[初始設定](#initialsetup)一節。
+所有 Service Fabric 範本都位於 [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking) 中。 使用下列 Powershell 命令應該可以依原樣部署範本。 如果您要部署現有 Azure 虛擬網路範本或靜態公用 IP 範本，請先閱讀本文的[初始設定](#initialsetup)一節。
 
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>初始設定
@@ -74,14 +74,14 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Service Fabric 範本
 
-在此文章的範例中，我們會使用 Service Fabric template.json。 您可以先使用標準入口網站精靈從入口網站下載範本，再建立叢集。 您也可以使用其中一個[範例範本](https://github.com/Azure-Samples/service-fabric-cluster-templates)，例如[五個節點的安全 Service Fabric 叢集](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure)。
+在本文的範例中，我們會使用 Service Fabric template.json。 您可以先使用標準入口網站精靈從入口網站下載範本，再建立叢集。 您也可以使用其中一個[範例範本](https://github.com/Azure-Samples/service-fabric-cluster-templates)，例如[五個節點的安全 Service Fabric 叢集](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure)。
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>現有虛擬網路或子網路
 
 1. 將子網路參數變更為現有子網路的名稱，然後新增兩個新的參數以參考現有虛擬網路：
 
-    ```
+    ```json
         "subnet0Name": {
                 "type": "string",
                 "defaultValue": "default"
@@ -108,26 +108,26 @@ DnsSettings              : {
 
 2. 將 `Microsoft.Compute/virtualMachineScaleSets` 的 `nicPrefixOverride` 屬性註解化，因為您是使用現有的子網路，且已在步驟 1 中停用此變數。
 
-    ```
+    ```json
             /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
     ```
 
 3. 變更 `vnetID` 變數以指向現有虛擬網路︰
 
-    ```
+    ```json
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
             "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
 4. 從資源中移除 `Microsoft.Network/virtualNetworks`，讓 Azure 不會建立新的虛擬網路︰
 
-    ```
+    ```json
     /*{
     "apiVersion": "[variables('vNetApiVersion')]",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('virtualNetworkName')]",
     "location": "[parameters('computeLocation')]",
-    "properities": {
+    "properties": {
         "addressSpace": {
             "addressPrefixes": [
                 "[parameters('addressPrefix')]"
@@ -151,7 +151,7 @@ DnsSettings              : {
 
 5. 從 `Microsoft.Compute/virtualMachineScaleSets` 的 `dependsOn` 屬性將虛擬網路註解化，以便不需依賴建立新的虛擬網路︰
 
-    ```
+    ```json
     "apiVersion": "[variables('vmssApiVersion')]",
     "type": "Microsoft.Computer/virtualMachineScaleSets",
     "name": "[parameters('vmNodeType0Name')]",
@@ -185,7 +185,7 @@ DnsSettings              : {
 
 1. 新增現有靜態 IP 資源群組名稱、名稱和完整網域名稱 (FQDN) 的參數︰
 
-    ```
+    ```json
     "existingStaticIPResourceGroup": {
                 "type": "string"
             },
@@ -199,7 +199,7 @@ DnsSettings              : {
 
 2. 移除 `dnsName` 參數  (靜態 IP 位址已經有一個)。
 
-    ```
+    ```json
     /*
     "dnsName": {
         "type": "string"
@@ -209,13 +209,13 @@ DnsSettings              : {
 
 3. 新增變數來參考現有靜態 IP 位址：
 
-    ```
+    ```json
     "existingStaticIP": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingStaticIPResourceGroup'), '/providers/Microsoft.Network/publicIPAddresses/', parameters('existingStaticIPName'))]",
     ```
 
 4. 從資源中移除 `Microsoft.Network/publicIPAddresses`，讓 Azure 不會建立新的 IP 位址︰
 
-    ```
+    ```json
     /*
     {
         "apiVersion": "[variables('publicIPApiVersion')]",
@@ -237,7 +237,7 @@ DnsSettings              : {
 
 5. 從 `Microsoft.Network/loadBalancers` 的 `dependsOn` 屬性將 IP 位址註解化，以便不需依賴建立新的 IP 位址︰
 
-    ```
+    ```json
     "apiVersion": "[variables('lbIPApiVersion')]",
     "type": "Microsoft.Network/loadBalancers",
     "name": "[concat('LB', '-', parameters('clusterName'), '-', parameters('vmNodeType0Name'))]",
@@ -251,7 +251,7 @@ DnsSettings              : {
 
 6. 在 `Microsoft.Network/loadBalancers` 資源中，變更 `frontendIPConfigurations` 的 `publicIPAddress` 元素來參考現有靜態 IP 位址，而非參考新建立的位址︰
 
-    ```
+    ```json
                 "frontendIPConfigurations": [
                         {
                             "name": "LoadBalancerIPConfig",
@@ -267,7 +267,7 @@ DnsSettings              : {
 
 7. 在 `Microsoft.ServiceFabric/clusters` 資源中，將 `managementEndpoint` 變更為靜態 IP 位址的 DNS FQDN。 如果您使用安全的叢集，請務必將 http:// 變更為 https://  (請注意，此步驟僅適用於 Service Fabric 叢集。 如果您使用虛擬機器擴展集，請略過此步驟)。
 
-    ```
+    ```json
                     "fabricSettings": [],
                     /*"managementEndpoint": "[concat('http://',reference(concat(parameters('lbIPName'),'-','0')).dnsSettings.fqdn,':',parameters('nt0fabricHttpGatewayPort'))]",*/
                     "managementEndpoint": "[concat('http://',parameters('existingStaticIPDnsFQDN'),':',parameters('nt0fabricHttpGatewayPort'))]",
@@ -294,7 +294,7 @@ DnsSettings              : {
 
 1. 移除 `dnsName` 參數  (不需要此參數)。
 
-    ```
+    ```json
     /*
     "dnsName": {
         "type": "string"
@@ -304,7 +304,7 @@ DnsSettings              : {
 
 2. (選擇性) 如果您使用靜態配置方法，則可以新增靜態 IP 位址參數。 如果您使用動態配置方法，則不需要執行此步驟。
 
-    ```
+    ```json
             "internalLBAddress": {
                 "type": "string",
                 "defaultValue": "10.0.0.250"
@@ -313,7 +313,7 @@ DnsSettings              : {
 
 3. 從資源中移除 `Microsoft.Network/publicIPAddresses`，讓 Azure 不會建立新的 IP 位址︰
 
-    ```
+    ```json
     /*
     {
         "apiVersion": "[variables('publicIPApiVersion')]",
@@ -335,7 +335,7 @@ DnsSettings              : {
 
 4. 從 `Microsoft.Network/loadBalancers` 的 `dependsOn` 屬性中移除 IP 位址，以便不需依賴建立新的 IP 位址。 新增虛擬網路 `dependsOn` 屬性，因為負載平衡器現在仰賴虛擬網路中的子網路︰
 
-    ```
+    ```json
                 "apiVersion": "[variables('lbApiVersion')]",
                 "type": "Microsoft.Network/loadBalancers",
                 "name": "[concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'))]",
@@ -348,7 +348,7 @@ DnsSettings              : {
 
 5. 將負載平衡器的 `frontendIPConfigurations` 設定從使用 `publicIPAddress` 變更為使用子網路和 `privateIPAddress`。 `privateIPAddress` 使用預先定義的靜態內部 IP 位址。 若要使用動態 IP 位址，請移除 `privateIPAddress` 元素，然後將 `privateIPAllocationMethod` 變更為 **Dynamic**。
 
-    ```
+    ```json
                 "frontendIPConfigurations": [
                         {
                             "name": "LoadBalancerIPConfig",
@@ -369,7 +369,7 @@ DnsSettings              : {
 
 6. 在 `Microsoft.ServiceFabric/clusters` 資源中，變更 `managementEndpoint` 以指向內部負載平衡器位址。 如果您使用安全的叢集，請務必將 http:// **變更為 https://**  (請注意，此步驟僅適用於 Service Fabric 叢集。 如果您使用虛擬機器擴展集，請略過此步驟)。
 
-    ```
+    ```json
                     "fabricSettings": [],
                     /*"managementEndpoint": "[concat('http://',reference(concat(parameters('lbIPName'),'-','0')).dnsSettings.fqdn,':',parameters('nt0fabricHttpGatewayPort'))]",*/
                     "managementEndpoint": "[concat('http://',reference(variables('lbID0')).frontEndIPConfigurations[0].properties.privateIPAddress,':',parameters('nt0fabricHttpGatewayPort'))]",
@@ -388,13 +388,13 @@ DnsSettings              : {
 <a id="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>內部與外部負載平衡器
 
-在此案例中，您會從現有的單一節點類型外部負載平衡器來開始，然後新增同一節點類型的內部負載平衡器。 連結到後端位址集區的後端連接埠只能指派給單一負載平衡器。 選擇要讓哪個負載平衡器擁有您的應用程式連接埠，哪個負載平衡器擁有管理端點 (連接埠 19000 和 19080)。 如果您將管理端點放在內部負載平衡器，請記住此文章稍早討論過的 Service Fabric 資源提供者限制。 在我們使用的範例中，管理端點會留在外部負載平衡器。 您也會新增連接埠 80 應用程式連接埠，並將它放在內部負載平衡器。
+在此案例中，您會從現有的單一節點類型外部負載平衡器來開始，然後新增同一節點類型的內部負載平衡器。 連結到後端位址集區的後端連接埠只能指派給單一負載平衡器。 選擇要讓哪個負載平衡器擁有您的應用程式連接埠，哪個負載平衡器擁有管理端點 (連接埠 19000 和 19080)。 如果您將管理端點放在內部負載平衡器，請記住本文稍早討論過的 Service Fabric 資源提供者限制。 在我們使用的範例中，管理端點會留在外部負載平衡器。 您也會新增連接埠 80 應用程式連接埠，並將它放在內部負載平衡器。
 
 在雙節點類型的叢集中，一個節點類型位於外部負載平衡器。 另一個節點類型則位於內部負載平衡器。 若要使用雙節點類型的叢集，請在入口網站中建立雙節點類型的範本 (隨附兩個負載平衡器)，並將第二個負載平衡器切換至內部負載平衡器。 如需詳細資訊，請參閱[僅內部負載平衡器](#internallb)一節。
 
-1. 新增靜態內部負載平衡器 IP 位址參數  (如需使用動態 IP 位址的相關注意事項，請參閱此文章前面幾節)。
+1. 新增靜態內部負載平衡器 IP 位址參數  (如需使用動態 IP 位址的相關注意事項，請參閱本文前面幾節)。
 
-    ```
+    ```json
             "internalLBAddress": {
                 "type": "string",
                 "defaultValue": "10.0.0.250"
@@ -405,7 +405,7 @@ DnsSettings              : {
 
 3. 若要新增現有網路變數的內部版本，請將變數複製並貼上，然後在名稱中新增「-Int」︰
 
-    ```
+    ```json
     /* Add internal load balancer networking variables */
             "lbID0-Int": "[resourceId('Microsoft.Network/loadBalancers', concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'), '-Internal'))]",
             "lbIPConfig0-Int": "[concat(variables('lbID0-Int'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
@@ -418,7 +418,7 @@ DnsSettings              : {
 
 4. 如果您從使用應用程式連接埠 80 的入口網站所產生範本來開始，預設入口網站範本會在外部負載平衡器上新增 AppPort1 (連接埠 80)。 在此情況下，請將 AppPort1 從外部負載平衡器 `loadBalancingRules` 和探查中移除，以將它新增至內部負載平衡器：
 
-    ```
+    ```json
     "loadBalancingRules": [
         {
             "name": "LBHttpRule",
@@ -495,7 +495,7 @@ DnsSettings              : {
 
 5. 新增第二個 `Microsoft.Network/loadBalancers` 資源。 此資源類似[僅內部負載平衡器](#internallb)一節中建立的內部負載平衡器，但它會使用「-Int」負載平衡器變數，並只實作應用程式連接埠 80。 這也會移除 `inboundNatPools`，以將 RDP 端點保留在公用負載平衡器上。 如果您想讓 RDP 位於內部負載平衡器上，請將 `inboundNatPools` 從外部負載平衡器移動到這個內部負載平衡器︰
 
-    ```
+    ```json
             /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" load balancer variables. */
             {
                 "apiVersion": "[variables('lbApiVersion')]",
@@ -580,7 +580,7 @@ DnsSettings              : {
 
 6. 在 `Microsoft.Compute/virtualMachineScaleSets` 資源的 `networkProfile` 上，新增內部後端位址集區︰
 
-    ```
+    ```json
     "loadBalancerBackendAddressPools": [
                                                         {
                                                             "id": "[variables('lbPoolID0')]"

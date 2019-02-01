@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 04c4bba2647b9b17b1282c9a1608fd2e9325f661
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a445fbc135e0d7dc19907339506fd0c32bffb45
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427911"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456029"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>開始使用 Azure SQL Database 受控執行個體稽核
 
@@ -207,7 +207,7 @@ ms.locfileid: "54427911"
 
 - 您可以使用工具 (例如 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)) 來查看稽核記錄。 在 Azure 儲存體中，稽核記錄會以 Blob 檔案集合的方式儲存在定義來儲存稽核記錄的容器內。 如需有關儲存體資料夾階層、命名慣例、記錄格式的進一步詳細資訊，請參閱 [Blob 稽核記錄格式參考](https://go.microsoft.com/fwlink/?linkid=829599)。
 
-- 如需稽核記錄耗用方法的完整清單，請參閱[開始使用 SQL 資料庫稽核](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)。
+- 如需稽核記錄耗用方法的完整清單，請參閱[開始使用 SQL 資料庫稽核](sql-database-auditing.md)。
 
   > [!IMPORTANT]
   > 目前無法從 Azure 入口網站 ([稽核記錄] 窗格) 檢視「受控執行個體」的稽核記錄。
@@ -242,7 +242,7 @@ SQL 稽核在受控執行個體、Azure SQL Database 和 SQL Server 內部部署
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需稽核記錄耗用方法的完整清單，請參閱[開始使用 SQL 資料庫稽核](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)。
+- 如需稽核記錄耗用方法的完整清單，請參閱[開始使用 SQL 資料庫稽核](sql-database-auditing.md)。
 - 如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)。
 
 <!--Image references-->

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 101eeb89a44fbc28c831fefcdc6490495e0be7e8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 67523641ff9650a5b35a142147a2f69adcfb3b1c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470319"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077296"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health 常見問題集
 本文會回答有關 Azure Active Directory (Azure AD) Connect Health 的常見問題 (FAQ)。 這些常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -62,7 +62,7 @@ ms.locfileid: "54470319"
 
 **問：Azure AD Connect Health 是否支援 Azure 德國雲端？**
 
-德國雲端不支援 Azure AD Connect Health，但[同步處理錯誤報告功能](how-to-connect-health-sync.md#object-level-synchronization-error-report)除外。 
+德國雲端不支援 Azure AD Connect Health，但[同步處理錯誤報告功能](how-to-connect-health-sync.md#object-level-synchronization-error-report)除外。
 
 | 角色 | 特性 | 德國雲端中支援 |
 | ------ | --------------- | --- |
@@ -71,7 +71,7 @@ ms.locfileid: "54470319"
 | 適用於 ADFS 的 Connect Health | 監視/見解/警示/分析 | 否 |
 | 適用於 ADDS 的 Connect Health | 監視/見解/警示/分析 | 否 |
 
-若要確保適用於同步處理的 Connect Health 的代理程式連線能力，請據此設定[安裝需求](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)。   
+若要確保適用於同步處理的 Connect Health 的代理程式連線能力，請據此設定[安裝需求](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)。
 
 ## <a name="installation-questions"></a>安裝問題
 
@@ -163,7 +163,7 @@ Azure AD Connect Health 服務已掃描所有已監視的電腦，確保已安�
 
 您可以使用下列 PowerShell 指令碼手動執行這項檢查。 它會實作上述邏輯。
 
-```
+```powershell
 Function CheckForMS17-010 ()
 {
     $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215", "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217", "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554", "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474", "KB4015219", "KB4019473"
@@ -190,7 +190,7 @@ CheckForMS17-010
 
 **問：為何系統並未產生我的 ADFS 稽核？**
 
-請使用 PowerShell Cmdlet <i>Get-AdfsProperties -AuditLevel</i> 以確保稽核記錄不是處於停用狀態。 深入了解 [ADFS 稽核記錄](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)。 請注意，若系統將進階稽核設定推送至 ADFS 伺服器，將會覆寫 auditpol.exe 的任何變更 (即使並未設定產生的應用程式)。 在此情況下，請將本機本機安全性原則設定為記錄已產生應用程式的失敗和成功項目。 
+請使用 PowerShell Cmdlet <i>Get-AdfsProperties -AuditLevel</i> 以確保稽核記錄不是處於停用狀態。 深入了解 [ADFS 稽核記錄](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)。 請注意，若系統將進階稽核設定推送至 ADFS 伺服器，將會覆寫 auditpol.exe 的任何變更 (即使並未設定產生的應用程式)。 在此情況下，請將本機本機安全性原則設定為記錄已產生應用程式的失敗和成功項目。
 
 
 ## <a name="related-links"></a>相關連結

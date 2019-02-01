@@ -7,19 +7,19 @@ author: jeevansd
 manager: daveba
 ms.assetid: 7c2cd1f0-d14c-42f0-94a8-9b800008b285
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 6bb197b820b9f4262eb5c93665c46c14f9497d0f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f45e3c5a3416c28ebe16fcf0ba1f016478c46c7c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54822649"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176216"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>教學課程：Azure Active Directory 與 direct 整合
 
@@ -210,7 +210,7 @@ direct 與 Azure AD 整合提供下列優點：
 
     b. 在顯示的文字方塊中輸入您的 `subdomain`，然後按 [次へ] \(下一步\)，您應該就會自動登入您的 **direct** 應用程式。
 
-如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

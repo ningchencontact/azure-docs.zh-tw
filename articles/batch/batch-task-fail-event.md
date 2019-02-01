@@ -2,7 +2,7 @@
 title: Azure Batch 工作失敗事件 | Microsoft Docs
 description: Batch 工作失敗事件的參考。
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: c4636ebbfb6737be07d01a3861ec6b9da66ff966
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: f37769ceb761b8c8bc4834568813bb1b7af7f66a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30313091"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458987"
 ---
 # <a name="task-fail-event"></a>工作失敗事件
 
@@ -87,8 +87,8 @@ ms.locfileid: "30313091"
 
 |元素名稱|類型|注意|
 |------------------|----------|-----------|
-|startTime|Datetime|工作開始執行的時間。 「執行」與 **running** 狀態對應，因此如果工作會指定資源檔或應用程式套件，則開始時間會反映工作開始下載或部署下載項目的時間。  如果已重新啟動或重試工作，則這是最近一次工作開始執行的時間。|
-|EndTime|Datetime|工作完成的時間。|
+|startTime|DateTime|工作開始執行的時間。 「執行」與 **running** 狀態對應，因此如果工作會指定資源檔或應用程式套件，則開始時間會反映工作開始下載或部署下載項目的時間。  如果已重新啟動或重試工作，則這是最近一次工作開始執行的時間。|
+|EndTime|DateTime|工作完成的時間。|
 |exitCode|Int32|工作的結束代碼。|
 |retryCount|Int32|Batch 服務已重試工作的次數。 如果工作結束時的結束代碼不是零，便會重試工作，直到次數達指定的 MaxTaskRetryCount。|
 |requeueCount|Int32|Batch 服務因為使用者要求而將工作重新排入佇列的次數。<br /><br /> 當使用者將節點從集區中移除 (透過調整集區大小或將集區縮小)，或當作業正停用時，使用者可指定將節點上的執行中工作重新排入佇列以執行。 此計數會追蹤因為這些理由而將工作重新排入佇列的次數。|

@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: fc55fcef9977abcd8c40752d459088c1132cf2c1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 41e7f0ea8616b25eac43ecff7802e0f9e1c08050
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850360"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180699"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>將 Windows Server 虛擬機器加入受控網域
 本文說明如何使用 Azure 入口網站來部署 Windows Server 虛擬機器。 然後會說明如何將虛擬機器加入 Azure Active Directory Domain Services (Azure AD DS) 受控網域。

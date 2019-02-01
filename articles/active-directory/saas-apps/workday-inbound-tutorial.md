@@ -7,19 +7,19 @@ documentationcenter: na
 manager: daveba
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
-ms.openlocfilehash: 913304884867751e3e4c929ce6f4cf8819c15ef2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d4a47130dadb782f41579bd20c4b5e1d1e9978bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825539"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188587"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程：設定 Workday 來自動佈建使用者
 
@@ -151,8 +151,8 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 |   |   |
 | - | - |
-| 要在 內部部署環境部署的代理程式數目 | 3 (適用於高可用性和容錯移轉) |
-| 要在 Azure 入口網站中設定的「Workday 至 AD 使用者佈建應用程式」數目 | 1 |
+| 沒有。 內部部署環境部署的代理程式數目 | 3 (適用於高可用性和容錯移轉) |
+| 沒有。 Azure 入口網站中設定的「Workday 至 AD 使用者佈建應用程式」數目 | 1 |
 
   ![案例 1](./media/workday-inbound-tutorial/dep_scenario1.png)
 
@@ -162,8 +162,8 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 |   |   |
 | - | - |
-| 要在 內部部署環境部署的代理程式數目 | 3 (適用於高可用性和容錯移轉) |
-| 要在 Azure 入口網站中設定的「Workday 至 AD 使用者佈建應用程式」數目 | 每一子網域一個應用程式 |
+| 沒有。 內部部署環境部署的代理程式數目 | 3 (適用於高可用性和容錯移轉) |
+| 沒有。 Azure 入口網站中設定的「Workday 至 AD 使用者佈建應用程式」數目 | 每一子網域一個應用程式 |
 
   ![案例 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -173,8 +173,8 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 |   |   |
 | - | - |
-| 要在 內部部署環境部署的代理程式數目 | 每一不相鄰的 AD 樹系 3 個 |
-| 要在 Azure 入口網站中設定的「Workday 至 AD 使用者佈建應用程式」數目 | 每一子網域一個應用程式 |
+| 沒有。 內部部署環境部署的代理程式數目 | 每一不相鄰的 AD 樹系 3 個 |
+| 沒有。 Azure 入口網站中設定的「Workday 至 AD 使用者佈建應用程式」數目 | 每一子網域一個應用程式 |
 
   ![案例 3](./media/workday-inbound-tutorial/dep_scenario3.png)
 
@@ -559,7 +559,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 > [!IMPORTANT]
 > 如果您擁有需要佈建至 Azure AD 的僅限雲端使用者且沒有內部部署 Active Directory，請僅遵循下列程序。
 
-### <a name="part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday"></a>第 1 部分：新增 Azure AD 佈建連接器應用程式和建立 Workday 連線
+### <a name="part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday"></a>第 1 部分：新增 Azure AD 佈建連接器應用程式和建立 Workday 連接
 
 **若要針對僅限雲端使用者設定 Workday 至 Azure Active Directory 佈建：**
 
@@ -956,7 +956,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
      | ----------------- | -------------------- |
      | PreferredFirstName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:First_Name/text() |
      | PreferredLastName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:Last_Name/text() |
-     | Company | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Company']/wd:Organization_Reference/@wd:Descriptor |
+     | 公司 | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Company']/wd:Organization_Reference/@wd:Descriptor |
      | SupervisoryOrganization | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data/wd:Organization_Data[wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Supervisory']/wd:Organization_Name/text() |
   
    請向您的 Workday 小組確認上述 API 運算式是否適用於您的 Workday 租用戶設定。 必要時，您可以依照[自訂 Workday 使用者屬性的清單](#customizing-the-list-of-workday-user-attributes)一節所述，編輯這些運算式。

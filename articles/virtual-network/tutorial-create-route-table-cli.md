@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 89ac87436fb6807177acf3882dd6e923b1722bd5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bfa4178baae0d92f7efb5ea156cfd35a8b32b1b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849204"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157460"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>使用 Azure CLI 以路由表路由網路流量
 
@@ -121,7 +121,7 @@ az network vnet subnet update \
 
 NVA 是會執行網路功能的虛擬機器，例如路由、防火牆或 WAN 最佳化。
 
-使用 [az vm create](/cli/azure/vm#az_vm_create)，在 DMZ 子網路中建立 NVA。 在建立虛擬機器時，Azure 依預設會建立公用 IP 位址，並將其指派給虛擬機器。 `--public-ip-address ""` 參數會指示 Azure 不要建立公用 IP 位址並將其指派給虛擬機器，因為並不需要從網際網路連線至虛擬機器。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。
+使用 [az vm create](/cli/azure/vm)，在 DMZ 子網路中建立 NVA。 在建立虛擬機器時，Azure 依預設會建立公用 IP 位址，並將其指派給虛擬機器。 `--public-ip-address ""` 參數會指示 Azure 不要建立公用 IP 位址並將其指派給虛擬機器，因為並不需要從網際網路連線至虛擬機器。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。
 
 ```azure-cli-interactive
 az vm create \
@@ -161,7 +161,7 @@ az vm extension set \
 
 在虛擬網路中建立兩部虛擬機器，您就可以在後續步驟中驗證來自「公用」子網路的流量是否透過 NVA 路由傳送至「私人」子網路。 
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 在「公用」子網路中建立虛擬機器。 `--no-wait` 參數可以讓 Azure 在背景中執行命令，因此您可以繼續執行下一個命令。 為了簡化本文，我們會使用密碼。 金鑰通常用於生產環境部署中。 如果您使用金鑰，您還必須設定 SSH 代理程式轉送。 如需詳細資訊，請參閱 SSH 用戶端的文件。 在下列命令中，將 `<replace-with-your-password>` 取代為您選擇的密碼。
+使用 [az vm create](/cli/azure/vm) 在「公用」子網路中建立虛擬機器。 `--no-wait` 參數可以讓 Azure 在背景中執行命令，因此您可以繼續執行下一個命令。 為了簡化本文，我們會使用密碼。 金鑰通常用於生產環境部署中。 如果您使用金鑰，您還必須設定 SSH 代理程式轉送。 如需詳細資訊，請參閱 SSH 用戶端的文件。 在下列命令中，將 `<replace-with-your-password>` 取代為您選擇的密碼。
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"

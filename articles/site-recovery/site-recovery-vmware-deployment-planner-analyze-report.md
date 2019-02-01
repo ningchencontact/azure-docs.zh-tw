@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: ecb1d4cca5ebc8a699988c6556b080ffa810eca8
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7b308f3298af436b6537234cff571759551a2d4e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319841"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221589"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>分析 Azure Site Recovery 部署規劃工具針對 VMWare 至 Azure 的災害復原所做的報告
 
@@ -275,7 +275,7 @@ ms.locfileid: "54319841"
 進階 P20、P30、P40 或 P50 磁碟 | 8 KB    | 5 MB/秒 | 每個磁碟 421 GB
 進階 P20、P30、P40 或 P50 磁碟 | 16 KB 或更大 |10 MB/秒 | 每個磁碟 842 GB
 
-**來源資料變換** | **最大限制**
+**來源資料變換** | **上限**
 ---|---
 每個 VM 的平均資料變換| 25 MB/秒
 VM 上所有磁碟的尖峰資料變換 | 54 MB/秒

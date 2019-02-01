@@ -6,17 +6,17 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.custom: seodec18
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: c8bcbe011dc4ff9841a06b914a90ae7f9a14ee74
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 81b963a56b35cc1206982680f8742c2fea9f2446
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598494"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219323"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>新增意圖以判斷語句的使用者用意
 
@@ -24,19 +24,7 @@ ms.locfileid: "53598494"
 
 從上方導覽列的 [建置] 區段，然後從左側面板的 [意圖] 管理意圖。 
 
-## <a name="create-an-app"></a>建立應用程式
-
-1. 登入 [LUIS](https://www.luis.ai) 入口網站。
-
-1. 選取 [建立新的應用程式]。 
-
-1. 將新應用程式命名為 `MyHumanResourcesApp`。 選取 [英文] 文化特性 (Culture)。 描述是選擇性的。 
-
-1. 選取 [完成] 。 
-
 ## <a name="add-intent"></a>新增意圖
-
-1. 應用程式會開啟至 [意圖] 清單。
 
 1. 在 [意圖] 頁面上，選取 [建立新意圖]。
 

@@ -3,19 +3,19 @@ title: Azure AD 自助式密碼重設 Windows 7 和 8.1
 description: 如何在 Windows 7 或 8.1 的登入畫面啟用使用忘記密碼的自助式密碼重設
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 1b488e938cf314eef18117ffd33f582319260162
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 33bacb5d399e41e04a6c00225e7411cef0c20308
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438774"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075292"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>作法：從 Windows 7、8 和 8.1 啟用密碼重設
 

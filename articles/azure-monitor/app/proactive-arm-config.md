@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: edfd908166e4334bdfda0f043cba727cb0370405
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853590"
+ms.locfileid: "54881591"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Application Insights 智慧偵測規則
 
@@ -157,7 +157,7 @@ ms.locfileid: "54853590"
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>誰會收到 (傳統) 警示通知？
 
-本節僅適用於智慧偵測傳統警示，並協助您將警示通知最佳化，以確保只有您所需的收件者會收到通知。 若要深入了解 [傳統警示](../platform/alerts-classic.overview.md 和新警示體驗之間的差異，請參閱[警示概觀文章](../platform/alerts-overview.md)。 目前智慧偵測警示只支援傳統警示體驗。 [Azure 雲端服務中的智慧偵測警示](./proactive-cloud-services.md)是一個例外。 若要控制 Azure 雲端服務中智慧偵測警示的警示通知，請使用[動作群組](../platform/action-groups.md)。
+本節僅適用於智慧偵測傳統警示，並協助您將警示通知最佳化，以確保只有您所需的收件者會收到通知。 若要深入了解[傳統警示](../platform/alerts-classic.overview.md)和新警示體驗之間的差異，請參閱[警示概觀文章](../platform/alerts-overview.md)。 目前智慧偵測警示只支援傳統警示體驗。 [Azure 雲端服務中的智慧偵測警示](./proactive-cloud-services.md)是一個例外。 若要控制 Azure 雲端服務中智慧偵測警示的警示通知，請使用[動作群組](../platform/action-groups.md)。
 
 * 我們建議針對智慧偵測/傳統警示通知使用特定的收件者。
 

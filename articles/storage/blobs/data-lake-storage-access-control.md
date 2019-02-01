@@ -3,17 +3,17 @@ title: Azure Data Lake Storage Gen2 中的存取控制概觀 | Microsoft Docs
 description: 了解 Azure Data Lake Storage Gen2 中的存取控制運作方式
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 52af1a45f920139ddda1d02734de91372fe4719d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3005f19ffbc4771da442e36290a5803dddebfdbb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976186"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240165"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的存取控制
 
@@ -245,7 +245,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>我必須啟用 ACL 的支援嗎？
 
-否。 只要階層式命名空間 (HNS) 功能開啟，就會為 Data Lake Storage Gen2 帳戶啟用透過 ACL 的存取控制。
+沒有。 只要階層式命名空間 (HNS) 功能開啟，就會為 Data Lake Storage Gen2 帳戶啟用透過 ACL 的存取控制。
 
 如果 HNS 關閉，Azure RBAC 授權規則仍適用。
 

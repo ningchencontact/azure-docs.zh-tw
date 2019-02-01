@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: dbfe8c98dce1879a2e0956fafba32ab6e608bfdb
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 38be6d0212f4676add76abacf9f18f0a73eb44be
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046649"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170414"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>在 Power BI 工作區集合中，從資料集建立新的報告
 
@@ -32,7 +32,7 @@ ms.locfileid: "43046649"
 
 Power BI 工作區集合會使用內嵌權杖，其為 HMAC 簽署的 JSON Web 權杖。 權杖會使用來自 Power BI 工作區集合的存取金鑰進行簽署。 內嵌權杖依預設可用來提供要內嵌至應用程式之報告的唯讀存取權。 內嵌權杖會針對特定報告來核發，而且應該與內嵌 URL 相關聯。
 
-存取權杖應該建立在伺服器上，因為會使用存取金鑰來簽署/加密權杖。 如需如何建立存取權杖的相關資訊，請參閱[使用 Power BI 工作區集合驗證和授權](app-token-flow.md)。 您也可以檢閱 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) 方法。 以下是使用 .NET SDK for Power BI 時此方法所呈現樣貌的範例。
+存取權杖應該建立在伺服器上，因為會使用存取金鑰來簽署/加密權杖。 如需如何建立存取權杖的相關資訊，請參閱[使用 Power BI 工作區集合驗證和授權](app-token-flow.md)。 您也可以檢閱 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) 方法。 以下是使用 .NET SDK for Power BI 時此方法所呈現樣貌的範例。
 
 在此範例中，我們擁有用來建立新報告所需要的資料集識別碼。 我們也需要新增 Dataset.Read 和 Workspace.Report.Create 的範圍。
 

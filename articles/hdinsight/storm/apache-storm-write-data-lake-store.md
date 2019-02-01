@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: b11e1f35578eef07acb823081f0bbfdbaf467f9c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 91e6c2d400fa7add33a6c8e8856a3b9f8cfef4a3
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632462"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912828"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>從 HDInsight 上的 Apache Storm 寫入 Apache Hadoop HDFS
 
@@ -221,3 +221,5 @@ Storm 拓撲會一直執行，直到其停止或叢集遭到刪除為止。 若�
 
 現在，您已了解如何使用 Apache Storm 來寫入 Azure 儲存體和 Azure Data Lake Storage，接下來請探索其他[適用於 HDInsight 的 Apache Storm 範例](apache-storm-example-topology.md)。
 
+## <a name="see-also"></a>另請參閱
+* [搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
