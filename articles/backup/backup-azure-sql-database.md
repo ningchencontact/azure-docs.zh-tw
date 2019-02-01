@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790154"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224236"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>將 SQL Server 資料庫備份到 Azure
 
@@ -444,9 +444,9 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
 
 2. 在 [復原服務保存庫] 儀表板上的 [使用方式] 底下，選取 [備份項目] 以開啟 [備份項目] 功能表。
 
-    ![開啟 [備份項目] 功能表](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
+    ![開啟 [備份項目] 功能表](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png)上也提供本文中使用的原始碼。
 
-3. 在 [備份項目] 功能表上的 [備份管理類型] 底下，選取 [Azure VM 中的 SQL]。
+3. 在**備份項目** 功能表上的 **備份管理類型** 底下，選取 **Azure VM 中的 SQL**。
 
     ![選取 Azure VM 中的 SQL](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
@@ -483,7 +483,14 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
 > 您可以將資料庫還原至相同 Azure 區域中的 SQL Server 執行個體。 目的地伺服器必須註冊到復原服務保存庫。
 >
 
-在 [還原設定] 功能表上，[伺服器] 下拉式清單方塊只會顯示已向復原服務保存庫註冊的 SQL Server 執行個體。 如果您需要的伺服器不在清單中，請參閱[探索 SQL Server 資料庫](backup-azure-sql-database.md#discover-sql-server-databases)以尋找伺服器。 在探索過程中，新的伺服器都會註冊到復原服務保存庫。
+在 [還原設定] 功能表上，[伺服器] 下拉式清單方塊只會顯示已向復原服務保存庫註冊的 SQL Server 執行個體。 如果您需要的伺服器不在清單中，請參閱[探索 SQL Server 資料庫](backup-azure-sql-database.md#discover-sql-server-databases)以尋找伺服器。 在探索過程中，新的伺服器都會註冊到復原服務保存庫。<br>
+若要還原 SQL DB，您需要下列權限：
+
+* 復原服務**保存庫**的**備份操作員**權限，以便在其中進行還原。
+* **來源 SQL VM** (所備份而且您嘗試從中進行還原的 VM) 的**參與者 (寫入)** 存取權。
+* 目標 SQL VM (要作為還原目標的 VM；會是與原始位置復原 (OLR) 案例中的來源 VM 相同的 VM) 的**參與者 (寫入)** 存取權。
+
+若要還原至替代位置：
 
 1. 在 [還原設定] 功能表中：
 
@@ -721,9 +728,9 @@ backup_size AS BackupSizeInBytes
 
 2. 在 [復原服務保存庫] 儀表板上的 [使用方式] 底下，選取 [備份項目] 以開啟 [備份項目] 功能表。
 
-    ![開啟 [備份項目] 功能表](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
+    ![開啟 [備份項目] 功能表](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png)上也提供本文中使用的原始碼。
 
-3. 在 [備份項目] 功能表上的 [備份管理類型] 底下，選取 [Azure VM 中的 SQL]。
+3. 在**備份項目** 功能表上的 **備份管理類型** 底下，選取 **Azure VM 中的 SQL**。
 
     ![選取 Azure VM 中的 SQL](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
@@ -747,7 +754,7 @@ backup_size AS BackupSizeInBytes
 
 7. 選取 [停止備份] 以停止保護資料庫。
 
-  請注意，[停止備份] 選項將不適用於[自動保護](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)。 停止保護此資料庫的唯一方式，是暫時在執行個體上停用 [[自動保護](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)]，然後在該資料庫的 [備份項目] 下方，選擇 [停止備份] 選項。<br>
+  請注意，[停止備份] 選項將不適用於[自動保護](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)。 停止保護此資料庫的唯一方式，是暫時在執行個體上停用 [自動保護][](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)，然後在該資料庫的 [備份項目] 下方，選擇 [停止備份] 選項。<br>
   當您已停用自動保護之後，您可以在 [備份項目] 下方，針對資料庫**停止備份**。 現在可再次啟用執行個體以進行自動保護。
 
 
@@ -851,7 +858,7 @@ backup_size AS BackupSizeInBytes
 
 否，如果從已受自動保護的執行個體中卸除資料庫，仍會在該資料庫上嘗試進行備份。 這表示已刪除的資料庫會開始在 [備份項目] 下方顯示為狀況不良，且仍被視為受到保護。
 
-停止保護此資料庫的唯一方式，是暫時在執行個體上停用 [自動保護](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)，然後在該資料庫的 [備份項目] 下方，選擇 [停止備份] 選項。 您現在可以針對此執行個體重新啟用自動保護。
+停止保護此資料庫的唯一方式，是暫時在執行個體上停用 [自動保護][](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)，然後在該資料庫的 [備份項目] 下方，選擇 [停止備份] 選項。 您現在可以針對此執行個體重新啟用自動保護。
 
 ###  <a name="why-cant-i-see-the-newly-added-database-to-an-auto-protected-instance-under-the-protected-items"></a>為什麼我在受保護的項目下方看不到新增至已受自動保護之執行個體的資料庫？
 
