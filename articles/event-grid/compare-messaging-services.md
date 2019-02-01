@@ -6,15 +6,15 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 12/07/2018
+ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 80a2f9aa07f67c4d149a1ef8245f5e3269a751b3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469843"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297101"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>選擇 Azure 訊息服務 - 事件方格、事件中樞和服務匯流排
 
@@ -97,9 +97,10 @@ Azure 事件中樞是巨量資料管線。 它有助於擷取、保留和重送�
 ![串流資料概觀](./media/compare-messaging-services/overview.png)
 
 ## <a name="next-steps"></a>後續步驟
+請參閱下列文章： 
 
-* 如需有關 Azure 傳訊服務的詳細資訊，請參閱部落格文章[事件、資料點和訊息 - 為您的資料選擇正確的 Azure 傳訊服務](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/)。
-* 如需 Event Grid 的簡介，請參閱[關於 Event Grid](overview.md)。
-* 若要開始使用 Event Grid，請參閱[使用 Azure Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)。
-* 若要開始使用事件中樞，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。
-* 若要開始使用服務匯流排，請參閱[使用 Azure 入口網站建立服務匯流排命名空間](../service-bus-messaging/service-bus-create-namespace-portal.md)。
+- [事件、資料點和訊息 - 為您的資料選擇正確的 Azure 傳訊服務](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/)。
+- [儲存體佇列和服務匯流排佇列 - 異同比較](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- 若要開始使用 Event Grid，請參閱[使用 Azure Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)。
+- 若要開始使用事件中樞，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。
+- 若要開始使用服務匯流排，請參閱[使用 Azure 入口網站建立服務匯流排命名空間](../service-bus-messaging/service-bus-create-namespace-portal.md)。

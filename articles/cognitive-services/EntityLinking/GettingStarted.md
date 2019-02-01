@@ -6,16 +6,16 @@ services: cognitive-services
 author: DavidLiCIG
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: entity-linking-intelligence
+ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 883d566fd3a6089eb9e72498089f995697a318f1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365633"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216807"
 ---
 # <a name="tutorial-build-an-entity-linking-app-with-c"></a>教學課程：使用 C# 建置實體連結應用程式
 
@@ -50,11 +50,11 @@ Microsoft 實體連結是自然語言處理工具，可用來分析文字並將�
 
 接下來，搜尋 Newtonsoft.Json 並安裝。 如果出現要求您檢閱變更的提示，請按一下 [確定]。 如果出現實體連結的授權條款，請按一下 [我接受]。
 
-實體連結現在已安裝為應用程式的一部分。 您可以透過檢查 **Microsoft.ProjectOxford.EntityLinking** 參考是否已顯示為 [方案總管] 中專案的一部分來確認。
+實體連結現在已安裝為應用程式的一部分。 您可以透過檢查 **Microsoft.ProjectOxford.EntityLinking** 參考是否已顯示為 [方案總管] 中專案的一部份來加以確認。
 
  ![專案中已包含 nuget 程式庫](./Images/NugetLibraryInProject.png)
  
-### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">步驟 4：將輸入和輸出文字區塊新增至您應用程式的 XAML</a>
+### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">步驟 4：將輸入和輸出文字區塊新增至應用程式的 XAML</a>
 在 [方案總管] 中瀏覽至 **MainPage.xaml**，然後連按兩下此檔案，以在新視窗中開啟。 為方便起見，您可以在 [設計工具] 索引標籤中連按兩下 [XAML] 按鈕，這樣會隱藏 [視覺化設計工具]，並保留所有程式碼檢視空間。
 
  ![專案中已包含 nuget 程式庫](./Images/UWPMainPage.png)

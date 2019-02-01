@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 6af2da9ffc7678a58fcf1c647ba89c586066d2ad
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0798fb16954d2d0b5e0d614d619cd772670d30c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339091"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218082"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>教學課程：建立自訂語言模型
 
@@ -55,7 +55,7 @@ ms.locfileid: "49339091"
 
 | 屬性 | 值 |
 |----------|-------|
-| 文字編碼方式 | en-US: US-ACSII 或 UTF-8 或 zh-CN: UTF-8|
+| 文字編碼方式 | en-US:US-ACSII 或 UTF-8 或 zh-CN:UTF-8|
 | 每一行的語句數目 | 1 |
 | 檔案大小上限 | 200 MB |
 | 備註 | 避免重複字元超過 4 次，例如 'aaaaa'|

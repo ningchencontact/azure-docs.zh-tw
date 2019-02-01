@@ -6,16 +6,16 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e8bbf78da84ddb77ce956e37f91be46e96144991
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9289f7178a6e285b447041937f191d283fc2f2f0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123074"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222893"
 ---
 # <a name="example-how-to-use-the-large-scale-feature"></a>範例：如何使用大規模功能
 
@@ -41,7 +41,7 @@ LargePersonGroup 可包含多達 1,000,000 個人員，每個人員最多可有 
 
 - LargePersonGroup：「人員」的集合，容量上限為 1,000,000。
 - LargeFaceList：「臉部」的集合，容量上限為 1,000,000。
-- 定型：一種用來確保「識別/FindSimilar」效能的前處理。
+- 訓練：一種用來確保「識別/FindSimilar」效能的前處理。
 - 識別：從 PersonGroup 或 LargePersonGroup 中識別一或多張臉。
 - FindSimilar：從 FaceList 或 LargeFaceList 中搜尋相似的臉部。
 
@@ -258,8 +258,8 @@ LargePersonGroup/LargeFaceList 中的「人員/臉部」只有在定型後才可
 這個策略適用於具有可接受延遲的動態案例，也可套用至靜態案例來進一步降低「定型」頻率。
 
 假設有一個類似於 `TrainLargeFaceList` 的 `TrainLargePersonGroup` 函式。
-透過叫用 `System.Timers` 中的 [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx)
-類別以在 LargePersonGroup 上進行獨立「定型」的一般實作會是：
+藉由叫用 [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) 以在 LargePersonGroup 上進行獨立「定型」的一般實作
+`System.Timers` 中的類別會是：
 
 ```CSharp
 private static void Main()

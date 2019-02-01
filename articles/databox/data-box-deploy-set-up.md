@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 460a05ac25ca4af56b81fb2025e0886c7bda3070
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 79e2d33d1452eda35141b6ae80b46ab4eecd0909
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391167"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902154"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>教學課程：連接 Azure 資料箱的纜線並且連線
 
@@ -50,7 +50,7 @@ ms.locfileid: "54391167"
 
 1. 檢查裝置是否有任何竄改的跡象，或其他任何明顯的損毀。 如果裝置已遭竄改或嚴重損毀，請勿繼續操作。 請立即連絡 Microsoft 支援服務以協助您評估裝置是否可正常運作，以及是否需要寄送替代品給您。
 2. 將裝置移至您要加以開啟的位置上。 將裝置放在平面上。 裝置也可以放置在標準機架上。
-3. 連接電源線和網路線。 在常用的組態中，連線裝置的後擋板如下所示。 
+3. 連接電源線和網路線。 在常用的組態中，連線裝置的後擋板如下所示。 根據您的環境，您可以選擇其他[佈線選項](data-box-cable-options.md)。
     
     ![已連接纜線的資料箱裝置後擋板](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 

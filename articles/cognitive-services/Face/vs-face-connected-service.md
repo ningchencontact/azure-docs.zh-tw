@@ -6,16 +6,16 @@ services: cognitive-services
 author: ghogen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: 70414674e563cf3703d2cf3ebc57f09afcdf2691
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 00b1d3ed636bb1690e9d5026c558ca989de95375
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129517"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209429"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>使用 Visual Studio 中的連線服務連線至認知服務臉部 API
 
@@ -237,9 +237,9 @@ ms.locfileid: "46129517"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-不再需要資源群組時，請將它刪除。 這會刪除認知服務與相關資源。 若要透過入口網站刪除資源群組：
+不再需要資源群組時，請加以刪除。 這會刪除認知服務與相關資源。 若要透過入口網站刪除資源群組：
 
-1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 當您在搜尋結果中看到本快速入門中使用的資源群組時，請選取它。
+1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 當您在搜尋結果中看到本快速入門中使用的資源群組時，請加以選取。
 1. 選取 [刪除資源群組]。
 1. 在 [輸入資源群組名稱:] 方塊中輸入資源群組的名稱，然後選取 [刪除]。
 

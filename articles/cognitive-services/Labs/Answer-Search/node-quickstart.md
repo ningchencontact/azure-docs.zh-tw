@@ -1,20 +1,20 @@
 ---
-title: 快速入門：專案答案搜尋 Node
+title: 快速入門：專案答案搜尋 (Node)
 description: 開始使用專案答案搜尋與 Node。
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 1afd029803fc7d2709a9a9abe840db6d7f52498d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2e79a2d248a81298cb1dd19415a0d9eb75a275c4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465741"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224491"
 ---
 # <a name="quickstart-project-answer-search-with-node"></a>快速入門：使用 Node 進行專案答案搜尋
 
@@ -31,14 +31,14 @@ ms.locfileid: "49465741"
 下列程式碼取得答案。
 實際進行步驟如下：
 1. 宣告變數以依主機及路徑指定端點。
-2. 指定要預覽的查詢 URL，並加入查詢參數。  
+2. 指定要預覽的查詢 URL，並新增查詢參數。  
 3. 建立回應的處理常式函式。
-4. 定義建立要求的搜尋函式，並加入 *Ocp-Apim-Subscription-Key* 標頭。
+4. 定義建立要求的搜尋函式，並新增 *Ocp-Apim-Subscription-Key* 標頭。
 5. 執行搜尋函式。 
 
 此示範的完整程式碼如下：
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -85,7 +85,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## <a name="next-steps"></a>後續步驟
 - [C# 範例程式碼](c-sharp-quickstart.md)

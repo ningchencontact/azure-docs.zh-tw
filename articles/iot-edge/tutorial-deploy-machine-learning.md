@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: db8318e94b646d57c00bc2e6958ba9e7f46ec7af
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 464d16d4bbcbdbefd36ce1132630ad702d7a0c90
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344009"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076959"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>教學課程：將 Azure Machine Learning 部署為 IoT Edge 模組 (預覽)
 
-您可以使用 IoT Edge 模組來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您部署 Azure Machine Learning 模組，以根據模擬機器的溫度資料來預測裝置何時會故障。 如需與 IoT Edge 上的 Azure ML 有關的詳細資訊，請參閱 [Azure Machine Learning 文件](../machine-learning/service/how-to-deploy-to-iot.md)。
+您可以使用 IoT Edge 模組來部署程式碼，將您的商務邏輯直接實作到您的 IoT Edge 裝置。 本教學課程會逐步引導您部署 Azure Machine Learning 模組，以根據模擬機器的溫度資料來預測裝置何時會故障。 如需與 IoT Edge 上的 Azure Machine Learning 服務有關的詳細資訊，請參閱 [Azure Machine Learning 文件](../machine-learning/service/how-to-deploy-to-iot.md)。
 
 您在本教學課程中建立的 Azure Machine Learning 模組會讀取裝置所產生的環境資料，並將訊息標示為異常或非異常。
 
@@ -31,7 +31,7 @@ ms.locfileid: "53344009"
 > * 檢視產生的資料
 
 >[!NOTE]
->Azure IoT Edge 上的 Azure Machine Learning 模組目前為公開預覽版。 
+>Azure IoT Edge 上的 Azure Machine Learning 模組目前為公開預覽版。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +45,7 @@ Azure IoT Edge 裝置：
 
 雲端資源：
 
-* Azure 中的免費或標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
+* Azure 中的免費或標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
 * Azure Machine Learning 工作區。 請依照[準備在 IoT Edge 上部署模型](../machine-learning/service/how-to-deploy-to-iot.md)中的指示建立。
 
 
@@ -53,7 +53,7 @@ Azure IoT Edge 裝置：
 
 >[!NOTE]
 >
-> 預覽版的 Azure Machine Learning 不支援 IoT Edge 所預設啟用的程序識別安全性功能。 
+> 預覽版的 Azure Machine Learning 不支援 IoT Edge 所預設啟用的程序識別安全性功能。
 > 以下是此功能的停用步驟。 不過，這不適合生產環境使用。 這些步驟只須在 Linux 上執行，因為在執行 Windows Edge 執行階段安裝時，此步驟已於先前完成。
 
 若要在 IoT Edge 裝置上停用程序識別，您必須在 IoT Edge 精靈設定的 [連線] 區段中，對 **workload_uri** 和 **management_uri** 提供 IP 位址和連接埠。
@@ -88,8 +88,8 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 ```
 
 
-## <a name="create-the-azure-ml-container"></a>建立 Azure ML 容器
-在本節中，您會下載定型模型檔案，並將它們轉換成 Azure ML 容器。
+## <a name="create-the-azure-machine-learning-service-container"></a>建立 Azure Machine Learning 服務容器
+在本節中，您會下載定型模型檔案，並將它們轉換成 Azure Machine Learning 服務容器。
 
 請依照[準備在 IoT Edge 上部署模型](../machine-learning/service/how-to-deploy-to-iot.md)文件中的指示，使用您的機器學習模型建立 Docker 容器。  Docker 映像所需的所有元件都在[適用於 Azure IoT Edge 的 AI 工具組 Git 存放庫](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)中。
 
@@ -113,7 +113,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 
 1. 選取 [設定模組]。
 
-1. 在 [登錄設定] 區段中，新增您從 Azure Container Registry 複製得到的認證。 
+1. 在 [登錄設定] 區段中，新增您從 Azure Container Registry 複製得到的認證。
 
    ![將登錄認證新增至資訊清單](./media/tutorial-deploy-machine-learning/registry-settings.png)
 
@@ -156,7 +156,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 
 ### <a name="view-data-on-your-iot-edge-device"></a>檢視 IoT Edge 裝置上的資料
 
-在 IoT Edge 裝置上，您可以檢視會從每個模組傳來的訊息。 
+在 IoT Edge 裝置上，您可以檢視會從每個模組傳來的訊息。
 
 如果您在 Linux 裝置上執行這些命令，則可能需要使用 `sudo` 以獲得較高的權限。
 
@@ -176,7 +176,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 
 您可以使用[適用於 Visual Studio Code 的 Azure IoT 中樞工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (先前稱為 Azure IoT 工具組擴充功能)，來檢視 IoT 中樞所收到的裝置到雲端訊息。
 
-下列步驟說明如何設定 Visual Studio Code 來監視抵達 IoT 中樞的裝置到雲端訊息。 
+下列步驟說明如何設定 Visual Studio Code 來監視抵達 IoT 中樞的裝置到雲端訊息。
 
 1. 在 Visual Studio Code 中，選取 [IoT 中樞裝置]。
 
@@ -190,13 +190,13 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 
 5. 每五秒就會觀察來自 tempSensor 的訊息。 訊息本文包含稱為 **anomaly** 的屬性，machinelearningmodule 會搭配 True 或 False 值來提供此屬性。 如果模型已順利執行，**AzureMLResponse** 屬性即會包含 "OK" 值。
 
-   ![訊息主體中的 Azure ML 回應](./media/tutorial-deploy-machine-learning/ml-output.png)
+   ![訊息本文中的 Azure Machine Learning 服務回應](./media/tutorial-deploy-machine-learning/ml-output.png)
 
-## <a name="clean-up-resources"></a>清除資源 
+## <a name="clean-up-resources"></a>清除資源
 
-如果您打算繼續閱讀下一篇建議的文章，則可以保留您所建立的資源和組態，並加以重複使用。 您可以也繼續使用相同的 IoT Edge 裝置作為測試裝置。 
+如果您打算繼續閱讀下一篇建議的文章，則可以保留您所建立的資源和組態，並加以重複使用。 您可以也繼續使用相同的 IoT Edge 裝置作為測試裝置。
 
-否則，可以刪除您在本文中建立的本機組態和 Azure 資源，以避免產生費用。 
+否則，可以刪除您在本文中建立的本機組態和 Azure 資源，以避免產生費用。
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 

@@ -8,20 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/28/2018
+ms.date: 1/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3e5e364e9c3327e9d666a9a3096573267d0e1983
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0aa15c34e6fd6c7952a457d36e072bc91d4d5dab
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727603"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102167"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>快速入門：使用應用程式的身分識別來取得權杖並從主控台應用程式呼叫 Microsoft Graph API
 
@@ -107,7 +107,7 @@ ms.locfileid: "53727603"
     
 #### <a name="step-4-admin-consent"></a>步驟 4：系統管理員同意
 
-任何「僅限應用程式權限」都需要管理員同意 - 這表示它需要目錄的全域管理員對應用程式表示同意。 請根據您的角色選取下列其中一個選項：
+如果您嘗試在此時執行應用程式，您會收到「HTTP 403 - 禁止」錯誤：`Insufficient privileges to complete the operation`。 這是因為任何「僅限應用程式權限」都需要管理員同意，也就是目錄的全域管理員必須對應用程式表示同意。 請根據您的角色選取下列其中一個選項：
 
 ##### <a name="global-tenant-administrator"></a>全域租用戶管理員
 
@@ -149,6 +149,9 @@ dotnet run
 
 因此，您應該會在 Azure AD 目錄中看到使用者的清單。
 
+> [!IMPORTANT]
+> 此快速入門應用程式會使用用戶端密碼，將自己識別為機密用戶端。 由於用戶端密碼會以純文字形式新增至您的專案檔，因此，基於安全考量，在考慮將應用程式當作生產應用程式之前，建議您使用憑證，而非用戶端密碼。 如需有關如何使用憑證的詳細資訊，請從 GitHub 存放庫中參閱此範例的[這些指示](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates)。
+
 ## <a name="more-information"></a>詳細資訊
 
 ### <a name="msalnet"></a>MSAL.NET
@@ -158,7 +161,13 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
  您可以在 Visual Studio 的 [套件管理員主控台] 中，透過執行下列命令來安裝 MSAL.NET：
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client
+```
+
+或者，如果您是不使用 Visual Studio，您可以執行下列命令來將 MSAL 新增至您的專案：
+
+```console
+dotnet add package Microsoft.Identity.Client
 ```
 
 ### <a name="msal-initialization"></a>MSAL 初始化

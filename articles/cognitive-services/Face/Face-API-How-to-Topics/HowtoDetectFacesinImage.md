@@ -1,21 +1,21 @@
 ---
-title: 範例：偵測影像中的人臉 - 臉部 API
+title: 範例：偵測影像中的臉部 - 臉部 API
 titleSuffix: Azure Cognitive Services
 description: 使用臉部 API 偵測影像中的人臉。
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a4c74ff70a4426abf97562bf997479a91afbf17a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 8c89a43910a5e98286a82de8626870d3aec55b94
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124043"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214206"
 ---
 # <a name="example-how-to-detect-faces-in-image"></a>範例：如何偵測影像中的人臉
 
@@ -34,7 +34,7 @@ ms.locfileid: "46124043"
 
 此範例會示範下列功能： 
 
-- 偵測影像中的人臉，並使用矩形框架標示它們
+- 偵測影像中的人臉，並使用矩形框架加以標示
 - 分析瞳孔、鼻子或嘴巴的位置，然後在影像中標示出來
 - 分析臉部的頭部姿勢、性別和年齡
 
@@ -42,14 +42,14 @@ ms.locfileid: "46124043"
 
 ## <a name="step-1-authorize-the-api-call"></a>步驟 1：授權 API 呼叫
 
-每次呼叫臉部 API 時，都需要訂用帳戶金鑰。 這個金鑰必須透過查詢字串參數傳遞，或者在要求標頭中指定。 若要透過查詢字串傳遞訂用帳戶密鑰，請參閱所舉出的[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)要求 URL 範例：
+每次呼叫臉部 API 時，都需要訂用帳戶金鑰。 這個金鑰必須透過查詢字串參數傳遞，或者在要求標頭中指定。 若要透過查詢字串傳遞訂用帳戶金鑰，請參閱所舉出的[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)要求 URL 範例：
 
 ```
 https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
 &subscription-key=<Subscription Key>
 ```
 
-或者，您也可以在 HTTP 要求標頭中指定訂用帳戶金鑰：**ocp-apim-subscription-key: &lt;訂用帳戶金鑰&gt;**。若您使用用戶端程式庫，則會透過 FaceServiceClient 類別的建構函式傳入訂用帳戶金鑰。 例如︰
+或者，也可以在 HTTP 要求標頭中指定訂用帳戶密鑰：**ocp-apim-subscription-key:&lt;訂用帳戶金鑰&gt;** 使用用戶端程式庫時，訂用帳戶金鑰會透過 FaceServiceClient 類別的建構函式傳入。 例如︰
 ```CSharp
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
@@ -92,7 +92,7 @@ foreach (var face in faces)
 
 ## <a name="step-3-understanding-and-using-face-landmarks"></a>步驟 3：了解和使用臉部特徵點
 
-臉部特徵點是臉部上的一系列細部位置點；通常是臉部器官的位置點，例如瞳孔、兩眥或鼻子。 臉部特徵點是選擇性屬性，可在臉部偵測進行期間進行分析。 您可以在呼叫[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)時對 returnFaceLandmarks 查詢參數傳遞布林值 'true'，也可以對 FaceServiceClient 類別 DetectAsync 方法使用 returnFaceLandmarks 選擇性參數，以便在偵測結果中包括臉部特徵點。
+臉部特徵點是臉部上的一系列細部位置點；通常是臉部器官的位置點，例如瞳孔、兩眥或鼻子。 臉部特徵點是選擇性屬性，可在臉部偵測進行期間加以分析。 您可以在呼叫[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)時對 returnFaceLandmarks 查詢參數傳遞布林值 'true'，也可以對 FaceServiceClient 類別 DetectAsync 方法使用 returnFaceLandmarks 選擇性參數，以便在偵測結果中包括臉部特徵點。
 
 預設會有 27 個預先定義的臉部特徵點。 下圖顯示這 27 個位置點的定義方式：
 

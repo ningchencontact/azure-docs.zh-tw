@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 181addbcf4d0cfd51e74a24677de63f66e6fec1d
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: f49d61204bbaff58aecafbc933efd214897ea45f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190507"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913184"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux x64 裝置
 
@@ -109,7 +109,7 @@ IoT Edge 裝置：
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. 從 JSON 輸出中複製並儲存連接字串。 您將在下一節中使用此值設定 IoT Edge 執行階段。
+3. 從 JSON 輸出複製 `cs` 金鑰值並加以儲存。 此值示裝置連接字串。 您將在下一節中使用此連接字串來設定 IoT Edge 執行階段。
 
    ![從 CLI 輸出中擷取連接字串](./media/quickstart/retrieve-connection-string.png)
 

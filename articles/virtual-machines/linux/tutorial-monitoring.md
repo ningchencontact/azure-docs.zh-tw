@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/06/2018
+ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868543"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092745"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中監視和更新 Linux 虛擬機器
 
@@ -153,7 +153,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 5. (選擇性) 選取 [電子郵件的擁有者、參與者及讀者] 核取方塊以傳送電子郵件通知。 預設動作是在入口網站中顯示通知。
 6. 選取 [確定] 按鈕。
 
-## <a name="manage-package-updates"></a>管理套件更新
+## <a name="manage-software-updates"></a>管理軟體更新
 
 更新管理可讓您管理 Azure Linux VM 的更新和修補程式。
 您可以直接從 VM 快速評估可用更新的狀態、排定何時安裝必要的更新，並檢閱部署結果來確認更新已成功套用至 VM。
@@ -175,15 +175,14 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 工作區提供單一位置來檢閱和分析來自多個來源的資料。
 若要在需要更新的 VM 上執行其他動作，Azure 自動化可讓您對 VM 執行 Runbook，例如下載和套用更新。
 
-驗證程序也會檢查 VM 是否以 Microsoft Monitoring Agent (MMA) 和自動化混合式 Runbook 背景工作角色佈建。
-此代理程式用來與 VM 通訊，並取得更新狀態的相關資訊。
+驗證程序也會檢查 VM 是否以 Log Analytics 代理程式和自動化混合式 Runbook 背景工作角色佈建。 此代理程式用來與 VM 通訊，並取得更新狀態的相關資訊。
 
 選擇 Log Analytics 工作區與自動化帳戶，然後選取 [啟用] 來啟用解決方案。 啟用解決方案最多需要 15 分鐘。
 
 如果在上線期間遺漏下列任何必要條件，就會自動新增：
 
 * [Log Analytics](../../log-analytics/log-analytics-overview.md) 工作區
-* [自動化](../../automation/automation-offering-get-started.md)
+* [自動化帳戶](../../automation/automation-offering-get-started.md)
 * VM 上已啟用 [Hybrid Runbook 背景工作角色](../../automation/automation-hybrid-runbook-worker.md)
 
 [更新管理] 畫面隨即開啟。 設定位置、Log Analytics 工作區以及要使用的自動化帳戶，然後選取 [啟用]。 如果欄位呈現灰色，就表示已啟用 VM 的另一個自動化解決方案，且必須使用相同的工作區和自動化帳戶。
@@ -291,22 +290,9 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 ## <a name="advanced-monitoring"></a>進階監視
 
-您可以使用 [Azure 自動化](../../automation/automation-intro.md)所提供的「更新管理」和「變更」與「清查」等解決方案，來進行更進階的 VM 監視。
+您可使用[適用於 VM 的 Azure 監視器](../../azure-monitor/insights/vminsights-overview.md)進行更進階的 VM 監視，該監視器可藉由分析 Windows 和 Linux VM 的效能和健康情況 (包括其不同的程序以及其他資源和外部程序的互連相依性)，大規模監視 Azure 虛擬機器 (VM)。 Azure VM 的組態管理示透過 [Azure 自動化](../../automation/automation-intro.md)變更追蹤和清查解決方案提供，可輕鬆地識別您環境中的變更。 管理更新合規性是透過 Azure 自動化更新管理解決方案提供。   
 
-當您能夠存取 Log Analytics 工作區時，便可以藉由選取 [設定] 底下的 [進階設定]，找出工作區金鑰和工作區識別碼。 用 Log Analytics 工作區的值取代 \<workspace-key\> 和 \<workspace-id\>，然後您可以使用 **az vm extension set** 將擴充功能新增至 VM：
-
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroupMonitor \
-  --vm-name myVM \
-  --name OmsAgentForLinux \
-  --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.3 \
-  --protected-settings '{"workspaceKey": "<workspace-key>"}' \
-  --settings '{"workspaceId": "<workspace-id>"}'
-```
-
-幾分鐘之後，您應該就會在 Log Analytics 工作區中看到新的 VM。
+從 VM 連線至的 Log Analytics 工作區，您也可以利用[豐富2查詢語言](../../azure-monitor/log-query/log-query-overview.md)來擷取、彙總及分析所收集的資料。 
 
 ![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 

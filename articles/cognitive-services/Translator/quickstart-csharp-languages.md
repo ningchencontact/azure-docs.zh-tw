@@ -1,23 +1,23 @@
 ---
-title: 快速入門：取得支援的語言 (C#) - 翻譯工具文字 API
+title: 快速入門：取得支援的語言清單 (C#) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您可以使用翻譯工具文字 API，取得翻譯、直譯及查閱字典時所支援的語言清單。
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: cc5d9efd017ec2045cc94bbad98e26e8b95e071d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e638375c9c8316c00ee8da000ca5223330072985
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334681"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215566"
 ---
-# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-c"></a>快速入門：使用翻譯工具文字 REST API (C#) 取得支援的語言
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>快速入門：搭配使用翻譯工具文字 API 與 C# 來取得支援的語言清單
 
 在本快速入門中，您可以使用翻譯工具文字 API，取得翻譯、直譯及查閱字典時所支援的語言清單。
 
@@ -28,7 +28,7 @@ ms.locfileid: "52334681"
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet 套件](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)、[Visual Studio Code](https://code.visualstudio.com/download)，或您最愛的文字編輯器。
-* 語音服務的 Azure 訂用帳戶金鑰
+* 翻譯工具文字的 Azure 訂用帳戶金鑰
 
 ## <a name="create-a-net-core-project"></a>建立 .NET Core 專案
 

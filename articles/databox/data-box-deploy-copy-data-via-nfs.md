@@ -6,25 +6,25 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 1cd88e24b945bc6ce627b25b0645bf961039037b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: cec96871d379f9484bf8e08a9d511146a80d45c6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359811"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095594"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>教學課程：透過 NFS 將資料複製到 Azure 資料箱 
+# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>教學課程：透過 NFS 將資料複製到 Azure 資料箱
 
-本教學課程說明如何使用本機 Web UI 連接主機電腦並從中複製資料，然後進行寄送資料箱的準備工作。
+本教學課程說明如何使用本機 Web UI 連接主機電腦並從中複製資料。
 
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
+> * 必要條件
 > * 連線至資料箱
 > * 將資料複製到資料箱
-> * 準備寄送資料箱。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -34,7 +34,7 @@ ms.locfileid: "54359811"
 2. 您已收到資料箱，且入口網站中的訂購狀態為 [已交付]。
 3. 您有一部主機電腦，其中包含要複製到資料箱的資料。 您的主機電腦必須符合下列條件：
     - 執行[支援的作業系統](data-box-system-requirements.md)。
-    - 連線至高速網路。 強烈建議您具有至少一個 10 GbE 的連線。 如果無法使用 10 GbE 連線，也可以使用 1 GbE 資料連結，但是複製速度會受到影響。 
+    - 連線至高速網路。 強烈建議您具有至少一個 10 GbE 的連線。 如果無法使用 10-GbE 連線，可以使用 1-GbE 資料連結，但是複製速度將會受到影響。 
 
 ## <a name="connect-to-data-box"></a>連線至資料箱
 
@@ -72,17 +72,17 @@ ms.locfileid: "54359811"
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
-    **一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾**。 在區塊 Blob 和分頁 Blob 底下建立的資料夾，代表資料以 Blob 形式上傳至的容器。 您無法將檔案直接複製到儲存體帳戶中的 $root 資料夾。
+    **一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾**。 在區塊 Blob 和分頁 Blob 底下建立的資料夾，代表資料以 Blob 形式上傳至的容器。 您無法將檔案直接複製到儲存體帳戶中的 root 資料夾。
 
 ## <a name="copy-data-to-data-box"></a>將資料複製到資料箱
 
 連線至資料箱共用後，下一個步驟是複製資料。 開始複製資料之前，請檢閱下列注意事項：
 
-- 確實將資料複製到與適當資料格式相對應的共用。 例如，將區塊 Blob 資料複製到區塊 Blob 的共用。 如果資料格式不符合適當的共用類型，則在稍後步驟中，資料上傳至 Azure 的作業將會失敗。
+- 確實將資料複製到與適當資料格式相對應的共用。 例如，將區塊 Blob 資料複製到區塊 Blob 的共用。 將 VHD 複製到分頁 Blob。 如果資料格式不符合適當的共用類型，則在稍後步驟中，資料上傳至 Azure 的作業將會失敗。
 -  複製資料時，請確定資料大小符合 [Azure 儲存體和資料箱限制](data-box-limits.md)中所述的大小限制。 
 - 如果資料 (由資料箱上傳) 同時由資料箱以外的其他應用程式上傳，則可能導致上傳作業失敗和資料損毀。
 - 建議您不要同時使用 SMB 與 NFS，或將相同的資料複製到 Azure 上的相同最終目的地。 在這種情況下，無法判斷最後的結果。
-- **一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾**。 在區塊 Blob 和分頁 Blob 底下建立的資料夾，代表資料以 Blob 形式上傳至的容器。 您無法將檔案直接複製到儲存體帳戶中的 $root 資料夾。
+- **一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾**。 在區塊 Blob 和分頁 Blob 底下建立的資料夾，代表資料以 Blob 形式上傳至的容器。 您無法將檔案直接複製到儲存體帳戶中的 root 資料夾。
 
 如果您使用 Linux 主機電腦，請使用類似於 Robocopy 的複製公用程式。 在 Linux 中有替代工具可供使用，包括 [rsync](https://rsync.samba.org/)、[FreeFileSync](https://www.freefilesync.org/)、[Unison](https://www.cis.upenn.edu/~bcpierce/unison/) 或 [Ultracopier](https://ultracopier.first-world.info/)。  
 
@@ -126,18 +126,16 @@ ms.locfileid: "54359811"
     
    ![確認儀表板上的可用空間和已使用的空間](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-## <a name="prepare-to-ship"></a>準備寄送
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解 Azure 資料箱的相關主題，像是：
 
 > [!div class="checklist"]
+> * 必要條件
 > * 連線至資料箱
 > * 將資料複製到資料箱
-> * 準備寄送資料箱
+
 
 請繼續進行下一個教學課程，了解如何將資料箱送回給 Microsoft。
 

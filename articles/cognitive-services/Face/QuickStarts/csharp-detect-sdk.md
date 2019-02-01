@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: pafarley
-ms.openlocfilehash: 4fbbde167a8c895a71ab3614e8c3ecbce26604a9
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: caaef0f7fdbfc3ad639deddb328c98334ad3e99d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578144"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213299"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>快速入門：使用 Face .NET SDK 偵測影像中的臉部
 
@@ -41,7 +41,7 @@ ms.locfileid: "51578144"
 
 ### <a name="include-namespaces"></a>包含命名空間
 
-在 *Program.cs* 檔案的最上方新增下列 `using` 陳述式。
+在 *Program.cs* 檔案的頂端新增下列 `using` 陳述式。
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=1-7)]
 

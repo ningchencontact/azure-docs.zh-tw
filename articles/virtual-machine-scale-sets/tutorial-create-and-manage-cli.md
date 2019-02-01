@@ -3,7 +3,7 @@ title: 教學課程 - 建立及管理 Azure 虛擬機器擴展集 | Microsoft Do
 description: 了解如何使用 Azure CLI 建立虛擬機器擴展集，以及一些常見的管理工作，例如如何啟動和停止執行個體，或變更擴展集容量。
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 263a2ddd1cf42348678488a02ed0b97a7ed1304c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466132"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179475"
 ---
-# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>教學課程 - 使用 Azure CLI 建立及管理虛擬機器擴展集
+# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立及管理虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 在虛擬機器擴展集生命週期期間，您可能需要執行一或多個管理工作。 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
@@ -51,7 +51,7 @@ az group create --name myResourceGroup --location eastus
 
 
 ## <a name="create-a-scale-set"></a>建立擴展集
-您可以使用 [az vmss create](/cli/azure/vmss#az_vmss_create) 命令建立虛擬機器擴展集。 下列範例會建立名為 myScaleSet 的擴展集，以及產生 SSH 金鑰 (如果不存在)︰
+您可以使用 [az vmss create](/cli/azure/vmss) 命令建立虛擬機器擴展集。 下列範例會建立名為 myScaleSet 的擴展集，以及產生 SSH 金鑰 (如果不存在)︰
 
 ```azurecli-interactive
 az vmss create \
@@ -98,7 +98,7 @@ az vmss get-instance-view \
 ## <a name="list-connection-information"></a>列出連線資訊
 一個公用 IP 位址指派給將流量路由至個別 VM 執行個體的負載平衡器。 根據預設，網路位址轉譯 (NAT) 規則會新增至 Azure 負載平衡器，以將遠端連線流量轉送至每個 VM 上指定的連接埠。 若要連線至擴展集中的 VM 執行個體，您可以對指派的公用 IP 位址和連接埠號碼建立遠端連線。
 
-若要列出連線至擴展集中的 VM 執行個體的位址和連接埠，請使用 [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info)：
+若要列出連線至擴展集中的 VM 執行個體的位址和連接埠，請使用 [az vmss list-instance-connection-info](/cli/azure/vmss)：
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -202,7 +202,7 @@ VM 執行個體大小 (或 *SKU*) 會決定可供 VM 執行個體使用的計算
 | [高效能](../virtual-machines/linux/sizes-hpc.md) | H、A8-11          | 我們的最強大 CPU VM，可搭配選用的高輸送量網路介面 (RDMA)。 
 
 ### <a name="find-available-vm-instance-sizes"></a>尋找可用的 VM 執行個體大小
-若要查看特定區域中可用的 VM 執行個體大小清單，請使用 [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes) 命令。
+若要查看特定區域中可用的 VM 執行個體大小清單，請使用 [az vm list-sizes](/cli/azure/vm) 命令。
 
 ```azurecli-interactive
 az vm list-sizes --location eastus --output table
@@ -227,7 +227,7 @@ az vm list-sizes --location eastus --output table
 ```
 
 ### <a name="create-a-scale-set-with-a-specific-vm-instance-size"></a>建立具有特定 VM 執行個體大小的擴展集
-當您在教學課程一開始建立擴展集時，您為 VM 執行個體提供了預設的 VM SKU *Standard_D1_v2*。 您可以根據 [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes) 的輸出指定不同的 VM 執行個體大小。 下列範例會使用 `--vm-sku` 參數指定 VM 執行個體大小 *Standard_F1*，以建立擴展集。 建立及設定所有擴展集資源和 VM 執行個體需要幾分鐘的時間，而您並不需要部署下列擴展集：
+當您在教學課程一開始建立擴展集時，您為 VM 執行個體提供了預設的 VM SKU *Standard_D1_v2*。 您可以根據 [az vm list-sizes](/cli/azure/vm) 的輸出指定不同的 VM 執行個體大小。 下列範例會使用 `--vm-sku` 參數指定 VM 執行個體大小 *Standard_F1*，以建立擴展集。 建立及設定所有擴展集資源和 VM 執行個體需要幾分鐘的時間，而您並不需要部署下列擴展集：
 
 ```azurecli-interactive
 az vmss create \
@@ -241,7 +241,7 @@ az vmss create \
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>變更擴展集的容量
-當您在教學課程一開始建立擴展集時，您依預設部署了兩個 VM 執行個體。 您可以在使用 [az vmss create](/cli/azure/vmss#az_vmss_create) 時指定 `--instance-count` 參數，以變更要隨擴展集建立的執行個體數目。 若要增加或減少您現有擴展集中的 VM 執行個體數目，您可以手動變更容量。 擴展集會建立或移除所需的 VM 執行個體數目，然後設定用來分散流量的負載平衡器。
+當您在教學課程一開始建立擴展集時，您依預設部署了兩個 VM 執行個體。 您可以在使用 [az vmss create](/cli/azure/vmss) 時指定 `--instance-count` 參數，以變更要隨擴展集建立的執行個體數目。 若要增加或減少您現有擴展集中的 VM 執行個體數目，您可以手動變更容量。 擴展集會建立或移除所需的 VM 執行個體數目，然後設定用來分散流量的負載平衡器。
 
 若要手動增加或減少擴展集中的 VM 執行個體數目，請使用 [az vmss scale](/cli/azure/vmss#az_vmss_scale)。 下列範例會將擴展集中的 VM 執行個體數目設為 *3*：
 

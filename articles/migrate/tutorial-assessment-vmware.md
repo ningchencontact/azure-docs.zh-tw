@@ -4,15 +4,15 @@ description: 說明如何使用 Azure Migrate 服務，探索及評估要移轉�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/11/2019
+ms.date: 01/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e922e9e7741eb3338503e02cd0ca78387e32b1f6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 58a4f60a5ef01f8f2757aeb04c2dd7165d68179a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824094"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298716"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>探索及評估要移轉到 Azure 的內部部署 VMware VM
 
@@ -30,7 +30,7 @@ ms.locfileid: "54824094"
 
 ## <a name="prerequisites"></a>必要條件
 
-- **VMware**：您計劃移轉的虛擬機器必須透過執行版本 5.5、6.0 或 6.5 的 vCenter Server 來管理。 此外，您還需要一部執行版本 5.0 或更新版本的 ESXi 主機來部署收集器 VM。
+- **VMware**：您計劃移轉的虛擬機器必須透過執行版本 5.5、6.0 或 6.5 的 vCenter Server 來管理。 此外，您還需要一部執行 5.5 版或更新版本的 ESXi 主機來部署收集器 VM。
 - **vCenter Server 帳戶**：您需要一個唯讀帳戶來存取 vCenter Server。 Azure Migrate 會使用此帳戶來探索內部部署 VM。
 - **權限**：在 vCenter Server 上，您需要權限，方可藉由匯入 .OVA 格式的檔案來建立 VM。
 
@@ -102,6 +102,14 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 3. 產生的雜湊應符合這些設定。
 
 #### <a name="continuous-discovery"></a>連續探索
+
+  OVA 1.0.10.11 版
+
+  **演算法** | **雜湊值**
+    --- | ---
+    MD5 | 5f6b199d8272428ccfa23543b0b5f600
+    SHA1 | daa530de6e8674a66a728885a7feb3b0a2e8ccb0
+    SHA256 | 85da50a21a7a6ca684418a87ccc1dd4f8aab30152c438a17b216ec401ebb3a21
 
   OVA 1.0.10.9 版
 

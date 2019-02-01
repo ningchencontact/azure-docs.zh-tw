@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a71635abd036bb89546dd3421af97cd9b88f4327
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9d271642a432d8a149fbe468087a0598c91e7c36
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439884"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902374"
 ---
 # <a name="tutorial-use-data-copy-service-to-directly-ingest-data-into-azure-data-box-preview"></a>教學課程：使用資料複製服務直接將資料擷取至 Azure 資料箱 (預覽)
 
@@ -24,11 +24,12 @@ ms.locfileid: "54439884"
 - 在網路連接儲存裝置 (NAS) 環境中，中繼主機可能無法使用。
 - 搭配需要數週時間來擷取和上傳資料的小型檔案。 此服務會大幅改善擷取和上傳時間。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解：
 
 > [!div class="checklist"]
+> * 必要條件
 > * 將資料複製到資料箱
-> * 準備寄送資料箱。
+
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -60,13 +61,13 @@ ms.locfileid: "54439884"
     |-------------------------------|---------|
     |作業名稱                       |作業的唯一名稱超過 230 個字元。 作業名稱中不允許以下字元：\<、\>、\|、\?、\*、\\、\:、\/ 及 \\\.         |
     |來源位置                |以下列格式提供資料來源的 SMB 路徑：`\\<ServerIPAddress>\<ShareName>` 或 `\\<ServerName>\<ShareName>`。        |
-    |使用者名稱                       |用以存取資料來源的使用者名稱。        |
+    |使用者名稱                       |用以存取資料來源的使用者名稱 (採用 `\\<DomainName><UserName>` 格式)。        |
     |密碼                       |用以存取資料來源的密碼。           |
     |目的地儲存體帳戶    |從下拉式清單中選取要上傳資料的目標儲存體帳戶。         |
     |目的地儲存體帳戶       |從區塊 Blob、分頁 Blob 或 Azure 檔案儲存體中選取目標儲存體類型。        |
     |目的地容器/共用    |輸入容器或共用名稱，以上傳目的地儲存體帳戶中的資料。 此名稱可以是共用名稱或容器名稱。 例如，`myshare` 或 `mycontainer`。 您也可以使用雲端中的 `sharename\directory_name` 或 `containername\virtual_directory_name` 格式輸入。        |
     |複製符合模式的檔案    | 以下列兩種方式輸入檔案名稱比對模式。<ul><li>**使用萬用字元運算式** 萬用字元運算式僅支援 `*` 和 `?`。 例如，這個運算式 `*.vhd` 會比對具有 .vhd 副檔名的所有檔案。 同樣地，`*.dl?` 會比對其副檔名為 `.dl` 或 `.dll` 的所有檔案。 此外，`*foo` 會比對其名稱結尾為 `foo` 的所有檔案。<br>您可以在欄位中直接輸入萬用字元運算式。 根據預設，在此欄位中輸入的值會被視為萬用字元運算式。</li><li>**使用規則運算式** - 支援 POSIX 型規則運算式。 例如，規則運算式 `.*\.vhd` 會比對具有 `.vhd` 副檔名的所有檔案。 針對規則運算式，直接提供 `<pattern>` 作為 `regex(<pattern>)`。 <li>如需有關規則運算式的詳細資訊，請移至[規則運算式語言 - 快速參考](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)。</li><ul>|
-    |檔案最佳化              |若已啟用，檔案就會在擷取時封裝。 這可加快小型檔案的資料複製。        |
+    |檔案最佳化              |若已啟用，小於 1 MB 的檔案就會在擷取時封裝。 這可加快小型檔案的資料複製。 檔案數目遠超過目錄數目時，即可省下不少時間。        |
  
 4. 按一下 [啟動] 。 輸入會經過驗證，如果驗證成功，則會啟動作業。 系統需要花幾分鐘的時間來啟動作業。
 
@@ -106,9 +107,7 @@ ms.locfileid: "54439884"
     - 在這個版本中，您無法刪除作業。
     
     - 您可以建立無限制的作業，但是在任何指定的時間最多平行執行 10 個作業。
-    - 若已開啟檔案最佳化，小型檔案會在擷取時封裝以改善複製效能。 在這些情況下，您會看到如以下螢幕擷取畫面所示的封裝檔案 (GUID 作為名稱)。
-
-        ![封裝的檔案範例](media/data-box-deploy-copy-data-via-copy-service/packed-file-on-ingest.png)
+    - 若已開啟檔案最佳化，小型檔案會在擷取時封裝以改善複製效能。 在這些情況下，您會看到封裝檔案 (GUID 作為名稱)。 請勿刪除此檔案，因為此檔案會在上傳期間解除封裝。
 
 6. 當作業正在進行時，在 [複製資料] 頁面上：
 
@@ -139,18 +138,14 @@ ms.locfileid: "54439884"
 >[!NOTE]
 > 複製作業正在進行時，無法執行寄送準備。
 
-## <a name="prepare-to-ship"></a>準備寄送
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
-
-
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解 Azure 資料箱的相關主題，像是：
 
 > [!div class="checklist"]
+> * 必要條件
 > * 將資料複製到資料箱
-> * 準備寄送資料箱
+
 
 請繼續進行下一個教學課程，了解如何將資料箱送回給 Microsoft。
 

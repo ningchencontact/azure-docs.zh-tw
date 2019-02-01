@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e73b4724dbe578e6cd46753c85a4f3dce62f1e3a
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 8fea062e2c72410b13fa70cc5cad22b7e677086b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402059"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211843"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>設定 Azure VM 到次要 Azure 區域的災害復原        
 
@@ -54,7 +54,7 @@ ms.locfileid: "54402059"
 
 主要區域中的 VM 會在您停用其複寫功能時停止複寫：
 
-- 來源複寫設定會自動清除。 請注意，在複寫期間安裝的 Site Recovery 擴充功能不會移除，因此必須以手動方式移除。 
+- 來源複寫設定會自動清除。 請注意，在複寫期間安裝的 Site Recovery 擴充功能不會移除，而必須以手動方式移除。 
 - VM 的 Site Recovery 計費也會停止。
 
 停止複寫，如下所示

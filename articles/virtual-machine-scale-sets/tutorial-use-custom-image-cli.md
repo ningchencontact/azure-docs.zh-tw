@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5eee55846bd6f5821be1e40b969a35f5e50bd205
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 119a53949b6184389c0e36e56732f0486c24ca5c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967365"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193483"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立及使用虛擬機器擴展集的自訂映像
 當您建立擴展集時，您會指定部署 VM 執行個體時所要使用的映像。 若要減少部署 VM 執行個體後的工作數量，您可以使用自訂的 VM 映像。 此自訂 VM 映像包括任何必要的應用程式安裝或組態。 在擴展集中建立的任何 VM 執行個體都會使用自訂 VM 映像，並已可以處理您的應用程式流量。 在本教學課程中，您將了解如何：
@@ -44,7 +44,7 @@ ms.locfileid: "46967365"
 >[!NOTE]
 > 本教學課程將逐步說明建立及使用一般化 VM 映像的程序。 不支援從特製化 VM 映像建立擴展集。
 
-首先，請使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組，然後使用 [az vm create](/cli/azure/vm#az_vm_create)來建立 VM。 接著，此 VM 會用來當作自訂 VM 映像的來源。 下列範例會在名為 myResourceGroup 的資源群組中建立名為 myVM 的 VM：
+首先，請使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組，然後使用 [az vm create](/cli/azure/vm)來建立 VM。 接著，此 VM 會用來當作自訂 VM 映像的來源。 下列範例會在名為 myResourceGroup 的資源群組中建立名為 myVM 的 VM：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -57,7 +57,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-VM 的公用 IP 位址會顯示在 [az vm create](/cli/azure/vm#az_vm_create)命令的輸出中。 透過 SSH 連線至 VM 的公用 IP 位址，如下所示：
+VM 的公用 IP 位址會顯示在 [az vm create](/cli/azure/vm)命令的輸出中。 透過 SSH 連線至 VM 的公用 IP 位址，如下所示：
 
 ```azurecli-interactive
 ssh azureuser@<publicIpAddress>
@@ -96,7 +96,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 解除配置及一般化 VM 可能需要幾分鐘的時間。
 
-使用 [az image create](/cli//azure/image#az_image_create) 建立 VM 的映像。 下列範例會從您的 VM 建立名為 myImage 的映像：
+使用 [az image create](/cli//azure/image) 建立 VM 的映像。 下列範例會從您的 VM 建立名為 myImage 的映像：
 
 ```azurecli-interactive
 az image create \

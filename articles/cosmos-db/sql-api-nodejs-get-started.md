@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 91b346c9a04cab1c5fcdb00ffd5f3fa811416036
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9ee01885d9c292a7f9513ebc1f5121ca8c010f68
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041664"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095816"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教學課程：使用 JavaScript SDK 建置 Node.js 主控台應用程式，以管理 Azure Cosmos DB SQL API 資料
 
@@ -204,6 +204,15 @@ ms.locfileid: "54041664"
 
    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
    ```
+   
+> [!Note]
+> 如果連線到 [Cosmos DB 模擬器]，請藉由建立自訂連線原則來停用 SSL 驗證。
+>   ```
+>   const connectionPolicy = new cosmos.ConnectionPolicy ()
+>   connectionPolicy.DisableSSLVerification = true
+>
+>   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey }, connectionPolicy });
+>   ```
 
 您現在已有可將 Azure Cosmos DB 用戶端初始化的程式碼，接下來我們將討論如何使用 Azure Cosmos DB 資源。
 

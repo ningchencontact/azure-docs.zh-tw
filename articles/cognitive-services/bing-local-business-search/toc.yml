@@ -6,6 +6,9 @@ items:
   items:
   - name: 什麼是 Bing 當地商家搜尋 API？
     href: overview.md
+  - name: 比較 Bing 搜尋 API
+    href: ../Bing-Web-Search/bing-api-comparison.md
+    maintainContext: true
   expanded: true
 - name: 快速入門
   items:
@@ -31,7 +34,8 @@ items:
 - name: 參考
   items:
   - name: 使用和顯示需求
-    href: use-display-requirements.md
+    href: ../Bing-Web-Search/use-display-requirements.md
+    maintainContext: true
   - name: 當地商家搜尋 API 參考
     href: local-search-reference.md
 - name: 資源
@@ -40,9 +44,9 @@ items:
     href: https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api
   - name: 定價資訊
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/
-ms.openlocfilehash: d120c19aa2b028fe54bec90c22f3e9bcf1bb4355
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 14c891c74accb4cca537e24ddbdcb99ae36618c9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748775"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507496"

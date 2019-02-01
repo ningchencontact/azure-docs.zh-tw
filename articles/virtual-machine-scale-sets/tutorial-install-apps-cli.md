@@ -3,7 +3,7 @@ title: 教學課程 - 使用 Azure CLI 在擴展集中安裝應用程式 | Micro
 description: 了解如何搭配使用 Azure CLI 與自訂指令碼延伸模組，將應用程式安裝到虛擬機器擴展集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 913d1b9125bcfa57334e70dcca44965fdb3d5ba6
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 9f979922b2abd2ce1a707a8b91656bbe64119938
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242053"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157256"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>教學課程 - 使用 Azure CLI 在虛擬機器擴展集中安裝應用程式
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>教學課程：使用 Azure CLI 在虛擬機器擴展集中安裝應用程式
 若要在擴展集的虛擬機器 (VM) 執行個體上執行應用程式，您需要先安裝應用程式元件和必要的檔案。 在先前的教學課程中，您已了解如何建立及使用自訂 VM 映像來部署您的 VM 執行個體。 此自訂映像已包含手動應用程式安裝和組態。 您也可以在部署好每個 VM 執行個體後，讓應用程式自動安裝到擴展集，或更新已在擴展集上執行的應用程式。 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
@@ -60,13 +60,13 @@ ms.locfileid: "50242053"
 
 
 ## <a name="create-a-scale-set"></a>建立擴展集
-使用 [az group create](/cli/azure/group#create) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+使用 [az group create](/cli/azure/group) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-現在使用 [az vmss create](/cli/azure/vmss#create) 建立虛擬機器擴展集。 下列範例會建立名為 myScaleSet 的擴展集，以及產生 SSH 金鑰 (如果不存在)︰
+現在使用 [az vmss create](/cli/azure/vmss) 建立虛擬機器擴展集。 下列範例會建立名為 myScaleSet 的擴展集，以及產生 SSH 金鑰 (如果不存在)︰
 
 ```azurecli-interactive
 az vmss create \
@@ -98,7 +98,7 @@ az vmss extension set \
 
 
 ## <a name="test-your-scale-set"></a>測試您的擴展集
-若要允許流量觸達 Web 伺服器，請使用 [az network lb rule create](/cli/azure/network/lb/rule#create) 建立負載平衡器規則。 下列範例會建立名為 myLoadBalancerRuleWeb 的規則：
+若要允許流量觸達 Web 伺服器，請使用 [az network lb rule create](/cli/azure/network/lb/rule) 建立負載平衡器規則。 下列範例會建立名為 myLoadBalancerRuleWeb 的規則：
 
 ```azurecli-interactive
 az network lb rule create \

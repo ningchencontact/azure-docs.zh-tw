@@ -6,20 +6,20 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: f233efc93fa07cc7fc7c904336f01348f4da3f82
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 488b97074d74650ecf5602d25e2a90a1998e5585
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554515"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883869"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>教學課程：使用時間序列深入解析對來自 Azure Digital Twins 空間的事件進行視覺化檢視和分析
 
-在部署 Azure Digital Twins 執行個體、佈建空間並實作自訂函式來監視特定情況後，您便可以對來自空間的事件和資料進行視覺化檢視，以找出其中的趨勢和異常。 
+在部署 Azure Digital Twins 執行個體、佈建空間並實作自訂函式來監視特定情況後，您便可以對來自空間的事件和資料進行視覺化檢視，以找出其中的趨勢和異常。
 
-在[第一個教學課程](tutorial-facilities-setup.md)中，您已設定虛構建築物的空間圖形，該建築物中有一個空間含有可監控運動、二氧化碳和溫度的感應器。 在[第二個教學課程](tutorial-facilities-udf.md)中，您佈建了圖形和使用者定義的函式。 該函式會監視這些感應器的數值，並觸發正確情況的通知。 也就是，房間是空的，而且溫度和二氧化碳濃度正常。 
+在[第一個教學課程](tutorial-facilities-setup.md)中，您已設定虛構建築物的空間圖形，該建築物中有一個空間含有可監控運動、二氧化碳和溫度的感應器。 在[第二個教學課程](tutorial-facilities-udf.md)中，您佈建了圖形和使用者定義的函式。 該函式會監視這些感應器的數值，並觸發正確情況的通知。 也就是，房間是空的，而且溫度和二氧化碳濃度正常。
 
 本教學課程示範如何將來自 Azure Digital Twins 的通知和資料與 Azure Time Series Insights 進行整合。 然後，您便可將一段時間的感應器數值視覺化。 您可以尋找其中的趨勢，例如，哪個房間最常使用，以及一天當中的哪個時間最忙碌。 您也可以偵測異常，例如哪些房間感覺變得更悶熱，或是建築物中的某個區域是否一直傳送高溫度值，而表示空調故障。
 
@@ -32,43 +32,44 @@ ms.locfileid: "53554515"
 ## <a name="prerequisites"></a>必要條件
 
 本教學課程假設您已經[設定](tutorial-facilities-setup.md)並[佈建](tutorial-facilities-udf.md) Azure Digital Twins 設定。 繼續之前，請確定您有：
+
 - [Azure 帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 - 執行中的 Digital Twins 執行個體。
 - 在工作電腦上下載並解壓縮 [Digital Twins C# 範例](https://github.com/Azure-Samples/digital-twins-samples-csharp)。
-- 在開發電腦上安裝 [.NET Core SDK 2.1.403 版或更新版本](https://www.microsoft.com/net/download)，以執行範例。 執行 `dotnet --version` 來確認是否已安裝正確版本。 
-
+- 在開發電腦上安裝 [.NET Core SDK 2.1.403 版或更新版本](https://www.microsoft.com/net/download)，以執行範例。 執行 `dotnet --version` 來確認是否已安裝正確版本。
 
 ## <a name="stream-data-by-using-event-hubs"></a>使用事件中樞來串流資料
+
 您可以使用[事件中樞](../event-hubs/event-hubs-about.md)服務來建立管線以串流資料。 本節會說明如何建立事件中樞來作為 Azure Digital Twins 和時間序列深入解析執行個體之間的連接器。
 
 ### <a name="create-an-event-hub"></a>建立事件中樞
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 在左窗格中選取 [建立資源]。 
+1. 在左窗格中選取 [建立資源]。
 
 1. 搜尋並選取 [事件中樞]。 選取 [建立] 。
 
-1. 輸入事件中樞命名空間的 [名稱]。 選擇 [標準] **定價層**、[訂用帳戶]、用於 Digital Twins 執行個體的 [資源群組]，以及 [位置]。 選取 [建立] 。 
+1. 輸入事件中樞命名空間的 [名稱]。 選擇 [標準] **定價層**、[訂用帳戶]、用於 Digital Twins 執行個體的 [資源群組]，以及 [位置]。 選取 [建立] 。
 
 1. 在事件中樞命名空間部署中，選取 [資源] 底下的命名空間。
 
     ![部署後的事件中樞命名空間](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
-
-1. 在事件中樞命名空間的 [概觀] 窗格中，選取頂端的 [事件中樞] 按鈕。 
+1. 在事件中樞命名空間的 [概觀] 窗格中，選取頂端的 [事件中樞] 按鈕。
     ![事件中樞按鈕](./media/tutorial-facilities-analyze/create-event-hub.png)
 
-1. 輸入事件中樞的 [名稱]，然後選取 [建立]。 
+1. 輸入事件中樞的 [名稱]，然後選取 [建立]。
 
    事件中樞部署好之後，便會出現在事件中樞命名空間的 [事件中樞] 窗格中，且狀態為 [作用中]。 選取此事件中樞以開啟其 [概觀] 窗格。
 
 1. 選取頂端的 [取用者群組] 按鈕，然後為取用者群組輸入名稱，例如 **tsievents**。 選取 [建立] 。
+
     ![事件中樞取用者群組](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
 
-   取用者群組建立好之後，便會出現在事件中樞 [概觀] 窗格底部的清單中。 
+   取用者群組建立好之後，便會出現在事件中樞 [概觀] 窗格底部的清單中。
 
-1. 開啟事件中樞的 [共用存取原則] 窗格，然後選取 [新增] 按鈕。 輸入 **ManageSend** 作為原則名稱，確定所有核取方塊皆已選取，然後選取 [建立]。 
+1. 開啟事件中樞的 [共用存取原則] 窗格，然後選取 [新增] 按鈕。 輸入 **ManageSend** 作為原則名稱，確定所有核取方塊皆已選取，然後選取 [建立]。
 
     ![事件中樞連接字串](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)
 
@@ -100,13 +101,13 @@ ms.locfileid: "53554515"
 
 1. 將預留位置 `Primary_connection_string_for_your_event_hub` 替換為事件中樞的 [連接字串 - 主要金鑰] 值。 確定此連接字串的格式如下：
 
-   ```
+   ```plaintext
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
 1. 將預留位置 `Secondary_connection_string_for_your_event_hub` 替換為事件中樞的 [連接字串 - 次要金鑰] 值。 確定此連接字串的格式如下： 
 
-   ```
+   ```plaintext
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 
@@ -115,13 +116,12 @@ ms.locfileid: "53554515"
     > [!IMPORTANT]
     > 所有值在輸入時不得有任何引號。 請確定 YAML 檔案中的所有冒號後面都至少有一個空格字元。 您也可以使用任何線上的 YAML 驗證器 (例如[此工具](https://onlineyamltools.com/validate-yaml)) 來驗證 YAML 檔案的內容。
 
-
 1. 儲存並關閉檔案。 在 [命令] 視窗中執行下列命令，並在出現提示時使用 Azure 帳戶登入。
 
     ```cmd/sh
     dotnet run CreateEndpoints
     ```
-   
+
    此命令會為事件中樞建立兩個端點。
 
    ![事件中樞的端點](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
@@ -165,12 +165,11 @@ ms.locfileid: "53554515"
     > [!TIP]
     > 如果您在刪除 Digital Twins 執行個體時遇到問題，已推出的服務更新中具有修正程式。 請重試刪除執行個體。
 
-2. 如有必要，請刪除工作電腦上的應用程式範例。 
-
+2. 如有必要，請刪除工作電腦上的應用程式範例。
 
 ## <a name="next-steps"></a>後續步驟
 
-請前往下一篇文章，以深入了解 Azure Digital Twins 中的空間智慧圖形和物件模型。 
+請前往下一篇文章，以深入了解 Azure Digital Twins 中的空間智慧圖形和物件模型。
+
 > [!div class="nextstepaction"]
 > [了解 Digital Twins 物件模型和空間智慧圖形](concepts-objectmodel-spatialgraph.md)
-

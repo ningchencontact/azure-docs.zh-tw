@@ -7,13 +7,13 @@ ms.service: storage
 ms.author: jamesbak
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 0bb2e9a91890f88466b27439b55d516848fd2270
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 4d0ff4941405f09c2231b9cde16f4e75e2b88b4b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438823"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251668"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>教學課程：使用 Azure Databrick 擷取、轉換和載入資料
 
@@ -42,6 +42,7 @@ ms.locfileid: "54438823"
 > * 建立 Azure SQL 資料倉儲、建立伺服器層級的防火牆規則，並以伺服器管理員的身分連線至伺服器。請參閱[快速入門：建立 Azure SQL 資料倉儲](../../sql-data-warehouse/create-data-warehouse-portal.md)。
 > * 建立 Azure SQL 資料倉儲的資料庫主要金鑰。 請參閱[建立資料庫主要金鑰](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key)。
 > * 建立 Azure Data Lake Storage Gen2 帳戶。 請參閱[建立 Azure Data Lake Storage Gen2 帳戶](data-lake-storage-quickstart-create-account.md)。
+> * 建立 Azure Blob 儲存體帳戶和其中所含的容器。 請參閱[快速入門：建立 Azure Blob 儲存體帳戶](storage-quickstart-blobs-portal.md)的指示操作。
 > * 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 ## <a name="create-an-azure-databricks-workspace"></a>建立 Azure Databricks 工作區
@@ -145,17 +146,17 @@ ms.locfileid: "54438823"
 
    ```scala
    spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
-   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
    spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
    spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
-   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    ```
 
-5. 在此程式碼區塊中，將此程式碼區塊中的 `application-id`、`authentication-id` 和 `tenant-id` 預留位置值，取代為您在執行[備妥儲存體帳戶組態](#config)中的步驟時所收集的值。 使用您的儲存體帳戶名稱取代 `storage-account-name` 預留位置值。
+6. 在此程式碼區塊中，將此程式碼區塊中的 `application-id`、`authentication-id` 和 `tenant-id` 預留位置值，取代為您在執行[備妥儲存體帳戶組態](#config)中的步驟時所收集的值。 使用您的儲存體帳戶名稱取代 `storage-account-name` 預留位置值。
 
-6. 按 **SHIFT + ENTER** 鍵以執行此區塊中的程式碼。
+7. 按 **SHIFT + ENTER** 鍵以執行此區塊中的程式碼。
 
-7. 您現在可以將 json 檔案範例以資料框架的形式載入 Azure Databricks。 在新的資料格中貼上下列程式碼。 請將括號內顯示的預留位置取代為您自己的值。
+8. 您現在可以將 json 檔案範例以資料框架的形式載入 Azure Databricks。 在新的資料格中貼上下列程式碼。 請將括號內顯示的預留位置取代為您自己的值。
 
    ```scala
    val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
@@ -165,9 +166,9 @@ ms.locfileid: "54438823"
 
    * 使用您的儲存體帳戶名稱取代 `storage-account-name` 預留位置。
 
-8. 按 **SHIFT + ENTER** 鍵以執行此區塊中的程式碼。
+9. 按 **SHIFT + ENTER** 鍵以執行此區塊中的程式碼。
 
-9. 執行下列程式碼，以查看資料框架的內容：
+10. 執行下列程式碼，以查看資料框架的內容：
 
     ```scala
     df.show()
@@ -267,37 +268,37 @@ ms.locfileid: "54438823"
 
 在本節中，您會將已轉換的資料上傳至 Azure SQL 資料倉儲。 您可以使用適用於 Azure Databricks 的 Azure SQL 資料倉儲連接器，直接將資料框架以資料表形式上傳至 SQL 資料倉儲。
 
-在 Azure Databricks 和 Azure SQL 資料倉儲之間上傳資料時，SQL 資料倉儲連接器會使用 Azure Blob 儲存體作為暫時儲存體。 因此，一開始您需提供要連線到儲存體帳戶的組態。 您必須已建立屬於本文必要條件的帳戶。
+如前所述，在 Azure Databricks 和 Azure SQL 資料倉儲之間上傳資料時，SQL 資料倉儲連接器會使用 Azure Blob 儲存體作為暫時儲存體。 因此，一開始您需提供要連線到儲存體帳戶的組態。 您必須已建立屬於本文必要條件的帳戶。
 
 1. 提供可從 Azure Databricks 存取 Azure 儲存體帳戶的組態。
 
    ```scala
-   val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
-   val fileSystemName = "<FILE_SYSTEM_NAME>"
-   val accessKey =  "<ACCESS_KEY>"
+   val blobStorage = "<blob-storage-account-name>.blob.core.windows.net"
+   val blobContainer = "<blob-container-name>"
+   val authenticationKey =  "<authentication-key>"
    ```
 
 2. 指定在 Azure Databricks 與 Azure SQL 資料倉儲之間移動資料時所要使用的暫存資料夾。
 
    ```scala
-   val tempDir = "abfss://" + fileSystemName + "@" + storageURI +"/tempDirs"
+   val tempDir = "wasbs://" + blob-container-name + "@" + blobStorage +"/tempDirs"
    ```
 
 3. 執行下列程式碼片段，儲存組態中的 Azure Blob 儲存體存取金鑰。 此動作可確保您無須在 Notebook 中以純文字保留存取金鑰。
 
    ```scala
-   val acntInfo = "fs.azure.account.key."+ storageURI
-   sc.hadoopConfiguration.set(acntInfo, accessKey)
+   val acntInfo = "fs.azure.account.key."+ blobStorage
+   sc.hadoopConfiguration.set(acntInfo, authenticationKey)
    ```
 
 4. 提供用來連線至 Azure SQL 資料倉儲執行個體的值。 您必須已建立屬於必要條件的 SQL 資料倉儲。
 
    ```scala
    //SQL Data Warehouse related settings
-   val dwDatabase = "<DATABASE NAME>"
-   val dwServer = "<DATABASE SERVER NAME>" 
-   val dwUser = "<USER NAME>"
-   val dwPass = "<PASSWORD>"
+   val dwDatabase = "<database-name>"
+   val dwServer = "<database-server-name>"
+   val dwUser = "<user-name>"
+   val dwPass = "<password>"
    val dwJdbcPort =  "1433"
    val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
    val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"

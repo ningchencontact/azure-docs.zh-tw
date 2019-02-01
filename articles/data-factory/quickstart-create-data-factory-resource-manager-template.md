@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 90f9ffeba2871aaa96a4da4cdbdf949a8e7db1bf
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 279588e63000883d60b159f56e8c0b4686dee5b4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436428"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888765"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>教學課程：使用 Azure Resource Manager 範本建立 Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -285,7 +285,7 @@ ms.locfileid: "54436428"
       "value": "East US"
     },
     "storageAccountName": {
-      "value": "<yourstroageaccountname>"
+      "value": "<yourstorageaccountname>"
     },
     "storageAccountKey": {
       "value": "<yourstorageaccountkey>"
@@ -492,7 +492,7 @@ AzureStorageLinkedService 會將 Azure 儲存體帳戶連結至資料處理站�
 }
 ```
 
-connectionString 會使用 storageAccountName 和 storageAccountKey 參數。 使用組態檔傳遞這些參數的值。 定義也會使用在範本中定義的變數︰azureStroageLinkedService 和 dataFactoryName。
+connectionString 會使用 storageAccountName 和 storageAccountKey 參數。 使用組態檔傳遞這些參數的值。 定義也會使用在範本中定義的變數︰azureStorageLinkedService 和 dataFactoryName。
 
 #### <a name="azure-blob-input-dataset"></a>Azure Blob 輸入資料集
 Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連線到 Azure 儲存體帳戶的連接字串。 在 Azure Blob 資料集定義中，您可指定 Blob 容器、資料夾和包含輸入資料之檔案的名稱。 請參閱 [Azure Blob 資料集屬性](connector-azure-blob-storage.md#dataset-properties)，以取得用來定義 Azure Blob 資料集之 JSON 屬性的詳細資訊。

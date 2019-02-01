@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: a363b5688e5fe915bd96393c35b3f39c69052d7c
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ed2d1256508e588000970879dae7ac653797fbf9
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359301"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883308"
 ---
-# <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Azure Data Lake Storage Gen1 的虛擬網路整合 - 預覽
+# <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 的虛擬網路整合
 
 本文介紹 Azure Data Lake Storage Gen1 的虛擬網路整合。 透過虛擬網路整合，您可以設定帳戶，使其只接受來自特定虛擬網路和子網路的流量。 
 

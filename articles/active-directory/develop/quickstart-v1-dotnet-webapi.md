@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 239c0d0adbe89dd3d1d7bc7244a52ab079a36ad4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f44955e13cb5774119dc083f4a3220b432d9cd9e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952540"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098059"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>快速入門：建置與 Azure AD 整合來進行驗證和授權的 .NET Web API
 
@@ -45,10 +45,10 @@ ms.locfileid: "46952540"
 
 若要開始，請完成以下必要條件：
 
-* [下載應用程式基本架構](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip)或[下載完整的範例](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip)。 每一個都是 Visual Studio 2013 解決方案。
+* [下載應用程式基本架構](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip)或[下載已完成的範例](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip)。 每一個都是 Visual Studio 2013 解決方案。
 * 一個可供註冊應用程式的 Azure AD 租用戶。 如果您還沒有租用戶， [了解如何取得租用戶](quickstart-create-new-tenant.md)。
 
-## <a name="step-1-register-an-application-with-azure-ad"></a>步驟 1︰向 Azure AD 註冊應用程式
+## <a name="step-1-register-an-application-with-azure-ad"></a>步驟 1：向 Azure AD 註冊應用程式
 
 若要協助保護您的應用程式，您必須先在您的租用戶中建立應用程式，然後提供 Azure AD 幾個重要的資訊。
 

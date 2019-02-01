@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d8e6afb61fd9fa25b220f3267ee718f0859ae9a4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9c6729abefc62aeae232fff5ea48619377630635
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948786"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197614"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立 Azure VM 的自訂映像
 
@@ -73,7 +73,7 @@ exit
 
 ### <a name="deallocate-and-mark-the-vm-as-generalized"></a>解除配置並將 VM 標示為一般化
 
-若要建立映像，必須解除配置 VM。 使用 [az vm deallocate](/cli//azure/vm#deallocate) 解除配置 VM。 
+若要建立映像，必須解除配置 VM。 使用 [az vm deallocate](/cli//azure/vm) 解除配置 VM。 
    
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroup --name myVM

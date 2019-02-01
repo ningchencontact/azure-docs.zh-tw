@@ -6,18 +6,18 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 9d8a820b9b4c0c11d6e73728f8e62cc47eb4ab34
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: daa1afd2caf5d5bfa2452858501f550e4c7e387b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680050"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212013"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-c"></a>快速入門：使用翻譯工具文字 REST API (C#) 取得句子長度
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-c"></a>快速入門：搭配使用翻譯工具文字 API 與 C# 來判斷句子長度
 
 在此快速入門中，您將了解如何使用 .NET Core 和翻譯工具文字 API 來判斷句子長度。
 

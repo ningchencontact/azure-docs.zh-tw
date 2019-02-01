@@ -6,16 +6,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8bee93c4bb932730000a06cc2bc3fe5a3e330a1f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215237"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217623"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>教學課程：建立自訂原音模型
 
@@ -46,7 +46,7 @@ ms.locfileid: "50215237"
 * 如果您想要更清楚地辨識吵雜工廠環境中的語音，音訊檔內就應該包含人們在吵雜工廠中說話的聲音。
 * 如果您想要讓單一演講者的表現發揮最佳效果，例如，您想要抄寫美國總統富蘭克林‧羅斯福的所有「爐邊談話」，則音訊檔內就應該包含許多只有該名演講者的範例。
 
-用來自訂原音模型的原音資料集是由兩個部分所組成：(1) 一組包含語音資料的音訊檔和 (2) 包含所有音訊檔文字記錄的檔案。
+用來自訂原音模型的原音資料集由兩個部分所組成：(1) 一組包含語音資料的音訊檔和 (2) 包含所有音訊檔轉譯的檔案。
 
 ### <a name="audio-data-recommendations"></a>音訊資料建議
 
@@ -112,7 +112,7 @@ ms.locfileid: "50215237"
 
 在 [文字記錄檔案 (.txt)] 和 [音訊檔案 (.zip)] 方塊中，選取 [瀏覽]，然後選取純文字的文字記錄檔案和 WAV 檔案的 zip 封存檔。 準備完成時，選取 [匯入] 來上傳您的資料。 您的資料隨即上傳。 對於較大的資料集，匯入程序可能需要幾分鐘的時間。
 
-上傳完成時，返回 [原音資料集] 資料表。 顯示的項目是對應至您原音資料集的項目。 請注意，其已獲派唯一識別碼 (GUID)。 資料會顯示其目前狀態：當資料排入佇列以進行處理時，其狀態會是「未開始」，資料正在通過驗證時會顯示「執行中」，資料可供使用時，則會顯示「完成」。
+上傳完成時，返回 [原音資料集] 資料表。 顯示的項目是對應至您原音資料集的項目。 請注意，其已獲派唯一識別碼 (GUID)。 資料會顯示其目前狀態：當資料排入佇列以進行處理時，其狀態會是「未開始」，資料正在進行驗證時會顯示「執行中」，資料可供使用時，則會顯示「完成」。
 
 資料驗證包含一系列檢查，包括驗證音訊檔的檔案格式、長度和取樣率，以及驗證文字記錄檔案的格式及執行某些文字正規化。
 

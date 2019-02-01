@@ -1,21 +1,21 @@
 ---
-title: 快速入門：Bing 影片 Aearch SDK (C#)
+title: 快速入門：Bing 影片搜尋 SDK (C#)
 titleSuffix: Azure Cognitive Services
 description: 設定 Bing 影片搜尋 SDK 主控台應用程式。
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/29/2018
 ms.author: rosh
-ms.openlocfilehash: bf8eece4b5afe34635d80a57cc12c26a8ed157d6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 1b73df059f994031536ee8e7c4e42f2126364f3a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314127"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152480"
 ---
 # <a name="quickstart-bing-video-search-sdk-with-c"></a>快速入門：使用 C# 的 Bing 影片搜尋 SDK 
 

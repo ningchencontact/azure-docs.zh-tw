@@ -8,19 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 3b3b15db171dc00519c532a229205df96ef29e31
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 44427183b6cc785af33daf92bda050336eec5284
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316883"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245281"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Azure 資料科學虛擬機器簡介
 
@@ -97,7 +97,7 @@ ms.locfileid: "52316883"
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Blob FUSE 驅動程式](https://github.com/Azure/azure-storage-fuse) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Adlcopy(Azure Data Lake 儲存體)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [DocDB 資料移轉工具](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | Y | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx)：在 OnPrem 與雲端之間移動資料 | Y | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft 資料管理閘道](https://msdn.microsoft.com/library/dn879362.aspx)：在內部部署與雲端之間移動資料 | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Unix/Linux 命令列公用程式 | Y | Y |
 | [Apache Drill](http://drill.apache.org) for Data exploration | Y | Y |
 | **機器學習工具** |||

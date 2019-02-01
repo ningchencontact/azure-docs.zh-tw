@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: e96119abd4fc77c576fb65281c3f48b8263e020d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e240cbadbee87938107c4a9bf034c47db42acf92
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849969"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098641"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -104,12 +104,12 @@ Azure 成本管理也會提供 Azure 服務的成本節省建議。 如需詳細
 5. 選取 [閾值] 索引標籤，然後選取 [實際成本與閾值]。 
    1. 在 [紅色警示] 閾值方塊中輸入 10000。 
    2. 在 [黃色警示] 閾值方塊中輸入 9000。 
-   3. 在 [連續警示數目] 方塊中，輸入要接收的連續警示數目。 當您收到指定的警示總數時，就不會再傳送其他警示。 
+   3. 在 [連續警示數目] 方塊中，輸入要接收的連續警示數目。 當您收到所指定的警示總數時，不會再傳送其他警示。 
 6. 選取 [ **儲存**]。
 
 ![根據費用閾值顯示紅色警示和黃色警示的範例](./media/tutorial-review-usage/schedule-alert01.png)
 
-您也可以選擇 [成本百分比與**預算]** 閾值計量來建立警示。 這可讓您將閾值指定為預算的百分比，而不是貨幣值。
+您也可以選擇 [成本百分比與預算] 閾值計量來建立警示。 這可讓您將閾值指定為預算的百分比，而不是貨幣值。
 
 ## <a name="export-data"></a>匯出資料
 

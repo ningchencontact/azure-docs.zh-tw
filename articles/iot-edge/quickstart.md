@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e0ad51bd2370cd8b7569d76e5d91b606928eea6d
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a48a2ebc64d156d2755a2bef32672bc58b57ad00
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189349"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911248"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Windows 裝置 - 預覽
 
@@ -104,7 +104,7 @@ IoT Edge 裝置：
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. 從 JSON 輸出中複製並儲存連接字串。 您將在下一節中使用此值設定 IoT Edge 執行階段。
+3. 從 JSON 輸出複製 `cs` 金鑰值並加以儲存。 此值示裝置連接字串。 您將在下一節中使用此連接字串來設定 IoT Edge 執行階段。
 
    ![從 CLI 輸出中擷取連接字串](./media/quickstart/retrieve-connection-string.png)
 
@@ -170,6 +170,8 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
    ```
 
    ![檢視裝置上的一個模組](./media/quickstart/iotedge-list-1.png)
+
+有可能需要幾分鐘的時間才能完成安裝並且讓 IoT Edge 代理程式模組啟動，尤其在您使用具備有限的容量或網際網路存取權的裝置時。 
 
 IoT Edge 裝置現已設定完成。 並已準備好執行雲端部署的模組。
 

@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: 151f6fa7880db03909c522147d9c1f74508f51a1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: a8897288e19a7628dbd1cc2c022de4db2a111393
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351844"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248039"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 叢集
 
@@ -27,7 +28,7 @@ ms.locfileid: "54351844"
 
 如需有關使用 Service Fabric 的詳細資訊，請參閱 Azure 文件中的 [Azure Service Fabric 概觀](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)和 [Service Fabric 叢集安全性案例](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
 
-Azure Stack 中的 Service Fabric 叢集並不使用資源提供者 Microsoft.ServiceFabric。 在 Azure Stack 中，Service Fabric 叢集是一個虛擬機器擴展集，內含以「期望的狀態設定 (DSC)」設定的預先安裝軟體。
+Azure Stack 中的 Service Fabric 叢集並不使用資源提供者 Microsoft.ServiceFabric。 在 Azure Stack 中，Service Fabric 叢集是一個虛擬機器擴展集，內含以「預期狀態設定 (DSC)」設定的預先安裝軟體。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -210,7 +211,7 @@ Azure Stack 中的 Service Fabric 叢集並不使用資源提供者 Microsoft.Se
 
 1. 變更環境變數的順序之後，重新啟動 PowerShell，然後執行下列 PowerShell 指令碼來存取 Service Fabric 叢集：
 
-   ````PowerShell  
+   ```PowerShell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 
@@ -221,8 +222,11 @@ Azure Stack 中的 Service Fabric 叢集並不使用資源提供者 Microsoft.Se
     0272251171BA32CEC7938A65B8A6A553AA2D3283 \`
 
     -StoreLocation CurrentUser -StoreName My -Verbose
-   ````
+   ```
    
    > [!NOTE]  
    > 指令碼中的叢集名稱前面沒有 https://。 需要連接埠 19000。
- 
+
+## <a name="next-steps"></a>後續步驟
+
+[將 Kubernetes 部署至 Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)

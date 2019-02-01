@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: f1c2cd037539b3cf33f6c58c4ac8a3a1e8c304ce
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d0fc8d68b3412c2c43a88e3a9484dab3a150b811
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830522"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886266"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>快速入門：使用 C Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH/RDP 輸送 (預覽)
 
@@ -95,7 +95,7 @@ ms.locfileid: "54830522"
 
 ```
     # In Linux
-    cmake -Denable_streaming=ON ..
+    cmake ..
     make -j
 ```
 
@@ -104,10 +104,10 @@ ms.locfileid: "54830522"
 ```
     # In Windows
     # For VS2015
-    $ cmake -Denable_streaming=ON .. -G "Visual Studio 15 2015"
+    $ cmake .. -G "Visual Studio 15 2015"
     
     # Or for VS2017
-    $ cmake -Denable_streaming=ON .. -G "Visual Studio 15 2017
+    $ cmake .. -G "Visual Studio 15 2017
 
     # Then build the project
     cmake --build . -- /m /p:Configuration=Release
@@ -179,7 +179,6 @@ ms.locfileid: "54830522"
     # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     $ ./iothub_client_c2d_streaming_proxy_sample
 
-
     # In Windows
     # Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
     iothub_client_c2d_streaming_proxy_sample.exe
@@ -194,14 +193,14 @@ ms.locfileid: "54830522"
 
 假設裝置和服務本機 Proxy 皆執行中，請使用 SSH 用戶端程式，並經由連接埠 2222 連線至服務本機 Proxy (而不是直接使用 SSH 精靈)。 
 
-```azurecli-interactive
+```
 ssh <username>@localhost -p 2222
 ```
 
 此時，您會看到要求您輸入認證的 SSH 登入提示。
 
 
-經由 <code>IP_address:22</code> 連線至 SSH 精靈的裝置本機 Proxy 上的主控台輸出：![替代文字](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "裝置本機 Proxy 輸出")
+經由 `IP_address:22` 連線至 SSH 精靈的裝置本機 Proxy 上的主控台輸出：![替代文字](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "裝置本機 Proxy 輸出")
 
 SSH 用戶端程式的主控台輸出 (SSH 用戶端藉由連線至服務本機 Proxy 所接聽的連接埠 22 與 SSH 精靈通訊)：![替代文字](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "SSH 用戶端輸出")
 

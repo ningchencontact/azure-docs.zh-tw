@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 6db713984b62ce3db48b2e72a4b117696bdd6add
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6f47606e91ec55bae624527bace81d947c5ea4f9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452967"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55091541"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>教學課程：準備部署 Azure 資料箱閘道 (預覽)
 
@@ -42,7 +42,7 @@ ms.locfileid: "54452967"
 | **#** | **在此步驟中** | **使用這些文件** |
 | --- | --- | --- | 
 | 1. |**[為 Azure 入口網站進行資料箱閘道的準備工作](data-box-gateway-deploy-prep.md)** |在佈建資料箱閘道虛擬裝置之前，請先建立並設定資料箱閘道資源。 |
-| 2. |**[在 Hyper-V 中佈建資料箱閘道](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[在 VMware 中佈建資料箱閘道](data-box-gateway-deploy-provision-vmware.md)**|針對 Hyper-V，請在使用 Windows Server 2016 或 Windows Server 2012 R2 執行 Hyper-V 的主機系統上，佈建並連線至資料箱閘道虛擬裝置。 <br><br><br> 針對 VMware，請在執行 VMware ESXi 6.0 或 6.5 的主機系統上佈建並連線至資料箱閘道虛擬裝置。<br></br> |
+| 2. |**[在 Hyper-V 中佈建資料箱閘道](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[在 VMware 中佈建資料箱閘道](data-box-gateway-deploy-provision-vmware.md)**|針對 Hyper-V，請在使用 Windows Server 2016 或 Windows Server 2012 R2 執行 Hyper-V 的主機系統上，佈建並連線至資料箱閘道虛擬裝置。 <br><br><br> 針對 VMware，請在執行 VMware ESXi 6.0、6.5 或 6.7 的主機系統上佈建並連線至資料箱閘道虛擬裝置。<br></br> |
 | 3. |**[連線、設定、啟動資料箱閘道](data-box-gateway-deploy-connect-setup-activate.md)** |連線至本機 Web UI、完成裝置設定，並啟動裝置。 接下來，您可以佈建 SMB 共用。  |
 | 4. |**[使用資料箱閘道傳輸資料](data-box-gateway-deploy-add-shares.md)** |新增共用，並透過 SMB 或 NFS 連線至共用。 |
 
@@ -63,7 +63,7 @@ ms.locfileid: "54452967"
 
 在您部署虛擬裝置之前，請確定：
 
-* 您可以存取在 Windows Server 2012 R2 或更新版本或 VMware (ESXi 6.0 或 6.5) 上執行 Hyper-V，並且可用來佈建裝置的主機系統。
+* 您可以存取在 Windows Server 2012 R2 或更新版本或 VMware (ESXi 6.0、6.5 或 6.7) 上執行 Hyper-V，並且可用來佈建裝置的主機系統。
 * 此主機系統能夠將下列資源專門用來佈建您的資料箱虛擬裝置：
   
   * 至少 4 顆核心。
@@ -126,7 +126,7 @@ ms.locfileid: "54452967"
 4. 在快速入門的右窗格中，按一下與您要下載的映像對應的連結。 映像檔大約是 4.8 GB。
    
    * [VHDX (適用於 Windows Server 2012 R2 及更新版本上的 Hyper-V)](https://aka.ms/dbe-vhdx-2012)。
-   * [VMDK (適用於 VMWare ESXi 6.0 或 6.5)](https://aka.ms/dbe-vmdk)。
+   * [VMDK (適用於 VMWare ESXi 6.0、6.5 或 6.7)](https://aka.ms/dbe-vmdk)。
 
 5. 下載檔案並將檔案解壓縮至本機磁碟機，記下解壓縮檔案的所在位置。
 

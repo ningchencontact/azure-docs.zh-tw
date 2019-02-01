@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: 2966683c086cfcd122c364dd6808f841a85bbee9
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.subservice: blobs
+ms.openlocfilehash: 180e38146911b15e95828bf033cbcaefae22d094
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704710"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241384"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>從 Azure 儲存體下載大量隨機資料
 
-本教學課程是一個系列課程的第三部分。 本教學課程說明如何從 Azure 儲存體下載大量資料。
+本教學課程是一個系列的第三部分。 本教學課程說明如何從 Azure 儲存體下載大量資料。
 
 在系列的第三部分中，您將了解如何：
 
@@ -30,7 +30,7 @@ ms.locfileid: "51704710"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程，您必須先完成上一個儲存體教學課程：[平行上傳大量隨機資料到 Azure 儲存體][previous-tutorial]。
+若要進行本教學課程，您必須已完成先前的儲存體教學課程︰[將大量隨機資料平行上傳至 Azure 儲存體][previous-tutorial]。
 
 ## <a name="remote-into-your-virtual-machine"></a>遠端連線到您的虛擬機器
 

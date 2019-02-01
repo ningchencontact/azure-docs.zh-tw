@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: rosh
-ms.openlocfilehash: a7c6646a69aec11797d354da28baca669b802ab0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 5661cab24d3c5ada401f416a3d39b1a787094b5c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226597"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175106"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>教學課程：單頁影片搜尋應用程式
 Bing 影片搜尋 API 可讓您搜尋網頁，並取得與搜尋查詢相關的影片結果。 在本教學課程中，我們會建置單頁 Web 應用程式，以使用 Bing 影片搜尋 API 在頁面中顯示搜尋結果。 該應用程式包含 HTML、CSS 和 JavaScript 元件。

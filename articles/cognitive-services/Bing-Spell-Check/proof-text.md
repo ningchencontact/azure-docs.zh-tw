@@ -6,16 +6,16 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c15af0dcebdfcbe984d47b5c06f213e516ae3914
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345703"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149766"
 ---
 # <a name="what-is-bing-spell-check-api"></a>什麼是 Bing 拼字檢查 API？
 
@@ -39,7 +39,7 @@ Bing 拼字檢查 API 可讓您執行內容的文法與拼字檢查。
 此 API 支援兩種校訂模式：`Proof` 和 `Spell`。  請看看[此處](https://azure.microsoft.com/services/cognitive-services/spell-check/)的範例。
 ### <a name="proof---for-documents-scenario"></a>Proof - 適用於文件
 預設模式為 `Proof`。 `Proof` 拼字模式可提供最全面的檢查，並可新增大小寫、基本標點符號及其他功能，以利建立文件。 但此模式僅適用於 en-US (美式英文)、es-ES (西班牙文)、pt-BR (葡萄牙文) 市場 (附註：西班牙文和葡萄牙文僅限於 Beta 版)。 對於其他所有的市場，請將 mode 查詢參數設定為 Spell。 
-<br /><br/>**附註：** 查詢文字的長度若超過 4096，則會先截斷為 4096 個字元再進行處理。 
+<br /><br/>**注意：** 查詢文字的長度若超過 4096，則會先截斷為 4096 個字元再進行處理。 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Spell - 適用於 Web 搜尋/查詢
 `Spell` 會較積極地處理而傳回較佳的搜尋結果。 `Spell` 模式可找出大部分的拼字錯誤，但有可能找不到 `Proof` 可挑出的某些文法錯誤，例如大小寫和重複的文字。
 

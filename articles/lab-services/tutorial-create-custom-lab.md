@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 84a6cdb5e91128bbade43ee9212cfa9658228964
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0530dbac88fcfbfb05ab29d1c5934a468f263034
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423287"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096631"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>教學課程：使用 Azure DevTest Labs 設定實驗室
 在本教學課程中，您會使用 Azure 入口網站建立實驗室。 實驗室管理員會在組織設定實驗室，並在實驗室中建立 VM，然後設定原則。 實驗室使用者 (例如：開發人員和測試人員) 會認領實驗室中的 VM、與之連線並加以使用。 

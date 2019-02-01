@@ -1,0 +1,59 @@
+items:
+- name: Azure Advisor 文件
+  href: index.yml
+- name: 概觀
+  items:
+  - name: 何謂 Azure Advisor？
+    href: advisor-overview.md
+- name: 教學課程
+  items:
+  - name: 開始使用 Advisor
+    href: advisor-get-started.md
+- name: 使用說明指南
+  items:
+  - name: 提高 Azure 應用程式的可用性
+    href: advisor-high-availability-recommendations.md
+  - name: 讓資源更安全
+    href: advisor-security-recommendations.md
+  - name: 提高 Azure 應用程式的性能
+    href: advisor-performance-recommendations.md
+  - name: 降低服務成本
+    href: advisor-cost-recommendations.md
+- name: 參考
+  items:
+  - name: 資訊安全中心
+    href: https://azure.microsoft.com/services/security-center/
+  - name: SQL DB Advisor
+    href: https://azure.microsoft.com/documentation/articles/sql-database-advisor/
+  - name: App Service 方案
+    href: https://docs.microsoft.com/azure/app-service/app-service-best-practices
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/advisor/
+  - name: CLI
+    href: https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest
+  - name: PowerShell
+    href: https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0
+- name: 資源
+  items:
+  - name: Azure 藍圖
+    href: https://azure.microsoft.com/roadmap/
+  - name: 價格
+    href: https://azure.microsoft.com/pricing/details/advisor
+  - name: 定價計算機
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: 服務更新
+    href: https://azure.microsoft.com/updates/?product=advisor
+  - name: 區域可用性
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=advisor
+  - name: 影片
+    href: https://azure.microsoft.com/resources/videos/index/?services=advisor
+  - name: 堆疊溢位
+    href: https://stackoverflow.com/search?q=azure+advisor
+  - name: 程式碼範例
+    href: https://azure.microsoft.com/resources/samples/?service=advisor
+ms.openlocfilehash: 1f6f848d9e69d0e478c2027b4e3f09089b4714bb
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509893"

@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: b211ede7ef90fb1aef3a6d6e9a82e0d52397afd3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cb02c9067e4d672b0aace4caf13e4c8f0d718afb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465902"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220190"
 ---
 # <a name="what-is-project-answer-search"></a>什麼是專案答案搜尋？
 專案答案搜尋 API 使用 Bing v7 端點取得疑問查詢的答案。 「地球的圓周有多長？」之類的問題 傳回事實資訊的答案。  人、地或事的查詢會傳回查詢所識別的實體有關的資訊。 這些情節適用於對話聊天機器人、傳訊應用程式、讀取器之類的應用程式。  
@@ -28,10 +28,10 @@ ms.locfileid: "49465902"
 下列查詢會取得問題的答案：「地球的圓周有多長？」
 
 GET：
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circumference+of+the=earth?&mkt=en-us
 
-````
+```
 
 需要 URL 參數 `q=` 才能指定搜尋的物件。
 
@@ -39,7 +39,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circ
 
 回應包括 HTTP 標頭、網頁、事實及/或實體。
 
-````
+```
 BingAPIs-TraceId: AB2E75C998614ADB8EBF5110DF648298
 X-MSEdge-ClientID: 1E48FC4F7B8768C80B14F7997A106906
 BingAPIs-SessionId: 0504DDD6DAE84861A4842306F8DA7A58
@@ -236,7 +236,7 @@ JSON Response:
   }
 }
 
-````
+```
 
 ## <a name="terms-of-use"></a>使用規定
 專案答案搜尋和專案視訊趨勢都受限於 [Bing 搜尋使用和顯示需求](use-display-requirements.md)。

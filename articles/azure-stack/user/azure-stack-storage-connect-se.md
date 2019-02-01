@@ -10,15 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2018
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 6ab2d92e2a3c62719af1c8ab6d6eda935fc49505
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: d1bddc8331fc1a9ded37949a8065636947074852
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386769"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246724"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>將儲存體總管連線到 Azure Stack 訂用帳戶或儲存體帳戶
 
@@ -37,7 +38,10 @@ ms.locfileid: "53386769"
 
 您必須可以直接存取 Azure Stack 或 VPN 連線，儲存體總管才能存取 Azure Stack 訂用帳戶。 若要深入了解如何設定 Azure Stack 的 VPN 連線，請參閱[使用 VPN 連線到 Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)。
 
-若是 Azure Stack 開發套件，您必須匯出 Azure Stack 授權單位根憑證。
+對於 Azure Stack 開發套件 (ASDK)，您必須匯出 Azure Stack 授權單位根憑證。
+
+> [!Note]  
+> 對於 ASDK，如果您要透過 VPN 連線至 ASDK，請不要使用在 VPN 設定程序期間建立的根憑證 (CA.cer)。  這是 DER 編碼的憑證，將不會允許儲存體總管擷取您的 Azure Stack 訂用帳戶。 請依照下列步驟匯出 Base-64 編碼憑證，與儲存體總管搭配使用。
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>匯出 Azure Stack 憑證後再匯入
 

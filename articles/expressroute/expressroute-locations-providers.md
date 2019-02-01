@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2018
+ms.date: 01/25/2019
 ms.author: pareshmu
-ms.openlocfilehash: 28c6382ba8749ae93125f73a14bef85e2477fb62
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f01e68a33be767f49c9ec87919c190bebf0b12c6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821935"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152003"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -44,9 +44,9 @@ ms.locfileid: "54821935"
 | --- | --- | --- | --- |
 | **澳洲政府** | 1 | 澳大利亞中部、澳大利亞中部 2 |坎培拉、坎培拉 2 |
 | **歐洲** | 1 |法國中部、法國南部、北歐、西歐、英國西部、英國南部 |阿姆斯特丹、阿姆斯特丹2、都柏林、倫敦、倫敦2、馬賽、紐波特 (威爾斯)、巴黎 |
-| **北美洲** | 1 |美國東部、美國西部、美國東部 2、美國西部 2、美國中部、美國中南部、美國中北部、美國中西部、加拿大中部、加拿大東部 |亞特蘭大、芝加哥、達拉斯、丹佛、拉斯維加斯、洛杉磯、邁阿密、紐約、聖安東尼奧、西雅圖、矽谷、華盛頓特區、蒙特婁、魁北克市、多倫多 |
-| **亞洲** | 2 |東亞、東南亞 |香港特別行政區、吉隆坡、新加坡、新加坡2 |
-| **澳大利亞** | 2 |澳洲東南部、澳洲東部 |墨爾本、雪梨 | 
+| **北美洲** | 1 |美國東部、美國西部、美國東部 2、美國西部 2、美國中部、美國中南部、美國中北部、美國中西部、加拿大中部、加拿大東部 |亞特蘭大、芝加哥、達拉斯、丹佛、拉斯維加斯、洛杉磯、邁阿密、紐約、聖安東尼奧、西雅圖、矽谷、華盛頓特區、華盛頓特區2、蒙特婁、魁北克市、多倫多 |
+| **亞洲** | 2 |東亞、東南亞 |香港特別行政區、吉隆坡、新加坡、新加坡2、台北 |
+| **澳大利亞** | 2 |澳洲東南部、澳洲東部 |墨爾本、伯斯、雪梨 | 
 | **印度** | 2 |印度西部、印度中部、印度南部 |辰內、辰內 2、孟買、孟買 2 |
 | **日本** | 2 |日本西部、日本東部 |大阪、東京 |
 | **南韓** | 2 |南韓中部、南韓南部 |釜山、首爾|
@@ -106,6 +106,7 @@ ms.locfileid: "54821935"
 | **Newport(Wales)** | 新一代資料 | Level 3 Communications、Next Generation Data |
 | **大阪** | Equinix | Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT SmartConnect、Softbank |
 | **巴黎** | Interxion | Colt、Intercloud、Interxion、Equinix、Orange |
+| **伯斯** | NEXTDC | NEXTDC |
 | **魁北克市** | 4Degrees | Bell Canada、Megaport |
 | **聖安東尼奧** | CyrusOne | CenturyLink Cloud Connect、Megaport |
 | **聖保羅** | Equinix | Aryaka Networks、Ascenty Data Centers、British Telecom、Equinix、Level 3 Communications、Neutrona Networks、Orange、Tata Communications、Telefonica、UOLDIVEOW |
@@ -113,12 +114,13 @@ ms.locfileid: "54821935"
 | **首爾** | KINX | KINX、LG CNS、Sejong Telecom |
 | **矽谷** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、CenturyLink Cloud Connect、Comcast、Coresite、Equinix、InterCloud、IX Reach、PacketFabric、Level 3 Communications、Megaport、Orange、Sprint、Tata Communications、Verizon、Zayo |
 | **新加坡** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、Epsilon Global Communications、Equinix、InterCloud、Level 3 Communications、Megaport、NTT Communications、Orange、SingTel、Tata Communications、Telstra Corporation、Verizon、Vodafone |
-| **新加坡 2** | 全域切換 | Megaport、SingTel |
+| **新加坡 2** | 全域切換 | Colt、Megaport、SingTel |
 | **雪梨** | Equinix | AARNet、AT&T NetBond、British Telecom、Equinix、Megaport、NEXTDC、NTT Communications、Optus、Orange、Telstra Corporation、Verizon |
+| **台北** | Chief Telecom | Chief Telecom |
 | **東京** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、CenturyLink Cloud Connect、Colt、Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT EAST、Softbank、Verizon |
 | **多倫多** | Cologix | AT&T NetBond、Bell Canada、CenturyLink Cloud Connect、Cologix、Equinix、Megaport、Telus、Zayo |
 | **華盛頓** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、Cologix、Comcast、Coresite、Equinix、Internet2、InterCloud、Level 3 Communications、Megaport、NTT Communications、Orange、PacketFabric、Sprint、Tata Communications、Telia Carrier、Verizon、Zayo |
-
+| **華盛頓特區2** | Coresite | Coresite | 
  **+** 表示即將推出
 
 ### <a name="national-cloud-environments"></a>國家雲端環境

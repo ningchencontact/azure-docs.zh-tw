@@ -1,23 +1,23 @@
 ---
-title: 教學課程：開始使用 Bing 拼字檢查 API 對結果進行拼字檢查
+title: 教學課程：使用 Bing 拼字檢查 API 取得拼字檢查結果
 titlesuffix: Azure Cognitive Services
 description: 教學課程的原始程式碼，用於示範如何在單頁 Web 應用程式中使用 Bing 拼字檢查 API。
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: 0180c6f2924f921e358ea152c887c5c2e16c34dc
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8c3e520179d93632c1b69d2109d83197f76c549a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165572"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55186513"
 ---
-# <a name="tutorial-single-page-web-app"></a>教學課程：單頁 Web 應用程式
+# <a name="tutorial-single-page-web-app"></a>教學課程：單一頁面 Web 應用程式
 
 這是 Bing 拼字檢查 API 的[單頁應用程式教學課程](spellcheck.md)中探討的完整原始程式碼。 若要執行應用程式，請將原始程式碼複製到文字編輯器，並將檔案儲存為 `spellcheck.html`。 然後，在您的網頁瀏覽器中開啟儲存的檔案。
 

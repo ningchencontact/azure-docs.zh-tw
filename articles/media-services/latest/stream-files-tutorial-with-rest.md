@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/19/2018
+ms.date: 01/23/2019
 ms.author: juliako
-ms.openlocfilehash: fcce16ed3cf7009c596f30ebc33f58de02f018a0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0bd882ffd5048d0b33afc9ecf00c0ed6356b6e98
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811633"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883512"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>教學課程：編碼以 URL 為基礎的遠端檔案及串流處理影片 - REST
 
@@ -101,10 +101,10 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 
 1. 取得服務主體驗證的 Azure AD 權杖
 2. 建立輸出資產
-3. 建立轉換
-4. 建立工作 
-5. 建立串流定位器
-6. 列出串流定位器的路徑
+3. 建立 [轉換]
+4. 建立 [作業]
+5. 建立 [串流定位器]
+6. 列出 [串流定位器] 的路徑
 
 > [!Note]
 >  本教學課程假設您會使用唯一名稱建立所有資源。  
@@ -232,16 +232,16 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 
 ### <a name="create-a-streaming-locator"></a>建立串流定位器
 
-編碼作業完成後，下一個步驟是要讓用戶端可播放輸出資產中的視訊。 您可以透過兩個步驟來執行此動作：第一步，建立[StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)，第二步，建置用戶端可以使用的串流 URL。 
+編碼作業完成後，下一個步驟是要讓用戶端可播放輸出**資產**中的視訊。 您可以透過兩個步驟來執行此動作：第一步，建立[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)，第二步，建置用戶端可以使用的串流 URL。 
 
-建立 **StreamingLocator** 的程序稱為發佈。 根據預設，**StreamingLocator** 會在進行 API 呼叫後立即生效，而且會持續運作到遭到刪除為止 (除非您有設定選擇性的開始和結束時間)。 
+建立 [串流定位器] 的程序稱為發佈。 根據預設，[串流定位器] 會在進行 API 呼叫後立即生效，而且會持續運作到遭到刪除為止 (除非您有設定選擇性的開始和結束時間)。 
 
-建立 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 時，您必須指定需要的 **StreamingPolicyName**。 在此範例中，您將串流處理乾淨 (或未加密的) 內容，而使用預先定義的乾淨串流原則 (**PredefinedStreamingPolicy.ClearStreamingOnly**)。
+建立[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)時，您必須指定需要的 **StreamingPolicyName**。 在此範例中，您將串流處理乾淨 (或未加密的) 內容，而使用預先定義的乾淨串流原則 (**PredefinedStreamingPolicy.ClearStreamingOnly**)。
 
 > [!IMPORTANT]
 > 使用自訂的 [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) 時，您應該為媒體服務帳戶設計一組受限的這類原則，並且在需要相同的加密選項和通訊協定時，對 StreamingLocators 重新使用這些原則。 
 
-媒體服務帳戶有 StreamingPolicy 項目的數量配額。 不建議您對每個 StreamingLocator 建立新的 StreamingPolicy。
+媒體服務帳戶有**串流原則**項目的數量配額。 不建議您對每個 [串流定位器] 建立新的 [串流原則]。
 
 1. 在 Postman 的左側視窗中，選取 [串流原則]。
 2. 然後，選取 [建立串流定位器]。
@@ -267,7 +267,7 @@ Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽�
 
 #### <a name="list-paths"></a>列出路徑
 
-建立了 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 之後，現在您可以取得串流 URL
+建立了[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)之後，現在您就可以取得串流 URL。
 
 1. 在 Postman 的左側視窗中，選取 [串流原則]。
 2. 然後，選取 [列出路徑]。
@@ -338,7 +338,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 
 > [!NOTE]
-> 確定要作為串流來源的串流端點正在執行中。
+> 確定要作為串流來源的 [串流端點] 正在執行中。
 
 本文使用 Azure 媒體播放器測試串流。 
 
@@ -350,7 +350,7 @@ Azure 媒體播放器可以用於測試，但不應用於生產環境。
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>清除媒體服務帳戶中的資源
 
-一般而言，您應清除所有項目，只保留想要重複使用的物件 (您通常會重複使用轉換並且保存 StreamingLocators 等)。 如果您想要在實驗之後有乾淨的帳戶，您應刪除不打算重複使用的資源。  
+一般而言，您應清除所有項目，只保留想要重複使用的物件 (您通常會重複使用 [轉換] 並且保存 [串流定位器] 等)。 如果您想要在實驗之後有乾淨的帳戶，您應刪除不打算重複使用的資源。  
 
 若要刪除資源，請在您要刪除的任何資源下方選取 [刪除...] 作業。
 

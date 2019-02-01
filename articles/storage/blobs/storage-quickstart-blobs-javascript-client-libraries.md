@@ -9,13 +9,13 @@ ms.service: storage
 ms.author: tamram
 ms.date: 11/14/2018
 ms.topic: quickstart
-ms.component: blobs
-ms.openlocfilehash: c72cd83af2b06b19b285d3c939c0d45b995464d9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.subservice: blobs
+ms.openlocfilehash: a5433284d9722ce907b962be7ba437ef32ad819c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711477"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245367"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -80,7 +80,7 @@ az storage account generate-sas
 
 | 參數        | 值   | 說明  |
 |------------------|---------|---------|
-| *permissions*    | racwdl  | 此 SAS 允許讀取、附加、建立、寫入、刪除和列出功能。 |
+| *權限*    | racwdl  | 此 SAS 允許讀取、附加、建立、寫入、刪除和列出功能。 |
 | *resource-types* | sco     | 受到 SAS 影響的資源為服務、容器和物件。 |
 | *services*       | b       | 受到 SAS 影響的服務為 Blob 服務。 |
 
@@ -251,7 +251,7 @@ document.getElementById('delete-button').addEventListener('click', () => {
 > 若要讓此程式碼範例運作，您必須提供 blobName 的字串值。
 
 ## <a name="clean-up-resources"></a>清除資源
-若要清除在此快速入門期間建立的資源，請返回 [Azure 入口網站](https://portal.azure.com)，並選取您的儲存體帳戶。 選取之後，您可以移至下列位置刪除儲存體帳戶：**概觀 > 刪除儲存體帳戶**。
+若要清除在此快速入門期間建立的資源，請返回 [Azure 入口網站](https://portal.azure.com)，並選取您的儲存體帳戶。 選取之後，您可以移至下列位置刪除儲存體帳戶：[概觀 > 刪除儲存體帳戶]。
 
 ## <a name="next-steps"></a>後續步驟
 瀏覽範例以了解如何下載 Blob，並在檔案上傳期間報告進度。

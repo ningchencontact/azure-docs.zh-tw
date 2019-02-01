@@ -6,18 +6,18 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 7e8a793362e51a05a73c0b42346e2e8fafb3f44d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b8358890658a38133452ba2092ac9b8b78114ff7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469396"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210942"
 ---
-# <a name="quickstart-query-for-facts"></a>快速入門：查詢事實
+# <a name="quickstart-query-for-facts"></a>快速入門：事實查詢
 
 如果查詢的是日期或可識別的知識之類的事實，回應可能包含 `facts` 答案。 事實答案包含從網路文件中的段落擷取的相關結果。  這些查詢一律回傳網頁，而且[事實](fact-queries.md)及/或[實體](entity-queries.md)與查詢有關。
 
@@ -26,14 +26,14 @@ valentines+2016、when+is+ramadan 之類的查詢均被視為日期相關的查�
 下列範例是與日期相關的 `facts` 答案。 
 
 **查詢：**
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
-````
+```
 
-**回應：**`subjectName` 欄位包含使用者查詢的顯示版本，您可以在顯示事實時使用這個版本為標籤。 如果查詢字串是 valentines+2016，Bing 可能將該字串變更為 Valentine's Day 2016。 描述欄位包含事實。
+**回應：**`subjectName` 欄位包含使用者查詢的顯示版本，您可以在顯示事實時使用這個版本作為標籤。 如果查詢字串是 valentines+2016，Bing 可能將該字串變更為 Valentine's Day 2016。 描述欄位包含事實。
 
-````
+```
 {   
     "_type" : "SearchResponse",   
     "queryContext" : {   
@@ -57,20 +57,20 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
     }   
 }   
 
-````
+```
 
 查詢「Why is the sky blue?」\(天空為什麼是藍色？\) 回傳知識相關答案的範例。
 
 **查詢：**
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+sky+blue
 
-````
+```
 
 **回應：**`value/description` 欄位包含查詢要求的知識或資訊。
 
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -112,17 +112,17 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
     ]
   },
 
-````
+```
 
 ## <a name="tabular-data"></a>表格式資料
 在某些情況下，事實可以當做 `_type: StructuredValue/TabularData` 回傳。 下列查詢會取得將咖啡和茶的對比資訊列出的表格式資料。
 
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
 
-````
+```
 `facts` 結果包含下列資料列和資料格：
-````
+```
     "value": [
       {
         "subjectName": "Coffee vs. Tea",
@@ -196,7 +196,7 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt
     ]
   },
 
-````
+```
 
 ## <a name="next-steps"></a>後續步驟
 - [C# 快速入門](c-sharp-quickstart.md)

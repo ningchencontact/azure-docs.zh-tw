@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: fc8fc1af51332df032e864c84791791a38bc8601
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 50c17e6ce953b601cc4ac0a406f443a54b9db3e7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612215"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162713"
 ---
 # <a name="quickstart-stream-video-files---net"></a>快速入門：串流視訊檔案 - .NET
 
@@ -34,13 +34,10 @@ ms.locfileid: "51612215"
 ## <a name="prerequisites"></a>必要條件
 
 - 如果沒有安裝 Visual Studio，您可以取得 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)。
-- 在本機安裝和使用 CLI，本文需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 
+- [建立媒體服務帳戶](create-account-cli-how-to.md)。<br/>請務必記住您用於資源群組名稱和「媒體服務」帳戶名稱的值。
+- 請依照[使用 Azure CLI 存取 Azure 媒體服務 API](access-api-cli-how-to.md) 中的步驟，並儲存認證。 您必須使用這些認證來存取 API。
 
-    目前，並非所有[媒體服務 v3 CLI](https://aka.ms/ams-v3-cli-ref) 命令都可在 Azure Cloud Shell 中運作。 建議在本機使用 CLI。
-
-- [建立媒體服務帳戶](create-account-cli-how-to.md)。
-
-## <a name="download-the-sample"></a>下載範例
+## <a name="download-and-configure-the-sample"></a>下載並設定範例
 
 使用以下命令將包含串流 .NET 範例的 GitHub 存放庫複製到您的機器：  
 
@@ -50,19 +47,19 @@ ms.locfileid: "51612215"
 
 此範例位於 [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) 資料夾。
 
+在您下載的專案中開啟 [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/appsettings.json)。 將值取代為從[存取 API](access-api-cli-how-to.md) 中取得的認證。
+
 此範例會執行下列動作：
 
-1. 建立轉換 (首先，檢查指定的轉換是否存在)。 
-2. 建立輸出資產，以作為編碼作業的輸出。
-3. 建立以 HTTPS URL 為基礎作業的輸入。
-4. 使用稍早建立的輸入和輸出提交編碼作業。
+1. 建立**轉換** (首先，檢查指定的轉換是否存在)。 
+2. 建立輸出**資產**，以作為編碼**作業**的輸出。
+3. 建立以 HTTPS URL 為基礎的**作業**輸入。
+4. 使用稍早建立的輸入和輸出提交編碼**作業**。
 5. 檢查作業的狀態。
-6. 建立 StreamingLocator。
+6. 建立**串流定位器**。
 7. 建置串流 URL。
 
 如需範例中的每個函式作用的相關說明，請檢查程式碼並查看[這個原始程式檔](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) \(英文\) 中的註解。
-
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
 ## <a name="run-the-sample-app"></a>執行範例應用程式
 

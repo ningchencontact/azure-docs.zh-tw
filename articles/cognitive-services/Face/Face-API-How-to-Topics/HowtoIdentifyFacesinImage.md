@@ -1,23 +1,23 @@
 ---
-title: 範例：識別影像中的人臉 - 臉部 API
+title: 範例：識別影像中的臉部 - 臉部 API
 titleSuffix: Azure Cognitive Services
 description: 使用臉部 API 識別影像中的人臉。
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a26f7d6057f92fd3ab92405ecca6965dbd6e37ad
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c61852763353189321b8f98711928e0e8b3a389d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129066"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208086"
 ---
-# <a name="example-how-to-identify-faces-in-images"></a>範例：如何識別影像中的人臉
+# <a name="example-how-to-identify-faces-in-images"></a>範例：如何識別影像中的臉部
 
 本指南示範如何使用 PersonGroup 識別不明的臉部，而這些臉部由事先已知的人員所建立。 這些範例是使用「臉部 API」用戶端程式庫以 C# 撰寫的。
 
@@ -36,7 +36,7 @@ ms.locfileid: "46129066"
 - 如何建立 PersonGroup - 此 PersonGroup 包含已知的人員清單。
 - 如何指派每個人的臉部 - 這些臉部用做識別人員的基準。 建議使用清楚的正臉，就像您的相片識別碼一樣。 一組不錯的相片應該包含具有不同姿勢、衣服顏色或髮型之同一個人的臉部。
 
-若要執行此範例的示範，您需要準備一堆圖片：
+若要執行本範例的示範，您需要準備一堆圖片：
 
 - 一些具有人臉的相片。 [按一下這裡下載範例相片](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data)，即 Anna、Bill 和 Clare 的相片。
 - 一系列測試相片，這或許未包含用來測試識別的 Anna、Bill 或 Clare 的臉部。 您也可以從上述連結選取一些範例影像。
@@ -49,7 +49,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription key>
 ```
 
-或者，您也可以在 HTTP 要求標頭中指定訂用帳戶金鑰：**ocp-apim-subscription-key: &lt;訂用帳戶金鑰&gt;**。若您使用用戶端程式庫，則會透過 FaceServiceClient 類別的建構函式傳入訂用帳戶金鑰。 例如︰
+或者，也可以在 HTTP 要求標頭中指定訂用帳戶密鑰：**ocp-apim-subscription-key:&lt;訂用帳戶金鑰&gt;** 使用用戶端程式庫時，訂用帳戶金鑰會透過 FaceServiceClient 類別的建構函式傳入。 例如︰
  
 ```CSharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
@@ -106,7 +106,7 @@ foreach (string imagePath in Directory.GetFiles(friend1ImageDir, "*.jpg"))
 ``` 
 請注意，若影像包含多個臉部，則只會新增最大的一張臉。 新增人員之其他臉部的方式是將 "targetFace = left, top, width, height" 格式的字串傳遞給 [PersonGroup Person - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API 的 targetFace 查詢參數，或使用 AddPersonFaceAsync 方法的 targetFace 選擇性參數來新增其他臉部。 每個新增至人員的臉部都會獲指定唯一持續性臉部識別碼，以用於 [PersonGroup Person - 刪除臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523e)和[臉部 - 識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)。
 
-## <a name="step-3-train-the-persongroup"></a>步驟 3：為 PersonGroup 定型
+## <a name="step-3-train-the-persongroup"></a>步驟 3：訓練 PersonGroup
 
 必須先訓練 PersonGroup，才能使用它來執行識別。 甚至，在新增或移除任何人員之後，或者，若有任何人員編輯過其註冊的臉部，則必須重新予以訓練。 訓練是透過 [PersonGroup - 訓練](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API 完成。 使用用戶端程式庫時，它就只是 TrainPersonGroupAsync 方法呼叫：
  

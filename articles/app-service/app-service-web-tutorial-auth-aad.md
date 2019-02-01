@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ff0cb82e3f1ddedf8dabebadf7a0309d08b2c4e3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716407"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297084"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>教學課程：在 Azure App Service 中對使用者進行端對端驗證和授權
 
@@ -293,7 +293,7 @@ git push frontend master
 
 您的應用程式已完成設定。 前端現在已可使用適當的存取權杖存取後端。
 
-如需如何為其他提供者進行此設定的相關資訊，請參閱[重新整理存取權杖](app-service-authentication-how-to.md#refresh-access-tokens)。
+如需如何為其他提供者進行此設定的相關資訊，請參閱[重新整理識別提供者權杖](app-service-authentication-how-to.md#refresh-identity-provider-tokens)。
 
 ## <a name="call-api-securely-from-server-code"></a>從伺服器程式碼安全地呼叫 API
 
@@ -417,7 +417,7 @@ git push frontend master
 
 ## <a name="when-access-tokens-expire"></a>當存取權杖到期
 
-存取權杖會在一段時間後到期。 若要了解如何重新整理存取權杖，而不需要讓使用者向應用程式重新驗證，請參閱[重新整理存取權杖](app-service-authentication-how-to.md#refresh-access-tokens)。
+存取權杖會在一段時間後到期。 若要了解如何重新整理存取權杖，而不需要讓使用者向應用程式重新驗證，請參閱[重新整理識別提供者權杖](app-service-authentication-how-to.md#refresh-identity-provider-tokens)。
 
 ## <a name="clean-up-resources"></a>清除資源
 

@@ -1,23 +1,23 @@
 ---
-title: 快速入門：從文字識別語言 (C#) - 翻譯工具文字 API
+title: 快速入門：偵測文字語言 (C#) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您將了解如何使用 .NET Core 與翻譯工具文字 REST API 來偵測所提供文字的語言。
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 89aedb33a88a7fb5f0a4e0abed172ba4e1cd091e
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 33c192009088aff3313bb970a319fa49bfca6e0e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682058"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220292"
 ---
-# <a name="quickstart-detect-text-language-with-the-translator-text-rest-api-c"></a>快速入門：使用翻譯工具文字 REST API (C#) 來偵測文字語言
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>快速入門：搭配使用翻譯工具文字 API 與 C# 來偵測文字語言
 
 在此快速入門中，您將了解如何使用 .NET Core 與翻譯工具文字 REST API 來偵測所提供文字的語言。
 

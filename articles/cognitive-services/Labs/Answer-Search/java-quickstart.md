@@ -1,21 +1,21 @@
 ---
-title: 快速入門：專案答案搜尋 Java
+title: 快速入門：專案答案搜尋 (Java)
 titlesuffix: Azure Cognitive Services
 description: 在 Java 中開始使用專案答案搜尋。
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 66d5488fa0e8f542327b4150d50e4351af6ade55
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0353736b3b66c58288dbd3d351b3b3dd53f467d6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469090"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226871"
 ---
 # <a name="quickstart-project-answer-search-query-in-java"></a>快速入門：Java 中的專案答案搜尋查詢
 本文使用 Java 示範如何在 Azure 上使用屬於 Microsoft 認知服務的 Bing 答案搜尋 API。 API 是一種與任何程式語言相容的 REST Web 服務，可產生 HTTP 要求及剖析 JSON。
@@ -30,7 +30,7 @@ ms.locfileid: "49469090"
 
 下列程式碼會建立 `WebRequest`、設定存取金鑰標頭，並新增 "Gibraltar" 的查詢字串。  接著，它會傳送要求，並為字串指派包含 JSON 文字的回應。
 
-````
+```
     static String host = "https://api.labs.cognitive.microsoft.com";
     static String path = "/answerSearch/v7.0/search";
 
@@ -46,7 +46,7 @@ ms.locfileid: "49469090"
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="complete-code"></a>完整程式碼
 
@@ -57,7 +57,7 @@ Bing 答案搜尋 API 會從 Bing 搜尋引擎傳回結果。
 4. 將 subscriptionKey 值取代為您訂用帳戶的有效存取金鑰。
 5. 執行程式。
 
-````
+```
 package knowledgeAPI;
 import java.io.InputStream;
 import java.net.*;
@@ -148,7 +148,7 @@ public class KnowledgeSrch {
         }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>後續步驟
 - [C# 快速入門](c-sharp-quickstart.md)

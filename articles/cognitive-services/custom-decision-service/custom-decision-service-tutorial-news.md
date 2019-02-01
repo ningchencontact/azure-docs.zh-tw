@@ -6,18 +6,18 @@ services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: b142fe2051c017d0c0ec3c4cac6aaedd563f6cd7
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 1589ef94946a6396ee51b8fecfe2ed3e80db08e5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366330"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212217"
 ---
-# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>教學課程：內容相關決策制訂的文章個人化教學課程
+# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>教學課程：內容相關決策制訂的文章個人化
 
 本教學課程著重於網站首頁上精選文章的個人化。 例如，自訂決策服務會影響首頁上多個清單。 假設該頁面是僅提供政治和體育消息的新聞網站， 網站上會顯示三種等級的文章清單：政治、體育和最新消息。
 

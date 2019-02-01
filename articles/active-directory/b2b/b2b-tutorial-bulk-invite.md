@@ -3,18 +3,18 @@ title: 大量邀請 B2B 共同作業使用者的教學課程 - Azure Active Dire
 description: 在此教學課程中，您會了解如何使用 PowerShell 和 CSV 檔案，對外部 Azure AD B2B 共同作業使用者傳送大量邀請。
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: c24a82d5765fef01eab9ae24f637c215c62e822d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: e40eb5c1727317b375d45da83cd712cf0b7f963c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45987067"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097770"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>教學課程：大量邀請 Azure AD B2B 共同作業使用者
 
@@ -27,36 +27,36 @@ ms.locfileid: "45987067"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-### <a name="install-the-latest-azureadpreview-module"></a>安裝最新版 AzureADPreview 模組
+### <a name="install-the-latest-azureadpreview-module"></a>安裝最新的 AzureADPreview 模組
 請務必安裝最新版的 Azure AD PowerShell for Graph 模組 (AzureADPreview)。 
 
 首先，檢查您已安裝哪些模組。 請以已提高權限的使用者身分 (以系統管理員身分執行) 開啟 Windows PowerShell，然後執行下列命令：
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 根據輸出，執行下列其中一個操作︰
 
 - 如果未傳回任何結果，請執行下列命令來安裝 AzureADPreview 模組：
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - 如果結果中僅顯示 AzureAD 模組，請執行下列命令來安裝 AzureADPreview 模組： 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - 如果結果中僅顯示 AzureADPreview 模組，但您收到指出有更新版本的訊息，請執行下列命令來更新該模組： 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 您可能會收到提示，指出您正從未受信任的存放庫安裝模組。 如果您先前未將 PSGallery 存放庫設定為受信任的存放庫，就會發生此情況。 請按 **Y** 以安裝模組。
 
@@ -79,7 +79,7 @@ Get-Module -ListAvailable AzureAD*
 
 ## <a name="sign-in-to-your-tenant"></a>登入您的租用戶
 
-執行下列命令以連線至租用戶網域：
+執行下列命令以連線到租用戶網域：
 
 ```powershell
 Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
@@ -122,7 +122,7 @@ foreach ($email in $invitations)
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當您不再需要測試使用者帳戶時，可以刪除目錄中的測試使用者帳戶。 請執行下列命令來僅刪除使用者帳戶：
+當您不再需要測試使用者帳戶時，可以刪除目錄中的測試使用者帳戶。 請執行下列命令來刪除使用者帳戶：
 
 ```powershell
  Remove-AzureADUser -ObjectId "<UPN>"

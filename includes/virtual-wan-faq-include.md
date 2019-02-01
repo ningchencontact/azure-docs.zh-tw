@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/05/2018
+ms.date: 10/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 761b68ca99df8ae5b4d379b95e7d2a300f7e6238
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 98ea4d78a473123708be6e371587252acad6ffcd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874128"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55205091"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Azure 虛擬網路閘道 (VPN 閘道) 與 Azure 虛擬 WAN vpngateway 之間有什麼差異？
 
@@ -29,7 +29,7 @@ ms.locfileid: "48874128"
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>我是否必須使用偏好的合作夥伴裝置？
 
-否。 您可以使用任何支援 VPN 且符合 IKEv2/IKEv1 IPsec 支援需求的裝置。
+沒有。 您可以使用任何支援 VPN 且符合 IKEv2/IKEv1 IPsec 支援需求的裝置。
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>虛擬 WAN 合作夥伴如何將與 Azure 虛擬 WAN 的連線自動化？
 
@@ -53,11 +53,11 @@ ms.locfileid: "48874128"
 
 ### <a name="is-global-vnet-peering-supported-with-azure-virtual-wan"></a>Azure 虛擬 WAN 是否支援全域 VNet 對等互連？ 
 
- 否。
+ 沒有。
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>連線到虛擬中樞的輪輻 VNet 之間，是否可以彼此通訊？
 
-是。 您可以在連線到虛擬中樞的輪輻之間直接進行 VNet 對等互連。 如需詳細資訊，請參閱[虛擬網路對等互連](../articles/virtual-network/virtual-network-peering-overview.md)。
+是。 輪輻 VNet 可以直接透過虛擬網路對等互連進行通訊。 不過，我們不支援 VNet 透過中樞以轉移方式進行通訊。 如需詳細資訊，請參閱[虛擬網路對等互連](../articles/virtual-network/virtual-network-peering-overview.md)。
 
 ### <a name="can-i-deploy-and-use-my-favorite-network-virtual-appliance-in-an-nva-vnet-with-azure-virtual-wan"></a>是否可以使用 Azure 虛擬 WAN 部署及使用我的最愛網路虛擬設備 (在 NVA VNet 中)？
 
@@ -65,7 +65,7 @@ ms.locfileid: "48874128"
 
 ### <a name="can-an-nva-vnet-have-a-virtual-network-gateway"></a>NVA VNet 是否可以有虛擬網路閘道？
 
-否。 如果 NVA VNet 連線到虛擬中樞，則不能有虛擬網路閘道。 
+沒有。 如果 NVA VNet 連線到虛擬中樞，則不能有虛擬網路閘道。 
 
 ### <a name="is-there-support-for-bgp"></a>是否支援 BGP？
 

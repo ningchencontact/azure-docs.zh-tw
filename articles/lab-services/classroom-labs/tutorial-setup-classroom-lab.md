@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: d0d02f491f14cc6e0664d79bcfd2cda44d433b5b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 3b425af972b0983db076ab103a33c57f7a127210
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389953"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095748"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>教學課程：設定教室實驗室 
 您將在本教學課程中設定教室實驗室，且其中包含教室中學生所使用的虛擬機器。  
@@ -32,7 +32,9 @@ ms.locfileid: "54389953"
 > * 將註冊連結傳送給學生
 
 ## <a name="prerequisites"></a>必要條件
-若要在實驗室帳戶中設定教室實驗室，您必須是實驗室帳戶中 [實驗室建立者] 角色的成員。 您用來建立實驗室帳戶的帳戶會自動新增至此角色。 實驗室擁有者可以使用下列文章中的步驟，將其他使用者新增至「實驗室建立者」角色：[將使用者新增至實驗室建立者角色](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role)。
+若要在實驗室帳戶中設定教室實驗室，您必須是實驗室帳戶中其中一個角色的成員：擁有者、實驗室建立者或參與者。 您用來建立實驗室帳戶的帳戶會自動新增至擁有者角色。
+
+實驗室擁有者可以將其他使用者新增至 [實驗室建立者] 角色。 例如，實驗室擁有者可將教授新增至實驗室建立者角色。 然後，教授會為其班級建立包含 VM 的實驗室。 學生會使用教授提供的註冊連結向實驗室註冊。 註冊後，他們就可以使用實驗室中的 VM 來進行班級工作和在家工作。 如需將使用者新增至實驗室建立者角色的詳細步驟，請參閱[將使用者新增至實驗室建立者角色](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role)。
 
 
 ## <a name="create-a-classroom-lab"></a>建立教室實驗室

@@ -10,27 +10,27 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 01/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 3a84f9ed35bac7f56d4a6aa2af94d1c28e335b74
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4b8e7f429cbe9ff8e71432ac8038c8ad15114711
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093194"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080901"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault
 
-了解如何從 Azure Key Vault 擷取祕密值，並且在 Resource Manager 部署期間傳遞祕密值作為參數。 您只參考其 Key Vault 識別碼，因此該值絕不會公開。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](./resource-manager-keyvault-parameter.md)。
+了解如何從 Azure Key Vault 擷取祕密，並且在 Resource Manager 部署期間傳遞祕密作為參數。 您只參考其金鑰保存庫識別碼，因此該值絕不會公開。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](./resource-manager-keyvault-parameter.md)。
 
-在[設定資源部署順序](./resource-manager-tutorial-create-templates-with-dependent-resources.md)教學課程中，您建立了虛擬機器、虛擬網路和其他相依資源。 在本教學課程中，您會自訂從 Azure Key Vault 擷取虛擬機器系統管理員密碼的範本。
+在[設定資源部署順序](./resource-manager-tutorial-create-templates-with-dependent-resources.md)教學課程中，您建立了虛擬機器、虛擬網路和其他相依資源。 在本教學課程中，您會自訂從金鑰保存庫擷取虛擬機器系統管理員密碼的範本。
 
 本教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
-> * 準備 Key Vault
+> * 準備金鑰保存庫
 > * 開啟快速入門範本
 > * 編輯參數檔案
 > * 部署範本
@@ -49,18 +49,18 @@ ms.locfileid: "53093194"
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault 的設計訴求是保護加密金鑰和其他祕密。 如需詳細資訊，請參閱[教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md)。 我們也建議您每三個月更新一次密碼。
+    請確認所產生的密碼符合虛擬機器的密碼需求。 每個 Azure 服務都有特定的密碼需求。 如需 VM 密碼需求，請參閱[建立 VM 時的密碼需求為何？](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。
 
-## <a name="prepare-the-key-vault"></a>準備 Key Vault
+## <a name="prepare-a-key-vault"></a>準備金鑰保存庫
 
-在本節中，您會使用 Resource Manager 範本建立 Key Vault 和祕密。 此範本會：
+在本節中，您會使用 Resource Manager 範本建立金鑰保存庫和祕密。 此範本會：
 
-* 在啟用 `enabledForTemplateDeployment` 屬性的情況下建立 Key Vault。 此屬性必須為 true，範本部署程序才能存取此 Key Vault 中定義的祕密。
-* 將秘密新增至 Key Vault。  此祕密會儲存虛擬機器的系統管理員密碼。
+* 在啟用 `enabledForTemplateDeployment` 屬性的情況下建立金鑰保存庫。 此屬性必須為 true，範本部署程序才能存取此金鑰保存庫中定義的祕密。
+* 將秘密新增至金鑰保存庫。  此祕密會儲存虛擬機器的系統管理員密碼。
 
-如果您 (作為要部署虛擬機器範本的使用者) 不是 Key Vault 的擁有者或參與者，則 Key Vault 的擁有者或參與者必須准許您存取 Key Vault 的 Microsoft.KeyVault/vaults/deploy/action 權限。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](./resource-manager-keyvault-parameter.md)。
+如果您 (作為要部署虛擬機器範本的使用者) 不是金鑰保存庫的擁有者或參與者，則金鑰保存庫的擁有者或參與者必須准許您存取金鑰保存庫的 Microsoft.KeyVault/vaults/deploy/action 權限。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](./resource-manager-keyvault-parameter.md)。
 
-範本需要您的 Azure AD 使用者物件識別碼來設定權限。 下列程序會取得物件識別碼 (GUID)，也會產生系統管理員密碼。 若要避免密碼噴濺攻擊，建議使用所產生的密碼。
+範本需要您的 Azure AD 使用者物件識別碼來設定權限。 下列程序會取得物件識別碼 (GUID)。
 
 1. 執行下列 Azure PowerShell 或 Azure CLI 命令。  
 
@@ -68,19 +68,16 @@ ms.locfileid: "53093194"
     echo "Enter your email address that is associated with your Azure subscription):" &&
     read upn &&
     az ad user show --upn-or-object-id $upn --query "objectId" &&
-    openssl rand -base64 32
     ```
     ```azurepowershell-interactive
     $upn = Read-Host -Prompt "Input your user principal name (email address) used to sign in to Azure"
-    (Get-AzureADUser -ObjectId $upn).ObjectId
-    openssl rand -base64 32
+    (Get-AzADUser -UserPrincipalName $upn).Id
     ```
-2. 記下物件識別碼和所產生的密碼。 您稍後需要這些資訊。
-3. 請確認所產生的密碼符合虛擬機器的密碼需求。 每個 Azure 服務都有特定的密碼需求。 如需 VM 密碼需求，請參閱[建立 VM 時的密碼需求為何？](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。
+2. 請記下物件識別碼。 稍後在本教學課程中需要用到。
 
-若要建立 Key Vault：
+若要建立金鑰保存庫：
 
-1. 選取以下影像來登入 Azure 並開啟範本。 此範本會建立 Key Vault 和 Key Vault 祕密。
+1. 選取以下影像來登入 Azure 並開啟範本。 此範本會建立金鑰保存庫和祕密。
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
 
@@ -89,7 +86,7 @@ ms.locfileid: "53093194"
     ![Resource Manager 範本 Key Vault 整合部署入口網站](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-key-vault-portal.png)
 
     * **訂用帳戶**：選取 Azure 訂用帳戶。
-    * **資源群組**：指派唯一的名稱。 請記下此名稱，您會在下一節中使用相同的資源群組來部署虛擬機器。 將 Key Vault 和虛擬機器放在相同的資源群組中，可讓您在本教學課程結束時更輕鬆地清除資源。
+    * **資源群組**：指派唯一的名稱。 請記下此名稱，您會在下一節中使用相同的資源群組來部署虛擬機器。 將金鑰保存庫和虛擬機器放在相同的資源群組中，可讓您在本教學課程結束時更輕鬆地清除資源。
     * **位置**：選取位置。  預設位置為 [美國中部]。
     * **Key Vault 名稱**：指派唯一的名稱。 
     * **租用戶識別碼**：範本功能會自動擷取您的租用戶識別碼。請勿變更預設值
@@ -98,25 +95,26 @@ ms.locfileid: "53093194"
     * **祕密值**：輸入您的祕密。  祕密是用來登入虛擬機器的密碼。 建議使用您在上一個程序中產生的密碼。
     * **我同意上方所述的條款及條件**：選取。
 3. 選取頂端的 [編輯參數] 來看一下範本。
-4. 瀏覽至範本 JSON 檔案的第 28 行。 這是 Key Vault 資源定義。
+4. 瀏覽至範本 JSON 檔案的第 28 行。 這是金鑰保存庫資源定義。
 5. 瀏覽至第 35 行：
 
     ```json
     "enabledForTemplateDeployment": true,
     ```
-    `enabledForTemplateDeployment` 是 Key Vault 屬性。 此屬性必須為 true，才可以在部署期間從此 Key Vault 擷取祕密。
+    `enabledForTemplateDeployment` 是 Key Vault 屬性。 此屬性必須為 true，才可以在部署期間從此金鑰保存庫擷取祕密。
 6. 瀏覽至第 89 行。 這是 Key Vault 祕密定義。
 7. 選取頁面底部的 [捨棄]。 您並未進行任何變更。
 8. 確認您已提供如前一個螢幕擷取畫面顯示的所有值，然後按一下頁面底部的 [購買]。
 9. 選取頁面頂端的鈴鐺圖示 (通知)，以開啟 [通知] 窗格。 等到資源部署成功為止。
 10. 在 [通知] 窗格中選取 [移至資源群組]。 
-11. 輸入 Key Vault 名稱，加以開啟。
-12. 從左窗格中選取 [存取原則]。 您的名稱 (Active Directory) 應會列出，否則您就沒有存取金鑰保存庫的權限。
-13. 選取 [按一下以顯示進階存取原則]。 請注意，[為範本部署啟用對 Azure Resource Manager 的存取] 已選取。 這是讓 Key Vault 整合得以運作的另一個條件。
+11. 選取金鑰保存庫名稱，加以開啟。
+12. 選取左窗格中的 [祕密]。 **vmAdminPassword** 應會列在那裡。
+13. 從左窗格中選取 [存取原則]。 您的名稱 (Active Directory) 應會列出，否則您就沒有存取金鑰保存庫的權限。
+14. 選取 [按一下以顯示進階存取原則]。 請注意，[為範本部署啟用對 Azure Resource Manager 的存取] 已選取。 此設定是讓 Key Vault 整合得以運作的另一個條件。
 
     ![Resource Manager 範本 Key Vault 整合存取原則](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
-14. 選取左窗格中的 [屬性]。
-15. 複製 [資源識別碼] 。 當您部署虛擬機器時，您會需要此識別碼。  資源識別碼格式為：
+15. 選取左窗格中的 [屬性]。
+16. 複製 [資源識別碼] 。 當您部署虛擬機器時，您會需要此識別碼。  資源識別碼格式為：
 
     ```json
     /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -166,7 +164,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
         }
     },
     ```
-    使用在上一個程序所建立 Key Vault 的資源識別碼取代 **id**。  
+    使用在上一個程序所建立金鑰保存庫的資源識別碼取代 **id**。  
 
     ![整合金鑰保存庫與 Resource Manager 範本虛擬機器部署參數檔案](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 3. 提供下列值：
@@ -180,22 +178,27 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 請依照[部署範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)中的指示來部署範本。 您必須將 **azuredeploy.json** 與 **azuredeploy.parameters.json** 上傳到 Cloud Shell，然後使用下列 PowerShell 指令碼來部署範本：
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name of the Key Vault"
 $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
-New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile azuredeploy.json `
+    -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-當您部署範本時，請使用相同的資源群組作為 Key Vault。 這可讓您更為輕鬆地清除資源。 您只需要刪除一個資源群組，而非兩個資源群組。
+當您部署範本時，請使用相同的資源群組作為金鑰保存庫。 這可讓您更為輕鬆地清除資源。 您只需要刪除一個資源群組，而非兩個資源群組。
 
 ## <a name="valid-the-deployment"></a>讓部署生效
 
-在您成功部署虛擬機器之後，請使用在 Key Vault 中儲存的密碼來測試登入。
+在您成功部署虛擬機器之後，請使用在金鑰保存庫中儲存的密碼來測試登入。
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)。
 2. 選取 [資源群組識別碼]/**YourResourceGroupName >**/**simpleWinVM**
 3. 選取頂端的 [連線]。
-4. 選取 [下載 RDP 檔案]，然後依照指示，使用 Key Vault 中儲存的密碼來登入虛擬機器。
+4. 選取 [下載 RDP 檔案]，然後依照指示，使用金鑰保存庫中儲存的密碼來登入虛擬機器。
 
 ## <a name="clean-up-resources"></a>清除資源
 

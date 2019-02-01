@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 71eec62f4468b6b74a15a30be3e472b41c4d45b0
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ce44d4c066183ff796c8efa1dceb20dff73868ee
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397766"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192384"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>安全存取雲端中的應用程式資料
 
@@ -30,7 +30,7 @@ ms.locfileid: "39397766"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程，您必須已完成上一個儲存體教學課程：[使用 Event Grid 自動調整已上傳影像的大小][previous-tutorial]。 
+若要進行本教學課程，您必須已完成先前的儲存體教學課程︰[使用事件方格自動調整已上傳映像的大小][previous-tutorial]。 
 
 ## <a name="set-container-public-access"></a>設定容器的公用存取
 
@@ -50,7 +50,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 在此教學課程系列的第一部分中，Web 應用程式會顯示公用容器中的影像。 在系列的這個部分中，您會使用[共用存取簽章 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) 權杖來擷取縮圖影像。 SAS 權杖可讓您根據 IP、通訊協定、時間間隔或允許的權限，來限制存取容器或 Blob。
 
-在此範例中，原始程式碼存放庫使用具有已更新程式碼範例的 `sasTokens` 分支。 使用 [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete) 刪除現有的 GitHub 部署。 接著，使用 [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) 命令設定 Web 應用程式的 GitHub 部署。  
+在此範例中，原始程式碼存放庫使用具有已更新程式碼範例的 `sasTokens` 分支。 使用 [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete) 刪除現有的 GitHub 部署。 接著，使用 [az webapp deployment source config](/cli/azure/webapp/deployment/source) 命令設定 Web 應用程式的 GitHub 部署。  
 
 在下列命令中，`<web-app>` 是您 Web 應用程式的名稱。  
 

@@ -1,23 +1,23 @@
 ---
-title: 快速入門：專案 URL 預覽 JavaScript
+title: 快速入門：專案 URL 預覽 (JavaScript)
 titlesuffix: Azure Cognitive Services
 description: 快速開始使用 Bing URL 預覽 API 與 JavaScript 的指令碼範例。
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: f36609448819ed197cb92c0bc4d9cc0237fe6df8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 941cdd25eb6f16b580900fed6e41aa4bf8df15f7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466931"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224876"
 ---
-# <a name="quickstart-url-preview-in-javascript"></a>快速入門：JavaScript 中的 URL 預覽 
+# <a name="quickstart-url-preview-in-javascript"></a>快速入門：在 JavaScript 中的 URL 預覽 
 
 下列單頁應用程式使用 JavaScript 建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en。 
 
@@ -34,7 +34,7 @@ ms.locfileid: "49466931"
 
 **未經處理的 JSON 回應**
 
-````
+```
 {
   "_type": "WebPage",
   "name": "SwiftKey - Smart prediction technology for easier mobile typing",
@@ -46,7 +46,7 @@ ms.locfileid: "49466931"
   }
 }
 
-````
+```
 
 **執行中示範**
 

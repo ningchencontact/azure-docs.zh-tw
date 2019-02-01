@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 23912f9d004d051c422f93e8b10f1aa6cb8b2626
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a39fc2d0e1a57322f3cce63fa298657c1f938e55
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959490"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100728"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>快速入門：建置 AngularJS 單一頁面應用程式 與 Azure Active Directory 整合進行登入和登出
 
@@ -49,8 +49,8 @@ Azure Active Directory (Azure AD) 可讓您簡單又直截了當地新增登入�
 
 若要開始，請完成以下必要條件：
 
-* [下載應用程式基本架構](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip)或[下載完整的範例](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip)。
-* 您需要一個可以建立使用者並註冊應用程式的 Azure AD 租用戶。 如果您還沒有租用戶， [了解如何取得租用戶](quickstart-create-new-tenant.md)。
+* [下載應用程式基本架構](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip)或[下載已完成的範例](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip)。
+* 可以建立使用者並註冊應用程式的 Azure AD 租用戶。 如果您還沒有租用戶， [了解如何取得租用戶](quickstart-create-new-tenant.md)。
 
 ## <a name="step-1-register-the-directorysearcher-application"></a>步驟 1：註冊 DirectorySearcher 應用程式
 
@@ -75,7 +75,7 @@ Azure Active Directory (Azure AD) 可讓您簡單又直截了當地新增登入�
 1. 在您的應用程式租用戶上授予權限。 前往 [設定] > [必要的權限]，並選取頂端列中的 [授與權限] 按鈕。
 1. 選取 [是]  加以確認。
 
-## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>步驟 2︰安裝 ADAL 並設定單一頁面應用程式
+## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>步驟 2：安裝 ADAL 並設定單一頁面應用程式
 
 既然您在 Azure AD 中已有應用程式，您可以安裝 adal.js，並撰寫身分識別相關的程式碼。
 
@@ -101,7 +101,7 @@ Azure Active Directory (Azure AD) 可讓您簡單又直截了當地新增登入�
    * `ida:Tenant` 是指您的 Azure AD 租用戶網域，例如 contoso.onmicrosoft.com。
    * `ida:Audience` 是您從入口網站複製的應用程式用戶端識別碼。
 
-## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>步驟 3︰使用 ADAL 來保護單一頁面應用程式中的頁面
+## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>步驟 3：使用 ADAL 來保護單一頁面應用程式中的頁面
 
 adal.js 與 AngularJS 路由和 HTTP 提供者整合，因此您可以保護單一頁面應用程式中的個別檢視。
 

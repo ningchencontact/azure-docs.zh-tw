@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: get-started-article
-ms.date: 11/28/2018
 ms.component: hybrid
+ms.date: 01/30/2019
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1c18200bb36b75a07d7b26e3ea0016ec35efdd87
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: cb1ba63a0f32d026d51507fe66432a520a6f6e71
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460488"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298959"
 ---
 # <a name="what-is-azure-ad-connect"></a>何謂 Azure AD Connect？
 
@@ -49,6 +50,20 @@ Azure Active Directory (Azure AD) Connect Health 可為您的內部部署身分�
 
 ## <a name="why-use-azure-ad-connect-health"></a>為何使用 Azure AD Connect Health？
 搭配 Azure AD 時，使用者會更具生產力，因為會有一個可同時存取雲端和內部部署資源的通用身分識別。 確保環境可靠以便讓使用者能夠存取這些資源，已變成一項挑戰。  Azure AD Connect Health 可協助您監視及深入了解內部部署身分識別基礎結構，藉此確保此環境的可靠性。 使用方式相當簡單，您只需將代理程式安裝在各個內部部署身分識別伺服器中即可。
+
+在 Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2 和 Windows Server 2016 上，適用於 AD FS 的 Azure AD Connect Health 支援 AD FS 2.0。 它也支援監視可驗證外部網路存取的 AD FS Proxy 或 Web 應用程式 Proxy 伺服器。 藉由輕鬆且快速地安裝健康情況代理程式，適用於 AD FS 的 Azure AD Connect Health 可提供您一組重要功能。
+
+重要優勢和最佳做法：
+
+|主要權益|最佳做法|
+|-----|-----|
+|強化的安全性|[外部網路鎖定趨勢](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[失敗的登入報告](how-to-connect-health-adfs.md#risky-ip-report-public-preview)</br>[在符合隱私權規範中](reference-connect-health-user-privacy.md)|
+|取得所有[重大 ADFS 系統問題](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)的警示|伺服器設定和可用性</br>[效能和連線能力](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>定期維護|
+|容易部署及管理|[快速代理程式安裝](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>代理程式自動升級至最新版</br>幾分鐘內就可在入口網站中取得資料|
+豐富的[使用計量](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|應用程式使用量排名</br>網路位置與 TCP 連線</br>每一部伺服器的權杖要求數|
+|良好的使用者體驗|來自 Azure 入口網站的儀表板方式</br>[透過電子郵件警示](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
+
+
 
 
 ## <a name="next-steps"></a>後續步驟

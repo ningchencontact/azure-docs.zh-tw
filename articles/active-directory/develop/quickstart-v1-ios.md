@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
-ms.openlocfilehash: 89f2a4058006687fbe64ec64d98659e38f93f618
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 801da78de493b55655819ac16a9184d04a356786
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980571"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095969"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>快速入門：從 iOS 應用程式登入使用者並呼叫 Microsoft Graph API
 
@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) 提供 Active Directory 驗證程式庫 (ADAL)
 * 使用 OAuth 2.0 驗證通訊協定取得用來呼叫 Azure AD 圖形 API 的存取權杖
 * 在目錄中搜尋具有指定別名的使用者
 
-若要建立可完整運作的應用程式，您必須：
+若要建置完整且可運作的應用程式，您必須：
 
 1. 向 Azure AD 註冊您的應用程式。
 1. 安裝及設定 ADAL。
@@ -43,7 +43,7 @@ Azure Active Directory (Azure AD) 提供 Active Directory 驗證程式庫 (ADAL)
 
 ## <a name="prerequisites"></a>必要條件
 
-若要開始，請完成以下先決條件：
+若要開始，請完成以下必要條件：
 
 * [下載應用程式基本架構](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip)或[下載已完成的範例](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip)。
 * 可以建立使用者並註冊應用程式的 Azure AD 租用戶。 如果您還沒有租用戶， [了解如何取得租用戶](quickstart-create-new-tenant.md)。
@@ -51,7 +51,7 @@ Azure Active Directory (Azure AD) 提供 Active Directory 驗證程式庫 (ADAL)
 > [!TIP]
 > 試用[開發人員入口網站](https://identity.microsoft.com/Docs/iOS)以在短短幾分鐘內啟動並執行 Azure AD。 開發人員入口網站會引導您完成註冊應用程式並將 Azure AD 整合至您的程式碼的程序。 當您完成時，您會有可驗證租用戶中使用者的簡單應用程式，以及可接受權杖並執行驗證的後端。
 
-## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>步驟 1：決定您適用於 iOS 的重新導向 URI
+## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>步驟 1：決定您 iOS 的重新導向 URI
 
 為了安全地在特定 SSO 案例啟動您的應用程式，您必須以特定格式建立「重新導向 URI」。 重新導向 URI 可確保應用程式所要求的權杖會正確地傳回給它們。
 
@@ -115,7 +115,7 @@ iOS 格式的重新導向 URI：
     * `clientId` 是您從入口網站複製的應用程式用戶端識別碼。
     * `redirectUri` 是您在入口網站中註冊的重新導向 URL。
 
-## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>步驟 4：使用 ADAL 來取得 Azure AD 的權杖
+## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>步驟 4：使用 ADAL 從 Azure AD 取得權杖
 
 ADAL 的基本原則是每當您的應用程式需要存取權杖時，它只需呼叫 completionBlock `+(void) getToken : `，ADAL 就會進行其餘工作。
 

@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: a69d67ee455b447eb038903bb8fafb644d025662
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.subservice: blobs
+ms.openlocfilehash: a1dba92a9e156c82f49b9f6f85faf227fc652029
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565729"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240075"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>將大量隨機資料平行上傳至 Azure 儲存體
 
@@ -35,7 +35,7 @@ Azure Blob 儲存體會提供可擴充的服務來儲存您的資料。 若要�
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教學課程，您必須先完成上一個儲存體教學課程：[為可擴充的應用程式建立虛擬機器和儲存體帳戶][previous-tutorial]。
+若要進行本教學課程，您必須已完成先前的儲存體教學課程︰[為可擴充的應用程式建立虛擬機器和儲存體帳戶][previous-tutorial]。
 
 ## <a name="remote-into-your-virtual-machine"></a>遠端連線到您的虛擬機器
 

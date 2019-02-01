@@ -1,21 +1,21 @@
 ---
-title: 快速入門：Bing 拼字檢查 API，Node.js
+title: 快速入門：Bing 拼字檢查 API (Node.js)
 titlesuffix: Azure Cognitive Services
 description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 拼字檢查 API。
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: aahi
-ms.openlocfilehash: e98d487723201836a7f1ab1590db1e9d7777d5a7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: bfe37f5f754303f146328326900f23e54a034d7e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310766"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194724"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-nodejs"></a>搭配使用 Bing 拼字檢查 API 與 Node.js 的快速入門 
 

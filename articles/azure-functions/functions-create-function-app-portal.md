@@ -4,24 +4,20 @@ description: 從入口網站，在 Azure App Service 中建立新的函數應用
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 4716d29a7b8c0830e2311398f033f8358ef24529
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a1d4af695807a6e2c5ef4ee74527083002bc6015
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467640"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900761"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>從 Azure 入口網站建立函數應用程式
 
@@ -39,7 +35,7 @@ Azure 函數應用程式使用 Azure App Service 基礎結構。 本主題說明
 
 ## <a name="service-plans"></a>服務方案
 
-Azure Functions 有兩個不同的服務方案︰取用方案和 App Service 方案。 取用方案會在您的程式碼執行時自動配置計算能力、視需要相應放大來處理負載，然後在程式碼未執行時相應縮小。 App Service 方案可讓您的函數應用程式存取 App Service 的所有功能。 建立您的函數應用程式時，您必須選擇您的服務方案，且目前無法變更。 如需詳細資訊，請參閱[選擇 Azure Functions 主控方案](functions-scale.md)。
+Azure Functions 有兩個不同的服務方案︰取用方案或 App Service 方案。 取用方案會在您的程式碼執行時自動配置計算能力、視需要相應放大來處理負載，然後在程式碼未執行時相應縮小。 App Service 方案可讓您的函數應用程式存取 App Service 的所有功能。 建立您的函數應用程式時，您必須選擇您的服務方案，且目前無法變更。 如需詳細資訊，請參閱[選擇 Azure Functions 主控方案](functions-scale.md)。
 
 若計畫在 App Service 方案上執行 JavaScript 函式，您應該選擇核心數目較少的方案。 如需詳細資訊，請參閱 [JavaScript 函式參考資料](functions-reference-node.md#choose-single-vcpu-app-service-plans)。
 
@@ -57,6 +53,3 @@ Azure Functions 有兩個不同的服務方案︰取用方案和 App Service 方
 ## <a name="next-steps"></a>後續步驟
 
 [!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
-
-
-

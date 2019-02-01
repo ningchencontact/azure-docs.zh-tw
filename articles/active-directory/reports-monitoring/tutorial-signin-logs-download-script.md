@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ad34a5c3d72ec1f7fce0b56a85fd7c9cba007366
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ca3b25929a21e844b6350a79a3713d8e1b7ef0f8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824570"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168636"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>教學課程：如何下載和使用指令碼以便存取登入記錄
 
@@ -35,7 +35,7 @@ ms.locfileid: "54824570"
 
 * 具有進階 (P1/P2) 授權的 Azure Active Directory 租用戶。 請注意，如果您在升級前沒有任何活動資料，則在升級至進階授權之後，報告需要幾天的時間才會顯示出資料。 
 * 所擔任的租用戶角色為**全域系統管理員**、**安全性系統管理員**、**安全性讀取者**或**報告讀取者** 的使用者。 此外，任何使用者都可以存取自己的登入資訊。 
-* 如果您想要在 Windows 10 電腦上執行所下載的指令碼，請[設定 AzureRM 模組並設定執行原則](concept-sign-ins.md#running-the-script-on-a-windows-10-machine)。
+* 如果您想要在 Windows 10 機器上執行所下載的指令碼，請[設定 Azure PowerShell 模組並設定執行原則](concept-sign-ins.md#running-the-script-on-a-windows-10-machine)。
 
 ## <a name="tutorial"></a>教學課程
 

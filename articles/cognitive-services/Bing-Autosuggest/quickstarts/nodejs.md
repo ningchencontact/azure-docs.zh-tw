@@ -6,20 +6,20 @@ services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 498953625907aad85d8ea5999905cad21bf245da
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 4fc2fc93adbd4620a05c4d248ada45ded278021b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829982"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196577"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-nodejs"></a>以 Node.js 撰寫的 Bing 自動建議 API 快速入門
 
-本文示範如何使用以 Node.js 撰寫的 [Bing 自動建議 API](https://azure.microsoft.com/services/cognitive-services/autosuggest/)。 Bing 自動建議 API 會根據使用者在搜尋方塊中輸入的部分字串，傳回建議的查詢清單。 通常，每次使用者在搜尋方塊中鍵入新字元時，都會呼叫此 API，然後在搜尋方塊的下拉式清單中顯示建議。 本文示範如何傳送要求，以針對 *sail* 傳回建議的查詢字串。
+本文說明如何搭配使用 [Bing 自動建議 API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) 與 Node.js。 Bing 自動建議 API 會根據使用者在搜尋方塊中輸入的部分字串，傳回建議的查詢清單。 通常，每次使用者在搜尋方塊中鍵入新字元時，都會呼叫此 API，然後在搜尋方塊的下拉式清單中顯示建議。 本文示範如何傳送要求，以針對 *sail* 傳回建議的查詢字串。
 
 ## <a name="prerequisites"></a>必要條件
 

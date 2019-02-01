@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: e48a0a056628e0c863330de792f8edfaa48aae34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f7f97f68db317bb526b9a8542b76633ef16fb766
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261854"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194656"
 ---
 # <a name="what-is-bing-video-search"></a>什麼是 Bing 影片搜尋？
 
@@ -150,7 +150,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>擴展查詢
 
-如果 Bing 可以擴展查詢來縮小原始搜尋範圍，則 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) 物件會包含 `queryExpansions` 欄位。 例如，如果原本的查詢是 *Cleaning Gutters*，擴展的查詢可能是：Gutter Cleaning **Tools**、Cleaning Gutters **From the Ground**、Gutter Cleaning **Machine** 和 **Easy** Gutter Cleaning。
+如果 Bing 可以擴展查詢來縮小原始搜尋範圍，則 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) 物件會包含 `queryExpansions` 欄位。 例如，如果查詢為 *Cleaning Gutters*，擴展後的查詢可能會是：Gutter Cleaning **Tools**、Cleaning Gutters **From the Ground**、Gutter Cleaning **Machine** 和 **Easy** Gutter Cleaning。
 
 下列範例說明 *Cleaning Gutters* 的擴展查詢。
 

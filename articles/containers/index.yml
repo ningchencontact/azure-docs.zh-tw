@@ -1,21 +1,21 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 96f767e96bcebeadfd0557d64b8efbf45b9f9a39
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 89376bf654a23b37e004a1b9b00e32a0c2ac3e2a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43187559"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495067"
 documentType: LandingData
 title: Azure for Containers
 metadata:
   document_id: 
-  title: Azure for Containers - 教學課程與 API 參考
-  description: 請使用下列資源來尋找適用於容器的實用快速入門、教學課程和工具，以透過 Azure 開始開發應用程式。
+  title: Azure for Containers - 快速入門、教學課程和 API 參考
+  description: 使用容器的快速入門、教學課程和工具，開始使用 Azure 管理和部署容器應用程式。
   keywords: Azure, 容器, Docker, API, Kubernetes
-  author: bketelsen
-  ms.author: brketels
-  manager: listonb
-  ms.date: 09/14/2017
+  author: dlepow
+  ms.author: danlep
+  manager: jeconnoc
+  ms.date: 01/08/2019
   ms.topic: article
   ms.prod: azure
   featureFlags:
@@ -26,24 +26,7 @@ metadata:
 sections:
 - items:
   - type: markdown
-    text: >
-      請使用下列資源來尋找適用於容器的實用教學課程和工具，以透過 Azure 開始開發應用程式。
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
-    items:
-    - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
-      html: <p>透過 Azure Container 執行個體建立容器化應用程式</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_get-started.svg
-      title: 開始使用
-    - href: https://docs.microsoft.com/azure/container-service/kubernetes/cli-samples
-      html: <p>適用於 Azure Container Service 的 Azure CLI 範例</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_code-samples.svg
-      title: 程式碼範例
+    text: "使用 Azure 容器的工具和服務，開始部署和管理容器應用程式。 \n"
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
@@ -69,36 +52,35 @@ sections:
       title: 在 Azure Container Registry 中建立私人 Docker 登錄
       image:
         src: /azure/media/index/container-registry.svg
-- title: 免費 Pluralsight 影片訓練
-  items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: https://go.microsoft.com/fwlink/?linkid=2012827
+    - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
+      title: 在 Azure 容器執行個體中隨需執行容器應用程式
       image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-      title: " Azure 系統管理員"
-- title: 範例
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://azure.microsoft.com/resources/samples/app-service-java-deploy-image-from-acr-to-linux/">開始使用 Appservice - 使用 Java 透過容器登錄管理 Linux Web 應用程式</a>
-    - html: <a href="https://azure.microsoft.com/resources/samples/service-fabric-containers/">Service Fabric 容器範例</a>
-    - html: <a href="https://azure.microsoft.com/resources/samples/container-service-python-manage/">部署並連線到 Azure 叢集中的 Docker 容器</a>
+        src: /azure/media/index/containerinstances.svg
 - title: 逐步教學課程
   items:
   - type: paragraph
-    text: 了解如何使用 Azure Kubernetes Service (AKS)
+    text: 了解如何使用 Azure 服務部署、管理和更新容器應用程式
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">從應用程式建立容器映像</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">將容器映像上傳至 Azure Container Registry</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">部署 AKS 叢集</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">在 Kubernetes 中執行容器映像</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-scale">調整應用程式和 Kubernetes 基礎結構</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-app-update">更新在 Kubernetes 中執行的應用程式</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">透過 Log Analytics 監視 Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">建立容器並將其部署至 Azure Kubernetes Service</a>
+    - html: <a href="/azure/service-fabric/service-fabric-host-app-in-a-container">建立 .NET 容器應用程式並將其部署至 Azure Service Fabric</a>
+    - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">在用於容器的 Web App 中建立多容器應用程式</a>
+    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">使用 Azure Container Registry 工作建置和部署容器映像</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">將容器部署至 Azure Container Instances</a>
+- title: 透過 Microsoft Learn 增進您的技巧
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: 使用 Azure 容器執行個體執行 Docker 容器
+      href: /learn/modules/run-docker-with-azure-container-instances/
+      image:
+        src: /learn/achievements/run-docker-with-azure-container-instances.svg
+        href: /learn/modules/run-docker-with-azure-container-instances/
+    - title: 使用 Azure Container Registry 建置及存放容器映像
+      href: /learn/modules/build-and-store-container-images/
+      image:
+        src: /learn/achievements/build-and-store-container-images.svg
+        href: /learn/modules/build-and-store-container-images/

@@ -9,15 +9,15 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/19/2019
+ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 4a7e6189914728fac24e51f3b2dee66cc0bd8a05
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e19d8b1b6eb06f78908238969a4f6e90e42bb564
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463706"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301453"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>教學課程：使用 Event Grid 自動調整已上傳映像的大小
 
@@ -68,11 +68,21 @@ Azure Functions 需要一般的儲存體帳戶。 使用 [az storage account cre
 
 在下列命令中，使用您自己的一般儲存體帳戶全域唯一名稱來替代您看見 `<general_storage_account>` 預留位置的地方。 
 
-```azurecli-interactive
-az storage account create --name <general_storage_account> \
---location westcentralus --resource-group myResourceGroup \
---sku Standard_LRS --kind storage
-```
+1. 設定一個變數，用以保存您在上一個教學課程中建立的資源群組名稱。 
+
+    ```azurecli-interactive
+    resourceGroupName=<Name of the resource group that you created in the previous tutorial>
+    ```
+2. 設定 Azure 函式所需的儲存體帳戶名稱的變數。 
+
+    ```azurecli-interactive
+    functionstorage=<name of the storage account to be used by function>
+    ```
+3. 建立 Azure 函式的儲存體帳戶。 此帳戶與包含映像的儲存體不同。 
+
+    ```azurecli-interactive
+    az storage account create --name $functionstorage --location eastus --resource-group $resourceGroupName --sku Standard_LRS --kind storage
+    ```
 
 ## <a name="create-a-function-app"></a>建立函數應用程式  
 
@@ -80,10 +90,16 @@ az storage account create --name <general_storage_account> \
 
 在下列命令中，使用您自己唯一的函式應用程式名稱來替代您看見 `<function_app>` 預留位置的地方。 函式應用程式會作為函式應用程式的預設 DNS 網域，所以此名稱在 Azure 的所有應用程式中都必須是唯一的名稱。 以您所建立之一般儲存體帳戶的名稱替代 `<general_storage_account>`。
 
-```azurecli-interactive
-az functionapp create --name <function_app> --storage-account  <general_storage_account>  \
---resource-group myResourceGroup --consumption-plan-location westcentralus
-```
+1. 指定要建立的函式應用程式名稱。 
+
+    ```azurecli-interactive
+    functionapp=<name of the function app>
+    ```
+2. 建立 Azure 函式。 
+
+    ```azurecli-interactive
+    az functionapp create --name $functionapp --storage-account  $functionstorage --resource-group $resourceGroupName --consumption-plan-location eastus
+    ```
 
 現在，您必須設定函式應用程式，才能連線到您在[上一個教學課程][previous-tutorial]中建立的 Blob 儲存體帳戶。
 
@@ -93,18 +109,18 @@ az functionapp create --name <function_app> --storage-account  <general_storage_
 
 在下列 CLI 命令中，`<blob_storage_account>` 是您在上一個教學課程中建立之 Blob 儲存體帳戶的名稱。
 
-```azurecli-interactive
-storageConnectionString=$(az storage account show-connection-string \
---resource-group myResourceGroup --name <blob_storage_account> \
---query connectionString --output tsv)
+1. 取得映像所屬儲存體帳戶的連接字串。 
 
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup \
---settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbnails FUNCTIONS_EXTENSION_VERSION=~2
-```
+    ```azurecli-interactive
+    storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
+    ```
+2. 設定函式應用程式。 
 
-`FUNCTIONS_EXTENSION_VERSION=~2` 設定會讓函式應用程式在 2.x 版的 Azure Functions 執行階段上執行。
+    ```azurecli-interactive
+    az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+    ```
+
+    `FUNCTIONS_EXTENSION_VERSION=~2` 設定會讓函式應用程式在 2.x 版的 Azure Functions 執行階段上執行。
 
 您現在可以將函式程式碼專案部署到此函式應用程式。
 
@@ -117,9 +133,7 @@ myContainerName=thumbnails FUNCTIONS_EXTENSION_VERSION=~2
 在下列命令中，`<function_app>` 是您先前建立的函式應用程式名稱。
 
 ```azurecli-interactive
-az functionapp deployment source config --name <function_app> \
---resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/function-image-upload-resize
+az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
@@ -148,11 +162,11 @@ az functionapp deployment source config --name <function_app> \
 
 事件訂閱表示您想要傳送至特定端點之提供者產生的事件。 在此情況下，端點會由函式公開。 使用下列步驟，在 Azure 入口網站中建立事件訂閱，以傳送通知給您的函式： 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下左下方的箭號以展開所有服務，在 [篩選] 欄位中輸入 functions，然後選擇 [函式應用程式]。 
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取左側功能表中的 [所有服務]，然後選取 [函式應用程式]。 
 
     ![瀏覽至 Azure 入口網站中的函式應用程式](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
-2. 展開函式應用程式，選擇 **imageresizerfunc** 函式，然後選取 [新增 Event Grid 訂用帳戶]。
+2. 展開函式應用程式，選擇 **Thumbnail** 函式，然後選取 [新增事件方格訂用帳戶]。
 
     ![瀏覽至 Azure 入口網站中的函式應用程式](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
 
@@ -162,6 +176,7 @@ az functionapp deployment source config --name <function_app> \
 
     | 設定      | 建議的值  | 說明                                        |
     | ------------ |  ------- | -------------------------------------------------- |
+    | **名稱** | imageresizersub | 用以識別新事件訂閱的名稱。 | 
     | **主題類型** |  儲存體帳戶 | 選擇儲存體帳戶事件提供者。 | 
     | **訂用帳戶** | 您的 Azure 訂用帳戶 | 預設會選取您目前的 Azure 訂用帳戶。   |
     | **資源群組** | myResourceGroup | 選取 [使用現有]，並選擇您在本教學課程中一直使用的資源群組。  |
@@ -169,9 +184,8 @@ az functionapp deployment source config --name <function_app> \
     | **事件類型** | 已建立 Blob | 取消勾選 [已建立 Blob] 以外的所有類型。 只有 `Microsoft.Storage.BlobCreated` 的事件類型會傳遞至函式。| 
     | **訂閱者類型** |  自動產生 |  預先定義為 Web Hook。 |
     | **訂閱者端點** | 自動產生 | 使用為您產生的端點 URL。 | 
-    | **名稱** | imageresizersub | 用以識別新事件訂閱的名稱。 | 
 4. *選擇性：* 如果您需要在相同的 Blob 儲存體中建立其他容器供日後使用，您可以使用 [篩選] 索引標籤中的 [主旨篩選] 功能更精確地設定 Blob 事件的目標，以確保只有在 Blob 明確新增至**映像**容器時，才會呼叫您的函式應用程式。 
-5. 按一下 [建立] 以新增事件訂閱。 當 Blob 新增至 images 容器時，這會建立可觸發 `imageresizerfunc` 的事件訂閱。 此函式會調整映像大小，並將其新增至 *thumbnails* 容器。
+5. 按一下 [建立] 以新增事件訂閱。 當 Blob 新增至 images 容器時，這會建立可觸發 `Thumbnail` 函式的事件訂閱。 此函式會調整映像大小，並將其新增至 *thumbnails* 容器。
 
 既然已設定了後端服務，您可以在範例 Web 應用程式中測試映像調整大小功能。 
 

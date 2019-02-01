@@ -6,18 +6,18 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 4987a50f7a689b74062154b8427fd7bec8e2e8a6
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 7beddd7f7f21466ee404303b2727370d0cfc86f6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334305"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220147"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-c"></a>快速入門：使用翻譯工具文字 REST API (C#) 進行文字音譯
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>快速入門：搭配使用翻譯工具文字 API 與 C# 進行文字音譯
 
 在本快速入門中，您將了解如何使用 .NET Core (C#) 和翻譯工具文字 REST API，將文字從一個字集直譯 (轉換) 成另一個字集。 在所提供的範例中，日文會直譯為使用拉丁字母。
 
@@ -28,7 +28,7 @@ ms.locfileid: "52334305"
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet 套件](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)、[Visual Studio Code](https://code.visualstudio.com/download)，或您最愛的文字編輯器。
-* 語音服務的 Azure 訂用帳戶金鑰
+* 翻譯工具文字的 Azure 訂用帳戶金鑰
 
 ## <a name="create-a-net-core-project"></a>建立 .NET Core 專案
 

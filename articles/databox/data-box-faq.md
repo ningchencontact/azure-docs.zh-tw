@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/16/2019
+ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449566"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077449"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure 資料箱：常見問題集
 
@@ -58,6 +58,9 @@ A. 美國、西歐、北歐、法國與英國內的所有區域都支援資料�
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>問： 如果遇到任何資料箱方面的問題，該與誰連絡？
 A. 如果您遇到任何資料箱方面的問題，請連絡 [Microsoft 支援服務](data-box-disk-contact-microsoft-support.md)。
 
+### <a name="q-i-have-lost-my-data-box-is-there-a-lost-device-charge"></a>問： 我遺失了資料箱。 裝置遺失是否需要費用？
+A. 是。 裝置遺失或損壞都需要費用。 [定價頁面](https://azure.microsoft.com/pricing/details/storage/databox/)及[產品服務條款](https://www.microsoft.com/licensing/product-licensing/products)均涵蓋這筆費用。
+
 
 ## <a name="order-device"></a>訂購裝置
 
@@ -78,10 +81,10 @@ A. 針對每個商務服務界限 (特定的國家/地區和區域的組合) 中
 A. 這表示您選取的國家/地區和區域組合無法提供資料箱服務。 變更這個組合可能可以讓您使用資料箱服務。 如需可提供服務的區域清單，請移至[資料箱的區域可用性](data-box-overview.md#region-availability)。
 
 ### <a name="q-i-placed-my-data-box-order-few-days-back-when-will-i-receive-my-data-box"></a>問： 我幾天前已下訂了資料箱訂單。 何時才會收到資料箱？
-A. 當您下單時，我們會檢查裝置是否可供您的訂單使用。 如果裝置可用，我們將會在 10 天內寄出。 可以想見的是可能會有需求高峰期間。 在此情況下，您的訂單將會排入佇列，而且您可以在 Azure 入口網站中追蹤狀態變更。 如果您的訂單在 90 天後仍未完成，訂單將會自動取消。 
+A. 當您下單時，我們會檢查裝置是否可供您的訂單使用。 如果裝置可用，我們將會在 10 天內寄出。 可以想見的是可能會有需求高峰期間。 在此情況下，您的訂單將會排入佇列，而且您可以在 Azure 入口網站中追蹤狀態變更。 如果您的訂單在 90 天後仍未完成，訂單將會自動取消。
 
 ### <a name="q-i-have-filled-up-my-data-box-with-data-and-need-to-order-another-one-is-there-a-way-to-quickly-place-the-order"></a>問： 我已將資料箱填滿資料，而需要再訂購一個資料箱。 有快速下訂單的方法嗎？
-A. 您可以複製您的上一筆訂單。 複製會建立與之前相同的訂單，因此您只需編輯訂單詳細資料即可，而不需要輸入地址、連絡人和通知詳細資料。 
+A. 您可以複製您的上一筆訂單。 複製會建立與之前相同的訂單，因此您只需編輯訂單詳細資料即可，而不需要輸入地址、連絡人和通知詳細資料。
 
 ## <a name="configure-and-connect"></a>設定和連線
 
@@ -96,6 +99,9 @@ A.  您只能在資料箱訂購之後，並在訂單處理之前取消訂單。 
 
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>問： 我是否可以將資料箱同時連線到多部主機電腦來傳輸資料？
 A. 是。 您可以將多個資料箱連線到多部主機電腦以傳輸資料，而且可以平行執行多個複製作業。 如需詳細資訊，請移至[教學課程：將資料複製到 Azure 資料箱](data-box-deploy-copy-data.md)。
+
+### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>問： 是否可以連線到資料箱上的兩個 10 GbE 介面來傳輸資料？
+A. 是。 在資料箱上可以連線這兩個 10 GbE 介面來同時複製資料。 如需有關如何複製資料的詳細資訊，請移至[教學課程：將資料複製到 Azure 資料箱](data-box-deploy-copy-data.md)。
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -209,12 +215,12 @@ A.  當您將資料複製到資料箱時，視資料為區塊 Blob、分頁 Blob
  或者，您可以在 Azure 入口網站中移至您 Azure 儲存體帳戶，並從該處瀏覽。
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>問： 我剛剛發現我的容器並未遵循 Azure 命名需求。 我的資料會不會無法上傳至 Azure？
-A.  如果容器名稱包含大寫字母，這些字母會自動轉換為小寫。 如果名稱在其他方面不符合規範 (特殊字元、其他語言等等)，則上傳會失敗。 如需有關命名共用、容器、檔案之最佳做法的詳細資訊，請移至： 
+A.  如果容器名稱包含大寫字母，這些名稱會自動轉換為小寫。 如果名稱在其他方面不符合規範 (特殊字元、其他語言等等)，則上傳會失敗。 如需有關命名共用、容器、檔案之最佳做法的詳細資訊，請移至：
 - [命名和參考共用](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [區塊 Blob 與分頁 Blob 慣例](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)。
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-data-box"></a>問： 我要如何驗證複製到資料箱上的資料？
-A.  在資料複製完成之後，當您執行**準備寄送**時，便會驗證資料。 在驗證過程中，資料箱會產生一份檔案清單與總和檢查碼。 您可以下載該檔案清單，並針對來源資料中的檔案進行確認。 如需詳細資訊，請移至[準備寄送](data-box-deploy-copy-data.md#prepare-to-ship)。
+A.  在資料複製完成之後，當您執行**準備寄送**時，便會驗證資料。 在驗證過程中，資料箱會產生一份檔案清單與總和檢查碼。 您可以下載檔案清單，並針對來源資料中的檔案進行確認。 如需詳細資訊，請移至[準備寄送](data-box-deploy-picked-up.md#prepare-to-ship)。
 
 ### <a name="q-what-happens-to-my-data-after-i-have-returned-the-data-box"></a>問： 在我送回資料箱之後，我的資料將會如何？
 A.  當資料複製到 Azure 之後，資料箱磁碟中的資料將會根據 NIST SP 800-88 修訂 1 指導方針安全地清除。 如需詳細資訊，請移至[從資料箱清除資料](data-box-deploy-picked-up.md#erasure-of-data-from-data-box)。

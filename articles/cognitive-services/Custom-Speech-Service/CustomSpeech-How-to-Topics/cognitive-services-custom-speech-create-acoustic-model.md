@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0e4c21a064cdb0a60aef49482eee4b768112b899
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344569"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216416"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>教學課程：建立自訂原音模型
 
@@ -48,7 +48,7 @@ ms.locfileid: "49344569"
 <a name="Preparing data to customize the acoustic model"></a>
 *   如果您想要讓單一演講者的表現發揮最佳效果，例如，您想要抄寫美國總統富蘭克林‧羅斯福的所有「爐邊談話」，則音訊檔內就應該包含許多只有該名演講者的範例。
 
-用來自訂原音模型的原音資料集是由兩個部分所組成：(1) 一組包含語音資料的音訊檔和 (2) 包含所有音訊檔文字記錄的檔案。
+用來自訂原音模型的原音資料集由兩個部分所組成：(1) 一組包含語音資料的音訊檔和 (2) 包含所有音訊檔轉譯的檔案。
 
 ### <a name="audio-data-recommendations"></a>音訊資料建議
 

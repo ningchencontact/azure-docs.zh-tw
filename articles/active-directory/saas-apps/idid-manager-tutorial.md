@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/11/2019
+ms.date: 1/25/2019
 ms.author: jeedes
-ms.openlocfilehash: baf78fc0bc0941c9466f77a77ef922f3fe3d62b3
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: a12a0b383db63cc80aea045ca5afe6c75b0b83a9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823015"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100014"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>教學課程：Azure Active Directory 與 iDiD Manager 整合
 
@@ -70,10 +70,10 @@ iDiD Manager 與 Azure AD 整合可提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 [應用程式名稱] 搭配運作的 Azure AD 單一登入。
-若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 [應用程式名稱] 中相關使用者之間的連結關聯性。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 iDiD Manager 設定及測試 Azure AD 單一登入。
+若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 iDiD Manager 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 [應用程式名稱] 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 iDiD Manager 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 iDiD Manager 單一登入](#configure-idid-manager-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -86,7 +86,7 @@ iDiD Manager 與 Azure AD 整合可提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 [應用程式名稱] 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要使用 iDiD Manager 設定 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [iDiD Manager] 應用程式整合頁面中，選取 [單一登入]。
 
@@ -100,18 +100,20 @@ iDiD Manager 與 Azure AD 整合可提供下列優點：
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 若您想要以 **SP** 起始模式設定應用程式，請在 [基本 SAML 組態] 區段執行下列步驟：
+4. 在 [基本 SAML 組態] 區段中，使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
 
-    ![iDiD Manager 網域和 URL 單一登入資訊](common/both-preintegrated-signon.png)
+    ![iDiD Manager 網域和 URL 單一登入資訊](common/preintegrated.png)
 
-    a. 按一下 [設定額外的 URL]。
+5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    b. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://idid2.fi/saml/login/<domain>`
+    ![iDiD Manager 網域和 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+
+    在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://idid2.fi/saml/login/<domain>`
 
     > [!NOTE]
     > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [iDiD Manager 用戶端支援小組](mailto:support@idid.fi)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]，並將其儲存在您的電腦上。
+6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]，並將其儲存在您的電腦上。
 
     ![憑證下載連結](common/copy-metadataurl.png)
 
@@ -187,3 +189,4 @@ iDiD Manager 與 Azure AD 整合可提供下列優點：
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

@@ -1,21 +1,21 @@
 ---
-title: 快速入門：專案答案搜尋 Python
+title: 快速入門：專案答案搜尋 (Python)
 titlesuffix: Azure Cognitive Services
 description: 開始使用專案答案搜尋的 Python 範例。
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 69c5edfef65af2ed1b27f9a512ad13c21468df7a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 8d0ddf1d532c77f23a930c46bb261e03bc5822e7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465503"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218287"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>快速入門：使用 Python 進行專案答案搜尋
 
@@ -30,7 +30,7 @@ ms.locfileid: "49465503"
 ## <a name="code-scenario"></a>程式碼案例 
 
 下列程式碼會建立 URL 預覽。
-其實作的步驟如下：
+實際進行步驟如下：
 1. 宣告變數以依主機及路徑指定端點。
 2. 指定要預覽的查詢 URL，並新增查詢參數。  
 3. 設定查詢參數。
@@ -41,7 +41,7 @@ ms.locfileid: "49465503"
 
 此示範的完整程式碼如下：
 
-````
+```
 import http.client, urllib.parse
 import json
 
@@ -65,7 +65,7 @@ def get_local():
 result = get_local()
 print (json.dumps(json.loads(result), indent=4))
 
-````
+```
 ## <a name="next-steps"></a>後續步驟
 - [C# 快速入門](c-sharp-quickstart.md)
 - [Java 快速入門](java-quickstart.md)

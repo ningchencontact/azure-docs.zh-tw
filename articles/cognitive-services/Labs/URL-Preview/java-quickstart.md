@@ -1,23 +1,23 @@
 ---
-title: 快速入門：專案 URL 預覽 Java
+title: 快速入門：專案 URL 預覽 (Java)
 titlesuffix: Azure Cognitive Services
 description: 開始使用專案 URL 預覽與 Java 的指令碼範例。
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: cdbed473af04b7a0ba0fd2bba56219d43bf72537
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cfc0cd690c040ed912281be081daffd26566bd4d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465707"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209119"
 ---
-# <a name="quickstart-url-preview-with-java"></a>快速入門：使用 Java 進行 URL 預覽
+# <a name="quickstart-url-preview-with-java"></a>快速入門：使用 Java 的 URL 預覽
 
 下列 Java 範例會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en。
 
@@ -29,7 +29,7 @@ ms.locfileid: "49465707"
 
 下列程式碼會建立 `WebRequest`、設定存取金鑰標頭，並新增 "https://swiftkey.com/en" 的查詢字串。  接著，它會傳送要求，並為字串指派包含 JSON 文字的回應。
 
-````
+```
     // construct URL of search request (endpoint + query string)
 
     static String host = "https://api.labs.cognitive.microsoft.com";
@@ -47,7 +47,7 @@ ms.locfileid: "49465707"
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="complete-code"></a>完整程式碼
 
@@ -58,7 +58,7 @@ Bing 答案搜尋 API 會從 Bing 搜尋引擎傳回結果。
 4. 將 subscriptionKey 值取代為您訂用帳戶的有效存取金鑰。
 5. 執行程式。
 
-````
+```
 package UrlPreviewpkg;
 
 import java.net.*;
@@ -165,7 +165,7 @@ class SearchResults{
  }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>後續步驟
 - [C# 快速入門](csharp.md)

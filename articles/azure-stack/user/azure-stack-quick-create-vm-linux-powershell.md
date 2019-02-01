@@ -11,19 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 09c719dd03f375127448851d0af9dada9238d1f1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: fd7dd06692e20eb0e7cc02af8d2f36c4dad8b597
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377499"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251923"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入門：在 Azure Stack 中使用 PowerShell 建立 Linux 伺服器虛擬機器
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 您可以使用 Azure Stack PowerShell 建立 Ubuntu Server 16.04 LTS 虛擬機器。 請遵循本文中的步驟建立和使用虛擬機器。  本文也提供下列操作的步驟：
 
@@ -47,7 +48,7 @@ ms.locfileid: "44377499"
 
 資源群組是您可以在其中部署和管理 Azure Stack 資源的邏輯容器。 從您的開發套件或 Azure Stack 整合系統，執行下列程式碼區塊來建立資源群組。 本文件中的所有變數都有指派值，您可以使用這些值或指派新的值。
 
-```powershell
+```powershell  
 # Create variables to store the location and resource group names.
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
@@ -61,7 +62,7 @@ New-AzureRmResourceGroup `
 
 建立儲存體帳戶，然後建立 Ubuntu Server 16.04 LTS 映像的儲存體容器。
 
-```powershell
+```powershell  
 # Create variables to store the storage account name and the storage account SKU information
 $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
@@ -395,7 +396,7 @@ Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ssh <Public IP Address>
 ```
 
-出現提示時，輸入 azureuser 作為登入使用者。 如果您在建立 SSH 金鑰時使用複雜密碼，您必須提供複雜密碼。
+出現提示時，以 **azureuser** 登入。 如果您在建立 SSH 金鑰時使用複雜密碼，您必須提供複雜密碼。
 
 ## <a name="install-the-nginx-web-server"></a>安裝 NGINX 網頁伺服器
 

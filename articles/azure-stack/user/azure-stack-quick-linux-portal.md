@@ -7,20 +7,21 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.reviewer: ''
+ms.reviewer: kivenkat
 ms.custom: mvc
-ms.openlocfilehash: e82c3de4461e2d663496cd4ae4a98c10e7819466
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: ef2d59393902194af3e257ce0fd5bf403b293af1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025405"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245418"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>快速入門：使用 Azure Stack 入口網站建立 Linux 伺服器虛擬機器
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 您可以使用 Azure Stack 入口網站建立 Ubuntu Server 16.04 LTS 虛擬機器。 請遵循本文中的步驟建立和使用虛擬機器。 本文也提供下列操作的步驟：
 
@@ -36,11 +37,11 @@ ms.locfileid: "44025405"
 
 * **Azure Stack 市集中的 Linux 映像**
 
-   Azure Stack 市集預設並未包含 Linux 映像。 請先確定 Azure Stack 操作員提供您所需的 **Ubuntu Server 16.04 LTS** 映像，才可建立 Linux 伺服器虛擬機器。 操作員可以使用[將 Marketplace 項目從 Azure 下載到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中所述的步驟。
+   Azure Stack 市集預設沒有 Linux 映像。 檢查 Azure Stack 操作員是否已在您的市集中提供 **Ubuntu Server 16.04 LTS** 映像。 操作員可以使用[將 Marketplace 項目從 Azure 下載到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中所述的步驟。
 
 * **SSH 用戶端存取權**
 
-   如果您使用 Azure Stack 開發套件 (ASDK)，可能無法存取 SSH 用戶端。 如果您需要用戶端，有數個包含 SSH 用戶端的套件。 例如，PuTTY 包含 SSH 用戶端和 SSH 金鑰產生器 (puttygen.exe)。 如需有關可用套件的詳細資訊，請參閱下列 Azure 文章：[如何在 Azure 上搭配 Windows 使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients)。
+   如果您使用 Azure Stack 開發套件 (ASDK)，可能無法存取 SSH 用戶端。 如果您需要用戶端，有數個包含 SSH 用戶端的套件。 例如，PuTTY 包含 SSH 用戶端和 SSH 金鑰產生器 (puttygen.exe)。 如需可用套件的詳細資訊，請參閱下列 Azure 文章：[如何在 Azure 上對 Windows 使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients)。
 
    本快速入門使用 PuTTY 來產生 SSH 金鑰及連線到 Linux 伺服器虛擬機器。 若要下載並安裝 PuTTY，請移至 [http://www.putty.org/](http://www.putty.org)。
 
@@ -97,7 +98,7 @@ ms.locfileid: "44025405"
 
 ## <a name="connect-to-the-virtual-machine"></a>連接至虛擬機器
 
-1. 在虛擬機器頁面上，按一下 [連接]。 這會顯示連線到虛擬機器所需的 SSH 連接字串。 
+1. 在虛擬機器頁面上，按一下 [連接]。 您可以尋找連線到虛擬機器所需的 SSH 連接字串。 
 
 2. 開啟 PuTTY。
 
@@ -136,9 +137,9 @@ sudo apt-get -y install nginx
 1. 在虛擬機器的 [概觀] 頁面上，按一下「資源群組」的名稱。
 2. 選取虛擬機器的「網路安全性群組」。 使用 [類型] 資料行可以識別 NSG。
 3. 在左側功能表的 [設定] 底下，按一下 [輸入安全性規則]。
-4. 按一下 [新增] 。
+4. 按一下 [新增]。
 5. 在 [名稱] 中輸入 **http**。 確定 [連接埠範圍] 已設為 80 且 [動作] 已設為 [允許]。
-6. 按一下 [檔案] &gt; [新增] &gt; [專案] 
+6. 按一下 [確定]
 
 ## <a name="view-the-nginx-welcome-page"></a>檢視 NGINX 歡迎使用頁面
 

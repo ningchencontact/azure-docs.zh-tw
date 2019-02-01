@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 33f7367d9cdc510cf04f349f44b6e85215d46038
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 44d6311246ab303966b7cfd8bee854b1c017f85d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995607"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902681"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>建立 Azure 佇列儲存體所觸發的函式
 
@@ -113,8 +113,9 @@ ms.locfileid: "52995607"
 
 ## <a name="next-steps"></a>後續步驟
 
-您已建立了函式，並讓它在儲存體佇列中有訊息新增時執行。
+您已建立了函式，並讓它在儲存體佇列中有訊息新增時執行。 如需佇列儲存體觸發程序的詳細資訊，請參閱 [Azure Functions 儲存體佇列繫結](functions-bindings-storage-queue.md)。
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+既然您已建立第一個函式，讓我們將輸出繫結新增至函式，以將訊息寫回另一個佇列。
 
-如需佇列儲存體觸發程序的詳細資訊，請參閱 [Azure Functions 儲存體佇列繫結](functions-bindings-storage-queue.md)。
+> [!div class="nextstepaction"]
+> [使用 Functions 在 Azure 儲存體佇列中新增訊息](functions-integrate-storage-queue-output-binding.md)

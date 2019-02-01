@@ -3,23 +3,23 @@ title: 使用 Windows VM 使用者指派的受控識別來存取 Azure Resource 
 description: 本教學課程會逐步引導您在 Windows VM 上利用使用者指派的受控識別，以存取 Azure Resource Manager。
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: daveba
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: daveba
-ms.openlocfilehash: 8a716c58c7b65a4f295bdf5ac68edff4d8808cd8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: f2d8abcb69c565c6e1fcf609a4984722a8a0898f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423304"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156563"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>教學課程：在 Windows VM 上利用使用者指派的受控識別來存取 Azure Resource Manager
 
@@ -36,6 +36,8 @@ ms.locfileid: "54423304"
 > * 利用使用者指派的身分識別來取得存取權杖，以用來呼叫 Azure Resource Manager 
 > * 讀取資源群組的屬性
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
@@ -45,21 +47,20 @@ ms.locfileid: "54423304"
 - [建立 Windows 虛擬機器](/azure/virtual-machines/windows/quick-create-portal)
 
 - 若要執行本教學課程中所需的資源建立和角色管理步驟，您的帳戶必須在適當的範圍 (您的訂用帳戶或資源群組) 上具備「擁有者」權限。 如果您需要角色指派的協助，請參閱[使用角色型存取控制來管理 Azure 訂用帳戶資源的存取權](/azure/role-based-access-control/role-assignments-portal)。
-- 如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 
-- 如果您在本機執行 PowerShell，您也需要： 
-    - 執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。
-    - 安裝[最新版的 PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget)。
-    - 執行 `Install-Module -Name PowerShellGet -AllowPrerelease` 以取得 `PowerShellGet` 模組的搶鮮版 (執行此命令以安裝 `AzureRM.ManagedServiceIdentity` 模組後，您可能需要以 `Exit` 退出目前的 PowerShell 工作階段)。
-    - 執行 `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` 以安裝 `AzureRM.ManagedServiceIdentity` 模組的發行前版本，以執行本文中由使用者指派的身分識別作業。
+- [安裝最新版的 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 
+- 執行 `Connect-AzAccount` 來建立與 Azure 的連線。
+- 安裝[最新版的 PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget)。
+- 執行 `Install-Module -Name PowerShellGet -AllowPrerelease` 以取得 `PowerShellGet` 模組的搶鮮版 (執行此命令以安裝 `Az.ManagedServiceIdentity` 模組後，您可能需要以 `Exit` 退出目前的 PowerShell 工作階段)。
+- 執行 `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` 以安裝 `Az.ManagedServiceIdentity` 模組的發行前版本，以執行本文中由使用者指派的身分識別作業。
 
 ## <a name="create-a-user-assigned-identity"></a>建立使用者指派的身分識別
 
-使用者指派的身分識別會以獨立 Azure 資源的形式建立。 Azure 會使用 [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity)，在您的 Azure AD 租用戶中建立一個可指派給一或多個 Azure 服務執行個體的身分識別。
+使用者指派的身分識別會以獨立 Azure 資源的形式建立。 Azure 會使用 [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity)，在您的 Azure AD 租用戶中建立一個可指派給一或多個 Azure 服務執行個體的身分識別。
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```azurepowershell-interactive
-New-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
+New-AzUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
 ```
 
 回應包含使用者指派的身分識別建立之後的詳細資料，與下列範例類似。 在使用者指派的身分識別中，請記下 `Id` 和 `ClientId` 值，後續步驟會用到這些值：
@@ -83,8 +84,8 @@ Type: Microsoft.ManagedIdentity/userAssignedIdentities
 使用者指派的身分識別可以由多個 Azure 資源上的用戶端使用。 請使用下列命令，將使用者指派的身分識別指派給單一虛擬機器。 針對 `-IdentityID` 參數，請使用前一個步驟中所傳回的 `Id` 屬性。
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
-Update-AzureRmVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+$vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
+Update-AzVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
 ```
 
 ## <a name="grant-your-user-assigned-identity-access-to-a-resource-group-in-azure-resource-manager"></a>在 Azure Resource Manager 中，將存取資源群組的權利，授予使用者指派的身分識別 
@@ -94,8 +95,8 @@ Update-AzureRmVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" 
 您必須先將身分識別存取權授與 Azure Resource Manager 中的資源，您的程式碼才能存取 API。 在此情況下，是包含 VM 的資源群組。 將 `<SUBSCRIPTION ID>` 的值更新為適用於環境的值。
 
 ```azurepowershell-interactive
-$spID = (Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1).principalid
-New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/"
+$spID = (Get-AzUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1).principalid
+New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/"
 ```
 
 回應會包含已建立的角色指派詳細資料，與下列範例類似：

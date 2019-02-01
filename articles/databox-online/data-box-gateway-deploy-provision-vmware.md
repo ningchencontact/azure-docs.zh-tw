@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/01/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: ea4203c45f482b990122a966fc2ec13b3fb41c84
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167149"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099153"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>教學課程：在 VMware 中佈建 Azure 資料箱閘道 (預覽)
 
 ## <a name="overview"></a>概觀
 
-本教學課程說明如何在執行 VMware ESXi 6.0 或 6.5 的主機系統上佈建資料箱閘道。 
+本教學課程說明如何在執行 VMware ESXi 6.0、6.5 或 6.7 的主機系統上佈建資料箱閘道。 
 
 您需要有系統管理員權限，才能佈建並連接至虛擬裝置。 佈建及初始安裝程序可能需要大約 10 分鐘的時間才能完成。
 
@@ -37,7 +37,7 @@ ms.locfileid: "49167149"
 
 ## <a name="prerequisites"></a>必要條件
 
-在執行 VMware ESXi 6.0 或 6.5 的主機系統上，佈建虛擬裝置的必要條件如下。
+在執行 VMware ESXi 6.0、6.5 或 6.7 的主機系統上，佈建虛擬裝置的必要條件如下。
 
 ### <a name="for-the-data-box-gateway-resource"></a>針對資料箱閘道資源
 
@@ -53,7 +53,7 @@ ms.locfileid: "49167149"
 
 在您部署虛擬裝置之前，請確定：
 
-* 您可以存取執行 VMware (ESXi 6.0 或 6.5) 且可用來佈建裝置的主機系統。
+* 您可以存取執行 VMware (ESXi 6.0、6.5 或 6.7) 且可用來佈建裝置的主機系統。
 * 主機系統能夠把下列資源專門用來佈建虛擬裝置：
 
   * 至少 4 顆核心。
@@ -73,7 +73,7 @@ ms.locfileid: "49167149"
 
 若要建立虛擬裝置，您需要：
 
-* 能夠存取執行 VMware ESXi 伺服器 6.0 或 6.5 的主機系統。 主機系統能夠把下列資源專門用於虛擬裝置：
+* 能夠存取執行 VMware ESXi 伺服器 6.0、6.5 或 6.7 的主機系統。 主機系統能夠把下列資源專門用於虛擬裝置：
  
   * 至少 4 顆核心。
   * 至少 8 GB 的 RAM。 
@@ -192,7 +192,7 @@ ms.locfileid: "49167149"
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. 步驟 5 至 7 僅適用於在非 DHCP 環境中開機的情況。 如果您是在 DHCP 環境中，請略過這些步驟並前往步驟 8。 如果您是在非 DHCP 環境中將裝置開機，則會看到效果通知：**使用 Set-HcsIPAddress Cmdlet 以設定網路**。 
+6. 步驟 5 至 7 僅適用於在非 DHCP 環境中開機的情況。 如果您是在 DHCP 環境中，請略過這些步驟並前往步驟 8。 如果您是在非 DHCP 環境中讓裝置開機，您會看到此效果的訊息：**使用 Set-HcsIPAddress Cmdlet 設定網路**。 
    
 7. 若要設定網路，請在命令提示字元中使用 `Get-HcsIpAddress` 命令來列出虛擬裝置上已啟用的網路介面。 如果您的裝置有已啟用的單一網路介面，系統指派給該介面的預設名稱會是 `Ethernet`。
 

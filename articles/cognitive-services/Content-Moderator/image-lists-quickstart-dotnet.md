@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 7165bdc4aebec886a57990281bc35c83b1d7bf04
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f7894fa54b634df450d3f7eb90d594cf0315970c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309394"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228180"
 ---
 # <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>快速入門：在 C# 中使用自訂影像清單進行仲裁
 

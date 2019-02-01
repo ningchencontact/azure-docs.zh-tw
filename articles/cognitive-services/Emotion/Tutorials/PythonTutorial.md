@@ -1,22 +1,22 @@
 ---
-title: 教學課程：辨識影像中的臉部表情 - 表情 API，Python
+title: 教學課程：辨識影像中的臉部表情 - 表情 API (Python)
 titlesuffix: Azure Cognitive Services
 description: 使用 Jupyter Notebook 來了解如何搭配 Python 使用表情 API。 使用常用的程式庫以視覺方式呈現您的結果。
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: tutorial
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 31e346cd9a3f43f8181ebee4474ae6c9ee2cc6fc
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: ea96495fb9fa453f7c7f9d6a870291329d2793b2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237852"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220530"
 ---
 # <a name="tutorial-use-the-emotion-api-with-a-jupyter-notebook--python"></a>教學課程：搭配 Jupyter Notebook 和 Python 使用表情 API。
 

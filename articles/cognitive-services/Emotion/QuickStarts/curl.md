@@ -1,22 +1,22 @@
 ---
-title: 快速入門：辨識影像中的臉部表情 - 表情 API，cURL
+title: 快速入門：辨識影像中的臉部表情 - 表情 API (cURL)
 titlesuffix: Azure Cognitive Services
 description: 取得資訊和程式碼範例，以協助您搭配 cURL 快速開始使用表情 API。
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: dfdaa89c9d29e419539f385f601dc7f264bf838e
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2cd139fc47177d429bada454a5e720b7eb4f192b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237070"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220547"
 ---
 # <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>快速入門：建置應用程式以辨識影像中的臉部表情。
 

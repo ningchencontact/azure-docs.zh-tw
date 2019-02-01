@@ -6,17 +6,17 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f8a98133d68cb73958664dd04bb2d959c97195cf
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 71f0ece2ff06ef000092485b8e7e11c5eedb38dd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263844"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174494"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>快速入門：使用 Java 和 Bing 新聞搜尋 REST API 來執行新聞搜尋
 
@@ -64,7 +64,7 @@ ms.locfileid: "54263844"
     }
     ```
 
-## <a name="construct-the-search-request-and-recieve-a-json-response"></a>建構搜尋要求，並接收 JSON 回應
+## <a name="construct-the-search-request-and-receive-a-json-response"></a>建構搜尋要求，並接收 JSON 回應
 
 1. 使用上一個步驟中的變數來製作適用於 API 要求的搜尋 URL 格式。 請注意，您的搜尋字詞必須先進行 URL 編碼，才能附加至要求。
 

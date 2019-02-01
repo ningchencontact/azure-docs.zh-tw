@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: b948616aa21d390cedc877b0a09e272815abc82a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 158c2a8919bccea03f5c7b67aef23cd07022c259
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358553"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900505"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>教學課程：送回 Azure 資料箱，並確認資料上傳至 Azure
 
@@ -22,18 +22,27 @@ ms.locfileid: "54358553"
 在本教學課程中，您將了解如下所列的主題：
 
 > [!div class="checklist"]
+> * 必要條件
+> * 準備寄送
 > * 將資料箱寄送給 Microsoft
 > * 確認資料上傳至 Azure
 > * 清除資料箱的資料
 
 ## <a name="prerequisites"></a>必要條件
 
-開始之前，請確定您已完成[教學課程：將資料複製到 Azure 資料箱並確認](data-box-deploy-copy-data.md)。
+在您開始前，請確定：
+
+- 您已完成[教學課程：將資料複製到 Azure 資料箱並確認](data-box-deploy-copy-data.md)。 
+- 複製作業已完成。 如果複製作業正在進行，則無法執行寄送準備。
+
+## <a name="prepare-to-ship"></a>準備寄送
+
+[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
 ## <a name="ship-data-box-back"></a>寄回資料箱
 
 1. 請確認裝置的電源已關閉，然後移除纜線。 纏繞裝置隨附的電源線，並將其安全地放在裝置背後。
-2. 如果裝置是在美國運送，請確定出貨標籤已顯示在電子墨水顯示器上，並安排貨運業者取貨。 如果標籤損毀、遺失或未顯示在電子筆墨顯示器上，請從 Azure 入口網站下載出貨標籤，然後黏貼在裝置上。 移至 [概觀 > 下載出貨標籤]。 
+2. 如果裝置是在美國運送，請確定出貨標籤已顯示在電子墨水顯示器上，並安排貨運業者取貨。 如果標籤損毀、遺失或未顯示在電子筆墨顯示器上，請移至 Azure 入口網站中的 [概觀] > [下載出貨標籤]。 下載出貨標籤並貼在裝置上。
 
     如果裝置是在歐洲運送，電子墨水顯示器不會顯示出貨標籤。 相反地，回寄出貨標籤會在正面出貨標籤底下的透明袋中。 移除舊的出貨標籤，並確定出貨標籤清楚可見。
     
@@ -43,7 +52,7 @@ ms.locfileid: "54358553"
 
 ## <a name="verify-data-upload-to-azure"></a>確認資料上傳至 Azure
 
-當 Microsoft 收到並掃描裝置之後，訂單狀態會更新為 [已收到]。 然後，裝置會進行實體驗證，以檢查是否有損毀或遭到竄改的跡象。 
+當 Microsoft 收到並掃描裝置之後，訂單狀態會更新為 [已收到]。 然後，裝置會進行實體驗證，以檢查是否有損毀或遭到竄改的跡象。
 
 完成驗證之後，資料箱會連線到 Azure 資料中心的網路。 資料複製會自動啟動。 視資料大小而定，複製作業可能需要數小時到數天才能完成。 您可以在入口網站中監視複製作業進度。
 
@@ -65,6 +74,8 @@ ms.locfileid: "54358553"
 在本教學課程中，您已了解 Azure 資料箱的相關主題，像是：
 
 > [!div class="checklist"]
+> * 必要條件
+> * 準備寄送
 > * 將資料箱寄送給 Microsoft
 > * 確認資料上傳至 Azure
 > * 清除資料箱的資料

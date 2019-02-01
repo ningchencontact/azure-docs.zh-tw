@@ -1,22 +1,22 @@
 ---
-title: 快速入門：辨識影像中的臉部表情 - 表情 API，JavaScript
+title: 快速入門：辨識影像中的臉部表情 - 表情 API (JavaScript)
 titlesuffix: Azure Cognitive Services
 description: 取得資訊和程式碼範例，以協助您搭配 JavaScript 快速開始使用表情 API。
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: eeaf2ea080d8c0b604b9831532028e31b8306169
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 3c6e5b0d759aeb8aa0b06e359f1f48eaf6c44520
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239484"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208939"
 ---
 # <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>快速入門：建置應用程式以辨識影像中的臉部表情。
 

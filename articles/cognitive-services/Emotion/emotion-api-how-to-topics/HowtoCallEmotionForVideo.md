@@ -6,17 +6,17 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c96ab18161230ffabd0703bdb6d0230bdc8d3ba
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: dd2df32ed43fd540a0516b7d5c1debc6a4f49f4f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026257"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211163"
 ---
 # <a name="example-call-emotion-api-for-video"></a>範例：呼叫影片的表情 API
 
@@ -48,7 +48,7 @@ var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
 若要取得訂用帳戶金鑰，請參閱[訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)。
 
-### <a name="Step2">步驟 2：將影片上傳至服務，然後檢查其狀態</a>
+### <a name="Step2">步驟 2：將影片上傳至服務並檢查其狀態</a>
 針對適用於影片的表情 API，執行任何 呼叫的最基本方法便是直接上傳影片。 這是透過傳送 "POST" 要求並附上應用程式/八位元資料流內容類型，以及從影片檔案讀取的資料來完成。 影片的大小上限為 100MB。
 
 藉由使用用戶端程式庫，會透過以資料流物件進行傳遞，來藉由上傳進行穩定處理。 請參閱下面的範例：

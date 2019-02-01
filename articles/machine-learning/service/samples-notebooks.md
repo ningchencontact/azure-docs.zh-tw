@@ -4,93 +4,56 @@ titleSuffix: Azure Machine Learning service
 description: 尋找並使用 Jupyter Notebook 範例在 Python 中探索 Azure Machine Learning 服務。
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: sample
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6befe3a3fee80dd65fd3ac5be241c558707224e6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 5ba555ad31545e1ae1aa822ec58b0bd22ef486ac
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811089"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295146"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>使用 Jupyter Notebook 探索 Azure Machine Learning 服務
-
 
 為了方便起見，我們已開發一系列可用來探索 Azure Machine Learning 服務的 Jupyter Python Notebook。 
 
 了解如何搭配此網站上的文件使用服務，並使用這些 Notebook 來根據您的情況進行自訂。 
 
-## <a name="prerequisite"></a>必要條件
+使用下列其中一個途徑來執行具有這些範例 Notebook 的 Notebook 伺服器。  在伺服器執行時，請在 **tutorials** 資料夾中找出教學課程 Notebook，或瀏覽 **how-to-use-azureml** 資料夾中的不同功能。
 
-完成 [Azure Machine Learning Python 快速入門](quickstart-get-started.md)以建立工作區並啟動 Azure Notebooks。
 
 ## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>試用 Azure Notebooks：雲端中的免費 Jupyter Notebook
 
 您可以輕鬆地開始使用 Azure Notebooks！ 我們已為您在 [Azure Notebooks](https://notebooks.azure.com/) 上安裝並設定[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk)。 Azure 服務會自動管理安裝和未來的更新。
   
-+ 若要執行**核心教學課程 Notebook**：
-  1. 移至 [Azure Notebooks](https://notebooks.azure.com/)。
-    
-  1. 在進行必要快速入門時建立的**使用者入門**程式庫中，尋找 **tutorials** 資料夾。
-    
-  1. 開啟您想要執行的 Notebook。
-    
-+ 若要執行**其他 Notebook**：
-
-  1. [將 Notebook 範例匯入](https://aka.ms/aml-clone-azure-notebooks)到 Azure Notebooks。
-
-  1. 使用以下其中一種方法將工作區組態檔新增至程式庫：
-     + 將**使用者入門**程式庫中的 **config.json** 檔案複製到所複製的新程式庫。
-
-     + 使用 [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) 中的程式碼建立新的工作區。
-    
-  1. 開啟您想要執行的 Notebook。     
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 
 ## <a name="use-a-data-science-virtual-machine-dsvm"></a>使用資料科學虛擬機器 (DSVM)
 
-我們已為您在 DSVM 上安裝並設定[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk) 和 Notebook 伺服器。 使用下列步驟執行 Notebook。
+我們已為您在 DSVM 上安裝並設定[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk) 和 Notebook 伺服器。 
 
-1. [建立 DSVM](how-to-configure-environment.md#dsvm)。
+[建立 DSVM](how-to-configure-environment.md#dsvm) 之後，請使用下列步驟在 DSVM 上執行 Notebook。
 
-1. 複製 [GitHub 存放庫](https://aka.ms/aml-notebooks)。
+[!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-1. 使用以下其中一種方法將工作區組態檔新增至程式庫：
-    * 將您使用必要快速入門建立的 **aml_config\config.json** 檔案複製到已複製的目錄。
-
-    * 使用 [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) 中的程式碼建立新的工作區。
-
-1. 從複製的目錄中啟動 Notebook 伺服器。
 
 ## <a name="use-your-own-jupyter-notebook-server"></a>使用您自己的 Jupyter Notebook 伺服器
 
 使用下列步驟在您的電腦上建立本機 Jupyter Notebook 伺服器。
 
-1. 請確定您已完成用於安裝 Azure Machine Learning SDK 的必要快速入門。
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-1. 複製 [GitHub 存放庫](https://aka.ms/aml-notebooks)。
+<a name="automated-ml-setup"></a>
 
-1. 使用以下其中一種方法將工作區組態檔新增至程式庫：
-    * 將您使用必要快速入門建立的 **aml_config\config.json** 檔案複製到已複製的目錄。
-    
-    * 使用 [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) 中的程式碼建立新的工作區。
+## <a name="automated-machine-learning-setup"></a>自動化機器學習設定 
 
-1. 從複製的目錄中啟動 Notebook 伺服器。
-
-1. 請移至包含 Notebook 的資料夾。
-
-1. 開啟 Notebook。
-
-<a name="auto"></a>
-
-## <a name="automated-ml-setup"></a>自動化 ML 安裝 
-
-**這些步驟只適用於 `automated-machine-learning` 資料夾中的 Notebook。**
+_這些步驟僅適用於 **how-to-use-azureml/automated-machine-learning** 資料夾中的 Notebook。_
 
 您可以使用上述任何一個選項，也可以使用下列指示，同時安裝環境和建立工作區。 
 
@@ -106,7 +69,7 @@ ms.locfileid: "54811089"
    
    1. 瀏覽至您解壓縮到本機電腦的檔案。
    
-   1. 開啟 `automated-machine-learning` 資料夾。
+   1. 開啟 **automated-machine-learning** 資料夾。
    
    1. 在 Windows 的 Conda 提示字元中執行 `automl_setup.cmd`，或是執行您作業系統的 `.sh`。 執行時間大約 10 分鐘。
 
@@ -123,7 +86,7 @@ ms.locfileid: "54811089"
 
 1. 瀏覽至儲存 Notebook 的路徑。 
 
-1. 開啟 automated-machine-learning 資料夾，然後開啟 `configuration.ipynb` Notebook。 
+1. 開啟 automated-machine-learning 資料夾，然後開啟 **configuration.ipynb** Notebook。 
 
 1. 執行 Notebook 中的資料格以註冊 Machine Learning 服務資源提供者，並建立工作區。
 

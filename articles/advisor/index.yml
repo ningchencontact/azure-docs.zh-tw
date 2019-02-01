@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: f4f35156f9b2b356e3e47695725351562af9796f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55501151"
+documentType: LandingData
+title: Azure Advisor 文件
+metadata:
+  title: Azure Advisor 文件 | Microsoft Docs
+  description: 
+  services: advisor
+  author: rboucher
+  layout: LandingPage
+  ms.service: advisor
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  ms.date: 02/01/2019
+  ms.author: robb
+abstract:
+  description: Azure Advisor 是個人化的雲端顧問，可協助您依最佳做法來最佳化您的 Azure 部署。 它會分析您的資源及用量遙測， 並建議解決方案，協助改善效能、安全性及資料的高可用性，同時尋找降低整體 Azure 費用的機會。
+sections:
+- title: 
+  items:
+  - type: paragraph
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/advisor.svg
+      text: 了解 Azure Advisor
+      href: /azure/advisor/advisor-overview
+    - image:
+        src: media/index/get-started.svg
+      text: 開始使用 Azure Advisor
+      href: /azure/advisor/advisor-get-started
+- title: 參考
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/advisor/">REST API 參考</a></p>
+    - title: 命令列
+      html: <p><a href="https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest">通用語言介面 (CLI)</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0">Azure PowerShell</a></p>

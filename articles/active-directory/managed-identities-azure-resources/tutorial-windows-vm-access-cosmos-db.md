@@ -3,23 +3,23 @@ title: 使用 Windows VM 系統指派的受控識別來存取 Azure Cosmos DB
 description: 本教學課程會逐步引導您在 Windows VM 上使用系統指派的受控識別，以存取 Azure Cosmos DB。
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: daveba
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: daveba
-ms.openlocfilehash: bd1fe465d085d79812f891195ab104f60c9ba5f3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 331e59e234b66f465189248c755ebf450adcb603
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429594"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150032"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure Cosmos DB
 
@@ -36,6 +36,8 @@ ms.locfileid: "54429594"
 ## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+- 安裝最新版的 [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="create-a-cosmos-db-account"></a>建立 Cosmos DB 帳戶 
 
@@ -63,16 +65,14 @@ Cosmos DB 原生並不支援 Azure AD 驗證。 不過，您可以使用系統�
 若要在 Azure Resource Manager 中使用 PowerShell，將存取 Cosmos DB 帳戶的權利授予 Windows VM 系統指派的受控識別，請更新您環境的 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>` 和 `<COSMOS DB ACCOUNT NAME>` 值。 使用存取金鑰時，Cosmos DB 支援兩種層級的資料細微性：對帳戶的讀取/寫入存取，以及對帳戶的唯讀存取。  如果您想要取得帳戶的讀取/寫入金鑰，請指派 `DocumentDB Account Contributor` 角色；如果要取得帳戶的唯讀金鑰，請指派 `Cosmos DB Account Reader Role` 角色。  在本教學課程中，請指派 `Cosmos DB Account Reader Role`：
 
 ```azurepowershell
-$spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
-New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Reader Role" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>"
+$spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid
+New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Reader Role" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>"
 ```
 ## <a name="get-an-access-token-using-the-windows-vm-system-assigned-managed-identity-to-call-azure-resource-manager"></a>使用 Windows VM 系統指派的受控識別來取得存取權杖，以用來呼叫 Azure Resource Manager
 
 其餘課程要從稍早建立的 VM 繼續進行。 
 
-在這部分的課程中，需要用到 Azure Resource Manager PowerShell Cmdlet。  如果您沒有安裝它，請[下載最新版本](https://docs.microsoft.com/powershell/azure/overview)之後再繼續。
-
-您也必須在 Windows VM 上安裝最新版的 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+您必須在 Windows VM 上安裝最新版的 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 1. 在 Azure 入口網站中，瀏覽至 [虛擬機器]，移至您的 Windows 虛擬機器，然後在 [概觀] 頁面中，按一下頂端的 [連線]。 
 2. 輸入您建立 Windows VM 時新增的**使用者名稱**和**密碼**。 

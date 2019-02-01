@@ -6,20 +6,20 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 6cee339793269af0e8060cce56f94fa81db6a6c5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 14dc1ca90ecd342330425db840776fa67caa80b0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124009"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208137"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>開始使用知識探索服務
 
-在此逐步解說中，您要使用知識探索服務 (KES)，針對學術出版物建立互動式搜尋體驗的引擎。 您可以從[知識探索服務 SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488) 安裝命令列工具 [`kes.exe`](CommandLine.md) 和所有範例檔案。
+在本逐步解說中，您要使用知識探索服務 (KES)，針對學術出版物建立互動式搜尋體驗的引擎。 您可以從[知識探索服務 SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488) 安裝命令列工具 [`kes.exe`](CommandLine.md) 和所有範例檔案。
 
 學術出版物範例中包含由 Microsoft 研究人員所出版的 1000 篇學術論文範例。  每篇論文都會與標題、出版年份、作者和關鍵字相關聯。 每個作者都會以出版時的識別碼、姓名和所屬單位表示。 每個關鍵字都可以與一組同義字相關聯 (例如，關鍵字 "support vector machine" 可以與同義字 "svm" 相關聯)。
 
@@ -110,7 +110,7 @@ ms.locfileid: "46124009"
 <grammar root="GetPapers">
 
   <!-- Import academic data schema-->
-  <import schema="Academic.schema" name="academic"/>
+  <import schema="Academic.schema" name="academic"/>
 
   <!-- Define root rule-->
   <rule id="GetPapers">

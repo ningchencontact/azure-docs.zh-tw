@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 53ad780ff0b199764c354327439fa69c360e7cb5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: db0b1cd9d61e498430bff417573b63f99c0ae7e4
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996803"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301725"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>教學課程：將 Java 應用程式部署到 Azure 中的 Service Fabric 叢集
 
-本教學課程是系列中的第三部分，示範如何將 Service Fabric 應用程式部署到 Azure 中的叢集。
+本教學課程是一個系列的第三部分，示範如何將 Service Fabric 應用程式部署到 Azure 中的叢集。
 
 在系列的第三部分中，您將了解如何：
 
@@ -247,7 +247,6 @@ ms.locfileid: "46996803"
 > [!div class="checklist"]
 > * 在 Azure 中建立安全的 Linux 叢集
 > * 使用 ELK 建立進行監視所需的資源
-> * 選擇性：如何使用合作對象叢集來試用 Service Fabric
 
 前進到下一個教學課程：
 > [!div class="nextstepaction"]

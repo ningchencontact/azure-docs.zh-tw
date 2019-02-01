@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: pafarley
-ms.openlocfilehash: be322cafc381dbc6e8b7cf03cd65e1dd5f9c9ad4
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 63484f4dcb47aeecbb33c84b7924b2a7e471d3cd
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954890"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223388"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>快速入門：使用 REST API 和 PHP 偵測影像中的人臉
 
@@ -29,7 +29,7 @@ ms.locfileid: "49954890"
 
 使用 [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 方法，偵測影像中的人臉並傳回臉部屬性，包括：
 
-* Face ID：數個臉部 API 案例中使用的唯一識別碼。
+* 臉部識別碼：數個臉部 API 案例中使用的唯一識別碼。
 * 臉部矩形：左側、頂端、寬度和高度，表示影像中臉部的位置。
 * 特徵點：27 點臉部特徵點陣列，指向臉部元件的重要位置。
 * 臉部屬性，包括年齡、性別、笑容程度、頭部姿勢以及臉部毛髮。

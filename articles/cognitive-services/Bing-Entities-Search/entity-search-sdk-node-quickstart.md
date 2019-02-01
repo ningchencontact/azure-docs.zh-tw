@@ -1,23 +1,23 @@
 ---
-title: 快速入門：Bing 實體搜尋 SDK，Node
+title: 快速入門：Bing 實體搜尋 SDK (Node)
 titleSuffix: Azure Cognitive Services
 description: 使用 Node 設定實體搜尋 SDK 主控台應用程式。
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: f94e3b5a6070da5ef9510216abd3f52a958030c5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0a61a6b1ada68307af7e7e574cba9910841f5939
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311376"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153006"
 ---
-# <a name="quickstart-bing-entity-search-sdk-with-node"></a>快速入門：搭配使用 Bing 實體搜尋 SDK 與 Node
+# <a name="quickstart-bing-entity-search-sdk-with-node"></a>快速入門：使用 Node 的 Bing 實體搜尋 SDK
 
 Bing 實體搜尋 SDK 包含用於實體查詢和剖析結果的 REST API 功能。 
 
@@ -50,9 +50,9 @@ entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {
 });
 
 ```
-程式碼會將 `result.value` 項目列印到主控台，而不會剖析任何文字。  各個類別的結果 (如果有的話) 將會包含：
-- _type：'Thing'
-- _type：'ImageObject'
+程式碼會將 `result.value` 項目列印到主控台，而不會剖析任何文字。  各個類別的結果 (若有的話) 將會包含：
+- _type:'Thing'
+- _type:'ImageObject'
 
 <!-- Removing until we can replace with a sanitized version.
 ![Entity results](media/entity-search-sdk-node-quickstart-results.png)

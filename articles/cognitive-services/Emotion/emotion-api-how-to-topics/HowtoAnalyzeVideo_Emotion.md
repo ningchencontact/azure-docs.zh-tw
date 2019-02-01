@@ -6,17 +6,17 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: sample
 ms.date: 01/25/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: df955a23393c82565e8f31e59e148798a0f89bbf
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: ec36193e341cac899e696c642a1d600f3f80a5f2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236475"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224859"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>範例：如何即時分析影片
 
@@ -74,13 +74,13 @@ while (true)
 ```CSharp
 // Queue that will contain the API call tasks.
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
-     
+     
 // Producer thread.
 while (true)
 {
     // Grab a frame.
     Frame f = GrabFrame();
- 
+ 
     // Decide whether to analyze the frame.
     if (ShouldAnalyze(f))
     {
@@ -112,10 +112,10 @@ while (true)
 {
     // Get the oldest task.
     Task<ResultWrapper> analysisTask = taskQueue.Take();
- 
+ 
     // Await until the task is completed.
     var output = await analysisTask;
-     
+     
     // Consume the exception or result.
     if (output.Exception != null)
     {
@@ -140,7 +140,7 @@ using System;
 using VideoFrameAnalyzer;
 using Microsoft.ProjectOxford.Face;
 using Microsoft.ProjectOxford.Face.Contract;
-     
+     
 namespace VideoFrameConsoleApplication
 {
     class Program
@@ -195,7 +195,7 @@ namespace VideoFrameConsoleApplication
 2. 複製 [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) \(英文\) GitHub 存放庫
 
 3. 在 Visual Studio 2015 中開啟範例，然後建置並執行範例應用程式：
-    - 就 BasicConsoleSample 而言，「臉部 API」金鑰會直接以硬式編碼編寫在 [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs) \(英文\) 中。
+    - 就 BasicConsoleSample 而言，「臉部 API」金鑰會直接以硬式編碼編寫在  [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs) 中。
     - 就 LiveCameraSample 而言，應該在應用程式的 [設定] 窗格中輸入金鑰。 這些金鑰會以使用者資料的形式跨工作階段保存。
 
 
@@ -213,4 +213,4 @@ VideoFrameAnalyzer 的影像、語音、影片或文字理解功能會使用「A
 ## <a name="summary"></a>總結
 在本指南中，您已了解如何使用「臉部」、「電腦視覺」和「表情」API，在即時視訊資料流上執行近乎即時的分析，以及如何使用我們的範例程式碼來開始設計程式。  您可以使用 [Azure 認知服務註冊頁面](https://azure.microsoft.com/try/cognitive-services/)的免費 API 金鑰來開始建置應用程式。
 
-歡迎您在 [GitHub 存放庫](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) \(英文\) 中提供意見反應和建議。若要提供更多廣泛的 API 意見反應，請到我們的 [UserVoice 網站](https://cognitive.uservoice.com/) \(英文\)。
+歡迎您在 [GitHub 存放庫](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) 中提供意見反應和建議。若要提供更廣泛的 API 意見反應，請到我們的  [UserVoice 網站](https://cognitive.uservoice.com/)。

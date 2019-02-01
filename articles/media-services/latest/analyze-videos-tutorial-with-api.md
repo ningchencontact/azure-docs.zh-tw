@@ -1,5 +1,5 @@
 ---
-title: 透過媒體服務分析影片 - Azure | Microsoft Docs
+title: 透過媒體服務使用 .NET 分析影片 - Azure | Microsoft Docs
 description: 請遵循本教學課程的步驟，使用 Azure 媒體服務分析影片。
 services: media-services
 documentationcenter: ''
@@ -9,26 +9,24 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 12/08/2018
+ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 42ffecec896265f99a8f1f0b43b47c1988a493d6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 191a6c9dc1cc5a24c1a46af21c5b63e3ff27a290
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133888"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150388"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>教學課程：透過媒體服務 v3 使用 API 分析影片
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>教學課程：透過媒體服務 v3 使用 .NET 分析影片
 
 本教學課程會示範如何使用 Azure 媒體服務分析影片。 在許多情況下，您會想從記錄影片或音訊內容中取得深入的見解。 例如，為達到更高的客戶滿意度，組織可以執行語音轉文字處理，將客戶支援記錄轉換為可搜尋的目錄，且其中可包含索引及儀表板。 然後，他們可以取得有關其業務的見解，例如常見的抱怨清單、這類抱怨的來源和其他實用資訊等。
 
 本教學課程說明如何：    
 
 > [!div class="checklist"]
-> * 建立媒體服務帳戶
-> * 存取媒體服務 API
-> * 設定範例應用程式
+> * 下載本主題中所述的範例應用程式
 > * 檢查用來分析指定視訊的程式碼
 > * 執行應用程式
 > * 檢查輸出
@@ -39,15 +37,10 @@ ms.locfileid: "53133888"
 ## <a name="prerequisites"></a>必要條件
 
 - 如果沒有安裝 Visual Studio，您可以取得 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)。
-- 在本機安裝和使用 CLI，本文需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 
+- [建立媒體服務帳戶](create-account-cli-how-to.md)。<br/>請務必記住您用於資源群組名稱和「媒體服務」帳戶名稱的值。
+- 請依照[使用 Azure CLI 存取 Azure 媒體服務 API](access-api-cli-how-to.md) 中的步驟，並儲存認證。 您必須使用這些認證來存取 API。
 
-    目前，並非所有[媒體服務 v3 CLI](https://aka.ms/ams-v3-cli-ref) 命令都可在 Azure Cloud Shell 中運作。 建議在本機使用 CLI。
-
-- [建立媒體服務帳戶](create-account-cli-how-to.md)。
-
-    請務必記住您用於資源群組名稱和「媒體服務」帳戶名稱的值。
-
-## <a name="download-the-sample"></a>下載範例
+## <a name="download-and-configure-the-sample"></a>下載並設定範例
 
 使用以下命令將包含 .NET 範例的 GitHub 存放庫複製到您的機器：  
 
@@ -57,7 +50,7 @@ ms.locfileid: "53133888"
 
 此範例位於 [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos) 資料夾中。
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+在您下載的專案中開啟 [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json)。 將值取代為從[存取 API](access-api-cli-how-to.md) 中取得的認證。
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>檢查用來分析指定視訊的程式碼
 
@@ -65,8 +58,8 @@ ms.locfileid: "53133888"
 
 此範例會執行下列動作：
 
-1. 建立用來分析視訊的轉換和作業。
-2. 建立輸入資產，並將視訊上傳到其中。 此資產會作為作業的輸入。
+1. 建立用來分析視訊的**轉換**和**作業**。
+2. 建立輸入**資產**，並將視訊上傳到其中。 此資產會作為作業的輸入。
 3. 建立輸出資產，用以儲存作業的輸出。 
 4. 提交作業。
 5. 檢查作業的狀態。
@@ -147,7 +140,7 @@ ms.locfileid: "53133888"
 
 ## <a name="run-the-sample-app"></a>執行範例應用程式
 
-按 Ctrl+F5 執行 *AnalyzeVideos* 應用程式。
+按下 Ctrl+F5 來執行 *AnalyzeVideos* 應用程式。
 
 當我們執行程式時，此作業會為影片中找到的每個臉部製作縮圖。 並且也會產生 insights.json 檔案。
 

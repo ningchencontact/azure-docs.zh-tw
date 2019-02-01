@@ -4,23 +4,23 @@ titleSuffix: Azure Machine Learning service
 description: 本教學課程會示範如何使用 Azure Machine Learning 服務，搭配 scikit-learn 在 Python Jupyter Notebook 中將影像分類模型定型。 本教學課程是兩部分系列的第一部分。
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9fc0655a3666f09fed342af5b4f14e2097290ab
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6811888b5113a2cf5a06811f0e1b1bcee57d864b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828244"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298053"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>教學課程：使用 Azure Machine Learning 服務將映像分類模型定型
 
-在本教學課程中，您會在本機和遠端計算資源，將機器學習模型定型。 您會在 Python Jupyter Notebook 中使用 Azure Machine Learning 服務的定型和部署工作流程。 然後，您可以使用 Notebook 作為範本，以自己的資料將您自己的機器學習服務模型定型。 本教學課程是**兩部分教學課程系列的第一部分**。  
+在本教學課程中，您會以遠端計算資源訓練機器學習模型。 您將使用 Python Jupyter Notebook 中的 Azure Machine Learning 服務 (預覽) 定型和部署工作流程。  然後，您可以使用 Notebook 作為範本，以自己的資料將您自己的機器學習服務模型定型。 本教學課程是**兩部分教學課程系列的第一部分**。  
 
 本教學課程會搭配 Azure Machine Learning 服務使用 [MNIST](http://yann.lecun.com/exdb/mnist/) 資料集和 [scikit-learn](https://scikit-learn.org) 來進行簡單的羅吉斯迴歸定型。 MNIST 是熱門的資料集，由 70,000 個灰階影像所組成。 每個影像都是 28 x 28 像素的手寫數字，代表 0 到 9 的數字。 目標是要建立多類別分類器，以識別特定影像所代表的數字。 
 
@@ -38,16 +38,40 @@ ms.locfileid: "54828244"
 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
 
 >[!NOTE]
-> 本文中的程式碼使用 Azure Machine Learning SDK 1.0.2 版進行測試。
+> 本文中的程式碼已進行過 Azure Machine Learning SDK 1.0.8 版的測試。
 
-## <a name="get-the-notebook"></a>取得 Notebook
+## <a name="prerequisites"></a>必要條件
 
-為了方便起見，此教學課程以 [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb) 形式提供。 在 [Azure Notebooks](https://notebooks.azure.com/) 或您自己的 Jupyter Notebook 伺服器中執行 `tutorials/img-classification-part1-training.ipynb` Notebook。
+請跳至[設定您的開發環境](#start)閱讀完整的 Notebook 步驟，或依照下列指示取得 Notebook，並在 Azure Notebooks 或您自己的 Notebook 伺服器上加以執行。  若要執行 Notebook，您將需要：
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* 已安裝下列項目的 Python 3.6 Notebook 伺服器：
+    * Azure Machine Learning SDK for Python
+    * `matplotlib`和`scikit-learn`
+* 教學課程 Notebook 和 utils.py 檔案
+* 機器學習工作區 
+* 與 Notebook 位於相同目錄中的工作區組態檔 
+
+請從以下各節取得前述所有必要項目。
+ 
+* 使用 [Azure Notebooks](#azure) 
+* 使用[您自己的 Notebook 伺服器](#server)
+
+### <a name="azure"></a>使用 Azure Notebooks：雲端中的免費 Jupyter Notebook
+
+您可以輕鬆地開始使用 Azure Notebooks！ 我們已為您在 [Azure Notebooks](https://notebooks.azure.com/) 上安裝並設定[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk)。 Azure 服務會自動管理安裝和未來的更新。
+
+完成下列步驟之後，請在您的**開始使用**專案中執行 **tutorials/img-classification-part1-training.ipynb** Notebook。
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 
-## <a name="set-up-your-development-environment"></a>設定開發環境
+### <a name="server"></a>使用您自己的 Jupyter Notebook 伺服器
+
+使用下列步驟在您的電腦上建立本機 Jupyter Notebook 伺服器。  完成這些步驟之後，請執行 **tutorials/img-classification-part1-training.ipynb** Notebook。
+
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+## <a name="start"></a>設定您的開發環境
 
 針對您開發工作的所有設定都可以在 Python Notebook 中完成。 設定包含下列動作：
 
@@ -63,11 +87,10 @@ ms.locfileid: "54828244"
 ```python
 %matplotlib inline
 import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
 
-import azureml
-from azureml.core import Workspace, Run
+import azureml.core
+from azureml.core import Workspace
 
 # check core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
@@ -94,11 +117,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-or-attach-an-existing-amlcompute"></a>建立或連結現有的 AMlCompute
+### <a name="create-or-attach-an-existing-compute-resource"></a>建立或連結現有的計算資源
 
-資料科學家可藉由使用 Azure Machine Learning Compute (AmlCompute) 這項受控服務，在 Azure 虛擬機器叢集上將機器學習模型定型。 範例包括具有 GPU 支援的 VM。 在本教學課程中，您可以建立 AmlCompute 作為訓練環境。 如果您的工作區中尚未有計算叢集，則此程式碼會為您建立計算叢集。
+資料科學家可藉由使用 Azure Machine Learning Compute 這項受控服務，在 Azure 虛擬機器的叢集上訓練機器學習模型。 範例包括具有 GPU 支援的 VM。 在本教學課程中，您會建立 Azure Machine Learning Compute 作為訓練環境。 如果您的工作區中還沒有計算叢集，下列程式碼將會為您建立計算叢集。
 
- **建立計算需要大約 5 分鐘的時間。** 如果工作區中已經有計算，則此程式碼會使用它而略過建立程序：
+ **建立計算需要大約 5 分鐘的時間。** 如果工作區中已經有計算，則程式碼會加以使用而略過建立程序。
 
 
 ```python
@@ -132,8 +155,8 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current AmlCompute status, use the 'status' property    
-    print(compute_target.status.serialize())
+     # For a more detailed view of current AmlCompute status, use get_status()
+    print(compute_target.get_status().serialize())
 ```
 
 您現在具有必要的套件和計算資源，可以在雲端將模型定型。 
@@ -155,13 +178,15 @@ else:
 import os
 import urllib.request
 
-os.makedirs('./data', exist_ok = True)
+data_path = os.path.join(os.getcwd(), 'data')
+os.makedirs(data_path, exist_ok = True)
 
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename='./data/train-images.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename='./data/train-labels.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename='./data/test-images.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename='./data/test-labels.gz')
 ```
+您將看到如下的輸出：```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)```
 
 ### <a name="display-some-sample-images"></a>顯示一些範例影像
 
@@ -210,60 +235,32 @@ MNIST 檔案會上傳到資料存放區根目錄中名為 `mnist` 的目錄：
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 
-ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=True)
+ds.upload(src_dir=data_path, target_path='mnist', overwrite=True, show_progress=True)
 ```
 您現在已經具備開始將模型定型所需的一切。 
 
-## <a name="train-a-local-model"></a>定型本機模型
-
-使用 scikit-learn 在本機進行簡單的羅吉斯迴歸模型定型。
-
-**在本機定型可能需要一或兩分鐘的時間**，視您的電腦設定而定：
-
-```python
-%%time
-from sklearn.linear_model import LogisticRegression
-
-clf = LogisticRegression()
-clf.fit(X_train, y_train)
-```
-
-接著，使用測試集來進行預測，並計算精確度： 
-
-```python
-y_hat = clf.predict(X_test)
-print(np.average(y_hat == y_test))
-```
-
-本機模型精確度會顯示：
-
-`0.9202`
-
-只要幾行程式碼，您便可達到 92% 的精確度。
 
 ## <a name="train-on-a-remote-cluster"></a>在遠端叢集上定型
 
-現在您可以建置具有不同正規化速率的模型，展開這個簡單的模型。 這次，您會在遠端資源上進行模型定型。  
-
-針對這項工作，將工作提交至您稍早設定的遠端定型叢集。 若要提交作業，您需執行下列步驟：
-* 建立目錄。
-* 建立定型指令碼。
-* 建立估算器物件。
-* 提交作業。
+針對這項工作，將工作提交至您稍早設定的遠端定型叢集。  若要提交工作，您要：
+* 建立目錄
+* 建立定型指令碼
+* 建立 estimator 物件
+* 提交工作 
 
 ### <a name="create-a-directory"></a>建立目錄
 
-建立目錄，以從您的電腦將必要程式碼傳遞給遠端資源：
+建立目錄，以從您的電腦傳遞必要程式碼到遠端資源。
 
 ```python
 import os
-script_folder = './sklearn-mnist'
+script_folder  = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
 
 ### <a name="create-a-training-script"></a>建立定型指令碼
 
-若要將工作提交到叢集，請先建立定型指令碼。 請執行下列程式碼，以在您建立的目錄中建立名為 `train.py` 的定型指令碼。 此定型會為定型演算法新增正規化率。 因此會產生與本機版本稍有不同的模型：
+若要將工作提交到叢集，請先建立定型指令碼。 執行下列程式碼，在您剛建立的目錄中建立定型指令碼，稱為 `train.py`。
 
 ```python
 %%writefile $script_folder/train.py
@@ -406,6 +403,8 @@ RunDetails(run).show()
 
 ![Notebook 小工具](./media/tutorial-train-models-with-aml/widget.png)
 
+如需取消執行，您可以依照[這些指示](https://aka.ms/aml-docs-cancel-run)操作。
+
 ### <a name="get-log-results-upon-completion"></a>在完成時取得記錄檔結果
 
 模型定型和監視會在背景中發生。 請等到模型完成定型之後，再執行更多程式碼。 使用 `wait_for_completion` 可顯示模型定型何時完成： 
@@ -422,7 +421,7 @@ run.wait_for_completion(show_output=False) # specify True for a verbose log
 ```python
 print(run.get_metrics())
 ```
-輸出顯示遠端模型的精確度稍微高於本機模型，因為在定型期間新增了正規化率：  
+輸出顯示遠端模型有 0.9204 的精確度：
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
@@ -465,8 +464,7 @@ compute_target.delete()
 > [!div class="checklist"]
 > * 設定您的開發環境。
 > * 存取及檢查資料。
-> * 使用熱門的 scikit-learn 機器學習程式庫，在本機進行簡單的羅吉斯迴歸定型。
-> * 在遠端叢集上將多個模型定型。
+> * 使用熱門的 scikit-learn 機器學習程式庫對遠端叢集訓練多個模型
 > * 檢閱定型詳細資料並註冊最佳的模型。
 
 您已準備好使用教學課程系列下一個部分中的指示，來部署這個已註冊的模型：

@@ -1,21 +1,21 @@
 ---
-title: 快速入門：專案 URL 預覽 C#
+title: 快速入門：專案 URL 預覽 (C#)
 titlesuffix: Azure Cognitive Services
 description: 開始使用專案 URL 預覽與 C#。
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 93dd376d94065c0e99dffe53bbfa2763d0a25b2c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 88429aa10ef847800d0d1be60261c94934233016
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470620"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227789"
 ---
 # <a name="quickstart-url-preview-query-in-c"></a>快速入門：C# 中的 URL 預覽查詢
 
@@ -31,7 +31,7 @@ ms.locfileid: "49470620"
 
 下列 C# 程式碼會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en。 
 
-其實作的步驟如下：
+實際進行步驟如下：
 1. 宣告變數以指定用於預覽的端點和查詢 URL。  
 2. 建立要求。
 3. 新增 *Ocp-Apim-Subscription-Key* 標題。 

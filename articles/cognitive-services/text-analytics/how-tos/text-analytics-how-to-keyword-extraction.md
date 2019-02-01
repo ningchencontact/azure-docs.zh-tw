@@ -5,16 +5,16 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: d38886d40a92d5e75f5d0b6b189dbf7c067e1635
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: bbca745da1fe657c1316d9e4e5fbeeeabfa5e1ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632385"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216739"
 ---
 # <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>範例：如何在文字分析中擷取關鍵片語
 
@@ -71,7 +71,7 @@ ms.locfileid: "51632385"
 
 關於要求定義的詳細資料可以在[如何呼叫文字分析 API](text-analytics-how-to-call-api.md) 中找到。 為了方便起見，我們將重申下列各點：
 
-+ 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[關鍵片語 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) \(英文\)
++ 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[關鍵片語 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
 + 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，來設定可用來擷取關鍵片語的 HTTP 端點。 它必須包括 `/keyPhrases` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 

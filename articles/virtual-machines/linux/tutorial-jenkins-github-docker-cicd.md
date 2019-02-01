@@ -3,7 +3,7 @@ title: 教學課程 - 在 Azure 中使用 Jenkins 建立開發管線 | Microsoft
 description: 教學課程 - 在本教學課程中，您會了解如何在 Azure 中建立 Jenkins 虛擬機器，用於在每次程式碼認可時從 GitHub 提取資料，並建立新的 Docker 容器來執行應用程式。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1a29d58ca96793c44878a6755cc74edeab6a7c4b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 694448f6e3c788c0c9d336e75d5df579b90137df
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470841"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189862"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>教學課程：在 Azure 中的 Linux VM 上以 Jenkins、GitHub 及 Docker 建立開發基礎結構
 
@@ -75,7 +75,7 @@ runcmd:
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-現在，使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM。 使用 `--custom-data` 參數以傳入 cloud-init 組態檔。 如果您將檔案儲存於目前工作目錄之外的位置，請提供 cloud-init-jenkins.txt 的完整路徑。
+現在，使用 [az vm create](/cli/azure/vm) 建立 VM。 使用 `--custom-data` 參數以傳入 cloud-init 組態檔。 如果您將檔案儲存於目前工作目錄之外的位置，請提供 cloud-init-jenkins.txt 的完整路徑。
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \

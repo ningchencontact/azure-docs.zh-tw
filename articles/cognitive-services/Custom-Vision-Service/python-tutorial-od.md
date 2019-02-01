@@ -6,18 +6,18 @@ services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 11/5/2018
 ms.author: areddish
-ms.openlocfilehash: 1b301f2197b16d8cd74c3cf3616de70f28ac64df
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9c13c2747b75184c559f7520fd5932daf6a3ced0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874935"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208035"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>快速入門：使用自訂視覺 Python SDK 建立物件偵測專案
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>快速入門：使用適用於自訂視覺 Python SDK 建立物件偵測專案
 
 本文提供資訊和範例程式碼，可協助您開始使用自訂視覺 SDK 與 Python 來建置物件偵測模型。 建立它之後，您就可以新增標記的區域、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 請使用此範例作為範本來建置您自己的 Python 應用程式。
 

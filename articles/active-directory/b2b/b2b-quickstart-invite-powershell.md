@@ -3,18 +3,18 @@ title: 使用 PowerShell 為 Azure Active Directory B2B 共同作業新增來賓
 description: 在此快速入門中，您將了解如何使用 PowerShell 向外部的 Azure AD B2B 共同作業使用者傳送邀請。
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: f0dc63d84ec7583e721b116b450c890d46524622
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 28a2177089fb3c93670d61da62815ff67bfd544d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986557"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094796"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>快速入門：使用 PowerShell 新增來賓使用者
 
@@ -29,29 +29,29 @@ ms.locfileid: "45986557"
 
 首先，檢查您已安裝哪些模組。 請以已提高權限的使用者身分 (以系統管理員身分執行) 開啟 Windows PowerShell，然後執行下列命令：
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 如果顯示 AzureADPreview 模組，但沒有訊息指出有更高版本，則表示您已就緒。 否則，根據輸出，執行下列其中一個動作︰
 
 - 如果未傳回任何結果，請執行下列命令來安裝 AzureADPreview 模組：
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - 如果結果中僅顯示 AzureAD 模組，請執行下列命令來安裝 AzureADPreview 模組： 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - 如果結果中僅顯示 AzureADPreview 模組，但您收到指出有更新版本的訊息，請執行下列命令來更新該模組： 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 您可能會收到提示，指出您正從未受信任的存放庫安裝模組。 如果您先前未將 PSGallery 存放庫設定為受信任的存放庫，就會發生此情況。 請按 **Y** 以安裝模組。
 
@@ -66,7 +66,7 @@ Get-Module -ListAvailable AzureAD*
 ```powershell
 Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 ```
-例如：`Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`。
+例如： `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`。
 
 出現提示時，請輸入您的認證。
 

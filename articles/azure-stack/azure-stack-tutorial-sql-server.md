@@ -15,13 +15,14 @@ ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: quying
+ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: ae32138dffa296a4aad9917897e180d364f189fc
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 983e8b279261d3ff8e5d24c8e3a6f61c5a787e5b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037819"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240806"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>教學課程：將 SQL 資料庫提供給您的 Azure Stack 使用者
 
@@ -68,7 +69,7 @@ ms.locfileid: "51037819"
 2. 保留預設值，或對下列欄位使用這些範例：
     - **資料庫名稱**：SQLdb
     - **大小上限 (MB)**：100
-    - **訂用帳戶**：TestSQLOffer
+    - 訂用帳戶：TestSQLOffer
     - **資源群組**：SQL-RG
 3. 選取 [登入設定]，輸入資料庫認證，然後選取 [確定]。
 4. 選取 [SKU] > 選取您為 SQL 主控伺服器建立的 SQL SKU > 然後選取 [確定]。
