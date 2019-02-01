@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: b6d0b702a334bf1127f570bff026fa4332331209
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 64ae354c9233821ea7e53abfdc0dde105b22e466
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260112"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208069"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Azure 磁碟加密的附錄 
 
@@ -325,7 +325,7 @@ ms.locfileid: "54260112"
 
 1. 在 /usr/local/sbin/azure_crypt_key.sh 下，使用以下指令碼的內容建立檔案。 請注意 KeyFileName，因為它是 Azure 使用的複雜密碼檔案名稱。
 
-    ```
+    ```bash
     #!/bin/sh
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -405,7 +405,7 @@ ms.locfileid: "54260112"
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
     ```
 2. 註解化 /usr/lib/dracut/modules.d/90crypt/module-setup.sh 檔案結尾的這幾行程式碼：
- ```
+ ```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
     #        $systemdutildir/systemd-cryptsetup \
@@ -418,20 +418,20 @@ ms.locfileid: "54260112"
  ```
 
 3. 在 /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh 檔案開頭附加下面這一行：
- ```
+ ```bash
     DRACUT_SYSTEMD=0
  ```
 變更所有出現的：
- ```
+ ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
  ```
 至：
-```
+```bash
     if [ 1 ]; then
 ```
 4. 編輯 /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh 並將它附加至「# Open LUKS device」：
 
-    ```
+    ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
     echo "Trying to get the key from disks ..." >&2
@@ -485,7 +485,7 @@ ms.locfileid: "54260112"
     ```
 
 2. 註解化 /usr/lib/dracut/modules.d/90crypt/module-setup.sh 檔案結尾的這幾行程式碼：
-```
+```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
     #        $systemdutildir/systemd-cryptsetup \
@@ -498,19 +498,19 @@ ms.locfileid: "54260112"
 ```
 
 3. 在 /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh 檔案開頭附加下面這一行：
-```
+```bash
     DRACUT_SYSTEMD=0
 ```
 變更所有出現的：
-```
+```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
 ```
 to
-```
+```bash
     if [ 1 ]; then
 ```
 4. 編輯 /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh 並將下列內容附加在「# Open LUKS device」之後：
-    ```
+    ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
     echo "Trying to get the key from disks ..." >&2
@@ -583,7 +583,7 @@ $SecretUrl=$secret.Id
 $SecretUrl
 ```
 
-#### <a name="linux"></a>Linux
+#### <a name="linux"></a> Linux
 ```powershell
 
  # This is the passphrase that was provided for encryption during the distribution installation

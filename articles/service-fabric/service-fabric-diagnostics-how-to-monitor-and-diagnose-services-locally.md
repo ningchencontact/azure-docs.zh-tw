@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b4c3bc21591e8472dc8d51309f7431cb5d4421fd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 740864276b8d4d7a40a263a0d6d2e09c3534dbd6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054163"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190899"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>監視和診斷本機開發設定中的服務
 > [!div class="op_single_selector"]
@@ -33,13 +33,13 @@ ms.locfileid: "44054163"
 ## <a name="event-tracing-for-windows"></a>Windows 的事件追蹤
 [Windows 事件追蹤](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) 是我們建議的技術，可用於追蹤 Service Fabric 中的訊息。 使用 ETW 的部分優點為：
 
-* **ETW 相當快速。** 其是以一種追蹤技術建置而成，並對您程式碼執行時間的影響降到最低。
+* **ETW 相當快速。**  其是以一種追蹤技術建置而成，並對您程式碼執行時間的影響降到最低。
 * **ETW 會在本機開發環境以及實際叢集設定順暢地進行追蹤。** 這表示當您準備好將程式碼部署至實際叢集時，您不需要重寫追蹤程式碼。
-* **Service Fabric 系統程式碼也會將 ETW 用於內部追蹤。** 這可讓您檢視與 Service Fabric 系統追蹤交錯的應用程式追蹤。 同時協助您更輕鬆了解在基礎系統中應用程式程式碼與事件之間的序列和相互關係。
+* **Service Fabric 系統程式碼也會將 ETW 用於內部追蹤。**  這可讓您檢視與 Service Fabric 系統追蹤交錯的應用程式追蹤。 同時協助您更輕鬆了解在基礎系統中應用程式程式碼與事件之間的序列和相互關係。
 * **內建支援的 Service Fabric Visual Studio 工具可供您檢視 ETW 事件。** 一旦使用 Service Fabric 正確設定 Visual Studio 之後，ETW 事件就會出現在 Visual Studio 的 [診斷事件] 檢視中。 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>在 Visual Studio 中檢視 Service Fabric 系統事件
-Service Fabric 會發出 ETW 事件，以協助應用程式開發人員了解平台中發生的事情。 如果您還沒有這麼做，請繼續遵循 [在 Visual Studio 中建立第一個應用程式](service-fabric-create-your-first-application-in-visual-studio.md)中的步驟。 此資訊將協助您啟動應用程式，並執行可顯示追蹤訊息的 [診斷事件檢視器]。
+Service Fabric 會發出 ETW 事件，以協助應用程式開發人員了解平台中發生的事情。 如果您還沒有這麼做，請繼續遵循 [在 Visual Studio 中建立第一個應用程式](service-fabric-tutorial-create-dotnet-app.md)中的步驟。 此資訊將協助您啟動應用程式，並執行可顯示追蹤訊息的 [診斷事件檢視器]。
 
 1. 若 [診斷事件] 視窗不會自動顯示，請移至 Visual Studio 中的 [檢視] 索引標籤，選擇 [其他視窗]，然後選擇 [診斷事件檢視器]。
 2. 每個事件皆有標準的中繼資料資訊，可告訴您事件所來自的節點、應用程式和服務。 您也可以使用事件視窗頂端的 [篩選事件] 方塊來篩選事件清單。 例如，您可以依 [節點名稱] 或 [服務名稱] 進行篩選。 而當您查看事件詳細資料時，您也可以使用事件視窗頂端的 [暫停] 按鈕來暫停並於稍後繼續，而不會遺失任何事件。

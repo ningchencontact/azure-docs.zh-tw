@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 39ff5ba2ae6a9d4cf48499d4e73974e531a492a3
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 82ba644f844c59b59f449e137c64b767d5dffbff
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564862"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464019"
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
@@ -15,7 +15,7 @@ metadata:
   ms.service: iot-edge
   services: iot-edge
   ms.topic: landing-page
-  ms.date: 06/21/2018
+  ms.date: 01/30/2019
   ms.author: kgremban
 abstract:
   description: Azure IoT Edge 是一個物聯網 (IoT) 服務，建置在 IoT 中樞之外。 這項服務提供客戶在裝置上分析資料的服務，也稱為 「在 Edge 上分析」，而不是在雲端進行分析。 將部份工作負載移至 Edge，您的裝置就能以較少的時間將訊息傳送至雲端，並更快速地變更狀態。
@@ -38,24 +38,26 @@ sections:
     items:
     - image:
         src: https://docs.microsoft.com/media/logos/logo_Windows.svg
-      text: Windows
+      text: " Windows"
       href: /azure/iot-edge/quickstart
     - image:
         src: https://docs.microsoft.com/media/logos/logo_linux-color.svg
-      text: Linux
+      text: " Linux"
       href: /azure/iot-edge/quickstart-linux
 - title: 逐步教學課程
   items:
   - type: paragraph
-    text: 了解如何安裝和設定 IoT Edge、部署模組，以及在 Edge 中利用類似串流分析的 Azure 服務。
+    text: 了解如何安裝和設定 IoT Edge、部署模組，以及在 Edge 利用類似串流分析和自訂視覺的 Azure 服務。
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/iot-edge/tutorial-deploy-function">使用 Azure Functions 篩選訊息</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">使用 Azure 串流分析作為模組來尋找平均值</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">使用 Azure Machine Learning 作為模組來為資料評分</a>
+    - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">使用自訂視覺服務將影像歸類為一個模組</a>
     - html: <a href="/azure/iot-edge/tutorial-csharp-module">使用 C# 模組來篩選資料</a>
     - html: <a href="/azure/iot-edge/tutorial-python-module">使用 Python 模組來篩選資料</a>
     - html: <a href="/azure/iot-edge/tutorial-node-module">使用 Node.js 模組來篩選資料</a>
+    - html: <a href="/azure/iot-edge/tutorial-java-module">使用 Java 模組篩選資料</a>
     - html: <a href="/azure/iot-edge/tutorial-c-module">使用 C# 模組來篩選資料</a>
     - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">使用 SQL Server 在邊緣儲存資料</a>

@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 53a801a367e6948c3070224b7ff36a013a1faab3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 47be738a4e5dcec144d482c28e39cbe950bba3e7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300845"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460381"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>管理 Azure SQL 資料倉儲中的計算能力
 了解如何管理 Azure SQL 資料倉儲中的計算資源。 藉由暫停資料倉儲來降低成本，或調整資料倉儲規模以符合效能需求。 
@@ -97,7 +97,7 @@ SQL 資料倉儲的架構分隔儲存體和計算功能，可單獨進行調整�
 ## <a name="drain-transactions-before-pausing-or-scaling"></a>暫停或調整之前先清空交易
 我們建議在起始暫停或調整規模作業之前，讓現有的交易先完成。
 
-當您暫停或調整您的 SQL 資料倉儲時，您的查詢在您起始暫停或調整要求時會於幕後取消。  取消簡單的 SELECT 查詢是很快的作業，對於暫停或調整執行個體所花費的時間幾乎沒有什麼影響。  不過，交易性查詢 (會修改您的資料或結構) 可能無法快速地停止。  **顧名思義，交易性查詢必須完全完成或回復變更。**  回復交易性查詢已完成的工作可能需要很長時間，甚至比查詢套用原始變更更久。  例如，如果您取消的刪除資料列查詢已經執行一小時，系統可能需要一個小時將已刪除的資料列回復插入。  如果您在交易執行中執行暫停或調整，暫停或調整作業可能需要一些時間，因為暫停和調整必須等回復完成才能繼續。
+當您暫停或調整您的 SQL 資料倉儲時，您的查詢在您起始暫停或調整要求時會於幕後取消。  取消簡單的 SELECT 查詢是很快的作業，對於暫停或調整執行個體所花費的時間幾乎沒有什麼影響。  不過，交易性查詢 (會修改您的資料或結構) 可能無法快速地停止。  **顧名思義，交易性查詢必須完全完成或回復變更。**   回復交易性查詢已完成的工作可能需要很長時間，甚至比查詢套用原始變更更久。  例如，如果您取消的刪除資料列查詢已經執行一小時，系統可能需要一個小時將已刪除的資料列回復插入。  如果您在交易執行中執行暫停或調整，暫停或調整作業可能需要一些時間，因為暫停和調整必須等回復完成才能繼續。
 
 另請參閱[了解交易](sql-data-warehouse-develop-transactions.md)和[最佳化交易](sql-data-warehouse-develop-best-practices-transactions.md)。
 

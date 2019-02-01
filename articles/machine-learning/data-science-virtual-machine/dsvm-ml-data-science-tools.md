@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d8c607b5f1d338ca3a2bd3844b26ef51d801c720
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f84341d6d8ac3b5c7febaa4f659da84efcebb780
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086065"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473341"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>機器學習與資料科學工具
 「Azure 資料科學虛擬機器」具有一組以各種熱門語言提供 (例如 Python、R 及 Julia)、適用於機器學習 (ML) 的豐富工具和程式庫。 
@@ -98,7 +98,7 @@ ms.locfileid: "53086065"
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | H2O 是一個開放原始碼 AI 平台，支援記憶體內部、分散式、快速及可調式 ML。  |
-| 支援的版本      | Linux   |
+| 支援的版本      |  Linux   |
 | 典型的使用案例      | 一般用途的分散式、可調式 ML   |
 | 如何設定或安裝它？      | H2O 是安裝在 `/dsvm/tools/h2o` 中。      |
 | 如何使用或執行它      | 使用 X2Go 來連線至 VM。 啟動新的終端機，然後執行 `java -jar /dsvm/tools/h2o/current/h2o.jar`。 然後啟動網頁瀏覽器，並連線至 `http://localhost:54321`。      |

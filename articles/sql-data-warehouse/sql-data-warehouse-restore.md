@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 112b9bac5d99556201b2038cf150293c9f2ed86d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5de9c674ceeab6d45211b46e2f03d91b943751ac
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005796"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246206"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>還原 Azure SQL 資料倉儲 
 在本文中，您將了解如何在 Azure 入口網站和 PowerShell 中執行下列作業：
@@ -27,7 +27,7 @@ ms.locfileid: "51005796"
 - 從使用者定義的還原點建立資料倉儲副本
 
 ## <a name="before-you-begin"></a>開始之前
-**請驗證您的 DTU 容量。** 每個 SQL 資料倉儲均由具有預設 DTU 配額的 SQL 伺服器裝載 (例如 myserver.database.windows.net)。  在您還原 SQL 資料倉儲之前，請確認您的 SQL 伺服器有足夠的剩餘 DTU 配額供要還原的資料庫使用。 若要了解如何計算所需 DTU 或要求更多 DTU，請參閱[要求 DTU 配額變更][Request a DTU quota change]。
+**請驗證您的 DTU 容量。**  每個 SQL 資料倉儲均由具有預設 DTU 配額的 SQL 伺服器裝載 (例如 myserver.database.windows.net)。  在您還原 SQL 資料倉儲之前，請確認您的 SQL 伺服器有足夠的剩餘 DTU 配額供要還原的資料庫使用。 若要了解如何計算所需 DTU 或要求更多 DTU，請參閱[要求 DTU 配額變更][Request a DTU quota change]。
 
 ## <a name="restore-through-powershell"></a>透過 PowerShell 還原
 

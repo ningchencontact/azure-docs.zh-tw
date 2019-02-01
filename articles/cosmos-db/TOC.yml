@@ -80,7 +80,7 @@ items:
       href: consistency-levels.md
     - name: 選擇正確的一致性層級
       href: consistency-levels-choosing.md
-    - name: 一致性層級與 Cosmos DB API
+    - name: 一致性層級與 Azure Cosmos DB API
       href: consistency-levels-across-apis.md
     - name: 一致性、可用性與效能權衡取捨
       href: consistency-levels-tradeoffs.md
@@ -98,9 +98,9 @@ items:
     items:
     - name: 概觀
       href: partitioning-overview.md
-    - name: 邏輯分割區
+    - name: 資料分割與水平放大
       href: partition-data.md
-    - name: 建立綜合分割區金鑰
+    - name: 建立綜合分割區索引鍵
       href: synthetic-partition-keys.md
   - name: 佈建的輸送量
     items:
@@ -108,11 +108,11 @@ items:
       href: request-units.md
     - name: 在容器和資料庫中佈建輸送量
       href: set-throughput.md
-  - name: 與 Azure Cosmos 帳戶搭配使用
+  - name: 使用 Azure Cosmos 帳戶
     href: account-overview.md
   - name: 容器和項目
     items:
-    - name: 與資料庫、容器和項目搭配使用
+    - name: 使用資料庫、容器和項目
       href: databases-containers-items.md
     - name: SQL 語言參考
       href: sql-api-query-reference.md
@@ -122,7 +122,7 @@ items:
       items:
       - name: 概觀
         href: index-overview.md
-      - name: 編製索引原則
+      - name: 索引原則
         href: index-policy.md
       - name: 索引類型
         href: index-types.md
@@ -136,13 +136,13 @@ items:
         href: read-change-feed.md
       - name: 變更摘要處理器
         href: change-feed-processor.md
-      - name: 使用 Azure Functions 變更摘要
+      - name: 觸發 Azure Functions
         href: change-feed-functions.md
     - name: 存留時間
       href: time-to-live.md
     - name: 唯一金鑰條件約束
       href: unique-keys.md
-    - name: 交易和開放式並行
+    - name: 交易和開放式並行存取控制
       href: database-transactions-optimistic-concurrency.md
   - name: 伺服器端程式設計
     items:
@@ -168,9 +168,9 @@ items:
       href: optimize-cost-reads-writes.md
     - name: 最佳化多區域成本
       href: optimize-cost-regions.md
-    - name: 最佳化開發/測試工作負載
+    - name: 最佳化開發/測試成本
       href: optimize-dev-test.md
-    - name: 使用保留容量最佳化
+    - name: 使用保留容量最佳化成本
       href: cosmos-db-reserved-capacity.md
   - name: 安全性
     items:
@@ -186,7 +186,7 @@ items:
       href: vnet-service-endpoint.md
   - name: 企業整備
     items:
-    - name: 線上備份與還原
+    - name: 線上備份與隨選還原
       href: online-backup-and-restore.md
     - name: 法規遵循
       href: compliance.md
@@ -254,17 +254,9 @@ items:
       items:
       - name: 微調查詢效能
         href: sql-api-query-metrics.md
-      - name: 伺服器端程式設計
-        items:
-        - name: 寫入預存程序、觸發程序和 UDF
-          href: how-to-write-stored-procedures-triggers-udfs.md
-        - name: 使用 JavaScript 查詢 API 寫入預存程序和觸發程序
-          href: how-to-write-javascript-query-api.md
-        - name: 使用預存程序、觸發程序和 UDF
-          href: how-to-use-stored-procedures-triggers-udfs.md
       - name: 資料類型
         items:
-        - name: Datetime
+        - name: DateTime
           href: working-with-dates.md
         - name: 地理空間
           href: geospatial.md
@@ -337,7 +329,7 @@ items:
         - name: Node.js 和 React 應用程式
           href: tutorial-develop-mongodb-react.md
       - name: 2 - 遷移資料
-        href: mongodb-migrate.md
+        href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
       - name: 3 - 查詢資料
         href: tutorial-query-mongodb.md
       - name: 4 - 全域散發資料
@@ -467,19 +459,19 @@ items:
   expanded: true
 - name: 使用說明指南
   items:
-  - name: 管理資料庫帳戶
+  - name: 管理 Azure Cosmos 帳戶
     href: how-to-manage-database-account.md
   - name: 全球發佈
     items:
-    - name: 管理一致性
+    - name: 管理一致性層級
       href: how-to-manage-consistency.md
-    - name: 管理衝突
+    - name: 設定衝突解決原則
       href: how-to-manage-conflicts.md
   - name: 佈建的輸送量
     items:
-    - name: 佈建容器輸送量
+    - name: 佈建容器的輸送量
       href: how-to-provision-container-throughput.md
-    - name: 佈建資料庫輸送量
+    - name: 佈建資料庫的輸送量
       href: how-to-provision-database-throughput.md
   - name: 與容器和項目搭配運作
     items:
@@ -489,10 +481,22 @@ items:
       href: how-to-query-container.md
     - name: 設定存留時間
       href: how-to-time-to-live.md
+    - name: 使用 Azure 儲存體總管處理資料
+      href: storage-explorer.md
+    - name: 使用 Azure Cosmos 總管處理資料
+      href: data-explorer.md
     - name: 編製索引
       items:
-      - name: 設定索引編製
+      - name: 管理索引編製
         href: how-to-manage-indexing-policy.md
+  - name: 伺服器端程式設計
+    items:
+    - name: 寫入預存程序、觸發程序和 UDF
+      href: how-to-write-stored-procedures-triggers-udfs.md
+    - name: 使用 JavaScript 查詢 API 寫入預存程序和觸發程序
+      href: how-to-write-javascript-query-api.md
+    - name: 使用預存程序、觸發程序和 UDF
+      href: how-to-use-stored-procedures-triggers-udfs.md
   - name: 安全性
     items:
     - name: 設定 IP 防火牆
@@ -501,22 +505,18 @@ items:
       href: how-to-configure-vnet-service-endpoint.md
     - name: 設定跨原始資源共用 (CORS)
       href: how-to-configure-cross-origin-resource-sharing.md
-    - name: 使用 Key Vault 保障安全
+    - name: 使用 Key Vault 保護 Azure Cosmos 金鑰
       href: access-secrets-from-keyvault.md
   - name: 企業整備
     items:
     - name: 從備份還原資料
       href: how-to-backup-and-restore.md
-  - name: 管理
+  - name: 管理 Azure Cosmos DB 資源
     items:
     - name: 使用 Powershell 管理
       href: manage-account-with-powershell.md
     - name: 使用 Azure CLI 管理
       href: manage-with-cli.md
-    - name: 使用儲存體總管進行管理
-      href: storage-explorer.md
-    - name: 使用資料總管進行管理
-      href: data-explorer.md
   - name: 記錄
     items:
     - name: 診斷記錄
@@ -627,9 +627,9 @@ items:
       href: use-cases.md
     - name: 社交媒體應用程式
       href: social-media-apps.md
-ms.openlocfilehash: 72d6169090749f81025dabed2b919e6c0a1dc70f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 2fdf08837bc239ba10da85fad7b81c819b9f26fc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094473"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511916"

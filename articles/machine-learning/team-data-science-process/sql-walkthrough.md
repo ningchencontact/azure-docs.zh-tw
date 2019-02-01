@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 97ef7b02690110f571e87960add34b45f683b615
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2e71cf90c6e894946a2f3a1c8bfce2179f214a29
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141402"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453646"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process 實務：使用 SQL Server
 在這個教學課程中，您將遵循逐步解說，使用 SQL Server 和可公開取得的資料集 ([NYC Taxi Trips (NYC 計程車車程)](http://www.andresmh.com/nyctaxitrips/) 資料集)，完成建置和部署機器學習服務模型的程序。 程序會遵循標準的資料科學工作流程︰包括擷取和瀏覽資料，以及設計功能以加快學習，接著建置和部署模型。
@@ -137,7 +137,7 @@ ms.locfileid: "53141402"
 12. 「NYC 計程車車程」資料會載入兩個不同的資料表。 若要改善聯結作業，強烈建議您為資料表編製索引。 指令碼範例 **create\_partitioned\_index.sql** 會在複合聯結索引鍵 **medallion、hack\_license 和 pickup\_datetime** 上建立資料分割索引。
 
 ## <a name="dbexplore"></a>SQL Server 中的資料探索和功能工程
-在本節中，我們將使用先前建立的 SQL Server 資料庫，直接在 **SQL Server Management Studio** 中執行 SQL 查詢，藉此探索資料和產生功能。 名為 **sample\_queries.sql** 的指令碼範例位於 [指令碼範例] 資料夾中。 若資料庫名稱與預設名稱 **TaxiNYC** 不同，請修改指令碼以變更該名稱。
+在本節中，我們將使用先前建立的 SQL Server 資料庫，直接在 **SQL Server Management Studio** 中執行 SQL 查詢，藉此探索資料和產生功能。 名為 **sample\_queries.sql** 的指令碼範例位於 [指令碼範例] 資料夾中。 若資料庫名稱與預設名稱 TaxiNYC 不同，請修改指令碼以變更該名稱。
 
 在這個練習中，我們將：
 

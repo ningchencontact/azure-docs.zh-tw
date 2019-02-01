@@ -10,20 +10,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 7a6a9a96bbde24fa8340714a8078e015a83d8cfb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e7cb8b2d699418b4d70d60f19a3a60ce0c7b8d38
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830782"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888663"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-applications-preview"></a>快速入門：使用 C# Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH/RDP 輸送 (預覽)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
-[IoT 中樞裝置串流](./iot-hub-device-streams-overview.md)可讓服務和裝置應用程式以安全且便於設定防火牆的方式進行通訊。 本快速入門會使用兩個 C# 程式，使 SSH 和 RDP 流量能夠透過以 IoT 中樞建立的裝置串流進行傳送。 如需設定概觀，請參閱[此頁面](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp)。
+[IoT 中樞裝置串流](./iot-hub-device-streams-overview.md)可讓服務和裝置應用程式以安全且便於設定防火牆的方式進行通訊。 本快速入門指南會使用兩個 C# 程式，讓用戶端/伺服器應用程式流量 (例如 SSH 和 RDP) 能夠透過以 IoT 中樞建立的裝置串流進行傳送。 如需設定概觀，請參閱[這裡](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp)。
 
-我們會先說明 SSH 的設定 (使用連接埠 22)。 接著會說明如何針對 RDP 修改設定中已設定的連接埠。 由於裝置串流與應用程式或通訊協定無關，因此相同的範例可在修改後 (通常藉由變更通訊連接埠) 用於其他類型的應用程式流量。
+我們會先說明 SSH 的設定 (使用連接埠 22)。 接著會說明如何針對 RDP 修改設定的連接埠。 由於裝置串流與應用程式或通訊協定無關，因此相同的範例可在修改後用於其他類型的應用程式流量。 這通常只牽涉到將通訊連接埠變更為預定應用程式所使用的連接埠。
+
 
 ## <a name="how-it-works"></a>運作方式
 
@@ -31,13 +32,13 @@ ms.locfileid: "54830782"
 
 ![替代文字](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "本機 Proxy 設定")
 
-1. 服務本機 Proxy 連線至 IoT 中樞，並起始對目標裝置的裝置串流。
+1. 服務本機 Proxy 會連線至 IoT 中樞，並使用其裝置識別碼起始對目標裝置的裝置串流。
 
 2. 裝置本機 Proxy 完成串流起始交握，並透過 IoT 中樞對服務端的串流端點建立端對端串流通道。
 
-3. 裝置本機 Proxy 連線至在裝置上接聽連接埠 22 的 SSH 精靈 (SSHD) (可以依照[以下](#run-the-device-side-application)說明進行設定)。
+3. 裝置本機 Proxy 連線至在裝置上接聽連接埠 22 的 SSH 精靈 (SSHD) (此連接埠可依照[以下](#run-the-device-side-application)說明進行設定)。
 
-4. 服務本機 Proxy 藉由接聽指定的連接埠 (在此案例中為連接埠 `2222`，也可以依照[以下](#run-the-service-side-application)說明進行設定) 等候來自使用者的新 SSH 連線。 當使用者透過 SSH 用戶端連線時，通道可讓應用程式流量能夠在 SSH 用戶端與伺服器程式之間進行交換。
+4. 服務本機 Proxy 藉由接聽指定的連接埠 (在此案例中為連接埠 2222，也可以依照[以下](#run-the-service-side-application)說明進行設定) 等候來自使用者的新 SSH 連線。 當使用者透過 SSH 用戶端連線時，通道可讓應用程式流量能夠在 SSH 用戶端與伺服器程式之間進行交換。
 
 > [!NOTE]
 > 透過串流傳送的 SSH 流量將經由 IoT 中樞的串流端點進行輸送，而不是直接在服務與裝置之間傳送。 此做法有[這些優點](./iot-hub-device-streams-overview.md#benefits)。
@@ -115,9 +116,9 @@ dotnet --version
 
 | 參數名稱 | 參數值 |
 |----------------|-----------------|
-| `IotHubConnectionString` | IoT 中樞的服務連接字串。 |
-| `DeviceId` | 您先前建立之裝置的識別碼。 |
-| `Port` | 您的 SSH 用戶端所將連線到的本機連接埠。 在此範例中我們使用連接埠 `2222`，但您可以將其修改為其他任意數字。 |
+| `iotHubConnectionString` | IoT 中樞的服務連接字串。 |
+| `deviceId` | 您先前建立之裝置的識別碼。 |
+| `localPortNumber` | 您的 SSH 用戶端所將連線到的本機連接埠。 在此範例中我們使用連接埠 2222，但您可以將其修改為其他任意數字。 |
 
 編譯並執行程式碼，如下所示：
 
@@ -139,11 +140,11 @@ dotnet run %serviceConnectionString% MyDevice 2222
 
 在解壓縮的專案資料夾中，瀏覽至 `device-streams-proxy/device`。 您必須備妥下列資訊：
 
-| 參數名稱 | 參數值 |
+| 引數名稱 | 引數值 |
 |----------------|-----------------|
-| `DeviceConnectionString` | 您先前建立之裝置的連接字串。 |
-| `RemoteHostName` | SSH 伺服器的 IP 位址 (如果是裝置本機 Proxy 執行所在的相同 IP，則會是 `localhost`)。 |
-| `RemotePort` | 您的應用程式通訊協定所使用的連接埠 (SSH 的預設值為連接埠 22)。  |
+| `deviceConnectionString` | 您先前建立之裝置的連接字串。 |
+| `targetServiceHostName` | SSH 伺服器接聽所在的 IP 位址 (如果是裝置本機 Proxy 執行所在的相同 IP，則會是 `localhost`)。 |
+| `targetServicePort` | 您的應用程式通訊協定所使用的連接埠 (SSH 的預設值為連接埠 22)。  |
 
 編譯並執行程式碼，如下所示：
 
@@ -155,13 +156,13 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $DeviceConnectionString localhost 22
+dotnet run $deviceConnectionString localhost 22
 
 # In Windows
-dotnet run %DeviceConnectionString% localhost 22
+dotnet run %deviceConnectionString% localhost 22
 ```
 
-現在，使用您的 SSH 用戶端程式，並經由連接埠 `2222` 連線至服務本機 Proxy (而不是直接使用 SSH 精靈)。 
+現在，使用您的 SSH 用戶端程式，並經由連接埠 2222 連線至服務本機 Proxy (而不是直接使用 SSH 精靈)。 
 
 ```
 ssh <username>@localhost -p 2222
@@ -169,11 +170,17 @@ ssh <username>@localhost -p 2222
 
 此時，您會看到要求您輸入認證的 SSH 登入提示。
 
-服務端的主控台輸出 (服務本機 Proxy 會接聽連接埠 2222)：![替代文字](./media/quickstart-device-streams-proxy-csharp/service-console-output.png "服務本機 Proxy 輸出")
+服務端的主控台輸出 (服務本機 Proxy 會接聽連接埠 2222)：
 
-經由 <code>IP_address:22</code> 連線至 SSH 精靈的裝置本機 Proxy 上的主控台輸出：![替代文字](./media/quickstart-device-streams-proxy-csharp/device-console-output.png "裝置本機 Proxy 輸出")
+![替代文字](./media/quickstart-device-streams-proxy-csharp/service-console-output.png "服務本機 Proxy 輸出")
 
-SSH 用戶端程式的主控台輸出 (SSH 用戶端藉由連線至服務本機 Proxy 所接聽的連接埠 22 與 SSH 精靈通訊)：![替代文字](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "SSH 用戶端程式輸出")
+經由 `IP_address:22` 連線至 SSH 精靈的裝置本機 Proxy 上的主控台輸出：
+
+]替代文字(./media/quickstart-device-streams-proxy-csharp/device-console-output.png "")裝置本機 Proxy 輸出")
+
+SSH 用戶端程式的主控台輸出 (SSH 用戶端藉由連線至服務本機 Proxy 所接聽的連接埠 22 與 SSH 精靈通訊)：
+
+![替代文字](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "SSH 用戶端程式輸出")
 
 ## <a name="rdp-to-a-device-via-device-streams"></a>透過裝置串流使用 RDP 連線至裝置
 
@@ -185,9 +192,9 @@ RDP 的設定與 SSH 大致相同 (如前所述)。 基本上，我們必須改�
 
 | 參數名稱 | 參數值 |
 |----------------|-----------------|
-| `IotHubConnectionString` | IoT 中樞的服務連接字串。 |
-| `DeviceId` | 您先前建立之裝置的識別碼。 |
-| `Port` | 您的 SSH 用戶端所將連線到的本機連接埠。 在此範例中我們使用連接埠 `2222`，但您可以將其修改為其他任意數字。 |
+| `iotHubConnectionString` | IoT 中樞的服務連接字串。 |
+| `deviceId` | 您先前建立之裝置的識別碼。 |
+| `localPortNumber` | 您的 SSH 用戶端所將連線到的本機連接埠。 在此範例中我們使用連接埠 2222，但您可以將其修改為其他任意數字。 |
 
 編譯並執行程式碼，如下所示：
 
@@ -209,11 +216,11 @@ dotnet run %serviceConnectionString% MyDevice 2222
 
 在解壓縮的專案資料夾中，瀏覽至 `device-streams-proxy/device`。 您必須備妥下列資訊：
 
-| 參數名稱 | 參數值 |
+| 引數名稱 | 引數值 |
 |----------------|-----------------|
 | `DeviceConnectionString` | 您先前建立之裝置的連接字串。 |
-| `RemoteHostName` | RDP 伺服器的 IP 位址 (如果是裝置本機 Proxy 執行所在的相同 IP，則會是 `localhost`)。 |
-| `RemotePort` | 您的應用程式通訊協定所使用的連接埠 (RDP 的預設值為連接埠 3389)。  |
+| `targetServiceHostName` | RDP 伺服器執行所在的主機名稱或 IP 位址 (如果是裝置本機 Proxy 執行所在的相同 IP，則會是 `localhost`)。 |
+| `targetServicePort` | 您的應用程式通訊協定所使用的連接埠 (RDP 的預設值為連接埠 3389)。  |
 
 編譯並執行程式碼，如下所示：
 
@@ -228,7 +235,7 @@ dotnet run $DeviceConnectionString localhost 3389
 dotnet run %DeviceConnectionString% localhost 3389
 ```
 
-現在，使用您的 RDP 用戶端程式，並經由連接埠 `2222` (這是您先前任意選擇的可用連接埠) 連線至服務本機 Proxy。
+現在，使用您的 RDP 用戶端程式，並經由連接埠 2222 (這是您先前任意選擇的可用連接埠) 連線至服務本機 Proxy。
 
 ![替代文字](./media/quickstart-device-streams-proxy-csharp/rdp-screen-capture.PNG "RDP 連線至服務本機 Proxy")
 

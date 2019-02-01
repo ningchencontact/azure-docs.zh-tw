@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: c5b18bce9d0cf78569d0c2fa02ad14c96ad09bd1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: tables
+ms.openlocfilehash: 8387e41d57edfa0e54ac930c9462714aca571f2a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237769"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472553"
 ---
 # <a name="design-scalable-and-performant-tables"></a>設計可擴充且具效能的資料表
 
@@ -132,7 +132,7 @@ ms.locfileid: "51237769"
 
 在表格服務中，個別節點可為一或多個完整資料分割提供服務，且服務會透過動態的負載平衡資料分割在節點間進行調整。 如果某節點的負載過大，表格服務可將由該節點提供服務的分割範圍*分割*到不同的節點；當流量變小時，服務可將分割範圍從靜止節點*合併*回單一節點。  
 
-如需表格服務之內部詳細資料的詳細資訊 (特別是服務管理分割的方式)，請參閱文件 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。  
+如需表格服務之內部詳細資料的詳細資訊 (特別是服務管理分割的方式)，請參閱文件 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) \(英文\)。  
 
 ## <a name="entity-group-transactions"></a>實體群組交易
 在資料表服務中，實體群組交易 (EGT) 是唯一的內建機制，可跨越多個實體執行不可部分完成的更新。 EGT 有時也稱為「批次交易」。 EGT 僅能對相同分割 (亦即，共用指定表格中的相同分割索引鍵) 中儲存的實體進行作業。 因此每當您需要跨多個實體執行不可部分完成的交易行為時，您必須確定這些實體位於相同的分割中。 通常就是基於此原因，才需要將多個實體類型放在相同的資料表 (和資料分割) 中，而不讓不同的實體類型使用多個資料表。 單一 EGT 最多可以操作 100 個實體。  如果您送出多個並行 EGT 進行處理，請務必確保這些 EGT 不會在 EGT 的通用實體上運作，否則處理可能會延遲。
@@ -148,8 +148,8 @@ EGT 也會帶來需在您設計中評估的潛在取捨。 那就是，使用較
 | 資料表中的資料分割數目 |僅受限於儲存體帳戶的容量 |
 | 資料分割中的實體數目 |僅受限於儲存體帳戶的容量 |
 | 個別實體的大小 |最多 1 MB 和 255 個屬性 (包括 **PartitionKey**、**RowKey** 和 **Timestamp**) |
-| **PartitionKey** |大小最多 1 KB 的字串 |
-| **RowKey** |大小最多 1 KB 的字串 |
+|  **PartitionKey** |大小最多 1 KB 的字串 |
+|  **RowKey** |大小最多 1 KB 的字串 |
 | 實體群組交易的大小 |交易最多可以包含 100 個實體，而承載大小必須小於 4 MB。 一個 EGT 只能更新實體一次。 |
 
 如需詳細資訊，請參閱 [了解表格服務資料模型](https://msdn.microsoft.com/library/azure/dd179338.aspx)。  

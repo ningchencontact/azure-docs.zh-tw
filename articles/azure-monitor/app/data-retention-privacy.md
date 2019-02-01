@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 812478c13ef39b369471a731c52dc38ba6a4368c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 511937fde859f47af2b7bc273daaab88bb8809c3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119742"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094524"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的資料收集、保留和儲存
 
@@ -148,7 +148,7 @@ Microsoft 人員對您的資料存取會受到限制。 我們只有在獲得您
 
 
 透過組態檔：
-```
+```xml
 <TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel,   Microsoft.AI.ServerTelemetryChannel">
     <StorageFolder>D:\NewTestFolder</StorageFolder>
 </TelemetryChannel>
@@ -158,7 +158,7 @@ Microsoft 人員對您的資料存取會受到限制。 我們只有在獲得您
 
 - 從組態檔中移除 ServerTelemetryChannel
 - 將下列程式碼片段新增至您的設定：
-```
+```csharp
 ServerTelemetryChannel channel = new ServerTelemetryChannel();
 channel.StorageFolder = @"D:\NewTestFolder";
 channel.Initialize(TelemetryConfiguration.Active);
@@ -171,7 +171,7 @@ TelemetryConfiguration.Active.TelemetryChannel = channel;
 
 下列程式碼片段說明如何在  `Startup.cs`  類別的 `ConfigureServices()`  方法中設定 `ServerTelemetryChannel.StorageFolder`：
 
-```
+```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
 ```
 
@@ -203,7 +203,7 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 |狀態監視器 | 支援，需要設定 | 狀態監視須依賴 [OS 組態](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET 組態](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)來支援 TLS 1.2。
 |Node.js |  支援，可能需要對 v10.5.0 進行設定。 | 使用[官方 Node.js TLS/SSL 文件](https://nodejs.org/api/tls.html)以了解任何應用程式專屬的設定。 |
 |Java | 支援，[JDK 6 更新 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) 和 [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html) 中已新增 TLS 1.2 的 JDK 支援。 | JDK 8 會使用[預設的 TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default)。  |
-|Linux | Linux 發行版本通常會依賴 [OpenSSL](https://www.openssl.org) 來取得 TLS 1.2 支援。  | 請檢查 [OpenSSL 變更記錄](https://www.openssl.org/news/changelog.html)來確認支援的 OpenSSL 版本。|
+| Linux | Linux 發行版本通常會依賴 [OpenSSL](https://www.openssl.org) 來取得 TLS 1.2 支援。  | 請檢查 [OpenSSL 變更記錄](https://www.openssl.org/news/changelog.html)來確認支援的 OpenSSL 版本。|
 | Windows 8.0 - 10 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)。  |
 | Windows Server 2012 - 2016 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 和 Windows Server 2008 R2 SP1 | 支援，但預設為不啟用。 | 請參閱[傳輸層安全性 (TLS) 登錄設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)頁面，了解詳細的啟用方式。  |

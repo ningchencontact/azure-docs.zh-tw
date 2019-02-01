@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fa0883c18e0d586e6e9b35fb19dbe304388045b5
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 85c9eeb60027ba44fd5e65d056864aa76a6e720a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215281"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900879"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>教學課程：透過 REST API 將資料複製到 Azure 資料箱 Blob 儲存體  
 
@@ -22,9 +22,9 @@ ms.locfileid: "54215281"
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
+> * 必要條件
 > * 透過 *http* 或 *https* 連線到資料箱 Blob 儲存體
 > * 將資料複製到資料箱
-> * 準備寄送
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -196,23 +196,22 @@ ms.locfileid: "54215281"
     --recursive \
     --exclude-older
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 
 
-## <a name="prepare-to-ship"></a>準備寄送
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
+下一個步驟是準備寄送裝置。
 
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解 Azure 資料箱的相關主題，像是：
 
 > [!div class="checklist"]
+> * 必要條件
 > * 透過 *http* 或 *https* 連線到資料箱 Blob 儲存體
 > * 將資料複製到資料箱
-> * 準備寄送
+
 
 請繼續進行下一個教學課程，了解如何將資料箱送回給 Microsoft。
 

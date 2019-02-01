@@ -8,7 +8,7 @@ manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e7cc11fd35049bf55c848293fa5aaafbdd7b7370
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 704f854d7be9930923cb6e1955c3670f296035ed
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452763"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299821"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的裝置管理？
 
@@ -45,7 +45,7 @@ ms.locfileid: "54452763"
 
 向 Azure AD **註冊**裝置可讓您管理裝置的身分識別。 當裝置已註冊時，Azure AD 裝置註冊會在使用者登入 Azure AD 時對裝置提供用來驗證裝置的身分識別。 您可以使用此身分識別來啟用或停用裝置。
 
-與 Microsoft Intune 這類的行動裝置管理 (MDM) 解決方案結合時，將會以裝置的其他相關資訊更新 Azure AD 中的裝置屬性。 這可讓您建立條件式存取規則，強制讓裝置的存取符合您的安全性和相容性標準。 如需如何在 Microsoft Intune 中註冊裝置的詳細資訊，請參閱[在 Intune 中註冊要管理的裝置](https://docs.microsoft.com/intune/device-enrollment#supported-device-platforms)。
+與 Microsoft Intune 這類的行動裝置管理 (MDM) 解決方案結合時，將會以裝置的其他相關資訊更新 Azure AD 中的裝置屬性。 這可讓您建立條件式存取規則，強制讓裝置的存取符合您的安全性和相容性標準。 如需如何在 Microsoft Intune 中註冊裝置的詳細資訊，請參閱[什麼是裝置註冊？](https://docs.microsoft.com/intune/device-enrollment)
 
 **加入**裝置是註冊裝置的擴充功能。 這表示，它會為您提供註冊裝置的所有優點，此外，也會變更裝置的本機狀態。 變更本機狀態可讓您的使用者使用組織的公司或學校帳戶 (而非個人帳戶) 來登入裝置。
 

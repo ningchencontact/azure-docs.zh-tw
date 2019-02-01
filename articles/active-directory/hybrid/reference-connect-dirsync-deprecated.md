@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60994ee928709206c6b55b7b0b687341f3219b5d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1ea3f0bccfe18f026926f6fabe37d6976ba6269a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472070"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203720"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>升級 Windows Azure Active Directory Sync 和 Azure Active Directory Sync
 Azure AD Connect 是連接內部部署目錄與 Azure AD 和 Office 365 的最佳方式。 這是將 Azure AD Connect 從 Windows Azure Active Directory Sync (DirSync) 或 Azure AD Sync 升級的最佳時機，因為這些工具現在已淘汰，而且從 2017 年 4 月 13 日起不再提供支援。
@@ -62,7 +62,7 @@ Azure AD Connect 是 DirSync 和 Azure AD Sync 的後續產品。它結合了兩
 DirSync/Azure AD Sync 在 2017 年 4 月 13 日會繼續運作。  不過，Azure AD 在 2017 年 12 月 31 日之後，將不再接受來自 DirSync/Azure AD Sync 的通訊。
 
 **問：我可以從哪些 DirSync 版本升級？**  
-支援從目前使用的任何 DirSync 版本升級。 
+ 目前使用的任何 DirSync 版本皆支援升級。 
 
 **問：適用於 FIM/MIM 的 Azure AD 連接器情況又如何？**  
 FIM/MIM 的 Azure AD 連接器**尚未**宣布淘汰。 它目前在 **功能凍結**狀態；不會新增任何功能，而且不會收到任何錯誤修正。 Microsoft 建議使用它的客戶規劃從它移至 Azure AD Connect。 強烈建議不要使用它啟動任何新的部署。 此連接器會在未來宣布淘汰。

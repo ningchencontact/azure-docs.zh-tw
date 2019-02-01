@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
-ms.openlocfilehash: 45c1629aba2124230aa55f67583ff08584ab3c93
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 5cfcbba58b4e4416a2f1a56adcbe21eeacb15a85
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847623"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152149"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>如何判斷 Azure AD 網域服務是否適合您的使用案例
 Azure AD Domain Services 可讓您在 Azure 基礎結構服務中部署工作負載，而不必擔心要在 Azure 中維護您的身分識別基礎結構。 此受控服務不同於您自行部署及管理的典型 Windows Server Active Directory 部署。 服務容易部署，並且提供自動化的健康情況監視和修復。 我們持續不斷地提升該服務，以新增常見部署案例的支援。

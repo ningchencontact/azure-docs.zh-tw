@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: ee1e7003a9f1479db7311072e29132cf491cbc88
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 663da31985759f47fff77dc5ad0f985d44559385
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073749"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451575"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>資料科學虛擬機器的開發工具
 
@@ -59,7 +59,7 @@ ms.locfileid: "53073749"
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 適用於 R 的網頁型 IDE    |
-| 支援的 DSVM 版本      | Linux      |
+| 支援的 DSVM 版本      |  Linux      |
 | 典型的使用案例      |  R 開發     |
 | 如何使用/執行它？      | 使用 systemctl enable rstudio-server 來啟用服務，然後使用 systemctl start rstudio-server 來啟動服務。 接著，您可以登入位於 http://your-vm-ip:8787 的 RStudio Server。       |
 | DSVM 上的相關工具      |   Visual Studio 2017、Visual Studio Code、RStudio Desktop      |
@@ -77,7 +77,7 @@ ms.locfileid: "53073749"
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | Python 語言的用戶端 IDE    |
-| 支援的 DSVM 版本      | Linux      |
+| 支援的 DSVM 版本      |  Linux      |
 | 典型的使用案例      |  Python 開發     |
 | 如何使用/執行它？      | Linux 的桌面捷徑 (`/usr/bin/pycharm`)      |
 | DSVM 上的相關工具      |   Visual Studio 2017、Visual Studio Code、RStudio      |
