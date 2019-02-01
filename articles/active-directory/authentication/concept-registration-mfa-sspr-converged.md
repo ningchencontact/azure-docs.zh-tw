@@ -3,19 +3,19 @@ title: Azure AD SSPR 和 MFA 的融合式註冊 (公開預覽)
 description: Azure AD Multi-Factor Authenticaiton 和自助密碼重設註冊 (公開預覽)
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 192b88623d2f85efd619e26d51f35b4797706761
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4080fe07f6624c96f6385492268042f6401f3694
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433742"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472672"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>自助密碼重設和 Azure Multi-Factor Authentication 的融合式註冊 (公開預覽)
 
@@ -74,8 +74,6 @@ ms.locfileid: "54433742"
 此新體驗的稽核記錄檔存在於稽核記錄檔的「驗證方法」類別底下。  
 
 ## <a name="known-issues"></a>已知問題
-
-我們已識別出聚合式註冊的錯誤，其中啟用了聚合式註冊的 B2B 來賓使用者無法註冊 MFA。 當使用者被導向至註冊頁面時，頁面發生錯誤。我們的開發人員已經知道這個問題，並且正在努力提供解決方案。 目前，我們的建議是建立一個群組，並從排除群組中所有 B2B 使用者。
 
 **使用者使用簡訊註冊電話時，預設的 MFA 方法會設為撥打電話**
 

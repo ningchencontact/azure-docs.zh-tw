@@ -4,12 +4,12 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/22/2019
-ms.openlocfilehash: fd5354491254a216e720dac6487b331f047bd5cb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 98a6eb024e723e0225711adaccf385a2790e5bc8
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54479244"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302779"
 ---
 如果您需要設定 HTTP Proxy 以進行輸出要求，請使用以下兩個引數：
 
@@ -21,7 +21,7 @@ ms.locfileid: "54479244"
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 --mount type=bind,src=/home/azureuser/output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/<image-name> \
+<registry-location>/<image-name> \
 Eula=accept \
 Billing=<billing-endpoint> \
 ApiKey=<api-key> \

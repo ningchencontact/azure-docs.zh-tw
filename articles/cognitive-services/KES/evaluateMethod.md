@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 45b25ec5cfc6e198b9b125675f4942463cef247a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d6ddb76954108c037dc4135393df8622c9dbd101
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128259"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220768"
 ---
 # <a name="evaluate-method"></a>評估方法
 
@@ -27,7 +27,7 @@ ms.locfileid: "46128259"
 
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
-名稱|值|說明
+Name|值|說明
 ----|----|----
 expr       | 文字字串 | 會選取索引實體子集的結構化查詢運算式。
 屬性 | 文字字串 | 回應中所要包含屬性的逗號分隔清單。

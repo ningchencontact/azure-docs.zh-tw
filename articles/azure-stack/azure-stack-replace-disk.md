@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: d0b455261649fad95a92f7ad75f7af26d633cf5a
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.lastreviewed: 01/22/2019s
+ms.openlocfilehash: 091ede57dbbc069f20b5ece2fc5b39b6d49a9009
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476881"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247777"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>更換 Azure Stack 中的實體磁碟
 
@@ -54,27 +55,27 @@ ms.locfileid: "54476881"
  在您更換磁碟之後，您可以使用具特殊權限的端點，來監視虛擬磁碟健康狀態和修復作業進度。 請從任何能夠透過網路連線到具特殊權限端點的電腦，依照下列步驟操作。
 
 1. 開啟 Windows PowerShell 工作階段，然後連線到具特殊權限的端點。
-    ````PowerShell
+    ```PowerShell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-    ```` 
+    ``` 
   
 2. 執行下列命令來檢視虛擬磁碟健康情況：
-    ````PowerShell
+    ```PowerShell
         Get-VirtualDisk -CimSession s-cluster
-    ````
+    ```
    ![Get-VirtualDisk 命令的 PowerShell 輸出](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. 執行下列命令來檢視目前的儲存體作業狀態：
     ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
-    ````
+    ```
       ![Get-StorageJob 命令的 PowerShell 輸出](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
 ## <a name="troubleshoot-virtual-disk-repair"></a>針對虛擬磁碟修復問題進行疑難排解
 
 如果虛擬磁碟修復作業出現停滯，請執行下列命令來重新啟動作業：
-  ````PowerShell
+  ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
-  ```` 
+  ``` 

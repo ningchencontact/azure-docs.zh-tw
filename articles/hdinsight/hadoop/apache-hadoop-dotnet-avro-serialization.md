@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 8ef8f66a67ee93ea8c015c33e69b87e7c5d2a898
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d729d840bb055452eb8bb87cc978f1e38dcea48e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259982"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227942"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>使用 Microsoft Avro Library 將 Apache Hadoop 中的資料序列化
 
@@ -1351,7 +1351,7 @@ Microsoft Avro 程式庫可透過反映、根據要序列化的 C# 物件資料�
 此範例會執行下列工作：
 
 * 連線至現有的 HDInsight 服務叢集。
-* 序列化數個 CSV 檔案並上傳結果至 Azure Blob 儲存體。 (CSV 檔案會隨著範例一起散佈，並代表 [Infochimps](https://www.infochimps.com/) 在 1970-2010 期間散佈的 AMEX 庫存歷史資料的擷取。 範例會讀取 CSV 檔案資料、轉換記錄為 **庫存** 類別的執行個體，然後使用反映加以序列化。 庫存類型定義是透過 Microsoft Avro Library 程式碼產生公用程式從 JSON 結構描述建立。
+* 序列化數個 CSV 檔案並上傳結果至 Azure Blob 儲存體。 (CSV 檔案會隨著範例一起散佈，並代表 [Infochimps](https://www.infochimps.org/) 在 1970-2010 期間散佈的 AMEX 庫存歷史資料的擷取。 範例會讀取 CSV 檔案資料、轉換記錄為 **庫存** 類別的執行個體，然後使用反映加以序列化。 庫存類型定義是透過 Microsoft Avro Library 程式碼產生公用程式從 JSON 結構描述建立。
 * 在 Hive 中建立名為 **Stocks** 的新外部資料表，並將它連結至前一個步驟中上傳的資料。
 * 使用 Hive 對 **Stocks** 資料表執行查詢。
 

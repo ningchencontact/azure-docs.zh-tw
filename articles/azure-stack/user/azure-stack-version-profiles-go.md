@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 36496dd80111689b510bbbd27edc35a454d230a3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.lastreviewed: 01/19/2019
+ms.openlocfilehash: 9b66a7a176862fce687b7cc0b1ff3c14bda118d7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448287"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243884"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>在 Azure Stack 中使用 API 版本設定檔與 GO
 
@@ -33,9 +34,9 @@ ms.locfileid: "54448287"
 
 在 Go SDK 中，設定檔可於 profiles 路徑下取得，而其版本採用 **YYYY-MM-DD** 格式。 現在，最新的 Azure Stack API 設定檔版本為 **2017-03-09**。 若要從設定檔匯入指定的服務，請從設定檔匯入其對應的模組。 例如，若要從 **2017-03-09** 設定檔匯入**計算**服務，請使用下列程式碼：
 
-````go
+```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute"
-````
+```
 
 ## <a name="install-azure-sdk-for-go"></a>安裝 Azure SDK for Go
 
@@ -51,7 +52,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compu
 
 您可以在下列連結中找到更多關於 Azure GO SDK 的資訊：
 
-- [安裝 Azure SDK for Go](/azure/azure-sdk-go-install) 上的 Azure Go SDK。
+- [安裝 Azure SDK for Go](/go/azure/azure-sdk-go-install) 上的 Azure Go SDK。
 - Azure Go SDK 可從[azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) 存放庫中的 GitHub 公開取得。
 
 ### <a name="go-autorest-dependencies"></a>Go-AutoRest 相依性

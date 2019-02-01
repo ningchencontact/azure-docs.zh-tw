@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 51f9d2dbc8a0aef6dc84e76755a71eeb73149192
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.lastreviewed: 08/30/2018
+ms.openlocfilehash: 3681d583760be2ca537559e334c2facdeeb373db
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262739"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240381"
 ---
 # <a name="border-connectivity"></a>界限連線能力 
 網路整合規劃是成功的 Azure Stack 整合式系統部署、作業及管理的重要先決條件。 邊界連線能力規劃是從選擇是否要搭配邊界閘道協定 (BGP) 使用動態路由開始。 這需要指派 16 位元 BGP 自治號碼 (公用或私人)，或使用靜態路由，這會為邊界裝置指派一個靜態預設路由。

@@ -2,7 +2,7 @@
 title: Azure Batch 集區建立事件 | Microsoft Docs
 description: Batch 集區建立事件的參考。
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 794b3c83ff58967ef8169bed98f7b369335029ae
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: lahugh
+ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259830"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470583"
 ---
 # <a name="pool-create-event"></a>集區建立事件
 

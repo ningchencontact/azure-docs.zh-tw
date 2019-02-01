@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 574391fd64d0525d3d77b80bb488bea8109729af
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0103225803ca98cb9d8e27eb57f150e0660cd7ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187325"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299116"
 ---
 # <a name="management-solutions-in-azure-monitor"></a>Azure 監視器中的管理解決方案
 管理解決方案會運用 Azure 中的服務，提供特定應用程式或服務的額外作業見解。 本文提供 Azure 中管理解決方案的簡短概觀，以及使用和安裝它們的詳細資料。
@@ -60,7 +60,7 @@ ms.locfileid: "53187325"
 ## <a name="install-a-management-solution"></a>安裝管理解決方案
 您可以從 [Azure Marketplace](https://azuremarketplace.microsoft.com) 取得來自 Microsoft 和夥伴的管理解決方案。 您可以使用下列程序來搜尋可用的解決方案並安裝它們。 當您安裝解決方案時，您必須選取將在其中安裝解決方案且將收集其資料的 [Log Analytics 工作區](../platform/manage-access.md)。
 
-1. 從[訂用帳戶的解決方案清單](#list-installed-monitoring-solutions)，按一下 [新增]。 
+1. 從[訂用帳戶的解決方案清單](#list-installed-management-solutions)，按一下 [新增]。 
 1. 在 [管理解決方案] 的右邊，按一下 [更多資訊]。 
 1. 找出您想要的管理解決方案，然後完整閱讀它的說明。
 1. 按一下 [建立] 以啟動安裝程序。

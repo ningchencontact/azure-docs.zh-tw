@@ -7,19 +7,19 @@ author: jeevansd
 manager: daveba
 ms.assetid: 1d607174-bea1-4f40-8233-54cabe02c66a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: jeedes
-ms.openlocfilehash: c16afaa02dec25d72361c66fe480bacf33c62252
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b8d1ce05f0cab4acd0304232a53a8ab0a11fbedf
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824655"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55204009"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-at-work"></a>教學課程：Azure Active Directory 與 Learning at Work 整合
 
@@ -206,7 +206,7 @@ Learning at Work 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下「存取面板」中的 Learning at Work 圖格時，您應該會自動登入 Learning at Work 應用程式。
-如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

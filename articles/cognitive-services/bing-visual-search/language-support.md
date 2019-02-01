@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1dd434bbf71e482f5d0a52b3c84e46382079b43a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0f7d3f8a7a9c7bdd67dc80a98744e1cd6a2433a1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886394"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180818"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Bing 圖像式搜尋 API 支援的語言和區域
 
@@ -117,5 +117,5 @@ Bing 圖像式搜尋 API 支援三十多個國家/地區，其中許多國家/�
 |台灣|繁體中文|zh-TW|
 |土耳其|土耳其文|tr-TR|
 |英國|English|en-GB|
-|美國|English|zh-TW|
+|美國|English|en-US|
 |美國|西班牙文|es-US|

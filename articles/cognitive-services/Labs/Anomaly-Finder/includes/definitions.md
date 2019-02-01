@@ -5,17 +5,17 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.component: anomaly-finder
+ms.subservice: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: a49df0c18ef9db9d0d41ca2e714474e6386ae7d1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 5ad589c4adb60369f81979e214935f73d9eb0755
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48904515"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228883"
 ---
 <a name="definitions"></a>
 ## <a name="definitions"></a>定義
@@ -23,7 +23,7 @@ ms.locfileid: "48904515"
 <a name="point"></a>
 ### <a name="point"></a>Point
 
-|名稱|說明|結構描述|
+|Name|說明|結構描述|
 |---|---|---|
 |**Timestamp**  <br>*選用*|資料點的時間戳記。 請確定與午夜對應，並使用 UTC 日期時間字串，例如 2017-08-01T00:00:00Z。|字串 (日期-時間)|
 |**值**  <br>*選用*|資料量值。|數字 (雙精度)|
@@ -32,7 +32,7 @@ ms.locfileid: "48904515"
 <a name="request"></a>
 ### <a name="request"></a>要求
 
-|名稱|說明|結構描述|
+|Name|說明|結構描述|
 |---|---|---|
 |**期間**  <br>*選用*|資料點的期間。 如果值為 null 或未顯示，API 將會自動決定該期間。|數字 (雙精度)|
 |**點**  <br>*選用*|時間序列資料點。 資料應該依照時間戳記遞增排序，以便與異常結果對應。 如果資料未正確排序或時間戳記重複，API 會正確偵測到異常點，但您也可能無法確實對應到輸入回傳的資料點。 在這種情況下，將在回應中新增警告訊息。|< [點](#point) > 陣列|
@@ -41,7 +41,7 @@ ms.locfileid: "48904515"
 <a name="response"></a>
 ### <a name="response"></a>Response
 
-|名稱|說明|結構描述|
+|Name|說明|結構描述|
 |---|---|---|
 |**ExpectedValues**  <br>*選用*|學習型模型的預測值。 如果輸入資料點是依照時間戳記遞增排序，陣列的索引可以用於對應期望值和原始值。|< 數字 (雙精度) > 陣列|
 |**IsAnomaly**  <br>*選用*|資料點是否比預測值要高或低，為異常的結果 (尖峰或下降)。 true 表示資料點異常，false 表示資料點非異常。 如果輸入資料點是依照時間戳記遞增排序，陣列的索引可以用於對應期望值和原始值。|< 布林值 > 陣列|

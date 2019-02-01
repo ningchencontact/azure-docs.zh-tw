@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: bd6ae88834b45e9e154eb1e5e3ba921f403c7eaa
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 51b0d3f753ab89e5809e610f5754355d1c5090b0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138740"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228622"
 ---
 # <a name="manage-account-and-authoring-key"></a>管理帳戶和撰寫金鑰
 LUIS 帳戶的兩個重要資訊為使用者帳戶和撰寫金鑰。 您的登入資訊是在 [account.microsoft.com](https://account.microsoft.com) 進行管理的。 您的撰寫金鑰是從 [LUIS](luis-reference-regions.md) 網站的 [設定] 頁面進行管理的。 

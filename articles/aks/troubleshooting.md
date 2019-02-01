@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: fd3d1c464c6f2d4cbecd715db0689581ca141769
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 17f6971cfa2dcd8c8988edc063c89859abec5367
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654065"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468830"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑難排解
 
@@ -66,28 +66,3 @@ ms.locfileid: "53654065"
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>我正嘗試升級或調整，卻收到「訊息：不允許變更 'ImageReference' 屬性」錯誤。  如何修正此問題？
 
 您可能會因為修改了 AKS 叢集內代理程式節點中的標記而收到此錯誤。 修改和刪除 MC_* 資源群組中資源的標記和其他屬性可能會導致非預期的結果。 在 AKS 叢集中修改 MC_* 群組下的資源會破壞服務層級目標 (SLO)。
-
-## <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>如何更新 AKS 叢集上的服務主體密碼？
-
-根據預設，建立 AKS 叢集時包含的服務主體到期時間為期一年。 當到期日接近時，您可以重設認證，將服務主體再延長一段時間。
-
-以下範例會執行下列步驟：
-
-1. 使用 [az aks show](/cli/azure/aks#az-aks-show) 命令，取得叢集的服務主體識別碼。
-1. 使用 [az ad sp credential list](/cli/azure/ad/sp/credential#az-ad-sp-credential-list) 列出服務主體用戶端祕密。
-1. 使用 [az ad sp credential-reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) 命令，將服務主體再延長一年。 服務主體用戶端祕密必須維持不變，AKS 叢集才能正確執行。
-
-```azurecli
-# Get the service principal ID of your AKS cluster.
-sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
-    --query servicePrincipalProfile.clientId -o tsv)
-
-# Get the existing service principal client secret.
-key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
-
-# Reset the credentials for your AKS service principal and extend for one year.
-az ad sp credential reset \
-    --name $sp_id \
-    --password $key_secret \
-    --years 1
-```

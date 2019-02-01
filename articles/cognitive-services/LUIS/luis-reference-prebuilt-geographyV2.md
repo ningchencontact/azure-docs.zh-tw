@@ -7,16 +7,16 @@ author: diberry
 manager: cjgronlund
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: a81c97cf8883d2a3629d1eb1b9f6137609c6edda
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e794ba86500e1c149deeafeaba508b3429ac590c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135095"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221448"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 GeographyV2 預先建置實體
 預建 geographyV2 實體可偵測位置。 因為此實體已經定型，所以您不需要將包含 GeographyV2 的範例語句加入應用程式意圖。 英文[文化特性](luis-reference-prebuilt-entities.md)支援 GeographyV2 實體。

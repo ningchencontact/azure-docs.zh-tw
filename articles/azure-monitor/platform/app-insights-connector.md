@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 4c9fe269ffa351c1efdb3f94a15a10bae65432d8
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 3013d8997660df95fb12c8b18c1120f726eead04
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199645"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216015"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector 管理解決方案 (預覽)
 
@@ -55,7 +55,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 ## <a name="configuration"></a>組態
 
-1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](../../azure-monitor/insights/solutions.md)中所述的程序，啟用 Azure Web Apps 分析解決方案。
+1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](../../azure-monitor/insights/solutions.md)中所述的程序，啟用 Azure Web Apps 分析解決方案。
 2. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。 選取 [所有服務] 來開啟 Application Insights。 然後，搜尋 Application Insights。 
 3. 在 [訂用帳戶] 之下，選取擁有 Application Insights 資源的訂用帳戶，然後在 [名稱] 之下，選取一或多個應用程式。
 4. 按一下 [檔案] 。

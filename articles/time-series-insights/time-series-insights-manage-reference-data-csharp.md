@@ -12,18 +12,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0ed7d868f0e46e16224e15caaefd2d819c923f29
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: d15e229595ded0f814ebc4048d428f044b59e16d
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200746"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295724"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用 C# 來管理 Azure Time Series Insights 環境的參考資料
 
 本文說明您可以編譯的範例 C# 專案來管理 Azure 時間序列深入解析環境的參考資料。
 
-## <a name="prerequistes"></a>必要條件
+## <a name="prerequisites"></a>必要條件
 編譯及執行範例程式碼之前，您必須先完成下列步驟：
 1. [建立參考資料集](time-series-insights-add-reference-data-set.md)。
 

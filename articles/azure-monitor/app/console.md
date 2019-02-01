@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 01/30/2019
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: 5873907485633753eb471855e443d452e4118b26
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 602cd9696271931babad9aa962638c5b646c80ac
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120745"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296761"
 ---
 # <a name="application-insights-for-net-console-applications"></a>適用於 .NET 主控台應用程式的 Application Insights
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 可讓您監視 Web 應用程式的可用性、效能和使用情況。
@@ -105,7 +105,8 @@ module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
 //...
 
 // enable known dependency tracking, note that in future versions, we will extend this list. 
-// please check default settings in https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/DependencyCollector/NuGet/ApplicationInsights.config.install.xdt#L20
+// please check default settings in https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/DependencyCollector/DependencyCollector/ApplicationInsights.config.install.xdt
+
 module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.ServiceBus");
 module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.EventHubs");
 //....
@@ -183,7 +184,8 @@ namespace ConsoleApp
             module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("127.0.0.1");
 
             // enable known dependency tracking, note that in future versions, we will extend this list. 
-            // please check default settings in https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/DependencyCollector/NuGet/ApplicationInsights.config.install.xdt#L20
+            // please check default settings in https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/DependencyCollector/DependencyCollector/ApplicationInsights.config.install.xdt
+
             module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.ServiceBus");
             module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.EventHubs");
 

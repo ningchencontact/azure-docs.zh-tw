@@ -6,18 +6,18 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f53b3cec843ca8016c61a360025b5e731b96f55
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 02d0afd18ad966baf8954ae5add180c970fe302e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815866"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247403"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -64,7 +64,7 @@ ms.locfileid: "54815866"
 
 若要開始使用 Azure Notebooks 進行開發，請參閱[開始使用 Azure Machine Learning 服務](quickstart-get-started.md)。
 
-根據預設，Azure Notebooks 使用免費服務層，其限制為 4 GB 記憶體和 1GB 資料。 不過，您可以將資料科學虛擬機器執行個體附加到 Azure Notebooks 專案來移除這些限制。 如需詳細資訊，請參閱[管理和設定 Azure Notebooks 專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)。
+根據預設，Azure Notebooks 使用免費服務層，其限制為 4 GB 記憶體和 1GB 資料。 不過，您可以將資料科學虛擬機器執行個體附加到 Azure Notebooks 專案來移除這些限制。 如需詳細資訊，請參閱[管理和設定 Azure Notebooks 專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
 
 ## <a id="dsvm"></a>資料科學虛擬機器
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: d7f0a40710d0cd7f017d9caa0da8e1644cdf56d3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 6d8cf874032449e362a35d106bba3b430a80ea48
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526507"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467606"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>設定 Azure 匯入/匯出工具
 Microsoft Azure 匯入/匯出工具是磁碟機準備及修復工具，可搭配 Microsoft Azure 匯入/匯出服務使用。 您可以使用此工具來執行下列功能︰  

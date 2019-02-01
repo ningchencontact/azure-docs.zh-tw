@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4836ffc8c6ab013ef5ad7a661db0df3254b6d4e1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: be6c5ccea6bf923b408319baf4bc1743978169c7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468713"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203805"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect 同步：啟用 AD 資源回收筒
 建議您為會同步處理至 Azure AD 的內部部署 Active Directory 啟用 AD 資源回收筒功能。 
@@ -39,9 +39,6 @@ ms.locfileid: "54468713"
 
 > [!NOTE]
 > 根據預設，Azure AD 會讓已刪除的 Azure AD 使用者物件保持 30 天的虛刪除狀態，再將其永久刪除。 不過，系統管理員也可以提早刪除這類物件。 物件在永久刪除後就無法再復原，即使您已啟用內部部署 AD 資源回收筒功能也是一樣。
-
->[!NOTE]
->之前，當使用者從內部部署同步處理範圍中移除並在雲端中刪除時，帳戶的 DirSyncEnabled 狀態已錯誤設定為 "False"。 如果之後手動從 Azure AD 資源回收筒還原該使用者，則會顯示「僅限雲端」帳戶的不正確狀態。 現在已修正此問題，若使用者從同步範圍中移除，然後虛刪除，再手動從 Azure AD 資源回收筒還原，DirSyncEnabled 狀態的值一律會保持 “True”。
 
 ## <a name="next-steps"></a>後續步驟
 **概觀主題**

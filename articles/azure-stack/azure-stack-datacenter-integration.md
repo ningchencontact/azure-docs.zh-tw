@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 09/12/2018
+ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962676"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251872"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 整合式系統的一般資料中心整合考量
 如果您對 Azure Stack 整合式系統有興趣，您應瞭解一些有關部署的重大規劃考量，及系統如何融入您的資料中心。 本文提供這些考量的高階概觀，協助您為 Azure Stack 多節點系統做出重要的基礎結構決策。 與您的 OEM 硬體廠商一起將 Azure Stack 部署到您的資料中心時，瞭解這些考量有所助益。  

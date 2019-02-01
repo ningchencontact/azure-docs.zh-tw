@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: 31fe0ede202b72a3e71c8028543ef0677a44a335
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.lastreviewed: 12/11/2018
+ms.openlocfilehash: 558fc7280af398f0037c33121f662649ba9c3506
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413017"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251379"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>開始使用 Azure Stack 上的 App Service 之前
 
@@ -331,7 +332,7 @@ Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從�
 3. [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 4. 執行 **Create-AADIdentityApp.ps1** 指令碼。 當系統提示時，請輸入您部署 Azure Stack 時使用的 Azure AD 租用戶識別碼。 例如，輸入 **myazurestack.onmicrosoft.com**。
 5. 在 [認證] 視窗中，輸入您的 Azure AD 服務管理帳戶和密碼。 選取 [確定] 。
-6. 輸入[稍早建立的憑證](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 **sso.appservice.local.azurestack.external.pfx**。
+6. 輸入[稍早建立的憑證](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 **sso.appservice.local.azurestack.external.pfx**。
 7. 此指令碼會在租用戶 Azure AD 執行個體中建立新的應用程式。 請記下 PowerShell 輸出中傳回的應用程式識別碼。 安裝期間會需要這項資訊。
 8. 開啟新的瀏覽器視窗，並以 [Azure Active Directory 服務管理員](https://portal.azure.com)身分登入 Azure 入口網站。
 9. 開啟 Azure AD 資源提供者。
@@ -375,7 +376,7 @@ Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從�
 3. [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 4. 執行 **Create-ADFSIdentityApp.ps1** 指令碼。
 5. 在 [認證] 視窗中，輸入您的 AD FS 雲端管理帳戶和密碼。 選取 [確定] 。
-6. 提供[稍早建立之憑證](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 **sso.appservice.local.azurestack.external.pfx**。
+6. 提供[稍早建立之憑證](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 **sso.appservice.local.azurestack.external.pfx**。
 
 ```PowerShell
     Create-ADFSIdentityApp.ps1

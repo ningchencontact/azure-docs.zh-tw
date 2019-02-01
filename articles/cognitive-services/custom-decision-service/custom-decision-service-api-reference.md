@@ -6,16 +6,16 @@ services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.openlocfilehash: 3d9b87241946a04ae71fabde9958b24ad626c0db
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 3476c353a2b5c5eeaaa7406712bebd178ac5c1e7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364018"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227738"
 ---
 # <a name="api"></a>API
 
@@ -144,7 +144,7 @@ $.ajax({
 獎勵 API 僅供測試之用，可透過 [cURL](https://en.wikipedia.org/wiki/CURL) 呼叫：
 
 ```sh
-curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
+curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
 ```
 
 預期的效果為 HTTP 回應 200 (確定)。 您可以看到記錄中此事件的獎勵為 1 (若入口網站上已提供 Azure 儲存體帳戶金鑰)。

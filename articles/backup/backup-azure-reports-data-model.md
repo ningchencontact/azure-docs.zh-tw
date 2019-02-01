@@ -2,19 +2,18 @@
 title: Azure 備份的資料模型
 description: 本文將討論 Azure 備份報告的 Power BI 資料模型詳細資料。
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 573b7e9c5c44c7162b4020f1ef54b8986003c0b5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877128"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299413"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure 備份報告的資料模型
 本文說明用於建立 Azure 備份報告的 Power BI 資料模型。 透過此資料模型，您就可以根據相關欄位來篩選現有報告，而且更重要的是，可以在模型中使用資料表和欄位來建立您自己的報告。 

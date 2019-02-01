@@ -6,16 +6,16 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: e293c27faa69fe5c79b776a98bcae0f72e85c3ee
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 17a55e84dcbec00eced290ec76c3201784075201
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811149"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462574"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL 資料倉儲商業智慧合作夥伴
 若要建立端對端資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。  本文將重點放在具有可支援「Azure SQL 資料倉儲」之商業智慧 (BI) 解決方案的 Microsoft 合作夥伴公司。

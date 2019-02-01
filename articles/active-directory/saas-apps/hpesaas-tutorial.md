@@ -7,19 +7,19 @@ author: jeevansd
 manager: daveba
 ms.assetid: 314003d6-ca66-4456-88c3-934254d4a9a2
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 19d98ec8157d6e2ce748a5cc95ee46c40c16c562
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 5d87a78d2fd918fde34c861f1066139bed1a1fef
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54814693"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197784"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>教學課程：Azure Active Directory 與 HPE SaaS 整合
 
@@ -202,7 +202,7 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [HPE SaaS] 磚時，應該會自動登入您的 HPE SaaS 應用程式。
-如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

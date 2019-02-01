@@ -1,6 +1,6 @@
 ---
 title: Azure Marketplace 的新增供應項目功能表 | Microsoft Docs
-description: .
+description: 上也提供本文中使用的原始碼。
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: v-miclar
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7ad9f16e2b153adcdba076a07207d1ab16f9c09e
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e45cf028740a05fa35bcf933f727053ab82bdcfa
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266274"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195065"
 ---
 # <a name="new-offer-menu"></a>新增供應項目功能表
 
@@ -27,14 +27,14 @@ ms.locfileid: "52266274"
 
 |    **新增供應項目功能表項目**     |     **對應的文件章節**                       |
 |    -----------------------     |     -----------------------------                       |
-| ![Azure 應用程式功能表項目](./media/new-offer-menu1.png) |  [Azure 應用程式供應項目](./../../cloud-partner-portal-orig/cpp-azure-app-offer.md) |
+| ![Azure 應用程式功能表項目](./media/new-offer-menu1.png) |  [Azure 應用程式供應項目](../azure-applications/cpp-azure-app-offer.md) |
 | ![諮詢服務功能表項目](./media/new-offer-menu2.png) | [諮詢服務供應項目](./../../cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md) |
 | ![容器功能表項目](./media/new-offer-menu3.png) | [容器供應項目](./../containers/cpp-containers-offer.md) |
 | ![Dynamics 365 Business Central 功能表項目](./media/new-offer-menu4.png) | [Dynamics 365 Business Central 供應項目](./../../cloud-partner-portal-orig/cpp-business-central-offer.md) |
 | ![Dynamics 365 for Customer Engagement 功能表項目](./media/new-offer-menu5.png) | [Dynamics 365 for Customer Engagement 供應項目](./../../cloud-partner-portal-orig/cpp-customer-engagement-offer.md) |
 | ![Dynamics 365 for Operations 功能表項目](./media/new-offer-menu6.png) | [Dynamics 365 for Operations 供應項目](./../../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) |
 | ![IoT Edge 模組功能表項目](./media/new-offer-menu7.png) | [IoT Edge 模組供應項目](./../iot-edge-module/cpp-offer-process-parts.md) |
-| ![ SasS 應用程式功能表項目](./media/new-offer-menu8.png) | [SasS 應用程式供應項目](./../../cloud-partner-portal-orig/cpp-saas-app-offer.md) |
+| ![ SasS 應用程式功能表項目](./media/new-offer-menu8.png) | [SasS 應用程式供應項目](../saas-app/cpp-saas-offer.md) |
 | ![ 虛擬機器功能表項目](./media/new-offer-menu9.png) | [虛擬機器供應項目](./../virtual-machine/cpp-virtual-machine-offer.md) |
 |  |  |
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 1d6c0a8ca04949216e6410ff81b15f79c7067522
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341815"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217283"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing 語音 WebSocket 通訊協定
 
@@ -77,7 +77,7 @@ Content-Length: 0
 
 權杖存取需要有下列標頭資訊。
 
-| 名稱 | 格式 | 說明 |
+| Name | 格式 | 說明 |
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | 您的訂用帳戶金鑰 |
 
@@ -507,7 +507,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 欄位 | 說明 | 使用量 |
 | ----- | ----------- | ----- |
-| 名稱 | `Connection` | 必要 |
+| Name | `Connection` | 必要 |
 | id | 此連線要求的 *X-ConnectionId* 標頭中所使用的連線識別碼值 | 必要 |
 | Start | 用戶端傳送連線要求的時間 | 必要 |
 | End | 用戶端收到成功建立連線通知的時間，如果發生錯誤，則是收到拒絕連線或連線失敗通知的時間 | 必要 |
@@ -547,7 +547,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 欄位 | 說明 | 使用量 |
 | ----- | ----------- | ----- |
-| 名稱 | 麥克風 | 必要 |
+| Name | 麥克風 | 必要 |
 | Start | 用戶端開始使用來自麥克風或其他音訊串流的音訊輸入，或從關鍵字偵察器收到觸發程序的時間 | 必要 |
 | End | 用戶端停止使用麥克風或音訊串流的時間 | 必要 |
 | Error | 發生之錯誤的描述 (如果有的話)。 如果麥克風操作成功，用戶端應該省略此欄位。 此欄位的長度上限為 50 個字元。 | 如果發生錯誤，則必填，否則省略 |
@@ -567,7 +567,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 欄位 | 說明 | 使用量 |
 | ----- | ----------- | ----- |
-| 名稱 | ListeningTrigger | 選用 |
+| Name | ListeningTrigger | 選用 |
 | Start | 啟動用戶端接聽觸發程序的時間 | 必要 |
 | End | 完成用戶端接聽觸發程序的時間 | 必要 |
 | Error | 發生之錯誤的描述 (如果有的話)。 如果觸發操作成功，用戶端應該省略此欄位。 此欄位的長度上限為 50 個字元。 | 如果發生錯誤，則必填，否則省略 |

@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 409647da146a2844384204cb03de5028d45e5763
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 6436193dadb5933074fdce861a31672a0f4849de
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792385"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227330"
 ---
 # <a name="demo-password-reset"></a>示範：密碼重設
 本教學課程示範簡單的技術支援聊天機器人如何協助您以對話學習模組進行密碼重設。 聊天機器人的模型可學習非一般對話流程和多回合序列，包括領域外類別。 工作可在不使用程式碼或實體的情況下完成。

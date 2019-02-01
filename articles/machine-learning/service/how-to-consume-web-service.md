@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: 了解如何取用在使用 Azure Machine Learning 模型部署模型時所產生的 Web 服務。 此 Web 服務會公開 REST API。 使用您選擇的程式設計語言來建立此 API 的用戶端。
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: efa24fcb624c7613ce16028d7ba06af4d4d2153c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: b83542a11ce2351214ac8f15a6902d1a90f871ee
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753382"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242258"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>使用部署為 Web 服務的 Azure Machine Learning 模型
 
@@ -84,7 +84,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> 如果您需要重新產生金鑰，請使用 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#regen-key)。
+> 如果您需要重新產生金鑰，請使用 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)。
 
 ## <a name="request-data"></a>要求資料
 

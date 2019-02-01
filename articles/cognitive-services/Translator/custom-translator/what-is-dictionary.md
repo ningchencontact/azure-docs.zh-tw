@@ -5,16 +5,16 @@ description: 字典是已對齊的文件，可指定您想要 Microsoft Translat
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 18260de82125c2e582e9c817ef733dd3757790b3
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: bc297fd4cdda8cdb3dc618b73e91d2f4e31e8b6a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975087"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212404"
 ---
 # <a name="what-is-a-dictionary"></a>什麼是字典？
 

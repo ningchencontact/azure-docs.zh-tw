@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: 了解如何使用 Azure Machine Learning 資料準備 SDK 來轉換和清理資料。 用轉換方法可用來加入資料行、篩選不必要的資料列或資料行，以及插補遺漏的值。
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: cforbe
 author: cforbe
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d32244cd49ebd42192b2388215f79a64cacb3caa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f02d511c5afa6d515f29b9fc557be3b49223c501
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186135"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243278"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>使用 Azure Machine Learning 資料準備 SDK 來轉換資料
 

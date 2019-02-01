@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 83f29106d72f564f894c968102b703ab6bb5d8c2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e8472323d99de9d0d81130eac5fbe3ec9e11c590
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902373"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197631"
 ---
 # <a name="graph-search-method"></a>圖表搜尋方法
 
@@ -29,7 +29,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>要求參數  
-名稱     | 值 | 必要？  | 說明
+Name     | 值 | 必要？  | 說明
 -----------|-----------|---------|--------
 **mode**       | 文字字串 | 是 | 想要使用的模型名稱。 值為 *json* 或 *lambda*。
 
@@ -46,7 +46,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 
 <br>
 ## <a name="response-json"></a>回應 (JSON)
-名稱 | 說明
+Name | 說明
 -------|-----   
 **results** | 一個陣列，內含 0 或多個符合查詢運算式的實體。 每個實體都包含要求的屬性值。 如果已成功處理要求，就會呈現這個欄位。
 **error** | HTTP 狀態碼。 如果要求失敗，就會呈現此欄位。

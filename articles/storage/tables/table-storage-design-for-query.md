@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: 8b4ae066edc1c62c25762b5c6feebce1ecfff5a2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: tables
+ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521535"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470734"
 ---
 # <a name="design-for-querying"></a>查詢的設計
 資料表服務方案可以是讀取密集、寫入密集或兩者混合的方案。 本文主要說明您在設計表格服務以有效地支援讀取作業時應謹記在心的事項。 一般而言，支援有效讀取作業的設計，也可兼顧寫入作業的效率。 不過，設計支援寫入作業時還有其他考量必須牢記在心，這將在[資料修改的設計](table-storage-design-for-modification.md)一文中說明這些考量。

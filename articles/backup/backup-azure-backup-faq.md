@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 4e3a79c28fc0e67fbf22e4d0fde3de9528d3edf4
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: b31bdacbaf1ab81223d2a99472233cd5024edced
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382625"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300726"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 備份 - 常見問題集
 本文提供「Azure 備份」服務的常見問題解答。
@@ -28,19 +28,15 @@ ms.locfileid: "54382625"
 
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>如果我的組織有一個保存庫，如何在還原資料時，將來自不同伺服器的資料隔離？
-
 當您設定備份時，要一起復原的伺服器資料應該使用相同的複雜密碼。 如果您只想要復原特定的伺服器，請使用該伺服器專用的複雜密碼。 例如，人力資源伺服器可能使用一組加密複雜密碼，而會計伺服器使用另一組，並且儲存體伺服器使用第三組。
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>我是否可以在訂用帳戶之間移動保存庫？
-
 沒有。 保存庫是於訂用帳戶層級上建立，且無法重新指派至其他訂用帳戶。
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>我是否可以將備份資料移至另一個保存庫？
-
 沒有。 儲存在保存庫中的備份資料無法移至不同的保存庫。
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>是否可以在備份之後從 GRS 變更為 LRS？
-
 沒有。 復原服務保存庫只能在儲存任何備份之前，變更儲存體選項。
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>我是否可以針對備份到「復原服務保存庫」的 VM 執行「項目層級還原」(ILR)？
@@ -58,14 +54,12 @@ ms.locfileid: "54382625"
 ## <a name="vmware-and-hyper-v-backup"></a>VMware 和 Hyper-V 備份
 
 ### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>我可以將 VMware vCenter 伺服器備份到 Azure 嗎？
-
 是。 您可以使用「Azure 備份伺服器」將 VMware vCenter Server 和 ESXi 主機備份至 Azure。
 
 - [深入了解](backup-mabs-protection-matrix.md)支援的版本。
 - [依照這些步驟](backup-azure-backup-server-vmware.md)來備份 VMware 伺服器。
 
 ### <a name="do-i-need-a-separate-license-to-recover-an-full-on-premises-vmwarehyper-v-cluster"></a>我是否需要個別授權才能復原完整的內部部署 VMware/Hyper-V 叢集？
-
 您不需要針對 VMware/HYPER-V 保護進行個別授權。
 
 - 如果您是 System Center 客戶，請使用 System Center Data Protection Manager (DPM) 來保護 VMware VM。
@@ -74,14 +68,10 @@ ms.locfileid: "54382625"
 ## <a name="dpm-and-azure-backup-server-backup"></a>DPM 和 Azure 備份伺服器備份
 
 ### <a name="which-dpm-versions-are-supported"></a>支援哪些 DPM 版本？
-
 支援的 DPM 版本彙總於[支援對照表](backup-azure-dpm-introduction.md#prerequisites-and-limitations)中。 建議您安裝最新的 DPM 更新，並在 DPM 伺服器上執行[最新版本](https://aka.ms/azurebackup_agent)的「Azure 備份」代理程式。
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>是否可以向多個保存庫註冊伺服器？
-
 沒有。 只能向一個保存庫註冊 DPM 或「Azure 備份」伺服器。
-
-
 
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>可以使用 Azure 備份伺服器來為實體伺服器建立裸機復原 (BMR) 備份嗎？ <br/>
 是。
@@ -94,8 +84,6 @@ ms.locfileid: "54382625"
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>如果我已安裝「Azure 備份」代理程式來保護檔案和資料夾，是否可以安裝 System Center DPM 將內部部署工作負載備份至 Azure？
 是。 但您應該先安裝 DPM，然後再安裝「Azure 備份」代理程式。  依此順序安裝元件可確保「Azure 備份」代理程式能與 DPM 搭配運作。 不建議或不支援在安裝 DPM 之前先安裝代理程式。
 
-
-
 ## <a name="general-backup"></a>一般備份
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>在備份排程方面是否有任何限制？
@@ -104,7 +92,7 @@ ms.locfileid: "54382625"
 - 您一天最多可以備份 DPM 兩次。 您可以將排程原則設定為每天、每週、每月及每年。
 - 您一天可以備份 Azure VM 一次。
 
-## <a name="what-operating-systems-are-supported-for-backup"></a>支援使用哪些作業系統來進行備份？
+### <a name="what-operating-systems-are-supported-for-backup"></a>支援使用哪些作業系統來進行備份？
 
 「Azure 備份」支援使用下列作業系統來備份檔案和資料夾，以及受「Azure 備份伺服器」和 DPM 保護的應用程式。
 
@@ -128,10 +116,8 @@ Windows Server 2008 64 位元 | Standard、Enterprise、Datacenter | 含最新�
 針對 Azure VM Linux 備份，Azure 備份支援 [Azure 所背書的散發套件清單](../virtual-machines/linux/endorsed-distros.md)，但 Core OS Linux 和 32 位元作業系統除外。 只要 VM 上有 VM 代理程式可用並可支援 Python，其他自備的 Linux 散發套件便可能可以運作。
 
 
-## <a name="are-there-size-limits-for-data-backup"></a>資料備份是否有大小限制？
-
+### <a name="are-there-size-limits-for-data-backup"></a>資料備份是否有大小限制？
 大小限制如下：
-
 
 OS/機器 | 資料來源的大小限制
 --- | --- | ---
@@ -141,8 +127,7 @@ Windows Server 2012 或更新版本 | 54,400 GB
 Windows Server 2008、Windows Server 2008 R2 | 1700 GB
 Azure VM | 16 個資料磁碟<br/><br/> 資料磁碟最大可達 4095 GB
 
-## <a name="how-is-the-data-source-size-determined"></a>如何判斷資料來源大小？
-
+### <a name="how-is-the-data-source-size-determined"></a>如何判斷資料來源大小？
 下表說明如何決定每個資料來源大小。
 
 **資料來源** | **詳細資料**
@@ -155,7 +140,6 @@ BMR/系統狀態 |所要備份之機器的 BMR 或系統狀態的每個個別複
 
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>使用「復原服務保存庫」來備份的資料量是否有限制？
-
 您可使用「復原服務保存庫」來備份的資料量並無任何限制。
 
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>如果我在備份作業開始後予以取消，是否會刪除已傳輸的備份資料？
@@ -163,7 +147,7 @@ BMR/系統狀態 |所要備份之機器的 BMR 或系統狀態的每個個別複
 
 如果您取消 Azure VM 的備份工作，則會忽略任何傳輸的資料。 下一個備份工作會傳輸自最後一個成功備份工作之後的增量資料。
 
-## <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>為何傳輸到「復原服務保存庫」的資料大小會小於所選取要備份的資料？
+### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>為何傳輸到「復原服務保存庫」的資料大小會小於所選取要備份的資料？
 
  從「Azure 備份代理程式」、DPM 或「Azure 備份伺服器」備份的資料會先經過壓縮和加密，再進行傳輸。 在套用壓縮和加密之後，保存庫中的資料會縮小 30-40%。
 
@@ -177,9 +161,6 @@ BMR/系統狀態 |所要備份之機器的 BMR 或系統狀態的每個個別複
 - Azure 備份會使用檢查點機制，在備份期間偶爾將檢查點加入至備份資料。
 - 因為備份資料中有檢查點，所以下一個備份程序才可驗證檔案的完整性。
 - 下一個備份工作將會增量到先前備份的資料。 增量備份只會傳輸新資料或變更的資料，相當於具有較佳的頻寬使用率。
-
-
-
 
 ## <a name="retention-and-recovery"></a>保留和復原
 
@@ -199,15 +180,14 @@ BMR/系統狀態 |所要備份之機器的 BMR 或系統狀態的每個個別複
 否，復原最舊或最新時間點所需的時間都相同。 每個復原點的功能就像一個完整的復原點。
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>若每個復原點就像一個完整的復原點，則其是否會影響可計費的備份儲存體總數？
-
 典型的長期保留復原點產品會將備份資料儲存為完整的復原點。
+
     - 完整的復原點是「效率不佳的」  儲存體，但可以更輕鬆且更快速地進行還原。
     - 增量複本「符合儲存體效益」，但需要您還原一連串的資料，而這會影響復原時間
 
 Azure 備份的儲存體架構透過最佳化儲存資料以進行快速還原，並降低儲存體成本支出，可讓您魚與熊掌兼得。 這可確保有效率地使用您的輸入和輸出頻寬。 資料儲存體數量及復原資料所需的時間都會維持在最低。 深入了解[增量備份](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/)。
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>可建立的復原點數目有限制嗎？
-
 您可以為每個受保護的執行個體最多建立 9999 個復原點。 受保護的執行個體係指會備份至 Azure 的電腦、伺服器 (實體或虛擬) 或工作負載。
 
 - 深入了解[備份和保留](./backup-introduction-to-azure-backup.md#backup-and-retention)。
@@ -220,7 +200,6 @@ Azure 備份的儲存體架構透過最佳化儲存資料以進行快速還原�
 沒有。 復原是免費的，不會向您收取輸出流量的費用。
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>變更我的備份原則時會發生什麼狀況？
-
 套用新原則後，就會遵循新原則的排程和保留期。
 
 - 如果延長保留期，會標示現有的復原點，以依據新的原則加以保留。
@@ -229,20 +208,17 @@ Azure 備份的儲存體架構透過最佳化儲存資料以進行快速還原�
 ## <a name="encryption"></a>加密
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>傳送至 Azure 的資料會經過加密嗎？
-
 是。 資料會在內部部署機器上以 AES256 加密。 資料會透過安全的 HTTPS 連結來傳送。 在雲端中傳輸的資料僅受到儲存體和復原服務之間的 HTTPS 連結保護。 iSCSI 通訊協定保護復原服務和使用者電腦之間傳輸的資料。 安全通道用於保護 iSCSI 通道。
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>位於 Azure 的備份資料也會經過加密嗎？
-
 是。 在 Azure 中的資料會進行靜態加密。
+
 - 針對內部部署備份，會使用您在備份至 Azure 時所提供的複雜密碼來提供靜態加密。
 - 針對 Azure VM，會使用「儲存體服務加密」(SSE) 對資料進行靜態加密。
 
 Microsoft 不會解密在任何時間點所備份的資料。
 
-
 ### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>用來加密備份資料的加密金鑰最小長度是多少？
-
 當您使用 Azure 備份代理程式時，加密金鑰應該至少包含 16 個字元。 在 Azure VM 中，Azure KeyVault 所使用的金鑰長度沒有限制。
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>如果我錯置加密金鑰，則會發生什麼情況？ 我是否可以復原資料？ Microsoft 是否可以復原資料？

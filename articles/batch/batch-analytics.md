@@ -2,7 +2,7 @@
 title: Azure Batch 分析 | Microsoft Docs
 description: Azure Batch 分析的參考。
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 4c81acb282b24bbd899227c4dcc449fed4ba6c7d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: 999c3037196044250b8a12d6b6b380553e58c6ba
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30312672"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460177"
 ---
 # <a name="batch-analytics"></a>批次分析
 批次分析中的主題包含批次服務資源所適用事件和警示的參考資訊。

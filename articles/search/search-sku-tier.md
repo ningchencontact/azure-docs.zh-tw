@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: cf2359834aa79b1d3fef8b65e4ef4191eb6ff867
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471815"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467436"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
 
@@ -108,7 +108,7 @@ SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 
 |  | S1 | S2 | S3 |  |  |  |  |
 |--|----|----|----|--|--|--|--|
-| 資料分割大小|  25 GB | 100 GB | 250 GB |  |  |  |  |
+| 資料分割大小|  25 GB | 100 GB | 200 GB |  |  |  |  |
 | 索引和索引子限制| 50 | 200 | 200 |  |  |  |  |
 
 如果必須有專用資源和多個資料分割，**S1** 是常見的選擇。 **S1** 具有 25 GB 的資料分割，可供最多 12 個資料分割使用，如果您透過複本來獲得最多個資料分割，則 S1 的每一服務限制是 300 GB (如需更多已經過平衡的組合，請參閱[配置資料分割和複本](search-capacity-planning.md#chart))。

@@ -7,19 +7,19 @@ author: jeevansd
 manager: daveba
 ms.assetid: 2aed2d4b-1dcd-4839-8fed-9419d107c61c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: ee8931f1f9121f3e645b2f94eece919ae6b19075
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e0674c0bd3e5244b76d35e05057aee3b75249703
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808845"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197104"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>教學課程：Azure Active Directory 與 Moxtra 整合
 
@@ -279,7 +279,7 @@ ms.locfileid: "54808845"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Moxtra] 磚時，應該會自動登入您的 Moxtra 應用程式。
-如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

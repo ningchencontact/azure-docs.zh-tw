@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: 了解如何使用 Azure Machine Learning 服務，在訓練期間使用資料存放區來存取資料儲存體
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 235ad729be434c8329a74e71abfe713480756316
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a4960f3e29011948ec30fbc24222d8a6dccf6b8a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187137"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252110"
 ---
 # <a name="access-data-during-training-from-your-datastores"></a>在訓練期間從資料存放區存取資料
 使用資料存放區存取 Azure Machine Learning 工作流程中的資料並與其互動。

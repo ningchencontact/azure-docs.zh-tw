@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: d055ea9b30732e1cc0fc4ae5471bae26adc08b35
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: tables
+ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238891"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469187"
 ---
 # <a name="table-design-patterns"></a>資料表設計模式
 本文將說明一些適用於表格服務方案的模式。 此外，您會了解如何有效處理其他表格儲存體設計文章中討論的一些問題和取捨。 下圖摘要說明不同模式之間的關聯性：  
@@ -197,11 +197,11 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 * 在與員工實體相同的磁碟分割中建立索引實體。  
 * 在個別的資料分割或資料表中建立索引實體。  
 
-<u>選項 1：使用 Blob 儲存體</u>  
+<u>選項 #1：使用 Blob 儲存體</u>  
 
 使用第一個選項時，您會為每個唯一的姓氏建立一個 Blob，並在每個 Blob 中，針對具有該姓氏的員工儲存 **PartitionKey** (部門) 和 **RowKey** (員工識別碼) 值的清單。 當您新增或刪除某位員工時，您應該確保相關的 Blob 內容與員工實體最終一致。  
 
-<u>選項 2：</u>在相同的資料分割中建立索引實體  
+<u>選項 #2：</u>在相同的資料分割中建立索引實體  
 
 使用第二個選項時，您會使用儲存下列資料的索引實體：  
 
@@ -223,7 +223,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 2. 剖析 EmployeeIDs 欄位中的員工識別碼清單。  
 3. 如果您需要這些員工的詳細資訊 (例如其電子郵件地址)，請從您在步驟 2 中取得的員工清單使用 **PartitionKey** 值 "Sales" 和 **RowKey** 值來擷取每個員工實體。  
 
-<u>選項 3：</u>在個別的資料分割或資料表中建立索引實體  
+<u>選項 #3：</u>在個別的資料分割或資料表中建立索引實體  
 
 使用第三個選項時，您會使用儲存下列資料的索引實體：  
 
@@ -916,7 +916,7 @@ foreach (var e in entities)
 ### <a name="retrieving-heterogeneous-entity-types"></a>擷取異質性實體類型
 在使用儲存體用戶端程式庫時，有三個選項可供您使用多個實體類型。  
 
-如果您知道以特定**RowKey** 和 **PartitionKey** 值儲存的實體類型，則在您擷取實體 (如先前兩個擷取實體類型 **EmployeeEntity** 的範例所說明) 時，將可指定實體類型：[使用儲存體用戶端程式庫執行點查詢](#executing-a-point-query-using-the-storage-client-library)和[使用 LINQ 擷取多個實體](#retrieving-multiple-entities-using-linq)。  
+如果您知道以特定**RowKey** 和 **PartitionKey** 值儲存的實體類型，則您在擷取實體時將可指定實體類型，如先前兩個擷取實體類型 **EmployeeEntity** 的範例所說明：[使用儲存體用戶端程式庫執行點查詢](#executing-a-point-query-using-the-storage-client-library)和[使用 LINQ 擷取多個實體](#retrieving-multiple-entities-using-linq)。  
 
 第二個選項是使用 **DynamicTableEntity** 類型 (屬性包)，而不是具體的 POCO 實體類型 (這個選項也可改善效能，因為不需要將實體序列化和還原序列化成 .NET 類型)。 下列 C# 程式碼可能會從資料表中擷取多個不同類型的實體，但會傳回所有實體做為 **DynamicTableEntity** 執行個體。 然後，它會使用 **EntityType** 屬性來判斷每個實體的類型：  
 

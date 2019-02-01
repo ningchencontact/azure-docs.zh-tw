@@ -7,19 +7,19 @@ author: jeevansd
 manager: daveba
 ms.assetid: e262bf7e-cc7d-4d0e-aea7-861f00d8837d
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: dbceb69f846cec1fc08142543a02a76e76e10eca
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bc4ae377d9c49c534652352d5c980f1fbc4c1e17
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818467"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190100"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>教學課程：Azure Active Directory 與 CompetencyIQ 整合
 
@@ -207,7 +207,7 @@ CompetencyIQ 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 CompetencyIQ 圖格時，系統應該會自動將您登入該應用程式。
-如需有關「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

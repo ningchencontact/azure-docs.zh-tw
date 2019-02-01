@@ -9,16 +9,16 @@ ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.workload: identity
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: a5cb5a879687bdbea043d582526f4dd357a2a620
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d53221a8bed6995231385cae21a8994fce132a30
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809916"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175905"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>對我的帳戶進行雙步驟驗證設定
 雙步驟驗證是額外的安全性步驟，可協助保護您的帳戶使其他人更難以破解。 如果您正在閱讀這篇文章，可能會收到一封來自您工作或學校的系統管理員關於 Multi-Factor Authentication 的電子郵件。 或者也許您嘗試登入並收到訊息，要求您設定其他安全性驗證。 如果是這個情況，**則您在完成自動註冊程序之前將無法登入**。

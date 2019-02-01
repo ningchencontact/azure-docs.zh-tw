@@ -10,15 +10,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 3629215dc1f6dfcb28194c487358adb058af3e8e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602914"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453003"
 ---
 # <a name="monitor-and-improve-performance"></a>監視並改善效能
+
 Azure SQL Database 可找出資料庫中的潛在問題，並透過提供智慧型微調動作和建議來建議可以改善工作負載效能的動作。
 
 若要檢閱您的資料庫效能，請使用 [概觀] 頁面上的 [效能] 圖格，或往下瀏覽到 [支援 + 疑難排解] 區段：
@@ -34,6 +35,7 @@ Azure SQL Database 可找出資料庫中的潛在問題，並透過提供智慧�
 4. [自動調整](#automatic-tuning)可以讓 Azure SQL Database 自動將資料庫最佳化。
 
 ## <a name="performance-overview"></a>效能概觀
+
 此檢視會提供您的資料庫效能的摘要，並可協助您進行效能調整和疑難排解。 
 
 ![效能](./media/sql-database-performance/performance.png)
@@ -44,6 +46,7 @@ Azure SQL Database 可找出資料庫中的潛在問題，並透過提供智慧�
 * [資料庫查詢] 圖格會顯示資料庫的查詢效能摘要 (整體 DTU 使用量和排名最前面的資源取用查詢)。 按一下此圖格，即會帶您前往 [[查詢效能深入解析](#query-performance-insight)]。
 
 ## <a name="performance-recommendations"></a>效能建議
+
 此頁面提供可改善資料庫效能的智慧型[微調建議](sql-database-advisor.md)。 此頁面上顯示的建議類型如下：
 
 * 要建立或卸除哪些索引的建議。
@@ -57,9 +60,11 @@ Azure SQL Database 可找出資料庫中的潛在問題，並透過提供智慧�
 在[尋找和套用效能建議](sql-database-advisor-portal.md)文章中，了解如何找到和套用效能建議。
 
 ## <a name="automatic-tuning"></a>自動微調
+
 Azure SQL 資料庫能透過套用[效能建議](sql-database-advisor.md)來自動調整資料庫效能。 若要深入了解，請參閱[自動調整文章](sql-database-automatic-tuning.md)。 若要啟用它，請參閱[如何啟用自動調整](sql-database-automatic-tuning-enable.md)。
 
 ## <a name="query-performance-insight"></a>查詢效能深入解析
+
 [查詢效能深入解析](sql-database-query-performance.md) 提供了下列各項，讓您得以花費較少的時間來針對資料庫效能進行疑難排解：
 
 * 更深入的資料庫資源 (DTU) 取用分析。 
@@ -71,6 +76,7 @@ Azure SQL 資料庫能透過套用[效能建議](sql-database-advisor.md)來自�
 如需此頁面的詳細資訊，可在**[如何使用查詢效能深入解析](sql-database-query-performance.md)** 一文中找到。
 
 ## <a name="additional-resources"></a>其他資源
+
 * [單一資料庫的 Azure SQL Database 效能指引](sql-database-performance-guidance.md)
 * [何時使用彈性集區？](sql-database-elastic-pool-guidance.md)
 

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 185c4685de0c889c3b6e7b173445546ed5b7d921
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: 38b5ac475667013da463bbd1871bcd380e02a744
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955406"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245298"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>進階 Azure Stack 開發套件評估工作
 在熟悉基本 Azure Stack 開發套件 (ASDK) 服務功能與能力後，您可以藉由測試更進階的案例來進一步加深您對 Azure Stack 的了解。 這些更進階的評估工作會完整記錄在 Azure Stack 操作員文件中。
