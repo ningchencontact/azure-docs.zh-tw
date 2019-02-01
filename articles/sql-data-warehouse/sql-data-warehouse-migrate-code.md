@@ -6,16 +6,16 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f16f9448da2dab9670908f74935bb5fb31a0547
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f36ee3ce6a8d678cdd846474576fc049df0b4f88
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301366"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472298"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>將您的 SQL 程式碼移轉至 SQL 資料倉儲
 本文說明將您的程式碼從另一個資料庫移轉到 SQL 資料倉儲時，可能需要進行的程式碼變更。 某些 SQL 資料倉儲功能設計為以分散式方式運作，可以大幅改善效能。 不過，為了維持效能和延展性，某些功能也無法使用。
