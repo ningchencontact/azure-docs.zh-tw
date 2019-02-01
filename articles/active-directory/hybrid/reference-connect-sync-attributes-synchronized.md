@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
-ms.component: hybrid
+ms.date: 01/24/2019
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 30ed7ff2026c64c7e40d43597a2747f1144ae125
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1d6808f17116df033c2b001eff05bd83bc5f1d3d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468591"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196526"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步：將屬性同步處理至 Azure Active Directory
 本主題列出 Azure AD Connect 同步處理所同步處理的屬性。  
@@ -45,6 +45,7 @@ ms.locfileid: "54468591"
 | displayName |X | |
 | objectSID |X |機械屬性。 AD 使用者識別碼，可用來維持 Azure AD 和 AD 之間的同步處理。 |
 | pwdLastSet |X |機械屬性。 用來得知何時要讓已經發行的權杖失效。 供密碼雜湊同步處理、傳遞驗證和同盟使用。 |
+|samAccountName|X| |
 | sourceAnchor |X |機械屬性。 不可變的識別碼，可維持 ADDS 與 Azure AD 之間的關聯性。 |
 | usageLocation |X |機械屬性。 使用者的國家/地區。 用於授權指派。 |
 | userPrincipalName |X |UPN 是使用者的登入識別碼。 最常與 [mail] 值相同。 |

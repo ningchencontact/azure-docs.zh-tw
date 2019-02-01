@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a4ceaec8c71d4c13a18c8e28cc057b4b6d5337d5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 52ac3f12fac5de3bbb772d943ea1bada5c18c1eb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812500"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453445"
 documentType: LandingData
 title: Machine Learning Studio 文件
 metadata:
@@ -12,7 +12,7 @@ metadata:
   description: Machine Learning Studio 是共同作業式的拖放工具，您可以用來依據您的資料建置、測試及部署預測分析解決方案。 教學課程、影片和模型範例會示範如何使用 Studio 來建置和部署機器學習模型。
   services: machine-learning
   ms.service: machine-learning
-  ms.component: studio
+  ms.subservice: studio
   ms.topic: landing-page
   author: j-martens
   ms.author: jmartens
