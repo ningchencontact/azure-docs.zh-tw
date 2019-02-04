@@ -39,7 +39,7 @@ Azure Stack 具有一組可用於 [區域管理] 磚的區域管理功能。 Azu
 
 如果您按一下 [區域管理] 圖格中的區域，則可以存取下列資訊：
 
-[ ![[Region management] \(區域管理\) 刀鋒視窗上窗格的描述](media/azure-stack-region-management/regionssm.png "[Region management] \(區域管理\) 刀鋒視窗") ](media/azure-stack-region-management/regions.png#lightbox)
+[ ![[Region management] \(區域管理) 刀鋒視窗上窗格的描述](media/azure-stack-region-management/regionssm.png "[Region management] \(區域管理) 刀鋒視窗") ](media/azure-stack-region-management/regions.png#lightbox)
 
 1. [資源功能表]。 存取特定的基礎結構管理領域，以及檢視和管理使用者資源，例如儲存體帳戶和虛擬網路。
 
