@@ -68,7 +68,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 
    * **type**。 範本所建立的資源類型。 在此案例中，類型是 `Microsoft.Network/applicationGateways`，代表應用程式閘道。
    * **名稱**。 資源的名稱。 請注意 `[parameters('applicationGatewayName')]` 的用法，這表示此名稱是在部署期間由您輸入的內容，或是由參數檔案所提供。
-   * **屬性**。 資源屬性的清單。 此範本會在應用程式閘道建立期間，使用虛擬網路與公用 IP 位址。 如需範本中應用程式閘道的 JSON 語法和屬性，請參閱 [Microsoft.Network/applicationGateways](/azure/templates/microsoft.network/applicationgateways).。
+   * **屬性**。 資源屬性的清單。 此範本會在應用程式閘道建立期間，使用虛擬網路與公用 IP 位址。 如需範本中應用程式閘道的 JSON 語法和屬性，請參閱 [Microsoft.Network/applicationGateways](/azure/templates/microsoft.network/applicationgateways)。
 
 1. 巡覽回 [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf)。
 1. 按一下 [azuredeploy-parameters.json]，然後按一下 [RAW]。
