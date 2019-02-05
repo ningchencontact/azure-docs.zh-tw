@@ -56,7 +56,7 @@ U-SQL 資料庫專案可以參考「類別庫 (適用於 U-SQL 應用程式)」�
 
     ![Data Lake Tools for Visual Studio--從參考建立組件](./media/data-lake-analytics-cicd-manage-assemblies/data-lake-tools-create-assembly-from-reference.png)
 
-7. 新增 [受控相依性] 和 [其他檔案] (若有的話)。 在新增其他檔案時，工具會使用相對路徑來確保能在本機電腦和稍後的組建電腦上找到組件。 
+7. 新增 [受控相依性] 和 [其他檔案]\(若有的話)。 在新增其他檔案時，工具會使用相對路徑來確保能在本機電腦和稍後的組建電腦上找到組件。 
 
 位於編輯器視窗底部的 **@_DeployTempDirectory** 是預先定義的變數，能將工具指向建置輸出資料夾。 在建置輸出資料夾中，每個組件都具有以組件名稱命名的子資料夾。 所有 Dll 和其他檔案都在該子資料夾中。 
 

@@ -102,7 +102,7 @@ Azure 作業安全性是指使用者可在 Azure 中用來保護其資料、應�
 確保應用程式有足夠的彈性，能夠處理以應用程式本身為目標的阻斷服務，至關重要。 從[安全性開發週期 (SDL)](https://www.microsoft.com/en-us/sdl) 開始，安全性和隱私權便會內建於 Azure 平台之中。 SDL 會在每個開發階段處理安全性，並確保 Azure 會持續更新以使其更為安全。
 
 **最佳做法**：將您的應用程式設計為可[水平調整](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out)以滿足放大負載的需求，遭遇 DDoS 攻擊時尤其需要。 如果您的應用程式相依於服務的單一執行個體，它會建立單一失敗點。 佈建多個執行個體可讓系統更有彈性且更具延展性。  
-**詳細資料**：對於 Azure App Service，請選擇可提供多個執行個體的 [App Service 方案](../app-service/overview-hosting-plans.md)。
+**詳細資料**：對於 [Azure App Service](../app-service/app-service-value-prop-what-is.md)，請選擇可提供多個執行個體的 [App Service 方案](../app-service/overview-hosting-plans.md)。
 
 對於 Azure 雲端服務，設定您的每個角色以使用[多個執行個體](../cloud-services/cloud-services-choose-me.md)。
 

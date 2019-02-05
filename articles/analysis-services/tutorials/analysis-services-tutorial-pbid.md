@@ -56,7 +56,7 @@ ms.locfileid: "54188805"
 
     adventureworks 模型會在 Power BI Desktop 中開啟，並在 [報告] 檢視中顯示一個空白報告。 [欄位] 清單會顯示所有非隱藏的模型物件。 連線狀態會顯示在右下角。
 
-4. 在 [視覺效果] 中選取 [群組橫條圖]，然後按一下 [格式] (滾筒刷圖示)，接著開啟 [資料標籤]。 
+4. 在 [視覺效果] 中選取 [群組橫條圖]，然後按一下 [格式]\(滾筒刷圖示)，接著開啟 [資料標籤]。 
 
    ![視覺效果](./media/analysis-services-tutorial-pbid/aas-pbid-visualizations-report.png)
 
