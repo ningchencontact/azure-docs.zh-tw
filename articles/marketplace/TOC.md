@@ -67,7 +67,7 @@
 
 ### [管理供應項目](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [建立供應項目](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
-<!-- #### [Publish offer](./cloud-partner-portal/manage-offers/cpp-publish-offer.md)   -->
+#### [發佈供應項目](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [檢視供應項目狀態](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [更新供應項目](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [刪除供應項目](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
@@ -140,6 +140,17 @@
 #### [建立 IoT Edge 模組的技術資產](./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md)
 #### [發佈 IoT Edge 模組供應項目](./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md)
 #### [更新現有供應項目](./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md)
+
+### [Power BI 應用程式供應項目](./cloud-partner-portal/power-bi/cpp-power-bi-offer.md)
+#### [先決條件](./cloud-partner-portal/power-bi/cpp-prerequisites.md)
+#### [建立 Power BI 應用程式供應項目](./cloud-partner-portal/power-bi/cpp-create-offer.md)
+##### [供應項目設定索引標籤](./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md)
+##### [技術資訊索引標籤](./cloud-partner-portal/power-bi/cpp-technical-info-tab.md)
+##### [店面詳細資料索引標籤](./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md)
+##### [連絡人索引標籤](./cloud-partner-portal/power-bi/cpp-contacts-tab.md)
+#### [建立 Power BI 應用程式技術資產](./cloud-partner-portal/power-bi/cpp-create-technical-assets.md)
+#### [發佈 Power BI 應用程式供應項目](./cloud-partner-portal/power-bi/cpp-publish-offer.md)
+#### [更新現有供應項目](./cloud-partner-portal/power-bi/cpp-update-existing-offer.md)
 
 ### [SaaS 應用程式供應項目](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
 #### [先決條件](./cloud-partner-portal/saas-app/cpp-prerequisites.md)

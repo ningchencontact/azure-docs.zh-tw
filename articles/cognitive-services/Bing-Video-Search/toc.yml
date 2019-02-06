@@ -1,48 +1,45 @@
 items:
-- name: Bing 影片搜尋文件
+- name: Bing 影片搜尋 API 文件
   href: index.yml
 - name: 概觀
   items:
-  - name: 什麼是 Bing 影片搜尋？
-    href: search-the-web.md
+  - name: 什麼是 Bing 影片搜尋 API？
+    href: overview.md
   - name: 比較 Bing 搜尋 API
     href: ../Bing-Web-Search/bing-api-comparison.md
     maintainContext: true
+  expanded: true
 - name: REST API 快速入門
   items:
-  - name: 開始使用
-    href: quick-start.md
-  - name: C#
-    href: csharp.md
-  - name: Java
-    href: java.md
-  - name: Node.js
-    href: nodejs.md
-  - name: PHP
-    href: php.md
-  - name: Python
-    href: python.md
-  - name: Ruby
-    href: ruby.md
+  - name: REST API
+    items:
+    - name: 使用 C#
+      href: quickstarts/csharp.md
+    - name: 使用 Java
+      href: quickstarts/java.md
+    - name: 使用 Node.js
+      href: quickstarts/nodejs.md
+    - name: 使用 PHP
+      href: quickstarts/php.md
+    - name: 使用 Python
+      href: quickstarts/python.md
+    - name: 使用拼音
+      href: quickstarts/ruby.md
+  - name: SDK
+    items:
+    - name: 使用 C#
+      href: quickstarts/sdk-csharp-quickstart.md
+    - name: 使用 Node.js
+      href: quickstarts/sdk-node-quickstart.md
+    - name: 使用 Python
+      href: quickstarts/sdk-python-quickstart.md
+    - name: 使用 Java
+      href: quickstarts/sdk-java-quickstart.md
   expanded: true
-- name: SDK 快速入門
-  items:
-  - name: SDK 範例概觀
-    href: sdk.md
-  - name: 影片搜尋 SDK C# 快速入門
-    href: video-search-sdk-quickstart.md
-  - name: 影片搜尋 SDK 節點快速入門
-    href: video-search-sdk-node-quickstart.md
-  - name: 影片搜尋 SDK Python 快速入門
-    href: video-sdk-python-quickstart.md
-  - name: 影片搜尋 SDK JAVA 快速入門
-    href: video-sdk-java-quickstart.md
 - name: 教學課程
   items:
-  - name: 單一頁面 Web 應用程式
+  - name: 建置單頁 Web 應用程式
     href: tutorial-bing-video-search-single-page-app.md
-  - name: 單一頁面 Web 應用程式 (原始程式碼)
-    href: tutorial-bing-video-search-single-page-app-source.md
 - name: 範例
   items:
   - name: 程式碼範例
@@ -59,6 +56,12 @@ items:
     href: resize-and-crop-thumbnails.md
   - name: 從 v5 升級到 v7
     href: bing-video-upgrade-guide-v5-to-v7.md
+- name: 概念
+  items:
+  - name: 從 Web 取得影片
+    href: concepts/get-videos.md
+  - name: 傳送搜尋要求
+    href: concepts/sending-requests.md
 - name: 參考
   items:
   - name: Bing 影片搜尋 API v7
@@ -98,13 +101,11 @@ items:
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api
   - name: 試試看！
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8
-  - name: Bing 影片搜尋端點
-    href: video-search-endpoints.md
   - name: Bing 影片搜尋 API 的分析
     href: bing-video-stats.md
-ms.openlocfilehash: e8f0e84b405232ff7145f0a8fed4ab42d03a4c63
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9192f6aaa94d2aff310e8d12a66ac8ab75f772e2
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509690"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568030"

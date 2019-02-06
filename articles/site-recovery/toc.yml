@@ -154,6 +154,8 @@ items:
         href: azure-to-azure-how-to-enable-replication.md
       - name: 啟用適用於加密 VM 的 Azure 至 Azure 複寫
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
+      - name: 啟用適用於 S2D VM 的 Azure 至 Azure 複寫
+        href: azure-to-azure-how-to-enable-replication-s2d-vms.md
       - name: 在容錯移轉之後重新保護 Azure VM
         href: azure-to-azure-how-to-reprotect.md
       - name: 移轉至 Azure 之後，設定 Azure VM 的災害復原
@@ -452,9 +454,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 服務更新
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: bd744e6d16f52c70ae70e7c90ca8ed011f02e275
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 10592c399414440c032d83b5fcdafa1ccee98956
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222740"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566851"
