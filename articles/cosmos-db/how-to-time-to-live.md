@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/14/2018
 ms.author: mjbrown
-ms.openlocfilehash: 681878d43422e86df3db1050da24be88881d4b2e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a9f6676f1b2fdf812ec87595083ba6317a11873c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036285"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462142"
 ---
-# <a name="how-to-configure-time-to-live-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中設定存留時間
+# <a name="configure-time-to-live-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中設定存留時間
 
 在 Azure Cosmos DB 中，您可以選擇在容器層級設定存留時間 (TTL)，也可以在為容器設定後於項目層級加以覆寫。 您可以使用 Azure 入口網站或語言專屬 SDK，來為容器設定 TTL。 項目層級的 TTL 覆寫可使用 SDK 來加以設定。
 

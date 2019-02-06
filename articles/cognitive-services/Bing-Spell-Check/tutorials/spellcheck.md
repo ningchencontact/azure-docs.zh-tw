@@ -1,21 +1,21 @@
 ---
-title: 教學課程：開始使用 Bing 拼字檢查 API 對結果進行拼字檢查
+title: 教學課程：使用 Bing 拼字檢查 API 取得拼字檢查結果
 titlesuffix: Azure Cognitive Services
 description: 示範如何使用 Bing 拼字檢查。
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: d0cfc952511ac0d8e1328f7b01fe5eeb2b4f7e48
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 4bb558c05a2bade3a9e3dd01976d4cd9bf24cb98
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160541"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160758"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>教學課程：建置網頁拼字檢查用戶端
 

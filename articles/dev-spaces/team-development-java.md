@@ -3,7 +3,7 @@ title: 使用 Java 和 VS Code 透過 Azure Dev Spaces 進行小組開發 | Micr
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: stepro
 ms.author: stephpr
 ms.date: 08/01/2018
@@ -11,16 +11,16 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: mmontwil
-ms.openlocfilehash: b1f05c176c6005a2fda8025b4645813013a30cb3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 4019bc3eb1a0071abc330cb7fe6127eeca856cc0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407173"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476361"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 進行小組開發
 
-在此教學課程中，您將了解如何在不同的開發環境中使用多個開發人員空間同時工作，在相同叢集中將個別的工作保持在個別的開發人員空間。
+在本教學課程中，您將了解如何在不同的開發環境中使用多個開發人員空間同時工作，在相同叢集中將個別的工作保持在個別的開發人員空間。
 
 ## <a name="call-a-service-running-in-a-separate-container"></a>呼叫在個別容器中執行的服務
 

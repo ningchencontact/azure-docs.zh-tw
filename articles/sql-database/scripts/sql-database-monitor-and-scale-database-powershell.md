@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 28ab02521077224d3c938bb7e222047f91782409
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 33523d407fa153958ec9a4d3df44f1cc4c66e43e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390963"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462387"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>使用 PowerShell 來監視和調整單一 SQL 資料庫
 
@@ -30,7 +30,7 @@ ms.locfileid: "54390963"
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single SQL Database")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single database")]
 
 > [!TIP]
 > 使用 [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) 來取得資料庫作業的狀態，已及使用 [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity) 來取消資料庫的更新作業。
@@ -50,7 +50,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 | 命令 | 注意 |
 |---|---|
  [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立主機資料庫或彈性集區的邏輯伺服器。 |
+| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立裝載單一資料庫或彈性集區的 SQL Database 伺服器。 |
 | [Get-AzureRmMetric](/powershell/module/azurerm.insights/get-azurermmetric) | 顯示資料庫的大小使用量資訊。|
 | [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | 更新資料庫屬性，或將資料庫移入、移出彈性集區或在彈性集區之間移動資料庫。 |
 | [Add-AzureRMMetricAlertRule](/powershell/module/azurerm.insights/add-azurermmetricalertrule) | 設定警示規則以自動在日後監視 DTU。 |

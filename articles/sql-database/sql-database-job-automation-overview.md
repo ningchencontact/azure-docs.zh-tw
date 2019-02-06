@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 01/22/2019
-ms.openlocfilehash: 63a6daa7c409aeb77b07e98cc0108b727f263d4c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453271"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457202"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>使用資料庫作業將管理工作自動化
 
@@ -26,6 +26,7 @@ Azure SQL Database 可讓您建立及排程可針對一或多個資料庫定期�
 作業可處理登入目標資料庫的工作。 您也要定義、維護及保存要在 Azure SQL 資料庫群組中執行的 Transact-SQL 指令碼。
 
 您可以使用工作自動化的案例有數個：
+
 - 將管理工作自動化，並將這些工作排定為在每個工作天、下班時間等執行。
   - 部署結構描述變更、認證管理、效能資料收集或租用戶 (客戶) 遙測收集。
   - 更新參考資料 (所有資料庫通用的資訊)，並從 Azure Blob 儲存體載入資料。
@@ -39,14 +40,15 @@ Azure SQL Database 可讓您建立及排程可針對一或多個資料庫定期�
  - 建立一些作業，以使用 SQL Server Integration Services (SSIS) 在您的資料庫中載入資料。
 
 Azure SQL Database 中可用的作業排程技術如下：
+
 - **SQL Agent 作業**是經過實戰測試的傳統 SQL Server 作業排程元件，適用於受控執行個體中。 SQL Agent 作業不適用於單一資料庫。
 - **彈性資料庫作業**是可在一或多個 Azure SQL Database 上執行自訂作業的作業排程服務。
 
-值得注意的是 SQL Agent (可用於內部部署且作為 SQL Database 受控執行個體的一部分) 與資料庫彈性作業代理程式 (現在適用於單一 SQL Database 和 SQL 資料倉儲) 之間的差異。
+值得注意的是 SQL Agent (可用於內部部署且作為 SQL Database 受控執行個體的一部分) 與資料庫彈性作業代理程式 (適用於 Azure SQL 資料庫中的單一資料庫，以及 SQL 資料倉儲中的資料庫) 之間的差異。
 
 |  |彈性作業  |SQL Agent |
 |---------|---------|---------|
-|影響範圍     |  與作業代理程式位於相同 Azure 雲端中任何數目的 Azure SQL 資料庫和/或資料倉儲。 目標可以位於不同的邏輯伺服器、訂用帳戶和/或區域。 <br><br>目標群組可由個別資料庫或資料倉儲，或伺服器、集區或 shardmap 中的所有資料庫所組成 (在作業執行階段以動態方式列舉)。 | 與 SQL 代理程式位於相同 SQL Server 執行個體中的任何單一資料庫。 |
+|影響範圍     |  與作業代理程式位於相同 Azure 雲端中任何數目的 Azure SQL 資料庫和/或資料倉儲。 目標可以位於不同的 SQL Database 伺服器、訂用帳戶和/或區域。 <br><br>目標群組可由個別資料庫或資料倉儲，或伺服器、集區或 shardmap 中的所有資料庫所組成 (在作業執行階段以動態方式列舉)。 | 與 SQL 代理程式位於相同 SQL Server 執行個體中的任何個別資料庫。 |
 |支援的 API 和工具     |  入口網站、PowerShell、T-SQL、Azure Resource Manager      |   T-SQL、SQL Server Management Studio (SSMS)     |
 
 ## <a name="sql-agent-jobs"></a>SQL Agent 作業
@@ -54,6 +56,7 @@ Azure SQL Database 中可用的作業排程技術如下：
 SQL Agent 作業是針對您的資料庫指定的 T-SQL 指令碼系列。 使用作業來定義可執行一或多次並監視成功或失敗的系統管理工作。
 一個作業可以在一部本機伺服器或在多部遠端伺服器上執行。 SQL Agent 作業是在受控執行個體服務中執行的內部資料庫引擎元件。
 SQL Agent 作業中有數個重要概念：
+
 - **作業步驟**可設定應在作業內執行的一或多個步驟。 針對每個作業步驟，您可以定義重試策略，以及在作業步驟成功或失敗時應發生的動作。
 - **排程**可定義應執行作業的時間。
 - **通知**可讓您定義一些規則，這些規則將在作業完成後用於透過電子郵件通知操作員。
@@ -64,11 +67,13 @@ SQL Agent 作業步驟是 SQL Agent 應該執行的動作序列。 每個步驟�
 SQL Agent 可讓您建立不同類型的作業步驟 (例如針對資料庫執行單一 Transact-SQL 批次的 Transact-SQL 作業步驟，或可以執行自訂 OS 指令碼的 OS 命令/PowerShell 步驟)，SSIS 作業步驟可讓您使用 SSIS 執行階段載入資料，或是可以將您資料庫中的變更發佈至其他資料庫的[複寫](sql-database-managed-instance-transactional-replication.md)步驟。
 
 [異動複寫](sql-database-managed-instance-transactional-replication.md)是一項資料庫引擎功能，可讓您發佈在一個資料庫中一或多個資料表上所做的變更，並將這些變更發佈/散發至一組訂閱者資料庫。 發佈變更是使用下列的 SQL Agent 作業步驟類型來實作：
+
 - 交易記錄讀者。
 - 快照集。
 - 散發者。
 
 目前不支援其他類型的作業步驟，包括：
+
 - 不支援合併複寫作業步驟。
 - 不支援佇列讀取器。
 - 不支援 Analysis Services
@@ -77,6 +82,7 @@ SQL Agent 可讓您建立不同類型的作業步驟 (例如針對資料庫執�
 
 排程可指定執行作業的時間。 您可以依照相同的排程執行一項以上的作業，而且可以將一個以上的排程套用至相同的作業。
 排程可以針對作業的執行時間定義下列條件：
+
 - 每當執行個體重新啟動時 (或當 SQL Server Agent 啟動時)。 作業會在每次容錯移轉後啟動。
 - 在特定日期和時間執行一次，這適合用於某項作業延遲執行時。
 - 依照週期性排程。
@@ -215,7 +221,7 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 
 「目標群組」可定義一組將會執行某個作業步驟的資料庫。 目標群組可以包含下列各項的任意組合：
 
-- **Azure SQL Server** - 如果未指定伺服器，則在作業執行階段存在於伺服器中的所有資料庫都是群組的一部分。 必須提供 master 資料庫認證，才能在作業執行之前列舉並更新群組。
+- **SQL Database 伺服器** - 如果未指定伺服器，則在作業執行階段存在於伺服器中的所有資料庫都是群組的一部分。 必須提供 master 資料庫認證，才能在作業執行之前列舉並更新群組。
 - **彈性集區** - 如果已指定彈性集區，則在作業執行階段彈性集區中的所有資料庫都是群組的一部分。 針對伺服器，必須提供 master 資料庫認證，才能在作業執行之前更新群組。
 - **單一資料庫** - 將一或多個個別資料庫指定為群組的一部分。
 - **Shardmap** - Shardmap 的資料庫。
@@ -258,6 +264,7 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 #### <a name="job-history"></a>作業歷程記錄
 
 作業執行歷程記錄會儲存在「作業資料庫」中。 系統清理作業會清除留存超過 45 天的執行歷程記錄。 若要移除留存少於 45 天的歷程記錄，請在「作業資料庫」中呼叫 **sp_purge_history** 預存程序。
+
 ### <a name="agent-performance-capacity-and-limitations"></a>代理程式效能、容量和限制
 
 彈性作業在等待長時間執行的作業完成時，會使用最少的運算資源。

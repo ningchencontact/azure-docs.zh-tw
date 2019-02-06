@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: d3ee6db382f848a029f3e0355abdfe5eecc80656
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1486ab3240036abedea2cbb3cbe93e5c061691d8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035826"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467402"
 ---
-# <a name="manage-database-accounts-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理資料庫帳戶
+# <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帳戶
 
 本文說明如何管理 Azure Cosmos DB 帳戶。 您會了解如何設定內送流量備援容錯機制、新增或移除區域、設定多個寫入區域，以及設定容錯移轉優先順序。 
 

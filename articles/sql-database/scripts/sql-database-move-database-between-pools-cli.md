@@ -11,17 +11,17 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 0d532f976304e164732be5184ff132421e13c6b4
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: a70af29c07c532b43fdf25d0517ae880bfd3cff8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53649884"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476327"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>使用 CLI 移動 SQL 彈性集區中的 Azure SQL Database
 
-此 Azure CLI 指令碼範例會建立兩個彈性集區，並將 Azure SQL Database 從一個 SQL 彈性集區移到另一個 SQL 彈性集區，然後將資料庫從彈性集區移出到單一 Azure 資料庫計算大小。 
+此 Azure CLI 指令碼範例會建立兩個彈性集區，並將 Azure SQL Database 從一個 SQL 彈性集區移到另一個 SQL 彈性集區，然後將資料庫從彈性集區移出到單一資料庫計算大小。 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -48,9 +48,9 @@ az group delete --name myResourceGroup
 | 命令 | 注意 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | 建立主機資料庫或彈性集區的邏輯伺服器。 |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | 在邏輯伺服器內建立彈性集區。 |
-| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | 在邏輯伺服器中將資料庫建立為單一或集區的資料庫。 |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | 建立裝載單一資料庫和彈性集區的 SQL Database 伺服器。 |
+| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | 建立彈性集區。 |
+| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | 建立單一資料庫或彈性集區中的資料庫。 |
 | [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | 更新資料庫屬性，或將資料庫移入、移出彈性集區或在彈性集區之間移動資料庫。 |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 刪除資源群組，包括所有的巢狀資源。 |
 

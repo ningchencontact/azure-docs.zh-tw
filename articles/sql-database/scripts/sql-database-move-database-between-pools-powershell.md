@@ -1,5 +1,5 @@
 ---
-title: PowerShell 範例 - 移動 Azure SQL Database - SQL 彈性集區 | Microsoft Docs
+title: PowerShell 範例 - 移動 Azure SQL Database - 彈性集區 | Microsoft Docs
 description: 使用 PowerShell 在彈性集區之間移動 SQL 資料庫的 Azure PowerShell 指令碼範例
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.reviewer: ''
 ms.author: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: ccef419caae2ca8ccdd340445a6e84b57ada1579
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: d4c71aafb947622e54f6d9fda2f539c304e528f3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388818"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458188"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>使用 PowerShell 建立彈性集區並在彈性集區之間移動資料庫
 
@@ -47,9 +47,9 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 | 命令 | 注意 |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立主機資料庫或彈性集區的邏輯伺服器。 |
-| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | 在邏輯伺服器內建立彈性集區。 |
-| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | 在邏輯伺服器中將資料庫建立為單一或集區的資料庫。 |
+| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立裝載單一資料庫或彈性集區的 SQL Database 伺服器。 |
+| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | 建立彈性集區。 |
+| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | 在 SQL Database 伺服器中將資料庫建立為獨立或集區資料庫。 |
 | [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | 更新資料庫屬性，或將資料庫移入、移出彈性集區或在彈性集區之間移動資料庫。 |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 刪除資源群組，包括所有的巢狀資源。 |
 |||

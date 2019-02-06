@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 23f2d32b2323821155467bd1ad12e9baf8c33074
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 01/25/2019
+ms.openlocfilehash: 2b510accb2a30250a2855cfa22dbf45546a77569
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150745"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461741"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>快速入門：使用 SQL Server Management Studio 連線和查詢 Azure SQL Database
 
@@ -30,7 +30,9 @@ ms.locfileid: "55150745"
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-#### <a name="install-the-latest-ssms"></a>安裝最新的 SSMS
+* 設定伺服器層級防火牆規則。 如需詳細資訊，請參閱[建立伺服器層級防火牆規則](sql-database-get-started-portal-firewall.md)。
+
+## <a name="install-the-latest-ssms"></a>安裝最新的 SSMS
 
 在開始之前，請確定您已安裝最新的 [SSMS][ssms-install-latest-84g]。 
 
@@ -43,7 +45,7 @@ ms.locfileid: "55150745"
 在 SMSS 中，連線到您的 Azure SQL Database 資料庫。 
 
 > [!IMPORTANT]
-> Azure SQL Database 邏輯伺服器會接聽連接埠 1433。 若要連線到公司防火牆後方的邏輯伺服器，該防火牆必須開啟此連接埠。
+> Azure SQL Database 伺服器會接聽連接埠 1433。 若要連線到公司防火牆後方的 SQL Database 伺服器，該防火牆必須開啟此連接埠。
 >
 
 1. 開啟 SSMS。 [連線到伺服器] 對話方塊隨即出現。

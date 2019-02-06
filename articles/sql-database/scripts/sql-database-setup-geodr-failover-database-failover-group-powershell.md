@@ -1,6 +1,6 @@
 ---
-title: PowerShell 範例-異地複寫容錯移轉群組-單一 Azure SQL Database | Microsoft Docs
-description: 為單一 Azure SQL Database 設定作用中異地複寫容錯移轉群組並且進行容錯移轉的 Azure PowerShell 範例指令碼。
+title: PowerShell 範例-異地複寫容錯移轉群組 - 獨立 Azure SQL Database | Microsoft Docs
+description: 為 Azure SQL Database 中的單一資料庫設定作用中異地複寫容錯移轉群組並且進行容錯移轉的 Azure PowerShell 範例指令碼。
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: d8ec80f417883874796d25c2c1a427d03073080b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 31027e266f29ae0308ed70abfea5dbec3736f824
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390774"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469289"
 ---
-# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>使用 PowerShell 為單一 Azure SQL Database 設定作用中異地複寫容錯移轉群組
+# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-database-in-azure-sql-database"></a>使用 PowerShell 為 Azure SQL Database 中的單一資料庫設定作用中異地複寫容錯移轉群組
 
-此 PowerShell 指令碼範例設定單一 Azure SQL Database 的作用中異地複寫容錯移轉群組，並將其容錯移轉到 Azure SQL Database 的次要複本。
+此 PowerShell 指令碼範例會設定單一資料庫的作用中異地複寫容錯移轉群組，並將其容錯移轉到資料庫的次要複本。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
@@ -48,8 +48,8 @@ Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 | 命令 | 注意 |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立主機資料庫或彈性集區的邏輯伺服器。 |
-| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | 在邏輯伺服器內建立彈性集區。 |
+| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立裝載單一資料庫和彈性集區的 SQL Database 伺服器。 |
+| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | 建立彈性集區。 |
 | [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | 更新資料庫屬性，或將資料庫移入、移出彈性集區或在彈性集區之間移動資料庫。 |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary)| 針對現有資料庫建立次要資料庫並開始資料複寫。 |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)| 取得一或多個資料庫。 |

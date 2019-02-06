@@ -1,6 +1,6 @@
 ---
-title: PowerShell 範例 - 監視 - 調整 SQL 彈性集區 - Azure SQL Database | Microsoft Docs
-description: 在 Azure SQL Database 中監視和調整 SQL 彈性集區的 Azure PowerShell 範例指令碼
+title: PowerShell 範例 - 監視/調整彈性集區 - Azure SQL Database | Microsoft Docs
+description: 可在 Azure SQL Database 中監視和調整彈性集區的 Azure PowerShell 範例指令碼
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,15 +11,15 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 94e2f6aedc163d2b53b90908309e5c6167f8e6bb
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 4ea6841992d61bd12a1180608abf0fa0ec4421c2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388267"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471618"
 ---
-# <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>使用 PowerShell 在 Azure SQL Database 中監視和調整 SQL 彈性集區
+# <a name="use-powershell-to-monitor-and-scale-an-elastic-pool-in-azure-sql-database"></a>使用 PowerShell 在 Azure SQL Database 中監視和調整彈性集區
 
 此 PowerShell 指令碼範例會監視彈性集區的效能計量、將其調整為較高計算大小，並對其中一個效能計量建立警示規則。
 
@@ -30,7 +30,7 @@ ms.locfileid: "54388267"
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1?highlight=16-17 "Monitor and scale single SQL Database")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1?highlight=16-17 "Monitor and scale a single SQL Database")]
 
 ## <a name="clean-up-deployment"></a>清除部署
 
@@ -47,9 +47,9 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 | 命令 | 注意 |
 |---|---|
  [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立主機資料庫或彈性集區的邏輯伺服器。 |
-| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | 在邏輯伺服器內建立彈性集區。 |
-| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | 在邏輯伺服器中將資料庫建立為單一或集區的資料庫。 |
+| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立裝載單一資料庫或彈性集區的 SQL Database 伺服器。 |
+| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | 建立彈性集區。 |
+| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | 建立單一資料庫或彈性集區中的資料庫。 |
 | [Get-AzureRmMetric](/powershell/module/azurerm.insights/get-azurermmetric) | 顯示資料庫的大小使用量資訊。|
 | [Add-AzureRMMetricAlertRule](/powershell/module/azurerm.insights/add-azurermmetricalertrule) | 新增或更新以度量為基礎的警示規則。 |
 | [Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool) | 更新彈性集區屬性 |

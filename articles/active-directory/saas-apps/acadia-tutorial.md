@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: a43db3eba5bec9bef0aacc51d246414d54d222bf
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: dc36e66e9dae62fdfede3a82146cd218ca5eb489
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813435"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458171"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>教學課程：Azure Active Directory 與 Acadia 整合
 
@@ -71,10 +71,10 @@ Acadia 與 Azure AD 整合可提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 [應用程式名稱] 搭配運作的 Azure AD 單一登入。
-若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 [應用程式名稱] 中相關使用者之間的連結關聯性。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Acadia 搭配運作的 Azure AD 單一登入。
+若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Acadia 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 [應用程式名稱] 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 Acadia 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Acadia 單一登入](#configure-acadia-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -87,7 +87,7 @@ Acadia 與 Azure AD 整合可提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 [應用程式名稱] 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要設定與 Acadia 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Acadia] 應用程式整合頁面中，選取 [單一登入]。
 
@@ -116,7 +116,7 @@ Acadia 與 Azure AD 整合可提供下列優點：
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。 請連絡 [Acadia 用戶端支援小組](https://www.systemsalliance.com/contact-us/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > Acadia 小組會在中繼資料檔案中提供步驟 4 和 5 的值，您可以在 [基本 SAML 設定] 區段中，按一下 [上傳中繼資料檔案] 來匯入資料。 請使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。 您也可以參考 Azure 入口網站 [基本 SAML 設定] 區段中所顯示的模式，以確認中繼資料的格式是正確的。 若提供的值有誤，請連絡 [Acadia 客戶支援小組](mailto:support@systemsalliance.com)。
 
 6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
@@ -134,7 +134,7 @@ Acadia 與 Azure AD 整合可提供下列優點：
 
 ### <a name="configure-acadia-single-sign-on"></a>設定 Acadia 單一登入
 
-若要在 **Acadia** 端設定單一登入，您必須將從 Azure 入口網站下載的 [中繼資料 XML] 和複製的適當 URL 傳送給 [Acadia 支援小組](https://www.systemsalliance.com/contact-us/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Acadia** 端設定單一登入，您必須將從 Azure 入口網站下載的 [中繼資料 XML]、[應用程式同盟中繼資料 URL] 和複製的適當 URL 傳送給 [Acadia 支援小組](mailto:support@systemsalliance.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

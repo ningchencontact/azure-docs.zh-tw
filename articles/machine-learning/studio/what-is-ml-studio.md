@@ -10,18 +10,18 @@ ms.custom: seodec18
 ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 04c9803909fb5dfd1072840a0c1d7e33814ad1a3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: bb01db14cec73b8c5668915a9eaab5e7728724df
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264355"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469106"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什麼是 Azure Machine Learning Studio？
 Microsoft Azure Machine Learning Studio 是共同作業式的拖放工具，您可以用來依據您的資料建置、測試及部署預測分析解決方案。 Machine Learning Studio 會以 Web 服務方式發佈模型，讓自訂應用程式或 BI 工具 (例如 Excel) 都能夠很容易地使用。
@@ -39,10 +39,10 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 
 > [!TIP]
 > 若要下載並列印提供 Machine Learning Studio 功能概觀的圖表，請參閱 [Azure Machine Learning Studio 功能的概觀圖](studio-overview-diagram.md)。
-> 
-> 
+>
+>
 
-![Azure ML Studio 圖表：建立實驗、讀取許多來源的資料、寫入評分的資料及寫入模型。][ml-studio-overview]
+![Azure Machine Learning Studio 圖表：建立實驗、讀取許多來源的資料、寫入評分的資料及寫入模型。][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>開始使用 Machine Learning Studio
 第一次進入 [Machine Learning Studio](https://studio.azureml.net) 時，您會看到 [首頁]。 您可以從這裡檢視文件、影片、網路研討會，以及尋找其他重要資源。
@@ -104,7 +104,7 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 * [線性迴歸][linear-regression] - 建立線上梯度下降線性迴歸模型。
 * [評分模型][score-model] - 給訓練的分類或迴歸模型評分。
 
-當您建置實驗時，可以從畫布左邊的模組清單選擇。  
+當您建置實驗時，可以從畫布左邊的模組清單選擇。
 
 模組可能有一組參數可用來設定模組的內部演算法。 當您在畫布上選取模組時，模組的參數會顯示在畫布右邊的 [屬性]  窗格中。 您可以在此窗格中修改參數來調整模型。
 
@@ -162,7 +162,7 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 * **樣本**：用來代表整體的一部分資料集。 您可以隨機取樣，或根據資料集的特定特徵進行取樣。
 
 ## <a name="next-steps"></a>後續步驟
-您可以使用[逐步指南](create-experiment.md)和[以範例建立](sample-experiments.md)來學習預測性分析和機器學習的基礎知識。  
+您可以使用[逐步指南](create-experiment.md)和[以範例建立](sample-experiments.md)來學習預測性分析和機器學習的基礎知識。
 
 
 <!-- Module References -->

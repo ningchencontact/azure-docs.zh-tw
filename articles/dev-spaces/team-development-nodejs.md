@@ -3,19 +3,19 @@ title: 使用 VS Code 透過 Azure Dev Spaces 進行小組開發 | Microsoft Doc
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-ms.openlocfilehash: 4b45cf6d986aa8bf404e77e7a6cf0005183f1133
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 8a7200723b39c40fe9596bbab0acaf752acbbaf8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706563"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451388"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 進行小組開發
 
@@ -70,7 +70,7 @@ ms.locfileid: "51706563"
 1. 在預設的 GET `/` 處理常式中設定中斷點。
 1. 在 `webfrontend` 專案中，請將中斷點設定在傳送 GET 要求給 `http://mywebapi` 的前一刻。
 1. 在 `webfrontend` 專案中按 F5。
-1. 開啟 Web 應用程式，並在這兩項服務中逐步執行程式碼。 Web 應用程式應會顯示由兩項服務串連的訊息：「來自 webfrontend 的 Hello 和來自 mywebapi 的 Hello」。
+1. 開啟 Web 應用程式，並在這兩項服務中逐步執行程式碼。 Web 應用程式應該會顯示由兩項服務串連的訊息：「來自 webfrontend 的 Hello 和來自 mywebapi 的 Hello」。
 
 做得好！ 現在，您已有每個容器可以個別開發和部署的多容器應用程式。
 

@@ -1,9 +1,9 @@
 ---
-title: PowerShell 範例 - 建立 Azure SQL Database | Microsoft Docs
-description: 建立 Azure SQL Database 的 Azure PowerShell 範例指令碼
+title: PowerShell 範例 - 在 Azure SQL Database 中建立單一資料庫 | Microsoft Docs
+description: 在 Azure SQL Database 中建立單一資料庫的 Azure PowerShell 範例指令碼
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 3f6e2429bd0d67e9e6abd27d4a60ee8ef1d20f66
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 09a0e40bb935dd5f3e4955af0b45cef93ed1612b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388078"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458512"
 ---
-# <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>使用 PowerShell 建立單一 Azure SQL Database 並設定防火牆規則
+# <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>使用 PowerShell 建立單一 Azure SQL Database 並設定 SQL Database 伺服器防火牆規則
 
 此 PowerShell 指令碼範例會建立 Azure SQL Database 並設定伺服器層級防火牆規則。 成功執行指令碼後，即可從所有 Azure 服務和所設定的 IP 位址存取 SQL Database。
 
@@ -47,9 +47,9 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 | 命令 | 注意 |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立主機資料庫或彈性集區的邏輯伺服器。 |
+| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立裝載單一資料庫或彈性集區的 SQL Database 伺服器。 |
 | [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) | 建立防火牆規則以允許從輸入的 IP 位址範圍存取伺服器上的所有 SQL Database。 |
-| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | 在邏輯伺服器中將資料庫建立為單一或集區的資料庫。 |
+| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | 建立單一資料庫或彈性集區。 |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 刪除資源群組，包括所有的巢狀資源。 |
 |||
 

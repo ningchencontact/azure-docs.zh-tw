@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 SSMS 設計您的第一個 Azure SQL 資料庫 | Microsoft Docs
+title: 教學課程：使用 SSMS 在 Azure SQL Database 中設計您的第一個單一資料庫 | Microsoft Docs
 description: 了解如何利用 SQL Server Management Studio 設計您的第一個 Azure SQL 資料庫。
 services: sql-database
 ms.service: sql-database
@@ -9,13 +9,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 9fa36b9b87a8e9591b0c863826cd2278a29ba28e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/25/2019
+ms.openlocfilehash: e7229a0816cf74fed08397a68dd34e305bf8c0ea
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956052"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459531"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>教學課程：使用 SSMS 設計您的第一個 Azure SQL 資料庫
 
@@ -47,7 +47,7 @@ Azure SQL Database 是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 
 ## <a name="create-a-blank-database"></a>建立空白資料庫
 
-Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-database-service-tiers-dtu.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL Database 邏輯伺服器](sql-database-features.md)內。
+Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-database-service-tiers-dtu.md)建立。 此資料庫建立於 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL Database 伺服器](sql-database-features.md)內。
 
 遵循以下步驟來建立空白 SQL 資料庫。
 
@@ -96,7 +96,7 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-databa
 
 ## <a name="create-a-firewall-rule"></a>建立防火牆規則
 
-SQL 資料庫服務會在伺服器層級建立防火牆。 防火牆會防止外部應用程式和工具連線到伺服器及伺服器上的任何資料庫。 若要啟用對您資料庫的外部連線，您必須先將 IP 位址的規則新增到防火牆。 依照下列步驟來建立 [SQL 資料庫伺服器層級的防火牆規則](sql-database-firewall-configure.md)。
+SQL 資料庫服務會在伺服器層級建立防火牆。 防火牆會防止外部應用程式和工具連線到伺服器及伺服器上的任何資料庫。 若要啟用對您資料庫的外部連線，您必須先將 IP 位址的規則新增到防火牆。 依照下列步驟來建立 [SQL Database 伺服器層級的防火牆規則](sql-database-firewall-configure.md)。
 
 > [!NOTE]
 > SQL 資料庫會透過連接埠 1433 通訊。 如果您嘗試從公司網路進行連線，您網路的防火牆可能不允許透過連接埠 1433 的輸出流量。 若情況如此，除非系統管理員開啟連接埠 1433，否則您無法連線至 Azure SQL Database 伺服器。
@@ -107,17 +107,17 @@ SQL 資料庫服務會在伺服器層級建立防火牆。 防火牆會防止外
 
    ![伺服器名稱](./media/sql-database-design-first-database/server-name.png)
 
-1. 在工具列上按一下 [設定伺服器防火牆]。 SQL 資料庫伺服器的 [防火牆設定] 頁面隨即開啟。
+1. 在工具列上按一下 [設定伺服器防火牆]。 SQL Database 伺服器的 [防火牆設定] 頁面隨即開啟。
 
    ![伺服器防火牆規則](./media/sql-database-design-first-database/server-firewall-rule.png)
 
    1. 按一下工具列上的 [新增用戶端 IP]，將目前的 IP 位址新增至新的防火牆規則。 防火牆規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。
 
-   1. 按一下 [檔案] 。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
+   1. 按一下 [檔案] 。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在 SQL Database 伺服器上開啟連接埠 1433。
 
    1. 依序按一下 [確定]，然後關閉 [防火牆設定] 頁面。
 
-您的 IP 位址現在可以通過防火牆。 您現在可以使用 SQL Server Management Studio 或您所選的其他工具，連線至 SQL 資料庫伺服器及其資料庫。 務必使用先前建立的伺服器管理帳戶。
+您的 IP 位址現在可以通過防火牆。 您現在可以使用 SQL Server Management Studio 或您所選的其他工具，連線至 SQL Database 伺服器及其資料庫。 務必使用先前建立的伺服器管理帳戶。
 
 > [!IMPORTANT]
 > 根據預設，已對所有 Azure 服務啟用透過 SQL 資料庫防火牆存取。 按一下此頁面上的 [關閉] 即可對所有 Azure 服務停用。

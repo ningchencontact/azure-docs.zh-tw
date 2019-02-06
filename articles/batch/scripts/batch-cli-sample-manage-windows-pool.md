@@ -3,7 +3,7 @@ title: Azure CLI 指令碼範例 - Batch 中的 Windows 集區 | Microsoft Docs
 description: Azure CLI 指令碼範例 - 在 Batch 中建立和管理 Windows 集區
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: danlep
-ms.openlocfilehash: 18fc7f9b0675f5c83f716aedfa6968d1ce48c0ed
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: lahugh
+ms.openlocfilehash: c4906ca67137790e19342f0434e6c2b3932819fd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968997"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472215"
 ---
 # <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>CLI 範例：在 Azure Batch 中建立和管理 Windows 集區
 

@@ -1,19 +1,19 @@
 ---
 title: 教學課程：使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
-description: 在本教學課程中，您將了解如何使用 Azure 入口網站部署及設定 Azure 防火牆。
+description: 在本教學課程中，您會了解如何使用 Azure PowerShell 來部署及設定「Azure 防火牆」。
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 511fb425c6b31d204c88094ec5b1a49316495a0a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 29af70988cf77b9fad47e5c2478e5c86529fe9cf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431515"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458209"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
 
@@ -61,6 +61,8 @@ ms.locfileid: "54431515"
 
 >[!NOTE]
 >即使 UDR 指向「Azure 防火牆」作為預設閘道，系統仍會直接路由直接對等互連之 VNet 間的流量。 在此案例中若要將子網路對子網路流量傳送到防火牆，UDR 必須在這兩個子網路上同時明確包含目標子網路網路首碼。
+
+若要檢閱相關的 Azure PowerShell 參考文件，請參閱 [Azure PowerShell 參考](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

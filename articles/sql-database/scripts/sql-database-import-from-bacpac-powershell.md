@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: bbb8bf05964c5361e4624748c8e0b9d4b6361792
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: cb2c0c96bdda560b7d584289b6d8eb314b948d03
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388325"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466365"
 ---
 # <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>使用 PowerShell 將 BACPAC 檔案匯入 Azure SQL Database
 
@@ -47,8 +47,8 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 | 命令 | 注意 |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立主控 SQL Database 的邏輯伺服器。 |
-| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) | 建立防火牆規則以允許從輸入的 IP 位址範圍存取伺服器上的所有 SQL Database。 |
+| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立裝載單一資料庫和彈性集區的 SQL Database 伺服器。 |
+| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) | 建立 SQL Database 伺服器防火牆規則，以允許從輸入的 IP 位址範圍，存取 SQL Database 伺服器上的所有單一資料庫和集區資料庫。 |
 | [New-AzureRmSqlDatabaseImport (英文)](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) | 在伺服器上匯入 BACPAC 檔案並建立新的資料庫。 |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 刪除資源群組，包括所有的巢狀資源。 |
 

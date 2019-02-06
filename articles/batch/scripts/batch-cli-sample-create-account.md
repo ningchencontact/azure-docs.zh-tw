@@ -3,7 +3,7 @@ title: Azure CLI 指令碼範例 - 建立 Batch 帳戶 - Batch 服務 | Microsof
 description: Azure CLI 指令碼範例 - 在 Batch 服務模式中建立 Batch 帳戶
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: danlep
-ms.openlocfilehash: d1c3d892e79138e75d93ae024460c3d8394029f8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: lahugh
+ms.openlocfilehash: 67504d9597eb68faceb67a3e5a1d4d7abc7079c1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980184"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476514"
 ---
-# <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI 範例 - 在 Batch 服務模式中建立 Batch 帳戶
+# <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI 範例：在 Batch 服務模式中建立 Batch 帳戶
 
 此指令碼會在 Batch 服務模式中建立 Azure Batch 帳戶，並顯示如何查詢或更新帳戶的各種屬性。 當您在預設 Batch 服務模式中建立 Batch 帳戶時，其計算節點是由 Batch 服務在內部指派。 配置的計算節點受個別的 vCPU (核心) 配額限制，帳戶可透過共用金鑰認證或 Azure Active Dirctory 權杖進行驗證。
 

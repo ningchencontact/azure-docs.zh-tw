@@ -1,7 +1,6 @@
 ---
-title: 比較機器學習服務產品選項
-titleSuffix: Microsoft
-description: 比較 Microsoft 各種用來建置、部署及管理機器學習模型的不同產品。 決定您要為解決方案選擇哪些產品。
+title: 在 Microsoft 中選擇機器學習技術
+description: 比較建置、部署及管理機器學習模型的選項。 決定您要為解決方案選擇哪些 Microsoft 產品。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +8,13 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 1/17/2019
-ms.openlocfilehash: d7c7c383f51d8bcc2b1691724e8f22b43782c5e8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.date: 1/30/2019
+ms.openlocfilehash: 4d4d7c587dcc34b12ed757b7da54f5ad0b04e8cc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242064"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451864"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft 有哪些機器學習產品？
 

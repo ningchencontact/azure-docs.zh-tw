@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/02/2018
-ms.openlocfilehash: 1953271935b87176e407de96abc41dcd6edcb0f8
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 7adb3023437fa525fad2cb167154b68bb03ff160
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598663"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467385"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>使用 CLI 監視和調整單一 SQL Database
 
@@ -51,8 +51,8 @@ az group delete --name myResourceGroup
 | 命令 | 注意 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | 建立主機資料庫的邏輯伺服器。 |
-| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-show-usage) | 顯示資料庫的大小使用量資訊。 |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | 建立裝載單一資料庫和彈性集區的 SQL Database 伺服器。 |
+| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-show-usage) | 顯示單一或集區資料庫的大小使用量資訊。 |
 | [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | 更新資料庫屬性 (例如服務層或計算大小)，或將資料庫移入、移出彈性集區或在彈性集區之間移動資料庫。 |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 刪除資源群組，包括所有的巢狀資源。 |
 |||

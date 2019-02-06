@@ -1,21 +1,21 @@
 ---
-title: 快速入門：辨識影像中的臉部表情 - 表情 API，Java
+title: 快速入門：辨識影像中的臉部表情 - 表情 API (Java)
 description: 取得資訊和程式碼範例，以協助您搭配適用於 Android 的 Java 快速開始使用表情 API。
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5c845c07eff2d4627dd756a49f4b3fee2fca6a7a
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a3250771c51495890c54060dc46b8bd88a8f54af
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237615"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228673"
 ---
 # <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>快速入門：建置應用程式以辨識影像中的臉部表情。
 

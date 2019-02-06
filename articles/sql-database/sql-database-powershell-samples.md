@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 055ddfa5c0fb399eea4bbe46126626b60bfe9cff
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/25/2019
+ms.openlocfilehash: 5e1319857e16032b6a4922594a33dbed9554d2f8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966920"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476718"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure SQL Database 的 Azure PowerShell 範例
 
@@ -25,8 +25,8 @@ ms.locfileid: "52966920"
 
 | |  |
 |---|---|
-|**建立及設定受控執行個體、單一資料庫和彈性集區**||
-| [建立單一資料庫並設定防火牆規則](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼會建立單一 Azure SQL Database，並設定伺服器層級防火牆規則。 |
+|**建立並設定受控執行個體、單一資料庫和彈性集區**||
+| [建立單一資料庫並設定資料庫伺服器防火牆規則](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼會建立單一 Azure SQL Database，並設定伺服器層級防火牆規則。 |
 | [建立彈性集區並移動集區資料庫](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼會建立 Azure SQL Database 彈性集區、移動集區資料庫，並變更計算大小。|
 | [建立和管理受控執行個體](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | 此 PowerShell 指令碼說明如何使用 Azure PowerShell 建立和管理受控執行個體 |
 | [使用 Azure Resource Manager 範本建立及管理受控執行個體](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼說明如何使用 Azure PowerShell 和 Azure Resource Manager 範本建立及管理受控執行個體。|

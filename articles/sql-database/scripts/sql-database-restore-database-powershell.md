@@ -1,6 +1,6 @@
 ---
 title: PowerShell 範例 - 備份 - 還原 - Azure SQL Database | Microsoft Docs
-description: 從異地備援備份還原 Azure SQL Database 的 Azure PowerShell 範例指令碼
+description: 可從異地備援備份還原 Azure SQL 單一資料庫的 Azure PowerShell 範例指令碼
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,15 +11,15 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: dc1697d24b936a22bacced96bb29cc590ccec88c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 5bf7d8717fd6b10fab454c6f11d459c6a620b42c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390595"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458732"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>使用 PowerShell 從備份還原 Azure SQL Database
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-from-backups"></a>使用 PowerShell 從備份還原 Azure SQL 單一資料庫
 
 此 PowerShell 指令碼範例會從異地備援備份還原 Azure SQL Database、將已刪除的 Azure SQL Database 還原為最新的備份，以及將 Azure SQL Database 還原到特定時間點。  
 
@@ -46,12 +46,12 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 | 命令 | 注意 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立主機資料庫或彈性集區的邏輯伺服器。 |
-| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | 在邏輯伺服器中將資料庫建立為單一或集區的資料庫。 |
-[Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) | 取得資料庫的異地備援備份。 |
-| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) | 還原 SQL Database。 |
-|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase) | 移除 Azure SQL Database。 |
-| [Get-AzureRmSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | 取得可還原的已刪除資料庫。 |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立裝載單一資料庫或彈性集區的 SQL Database 伺服器。 |
+| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | 在 SQL Database 伺服器中將資料庫建立為獨立或集區資料庫。 |
+[Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) | 取得獨立或集區資料庫的異地備援備份。 |
+| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) | 還原 SQL 獨立或集區資料庫。 |
+|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase) | 移除 Azure SQL 獨立或集區資料庫。 |
+| [Get-AzureRmSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | 取得可還原的已刪除獨立資料庫或集區資料庫。 |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟

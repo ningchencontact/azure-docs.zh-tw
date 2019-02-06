@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 7434407c7d1afe197a560d9ed9c4f1e7e94b6c2b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 183f596c213f833a2ca633398d1102e86f328912
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033531"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468847"
 ---
-# <a name="create-a-container-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中建立容器
+# <a name="create-an-azure-cosmos-container"></a>建立 Azure Cosmos 容器
 
 本文說明建立容器 (集合、資料表、圖形) 的不同方式。 您可以使用 Azure 入口網站、Azure CLI 或支援的 SDK 來建立容器。 本文將示範如何建立容器、指定分割區索引鍵和佈建輸送量。
 

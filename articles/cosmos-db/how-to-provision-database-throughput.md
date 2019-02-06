@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 7c253141e0e6e76f845d08e68a1d79949fe811e8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c648522e689c64de8e7e09b85ca3b6eb26b6945b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034228"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477194"
 ---
-# <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中佈建資料庫的輸送量
+# <a name="provision-throughput-on-an-azure-cosmos-database"></a>在 Azure Cosmos 資料庫上佈建輸送量
 
 本文說明如何在 Azure Cosmos DB 中佈建資料庫的輸送量。 您可以佈建單一[容器](how-to-provision-container-throughput.md)的輸送量，或是為資料庫佈建，並在其容器之間共用輸送量。 您可以使用 Azure 入口網站或 Azure Cosmos DB 來佈建資料庫層級的輸送量。
 

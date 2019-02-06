@@ -2,24 +2,22 @@
 title: CLI 範例 - 建立 Azure SQL Database | Microsoft Docs
 description: 使用 Azure CLI 範例指令碼來建立 SQL Database。
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: janeng
-editor: carlrab
 ms.service: sql-database
-ms.custom: DBs & servers, mvc
+ms.subservice: standalone-database
+ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
+author: CarlRabeler
+manager: craigg
 ms.author: carlrab
-ms.date: 09/07/2018
-ms.openlocfilehash: a7537b59a73c00a5364bfa4a758a6584a9ef6003
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: ''
+ms.date: 01/25/2019
+ms.openlocfilehash: 24f45ea22a50e471a2947b926b817f06aefa9aa8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964270"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451779"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>使用 CLI 建立單一 Azure SQL Database 並設定防火牆規則
 
@@ -49,11 +47,11 @@ az group delete --name myResourceGroup
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | 建立主控 SQL Database 的邏輯伺服器。 |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | 建立防火牆規則以允許從輸入的 IP 位址範圍存取伺服器上的所有 SQL Database。 |
-| [az sql db create](/cli/azure/sql/db#az_sql_db_create) | 在邏輯伺服器中建立 SQL Database。 |
-| [az group delete](/cli/azure/resource#az_resource_delete) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | 建立裝載單一資料庫或彈性集區的 SQL Database 伺服器。 |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | 建立防火牆規則以允許從輸入的 IP 位址範圍，存取 SQL Database 伺服器上的所有單一資料庫和彈性集區。 |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | 建立單一資料庫或彈性集區。 |
+| [az group delete](/cli/azure/resource#az-resource-delete) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 

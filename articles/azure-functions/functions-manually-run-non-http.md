@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: 6c77e58e626ba370a6278a0f01b09578930cba09
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 61bece83697a4907a7bf3c881003f4da9b0e8a84
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247107"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466876"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>手動執行非 HTTP 觸發的函式
 
@@ -35,6 +35,9 @@ ms.locfileid: "54247107"
 - **函式名稱：** 您要執行的函式名稱。
 
 在要求 Azure 執行函式時，您在 Postman 中使用此要求位置以及函式的主要金鑰。
+
+> [!NOTE]
+> 在本機執行時，不需要函式的主要金鑰。 您可以直接[呼叫函式](#call-the-function)，省略 `x-functions-key` 標頭。
 
 ## <a name="get-the-functions-master-key"></a>取得函式的主要金鑰
 

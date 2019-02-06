@@ -6,16 +6,16 @@ services: cognitive-services
 author: alekh
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: overview
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 273f2965a0fcaaa729175c5232da1aba69589eec
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 1792e279283608c81c0d4a08b77f9822816ed76d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364198"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221346"
 ---
 # <a name="what-is-custom-decision-service"></a>什麼是自訂決策服務？
 
@@ -32,7 +32,7 @@ ms.locfileid: "46364198"
 * 最佳化廣告版位或廣告所導向的網頁
 * 排名購物網站上的推薦項目。
 
-自訂決策服務目前為*免費公開預覽版*。 它可以個人化網站或應用程式上的文章清單。 英文內容的特徵擷取功效最佳。 對於其他語言則提供[有限的功能](../text-analytics/overview.md)，例如西班牙文、法文、德文、葡萄牙文和日文。 此文件將在有新功能可供使用時修訂。
+自訂決策服務目前為*免費公開預覽版*。 它可以個人化網站或應用程式上的文章清單。 英文內容的特徵擷取功效最佳。 對於其他語言則提供[有限的功能](../text-analytics/overview.md)，例如西班牙文、法文、德文、葡萄牙文和日文。 本文件將在有新功能可供使用時修訂。
 
 自訂決策服務適用於不在內容個人化區域中的應用程式。 這些應用程式可能適合使用自訂預覽。 請[與我們連絡](https://azure.microsoft.com/overview/sales-number/)以了解詳情。
 
@@ -42,10 +42,10 @@ ms.locfileid: "46364198"
 
 ## <a name="glossary-of-terms"></a>詞彙解釋
 
-數個經常出現在此文件中的詞彙包括：
+數個經常出現在本文件中的詞彙包括：
 
 * **動作集**：自訂決策服務要排名的內容項目集合。 此集合可指定為 *RSS* 或 *Atom* 端點。
-* **排名**：對自訂決策服務的每個要求會指定一或多個動作集。 系統會從這些集合中選擇所有內容選項，並依排名順序傳回，以進行回應。
+* **排名**：對自訂決策服務的每個要求會指定一或多個動作集。 系統會從這些集合中選擇所有內容選項，並依排名順序加以傳回，以進行回應。
 * **回呼函式**：此函式 (由您指定) 會呈現您 UI 中的內容。 內容會依據自訂決策服務所傳回的排名順序來排序。
 * **報酬**：此量值代表使用者對呈現內容的回應程度。 自訂決策服務會藉由點擊次數來測量使用者回應。 點擊次數會透過在您的應用程式中插入的自訂程式碼回報給系統。
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/15/2017
+ms.date: 01/30/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 1580171c0e363da9407c2f5f5bf4da7736119a39
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 4ec9a891777cc8d33b1256a8eb68ea814563b8cc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074981"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471091"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>比較 Azure Active Directory 的 B2B 共同作業和 B2C
 
@@ -32,7 +32,7 @@ B2B 共同作業 |     Azure AD B2C 獨立供應項目
 -------- | --------
 適用對象：想要能夠驗證來自合作夥伴組織 (無論是否為識別提供者) 之使用者的組織。 | 適用對象：邀請您的行動和 Web 應用程式的客戶 (無論是個人、機構或組織客戶) 加入您的 Azure AD。
 支援的身分識別︰本機有工作或學校帳戶的員工、本機有工作或學校帳戶的合作夥伴、或任何電子郵件地址。 即將支援直接聯盟。  | 支援的身分識別︰具有本機應用程式帳戶的取用者使用者 (任何電子郵件地址或使用者名稱) 或任何以直接聯盟支援的社交身分識別。
-合作夥伴使用者位於哪個目錄︰外部組織的合作夥伴使用者與員工在相同的管理目錄中，但特別註解。 管理他們的方式可和員工相同，可以加入到相同的群組等等  | 客戶使用者實體位於哪個目錄︰在應用程式目錄中。 和組織的員工及合作夥伴目錄 (若有) 分開管理。
+外部使用者與員工在相同的目錄中管理的，但特別註解。 管理他們的方式可以和員工相同、他們可以加入到相同的群組等等  | 外部使用者在應用程式目錄中管理的。 他們和組織的員工及合作夥伴目錄 (若有) 分開管理。
 支援單一登入 (SSO) 至所有和 Azure AD 連線的應用程式。 例如，您可以提供 Office 365 或內部部署應用程式的存取權，以及其他 SaaS 應用程式 (例如 Salesforce 或 Workday) 的存取權。  |  支援 SSO 至客戶在 Azure AD B2C 租用戶內擁有的應用程式。 不支援 SSO 至 Office 365 或其他 Microsoft 和非 Microsoft SaaS 應用程式。
 合作夥伴生命週期：由主控/邀請組織管理。  | 客戶生命週期︰自助式管理或由應用程式管理。
 安全性原則和合規性：由主控/邀請組織管理 (例如，使用[條件式存取原則](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access))。  | 安全性原則和合規性：受應用程式管理。

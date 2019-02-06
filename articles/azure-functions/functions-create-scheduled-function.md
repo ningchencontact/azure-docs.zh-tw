@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: d82e80530d375a9d0f0a6d3f491d3070942ca02f
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a6b1e4e1571e6ce3cee1658907efd35e9c73ca1a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331906"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903382"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>在 Azure 中建立由計時器觸發的函式
 
@@ -84,8 +84,6 @@ ms.locfileid: "54331906"
 
 ## <a name="next-steps"></a>後續步驟
 
-您已建立會根據排程來執行的函式。
+您已建立會根據排程來執行的函式。 如需有關計時器觸發程序的詳細資訊，請參閱[使用 Azure Functions 排程程式碼執行](functions-bindings-timer.md)。
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-如需計時器觸發程序的詳細資訊，請參閱[使用 Azure Functions 排程程式碼執行](functions-bindings-timer.md)。

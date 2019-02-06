@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 9a9de1375e024bf4e74eafa3442e2cb818ad9c61
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2fe70e570cc5cb5b2572719c496f044c39b1bfa4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035810"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207916"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>快速入門：搭配使用翻譯工具文字 API 和 Node.js 來直譯文字
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 `request()` 方法 (可透過要求模組取得) 可讓我們傳遞 HTTP 方法、URL、要求參數、標頭和 JSON 內文作為 `options` 物件。 在此程式碼片段中，我們將設定要求：
 
 >[!NOTE]
-> 如需關於端點、路由和要求參數的詳細資訊，請參閱[翻譯工具文字 API 3.0：直譯](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate)。
+> 如需關於端點、路由和要求參數的詳細資訊，請參閱[翻譯工具文字 API 3.0：音譯](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate)。
 
 ```javascript
 let options = {

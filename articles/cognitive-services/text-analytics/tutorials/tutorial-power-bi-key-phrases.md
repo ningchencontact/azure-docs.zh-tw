@@ -1,27 +1,27 @@
 ---
-title: 教學課程：搭配 Power BI 使用文字分析
+title: 教學課程：文字分析與 Power BI
 titleSuffix: Azure Cognitive Services
 description: 了解如何使用文字分析，以從儲存在 Power BI 的文字中擷取關鍵片語。
 services: cognitive-services
 author: luiscabrer
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: luisca
-ms.openlocfilehash: fe6bc384e4190cd17df00ddf285701db8c4199a6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 0bda38db089218e0d5f6f8ff15c9eac888900e95
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733324"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209089"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>教學課程：將 Power BI 與文字分析認知服務整合
 
 Microsoft Power BI Desktop 是免費的應用程式，可讓您將您的資料連接、轉換並視覺化。 文字分析服務是 Microsoft Azure 認知服務的一部分，可提供自然語言處理。 假設有未經處理的非結構化文字，它能擷取最重要的片語、分析情感，然後找出已知的實體 (例如樂團)。 搭配使用這些工具，您便可快速了解客戶在說什麼，以及他們對此有何看法。
 
-在此教學課程中，您將了解如何：
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 使用 Power Bi Desktop 匯入及轉換資料
@@ -51,7 +51,7 @@ Microsoft Power BI Desktop 是免費的應用程式，可讓您將您的資料�
 
 ![[取得資料按鈕]](../media/tutorials/power-bi/get-data-button.png)
 
-[開啟] 對話方塊隨即出現。 瀏覽到您的 [下載] 資料夾，或是您下載 `FabrikamComments.csv` 檔案的資料夾。 按一下 `FabrikamComments.csv`，然後按一下 [開啟] 按鈕。 [CSV 匯入] 對話方塊隨即出現。
+[開啟] 對話方塊隨即出現。 瀏覽到您的 [下載] 資料夾，或是您下載 `FabrikamComments.csv` 檔案的資料夾。 按一下 `FabrikamComments.csv`，然後按 [開啟] 按鈕。 [CSV 匯入] 對話方塊隨即出現。
 
 ![[CSV 匯入對話方塊]](../media/tutorials/power-bi/csv-import.png)
 
@@ -94,7 +94,7 @@ Microsoft Power BI Desktop 是免費的應用程式，可讓您將您的資料�
 | | |
 | - | - |
 | `id`  | 這個文件在要求中的唯一識別碼。 回應中也會包含此欄位。 如此一來，如果您處理多份文件，就可以輕鬆地將擷取到的關鍵片語關聯至其來源文件。 在此教學課程中，因為您針對每個要求只會處理一個文件，您可以針對每個要求將 `id` 的值以硬式編碼設為相同的值。|
-| `text`  | 要處理的文字。 此欄位的值來自您在[前一節](#PreparingData)中建立的 `Merged` 資料行，其中包含了結合的主旨行與評論文字。 關鍵片語 API 要求此資料的長度不得超過約 5,000 個字元。|
+| `text`  | 要處理的文字。 此欄位的值來自您在[前一節](#PreparingData)中建立的 `Merged` 資料行，其中包含了結合的主旨行與評論文字。 關鍵片語 API 要求這項資料的長度不得超過約 5,000 個字元。|
 | `language` | 撰寫文件所使用之自然語言的代碼。 範例資料中的所有訊息都是英文，因此您可以針對此欄位以硬式編碼方式編寫 `en` 值。|
 
 ## <a name="create-a-custom-function"></a>建立自訂函式
@@ -103,7 +103,7 @@ Microsoft Power BI Desktop 是免費的應用程式，可讓您將您的資料�
 現在，您已經準備好建立自訂函式，以整合 Power BI 與文字分析。 函式會收到要處理為參數的文字。 它會將資料轉換為所需的 JSON 格式 (以及反向轉換)，並對關鍵片語 API 提出 HTTP 要求。 接著，函式會剖析來自 API 的回應並傳回字串，其中包含所擷取關鍵片語的逗點分隔值清單。
 
 > [!NOTE]
-> Power BI Desktop 自訂函式會以 [Power Query M 公式語言](https://msdn.microsoft.com/library/mt211003.aspx) (簡稱 "M") 來撰寫。 M 是以 [F#](https://docs.microsoft.com/dotnet/fsharp/) 為基礎的功能性程式設計語言。 不過，不是程式設計師也能完成此教學課程；下面有所需的程式碼。
+> Power BI Desktop 自訂函式會以 [Power Query M 公式語言](https://msdn.microsoft.com/library/mt211003.aspx) (簡稱 "M") 來撰寫。 M 是以 [F#](https://docs.microsoft.com/dotnet/fsharp/) 為基礎的功能性程式設計語言。 不過，不是程式設計師也能完成本教學課程；下面有所需的程式碼。
 
 在 Power BI Desktop 中，確定您仍在 [查詢編輯器] 視窗中。 如果不是，請選取 [常用] 功能區，按一下 [外部資料] 群組中的 [編輯查詢]。
 
@@ -140,7 +140,7 @@ in  keyphrases
 
 在 Power BI Desktop 中，於 [查詢視窗] 中，切換回 `FabrikamComments` 查詢。 選取 [新增資料行] 功能區。 在 [一般] 群組中，按一下 [叫用自訂函數]。
 
-![[叫用自訂函數按鈕]](../media/tutorials/power-bi/invoke-custom-function-button.png)<br><br>
+![[叫用自訂函式按鈕]](../media/tutorials/power-bi/invoke-custom-function-button.png)<br><br>
 
 [叫用自訂函數] 對話方塊隨即出現。 在 [新資料行名稱] 中，輸入 `keyphrases`。 在 [函數查詢] 中，選取您建立的自訂函式 `KeyPhrases`。
 
@@ -188,7 +188,7 @@ Power BI Desktop 需要一點時間來提出必要的 HTTP 要求。 在資料�
 > [!NOTE]
 > 為何要使用所擷取的關鍵片語來產生文字雲，而不是使用每個評論的完整文字？ 關鍵片語可為我們提供客戶評論中的「重要」文字，而不只是「最常見的」文字。 此外，在產生的文字雲中，文字大小也不會因為相對少數的評論中頻繁使用某個文字而受到影響。
 
-如果您尚未安裝文字雲自訂視覺效果，請安裝它。 在工作區右邊的 [視覺效果] 窗格中，按一下三個點 (**...**)，然後選擇 [從存放區匯入]。 然後搜尋「雲」，並按一下文字雲視覺效果旁的 [新增] 按鈕。 Power BI 會安裝文字雲視覺效果，並讓您知道它已成功安裝。
+如果您尚未安裝文字雲自訂視覺效果，請加以安裝。 在工作區右邊的 [視覺效果] 窗格中，按一下三個點 (**...**)，然後選擇 [從存放區匯入]。 然後搜尋「雲」，並按一下文字雲視覺效果旁的 [新增] 按鈕。 Power BI 會安裝文字雲視覺效果，並讓您知道它已成功安裝。
 
 ![[新增自訂視覺效果]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 

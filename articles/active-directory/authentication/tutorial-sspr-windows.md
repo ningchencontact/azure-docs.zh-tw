@@ -3,19 +3,19 @@ title: Windows 10 登入畫面中的 Azure AD SSPR
 description: 在本教學課程中，您會在 Windows 10 登入畫面中啟用密碼重設，以避免使用技術服務。
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 640f03cd35ac74df9c7b25352ab294c35c4ec0ea
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430666"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474865"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>教學課程：從登入畫面重設 Azure AD 密碼
 
@@ -28,11 +28,11 @@ ms.locfileid: "54430666"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Windows 10 2018 年 4 月更新，或符合下列條件的較新用戶端：
-   * [已加入 Azure AD 的機器](../device-management-azure-portal.md)或
-   * [已加入混合式 Azure AD 的機器](../device-management-hybrid-azuread-joined-devices-setup.md) (可透過網路連線至網域控制站)。
-* 必須啟用 Azure AD 自助式密碼重設。
-* 如果您的 Windows 10 機器是設置在 Proxy 伺服器或防火牆之後，應該允許對 `passwordreset.microsoftonline.com` 和 `ajax.aspnetcdn.com` 的 HTTPS 流量 (443)。
+* 您必須執行至少 Windows 10 (2018 年 4 月更新版)，且裝置必須是：
+   * [已加入 Azure AD](../device-management-azure-portal.md) 或
+   * [已加入混合式 Azure AD](../device-management-hybrid-azuread-joined-devices-setup.md) (可透過網路連線至網域控制站)。
+* 您必須啟用 Azure AD 自助式密碼重設。
+* 如果您的 Windows 10 裝置位在 Proxy 伺服器或防火牆後面，您必須將 URL (`passwordreset.microsoftonline.com` 和 `ajax.aspnetcdn.com`) 新增至您 HTTPS 流量 (連接埠 443) 允許的 URL 清單。
 
 ## <a name="configure-reset-password-link-using-intune"></a>使用 Intune 來設定重設密碼連結
 
