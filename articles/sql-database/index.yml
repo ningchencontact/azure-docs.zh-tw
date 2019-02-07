@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0f5c60b25ad305b9e76eebcc72639a596b407801
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7a6372f90cde75cb3314a049de41a4826510bd3f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457542"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752240"
 documentType: LandingData
 title: Azure SQL Database 文件
 metadata:
@@ -22,7 +22,7 @@ metadata:
   ms.date: 01/25/2019
   ms.author: carlrab
 abstract:
-  description: Azure SQL Database 是關聯式資料庫即服務 (DBaaS)，它是根據最新穩定版本的 Microsoft SQL Server 資料庫引擎而建置。 SQL Database 是高效能、可靠且安全的資料庫，您可以使用選定的程式設計語言來建置資料驅動的應用程式和網站，無需管理基礎結構。 了解如何透過我們的快速入門、教學課程和範例使用 SQL Database。
+  description: Azure SQL Database 是一般用途關聯式資料庫即服務 (DBaaS)，它是根據最新穩定版本的 Microsoft SQL Server 資料庫引擎而建置。 SQL Database 是高效能、可靠且安全的雲端資料庫，您可以使用選定的程式設計語言來建置資料驅動的應用程式和網站，無需管理基礎結構。 了解如何透過我們的快速入門、教學課程和範例使用 SQL Database。
   aside:
     image:
       alt: 
@@ -87,7 +87,7 @@ sections:
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
-    text: Azure SQL Database 可讓您使用 Azure 入口網站、Azure CLI 和 Azure PowerShell，輕鬆地執行基本管理工作。 深入了解如何使用下列快速入門範例來執行基本管理工作：
+    text: Azure SQL Database 可讓您使用 Azure 入口網站、Azure CLI 和 Azure PowerShell，輕鬆地執行基本管理工作。 了解如何使用下列快速入門範例來執行基本管理工作：
   - type: table
     style: dataMatrix
     columns:
@@ -106,10 +106,10 @@ sections:
     rows:
     - title: 建立單一資料庫
       values:
-      - href: /azure/sql-database/sql-database-get-started-portal
+      - href: /azure/sql-database/sql-database-single-database-get-started
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
-      - href: 
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
     - title: 建立受控執行個體
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
@@ -118,33 +118,10 @@ sections:
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: 建立彈性集區
       values:
-      - href: 
+      - href: /azure/sql-database/sql-database-elastic-pool-manage
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
-    - title: 調整單一資料庫
-      values:
-      - href: 
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
-      - href: 
-    - title: 調整彈性集區
-      values:
-      - href: 
-      - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
-    - title: 調整受控執行個體
-      values:
-      - href: 
-      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
-      - href: 
-    - title: 針對受控執行個體設定 Azure 網路
-      values:
-      - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
-      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
 - title: 逐步教學課程
   items:
   - type: paragraph
@@ -152,6 +129,7 @@ sections:
   - type: list
     style: ordered
     items:
+    - html: 使用我們的快速入門指南開始使用<a href="/azure/sql-database/sql-database-quickstart-guide">單一資料庫</a>和<a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">受控執行個體</a>。
     - html: 使用 <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> 或 <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a> 建立和設計新單一資料庫的結構描述
     - html: 使用 <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database RESTORE</a>、<a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">資料庫移轉小幫手</a>或 <a href="/azure/sql-database/sql-database-import">BACPAC Import</a> 將現有資料庫遷移至 Azure
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">保護您的 SQL Database</a>

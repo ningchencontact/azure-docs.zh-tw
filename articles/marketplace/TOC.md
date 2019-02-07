@@ -1,7 +1,7 @@
 # [Azure Marketplace 和 AppSource 文件](index.md)
+## [Azure Marketplace 和 AppSource 藍圖](./marketplace-roadmap.md)
 
 ## [Azure Marketplace 和 AppSource 概觀和優點](./marketplace-publishers-guide.md)  
-
 ### [在市集上成為發行者](./become-publisher.md)  
 #### [建立 Microsoft 帳戶](./guidelines.md)
 #### [在開發人員中心註冊](./register-dev-center.md) 

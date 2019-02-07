@@ -29,39 +29,37 @@ items:
     href: cli-samples.md
 - name: 概念
   items:
-  - name: 從 v2 遷移至 v3
-    href: migrate-from-v2-to-v3.md
-  - name: 實體
-    href: entities-overview.md
+  - name: 擷取
     items:
-    - name: 帳戶篩選器和資產篩選器
-      href: filters-dynamic-manifest-overview.md
     - name: Assets
       href: assets-concept.md
-    - name: 內容金鑰原則
-      href: content-key-policy-concept.md
-    - name: 即時事件與即時輸出
-      href: live-events-outputs-concept.md
+  - name: 編碼
+    href: encoding-concept.md
+    items:
+    - name: 轉換與工作
+      href: transforms-jobs-concept.md
+    - name: 媒體編碼器標準格式
+      href: media-encoder-standard-formats.md
+    - name: Autogen 彈性位元速率階梯
+      href: autogen-bitrate-ladder.md
+  - name: 分析
+    href: analyzing-video-audio-files-concept.md
+    items:
+    - name: 轉換與工作
+      href: transforms-jobs-concept.md
+  - name: Stream
+    items:
     - name: 串流端點
       href: streaming-endpoint-concept.md
     - name: 串流定位器
       href: streaming-locators-concept.md
     - name: 串流原則
       href: streaming-policy-concept.md
-    - name: 轉換與工作
-      href: transforms-jobs-concept.md
-  - name: 內容編碼
-    href: encoding-concept.md
-    items:
-    - name: 媒體編碼器標準格式
-      href: media-encoder-standard-formats.md
-    - name: Autogen 彈性位元速率階梯
-      href: autogen-bitrate-ladder.md
-  - name: 分析內容
-    href: analyzing-video-audio-files-concept.md
-  - name: 串流即時事件
+  - name: 即時串流
     href: live-streaming-overview.md
     items:
+    - name: 即時事件與即時輸出
+      href: live-events-outputs-concept.md
     - name: 建議的即時編碼器
       href: recommended-on-premises-live-encoders.md
     - name: 使用雲端 DVR
@@ -72,16 +70,26 @@ items:
       href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md
+  - name: 傳遞
+    items:
+    - name: 篩選器與動態資訊清單
+      href: filters-dynamic-manifest-overview.md
   - name: 監視
     items:
     - name: Event Grid
       href: reacting-to-media-services-events.md
-  - name: 保護內容
+  - name: Protect
     href: content-protection-overview.md
     items:
+    - name: 內容金鑰原則
+      href: content-key-policy-concept.md
+    - name: 串流原則
+      href: streaming-policy-concept.md
+    - name: 串流定位器
+      href: streaming-locators-concept.md
     - name: 多 DRM 系統與存取控制
       href: design-multi-drm-system-with-access-control.md
-  - name: 回放
+  - name: 播放
     href: use-azure-media-player.md
   - name: 帳戶
     items:
@@ -89,6 +97,10 @@ items:
       href: limits-quotas-constraints.md
     - name: 儲存體帳戶
       href: storage-account-concept.md
+  - name: 篩選、排序、頁面實體
+    href: entities-overview.md
+  - name: 從 v2 遷移至 v3
+    href: migrate-from-v2-to-v3.md
 - name: 使用說明指南
   items:
   - name: 開始使用
@@ -199,15 +211,17 @@ items:
       href: https://aka.ms/ams-v3-nodejs-sdk
     - name: Ruby
       href: https://aka.ms/ams-v3-ruby-sdk
+  - name: AMSE
+    href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: 版本資訊
     href: release-notes.md
   - name: 常見問題集
     href: frequently-asked-questions.md
   - name: Azure 雲端和區域
     href: azure-clouds-regions.md
-ms.openlocfilehash: 0e748b32092ec9e27888c9fac039c27e6411b34a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cadf1d0b73c7d04b2748cb5fa60de7cca23beadc
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693862"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744801"

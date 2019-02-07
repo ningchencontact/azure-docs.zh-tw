@@ -56,11 +56,10 @@ items:
       href: microsoft-authenticator-app-add-work-account.md
     - name: 新增個人的 Microsoft 帳戶
       href: microsoft-authenticator-app-add-personal-account.md
-    - name: 新增個人的非 Microsoft 帳戶
+    - name: 新增非 Microsoft 帳戶
       href: microsoft-authenticator-app-add-non-microsoft-account.md
     - name: 手動新增帳戶
       href: microsoft-authenticator-app-add-account-manual.md
-    expanded: true
   - name: 使用 Microsoft Authenticator 應用程式登入
     href: microsoft-authenticator-app-phone-signin-faq.md
   - name: 備份和復原您的帳戶
@@ -85,9 +84,9 @@ items:
     href: user-help-register-device-on-network.md
   - name: 針對「無法執行」訊息進行疑難排解
     href: user-help-device-remediation.md
-ms.openlocfilehash: 9ccadb31ce331d3a9dc64aa26d5e8edab900cd1e
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ed41c40adc0d09d60f43cf3826c6bb84a464c31f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904092"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755266"

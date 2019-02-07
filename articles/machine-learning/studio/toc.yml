@@ -6,6 +6,8 @@ items:
   - name: Machine Learning Studio
     displayName: overview
     href: what-is-ml-studio.md
+  - name: 比較 ML 產品
+    href: ../service/overview-more-machine-learning.md
   - name: ML Studio 容量
     displayName: overview
     href: studio-overview-diagram.md
@@ -76,15 +78,9 @@ items:
       href: deploy-with-resource-manager-template.md
   - name: 匯入訓練資料
     items:
-    - name: 概觀
+    - name: 匯入資料
       href: import-data.md
-    - name: 從本機檔案
-      href: import-data-from-local-file.md
-    - name: 從線上來源
-      href: import-data-from-online-sources.md
-    - name: 從實驗
-      href: import-data-from-an-experiment.md
-    - name: 使用內部部署 SQL
+    - name: 從內部部署 SQL 使用資料
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
   - name: 建立模型並加以定型
@@ -99,10 +95,6 @@ items:
     - name: 嘗試在 AI 資源庫中進行實驗
       displayName: gallery
       href: sample-experiments.md
-    - name: 選擇演算法
-      href: algorithm-choice.md
-    - name: 演算法功能提要
-      href: algorithm-cheat-sheet.md
     - name: 評估及解譯結果
       items:
       - name: 評估效能
@@ -124,6 +116,12 @@ items:
         href: custom-r-modules.md
       - name: 執行 Python 指令碼
         href: execute-python-scripts.md
+  - name: 選取演算法
+    items:
+    - name: 選擇演算法
+      href: algorithm-choice.md
+    - name: 演算法功能提要
+      href: algorithm-cheat-sheet.md
   - name: 部署模型
     items:
     - name: 部署 Web 服務
@@ -216,15 +214,11 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 價格
     href: https://azure.microsoft.com/pricing/details/machine-learning/
-  - name: R 開發人員指南
-    href: ../r-developers-guide.md
   - name: 自訂神經網路 (Net#)
     href: azure-ml-netsharp-reference-guide.md
-  - name: 比較 ML 產品
-    href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 5a6d1f3492186831f5dd83f002c7c22a86de34d7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6d4020d76c8eab2418b3b7ac5d26eaf93363870
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662971"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746161"
