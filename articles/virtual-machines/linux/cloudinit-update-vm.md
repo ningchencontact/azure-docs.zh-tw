@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: rclaus
-ms.openlocfilehash: c958e4e11ba5eb88a8357c8ab373b6501e3eac6a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d5f4dc7f4abc13f253a206a63e65faf1106f9c7c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189913"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766175"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>使用 cloud-init 在 Azure 上的 Linux VM 中更新和安裝封裝
 本文會示範如何在 Azure 佈建期間，使用 [cloud-init](https://cloudinit.readthedocs.io) 在 Linux 虛擬機器 (VM) 上或虛擬機器擴展集 (VMSS) 上更新封裝。 一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。 如需深入了解 cloud-init 如何以原生方式在 Azure 和支援的 Linux 散發版本中運作，請參閱 [cloud-init 概觀](using-cloud-init.md)
@@ -42,7 +42,7 @@ packages:
 az group create --name myResourceGroup --location eastus
 ```
 
-現在，請使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM 並以 `--custom-data cloud_init_upgrade.txt` 指定 cloud-init 檔案，如下所示：
+現在，請使用 [az vm create](/cli/azure/vm) 建立 VM 並以 `--custom-data cloud_init_upgrade.txt` 指定 cloud-init 檔案，如下所示：
 
 ```azurecli-interactive 
 az vm create \

@@ -13,12 +13,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
-ms.openlocfilehash: ab3de9b010c0356dea17520b497235e0bf7c818e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2129b1f70ea19bdb2144f0f2a9ca4a6dbac0acbd
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181311"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766806"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>管理您的雙步驟驗證設定
 本文章回答有關如何更新雙步驟驗證或 Multi-Factor Authentication 的設定。 如果您登入帳戶時遇到問題，請參閱[雙步驟驗證遇到困難](multi-factor-authentication-end-user-troubleshoot.md)以取得疑難排解說明。
@@ -74,7 +74,7 @@ ms.locfileid: "55181311"
 2. 下次您在任何裝置上登入時，程式將會提示您執行雙步驟驗證。
 
 ## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>如何清除舊裝置的 Microsoft驗證器並移到新裝置？
-無論您是從裝置解除安裝應用程式或是重設裝置，都不會移除後端的啟動功能。 如需詳細資訊，請參閱 [Microsoft Authenticator](microsoft-authenticator-app-how-to.md)。
+無論您是從裝置解除安裝應用程式或是重設裝置，都不會移除後端的啟動功能。 如需詳細資訊，請參閱 [Microsoft Authenticator](user-help-auth-app-download-install.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * 取得疑難排解提示以及[使用雙步驟驗證遇到困難](multi-factor-authentication-end-user-troubleshoot.md)的說明。

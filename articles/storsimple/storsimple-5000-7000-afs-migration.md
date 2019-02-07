@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: d54394a8dc74d04f1922a78826b10a4a421d193b
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 18853d10c4acf1573772d72a8fb2c347cce545df
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42814585"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730162"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>將資料從 StorSimple 5000-7000 系列移轉至 Azure 檔案同步
 
@@ -56,9 +56,8 @@ StorSimple 5000 和 7000 系列儲存體裝置將在 2019 年 7 月終止服務�
 - 在主機上掛接 StorSimple 磁碟區，並包含檔案共用。
 - 主機有足夠的本機儲存體可容納您在本機快取的資料。
 - 可對將用來部署 Azure 檔案同步的 Azure 訂用帳戶進行擁有者層級存取。如果您沒有擁有者或管理員層級權限，您在建立同步群組的雲端端點時可能會發生問題。
-- 可存取[一般用途 v2 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-account-options) (內含要作為同步目標的 Azure 檔案共用)。 如需詳細資訊，請移至 
- - 如何[建立一般用途 v2 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal#create-a-general-purpose-storage-account)。
- - 如何[建立 Azure 檔案共用](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share#create-file-share-through-the-azure-portal)。
+- 可存取[一般用途 v2 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-account-overview) (具有要作為同步目標的 Azure 檔案共用)。 如需詳細資訊，請參閱[建立儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)。
+ - 如何[建立 Azure 檔案共用](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)。
 
 ## <a name="migration-process"></a>移轉程序
 

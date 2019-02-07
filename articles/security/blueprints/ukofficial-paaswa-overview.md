@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 0b3b3cd1c9c0410c4cc0ffda8887b40123c1ac7a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718473"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700973"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 安全性與合規性藍圖：適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載
 
@@ -73,7 +73,7 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 #### <a name="identity-and-authentication"></a>身分識別和驗證
 
-此藍圖可確保透過目錄和身分識別管理服務來保護資源的存取權。 此架構會充分利用[身分識別作為安全界限](https://docs.microsoft.com/azure/security/security-paas-deployments#identity-as-the-primary-security-perimeter)。 
+此藍圖可確保透過目錄和身分識別管理服務來保護資源的存取權。 此架構會充分利用[身分識別作為安全界限](https://docs.microsoft.com/azure/security/security-paas-deployments)。 
 
 下列技術可在 Azure 環境中提供身分識別管理功能：
 
@@ -120,7 +120,7 @@ App Service 符合 [ISO、SOC 和 PCI 規範](https://www.microsoft.com/TrustCen
 
 #### <a name="azure-sql-database"></a>連接字串
 
-SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服務，可支援關聯式資料、JSON、空間和 XML 等結構。 SQL Database 提供受控的單一 SQL 資料庫、[彈性集區](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)中的受控 SQL 資料庫，以及 SQL [受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (處於公開預覽狀態)。 除了實現 [可動態調整的效能] https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers)外，更能提供各種選項，例如用於極限分析和報告的[資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)，以及用來處理極限交易的[記憶體內部 OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory)。 Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。
+SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服務，可支援關聯式資料、JSON、空間和 XML 等結構。 SQL Database 提供受控的單一 SQL 資料庫、[彈性集區](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)中的受控 SQL 資料庫，以及 SQL [受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (處於公開預覽狀態)。 除了實現 [可動態調整的效能](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) 外，更能提供各種選項，例如用於極限分析和報告的 [資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)，以及用來處理極限交易的 [記憶體內部 OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory)。 Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。
 
 此藍圖中的 Azure SQL Database
 

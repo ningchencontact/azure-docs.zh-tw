@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 12ff4fef5e04819e967a39fe65845b89790e22d6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b3afbeb5a3fa2cda6ec5eaabe368163a370352d1
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234439"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568187"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中樞將檔案從裝置上傳至雲端
 
@@ -40,7 +40,7 @@ ms.locfileid: "51234439"
 * **ReadFileUploadNotification.js**，它會接收來自 IoT 中樞的檔案上傳通知。
 
 > [!NOTE]
-> IoT 中樞透過 Azure IoT 裝置 SDK 來支援許多裝置平台和語言 (包括 C、.NET、Javascript、Python 和 Java)。 如需如何將您的裝置連接到 Azure IoT 中樞的逐步指示，請參閱 [Azure IoT 開發人員中樞]。
+> IoT 中樞透過 Azure IoT 裝置 SDK 來支援許多裝置平台和語言 (包括 C、.NET、Javascript、Python 和 Java)。 如需如何將您的裝置連接到 Azure IoT 中樞的逐步指示，請參閱 [Azure IoT 開發人員中心]。
 
 若要完成此教學課程，您需要下列項目：
 
@@ -69,7 +69,7 @@ ms.locfileid: "51234439"
 
 1. 在 **SimulatedDevice.js** 檔案開頭新增下列 ```require``` 陳述式：
 
-    ```nodejs
+    ```javascript
     'use strict';
     
     var fs = require('fs');
@@ -79,7 +79,7 @@ ms.locfileid: "51234439"
 
 1. 新增 ```deviceconnectionstring``` 變數，並用它來建立**用戶端**執行個體。  以您在＜建立 IoT 中樞＞ 一節中建立的裝置名稱取代 ```{deviceconnectionstring}```：
 
-    ```nodejs
+    ```javascript
     var connectionString = '{deviceconnectionstring}';
     var filename = 'myimage.png';
     ```
@@ -89,14 +89,14 @@ ms.locfileid: "51234439"
 
 1. 新增下列程式碼以連線至用戶端：
 
-    ```nodejs
+    ```javascript
     var client = clientFromConnectionString(connectionString);
     console.log('Client connected');
     ```
 
 1. 建立回呼並使用 **uploadToBlob** 函式來上傳檔案。
 
-    ```nodejs
+    ```javascript
     fs.stat(filename, function (err, stats) {
         const rr = fs.createReadStream(filename);
     
@@ -136,7 +136,7 @@ ms.locfileid: "51234439"
 
 1. 在 **FileUploadNotification.js** 檔案開頭新增下列 ```require``` 陳述式：
 
-    ```nodejs
+    ```javascript
     'use strict';
     
     var Client = require('azure-iothub').Client;
@@ -144,7 +144,7 @@ ms.locfileid: "51234439"
 
 1. 新增 ```iothubconnectionstring``` 變數，並用它來建立**用戶端**執行個體。  將 ```{iothubconnectionstring}``` 替換為您在＜建立 IoT 中樞＞一節中為 IoT 中樞所建立的連接字串：
 
-    ```nodejs
+    ```javascript
     var connectionString = '{iothubconnectionstring}';
     ```
 
@@ -153,13 +153,13 @@ ms.locfileid: "51234439"
 
 1. 新增下列程式碼以連線至用戶端：
 
-    ```nodejs
+    ```javascript
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
 
 1. 開啟用戶端，並使用 **getFileNotificationReceiver** 函式接收狀態更新。
 
-    ```nodejs
+    ```javascript
     serviceClient.open(function (err) {
       if (err) {
         console.error('Could not connect: ' + err.message);
@@ -218,7 +218,7 @@ node SimulatedDevice.js
 * [Azure IoT SDK][lnk-sdks]
 
 <!-- Links -->
-[Azure IoT 開發人員中樞]: http://azure.microsoft.com/develop/iot
+[Azure IoT 開發人員中心]: http://azure.microsoft.com/develop/iot
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

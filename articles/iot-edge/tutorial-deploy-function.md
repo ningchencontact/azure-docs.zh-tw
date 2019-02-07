@@ -51,7 +51,7 @@ Azure IoT Edge 裝置：
 
 * [Visual Studio Code](https://code.visualstudio.com/)。 
 * [C# for Visual Studio Code (採用 OmniSharp 技術) 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。
-* 適用於 Visual Studio Code 的 [Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)。 
+* [適用於 Visual Studio Code 的 Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)。 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)。
 * [Docker CE](https://docs.docker.com/install/)。 
 

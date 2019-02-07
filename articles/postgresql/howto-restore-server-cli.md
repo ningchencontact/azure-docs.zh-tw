@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 4bee57abe6de8e80ddf6f788fb17bb8b7d82849d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 357b22e4d4a6bf42ba165e49fc3cc01762268297
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913087"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756507"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>如何使用 Azure CLI 在適用於 PostgreSQL 的 Azure 資料庫中備份和還原伺服器
 
@@ -57,7 +57,7 @@ az postgres server update --name mydemoserver --resource-group myresourcegroup -
 ## <a name="server-point-in-time-restore"></a>時間點還原
 您可以將伺服器還原至先前的時間點。 還原的資料會複製到新的伺服器，而現有的伺服器則保持原狀。 例如，如果資料表在今天中午意外卸除，您可以還原到中午之前的時間。 然後，您可從伺服器的還原複本擷取遺失的資料表和資料。 
 
-若要還原伺服器，請使用 Azure CLI [az postgres server restore](/cli/azure/postgres/server#az_postgres_server_restore) 命令。
+若要還原伺服器，請使用 Azure CLI [az postgres server restore](/cli/azure/postgres/server) 命令。
 
 ### <a name="run-the-restore-command"></a>執行 restore 命令
 

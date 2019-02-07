@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 114b01f3c1636f57813adcd199b90a4c72d0013e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: da8433e6c03aec5c5b2ff5d290065804816ac724
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106000"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732085"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>使用 Azure CLI 來建立內部負載平衡器以平衡 VM 的負載
 
@@ -30,7 +30,7 @@ ms.locfileid: "53106000"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
+使用 [az group create](https://docs.microsoft.com/cli/azure/group) 來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
 下列範例會在 *eastus* 位置中建立名為 *myResourceGroupILB* 的資源群組：
 
@@ -41,7 +41,7 @@ ms.locfileid: "53106000"
 ```
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create)，在 *myResourceGroup* 中建立名為 *myVNet*、具有子網路 *mySubnet* 的虛擬網路。
+使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet)，在 *myResourceGroup* 中建立名為 *myVNet*、具有子網路 *mySubnet* 的虛擬網路。
 
 ```azurecli-interactive
   az network vnet create \
@@ -60,7 +60,7 @@ ms.locfileid: "53106000"
 
 ### <a name="create-the-load-balancer"></a>建立負載平衡器
 
-使用 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) 建立名為 **myLoadBalancer** 的公用基本負載平衡器，包含名為 **myFrontEnd** 的前端 IP 組態、名為 **myBackEndPool** 的後端集區，與私人 IP 位址 **10.0.0.7 相關聯。
+使用 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 建立名為 **myLoadBalancer** 的公用基本負載平衡器，包含名為 **myFrontEnd** 的前端 IP 組態、名為 **myBackEndPool** 的後端集區，與私人 IP 位址 **10.0.0.7 相關聯。
 
 ```azurecli-interactive
   az network lb create \
@@ -74,7 +74,7 @@ ms.locfileid: "53106000"
   ```
 ### <a name="create-the-health-probe"></a>建立健康情況探查
 
-健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以接收網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 使用 [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) 建立健康狀態探查，以檢視虛擬機器的健康狀態。 
+健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以接收網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 使用 [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) 建立健康狀態探查，以檢視虛擬機器的健康狀態。 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -87,7 +87,7 @@ ms.locfileid: "53106000"
 
 ### <a name="create-the-load-balancer-rule"></a>建立負載平衡器規則
 
-負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) 建立負載平衡器規則 myHTTPRule，用來接聽前端集區 myFrontEnd 中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 myBackEndPool (也是使用連接埠 80)。 
+負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 建立負載平衡器規則 myHTTPRule，用來接聽前端集區 myFrontEnd 中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 myBackEndPool (也是使用連接埠 80)。 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -128,7 +128,7 @@ done
 
 ### <a name="create-an-availability-set"></a>建立可用性設定組
 
-使用 [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create) 建立可用性設定組
+使用 [az vm availabilityset create](/cli/azure/network/nic) 建立可用性設定組
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -215,7 +215,7 @@ for i in `seq 1 2`; do
 
 若要測試負載平衡器，您必須先取得負載平衡器的私人 IP 位址。 接著，登入虛擬機器 myVMTest，並在其網頁瀏覽器的網址列中輸入私人 IP 位址。
 
-若要取得負載平衡器的私人 IP 位址，請使用 [az network lb show](/cli/azure/network/public-ip##az-network-lb-show)。 複製私人 IP 位址，並將其貼到您虛擬機器之網頁瀏覽器的網址列中 - *myVMTest*。
+若要取得負載平衡器的私人 IP 位址，請使用 [az network lb show](/cli/azure/network/public-ip)。 複製私人 IP 位址，並將其貼到您虛擬機器之網頁瀏覽器的網址列中 - *myVMTest*。
 
 ```azurecli-interactive
   az network lb show \

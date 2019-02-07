@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 41e422d0808cafb45b182c5f0a6bb7176a35516f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 345a7994f5a117b7aff320edf7b7c79d9b30a2f9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35758615"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695248"
 ---
 # <a name="internet-of-things-security-overview"></a>物聯網安全性概觀
 Azure 物聯網 (IoT) 服務提供廣泛的功能。 這些企業等級的服務可讓您：
@@ -45,7 +45,7 @@ Azure IoT 解決方案加速器是一組符合 IoT 需求的強大解決方案�
 
 * [保障安全從威脅模型開始](/azure/iot-fundamentals/iot-security-architecture#security-starts-with-a-threat-model)
 * [IoT 中的安全性](/azure/iot-fundamentals/iot-security-architecture#security-in-iot)
-* [為 Azure IoT 參考架構進行威脅模型化作業](/azure/iot-fundamentals/iot-security-architecture#threat-modeling-the-azure-iot-reference-architecture)
+* [為 Azure IoT 參考架構進行威脅模型化作業](/azure/iot-fundamentals/iot-security-architecture)
 
 ## <a name="security-from-the-ground-up"></a>從頭建立安全性
 IoT 使得全球企業面臨獨特的安全性、隱私權及相容性挑戰。 不同於傳統網路技術 (這類問題是以軟體及其實作方式為中心)，IoT 在意的是當網路與實體世界交會時會發生什麼事。 保護 IoT 解決方案要求確保安全佈建裝置，保護這些裝置與雲端之間的連接，以及在處理和儲存期間保護雲端中資料保護的安全。 但是，會針對這類功能運作的是資源受限的裝置、根據地理位置分佈的部署，以及解決方案中的許多裝置。

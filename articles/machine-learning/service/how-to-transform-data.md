@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f02d511c5afa6d515f29b9fc557be3b49223c501
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4291f6083cfe07d689ef9377df57c3e9a41772fc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243278"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812203"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>使用 Azure Machine Learning 資料準備 SDK 來轉換資料
 
@@ -25,7 +25,7 @@ ms.locfileid: "55243278"
 
 目前有可執行下列工作的函式：
 
-- [加入使用運算式的資料行](#column)
+- 加入使用運算式的資料行
 - [插補遺漏值](#impute-missing-values)
 - [衍生資料行實例化](#derive-column-by-example)
 - [篩選](#filtering)

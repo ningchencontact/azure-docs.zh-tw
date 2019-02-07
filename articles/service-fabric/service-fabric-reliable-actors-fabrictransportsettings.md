@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 8309abac2c56e911c471f0d4be92fa5d5b77817e
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: d2f45b6f0db15773615710a4345e85ab09f7d559
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201086"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700429"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>設定 Reliable Actors 的 FabricTransport 設定
 
@@ -32,7 +32,7 @@ https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fa
 
 ## <a name="assembly-attribute"></a>組件屬性
 
-[FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) 屬性需要在動作項目用戶端和動作項目服務組件上套用。
+[FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN) 屬性需要在動作項目用戶端和動作項目服務組件上套用。
 
 下列範例顯示如何變更 FabricTransport OperationTimeout 設定的預設值：
 

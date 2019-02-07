@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 86dbb6137964c00f6b98365e4891538751f17922
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0ba3c7321b0771c839289abb7891cd8e6b280afe
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438807"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822675"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>分析 Apache Hadoop 記錄
 
@@ -99,7 +99,7 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
     如需建構篩選器的詳細資訊，請參閱[建構資料表設計工具的篩選字串](../../vs-azure-tools-table-designer-construct-filter-strings.md)。
 
 ## <a name="logs-written-to-azure-blob-storage"></a>寫入 Azure Blob 儲存體的記錄檔
-[寫入 Azure 資料表的記錄檔](#log-written-to-azure-tables)可讓人更深入了解 HDInsight 叢集發生的情形。 不過，這些資料表並不會提供工作層級記錄檔，這些記錄檔有助於發生問題時進一步深入探索。 為了提供這一層更深入的詳細資料，針對透過 Templeton 提交的任何作業，HDInsight 叢集設定成將工作記錄檔寫入 Blob 儲存體帳戶。 實際上，這代表使用 Microsoft Azure PowerShell Cmdlet 或 .NET Job Submission API 提交的作業，而不是透過叢集的 RDP/命令列存取所提交的作業。 
+寫入 Azure 資料表的記錄檔可讓人更深入了解 HDInsight 叢集發生的情形。 不過，這些資料表並不會提供工作層級記錄檔，這些記錄檔有助於發生問題時進一步深入探索。 為了提供這一層更深入的詳細資料，針對透過 Templeton 提交的任何作業，HDInsight 叢集設定成將工作記錄檔寫入 Blob 儲存體帳戶。 實際上，這代表使用 Microsoft Azure PowerShell Cmdlet 或 .NET Job Submission API 提交的作業，而不是透過叢集的 RDP/命令列存取所提交的作業。 
 
 若要檢視記錄檔，請參閱[在 Linux 型 HDInsight 上存取 Apache Hadoop YARN 應用程式記錄檔](../hdinsight-hadoop-access-yarn-app-logs-linux.md)。
 

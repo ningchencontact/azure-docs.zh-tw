@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: fb9123d792c3b522debb3b1c8d539cbd6cd24f59
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: c88518749129abed1cf43a70b9165035626a780f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54843626"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731558"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>使用 Azure CLI 自訂伺服器設定參數
 您可以使用命令列介面 (Azure CLI)，來列出、顯示和更新 Azure PostgreSQL 伺服器的設定參數。 有一部分的引擎設定會在伺服器層級公開而且可供修改。 
@@ -23,7 +23,7 @@ ms.locfileid: "54843626"
 - 在電腦上安裝 [Azure CLI](/cli/azure/install-azure-cli) 命令列介面，或透過您的瀏覽器在 Azure 入口網站中使用 [Azure Cloud Shell](../cloud-shell/overview.md)。
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-postgresql-server"></a>列出適用於 PostgreSQL 伺服器之 Azure 資料庫的伺服器組態參數
-若要列出伺服器中所有可修改的參數及其值，請執行 [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) 命令。
+若要列出伺服器中所有可修改的參數及其值，請執行 [az postgres server configuration list](/cli/azure/postgres/server/configuration) 命令。
 
 您可以針對資源群組 **myresourcegroup** 下的伺服器 **mydemoserver.postgres.database.azure.com**，列出伺服器組態參數。
 ```azurecli-interactive
@@ -37,7 +37,7 @@ az postgres server configuration list --resource-group myresourcegroup --server 
 az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="modify-server-configuration-parameter-value"></a>修改伺服器設定參數值
-您也可以修改特定伺服器設定參數的值，以更新 PostgreSQL 伺服器引擎的基礎設定值。 若要更新設定，請使用 [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) 命令。 
+您也可以修改特定伺服器設定參數的值，以更新 PostgreSQL 伺服器引擎的基礎設定值。 若要更新設定，請使用 [az postgres server configuration set](/cli/azure/postgres/server/configuration) 命令。 
 
 若要針對資源群組 **myresourcegroup** 下的伺服器 **mydemoserver.postgres.database.azure.com** 更新 **log\_min\_messages** 伺服器組態參數。
 ```azurecli-interactive

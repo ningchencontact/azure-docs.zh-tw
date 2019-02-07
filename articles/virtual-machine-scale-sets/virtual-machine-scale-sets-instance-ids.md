@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: 5d92aa78b132b661af3cdc53b47c0340a0758dd8
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8f85ded20470ecc5a7868c094e88a149c88b7f39
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855307"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749561"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>了解 Azure VM 擴展集 VM 的執行個體識別碼
 本文說明擴展集的執行個體識別碼和它們呈現的各種方式。
@@ -33,7 +33,7 @@ REST API：`POST https://management.azure.com/subscriptions/{subscriptionId}/res
 
 Powershell：`Set-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (如需詳細資訊，請參閱 [Powershell 文件](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm) \(英文\))
 
-CLI：`az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (如需詳細資訊，請參閱 [CLI 文件](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_reimage) \(英文\))。
+CLI：`az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (如需詳細資訊，請參閱 [CLI 文件](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest) \(英文\))。
 
 您可以列出擴展集中的所有執行個體，以取得執行個體識別碼的清單：
 
