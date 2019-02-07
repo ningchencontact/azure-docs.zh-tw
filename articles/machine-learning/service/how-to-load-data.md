@@ -292,7 +292,7 @@ servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 
 ### <a name="acquire-an-oauth-access-token"></a>取得 OAuth 存取權杖
 
-使用 `adal` 套件 (`pip install adal`) 在 MSFT 租用戶上建立驗證內容，並取得 OAuth 存取權杖。 針對 ADLS，權杖要求中的資源必須適用於 'https://datalake.azure.net'，這與大部分的其他 Azure 資源不同。
+使用 `adal` 套件 (`pip install adal`) 在 MSFT 租用戶上建立驗證內容，並取得 OAuth 存取權杖。 針對 ADLS，權杖要求中的資源必須適用於 '[https://datalake.azure.net](https://datalake.azure.net)'，這與大部分的其他 Azure 資源不同。
 
 ```python
 import adal

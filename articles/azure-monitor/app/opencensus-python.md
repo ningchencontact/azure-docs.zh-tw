@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 885f4da5ec9b360605a3e46ee8be8d338a638ede
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 22e58f31e2f891eb09c3d42a01763c68cdcd11a8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102664"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696178"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>從 Python 收集分散式追蹤 (預覽)
 
@@ -24,7 +24,7 @@ ms.locfileid: "54102664"
 
 - 您需要 Azure 訂用帳戶。
 - 應該安裝 Python，本文使用 [Python 3.7.0](https://www.python.org/downloads/)，但舊版可能只需要稍微調整即可運作。
-- 請遵循下列指示來安裝[本機轉送工具作為 Windows 服務](./../../azure-monitor/app/opencensus-local-forwarder.md#windows-service)
+- 請遵循下列指示來安裝[本機轉送工具作為 Windows 服務](./../../azure-monitor/app/opencensus-local-forwarder.md)
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -57,7 +57,7 @@ ms.locfileid: "54102664"
 
    ![檢測金鑰的螢幕擷取畫面](./media/opencensus-python/0003-instrumentation-key.png)
 
-2. 編輯 `LocalForwarder.config` 檔案並新增檢測金鑰。 如果您依照[必要條件](./../../azure-monitor/app/opencensus-local-forwarder.md#windows-service)中的指示操作，該檔案會位於 `C:\LF-WindowsServiceHost`
+2. 編輯 `LocalForwarder.config` 檔案並新增檢測金鑰。 如果您依照[必要條件](./../../azure-monitor/app/opencensus-local-forwarder.md)中的指示操作，該檔案會位於 `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -158,7 +158,7 @@ ms.locfileid: "54102664"
 
 6. 現在當您執行上述的 Python 指令碼時，系統應該仍會提示您輸入值，但現在只有值會列印在殼層中。
 
-7. 若要確認**本機轉送工具**會挑出追蹤，請檢查 `LocalForwarder.config` 檔案。 如果您遵循了[必要條件](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service)中的步驟，該檔案會位於 `C:\LF-WindowsServiceHost`。
+7. 若要確認**本機轉送工具**會挑出追蹤，請檢查 `LocalForwarder.config` 檔案。 如果您遵循了[必要條件](https://docs.microsoft.com/azure/application-insights/local-forwarder)中的步驟，該檔案會位於 `C:\LF-WindowsServiceHost`。
 
     在下列記錄檔影像中，您可以看到在執行第二個指令碼 (我們在此新增了匯出工具) 之前，`OpenCensus input BatchesReceived` 為 0。 一旦我們開始執行更新後的指令碼，遞增的 `BatchesReceived` 就等於我們所輸入數量的值：
     

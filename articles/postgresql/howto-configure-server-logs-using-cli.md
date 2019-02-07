@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 938aadaa1d17135808cbeb34adac5139bd61f833
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3ca77c1ffa5f5a3f384009299701f4aa674baf59
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545017"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700191"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>使用 Azure CLI 設定和存取伺服器記錄
 您可以使用命令列介面 (Azure CLI) 來下載 PostgreSQL 伺服器錯誤記錄。 不過，不支援存取交易記錄。 
@@ -31,14 +31,14 @@ ms.locfileid: "53545017"
 如需詳細資訊，請參閱[自訂伺服器設定參數](howto-configure-server-parameters-using-cli.md)。
 
 ## <a name="list-logs-for-azure-database-for-postgresql-server"></a>列出適用於 PostgreSQL 伺服器的 Azure 資料庫之記錄
-若要列出伺服器的可用記錄檔，請執行 [az postgres server-logs list](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) 命令。
+若要列出伺服器的可用記錄檔，請執行 [az postgres server-logs list](/cli/azure/postgres/server-logs) 命令。
 
 您可以針對資源群組 **myresourcegroup** 下的伺服器 **mydemoserver.postgres.database.azure.com** 列出記錄檔。 然後將記錄檔的清單導向名為 **log\_files\_list.txt** 的文字檔。
 ```azurecli-interactive
 az postgres server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-locally-from-the-server"></a>從伺服器將記錄下載至本機
-使用 [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) 命令，即可下載您伺服器適用的個別記錄檔。 
+使用 [az postgres server-logs download](/cli/azure/postgres/server-logs) 命令，即可下載您伺服器適用的個別記錄檔。 
 
 使用下列範例，針對資源群組 **myresourcegroup** 下的伺服器 **mydemoserver.postgres.database.azure.com**，將特定的記錄檔下載至您的本機環境。
 ```azurecli-interactive

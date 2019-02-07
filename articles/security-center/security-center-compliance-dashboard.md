@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: dbff728c888e9e2f83d9a82ca9819bf9dd0b89e9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 252337c0d2bc162d418d20ca4641673d1564daa6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54268132"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660421"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>教學課程：改善法規合規性
 ---
@@ -37,7 +37,7 @@ Azure 資訊安全中心會利用法規合規性儀表板，協助您簡化達�
 ## <a name="prerequisites"></a>必要條件
 
 若要逐步執行本教學課程中涵蓋的功能，您必須有資訊安全中心的標準定價層。 您可以免費試用資訊安全中心標準層。
-若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。 [將 Azure 訂用帳戶上架到資訊安全中心標準定價層](https://docs.microsoft.com/en-us/azure/security-center/security-center-get-started)快速入門會為您逐步解說如何升級至「標準」定價層。
+若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。 [將 Azure 訂用帳戶上架到資訊安全中心標準定價層](https://docs.microsoft.com/azure/security-center/security-center-get-started)快速入門會為您逐步解說如何升級至「標準」定價層。
 
 ##  <a name="assess-your-regulatory-compliance"></a>評估法規合規性
 

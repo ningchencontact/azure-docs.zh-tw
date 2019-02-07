@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 583223ccfd30468c047fc77c3b6598ce7b0a1973
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 3023d5d4010108d46424bba284029b58f5fd279c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214601"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658737"
 ---
 # <a name="add-a-shape-to-a-map"></a>在地圖中新增圖形
 
@@ -108,7 +108,7 @@ Shape 類別會包裝[幾何](https://docs.microsoft.com/javascript/api/azure-ma
 
 點是 [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) 類別的[功能](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest)。 程式碼的第二個區塊會初始化 HTML 滑桿元素的半徑值，然後在 [Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 類別物件中建構和包裝點物件。
 
-第三個程式碼區塊會建立函式，以取用 HTML 範圍滑桿元素中的值，並使用 shape 類別的 [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest#addproperty) 方法變更半徑值。
+第三個程式碼區塊會建立函式，以取用 HTML 範圍滑桿元素中的值，並使用 shape 類別的 [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 方法變更半徑值。
 
 在第四個程式碼區塊中，則會使用 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 類別來建立資料來源物件。 然後，點就會新增至資料來源。
 

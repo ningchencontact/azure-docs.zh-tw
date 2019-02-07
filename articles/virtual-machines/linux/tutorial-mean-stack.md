@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 223b32d3947ca0f663565a90b15e9c24e5ddeb96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 84860b5098e141bdfbd924d86836bc7b48b0ce8f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883206"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754212"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中的 Linux 虛擬機器上建立 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆疊
 
@@ -42,7 +42,7 @@ ms.locfileid: "54883206"
 
 ## <a name="create-a-linux-vm"></a>建立 Linux VM
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 命令建立資源群組，並使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 命令建立 Linux VM。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
+使用 [az group create](https://docs.microsoft.com/cli/azure/group) 命令建立資源群組，並使用 [az vm create](https://docs.microsoft.com/cli/azure/vm) 命令建立 Linux VM。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
 下列範例使用 Azure CLI 在 eastus 位置建立名為 myResourceGroupMEAN 的資源群組。 如果預設的金鑰位置還沒有 SSH 金鑰的話，此範例也會建立具有這些金鑰的 VM (名為 myVM)。 若要使用一組特定金鑰，請使用 --ssh-key-value 選項。
 

@@ -13,14 +13,15 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a4be349bfd8ce546ee2a27c206a7bd86306c27a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136884"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493553"
 ---
 # <a name="throttling-resource-manager-requests"></a>對 Resource Manager 要求進行節流
+
 針對每個 Azure 訂用帳戶和租用戶，Resource Manager 允許每小時最多有 12,000 個讀取要求和 1,200 個寫入要求。 這些限制之範圍包括提出要求的主體識別碼，以及訂用帳戶識別碼或租用戶識別碼。 如果您的要求來自多個主體識別碼，則訂用帳戶或租用戶之間的限制會大於每小時 12,000 個和 1,200 個。
 
 要求數適用於您的訂用帳戶或您的租用戶。 訂用帳戶要求是涉及傳遞訂用帳戶識別碼的要求，例如擷取訂用帳戶中的資源群組。 租用戶要求則未包含訂用帳戶識別碼，例如擷取有效的 Azure 位置。
@@ -30,6 +31,8 @@ ms.locfileid: "53136884"
 如果應用程式或指令碼到達這些限制，便需要對要求進行節流。 本文說明如何判斷觸達限制前還剩下多少要求，以及在觸達限制時該如何應對。
 
 當您到達限制時，您會收到 HTTP 狀態碼 **429 太多要求**。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>剩餘的要求
 您可以藉由檢查回應標頭來判斷剩餘的要求數。 每個要求都包含剩餘之讀取和寫入要求數的值。 下表描述可供檢查這些值的回應標頭︰
@@ -66,7 +69,7 @@ $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 如果您想要查看可用於偵錯的剩餘要求，您可以在 **PowerShell** Cmdlet 提供 **-Debug** 參數。
 
 ```powershell
-Get-AzureRmResourceGroup -Debug
+Get-AzResourceGroup -Debug
 ```
 
 這會傳回許多值，包括下列回應值︰
@@ -85,7 +88,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 若要取得寫入限制，請使用寫入作業： 
 
 ```powershell
-New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 這會傳回許多值，包括下列值︰

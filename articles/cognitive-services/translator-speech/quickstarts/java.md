@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1fb6eeb30b8ba348ce90916955bd8ffbb2cbb7c5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d0e9545a6bc8ec56bc5ae9c9532d80822bfe3505
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459158"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753124"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>快速入門：翻譯工具語音 API (使用 Java) 
 <a name="HOLTop"></a>
@@ -39,7 +39,7 @@ ms.locfileid: "55459158"
 - [javax-websocket-client-impl-9.4.11.v20180605.jar (或更新版本)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
 - [jetty-client-9.4.11.v20180605.jar (或更新版本)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-您將需要將一個名為 "speak.wav" 的 .wav 檔案，放在與您從下方程式碼編譯之可執行檔相同的資料夾中。 這個 .wav 檔案應該採用標準 PCM 16 位元 16 kHz 單聲道格式。 您可以從[文字轉換語音 API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech) 取得此類 .wav 檔案。
+您將需要將一個名為 "speak.wav" 的 .wav 檔案，放在與您從下方程式碼編譯之可執行檔相同的資料夾中。 這個 .wav 檔案應該採用標準 PCM 16 位元 16 kHz 單聲道格式。 您可以從[文字轉換語音 API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) 取得此類 .wav 檔案。
 
 您必須擁有具備 **Microsoft Translator Speech API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您將需要一個來自 [Azure 儀表板](https://portal.azure.com/#create/Microsoft.CognitiveServices)的付費訂用帳戶金鑰。
 

@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: aschhab
-ms.openlocfilehash: efcc5b1f05cb2065d4cc9a3fda64e78dd6d5957b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: a8d9ea841aee21531ccb0379fbbc9b10ccf25303
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849306"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727308"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>如何透過 PHP 使用服務匯流排主題和訂用帳戶
 
@@ -157,7 +157,7 @@ catch(ServiceException $e){
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>使用篩選器建立訂用帳戶
-您也可以設定篩選器，讓您指定傳送至主題的哪些訊息應出現在特定主題訂用帳戶中。 訂用帳戶所支援的最具彈性篩選器類型是實作 SQL92 子集的 [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter)。 SQL 篩選器會對發佈至主題之訊息的屬性運作。 如需 SqlFilters 的詳細資訊，請參閱 [SqlFilter.SqlExpression 屬性][sqlfilter]。
+您也可以設定篩選器，讓您指定傳送至主題的哪些訊息應出現在特定主題訂用帳戶中。 訂用帳戶所支援的最具彈性篩選器類型是實作 SQL92 子集的 [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)。 SQL 篩選器會對發佈至主題之訊息的屬性運作。 如需 SqlFilters 的詳細資訊，請參閱 [SqlFilter.SqlExpression 屬性][sqlfilter]。
 
 > [!NOTE]
 > 訂用帳戶的每個規則可獨立處理傳入的訊息，並將其結果訊息新增至訂用帳戶。 此外，每個新訂用帳戶都有具篩選器的預設 **Rule** 物件，而篩選器會將主題中的所有訊息新增至訂用帳戶。 To receive only messages matching your filter, you must remove the default rule. 您可以使用 `ServiceBusRestProxy->deleteRule` 方法以移除預設規則。
@@ -338,6 +338,6 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[sqlfilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter
+[sqlfilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [require-once]: http://php.net/require_once
 [Service Bus quotas]: service-bus-quotas.md

@@ -4,7 +4,7 @@ description: 了解如何使用 SQL Server Management Studio (SSMS) 在 Azure �
 keywords: 連接到 sql database,sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2b510accb2a30250a2855cfa22dbf45546a77569
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 095d7cf43d071d3857160d05e721bf7ac165cba2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461741"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756779"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>快速入門：使用 SQL Server Management Studio 連線和查詢 Azure SQL Database
 
@@ -30,7 +30,7 @@ ms.locfileid: "55461741"
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-* 設定伺服器層級防火牆規則。 如需詳細資訊，請參閱[建立伺服器層級防火牆規則](sql-database-get-started-portal-firewall.md)。
+* 設定伺服器層級防火牆規則。 如需詳細資訊，請參閱[建立伺服器層級防火牆規則](sql-database-server-level-firewall-rule.md)。
 
 ## <a name="install-the-latest-ssms"></a>安裝最新的 SSMS
 

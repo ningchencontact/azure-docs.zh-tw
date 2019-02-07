@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 93859b3b6fcdad67d46604f2ab34bec4138feb2b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 557b47aab5cdadef79427c4da9c18477daac0689
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969612"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745413"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>開始使用 Azure Blob 儲存體和 Visual Studio 已連線服務 (ASP.NET)
 
@@ -413,7 +413,7 @@ Blob 容器是 blob 和資料夾的巢狀階層。 本文件中剩餘的步驟�
     }
     ```
     
-    以下顯示已完成的 `ListBlobs` 方法 (含有所要建立之本機檔案的完整路徑)：
+    以下顯示已完成的 `DownloadBlob` 方法 (含有所要建立之本機檔案的完整路徑)：
     
     ```csharp
     public string DownloadBlob()

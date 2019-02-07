@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 04c59cac8cd55acad0504337c57767c938835021
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b42c32936d6973468ace58572ee61eaad66053c2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884889"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733173"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>快速入門：使用 Azure CLI 建立虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據 CPU、記憶體需求或網路流量等資源使用量進行自動調整。 其後，Azure 負載平衡器會將流量分配到擴展集中的多個 VM 執行個體。 在本快速入門中，您會使用 Azure CLI 建立虛擬機器擴展集，並部署範例應用程式。
@@ -40,7 +40,7 @@ ms.locfileid: "54884889"
 az group create --name myResourceGroup --location eastus
 ```
 
-現在使用 [az vmss create](/cli/azure/vmss#az_vmss_create) 建立虛擬機器擴展集。 下列範例會建立名為 myScaleSet 的擴展集，其已設定為在套用變更時自動更新，並在 ~/.ssh/id_rsa 中沒有 SSH 金鑰時產生 SSH 金鑰。 如果您需要登入 VM 執行個體，就會用到這些 SSH 金鑰。 若要使用現有的 SSH 金鑰組，請改為使用 `--ssh-key-value` 參數，並指定您的金鑰所在位置。
+現在使用 [az vmss create](/cli/azure/vmss) 建立虛擬機器擴展集。 下列範例會建立名為 myScaleSet 的擴展集，其已設定為在套用變更時自動更新，並在 ~/.ssh/id_rsa 中沒有 SSH 金鑰時產生 SSH 金鑰。 如果您需要登入 VM 執行個體，就會用到這些 SSH 金鑰。 若要使用現有的 SSH 金鑰組，請改為使用 `--ssh-key-value` 參數，並指定您的金鑰所在位置。
 
 ```azurecli-interactive
 az vmss create \
@@ -58,7 +58,7 @@ az vmss create \
 ## <a name="deploy-sample-application"></a>部署範例應用程式
 若要測試您的擴展集，請安裝基本的 Web 應用程式。 您可以使用 Azure 自訂指令碼擴充功能來下載及執行會在 VM 執行個體上安裝應用程式的指令碼。 此擴充功能適用於部署後組態、軟體安裝或其他任何組態/管理工作。 如需詳細資訊，請參閱[自訂指令碼延伸模組概觀](../virtual-machines/linux/extensions-customscript.md)。
 
-使用自訂指令碼擴充功能安裝基本的 NGINX Web 伺服器。 使用 [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) 套用安裝 NGINX 的自訂指令碼擴充功能，如下所示：
+使用自訂指令碼擴充功能安裝基本的 NGINX Web 伺服器。 使用 [az vmss extension set](/cli/azure/vmss/extension) 套用安裝 NGINX 的自訂指令碼擴充功能，如下所示：
 
 ```azurecli-interactive
 az vmss extension set \
@@ -72,7 +72,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>允許流量流向應用程式
-建立擴展集後，系統會自動部署 Azure 負載平衡器。 負載平衡器會將流量分配到擴展集中的多個 VM 執行個體。 若要允許流量觸達範例 Web 應用程式，請使用 [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) 建立負載平衡器規則。 下列範例會建立名為 myLoadBalancerRuleWeb 的規則：
+建立擴展集後，系統會自動部署 Azure 負載平衡器。 負載平衡器會將流量分配到擴展集中的多個 VM 執行個體。 若要允許流量觸達範例 Web 應用程式，請使用 [az network lb rule create](/cli/azure/network/lb/rule) 建立負載平衡器規則。 下列範例會建立名為 myLoadBalancerRuleWeb 的規則：
 
 ```azurecli-interactive
 az network lb rule create \
@@ -104,7 +104,7 @@ az network public-ip show \
 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，您可以使用 [az group delete](/cli/azure/group#az_group_delete) 移除資源群組、擴展集和所有相關資源，如下所示。 `--no-wait` 參數不會等待作業完成，就會將控制項傳回給提示字元。 `--yes` 參數會確認您想要刪除資源，而不另外對您提示將要進行此作業。
+若不再需要，您可以使用 [az group delete](/cli/azure/group) 移除資源群組、擴展集和所有相關資源，如下所示。 `--no-wait` 參數不會等待作業完成，就會將控制項傳回給提示字元。 `--yes` 參數會確認您想要刪除資源，而不另外對您提示將要進行此作業。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

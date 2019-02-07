@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: cf06be778fb1bd251b55adcc503db63a2adf3f8b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197920"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658261"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure 服務匯流排和事件中樞的 AMQP 1.0 通訊協定指南
 
@@ -134,7 +134,7 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 
 當傳輸進入其中一種終止狀態「已接受」、「已拒絕」或「已解除」時，訊息鎖定就會解除。 終止狀態為「已接受」時，就會從服務匯流排中移除訊息。 它會保留在服務匯流排中，並將在傳輸達到任何其他狀態時，傳遞給下一個接收者。 服務匯流排會在因為重複拒絕或解除而達到實體所允許的最大傳遞計數時，自動將訊息移到實體寄不出的信件佇列中。
 
-現在，即使是服務匯流排 API 也不會直接公開這種選項，較低層級的 AMQP 通訊協定用戶端可以使用連結信用額度模型，藉由核發大量的連結信用額度，將針對每個接收要求核發一單位信用額度的「提取式」模型變成「推送式」模型，然後接收可用的訊息，而不需要任何進一步的互動。 推送是透過 [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 或 [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) 屬性設定來支援。 如果兩者均不為零，則 AMQP 用戶端會使用它做為連結信用額度。
+現在，即使是服務匯流排 API 也不會直接公開這種選項，較低層級的 AMQP 通訊協定用戶端可以使用連結信用額度模型，藉由核發大量的連結信用額度，將針對每個接收要求核發一單位信用額度的「提取式」模型變成「推送式」模型，然後接收可用的訊息，而不需要任何進一步的互動。 推送是透過 [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 或 [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) 屬性設定來支援。 如果兩者均不為零，則 AMQP 用戶端會使用它做為連結信用額度。
 
 在此內容中，務必了解實體內訊息鎖定的到期時鐘會在從實體取得訊息時啟動，而不是在訊息放在網路上時啟動。 每當用戶端藉由核發連結信用額度來表示接收訊息的整備性，因此預期會主動提取網路上的訊息並準備好處理它們。 否則訊息鎖定可能會在訊息傳遞之前過期。 使用連結信用流量控制應直接反映出可立即準備處理分派給接收者的可用訊息。
 
@@ -214,7 +214,7 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 | --- | --- | --- |
 | 持久 |- |- |
 | 優先順序 |- |- |
-| ttl |此訊息的存留時間 |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
+| ttl |此訊息的存留時間 |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
 | delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -222,17 +222,17 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 
 | 欄位名稱 | 使用量 | API 名稱 |
 | --- | --- | --- |
-| message-id |應用程式為此訊息定義的自由格式識別碼。 用於重複偵測。 |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
+| message-id |應用程式為此訊息定義的自由格式識別碼。 用於重複偵測。 |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |應用程式定義的使用者識別碼，服務匯流排無法加以解譯。 |無法透過服務匯流排 API 存取。 |
-| to |應用程式定義的目的地識別碼，服務匯流排無法加以解譯。 |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| 主旨 |應用程式定義的訊息用途識別碼，服務匯流排無法加以解譯。 |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
-| reply-to |應用程式定義的回覆路徑指示器，服務匯流排無法加以解譯。 |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
+| to |應用程式定義的目的地識別碼，服務匯流排無法加以解譯。 |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| 主旨 |應用程式定義的訊息用途識別碼，服務匯流排無法加以解譯。 |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| reply-to |應用程式定義的回覆路徑指示器，服務匯流排無法加以解譯。 |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |應用程式定義的相互關聯識別碼，服務匯流排無法加以解譯。 |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | Content-Type |應用程式為內文定義的內容類型識別碼，服務匯流排無法加以解譯。 |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |應用程式為內文定義的內容編碼識別碼，服務匯流排無法加以解譯。 |無法透過服務匯流排 API 存取。 |
-| absolute-expiry-time |宣告訊息會過期的絕對立即時刻。 在輸入時忽略 (觀察到標頭 TTL)，在輸出時授權具權威性。 |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
+| absolute-expiry-time |宣告訊息會過期的絕對立即時刻。 在輸入時忽略 (觀察到標頭 TTL)，在輸出時授權具權威性。 |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | creation-time |宣告訊息的建立時間。 服務匯流排未使用 |無法透過服務匯流排 API 存取。 |
-| group-id |應用程式為一組相關訊息所定義的識別碼。 用於服務匯流排工作階段。 |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
+| group-id |應用程式為一組相關訊息所定義的識別碼。 用於服務匯流排工作階段。 |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | group-sequence |用以識別訊息在工作階段內的相對序號的計數器。 服務匯流排會忽略。 |無法透過服務匯流排 API 存取。 |
 | reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -364,7 +364,7 @@ CBS 會定義由傳訊基礎結構所提供的虛擬管理節點 (名為 *$cbs*)
 | operation |否 |字串 |**put-token** |
 | type |否 |字串 |正在放置的權杖類型。 |
 | name |否 |字串 |套用權杖的「對象」。 |
-| expiration |是 |timestamp |權杖的到期時間。 |
+| expiration |yes |timestamp |權杖的到期時間。 |
 
 *name* 屬性會識別應與權杖相關聯的實體。 在服務匯流排中，這是佇列或主題/訂用帳戶的路徑。 *type* 屬性會識別權杖類型︰
 
@@ -381,7 +381,7 @@ CBS 會定義由傳訊基礎結構所提供的虛擬管理節點 (名為 *$cbs*)
 | Key | 選用 | 值類型 | 值內容 |
 | --- | --- | --- | --- |
 | status-code |否 |int |HTTP 回應碼 **[RFC2616]**。 |
-| status-description |是 |字串 |狀態的描述。 |
+| status-description |yes |字串 |狀態的描述。 |
 
 用戶端可以針對傳訊基礎結構中的任何實體重複呼叫 *put-token*。 權杖的範圍為目前用戶端且錨點為目前連線，這表示伺服器會在連線捨棄時捨棄所有保留的權杖。
 

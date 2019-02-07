@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: e6fb14fc901b5ae5ad11d94c1e71453c2852239c
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 574c295c3b44d0c6146c852777f2bef3ad13ecdd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306245"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697912"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 記錄與稽核
 
@@ -194,9 +194,9 @@ Storage Analytics 會記錄下列類型的已驗證與匿名要求：
 
 Azure 中的網路記錄和監視功能相當完善，主要涵蓋分類有二種：
 
-* [網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher)：網路監看員的功能隨附了案例式網路監視。 這項服務包括封包擷取、下一個躍點、IP 流量驗證、安全性群組檢視、NSG 流量記錄。 案例層級監視可提供端對端的網路資源檢視，而非個別的網路資源監視。
+* [網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)：網路監看員的功能隨附了案例式網路監視。 這項服務包括封包擷取、下一個躍點、IP 流量驗證、安全性群組檢視、NSG 流量記錄。 案例層級監視可提供端對端的網路資源檢視，而非個別的網路資源監視。
 
-* [資源監視](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring)：資源層級監視由診斷記錄、計量、疑難排解和資源健全狀況這四個功能所組成。 這些功能全是建置在網路資源層級。
+* [資源監視](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)：資源層級監視由診斷記錄、計量、疑難排解和資源健全狀況這四個功能所組成。 這些功能全是建置在網路資源層級。
 
 ![Azure 網路記錄](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -238,7 +238,7 @@ Azure 中的網路記錄和監視功能相當完善，主要涵蓋分類有二�
 
 * [虛擬網路閘道和連線疑難排解](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)：協助您針對虛擬網路閘道和連線進行疑難排解。
 
-* [網路訂用帳戶限制](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits)：可讓您根據限制檢視網路資源使用狀況。
+* [網路訂用帳戶限制](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)：可讓您根據限制檢視網路資源使用狀況。
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -371,10 +371,10 @@ Log Analytics 的中心是裝載在 Azure 的 Log Analytics 工作區。 Log Ana
 
 | 記錄類型 | 支援 JSON (Splunk、ArcSight 和 IBM QRadar) 的 Log Analytics |
 | :------- | :-------------------------------------------------------- |
-|Azure AD 稽核記錄|   是|
-|活動記錄| 是|
-|資訊安全中心警示 |是|
-|診斷記錄 (資源記錄)|  是|
+|Azure AD 稽核記錄|   yes|
+|活動記錄| yes|
+|資訊安全中心警示 |yes|
+|診斷記錄 (資源記錄)|  yes|
 |VM 記錄|   是，透過轉送的事件，而非透過 JSON|
 
 [開始使用 Azure 記錄整合](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started)：本教學課程將逐步引導您安裝 Azure 記錄整合，以及整合來自 Azure 儲存體、Azure 活動記錄、Azure 資訊安全中心警示以及 Azure AD 稽核記錄的記錄。

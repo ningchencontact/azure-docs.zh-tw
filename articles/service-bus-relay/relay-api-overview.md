@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: spelluru
-ms.openlocfilehash: 2c7aec700a1077bc1a1b56afb5d8d07f47f4c6e8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 05d7ac56d6c1c48125eb458d0eee852ba396b300
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700367"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663089"
 ---
 # <a name="available-relay-apis"></a>可用的轉送 API
 
@@ -39,7 +39,7 @@ ms.locfileid: "43700367"
 
 #### <a name="net"></a>.NET
 
-.NET 生態系統有多個執行階段，因此有多個適用於轉送的 .NET 程式庫。 .NET Standard 程式庫可使用 .NET Core 或 .NET Framework 執行，然而 .NET Framework 程式庫只能在 .NET Framework 環境中執行。 如需 .NET Framework 的詳細資訊，請參閱[架構版本](/dotnet/articles/standard/frameworks#framework-versions)。
+.NET 生態系統有多個執行階段，因此有多個適用於轉送的 .NET 程式庫。 .NET Standard 程式庫可使用 .NET Core 或 .NET Framework 執行，然而 .NET Framework 程式庫只能在 .NET Framework 環境中執行。 如需 .NET Framework 的詳細資訊，請參閱[架構版本](/dotnet/articles/standard/frameworks)。
 
 .NET Framework 程式庫只支援 WCF 程式設計模型，並且會依賴 WCF `net.tcp` 傳輸型的專屬二進位通訊協定。 此通訊協定和程式庫會保有適用於現有應用程式的回溯相容性。
 

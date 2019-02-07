@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6cf308ae65e7fe85a89ac76b17a4bd1b3a4ada1b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 76d83397f27509b09b04753bce62b5a329da8d71
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176993"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733700"
 ---
 # <a name="news-search-api-upgrade-guide"></a>新聞搜尋 API 升級指南
 
@@ -76,7 +76,7 @@ Blocked|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>查詢參數
 
-- 已將產品新增為[類別](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category)查詢參數所可能設為的可能值。 請參閱[依市場的類別](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market)。
+- 已將產品新增為[類別](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category)查詢參數所可能設為的可能值。 請參閱[依市場的類別](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)。
 
 - 已新增 [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) 查詢參數，以便傳回依日期排序的趨勢主題 (最新的排在第一個)。
 

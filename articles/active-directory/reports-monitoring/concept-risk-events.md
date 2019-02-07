@@ -15,12 +15,12 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a1ca5125162460b95c0ffcadb1551173d06b5838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1117ffa94a30a55b7b2a7477bf2770d21dcb5441
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163580"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746501"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 風險事件
 
@@ -164,7 +164,7 @@ Identity Protection 偵測到來不熟悉位置的登入也適用於基本驗證
 
 建議您連絡使用者並掃描使用者的所有裝置。 使用者的個人裝置也可能受到感染，或可能是其他人從與使用者相同的 IP 位址使用受感染的裝置。 受感染的裝置通常是受到防毒軟體尚未識別的惡意程式碼所感染，這也表示任何不良的使用者習慣可能會導致裝置受到感染。
 
-如需如何處理惡意程式碼感染的詳細資訊，請參閱 [惡意程式碼防護中心](https://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409)。
+如需如何處理惡意程式碼感染的詳細資訊，請參閱 [惡意程式碼防護中心](https://www.microsoft.com/en-us/security/portal/definitions/adl.aspx/)。
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>從具有可疑活動的 IP 位址登入
 

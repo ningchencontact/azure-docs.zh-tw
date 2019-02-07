@@ -4,12 +4,14 @@ ms.service: azure-stack
 ms.topic: include
 ms.date: 11/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: be9b3b3a9cbb39386d13f76c595ce5e34688adac
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
+ms.openlocfilehash: 5cd64b806392162fd3bee14ddaf607385ac05264
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336062"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55807127"
 ---
 在驗證工作流程中，**排程**測試時會使用您在建立工作流程期間所指定的工作流程層級一般參數 (請參閱 [Azure Stack 驗證即服務的工作流程一般參數](../azure-stack-vaas-parameters.md))。 如果有任何測試參數值無效，您就必須依照[修改工作流程參數](../azure-stack-vaas-monitor-test.md#change-workflow-parameters)中的指示重新提供參數。
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: d4b706a088769530e3994d8813b28f99d5a56df5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 25ec82c923ebe322194d868159332ef145727999
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411963"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692985"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>在 Azure 中開發 OpenShift 的一般必要條件
 
@@ -53,14 +53,14 @@ OpenShift 安裝是使用 Ansible 腳本。 Ansible 使用安全殼層 (SSH) 連
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure 
-使用 [az login](/cli/azure/reference-index#az_login) 命令來登入 Azure 訂用帳戶並遵循畫面上的指示進行，或按一下 [試用] 來使用 Cloud Shell。
+使用 [az login](/cli/azure/reference-index) 命令來登入 Azure 訂用帳戶並遵循畫面上的指示進行，或按一下 [試用] 來使用 Cloud Shell。
 
 ```azurecli 
 az login
 ```
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 建議使用專用的資源群組來裝載金鑰保存庫。 此群組與 OpenShift 叢集資源部署所在的資源群組分開。
+使用 [az group create](/cli/azure/group) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 建議使用專用的資源群組來裝載金鑰保存庫。 此群組與 OpenShift 叢集資源部署所在的資源群組分開。
 
 下列範例會在 *eastus* 位置，建立名為 *keyvaultrg* 的資源群組：
 
@@ -69,7 +69,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>建立金鑰保存庫
-使用 [az keyvault create](/cli/azure/keyvault#az_keyvault_create) 命令來建立要儲存叢集之 SSH 金鑰的金鑰保存庫。 金鑰保存庫名稱必須是全域唯一的。
+使用 [az keyvault create](/cli/azure/keyvault) 命令來建立要儲存叢集之 SSH 金鑰的金鑰保存庫。 金鑰保存庫名稱必須是全域唯一的。
 
 下列範例會在 *keyvaultrg* 資源群組中，建立名為 *keyvault* 的金鑰保存庫：
 

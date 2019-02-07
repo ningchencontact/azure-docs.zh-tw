@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: b32fd36c5fd546f7d2138cb2b48ee2854667f948
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 58022ca4f605b4672cd9b6e22993fca8ff6dc591
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044258"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510937"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>如何從 Node.js 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -56,34 +56,34 @@ ms.locfileid: "54044258"
 ### <a name="import-the-package"></a>匯入封裝
 將下列程式碼加在應用程式中的 **server.js** 檔案之上：
 
-```nodejs
+```javascript
 var azure = require('azure-storage');
 ```
 
 ## <a name="add-an-azure-storage-connection"></a>新增 Azure 儲存體連線
 Azure 模組會讀取環境變數 AZURE_STORAGE_ACCOUNT 和 AZURE_STORAGE_ACCESS_KEY 或 AZURE_STORAGE_CONNECTION_STRING，以取得連線至「Azure 儲存體帳戶」所需的資訊。 如果未設定這些環境變數，則呼叫 **TableService**時必須指定帳戶資訊。 例如，下列程式碼會建立 **TableService** 物件：
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>新增 Azure Cosmos DB 連線
 若要新增 Azure Cosmos DB 連線，請建立 **TableService** 物件，然後指定您的帳戶名稱、主要索引鍵及端點。 您可以在 Azure 入口網站中，從您 Cosmos DB 的 [設定] > [連接字串] 中複製這些值。 例如︰
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
 ```  
 
 ## <a name="create-a-table"></a>建立資料表
 下列程式碼會建立 **TableService** 物件，並使用該物件建立新資料表。 
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService();
 ```
 
 呼叫 **createTableIfNotExists** 時，會以指定的名稱建立新的資料表 (若此資料表尚未存在)。 如果名為 'mytable' 的資料表尚不存在，下列範例便會建立這個新資料表：
 
-```nodejs
+```javascript
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
   if(!error){
     // Table exists or created
@@ -96,13 +96,13 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 ### <a name="filters"></a>篩選器
 您可以將選用的篩選套用到使用 **TableService** 來執行的作業。 篩選作業可包括記錄、自動重試等。篩選器是使用簽章實作方法的物件：
 
-```nodejs
+```javascript
 function handle (requestOptions, next)
 ```
 
 在對要求選項進行前處理之後，方法必須呼叫 **next**，傳遞具有下列簽章的回呼：
 
-```nodejs
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -110,7 +110,7 @@ function (returnObject, finalCallback, next)
 
 Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**ExponentialRetryPolicyFilter** 和 **LinearRetryPolicyFilter**。 以下會建立使用 **ExponentialRetryPolicyFilter** 的 **TableService** 物件：
 
-```nodejs
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
@@ -125,7 +125,7 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 以下是定義實體的範例。 請注意，**dueDate** 定義為 **Edm.DateTime** 類型。 您可以視需要指定類型，若未指定，系統就會推斷類型。
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -141,7 +141,7 @@ var task = {
 
 您也可以使用 **entityGenerator** 來建立實體。 下列範例使用 **entityGenerator**建立相同的工作實體。
 
-```nodejs
+```javascript
 var entGen = azure.TableUtilities.entityGenerator;
 var task = {
   PartitionKey: entGen.String('hometasks'),
@@ -153,7 +153,7 @@ var task = {
 
 若要將實體新增至資料表，請將實體物件傳給 **insertEntity** 方法。
 
-```nodejs
+```javascript
 tableSvc.insertEntity('mytable',task, function (error, result, response) {
   if(!error){
     // Entity inserted
@@ -165,7 +165,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 
 範例回應：
 
-```nodejs
+```javascript
 { '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 ```
 
@@ -186,7 +186,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 
 下列範例示範使用 **replaceEntity**來更新實體：
 
-```nodejs
+```javascript
 tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
   if(!error) {
     // Entity updated
@@ -214,7 +214,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 
  下列範例示範在批次中提交兩個實體：
 
-```nodejs
+```javascript
 var task1 = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -254,7 +254,7 @@ tableSvc.executeBatch('mytable', batch, function (error, result, response) {
 ## <a name="retrieve-an-entity-by-key"></a>依索引鍵擷取實體
 若要根據 **PartitionKey** 和 **RowKey** 傳回特定的實體，請使用 **retrieveEntity** 方法。
 
-```nodejs
+```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
   if(!error){
     // result contains the entity
@@ -276,7 +276,7 @@ tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, res
 
 下列範例建立的查詢會傳回 PartitionKey 為 'hometasks' 的前 5 個項目。
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .top(5)
   .where('PartitionKey eq ?', 'hometasks');
@@ -284,7 +284,7 @@ var query = new azure.TableQuery()
 
 由於沒有使用 **select**，因此會傳回所有欄位。 若要對資料表執行查詢，請使用 **queryEntities**。 下列範例使用此查詢從 'mytable' 傳回實體。
 
-```nodejs
+```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
   if(!error) {
     // query was successful
@@ -298,7 +298,7 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 一項資料表查詢可以只擷取實體的少數欄位。
 這可以減少頻寬並提高查詢效能 (尤其是對大型實體而言)。 請使用 **select** 子句，並傳遞要傳回的欄位名稱。 例如，下列查詢只會傳回 **description** 和 **dueDate** 欄位。
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .select(['description', 'dueDate'])
   .top(5)
@@ -308,7 +308,7 @@ var query = new azure.TableQuery()
 ## <a name="delete-an-entity"></a>刪除實體
 您可以使用實體的資料分割和資料列索引鍵來刪除實體。 在此範例中，**task1** 物件包含要刪除之實體的 **RowKey** 及 **PartitionKey** 值。 然後物件會傳給 **deleteEntity** 方法。
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'}
@@ -329,7 +329,7 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 ## <a name="delete-a-table"></a>刪除資料表
 下列程式碼會從儲存體帳戶刪除資料表。
 
-```nodejs
+```javascript
 tableSvc.deleteTable('mytable', function(error, response){
     if(!error){
         // Table deleted
@@ -346,7 +346,7 @@ tableSvc.deleteTable('mytable', function(error, response){
 
 查詢時，您可以在查詢物件執行個體與回呼函式之間提供一個 `continuationToken` 參數：
 
-```nodejs
+```javascript
 var nextContinuationToken = null;
 dc.table.queryEntities(tableName,
     query,
@@ -372,7 +372,7 @@ dc.table.queryEntities(tableName,
 
 下列範例會產生新的共用存取原則，讓 SAS 持有者查詢 ('r') 資料表，並於建立它之後的 100 分鐘過期。
 
-```nodejs
+```javascript
 var startDate = new Date();
 var expiryDate = new Date(startDate);
 expiryDate.setMinutes(startDate.getMinutes() + 100);
@@ -394,7 +394,7 @@ var host = tableSvc.host;
 
 用戶端應用程式接著以 **TableServiceWithSAS** 來使用 SAS，對資料表執行操作。 下列範例會連線到資料表並執行查詢。 請參閱[使用共用存取簽章](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris)一文，了解 tableSAS 的格式。 
 
-```nodejs
+```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
 
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
@@ -415,7 +415,7 @@ sharedTableService.queryEntities(query, null, function(error, result, response) 
 
 ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼。 下列範例定義兩個原則，其中一個用於 'user1'，另一個用於 'user2'：
 
-```nodejs
+```javascript
 var sharedAccessPolicy = {
   user1: {
     Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
@@ -432,7 +432,7 @@ var sharedAccessPolicy = {
 
 下列範例會取得 **hometasks**資料表的目前 ACL，然後使用 **setTableAcl** 來加入新的原則。 此方法允許：
 
-```nodejs
+```javascript
 var extend = require('extend');
 tableSvc.getTableAcl('hometasks', function(error, result, response) {
 if(!error){
@@ -448,7 +448,7 @@ if(!error){
 
 設定 ACL 之後，您便可以根據原則的識別碼來建立 SAS。 下列範例會建立 'user2' 的新 SAS：
 
-```nodejs
+```javascript
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 

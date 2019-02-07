@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 1/18/2019
 ms.author: mabrigg
 ms.lastreviewed: 1/18/2019
-ms.openlocfilehash: 4123d4cec25bab116c642f1b89cd8eff4779af42
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 692fba97a67a7dc9654e307c2b7628dcc89f3ba8
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252144"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768669"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Azure Stack 中的儲存體帳戶
 儲存體帳戶包含 Blob 與資料表服務，且儲存體資料物件的命名空間不得重複。 根據預設，您帳戶中的資料只有身為儲存體帳戶擁有者的您可以使用。

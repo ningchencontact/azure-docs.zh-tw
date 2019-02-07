@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c74c208e77539833c2bc5e1323713191e29aec64
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: fea499ea275dc65de1232840c24b5d62e3e6182d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820235"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698031"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
 
@@ -454,7 +454,7 @@ Azure 作業安全性的基礎架構涵蓋透過 Microsoft 特有之各種功能
 
 ### <a name="network-watcher"></a>網路監看員
 
-[網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher)是一項區域性服務，可讓您監視與診斷位於和進出 Azure 的網路層級條件。 網路監看員提供的網路診斷和視覺效果工具，可幫助您了解、診斷及洞悉您在 Azure 中的網路。 這項服務包括封包擷取、下一個躍點、IP 流量驗證、安全性群組檢視、NSG 流量記錄。 案例層級監視可提供端對端的網路資源檢視，而非個別的網路資源監視。
+[網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)是一項區域性服務，可讓您監視與診斷位於和進出 Azure 的網路層級條件。 網路監看員提供的網路診斷和視覺效果工具，可幫助您了解、診斷及洞悉您在 Azure 中的網路。 這項服務包括封包擷取、下一個躍點、IP 流量驗證、安全性群組檢視、NSG 流量記錄。 案例層級監視可提供端對端的網路資源檢視，而非個別的網路資源監視。
 
 ### <a name="storage-analytics"></a>儲存體分析
 

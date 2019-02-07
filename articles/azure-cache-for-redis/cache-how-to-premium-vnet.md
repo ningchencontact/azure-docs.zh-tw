@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 6c92b71a8f2b9fbeae9afc5f06b6d5412f6421a6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e71d92b2cf7888fd9e3c560beb6e0e7f18e7add0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021350"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822641"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>如何設定進階 Azure Cache for Redis 的虛擬網路支援
 Azure Cache for Redis 有不同的快取供應項目，可讓您彈性選擇快取大小和功能，包括叢集功能、持續性及虛擬網路支援等「進階」層功能。 VNet 是雲端中的私人網路。 當 Azure Cache for Redis 執行個體是以 VNet 設定時，它將無法公開定址，而只能從 VNet 中的虛擬機器和應用程式存取。 本文說明如何設定進階 Azure Cache for Redis 執行個體的虛擬網路支援。
@@ -83,11 +83,11 @@ Azure Cache for Redis 有不同的快取供應項目，可讓您彈性選擇快�
 ## <a name="azure-cache-for-redis-vnet-faq"></a>Azure Cache for Redis VNet 常見問題集
 下列清單包含 Azure Cache for Redis 調整相關常見問題的解答。
 
-* [Azure Cache for Redis 和 VNet 的某些常見錯誤設定有哪些？](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+* Azure Cache for Redis 和 VNet 的某些常見錯誤設定有哪些？
 * [如何確認我的快取是在 VNET 中運作？](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 * [當我嘗試連線到 VNET 中的 Azure Cache for Redis 時，為什麼會收到錯誤，指出遠端憑證不正確呢？](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
 * [可以搭配標準或基本快取使用 VNet 嗎？](#can-i-use-vnets-with-a-standard-or-basic-cache)
-* [為什麼無法在某些子網路中建立 Azure Cache for Redis，但其他的可以？](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+* 為什麼無法在某些子網路中建立 Azure Cache for Redis，但其他的可以？
 * [子網路位址空間需求為何？](#what-are-the-subnet-address-space-requirements)
 * [將快取裝載於 VNET 時，所有快取功能都可以正常運作嗎？](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 

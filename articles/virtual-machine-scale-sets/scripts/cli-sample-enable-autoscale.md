@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4190a9c4ca89a0b57371f6b8d7d4e72ba480b0a6
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: c843bed96ebd69f0fe96f8dab292d50ef025e750
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888476"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657343"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>如何使用 Azure CLI 自動調整虛擬機器擴展集
 此指令碼會建立執行 Ubuntu 的虛擬機器擴展集，並在 CPU 負載變更時，使用主機型計量來進行自動調整。
@@ -45,10 +45,10 @@ az group delete --name myResourceGroup
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](/cli/azure/ad/group#az_ad_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az vmss create](/cli/azure/vmss#az_vmss_create) | 建立虛擬機器擴展集，並將它連線到虛擬網路、子網路及網路安全性群組。 若要將流量散發到多個虛擬機器執行個體，也會建立負載平衡器。 此命令也會指定要使用的 VM 映像和管理認證。  |
-| [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create) | 建立自動調整規則，並將其套用到虛擬機器擴展集。 |
-| [az group delete](/cli/azure/ad/group#delete) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group create](/cli/azure/ad/group) | 建立用來存放所有資源的資源群組。 |
+| [az vmss create](/cli/azure/vmss) | 建立虛擬機器擴展集，並將它連線到虛擬網路、子網路及網路安全性群組。 若要將流量散發到多個虛擬機器執行個體，也會建立負載平衡器。 此命令也會指定要使用的 VM 映像和管理認證。  |
+| [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings) | 建立自動調整規則，並將其套用到虛擬機器擴展集。 |
+| [az group delete](/cli/azure/ad/group) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。

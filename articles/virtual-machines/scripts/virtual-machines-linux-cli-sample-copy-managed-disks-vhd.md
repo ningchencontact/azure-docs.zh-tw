@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 66dcb8d38f8c469656d36ff1da1ac03f900069b2
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6252049c2258c391aa4483dd51ec0d9ee766bed0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583131"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727129"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>使用 Azure CLI 將受控磁碟匯出/複製到儲存體帳戶
 
@@ -44,7 +44,7 @@ ms.locfileid: "53583131"
 | 命令 | 注意 |
 |---|---|
 | [az disk grant-access](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | 產生唯讀 SAS，用來將基礎 VHD 檔案複製到儲存體帳戶，或將它下載到內部部署  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#az_storage_blob_copy_start) | 以非同步方式在儲存體帳戶間複製 blob |
+| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | 以非同步方式在儲存體帳戶間複製 blob |
 
 ## <a name="next-steps"></a>後續步驟
 

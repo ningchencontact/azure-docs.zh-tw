@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 68a788205917e87469b432de435e296dcabc350c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c983ece9d883397e43833522b2fa4d1bfb3fa4f0
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001680"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753634"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>教學課程：如何在 .NET 中搭配使用 Azure Key Vault 與 Azure Linux 虛擬機器
 
@@ -81,7 +81,7 @@ az group create --name "<YourResourceGroupName>" --location "West US"
 
 接下來，您會在上一個步驟中建立的資源群組中建立金鑰保存庫。 請提供下列資訊：
 
-* 金鑰保存庫名稱：此名稱必須是 3-24 個字元的字串，且只能包含 0-9、a-z、A-Z 和 -。
+* 金鑰保存庫名稱：名稱必須是 3-24 個字元的字串，且只能包含 0-9、a-z、A-Z 和 -。
 * 資源群組名稱。
 * 位置：**美國西部**。
 
@@ -102,7 +102,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 命令來建立 VM。
+使用 [az vm create](/cli/azure/vm) 命令來建立 VM。
 
 下列範例會建立名為 myVM 的 VM，並新增名為 azureuser 的使用者帳戶。 `--generate-ssh-keys` 參數用來自動產生 SSH 金鑰，並將它放在預設金鑰位置 (~/.ssh)。 若要改為使用一組特定金鑰，請使用 `--ssh-key-value` 選項。
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 76f54674b6c292cfaecfe8440d12bfa17d5a5a5e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 86c38818ee1632bf2d2f3fb1e1240954f3267887
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016574"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567310"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 HubSpot 複製資料 (預覽)
 
@@ -44,11 +44,11 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Hubspot** | 是 |
-| clientId | 與您 Hubspot 應用程式相關聯的用戶端識別碼。  | 是 |
-| clientSecret | 與您 Hubspot 應用程式相關聯的用戶端祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
-| accessToken | 一開始驗證您 OAuth 整合時所取得的存取權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
-| refreshToken | 一開始驗證您 OAuth 整合時所取得的重新整理權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
+| type | 類型屬性必須設定為：**Hubspot** | yes |
+| clientId | 與您 Hubspot 應用程式相關聯的用戶端識別碼。  | yes |
+| clientSecret | 與您 Hubspot 應用程式相關聯的用戶端祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
+| accessToken | 一開始驗證您 OAuth 整合時所取得的存取權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
+| refreshToken | 一開始驗證您 OAuth 整合時所取得的重新整理權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
@@ -63,16 +63,16 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
         "typeProperties": {
             "clientId" : "<clientId>",
             "clientSecret": {
-                 "type": "SecureString",
-                 "value": "<clientSecret>"
+                "type": "SecureString",
+                "value": "<clientSecret>"
             },
             "accessToken": {
-                 "type": "SecureString",
-                 "value": "<accessToken>"
+                "type": "SecureString",
+                "value": "<accessToken>"
             },
             "refreshToken": {
-                 "type": "SecureString",
-                 "value": "<refreshToken>"
+                "type": "SecureString",
+                "value": "<refreshToken>"
             }
         }
     }
@@ -87,7 +87,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**HubspotObject** | 是 |
+| type | 資料集的類型屬性必須設定為：**HubspotObject** | yes |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
@@ -116,7 +116,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**HubspotSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**HubspotSource** | yes |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Companies where Company_Id = xxx"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**

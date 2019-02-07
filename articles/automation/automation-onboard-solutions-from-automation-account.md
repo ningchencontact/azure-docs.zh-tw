@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7d79e7aca0e8aa506abba174668c60fcd2fd4bc2
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: d274642c8e35374dee2d584e6285165a15cd3128
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065438"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747028"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>讓更新管理、變更追蹤和清查解決方案上線
 
@@ -49,6 +49,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
 |EastUS2EUAP|CentralUSEUAP|
+|美國西部 2|美國西部 2|
 
 變更追蹤和清查解決方案可讓您在虛擬機器上[追蹤變更](automation-vm-change-tracking.md)和[進行清查](automation-vm-inventory.md)。 在此步驟中，您會在虛擬機器上啟用解決方案。
 
@@ -140,7 +141,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 2. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。
 
-   ![取消連結工作區頁面](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
+   ![取消連結工作區頁面](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png)上也提供本文中使用的原始碼。
 
    您會收到提示，確認您想要繼續。
 

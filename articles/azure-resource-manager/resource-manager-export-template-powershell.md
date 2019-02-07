@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: cca81bf3f5a46b32cc901a0ac6024eb7888685f7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0313266c9e9bf7814d4581dc04d70cf80e1f8172
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081597"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494709"
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>使用 PowerShell 來匯出 Azure Resource Manager 範本
 
@@ -30,6 +30,8 @@ Resource Manager 可讓您從您的訂用帳戶中現有的資源匯出 Resource
 * 您可以匯出**代表資源群組目前狀態的已產生範本**。 匯出的範本不是以任何用於部署的範本為基礎。 反而，它所建立的範本是資源群組的「快照集」或「備份」。 匯出的範本會有許多硬式編碼值，但數量可能不如您通常會定義的參數數量。 使用此選項來將資源重新部署至相同的資源群組。 若要對其他資源群組使用此範本，您可能必須大幅修改它。
 
 本文章說明這兩種方法。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deploy-a-solution"></a>部署解決方案
 

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: 44797227c0bff745575318fcb5c19cb187862ac0
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 01/07/2019
+ms.openlocfilehash: 8f88579a5fcdb96622a32c5b55bf8fee744d916e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299396"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567174"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>管理 Azure SQL Database 長期備份保留
 
@@ -27,6 +27,7 @@ ms.locfileid: "55299396"
 > [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)目前不支援長期備份保留。
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>使用 Azure 入口網站來設定長期保留原則和還原備份
+
 下列各節說明如何使用 Azure 入口網站來設定長期保留、檢視長期保留的備份，以及從長期保留還原備份。
 
 ### <a name="configure-long-term-retention-policies"></a>設定長期保留原則

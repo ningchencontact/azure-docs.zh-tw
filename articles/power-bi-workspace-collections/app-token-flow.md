@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: a51664144d0dba8eeb82999b212beaf79b4503b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 125c3a925bf6eff04035bb755a07f19367d1abd2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236925"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661083"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>使用 Power BI 工作區集合驗證和授權
 
@@ -84,7 +84,7 @@ Body
 
 ```
 
-SDK 中有方法可簡化應用程式權杖的建立。 例如，對於 .NET，您可以看看 [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) 類別和 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) 方法。
+SDK 中有方法可簡化應用程式權杖的建立。 例如，對於 .NET，您可以看看 [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) 類別和 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) 方法。
 
 對於 .NET SDK，您可以參考[範圍](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes)。
 
@@ -176,7 +176,7 @@ Body
 
 ## <a name="see-also"></a>另請參閱
 
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [開始使用 Microsoft Power BI 工作區集合範例](get-started-sample.md)  
 [常見的 Microsoft Power BI 工作區集合案例](scenarios.md)  
 [開始使用 Microsoft Power BI 工作區集合](get-started.md)  

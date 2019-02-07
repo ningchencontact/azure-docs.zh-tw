@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 2d184cc849eb3da60bbf0c387655da9fdf878853
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4c072ef63c0d4961fba695fc8d9be1d12b4b0e8b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091601"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749209"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>使用 Azure 流量管理員設定多個 Azure CDN 端點之間的容錯移轉
 
@@ -42,7 +42,7 @@ ms.locfileid: "49091601"
 ## <a name="set-up-azure-traffic-manager"></a>設定 Azure 流量管理員
 建立 Azure 流量管理員設定檔，並且設定 CDN 端點之間的負載平衡。 
 
-1. 藉由遵循[建立流量管理員設定檔](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#create-a-traffic-manager-profile-1)中的步驟，建立 Azure 流量管理員設定檔。 
+1. 藉由遵循[建立流量管理員設定檔](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile)中的步驟，建立 Azure 流量管理員設定檔。 
 
     針對 [路由方法]，選取 [優先順序]。
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 6c8f48ce71e11d1de0c28b4dab5327ab03e54f28
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 32a31a87bacbb13cd3b2cb4561ac04e54d51ba46
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231779"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656748"
 ---
 # <a name="manage-workspaces"></a>管理工作區
 
@@ -40,7 +40,7 @@ ms.locfileid: "54231779"
 
 * 資料儲存體的地理位置
 * 用來定義不同使用者存取權的資料隔離
-* 設定組態的範圍 (例如[定價層](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier)、[保留期](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)和[資料上限](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#daily-cap)) 
+* 設定組態的範圍 (例如[定價層](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier)、[保留期](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)和[資料上限](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap)) 
 
 從耗用量的觀點來看，建議您建立愈少工作區愈好。 這可讓管理和查詢體驗變得更容易且快速。 但是，根據上述特性，您在下列情況下可能想要建立多個工作區︰
 

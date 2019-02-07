@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bace15a89f0dd820c69d51bee0a6b669cdf5ff73
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7fd671c77b4c0897134457f5aacaabc11d568694
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885582"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756405"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立及部署高可用性的虛擬機器
 
@@ -49,7 +49,7 @@ ms.locfileid: "54885582"
 
 ## <a name="create-an-availability-set"></a>建立可用性設定組
 
-您可以使用 [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create) 來建立可用性設定組。 在此範例中，我們會針對 myResourceGroupAvailability 資源群組中名為 myAvailabilitySet 的可用性設定組，將更新和容錯網域數目設定為 2。
+您可以使用 [az vm availability-set create](/cli/azure/vm/availability-set) 來建立可用性設定組。 在此範例中，我們會針對 myResourceGroupAvailability 資源群組中名為 myAvailabilitySet 的可用性設定組，將更新和容錯網域數目設定為 2。
 
 首先，使用 [az group create](/cli/azure/group#az-group-create) 建立資源群組，然後建立可用性設定組：
 

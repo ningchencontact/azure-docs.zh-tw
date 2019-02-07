@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: ecde1c19a56a7f99284fe738a19eac07322c2dae
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f347c9ca3d56bedcc838d72ca15793bd13ee19ad
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826168"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563927"
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
 
@@ -146,7 +146,7 @@ IoT 中樞也允許裝置使用 [X.509 憑證](iot-hub-devguide-security.md#supp
 
 下列 Node.js 程式碼片段顯示稱為 **generateSasToken** 的函式，它會從輸入 `resourceUri, signingKey, policyName, expiresInMins` 計算權杖。 下一節將詳細說明如何初始化不同權杖使用案例的不同輸入。
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -260,7 +260,7 @@ public static string generateSasToken(string resourceUri, string key, string pol
 
 使用前述 Node.js 函式的範例為︰
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
 var deviceKey ="...";
 
@@ -294,7 +294,7 @@ var token = generateSasToken(endpoint, deviceKey, null, 60);
 
 使用前述 Node.js 函式的範例為︰
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
 var policyName = 'device';
 var policyKey = '...';
@@ -328,7 +328,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 * 原則名稱： `registryRead`、
 * 任何到期時間。
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices";
 var policyName = 'registryRead';
 var policyKey = '...';

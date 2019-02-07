@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: b7208943a27bcd184100ae426721a2fe8f6e1c72
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 54c4d58dc881ffc7c1f5ecc2242b64e5b61fa68f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970479"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730742"
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>在 Azure API 管理中使用 Azure 受控服務識別
 
@@ -38,7 +38,7 @@ ms.locfileid: "52970479"
 
 ### <a name="using-the-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本
 
-您可以在資源定義中包含以下屬性，來建立具有身分識別的「API 管理」執行個體： 
+您可以在資源定義中包含以下屬性，來建立具有身分識別的「API 管理」執行個體：
 
 ```json
 "identity" : {
@@ -46,7 +46,7 @@ ms.locfileid: "52970479"
 }
 ```
 
-這會告訴 Azure 為您的「API 管理」執行個體建立及管理身分識別。 
+這會告訴 Azure 為您的「API 管理」執行個體建立及管理身分識別。
 
 例如，完整的 Azure Resource Manager 範本可能看起來如下：
 
@@ -70,8 +70,8 @@ ms.locfileid: "52970479"
                 "publisherEmail": "admin@contoso.com",
                 "publisherName": "Contoso"
             },
-            "identity": { 
-                "type": "systemAssigned" 
+            "identity": {
+                "type": "systemAssigned"
             }
         }
     ]
@@ -81,14 +81,14 @@ ms.locfileid: "52970479"
 
 > [!NOTE]
 > 目前，受控服務識別可用來從 API 管理自訂網域名稱的 Azure Key Vault 中取得憑證。 很快就會支援更多的案例。
-> 
+>
 >
 
 
 ### <a name="obtain-a-certificate-from-azure-key-vault"></a>從 Azure Key Vault 取得憑證
 
 #### <a name="prerequisites"></a>必要條件
-1. 包含 pfx 憑證的 Key Vault 必須位於相同的 Azure 訂用帳戶中，以及與 API 管理服務相同的資源群組中。 這是 Azure Resource Manager 範本的需求。 
+1. 包含 pfx 憑證的 Key Vault 必須位於相同的 Azure 訂用帳戶中，以及與 API 管理服務相同的資源群組中。 這是 Azure Resource Manager 範本的需求。
 2. 秘密的內容類型必須是 application/x-pkcs12。 您可以使用下列指令碼來上傳憑證：
 
 ```powershell
@@ -106,7 +106,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 ```
 
 > [!Important]
-> 如果未提供憑證的物件版本，將憑證上傳到 Key Vault 之後，「API 管理」將會自動取得較新版的憑證。 
+> 如果未提供憑證的物件版本，將憑證上傳到 Key Vault 之後，「API 管理」將會自動取得較新版的憑證。
 
 下列範例顯示的 Azure Resource Manager 範本包含下列步驟：
 
@@ -180,7 +180,6 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",
         "tags": {
-            
         },
         "sku": {
             "name": "[parameters('sku')]",
@@ -197,10 +196,10 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
     {
         "type": "Microsoft.KeyVault/vaults/accessPolicies",
         "name": "[concat(parameters('keyVaultName'), '/add')]",
-        "apiVersion": "2015-06-01",        
-      "dependsOn": [
-        "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
+        "apiVersion": "2015-06-01",
+        "dependsOn": [
+            "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
+        ],
         "properties": {
             "accessPolicies": [{
                 "tenantId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').tenantId]",
@@ -211,28 +210,28 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
             }]
         }
     },
-    { 
-      "apiVersion": "2017-05-10", 
-      "name": "apimWithKeyVault", 
-      "type": "Microsoft.Resources/deployments",
-      "dependsOn": [
+    {
+        "apiVersion": "2017-05-10",
+        "name": "apimWithKeyVault",
+        "type": "Microsoft.Resources/deployments",
+        "dependsOn": [
         "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
-      "properties": { 
-        "mode": "incremental", 
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
-          "contentVersion": "1.0.0.0"
-        }, 
-        "parameters": {
-            "publisherEmail": { "value": "[parameters('publisherEmail')]"},
-            "publisherName": { "value": "[parameters('publisherName')]"},
-            "sku": { "value": "[parameters('sku')]"},
-            "skuCount": { "value": "[parameters('skuCount')]"},
-            "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
-            "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+        ],
+        "properties": {
+            "mode": "incremental",
+            "templateLink": {
+                "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
+                "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+                "publisherEmail": { "value": "[parameters('publisherEmail')]"},
+                "publisherName": { "value": "[parameters('publisherName')]"},
+                "sku": { "value": "[parameters('sku')]"},
+                "skuCount": { "value": "[parameters('skuCount')]"},
+                "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
+                "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+            }
         }
-      } 
     }]
 }
 ```
@@ -243,4 +242,3 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 * [受控服務識別 (適用於 Azure 資源)](../active-directory/msi-overview.md)
 * [Azure 資源管理員範本](https://github.com/Azure/azure-quickstart-templates)
-

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: d497f3c5e3d64e13b0c6ad4d3021ad2e451f3ae5
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 39f71ffbe6369ada4f04c456cdb3b15d257a3ef1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296697"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700361"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>建置 .NET 主控台應用程式來管理 Azure Cosmos DB SQL API 帳戶 (SDK 第 3 版預覽) 中的資料
 
@@ -296,7 +296,7 @@ ms.locfileid: "55296697"
     ```csharp
     /*
         Create the container if it does not exist. 
-        Specifiy "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
+        Specify "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
     */
     private async Task CreateContainer()
     {

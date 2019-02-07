@@ -7,17 +7,17 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 9a12ca5deeadfb7272532f404cc9cf7c030fb6c0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 596b7eb53d82f8eee7da439314994fd0951c7e64
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994346"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661712"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>什麼是 Microsoft Azure 中的傳統警示？
 
 > [!NOTE]
-> 本文說明如何建立舊版傳統計量警示。 「Azure 監視器」現已支援[新版的近乎即時計量警示和新的警示體驗](../../azure-monitor/platform/alerts-overview.md)。 傳統警示[已計畫淘汰](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement)。  
+> 本文說明如何建立舊版傳統計量警示。 「Azure 監視器」現已支援[新版的近乎即時計量警示和新的警示體驗](../../azure-monitor/platform/alerts-overview.md)。 傳統警示[已計畫淘汰](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement)。  
 >
 
 警示可讓您對資料設定條件，並在最近的監視資料符合條件時收到通知。

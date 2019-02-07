@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 2c981d33c8108386e0287d4c2a800f065c9dc431
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0146ee6ee37c2eb9e98d831b54df2218d7de5b62
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452850"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754595"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>在資料科學虛擬機器上設定通用身分識別
 
@@ -31,7 +31,7 @@ Active Directory 是一個熱門的身分識別提供者，在 Azure 上 (以服
 
 如果您已經有 Active Directory 來管理身分識別，便可以使用它作為通用身分識別提供者。 如果您沒有 Active Directory，則可以透過名為 [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/) (Azure AD DS) 的服務，在 Azure 上執行受控 Active Directory 執行個體。 
 
-[Azure AD](https://docs.microsoft.com/azure/active-directory/) 的文件提供詳細的[管理指示](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution#synchronized-identity)，包括將 Azure AD 連線至您的內部部署目錄 (如果有的話)。 
+[Azure AD](https://docs.microsoft.com/azure/active-directory/) 的文件提供詳細的[管理指示](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)，包括將 Azure AD 連線至您的內部部署目錄 (如果有的話)。 
 
 本文說明使用 Azure AD DS 在 Azure 上設定完全受控 Active Directory 網域服務的步驟。 接著，您可以將 DSVM 加入受控 Active Directory 網域，以讓使用者能夠使用通用的使用者帳戶和認證來存取 DSVM 的集區 (以及其他 Azure 資源)。 
 

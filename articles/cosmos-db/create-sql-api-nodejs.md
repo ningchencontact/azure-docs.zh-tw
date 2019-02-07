@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: f0c342eb673902f0855ba1ceb482aed10dc01a56
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0f0434fbeb5e0ce825589950a366b09143a1bcba
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034908"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691417"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB：使用 JavaScript SDK 建置 Node.js 應用程式來管理 Azure Cosmos DB SQL API 資料
 
@@ -81,37 +81,37 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 此為選用步驟。 若您想要瞭解如何在程式碼中建立資料庫資源，則可檢閱下列程式碼片段。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-string)。 
 
-請注意，如果您熟悉舊版 JavaScript SDK，您可能已習慣看到「集合」和「文件」等字詞。 因為 Azure Cosmos DB 支援[多個 API 模型](https://docs.microsoft.com/azure/cosmos-db/introduction#key-capabilities)，2.0+ 版的 JavaScript SDK 會使用「容器」這個泛用字詞，此字詞可能是用來說明容器內容的集合、圖表或資料表和「項目」。
+請注意，如果您熟悉舊版 JavaScript SDK，您可能已習慣看到「集合」和「文件」等字詞。 因為 Azure Cosmos DB 支援[多個 API 模型](https://docs.microsoft.com/azure/cosmos-db/introduction)，2.0+ 版的 JavaScript SDK 會使用「容器」這個泛用字詞，此字詞可能是用來說明容器內容的集合、圖表或資料表和「項目」。
 
 下列程式碼片段全部取自 **app.js** 檔案。
 
 * 已初始化 `CosmosClient`。
 
-    ```nodejs
+    ```javascript
     const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
     ```
 
 * 已建立新資料庫。
 
-    ```nodejs
+    ```javascript
     const { database } = await client.databases.createIfNotExists({ id: databaseId });
     ```
 
 * 已建立新容器 (集合)。
 
-    ```nodejs
+    ```javascript
     const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
     ```
 
 * 已建立項目 (文件)。
 
-    ```nodejs
+    ```javascript
     const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
     ```
 
 * 已透過 JSON 執行 SQL 查詢。
 
-    ```nodejs
+    ```javascript
     const querySpec = {
         query: "SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName",
         parameters: [

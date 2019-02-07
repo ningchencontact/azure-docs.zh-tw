@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 50819e1378187dda126f25298d8a2ac0a1b815c5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188770"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747453"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 監視
 
@@ -118,23 +118,12 @@ ms.locfileid: "53188770"
 
 | 通知代碼 (記錄檔) | 說明 |
 | --- | --- |
-| 5101 | Microsoft Edge 子介面顯示高延遲 |
-| 5102 | Microsoft Edge 子介面正在卸除套件 | 
-| 5103 | ExpressRoute 閘道狀況不良 | 
-| 5201 | 服務提供者的連結顯示高延遲 |
-| 5202 | 封包未流自預定的 ExpressRoute 線路 |
-| 5301 | 客戶邊緣路由器顯示高延遲 | 
-| 5302 | 延遲為客戶環境中的裝置/連結所致。 問題似乎非 ExpressRoute 線路所引起 | 
 | 5501 | 無法周遊通過 ExpressRoute 線路的次要連線 |
 | 5502 | 無法周遊通過 ExpressRoute 線路的主要連線 |
 | 5503 | 在連結到工作區的訂用帳戶中找不到任何線路 | 
-| 5506 | 使用率已達最大容量 | 
-| 5507 | 使用率偏低 |
 | 5508 | 無法判斷流量是否通過路徑的任何線路 |
 | 5510 | 流量未通過預期的線路 | 
 | 5511 | 流量未通過預期的虛擬網路 | 
-| 5512 | 無法判斷流量是否通過預期的線路 |
-
 
 **線路關閉。** 一旦您的內部部署資源與 Azure 虛擬網路之間的連線遺失，網路效能監控就會通知您。 這個通知可協助您在收到使用者呈報之前採取主動的動作，並減少停機時間。
 

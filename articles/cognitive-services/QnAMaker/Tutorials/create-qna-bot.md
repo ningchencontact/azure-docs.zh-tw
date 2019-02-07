@@ -11,12 +11,12 @@ ms.subservice: qna-maker`
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 428aea5775c1777f38d7ea563cfe3af700c27f02
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1e1152f810bffb2ab4dfe230c2d3b3c2a8198492
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211826"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811914"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>教學課程：使用 Azure Bot 服務 v3 建立 QnA Bot
 
@@ -96,9 +96,6 @@ Bot 會以「請在應用程式設定中設定 QnAKnowledgebaseId 和 QnASubscri
     - [發佈] 您的知識庫 (如果尚未這麼做)
 
     ![QnA Maker 值](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
-
-> [!NOTE]
-> 如果您想要連接知識庫的預覽版本與 QnA Bot，請將 [Ocp-Apim-Subscription-Key] 的值設定為 [QnAAuthKey]。 將 **QnAEndpointHostName** 保留空白。
 
 ## <a name="test-the-bot"></a>測試 Bot
 

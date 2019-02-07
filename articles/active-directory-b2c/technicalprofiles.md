@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c197ead3a7b0f61b9dd5f1e3ea0bd197c23a2778
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 86f2a8fa11becdf24c0a10c0325893946a033c3d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180759"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568170"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -76,7 +76,7 @@ ms.locfileid: "55180759"
 
 | 屬性 | 必要 | 說明 |
 |---------|---------|---------|
-| id | 是 | 技術設定檔的唯一識別碼。 可使用此識別碼，從原則設定檔的其他元素參考此技術設定檔。 例如，**OrchestrationSteps** 和 **ValidationTechnicalProfile**。 |
+| id | yes | 技術設定檔的唯一識別碼。 可使用此識別碼，從原則設定檔的其他元素參考此技術設定檔。 例如，**OrchestrationSteps** 和 **ValidationTechnicalProfile**。 |
 
 **TechnicalProfile** 包含下列元素：
 
@@ -97,7 +97,7 @@ ms.locfileid: "55180759"
 | OutputClaimsTransformations | 0:1 | 先前定義的宣告轉換參考清單，應在來自宣告提供者的宣告受到接收後再執行。 |
 | ValidationTechnicalProfiles | 0:n | 其他技術設定檔的參考清單，技術設定檔會用來進行用途的驗證。 如需詳細資訊，請參閱[驗證技術設定檔](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | 控制權杖中主體名稱的產生，其中主體名稱與宣告分開指定。 例如，OAuth 或 SAML。  |
-| IncludeClaimsFromTechnicalProfile | 0:1 | 技術設定檔的識別碼，您打算將所有輸入和輸出宣告加入此技術設定檔。 必須在相同原則檔中定義參考的技術設定檔。 | 
+| IncludeClaimsFromTechnicalProfile | 0:1 | 技術設定檔的識別碼，您打算將所有輸入和輸出宣告加入此技術設定檔。 必須在相同原則檔中定義參考的技術設定檔。 |
 | IncludeTechnicalProfile |0:1 | 技術設定檔的識別碼，您打算將所有資料加入此技術設定檔。 參考的技術設定檔必須存在於相同的原則檔中。 |
 | UseTechnicalProfileForSessionManagement | 0:1 | 用於工作階段管理的不同技術設定檔。 |
 |EnabledForUserJourneys| 0:1 |控制是否可在使用者旅程圖中執行技術設定檔。  |
@@ -108,7 +108,7 @@ ms.locfileid: "55180759"
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
-| Name | 是 | Azure AD B2C 所支援的有效通訊協定名稱，可用來作為技術設定檔的一部分。 可能的值：`OAuth1`、`OAuth2`、`SAML2`、`OpenIdConnect`、`WsFed`、`WsTrust`、`Proprietary`、`session management`、`self-asserted` 或 `None`。 |
+| Name | yes | Azure AD B2C 所支援的有效通訊協定名稱，可用來作為技術設定檔的一部分。 可能的值：`OAuth1`、`OAuth2`、`SAML2`、`OpenIdConnect`、`WsFed`、`WsTrust`、`Proprietary`、`session management`、`self-asserted` 或 `None`。 |
 | 處理常式 | 否 | 當通訊協定名稱設為 `Proprietary` 時，請指定 Azure AD B2C 用於判斷通訊協定處理常式之組件的完整名稱。 |
 
 ### <a name="metadata"></a>中繼資料
@@ -125,7 +125,7 @@ ms.locfileid: "55180759"
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
-| Key | 是 | 中繼資料索引鍵。 如需中繼資料項目的清單，請參閱每個技術設定檔類型。 |
+| Key | yes | 中繼資料索引鍵。 如需中繼資料項目的清單，請參閱每個技術設定檔類型。 |
 
 ### <a name="cryptographickeys"></a>CryptographicKeys
 
@@ -142,7 +142,7 @@ ms.locfileid: "55180759"
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
 | id | 否 | 原則檔中的其他元素所參考之特定金鑰組的唯一識別碼。 |
-| StorageReferenceId | 是 | 原則檔中的其他元素所參考之儲存體金鑰容器的識別碼。 |
+| StorageReferenceId | yes | 原則檔中的其他元素所參考之儲存體金鑰容器的識別碼。 |
 
 ### <a name="inputclaimstransformations"></a>InputClaimsTransformations
 
@@ -158,7 +158,7 @@ ms.locfileid: "55180759"
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
-| ReferenceId | 是 | 已在原則檔或父原則檔中定義之宣告轉換的識別碼。 |
+| ReferenceId | yes | 已在原則檔或父原則檔中定義之宣告轉換的識別碼。 |
 
 ### <a name="inputclaims"></a>InputClaims
 
@@ -168,13 +168,13 @@ ms.locfileid: "55180759"
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | 預期的輸入宣告類型。 |
 
-#### <a name="inputclaim"></a>InputClaim 
+#### <a name="inputclaim"></a>InputClaim
 
 **InputClaim** 元素包含下列屬性：
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | 是 | 已在原則檔或父代原則檔之 ClaimsSchema 區段中定義的宣告類型識別碼。 |
+| ClaimTypeReferenceId | yes | 已在原則檔或父代原則檔之 ClaimsSchema 區段中定義的宣告類型識別碼。 |
 | DefaultValue | 否 | 當 ClaimTypeReferenceId 指示的宣告不存在時，此預設值可用於建立宣告，以便產生的宣告可由技術設定檔用來作為 InputClaim。 |
 | PartnerClaimType | 否 | 指定的原則宣告類型對應之外部夥伴的宣告類型識別碼。 如果未指定 PartnerClaimType 屬性，則指定的原則宣告類型會對應至相同名稱的夥伴宣告類型。 當您的宣告類型名稱不同於其他合作對象時，請使用這個屬性。 例如，第一個宣告名稱是 'givenName'，而夥伴會使用名稱為 'first_name' 的宣告。 |
 
@@ -186,13 +186,13 @@ ms.locfileid: "55180759"
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | 要保存的宣告類型。 |
 
-#### <a name="persistedclaim"></a>PersistedClaim 
+#### <a name="persistedclaim"></a>PersistedClaim
 
 **PersistedClaim** 元素包含下列屬性：
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | 是 | 已在原則檔或父代原則檔之 ClaimsSchema 區段中定義的宣告類型識別碼。 |
+| ClaimTypeReferenceId | yes | 已在原則檔或父代原則檔之 ClaimsSchema 區段中定義的宣告類型識別碼。 |
 | DefaultValue | 否 | 當 ClaimTypeReferenceId 指示的宣告不存在時，此預設值可用於建立宣告，以便產生的宣告可由技術設定檔用來作為 InputClaim。 |
 | PartnerClaimType | 否 | 指定的原則宣告類型對應之外部夥伴的宣告類型識別碼。 如果未指定 PartnerClaimType 屬性，則指定的原則宣告類型會對應至相同名稱的夥伴宣告類型。 當您的宣告類型名稱不同於其他合作對象時，請使用這個屬性。 例如，第一個宣告名稱是 'givenName'，而夥伴會使用名稱為 'first_name' 的宣告。 |
 
@@ -204,13 +204,13 @@ ms.locfileid: "55180759"
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | 預期的輸出宣告類型。 |
 
-#### <a name="outputclaim"></a>OutputClaim 
+#### <a name="outputclaim"></a>OutputClaim
 
 **OutputClaim** 元素包含下列屬性：
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | 是 | 已在原則檔或父代原則檔之 ClaimsSchema 區段中定義的宣告類型識別碼。 |
+| ClaimTypeReferenceId | yes | 已在原則檔或父代原則檔之 ClaimsSchema 區段中定義的宣告類型識別碼。 |
 | DefaultValue | 否 | 當 ClaimTypeReferenceId 指示的宣告不存在時，此預設值可用於建立宣告，以便產生的宣告可由技術設定檔用來作為 InputClaim。 |
 |AlwaysUseDefaultValue |否 |強制使用預設值。  |
 | PartnerClaimType | 否 | 指定的原則宣告類型對應之外部夥伴的宣告類型識別碼。 如果未指定 PartnerClaimType 屬性，則指定的原則宣告類型會對應至相同名稱的夥伴宣告類型。 當您的宣告類型名稱不同於其他合作對象時，請使用這個屬性。 例如，第一個宣告名稱是 'givenName'，而夥伴會使用名稱為 'first_name' 的宣告。 |
@@ -229,7 +229,7 @@ ms.locfileid: "55180759"
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
-| ReferenceId | 是 | 已在原則檔或父原則檔中定義之宣告轉換的識別碼。 |
+| ReferenceId | yes | 已在原則檔或父原則檔中定義之宣告轉換的識別碼。 |
 
 ### <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
@@ -245,7 +245,7 @@ ms.locfileid: "55180759"
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
-| ReferenceId | 是 | 已在原則檔或父原則檔中定義之技術設定檔的識別碼。 |
+| ReferenceId | yes | 已在原則檔或父原則檔中定義之技術設定檔的識別碼。 |
 
 ###  <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
@@ -253,7 +253,7 @@ ms.locfileid: "55180759"
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
-| ClaimType | 是 | 已在原則檔之 ClaimsSchema 區段中定義的宣告類型識別碼。 |
+| ClaimType | yes | 已在原則檔之 ClaimsSchema 區段中定義的宣告類型識別碼。 |
 
 ### <a name="includetechnicalprofile"></a>IncludeTechnicalProfile
 
@@ -261,7 +261,7 @@ ms.locfileid: "55180759"
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
-| ReferenceId | 是 | 已在原則檔或父原則檔中定義之技術設定檔的識別碼。 |
+| ReferenceId | yes | 已在原則檔或父原則檔中定義之技術設定檔的識別碼。 |
 
 ### <a name="usetechnicalprofileforsessionmanagement"></a>UseTechnicalProfileForSessionManagement
 
@@ -269,15 +269,15 @@ ms.locfileid: "55180759"
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
-| ReferenceId | 是 | 已在原則檔或父原則檔中定義之技術設定檔的識別碼。 |
+| ReferenceId | yes | 已在原則檔或父原則檔中定義之技術設定檔的識別碼。 |
 
 ### <a name="enabledforuserjourneys"></a>EnabledForUserJourneys
 使用者旅程圖中的 **ClaimsProviderSelections** 會定義宣告提供者選項清單及其順序。 使用您篩選的 **EnabledForUserJourneys** 元素，其宣告提供者可供使用者使用。 **EnabledForUserJourneys** 元素包含下列其中一個值：
 
 - **Always**，執行技術設定檔。
-- **Never**，跳過技術設定檔。 
-- **OnClaimsExistence**，僅於存在技術設定檔中指定的特定宣告時執行。 
-- **OnItemExistenceInStringCollectionClaim**，僅在項目存在於字串集合宣告中時執行。 
+- **Never**，跳過技術設定檔。
+- **OnClaimsExistence**，僅於存在技術設定檔中指定的特定宣告時執行。
+- **OnItemExistenceInStringCollectionClaim**，僅在項目存在於字串集合宣告中時執行。
 - **OnItemAbsenceInStringCollectionClaim**，僅在項目存在於字串集合宣告中時執行。
 
 使用 **OnClaimsExistence**、**OnItemExistenceInStringCollectionClaim** 或 **OnItemAbsenceInStringCollectionClaim** 時，您必須提供下列中繼資料：**ClaimTypeOnWhichToEnable** 可指定要評估的宣告類型，**ClaimValueOnWhichToEnable** 可指定要比較的值。
@@ -289,22 +289,10 @@ ms.locfileid: "55180759"
   <DisplayName>Unlink Facebook</DisplayName>
 ...
     <Metadata>
-        <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
-        <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
-    </Metadata>        
+      <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
+      <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
+    </Metadata>
 ...
   <EnabledForUserJourneys>OnItemExistenceInStringCollectionClaim</EnabledForUserJourneys>
-</TechnicalProfile>  
+</TechnicalProfile>
 ```
-
-
-
-
-
-
-
-
-
-
-
-

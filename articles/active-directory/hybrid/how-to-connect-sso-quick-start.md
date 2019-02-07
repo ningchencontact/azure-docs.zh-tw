@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 25546c37db7e1117ed73c17f2f7b2a5211d48d51
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1fadf186176c8bc82aaefe9a908f25f9c8a7e35a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162611"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755453"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -164,14 +164,6 @@ ms.locfileid: "55162611"
     ![單一登入](./media/how-to-connect-sso-quick-start/sso16.png)
  
     ![單一登入](./media/how-to-connect-sso-quick-start/sso17.png)
-
-6. 瀏覽至 [使用者設定] > [系統管理範本] > [Windows 元件] > [Internet Explorer] > [網際網路控制台] > [安全性頁面] > [內部網路區域]。 然後選取 [允許透過指令碼更新狀態列]。
-
-    ![單一登入](./media/how-to-connect-sso-quick-start/sso11.png)
-
-7. 啟用原則設定，然後選取 [確定]。
-
-    ![單一登入](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="browser-considerations"></a>瀏覽器考量
 

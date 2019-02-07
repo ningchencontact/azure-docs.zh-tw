@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 110b909106f5b9eae639639adf418647e3e8bea9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022337"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491462"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的部署函式 
 
@@ -30,6 +30,8 @@ ms.locfileid: "54022337"
 若要從資源、資源群組或訂用帳戶中取得值，請參閱 [資源函式](resource-group-template-functions-resource.md)。
 
 <a id="deployment" />
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment"></a>部署
 `deployment()`
@@ -149,10 +151,10 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
-如需使用部署函式的訂用帳戶層級範本，請參閱[訂用帳戶部署函式](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json)。 它會使用 `az deployment create` 或 `New-AzureRmDeployment` 命令進行部署。
+如需使用部署函式的訂用帳戶層級範本，請參閱[訂用帳戶部署函式](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json)。 它會使用 `az deployment create` 或 `New-AzDeployment` 命令進行部署。
 
 <a id="parameters" />
 
@@ -165,7 +167,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| parameterName |是 |字串 |要傳回的參數名稱。 |
+| parameterName |yes |字串 |要傳回的參數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -253,7 +255,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 | Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | stringOutput | 字串 | 選項 1 |
-| intOutput | int | 1 |
+| intOutput | Int | 1 |
 | objectOutput | Object | {"one": "a", "two": "b"} |
 | arrayOutput | 陣列 | [1, 2, 3] |
 | crossOutput | 字串 | 選項 1 |
@@ -267,7 +269,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
 ```
 
 <a id="variables" />
@@ -281,7 +283,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| variableName |是 |字串 |要傳回的變數名稱。 |
+| variableName |yes |字串 |要傳回的變數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -369,7 +371,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
 ```
 
 ## <a name="next-steps"></a>後續步驟

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a42f5f441dd63f8d6a7f5bd1cfdf0452d025816e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 068929bbde8e4c1411004b45fc77f0188de43ff8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017679"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814194"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory 服務識別
 
@@ -44,7 +44,7 @@ ms.locfileid: "54017679"
 
 - [使用 PowerShell 產生服務識別](#generate-service-identity-using-powershell)
 - [使用 REST API 產生服務識別](#generate-service-identity-using-rest-api)
-- [使用 Azure Resource Manager 範本產生服務識別](#generate-service-identity-using-azure-resource-manager-template)
+- 使用 Azure Resource Manager 範本產生服務識別
 - [使用 SDK 產生服務識別](#generate-service-identity-using-sdk)
 
 >[!NOTE]
@@ -192,4 +192,4 @@ Type                  : ServicePrincipal
 - [在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)
 - [使用 Azure 資源的受控識別驗證，從 Azure Data Lake Store 來回複製資料](connector-azure-data-lake-store.md)
 
-請參閱 [Azure 資源的受控識別概觀](~/articles/active-directory/msi-overview.md)，以了解關於 Azure 資源的受控識別的詳細背景，而資料處理站服務識別會以這類受控識別為基礎。 
+請參閱 [Azure 資源的受控識別概觀](/azure/active-directory/managed-identities-azure-resources/overview)，以了解關於 Azure 資源的受控識別的詳細背景，而資料處理站服務識別會以這類受控識別為基礎。 

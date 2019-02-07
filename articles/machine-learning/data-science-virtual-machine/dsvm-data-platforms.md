@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 744c8d6488b9b0688126d305426f90647a89d4be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 27e0deae9c35ad8fa00659e3e3e505cace6e9014
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478078"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733428"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>資料科學虛擬機器上所支援的資料平台
 
@@ -105,5 +105,5 @@ SQL Server 是以標準方式安裝的。 它位於 `C:\Program Files\Microsoft 
 | Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 
-從 Azure Blob 或 Azure Data Lake 儲存體 (ADLS) 存取資料的程式庫和 Microsoft 的 MMLSpark 機器學習程式庫預先安裝於 $SPARK_HOME/jars。 Spark 啟動時，這些 JAR 會自動載入。 Spark 預設使用本機磁碟上的資料。 若要讓 DSVM 上的 Spark  執行個體存取 Azure Blob 或 ADLS 上儲存的資料，您需要遵循在 $SPARK_HOME/conf/core-site.xml.template (其中包含 Blob 和 ADLS 組態的預留位置) 中找到的範本，使用 Azure Blob 和 Azure Data Lake 儲存體的適當認證建立/設定 `core-site.xml` 檔案。 您可以在[這裡](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application)找到建立 ADLS 服務認證的詳細步驟。 在 core-site.xml 檔案中輸入 Azure Blob 或 ADLS 的認證時，您可以使用 wasb:// 或 adl:// 的 URI 前置詞參照這些來源中儲存的資料。 
+從 Azure Blob 或 Azure Data Lake 儲存體 (ADLS) 存取資料的程式庫和 Microsoft 的 MMLSpark 機器學習程式庫預先安裝於 $SPARK_HOME/jars。 Spark 啟動時，這些 JAR 會自動載入。 Spark 預設使用本機磁碟上的資料。 若要讓 DSVM 上的 Spark  執行個體存取 Azure Blob 或 ADLS 上儲存的資料，您需要遵循在 $SPARK_HOME/conf/core-site.xml.template (其中包含 Blob 和 ADLS 組態的預留位置) 中找到的範本，使用 Azure Blob 和 Azure Data Lake 儲存體的適當認證建立/設定 `core-site.xml` 檔案。 您可以在[這裡](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)找到建立 ADLS 服務認證的詳細步驟。 在 core-site.xml 檔案中輸入 Azure Blob 或 ADLS 的認證時，您可以使用 wasb:// 或 adl:// 的 URI 前置詞參照這些來源中儲存的資料。 
 

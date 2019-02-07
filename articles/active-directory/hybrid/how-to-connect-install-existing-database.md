@@ -12,16 +12,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4d450a36d1d2eef662f88fe8d8fc08873d701aa1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f863c4b115616ff709634f3c68955c3be3241707
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164583"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494182"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>使用現有的 ADSync 資料庫安裝 Azure AD Connect
 Azure AD Connect 需要 SQL Server 資料庫來儲存資料。 您可以使用 Azure AD Connect 安裝的預設 SQL Server 2012 Express LocalDB 或使用您自己的完整版 SQL。 在先前，當您安裝 Azure AD Connect 時，一律會建立名為 ADSync 的新資料庫。 使用 Azure AD Connect 1.1.613.0 版 (或更新版本)，您可以選擇指向現有的 ADSync 資料庫來安裝 Azure AD Connect。

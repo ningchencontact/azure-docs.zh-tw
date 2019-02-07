@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 412727d79c194172f2855d014d1eaf18f44167f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 6a7f7943e9d567a953c0e21697dfe4fdedd6e8f0
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159344"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744784"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure 資料箱磁碟限制
 
@@ -66,8 +66,8 @@ ms.locfileid: "54159344"
 
 | Azure 物件類型 | 預設限制                                             |
 |-------------------|-----------------------------------------------------------|
-| 區塊 Blob        | ~ 8 TB                                                 |
-| 分頁 Blob         | 1 TB <br> (以分頁 Blob 格式上傳的每個檔案都必須是 512 位元組規格 (整數倍數)，否則上傳會失敗。 <br> VHD 和 VHDX 為 512 位元組規格。) |
+| 區塊 Blob        | ~ 4.75 TiB                                                 |
+| 分頁 Blob         | 8 TiB <br> (以分頁 Blob 格式上傳的每個檔案都必須是 512 位元組規格 (整數倍數)，否則上傳會失敗。 <br> VHD 和 VHDX 為 512 位元組規格。) |
 
 
 ## <a name="azure-block-blob-and-page-blob-naming-conventions"></a>Azure 區塊 Blob 和分頁 Blob 的命名慣例

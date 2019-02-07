@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 892d142839fac67e2cfacbe70c8474cf730c90d4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 63dbdc7dc647a05da11192476076c3ee08a5e2bf
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161489"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768201"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>教學課程：使用 Azure CLI 建立包含 URL 路徑型重新導向的應用程式閘道
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>建立網路資源 
 
-使用 [az network vnet create](/cli/azure/network/vnet#az-net) 建立名為 myVNet 的虛擬網路，以及名為 myAGSubnet 的子網路。 然後您可以使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet) 新增名為 myBackendSubnet 的子網路，後端伺服器需要該子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create) 建立名為 myAGPublicIPAddress 的公用 IP 位址。
+使用 [az network vnet create](/cli/azure/network/vnet) 建立名為 myVNet 的虛擬網路，以及名為 myAGSubnet 的子網路。 然後您可以使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet) 新增名為 myBackendSubnet 的子網路，後端伺服器需要該子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip) 建立名為 myAGPublicIPAddress 的公用 IP 位址。
 
 ```azurecli-interactive
 az network vnet create \
@@ -106,7 +106,7 @@ az network application-gateway create \
 
 ### <a name="add-backend-pools-and-ports"></a>新增後端集區和連接埠
 
-您可以使用 [az network application-gateway address-pool create](/cli/azure/network/application-gateway#az-network_application_gateway_address-pool_create)，將名為 *imagesBackendPool* 和 *videoBackendPool* 的後端位址集區新增至應用程式閘道。 您可以使用 [az network application-gateway frontend-port create](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create)，以新增集區的前端連接埠。 
+您可以使用 [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool)，將名為 *imagesBackendPool* 和 *videoBackendPool* 的後端位址集區新增至應用程式閘道。 您可以使用 [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port)，以新增集區的前端連接埠。 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -136,7 +136,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-listeners"></a>新增接聽程式
 
-使用 [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create)，以新增路由流量時所需且名為 *backendListener* 和 *redirectedListener* 的後端接聽程式。
+使用 [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener)，以新增路由流量時所需且名為 *backendListener* 和 *redirectedListener* 的後端接聽程式。
 
 
 ```azurecli-interactive
@@ -157,7 +157,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-default-url-path-map"></a>新增預設 URL 路徑對應
 
-URL 路徑對應可確保特定 URL 會路由傳送到特定的後端集區。 您可以使用 [az network application-gateway url-path-map create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_create) 和 [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_rule_create)，建立名為 imagePathRule 和 videoPathRule 的 URL 路徑對應
+URL 路徑對應可確保特定 URL 會路由傳送到特定的後端集區。 您可以使用 [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) 和 [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)，建立名為 imagePathRule 和 videoPathRule 的 URL 路徑對應
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -182,7 +182,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-redirection-configuration"></a>新增重新導向設定
 
-您可以使用 [az network application-gateway redirect-config create](/cli/azure/network/application-gateway)，以設定接聽程式的重新導向。
+您可以使用 [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config)，以設定接聽程式的重新導向。
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -209,7 +209,7 @@ az network application-gateway url-path-map create \
 
 ### <a name="add-routing-rules"></a>新增路由規則
 
-路由規則會讓 URL 路徑對應與您所建立的接聽程式產生關聯。 您可以使用 [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create)，以新增名為 *defaultRule* 和 *redirectedRule* 的規則。
+路由規則會讓 URL 路徑對應與您所建立的接聽程式產生關聯。 您可以使用 [az network application-gateway rule create](/cli/azure/network/application-gateway/rule)，以新增名為 *defaultRule* 和 *redirectedRule* 的規則。
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -283,7 +283,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-若要取得應用程式閘道的公用 IP 位址，請使用 [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如，*http://40.121.222.19*、*http://40.121.222.19:8080/images/test.htm*、*http://40.121.222.19:8080/video/test.htm* 或 *http://40.121.222.19:8081/images/test.htm*。
+若要取得應用程式閘道的公用 IP 位址，請使用 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如，*http://40.121.222.19*、*http://40.121.222.19:8080/images/test.htm*、*http://40.121.222.19:8080/video/test.htm* 或 *http://40.121.222.19:8081/images/test.htm*。
 
 ```azurepowershell-interactive
 az network public-ip show \

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 4f870c052d83352c8cfd692ea5f30a42071c95a0
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: aea21d09aa37eb2f0902df6245e9baebfcbb37fd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582027"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698560"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>使用 CLI將受控磁碟複製到相同或不同的訂用帳戶
 
@@ -43,8 +43,8 @@ ms.locfileid: "53582027"
 
 | 命令 | 注意 |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | 使用受控磁碟的名稱和資源群組屬性，取得受控磁碟的所有屬性。 使用 Id 屬性將受控磁碟複製到不同的訂用帳戶。  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | 使用父受控磁碟的識別碼和名稱，在不同的訂閱中建立一個新的受控磁碟管，來複製受控磁碟。  |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk) | 使用受控磁碟的名稱和資源群組屬性，取得受控磁碟的所有屬性。 使用 Id 屬性將受控磁碟複製到不同的訂用帳戶。  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | 使用父受控磁碟的識別碼和名稱，在不同的訂閱中建立一個新的受控磁碟管，來複製受控磁碟。  |
 
 ## <a name="next-steps"></a>後續步驟
 

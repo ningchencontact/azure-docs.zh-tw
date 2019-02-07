@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: priyamo
-ms.openlocfilehash: 03e22ae9aaa3ab967b55443ccbd933c265510227
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 42b0ab15f43d301629b9fbb3208ba24eae8c227e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180104"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694596"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>使用 Azure CLI 在虛擬機器擴展集上設定 Azure 資源受控識別
 
@@ -113,7 +113,7 @@ az vmss update -n myVM -g myResourceGroup --set identity.type='UserAssigned'
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-若要移除 Azure 資源受控識別 VM 擴充功能 (計劃在 2019 年 1 月淘汰)，請使用 [az vmss identity remove](/cli/azure/vmss/identity/#az-vmss-remove-identity) 命令從 VMSS 移除系統指派的受控識別：
+若要移除 Azure 資源受控識別 VM 擴充功能 (計劃在 2019 年 1 月淘汰)，請使用 [az vmss identity remove](/cli/azure/vmss/identity/) 命令從 VMSS 移除系統指派的受控識別：
 
 ```azurecli-interactive
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
@@ -190,7 +190,7 @@ az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGrou
    }
    ```
 
-2. 使用 [az vmss identity assign](/cli/azure/vmss/identity#az-vm-assign-identity)，將使用者指派的受控識別指派給您的 VMSS。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VMSS NAME>` 參數的值。 `<USER ASSIGNED IDENTITY>` 是使用者所指派身分識別的資源 `name` 屬性 (在上一個步驟中建立)：
+2. 使用 [az vmss identity assign](/cli/azure/vmss/identity)，將使用者指派的受控識別指派給您的 VMSS。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VMSS NAME>` 參數的值。 `<USER ASSIGNED IDENTITY>` 是使用者所指派身分識別的資源 `name` 屬性 (在上一個步驟中建立)：
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b0d2a72567783ca1c127f76d94ddc9c5e007ea89
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179475"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751016"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立及管理虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 在虛擬機器擴展集生命週期期間，您可能需要執行一或多個管理工作。 在本教學課程中，您將了解如何：
@@ -41,7 +41,7 @@ ms.locfileid: "55179475"
 
 
 ## <a name="create-a-resource-group"></a>建立資源群組
-Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 資源群組必須在虛擬機器擴展集之前建立。 使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 在此範例中，會在 eastus 區域中建立名為 myResourceGroup 的資源群組。 
+Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 資源群組必須在虛擬機器擴展集之前建立。 使用 [az group create](/cli/azure/group) 命令來建立資源群組。 在此範例中，會在 eastus 區域中建立名為 myResourceGroup 的資源群組。 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -66,7 +66,7 @@ az vmss create \
 
 
 ## <a name="view-the-vm-instances-in-a-scale-set"></a>檢視擴展集中的 VM 執行個體
-若要檢視擴展集中的 VM 執行個體清單，請使用 [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances)，如下所示：
+若要檢視擴展集中的 VM 執行個體清單，請使用 [az vmss list-instances](/cli/azure/vmss)，如下所示：
 
 ```azurecli-interactive
 az vmss list-instances \
@@ -85,7 +85,7 @@ az vmss list-instances \
 ```
 
 
-輸出中的第一個資料行會顯示 *InstanceId*。 若要檢視特定 VM 執行個體的其他資訊，請將 `--instance-id` 參數新增至 [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)。 下列範例顯示 VM 執行個體 *1* 的相關資訊：
+輸出中的第一個資料行會顯示 *InstanceId*。 若要檢視特定 VM 執行個體的其他資訊，請將 `--instance-id` 參數新增至 [az vmss get-instance-view](/cli/azure/vmss)。 下列範例顯示 VM 執行個體 *1* 的相關資訊：
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -129,7 +129,7 @@ exit
 
 
 ## <a name="understand-vm-instance-images"></a>了解 VM 執行個體映像
-當您在教學課程一開始建立擴展集時，您為 VM 執行個體指定了 *UbuntuLTS* 的 `--image`。 Azure Marketplace 包含許多可用來建立 VM 執行個體的映像。 若要查看最常用的映像清單，請使用 [az vm image list](/cli/azure/vm/image#az_vm_image_list) 命令。
+當您在教學課程一開始建立擴展集時，您為 VM 執行個體指定了 *UbuntuLTS* 的 `--image`。 Azure Marketplace 包含許多可用來建立 VM 執行個體的映像。 若要查看最常用的映像清單，請使用 [az vm image list](/cli/azure/vm/image) 命令。
 
 ```azurecli-interactive
 az vm image list --output table
@@ -243,7 +243,7 @@ az vmss create \
 ## <a name="change-the-capacity-of-a-scale-set"></a>變更擴展集的容量
 當您在教學課程一開始建立擴展集時，您依預設部署了兩個 VM 執行個體。 您可以在使用 [az vmss create](/cli/azure/vmss) 時指定 `--instance-count` 參數，以變更要隨擴展集建立的執行個體數目。 若要增加或減少您現有擴展集中的 VM 執行個體數目，您可以手動變更容量。 擴展集會建立或移除所需的 VM 執行個體數目，然後設定用來分散流量的負載平衡器。
 
-若要手動增加或減少擴展集中的 VM 執行個體數目，請使用 [az vmss scale](/cli/azure/vmss#az_vmss_scale)。 下列範例會將擴展集中的 VM 執行個體數目設為 *3*：
+若要手動增加或減少擴展集中的 VM 執行個體數目，請使用 [az vmss scale](/cli/azure/vmss)。 下列範例會將擴展集中的 VM 執行個體數目設為 *3*：
 
 ```azurecli-interactive
 az vmss scale \
@@ -252,7 +252,7 @@ az vmss scale \
     --new-capacity 3
 ```
 
-如果需要幾分鐘的時間才能更新您擴展集的容量。 若要查看擴展集中目前包含的執行個體數目，請使用 [az vmss show](/cli/azure/vmss#az_vmss_show) 並查詢 *sku.capacity*：
+如果需要幾分鐘的時間才能更新您擴展集的容量。 若要查看擴展集中目前包含的執行個體數目，請使用 [az vmss show](/cli/azure/vmss) 並查詢 *sku.capacity*：
 
 ```azurecli-interactive
 az vmss show \
@@ -267,27 +267,27 @@ az vmss show \
 現在，您可以建立擴展集、列出連線資訊，以及連線至 VM 執行個體。 您已了解如何對 VM 執行個體使用不同的作業系統映像、選取不同的 VM 大小，或手動調整執行個體數目。 在日常管理工作中，您可能需要停止、啟動或重新啟動擴展集中的 VM 執行個體。
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>停止及解除配置擴展集中的 VM 執行個體
-若要停止擴展集中的一或多個 VM 執行個體，請使用 [az vmss stop](/cli/azure/vmss#az_vmss_stop)。 `--instance-ids` 參數可讓您指定一或多個要停止的 VM 執行個體。 如果您未指定執行個體識別碼，則會停止擴展集中的所有 VM 執行個體。 下列範例會停止執行個體 *1*：
+若要停止擴展集中的一或多個 VM 執行個體，請使用 [az vmss stop](/cli/azure/vmss)。 `--instance-ids` 參數可讓您指定一或多個要停止的 VM 執行個體。 如果您未指定執行個體識別碼，則會停止擴展集中的所有 VM 執行個體。 下列範例會停止執行個體 *1*：
 
 ```azurecli-interactive
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
-已停止的 VM 執行個體會維持配置，並繼續產生計算費用。 如果您轉而想要解除配置 VM 執行個體，而且只要產生儲存體費用，請使用 [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate)。 下列範例會停止並解除配置執行個體 *1*：
+已停止的 VM 執行個體會維持配置，並繼續產生計算費用。 如果您轉而想要解除配置 VM 執行個體，而且只要產生儲存體費用，請使用 [az vmss deallocate](/cli/azure/vmss)。 下列範例會停止並解除配置執行個體 *1*：
 
 ```azurecli-interactive
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>啟動擴展集中的 VM 執行個體
-若要啟動擴展集中的一或多個 VM 執行個體，請使用 [az vmss start](/cli/azure/vmss#az_vmss_start)。 `--instance-ids` 參數可讓您指定一或多個要啟動的 VM 執行個體。 如果您未指定執行個體識別碼，則會啟動擴展集中的所有 VM 執行個體。 下列範例會啟動執行個體 *1*：
+若要啟動擴展集中的一或多個 VM 執行個體，請使用 [az vmss start](/cli/azure/vmss)。 `--instance-ids` 參數可讓您指定一或多個要啟動的 VM 執行個體。 如果您未指定執行個體識別碼，則會啟動擴展集中的所有 VM 執行個體。 下列範例會啟動執行個體 *1*：
 
 ```azurecli-interactive
 az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="restart-vm-instances-in-a-scale-set"></a>重新啟動擴展集中的 VM 執行個體
-若要重新啟動擴展集中的一或多個 VM 執行個體，請使用 [az vmss restart](/cli/azure/vmss#az_vm_restart)。 `--instance-ids` 參數可讓您指定一或多個要重新啟動的 VM 執行個體。 如果您未指定執行個體識別碼，則會重新啟動擴展集中的所有 VM 執行個體。 下列範例會重新啟動執行個體 *1*：
+若要重新啟動擴展集中的一或多個 VM 執行個體，請使用 [az vmss restart](/cli/azure/vmss)。 `--instance-ids` 參數可讓您指定一或多個要重新啟動的 VM 執行個體。 如果您未指定執行個體識別碼，則會重新啟動擴展集中的所有 VM 執行個體。 下列範例會重新啟動執行個體 *1*：
 
 ```azurecli-interactive
 az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-ids 1

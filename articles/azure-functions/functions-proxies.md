@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 507927934c442c8b217ed8fea371f505bb517d35
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4bfe4f9f97587b6791e73c2f04055b2dcf5d0f0d
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198706"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766209"
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions Proxy
 
@@ -249,7 +249,7 @@ requestOverrides 物件定義針對傳回給用戶端之回應所做的變更。
 > 此範例會直接設定回應本文，因此不需要 `backendUri` 屬性。 此範例示範如何使用 Azure Functions Proxy 來模擬 API。
 
 [Azure 入口網站]: https://portal.azure.com
-[HTTP 觸發程序]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
+[HTTP 觸發程序]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [定義 requestOverrides 物件]: #requestOverrides

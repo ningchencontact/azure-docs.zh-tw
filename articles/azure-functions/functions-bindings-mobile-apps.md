@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: f61a00e3ea243dfdf777af88b5f211580f35d8a0
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5fd220f15f363c1987f1576009519e4b2feae6b9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001652"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814855"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Mobile Apps 繫結 
 
@@ -44,7 +44,7 @@ Mobile Apps 輸入繫結會從行動資料表端點載入記錄，並將它傳�
 請參閱特定語言的範例：
 
 * [C# 指令碼 (.csx)](#input---c-script-example)
-* [JavaScript](#input---javascript-example)
+* JavaScript
 
 ### <a name="input---c-script-example"></a>輸入 - C# 指令碼範例
 

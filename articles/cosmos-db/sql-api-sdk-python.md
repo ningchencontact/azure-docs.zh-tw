@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 01f6fe3ef309f19896befe61512d524a8543745f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9a240e15049d1acd7344f3ecf7dbf41ff2c3850d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041453"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818782"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Python SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -30,20 +30,14 @@ ms.locfileid: "54041453"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**下載 SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
-
-<tr><td>**API 文件**</td><td>[Python API 參考文件](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
-
-<tr><td>**SDK 安裝指示**</td><td>[SDK 安裝指示](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**參與 SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**開始使用**</td><td>[開始使用 Python SDK](sql-api-python-application.md)</td></tr>
-
-<tr><td>**目前支援的平台**</td><td>[Python 2.7](https://www.python.org/downloads/) 和 [Python 3.5](https://www.python.org/downloads/)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**下載 SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
+|**API 文件**|[Python API 參考文件](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**SDK 安裝指示**|[SDK 安裝指示](https://github.com/Azure/azure-cosmos-python)|
+|**參與 SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
+|**開始使用**|[開始使用 Python SDK](sql-api-python-application.md)|
+|**目前支援的平台**|[Python 2.7](https://www.python.org/downloads/) 和 [Python 3.5](https://www.python.org/downloads/)|
 
 ## <a name="release-notes"></a>版本資訊
 
@@ -177,7 +171,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 | [1.6.0](#1.6.0) |2016 年 3 月 29 日 |--- |
 | [1.5.0](#1.5.0) |2016 年 1 月 3 日 |--- |
 | [1.4.2](#1.4.2) |2015 年 10 月 6 日 |--- |
-| [1.4.1](#1.4.1) |2015 年 10 月 6 日 |--- |
+| 1.4.1 |2015 年 10 月 6 日 |--- |
 | [1.2.0](#1.2.0) |2015 年 8 月 6 日 |--- |
 | [1.1.0](#1.1.0) |2015 年 7 月 9 日 |--- |
 | [1.0.1](#1.0.1) |2015 年 5 月 25 日 |--- |

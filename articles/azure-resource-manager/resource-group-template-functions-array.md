@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
-ms.openlocfilehash: 660764183cdee911c49dedf74893f3d368cd9492
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346604"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488670"
 ---
-# <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的陣列和物件函式 
+# <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的陣列和物件函式
 
 Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
@@ -47,6 +47,8 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 <a id="array" />
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="array"></a>array
 `array(convertToArray)`
 
@@ -56,7 +58,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| convertToArray |是 |整數、字串、陣列或物件 |要轉換為陣列的值。 |
+| convertToArray |yes |整數、字串、陣列或物件 |要轉換為陣列的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -105,7 +107,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | intOutput | 陣列 | [1] |
 | stringOutput | 陣列 | ["efgh"] |
@@ -120,7 +122,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
 ```
 
 <a id="coalesce" />
@@ -134,7 +136,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |整數、字串、陣列或物件 |要測試是否為 null 的第一個值。 |
+| arg1 |yes |整數、字串、陣列或物件 |要測試是否為 null 的第一個值。 |
 | 其他引數 |否 |整數、字串、陣列或物件 |要測試是否為 null 的其他值。 |
 
 ### <a name="return-value"></a>傳回值
@@ -191,10 +193,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | stringOutput | 字串 | 預設值 |
-| intOutput | int | 1 |
+| intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
 | arrayOutput | 陣列 | [1] |
 | emptyOutput | Bool | True |
@@ -208,7 +210,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
 ```
 
 <a id="concat" />
@@ -222,7 +224,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |陣列或字串 |串連的第一個陣列或字串。 |
+| arg1 |yes |陣列或字串 |串連的第一個陣列或字串。 |
 | 其他引數 |否 |陣列或字串 |串連的其他陣列或字串 (循序順序)。 |
 
 此函式可以接受任意數目的引數，並且可針對參數接受字串或陣列。
@@ -269,7 +271,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | return | 陣列 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -282,7 +284,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
 下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json)顯示如何結合兩個字串值並傳回串連字串。
@@ -309,7 +311,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | concatOutput | 字串 | prefix-5yj4yjf5mbg72 |
 
@@ -322,7 +324,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
 <a id="contains" />
@@ -336,8 +338,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| container |是 |陣列、物件或字串 |其中包含要尋找之值的值。 |
-| itemToFind |是 |字串或整數 |要尋找的值。 |
+| container |yes |陣列、物件或字串 |其中包含要尋找之值的值。 |
+| itemToFind |yes |字串或整數 |要尋找的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -398,7 +400,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -416,7 +418,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
 <a id="createarray" />
@@ -430,7 +432,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |字串、整數、陣列或物件 |陣列中的第一個值。 |
+| arg1 |yes |字串、整數、陣列或物件 |陣列中的第一個值。 |
 | 其他引數 |否 |字串、整數、陣列或物件 |陣列中的其他值。 |
 
 ### <a name="return-value"></a>傳回值
@@ -480,7 +482,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | stringArray | 陣列 | ["a", "b", "c"] |
 | intArray | 陣列 | [1, 2, 3] |
@@ -496,7 +498,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
 ```
 
 <a id="empty" />
@@ -511,7 +513,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| itemToTest |是 |陣列、物件或字串 |要檢查其是否為空白的值。 |
+| itemToTest |yes |陣列、物件或字串 |要檢查其是否為空白的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -560,7 +562,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -575,7 +577,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
 <a id="first" />
@@ -589,7 +591,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |陣列或字串 |要擷取其第一個元素或字元的值。 |
+| arg1 |yes |陣列或字串 |要擷取其第一個元素或字元的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -626,7 +628,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | 字串 | one |
 | stringOutput | 字串 | O |
@@ -640,7 +642,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
 <a id="intersection" />
@@ -654,8 +656,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |陣列或物件 |要用來尋找共同元素的第一個值。 |
-| arg2 |是 |陣列或物件 |要用來尋找共同元素的第二個值。 |
+| arg1 |yes |陣列或物件 |要用來尋找共同元素的第一個值。 |
+| arg2 |yes |陣列或物件 |要用來尋找共同元素的第二個值。 |
 | 其他引數 |否 |陣列或物件 |要用來尋找共同元素的其他值。 |
 
 ### <a name="return-value"></a>傳回值
@@ -705,7 +707,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | 陣列 | ["two", "three"] |
@@ -719,7 +721,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
 ## <a name="json"></a>json
@@ -731,7 +733,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |字串 |要轉換成 JSON 的值。 |
+| arg1 |yes |字串 |要轉換成 JSON 的值。 |
 
 
 ### <a name="return-value"></a>傳回值
@@ -777,7 +779,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
 | nullOutput | BOOLEAN | True |
@@ -792,7 +794,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
 ```
 
 <a id="last" />
@@ -806,7 +808,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |陣列或字串 |要擷取其最後一個元素或字元的值。 |
+| arg1 |yes |陣列或字串 |要擷取其最後一個元素或字元的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -843,7 +845,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | 字串 | three |
 | stringOutput | 字串 | e |
@@ -857,7 +859,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
 <a id="length" />
@@ -871,7 +873,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |陣列或字串 |要用來取得元素數目的陣列，或用來取得字元數目的字串。 |
+| arg1 |yes |陣列或字串 |要用來取得元素數目的陣列，或用來取得字元數目的字串。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -915,10 +917,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| arrayLength | int | 3 |
-| stringLength | int | 13 |
+| arrayLength | Int | 3 |
+| stringLength | Int | 13 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -929,7 +931,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
 建立資源時，您可在陣列中使用此函式指定反覆運算的數量。 下列範例中，參數 **siteNames** 會參考在建立網站時要使用的名稱陣列。
@@ -954,7 +956,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |整數的陣列，或以逗號分隔的整數清單 |要用來取得最大值的集合。 |
+| arg1 |yes |整數的陣列，或以逗號分隔的整數清單 |要用來取得最大值的集合。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -990,10 +992,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| arrayOutput | int | 5 |
-| intOutput | int | 5 |
+| arrayOutput | Int | 5 |
+| intOutput | Int | 5 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1004,7 +1006,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
 <a id="min" />
@@ -1018,7 +1020,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |整數的陣列，或以逗號分隔的整數清單 |要用來取得最小值的集合。 |
+| arg1 |yes |整數的陣列，或以逗號分隔的整數清單 |要用來取得最小值的集合。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1054,10 +1056,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
+| arrayOutput | Int | 0 |
+| intOutput | Int | 0 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1068,7 +1070,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
 <a id="range" />
@@ -1082,8 +1084,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| startingInteger |是 |int |陣列中的第一個整數。 |
-| numberofElements |是 |int |陣列中的整數數目。 |
+| startingInteger |yes |int |陣列中的第一個整數。 |
+| numberofElements |yes |int |陣列中的整數數目。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1119,7 +1121,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | rangeOutput | 陣列 | [5, 6, 7] |
 
@@ -1132,7 +1134,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
 ```
 
 <a id="skip" />
@@ -1146,8 +1148,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| originalValue |是 |陣列或字串 |要用於略過的陣列或字串。 |
-| numberToSkip |是 |int |要略過的元素或字元數。 如果此值為 0 或更小的值，則會傳回值內的所有元素或字元。 如果此值大於陣列或字串的長度，則會傳回空白陣列或字串。 |
+| originalValue |yes |陣列或字串 |要用於略過的陣列或字串。 |
+| numberToSkip |yes |int |要略過的元素或字元數。 如果此值為 0 或更小的值，則會傳回值內的所有元素或字元。 如果此值大於陣列或字串的長度，則會傳回空白陣列或字串。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1199,7 +1201,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | 陣列 | ["three"] |
 | stringOutput | 字串 | two three |
@@ -1213,7 +1215,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
 <a id="take" />
@@ -1227,8 +1229,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| originalValue |是 |陣列或字串 |要從其中擷取元素的陣列或字串。 |
-| numberToTake |是 |int |要擷取的元素或字元數。 如果此值為 0 或更小的值，則會傳回空白陣列或字串。 如果此值大於給定陣列或字串的長度，則會傳回陣列或字串中的所有元素。 |
+| originalValue |yes |陣列或字串 |要從其中擷取元素的陣列或字串。 |
+| numberToTake |yes |int |要擷取的元素或字元數。 如果此值為 0 或更小的值，則會傳回空白陣列或字串。 如果此值大於給定陣列或字串的長度，則會傳回陣列或字串中的所有元素。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1280,7 +1282,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | 陣列 | ["one", "two"] |
 | stringOutput | 字串 | on |
@@ -1294,7 +1296,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
 <a id="union" />
@@ -1308,8 +1310,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |陣列或物件 |用來聯結元素的第一個值。 |
-| arg2 |是 |陣列或物件 |用來聯結元素的第二個值。 |
+| arg1 |yes |陣列或物件 |用來聯結元素的第一個值。 |
+| arg2 |yes |陣列或物件 |用來聯結元素的第二個值。 |
 | 其他引數 |否 |陣列或物件 |用來聯結元素的其他值。 |
 
 ### <a name="return-value"></a>傳回值
@@ -1359,7 +1361,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | 陣列 | ["one", "two", "three", "four"] |
@@ -1373,7 +1375,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 若要使用 PowerShell 部署此範例範本，請使用：
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
 ```
 
 ## <a name="next-steps"></a>後續步驟

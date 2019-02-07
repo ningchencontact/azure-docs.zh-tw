@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 631e20f44ab0cd2c35df459695af0de6059e6788
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2ca70eae4a7ab14be9eba82324d41f9e5a24bcff
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582281"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727667"
 ---
 # <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>使用 CLI 將快照集匯出/複製到不同區域中的儲存體帳戶
 
@@ -43,8 +43,8 @@ ms.locfileid: "53582281"
 
 | 命令 | 注意 |
 |---|---|
-| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_grant_access) | 產生唯讀 SAS，用來將基礎 VHD 檔案複製到儲存體帳戶，或將它下載到內部部署。  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#az_storage_blob_copy_start) | 以非同步方式在儲存體帳戶間複製 blob |
+| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot) | 產生唯讀 SAS，用來將基礎 VHD 檔案複製到儲存體帳戶，或將它下載到內部部署。  |
+| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | 以非同步方式在儲存體帳戶間複製 blob |
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad59decab7233c74e13468b0cf0b11fdb5485d07
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e11ef458fad11f04ce159d5e79c4152d2bd7e4c6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722346"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746774"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>使用指令碼動作自訂 Windows 型 HDInsight 叢集
 **指令碼動作** 可用來叫用 [自訂指令碼](hdinsight-hadoop-script-actions.md) 。
@@ -80,8 +80,9 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 ## <a name="call-scripts-using-azure-powershell"></a>使用 Azure PowerShell 呼叫指令碼
 接下來的這個 PowerShell 指令碼示範如何在以 Windows 為基礎的 HDInsight 叢集上安裝 Spark。  
 
+    ```powershell
     # Provide values for these variables
-    $subscriptionID = "<Azure Suscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
+    $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
     $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -158,7 +159,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
             -OSType Windows `
             -DefaultStorageContainer $defaultBlobContainerName `
             -Config $config
-
+    ```
 
 若要安裝其他軟體，您必須取代指令碼中的指令碼檔案：
 
@@ -171,12 +172,14 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 1. 在 Visual Studio 建立 C# 主控台應用程式。
 2. 從 NuGet Package Manager Console 執行下列命令：
-
+    ```powershell
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
+    ```
 3. 在 Program.cs 檔案中使用下列 using 陳述式：
 
+    ```csharp
         using System;
         using System.Security;
         using Microsoft.Azure;
@@ -186,8 +189,10 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
+    ```
 4. 使用下列命令將程式碼放置在類別中：
 
+    ```csharp
         private static HDInsightManagementClient _hdiManagementClient;
 
         // Replace with your AAD tenant ID if necessary
@@ -276,6 +281,8 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
             // Register the HDInsight provider
             var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
         }
+    ```
+
 5. 按 **F5** 鍵執行應用程式。
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>支援在 HDInsight 叢集上使用開放原始碼軟體

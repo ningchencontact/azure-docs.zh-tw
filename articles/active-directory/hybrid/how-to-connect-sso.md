@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6f89fde9040a106546e55f77e4a34e1ac861e46c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 46035da09bc2d02e89659e3c18fa313e947e1280
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195455"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489746"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory 無縫單一登入
 
@@ -62,11 +62,11 @@ ms.locfileid: "55195455"
 
 | 作業系統\瀏覽器 |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|是\*|否|是|是\*\*\*|N/A
-|Windows 8.1|是\*|N/A|是|是\*\*\*|N/A
-|Windows 8|是\*|N/A|是|是\*\*\*|N/A
-|Windows 7|是\*|N/A|是|是\*\*\*|N/A
-|Windows Server 2012 R2 或更新版本|是\*\*|N/A|是|是\*\*\*|N/A
+|Windows 10|是\*|否|yes|是\*\*\*|N/A
+|Windows 8.1|是\*|N/A|yes|是\*\*\*|N/A
+|Windows 8|是\*|N/A|yes|是\*\*\*|N/A
+|Windows 7|是\*|N/A|yes|是\*\*\*|N/A
+|Windows Server 2012 R2 或更新版本|是\*\*|N/A|yes|是\*\*\*|N/A
 |Mac OS X|N/A|N/A|是\*\*\*|是\*\*\*|是\*\*\*
 
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: 6cc689471247af3782e7e733be463cfc3e21afe5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e0474d496c6308f8ec86ea50920ef7cd69271d35
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478428"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692608"
 ---
 # <a name="create-a-vm-with-iis-using-dsc"></a>使用 DSC 建立具有 IIS 的 VM
 
@@ -49,11 +49,11 @@ az group delete --name myResourceGroup --yes
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | 建立虛擬機器，並將它連線到網路卡、虛擬網路、子網路及 NSG。 此命令也會指定要使用的虛擬機器映像和管理認證。  |
-| [az vm extension set](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | 將自訂指令碼擴充功能新增至會叫用指令碼來安裝 IIS 的虛擬機器。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | 建立用來存放所有資源的資源群組。 |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | 建立虛擬機器，並將它連線到網路卡、虛擬網路、子網路及 NSG。 此命令也會指定要使用的虛擬機器映像和管理認證。  |
+| [az vm extension set](https://docs.microsoft.com/cli/azure/vm) | 將自訂指令碼擴充功能新增至會叫用指令碼來安裝 IIS 的虛擬機器。 |
 | [az vm open-port](https://docs.microsoft.com/cli/azure/vm) | 建立網路安全性群組規則以允許輸入流量。 在此範例中，會開放連接埠 80 供 HTTP 流量使用。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 

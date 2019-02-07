@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 65d6685947c5796a65985aff0b789223736df0b8
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f68627e2db3c08049f0273045906057526bd6aa
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354275"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568047"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>使用 Azure Data Factory (預覽) 從 Google AdWords 複製資料
 
@@ -44,10 +44,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**GoogleAdWords** | 是 |
-| clientCustomerID | 要擷取其報告資料的 AdWords 帳戶用戶端客戶識別碼。  | 是 |
-| developerToken | 與用來授與 AdWords API 存取權的管理員帳戶相關聯的開發人員權杖。  您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 是 |
-| authenticationType | 用於驗證的 OAuth 2.0 驗證機制。 ServiceAuthentication 只能在自我裝載 IR 上使用。 <br/>允許的值包括：**ServiceAuthentication**、**UserAuthentication** | 是 |
+| type | 類型屬性必須設定為：**GoogleAdWords** | yes |
+| clientCustomerID | 要擷取其報告資料的 AdWords 帳戶用戶端客戶識別碼。  | yes |
+| developerToken | 與用來授與 AdWords API 存取權的管理員帳戶相關聯的開發人員權杖。  您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | yes |
+| authenticationType | 用於驗證的 OAuth 2.0 驗證機制。 ServiceAuthentication 只能在自我裝載 IR 上使用。 <br/>允許的值包括：**ServiceAuthentication**、**UserAuthentication** | yes |
 | refreshToken | 從 Google 取得的重新整理權杖，用於針對 UserAuthentication 授權存取 AdWords。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
 | clientId | 用來取得重新整理權杖的 Google 應用程式用戶端識別碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
 | clientSecret | 用來取得重新整理權杖的 Google 應用程式用戶端密碼。 您可以選擇將這個欄位標記為 SecureString 以將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault；然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
@@ -66,21 +66,21 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
         "typeProperties": {
             "clientCustomerID" : "<clientCustomerID>",
             "developerToken": {
-                 "type": "SecureString",
-                 "value": "<developerToken>"
+                "type": "SecureString",
+                "value": "<developerToken>"
             },
             "authenticationType" : "ServiceAuthentication",
             "refreshToken": {
-                 "type": "SecureString",
-                 "value": "<refreshToken>"
+                "type": "SecureString",
+                "value": "<refreshToken>"
             },
             "clientId": {
-                 "type": "SecureString",
-                 "value": "<clientId>"
+                "type": "SecureString",
+                "value": "<clientId>"
             },
             "clientSecret": {
-                 "type": "SecureString",
-                 "value": "<clientSecret>"
+                "type": "SecureString",
+                "value": "<clientSecret>"
             },
             "email" : "<email>",
             "keyFilePath" : "<keyFilePath>",
@@ -100,7 +100,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**GoogleAdWordsObject** | 是 |
+| type | 資料集的類型屬性必須設定為：**GoogleAdWordsObject** | yes |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
@@ -130,7 +130,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**GoogleAdWordsSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**GoogleAdWordsSource** | yes |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**

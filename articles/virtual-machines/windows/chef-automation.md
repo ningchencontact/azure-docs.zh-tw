@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: d57a7baafc533aee52ec8012d410d5f25b510b60
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 5378151d01418a81977f2fc2f562a6540bbb665d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359947"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663177"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>使用 Chef 自動化 Azure 虛擬機器部署
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -57,7 +57,7 @@ Chef 工作站，它是您建立原則和執行管理命令的管理工作站以
 
 建立名為 C:\chef 的目錄。
 
-下載 Azure PowerShell [發佈設定](https://docs.microsoft.com/en-us/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information)。
+下載 Azure PowerShell [發佈設定](https://docs.microsoft.com/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information)。
 
 ## <a name="setup-chef-server"></a>設定 Chef 伺服器 URL
 

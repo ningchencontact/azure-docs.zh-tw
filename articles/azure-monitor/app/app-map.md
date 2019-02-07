@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/17/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 238b75681ec525187ea27f60ac8b21b05b13954d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f2bd1d863a7900b50712eb23c1088c6b271befa3
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063109"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755884"
 ---
 # <a name="application-map-triage-distributed-applications"></a>應用程式對應：將分散式應用程式分級
 
@@ -199,7 +199,7 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 
 3. 如果您是將 C# 搭配 Azure Functions 使用，請升級至 [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions)。
 
-4. 請確認 [cloud_RoleName](app-map.md#Set-cloud-RoleName) 設定正確無誤。
+4. 請確認 [cloud_RoleName](app-map.md#set-cloudrolename) 設定正確無誤。
 
 5. 如果缺少相依性，請確定相依性是否列在這份[自動收集的相依性](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies) (英文) 清單中。 如果不在此清單中，仍可以使用[追蹤相依性呼叫](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency) (英文)，以手動方式進行追蹤。
 

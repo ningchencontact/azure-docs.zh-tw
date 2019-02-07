@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: dda4f68046b81d96cfe92d5e8b09eab23df0003b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e26ae189b6b0bdcbfdcf225772cb3fd0361abca2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846300"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698984"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>使用 Azure CLI 設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -140,7 +140,7 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. 為後端子網路建立其他位址空間。 請注意，在此步驟中，我們會指定稍早建立的位址空間，以及我們想要新增的額外位址空間。 這是因為 [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_update) 命令會覆寫先前的設定。 使用此命令時，務必指定所有的位址前置詞。
+3. 為後端子網路建立其他位址空間。 請注意，在此步驟中，我們會指定稍早建立的位址空間，以及我們想要新增的額外位址空間。 這是因為 [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet) 命令會覆寫先前的設定。 使用此命令時，務必指定所有的位址前置詞。
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -384,5 +384,5 @@ VNet 的連線方法有很多種。 下列各節說明不同的虛擬網路連�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器文件](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)。
+* 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器文件](https://docs.microsoft.com/azure/)。
 * 如需 BGP 的相關資訊，請參閱 [BGP 概觀](vpn-gateway-bgp-overview.md)和[如何設定 BGP](vpn-gateway-bgp-resource-manager-ps.md)。

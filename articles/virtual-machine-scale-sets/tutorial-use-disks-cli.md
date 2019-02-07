@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163053"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751152"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立及使用虛擬機器擴展集所適用的磁碟
 虛擬機器擴展集會使用磁碟來儲存 VM 執行個體的作業系統、應用程式和資料。 當您建立及管理擴展集時，請務必選擇預期的工作負載所適用的磁碟大小和組態。 本教學課程將說明如何建立及管理 VM 磁碟。 在本教學課程中，您將了解如何：
@@ -95,13 +95,13 @@ Azure 提供兩種類型的磁碟。
 您可以在建立擴展集時建立並連結磁碟，或使用現有的擴展集。
 
 ### <a name="attach-disks-at-scale-set-creation"></a>在建立擴展集時連結磁碟
-首先，使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 在此範例中，會在 eastus 區域中建立名為 myResourceGroup 的資源群組。
+首先，使用 [az group create](/cli/azure/group) 命令來建立資源群組。 在此範例中，會在 eastus 區域中建立名為 myResourceGroup 的資源群組。
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-使用 [az vmss create](/cli/azure/vmss#az_vmss_create) 命令建立虛擬機器擴展集。 下列範例會建立名為 myScaleSet 的擴展集，以及產生 SSH 金鑰 (如果不存在)。 系統會使用 `--data-disk-sizes-gb` 參數建立兩個磁碟。 第一個磁碟的大小為 *64* GB，第二個磁碟則為 *128* GB：
+使用 [az vmss create](/cli/azure/vmss) 命令建立虛擬機器擴展集。 下列範例會建立名為 myScaleSet 的擴展集，以及產生 SSH 金鑰 (如果不存在)。 系統會使用 `--data-disk-sizes-gb` 參數建立兩個磁碟。 第一個磁碟的大小為 *64* GB，第二個磁碟則為 *128* GB：
 
 ```azurecli-interactive
 az vmss create \
@@ -117,7 +117,7 @@ az vmss create \
 建立及設定所有擴展集資源和 VM 執行個體需要幾分鐘的時間。
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>將磁碟連結至現有的擴展集
-您也可以將磁碟連結至現有的擴展集。 請使用在先前的步驟中建立的擴展集，透過 [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach) 新增另一個磁碟。 下列範例會連結另一個 *128* GB 的磁碟：
+您也可以將磁碟連結至現有的擴展集。 請使用在先前的步驟中建立的擴展集，透過 [az vmss disk attach](/cli/azure/vmss/disk) 新增另一個磁碟。 下列範例會連結另一個 *128* GB 的磁碟：
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -144,7 +144,7 @@ az vmss extension set \
   --settings '{"fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"],"commandToExecute":"./prepare_vm_disks.sh"}'
 ```
 
-若要確認磁碟已正確備妥，請透過 SSH 連線至其中一個 VM 執行個體。 請使用 [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) 列出擴展集的連線資訊：
+若要確認磁碟已正確備妥，請透過 SSH 連線至其中一個 VM 執行個體。 請使用 [az vmss list-instance-connection-info](/cli/azure/vmss) 列出擴展集的連線資訊：
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -225,7 +225,7 @@ exit
 
 
 ## <a name="list-attached-disks"></a>列出已連結的磁碟
-若要檢視已連結至擴展集之磁碟的相關資訊，請使用 [az vmss show](/cli/azure/vmss#az_vmss_show) 並查詢 *virtualMachineProfile.storageProfile.dataDisks*：
+若要檢視已連結至擴展集之磁碟的相關資訊，請使用 [az vmss show](/cli/azure/vmss) 並查詢 *virtualMachineProfile.storageProfile.dataDisks*：
 
 ```azurecli-interactive
 az vmss show \
@@ -279,7 +279,7 @@ az vmss show \
 
 
 ## <a name="detach-a-disk"></a>中斷連結磁碟
-當您不再需要給定的磁碟時，您可以從擴展集將其中斷連結。 磁碟會從擴展集中的所有 VM 執行個體移除。 若要從擴展集將磁碟中斷連結，請使用 [az vmss disk detach](/cli/azure/vmss/disk)，並指定磁碟的 LUN。 LUN 會顯示在上一節提及之 [az vmss show](/cli/azure/vmss#az_vmss_show) 的輸出中。 下列範例會從擴展集將 LUN *2* 中斷連結：
+當您不再需要給定的磁碟時，您可以從擴展集將其中斷連結。 磁碟會從擴展集中的所有 VM 執行個體移除。 若要從擴展集將磁碟中斷連結，請使用 [az vmss disk detach](/cli/azure/vmss/disk)，並指定磁碟的 LUN。 LUN 會顯示在上一節提及之 [az vmss show](/cli/azure/vmss) 的輸出中。 下列範例會從擴展集將 LUN *2* 中斷連結：
 
 ```azurecli-interactive
 az vmss disk detach \
@@ -290,7 +290,7 @@ az vmss disk detach \
 
 
 ## <a name="clean-up-resources"></a>清除資源
-若要移除您的擴展集和磁碟，請使用 [az group delete](/cli/azure/group#az_group_delete) 刪除資源群組及其所有資源。 `--no-wait` 參數不會等待作業完成，就會將控制項傳回給提示字元。 `--yes` 參數會確認您想要刪除資源，而不另外對您提示將要進行此作業。
+若要移除您的擴展集和磁碟，請使用 [az group delete](/cli/azure/group) 刪除資源群組及其所有資源。 `--no-wait` 參數不會等待作業完成，就會將控制項傳回給提示字元。 `--yes` 參數會確認您想要刪除資源，而不另外對您提示將要進行此作業。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

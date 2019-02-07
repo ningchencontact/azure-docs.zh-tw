@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 554d837d9fa70c2af581f9b582001c7f32d442e7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232337"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734550"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>網路效能監控解決方案常見問題集
 
@@ -134,7 +134,7 @@ NPM 可以從其中一個[支援區域](../../azure-monitor/insights/network-per
 NPM 可使用在其中一個[支援區域](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)裝載的工作區，監視世界各地服務的連線情形
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>NPM 的 ExpressRoute 監視可支援哪些區域？
-NPM 可以監控位於任何 Azure 區域的 ExpressRoute 線路。 若要開始使用 NPM，需要一個裝載在其中一個[支援區域](/azure/expressroute/how-to-npm#regions)中的 Log Analytics 工作區
+NPM 可以監控位於任何 Azure 區域的 ExpressRoute 線路。 若要開始使用 NPM，需要一個裝載在其中一個[支援區域](/azure/expressroute/how-to-npm)中的 Log Analytics 工作區
 
 ## <a name="troubleshoot"></a>疑難排解
 

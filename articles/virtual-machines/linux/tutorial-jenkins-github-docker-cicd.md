@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 694448f6e3c788c0c9d336e75d5df579b90137df
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: be4549b8b9cca3f4aa48a21fb9377dbd203dde69
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189862"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751118"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>教學課程：在 Azure 中的 Linux VM 上以 Jenkins、GitHub 及 Docker 建立開發基礎結構
 
@@ -69,7 +69,7 @@ runcmd:
   - service jenkins restart
 ```
 
-建立 VM 之前，請先使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroupJenkins 的資源群組。
+建立 VM 之前，請先使用 [az group create](/cli/azure/group) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroupJenkins 的資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
@@ -88,7 +88,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 系統需要花幾分鐘的時間來建立及設定 VM。
 
-為了允許網路流量連線到您的 VM，使用 [az vm open-port](/cli/azure/vm#az_vm_open_port) 開啟連接埠 8080 (用於 Jenkins 流量) 和連接埠 1337 (用於 Node.js 應用程式，此應用程式用來執行範例應用程式)︰
+為了允許網路流量連線到您的 VM，使用 [az vm open-port](/cli/azure/vm) 開啟連接埠 8080 (用於 Jenkins 流量) 和連接埠 1337 (用於 Node.js 應用程式，此應用程式用來執行範例應用程式)︰
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -160,7 +160,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 回到 GitHub 的 Web UI，選取您的分支存放庫，然後選取 **index.js** 檔案。 選取鉛筆圖示以編輯此檔案，並將第 6 行改為︰
 
-```nodejs
+```javascript
 response.end("Hello World!");
 ```
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9aff828dcb9dfea6d5f35ad92bb09ba7cd802fea
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c0017d0b0255f5b585f9d8e6f6ec2f3a12752625
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53711851"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691482"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>修正 Azure HDInsight 中的 Apache Hive 記憶體不足錯誤
 
@@ -85,19 +85,21 @@ ms.locfileid: "53711851"
 
 我們的支援小組和工程小組一起發現造成記憶體不足錯誤的其中一個問題是一個 [Apache JIRA 中所述的已知問題](https://issues.apache.org/jira/browse/HIVE-8306)：
 
-    When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesnt take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
+    When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesn't take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
 
 hive-site.xml 檔案中的 **hive.auto.convert.join.noconditionaltask** 已設定為 **true**：
 
-    <property>
-        <name>hive.auto.convert.join.noconditionaltask</name>
-        <value>true</value>
-        <description>
-              Whether Hive enables the optimization about converting common join into mapjoin based on the input file size.
-              If this parameter is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than the
-              specified size, the join is directly converted to a mapjoin (there is no conditional task).
-        </description>
-      </property>
+```xml
+<property>
+    <name>hive.auto.convert.join.noconditionaltask</name>
+    <value>true</value>
+    <description>
+            Whether Hive enables the optimization about converting common join into mapjoin based on the input file size.
+            If this parameter is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than the
+            specified size, the join is directly converted to a mapjoin (there is no conditional task).
+    </description>
+</property>
+```
 
 對應聯結有可能是「Java 堆積空間」記憶體不足錯誤的原因。 如部落格文章 [HDInsight 中的 Hadoop Yarn 記憶體設定](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx)中所述，使用 Tez 執行引擎時，所使用的堆積空間實際上是屬於 Tez 容器。 查看下面說明 Tez 容器記憶體的影像。
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 36d1b4ef9501c94fe385c37f31ee7e8c9f57106e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 80a78d12570e3da1371d2fc1cbb0270eb81fc6ce
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197223"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766838"
 ---
 # <a name="manage-your-security-info-preview"></a>管理您的安全性資訊 (預覽)
 
@@ -81,7 +81,7 @@ ms.locfileid: "55197223"
 |我的手機遺失或遭竊|不幸的是，您的電話可能遺失或遭竊。 在此情況下，強烈建議您讓貴組織了解此情況，讓 IT 人員可以重設應用程式密碼，並從您信任的裝置清單中清除所有已記住的裝置。 您也可以遵循[針對已遺失或可能遭到入侵的裝置管理您的安全性資訊](#manage-your-security-info-for-a-lost-or-potentially-compromised-device)一節中的步驟，忘記自有信任的裝置。|
 |我收到新的電話號碼|修正此問題的方法有二種。 您可以使用不需要手機號碼的替代驗證方法 (例如電子郵件) 登入，如果沒有這個選項，您可以連絡貴組織的 IT 人員，請他們清除您的設定。 若要將其他方法新增至您的安全性資訊，請依照[變更您的資訊](#change-your-info)一節中的步驟執行。|
 |我的預設方法錯誤|您可以在安全性選項中更新您的預設方法。 如需特定詳細資訊，您可以移至[變更您的資訊](#change-your-info)一節。|
-|我的行動裝置沒收到簡訊或來電|如果您的行動裝置過去成功收到過簡訊或來電，則這個問題很可能是電話提供者的問題，而非您帳戶的問題。 請確定您的手機收訊良好，而且能夠接收簡訊和電話。 您可以要求朋友打電話或傳簡訊給您，作為測試。<br><br>如果您可以成功接收簡訊和電話訊息，但仍然沒有取得通知，可以嘗試使用不同的方法。 您可以依照[變更您的資訊](#change-your-info)一節中的步驟執行，將其他方法新增至您的安全性資訊。 如果您沒有其他方法可新增，可以連絡公司支援人員並要求他們清除您的設定，才可以在下次登入時設定您的方法。<br><br>如果您經常因收訊不良而發生問題，建議您在行動裝置上使用 Microsoft Authenticator 應用程式。 應用程式可以產生您用來登入的隨機安全驗證碼，而且這些代碼不需要任何手機訊號或網際網路連接。 如需 Microsoft Authenticator 應用程式的詳細資訊，請參閱[開始使用 Microsoft Authenticator 應用程式](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to)一文。|
+|我的行動裝置沒收到簡訊或來電|如果您的行動裝置過去成功收到過簡訊或來電，則這個問題很可能是電話提供者的問題，而非您帳戶的問題。 請確定您的手機收訊良好，而且能夠接收簡訊和電話。 您可以要求朋友打電話或傳簡訊給您，作為測試。<br><br>如果您可以成功接收簡訊和電話訊息，但仍然沒有取得通知，可以嘗試使用不同的方法。 您可以依照[變更您的資訊](#change-your-info)一節中的步驟執行，將其他方法新增至您的安全性資訊。 如果您沒有其他方法可新增，可以連絡公司支援人員並要求他們清除您的設定，才可以在下次登入時設定您的方法。<br><br>如果您經常因收訊不良而發生問題，建議您在行動裝置上使用 Microsoft Authenticator 應用程式。 應用程式可以產生您用來登入的隨機安全驗證碼，而且這些代碼不需要任何手機訊號或網際網路連接。 如需 Microsoft Authenticator 應用程式的詳細資訊，請參閱[開始使用 Microsoft Authenticator 應用程式](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/user-help-auth-app-download-install)一文。|
 |此表中沒有任何選項可解決我的問題|如果您嘗試過這些疑難排解步驟，但仍遭遇問題，請連絡您的公司支援人員，他們應該能夠協助您。|
 
 ## <a name="next-steps"></a>後續步驟

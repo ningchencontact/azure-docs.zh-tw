@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 882a43a75fa720b13d931740818e5ee6e893bcab
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 7c32a572f1090783e5da53ae2b6103ac8c9a8b77
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753331"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752546"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>教學課程：使用 Azure 儲存體在雲端中上傳影像資料
 
@@ -48,7 +48,7 @@ ms.locfileid: "53753331"
 
 ## <a name="create-a-resource-group"></a>建立資源群組 
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。  
+使用 [az group create](/cli/azure/group) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。  
 
 下列範例會建立名為 `myResourceGroup` 的資源群組。
 
@@ -58,7 +58,7 @@ az group create --name myResourceGroup --location southeastasia
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-此範例會將影像上傳至 Azure 儲存體帳戶的 Blob 容器。 儲存體帳戶提供唯一命名空間來儲存及存取您的 Azure 儲存體資料物件。 在使用 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 命令所建立的資源群組中建立儲存體帳戶。
+此範例會將影像上傳至 Azure 儲存體帳戶的 Blob 容器。 儲存體帳戶提供唯一命名空間來儲存及存取您的 Azure 儲存體資料物件。 在使用 [az storage account create](/cli/azure/storage/account) 命令所建立的資源群組中建立儲存體帳戶。
 
 > [!IMPORTANT]
 > 在本教學課程的第 2 部分中，您要使用 Azure 事件格線搭配 Blob 儲存體。 請務必在支援事件格線的 Azure 區域中建立儲存體帳戶。 如需支援的區域清單，請參閱[不同區域的 Azure 產品](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all)。
@@ -75,7 +75,7 @@ az storage account create --name <blob_storage_account> \
 
 應用程式在 Blob 儲存體帳戶中使用兩個容器。 容器類似資料夾，可儲存 Blob。 應用程式會將高解析度的影像上傳到 [影像] 容器。 在系列的後半部分，Azure 函式應用程式會將已調整大小的影像縮圖上傳到 [縮圖] 容器。
 
-使用 [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) 命令取得儲存體帳戶金鑰。 接著，使用此金鑰透過 [az storage container create](/cli/azure/storage/container#az_storage_container_create) 命令來建立兩個容器。  
+使用 [az storage account keys list](/cli/azure/storage/account/keys) 命令取得儲存體帳戶金鑰。 接著，使用此金鑰透過 [az storage container create](/cli/azure/storage/container) 命令來建立兩個容器。  
 
 在本例中，`<blob_storage_account>` 是您建立的 Blob 儲存體帳戶名稱。 images 容器的公用存取設為 `off`。 thumbnails 容器的公用存取設為 `container`。 `container` 公用存取設定允許使用者瀏覽網頁來檢視縮圖。
 
@@ -101,7 +101,7 @@ echo $blobStorageAccountKey
 
 [App Service 方案](../../app-service/overview-hosting-plans.md)會指定用來裝載應用程式的 Web 伺服器陣列位置、大小和功能。
 
-使用 [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) 命令來建立 App Service 方案。
+使用 [az appservice plan create](/cli/azure/appservice/plan) 命令來建立 App Service 方案。
 
 下列範例會在**免費**定價層中建立名為 `myAppServicePlan` 的 App Service 方案。
 
@@ -111,7 +111,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>建立 Web 應用程式
 
-Web 應用程式提供裝載範例應用程式程式碼的空間，此程式碼是從 GitHub 範例存放庫部署。 使用 [az webapp create](/cli/azure/webapp#az_webapp_create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../../app-service/overview.md)。  
+Web 應用程式提供裝載範例應用程式程式碼的空間，此程式碼是從 GitHub 範例存放庫部署。 使用 [az webapp create](/cli/azure/webapp) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../../app-service/overview.md)。  
 
 在下列命令中，使用唯一的名稱取代 `<web_app>`。 有效字元是 `a-z`、`0-9` 和 `-`。 如果 `<web_app>` 不是唯一的，您會收到錯誤訊息：_具有指定名稱 `<web_app>` 的網站已經存在。_ Web 應用程式的預設 URL 是 `https://<web_app>.azurewebsites.net`。  
 
@@ -123,12 +123,12 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-應用程式服務支援數種將內容部署至 Web 應用程式的方法。 在本教學課程中，您會從[公用 GitHub 範例存放庫](https://github.com/Azure-Samples/storage-blob-upload-from-webapp)部署 Web 應用程式。 使用 [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) 命令設定 Web 應用程式的 GitHub 部署。 以您在上一個步驟中建立的 Web 應用程式名稱取代 `<web_app>`。
+應用程式服務支援數種將內容部署至 Web 應用程式的方法。 在本教學課程中，您會從[公用 GitHub 範例存放庫](https://github.com/Azure-Samples/storage-blob-upload-from-webapp)部署 Web 應用程式。 使用 [az webapp deployment source config](/cli/azure/webapp/deployment/source) 命令設定 Web 應用程式的 GitHub 部署。 以您在上一個步驟中建立的 Web 應用程式名稱取代 `<web_app>`。
 
 範例專案包含 [ASP.NET MVC](https://www.asp.net/mvc) 應用程式。 此應用程式可接受映像、將它儲存到儲存體帳戶，顯示縮圖容器中的映像。 Web 應用程式使用來自 Azure 儲存體用戶端程式庫的 [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet)、[Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) 和 [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) 命名空間與 Azure 儲存體進行互動。
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-應用程式服務支援數種將內容部署至 Web 應用程式的方法。 在本教學課程中，您會從[公用 GitHub 範例存放庫](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node)部署 Web 應用程式。 使用 [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) 命令設定 Web 應用程式的 GitHub 部署。 以您在上一個步驟中建立的 Web 應用程式名稱取代 `<web_app>`。
+應用程式服務支援數種將內容部署至 Web 應用程式的方法。 在本教學課程中，您會從[公用 GitHub 範例存放庫](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node)部署 Web 應用程式。 使用 [az webapp deployment source config](/cli/azure/webapp/deployment/source) 命令設定 Web 應用程式的 GitHub 部署。 以您在上一個步驟中建立的 Web 應用程式名稱取代 `<web_app>`。
 
 ---
 
@@ -140,7 +140,7 @@ az webapp deployment source config --name <web_app> \
 
 ## <a name="configure-web-app-settings"></a>設定 Web 應用程式設定
 
-範例 Web 應用程式使用 [Azure 儲存體用戶端程式庫](/dotnet/api/overview/azure/storage?view=azure-dotnet)要求存取權杖，其用來上傳影像。 儲存體 SDK 所使用的儲存體帳戶認證是在 Web 應用程式的應用程式設定中設定。 使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 命令將應用程式設定新增至已部署的應用程式。
+範例 Web 應用程式使用 [Azure 儲存體用戶端程式庫](/dotnet/api/overview/azure/storage?view=azure-dotnet)要求存取權杖，其用來上傳影像。 儲存體 SDK 所使用的儲存體帳戶認證是在 Web 應用程式的應用程式設定中設定。 使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) 命令將應用程式設定新增至已部署的應用程式。
 
 在下列命令中，使用 Blob 儲存體帳戶的名稱取代 `<blob_storage_account>`，使用相關聯的金鑰取代 `<blob_storage_key>`。 以您在上一個步驟中建立的 Web 應用程式名稱取代 `<web_app>`。
 

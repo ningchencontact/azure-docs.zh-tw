@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 29b76620494fbb325f8c43bf90a07c9df0faff56
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 21b44b1c739818206fdba9d10250a2976f1d90db
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266328"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746858"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>收集搭配 DNS 分析預覽版解決方案使用 DNS 基礎結構的深入解析
 
@@ -42,9 +42,9 @@ DNS 分析可協助您︰
 
 | **連線的來源** | **支援** | **說明** |
 | --- | --- | --- |
-| [Windows 代理程式](../../azure-monitor/platform/agent-windows.md) | 是 | 此解決方案會收集來自 Windows 代理程式的 DNS 資訊。 |
+| [Windows 代理程式](../../azure-monitor/platform/agent-windows.md) | yes | 此解決方案會收集來自 Windows 代理程式的 DNS 資訊。 |
 | [Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否 | 此解決方案不會收集來自直接 Linux 代理程式的 DNS 資訊。 |
-| [System Center Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md) | 是 | 此解決方案會收集來自連線 Operations Manager 管理群組的代理程式之中的 DNS 資訊。 Operations Manager 代理程式不需要直接連線到 Log Analytics。 資料會從管理群組轉送至 Log Analytics 工作區。 |
+| [System Center Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md) | yes | 此解決方案會收集來自連線 Operations Manager 管理群組的代理程式之中的 DNS 資訊。 Operations Manager 代理程式不需要直接連線到 Log Analytics。 資料會從管理群組轉送至 Log Analytics 工作區。 |
 | [Azure 儲存體帳戶](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 否 | 此解決方案沒有使用 Azure 儲存體。 |
 
 ### <a name="data-collection-details"></a>資料收集詳細資料
@@ -105,7 +105,7 @@ DNS 分析可協助您︰
 
 ![[DNS 安全性] 刀鋒視窗](./media/dns-analytics/dns-security-blade.png)
 
-當您按一下清單中的用戶端 IP 時，記錄搜尋就會開啟，其中顯示個別查詢的查閱詳細資料。 在下列範例中，DNS 分析偵測到透過 [IRCbot](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=Win32/IRCbot) 進行的通訊：
+當您按一下清單中的用戶端 IP 時，記錄搜尋就會開啟，其中顯示個別查詢的查閱詳細資料。 在下列範例中，DNS 分析偵測到透過 [IRCbot](https://www.microsoft.com/wdsi/threats/threat-search?query=Win32/IRCbot) 進行的通訊：
 
 ![顯示 ircbot 的記錄搜尋結果](./media/dns-analytics/ircbot.png)
 

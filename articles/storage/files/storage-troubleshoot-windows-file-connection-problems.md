@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 384a277f3465ac97285fbb08fa299a5bed8c87c4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477687"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564437"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 
@@ -61,7 +61,7 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 
 若要檢查您的防火牆或 ISP 是否封鎖連接埠 445，請使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 工具或 `Test-NetConnection` Cmdlet。 
 
-若要使用 `Test-NetConnection` Cmdlet，則必須安裝 AzureRM PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)以獲得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resoure-group-name>`。
+若要使用 `Test-NetConnection` Cmdlet，則必須安裝 AzureRM PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)以獲得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resource-group-name>`。
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -265,11 +265,11 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 ### <a name="cause"></a>原因
 
-當儲存體帳戶之相關訂用帳戶的 AAD 租用戶上未建立 [AAD 網域服務 (AAD DS)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview)，而您嘗試在該儲存體帳戶上[為 Azure 檔案儲存體啟用 Azure Active Directory (AAD) 驗證](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable)時，發生 AadDsTenantNotFound 錯誤。  
+當儲存體帳戶之相關訂用帳戶的 AAD 租用戶上未建立 [AAD 網域服務 (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)，而您嘗試在該儲存體帳戶上[為 Azure 檔案儲存體啟用 Azure Active Directory (AAD) 驗證](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable)時，發生 AadDsTenantNotFound 錯誤。  
 
 ### <a name="solution"></a>解決方法
 
-在您儲存體帳戶部署所在訂用帳戶的 AAD 租用戶上啟用 AAD DS。 您必須有 AAD 租用戶的系統管理員權限，才能建立受控網域。 如果您不是 Azure AD 租用戶的系統管理員，請連絡系統管理員，並遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started) 的逐步指導。
+在您儲存體帳戶部署所在訂用帳戶的 AAD 租用戶上啟用 AAD DS。 您必須有 AAD 租用戶的系統管理員權限，才能建立受控網域。 如果您不是 Azure AD 租用戶的系統管理員，請連絡系統管理員，並遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) 的逐步指導。
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

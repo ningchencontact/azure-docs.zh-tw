@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/20/2019
-ms.openlocfilehash: 14db76068cc11d3f57a72e3e540a5e0da7e1c254
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.date: 02/04/2019
+ms.openlocfilehash: 7f113587dfabd66461a9bcfbde18a0178c6608f0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853607"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733540"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>比較與 Azure HDInsight 叢集搭配使用的儲存體選項
 
@@ -153,6 +153,8 @@ Blob 可使用於結構化和非結構化資料。 Blob 容器以機碼/值組�
 
 ## <a name="use-azure-data-lake-storage-gen1"></a>使用 Azure Data Lake Storage Gen1
 
+### <a name="overview"></a>概觀
+
 如需有關 Azure Data Lake Storage Gen1 的詳細資訊，請參閱 [Azure Data Lake Storage Gen1 概觀](../data-lake-store/data-lake-store-overview.md)。
 
 Azure Data Lake Storage Gen1 是容納巨量資料分析工作負載的企業級超大規模存放庫。 Azure Data Lake 可讓您在單一位置擷取任何大小、類型和擷取速度的資料，以便進行運作和探究分析。
@@ -163,33 +165,33 @@ Azure Data Lake Storage Gen1 是容納巨量資料分析工作負載的企業級
 
 Data Lake Storage Gen1 的一些重要功能包括下列項目。
 
-### <a name="built-for-hadoop"></a>專為 Hadoop 而建置
+#### <a name="built-for-hadoop"></a>專為 Hadoop 而建置
 
 Data Lake Storage Gen1 是與 Hadoop 分散式檔案系統 (HDFS) 相容的 Apache Hadoop 檔案系統，可搭配 Hadoop 生態系統使用。  採用 WebHDFS API 的現有 HDInsight 應用程式或服務可以輕易地與 Data Lake Storage Gen 1 整合。 Data Lake Storage Gen1 也會公開適用於應用程式的 WebHDFS 相容 REST 介面
 
 使用 Hadoop 分析架構 (例如 MapReduce 或 Hive)，可以輕鬆地分析 Data Lake Storage Gen1 中儲存的資料。 您可以佈建並設定 Microsoft Azure HDInsight 叢集，以直接存取 Data Lake Storage Gen1 中儲存的資料。
 
-### <a name="unlimited-storage-petabyte-files"></a>無限制的儲存空間、PB 檔案
+#### <a name="unlimited-storage-petabyte-files"></a>無限制的儲存空間、PB 檔案
 
 Data Lake Storage Gen1 提供無限制的儲存空間，適合用來儲存各種資料以供分析。 對於帳戶大小、檔案大小，或資料湖中可儲存的資料量，均無任何限制。 個別檔案的大小可從 KB 到 PB，很適合用來儲存任何類型的資料。 藉由製作多個複本來長期儲存資料，而資料可以儲存在資料湖中的持續時間並沒有限制。
 
-### <a name="performance-tuned-for-big-data-analytics"></a>針對巨量資料分析調整效能
+#### <a name="performance-tuned-for-big-data-analytics"></a>針對巨量資料分析調整效能
 
 Data Lake Storage Gen1 專為執行大型分析系統而建置，而此類系統需要龐大輸送量才能查詢及分析大量資料。 資料湖會將檔案的各個部分散於數個個別的儲存體伺服器。 這可改善以平行方式讀取檔案以便執行資料分析時的輸送量。
 
-### <a name="enterprise-ready-highly-available-and-secure"></a>符合企業需求：高度可用且安全
+#### <a name="enterprise-ready-highly-available-and-secure"></a>符合企業需求：高度可用且安全
 
 Data Lake Storage Gen1 提供符合業界標準的可用性與可靠性。 您的資料資產可藉由製作備援複本來長期儲存，以防範任何未預期的失敗。 企業可以在其解決方案中使用 Data Lake Storage Gen1，以成為其現有資料平台的重要部分。
 
 Data Lake Storage Gen1 也可對預存資料提供企業級安全性。 如需詳細資訊，請參閱[在 Azure Data Lake Storage Gen1 中保護資料](#DataLakeStoreSecurity)。
 
-### <a name="all-data"></a>所有資料
+#### <a name="all-data"></a>所有資料
 
 Data Lake Storage Gen1 能以原生格式 (原樣) 儲存任何資料，而不需要任何先前的轉換。 載入資料前，Data Lake Storage Gen1 不需要定義結構描述，而是留待個別的分析架構在分析時解譯資料及定義結構描述。 Data Lake Storage Gen1 能夠儲存任意大小與格式的檔案，因此可以處理結構化、半結構化與非結構化資料。
 
 Data Lake Storage Gen1 的資料容器基本上是資料夾與檔案。 您可以使用 SDK、Azure 入口網站和 Azure Powershell 來操作儲存的資料。 只要您使用這些介面和適當容器將資料放入存放區中，就可以儲存任何類型的資料。 Data Lake Storage Gen1 不會根據其儲存的資料類型來對資料執行任何特殊處理。
 
-## <a name="DataLakeStoreSecurity"></a>在 Data Lake Storage Gen1 中保護資料
+### <a name="DataLakeStoreSecurity"></a>在 Data Lake Storage Gen1 中保護資料
 Data Lake Storage Gen1 會使用 Azure Active Directory 進行驗證，並使用存取控制清單 (ACL) 來管理對資料的存取。
 
 | 功能 | 說明 |
@@ -202,14 +204,14 @@ Data Lake Storage Gen1 會使用 Azure Active Directory 進行驗證，並使用
 
 * 如需有關如何在 Data Lake Storage Gen1 中保護資料的指示，請參閱[在 Azure Data Lake Storage Gen1 中保護資料](../data-lake-store/data-lake-store-secure-data.md)。
 
-## <a name="applications-compatible-with-data-lake-storage-gen1"></a>與 Data Lake Storage Gen1 相容的應用程式
+### <a name="applications-compatible-with-data-lake-storage-gen1"></a>與 Data Lake Storage Gen1 相容的應用程式
 Data Lake Storage Gen1 與 Hadoop 生態系統中的大部分開放原始碼元件相容。 此外，還與其他 Azure 服務完美整合。  請依照下面的連結，深入了解 Data Lake Storage Gen1 如何搭配開放原始碼元件與其他 Azure 服務使用。
 
 * 如需可與 Data Lake Storage Gen1 互通的開放原始碼應用程式清單，請參閱[與 Azure Data Lake Storage Gen1 相容的應用程式與服務](../data-lake-store/data-lake-store-compatible-oss-other-applications.md)。
 * 請參閱[與其他 Azure 服務整合](../data-lake-store/data-lake-store-integrate-with-other-services.md)，以了解 Data Lake Storage Gen1 如何搭配其他 Azure 服務使用，以促成更廣泛的案例。
 * 請參閱[使用 Data Lake Storage Gen1 的案例](../data-lake-store/data-lake-store-data-scenarios.md)，以了解如何在擷取資料、處理資料、下載資料和視覺化資料等案例中使用 Data Lake Storage Gen1。
 
-## <a name="what-is-data-lake-storage-gen1-file-system-adl"></a>什麼是 Data Lake Storage Gen1 檔案系統 (adl://)？
+### <a name="what-is-data-lake-storage-gen1-file-system-adl"></a>什麼是 Data Lake Storage Gen1 檔案系統 (adl://)？
 在 Hadoop 環境中可透過新的檔案系統 (AzureDataLakeFilesystem (adl://)) 存取 Data Lake Storage Gen1 (透過 HDInsight 叢集提供)。 使用 adl:// 的應用程式和服務能夠利用 WebHDFS 中目前無法使用的進一步效能最佳化。 因此，Data Lake Storage Gen1 讓您具有彈性：可透過使用 adl:// 的建議選項獲得最佳效能，或繼續直接使用 WebHDFS API 來維護現有的程式碼。 Azure HDInsight 充分利用 AzureDataLakeFilesystem 來提供 Data Lake Storage Gen1 的最佳效能。
 
 您可以使用 `adl://<data_lake_storage_gen1_name>.azuredatalakestore.net`，在 Data Lake Storage Gen1 中存取您的資料。 如需有關如何在 Data Lake Storage Gen1 中存取資料的詳細資訊，請參閱[檢視預存資料的屬性](../data-lake-store/data-lake-store-get-started-portal.md#properties)

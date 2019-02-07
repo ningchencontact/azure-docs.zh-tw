@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 2a5a878b7c8c3b6126d90b978241fbcb237d8db7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946301"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769907"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>使用 cloud-init 在 Linux 虛擬機器上設定分頁檔
 本文會示範如何使用 [cloud-init](https://cloudinit.readthedocs.io) 在各種 Linux 發行套件上設定分頁檔。 傳統上是由 Linux 代理程式 (WALA) 根據發行套件的需求來設定分頁檔。  本文將概述在佈建期間，使用 cloud-init 依需求建置分頁檔的流程。  如需深入了解 cloud-init 如何以原生方式在 Azure 和支援的 Linux 散發版本中運作，請參閱 [cloud-init 概觀](using-cloud-init.md)
@@ -48,13 +48,13 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-部署此映像前，您必須使用 [az group create](/cli/azure/group#az_group_create) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+部署此映像前，您必須使用 [az group create](/cli/azure/group) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-現在，請使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM 並以 `--custom-data cloud_init_swapfile.txt` 指定 cloud-init 檔案，如下所示：
+現在，請使用 [az vm create](/cli/azure/vm) 建立 VM 並以 `--custom-data cloud_init_swapfile.txt` 指定 cloud-init 檔案，如下所示：
 
 ```azurecli-interactive 
 az vm create \

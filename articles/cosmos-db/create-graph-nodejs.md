@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 11eec492501f7ead639aa928fe0ddaafb2f1d1bc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 400784fbc34a877b91ad0bdc2203b1992a537555
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033667"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509961"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB：使用 Gremlin API 建置 Node.js 應用程式
 
@@ -78,7 +78,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 * 已建立 Gremlin 用戶端。
 
-    ```nodejs
+    ```javascript
     const client = Gremlin.createClient(
         443, 
         config.endpoint, 
@@ -94,7 +94,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 * 定義了一系列的函式來執行不同的 Gremlin 作業。 這是其中一個：
 
-    ```nodejs
+    ```javascript
     function addVertex1(callback)
     {
         console.log('Running Add Vertex1'); 
@@ -108,7 +108,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 * 每個函式會搭配一個 Gremlin 查詢字串參數執行 `client.execute` 方法。 以下是執行 `g.V().count()` 的範例：
 
-    ```nodejs
+    ```javascript
     console.log('Running Count'); 
     client.execute("g.V().count()", { }, (err, results) => {
         if (err) return console.error(err);
@@ -119,7 +119,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 * 在檔案結尾，會使用 `async.waterfall()` 方法叫用所有的方法。 這會一個接著一個執行所有方法：
 
-    ```nodejs
+    ```javascript
     try{
         async.waterfall([
             dropGraph,
@@ -158,7 +158,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 您完成的 config.js 檔案範例應如下所示︰
 
-```nodejs
+```javascript
 var config = {}
 
 // Note that this must not have HTTPS or the port number

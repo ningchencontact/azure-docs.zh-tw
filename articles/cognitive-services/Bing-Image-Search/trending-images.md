@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 7d79e81f8670492d025727ed76d7d529dbd4719d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 177a9cbf9235bb3d2deb0d5f8e4e31a0e1472b48
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188315"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756466"
 ---
 # <a name="get-trending-images-from-the-web"></a>從 Web 取得發燒影像
 
@@ -90,7 +90,7 @@ Host: api.cognitive.microsoft.com
 
 每個圖格都包含一個影像，以及用於取得相關影響的選項。 若要取得相關影像，您可以使用查詢 `text`，自行呼叫[影像搜尋 API](./search-the-web.md) 並顯示相關影像。 或者，您可以使用 `webSearchUrl` 中的 URL，將使用者導向 Bing 的影像搜尋結果頁面，其中包含相關的影像。
 
-如果您呼叫影像搜尋 API 以取得相關影像，請將 [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) 查詢參數設定為 `id` 欄位中的識別碼。 指定識別碼可確保回應包含影像 (這是回應中的第一個影像) 及其相關的影像。 此外，將 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#q) 查詢參數設定為 `query` 物件的`text` 欄位中的文字。
+如果您呼叫影像搜尋 API 以取得相關影像，請將 [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) 查詢參數設定為 `id` 欄位中的識別碼。 指定識別碼可確保回應包含影像 (這是回應中的第一個影像) 及其相關的影像。 此外，將 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 查詢參數設定為 `query` 物件的`text` 欄位中的文字。
 
 下列範例示範如何使用影像識別碼來取得上述發燒影像 API 回應中的 Mr. Smith 相關影像。
 

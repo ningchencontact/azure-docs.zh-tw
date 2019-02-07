@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2eefa639ca5f13d23c3b2048436d739a01bd0dfa
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 4947977fbed2b4fe4bd47adcc4de6516090573ad
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975613"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661304"
 ---
 # <a name="add-map-controls-to-azure-maps"></a>將地圖控制項新增至 Azure 地圖服務
 
-本文將說明如何在地圖上新增地圖控制項。 您也將了解如何建立具有所有控制項和[樣式選擇器](https://docs.microsoft.com/azure/azure-maps/choose-map-style#adding-the-style-picker)的地圖。
+本文將說明如何在地圖上新增地圖控制項。 您也將了解如何建立具有所有控制項和[樣式選擇器](https://docs.microsoft.com/azure/azure-maps/choose-map-style)的地圖。
 
 ## <a name="add-zoom-control"></a>新增縮放控制項
 
@@ -26,7 +26,7 @@ ms.locfileid: "51975613"
 
 第一個程式碼區塊會設定訂用帳戶金鑰並建立「地圖」物件，但不會預先設定樣式。 如需如何建立地圖的相關指示，請參閱[建立地圖](./map-create.md)。
 
-縮放控制項會新增可縮放地圖的功能。 第二個程式碼區塊會使用 atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) 來建立「縮放控制項」物件，並使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) 方法將其新增至地圖。 「縮放」控制項位於地圖**事件接聽程式**內，以確保它會在地圖完全載入之後載入。
+縮放控制項會新增可縮放地圖的功能。 第二個程式碼區塊會使用 atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) 來建立「縮放控制項」物件，並使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 方法將其新增至地圖。 「縮放」控制項位於地圖**事件接聽程式**內，以確保它會在地圖完全載入之後載入。
 
 ## <a name="add-pitch-control"></a>新增傾斜角度控制項
 
@@ -35,7 +35,7 @@ ms.locfileid: "51975613"
 
 第一個程式碼區塊會設定訂用帳戶金鑰並建立「地圖」物件，但不會預先設定樣式。 如需如何建立地圖的相關指示，請參閱[建立地圖](./map-create.md)。
 
-傾斜角度控制項會新增可變更地圖傾斜角度的功能。 第二個程式碼區塊會使用 atlas [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) 來建立「傾斜角度控制項」物件，並使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) 方法將其新增至地圖。 「傾斜角度」控制項位於地圖**事件接聽程式**內，以確保它會在地圖完全載入之後載入。
+傾斜角度控制項會新增可變更地圖傾斜角度的功能。 第二個程式碼區塊會使用 atlas [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) 來建立「傾斜角度控制項」物件，並使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 方法將其新增至地圖。 「傾斜角度」控制項位於地圖**事件接聽程式**內，以確保它會在地圖完全載入之後載入。
 
 ## <a name="add-compass-control"></a>新增指南針控制項
 
@@ -44,7 +44,7 @@ ms.locfileid: "51975613"
 
 第一個程式碼區塊會設定訂用帳戶金鑰並建立「地圖」物件，但不會預先設定樣式。 如需如何建立地圖的相關指示，請參閱[建立地圖](./map-create.md)。
 
-第二個程式碼區塊會使用 atlas [Compass Control](/javascript/api/azure-maps-control/atlas.controls.compasscontrol) 來建立「指南針控制項」物件。 它也會使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) 方法將指南針控制項新增至地圖。 「指南針」控制項位於地圖**事件接聽程式**內，以確保它會在地圖完全載入之後載入。
+第二個程式碼區塊會使用 atlas [Compass Control](/javascript/api/azure-maps-control/atlas.controls.compasscontrol) 來建立「指南針控制項」物件。 它也會使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 方法將指南針控制項新增至地圖。 「指南針」控制項位於地圖**事件接聽程式**內，以確保它會在地圖完全載入之後載入。
 
 ## <a name="a-map-with-all-controls"></a>具有所有控制項的地圖
 
@@ -53,13 +53,13 @@ ms.locfileid: "51975613"
 
 第一個程式碼區塊會設定訂用帳戶金鑰並建立「地圖」物件，但不會預先設定樣式。 如需如何建立地圖的相關指示，請參閱[建立地圖](./map-create.md)。
 
-第二個程式碼區塊會使用 atlas [CompassControl](/javascript/api/azure-maps-control/atlas.controls.compasscontrol) 來建立「指南針控制項」物件，並使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) 方法將其新增至地圖。
+第二個程式碼區塊會使用 atlas [CompassControl](/javascript/api/azure-maps-control/atlas.controls.compasscontrol) 來建立「指南針控制項」物件，並使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 方法將其新增至地圖。
 
-第三個程式碼區塊會使用 atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) 來建立「縮放控制項」物件，並使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) 方法將其新增至地圖。
+第三個程式碼區塊會使用 atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) 來建立「縮放控制項」物件，並使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 方法將其新增至地圖。
 
-第四個程式碼區塊會使用 atlas [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) 來建立「傾斜角度控制項」物件，並使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol)方法將其新增至地圖。
+第四個程式碼區塊會使用 atlas [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) 來建立「傾斜角度控制項」物件，並使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)方法將其新增至地圖。
 
-最後一個程式碼區塊會使用 atlas [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) 來建立「樣式選擇器」物件，並使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) 方法將其新增至地圖。 所有控制項物件都新增在地圖**事件接聽程式**內，以確保它們會在地圖完整載入之後載入。
+最後一個程式碼區塊會使用 atlas [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) 來建立「樣式選擇器」物件，並使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 方法將其新增至地圖。 所有控制項物件都新增在地圖**事件接聽程式**內，以確保它們會在地圖完整載入之後載入。
 
 控制項物件在指令碼中的順序會決定它們出現在地圖上的順序。 若要變更控制項在地圖上的順序，您可以變更它們在指令碼中的順序。
 

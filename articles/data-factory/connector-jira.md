@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8a2e8b3cb841c18d337a610284bfb31862b0c63f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: cbb18212f70343d8b9933bd2c787ce6aae8b145d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015860"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563383"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Jira 複製資料 (預覽)
 
@@ -44,11 +44,11 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Jira** | 是 |
-| host | Jira 服務的 IP 位址或主機名稱。 (例如 jira.example.com)  | 是 |
+| type | 類型屬性必須設定為：**Jira** | yes |
+| host | Jira 服務的 IP 位址或主機名稱。 (例如 jira.example.com)  | yes |
 | 連接埠 | Jira 伺服器用來接聽用戶端連線的 TCP 連接埠。 若透過 HTTPS 連線，預設值為 443，或者，若透過 HTTP 連線，則為 8080。  | 否 |
-| username | 您用來存取 Jira 服務的使用者名稱。  | 是 |
-| password | 對應至您在 [使用者名稱] 欄位中提供之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
+| username | 您用來存取 Jira 服務的使用者名稱。  | yes |
+| password | 對應至您在 [使用者名稱] 欄位中提供之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
@@ -65,8 +65,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
             "port" : "<port>",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             }
         }
     }
@@ -81,7 +81,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**JiraObject** | 是 |
+| type | 資料集的類型屬性必須設定為：**JiraObject** | yes |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
@@ -110,7 +110,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**JiraSource** | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**JiraSource** | yes |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**

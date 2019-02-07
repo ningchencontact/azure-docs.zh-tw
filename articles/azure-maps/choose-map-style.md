@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c77467efbbc1c33be5bc2aaf3251a5803beee864
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 78e3f6a5f4a55fd4bf1925672205eb490e7c6b24
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317104"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695677"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>選擇 Azure 地圖服務中的地圖樣式
 
@@ -33,7 +33,7 @@ ms.locfileid: "52317104"
 
 上述程式碼區塊會設定訂用帳戶金鑰並建立「地圖」物件，但不會預先設定樣式。 如需如何建立地圖的相關指示，請參閱[建立地圖](./map-create.md)。
 
-第二個程式碼區塊會使用地圖的 [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle) 方法將地圖樣式設為 satellite。
+第二個程式碼區塊會使用地圖的 [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 方法將地圖樣式設為 satellite。
 
 ## <a name="add-the-style-picker"></a>新增樣式選擇器
 
@@ -44,7 +44,7 @@ ms.locfileid: "52317104"
 
 第二個程式碼區塊會使用地圖集 [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) 建構函式，來建構樣式選取器。
 
-樣式選取器可啟用地圖的樣式選擇功能。 第三個程式碼區塊會使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) 方法，將樣式選擇器新增至地圖。 樣式選擇器位於地圖**事件接聽程式**內，以確保它會在地圖完全載入之後載入。
+樣式選取器可啟用地圖的樣式選擇功能。 第三個程式碼區塊會使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 方法，將樣式選擇器新增至地圖。 樣式選擇器位於地圖**事件接聽程式**內，以確保它會在地圖完全載入之後載入。
 
 ## <a name="next-steps"></a>後續步驟
 

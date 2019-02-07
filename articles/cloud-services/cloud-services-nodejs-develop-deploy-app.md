@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 182dada35e0bea7101cc58ff62fde76fbcb8971e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: de78e70b30c4e0b03f87ad6b1bfe00356f897f43
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722272"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698218"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>建立 Node.js 應用程式並部署到 Azure 雲端服務
 
@@ -168,7 +168,7 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 [使用輕量型 Web 應用程式]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[連線 PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
+[連線 PowerShell]: /powershell/azureps-cmdlets-docs
 [nodejs.org]: http://nodejs.org/
 [雲端服務]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js 開發人員中心]: https://azure.microsoft.com/develop/nodejs/

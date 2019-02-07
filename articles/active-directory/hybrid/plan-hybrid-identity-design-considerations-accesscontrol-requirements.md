@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 0c08aa187b98e2f0cce96d58ca85bf732e83338f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: aa6579719588889ae23f664391d893b04e103804
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183810"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492958"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>判斷混合式身分識別解決方案的存取控制需求
 當組織正在設計他們的混合式身分識別解決方案時，也可以利用這個機會，針對他們正規劃來讓使用者使用的資源檢閱存取需求。 您可以橫跨下列這四種身分識別要件來存取資料：

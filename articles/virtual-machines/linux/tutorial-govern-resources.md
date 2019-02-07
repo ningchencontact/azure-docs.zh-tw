@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: e83d6e2f14f8665f8eb0c58a4dc41c7c2ecc792d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 040f073cc410911ea88112b3206623e90cece0ca
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464250"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756168"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>教學課程：了解如何使用 Azure CLI 控管 Linux 虛擬機器
 
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location "East US"
 
 相較於將角色指派給個別使用者，使用 Azure Active Directory 群組來含括需要執行類似動作的使用者，通常會較為容易。 然後，將該群組指派給適當的角色。 在本文中，請使用現有的群組來管理虛擬機器，或使用入口網站來[建立 Azure Active Directory 群組](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
 
-建立新群組或找到現有群組後，請使用 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) 命令，將新的 Azure Active Directory 群組指派給資源群組的虛擬機器參與者角色。
+建立新群組或找到現有群組後，請使用 [az role assignment create](/cli/azure/role/assignment) 命令，將新的 Azure Active Directory 群組指派給資源群組的虛擬機器參與者角色。
 
 ```azurecli-interactive
 adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
@@ -71,7 +71,7 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 
 ## <a name="azure-policy"></a>Azure 原則
 
-[Azure 原則](../../azure-policy/azure-policy-introduction.md)可協助您確認訂用帳戶中的所有資源均符合公司標準。 您的訂用帳戶已經有數個原則定義。 若要查看可用的原則定義，請使用 [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list) 命令：
+[Azure 原則](../../azure-policy/azure-policy-introduction.md)可協助您確認訂用帳戶中的所有資源均符合公司標準。 您的訂用帳戶已經有數個原則定義。 若要查看可用的原則定義，請使用 [az policy definition list](/cli/azure/policy/definition) 命令：
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table
@@ -83,7 +83,7 @@ az policy definition list --query "[].[displayName, policyType, name]" --output 
 * 限制虛擬機器的 SKU。
 * 稽核未使用受控磁碟的虛擬機器。
 
-在下列範例中，您會根據顯示名稱擷取三個原則定義。 您使用 [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) 命令將這些定義指派給資源群組。 針對某些原則，您要提供參數值來指定允許的值。
+在下列範例中，您會根據顯示名稱擷取三個原則定義。 您使用 [az policy assignment create](/cli/azure/policy/assignment) 命令將這些定義指派給資源群組。 針對某些原則，您要提供參數值來指定允許的值。
 
 ```azurecli-interactive
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
@@ -145,7 +145,7 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
 
 若要建立或刪除管理鎖定，您必須擁有 `Microsoft.Authorization/locks/*` 動作的存取權。 在內建角色中，只有 **擁有者** 和 **使用者存取管理員** 被授與這些動作的存取權。
 
-若要鎖定虛擬機器和網路安全性群組，請使用 [az lock create](/cli/azure/lock#az_lock_create) 命令：
+若要鎖定虛擬機器和網路安全性群組，請使用 [az lock create](/cli/azure/lock) 命令：
 
 ```azurecli-interactive
 # Add CanNotDelete lock to the VM
@@ -206,7 +206,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ## <a name="clean-up-resources"></a>清除資源
 
-您無法刪除已鎖定的網路安全性群組，除非移除鎖定。 若要移除鎖定，請擷取鎖定的識別碼，並將這些識別碼提供給 [az lock delete](/cli/azure/lock#az_lock_delete) 命令：
+您無法刪除已鎖定的網路安全性群組，除非移除鎖定。 若要移除鎖定，請擷取鎖定的識別碼，並將這些識別碼提供給 [az lock delete](/cli/azure/lock) 命令：
 
 ```azurecli-interactive
 vmlock=$(az lock show --name LockVM \
@@ -220,7 +220,7 @@ nsglock=$(az lock show --name LockNSG \
 az lock delete --ids $vmlock $nsglock
 ```
 
-若不再需要，您可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令來移除資源群組、VM 和所有相關資源。 結束 SSH 工作階段並返回您的 VM，然後將資源刪除，如下所示：
+若不再需要，您可以使用 [az group delete](/cli/azure/group) 命令來移除資源群組、VM 和所有相關資源。 結束 SSH 工作階段並返回您的 VM，然後將資源刪除，如下所示：
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

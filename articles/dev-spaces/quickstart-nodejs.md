@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: quickstart
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-ms.openlocfilehash: ccd4334961ff6e5e687d2f57be0291bd389f43b4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bfc70186590bce0165cf25f089f6863152cfba47
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463798"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658363"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>快速入門：使用 Azure Dev Spaces 建立 Kubernetes 開發人員空間 (Node.js)
 
@@ -189,4 +189,4 @@ Azure 開發人員空間會在偵錯工作階段之間重新啟動 Node.js 程�
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用多個容器和小組開發](team-development-nodejs.md)
+> [使用多個容器和小組開發](multi-service-nodejs.md)

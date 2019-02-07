@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 97b94cf54454a83510c5be2cf0d71281dbf5b004
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 222fc5e9083c03ff0d4e31927363c5f517cf32a9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424234"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699359"
 ---
 # <a name="create-a-map"></a>建立地圖
 
@@ -40,16 +40,16 @@ ms.locfileid: "52424234"
 <iframe height='500' scrolling='no' title='透過 CameraBoundsOptions 建立地圖' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆 <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>透過 `CameraBoundsOptions` 建立地圖</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
 
-上述程式碼會透過 `new atlas.Map()` 建構 [Map 物件](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)。 `CameraBoundsOptions` 等地圖屬性可透過 Map 類別的 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) 函式來定義。 邊界和邊框間距屬性會使用 `setCamera` 來設定。
+上述程式碼會透過 `new atlas.Map()` 建構 [Map 物件](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)。 `CameraBoundsOptions` 等地圖屬性可透過 Map 類別的 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 函式來定義。 邊界和邊框間距屬性會使用 `setCamera` 來設定。
 
 ### <a name="animate-map-view"></a>以動畫方式呈現地圖的檢視
 
 <iframe height='500' scrolling='no' title='以動畫方式呈現地圖的檢視' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看 Pen <a href='https://codepen.io/azuremaps/pen/WayvbO/'>以動畫方式呈現地圖的檢視</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
 
-在上述程式碼中，第一個程式碼區塊會透過 `new atlas.Map()`建立[地圖物件](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)。 置中與縮放層級等地圖屬性是 [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions) 的一部分。 `CameraOptions` 可定義在 Map 建構函式中或透過 Map 類別的 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) 函式來定義。 [地圖樣式](https://docs.microsoft.com/azure/azure-maps/supported-map-styles)會設為 `road`。
+在上述程式碼中，第一個程式碼區塊會透過 `new atlas.Map()`建立[地圖物件](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)。 置中與縮放層級等地圖屬性是 [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions) 的一部分。 `CameraOptions` 可定義在 Map 建構函式中或透過 Map 類別的 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 函式來定義。 [地圖樣式](https://docs.microsoft.com/azure/azure-maps/supported-map-styles)會設為 `road`。
 
-第二個程式碼區塊會建立動畫地圖函式，透過 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) 函式定義 [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions)，讓地圖檢視中的變更以動畫方式呈現。 此函式會由 [以動畫方式呈現地圖] 按鈕來觸發，並在每按一下時產生隨機縮放層級。
+第二個程式碼區塊會建立動畫地圖函式，透過 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 函式定義 [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions)，讓地圖檢視中的變更以動畫方式呈現。 此函式會由 [以動畫方式呈現地圖] 按鈕來觸發，並在每按一下時產生隨機縮放層級。
 
 ## <a name="try-out-the-code"></a>試用程式碼
 

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4e3ea171e34df27ebce63540f5fb21070a0808ec
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b009e7501609ec3650bf15f2ab5051dbec0ada76
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882341"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659366"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 建立區域備援虛擬機器擴展集
 此指令碼會建立能在多個可用性區域執行 Ubuntu 的虛擬機器擴展集。 執行指令碼之後，您可以透過 RDP 存取虛擬機器。
@@ -47,7 +47,7 @@ az group delete --name myResourceGroup
 |---|---|
 | [az group create](/cli/azure/ad/group) | 建立用來存放所有資源的資源群組。 |
 | [az vmss create](/cli/azure/vmss) | 建立虛擬機器擴展集，並將它連線到虛擬網路、子網路及網路安全性群組。 若要將流量散發到多個虛擬機器執行個體，也會建立負載平衡器。 此命令也會指定要使用的 VM 映像和管理認證。  |
-| [az group delete](/cli/azure/ad/group#delete) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group delete](/cli/azure/ad/group) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。

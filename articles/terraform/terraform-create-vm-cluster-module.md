@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: efeae877161b2632112938d63b6f6e31cce96ac5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d5a820da94254fe0da416d9219f7582d3a4241cb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077193"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696161"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>搭配使用模組登錄與 Terraform 以建立 VM 叢集
 
@@ -31,7 +31,7 @@ ms.locfileid: "54077193"
 ## <a name="set-up-authentication-with-azure"></a>使用 Azure 設定驗證
 
 > [!TIP]
-> 如果您[使用 Terraform 環境變數](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables)或在 [Azure Cloud Shell](/azure/cloud-shell/overview) 中執行本教學課程，請略過此步驟。
+> 如果您[使用 Terraform 環境變數](/azure/virtual-machines/linux/terraform-install-configure)或在 [Azure Cloud Shell](/azure/cloud-shell/overview) 中執行本教學課程，請略過此步驟。
 
  檢閱[安裝 Terraform 並設定對 Azure 的存取權限](/azure/virtual-machines/linux/terraform-install-configure)，來建立 Azure 服務主體。 使用這個服務主體與下列程式碼，將新檔案 `azureProviderAndCreds.tf` 植入空的目錄中：
 

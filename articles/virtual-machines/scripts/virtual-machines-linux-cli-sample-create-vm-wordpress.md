@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1c543c2357dd31bb06a19c7d53284c65a7ca7299
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 3e4410a5acb852ea9cd7f5ca24e67e8335a45e30
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928119"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692659"
 ---
 # <a name="create-a-vm-with-wordpress"></a>建立含 WordPress 的 VM
 
@@ -49,11 +49,11 @@ az group delete --name myResourceGroup
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | 建立虛擬機器，並將它連線到網路卡、虛擬網路、子網路及 NSG。 此命令也會指定要使用的虛擬機器映像和管理認證。  |
-| [az vm open-port](https://docs.microsoft.com/cli/azure/vm#az_vm_open_port) | 建立網路安全性群組規則以允許輸入流量。 在此範例中，會開放連接埠 80 供 HTTP 流量使用。 |
-| [az vm extension set](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | 將自訂指令碼擴充功能新增至會叫用指令碼來安裝 WordPress 的虛擬機器。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | 建立用來存放所有資源的資源群組。 |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | 建立虛擬機器，並將它連線到網路卡、虛擬網路、子網路及 NSG。 此命令也會指定要使用的虛擬機器映像和管理認證。  |
+| [az vm open-port](https://docs.microsoft.com/cli/azure/vm) | 建立網路安全性群組規則以允許輸入流量。 在此範例中，會開放連接埠 80 供 HTTP 流量使用。 |
+| [az vm extension set](https://docs.microsoft.com/cli/azure/vm) | 將自訂指令碼擴充功能新增至會叫用指令碼來安裝 WordPress 的虛擬機器。 |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 

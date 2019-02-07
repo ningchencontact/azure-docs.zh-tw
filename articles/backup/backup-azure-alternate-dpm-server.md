@@ -2,18 +2,18 @@
 title: 從 Azure 備份伺服器復原資料
 description: 從登錄至復原服務保存庫的任何 Azure 備份伺服器，復原該保存庫中保護的資料。
 services: backup
-author: nkolli1
-manager: shreeshd
+author: kasinh
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.author: adigan
-ms.openlocfilehash: 66d78be296d0786626325df36aa133d277131b3b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: kasinh
+ms.openlocfilehash: a0960cba58817a6d340998933fe315d6fca887e4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267091"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488431"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>從 Azure 備份伺服器復原資料
 您可以使用 Azure 備份伺服器，將您已備份到復原服務保存庫的資料復原。 要這麼做的程序就是整合到 Azure 備份伺服器管理主控台，且類似於其他 Azure 備份元件的復原工作流程。

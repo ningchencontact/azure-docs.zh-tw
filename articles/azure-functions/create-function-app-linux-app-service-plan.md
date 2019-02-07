@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: d9800ff3fc82636c5cae12167738667ec84326ee
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ec7b71c7da19ecefc14696c029e63a074b498ec8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52854592"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696726"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan-preview"></a>在 Azure App Service 方案中建立 Linux 上的函式應用程式 (預覽)
 
@@ -84,7 +84,7 @@ az functionapp create --resource-group myResourceGroup --plan myAppServicePlan \
 
 ## <a name="next-steps"></a>後續步驟
 
-本文說明如何在 Azure 中建立 Linux 裝載的函式應用程式。 您現在可以[部署函式專案](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest)到此函式應用程式。 您可以使用 Azure Functions Core Tools 在本機電腦上[建立 Functions 專案](functions-run-local.md#create-a-local-functions-project)，並將它部署到新的 Linux 函式應用程式。  
+本文說明如何在 Azure 中建立 Linux 裝載的函式應用程式。 您現在可以[部署函式專案](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest)到此函式應用程式。 您可以使用 Azure Functions Core Tools 在本機電腦上[建立 Functions 專案](functions-run-local.md)，並將它部署到新的 Linux 函式應用程式。  
 
 > [!div class="nextstepaction"] 
 > [撰寫 Azure Functions 並在本機進行測試](functions-run-local.md)

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6af6eb0dd6473b9fe947f7cc4939da4e0cbc77cb
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c4fcdcb8b20fdfb6f2314fc277ded4fdc52c2b99
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718474"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751425"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教學課程：使用受控識別保護來自 App Service 的 Azure SQL Database 連線
 
@@ -77,7 +77,7 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>將資料庫存取權授與身分識別
 
-接下來，您將在 Cloud Shell 中使用 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) 命令，將資料庫存取權授與您應用程式的受控識別。 在下列命令中，取代 \<server_name> 和 <principalid_from_last_step>。 針對 \<admin_user> 輸入管理員名稱。
+接下來，您將在 Cloud Shell 中使用 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest) 命令，將資料庫存取權授與您應用程式的受控識別。 在下列命令中，取代 \<server_name> 和 <principalid_from_last_step>。 針對 \<admin_user> 輸入管理員名稱。
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>

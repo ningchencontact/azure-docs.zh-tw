@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 8a78823a208a5310e62714de7b1a3cd2e35eaa8f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 67cc7d0dc162f2b36e38f1068f46079f46120f1c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104670"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819836"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>如何設定 Azure Redis 快取
 本主題說明您「Azure Redis 快取」執行個體可用的設定。 本主題也涵蓋適用於「Azure Redis 快取」執行個體的預設 Redis 伺服器設定。
@@ -57,7 +57,7 @@ ms.locfileid: "54104670"
     * [屬性](#properties)
     * [鎖定](#locks)
     * [自動化指令碼](#automation-script)
-* [系統管理](#administration)
+* 系統管理
     * [匯入資料](#importexport)
     * [匯出資料](#importexport)
     * [重新啟動](#reboot)
@@ -65,7 +65,7 @@ ms.locfileid: "54104670"
     * [Redis 度量](#redis-metrics)
     * [警示規則](#alert-rules)
     * [診斷](#diagnostics)
-* [支援和疑難排解設定](#support-amp-troubleshooting-settings)
+* 支援和疑難排解設定
     * [資源健康情況](#resource-health)
     * [新的支援要求](#new-support-request)
 

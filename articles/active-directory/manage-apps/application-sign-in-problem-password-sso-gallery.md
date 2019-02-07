@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5ae7643123552eaa17d51e6cd1ed9c0293292ed0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 734169a0bce546ee2492d100b2abcb2ba8b6ffc9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184966"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822522"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>登入針對密碼單一登入設定之 Azure AD 資源庫應用程式的問題
 
@@ -88,7 +88,7 @@ ms.locfileid: "55184966"
 
 若要設定 Azure AD 資源庫中的應用程式，您必須：
 
--   [從 Azure AD 資源庫新增應用程式](#_Add_an_application)
+-   從 Azure AD 資源庫新增應用程式
 
 -   [設定應用程式使用密碼單一登入](#configure-the-application-for-password-single-sign-on)
 
@@ -140,7 +140,7 @@ ms.locfileid: "55184966"
 
 8.  選取 [以密碼為基礎的登入] 模式。
 
-9.  [將使用者指派至應用程式](#_How_to_assign)。
+9.  將使用者指派至應用程式。
 
 10. 此外，您也可以選取使用者資料列，按一下 [更新認證]，然後代表使用者輸入使用者名稱和密碼，以代表使用者提供認證。 否則，系統會提示使用者在啟動時自行輸入認證。
 

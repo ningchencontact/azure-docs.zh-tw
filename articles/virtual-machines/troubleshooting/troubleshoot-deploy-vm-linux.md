@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 45e15fa5b17f75dcc6cfdc7305861d38804f1266
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 56df020b7948ff41ee7710fca19d05924e118c81
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748131"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729705"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>針對 Azure 中的 Linux 虛擬機器部署問題進行疑難排解
 
@@ -93,7 +93,7 @@ Linux 型 VM 的驅動程式位於[這裡](../linux/n-series-driver-setup.md)。
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>我是否可以將現有的傳統 VM 新增到可用性設定組？
 
-是。 您可以將現有的傳統 VM 新增到新的或現有的「可用性設定組」。 如需詳細資訊，請參閱[將現有的虛擬機器新增至可用性設定組](../windows/classic/configure-availability-classic.md#addmachine)。
+是。 您可以將現有的傳統 VM 新增到新的或現有的「可用性設定組」。 如需詳細資訊，請參閱[將現有的虛擬機器新增至可用性設定組](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine)。
 
 
 ## <a name="next-steps"></a>後續步驟

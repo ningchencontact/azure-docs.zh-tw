@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 13a762e9262bacc6c4d87b8be56eb286491ba75f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: e7a9659a7796777cabb6dc73a41e3a361fd1733c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197686"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567956"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>將裝置連線到遠端監視解決方案加速器 (Node.js)
 
@@ -40,7 +40,7 @@ ms.locfileid: "54197686"
 
 1. 在 **remote_monitoring.js** 檔案中，新增下列 `require` 陳述式︰
 
-    ```nodejs
+    ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').Client;
     var Message = require('azure-iot-device').Message;
@@ -49,13 +49,13 @@ ms.locfileid: "54197686"
 
 1. 在 `require` 陳述式之後新增下列變數宣告。 針對您在遠端監視解決方案中所佈建的裝置，使用您記下的值來取代 `{device connection string}` 預留位置值：
 
-    ```nodejs
+    ```javascript
     var connectionString = '{device connection string}';
     ```
 
 1. 如需定義一些基本遙測資料，請新增下列變數︰
 
-    ```nodejs
+    ```javascript
     var temperature = 50;
     var temperatureUnit = 'F';
     var humidity = 50;
@@ -66,7 +66,7 @@ ms.locfileid: "54197686"
 
 1. 如需定義一些屬性值，請新增下列變數︰
 
-    ```nodejs
+    ```javascript
     var schema = "real-chiller;v1";
     var deviceType = "RealChiller";
     var deviceFirmware = "1.0.0";
@@ -79,7 +79,7 @@ ms.locfileid: "54197686"
 
 1. 新增下列變數來定義要傳送至解決方案的報告屬性。 這些屬性包括將在 Web UI 中顯示的中繼資料：
 
-    ```nodejs
+    ```javascript
     var reportedProperties = {
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
@@ -97,7 +97,7 @@ ms.locfileid: "54197686"
 
 1. 若要列印作業結果，請新增下列協助程式函式︰
 
-    ```nodejs
+    ```javascript
     function printErrorFor(op) {
         return function printError(err) {
             if (err) console.log(op + ' error: ' + err.toString());
@@ -107,7 +107,7 @@ ms.locfileid: "54197686"
 
 1. 新增下列協助程式函式，用來將排遙測值隨機化︰
 
-    ```nodejs
+    ```javascript
     function generateRandomIncrement() {
         return ((Math.random() * 2) - 1);
     }
@@ -115,7 +115,7 @@ ms.locfileid: "54197686"
 
 1. 新增下列泛型函式以處理解決方案的直接方法呼叫。 此函式會顯示已叫用之直接方法的相關資訊，但在此範例中不會以任何方式修改裝置。 解決方案會使用直接方法在裝置上執行：
 
-    ```nodejs
+    ```javascript
     function onDirectMethod(request, response) {
       // Implement logic asynchronously here.
       console.log('Simulated ' + request.methodName);
@@ -130,7 +130,7 @@ ms.locfileid: "54197686"
 
 1. 新增下列函式以處理解決方案的 **FirmwareUpdate** 直接方法呼叫。 此函式會驗證傳入直接方法酬載中的參數，然後以非同步方式執行韌體更新模擬：
 
-    ```nodejs
+    ```javascript
     function onFirmwareUpdate(request, response) {
       // Get the requested firmware version from the JSON request body
       var firmwareVersion = request.payload.Firmware;
@@ -159,7 +159,7 @@ ms.locfileid: "54197686"
 
 1. 新增下列函式以模擬長時間執行的韌體更新流程，此流程會將進度回報至解決方案：
 
-    ```nodejs
+    ```javascript
     // Simulated firmwareUpdate flow
     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
       console.log('Simulating firmware update flow...');
@@ -237,7 +237,7 @@ ms.locfileid: "54197686"
 
 1. 新增下列程式碼將遙測資料傳送至解決方案。 用戶端應用程式會將屬性新增至訊息，以找出訊息結構描述：
 
-    ```nodejs
+    ```javascript
     function sendTelemetry(data, schema) {
       if (deviceOnline) {
         var d = new Date();
@@ -256,7 +256,7 @@ ms.locfileid: "54197686"
 
 1. 新增下列程式碼，以建立用戶端執行個體︰
 
-    ```nodejs
+    ```javascript
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
@@ -268,7 +268,7 @@ ms.locfileid: "54197686"
     * 登錄直接方法的處理常式。 此範例會針對韌體更新直接方法，使用個別的處理常式。
     * 開始傳送遙測。
 
-    ```nodejs
+    ```javascript
     client.open(function (err) {
       if (err) {
         printErrorFor('open')(err);

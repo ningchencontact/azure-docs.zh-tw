@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
-ms.openlocfilehash: 3ad9308f3bc714ee2877627da8fdb328459b9fe4
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 247a45a38d732ace0455c6ca2ebbd5c44c384004
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351944"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732323"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>使用 Azure Active Directory 來啟用 AppSource 和 Marketplace 清單
 
@@ -44,7 +44,7 @@ Microsoft AppSource 和 Azure Marketplace 客戶會使用產品內體驗來搜�
 | 虛擬機器 | N/A | 否 | 否 | 否 |
 | Azure 應用程式 (解決方案範本)  | N/A | N/A | N/A | N/A |
 | 受管理的應用程式  | N/A | N/A | N/A | 否 |
-| SaaS  | 否 | yes | yes | 是 |
+| SaaS  | 否 | yes | 是 | yes |
 | 容器  | N/A | N/A | N/A | 否 |
 | 諮詢服務  | 否 | N/A | N/A | N/A |
 
@@ -59,7 +59,7 @@ Microsoft AppSource 和 Azure Marketplace 客戶會使用產品內體驗來搜�
 
 將客戶設定自動化可以增加轉換的可能性。 當您的客戶選取您的試用版清單並重新導向至您的試用版環境時，您可以直接設定客戶，而無須進行額外的登入步驟。
 
-在驗證期間，Azure AD 會將權杖傳送至您的應用程式或供應項目。 權杖所提供的使用者資訊可讓您在應用程式或供應項目中建立使用者帳戶。 若要進一步了解，請參閱[範例權杖](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens)。
+在驗證期間，Azure AD 會將權杖傳送至您的應用程式或供應項目。 權杖所提供的使用者資訊可讓您在應用程式或供應項目中建立使用者帳戶。 若要進一步了解，請參閱[範例權杖](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)。
 
 當您使用 Azure AD 在應用程式或試用版清單中啟用單鍵驗證時，您可以：
 

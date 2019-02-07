@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: dfebda8f92837f8573fb3362c9210bce9b70d23d
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 1e270ce13865684f32623fd964d4a41642d95342
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42751560"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695550"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 建立完整的 Linux 虛擬機器基礎結構
 
@@ -141,6 +141,7 @@ resource "azurerm_network_interface" "myterraformnic" {
     name                = "myNIC"
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
+    network_security_group_id = "${azurerm_network_security_group.myterraformnsg.id}"
 
     ip_configuration {
         name                          = "myNicConfiguration"
@@ -244,10 +245,6 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 若要將所有這些區段結合在一起，並查看運作中的 Terraform，請建立名為 *terraform_azure.tf* 的檔案並貼上下列內容：
 
 ```tf
-variable "resourcename" {
-  default = "myResourceGroup"
-}
-
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -458,7 +455,7 @@ Plan: 7 to add, 0 to change, 0 to destroy.
 terraform apply
 ```
 
-Terraform 完成之後，您的 VM 基礎結構即已備妥。 使用 [az vm show](/cli/azure/vm#az_vm_show) 取得虛擬機器的 IP 位址：
+Terraform 完成之後，您的 VM 基礎結構即已備妥。 使用 [az vm show](/cli/azure/vm) 取得虛擬機器的 IP 位址：
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv

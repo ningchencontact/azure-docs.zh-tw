@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dc2b38f8e8065b8d8763365bf0cbad56ae00cd4b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462194"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565423"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>自訂遠端監視解決方案加速器
 
@@ -84,7 +84,7 @@ ms.locfileid: "54462194"
 * 交換地圖和遙測面板的位置。
 * 變更地圖和 Analytics 面板的相對寬度。
 
-```nodejs
+```javascript
 <PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
@@ -156,7 +156,7 @@ ms.locfileid: "54462194"
 
 您也可以新增相同面板的多個執行個體，或在[複製和自訂面板](#duplicate-and-customize-an-existing-control)時，新增相同面板的數個版本。 下列範例示範如何新增遙測面板的兩個執行個體。 若要進行這些變更，請編輯 `src/components/pages/dashboard/dashboard.js` 檔案：
 
-```nodejs
+```javascript
 <PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
@@ -247,19 +247,19 @@ ms.locfileid: "54462194"
 
 1. 在 **cust_alerts** 資料夾的 **alertsPanel.js** 檔案中，將類別的名稱編輯為 **CustAlertsPanel**：
 
-    ```nodejs
+    ```javascript
     export class CustAlertsPanel extends Component {
     ```
 
 1. 在 `src/components/pages/dashboard/panels/index.js` 檔案中新增以下文字行：
 
-    ```nodejs
+    ```javascript
     export * from './cust_alerts';
     ```
 
 1. 在 `src/components/pages/dashboard/dashboard.js` 檔案中，使用 `CustAlertsPanel` 來取代 `alertsPanel`：
 
-    ```nodejs
+    ```javascript
     import {
       OverviewPanel,
       CustAlertsPanel,
@@ -287,7 +287,7 @@ ms.locfileid: "54462194"
 
 1. 修改資料行定義，如下列程式碼片段所示：
 
-    ```nodejs
+    ```javascript
     this.columnDefs = [
       rulesColumnDefs.severity,
       {
@@ -312,7 +312,7 @@ ms.locfileid: "54462194"
 
 1. 在 `src/services/telemetryService.js` 檔案中，找出名為 **getTelemetryByDeviceIdP15M** 的函式。 複製此函式並修改複本，如下所示：
 
-    ```nodejs
+    ```javascript
     static getTelemetryByDeviceIdP5M(devices = []) {
       return TelemetryService.getTelemetryByMessages({
         from: 'NOW-PT5M',
@@ -325,7 +325,7 @@ ms.locfileid: "54462194"
 
 1. 若要使用這個新的函式來填入遙測圖表，請開啟 `src/components/pages/dashboard/dashboard.js` 檔案。 找到將遙測資料流初始化的那一行並進行修改，如下所示：
 
-    ```node.js
+    ```javascript
     const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
     ```
 
@@ -339,7 +339,7 @@ ms.locfileid: "54462194"
 
 1. 開啟 `src/components/pages/dashboard/dashboard.js` 檔案。 修改 **initialState** 物件以包含 **warningAlertsChange** 屬性，如下所示：
 
-    ```nodejs
+    ```javascript
     const initialState = {
       ...
 
@@ -359,7 +359,7 @@ ms.locfileid: "54462194"
 
 1. 修改 **currentAlertsStats** 物件以包含 **totalWarningCount** 作為屬性：
 
-    ```nodejs
+    ```javascript
     return {
       openWarningCount: (acc.openWarningCount || 0) + (isWarning && isOpen ? 1 : 0),
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
@@ -371,7 +371,7 @@ ms.locfileid: "54462194"
 
 1. 計算新的 KPI。 尋找適用於重要警示計數的計算。 複製程式碼並修改複本，如下所示：
 
-    ```nodejs
+    ```javascript
     // ================== Warning Alerts Count - START
     const currentWarningAlerts = currentAlertsStats.totalWarningCount;
     const previousWarningAlerts = previousAlerts.reduce(
@@ -384,7 +384,7 @@ ms.locfileid: "54462194"
 
 1. 在 KPI 資料流中包含新的 **warningAlertsChange** KPI：
 
-    ```nodejs
+    ```javascript
     return ({
       analyticsIsPending: false,
       analyticsVersion: this.state.analyticsVersion + 1,
@@ -402,7 +402,7 @@ ms.locfileid: "54462194"
 
 1. 在用於呈現 UI 的狀態資料中包含新的 **warningAlertsChange** KPI：
 
-    ```nodejs
+    ```javascript
     const {
       ...
 
@@ -421,7 +421,7 @@ ms.locfileid: "54462194"
 
 1. 更新傳送到 KPI 面板的資料：
 
-    ```node.js
+    ```javascript
     <AnalyticsPanel
       timeSeriesExplorerUrl={timeSeriesParamUrl}
       topAlerts={topAlertsWithName}
@@ -439,13 +439,13 @@ ms.locfileid: "54462194"
 
 1. 修改下列程式碼行以擷取新的 KPI 值，如下所示：
 
-    ```nodejs
+    ```javascript
     const { t, isPending, criticalAlertsChange, warningAlertsChange, alertsPerDeviceId, topAlerts, timeSeriesExplorerUrl, error } = this.props;
     ```
 
 1. 修改標記以顯示新的 KPI 值，如下所示：
 
-    ```nodejs
+    ```javascript
     <div className="analytics-cell">
       <div className="analytics-header">{t('dashboard.panels.analytics.criticalAlerts')}</div>
       <div className="critical-alerts">

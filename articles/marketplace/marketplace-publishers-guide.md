@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 487872b1e9344aaefad5ca0953c41b59f01027b0
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 43badaada3de352ec7bafeb422965a047261a1e4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753960"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656829"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace 和 AppSource 發行指南
 
 Marketplace 發行指南的目的是協助新的與現有的發行者了解如何使用 [Azure Marketplace](https://azuremarketplace.microsoft.com) 和 [Microsoft AppSource](https://appsource.microsoft.com) 中的店面來列出應用程式和服務，與 Microsoft 合作提升業績。
 
 >[!Note]
->此處的 Marketplace 泛指 Azure Marketplace 和 AppSource。  如需詳細資訊，請參閱[一個市集，二間店面](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)。
+>此處的 Marketplace 泛指 Azure Marketplace 和 AppSource。  如需詳細資訊，請參閱[一個市集，二間店面](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)。
 
 本指南涵蓋下列主題： 
 *   Marketplace 是什麼及其運作方式 

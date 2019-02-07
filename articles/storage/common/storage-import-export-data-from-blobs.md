@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0480a8d4079a39c8e365dde893a9a1af2d7341aa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 99e3abb1bedffdb5a7d49c033ebc8b4c46df1c03
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453105"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769267"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 匯入/匯出服務匯出 Azure Blob 儲存體中的資料
 本文提供的逐步指示會說明如何使用 Azure 匯入/匯出服務，安全地從 Azure Blob 儲存體匯出大量資料。 此服務需要您將空磁碟機寄送至 Azure 資料中心。 此服務會將您儲存體帳戶的資料匯出至磁碟機，然後將磁碟機寄回給您。
@@ -145,7 +145,7 @@ ms.locfileid: "55453105"
     |**/sn:**|必要。 匯出作業的儲存體帳戶名稱。|  
     |**/sk:**|如果未指定容器 SAS 時，才是必要參數。 匯出作業之儲存體帳戶的帳戶金鑰。|  
     |**/csas:**|如果未指定儲存體帳戶金鑰時，才是必要參數。 容器 SAS，可供列出要在匯出作業中匯出的 blob。|  
-    |**/ExportBlobListFile:**|必要。 XML 檔案的路徑，此檔案包含要匯出的 Blob 的Blob 路徑清單或 Blob 路徑前置詞。 匯入/匯出服務 REST API 的 [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 作業中 `BlobListBlobPath` 元素中所使用的檔案格式。|  
+    |**/ExportBlobListFile:**|必要。 XML 檔案的路徑，此檔案包含要匯出的 Blob 的Blob 路徑清單或 Blob 路徑前置詞。 匯入/匯出服務 REST API 的 [Put Job](/rest/api/storageimportexport/jobs) 作業中 `BlobListBlobPath` 元素中所使用的檔案格式。|  
     |**/DriveSize:**|必要。 要用於匯出作業的磁碟機大小，例如 500 GB、1.5 TB。|  
 
     請參閱 [PreviewExport 命令的範例](#example-of-previewexport-command)。

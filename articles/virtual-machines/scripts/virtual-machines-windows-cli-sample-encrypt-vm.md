@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 900dd5e7e9372e36e0831b47e89db5e89b4816d5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: bfa6eb8264bf64ad63542640b71d5abe13c7bfb5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849563"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732595"
 ---
 # <a name="encrypt-a-windows-virtual-machine-in-azure"></a>如何在 Azure 中將 Windows 虛擬機器加密
 
@@ -48,14 +48,14 @@ az group delete --name myResourceGroup
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | 建立 Azure Key Vault 來儲存安全資料，例如加密金鑰。 |
-| [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key#az_keyvault_key_create) | 在 Key Vault 中建立加密金鑰。 |
-| [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp#az_ad_sp_create_for_rbac) | 建立 Azure Active Directory 服務主體，以安全地進行驗證及控制對加密金鑰的存取。 |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | 在 Key Vault 上設定權限，以授與服務主體對加密金鑰的存取權。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | 建立用來存放所有資源的資源群組。 |
+| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault) | 建立 Azure Key Vault 來儲存安全資料，例如加密金鑰。 |
+| [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key) | 在 Key Vault 中建立加密金鑰。 |
+| [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp) | 建立 Azure Active Directory 服務主體，以安全地進行驗證及控制對加密金鑰的存取。 |
+| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault) | 在 Key Vault 上設定權限，以授與服務主體對加密金鑰的存取權。 |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | 建立虛擬機器，並將它連線到網路卡、虛擬網路、子網路及 NSG。 此命令也會指定要使用的虛擬機器映像和管理認證。  |
 | [az vm encryption enable](https://docs.microsoft.com/cli/azure/vm/encryption) | 使用服務主體認證和加密金鑰在 VM 上啟用加密。 |
-| [az vm encryption show](https://docs.microsoft.com/cli/azure/vm/encryption#az_vm_encryption_show) | 顯示 VM 加密程序的狀態。 |
+| [az vm encryption show](https://docs.microsoft.com/cli/azure/vm/encryption) | 顯示 VM 加密程序的狀態。 |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟

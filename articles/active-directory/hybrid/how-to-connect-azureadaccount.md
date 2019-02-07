@@ -12,16 +12,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3ced4d7be9864f16b4fbd7a91ae916e1b4f65d18
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c542ba1c105d2fcdb74d5f8b1af1ecddade65a20
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177903"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488726"
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect 同步：如何管理 Azure AD 服務帳戶
 Azure AD 連接器所使用的服務帳戶應該是免費的服務。 如果您需要重設其認證，則這個主題適合您。 例如，如果全域管理員不小心使用 PowerShell 重設了服務帳戶的密碼。

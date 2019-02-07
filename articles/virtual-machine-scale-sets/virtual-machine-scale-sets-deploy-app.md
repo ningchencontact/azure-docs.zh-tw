@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 2448d941db7f27a87fbb5e2267847165f84ede3d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 4b977a2fe9dadfe42e02063fa4fa291b9be484ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881693"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733126"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>在虛擬機器擴展集上部署您的應用程式
 若要在擴展集的虛擬機器 (VM) 執行個體上執行應用程式，您需要先安裝應用程式元件和必要的檔案。 本文介紹如何在擴展集中建置執行個體的自訂 VM 映像，或在現有的 VM 執行個體上自動執行安裝指令碼。 您也將了解如何跨擴展集管理應用程式或作業系統更新。
@@ -97,7 +97,7 @@ Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install**
 
 如需詳細資訊，包括 *cloud-init.txt* 範例檔，請參閱[使用 cloud-init 自訂 Azure VM](../virtual-machines/linux/using-cloud-init.md)。
 
-若要建立擴展集並使用 cloud-init 檔案，請將 `--custom-data` 參數新增至 [az vmss create](/cli/azure/vmss#az_vmss_create) 命令，並指定 cloud-init 檔案的名稱。 下列範例會在 *myResourceGroup* 中建立名為 *myScaleSet* 的擴展集，並使用名為 *cloud-init.txt* 的檔案設定 VM 執行個體。 輸入您自己的名稱，如下所示：
+若要建立擴展集並使用 cloud-init 檔案，請將 `--custom-data` 參數新增至 [az vmss create](/cli/azure/vmss) 命令，並指定 cloud-init 檔案的名稱。 下列範例會在 *myResourceGroup* 中建立名為 *myScaleSet* 的擴展集，並使用名為 *cloud-init.txt* 的檔案設定 VM 執行個體。 輸入您自己的名稱，如下所示：
 
 ```azurecli
 az vmss create \

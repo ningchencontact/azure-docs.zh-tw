@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 061987105eac976e40a003a8108921ed0008630d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71a5ca62dc5d21e30a4944f8be57a77040f4f204
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169156"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733683"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>使用 HTTP 基本驗證保護 RESTful 服務
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-在 [Azure AD B2C 相關文章](active-directory-b2c-custom-rest-api-netfw.md)中，您在未經驗證的情況下，即建立了與 Azure Active Directory B2C (Azure AD B2C) 使用者旅程圖整合的 RESTful 服務 (Web API)。 
+在 [Azure AD B2C 相關文章](active-directory-b2c-custom-rest-api-netfw.md)中，您在未經驗證的情況下，即建立了與 Azure Active Directory B2C (Azure AD B2C) 使用者旅程圖整合的 RESTful 服務 (Web API)。
 
-在此文章中，您將 HTTP 基本驗證新增至 RESTful 服務，使得只有經過驗證的使用者 (包括 B2C) 可存取您的 API。 利用 HTTP 基本驗證，您可以在自訂原則中設定使用者認證 (應用程式識別碼和應用程式密碼)。 
+在此文章中，您將 HTTP 基本驗證新增至 RESTful 服務，使得只有經過驗證的使用者 (包括 B2C) 可存取您的 API。 利用 HTTP 基本驗證，您可以在自訂原則中設定使用者認證 (應用程式識別碼和應用程式密碼)。
 
 如需詳細資訊，請參閱[ASP.NET Web API 中的基本驗證](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication)。
 
@@ -33,7 +33,7 @@ ms.locfileid: "55169156"
 ## <a name="step-1-add-authentication-support"></a>步驟 1：新增驗證支援
 
 ### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>步驟 1.1：將應用程式設定新增至專案的 web.config 檔案
-1. 開啟您稍早建立的 Visual Studio 專案。 
+1. 開啟您稍早建立的 Visual Studio 專案。
 
 2. 將下列應用程式設定新增至 web.config 檔案的 `appSettings` 元素下：
 
@@ -205,7 +205,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
         {
             public void Configuration(IAppBuilder app)
             {
-                    app.Use<ClientAuthMiddleware>();
+                app.Use<ClientAuthMiddleware>();
             }
         }
     }
@@ -220,7 +220,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 若要發佈您的專案，請在 [方案總管] 中，以滑鼠右鍵按一下 **Contoso.AADB2C.API**專案，然後選取 [發佈]。
 
 ## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>步驟 3：將 RESTful 服務應用程式識別碼及應用程式祕密新增至 Azure AD B2C
-利用用戶端識別碼 (使用者名稱) 和密碼保護 RESTful 服務之後，您必須將認證儲存在您的 Azure AD B2C 租用戶中。 您的自訂原則在叫用 RESTful 服務時會提供認證。 
+利用用戶端識別碼 (使用者名稱) 和密碼保護 RESTful 服務之後，您必須將認證儲存在您的 Azure AD B2C 租用戶中。 您的自訂原則在叫用 RESTful 服務時會提供認證。
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>步驟 3.1：新增 RESTful 服務用戶端識別碼
 1. 在您的 Azure AD B2C 租用戶中，選取 [B2C 設定] > [識別體驗架構]。
@@ -275,7 +275,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
     <Item Key="AuthenticationType">Basic</Item>
     ```
 
-5. 在關閉 `<Metadata>` 元素之後，立即新增下列 XML 程式碼片段： 
+5. 在關閉 `<Metadata>` 元素之後，立即新增下列 XML 程式碼片段：
 
     ```xml
     <CryptographicKeys>

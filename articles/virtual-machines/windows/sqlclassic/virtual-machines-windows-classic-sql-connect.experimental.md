@@ -16,12 +16,12 @@ ms.date: 01/31/2017
 ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 558606b6993aff2053dfbbf6adfd864cd827bbb1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 51694ca085e131150217ffb3fbac9830980108cb
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328975"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733513"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>連線到 Azure 上的 SQL Server 虛擬機器 (傳統部署)
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.locfileid: "54328975"
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>連接相同雲端服務中的 SQL Server
-可以在相同的雲端服務中建立多個虛擬機器。 若要了解此虛擬機器案例，請參閱 [如何連接虛擬機器與虛擬網路或雲端服務](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service)。 在此案例中，虛擬機器上的用戶端會嘗試連線到在同一個雲端服務中執行的另一部虛擬機器上的 SQL Server。
+可以在相同的雲端服務中建立多個虛擬機器。 若要了解此虛擬機器案例，請參閱 [如何連接虛擬機器與虛擬網路或雲端服務](/previous-versions/azure/virtual-machines/windows/classic/connect-vms-classic#connect-vms-in-a-standalone-cloud-service)。 在此案例中，虛擬機器上的用戶端會嘗試連線到在同一個雲端服務中執行的另一部虛擬機器上的 SQL Server。
 
 在此案例中，您可以使用 VM **名稱** (在入口網站中也稱為**電腦名稱**或**主機名稱**) 來連接。 這是您在建立期間提供給 VM 的名稱。 例如，如果將您的 SQL VM 命名為 **mysqlvm**，則在相同雲端服務中的用戶端 VM 將可以使用下列連接字串來連接：
 
@@ -64,7 +64,7 @@ ms.locfileid: "54328975"
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-雖然此連接字串可讓用戶端透過網際網路連線，但這不表示任何人都可以連接您的 SQL Server。 外部用戶端必須要有正確的使用者名稱和密碼。 為了增加安全性，請勿使用知名的 1433 連接埠做為公用虛擬機器端點。 請盡可能考慮在您的端點加入 ACL 來限制流量，只開放給您允許的用戶端。 如需有關在端點中使用 ACL 的指示，請參閱 [在端點上管理 ACL](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)。
+雖然此連接字串可讓用戶端透過網際網路連線，但這不表示任何人都可以連接您的 SQL Server。 外部用戶端必須要有正確的使用者名稱和密碼。 為了增加安全性，請勿使用知名的 1433 連接埠做為公用虛擬機器端點。 請盡可能考慮在您的端點加入 ACL 來限制流量，只開放給您允許的用戶端。 如需有關在端點中使用 ACL 的指示，請參閱 [在端點上管理 ACL](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint)。
 
 > [!NOTE]
 > 當您使用這項技術與 SQL Server 進行通訊時，所有從 Azure 資料中心傳出的資料都會以一般 [輸出資料傳輸價格](https://azure.microsoft.com/pricing/details/data-transfers/)計費。

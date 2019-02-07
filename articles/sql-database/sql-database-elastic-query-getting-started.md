@@ -11,15 +11,16 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: da876152b55ee626025b6192a5004648a29545dc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604179"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561989"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>跨相應放大雲端資料庫報告 (預覽)
+
 您可以使用 [彈性查詢](sql-database-elastic-query-overview.md)，從單一連接點的多個 Azure SQL Database 建立報告。 資料庫必須水平分割 (也稱為「分區化」)。
 
 如果您有現有的資料庫，請參閱 [將現有的資料庫移轉到相應放大的資料庫](sql-database-elastic-convert-to-use-elastic-tools.md)。
@@ -27,6 +28,7 @@ ms.locfileid: "53604179"
 若要了解查詢所需的 SQL 物件，請參閱 [跨水平分割資料庫查詢](sql-database-elastic-query-horizontal-partitioning.md)。
 
 ## <a name="prerequisites"></a>必要條件
+
 下載並執行 [彈性資料庫工具範例入門](sql-database-elastic-scale-get-started.md)。
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>使用範例應用程式建立分區對應管理員

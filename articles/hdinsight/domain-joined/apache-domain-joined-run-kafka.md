@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.openlocfilehash: 9e6ebd45f08d2479c73e0753fe1e8df3455df1e1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 381958b462b668447a6548029a1be616df7a3a4b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265289"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750217"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Apache Kafka 原則 (預覽)
 
@@ -48,7 +48,7 @@ ms.locfileid: "54265289"
 
 ## <a name="create-domain-users"></a>建立網域使用者
 
-請參閱[使用企業安全性套件建立 HDInsight 叢集](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster)，以了解如何建立 **sales_user** 和 **marketing_user** 網域使用者。 在生產情節中，網域使用者來自 Active Directory 租用戶。
+請參閱[使用企業安全性套件建立 HDInsight 叢集](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds)，以了解如何建立 **sales_user** 和 **marketing_user** 網域使用者。 在生產情節中，網域使用者來自 Active Directory 租用戶。
 
 ## <a name="create-ranger-policy"></a>建立 Ranger 原則
 

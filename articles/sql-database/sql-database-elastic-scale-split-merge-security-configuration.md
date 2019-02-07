@@ -11,33 +11,38 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: de758d38626107f28211f79a4772c3e887085776
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: a3ba80ce7b5abcb2f112880c4fef5ed3f067f691
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599821"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563213"
 ---
 # <a name="split-merge-security-configuration"></a>分割合併安全性設定
+
 若要使用 Split/Merge 服務，您必須正確地設定安全性。 此服務是 Microsoft Azure SQL Database 的 Elastic Scale 功能的一部分。 如需詳細資訊，請參閱 [Elastic Scale 分割及合併服務教學課程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 
 ## <a name="configuring-certificates"></a>設定憑證
+
 憑證有兩種設定方式。 
 
 1. [設定 SSL 憑證](#to-configure-the-ssl-certificate)
 2. [設定用戶端憑證](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>取得憑證
+
 您可以從公用憑證授權單位 (CA) 或從 [Windows 憑證服務](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)取得憑證。 這些是取得憑證的慣用方法。
 
 如果這些選項都無法使用，您可以產生 **自我簽署憑證**。
 
 ## <a name="tools-to-generate-certificates"></a>產生憑證的工具
+
 * [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
 * [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>執行工具
+
 * 從 Visual Studio 的開發人員命令提示字元，請參閱 [Visual Studio 命令提示字元](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     如果已安裝，請移至：
@@ -46,9 +51,11 @@ ms.locfileid: "53599821"
 * 從 [Windows 8.1：下載套件與工具](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)取得 WDK
 
 ## <a name="to-configure-the-ssl-certificate"></a>設定 SSL 憑證
+
 需要 SSL 憑證，才能將通訊加密和驗證伺服器。 從以下三種案例中選擇最適用的案例，然後執行其所有步驟：
 
 ### <a name="create-a-new-self-signed-certificate"></a>建立新的自我簽署憑證
+
 1. [建立自我簽署憑證](#create-a-self-signed-certificate)
 2. [建立自我簽署 SSL 憑證的 PFX 檔案](#create-pfx-file-for-self-signed-ssl-certificate)
 3. [將 SSL 憑證上傳至雲端服務](#upload-ssl-certificate-to-cloud-service)

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 713068b940532331ee4a6c5f5a92816d328e41ec
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227090"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736274"
 ---
 您必須具有 Azure 的帳戶，才能搭配使用 Azure CLI 與 Resource Manager 命令和範本，使用資源群組來部署 Azure 資源和工作負載。 如果您沒有帳戶，可以取得 [此處免費試用的 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
@@ -44,7 +44,7 @@ ms.locfileid: "50227090"
 | 刪除 VM |`azure vm delete [options] <resource_group> <name>` |
 | 擷取 VM |`azure vm capture [options] <resource_group> <name>` |
 | 從使用者映像建立 VM |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
-| 從特殊化磁碟建立 VM |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
+| 從特殊化磁碟建立 VM |`azure  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
 | 將資料磁碟新增至 VM |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
 | 從 VM 移除資料磁碟 |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
 | 將泛型延伸模組新增至 VM |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |

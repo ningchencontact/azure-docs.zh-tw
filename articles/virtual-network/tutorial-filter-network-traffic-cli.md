@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 3252395c7a511a00e8da0a31139fce3b2763decb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 630eddc8494b32d93035913bcb2b55f00153b1be
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461836"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755504"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>使用 Azure CLI 透過網路安全性群組篩選網路流量
 
@@ -46,7 +46,7 @@ ms.locfileid: "54461836"
 
 ### <a name="create-application-security-groups"></a>建立應用程式安全性群組
 
-首先，請使用 [az group create](/cli/azure/group#az_group_create) 為本文中建立的所有資源建立資源群組。 下列範例會在 *eastus* 位置建立資源群組： 
+首先，請使用 [az group create](/cli/azure/group) 為本文中建立的所有資源建立資源群組。 下列範例會在 *eastus* 位置建立資源群組： 
 
 ```azurecli-interactive
 az group create \
@@ -54,7 +54,7 @@ az group create \
   --location eastus
 ```
 
-使用 [az network nsg create](/cli/azure/network/asg#az_network_asg_create) 建立應用程式安全性群組。 應用程式安全性群組可讓您將具有類似連接埠篩選需求的伺服器分組在一起。 下列範例會建立兩個應用程式安全性群組。
+使用 [az network nsg create](/cli/azure/network/asg) 建立應用程式安全性群組。 應用程式安全性群組可讓您將具有類似連接埠篩選需求的伺服器分組在一起。 下列範例會建立兩個應用程式安全性群組。
 
 ```azurecli-interactive
 az network asg create \
@@ -70,7 +70,7 @@ az network asg create \
 
 ### <a name="create-a-network-security-group"></a>建立網路安全性群組
 
-使用 [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) 建立網路安全性群組。 下列範例會建立名為 myNsg 的網路安全性群組： 
+使用 [az network nsg create](/cli/azure/network/nsg) 建立網路安全性群組。 下列範例會建立名為 myNsg 的網路安全性群組： 
 
 ```azurecli-interactive 
 # Create a network security group
@@ -81,7 +81,7 @@ az network nsg create \
 
 ### <a name="create-security-rules"></a>建立安全性規則
 
-使用 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) 建立安全性規則。 下列範例會建立允許透過連接埠 80 和 443 從網際網路將流量輸入 *myWebServers* 應用程式安全性群組的規則：
+使用 [az network nsg rule create](/cli/azure/network/nsg/rule) 建立安全性規則。 下列範例會建立允許透過連接埠 80 和 443 從網際網路將流量輸入 *myWebServers* 應用程式安全性群組的規則：
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -119,7 +119,7 @@ az network nsg rule create \
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-使用 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) 建立虛擬網路。 下列範例會建立名為 myVirtualNetwork 的虛擬網路：
+使用 [az network vnet create](/cli/azure/network/vnet) 建立虛擬網路。 下列範例會建立名為 myVirtualNetwork 的虛擬網路：
 
 ```azurecli-interactive 
 az network vnet create \
@@ -143,7 +143,7 @@ az network vnet subnet create \
 
 在虛擬網路中建立兩個 VM，以便在後續步驟中驗證流量篩選。 
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM。 下列範例會建立將作為 Web 伺服器的 VM。 `--asgs myAsgWebServers` 選項會使 Azure 將它為 VM 建立的網路介面設為 *myAsgWebServers* 應用程式安全性群組的成員。
+使用 [az vm create](/cli/azure/vm) 建立 VM。 下列範例會建立將作為 Web 伺服器的 VM。 `--asgs myAsgWebServers` 選項會使 Azure 將它為 VM 建立的網路介面設為 *myAsgWebServers* 應用程式安全性群組的成員。
 
 指定 `--nsg ""` 選項時，Azure 將無法為它在建立 VM 時所建立的網路介面建立預設網路安全性群組。 為了簡化本文，我們會使用密碼。 金鑰通常用於生產環境部署中。 如果您使用金鑰，您還必須設定 SSH 代理程式轉送才能完成其餘步驟。 如需詳細資訊，請參閱 SSH 用戶端的文件。 在下列命令中，將 `<replace-with-your-password>` 取代為您選擇的密碼。
 
@@ -234,7 +234,7 @@ curl myVmWeb
 
 ## <a name="clean-up-resources"></a>清除資源
 
-請使用 [az group delete](/cli/azure/group#az_group_delete) 來移除不再需要的資源群組以及其所包含的所有資源。
+請使用 [az group delete](/cli/azure/group) 來移除不再需要的資源群組以及其所包含的所有資源。
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

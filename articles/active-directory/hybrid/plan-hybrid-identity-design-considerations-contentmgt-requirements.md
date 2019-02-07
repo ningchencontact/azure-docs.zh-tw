@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6154262d7b412a0a4049c2d9456d7ae53ef01ca8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 61ca57f2fd5bb6d5e56902dddecfade406267b91
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183317"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486260"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>判斷混合式身分識別解決方案的內容管理需求
 了解適合您企業的內容管理需求，可能會直接影響您決定要使用哪一個混合式身分識別解決方案。 由於裝置數目激增，而且可讓使用者攜帶自己的裝置 ([BYOD](https://aka.ms/byodcg))，所以公司必須保護它自己的資料，但它也必須完整保持使用者的隱私權。 通常當使用者擁有自己的裝置時，可能也會有多個認證，將根據其使用的應用程式來替換。 請務必區分使用個人認證建立的內容以及使用公司認證建立的內容。 您的身分識別解決方案應該能夠與雲端服務互動，為終端使用者提供順暢的體驗，同時確保其隱私權並提高保護來防止資料外洩。 

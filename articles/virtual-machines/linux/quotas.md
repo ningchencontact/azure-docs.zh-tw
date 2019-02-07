@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 3e9a9e3f902439f0fc3f1fa4aa758d4fcd55f5bd
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b7ec3a6919a27633fc36ba7fb1551ead10e06ffe
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048939"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769435"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>虛擬機器 vCPU 配額
 
@@ -29,7 +29,7 @@ ms.locfileid: "43048939"
 
 ## <a name="check-usage"></a>檢查使用量
 
-您可以使用 [az vm list-usage](/cli/azure/vm#az_vm_list_usage)來檢查您配額使用量。
+您可以使用 [az vm list-usage](/cli/azure/vm)來檢查您配額使用量。
 
 ```azurecli-interactive
 az vm list-usage --location "East US" -o table

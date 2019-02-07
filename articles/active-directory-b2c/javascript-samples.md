@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2a0fc7cc4e76c4a93f6ff71767d3074ea8ac6564
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fc4d09b59e568a693b7f7951e9e716d04a5a2a49
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168204"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729263"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>適用於 Azure Active Directory B2C 中的 JavaScript 範例
 
@@ -49,7 +49,7 @@ ms.locfileid: "55168204"
 
 在您使用 JavaScript 來自訂應用程式的介面時，請遵循這些指導方針：
 
-- 不要將 Click 事件繫結到 `<a>` HTML 元素上。 
+- 不要將 Click 事件繫結到 `<a>` HTML 元素上。
 - 不要採用 Azure AD B2C 程式碼或註解上的相依性。
 - 不要變更 Azure AD B2C HTML 元素的順序或階層。 使用 Azure AD B2C 原則來控制 UI 元素的順序。
 - 您可以呼叫任何 RESTful 服務，但有下列考量：
@@ -113,9 +113,9 @@ function setupPwdTogglers(){
 setupPwdTogglers();
 ```
 
-### <a name="add-terms-of-use"></a>新增使用規定 
+### <a name="add-terms-of-use"></a>新增使用規定
 
-將下列程式碼包含到您在自己的頁面中想包含 [使用規定] 核取方塊的位置。 在您的本機帳戶註冊和社交帳戶註冊頁面中，通常會需要這個核取方塊。  
+將下列程式碼包含到您在自己的頁面中想包含 [使用規定] 核取方塊的位置。 在您的本機帳戶註冊和社交帳戶註冊頁面中，通常會需要這個核取方塊。
 
 ```Javascript
 function addTermsOfUseLink() {
@@ -124,18 +124,18 @@ function addTermsOfUseLink() {
     if (!termsOfUseLabel) {
         return;
     }
-      
+
     // get the label text
     var termsLabelText = termsOfUseLabel.innerHTML;
-      
-    // create a new <a> element with the same inner text 
+
+    // create a new <a> element with the same inner text
     var termsOfUseUrl = 'https://docs.microsoft.com/legal/termsofuse';
     var termsOfUseLink = document.createElement('a');
     termsOfUseLink.setAttribute('href', termsOfUseUrl);
     termsOfUseLink.setAttribute('target', '_blank');
     termsOfUseLink.appendChild(document.createTextNode(termsLabelText));
 
-    // replace the label text with the new element 
+    // replace the label text with the new element
     termsOfUseLabel.replaceChild(termsOfUseLink, termsOfUseLabel.firstChild);
 }
 ```
@@ -145,4 +145,3 @@ function addTermsOfUseLink() {
 ## <a name="next-steps"></a>後續步驟
 
 如需如何自訂應用程式之使用者介面的詳細資訊，請參閱[在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面](active-directory-b2c-ui-customization-custom.md)。
-

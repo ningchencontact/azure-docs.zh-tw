@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: victorh
-ms.openlocfilehash: 66a9ea5abcff4609288e9ce7c93912313db6e163
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cde06aaf149785f464cd354c95c8f39575bad73b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850598"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698207"
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>使用 Azure CLI 建立應用程式閘道
 
@@ -133,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>建立應用程式閘道
 
-使用 [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) 建立應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 系統會新增網路介面的私人 IP 位址，作為應用程式閘道後端集區中的伺服器。
+使用 [az network application-gateway create](/cli/azure/network/application-gateway) 建立應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 系統會新增網路介面的私人 IP 位址，作為應用程式閘道後端集區中的伺服器。
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

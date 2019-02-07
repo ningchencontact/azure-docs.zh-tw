@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f7acfb068d000eb76ea526ea7fb3244c585beebf
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 6966aead6ced88e0ff9b201dd12bec0a16799907
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887660"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661373"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>使用 Azure CLI 連結及使用虛擬機器擴展集所適用的資料磁碟
 此指令碼會建立虛擬機器擴展集，以及連結和準備資料磁碟。
@@ -45,11 +45,11 @@ az group delete --name myResourceGroup
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](/cli/azure/ad/group#az_ad_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az vmss create](/cli/azure/vmss#az_vmss_create) | 建立虛擬機器擴展集，並將它連線到虛擬網路、子網路及網路安全性群組。 若要將流量散發到多個虛擬機器執行個體，也會建立負載平衡器。 此命令也會指定要使用的 VM 映像和管理認證。  |
-| [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach) | 建立資料磁碟並將其連結到虛擬機器擴展集。 |
-| [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) | 安裝 Azure 自訂指令碼擴充功能，以執行指令碼來準備每個 VM 執行個體上的資料磁碟。 |
-| [az group delete](/cli/azure/ad/group#delete) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group create](/cli/azure/ad/group) | 建立用來存放所有資源的資源群組。 |
+| [az vmss create](/cli/azure/vmss) | 建立虛擬機器擴展集，並將它連線到虛擬網路、子網路及網路安全性群組。 若要將流量散發到多個虛擬機器執行個體，也會建立負載平衡器。 此命令也會指定要使用的 VM 映像和管理認證。  |
+| [az vmss disk attach](/cli/azure/vmss/disk) | 建立資料磁碟並將其連結到虛擬機器擴展集。 |
+| [az vmss extension set](/cli/azure/vmss/extension) | 安裝 Azure 自訂指令碼擴充功能，以執行指令碼來準備每個 VM 執行個體上的資料磁碟。 |
+| [az group delete](/cli/azure/ad/group) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
