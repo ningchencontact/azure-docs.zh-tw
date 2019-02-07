@@ -48,24 +48,25 @@ items:
   - name: 概觀
     href: user-help-auth-app-overview.md
   - name: 下載並安裝應用程式
-    href: microsoft-authenticator-app-how-to.md
+    href: user-help-auth-app-download-install.md
   - name: 新增帳戶概觀
-    href: microsoft-authenticator-app-add-accounts-overview.md
+    href: user-help-auth-app-add-account-overview.md
     items:
     - name: 新增公司或學校帳戶
-      href: microsoft-authenticator-app-add-work-account.md
+      href: user-help-auth-app-add-work-school-account.md
     - name: 新增個人的 Microsoft 帳戶
-      href: microsoft-authenticator-app-add-personal-account.md
+      href: user-help-auth-app-add-personal-ms-account.md
     - name: 新增非 Microsoft 帳戶
-      href: microsoft-authenticator-app-add-non-microsoft-account.md
+      href: user-help-auth-app-add-non-ms-account.md
     - name: 手動新增帳戶
-      href: microsoft-authenticator-app-add-account-manual.md
+      href: user-help-auth-app-add-account-manual.md
+    expanded: true
   - name: 使用 Microsoft Authenticator 應用程式登入
-    href: microsoft-authenticator-app-phone-signin-faq.md
+    href: user-help-auth-app-sign-in.md
   - name: 備份和復原您的帳戶
-    href: microsoft-authenticator-app-backup-and-recovery.md
+    href: user-help-auth-app-backup-recovery.md
   - name: 常見問題集
-    href: microsoft-authenticator-app-faq.md
+    href: user-help-auth-app-faq.md
 - name: 「我的應用程式」入口網站說明
   items:
   - name: 概觀
@@ -84,9 +85,9 @@ items:
     href: user-help-register-device-on-network.md
   - name: 針對「無法執行」訊息進行疑難排解
     href: user-help-device-remediation.md
-ms.openlocfilehash: ed41c40adc0d09d60f43cf3826c6bb84a464c31f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 604b2c204f893bf0abaaec86f85e2159c17a8656
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755266"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816045"

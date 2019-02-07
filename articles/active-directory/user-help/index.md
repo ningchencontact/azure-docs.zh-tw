@@ -10,12 +10,12 @@ ms.subservice: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 510ecfc217c5e3b3e1ac6cd285fcaf7001199aa4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5d69f4cbf78cf75cf018070a0d02c4b109689449
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149687"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769468"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>適用於驗證、應用程式和裝置管理的使用者說明
 
@@ -87,10 +87,10 @@ ms.locfileid: "55149687"
                         <h3>Microsoft Authenticator 應用程式說明</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/user-help-auth-app-overview">概觀</a><br/>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">下載並安裝應用程式</a><br/>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-add-accounts-overview">新增您的帳戶</a><br/>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">使用應用程式登入</a><br/>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">備份及復原帳戶認證</a>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-download-install">下載並安裝應用程式</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-add-account-overview">新增您的帳戶</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-sign-in">使用應用程式登入</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-backup-recovery">備份及復原帳戶認證</a>
                         </p>
                     </div>
                 </div>
