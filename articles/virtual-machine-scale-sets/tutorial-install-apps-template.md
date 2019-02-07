@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 81ab41518fea81b577738d30970d83f6d6d6f2bc
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 262d7a6a4399a72e762c4ad3c87a878c54e22af4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883988"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750387"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>教學課程：使用 Azure 範本在虛擬機器擴展集中安裝應用程式
 若要在擴展集的虛擬機器 (VM) 執行個體上執行應用程式，您需要先安裝應用程式元件和必要的檔案。 在先前的教學課程中，您已了解如何建立及使用自訂 VM 映像來部署您的 VM 執行個體。 此自訂映像已包含手動應用程式安裝和組態。 您也可以在部署好每個 VM 執行個體後，讓應用程式自動安裝到擴展集，或更新已在擴展集上執行的應用程式。 在本教學課程中，您將了解如何：
@@ -77,13 +77,13 @@ FileUris 屬性會用來定義來源安裝指令碼和套件。 若要啟動安�
 
 
 ## <a name="create-a-scale-set"></a>建立擴展集
-讓我們使用範例範本來建立擴展集和套用自訂指令碼擴充功能。 首先，使用 [az group create](/cli/azure/group#az_group_create) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+讓我們使用範例範本來建立擴展集和套用自訂指令碼擴充功能。 首先，使用 [az group create](/cli/azure/group) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-現在，請使用 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) 建立虛擬機器擴展集。 出現提示時，請提供您自己的使用者名稱，以及作為每個 VM 執行個體之認證的密碼：
+現在，請使用 [az group deployment create](/cli/azure/group/deployment) 建立虛擬機器擴展集。 出現提示時，請提供您自己的使用者名稱，以及作為每個 VM 執行個體之認證的密碼：
 
 ```azurecli-interactive
 az group deployment create \
@@ -97,7 +97,7 @@ az group deployment create \
 
 
 ## <a name="test-your-scale-set"></a>測試您的擴展集
-若要查看作用中的 web 伺服器，可使用 [az network public-ip show](/cli/azure/network/public-ip#show) 取得負載平衡器的公用 IP 位址。 下列範例會取得建立作為擴展集一部分的 myScaleSetPublicIP IP 位址︰
+若要查看作用中的 web 伺服器，可使用 [az network public-ip show](/cli/azure/network/public-ip) 取得負載平衡器的公用 IP 位址。 下列範例會取得建立作為擴展集一部分的 myScaleSetPublicIP IP 位址︰
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ az network public-ip show \
 }
 ```
 
-使用 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create)，再次將自訂指令碼擴充功能組態套用到擴展集中的 VM 執行個體。 azuredeployv2.json 範本會用來套用更新版的應用程式。 實際上，您會編輯現有的 azuredeploy.json 範本，以參考更新的安裝指令碼，如前一節中所示。 出現提示時，輸入您第一次建立擴展集時使用的相同使用者名稱和密碼認證：
+使用 [az group deployment create](/cli/azure/group/deployment)，再次將自訂指令碼擴充功能組態套用到擴展集中的 VM 執行個體。 azuredeployv2.json 範本會用來套用更新版的應用程式。 實際上，您會編輯現有的 azuredeploy.json 範本，以參考更新的安裝指令碼，如前一節中所示。 出現提示時，輸入您第一次建立擴展集時使用的相同使用者名稱和密碼認證：
 
 ```azurecli-interactive
 az group deployment create \
@@ -155,7 +155,7 @@ az group deployment create \
 
 
 ## <a name="clean-up-resources"></a>清除資源
-若要移除您的擴展集與其他資源，請使用 [az group delete](/cli/azure/group#az_group_delete) 刪除資源群組及其所有資源。 `--no-wait` 參數不會等待作業完成，就會將控制項傳回給提示字元。 `--yes` 參數會確認您想要刪除資源，而不另外對您提示將要進行此作業。
+若要移除您的擴展集與其他資源，請使用 [az group delete](/cli/azure/group) 刪除資源群組及其所有資源。 `--no-wait` 參數不會等待作業完成，就會將控制項傳回給提示字元。 `--yes` 參數會確認您想要刪除資源，而不另外對您提示將要進行此作業。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

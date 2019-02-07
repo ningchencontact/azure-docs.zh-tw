@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b5b6f1a1cbd4c06106b7817f9fc28d8d4a9cfc06
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f537ccfd18685cd5aa8ee06910fc80ac3d2056c9
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306330"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750404"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>教學課程：使用 Python API 透過 Azure Batch 執行平行工作負載
 
@@ -170,7 +170,7 @@ input_files = [
 
 除了實體節點屬性以外，此集區設定還包含 [StartTask](/python/api/azure.batch.models.starttask) 物件。 StartTask 會在每個節點加入集區以及每次重新啟動節點時，於該節點上執行。 在此範例中，StartTask 會執行 Bash Shell 命令，以在節點上安裝 ffmpeg 套件和相依項目。
 
-[pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) 方法會將此集區提交至 Batch 服務。
+[pool.add](/python/api/azure.batch.operations.pooloperations) 方法會將此集區提交至 Batch 服務。
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -200,7 +200,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>建立工作
 
-Batch 工作會指定要在其中執行工作的集區及選擇性設定，例如工作的優先順序和排程。 此範例會藉由呼叫 `create_job` 來建立作業。 這個已定義的函式會使用 [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) 類別在您的集區上建立作業。 [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) 方法會將集區提交至 Batch 服務。 一開始作業沒有任何工作。
+Batch 工作會指定要在其中執行工作的集區及選擇性設定，例如工作的優先順序和排程。 此範例會藉由呼叫 `create_job` 來建立作業。 這個已定義的函式會使用 [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) 類別在您的集區上建立作業。 [job.add](/python/api/azure.batch.operations.joboperations) 方法會將集區提交至 Batch 服務。 一開始作業沒有任何工作。
 
 ```python
 job = batch.models.JobAddParameter(
@@ -216,7 +216,7 @@ batch_service_client.job.add(job)
 
 此範例會在執行命令列之後，為 MP3 檔案建立 [OutputFile](/python/api/azure.batch.models.outputfile) 物件。 每項工作的輸出檔案 (在此例中只有一個輸出檔案) 都會使用工作的 `output_files` 屬性，上傳至所連結儲存體帳戶中的容器。
 
-然後，應用程式會使用 [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection) 方法將工作新增至作業，該方法會將工作排入佇列以在計算節點上執行。 
+然後，應用程式會使用 [task.add_collection](/python/api/azure.batch.operations.taskoperations) 方法將工作新增至作業，該方法會將工作排入佇列以在計算節點上執行。 
 
 ```python
 tasks = list()

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 1/30/2019
-ms.openlocfilehash: 4d4d7c587dcc34b12ed757b7da54f5ad0b04e8cc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cd156a10faf396778b76687b3666887a6a60876c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451864"
+ms.locfileid: "55505694"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft 有哪些機器學習產品？
 
@@ -27,7 +27,7 @@ Microsoft 提供了多種用來建置、部署及管理機器學習模型的產�
 
 | 雲端&nbsp;選項 | 內容 | 產品用途 |
 |-|-|-|
-| [Azure Machine Learning 服務](#azure-machine-learning-services) | 適用於 ML 的受控雲端服務  | 使用 Python 和 CLI 在 Azure 中訓練、部署及管理模型 |
+| [Azure Machine Learning 服務](#azure-machine-learning-service) | 適用於 ML 的受控雲端服務  | 使用 Python 和 CLI 在 Azure 中訓練、部署及管理模型 |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | ML 的拖放功能視覺介面 | 使用預先設定的演算法來建置、實驗及部署模型 (Python and R)|
 | [Azure Databricks](#azure-databricks) | 以 Spark 為基礎的分析平台 | 建置及部署模型和資料工作流程 |
 | [Azure 認知服務](#azure-cognitive-services) | 預先建置了 AI 和 ML 模型的 Azure 服務 | 輕鬆地將智慧型功能新增至您的應用程式 |

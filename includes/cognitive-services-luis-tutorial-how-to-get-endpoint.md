@@ -6,16 +6,16 @@ author: diberry
 manager: cgronlun
 ms.custom: include file
 ms.service: cognitive-services
-ms.component: luis
+ms.subservice: luis
 ms.topic: include
 ms.date: 10/08/2018
 ms.author: diberry
-ms.openlocfilehash: 11d0461e8d7c2711445856ecd255619a92dd6cb5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1e4571080a126a771b644f19fc298d26c10a436f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53107263"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480230"
 ---
 在 [管理] 區段 (右上方功能表) 的 [金鑰和端點] 頁面 (左側功能表) 中，選取頁面底部的**端點** URL。 此動作會開啟另一個瀏覽器索引標籤，其中網址列會顯示端點 URL。 
 

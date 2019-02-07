@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.subservice: files
-ms.openlocfilehash: ee56f77ef6ed3c759573a5a96d854c54f297b2ac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0aa291c3334af35ec90648cfbcbb7de7015deb99
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462353"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731439"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上掛接 Azure 檔案儲存體
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-使用 [az storage account create](/cli/azure/storage/account#create)，在您所建立的資源群組中建立新的儲存體帳戶。 此範例會建立名為 *mySTORAGEACCT<random number>* 的儲存體帳戶，並且在變數 **STORAGEACCT** 中放入該儲存體帳戶的名稱。 儲存體帳戶名稱必須是唯一的，請使用 `$RANDOM` 在結尾附加一個數字，使其成為唯一名稱。
+使用 [az storage account create](/cli/azure/storage/account)，在您所建立的資源群組中建立新的儲存體帳戶。 此範例會建立名為 *mySTORAGEACCT<random number>* 的儲存體帳戶，並且在變數 **STORAGEACCT** 中放入該儲存體帳戶的名稱。 儲存體帳戶名稱必須是唯一的，請使用 `$RANDOM` 在結尾附加一個數字，使其成為唯一名稱。
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -58,7 +58,7 @@ STORAGEACCT=$(az storage account create \
 
 在建立儲存體帳戶時，帳戶金鑰會成對建立，因此您可以輪替金鑰，而不會干擾到服務。 當您將金鑰切換為金鑰組中的第二個金鑰時，您會建立新的金鑰組。 新的儲存體帳戶金鑰一律會成對建立，所以您永遠有至少一個準備切換到的未使用儲存體帳戶金鑰。
 
-使用 [az storage account keys list](/cli/azure/storage/account/keys#list) 檢視儲存體帳戶金鑰。 此範例會在 **STORAGEKEY** 變數中儲存金鑰 1 的值。
+使用 [az storage account keys list](/cli/azure/storage/account/keys) 檢視儲存體帳戶金鑰。 此範例會在 **STORAGEKEY** 變數中儲存金鑰 1 的值。
 
 ```bash
 STORAGEKEY=$(az storage account keys list \
@@ -69,7 +69,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ## <a name="create-a-file-share"></a>建立檔案共用
 
-使用 [az storage share create](/cli/azure/storage/share#create) 建立檔案儲存體共用。 
+使用 [az storage share create](/cli/azure/storage/share) 建立檔案儲存體共用。 
 
 共用名稱必須全部使用小寫字母、數字和單一連字號，但開頭不可以是連字號。 如需有關為檔案共用與檔案命名的完整詳細資料，請參閱 [命名和參考共用、目錄、檔案及中繼資料](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)。
 

@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 61da59fd570b9acc58dce89907eb5a1726a28de9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 55866d5ff28c707c26141683bb90c8f2873b17c8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104325"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818901"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>快速入門：移除使用 Microsoft 身分識別平台所註冊的應用程式 (預覽)
 
@@ -29,8 +29,8 @@ ms.locfileid: "55104325"
 
 在本快速入門中，您將了解如何：
 
-* [移除您或組織所編寫的應用程式](#remove-an-application-authored-by-your-organization)
-* [移除其他組織所編寫的應用程式](#remove-an-application-authoried-by-another-organization)
+* 移除您或組織所編寫的應用程式
+* 移除其他組織所編寫的應用程式
 
 ## <a name="prerequisites"></a>必要條件
 

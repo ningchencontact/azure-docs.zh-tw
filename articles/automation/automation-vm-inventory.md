@@ -7,19 +7,19 @@ ms.subservice: change-inventory-management
 keywords: 清查、自動化、變更、追蹤
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 03/30/2018
+ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9fabaa2be850e5b15f10fc78adb14dfd5c112906
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2d6cc55ec2e3be3510b9547025db17bcbee97e10
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426041"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765376"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>使用清查收集來管理 Azure 虛擬機器
 
-您可以從虛擬機器的資源頁面啟用 Azure 虛擬機器的清查追蹤。 此方法提供以瀏覽器為基礎的使用者介面，讓您設定清查收集。
+您可以從虛擬機器的資源頁面啟用 Azure 虛擬機器的清查追蹤。 您可以在電腦上收集並檢視軟體、檔案、Linux 精靈、Windows 服務和 Windows 登錄機碼的清查。 此方法提供以瀏覽器為基礎的使用者介面，讓您設定清查收集。
 
 ## <a name="before-you-begin"></a>開始之前
 

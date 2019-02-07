@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 85ee6505adafab9587f3583cd4c7182efcc43c11
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 01187a4dbcd8333f95cf20b5956b7b81559a19a8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853721"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730647"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>根據容器名稱前置詞來刪除容器
 
@@ -49,10 +49,10 @@ az group delete --name myResourceGroup
 | 命令 | 注意 |
 |---|---|
 | [az group create](/cli/azure/group) | 建立用來存放所有資源的資源群組。 |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | 在指定的資源群組中建立 Azure 儲存體帳戶。 |
-| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | 在 Azure Blob 儲存體中建立容器。 |
+| [az storage account create](/cli/azure/storage/account) | 在指定的資源群組中建立 Azure 儲存體帳戶。 |
+| [az storage container create](/cli/azure/storage/container) | 在 Azure Blob 儲存體中建立容器。 |
 | [az storage container list](/cli/azure/storage/container) | 列出 Azure 儲存體帳戶中的容器。 |
-| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | 刪除 Azure 儲存體帳戶中的容器。 |
+| [az storage container delete](/cli/azure/storage/container) | 刪除 Azure 儲存體帳戶中的容器。 |
 
 ## <a name="next-steps"></a>後續步驟
 
