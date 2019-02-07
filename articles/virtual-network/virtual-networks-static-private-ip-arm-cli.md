@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a6e217194508feae3b227b5ef65b02d0305a22a7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 06016cf7a8ba10a9a8f49f90da99a26aaa072441
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852893"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695502"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>使用 Azure CLI 設定虛擬機器的私人 IP 位址
 
@@ -42,7 +42,7 @@ ms.locfileid: "54852893"
 
 若要在名為 *TestVNet* 之 VNet 的 *FrontEnd* 子網路中建立名為 *DNS01* 的 VM，且其靜態私人 IP 為 *192.168.1.101*，請完成下列步驟：
 
-1. 安裝並設定最新的 [Azure CLI](/cli/azure/install-azure-cli) (若您尚未這樣做)，並使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。
+1. 安裝並設定最新的 [Azure CLI](/cli/azure/install-azure-cli) (若您尚未這樣做)，並使用 [az login](/cli/azure/reference-index) 來登入 Azure 帳戶。
 
 2. 使用 [az network public-ip create](/cli/azure/network/public-ip) 命令來建立 VM 的公用 IP。 輸出後顯示的清單可說明所使用的參數。
 
@@ -75,7 +75,7 @@ ms.locfileid: "54852893"
    * `--name`：公用 IP 的名稱。
    * `--location`：要在其中建立公用 IP 的 Azure 區域。
 
-3. 執行 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 命令以建立具有靜態私人 IP 的 NIC。 輸出後顯示的清單可說明所使用的參數。 
+3. 執行 [az network nic create](/cli/azure/network/nic) 命令以建立具有靜態私人 IP 的 NIC。 輸出後顯示的清單可說明所使用的參數。 
    
     ```azurecli
     az network nic create \
@@ -127,7 +127,7 @@ ms.locfileid: "54852893"
     * `--vnet-name`：要在其中建立 NIC 之 VNet 的名稱。
     * `--subnet`：要在其中建立 NIC 之子網路的名稱。
 
-4. 執行 [azure vm create](/cli/azure/vm/nic#az_vm_nic_create) 命令以使用之前建立的公用 IP 和 NIC 來建立 VM。 輸出後顯示的清單可說明所使用的參數。
+4. 執行 [azure vm create](/cli/azure/vm/nic) 命令以使用之前建立的公用 IP 和 NIC 來建立 VM。 輸出後顯示的清單可說明所使用的參數。
    
     ```azurecli
     az vm create \
@@ -155,7 +155,7 @@ ms.locfileid: "54852893"
     }
     ```
    
-   基本 [az vm create](/cli/azure/vm#az_vm_create) 參數以外的參數。
+   基本 [az vm create](/cli/azure/vm) 參數以外的參數。
 
    * `--nics`：VM 所連接至之 NIC 的名稱。
    

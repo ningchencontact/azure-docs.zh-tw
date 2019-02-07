@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 07/26/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: c56cd7d25ce391b67798c7833894e248f37300bf
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: e1a37104a5dc6e89b147c8bb9e14b4eda36d8eef
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406601"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697844"
 ---
 # <a name="cli-example-create-and-manage-a-batch-ai-cluster-of-low-priority-nodes"></a>CLI 範例：建立和管理低優先順序節點的 Batch AI 叢集
 
@@ -57,8 +57,8 @@ az group delete --name batchaiautostorage
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az batchai workspace create](/cli/azure/batchai/workspace#az-batchai-workspace-create) | 建立 Batch AI 工作區。 |
 | [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) | 建立 Batch AI 叢集。 |
-| [az batchai cluster show](/cli/azure/batchai/cluster#az-batchai-cluster-show) | 顯示關於 Batch AI 叢集的資訊。 |
-| [az batchai cluster node list](/cli/azure/batchai/cluster/node#az-batchai-cluster-show) | 列出 Batch AI 叢集中的節點。 |
+| [az batchai cluster show](/cli/azure/batchai/cluster) | 顯示關於 Batch AI 叢集的資訊。 |
+| [az batchai cluster node list](/cli/azure/batchai/cluster/node) | 列出 Batch AI 叢集中的節點。 |
 | [az batchai cluster resize](/cli/azure/batchai/cluster#az-batchai-cluster-resize) | 調整 Batch AI 叢集的大小。  |
 | [az group delete](/cli/azure/group#az-group-delete) | 刪除資源群組，包括所有的巢狀資源。 |
 

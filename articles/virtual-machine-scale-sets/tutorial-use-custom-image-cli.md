@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 119a53949b6184389c0e36e56732f0486c24ca5c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7e2e092af0fc0340a0db7b958b02d3d16942ca77
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193483"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755181"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立及使用虛擬機器擴展集的自訂映像
 當您建立擴展集時，您會指定部署 VM 執行個體時所要使用的映像。 若要減少部署 VM 執行個體後的工作數量，您可以使用自訂的 VM 映像。 此自訂 VM 映像包括任何必要的應用程式安裝或組態。 在擴展集中建立的任何 VM 執行個體都會使用自訂 VM 映像，並已可以處理您的應用程式流量。 在本教學課程中，您將了解如何：
@@ -44,7 +44,7 @@ ms.locfileid: "55193483"
 >[!NOTE]
 > 本教學課程將逐步說明建立及使用一般化 VM 映像的程序。 不支援從特製化 VM 映像建立擴展集。
 
-首先，請使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組，然後使用 [az vm create](/cli/azure/vm)來建立 VM。 接著，此 VM 會用來當作自訂 VM 映像的來源。 下列範例會在名為 myResourceGroup 的資源群組中建立名為 myVM 的 VM：
+首先，請使用 [az group create](/cli/azure/group) 來建立資源群組，然後使用 [az vm create](/cli/azure/vm)來建立 VM。 接著，此 VM 會用來當作自訂 VM 映像的來源。 下列範例會在名為 myResourceGroup 的資源群組中建立名為 myVM 的 VM：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -87,7 +87,7 @@ exit
 ## <a name="create-a-custom-vm-image-from-the-source-vm"></a>從來源 VM 建立自訂 VM 映像
 您現在可使用安裝的 Nginx Web 伺服器來自訂來源 VM。 讓我們來建立自訂 VM 映像，以搭配使用擴展集。
 
-若要建立映像，必須解除配置 VM。 使用 [az vm deallocate](/cli//azure/vm#az_vm_deallocate) 解除配置 VM。 然後，使用 [az vm generalize](/cli//azure/vm#az_vm_generalize) 將 VM 的狀態設定為一般化，讓 Azure 平台知道 VM 已準備好要使用自訂映像。 您只能從一般化的 VM 建立映像：
+若要建立映像，必須解除配置 VM。 使用 [az vm deallocate](/cli//azure/vm) 解除配置 VM。 然後，使用 [az vm generalize](/cli//azure/vm) 將 VM 的狀態設定為一般化，讓 Azure 平台知道 VM 已準備好要使用自訂映像。 您只能從一般化的 VM 建立映像：
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroup --name myVM
@@ -122,7 +122,7 @@ az vmss create \
 
 
 ## <a name="test-your-scale-set"></a>測試您的擴展集
-若要允許流量觸達擴展集，並確認 Web 伺服器正常運作，請使用 [az network lb rule create](/cli/azure/network/lb/rule#create) 建立負載平衡器規則。 下列範例會建立名為 myLoadBalancerRuleWeb 的規則，其會允許 TCP 連接埠 80 上的流量：
+若要允許流量觸達擴展集，並確認 Web 伺服器正常運作，請使用 [az network lb rule create](/cli/azure/network/lb/rule) 建立負載平衡器規則。 下列範例會建立名為 myLoadBalancerRuleWeb 的規則，其會允許 TCP 連接埠 80 上的流量：
 
 ```azurecli-interactive
 az network lb rule create \
@@ -136,7 +136,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-若要查看作用中的擴展集，可使用 [az network public-ip show](/cli/azure/network/public-ip#show) 取得負載平衡器的公用 IP 位址。 下列範例會取得建立為擴展集一部分的 myScaleSetLBPublicIP IP 位址︰
+若要查看作用中的擴展集，可使用 [az network public-ip show](/cli/azure/network/public-ip) 取得負載平衡器的公用 IP 位址。 下列範例會取得建立為擴展集一部分的 myScaleSetLBPublicIP IP 位址︰
 
 ```azurecli-interactive
 az network public-ip show \
@@ -152,7 +152,7 @@ az network public-ip show \
 
 
 ## <a name="clean-up-resources"></a>清除資源
-若要移除您的擴展集與其他資源，請使用 [az group delete](/cli/azure/group#az_group_delete) 刪除資源群組及其所有資源。 `--no-wait` 參數不會等待作業完成，就會將控制項傳回給提示字元。 `--yes` 參數會確認您想要刪除資源，而不另外對您提示將要進行此作業。
+若要移除您的擴展集與其他資源，請使用 [az group delete](/cli/azure/group) 刪除資源群組及其所有資源。 `--no-wait` 參數不會等待作業完成，就會將控制項傳回給提示字元。 `--yes` 參數會確認您想要刪除資源，而不另外對您提示將要進行此作業。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

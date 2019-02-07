@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7dffa1480be73f1dbf5e99d11fd8d33eb2ab9038
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 816d25473bfe5f9dc61d6d6f2e50d6cd82ace50c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196407"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562179"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>在 Azure Active Directory B2C 中使用自訂原則來設定資源擁有者密碼認證流程
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-在 Azure Active Directory (Azure AD) B2C 中，資源擁有者密碼認證 (ROPC) 流程是一個 OAuth 標準驗證流程。 在此流程中，應用程式 (也稱為信賴憑證者) 會以有效的認證交換權杖。 認證包含使用者識別碼和密碼。 傳回的權杖為識別碼權杖、存取權杖及重新整理權杖。 
+在 Azure Active Directory (Azure AD) B2C 中，資源擁有者密碼認證 (ROPC) 流程是一個 OAuth 標準驗證流程。 在此流程中，應用程式 (也稱為信賴憑證者) 會以有效的認證交換權杖。 認證包含使用者識別碼和密碼。 傳回的權杖為識別碼權杖、存取權杖及重新整理權杖。
 
 以下是 ROPC 流程中支援的選項：
 
 - **原生用戶端** - 在驗證期間，會在程式碼於使用者端的裝置上執行時，進行使用者互動。
 - **公用用戶端流程** - 在 API 呼叫中只會傳送應用程式所收集的使用者認證。 不會傳送應用程式的認證。
-- **新增宣告** - 可以變更識別碼權杖內容以新增宣告。 
+- **新增宣告** - 可以變更識別碼權杖內容以新增宣告。
 
 以下是不支援的流程：
 
@@ -43,7 +43,7 @@ ms.locfileid: "55196407"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。 
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 4. 選取 [應用程式]，然後選取 [新增]。
 5. 輸入應用程式的名稱，例如 ROPC_Auth_app。
 6. 針對 [Web 應用程式/Web API] 選取 [否]，然後針對 [原生用戶端] 選取 [是]。
@@ -193,7 +193,7 @@ ms.locfileid: "55196407"
           </Metadata>
         </TechnicalProfile>
       </TechnicalProfiles>
-    </ClaimsProvider>    
+    </ClaimsProvider>
     ```
 
 6. 將 **UserJourneys** 元素及其子元素新增至 **TrustFrameworkPolicy** 元素：
@@ -201,7 +201,7 @@ ms.locfileid: "55196407"
     ```XML
     <UserJourney Id="ResourceOwnerPasswordCredentials">
       <PreserveOriginalAssertion>false</PreserveOriginalAssertion>
-        <OrchestrationSteps>
+      <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="ResourceOwnerFlow" TechnicalProfileReferenceId="ResourceOwnerPasswordCredentials-OAUTH2" />
@@ -278,7 +278,7 @@ ms.locfileid: "55196407"
 
 - 以您租用戶中的使用者帳戶名稱取代 `user-account`。
 - 以使用者帳戶的密碼取代 `password1`。
-- 以來自 *ROPC_Auth_app* 註冊的「應用程式識別碼」取代 `application-id`。 
+- 以來自 *ROPC_Auth_app* 註冊的「應用程式識別碼」取代 `application-id`。
 - *Offline_access* 是您要接收重新整理權杖時可選用的項目。
 
 實際的 POST 要求與以下範例類似：
@@ -291,17 +291,16 @@ Content-Type: application/x-www-form-urlencoded
 username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
 ```
 
-
 離線存取的成功回應會類似於下列範例：
 
 ```JSON
-{ 
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...", 
-    "token_type": "Bearer", 
-    "expires_in": "3600", 
-    "refresh_token": "eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3REVk1EVFBLbUJLb0FUcWQ1ZWFja1hBIiwidmVyIjoiMS4wIiwiemlwIjoiRGVmbGF0ZSIsInNlciI6Ij...", 
-    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki..." 
-} 
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...",
+    "token_type": "Bearer",
+    "expires_in": "3600",
+    "refresh_token": "eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3REVk1EVFBLbUJLb0FUcWQ1ZWFja1hBIiwidmVyIjoiMS4wIiwiemlwIjoiRGVmbGF0ZSIsInNlciI6Ij...",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki..."
+}
 ```
 
 ## <a name="redeem-a-refresh-token"></a>兌換重新整理權杖
@@ -322,7 +321,7 @@ username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scop
 | refresh_token | `refresh-token` |
 
 - 以來自 *ROPC_Auth_app* 註冊的「應用程式識別碼」取代 `application-id`。
-- 以先前回應中傳回的 **refresh_token** 取代 `refresh-token`。 
+- 以先前回應中傳回的 **refresh_token** 取代 `refresh-token`。
 
 成功的回應看起來如以下範例：
 
@@ -350,5 +349,3 @@ Azure AD B2C 符合公用用戶端資源擁有者密碼認證的 OAuth 2.0 標�
 
 - 請參閱 [Azure Active Directory B2C 自訂原則入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc)(英文\) 中此案例的完整範例。
 - 在[權杖參考](active-directory-b2c-reference-tokens.md)中深入了解 Azure Active Directory B2C 所使用的權杖。
-
-

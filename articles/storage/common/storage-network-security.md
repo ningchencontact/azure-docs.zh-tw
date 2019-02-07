@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c6b4ed787fa9e8881990801bdee77550a1a0bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ce682263663c0547d9e35a4d29037fd125d8bc6c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473624"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699171"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
@@ -241,7 +241,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 為將內部部署網路存取權授與使用 IP 網路規則的儲存體帳戶，您必須識別網路所使用的網際網路對應 IP 位址。 請連絡網路系統管理員尋求協助。
 
-您可以使用 [ExpressRoute](/azure/expressroute/expressroute-introduction) 將您的網路連線到 Azure 網路。 在這裡，每個線路上會設定兩個公用 IP 位址。 這些位址可以在 Microsoft Edge 中找到，並可使用 [Azure 公用對等互連](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains)來連線到 Azure 儲存體等 Microsoft 服務。 若要使用 Azure 儲存體通訊，請為電路的公用 IP 位址建立 IP 網路規則。 若要尋找您 ExpressRoute 線路的公用 IP 位址，請透過 Azure 入口網站[開啟具有 ExpressRoute 的支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
+您可以使用 [ExpressRoute](/azure/expressroute/expressroute-introduction) 將您的網路連線到 Azure 網路。 在這裡，每個線路上會設定兩個公用 IP 位址。 這些位址可以在 Microsoft Edge 中找到，並可使用 [Azure 公用對等互連](/azure/expressroute/expressroute-circuit-peerings)來連線到 Azure 儲存體等 Microsoft 服務。 若要使用 Azure 儲存體通訊，請為電路的公用 IP 位址建立 IP 網路規則。 若要尋找您 ExpressRoute 線路的公用 IP 位址，請透過 Azure 入口網站[開啟具有 ExpressRoute 的支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
 
 ### <a name="managing-ip-network-rules"></a>管理 IP 網路規則
 
@@ -355,7 +355,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 |Azure Event Grid|Microsoft.EventGrid|啟用 Blob 儲存體事件發佈，並允許事件方格發佈到儲存體佇列。 深入了解 [Blob 儲存體事件](/azure/event-grid/event-sources)及[發佈至佇列](/azure/event-grid/event-handlers)。|
 |Azure 事件中心|Microsoft.EventHub|使用事件中樞擷取封存資料。 [深入了解](/azure/event-hubs/event-hubs-capture-overview)。|
 |Azure 網路|Microsoft.Networking|儲存及分析網路流量記錄檔。 [深入了解](/azure/network-watcher/network-watcher-packet-capture-overview)。|
-|Azure 監視器|Microsoft.Insights|允許將監視資料寫入受保護的儲存體帳戶 [深入了解](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks)。|
+|Azure 監視器|Microsoft.Insights|允許將監視資料寫入受保護的儲存體帳戶 [深入了解](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security)。|
 |Azure SQL 資料倉儲|Microsoft.Sql|允許使用 PolyBase 匯入和匯出案例。 [深入了解](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)。|
 
 ### <a name="storage-analytics-data-access"></a>儲存體分析資料存取

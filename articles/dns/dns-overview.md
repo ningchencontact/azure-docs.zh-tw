@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: df890eb0e07c13d0757c706a3cabbbad67b6eac2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 51869bcc2ee892bc150102595de09782eb01547c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716271"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770515"
 ---
 # <a name="what-is-azure-dns"></a>什麼是 Azure DNS？
 
@@ -32,7 +32,7 @@ Azure DNS 中的 DNS 網域裝載於 Azure 的 DNS 名稱伺服器全球網路�
 
 * [角色型存取控制](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control)，用以控制哪些人能存取組織的特定動作。
 
-* [活動記錄](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs)，用以監視組織中的使用者修改資源的情形，或在進行疑難排解時找出錯誤。
+* [活動記錄](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)，用以監視組織中的使用者修改資源的情形，或在進行疑難排解時找出錯誤。
 
 * [資源鎖定](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)，用以鎖定訂用帳戶、資源群組或資源。 鎖定可避免組織中的其他使用者不小心刪除或修改重要資源。
 

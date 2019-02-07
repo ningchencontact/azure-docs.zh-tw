@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
-ms.openlocfilehash: 6b03b1eb773c40a81c9efd76ac26b40936dca2cc
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849357"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733921"
 ---
 # <a name="messages-payloads-and-serialization"></a>訊息、承載和序列化
 
@@ -28,7 +28,7 @@ Microsoft Azure 服務匯流排的功能就是處理訊息。 訊息會以索引
  
 服務匯流排訊息是由服務匯流排絕不會在服務端上以任何形式處理的二進位承載區段，以及兩組屬性所組成。 「訊息代理程式屬性」會由系統預先定義。 這些預先定義的屬性可能會控制訊息代理程式內的訊息層級功能，或是對應到一般和標準化的中繼資料項目。 「使用者屬性」是由應用程式定義和設定的索引鍵/值組集合。
  
-下表列出預先定義的訊息代理程式屬性。 所有官方用戶端 API 均會使用這些名稱，同時也會在 HTTP 通訊協定對應的 [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Properties_) JSON 物件中使用。
+下表列出預先定義的訊息代理程式屬性。 所有官方用戶端 API 均會使用這些名稱，同時也會在 HTTP 通訊協定對應的 [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) JSON 物件中使用。
  
 括弧中列出 AMQP 通訊協定層級所使用的對等名稱。 
 

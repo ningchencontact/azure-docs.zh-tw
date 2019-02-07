@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
-ms.openlocfilehash: a2e42b165596d26672ee22813e53d02ca0e3a7e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4c17128f07475b6aeaef9ae15a13bc4863d7e663
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195659"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699885"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>使用 Azure CLI 在 Azure VM 上設定 Azure 資源的受控識別
 
@@ -82,7 +82,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    az login
    ```
 
-2. 使用 [az vm identity assign](/cli/azure/vm/identity/#az-vm-identity-assign) 與 `identity assign` 命令在現有的虛擬機器上啟用系統指派的身分識別：
+2. 使用 [az vm identity assign](/cli/azure/vm/identity/) 與 `identity assign` 命令在現有的虛擬機器上啟用系統指派的身分識別：
 
    ```azurecli-interactive
    az vm identity assign -g myResourceGroup -n myVm
@@ -107,7 +107,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned'
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-若要移除 Azure 資源 VM 擴充功能的受控識別 (計劃在 2019 年 1 月淘汰)，請使用 `-n ManagedIdentityExtensionForWindows` 或 `-n ManagedIdentityExtensionForLinux` 參數 (視 VM 類型而定) 搭配 [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity)：
+若要移除 Azure 資源 VM 擴充功能的受控識別 (計劃在 2019 年 1 月淘汰)，請使用 `-n ManagedIdentityExtensionForWindows` 或 `-n ManagedIdentityExtensionForLinux` 參數 (視 VM 類型而定) 搭配 [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/)：
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -186,7 +186,7 @@ az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentit
    }
    ```
 
-2. 使用 [az vm identity assign](/cli/azure/vm#az-vm-identity-assign)，將使用者指派的身分識別指派給您的虛擬機器。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VM NAME>` 參數的值。 `<USER ASSIGNED IDENTITY NAME>` 是使用者指派之受控識別的資源 `name` 屬性 (在上一個步驟中建立)：
+2. 使用 [az vm identity assign](/cli/azure/vm)，將使用者指派的身分識別指派給您的虛擬機器。 請務必以您自己的值取代 `<RESOURCE GROUP>` 和 `<VM NAME>` 參數的值。 `<USER ASSIGNED IDENTITY NAME>` 是使用者指派之受控識別的資源 `name` 屬性 (在上一個步驟中建立)：
 
     ```azurecli-interactive
     az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>

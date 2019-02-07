@@ -1,5 +1,5 @@
 ---
-title: 建立路由型 Azure VPN 閘道：CLI | Microsoft Docs
+title: 建立路由式 Azure VPN 閘道：CLI | Microsoft Docs
 description: 快速了解如何使用 CLI 來建立 VPN 閘道
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: b8ca2d74012418dbd8ca9e878f133a250ebb5991
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: f5f62a6bfa1baa205e0496dd901f1f1eef660079
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465095"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698185"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>使用 CLI 來建立路由型 VPN 閘道
 
@@ -26,7 +26,7 @@ ms.locfileid: "49465095"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
+使用 [az group create](/cli/azure/group) 命令來建立資源群組。 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
 
 ```azurecli-interactive 
@@ -35,7 +35,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="vnet"></a>建立虛擬網路
 
-使用 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) 命令來建立虛擬網路。 下列範例會在 **EastUS** 位置中建立名為 **VNet1** 的虛擬網路：
+使用 [az network vnet create](/cli/azure/network/vnet) 命令來建立虛擬網路。 下列範例會在 **EastUS** 位置中建立名為 **VNet1** 的虛擬網路：
 
 ```azurecli-interactive 
 az network vnet create \
@@ -56,7 +56,7 @@ az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
   -g TestRG1 \
-  --address-prefix 10.1.255.0/27 
+  --address-prefix 10.1.255.0/27 
 ```
 
 ## <a name="PublicIP"></a>要求公用 IP 位址
@@ -67,12 +67,12 @@ VPN 閘道必須具有動態配置的公用 IP 位址。 公用 IP 位址將會�
 az network public-ip create \
   -n VNet1GWIP \
   -g TestRG1 \
-  --allocation-method Dynamic 
+  --allocation-method Dynamic 
 ```
 
 ## <a name="CreateGateway"></a>建立 VPN 閘道
 
-使用 [az network vnet-gateway create](/cli/azure/group#az_network_vnet_gateway_create) 命令建立 VPN 閘道。
+使用 [az network vnet-gateway create](/cli/azure/group) 命令建立 VPN 閘道。
 
 如果您使用 `--no-wait` 參數來執行此命令，就不會看到任何意見反應或輸出。 `--no-wait` 參數允許在背景中建立閘道。 但是，並不表示 VPN 閘道會立即建立。
 
@@ -172,7 +172,7 @@ az network public-ip show \
 ```
 ## <a name="clean-up-resources"></a>清除資源
 
-當您不再需要所建立的資源時，請使用 [az group delete](/cli/azure/group#az_group_delete) 來刪除資源群組。 這會刪除資源群組及其包含的所有資源。
+當您不再需要所建立的資源時，請使用 [az group delete](/cli/azure/group) 來刪除資源群組。 這會刪除資源群組及其包含的所有資源。
 
 ```azurecli-interactive 
 az group delete --name TestRG1 --yes

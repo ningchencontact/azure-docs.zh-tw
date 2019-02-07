@@ -5,14 +5,14 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 2/1/2019
 ms.author: seguler
-ms.openlocfilehash: 2374875512bba55409ef43906acb20238c77158f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1e26eb213ad2613877c46758299c2e962894d358
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268456"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697997"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>如何使用 Blobfuse 將 Blob 儲存體掛接為檔案系統
 
@@ -100,7 +100,7 @@ containerName mycontainer
 
 建立檔案後，請務必限制該檔案的存取權限，以禁止其他使用者讀取。
 ```bash
-chmod 700 fuse_connection.cfg
+chmod 600 fuse_connection.cfg
 ```
 
 > [!NOTE]

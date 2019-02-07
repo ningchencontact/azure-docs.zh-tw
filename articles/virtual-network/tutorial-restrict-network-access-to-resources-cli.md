@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 80ca9df064239e9c7beb9d45acfabe963c532e4a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 31d583456f2ca0a2804c2215906965c2241af52d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150543"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751492"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>透過使用 Azure CLI 的虛擬網路服務端點來限制對 PaaS 資源的網路存取
 
@@ -43,7 +43,7 @@ ms.locfileid: "55150543"
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-建立虛擬網路之前，您必須為虛擬網路以及在本文中建立的所有其他資源，建立資源群組。 使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+建立虛擬網路之前，您必須為虛擬網路以及在本文中建立的所有其他資源，建立資源群組。 使用 [az group create](/cli/azure/group) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
 ```azurecli-interactive
 az group create \
@@ -51,7 +51,7 @@ az group create \
   --location eastus
 ```
 
-使用 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) 建立具有一個子網路的虛擬網路。
+使用 [az network vnet create](/cli/azure/network/vnet) 建立具有一個子網路的虛擬網路。
 
 ```azurecli-interactive
 az network vnet create \
@@ -64,7 +64,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>啟用服務端點 
 
-您只能針對支援服務端點的服務啟用服務端點。 使用 [az network vnet list-endpoint-services](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services) 來檢視 Azure 位置中所提供之已啟用服務端點的服務。 下列範例會傳回 eastus 區域中所提供且已啟用服務端點的服務。 隨著更多 Azure 服務啟用服務端點，所傳回的服務清單會隨著時間成長。
+您只能針對支援服務端點的服務啟用服務端點。 使用 [az network vnet list-endpoint-services](/cli/azure/network/vnet) 來檢視 Azure 位置中所提供之已啟用服務端點的服務。 下列範例會傳回 eastus 區域中所提供且已啟用服務端點的服務。 隨著更多 Azure 服務啟用服務端點，所傳回的服務清單會隨著時間成長。
 
 ```azurecli-interactive
 az network vnet list-endpoint-services \
@@ -103,7 +103,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-使用 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) 來建立安全性規則。 下列規則允許對指派給 Azure 儲存體服務之公用 IP 位址的輸出存取： 
+使用 [az network nsg rule create](/cli/azure/network/nsg/rule) 來建立安全性規則。 下列規則允許對指派給 Azure 儲存體服務之公用 IP 位址的輸出存取： 
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -168,7 +168,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-建立儲存體帳戶之後，使用 [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string) 將儲存體帳戶的連接字串取出至變數中。 在稍後步驟中，會使用連接字串來建立檔案共用。
+建立儲存體帳戶之後，使用 [az storage account show-connection-string](/cli/azure/storage/account) 將儲存體帳戶的連接字串取出至變數中。 在稍後步驟中，會使用連接字串來建立檔案共用。
 
 ```azurecli-interactive
 saConnectionString=$(az storage account show-connection-string \
@@ -223,7 +223,7 @@ az storage account network-rule add \
 
 ### <a name="create-the-first-virtual-machine"></a>建立第一部虛擬機器
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 在「公用」子網路中建立虛擬機器。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。
+使用 [az vm create](/cli/azure/vm) 在「公用」子網路中建立虛擬機器。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。
 
 ```azurecli-interactive
 az vm create \
@@ -322,7 +322,7 @@ sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-sh
 
 結束對 myVmPublic VM 的 SSH 工作階段。
 
-嘗試從您的電腦使用 [az storage share list](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list) 來檢視儲存體帳戶中的共用。 將 `<account-name>` 和 `<account-key>` 取代為儲存體帳戶名稱和[建立儲存體帳戶](#create-a-storage-account)中的金鑰：
+嘗試從您的電腦使用 [az storage share list](/cli/azure/storage/share?view=azure-cli-latest) 來檢視儲存體帳戶中的共用。 將 `<account-name>` 和 `<account-key>` 取代為儲存體帳戶名稱和[建立儲存體帳戶](#create-a-storage-account)中的金鑰：
 
 ```azurecli-interactive
 az storage share list \

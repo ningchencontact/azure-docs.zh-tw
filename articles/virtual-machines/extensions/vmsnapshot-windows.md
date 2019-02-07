@@ -9,12 +9,12 @@ ms.service: backup, virtual-machines-windows
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4d942e21afbf1d87ab67d79e90119a4122d889da
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c41f609786620c8b90d484813d675efcd667d1e1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632190"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692625"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>適用於 Azure 備份的 VM Snapshot Windows 擴充功能
 
@@ -51,7 +51,7 @@ VM Snapshot 擴充功能會要求目標虛擬機器在採用虛擬機器備份�
       "vmType": "microsoft.compute/virtualmachines"
     },
     "protectedSettings": {
-      "objectStr": "<blob SAS uri represenattion of VM sent by Azure Backup service to extension>",
+      "objectStr": "<blob SAS uri representation of VM sent by Azure Backup service to extension>",
       "logsBlobUri": "<blob uri where logs of command execution by extension are written to>",
       "statusBlobUri": "<blob uri where status of the command executed by extension is written>"
     }

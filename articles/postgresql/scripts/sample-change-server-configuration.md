@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: c570982fed746b01f5a8c15edb94bdeac679b248
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6b5a855c8db5cb87f313e14c42396ae70b407e61
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545599"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692200"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>使用 Azure CLI 列出和更新適用於 PostgreSQL 的 Azure 資料庫伺服器組態
 這個範例 CLI 指令碼會列出所有可用的組態參數，以及其對於適用於 PostgreSQL 的 Azure 資料庫伺服器允許值，並將 log_retention_days 設定為預設值以外的值。
@@ -35,12 +35,12 @@ ms.locfileid: "53545599"
 
 | **命令** | **注意事項** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | 建立主控資料庫的 PostgreSQL 伺服器。 |
-| [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) | 列出適用於 PostgreSQL 的 Azure 資料庫伺服器組態。 |
-| [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) | 更新適用於 PostgreSQL 的 Azure 資料庫伺服器組態。 |
-| [az postgres server configuration show](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_show) | 顯示適用於 PostgreSQL 的 Azure 資料庫伺服器組態。 |
-| [az group delete](/cli/azure/group#az_group_delete) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group create](/cli/azure/group) | 建立用來存放所有資源的資源群組。 |
+| [az postgres server create](/cli/azure/postgres/server) | 建立主控資料庫的 PostgreSQL 伺服器。 |
+| [az postgres server configuration list](/cli/azure/postgres/server/configuration) | 列出適用於 PostgreSQL 的 Azure 資料庫伺服器組態。 |
+| [az postgres server configuration set](/cli/azure/postgres/server/configuration) | 更新適用於 PostgreSQL 的 Azure 資料庫伺服器組態。 |
+| [az postgres server configuration show](/cli/azure/postgres/server/configuration) | 顯示適用於 PostgreSQL 的 Azure 資料庫伺服器組態。 |
+| [az group delete](/cli/azure/group) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 - 閱讀更多有關 Azure CLI 的資訊：[Azure CLI 文件](/cli/azure)。

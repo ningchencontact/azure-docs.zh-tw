@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 00f446c545a11b859fe0ee966898fa5c6aa16a1d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 29cc340820fbf0e35b8b142f0bea91da82ff7b61
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884447"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728345"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>快速入門：使用 Azure 範本建立 Linux 虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據 CPU、記憶體需求或網路流量等資源使用量進行自動調整。 其後，Azure 負載平衡器會將流量分配到擴展集中的多個 VM 執行個體。 在此快速入門中，您會使用 Resource Manager 範本建立虛擬機器擴展集，並部署範例應用程式。
@@ -137,7 +137,7 @@ fileUris 中定義的兩個指令碼  -  installserver.sh 和 workserver.py。 �
 
 [![將範本部署到 Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-您也可以使用 Azure CLI，利用 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) 在 Linux 上安裝 Python HTTP 伺服器，如下所示：
+您也可以使用 Azure CLI，利用 [az group deployment create](/cli/azure/group/deployment) 在 Linux 上安裝 Python HTTP 伺服器，如下所示：
 
 ```azurecli-interactive
 # Create a resource group
@@ -153,7 +153,7 @@ az group deployment create \
 
 
 ## <a name="test-your-scale-set"></a>測試您的擴展集
-若要查看有效的擴展集，請在網頁瀏覽器中存取範例 Web 應用程式。 使用 [az network public-ip list](/cli/azure/network/public-ip#show) 取得負載平衡器的公用 IP 位址，如下所示：
+若要查看有效的擴展集，請在網頁瀏覽器中存取範例 Web 應用程式。 使用 [az network public-ip list](/cli/azure/network/public-ip) 取得負載平衡器的公用 IP 位址，如下所示：
 
 ```azurecli-interactive
 az network public-ip list \
@@ -167,7 +167,7 @@ az network public-ip list \
 
 
 ## <a name="clean-up-resources"></a>清除資源
-若不再需要，您可以使用 [az group delete](/cli/azure/group#az_group_delete) 移除資源群組、擴展集和所有相關資源，如下所示。 `--no-wait` 參數不會等待作業完成，就會將控制項傳回給提示字元。 `--yes` 參數會確認您想要刪除資源，而不另外對您提示將要進行此作業。
+若不再需要，您可以使用 [az group delete](/cli/azure/group) 移除資源群組、擴展集和所有相關資源，如下所示。 `--no-wait` 參數不會等待作業完成，就會將控制項傳回給提示字元。 `--yes` 參數會確認您想要刪除資源，而不另外對您提示將要進行此作業。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

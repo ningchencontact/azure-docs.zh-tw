@@ -9,12 +9,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 2ec4810b6ac01eca17186f4b8d2e8c2959292b8d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 66012e22b4e3e512751711ea399b8add006fb717
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187890"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756388"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>教學課程：使用適用於 C# 的 Bing 圖像式搜尋 SDK 裁剪影像
 
@@ -113,4 +113,4 @@ Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " 
 > [!div class="nextstepaction"]
 > [建置單頁 Web 應用程式](tutorial-bing-visual-search-single-page-app.md)
 
-[圖像式搜尋回應](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response) \(英文\)
+[圖像式搜尋回應](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview) \(英文\)

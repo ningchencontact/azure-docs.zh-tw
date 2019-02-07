@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: a4e5440a9b8b6ce36d8472463b35201f39d3ac5a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d2d1ca3e41de36d423de24fdbade8c17507642b5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192782"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734295"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 網路效能監控的定價變更
 
@@ -27,7 +27,7 @@ ms.locfileid: "53192782"
 
 網路效能監控是由三個元件所組成：
 * [效能監視器](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
-* [服務端點監視](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor)
+* [服務端點監視](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
 * [ExpressRoute 監視](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
 下列各節說明 NPM 元件的定價變更。
@@ -55,7 +55,7 @@ NPM 中的效能監控功能現在是根據下列組合計費：
 
 **我有兩個子網路 (A 和 B)，且每個子網路上有數個代理程式。效能監控會監控子網路 A 上所有代理程式到子網路 B 上所有代理程式的連線。是否會根據子網路間的連線數目向我收費？**
 
-否。 為了計費目的，從子網路 A 到子網路 B 的所有連線會群組在一起成為一個子網路連結， 而會向您收取單一連線的費用。 效能監控會持續監控每個子網路上各種代理程式之間的連線。
+沒有。 為了計費目的，從子網路 A 到子網路 B 的所有連線會群組在一起成為一個子網路連結， 而會向您收取單一連線的費用。 效能監控會持續監控每個子網路上各種代理程式之間的連線。
 
 **監視子網路連結的成本為何？**
 

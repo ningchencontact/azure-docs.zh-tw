@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 760feae2c9b58e162dae487e240dda72099ed91b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5fe2cab3ac9f9e5f3bbba17b8ab9467a298b24ea
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227972"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817677"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常見問題集
 得到 Azure API 管理常見問題、模式和最佳作法的答案。
@@ -37,7 +37,7 @@ ms.locfileid: "51227972"
 * [如何在單一 API 中設定多個環境？](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [可以使用 SOAP 搭配 API 管理嗎？](#can-i-use-soap-with-api-management)
 * [API 管理閘道 IP 位址是否固定？我可以用在防火牆規則嗎？](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
-* [可以設定具有 AD FS 安全性的 OAUth 2.0 授權伺服器嗎？](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
+* 可以設定具有 AD FS 安全性的 OAUth 2.0 授權伺服器嗎？
 * [API 管理在部署到多個地理位置時使用何種路由方法？](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [可以使用 Azure Resource Manager 範本建立 API 管理服務執行個體嗎？](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
 * [是否可以對後端使用自我簽署的 SSL 憑證？](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)

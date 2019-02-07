@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: db0aa1781c3e35b68a59082cf7a1760f7e9a34b4
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 33f21786b1af4d169d184487a030b7e4ea321327
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239565"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694528"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>使用 CLI 從快照集建立虛擬機器
 
@@ -49,9 +49,9 @@ az group delete --name myResourceGroup
 
 | 命令 | 注意 |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | 使用快照集名稱和資源群組名稱取得快照集。 傳回物件的 Id 屬性用來建立受控磁碟。  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | 使用快照集識別碼、磁碟名稱、儲存體類型和大小，從快照集建立受控磁碟  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | 建立使用受控 OS 磁碟的 VM |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | 使用快照集名稱和資源群組名稱取得快照集。 傳回物件的 Id 屬性用來建立受控磁碟。  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | 使用快照集識別碼、磁碟名稱、儲存體類型和大小，從快照集建立受控磁碟  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | 建立使用受控 OS 磁碟的 VM |
 
 ## <a name="next-steps"></a>後續步驟
 

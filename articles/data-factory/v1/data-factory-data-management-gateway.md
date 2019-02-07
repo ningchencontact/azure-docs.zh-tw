@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 101385b23d8ea683dc5762d491e6a4bef91bbed4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022303"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813753"
 ---
 # <a name="data-management-gateway"></a>資料管理閘道
 > [!NOTE]
@@ -246,7 +246,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-如果您選擇不開啟閘道機器上的連接埠 8050，則請使用「設定認證」  應用程式以外的機制來設定資料存放區認證。 例如，您可以使用 [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell Cmdlet。 如需了解如何設定資料存放區認證，請參閱 [設定認證和安全性](#set-credentials-and-securityy) 一節。
+如果您選擇不開啟閘道機器上的連接埠 8050，則請使用「設定認證」  應用程式以外的機制來設定資料存放區認證。 例如，您可以使用 [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell Cmdlet。 若要了解如何設定資料存放區認證，請參閱＜設定認證和安全性＞一節。
 
 ## <a name="update"></a>更新
 根據預設，資料管理閘道會在有更新版本的閘道時自動進行更新。 在所有排定的工作完成前，閘道不會進行更新。 更新作業完成後，閘道才會處理後續的工作。 如果更新失敗，閘道會回復為舊版本。

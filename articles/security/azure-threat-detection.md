@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b2b247b50eff446776edfbf3a552e92af3c7dfff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fe98caa2a78722d621c43f1ef708e24add0efb56
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228792"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664109"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 進階威脅偵測
 
@@ -29,7 +29,7 @@ Azure 提供各種選項來設定和自訂安全性，以符合您應用程式�
 
 ## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 是 [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions)  版本的功能，能針對可影響組織身分識別的風險事件和潛在弱點提供概觀。 Identity Protection 使用現有的 Azure AD 異常偵測功能 (可透過 [Azure AD 異常活動報告](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports)取得)，並引進可即時偵測異常的新風險事件類型。
+[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 是 [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions)  版本的功能，能針對可影響組織身分識別的風險事件和潛在弱點提供概觀。 Identity Protection 使用現有 Azure AD 異常偵測功能 (可透過 [Azure AD 異常活動報告](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports)取得)，並引進可即時偵測異常的新風險事件類型。
 
 ![Azure AD Identity Protection 圖表](./media/azure-threat-detection/azure-threat-detection-fig1.png)
 

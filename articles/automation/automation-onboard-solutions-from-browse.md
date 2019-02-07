@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f83c05f4d1dcb93bd424a733866f85edf04bbd05
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062939"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745261"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>在多個 VM 上啟用更新管理、變更追蹤和清查解決方案
 
@@ -76,6 +76,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
 |EastUS2EUAP|CentralUSEUAP|
+|美國西部 2|美國西部 2|
 
 針對您不想啟用的虛擬機器，取消選取它旁邊的核取方塊。 無法啟用的虛擬機器已取消選取。
 
@@ -100,7 +101,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 2. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。
 
-   ![取消連結工作區頁面](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
+   ![取消連結工作區頁面](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png)上也提供本文中使用的原始碼。
 
    您會收到提示，確認您想要繼續。
 

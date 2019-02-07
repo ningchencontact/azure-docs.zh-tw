@@ -13,12 +13,12 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9c7560dc6c3c5237a056a9468d3ab4f440e8e6dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bc726f63ea5c8473601623024e18c1402cbebb51
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190780"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820312"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>在 Azure 入口網站中尋找活動報告
 
@@ -49,8 +49,6 @@ ms.locfileid: "55190780"
 
 您可以使用稽核報告中的進階篩選功能來存取特定類別的稽核資料，只要在 [活動類別] 篩選器中指定類別即可。 例如，若要檢視與自助式密碼重設相關的所有活動，可選擇 [自助式密碼管理] 類別。 
 
-    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
-
 活動類別包括︰
 
 - 核心目錄
@@ -62,8 +60,6 @@ ms.locfileid: "55190780"
 ## <a name="sign-ins-report"></a>登入報告 
 
 **登入**檢視包含所有使用者登入，以及**應用程式使用量**報告。 您也可以在 [企業應用程式] 概觀的 [管理] 區段中檢視應用程式使用量資訊。
-
-    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
 
 若要存取登入報告：
 

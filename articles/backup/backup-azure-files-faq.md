@@ -4,16 +4,16 @@ description: 本文提供關於如何保護 Azure 檔案共用的詳細資料。
 services: backup
 author: rayne-wiselman
 ms.author: raynew
-ms.date: 2/21/2018
+ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 875eb20a05a96d094a17229699bb2d87b3377a62
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 91a0e1fd66861f8747c6c6da21f2c54ed40bd200
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359896"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492796"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 本文提供有關備份 Azure 檔案服務的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。

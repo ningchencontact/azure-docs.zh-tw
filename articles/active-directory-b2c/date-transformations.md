@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 35c5731d260fb63dece3d2b8ae4f4a4522fb91b8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153399"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564779"
 ---
 # <a name="date-claims-transformations"></a>日期宣告轉換
 
@@ -23,7 +23,7 @@ ms.locfileid: "55153399"
 
 此文章提供在 Azure Active Directory (Azure AD) B2C 中，使用識別體驗架構結構描述日期宣告轉換的範例。 如需詳細資訊，請參閱 [ClaimsTransformations](claimstransformations.md)。
 
-## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan 
+## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
 確認某個日期和時間宣告 (字串資料類型) 是否晚於第二個日期和時間宣告 (字串資料類型)，並擲回例外狀況。
 
@@ -85,7 +85,6 @@ ms.locfileid: "55153399"
     - **rightOperand**：2018-10-01T14:00:00.0000000Z
 - 結果︰擲回錯誤
 
-
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
 
 將**日期** ClaimType 轉換為**日期時間** ClaimType。 宣告轉換會轉換時間格式，並對日期新增 12:00:00 AM。
@@ -98,7 +97,7 @@ ms.locfileid: "55153399"
 下列範例會示範如何將宣告 `dateOfBirth` (日期資料類型) 轉換為另一個宣告 `dateOfBirthWithTime` (日期時間資料類型)。
 
 ```XML
-<ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
+  <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="inputClaim" />
     </InputClaims>
@@ -163,7 +162,7 @@ ms.locfileid: "55153399"
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="result" />
-  </OutputClaims>      
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -175,6 +174,5 @@ ms.locfileid: "55153399"
 - 輸入參數：
     - **運算子**：晚於
     - **timeSpanInSeconds**：7776000 (90 天)
-- 輸出宣告： 
+- 輸出宣告：
     - **結果**：true
-

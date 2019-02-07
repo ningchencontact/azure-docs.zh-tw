@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: c451377d6274c50f22e3b1d4cd32fb0f3edd9d9e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d2d3f36c9b4ee0557f9e060bec762877a94ea637
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220387"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734176"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>將 Linux VM 移至另一個訂用帳戶或資源群組
 本文將逐步引導您了解如何在資源群組或訂用帳戶之間移動 Linux 虛擬機器 (VM)。 如果您在個人訂用帳戶中建立了 VM，而現在想要將它移至您的公司訂用帳戶以繼續工作，在訂用帳戶之間移動 VM 會很方便。
@@ -35,7 +35,7 @@ ms.locfileid: "55220387"
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>使用 Azure CLI 移動 VM
 
 
-在使用 Azure CLI 移動 VM 之前，您需要確定來源和目的地訂用帳戶存在於相同的租用戶內。 若要檢查這兩個訂用帳戶是否有相同的租用戶識別碼，請使用 [az account show](/cli/azure/account#az_account_show)。
+在使用 Azure CLI 移動 VM 之前，您需要確定來源和目的地訂用帳戶存在於相同的租用戶內。 若要檢查這兩個訂用帳戶是否有相同的租用戶識別碼，請使用 [az account show](/cli/azure/account)。
 
 ```azurecli-interactive
 az account show --subscription mySourceSubscription --query tenantId
@@ -43,13 +43,13 @@ az account show --subscription myDestinationSubscription --query tenantId
 ```
 如果來源和目的地訂用帳戶的租用戶識別碼不相同，您必須連絡[支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)以將資源移至新的租用戶。
 
-若要成功移動 VM，您需要移動 VM 及其所有支援的資源。 使用 [az resource list](/cli/azure/resource#az_resource_list) 命令來列出資源群組中的所有資源及其識別碼。 它有助於將此命令的輸出透過管線送至檔案，以便您將識別碼複製並貼到稍後的命令中。
+若要成功移動 VM，您需要移動 VM 及其所有支援的資源。 使用 [az resource list](/cli/azure/resource) 命令來列出資源群組中的所有資源及其識別碼。 它有助於將此命令的輸出透過管線送至檔案，以便您將識別碼複製並貼到稍後的命令中。
 
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
 
-若要將 VM 與其資源移到另一個資源群組，請使用 [az resource move](/cli/azure/resource#az_resource_move)。 下列範例說明如何移動 VM 與其所需的大多數常見資源。 使用 **-ids** 參數，並針對要移動的資源傳入以逗號分隔的識別碼清單 (不含空格)。
+若要將 VM 與其資源移到另一個資源群組，請使用 [az resource move](/cli/azure/resource)。 下列範例說明如何移動 VM 與其所需的大多數常見資源。 使用 **-ids** 參數，並針對要移動的資源傳入以逗號分隔的識別碼清單 (不含空格)。
 
 ```azurecli-interactive
 vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM

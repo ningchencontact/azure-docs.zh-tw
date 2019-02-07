@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454839"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697827"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure 匯入/匯出服務記錄檔格式
 當 Microsoft Azure 匯入/匯出服務於匯入工作或匯出工作期間在磁碟機上執行動作時，記錄檔會寫入至與該工作相關聯的儲存體帳戶中的區塊 Blob。  
@@ -22,7 +22,7 @@ ms.locfileid: "55454839"
   
 -   發生錯誤時，一定會產生錯誤記錄檔。  
   
--   詳細資訊記錄檔預設未啟用，但可透過在 [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 或 [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) 作業上設定 `EnableVerboseLog` 屬性來啟用。  
+-   詳細資訊記錄檔預設未啟用，但可透過在 [Put Job](/rest/api/storageimportexport/jobs) 或 [Update Job Properties](/rest/api/storageimportexport/jobs) 作業上設定 `EnableVerboseLog` 屬性來啟用。  
   
 ## <a name="log-file-location"></a>記錄檔位置  
 記錄檔會寫入至容器中的區塊 Blob 或 `ImportExportStatesPath` 設定指定的虛擬目錄 (您可以在 `Put Job` 作業上設定) 中。 寫入記錄檔的位置取決於為工作指定的驗證方式，以及為 `ImportExportStatesPath` 指定的值。 您可以透過儲存體帳戶金鑰或容器 SAS (共用存取簽章) 指定工作的驗證方式。  
@@ -38,7 +38,7 @@ ms.locfileid: "55454839"
 |容器 SAS|預設值|名為 `waimportexport` 的虛擬目錄，這是預設名稱，位於 SAS 中指定的容器底下。<br /><br /> 例如，如果為工作指定的 SAS 是 `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`，記錄檔位置會是 `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |容器 SAS|使用者指定值|使用者命名的虛擬目錄，位於 SAS 中指定的容器底下。<br /><br /> 例如，如果為工作指定的 SAS 是 `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`，且指定的虛擬目錄名為 `mylogblobs`，記錄檔位置會是 `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`。|  
   
-您可以透過呼叫 [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 作業來擷取錯誤和詳細資訊記錄檔的 URL。 磁碟機處理完成後會產生記錄檔。  
+您可以透過呼叫 [Get Job](/rest/api/storageimportexport/jobs) 作業來擷取錯誤和詳細資訊記錄檔的 URL。 磁碟機處理完成後會產生記錄檔。  
   
 ## <a name="log-file-format"></a>記錄檔格式  
 兩個記錄檔的格式同為 Blob，其中包含在硬碟和客戶的帳戶之間複製 Blob 時所發生事件的 XML 描述。  

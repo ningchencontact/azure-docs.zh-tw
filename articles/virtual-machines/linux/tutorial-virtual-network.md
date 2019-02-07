@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8548fe53288b2f9c486c9ccdc42afa08f40b4ae1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e90880aeaae17c80d6714f917f2ea849c953711f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181585"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755403"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>教學課程：使用 Azure CLI 來建立和管理 Linux 虛擬機器的 Azure 虛擬網路
 
@@ -60,7 +60,7 @@ Azure 虛擬網路可以讓虛擬機器、網際網路與其他 Azure 服務 (�
 
 在本教學課程中，會建立一個具有兩個子網路的虛擬網路。 一個是裝載 Web 應用程式的前端子網路，一個是裝載資料庫伺服器的後端子網路。
 
-建立虛擬網路前，請先使用 [az group create](/cli/azure/group#az_group_create) 建立資源群組。 下列範例會在 eastus 建立名為 myRGNetwork 的資源群組。
+建立虛擬網路前，請先使用 [az group create](/cli/azure/group) 建立資源群組。 下列範例會在 eastus 建立名為 myRGNetwork 的資源群組。
 
 ```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
@@ -68,7 +68,7 @@ az group create --name myRGNetwork --location eastus
 
 ### <a name="create-virtual-network"></a>建立虛擬網路
 
-使用 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) 命令建立虛擬網路。 在此範例中，將網路命名為 *mvVNet*，並將位址首碼指定為 *10.0.0.0/16*。 也會建立名為 *myFrontendSubnet* 且首碼為 *10.0.1.0/24* 的子網路。 本教學課程稍後，會將前端 VM 連線到此子網路。 
+使用 [az network vnet create](/cli/azure/network/vnet) 命令建立虛擬網路。 在此範例中，將網路命名為 *mvVNet*，並將位址首碼指定為 *10.0.0.0/16*。 也會建立名為 *myFrontendSubnet* 且首碼為 *10.0.1.0/24* 的子網路。 本教學課程稍後，會將前端 VM 連線到此子網路。 
 
 ```azurecli-interactive 
 az network vnet create \
@@ -81,7 +81,7 @@ az network vnet create \
 
 ### <a name="create-subnet"></a>建立子網路
 
-使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) 命令將新的子網路新增至虛擬網路。 在此範例中，將子網路命名為 *myBackendSubnet*，並將位址首碼指定為 *10.0.2.0/24*。 所有的後端服務都會使用此子網路。
+使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet) 命令將新的子網路新增至虛擬網路。 在此範例中，將子網路命名為 *myBackendSubnet*，並將位址首碼指定為 *10.0.2.0/24*。 所有的後端服務都會使用此子網路。
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -103,11 +103,11 @@ az network vnet subnet create \
 az network public-ip create --resource-group myRGNetwork --name myPublicIPAddress
 ```
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 命令建立 VM 時，預設的公用 IP 位址配置方法為動態。 使用 [az vm create](/cli/azure/vm#az_vm_create)命令建立虛擬機器時，需包括 `--public-ip-address-allocation static` 引數來指派靜態公用 IP 位址。 這項作業不會示範在本教學課程中，不過在下一節會將動態配置的 IP 位址變更為靜態配置的位址。 
+使用 [az vm create](/cli/azure/vm) 命令建立 VM 時，預設的公用 IP 位址配置方法為動態。 使用 [az vm create](/cli/azure/vm)命令建立虛擬機器時，需包括 `--public-ip-address-allocation static` 引數來指派靜態公用 IP 位址。 這項作業不會示範在本教學課程中，不過在下一節會將動態配置的 IP 位址變更為靜態配置的位址。 
 
 ### <a name="change-allocation-method"></a>變更配置方法
 
-使用 [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) 命令可以變更 IP 位址的配置方法。 在此範例中，會將前端 VM 的 IP 位址配置方法變更為靜態。
+使用 [az network public-ip update](/cli/azure/network/public-ip) 命令可以變更 IP 位址的配置方法。 在此範例中，會將前端 VM 的 IP 位址配置方法變更為靜態。
 
 首先，解除配置 VM。
 
@@ -115,7 +115,7 @@ az network public-ip create --resource-group myRGNetwork --name myPublicIPAddres
 az vm deallocate --resource-group myRGNetwork --name myFrontendVM
 ```
 
-使用 [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) 命令更新配置方式。 在此，將 `--allocation-method` 設為 static。
+使用 [az network public-ip update](/cli/azure/network/public-ip) 命令更新配置方式。 在此，將 `--allocation-method` 設為 static。
 
 ```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myPublicIPAddress --allocation-method static
@@ -133,7 +133,7 @@ az vm start --resource-group myRGNetwork --name myFrontendVM --no-wait
 
 ## <a name="create-a-front-end-vm"></a>建立前端 VM
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 命令建立名為 *myFrontendVM* 且使用 *myPublicIPAddress* 的 VM。
+使用 [az vm create](/cli/azure/vm) 命令建立名為 *myFrontendVM* 且使用 *myPublicIPAddress* 的 VM。
 
 ```azurecli-interactive 
 az vm create \
@@ -165,7 +165,7 @@ NSG 規則定義允許或拒絕流量的網路連接埠。 規則可以包含來
 
 ### <a name="create-network-security-groups"></a>建立網路安全性群組
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 命令建立 VM 時，可以同時建立網路安全性群組。 這麼做時，NSG 是與 VM 網路介面相關聯，並會自動建立 NSG 規則以允許從任何來源到連接埠 22 的流量。 稍早在本教學課程中，前端 NSG 已自動和前端 VM 一起建立。 也會自動建立連接埠 22 的 NSG 規則。 
+使用 [az vm create](/cli/azure/vm) 命令建立 VM 時，可以同時建立網路安全性群組。 這麼做時，NSG 是與 VM 網路介面相關聯，並會自動建立 NSG 規則以允許從任何來源到連接埠 22 的流量。 稍早在本教學課程中，前端 NSG 已自動和前端 VM 一起建立。 也會自動建立連接埠 22 的 NSG 規則。 
 
 在某些情況下，預先建立 NSG 可能較有幫助，例如不應建立預設 SSH 規則時，或當 NSG 應該連結至子網路時。 
 
@@ -191,7 +191,7 @@ az network vnet subnet update \
 
 建立前端 VM 時，已建立 NSG 規則以允許連接埠 22 上的傳入流量。 此規則允許連到 VM 的 SSH 連線。 在此範例中，應該也允許連接埠 80 上的流量。 此組態讓 VM 上的 Web 應用程式可被存取。
 
-使用 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) 命令建立連接埠 80 的規則。
+使用 [az network nsg rule create](/cli/azure/network/nsg/rule) 命令建立連接埠 80 的規則。
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -218,7 +218,7 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG -
 
 網路安全性群組規則也可以套用在 VM 之間。 在此範例中，前端 VM 需要與連接埠 22 和 3306上的後端 VM 通訊。 此組態允許來自前端 VM 的 SSH 連線，也允許前端 VM 上的 應用程式與後端 MySQL 資料庫通訊。 前端和後端虛擬機器之間的所有其他流量應該會被封鎖。
 
-使用 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) 命令建立連接埠 22 的規則。 請注意，`--source-address-prefix` 引數指定 10.0.1.0/24 值。 此組態可確保透過 NSG 只允許來自前端子網路的流量。
+使用 [az network nsg rule create](/cli/azure/network/nsg/rule) 命令建立連接埠 22 的規則。 請注意，`--source-address-prefix` 引數指定 10.0.1.0/24 值。 此組態可確保透過 NSG 只允許來自前端子網路的流量。
 
 ```azurecli-interactive 
 az network nsg rule create \

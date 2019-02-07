@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9c6729abefc62aeae232fff5ea48619377630635
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1c2be140e4d7156a1e23e1064436dda959c9cd14
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197614"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749996"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立 Azure VM 的自訂映像
 
@@ -79,7 +79,7 @@ exit
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-最後，使用 [az vm generalize](/cli//azure/vm#generalize) 將 VM 的狀態設為一般化，如此一來，Azure 平台就會知道 VM 已一般化。 您只能從一般化的 VM 建立映像。
+最後，使用 [az vm generalize](/cli//azure/vm) 將 VM 的狀態設為一般化，如此一來，Azure 平台就會知道 VM 已一般化。 您只能從一般化的 VM 建立映像。
    
 ```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -87,7 +87,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### <a name="create-the-image"></a>建立映像
 
-現在，您可以使用 [az image create](/cli//azure/image#create) 來建立 VM 的映像。 下列範例會從名為 myVM 的 VM 建立名為 myImage 的映像。
+現在，您可以使用 [az image create](/cli//azure/image) 來建立 VM 的映像。 下列範例會從名為 myVM 的 VM 建立名為 myImage 的映像。
    
 ```azurecli-interactive 
 az image create \
@@ -98,7 +98,7 @@ az image create \
  
 ## <a name="create-vms-from-the-image"></a>從映像建立 VM
 
-現在您已有映像，您可以使用 [az vm create](/cli/azure/vm#az_vm_create) 從映像建立一個或多個新的 VM。 下列範例會從名為 myImage 的映像建立名為 myVMfromImage 的 VM。
+現在您已有映像，您可以使用 [az vm create](/cli/azure/vm) 從映像建立一個或多個新的 VM。 下列範例會從名為 myImage 的映像建立名為 myVMfromImage 的 VM。
 
 ```azurecli-interactive 
 az vm create \

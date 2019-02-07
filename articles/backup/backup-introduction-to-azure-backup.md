@@ -7,15 +7,15 @@ manager: carmonm
 keywords: 備份與還原；復原服務；備份解決方案
 ms.service: backup
 ms.topic: overview
-ms.date: 8/2/2018
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 2601f81b4abecd98d645af9bc0d368e52534a04e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631149"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487875"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 備份中的功能概觀
 Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料的 Azure 服務。 Azure 備份將以一個可靠、安全及具成本競爭力的雲端架構解決方案，取代您現有的內部部署或異地備份解決方案。 Azure 備份提供多個元件，您可以下載並部署在適當的電腦、伺服器或雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份的元件 (無論您要保護的是內部部署或雲端資料) 都可以將資料備份至 Azure 中的復原服務保存庫。 請參閱 [Azure 備份元件資料表](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (稍後於本文提及) 以取得該使用哪個元件來保護特定資料、應用程式或工作負載的資訊。
@@ -116,11 +116,11 @@ Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟�
 ### <a name="storage"></a>儲存體
 | 功能 | Azure 備份代理程式 | System Center DPM | Azure 備份伺服器 | Azure IaaS VM 備份 |
 | --- | --- | --- | --- | --- |
-| 復原服務保存庫 |![是][green] |![是][green] |![是][green] |![是][green] |
-| 磁碟儲存體 | |![是][green] |![是][green] | |
-| 磁帶儲存體 | |![是][green] | | |
-| 壓縮 <br/>(在復原服務保存庫中) |![是][green] |![是][green] |![是][green] | |
-| 增量備份 |![是][green] |![是][green] |![是][green] |![是][green] |
+| 復原服務保存庫 |![yes][green] |![是][green] |![是][green] |![yes][green] |
+| 磁碟儲存體 | |![yes][green] |![yes][green] | |
+| 磁帶儲存體 | |![yes][green] | | |
+| 壓縮 <br/>(在復原服務保存庫中) |![yes][green] |![是][green] |![yes][green] | |
+| 增量備份 |![yes][green] |![是][green] |![是][green] |![yes][green] |
 | 磁碟重複資料刪除 | |![部分][yellow] |![部分][yellow] | | |
 
 ![資料表索引鍵](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -157,8 +157,8 @@ Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟�
 ### <a name="security"></a>安全性
 | 功能 | Azure 備份代理程式 | System Center DPM | Azure 備份伺服器 | Azure IaaS VM 備份 |
 | --- | --- | --- | --- | --- |
-| 網路安全性<br/> (至 Azure) |![是][green] |![是][green] |![是][green] |![是][green] |
-| 資料安全性<br/> (在 Azure 中) |![是][green] |![是][green] |![是][green] |![是][green] |
+| 網路安全性<br/> (至 Azure) |![yes][green] |![是][green] |![是][green] |![yes][green] |
+| 資料安全性<br/> (在 Azure 中) |![yes][green] |![是][green] |![是][green] |![yes][green] |
 
 ![資料表索引鍵](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -176,8 +176,8 @@ Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟�
 ### <a name="network"></a>網路
 | 功能 | Azure 備份代理程式 | System Center DPM | Azure 備份伺服器 | Azure IaaS VM 備份 |
 | --- | --- | --- | --- | --- |
-| 網路壓縮 <br/>(至**備份伺服器**) | |![是][green] |![是][green] | |
-| 網路壓縮 <br/>(到**復原服務保存庫**) |![是][green] |![是][green] |![是][green] | |
+| 網路壓縮 <br/>(至**備份伺服器**) | |![yes][green] |![yes][green] | |
+| 網路壓縮 <br/>(到**復原服務保存庫**) |![yes][green] |![是][green] |![yes][green] | |
 | 網路通訊協定 <br/>(至**備份伺服器**) | |TCP |TCP | |
 | 網路通訊協定 <br/>(到**復原服務保存庫**) |HTTPS |HTTPS |HTTPS |HTTPS |
 

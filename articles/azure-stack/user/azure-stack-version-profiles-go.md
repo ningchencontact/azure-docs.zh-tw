@@ -14,12 +14,12 @@ ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 9b66a7a176862fce687b7cc0b1ff3c14bda118d7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8e63b9854d9491ed2cbb2107c93237526a7f1ba8
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243884"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766936"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>在 Azure Stack 中使用 API 版本設定檔與 GO
 
@@ -68,7 +68,7 @@ Go SDK 需倚賴 Azure **Go-AutoRest** 模組將 REST 要求傳送至 Azure Reso
 
    > [!NOTE]  
    > Azure Stack 開發套件 (ASDK) 中的 **ResourceManagerUrl** 為：`https://management.local.azurestack.external/`  
-   > 整合系統中的 **ResourceManagerUrl** 為：`https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+   > 整合系統中的 **ResourceManagerUrl** 為：`https://management.<region>.<fqdn>/`  
    > 若要擷取中繼資料，必須要有：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
    範例 JSON 檔案：
@@ -86,7 +86,7 @@ Go SDK 需倚賴 Azure **Go-AutoRest** 模組將 REST 要求傳送至 Azure Reso
 
 3. 如果無法使用，請建立訂用帳戶，並儲存訂用帳戶識別碼供後續使用。 如需建立訂用帳戶的相關資訊，請參閱[在 Azure Stack 中建立供應項目的訂用帳戶](../azure-stack-subscribe-plan-provision-vm.md)。
 
-4. 建立具有**訂用帳戶**範圍和**擁有者**角色的服務主體。 儲存服務主體的識別碼和密碼。 如需為 Azure Stack 建立服務主體的相關資訊，請參閱[建立服務主體](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad)。 您的 Azure Stack 環境現在已設定完成。
+4. 建立具有**訂用帳戶**範圍和**擁有者**角色的服務主體。 儲存服務主體的識別碼和密碼。 如需為 Azure Stack 建立服務主體的相關資訊，請參閱[建立服務主體](azure-stack-create-service-principals.md)。 您的 Azure Stack 環境現在已設定完成。
 
 5. 使用程式碼從 GO SDK 設定檔匯入服務模組。 Azure Stack 設定檔目前的版本是 **2017-03-09**。 例如，若要從 **2017-03-09** 設定檔類型匯入網路模組，請使用下列程式碼：
 

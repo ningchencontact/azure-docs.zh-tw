@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9c2f094104172407992371b6738dd2fdf101a506
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 29313c3b3dc7b140b566cb4d7a52406fc45fe0f0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985107"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695509"
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>在 Azure 中建立安全的 Service Fabric Linux 叢集
 
@@ -47,7 +47,7 @@ az group delete --name $ResourceGroupName
 
 | 命令 | 注意 |
 |---|---|
-| [az sf cluster create](https://docs.microsoft.com/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) | 建立新的 Service Fabric 叢集。  |
+| [az sf cluster create](https://docs.microsoft.com/cli/azure/sf/cluster?view=azure-cli-latest) | 建立新的 Service Fabric 叢集。  |
 
 ## <a name="next-steps"></a>後續步驟
 

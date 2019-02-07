@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: ff7e15579bfb0edfe9229238c6a4d5672700d0ef
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863528"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567004"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>開始使用彈性資料庫工作
 
@@ -263,16 +263,16 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
 * 初始重試間隔：第一次重試之前等候的間隔。
 * 最大重試間隔：要使用的重試間隔端點。
 * 重試間隔輪詢係數：用來計算重試之間下一個間隔的係數。  使用下列公式：(初始重試間隔) * Math.pow ((間隔輪詢係數), (重試次數) -2)。
-* 嘗試上限：工作內執行的重試嘗試數目上限。
+* 嘗試次數上限：工作內執行的重試嘗試次數上限。
 
 預設的執行原則會使用下列值：
 
 * 名稱：預設執行原則
-* 作業逾時：1 週
+* 工作逾時：1 週
 * 初始重試間隔：100 毫秒
 * 最大重試間隔：30 分鐘
 * 重試間隔係數：2
-* 嘗試上限：2,147,483,647
+* 嘗試次數上限：2,147,483,647
 
 建立想要的執行原則：
 

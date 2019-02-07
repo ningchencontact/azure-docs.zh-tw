@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 952dd97a06718d0c29f9c6f5abc79da592e6f3ae
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 55cbca97d369bea80ea9caece14754e81b5738a1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117805"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661508"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 了解您的網頁或應用程式的效能和使用量。 如果將 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 新增至頁面指令碼，您會取得頁面載入的時間和 AJAX 呼叫、計數和瀏覽器例外狀況與 AJAX 失敗的詳細資料，以及使用者和工作階段計數。 這些項目可以依據頁面、用戶端作業系統和瀏覽器版本、地區位置和其他維度分割。 您可以對失敗計數或緩慢頁面載入設定警示。 而在 JavaScript 程式碼中插入追蹤呼叫，即可追蹤網頁應用程式的各種功能使用方式。
@@ -206,7 +206,7 @@ Ajax 呼叫包含從您的網頁指令碼所做的任何 HTTP/HTTPS 呼叫。 �
 > 
 > 
 
-您也可以使用功能強大的 [Log Analytics 查詢語言](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table)來搜尋頁面檢視。
+您也可以使用功能強大的 [Log Analytics 查詢語言](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour)來搜尋頁面檢視。
 
 ### <a name="page-view-properties"></a>頁面檢視屬性
 * **頁面檢視持續時間** 

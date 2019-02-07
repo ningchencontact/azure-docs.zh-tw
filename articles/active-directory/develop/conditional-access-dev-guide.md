@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c5df6d1b3480a93a0667aaec0bcf0e171d4a0fe6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b84d7a6f266ffae062d861c53a229225403e07c5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101748"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727988"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取的開發人員指引
 
@@ -77,7 +77,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ### <a name="prerequisites"></a>必要條件
 
-Azure AD 條件式存取是 [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis#choose-an-edition) 中包含的一項功能。 您可以在[未經授權的使用報告](../active-directory-conditional-access-unlicensed-usage-report.md)中深入了解授權需求。 開發人員可以加入 [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx)，其中包含的 Enterprise Mobility Suite 免費訂用帳戶會包含 Azure AD Premium。
+Azure AD 條件式存取是 [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 中包含的一項功能。 您可以在[未經授權的使用報告](../active-directory-conditional-access-unlicensed-usage-report.md)中深入了解授權需求。 開發人員可以加入 [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx)，其中包含的 Enterprise Mobility Suite 免費訂用帳戶會包含 Azure AD Premium。
 
 ### <a name="considerations-for-specific-scenarios"></a>特定情節的考量
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 24b00a589454bfa8413cd98407c2022671cb92ce
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 61c1afbe6252d1feefc9bc648457ef21a57d23d5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887949"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733989"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>快速入門：透過 IoT 中樞裝置串流與使用 C 的裝置應用程式進行通訊 (預覽)
 
@@ -64,7 +64,7 @@ ms.locfileid: "54887949"
 2. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
     
     ```
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
     此存放庫的大小目前約為 220 MB。
@@ -73,7 +73,6 @@ ms.locfileid: "54887949"
 
     ```
     cd azure-iot-sdk-c
-    git checkout public-preview
     mkdir cmake
     cd cmake
     ```
@@ -89,14 +88,14 @@ ms.locfileid: "54887949"
 在 Windows 中，請在 Visual Studio 2015 或 2017 提示的開發人員命令提示字元中執行下列命令：
 
 ```
-    # In Windows
-    # For VS2015
+    rem In Windows
+    rem For VS2015
     cmake .. -G "Visual Studio 15 2015"
     
-    # Or for VS2017
-    cmake .. -G "Visual Studio 15 2017
+    rem Or for VS2017
+    cmake .. -G "Visual Studio 15 2017"
 
-    # Then build the project
+    rem Then build the project
     cmake --build . -- /m /p:Configuration=Release
 ```
 

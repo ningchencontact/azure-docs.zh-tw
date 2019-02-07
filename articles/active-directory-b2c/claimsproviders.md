@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5a0774c69c074698383e9c6f7f7cf9331e8939f2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5068692d5f12b5b6c8b0476a789123ef9fd1dc75
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164430"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508805"
 ---
-# <a name="claimsproviders"></a>ClaimsProviders 
+# <a name="claimsproviders"></a>ClaimsProviders
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -35,7 +35,6 @@ ms.locfileid: "55164430"
         ...
     </TechnicalProfiles>
   </ClaimsProvider>
-</ClaimsProvider>
   ...
 </ClaimsProviders>
 ```
@@ -56,7 +55,7 @@ ms.locfileid: "55164430"
 | DisplayName | 0:1 | 一個字串，其中包含可對使用者顯示的宣告提供者名稱。 |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | 受到宣告提供者支援的一組技術設定檔 |
 
-**ClaimsProvider** 組織您與宣告提供者有關的技術設定檔。 下列範例顯示具有 Azure Active Directory 技術設定檔的 Azure Active Directory 宣告提供者： 
+**ClaimsProvider** 組織您與宣告提供者有關的技術設定檔。 下列範例顯示具有 Azure Active Directory 技術設定檔的 Azure Active Directory 宣告提供者：
 
 ```XML
 <ClaimsProvider>
@@ -82,7 +81,7 @@ ms.locfileid: "55164430"
       ...
     </TechnicalProfile>
     <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
-      ...    
+      ...
     </TechnicalProfile>
     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
       ...
@@ -109,4 +108,3 @@ ms.locfileid: "55164430"
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
- 

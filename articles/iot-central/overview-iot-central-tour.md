@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 13d2c1028cc712092774a3f81d8eeaa5cb109edf
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 5242be4dfe1c79b8f943b3b6d240046d0e8c5181
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199676"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658756"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>開始導覽 Azure IoT 中心 UI
 
@@ -32,6 +32,8 @@ ms.locfileid: "54199676"
 - 設定您的裝置。
 - 針對裝置問題進行移難排解並修復。
 - 佈建新裝置。
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="use-the-left-navigation-menu"></a>使用左側導覽功能表
 

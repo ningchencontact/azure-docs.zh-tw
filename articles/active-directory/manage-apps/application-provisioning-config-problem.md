@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2d1a449511ce944783c8d93b79d59be263b20fa3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38075c9216eab955a023fee53aad74f3768d783c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163938"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822267"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>設定 Azure AD 資源庫應用程式的使用者佈建時遇到的問題
 
@@ -41,7 +41,7 @@ ms.locfileid: "55163938"
 如果您已知道要從何處著手，則以下是您可以向下切入的一般問題領域清單。
 
 * [佈建服務似乎未啟動](#provisioning-service-does-not-appear-to-start)
-* [無法儲存設定，因為應用程式認證無法運作](#can’t-save-configuration-due-to-app-credentials-not-working)
+* 無法儲存設定，因為應用程式認證無法運作
 * [稽核記錄表示「已略過」且未佈建使用者，即使已指派它們](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>佈建服務似乎未啟動

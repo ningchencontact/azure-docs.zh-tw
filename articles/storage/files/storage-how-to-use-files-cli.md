@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 82d1a83dfd96dd6d4c2b37567c745998a6f0cbdb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee8dcf1488cfb407793bdb35cdbbee18b2ef15ab
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473505"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750965"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>快速入門：使用 Azure CLI 來建立及管理 Azure 檔案共用
 本指南會逐步說明透過 Azure CLI 來使用 [Azure 檔案共用](storage-files-introduction.md)的基本概念。 Azure 檔案共用與其他檔案共用類似，但它儲存在雲端中，並且由 Azure 平台支援。 Azure 檔案共用支援業界標準 SMB 通訊協定，並可在多個機器、應用程式及執行個體上啟用檔案共用。 
@@ -34,7 +34,7 @@ az login
 ```
 
 ## <a name="create-a-resource-group"></a>建立資源群組
-資源群組是一種邏輯容器，您會在其中部署與管理 Azure 資源。 如果您還沒有 Azure 資源群組，您可以使用 [az group create](/cli/azure/group#create) 命令建立一個。 
+資源群組是一種邏輯容器，您會在其中部署與管理 Azure 資源。 如果您還沒有 Azure 資源群組，您可以使用 [az group create](/cli/azure/group) 命令建立一個。 
 
 下列範例會在 [美國東部] 位置建立名為 myResourceGroup 的資源群組：
 
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 儲存體帳戶是一種儲存體共用集區，可以在其中部署 Azure 檔案共用或其他儲存體資源 (例如 Blob 或佇列)。 儲存體帳戶可以包含無限多個檔案共用。 共用可儲存無限制數目的檔案，最多可達儲存體帳戶的容量限制。
 
-下列範例會使用 [az storage account create](/cli/azure/storage/account#create) 命令建立名為 mystorageaccount\<隨機數字\> 的儲存體帳戶，然後在變數 `$STORAGEACCT` 中放入該儲存體帳戶的名稱。 儲存體帳戶名稱必須是唯一的。 使用 `$RANDOM` 將數字附加至儲存體帳戶名稱，讓其成為唯一名稱。 
+下列範例會使用 [az storage account create](/cli/azure/storage/account) 命令建立名為 mystorageaccount\<隨機數字\> 的儲存體帳戶，然後在變數 `$STORAGEACCT` 中放入該儲存體帳戶的名稱。 儲存體帳戶名稱必須是唯一的。 使用 `$RANDOM` 將數字附加至儲存體帳戶名稱，讓其成為唯一名稱。 
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
@@ -57,7 +57,7 @@ STORAGEACCT=$(az storage account create \
 ```
 
 ### <a name="get-the-storage-account-key"></a>取得儲存體帳戶金鑰
-儲存體帳戶金鑰可控制儲存體帳戶中的資源存取。 當您建立儲存體帳戶時，系統會自動建立金鑰。 您可以使用 [az storage account keys list](/cli/azure/storage/account/keys#list) 命令取得儲存體帳戶的儲存體帳戶金鑰： 
+儲存體帳戶金鑰可控制儲存體帳戶中的資源存取。 當您建立儲存體帳戶時，系統會自動建立金鑰。 您可以使用 [az storage account keys list](/cli/azure/storage/account/keys) 命令取得儲存體帳戶的儲存體帳戶金鑰： 
 
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
@@ -67,7 +67,7 @@ STORAGEKEY=$(az storage account keys list \
 ```
 
 ## <a name="create-an-azure-file-share"></a>建立 Azure 檔案共用
-現在，您可以建立第一個 Azure 檔案共用。 使用 [az storage share create](/cli/azure/storage/share#create) 命令來建立檔案共用。 此範例會建立名為 myshare 的 Azure 檔案共用： 
+現在，您可以建立第一個 Azure 檔案共用。 使用 [az storage share create](/cli/azure/storage/share) 命令來建立檔案共用。 此範例會建立名為 myshare 的 Azure 檔案共用： 
 
 ```azurecli-interactive
 az storage share create \
@@ -98,7 +98,7 @@ Azure 檔案服務提供兩個在 Azure 檔案共用中使用檔案和資料夾�
 下列範例示範如何搭配 File REST 通訊協定使用 Azure CLI，來操作 Azure 檔案共用。 
 
 ### <a name="create-a-directory"></a>建立目錄
-若要在 Azure 檔案共用的根目錄建立名為 *myDirectory* 的新目錄，請使用 [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create) 命令：
+若要在 Azure 檔案共用的根目錄建立名為 *myDirectory* 的新目錄，請使用 [`az storage directory create`](/cli/azure/storage/directory) 命令：
 
 ```azurecli-interactive
 az storage directory create \
@@ -109,7 +109,7 @@ az storage directory create \
 ```
 
 ### <a name="upload-a-file"></a>上傳檔案
-若要示範如何使用 [`az storage file upload`](/cli/azure/storage/file#az_storage_file_upload) 命令上傳檔案，請先在 Cloud Shell 暫存磁碟上建立要上傳的檔案。 在下列範例中，您將建立此檔案並將其上傳：
+若要示範如何使用 [`az storage file upload`](/cli/azure/storage/file) 命令上傳檔案，請先在 Cloud Shell 暫存磁碟上建立要上傳的檔案。 在下列範例中，您將建立此檔案並將其上傳：
 
 ```azurecli-interactive
 date > ~/clouddrive/SampleUpload.txt
@@ -124,7 +124,7 @@ az storage file upload \
 
 如果您要在本機執行 Azure CLI，請將 `~/clouddrive` 替換為存在於您的機器上的路徑。
 
-上傳檔案之後，您可以使用 [`az storage file list`](/cli/azure/storage/file#az_storage_file_list) 命令來確認檔案已上傳至 Azure 檔案共用：
+上傳檔案之後，您可以使用 [`az storage file list`](/cli/azure/storage/file) 命令來確認檔案已上傳至 Azure 檔案共用：
 
 ```azurecli-interactive
 az storage file list \
@@ -136,7 +136,7 @@ az storage file list \
 ```
 
 ### <a name="download-a-file"></a>下載檔案
-您可以使用 [`az storage file download`](/cli/azure/storage/file#az_storage_file_download) 命令，將您上傳的檔案複本下載至 Cloud Shell 暫存磁碟：
+您可以使用 [`az storage file download`](/cli/azure/storage/file) 命令，將您上傳的檔案複本下載至 Cloud Shell 暫存磁碟：
 
 ```azurecli-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists, because you've run this example before
@@ -191,7 +191,7 @@ az storage file list \
 
 - Linux 系統的[邏輯磁碟區管理員 (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 快照集
 - macOS 的 [Apple 檔案系統 (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 快照集
-- Windows 檔案系統的[磁碟區陰影複製服務 (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)，例如 NTFS 和 ReFS。您可以使用 [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot) 命令建立共用快照集：
+- Windows 檔案系統的[磁碟區陰影複製服務 (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)，例如 NTFS 和 ReFS。您可以使用 [`az storage share snapshot`](/cli/azure/storage/share) 命令建立共用快照集：
 
 ```azurecli-interactive
 SNAPSHOT=$(az storage share snapshot \
@@ -250,7 +250,7 @@ az storage file copy start \
 ```
 
 ### <a name="delete-a-share-snapshot"></a>刪除共用快照集
-您可以使用 [`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete) 命令來刪除共用快照集。 使用將 `$SNAPSHOT` 參考納入 `--snapshot` 參數的變數：
+您可以使用 [`az storage share delete`](/cli/azure/storage/share) 命令來刪除共用快照集。 使用將 `$SNAPSHOT` 參考納入 `--snapshot` 參數的變數：
 
 ```azurecli-interactive
 az storage share delete \
@@ -261,7 +261,7 @@ az storage share delete \
 ```
 
 ## <a name="clean-up-resources"></a>清除資源
-完成作業後，您可以使用 [`az group delete`](/cli/azure/group#delete) 命令來移除資源群組和所有相關資源： 
+完成作業後，您可以使用 [`az group delete`](/cli/azure/group) 命令來移除資源群組和所有相關資源： 
 
 ```azurecli-interactive 
 az group delete --name "myResourceGroup"

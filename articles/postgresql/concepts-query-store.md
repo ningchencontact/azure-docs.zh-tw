@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: 86b6c4284cccb183ac9f19911abd4b6cb1d308e5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/01/2019
+ms.openlocfilehash: a6b31933f7170006046846c458e21efd8c54034c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546907"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660719"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>使用查詢存放區監視效能
 
@@ -83,7 +83,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 下列選項可用於設定查詢存放區參數。
 | **參數** | **說明** | **預設值** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | 設定追蹤哪些陳述式。 | top | none、top、all |
+| pg_qs.query_capture_mode | 設定追蹤哪些陳述式。 | None | none、top、all |
 | pg_qs.max_query_text_length | 設定可以儲存的最大查詢長度。 較長的查詢會遭截斷。 | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | 設定保留期限。 | 7 | 1 - 30 |
 | pg_qs.track_utility | 設定是否要追蹤公用程式命令 | on | on、off |

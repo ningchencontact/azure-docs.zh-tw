@@ -10,12 +10,12 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: routlaw
-ms.openlocfilehash: bbbaa4c44a7c0d6da189f0c49d73adfa6142cdee
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6e4bd5977eb1761a065d5583675e6fd405b4610a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095786"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750353"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>使用 REST API 取得資源健康狀態 
 
@@ -42,16 +42,16 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft
 
 ### <a name="uri-parameters"></a>URI 參數
 
-| 名稱 | 說明 |
+| Name | 說明 |
 | :--- | :---------- |
-| subscriptionId | 可識別 Azure 訂用帳戶的訂用帳戶識別碼。 如果您有多個訂用帳戶，請參閱[使用多個訂用帳戶](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)。 |
-| api-version | 要用於要求的 API 版本。<br /><br /> 此文件涵蓋 api-version `2015-04-01`，內含於上述 URL 中。  |
+| subscriptionId | 可識別 Azure 訂用帳戶的訂用帳戶識別碼。 如果您有多個訂用帳戶，請參閱[使用多個訂用帳戶](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。 |
+| api-version | 要用於要求的 API 版本。<br /><br /> 本文件涵蓋 api-version `2015-04-01`，內含於上述 URL 中。  |
 | $filter | 可減少傳回之結果集的篩選選項。 此參數允許的模式可用於[活動記錄作業的參考](/rest/api/monitor/activitylogs/list#uri-parameters)。 顯示的範例將會擷取 2018 年 5 月 16 日到 2018 年 6 月 20 日之間的時間範圍內的所有事件 |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Request body
 
-此作業不需要要求本文。
+這項作業不需要要求本文。
 
 ## <a name="handle-the-response"></a>處理回應
 

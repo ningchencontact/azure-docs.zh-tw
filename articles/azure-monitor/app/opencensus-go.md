@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 935119f2efe40ee22d2d11005fa79b12c712b7c2
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104559"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694096"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>從 Go 收集分散式追蹤 (預覽)
 
@@ -24,7 +24,7 @@ ms.locfileid: "54104559"
 
 - 您需要 Azure 訂用帳戶。
 - 您應安裝 Go，本文將使用 1.11 版 [Go Download](https://golang.org/dl/)。
-- 請依照下列指示安裝[本機轉送工具作為 Windows 服務](./opencensus-local-forwarder.md#windows-service)。
+- 請依照下列指示安裝[本機轉送工具作為 Windows 服務](./opencensus-local-forwarder.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -57,7 +57,7 @@ ms.locfileid: "54104559"
 
    ![檢測金鑰的螢幕擷取畫面](./media/opencensus-Go/0003-instrumentation-key.png)
 
-2. 編輯 `LocalForwarder.config` 檔案並新增檢測金鑰。 如果您依照[必要條件](./opencensus-local-forwarder.md#windows-service)中的指示操作，該檔案會位於 `C:\LF-WindowsServiceHost`
+2. 編輯 `LocalForwarder.config` 檔案並新增檢測金鑰。 如果您依照[必要條件](./opencensus-local-forwarder.md)中的指示操作，該檔案會位於 `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -186,7 +186,7 @@ ms.locfileid: "54104559"
 
 3. 一旦簡易 Go 應用程式執行後，請瀏覽至 `http://localhost:50030`。 每次重新整理瀏覽器都將會產生文字 "hello world"，並伴隨著由本機轉送工具挑選的對應範圍資料。
 
-4. 若要確認**本機轉送工具**會挑出追蹤，請檢查 `LocalForwarder.config` 檔案。 如果您遵循了[必要條件](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service)中的步驟，該檔案會位於 `C:\LF-WindowsServiceHost`。
+4. 若要確認**本機轉送工具**會挑出追蹤，請檢查 `LocalForwarder.config` 檔案。 如果您遵循了[必要條件](https://docs.microsoft.com/azure/application-insights/local-forwarder)中的步驟，該檔案會位於 `C:\LF-WindowsServiceHost`。
 
     在下列記錄檔影像中，您可以看到在執行第二個指令碼 (我們在此新增了匯出工具) 之前，`OpenCensus input BatchesReceived` 為 0。 一旦我們開始執行更新後的指令碼，遞增的 `BatchesReceived` 就等於我們所輸入數量的值：
     

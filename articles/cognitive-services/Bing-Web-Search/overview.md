@@ -11,18 +11,18 @@ ms.topic: overview
 ms.date: 08/14/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5c2a31e10d53c8088afd3c3910b1b2f9d2b2d247
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 46d79b1ac6c56ba953eb0908e46338387b69ff1f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159226"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768224"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>什麼是 Bing Web 搜尋 API？
 
 Bing Web 搜尋 API 是一項可即時解答使用者查詢的 RESTful 服務。 搜尋結果可經由簡單的設定，將網頁、影像、影片、新聞、翻譯等項目包含在內。 結果會以 JSON 的形式提供，並以搜尋相關性和您的 Bing Web 搜尋訂用帳戶為基礎。
 
-如果應用程式需要存取所有與使用者的搜尋查詢有關的內容，就非常適合使用此 API。 如果您要建置的應用程式只需要特定類型的結果，請考慮使用 [Bing 影像搜尋 API](../Bing-Image-Search/overview.md)、[Bing 影片搜尋 API](../Bing-Video-Search/search-the-web.md) 或 [Bing 新聞搜尋 API](../Bing-News-Search/search-the-web.md)。 請參閱[認知服務 API](https://docs.microsoft.com/azure/cognitive-services#cognitive-services-apis)，以取得 Bing 搜尋 API 的完整清單。
+如果應用程式需要存取所有與使用者的搜尋查詢有關的內容，就非常適合使用此 API。 如果您要建置的應用程式只需要特定類型的結果，請考慮使用 [Bing 影像搜尋 API](../Bing-Image-Search/overview.md)、[Bing 影片搜尋 API](../Bing-Video-Search/search-the-web.md) 或 [Bing 新聞搜尋 API](../Bing-News-Search/search-the-web.md)。 請參閱[認知服務 API](https://docs.microsoft.com/azure/cognitive-services)，以取得 Bing 搜尋 API 的完整清單。
 
 想了解其運作方式嗎？ 請觀看我們的 [Bing Web 搜尋 API 示範](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)。
 

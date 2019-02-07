@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: f1e47af2187b7e355106338f09a240a9eda23583
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1a36cca9c0735d32ef56bfefca6c1f8f278f8e11
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192824"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492499"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>更新 Office 365 和 Azure Active Directory 的同盟憑證
 ## <a name="overview"></a>概觀
@@ -97,8 +97,8 @@ Azure AD 會嘗試監視同盟中繼資料，並依照此中繼資料的指示�
 
 | AutoCertificateRollover | 憑證與 Azure AD 同步 | 可公開取得同盟中繼資料 | 有效期 |  動作 |
 |:---:|:---:|:---:|:---:|:---:|
-| 是 |是 |是 |- |不需採取動作。 請參閱 [自動更新權杖簽署憑證](#autorenew)。 |
-| 是 |否 |- |小於 15 天 |立即更新。 請參閱 [手動更新權杖簽署憑證](#manualrenew)。 |
+| yes |是 |yes |- |不需採取動作。 請參閱 [自動更新權杖簽署憑證](#autorenew)。 |
+| yes |否 |- |小於 15 天 |立即更新。 請參閱 [手動更新權杖簽署憑證](#manualrenew)。 |
 | 否 |- |- |少於 30 天 |立即更新。 請參閱 [手動更新權杖簽署憑證](#manualrenew)。 |
 
 \[-]  無關緊要

@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: e3b0773da49499e2eaa8c9b9f59ced4ed26276ba
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4361ec72f5f9cff924900ddd712aa1aa029c5ef4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465158"
+ms.locfileid: "55509015"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>搭配 Windows 使用 Azure 檔案共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中順暢地使用。 本文討論搭配 Windows 和 Windows Server 使用 Azure 檔案共用的考量。
@@ -24,15 +24,15 @@ ms.locfileid: "55465158"
 
 | Windows 版本        | SMB 版本 | 可在 Azure VM 中掛接 | 可在內部部署環境掛接 |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019    | SMB 3.0 | 是 | 是 |
-| Windows 10<sup>1</sup> | SMB 3.0 | 是 | 是 |
-| Windows Server 半年度通道<sup>2</sup> | SMB 3.0 | 是 | 是 |
-| Windows Server 2016    | SMB 3.0     | 是                   | 是                  |
-| Windows 8.1            | SMB 3.0     | 是                   | 是                  |
-| Windows Server 2012 R2 | SMB 3.0     | 是                   | 是                  |
-| Windows Server 2012    | SMB 3.0     | 是                   | 是                  |
-| Windows 7              | SMB 2.1     | 是                   | 否                   |
-| Windows Server 2008 R2 | SMB 2.1     | 是                   | 否                   |
+| Windows Server 2019    | SMB 3.0 | yes | yes |
+| Windows 10<sup>1</sup> | SMB 3.0 | yes | yes |
+| Windows Server 半年度通道<sup>2</sup> | SMB 3.0 | yes | yes |
+| Windows Server 2016    | SMB 3.0     | yes                   | yes                  |
+| Windows 8.1            | SMB 3.0     | yes                   | yes                  |
+| Windows Server 2012 R2 | SMB 3.0     | yes                   | yes                  |
+| Windows Server 2012    | SMB 3.0     | yes                   | yes                  |
+| Windows 7              | SMB 2.1     | yes                   | 否                   |
+| Windows Server 2008 R2 | SMB 2.1     | yes                   | 否                   |
 
 <sup>1</sup>Windows 10 版本 1507、1607、1703、1709、1803 和 1809。  
 <sup>2</sup>Windows Server 版本 1709 和 1803。
@@ -45,7 +45,7 @@ ms.locfileid: "55465158"
 
 * **儲存體帳戶金鑰**：若要掛接 Azure 檔案共用，您將需要主要 (或次要) 儲存體金鑰。 掛接目前不支援 SAS 金鑰。
 
-* **請確定已開啟連接埠 445**：使用 SMB 通訊協定時必須開啟 TCP 連接埠 445；如果連接埠 445 遭到封鎖，連線將會失敗。 您可以使用 `Test-NetConnection` Cmdlet，查看您的防火牆是否封鎖連接埠 445。 下列 PowerShell 程式碼假設您已安裝 AzureRM PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)以獲得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resoure-group-name>`。
+* **請確定已開啟連接埠 445**：使用 SMB 通訊協定時必須開啟 TCP 連接埠 445；如果連接埠 445 遭到封鎖，連線將會失敗。 您可以使用 `Test-NetConnection` Cmdlet，查看您的防火牆是否封鎖連接埠 445。 下列 PowerShell 程式碼假設您已安裝 AzureRM PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)以獲得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resource-group-name>`。
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"
@@ -83,7 +83,7 @@ ms.locfileid: "55465158"
 將應有 SMB 檔案共用的企業營運 (LOB) 應用程式隨即移轉至 Azure 的常見模式，就是使用 Azure 檔案共用作為在 Azure VM 中執行專用 Windows 檔案伺服器的替代方式。 成功移轉企業營運應用程式以使用 Azure 檔案共用的一項重要考量，就是許多企業營運應用程式使用有限的系統權限 (而不是 VM 的系統管理帳戶)，在專屬服務帳戶的內容之下執行。 因此，您必須確定從服務帳戶的內容 (而不是系統管理帳戶) 掛接/儲存 Azure 檔案共用的認證。
 
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>在 Windows 中保存 Azure 檔案共用認證  
-[Cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 公用程式可讓您在 Windows 內儲存您的儲存體帳戶認證。 這表示當您嘗試透過 UNC 路徑存取 Azure 檔案共用或掛接 Azure 檔案共用時，您不需要指定認證。 若要儲存儲存體帳戶的認證，請執行下列 PowerShell 命令，並視情況取代 `<your-storage-account-name>` 和 `<your-resoure-group-name>`。
+[Cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 公用程式可讓您在 Windows 內儲存您的儲存體帳戶認證。 這表示當您嘗試透過 UNC 路徑存取 Azure 檔案共用或掛接 Azure 檔案共用時，您不需要指定認證。 若要儲存儲存體帳戶的認證，請執行下列 PowerShell 命令，並視情況取代 `<your-storage-account-name>` 和 `<your-resource-group-name>`。
 
 ```PowerShell
 $resourceGroupName = "<your-resource-group-name>"

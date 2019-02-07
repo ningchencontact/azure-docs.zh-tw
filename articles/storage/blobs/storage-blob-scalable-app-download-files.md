@@ -10,16 +10,16 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 180e38146911b15e95828bf033cbcaefae22d094
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b2c5e2d54c0323e984a48f2540a7df9a3b64b49b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241384"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511168"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>從 Azure 儲存體下載大量隨機資料
 
-本教學課程是一個系列的第三部分。 本教學課程說明如何從 Azure 儲存體下載大量資料。
+本教學課程是一個系列課程的第三部分。 本教學課程說明如何從 Azure 儲存體下載大量資料。
 
 在系列的第三部分中，您將了解如何：
 
@@ -104,7 +104,7 @@ dotnet run
 |屬性|值|說明|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| 此屬性可停用檢查上傳內容的 MD5 雜湊。 停用 MD5 驗證可獲得較快的傳輸速度。 但不會確認所傳輸檔案的有效性和完整性。 |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 此屬性可判斷是否已計算及儲存 MD5 雜湊。   |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 此屬性可判斷是否已計算及儲存 MD5 雜湊。   |
 
 `DownloadFilesAsync` 工作如下列範例所示：
 

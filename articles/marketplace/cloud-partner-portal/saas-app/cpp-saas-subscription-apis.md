@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a778723093b226ee0e681c2a95ce4db597a310e5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c09816d45169ce9bb6c926b8b17b075ea1059ec7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198598"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695367"
 ---
 # <a name="saas-sell-through-azure---apis"></a>透過 Azure API 銷售 SaaS 
 
@@ -168,21 +168,21 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | 否           | 用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 | x-ms-correlationid | 否           | 用於用戶端作業的特殊字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，則回應標頭中會產生並提供一個。 |
-| Content-Type       | 是          | `application/json`                                        |
-| 授權      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
-| x-ms-marketplace-token| 是| 使用者從 Azure 重新導向至 SaaS ISV 的網站時，在 URL 中的權杖查詢參數。 **附註：** 此權杖的效力只有 1 小時。 此外，URL 在使用瀏覽器的權杖值之前，會先將其解碼。|
+| Content-Type       | yes          | `application/json`                                        |
+| 授權      | yes          | JSON Web 權杖 (JWT) 持有人權杖。                    |
+| x-ms-marketplace-token| yes| 使用者從 Azure 重新導向至 SaaS ISV 的網站時，在 URL 中的權杖查詢參數。 **附註：** 此權杖的效力只有 1 小時。 此外，URL 在使用瀏覽器的權杖值之前，會先將其解碼。|
 |  |  |  |
   
 
 *回應主體*
 
- ``` json       
-    { 
-        “id”: “”, 
-        “subscriptionName”: “”,
-        “offerId”:””, 
-         “planId”:””
-    }     
+``` json
+{
+    "id": "",
+    "subscriptionName": "",
+    "offerId": "",
+    "planId": "",
+}
 ```
 
 | **參數名稱** | **資料類型** | **說明**                       |
@@ -210,9 +210,9 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 | **標頭索引鍵**     | **必要** | **說明**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | 是          | 從用戶端收到的要求識別碼。                                                                   |
-| x-ms-correlationid | 是          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
-| x-ms-activityid    | 是          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
+| x-ms-requestid     | yes          | 從用戶端收到的要求識別碼。                                                                   |
+| x-ms-correlationid | yes          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
+| x-ms-activityid    | yes          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
 | Retry-after        | 否           | 此值只針對 429 回應設定。                                                                   |
 |  |  |  |
 
@@ -238,17 +238,17 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | x-ms-requestid         |   否         | 用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則系統會產生一個並提供於回應標頭中。 |
 | x-ms-correlationid     |   否         | 用於用戶端作業的特殊字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，則系統會產生一個並提供於回應標頭中。 |
 | If-Match/If-None-Match |   否         |   驗證程式 Etag 值強度。                                                          |
-| Content-Type           |   是        |    `application/json`                                                                   |
-|  授權         |   是        |    JSON Web 權杖 (JWT) 持有人權杖。                                               |
+| Content-Type           |   yes        |    `application/json`                                                                   |
+|  授權         |   yes        |    JSON Web 權杖 (JWT) 持有人權杖。                                               |
 | x-ms-marketplace-session-mode| 否 | 可在訂閱 SaaS 供應項目時啟用測試模式的標記。 若有設定，該訂閱將無須支付費用。 這對於 ISV 測試方式非常實用。 請將它設定為 **「dryrun」**|
 |  |  |  |
 
 *內文*
 
 ``` json
-  { 
-      “planId”:””
-   }      
+{
+    "lanId": "",
+}
 ```
 
 | **元素名稱** | **資料類型** | **說明**                      |
@@ -275,11 +275,11 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 | **標頭索引鍵**     | **必要** | **說明**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | 是          | 從用戶端收到的要求識別碼。                                                                   |
-| x-ms-correlationid | 是          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
-| x-ms-activityid    | 是          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
-| Retry-after        | 是          | 用戶端可用來檢查狀態的間隔。                                                       |
-| Operation-Location | 是          | 用於取得作業狀態的資源連結。                                                        |
+| x-ms-requestid     | yes          | 從用戶端收到的要求識別碼。                                                                   |
+| x-ms-correlationid | yes          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
+| x-ms-activityid    | yes          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
+| Retry-after        | yes          | 用戶端可用來檢查狀態的間隔。                                                       |
+| Operation-Location | yes          | 用於取得作業狀態的資源連結。                                                        |
 |  |  |  |
 
 ### <a name="change-plan-endpoint"></a>變更方案端點
@@ -303,19 +303,17 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | x-ms-requestid          | 否           | 用於追蹤用戶端要求的特殊字串值。 建議的 GUID。 如果未提供此值，則系統會產生一個並提供於回應標頭中。   |
 | x-ms-correlationid      | 否           | 用於用戶端作業的特殊字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，則系統會產生一個並提供於回應標頭中。 |
 | If-Match/If-None-Match | 否           | 驗證程式 Etag 值強度。                              |
-| Content-Type            | 是          | `application/json`                                        |
-| 授權           | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
+| Content-Type            | yes          | `application/json`                                        |
+| 授權           | yes          | JSON Web 權杖 (JWT) 持有人權杖。                    |
 |  |  |  |
-
 
 *內文*
 
-``` json
-                { 
-                    “planId”:””
-                } 
+```json
+{
+    "planId": ""
+}
 ```
-
 
 |  **元素名稱** |  **資料類型**  | **說明**                              |
 |  ---------------- | -------------   | --------------------------------------       |
@@ -339,11 +337,11 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 | **標頭索引鍵**     | **必要** | **說明**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | 是          | 從用戶端收到的要求識別碼。                                                                   |
-| x-ms-correlationid | 是          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
-| x-ms-activityid    | 是          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
-| Retry-after        | 是          | 用戶端可用來檢查狀態的間隔。                                                       |
-| Operation-Location | 是          | 用於取得作業狀態的資源連結。                                                        |
+| x-ms-requestid     | yes          | 從用戶端收到的要求識別碼。                                                                   |
+| x-ms-correlationid | yes          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
+| x-ms-activityid    | yes          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
+| Retry-after        | yes          | 用戶端可用來檢查狀態的間隔。                                                       |
+| Operation-Location | yes          | 用於取得作業狀態的資源連結。                                                        |
 |  |  |  |
 
 ### <a name="delete-subscription"></a>刪除訂用帳戶
@@ -368,9 +366,8 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 |--------------------|--------------| ----------------------------------------------------------|
 | x-ms-requestid     | 否           | 用於追蹤用戶端要求的特殊字串值。 建議的 GUID。 如果未提供此值，則回應標頭中會產生並提供一個。                                                           |
 | x-ms-correlationid | 否           | 用於用戶端作業的特殊字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，則系統會產生一個並提供於回應標頭中。 |
-| 授權      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
+| 授權      | yes          | JSON Web 權杖 (JWT) 持有人權杖。                    |
 |  |  |  |
- 
 
 *回應碼*
 
@@ -390,11 +387,11 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 | **標頭索引鍵**     | **必要** | **說明**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | 是          | 從用戶端收到的要求識別碼。                                                                   |
-| x-ms-correlationid | 是          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
-| x-ms-activityid    | 是          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
-| Retry-after        | 是          | 用戶端可用來檢查狀態的間隔。                                                       |
-| Operation-Location | 是          | 用於取得作業狀態的資源連結。                                                        |
+| x-ms-requestid     | yes          | 從用戶端收到的要求識別碼。                                                                   |
+| x-ms-correlationid | yes          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
+| x-ms-activityid    | yes          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
+| Retry-after        | yes          | 用戶端可用來檢查狀態的間隔。                                                       |
+| Operation-Location | yes          | 用於取得作業狀態的資源連結。                                                        |
 |   |  |  |
 
 ### <a name="get-operation-status"></a>取得作業狀態
@@ -413,27 +410,25 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | api-version         | 要用於此要求的作業版本。 |
 |  |  |
 
-
 *標頭*
 
 | **標頭索引鍵**     | **必要** | **說明**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | 否           | 用於追蹤用戶端要求的特殊字串值。 建議的 GUID。 如果未提供此值，則回應標頭中會產生並提供一個。   |
 | x-ms-correlationid | 否           | 用於用戶端作業的特殊字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，則回應標頭中會產生並提供一個。  |
-| 授權      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
+| 授權      | yes          | JSON Web 權杖 (JWT) 持有人權杖。                    |
 |  |  |  | 
-  
 
 *回應主體*
 
-``` json
-  { 
-      “id”: “”, 
-      “status”:””, 
-       “resourceLocation”:””, 
-      “created”:””, 
-      “lastModified”:”” 
-  } 
+```json
+{
+    "id": "",
+    "status": "",
+    "resourceLocation": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **參數名稱** | **資料類型** | **說明**                                                                                                                                               |
@@ -461,10 +456,10 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 | **標頭索引鍵**     | **必要** | **說明**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | 是          | 從用戶端收到的要求識別碼。                                                                   |
-| x-ms-correlationid | 是          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
-| x-ms-activityid    | 是          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
-| Retry-after        | 是          | 用戶端可用來檢查狀態的間隔。                                                       |
+| x-ms-requestid     | yes          | 從用戶端收到的要求識別碼。                                                                   |
+| x-ms-correlationid | yes          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
+| x-ms-activityid    | yes          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
+| Retry-after        | yes          | 用戶端可用來檢查狀態的間隔。                                                       |
 |  |  |  |
 
 ### <a name="get-subscription"></a>取得訂用帳戶
@@ -489,21 +484,21 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | 否           | 用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。                                                           |
 | x-ms-correlationid | 否           | 用於用戶端作業的特殊字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，則回應標頭中會產生並提供一個。 |
-| 授權      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                                                                    |
+| 授權      | yes          | JSON Web 權杖 (JWT) 持有人權杖。                                                                    |
 |  |  |  |
 
 *回應主體*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “” 
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 | **參數名稱**     | **資料類型** | **說明**                               |
 |------------------------|---------------|-----------------------------------------------|
@@ -532,13 +527,12 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 | **標頭索引鍵**     | **必要** | **說明**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | 是          | 從用戶端收到的要求識別碼。                                                                   |
-| x-ms-correlationid | 是          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
-| x-ms-activityid    | 是          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
+| x-ms-requestid     | yes          | 從用戶端收到的要求識別碼。                                                                   |
+| x-ms-correlationid | yes          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
+| x-ms-activityid    | yes          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
 | Retry-after        | 否           | 用戶端可用來檢查狀態的間隔。                                                       |
-| etag               | 是          | 用於取得作業狀態的資源連結。                                                        |
+| etag               | yes          | 用於取得作業狀態的資源連結。                                                        |
 |  |  |  |
-
 
 ### <a name="get-subscriptions"></a>取得訂用帳戶
 
@@ -561,22 +555,21 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | 否           | 用於追蹤用戶端要求的特殊字串值。 建議的 GUID。 如果未提供此值，則回應標頭中會產生並提供一個。             |
 | x-ms-correlationid | 否           | 用於用戶端作業的特殊字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，則回應標頭中會產生並提供一個。 |
-| 授權      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
+| 授權      | yes          | JSON Web 權杖 (JWT) 持有人權杖。                    |
 |  |  |  |
-
 
 *回應主體*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “”
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **參數名稱**     | **資料類型** | **說明**                               |
@@ -606,16 +599,15 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 | **標頭索引鍵**     | **必要** | **說明**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | 是          | 從用戶端收到的要求識別碼。                                                                   |
-| x-ms-correlationid | 是          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
-| x-ms-activityid    | 是          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
+| x-ms-requestid     | yes          | 從用戶端收到的要求識別碼。                                                                   |
+| x-ms-correlationid | yes          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
+| x-ms-activityid    | yes          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
 | Retry-after        | 否           | 用戶端可用來檢查狀態的間隔。                                                       |
 |  |  |  |
 
 ### <a name="saas-webhook"></a>SaaS Webhook
 
 SaaS Webhook 可用來主動通知 SaaS 服務關於變更的訊息。 此 POST API 應未經驗證，且將由 Microsoft 服務所呼叫。 SaaS 服務應該會呼叫作業 API，以在對 Webhook 通知執行動作之前進行驗證和授權。 
-
 
 *內文*
 

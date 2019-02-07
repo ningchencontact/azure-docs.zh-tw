@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
-ms.openlocfilehash: 8e46058432743febd70a017ee5131081a052364b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1b3dde1b2d638f6dd6c19ce173c7f9f071868d23
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195387"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734210"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立虛擬網路
 
@@ -32,7 +32,7 @@ ms.locfileid: "55195387"
 
 ## <a name="create-a-resource-group-and-a-virtual-network"></a>建立資源群組和虛擬網路
 
-建立虛擬網路之前，您必須先建立資源群組來裝載虛擬網路。 使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組。 此範例會在 *eastus* 位置中建立名為 *myResourceGroup* 的資源群組：
+建立虛擬網路之前，您必須先建立資源群組來裝載虛擬網路。 使用 [az group create](/cli/azure/group) 來建立資源群組。 此範例會在 *eastus* 位置中建立名為 *myResourceGroup* 的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -53,7 +53,7 @@ az network vnet create \
 
 ### <a name="create-the-first-vm"></a>建立第一個 VM
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。 `--no-wait` 選項會在背景建立 VM，以便您繼續進行下一步。 此範例會建立一個名為 *myVm1* 的 VM：
+使用 [az vm create](/cli/azure/vm) 建立 VM。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。 `--no-wait` 選項會在背景建立 VM，以便您繼續進行下一步。 此範例會建立一個名為 *myVm1* 的 VM：
 
 ```azurecli-interactive
 az vm create \

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1ba1f11029e98f6bf324466627c465507829dc4d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229841"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729790"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的網路效能監控解決方案
 
@@ -52,14 +52,14 @@ NPM 可使用在下列其中一個區域裝載的工作區，監視世界各地�
 * 英國南部
 * 美國維吉尼亞州政府
 
-ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions)中。
+ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117)中。
 
 
 ## <a name="set-up-and-configure"></a>安裝及設定
 
 ### <a name="install-and-configure-agents"></a>安裝及設定代理程式 
 
-使用[將 Windows 電腦連接到 Azure Log Analytics](../../azure-monitor/platform/om-agents.md) 和[將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md) 中的基本程序，進行代理程式安裝。
+使用[將 Windows 電腦連接到 Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) 和[將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md) 中的基本程序，進行代理程式安裝。
 
 ### <a name="where-to-install-the-agents"></a>安裝代理程式的位置 
 

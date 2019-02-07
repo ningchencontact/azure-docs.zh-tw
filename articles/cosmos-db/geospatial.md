@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 5f096d016b2fa82e3b340a4a6b6c7e1fd6420216
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9c6ea982d9a605696dad0c943aa6dd2ae155d6bd
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037186"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770732"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>透過 Azure Cosmos DB SQL API 帳戶使用地理空間和 GeoJSON 位置資料
 
@@ -150,32 +150,13 @@ await client.CreateDocumentAsync(
 ### <a name="spatial-sql-built-in-functions"></a>空間 SQL 內建函數
 Azure Cosmos DB 支援下列開放地理空間協會 (OGC) 內建的地理空間查詢函式。 如需 SQL 語言中一組完整內建函式的詳細資訊，請參閱[查詢 Azure Cosmos DB](how-to-sql-query.md)。
 
-<table>
-<tr>
-  <td><strong>使用量</strong></td>
-  <td><strong>說明</strong></td>
-</tr>
-<tr>
-  <td>ST_DISTANCE (spatial_expr, spatial_expr)</td>
-  <td>傳回兩個 GeoJSON Point、Polygon 或 LineString 運算式之間的距離。</td>
-</tr>
-<tr>
-  <td>ST_WITHIN (spatial_expr, spatial_expr)</td>
-  <td>傳回布林運算式，指出第一個 GeoJSON 物件 (Point、Polygon 或 LineString) 是否位在第二個 GeoJSON 物件 (Point、Polygon 或 LineString) 內。</td>
-</tr>
-<tr>
-  <td>ST_INTERSECTS (spatial_expr, spatial_expr)</td>
-  <td>傳回布林運算式，指出兩個指定的 GeoJSON 物件 (Point、Polygon 或 LineString) 是否相交。</td>
-</tr>
-<tr>
-  <td>ST_ISVALID</td>
-  <td>傳回布林值，指出指定的 GeoJSON Point、Polygon 或 LineString 運算式是否有效。</td>
-</tr>
-<tr>
-  <td>ST_ISVALIDDETAILED</td>
-  <td>如果指定的 GeoJSON Point、Polygon 或 LineString 運算式有效，就傳回包含布林值的 JSON 值；但如果是無效的，就會額外加上做為字串值的原因。</td>
-</tr>
-</table>
+|**使用量**|**說明**|
+|---|---|
+| ST_DISTANCE (spatial_expr, spatial_expr) | 傳回兩個 GeoJSON Point、Polygon 或 LineString 運算式之間的距離。|
+|ST_WITHIN (spatial_expr, spatial_expr) | 傳回布林運算式，指出第一個 GeoJSON 物件 (Point、Polygon 或 LineString) 是否位在第二個 GeoJSON 物件 (Point、Polygon 或 LineString) 內。|
+|ST_INTERSECTS (spatial_expr, spatial_expr)| 傳回布林運算式，指出兩個指定的 GeoJSON 物件 (Point、Polygon 或 LineString) 是否相交。|
+|ST_ISVALID| 傳回布林值，指出指定的 GeoJSON Point、Polygon 或 LineString 運算式是否有效。|
+| ST_ISVALIDDETAILED| 如果指定的 GeoJSON Point、Polygon 或 LineString 運算式有效，就傳回包含布林值的 JSON 值；但如果是無效的，就會額外加上做為字串值的原因。|
 
 空間函數可以用來對空間資料執行鄰近性查詢。 例如，以下查詢使用 ST_DISTANCE 內建函數傳回所有家族文件，且這些文件在 30 公里指定位置內。 
 
@@ -238,7 +219,7 @@ Azure Cosmos DB 也支援反向查詢，亦即您可以在 Azure Cosmos DB 中�
 
 ST_ISVALID 和 ST_ISVALIDDETAILED 可用來檢查空間物件是否有效。 例如，下列查詢以超出範圍的緯度值 (-132.8)，檢查點的有效性。 ST_ISVALID 只會傳回布林值，而 ST_ISVALIDDETAILED 會傳回布林和字串，字串中包含被視為無效的原因。
 
-** 查詢 **
+**查詢**
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 

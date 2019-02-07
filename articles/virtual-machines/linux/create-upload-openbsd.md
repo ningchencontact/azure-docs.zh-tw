@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: de5d3fcd7eff0042e912e164050f917a0070b2c3
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 332382282c2b55b52bb23f278a25868c09360619
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164639"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729348"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>建立 OpenBSD 磁碟映像並上傳至 Azure
 本文說明如何建立及上傳包含 OpenBSD 作業系統的虛擬硬碟 (VHD)。 上傳之後，您可以使用它作為您自己的映像，在 Azure 中透過 Azure CLI 建立虛擬機器 (VM)。
@@ -30,7 +30,7 @@ ms.locfileid: "53164639"
 本文假設您具有下列項目：
 
 * **Azure 訂用帳戶** - 如果您沒有，只需要幾分鐘的時間就可以建立帳戶。 如果您有 MSDN 訂用帳戶，請參閱 [Visual Studio 訂閱者的每月 Azure 點數](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。 否則，請參閱 [建立免費試用帳戶](https://azure.microsoft.com/pricing/free-trial/)。  
-* **Azure CLI** - 請確定您已安裝最新的 [Azure CLI](/cli/azure/install-azure-cli)，並使用 [az login](/cli/azure/reference-index#az_login) 登入 Azure 帳戶。
+* **Azure CLI** - 請確定您已安裝最新的 [Azure CLI](/cli/azure/install-azure-cli)，並使用 [az login](/cli/azure/reference-index) 登入 Azure 帳戶。
 * **安裝在 .vhd 檔案中的 OpenBSD 作業系統** - 支援的 OpenBSD 作業系統 ([6.1 版 AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.1/amd64/)) 必須已安裝到虛擬硬碟中。 有多項工具可用來建立 .vhd 檔案。 例如，您可以使用虛擬化解決方案 (例如 Hyper-V) 建立 .vhd 檔案，並安裝作業系統。 如需相關指示，請參閱 [安裝 Hyper-V 和建立虛擬機器](https://technet.microsoft.com/library/hh846766.aspx)。
 
 
@@ -103,13 +103,13 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>建立儲存體資源並上傳
-首先，使用 [az group create](/cli/azure/group#az_group_create) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+首先，使用 [az group create](/cli/azure/group) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-若要上傳 VHD，請使用 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 建立儲存體帳戶。 儲存體帳戶名稱必須是唯一的，因此請提供您自己的名稱。 下列範例會建立名為 mystorageaccount 的儲存體帳戶：
+若要上傳 VHD，請使用 [az storage account create](/cli/azure/storage/account) 建立儲存體帳戶。 儲存體帳戶名稱必須是唯一的，因此請提供您自己的名稱。 下列範例會建立名為 mystorageaccount 的儲存體帳戶：
 
 ```azurecli
 az storage account create --resource-group myResourceGroup \
@@ -118,7 +118,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-若要控制儲存體帳戶的存取權，請使用 [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) 取得儲存體金鑰，如下所示：
+若要控制儲存體帳戶的存取權，請使用 [az storage account keys list](/cli/azure/storage/account/keys) 取得儲存體金鑰，如下所示：
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
@@ -127,7 +127,7 @@ STORAGE_KEY=$(az storage account keys list \
     --query "[?keyName=='key1']  | [0].value" -o tsv)
 ```
 
-若要以邏輯方式分隔您上傳的 VHD，請使用 [az storage container create](/cli/azure/storage/container#az_storage_container_create) 在儲存體帳戶內建立容器：
+若要以邏輯方式分隔您上傳的 VHD，請使用 [az storage container create](/cli/azure/storage/container) 在儲存體帳戶內建立容器：
 
 ```azurecli
 az storage container create \
@@ -136,7 +136,7 @@ az storage container create \
     --account-key ${STORAGE_KEY}
 ```
 
-最後，使用 [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) 上傳 VHD，如下所示：
+最後，使用 [az storage blob upload](/cli/azure/storage/blob) 上傳 VHD，如下所示：
 
 ```azurecli
 az storage blob upload \
@@ -149,7 +149,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>從 VHD 建立 VM
-您可以使用[範例指令碼](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) 或直接使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM。 若要指定您上傳的 OpenBSD VHD，請使用 `--image` 參數，如下所示：
+您可以使用[範例指令碼](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) 或直接使用 [az vm create](/cli/azure/vm) 建立 VM。 若要指定您上傳的 OpenBSD VHD，請使用 `--image` 參數，如下所示：
 
 ```azurecli
 az vm create \
@@ -161,7 +161,7 @@ az vm create \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-使用 [az vm list-ip-addresses](/cli/azure/vm#list-ip-addresses) 取得 OpenBSD VM 的 IP 位址，如下所示：
+使用 [az vm list-ip-addresses](/cli/azure/vm) 取得 OpenBSD VM 的 IP 位址，如下所示：
 
 ```azurecli
 az vm list-ip-addresses --resource-group myResourceGroup --name myOpenBSD61

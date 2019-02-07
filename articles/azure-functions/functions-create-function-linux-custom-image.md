@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: de15d1f8c268e80ac1659c53a141ec39cc6d3cb8
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 7b7a239d6c96d1d5b257828ebd49c25c5bafc827
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564804"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700803"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>在使用自訂映像 (預覽版) 的 Linux 上建立函式
 
@@ -66,6 +66,7 @@ func init MyFunctionProj --docker
 
 * `dotnet`：建立 .NET 類別庫專案 (.csproj)。
 * `node`：建立 JavaScript 專案。
+* `python`：建立 Python 專案。
 
 當命令執行時，您會看到如下輸出：
 
@@ -228,7 +229,7 @@ _deployment-container-image-name_ 參數表示裝載於 Docker Hub 上用於建�
 
 此函式需要連接字串以連接到預設儲存體帳戶。 當您將自訂映像發佈至私人容器帳戶時，應使用 [ENV 指令](https://docs.docker.com/engine/reference/builder/#env) \(英文\) 或類似指令將 Dockerfile 中的這些應用程式設定改設為環境變數。
 
-在本例中，`<storage_account>` 是您建立的儲存體帳戶名稱。 使用 [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) 命令取得連接字串。 使用 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 命令，在函式應用程式中新增這些應用程式設定。
+在本例中，`<storage_account>` 是您建立的儲存體帳戶名稱。 使用 [az storage account show-connection-string](/cli/azure/storage/account) 命令取得連接字串。 使用 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 命令，在函式應用程式中新增這些應用程式設定。
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \

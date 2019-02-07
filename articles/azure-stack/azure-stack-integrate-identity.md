@@ -10,13 +10,12 @@ ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
-keywords: ''
-ms.openlocfilehash: f05d27effecee6a18a1395520b29d8cf1db1eaaa
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a7753280c0b84b21f44e52c303b96f11cd4cd8af
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246242"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765785"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 資料中心整合 - 身分識別
 您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者來部署 Azure Stack。 請先選擇識別提供者，才能部署 Azure Stack。 使用 AD FS 的部署也稱為在中斷連線模式中部署 Azure Stack。
@@ -306,7 +305,7 @@ Microsoft 提供可設定信賴憑證者信任 (包括宣告轉換規則) 的指
 > [!Important]  
 > AD FS 僅支援互動式登入工作階段。 如果您的自動化案例需要非互動式登入，則必須使用 SPN。
 
-如需有關建立 SPN 的詳細資訊，請參閱[為 AD FS 建立服務主體](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs)。
+如需有關建立 SPN 的詳細資訊，請參閱[為 AD FS 建立服務主體](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals)。
 
 
 ## <a name="troubleshooting"></a>疑難排解

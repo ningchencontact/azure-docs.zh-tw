@@ -8,19 +8,17 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2c8f27c9b5b9c13cd6cb722bafb23dd19b944d27
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77c4377afaff20e77e76c0a7389c79dfdce703ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474678"
+ms.locfileid: "55509128"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>決定何時使用 Azure Blob、Azure 檔案服務或 Azure 磁碟
-
 Microsoft Azure 在 Azure 儲存體中提供數種功能，用以在雲端儲存和存取資料。 本文涵蓋 Azure 檔案服務、Azure Blob 和 Azure 磁碟，並設計來協助您從這些功能中選擇想要的功能。
 
 ## <a name="scenarios"></a>案例
-
 下表會對 Azure 檔案服務、Azure Blob 和 Azure 磁碟進行比較，並顯示適用於各項的範例案例。
 
 | 功能 | 描述  | 使用時機 |
@@ -30,7 +28,6 @@ Microsoft Azure 在 Azure 儲存體中提供數種功能，用以在雲端儲存
 | **Azure 磁碟** | 提供用戶端程式庫和 [REST 介面](/rest/api/compute/manageddisks/disks/disks-rest-api)，允許持續針對連結的虛擬硬碟進行資料的儲存和存取。 | 您想要隨即轉移使用原生檔案系統 API 讀取及寫入資料至永續性磁碟的應用程式。<br/><br/>您想要儲存不需要從連結磁碟的虛擬機器之外存取的資料。 |
 
 ## <a name="comparison-files-and-blobs"></a>比較：檔案和 Blob
-
 下表對 Azure 檔案和 Azure Blob 進行比較。  
   
 ||||  
@@ -49,7 +46,6 @@ Microsoft Azure 在 Azure 儲存體中提供數種功能，用以在雲端儲存
 |用戶端程式庫|多種語言|多種語言|  
   
 ## <a name="comparison-files-and-disks"></a>比較：檔案和磁碟
-
 Azure 檔案服務可補強 Azure 磁碟。 磁碟一次只能連結到一部 Azure 虛擬機器。 磁碟是固定格式的 VHD，會在 Azure 儲存體中儲存為分頁 Blob，並由虛擬機器用來儲存持久資料。 Azure 檔案中的檔案共用可透過與存取本機磁碟 (使用原生檔案系統 API) 一樣的方式存取，並可跨許多部虛擬機器共用。  
  
 下表對 Azure 檔案服務和 Azure 磁碟進行比較。  
@@ -58,17 +54,15 @@ Azure 檔案服務可補強 Azure 磁碟。 磁碟一次只能連結到一部 Az
 |-|-|-|  
 |**屬性**|**Azure 磁碟**|**Azure 檔案**|  
 |影響範圍|單一虛擬機器專用|跨多部虛擬機器的共用存取|  
-|快照與複製|是|是|  
+|快照與複製|yes|yes|  
 |組態|在啟動虛擬機器時連線|在虛擬機器啟動之後連線|  
 |驗證|內建|使用 net use 設定|  
-|清除|自動|手動|  
 |使用 REST 存取|無法存取 VHD 內的檔案|可以存取儲存在共用中的檔案|  
 |大小上限|4 TiB 的磁碟|5 TiB 的檔案共用和 1 TiB 的共用內檔案|  
 |最大 IOps|500 IOps|1000 IOps|  
 |Throughput|每個磁碟最高可達每秒 60 MiB|每個檔案共用的目標是每秒 60 Mib (更高 IO 大小可以達到更高目標)|  
 
 ## <a name="next-steps"></a>後續步驟
-
 決定如何儲存及存取資料時，您也應考慮牽涉的成本。 如需詳細資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。
   
 某些 SMB 功能並不適用於雲端。 如需詳細資訊，請參閱 [Azure 檔案服務不支援的功能](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)。

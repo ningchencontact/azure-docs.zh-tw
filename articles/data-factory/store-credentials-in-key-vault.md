@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2017
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 60dd0bdd529b4ee8fc8377093d49b8a27fb9b3f1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ff070adbda2a36261ca24eb0cc993ca22eada1c7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016643"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661236"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>在 Azure Key Vault 中儲存認證
 
@@ -27,9 +27,6 @@ ms.locfileid: "54016643"
 ## <a name="prerequisites"></a>必要條件
 
 此功能依賴資料處理站服務識別。 請參閱[資料處理站服務識別](data-factory-service-identity.md)了解其運作方式，並確定您的資料處理站有相關聯的服務識別。
-
->[!TIP]
->在 Azure Key Vault 中，當您建立祕密時，請**放置 ADF 連結服務所要求之祕密屬性的完整值 (例如連接字串/密碼/服務主要金鑰/等等)**。 例如，針對 Azure 儲存體連結服務，放置 `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` 作為 AKV 祕密，然後在 ADF 的 "connectionString" 欄位中參考；針對動態連結服務，放置 `myPassword` 作為 AKV 祕密，然後在 ADF 的 "password" 欄位中參考。 請參閱每篇連接器/計算文章中支援的屬性詳細資料。
 
 ## <a name="steps"></a>步驟
 
@@ -46,8 +43,8 @@ ms.locfileid: "54016643"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**AzureKeyVault**。 | 是 |
-| baseUrl | 指定 Azure Key Vault URL。 | 是 |
+| type | 類型屬性必須設定為：**AzureKeyVault**。 | yes |
+| baseUrl | 指定 Azure Key Vault URL。 | yes |
 
 **使用編寫 UI：**
 
@@ -79,10 +76,10 @@ ms.locfileid: "54016643"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 欄位的類型屬性必須設定為：**AzureKeyVaultSecret**。 | 是 |
-| secretName | Azure Key Vault 中密碼的名稱。 | 是 |
+| type | 欄位的類型屬性必須設定為：**AzureKeyVaultSecret**。 | yes |
+| secretName | Azure Key Vault 中密碼的名稱。 | yes |
 | secretVersion | Azure Key Vault 中密碼的版本。<br/>如果未指定，它會一律使用最新版本的密碼。<br/>如果指定，則它會遵循指定的版本。| 否 |
-| store | 代表您用來儲存認證的 Azure Key Vault 已連結服務。 | 是 |
+| store | 代表您用來儲存認證的 Azure Key Vault 已連結服務。 | yes |
 
 **使用編寫 UI：**
 

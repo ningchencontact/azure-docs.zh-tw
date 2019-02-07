@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
-ms.openlocfilehash: 311bc6a67e2b63f6f514da5abacb00e5c3cb434f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 34eb7c48c8ebc36f9172f97dda845542b3840a19
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786317"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747674"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>使用隨選串流匯入 Postman 集合作業
 
 本文內有 **Postman** 集合的定義，集合內有呼叫 Azure 媒體服務 REST API 的分組 HTTP 要求。 如需有關如何設定 **Postman** 讓它可以用來呼叫媒體服務 REST API 的詳細資訊，請參閱[設定 Postman 以進行媒體服務 REST API 呼叫](media-rest-apis-with-postman.md)教學課程。
 
-```
+```json
 {
     "info": {
         "name": "Azure Media Services Operations",
@@ -4264,7 +4264,7 @@ ms.locfileid: "33786317"
                                 "MediaProcessors"
                             ]
                         },
-                        "description": "List MediaProcesors\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "List MediaProcessors\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 }

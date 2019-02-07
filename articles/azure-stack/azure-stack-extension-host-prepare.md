@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 840c230ae3b2fc167c0d59a4a9a0155fe5deb661
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3e838f932299a9ea7f837570f9d15725230eb4f8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238226"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660080"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack 的延伸主機準備
 
@@ -141,7 +141,7 @@ Azure Stack 整備檢查工具可讓您為兩個必要的新 SSL 憑證建立憑
 
 ### <a name="publish-new-endpoints"></a>發佈新端點
 
-有兩個新端點需透過您的防火牆來發佈。 您可使用下列程式碼來擷取來自公用 VIP 集區的已配置 IP；您必須透過您 Azure Stack [環境的具特殊權限端點](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-privileged-endpoint)來執行該程式碼。
+有兩個新端點需透過您的防火牆來發佈。 您可使用下列程式碼來擷取來自公用 VIP 集區的已配置 IP；您必須透過您 Azure Stack [環境的具特殊權限端點](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint)來執行該程式碼。
 
 ```PowerShell
 # Create a PEP Session

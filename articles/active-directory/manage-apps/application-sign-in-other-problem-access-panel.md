@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 529191cf867b6003b0c2eab5ed919087277c7095
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6dfc0f80285dfd7da6e78d7cbf9c993fed388a2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178030"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813529"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>從存取面板登入應用程式的問題
 
@@ -104,7 +104,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 若要設定 Azure AD 資源庫中的應用程式，您必須：
 
--   [從 Azure AD 資源庫新增應用程式](#add-an-application)
+-   從 Azure AD 資源庫新增應用程式
 
 -   [在 Azure AD 中設定應用程式的中繼資料值 (登入 URL、識別碼、回覆 URL)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
@@ -114,7 +114,7 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 -   [在應用程式中設定 Azure AD 中繼資料值 (登入 URL、簽發者、登出 URL 與憑證)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
--   [將使用者指派給應用程式](#assign-users-to-the-application)
+-   將使用者指派給應用程式
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>從 Azure AD 資源庫新增應用程式
 
@@ -362,9 +362,9 @@ Azure AD 資源庫中所有透過企業單一登入功能啟用的應用程式�
 
 若要設定 Azure AD 資源庫中的應用程式，您必須：
 
--   [從 Azure AD 資源庫新增應用程式](#add-an-application)
+-   從 Azure AD 資源庫新增應用程式
 
--   [設定應用程式使用密碼單一登入](#configure-the-application)
+-   設定應用程式使用密碼單一登入
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>從 Azure AD 資源庫新增應用程式
 

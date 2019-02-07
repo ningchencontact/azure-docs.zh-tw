@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 53945559be01b6e9f5778f5df096f7fcbb24a03f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8c913d618313a72f6fb05ea45847a220f6070d42
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214482"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765733"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>使用加速網路建立 Linux 虛擬機器
 
@@ -42,7 +42,7 @@ ms.locfileid: "54214482"
 
 ## <a name="supported-operating-systems"></a>受支援的作業系統
 您可以從 Azure 資源庫直接使用下列發行版本： 
-* **Ubuntu 16.04** 
+* **Ubuntu 16.04+** 
 * **SLES 12 SP3** 
 * **RHEL 7.4**
 * **CentOS 7.4**
@@ -76,9 +76,9 @@ removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
 
-請安裝最新的 [Azure CLI](/cli/azure/install-azure-cli)，並使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myNic* 和 *myVm*。
+請安裝最新的 [Azure CLI](/cli/azure/install-azure-cli)，並使用 [az login](/cli/azure/reference-index) 來登入 Azure 帳戶。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myNic* 和 *myVm*。
 
-使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組。 下列範例會在 *centralus* 位置建立名為 *myResourceGroup* 的資源群組：
+使用 [az group create](/cli/azure/group) 來建立資源群組。 下列範例會在 *centralus* 位置建立名為 *myResourceGroup* 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -86,7 +86,7 @@ az group create --name myResourceGroup --location centralus
 
 選取 [Linux 加速網路](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview)中所列出的支援 Linux 區域。
 
-使用 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) 建立虛擬網路。 下列範例會建立名為 *myVnet* 的虛擬網路和子網路：
+使用 [az network vnet create](/cli/azure/network/vnet) 建立虛擬網路。 下列範例會建立名為 *myVnet* 的虛擬網路和子網路：
 
 ```azurecli
 az network vnet create \
@@ -98,7 +98,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>建立網路安全性群組
-使用 [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) 建立網路安全性群組。 下列範例建立名為 myNetworkSecurityGroup 的網路安全性群組：
+使用 [az network nsg create](/cli/azure/network/nsg) 建立網路安全性群組。 下列範例建立名為 myNetworkSecurityGroup 的網路安全性群組：
 
 ```azurecli
 az network nsg create \
@@ -106,7 +106,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-網路安全性群組包含數個預設規則，其中一種會停用來自網際網路的所有輸入存取。 開啟連接埠以允許 SSH 透過 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) 存取虛擬機器：
+網路安全性群組包含數個預設規則，其中一種會停用來自網際網路的所有輸入存取。 開啟連接埠以允許 SSH 透過 [az network nsg rule create](/cli/azure/network/nsg/rule) 存取虛擬機器：
 
 ```azurecli
 az network nsg rule create \
@@ -125,7 +125,7 @@ az network nsg rule create \
 
 ### <a name="create-a-network-interface-with-accelerated-networking"></a>使用加速網路建立網路介面
 
-使用 [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) 建立公用 IP 位址。 如果您不打算從網際網路存取虛擬機器，那麼您就不需要公用 IP 位址，但如果要完成本文中的步驟，就會需要公用 IP 位址。
+使用 [az network public-ip create](/cli/azure/network/public-ip) 建立公用 IP 位址。 如果您不打算從網際網路存取虛擬機器，那麼您就不需要公用 IP 位址，但如果要完成本文中的步驟，就會需要公用 IP 位址。
 
 ```azurecli
 az network public-ip create \
@@ -133,7 +133,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-使用已啟用的加速網路並透過 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 建立網路介面。 下列範例會在 *myVnet* 虛擬網路的 *mySubnet* 子網路中建立名為 *myNic* 的網路介面，並將 *myNetworkSecurityGroup* 網路安全性群組與網路介面建立關聯：
+使用已啟用的加速網路並透過 [az network nic create](/cli/azure/network/nic) 建立網路介面。 下列範例會在 *myVnet* 虛擬網路的 *mySubnet* 子網路中建立名為 *myNic* 的網路介面，並將 *myNetworkSecurityGroup* 網路安全性群組與網路介面建立關聯：
 
 ```azurecli
 az network nic create \
@@ -149,7 +149,7 @@ az network nic create \
 ### <a name="create-a-vm-and-attach-the-nic"></a>建立 VM 並連結 NIC
 當您建立 VM 時，請指定您使用 `--nics` 所建立的 NIC。 選取列於 [Linux 加速網路](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview)中的大小和發行版本。 
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM。 下列範例會使用 UbuntuLTS 映像建立名為 *myVM* 的 VM，以及支援加速網路的大小 (*Standard_DS4_v2*)：
+使用 [az vm create](/cli/azure/vm) 建立 VM。 下列範例會使用 UbuntuLTS 映像建立名為 *myVM* 的 VM，以及支援加速網路的大小 (*Standard_DS4_v2*)：
 
 ```azurecli
 az vm create \

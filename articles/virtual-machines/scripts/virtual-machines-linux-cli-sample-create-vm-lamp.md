@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: ceda12b71a58153995a23eabace37b4373b57ef2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ff4c41ff6428ba6ef88473508830ec8545be8778
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155157"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731099"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>在負載平衡虛擬機器擴展集中部署 LAMP 堆疊
 
@@ -53,14 +53,14 @@ az group delete -n myResourceGroup
 
 | 命令 | 注意 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | 建立虛擬機器擴展集 |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | 新增負載平衡端點 |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | 建立擴充功能，該擴充功能在 VM 部署上執行自訂指令碼 |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | 在 VM 執行個體上執行自訂指令碼，該執行個體是在擴充功能套用至擴展集之前部署的。 |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | 藉由新增更多 VM 執行個體以相應增加擴展集。 當這些執行個體部署時，自訂指令碼會在上面執行。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | 建立用來存放所有資源的資源群組。 |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | 建立虛擬機器擴展集 |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | 新增負載平衡端點 |
+| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension) | 建立擴充功能，該擴充功能在 VM 部署上執行自訂指令碼 |
+| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss) | 在 VM 執行個體上執行自訂指令碼，該執行個體是在擴充功能套用至擴展集之前部署的。 |
+| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss) | 藉由新增更多 VM 執行個體以相應增加擴展集。 當這些執行個體部署時，自訂指令碼會在上面執行。 |
 | [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | 取得範例建立之 VM 的 IP 位址。 |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | 取得由負載平衡器使用的前端和後端連接埠。 |
+| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb) | 取得由負載平衡器使用的前端和後端連接埠。 |
 
 ## <a name="next-steps"></a>後續步驟
 

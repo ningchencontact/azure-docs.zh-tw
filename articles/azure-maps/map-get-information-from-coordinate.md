@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ada579af44d1d0b4ea08a8ae9eadbec386e44f08
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 20616adf649924a13e80411aa5135889a175f442
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823005"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750183"
 ---
 # <a name="get-information-from-a-coordinate"></a>從座標取得資訊
 
@@ -33,7 +33,7 @@ ms.locfileid: "51823005"
 
 第三個程式碼區塊會將滑鼠游標的樣式更新為指標和[快顯](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open)物件。 如需相關指示，您可以查看[在地圖上新增快顯](./map-add-popup.md)。
 
-第四個程式碼區塊會新增滑鼠點選的[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)。 按下滑鼠時，會使用所按下點的座標建立搜尋查詢。 然後，它會使用地圖的 [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchaddressreverse) 端點查詢座標的位址。
+第四個程式碼區塊會新增滑鼠點選的[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)。 按下滑鼠時，會使用所按下點的座標建立搜尋查詢。 然後，它會使用地圖的 [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest) 端點查詢座標的位址。
 
 對於成功的回應，它會收集所點選位置的地址，並透過快顯類別的 [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) 函式定義快顯內容和位置。
 

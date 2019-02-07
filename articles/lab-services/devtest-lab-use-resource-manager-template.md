@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 4fd9f76223adba20028288b46037586f8f54fd1a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 99c4f838c3c4e4708c3e21ff9c7e63b69a507dbe
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686376"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746909"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立虛擬機器 
 
@@ -47,7 +47,7 @@ ms.locfileid: "51686376"
 [建立 Azure Resource Manager 範本的最佳做法](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices)提供許多指導方針和建議，可以協助您建立可靠又容易使用的 Azure Resource Manager 範本。
 
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>檢視及儲存虛擬機器的 Resource Manager 範本
-1. 請依照[在實驗室中建立您的第一個 VM](devtest-lab-create-first-vm.md) 中的步驟，開始建立虛擬機器。
+1. 請依照[在實驗室中建立您的第一個 VM](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) 中的步驟，開始建立虛擬機器。
 1. 輸入虛擬機器的必要資訊，並且新增您想要用於此 VM 的任何成品。
 1. 在 [設定] 設定視窗底部，選擇 [檢視 ARM 範本]。
 

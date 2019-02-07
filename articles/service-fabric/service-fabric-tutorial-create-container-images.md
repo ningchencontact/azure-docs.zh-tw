@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: f2e8ce7dc6102471f95f6332d9cb01a6cb4f4f54
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 0bba3c936463ad4fa8b4d06bf6f9df4f0ce6b863
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313780"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752308"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>教學課程：在 Linux Service Fabric 叢集上建立容器映像
 
@@ -190,7 +190,7 @@ Docker push 命令需要數分鐘才能完成。
 
 ## <a name="list-images-in-registry"></a>列出登錄中的映像
 
-若要傳回已推送至 Azure Container Registry 的映像清單，請使用 [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) 命令。 以 ACR 執行個體名稱更新命令。
+若要傳回已推送至 Azure Container Registry 的映像清單，請使用 [az acr repository list](/cli/azure/acr/repository) 命令。 以 ACR 執行個體名稱更新命令。
 
 ```bash
 az acr repository list --name <acrName> --output table

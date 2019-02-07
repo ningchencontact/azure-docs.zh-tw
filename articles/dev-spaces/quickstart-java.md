@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: mmontwil
-ms.openlocfilehash: c448521d7e1ce70a44ca23f58d0034ca2041cbed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 24bb5a044db813e1ee3cf2c9ff3e36a9b9ff86d7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453425"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657054"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>快速入門：使用 Azure Dev Spaces 建立 Kubernetes 開發人員空間 (Java 和 VS Code)
 
@@ -27,7 +27,7 @@ ms.locfileid: "55453425"
 - 從 VS Code 對開發人員空間中的程式碼進行偵錯。
 
 > [!Note]
-> **如果作業出現停滯的情況**，請參閱[疑難排解](troubleshooting.md)一節，或在此頁面上張貼留言。 您也可以嘗試進行更詳細的[教學課程](get-started-netcore.md)。
+> **如果作業出現停滯的情況**，請參閱[疑難排解](troubleshooting.md)一節，或在此頁面上張貼留言。 您也可以嘗試進行更詳細的[教學課程](get-started-java.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -137,4 +137,4 @@ Azure 開發人員空間會以累加方式重新編譯現有容器中的程式�
 了解 Azure Dev Spaces 如何協助您跨多個容器開發更複雜的應用程式，以及如何藉由在不同的空間中使用不同的程式碼版本或分支，來簡化共同開發。
 
 > [!div class="nextstepaction"]
-> [使用多個容器和小組開發](team-development-java.md)
+> [使用多個容器和小組開發](multi-service-java.md)

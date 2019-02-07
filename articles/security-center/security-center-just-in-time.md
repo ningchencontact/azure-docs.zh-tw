@@ -23,7 +23,7 @@ ms.locfileid: "53339037"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用 Just-In-Time 管理虛擬機器存取
 
-Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、降低暴露於攻擊的風險，同時能夠視需要輕鬆存取連線至 VM。
+Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、降低暴露於攻擊的風險，同時能夠視需要輕鬆連線至 VM。
 
 > [!NOTE]
 > Just-in-Time 功能由資訊安全中心的標準層提供。  若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。
@@ -42,7 +42,7 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 
 啟用 Just-In-Time 時，資訊安全中心會建立 NSG 規則，藉此鎖定進入 Azure VM 的流量。 系統會鎖定選取的 VM 連接埠的輸入流量。 Just-In-Time 解決方案會控制這些連接埠。
 
-當使用者要求存取虛擬機器時，資訊安全中心會檢查該使用者是否擁有可成功要求虛擬機器存取權限的[角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 權限。 如果要求會通過核准，且資訊安全中心會將網路安全性群組 (NSG) 自動設定為在指定時間內允許輸入流量進入選取的連接埠以及要求的來源 IP 位址或範圍。 時間到期之後，資訊安全中心會將 NSG 還原為其先前的狀態。 但是，已經建立的連線不會中斷。
+當使用者要求存取虛擬機器時，資訊安全中心會檢查該使用者是否擁有可成功要求虛擬機器存取權限的[角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 權限。 要求一旦通過核准，資訊安全中心就會將網路安全性群組 (NSG) 自動設定為在指定時間內允許輸入流量進入選取的連接埠以及要求的來源 IP 位址或範圍。 時間到期之後，資訊安全中心會將 NSG 還原為其先前的狀態。 但是，已經建立的連線不會中斷。
 
 > [!NOTE]
 > 資訊安全中心 Just-In-Time VM 存取目前僅支援透過 Azure Resource Manager 部署的 VM。 若要深入了解傳統部署和資源管理員部署的模型，請參閱 [Azure Resource Manager 與傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)。
@@ -127,7 +127,7 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 
 ## 在 Azure VM 刀鋒視窗中使用 JIT 存取<a name="jit-vm"></a>
 
-為了方便起見，您可以直接從 Azure 中的虛擬機器刀鋒視窗中使用 JIT 連接至 VM。
+為了方便起見，您可以直接從 Azure 中的虛擬機器刀鋒視窗中使用 JIT 連線至 VM。
 
 ### <a name="configuring-a-just-in-time-access-policy"></a>設定 Just-In-Time 存取原則 
 若要在所有 VM 上輕鬆地推出 Just-In-Time 存取，您可以將 VM 設定為只允許直接從 VM 進行 Just-In-Time 存取。
@@ -154,13 +154,13 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 
 ### <a name="requesting-jit-access-to-a-vm"></a>要求虛擬機器的 JIT 存取
 
-在 Azure 入口網站中，您嘗試連接到虛擬機器時，Azure 會檢查您是否已經在該虛擬機器上設定 Just-In-Time 存取原則。
+在 Azure 入口網站中，您嘗試連線到虛擬機器時，Azure 會檢查您是否已經在該虛擬機器上設定 Just-In-Time 存取原則。
 
 - 如果您並未在虛擬機器上設定 JIT，則會提示您設定其 JIT 原則。
 
   ![JIT 提示](./media/security-center-just-in-time/jit-prompt.png)
 
-- 如果您在虛擬機器上設定的 JIT 原則，可以按一下 [要求存取]，根據對於虛擬機器設定的 JIT 原則進行存取。
+- 如果您確實已在虛擬機器上設定了 JIT 原則，可以按一下 [要求存取]，好根據為此所設定的 JIT 原則來存取虛擬機器。
 
   ![JIT 要求存取](./media/security-center-just-in-time/jit-request-access.png)
 

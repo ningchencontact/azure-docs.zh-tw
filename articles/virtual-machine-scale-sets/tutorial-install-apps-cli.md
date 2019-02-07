@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9f979922b2abd2ce1a707a8b91656bbe64119938
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38dec49083e84d105f4eed9cbc149bbc025c5e40
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157256"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755708"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>教學課程：使用 Azure CLI 在虛擬機器擴展集中安裝應用程式
 若要在擴展集的虛擬機器 (VM) 執行個體上執行應用程式，您需要先安裝應用程式元件和必要的檔案。 在先前的教學課程中，您已了解如何建立及使用自訂 VM 映像來部署您的 VM 執行個體。 此自訂映像已包含手動應用程式安裝和組態。 您也可以在部署好每個 VM 執行個體後，讓應用程式自動安裝到擴展集，或更新已在擴展集上執行的應用程式。 在本教學課程中，您將了解如何：
@@ -82,7 +82,7 @@ az vmss create \
 
 
 ## <a name="apply-the-custom-script-extension"></a>套用自訂指令碼擴充功能
-使用 [az vmss extension set](/cli/azure/vmss/extension#set)，將自訂指令碼延伸組態套用到擴展集中的 VM 執行個體。 下列範例會將 customConfig.json 組態套用到 myResourceGroup 資源群組中的 myScaleSet VM 執行個體：
+使用 [az vmss extension set](/cli/azure/vmss/extension)，將自訂指令碼延伸組態套用到擴展集中的 VM 執行個體。 下列範例會將 customConfig.json 組態套用到 myResourceGroup 資源群組中的 myScaleSet VM 執行個體：
 
 ```azurecli-interactive
 az vmss extension set \
@@ -112,7 +112,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-若要查看作用中的 web 伺服器，可使用 [az network public-ip show](/cli/azure/network/public-ip#show) 取得負載平衡器的公用 IP 位址。 下列範例會取得建立作為擴展集一部分的 myScaleSetLBPublicIP IP 位址︰
+若要查看作用中的 web 伺服器，可使用 [az network public-ip show](/cli/azure/network/public-ip) 取得負載平衡器的公用 IP 位址。 下列範例會取得建立作為擴展集一部分的 myScaleSetLBPublicIP IP 位址︰
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ az network public-ip show \
 }
 ```
 
-使用 [az vmss extension set](/cli/azure/vmss/extension#set)，再次將自訂指令碼擴充功能組態套用到擴展集中的 VM 執行個體。 customConfigv2.json 會用來套用更新版的應用程式：
+使用 [az vmss extension set](/cli/azure/vmss/extension)，再次將自訂指令碼擴充功能組態套用到擴展集中的 VM 執行個體。 customConfigv2.json 會用來套用更新版的應用程式：
 
 ```azurecli-interactive
 az vmss extension set \
@@ -159,7 +159,7 @@ az vmss extension set \
 
 
 ## <a name="clean-up-resources"></a>清除資源
-若要移除您的擴展集與其他資源，請使用 [az group delete](/cli/azure/group#az_group_delete) 刪除資源群組及其所有資源。 `--no-wait` 參數不會等待作業完成，就會將控制項傳回給提示字元。 `--yes` 參數會確認您想要刪除資源，而不另外對您提示將要進行此作業。
+若要移除您的擴展集與其他資源，請使用 [az group delete](/cli/azure/group) 刪除資源群組及其所有資源。 `--no-wait` 參數不會等待作業完成，就會將控制項傳回給提示字元。 `--yes` 參數會確認您想要刪除資源，而不另外對您提示將要進行此作業。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

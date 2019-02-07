@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 90084f6c4fb270c34165bf12763109d9be2398aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446954"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733054"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>如何使用範本自訂 Azure API 管理開發人員入口網站。
 
@@ -45,15 +45,15 @@ ms.locfileid: "52446954"
 
 ![開發人員入口網站範本][api-management-templates-menu]
 
-按一下範本即會將您帶到可使用該範本自訂的開發人員入口網站頁面。 這個範例會顯示**產品清單**範本。 **產品清單** 範本控制的畫面區域會以紅色矩形表示。 
+按一下範本即會將您帶到可使用該範本自訂的開發人員入口網站頁面。 這個範例會顯示**產品清單**範本。 **產品清單** 範本控制的畫面區域會以紅色矩形表示。
 
 ![產品清單範本][api-management-developer-portal-templates-overview]
 
-有些範本，像是 **使用者設定檔** 範本，自訂的是同一頁面的不同部分。 
+有些範本，像是 **使用者設定檔** 範本，自訂的是同一頁面的不同部分。
 
 ![使用者設定檔範本][api-management-user-profile-templates]
 
-每個開發人員入口網站範本的編輯器都會在頁面底部顯示兩個區段。 左側顯示範本的編輯窗格，右側顯示範本的資料模型。 
+每個開發人員入口網站範本的編輯器都會在頁面底部顯示兩個區段。 左側顯示範本的編輯窗格，右側顯示範本的資料模型。
 
 範本編輯窗格包含的標記，可控制開發人員入口網站中對應頁面的外觀和行為。 範本中的標記會使用 [DotLiquid](http://dotliquidmarkup.org/) 語法。 常用的 DotLiquid 編輯器是 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)。 在編輯期間對範本進行的任何變更都會即時顯示在瀏覽器中，但您的客戶要到您[儲存](#to-save-a-template)和[發佈](#to-publish-a-template)範本後才看得到。
 
@@ -118,7 +118,7 @@ ms.locfileid: "52446954"
         <li>
             <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
             {{product.description}}
-        </li>    
+        </li>
     {% endfor %}
     </ul>
     <paging-control></paging-control>
@@ -209,10 +209,3 @@ ms.locfileid: "52446954"
 [api-management-reset-template]: ./media/api-management-developer-portal-templates/api-management-reset-template.png
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
-
-
-
-
-
-
-

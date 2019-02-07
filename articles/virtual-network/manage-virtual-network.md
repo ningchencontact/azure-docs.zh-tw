@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 00d5cb48053fe3f34152f29fb20fec8c4a20166f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 34dc6fbd1cca30f86b3fa825932983a01c4c8250
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426160"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730181"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>建立、變更或刪除虛擬網路
 
@@ -87,14 +87,14 @@ ms.locfileid: "54426160"
     - **圖表**︰此圖表會以視覺方式來呈現所有連線到虛擬網路的裝置。 此圖表包含有關裝置的一些重要資訊。 若要在此檢視中管理裝置，請在圖表中選取裝置。
     - **一般 Azure 設定**：若要深入了解 Azure 的一般設定，請參閱下列資訊：
         *   [活動記錄檔](../azure-monitor/platform/activity-logs-overview.md)
-        *   [存取控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+        *   [存取控制 (IAM)](../role-based-access-control/overview.md)
         *   [標記](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [鎖定](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [自動化指令碼](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
 **命令**
 
-- Azure CLI：[az network vnet show](/cli/azure/network/vnet#az_network_vnet_show)
+- Azure CLI：[az network vnet show](/cli/azure/network/vnet)
 - PowerShell：[Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork)
 
 ## <a name="add-or-remove-an-address-range"></a>新增或移除位址範圍
@@ -162,7 +162,7 @@ ms.locfileid: "54426160"
 
 **命令**
 
-- Azure CLI：[azure network vnet delete](/cli/azure/network/vnet#az_network_vnet_delete)
+- Azure CLI：[azure network vnet delete](/cli/azure/network/vnet)
 - PowerShell：[Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork)
 
 ## <a name="permissions"></a>權限

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017094"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751917"
 ---
 # <a name="trusted-internet-connections-guidance"></a>受信任網際網路連線指導方針
 
@@ -49,7 +49,7 @@ TIC 的目標是讓機構了解以下事項：
 
 若要啟用從**部門或機構 (D/A)** 到 Azure 或 Office 365 的連線，而不透過 D/A TIC 路由傳送流量，D/A 必須使用加密通道或雲端服務提供者 (CSP) 的專用連線。 CSP 服務可以確保不向公用網際網路提供 D/A 雲端資產的連線，以便機構人員直接存取。
 
-Office 365 使用已啟用 [Microsoft 對等互連](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains)的 Express Route，或使用 TLS 1.2 加密所有流量的網際網路連線，以遵守 TIC 2.0 附錄 H。 D/A 網路上的 D/A 終端使用者可以透過其機構網路和 TIC 基礎架構，利用網際網路進行連線。 所有 Office 365 的遠端網際網路存取皆被封鎖，並透過機構進行路由傳送。 D/A 也可以在已啟用 Microsoft 對等互連 (這是一種公用對等互連) 的情況下，透過 ExpressRoute 連線與 Office 365 連線。  
+Office 365 使用已啟用 [Microsoft 對等互連](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings)的 Express Route，或使用 TLS 1.2 加密所有流量的網際網路連線，以遵守 TIC 2.0 附錄 H。 D/A 網路上的 D/A 終端使用者可以透過其機構網路和 TIC 基礎架構，利用網際網路進行連線。 所有 Office 365 的遠端網際網路存取皆被封鎖，並透過機構進行路由傳送。 D/A 也可以在已啟用 Microsoft 對等互連 (這是一種公用對等互連) 的情況下，透過 ExpressRoute 連線與 Office 365 連線。  
 
 僅適用於 Azure，第二個選項 (VPN) 和第三個選項 (ExpressRoute) 與限制存取網際網路的服務結合使用時，皆可滿足這些要求。
 
@@ -249,25 +249,25 @@ Azure 原則以訂用帳戶層級為目標。 服務提供集中式介面，您�
 
 | 類別 | 工作負載 | IaaS | 專用的 PaaS/虛擬網路插入  | 服務端點  |
 |---------|---------|---------|---------|--------|
-| 計算 | Azure Linux 虛擬機器 | 是 | | |
-| 計算 | Azure Windows 虛擬機器 | 是 | | |
-| 計算 | 虛擬機器擴展集 | 是 | | |
+| 計算 | Azure Linux 虛擬機器 | yes | | |
+| 計算 | Azure Windows 虛擬機器 | yes | | |
+| 計算 | 虛擬機器擴展集 | yes | | |
 | 計算 | Azure Functions | | App Service 環境 | |
 | Web 與行動裝置 | 內部 Web 應用程式 | | App Service 環境| |
 | Web 與行動裝置 | 內部行動應用程式 | | App Service 環境 | |
 | Web 與行動裝置 | API 應用程式 | | App Service 環境 | |
-| 容器 | Azure Container Service | | | 是 |
-| 容器 | Azure Kubernetes Service (AKS) \* | | | 是 |
+| 容器 | Azure Container Service | | | yes |
+| 容器 | Azure Kubernetes Service (AKS) \* | | | yes |
 | 資料庫 | 連接字串 | | Azure SQL Database 受控執行個體 \* | Azure SQL |
-| 資料庫 | 適用於 MySQL 的 Azure 資料庫 | | | 是 |
-| 資料庫 | 適用於 PostgreSQL 的 Azure 資料庫 | | | 是 |
-| 資料庫 | Azure SQL 資料倉儲 | | | 是 |
-| 資料庫 | Azure Cosmos DB | | | 是 |
-| 資料庫 | Azure Cache for Redis | | 是 | |
-| 儲存體 | Azure Blob 儲存體 | 是 | | |
-| 儲存體 | Azure 檔案 | 是 | | |
-| 儲存體 | Azure 佇列儲存體 | 是 | | |
-| 儲存體 | Azure 資料表儲存體 | 是 | | |
-| 儲存體 | Azure 磁碟儲存體 | 是 | | |
+| 資料庫 | 適用於 MySQL 的 Azure 資料庫 | | | yes |
+| 資料庫 | 適用於 PostgreSQL 的 Azure 資料庫 | | | yes |
+| 資料庫 | Azure SQL 資料倉儲 | | | yes |
+| 資料庫 | Azure Cosmos DB | | | yes |
+| 資料庫 | Azure Cache for Redis | | yes | |
+| 儲存體 | Azure Blob 儲存體 | yes | | |
+| 儲存體 | Azure 檔案 | yes | | |
+| 儲存體 | Azure 佇列儲存體 | yes | | |
+| 儲存體 | Azure 資料表儲存體 | yes | | |
+| 儲存體 | Azure 磁碟儲存體 | yes | | |
 
 \* 2018 年 5 月的 Azure Government 公開預覽。

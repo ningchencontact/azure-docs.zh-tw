@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: dc87079083b8f07ad18f5f871bff64de8d492ebd
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 414bb0183e68cb46e52c379ea3f7aceda5d4170e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285641"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701177"
 ---
 ## <a name="the-parts-of-the-device-model-schema"></a>裝置機型結構描述的部分
 
@@ -105,7 +105,7 @@ ms.locfileid: "39285641"
 }
 ```
 
-解決方案啟動時，它會查詢所有模擬裝置，以建置一份在 UI 中使用的 `Type` 值清單。 解決方案會使用 `Latitiude` 和 `Longitude` 屬性，以將裝置的位置新增至儀表板上的地圖。
+解決方案啟動時，它會查詢所有模擬裝置，以建置一份在 UI 中使用的 `Type` 值清單。 解決方案會使用 `Latitude` 和 `Longitude` 屬性，以將裝置的位置新增至儀表板上的地圖。
 
 ## <a name="telemetry"></a>遙測
 
@@ -144,8 +144,8 @@ ms.locfileid: "39285641"
 * 文字
 * BOOLEAN
 * 整數 
-* 兩倍
-* Datetime
+* Double
+* DateTime
 
 若要在不同的間隔傳送遙測訊息，請將多個遙測類型新增至 `Telemetry` 陣列。 下列範例會每 10 秒傳送溫度和溼度資料，每一分鐘傳送光線狀態：
 

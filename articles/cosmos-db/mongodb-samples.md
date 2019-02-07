@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 1fb7ad7638f3235b915e758460bf6c483572a30d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 28ee64f70cd281a2563a855fb1fca91f229ec7bd
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54031848"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507513"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>使用 Node.js 和 Azure Cosmos DB 適用於 MongoDB 的 API 建置應用程式 
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "54031848"
 
 1. 建立 *app.js* 檔案，複製並貼上下列程式碼。
 
-    ```nodejs
+    ```javascript
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
@@ -119,7 +119,7 @@ ms.locfileid: "54031848"
 
     原始：
 
-    ```nodejs
+    ```javascript
     MongoClient.connect(url, function(err, client) {
     assert.equal(null, err);
     var db = client.db('familiesdb');
@@ -137,7 +137,7 @@ ms.locfileid: "54031848"
     
     應取代為：
 
-    ```nodejs
+    ```javascript
     MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
     insertDocument(db, function() {
@@ -163,7 +163,7 @@ ms.locfileid: "54031848"
     >
     >
    
-    ```nodejs
+    ```javascript
     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
     ```
      

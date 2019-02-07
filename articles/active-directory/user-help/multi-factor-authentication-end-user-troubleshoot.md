@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: 2b8a0db21ab4beb2128ae0a1cebbf9fb42691f3c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2ede7a172eda1122b0668984cc8e11937b3ae852
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177402"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768178"
 ---
 # <a name="get-help-with-two-step-verification"></a>取得雙步驟驗證的說明
 
@@ -36,7 +36,7 @@ ms.locfileid: "55177402"
 
 - **遺失手機，或是有新的電話號碼。** 如果您的手機遺失或有新號碼之後，可以使用不同方法登入，或要求系統管理員清除您的設定。 我們強烈建議您讓系統管理員知道您的手機已遺失或遭竊，系統管理員才能您的帳戶進行適當更新。 清除您的設定之後，下次登入時，系統會提示您重新[註冊雙步驟驗證](multi-factor-authentication-end-user-first-time.md)。
 
-- **未收到驗證簡訊或來電。** 有幾個原因可能會造成您無法收到簡訊或來電。 如果您過去成功收到過簡訊或來電，則這可能是電話提供者問題，而非帳戶問題。 如果您經常因收訊不良而發生延遲，則建議在行動裝置上使用 [Microsoft Authenticator 應用程式](microsoft-authenticator-app-how-to.md)。 此應用程式可以產生用於登入的隨機安全驗證碼，無須任何手機訊號或網際網路連線。<br><br>如果您正嘗試接收文字訊息，請讓朋友傳送文字訊息給您，以測試您確實可以收到文字訊息；如果您收到多個訊息，請務必使用最新收到的那一組代碼。
+- **未收到驗證簡訊或來電。** 有幾個原因可能會造成您無法收到簡訊或來電。 如果您過去成功收到過簡訊或來電，則這可能是電話提供者問題，而非帳戶問題。 如果您經常因收訊不良而發生延遲，則建議在行動裝置上使用 [Microsoft Authenticator 應用程式](user-help-auth-app-download-install.md)。 此應用程式可以產生用於登入的隨機安全驗證碼，無須任何手機訊號或網際網路連線。<br><br>如果您正嘗試接收文字訊息，請讓朋友傳送文字訊息給您，以測試您確實可以收到文字訊息；如果您收到多個訊息，請務必使用最新收到的那一組代碼。
 
 - **應用程式密碼無效。** 針對不支援雙步驟驗證的較舊桌面應用程式，應用程式密碼會取代您的一般密碼。 請先確定您輸入的密碼正確。 如果未獲得修正，請嘗試登入[建立新的應用程式密碼](multi-factor-authentication-end-user-app-passwords.md)，或是連絡系統管理員，請他[刪除您現有的應用程式密碼](../authentication/howto-mfa-userdevicesettings.md)，讓您可以建立新密碼。
 
@@ -61,4 +61,4 @@ ms.locfileid: "55177402"
 
 * [管理您的雙步驟驗證設定](multi-factor-authentication-end-user-manage-settings.md)
 
-* [Microsoft Authenticator 應用程式常見問題集](microsoft-authenticator-app-faq.md)
+* [Microsoft Authenticator 應用程式常見問題集](user-help-auth-app-faq.md)

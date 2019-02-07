@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ee78227f645cbeded7a5c689750db835faf1055f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854111"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728307"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>如何使用 Azure 轉送 WCF 轉送搭配 .NET
 本文說明如何使用 Azure 轉送服務。 這些範例均以 C# 撰寫，並使用 Windows Communication Foundation (WCF) API 以及包含在服務匯流排組件中的擴充功能。 如需 Azure 轉送的詳細資訊，請參閱 [Azure 轉送概觀](relay-what-is-it.md)。
@@ -116,7 +116,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-在此範例中，您將建立相同合約實作的兩個端點。 一個位於本機，一個透過 Azure 轉送投射。 它們之間的主要差異是繫結；[NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) 用於本機，而 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) 用於轉送端點和位址。 本機端點會包含具有獨特連接埠的本機網路位址。 轉送端點會包含一個由字串 `sb`、您的命名空間名稱及路徑 "solver" 組合而成的端點位址。 這會產生 URI `sb://[serviceNamespace].servicebus.windows.net/solver`，指出服務端點為具有完整外部 DNS 名稱的服務匯流排 (轉送) TCP 端點。 如果您將要取代預留位置的程式碼置入 **Service** 應用程式的 `Main` 函式中，您將會有一個功能性服務。 如果您想要服務專門接聽轉送，請移除本機端點宣告。
+在此範例中，您將建立相同合約實作的兩個端點。 一個位於本機，一個透過 Azure 轉送投射。 它們之間的主要差異是繫結；[NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) 用於本機，而 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 用於轉送端點和位址。 本機端點會包含具有獨特連接埠的本機網路位址。 轉送端點會包含一個由字串 `sb`、您的命名空間名稱及路徑 "solver" 組合而成的端點位址。 這會產生 URI `sb://[serviceNamespace].servicebus.windows.net/solver`，指出服務端點為具有完整外部 DNS 名稱的服務匯流排 (轉送) TCP 端點。 如果您將要取代預留位置的程式碼置入 **Service** 應用程式的 `Main` 函式中，您將會有一個功能性服務。 如果您想要服務專門接聽轉送，請移除本機端點宣告。
 
 ### <a name="configure-a-service-host-in-the-appconfig-file"></a>在 App.config 檔案中設定服務主機
 您也可以使用 App.config 檔案來設定主機。 此案例中的服務裝載程式碼會出現在下一個範例中。
@@ -161,7 +161,7 @@ sh.Close();
 
 ### <a name="create-the-client"></a>建立用戶端
 #### <a name="configure-a-client-programmatically"></a>以程式設計方式設定用戶端
-若要取用此服務，您可以使用 [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx) 物件來建構 WCF 用戶端。 服務匯流排會使用以 SAS 所實作的權杖型安全性模型。 [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 類別代表安全性權杖提供者，其具有內建 Factory 方法，可傳回部分已知的權杖提供者。 以下範例使用 [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) 方法以處理適當 SAS 權杖的擷取。 如上一節所述，將從入口網站取得這些名稱和金鑰。
+若要取用此服務，您可以使用 [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx) 物件來建構 WCF 用戶端。 服務匯流排會使用以 SAS 所實作的權杖型安全性模型。 [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 類別代表安全性權杖提供者，其具有內建 Factory 方法，可傳回部分已知的權杖提供者。 以下範例使用 [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 方法以處理適當 SAS 權杖的擷取。 如上一節所述，將從入口網站取得這些名稱和金鑰。
 
 首先，將 `IProblemSolver` 合約程式碼從服務中參照或複製到您的用戶端專案。
 

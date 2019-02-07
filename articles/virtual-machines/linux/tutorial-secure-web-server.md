@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 85dbdc42dd55cdb262351511918d2b813212edb0
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 79b694b877e7e26c5b9c71fb5cfbde3703ef3cb6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882203"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750914"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>教學課程：在 Azure 中使用 Key Vault 內儲存的 SSL 憑證，來保護 Linux 虛擬機器上的網頁伺服器
 若要保護網頁伺服器，您可以使用安全通訊端層 (SSL) 憑證將 Web 流量加密。 這些 SSL 憑證可儲存在 Azure Key Vault，並且能夠讓您將憑證安全地部署到 Azure 中的 Linux 虛擬機器 (VM)。 在本教學課程中，您將了解如何：
@@ -44,13 +44,13 @@ Azure Key Vault 會保護密碼編譯金鑰和祕密，像是憑證或密碼。 
 
 
 ## <a name="create-an-azure-key-vault"></a>建立 Azure Key Vault
-建立 Key Vault 和憑證之前，請先使用 [az group create](/cli/azure/group#az_group_create) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroupSecureWeb 的資源群組：
+建立 Key Vault 和憑證之前，請先使用 [az group create](/cli/azure/group) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroupSecureWeb 的資源群組：
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-接著，使用 [az keyvault create](/cli/azure/keyvault#az_keyvault_create) 建立 Key Vault，並加以啟用以供您在部署 VM 時使用。 每個 Key Vault 都需要唯一的名稱，且應全部使用小寫。 使用您自己唯一的 Key Vault 名稱來取代下列範例中的 *<mykeyvault>*：
+接著，使用 [az keyvault create](/cli/azure/keyvault) 建立 Key Vault，並加以啟用以供您在部署 VM 時使用。 每個 Key Vault 都需要唯一的名稱，且應全部使用小寫。 使用您自己唯一的 Key Vault 名稱來取代下列範例中的 *<mykeyvault>*：
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -61,7 +61,7 @@ az keyvault create \
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>產生憑證並儲存於 Key Vault
-若要在生產環境中使用，您應該使用 [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) 來匯入由受信任的提供者所簽署的有效憑證。 在本教學課程中，下列範例示範如何透過使用預設憑證原則的 [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) 來產生自我簽署憑證：
+若要在生產環境中使用，您應該使用 [az keyvault certificate import](/cli/azure/keyvault/certificate) 來匯入由受信任的提供者所簽署的有效憑證。 在本教學課程中，下列範例示範如何透過使用預設憑證原則的 [az keyvault certificate create](/cli/azure/keyvault/certificate) 來產生自我簽署憑證：
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -71,7 +71,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>準備要與 VM 搭配使用的憑證
-若要在 VM 建立程序期間使用憑證，使用 [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions) 來取得憑證的識別碼。 使用 [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format) 轉換憑證。 下列範例會將這些命令的輸出指派給變數，以方便在後續步驟中使用：
+若要在 VM 建立程序期間使用憑證，使用 [az keyvault secret list-versions](/cli/azure/keyvault/secret) 來取得憑證的識別碼。 使用 [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format) 轉換憑證。 下列範例會將這些命令的輸出指派給變數，以方便在後續步驟中使用：
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -111,7 +111,7 @@ runcmd:
 ```
 
 ### <a name="create-a-secure-vm"></a>建立安全的 VM
-現在，使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM。 使用 `--secrets` 參數，從 Key Vault 插入憑證資料。 使用 `--custom-data` 參數傳入 cloud-init 組態：
+現在，使用 [az vm create](/cli/azure/vm) 建立 VM。 使用 `--secrets` 參數，從 Key Vault 插入憑證資料。 使用 `--custom-data` 參數傳入 cloud-init 組態：
 
 ```azurecli-interactive 
 az vm create \
@@ -126,7 +126,7 @@ az vm create \
 
 系統需要花幾分鐘的時間來建立 VM、安裝封裝和啟動應用程式。 建立 VM 之後，請注意 Azure CLI 所顯示的 `publicIpAddress`。 您可以使用此位址在網頁瀏覽器中存取您的網站。
 
-若要讓 Web 流量安全到達您的 VM，請使用 [az vm open-port](/cli/azure/vm#az_vm_open_port) 從網際網路開啟通訊埠 443：
+若要讓 Web 流量安全到達您的 VM，請使用 [az vm open-port](/cli/azure/vm) 從網際網路開啟通訊埠 443：
 
 ```azurecli-interactive 
 az vm open-port \

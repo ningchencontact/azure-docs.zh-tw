@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 01e2b1608d55d7852db947181482d34d6d8010d2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: db4e1b8705b879fd5716763869462bafdf1f905c
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215040"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495202"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>管理與 Azure 資源管理員相關聯的個人資料
 
 若要避免洩漏敏感資訊，請刪除任何您可能已提供在部署、資源群組或標籤中的個人資訊。 Azure Resource Manager 提供的作業可讓您管理可能已提供在部署、資源群組或標籤中的個人資料。
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="delete-personal-data-in-deployment-history"></a>刪除部署記錄中的個人資料
 

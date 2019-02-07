@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/10/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: fb0a2160991b3fd51b69822f3e3167b929581e50
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 47a4b3bc1e71c9dacc53ca3ff507768d4a0f20e9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352337"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510573"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>教學課程：使用 JavaScript SDK 建置 Node.js Web 應用程式來管理 Azure Cosmos DB 中的 SQL API 帳戶 
 
@@ -115,7 +115,7 @@ ms.locfileid: "54352337"
 
 3. 將下列程式碼複製到 **taskDao.js** 檔案：
 
-   ```nodejs
+   ```javascript
    // @ts-check
    const CosmosClient = require("@azure/cosmos").CosmosClient;
    const debug = require("debug")("todo:taskDao");
@@ -195,7 +195,7 @@ ms.locfileid: "54352337"
 
 2. 在 **tasklist.js**中加入以下程式碼。 此程式碼會載入供 **tasklist.js** 使用的 CosmosClient 和 async 模組。 此程式碼也會定義 **TaskList** 類別，此類別會傳遞作為我們稍早定義的 **TaskDao** 物件執行個體：
    
-   ```nodejs
+   ```javascript
    const TaskDao = require("../models/TaskDao");
 
    class TaskList {
@@ -256,7 +256,7 @@ ms.locfileid: "54352337"
 
 2. 將下列程式碼新增至 **config.js** 檔案。 此程式碼會定義組態設定和應用程式所需的值。
    
-   ```nodejs
+   ```javascript
    const config = {};
 
    config.host = process.env.HOST || "[the endpoint URI of your Azure Cosmos DB account]";
@@ -285,7 +285,7 @@ ms.locfileid: "54352337"
 
 2. 將下列程式碼新增至 **app.js** 檔案。 此程式碼會定義要使用的組態檔，並將值載入您在後續章節將用到的某些變數中。 
    
-   ```nodejs
+   ```javascript
    const CosmosClient = require("@azure/cosmos").CosmosClient;
    const config = require("./config");
    const TaskList = require("./routes/tasklist");

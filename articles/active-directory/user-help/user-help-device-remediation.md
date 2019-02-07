@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 97d35eb3442b63736b40d51dda57b872813293ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 668d69921fd2001cd52bc864e5ee272d179a7bbc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164056"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770464"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>「您無法從這裡完成」錯誤訊息的可能原因
 存取貴組織的內部 Web 應用程式或服務時收到錯誤訊息，指出：**您無法從這裡完成**。 此訊息表示貴組織已讓原則就位，防止您的裝置存取貴組織的資源。 雖然最終您可能還是需要連絡技術服務人員來修正此問題，但是以下是您可以先嘗試的一些動作。
@@ -68,4 +68,4 @@ ms.locfileid: "55164056"
 ## <a name="next-steps"></a>後續步驟
 - [什麼是 MyApps 入口網站？](active-directory-saas-access-panel-introduction.md)
 
-- [使用您的電話而不是您的密碼登入](microsoft-authenticator-app-phone-signin-faq.md)
+- [使用您的電話而不是您的密碼登入](user-help-auth-app-sign-in.md)

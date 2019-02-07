@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 67523641ff9650a5b35a142147a2f69adcfb3b1c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 744344c9427604f46c3f428d8dfcd279d8f2ffba
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077296"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486329"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health 常見問題集
 本文會回答有關 Azure Active Directory (Azure AD) Connect Health 的常見問題 (FAQ)。 這些常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -67,7 +67,7 @@ ms.locfileid: "55077296"
 | 角色 | 特性 | 德國雲端中支援 |
 | ------ | --------------- | --- |
 | 適用於同步處理的 Connect Health | 監視/見解/警示/分析 | 否 |
-|  | 同步處理錯誤報告 | 是 |
+|  | 同步處理錯誤報告 | yes |
 | 適用於 ADFS 的 Connect Health | 監視/見解/警示/分析 | 否 |
 | 適用於 ADDS 的 Connect Health | 監視/見解/警示/分析 | 否 |
 

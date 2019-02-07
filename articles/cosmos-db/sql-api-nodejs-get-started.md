@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 9ee01885d9c292a7f9513ebc1f5121ca8c010f68
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 9c0255382e2cfe09683931408d25ffb3f60419d1
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095816"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508890"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教學課程：使用 JavaScript SDK 建置 Node.js 主控台應用程式，以管理 Azure Cosmos DB SQL API 資料
 
@@ -85,7 +85,7 @@ ms.locfileid: "55095816"
 
    ![從 Azure 入口網站取得金鑰的螢幕擷取畫面][keys]
 
-   ```nodejs
+   ```javascript
    // ADD THIS PART TO YOUR CODE
    var config = {}
 
@@ -95,7 +95,7 @@ ms.locfileid: "55095816"
 
 1. 在您設定 ```config.endpoint``` 和 ```config.primaryKey``` 屬性的位置下面，複製 ```database```、```container``` 和 ```items``` 資料並貼到您的 ```config``` 物件。 如果您已有想要儲存於資料庫中的資料，您可以使用 Azure Cosmos DB 中的資料移轉工具，而無須在此處定義資料。
 
-   ```nodejs
+   ```javascript
    var config = {}
 
    config.endpoint = "~your Azure Cosmos DB account endpoint uri here~";
@@ -171,7 +171,7 @@ ms.locfileid: "55095816"
 
 1. 最後，匯出您的 ```config``` 物件，如此就可以在 ```app.js``` 檔案中參考它。
 
-   ```nodejs
+   ```javascript
         },
         "isRegistered": false
        }
@@ -185,7 +185,7 @@ ms.locfileid: "55095816"
 
 1. 在文字編輯器中開啟您的空白 ```app.js``` 檔案。 複製並貼上以下的程式碼，以匯入 ```@azure/cosmos``` 模組和新建的 ```config``` 模組。
 
-   ```nodejs
+   ```javascript
    // ADD THIS PART TO YOUR CODE
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
@@ -195,7 +195,7 @@ ms.locfileid: "55095816"
 
 1. 複製並貼上以下的程式碼，以使用先前儲存的 ```config.endpoint``` 和 ```config.primaryKey``` 來建立新的 CosmosClient。
 
-   ```nodejs
+   ```javascript
    const url = require('url');
 
    // ADD THIS PART TO YOUR CODE
@@ -220,7 +220,7 @@ ms.locfileid: "55095816"
 
 1. 複製並貼上下列程式碼，以設定資料庫識別碼和容器識別碼。 這些識別碼可讓 Azure Cosmos DB 用戶端尋找正確的資料庫和容器。
 
-   ```nodejs
+   ```javascript
    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
 
    // ADD THIS PART TO YOUR CODE
@@ -234,7 +234,7 @@ ms.locfileid: "55095816"
 
 2. 複製 **createDatabase** 和 **readDatabase** 方法，並將其貼到 app.js 檔案中的 ```databaseId``` 和 ```containerId``` 定義下方。 **createDatabase** 函式會以識別碼 ```FamilyDatabase``` 建立新的資料庫；如果該識別碼尚不存在，則會從 ```config``` 物件指定。 **readDatabase** 函式會讀取資料庫的定義，以確定該資料庫確實存在。
 
-   ```nodejs
+   ```javascript
    /**
     * Create the database if it does not exist
     */
@@ -254,7 +254,7 @@ ms.locfileid: "55095816"
 
 3. 複製下方的程式碼，並將其貼到您設定 **createDatabase** 和 **readDatabase** 函式的位置，以新增會列印結束訊息的協助程式函式 **exit**。 
 
-   ```nodejs
+   ```javascript
    // ADD THIS PART TO YOUR CODE
    function exit(message) {
       console.log(message);
@@ -267,7 +267,7 @@ ms.locfileid: "55095816"
 
 4. 複製下方的程式碼，並將其貼到您設定 **exit** 函式的位置，以呼叫 **createDatabase** 和 **readDatabase** 函式。
 
-   ```nodejs
+   ```javascript
    createDatabase()
      .then(() => readDatabase())
      .then(() => { exit(`Completed successfully`); })
@@ -276,7 +276,7 @@ ms.locfileid: "55095816"
 
    此時，您在 ```app.js``` 中的程式碼現在看起來應如下列程式碼：
 
-   ```nodejs
+   ```javascript
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
    const config = require('./config');
@@ -343,7 +343,7 @@ ms.locfileid: "55095816"
 
 1. 將 **createContainer** 和 **readContainer** 函式複製並貼到 app.js 檔案中的 **readDatabase** 函式下方。 **createContainer** 函式會以 ```containerId``` 建立新的容器；如果該識別碼尚不存在，則會從 ```config``` 物件指定。 **readContainer** 函式會讀取容器定義以確認容器是否存在。
 
-   ```nodejs
+   ```javascript
    /**
    * Create the container if it does not exist
    */
@@ -363,7 +363,7 @@ ms.locfileid: "55095816"
 
 1. 複製下列程式碼，並將其貼到 **readDatabase** 的呼叫下方，以執行 **createContainer** 和 **readContainer** 函式。
 
-   ```nodejs
+   ```javascript
    createDatabase()
      .then(() => readDatabase())
 
@@ -378,7 +378,7 @@ ms.locfileid: "55095816"
 
    此時，您在 ```app.js``` 中的程式碼應會顯示如下：
 
-   ```nodejs
+   ```javascript
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
    const config = require('./config');
@@ -458,7 +458,7 @@ ms.locfileid: "55095816"
 
 1. 將 **createFamilyItem** 函式複製並貼到 **readContainer** 函式下方。 **createFamilyItem** 函式會建立項目，其中包含儲存在 ```config``` 物件中的 JSON 資料。 在建立項目之前，我們會先確認沒有使用相同識別碼的項目存在。
 
-   ```nodejs
+   ```javascript
    /**
    * Create family item if it does not exist
    */
@@ -482,7 +482,7 @@ ms.locfileid: "55095816"
 
 1. 將下列程式碼複製並貼到 **readContainer** 的呼叫下方，以執行 **createFamilyItem** 函式。
 
-   ```nodejs
+   ```javascript
    createDatabase()
      .then(() => readDatabase())
      .then(() => createContainer())
@@ -509,7 +509,7 @@ Azure Cosmos DB 支援對儲存於每個容器中的 JSON 文件進行豐富查�
 
 1. 將 **queryContainer** 函式複製並貼到 app.js 檔案中的 **createFamilyItem** 函式下方。 Azure Cosmos DB 支援類 SQL 查詢，如下所示。
 
-   ```nodejs
+   ```javascript
    /**
    * Query the container using SQL
     */
@@ -537,7 +537,7 @@ Azure Cosmos DB 支援對儲存於每個容器中的 JSON 文件進行豐富查�
 
 1. 將下列程式碼複製並貼到 **createFamilyItem** 的呼叫下方，以執行 **queryContainer** 函式。
 
-   ```nodejs
+   ```javascript
    createDatabase()
      .then(() => readDatabase())
      .then(() => createContainer())
@@ -565,7 +565,7 @@ Azure Cosmos DB 支援取代項目的內容。
 
 1. 將 **replaceFamilyItem** 函式複製並貼到 app.js 檔案中的 **queryContainer** 函式下方。 請注意，我們已將子系的屬性「等級」從先前的值 5 變更為 6。
 
-   ```nodejs
+   ```javascript
    // ADD THIS PART TO YOUR CODE
    /**
    * Replace the item by ID.
@@ -580,7 +580,7 @@ Azure Cosmos DB 支援取代項目的內容。
 
 1. 將下列程式碼複製並貼到 **queryContainer** 的呼叫下方，以執行 **replaceFamilyItem** 函式。 此外，再次將此程式碼加入至 **queryContainer** 呼叫，以確認已成功變更項目。
 
-   ```nodejs
+   ```javascript
    createDatabase()
      .then(() => readDatabase())
      .then(() => createContainer())
@@ -611,7 +611,7 @@ Azure Cosmos DB 支援刪除 JSON 項目。
 
 1. 將 **deleteFamilyItem** 函式複製並貼到 **replaceFamilyItem** 函式下方。
 
-   ```nodejs
+   ```javascript
   /**
   * Delete the item by ID.
   */
@@ -623,7 +623,7 @@ Azure Cosmos DB 支援刪除 JSON 項目。
 
 1. 將下列程式碼複製並貼到對第二個 **queryContainer** 的呼叫下方，以執行 **deleteFamilyItem** 函式。
 
-   ```nodejs
+   ```javascript
    createDatabase()
       .then(() => readDatabase())
       .then(() => createContainer())
@@ -656,7 +656,7 @@ Azure Cosmos DB 支援刪除 JSON 項目。
 
 1. 將 **cleanup** 函式複製並貼到 **deleteFamilyItem** 函式下方，以移除資料庫及其所有的子系資源。
 
-   ```nodejs
+   ```javascript
    /**
    * Cleanup the database and container on completion
    */
@@ -667,7 +667,7 @@ Azure Cosmos DB 支援刪除 JSON 項目。
 
 1. 將下列程式碼複製並貼到 **deleteFamilyItem** 的呼叫下方，以執行 **cleanup** 函式。
 
-   ```nodejs
+   ```javascript
    createDatabase()
       .then(() => readDatabase())
       .then(() => createContainer())
@@ -691,7 +691,7 @@ Azure Cosmos DB 支援刪除 JSON 項目。
 
 整體來看，您的程式碼應會顯示如下：
 
-```nodejs
+```javascript
 const CosmosClient = require('@azure/cosmos').CosmosClient;
 
 const config = require('./config');

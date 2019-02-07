@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 191afec8733258519370d11942c0f6d18da6b603
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6ee75b0ee465e330d78b166b0da12232b7915ae7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180393"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766056"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>將安全性資訊設定為使用驗證器應用程式 (預覽)
 
@@ -28,7 +28,7 @@ ms.locfileid: "55180393"
 
 根據貴組織的設定，系統可能會在您登入時提示您設定 Microsoft Authenticator 應用程式。 否則，若要開始在安全性資訊中設定 Microsoft Authenticator 應用程式，請遵循[管理安全性資訊](security-info-manage-settings.md)中的步驟。
 
-若要下載並深入了解 Microsoft Authenticator 應用程式，請參閱[開始使用 Microsoft Authenticator 應用程式](microsoft-authenticator-app-how-to.md)。
+若要下載並深入了解 Microsoft Authenticator 應用程式，請參閱[開始使用 Microsoft Authenticator 應用程式](user-help-auth-app-download-install.md)。
 
 >[!Note]
 >如果您不想使用 Microsoft Authenticator 應用程式，可以在設定期間選擇不同的應用程式。 本文使用 Microsoft Authenticator 應用程式。 如果您沒有看到驗證器應用程式選項，很可能您的組織不允許您使用驗證器應用程式進行驗證。 如果發生這種情況，您將必須選擇其他方法，或連絡您的系統管理員以取得更多協助。

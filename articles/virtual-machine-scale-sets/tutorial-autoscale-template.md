@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 261af3524b36d3742c68ef147bfa648bfe95034c
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5e02c88d894c01752965af77861d3e11e1bb101d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887763"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749188"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>教學課程：使用 Azure 範本自動調整虛擬機器擴展集
 當建立擴展集時，您會定義您想要執行的 VM 執行個體數目。 當您的應用程式需求變更時，您可以自動增加或減少 VM 執行個體數目。 自動調整的能力可讓您在整個應用程式的生命週期中，跟上客戶的需求或對應用程式效能變更做出回應。 在本教學課程中，您將了解如何：
@@ -144,13 +144,13 @@ ms.locfileid: "54887763"
 ## <a name="create-an-autoscaling-scale-set"></a>建立自動調整擴展集
 我們將使用範例範本來建立擴展集，並套用自動調整規則。 您可以[檢閱完整範本](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json)，或[檢視範本的 *Microsoft.insights/autoscalesettings* 資源提供者區段](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220)。
 
-首先，使用 [az group create](/cli/azure/group#az_group_create) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+首先，使用 [az group create](/cli/azure/group) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-現在，請使用 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) 建立虛擬機器擴展集。 出現提示時，請提供您自己的使用者名稱 (例如 *azureuser*)，以及作為每個 VM 執行個體之認證的密碼：
+現在，請使用 [az group deployment create](/cli/azure/group/deployment) 建立虛擬機器擴展集。 出現提示時，請提供您自己的使用者名稱 (例如 *azureuser*)，以及作為每個 VM 執行個體之認證的密碼：
 
 ```azurecli-interactive
 az group deployment create \
@@ -198,7 +198,7 @@ sudo stress --cpu 10 --timeout 420 &
 
 若要確認 **stress** 產生了 CPU 負載，請使用 **top** 公用程式檢查作用中的系統負載：
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
@@ -264,7 +264,7 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
 
 
 ## <a name="clean-up-resources"></a>清除資源
-若要移除您的擴展集與其他資源，請使用 [az group delete](/cli/azure/group#az_group_delete) 刪除資源群組及其所有資源：
+若要移除您的擴展集與其他資源，請使用 [az group delete](/cli/azure/group) 刪除資源群組及其所有資源：
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

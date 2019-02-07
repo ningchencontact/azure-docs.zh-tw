@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: b494da1c87feafd1b9db8485d16a9dcf5b999e3d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 265e99d18d8660f149d33b1b4a37a7d32eae794d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101800"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755190"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>教學課程：將 Linux Service Fabric 叢集部署到 Azure 虛擬網路
 
@@ -137,7 +137,7 @@ Azure 金鑰保存庫可用來管理 Azure 中 Service Fabric 叢集的憑證。
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>使用現有的憑證建立叢集
 
-下列指令碼會使用 [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) 命令和範本，部署以現有憑證保護的新叢集。 此命令也會在 Azure 中建立新的金鑰保存庫，並上傳您的憑證。
+下列指令碼會使用 [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) 命令和範本，部署以現有憑證保護的新叢集。 此命令也會在 Azure 中建立新的金鑰保存庫，並上傳您的憑證。
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -163,7 +163,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>使用新的自我簽署憑證建立叢集
 
-下列指令碼會使用 [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) 命令和範本，在 Azure 中部署新的叢集。 此命令也會在 Azure 中建立新的金鑰保存庫、將新的自我簽署憑證新增至金鑰保存庫，並將憑證檔案下載至本機。
+下列指令碼會使用 [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) 命令和範本，在 Azure 中部署新的叢集。 此命令也會在 Azure 中建立新的金鑰保存庫、將新的自我簽署憑證新增至金鑰保存庫，並將憑證檔案下載至本機。
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

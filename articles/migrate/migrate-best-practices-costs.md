@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b8ff1ae2f4c07dc59bd1ffb631378817493b96b0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995035"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700633"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>針對移轉到 Azure 之工作負載評估成本及調整大小的最佳做法
 
@@ -154,7 +154,7 @@ Azure 提供數種儲存體帳戶類型與效能層級。
 
 - [查看](https://azure.microsoft.com/pricing/hybrid-benefit/) Hybrid Benefit 節費計算機。
 - [深入了解](https://azure.microsoft.com/pricing/hybrid-benefit/)適用於 Windows Server 的 Hybrid Benefit。
-- [檢閱](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) SQL Server Azure VM 的定價指導方針。
+- [檢閱](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) SQL Server Azure VM 的定價指導方針。
 
 
 ## <a name="best-practice-use-reserved-vm-instances"></a>最佳做法：使用保留的 VM 執行個體
@@ -174,7 +174,7 @@ Azure 提供數種儲存體帳戶類型與效能層級。
 **深入了解：**
 - [了解](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) Azure 保留。
 - [閱讀](https://azure.microsoft.com/pricing/reserved-vm-instances/#faq)保留執行個體常見問題集。
-- [取得 SQL Server Azure VM 定價指導方針](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol)。
+- [取得 SQL Server Azure VM 定價指導方針](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance)。
 
 
 ## <a name="best-practice-aggregate-cloud-spend-across-subscriptions"></a>最佳做法：彙總跨訂用帳戶的雲端費用

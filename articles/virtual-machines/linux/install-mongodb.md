@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 8a9b14423566e631ddb41b42048104c8ee085486
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: cc786b97c38c115fb288a5b9a0f73f566777e7df
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886691"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734414"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>如何在 Linux VM 上安裝及設定 MongoDB
 
@@ -39,7 +39,7 @@ MongoDB [提供 Linux 散發版本的安裝指示](https://docs.mongodb.com/manu
 az group create --name myResourceGroup --location eastus
 ```
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM。 下列範例會建立名為 *myVM* 的 VM，其中具有使用 SSH 公開金鑰驗證、名為 *azureuser* 的使用者
+使用 [az vm create](/cli/azure/vm) 建立 VM。 下列範例會建立名為 *myVM* 的 VM，其中具有使用 SSH 公開金鑰驗證、名為 *azureuser* 的使用者
 
 ```azurecli
 az vm create \
@@ -127,7 +127,7 @@ sudo chkconfig mongod on
 az group create --name myResourceGroup --location eastus
 ```
 
-接著，使用 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) 來佈建 MongoDB 範本。 出現提示時，針對 newStorageAccountName、dnsNameForPublicIP和管理員使用者名稱與密碼輸入您自己唯一的值：
+接著，使用 [az group deployment create](/cli/azure/group/deployment) 來佈建 MongoDB 範本。 出現提示時，針對 newStorageAccountName、dnsNameForPublicIP和管理員使用者名稱與密碼輸入您自己唯一的值：
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -178,7 +178,7 @@ test
 az group create --name myResourceGroup --location eastus
 ```
 
-接著，使用 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) 來佈建 MongoDB 範本。 在需要的地方定義您自己的資源名稱與大小，例如 mongoAdminUsername、sizeOfDataDiskInGB 和 configNodeVmSize：
+接著，使用 [az group deployment create](/cli/azure/group/deployment) 來佈建 MongoDB 範本。 在需要的地方定義您自己的資源名稱與大小，例如 mongoAdminUsername、sizeOfDataDiskInGB 和 configNodeVmSize：
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -200,7 +200,7 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-這項部署可能需要超過一小時的時間來部署及設定所有 VM 執行個體。 `--no-wait` 旗標是用在上述命令的結尾，可在 Azure 平台接受範本部署之後，將控制權交回給命令提示字元。 您可以接著使用 [az group deployment show](/cli/azure/group/deployment#az_group_deployment_show) 來檢視部署狀態。 下列範例會檢視 myResourceGroup 資源群組中 myMongoDBCluster 部署的狀態：
+這項部署可能需要超過一小時的時間來部署及設定所有 VM 執行個體。 `--no-wait` 旗標是用在上述命令的結尾，可在 Azure 平台接受範本部署之後，將控制權交回給命令提示字元。 您可以接著使用 [az group deployment show](/cli/azure/group/deployment) 來檢視部署狀態。 下列範例會檢視 myResourceGroup 資源群組中 myMongoDBCluster 部署的狀態：
 
 ```azurecli
 az group deployment show \
