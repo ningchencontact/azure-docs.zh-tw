@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d13f97ff7ec25fd638b92dc1c057afcaeecc2bf9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6986a5c40b51300b631f3fdce6c3a88b43fb5b11
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434064"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730878"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>使用 Node.js 從 Azure 事件中樞接收事件
 
@@ -49,7 +49,7 @@ Azure 事件中樞是可高度擴充的事件管理系統，每秒可以處理�
 ## <a name="install-the-eventprocessorhost"></a>安裝 EventProcessorHost
 安裝適用於事件中樞模組的 EventProcessorHost。 
 
-```nodejs
+```shell
 npm install @azure/event-processor-host
 ```
 
@@ -61,20 +61,20 @@ npm install @azure/event-processor-host
 3. 設定您的事件中樞連接字串、事件中樞名稱和儲存體端點。 您可以在 Azure 入口網站的 [事件中樞] 頁面上，從 **RootManageSharedAccessKey** 下方的 **Connection string-primary** 索引鍵中，複製事件中樞的連接字串。 如需詳細步驟，請參閱[取得連接字串](event-hubs-create.md#create-an-event-hubs-namespace)。
 4. 在 Azure CLI 上，瀏覽至 [處理器] 資料夾路徑。 執行下列命令來安裝節點套件並建置專案：
 
-    ```nodejs
+    ```shell
     npm i
     npm run build
     ```
 5. 藉由執行下列命令，使用您的事件處理器主機來接收事件：
 
-    ```nodejs
+    ```shell
     node dist/examples/singleEph.js
     ```
 
 ## <a name="review-the-sample-code"></a>檢閱範例程式碼 
 以下是使用 Node.js 從事件中樞接收事件的範例程式碼。 您可以手動建立 sampleEph.js 檔案，並執行它以從事件中樞接收事件。 
 
-  ```nodejs
+  ```javascript
   const { EventProcessorHost, delay } = require("@azure/event-processor-host");
 
   const path = process.env.EVENTHUB_NAME;
@@ -127,7 +127,7 @@ npm install @azure/event-processor-host
 
 請記得先設定您的環境變數，然後再執行指令碼。 您可以在命令列中設定此項 (如下列範例所示)，或使用 [dotenv 套件](https://www.npmjs.com/package/dotenv#dotenv) \(英文\)。 
 
-```
+```shell
 // For windows
 set EVENTHUB_CONNECTION_STRING="<your-connection-string>"
 set EVENTHUB_NAME="<your-event-hub-name>"

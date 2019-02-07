@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000014"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732153"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>如何針對「無法連線至函式執行階段」的情形進行疑難排解
 
@@ -71,7 +71,7 @@ ms.locfileid: "54000014"
 
 ## <a name="storage-account-credentials-invalid"></a>儲存體帳戶的認證無效
 
-如果您重新產生儲存體金鑰，則必須更新上述儲存體帳戶連接字串。 [在此深入了解儲存體金鑰管理](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
+如果您重新產生儲存體金鑰，則必須更新上述儲存體帳戶連接字串。 [在此深入了解儲存體金鑰管理](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
 
 ## <a name="storage-account-inaccessible"></a>無法存取儲存體帳戶
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: cb5ad6f351cdeadb999b1a62c225f23937c5b92e
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 5d7e21661d7ee905ff77a4856544d358924cd9ea
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413816"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700871"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>在 Azure Linux VM 上實作 Oracle Golden Gate 
 
@@ -51,7 +51,7 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 
 ### <a name="sign-in-to-azure"></a>登入 Azure 
 
-使用 [az login](/cli/azure/reference-index#az_login) 命令登入您的 Azure 訂用帳戶。 然後，遵循螢幕上的指示來進行。
+使用 [az login](/cli/azure/reference-index) 命令登入您的 Azure 訂用帳戶。 然後，遵循螢幕上的指示來進行。
 
 ```azurecli
 az login
@@ -81,7 +81,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>建立虛擬機器
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 命令來建立 VM。 
+使用 [az vm create](/cli/azure/vm) 命令來建立 VM。 
 
 下列範例會建立兩個 VM，名為 `myVM1` 和 `myVM2`。 如果預設的金鑰位置還沒有 SSH 金鑰，請建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: efe7b6722a9cfa24ea86130a13a0599115e89821
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451660"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729399"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>建立 Azure 匯入/匯出服務的匯入作業
 
@@ -61,14 +61,14 @@ ms.locfileid: "55451660"
 
  請遵循下列步驟來取得寄送位置︰
 
--   識別儲存體帳戶位置的名稱。 您可以在 Azure 入口網站中儲存體帳戶「儀表板」上的 [位置] 欄位下找到此值，或使用服務管理 API 作業[取得儲存體帳戶屬性](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties)來查詢此值。
+-   識別儲存體帳戶位置的名稱。 您可以在 Azure 入口網站中儲存體帳戶「儀表板」上的 [位置] 欄位下找到此值，或使用服務管理 API 作業[取得儲存體帳戶屬性](/rest/api/storagerp/storageaccounts)來查詢此值。
 
 -   藉由呼叫 `Get Location` 作業來擷取可用來處理此儲存體帳戶的位置。
 
 -   如果位置的 `AlternateLocations` 屬性包含位置本身，則可以使用此位置。 否則，使用其中一個替代位置再次呼叫 `Get Location` 作業。 原始位置可能暫時關閉進行維護。
 
 ## <a name="creating-the-import-job"></a>建立匯入作業
-若要建立匯入作業，請呼叫 [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 作業。 您必須提供下列資訊：
+若要建立匯入作業，請呼叫 [Put Job](/rest/api/storageimportexport/jobs) 作業。 您必須提供下列資訊：
 
 -   作業的名稱。
 

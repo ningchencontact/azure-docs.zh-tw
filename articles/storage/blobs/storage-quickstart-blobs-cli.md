@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: b2d3d5bb0081c51d3f89bc4cb8d2c0f23d40f4a7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1819d1dba777d97590c0b02a89cde3b46af78fff
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473991"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749230"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>快速入門：使用 Azure CLI 上傳、下載及列出 Blob
 
@@ -46,7 +46,7 @@ Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 儲存在 Blob �
 首先，建立要上傳至 blob 的檔案。
 如果您是使用 Azure Cloud Shell，請使用下列命令來建立檔案：`vi helloworld` 當檔案開啟時，請按下**插入**，輸入 "Hello world"，然後按 **Esc**，並輸入 `:x`，然後按 **Enter**。
 
-在此範例中，您要將 Blob 上傳到使用 [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) 命令最後一個步驟所建立的容器。
+在此範例中，您要將 Blob 上傳到使用 [az storage blob upload](/cli/azure/storage/blob) 命令最後一個步驟所建立的容器。
 
 ```azurecli-interactive
 az storage blob upload \
@@ -66,11 +66,11 @@ az storage blob upload \
 
 如果 Blob 不存在，此作業會建立 Blob，若已存在，則會加以覆寫。 請上傳您所需的檔案數量，再繼續進行。
 
-若要同時上傳多個檔案，您可以使用 [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) 命令。
+若要同時上傳多個檔案，您可以使用 [az storage blob upload-batch](/cli/azure/storage/blob) 命令。
 
 ## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-使用 [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) 命令列出容器中的 Blob。
+使用 [az storage blob list](/cli/azure/storage/blob) 命令列出容器中的 Blob。
 
 ```azurecli-interactive
 az storage blob list \
@@ -80,7 +80,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>下載 Blob
 
-使用 [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) 命令下載稍早所上傳的 Blob。
+使用 [az storage blob download](/cli/azure/storage/blob) 命令下載稍早所上傳的 Blob。
 
 ```azurecli-interactive
 az storage blob download \
@@ -105,7 +105,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不再需要資源群組中的任何資源 (包括在本快速入門中所建立的儲存體帳戶)，請使用 [az group delete](/cli/azure/group#az_group_delete) 命令刪除資源群組。
+如果您不再需要資源群組中的任何資源 (包括在本快速入門中所建立的儲存體帳戶)，請使用 [az group delete](/cli/azure/group) 命令刪除資源群組。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

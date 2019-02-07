@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 441821ae422fb4cbddbca5b4c30d68484ce6bc1f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 55632acf516198b5ad0b6430480836dcc62fd5a5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186972"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755371"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>我的應用程式清單中有未預期的應用程式
 
@@ -63,15 +63,15 @@ ms.locfileid: "55186972"
 
 4.  當您使用[應用程式登錄](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)建立自訂開發的應用程式來新增應用程式註冊時
 
-5.  當您使用 [V2.0 應用程式註冊入口網站](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal)建立自訂開發的應用程式來新增應用程式註冊時
+5.  當您使用 [V2.0 應用程式註冊入口網站](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)建立自訂開發的應用程式來新增應用程式註冊時
 
 6.  當您新增您使用 Visual Studio 的 [ASP.net 驗證方法](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)或[已連線服務](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)所開發的應用程式時
 
 7.  當您使用 [Azure AD PowerShell 模組](/powershell/azure/install-adv2?view=azureadps-2.0)建立服務主體物件時
 
-8.  當您以系統管理員身分[同意應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)使用您租用戶中的資料時
+8.  當您以系統管理員身分[同意應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)使用您租用戶中的資料時
 
-9.  當[使用者同意應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)使用您租用戶中的資料時
+9.  當[使用者同意應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)使用您租用戶中的資料時
 
 10. 當您啟用的某些服務會在您的租用戶中儲存資料時。 其中一個範例是「密碼重設」，它會模擬成服務主體，安全地儲存您的密碼重設原則。
 
@@ -107,7 +107,7 @@ ms.locfileid: "55186972"
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>我想要停用任何應用程式的所有未來使用者同意作業
 
-停用整個目錄的使用者同意會阻止使用者同意任何應用程式。 系統管理員仍然可以代表使用者行使同意。 若要進一步了解應用程式同意，以及您同意與否的可能原因，請參閱[了解使用者和系統管理員同意](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)。
+停用整個目錄的使用者同意會阻止使用者同意任何應用程式。 系統管理員仍然可以代表使用者行使同意。 若要進一步了解應用程式同意，以及您同意與否的可能原因，請參閱[了解使用者和系統管理員同意](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)。
 
 若要**停用整個目錄中的所有未來使用者同意作業**，請遵循下列步驟：
 

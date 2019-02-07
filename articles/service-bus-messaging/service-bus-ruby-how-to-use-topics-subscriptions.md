@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 4f8b978abbcc4ed0f40655730e672fba064701f3
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 486e891ae055bdd6b6c30aeff63744acb3b0ef04
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854916"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734533"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>如何透過 Ruby 使用服務匯流排主題和訂用帳戶
  
@@ -162,7 +162,7 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 了解基本的服務匯流排主題之後，請參考下列連結以取得更多資訊。
 
 * 請參閱[佇列、主題和訂用帳戶](service-bus-queues-topics-subscriptions.md)。
-* [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter) 的 API 參考資料。
+* [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 的 API 參考資料。
 * 請造訪 GitHub 上的 [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) 儲存機制。
 
 [Azure portal]: https://portal.azure.com

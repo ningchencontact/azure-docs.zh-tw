@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: c8aadcf7b37e28035e936a9f722ee832127e928d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8e0b0572f0d728474c17b41a0f92948451f4ef3f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038580"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746943"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>使用範本來建立 Azure Cache for Redis
 在本主題中，您將學習如何建立 Azure Resource Manager 範本，以部署 Azure Cache for Redis。 快取可以搭配現有的儲存體帳戶以保留診斷資料。 您將學習如何定義要部署哪些資源，以及如何定義執行部署時所指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。
@@ -33,7 +33,7 @@ ms.locfileid: "54038580"
 > [!NOTE]
 > 新 [Premium 層](cache-premium-tier-intro.md) 中有可用的 Resource Manager 範本。 
 > 
-> * [建立具有叢集的進階 Azure Cache for Redis](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
+> * [建立具有叢集的進階 Azure Cache for Redis](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [建立具有資料持續性的進階 Azure Cache for Redis](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
 > * [建立具有 VNet 和選擇性叢集的進階 Azure Cache for Redis](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 > 

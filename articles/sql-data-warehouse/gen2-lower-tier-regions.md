@@ -9,12 +9,12 @@ ms.subservice: design
 ms.date: 12/03/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ec84797486b662261fd5998bebdfa34c9dff5da
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 22993395d60df23533b67ec48d0ea7f979d73e22
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466297"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692457"
 ---
 # <a name="azure-sql-data-warehouse-gen2-support-for-lower-compute-tiers"></a>Azure SQL 資料倉儲 Gen2 支援較低的計算層級
 
@@ -46,6 +46,7 @@ Microsoft 透過卸除下一代資料倉儲進入點，為想要評估一個安�
 - 日本東部
 - 印度中部
 - 澳洲東部
+- 澳大利亞東南部
 - 加拿大中部
 - 日本西部 
 - 加拿大中部

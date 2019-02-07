@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 12/23/2018
 ms.author: zhshang
-ms.openlocfilehash: 45ceebef85254ff030d237f1af13f0750aaafeba
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 6b3ddf7d8069e689231b9dcb6f0f074e84052511
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812637"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663259"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service 常見問題集
 
@@ -20,7 +20,7 @@ ms.locfileid: "53812637"
 是。
 如需正式運作公告，請參閱 [Azure SignalR Service 現在已正式運作](https://azure.microsoft.com/en-us/blog/azure-signalr-service-now-generally-available/)。 
 
-[ASP.NET Core SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction) 受到完整支援。
+[ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) 受到完整支援。
 
 ASP.NET SignalR 的支援仍處於*公開預覽*階段。 以下是[程式碼範例](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom)。
 
@@ -37,7 +37,7 @@ ASP.NET SignalR 的支援仍處於*公開預覽*階段。 以下是[程式碼範
 可能的原因包括：
 - 沒有與 SignalR Service 連線的應用程式伺服器。 請檢查應用程式伺服器記錄中是否有可能的連線錯誤。 此案例在具有多個應用程式伺服器的高可用性設定中很少見。
 - SignalR Service 執行個體有連線問題。 這是暫時性的問題，會自動復原。
-如果問題持續超過一小時，請[在 GitHub 上提出問題](https://github.com/Azure/azure-signalr/issues/new)或[在 Azure 中建立支援要求](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request)。
+如果問題持續超過一小時，請[在 GitHub 上提出問題](https://github.com/Azure/azure-signalr/issues/new)或[在 Azure 中建立支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>有多個應用程式伺服器時，用戶端訊息會傳送至所有伺服器還是僅傳送至其中之一？
 
@@ -67,4 +67,4 @@ SignalR Service 會監視來自應用程式伺服器的活動訊號。
 
 Azure SignalR Service 依預設會提供 ASP.NET Core SignalR 所支援的三種傳輸。 您無法加以設定。 SignalR Service 會處理所有用戶端連線的連線與傳輸。
 
-您可以依照[這裡](https://docs.microsoft.com/en-us/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports)的說明設定用戶端傳輸。
+您可以依照[這裡](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports)的說明設定用戶端傳輸。

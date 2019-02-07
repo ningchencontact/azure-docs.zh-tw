@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: f12d73904b547da6531e24a899277eca7dd46660
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a19da45d849facc8fe7ed18d95862ab9e79eaace
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998756"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744376"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>教學課程：如何在 .NET 中搭配使用 Azure Key Vault 與 Azure Windows 虛擬機器
 
@@ -81,7 +81,7 @@ az group create --name "<YourResourceGroupName>" --location "West US"
 
 接下來，您會在上一個步驟中建立的資源群組中建立金鑰保存庫。 請提供下列資訊：
 
-* 金鑰保存庫名稱：此名稱必須是 3-24 個字元的字串，且只能包含 0-9、a-z、A-Z 和 -。
+* 金鑰保存庫名稱：名稱必須是 3-24 個字元的字串，且只能包含 0-9、a-z、A-Z 和 -。
 * 資源群組名稱。
 * 位置：**美國西部**。
 
@@ -189,7 +189,7 @@ using Newtonsoft.Json.Linq;
 
         static string FetchSecretValueFromKeyVault(string token)
         {
-            WebRequest kvRequest = WebRequest.Create("https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01");
+            WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
             kvRequest.Headers.Add("Authorization", "Bearer "+  token);
             WebResponse kvResponse = kvRequest.GetResponse();
             return ParseWebResponse(kvResponse, "value");

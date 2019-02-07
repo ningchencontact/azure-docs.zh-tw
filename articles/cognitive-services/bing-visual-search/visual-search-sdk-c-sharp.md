@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 5884c7df37ef4bd67f85ec614bdefe87522b6bc6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fe6ec751ed18af24e8a38d6993d8047b62eeed44
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171995"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769754"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing 圖像式搜尋 SDK 取得影像見解
 
@@ -26,7 +26,7 @@ ms.locfileid: "55171995"
 * 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 * 如果您使用 Linux/MacOS，則可以使用 [Mono](http://www.mono-project.com/)來執行此應用程式。
 * NuGet 圖像式搜尋套件。 
-    - 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下專案，然後從功能表選取 `Manage NuGet Packages`。 安裝 `Microsoft.Azure.CognitiveServices.Search.CustomSearch` 套件。 安裝 NuGet 套件也會安裝：
+    - 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下專案，然後從功能表選取 `Manage NuGet Packages`。 安裝 `Microsoft.Azure.CognitiveServices.Search.VisualSearch` 套件。 安裝 NuGet 套件也會安裝：
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
@@ -48,7 +48,7 @@ ms.locfileid: "55171995"
 2. 使用訂用帳戶金鑰具現化用戶端。
     
     ```csharp
-    var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+    var client = new VisualSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
     
 ## <a name="send-a-search-request"></a>傳送搜尋要求 
@@ -56,7 +56,7 @@ ms.locfileid: "55171995"
 1. 在影像中建立 `FileStream` (在此案例中為 `TestImages/image.jpg`)。 接著，使用用戶端透過 `client.Images.VisualSearchMethodAsync()` 傳送搜尋要求。 
     
     ```csharp
-     System.IO.FileStream stream = new FileStream(Path.Combine("TestImages", "image.jpg"), FileMode.Open;
+     System.IO.FileStream stream = new FileStream(Path.Combine("TestImages", "image.jpg"), FileMode.Open);
      // The knowledgeRequest parameter is not required if an image binary is passed in the request body
      var visualSearchResults = client.Images.VisualSearchMethodAsync(image: stream, knowledgeRequest: (string)null).Result;
     ```
@@ -77,13 +77,13 @@ ms.locfileid: "55171995"
     // List of tags
     if (visualSearchResults.Tags.Count > 0)
     {
-        var firstTagResult = visualSearchResults.Tags.First();
+        var firstTagResult = visualSearchResults.Tags[0];
         Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
     
         // List of actions in first tag
         if (firstTagResult.Actions.Count > 0)
         {
-            var firstActionResult = firstTagResult.Actions.First();
+            var firstActionResult = firstTagResult.Actions[0];
             Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
             Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
         }
@@ -91,6 +91,7 @@ ms.locfileid: "55171995"
         {
             Console.WriteLine("Couldn't find tag actions!");
         }
+    }
     ```
 
 ## <a name="next-steps"></a>後續步驟

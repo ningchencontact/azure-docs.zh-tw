@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 031085b3048d0ffc92dd5a35b4054903088b4858
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: c68b4bdffde5f987fe07d50d76fa83e7bdfa5235
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824331"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755033"
 ---
 # <a name="show-search-results-on-the-map"></a>在地圖上顯示搜尋結果
 
@@ -29,7 +29,7 @@ ms.locfileid: "51824331"
 
 在以上程式碼中，第一個程式碼區塊會建構地圖物件，並且將用戶端服務初始化。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
-第二個程式碼區塊會使用[服務模組](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1)中的 [getSearchFuzzy](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchfuzzy-string--searchgetsearchfuzzyoptionalparams-) 方法。 它可讓您透過[模糊搜尋 Rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) 執行自由格式文字搜尋，以搜尋景點。 模糊搜尋 API 可以處理任何模糊輸入組合。 然後，模糊搜尋服務的回應會透過 [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) 方法剖析成 GeoJSON 格式。 
+第二個程式碼區塊會使用[服務模組](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1)中的 [getSearchFuzzy](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchfuzzy-string--searchgetsearchfuzzyoptionalparams-) 方法。 它可讓您透過[模糊搜尋 Rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) 執行自由格式文字搜尋，以搜尋景點。 模糊搜尋 API 可以處理任何模糊輸入組合。 然後，模糊搜尋服務的回應會透過 [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest) 方法剖析成 GeoJSON 格式。 
 
 第三個程式碼區塊會使用 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 類別來建立資料來源物件，以及搜尋其結果。 [符號層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)會使用文字或圖示，將包裝在 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中的點式資料轉譯為地圖上的符號。  接著會建立符號圖層，而資料來源會新增至符號層，然後新增至地圖。
 

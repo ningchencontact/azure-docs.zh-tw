@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 9d0f814428a4d7bc57b4f0a01ff5adc658af1d91
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fc963987b45751aab33035a83b2b477129e9a756
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466980"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730895"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>在 Grafana 中監視 Azure 服務
 您現在可以從使用 [Azure 監視器資料來源外掛程式](https://grafana.com/plugins/grafana-azure-monitor-datasource)的 [Grafana](https://grafana.com/)，監視 Azure 服務和應用程式。 外掛程式會蒐集 Azure 監視器所收集的應用程式效能資料，包括各種記錄檔和計量。 然後，您就可以在 Grafana 儀表板上顯示此資料。
@@ -66,7 +66,7 @@ ms.locfileid: "54466980"
 
 3. 建立服務主體 - Grafana 使用 Azure Active Directory 服務主體連接到 Azure 監視器 API，並收集計量資料。 您必須建立或使用現有的服務主體來管理對 Azure 資源的存取。
     * 請參閱[這些指示](../../azure-resource-manager/resource-group-create-service-principal-portal.md)來建立服務主體。 複製並儲存您的租用戶識別碼 (目錄識別碼)、用戶端識別碼 (應用程式識別碼) 和用戶端祕密 (應用程式機碼值)。
-    * 請參閱[將應用程式指派至角色](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role)，以將「讀者」角色指派給要監視的訂用帳戶、資源組或資源上的 Azure Active Directory 應用程式。 
+    * 請參閱[將應用程式指派至角色](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)，以將「讀者」角色指派給要監視的訂用帳戶、資源組或資源上的 Azure Active Directory 應用程式。 
     Log Analytics API需要 [Log Analytics 讀者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader)，其中包含「讀者」角色的權限並加入到其中。
 
 4. 提供您想要使用的 API 的連線詳細資料。 您可以連接到所有或其中一部分。 

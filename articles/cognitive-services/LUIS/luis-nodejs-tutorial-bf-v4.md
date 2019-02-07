@@ -9,14 +9,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 292bcf5974f8c51f99a676786c66316e9cde0748
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8a24ffa4717244d8ce2ef507183cff06cbea5797
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215897"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492227"
 ---
 # <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>教學課程：Node.js 中使用 Bot Framework 4.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
 使用 Node.js，您可以建置與 Language Understanding (LUIS) 整合的聊天機器人。 此 Bot 會使用 HomeAutomation 應用程式來實作 Bot 解決方案。 此 Bot 是使用 [Web 應用程式 Bot](https://docs.microsoft.com/azure/bot-service/) 和 [Bot Framework 第 4 版](https://github.com/Microsoft/botbuilder-js)所建置的。
@@ -114,7 +114,7 @@ Bot 服務部署的一部分會以意圖和語句範例來建立新 LUIS 應用�
 
 6. 開啟 bot.js 檔案並尋找 `const results = await this.luisRecognizer.recognize(context);`。 此階段會將進入 Bot 的使用者語句傳送到 LUIS。
 
-    ```nodejs
+   ```javascript
     /**
      * Driver code that does one of the following:
      * 1. Display a welcome card upon startup
@@ -247,7 +247,7 @@ Bot 服務部署的一部分會以意圖和語句範例來建立新 LUIS 應用�
 
 1. 在檔案頂端，尋找**支援的 LUIS 意圖**區段，並為 HomeAutomation 意圖新增常數：
 
-    ```nodejs
+   ```javascript
     // Supported LUIS Intents
     const GREETING_INTENT = 'Greeting';
     const CANCEL_INTENT = 'Cancel';
@@ -261,7 +261,7 @@ Bot 服務部署的一部分會以意圖和語句範例來建立新 LUIS 應用�
 
 2. 尋找 **isTurnInterrupted**，這會接收語句的 LUIS 預測，並新增一行以將結果列印到主控台。
 
-    ```nodejs
+   ```javascript
     /**
      * Look at the LUIS results and determine if we need to handle
      * an interruptions due to a Help or Cancel intent
@@ -309,7 +309,7 @@ Bot 服務部署的一部分會以意圖和語句範例來建立新 LUIS 應用�
 
 3. 針對 `DialogTurnStatus.empty` 案例，將意圖新增至 onTurn 方法的 switch 陳述式：
 
-    ```nodejs
+   ```javascript
     switch (topIntent) {
         case GREETING_INTENT:
             await dc.begin(GREETING_DIALOG);

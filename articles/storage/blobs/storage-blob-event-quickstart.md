@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
 ms.custom: seodec18
-ms.openlocfilehash: a1f5946e3dcfd00631ed09b5e9211d0b207fba33
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f38c6fec7ff98e7d5c46661741ff036edb791673
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250413"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756371"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>快速入門：使用 Azure CLI 將儲存體事件路由至 Web 端點
 
@@ -39,7 +39,7 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azur
 
 Event Grid 為 Azure 資源，必須放入 Azure 資源群組中。 資源群組是在其中部署與管理 Azure 資源的邏輯集合。
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 
+使用 [az group create](/cli/azure/group) 命令來建立資源群組。 
 
 下列範例會在 *westcentralus* 位置建立名為 `<resource_group_name>` 的資源群組。  以資源群組的唯一名稱取代 `<resource_group_name>`。
 

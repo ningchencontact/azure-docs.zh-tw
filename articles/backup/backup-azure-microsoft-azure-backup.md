@@ -2,19 +2,18 @@
 title: 使用 Azure 備份伺服器，將工作負載備份至 Azure
 description: 使用 Azure 備份伺服器來保護工作負載，或備份至 Azure 入口網站。
 services: backup
-author: PVRK
-manager: shivamg
-keywords: Azure 備份伺服器; 保護工作負載; 備份工作負載
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan
-ms.openlocfilehash: a57161fd379269f69ce4e83730a29588d9028b7a
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.author: kasinh
+ms.openlocfilehash: b94d6bd9cc129d80f3ece82c13df375abecafd26
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351606"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493403"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安裝及升級 Azure 備份伺服器
 > [!div class="op_single_selector"]

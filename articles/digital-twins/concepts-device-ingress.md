@@ -8,18 +8,18 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: e6d95d44dbfe2d66189be5103552d841ccbdf690
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117413"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729518"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>裝置連線能力與遙測輸入
 
 裝置和感應器所傳送的遙測資料能組成任何 IoT 解決方案的骨幹。 如何在一個位置內容中呈現這些不同的資源並加以管理，是 IoT 應用程式開發的重要課題。 Azure Digital Twins 會使用空間智慧圖表來整合裝置與感應器，藉以簡化 IoT 解決方案的開發程序。
 
-若要開始使用，請在空間圖形的根位置建立 Azure IoT 中樞資源。 IoT 中樞資源會允許根空間下的所有裝置傳送訊息。 建立 IoT 中樞後，請向 Digital Twins 執行個體內的感應器註冊裝置。 裝置可透過 [Azure IoT 裝置 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 將資料傳送到 Digital Twins 服務。
+若要開始使用，請在空間圖形的根位置建立 Azure IoT 中樞資源。 IoT 中樞資源會允許根空間下的所有裝置傳送訊息。 建立 IoT 中樞後，請向 Digital Twins 執行個體內的感應器註冊裝置。 裝置可透過 [Azure IoT 裝置 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) 將資料傳送到 Digital Twins 服務。
 
 如需將裝置上架的逐步指南，請參閱[部署和設定 Digital Twins 的教學課程](tutorial-facilities-setup.md)。 快速瀏覽後，步驟如下：
 
@@ -69,8 +69,8 @@ YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 
 | 屬性名稱 | 值 | 必要 | 說明 |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | 是 | 識別系統訊息的常數值。 |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | 是 | 傳送 **Message** 之感應器的唯一識別碼。 此值必須符合物件的 **HardwareId** 屬性，才能讓系統進行處理。 例如： `00FF0643BE88-CO2`。 |
+| **DigitalTwins-Telemetry** | 1.0 | yes | 識別系統訊息的常數值。 |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | yes | 傳送 **Message** 之感應器的唯一識別碼。 此值必須符合物件的 **HardwareId** 屬性，才能讓系統進行處理。 例如： `00FF0643BE88-CO2`。 |
 | **CreationTimeUtc** | `string` | 否 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 格式的日期字串，用來識別承載的取樣時間。 例如： `2018-09-20T07:35:00.8587882-07:00`。 |
 | **CorrelationId** | `string` | 否 | 用來追蹤系統上各個事件的 UUID。 例如： `cec16751-ab27-405d-8fe6-c68e1412ce1f`。
 

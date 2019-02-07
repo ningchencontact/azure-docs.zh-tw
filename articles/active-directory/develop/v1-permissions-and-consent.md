@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 887134f7d790e5ed7e878a94caa9ef2fb9356ae3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 28d1387e5c1efd85ab0b944f7cffc4fe215eb73f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102150"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734482"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 端點中的權限和同意
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) 廣泛使用 OAuth 和 OpenID Connect (OIDC) �
 
 Azure AD 定義兩種權限：
 
-* **委派權限** - 供已有登入使用者的應用程式使用。 針對這些應用程式，使用者或系統管理員要同意應用程式所要求的權限，然後對應用程式委派權限，讓其在呼叫 API 時以登入使用者的身分行事。 視 API 而定，使用者不一定能直接同意 API，而會[需要系統管理員提供「管理員同意」](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)。
+* **委派權限** - 供已有登入使用者的應用程式使用。 針對這些應用程式，使用者或系統管理員要同意應用程式所要求的權限，然後對應用程式委派權限，讓其在呼叫 API 時以登入使用者的身分行事。 視 API 而定，使用者不一定能直接同意 API，而會[需要系統管理員提供「管理員同意」](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)。
 * **應用程式權限** - 供沒有登入使用者的應用程式在執行時使用；例如，當作背景服務或精靈來執行的應用程式。 應用程式權限通常很強大，允許跨使用者界限存取資料，或存取僅限系統管理員存取的資料，因此這種權限只能[由系統管理員同意](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant)。
 
 有效權限是應用程式向 API 提出要求時會具備的權限。 

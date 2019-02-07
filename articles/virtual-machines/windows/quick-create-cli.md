@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3036c53fa95b40ac0bfc7dbe5bed69581236918d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8ce1383717b59cc7b7a43ca707fbe5ebba897f20
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411878"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730317"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>快速入門：使用 Azure CLI 建立 Windows 虛擬機器
 
@@ -35,7 +35,7 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+使用 [az group create](/cli/azure/group) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>建立虛擬機器
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 建立 VM。 下列範例會建立名為 myVM 的 VM。 此範例會以 azureuser 作為系統管理使用者名稱並以 myPassword12 作為密碼。 將這些值更新為適合您環境的值。 當您連線到 VM 時需要使用這些值。
+使用 [az vm create](/cli/azure/vm) 建立 VM。 下列範例會建立名為 myVM 的 VM。 此範例會以 azureuser 作為系統管理使用者名稱並以 myPassword12 作為密碼。 將這些值更新為適合您環境的值。 當您連線到 VM 時需要使用這些值。
 
 ```azurecli-interactive
 az vm create \
@@ -73,7 +73,7 @@ az vm create \
 
 ## <a name="open-port-80-for-web-traffic"></a>針對 Web 流量開啟連接埠 80
 
-根據預設，只有在 Azure 中部署 Windows VM 時才會開啟 RDP 連線。 使用 [az vm open-port](/cli/azure/vm#az_vm_open_port) 開啟 TCP 連接埠 80 以供搭配 IIS 網頁伺服器使用：
+根據預設，只有在 Azure 中部署 Windows VM 時才會開啟 RDP 連線。 使用 [az vm open-port](/cli/azure/vm) 開啟 TCP 連接埠 80 以供搭配 IIS 網頁伺服器使用：
 
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM

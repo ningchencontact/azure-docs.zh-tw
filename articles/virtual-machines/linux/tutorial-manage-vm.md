@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bc548ea23249f89fadcec481cc97b6ca3ed2b909
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466851"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749137"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>教學課程：使用 Azure CLI 來建立和管理 Linux VM
 
@@ -40,7 +40,7 @@ Azure 虛擬機器提供完全可設定且彈性的計算環境。 本教學課�
 
 ## <a name="create-resource-group"></a>建立資源群組
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 命令來建立資源群組。 
+使用 [az group create](https://docs.microsoft.com/cli/azure/group) 命令來建立資源群組。 
 
 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 資源群組必須在虛擬機器之前建立。 在此範例中，會在 eastus 區域中建立名為 myResourceGroupVM 的資源群組。 
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroupVM --location eastus
 
 ## <a name="create-virtual-machine"></a>建立虛擬機器
 
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 命令建立虛擬機器。 
+使用 [az vm create](https://docs.microsoft.com/cli/azure/vm) 命令建立虛擬機器。 
 
 建立虛擬機器時，有數個可用的選項，例如作業系統映像、磁碟大小及系統管理認證。 下列範例會建立名為 myVM 的 VM，而該 VM 執行 Ubuntu Server。 VM 上會建立名為 azureuser 的使用者帳戶，而如果預設金鑰位置 (~/.ssh) 沒有 SSH 金鑰，則會加以產生：
 
@@ -98,7 +98,7 @@ exit
 
 Azure Marketplace 包含許多可用來建立 VM 的映像。 在先前的步驟中，是使用 Ubuntu 映像來建立虛擬機器。 在此步驟中，則是使用 Azure CLI 來搜尋 Marketplace 中的 CentOS 映像，然後使用此映像來部署第二部虛擬機器。 
 
-若要查看最常用的映像清單，請使用 [az vm image list](/cli/azure/vm/image#az_vm_image_list) 命令。
+若要查看最常用的映像清單，請使用 [az vm image list](/cli/azure/vm/image) 命令。
 
 ```azurecli-interactive 
 az vm image list --output table
@@ -167,7 +167,7 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 ### <a name="find-available-vm-sizes"></a>尋找可用的 VM 大小
 
-若要查看特定區域中可用的 VM 大小清單，請使用 [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes) 命令。 
+若要查看特定區域中可用的 VM 大小清單，請使用 [az vm list-sizes](/cli/azure/vm) 命令。 
 
 ```azurecli-interactive 
 az vm list-sizes --location eastus --output table
@@ -198,7 +198,7 @@ az vm list-sizes --location eastus --output table
 
 ### <a name="create-vm-with-specific-size"></a>建立特定大小的 VM
 
-在先前的 VM 建立範例中，並未提供大小，因此是採用預設大小。 您可以在建立 VM 時，使用 [az vm create](/cli/azure/vm#az_vm_create) 和 `--size` 引數來選取 VM 大小。 
+在先前的 VM 建立範例中，並未提供大小，因此是採用預設大小。 您可以在建立 VM 時，使用 [az vm create](/cli/azure/vm) 和 `--size` 引數來選取 VM 大小。 
 
 ```azurecli-interactive 
 az vm create \
@@ -217,12 +217,12 @@ az vm create \
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-在調整 VM 大小之前，請先檢查目前的 Azure 叢集上是否有所需的大小可用。 [az vm list-vm-resize-options](/cli/azure/vm#az_vm_list_vm_resize_options) 命令會傳回大小清單。 
+在調整 VM 大小之前，請先檢查目前的 Azure 叢集上是否有所需的大小可用。 [az vm list-vm-resize-options](/cli/azure/vm) 命令會傳回大小清單。 
 
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-如果有所需的大小可用，即可從已開機狀態調整 VM 的大小，但是會在作業期間重新開機。 請使用 [az vm resize]( /cli/azure/vm#az_vm_resize) 命令來執行調整大小作業。
+如果有所需的大小可用，即可從已開機狀態調整 VM 的大小，但是會在作業期間重新開機。 請使用 [az vm resize]( /cli/azure/vm) 命令來執行調整大小作業。
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
@@ -264,7 +264,7 @@ Azure VM 的電源狀態可以是許多電源狀態的其中一種。 這個狀�
 
 ### <a name="find-the-power-state"></a>尋找電源狀態
 
-若要擷取特定 VM 的狀態，請使用 [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) 命令。 請務必為虛擬機器和資源群組指定有效的名稱。 
+若要擷取特定 VM 的狀態，請使用 [az vm get-instance-view](/cli/azure/vm) 命令。 請務必為虛擬機器和資源群組指定有效的名稱。 
 
 ```azurecli-interactive 
 az vm get-instance-view \

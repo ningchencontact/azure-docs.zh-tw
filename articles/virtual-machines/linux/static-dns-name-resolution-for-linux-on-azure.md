@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: 862d239227c277a92cbf80e54b010a4b184da016
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5e893d597c2193676cb350fc80d7baa694ad6fd1
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466086"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734117"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>在 Azure 上建立虛擬網路介面卡並使用內部 DNS 進行 VM 名稱解析
 
@@ -32,12 +32,12 @@ ms.locfileid: "54466086"
 * [SSH 公開金鑰和私密金鑰檔案](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>快速命令
-如果您需要快速完成工作，接下來這一節將詳細說明所需的命令。 每個步驟的詳細資訊和內容可在文件其他地方找到，從[這裡](#detailed-walkthrough)開始。 若要執行這些步驟，您需要安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。
+如果您需要快速完成工作，接下來這一節將詳細說明所需的命令。 每個步驟的詳細資訊和內容可在文件其他地方找到，從[這裡](#detailed-walkthrough)開始。 若要執行這些步驟，您需要安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並且使用 [az login](/cli/azure/reference-index) 來登入 Azure 帳戶。
 
 預先需求：資源群組、虛擬網路與子網路、具有 SSH 輸入的網路安全性群組。
 
 ### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>使用靜態內部 DNS 名稱來建立虛擬網路介面卡
-使用 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 來建立 vNic。 `--internal-dns-name` CLI 旗標是用來設定 DNS 標籤，可為虛擬網路介面卡 (vNic) 提供靜態 DNS 名稱。 下列範例會建立名為 `myNic` 的 vNic、將它連接到 `myVnet` 虛擬網路，以及建立名為 `jenkins` 的內部 DNS 名稱記錄：
+使用 [az network nic create](/cli/azure/network/nic) 來建立 vNic。 `--internal-dns-name` CLI 旗標是用來設定 DNS 標籤，可為虛擬網路介面卡 (vNic) 提供靜態 DNS 名稱。 下列範例會建立名為 `myNic` 的 vNic、將它連接到 `myVnet` 虛擬網路，以及建立名為 `jenkins` 的內部 DNS 名稱記錄：
 
 ```azurecli
 az network nic create \
@@ -70,7 +70,7 @@ Azure 上完整的連續整合和連續部署 (CiCd) 基礎結構需要特定的
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 `myResourceGroup`、`myNic` 和 `myVM`。
 
 ## <a name="create-the-resource-group"></a>建立資源群組
-首先，使用 [az group create](/cli/azure/group#az_group_create)建立資源群組。 下列範例會在 `westus` 位置建立名為 `myResourceGroup` 的資源群組：
+首先，使用 [az group create](/cli/azure/group)建立資源群組。 下列範例會在 `westus` 位置建立名為 `myResourceGroup` 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -94,7 +94,7 @@ az network vnet create \
 ## <a name="create-the-network-security-group"></a>建立網路安全性群組
 「Azure 網路安全性群組」相當於網路層的防火牆。 如需有關「網路安全性群組」的詳細資訊，請參閱[如何在 Azure CLI 中建立 NSG](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
 
-使用 [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) 建立網路安全性群組。 下列範例會建立名為 `myNetworkSecurityGroup` 的網路安全性群組：
+使用 [az network nsg create](/cli/azure/network/nsg) 建立網路安全性群組。 下列範例會建立名為 `myNetworkSecurityGroup` 的網路安全性群組：
 
 ```azurecli
 az network nsg create \
@@ -121,7 +121,7 @@ az network nsg rule create \
 ```
 
 ## <a name="associate-the-subnet-with-the-network-security-group"></a>將子網路與網路安全性群組建立關聯
-若要將將子網路與「網路安全性群組」建立關聯，請使用 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)。 下列範例會將子網路名稱 `mySubnet` 與名為 `myNetworkSecurityGroup` 的「網路安全性群組」建立關聯：
+若要將將子網路與「網路安全性群組」建立關聯，請使用 [az network vnet subnet update](/cli/azure/network/vnet/subnet)。 下列範例會將子網路名稱 `mySubnet` 與名為 `myNetworkSecurityGroup` 的「網路安全性群組」建立關聯：
 
 ```azurecli
 az network vnet subnet update \
@@ -135,7 +135,7 @@ az network vnet subnet update \
 ## <a name="create-the-virtual-network-interface-card-and-static-dns-names"></a>建立虛擬網路介面卡與靜態 DNS 名稱
 Azure 非常有彈性，但是若要使用 DNS 名稱來進行 VM 名稱解析，您必須建立包含 DNS 標籤的虛擬網路介面卡 (VNic)。 VNic 很重要，因為您可以在整個基礎結構週期中，藉由將它們連接到不同的 VM 來重複使用它們。 此方法既可讓 VM 為暫時性，又可將 vNic 保持為靜態資源。 藉由使用 vNic 上的 DNS 標籤，我們便能夠從 VNet 中的其他 VM 啟用簡單名稱解析。 使用可解析的名稱，會讓其他 VM 依據 DNS 名稱 `Jenkins` 存取自動化伺服器，或以 `gitrepo` 存取 Git 伺服器。  
 
-使用 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 來建立 vNic。 下列範例會建立名為 `myNic` 的 vNic、將它連接到名為 `myVnet` 的 `myVnet` 虛擬網路，以及建立名為 `jenkins` 的內部 DNS 名稱記錄：
+使用 [az network nic create](/cli/azure/network/nic) 來建立 vNic。 下列範例會建立名為 `myNic` 的 vNic、將它連接到名為 `myVnet` 的 `myVnet` 虛擬網路，以及建立名為 `jenkins` 的內部 DNS 名稱記錄：
 
 ```azurecli
 az network nic create \

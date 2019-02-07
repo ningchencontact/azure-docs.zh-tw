@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 0a278eb1612ec9573c4d12611ccce2d1b5b971bc
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 5458c7e74728952df89380a3649c6ed60eb6ea9a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705272"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749758"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>使用 Azure 地圖服務尋找不同行進模式的路線
 
@@ -248,7 +248,7 @@ ms.locfileid: "51705272"
         datasource.add(routeLine, 0);
     });
     ```
-    上方的程式碼片段會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) 方法來查詢 Azure 地圖服務路線服務，然後使用 [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) 將回應剖析為 GeoJSON 格式。 接著，將會建立傳回路線的座標陣列，並將其新增至資料來源，但也會新增 0 的索引，以確保它會在資料來源中的任何其他線條之前呈現。 之所以這麼做，是因為卡車路線計算的速度通常比汽車路線計算慢，若卡車路線在汽車路線之後新增至資料來源，則會呈現於汽車路線之上。 系統會將兩個屬性新增至卡車路線，一個呈現為鮮明藍色的筆觸色彩，和一個寬度為 9 像素的筆觸。 
+    上方的程式碼片段會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) 方法來查詢 Azure 地圖服務路線服務，然後使用 [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) 將回應剖析為 GeoJSON 格式。 接著，將會建立傳回路線的座標陣列，並將其新增至資料來源，但也會新增 0 的索引，以確保它會在資料來源中的任何其他線條之前呈現。 之所以這麼做，是因為卡車路線計算的速度通常比汽車路線計算慢，若卡車路線在汽車路線之後新增至資料來源，則會呈現於汽車路線之上。 系統會將兩個屬性新增至卡車路線，一個呈現為鮮明藍色的筆觸色彩，和一個寬度為 9 像素的筆觸。 
 
 4. 新增下列 JavaScript 程式碼以要求卡車路線並顯示結果：
 
@@ -267,7 +267,7 @@ ms.locfileid: "51705272"
         datasource.add(routeLine);
     });
     ```
-    此程式碼片段會對汽車使用相同的卡車路線查詢。 它會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) 方法來查詢 Azure 地圖服務路線服務，然後使用 [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) 將回應剖析為 GeoJSON 格式。 接著會建立傳回路線的座標陣列，並將其新增至資料來源。 系統會將兩個屬性新增至汽車路線，一個紫色的筆觸色彩，和一個寬度為 5 像素的筆觸。 
+    此程式碼片段會對汽車使用相同的卡車路線查詢。 它會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) 方法來查詢 Azure 地圖服務路線服務，然後使用 [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) 將回應剖析為 GeoJSON 格式。 接著會建立傳回路線的座標陣列，並將其新增至資料來源。 系統會將兩個屬性新增至汽車路線，一個紫色的筆觸色彩，和一個寬度為 5 像素的筆觸。 
 
 5. 儲存 **MapTruckRoute.html** 檔案並重新整理瀏覽器，以觀察結果。 如果您成功連線到地圖服務的 API，您應該會看到類似下面的地圖。
 

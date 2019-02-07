@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: eb93dfae91ee84400c32af7b662c69aefda979d2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 00930fd99fd4c0078623aa11f3e2cd5b1c549034
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409168"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812662"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 清單將隨著時間擴展並更新以涵蓋更多平台。
@@ -54,7 +54,7 @@ ms.locfileid: "53409168"
 * [Azure 地圖服務](#azure-maps-limits)
 * [Azure 監視器](#monitor-limits)
 * [Azure 原則](#azure-policy-limits)
-* [Azure Cache for Redis](#azure-redis-cache-limits)
+* Azure Cache for Redis
 * [備份](#backup-limits)
 * [批次](#batch-limits)
 * [BizTalk 服務](#biztalk-services-limits)

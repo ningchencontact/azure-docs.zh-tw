@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: b46539758d88fe7a0e27799b5da581255fa5f075
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229327"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657020"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>如何搭配 Azure 容器執行個體使用受控識別
 
@@ -134,7 +134,7 @@ az container show --resource-group myResourceGroup --name mycontainer
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>將 Key Vault 存取權授與使用者指派的身分識別
 
-請執行下列 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 命令，以針對 Key Vault 設定存取原則。 下列範例會允許使用者指派的身分識別從 Key Vault 取得祕密：
+請執行下列 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) 命令，以針對 Key Vault 設定存取原則。 下列範例會允許使用者指派的身分識別從 Key Vault 取得祕密：
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
@@ -216,7 +216,7 @@ spID=$(az container show --resource-group myResourceGroup --name mycontainer --q
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>將 Key Vault 存取權授與容器群組
 
-請執行下列 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 命令，以針對 Key Vault 設定存取原則。 下列範例會允許系統管理的身分識別從 Key Vault 取得祕密：
+請執行下列 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) 命令，以針對 Key Vault 設定存取原則。 下列範例會允許系統管理的身分識別從 Key Vault 取得祕密：
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
