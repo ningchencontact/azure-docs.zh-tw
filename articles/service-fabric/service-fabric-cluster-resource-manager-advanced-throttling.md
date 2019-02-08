@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e9db1070066a2a02b72b5cc051e59d8b04dc9928
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4c86655b650464f1debadab35fdd82611d17ad81
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092334"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>對 Service Fabric 叢集資源管理員進行節流
 即使您已經正確設定叢集資源管理員，也可以中斷叢集。 例如，叢集可能會同時發生節點和容錯網域失敗，如果這些失敗是在升級時發生會造成什麼後果？ 叢集資源管理員會不斷嘗試讓一切恢復正常，耗用叢集的資源來試著重新組織並修正叢集。 節流有助於提供最後防線，讓叢集利用資源來穩定系統，也就是讓節點恢復運作、修復網路磁碟分割，以及部署經過修正的程式碼。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/15/2018
 ms.author: aljo
-ms.openlocfilehash: 75ba2ee378e9eddfeaeb2346b4d5bb584844afe2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 691995d0aa426766caed2f5e2458399b32332c9d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636658"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903497"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>設定用戶端驗用的 Azure Active Directory
 
@@ -33,7 +33,7 @@ Service Fabric 叢集提供其管理功能的各種進入點 (包括 Web 型 [Se
 > [!NOTE]
 > 建立叢集之前，您必須先完成下列步驟。 由於指令碼會預期叢集名稱和端點，因此這些值應該是計劃的值，而不是您已經建立的值。
 
-1. [下載指令碼][sf-aad-ps-script-download]到您的電腦。
+1. [將指令碼下載](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool)到您的電腦。
 2. 在 zip 檔案上按一下滑鼠右鍵，選取 [屬性]、選取 [解除封鎖] 核取方塊，然後按一下 [套用]。
 3. 解壓縮 zip 檔案。
 4. 執行 `SetupApplications.ps1`，並且提供 TenantId、ClusterName 和 WebApplicationReplyUrl 作為參數。 例如︰
@@ -110,14 +110,14 @@ https://&lt;cluster_domain&gt;:19080/Explorer
 
 ### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>使用 PowerShell 進行連線時失敗，發生錯誤：「指定的認證無效」
 #### <a name="problem"></a>問題
-在您順利登入 Azure AD 之後，於使用 PowerShell 以 “AzureActiveDirectory” 安全性模式連接到叢集時連線失敗，發生錯誤：「指定的認證無效」。
+在您順利登入 Azure AD 之後，於使用 PowerShell 以 “AzureActiveDirectory” 安全性模式連線到叢集時連線失敗，發生錯誤：「指定的認證無效」。
 
 #### <a name="solution"></a>解決方法
 此解決方案與前一個相同。
 
 ### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer 在您登入時傳回失敗："AADSTS50011"
 #### <a name="problem"></a>問題
-當您嘗試在 Service Fabric Explorer 中登入 Azure AD 時，頁面傳回失敗：「AADSTS50011：回覆地址 &lt;url&gt; 與針對應用程式設定的回覆地址不符：&lt;guid&gt;」。
+當您在 Service Fabric Explorer 中嘗試登入 Azure AD 時，頁面傳回失敗：「AADSTS50011:回覆地址 &lt;url&gt; 與為應用程式 &lt;guid&gt; 設定的回覆地址不符」。
 
 ![SFX 回覆地址不相符][sfx-reply-address-not-match]
 

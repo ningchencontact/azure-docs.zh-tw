@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: adddbc03b5ec61944e95a2e0fff8767c41d96b0e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9e1ae9faecea67e1abb2a1b08d5641bc25c9f38a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033752"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469085"
 ---
-# <a name="indexing-in-azure-cosmos-db"></a>Azure Cosmos DB 中的編製索引
+# <a name="indexing-in-azure-cosmos-db---overview"></a>在 Azure Cosmos DB 中編製索引 - 概觀
 
 Azure Cosmos DB 是一個無從驗證結構描述的資料庫，可讓您快速逐一查看應用程式，而不需處理結構描述或索引管理。 根據預設，Azure Cosmos DB 會為容器中的所有項目自動編製索引，而不需要開發人員設定結構描述或編製次要索引。
 

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: b22ecb9d8948a77df43f47cd9fd218be4319d06e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583726"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092199"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>建立服務通知的活動記錄警示
 ## <a name="overview"></a>概觀
@@ -37,7 +37,7 @@ ms.locfileid: "53583726"
 
 若要了解如何使用 Azure Resource Manager 範本來設定服務健康情況通知警示，請參閱 [Resource Manager 範本](alerts-activity-log.md)。
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>使用 Azure 入口網站為新動作群組建立服務健康情況通知的警示
+## <a name="alert-and-new-action-group-using-azure-portal"></a>使用 Azure 入口網站來建立警示與新動作群組
 1. 在[入口網站](https://portal.azure.com)中，選取 [服務健康情況]。
 
     ![「服務健康情況」服務](media/alerts-activity-log-service-notifications/home-servicehealth.png)
@@ -86,7 +86,7 @@ ms.locfileid: "53583726"
 >
 >
 
-## <a name="create-an-alert-on-a-service-health-notification-for-an-existing-action-group-by-using-the-azure-portal"></a>使用 Azure 入口網站，為現有動作群組建立服務健康情況通知的警示
+## <a name="alert-with-existing-action-group-using-azure-portal"></a>使用 Azure 入口網站以現有的動作群組建立警示
 
 1. 請遵循上一節的步驟 1 到 7，以建立您的服務健康情況通知。 
 
@@ -96,7 +96,7 @@ ms.locfileid: "53583726"
 
 在幾分鐘之內會啟用警示，開始根據建立時所指定的條件觸發警示。
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本為新動作群組建立服務健康情況通知的警示
+## <a name="alert-and-new-action-group-using-the-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來建立警示與新動作群組
 
 以下範例會建立具有電子郵件目標的動作群組，並啟用目標訂用帳戶的所有服務健康情況通知。
 

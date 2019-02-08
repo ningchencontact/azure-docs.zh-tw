@@ -7,19 +7,19 @@ author: jeevansd
 manager: femila
 ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: c6439b31d2f8c95e0dc1526b92f21aee2966f12f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1861dfb23d105fa6b403095b5fc36d1f2a894fe9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436354"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152549"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>教學課程：Azure Active Directory 與 FreshGrade 整合
 
@@ -127,7 +127,7 @@ FreshGrade 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [FreshGrade 用戶端支援小組](mailTo:support@freshgrade.com)以取得這些值。
 
-1. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+1. 在 [SAML 簽署憑證] ****  區段上，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL] **** ，並將它貼到記事本中。
     
     ![設定單一登入](./media/freshgrade-tutorial/tutorial_metadataurl.png)
      

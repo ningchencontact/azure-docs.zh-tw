@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 115604d9b2aa21018742bbedbc737405b52599e4
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7ad494a3a1ce657951a0afab4d5ca838821927ad
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188941"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158812"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集
 
@@ -28,7 +28,11 @@ ms.locfileid: "54188941"
 ## <a name="enable-azure-ad-ds"></a>啟用 Azure AD-DS
 
 > [!NOTE]  
-> 只有租用戶的系統管理員具有啟用 Azure AD-DS 的權限。 如果叢集儲存體是 Azure Data Lake Storage (ADLS) Gen1 或 Gen2，請只針對需要存取叢集的使用者停用「多重要素驗證」(MFA)。 如果叢集儲存體是 Azure Blob 儲存體 (WASB)，請勿停用 MFA。
+> 只有租用戶的系統管理員具有啟用 Azure AD-DS 的權限。 如果叢集儲存體是 Azure Data Lake Storage (ADLS) Gen1 或 Gen2，您必須只針對需要使用基本 Kerberos 驗證來存取叢集的使用者停用「多重要素驗證」(MFA)。 您可以使用[信任的 IP](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) 或[條件式存取](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview)，只在特定使用者存取 HDInsight 叢集 VNET IP 範圍時，為這些使用者停用 MFA。 如果您使用條件式存取，請確定在 HDInsight VNET 上已啟用 AD 服務端點。
+>
+>如果叢集儲存體是 Azure Blob 儲存體 (WASB)，請勿停用 MFA。
+
+
 
 啟用 Azure AD-DS 是必要條件，如此您才能建立具有 ESP 的 HDInsight 叢集。 如需詳細資訊，請參閱[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started.md)。 
 
@@ -108,11 +112,11 @@ VNET 對等互連後，請將 HDInsight VNET 設定為使用自訂的 DNS 伺服
 
 下列螢幕擷取畫面顯示 Azure 入口網站中的成功設定：
 
-![Azure HDInsight ESP Active Directory Domain Services 的設定](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
+![Azure HDInsight ESP Active Directory Domain Services 的設定](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png)上也提供本文中使用的原始碼。
 
 您所建立的受控識別，可在建立新的叢集時從 [使用者指派的受控識別] 下拉式清單中選擇。
 
-![Azure HDInsight ESP Active Directory Domain Services 的設定](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
+![Azure HDInsight ESP Active Directory Domain Services 的設定](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png)上也提供本文中使用的原始碼。
 
 
 ## <a name="next-steps"></a>後續步驟

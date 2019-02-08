@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 54db7cc65e05b383b251c21aa95569c6c2d58194
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6da3a9bceaee67d0101abb0837580f4e35e160b3
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306160"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885127"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 SQL Server 及從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,6 +36,8 @@ ms.locfileid: "54306160"
 - 使用 **SQL** 或 **Windows** 驗證來複製資料。
 - 作為來源時，使用 SQL 查詢或預存程序來擷取資料。
 - 在複製期間作為接收器時，使用自訂邏輯將資料附加到目的地資料表或叫用預存程序。
+
+目前不支援 SQL Server [一律加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -487,34 +489,37 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | binary |Byte[] |
 | bit |BOOLEAN |
 | char |String、Char[] |
-| 日期 |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
+| 日期 |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| 十進位 |十進位 |
+| Decimal |Decimal |
 | FILESTREAM 屬性 (varbinary(max)) |Byte[] |
-| Float |兩倍 |
+| Float |Double |
 | 映像 |Byte[] |
 | int |Int32 |
-| money |十進位 |
+| money |Decimal |
 | nchar |String、Char[] |
 | ntext |String、Char[] |
-| numeric |十進位 |
+| numeric |Decimal |
 | nvarchar |String、Char[] |
-| real |單一 |
+| real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |十進位 |
-| sql_variant |物件 * |
+| smallmoney |Decimal |
+| sql_variant |Object |
 | text |String、Char[] |
-| 分析 |時間範圍 |
+| 分析 |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String、Char[] |
 | xml |xml |
+
+>[!NOTE]
+> 針對對應至 Decimal 過渡期類型的資料類型，目前 ADF 支援的有效位數最多可達 28。 如果您有有效位數超過 28 的資料，請考慮在 SQL 查詢中將其轉換成字串。
 
 ## <a name="troubleshooting-connection-issues"></a>疑難排解連線問題
 

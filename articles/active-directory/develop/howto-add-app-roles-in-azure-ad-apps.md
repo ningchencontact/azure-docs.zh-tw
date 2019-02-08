@@ -7,7 +7,7 @@ author: kkrishna
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 6321823eed00cffc6565471ec1ba3b4d846cd027
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b44aa35765cba33a85519fcd53f0df365c26be6b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948701"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093407"
 ---
-# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>如何：在您的應用程式中新增應用程式角色，並且在權杖中接收這些角色
+# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>作法：在您的應用程式中新增應用程式角色，並且在權杖中接收這些角色
 
 角色型存取控制 (RBAC) 是一個熱門的機制，可在應用程式中強制授權。 使用 RBAC 時，系統管理員會將權限授與給角色，而非授與個別使用者或群組。 系統管理員可以接著將角色指派給不同的使用者和群組，控制誰可以存取哪些內容和功能。
 
@@ -117,7 +117,7 @@ ms.locfileid: "46948701"
 1. 選擇 [新增指派] 窗格中的 [選取角色] 選取器。 將會顯示先前在應用程式資訊清單中宣告的所有角色。
 1. 選擇角色，然後按 [選取] 按鈕。
 1. 按底部的 [指派] 按鈕，即可將使用者和群組指派給應用程式。
-1. 確認您新增的使用者和群組會顯示在已更新的 [使用者和群組] 清單中。
+1. 確認您新增的使用者和群組有顯示在更新後的 [使用者和群組] 清單中。
 
 ## <a name="more-information"></a>詳細資訊
 

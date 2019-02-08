@@ -11,19 +11,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 49c411487a29a7faa5a6cec5087a85d472309a4b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: 40dd963a4aad7ffdd092d6835e8444cf0789e129
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044564"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462795"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
 Azure SQL Database、彈性集區、受控執行個體，以及受控執行個體中的資料庫可以傳輸計量和診斷記錄，讓您以較輕鬆的方式監視效能。 您可以將資料庫設定為將資源使用量、背景工作角色與工作階段及連線傳輸下列其中一項 Azure 資源：
 
-- **Azure SQL 分析**：發揮 Azure 資料庫的智慧型監視功能，包含效能報告、警示和降低風險的建議。
+- **Azure SQL 分析**：發揮 Azure SQL 資料庫的智慧型監視功能，包含效能報告、警示和降低風險的建議。
 - **Azure 事件中樞**：整合 SQL Database 遙測與自訂監視解決方案或管線。
 - **Azure 儲存體**：用以封存大量遙測資料，價格實惠。
 
@@ -68,7 +68,7 @@ Azure SQL Database、彈性集區、受控執行個體，以及受控執行個�
 | [所有計量](sql-database-metrics-diag-logging.md#all-metrics)：包含 DTU/CPU 百分比、DTU/CPU 限制、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作角色百分比、儲存體、儲存體百分比和 XTP 儲存體百分比。 | 是 | 否 |
 | [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics)：包含關於查詢執行階段統計資料的資訊，例如 CPU 使用率和查詢持續時間統計資料。 | 是 | 是 |
 | [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics)：包含關於查詢等候統計資料 (查詢等候的內容) 的資訊，例如 CPU、LOG 和 LOCKING。 | 是 | 是 |
-| [錯誤](sql-database-metrics-diag-logging.md#errors-dataset)：包含在資料庫上的 SQL 錯誤有關的資訊。 | 是 | 否 |
+| [錯誤](sql-database-metrics-diag-logging.md#errors-dataset)：包含在資料庫上的 SQL 錯誤有關的資訊。 | 是 | 是 |
 | [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset)：包含和資料庫花費在不同等候類型的等候時間長度有關的資訊。 | 是 | 否 |
 | [逾時](sql-database-metrics-diag-logging.md#time-outs-dataset)：包含資料庫的逾時有關的資訊。 | 是 | 否 |
 | [封鎖](sql-database-metrics-diag-logging.md#blockings-dataset)：包含與資料庫上發生的封鎖事件有關的資訊。 | 是 | 否 |

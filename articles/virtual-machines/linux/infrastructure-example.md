@@ -3,7 +3,7 @@ title: 範例 Azure 基礎結構逐步解說 | Microsoft Docs
 description: 了解適合用來在 Azure 中部署範例基礎結構的關鍵設計和實作指導方針。
 documentationcenter: ''
 services: virtual-machines-linux
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 794182e3988a353b1e305a36da0475bacdea69b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d4b8cd07e50697139f68084f47c847ef8728c429
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469845"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888952"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>適用於 Linux VM 的範例 Azure 基礎結構逐步解說
 本文將逐步解說建置範例應用程式基礎結構的方法。 我們會詳述設計簡單線上商店基礎結構的方式，此線上商店能將所有命名慣例、可用性設定組、虛擬網路及負載平衡器的指導方針和決定集合在一起，並實際部署您的虛擬機器 (VM)。
@@ -73,7 +73,7 @@ Adventure Works Cycles 決定他們應該使用 Azure 受控磁碟。 建立 VM 
 他們透過 Azure 入口網站，使用下列設定來建立僅限雲端的虛擬網路：
 
 * 名稱：AZOS-USE-VN01
-* 位置：East US 2
+* 位置：美國東部 2
 * 虛擬網路位址空間：10.0.0.0/8
 * 第一個子網路：
   * 名稱：FrontEnd

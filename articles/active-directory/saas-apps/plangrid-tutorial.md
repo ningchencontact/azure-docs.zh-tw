@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 0ba72432-9b49-4358-b756-14c982422be8
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: b2225a48e78e8c609223510a32d3ed5c735ed3b6
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5ceb5f09b599b6c42dea3359b18c319e7b44fed7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046052"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165076"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>教學課程：Azure Active Directory 與 PlanGrid 整合
 
@@ -160,7 +160,7 @@ PlanGrid 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-plangrid-test-user"></a>建立 PlanGrid 測試使用者
 
-在本節中，您要在 PlanGrid 中建立名為 Britta Simon 的使用者。 請與 [ 支援小組](mailto:help@plangrid.com) 合作，在 PlanGrid 平台中加入使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您要在 PlanGrid 中建立名為 Britta Simon 的使用者。 請與  [PlanGrid 支援小組](mailto:help@plangrid.com) 合作，在 PlanGrid 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -197,7 +197,7 @@ PlanGrid 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 PlanGrid 圖示時，應該會自動登入 PlanGrid 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

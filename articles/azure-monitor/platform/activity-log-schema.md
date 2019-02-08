@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9ad3ca2233237c9cb4aea0a7bd0c476f48613a9c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438230"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888136"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活動記錄事件結構描述
-透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。 資料的結構描述取決於您是在入口網站、PowerShell、CLI，或直接透過 REST API 讀取資料，還是[使用記錄設定檔，將資料串流處理至儲存體或事件中樞](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。 下列範例顯示透過入口網站、PowerShell、CLI 和 REST API 提供的結構描述。 本文結尾會提供這些屬性與 [Azure 診斷記錄結構描述](./tutorial-dashboards.md)的對應。
+透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。 資料的結構描述取決於您是在入口網站、PowerShell、CLI，或直接透過 REST API 讀取資料，還是[使用記錄設定檔，將資料串流處理至儲存體或事件中樞](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。 下列範例顯示透過入口網站、PowerShell、CLI 和 REST API 提供的結構描述。 本文結尾會提供這些屬性與 [Azure 診斷記錄結構描述](./diagnostic-logs-schema.md)的對應。
 
 ## <a name="administrative"></a>管理
 透過 Resource Manager 執行的所有建立、更新、刪除和動作作業皆記錄在此類別中。 您可能會在此類別中看到的事件類型範例包括「建立虛擬機器」和「刪除網路安全性群組」。使用者或應用程式使用 Resource Manager 所執行的每個動作，都會成為特定資源類型上的作業模型。 如果作業類型為「寫入」、「刪除」或「動作」，則該作業的啟動及成功或失敗記錄皆會記錄在「系統管理」類別。 「系統管理」類別也包含訂用帳戶中角色型存取控制的所有變更。
@@ -274,8 +274,8 @@ ms.locfileid: "54438230"
 | submissionTimestamp |當事件變成可供查詢時的時間戳記。 |
 | subscriptionId |Azure 訂用帳戶識別碼。 |
 | properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。|
-| properties.title | 描述資源健康情況狀態的使用者易記字串。 |
-| properties.details | 進一步描述事件詳細資料的使用者易記字串。 |
+| properties.title | 描述資源健全狀況狀態的使用者易記字串。 |
+| properties.details | 描述事件進一步相關詳細資料的使用者易記字串。 |
 | properties.currentHealthStatus | 資源的目前健康情況狀態。 下列其中一個值：「可用」、「無法使用」、「已降級」與「未知」。 |
 | properties.previousHealthStatus | 資源先前的健康情況狀態。 下列其中一個值：「可用」、「無法使用」、「已降級」與「未知」。 |
 | properties.type | 描述資源健康情況事件的類型。 |
@@ -570,7 +570,7 @@ ms.locfileid: "54438230"
 | subscriptionId |Azure 訂用帳戶識別碼。 |
 
 ## <a name="recommendation"></a>建議
-這個類別包含為您的服務產生的任何新建議記錄。 建議的範例像是「使用可用性設定組改善容錯。」 可能產生的建議事件有 4 種：「高可用性」、「效能」、「安全性」和「成本最佳化」。 
+這個類別包含為您的服務產生的任何新建議記錄。 建議的範例像是「使用可用性設定組改善容錯。」 可能產生的「建議」事件有四種：「高可用性」、「效能」、「安全性」和「成本最佳化」。 
 
 ### <a name="sample-event"></a>範例事件
 ```json
@@ -757,7 +757,7 @@ ms.locfileid: "54438230"
 | resourceType | 針對新的資源，這是正在評估的類型。 針對現有的資源，會傳回「Microsoft.Resources/checkPolicyCompliance」。 |
 | ResourceId | 所評估資源的資源識別碼。 |
 | status | 描述「原則」評估結果狀態的字串。 大部分的「原則」評估會傳回「Succeeded」，但 Deny 效果會傳回「Failed」。 auditIfNotExists 或 deployIfNotExists 中的錯誤也會傳回「Failed」。 |
-| 子狀態 | 原則事件的這個欄位是空白的。 |
+| 子狀態 | 「原則」事件的這個欄位是空白的。 |
 | submissionTimestamp | 當事件變成可供查詢時的時間戳記。 |
 | subscriptionId | Azure 訂用帳戶識別碼。 |
 | properties.isComplianceCheck | 當部署新資源，或現有資源的「資源管理員」屬性更新時，會傳回「False」。 所有其他的[評估觸發程序](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers)會產生「True」。 |
@@ -768,7 +768,7 @@ ms.locfileid: "54438230"
 
 ## <a name="mapping-to-diagnostic-logs-schema"></a>診斷記錄結構描述的對應
 
-將 Azure 活動記錄串流處理至儲存體帳戶或事件中樞命名空間時，資料會遵循 [Azure 診斷記錄結構描述](./tutorial-dashboards.md)。 以下是上述結構描述的屬性與診斷記錄結構描述的對應：
+將 Azure 活動記錄串流處理至儲存體帳戶或事件中樞命名空間時，資料會遵循 [Azure 診斷記錄結構描述](./diagnostic-logs-schema.md)。 以下是上述結構描述的屬性與診斷記錄結構描述的對應：
 
 | 診斷記錄結構描述屬性 | 活動記錄 REST API 結構描述屬性 | 注意 |
 | --- | --- | --- |

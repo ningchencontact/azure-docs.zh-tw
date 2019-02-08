@@ -1,29 +1,23 @@
 ---
-title: PowerShell 和 CLI - 啟用 SQL TDE - 您的金鑰 - Azure SQL Database| Microsoft Docs
+title: PowerShell 和 CLI：啟用 SQL TDE - 您的金鑰 - Azure SQL Database| Microsoft Docs
 description: 了解如何設定 Azure SQL Database 和資料倉儲，以透過 PowerShell 或 CLI 開始使用透明資料加密 (TDE) 進行待用資料加密。
 services: sql-database
-keywords: ''
-documentationcenter: ''
-author: aliceku
-manager: craigg
-editor: ''
-ms.prod: ''
-ms.reviewer: vanto
-ms.suite: sql
-ms.prod_service: sql-database, sql-data-warehouse
 ms.service: sql-database
-ms.tgt_pltfrm: ''
-ms.devlang: azurecli, powershell
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/28/2018
+author: aliceku
 ms.author: aliceku
-monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 11e190e1a4d0309bdbdcb7a578fccaf84fabb8e3
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 87ffc4619f2ad864113db3b3aed42aa23535cb83
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543772"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900319"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell 和 CLI：從 Azure Key Vault 使用您自己的金鑰啟用透明資料加密
 
@@ -35,11 +29,11 @@ ms.locfileid: "45543772"
 - [建議執行的選擇性作業] 備妥硬體安全性模組 (HSM) 或本機金鑰存放區，用來建立 TDE 保護裝置金鑰內容的本機複本。
 - 您必須安裝並執行 Azure PowerShell 4.2.0 版或更新版本。 
 - 建立要用於 TDE 的 Azure Key Vault 和金鑰。
-   - [從 Key Vault 使用 PowerShell 的指示](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)
-   - [使用硬體安全性模組 (HSM) 與 Key Vault 的指示](https://docs.microsoft.com/azure/key-vault/key-vault-get-started#a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm)
+   - [從 Key Vault 使用 PowerShell 的指示](../key-vault/key-vault-get-started.md)
+   - [使用硬體安全性模組 (HSM) 與 Key Vault 的指示](../key-vault/key-vault-get-started.md#HSM)
  - 金鑰保存庫必須具有下列屬性才能用於 TDE：
-   - [虛刪除](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-   - [如何使用 Key Vault 虛刪除與 PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) 
+   - [虛刪除](../key-vault/key-vault-ovw-soft-delete.md)
+   - [如何使用 Key Vault 虛刪除與 PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
 - 金鑰必須具有下列屬性才能用於 TDE：
    - 沒有到期日
    - 未停用
@@ -201,11 +195,11 @@ ms.locfileid: "45543772"
 - [建議執行的選擇性作業] 備妥硬體安全性模組 (HSM) 或本機金鑰存放區，用來建立 TDE 保護裝置金鑰內容的本機複本。
 - 命令列介面 2.0 版或更新版本。 若要安裝最新版本，並連線至 Azure 訂用帳戶，請參閱[安裝與設定 Azure 跨平台命令列介面 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。 
 - 建立要用於 TDE 的 Azure Key Vault 和金鑰。
-   - [使用 CLI 2.0 管理 Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2)
-   - [使用硬體安全性模組 (HSM) 與 Key Vault 的指示](https://docs.microsoft.com/azure/key-vault/key-vault-get-started#a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm)
+   - [使用 CLI 2.0 管理 Key Vault](../key-vault/key-vault-manage-with-cli2.md)
+   - [使用硬體安全性模組 (HSM) 與 Key Vault 的指示](../key-vault/key-vault-get-started.md#HSM)
  - 金鑰保存庫必須具有下列屬性才能用於 TDE：
-   - [虛刪除](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-   - [如何使用 Key Vault 虛刪除與 CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli) 
+   - [虛刪除](../key-vault/key-vault-ovw-soft-delete.md)
+   - [如何使用 Key Vault 虛刪除與 CLI](../key-vault/key-vault-soft-delete-cli.md) 
 - 金鑰必須具有下列屬性才能用於 TDE：
    - 沒有到期日
    - 未停用
@@ -214,7 +208,7 @@ ms.locfileid: "45543772"
 ## <a name="step-1-create-a-server-and-assign-an-azure-ad-identity-to-your-server"></a>步驟 1. 建立伺服器，並將 Azure AD 身分識別指派給您的伺服器
       cli
       # create server (with identity) and database
-      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -I 
+      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -i 
       az sql db create -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
       
 

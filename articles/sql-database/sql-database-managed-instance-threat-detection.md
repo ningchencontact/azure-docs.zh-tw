@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: f87b7093a732639db8a53ebec68fcae8f29735f3
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.date: 01/25/2019
+ms.openlocfilehash: 59a3b4a4e1b08a9a9985836a9f9be44d1eff9c71
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158664"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472060"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>在 Azure SQL Database 受控執行個體中設定威脅偵測 (預覽)
 
@@ -25,7 +25,7 @@ ms.locfileid: "54158664"
 
 您可以透過[電子郵件通知](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event)或 [Azure 入口網站](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)接收偵測到威脅的通知
 
-[威脅偵測](sql-database-threat-detection-overview.md)是 [SQL 進階威脅防護](sql-advanced-threat-protection.md) (ATP) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 威脅偵測可以透過中央 SQL ATP 入口網站存取及管理。 威脅偵測服務的費用是每個受控執行個體每月 15$，前 30 天免費。
+[威脅偵測](sql-database-threat-detection-overview.md)是 [SQL 進階資料安全性](sql-advanced-threat-protection.md) (ADS) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 威脅偵測可以透過中央 SQL ADS 入口網站存取及管理。 威脅偵測服務的費用是每個受控執行個體每月 15$，前 30 天免費。
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>使用 Azure 入口網站為受控執行個體設定威脅偵測
 

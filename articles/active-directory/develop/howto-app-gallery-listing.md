@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,14 +17,14 @@ ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3d6692808bad2010779323cecc42778def32a38c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd02c2d10d072f33fdc265feaadf9776e9c1d679
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980265"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102029"
 ---
-# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>操作說明：在 Azure Active Directory 應用程式庫中列出應用程式
+# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>作法：在 Azure Active Directory 應用程式庫中列出您的應用程式
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>什麼是 Azure AD 應用程式庫？
 
@@ -39,7 +39,7 @@ ms.locfileid: "46980265"
 
 - 對於同盟應用程式 (Open ID 與 SAML/WS-Fed)，應用程式必須支援 SaaS 模型，才列於 Azure AD 資源庫中。 企業資源庫應用程式應支援多個客戶設定，而非任何特定的客戶。
 
-- 若為 Open ID Connect，應用程式應為多租用戶，且應針對應用程式適當地實作 [Azure AD 同意架構](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework)。 使用者可以將登入要求傳送給通用端點，以便讓所有客戶都可以向該應用程式表示同意。 您可以根據租用戶識別碼和在權杖中收到的使用者 UPN 來控制使用者存取權。
+- 若為 Open ID Connect，應用程式應為多租用戶，且應針對應用程式適當地實作 [Azure AD 同意架構](consent-framework.md)。 使用者可以將登入要求傳送給通用端點，以便讓所有客戶都可以向該應用程式表示同意。 您可以根據租用戶識別碼和在權杖中收到的使用者 UPN 來控制使用者存取權。
 
 - 若為 SAML 2.0/WS-Fed，您的應用程式需具備在 SP 或 IDP 模式下進行 SAML/WS-Fed SSO 整合的能力。 請先確定這會正常運作，再提交該要求。
 
@@ -79,7 +79,7 @@ ms.locfileid: "46980265"
     * 如果您想要使用 OpenID Connect 將應用程式新增至資源庫中的清單，請選取如上所述的 **OpenID Connect 和 OAuth 2.0**。
     * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。 
 
-*   **SAML 2.0** 或 **WS-Fed**：如果您的應用程式支援 SAML 2.0，便可以使用[新增自訂應用程式的指示](../active-directory-saas-custom-apps.md)將應用程式直接與 Azure AD 租用戶整合。
+*   **SAML 2.0** 或 **WS-Fed**：如果您的應用程式支援 SAML 2.0，便可以使用[新增自訂應用程式的指示](../active-directory-saas-custom-apps.md)直接將其與 Azure AD 租用戶整合。
 
     ![在資源庫中列出 SAML 2.0 或 WS-Fed 應用程式的時間表](./media/howto-app-gallery-listing/saml.png)
 

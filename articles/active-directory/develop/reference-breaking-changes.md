@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 68517c83-1279-4cc7-a7c1-c7ccc3dbe146
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8e00674f331a56be9abe6f2356aa88d7dcf1d0b0
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 3da99506d50ec12140c188cd86cde2556be4a308
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282379"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099136"
 ---
 # <a name="whats-new-for-authentication"></a>驗證有什麼新功能？ 
 
@@ -48,9 +48,9 @@ ms.locfileid: "52282379"
 
 **生效日期**：2018 年 11 月 15 日
 
-**受影響的端點**：v1.0 和 v2.0
+**受影響的端點**：1.0 和 2.0 版
 
-**受影響的通訊協定**：[碼流程](v2-oauth2-auth-code-flow.md)
+**受影響的通訊協定**：[程式碼流程](v2-oauth2-auth-code-flow.md)
 
 從 2018 年 11 月 15 日起，Azure AD 將不再接受將先前使用的驗證碼用於應用程式。 這項安全性變更有助於讓 Azure AD 與 OAuth 規格一致，且將會對 v1 和 v2 端點強制執行。
 
@@ -64,7 +64,7 @@ ms.locfileid: "52282379"
 
 **日期**：2018 年 5 月 1 日
 
-**受影響的端點**：v1.0 和 v2.0
+**受影響的端點**：1.0 和 2.0 版
 
 **受影響的通訊協定**：隱含流程和 [OBO 流程](v1-oauth2-on-behalf-of-flow.md)
 

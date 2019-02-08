@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 95c3726caeb19d6bbf7153533951bb18cd7d0e57
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ff5d4267de172aa83fae6ce70a609ad9897d7374
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055398"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102680"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>以節點轉換 API 取代啟動節點和停止節點 API
 
 ## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>啟動節點和停止節點 API 有什麼功用？
 
-停止節點 API (受控︰[StopNodeAsync()][stopnode]、PowerShell：[Stop-ServiceFabricNode][stopnodeps]) 會停止 Service Fabric 節點。  Service Fabric 節點是處理序，不是 VM 或機器 – VM 或機器仍將繼續執行。  在文件的其餘部分，「節點」是指 Service Fabric 節點。  停止節點時是將其放入「停止」狀態，此時節點不是叢集的成員，無法裝載服務，因此就像是個「關閉」的節點。  在將錯誤插入系統以測試應用程式系統時，這非常有用。  啟動節點 API (受控︰[StartNodeAsync()][startnode]、PowerShell：[Start-ServiceFabricNode][startnodeps]) 會反轉停止節點 API，將節點帶回一般狀態。
+停止節點 API (受控：[StopNodeAsync()][stopnode]、PowerShell：[Stop-ServiceFabricNode][stopnodeps]) 可停止 Service Fabric 節點。  Service Fabric 節點是處理序，不是 VM 或機器 – VM 或機器仍將繼續執行。  在文件的其餘部分，「節點」是指 Service Fabric 節點。  停止節點時是將其放入「停止」狀態，此時節點不是叢集的成員，無法裝載服務，因此就像是個「關閉」的節點。  在將錯誤插入系統以測試應用程式系統時，這非常有用。  啟動節點 API (受控：[StartNodeAsync()][startnode]、PowerShell：[Start-ServiceFabricNode][startnodeps]) 會反轉停止節點 API，將節點帶回一般狀態。
 
 ## <a name="why-are-we-replacing-these"></a>為什麼要取代它們？
 
@@ -38,11 +38,11 @@ ms.locfileid: "44055398"
 
 ## <a name="introducing-the-node-transition-apis"></a>節點轉換 API 簡介
 
-我們已經用一組新的 API 解決上述問題。  新的節點轉換 API (受控︰[StartNodeTransitionAsync()][snt]) 可用來將 Service Fabric 節點轉換為「停止」狀態，或將它從「停止」狀態轉換為一般狀態。  請注意，此 API 名稱中的 "Start" 不是啟動節點之意。  是指開始系統將執行、會將節點轉換為「停止」或啟動狀態的非同步作業。
+我們已經用一組新的 API 解決上述問題。  新的節點轉換 API (受控：[StartNodeTransitionAsync()][snt]) 可用來將 Service Fabric 節點轉換為「停止」狀態，或將它從「停止」狀態轉換為一般狀態。  請注意，此 API 名稱中的 "Start" 不是啟動節點之意。  是指開始系統將執行、會將節點轉換為「停止」或啟動狀態的非同步作業。
 
 **使用量**
 
-如果節點轉換 API 被呼叫時沒有擲回例外狀況，則系統已接受非同步作業，並將執行它。  成功的呼叫並不表示作業完成。  若要取得作業的目前狀態資訊，請呼叫節點轉換進度 API (受控︰ [GetNodeTransitionProgressAsync()][gntp])，並搭配此作業叫用節點轉換 API 時使用的 guid。  節點轉換進度 API 會傳回 NodeTransitionProgress 物件。  此物件的 State 屬性會指定作業的目前狀態。  如果狀態是 "Running"，則作業正在執行。  如果是 "Completed"，則作業完成沒有錯誤。  如果是 "Faulted"，則表示執行作業發生問題。  Result 屬性的 Exception 屬性會指出問題為何。  請參閱 https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate 了解 State 屬性的相關資訊，以及之後的「範例用法」一節中的程式碼範例。
+如果節點轉換 API 被呼叫時沒有擲回例外狀況，則系統已接受非同步作業，並將執行它。  成功的呼叫並不表示作業完成。  若要取得作業的目前狀態資訊，請呼叫節點轉換進度 API (受控︰[GetNodeTransitionProgressAsync()][gntp])，並搭配此作業叫用節點轉換 API 時使用的 guid。  節點轉換進度 API 會傳回 NodeTransitionProgress 物件。  此物件的 State 屬性會指定作業的目前狀態。  如果狀態是 "Running"，則作業正在執行。  如果是 "Completed"，則作業完成沒有錯誤。  如果是 "Faulted"，則表示執行作業發生問題。  Result 屬性的 Exception 屬性會指出問題為何。  請參閱 https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate 了解 State 屬性的相關資訊，以及之後的「範例用法」一節中的程式碼範例。
 
 
 **區分停止節點和關閉節點** 如果是使用節點轉換 API *停止*節點，節點查詢的輸出 (受控：[GetNodeListAsync()][nodequery]、PowerShell：[Get-ServiceFabricNode][nodequeryps]) 將顯示此節點的 *IsStopped* 屬性值為 true。  請注意，這和 NodeStatus屬性的值 (Down) 不同。  如果 NodeStatus屬性的值為 Down，但 IsStopped 為 false，則節點並非使用節點轉換 API 停止，而是因其他原因而「關閉」。  如果 IsStopped屬性為 true，而NodeStatus 屬性為 Down，則是使用節點轉換 API 停止節點。
@@ -159,7 +159,7 @@ ms.locfileid: "44055398"
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```
@@ -202,7 +202,7 @@ ms.locfileid: "44055398"
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```

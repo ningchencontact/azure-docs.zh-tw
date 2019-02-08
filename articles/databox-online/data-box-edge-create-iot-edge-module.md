@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 8d4a99ab9d8107f1b3fbe70f59299f427bc88bd5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 86eec87d0c466b9172834fa9dbe7dfcb3702ea55
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465878"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094099"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>在 Data Box Edge (預覽) 上開發 C# IoT Edge 模組來移動檔案
 
@@ -97,8 +97,8 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 建立您可以使用自己的程式碼自訂的 C# 解決方案範本。
 
 1. 在 Visual Studio Code 中，選取 [檢視] > [命令選擇區] 以開啟 VS Code 命令選擇區。
-2. 請在命令選擇區中，輸入並執行命令 **Azure: Sign in**，然後依照指示登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
-3. 在 [命令選擇區] 中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 在命令選擇區中提供下列資訊，以建立解決方案：
+2. 在 [命令選擇區] 中，輸入並執行命令 **Azure:Sign in**，然後遵循指示來登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
+3. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge:**[新增 IoT Edge 解決方案]。 在命令選擇區中提供下列資訊，以建立解決方案：
 
     1. 選取要用來建立解決方案的資料夾。
     2. 為解決方案提供名稱，或是接受預設值 **EdgeSolution**。
@@ -143,7 +143,7 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
             static int counter;
             private const string InputFolderPath = "/home/LocalShare";
             private const string OutputFolderPath = "/home/CloudShare";
-    ````
+    ```
 
     > [!IMPORTANT]
     > 記下 `InputFolderPath` 與 `OutputFolderPath`。 當您部署此模組時，將必須提供這些路徑。
@@ -269,7 +269,7 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
     您可能會看到下列可略過的警告：
 
-    Program.cs(77,44)：警告 CS1998：這個非同步方法缺少 'await' 運算子，因此將以同步方式執行。請考慮使用 'await' 運算子等候未封鎖的應用程式開發介面呼叫，或使用 'await Task.Run(...)' 在背景執行緒上執行 CPU-bound 工作。
+    *Program.cs(77,44): 警告 CS1998:這個非同步方法缺少 'await' 運算子，因此將以同步方式執行。* 請考慮使用 'await' 運算子等候未封鎖的應用程式開發介面呼叫，或使用 'await Task.Run(...)' 在背景執行緒上執行 CPU-bound 工作。
 
 4. 您可以在 VS Code 整合式終端機中檢視完整容器映像位址。 系統會根據 module.json 檔案中的資訊，使用 `<repository>:<version>-<platform>` 格式來建置映像位址。 在本文中，它應該看起來像 `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`。
 

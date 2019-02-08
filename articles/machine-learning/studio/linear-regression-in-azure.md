@@ -1,5 +1,5 @@
 ---
-標題：將分析從 Excel 遷移至 Azure Machine Learning Studio titleSuffix: Azure Machine Learning Studio description:在 Excel 與 Azure Machine Learning Studio 服務中的線性迴歸模型比較: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：將分析從 Excel 遷移至 Azure Machine Learning Studio titleSuffix:Azure Machine Learning Studio description:在 Excel 與 Azure Machine Learning Studio 服務中的線性迴歸模型比較: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:2017/03/20
 ---

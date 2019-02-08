@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/05/2018
+ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b2d834c5f9f46f2ebe3c997c75dc50f30ed4bda7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 8626dcb5b5c8eb7e83123eaeadb601e65d52f2c8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558918"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081223"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 [角色型存取控制 (RBAC)](overview.md) 具有數個內建角色定義，可供您指派給使用者、群組和服務主體。 角色指派是您控制 Azure 資源存取權的方式。 如果內建的角色無法滿足您組織的特定需求，您可以建立自己的[自訂角色](custom-roles.md)。
@@ -37,6 +37,8 @@ ms.locfileid: "53558918"
 | [參與者](#contributor) | 可讓您管理一切，但無法管理對資源的存取。 |
 | [讀取者](#reader) | 可讓您檢視所有項目，但是無法進行變更。 |
 | [AcrImageSigner](#acrimagesigner) | ACR 影像簽署者 |
+| [AcrPull](#acrpull) | acr 提取 |
+| [AcrPush](#acrpush) | acr 推送 |
 | [AcrQuarantineReader](#acrquarantinereader) | ACR 隔離資料讀取者 |
 | [AcrQuarantineWriter](#acrquarantinewriter) | ACR 隔離資料寫入者 |
 | [API 管理服務參與者](#api-management-service-contributor) | 可管理服務與 API |
@@ -66,6 +68,7 @@ ms.locfileid: "53558918"
 | [認知服務參與者](#cognitive-services-contributor) | 可讓您建立、讀取、更新、刪除及管理認知服務的金鑰。 |
 | [認知服務使用者](#cognitive-services-user) | 可讓您讀取和列出認知服務的金鑰。 |
 | [Cosmos DB 帳戶讀者角色](#cosmos-db-account-reader-role) | 可以讀取 Azure Cosmos DB 帳戶資料。 請參閱 [DocumentDB 帳戶參與者](#documentdb-account-contributor)以管理 Azure Cosmos DB 帳戶。 |
+| [CosmosBackupOperator](#cosmosbackupoperator) | 可為帳戶的 Cosmos DB 資料庫或容器提交還原要求 |
 | [成本管理參與者](#cost-management-contributor) | 可檢視成本和管理成本組態 (例如預算、匯出) |
 | [成本管理讀者](#cost-management-reader) | 可檢視成本資料和組態 (例如預算、匯出) |
 | [資料箱參與者](#data-box-contributor) | 可讓您管理資料箱服務下的所有項目，為他人賦予存取權除外。 |
@@ -76,8 +79,8 @@ ms.locfileid: "53558918"
 | [DevTest Labs 使用者](#devtest-labs-user) | 可讓您連線、啟動、重新啟及關閉您 Azure DevTest Labs 中的虛擬機器。 |
 | [DNS 區域參與者](#dns-zone-contributor) | 可讓您管理 Azure DNS 中的 DNS 區域與記錄集，但無法讓您控制誰可存取它們。 |
 | [DocumentDB 帳戶參與者](#documentdb-account-contributor) | 可以管理 Azure Cosmos DB 帳戶。 Azure Cosmos DB 先前稱為 DocumentDB。 |
-| [EventGrid EventSubscription 參與者 (預覽)](#eventgrid-eventsubscription-contributor-preview) | 可讓您管理 EventGrid 事件訂用帳戶作業。 |
-| [EventGrid EventSubscription 讀者 (預覽)](#eventgrid-eventsubscription-reader-preview) | 可讓您讀取 EventGrid 事件訂用帳戶。 |
+| [EventGrid EventSubscription 參與者](#eventgrid-eventsubscription-contributor) | 可讓您管理 EventGrid 事件訂用帳戶作業。 |
+| [EventGrid EventSubscription 讀者](#eventgrid-eventsubscription-reader) | 可讓您讀取 EventGrid 事件訂用帳戶。 |
 | [HDInsight 網域服務參與者](#hdinsight-domain-services-contributor) | 可讀取、建立、修改和刪除 HDInsight 企業安全性套件所需的網域服務相關作業 |
 | [Intelligent Systems 帳戶參與者](#intelligent-systems-account-contributor) | 可讓您管理「智慧型系統」帳戶，但無法存取它們。 |
 | [Key Vault 參與者](#key-vault-contributor) | 可讓您管理金鑰保存庫，但無法存取它們。 |
@@ -98,7 +101,7 @@ ms.locfileid: "53558918"
 | [網路參與者](#network-contributor) | 可讓您管理網路，但無法存取它們。 |
 | [New Relic APM 帳戶參與者](#new-relic-apm-account-contributor) | 可讓您管理 New Relic Application Performance Management 帳戶及應用程式，但無法存取它們。 |
 | [讀取者及資料存取](#reader-and-data-access) | 可讓您檢視所有內容，但無法讓您刪除或建立儲存體帳戶或內含的資源。 也可透過存取儲存體帳戶金鑰，對儲存體帳戶中內含的所有資料進行讀取/寫入存取。 |
-| [Azure Cache for Redis 參與者](#redis-cache-contributor) | 可讓您管理 Azure Cache for Redis，但無法加以存取。 |
+| [Redis 快取參與者](#redis-cache-contributor) | 可讓您管理 Azure Cache for Redis，但無法加以存取。 |
 | [資源原則參與者 (預覽)](#resource-policy-contributor-preview) | (預覽) 從 EA 回填的使用者，有權建立/修改資源原則、建立支援票證及讀取資源/階層。 |
 | [排程器工作集合參與者](#scheduler-job-collections-contributor) | 可讓您管理「排程器」工作集合，但無法存取它們。 |
 | [搜尋服務參與者](#search-service-contributor) | 可讓您管理「搜尋」服務，但無法存取它們。 |
@@ -114,7 +117,7 @@ ms.locfileid: "53558918"
 | [儲存體帳戶參與者](#storage-account-contributor) | 可讓您管理儲存體帳戶，但無法存取它們。 |
 | [儲存體帳戶金鑰操作員服務角色](#storage-account-key-operator-service-role) | 「儲存體帳戶金鑰操作員」可以列出及重新產生「儲存體帳戶」的金鑰 |
 | [儲存體 Blob 資料參與者 (預覽)](#storage-blob-data-contributor-preview) | 可讀取、寫入及刪除 Azure 儲存體 Blob 容器與資料 |
-| [儲存體 Blob 資料擁有者 (預覽)](#storage-blob-data-owner-preview) | 可讀取、寫入、刪除及 POSIX 超級使用者存取 Azure 儲存體 Blob 容器與資料 |
+| [儲存體 Blob 資料擁有者 (預覽)](#storage-blob-data-owner-preview) | 允許完整存取 Azure 儲存體 Blob 容器和資料，包括指派 POSIX 存取控制。 |
 | [儲存體 Blob 資料讀者 (預覽)](#storage-blob-data-reader-preview) | 可讀取 Azure 儲存體 Blob 容器與資料 |
 | [儲存體佇列資料參與者 (預覽)](#storage-queue-data-contributor-preview) | 可讀取、寫入及刪除 Azure 儲存體佇列與佇列訊息 |
 | [儲存體佇列資料讀者 (預覽)](#storage-queue-data-reader-preview) | 可讀取 Azure 儲存體佇列與佇列訊息 |
@@ -169,6 +172,25 @@ ms.locfileid: "53558918"
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **動作** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | 推送/提取容器登錄的內容信任中繼資料。 |
+
+## <a name="acrpull"></a>AcrPull
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | acr 提取 |
+> | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
+> | **動作** |  |
+> | Microsoft.ContainerRegistry/registries/pull/read | 從容器登錄中提取或取得映像。 |
+
+## <a name="acrpush"></a>AcrPush
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | acr 推送 |
+> | **Id** | 8311e382-0749-4cb8-b61a-304f252e45ec |
+> | **動作** |  |
+> | Microsoft.ContainerRegistry/registries/pull/read | 從容器登錄中提取或取得映像。 |
+> | Microsoft.ContainerRegistry/registries/push/write | 將映像推送或寫入至容器登錄。 |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -385,7 +407,7 @@ ms.locfileid: "53558918"
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 重新整理容器清單 |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | 建立和管理備份作業 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 匯出作業 |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | 傳回匯出作業的作業結果。 |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | 建立和管理與備份管理相關的中繼資料 |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | 建立和管理備份管理作業的結果 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | 建立和管理備份原則 |
@@ -445,8 +467,8 @@ ms.locfileid: "53558918"
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 重新整理容器清單 |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | 建立和管理備份作業 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 匯出作業 |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | 傳回匯出作業的作業結果。 |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | 傳回復原服務保存庫的備份管理中繼資料。 |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
+> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | 建立和管理備份管理作業的結果 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | 取得原則作業的結果。 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | 傳回所有保護原則 |
@@ -506,8 +528,8 @@ ms.locfileid: "53558918"
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | 傳回作業的作業結果。 |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | 傳回所有作業物件 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 匯出作業 |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | 傳回匯出作業的作業結果。 |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | 傳回復原服務保存庫的備份管理中繼資料。 |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
+> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | 傳回復原服務保存庫的備份作業結果。 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | 取得原則作業的結果。 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | 傳回所有保護原則 |
@@ -754,6 +776,16 @@ ms.locfileid: "53558918"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
+## <a name="cosmosbackupoperator"></a>CosmosBackupOperator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可為帳戶的 Cosmos DB 資料庫或容器提交還原要求 |
+> | **Id** | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
+> | **動作** |  |
+> | Microsoft.DocumentDB/databaseAccounts/backup/action | 提交要求以設定備份 |
+> | Microsoft.DocumentDB/databaseAccounts/restore/action | 提交還原要求 |
+
 ## <a name="cost-management-contributor"></a>成本管理參與者
 > [!div class="mx-tableFixed"]
 > | | |
@@ -940,7 +972,7 @@ ms.locfileid: "53558918"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
-## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription 參與者 (預覽)
+## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription 參與者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -957,7 +989,7 @@ ms.locfileid: "53558918"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
-## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription 讀者 (預覽)
+## <a name="eventgrid-eventsubscription-reader"></a>EventGrid EventSubscription 讀者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1201,6 +1233,7 @@ ms.locfileid: "53558918"
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
 > | Microsoft.Insights/actiongroups/* |  |
+> | Microsoft.Insights/activityLogAlerts/* |  |
 > | Microsoft.Insights/AlertRules/* | 讀取/寫入/刪除警示規則。 |
 > | Microsoft.Insights/components/* | 讀取/寫入/刪除 Application Insights 元件。 |
 > | Microsoft.Insights/DiagnosticSettings/* | 讀取/寫入/刪除診斷設定。 |
@@ -1285,7 +1318,7 @@ ms.locfileid: "53558918"
 > | Microsoft.Storage/storageAccounts/listKeys/action | 傳回指定儲存體帳戶的存取金鑰。 |
 > | Microsoft.Storage/storageAccounts/read | 傳回儲存體帳戶清單，或取得指定儲存體帳戶的屬性。 |
 
-## <a name="azure-cache-for-redis-contributor"></a>Azure Cache for Redis 參與者
+## <a name="redis-cache-contributor"></a>Redis 快取參與者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1370,6 +1403,7 @@ ms.locfileid: "53558918"
 > | Microsoft.Security/pricings/delete | 刪除該範圍的定價設定 |
 > | Microsoft.Security/securityContacts/delete | 刪除安全性連絡人 |
 > | Microsoft.Security/securityContacts/write | 更新安全性連絡人 |
+> | Microsoft.Security/InformationProtectionPolicies/write | 更新資源的資訊保護原則 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
 ## <a name="security-manager-legacy"></a>安全性管理員 (舊版)
@@ -1430,7 +1464,7 @@ ms.locfileid: "53558918"
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/* | 建立和管理複寫原則 |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/* | 建立和管理復原計劃 |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* | 建立和管理復原服務保存庫的儲存體設定 |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | 傳回復原服務保存庫的權杖資訊。 |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | 傳回復原服務保存庫的使用量詳細資料。 |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | 「保存庫權杖」作業可用來取得保存庫層級後端作業的保存庫權杖。 |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | 讀取復原服務保存庫的警示 |
@@ -1497,7 +1531,7 @@ ms.locfileid: "53558918"
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | 讀取復原服務保存庫的警示 |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | 傳回復原服務保存庫的權杖資訊。 |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | 傳回復原服務保存庫的使用量詳細資料。 |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | 「保存庫權杖」作業可用來取得保存庫層級後端作業的保存庫權杖。 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
@@ -1540,7 +1574,7 @@ ms.locfileid: "53558918"
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | 讀取任何原則 |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | 讀取任何復原方案 |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | 傳回復原服務保存庫的權杖資訊。 |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | 傳回復原服務保存庫的使用量詳細資料。 |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | 「保存庫權杖」作業可用來取得保存庫層級後端作業的保存庫權杖。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
@@ -1565,6 +1599,7 @@ ms.locfileid: "53558918"
 > | Microsoft.Insights/metricDefinitions/read | 讀取計量定義 |
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | 無法編輯稽核原則 |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | 無法編輯稽核設定 |
 > | Microsoft.Sql/servers/databases/auditRecords/read | 擷取資料庫 Blob 稽核記錄 |
@@ -1578,6 +1613,7 @@ ms.locfileid: "53558918"
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="sql-security-manager"></a>SQL 安全性管理員
 > [!div class="mx-tableFixed"]
@@ -1593,6 +1629,7 @@ ms.locfileid: "53558918"
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | 建立和管理 SQL Server 稽核原則 |
 > | Microsoft.Sql/servers/auditingSettings/* | 建立和管理 SQL Server 稽核設定 |
 > | Microsoft.Sql/servers/extendedAuditingSettings/read | 擷取指定伺服器上所設定之擴充伺服器 Blob 稽核原則的詳細資料 |
@@ -1616,6 +1653,7 @@ ms.locfileid: "53558918"
 > | Microsoft.Sql/servers/firewallRules/* |  |
 > | Microsoft.Sql/servers/read | 傳回伺服器清單，或取得指定伺服器的屬性。 |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | 建立和管理 SQL Server 安全性警示原則 |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
 ## <a name="sql-server-contributor"></a>SQL Server 參與者
@@ -1637,6 +1675,7 @@ ms.locfileid: "53558918"
 > | Microsoft.Insights/metricDefinitions/read | 讀取計量定義 |
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | 無法編輯 SQL Server 稽核原則 |
 > | Microsoft.Sql/servers/auditingSettings/* | 無法編輯 SQL Server 稽核設定 |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | 無法編輯 SQL Server 資料庫稽核原則 |
@@ -1654,6 +1693,7 @@ ms.locfileid: "53558918"
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | 無法編輯 SQL Server 安全性警示原則 |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="storage-account-contributor"></a>儲存體帳戶參與者
 > [!div class="mx-tableFixed"]
@@ -1690,8 +1730,8 @@ ms.locfileid: "53558918"
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 傳回刪除容器的結果 |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器或容器清單 |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | 傳回放置或租用 Blob 容器的結果 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器的清單 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | 傳回放置 Blob 容器的結果 |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | 傳回刪除 Blob 的結果 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
@@ -1701,16 +1741,12 @@ ms.locfileid: "53558918"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可讀取、寫入、刪除及 POSIX 超級使用者存取 Azure 儲存體 Blob 容器與資料 |
+> | **說明** | 允許完整存取 Azure 儲存體 Blob 容器和資料，包括指派 POSIX 存取控制。 |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **動作** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 傳回刪除容器的結果 |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器或容器清單 |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | 傳回放置或租用 Blob 容器的結果 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | 傳回刪除 Blob 的結果 |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | 傳回寫入 Blob 的結果 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
 
 ## <a name="storage-blob-data-reader-preview"></a>儲存體 Blob 資料讀者 (預覽)
 > [!div class="mx-tableFixed"]
@@ -1719,7 +1755,7 @@ ms.locfileid: "53558918"
 > | **說明** | 可讀取 Azure 儲存體 Blob 容器與資料 |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **動作** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器或容器清單 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器的清單 |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
 

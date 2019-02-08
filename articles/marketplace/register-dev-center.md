@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 393426678d9331837bdc3b73c4e491dbe7eae6fa
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: dacc2ca995bebd0ae65d9c8221fc1954687949ee
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834820"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179832"
 ---
 # <a name="register-in-dev-center"></a>在開發人員中心註冊  
 為了協助確認您尚未登入個人瀏覽器帳戶，請開啟新的 Internet Explorer InPrivate 或 Chrome Incognito 瀏覽工作階段。  
@@ -68,7 +68,7 @@ ms.locfileid: "52834820"
 
 9.  在 `Registration - Review` 區段中，檢閱您的帳戶資訊，並確認所有項目都正確。  
 
-    閱讀 Microsoft Azure Marketplace 發行者合約的條款和條件。  
+    閱讀 Microsoft Azure Marketplace [發行者合約](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) \(英文\) 的條款和條件。  
 
     按一下勾選方塊，表示您已閱讀並接受這些條款。  
     
@@ -187,7 +187,7 @@ ms.locfileid: "52834820"
 > 若未在開發人員中心帳戶中填寫稅務和銀行資訊，則無法發佈交易供應項目。  如需有關新增帳戶資訊的詳細資訊，請瀏覽[如何新增銀行與稅務資訊](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)。
 
 *   **我是否可以變更開發人員中心 Microsoft 登入帳戶？**
-> 否。 開發人員中心建立後，就無法變更擁有者帳戶。 您必須以所需的 Microsoft 帳戶重新建立全新的開發人員中心帳戶。
+> 沒有。 開發人員中心建立後，就無法變更擁有者帳戶。 您必須以所需的 Microsoft 帳戶重新建立全新的開發人員中心帳戶。
 
 *   **如果有開發人員中心註冊的相關問題，應於何處連絡支援人員？**
 若要存取支援，請參閱 Windows 開發人員支援頁面：[developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)。 

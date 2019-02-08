@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: 24df1cb5b7a9cc1209940bbaaa1217a80ea74918
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c99b22a5dad1e64525b2b2ebcd214c3dc5bfb28f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259643"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473590"
 ---
-# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>使用 Azure 儲存體總管管理 Azure Cosmos DB 資源
+# <a name="work-with-data-using-azure-storage-explorer"></a>使用 Azure 儲存體總管處理資料
 
 在 Azure 儲存體總管中使用 Azure Cosmos DB 可讓使用者管理 Azure Cosmos DB 實體、操縱資料、更新預存程序及觸發程序，以及其他 Azure 實體 (例如儲存體 Blob 及佇列)。 現在您可以使用同一個工具在同一處管理您不同的 Azure 實體。 目前，Azure 儲存體總管支援對 SQL、MongoDB、Graph 和資料表 API 設定 Cosmos 帳戶。
 

@@ -6,7 +6,7 @@ documentationcenter: ''
 author: barbkess
 manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: b440965fa3acb6c08c4827dce941247b8921b98b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e6560209d3dd4fe2185e0f5b16c29bf235223805
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473464"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167490"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>針對應用程式 Proxy 問題和錯誤訊息進行疑難排解
 如果在存取已發佈的應用程式或發佈應用程式時發生錯誤，請檢查下列選項以查看 Microsoft Azure AD 應用程式 Proxy 是否運作正常︰
@@ -54,7 +54,7 @@ ms.locfileid: "54473464"
 | 連接器註冊失敗：確定您已在 Azure 管理入口網站中啟用應用程式 Proxy，並已正確地輸入您的 Active Directory 使用者名稱和密碼。 Error:「ADSTS50059：在要求中找不到租用戶識別資訊，或任何提供的認證均未隱含租用戶識別資訊，而且依服務主體 URI 的搜尋已失敗。 | 您嘗試使用 Microsoft 帳戶進行登入，而非使用屬於您嘗試存取之目錄的組織識別碼的網域。 確定系統管理員屬於與租用戶網域相同的網域名稱，例如，若 Azure AD 網域是 contoso.com，則系統管理員應該是 admin@contoso.com。 |
 | 無法擷取目前的執行原則以供執行 PowerShell 指令碼。 | 如果連接器安裝失敗，請檢查以確定未停用 PowerShell 執行原則。 <br><br>1.開啟 [群組原則編輯器]。<br>2.移至 [電腦設定] > [系統管理範本] > [Windows 元件] > [Windows PowerShell]，按兩下 [開啟指令碼執行]。<br>3.執行原則可以設定為 [未設定] 或 [已啟用]。 如果是設定為 [已啟用]，請確定 [選項] 底下的 [執行原則] 是設定為 [允許本機指令碼和遠端已簽署的指令碼] 或 [允許所有指令碼]。 |
 | 連接器無法下載組態。 | 連接器用於驗證的用戶端憑證已過期。 如果您將連接器安裝在 Proxy 後面，也可能發生這種情形。 在此情況下，連接器無法存取網際網路，且無法將應用程式提供給遠端使用者。 在 Windows PowerShell 中使用 `Register-AppProxyConnector` Cmdlet，手動更新信任。 如果您的連接器位於 Proxy 後面，則必須將網際網路存取權授與「網絡服務」和「本機系統」連接器帳戶。 授與 Proxy 的存取權或將其設為略過 Proxy，即可完成此作業。 |
-| 連接器註冊失敗：確定您是 Active Directory 的全域管理員以註冊連接器。 Error:「註冊要求遭拒絕。」 | 您嘗試用以登入的別名不是此網域的系統管理員。 您的連接器永遠都會針對擁有使用者網域的目錄進行安裝。 確定您嘗試用以登入的系統管理員身分帳戶具有 Azure AD 租用戶的全域權限。 |
+| 連接器註冊失敗：確定您是 Active Directory 的應用程式管理員以註冊連接器。 Error:「註冊要求遭拒絕。」 | 您嘗試用以登入的別名不是此網域的系統管理員。 您的連接器永遠都會針對擁有使用者網域的目錄進行安裝。 確定您嘗試用以登入的系統管理員帳戶至少擁有 Azure AD 租用戶的應用程式管理員權限。 |
 
 ## <a name="kerberos-errors"></a>Kerberos 錯誤
 

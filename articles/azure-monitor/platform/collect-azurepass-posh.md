@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 3a20884dedf2d0f197cd73f0e67f412633736686
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a7c823493369735df23360645004b0bec85dbd7
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421570"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885502"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>使用 Log Analytics 設定 Azure PaaS 資源計量的收集
 
@@ -67,7 +67,7 @@ Azure 平台即服務 (PaaS) 資源 (例如 Azure SQL 和網站 (Web 應用程�
 
 此指令碼會針對符合所選準則的每個資源執行，並為其啟用計量收集。 完成之後，您會看到一則訊息，指出已完成設定。  
 
-完成之後，您很快就會開始在您的 Log Analytics 存放庫中看到來自 Azure PaaS 資源的資料。  系統會建立 `AzureMetrics` 類型的記錄，而分析這些記錄則是由 [Azure SQL 分析](../../azure-monitor/insights/azure-sql.md)和[Azure Web Apps 分析](../../azure-monitor/insights/azure-web-apps-analytics.md)管理解決方案支援。   
+完成之後，您很快就會開始在您的 Log Analytics 存放庫中看到來自 Azure PaaS 資源的資料。  系統會建立 `AzureMetrics` 類型的記錄，而分析這些記錄則是由 [Azure SQL 分析](../insights/azure-sql.md)和[Azure Web Apps 分析](../insights/azure-web-apps-analytics.md)管理解決方案支援。   
 
 ## <a name="update-a-resource-to-send-data-to-another-workspace"></a>更新資源以將資料傳送到另一個工作區
 如果您擁有已將資料傳送到 Log Analytics 工作區的資源，而且稍後決定將它重新設定為參考另一個工作區，您可以使用 `-Update` 參數來執行指令碼。  
@@ -79,8 +79,8 @@ Azure 平台即服務 (PaaS) 資源 (例如 Azure SQL 和網站 (Web 應用程�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 了解 [記錄搜尋](../../azure-monitor/log-query/log-query-overview.md) ，其可分析從資料來源和方案所收集的資料。 
+* 了解 [記錄搜尋](../log-query/log-query-overview.md) ，其可分析從資料來源和方案所收集的資料。 
 
-* 使用[自訂欄位](../../azure-monitor/platform/custom-fields.md) ，將事件記錄剖析至個別欄位。
+* 使用[自訂欄位](custom-fields.md) ，將事件記錄剖析至個別欄位。
 
-* 檢閱[建立自訂儀表板以便在 Log Analytics 中使用](../../azure-monitor/platform/dashboards.md)，了解如何以對組織有意義的方式來呈現您的記錄搜尋。
+* 檢閱[建立和共用 Log Analytics 資料的儀表板](../learn/tutorial-logs-dashboards.md)，以了解如何以對組織有意義的方式來呈現您的記錄搜尋。

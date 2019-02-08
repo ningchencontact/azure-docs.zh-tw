@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 10023d34a245f9493cfe244882dbdc1351a78513
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 59562d0571486a4bcbc96be4cb7dcddb4dfb0a44
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447209"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095714"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理存取限制原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -56,14 +56,14 @@ ms.locfileid: "52447209"
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
 |check-header|根元素。|是|  
 |value|允許的 HTTP 標頭值。 指定多個值元素時，如果其中任何一個值相符，則會將檢查視為成功。|否|  
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |failed-check-error-message|如果標頭不存在或具有無效值，要在 HTTP 回應本文中傳回的錯誤訊息。 此訊息必須正確逸出任何特殊字元。|是|N/A|  
 |failed-check-httpcode|標頭不存在或具有無效值時所要傳回的 HTTP 狀態碼。|是|N/A|  
@@ -111,7 +111,7 @@ ms.locfileid: "52447209"
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
 |set-limit|根元素。|是|  
 |api|新增一或多個這些元素，以對產品內的 API 強加呼叫頻率限制。 產品和 API 呼叫頻率限制會獨立套用。 API 可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。|否|  
@@ -119,7 +119,7 @@ ms.locfileid: "52447209"
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |name|要套用速率限制的 API 名稱。|是|N/A|  
 |calls|在 `renewal-period` 中指定的時間週期內允許的呼叫總數上限。|是|N/A|  
@@ -171,13 +171,13 @@ ms.locfileid: "52447209"
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
 |set-limit|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |calls|在 `renewal-period` 中指定的時間週期內允許的呼叫總數上限。|是|N/A|  
 |counter-key|用於頻率限制原則的金鑰。|是|N/A|  
@@ -214,7 +214,7 @@ ms.locfileid: "52447209"
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
 |ip-filter|根元素。|是|  
 |位址|指定要篩選的單一 IP 位址。|至少需要一個 `address` 或 `address-range` 元素。|  
@@ -222,7 +222,7 @@ ms.locfileid: "52447209"
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="位址" to="位址"|允許或拒絕存取的 IP 位址範圍。|使用 `address-range` 元素時必要。|N/A|  
 |ip-filter action="allow &#124; forbid"|指定允許或不允許指定的 IP 位址和範圍進行呼叫。|是|N/A|  
@@ -267,7 +267,7 @@ ms.locfileid: "52447209"
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
 |quota|根元素。|是|  
 |api|新增一或多個上述元素，以對產品內的 API 強加呼叫配額。 產品和 API 呼叫配額會獨立套用。 API 可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。|否|  
@@ -275,7 +275,7 @@ ms.locfileid: "52447209"
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |name|套用配額的 API 或作業名稱。|是|N/A|  
 |bandwidth|在 `renewal-period` 中指定的時間週期內允許的 KB 總數上限。|必須指定 `calls`、`bandwidth`，或同時指定兩者。|N/A|  
@@ -329,13 +329,13 @@ ms.locfileid: "52447209"
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
 |quota|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |bandwidth|在 `renewal-period` 中指定的時間週期內允許的 KB 總數上限。|必須指定 `calls`、`bandwidth`，或同時指定兩者。|N/A|  
 |calls|在 `renewal-period` 中指定的時間週期內允許的呼叫總數上限。|必須指定 `calls`、`bandwidth`，或同時指定兩者。|N/A|  
@@ -350,11 +350,12 @@ ms.locfileid: "52447209"
 -   **原則範圍︰** 全域、產品、API、作業  
   
 ##  <a name="ValidateJWT"></a>驗證 JWT  
- `validate-jwt` 原則會強制擷取自指定 HTTP 標頭或指定查詢參數的 JWT 必須存在且有效。  
+ `validate-jwt` 原則會強制擷取自指定 HTTP 標頭或指定查詢參數的 JWT 必須存在且有效。
   
 > [!IMPORTANT]
 >  `validate-jwt` 原則會要求 `exp` 註冊的宣告包含在 JWT 權杖中 (除非已指定 `require-expiration-time` 屬性並設定為 `false`)。  
-> `validate-jwt` 原則支援 HS256 和 RS256 簽署演算法。 若為 HS256，必須以 base64 編碼形式內嵌於原則內的方式提供金鑰。 若為 RS256，必須透過 Open ID 設定端點提供金鑰。  
+> `validate-jwt` 原則支援 HS256 和 RS256 簽署演算法。 若為 HS256，必須以 base64 編碼形式內嵌於原則內的方式提供金鑰。 若為 RS256，必須透過 Open ID 設定端點提供金鑰。
+> `validate-jwt` 原則支援使用下列加密演算法以對稱金鑰加密的權杖：A128CBC-HS256、A192CBC-HS384、A256CBC-HS512。
   
 ### <a name="policy-statement"></a>原則陳述式  
   
@@ -370,7 +371,11 @@ ms.locfileid: "52447209"
   <issuer-signing-keys>  
     <key>base64 encoded signing key</key>  
     <!-- if there are multiple keys, then add additional key elements -->  
-  </issuer-signing-keys>  
+  </issuer-signing-keys>
+  <decryption-keys>
+    <key>base64 encoded signing key</key>  
+    <!-- if there are multiple keys, then add additional key elements -->  
+  </decryption-keys>
   <audiences>  
     <audience>audience string</audience>  
     <!-- if there are multiple possible audiences, then add additional audience elements -->  
@@ -444,7 +449,7 @@ ms.locfileid: "52447209"
 ```  
   
 #### <a name="authorize-access-to-operations-based-on-token-claims"></a>根據權杖宣告授與作業的存取權  
- 此範例示範如何使用 [驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT) 原則來根據權杖宣告預先授與作業的存取權。 如需設定和使用此原則的示範，請觀賞 [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)，快轉到 13:50。 向前快轉到 15:00 可看到在原則編輯器中設定的原則，再到 18:50 可以看到一個示範，從開發人員入口網站 (使用和不使用必要的授權權杖) 呼叫運算。  
+ 此範例示範如何使用 [驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT) 原則來根據權杖宣告預先授與作業的存取權。 如需設定和使用此原則的示範，請參閱[雲端報導 177 集：與 Vlad Vinogradsky 一起了解更多 APIM 管理功能](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) \(英文\) 並快轉到 13:50。 向前快轉到 15:00 可看到在原則編輯器中設定的原則，再到 18:50 可以看到一個示範，從開發人員入口網站 (使用和不使用必要的授權權杖) 呼叫運算。  
   
 ```xml  
 <!-- Copy the following snippet into the inbound section at the api (or higher) level to pre-authorize access to operations based on token claims -->  
@@ -491,6 +496,7 @@ ms.locfileid: "52447209"
 |validate-jwt|根元素。|是|  
 |audiences|包含可呈現在權杖上之可接受的受眾宣告清單。 如果存在多個受眾值，則會嘗試每個值，直到全部試完 (即表示驗證失敗) 或其中一個值成功為止。 必須指定至少一個受眾。|否|  
 |issuer-signing-keys|用來驗證已簽署權杖的 Base64 編碼安全性金鑰清單。 如果存在多個安全性金鑰，則會嘗試每個金鑰，直到全部試完 (即表示驗證失敗) 或其中一個金鑰成功 (很適合用於權杖變換) 為止。 金鑰元素具有用來與 `kid` 宣告進行比對的選擇性 `id` 屬性。|否|  
+|decryption-keys|用來將權杖解密的 Base64 編碼金鑰清單。 如果有多個安全性金鑰存在，則系統會嘗試每個金鑰，直到試完所有金鑰 (即表示驗證失敗) 或某個金鑰成功為止。 金鑰元素具有用來與 `kid` 宣告進行比對的選擇性 `id` 屬性。|否|  
 |issuers|可接受之簽發權杖的主體清單。 如果存在多個簽發者值，則會嘗試每個值，直到全部試完 (即表示驗證失敗) 或其中一個值成功為止。|否|  
 |openid-config|此元素用於指定可從中取得簽署金鑰和簽發者之符合規範的 Open ID 設定端點。|否|  
 |required-claims|包含應存在於權杖上才會被視為有效的宣告清單。 當 `match` 屬性設定為 `all` 時，原則中的每個宣告值都必須存在於權杖，才能驗證成功。 當 `match` 屬性設定為 `any` 時，至少一個宣告必須存在於權杖，才能驗證成功。|否|  
@@ -498,7 +504,7 @@ ms.locfileid: "52447209"
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |clock-skew|時間範圍。 用來指定權杖簽發者和 API 管理執行個體的系統時鐘之間最大預期時間差異。|否|0 秒|  
 |failed-validation-error-message|如果 JWT 未通過驗證，在 HTTP 回應主體中傳回的錯誤訊息。 此訊息必須正確逸出任何特殊字元。|否|預設錯誤訊息視驗證問題而定，例如「JWT 不存在」。|  

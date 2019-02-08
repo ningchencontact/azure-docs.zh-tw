@@ -9,13 +9,13 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 67a5dc0eddb6deb51ec69c68c48d5edf308cf43e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: queues
+ms.openlocfilehash: 7ebb4326a8ec8a3382a5488ce3b966526bef446a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231561"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456267"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>如何使用 Ruby 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -80,14 +80,14 @@ rescue
 end
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>作法：將訊息插入佇列中
+## <a name="how-to-insert-a-message-into-a-queue"></a>作法：將訊息插入佇列
 若要將訊息插入佇列中，請使用 **create_message()** 方法建立新訊息，並將其新增至佇列。
 
 ```ruby
 azure_queue_service.create_message("test-queue", "test message")
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>作法：預覽下一個訊息
+## <a name="how-to-peek-at-the-next-message"></a>作法：查看下一個訊息
 透過呼叫 **peek\_messages()** 方法，您可以在佇列前面查看訊息，而無需將它從佇列中移除。 **peek\_messages()** 預設會查看單一訊息。 您也可以指定所要查看的訊息數。
 
 ```ruby
@@ -95,7 +95,7 @@ result = azure_queue_service.peek_messages("test-queue",
   {:number_of_messages => 10})
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>作法：清除下一個佇列訊息
+## <a name="how-to-dequeue-the-next-message"></a>作法：將下一個訊息清除佇列
 您可以使用兩個步驟將訊息從佇列中移除。
 
 1. 呼叫 **list\_messages()** 時，您預設會取得佇列中的下一個訊息。 您也可以指定您要取得的訊息數。 從 **list\_messages()** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。 您可以傳入以秒為單位的可見性逾時，作為參數。

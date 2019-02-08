@@ -2,14 +2,14 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: a13ce8d3dc71be83e05fae5bd07f30f413ce59f2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54404669"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55148032"
 ---
 您可以利用許多機會，藉由收集、檢視及分析診斷和記錄資料來監視 VM。 若要執行簡單的 VM [監視](../articles/azure-monitor/overview.md)，您可以在 Azure 入口網站中使用 VM 的 [概觀] 畫面。 您可以使用[擴充功能](../articles/virtual-machines/windows/extensions-features.md)來設定 VM 診斷，以收集其他計量資料。 您也可以使用更進階的監視選項，例如 [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 和 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)。
 
@@ -41,7 +41,7 @@ ms.locfileid: "54404669"
 
 [Azure 資源健康情況](../articles/service-health/resource-health-overview.md)可協助您進行診斷，並在 Azure 問題影響您的資源時取得支援。 它會通知您資源的目前及過去的健康狀態，並協助您解決問題。 資源健康狀態會在您需要解決 Azure 服務問題時提供技術支援。
 
-## <a name="logs"></a>記錄檔
+## <a name="azure-activity-log"></a>Azure 活動記錄檔
 
 [Azure 活動記錄](../articles/azure-monitor/platform/activity-logs-overview.md)是訂用帳戶記錄，可讓您深入探索 Azure 中發生的訂用帳戶層級事件。 此記錄包含的資料範圍，從 Azure Resource Manager 作業資料到「服務健康情況」事件的更新。 您可以在 Azure 入口網站中按一下活動記錄，以檢視 VM 的記錄。
 
@@ -64,11 +64,13 @@ ms.locfileid: "54404669"
 
 ## <a name="advanced-monitoring"></a>進階監視
 
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) 是一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。 您可以在 [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) 或 [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) 上安裝擴充功能，以便安裝 Log Analytics 代理程式，並將 VM 註冊到現有的 Log Analytics 工作區中。
+- [Azure 監視器](../articles/azure-monitor/overview.md)是一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。 它可提供全方位解決方案，以便收集、分析及處理來自雲端和內部部署環境的遙測資料。 它可協助您了解您的應用程式表現如何，並主動識別影響它們的問題以及它們所依賴的資源。 您可以在安裝 Log Analytics 代理程式的 [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) 或 [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) 上安裝擴充功能，以收集記錄資料並儲存在 Log Analytics 工作區中。
 
-    針對 Windows 和 Linux VM，收集記錄和度量的建議方式是安裝 Log Analytics 代理程式。 在 VM 上安裝 Log Analytics 代理程式的最簡單方式是透過 [Log Analytics VM 擴充功能](../articles/log-analytics/log-analytics-azure-vm-extension.md)。 使用擴充可以簡化安裝程序，並自動設定代理程式將資料傳送到您指定的 Log Analytics 工作區。 代理程式也會自動升級，以確保您擁有最新的功能和修正程式。
+    針對 Windows 和 Linux VM，收集記錄的建議方式是安裝 Log Analytics 代理程式。 在 VM 上安裝 Log Analytics 代理程式的最簡單方式是透過 [Log Analytics VM 擴充功能](../articles/log-analytics/log-analytics-azure-vm-extension.md)。 使用擴充可以簡化安裝程序，並自動設定代理程式將資料傳送到您指定的 Log Analytics 工作區。 代理程式也會自動升級，以確保您擁有最新的功能和修正程式。
 
 - [網路監看員](../articles/network-watcher/network-watcher-monitoring-overview.md)可讓您監視 VM 及其相關聯的資源，因為這些資源與其所在的網路相關。 您可以將網路監看員代理程式擴充功能安裝於 [Linux VM](../articles/virtual-machines/linux/extensions-nwa.md) 或 [Windows VM](../articles/virtual-machines/windows/extensions-nwa.md) 上。
+
+- [適用於 VM 的 Azure 監視器](../articles/azure-monitor/insights/vminsights-overview.md)可藉由分析 Windows 和 Linux VM 的效能和健康情況 (包括其不同的程序以及其他資源和外部程序的互連相依性)，大規模監視 Azure 虛擬機器 (VM)。 
 
 ## <a name="next-steps"></a>後續步驟
 - 逐步執行[使用 Azure PowerShell 監視 Windows 虛擬機器](../articles/virtual-machines/windows/tutorial-monitoring.md)或[使用 Azure CLI 監視 Linux 虛擬機器](../articles/virtual-machines/linux/tutorial-monitoring.md)中的步驟。

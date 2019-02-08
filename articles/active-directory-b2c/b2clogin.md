@@ -1,5 +1,5 @@
 ---
-title: 將 Azure Active Directory B2C 的重新導向 URL 設定為 b2clogin.com | Microsoft Docs
+title: 將重新導向 URL 設定為 b2clogin.com - Azure Active Directory B2C | Microsoft Docs
 description: 了解如何在 Azure Active Directory B2C 的重新導向 URL 中使用 b2clogin.com。
 services: active-directory-b2c
 author: davidmu1
@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 01/28/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 147d8e80c66bd47ed56400deca024532fc7e39c7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 61c4212233dd7ed9c34de779176c3402890e673f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844921"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160899"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>將 Azure Active Directory B2C 的重新導向 URL 設定為 b2clogin.com
 
@@ -23,8 +23,8 @@ ms.locfileid: "54844921"
 
 使用 b2clogin.com 可提供額外的優點，例如：
 
-- 不再與其他 Microsoft 服務共用 Cookie。
-- 您的 URL 不再包含對 Microsoft 的參考。 例如： `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`。
+- Microsoft 服務在 Cookie 標頭中所耗用的空間會縮小。
+- 您的 URL 不再包含對 Microsoft 的參考。 例如： `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`。
 
 請考慮這些設定在使用 b2clogin.com 時可能需要變更：
 
@@ -60,7 +60,9 @@ ms.locfileid: "54844921"
 
 ## <a name="set-the-validateauthority-property"></a>設定 ValidateAuthority 屬性
 
-如果您使用 MSAL，請將 **ValidateAuthority** 設定為 `false`。 下列範例示範如何設定該屬性：
+如果您使用 MSAL，請將 **ValidateAuthority** 屬性設定為 `false`。 當 **ValidateAuthority** 設定為 `false` 時，可允許重新導向到 b2clogin.com。 
+
+下列範例示範如何設定該屬性：
 
 在[適用於 .NET 的 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)：
 

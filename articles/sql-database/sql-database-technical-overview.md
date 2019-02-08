@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/25/2019
+ms.openlocfilehash: 6b4bc5a75f49287ad0425a7fe94f099204b73e44
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270003"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469544"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL Database 服務
 
@@ -26,8 +26,8 @@ SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服�
 
 Azure SQL Database 為 Azure SQL Database 提供下列部署選項：
 
-- 以單一資料庫形式，內含透過邏輯伺服器管理的自有資源集
-- 以[彈性集區](sql-database-elastic-pool.md)中的集區資料庫形式，內 含透過邏輯伺服器管理的共用資源集
+- 以單一資料庫形式，內含透過 SQL Database 伺服器管理的自有資源集
+- 以[彈性集區](sql-database-elastic-pool.md)中的集區資料庫形式，內 含透過 SQL Database 伺服器管理的共用資源集
 - 作為資料庫集合的一部分形式，也稱為[受控執行個體](sql-database-managed-instance.md)，其中包含系統與使用者資料庫並共用一組資源
 
 下圖顯示這些部署選項：
@@ -68,7 +68,7 @@ SQL Database 提供[以 DTU 為基礎的購買模型](sql-database-service-tiers
 > [!IMPORTANT]
 > [超大規模服務層](sql-database-service-tier-hyperscale.md)目前處於公開預覽狀態。 我們還不建議在超大規模資料庫中執行任何生產工作負載。 您無法將超大規模資料庫更新為其他服務層。 如需進行測試，建議您建立目前資料庫的複本，並將該複本更新至超大規模服務層。
 
-動態延展性與自動調整規模不同。 自動調整規模是指服務根據準則來自動調整規模，而動態延展性則允許在不停機的狀況下手動調整規模。 單一 Azure SQL Database 支援手動的動態延展性，但不支援自動調整規模。 如需「自動」體驗，請考慮使用彈性集區，以根據個別資料庫的需求讓資料庫共用集區中的資源。 不過，有一些指令碼可協助您對單一 Azure SQL Database 自動調整延展性。 如需範例，請參閱[使用 PowerShell 來監視和調整單一 SQL 資料庫的規模](scripts/sql-database-monitor-and-scale-database-powershell.md)。
+動態延展性與自動調整規模不同。 自動調整規模是指服務根據準則來自動調整規模，而動態延展性則允許在不停機的狀況下手動調整規模。 單一資料庫支援手動的動態延展性，但不支援自動調整規模。 如需「自動」體驗，請考慮使用彈性集區，以根據個別資料庫的需求讓資料庫共用集區中的資源。 不過，有一些指令碼可協助您對單一資料庫自動調整延展性。 如需範例，請參閱[使用 PowerShell 來監視和調整單一資料庫的規模](scripts/sql-database-monitor-and-scale-database-powershell.md)。
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>可將資源使用量最大化的彈性集區
 
@@ -148,7 +148,7 @@ SQL Database 提供了各式各樣的[內建安全性與合規性功能](sql-dat
 
 ### <a name="advance-threat-protection"></a>進階威脅保護
 
-「SQL 進階威脅防護」是進階 SQL 安全性功能的整合套件。 其中包含探索及分類敏感性資料、管理資料庫弱點，以及偵測可能表示對資料庫有威脅之異常活動的功能。 此套件可讓您從單一的進入點位置啟用及管理前述功能。
+SQL 進階資料安全性是進階 SQL 安全性功能的整合套件。 其中包含探索及分類敏感性資料、管理資料庫弱點，以及偵測可能表示對資料庫有威脅之異常活動的功能。 此套件可讓您從單一的進入點位置啟用及管理前述功能。
 
 - [資料探索與分類](sql-database-data-discovery-and-classification.md)：
 

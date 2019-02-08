@@ -3,19 +3,19 @@ title: 如何共用 Azure 開發人員空間 | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 05/11/2018
 ms.topic: article
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-ms.openlocfilehash: 57ca0f7b7704b179a55ac75fea99d35e1024ee8e
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 86a9400aca099bb79ca95dfc1c4ac2c4c241a6b2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706410"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466416"
 ---
 # <a name="share-azure-dev-spaces"></a>分享 Azure 開發人員空間
 
@@ -26,8 +26,8 @@ ms.locfileid: "51706410"
 1. 在 Azure 中建立開發人員空間。 選擇 [.NET Core 和 VS Code](../get-started-netcore.md)、[.NET Core 和 Visual Studio](../get-started-netcore-visualstudio.md) 或 [Node.js 和 VS Code](../get-started-nodejs.md)。 您必須具有所選 Azure 訂用帳戶的擁有者或參與者存取權。
 1. 針對每個小組成員，將 Azure 開發人員空間的**資源群組**設定為[授與參與者存取權](/azure/active-directory/role-based-access-control-configure)。 您可以執行此命令來檢查開發人員空間的資源群組：`azds list-up`
 1. 要求小組成員**選取開發人員空間**，以在其中進行開發。
-     * **命令列或 VS Code**：若要查看您可以存取的現有 Azure 開發人員空間：`azds space list`。 若要選取開發人員空間：`azds space select`。
-     * **Visual Studio IDE**：在 Visual Studio 中開啟專案，然後從啟動設定的下拉式清單中選取 [Azure 開發人員空間]。 在開啟的對話方塊中，選取現有的叢集。
+     * **命令列或 VS Code**：若要查看您可以存取的現有 Azure Dev Spaces：`azds space list`。 若要選取開發人員空間：`azds space select`。
+     * **Visual Studio IDE**：在 Visual Studio 中開啟專案，然後從啟動設定的下拉式清單中選取 [Azure Dev Spaces]。 在開啟的對話方塊中，選取現有的叢集。
 
     ![Visual Studio 啟動設定的下拉式清單](../media/get-started-netcore-visualstudio/LaunchSettings.png)
 

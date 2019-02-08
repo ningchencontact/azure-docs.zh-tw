@@ -7,19 +7,19 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 83694f121fb17f90aa89fb9ba99e8514cadd5b09
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 90b7638acf6df721a16bdcca6ceebb6f9d65ca2c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723638"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096818"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>如何針對自訂開發的應用程式填寫特定欄位
 
@@ -40,8 +40,8 @@ ms.locfileid: "44723638"
 
 | 欄位            | 說明                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| 名稱             | 應用程式的名稱。 至少應該有四個字元。                |
-| 應用程式類型 | **Web 應用程式/Web API**：代表 Web 應用程式、Web API 或兩者的應用程式 
+| Name             | 應用程式的名稱。 至少應該有四個字元。                |
+| 應用程式類型 | **Web 應用程式 / Web API**：代表 Web 應用程式、Web API 或兩者的應用程式 
 | |**原生**：可安裝在使用者裝置或電腦上的應用程式           |
 | 登入 URL      | 使用者可登入以使用您應用程式的 URL                                  |
 

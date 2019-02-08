@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 905f00842c5ce74f681a6c5c09ff8bf6c7a9e162
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091244"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163444"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>使用 Azure 入口網站從 VHD 建立 VM
 
@@ -28,6 +28,8 @@ ms.locfileid: "49091244"
 - 如果您已有可用的虛擬硬碟 (VHD)，或者想要從現有 VM 複製 VHD 來使用，您可以將該 VHD「連結」至新 VM 作為 OS 磁碟。 
 
 - 您可以從已刪除之 VM 的 VHD 建立新的 VM。 例如，如果您有運作不正常的 Azure VM，您可以刪除該 VM，然後使用其 VHD 來建立新的 VM。 您可以重複使用相同的 VHD，或是建立快照集來建立該 VHD 的複本，然後從快照集建立新的受控磁碟。 雖然建立快照集需要一些步驟，但它會保留原始 VHD 並且為您提供備援。
+
+- 採用傳統 VM 並使用 VHD 建立使用 Resource Manager 部署模型和受控磁碟的新 VM。 為了獲得最佳結果，請先在 Azure 入口網站**停止**傳統 VM 再建立快照集。
  
 - 上傳內部部署 VHD 並將它連結至新的 VM，即可從內部部署 VHD 建立 Azure VM。 您可使用 PowerShell 或其他工具，將 VHD 上傳至儲存體帳戶，然後從 VHD 建立受控磁碟。 如需詳細資訊，請參閱[上傳特製化 VHD](create-vm-specialized.md#option-2-upload-a-specialized-vhd)。 
 

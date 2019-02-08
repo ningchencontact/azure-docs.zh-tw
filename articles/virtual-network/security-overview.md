@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: 52cac856fbec79842cc4661f38342cb972ea40df
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: bbfb070a66bdae415d357542459ee88fd8b1865f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159055"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104332"
 ---
 # <a name="security-groups"></a>安全性群組
 <a name="network-security-groups"></a>
@@ -58,7 +58,7 @@ ms.locfileid: "54159055"
  下列服務標籤可使用於安全性規則定義中。 其在 [Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)之間的名稱稍有不同。
 
 * **VirtualNetwork** (Resource Manager) (在傳統模型為 **VIRTUAL_NETWORK**)：此標記包含虛擬網路位址空間 (針對虛擬網路定義的所有 CIDR 範圍)、所有已連線的內部部署位址空間，以及[對等互連](virtual-network-peering-overview.md)的虛擬網路或已連線至[虛擬網路閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的虛擬網路。
-* **AzureLoadBalancer** (Resource Manager) (在傳統模型為 **AZURE_LOADBALANCER**)：此標記代表 Azure 基礎結構的負載平衡器。 此標記會轉譯成作為 Azure 健康情況探查來源的[主機虛擬 IP 位址](security-overview.md##azure-platform-considerations) (168.63.129.16)。 如果您未使用 Azure 負載平衡器，則可以覆寫此規則。
+* **AzureLoadBalancer** (Resource Manager) (在傳統模型為 **AZURE_LOADBALANCER**)：此標記代表 Azure 基礎結構的負載平衡器。 此標記會轉譯成作為 Azure 健康情況探查來源的[主機虛擬 IP 位址](security-overview.md#azure-platform-considerations) (168.63.129.16)。 如果您未使用 Azure 負載平衡器，則可以覆寫此規則。
 * **Internet** (Resource Manager) (在傳統模型為 **INTERNET**)：此標記代表虛擬網路以外且可以透過公用網際網路進行存取的 IP 位址空間。 此位址範圍也包括 [Azure 擁有的公用 IP 位址空間](https://www.microsoft.com/download/details.aspx?id=41653)。
 * **AzureCloud** (僅限 Resource Manager)：此標記代表包含所有[資料中心公用 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653)的 Azure IP 位址空間。 如果您指定 *AzureCloud* 作為值，就會允許或拒絕 Azure 公用 IP 位址的流量。 如果您只想要在特定[區域](https://azure.microsoft.com/regions)中允許存取 AzureCloud，您可以指定區域。 例如，如果您只想要在美國東部區域允許存取 Azure AzureCloud，您可以指定 *AzureCloud.EastUS* 作為服務標記。 
 * **AzureTrafficManager** (僅限 Resource Manager)：此標記代表 Azure 流量管理員探查 IP 位址的 IP 位址空間。 如需流量管理員探查 IP 位址的詳細資訊，請參閱 [Azure 流量管理員常見問題集](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)。 

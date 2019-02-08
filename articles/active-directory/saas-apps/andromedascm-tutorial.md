@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 7a142c86-ca0c-4915-b1d8-124c08c3e3d8
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 047e1ea6a474d95c57ffc2bdff5ad8a5c45e0d36
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6d280a7e0e10b00e4d8d8f631d0d5987f2fbecb4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048560"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>教學課程：Azure Active Directory 與 Andromeda
 
@@ -108,7 +108,7 @@ Andromeda 與 Azure AD 整合提供下列優點：
 
     ![Andromeda 網域與 URL 單一登入資訊](./media/andromedascm-tutorial/tutorial_andromedascm_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<tenantURL>.ngcxpress.com/`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<tenantURL>.ngcxpress.com/`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 

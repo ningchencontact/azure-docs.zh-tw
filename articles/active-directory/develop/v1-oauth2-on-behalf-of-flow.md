@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 72b1ba51f306203092b420e6f2d6186b3307d35d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3c2953d44587d72517c6f619ee9c9f05aabff186
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422740"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094371"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>使用代理者流程中委派使用者身分識別的服務對服務呼叫
 
@@ -181,7 +181,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 | 參數 | 說明 |
 | --- | --- |
-| token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 [持有人] 。 如需持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖用法 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)。 |
+| token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 [持有人] 。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖使用方式 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) \(英文\)。 |
 | scope |在權杖中授與的存取範圍。 |
 | expires_in |存取權杖的有效時間長度 (以秒為單位)。 |
 | expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。 |
@@ -264,15 +264,15 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdW
 回應會包含以 UTF8 及 Base64url 編碼的 SAML 權杖。
 
 - **源自 OBO 呼叫之 SAML 判斷提示的 SubjectConfirmationData**：如果目標應用程式需要 **SubjectConfirmationData** 中的收件者值，該值必須是資源應用程式設定中的非萬用字元回覆 URL。
-- **SubjectConfirmationData 節點**：此節點不能包含 **InResponseTo** 屬性，因為它不屬於 SAML 回應。 接收 SAML 權杖的應用程式必須能夠在沒有 **InResponseTo** 屬性的情況下接受 SAML 判斷提示。
+- **SubjectConfirmationData 節點**：此節點不能包含 **InResponseTo** 屬性，因為該屬性不屬於 SAML 回應。 接收 SAML 權杖的應用程式必須能夠在沒有 **InResponseTo** 屬性的情況下接受 SAML 判斷提示。
 
-- **同意**：必須被授與同意，才能在 OAuth 流程上接收包含使用者資料的 SAML 權杖。 如需權限和取得系統管理員同意的相關資訊，請參閱 [Azure Active Directory v1.0 端點中的權限和同意](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent)。
+- **同意**：必須授與同意，才能在 OAuth 流程上接收包含使用者資料的 SAML 權杖。 如需權限和取得系統管理員同意的相關資訊，請參閱 [Azure Active Directory v1.0 端點中的權限和同意](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent)。
 
 ### <a name="response-with-saml-assertion"></a>使用 SAML 判斷提示進行回應
 
 | 參數 | 說明 |
 | --- | --- |
-| token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 [持有人] 。 如需持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖用法 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)。 |
+| token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 [持有人] 。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖使用方式 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) \(英文\)。 |
 | scope |在權杖中授與的存取範圍。 |
 | expires_in |存取權杖的有效時間長度 (以秒為單位)。 |
 | expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。 |

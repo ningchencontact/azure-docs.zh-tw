@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/3/2018
+ms.date: 1/25/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ec1c24e4a9714506a4107fd5bfd53d1a562c8781
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 66f41ffef5d72f5d574bb78d3b810f4a4dc2c4c1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022354"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098726"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>自訂 Azure-SSIS 整合執行階段的安裝
 
@@ -27,6 +27,8 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
 您可以安裝免費或未授權的元件，和付費或授權的元件。 如果您是 ISV，請參閱[如何開發 Azure-SSIS IR 的付費或授權元件](how-to-develop-azure-ssis-ir-licensed-components.md)。
 
+> [!IMPORTANT]
+> Azure-SSIS IR 的 v2 系列節點不適用於自訂安裝，因此請改用 v3 系列節點。  如果您已經使用 v2 系列節點，請儘快切換成使用 v3 系列節點。
 
 ## <a name="current-limitations"></a>目前的限制
 
@@ -78,7 +80,7 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
        ![建立 Blob 容器](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-    1.  選取新容器，並上傳您的自訂安裝指令碼及其相關聯的檔案。 請確實將 `main.cmd` 上傳至容器的最上層，而非任何資料夾中。 
+    1.  選取新容器，並上傳您的自訂安裝指令碼及其相關聯的檔案。 請務必將 `main.cmd` 上傳至容器的最上層，而非任何資料夾中。 此外，也請確定您的容器只包含必要的自訂安裝檔，如此一來，稍後將它們下載到您的 Azure-SSIS IR 時，才不會花費很長的時間。
 
        ![將檔案上傳至 Blob 容器](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -140,15 +142,15 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
        1. 一個 `.NET FRAMEWORK 3.5` 資料夾，其中包含要安裝舊版 .NET Framework (Azure-SSIS IR 每個節點上的自訂元件可能需要它) 的自訂安裝。
 
-       1. `AAS` 資料夾，其中包含在 Azure-SSIS IR 的每個節點上安裝用戶端的自訂設定，讓您的 Analysis Services 工作使用服務主體驗證連線到 Azure Analysis Services (AAS) 執行個體。 首先，從[這裡](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers)下載最新的 **MSOLAP (amd64)** 和 **AMO** 用戶端程式庫/Windows 安裝程式 (例如，`x64_15.0.900.108_SQL_AS_OLEDB.msi` 和 `x64_15.0.900.108_SQL_AS_AMO.msi`)，然後將它們全部一起和 `main.cmd` 上傳到您的容器中。  
-
        1. 一個 `BCP` 資料夾，其中包含自訂安裝程式，用以在 Azure-SSIS IR 的每個節點上安裝 SQL Server 命令列公用程式 (`MsSqlCmdLnUtils.msi`)，包括大量複製程式 (`bcp`)。
 
        1. 一個 `EXCEL` 資料夾，其中包含自訂安裝程式，用以在 Azure-SSIS IR 的每個節點上安裝開放原始碼組件 (`DocumentFormat.OpenXml.dll`、`ExcelDataReader.DataSet.dll` 和 `ExcelDataReader.dll`)。
 
        1. `ORACLE ENTERPRISE` 資料夾，其中包含自訂安裝指令碼 (`main.cmd`) 和無訊息安裝組態檔 (`client.rsp`)，用以在 Azure-SSIS IR Enterprise Edition 的每個節點上安裝 Oracle 連接器和 OCI 驅動程式。 此安裝可讓您使用 Oracle 連線管理員、來源和目的地。 首先，從 [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) 下載 Microsoft Connectors v5.0 for Oracle (`AttunitySSISOraAdaptersSetup.msi` 和 `AttunitySSISOraAdaptersSetup64.msi`)，並從 [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html)，下載最新的 Oracle 用戶端 (例如，`winx64_12102_client.zip`)，然後將它們全部一起與 `main.cmd` 和 `client.rsp` 上傳到您的容器。 如果您使用 TNS 連線至 Oracle，則也必須下載 `tnsnames.ora`、加以編輯，然後將其上傳到您的容器中，使其能夠在安裝期間複製到 Oracle 安裝資料夾中。
 
-       1. 一個 `ORACLE STANDARD` 資料夾，其中包含自訂安裝指令碼 (`main.cmd`)，用以在 Azure-SSIS IR 的每個節點上安裝 Oracle ODP.NET 驅動程式。 此安裝可讓您使用 ADO.NET 連線管理員、來源和目的地。 首先，請從 [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html) 下載最新的 Oracle ODP.NET 驅動程式，例如 `ODP.NET_Managed_ODAC122cR1.zip`，然後與 `main.cmd` 一起將其上傳至您的容器。
+       1. 一個 `ORACLE STANDARD ADO.NET` 資料夾，其中包含自訂安裝指令碼 (`main.cmd`)，用以在 Azure-SSIS IR 的每個節點上安裝 Oracle ODP.NET 驅動程式。 此安裝可讓您使用 ADO.NET 連線管理員、來源和目的地。 首先，請從 [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html) 下載最新的 Oracle ODP.NET 驅動程式，例如 `ODP.NET_Managed_ODAC122cR1.zip`，然後與 `main.cmd` 一起將其上傳至您的容器。
+       
+       1. 一個 `ORACLE STANDARD ODBC` 資料夾，其中包含自訂安裝指令碼 (`main.cmd`)，用以在 Azure-SSIS IR 的每個節點上安裝 Oracle ODBC 驅動程式及設定 DSN。 此安裝可讓您使用 ODBC 連線管理員/來源/目的地或 Power Query 連線管理員/來源搭配 ODBC 資料來源種類，來連線到 Oracle 伺服器。 首先，請下載最新的 Oracle Instant Client (基本套件或基本精簡套件) - 例如，從[這裡](https://www.oracle.com/technetwork/topics/winx64soft-089540.html)下載 64 位元套件 (基本套件：`instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`、基本精簡套件：`instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`、ODBC 套件：`instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) 或從[這裡](https://www.oracle.com/technetwork/topics/winsoft-085727.html)下載 32 位元套件 (基本套件 ：`instantclient-basic-nt-18.3.0.0.0dbru.zip`、基本精簡套件：`instantclient-basiclite-nt-18.3.0.0.0dbru.zip`、ODBC 套件：`instantclient-odbc-nt-18.3.0.0.0dbru.zip`)，然後將它們與 `main.cmd` 一起上傳到您的容器中。
 
        1. 一個 `SAP BW` 資料夾，其中包含自訂安裝指令碼 (`main.cmd`)，用以在 Azure-SSIS IR Enterprise Edition 的每個節點上安裝 SAP .NET 連接器組件 (`librfc32.dll`)。 此安裝可讓您使用 SAP BW 連線管理員、來源和目的地。 首先，從 SAP 安裝資料夾將 64 位元或 32 位元版的 `librfc32.dll` 連同 `main.cmd` 上傳到您的容器中。 接著，此指令碼會在安裝期間將 SAP 組件複製到 `%windir%\SysWow64` 或 `%windir%\System32` 資料夾中。
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: bb82ef542db09b3b7f864c4901107e1c5c0827f6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: bb22a2545466c72f7dac68f80668b8b530832c21
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464760"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094713"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>接收 HTTP 端點的事件
 
@@ -370,6 +370,6 @@ module.exports = function (context, req) {
 
 ## <a name="next-steps"></a>後續步驟
 
-* 探索 [Azure 事件格線管理和發行 SDK](./sdk-overview.md)
+* 探索 [Azure 事件方格管理和發行 SDK](./sdk-overview.md)
 * 深入了解如何[張貼到自訂主題](./post-to-custom-topic.md)
 * 嘗試其中一個深入的事件格線和函式教學課程，例如[調整上傳至 Blob 儲存體的映像大小](resize-images-on-storage-blob-upload-event.md)

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 1d52e3b8871a5af219d1c9eafd559f06bb19f560
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: dd9bdc4638d1c055706026798acba08d6add08c7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424878"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098743"
 ---
 # <a name="single-sign-on-saml-protocol"></a>單一登入 SAML 通訊協定
 
@@ -83,7 +83,7 @@ Azure AD 也會忽略 `AuthnRequest` 中的 `Conditions` 元素。
 
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`：Azure Active Directory 發出 NameID 宣告來做為成對識別碼。
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`：Azure Active Directory 發出電子郵件地址格式的 NameID 宣告。
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`︰這個值允許 Azure Active Directory 選取宣告格式。 Azure Active Directory 發出 NameID 來做為成對識別碼。
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`：這個值允許 Azure Active Directory 選取宣告格式。 Azure Active Directory 發出 NameID 來做為成對識別碼。
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`：Azure Active Directory 發出 NameID 宣告做為隨機產生的值，此值對目前的 SSO 作業來說是唯一值。 這表示此值只是暫時性的，而且不能用來識別驗證的使用者。
 
 Azure AD 會忽略 `AllowCreate` 屬性。
@@ -152,8 +152,8 @@ Azure AD 會忽略 `AuthnRequest` 元素中的 `Subject` 元素。
 
 `Response` 元素包含授權要求的結果。 Azure AD 會設定 `Response` 元素中的 `ID`、`Version` 和 `IssueInstant` 值。 它也會設定下列屬性︰
 
-* `Destination`︰當登入順利完成時，這會設定為服務提供者 (雲端服務) 的 `RedirectUri`。
-* `InResponseTo`︰這會設定為起始回應的 `AuthnRequest` 元素的 `ID` 屬性。
+* `Destination`：當登入順利完成時，這會設定為服務提供者 (雲端服務) 的 `RedirectUri`。
+* `InResponseTo`：這會設定為起始回應的 `AuthnRequest` 元素的 `ID` 屬性。
 
 ### <a name="issuer"></a>簽發者
 

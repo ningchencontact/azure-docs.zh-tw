@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: b7c1f873d47be0f2ec0125f769a47a399e492662
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536146"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095090"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure SQL 資料庫進階威脅防護
 
@@ -22,6 +22,9 @@ ms.locfileid: "53536146"
 > [!NOTE]
 > 進階威脅防護功能**不**適用於下列 Azure 政府和主權雲端區域：US Gov 德克薩斯州、US Gov 亞利桑那州、US Gov 愛荷華州、US DoD 東部、US DoD 中部、德國中部、德國北部、中國東部、中國東部 2。 如需一般產品可用性，請瀏覽[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。
 >
+
+> [!NOTE]
+> 在已針對「一般用途」和「記憶體最佳化」伺服器部署「適用於 PostgreSQL 的 Azure 資料庫」的所有 Azure 區域中，都可使用此功能。
 
 ## <a name="set-up-threat-detection"></a>設定威脅偵測
 1. 在 [https://portal.azure.com](https://portal.azure.com) 上啟動 Azure 入口網站。
@@ -55,7 +58,7 @@ ms.locfileid: "53536146"
 
 按一下 [威脅保護] 下的 [安全性警訊] 會啟動 Azure 資訊安全中心的警示頁面，並獲得在資料庫中偵測到的作用中 SQL 威脅概觀。
 
-  ![威脅保護 asc](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
+  ![威脅防護 asc](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
 
 ## <a name="next-steps"></a>後續步驟
 

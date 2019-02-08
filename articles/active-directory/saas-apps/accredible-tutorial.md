@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 7284dfb6-df62-41f1-a4a4-1b8322b7ef44
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jeedes
-ms.openlocfilehash: b997d03534fdd7c5075b1bd483dac9ad5e1ddbd3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c5eaa0944210e701c306180709bf97abdbb3b9e3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048322"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151272"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>教學課程：Azure Active Directory 與 Accredible 整合
 
@@ -168,7 +168,7 @@ ms.locfileid: "39048322"
   
 ### <a name="create-an-accredible-test-user"></a>建立 Accredible 測試使用者
 
-在本節中，您會在 Accredible 中建立名為 Britta Simon 的使用者。 您必須將使用者的 emailid 傳送給 [Accredible 支援小組](mailto:support@accredible.com)，他們會接著驗證該電子郵件並傳送邀請郵件給您，以便讓您能夠在 Accredible 平台中新增使用者。
+在本節中，您會在 Accredible 中建立名為 Britta Simon 的使用者。 您必須將使用者的 emailid 傳送給  [Accredible 支援小組](mailto:support@accredible.com)，他們會接著驗證該電子郵件並傳送邀請郵件給您，以便讓您能夠在 Accredible 平台中新增使用者。
  
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -205,7 +205,7 @@ ms.locfileid: "39048322"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Accredible] 圖格時，應該會自動登入您的 Accredible 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

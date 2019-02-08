@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b120d50b6b0f72b5977d238866cfdf26fd9be5ff
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d1d515786fde06f4622402f2c1d0c3add7cd8843
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436886"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913134"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>使用企業安全性套件維護 Apache Hadoop 安全性的簡介
 
@@ -29,7 +29,7 @@ ms.locfileid: "53436886"
 
 企業安全性包含四大要件：周邊安全性、驗證、授權和加密。
 
-![企業安全性套件 HDInsight 叢集對企業安全性四大要件而言有哪些好處](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
+![企業安全性套件 HDInsight 叢集對企業安全性四大要件而言有哪些好處](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png)上也提供本文中使用的原始碼。
 
 ## <a name="perimeter-security"></a>周邊安全性
 透過虛擬網路和 Azure VPN 閘道服務可達成 HDInsight 中的周邊安全性。 企業系統管理員可以在虛擬網路內部建立 ESP 叢集，並使用網路安全性群組 (防火牆規則) 限制對虛擬網路的存取。 只有輸入防火牆規則中所定義的 IP 位址能夠與 HDInsight 叢集通訊。 此設定可提供周邊安全性。
@@ -39,7 +39,7 @@ ms.locfileid: "53436886"
 ## <a name="authentication"></a>驗證
 企業系統管理員可以在[虛擬網路](https://azure.microsoft.com/services/virtual-network/)中建立具有 ESP 的 HDInsight 叢集。 HDInsight 叢集的所有節點都會加入企業所管理的網域。 透過使用 [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md) 即可達成此目的。 
 
-藉由這項設定，企業員工便能使用其網域認證來登入叢集節點。 他們也可以使用其網域認證向其他已核准的端點 (例如 Apache Ambari 檢視、ODBC、JDBC、PowerShell 和 REST API) 進行驗證，以與叢集進行互動。 系統管理員可以完全控制透過這些端點與叢集互動的使用者數量。
+企業員工可以藉由這項設定，便能使用其網域認證來登入叢集節點。 他們也可以使用其網域認證向其他已核准的端點 (例如 Apache Ambari 檢視、ODBC、JDBC、PowerShell 和 REST API) 進行驗證，以與叢集進行互動。 系統管理員可以完全控制透過這些端點與叢集互動的使用者數量。
 
 ## <a name="authorization"></a>Authorization
 大多數企業所依循的最佳做法，就是確保並非每一位員工都能存取所有的企業資源。 同樣地，系統管理員可以針對叢集資源定義角色型存取控制原則。 
@@ -56,7 +56,7 @@ ms.locfileid: "53436886"
 ## <a name="encryption"></a>加密
 若要符合組織安全性和合規性需求，保護資料就非常重要。 除了限制未經授權的員工存取資料之外，您還應該將資料加密。 
 
-HDInsight 叢集的兩個資料存放區 (Azure Blob 儲存體和 Azure Data Lake Storage Gen1) 都支援透明伺服器端待用[資料加密](../../storage/common/storage-service-encryption.md)。 安全的 HDInsight 叢集會完美地與此伺服器端待用資料加密功能配合運作。
+HDInsight 叢集的兩個資料存放區 (Azure Blob 儲存體和 Azure Data Lake Storage Gen1/Gen2) 都支援透明伺服器端待用[資料加密](../../storage/common/storage-service-encryption.md)。 安全的 HDInsight 叢集會完美地與此伺服器端待用資料加密功能配合運作。
 
 ## <a name="next-steps"></a>後續步驟
 

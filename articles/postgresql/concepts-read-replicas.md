@@ -5,15 +5,19 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.openlocfilehash: cb02f0b786ff6f1c7dbef5471fb95ce6516f824c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 01/23/2019
+ms.openlocfilehash: 9270c3290bd7be0bbb79d30aff8becc04dcfc603
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466069"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903990"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的讀取複本
+
+> [!IMPORTANT]
+> 讀取複本功能目前為「公開預覽」版。
+
 讀取複本功能可讓您將資料從適用於 PostgreSQL 的 Azure 資料庫伺服器(主要) 複寫到相同 Azure 區域內最多五部的唯讀伺服器 (讀取複本)。 讀取複本會使用 PostgreSQL 引擎的原生複寫技術以非同步方式更新。
 
 複本將會成為新的伺服器，並能以類似於一般獨立適用於 PostgreSQL 的 Azure 資料庫伺服器的方式管理。 針對每個讀取複本，系統每月會針對在 vCore 中所佈建的計算量，以及在儲存體中所佈建的容量 (以 GB 為單位) 向您收費。

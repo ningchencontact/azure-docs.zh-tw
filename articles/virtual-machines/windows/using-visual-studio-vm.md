@@ -17,12 +17,12 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 49ed750a25c732b7f11ef5de2e545be2a5412fa8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1582cc7e48adcf895dc7c07e7ab485790650ac14
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437566"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911906"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
 在預先設定的 Azure 虛擬機器 (VM) 中使用 Visual Studio，是從零開始到建立已啟動並執行中之開發環境的快速簡單方式。 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1) 中提供具有各種不同 Visual Studio 設定的系統映像。
@@ -34,7 +34,7 @@ ms.locfileid: "53437566"
 
 | 發行版本                                              | 版本                     |     產品版本      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|    Visual Studio 2019：預覽 (預覽 1)                   |           Enterprise         | 16.0.0 版預覽 1 |
+|    Visual Studio 2019：預覽 (預覽 2)                   |           Enterprise         | 16.0.0 版預覽 2 |
 | Visual Studio 2017：最新 (版本 15.9)                    |    Enterprise、Community     |      15.9.4 版      |
 |         Visual Studio 2017：RTW                              |    Enterprise、Community     |      15.0.20 版     |
 |   Visual Studio 2015：最新 (更新 3)                      |    Enterprise、Community     |  14.0.25431.01 版   |

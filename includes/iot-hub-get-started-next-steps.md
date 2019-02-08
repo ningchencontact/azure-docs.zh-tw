@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 2b8041ee66e00b69b2628a0f439dd2577b6b92ec
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0ea9c06763e2e01d2f28daa5bc688e65bff037b8
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381404"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54899323"
 ---
-若要繼續開始使用 Azure IoT 中樞並瀏覽其他 IoT 情節，請參閱下列內容︰
+若要繼續開始使用 Azure IoT 中樞並瀏覽所有其他的 IoT 情節，請參閱下列內容︰
 
 - [使用適用於 Visual Studio Code 的 Azure IoT 中樞工具組擴充功能，管理雲端裝置傳訊](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
 

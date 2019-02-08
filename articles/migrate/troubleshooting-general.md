@@ -4,14 +4,14 @@ description: 概括介紹 Azure Migrate 服務的已知問題以及常見錯誤�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827936"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102116"
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
@@ -153,8 +153,20 @@ Azure Migrate 收集器會下載 PowerCLI，然後將它安裝到設備上。 Po
 如果 VMware PowerCLI 安裝發生問題，便可能發生此問題。 請依照下列步驟來解決問題：
 
 1. 如果您不是使用最新版的收集器設備，請[將您的收集器升級至最新版本](https://aka.ms/migrate/col/checkforupdates)，然後檢查此問題是否已解決。
-2. 如果您已經有最新的收集器版本，請手動安裝 [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016)，然後檢查此問題是否已解決。
-3. 如果上述步驟無法解決問題，請瀏覽至 C:\Program Files\ProfilerService 資料夾並移除資料夾中的 VMware.dll 和 VimService65.dll 檔案，然後在 [Windows 服務管理員] 中重新啟動 [Azure Migrate 收集器] 服務 (開啟 [執行] 並輸入 'services.msc' 以開啟 [Windows 服務管理員])。
+2. 如果您已經有最新的收集器版本，請依照下面的步驟進行 PowerCLI 全新安裝：
+
+   a. 關閉設備中的網頁瀏覽器。
+
+   b. 前往「Windows 服務管理員」(開啟 [執行] 並輸入 services.msc 以開啟「Windows 服務管理員」) 來停止「Azure Migrate 收集器」服務。 在 [Azure Migrate 收集器服務] 上按一下滑鼠右鍵，然後按一下 [停止]。
+
+   c. 從下列位置中刪除開頭為 'VMware' 的所有資料夾：C:\Program Files\WindowsPowerShell\Modules  
+        C:\Program Files (x86)\WindowsPowerShell\Modules
+
+   d. 在「Windows 服務管理員」(開啟 [執行] 並輸入 services.msc 以開啟「Windows 服務管理員」) 中重新啟動「Azure Migrate 收集器」服務。 在 [Azure Migrate 收集器服務] 上按一下滑鼠右鍵，然後按一下 [啟動]。
+   
+   e. 按兩下 [執行收集器] 桌面捷徑，以啟動收集器應用程式。 收集器應用程式應該會自動下載並安裝所需的 PowerCLI 版本。
+
+3. 如果上述方法並未解決問題，請手動安裝 [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016)，然後檢查此問題是否已解決。
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 
@@ -210,7 +222,7 @@ MMA 所支援的 Linux 作業系統清單在[這裡](https://docs.microsoft.com/
 相依性代理程式所支援的 Linux 作業系統清單在[這裡](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)。
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>在 Azure Migrate 中將相依性視覺化的持續時間是否無法超過一小時？
-Azure Migrate 可讓您將相依性視覺化的持續時間最多為一小時。 雖然 Azure Migrate 最多可讓您返回歷程記錄中過去一個月的特定日期，但您可將相依性視覺化的持續時間最多為 1 小時。 例如，您可以使用相依性對應中的持續時間功能來檢視昨天的相依性，但只能檢視它一小時。
+Azure Migrate 可讓您將相依性視覺化的持續時間最多為一小時。 雖然 Azure Migrate 最多可讓您返回歷程記錄中過去一個月的特定日期，但您可將相依性視覺化的持續時間最多為 1 小時。 例如，您可以使用相依性對應中的持續時間功能來檢視昨天的相依性，但只能檢視它一小時。 不過，您可以使用 Log Analytics 針對較長的持續時間[查詢相依性資料](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics)。
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>如果群組所含的 VM 超過 10 個，是否無法將其相依性視覺化？
 針對所含 VM 在 10 個以內的群組，您可以[將群組的相依性視覺化](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies)，如果您的群組所含 VM 超過 10 個，則建議您先將群組分割成較小的群組，再將相依性視覺化。

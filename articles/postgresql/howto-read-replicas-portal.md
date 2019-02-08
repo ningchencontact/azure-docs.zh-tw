@@ -5,15 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: 6c1a0a4a13a70daec157ede98f850f87150f8d93
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 01/23/2019
+ms.openlocfilehash: bf6e9947c21e5b07b2adc99de585c77444447c04
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383861"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902648"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-the-azure-portal"></a>如何在 Azure 入口網站中建立及管理讀取複本
+
+> [!IMPORTANT]
+> 讀取複本功能目前為「公開預覽」版。
+
+
 在本文中，您將了解如何使用 Azure 入口網站在「適用於 PostgreSQL 的 Azure 資料庫」服務中建立與管理讀取複本。 若要深入了解讀取複本，請[閱讀概念文件](concepts-read-replicas.md)。
 
 ## <a name="prerequisites"></a>必要條件
@@ -41,6 +46,7 @@ ms.locfileid: "54383861"
    ![適用於 PostgreSQL 的 Azure 資料庫 - 儲存通知](./media/howto-read-replicas-portal/parameter-save-notification.png)
 
 6. 重新啟動伺服器，以在儲存之後套用變更。 請參閱[重新啟動文件](howto-restart-server-portal.md)以了解如何重新啟動伺服器。
+
 
 ## <a name="create-a-read-replica"></a>建立讀取複本
 您可以使用下列步驟建立讀取複本︰

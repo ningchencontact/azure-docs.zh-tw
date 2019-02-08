@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: faa89ffd572733c580235b1c6dec58893de20503
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d5748cad11e8e0e4bdfd1000b312ab44fc304059
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449616"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>教學課程：Azure Active Directory 與 Form.com 整合
 
@@ -123,11 +123,11 @@ Form.com 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」、「回覆 URL」及「識別碼」來更新這些值。 請連絡 [ 用戶端支援小組](https://form.com/about/company/contact-us/)以取得這些值。
 
-1. 在 [SAML 簽署憑證] 區段上，執行下列步驟：
+1. 在 [SAML 簽署憑證] ****  區段上，執行下列步驟：
     
     ![設定單一登入](./media/formcom-tutorial/tutorial_metadataurl.png)
 
-    a. 按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+    a. 按一下 [複製] 按鈕複製 [應用程式同盟中繼資料 UR] **** ，並將它貼到 [記事本]。
 
     b. 按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
      
@@ -212,7 +212,7 @@ Form.com 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Form.com 圖格時，應該會自動登入 Form.com 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

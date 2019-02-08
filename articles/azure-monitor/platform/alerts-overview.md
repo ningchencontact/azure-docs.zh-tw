@@ -5,15 +5,15 @@ author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 18a63497cb0df2ade495dfb721aaa881aa4e6ff7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 156c977e197084d18d8fd32f55e58c512a66ef9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464102"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156406"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示概觀 
 
@@ -23,7 +23,7 @@ ms.locfileid: "54464102"
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示是什麼？
 當您的監視資料中發現重要條件時，警示會主動通知您。 它們可讓您在系統使用者注意到問題之前，找出並解決問題。 
 
-本文討論 Azure 監視器中統一的警示體驗，此體驗現在包含 Log Analytics 和 Application Insights。 [先前的警示體驗](alerts-overview.md)和警示類型稱為**傳統警示**。 您可以透過按一下警示頁面上方的 [檢視傳統警ˋ] 來檢視此舊版體驗和舊版警示類型。 
+本文討論 Azure 監視器中統一的警示體驗，此體驗現在包含 Log Analytics 和 Application Insights。 [先前的警示體驗](alerts-classic.overview.md)和警示類型稱為**傳統警示**。 您可以透過按一下警示頁面上方的 [檢視傳統警ˋ] 來檢視此舊版體驗和舊版警示類型。 
 
 ## <a name="overview"></a>概觀
 
@@ -62,6 +62,13 @@ ms.locfileid: "54464102"
 - 活動記錄事件
 - 基礎 Azure 平台健康情況
 - 網站可用性測試
+
+之前，「Azure 監視器」計量、Application Insights、Log Analytics 及「服務健康狀態」具有個別的警示功能。 隨著時間進展，Azure 已改善並結合使用者介面與不同的警示方法。 這樣的整併仍在持續進行中。 因此，新的警示系統中仍可能沒有某些警示功能。  
+
+| **監視來源** | **訊號類型**  | **說明** | 
+|-------------|----------------|-------------|
+| 服務健康情況 | 活動記錄檔  | 不支援。 請參閱[建立服務通知的活動記錄警示](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。  |
+| Application Insights | Web 可用性測試 | 不支援。 請參閱 [Web 測試警示](../../azure-monitor/app/monitor-web-app-availability.md)。 可供任何經檢測可傳送資料給 Application Insights 的網站使用。 當網站的可用性或回應能力低於預期時收到通知。 |
 
 ## <a name="manage-alerts"></a>管理警示
 您可以設定警示的狀態來指定警示在解決流程中的位置。 當符合警示規則中指定的準則時，會建立或引發警示，該警示具有 [新] 狀態。 當您認可警示並將它關閉時，您可以變更狀態。 任何狀態變更都會儲存在警示的記錄中。
@@ -124,14 +131,7 @@ ms.locfileid: "54464102"
 
 您可以參閱[使用 Azure 監視器來建立、檢視及管理警示](../../azure-monitor/platform/alerts-metric.md)，深入了解如何建立警示規則。
 
-警示可跨數個 Azure 監視服務使用。 如需如何和何時使用每個服務的資訊，請參閱[監視 Azure 應用程式和資源](../../azure-monitor/overview.md)。 下表提供可在整個 Azure 使用的警示規則類型清單。 它也列出警示體驗所支援的項目。
-
-之前，「Azure 監視器」、Application Insights、Log Analytics 及「服務健康狀態」具有個別的警示功能。 隨著時間進展，Azure 改善並結合使用者介面與不同的警示方法。 這樣的整併仍在持續進行中。 因此，新的警示系統中仍可能沒有某些警示功能。  
-
-| **監視來源** | **訊號類型**  | **說明** | 
-|-------------|----------------|-------------|
-| 服務健康情況 | 活動記錄檔  | 不支援。 請參閱[建立服務通知的活動記錄警示](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。  |
-| Application Insights | Web 可用性測試 | 不支援。 請參閱 [Web 測試警示](../../azure-monitor/app/monitor-web-app-availability.md)。 可供任何經檢測可傳送資料給 Application Insights 的網站使用。 當網站的可用性或回應能力低於預期時收到通知。 |
+警示可跨數個 Azure 監視服務使用。 如需如何和何時使用每個服務的資訊，請參閱[監視 Azure 應用程式和資源](../../azure-monitor/overview.md)。 
 
 
 ## <a name="all-alerts-page"></a>[所有警示] 頁面 

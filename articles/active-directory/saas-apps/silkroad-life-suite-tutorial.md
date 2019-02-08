@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 3cd92319-7964-41eb-8712-444f5c8b4d15
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 4d8be22a6b700d5ea9d95ee19d6ad3fa7bf5910a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fd5b4da77c31bd5e0c095f24bea2d6ed8b0e93ab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440827"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154120"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>教學課程：Azure Active Directory 與 SilkRoad Life Suite 整合
 
@@ -184,7 +184,7 @@ SilkRoad Life Suite 與 Azure AD 整合提供下列優點：
 
     d. 在 [Metadata File] \(中繼資料檔案\) 文字方塊中，上傳您從 Azure 入口網站下載的**中繼資料**檔案。
   
-    e. 在 [IdP Name] \(IdP 名稱\) 文字方塊中，輸入設定特定的名稱 (例如：*Azure SP*)。
+    e. 在 [IdP Name] \(IdP 名稱\) 文字方塊中，輸入設定專屬的名稱 (例如：*Azure SP*)。
   
     f. 在 [Logout Service URL] \(登出服務 URL\) 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
 
@@ -233,7 +233,7 @@ SilkRoad Life Suite 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-silkroad-life-suite-test-user"></a>建立 SilkRoad Life Suite 測試使用者
 
-在本節中，您會在 SilkRoad Life Suite 中建立名為 Britta Simon 的使用者。 請與 [SilkRoad Life Suite 用戶端支援小組](https://www.silkroad.com/locations/)合作，在 SilkRoad Life Suite 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您會在 SilkRoad Life Suite 中建立名為 Britta Simon 的使用者。 請與  [SilkRoad Life Suite 用戶端支援小組](https://www.silkroad.com/locations/) 合作，在 SilkRoad Life Suite 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -270,7 +270,7 @@ SilkRoad Life Suite 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在 [存取面板] 中按一下 [SilkRoad Life Suite] 磚時，您應該會自動登入您的 SilkRoad Life Suite 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

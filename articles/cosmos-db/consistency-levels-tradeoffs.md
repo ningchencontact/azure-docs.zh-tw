@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 52f08511d16e216ced7e3d1de11eae960cdbaeb8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f56b1b06e8be46c1a111e920cfb98bc58d4f6636
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041861"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466858"
 ---
-# <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中各種一致性層級的可用性和效能權衡取捨
+# <a name="consistency-availability-and-performance-tradeoffs"></a>一致性、可用性與效能權衡取捨 
 
 仰賴複寫功能來獲得高可用性和 (或) 低延遲特性的分散式資料庫必須做出權衡取捨。 所要權衡取捨的項目是讀取一致性與可用性、延遲和輸送量。 
 

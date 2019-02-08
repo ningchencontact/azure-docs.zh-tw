@@ -7,14 +7,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: cwatson
+ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: de7b0a2746c79242cb6538595ca3205455a2cc5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f83499e52b6405ec5475795a80c5a4325043a441
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582733"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904483"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>了解保留折扣如何套用至 Azure Cosmos DB
 
@@ -70,7 +70,7 @@ ms.locfileid: "52582733"
 
 請思考一下下列保留需求：
 
-* 所需的輸送量： 50,000 RU/秒  
+* 所需的輸送量：50,000 RU/秒  
 * 使用的區域：2 
 
 在此案例中，您的需求費用總計會針對這兩個區域中的 500 個 100 RU/秒計量。 每小時總計會耗用 100,000 RU/秒。 

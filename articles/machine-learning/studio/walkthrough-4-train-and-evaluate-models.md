@@ -1,6 +1,6 @@
 ---
-標題：'步驟 4：定型預測性分析模型' titleSuffix: Azure Machine Learning Studio description:'開發預測性解決方案逐步解說的步驟 4：在 Azure Machine Learning Studio 中定型、評分及評估多個模型。'
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：'步驟 4：定型預測性分析模型' titleSuffix:Azure Machine Learning Studio description:'開發預測性解決方案逐步解說的步驟 4：在 Azure Machine Learning Studio 中定型、評分及評估多個模型。'
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:2017/03/23
 ---

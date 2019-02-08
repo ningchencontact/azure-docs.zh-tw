@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 249d5068c38466bf8ac3820449bcf613a15c168a
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ce1940d0b83e0713ce41d84e8d4bfeff6cb75954
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288810"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075851"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory 圖形 API
 
@@ -46,12 +46,12 @@ Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端
 
 Azure AD 圖形 API 提供下列功能：
 
-* **REST API 端點**：Azure AD 圖形 API 是 RESTful 服務，由使用標準 HTTP 要求存取的端點所組成。 Azure AD 圖形 API 支援要求和回應的 XML 或 Javascript 物件標記法 (JSON) 內容類型。 如需詳細資訊，請參閱 [Azure AD Graph REST API 參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
-* **向 Azure AD 驗證**：必須在要求的 Authorization 標頭中附加 JSON Web Token (JWT)，以驗證 Azure AD 圖形 API 的每個要求。 您可以向 Azure AD 的權杖端點提出要求並提供有效的認證，以取得此權杖。 您可以使用 OAuth 2.0 用戶端認證流程或授權碼授與流程，以取得權杖來呼叫 Graph。 如需詳細資訊，請參閱 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)。
-* **以角色為基礎的授權 (RBAC)**：在 Azure AD 圖形 API 中使用安全性群組執行 RBAC。 例如，如果您想要判斷使用者是否能夠存取特定的資源，應用程式可以呼叫 [檢查群組成員資格 (可移轉)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) 作業，它會傳回 true 或 false。
-* **差異查詢**：差異查詢可讓您追蹤兩段時間之間的目錄變更，而不必對 Azure AD 圖形 API 進行頻繁的查詢。 此類型的要求只會傳回前一個差異查詢要求與目前要求之間所做的變更。 如需詳細資訊，請參閱 [Azure AD Graph API 差異查詢](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query)。
+* **REST API 端點**：Azure AD Graph API 是 RESTful 服務，由使用標準 HTTP 要求存取的端點所組成。 Azure AD 圖形 API 支援要求和回應的 XML 或 Javascript 物件標記法 (JSON) 內容類型。 如需詳細資訊，請參閱 [Azure AD Graph REST API 參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
+* **使用 Azure AD 進行驗證**：必須在要求的 Authorization 標頭中附加 JSON Web Token (JWT)，以驗證 Azure AD Graph API 的每個要求。 您可以向 Azure AD 的權杖端點提出要求並提供有效的認證，以取得此權杖。 您可以使用 OAuth 2.0 用戶端認證流程或授權碼授與流程，以取得權杖來呼叫 Graph。 如需詳細資訊，請參閱 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)。
+* **以角色為基礎的授權 (RBAC)**：在 Azure AD Graph API 中使用安全性群組執行 RBAC。 例如，如果您想要判斷使用者是否能夠存取特定的資源，應用程式可以呼叫 [檢查群組成員資格 (可移轉)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) 作業，它會傳回 true 或 false。
+* **差異查詢**：差異查詢可讓您追蹤兩段時間之間的目錄變更，而不必對 Azure AD Graph API 進行頻繁的查詢。 此類型的要求只會傳回前一個差異查詢要求與目前要求之間所做的變更。 如需詳細資訊，請參閱 [Azure AD Graph API 差異查詢](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query)。
 * **目錄擴充**：您可以將自訂屬性新增至目錄物件，而不需要用到外部資料存放區。 例如，如果應用程式需要每個使用者都有 Skype ID 屬性，您可以在目錄中註冊新的屬性，此屬性就可供每個使用者物件使用。 如需詳細資訊，請參閱 [Azure AD Graph API 目錄結構描述延伸模組](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)。
-* **受權限範圍保護**：Azure AD 圖形 API 會公開權限範圍，以供使用 OAuth 2.0 安全存取 Azure AD 資料。 其支援各種用戶端應用程式類型，包括︰
+* **受權限範圍保護**：Azure AD Graph API 會公開權限範圍，以供使用 OAuth 2.0 安全存取 Azure AD 資料。 其支援各種用戶端應用程式類型，包括︰
   
   * 透過登入使用者 (委派) 授權而獲得資料委派存取權的使用者介面
   * 未顯示登入使用者而在背景中作業，並使用應用程式所定義的角色型存取控制服務/精靈應用程式

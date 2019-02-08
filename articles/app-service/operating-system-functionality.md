@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad27a7eaf88ae57f730609e2b0f43a2f5ea182a1
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653504"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901780"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service 上的作業系統功能
 本文說明在 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)上執行的所有 Windows 應用程式可用的一般基礎作業系統功能。 此功能包含檔案、網路、登錄存取、診斷記錄和事件。 
@@ -128,6 +128,10 @@ App Service 中的每個應用程式都會以隨機獨特的低權限背景工�
 應用程式對於執行所在的虛擬機器，具有大部分 (雖然並非全部) 登錄的唯讀存取權。 實際上，這表示應用程式可存取允許本機使用者群組唯讀存取的登錄機碼。 目前無法提供讀取或寫入的其中一個登錄區域為 HKEY\_CURRENT\_USER 登錄區。
 
 登錄的寫入存取權已遭封鎖，其中包括任何每一使用者登錄機碼的存取。 從應用程式的觀點來看，因為應用程式可以在不同虛擬機器之間移轉，所以 Azure 環境中的登錄寫入存取權並不可靠。 應用程式唯一可依賴的持續可寫入儲存體，就是儲存在 App Service UNC 共用上的各應用程式內容目錄結構。 
+
+## <a name="remote-desktop-access"></a>遠端桌面存取
+
+App Service 並未提供對 VM 執行個體的遠端桌面存取。
 
 ## <a name="more-information"></a>詳細資訊
 

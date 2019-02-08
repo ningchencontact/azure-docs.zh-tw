@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8af6846da78d12460b7866297c9802c5dab20a69
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5b721dfd7a229220836f273be58c5ca74c4284d1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967518"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097923"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>快速入門：建置可整合 Microsoft 登入的 Xamarin 應用程式
 
@@ -41,7 +41,7 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 * 下載[基本架構專案](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip)或下載[完整的範例](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)。 每一個下載都是 Visual Studio 2013 解決方案。
 * 您還需要一個可以建立使用者並註冊應用程式的 Azure AD 租用戶。 如果您還沒有租用戶， [了解如何取得租用戶](quickstart-create-new-tenant.md)。
 
-當您準備就緒，請遵循接下來四個章節的程序。
+當您準備就緒時，請依照接下來四個小節的程序操作。
 
 ## <a name="step-1-set-up-your-xamarin-development-environment"></a>步驟 1：設定您的 Xamarin 開發環境
 
@@ -51,7 +51,7 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 
 ## <a name="step-2-register-the-directorysearcher-app"></a>步驟 2：註冊 DirectorySearcher 應用程式
 
-若要讓應用程式取得權杖，您必須先在 Azure AD 租用戶中註冊這個應用程式，並授權它存取 Azure AD Graph API。 方式如下：
+若要讓應用程式能夠取得權杖，您必須先在 Azure AD 租用戶中註冊該應用程式，然後授與它存取 Azure AD Graph API 的權限。 方式如下：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頂端列中，按一下您的帳戶。 然後，在 [目錄] 清單下，選取您要註冊應用程式的 Active Directory 租用戶。
@@ -66,7 +66,7 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 
 ## <a name="step-3-install-and-configure-adal"></a>步驟 3：安裝及設定 ADAL
 
-既然您在 Azure AD 中已經擁有應用程式，您可以安裝 ADAL，並撰寫身分識別相關程式碼。 若要讓 ADAL 與 Azure AD 進行通訊，請提供它一些應用程式註冊相關資訊。
+既然您在 Azure AD 中已有應用程式，您現在便可安裝 ADAL，並撰寫身分識別相關程式碼。 若要讓 ADAL 與 Azure AD 進行通訊，請提供它一些應用程式註冊相關資訊。
 
 1. 使用 Package Manager Console 將 ADAL 新增到 DirectorySearcher 專案中。
 
@@ -98,7 +98,7 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
   * *clientId* 是您從入口網站複製的應用程式用戶端識別碼。
   * returnUri 是您在入口網站中輸入的重新導向 URI (例如， http://DirectorySearcher) 。
 
-## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>步驟 4：使用 ADAL 來取得 Azure AD 的權杖
+## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>步驟 4：使用 ADAL 從 Azure AD 取得權杖
 
 幾乎所有應用程式的驗證邏輯採用 `DirectorySearcher.SearchByAlias(...)`。 平台特定專案所需的只是將內容參數傳遞至 `DirectorySearcher` PCL。
 
@@ -187,7 +187,7 @@ List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(
 
 您現在擁有一個能夠在五個不同平台之間驗證使用者並使用 OAuth 2.0 安全地呼叫 Web API 的運作中 Xamarin 應用程式。
 
-## <a name="step-5-populate-your-tenant"></a>步驟 5︰填入租用戶 
+## <a name="step-5-populate-your-tenant"></a>步驟 5：填入租用戶 
 
 如果您尚未在租用戶中填入使用者，現在便可以這麼做。
 

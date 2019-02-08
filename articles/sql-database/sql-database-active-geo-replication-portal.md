@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: c25dd911b5648cdf4b64053ef26a7b70c9156074
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599751"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468898"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>在 Azure 入口網站中為 Azure SQL Database 設定主動式異地複寫，並起始容錯移轉
 
-這篇文章說明如何在 SQL Database 中的邏輯伺服器 (sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) 上使用 [Azure 入口網站](http://portal.azure.com)設定 [單一和集區資料庫的主動式異地複寫] 並啟動容錯移轉。
+本文說明您如何使用 [Azure 入口網站](http://portal.azure.com)在 Azure SQL Database 中為[獨立和集區資料庫設定主動式異地複寫](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)，並起始容錯移轉。
 
 如需單一和集區資料庫的自動容錯移轉群組的相關資訊，請參閱[使用容錯移轉群組搭配單一和集區資料庫的最佳作法](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools)。 如需使用受控執行個體 (預覽) 之自動容錯移轉群組的相關資訊，請參閱[使用容錯移轉群組搭配單一和集區資料庫的最佳作法](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances)。
 
@@ -40,7 +40,7 @@ ms.locfileid: "53599751"
 
 若要新增次要資料庫，您必須是訂用帳戶擁有者或共同擁有者。
 
-次要資料庫的名稱會與主要資料庫相同，並且預設會具有相同的服務層和計算大小。 次要資料庫可以是單一資料庫或彈性集區中的資料庫。 如需詳細資訊，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
+次要資料庫的名稱會與主要資料庫相同，並且預設會具有相同的服務層和計算大小。 次要資料庫可以是單一資料庫或集區資料庫。 如需詳細資訊，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 建立並植入次要複本之後，就會開始從主要資料庫將資料複寫到新的次要資料庫。
 
 > [!NOTE]

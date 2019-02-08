@@ -1,5 +1,5 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 Pingboard 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 Pingboard 來自動佈建使用者 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 將使用者帳戶自動佈建和取消佈建至 Pingboard。
 services: active-directory
 documentationcenter: ''
@@ -8,7 +8,7 @@ writer: asmalser-msft
 manager: sakula
 ms.assetid: 0b38ee73-168b-42cb-bd8b-9c5e5126d648
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: e96ea7d212f1a34bb6d10f8c49a15e1b34bfc469
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 4daf52318fc707de2ae365a6c12b676226ef7fcd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348951"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188400"
 ---
-# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>教學課程︰設定 Pingboard 來自動佈建使用者
+# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>教學課程：設定 Pingboard 來自動佈建使用者
 
 本教學課程旨在說明您需要遵循的步驟，以將使用者帳戶從 Azure Active Directory (Azure AD) 自動佈建和取消佈建至 Pingboard。
 

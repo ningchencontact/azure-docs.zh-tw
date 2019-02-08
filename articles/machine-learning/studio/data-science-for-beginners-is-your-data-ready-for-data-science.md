@@ -1,6 +1,6 @@
 ---
-標題：資料評估標題字尾： Azure Machine Learning Studio 說明：您資料備妥可進行資料科學前，必須符合的四個準則。 這段影片提供具體範例，可協助進行基本的資料評估。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：資料評估標題字尾：Azure Machine Learning Studio 說明：您資料備妥可進行資料科學前，必須符合的四個準則。 這段影片提供具體範例，可協助進行基本的資料評估。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date:01/03/2018
 ---

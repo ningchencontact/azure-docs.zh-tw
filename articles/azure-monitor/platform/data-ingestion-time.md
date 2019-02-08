@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2019
+ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 5db963b1ffea656455c06092c82ac95e85d87826
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 329472f3edee66db6b12e369ee8f944546ad4734
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213122"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900437"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Log Analytics 中的資料擷取時間
 Azure Log Analytics 是 Azure 監視器中的高階資料服務，服務對象為每月需傳送數 TB 資料的上千名客戶。 而在 Log Analytics 收集資料後，資料需要多久時間方能轉為可用狀態，是經常受到詢問的問題。 本文會說明影響這種延遲的不同因素。
@@ -45,8 +45,15 @@ Azure Log Analytics 是 Azure 監視器中的高階資料服務，服務對象�
 ### <a name="agent-upload-frequency"></a>代理程式上傳頻率
 若要確保 Log Analytics 代理程式是輕量型，代理程式會緩衝記錄，並定期將其上傳至 Log Analytics。 上傳頻率在 30 秒到 2 分鐘之間，視資料類型而定。 大部分的資料會在 1 分鐘內上傳。 網路狀況可能會對此資料的延遲產生負面影響，而難以達到 Log Analytics 擷取點。
 
-### <a name="azure-logs-and-metrics"></a>Azure 記錄和計量 
-活動記錄資料需要大約 5 分鐘的時間才能在 Log Analytics 中使用。 診斷記錄和計量資料可能需要 1 到 15 分鐘才能變成可用狀態，視 Azure 服務而定。 可供處理後，記錄則需要再花費 30 到 60 秒，而資料計量需要 3 分鐘以傳送至 Log Analytics 擷取點。
+### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Azure 活動記錄、診斷記錄及計量
+為了在 Log Analytics 內嵌點變成可供處理，Azure 資料會多花費一些時間：
+
+- 視 Azure 服務而定，來自診斷記錄的資料需要 2-15 分鐘的時間。 若要檢查您環境中的這項延遲，請參閱[下方的查詢](#checking-ingestion-time)
+- Azure 平台計量需要 3 分鐘的時間，才能傳送到 Log Analytics 內嵌點。
+- Azure 記錄資料將需要 10-15 分鐘的時間，才能傳送到 Log Analytics 內嵌點。
+
+資料在內嵌點變成可供使用之後，會再花費 2-5 分鐘的時間，才可供查詢。
+
 
 ### <a name="management-solutions-collection"></a>管理解決方案集合
 某些解決方案不會從代理程式收集其資料，而且可能使用會造成額外延遲的收集方法。 某些解決方案會定期收集資料，而不嘗試近乎即時的收集。 特定範例包括以下內容：

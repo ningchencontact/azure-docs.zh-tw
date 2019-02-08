@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
-ms.author: cwatson
-ms.openlocfilehash: 87f6437f836d46fc24ae016823a1b091bcd81943
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 0f29544890fe10f4914de393a4b153cfe393a2ec
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582038"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904296"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>了解 Enterprise 註冊的 Azure 保留使用量
 
@@ -76,7 +76,7 @@ ms.locfileid: "52582038"
 
 ## <a name="usage-summary-page-in-enterprise-portal"></a>Enterprise 入口網站中的使用量摘要頁面
 
-Azure 保留使用量也會顯示在 Enterprise 入口網站的 [使用量摘要] 區段：![Enterprise 合約 (EA) 使用量摘要](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+Azure 保留使用量也會顯示在企業版入口網站的 [使用量摘要] 區段中：![Enterprise 合約 (EA) 使用量摘要](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
 
 1. 您不需要針對 VM 的硬體元件付費，原因是保留已涵蓋該費用。 針對 SQL Database 保留，您會看到有一行以**服務名稱**作為 Azure SQL Database 保留容量使用量。
 2. 在此範例中，您沒有 Azure Hybrid Benefit，因此需要就 VM 所使用的 Windows 軟體支付費用。

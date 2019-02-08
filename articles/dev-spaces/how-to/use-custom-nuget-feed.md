@@ -3,7 +3,7 @@ title: 如何在 Azure Dev Spaces 中使用自訂 NuGet 摘要 | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: johnsta
 ms.author: johnsta
 ms.date: 05/11/2018
@@ -11,12 +11,12 @@ ms.topic: article
 description: 在 Azure Dev Spaces 中使用自訂 NuGet 摘要以存取及使用 NuGet 套件。
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 容器
 manager: ghogen
-ms.openlocfilehash: 04b89f6d12c58e2f4915a84d3e0a7988d0e3192f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 21a70100fe186e176dfe8eb7c247d83a5d4705bd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579187"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466399"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>在 Azure Dev Spaces 中使用自訂 NuGet 摘要
 
@@ -36,7 +36,7 @@ NuGet 摘要會提供在專案中包含套件來源的便利方式。 Azure Dev 
    ```
 
 2. 在專案資料夾中建立 [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) 檔案。
-     * 使用 `packageSources` 區段以參考 NuGet 摘要位置。 重要事項：NuGet 摘要必須可以公開存取。
+     * 使用 `packageSources` 區段以參考 NuGet 摘要位置。 重要：NuGet 摘要必須可以公開存取。
      * 使用 `packageSourceCredentials` 區段來設定使用者名稱和密碼認證。 
 
    ```xml

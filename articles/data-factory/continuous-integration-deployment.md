@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: douglasl
-ms.openlocfilehash: 80b594eb8d926465f37771e2e6911f9ab3e63f1f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0d7c8640cb2a3f6d4d1a32a555c03dc2eca48b9a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423811"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901219"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和傳遞 (CI/CD)
 
@@ -853,7 +853,7 @@ else {
 
 以下是在撰寫自訂參數檔案時所要使用的一些指導方針。 若要查看這個語法的範例，請參閱下一節[自訂參數檔案範例](#sample)。
 
-1. 當您在定義檔中指定陣列時，就表示範本中的比對屬性是陣列。 Data Factory 會使用陣列之第一個整合執行階段物件中所指定的定義，逐一查看陣列中的所有物件。 第二個物件 (字串) 會變成屬性的名稱，以作為每個反覆項目參數的名稱。
+1. 當您在定義檔中指定陣列時，就表示範本中的比對屬性是陣列。 Data Factory 會使用陣列之 Integration Runtime 物件中所指定的定義，逐一查看陣列中的所有物件。 第二個物件 (字串) 會變成屬性的名稱，以作為每個反覆項目參數的名稱。
 
     ```json
     ...

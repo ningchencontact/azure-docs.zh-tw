@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: c99d5e9d64e9e9715589ecf2c0de57ce660917aa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 214f32c4dc35661480b96477caf0cdf6243c75a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103684"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094235"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -40,13 +40,13 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
 
 ### <a name="v2"></a>版本 2.x
 
-工具的 2.x 版會使用以 .NET Core 為建置基礎的 Azure Functions 執行階段 2.x。 .NET Core 2.x 支援的所有平台都支援這個版本，包括 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。
+工具的 2.x 版會使用以 .NET Core 為建置基礎的 Azure Functions 執行階段 2.x。 .NET Core 2.x 支援的所有平台都支援這個版本，包括 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 您必須先安裝 .NET Core 2.x SDK。
 
 #### <a name="windows-npm"></a>Windows
 
 下列步驟使用 npm 在 Windows 上安裝 Core Tools。 您也可以使用 [Chocolatey](https://chocolatey.org/)。 如需詳細資訊，請參閱 [Core Tools 讀我檔案](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)。
 
-1. 安裝[適用於 Windows 的 .NET Core 2.1](https://www.microsoft.com/net/download/windows)。
+1. 安裝[適用於 Windows 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows)。
 
 2. 安裝 [Node.js] (內含 npm)。 針對 2.x 版的工具，只支援 Node.js 8.5 和更新版本。
 
@@ -60,7 +60,7 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
 
 下列步驟使用 Homebrew 在 macOS 上安裝 Core Tools。
 
-1. 安裝[適用於 macOS 的 .NET Core 2.1](https://www.microsoft.com/net/download/macos)。
+1. 安裝[適用於 macOS 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/macos)。
 
 2. 如果尚未安裝 [Homebrew](https://brew.sh/)，請加以安裝。
 
@@ -75,7 +75,7 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
 
 下列步驟使用 [APT](https://wiki.debian.org/Apt) 在 Ubuntu/Debian Linux 散發套件上安裝 Core Tools。 若為其他 Linux 散發套件，請參閱 [Core Tools 讀我檔案](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)。
 
-1. 安裝[適用於 Linux 的 .NET Core 2.1](https://www.microsoft.com/net/download/linux)。
+1. 安裝[適用於 Linux 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/linux)。
 
 2. 將 Microsoft 產品金鑰註冊為可信任：
 
@@ -371,7 +371,7 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 {
     "input": "<trigger_input>"
 }
-````
+```
 
 `<trigger_input>` 值包含函式預期格式的資料。 下列 cURL 範例是 POST 到 `QueueTriggerJS` 函式。 在此情況下，輸入是一個相當於在佇列中預期找到的訊息字串。
 

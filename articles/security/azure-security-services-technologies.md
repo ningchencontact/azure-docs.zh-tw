@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2018
+ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 32174af9edcd6da7b87b6b38c0824fa7f07aa8f9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6f571655bb0501f8ef4018bf47588c8db4cc2a3e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384882"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097654"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure 可用的安全性服務與技術
 
@@ -84,7 +84,11 @@ ms.locfileid: "49384882"
 | [網路&nbsp;安全性&nbsp;群組](../virtual-network/virtual-networks-nsg.md)| 以網路為基礎的存取控制功能，其使用 5-tuple 來允許或拒絕決策。  |
 | [Azure VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)| 作為 VPN 端點使用的網路裝置，可允許跨單位存取 Azure 虛擬網路。  |
 | [Azure 應用程式閘道](../application-gateway/application-gateway-introduction.md)|進階 Web 應用程式負載平衡器，可根據 URL 路由傳送並執行 SSL 卸載。 |
+|[Web 應用程式防火牆](../application-gateway/waf-overview.md) (WAF)|「應用程式閘道」的一項功能，可集中保護您的 Web 應用程式，防止常見惡意探索和弱點危害|
 | [Azure 負載平衡器](../load-balancer/load-balancer-overview.md)|TCP/UDP 應用程式網路負載平衡器。 |
 | [Azure ExpressRoute](../expressroute/expressroute-introduction.md)| 內部部署網路與 Azure 虛擬網路之間的專用 WAN 連結。 |
 | [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md)| 全域 DNS 負載平衡器。|
 | [Azure 應用程式 Proxy](../active-directory/active-directory-application-proxy-get-started.md)| 驗證前端，用於保護內部裝載 Web 應用程式的遠端存取。 |
+|[Azure 防火牆](../firewall/overview.md)|一個受控的雲端式網路安全性服務，可保護您的「Azure 虛擬網路」資源。|
+|[Azure DDoS 保護](../virtual-network/ddos-protection-overview.md)|與應用程式設計最佳做法結合，可抵禦 DDoS 攻擊。|
+|[虛擬網路服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)|可透過直接連線，將您的虛擬網路私人位址空間和您的 VNet 身分識別延伸至 Azure 服務。|

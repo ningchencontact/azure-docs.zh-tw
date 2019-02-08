@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 868417a9ca1dbcac9b2f77627944fc620fbe78cd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c54b97bdf69908f32015631a9e527c6e289d1d2a
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253902"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080492"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>在 Azure 研測實驗室中建立實驗室
 Azure DevTest Labs 中的實驗室是包含一組資源 (例如虛擬機器 (VM)) 的基礎結構，可讓您藉由指定限制和配額更好地管理這些資源。 本文將逐步引導您完成使用 Azure 入口網站來建立實驗室的程序。
@@ -33,27 +33,26 @@ Azure DevTest Labs 中的實驗室是包含一組資源 (例如虛擬機器 (VM)
 下列步驟說明如何使用 Azure 入口網站在 Azure DevTest Labs 中建立實驗室。 
 
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
-1. 從左側的主要功能表中，選取 [所有服務] \(位於清單頂端)。
+1. 從左側的主要功能表中，選取 [所有服務] \(位於清單頂端)。 選取 [DEVOPS] 區段中 [DevTest Labs] 旁邊的 * (星號)。 此動作會將 [DevTest Labs] 新增到左側導覽功能表，以便您下次輕鬆存取。 
 
-    ![所有服務功能表選項](./media/devtest-lab-create-lab/more-services-menu-option.png)
-
-1. 從可用服務清單中，選取 [DevTest Labs]。
-1. 在 [DevTest Labs] 區域中，選取 [新增]。
+    ![所有服務 - 選取 DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
+2. 現在，選取左側導覽功能表上的 [DevTest Labs]。 選取工具列上的 [新增]。 
    
     ![新增實驗室](./media/devtest-lab-create-lab/add-lab-button.png)
-
-1. 在 [建立 DevTest Lab] 之下：
-   
-    1. 輸入新實驗室的 **實驗室名稱** 。
+1. 在 [建立 DevTest Labs] 頁面上，執行下列動作： 
+    1. 輸入實驗室的**名稱**。
     2. 選取要與實驗室關聯的 **訂用帳戶** 。
-    3. 選取用來儲存實驗室的 [位置]  。
+    3. 輸入實驗室之**資源群組的名稱**。 
+    4. 選取用來儲存實驗室的**位置**。
     4. 選取 [自動關機]  來指定是否要啟用所有實驗室 VM 的自動關閉，以及定義其參數。 自動關閉功能主要是用來節省成本的功能，若您想要讓 VM 自動關閉，便可指定此功能。 您可以按照[在 Azure DevTest Labs 中管理實驗室的所有原則](./devtest-lab-set-lab-policy.md#set-auto-shutdown)一文所述的步驟，在建立實驗室之後變更自動關閉設定。
     1. 如果您想要建立的自訂標記會新增至您將在實驗室中建立的每個資源，請輸入 [標籤] 的 [名稱] 和 [值] 資訊。 標籤很實用，可協助您依照類別管理及組織實驗室資源。 如需標籤的詳細資訊，包括如何在建立實驗室後新增標籤，請參閱[將標籤新增至實驗室](devtest-lab-add-tag.md)。
-    5. 如果您希望在入口網站儀表板上顯示實驗室的捷徑，請選取 [釘選到儀表板]。
     6. 選取 [自動化選項] 來取得可自動進行設定的 Azure Resource Manager 範本。 
-    7. 選取 [建立] 。 您可以監看 [通知] 區域，以監控實驗室建立程序的狀態。 程序完成之後，請重新整理頁面，以在實驗室清單中查看新建立的實驗室。  
+    7. 選取 [建立] 。 您可以監看 [通知] 區域，以監控實驗室建立程序的狀態。 
     
-    ![建立 DevTest Labs 的實驗室區段](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+        ![建立 DevTest Labs 的實驗室區段](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+    8. 完成時，選取通知中的 [前往資源]。 或者，您也可以重新整理 [DevTest Labs] 頁面，以在實驗室清單中查看新建立的實驗室。  從清單中選取該實驗室。 您會看到實驗室的首頁。 
+
+        ![實驗室的首頁](./media/devtest-lab-create-lab/lab-home-page.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

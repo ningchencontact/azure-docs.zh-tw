@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ed3731db88d7f829634a03c55e5ec033c03e4b0f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 21eec258b14bb0524170c9307d06fee7b7abc644
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139115"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466637"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process 實務：使用 SQL 資料倉儲
 在本教學課程中，我們將引導您使用 SQL 資料倉儲 (SQL DW)，針對可公開使用的資料集 ( [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) 資料集) 建置和部署機器學習服務模型。 所建構的二元分類模型可預測是否已針對某趟車程支付小費，並且也會討論預測支付的小費金額分佈的多元分類模型和迴歸模型。
@@ -27,7 +27,7 @@ ms.locfileid: "53139115"
 「NYC 計程車車程」資料是由約 20GB 的 CSV 壓縮檔 (未壓縮時可達 48GB) 所組成，裡面記錄了超過 1 億 7300 萬筆個別車程及針對每趟車程所支付的費用。 每趟車程記錄均包括上車和下車的位置與時間、匿名的計程車司機駕照號碼，以及計程車牌照 (計程車的唯一識別碼) 號碼。 資料涵蓋 2013 年的所有車程，並且每月會在下列兩個資料集中加以提供：
 
 1. **trip_data.csv** 檔案包含車程的詳細資訊，例如，乘客數、上車和下車地點、車程持續時間，以及車程長度。 以下是一些範例記錄：
-   
+
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
@@ -35,7 +35,7 @@ ms.locfileid: "53139115"
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 2. **trip_fare.csv** 檔案包含針對每趟車程所支付之費用的詳細資訊，例如付款類型、費用金額、銷售稅和稅金、小費和服務費，以及支付的總金額。 以下是一些範例記錄：
-   
+
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7
@@ -54,13 +54,13 @@ ms.locfileid: "53139115"
 
 1. **二元分類**：預測是否已支付某趟車程的小費，例如，大於美金 0 元的 *tip\_amount* 為正面範例，而等於美金 0 元的 *tip\_amount* 為負面範例。
 2. **多元分類**：預測針對該趟車程支付的小費範圍。 我們將 tip\_amount 分成五個分類收納組或類別：
-   
+
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. **迴歸工作**：預測針對某趟車程支付的小費金額。  
+3. **迴歸工作**：預測針對某趟車程支付的小費金額。
 
 ## <a name="setup"></a>設定適用於進階分析的 Azure 資料科學環境
 若要設定您的 Azure 資料科學環境，請遵循下列步驟。
@@ -69,7 +69,7 @@ ms.locfileid: "53139115"
 
 * 當您在佈建自己的 Azure Blob 儲存體時，請為 Azure Blob 儲存體選擇位於或最接近「美國中南部」 的地理位置 (即儲存 NYC 計程車資料的位置)。 該資料會使用 AzCopy 從公用 Blob 儲存體容器複製到您自己的儲存體帳戶中的容器。 您的 Azure Blob 儲存體越接近美國中南部，就能越快完成這項工作 (步驟 4)。
 * 若要建立自己的 Azure 儲存體帳戶，請遵循 [關於 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)中概述的步驟。 請務必記下下列儲存體帳戶認證的值，因為我們會在本逐步解說稍後的地方用到它們。
-  
+
   * **儲存體帳戶名稱**
   * **儲存體帳戶金鑰**
   * **容器名稱** (您想要在 Azure Blob 儲存體中用來儲存資料的容器)
@@ -88,8 +88,8 @@ ms.locfileid: "53139115"
 
 > [!NOTE]
 > 在您於 SQL 資料倉儲中建立的資料庫上執行下列 SQL 查詢 (而不是連接主題的步驟 3 中所提供的查詢)，以 **建立主要金鑰**。
-> 
-> 
+>
+>
 
     BEGIN TRY
            --Try to create the master key
@@ -106,8 +106,8 @@ ms.locfileid: "53139115"
 
 > [!NOTE]
 > 如果需要系統管理員權限才能建立或寫入 **DestDir** 目錄，您可能需要在執行下列 PowerShell 指令碼時 *以系統管理員身分執行* 。
-> 
-> 
+>
+>
 
     $source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
     $ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
@@ -127,13 +127,13 @@ ms.locfileid: "53139115"
 
 > [!NOTE]
 > 為了避免結構描述名稱與 Azure SQL DW 中現存的名稱發生衝突，在直接從 SQLDW.conf 檔案讀取參數時，都會對 SQLDW.conf 檔案中的結構描述名稱加上 3 位數的隨機數字，以做為每次執行的預設結構描述名稱。 PowerShell 指令碼可能會提示您輸入結構描述名稱：使用者可自行指定此名稱。
-> 
-> 
+>
+>
 
 此 **PowerShell 指令碼** 檔案會完成下列工作：
 
 * 如果尚未安裝 AzCopy，請**下載並安裝 AzCopy**
-  
+
         $AzCopy_path = SearchAzCopy
         if ($AzCopy_path -eq $null){
                Write-Host "AzCopy.exe is not found in C:\Program Files*. Now, start installing AzCopy..." -ForegroundColor "Yellow"
@@ -154,7 +154,7 @@ ms.locfileid: "53139115"
                     $env_path = $env:Path
                 }
 * **將資料複製到私人 Blob 儲存體帳戶** 
-  
+
         Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
         $start_time = Get-Date
         AzCopy.exe /Source:$Source /Dest:$DestURL /DestKey:$StorageAccountKey /S
@@ -164,17 +164,17 @@ ms.locfileid: "53139115"
         Write-Host "AzCopy finished copying data. Please check your storage account to verify." -ForegroundColor "Yellow"
         Write-Host "This step (copying data from public blob to your storage account) takes $total_seconds seconds." -ForegroundColor "Green"
 * **使用 Polybase 載入資料 (藉由執行 LoadDataToSQLDW.sql) 到您的 Azure SQL DW** 。
-  
+
   * 建立結構描述
-    
+
           EXEC (''CREATE SCHEMA {schemaname};'');
   * 建立資料庫範圍認證
-    
+
           CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
           WITH IDENTITY = ''asbkey'' ,
           Secret = ''{StorageAccountKey}''
   * 建立 Azure 儲存體 Blob 的外部資料來源。
-    
+
           CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage}
           WITH
           (
@@ -183,7 +183,7 @@ ms.locfileid: "53139115"
               CREDENTIAL = {KeyAlias}
           )
           ;
-    
+
           CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage}
           WITH
           (
@@ -193,12 +193,12 @@ ms.locfileid: "53139115"
           )
           ;
   * 建立 CSV 檔案的外部檔案格式。 資料是未經壓縮的，而欄位會以縱線字元分隔。
-    
+
           CREATE EXTERNAL FILE FORMAT {csv_file_format}
           WITH
-          (   
+          (
               FORMAT_TYPE = DELIMITEDTEXT,
-              FORMAT_OPTIONS  
+              FORMAT_OPTIONS
               (
                   FIELD_TERMINATOR ='','',
                   USE_TYPE_DEFAULT = TRUE
@@ -206,7 +206,7 @@ ms.locfileid: "53139115"
           )
           ;
   * 為 Azure Blob 儲存體的 NYC 計程車資料集建立外部 fare 和 trip 資料表。
-    
+
           CREATE EXTERNAL TABLE {external_nyctaxi_fare}
           (
               medallion varchar(50) not null,
@@ -226,8 +226,8 @@ ms.locfileid: "53139115"
               DATA_SOURCE = {nyctaxi_fare_storage},
               FILE_FORMAT = {csv_file_format},
               REJECT_TYPE = VALUE,
-              REJECT_VALUE = 12     
-          )  
+              REJECT_VALUE = 12
+          )
 
             CREATE EXTERNAL TABLE {external_nyctaxi_trip}
             (
@@ -251,14 +251,14 @@ ms.locfileid: "53139115"
                 DATA_SOURCE = {nyctaxi_trip_storage},
                 FILE_FORMAT = {csv_file_format},
                 REJECT_TYPE = VALUE,
-                REJECT_VALUE = 12         
+                REJECT_VALUE = 12
             )
 
     - 從 Azure Blob 儲存體將外部資料表中的資料載入 SQL 資料倉儲
 
             CREATE TABLE {schemaname}.{nyctaxi_fare}
             WITH
-            (   
+            (
                 CLUSTERED COLUMNSTORE INDEX,
                 DISTRIBUTION = HASH(medallion)
             )
@@ -269,7 +269,7 @@ ms.locfileid: "53139115"
 
             CREATE TABLE {schemaname}.{nyctaxi_trip}
             WITH
-            (   
+            (
                 CLUSTERED COLUMNSTORE INDEX,
                 DISTRIBUTION = HASH(medallion)
             )
@@ -282,7 +282,7 @@ ms.locfileid: "53139115"
 
             CREATE TABLE {schemaname}.{nyctaxi_sample}
             WITH
-            (   
+            (
                 CLUSTERED COLUMNSTORE INDEX,
                 DISTRIBUTION = HASH(medallion)
             )
@@ -310,16 +310,16 @@ ms.locfileid: "53139115"
 儲存體帳戶的地理位置會影響載入時間。
 
 > [!NOTE]
-> 根據私人 Blob 儲存體帳戶所在的地理位置，將公用 Blob 中的資料複製到私人儲存體帳戶的程序可能需要大約 15 分鐘或更久時間，而將儲存體帳戶中的資料載入到 Azure SQL DW 的程序則可能需要 20 分鐘或更久時間。  
-> 
-> 
+> 根據私人 Blob 儲存體帳戶所在的地理位置，將公用 Blob 中的資料複製到私人儲存體帳戶的程序可能需要大約 15 分鐘或更久時間，而將儲存體帳戶中的資料載入到 Azure SQL DW 的程序則可能需要 20 分鐘或更久時間。
+>
+>
 
 您必須決定當您有重複的來源和目的地檔案時該如何做。
 
 > [!NOTE]
 > 如果私人 Blob 儲存體帳戶中已有要從公用 Blob 儲存體複製到私人 Blob 儲存體帳戶的 .csv 檔案，AzCopy 會詢問您是否要加以覆寫。 如果不想加以覆寫，在出現提示時輸入 **n** 。 如果想要**全部**覆寫，請在出現提示時輸入 **a**。 您也可以輸入 **y** 來個別覆寫 .csv 檔案。
-> 
-> 
+>
+>
 
 ![來自 AzCopy 的輸出][21]
 
@@ -327,8 +327,8 @@ ms.locfileid: "53139115"
 
 > [!TIP]
 > 如果資料已位於私人 Azure Blob 儲存體的現實應用程式中，您可以略過 PowerShell 指令碼中的 AzCopy 步驟，並直接將資料上傳到 Azure SQL DW。 這將需要另外編輯指令碼，使它符合您的資料格式。
-> 
-> 
+>
+>
 
 這個 Powershell 指令碼也會將 Azure SQL DW 資訊插入資料探索範例檔案 SQLDW_Explorations.sql、SQLDW_Explorations.ipynb 和 SQLDW_Explorations_Scripts.py，讓這三個檔案能夠在 PowerShell 指令碼完成後就立即提供試用。
 
@@ -343,8 +343,8 @@ ms.locfileid: "53139115"
 
 > [!NOTE]
 > 若要開啟 Parallel Data Warehouse (PDW) 查詢編輯器，請於在 [SQL 物件總管] 中選取 PDW 時使用「新增查詢」命令。 PDW 不支援標準的 SQL 查詢編輯器。
-> 
-> 
+>
+>
 
 以下是本節所執行之資料探索和功能產生工作的類型：
 
@@ -557,7 +557,7 @@ ms.locfileid: "53139115"
     AND   t.pickup_datetime = f.pickup_datetime
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
-當您準備好繼續進行 Azure Machine Learning，您可以：  
+當您準備好繼續進行 Azure Machine Learning，您可以：
 
 1. 儲存最後一個 SQL 查詢以擷取和取樣資料，然後複製該查詢並直接貼到 Azure Machine Learning 中的[匯入資料][import-data]模組，或者
 2. 將您打算用來建置模型的取樣和工程設計資料保存在新的 SQL DW 資料表中，然後在 Azure Machine Learning 的[匯入資料][import-data]模組中使用該新的資料表。 先前步驟中的 PowerShell 指令碼已為您完成此作業。 您可以在「匯入資料」模組中直接讀取此資料表。
@@ -570,16 +570,16 @@ ms.locfileid: "53139115"
 如果您已經設定 AzureML 工作區，則可以直接將範例 IPython Notebook 上傳至 AzureML IPython Notebook 服務，並開始執行。 以下是上傳至 AzureML IPython Notebook 服務的步驟：
 
 1. 登入 AzureML 工作區，按一下頂端的 [Studio]，然後按一下網頁左側的 [NOTEBOOKS]。
-   
+
     ![依序按一下 [Studio] 和 [NOTEBOOK]][22]
 2. 按一下網頁左下角的 [新增]，接著選取 [Python 2]。 然後，提供 Notebook 的名稱，並按一下核取記號以建立新的空白 IPython Notebook。
-   
+
     ![按一下 [新增]，然後選取 [Python 2]][23]
 3. 按一下新的 IPython Notebook 左上角的 [Jupyter] 符號。
-   
+
     ![按一下 [Jupyter] 符號][24]
 4. 將範例 IPython Notebook 拖放到 AzureML IPython Notebook 服務的 [樹狀結構] 頁面，然後按一下 [上傳]。 然後，範例 IPython Notebook 就會上傳到 AzureML IPython Notebook 服務。
-   
+
     ![按一下 [上傳]。][25]
 
 若要執行範例 IPython Notebook 或 Python 指令碼檔案，您需要下列 Python 封裝。 如果您使用 AzureML IPython Notebook 服務，則已預先安裝這些封裝。
@@ -630,7 +630,7 @@ ms.locfileid: "53139115"
 
     print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-* 資料列總數 = 173179759  
+* 資料列總數 = 173179759
 * 資料行總數 = 14
 
 ### <a name="report-number-of-rows-and-columns-in-table-nyctaxifare"></a>報告資料表 <nyctaxi_fare> 中資料列和資料行的數目
@@ -648,7 +648,7 @@ ms.locfileid: "53139115"
 
     print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-* 資料列總數 = 173179759  
+* 資料列總數 = 173179759
 * 資料行總數 = 11
 
 ### <a name="read-in-a-small-data-sample-from-the-sql-data-warehouse-database"></a>從 SQL 資料倉儲資料庫讀入小型資料取樣
@@ -671,7 +671,7 @@ ms.locfileid: "53139115"
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-讀取取樣資料表的時間為 14.096495 秒。  
+讀取取樣資料表的時間為 14.096495 秒。
 擷取的資料列和資料行數目 = (1000, 21)。
 
 ### <a name="descriptive-statistics"></a>描述性統計資料
@@ -807,9 +807,9 @@ ms.locfileid: "53139115"
 
 1. **二元分類**：預測是否已支付某趟車程的小費。
 2. **多元分類**：根據先前定義的類別，預測所支付的小費範圍。
-3. **迴歸工作**：預測針對某趟車程支付的小費金額。  
+3. **迴歸工作**：預測針對某趟車程支付的小費金額。
 
-若要開始進行模型化練習，請登入 **Azure Machine Learning** 工作區。 如果您尚未建立機器學習服務工作區，請參閱「 [建立 Azure ML 工作區](../studio/create-workspace.md)」。
+若要開始進行模型化練習，請登入 **Azure Machine Learning** 工作區。 如果您尚未建立機器學習服務工作區，請參閱 [建立 Azure Machine Learning Studio 工作區](../studio/create-workspace.md)。
 
 1. 若要開始使用 Azure Machine Learning，請參閱「 [什麼是 Azure Machine Learning Studio？](../studio/what-is-ml-studio.md)
 2. 登入 [Azure Machine Learning Studio](https://studio.azureml.net)。
@@ -818,7 +818,7 @@ ms.locfileid: "53139115"
 典型的訓練實驗包含下列步驟：
 
 1. 建立 **+NEW** 實驗。
-2. 將資料匯入 Azure ML。
+2. 將資料匯入 Azure Machine Learning Studio。
 3. 視需要前置處理、轉換和操作資料。
 4. 視需要產生功能。
 5. 將資料分割為訓練/驗證/測試資料集 (或讓每一個擁有個別的資料集)。
@@ -828,10 +828,10 @@ ms.locfileid: "53139115"
 9. 評估模型來計算適用於學習問題的相關度量。
 10. 微調模型，並選取要部署的最佳模型。
 
-在這個練習中，我們已經探索了 SQL 資料倉儲中的資料並進行處理，並且決定了要在 Azure ML 中擷取的取樣大小。 以下是建置一或多個預測模型的程序：
+在這個練習中，我們已經探索了 SQL 資料倉儲中的資料並進行處理，並且決定了要在 Azure Machine Learning Studio 中擷取的取樣大小。 以下是建置一或多個預測模型的程序：
 
-1. 使用[匯入資料][import-data]模組 (可從**資料輸入和輸出**區段取得)，將資料匯入 Azure ML。 如需詳細資訊，請參閱[匯入資料][import-data]模組參考頁面。
-   
+1. 使用[匯入資料][import-data] 模組 (可在 [資料輸入與輸出] 區段中取得) 將資料匯入 Azure Machine Learning Studio。 如需詳細資訊，請參閱[匯入資料][import-data]模組參考頁面。
+
     ![Azure ML 匯入資料][17]
 2. 在 [屬性] 面板中，選取 [Azure SQL Database] 做為 [資料來源]。
 3. 在 [ **資料庫伺服器名稱** ] 欄位中輸入資料庫的 DNS 名稱。 格式： `tcp:<your_virtual_machine_DNS_name>,1433`
@@ -845,10 +845,10 @@ ms.locfileid: "53139115"
 
 > [!IMPORTANT]
 > 在前幾節中提供的模型化資料擷取和取樣查詢範例中， **這三個模型化練習的所有標籤都包含於此查詢中**。 每一個模型化練習的重要 (必要) 步驟都是針對其他兩個問題**排除**不需要的標籤，以及任何其他的**目標流失**。 例如，使用二進位分類時，請用 **tipped** 標籤，並排除 **tip\_class**、**tip\_amount** 和 **total\_amount** 欄位。 後者為目標流失，因為它們意指支付的小費。
-> 
+>
 > 若要排除任何不必要的資料行或目標流失，您可以使用[選取資料集中的資料行][select-columns]模組或[編輯中繼資料][edit-metadata]。 如需詳細資訊，請參閱[選取資料集中的資料行][select-columns]和[編輯中繼資料][edit-metadata]參考頁面。
-> 
-> 
+>
+>
 
 ## <a name="mldeploy"></a>在 Azure Machine Learning 中部署模型
 當您備妥模型時，可以輕鬆地直接從實驗中將它部署為 Web 服務。 如需關於部署 Azure ML Web 服務的詳細資訊，請參閱 [部署 Azure 機器學習 Web 服務](../studio/publish-a-machine-learning-web-service.md)。
@@ -881,9 +881,7 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。 �
 此逐步解說範例及其隨附的指令碼和 IPython Notebook 是在 MIT 授權下由 Microsoft 所共用。 如需詳細資料，請查看 GitHub 上範例程式碼目錄中的 LICENSE.txt 檔案。
 
 ## <a name="references"></a>參考
-•    [Andrés Monroy NYC 計程車車程下載頁面](http://www.andresmh.com/nyctaxitrips/) \(英文\)  
-•    [FOILing NYC 的計程車車程資料 (作者為 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•    [NYC 計程車和禮車委託研究和統計資料](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
+•    [Andrés Monroy 紐約市計程車行程下載頁面](http://www.andresmh.com/nyctaxitrips/) (英文) •    [FOILing 紐約市計程車行程資料 (作者 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/) (英文)•    [紐約市計程車和豪華轎車委員會研究與統計資料](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml) (英文)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

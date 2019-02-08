@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: fcf5b5d0064292c11abeb361b0c046b5a3388457
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 24fdfcb53e8f3cbf0e1bf4f7e567d9f768383ac1
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025686"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884226"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -35,6 +35,8 @@ ms.locfileid: "54025686"
 - 使用 SQL 驗證和 Azure Active Directory (Azure AD) 應用程式權杖驗證搭配服務主體或 Azure 資源的受控識別來複製資料。
 - 作為來源時，使用 SQL 查詢或預存程序來擷取資料。
 - 在複製期間作為接收時，請使用自訂邏輯將資料附加到目的地資料表或叫用預存程序。
+
+目前不支援 Azure SQL Database [一律加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)。 
 
 > [!IMPORTANT]
 > 如果您使用 Azure Data Factory Integration Runtime 複製資料，請設定 [Azure SQL 伺服器防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)，讓 Azure 服務可存取伺服器。
@@ -580,34 +582,37 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | binary |Byte[] |
 | bit |BOOLEAN |
 | char |String、Char[] |
-| 日期 |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
+| 日期 |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| 十進位 |十進位 |
+| Decimal |Decimal |
 | FILESTREAM 屬性 (varbinary(max)) |Byte[] |
-| Float |兩倍 |
+| Float |Double |
 | 映像 |Byte[] |
 | int |Int32 |
-| money |十進位 |
+| money |Decimal |
 | nchar |String、Char[] |
 | ntext |String、Char[] |
-| numeric |十進位 |
+| numeric |Decimal |
 | nvarchar |String、Char[] |
-| real |單一 |
+| real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |十進位 |
-| sql_variant |物件 * |
+| smallmoney |Decimal |
+| sql_variant |Object |
 | text |String、Char[] |
-| 分析 |時間範圍 |
+| 分析 |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String、Char[] |
 | xml |xml |
+
+>[!NOTE]
+> 針對對應至 Decimal 過渡期類型的資料類型，目前 ADF 支援的有效位數最多可達 28。 如果您有有效位數超過 28 的資料，請考慮在 SQL 查詢中將其轉換成字串。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收端的資料存放區清單，請參閱[支援的資料存放區和格式](copy-activity-overview.md##supported-data-stores-and-formats)。

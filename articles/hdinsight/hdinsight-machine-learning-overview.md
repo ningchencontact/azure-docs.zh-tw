@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7e5f56251e00b59a6e6d3be40612f4c8e381dff1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 84ce13f78a9c597c780cb0dfa0fa5d16e6175b1c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742995"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077721"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight 上的機器學習服務
 
@@ -42,13 +42,13 @@ Azure Machine Learning 提供可建立預測性分析模型的工具，也提供
 
 ![使用 Microsoft Azure Machine Learning 可讓 Hadoop 進行進階分析](./media/hdinsight-machine-learning-overview/hadoop-azure-ml.png)
 
-針對使用 [Hive 查詢](../machine-learning/team-data-science-process/create-features-hive.md)之 HDInsight Hadoop 叢集中的資料建立特徵。 *特徵工程設計*藉由以學習程序的原始資料來建立特徵，以嘗試增加學習演算法的預測能力。 您可以從 Azure ML 執行 HiveQL 查詢，並使用[資料匯入模組](../machine-learning/studio/import-data.md)，存取 Hive 中處理的資料，以及 Blob 儲存體中儲存的資料。
+針對使用 [Hive 查詢](../machine-learning/team-data-science-process/create-features-hive.md)之 HDInsight Hadoop 叢集中的資料建立特徵。 *特徵工程設計*藉由以學習程序的原始資料來建立特徵，以嘗試增加學習演算法的預測能力。 您可以藉由使用[匯入資料模組](../machine-learning/studio/import-data.md)，從 Azure Machine Learning Studio 執行 HiveQL 查詢，並存取在 Hive 中處理及在 Blob 儲存體中儲存的資料。
 
 ## <a name="microsoft-cognitive-toolkit"></a>Microsoft 辨識工具組
 
 [深度學習](https://www.microsoft.com/en-us/research/group/dltc/)是機器學習服務的一個分支，使用以人類大腦的生物學程序為靈感來源的類神經網路。 許多研究人員都將深度學習視為一個有前景的增強人工智慧方法。 深度學習的範例包括口語語言翻譯工具、影像辨識系統，以及機器推理。
 
-為了協助推展自己在深度學習方面的工作，Microsoft 開發了免費、容易使用的開放原始碼 [Microsoft 辨識工具組](https://www.microsoft.com/en-us/cognitive-toolkit/)。 各種 Microsoft 產品、世界各地需要大規模部署深度學習的公司，以及對最新演算法和技術感興趣的學生，皆使用此工具組。 
+為了協助推展自己在深度學習方面的工作，Microsoft 開發了免費、容易使用的開放原始碼 [Microsoft 辨識工具組](https://www.microsoft.com/en-us/cognitive-toolkit/)。 各種 Microsoft 產品、世界各地需要大規模部署深度學習的公司，以及對最新演算法和技術感興趣的學生，皆使用此工具組。
 
 ## <a name="see-also"></a>另請參閱
 

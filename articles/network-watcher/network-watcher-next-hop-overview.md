@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 28eacdce922e26d391cf34f78cb03ead9c6887a1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 40f1790806aac6756979f28ad29442b7abf96019
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391261"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096886"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>使用下一個躍點來診斷虛擬機器路由問題
 
@@ -42,4 +42,4 @@ ms.locfileid: "44391261"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要了解如何使用下一個躍點來診斷 VM 網路路由問題，請參閱[診斷 VM 網路路由問題](diagnose-vm-network-routing-problem.md)。
+若要了解如何使用下一個躍點來診斷 VM 網路路由問題，請參閱使用 [Azure 入口網站](diagnose-vm-network-routing-problem.md)、[PowerShell](diagnose-vm-network-routing-problem-powershell.md) 或 [Azure CLI](diagnose-vm-network-routing-problem-cli.md) 來診斷 VM 網路路由問題。

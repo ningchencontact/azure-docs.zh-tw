@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 76e86eb78a06d98e3d5c6c54b244add3c0c245d2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 7484b570784f5f058ebd23b1e3c225c5d858a274
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900456"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183334"
 ---
 # <a name="similarity-method"></a>相似度方法
 
@@ -35,7 +35,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 <sub> *要比較的字串具有的最大長度為 1 MB。</sub>
 <br>
 ## <a name="response"></a>Response
-名稱 | 說明
+Name | 說明
 --------|---------
 **SimilarityScore**        |浮點值，表示 s1 和 s2 的餘弦相似度，具有較接近 1.0 的值表示較為相似，而較接近 -1.0 的值則表示較不相似
 <br>

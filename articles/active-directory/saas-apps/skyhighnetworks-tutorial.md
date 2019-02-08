@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 48d6ddd1-4d3e-4019-8234-5e5212684d9c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 40237946adf0e9cf30367fd0464a6c32572c3aaf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6b66a7343c6ddaa9ff8cf36489798a96fbdf1c30
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423720"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175310"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>教學課程：Azure Active Directory 與 Skyhigh Networks 整合
 
@@ -169,7 +169,7 @@ Skyhigh Networks 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-skyhigh-networks-test-user"></a>建立 Skyhigh Networks 測試使用者
 
-在本節中，您要在 Skyhigh Networks 中建立名為 Britta Simon 的使用者。 請與 [Skyhigh Networks 支援小組](mailto:support@skyhighnetworks.com)合作，在 Skyhigh Networks 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入
+在本節中，您要在 Skyhigh Networks 中建立名為 Britta Simon 的使用者。 請與  [Skyhigh Networks 支援小組](mailto:support@skyhighnetworks.com)合作，在 Skyhigh Networks 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -206,7 +206,7 @@ Skyhigh Networks 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Skyhigh Networks] 圖格時，應該就會自動登入 Skyhigh Networks 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

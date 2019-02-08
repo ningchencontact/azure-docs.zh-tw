@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: 68027526fb98db4cb5b7eaf75f117692222c6039
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: b01238b0ebfe07b605824a75301165e477bd05e9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549015"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910707"
 ---
 # <a name="azure-database-for-postgresql-advanced-threat-protection"></a>適用於 PostgreSQL 的 Azure 資料庫進階威脅防護
 
@@ -22,6 +22,9 @@ ms.locfileid: "53549015"
 > [!NOTE]
 > 進階威脅防護功能**不**適用於下列 Azure 政府和主權雲端區域：US Gov 德克薩斯州、US Gov 亞利桑那州、US Gov 愛荷華州、US DoD 東部、US DoD 中部、德國中部、德國北部、中國東部、中國東部 2。 如需一般產品可用性，請瀏覽[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。
 >
+
+> [!NOTE]
+> 在已針對「一般用途」和「記憶體最佳化」伺服器部署「適用於 PostgreSQL 的 Azure 資料庫」的所有 Azure 區域中，都可使用此功能。
 
 ## <a name="what-is-advanced-threat-protection"></a>什麼是進階威脅防護？
 

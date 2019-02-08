@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 4ff896902c1a92c244c3bcd147c3daeeb9e49c77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f92fe2432051b148bf0b35fccc3fa33db9b66a14
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054741"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093137"
 ---
 # <a name="getting-started-with-reliable-actors"></a>開始使用 Reliable Actors
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ ms.locfileid: "44054741"
 
 * **介面專案 (HelloWorld.Interfaces)**。 此專案包含動作項目的介面定義。 動作項目介面可以在任何名稱的任何專案中定義。  介面會定義由動作項目實作和呼叫動作項目之用戶端共用的動作項目合約。  因為用戶端專案可能依存於此，所以在與動作項目實作不同的組件中定義它，通常是有意義的。
 
-* **動作項目服務專案 (HelloWorld)**。 這個專案會定義即將裝載動作項目的 Service Fabric 服務。 它包含動作項目 *HellowWorld.cs* 的實作。 動作項目實作是衍生自基底類型 `Actor` 的類別，它會實作 *MyActor.Interfaces* 專案中所定義的介面。 動作項目類別也必須實作建構函式來接受 `ActorService` 執行個體和 `ActorId`，並將它們傳遞至基底 `Actor` 類別。
+* **動作項目服務專案 (HelloWorld)**。 這個專案會定義即將裝載動作項目的 Service Fabric 服務。 它包含動作項目 *HelloWorld.cs* 的實作。 動作項目實作是衍生自基底類型 `Actor` 的類別，它會實作 *MyActor.Interfaces* 專案中所定義的介面。 動作項目類別也必須實作建構函式來接受 `ActorService` 執行個體和 `ActorId`，並將它們傳遞至基底 `Actor` 類別。
     
     此專案也包含 *Program.cs*，它使用 `ActorRuntime.RegisterActorAsync<T>()` 向 Service Fabric 執行階段註冊動作項目類別。 `HelloWorld` 類別已註冊。 加入至專案的任何其他動作項目實作也必須在 `Main()` 方法中註冊。
 

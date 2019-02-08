@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 9df8d199-b955-483c-aa4e-cabad1a0b9d6
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: aa5c91265a832ef8a66948086b407688fdcbbbc2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 76507fab4050f3ff762713081d2e588dc04f3f1b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435469"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157817"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>教學課程：Azure Active Directory 與 Spacio 整合
 
@@ -159,7 +159,7 @@ Spacio 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-spacio-test-user"></a>建立 Spacio 測試使用者
 
-在本節中，您要在 Spacio 中建立名為 Britta Simon 的使用者。 請與 [Spacio 支援小組](mailto:support@spac.io) 合作，在 Spacio 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入
+在本節中，您要在 Spacio 中建立名為 Britta Simon 的使用者。 請與  [Spacio 支援小組](mailto:support@spac.io)合作，在 Spacio 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -196,7 +196,7 @@ Spacio 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Spacio] 圖格時，應該會自動登入您的 Spacio 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

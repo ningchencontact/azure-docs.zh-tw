@@ -8,24 +8,24 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: be880b937f254cbf8115d1a5129069069a0c7eea
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: dabee3f4eb6fb2bf4f58ff8654068e138858dbbd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249659"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156916"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>建立動態群組並檢查狀態
 
 在 Azure Active Directory (Azure AD) 中，您可套用規則，以根據使用者或裝置屬性來判斷成員資格，進而建立群組。 當使用者或裝置的屬性變更時，Azure AD 會評估 Azure AD 租用戶中的所有動態群組規則，並執行任何的新增或移除。 如果使用者或裝置滿足某個群組的規則，他/它們就會新增為成員，而當他/它們不再滿足規則時，則會遭到移除。
 
-此文章詳細說明如何針對安全性群組或 Office 365 群組的動態成員資格，在 Azure 入口網站中設定規則。 如需規則語法的範例以及成員資格規則支援的完整屬性、運算子和值清單，請參閱 [Azure Active Directory 中群組的動態成員資格規則](groups-dynamic-membership.md)。
+本文詳細說明如何針對安全性群組或 Office 365 群組的動態成員資格，在 Azure 入口網站中設定規則。 如需規則語法的範例以及成員資格規則支援的完整屬性、運算子和值清單，請參閱 [Azure Active Directory 中群組的動態成員資格規則](groups-dynamic-membership.md)。
 
 ## <a name="to-create-a-group-membership-rule"></a>建立群組成員資格規則
 

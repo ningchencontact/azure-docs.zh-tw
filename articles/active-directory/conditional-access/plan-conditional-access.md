@@ -6,18 +6,18 @@ author: MarkusVi
 manager: daveba
 tags: azuread
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: martincoetzer
-ms.openlocfilehash: 1911dd189e21a6d29b2bf1ba3d179b41e948f469
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ca0dfcd9b776b6aea052e2569f9a5aec3ae50eca
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450502"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081019"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>作法：在 Azure Active Directory 中規劃條件式存取部署
 
@@ -32,7 +32,7 @@ ms.locfileid: "54450502"
 
 有兩種條件式存取原則：基準和標準。 [基準原則](baseline-protection.md)是預先定義的條件式存取原則。 這些原則的目標是確保您的環境中至少會啟用基準層級的安全性。 基準原則。 所有 Azure AD 版本都可以使用基準原則，而這些原則僅提供有限的自訂選項。 如果案例需要更多彈性，您可以停用基準原則，然後在自訂標準原則中實作自己的需求。
 
-在標準條件式存取原則中，您可以自訂所有設定，以將原則調整為適合您的業務需求。 標準原則需要 Azure AD Premium P1 授權。
+在標準條件式存取原則中，您可以自訂所有設定，以便將原則調整為適合您的業務需求。 標準原則需要 Azure AD Premium P1 授權。
 
 
 
@@ -54,9 +54,9 @@ Azure Active Directory 條件式存取可讓您的雲端應用程式保護登上
 
 |發生「此情況」時：|則執行「此動作」：|
 |-|-|
-|嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組<br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如登入風險)|封鎖對應用程式的存取|
-|嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組<br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如登入風險)|授與存取權 (滿足所有需求)：<br>- 需求 1 (例如 MFA)<br>- 需求 2 (例如裝置合規性)|
-|嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組<br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如登入風險)|授與存取權 (滿足需求之一)：<br>- 需求 1 (例如 MFA)<br>- 需求 2 (例如裝置合規性)|
+|嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組<br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如裝置平台)|封鎖對應用程式的存取|
+|嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組<br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如裝置平台)|授與存取權 (滿足所有需求)：<br>- 需求 1 (例如 MFA)<br>- 需求 2 (例如裝置合規性)|
+|嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組<br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如裝置平台)|授與存取權 (滿足需求之一)：<br>- 需求 1 (例如 MFA)<br>- 需求 2 (例如裝置合規性)|
 
 **發生此情況時**至少要定義嘗試存取雲端應用程式 (**目標**) 的主體 (**人員**)。 如果有必要，您也可以包含執行存取嘗試的**方法**。 在條件式存取中，定義人員、目標和方法的元素是已知條件。 如需詳細資訊，請參閱 [Azure Active Directory 條件式存取中的條件是什麼？](conditions.md) 
 
@@ -76,22 +76,36 @@ Azure Active Directory 條件式存取可讓您的雲端應用程式保護登上
 - 其適用的雲端應用程式
 - 回應
 - 適用的人員
-- 適用的時機 
+- 適用時機 (如果適用)
  
 ![命名標準](./media/plan-conditional-access/11.png)
 
-
+雖然描述性名稱可協助概述條件式存取實作，但是如果您需要在交談中參考原則，則序號很有幫助。 例如，如果您透過電話與其他系統管理員交談，您可以要求他開啟原則 EM063 來解決問題。
 
 
 
 舉例來說，下列命名說明原則針對外部網路使用 Dynamics CRP 應用程式的行銷使用者要求 MFA：
 
-`CA01-Dynamics CRP: Require MFA For marketing When on external networks`
+`CA01 - Dynamics CRP: Require MFA For marketing When on external networks`
 
 
-除了作用中的原則外，您也應該實作已停用的原則，其作為[在中斷/緊急狀況時的次要復原性存取控制](../authentication/concept-resilient-controls.md)。 您的命名標準也應該包含這項目的，才能在中斷時更輕鬆地啟用它們。 例如︰
+除了作用中的原則外，建議您也實作已停用的原則，其作為[在中斷/緊急狀況時的次要復原性存取控制](../authentication/concept-resilient-controls.md)。 您用於應變原則的命名標準應該包含更多一些項目： 
 
-`EM01-Finance app: Require MFA For Sales When on untrusted network`
+- 開頭的 `ENABLE IN EMERGENCY`，可使這個名稱在其他原則中脫穎而出。
+
+- 應該在中斷時套用的名稱。
+
+- 排序的序號，可協助系統管理員了解啟用原則的順序。 
+
+
+例如，下列名稱會指出此原則是在 MFA 中斷時，應該啟用的四個原則中的第一個原則：
+
+`EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users`
+
+
+
+
+
 
 
 ## <a name="plan-policies"></a>規劃原則
@@ -183,7 +197,7 @@ Azure AD 支援數個最常用的驗證和授權通訊協定，包括舊式驗�
 |[不在公司時要求 MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|已授權的使用者在信任的位置/公司登入應用程式|不會提示使用者進行 MFA| |
 |[不在公司時要求 MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|已授權的使用者不是在信任的位置/公司登入應用程式|提示使用者進行 MFA 且成功登入| |
 |[要求 MFA (適用於管理員)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|全域管理員登入應用程式|提示管理員進行 MFA| |
-|[具風險的登入](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|使用者使用 [Tor 瀏覽器](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)登入應用程式|提示管理員進行 MFA| |
+|[有風險的登入](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|使用者使用 [Tor 瀏覽器](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)登入應用程式|提示管理員進行 MFA| |
 |[裝置管理](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|已授權的使用者嘗試從已授權的裝置登入|授與存取權| |
 |[裝置管理](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|已授權的使用者嘗試從未經授權的裝置登入|封鎖存取權| |
 |[具風險使用者的密碼變更](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|已授權的使用者嘗試以被盜用的認證登入 (高風險登入)|根據您的原則，系統會提示使用者變更密碼或封鎖存取| |
@@ -232,7 +246,7 @@ Azure AD 支援數個最常用的驗證和授權通訊協定，包括舊式驗�
 
 ## <a name="move-to-production"></a>移動至生產環境
 
-當您準備好要將新的原則部署到您的環境時，應該分三個階段執行：
+為您的環境準備好新原則時，請分階段部署它們：
 
 - 提供內部變更通訊給終端使用者。
 

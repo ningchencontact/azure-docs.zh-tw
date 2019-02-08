@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 73f90d1df2c1a6a0655a61026112cc2a7a73cb1e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 932517e3f1dc70e44727a6d165430dba6e63ae5a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808624"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187788"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告
 
@@ -161,8 +161,8 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 如果您想要在 **Windows 10** 電腦上執行指令碼，必須先執行一些額外的步驟。 
 
-1. 安裝 [AzureRM 模組](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0l)。
-2. 開啟 PowerShell 提示字元並執行 **Import-module AzureRM** 命令來匯入模組。
+1. 安裝 [Az 模組](/powershell/azure/install-az-ps)。
+2. 開啟 PowerShell 提示字元並執行 **Import-Module Az** 命令來匯入模組。
 3. 執行 **Set-ExecutionPolicy unrestricted** 然後選擇 [全部皆是]。 
 4. 現在您可以在系統管理員模式中執行下載的 PowerShell 指令碼執行來產生 CSV 檔案。
 

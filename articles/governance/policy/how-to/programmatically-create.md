@@ -4,17 +4,17 @@ description: 本文會逐步引導您以程式設計方式建立及管理 Azure 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: adeb963333ffc2b587d7468eb357fab8dc4d6bbe
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847045"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101782"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以程式設計方式建立原則並檢視合規性資料
 
@@ -201,17 +201,34 @@ ms.locfileid: "54847045"
   }
   ```
 
+   如需撰寫原則定義的詳細資訊，請參閱 [Azure 原則定義結構](../concepts/definition-structure.md)。
+
 1. 執行下列命令以建立原則定義：
 
    ```azurecli-interactive
    az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
    ```
 
+   此命令會建立名為_對公用網路開放的稽核儲存體帳戶_的原則定義。
+   如需有關其他可供您使用之參數的詳細資訊，請參閱 [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create)。
+
+   若在未指定位置參數的情況下呼叫，`az policy definition creation` 會預設儲存工作階段內容中所選訂用帳戶的原則定義。 若要將定義儲存至不同位置，請使用下列參數：
+
+   - **--subscription** - 儲存到不同的訂用帳戶。 需要一個 _GUID_ 值來用於訂用帳戶 ID，或需要一個「字串」值來用於訂用帳戶名稱。
+   - **--management-group** - 儲存到管理群組。 需要_字串_值。
+
 1. 使用下列命令以建立原則指派。 以您自己的值取代 &lt;&gt; 符號中的範例資訊。
 
    ```azurecli-interactive
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
+
+   `az policy assignment create` 上的 **--scope**參數可與管理群組、訂用帳戶、資源群組或單一資源搭配使用。 此參數使用完整資源路徑。 以下是每個容器的 **--scope** 模式。 請將 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源名稱、資源群組名稱、訂用帳戶 ID 及管理群組名稱。 `{rType}` 會取代為資源的**資源類型**，例如，如果是 VM，則為 `Microsoft.Compute/virtualMachines`。
+
+   - 資源 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - 資源群組 - `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - 訂用帳戶 - `/subscriptions/{subID}`
+   - 管理群組 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 您可以使用 PowerShell 與下列命令取得原則定義識別碼：
 

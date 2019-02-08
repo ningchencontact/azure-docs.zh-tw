@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 66f850225faba8d45eaa07493a0817c9ed0ed52b
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077737"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075579"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -32,11 +32,17 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 - Azure Resource Manager 範本：Resource Manager 範本或解決方案範本可部署 Azure 服務以執行合作夥伴的軟體。 合作夥伴可建立 Resource Manager 範本以定義其 Azure 解決方案的基礎結構與設定。 Resource Manager 範本可讓您與您的客戶在其生命週期中部署您的解決方案。 您可以確信您的資源會以一致的狀態部署。 
 - Azure Resource Manager API：合作夥伴可直接呼叫 Resource Manager API，來部署 Resource Manager 範本或產生 API 呼叫以直接佈建 Azure 服務。 
 
-在所有發佈至 Azure Marketplace 的[解決方案範本](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)上，都必須要有客戶使用狀況屬性。 
+在發佈至 Azure Marketplace 的 [Azure 應用程式供應項目](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer)上，必須要有客戶使用狀況屬性。
 
 ## <a name="use-resource-manager-templates"></a>使用 Resource Manager 範本
 
-許多合作夥伴解決方案都使用 Resource Manager 範本來部署在客戶的訂用帳戶上。 如果您在 Azure Marketplace 中、GitHub 上或快速入門中，已有可用的 Resource Manager 範本，修改範本以啟用這個新追蹤方法的程序應該相當簡單。 如需詳細資訊，請參閱[建立及部署第一個 Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)。
+許多合作夥伴解決方案都使用 Resource Manager 範本來部署在客戶的訂用帳戶上。 如果您在 Azure Marketplace 中、GitHub 上或快速入門中，已有可用的 Resource Manager 範本，修改範本以啟用這個新追蹤方法的程序應該相當簡單。
+
+如需有關建立及發佈「解決方案範本」的詳細資訊，請參閱
+
+* [建立及部署第一個 Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)。
+* [Azure 應用程式供應項目](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer)。
+* 視訊：[為 Azure Marketplace 建置解決方案範本和受控應用程式](https://channel9.msdn.com/Events/Build/2018/BRK3603) \(英文\)。
 
 
 ## <a name="add-a-guid-to-your-template"></a>將 GUID 新增到您的範本

@@ -5,15 +5,15 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
-ms.component: hybrid
+ms.date: 01/24/2019
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1d2d921e02b56e951b4239c15471995eaf3cd0d1
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 19b7cebd1c75e1a2bbfe34e3ab4e657051e8a6d4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813571"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159509"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect：ADSyncConfig PowerShell 參考
 以下文件提供 Azure AD Connect 所隨附 ADSyncConfig.psm1 PowerShell 模組的參考資訊。
@@ -1215,7 +1215,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
 ### <a name="description"></a>描述
 Set-ADSyncUnifiedGroupWritebackPermissions 函式會將必要的權限提供給 AD 同步處理帳戶，包括下列各項：
 1.
-針對所有物件類型與 SubObjects，進行一般讀取/寫入、刪除、刪除樹系，以及建立\刪除子系
+針對所有群組物件類型與 SubObjects，進行一般讀取/寫入、刪除、刪除樹系，以及建立\刪除子系
 
 這些權限會套用到樹系中的所有網域。
 您可以選擇性以 ADobjectDN 參數提供 DistinguishedName，只在該 AD 物件上設定這些權限 (包括繼承子物件)。

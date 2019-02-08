@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: e7b269d6-3c4e-4bc4-a55f-5071d1f52591
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: ddf012f276a300cb8f70590c306020993b448cc6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: faa1f4887502968e4deeee47e396b25480d0cd05
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427736"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182280"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>教學課程：Azure Active Directory 與 ContractWorks 整合
 
@@ -141,7 +141,7 @@ ContractWorks 與 Azure AD 整合提供下列優點：
     
     d. 按一下 [確定]。
 
-1. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+1. 在 [SAML 簽署憑證] ****  區段上，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL] **** ，並將它貼到記事本中。
     
     ![設定單一登入](./media/contractworks-tutorial/tutorial_metadataurl.png)
      
@@ -185,7 +185,7 @@ ContractWorks 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-contractworks-test-user"></a>建立 ContractWorks 測試使用者
 
-在本節中，您要在 ContractWorks 中建立名為 Britta Simon 的使用者。 請與 [ContractWorks 支援小組](mailto:support@contractworks.com)合作，在 ContractWorks 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您要在 ContractWorks 中建立名為 Britta Simon 的使用者。 請與  [ContractWorks 支援小組](mailto:support@contractworks.com) 合作，在 ContractWorks 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -222,7 +222,7 @@ ContractWorks 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [ContractWorks] 圖格時，應該會自動登入您的 ContractWorks 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

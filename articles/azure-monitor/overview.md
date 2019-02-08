@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 1c53dfb1447b0abd5b96d109a657eae5f5947118
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 804044dbfc5428c3a80aab13227730ed13c43ce2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401430"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098025"
 ---
 # <a name="azure-monitor-overview"></a>Azure 監視器概觀
 
@@ -66,7 +66,7 @@ Azure 監視器可以使用[資料收集器 API](platform/data-collector-api.md)
 
 
 ## <a name="insights"></a>深入解析
-如果監視資料可以提高您對於運算環境作業的可見性，監視資料才有用處。 Azure 監視器包含數個功能和工具，可對您的應用程式及其相依的其他資源提供寶貴的深入解析。 [監視解決方案](insights/solutions.md)和功能 (例如 [Application Insights](app/app-insights-overview.md) 和 Container Insights) 可為您的應用程式和特定 Azure 服務的不同層面提供深入解析。 
+如果監視資料可以提高您對於運算環境作業的可見性，監視資料才有用處。 Azure 監視器包含數個功能和工具，可對您的應用程式及其相依的其他資源提供寶貴的深入解析。 [監視解決方案](insights/solutions.md)和功能 (例如 [Application Insights](app/app-insights-overview.md) 和[適用於容器的 Azure 監視器](insights/container-insights-overview.md)) 可針對您應用程式和特定 Azure 服務的不同層面提供深入解析。 
 
 ### <a name="application-insights"></a>Application Insights
 [Application Insights](app/app-insights-overview.md) 可監視 Web 應用程式的可用性、效能及使用情況 (不論應用程式是裝載在雲端還是內部部署環境)。 它會利用 Azure 監視器中強大的資料分析平台，為您提供應用程式作業的深入解析以及診斷錯誤，毋需等待使用者回報錯誤。 Application Insights 包含各種開發工具的連接點，並與 Visual Studio 整合以支援您的 DevOps 程序。
@@ -74,12 +74,12 @@ Azure 監視器可以使用[資料收集器 API](platform/data-collector-api.md)
 ![應用程式情資](media/overview/app-insights.png)
 
 ### <a name="azure-monitor-for-containers"></a>適用於容器的 Azure 監視器
-適用於容器的 Azure 監視器是一項功能，其設計訴求是要監視部署至 Azure Kubernetes Service (AKS) 上所裝載受控 Kubernetes 叢集的容器工作負載效能。 它可透過計量 API 從 Kubernetes 中提供的控制器、節點與容器收集記憶體與處理器計量，為您提供效能可見性。 容器記錄也會一併收集。  在您從 Kubernetes 叢集啟用監視之後，系統會透過適用於 Linux 的 Log Analytics 代理程式容器化版本自動收集這些計量和記錄。
+[適用於容器的 Azure 監視器](insights/container-insights-overview.md)是一項功能，其設計訴求是要監視部署至 Azure Kubernetes Service (AKS) 上所裝載受控 Kubernetes 叢集的容器工作負載效能。 它可透過計量 API 從 Kubernetes 中提供的控制器、節點與容器收集記憶體與處理器計量，為您提供效能可見性。 容器記錄也會一併收集。  在您從 Kubernetes 叢集啟用監視之後，系統會透過適用於 Linux 的 Log Analytics 代理程式容器化版本自動收集這些計量和記錄。
 
 ![容器健康情況](media/overview/container-insights.png)
 
 ### <a name="azure-monitor-for-vms"></a>適用於 VM 的 Azure 監視器
-Azure 監視器的 VM Insights 可藉由分析 Windows 和 Linux VM 的效能和健康情況 (包括其不同的程序以及其他資源和外部程序的互連相依性)，大規模監視 Azure 虛擬機器 (VM)。 此解決方案包含針對在內部部署環境或其他雲端提供者上裝載的 VM，監視效能和應用程式相依性的支援。  
+[適用於 VM 的 Azure 監視器](insights/vminsights-overview.md)可藉由分析 Windows 和 Linux VM 的效能和健康情況 (包括其不同的程序，以及與其他資源和外部程序的互連相依性)，大規模監視 Azure 虛擬機器 (VM)。 此解決方案包含針對在內部部署環境或其他雲端提供者上裝載的 VM，監視效能和應用程式相依性的支援。  
 
 
 ![VM Insights](media/overview/vm-insights.png)

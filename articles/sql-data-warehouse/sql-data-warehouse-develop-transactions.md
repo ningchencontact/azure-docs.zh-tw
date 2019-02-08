@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 121fa87cb295799fdcd3de5e627fb894efc24c49
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2f463620f43ae95535a55005ebe9732495b89dc9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301260"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456658"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用交易
 在 Azure SQL 資料倉儲中實作交易以便開發解決方案的秘訣。
@@ -107,7 +107,7 @@ SELECT @xact_state AS TransactionState;
 
 前述程式碼會產生下列錯誤訊息：
 
-Msg 111233, Level 16, State 1, Line 1 111233; 目前的交易已經中止，並已回復任何暫止的變更。 原因︰處於僅限復原狀態中的交易，未在使用 DDL、DML 或 SELECT 陳述式之前明確復原。
+Msg 111233, Level 16, State 1, Line 1 111233; 目前的交易已經中止，並已回復任何暫止的變更。 原因：處於僅限復原狀態中的交易，未在使用 DDL、DML 或 SELECT 陳述式之前明確復原。
 
 您不會收到 ERROR_* 函式的輸出。
 
@@ -175,5 +175,5 @@ SQL 資料倉儲有一些與交易相關的其他限制。
 * 使用者定義的交易內部不支援 DDL，例如 CREATE TABLE
 
 ## <a name="next-steps"></a>後續步驟
-若要深入了解最佳化交易，請參閱[交易的最佳做法](sql-data-warehouse-develop-best-practices-transactions.md)。 若要深入了解其他 SQL 資料倉儲最佳做法，請參閱 [SQL 資料倉儲最佳做法](sql-data-warehouse-best-practices.md)。
+若要深入了解最佳化交易，請參閱 [交易的最佳作法](sql-data-warehouse-develop-best-practices-transactions.md)。 若要深入了解其他 SQL 資料倉儲最佳做法，請參閱 [SQL 資料倉儲最佳做法](sql-data-warehouse-best-practices.md)。
 

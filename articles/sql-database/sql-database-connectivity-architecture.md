@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 593388c143c31bb4736aa317522ed4c52a8a5296
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388344"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469104"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 連線架構
 
@@ -34,7 +34,7 @@ ms.locfileid: "54388344"
 >
 > 在下列情況下，服務端點使用者仍會受到影響：
 > - 應用程式不常連線到現有伺服器，因此我們的遙測並未擷取這些應用程式的資訊
-> - 自動化部署邏輯會建立邏輯伺服器，此伺服器假設服務端點連線的預設行為是 `Proxy`
+> - 自動化部署邏輯會建立 SQL Database 伺服器，此伺服器假設服務端點連線的預設行為是 `Proxy`
 >
 > 如果無法建立連到 Azure SQL 伺服器的服務端點連線，且您懷疑受到此變更的影響，請確認連線類型是否已明確設為 `Redirect`。 如果發生這種狀況，請對該地區中所有屬於連接埠 11000-12000 其 Sql [服務標籤](../virtual-network/security-overview.md#service-tags)的 Azure IP 位址開啟 VM 防火牆規則與「網路安全性群組」(NSG)。 如果您不願如此做，請將伺服器明確地切換至 `Proxy`。
 > [!NOTE]

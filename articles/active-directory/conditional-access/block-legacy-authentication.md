@@ -7,22 +7,22 @@ documentationcenter: ''
 author: MarkusVi
 manager: daveba
 editor: ''
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 466e12877a63a32f461267a489573183b9da9734
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 164ff12eeec057855476d3808d3d1d44ef3179fe
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451301"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076838"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>作法：使用條件式存取封鎖對 Azure AD 的舊式驗證   
 
@@ -120,6 +120,15 @@ Azure 有一項安全功能會防止您建立此類原則，因為這種設定�
 您可以選取所有可用的授與控制作為其他用戶端條件；但使用者體驗都是相同的 - 存取遭到封鎖。
 
 除了其他用戶端條件以外，您還可以設定所有其他條件。
+例如，如果您只想要封鎖行動裝置的舊版驗證，請選取下列項目來設定**裝置平台**條件：
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+![不支援原則設定](./media/block-legacy-authentication/06.png)
 
 
 

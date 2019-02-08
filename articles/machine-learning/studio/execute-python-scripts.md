@@ -1,6 +1,6 @@
 ---
-標題：執行 Python 機器學習服務指令碼 titleSuffix: Azure Machine Learning Studio 說明：概述 Azure Machine Learning Studio 中對於 Python 指令碼目前支援基礎之下的設計原則，以及基本使用案例、功能及限制。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：執行 Python 機器學習服務指令碼 titleSuffix:Azure Machine Learning Studio 說明：概述 Azure Machine Learning Studio 中對於 Python 指令碼目前支援基礎之下的設計原則，以及基本使用案例、功能及限制。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:11/29/2017
 ---

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 70280676453bd146102ca331daae038b947aab58
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ade066c08829181bc7d1ad5623934b98909e0310
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632852"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888986"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>適用於 Linux 的 DSC 擴充功能 (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -68,7 +68,7 @@ DSC Linux 擴充功能支援所有[支援擴充功能的作業系統](https://az
 * `NodeConfigurationName`：(選擇性，字串) 要套用的節點組態名稱。
 * `RefreshFrequencyMins`：(選擇性，int) 指定 DSC 嘗試從提取伺服器取得組態的頻率 (以分鐘為單位)。 
        如果提取伺服器上的組態不同於目標節點上目前的組態，則會將該組態複製到擱置存放區並套用。
-* `ConfigurationMode`：(選擇性，字串) 指定 DSC 套用組態的方式。 有效的值為：ApplyOnly、ApplyAndMonitor、ApplyAndAutoCorrect。
+* `ConfigurationMode`：(選擇性，字串) 指定 DSC 套用組態的方式。 有效值為：ApplyOnly、ApplyAndMonitor、ApplyAndAutoCorrect。
 * `ConfigurationModeFrequencyMins`：(選擇性，int) 指定 DSC 確認組態處於適當狀態的頻率 (以分鐘為單位)。
 
 > [!NOTE]

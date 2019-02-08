@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: c4523b5028aae5de565e517fea61c62e29a4e7a3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 75aecd166d03b751f778221632fad68d279f63a3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044071"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468864"
 ---
-# <a name="choose-the-right-consistency-level-for-your-application"></a>為應用程式選擇正確的一致性層級
+# <a name="choose-the-right-consistency-level"></a>選擇正確的一致性層級 
 
 依賴複寫來取到高可用性或低延遲性或兩者的分散式資料庫，可在讀取一致性與可用性、延遲性及輸送量之間進行基本權衡取捨。 大部分的商用分散式資料庫都會要求開發人員在兩個極端的一致性模型之間進行選擇：強式一致性和最終一致性。 Azure Cosmos DB 讓開發人員能夠在五個完善定義的一致性模型之間進行選擇：強式、限定過期、工作階段、一致前置詞和最終。 這些一致性模型中的每一個都是完善定義且直覺化的模型，可用於特定的真實案例。 這五個一致性模型中的每一個都提供[可用性和效能權衡取捨](consistency-levels-tradeoffs.md)，並且由全方位 SLA 所支援。 下列簡單考量將可協助您在許多常見案例中做出正確的選擇。
 

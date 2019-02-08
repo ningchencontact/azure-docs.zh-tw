@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 81866167-b163-4695-8978-fd29a25dac7a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 4c664fac99e93e94b46f5d917a63aa6530b695bd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3b4c979bf03b23280c9389a043375f088624efe6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437768"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163240"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>教學課程：Azure Active Directory 與 Riskware 整合
 
@@ -111,17 +111,17 @@ ms.locfileid: "39437768"
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
     | 環境| URL 模式|
     |--|--|
-    | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
-    | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | 示範| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
+    | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
+    | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
+    | 示範| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL：
     | 環境| URL 模式|
     |--|--|
-    | UAT| `https://riskcloud.net/uat` |
-    | PROD| `https://riskcloud.net/prod` |
-    | 示範| `https://riskcloud.net/demo` |
+    | UAT| `https://riskcloud.net/uat` |
+    | PROD| `https://riskcloud.net/prod` |
+    | 示範| `https://riskcloud.net/demo` |
     |||
 
     > [!NOTE]
@@ -167,7 +167,7 @@ ms.locfileid: "39437768"
 
     g. 在 [XML Identity Tag Name] \(XML 身分識別標記名稱\) 文字方塊中，輸入 SAML 回應中包含唯一識別碼的屬性，例如 NameID。
 
-    h. 在記事本中開啟從 Azure 入口網站下載的 **Metadata Xml**，複製中繼資料檔中的憑證，然後將其貼到 [Certificate]\(憑證\) 文字方塊中
+    h. 在記事本中開啟從 Azure 入口網站下載的  **Metadata Xml** ，複製中繼資料檔中的憑證，然後將其貼到 [憑證] 文字方塊中
 
     i. 在 [Consumer URL]\(取用者 URL\) 文字方塊中，貼上您向支援小組取得的**回覆 URL** 值。
 
@@ -297,7 +297,7 @@ ms.locfileid: "39437768"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Riskware] 圖格時，應該就會自動登入 Riskware 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

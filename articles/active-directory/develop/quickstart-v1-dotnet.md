@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f9389a7c0e80f075c01f2236fa1bdf9dc9544ac6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 968afcba8b0a6ab9d46c5582eecbb4901975257c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987436"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101124"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>快速入門：從 .NET 桌面 (WPF) 應用程式登入使用者並呼叫 Microsoft Graph API
 
@@ -36,7 +36,7 @@ ms.locfileid: "46987436"
 * 在目錄中搜尋具有指定別名的使用者。
 * 將使用者登出。
 
-若要建置可完整運作的應用程式，您必須：
+若要建置完整且可運作的應用程式，您必須：
 
 1. 向 Azure AD 註冊您的應用程式。
 2. 安裝及設定 ADAL。
@@ -44,7 +44,7 @@ ms.locfileid: "46987436"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要開始，請完成以下先決條件：
+若要開始，請完成以下必要條件：
 
 * [下載應用程式基本架構](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip)或[下載完整的範例](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip)
 * 擁有 Azure AD 租用戶，供您建立使用者並註冊應用程式。 如果您還沒有租用戶， [了解如何取得租用戶](quickstart-create-new-tenant.md)。

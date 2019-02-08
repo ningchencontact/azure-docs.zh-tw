@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: a5ea18d3-3aaf-4bc6-957c-783e9371d0f1
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 7bb4782fa390ad2cc324a79a1f544c3db062c921
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7f94921126900c8e124cd41bd2e4f913b28396a2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421544"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153669"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>教學課程：Azure Active Directory 與 Palo Alto Networks - Aperture 整合
+# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>教學課程：Azure Active Directory 與 Palo Alto Networks 整合 - Aperture
 
 在本教學課程中，您將了解如何整合 Palo Alto Networks - Aperture 與 Azure Active Directory (Azure AD)。
 
@@ -108,7 +108,7 @@ ms.locfileid: "39421544"
 
     ![Palo Alto Networks - Aperture 網域及 URL 單一登入資訊](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
 
@@ -197,7 +197,7 @@ ms.locfileid: "39421544"
  
 ### <a name="create-a-palo-alto-networks---aperture-test-user"></a>建立 Palo Alto Networks - Aperture 測試使用者
 
-在本節中，您會在 Palo Alto Networks - Aperture 中建立名為 Britta Simon 的使用者。 請與 [Palo Alto Networks - Aperture 用戶端支援小組](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support) \(英文\) 合作，以在 Palo Alto Networks - Aperture 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您會在 Palo Alto Networks - Aperture 中建立名為 Britta Simon 的使用者。 請與  [Palo Alto Networks - Aperture 用戶端支援小組](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support)  \(英文\) 合作，在 Palo Alto Networks - Aperture 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -234,7 +234,7 @@ ms.locfileid: "39421544"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Palo Alto Networks - Aperture] 圖格時，應該會自動登入您的 Palo Alto Networks - Aperture 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

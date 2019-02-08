@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 40562c77cf38ad316d64f68b54dd4174dae6da1a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e0f85e11b2be8a615f949e0d37325dbd748f728a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614467"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103270"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 轉送的 REST 教學課程
 本教學課程描述如何建置簡單的 Azure 轉送主機應用程式來公開 REST 架構介面。 REST 可讓 Web 用戶端 (例如 Web 瀏覽器) 透過 HTTP 要求存取服務匯流排 API。
@@ -51,7 +51,7 @@ ms.locfileid: "51614467"
 
 當您建立 WCF REST 樣式服務時，必須定義合約。 合約會指定主機支援哪些作業。 服務作業可視為 Web 服務方法。 合約可以透過定義 C++、C# 或 Visual Basic 介面建立。 介面中的每個方法會對應一個特定服務作業。 [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) 屬性必須套用至每個介面，且 [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) 屬性必須套用至每個作業。 如果介面中的方法具備沒有 [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) 的 [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute)，則不會公開該方法。 用來執行這些工作的程式碼顯示在程序後面的範例中。
 
-WCF 合約與 REST 樣式合約之間的主要差異在於屬性會新增至 [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute)：[WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute)。 這個屬性可讓您將介面的方法對應至介面另一端的方法。 這個範例使用 [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) 屬性，以將方法連結至 HTTP GET。 這可讓服務匯流排準確擷取和解譯傳送到介面的命令。
+WCF 合約與 REST 樣式合約之間的主要差異在於，為 [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) 新增了一個屬性：[WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute)。 這個屬性可讓您將介面的方法對應至介面另一端的方法。 這個範例使用 [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) 屬性，以將方法連結至 HTTP GET。 這可讓服務匯流排準確擷取和解譯傳送到介面的命令。
 
 ### <a name="to-create-a-contract-with-an-interface"></a>使用介面建立合約
 
@@ -439,9 +439,9 @@ namespace Microsoft.ServiceBus.Samples
       </behaviors>
     </system.serviceModel>
     <appSettings>
-        <!-- Service Bus specific app setings for messaging connections -->
+        <!-- Service Bus specific app settings for messaging connections -->
         <add key="Microsoft.ServiceBus.ConnectionString"
-            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey="YOUR_SAS_KEY"/>
+            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SAS_KEY>"/>
     </appSettings>
 </configuration>
 ```

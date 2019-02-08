@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 60fe7296d95a7746fd703c3a45349faf294e5bbd
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ce88c8c4850e5226ddda12ce5ee0e1d18b51ea5c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320594"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104077"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 的常見問題
 
@@ -73,7 +73,7 @@ ms.locfileid: "54320594"
 
 我們希望叢集在面臨兩個節點同時失敗時仍然可用。 若要使 Service Fabric 叢集可用，則系統服務必須可供使用。 具狀態服務 (例如命名服務和容錯移轉管理員服務) 會根據強式一致性，追蹤哪些服務已經部署至叢集，以及它們目前的裝載位置。 該強式一致性接著會根據取得「仲裁」的能力，提供任何指定的更新給那些服務的狀態，其中仲裁代表指定之服務的特定多數複本 (N/2 + 1)。 因此，如果我們需要針對兩個節點同時中斷 (因此同時中斷系統服務的兩個複本) 的復原性，我們必須要讓 ClusterSize - QuorumSize >= 2，這會讓下限強制成為五。 若要達成這個結果，請考慮讓有 N 個節點的叢集有 N 個系統服務複本，亦即每個節點上都有一個。 系統服務的仲裁大小為 (N/2 + 1)。 上述的不等式看起來會像這樣：N - (N/2 + 1) >= 2。 有兩種情況要考量：當 N 是偶數和 N 是奇數。 如果 N 是偶數，假設 N = 2\*m，而 m >= 1，則不等式看起來會像這樣：2\*m - (2\*m/2 + 1) >= 2 或 m >= 3。 N 的最小值是 6，這是在 m = 3 時達成。 相反地，如果 N 是奇數，假設 N = 2\*m+1，而 m >= 1，則不等式看起來會像這樣：2\*m+1 - ( (2\*m+1)/2 + 1 ) >= 2 或 2\*m+1 - (m+1) >= 2 或 m >= 2。 N 的最小值是 5，這是在 m = 2 時達成。 因此，上述滿足不等式 ClusterSize - QuorumSize >= 2 的所有 N 值，其最小值為 5。
 
-請注意，在上述引數中我們已假設每個節點都有系統服務的複本，因此仲裁大小是根據叢集中的節點數量計算而來。 不過，藉由變更 *TargetReplicaSetSize*，我們可以讓仲裁大小小於 (N/2+1)，這可能會讓您認為我們能夠有小於 5 個節點的叢集，且仍然有 2 個額外節點高於仲裁大小。 例如，在有 4 個節點的叢集中，如果我們將 TargetReplicaSetSize 設為 3，基於 TargetReplicaSetSize 的仲裁大小會是 (3/2 + 1) 或 2，因此我們得出 CluserSize - QuorumSize = 4-2 >= 2。 不過，如果我們同時遺失任一組節點 (可能是裝載兩個複本的兩個節點)，就無法保證系統服務能達到或高於仲裁，而讓系統服務進入仲裁遺失 (僅剩擁有單一複本)，且將會變為無法使用。
+請注意，在上述引數中我們已假設每個節點都有系統服務的複本，因此仲裁大小是根據叢集中的節點數量計算而來。 不過，藉由變更 *TargetReplicaSetSize*，我們可以讓仲裁大小小於 (N/2+1)，這可能會讓您認為我們能夠有小於 5 個節點的叢集，且仍然有 2 個額外節點高於仲裁大小。 例如，在有 4 個節點的叢集中，如果我們將 TargetReplicaSetSize 設為 3，基於 TargetReplicaSetSize 的仲裁大小會是 (3/2 + 1) 或 2，因此我們得出 ClusterSize - QuorumSize = 4-2 >= 2。 不過，如果我們同時遺失任一組節點 (可能是裝載兩個複本的兩個節點)，就無法保證系統服務能達到或高於仲裁，而讓系統服務進入仲裁遺失 (僅剩擁有單一複本)，且將會變為無法使用。
 
 了解該背景後，讓我們來檢查一些可能的叢集組態：
 

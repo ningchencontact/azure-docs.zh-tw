@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: c90715608b5d35520605c504b5cebb5e7a3ec021
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9cb41bfde38d9b47f5db994c0ca39c64b453ef1d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096628"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171451"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Reliable Services 應用程式和服務資訊清單範例
 以下舉例說明 Service Fabric 應用程式 (具有 ASP.NET Core Web 前端和具狀態後端) 的應用程式和服務資訊清單。 這些範例的目的是要說明有哪些設定可供使用以及要如何使用。 這些應用程式和服務資訊清單是以 [Service Fabric .NET 快速入門](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)的資訊清單作為基礎。
@@ -198,7 +198,7 @@ ms.locfileid: "47096628"
         the root of the code package regardless of where the EXE is defined in the code package directory. This is where the processes can write the data. Writing data 
         in the code package or code base is not recommended as those folders could be shared between different application instances and may get deleted.-->
         <WorkingFolder>CodePackage</WorkingFolder>
-        <!-- Warning! Do not use console rediriction in a production application, only use it for local development and debugging. Redirects console output from the startup
+        <!-- Warning! Do not use console redirection in a production application, only use it for local development and debugging. Redirects console output from the startup
         script to an output file in the application folder called "log" on the cluster node where the application is deployed and run. Also set the number of output files
         to retain and the maximum file size (in KB). -->
         <ConsoleRedirection FileRetentionCount="10" FileMaxSizeInKb="20480"/>
@@ -215,7 +215,7 @@ ms.locfileid: "47096628"
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -402,7 +402,9 @@ ms.locfileid: "47096628"
 應用程式部署所在的叢集節點上，所含程式碼套件中程序的工作目錄。 您可以指定三個值：Work (預設值)、CodePackage 或 CodeBase。 CodeBase 會指定要將工作目錄設定為 EXE 在程式碼套件中定義所在的目錄。 不論 EXE 是否定義在程式碼套件的目錄中，CodePackage 都會將工作目錄設定為程式碼套件的根目錄。 Work 會將工作目錄設定為節點上所建立的唯一資料夾。  整個應用程式執行個體的這個資料夾都會相同。 根據預設，應用程式中所有程序的工作目錄會設定為應用程式的工作資料夾。 程序可在此資料夾中寫入資料。 不建議在程式碼套件或程式碼基底中寫入資料，原因是這些資料夾可能會在不同的應用程式執行個體之間共用，並可能會遭到刪除。 如需詳細資訊，請參閱 [WorkingFolder 元素](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="consoleredirection-element"></a>ConsoleRedirection 元素
-警告！ 請勿在生產應用程式中使用主控台重新導向，您只能將它用於本機開發及偵錯。 請將啟動指令碼的主控台輸出重新導向至應用程式部署和執行所在叢集節點上「記錄」應用程式資料夾中的輸出檔案。 如需詳細資訊，請參閱 [ConsoleRedirection 元素](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+
+> [!WARNING]
+> 請勿在生產應用程式中使用主控台重新導向，您只能將它用於本機開發及偵錯。 請將啟動指令碼的主控台輸出重新導向至應用程式部署和執行所在叢集節點上「記錄」應用程式資料夾中的輸出檔案。 如需詳細資訊，請參閱 [ConsoleRedirection 元素](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="entrypoint-element"></a>EntryPoint 元素
 EntryPoint 指定的可執行檔通常是長時間執行的服務主機。 有個別設定的進入點，就不需要使用較高權限來長時間執行服務主機。 EntryPoint 指定的可執行檔是在 SetupEntryPoint 成功結束之後執行。 如果曾經終止或當機，產生的程序會監視並重新啟動 (以 SetupEntryPoint再次開始)。 如需詳細資訊，請參閱 [EntryPoint 元素](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)

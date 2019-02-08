@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/25/2019
 ms.author: raiye
-ms.openlocfilehash: e621d526aed3c4d98d964dfdcd7ba01e8c1fb830
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9d2fa8497ac773ba086f3a4550e20ac5f5f0d882
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104857"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075460"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 客體 OS 版次與 SDK 相容性矩陣
 提供適用於雲端服務的最新 Azure 客體作業系統版次的最新資訊。 此資訊協助您在客體 OS停用之前規劃升級路徑。 如果您將角色設定成使用「自動」客體 OS 更新 (如 [Azure 客體 OS 更新設定][Azure Guest OS Update Settings]所述)，就不一定要閱讀此頁面。
@@ -43,6 +43,9 @@ ms.locfileid: "54104857"
 
 ## <a name="news-updates"></a>新聞更新
 
+###### <a name="january-24-2019"></a>**2019 年 1 月 24 日**
+系列 6 客體 OS (Windows Server 2019) 已發行。
+
 ###### <a name="january-7-2019"></a>**2019 年 1 月 7 日**
 12 月客體 OS 已發行。
 
@@ -65,6 +68,21 @@ ms.locfileid: "54104857"
 6 月客體 OS 已發行。
 
 ## <a name="releases"></a>版次
+
+## <a name="family-6-releases"></a>系列 6 版次
+**Windows Server 2019**
+
+安裝的 .NET Framework：3.5、4.7.2
+
+> [!NOTE]
+> 您可以從[這裡][Windows Azure SDK]下載 Windows Azure SDK for .NET - 3.0。
+>
+
+| 組態字串 | 發行日期 | 停用日期 |
+| --- | --- | --- |
+| WA-GUEST-OS-6.2_201812-01 |2019 年 1 月 24 日 |6.4 之後 |
+| WA-GUEST-OS-6.1_201811-01 |2019 年 1 月 24 日 |6.3 之後 |
+
 ## <a name="family-5-releases"></a>系列 5 版次
 **Windows Server 2016**
 
@@ -137,6 +155,7 @@ ms.locfileid: "54104857"
 
 | 客體 OS 系列 | 相容的 SDK 版本 |
 | --- | --- |
+| 6 |版本 2.9.6+ |
 | 5 |版本 2.9.5.1+ |
 | 4 |版本 2.1+ |
 | 3 |版本 1.8+ |
@@ -205,3 +224,4 @@ Microsoft Azure 正持續發行更新。 客體作業系統只是這過程中的
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917

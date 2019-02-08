@@ -1,5 +1,5 @@
 ---
-標題：管理 Machine Learning Studio 工作區 titleSuffix: Azure Machine Learning Studio description:管理 Azure Machine Learning 工作區的存取權，並部署和管理 ML API Web 服務 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：管理 Machine Learning Studio 工作區 titleSuffix:Azure Machine Learning Studio description:管理 Azure Machine Learning 工作區的存取權，並部署和管理 ML API Web 服務: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:2017/02/27
 ---

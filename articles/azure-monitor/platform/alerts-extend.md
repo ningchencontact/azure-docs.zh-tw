@@ -1,5 +1,5 @@
 ---
-title: 擴充 (複製) Log Analytics 至 Azure 警示 - 概觀
+title: 將 Log Analytics 警示延伸 (複製) 至 Azure Government Cloud
 description: 將警示從 OMS 入口網站的 Log Analytics 複製到 Azure 警示的程序概觀，詳細說明常見的客戶考量。
 author: msvijayn
 services: azure-monitor
@@ -8,19 +8,21 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e2f2a739f78072a0479e77e68e84c8f4b395468f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: efd2fc9d164564126b7b641ef35bbb10c4834f49
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422221"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099323"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>將 Log Analytics 警示擴充到 Azure 警示
 
 > [!NOTE]
 > Microsoft 已經完成本文中關於 Azure 的公用版本的程序。 不過仍適用於美國政府版本。  
 
-直到最近，Azure Log Analytics 剛剛加入了自己的警示功能，可根據 Log Analytics 資料主動通知您情況。 您之前可在 Microsoft Operations Management Suite 中管理警示規則。 全新警示體驗現已整合 Microsoft Azure 中各種服務之間的警示。 此功能即為 Azure 入口網站中的 Azure 監視器下的 **[警示]**，支援 Log Analytics 和 Azure Application Insights 中活動記錄、計量和記錄的警示。 
+直到最近，Azure Log Analytics 剛剛加入了自己的警示功能，可根據 Log Analytics 資料主動通知您情況。 您之前可在 Microsoft Operations Management Suite 中管理警示規則。 全新警示體驗現已整合 Microsoft Azure 中各種服務之間的警示。 此功能即為 Azure 入口網站中的 Azure 監視器下的 **[警示]**，支援 Log Analytics 和 Azure Application Insights 中活動記錄、計量和記錄的警示。
+
+Azure Government Cloud 客戶如果使用 OMS 入口網站，從**2019 年 2 月 1 日**起，可[主動將其警示規則延伸至 Azure](alerts-extend-tool.md)。 從 **2019 年 3 月 1 日**起，Microsoft 會以有條理的方式，在不停機或中斷您監視的情況下，將 Azure Government - OMS 入口網站中的所有現有警示規則自動延伸至 Azure。 任何在 **2019 年 3 月 1 日**當天或之後於 Azure Government Cloud OMS 入口網站中建立的新工作區，都會自動延伸至 Azure。
 
 ## <a name="benefits-of-extending-your-alerts"></a>擴充您警示的好處
 在 Azure 入口網站建立和管理警示有幾項好處，例如：

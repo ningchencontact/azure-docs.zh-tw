@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0119e05ce5cb8d1c2e27936dc44896b7acef9312
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a2731397ece833adcedc4ebab640fa1b3ab2fc05
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725961"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076820"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -308,7 +308,7 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 
 ## <a id="hdinsight-ports"></a> 所需連接埠
 
-如果您要使用網路**虛擬設備防火牆**來保護虛擬網路，則必須允許下列連接埠的輸出流量：
+如果您打算使用**防火牆**來保護虛擬網路及透過特定連接埠存取叢集，您應該在您案例所需的連接埠上允許流量。 根據預設，您不需要將下列連接埠列入白名單：
 
 * 53
 * 443

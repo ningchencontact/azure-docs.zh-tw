@@ -1,29 +1,29 @@
 ---
-title: 搜尋流量分析 - Azure 搜尋服務
-description: 啟用 Azure 搜尋服務 (Microsoft Azure 上裝載的雲端搜尋服務) 的搜尋流量分析，來深入分析您的使用者與資料。
+title: 實作搜尋流量分析 - Azure 搜尋服務
+description: 為「Azure 搜尋服務」啟用搜尋流量分析，以將遙測和使用者起始的事件新增到記錄檔。
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/05/2017
+ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4cc7434508e49715e95c87421db2bbed7e20de05
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310231"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079659"
 ---
-# <a name="what-is-search-traffic-analytics"></a>什麼是搜尋流量分析
+# <a name="implement-search-traffic-analytics-in-azure-search"></a>在 Azure 搜尋服務中實作搜尋流量分析
 搜尋流量分析是一種模式，可用來實作搜尋服務的意見反應管道。 這個模式描述必要的資料，以及如何使用監視多平台服務中的業界領導者 Application Insights 來加以收集。
 
 搜尋流量分析可讓您掌握您的搜尋服務，並深入分析您的使用者及其行為。 擁有使用者選擇項目的相關資料，您所做的決定就能夠進一步改善搜尋體驗，並且在結果不如預期時予以中斷。
 
 Azure 搜尋服務所提供的遙測解決方案可整合 Azure Application Insights 和 Power BI，以提供深入的監視和追蹤。 因為只能透過 API 與 Azure 搜尋服務進行互動，必須遵循這個頁面中的指示，由開發人員使用搜尋將遙測進行實作。
 
-## <a name="identify-the-relevant-search-data"></a>識別相關的搜尋資料
+## <a name="identify-relevant-search-data"></a>識別相關的搜尋資料
 
 如需取得實用的搜尋計量，就必須從搜尋應用程式的使用者記錄一些訊號。 這些訊號代表使用者感興趣且認為與其需求相關的內容。
 
@@ -35,7 +35,7 @@ Azure 搜尋服務所提供的遙測解決方案可整合 Azure Application Insi
 
 使用相互關聯的識別碼將搜尋和點選事件進行連結，就可以分析您應用程式上的使用者行為。 僅使用搜尋流量記錄並無法取得這些搜尋深入分析。
 
-## <a name="how-to-implement-search-traffic-analytics"></a>如何實作搜尋流量分析
+## <a name="add-search-traffic-analytics"></a>新增搜尋流量分析
 
 必須從搜尋應用程式收集前一節所述的訊號，因為使用者會與其進行互動。 Application Insights 是可延伸的監視解決方案，適用於多個平台，並具有彈性的檢測選項。 使用 Application Insights 可讓您充分利用 Azure 搜尋服務所建立的 Power BI 搜尋報告，使資料分析更輕鬆。
 
@@ -43,7 +43,7 @@ Azure 搜尋服務所提供的遙測解決方案可整合 Azure Application Insi
 
 ![搜尋流量分析指示][1]
 
-### <a name="1-select-an-application-insights-resource"></a>1.選取 Application Insights 資源
+## <a name="1---select-a-resource"></a>1 - 選取資源
 
 如果您還沒有 Application Insights 資源，則必須選取 Application Insights 資源後，才可以加以使用或建立。 您可以使用已在使用中的資源，才可記錄必要的自訂事件。
 
@@ -51,11 +51,11 @@ Azure 搜尋服務所提供的遙測解決方案可整合 Azure Application Insi
 
 您需要檢測金鑰來建立您應用程式的遙測用戶端。 您可以從 Application Insights 入口網站儀表板取得，或可以在搜尋流量分析頁面上，選取您想要使用的執行個體來加以取得。
 
-### <a name="2-instrument-your-application"></a>2.檢測應用程式
+## <a name="2---add-instrumentation"></a>2 - 新增檢測
 
 在此階段中，您可以使用上述步驟中建立的 Application Insights 資源，將自己的搜尋應用程式進行檢測。 這個程序有四個步驟︰
 
-**I.建立用戶端遙測** 這是將事件傳送至 Application Insights 資源的物件。
+**步驟 1：建立用戶端遙測** 這是將事件傳送至 Application Insights 資源的物件。
 
 *C#*
 
@@ -73,7 +73,7 @@ Azure 搜尋服務所提供的遙測解決方案可整合 Azure Application Insi
 
 如需了解其他語言和平台，請參閱完整的[清單](https://docs.microsoft.com/azure/application-insights/app-insights-platforms)。
 
-**II.要求相互關聯的搜尋識別碼** 若要透過點選將搜尋要求相互關聯，則必須擁有與這兩個不同事件相關的相互關聯識別碼。 當您使用標頭進行要求時，Azure 搜尋服務會為您提供搜尋識別碼︰
+**步驟 2：要求相互關聯的搜尋識別碼** 若要透過點選將搜尋要求相互關聯，則必須擁有與這兩個不同事件相關的相互關聯識別碼。 當您使用標頭進行要求時，Azure 搜尋服務會為您提供搜尋識別碼︰
 
 *C#*
 
@@ -94,7 +94,7 @@ Azure 搜尋服務所提供的遙測解決方案可整合 Azure Application Insi
     request.setRequestHeader("Access-Control-Expose-Headers", "x-ms-azs-searchid");
     var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
-**III.記錄搜尋事件**
+**步驟 3：記錄搜尋事件**
 
 每當使用者發出搜尋要求時，您應該將其記錄為搜尋事件，並包含下列關於 Application Insights 自訂事件的結構描述︰
 
@@ -131,7 +131,7 @@ Azure 搜尋服務所提供的遙測解決方案可整合 Azure Application Insi
     ScoringProfile: <scoring profile used>
     });
 
-**IV.記錄點選事件**
+**步驟 4：記錄點選事件**
 
 每當使用者點選文件時，必須記錄這個訊號才可進行搜尋分析。 使用 Application Insights 自訂事件，記錄包含下列結構描述的這些事件：
 
@@ -160,32 +160,46 @@ Azure 搜尋服務所提供的遙測解決方案可整合 Azure Application Insi
         Rank: <clicked document position>
     });
 
-### <a name="3-analyze-with-power-bi-desktop"></a>3.使用 Power BI Desktop 進行分析
+## <a name="3---analyze-in-power-bi"></a>3 - 在 Power BI 中分析
 
-在您完成檢測您的應用程式，並確認您的應用程式正確地連線至 Application Insights 之後，可以使用 Azure 搜尋服務針對 Power BI Desktop 所建立的預先定義範本。
-此範本包含圖表和資料表，可幫助您制定更明智的決策，以改善您的搜尋效能和相關性。
+在您完成檢測您的應用程式，並確認您的應用程式正確地連線至 Application Insights 之後，可以使用 Azure 搜尋服務針對 Power BI Desktop 所建立的預先定義範本。 
 
-若要將 Power BI Desktop 範本具現化，您需要三項 Application Insights 的相關資訊。 當您選取要使用的資源時，可在搜尋流量分析頁面上找到這項資料
+「Azure 搜尋服務」會提供監視 [Power BI 內容套件](https://app.powerbi.com/getdata/services/azure-search)，以便讓您分析記錄資料。 此內容套件會新增預先定義的圖表和資料表，可用來分析為搜尋流量分析擷取的額外資料。 如需詳細資訊，請參閱[內容套件說明網頁](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/)。 
 
-![搜尋流量分析刀鋒視窗中的 Application Insights 資料][2]
+1. 在「Azure 搜尋服務」儀表板左側導覽窗格的 [設定] 底下，按一下 [搜尋流量分析]。
 
-Power BI Desktop 範本中所包含的計量︰
+2. 在 [搜尋流量分析] 頁面上的步驟 3 中，按一下 [取得 Power BI Desktop] 以安裝 Power BI。
 
-*   點選率 (CTR)：點選特定文件的使用者數與總搜尋數的比率。
-*   無點選搜尋︰註冊無點選的熱門查詢詞彙
-*   最多點選的文件︰過去 24 小時、7 天和 30 天內，依識別碼排序最多點選的文件。
-*   常用的詞彙文件組︰依點選排序，造成點選相同文件的詞彙。
-*   點選的時間︰自搜尋查詢起按照時間分組的點選
+   ![取得 Power BI 報表](./media/search-traffic-analytics/get-use-power-bi.png "取得 Power BI 報表")
 
-![從 Application Insights 讀取的 Power BI 範本][3]
+2. 在相同頁面上，按一下 [下載 PowerBI 報表]。
 
+3. 報表會在 Power BI Desktop 中開啟，系統會提示您連線至 Application Insights。 您可以在 Azure 入口網站的 Application Insights 資源頁面中找到此資訊。
+
+   ![連線至 Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "連線至 Application Insights")
+
+4. 按一下 [載入]。
+
+此報表包含圖表和資料表，可幫助您做出更明智的決策，以改善您的搜尋效能和相關性。
+
+計量包含下列項目：
+
+* 點選率 (CTR)：點選特定文件的使用者數與總搜尋數的比率。
+* 無點選搜尋︰註冊無點選的熱門查詢詞彙
+* 最多點選的文件︰過去 24 小時、7 天和 30 天內，依識別碼排序最多點選的文件。
+* 常用的詞彙文件組︰依點選排序，造成點選相同文件的詞彙。
+* 點選的時間︰自搜尋查詢起按照時間分組的點選
+
+以下螢幕擷取畫面示範用於分析搜尋流量分析的內建報表和圖表。
+
+![Azure 搜尋服務的 Power BI 儀表板](./media/search-traffic-analytics/AzureSearch-PowerBI-Dashboard.png "Azure 搜尋服務的 Power BI 儀表板")
 
 ## <a name="next-steps"></a>後續步驟
 檢測您的搜尋應用程式，取得搜尋服務的強大且詳細相關資料。
 
-您可以在[這裡](https://go.microsoft.com/fwlink/?linkid=842905)找到 Application Insights 的詳細資訊。 若要深入了解其不同的服務層，請瀏覽 Application Insights [定價頁面](https://azure.microsoft.com/pricing/details/application-insights/)。
+您可以在 [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) 上找到詳細資訊，以及瀏覽[價格頁面](https://azure.microsoft.com/pricing/details/application-insights/)頁面來深入了解其不同的服務層。
 
-深入了解如何建立令人讚嘆的報告。 如需詳細資訊，請參閱[開始使用 Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)
+深入了解如何建立令人讚嘆的報告。 如需詳細資訊，請參閱[開始使用 Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 
 <!--Image references-->
 [1]: ./media/search-traffic-analytics/AzureSearch-TrafficAnalytics.png

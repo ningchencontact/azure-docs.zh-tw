@@ -1,5 +1,5 @@
 ---
-title: Azure 備份：使用 REST API 還原 Azure VM
+title: Azure 備份：使用 REST API 來還原 Azure VM
 description: 使用 REST API 管理 Azure VM 備份的還原作業
 services: backup
 author: pvrk
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 68c611b08524b5fc037598bafe46d75b3293886d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289495"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100187"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>使用 REST API 還原 Azure 虛擬機器
 
@@ -37,7 +37,7 @@ GET URI 具備所有必要參數。 不需要額外的要求內文
 
 ### <a name="responses"></a>回應
 
-|名稱  |類型  |說明  |
+|Name  |類型  |說明  |
 |---------|---------|---------|
 |200 確定     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -127,9 +127,9 @@ X-Powered-By: ASP.NET
 
 觸發還原磁碟為 *POST* 要求。 若要深入了解還原磁碟作業，請參閱[「觸發還原」REST API](https://docs.microsoft.com/rest/api/backup/restores/trigger)。
 
-````http
+```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
-````
+```
 
 `{containerName}` 和 `{protectedItemName}` 的建構方式在[這裡](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1)。 `{fabricName}` 是 "Azure"，而 `{recoveryPointId}` 是[上述](#example-response)復原點的 `{name}` 欄位。
 
@@ -137,7 +137,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 若要觸發從 Azure VM 備份還原磁碟，以下是要求本文的元件。
 
-|名稱  |類型  |說明  |
+|Name  |類型  |說明  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -147,7 +147,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 下列要求本文會定義觸發磁碟還原所需的屬性。
 
-````json
+```json
 {
   "properties": {
     "objectType": "IaasVMRestoreRequest",
@@ -163,15 +163,15 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
     }
   }
 }
-````
+```
 
 ### <a name="response"></a>Response
 
 還原磁碟的觸發為[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)。 這表示此作業會建立另一項需要個別追蹤的作業。
 
-它會傳回兩個回應：建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
+它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |類型  |說明  |
+|Name  |類型  |說明  |
 |---------|---------|---------|
 |202 已接受     |         |     已接受    |
 
@@ -243,7 +243,7 @@ X-Powered-By: ASP.NET
 
 下列要求本文會定義觸發虛擬機器還原所需的屬性。
 
-````json
+```json
 {
   "parameters": {
         "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -275,7 +275,7 @@ X-Powered-By: ASP.NET
       }
     }
 }
-````
+```
 
 處理回應的方式應該如同[上述的還原磁碟](#response)。
 

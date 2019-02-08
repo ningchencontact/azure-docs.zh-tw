@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 00124562d3bc21f9139ae54f022d7893a4eaf11c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6d9370ce6a031377e37c4e830400337f3e57a62e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53638864"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55084809"
 ---
 | 資源 | 目標 | 固定限制 |
 |----------|--------------|------------|
-| 每個訂用帳戶的儲存體同步服務 | 每個區域 15 個儲存體同步服務 | 否 |
+| 每個區域的儲存體同步服務數目 | 15 個儲存體同步服務 | 是 |
 | 每個儲存體同步服務的同步群組 | 100 個同步群組 | 是 |
 | 每個儲存體同步服務的已註冊伺服器 | 99 部伺服器 | 是 |
 | 每個同步群組的雲端端點 | 1 個雲端端點 | 是 |

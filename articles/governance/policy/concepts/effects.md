@@ -4,17 +4,17 @@ description: 「Azure 原則」定義有各種效果，可決定合規性的管�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0fcb30132a83502b8ca5f58364d78129109b8a9d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310839"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912504"
 ---
 # <a name="understand-policy-effects"></a>了解原則效果
 
@@ -23,11 +23,11 @@ ms.locfileid: "53310839"
 原則定義中目前支援六種效果：
 
 - Append
-- Audit
+- 稽核
 - AuditIfNotExists
-- Deny
+- 拒絕
 - DeployIfNotExists
-- Disabled
+- 已停用
 
 ## <a name="order-of-evaluation"></a>評估順序
 
@@ -40,7 +40,7 @@ ms.locfileid: "53310839"
 
 在「資源提供者」傳回成功碼之後，便會評估 **AuditIfNotExists** 和 **DeployIfNotExists**，以判斷是否需要進行後額外的合規性記錄或動作。
 
-## <a name="disabled"></a>Disabled
+## <a name="disabled"></a>已停用
 
 針對測試情況，或當原則定義已將效果參數化時，此效果相當有用。 這個彈性讓您得以停用單一指派，而不是停用該原則的所有指派。
 
@@ -257,6 +257,11 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
   - 例如，可用來驗證父資源 (在 **if** 條件中) 是否與相符的相關資源位於相同的資源位置。
 - **roleDefinitionIds** [必要]
   - 此屬性必須包含與訂用帳戶可存取之角色型存取控制角色識別碼相符的字串陣列。 如需詳細資訊，請參閱[補救 - 設定原則定義](../how-to/remediate-resources.md#configure-policy-definition)。
+- **DeploymentScope** (選擇性)
+  - 允許的值為 _Subscription_ 和 _ResourceGroup_。
+  - 設定應該執行的部署類型。 _Subscription_ 表示[在訂用帳戶層級進行部署](../../../azure-resource-manager/deploy-to-subscription.md)、_ResourceGroup_ 表示部署至某個資源群組。
+  - 使用訂用帳戶層級部署時，必須在 _Deployment_ 中指定 _location_ 屬性。
+  - 預設值為 _ResourceGroup_。
 - **Deployment** [必要]
   - 此屬性應該包含完整範本部署，因為它將傳遞給 `Microsoft.Resources/deployments` PUT API。 如需詳細資訊，請參閱[部署 REST API](/rest/api/resources/deployments)。
 

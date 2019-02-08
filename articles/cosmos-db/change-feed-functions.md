@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 41cbb657a4fc83b498c5cc9a6a16397a619aa075
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 93cd93b40c142d504c52f08f9005d082fb5a2a20
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034041"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469476"
 ---
-# <a name="how-to-use-azure-cosmos-db-change-feed-with-azure-functions"></a>如何搭配 Azure Functions 使用 Azure Cosmos DB 變更摘要
+# <a name="trigger-azure-functions-from-azure-cosmos-db"></a>從 Azure Cosmos DB 觸發 Azure Functions
 
 如果您使用 Azure Functions，則連線至變更摘要的最簡單方式是在您的 Azure Functions 應用程式中新增 [Azure Cosmos DB 觸發程序](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger)。 當您在 Azure Functions 應用程式中建立 Cosmos DB 觸發程序時，需選取要連線的 Cosmos 容器，並且每當您變更容器中的某個項目時，即會觸發該函式。
 

@@ -14,29 +14,34 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: f22e5159acc93d9632c8cd268e24e8f972cbd7dd
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580139"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103304"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>使用序列主控台來存取 GRUB 與單一使用者模式
-GRUB 的全名是 GRand Unified Bootloader。 從 GRUB，您可以修改開機設定，以開機到單一使用者模式。
+GRUB 是 GRand Unified Bootloader 的縮寫，這可能是您在啟動 VM 時首先會見到的項目。 由於它會在作業系統啟動之前顯示，因此無法透過 SSH 存取它。 從 GRUB，您可以修改開機設定，以開機到單一使用者模式。
 
 單一使用者模式是具有最基本功能的最基本環境。 它非常適用於調查開機問題、檔案系統問題或網路問題。 背景只有基本的服務在執行，而且視執行層級而定，甚至可能不會自動掛載檔案系統。
 
-在您的 VM 可能只設定為接受 SSH 金鑰來登入的情況下，單一使用者模式也很實用。 在此案例中，您可以使用單一使用者模式來建立含密碼驗證的帳戶。
+在您的 VM 可能只設定為接受 SSH 金鑰來登入的情況下，單一使用者模式也很實用。 在此案例中，您可以使用單一使用者模式來建立含密碼驗證的帳戶。 請注意，序列主控台服務將只允許具備參與者層級或更高層級存取權的使用者存取 VM 的序列主控台。
 
-若要進入單一使用者模式，您必須在 VM 開機時進入 GRUB，並修改 GRUB 中的開機設定。 您可以使用 VM 序列主控台來完成此動作。
+若要進入單一使用者模式，您必須在 VM 開機時進入 GRUB，並修改 GRUB 中的開機設定。 下方提供進入 GRUB 的詳細指示。 在一般情況下，您可以使用 VM 序列主控台內的 [重新啟動] 按鈕來重新啟動 VM，並在已將 VM 設定為顯示 GRUP 時顯示 GRUB。
+
+![Linux 序列主控台重新啟動按鈕](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-bar.png)
 
 ## <a name="general-grub-access"></a>一般 GRUB 存取
 若要存取 GRUB，您必須將序列主控台維持開啟，並將 VM 重新開機。 某些發行版本需要鍵盤輸入才能顯示 GRUB，而其他發行版本將會自動顯示 GRUB 幾秒並允許使用者鍵盤輸入以取消逾時。
 
 建議您確定已在您的 VM 上啟用 GRUB，以便存取單一使用者模式。 視您的發行版本而定，您可能必須完成一些設定工作，才能啟用 GRUB。 發行版本特定資訊可於下方和[此連結](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)中取得。
 
-### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>將您的 VM 重新開機以在序列主控台中存取 GRUB
-在序列主控台刀鋒視窗維持開啟的情況下將您的 VM 重新開機可以透過 SysRq `'b'` 命令來完成 (若 [SysRq](./serial-console-nmi-sysrq.md) 已啟用)，或透過按一下 [概觀] 刀鋒視窗中的 [重新啟動] 按鈕 (在瀏覽器索引標籤中開啟 VM，以在不關閉序列主控台刀鋒視窗的情況下重新開機) 來完成。 依照下面的發行版本特定指示來了解重新開機時，GRUB 會發生什麼情況。
+### <a name="restart-your-vm-to-access-grub-in-serial-console"></a>將您的 VM 重新啟動以在序列主控台中存取 GRUB
+您可以在序列主控台內瀏覽至 [電源] 按鈕，然後按一下 [重新啟動 VM] 來重新啟動 VM。 這將會起始 VM 重新啟動，而且您會在 Azure 入口網站內看到與重新啟動有關的通知。
+如果已啟用 [SysRq](./serial-console-nmi-sysrq.md)，您也可以使用 SysRq `'b'` 命令重新啟動 VM。 依照下面的發行版本特定指示來了解重新開機時，GRUB 會發生什麼情況。
+
+![Linux 序列主控台重新啟動](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>一般單一使用者模式存取
 在未設定含密碼驗證的情況下，可能需要手動存取單一使用者模式。 您將必須修改 GRUB 設定以手動進入單一使用者模式。 完成此動作之後，請參閱[使用單一使用者模式來重設或新增密碼](#-Use-Single-User-Mode-to-reset-or-add-a-password)以取得進一步的指示。

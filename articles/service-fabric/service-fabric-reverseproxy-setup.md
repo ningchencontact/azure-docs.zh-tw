@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/27/201
 ms.author: v-jamebr
-ms.openlocfilehash: 2f84550c83c646b44f4a59c3ae506df7c18d1555
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 522e9209da5d2df796700dea764270382b1170f5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852974"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102760"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>安裝及設定 Azure Service Fabric 中的反向 Proxy
 反向 Proxy 是選用的 Azure Service Fabric 服務，可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 HTTP 端點的服務通訊。 如需詳細資訊，請參閱 [Azure Service Fabric 中的反向 Proxy](service-fabric-reverseproxy.md)。 這篇文章會示範如何在叢集中安裝及設定反向 Proxy。 
@@ -30,10 +30,10 @@ Azure 入口網站提供選項，以在您建立新的 Service Fabric 叢集時�
 
 若要在[使用 Azure 入口網站建立叢集](./service-fabric-cluster-creation-via-portal.md)時設定反向 Proxy，請確定您執行下列動作：
 
-1. 在 [步驟 2：叢集設定] 中的 [節點類型設定] 下，選取 [啟用反向 Proxy]。
+1. 在**步驟 2：叢集設定** 中的 [節點類型設定] 下，選取 [啟用反向 Proxy]。
 
    ![在入口網站上啟用反向 Proxy](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (選擇性) 若要設定安全反向 Proxy，需要設定 SSL 憑證。 在 [步驟 3：安全性] 中的 [設定叢集安全性設定] 上，選取 [組態類型] 下的 [自訂]。 然後，在 [反向 Proxy SSL 憑證] 下，選取 [包含反向 Proxy 的 SSL 憑證] 並輸入您的憑證詳細資料。
+2. (選擇性) 若要設定安全反向 Proxy，需要設定 SSL 憑證。 在**步驟 3：安全性** 中的 [設定叢集安全性設定] 上，選取 [組態類型] 下的 [自訂]。 然後，在 [反向 Proxy SSL 憑證] 下，選取 [包含反向 Proxy 的 SSL 憑證] 並輸入您的憑證詳細資料。
 
    ![在入口網站上設定安全反向 Proxy](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 

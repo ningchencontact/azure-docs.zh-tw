@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: a9888a23088949b5373aa0eef7d4df3b3064466f
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 250931c9b53692dff4006a0114b6da20948b3f59
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358580"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096665"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>適用於 Eclipse Java 應用程式開發的 Service Fabric 外掛程式
 Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) 之一。 在本文中，我們將說明如何設定 Eclipse 開發環境來使用 Azure Service Fabric。 了解如何安裝 Service Fabric 外掛程式、建立 Service Fabric 應用程式，以及將 Service Fabric 應用程式部署到 Eclipse 中的本機或遠端 Service Fabric 叢集。 
@@ -37,7 +37,7 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
 
 從 [Eclipse 網站](https://www.eclipse.org)安裝 Eclipse Neon 版或更新版本。  同時安裝 Buildship 2.2.1 版或更新版本 (Service Fabric 外掛程式與舊版 Buildship 不相容)：
 -   若要檢查已安裝的元件版本，請在 Eclipse 中移至 [說明] > [關於 Eclipse] > [安裝詳細資料]。
--   若要更新 Buildship，請參閱 [Eclipse Buildship：適用於 Gradle 的 Eclipse 外掛程式][buildship-update]。
+-   若要更新 Buildship，請參閱 [Eclipse Buildship：適用於 Gradle 的 Eclipse 外掛程式][buildship-update]的指示來更新 Buildship。
 -   若要檢查並安裝 Eclipse 的更新，請移至 [說明] > [檢查更新]。
 
 若要安裝 Service Fabric 外掛程式，請在 Eclipse 中移至 [說明] > [安裝新軟體]。
@@ -169,10 +169,10 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
 
 ## <a name="deploy-a-service-fabric-application-by-using-eclipse-run-configurations"></a>使用 Eclipse 回合組態來部署 Service Fabric 應用程式
 
-另一種方式是使用 Eclipse 回合組態來部署 Service Fabric 應用程式。
+另一種方式是使用 Eclipse 執行組態來部署 Service Fabric 應用程式。
 
 1. 在 Eclipse 中，移至 [執行] > [回合組態]。
-2. 在 [等級專案] 下，選取 **ServiceFabricDeployer** 回合組態。
+2. 在 [等級專案] 下，選取 **ServiceFabricDeployer** 執行組態。
 3. 在右窗格的 [引數] 索引標籤上，確定已適當地針對您的部署設定 **ip**、**port**、**clientCert** 與 **clientKey** 參數。 根據預設值，參數是設定為部署到本機叢集，如下列螢幕擷取畫面所示。 若要將您的應用程式發佈到 Azure，您可以修改參數以包含 Azure 叢集的端點詳細資料與安全性認證。 如需詳細資訊，請參閱上一節[使用 Eclipse 將您的 Service Fabric 應用程式發佈到 Azure](#publish-your-service-fabric-application-to-azure-with-eclipse)。
 
     ![[回合組態] 對話方塊本機](./media/service-fabric-get-started-eclipse/run-config-local.png)
@@ -211,17 +211,17 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>升級 Service Fabric Java 應用程式
 
-在升級案例中，假設您在 Eclipse 中使用 Service Fabric 外掛程式建立 **App1** 專案。 您使用外掛程式部署它，建立名為 **fabric:/App1Application** 的應用程式。 應用程式類型是 **App1AppicationType**，應用程式版本為 1.0。 現在您想要升級應用程式，但不要中斷可用性。
+在升級案例中，假設您在 Eclipse 中使用 Service Fabric 外掛程式建立 **App1** 專案。 您使用外掛程式部署它，建立名為 **fabric:/App1Application** 的應用程式。 應用程式類型是 **App1ApplicationType**，應用程式版本為 1.0。 現在您想要升級應用程式，但不要中斷可用性。
 
 首先，變更您的應用程式，然後重建已修改的服務。 以服務 (和程式碼、組態或資料，視相關性而定) 已更新的版本，更新已修改之服務的資訊清單檔案 (ServiceManifest.xml)。 同時，也以應用程式已更新的版本號碼及已修改的服務，修改應用程式的資訊清單 (ApplicationManifest.xml)。  
 
-若要使用 Eclipse 升級您的應用程式，您可以建立重複的回合組態設定檔。 然後，視需要使用它升級您的應用程式。
+若要使用 Eclipse 升級您的應用程式，您可以建立重複的執行組態設定檔。 然後，視需要使用它升級您的應用程式。
 
-1.  前往 [執行] > [回合組態]。 在左窗格中，按一下 [等級專案] 左邊的小箭號。
+1.  前往 [執行] > [執行組態]。 在左窗格中，按一下 [等級專案] 左邊的小箭號。
 2.  以滑鼠右鍵按一下 **ServiceFabricDeployer**，然後選取 [重複]。 輸入此設定的新名稱，例如，**ServiceFabricUpgrader**。
 3.  在右窗格的 [引數] 索引標籤上，將 **-Pconfig='deploy'** 變更為 **-Pconfig='upgrade'**，然後按一下 [套用]。
 
-此程序會建立並儲存您可以隨時用來升級應用程式的回合組態設定檔。 這也會從應用程式資訊清單檔中取得最新版更新應用程式類型版本的程序。
+此程序會建立並儲存您可以隨時用來升級應用程式的執行組態設定檔。 這也會從應用程式資訊清單檔中取得最新版更新應用程式類型版本的程序。
 
 應用程式升級會花費幾分鐘的時間。 您可以在 Service Fabric Explorer 中監視應用程式升級。
 

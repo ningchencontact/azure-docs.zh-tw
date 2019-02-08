@@ -6,7 +6,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
@@ -15,18 +15,18 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: de0d8d5fb538619e94595ef322eeb80c4de743be
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6c68070a9b94cf867f8c1c930874a5f02a685294
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426283"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096733"
 ---
-# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>操作說明：使用 ADAL 在 iOS 上啟用跨應用程式的 SSO
+# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>作法：使用 ADAL 在 iOS 上啟用跨應用程式的 SSO
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-單一登入 (SSO) 可讓使用者只輸入認證一次，就讓這些認證跨應用程式及跨其他應用程式可能會使用的平台 (例如 Microsoft 帳戶或來自 Microsoft 365 的公司帳戶) 自動運作，無論發行者是誰。
+單一登入 (SSO) 可讓使用者只輸入認證一次，並讓這些認證跨應用程式及跨其他應用程式可能會使用的平台自動處理 (例如 Microsoft 帳戶或來自 Microsoft 365 的公司帳戶)，無論發行者為何。
 
 Microsoft 的身分識別平台搭配 SDK，能讓您在整個裝置中，更輕鬆地在您自己的應用程式套件內，或使用訊息代理程式功能和 Authenticator 應用程式來啟用單一登入。
 
@@ -252,7 +252,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 3. 註冊 URL 配置。
 4. 將權限新增至您的 info.plist 檔案。
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>步驟 1︰在應用程式中啟用訊息代理程式模式
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>步驟 1：在應用程式中啟用訊息代理程式模式
 
 當您建立「內容」或驗證物件的初始設定時，已開啟應用程式使用訊息代理程式的功能。 您可以設定程式碼中的認證類型就可以辦到︰
 
@@ -262,7 +262,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 ```
 `AD_CREDENTIALS_AUTO` 設定可讓 SDK 嘗試呼叫訊息代理程式，`AD_CREDENTIALS_EMBEDDED` 會防止 SDK 呼叫訊息代理程式。
 
-#### <a name="step-2-registering-a-url-scheme"></a>步驟 2︰註冊 URL 配置
+#### <a name="step-2-registering-a-url-scheme"></a>步驟 2：註冊 URL 配置
 
 身分識別平台會使用 URL 叫用訊息代理程式，然後將控制項傳回至您的應用程式。 若要完成該往返行程，您需要為應用程式註冊的 URL 配置，身分識別平台將會了解該配置。 此配置可以是您先前可能已向應用程式註冊之任何其他應用程式配置以外的配置。
 
@@ -287,7 +287,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 </array>
 ```
 
-#### <a name="step-3-establish-a-new-redirect-uri-with-your-url-scheme"></a>步驟 3︰利用 URL 配置建立新的重新導向 URI
+#### <a name="step-3-establish-a-new-redirect-uri-with-your-url-scheme"></a>步驟 3：利用 URL 配置建立新的重新導向 URI
 
 為了確保我們永遠傳回認證權杖給正確的應用程式，我們必須確定 iOS 作業系統可以確認我們回呼應用程式的方式。 iOS 作業系統會向 Microsoft 訊息代理程式應用程式回報呼叫它之應用程式的組合識別碼。 這樣就不會讓惡意應用程式假冒。 因此，我們利用這個方法搭配訊息代理程式應用程式的 URI，以確保將權杖傳回給正確的應用程式。 我們需要您在應用程式中建立此唯一重新導向 URI，並在我們的開發人員入口網站中設定為重新導向 URI。
 
@@ -299,7 +299,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 
 此重新導向 URI 必須使用 [Azure 入口網站](https://portal.azure.com/)在應用程式註冊中指定。 如需 Azure AD 應用程式註冊的詳細資訊，請參閱 [與 Azure Active Directory 整合](active-directory-how-to-integrate.md)。
 
-##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>步驟 3a︰在應用程式與開發人員入口網站中新增重新導向 URI 以支援以憑證為基礎的驗證
+##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>步驟 3a：在應用程式與開發人員入口網站中新增重新導向 URI 以支援以憑證為基礎的驗證
 
 若要支援以憑證為基礎的驗證，必須在您的應用程式與 [Azure 入口網站](https://portal.azure.com/)中註冊第二個 "msauth"，才能在應用程式中新增該支援。
 

@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 4c8fcc403b274d161893194109dee4bc8d0cb369
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 433718c19e0df5fac87273f2b46f8ae090ed7510
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974349"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888561"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
@@ -414,15 +414,19 @@ ms.locfileid: "53974349"
 }
 ```
 
-> [!IMPORTANT]
-> 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 Parquet 檔案，就需要在 IR 機器上安裝 JRE 8 (Java 執行階段環境)。 64 位元 IR 需要 64 位元 JRE。 您可以從 [這裡](https://go.microsoft.com/fwlink/?LinkId=808605)找到這兩個版本。
->
-
 請注意下列幾點：
 
 * 不支援複雜資料類型 (MAP、LIST)。
 * 不支援資料行名稱中的空白字元。
 * Parquet 檔案有下列壓縮相關選項︰NONE、SNAPPY、GZIP 和 LZO。 Data Factory 支援以這其中任一種壓縮格式從 Parquet 檔案中讀取資料，但 LZO 除外，它會在中繼資料內使用壓縮轉碼器來讀取資料。 不過，寫入 Parquet 檔案時，Data Factory 會選擇 SNAPPY，這是 Parquet 格式的預設值。 目前沒有任何選項可覆寫這個行為。
+
+> [!IMPORTANT]
+> 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 Parquet 檔案，就需要在 IR 機器上安裝 **64 位元的 JRE 8 (Java Runtime Environment) 或 OpenJDK**。 如需更多詳細資料，請參閱接下來的段落。
+
+針對在自我裝載 IR 上搭配 Parquet 檔案序列化/還原序列化來執行的複製，ADF 會找出 Java 執行階段，方法是先檢查登錄 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 是否有 JRE，如果找不到，就接著檢查系統變數 *`JAVA_HOME`* 是否有 OpenJDK。 
+
+- **使用 JRE**：64 位元 IR 需要 64 位元 JRE。 您可以從[這裡](https://go.microsoft.com/fwlink/?LinkId=808605)找到該程式。
+- **使用 OpenJDK**：自 IR 3.13 版開始便可支援。 請將 jvm.dll 與所有其他必要的 OpenJDK 組件一起封裝至自我裝載 IR 機器，然後相應地設定 JAVA_HOME 系統環境變數。
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Parquet 檔案的資料類型對應
 
@@ -436,13 +440,13 @@ ms.locfileid: "53974349"
 | Int32 | Int32 | Int32 | Int32 |
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/二進位 | UInt64 | 十進位 |
-| 單一 | Float | N/A | N/A |
-| 兩倍 | 兩倍 | N/A | N/A |
-| 十進位 | Binary | 十進位 | 十進位 |
+| UInt64 | Int64/二進位 | UInt64 | Decimal |
+| Single | Float | N/A | N/A |
+| Double | Double | N/A | N/A |
+| Decimal | Binary | Decimal | Decimal |
 | 字串 | Binary | Utf8 | Utf8 |
-| Datetime | Int96 | N/A | N/A |
-| 時間範圍 | Int96 | N/A | N/A |
+| DateTime | Int96 | N/A | N/A |
+| TimeSpan | Int96 | N/A | N/A |
 | DateTimeOffset | Int96 | N/A | N/A |
 | ByteArray | Binary | N/A | N/A |
 | Guid | Binary | Utf8 | Utf8 |
@@ -460,15 +464,19 @@ ms.locfileid: "53974349"
 }
 ```
 
-> [!IMPORTANT]
-> 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 ORC 檔案，就需要在 IR 機器上安裝 JRE 8 (Java 執行階段環境)。 64 位元 IR 需要 64 位元 JRE。 您可以從 [這裡](https://go.microsoft.com/fwlink/?LinkId=808605)找到這兩個版本。
->
-
 請注意下列幾點：
 
 * 不支援複雜資料類型 (STRUCT、MAP、LIST、UNION)。
 * 不支援資料行名稱中的空白字元。
 * ORC 檔案有三種 [壓縮相關選項](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/)︰NONE、ZLIB、SNAPPY。 Data Factory 支援以這些壓縮格式的任一項從 ORC 檔案讀取資料。 它會使用中繼資料裡的壓縮轉碼器來讀取資料。 不過，寫入 ORC 檔案時，Data Factory 會選擇 ZLIB，這是 ORC 的預設值。 目前沒有任何選項可覆寫這個行為。
+
+> [!IMPORTANT]
+> 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 ORC 檔案，就需要在 IR 機器上安裝 **64 位元的 JRE 8 (Java Runtime Environment) 或 OpenJDK**。 如需更多詳細資料，請參閱接下來的段落。
+
+針對在自我裝載 IR 上搭配 ORC 檔案序列化/還原序列化來執行的複製，ADF 會找出 Java 執行階段，方法是先檢查登錄 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 是否有 JRE，如果找不到，就接著檢查系統變數 *`JAVA_HOME`* 是否有 OpenJDK。 
+
+- **使用 JRE**：64 位元 IR 需要 64 位元 JRE。 您可以從[這裡](https://go.microsoft.com/fwlink/?LinkId=808605)找到該程式。
+- **使用 OpenJDK**：自 IR 3.13 版開始便可支援。 請將 jvm.dll 與所有其他必要的 OpenJDK 組件一起封裝至自我裝載 IR 機器，然後相應地設定 JAVA_HOME 系統環境變數。
 
 ### <a name="data-type-mapping-for-orc-files"></a>ORC 檔案的資料類型對應
 
@@ -483,13 +491,13 @@ ms.locfileid: "53974349"
 | UInt32 | long |
 | Int64 | long |
 | UInt64 | 字串 |
-| 單一 | Float |
-| 兩倍 | 兩倍 |
-| 十進位 | 十進位 |
+| Single | Float |
+| Double | Double |
+| Decimal | Decimal |
 | 字串 | 字串 |
-| Datetime | Timestamp |
+| DateTime | Timestamp |
 | DateTimeOffset | Timestamp |
-| 時間範圍 | Timestamp |
+| TimeSpan | Timestamp |
 | ByteArray | Binary |
 | Guid | 字串 |
 | Char | Char(1) |

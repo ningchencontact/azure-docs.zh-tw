@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 508957f6-caa5-4234-a7f3-90015937e4eb
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d14cca505f85bdf0d8abd32a954487639fe54631
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f326e7d1599d3c797311c85635516d591fd681a6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444213"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153975"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-yardione"></a>教學課程：Azure Active Directory 與 YardiOne
+# <a name="tutorial-azure-active-directory-integration-with-yardione"></a>教學課程：Azure Active Directory 與 YardiOne 整合
 
 在本教學課程中，您將了解如何整合 YardiOne 與 Azure Active Directory (Azure AD)。
 
@@ -162,7 +162,7 @@ YardiOne 與 Azure AD 整合提供下列優點：
 本節目標是在 YardiOne 中建立名為 Britta Simon 的使用者。 YardiOne 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 YardiOne 時，如果使用者還不存在，就會建立新使用者。
 
 >[!Note]
->如果您需要手動建立使用者，請連絡 [YardiOne 支援小組](https://clientcentral.yardi.com)。
+>如果您需要手動建立使用者，請連絡  [YardiOne 支援小組](https://clientcentral.yardi.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -199,7 +199,7 @@ YardiOne 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [YardiOne] 圖格時，應該會自動登入您的 YardiOne 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

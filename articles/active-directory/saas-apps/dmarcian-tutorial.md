@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 0f8878505280371bf6046c1d1f0d7fc1275dd496
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 197e0cceb7457ffdd96ada7d4561de56c7ed10fc
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039882"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095646"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>教學課程：Azure Active Directory 與 dmarcian 整合
 
@@ -157,15 +157,15 @@ dmarcian 與 Azure AD 整合提供下列優點：
 
     ![驗證 ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
-    * 在 [將 dmarcian 新增至您的識別提供者] 區段之下，按一下 [複製] 以複製執行個體的 [判斷提示取用者服務 URL]，然後將其貼在 Azure 入口網站上 [dmarcian 網域及 URL] 區段的 [回覆 URL] 文字方塊中。
+    * 在 [將 dmarcian 新增至您的識別提供者] 區段之下，按一下 [複製] ****  以複製執行個體的 [判斷提示取用者服務 URL]，然後將其貼在 Azure 入口網站上 [dmarcian 網域及 URL] **** 區段的 [回覆 URL] **** 文字方塊中。
 
-    * 在 [將 dmarcian 新增至您的識別提供者] 區段之下，按一下 [複製] 以複製執行個體的 [實體識別碼]，然後將其貼在 Azure 入口網站上 [dmarcian 網域及 URL] 區段的 [識別碼] 文字方塊中。
+    * 在 [將 dmarcian 新增至您的識別提供者] 區段之下，按一下 [複製] ****  以複製執行個體的 [實體識別碼]，然後將其貼在 Azure 入口網站上 [dmarcian 網域及 URL] **** 區段的 [識別碼] **** 文字方塊中。
 
     * 在 [設定驗證] 區段下的 [識別提供者中繼資料] 文字方塊中，貼上您從 Azure 入口網站複製的 [應用程式同盟中繼資料 URL]。
 
     * 在 [設定驗證] 區段下的 [屬性陳述式] 文字方塊中，貼上 url `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
 
-    * 在 [設定登入 URL] 區段之下，複製執行個體的 [登入 URL]，然後將其貼在 Azure 入口網站上 [dmarcian 網域及 URL] 區段的 [登入 URL] 文字方塊中。
+    * 在 [設定登入 URL] 區段之下，複製執行個體的 [登入 URL]，然後將其貼在 Azure 入口網站上 [dmarcian 網域及 URL] **** 區段的 [登入 URL] **** 文字方塊中。
 
         > [!Note]
         > 您可以根據您的組織修改 [登入 URL]。
@@ -265,7 +265,7 @@ dmarcian 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 dmarcian 圖格時，應該會自動登入您的 dmarcian 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

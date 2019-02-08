@@ -7,7 +7,7 @@ author: andretms
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4ba4e844ed6bb01204b7a0adf5020aec255147dd
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a0c2d13b2ac6715db047d56e998294688d9b65cf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986537"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097056"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>自通用 Windows 平台應用程式 (XAML) 呼叫 Microsoft Graph API
 
@@ -359,7 +359,7 @@ ms.locfileid: "49986537"
 |---------|---------|---------|
 |**名稱** |使用者的全名|使用者的名字和姓氏。|
 |**使用者名稱** |<span>user@domain.com</span> |識別使用者的使用者名稱。|
-|**權杖到期** |Datetime |權杖的到期時間。 MSAL 會視需要更新權杖來延展到期日。|
+|**權杖到期** |DateTime |權杖的到期時間。 MSAL 會視需要更新權杖來延展到期日。|
 |**存取權杖** |字串 |傳送至 HTTP 要求的權杖字串需要授權標頭。|
 
 #### <a name="see-whats-in-the-access-token-optional"></a>了解什麼是存取權杖 (選擇性)
@@ -384,7 +384,7 @@ Microsoft Graph API 需要 *user.read* 範圍才能讀取使用者的設定檔�
 
 **原因：** 企業和憑證功能未啟用。
 
-**解決方法：** 請遵循[同盟網域上的整合式驗證](#enable-integrated-authentication-on-federated-domains-optional)中的步驟進行。
+**解決方案：** 請遵循[同盟網域上的整合式驗證](#enable-integrated-authentication-on-federated-domains-optional)中的步驟進行。
 
 ### <a name="issue-2"></a>問題 2
 您啟用[同盟網域上的整合式驗證](#enable-integrated-authentication-on-federated-domains-optional)，並嘗試在 Windows 10 電腦上使用 Windows Hello 來登入設定 Multi-Factor Authentication 的環境。 憑證清單隨即顯示。 不過，如果您選擇使用 PIN，絕不會顯示 [PIN] 視窗。

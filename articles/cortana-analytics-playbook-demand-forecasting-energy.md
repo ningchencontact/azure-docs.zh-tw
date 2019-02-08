@@ -10,29 +10,29 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 40bff35c1136d55e968a287d259f2304252f5248
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306483"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078775"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>能源需求預測的 Cortana Intelligence 解決方案範本教戰守則
 ## <a name="executive-summary"></a>執行摘要
-過去幾年來，物聯網 (IoT)、替代能源和巨量資料已共同在公共事業和能源領域中創造龐大的機會。 在此同時，公共事業和整個能源工業看到用電量已失控，消費者急需更有效地控制能源用量。 因此，公共事業和智慧電網公司本身極需改革與創新。 此外，許多電力和公共電網已經過時，維護和管理所費不貲。 去年，本小組在能源領域內從事許多研究。 在這些研究中，我們經常發現公共事業或 ISV (獨立軟體廠商) 一直在探索如何預測未來的能源需求。 這些預測在其目前和未來的事業中扮演著重要角色，已成為不同使用案例的基礎。 其中包括短期與長期的電力負載預測、交易、負載平衡、電網最佳化等。為了產生準確且可靠的預測，巨量資料和進階分析 (AA) 方法是關鍵因素，例如機器學習服務 (ML)。  
+過去幾年來，物聯網 (IoT)、替代能源和巨量資料已共同在公共事業和能源領域中創造龐大的機會。 在此同時，公共事業和整個能源工業看到用電量已失控，消費者急需更有效地控制能源用量。 因此，公共事業和智慧電網公司本身極需改革與創新。 此外，許多電力和公共電網已經過時，維護和管理所費不貲。 去年，本小組在能源領域內從事許多研究。 在這些研究中，我們經常發現公共事業或 ISV (獨立軟體廠商) 一直在探索如何預測未來的能源需求。 這些預測在其目前和未來的事業中扮演著重要角色，已成為不同使用案例的基礎。 其中包括短期與長期的電力負載預測、交易、負載平衡、電網最佳化等。為了產生準確且可靠的預測，巨量資料和進階分析 (AA) 方法是關鍵因素，例如機器學習服務 (ML)。
 
 在本教戰守則中，我們結合商務和分析指導方針，以成功開發及部署能源需求預測解決方案。 這些建議的指導方針可協助公共事業、資料科學家和資料工程師建立全面運作、以雲端為基礎的需求預測解決方案。 對於剛踏入巨量資料和進階分析領域的公司，這種解決方案就是長期智慧電源策略的菩提種子。
 
 > [!TIP]
-> 若要下載此範本的架構概觀圖表，請參閱 [能源需求預測的 Cortana Intelligence 解決方案範本架構](cortana-analytics-architecture-demand-forecasting-energy.md)。  
-> 
-> 
+> 若要下載此範本的架構概觀圖表，請參閱 [能源需求預測的 Cortana Intelligence 解決方案範本架構](cortana-analytics-architecture-demand-forecasting-energy.md)。
+>
+>
 
 ## <a name="overview"></a>概觀
-本文涵蓋使用 Cortana Intelligence (尤其是 Azure Machine Learning (AML)) 來實作與部署能源預測解決方案的商務、資料和技術層面。 文件包含三個主要部分 ︰  
+本文涵蓋使用 Cortana Intelligence (尤其是 Azure Machine Learning (AML)) 來實作與部署能源預測解決方案的商務、資料和技術層面。 文件包含三個主要部分 ︰
 
-1. 了解商務  
-2. 了解資料  
+1. 了解商務
+2. 了解資料
 3. 技術實作
 
 「了解商務」  部分概述在進行投資決策之前需要了解及考慮的商務層面。 其中說明如何評估眼前的商務問題，以確保預測性分析和機器學習服務確實有效且可行。 本文件進一步說明機器學習服務的基本概念及如何用來解決能源預測問題。 其中概述使用案例的先決條件和檢定準則。 另外也提供一些範例使用案例和商務案例。
@@ -43,7 +43,7 @@ ms.locfileid: "54306483"
 
 此外，本文件還包含參考資料，幫助您進一步了解這個領域和技術。
 
-請務必注意，本文件不涵蓋深奧的資料科學程序，及其數學和技術層面。 您可以在 [Azure ML 文件](https://azure.microsoft.com/services/machine-learning/)和[部落格](https://blogs.microsoft.com/blog/tag/azure-machine-learning/)找到這些詳細資料。
+請務必注意，本文件不涵蓋深奧的資料科學程序，及其數學和技術層面。 您可以在 [Azure Machine Learning 服務文件](https://azure.microsoft.com/services/machine-learning/)和[部落格](https://blogs.microsoft.com/blog/tag/azure-machine-learning/)找到這些詳細資料。
 
 ### <a name="target-audience"></a>目標對象
 本文件以商業和技術人員為目標對象，幫助他們認識和了解機器學習服務解決方案，及其在能源預測領域內的具體運用情形。
@@ -87,7 +87,7 @@ ms.locfileid: "54306483"
 * 負載平衡和預防超載
 * 長期負載預測
 * 故障和異常偵測
-* 尖峰限電/調節 
+* 尖峰限電/調節
 
 STLF 模型大多根據最近 (昨天或上週) 的用電量資料，並以預測溫度作為重要的預測因子。 現在，取得未來一小時甚至 24 小時的準確溫度預測並不困難。 這些模型較不易受到季節性模式或長期用電量趨勢所影響。
 
@@ -189,9 +189,9 @@ Cortana Intelligence Suite 是位於雲端的整合式環境。 在雲端環境�
 
 1. **資料收集** – 任何以進階分析為基礎的解決方案都仰賴資料 (請參閱**了解資料**)。 具體來說，在提及預測性分析和預測時，我們需要持續、動態的資料流。 就能源需求預測而言，這項資料可能直接來自智慧型電表，或已在內部部署資料庫上彙總。 我們也依賴其他外部資料來源，例如天氣和溫度。 這個持續的資料流必須協調、排程及儲存。 [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) 是我們完成這項工作的主力工具。
 2. **模型化** – 為了獲得精確又可靠的能源預測，我們必須開發 (訓練) 並維護一個優秀的模型，以利用歷史資料，並從資料中擷取有意義和可預測的模式。 隨著不斷開發出先進的演算法，機器學習服務 (ML) 領域一直在快速成長。 Azure ML Studio 提供絕佳的使用者體驗，有助於在完整的工作流程中利用最先進的 ML 演算法。 該工作流程如直覺式流程圖所示，包含準備資料、萃取特徵、模型化和評估模型。 使用者可以取用此環境中數以百計的各種不同模型。 此階段的結束時，資料科學家會獲得一個已完整評估且可部署的工作模型。
-   
+
    下圖是一般工作流程的說明︰
-   
+
    ![模型化工作流程](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
 3. **部署** – 獲得工作模型後，下一步就是部署。 在此，模型轉換為 Web 服務並公開 RESTful API，供各種用電用戶端透過網際網路同時叫用。 Azure ML 提供簡單的方法，直接從 Azure ML Studio 中按一下按鈕，就能部署模型。 整個部署程序都是自動完成。 這個解決方案可以自動調整規模以符合所需的用電量。
 4. **耗用量** – 在這個階段，我們實際利用預測模型來產生預測。 用電量可由使用者應用程式 (例如，儀表板) 或直接從作業系統來控管，例如供需平衡系統或電網最佳化解決方案。 單一模型可以控管多個使用案例。
@@ -321,8 +321,8 @@ Cortana Intelligence Suite 支援最常見的資料格式，例如 CSV、TSV、J
 
 > [!NOTE]
 > 本節並不做為機器學習服務和預測的概觀，只是簡單審視需求預測常用的模型化技術。 如需時間序列預測相關的詳細資訊和教學資料，強烈建議您閱讀線上書籍 [Forecasting: principles and practice](https://www.otexts.org/)。
-> 
-> 
+>
+>
 
 #### <a name="ma-moving-average"></a>**MA (移動平均法)**
 移動平均是時間序列預測的第一代分析技巧之一，目前仍是最常用的其中一項技巧。 它也是更進階預測技巧的基礎。 使用移動平均時，我們會將 K 個最近資料點算出平均值，以預測下一個資料點，其中 K 表示移動平均的順序。

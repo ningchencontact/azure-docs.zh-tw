@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/13/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c6c13d0e27edd5563f10df59ce7af585a345bfab
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a24281f2b01b53ddb165d15bca4d8d43c26c5c05
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463332"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159841"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>從同盟移轉至 Azure Active Directory 的密碼雜湊同步處理
 
@@ -30,10 +30,11 @@ ms.locfileid: "54463332"
 
 ### <a name="update-azure-ad-connect"></a>更新 Azure AD Connect
 
-若要成功完成遷移至使用密碼雜湊同步處理所需執行的步驟，您必須擁有 [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 或更新版本。 在 Azure AD Connect 1.1.819.0 中，用來執行登入轉換的方式有了巨大變化。 在這個版本中，從 AD FS 遷移至雲端驗證所需的整體時間，已從可能需要數小時縮短為只要幾分鐘。
+若要成功執行移轉到密碼雜湊同步處理的步驟，至少應有 [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0。 此版本包含執行登入轉換方式的重大變更，而且可將從同盟移轉到雲端驗證的整體時間從數小時縮減至數分鐘。
+
 
 > [!IMPORTANT]
-> 在過時的文件、工具和部落格上，您可能看過在從同盟身分識別轉換為受控識別時，必要進行使用者轉換的資訊。 現已不再需要*轉換使用者*。 Microsoft 正努力更新文件和工具，以反映這項變化。
+> 過時的文件、工具和部落格中可能會提到，在將網域從同盟身分識別轉換為受控識別時，必須進行使用者轉換。 現已不再需要*轉換使用者*。 Microsoft 正著手更新文件和工具，以反映這項變更。
 
 若要更新 Azure AD Connect，請完成 [Azure AD Connect：升級至最新版本](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version)中的步驟。
 
@@ -58,19 +59,19 @@ Azure AD Connect Active Directory Domain Services (AD DS) 服務帳戶需要有�
 
    > [!NOTE]
    > 目前，如果您原本使用 Azure AD Connect 來設定 AD FS，則在將使用者登入變更為密碼雜湊同步處理時，系統會將租用戶中所有網域解除同盟的情形就無法避免。 ‎
-* **Azure AD Connect 搭配 PowerShell**。 只有原本並非使用 Azure AD Connect 來設定 AD FS 時，才可以使用這個方法。 針對這個選項，您仍必須透過 Azure AD Connect 精靈變更使用者登入方法。 此選項的核心差異是，精靈不會自動執行 **Set-MsolDomainAuthentication** Cmdlet。 使用此選項時，您可以完整控制要以怎樣的順序轉換哪些網域。
+* **Azure AD Connect 搭配 PowerShell**。 只有原本並非使用 Azure AD Connect 來設定 AD FS 時，才可使用此方法。 使用此選項時，您仍須透過 Azure AD Connect 精靈變更使用者登入方法。 此選項最主要的差異在於，精靈不會自動執行 **Set-MsolDomainAuthentication** Cmdlet。 使用此選項時，您可以完整控制要轉換哪些網域，及其轉換順序。
 
-若要了解您應該使用何種方法，請完成後面幾節的步驟。
+若要了解應使用何種方法，請完成後續幾節的步驟。
 
 #### <a name="verify-current-user-sign-in-settings"></a>請確認目前的使用者登入設定
 
 若要確認目前的使用者登入設定：
 
 1. 使用全域系統管理員帳戶登入 [Azure AD 入口網站](https://aad.portal.azure.com/)。
-2. 在 [使用者設定]  區段中，確認下列設定：
-   * [同盟] 已設定為 [啟用]。
-   * [無縫單一登入] 已設定為 [停用]。
-   * [傳遞驗證] 已設定為 [停用]。
+2. 在 [使用者登入] 區段中，確認下列設定：
+   * [同盟] 設為 [啟用]。
+   * [無縫單一登入] 設為 [停用]。
+   * [傳遞驗證] 設為 [停用]。
 
    ![螢幕擷取畫面：Azure AD Connect [使用者登入] 區段中的設定](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image1.png)
 
@@ -86,7 +87,7 @@ Azure AD Connect Active Directory Domain Services (AD DS) 服務帳戶需要有�
    * 如果 [密碼雜湊同步處理] 設定為 [啟用]，則可以略過本文中的**步驟 1：啟用密碼雜湊同步處理**一節。
 4. 在 [檢閱解決方案] 頁面上，捲動至 [Active Directory 同盟服務 (AD FS)]。<br />
 
-   * ‎如果本區段中出現 AD FS 設定，就可以放心地假設 AD FS 原本是使用 Azure AD Connect 進行設定的。 您可以藉由使用 Azure AD Connect 的 [變更使用者登入] 選項，將網域從同盟身分識別轉換為受控識別。 **選項 A：使用 Azure AD Connect 從同盟轉換至密碼雜湊同步處理**一節會詳述此程序。
+   * ‎如果本區段中出現 AD FS 設定，就可以放心地假設 AD FS 原本是使用 Azure AD Connect 進行設定的。 您可以使用 Azure AD Connect 的 [變更使用者登入] 選項，將網域從同盟身分識別轉換為受控識別。 此程序詳述於**選項 A：使用 Azure AD Connect 從同盟轉換至密碼雜湊同步處理**一節。
    * 如果目前的設定未列出 AD FS，則必須手動使用 PowerShell 將網域從同盟身分識別轉換為受控識別。 如需此程序的詳細資訊，請參閱**選項 B：使用 Azure AD Connect 和 PowerShell 從同盟轉換至密碼雜湊同步處理**一節。
 
 ### <a name="document-current-federation-settings"></a>文件目前的同盟設定
@@ -103,7 +104,7 @@ Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 ```
 
-請確認可能已為同盟設計和部署文件所自訂的任何設定。 具體來說，請尋找 **PreferredAuthenticationProtocol**、**SupportsMfa** 和 **PromptLoginBehavior** 中的自訂。
+請確認可能已為您的同盟設計和部署文件自訂的任何設定。 具體來說，請尋找 **PreferredAuthenticationProtocol**、**SupportsMfa** 和 **PromptLoginBehavior** 中的自訂。
 
 如需詳細資訊，請參閱這些文章：
 
@@ -111,9 +112,9 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 * [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> 如果 **SupportsMfa** 設定為 **True**，表示您是使用內部部署多重要素驗證解決方案來將第二個要素挑戰納入使用者驗證流程中。 此設定不再適用於 Azure AD 驗證案例。 
+> 如果 **SupportsMfa** 設定為 **True**，表示您是使用內部部署多重要素驗證解決方案，將第二個要素挑戰納入使用者驗證流程中。 此設定不再適用於 Azure AD 驗證案例。 
 >
-> 請改用 Azure Multi-factor Authentication 雲端式服務來執行相同的函式。 在繼續之前，請仔細評估您的多重要素驗證需求。 在轉換網域之前，請先確定您已了解 Azure Multi-Factor Authentication 使用方式、授權含意和使用者註冊程序。
+> 請改用 Azure Multi-factor Authentication 雲端式服務來執行相同的功能。 在繼續之前，請仔細評估您的多重要素驗證需求。 在轉換網域之前，請先確定您已了解 Azure Multi-Factor Authentication 的使用方式、授權含意和使用者註冊程序。
 
 #### <a name="back-up-federation-settings"></a>備份同盟設定
 
@@ -322,7 +323,7 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 跳到[測試和下一個步驟](#testing-and-next-steps)。
 
    > [!IMPORTANT]
-   > 略過**選項 B：使用 Azure AD Connect 和 PowerShell 從同盟轉換至密碼雜湊同步處理**一節。 如果您選擇了選項 A，將登入方法變更成密碼雜湊同步處理並啟用無縫 SSO，則不適用該節提供的步驟。
+   > 請略過**選項 B：使用 Azure AD Connect 和 PowerShell 從同盟轉換至密碼雜湊同步處理**一節。 如果您選擇了選項 A，將登入方法變更成密碼雜湊同步處理並啟用無縫 SSO，則不適用該節提供的步驟。
 
 #### <a name="option-b-switch-from-federation-to-password-hash-synchronization-using-azure-ad-connect-and-powershell"></a>選項 B：使用 Azure AD Connect 和 PowerShell 從同盟轉換至密碼雜湊同步處理
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 47699925f057aab25fe6f7c1c7d0b0620e7e4dbe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 60790f0f31915a50829df09d039a4f74860a47d7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227989"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076429"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>管理 Azure DevTest Labs 公式
 
@@ -44,39 +44,35 @@ ms.locfileid: "51227989"
 
 3. 從實驗室清單中，選取所需的實驗室。  
 
-4. 在實驗室的刀鋒視窗上，選取 [公式 (可重複使用的基底)] 。
+4. 在實驗室的頁面上，選取 [公式 (可重複使用的基底)] 。
    
     ![公式功能表](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
 
-5. 在 [公式] 刀鋒視窗上，選取 [+新增]。
+5. 在 [公式] 頁面上，選取 [+新增]。
    
     ![加入公式](./media/devtest-lab-create-formulas/add-formula.png)
 
-6. 在 [選擇基底]  刀鋒視窗上，選取您想要用來建立公式的基底 (自訂映像、Marketplace 映像或公式)。
+6. 在 [選擇基底]  頁面上，選取您想要從中建立公式的基底 (自訂映像、Marketplace 映像或公式)。
    
     ![基本清單](./media/devtest-lab-create-formulas/base-list.png)
 
-7. 在 [建立公式]  刀鋒視窗上，指定下列值：
+7. 在 [建立公式] 頁面的 [基本設定] 索引標籤上，指定下列值：
    
     * **公式名稱** - 輸入公式的名稱。 當您建立 VM 時，這個值會在顯示在基本映像清單中。 輸入名稱時會立即驗證，如果無效，則會出現訊息指出有效名稱的需求。
-    * **描述** - 輸入公式的有意義描述。 當您建立 VM 時，可以從公式的操作功能表使用這個值。
     * **使用者名稱** - 輸入被授與系統管理員權限的使用者名稱。
     * **密碼** - 從下拉式清單中輸入或選取一個值，該值與您想用於指定使用者的密碼相關聯。 若要深入了解如何在金鑰保存庫中儲存祕密以及在建立實驗室資源時使用它們，請參閱[在 Azure Key Vault 中儲存祕密](devtest-lab-store-secrets-in-key-vault.md)。
-    * **虛擬機器磁碟類型** - 指定 HDD (硬碟) 或 SSD (固態硬碟)，以表示使用此基本映像佈建的虛擬機器可使用哪種儲存磁碟類型。
-    * **虛擬機器大小** - 選取其中一個預先定義的項目，以指定要建立之 VM 的處理器核心、RAM 大小和硬碟大小。 
-    * **構件** - 選取以開啟 [新增構件] 刀鋒視窗，以選取並設定您想要新增至基本映像的構件。 如需構件的詳細資訊，請參閱[建立 Azure DevTest Labs 虛擬機器的自訂構件](devtest-lab-artifact-author.md)。
-    * **進階設定** - 選取以開啟 [進階] 刀鋒視窗，以進行下列設定︰
-        * **虛擬網路** - 指定所需的虛擬網路。
-        * **子網路** - 指定所需的子網路。    
-        * **IP 位址組態** - 指定您想要公用、私人或共用 IP 位址。 如需共用 IP 位址的詳細資訊，請參閱[了解 Azure DevTest Labs 中的共用 IP 位址](./devtest-lab-shared-ip.md)。
-        * **允許宣告此機器** -「允許宣告」機器表示建立機器時不會指派擁有權。 實驗室使用者將能夠在實驗室的刀鋒視窗中，取得 (「宣告」) 機器的擁有權。     
-    * **映像** - 這個欄位會顯示您在前一個刀鋒視窗上選取的基本映像名稱。 
-     
-       ![建立公式](./media/devtest-lab-create-formulas/create-formula.png)
+    * **VM 大小** - 選取 [變更大小] 以變更 VM 的大小。 
+    * **成品** - 選取 [新增或移除成品] 頁面，在其中選取並設定您想要新增到基底映像中的成品。 如需構件的詳細資訊，請參閱[建立 Azure DevTest Labs 虛擬機器的自訂構件](devtest-lab-artifact-author.md)。
+8. 切換 [進階設定] 索引標籤，然後指定下列值：
+    - **虛擬網路** - 若要變更虛擬網路，請選取 [變更 Vnet]。 
+    - **子網路** - 若要變更子網路，請選取 [變更子網路]。 
+    - **IP 位址組態** - 指定您想要公用、私人或共用 IP 位址。 如需共用 IP 位址的詳細資訊，請參閱[了解 Azure DevTest Labs 中的共用 IP 位址](./devtest-lab-shared-ip.md)。
+    - **到期日和時間** - 指定 VM 的到期日和時間，以便自動刪除 VM。 
+    - **允許宣告此機器** -「允許宣告」機器表示建立機器時不會指派擁有權。 取而代之的是，實驗室使用者將能夠在實驗室的頁面中，取得 (認領) 機器的擁有權。     
+    - **可認領的執行個體數目** - 指定您想要建立的可認領執行個體數目。 
+8. 選取 [提交] 以建立公式。
 
-8. 選取 [建立]  以建立公式。
-
-9. 公式建立之後會顯示在 [公式] 刀鋒視窗的清單中。
+9. 公式在建立之後會顯示在 [公式] 頁面的清單中。
 
 ### <a name="create-a-formula-from-a-vm"></a>從 VM 建立公式
 下列步驟會引導您完成根據現有 VM 建立公式的程序。 
@@ -89,15 +85,15 @@ ms.locfileid: "51227989"
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 3. 從實驗室清單中，選取所需的實驗室。  
-4. 在實驗室的 [概觀]  刀鋒視窗中，選取要從中建立公式的 VM。
+4. 在實驗室的 [概觀]  頁面上，選取您想要從中建立公式的 VM。
    
     ![實驗室 VM](./media/devtest-lab-create-formulas/my-vms.png)
-5. 在 VM 的刀鋒視窗上，選取 [建立公式 (可重複使用的基底)] 。
+5. 在 VM 的頁面上，選取 [建立公式 (可重複使用的基底)]。
    
     ![建立公式](./media/devtest-lab-create-formulas/create-formula-menu.png)
-6. 在 [建立公式] 刀鋒視窗上，輸入新公式的 [名稱] 和 [描述]。
+6. 在 [建立公式] 頁面上，輸入新公式的 [名稱] 和 [描述]。
    
-    ![建立公式刀鋒視窗](./media/devtest-lab-create-formulas/create-formula-blade.png)
+    ![建立公式頁面](./media/devtest-lab-create-formulas/create-formula-blade.png)
 7. 選取 [確定]  以建立公式。
 
 ## <a name="modify-a-formula"></a>修改公式
@@ -106,11 +102,11 @@ ms.locfileid: "51227989"
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 3. 從實驗室清單中，選取所需的實驗室。  
-4. 在實驗室的刀鋒視窗上，選取 [公式 (可重複使用的基底)] 。
+4. 在實驗室的頁面上，選取 [公式 (可重複使用的基底)] 。
    
     ![公式功能表](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
-5. 在 [Lab formulas] \(實驗室公式)  刀鋒視窗上，選取您想要修改的公式。
-6. 在 [更新公式] 刀鋒視窗上，進行所需的編輯，然後選取 [更新]。
+5. 在 [Lab formulas] \(實驗室公式\) 頁面上，選取您想要修改的公式。
+6. 在 [更新公式] 頁面上，進行所需的編輯，然後選取 [更新]。
 
 ## <a name="delete-a-formula"></a>刪除公式
 若要刪除公式，請遵循下列步驟︰
@@ -118,10 +114,10 @@ ms.locfileid: "51227989"
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 3. 從實驗室清單中，選取所需的實驗室。  
-4. 在實驗室的 [設定] 刀鋒視窗上，選取 [公式]。
+4. 在實驗室的 [設定] 頁面上，選取 [公式]。
    
     ![公式功能表](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
-5. 在 [Lab formulas] \(實驗室公式)  刀鋒視窗上，選取您想要刪除之公式右邊的省略符號。
+5. 在 [Lab formulas] \(實驗室公式) 頁面上，選取您想要刪除之公式右邊的省略符號。
    
     ![公式功能表](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
 6. 在公式的操作功能表上，選取 [刪除] 。

@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 399cecc3-aa62-4914-8b6c-5a35289820c1
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: be49cbba53441124bd538a5d82e8c0e1d20d9e45
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 057775f7818d1a6dc521fe81b01748fa40085cc8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433057"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174239"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>教學課程：Azure Active Directory 與 Grovo 整合
 
@@ -110,7 +110,7 @@ Grovo 與 Azure AD 整合提供下列優點：
 
     ![Grovo 網域與 URL 單一登入資訊](./media/grovo-tutorial/tutorial_grovo_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.grovo.com/sso/saml2/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.grovo.com/sso/saml2/metadata`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
@@ -232,7 +232,7 @@ Grovo 與 Azure AD 整合提供下列優點：
 
 本節的目標是要在 Grovo 中建立一個名為 Britta Simon 的使用者。 Grovo 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 當您嘗試存取 Grovo 時，如果 Grovo 還沒有使用者，它就會建立新的使用者。
 >[!Note]
->如果您需要手動建立使用者，請連絡 [Grovo 支援小組](https://www.grovo.com/contact-us)。
+>如果您需要手動建立使用者，請連絡  [Grovo 支援小組](https://www.grovo.com/contact-us)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -269,7 +269,7 @@ Grovo 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Grovo] 圖格時，應該會自動登入您的 Grovo 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

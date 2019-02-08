@@ -11,22 +11,24 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 9d566c0f95325635c5ce5030f4d3b22dba7ceb08
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/25/2019
+ms.openlocfilehash: 719e8c605dfc91b1d9c358158aa3dca248173f90
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726026"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472009"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database 購買模型
 
 Azure SQL Database 可讓您輕鬆地購買符合您效能和成本需求且完全受控的 PaaS 資料庫引擎。 您可以根據 Azure SQL Database 的部署模型，選擇符合您需求的購買模型：
+
 - [以 V 核心形式的購買模型](sql-database-service-tiers-vcore.md) (建議)，可讓您選擇確切的儲存體容量，並計算所需的工作負載。
 - [以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)，可讓您針對常見的工作負載，選擇搭配平衡的計算和儲存體套件。
 
 Azure SQL Database 部署模型提供不同的購買模型：
-- [Azure SQL Database](sql-database-technical-overview.md) 中的[邏輯伺服器](sql-database-logical-servers.md)提供以 [DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以 V 核心形式的購買模型](sql-database-service-tiers-vcore.md)。 在此購買模型內，您可以選擇[單一資料庫](sql-database-single-databases-manage.md)或[彈性集區](sql-database-elastic-pool.md)。
+
+- [Azure SQL Database](sql-database-technical-overview.md) 中的[單一資料庫](sql-database-single-databases-manage.md)與[彈性集區](sql-database-elastic-pool.md)提供[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以 V 核心形式的購買模型](sql-database-service-tiers-vcore.md)。 
 - Azure SQL Database 中的[受控執行個體](sql-database-managed-instance.md)僅提供[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 
 > [!IMPORTANT]
@@ -64,7 +66,7 @@ Azure SQL Database 部署模型提供不同的購買模型：
 
 ### <a name="database-transaction-units-dtus"></a>資料庫交易單位 (DTU)
 
-針對[服務層](sql-database-single-database-scale.md)中特定計算大小的單一 Azure SQL Database，Microsoft 保證該資料庫具備特定的資源層級 (與 Azure 雲端的其他任何資料庫無關)，並提供可預測的效能等級。 資源數量會計算為資料庫交易單位 (DTU) 數量，且為計算、儲存體和 I/O 資源的配套測量。 這些資源的比率，原本是由專為一般實際 OLTP 工作負載所設計的 [OLTP 基準測試工作負載](sql-database-benchmark-overview.md)來判定。 若您的工作負載超過這些任一資源的數量，系統即會節流處理輸送量，因而導致效能變慢和逾時。 您工作負載使用的資源，不會影響到 Azure 雲端中其他 SQL Database 的可用資源，且其他工作負載所用的資源亦不會影響到您 SQL Database 的可用資源。
+針對[服務層](sql-database-single-database-scale.md)中特定計算大小的單一資料庫，Microsoft 保證該資料庫具備特定的資源層級 (與 Azure 雲端的其他任何資料庫無關)，並提供可預測的效能等級。 資源數量會計算為資料庫交易單位 (DTU) 數量，且為計算、儲存體和 I/O 資源的配套測量。 這些資源的比率，原本是由專為一般實際 OLTP 工作負載所設計的 [OLTP 基準測試工作負載](sql-database-benchmark-overview.md)來判定。 若您的工作負載超過這些任一資源的數量，系統即會節流處理輸送量，因而導致效能變慢和逾時。 您工作負載使用的資源，不會影響到 Azure 雲端中其他 SQL Database 的可用資源，且其他工作負載所用的資源亦不會影響到您 SQL Database 的可用資源。
 
 ![週框方塊](./media/sql-database-what-is-a-dtu/bounding-box.png)
 

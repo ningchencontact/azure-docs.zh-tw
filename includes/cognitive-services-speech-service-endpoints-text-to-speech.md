@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: wolfma
-ms.openlocfilehash: e0a00ffac1921adab3ce120d65fcccaa8b2d231f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 933ee0ce6885960d5b35f67a0a4ee50602fe55c8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381390"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55148048"
 ---
 ### <a name="neural-voices"></a>神經語音
 
@@ -20,6 +20,9 @@ ms.locfileid: "53381390"
 | 美國東部 | https://eastus.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 東南亞 | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 西歐 | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
+
+> [!IMPORTANT]
+> Microsoft Server Speech 文字轉換語音之語音 (zh-CN、XiaoxiaoNeural) 只能透過東南亞端點 (https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1) 提供。 如需神經語音的完整清單，請參閱[語言支援](../articles/cognitive-services/speech-service/language-support.md)。
 
 ### <a name="standard-voices"></a>標準語音
 

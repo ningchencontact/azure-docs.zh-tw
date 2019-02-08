@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2018
+ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 105a836f609859825c273ed9fba9dd46237bcaa9
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9120e5f283f8d8da8da2c80959a335965a643409
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447933"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903888"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 部署模式
 
@@ -24,14 +24,11 @@ ms.locfileid: "54447933"
 
 ## <a name="incremental-and-complete-deployments"></a>累加部署與完整部署
 
-部署資源時：
+在這兩種模式中，Resource Manager 都會嘗試建立範本內指定的所有資源。 如果資源已存在於資源群組中，且其設定保持不變，則不會對該資源執行任何作業。 如果您變更資源的屬性值，則會以這些新值來更新資源。 如果您嘗試更新現有資源的位置或類型，部署會失敗並發生錯誤。 相反地，請以您需要的位置或類型部署新的資源。
 
-* 在完整模式中，Resource Manager 會**刪除**現存於資源群組中但未在範本內指定的資源。 不過，那些仍受到指定，但因為條件評估沒過而未部署的資源並不會刪除。
-* 在累加模式中，Resource Manager 會讓現存於資源群組中但未在範本內指定的資源**保持不變**。
+在完整模式中，Resource Manager 會**刪除**現存於資源群組中但未在範本內指定的資源。 資源如果是範本中已指定的資源，但因為某個[條件](resource-manager-templates-resources.md#condition)評估為 false 而未部署，則不會被刪除。
 
-在這兩種模式中，Resource Manager 都會嘗試建立範本內指定的所有資源。 如果資源已存在於資源群組中，且其設定保持不變，此作業不會導致任何變更。 如果您變更資源的屬性值，則會以這些新值來更新資源。 如果您嘗試更新現有資源的位置或類型，部署會失敗並發生錯誤。 相反地，請以您需要的位置或類型部署新的資源。
-
-以累加模式重新部署資源時，指定資源的所有屬性值，而不只是您正在更新的屬性值。 如果您未指定特定屬性，Resource Manager 會將更新解譯為覆寫這些值。
+在累加模式中，Resource Manager 會讓現存於資源群組中但未在範本內指定的資源**保持不變**。 以累加模式重新部署資源時，指定資源的所有屬性值，而不只是您正在更新的屬性值。 如果您未指定特定屬性，Resource Manager 會將更新解譯為覆寫這些值。
 
 ## <a name="example-result"></a>範例結果
 

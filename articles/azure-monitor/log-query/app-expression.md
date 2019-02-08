@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: e83ba321a98e40f07ff82e68c7961c2a6a49076d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2d6f3517e988d6bd66ee9007e072ee87c71d1340
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191830"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104655"
 ---
 # <a name="app-expression-in-log-analytics-query"></a>Log Analytics 查詢中的 app() 運算式
 
@@ -48,6 +48,7 @@ ms.locfileid: "53191830"
 * 您必須有應用程式的讀取權限。
 * 以應用程式名稱來識別應用程式時，會假設該名稱在所有可存取的訂用帳戶中是唯一的。 如果您有多個應用程式具有該指定名稱，查詢將會因為語意模糊而失敗。 在此情況下，您必須使用其中一種其他識別碼。
 * 使用相關的運算式 [workspace](workspace-expression.md) 跨 Log Analytics 工作區進行查詢。
+* 使用 Azure 入口網站來建立[自訂記錄搜尋警示規則](../platform/alerts-log.md)時，除非使用 Application Insights 應用程式作為警示規則的資源，否則搜尋查詢中目前不支援 app() 運算式。
 
 ## <a name="examples"></a>範例
 

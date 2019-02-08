@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b4b49cd679ee5d770696b4fa5cc29ebdd908cecf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816339"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093116"
 ---
 # <a name="application-types-in-v10"></a>v1.0 中的應用程式類型
 
@@ -37,7 +37,7 @@ Azure Active Directory (Azure AD) 支援各種新型應用程式架構的驗證�
 - **[網頁瀏覽器到 Web 應用程式](web-app.md)**：使用者必須登入 Azure AD 所保護的 Web 應用程式。
 - **[原生應用程式到 Web API](native-app.md)**：在手機、平板電腦或電腦上執行的原生應用程式必須驗證使用者，才能從 Azure AD 所保護的 Web API 取得資源。
 - **[Web 應用程式到 Web API](web-api.md)**：Web 應用程式必須從 Azure AD 所保護的 Web API 取得資源。
-- **[精靈或伺服器應用程式到 Web API](service-to-service.md)**：無 Web 使用者介面的精靈應用程式或伺服器應用程式，必須從 Azure AD 所保護的 Web API 取得資源。
+- **[精靈或伺服器應用程式到 Web API](service-to-service.md)**：無 Web 使用者介面的精靈應用程式或伺服器應用程式必須從 Azure AD 所保護的 Web API 取得資源。
 
 在開始使用程式碼之前，請參考相關連結以深入了解各種類型的應用程式，並了解概要的案例。 您也可以了解在撰寫與 v1.0 端點或 v2.0 端點搭配運作的特定應用程式時所需了解的差異。
 

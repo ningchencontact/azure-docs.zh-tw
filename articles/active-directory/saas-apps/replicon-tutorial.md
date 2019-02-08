@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 02a62f15-917c-417c-8d80-fe685e3fd601
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 10f4749524c4d4b35b83e5637d35f4ef9a8f9ab6
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 118cdf11b08b1cd964bfae7ae2b3c5600b27fb7c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041325"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192140"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>教學課程：Azure Active Directory 與 Replicon 整合
 
@@ -177,7 +177,7 @@ ms.locfileid: "39041325"
 
 ### <a name="create-a-replicon-test-user"></a>建立 Replicon 測試使用者
 
-本節的目標是在 Replicon 中建立名為 Britta Simon 的使用者。 Replicon 支援自動使用者佈建，該功能預設為啟用。 您可以在[這裡](replicon-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
+本節的目標是在 Replicon 中建立名為 Britta Simon 的使用者。
 
 **如果您需要手動建立使用者，請執行下列步驟：**
 
@@ -249,7 +249,6 @@ ms.locfileid: "39041325"
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
-* [設定使用者佈建](replicon-provisioning-tutorial.md)
 
 <!--Image references-->
 

@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 39dcbb95-c192-448c-86a1-cedede1c0972
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: c08b57c41cc43bfa47dee69a75663e7a58ef4c21
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f7973ccb384a8e882a9ced5020a53824bf0c4e7d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632835"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169870"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-drift"></a>教學課程：Azure Active Directory 與 Drift 整合
 
@@ -128,7 +128,7 @@ Drift 與 Azure AD 整合提供下列優點：
     
     | 屬性名稱 | 屬性值 |
     | ---------------| --------------- |    
-    | 名稱 | user.displayname |
+    | Name | user.displayname |
 
     a. 按一下 `name` 宣告 (反白顯示的宣告)，以開啟 [管理使用者宣告] 對話方塊。
 

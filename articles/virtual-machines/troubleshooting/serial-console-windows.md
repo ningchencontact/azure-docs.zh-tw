@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b280c86b15f7af01b04d41b4c2d625ea4ec4a398
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432756"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104308"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>適用於 Windows 的虛擬機器序列主控台
 
@@ -136,6 +136,13 @@ Azure 上的新版 Windows Server 映像預設會啟用[特殊系統管理主控
 
 ### <a name="use-wsl-in-serial-console"></a>在序列主控台中使用 WSL
 Windows Server 2019 或更新版本已支援適用於 Linux 的 Windows 子系統 (WSL)，所以如果您是執行 Windows Server 2019 或更新版本，也可以啟用 WSL 以在序列主控台內使用。 這對已經熟悉 Linux 命令使用者來說可能有許多好處。 若要啟用 Windows Server 的 WSL，請參閱[安裝指南](https://docs.microsoft.com/windows/wsl/install-on-server)。
+
+### <a name="restart-your-windows-vm-within-serial-console"></a>在序列主控台內重新啟動 Windows VM
+您可以在序列主控台內瀏覽至 [電源] 按鈕，然後按一下 [重新啟動 VM] 來重新啟動 VM。 這將會起始 VM 重新啟動，而且您會在 Azure 入口網站內看到與重新啟動有關的通知。
+
+在想要於不需要離開序列主控台的情況下存取 VM 開機功能表時，這很有用。
+
+![Windows 序列主控台重新啟動](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
 ## <a name="disable-serial-console"></a>停用序列主控台
 根據預設，所有訂用帳戶都已啟用所有 VM 的序列主控台存取權。 您可以在訂用帳戶層級或 VM 層級停用序列主控台。

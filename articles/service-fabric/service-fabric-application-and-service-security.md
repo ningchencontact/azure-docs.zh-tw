@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: ryanwi
-ms.openlocfilehash: fa6d46186ad833b68e60c24f742d210b7845759a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f83f7afa4173316f127c76f20967054bf13c9a6b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207905"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097882"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 應用程式和服務安全性
 微服務架構可以帶來[許多優點](service-fabric-overview-microservices.md)。 不過，管理微服務的安全性是一種挑戰，而且與管理傳統的整合型應用程式安全性有所不同。 
@@ -46,7 +46,7 @@ ms.locfileid: "34207905"
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>使用 API 閘道來限制和保護存取權
 雲端應用程式通常需要前端閘道來為使用者、裝置或其他應用程式提供單一輸入點。 [API 閘道](/azure/architecture/microservices/gateway)位於用戶端與服務之間，這是通往您應用程式所提供之所有服務的進入點。 它會作為反向 Proxy，將要求從用戶端路由傳送到服務。 它也會執行各種跨領域工作，例如驗證和授權、SSL 終止和速率限制。 如果您未部署閘道，用戶端就必須將要求直接傳送給前端服務。
 
-在 Service Fabric 中，閘道可以是任何無狀態服務 (例如 [ASP.NET Core 應用程式](service-fabric-reliable-services-communication-aspnetcore.md))，或是專為流量輸入設計的另一項服務 (例如，[Træfik](https://docs.traefik.io/)、[事件中樞](https://docs.microsoft.com/azure/event-hubs/)、[IoT 中樞](https://docs.microsoft.com/azure/iot-hub/)或 [Azure API 管理](https://docs.microsoft.com/azure/api-management))。
+在 Service Fabric 中，閘道可以是任何無狀態服務 (例如 [ASP.NET Core 應用程式](service-fabric-reliable-services-communication-aspnetcore.md))，或是為流量輸入設計的另一個服務 (例如，[Traefik](https://docs.traefik.io/)、[事件中樞](https://docs.microsoft.com/azure/event-hubs/)、[IoT 中樞](https://docs.microsoft.com/azure/iot-hub/)或 [Azure API 管理](https://docs.microsoft.com/azure/api-management))。
 
 「API 管理」直接與 Service Fabric 整合，可讓您將具有一組豐富路由規則的 API 發佈至後端 Service Fabric 服務。  您可以保護後端服務的存取、使用節流來預防 DOS 攻擊，或驗證 API 金鑰、JWT 權杖、憑證和其他認證。 若要深入了解，請參閱 [Service Fabric 搭配 Azure API 管理概觀](service-fabric-api-management-overview.md)。
 

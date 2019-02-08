@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 144f7f65-69e9-4016-a151-fe1104fd6ba8
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 5ecb0e87d45cc01b65c91ee4c5c9d29806999269
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 984c5ceab0115d464633094d20deb35761eb80f0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431676"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178642"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>教學課程：Azure Active Directory 與 EBSCO 整合
 
@@ -243,7 +243,7 @@ Azure AD 會將所需的資料傳遞至 EBSCO 應用程式。 EBSCO 的使用者
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 1. 當您在存取面板中按一下 EBSCO 圖格時，應該會自動登入您的 EBSCO 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 1. 登入應用程式後，請按一下右上角的 [登入] 按鈕。
 

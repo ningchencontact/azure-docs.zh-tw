@@ -1,5 +1,5 @@
 ---
-title: 如何將 Azure 訂用帳戶連結到 Azure Active Directory B2C | Microsoft Docs
+title: 如何連結 Azure 訂用帳戶 - Azure Active Directory B2C | Microsoft Docs
 description: 啟用 Azure 訂用帳戶內 Azure AD B2C 租用戶計費的逐步指南。
 services: active-directory-b2c
 author: davidmu1
@@ -7,27 +7,29 @@ manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: e39b7472904e7635340327d311eb7d4b9123f51e
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: c914b3a3ab40971cf9318cafc787d358dab2faff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853182"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196169"
 ---
-# <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>將 Azure 訂用帳戶連結至 Azure AD B2C 租用戶
+# <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>將 Azure 訂用帳戶連結至 Azure Active Directory B2C 租用戶
 
 > [!IMPORTANT]
-> Azure AD B2C 的最新使用計費和價格資訊位於下列網頁︰[Azure AD B2C 價格](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> 如需有關 Azure Active Directory (Azure AD) B2C 之使用量計費和定價的最新資訊，請參閱 [Azure AD B2C 價格](https://azure.microsoft.com/pricing/details/active-directory-b2c/)。
 
 Azure AD B2C 的使用費用會計入 Azure 訂用帳戶。 建立 Azure AD B2C 租用戶後，租用戶系統管理員必須明確地將 Azure AD B2C 租用戶連結至 Azure 訂用帳戶。 本文將說明如何做到。
 
 > [!NOTE]
 > 連結至 Azure AD B2C 租用戶的訂用帳戶可用於 Azure AD B2C 使用量或其他 Azure 資源 (包括額外 Azure AD B2C 資源) 的計費。  此訂用帳戶無法用來在 Azure AD B2C 租用戶內新增其他 Azure 授權型服務或 Office 365 授權。
 
- 在目標 Azure 訂用帳戶內建立 Azure AD B2C「資源」，即可達成此訂用帳戶連結。 在單一 Azure 訂用帳戶內可以建立許多 Azure AD B2C「資源」，以及其他 Azure 資源 (例如，VM、資料儲存體、LogicApps)。 移至與訂用帳戶相關聯的 Azure AD 租用戶，您即可看到訂用帳戶內的所有資源。
+在目標 Azure 訂用帳戶內建立 Azure AD B2C「資源」，即可達成此訂用帳戶連結。 在單一 Azure 訂用帳戶內可以建立許多 Azure AD B2C「資源」，以及其他 Azure 資源 (例如，VM、資料儲存體、LogicApps)。 移至與訂用帳戶相關聯的 Azure AD 租用戶，您即可看到訂用帳戶內的所有資源。
+
+Azure AD B2C 支援 Azure 雲端解決方案提供者 (CSP) 訂用帳戶。 針對 Azure AD B2C 及所有 Azure 資源使用 API 或 Azure 入口網站時，都會提供此功能。 CSP 訂用帳戶管理員可以連結、移動及刪除與 Azure AD B2C 的關聯性，就像對所有 Azure 資源所採用的方式一樣。 使用角色型存取控制進行的 Azure AD B2C 管理並不受 Azure AD B2C 租用戶與 Azure CSP 訂用帳戶之間關聯性的影響。 角色型存取控制是透過使用租用戶型角色來達成的，不是透過訂用帳戶型角色。
 
 需要有效的 Azure 訂用帳戶才能繼續執行。
 
@@ -81,10 +83,6 @@ Azure AD B2C 的使用費用會計入 Azure 訂用帳戶。 建立 Azure AD B2C 
 ![B2C 資源設定](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 ## <a name="known-issues"></a>已知問題
-
-### <a name="csp-subscriptions"></a>CSP 訂用帳戶
-
-目前，Azure AD B2C 租用戶**無法**連結至 CSP 訂用帳戶。
 
 ### <a name="self-imposed-restrictions"></a>自行加入的限制
 

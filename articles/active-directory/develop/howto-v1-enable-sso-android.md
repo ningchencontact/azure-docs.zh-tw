@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 2c7ccd8d2022631e32c240007a782d2382aac518
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9f0cc19ae220d27de620e5bd347fe78d9bfab2d5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422842"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093286"
 ---
-# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>操作說明：使用 ADAL 在 Android 上啟用跨應用程式的 SSO
+# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>作法：使用 ADAL 在 Android 上啟用跨應用程式的 SSO
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -108,7 +108,7 @@ Microsoft 為每個行動平台提供應用程式，允許跨不同廠商的應�
 2. 建立新的重新導向 URI，並將其提供給應用程式與應用程式註冊
 3. 在 Android 資訊清單中設定正確的權限
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>步驟 1︰在應用程式中啟用訊息代理程式模式
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>步驟 1：在應用程式中啟用訊息代理程式模式
 
 當您建立「設定」或驗證執行個體的初始設定時，已開啟應用程式使用訊息代理程式的功能。 若要在您的應用程式中執行此動作：
 
@@ -116,7 +116,7 @@ Microsoft 為每個行動平台提供應用程式，允許跨不同廠商的應�
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>步驟 2︰利用 URL 配置建立新的重新導向 URI
+#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>步驟 2：利用 URL 配置建立新的重新導向 URI
 
 為了確保傳回的認證權杖一律會由正確的應用程式所接收，必須要確定 Android 作業系統可以確認回呼應用程式的方式。 Android 作業系統會使用 Google Play 商店中的憑證雜湊。 惡意應用程式無法假冒此憑證雜湊。 搭配訊息代理程式應用程式的 URI，Microsoft 可確保權杖會傳回給正確的應用程式。 唯一的重新導向 URI 必須註冊於應用程式上。
 

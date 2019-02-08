@@ -1,6 +1,6 @@
 ---
-標題：在 Machine Learning Studio 中解譯模型結果標題字尾： Azure Machine Learning Studio 說明：如何針對使用和視覺化評分模型輸出的演算法選擇最佳的參數設定。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：在 Machine Learning Studio 中解譯模型結果標題字尾：Azure Machine Learning Studio 說明：如何針對使用和視覺化評分模型輸出的演算法選擇最佳的參數設定。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:11/29/2017
 ---

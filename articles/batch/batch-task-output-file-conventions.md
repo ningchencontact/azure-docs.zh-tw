@@ -3,7 +3,7 @@ title: 使用適用於 .NET 的檔案慣例程式庫將作業和工作輸出保�
 description: 了解如何使用適用於 .NET 的 Azure Batch 檔案慣例程式庫，將 Batch 工作和作業輸出保存到 Azure 儲存體，並在 Azure 入口網站檢視保存的輸出。
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2f6ac523d7944f80da1b75993bfd05d617eb8f85
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 970cab2c782e71defbda828a42273f317dee80e4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706597"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472978"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>使用適用於 .NET 的 Batch 檔案慣例程式庫將作業和工作輸出保存到 Azure 儲存體
 
@@ -115,7 +115,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 這些輸出類型可供您在稍後針對特定工作的保存輸出查詢 Batch 時，指定要列出的輸出類型。 換句話說，當您列出某個工作的輸出時，可以根據其中一個輸出類型來篩選清單。 例如，「給我工作 *109* 的 *preview* 輸出」。 本文稍後的 [擷取輸出](#retrieve-output) 會提供列出和擷取輸出的詳細資訊。
 
 > [!TIP]
-> 輸出類型也會決定特定檔案出現在 Azure 入口網站的位置：TaskOutput 類別的檔案會出現在 [工作輸出檔案] 底下，而 TaskLog 檔案會出現在 [工作記錄] 底下。
+> 輸出類型也會決定特定檔案出現在 Azure 入口網站的位置：*TaskOutput* 類別的檔案會出現在 [工作輸出檔案] 底下，而 TaskLog 檔案會出現在 [工作記錄] 底下。
 
 ### <a name="store-job-outputs"></a>儲存工作輸出
 

@@ -11,24 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 3ed38ce75e5ee7c9f05533d64b28171482bfec51
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9c8bff5a0a4f1599a3d23e0c7b07a1caca536a9b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725927"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153958"
 ---
-# <a name="liveevent-types-comparison"></a>LiveEvent 類型比較
+# <a name="live-event-types-comparison"></a>實況活動類型比較
 
-在 Azure 媒體服務中，[LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) 可以是以下兩種類型之一：即時編碼和即時通行。 
+在「Azure 媒體服務」中，[實況活動](https://docs.microsoft.com/rest/api/media/liveevents)可以是以下兩種類型之一：即時編碼和傳遞。 
 
 ## <a name="types-comparison"></a>類型比較 
 
-下表比較兩種 LiveEvent 類型的功能。
+下表比較兩種「實況活動」類型的功能。
 
-| 功能 | 即時通行 LiveEvent | 標準 LiveEvent |
+| 功能 | 傳遞實況活動 | 標準實況活動 |
 | --- | --- | --- |
 | 單一位元速率輸入會在雲端編碼為多重位元速率 |否 |是 |
 | 發佈摘要的影片最大解析度 |4K (4096x2160，每秒 60 格畫面) |1080p (1920x1088，每秒 30 格畫面)|
@@ -50,10 +50,10 @@ ms.locfileid: "53725927"
 | 插入靜態圖像支援|否|否|
 | 支援透過 API 發出廣告訊號| 否|否|
 | 支援透過 SCTE-35 頻內訊息發出廣告訊號|是|是|
-| 在比重摘要內能從短暫延遲中復原的能力|是|否 (經過 6 秒以上且未有任何輸入資料時，LiveEvent 便會開始靜態圖像)|
+| 在比重摘要內能從短暫延遲中復原的能力|是|否 (在超過 6 秒沒有任何輸入資料之後，「實況活動」便會開始顯示靜態圖像)|
 | 支援未統一輸入的 GOP|是|否 – 輸入必須有固定的 GOP 持續期間|
 | 支援變動畫面播放速率輸入|是|否 – 輸入必須為固定畫面播放速率。 輕微的差異可以接受，例如：處於高速動態場景的情況。 但是發佈摘要無法降低畫面播放速率 (例如，每秒 15 格畫面)。|
-| 在輸入摘要遺失時自動關閉 LiveEvent|否|經過 12 個小時，如果沒有 LiveOutput 仍在執行|
+| 在遺失輸入摘要時自動關閉實況活動|否|經過 12 個小時，如果沒有 LiveOutput 仍在執行|
 
 ## <a name="next-steps"></a>後續步驟
 

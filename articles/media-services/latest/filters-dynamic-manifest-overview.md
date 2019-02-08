@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 7dc2136fe6ee28da0583ebdb2b2749ddf1c37049
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728035"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912028"
 ---
 # <a name="filters-and-dynamic-manifests"></a>篩選器與動態資訊清單
 
@@ -124,8 +124,8 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 |---|---|
 |**endTimestamp**|絕對結束時間界限。 適用於點播視訊 (VoD)。 對於即時簡報，系統會以無訊息方式忽略它並在簡報結束時套用，然後資料流會成為 VoD。<br/><br/>此值代表資料流的絕對結束點。 系統會將它四捨五入到最接近的下一個 GOP 起始。<br/><br/>使用 StartTimestamp 和 EndTimestamp 修剪播放清單 (資訊清單)。 例如，StartTimestamp=40000000 和 EndTimestamp = 100000000 會產生包含 StartTimestamp 和 EndTimestamp 之間媒體的播放清單。 如果片段跨越界限，則整個片段都會包含在資訊清單中。<br/><br/>此外，請參閱下列 **forceEndTimestamp** 定義。|
 |**forceEndTimestamp**|適用於即時篩選器。<br/><br/>**forceEndTimestamp** 是布林值，指出 **endTimestamp** 是否設定為有效值。 <br/><br/>如果值為 **true**，就會指定 **endTimestamp** 值。 如果未指定，則會傳回不正確的要求。<br/><br/>例如，如果您想要在輸入視訊中定義在 5 分鐘時開始的篩選器，並且持續直到資料流結束，您可以將 **forceEndTimestamp** 設定為 false，並省略設定 **endTimestamp**。|
-|**liveBackoffDuration**|僅適用於即時。 此屬性用於定義即時播放位置。 您可以使用此規則來延遲即時播放位置，並為播放程式建立伺服器端緩衝區。 LiveBackoffDuration 是相對於即時位置。 即時輪詢持續時間的最大值是 60 秒。|
-|**presentationWindowDuration**|適用於即時。 使用 **presentationWindowDuration**，將滑動視窗套用至播放清單。 例如，設定 presentationWindowDuration=1200000000 以套用兩分鐘長的滑動視窗。 在即時邊緣 2 分鐘內的媒體都會包含在播放清單中。 如果片段跨越界限，則整個片段都會包含在播放清單中。 簡報視窗持續時間的最小值是 120 秒。|
+|**liveBackoffDuration**|僅適用於即時。 此屬性用於定義即時播放位置。 您可以使用此規則來延遲即時播放位置，並為播放程式建立伺服器端緩衝區。 LiveBackoffDuration 是相對於即時位置。 即時輪詢持續時間的最大值是 300 秒。|
+|**presentationWindowDuration**|適用於即時。 使用 **presentationWindowDuration**，將滑動視窗套用至播放清單。 例如，設定 presentationWindowDuration=1200000000 以套用兩分鐘長的滑動視窗。 在即時邊緣 2 分鐘內的媒體都會包含在播放清單中。 如果片段跨越界限，則整個片段都會包含在播放清單中。 簡報視窗持續時間的最小值是 60 秒。|
 |**startTimestamp**|適用於 VoD 或即時資料流。 此值代表資料流的絕對起始點。 系統會將此值四捨五入到最接近的下一個 GOP 起始。<br/><br/>使用 **startTimestamp** 和 **endTimestamp** 修剪播放清單 (資訊清單)。 例如，startTimestamp=40000000 和 endTimestamp = 100000000 會產生包含 StartTimestamp 和 EndTimestamp 之間媒體的播放清單。 如果片段跨越界限，則整個片段都會包含在資訊清單中。|
 |**timescale**|適用於 VoD 或即時資料流。 timescale 是由上述指定的 timestamp 和 duration 使用。 預設的 timescale 為 10000000。 可以使用替代的 timescale。 預設值為 10000000 HNS (百奈秒)。|
 

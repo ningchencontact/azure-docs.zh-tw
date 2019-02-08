@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: c626601d9eae7732779020b153c624f80605b56a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fcf18731bd5b9bbe91541931ac68effd9de6debf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051870"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104689"
 ---
 # <a name="connect-to-a-data-source"></a>連接到資料來源
 
@@ -30,7 +30,7 @@ ms.locfileid: "43051870"
 | --- | --- |
 | 資料表、資料行 *和資料* 匯入或複製到報表的資料集中。 若要查看基礎資料發生的變更，您必須重新整理或再次匯入完整的目前資料集。 |只有 *資料表和資料行* 匯入或複製到報表的資料集中。 一律檢視最新的資料。 |
 
-有了 Power BI 工作區集合，您就可以使用 DirectQuery 搭配雲端資料來源，但目前無法使用內部部署資料來源。
+有了「Power BI 工作區集合」，您就可以使用 DirectQuery 搭配雲端資料來源，但目前無法搭配內部部署資料來源。
 
 > [!NOTE]
 > Power BI 工作區集合現階段不支援內部部署資料閘道。 這表示您無法在 DirectQuery 使用內部部署資料來源。

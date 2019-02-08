@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f5d09600829a3efa2682721bf4aedbed7e5cf969
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439063"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883767"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活動記錄監視訂用帳戶活動
 
@@ -45,7 +45,7 @@ ms.locfileid: "54439063"
 * **自動調整規模** - 所有與自動調整規模引擎 (以訂用帳戶中定義的自動調整規模設定為基礎) 作業相關的所有事件皆記錄在此類別。 您可能會在此類別中看到的事件類型範例為「自動調整規模的相應增加動作失敗」 自動調整可讓您使用自動調整設定，依據每日時間和/或負載 (計量) 資料，自動相應放大或縮小受支援資源類型中的執行個體數目。 符合相應增加或相應減少的條件時，啟動及成功或失敗事件會記錄在此類別中。
 * **Recommendation** - 此類別包含來自 Azure Advisor 的建議事件。
 * **安全性** - 此類別包含「Azure 資訊安全中心」所產生之任何警示的記錄。 其中一個您會在此類別中看到的事件類型範例為「執行疑似雙重附檔名的檔案」。
-* **原則** - 此類別不包含任何事件；它會保留供日後使用。 
+* **原則** - 此類別包含「Azure 原則」所執行所有效果動作作業的記錄。 您在此類別中會看到的事件類型範例包括 [稽核] 和 [拒絕]。 原則所採取的每個動作會模型化為資源上的作業。
 
 ## <a name="event-schema-per-category"></a>每個類別的事件結構描述
 [請參閱這篇文章以了解每一類活動記錄事件的結構描述。](../../azure-monitor/platform/activity-log-schema.md)

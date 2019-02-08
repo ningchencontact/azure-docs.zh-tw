@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: cdda1a06f32e712df71ec815f190f6346bebc135
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 4b6ef4823fc78c15dda31e96d8bd6c4f798c0e99
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711458"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097739"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向 Proxy
 Azure Service Fabric 內建的反向 Proxy 可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 http 端點的服務通訊。
@@ -80,7 +80,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **ServiceInstanceName：** 這是您嘗試不使用「fabric:/」配置來連線到之已部署服務執行個體的完整名稱。 例如，若要連線到 fabric:/myapp/myservice/ 服務，可以使用 myapp/myservice。
 
     服務執行個體名稱區分大小寫。 對於 URL 中的服務執行個體名稱使用不同的大小寫，會導致要求失敗，並顯示「404 (找不到)」。
-* **尾碼路徑︰** 這是要連線到之服務的實際 URL 路徑，例如 myapi/values/add/3。
+* **尾碼路徑︰** 這是所要連線服務的實際 URL 路徑，例如 *myapi/values/add/3*。
 * **PartitionKey：** 若為資料分割服務，這是您想要連線的資料分割計算資料分割金鑰。 請注意，這不是  資料分割識別碼 GUID。 使用單一資料分割配置的服務不需要這個參數。
 * **PartitionKind：** 這是服務資料分割配置。 這可以是 'Int64Range' 或 'Named'。 使用單一資料分割配置的服務不需要這個參數。
 * **ListenerName** 服務傳回的端點格式為 {"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}。 當服務公開多個端點時，這可識別用戶端要求應該轉送至哪個端點。 如果服務只有一個接聽程式，這可省略。
@@ -132,7 +132,7 @@ Service Fabric 反向 Proxy 會嘗試重新解析服務位址，並在無法連�
 
 在此情況下，可能是 Web 伺服器可用於主機處理序和回應要求，但已解析的服務執行個體或複本已無法再於主機上提供。 在此情況下，閘道將從 Web 伺服器收到 HTTP 404 回應。 因此，HTTP 404 回應可以有兩個不同的意義：
 
-- 案例 1︰服務位址正確，但使用者所要求的資源不存在。
+- 案例 1：服務位址正確，但使用者所要求的資源不存在。
 - 案例 2︰服務位址不正確，而且使用者所要求的資源可能存在於不同節點上。
 
 第一個案例是一般的 HTTP 404，會被視為使用者錯誤。 不過，在第二個案例中，使用者要求了存在的資源。 反向 Proxy 之所以找不到它，是因為服務本身已移動。 反向 Proxy 必須重新解析位址，然後重試要求。

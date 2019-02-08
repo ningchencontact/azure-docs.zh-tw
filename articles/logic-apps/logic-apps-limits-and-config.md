@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c33952f893d5ef2cfb9020acbf813d30b6c105e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469727"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912777"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -119,9 +119,9 @@ ms.locfileid: "54469727"
 
 | Name | 限制 | 注意 |
 |------|-------|-------|
-| FTP | 50 MB | 若要超過此限制，請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 | 
-| SFTP | 50 MB | 若要超過此限制，請使用 [SFTP-SSH 連接器](../connectors/connectors-sftp-ssh.md)或請參閱[使用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 不過，某些連接器和 API 可能不支援區塊化或甚至預設限制。 | 
-| SFTP-SSH | 1 GB | 此連接器最多可處理 1 GB，但是會以 50 MB (而非 1 GB) 為單位傳送該資料。 | 
+| FTP | 50 MB | 若要超出此限制 (僅適用於動作)，請參閱[利用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 <p>**注意**：區塊化不適用於觸發程序。 此外，有些連接器和 API 可能不支援區塊化或甚至預設限制。 | 
+| SFTP | 50 MB | 若要超出此限制 (僅適用於動作)，請使用 [SFTP-SSH 連接器](../connectors/connectors-sftp-ssh.md)，或參閱[利用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 <p>**注意**：區塊化不適用於觸發程序。 此外，有些連接器和 API 可能不支援區塊化或甚至預設限制。 | 
+| SFTP-SSH | 1 GB | 此連接器最多可處理 1 GB，但是會以 50 MB (而非 1 GB) 為單位傳送該資料。 若要超出此限制 (僅適用於動作)，請參閱[利用區塊化處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)。 <p>**注意**：區塊化不適用於觸發程序。 | 
 |||| 
 
 <a name="request-limits"></a>

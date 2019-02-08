@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: 3fe22d8bb52fa5f45ce5f1cdc7b860d1ce295a71
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: caca931806aed7e1868c126d4629073bcea4b900
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210489"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098607"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>以本機使用者或系統帳戶身分執行服務啟動指令碼
 在 Service Fabric 服務可執行檔啟動之前，可能需要執行一些設定或安裝工作。  例如，設定環境變數。 您可以在服務可執行檔於服務的服務資訊清單中啟動之前，指定要執行的指令碼。 藉由設定服務安裝程式進入點的 RunAs 原則，您可以變更安裝程式的可執行檔要在哪一個帳戶下執行。  個別的安裝程式進入點可讓您在短時間內執行高權限設定，因此，服務主機的可執行檔不需要長時間使用高權限來執行。

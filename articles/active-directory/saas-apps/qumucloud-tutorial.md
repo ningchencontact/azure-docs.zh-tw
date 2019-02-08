@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d8c4a97b-4de6-49d4-b64e-42222c2ec6c9
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 1e42d83ed7f74b366d2bca248a794cc9fb506b73
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f0701a7f046666a135c3325eb22d1d12cbd59ba0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435351"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>教學課程：Azure Active Directory 與 Qumu Cloud 整合
 
@@ -108,7 +108,7 @@ Qumu Cloud 與 Azure AD 整合提供下列優點：
 
     ![Qumu Cloud 網域和 URL 單一登入資訊](./media/qumucloud-tutorial/tutorial_qumucloud_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.qumucloud.com/saml/SSO`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.qumucloud.com/saml/SSO`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.qumucloud.com/saml/SSO`
 
@@ -197,7 +197,7 @@ Qumu Cloud 與 Azure AD 整合提供下列優點：
 
 本節目標是在 Qumu Cloud 中建立名為 Britta Simon 的使用者。 Qumu Cloud 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 Qumu Cloud 時，如果使用者尚未存在，就會建立新使用者。
 >[!Note]
->如果您需要手動建立使用者，請連絡 [Qumu Cloud 用戶端支援小組](mailto:support@qumu.com)。
+>如果您需要手動建立使用者，請連絡  [Qumu Cloud 用戶端支援小組](mailto:support@qumu.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -234,7 +234,7 @@ Qumu Cloud 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Qumu Cloud] 圖格時，應該會自動登入您的 Qumu Cloud 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

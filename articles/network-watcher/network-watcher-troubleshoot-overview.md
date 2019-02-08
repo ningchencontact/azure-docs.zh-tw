@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 2f8a41834c1451d80c53cfed4bae3b7e36281702
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 8048dde6158d9eaa9bf38a8c3020420b81bdd55b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779255"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099768"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Azure 網路監看員中的資源疑難排解簡介
 
@@ -51,7 +51,7 @@ ms.locfileid: "32779255"
 
 | 錯誤類型 | 原因 | 記錄檔|
 |---|---|---|
-| NoFault | 未偵測到任何錯誤時 |yes|
+| NoFault | 未偵測到任何錯誤時 |是|
 | GatewayNotFound | 找不到閘道或閘道尚未佈建 |否|
 | PlannedMaintenance |  閘道執行個體正在進行維護  |否|
 | UserDrivenUpdate | 當正在更新使用者時，會發生此錯誤。 此更新可能是調整大小作業。 | 否 |
@@ -59,26 +59,26 @@ ms.locfileid: "32779255"
 | PlatformInActive | 平台發生問題。 | 否|
 | ServiceNotRunning | 基礎服務並未執行。 | 否|
 | NoConnectionsFoundForGateway | 閘道上沒有任何連線存在。 此錯誤只是警告。| 否|
-| ConnectionsNotConnected | 未建立連線。 此錯誤只是警告。| yes|
-| GatewayCPUUsageExceeded | 目前的閘道 CPU 使用量 > 95%。 | yes |
+| ConnectionsNotConnected | 未建立連線。 此錯誤只是警告。| 是|
+| GatewayCPUUsageExceeded | 目前的閘道 CPU 使用量 > 95%。 | 是 |
 
 ### <a name="connection"></a>連線
 
 | 錯誤類型 | 原因 | 記錄檔|
 |---|---|---|
-| NoFault | 未偵測到任何錯誤時 |yes|
+| NoFault | 未偵測到任何錯誤時 |是|
 | GatewayNotFound | 找不到閘道或閘道尚未佈建 |否|
 | PlannedMaintenance | 閘道執行個體正在進行維護  |否|
 | UserDrivenUpdate | 當正在更新使用者時，會發生此錯誤。 此更新可能是調整大小作業。  | 否 |
 | VipUnResponsive | 由於健康情況探查失敗而無法連線到閘道的主要執行個體時，會發生此錯誤。 | 否 |
 | ConnectionEntityNotFound | 缺少連線組態 | 否 |
 | ConnectionIsMarkedDisconnected | 連線標記為「已中斷連線」 |否|
-| ConnectionNotConfiguredOnGateway | 基礎服務未設定連線。 | yes |
-| ConnectionMarkedStandy | 基礎服務標記為「待命」。| yes|
-| Authentication | 預先共用的金鑰不相符 | yes|
-| PeerReachability | 無法連線到對等閘道。 | yes|
-| IkePolicyMismatch | 對等閘道的 IKE 原則不受 Azure 支援。 | yes|
-| WfpParse Error | 剖析 WFP 記錄時發生錯誤。 |yes|
+| ConnectionNotConfiguredOnGateway | 基礎服務未設定連線。 | 是 |
+| ConnectionMarkedStandby | 基礎服務標記為「待命」。| 是|
+| 驗證 | 預先共用的金鑰不相符 | 是|
+| PeerReachability | 無法連線到對等閘道。 | 是|
+| IkePolicyMismatch | 對等閘道的 IKE 原則不受 Azure 支援。 | 是|
+| WfpParse 錯誤 | 剖析 WFP 記錄時發生錯誤。 |是|
 
 ## <a name="supported-gateway-types"></a>支援的閘道類型
 
@@ -107,7 +107,7 @@ ms.locfileid: "32779255"
 > [!NOTE]
 > 在某些情況下，只有部分的記錄檔會寫入至儲存體。
 
-如需從 Azure 儲存體帳戶下載檔案的指示，請參閱[以 .NET 開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 另一項可用工具為儲存體總管。 有關儲存體總管的詳細資訊可以在下列連結找到︰[儲存體總管](http://storageexplorer.com/)
+如需從 Azure 儲存體帳戶下載檔案的指示，請參閱[以 .NET 開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 另一項可用工具為儲存體總管。 如需有關「儲存體總管」的詳細資訊，請參閱下列連結：[儲存體總管](http://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

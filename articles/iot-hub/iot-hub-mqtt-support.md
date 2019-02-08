@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: a50fca059331b28c46adb65903be4e7ba018a36c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2fbc155afc3fd5280f2baf4eccabb895c158b89f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052031"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913561"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 通訊協定來與 IoT 中樞通訊
 
@@ -198,20 +198,18 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 
 根據 [IoT 中樞傳訊開發人員指南][lnk-messaging]，要求 ID 可以是任何有效的訊息屬性值，而狀態會驗證為整數。
 
-回應本文包含裝置對應項的屬性區段。 下列程式碼片段顯示身分識別登錄項目的本文僅限於 "properties" 成員，例如：
+回應本文包含裝置對應項的 properties 區段，如以下回應範例所示：
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "telemetrySendFrequency": "5m",
-            "$version": 12
-        },
-        "reported": {
-            "telemetrySendFrequency": "5m",
-            "batteryLevel": 55,
-            "$version": 123
-        }
+    "desired": {
+        "telemetrySendFrequency": "5m",
+        "$version": 12
+    },
+    "reported": {
+        "telemetrySendFrequency": "5m",
+        "batteryLevel": 55,
+        "$version": 123
     }
 }
 ```
@@ -220,7 +218,7 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 
 |狀態 | 說明 |
 | ----- | ----------- |
-| 200 | 成功 |
+| 204 | 成功 (不會傳回任何內容) |
 | 429 | 要求過多 (已節流)，根據 [IoT 中樞節流][lnk-quotas] |
 | 5** | 伺服器錯誤 |
 

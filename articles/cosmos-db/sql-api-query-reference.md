@@ -8,14 +8,14 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 9ec8ecf7b875b32d0ea5715e407b444fa1b25c50
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354462"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475181"
 ---
-# <a name="azure-cosmos-db-sql-language-reference"></a>Azure Cosmos DB SQL 語言參考 
+# <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 語言參考 
 
 Azure Cosmos DB 支援在階層式 JSON 文件上使用諸如文法等熟悉的 SQL (結構式查詢語言) 查詢文件，無需明確的結構描述，也不用建立次要索引。 本文提供 SQL 查詢語言語法文件，其與 SQL API 帳戶相容。 如需 SQL 查詢範例逐步解說，請參閱 [Cosmos DB 中的 SQL 查詢](how-to-sql-query.md)。  
   
@@ -2169,7 +2169,10 @@ REPLICATE(<str_expr>, <num_expr>)
   
 -   `num_expr`  
   
-     為任何有效的數值運算式。  
+     為任何有效的數值運算式。 如果 num_expr 為負數為非有限，則結果為未定義。
+
+  > [!NOTE]
+  > 結果的最大長度為 10,000 個字元，亦即 (length(str_expr)  *  num_expr) <= 10,000。
   
  **傳回類型**  
   
@@ -2723,7 +2726,7 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
  **範例**  
   
- 以下範例顯示如何使用ST_DISTANCE 內建函式傳回所有家族文件，且這些文件在 30 公里的指定位置內。 .  
+ 以下範例顯示如何使用ST_DISTANCE 內建函式傳回所有家族文件，且這些文件在 30 公里的指定位置內。 上也提供本文中使用的原始碼。  
   
 ```  
 SELECT f.id   

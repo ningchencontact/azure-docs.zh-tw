@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB 全域散發 - 運作原理
+title: 透過 Azure Cosmos DB 全域散發 - 運作原理
 description: 此文章提供有關 Azure Cosmos DB 全域散發的技術詳細資料
 author: dharmas-cosmos
 ms.service: cosmos-db
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e1c84bb28747cf1799b39c70b6df3dc0cb9f8d78
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 86e4441174fa89fc688fa4e411ead0a7b3ebc8ee
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038937"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475375"
 ---
-# <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure Cosmos DB 全域散發 - 運作原理
+# <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>透過 Azure Cosmos DB 全域資料散發 - 運作原理
 
 Azure Cosmos DB 是 Azure 的基礎服務，因此會在全球所有的 Azure 區域 (包括公用、主權、國防部 (DoD) 和政府雲端) 上進行部署。 在資料中心內，我們會在大規模戳記的機器上部署及管理 Azure Cosmos DB，每部都有專屬的本機儲存體。 在資料中心內，Azure Cosmos DB 會跨許多叢集進行部署，每個可能都會執行多個世代的硬體。 叢集內的機器通常會分散於 10-20 個容錯網域中。 下圖顯示 Cosmos DB 全域散發系統拓撲：
 

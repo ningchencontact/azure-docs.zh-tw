@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
-ms.component: common
-ms.openlocfilehash: fd5df50128885f6a96e68c8ad46204bc21d80264
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529707"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473760"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Azure 儲存體服務的跨原始資源共用 (CORS) 支援
 從 2013-08-15 版本開始，Azure 儲存體服務就針對 Blob、資料表、佇列及檔案服務提供跨原始資源共用 (CORS) 的支援。 CORS 是一項 HTTP 功能，可讓 Web 應用程式在某個網域下執行，以存取其他網域中的資源。 網頁瀏覽器會實作稱為 [相同原始原則](http://www.w3.org/Security/wiki/Same_Origin_Policy) 的安全性限制，它可防止網頁呼叫不同網域中的 API；CORS 則提供了一個安全的方式，可讓一個網域 (原始網域) 能夠呼叫其他網域中的 API。 如需 CORS 的詳細資訊，請參閱 [CORS 規格](http://www.w3.org/TR/cors/) 。
@@ -166,11 +166,11 @@ CORS 規則的評估，如下所示：
 | **要求上存在的 Origin 標頭** |**針對此服務指定的 CORS 規則** |**有允許所有原始網域的比對規則存在 (*)** |**有完全符合原始網域的比對規則存在** |**回應包含已設為 Origin 的 Vary 標頭** |**回應包含 Access-Control-Allowed-Origin："*"** |**回應包含 Access-Control-Exposed-Headers** |
 | 否 |否 |否 |否 |否 |否 |否 |
 | 否 |是 |否 |否 |是 |否 |否 |
-| 否 |yes |yes |否 |否 |yes |yes |
-| yes |否 |否 |否 |否 |否 |否 |
-| yes |yes |否 |yes |yes |否 |yes |
-| yes |yes |否 |否 |是 |否 |否 |
-| yes |yes |yes |否 |否 |yes |是 |
+| 否 |yes |是 |否 |否 |yes |是 |
+| 是 |否 |否 |否 |否 |否 |否 |
+| yes |是 |否 |yes |是 |否 |yes |
+| 是 |是 |否 |否 |是 |否 |否 |
+| yes |是 |是 |否 |否 |yes |是 |
 
 ## <a name="billing-for-cors-requests"></a>CORS 要求的計費方式
 如果您已針對帳戶的所有儲存體服務啟用 CORS (透過呼叫[設定 Blob 服務屬性](https://msdn.microsoft.com/library/hh452235.aspx)、[設定佇列服務屬性](https://msdn.microsoft.com/library/hh452232.aspx)或[設定表格服務屬性](https://msdn.microsoft.com/library/hh452240.aspx))，則成功的預檢要求就會列入計費。 為了將費用降至最低，請考慮將 CORS 規則中的 **MaxAgeInSeconds** 元素設為較大的值，讓使用者代理程式能夠快取要求。

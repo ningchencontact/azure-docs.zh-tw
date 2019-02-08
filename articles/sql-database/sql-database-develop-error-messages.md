@@ -12,22 +12,24 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/31/2018
-ms.openlocfilehash: 00fe4e109df2ac8954e657a1a567842ec5eb7d37
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.date: 01/25/2019
+ms.openlocfilehash: 6bbb2bfa0fe3c157114d53b070d6c98e68099643
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317452"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464722"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>請參閱 SQL Database 用戶端應用程式的 SQL 錯誤碼：資料庫連線錯誤和其他問題
 
 本文列出 SQL Database 用戶端應用程式的 SQL 錯誤碼，包括資料庫連線錯誤、暫時性錯誤、資源管理錯誤、資料庫副本問題、彈性集區，以及其他錯誤。 大多數分類是專門針對 Azure SQL Database，並不適用 Microsoft SQL Server。 另請參閱[系統錯誤訊息](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx)。
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>資料庫連線錯誤、暫時性錯誤，以及其他暫時的錯誤
+
 下表涵蓋您的應用程式嘗試存取 SQL Database 可能發生之連線遺失錯誤和其他暫時性錯誤的 SQL 錯誤碼。 如需連線到 Azure SQL Database 的快速入門教學課程，請參閱 [連線到 Azure SQL Database](sql-database-libraries.md)。
 
 ### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>最常見的資料庫連線錯誤和暫時性錯誤
+
 Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動態重新設定伺服器。  此動態行為可能會導致您的用戶端程式遺失其 SQL Database 連接。 此類錯誤情況稱為「暫時性錯誤」 。
 
 強烈建議您的用戶端程式具有重試邏輯，以便在給予暫時性錯誤一些時間自行修正後，可以嘗試重新建立連線。  我們建議您在您第一次重試前延遲 5 秒鐘。 在少於 5 秒的延遲後重試，雲端服務會有超過負荷的風險。 對於後續每次重試，延遲應以指數方式成長，最大值為 60 秒。
@@ -48,6 +50,7 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 在 [SQL Server 連接集區 (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx) 中可找使用 ADO.NET 之用戶端的封鎖期間討論。
 
 ### <a name="transient-fault-error-codes"></a>暫時性錯誤錯誤碼
+
 下列錯誤為暫時性錯誤，並且應該在應用程式邏輯中重試： 
 
 | 錯誤碼 | 嚴重性 | 說明 |
@@ -62,6 +65,7 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 | 4221 |16 |登入 read-secondary 失敗，因為 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING' 上的等候時間很長。 無法使用複本進行登入，因為在複本回收時執行中之交易的資料列版本已遺失。 將主要複本上的使用中交易復原或認可，就可以解決問題。 避免在主要伺服器上的冗長寫入交易，就可讓此條件發生率降至最低。 |
 
 ## <a name="database-copy-errors"></a>資料庫複製錯誤
+
 在 Azure SQL Database 中複製資料庫時，可能會發生下列錯誤。 如需詳細資訊，請參閱 [複製 Azure SQL Database](sql-database-copy.md)。
 
 | 錯誤碼 | 嚴重性 | 說明 |
@@ -81,6 +85,7 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 | 40571 |16 |資料庫複製因內部錯誤而失敗。 請卸除目標資料庫並稍後再試一次。 |
 
 ## <a name="resource-governance-errors"></a>資源管理錯誤
+
 使用 Azure SQL Database 時過度使用資源會造成下列錯誤。 例如︰
 
 * 交易已開啟太長時間。
@@ -94,8 +99,8 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 
 | 錯誤碼 | 嚴重性 | 說明 |
 | ---:| ---:|:--- |
-| 10928 |20 |資源識別碼：%d。 資料庫的 %s 限制是 %d，且已達到。 如需詳細資訊，請參閱[單一和集區資料庫的 SQL Database 資源限制](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server)。<br/><br/>資源識別碼可指出已達到限制的資源。 對於背景工作執行緒，資源識別碼 = 1。 對於工作階段，資源識別碼 = 2。<br/><br/>如需有關此錯誤以及其解決方法的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-service-tiers-dtu.md)。 |
-| 10929 |20 |資源識別碼：%d。 %s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。 但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。 如需詳細資訊，請參閱[單一和集區資料庫的 SQL Database 資源限制](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server)。 或者，請稍後再試一次。<br/><br/>資源識別碼可指出已達到限制的資源。 對於背景工作執行緒，資源識別碼 = 1。 對於工作階段，資源識別碼 = 2。<br/><br/>如需有關此錯誤以及其解決方法的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-service-tiers-dtu.md)。 |
+| 10928 |20 |資源識別碼：%d。 資料庫的 %s 限制是 %d，且已達到。 如需詳細資訊，請參閱[獨立和集區資料庫的 SQL Database 資源限制](sql-database-resource-limits-database-server.md)。<br/><br/>資源識別碼可指出已達到限制的資源。 對於背景工作執行緒，資源識別碼 = 1。 對於工作階段，資源識別碼 = 2。<br/><br/>如需有關此錯誤以及其解決方法的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-service-tiers-dtu.md)。 |
+| 10929 |20 |資源識別碼：%d。 %s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。 但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。 如需詳細資訊，請參閱[獨立和集區資料庫的 SQL Database 資源限制](sql-database-resource-limits-database-server.md)。 或者，請稍後再試一次。<br/><br/>資源識別碼可指出已達到限制的資源。 對於背景工作執行緒，資源識別碼 = 1。 對於工作階段，資源識別碼 = 2。<br/><br/>如需有關此錯誤以及其解決方法的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-service-tiers-dtu.md)。 |
 | 40544 |20 |資料庫已達到大小配額。 資料分割或刪除資料、卸除索引，或參閱可能解決方式的文件。 |
 | 40549 |16 |工作階段已終止，因為您有長時間執行的交易。 請嘗試縮短您的交易時間。 |
 | 40550 |16 |工作階段已終止，因為它取得太多鎖定。 嘗試在單一交易中讀取或修改較少的資料列。 |
@@ -104,15 +109,16 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 | 40553 |16 |已終止工作階段，因為過度使用記憶體。 請嘗試修改查詢以處理較少的資料列。<br/><br/>減少 Transact-SQL 程式碼中的 `ORDER BY` 和 `GROUP BY` 作業數目，從而減少查詢的記憶體需求。 |
 
 ## <a name="elastic-pool-errors"></a>彈性集區錯誤
+
 下列錯誤與建立及使用彈性集區有關：
 
 | 錯誤碼 | 嚴重性 | 說明 | 更正措施 |
 |:--- |:--- |:--- |:--- |
-| 1132 | 17 |彈性集區已達到其儲存體限制。 彈性集區的儲存體使用量不能超過 (%d) MB。 當彈性集區達到儲存體限制時，嘗試將資料寫入資料庫。 |請考慮盡可能增加彈性集區的 DTU 和/或儲存體，以提高其儲存體限制、減少彈性集區中個別資料庫所使用的儲存體量，或是從彈性集區移除資料庫。 |
-| 10929 | 16 |%s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。 但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。 請參閱[適用於單一和集區資料庫的 SQL Database 資源限制](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server)以取得協助。 或者，請稍後再試一次。 每個資料庫的最小 DTU / vCore；每個資料庫的最大 DTU / vCore。 彈性集區中的所有資料庫並行背景工作 (要求) 總數試圖超過集區限制。 |請考慮盡可能增加彈性集區的 DTU 或 vCore，以提高其背景工作數的限制，或是從彈性集區移除資料庫。 |
+| 1132 | 17 |彈性集區已達到其儲存體限制。 彈性集區的儲存體使用量不能超過 (%d) MB。 當彈性集區達到儲存體限制時，嘗試將資料寫入資料庫。 |請考慮盡可能增加彈性集區的 DTU 及/或儲存體，以提高其儲存體限制、減少彈性集區中個別資料庫所使用的儲存體量，或是從彈性集區移除資料庫。 |
+| 10929 | 16 |%s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。 但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。 請參閱[適用於單一和集區資料庫的 SQL Database 資源限制](sql-database-resource-limits-database-server.md)以取得協助。 或者，請稍後再試一次。 每個資料庫的最小 DTU / vCore；每個資料庫的最大 DTU / vCore。 彈性集區中的所有資料庫並行背景工作 (要求) 總數試圖超過集區限制。 |請考慮盡可能增加彈性集區的 DTU 或 vCore，以提高其背景工作數的限制，或是從彈性集區移除資料庫。 |
 | 40844 | 16 |伺服器 '%ls' 上的資料庫 '%ls' 是彈性集區中的 '%ls' 版資料庫，且無法有連續複製關聯性。  |N/A |
 | 40857 | 16 |找不到伺服器 '%ls' 的彈性集區，彈性集區名稱: '%ls'。 指定的彈性集區不存在於指定的伺服器中。 | 請提供有效的彈性集區名稱。 |
-| 40858 | 16 |彈性集區 '%ls' 已存在於伺服器 '%ls' 中。 指定的彈性集區已存在於指定的邏輯伺服器中。 | 請提供新的彈性集區名稱。 |
+| 40858 | 16 |彈性集區 '%ls' 已存在於伺服器 '%ls' 中。 指定的彈性集區已存在於指定的 SQL Database 伺服器中。 | 請提供新的彈性集區名稱。 |
 | 40859 | 16 |彈性集區不支援服務層 '%ls'。 指定的服務層不支援彈性集區佈建。 |請提供正確的版本，或者將服務層保留空白，以使用預設的服務層。 |
 | 40860 | 16 |彈性集區 '%ls' 和服務目標 '%ls' 的組合無效。 如果資源類型指定為 'ElasticPool'，才能同時指定彈性集區和服務層。 |請指定正確的彈性集區和服務層組合。 |
 | 40861 | 16 |資料庫版本 '%.ls' 不能和彈性集區服務層 ('%.ls') 不同。 資料庫版本和彈性集區服務層不同。 |請勿指定與彈性集區服務層不同的資料庫版本。  請注意，不需要指定資料庫版本。 |
@@ -137,6 +143,7 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 * [監視和管理彈性集區 (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
 
 ## <a name="general-errors"></a>一般錯誤
+
 下列錯誤不屬於任何先前的類別。
 
 | 錯誤碼 | 嚴重性 | 說明 |
@@ -204,10 +211,11 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 | 40671 |17 |閘道器與管理服務之間的通訊失敗。 請稍後重試。 |
 | 40852 |16 |無法在登入所要求的伺服器 '%.\*ls' 上開啟資料庫 '%.\*ls'。 只允許使用已啟用安全性的連接字串存取資料庫。 若要存取此資料庫，請將連接字串修改成在伺服器 FQDN 中包含 'secure'。也就是說  -  'server name'.database.windows.net 應修改為 'server name'.database`secure`.windows.net。 |
 | 40914 | 16 | 無法開啟登入所要求的伺服器 '*[server-name]*'。 用戶端不得存取該伺服器。<br /><br />若要修正，請考慮新增[虛擬網路規則](sql-database-vnet-service-endpoint-rule-overview.md)。 |
-| 45168 |16 |SQL Azure 系統未達負載，並正在對單一伺服器的並行 DB CRUD 作業 (例如，建立資料庫) 放置上限。 錯誤訊息中指定的伺服器已超過最大並行連接數目。 請稍後再試。 |
+| 45168 |16 |SQL Azure 系統未達負載，並正在對單一 SQL Database 伺服器的並行 DB CRUD 作業 (例如，建立資料庫) 放置上限。 錯誤訊息中指定的伺服器已超過最大並行連接數目。 請稍後再試。 |
 | 45169 |16 |SQL Azure 系統未達負載，並正在對單一訂用帳戶的並行伺服器 CRUD 作業 (例如，建立資料庫) 的數量放置上限。 錯誤訊息中指定的訂用帳戶已超出最大並行連接數目，因此要求已遭到拒絕。 請稍後再試。 |
 
 ## <a name="next-steps"></a>後續步驟
+
 * 深入了解 [Azure SQL Database 功能](sql-database-features.md)。
 * 深入了解[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)。
 * 深入了解[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。

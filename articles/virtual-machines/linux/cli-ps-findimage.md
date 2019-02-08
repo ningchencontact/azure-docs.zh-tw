@@ -13,17 +13,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2018
+ms.date: 01/25/2019
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ff08b0f155be54ee57d2d9999c47aa56a366d09
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 5076c662390c9a28682930e8c5f06cfc79f7134b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852196"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169683"
 ---
-# <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Marketplace 中尋找 Linux VM 映像
+# <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>使用 Azure CLI 在 Azure Marketplace 中尋找 Linux VM 映像
+
 本主題描述如何在 Azure Marketplace 中使用 Azure CLI 尋找 VM 映像。 當您使用 CLI、Resource Manager 範本或其他工具以程式設計方式建立 VM 時，使用此資訊來指定 Marketplace 映像。
 
 也請透過 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 店面、[Azure 入口網站](https://portal.azure.com)或 [Azure PowerShell](../windows/cli-ps-findimage.md) 瀏覽可用的映像和供應項目。 
@@ -46,11 +47,11 @@ az vm image list --output table
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
-CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
+CentOS         OpenLogic               7.5                 OpenLogic:CentOS:7.5:latest                                     CentOS               latest
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
 openSUSE-Leap  SUSE                    42.3                SUSE:openSUSE-Leap:42.3:latest                                  openSUSE-Leap        latest
-RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
+RHEL           RedHat                  7-RAW               RedHat:RHEL:7-RAW:latest                                        RHEL                 latest
 SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
 UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
 ...
@@ -68,31 +69,42 @@ az vm image list --offer Debian --all --output table
 ```
 
 部分輸出： 
+
 ```
-Offer    Publisher    Sku                Urn                                              Version
--------  -----------  -----------------  -----------------------------------------------  --------------
-...
-Debian   credativ     7                  credativ:Debian:7:7.0.201602010                  7.0.201602010
-Debian   credativ     7                  credativ:Debian:7:7.0.201603020                  7.0.201603020
-Debian   credativ     7                  credativ:Debian:7:7.0.201604050                  7.0.201604050
-Debian   credativ     7                  credativ:Debian:7:7.0.201604200                  7.0.201604200
-Debian   credativ     7                  credativ:Debian:7:7.0.201606280                  7.0.201606280
-Debian   credativ     7                  credativ:Debian:7:7.0.201609120                  7.0.201609120
-Debian   credativ     7                  credativ:Debian:7:7.0.201611020                  7.0.201611020
-Debian   credativ     8                  credativ:Debian:8:8.0.201602010                  8.0.201602010
-Debian   credativ     8                  credativ:Debian:8:8.0.201603020                  8.0.201603020
-Debian   credativ     8                  credativ:Debian:8:8.0.201604050                  8.0.201604050
-Debian   credativ     8                  credativ:Debian:8:8.0.201604200                  8.0.201604200
-Debian   credativ     8                  credativ:Debian:8:8.0.201606280                  8.0.201606280
-Debian   credativ     8                  credativ:Debian:8:8.0.201609120                  8.0.201609120
-Debian   credativ     8                  credativ:Debian:8:8.0.201611020                  8.0.201611020
-Debian   credativ     8                  credativ:Debian:8:8.0.201701180                  8.0.201701180
-Debian   credativ     8                  credativ:Debian:8:8.0.201703150                  8.0.201703150
-Debian   credativ     8                  credativ:Debian:8:8.0.201704110                  8.0.201704110
-Debian   credativ     8                  credativ:Debian:8:8.0.201704180                  8.0.201704180
-Debian   credativ     8                  credativ:Debian:8:8.0.201706190                  8.0.201706190
-Debian   credativ     8                  credativ:Debian:8:8.0.201706210                  8.0.201706210
-Debian   credativ     8                  credativ:Debian:8:8.0.201708040                  8.0.201708040
+Offer              Publisher    Sku                  Urn                                                    Version
+-----------------  -----------  -------------------  -----------------------------------------------------  --------------
+Debian             credativ     7                    credativ:Debian:7:7.0.201602010                        7.0.201602010
+Debian             credativ     7                    credativ:Debian:7:7.0.201603020                        7.0.201603020
+Debian             credativ     7                    credativ:Debian:7:7.0.201604050                        7.0.201604050
+Debian             credativ     7                    credativ:Debian:7:7.0.201604200                        7.0.201604200
+Debian             credativ     7                    credativ:Debian:7:7.0.201606280                        7.0.201606280
+Debian             credativ     7                    credativ:Debian:7:7.0.201609120                        7.0.201609120
+Debian             credativ     7                    credativ:Debian:7:7.0.201611020                        7.0.201611020
+Debian             credativ     7                    credativ:Debian:7:7.0.201701180                        7.0.201701180
+Debian             credativ     8                    credativ:Debian:8:8.0.201602010                        8.0.201602010
+Debian             credativ     8                    credativ:Debian:8:8.0.201603020                        8.0.201603020
+Debian             credativ     8                    credativ:Debian:8:8.0.201604050                        8.0.201604050
+Debian             credativ     8                    credativ:Debian:8:8.0.201604200                        8.0.201604200
+Debian             credativ     8                    credativ:Debian:8:8.0.201606280                        8.0.201606280
+Debian             credativ     8                    credativ:Debian:8:8.0.201609120                        8.0.201609120
+Debian             credativ     8                    credativ:Debian:8:8.0.201611020                        8.0.201611020
+Debian             credativ     8                    credativ:Debian:8:8.0.201701180                        8.0.201701180
+Debian             credativ     8                    credativ:Debian:8:8.0.201703150                        8.0.201703150
+Debian             credativ     8                    credativ:Debian:8:8.0.201704110                        8.0.201704110
+Debian             credativ     8                    credativ:Debian:8:8.0.201704180                        8.0.201704180
+Debian             credativ     8                    credativ:Debian:8:8.0.201706190                        8.0.201706190
+Debian             credativ     8                    credativ:Debian:8:8.0.201706210                        8.0.201706210
+Debian             credativ     8                    credativ:Debian:8:8.0.201708040                        8.0.201708040
+Debian             credativ     8                    credativ:Debian:8:8.0.201710090                        8.0.201710090
+Debian             credativ     8                    credativ:Debian:8:8.0.201712040                        8.0.201712040
+Debian             credativ     8                    credativ:Debian:8:8.0.201801170                        8.0.201801170
+Debian             credativ     8                    credativ:Debian:8:8.0.201803130                        8.0.201803130
+Debian             credativ     8                    credativ:Debian:8:8.0.201803260                        8.0.201803260
+Debian             credativ     8                    credativ:Debian:8:8.0.201804020                        8.0.201804020
+Debian             credativ     8                    credativ:Debian:8:8.0.201804150                        8.0.201804150
+Debian             credativ     8                    credativ:Debian:8:8.0.201805160                        8.0.201805160
+Debian             credativ     8                    credativ:Debian:8:8.0.201807160                        8.0.201807160
+Debian             credativ     8                    credativ:Debian:8:8.0.201901221                        8.0.201901221
 ...
 ```
 
@@ -124,10 +136,22 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201704110        
 Debian   credativ     8                  credativ:Debian:8:8.0.201704180                  8.0.201704180
 Debian   credativ     8                  credativ:Debian:8:8.0.201706190                  8.0.201706190
 Debian   credativ     8                  credativ:Debian:8:8.0.201706210                  8.0.201706210
+Debian   credativ     8                  credativ:Debian:8:8.0.201708040                  8.0.201708040
+Debian   credativ     8                  credativ:Debian:8:8.0.201710090                  8.0.201710090
+Debian   credativ     8                  credativ:Debian:8:8.0.201712040                  8.0.201712040
+Debian   credativ     8                  credativ:Debian:8:8.0.201801170                  8.0.201801170
+Debian   credativ     8                  credativ:Debian:8:8.0.201803130                  8.0.201803130
+Debian   credativ     8                  credativ:Debian:8:8.0.201803260                  8.0.201803260
+Debian   credativ     8                  credativ:Debian:8:8.0.201804020                  8.0.201804020
+Debian   credativ     8                  credativ:Debian:8:8.0.201804150                  8.0.201804150
+Debian   credativ     8                  credativ:Debian:8:8.0.201805160                  8.0.201805160
+Debian   credativ     8                  credativ:Debian:8:8.0.201807160                  8.0.201807160
+Debian   credativ     8                  credativ:Debian:8:8.0.201901221                  8.0.201901221
 ...
 ```
 
-## <a name="navigate-the-images"></a>瀏覽映像 
+## <a name="navigate-the-images"></a>瀏覽映像
+ 
 要在位置中找到映像的另一個方法是在序列中執行 [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers)、[az vm image list-offers](/cli/azure/vm/image) 和 [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) 命令。 您可以使用這些命令來判斷下列的值：
 
 1. 列出映像發行者。
@@ -171,6 +195,7 @@ westus      akamai-technologies
 westus      akumina
 ...
 ```
+
 使用這項資訊從特定的發行者尋找供應項目。 例如，針對位於美國西部位置的 *Canonical* 發行者，執行 `azure vm image list-offers` 可尋找供應項目。 傳遞位置和發行者，如下列範例所示：
 
 ```azurecli
@@ -212,17 +237,17 @@ westus      14.04.5-LTS
 westus      16.04-DAILY-LTS
 westus      16.04-LTS
 westus      16.04.0-LTS
-westus      17.10
-westus      17.10-DAILY
 westus      18.04-DAILY-LTS
 westus      18.04-LTS
+westus      18.10
 westus      18.10-DAILY
+westus      19.04-DAILY
 ```
 
-最後，使用 `az vm image list` 命令來尋找您需要的 SKU 特定版本，例如，*16.04-LTS*：
+最後，使用 `az vm image list` 命令來尋找您需要的 SKU 特定版本，例如，*18.04-LTS*：
 
 ```azurecli
-az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
+az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 18.04-LTS --all --output table
 ```
 
 部分輸出：
@@ -230,20 +255,26 @@ az vm image list --location westus --publisher Canonical --offer UbuntuServer --
 ```
 Offer         Publisher    Sku        Urn                                               Version
 ------------  -----------  ---------  ------------------------------------------------  ---------------
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201611220  16.04.201611220
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201611300  16.04.201611300
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612050  16.04.201612050
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612140  16.04.201612140
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612210  16.04.201612210
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201701130  16.04.201701130
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702020  16.04.201702020
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702200  16.04.201702200
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702210  16.04.201702210
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702240  16.04.201702240
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703020  16.04.201703020
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703030  16.04.201703030
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703070  16.04.201703070
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703270  16.04.201703270
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201804262  18.04.201804262
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201805170  18.04.201805170
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201805220  18.04.201805220
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201806130  18.04.201806130
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201806170  18.04.201806170
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201807240  18.04.201807240
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201808060  18.04.201808060
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201808080  18.04.201808080
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201808140  18.04.201808140
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201808310  18.04.201808310
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201809110  18.04.201809110
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201810030  18.04.201810030
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201810240  18.04.201810240
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201810290  18.04.201810290
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201811010  18.04.201811010
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201812031  18.04.201812031
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201812040  18.04.201812040
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201812060  18.04.201812060
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201901140  18.04.201901140
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201901220  18.04.201901220
 ...
 ```
 
@@ -255,12 +286,12 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 
 ### <a name="view-plan-properties"></a>檢視方案屬性
 
-若要檢視映像的購買方案資訊，請執行 [az vm image show](/cli/azure/image#az_image_show) 命令。 如果輸出中的 `plan` 屬性不是 `null`，此映像具有您必須在以程式設計方式部署之前接受的條款。
+若要檢視映像的購買方案資訊，請執行 [az vm image show](/cli/azure/image) 命令。 如果輸出中的 `plan` 屬性不是 `null`，在以程式設計方式部署之前，必須接受映像包含的條款。
 
-例如，Canonical Ubuntu Server 16.04 LTS 映像沒有其他條款，因為 `plan` 資訊為 `null`：
+例如，Canonical Ubuntu Server 18.04 LTS 映像沒有其他條款，因為 `plan` 資訊為 `null`：
 
 ```azurecli
-az vm image show --location westus --urn Canonical:UbuntuServer:16.04-LTS:latest
+az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
 ```
 
 輸出：
@@ -268,9 +299,9 @@ az vm image show --location westus --urn Canonical:UbuntuServer:16.04-LTS:latest
 ```
 {
   "dataDiskImages": [],
-  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/16.04.201801260",
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/18.04-LTS/Versions/18.04.201901220",
   "location": "westus",
-  "name": "16.04.201809120",
+  "name": "18.04.201901220",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },
@@ -289,9 +320,9 @@ az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
 {
   "dataDiskImages": [],
-  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1807171506",
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1901151016",
   "location": "westus",
-  "name": "3.7.1809211005",
+  "name": "3.7.1901151016",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },
@@ -325,7 +356,7 @@ az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
   "privacyPolicyLink": "https://bitnami.com/privacy",
   "product": "rabbitmq",
   "publisher": "bitnami",
-  "retrieveDatetime": "2018-02-22T04:06:28.7641907Z",
+  "retrieveDatetime": "2019-01-25T20:37:49.937096Z",
   "signature": "XXXXXXLAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNXXXXXX",
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
@@ -339,7 +370,6 @@ az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
 az group create --name myResourceGroupVM --location westus
 
 az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
-
 ```
 
 ## <a name="next-steps"></a>後續步驟

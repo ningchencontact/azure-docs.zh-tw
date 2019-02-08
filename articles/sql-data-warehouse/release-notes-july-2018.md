@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: c7d2211ca69fcd18588ea1b20b638b2970b8439c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: e63dd0a6feaedf95bb4845a3c5eded89e6585e36
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318835"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463492"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 7 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 7 月導入的新功能和變更。
@@ -23,12 +23,12 @@ Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 7 月導入的新
 ## <a name="lightning-fast-query-performance"></a>快速查詢效能
 [Azure SQL 資料倉儲](https://aka.ms/sqldw)引進可改善壓縮作業的「即時資料存取」工具，確立新的效能基準。 透過使用直接 SQL Server 對 SQL Server 原生資料作業，「即時資料存取」可減少資料移動作業的額外負荷。 與 SQL Server 引擎直接整合進行資料移動，表示使用衍生自公認的業界標準 [TPC Benchmark™ H (TPC-H)](http://www.tpc.org/tpch/) 的工作負載時，SQL 資料倉儲現在的**速度比 Amazon Redshift 快 67%**。
 
-![和 Amazon Redshift 相比，Azure SQL 資料倉儲更快速且更便宜](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/eb3b908a-464d-4847-b384-9f296083a737.png)
-<sub>來源：[Gigaom 研究分析報告：雲端資料倉儲基準](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub> \(英文\)
+![和 Amazon Redshift 相比，Azure SQL 資料倉儲是更快速且更便宜](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/eb3b908a-464d-4847-b384-9f296083a737.png)
+<sub>的來源：[Gigaom 研究分析報告：雲端資料倉儲基準](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub> \(英文\)
 
 除了執行階段效能，[Gigaom 研究](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)報告也測量性價比，以量化特定工作負載的美金成本。 和 Redshift 相比，同樣處理 30 TB 的工作負載，SQL 資料倉儲**至少便宜 23%**。 透過 SQL 資料倉儲可彈性調整計算並能暫停和繼續工作負載的能力，客戶只須支付服務使用期間的費用，進而降低其成本。
-![和 Amazon Redshift 相比，Azure SQL 資料倉儲更快速且更便宜](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
-<sub>來源：[Gigaom 研究分析報告：雲端資料倉儲基準](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub> \(英文\)
+![和 Amazon Redshift 相比，Azure SQL 資料倉儲是更快速且更便宜](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
+<sub>的來源：[Gigaom 研究分析報告：雲端資料倉儲基準](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub> \(英文\)
 
 ### <a name="query-concurrency"></a>查詢並行存取
 SQL 資料倉儲也可確保資料能夠跨組織存取。 Microsoft 已經增強服務以支援 128 個並行查詢，讓更多使用者能查詢相同的資料庫，而不會被其他要求封鎖。 相較之下，Amazon Redshift 的並行查詢數上限為 50 個，限制了組織內的資料存取。

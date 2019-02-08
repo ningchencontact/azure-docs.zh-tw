@@ -7,19 +7,19 @@ author: jeevansd
 manager: femila
 ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 9c6a8585033cc9ba8db763e053f63cef47fdcd02
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e0be067195e6bac1df2206c396faaf4d907f7469
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443291"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>教學課程：Azure Active Directory 與 Domo 整合
 

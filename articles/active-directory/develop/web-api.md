@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,19 +16,19 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: e4ed0db3a08937c3c8b51e2c8af5e566b59df4c4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b507e6630e5b0b0e73edad1815825e70ed90ec4d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970952"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097294"
 ---
 # <a name="web-api"></a>Web API
 
 Web API 應用程式是必須從 Web API 取得資源的 Web 應用程式。 在此案例中，有兩個識別類型可供 Web 應用程式用來驗證和呼叫 Web API：
 
 - **應用程式識別** - 此案例使用 OAuth 2.0 用戶端認證授與來驗證應用程式和存取 Web API。 使用應用程式識別時，Web API 只能偵測到 Web 應用程式正在呼叫它，因為 Web API 沒有收到關於使用者的任何資訊。 如果應用程式收到使用者的相關資訊，此資訊會透過應用程式通訊協定傳送，但未經過 Azure AD 簽署。 Web API 信任 Web 應用程式已驗證使用者。 基於這個理由，這種模式稱為受信任子系統。
-- **委派的使用者識別** - 有兩種方式可實現此案例：OpenID Connect 和搭配機密用戶端的 OAuth 2.0 授權碼授與。 Web 應用程式會為使用者取得存取權杖，向 Web API 證明使用者已順利通過 Web 應用程式的驗證，而且 Web 應用程式能夠取得委派的使用者識別來呼叫 Web API。 此存取權杖隨著要求傳送至 Web API，Web API 再授權使用者並傳回所需的資源。
+- **委派的使用者識別** - 此案例可以透過兩種方式完成：具有機密用戶端的 OpenID Connect 和 OAuth 2.0 授權碼授與。 Web 應用程式會為使用者取得存取權杖，向 Web API 證明使用者已順利通過 Web 應用程式的驗證，而且 Web 應用程式能夠取得委派的使用者識別來呼叫 Web API。 此存取權杖隨著要求傳送至 Web API，Web API 再授權使用者並傳回所需的資源。
 
 下列流程中討論應用程式識別和委派的使用者識別類型。 它們之間的主要差異是委派的使用者識別必須先取得授權碼，使用者才能登入並存取 Web API。
 

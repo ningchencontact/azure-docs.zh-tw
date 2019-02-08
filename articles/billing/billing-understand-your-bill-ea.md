@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
-ms.author: cwatson
-ms.openlocfilehash: b724fc7a887550b4115a988149b4b7a6c95de830
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 36ce4d96e02bac1eae1791acf811da468726b4a6
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584463"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902698"
 ---
 # <a name="understand-your-bill-for-azure-customers-with-an-enterprise-agreement"></a>了解 Azure Enterprise 合約客戶的帳單
 
@@ -32,7 +32,7 @@ ms.locfileid: "52584463"
 發生下列情況時，您就會收到一或多張發票：
 
 - **服務超額**：組織的使用量費用超過您的信用額度餘額。
-- **分別計費的費用**：信用額度未涵蓋貴組織所使用的服務。 不論您的信用額度餘額為何，都會收到下列服務的發票：
+- **個別計費的費用**：信用額度未涵蓋貴組織所使用的服務。 不論您的信用額度餘額為何，都會收到下列服務的發票：
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop 
@@ -44,7 +44,7 @@ ms.locfileid: "52584463"
     - Visual Studio Enterprise (每年)
     - Visual Studio Professional (每月)
     - Visual Studio Professional (每年)
-- **Marketplace 費用**：Azure Marketplace 購買與使用量並未涵蓋於組織的信用額度內，會分開計費。 企業系統管理員能夠在企業版入口網站中，啟用和停用其組織的 Marketplace 購買。 
+- **Marketplace 費用**：Azure Marketplace 的購買和使用量並未涵蓋在貴組織的信用額度內，會個別計費。 企業系統管理員能夠在企業版入口網站中，啟用和停用其組織的 Marketplace 購買。 
 
 當您在計費期間因服務超額和分別計費的費用而產生費用時，您就會收到一張包含這兩種類型費用的發票。 Marketplace 費用的發票一律會單獨開立。
 

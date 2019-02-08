@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 16c7ad523bcd4a1f7b7b1f80d99e4d36dade72df
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334188"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102425"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>在 Azure 資訊安全中心 (預覽) 自訂 OS 安全性設定
 
@@ -90,29 +90,29 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 >
 >
 
-當您編輯自訂檔案時，您可以修改一個規則或所有規則。 每個規則集均包含一個「規則」區段，它分為三個類別：登錄、稽核原則和安全性原則，如下所示：
+當您編輯自訂檔案時，您可以修改一個規則或所有規則。 每個規則集均包含一個 *rules* 區段，其中分為三個類別：「登錄」、「稽核原則」及「安全性原則」，如下所示：
 
 ![三個規則集類別](media/security-center-customize-os-security-config/rules-section.png)
 
 每個類別都有自己的屬性集。 您可以變更下列屬性：
 
-- **expectedValue**：這個屬性的欄位資料類型必須符合每個「規則類型」支援的值，例如：
+- **expectedValue**：此屬性的欄位資料類型必須符合每個「規則類型」支援的值，例如：
 
-  - **baselineRegistryRules**：此值應符合該規則中定義的 [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884)。
+  - **baselineRegistryRules**：此值應符合該規則中所定義的 [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884)。
 
-  - **baselineAuditPolicyRules**：使用下列其中一個字串值：
+  - **baselineAuditPolicyRules**：請使用下列其中一個字串值：
 
     - 「成功和失敗」
 
     - 「成功」
 
-  - **baselineSecurityPolicyRules**：使用下列其中一個字串值：
+  - **baselineSecurityPolicyRules**：請使用下列其中一個字串值：
 
     - 「沒有人」
 
-    - 允許的使用者群組清單，例如：「系統管理員」、「備份操作員」
+    - 允許的使用者群組清單，例如：*Administrators*、*Backup Operators*
 
--   **state**：字串可包含「停用」 或「啟用」選項。 在此私人預覽版本中，字串區分大小寫。
+-   **state**：此字串可包含 *Disabled* 或 *Enabled* 選項。 在此私人預覽版本中，字串區分大小寫。
 
 只有這些是可設定的欄位。 如果您違反檔案格式或大小，您將無法儲存變更。 您會收到錯誤，指出您必須上傳有效的 JSON 組態檔。
 
@@ -121,7 +121,7 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 下列三個區段包含前述規則的範例。 *expectedValue* 和 *state* 屬性可以變更。
 
 **baselineRegistryRules**
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -144,7 +144,7 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 ```
 
 **baselineAuditPolicyRules**
-```
+```json
     {
     "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
     "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
@@ -161,7 +161,7 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 ```
 
 **baselineSecurityPolicyRules**
-```
+```json
     {
     "sectionName": "Privilege Rights",
     "settingName": "SeIncreaseWorkingSetPrivilege",
@@ -202,7 +202,7 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 
 -   **嚴重性**：(擇一) 不明、重大、警告或資訊。
 
--   **analyzeOperation**：必須是「等於」。
+-   **analyzeOperation**：必須是 *Equals*。
 
 -   **auditPolicyId**：必須是有效的 GUID。
 
@@ -216,7 +216,7 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 新自訂規則的範例：
 
 **登錄**：
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -225,7 +225,7 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
     "valueName": "MyValueName",
     "originalId": "",
     "cceId": "",
-    "ruleName": "My new registry rule”, "baselineRuleType": "Registry",
+    "ruleName": "My new registry rule", "baselineRuleType": "Registry",
     "expectedValue": "123", "severity": "Critical",
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
@@ -233,7 +233,7 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
     }
 ```
 **安全性原則**：
-```
+```json
    {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
@@ -248,7 +248,7 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
    }
 ```
 **稽核原則**：
-```
+```json
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
    "originalId": "",
@@ -275,7 +275,7 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 
 | **錯誤**                                | **說明**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | 屬性 *schemaVersion* 無效或空白。 此值必須設定為 *{0}*。                                                         |
+| BaselineConfigurationSchemaVersionError  | 屬性 *schemaVersion* 無效或空白。 此值必須設定為 *{0}*。                                                         |
 | BaselineInvalidStringError               | 屬性 *{0}* 不可包含 *\\n*。                                                                                                         |
 | BaselineNullRuleError                    | 基準設定規則清單包含具有值 *null* 的規則。                                                                         |
 | BaselineRuleCceIdNotUniqueError          | CCE 識別碼 *{0}* 不是唯一的。                                                                                                                  |
@@ -298,7 +298,7 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 | BaselineRuleTypeDoesntMatchError         | 規則的實際類型為 *{0}*，但 *ruleType* 屬性為 *{1}*。                                                                          |
 | BaselineRuleUnpermittedChangesError      | 只允許變更 *expectedValue* 和 *state* 屬性。                                                                       |
 | BaselineTooManyRules                     | 允許的自訂規則數目上限為 {0} 個規則。 指定的組態包含 {1} 個規則、{2} 個預設規則和 {3} 個自訂規則。 |
-| ErrorNoConfigurationStatus               | 找不到設定狀態。 說明所需的設定狀態：「預設」或「自訂」。                                    |
+| ErrorNoConfigurationStatus               | 找不到設定狀態。 說明所需的設定狀態：*Default* 或 *Custom*。                                    |
 | ErrorNonEmptyRulesetOnDefault            | 設定狀態會設為預設。 *BaselineRulesets* 清單必須是 Null 或空白。                                                          |
 | ErrorNullRulesetsPropertyOnCustom        | 指定的設定狀態為「自訂」，但 *baselineRulesets* 屬性為 Null 或空白。                                             |
 | ErrorParsingBaselineConfig               | 指定的組態無效。 一或多個定義的值含有 Null 值或無效類型。                                  |

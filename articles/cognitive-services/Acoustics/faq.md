@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b8b5ea39c1cfb3a37a8e3009f59312728bcb0331
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 07e65e6ff544d6372197010a2b9d7f3f647eeb0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900388"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166555"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -41,7 +41,7 @@ Project Acoustics Unity 外掛程式是一個聲場系統，會計算執行階�
  
 ## <a name="do-i-need-to-simplify-the-level-geometry-control-triangle-count-make-meshes-watertight"></a>我是否需要簡化關卡幾何？ 控制三角面計數？ 讓網格防水？
 
-否。 此系統會直接內嵌詳細的關卡幾何。 系統會將其體素化來進行內部處理。
+沒有。 此系統會直接內嵌詳細的關卡幾何。 系統會將其體素化來進行內部處理。
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>什麼是執行階段查閱資料表？
 
@@ -53,7 +53,7 @@ ACE 檔案是一個眾多來源與聆聽者位置之配對間的聲場參數資�
  
 ## <a name="can-it-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>它是否可以處理動態幾何？ 關閉中的門？ 被吹走的牆面？
 
-否。 聲場參數是根據遊戲關卡的靜態狀態預先計算的。 建議您讓門幾何維持沒有聲場，然後使用已確立的技術，根據可破壞和可移動之遊戲物件的狀態套用額外的遮蔽。
+沒有。 聲場參數是根據遊戲關卡的靜態狀態預先計算的。 建議您讓門幾何維持沒有聲場，然後使用已確立的技術，根據可破壞和可移動之遊戲物件的狀態套用額外的遮蔽。
  
 ## <a name="does-it-handle-materials"></a>它是否會處理材質？
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: f703a934b0eaf4bff5be3811adeed8f0287bc658
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2b34f6bcbf37a48fb49a2a64d727fc9330b0d735
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50237820"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882238"
 ---
 # <a name="retrieve-the-current-verizon-pop-list-for-azure-cdn"></a>擷取 Azure CDN 目前的 Verizon POP 清單
 
@@ -30,7 +30,7 @@ ms.locfileid: "50237820"
 
 ## <a name="typical-use-case"></a>典型的使用案例
 
-為確保安全，您可以使用此 IP 清單，強制規定只有有效的 Verizon POP 才能將要求發給原始伺服器。 例如，如果有使用者探索到 CDN 端點原始伺服器的主機名稱或 IP 位址，該使用者就可以直接將要求發給原始伺服器，因而繞過 Azure CDN 所提供的調整和安全性功能。 只要將所傳回清單中的 IP 設定為原始伺服器上唯一允許的 IP，就能避免此情形。 若要確保您會擁有最新的 POP 清單，請每天至少擷取一次。 
+為確保安全，您可以使用此 IP 清單，強制規定只有有效的 Verizon POP 才能將要求發給原始伺服器。 例如，如果有使用者探索到 CDN 端點原始伺服器的主機名稱或 IP 位址，該使用者就可以直接將要求發給原始伺服器，因而繞過 Azure CDN 所提供的調整和安全性功能。 只要將所傳回清單中的 IP 設定為原始伺服器上唯一允許的 IP，就能避免此情形。 為了確保您擁有最新的 POP 清單，請至少每天擷取一次該清單。 
 
 ## <a name="next-steps"></a>後續步驟
 

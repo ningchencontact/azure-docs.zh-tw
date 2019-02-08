@@ -7,7 +7,7 @@ author: barbkess
 manager: daveba
 editor: yossib
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 97cabf7821f223b900f86115c3bd85b12de450d4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d6030c2bf169d74959279b9c05298db90138a94f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478139"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163087"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>使用租用戶限制來管理對 SaaS 雲端應用程式的存取
 
@@ -89,7 +89,7 @@ Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「
 
 ### <a name="end-user-experience"></a>使用者體驗
 
-範例使用者位於 Contoso 網路上，但正在嘗試存取 Fabrikam 的共用 SaaS 應用程式執行個體 (例如 Outlook Online)。 如果 Contoso 不是該執行個體所允許的租用戶，使用者就會看到以下頁面：
+範例使用者位於 Contoso 網路上，但正在嘗試存取 Fabrikam 的共用 SaaS 應用程式執行個體 (例如 Outlook Online)。 如果 Fabricam 不是 Contoso 執行個體所允許的租用戶，使用者就會看到以下頁面：
 
 ![針對非允許之租用戶中使用者的拒絕存取頁面](./media/tenant-restrictions/end-user-denied.png)
 

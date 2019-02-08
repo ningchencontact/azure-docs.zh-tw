@@ -2,20 +2,20 @@
 title: 驗證 Azure SQL 資料倉儲 | Microsoft Docs
 description: 了解如何使用 Azure Active Directory (AAD) 或 SQL Server 驗證來驗證 Azure SQL 資料倉儲。
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/12/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: d082ba8bd2819450609a8a6e4ab41b4320158d4b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7f26ded5fae1bde5b2e6485ae2a2f99eebb17563
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43310651"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463322"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>驗證 Azure SQL 資料倉儲
 了解如何使用 Azure Active Directory (AAD) 或 SQL Server 驗證來驗證 Azure SQL 資料倉儲。
@@ -67,7 +67,7 @@ Azure Active Directory 的優點包括：
 請遵循下列步驟來設定 Azure Active Directory 驗證。
 
 1. 建立和填入 Azure Active Directory
-2. 選用：和目前與您的 Azure 訂用帳戶相關聯的 active directory 產生關聯並加以變更
+2. 選用：和目前與 Azure 訂用帳戶相關聯的 Active Directory 產生關聯並加以變更
 3. 建立 Azure SQL 資料倉儲的 Azure Active Directory 系統管理員。
 4. 設定用戶端電腦
 5. 在對應至 Azure AD 身分識別的資料庫中建立自主資料庫使用者

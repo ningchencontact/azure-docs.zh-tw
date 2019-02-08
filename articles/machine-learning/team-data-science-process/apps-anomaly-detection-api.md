@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: de625e7cc394d1b292f9876a1b4cdd3fb0daeaa8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e407aee98bef9917a99e3305e2c99dbdd0c182e0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134789"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469816"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 異常偵測 API
 ## <a name="overview"></a>概觀
@@ -36,25 +36,25 @@ ms.locfileid: "53134789"
 
 > [!NOTE]
 > 請嘗試採用[這個 API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) 的 **IT 異常洞察解決方案**
-> 
+>
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
---> 
+-->
 
 ## <a name="api-deployment"></a>API 部署
-若要使用 API，您必須將它部署到 Azure 訂用帳戶，以在其中裝載成 Azure Machine Learning Web 服務。  您可以從 [Azure AI 資源庫](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).\(英文\) 執行此動作。  這會將兩個 AzureML Web 服務 (與其相關的資源) 部署到您的 Azure 訂用帳戶 - 一個用於異常偵測 (含季節性偵測)，另一個則不含季節性偵測。  部署完成後，您就能夠從 [AzureML Web 服務](https://services.azureml.net/webservices/)頁面管理您的 API。  從這個頁面，您可以找到您的端點位置、API 金鑰，以及用於呼叫 API 的範例程式碼。  在[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)可取得更詳細的指示。
+若要使用 API，您必須將它部署到 Azure 訂用帳戶，以在其中裝載成 Azure Machine Learning Web 服務。  您可以從 [Azure AI 資源庫](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).\(英文\) 執行此動作。  這會將兩個 Azure Machine Learning Studio Web 服務 (與其相關的資源) 部署到您的 Azure 訂用帳戶 - 一個用於異常偵測 (含季節性偵測)，另一個則不含季節性偵測。  部署完成後，您就能夠從 [Azure Machine Learning Studio Web 服務](https://services.azureml.net/webservices/)頁面管理您的 API。  從這個頁面，您可以找到您的端點位置、API 金鑰，以及用於呼叫 API 的範例程式碼。  在[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)可取得更詳細的指示。
 
 ## <a name="scaling-the-api"></a>調整 API
 根據預設，部署將有免費的開發/測試計費方案，其中包括 1,000 筆交易/月和 2 個計算時數/月。  根據您的需求，您可以升級到另一個方案。  在[這裡](https://azure.microsoft.com/pricing/details/machine-learning/) (「生產 Web API 價格」之下) 可取得不同方案的價格詳細資料。
 
-## <a name="managing-aml-plans"></a>管理 AML 方案 
+## <a name="managing-aml-plans"></a>管理 AML 方案
 您可以在[這裡](https://services.azureml.net/plans/)管理您的計費方案。  方案名稱會以您在部署 API 時選擇的資源群組名稱為主，加上您的訂用帳戶中的唯一字串。  在[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) (「管理計費方案」一節之下) 可取得有關如何升級方案的指示。
 
 ## <a name="api-definition"></a>API 定義
 Web 服務提供透過 HTTPS 的 REST 型 API，可以各種不同方式使用，包括 Web 或行動應用程式、R、Python、Excel 等等。您可以透過 REST API 呼叫將您的時間序列資料傳送到此服務，它會執行上述三個異常類型的組合。
 
 ## <a name="calling-the-api"></a>呼叫 API
-若要呼叫 API，您必須知道端點位置和 API 金鑰。  從 [AzureML Web 服務](https://services.azureml.net/webservices/)頁面可取得這兩者，以及用於呼叫 API 的範例程式碼。  瀏覽至所需的 API，然後按一下 [取用] 索引標籤以找出它們。  請注意，您可以呼叫 API 做為 Swagger API (即包含 URL 參數 `format=swagger`) 或做為非 Swagger API (即不含 `format` URL 參數)。  範例程式碼會使用 Swagger 格式。  以下是非 Swagger 格式的範例要求和回應。  這些範例適用於季節性端點。  非季節性端點很類似。
+若要呼叫 API，您必須知道端點位置和 API 金鑰。  從 [Azure Machine Learning Studio Web 服務](https://services.azureml.net/webservices/)頁面可取得這兩者，以及用於呼叫 API 的範例程式碼。  瀏覽至所需的 API，然後按一下 [取用] 索引標籤以找出它們。  請注意，您可以呼叫 API 做為 Swagger API (即包含 URL 參數 `format=swagger`) 或做為非 Swagger API (即不含 `format` URL 參數)。  範例程式碼會使用 Swagger 格式。  以下是非 Swagger 格式的範例要求和回應。  這些範例適用於季節性端點。  非季節性端點很類似。
 
 ### <a name="sample-request-body"></a>範例要求本文
 要求包含兩個物件︰`Inputs` 和 `GlobalParameters`。  在下列範例要求中，某些參數會明確傳送，有些則不會 (向下捲動以取得每個端點的完整參數清單)。  不會在要求中明確傳送的參數會使用下面所列的預設值。
@@ -100,7 +100,8 @@ Web 服務提供透過 HTTPS 的 REST 型 API，可以各種不同方式使用�
 
 
 ## <a name="score-api"></a>分數 API
-分數 API 可用來對非季節性的時間序列資料執行異常偵測。 API 會對此資料執行許多異常偵測器，並傳回其異常分數。 下圖顯示分數 API 可偵測到的異常範例。 此時間序列有 2 個不同的層級變更和 3 個尖峰。 紅點顯示偵測到層級變更時的時間，黑點則顯示偵測到的尖峰。
+分數 API 可用來對非季節性的時間序列資料執行異常偵測。 API 會對此資料執行許多異常偵測器，並傳回其異常分數。
+下圖顯示分數 API 可偵測到的異常範例。 此時間序列有 2 個不同的層級變更和 3 個尖峰。 紅點顯示偵測到層級變更時的時間，黑點則顯示偵測到的尖峰。
 ![分數 API][1]
 
 ### <a name="detectors"></a>偵測器
@@ -127,7 +128,7 @@ Web 服務提供透過 HTTPS 的 REST 型 API，可以各種不同方式使用�
 | postprocess.tailRows |輸出結果中要保留的最新資料點數目 |0 |integer |0 (保留所有資料點)，或指定要在結果中保留的資料點數目 |N/A |
 
 ### <a name="output"></a>輸出
-API 會對您的時間序列資料執行所有偵測器，然後傳回每個時間點的異常分數和二進位尖峰指示器。 下表列出 API 的輸出。 
+API 會對您的時間序列資料執行所有偵測器，然後傳回每個時間點的異常分數和二進位尖峰指示器。 下表列出 API 的輸出。
 
 | 輸出 | 說明 |
 | --- | --- |
@@ -141,7 +142,7 @@ API 會對您的時間序列資料執行所有偵測器，然後傳回每個時�
 | talert |根據輸入敏感度指出有正向趨勢異常的 1/0 值 |
 
 ## <a name="scorewithseasonality-api"></a>ScoreWithSeasonality API
-ScoreWithSeasonality API 可用來對具有季節性模式的時間序列執行異常偵測。 這個 API 適用於偵測季節性模式的偏差。  
+ScoreWithSeasonality API 可用來對具有季節性模式的時間序列執行異常偵測。 這個 API 適用於偵測季節性模式的偏差。
 下圖顯示季節性時間序列中所偵測到的異常範例。 時間序列有一個尖峰 (第 1 個黑點)、兩個下降 (第 2 個黑點和尾端的黑點)，以及一個層級變更 (紅點)。 請注意，從時間序列中移除季節性元件後，才能看到序列中間的兩個下降和該層級變更。
 ![季節性 API][2]
 
@@ -170,7 +171,7 @@ ScoreWithSeasonality API 可用來對具有季節性模式的時間序列執行�
 | postprocess.tailRows |輸出結果中要保留的最新資料點數目 |0 |integer |0 (保留所有資料點)，或指定要在結果中保留的資料點數目 |N/A |
 
 ### <a name="output"></a>輸出
-API 會對您的時間序列資料執行所有偵測器，然後傳回每個時間點的異常分數和二進位尖峰指示器。 下表列出 API 的輸出。 
+API 會對您的時間序列資料執行所有偵測器，然後傳回每個時間點的異常分數和二進位尖峰指示器。 下表列出 API 的輸出。
 
 | 輸出 | 說明 |
 | --- | --- |

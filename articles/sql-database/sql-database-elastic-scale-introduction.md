@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: a36c5cfc977920f43b7f73e3e7cf9176de7c1f8a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867081"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463016"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>使用 Azure SQL Database 相應放大
 您可以使用 **彈性資料庫** 工具，輕鬆地向外擴充 Azure SQL 資料庫。 這些工具和功能可讓您使用 **Azure SQL Database** 中的資料庫資源，建立交易式工作負載的解決方案，尤其是軟體即服務 (SaaS) 應用程式。 彈性資料庫功能的組成如下：
@@ -67,8 +67,8 @@ ms.locfileid: "52867081"
 ## <a name="sharding"></a>分區化
 分區化是一種將大量相同結構的資料分散在許多獨立資料庫的技術。 為一般客戶或企業建立軟體即服務 (SAAS) 供應項目的開發人員尤其愛用。 這些一般客戶通常稱為「租用戶」。 需要使用分區化可能有各種原因：  
 
-* 資料總量太大而超出單一資料庫的條件約束
-* 整體工作負載的交易輸送量超過單一資料庫的能力
+* 資料總量太大而超出個別資料庫的條件約束
+* 整體工作負載的交易輸送量超過個別資料庫的能力
 * 租用戶可能需要彼此實際隔離，因此每個租用戶需要個別的資料庫
 * 基於規範、效能或地理政治的理由，資料庫的不同區段可能需要位於不同的地理位置。
 

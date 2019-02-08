@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: eb020dfd52140375778cf22c6b70e715a7422761
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310236"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151085"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services 中的 ASP.NET Core
 
@@ -62,7 +62,7 @@ Reliable Service 執行個體是由您衍生自 `StatelessService` 或 `Stateful
 `Microsoft.ServiceFabric.AspNetCore.*` NuGet 套件中 Kestrel 和 HttpSys 的 `ICommunicationListener` 實作有類似的使用模式，但針對每個 web 伺服器執行的動作稍有不同。 
 
 這兩種通訊接聽程式都會提供使用下列引數的建構函式︰
- - **`ServiceContext serviceContext`** 包含關於執行服務資訊的 `ServiceContext` 物件。
+ - **`ServiceContext serviceContext`**：包含關於執行服務資訊的 `ServiceContext` 物件。
  - **`string endpointName`**：在 ServiceManifest.xml 中的 `Endpoint` 組態名稱。 這是兩個通訊接聽程式主要的不同之處︰HttpSys **需要** `Endpoint` 組態，而 Kestrel 不需要。
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**：您所實作並在其中建立並傳回 `IWebHost` 的 lambda。 這可讓您以您通常會在 ASP.NET Core 應用程式的方式設定 `IWebHost`。 Lambda 提供為您根據 Service Fabric 整合選項所產生的 URL 和您提供的 `Endpoint` 組態。 然後該 URL 可以修改或依現狀使用以啟動 web 伺服器。
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: bf6dbde725670030046aad4fccf41554b8d917fe
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c130c6cd5fcb5191195712f570db66408734200a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901272"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150861"
 ---
 # <a name="query-expression-syntax"></a>查詢運算式語法
 
@@ -36,7 +36,7 @@ Composite(AA.AuN='sue dumais')
 Ti=='indexing by latent semantic analysis'  
 Composite(AA.AuN=='susan t dumais')
      
-**字串屬性：首碼值**   
+**字串屬性：前置詞值**   
 Ti='indexing by latent seman'...  
 Composite(AA.AuN='sue du'...)
 
@@ -48,10 +48,10 @@ Y>2005
 Y>=2005  
 Y<2010  
 Y<=2010  
-Y=\[2010, 2012\) (includes only left boundary value: 2010, 2011)  
-Y=\[2010, 2012\] (includes both boundary values: 2010, 2011, 2012)
+Y=\[2010, 2012\) (includes only left boundary value:2010, 2011)  
+Y=\[2010, 2012\] (includes both boundary values:2010, 2011, 2012)
  
-**數值屬性：首碼值**  
+**數值屬性：前置詞值**  
 Y='19'... (any numeric value that starts with 19) 
  
 **日期屬性：單一值**  

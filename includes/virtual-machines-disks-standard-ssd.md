@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: da46687517dbfe189571286087d4ef29d50d1246
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571894"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906296"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>適用於 Azure 虛擬機器工作負載的標準 SSD 受控磁碟
 
@@ -21,7 +21,7 @@ ms.locfileid: "51571894"
 
 ## <a name="standard-ssd-features"></a>標準 SSD 功能
 
-**受控磁碟**：「標準 SSD」僅可供作為「受控磁碟」使用。 「標準 SSD」不支援「非受控磁碟」和「分頁 Blob」。 建立「受控磁碟」時，您需將磁碟類型指定為 [標準 SSD] 並指示所需的磁碟大小，然後 Azure 就會為您建立及管理該磁碟。
+**受控磁碟**：標準 SSD 僅適用於受控磁碟。 「標準 SSD」不支援「非受控磁碟」和「分頁 Blob」。 建立「受控磁碟」時，您需將磁碟類型指定為 [標準 SSD] 並指示所需的磁碟大小，然後 Azure 就會為您建立及管理該磁碟。
 標準 SSD 支援受控磁碟提供的所有傳統部署模型作業。 例如，您可以建立、複製「標準 SSD 受控磁碟」或為其建立快照，方式與對「受控磁碟」所做的相同。
 
 **虛擬機器**：「標準 SSD」可以與所有 Azure VM 搭配使用，包括不支援「進階磁碟」的 VM 類型。 例如，不論您使用 A 系列 VM、N 系列 VM、DS 系列還是任何其他 Azure VM 系列，都可以將「標準 SSD」與該 VM 搭配使用。 在導入「標準 SSD」之後，我們便能將先前使用 HDD 型磁碟的廣泛工作負載轉換至 SSD 型磁碟，並體驗一致的效能、更高的可用性、更佳的延遲，以及伴隨 SSD 而來整體更佳的體驗。
@@ -36,6 +36,8 @@ ms.locfileid: "51571894"
 
 |標準 SSD 磁碟類型  |磁碟大小  |每一磁碟的 IOPS  |每一磁碟的輸送量  |
 |---------|---------|---------|---------|
+|E4     |32 GiB         |最高 120         |每秒最多 25 MiB         |
+|E6     |64 GiB         |最高 240         |每秒最多 50 MiB         |
 |E10     |128 GB         |最多 500         |每秒最多 60 MiB         |
 |E15     |256 GiB         |最多 500         |每秒最多 60 MiB         |
 |E20     |512 GB         |最多 500         |每秒最多 60 MiB         |
@@ -61,11 +63,11 @@ ms.locfileid: "51571894"
 - 輸出資料傳輸
 - 交易
 
-**受控磁碟大小**：受控磁碟會依佈建大小計費。 Azure 會將佈建大小對應 (無條件進位) 至最接近的磁碟大小供應項目。 如需所提供磁碟大小的詳細資料，請參閱上述＜延展性和效能目標＞一節中的表格。 每個磁碟皆與一個支援的佈建磁碟大小對應，並據此計費。 例如，如果您佈建了 200 GiB 的「標準 SSD」，它將會與 E15 (256 GiB) 的磁碟大小供應項目對應。 任何已佈建的磁碟都是使用每月的進階儲存體供應項目價格，以每小時的方式計費。 例如，如果您佈建了 E10 磁碟並在 20 小時後刪除它，便會按 20 小時的比例向您收取 E10 供應項目的費用。 這與寫入磁碟的實際資料量無關。
+**受控磁碟大小**：受控磁碟依據佈建的大小計費。 Azure 會將佈建大小對應 (無條件進位) 至最接近的磁碟大小供應項目。 如需所提供磁碟大小的詳細資料，請參閱上述＜延展性和效能目標＞一節中的表格。 每個磁碟皆與一個支援的佈建磁碟大小對應，並據此計費。 例如，如果您佈建了 200 GiB 的「標準 SSD」，它將會與 E15 (256 GiB) 的磁碟大小供應項目對應。 任何已佈建的磁碟都是使用每月的進階儲存體供應項目價格，以每小時的方式計費。 例如，如果您佈建了 E10 磁碟並在 20 小時後刪除它，便會按 20 小時的比例向您收取 E10 供應項目的費用。 這與寫入磁碟的實際資料量無關。
 
 **快照集**：計算「受控磁碟」的快照集費用時，會針對快照集在目標和來源使用的容量 (如果有的話) 計費。 如需有關快照集的詳細資訊，請參閱[受控磁碟快照集](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots)。
 
-**輸出資料傳輸**： [輸出資料傳輸](https://azure.microsoft.com/pricing/details/bandwidth/) (Azure 資料中心送出的資料) 會產生頻寬使用量費用。
+**輸出資料傳輸**：[輸出資料傳輸](https://azure.microsoft.com/pricing/details/bandwidth/) (Azure 資料中心送出的資料) 會產生頻寬使用量費用。
 
 **交易**：與「標準 HDD」類似，「標準 SSD」上的交易也會產生費用。 交易同時包含磁碟上的讀取和寫入作業。 「標準 SSD」上的交易所使用的會計 I/O 單位大小為 256 KiB。 更大的 I/O 大小則會視為大小是 256 KiB 的多個 I/O。
 

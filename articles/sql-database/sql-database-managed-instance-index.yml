@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 01df34025c0389a4ea8bcd5eceaa29f0351df5f7
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 556ec0b55ea2e62975661eb5f668b4d3acda7c30
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329685"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466348"
 documentType: LandingData
 title: Azure SQL Database 受控執行個體
 metadata:
@@ -78,7 +78,7 @@ sections:
     - html: 為還原時間點<a href="https://aka.ms/managed-instance-configurable-backup-retention">設定最多 35 天的備份保留期限</a>。 請注意，長期備份保留期間 (最多 10 年) 仍未啟用，因此您可以使用<a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">只複製備份</a>作為替代方案。
     - html: (預覽) 使用<a href="https://aka.ms/managed-instance-failover-groups">異地分散的容錯移轉群組</a>將執行個體保留在另一個區域中，確保即使在區域性災害案例中，您的資料仍可供使用。
     - html: (預覽) 移轉已啟用「透明資料加密」(TDE) 的內部部署資料庫時<a href="https://aka.ms/managed-instance-tde-byok">攜帶您自己的加密金鑰</a>。
-    - html: 受控執行個體受<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-management-endpoint-verify-built-in-firewall">內建防火牆</a>的保護。
+    - html: 受控執行個體受<a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">內建防火牆</a>的保護。
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
@@ -134,7 +134,7 @@ sections:
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">設定</a>將部署受控執行個體的 Azure VNet。
     - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">驗證</a>您現有的 Azure VNet 是否可用來部署受控執行個體。
     - html: 使用 <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure 虛擬機器</a>或<a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">點對站連線</a>或<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">應用程式</a>，連線到您的執行個體。
-    - html: 確認可以使用<a href="https://www.microsoft.com/download/details.aspx?id=53595">資料移轉助理</a>或<a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">資料庫測試助理</a>來遷移您的資料庫。
+    - html: 確認可以使用 <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> 或<a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">資料庫測試助理</a>來遷移您的資料庫。
     - html: 使用<a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">原生還原</a>或<a href="/azure/dms/tutorial-sql-server-managed-instance-online">資料移轉服務</a>，將資料庫帶到受控執行個體。
     - html: 將 SSIS 套件移至 <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>、將 SSAS 表格式模型移至 <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>，以及將 SSRS 報告移至 <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>。
     - html: 套用<a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">一般用途服務層的儲存體效能最佳做法及考量</a>。

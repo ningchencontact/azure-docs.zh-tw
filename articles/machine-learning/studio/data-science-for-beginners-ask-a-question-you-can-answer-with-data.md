@@ -1,6 +1,6 @@
 ---
-標題：詢問可回答的問題資料標題字尾： Azure Machine Learning Studio 說明：了解如何在「適用於初學者的資料科學」影片 3 中制訂明確的資料科學問題。 包含分類和迴歸問題的比較。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：詢問可回答的問題資料標題字尾：Azure Machine Learning Studio 說明：了解如何在「適用於初學者的資料科學」影片 3 中制訂明確的資料科學問題。 包含分類和迴歸問題的比較。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:01/03/2018
 ---

@@ -3,7 +3,7 @@ title: 在 Azure 中避免意外的成本、管理計費 | Microsoft Docs
 description: 了解如何避免 Azure 帳單上的意外費用。 使用 Microsoft Azure 訂用帳戶的成本追蹤與管理功能。
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: alherz
 editor: ''
 tags: billing
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: cwatson
-ms.openlocfilehash: 5aca80a4ebeadc9e54cf99fb4a220c6ee7c37cae
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.author: banders
+ms.openlocfilehash: 732ac5e1e82c67d2f4a0a3443b85c67712f4f651
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857007"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101646"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>使用 Azure 計費與成本管理避免非預期的費用
 
@@ -75,7 +75,7 @@ ms.locfileid: "54857007"
 5. 選取 [閾值] 索引標籤，然後選取 [實際成本與閾值]。 
    1. 在 [紅色警示] 閾值方塊中輸入 10000。 
    2. 在 [黃色警示] 閾值方塊中輸入 9000。 
-   3. 在 [連續警示數目] 方塊中，輸入要接收的連續警示數目。 當您收到指定的警示總數時，就不會再傳送其他警示。 
+   3. 在 [連續警示數目] 方塊中，輸入要接收的連續警示數目。 當您收到所指定的警示總數時，不會再傳送其他警示。 
 6. 選取 [ **儲存**]。
 
     ![根據費用閾值顯示紅色警示和黃色警示的範例](./media/billing-getting-started/schedule-alert01.png)

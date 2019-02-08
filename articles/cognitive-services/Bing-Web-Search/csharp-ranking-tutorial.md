@@ -7,16 +7,16 @@ author: bradumbaugh
 manager: cgronlun
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
-ms.openlocfilehash: ebe95c8ebad8c7d6b77d98dc0d590a4d38d76b94
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 90ad2ff87e9541c892262edb2e48366826b2a388
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465962"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188434"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>使用 C# 建置主控台應用程式搜尋用戶端
 
@@ -49,7 +49,7 @@ JSON.net 讓您能夠使用 API 所傳回的 JSON 回應。 將它的 NuGet 套�
 - 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]。
 - 在 [瀏覽] 索引標籤上，搜尋 `Newtonsoft.Json`。 選取最新版本，然後按一下 [安裝]。
 - 按一下 [檢閱變更] 視窗上的 [確定] 按鈕。
-- 關閉標題為 **NuGet: MyConsoleSearchApp** 的 Visual Studio 索引標籤。
+- 關閉標題為 **NuGet:MyConsoleSearchApp** 的 Visual Studio 索引標籤。
 
 ## <a name="add-a-reference-to-systemweb"></a>新增對 System.Web 的參考
 
@@ -224,8 +224,8 @@ static void RunQueryAndDisplayResults(string userQuery)
 `rankingResponse` JSON 物件 ([文件](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) 會說明搜尋結果的適當顯示順序。 它會包含下列一或多個已設定優先順序的群組：
 
 - `pole`：獲得最明顯處理的搜尋結果 (例如，顯示在主線和資訊看板上方)。
-- `mainline`：顯示在主線中的搜尋結果。
-- `sidebar`：顯示在資訊看板中的搜尋結果。 如果沒有資訊看板，則會在主線下方顯示結果。
+- `mainline`：要顯示在主線中的搜尋結果。
+- `sidebar`：要顯示在資訊看板中的搜尋結果。 如果沒有資訊看板，則會在主線下方顯示結果。
 
 已設定順位的回應 JSON 可能包括一或多個群組。
 

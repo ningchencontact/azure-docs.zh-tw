@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 39d49a223fb02d00af2309922ccd98a764264b4d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4e6912d13b4192b1f938acf5a9808221f5aa42f7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452508"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077653"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的存取控制？
 
@@ -71,9 +71,15 @@ ms.locfileid: "54452508"
 
 ### <a name="compliant-device"></a>符合規範的裝置
 
-您可以設定以裝置作為基礎的條件式存取原則。 裝置型條件式存取原則的目標是，只從[受控裝置](require-managed-devices.md)授與已設定資源的存取權。 定義受控裝置的必要選項之一，是要求符合規範裝置。 如果選取此選項，使用已向您的 Azure Active Directory [註冊](../devices/overview.md)且經 Intune (適用於任何裝置 OS) 或您的協力廠商 MDM 系統 (適用於 Windows 10 裝置) 標示為符合規範的裝置進行存取嘗試時，您的條件式存取原則就會對其授與存取權。 不支援針對 Windows 10 以外的裝置 OS 類型使用的第三方 MDM 系統。
+您可以設定以裝置作為基礎的條件式存取原則。 裝置型條件式存取原則的目標是，僅從[受控裝置](require-managed-devices.md)授與所選雲端應用程式的存取權。 您必須限制對受控裝置的存取的其中一個選項，是要求將裝置標示為符合規範。 Intune (適用於任何裝置作業系統) 或您的協力廠商 MDM 系統 (適用於 Windows 10 裝置) 可以將裝置標示為符合規範。 不支援針對 Windows 10 以外的裝置 OS 類型使用的第三方 MDM 系統。 
 
-如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](require-managed-devices.md)。
+您的裝置必須向 Azure AD 註冊，才能標示為符合規範。 若要註冊裝置，您會有三個選項： 
+
+- [Azure AD 註冊裝置](../devices/overview.md#azure-ad-registered-devices)
+- [Azure AD 已加入裝置](../devices/overview.md#azure-ad-joined-devices)  
+- [混合式 Azure AD 已加入裝置](../devices/overview.md#hybrid-azure-ad-joined-devices)
+
+如需詳細資訊，請參閱[如何透過條件式存取要求必須從受控裝置存取雲端應用程式](require-managed-devices.md)。
 
 ### <a name="hybrid-azure-ad-joined-device"></a>已加入混合式 Azure AD 的裝置
 

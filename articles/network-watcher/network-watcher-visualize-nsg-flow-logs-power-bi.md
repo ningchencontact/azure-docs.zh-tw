@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 1f8807094c6e93cf55467e76e0fa2b617ec3d5fb
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822869"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913292"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>使用 Power BI 將網路安全性群組流程記錄視覺化
 
@@ -123,7 +123,7 @@ ms.locfileid: "51822869"
 
 ## <a name="next-steps"></a>後續步驟
 
-請瀏覽[使用開放原始碼工具將 Azure 網路監看員 NSG 流程記錄視覺化](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)，了解如何以 Elastick Stack 將 NSG 流程記錄視覺化
+瀏覽[使用開放原始碼工具將 Azure 網路監看員 NSG 流程記錄視覺化](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)，以了解如何使用 Elastic Stack 將 NSG 流程記錄視覺化
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

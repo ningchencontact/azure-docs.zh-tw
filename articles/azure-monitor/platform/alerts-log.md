@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 43e842d6325897f484d9dff342505cace6640e78
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 64fb629e29de9771ca5f76d1c454ec5d14337a57
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472274"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104359"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>使用 Azure 監視器來建立、檢視及管理記錄警示  
 
@@ -72,6 +72,7 @@ ms.locfileid: "54472274"
     ![[依據彙總] 選項](media/alerts-log/aggregate-on.png)
 
 1.  *記錄警示*：當視覺效果就緒後，您就可以從所示的條件、彙總和閾值 (最後選取) 選項來選取**警示邏輯**。 最後，使用 [期間] 選項，在邏輯中指定用來評估指定條件的時間。 以及，透過選取 [頻率]，來指定警示執行的頻率。
+
 針對**記錄警示**，可以根據：
    - *記錄數目*：如果查詢所傳回的記錄數目大於或小於所提供的值，則會建立警示。
    - *計量測量*：如果結果中的每個「彙總值」超過提供的閾值，而且彙總值依據選擇的值來「分組」，則會建立警示。 警示的違規數是所選時段中超過閾值的次數。 您可以跨結果集針對任何違規組合指定 [違規數總計]，或指定 [連續違規] 以要求違規必須發生於連續取樣中。 深入了解[記錄警示和其類型](../../azure-monitor/platform/alerts-unified-log.md)。
@@ -105,10 +106,10 @@ ms.locfileid: "54472274"
 
     ![建立規則](media/alerts-log/AlertsPreviewCreate.png)
 
-    在幾分鐘之內，警示會開始作用，且先前所述觸發。
+    在幾分鐘之內，警示就會生效並如先前所述的那樣觸發。
 
-使用者可以也會在 [Azure 入口網站中的 Logs Analytics 頁面](../../azure-monitor/log-query/portals.md#log-analytics-page
-)完成分析查詢，然後透過「設定警示」按鈕推送它以建立警示，接著按照上述教學中步驟 6 開始往下操作指示。
+使用者也可以在 [Azure 入口網站中的 Logs Analytics 頁面](../../azure-monitor/log-query/portals.md#log-analytics-page
+)完成其分析查詢，然後透過 [+ 新增警示規則] 按鈕推送它以建立警示，接著再依照上述教學課程中從步驟 6 開始的指示進行操作。
 
  ![Log Analytics - 設定警示](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -125,35 +126,31 @@ ms.locfileid: "54472274"
     ![管理警示規則](media/alerts-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>使用 Azure 資源範本管理記錄警示
-目前可以使用兩個不同的資源範本建立記錄警示，取決於警示的分析平台，也就是 Log Analytics 或 Application Insights。
 
-因此下一節提供如何在兩個分析平台上為記錄警示使用資源範本的詳細資料。
+「Azure 監視器」中的記錄警示與資源類型 `Microsoft.Insights/scheduledQueryRules/`相關聯。 如需有關此資源類型的詳細資訊，請參閱 [Azure 監視器 - 排程的查詢規則 API 參考](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)。 建立 Application Insights 或 Log Analytics 的記錄警示時，可以使用[排程的查詢規則 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) 來建立。
 
-### <a name="azure-resource-template-for-log-analytics"></a>適用於 Log Analytics 的 Azure 資源範本
-Log Analytics 的記錄警示是由警示規則所建立，這些規則會定期執行已儲存的搜尋。 如果查詢的結果符合指定的準則，就會建立警示記錄，並執行一或多個動作。 
-
-您可以在文件的 Log Analytics 一節中，取得記錄分析儲存的搜尋和記錄分析警示資源範本。 若要深入了解，請參閱[新增 Log Analytics 的已儲存搜尋和警示](../../azure-monitor/insights/solutions-resources-searches-alerts.md)；其中包含說明範例與結構描述詳細資料。
-
-### <a name="azure-resource-template-for-application-insights"></a>適用於 Application Insights 的 Azure 資源範本
-Application Insights 資源的記錄警示有一個類型是 `Microsoft.Insights/scheduledQueryRules/`。 如需有關此資源類型的詳細資訊，請參閱 [Azure 監視器 - 排程的查詢規則 API 參考](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)。
+> [!NOTE]
+> 管理 Log Analytics 的記錄警示時，也可以使用舊版 [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) 及舊版 [Log Analytics 儲存的搜尋和警示](../../azure-monitor/insights/solutions-resources-searches-alerts.md)範本來管理。 如需有關預設使用這裡詳述之新 ScheduledQueryRules API 的詳細資訊，請參閱[切換至 Log Analytics 警示的新 API](alerts-log-api-switch.md)。
 
 以下結構用於根據資源範本[建立排程的查詢規則](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate)，其中使用資料集範例作為變數。
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0", 
     "parameters": {      
     },   
     "variables": {
-    "alertLocation": "southcentralus",
-    "alertName": "samplelogalert",
-    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-    "alertDescription": "Sample log search alert",
+    "alertLocation": "Region Name for your Application Insights App or Log Analytics Workspace",
+    "alertName": "sample log alert",
+    "alertDescr": "Sample log search alert",
     "alertStatus": "true",
+    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
     "alertSource":{
-        "Query":"requests",
-        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+        "Query":"union workspace("servicews").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
+        "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews", 
+        "Resource2": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceapp",
+        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
         "Type":"ResultCount"
          },
      "alertSchedule":{
@@ -161,17 +158,24 @@ Application Insights 資源的記錄警示有一個類型是 `Microsoft.Insights
          "Time": 60
          },
      "alertActions":{
-         "SeverityLevel": "4"
+         "SeverityLevel": "4",
+         "SuppressTimeinMin": 20
          },
       "alertTrigger":{
         "Operator":"GreaterThan",
         "Threshold":"1"
          },
+      "metricMeasurement": {
+          "thresholdOperator": "Equal",
+          "threshold": "1",
+          "metricTriggerType": "Consecutive",
+          "metricColumn": "Classification"
+      },
        "actionGrp":{
-        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
+        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG",
         "Subject": "Customized Email Header",
-        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"           
-         }
+        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
+        }
   },
   "resources":[ {
     "name":"[variables('alertName')]",
@@ -180,28 +184,36 @@ Application Insights 資源的記錄警示有一個類型是 `Microsoft.Insights
     "location": "[variables('alertLocation')]",
     "tags":{"[variables('alertTag')]": "Resource"},
     "properties":{
-       "description": "[variables('alertDescription')]",
+       "description": "[variables('alertDescr')]",
        "enabled": "[variables('alertStatus')]",
        "source": {
            "query": "[variables('alertSource').Query]",
+           "authorizedResources": "[concat(array(variables('alertSource').Resource1), array(variables('alertSource').Resource2))]",
            "dataSourceId": "[variables('alertSource').SourceId]",
            "queryType":"[variables('alertSource').Type]"
        },
       "schedule":{
            "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-           "timeWindowInMinutes": "[variables('alertSchedule').Time]"    
+           "timeWindowInMinutes": "[variables('alertSchedule').Time]"
        },
       "action":{
            "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
            "severity":"[variables('alertActions').SeverityLevel]",
+           "throttlingInMin": "[variables('alertActions').SuppressTimeinMin]",
            "aznsAction":{
-               "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
+               "actionGroup": "[array(variables('actionGrp').ActionGroup)]",
                "emailSubject":"[variables('actionGrp').Subject]",
                "customWebhookPayload":"[variables('actionGrp').Webhook]"
            },
        "trigger":{
                "thresholdOperator":"[variables('alertTrigger').Operator]",
-               "threshold":"[variables('alertTrigger').Threshold]"
+               "threshold":"[variables('alertTrigger').Threshold]",
+               "metricTrigger":{
+                   "thresholdOperator": "[variables('metricMeasurement').thresholdOperator]",
+                   "threshold": "[variables('metricMeasurement').threshold]",
+                   "metricColumn": "[variables('metricMeasurement').metricColumn]",
+                   "metricTriggerType": "[variables('metricMeasurement').metricTriggerType]"
+               }
            }
        }
      }
@@ -212,34 +224,28 @@ Application Insights 資源的記錄警示有一個類型是 `Microsoft.Insights
 > [!IMPORTANT]
 > [排程的查詢規則](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API 呼叫或資源範本中，一定會使用具有目標資源隱藏連結的標籤欄位。 
 
-基於本逐步解說的目的，上述 json 範例可儲存為 (假設) sampleScheduledQueryRule.json，而且可以使用 [Azure 入口網站中的 Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) 進行部署。
-
+基於本逐步解說的目的，上述 JSON 範例可儲存為 (假設) sampleScheduledQueryRule.json，而且可以使用 [Azure 入口網站中的 Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) 來進行部署。
 
 ## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>使用 PowerShell、CLI 或 API 管理記錄警示
-目前可以使用兩個不同的與 Resource Manager 相容的 API 建立記錄警示，取決於警示的分析平台，也就是 Log Analytics 或 Application Insights。
 
-因此下一節提供如何在兩個分析平台上為記錄警示透過 Powershell 或 CLI 使用 API 的詳細資料。
+Azure 監視器 - 排程的查詢規則 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) 是一個 REST API，且與 Azure Resource Manager REST API 完全相容。 因此它可以透過 Powershell 和 Azure CLI 搭配資源管理員 Cmdlet 來使用。
 
-### <a name="powershell-cli-or-api-for-log-analytics"></a>適用於 Log Analytics 的 PowerShell、CLI 或 API
-Log Analytics 警示 REST API 是 RESTful，可透過 Azure Resource Manager REST API 來存取。 因此您可以從 PowerShell 命令列存取 API，API 會以 JSON 格式向您輸出搜尋結果，讓您以程式設計方式透過許多不同的方法使用結果。
+> [!NOTE]
+> 管理 Log Analytics 的記錄警示時，也可以使用舊版 [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) 及舊版 [Log Analytics 儲存的搜尋和警示](../../azure-monitor/insights/solutions-resources-searches-alerts.md)範本來管理。 如需有關預設使用這裡詳述之新 ScheduledQueryRules API 的詳細資訊，請參閱[切換至 Log Analytics 警示的新 API](alerts-log-api-switch.md)。
 
-深入了解[使用 REST API 建立及管理 Log Analytics 中的警示規則](../../azure-monitor/platform/api-alerts.md)；包括從 Powershell 存取 API 的範例。
 
-### <a name="powershell-cli-or-api-for-application-insights"></a>適用於 Application Insights 的 PowerShell、CLI 或 API
-[Azure 監視器 - 已排程的查詢規則 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) 是 REST API，並且可與 Azure Resource Manager REST API 完全相容。 因此它可以透過 Powershell 和 Azure CLI 搭配資源管理員 Cmdlet 來使用。
-
-以下說明透過 Azure Resource Manager PowerShell Cmdlet 使用上述[資源範本一節](#azure-resource-template-for-application-insights)中資源範本範例 (sampleScheduledQueryRule.json) 的方式：
+記錄警示目前沒有專用 PowerShell 或 CLI 命令；但如以下所述，針對稍早於[資源範本一節](#azure-resource-template-for-application-insights)中所示的範例「資源範本」(sampleScheduledQueryRule.json)，可透過 Azure Resource Manager PowerShell Cmdlet 使用記錄警示：
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
+New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
+
 以下說明透過 Azure CLI 中的 Azure Resource Manager 命令使用上述[資源範本一節](#azure-resource-template-for-application-insights)中資源範本範例 (sampleScheduledQueryRule.json) 的方式：
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file sampleScheduledQueryRule.json
+az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
 ```
+
 成功完成作業後，系統會傳回 201，說明新警示規則的建立，或是傳回 200，表示現有的警示規則已修改。
-
-
   
 ## <a name="next-steps"></a>後續步驟
 

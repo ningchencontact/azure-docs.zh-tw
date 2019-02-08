@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f376b6bcb0238f96b4f5bb35d898cc600e108c65
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902241"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169751"
 ---
 # <a name="bake-acoustics"></a>製作聲場
 
@@ -255,10 +255,10 @@ Azure 認證會安全地儲存在您的本機電腦上，並與您的 Unity 編�
 
 此外掛程式會在各種點上建立四個資料檔。 在執行階段只需要其中一個，因此其他三個會在名為 "Editor" 的資料夾中，如此便不會將它們編譯至您的專案中。
 
-* **Assets/Editor/[SceneName]\_AcousticsParameters.asset**：此檔案儲存您在 Acoustics (聲場) UI 的欄位中輸入的資料。 您無法變更此檔案的位置和名稱。 此檔案中儲存了其他會影響製作的值，但它們是供進階使用者使用的，而不應該予以變更。
+* **Assets/Editor/[SceneName]\_AcousticsParameters.asset**：這個檔案會儲存您在聲場 UI 欄位中輸入的資料。 您無法變更此檔案的位置和名稱。 此檔案中儲存了其他會影響製作的值，但它們是供進階使用者使用的，而不應該予以變更。
 * **Assets/AcousticsData/Acoustics\_[SceneName].ace.bytes**：此檔案是在製作模擬期間建立的檔案，包含了執行階段用來轉譯您場景聲場的查閱資料。 您可以使用 [Probes] \(探查\) 索引標籤上的欄位，來變更此檔案的位置和名稱。
-* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**：此檔案儲存體素化的聲場幾何和材質屬性。 這是使用 [Probes] \(探查\) 索引標籤上的 [Calculate] \(計算\) 按鈕來計算的。您可以使用 [Probes] \(探查\) 索引標籤上的欄位，來變更此檔案的位置和名稱。
-* **Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml**：此檔案儲存使用 [Probes] \(探查\) 索引標籤上的 [Calculate] \(計算\) 按鈕來計算的參數。您可以使用 [Probes] \(探查\) 索引標籤上的欄位，來變更此檔案的位置和名稱。
+* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**：這個檔案會儲存已體素化的聲場幾何和材質屬性。 這是使用 [Probes] \(探查\) 索引標籤上的 [Calculate] \(計算\) 按鈕來計算的。您可以使用 [Probes] \(探查\) 索引標籤上的欄位，來變更此檔案的位置和名稱。
+* **Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml**：這個檔案儲存使用 [Probes] \(探查\) 索引標籤上的 [Calculate] \(計算\) 按鈕計算的參數。您可以使用 [Probes] \(探查\) 索引標籤上的欄位，來變更此檔案的位置和名稱。
 
 請小心，不要刪除從製作項目下載的 *.ace.bytes 檔案。 除非重新製作場景，否則無法復原此檔案。
 

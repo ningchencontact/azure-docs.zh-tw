@@ -2,20 +2,20 @@
 title: 教學課程：使用 Azure SQL 資料倉儲中的 Azure Functions 管理計算 | Microsoft Docs
 description: 如何使用 Azure Functions 來管理資料倉儲的計算。
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f366718a11f715b0c91a556eb3b0f216424b82c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 0832fbcacd8b58ffaf36ce2e55e3add151a881db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287896"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470190"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>使用 Azure Functions 來管理 Azure SQL 資料倉儲中的計算資源
 

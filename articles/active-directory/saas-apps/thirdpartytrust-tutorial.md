@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 3c496939-4201-4108-b0cc-d3e7c4244229
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 4333f6094a0da22f73255836379e1163aac485d4
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ace619e5eba8d5f1b4f1740f2c88fbce7bc83790
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050512"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150510"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdpartytrust"></a>教學課程：Azure Active Directory 與 ThirdPartyTrust 整合
 
@@ -163,7 +163,7 @@ ms.locfileid: "39050512"
  
 ### <a name="create-a-thirdpartytrust-test-user"></a>建立 ThirdPartyTrust 測試使用者
 
-在本節中，您會在 ThirdPartyTrust 中建立名為 Britta Simon 的使用者。 請與 [ThirdPartyTrust 支援小組](mailto:support@thirdpartytrust.com)合作，以在 ThirdPartyTrust 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您會在 ThirdPartyTrust 中建立名為 Britta Simon 的使用者。 請與  [ThirdPartyTrust 支援小組](mailto:support@thirdpartytrust.com) 合作，在 ThirdPartyTrust 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
@@ -201,7 +201,7 @@ ms.locfileid: "39050512"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [ThirdPartyTrust] 圖格時，應該會自動登入您的 ThirdPartyTrust 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

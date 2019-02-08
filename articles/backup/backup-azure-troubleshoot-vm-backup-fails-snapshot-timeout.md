@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816750"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104230"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或擴充功能相關的問題
 
@@ -59,7 +59,7 @@ ms.locfileid: "54816750"
 **步驟 1：[從還原點資源群組中移除鎖定](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **步驟 2：[清除還原點集合](#clean_up_restore_point_collection)**<br>
 
-## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - 備份沒有足夠的金鑰保存庫權限可以進行加密 VM 的備份。
+## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - 備份沒有足夠的金鑰保存庫權限來備份加密的 VM
 
 **錯誤碼**：UserErrorKeyvaultPermissionsNotConfigured <br>
 **錯誤訊息**：備份沒有足夠的金鑰保存庫權限可以進行加密 VM 的備份。 <br>
@@ -105,7 +105,7 @@ ms.locfileid: "54816750"
 **錯誤碼**：UserErrorUnsupportedDiskSize <br>
 **錯誤訊息**：Azure 備份目前不支援容量大於 1023 GB 的磁碟 <br>
 
-備份磁碟大小超過 1023GB 的 VM 時，備份作業可能會失敗，因為您的保存庫並未升級到「立即還原」。 升級至「立即還原」將提供最高 4TB 支援，請參閱這篇[文章](backup-instant-restore-capability.md)。  
+備份磁碟大小超過 1023GB 的 VM 時，備份作業可能會失敗，因為您的保存庫並未升級到「立即還原」。 升級至「立即還原」將提供最高 4TB 支援，請參閱這篇[文章](backup-instant-restore-capability.md#upgrading-to-instant-restore)。 在您升級之後，最多將需要兩小時的時間，訂用帳戶才能使用此功能。 請提供足夠的緩衝，然後才重試此作業。  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - 目前 Azure 備份不支援標準 SSD 磁碟
 
@@ -114,7 +114,7 @@ ms.locfileid: "54816750"
 
 目前 Azure 備份只針對升級至[立即還原](backup-instant-restore-capability.md)的保存庫支援標準 SSD 磁碟。
 
-## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 無法起始備份，因為另一個備份作業正在進行中。
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 無法起始備份，因為另一個備份作業正在進行中
 
 **錯誤碼**：UserErrorBackupOperationInProgress <br>
 **錯誤訊息**：無法起始備份，因為另一個備份作業正在進行中<br>
@@ -132,7 +132,6 @@ ms.locfileid: "54816750"
 4. 請重試備份作業。
 
 如果排定的備份作業因費時過久而與下一個備份設定發生衝突，請檢閱[最佳做法](backup-azure-vms-introduction.md#best-practices)、[備份效能](backup-azure-vms-introduction.md#backup-performance)和[還原考量](backup-azure-vms-introduction.md#restore-considerations)。
-
 
 
 ## <a name="causes-and-solutions"></a>原因和解決方案

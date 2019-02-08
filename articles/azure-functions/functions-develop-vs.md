@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: f610a221dca296561fefab65a6c40b52a5dd292a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 43992d25590a58b24c48aad8bfbf6f91b17699ee
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275831"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098076"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 來開發 Azure Functions  
 
@@ -29,7 +29,7 @@ Azure Functions Tools 提供下列優點：
 * 開發及部署預先編譯的 C# 函數。 預先編譯的函數提供的冷啟動效能比 C# 指令碼型函數更好。 
 * 在 C# 中編寫函數，同時享有 Visual Studio 開發的所有優點。 
 
-此文章提供如何使用 Azure Functions Tools for Visual Studio 2017 來開發 C# 函式並將其發佈至 Azure 的詳細資料。 閱讀此文章之前，您應該先完成[適用於 Visual Studio 的 Functions 快速入門](functions-create-your-first-function-visual-studio.md)。 
+本文提供如何使用 Azure Functions Tools for Visual Studio 2017 來開發 C# 函式並將其發佈至 Azure 的詳細資料。 閱讀本文之前，您應該先完成[適用於 Visual Studio 的 Functions 快速入門](functions-create-your-first-function-visual-studio.md)。 
 
 > [!IMPORTANT]
 > 請勿在相同函式應用程式中混用本機開發與入口網站開發。 當您從本機專案發佈至函式應用程式時，部署程序將會覆寫您在入口網站開發的任何函式。
@@ -78,9 +78,9 @@ Azure Functions Tools 提供下列優點：
 
 專案範本會建立 C# 專案，安裝 `Microsoft.NET.Sdk.Functions` NuGet 套件，並設定目標架構。 Functions 1.x 的目標為 .NET Framework，而 Functions 2.x 的目標則為 .NET Standard。 新專案含有下列檔案：
 
-* **host.json**：讓您設定 Functions 主機。 這些設定同時適用於在本機執行及在 Azure 中執行。 如需詳細資訊，請參閱 [host.json 參考](functions-host-json.md)。
+* **host.json**：可讓您設定 Functions 主機。 這些設定同時適用於在本機執行及在 Azure 中執行。 如需詳細資訊，請參閱 [host.json 參考](functions-host-json.md)。
 
-* **local.settings.json**：維持在本機執行函數時所使用的設定。 Azure 不會使用這些設定，[Azure Functions Core Tools](functions-run-local.md) 會使用這些設定。 請使用這個檔案來指定函式所需變數的應用程式設定。 針對專案中函式繫結所需的每個連接，將新項目新增至 [值] 陣列。 如需詳細資訊，請參閱＜Azure Functions Core Tools＞一文中的[本機設定檔](functions-run-local.md#local-settings-file)。
+* **local.settings.json**：維護在本機執行函數時所使用的設定。 Azure 不會使用這些設定，[Azure Functions Core Tools](functions-run-local.md) 會使用這些設定。 請使用這個檔案來指定函式所需變數的應用程式設定。 針對專案中函式繫結所需的每個連接，將新項目新增至 [值] 陣列。 如需詳細資訊，請參閱＜Azure Functions Core Tools＞一文中的[本機設定檔](functions-run-local.md#local-settings-file)。
 
     >[!IMPORTANT]
     >由於 local.settings.json 檔案可以包含祕密，因此，您必須從專案原始檔控制中排除它。 這個檔案的 [複製到輸出目錄] 設定應該一律是 [有更新時才複製]。 
@@ -115,7 +115,7 @@ Azure Functions Tools 提供下列優點：
 
     例如，下列 C# 類別代表基本佇列儲存體觸發的函數：
 
-    ````csharp
+    ```csharp
     using System;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
@@ -132,7 +132,7 @@ Azure Functions Tools 提供下列優點：
             }
         }
     }
-    ````
+    ```
     會將繫結特定屬性套用至提供給進入點方法的每個繫結參數。 屬性會將繫結資訊作為參數使用。 在上述範例中，第一個參數套用了 **QueueTrigger** 屬性，指出佇列觸發的函數。 佇列名稱和連接字串設定名稱會作為參數傳遞至 **QueueTrigger** 屬性。 如需詳細資訊，請參閱 [Azure Functions 的 Azure 佇列儲存體繫結](functions-bindings-storage-queue.md#trigger---c-example)。
     
 您可以使用上述程序，對函式應用程式專案新增更多函式。 專案中的每個函式都可以有不同的觸發程序，但函式必須只有一個觸發程序。 如需詳細資訊，請參閱 [Azure Functions 觸發程序和繫結概念](functions-triggers-bindings.md)。
@@ -207,7 +207,7 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 ## <a name="monitoring-functions"></a>監視函式
 
-若要監視您的函式在 Azure 中的執行情形，建議您整合 Azure Application Insights。 當您在 Azure 入口網站中建立函式應用程式時，系統會依預設為您完成此整合。 不過，當您在 Visual Studio 發佈期間建立函式應用程式時，則不會完成您的函式應用程式在 Azure 中的整合。 您反而會取得內建記錄，但這並非建議做法。
+若要監視您的函式在 Azure 中的執行情形，建議您整合 Azure Application Insights。 當您在 Azure 入口網站中建立函式應用程式時，系統會依預設為您完成這項整合。 不過，當您在 Visual Studio 發佈期間建立函式應用程式時，則不會完成您的函式應用程式在 Azure 中的整合。 您反而會取得內建記錄，但這並非建議做法。
 
 若要為您在 Azure 中的函式應用程式啟用 Application Insights：
 
@@ -225,4 +225,4 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 若要深入了解 Azure Functions Core Tools，請參閱[在本機撰寫和測試 Azure Functions 程式碼](functions-run-local.md)。
 
-若要深入了解如何將函式開發為 .NET 類別庫，請參閱 [Azure Functions C# 開發人員參考](functions-dotnet-class-library.md)。 此文章也會連結至範例以示範如何使用屬性宣告 Azure Functions 所支援的各種繫結類型。    
+若要深入了解如何將函式開發為 .NET 類別庫，請參閱 [Azure Functions C# 開發人員參考](functions-dotnet-class-library.md)。 本文也會連結至範例以示範如何使用屬性宣告 Azure Functions 所支援的各種繫結類型。    

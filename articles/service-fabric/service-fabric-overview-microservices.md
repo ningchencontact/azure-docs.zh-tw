@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 48df598ab12c509952b7712bb8cc9fe21355325f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 39034d069c0c0feb2ac81437e34c7206d7fe6c4c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613676"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102811"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>為何要用微服務方式建置應用程式？
 
@@ -33,11 +33,11 @@ ms.locfileid: "51613676"
 
 這些商務需求會影響我們「如何」  建置應用程式。
 
-如需 Azure 使用微服務之方式的詳細資訊，請參閱 [Microservices: An application revolution powered by the cloud (微服務︰採用雲端技術的應用程式革命)](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)。
+如需 Azure 使用微服務之方式的詳細資訊，請參閱 [Microservices:採用雲端技術的應用程式革命](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)。
 
 ## <a name="monolithic-vs-microservice-design-approach"></a>單體式與微服務設計方法
 
-應用程式會隨著時間而演化。 成功的應用程式因為有實用性而演化。 失敗的應用程式不會演化，最後會取代。 問題在於：您現在對需求了解多少，且這些需求在未來會有何變化？ 例如，假設您要建置某部門的報告應用程式。 您確定該應用程式僅適用於您公司的範圍內，並且報告為短期報告。 那麼，您選擇的方法就會與要建置將視訊內容傳遞給數千萬客戶的服務不同。
+應用程式會隨著時間而演化。 成功的應用程式因為有實用性而演化。 失敗的應用程式不會演化，最後會取代。 問題是：您對現今的需求了解多少，以及未來需求會有何變化？ 例如，假設您要建置某部門的報告應用程式。 您確定該應用程式僅適用於您公司的範圍內，並且報告為短期報告。 那麼，您選擇的方法就會與要建置將視訊內容傳遞給數千萬客戶的服務不同。
 
 在已知後來可以重新設計應用程式的情況下，有時向外尋求概念證明才是驅動因素。 從來不用卻過度設計並沒有太大意義。 這就是一般所謂的工程取捨。 另一方面，公司談論建置雲端時都會期望成長和使用量。 問題在於無法預期成長和範圍。 我們想要能夠迅速建立原型，同時還要了解我們正在通往未來成功的路徑上。 這是精簡的創業方法：建置、測量、學習及反覆執行。
 
@@ -158,7 +158,7 @@ Service Fabric 透過提供下列項目，來協助您使用微服務方法建�
 Service Fabric 可讓您重複使用現有的程式碼，而這些程式碼可藉由新的微服務來進行現代化。 應用程式的現代化階段有五個，而您可以在任何階段開始和停止。 它們是：
 
 1) 開始使用傳統單體式應用程式。  
-2) 隨即轉移 - 使用容器或客體可執行檔來裝載 Service Fabric 中現有的程式碼。  
+2) 原封不動轉移 - 使用容器或客體可執行檔來裝載 Service Fabric 中現有的程式碼。  
 3) 現代化 - 在現有的容器化程式碼之外，再加上新的微服務。  
 4) 創新 - 將單體完全根據需求拆解成微服務。  
 5) 轉換成微服務 - 轉換現有的單體式應用程式，或建置新的原創應用程式。
@@ -197,7 +197,7 @@ Service Fabric 的目標是降低建置微服務應用程式的複雜性，讓�
 ## <a name="next-steps"></a>後續步驟
 
 * [Service Fabric 術語概觀](service-fabric-technical-overview.md)
-* [微服務︰採用雲端技術的應用程式革命](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [微服務：採用雲端技術的應用程式革命](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

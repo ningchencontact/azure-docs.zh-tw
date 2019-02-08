@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bbc3038c-0d8b-45dd-9645-368bd3d01a0f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 81e86df270a7286426363c26a0e8a87b99082428
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 22563ec52459d4cd332a6e97df95348a74c3ae16
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438268"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>教學課程：Azure Active Directory 與 Zoho One 整合
 
@@ -110,7 +110,7 @@ ms.locfileid: "39438268"
 
     a. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL：`one.zoho.com`
 
-    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://accounts.zoho.com/samlresponse/<saml-identifier>`
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://accounts.zoho.com/samlresponse/<saml-identifier>`
 
     c. 按一下 [顯示進階 URL 設定]。
 
@@ -264,7 +264,7 @@ ms.locfileid: "39438268"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Zoho One] 圖格時，應該就會自動登入 Zoho One 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

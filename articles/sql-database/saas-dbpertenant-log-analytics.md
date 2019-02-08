@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 58a354950e303eda8158ca072870bfecbf33a89f
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.date: 01/25/2019
+ms.openlocfilehash: 7a5245a9c97748e7b46132eaaa91f6bbc8311266
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890206"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475137"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>設定及使用 Log Analytics 搭配多租用戶 SQL Database SaaS 應用程式
 
@@ -104,7 +104,7 @@ Log Analytics 是一項必須設定的個別服務。 Log Analytics 會將記錄
 
     ![時間篩選器](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-1. 選取單一資料庫，以探索該資料庫的查詢使用情況和計量。
+1. 選取個別資料庫，以探索該資料庫的查詢使用情況和計量。
 
     ![資料庫分析](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 

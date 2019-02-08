@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 9bdd3060219907f95454bfc9248572f796afd72e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 78f00b00465b6d834f30411485a874d6d2116ea4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437600"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081240"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>整合 Azure Active Directory 與 Azure Kubernetes Service
 
@@ -20,9 +20,9 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 
 本文說明如何部署 AKS 和 Azure AD 的先決條件，然後說明如何部署已啟用 Azure AD 的叢集，以及在 AKS 叢集中建立簡單的 RBAC 角色。
 
-套用下列限制：
+以下是適用的限制：
 
-- 目前無法更新現有之已啟用非 RBAC 的 AKS 叢集供 RBAC 使用。
+- 只有建立啟用 RBAC 功能的新叢集時，才能啟用 Azure AD。 您無法在現有的 AKS 叢集上啟用 Azure AD。
 - 不支援 Azure AD 中的來賓使用者 (例如，如果您從不同的目錄使用同盟登入)。
 
 ## <a name="authentication-details"></a>驗證詳細資料

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
-ms.component: hybrid
+ms.date: 01/24/2019
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7234c1a5f7914ad3ce0ff415b387bfee386198c1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478598"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169598"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶和權限
 
@@ -136,7 +136,7 @@ AD DS 企業系統管理員帳戶可用來設定內部部署 Active Directory。
 | Exchange 郵件公用資料夾 |公用資料夾屬性 (詳情記載於 [Exchange 郵件公用資料夾](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder)) 的讀取權限。 | 
 | 密碼回寫 |[開始使用密碼管理](../authentication/howto-sspr-writeback.md)中記載了使用者適用的屬性的寫入權限。 |
 | 裝置回寫 |[裝置回寫](how-to-connect-device-writeback.md)中所述的使用 PowerShell 指令碼授與權限。 |
-| 群組回寫 |讀取、建立、更新和刪除已同步處理之 **Office 365 群組**的群組物件。  如需詳細資訊，請參閱[群組回寫](how-to-connect-preview.md#group-writeback)。|
+| 群組回寫 |可讓您將 **Office 365 群組**回寫至已安裝 Exchange 的樹系。  如需詳細資訊，請參閱[群組回寫](how-to-connect-preview.md#group-writeback)。|
 
 ## <a name="upgrade"></a>升級
 當您從一個 Azure AD Connect 版本升級到新版本時，需要下列權限：

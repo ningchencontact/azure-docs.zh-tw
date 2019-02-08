@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: ffa1c45b2d9449310a2b0dcc66a513b4d8efbc5d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/29/2019
+ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232982"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466587"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 的資料探索與分類
 
@@ -28,7 +28,7 @@ ms.locfileid: "50232982"
 - 各種安全性案例，例如針對敏感性資料異常存取的監視 (稽核) 及警示。
 - 控制對包含高度敏感性資料之資料庫的存取，並強化安全性。
 
-資料探索與分類是 [SQL 進階威脅防護](sql-advanced-threat-protection.md) (ATP) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 資料探索與分類可以透過中央 SQL ATP 入口網站存取及管理。
+資料探索與分類是 [SQL 進階資料安全性](sql-advanced-threat-protection.md) (ADS) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 資料探索與分類可以透過中央 SQL ADS 入口網站存取及管理。
 
 > [!NOTE]
 > 這份文件只與 Azure SQL Database 相關。 若是 SQL Server (內部部署)，請參閱 [SQL 資料探索與分類](https://go.microsoft.com/fwlink/?linkid=866999)。
@@ -77,7 +77,7 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
 
-2. 瀏覽至 [Azure SQL Database] 窗格中 [安全性] 標題下的 [進階威脅防護]。 按一下以啟用進階威脅防護，然後按一下 [資料探索與分類 (預覽)] 卡片。
+2. 瀏覽至 [Azure SQL Database] 窗格中 [安全性] 標題下的 [進階資料安全性]。 按一下以啟用 [進階資料安全性]，然後按一下 [資料探索與分類 (預覽)] 卡片。
 
    ![掃描資料庫](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -123,7 +123,7 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 
 ## <a id="subheading-3"></a>對敏感性資料的存取進行稽核
 
-資訊保護範例的重要層面是能夠監視對敏感性資料的存取。 我們已強化 [Azure SQL Database 稽核](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)，並在稽核記錄中包含新欄位 *data_sensitivity_information*，其中會記錄查詢所傳回之實際資料的敏感度分類 (標籤)。
+資訊保護範例的重要層面是能夠監視對敏感性資料的存取。 我們已強化 [Azure SQL Database 稽核](sql-database-auditing.md)，並在稽核記錄中包含新欄位 *data_sensitivity_information*，其中會記錄查詢所傳回之實際資料的敏感度分類 (標籤)。
 
 ![稽核記錄檔](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -134,8 +134,8 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 > [!NOTE]
 > 使用 T-SQL 管理標籤時，系統不會驗證新增到資料行的標籤是否存在於組織資訊保護原則 (顯示於入口網站建議中的那組標籤)。 因此，這項驗證需由您執行。
 
-- 新增/更新一或多個資料行的分類：[ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-- 從一或多個資料行移除分類：[DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- 新增/更新一或多個資料行的分類：[新增敏感度分類](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- 移除一或多個資料行的分類：[卸除敏感度分類](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - 檢視資料庫上的所有分類：[sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 您也可以使用 REST API 以程式設計方式管理分類。 已發行的 REST API 支援下列作業：
@@ -147,8 +147,8 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 
 ## <a id="subheading-5"></a>接續步驟
 
-- 深入了解 [SQL 進階威脅防護](sql-advanced-threat-protection.md)。
-- 請考慮設定 [Azure SQL Database 稽核](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)，以監視和稽核對已分類敏感性資料的存取。
+- 深入了解 [SQL 進階資料安全性](sql-advanced-threat-protection.md)。
+- 請考慮設定 [Azure SQL Database 稽核](sql-database-auditing.md)，以監視和稽核對已分類敏感性資料的存取。
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
-ms.openlocfilehash: 71e7abef725abf95cc20de8d1283d0efea6c3687
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 73b48525566f9bf0107ba3b029c516ca294ca141
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615852"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099187"
 ---
 # <a name="application-upgrade-parameters"></a>應用程式升級參數
 本文說明在 Azure Service Fabric 應用程式升級期間套用的各種參數。 應用程式升級參數會控制升級時套用的逾時與健康情況檢查，並且指定升級失敗時必須套用的原則。 應用程式參數會使用下列各項套用到升級：
@@ -67,7 +67,7 @@ UnmonitoredManual | PS | 表示升級模式為未受監視的手動升級。 當
 | ApplicationParameter |PS, VS| 指定覆寫應用程式參數。<br>PowerShell 應用程式參數會指定為雜湊表的名稱/值組。 例如，@{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }.<br>您可以在 [應用程式參數檔案] 欄位中的 [發行 Service Fabric 應用程式] 對話方塊中，指定 Visual Studio 應用程式參數。
 | 確認 |PS| 允許的值為 **True** 和 **False**。 在執行 Cmdlet 前提示您確認。 |
 | ConsiderWarningAsError |PS, VS |允許的值為 **True** 和 **False**。 預設值為 [False]。 升級期間評估應用程式健康狀態時，將應用程式的警告健康狀態事件視為錯誤。 根據預設，Service Fabric 不會將警告健康狀態事件評估為失敗 (錯誤)，因此，即使有警告事件，升級還是可以繼續執行。 |
-| DefaultServiceTypeHealthPolicy | PS, VS |以下列格式指定預設服務類型的健康原則，以用於受監視的升級：MaxPercentUnhealthyPartitionsPerService、MaxPercentUnhealthyReplicasPerPartition、MaxPercentUnhealthyServices。 例如，5、10、15 表示下列值：MaxPercentUnhealthyPartitionsPerService = 5、MaxPercentUnhealthyReplicasPerPartition = 10、MaxPercentUnhealthyServices = 15。 |
+| DefaultServiceTypeHealthPolicy | PS, VS |以下列格式指定預設服務類型的健康原則，以用於受監視的升級：MaxPercentUnhealthyPartitionsPerService、MaxPercentUnhealthyReplicasPerPartition、MaxPercentUnhealthyServices。 例如，5,10,15 表示下列值：MaxPercentUnhealthyPartitionsPerService = 5、MaxPercentUnhealthyReplicasPerPartition = 10、MaxPercentUnhealthyServices = 15。 |
 | Force | PS, VS | 允許的值為 **True** 和 **False**。 表示即使版本號碼未變更，升級程序還是會略過警告訊息並強制升級。 這適用於本機測試，但不建議用於生產環境，因為其需要移除現有的部署，這會導致停機和潛在的資料遺失問題。 |
 | ForceRestart |PS, VS |如果您更新組態或資料套件而不更新服務程式碼，只有當 ForceRestart 屬性設為 **True** 時，服務才會重新啟動。 更新完成時，Service Fabric 會通知服務，新的組態封裝或資料封裝已可使用。 服務會負責套用變更。 必要時，服務可以自行重新啟動。 |
 | HealthCheckRetryTimeoutSec |PS, VS |Service Fabric 在將升級宣告為失敗之前，繼續執行健康狀態評估的持續時間 (以秒為單位)。 預設值為 600 秒。 此期間會在達到 HealthCheckWaitDurationSec 之後開始計算。 在此 HealthCheckRetryTimeout 之內，Service Fabric 可能會執行多個應用程式健康情況的健康情況檢查。 預設值為 10 分鐘，您應該針對您的應用程式適當地加以自訂。 |
@@ -77,7 +77,7 @@ UnmonitoredManual | PS | 表示升級模式為未受監視的手動升級。 當
 | MaxPercentUnhealthyServices |PS, VS |DefaultServiceTypeHealthPolicy 和 ServiceTypeHealthPolicyMap 的參數。 預設值和建議值為 0。 指定應用程式被視為不健康和升級失敗之前，不健康之應用程式執行個體中服務的數目上限。 |
 | MaxPercentUnhealthyPartitionsPerService|PS, VS |DefaultServiceTypeHealthPolicy 和 ServiceTypeHealthPolicyMap 的參數。 預設值和建議值為 0。 指定服務被視為不健康之前，不健康之服務中分割的數目上限。 |
 | MaxPercentUnhealthyReplicasPerPartition|PS, VS |DefaultServiceTypeHealthPolicy 和 ServiceTypeHealthPolicyMap 的參數。 預設值和建議值為 0。 指定分割被視為不健康之前，不健康之分割中複本的數目上限。 |
-| ServiceTypeHealthPolicyMap | PS, VS | 表示此健康原則用來對某個服務類型的服務評估建康情況。 使用下列格式取用雜湊表的輸入：@ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"} For example: @{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" } |
+| ServiceTypeHealthPolicyMap | PS, VS | 表示此健康原則用來對某個服務類型的服務評估建康情況。 使用以下格式的雜湊表輸入：@ {"ServiceTypeName" :"MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"} For example: @{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" } |
 | TimeoutSec | PS, VS | 指定作業的逾時期限 (以秒為單位)。 |
 | UpgradeDomainTimeoutSec |PS, VS |升級單一升級網域的時間上限 (以秒為單位)。 如果達到此逾時，升級會停止，然後根據 FailureAction 的設定繼續。 預設值為永不 (無限)，您應該針對您的應用程式適當地加以自訂。 |
 | UpgradeReplicaSetCheckTimeoutSec |PS, VS |測量單位：秒。<br>**無狀態服務**- 在單一升級網域內，Service Fabric 會嘗試確保服務的額外執行個體可用。 如果目標執行個體計數超過一個，Service Fabric 會等到有一個以上的執行個體可用，最多到逾時值上限。 此逾時會使用 UpgradeReplicaSetCheckTimeoutSec 屬性來指定。 如果逾時已到期，Service Fabric 會繼續進行升級，不論服務執行個體數目。 如果目標執行個體計數是一個，Service Fabric 不會等待，它會立即繼續進行升級。<br><br>**可設定狀態的服務**- 在單一升級網域內，Service Fabric 會嘗試確保複本集有仲裁。 Service Fabric 會等待有仲裁可用，最多到逾時值上限 (由 UpgradeReplicaSetCheckTimeoutSec 屬性指定)。 如果逾時已到期，Service Fabric 會繼續進行升級，不論是否有仲裁。 此設定在向前回復時是設定為永不 (無限)，向後回復時則為 1200 秒。 |
@@ -94,7 +94,7 @@ UnmonitoredManual | PS | 表示升級模式為未受監視的手動升級。 當
 
 | 參數 | 說明 |
 | --- | --- |
-| application-id  |正在升級的應用程式識別碼。 <br> 這通常是沒有 'fabric:' URI 配置之應用程式的完整名稱。 從 6.0 版開始，階層的名稱會以 '~' 字元分隔。 例如，如果應用程式名稱是 'fabric:/myapp/app1'，則應用程式識別在 6.0+ 中會是 'myapp~app1'，而在舊版中會是 'myapp/app1'。|
+| application-id  |正在升級的應用程式識別碼。 <br> 這通常是不含 'fabric:'URI 配置的完整應用程式名稱。 從 6.0 版開始，階層的名稱會以 '~' 字元分隔。 例如，如果應用程式名稱是 'fabric:/myapp/app1'，則應用程式識別在 6.0+ 中會是 'myapp~app1'，而在舊版中會是 'myapp/app1'。|
 application-version |升級目標的應用程式類型的版本。|
 parameters  |要在升級應用程式時套用的應用程式參數覆寫 JSON 編碼清單。|
 
@@ -106,7 +106,7 @@ failure-action | 允許的值為 **Rollback**、**Manual** 和 **Invalid**。 �
 force-restart | 如果您更新組態或資料套件而不更新服務程式碼，只有當 ForceRestart 屬性設為 **True** 時，服務才會重新啟動。 更新完成時，Service Fabric 會通知服務，新的組態封裝或資料封裝已可使用。 服務會負責套用變更。 必要時，服務可以自行重新啟動。 |
 health-check-retry-timeout | 當應用程式或叢集狀況不良時，在執行 *FailureAction* 之前，重試健康情況評估的時間長度。 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 預設值：PT0H10M0S。 |
 health-check-stable-duration | 在升級繼續進入下一個升級網域之前，應用程式或叢集必須維持狀況良好的時間長度。 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 預設值：PT0H2M0S。 |
-health-check-wait-duration | 完成升級網域之後，在套用健康原則之前，要等待的時間長度。 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 預設值︰0。|
+health-check-wait-duration | 完成升級網域之後，在套用健康原則之前，要等待的時間長度。 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 預設值：0.|
 max-unhealthy-apps | 預設值和建議值為 0。 指定應用程式被視為不健康和更新失敗之前，應用程式不健康之已部署的應用程式數目上限 (請參閱 [健康狀態章節](service-fabric-health-introduction.md))。 這個參數定義節點上的應用程式健康狀態，協助在升級期間偵測問題。 應用程式複本通常會負載平衡至其他節點，讓應用程式健康狀態良好，以便繼續升級。 藉由指定嚴謹的 *max-unhealthy-apps* 健康情況，Service Fabric 可以快速偵測應用程式封裝的問題，並協助產生快速檢錯升級。 以介於 0 到 100 之間的數字來表示。 |
 模式 | 允許的值為 **Monitored**、**UpgradeMode**、**UnmonitoredAuto**、**UnmonitoredManual**。 預設值為 **UnmonitoredAuto**。 如需這些值的說明，請參閱 Visual Studio 和 PowerShell 的「必要參數」一節。|
 replica-set-check-timeout |測量單位：秒。 <br>**無狀態服務**- 在單一升級網域內，Service Fabric 會嘗試確保服務的額外執行個體可用。 如果目標執行個體計數超過一個，Service Fabric 會等到有一個以上的執行個體可用，最多到逾時值上限。 此逾時是使用 *replica-set-check-timeout* 屬性指定。 如果逾時已到期，Service Fabric 會繼續進行升級，不論服務執行個體數目。 如果目標執行個體計數是一個，Service Fabric 不會等待，它會立即繼續進行升級。<br><br>**可設定狀態的服務**- 在單一升級網域內，Service Fabric 會嘗試確保複本集有仲裁。 Service Fabric 會等待有仲裁可用，最多到逾時值上限 (由 *replica-set-check-timeout* 屬性指定)。 如果逾時已到期，Service Fabric 會繼續進行升級，不論是否有仲裁。 此設定在向前回復時是設定為永不 (無限)，向後回復時則為 1200 秒。 |

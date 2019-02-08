@@ -3,19 +3,19 @@ title: Azure Active Directory 自助式密碼深入探討
 description: 自助式密碼重設如何運作
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: be7aa43ec6001be78fb405290914f19174559530
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 41bdc2497ff19f0033a5253814771072b47eef62
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435714"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475171"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>運作方式：Azure AD 自助式密碼重設
 
@@ -84,7 +84,7 @@ ms.locfileid: "54435714"
 
 #### <a name="mobile-app-and-sspr-preview"></a>行動應用程式和 SSPR (預覽)
 
-使用行動應用程式 (例如 Microsoft Authenticator 應用程式) 時，若要作為重設密碼的方法，則您應該注意下列各項：
+使用行動應用程式 (例如 Microsoft Authenticator 應用程式) 時，若要作為重設密碼的方法，您應該注意下列事項：
 
 * 當系統管理員需要一個可用來重設密碼的方法時，驗證碼是唯一可用的選項。
 * 當系統管理員需要兩種可用來重設密碼的方法時，使用者除了任何其他已啟用的方法之外，還能夠使用通知**或**驗證碼。
@@ -119,7 +119,7 @@ ms.locfileid: "54435714"
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>登入時要求使用者註冊
 
-如果使用者使用 Azure AD 登入任何應用程式，啟用此選項需要使用者完成密碼重設註冊。 這包括下列應用程式︰
+如果使用者使用 Azure AD 登入任何應用程式，啟用此選項需要使用者完成密碼重設註冊。 此工作流程包括下列應用程式︰
 
 * Office 365
 * Azure 入口網站
@@ -132,7 +132,7 @@ ms.locfileid: "54435714"
 > [!NOTE]
 > 選取 [取消] 或關閉視窗，即可關閉密碼重設註冊入口網站。 但是當使用者每次登錄時，系統都會提示註冊，直到他們完成註冊為止。
 >
-> 如果使用者已經登入，這並不會中斷其連線。
+> 如果使用者已經登入，則此中斷不會中斷其連線。
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>設定要求使用者重新確認其驗證資訊的等候天數
 
@@ -169,7 +169,7 @@ ms.locfileid: "54435714"
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>將密碼寫回至內部部署目錄
 
-此控制項可決定是否要為此目錄啟用密碼回寫。 如果回寫處於開啟狀態，則表示了內部部署回寫服務的狀態。 如果您需要暫時停用密碼回寫，而不想要重新設定 Azure AD Connect，此設定就很有用。
+此控制項可決定是否要為此目錄啟用密碼回寫。 如果回寫處於開啟狀態，則表示了內部部署回寫服務的狀態。 如果您需要暫時停用密碼回寫，而不想要重新設定 Azure AD Connect，此控制就很有用。
 
 * 如果將此參數設定為 [是]，則會啟用回寫，而同盟、傳遞驗證或密碼雜湊同步處理的使用者能夠重設其密碼。
 * 如果將此參數設定為 [否]，則會停用回寫，而同盟、傳遞驗證或密碼雜湊同步處理的使用者無法重設其密碼。
@@ -180,6 +180,10 @@ ms.locfileid: "54435714"
 
 * 如果設為 [是]，會提供使用者重設其密碼與解除鎖定帳戶的選項，或是在不重設密碼的情況下解除鎖定其帳戶的選項。
 * 如果設定為 [否]，使用者將只能執行合併的密碼重設和帳戶解除鎖定作業。
+
+### <a name="on-premises-active-directory-password-filters"></a>內部部署 Active Directory 密碼篩選器
+
+Azure AD 自助式密碼重設會執行等同 Active Directory 中管理員起始密碼重設的工作。 如果您使用的是第三方密碼篩選器來強制執行自訂的密碼規則，且您需要在 Azure AD 自助式密碼重設期間檢查此密碼篩選器，請確定第三方密碼篩選器解決方案已設定為在管理員密碼重設案例中套用。 預設支援 [Windows Server Active Directory 的 Azure AD 密碼保護](concept-password-ban-bad-on-premises.md)。
 
 ## <a name="password-reset-for-b2b-users"></a>B2B 使用者的密碼重設
 

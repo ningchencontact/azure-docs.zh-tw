@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 21ac48ff473dcf494f96f87210bdfe09e4d82646
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539784"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103389"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>將適用於 PostgreSQL 的 Azure 資料庫伺服器上的自動資料清理最佳化 
 本文描述如何將適用於 PostgreSQL 的 Azure 資料庫上的自動資料清理有效地最佳化。

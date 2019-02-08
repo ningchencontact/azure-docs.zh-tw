@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 403906a60d16a478dffd313b45aa1ce24e42196a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f369eb6241a8eb3d44a0a38e243c533da47103e1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119208"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104596"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流：以 1 秒的延遲進行監視與診斷
 
@@ -36,19 +36,19 @@ ms.locfileid: "54119208"
 
 [![即時計量資料流影片](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
+目前針對 ASP.NET、ASP.NET Core、Azure Functions 及 Java 應用程式可支援「即時計量」。
+
 ## <a name="get-started"></a>開始使用
 
-1. 如果您尚未在 ASP.NET Web 應用程式或 [Windows Server 應用程式](../../azure-monitor/app/windows-services.md)中[安裝 Application Insights](../../azure-monitor/app/asp-net.md)，請立即安裝。 
-2. **更新至最新版本**的 Application Insights 套件。 在 Visual Studio 中，以滑鼠右鍵按一下專案，然後選擇 [管理 Nuget 套件]。 開啟 [更新] 索引標籤，核取 [包含發行前版本]，然後選取所有 Microsoft.ApplicationInsights.* 套件。
+1. 如果您尚未在 Web 應用程式中[安裝 Application Insights](../../azure-monitor/azure-monitor-app-hub.md)，請立即安裝。
+2. 除了標準 Application Insights 套件之外，還需要 [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/)，才能啟用「即時計量」串流。
+3. **更新至最新版本**的 Application Insights 套件。 在 Visual Studio 中，以滑鼠右鍵按一下專案，然後選擇 [管理 Nuget 套件]。 開啟 [更新] 索引標籤，然後選取所有 Microsoft.ApplicationInsights.* 套件。
 
     重新部署您的應用程式。
 
 3. 在 [Azure 入口網站](https://portal.azure.com)中，開啟您應用程式的 Application Insights 資源，然後開啟 [即時資料流]。
 
 4. 如果您可能在篩選中使用客戶名稱等敏感性資料，請[保護控制通道](#secure-the-control-channel)。
-
-
-![在 [概觀] 刀鋒視窗中，按一下 [即時資料流]](./media/live-stream/live-stream-2.png)
 
 ### <a name="no-data-check-your-server-firewall"></a>沒有資料？ 請檢查您的伺服器防火牆
 
@@ -69,7 +69,7 @@ ms.locfileid: "54119208"
 
 ## <a name="select-and-filter-your-metrics"></a>選取並篩選您的計量
 
-(適用於具有最新 SDK 的傳統 ASP.NET 應用程式)。
+(適用於 ASP.NET、ASP.NET Core 及 Azure Functions (v2))。
 
 您可以從入口網站將任何篩選條件套用在任何 Application Insights 遙測上，以便即時監視自訂 KPI。 按一下您將滑鼠移過任何圖表時所顯示的篩選條件控制項。 下列圖表是使用 URL 和 Duration 屬性的篩選條件來繪製自訂要求計數 KPI。 利用可顯示符合您在任一時間點所指定準則之遙測即時摘要的「串流預覽」區段來驗證您的篩選條件。 
 
@@ -161,6 +161,12 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ```
 
+### <a name="azure-function-apps"></a>Azure 函式應用程式
+
+就「Azure 函數應用程式 (v2)」而言，可以藉由環境變數來達到使用 API 金鑰保護通道的目的。 
+
+請從 Application Insights 資源內部建立 API 金鑰，然後前往您「函數應用程式」的 [應用程式設定]。 選取 [新增設訂]，然後輸入名稱 `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` 及與您 API 金鑰對應的值。
+
 ### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (需要 Application Insights ASP.NET Core SDK 2.3.0-beta 或更新版本)
 
 修改您的 startup.cs 檔案，如下所示：
@@ -176,7 +182,6 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 ``` C#
 services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
-
 
 不過，如果您認得並信任所有連線的伺服器，則無需透驗證的頻道就可以嘗試自訂篩選器。 這個選項有六個月可供使用。 一旦每個新的工作階段或是新的伺服器上線後，就需要此覆寫。
 

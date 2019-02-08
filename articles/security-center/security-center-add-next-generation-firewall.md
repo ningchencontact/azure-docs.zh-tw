@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 資訊安全中心新增新一代防火牆 | Microsoft Docs
-description: 本文件說明如何實作 Azure 資訊安全中心建議的「新增新一代防火牆」與「僅透過 NGFW 路由傳送流量」。
+description: 本文件說明如何實作「Azure 資訊安全中心」建議：**新增下一代防火牆**和**只透過 NGFW 路由傳送流量**。
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0f1949373e99df1cccd6c49ff92c80d595519377
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a71f2044b799fb47e4ab8991d76f92a1ccc049f5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341146"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102442"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>在 Azure 資訊安全中心新增新一代防火牆
 Azure 資訊安全中心可能會建議您新增由 Microsoft 合作夥伴提供的新一代防火牆 (NGFW)，以提升您的安全防護。 本文件逐步解說如何進行這項操作的範例。

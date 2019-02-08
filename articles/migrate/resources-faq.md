@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: cc71aba3e884214b054e0ac4e888a52e38b1c390
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 619369972991bab0b23e7e9ae4e0a146f875e59a
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812534"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079251"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - 常見問題集 (FAQ)
 
@@ -33,7 +33,7 @@ Azure Migrate 是一項評估服務，可協助您探索內部部署工作負載
 
 ### <a name="whats-the-difference-between-using-azure-migrate-for-assessments-and-the-map-toolkit"></a>使用 Azure Migrate 評量和 Map Toolkit 之間的差異為何？
 
-[Azure Migrate](migrate-overview.md) 提供專為協助移轉整備與評估內部部署工作負載至 Azure 的移轉評量。 [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) 有其他功能。 例如，較新版本之 Windows 用戶端和伺服器作業系統的移轉規劃、軟體使用情況追蹤等。若有這些情況，請繼續使用 MAP Toolkit。
+[Azure Migrate](migrate-overview.md) 提供專為協助移轉整備與評估內部部署工作負載至 Azure 的移轉評量。 [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) 有其他功能，例如較新版 Windows 用戶端和伺服器作業系統的移轉規劃及軟體使用情況追蹤。 若有這些情況，請繼續使用 MAP Toolkit。
 
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Azure Migrate 和 Azure Site Recovery 部署規劃工具有何不同？
@@ -48,7 +48,7 @@ Azure Migrate 是移轉規劃工具，而 Azure Site Recovery 部署規劃工具
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Azure Migrate 支援哪些 Azure 地理區？
 
-Azure Migrate 目前支援以歐洲、北美洲和 Azure Government 作為專案的地理位置。 即使您只能在這些地理區建立移轉專案，您還是可以針對[多個目標位置](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties)評估機器。 專案地理位置只會用來儲存探索到的資料。
+Azure Migrate 目前支援以歐洲、美國及 Azure Government 作為專案地理位置。 即使您只能在這些地理區建立移轉專案，您還是可以針對[多個目標位置](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties)評估機器。 專案地理位置只會用來儲存探索到的資料。
 
 **地理位置** | **中繼資料儲存位置**
 --- | ---
@@ -198,7 +198,7 @@ Azure Migrate 目前不支援 [Enterprise 合約支援方案供應項目](https:
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>如何自動安裝 Microsoft Monitoring Agent (MMA) 和相依性代理程式？
 
-[此處](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)是您可用於安裝相依性代理程式的指令碼。 針對 MMA，[此處](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)是 TechNet 上您可以利用的可用指令碼。
+[這裡](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)提供您可用於安裝相依性代理程式的指令碼。 [這裡](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent)提供有關如何使用命令列或自動化方法來安裝 MMA 的指示。 針對 MMA，您也可以利用 TechNet 上[這裡](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)提供的指令碼。
 
 除了指令碼以外，您也可以利用 System Center Configuration Manager (SCCM)、[Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) 等部署工具來部署代理程式。
 
@@ -213,10 +213,10 @@ MMA 所支援的 Linux 作業系統清單在[這裡](https://docs.microsoft.com/
 相依性代理程式所支援的 Linux 作業系統清單在[這裡](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)。
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>我可以在 Azure Migrate 中將相依項視覺化超過一小時嗎？
-否，Azure Migrate 最多可讓您持續視覺化相依性達一小時。 Azure Migrate 最多可讓您返回歷程記錄中過去一個月的特定日期，但您可將相依性視覺化的持續時間最多為 1 小時。 例如，您可以使用相依性對應中的持續時間功能來檢視昨天的相依性，但只能檢視它一小時。
+否，Azure Migrate 最多可讓您持續視覺化相依性達一小時。 Azure Migrate 最多可讓您返回歷程記錄中過去一個月的特定日期，但您可將相依性視覺化的持續時間最多為 1 小時。 例如，您可以使用相依性對應中的持續時間功能來檢視昨天的相依性，但只能檢視它一小時。 不過，您可以使用 Log Analytics 針對較長的持續時間[查詢相依性資料](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics)。
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>相依性視覺效果是否支援含有超過 10 個 VM 的群組？
-針對所含 VM 在 10 個以內的群組，您可以[將群組的相依性視覺化](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies)，如果您的群組所含 VM 超過 10 個，則建議您先將群組分割成較小的群組，再將相依性視覺化。
+針對所含 VM 在 10 個以內的群組，您可以[將群組的相依性視覺化](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies)。 如果您的群組所含 VM 超過 10 個，則建議您先將群組分割成較小的群組，再將相依性視覺化。
 
 
 ## <a name="next-steps"></a>後續步驟

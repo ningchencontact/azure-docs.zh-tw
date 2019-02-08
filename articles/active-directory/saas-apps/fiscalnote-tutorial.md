@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 55274f26-be7e-4514-964c-7186ecb55c4a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 2dfc450fe53c543c1d5119cd9c6954aadaa3b3ff
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cea5c6ad57d8c391bd1d5264abbc1397fbad0f30
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421418"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162000"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fiscalnote"></a>教學課程：Azure Active Directory 與 FiscalNote 整合
 
@@ -192,7 +192,7 @@ ms.locfileid: "39421418"
 
 本節的目標是要在 FiscalNote 中建立名為 Britta Simon 的使用者。 FiscalNote 支援依預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 FiscalNote 時，如果使用者尚不存在，就會建立新使用者。
 >[!Note]
->如果您需要手動建立使用者，請連絡 [FiscalNote 支援小組](mailto:support@fiscalnote.com)。
+>如果您需要手動建立使用者，請連絡  [FiscalNote 支援小組](mailto:support@fiscalnote.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -229,7 +229,7 @@ ms.locfileid: "39421418"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [FiscalNote] 圖格時，應該會自動登入您的 FiscalNote 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

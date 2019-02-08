@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: f3f19be6-6ee8-413c-919c-4884ffe685ca
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 51eab8099aee6378893f24e0cea6aa37a4995495
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 982a639fe7a57c2db484acc6b272e5314637d1c4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428143"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167660"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>教學課程：Azure Active Directory 與 ChronicX® 整合
 
@@ -162,7 +162,7 @@ ChronicX® 與 Azure AD 整合提供下列優點：
 本節的目標是要在 ChronicX® 中建立名為 Britta Simon 的使用者。 ChronicX® 支援預設啟用的即時佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 ChronicX® 時，如果使用者尚未存在，就會建立新使用者。
 
 >[!Note]
->如果您需要手動建立使用者，請連絡 [ChronicX® 支援小組](https://www.casebank.com/contact-us/)。
+>如果您需要手動建立使用者，請連絡  [ChronicX® 支援小組](https://www.casebank.com/contact-us/)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -199,7 +199,7 @@ ChronicX® 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [ChronicX®] 圖格時，應該就會自動登入 ChronicX® 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 
