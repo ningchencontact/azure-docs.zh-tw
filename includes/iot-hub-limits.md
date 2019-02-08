@@ -4,12 +4,12 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: e1618ded270cddca13145195522d7b42a00d6585
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e6dbfe225b6957406b7143d5db4a28cb50f13e7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841397"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480287"
 ---
 下表列出與不同服務層 (S1, S2, S3, F1) 關聯的限制。 如需有關每一層中各個 *單位* 之成本的詳細資訊，請參閱 [IoT 中樞價格](https://azure.microsoft.com/pricing/details/iot-hub/)。
 
@@ -57,7 +57,7 @@ ms.locfileid: "54841397"
 
 
 > [!NOTE]
-> 您目前可以連線到單一 IoT 中樞的裝置數目上限為 500,000 個。 如果您想要上調此限制，請連絡 [Microsoft 支援服務](https://azure.microsoft.com/support/options/)。
+> 您目前可以連線到單一 IoT 中樞的裝置數目上限為 1,000,000 個。 如果您想要上調此限制，請連絡 [Microsoft 支援服務](https://azure.microsoft.com/support/options/)。
 
 IoT 中樞服務將在超過下列配額時開始對要求進行節流：
 

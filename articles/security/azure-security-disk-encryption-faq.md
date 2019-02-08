@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80510b4f3f07b96b9084108fcb89c75e108cbc65
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fda7d6d3fddf2f4529a983ce2d4991797a5c8448
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096837"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661831"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM 適用的 Azure 磁碟加密常見問題集
 
@@ -59,11 +59,9 @@ Azure 磁碟加密可用於標準層 VM，包括 [A、D、DS、G、GS 及 F](htt
 | CentOS | 6.7 | 資料磁碟 |
 | CentOS | 6.6 | 資料磁碟 |
 | CentOS | 6.5 | 資料磁碟 |
-| openSUSE | SUSE:openSUSE-Leap:42.3:latest | 資料磁碟 |
-| SLES | SUSE:SLES-Priority:12-SP4:latest | 資料磁碟 |
-| SLES | SUSE:SLES-HPC:12-SP3:latest | 資料磁碟 |
-| SLES | SUSE:SLES-Priority:12-SP3:latest | 資料磁碟 |
-
+| openSUSE | 42.3 | 資料磁碟 |
+| SLES | 12-SP4 | 資料磁碟 |
+| SLES | 12-SP3 | 資料磁碟 |
 
 *__新的 ADE 實作支援 RHEL OS 和資料磁碟使用 RHEL7 預付型方案映像。ADE 目前不支援 RHEL 自備訂用帳戶 (BYOS) 映像。另請參閱[適用於 Linux 的 Azure 磁碟加密](azure-security-disk-encryption-linux.md)一文深入了解。__
 

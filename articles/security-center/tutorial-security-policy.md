@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c706dbd4536b9c75281500ace6f02db00ff2f95d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259959"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095476"
 ---
 # <a name="working-with-security-policies"></a>使用安全性原則
 
@@ -121,7 +121,7 @@ Azure 原則中的重要概念：
 在下列範例中，更換這些變數：
 
 - **{scope}** 輸入您要套用原則的管理群組名稱或訂用帳戶名稱。
-- **{poicyAssignmentName}** 輸入[相關原則指派的名稱](#policy-names)。
+- **{policyAssignmentName}** 輸入[相關原則指派的名稱](#policy-names)。
 - **{name}** 輸入您的名稱，或已核准原則變更的系統管理員名稱。
 
 此範例將示範如何對於訂用帳戶或管理群組指派內建的資訊安全中心方案
@@ -212,7 +212,7 @@ Azure 原則中的重要概念：
 |安全性設定 |在 Azure 資訊安全中心中監視 OS 弱點 |systemConfigurationsMonitoringEffect| 
 |端點保護 |在 Azure 資訊安全中心中監視缺少的 Endpoint Protection |endpointProtectionMonitoringEffect |
 |磁碟加密 |在 Azure 資訊安全中心中監視未加密的 VM 磁碟 |diskEncryptionMonitoringEffect|
-|弱點評估 |在 Azure 資訊安全中心中監視 VM 的弱點 |vulnerabilityAssesmentMonitoringEffect|
+|弱點評估 |在 Azure 資訊安全中心中監視 VM 的弱點 |vulnerabilityAssessmentMonitoringEffect|
 |Web 應用程式防火牆 |在 Azure 資訊安全中心中監視未受保護的 Web 應用程式 |webApplicationFirewallMonitoringEffect |
 |新一代防火牆 |在 Azure 資訊安全中心中監視未保護的網路端點| |
 
