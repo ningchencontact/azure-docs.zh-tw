@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d33b1415f15c72cdc6678af44127d8ca781c9d7a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 8762449fbc9254bd3dc6548e74234e1f34c00355
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716560"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770318"
 documentType: LandingData
 title: Azure 資料庫移轉服務文件
 metadata:
@@ -55,6 +55,7 @@ sections:
     - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">使用 DMS 在線上將 SQL Server 遷移至 Azure SQL Database 受控執行個體</a>
     - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">使用 DMS 在線上將 MySQL 遷移至適用於 MySQL 的 Azure 資料庫</a>
     - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">在線上使用 DMS 將 PostgreSQL 遷移至適用於 PostgreSQL 的 Azure 資料庫</a>
+    - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">使用 DMS 在離線狀態下將 MongoDB 移轉至 Azure Cosmos DB Mongo API</a>
 - title: 範例
   items:
   - type: list

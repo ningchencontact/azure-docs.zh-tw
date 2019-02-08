@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: b7c21566916c9728900e69dc6480098fadae7622
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 5aa26aeb27d962e6e6289a754ef57b49158b68db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301203"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456284"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用 T-SQL 迴圈
 在 Azure SQL 資料倉儲中使用 T-SQL 迴圈和取代資料指標以開發解決方案的秘訣。

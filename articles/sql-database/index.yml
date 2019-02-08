@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7a6372f90cde75cb3314a049de41a4826510bd3f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 437ab5fe8eec2a7c097805f3328df4dd9a2398c6
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752240"
+ms.locfileid: "55769943"
 documentType: LandingData
 title: Azure SQL Database 文件
 metadata:
@@ -87,7 +87,7 @@ sections:
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
-    text: Azure SQL Database 可讓您使用 Azure 入口網站、Azure CLI 和 Azure PowerShell，輕鬆地執行基本管理工作。 了解如何使用下列快速入門範例來執行基本管理工作：
+    text: Azure SQL Database 可讓您使用 Azure 入口網站、Azure CLI 和 Azure PowerShell，輕鬆地執行基本管理工作。 深入了解如何使用下列快速入門範例來執行基本管理工作：
   - type: table
     style: dataMatrix
     columns:
@@ -110,18 +110,18 @@ sections:
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
-    - title: 建立受控執行個體
-      values:
-      - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
-      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: 建立彈性集區
       values:
       - href: /azure/sql-database/sql-database-elastic-pool-manage
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
+    - title: 建立受控執行個體
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-get-started
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
 - title: 逐步教學課程
   items:
   - type: paragraph
@@ -129,9 +129,9 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: 使用我們的快速入門指南開始使用<a href="/azure/sql-database/sql-database-quickstart-guide">單一資料庫</a>和<a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">受控執行個體</a>。
+    - html: 使用我們的快速入門指南開始使用<a href="/azure/sql-database/sql-database-single-database-quickstart-guide">單一資料庫</a>和<a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">受控執行個體</a>。
     - html: 使用 <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> 或 <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a> 建立和設計新單一資料庫的結構描述
-    - html: 使用 <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database RESTORE</a>、<a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">資料庫移轉小幫手</a>或 <a href="/azure/sql-database/sql-database-import">BACPAC Import</a> 將現有資料庫遷移至 Azure
+    - html: 使用 <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">原生 SQL Server 備份檔案</a>、<a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">資料庫移轉小幫手</a>或<a href="/azure/sql-database/sql-database-import">透過匯入 BACPAC 檔案</a>將現有的資料庫移轉至 Azure
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">保護您的 SQL Database</a>
     - html: 使用<a href="/azure/sql-database/sql-database-implement-geo-distributed-database">異地分散資料庫</a>將資料散發到全域
 - title: 透過 Microsoft Learn 增進您的技巧

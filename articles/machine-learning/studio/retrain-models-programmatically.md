@@ -1,8 +1,21 @@
 ---
-標題：以程式設計的方式重新定型 Machine Learning Studio 模型標題字尾：Azure Machine Learning Studio 說明：了解如何使用 C# 和 Machine Learning 批次執行服務，以程式設計方式重新定型模型。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:04/19/2017
+title: 以程式設計方式重新定型 Machine Learning Studio 模型
+titleSuffix: Azure Machine Learning Studio
+description: 了解如何使用 C# 和 Machine Learning 批次執行服務，以程式設計方式重新定型模型。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+ms.openlocfilehash: fe7825922d9333d058d9a33d5643850c368d3457
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511389"
 ---
 # <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>以程式設計方式重新定型 Azure Machine Learning Studio 模型
 在此逐步解說中，您將學習如何以程式設計方式使用 C# 和 Machine Learning 批次執行服務，來重新定型 Azure Machine Learning Studio Web 服務。

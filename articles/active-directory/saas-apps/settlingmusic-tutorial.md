@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 6f86a8a2-4bd0-40cc-b1b4-752fce123328
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: jeedes
-ms.openlocfilehash: fda6ca2efb670c8087252428e417a3e0901fa748
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 900254e42410aafa0d8e58048c7d88efa94dfed5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449058"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178540"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>教學課程：Azure Active Directory 與 Settling music 整合
 
@@ -189,7 +189,7 @@ ms.locfileid: "39449058"
  
 ### <a name="create-a-settling-music-test-user"></a>建立 Settling music 測試使用者
 
-在本節中，您會在 Settling music 中建立名為 Britta Simon 的使用者。 請與 [Settling music 用戶端支援小組](https://rakurakuseisan.jp/) \(日文\) 合作，以在 Settling music 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Settling music 中建立名為 Britta Simon 的使用者。 請與  [Settling music 用戶端支援小組](https://rakurakuseisan.jp/) \(日文\) 合作，在 Settling music 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -226,7 +226,7 @@ ms.locfileid: "39449058"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下 [存取面板] 中的 [Settling music] 圖格時，系統應該會自動將您登入 Settling music 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

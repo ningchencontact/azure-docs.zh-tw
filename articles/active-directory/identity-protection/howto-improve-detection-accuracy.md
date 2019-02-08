@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/31/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 2ba6e3b8b844d72b762e9a66629f16b36193a69f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d2b477c31898884761f260e9520913c67c7c6f83
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478384"
+ms.locfileid: "55488912"
 ---
 # <a name="how-to-improve-the-detection-accuracy"></a>作法：改善偵測精確度 
 
@@ -121,7 +121,7 @@ Azure AD 會處理您的意見反應，以提高偵測結果的精確度。 一�
 
 - 可能需要幾分鐘才能完成此動作，所以您不須重新提交要求。
 
-- 只有在由 AD 管理使用者認證的情況下，才能執行此動作。 (這代表什麼？)
+- 只有在由 AD 管理使用者認證的情況下，才能執行此動作。 
 
 
 

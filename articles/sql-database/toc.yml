@@ -191,6 +191,8 @@ items:
       href: sql-database-automated-backups.md
     - name: 長期備份保留期
       href: sql-database-long-term-retention.md
+    - name: 計劃性維護事件
+      href: sql-database-planned-maintenance.md
     - name: 容錯移轉群組和異地複寫
       items:
       - name: 主動式異地複寫
@@ -295,8 +297,6 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: 彈性交易
       href: sql-database-elastic-transactions-overview.md
-  - name: SQL 功能比較
-    href: sql-database-features.md
   - name: 監視和微調
     items:
     - name: 監視和微調概觀
@@ -321,24 +321,28 @@ items:
         href: sql-database-performance.md
       - name: 資料庫建議程式效能建議
         href: sql-database-advisor.md
-  - name: 載入和移動資料
-    items:
-    - name: SQL 資料同步
-      href: sql-database-sync-data.md
-    - name: 異動複寫
-      href: sql-database-managed-instance-transactional-replication.md
   - name: 資料庫功能
     items:
-    - name: 資料庫功能
-      href: sql-database-develop-overview.md
+    - name: SQL 功能比較
+      href: sql-database-features.md
     - name: 多模型功能
       href: sql-database-multi-model-features.md
     - name: 記憶體內
       href: sql-database-in-memory.md
+    - name: 異動複寫
+      href: sql-database-managed-instance-transactional-replication.md
+    - name: SQL 資料同步
+      href: sql-database-sync-data.md
     - name: 暫存資料表
       href: sql-database-temporal-tables.md
     - name: 作業自動化
       href: sql-database-job-automation-overview.md
+    - name: 機器學習服務
+      items:
+      - name: 機器學習概觀
+        href: sql-database-machine-learning-services-overview.md
+      - name: 主要差異
+        href: sql-database-machine-learning-services-differences.md
 - name: 使用說明指南
   items:
   - name: 概觀
@@ -523,8 +527,8 @@ items:
       href: sql-database-manage-automation.md
   - name: 開發應用程式
     items:
-    - name: 連線能力
-      href: sql-database-libraries.md
+    - name: 概觀
+      href: sql-database-develop-overview.md
     - name: 使用 JSON 資料
       href: sql-database-json-features.md
     - name: 使用 Spark 連接器
@@ -712,9 +716,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: 解除安裝彈性工作 (取代)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9a04e463a7324b1021594a8fbefc5988ad8471f2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1b32688e6e9ed6b826dd9191c8d58e85b1b2b128
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756728"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813667"

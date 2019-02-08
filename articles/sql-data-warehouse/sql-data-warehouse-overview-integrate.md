@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 08e144022c79182a63fd99dbce48a5e505aba3f2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c1bc4265c44f007e794b873d732a06d1e30f324f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477993"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661933"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>將其他服務與 SQL 資料倉儲整合
 除了其核心功能，SQL 資料倉儲可讓使用者整合許多其他 Azure 中的服務。 其中一些服務包括：
@@ -41,7 +41,7 @@ Azure Data Factory 提供使用者一個受控平台，以建立複雜的擷取�
 * **預存程序**：協調 SQL 資料倉儲上的預存程序的執行。
 * **複製**：使用 ADF 將資料移到「SQL 資料倉儲」中。 這項作業可以在幕後使用 ADF 的標準資料移動機制或 PolyBase。 
 
-如需詳細資訊，請參閱[與 Azure Data Factory 整合](https://docs.microsoft.com/en-us/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json)。
+如需詳細資訊，請參閱[與 Azure Data Factory 整合](https://docs.microsoft.com/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json)。
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 Azure Machine Learning 是完全受控的分析服務，可讓您使用一組大型預測工具建立複雜模型。 SQL 資料倉儲可支援做為模型的來源和目的地，具備下列功能：
