@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 619369972991bab0b23e7e9ae4e0a146f875e59a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 1e60ee5060f5f292ed6d03cf0680d9801a0c04f4
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079251"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746307"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - 常見問題集 (FAQ)
 
@@ -108,7 +108,7 @@ Azure Migrate 支援兩種探索，分別是設備為基礎及代理程式為基
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>是否會對分析的 ESXi 主機環境產生任何效能影響？
 
-對於[一次性探索方法](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods)，為了收集效能資料，vCenter Server 上的統計資料層級必須設為 3。 將它設定為這個層級會收集大量疑難排解資料，這些資料將儲存在 vCenter Server 資料庫中。 它可能因此導致 vCenter Server 出現一些效能問題。 對 ESXi 主機的影響微乎其微。
+對於[一次性探索方法](https://docs.microsoft.com/azure/migrate/concepts-collector)，為了收集效能資料，vCenter Server 上的統計資料層級必須設為 3。 將它設定為這個層級會收集大量疑難排解資料，這些資料將儲存在 vCenter Server 資料庫中。 它可能因此導致 vCenter Server 出現一些效能問題。 對 ESXi 主機的影響微乎其微。
 
 我們已經引入了效能資料的連續分析 (處於預覽狀態)。 透過連續分析，就不再需要變更 vCenter Server 統計資料層級來執行以效能為基礎的評估。 收集器設備現在將會分析內部部署機器，以測量虛擬機器的效能資料。 這對 ESXi 主機以及 vCenter Server 的效能影響幾乎為零。
 
@@ -198,7 +198,7 @@ Azure Migrate 目前不支援 [Enterprise 合約支援方案供應項目](https:
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>如何自動安裝 Microsoft Monitoring Agent (MMA) 和相依性代理程式？
 
-[這裡](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)提供您可用於安裝相依性代理程式的指令碼。 [這裡](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent)提供有關如何使用命令列或自動化方法來安裝 MMA 的指示。 針對 MMA，您也可以利用 TechNet 上[這裡](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)提供的指令碼。
+[此處](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)是您可用於安裝相依性代理程式的指令碼。 [這裡](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent)提供有關如何使用命令列或自動化方法來安裝 MMA 的指示。 針對 MMA，您也可以利用 TechNet 上[這裡](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)提供的指令碼。
 
 除了指令碼以外，您也可以利用 System Center Configuration Manager (SCCM)、[Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) 等部署工具來部署代理程式。
 

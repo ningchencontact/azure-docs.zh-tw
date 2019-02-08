@@ -1,6 +1,6 @@
 ---
-標題：評估模型效能 titleSuffix: Azure Machine Learning Studio description:本文示範如何在 Azure Machine Learning Studio 中評估模型的效能，並提供這項工作中可用度量的簡短說明。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：評估模型效能 titleSuffix:Azure Machine Learning Studio description:本文示範如何在 Azure Machine Learning Studio 中評估模型的效能，並提供這項工作中可用度量的簡短說明。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:2017/03/20
 ---

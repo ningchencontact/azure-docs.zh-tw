@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 25936fa1156dea4beff6e593646d0468a4687f36
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872878"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476174"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>最多 100 TB 的超大規模服務層級 (預覽)
 
 Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引擎架構為基礎，以確保 99.99% 的可用性 (即使在基礎結構失敗的情況下)。 Azure SQL Database 中使用三個架構模型：
+
 - 一般目的/標準 
 - 業務關鍵/進階
 - 超大規模
@@ -40,7 +41,7 @@ Azure SQL Database 中的超大規模服務層是 V 核心形式購買模型中�
 Azure SQL Database 中的超大規模服務層提供下列額外功能：
 
 - 支援最多 100 TB 的資料庫大小
-- 近乎即時的資料庫備份 (根據 Azure Blob 儲存體中儲存的檔案快照集)，不論大小，且不會對 Compute 造成任何 IO 影響
+- 近乎即時的資料庫備份 (根據 Azure Blob 儲存體中儲存的檔案快照集)，不論大小，且不會對 Compute 造成任何 IO 影響   
 - 快速的資料庫還原 (根據檔案快照集)，僅需數分鐘，而非數小時或數天 (不是資料作業的大小)
 - 不論資料量為何，較高的記錄輸送量和較快的交易認可時間就會有較高的整體效能
 - 快速相應放大 - 您可以佈建一或多個唯讀節點來卸載讀取工作負載，並用來作為熱待命
@@ -133,9 +134,6 @@ ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen
 GO
 ```
 
-> [!IMPORTANT]
-> 將非超大規模資料庫改變為超大規模資料庫之前，應該關閉[透明資料庫加密 (TDE)](transparent-data-encryption-azure-sql.md)。
-
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>連線到超大規模資料庫的讀取縮放複本
 
 在超大規模資料庫中，用戶端所提供連接字串中的 `ApplicationIntent` 引數會指出連線應路由至寫入複本還是唯讀次要複本。 如果 `ApplicationIntent` 設為 `READONLY`，且資料庫沒有次要複本，連線將會路由至主要複本，並預設為 `ReadWrite` 行為。
@@ -153,17 +151,18 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 | 問題 | 說明 |
 | :---- | :--------- |
-| 邏輯伺服器的 [管理備份] 窗格不會顯示 [將會從 SQL 伺服器篩選超大規模資料庫 ->]  | 超大規模有不同的管理備份方法，且這類的長期保留和時間點備份保留設定不會套用 / 都會失效。 據此，超大規模資料庫不會出現在 [管理備份] 窗格中。 |
+| SQL Database 伺服器的 [管理備份] 窗格不會顯示 [將會從 SQL 伺服器篩選超大規模資料庫 ->]  | 超大規模有不同的管理備份方法，且這類的長期保留和時間點備份保留設定不會套用 / 都會失效。 據此，超大規模資料庫不會出現在 [管理備份] 窗格中。 |
 | 還原時間點 | 一旦資料庫遷移至超大規模服務層級後，不支援在移轉之前還原至時間點。|
 | 如果資料庫檔案在移轉期間因為作用中的工作負載而成長，且超過每個檔案 1 TB 的界限，則移轉會失敗 | 緩和措施： <br> - 可能的話，請在不執行更新工作負載時遷移資料庫。<br> - 重試移轉，只要在移轉期間不超過 1 TB 的界限就會成功。|
 | 目前不支援受控執行個體 | 目前不支援 |
 | 移轉至超大規模目前是單向作業 | 一旦資料庫遷移至超大規模後，就無法直接遷移至非超大規模服務層級。 目前，將資料庫從超大規模遷移至非超大規模的唯一方法，是使用 BACPAC 檔案進行匯出/匯入。|
-| 目前不支援移轉具有記憶體內物件的資料庫 | 記憶體內物件必須卸除並重新建立為非記憶體內物件，才能將資料庫遷移至超大規模服務層級。
+| 目前不支援移轉具有記憶體內物件的資料庫 | 記憶體內物件必須卸除並重新建立為非記憶體內物件，才能將資料庫遷移至超大規模服務層級。|
+| 目前不支援「變更資料追蹤」。 | 您將無法將「變更資料追蹤」搭配「超大規模」資料庫使用。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 如需超大規模的常見問題集，請參閱[關於超大規模的常見問題集](sql-database-service-tier-hyperscale-faq.md)。
 - 如需服務層的資訊，請參閱[服務層](sql-database-service-tiers.md)
-- 如需伺服器和訂用帳戶層級的限制資訊，請參閱[邏輯伺服器上的資源限制概觀](sql-database-resource-limits-logical-server.md)。
+- 如需伺服器和訂用帳戶層級的限制資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md) \(英文\)。
 - 如需單一資料庫的購買模型限制相關資訊，請參閱[適用於單一資料庫的 Azure SQL Database V 核心形式購買模型限制](sql-database-vcore-resource-limits-single-databases.md)。
 - 如需功能與比較清單，請參閱 [SQL 的一般功能](sql-database-features.md)。

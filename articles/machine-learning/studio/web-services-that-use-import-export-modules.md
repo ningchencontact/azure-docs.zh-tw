@@ -9,18 +9,18 @@ ms.author: amlstudiodocs
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 0f438f59da079633fea54758261ce1bd93a8477b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ca4c8c2d16e2cc44768785c26ffa070b59d5f8d7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251380"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478010"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>部署使用資料匯入和資料匯出模組的 Azure Machine Learning Studio Web 服務
 
@@ -44,9 +44,9 @@ ms.locfileid: "53251380"
 5. 在屬性窗格中，在 [資料來源]  in the  。
 6. 在 [資料庫伺服器名稱]、[資料庫名稱]、[使用者名稱] 和 [密碼] 欄位中，輸入資料庫的適當資訊。
 7. 在資料庫查詢欄位中，輸入下列查詢。
-   
+
      select [age],
-   
+
         [workclass],
         [fnlwgt],
         [education],
@@ -68,17 +68,17 @@ ms.locfileid: "53251380"
 接著，您要設定用來部署 Web 服務的預測性實驗。
 
 1. 在實驗畫布底端，按一下 [設定 Web 服務]，然後選取 [預測性 Web 服務 [建議]]。
-2. 從預測性實驗移除「Web 服務輸入」和「Web 服務輸出」模組。 
+2. 從預測性實驗移除「Web 服務輸入」和「Web 服務輸出」模組。
 3. 在元件搜尋方塊中，輸入「匯出」。
 4. 從結果清單中，將「匯出資料」  模組加入實驗畫布。
-5. 連接「評分模型」模組的輸出與「匯出資料」模組的輸入。 
+5. 連接「評分模型」模組的輸出與「匯出資料」模組的輸入。
 6. 在屬性窗格中，在資料目的地下拉式清單中選取 [Azure SQL Database]  。
 7. 在 [資料庫伺服器名稱]、[資料庫名稱]、[伺服器使用者帳戶名稱] 和 [伺服器使用者帳戶密碼] 欄位中，輸入資料庫的適當資訊。
 8. 在 [要儲存的資料行逗號分隔清單]  欄位中，輸入「評分標籤」。
 9. 在 [資料表名稱] 欄位中，輸入 dbo.ScoredLabels。 如果資料表不存在，則在執行實驗或呼叫 Web 服務時會建立資料表。
 10. 在 [資料表資料行的逗號分隔清單]  欄位中，輸入 ScoredLabels。
 
-當您撰寫的應用程式呼叫最後一個 Web 服務時，您可能要在執行階段指定不同的輸入查詢或目的地資料表。 若要設定這些輸入和輸出，請使用 Web 服務參數功能設來定「匯入資料」模組的「資料來源」屬性以及「匯出資料」模式資料目的地屬性。  如需有關 Web 服務參數的詳細資訊，請參閱 Cortana Intelligence and Machine Learning Blog (Cortana 智慧與機器學習部落格) 上的 [AzureML Web Service Parameters (AzureML Web 服務參數)](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) 。
+當您撰寫的應用程式呼叫最後一個 Web 服務時，您可能要在執行階段指定不同的輸入查詢或目的地資料表。 若要設定這些輸入和輸出，請使用 Web 服務參數功能設來定「匯入資料」模組的「資料來源」屬性以及「匯出資料」模式資料目的地屬性。  如需有關 Web 服務參數的詳細資訊，請參閱 Cortana Intelligence and Machine Learning Blog (Cortana 智慧與機器學習部落格) 上的 [Azure Machine Learning Studio Web 服務參數](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) (英文)。
 
 設定匯入查詢和目的地資料表的 Web 服務參數︰
 
@@ -108,22 +108,22 @@ ms.locfileid: "53251380"
 7. 將 C# 範例程式碼複製並貼入 Program.cs 檔案，然後移除 Blob 儲存體的所有參考。
 8. 使用先前儲存的 API 金鑰更新 *apiKey* 變數的值。
 9. 找出要求宣告並更新傳入「匯入資料」和「匯出資料」模組的 Web 服務參數值。 在此情況下，您會使用原始的查詢，但定義新的資料表名稱。
-   
-        var request = new BatchExecutionRequest() 
-        {           
+
+        var request = new BatchExecutionRequest()
+        {
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
             }
         };
-10. 執行應用程式。 
+10. 執行應用程式。
 
 執行完成時，新的資料表會加入包含評分結果的資料庫。
 
 ### <a name="deploy-a-new-web-service"></a>部署新的 Web 服務
 
-> [!NOTE] 
-> 若要部署新的 Web 服務，您必須在要部署 Web 服務的訂用帳戶中具備足夠的權限。 如需詳細資訊，請參閱[使用 Azure Machine Learning Web 服務入口網站管理 Web 服務](manage-new-webservice.md)。 
+> [!NOTE]
+> 若要部署新的 Web 服務，您必須在要部署 Web 服務的訂用帳戶中具備足夠的權限。 如需詳細資訊，請參閱[使用 Azure Machine Learning Web 服務入口網站管理 Web 服務](manage-new-webservice.md)。
 
 部署為新的 Web 服務，並建立應用程式取用它︰
 
@@ -136,9 +136,9 @@ ms.locfileid: "53251380"
 7. 將 C# 範例程式碼複製並貼入 Program.cs 檔案。
 8. 使用位於 [基本取用資訊] 區段中的 [主索引鍵] 更新 *apiKey* 變數的值。
 9. 找出 *scoreRequest* 宣告並更新傳入「匯入資料」和「匯出資料」模組的 Web 服務參數值。 在此情況下，您會使用原始的查詢，但定義新的資料表名稱。
-   
+
         var scoreRequest = new
-        {       
+        {
             Inputs = new Dictionary<string, StringTable>()
             {
             },
@@ -147,5 +147,5 @@ ms.locfileid: "53251380"
                 { "Table", "dbo.ScoredTable3" },
             }
         };
-10. 執行應用程式。 
+10. 執行應用程式。
 

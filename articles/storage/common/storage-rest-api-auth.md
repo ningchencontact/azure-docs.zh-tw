@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 78e2620ba6e5e29a1f1ac9719b709d5a2f468122
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 08a86e1b2808a0778734edecc9385f4d61779b25
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529037"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476191"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>使用 Azure 儲存體 REST API
 
@@ -58,13 +58,13 @@ REST 表示*具像狀態傳輸*。 如需特定定義，請查看[維基百科](
 
 如果您查看 [Blob 服務 REST API](/rest/api/storageservices/Blob-Service-REST-API)，您會看到可以在 blob 儲存體上執行的所有作業。 儲存體用戶端程式庫以 REST API 為主的包裝函式，可讓您輕鬆地存取儲存體，而不需直接使用 REST API。 但如上所述，有時候您想要使用 REST API，而不是儲存體用戶端程式庫。
 
-## <a name="rest-api-reference-list-containers-api"></a>REST API 參考：列出容器 API
+## <a name="rest-api-reference-list-containers-api"></a>REST API 參考資料：列出容器 API
 
 讓我們看看 REST API 參考中的 [ListContainers](/rest/api/storageservices/List-Containers2) 作業頁面，以便在附有程式碼的下一節中瞭解要求和回應中的某些欄位來自何處。
 
 **要求方法**：GET。 此動詞命令是您指定作為要求物件屬性的 HTTP 方法。 視您呼叫的 API 而定，此動詞命令的其他值包括 HEAD、PUT 和 DELETE。
 
-**要求 URI**：https://myaccount.blob.core.windows.net/?comp=list 這是從 blob 儲存體帳戶端點 `http://myaccount.blob.core.windows.net` 和資源字串 `/?comp=list` 建立而來。
+**要求 URI**： https://myaccount.blob.core.windows.net/?comp=list 這是從 blob 儲存體帳戶端點 `http://myaccount.blob.core.windows.net` 和資源字串 `/?comp=list` 建立而來。
 
 [URI 參數](/rest/api/storageservices/List-Containers2#uri-parameters)：呼叫 ListContainers 時，您有其他查詢參數可以使用。 其中有幾個參數是呼叫的 timeout (以秒為單位) 以及用於篩選的 prefix。
 
@@ -78,13 +78,13 @@ REST 表示*具像狀態傳輸*。 如需特定定義，請查看[維基百科](
 
 [要求標頭](/rest/api/storageservices/List-Containers2#request-headers)**：** 此區段列出必要及選用的要求標頭。 三個必要標頭：Authorization 標頭、x-ms-date (包含要求的 UTC 時間) 及 x-ms-version (指定要使用的 REST API 版本)。 選擇性地在標頭中包含 *x-ms-client-request-id* – 您可以將此欄位的值設定為任意值；若已啟用記錄功能，則會寫入至儲存體分析記錄中。
 
-[要求主體](/rest/api/storageservices/List-Containers2#request-body)**：** ListContainers 沒有要求主體。 要求主體使用於上傳 blob 時的所有 PUT 作業，也會使用於 SetContainerAccessPolicy，其可讓您以要套用之預存存取原則的 XML 清單傳送。 [使用共用存取簽章 (SAS)](storage-dotnet-shared-access-signature-part-1.md) 一文會討論預存存取原則。
+[要求本文](/rest/api/storageservices/List-Containers2#request-body)**：** ListContainers 沒有要求主體。 要求主體使用於上傳 blob 時的所有 PUT 作業，也會使用於 SetContainerAccessPolicy，其可讓您以要套用之預存存取原則的 XML 清單傳送。 [使用共用存取簽章 (SAS)](storage-dotnet-shared-access-signature-part-1.md) 一文會討論預存存取原則。
 
 [回應狀態碼](/rest/api/storageservices/List-Containers2#status-code)**：** 告知您需要知道的任何狀態碼。 在此範例中，HTTP 狀態碼 200 表示「正常」。 如需完整的 HTTP 狀態碼清單，請參閱[狀態碼定義](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。 若要查看儲存體 REST API 特有的錯誤碼，請參閱[常見的 REST API 錯誤碼](/rest/api/storageservices/common-rest-api-error-codes)
 
 [回應標頭](/rest/api/storageservices/List-Containers2#response-headers)**：** 包括「內容類型」、x-ms-request-id (您傳入的要求識別碼 (適用的話))、x-ms-version (表示使用的 Blob 服務版本) 和「日期」 (UTC，告知提出要求的時間)。
 
-[回應主體](/rest/api/storageservices/List-Containers2#response-body)：這個欄位是一種 XML 結構，可提供所要求的資料。 在此範例中，回應是容器及其屬性的清單。
+[回應本文](/rest/api/storageservices/List-Containers2#response-body)：這個欄位是一種 XML 結構，可提供所要求的資料。 在此範例中，回應是容器及其屬性的清單。
 
 ## <a name="creating-the-rest-request"></a>建立 REST 要求
 
@@ -204,7 +204,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**回應主體 (XML)：** 對於 ListContainers，這會顯示容器和其屬性的清單。
+**回應主題 (XML)：** 對於 ListContainers，這會顯示容器和其屬性的清單。
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -283,19 +283,19 @@ Authorization="SharedKey <storage account name>:<signature>"
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 大部分的上述欄位都很少使用。 對於 Blob 儲存體，您可以指定 VERB、md5、內容長度、正式標頭和正式資源。 您可以將其他欄位空白 (但放入 `\n`，讓它知道是空白的)。
@@ -512,7 +512,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**回應主體 (XML)：** 此 XML 回應會顯示 blob 和其屬性的清單。 
+**回應主題 (XML)：** 此 XML 回應會顯示 blob 和其屬性的清單。 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

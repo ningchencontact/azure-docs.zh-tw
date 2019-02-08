@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 20e5c96110f07d8eaec218ed167c87a48fd65782
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 73d4ba0c82f26a6249528f2dbef1fd30f99ccedb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037373"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475868"
 ---
-# <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一索引鍵
+# <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一索引鍵限制式
 
 唯一索引鍵可為您提供在 Cosmos 容器中新增一層資料完整性的能力。 您會在建立 Cosmos 容器時建立唯一索引鍵原則。 利用唯一索引鍵，您就能確保邏輯分割區內一或多個值的唯一性 (您可以保證每個[分割區索引鍵](partition-data.md)的唯一性)。 一旦使用唯一索引鍵原則建立容器之後，該原則就能防止在邏輯分割區內建立任何新的 (或已更新的) 重複項目，如唯一索引鍵限制式所指定。 與唯一索引鍵結合的分割區索引鍵可保證項目在容器範圍內的唯一性。
 

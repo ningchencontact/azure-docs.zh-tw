@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bb9d22b45011f5156a63444ec8e1651f148993b6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102116"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751900"
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
@@ -117,7 +117,7 @@ esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/conto
 
 **因為憑證驗證失敗，所以收集器無法連線至網際網路**
 
-如果您使用攔截 Proxy 來連線到網際網路，而且您未將 Proxy 憑證匯入到收集器 VM，也可能會發生這種情形。 您可以使用[這裡](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity)詳述的步驟來匯入 Proxy 憑證。
+如果您使用攔截 Proxy 來連線到網際網路，而且您未將 Proxy 憑證匯入到收集器 VM，也可能會發生這種情形。 您可以使用[這裡](https://docs.microsoft.com/azure/migrate/concepts-collector)詳述的步驟來匯入 Proxy 憑證。
 
 **收集器無法使用我從入口網站複製的專案識別碼和金鑰連線到專案。**
 
@@ -172,7 +172,7 @@ Azure Migrate 收集器會下載 PowerCLI，然後將它安裝到設備上。 Po
 
 發生下列錯誤，無法連線至 vCenter Server "Servername.com:9443"：沒有任何在 https://Servername.com:9443/sdk 上進行接聽的端點可以接受該訊息。
 
-檢查您是否正在執行最新版的收集器設備，如果不是，請將設備升級至[最新的版本](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector)。
+檢查您是否正在執行最新版的收集器設備，如果不是，請將設備升級至[最新的版本](https://docs.microsoft.com/azure/migrate/concepts-collector)。
 
 如果最新的版本仍然會發生相同的問題，有可能是收集器機器無法解析指定的 vCenter Server 名稱，或指定的連接埠錯誤。 根據預設，如果未指定連接埠，則收集器會試著連線至連接埠編號 443。
 

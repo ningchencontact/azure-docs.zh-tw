@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: ae9412ed7c02d88e7d0c35c6ea0f95da755b84d4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f9a1b303fb66e71ffb1834c5b5fb4796867a0944
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097039"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819411"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>作法：讓任何 Azure Active Directory (AD) 使用者以多租用戶應用程式的模式登入
 
@@ -38,7 +38,7 @@ ms.locfileid: "55097039"
 1. [將您的應用程式註冊更新為多租用戶應用程式](#update-registration-to-be-multi-tenant)
 2. [更新您的程式碼以將要求傳送給 /common 端點](#update-your-code-to-send-requests-to-common)
 3. [更新您的程式碼以處理多個簽發者值](#update-your-code-to-handle-multiple-issuer-values)
-4. [取得使用者和系統管理員的同意並進行適當的程式碼變更](#understanding-user-and-admin-consent)
+4. 了解使用者和系統管理員的同意意向並進行適當的程式碼變更
 
 讓我們仔細看看每個步驟。 您也可以直接跳到[這份多租用戶範例清單][AAD-Samples-MT]。
 

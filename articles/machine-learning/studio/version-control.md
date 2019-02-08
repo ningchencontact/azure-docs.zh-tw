@@ -1,5 +1,5 @@
 ---
-標題：應用程式生命週期管理標題字尾： Azure Machine Learning Studio 說明：在 Azure Machine Learning Studio 服務中套用應用程式生命週期管理最佳作法: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：應用程式生命週期管理標題字尾：Azure Machine Learning Studio description:在 Azure Machine Learning Studio 服務中套用應用程式生命週期管理最佳做法：machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date:10/27/2016
 ---

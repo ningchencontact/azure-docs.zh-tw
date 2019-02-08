@@ -1,7 +1,21 @@
 ---
-標題：將分析從 Excel 遷移至 Azure Machine Learning Studio titleSuffix:Azure Machine Learning Studio description:在 Excel 與 Azure Machine Learning Studio 服務中的線性迴歸模型比較: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:2017/03/20
+title: 將分析從 Excel 遷移至 Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: 在 Excel 和 Azure Machine Learning Studio 中的線性迴歸模型的比較
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/20/2017
+ms.openlocfilehash: 12c82d440613078e9f0593ddb9fb6c7fe7b8c362
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488344"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>將分析從 Excel 遷移至 Azure Machine Learning Studio
 

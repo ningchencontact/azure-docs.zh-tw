@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 20894a74bf0cc3911272385721da74871df95ade
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ea83d061f7160db04c847be66e79da60da78634d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913206"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662902"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>使用指令碼動作來自訂 Linux 型 HDInsight 叢集
 
@@ -224,7 +224,7 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>在建立叢集期間從 Azure PowerShell 使用指令碼動作
 
-本節中，您使用 [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) Cmdlet 叫用指令碼以自訂叢集。 在您開始之前，請務必先安裝和設定 Azure PowerShell。 如需有關設定工作站以執行 HDInsight Powershell Cmdlet 的資訊，請參閱 [Azure PowerShell 概觀](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.1.0#run-or-install)。
+本節中，您使用 [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) Cmdlet 叫用指令碼以自訂叢集。 在您開始之前，請務必先安裝和設定 Azure PowerShell。 如需有關設定工作站以執行 HDInsight Powershell Cmdlet 的資訊，請參閱 [Azure PowerShell 概觀](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install)。
 
 下列指令碼示範如何使用 PowerShell 在建立叢集時套用指令碼動作：
 
@@ -276,7 +276,7 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>從 Azure PowerShell 將指令碼動作套用到執行中的叢集
 
-在您開始之前，請務必先安裝和設定 Azure PowerShell。 如需有關設定工作站以執行 HDInsight Powershell Cmdlet 的資訊，請參閱 [Azure PowerShell 概觀](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.1.0#run-or-install)。
+在您開始之前，請務必先安裝和設定 Azure PowerShell。 如需有關設定工作站以執行 HDInsight Powershell Cmdlet 的資訊，請參閱 [Azure PowerShell 概觀](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install)。
 
 下列範例示範如何將指令碼動作套用至執行中的叢集：
 
@@ -526,6 +526,6 @@ sudo pip install azure-storage==0.20.0
 * [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions-linux.md)
 * [在 HDInsight 叢集上安裝和使用 Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 * [在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [將其他儲存體新增至 HDInsight 叢集](hdinsight-hadoop-add-storage.md)
+* [在 HDInsight 叢集新增儲存體](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "叢集建立期間的階段"

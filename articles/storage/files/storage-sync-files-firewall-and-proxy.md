@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 6c8a0a0db419546a49670b1f34e58ead7cebeaa1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c0a1d2bf1d7a103ad473cadb1528bd9b9a4c90de
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459497"
+ms.locfileid: "55488011"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 檔案同步 Proxy 和防火牆設定
 Azure 檔案同步會將您的內部部署伺服器連線到 Azure 檔案服務，以啟用多網站同步處理和雲端層功能。 因此，內部部署伺服器必須連線到網際網路。 IT 系統管理員必須決定進入 Azure 雲端服務之伺服器的最佳路徑。
@@ -111,7 +111,7 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 | 區域 | 主要端點 URL | 配對的區域 | 探索 URL |
 |--------|---------------------------------------|--------|---------------------------------------|
-| 澳洲東部 | https://kailani-aue.one.microsoft.com | 澳洲東南部 | https://kailani-aue.one.microsoft.com |
+| 澳洲東部 | https://kailani-aue.one.microsoft.com | 澳大利亞東南部 | https://kailani-aue.one.microsoft.com |
 | 澳大利亞東南部 | https://kailani-aus.one.microsoft.com | 澳洲東部 | https://tm-kailani-aus.one.microsoft.com |
 | 加拿大中部 | https://kailani-cac.one.microsoft.com | 加拿大東部 | https://tm-kailani-cac.one.microsoft.com |
 | 加拿大東部 | https://kailani-cae.one.microsoft.com | 加拿大中部 | https://tm-kailani.cae.one.microsoft.com |

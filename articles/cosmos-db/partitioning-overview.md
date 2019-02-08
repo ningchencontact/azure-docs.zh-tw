@@ -6,14 +6,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 20e869d30f9e7b8102b723870f0102e041e064d7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d9bd1bec6d1df6fab634c5d929cb778abbd3d13d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042269"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478401"
 ---
-# <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB 中的資料分割
+# <a name="partitioning-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的資料分割 - 概觀
 
 資料分割是 Cosmos DB 用來調整資料庫中的個別容器以符合您應用程式效能需求的技術。 藉由使用資料分割，將容器中的項目分割為不同子集，稱為「邏輯分割區」。 邏輯分割區會根據與每個項目相關聯的分割區索引鍵屬性值來建立。
 

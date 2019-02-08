@@ -1,8 +1,21 @@
 ---
-標題：資料評估標題字尾：Azure Machine Learning Studio 說明：您資料備妥可進行資料科學前，必須符合的四個準則。 這段影片提供具體範例，可協助進行基本的資料評估。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: seodec18 ms.date:01/03/2018
+title: 資料評估
+titleSuffix: Azure Machine Learning Studio
+description: 您資料備妥可進行資料科學前，必須符合的四個準則。 這段影片提供具體範例，可協助進行基本的資料評估。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 01/03/2018
+ms.openlocfilehash: f57f6bf93fce2526bdc478558551616ba1fa3c4c
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496018"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>已備妥資料來進行資料科學嗎？
 ## <a name="video-2-data-science-for-beginners-series"></a>影片 2：適用於初學者的資料科學系列

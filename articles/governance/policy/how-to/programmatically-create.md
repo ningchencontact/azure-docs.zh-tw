@@ -4,17 +4,17 @@ description: 本文會逐步引導您以程式設計方式建立及管理 Azure 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/26/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: afdd6a238671bf41252eae8b55f1b6e61f358336
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101782"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510820"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以程式設計方式建立原則並檢視合規性資料
 
@@ -96,8 +96,9 @@ ms.locfileid: "55101782"
    以您想要的資源群組名稱取代 _ContosoRG_。
 
    `New-AzPolicyAssignment` 上的 **Scope** 參數也適用訂用帳戶和管理群組。 此參數會使用 `Get-AzResourceGroup` 上 **ResourceId** 屬性傳回的完整資源路徑。 以下是每個容器的 **Scope** 模式。
-   將 `{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源群組名稱、訂用帳戶識別碼和管理群組名稱。
+   請將 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源名稱、資源群組名稱、訂用帳戶 ID 及管理群組名稱。 `{rType}` 會取代為資源的**資源類型**，例如，如果是 VM，則為 `Microsoft.Compute/virtualMachines`。
 
+   - 資源 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - 資源群組 - `/subscriptions/{subId}/resourceGroups/{rgName}`
    - 訂用帳戶 - `/subscriptions/{subId}/`
    - 管理群組 - `/providers/Microsoft.Management/managementGroups/{mgName}`

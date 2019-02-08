@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: 9e79aa2315118bcd9ce4328e74d51d7a22ea6247
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.date: 01/25/2019
+ms.openlocfilehash: c1b6c55475c1600c89c1ac1cae9dee0068b92070
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744543"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478214"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>快速入門：將 BACPAC 檔案匯入到新的 Azure SQL Database
 
@@ -33,7 +33,7 @@ ms.locfileid: "53744543"
 > [!NOTE]
 > [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)支援使用本文中的其他方法從 BACPAC 檔案匯入，但目前不支援使用 Azure 入口網站移轉。
 
-若要在 Azure 入口網站中匯入資料庫，請針對將裝載匯入項目的邏輯伺服器開啟頁面，然後在工具列上選取 [匯入資料庫]。  
+若要在 Azure 入口網站中匯入資料庫，請針對將裝載匯入項目的 SQL Database 伺服器開啟頁面，然後在工具列上選取 [匯入資料庫]。  
 
    ![資料庫匯入](./media/sql-database-import/import.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "53744543"
 
 ### <a name="monitor-imports-progress"></a>監視匯入進度
 
-若要監視匯入進度，請為匯入的資料庫開啟邏輯伺服器頁面，然後在 [設定] 下選取 [匯入/匯出記錄]。 匯入成功時，會處於 [已完成] 狀態。
+若要監視匯入進度，請為匯入的資料庫開啟伺服器頁面，然後在 [設定] 下選取 [匯入/匯出記錄]。 匯入成功時，會處於 [已完成] 狀態。
 
 若要確認伺服器上的資料庫為線上狀態，請選取 [SQL 資料庫]，並確認新的資料庫為 [線上] 狀態。
 
@@ -51,14 +51,14 @@ ms.locfileid: "53744543"
 
 基於調整能力和效能，建議在大部分的生產環境中均應使用 SqlPackage。 如需 SQL Server 客戶諮詢小組部落格中有關使用 BACPAC 檔案進行移轉的主題，請參閱[使用 BACPAC 檔案從 SQL Server 移轉至 Azure SQL Database](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)。
 
-下列 SqlPackage 命令會將 **AdventureWorks2008R2** 資料庫從本機儲存體匯入至名為 **mynewserver20170403** 的 Azure SQL Database 邏輯伺服器。 此命令會建立名為 **myMigratedDatabase**、且具有**進階**服務層和 **P6** 服務目標的新資料庫。 請針對您的環境適當變更這些值。
+下列 SqlPackage 命令會將 **AdventureWorks2008R2** 資料庫從本機儲存體匯入至名為 **mynewserver20170403** 的 Azure SQL Database 伺服器。 此命令會建立名為 **myMigratedDatabase**、且具有**進階**服務層和 **P6** 服務目標的新資料庫。 請針對您的環境適當變更這些值。
 
 ```cmd
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=<your_server_admin_account_user_id>;Password=<your_server_admin_account_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
 > [!IMPORTANT]
-> Azure SQL Database 邏輯伺服器會接聽連接埠 1433。 若要連線到公司防火牆後方的邏輯伺服器，該防火牆必須開啟此連接埠。
+> SQL Database 伺服器會接聽連接埠 1433。 若要連線到公司防火牆後方的 SQL Database 伺服器，該防火牆必須開啟此連接埠。
 >
 
 此範例說明如何使用 SqlPackage 與 Active Directory 通用驗證來匯入資料庫。
@@ -107,7 +107,7 @@ $importStatus
 
 ## <a name="limitations"></a>限制
 
-不支援匯入至彈性集區中的資料庫。 您可以將資料匯入到單一資料庫，然後將資料庫移到集區。
+不支援匯入至彈性集區中的資料庫。 您可以將資料匯入到單一資料庫，然後將資料庫移到彈性集區。
 
 ## <a name="import-using-wizards"></a>使用精靈匯入
 

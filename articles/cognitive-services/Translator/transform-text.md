@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 9586ffac2fc1f4d3e0a03d0e20052ad16b88cbe9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 66371fcdc3afba7a5974d8db047242c0c1646bc0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684778"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476854"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>如何使用 TransformText 方法
 
@@ -30,7 +30,7 @@ TransformText 方法是一個社交媒體的文字正規化函式，會傳回輸
 
 | 參數 | 說明 |
 |:---|:---|
-| 驗證標頭 | **必要** 用來識別應用程式的 HTTP 標頭。 使用索引鍵：“Authorization” 和值："Bearer" + " " + 存取權杖。 如需詳細資料，請參閱這裡。|
+| 驗證標頭 | **必要** 用來識別應用程式的 HTTP 標頭。 使用索引鍵：「Authorization」與值：「Bearer」+ " " + 存取權杖。 如需詳細資料，請參閱這裡。|
 | 語言 | **必要** 一個代表語言代碼的字串。 此參數僅支援英文，以 **en** 作為語言名稱。|
 | category | **選擇性** 一個包含翻譯之分類或領域的字串。 此參數僅支援預設選項 **general**。|
 | sentence | **必要** 您想要校正的句子。 |

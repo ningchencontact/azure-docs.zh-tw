@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 777d976133f5b9bb1c97ea678e058f2dc398922d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 55b6e6db14f3847eb659f9bee05b12585a613693
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135809"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477211"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process 實務 - 在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集
 
@@ -33,14 +33,14 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 * 接下來 13 個資料行是數字，以及
 * 最後 26 個資料行是類別資料行
 
-資料行是匿名的，而且會使用一系列的列舉名稱："Col1" (適用於標籤資料行) 到 "Col40" (適用於最後一個分類資料行)。            
+資料行是匿名的，而且會使用一系列的列舉名稱："Col1" (適用於標籤資料行) 到 "Col40" (適用於最後一個分類資料行)。
 
 以下是來自這個資料集的兩個觀察 (資料列) 的前 20 個資料行的摘錄：
 
     Col1    Col2    Col3    Col4    Col5    Col6    Col7    Col8    Col9    Col10    Col11    Col12    Col13    Col14    Col15            Col16            Col17            Col18            Col19        Col20
 
-    0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb           
-    0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb                      
+    0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb
+    0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb
 
 此資料集中的數值及分類資料行中有遺漏值。 我們會說明用來處理遺漏值的簡單方法。 資料的其他詳細資料會在將它們儲存成 Hive 資料表時加以說明。
 
@@ -50,7 +50,7 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 本逐步解說將討論兩個範例預測問題：
 
 1. **二元分類**：預測使用者是否點擊了新增項目：
-   
+
    * 類別 0：未點擊
    * 類別 1：按一下 
 2. **迴歸**：預測使用者特徵點擊廣告的可能性。
@@ -62,10 +62,10 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 
 1. [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)：這個儲存體帳戶會用來將資料儲存於 Azure Blob 儲存體。 HDInsight 叢集中使用的資料會儲存在這裡。
 2. [自訂適用於資料科學的 Azure HDInsight Hadoop 叢集](customize-hadoop-cluster.md)：這個步驟會建立已在所有節點上安裝 64 位元 Anaconda Python 2.7 的 Azure HDInsight Hadoop 叢集。 自訂 HDInsight 叢集時有兩個需完成的重要步驟 (如本主題所述)。
-   
+
    * 建立時您必須將步驟 1 中建立的儲存體帳戶與 HDInsight 叢集連結。 此儲存體帳戶用於存取可以在叢集內處理的資料。
    * 建立後，您必須對叢集的前端節點啟用遠端存取。 請記住您在此處指定的遠端存取認證 (與建立時指定叢集的不同)：您需要認證以完成下列程序。
-3. [建立 Azure ML 工作區](../studio/create-workspace.md)：這個 Azure Machine Learning 工作區會在 HDInsight 叢集上初始資料探索並縮減取樣之後，用來建置機器學習模型。
+3. [建立 Azure Machine Learning Studio 工作區](../studio/create-workspace.md)：這個 Azure Machine Learning 工作區會在 HDInsight 叢集上初始資料探索並縮減取樣之後，用來建置機器學習模型。
 
 ## <a name="getdata"></a>取得並從公用來源取用資料
 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 資料集可以透過按一下連結、接受使用條款並提供名稱來存取。 其外觀的快照如下所示：
@@ -74,10 +74,10 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 
 按一下 [繼續下載]  來閱讀資料集的相關資訊和它的可用性。
 
-資料位於公用 [Azure Blob 儲存體](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)位置：wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/。 "wasb" 指的是 Azure Blob 儲存體位置。 
+資料位於公用 [Azure Blob 儲存體](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)位置：wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/。 "wasb" 指的是 Azure Blob 儲存體位置。
 
 1. 這個公用 Blob 儲存體中的資料是由所解壓縮資料的三個子資料夾所組成。
-   
+
    1. 子資料夾 *raw/count/* 包含前 21 天的資料 - 從 day\_00 到 day\_20
    2. 子資料夾 *raw/train/* 由單一天 day\_21 的資料組成
    3. 子資料夾 *raw/test/* 由兩天 day\_22 和 day\_23 的資料組成
@@ -103,11 +103,11 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 
 > [!NOTE]
 > 請從 Hive bin/ 目錄提示字元執行本逐步解說中的所有 Hive 命令。 如此可自動處理路徑相關問題。 您可以交替使用詞彙「Hive 目錄提示」、「Hive bin/ 目錄提示」和「Hadoop 命令列」。
-> 
+>
 > [!NOTE]
 > 若要執行任何 Hive 查詢，您永遠可以使用下列命令︰
-> 
-> 
+>
+>
 
         cd %hive_home%\bin
         hive
@@ -158,13 +158,13 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 **有兩種方式可執行任何 Hive 查詢：**
 
 1. **使用 Hive REPL 命令列**：第一種是發出 "hive" 命令，在 Hive REPL 命令列上複製並貼上查詢。 若要這樣做，請執行：
-   
+
         cd %hive_home%\bin
         hive
-   
+
      現在，在 REPL 命令列，剪下和貼上查詢即可執行。
 2. **將查詢儲存到檔案並執行命令**：第二種是將查詢儲存到 .hql 檔案 ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql))，然後發出下列命令來執行查詢：
-   
+
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
 ### <a name="confirm-database-and-table-creation"></a>確認資料庫和資料表的建立
@@ -294,7 +294,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
         1.0     2.1418600917169246      2.1418600917169246    6.21887086390288 27.53454893115633       65535.0
         Time taken: 564.953 seconds, Fetched: 1 row(s)
 
-百分比的分佈通常與任何數值變數的長條圖分佈相關。         
+百分比的分佈通常與任何數值變數的長條圖分佈相關。
 
 ### <a name="find-number-of-unique-values-for-some-categorical-columns-in-the-train-dataset"></a>尋找訓練資料集中的某些類別資料行的唯一值數目
 繼續進行資料瀏覽，我們發現，對於某些類別資料行，他們使用了唯一值數目。 為了執行此動作，請顯示 [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql) 的內容：
@@ -455,11 +455,11 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 > [!NOTE]
 > 為訓練和測試資料集執行這項操作。 此外，請記住要使用您為此目的提供的資料庫名稱和資料表名稱。 在圖中所使用的值僅供說明之用。\**
-> 
-> 
+>
+>
 
 ### <a name="step2"></a> 步驟 2：在 Azure Machine Learning 中建立簡單的實驗來預測點擊次數/未點擊次數
-我們的 Azure ML 實驗看起來如下所示：
+Azure Machine Learning Studio 實驗如下所示：
 
 ![Machine Learning 實驗](./media/hive-criteo-walkthrough/xRpVfrY.png)
 
@@ -481,9 +481,9 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 ![建置計數轉換模組屬性](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![建置計數轉換模組](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > 在 [計數資料行] 方塊中，輸入您要在其中執行計數的資料行。 一般來說，這些是 (如上所述) 高維度類別資料行。 請記住 Criteo 資料集有 26 個類別資料行：從 Col15 至 Col40。 在這裡，依據這些資料行，並為其提供索引 (從 15 到 40，並以逗號分隔，如下所示)。
-> 
+>
 
 若要使用 MapReduce 模式中的模組 (適用於大型資料集)，您必須存取 HDInsight Hadoop 叢集 (用於功能探索的叢集可以重複用於此目的) 和它的認證。 前面的圖表說明填入的值看起來如何 (將提供做說明用途的值取代為您自己使用案例的相關值)。
 
@@ -588,8 +588,8 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 > [!NOTE]
 > 針對輸入資料格式，使用 [計數 Featurizer] 模組的輸出。 一旦此實驗執行完成，將輸出從 **計數 Featurizer** 模組儲存為資料集。 此資料集會用於 Web 服務中的輸入資料。
-> 
-> 
+>
+>
 
 #### <a name="scoring-experiment-for-publishing-webservice"></a>發佈 Web 服務的評分實驗
 首先會顯示其外觀。 基本結構是 [評分模型] 模組，其會接受我們的定型模型物件以及在先前步驟中使用 [計數 Featurizer]  模組產生的一些輸入資料行。 使用「選取資料集中的資料行」來投射出評分標籤和評分機率。

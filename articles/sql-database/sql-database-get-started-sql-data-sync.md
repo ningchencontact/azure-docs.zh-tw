@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/08/2018
-ms.openlocfilehash: eb788c07ed9424ae6d5beed5be11c71a11c62265
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 01/25/2018
+ms.openlocfilehash: 03ea4a7db27e32b370be89adf308ded9a22f9e37
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304273"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478418"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>教學課程：設定 Azure SQL Database 與內部部署 SQL Server 之間的 SQL 資料同步
 
@@ -71,17 +71,17 @@ ms.locfileid: "54304273"
 
 ### <a name="to-add-an-azure-sql-database"></a>新增 Azure SQL Database
 
-在 [成員資料庫] 區段中，選取 [新增 Azure 資料庫]，可選擇性地將 Azure SQL Database 新增至同步群組。 [設定 Azure 資料庫] 頁面隨即開啟。
+在 [成員資料庫] 區段中，選取 [新增 Azure SQL 資料庫]，可選擇性地將 Azure SQL Database 新增至同步群組。 [設定 Azure SQL Database] 頁面隨即開啟。
 
   ![步驟 2 - 設定資料庫](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
 
-  在 [設定 Azure 資料庫] 頁面上，變更下列設定：
+  在 [設定 Azure SQL Database] 頁面上，變更下列設定：
 
   | 設定                       | 說明 |
   | ----------------------------- | ------------------------------------------------- |
   | **同步成員名稱** | 提供新同步成員的名稱。 這個名稱與資料庫本身的名稱不同。 |
   | **訂用帳戶** | 選取相關聯的 Azure 訂用帳戶以便計費。 |
-  | **Azure SQL Server** | 選取現有的 SQL 資料庫伺服器。 |
+  | **Azure SQL Server** | 選取現有的 SQL Database 伺服器。 |
   | **Azure SQL Database** | 選取現有的 SQL 資料庫。 |
   | **同步方向** | 選取 [雙向同步]、[至中樞] 或 [從中樞]。 |
   | **使用者名稱**和**密碼** | 輸入成員資料庫所在 SQL Database 伺服器的現有認證。 請不要在此區段輸入「新」的認證。 |

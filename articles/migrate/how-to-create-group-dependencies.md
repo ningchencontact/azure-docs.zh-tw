@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 9f01e94eb23083ab25dd2cbd41e8bad1297abb54
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 007f7fe95be77a2b1661cd6c82118eb875401f24
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255256"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472570"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>使用群組相依性對應調整群組
 
@@ -52,6 +52,8 @@ Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈
 
 ### <a name="install-the-mma"></a>安裝 MMA
 
+#### <a name="install-the-agent-on-a-windows-machine"></a>在 Windows 電腦上安裝代理程式
+
 在 Windows 電腦上安裝代理程式：
 
 1. 按兩下下載的代理程式。
@@ -60,6 +62,9 @@ Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈
 4. 在 [代理程式安裝選項] 中，選取 [Azure Log Analytics] > [下一步]。
 5. 按一下 [新增] 以新增 Log Analytics 工作區。 貼上您從入口網站複製的工作區識別碼和金鑰。 按 [下一步] 。
 
+您可以從命令列或使用自動化方法 (例如 Azure Automation DSC、System Center Configuration Manager) 來安裝代理程式，或者如果您已經在您的資料中心部署 Microsoft Azure Stack，請使用 Azure Resource Manager 範本。 [了解更多](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent)有關如何使用這些方法來安裝 MMA 代理程式。
+
+#### <a name="install-the-agent-on-a-linux-machine"></a>在 Linux 電腦上安裝代理程式
 
 在 Linux 電腦上安裝代理程式：
 
@@ -68,6 +73,10 @@ Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+#### <a name="install-the-agent-on-a-machine-monitored-by-system-center-operations-manager"></a>將代理程式安裝在 System Center Operations Manager 監視的電腦上
+
+對於受 Operations Manager 2012 R2 或更新版本監視的電腦，不需要安裝 MMA 代理程式。 服務對應已與 Operations Manager 整合，此整合可利用 Operations Manager MMA 收集必要的相依性資料。 您可以使用[此處](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites)的指導方針來啟用整合。 但請注意，在這些電腦上必須安裝相依性代理程式。
+
 ### <a name="install-the-dependency-agent"></a>安裝相依性代理程式
 1. 若要在 Windows 電腦上安裝相依性代理程式，請按兩下安裝檔案，並遵循精靈的指示。
 2. 若要在 Linux 電腦上安裝相依性代理程式，請使用下列命令以 root 身分安裝：
@@ -75,6 +84,8 @@ Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈
     ```sh InstallDependencyAgent-Linux64.bin```
 
 深入了解 [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) 與 [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) 作業系統的相依性代理程式支援。
+
+[深入了解](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)如何使用指令碼安裝 Dependency 代理程式。
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>根據相依性視覺效果調整群組
 一旦您已在群組的所有機器上安裝代理程式，您可以將群組的相依性視覺化，並按照下列步驟進行調整。
@@ -91,6 +102,10 @@ Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈
      ![檢視群組相依性](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. 若要檢視更細微的相依性，請按一下時間範圍以進行修改。 根據預設，範圍是一小時。 您可以修改時間範圍，或指定開始和結束日期，以及持續時間。
+
+    > [!NOTE]
+      目前，相依性視覺效果 UI 不支援選取超過一小時的時間範圍。 使用 Log Analytics 可在較長的持續期間內[查詢相依性資料](https://docs.microsoft.com/azure/migrate/how-to-create-a-group#query-dependency-data-from-log-analytics)。
+
 4. 確認相依機器、在每部機器內部執行的處理序，並識別應該新增到群組或從中移除的機器。
 5. 使用「Ctrl+按一下」選取對應上的多部機器，以將它們新增到群組或從中移除。
     - 您只能新增已探索到的機器。
@@ -101,6 +116,20 @@ Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈
     ![新增或移除機器](./media/how-to-create-group-dependencies/add-remove.png)
 
 如果您要檢查群組相依性對應中顯示之特定機器的相依性，[請設定機器相依性對應](how-to-create-group-machine-dependencies.md)。
+
+## <a name="query-dependency-data-from-log-analytics"></a>從 Log Analytics 查詢相依性資料
+
+服務對應擷取的相依性資料可供在與 Azure Migrate 專案相關聯的 Log Analytics 工作區中查詢。 [深入了解](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)可在 Log Analytics 中查詢的服務對應資料表。 
+
+若要執行 Log Analytics 查詢：
+
+1. 安裝代理程式之後，請移至入口網站，然後按一下 [概觀]。
+2. 在 [概觀] 中，移至專案的 [Essentials] 區域，然後按一下 [OMS 工作區] 旁提供的工作區名稱。
+3. 在 Log Analytics 工作區頁面上，按一下 [一般] > [記錄]。
+4. 撰寫查詢以使用 Log Analytics 蒐集相依性資料。 [此處](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)提供收集相依性資料的範例查詢。
+5. 按一下 [執行] 以執行查詢。 
+
+[深入了解](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)如何撰寫 Log Analytics 查詢。 
 
 
 ## <a name="next-steps"></a>後續步驟

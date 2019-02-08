@@ -7,19 +7,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: fryu
-ms.component: common
-ms.openlocfilehash: 293067b2d76f7ef88b6946aee9d39d4c6da97230
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 49ea6a3c6be2325acdcdf61188ced777bd36f0da
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229539"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478129"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Azure 儲存體合規性供應項目
 
 為協助組織符合控管個人資料收集和使用之國家、區域和業界特定需求的標準，Microsoft Azure 與 Azure 儲存體提供任何雲端服務提供者最完整的認證和證明集。
 
-您可以在下方找到 Azure 儲存體的合規性供應項目，確保您的服務在使用 Azure 儲存體服務時受到管制。 它們是適用於下列的 Azure 儲存體供應項目：Blob、檔案、佇列、資料表、磁碟、非經常性存取儲存體和進階儲存體。
+您可以在下方找到 Azure 儲存體的合規性供應項目，確保您的服務在使用 Azure 儲存體服務時受到管制。 適用於以下 Azure 儲存體供應項目：Blob、檔案、佇列、資料表、磁碟、非經常性存取層，以及進階儲存體。
 
 ## <a name="global"></a>全域
 

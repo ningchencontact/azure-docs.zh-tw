@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
-ms.openlocfilehash: cfd46f8178f36213ecc16db0e092e81ac2d0eff1
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.lastreviewed: 01/19/2019
+ms.openlocfilehash: 9a14c819acbc46d8a281f73fd4f3185caa8a1e02
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54414754"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478146"
 ---
-# <a name="configure-ipsecike-policy-for-site-to-site-vpn-or-vnet-to-vnet-connections"></a>設定站對站 VPN 或 VNet 對 VNet 連線的 IPsec/IKE 原則
+# <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>設定站對站 VPN 連線的 IPsec/IKE 原則
 
 本文會逐步說明用來為 Azure Stack 中的站對站 (S2S) VPN 設定 IPsec/IKE 原則的步驟。
 
@@ -102,10 +103,10 @@ IPsec 和 IKE 通訊協定標準支援各種不同的密碼編譯演算法的各
 |----------------------|-----------|---------------|---------------|
 | 1                    | DHGroup1  | PFS1          | 768 位元 MODP  |
 | 2                    | DHGroup2  | PFS2          | 1024 位元 MODP |
-| 14                   | DHGroup14 |               |               |
-| DHGroup2048          | PFS2048   | 2048 位元 MODP |               |
+| 14                   | DHGroup14<br/>DHGroup2048 | PFS2048       | 2048 位元 MODP |
 | 19                   | ECP256    | ECP256        | 256 位元 ECP   |
-| 20                   | ECP384    | ECP284        | 384 位元 ECP   |
+| 20                   | ECP384    | ECP384        | 384 位元 ECP   |
+| 24                   | DHGroup24 | PFS24         | 2048 位元 MODP |
 
 如需詳細資訊，請參閱 [RFC3526](https://tools.ietf.org/html/rfc3526) 和 [RFC5114](https://tools.ietf.org/html/rfc5114)。
 

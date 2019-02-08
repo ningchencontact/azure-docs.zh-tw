@@ -1,6 +1,6 @@
 ---
-標題：對 Machine Learning Studio Classic Web 服務的重新訓練進行疑難排解 titleSuffix: Azure Machine Learning Studio description:找出您在為 Azure Machine Learning Studio Web 服務重新定型模型時所遇到的常見問題，並加以修正。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：對 Machine Learning Studio Classic Web 服務的重新訓練進行疑難排解 titleSuffix:Azure Machine Learning Studio description:找出您在為 Azure Machine Learning Studio Web 服務重新定型模型時所遇到的常見問題，並加以修正。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date:11/01/2017
 ---

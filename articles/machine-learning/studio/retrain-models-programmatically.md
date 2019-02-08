@@ -1,6 +1,6 @@
 ---
-標題：以程式設計的方式重新定型 Machine Learning Studio 模型標題字尾： Azure Machine Learning Studio 說明：了解如何使用 C# 和 Machine Learning 批次執行服務，以程式設計方式重新定型模型。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：以程式設計的方式重新定型 Machine Learning Studio 模型標題字尾：Azure Machine Learning Studio 說明：了解如何使用 C# 和 Machine Learning 批次執行服務，以程式設計方式重新定型模型。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:04/19/2017
 ---

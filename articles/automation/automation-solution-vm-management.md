@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/04/2018
+ms.date: 1/30/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9dfc70c7158c5f808367b8b2041725b03b9060d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 5cacd2d0e4308e15b562169f72efb0f98ce45289
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846178"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476391"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案
 
@@ -34,7 +34,7 @@ ms.locfileid: "54846178"
 > [!NOTE]
 > 如果您對傳統 VM 使用此解決方案，那麼您所有的 VM 將會針對每個雲端服務依序進行處理。 若是跨不同的雲端服務，則仍會以平行方式處理虛擬機器。
 >
-> 「Azure 雲端解決方案提供者」(Azure CSP) 訂用帳戶僅支援 Azure Resource Manager 模型，因此本方案未提供非 Azure Resource Manager 服務。 執行「啟動/停止」解決方案時，您可能會收到錯誤，因為它具有可管理傳統資源的 Cmdlet。 若要深入了解 CSP，請參閱 [CSP 訂用帳戶中可用的服務](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)。
+> 「Azure 雲端解決方案提供者」(Azure CSP) 訂用帳戶僅支援 Azure Resource Manager 模型，因此本方案未提供非 Azure Resource Manager 服務。 執行「啟動/停止」解決方案時，您可能會收到錯誤，因為它具有可管理傳統資源的 Cmdlet。 若要深入了解 CSP，請參閱 [CSP 訂用帳戶中可用的服務](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)。 如果您使用 CSP 訂用帳戶，應該在部署之後，將 [**External_EnableClassicVMs**](#variables) 變數修改為 **False**。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -62,7 +62,7 @@ ms.locfileid: "54846178"
    - 為新的 **Log Analytics 工作區**指定名稱，例如 "ContosoLAWorkspace"。
    - 如果選取的預設值不合適，請從下拉式清單中選取要連結的 [訂用帳戶]。
    - 對於 [資源群組]，您可以建立新的資源群組，或選取現有的資源群組。
-   - 選取 [位置] 。 目前可用的位置只有**澳大利亞東南部**、**加拿大中部**、**印度中部**、**美國東部**、**日本東部**、**東南亞**、**英國南部**和**西歐**。
+   - 選取 [位置] 。 目前可用的位置只有**澳大利亞東南部**、**加拿大中部**、**印度中部**、**美國東部**、**日本東部**、**東南亞**、**英國南部**、**西歐**和**美國西部 2**。
    - 選取 **定價層**。 選擇 [每 GB (獨立)] 選項。 Log Analytics 已更新[價格](https://azure.microsoft.com/pricing/details/log-analytics/)，「每 GB」層是唯一選項。
 
 5. 在 [Log Analytics 工作區] 頁面上提供必要資訊之後，按一下 [建立]。 您可以在功能表的 [通知] 下追蹤其進度，這會在完成時帶您返回 [新增解決方案] 頁面。
@@ -90,6 +90,9 @@ ms.locfileid: "54846178"
 
 8. 設定好解決方案所需的初始設定後，按一下 [確定] 以關閉 [參數] 頁面，然後選取 [建立]。 驗證過所有設定之後，解決方案即會部署到您的訂用帳戶。 此程序需要幾秒鐘才能完成，您可以在功能表的 [通知] 底下追蹤其進度。
 
+> [!NOTE]
+> 如果您有「Azure 雲端解決方案提供者」(Azure CSP) 訂用帳戶，請在部署完成之後，在您的「自動化帳戶」中，前往**共用資源**下的**變數**，並將 [**External_EnableClassicVMs**](#variables) 變數設定為 **False**。 這會讓解決方案停止尋找傳統虛擬機器資源。
+
 ## <a name="scenarios"></a>案例
 
 解決方案包含不同的案例。 這些案例為：
@@ -108,8 +111,8 @@ ms.locfileid: "54846178"
 #### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>針對訂用帳戶和資源群組設定啟動和停止動作目標
 
 1. 設定 **External_Stop_ResourceGroupNames** 和 **External_ExcludeVMNames** 變數來指定目標 VM。
-1. 啟用及更新 **Scheduled-StartVM** 和 **Scheduled-StopVM** 排程。
-1. 執行 **ScheduledStartStop_Parent** Runbook，並將 ACTION 參數設為 **start**，然後將 WHATIF 參數設為 **True** 以預覽變更。
+2. 啟用及更新 **Scheduled-StartVM** 和 **Scheduled-StopVM** 排程。
+3. 執行 **ScheduledStartStop_Parent** Runbook，並將 ACTION 參數設為 **start**，然後將 WHATIF 參數設為 **True** 以預覽變更。
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>透過 VM 清單設定啟動和停止動作目標
 
@@ -205,6 +208,7 @@ ms.locfileid: "54846178"
 |External_AutoStop_Threshold | 適用於在變數 _External_AutoStop_MetricName_ 中指定之 Azure 警示規則的閾值。 百分比值的範圍為 1 至 100。|
 |External_AutoStop_TimeAggregationOperator | 會套用至選取的視窗大小以評估條件的時間彙總運算子。 可接受的值為 **Average**、**Minimum**、**Maximum**、**Total** 和 **Last**。|
 |External_AutoStop_TimeWindow | Azure 分析選取之計量以觸發警示的視窗大小。 此參數接受時間範圍格式的輸入。 可能的值為 5 分鐘到 6 小時。|
+|External_EnableClassicVMs| 指定傳統虛擬機器是否為解決方案設定的目標。 預設值為 true。 對於 CSP 訂用帳戶，應該設為 False。|
 |External_ExcludeVMNames | 輸入要排除的虛擬機器名稱，請使用不含空格的逗號來分隔名稱。|
 |External_Start_ResourceGroupNames | 使用逗號分隔值指定一或多個作為啟動動作目標的資源群組。|
 |External_Stop_ResourceGroupNames | 使用逗號分隔值指定一或多個作為停止動作目標的資源群組。|

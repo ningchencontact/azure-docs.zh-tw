@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 831286f1c98a2fc3d26277f4006283c3de64f900
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee53cc3a639a79e1b29ac6cd537bfb04e05b1bca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463237"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692454"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure 匯入/匯出服務資訊清單檔案格式
 磁碟機資訊清單檔案描述 Azure Blob 儲存體中的 Blob 與包含匯入或匯出工作的磁碟機上的檔案之間的對應。 針對匯入作業，在磁碟機準備程序期間會建立資訊清單檔案，此檔案在磁碟機傳送至 Azure 資料中心之前會儲存在磁碟機上。 匯出作業期間，Azure 匯入/匯出服務會建立資訊清單，並將其儲存在磁碟機上。  
@@ -97,7 +97,7 @@ block-list ::=
 |`Drive`|巢狀的 XML 元素|包含每個磁碟機的資訊清單。|  
 |`DriveId`|字串|磁碟機的唯一磁碟機識別元。 藉由查詢磁碟機序號，即可找出磁碟機識別元。 磁碟機序號通常也會印在磁碟機外部。 `DriveID` 元素必須顯示在資訊清單檔案中的任何 `BlobList` 元素之前。|  
 |`StorageAccountKey`|字串|如果未指定 (且只有在未指定) `ContainerSas` 時，才需為匯入工作指定。 和工作相關聯的 Azure 儲存體帳戶的帳戶金鑰。<br /><br /> 匯出作業的資訊清單中會省略這個元素。|  
-|`ContainerSas`|字串|如果未指定 (且只有在未指定) `StorageAccountKey` 時，才需為匯入工作指定。 存取與工作相關聯的 Blob 所用的容器 SAS。 請參閱 [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 了解其格式。匯出作業的資訊清單中會省略這個元素。|  
+|`ContainerSas`|字串|如果未指定 (且只有在未指定) `StorageAccountKey` 時，才需為匯入工作指定。 存取與工作相關聯的 Blob 所用的容器 SAS。 請參閱 [Put Job](/rest/api/storageimportexport/jobs) 了解其格式。匯出作業的資訊清單中會省略這個元素。|  
 |`ClientCreator`|字串|指定建立 XML 檔案的用戶端。 匯入/匯出服務無法解譯這個值。|  
 |`BlobList`|巢狀的 XML 元素|包含屬於匯入或匯出工作的 Blob 的清單。 Blob 清單中的每個 Blob 會共用相同的中繼資料和屬性。|  
 |`BlobList/MetadataPath`|字串|選用。 指定磁碟上的檔案的相對路徑，該檔案包含將在匯入作業的 Blob 清單中的 Blob 設定的預設中繼資料。 您可以選擇以個別的 Blob 為基礎來覆寫此中繼資料。<br /><br /> 匯出作業的資訊清單中會省略這個元素。|  

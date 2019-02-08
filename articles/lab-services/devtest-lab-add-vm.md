@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 05e68e13ab5aa526362e71413c105340ad07426f
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 69c0ce73fa5c29a2d0e49d9c4bb15a855fadc75b
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082073"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746778"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中對實驗室新增 VM
-如果您已經[建立您的第一個 VM](devtest-lab-create-first-vm.md)，您很有可能是透過預先載入的 [Marketplace 映像](devtest-lab-configure-marketplace-images.md)來完成的。 現在，如果您想要將後續的 VM 新增至您的實驗室，您也可以選擇一個「基底」，它可以是[自訂映像](devtest-lab-create-template.md)或[公式](devtest-lab-manage-formulas.md)。 本教學課程會逐步引導您使用 Azure 入口網站，在 DevTest Labs 中對實驗室新增 VM。
+如果您已經[建立您的第一個 VM](tutorial-create-custom-lab.md#add-a-vm-to-the-lab)，您很有可能是透過預先載入的 [Marketplace 映像](devtest-lab-configure-marketplace-images.md)來完成的。 現在，如果您想要將後續的 VM 新增至您的實驗室，您也可以選擇一個「基底」，它可以是[自訂映像](devtest-lab-create-template.md)或[公式](devtest-lab-manage-formulas.md)。 本教學課程會逐步引導您使用 Azure 入口網站，在 DevTest Labs 中對實驗室新增 VM。
 
 本文同時說明如何在實驗室中管理 VM 的構件。
 
@@ -41,6 +41,8 @@ ms.locfileid: "55082073"
     2. 輸入**使用者名稱**，此名稱會被授與虛擬機器上的系統管理員權限。 機器的**使用者名稱**會預先填入自動產生的唯一名稱。 此名稱會對應至您電子郵件地址中的使用者名稱。 這項功能可節省您每次建立新機器時，決定使用者名稱的時間。 同樣地，如果您想要的話，也可以使用您選擇的使用者名稱來覆寫此自動填入的欄位。 若要覆寫使用者名稱的自動填入值，請在 [使用者名稱] 文字方塊中輸入值。 此使用者會獲得虛擬機器上的**系統管理員**權限。
     3. 如果是在實驗室中建立第一個 VM，請為使用者輸入**密碼**。 若要讓此密碼以預設密碼的形式，儲存在與實驗室相關聯的 Azure 金鑰保存庫中，請選取 [儲存為預設密碼]。 預設密碼會以下列名稱儲存在金鑰保存庫中：**VmPassword**。 當您嘗試在實驗室中建立後續的 VM 時，系統會自動選取 **VmPassword** 作為**密碼**。 若要覆寫此值，請清除 [使用儲存的祕密] 核取方塊，然後輸入密碼。 
 
+        ![選擇基底](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+
         您可以也先將祕密儲存在金鑰保存庫中，然後在實驗室中建立 VM 時使用此祕密。 如需詳細資訊，請參閱[在金鑰保存庫中儲存祕密](devtest-lab-store-secrets-in-key-vault.md)。 若要使用儲存在金鑰保存庫中的密碼，請選取 [使用儲存的祕密]，並指定與祕密 (密碼) 對應的金鑰值。
     4. 在 [更多選項] 區段中，選取 [變更大小]。 選取其中一個預先定義的項目，以指定要建立之 VM 的處理器核心、RAM 大小及硬碟大小。
     5. 選取 [新增或移除成品]。 選取並設定您想要新增到基底映像中的成品。
@@ -52,9 +54,13 @@ ms.locfileid: "55082073"
     4. 若要自動刪除 VM，請指定**到期日和時間**。 
     5. 若要將 VM 設為可供實驗室使用者認領，請針對 [允許宣告此機器] 選項選取 [是]。 
     6. 指定要提供給實驗室使用者使用的 **VM 執行個體**數目。 
-3. 選取 [建立]  ，將指定的 VM 加入實驗室。
+
+        ![選擇基底](./media/tutorial-create-custom-lab/new-vm-advanced-settings.png)
+1. 選取 [建立]  ，將指定的 VM 加入實驗室。
 
    實驗室頁面會顯示 VM 的建立狀態 - 一開始會是 [正在建立]，然後在啟動該 VM 之後則是 [正在執行]。
+
+    ![VM 建立狀態](./media/tutorial-create-custom-lab/vm-creation-status.png)
 
 ## <a name="add-an-existing-artifact-to-a-vm"></a>將現有的構件加入至 VM
 建立 VM 時，您可以加入現有的構件。 每個實驗室都會包括來自公用研發/測試實驗室構件儲存機制的構件，以及您已建立並加入至您自己之構件儲存機制的構件。

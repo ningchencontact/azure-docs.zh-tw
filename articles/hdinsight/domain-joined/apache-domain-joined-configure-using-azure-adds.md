@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7ad494a3a1ce657951a0afab4d5ca838821927ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b6cc65d10fc8924686d01c02177a9cb76f7a9571
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158812"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660906"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集
 
@@ -28,7 +28,7 @@ ms.locfileid: "55158812"
 ## <a name="enable-azure-ad-ds"></a>啟用 Azure AD-DS
 
 > [!NOTE]  
-> 只有租用戶的系統管理員具有啟用 Azure AD-DS 的權限。 如果叢集儲存體是 Azure Data Lake Storage (ADLS) Gen1 或 Gen2，您必須只針對需要使用基本 Kerberos 驗證來存取叢集的使用者停用「多重要素驗證」(MFA)。 您可以使用[信任的 IP](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) 或[條件式存取](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview)，只在特定使用者存取 HDInsight 叢集 VNET IP 範圍時，為這些使用者停用 MFA。 如果您使用條件式存取，請確定在 HDInsight VNET 上已啟用 AD 服務端點。
+> 只有租用戶的系統管理員具有啟用 Azure AD-DS 的權限。 如果叢集儲存體是 Azure Data Lake Storage (ADLS) Gen1 或 Gen2，您必須只針對需要使用基本 Kerberos 驗證來存取叢集的使用者停用「多重要素驗證」(MFA)。 您可以使用[信任的 IP](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) 或[條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)，只在特定使用者存取 HDInsight 叢集 VNET IP 範圍時，為這些使用者停用 MFA。 如果您使用條件式存取，請確定在 HDInsight VNET 上已啟用 AD 服務端點。
 >
 >如果叢集儲存體是 Azure Blob 儲存體 (WASB)，請勿停用 MFA。
 
@@ -87,7 +87,7 @@ VNET 對等互連後，請將 HDInsight VNET 設定為使用自訂的 DNS 伺服
 
 ![為對等互連的 VNET 設定自訂 DNS 伺服器](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-如果您在您的 HDInsight 子網路中使用網路安全性群組 (NSG) 規則，您應該允許輸入和輸出流量[所需的 IP](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1)。 
+如果您在您的 HDInsight 子網路中使用網路安全性群組 (NSG) 規則，您應該允許輸入和輸出流量[所需的 IP](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1)。 
 
 **若要測試**您的網路是否已正確設定，請將 Windows VM 加入至 HDInsight VNET/子網路，並 Ping 網域名稱 (它應更會解析為 IP)，接著執行 **ldp.exe** 以存取 Azure AD-DS 網域。 接著，**將此 Windows VM 加入至網域**，以確認用戶端與伺服器之間的所有必要 RPC 呼叫都會成功。 您也可以使用 **nslookup** 來確認對您儲存體帳戶或您可能使用之任何外部 DB (例如，外部 Hive 中繼存放區或 Ranger DB) 的網路存取。
 您應該確認所有[必要連接埠](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) \(英文\) 都已在 AAD-DS 子網路網路安全性群組規則中列為允許清單 (若 AAD-DS 已由 NSG 保護)。 如果此 Windows VM 網域成功加入網域，您就可以繼續進行下一個步驟並建立 ESP 叢集。

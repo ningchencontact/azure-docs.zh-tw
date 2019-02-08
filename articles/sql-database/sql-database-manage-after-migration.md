@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 30ee4f1f56a3c8df44e7a14a131371acfebc6c9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/25/2019
+ms.openlocfilehash: 78879947ae0e702604b56f1cb9c914acc4d4d592
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052712"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478469"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的資料庫
 
@@ -83,7 +83,7 @@ SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentic
 - [Azure Active Directory 驗證](sql-database-aad-authentication.md)
 - SQL 驗證
 
-不支援傳統 Windows 驗證。 Azure Active Directory (AD) 是集中式身分識別和存取管理服務。 利用此服務，您可以非常輕鬆地為組織中的所有人員提供單一登入存取 (SSO)。 這表示認證會在所有 Azure 服務間共用，以簡化驗證。 AAD 支援 [MFA (多重要素驗證)](sql-database-ssms-mfa-authentication.md)，[只要按幾下滑鼠](../active-directory/hybrid/how-to-connect-install-express.md)，AAD 即可與 Windows Server Active Directory 整合。 SQL 驗證的運作方式正如同您過去使用它的方式。 您提供使用者名稱/密碼，而您可以向指定邏輯伺服器上的任何資料庫驗證使用者。 這也可讓 SQL Database 和 SQL 資料倉儲提供多重要素驗證和 Azure AD 網域內的來賓使用者帳戶。 如果您已經有內部部署 Active Directory，您可以使目錄與 Azure Active Directory 結成同盟，將您的目錄延伸至 Azure。
+不支援傳統 Windows 驗證。 Azure Active Directory (AD) 是集中式身分識別和存取管理服務。 利用此服務，您可以非常輕鬆地為組織中的所有人員提供單一登入存取 (SSO)。 這表示認證會在所有 Azure 服務間共用，以簡化驗證。 AAD 支援 [MFA (多重要素驗證)](sql-database-ssms-mfa-authentication.md)，[只要按幾下滑鼠](../active-directory/hybrid/how-to-connect-install-express.md)，AAD 即可與 Windows Server Active Directory 整合。 SQL 驗證的運作方式正如同您過去使用它的方式。 您提供使用者名稱/密碼，而您可以向指定 SQL Database 伺服器上的任何資料庫驗證使用者。 這也可讓 SQL Database 和 SQL 資料倉儲提供多重要素驗證和 Azure AD 網域內的來賓使用者帳戶。 如果您已經有內部部署 Active Directory，您可以使目錄與 Azure Active Directory 結成同盟，將您的目錄延伸至 Azure。
 
 |**如果您...**|**SQL Database/SQL 資料倉儲**|
 |---|---|
@@ -106,7 +106,7 @@ SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentic
 
 #### <a name="firewall"></a>防火牆
 
-藉由僅允許特定實體存取您的邏輯伺服器，防火牆可防止外部實體存取您的伺服器。 預設將禁止邏輯伺服器內的所有連線和資料庫，除非連線是來自其他 Azure 服務。 利用防火牆規則，您可以僅對核准的實體 (例如，開發人員電腦) 開放對伺服器的存取，方法是允許該電腦的 IP 位址通過防火牆。 也可讓您指定想要允許存取邏輯伺服器的某個範圍 IP。 比方說，可以在 [防火牆設定] 頁面中指定範圍，一次新增您組織中開發人員電腦的 IP 位址。
+藉由僅允許特定實體存取您的 SQL Database 伺服器，防火牆可防止外部實體存取您的伺服器。 預設將禁止 SQL Database 伺服器內的所有連線和資料庫，除非連線是來自其他 Azure 服務。 利用防火牆規則，您可以僅對核准的實體 (例如，開發人員電腦) 開放對伺服器的存取，方法是允許該電腦的 IP 位址通過防火牆。 也可讓您指定想要允許存取 SQL Database 伺服器的某個範圍 IP。 比方說，可以在 [防火牆設定] 頁面中指定範圍，一次新增您組織中開發人員電腦的 IP 位址。
 
 您可以在伺服器層級或資料庫層級建立防火牆規則。 可以使用 Azure 入口網站或 SSMS 建立伺服器層級防火牆規則。 若要深入了解如何設定伺服器和資料庫層級防火牆規則，請參閱：[在 SQL Database 中建立防火牆規則](sql-database-security-tutorial.md#create-firewall-rules)。
 
@@ -240,7 +240,7 @@ SQL Azure 平台會分析伺服器中不同資料庫的使用量歷程記錄，�
 
 #### <a name="azure-portal"></a>Azure 入口網站
 
-選取資料庫，然後按一下 [概觀] 窗格中的圖表，Azure 入口網站即可顯示單一資料庫的使用率。 您可以修改此圖表來顯示多種計量，包括 CPU 百分比、DTU 百分比、資料 IO 百分比、工作階段百分比，以及資料庫大小百分比。
+選取資料庫，然後按一下 [概觀] 窗格中的圖表，Azure 入口網站即可顯示資料庫的使用率。 您可以修改此圖表來顯示多種計量，包括 CPU 百分比、DTU 百分比、資料 IO 百分比、工作階段百分比，以及資料庫大小百分比。
 
 ![監視圖表](./media/sql-database-manage-after-migration/monitoring-chart.png)
 
@@ -250,7 +250,7 @@ SQL Azure 平台會分析伺服器中不同資料庫的使用量歷程記錄，�
 
 #### <a name="dynamic-management-views"></a>動態管理檢視
 
-您可以查詢 [sys.dm_db_resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 動態管理檢視，以傳回過去一小時的資源耗用量統計資料歷程記錄，而查詢 sys.resource_stats 系統目錄檢視，可傳回過去 14 天的歷程記錄。
+您可以查詢 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 動態管理檢視，以傳回過去一小時的資源耗用量統計資料歷程記錄，而查詢 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 系統目錄檢視，可傳回過去 14 天的歷程記錄。
 
 #### <a name="query-performance-insight"></a>查詢效能深入解析
 

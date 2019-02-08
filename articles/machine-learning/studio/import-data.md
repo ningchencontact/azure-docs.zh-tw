@@ -1,6 +1,6 @@
 ---
-標題：將資料匯入 Machine Learning Studio 標題字尾： Azure Machine Learning Studio 說明：如何從各種資料來源將資料匯入 Azure Machine Learning Studio。 了解支援的資料類型和資料格式。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：將資料匯入 Machine Learning Studio 標題字尾：Azure Machine Learning Studio 說明：如何從各種資料來源將資料匯入 Azure Machine Learning Studio。 了解支援的資料類型和資料格式。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:11/29/2017
 ---
@@ -55,10 +55,10 @@ Machine Learning Studio 可辨識下列 **資料類型** ：
 
 * 字串
 * 整數 
-* 兩倍
+* Double
 * BOOLEAN
-* Datetime
-* 時間範圍
+* DateTime
+* TimeSpan
 
 Machine Learning Studio 使用名為***資料表格***的內部資料類型以在模組之間傳遞資料。 您可以使用[轉換為資料集][convert-to-dataset]模組，明確地將資料轉換為「資料表格」格式。
 
