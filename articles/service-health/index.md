@@ -1,23 +1,18 @@
 ---
 title: Azure 服務健康狀態 | Microsoft Docs
 description: Azure 服務健康狀態是一套收集了各項經驗值的服務，現在提供公開預覽。當 Azure 服務中發生的問題影響您時，Azure 服務健康狀態會提供個人化指導及支援。
-services: Azure Service Health
-author: czeumault
-manager: carolz
+author: stephbaron
 layout: LandingPage
-ms.assetid: ''
 ms.service: service-health
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/27/2018
-ms.author: carolz
-ms.openlocfilehash: ff22fb228b2b3fc2c456fbf272f0696136d35c38
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.author: stbaron
+ms.openlocfilehash: d8d922dd16cb00b5e3a682dc491af6b59f8476f2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30262733"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881922"
 ---
 # <a name="azure-service-health-documentation"></a>Azure 服務健康情況文件
 
@@ -121,7 +116,24 @@ Azure 服務健康狀態由以下各項目組成：
         </div>
         </a>
     </li>
-
+    <li>
+        <a href="./resource-health-alert-arm-template-guide.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/article.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>下一次您的 Azure 資源無法使用時收到通知</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---

@@ -4,17 +4,17 @@ title: Azure 認知服務文件
 description: 了解如何在應用程式、網站和 Bot 中融入智慧型演算法，透過自然的溝通方式，來查看、聆聽、述說、了解及詮釋您的使用者需求。 教學課程、快速入門和 API 參考和範例示範如何使用 API。
 services: cognitive-services
 author: nitinme
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 3c67a6fc7345cb533ad0c7088ac09fb02d3da1f2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 389dd4e8b6f2157c1c53528506435a97a07a493e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213969"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872929"
 ---
 <h1>Azure 認知服務文件</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">了解如何在應用程式、網站和 Bot 中融入智慧型演算法，透過自然的溝通方式，來查看、聆聽、述說及了解您的使用者需求。 教學課程、快速入門和 API 參考和範例示範。</p>
