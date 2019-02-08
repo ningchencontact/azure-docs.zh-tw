@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: e0f0230241bdffa97b94c88eb4b2d76fd44bcdea
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 807a99a8cac7326648ff4aa91b9fcdeb35de196a
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320781"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910178"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>藉由使用 SSH 和 Azure Logic Apps 來監視、建立及管理 SFTP 檔案
 
@@ -27,7 +27,7 @@ ms.locfileid: "54320781"
 * 取得檔案內容與中繼資料。
 * 將封存檔案解壓縮到資料夾。
 
-相較於 [SFTP 連接器](../connectors/connectors-create-api-sftp.md)，SFTP-SSH 連接器可讀取或寫入最大 *1GB* 的檔案。 如需其他差異的資訊，請檢閱本文章稍後的[比較 SFTP-SSH 和 SFTP](#comparison) 一節。
+相較於 [SFTP 連接器](../connectors/connectors-create-api-sftp.md)，SFTP-SSH 連接器可藉由將資料分成 50 MB 大小的片段來管理，讀取或寫入最大達 *1 GB* 的檔案。 針對大於 1 GB 的檔案，動作可以使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。 如需其他差異的資訊，請檢閱本文章稍後的[比較 SFTP-SSH 和 SFTP](#comparison) 一節。
 
 您可以使用觸發程序來監視 SFTP 伺服器上的事件，並讓輸出可供其他動作使用。 您可以使用動作，在 SFTP 伺服器上執行各種工作。 您也可以讓邏輯應用程式中的其他動作使用 SFTP 動作的輸出。 例如，如果您定期從 SFTP 伺服器擷取檔案，可以藉由使用 Office 365 Outlook 連接器或 Outlook.com 連接器，傳送關於那些檔案及其內容的電子郵件警示。
 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
@@ -48,7 +48,7 @@ ms.locfileid: "54320781"
   > * **加密演算法**：DES-EDE3-CBC、DES-EDE3-CFB、 DES-CBC、AES-128-CBC、AES-192-CBC 和 AES-256-CBC
   > * **指紋**：MD5
 
-* 相較於 SFTP 連接器，可讀取或寫入最大 *1GB* 的檔案，但可處理 50 MB 的資料，而非 1 GB 的資料。
+* 相較於 SFTP 連接器，可讀取或寫入最大 *1GB* 的檔案，但可處理 50 MB 的資料，而非 1 GB 的資料。 針對大於 1 GB 的檔案，動作也可以使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。 目前，觸發程序不支援區塊化。
 
 * 提供**建立資料夾**動作，可在 SFTP 伺服器上指定的路徑中建立資料夾。
 
@@ -130,12 +130,15 @@ SFTP-SSH 觸發程序的運作方式是會輪詢 SFTP 檔案系統，然後尋�
 
 當觸發程序找到新檔案時，觸發程序會確認該新檔案是完整檔案，而不是部分寫入的檔案。 例如，當觸發程序檢查檔案伺服器時，檔案可能正在進行變更。 為避免傳回部分寫入的檔案，觸發程序會備註最近發生變更之檔案的時間戳記，但不會立即傳回該檔案。 觸發程序只有在再次輪詢伺服器時，才會傳回該檔案。 有時，此行為可能會導致最長可達觸發程序輪詢間隔兩倍的延遲。 
 
-在要求檔案內容時，觸發程序不會擷取大於 50 MB 的檔案。 若要取得大於 50 MB 的檔案，請依照下列模式：
+在要求檔案內容時，觸發程序不會取得大於 50 MB 的檔案。 若要取得大於 50 MB 的檔案，請依照下列模式： 
 
-* 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]。 
-* 依照具有讀取完整檔案之動作 (例如 [使用路徑取得檔案內容]) 的觸發程序進行操作。
+* 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]。
+
+* 依照具有讀取完整檔案之動作 (例如 [使用路徑取得檔案內容]) 的觸發程序進行操作，並讓動作使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。
 
 ## <a name="examples"></a>範例
+
+<a name="file-added-modified"></a>
 
 ### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH 觸發：當新增或修改檔案時
 
@@ -143,9 +146,23 @@ SFTP-SSH 觸發程序的運作方式是會輪詢 SFTP 檔案系統，然後尋�
 
 **企業範例**：您可以使用此觸發程序，來監視代表客戶訂單的新檔案 SFTP 資料夾。 然後，您可以使用 SFTP 動作 (例如**取得檔案內容**)，來取得訂單的內容以進一步處理，並將該訂單儲存在訂單資料庫中。
 
-### <a name="sftp---ssh-action-get-content"></a>SFTP - SSH 動作：取得文字
+在要求檔案內容時，觸發程序不會取得大於 50 MB 的檔案。 若要取得大於 50 MB 的檔案，請依照下列模式： 
+
+* 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]。
+
+* 依照具有讀取完整檔案之動作 (例如 [使用路徑取得檔案內容]) 的觸發程序進行操作，並讓動作使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。
+
+<a name="get-content"></a>
+
+### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP - SSH 動作：使用路徑來取得內容
 
 此動作會從 SFTP 伺服器上的檔案取得內容。 舉例來說，您可以新增來自上一個範例中的觸發程序，以及新增檔案內容必須符合的條件。 如果條件為 true，則可以執行會取得內容的動作。 
+
+在要求檔案內容時，觸發程序不會取得大於 50 MB 的檔案。 若要取得大於 50 MB 的檔案，請依照下列模式： 
+
+* 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]。
+
+* 依照具有讀取完整檔案之動作 (例如 [使用路徑取得檔案內容]) 的觸發程序進行操作，並讓動作使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。
 
 ## <a name="connector-reference"></a>連接器參考
 

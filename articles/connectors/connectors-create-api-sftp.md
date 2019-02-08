@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
-ms.openlocfilehash: 3dbe40476757ba93f33d39f71c46bf58302b3570
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 5d328164ac8ad99db15a12d850327615a9ffd809
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979449"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910279"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來監視、建立及管理 SFTP 檔案
 
@@ -27,7 +27,7 @@ ms.locfileid: "50979449"
 * 取得檔案內容與中繼資料。
 * 將封存檔案解壓縮到資料夾。
 
-相較於 [SFTP-SSH 連接器](../connectors/connectors-sftp-ssh.md)，除非您使用[區塊化來處理大型訊息](../logic-apps/logic-apps-handle-large-messages.md)，否則，SFTP 連接器最多可讀取或寫入的檔案大小上限為 50 MB。 針對大小上限為 1 GB 的檔案，請使用 [SFTP-SSH 連接器](../connectors/connectors-sftp-ssh.md)。 針對大於 1 GB 的檔案，您可以使用 SFTP-SSH 連接器並[對大型訊息進行區塊化](../logic-apps/logic-apps-handle-large-messages.md)。 
+相較於 [SFTP-SSH 連接器](../connectors/connectors-sftp-ssh.md)，除非您[在動作中使用訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)，否則 SFTP 連接器可讀取或寫入的檔案大小上限為 50 MB。 目前，您無法將區塊化用於觸發程序。 針對大小上限為 1 GB 的檔案，請使用 [SFTP-SSH 連接器](../connectors/connectors-sftp-ssh.md)。 針對大於 1 GB 的檔案，您可以使用 SFTP-SSH 連接器再加上[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。 
 
 您可以使用觸發程序來監視 SFTP 伺服器上的事件，並讓輸出可供其他動作使用。 您可以使用動作，在 SFTP 伺服器上執行各種工作。 您也可以讓邏輯應用程式中的其他動作使用 SFTP 動作的輸出。 例如，如果您定期從 SFTP 伺服器擷取檔案，可以藉由使用 Office 365 Outlook 連接器或 Outlook.com 連接器，傳送關於那些檔案及其內容的電子郵件警示。
 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
@@ -40,7 +40,7 @@ ms.locfileid: "50979449"
 
   > [!NOTE]
   > 
-  > SFTP 連接器支援下列私密金鑰格式：OpenSSH、ssh.com 和 PuTTY
+  > SFTP 連接器支援下列私密金鑰格式：OpenSSH、ssh.com 及 PuTTY
   > 
   > 當您建立邏輯應用程式時，必須在新增所需的 SFTP 觸發程序或動作之後，提供適用於 SFTP 伺服器的連線資訊。 
   > 如果您使用 SSH 私密金鑰，請確定會從您的 SSH 私密金鑰檔案「複製」金鑰，然後將該金鑰「貼到」連線詳細資料中，「請勿手動輸入或編輯該金鑰」，這樣可能導致連線失敗。 
@@ -84,7 +84,7 @@ ms.locfileid: "50979449"
    1. 選取 [編輯] > [複製]。
 
    1. 在您新增的 SFTP 觸發程序或動作中，將所複製的「完整」金鑰貼到 [SSH 私密金鑰] 屬性中，此屬性支援多行。 
-   「請確定您會貼上」金鑰。 「請勿手動輸入或編輯此金鑰」。
+   「請確定您會貼上」金鑰。 ***請勿手動輸入或編輯此金鑰***。
 
 1. 當您完成輸入連線詳細資料之後，請選擇 [建立]。
 
@@ -94,7 +94,7 @@ ms.locfileid: "50979449"
 
 SFTP 觸發程序的運作方式是輪詢 SFTP 檔案系統，然後尋找自上次輪詢後已變更的所有檔案。 某些工具可讓您在檔案變更時保留時間戳記。 在這些情況下，您必須停用此功能，以便讓您的觸發程序可以運作。 以下是一些常見的設定：
 
-| SFTP 用戶端 | 動作 | 
+| SFTP 用戶端 |  動作 | 
 |-------------|--------| 
 | Winscp | 移至 [選項] > [喜好設定] > [傳輸] > [編輯] > [保留時間戳記] > [停用] |
 | FileZilla | 移至 [傳輸] > [保留傳輸檔案的時間戳記] > [停用] | 
@@ -102,7 +102,15 @@ SFTP 觸發程序的運作方式是輪詢 SFTP 檔案系統，然後尋找自上
 
 當觸發程序找到新檔案時，觸發程序會確認該新檔案是完整檔案，而不是部分寫入的檔案。 例如，當觸發程序檢查檔案伺服器時，檔案可能正在進行變更。 為避免傳回部分寫入的檔案，觸發程序會備註最近發生變更之檔案的時間戳記，但不會立即傳回該檔案。 觸發程序只有在再次輪詢伺服器時，才會傳回該檔案。 有時，此行為可能會導致最長可達觸發程序輪詢間隔兩倍的延遲。 
 
+在要求檔案內容時，觸發程序不會取得大於 50 MB 的檔案。 若要取得大於 50 MB 的檔案，請依照下列模式： 
+
+* 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]。
+
+* 依照具有讀取完整檔案之動作 (例如 [使用路徑取得檔案內容]) 的觸發程序進行操作，並讓動作使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。
+
 ## <a name="examples"></a>範例
+
+<a name="file-add-modified"></a>
 
 ### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP 觸發程序：當新增或修改檔案時
 
@@ -110,9 +118,23 @@ SFTP 觸發程序的運作方式是輪詢 SFTP 檔案系統，然後尋找自上
 
 **企業範例**：您可以使用此觸發程序，來監視代表客戶訂單的新檔案 SFTP 資料夾。 然後，您可以使用 SFTP 動作 (例如**取得檔案內容**)，來取得訂單的內容以進一步處理，並將該訂單儲存在訂單資料庫中。
 
-### <a name="sftp-action-get-content"></a>SFTP 動作：取得內容
+在要求檔案內容時，觸發程序不會取得大於 50 MB 的檔案。 若要取得大於 50 MB 的檔案，請依照下列模式： 
+
+* 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]。
+
+* 依照具有讀取完整檔案之動作 (例如 [使用路徑取得檔案內容]) 的觸發程序進行操作，並讓動作使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。
+
+<a name="get-content"></a>
+
+### <a name="sftp-action-get-content"></a>SFTP 動作：取得文字
 
 此動作會從 SFTP 伺服器上的檔案取得內容。 舉例來說，您可以新增來自上一個範例中的觸發程序，以及新增檔案內容必須符合的條件。 如果條件為 true，則可以執行會取得內容的動作。 
+
+在要求檔案內容時，觸發程序不會取得大於 50 MB 的檔案。 若要取得大於 50 MB 的檔案，請依照下列模式： 
+
+* 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]。
+
+* 依照具有讀取完整檔案之動作 (例如 [使用路徑取得檔案內容]) 的觸發程序進行操作，並讓動作使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。
 
 ## <a name="connector-reference"></a>連接器參考
 

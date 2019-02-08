@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315769"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103067"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI
 
@@ -48,7 +48,7 @@ IaaS 解決方案將示範如何將內部部署 SQL 架構方案移轉至 Azure�
 
 -   **架構圖。** 此圖顯示用於藍圖和範例使用案例的參考架構。
 
--   [IaaS 擴充功能](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   此解決方案將示範如何將內部部署 SQL 架構方案移轉至 Azure，以及如何實作特殊權限存取工作站，以安全地管理雲端服務和解決方案。 
+-   [IaaS 延伸模組](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   此解決方案會示範如何將內部部署 SQL 式解決方案移轉至 Azure，以及如何實作「特殊權限存取工作站」，以安全地管理雲端式服務和解決方案。 
 
 ## <a name="solution-components"></a>方案元件
 

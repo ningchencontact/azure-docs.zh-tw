@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553450"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757615"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure 進階儲存體：為高效能而設計
 
@@ -464,7 +464,7 @@ apt-get install fio
 *最大寫入 IOPS*  
  使用下列規格建立作業檔案，以產生最大寫入 IOPS。 將它命名為 "fiowrite.ini"。
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -504,7 +504,7 @@ sudo fio --runtime 30 fiowrite.ini
 *最大讀取 IOPS*  
  使用下列規格建立作業檔案，以產生最大讀取 IOPS。 將它命名為 "fioread.ini"。
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -544,7 +544,7 @@ sudo fio --runtime 30 fioread.ini
 *最大讀取和寫入 IOPS*  
  使用下列規格建立作業檔案，以產生最大讀取和寫入 IOPS。 將它命名為 "fioreadwrite.ini"。
 
-```
+```ini
 [global]
 size=30g
 direct=1

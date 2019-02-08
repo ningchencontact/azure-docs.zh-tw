@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847538"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904364"
 ---
 # <a name="manage-and-configure-projects"></a>管理及設定專案
 
@@ -41,9 +41,9 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 ![專案儀表板上的計算層下拉式清單](media/project-compute-tier-list.png)
 
-您可以藉由使用已佈建在 Azure 訂用帳戶中的其他虛擬機器來繞過這些限制。 您也必須在該虛擬機器上安裝 Jupyter。 資料科學虛擬機器映像是很好的選擇，因為它們預設就包含 Jupyter。
+您可以藉由使用已佈建在 Azure 訂用帳戶中的其他虛擬機器來繞過這些限制。 您必須在該虛擬機器上安裝並執行 JupyterHub。 「資料科學虛擬機器」映像 (任何作業系統) 是很好的選擇，因為它們預設就包含 JupyterHub。
 
-您可以使用下拉式清單中的 [直接計算] 選項，連線至任何已適當設定的 Azure 虛擬機器。 選取此選項會提示您輸入名稱 (會在清單中顯示)、VM 的 IP 位址和連接埠 (通常是 8000，這是 JupyterHub 接聽的預設連接埠)，以及 VM 認證：
+在您有了適當設定的 Azure 虛擬機器之後，請從下拉式清單中選取 [Direct Compute] \(直接計算\) 選項，此選項會提示您輸入名稱 (會在清單中顯示)、VM 的 IP 位址和連接埠 (通常是 8000，這是 JupyterHub 接聽的預設連接埠)，以及 VM 認證：
 
 ![收集 [直接計算] 選項伺服器資訊的提示](media/project-compute-tier-direct.png)
 
@@ -51,13 +51,13 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 - 您以使用 Azure Active Directory (AAD) 的帳戶 (如公司帳戶) 登入 Azure Notebooks。
 - 您的帳戶已連接到 Azure 訂用帳戶。
-- 您在該訂用帳戶 (至少有「讀取者」存取權) 有一或多個虛擬機器是使用適用於 Linux (Ubuntu) 的資料科學虛擬機器映像。
+- 您在該訂用帳戶中有一或多個虛擬機器 (至少有「讀者」存取權)，這些虛擬機器使用「適用於 Linux (Ubuntu) 的資料科學虛擬機器」映像。
 
 ![專案儀表板上的下拉式清單中的資料科學虛擬機器執行個體](media/project-compute-tier-dsvm.png)
 
 當您選取 DSVM 執行個體時，Azure Notebooks 可能會提示您輸入您在建立 VM 時使用的特定機器認證。
 
-若要建立新的 DSVM 執行個體，請依照[建立 Ubuntu 資料科學 VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro) 中的指示執行。 您「必須」使用**適用於 Linux (Ubuntu) 的資料科學虛擬機器**映像，因為 Azure Notebooks 不會顯示使用 Windows 或 CentOS 映像的 DSVM。
+若要建立新的 DSVM 執行個體，請依照[建立 Ubuntu 資料科學 VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro) 中的指示執行。 如果您希望 DSVM 出現在 Azure Notebooks 的下拉式清單中，請使用**適用於 Linux (Ubuntu) 的資料科學虛擬機器**映像。  如果基於其他原因，您需要使用 Windows 或 CentOS 映像，您可以使用 [Direct Compute] \(直接計算\) 選項來手動連線至 DSVM。
 
 ## <a name="edit-project-metadata"></a>編輯專案中繼資料
 

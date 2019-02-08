@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 3313d7490ed9a2f51831c76148a54b7ecf19d3b3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c14267f6fc7f8c6be9199b9f25b6430b5f1aa5dd
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338799"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887405"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics 中的 VMware 監視 (預覽) 解決方案
 
@@ -34,13 +34,13 @@ Log Analytics 中的 VMware 監視解決方案是一個可協助您針對大型 
 ## <a name="install-and-configure-the-solution"></a>安裝和設定解決方案
 請使用下列資訊來安裝和設定方案。
 
-* 使用[安裝管理解決方案](../../azure-monitor/insights/solutions.md#install-a-management-solution)中所述的流程，將 VMware 監控解決方案新增至您的訂用帳戶。
+* 使用[安裝管理解決方案](../insights/solutions.md#install-a-management-solution)中所述的流程，將 VMware 監控解決方案新增至您的訂用帳戶。
 
 #### <a name="supported-vmware-esxi-hosts"></a>支援的 VMware ESXi 主機
 vSphere ESXi 主機 5.5、6.0 和 6.5
 
 #### <a name="prepare-a-linux-server"></a>準備 Linux 伺服器
-建立 Linux 作業系統 VM 來接收來自 ESXi 主機的所有 syslog 資料。 [Log Analytics Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md)是所有 ESXi 主機 syslog 資料的收集點。 您可以使用多個 ESXi 主機將記錄檔轉送到單一 Linux 伺服器，如下列範例所示。
+建立 Linux 作業系統 VM 來接收來自 ESXi 主機的所有 syslog 資料。 [Log Analytics Linux 代理程式](../learn/quick-collect-linux-computer.md)是所有 ESXi 主機 syslog 資料的收集點。 您可以使用多個 ESXi 主機將記錄檔轉送到單一 Linux 伺服器，如下列範例所示。
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -84,7 +84,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 
 | 平台 | Log Analytics Linux 代理程式 | SCOM 代理程式 | Azure 儲存體 | SCOM 是否為必要項目？ | 透過管理群組傳送的 SCOM 代理程式資料 | 收集頻率 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Linux |&#8226; |  |  |  |  |每隔 3 分鐘 |
+|  Linux |&#8226; |  |  |  |  |每隔 3 分鐘 |
 
 下表顯示由 VMware 監視解決方案收集的資料欄位範例︰
 
@@ -129,7 +129,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 
 按一下任何刀鋒視窗以開啟 Log Analytics 搜尋窗格，窗格中會顯示該刀鋒視窗的詳細資訊。
 
-您可以在此編輯搜尋查詢，修改查核來尋找特定目標。 如需有關建立記錄搜尋的詳細資料，請參閱[在 Log Analytics 中使用記錄搜尋以尋找資料](../../azure-monitor/log-query/log-query-overview.md)。
+您可以在此編輯搜尋查詢，修改查核來尋找特定目標。 如需有關建立記錄搜尋的詳細資料，請參閱[在 Log Analytics 中使用記錄搜尋以尋找資料](../log-query/log-query-overview.md)。
 
 #### <a name="find-esxi-host-events"></a>尋找 ESXi 主機事件
 單一 ESXi 主機會產生多個記錄檔，取決於其程序。 VMware 監視解決方案會將它們集中在一起，並總結事件計數。 這個集中式的檢視可幫助您了解哪些 ESXi 主機有大量的事件，以及在您的環境中最常發生哪些事件。
@@ -158,19 +158,19 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 
 
 #### <a name="save-queries"></a>儲存查詢
-儲存搜尋查詢是 Log Analytics 中的標準功能，可協助您保留任何您認為有用的查詢。 建立您覺得有用的查詢之後，按一下 [我的最愛] 儲存它。 儲存的查詢讓您之後可從 [我的儀表板](../../azure-monitor/platform/dashboards.md) 頁面輕鬆地重複使用它們，您也可以在此建立您自己自訂的儀表板。
+儲存搜尋查詢是 Log Analytics 中的標準功能，可協助您保留任何您認為有用的查詢。 建立您覺得有用的查詢之後，按一下 [我的最愛] 儲存它。 儲存的查詢讓您之後可從 [我的儀表板](../learn/tutorial-logs-dashboards.md) 頁面輕鬆地重複使用它們，您也可以在此建立您自己自訂的儀表板。
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>從查詢建立警示
-建立您的查詢後，您可能想要使用該查詢在特定事件發生時發出警示。 如需有關如何建立警示的資訊，請參閱 [Log Analytics 中的警示](../../azure-monitor/platform/alerts-overview.md)。 如需警示查詢和其他查詢的範例，請參閱部落格文章[使用 Log Analytics 監視 VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics)。
+建立您的查詢後，您可能想要使用該查詢在特定事件發生時發出警示。 如需有關如何建立警示的資訊，請參閱 [Log Analytics 中的警示](../platform/alerts-overview.md)。 如需警示查詢和其他查詢的範例，請參閱部落格文章[使用 Log Analytics 監視 VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics)。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>我需要在 ESXi 主機設定上做什麼設定？ 它會對我目前的環境造成什麼影響？
 解決方案會使用原生 ESXi 主機 Syslog 轉送機制。 您在 ESXi 主機上不需要任何額外的 Microsoft 軟體就可以擷取記錄檔。 它對您現有的環境影響不大。 但是，您需要設定 syslog 轉送，這是 ESXI 功能。
 
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>我需要重新啟動 ESXi 主機嗎？
-否。 此處理序不需要重新啟動。 有時候，vSphere 不會正確更新 syslog。 在這種情況下，請登入 ESXi 主機並重新載入 syslog。 同樣地，您不需要重新啟動主機，所以此處理序不會干擾到您的環境。
+沒有。 此處理序不需要重新啟動。 有時候，vSphere 不會正確更新 syslog。 在這種情況下，請登入 ESXi 主機並重新載入 syslog。 同樣地，您不需要重新啟動主機，所以此處理序不會干擾到您的環境。
 
 ### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>可以增加或減少傳送至 Log Analytics 的記錄資料量嗎？
 是，您可以這麼做。 您可以使用 vSphere 中的 ESXi 主機記錄層級設定。 記錄集合是以 *info* 層級為基礎。 所以，如果您想要稽核 VM 建立或刪除，您需要在 Hostd 上維持 *info* 層級。 如需詳細資訊，請參閱 [VMware 知識庫](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658)。
@@ -204,6 +204,6 @@ syslog 時間戳記有一個 ESXi 主機錯誤。 如需詳細資訊，請參閱
     d. 如果檔案不存在或使用者和群組設定錯誤，請透過[準備 Linux 伺服器](#prepare-a-linux-server)來採取更正動作。
 
 ## <a name="next-steps"></a>後續步驟
-* 使用 Log Analytics 中的 [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 檢視詳細的 VMware 主機資料。
-* [建立您自己的儀表板](../../azure-monitor/platform/dashboards.md)來顯示 VMware 主機的資料。
-* 在特定的 VMware 主機事件發生時[建立警示](../../azure-monitor/platform/alerts-overview.md)。
+* 使用 Log Analytics 中的[記錄查詢](../log-query/log-query-overview.md)來檢視詳細的 VMware 主機資料。
+* [建立您自己的儀表板](../learn/tutorial-logs-dashboards.md)來顯示 VMware 主機的資料。
+* 在特定的 VMware 主機事件發生時[建立警示](../platform/alerts-overview.md)。

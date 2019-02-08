@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 27c7c62125f3f559fb1764292729cbbfdc1c4e5f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: d2e890110194b1fbe0528191fa645628cc3a1345
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115415"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161354"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>使用 Visual Studio Code 開發 C# Service Fabric 應用程式
 
@@ -27,7 +27,7 @@ ms.locfileid: "37115415"
 
 本文示範如何使用 Visual Studio Code 建置及部署 .NET Core Service Fabric 應用程式，並對其進行偵錯。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文假設您已安裝 VS Code、適用於 VS Code 的 Service Fabric Reliable Services 擴充功能，和開發環境所需的任何相依性。 若要深入了解，請參閱[使用者入門](./service-fabric-get-started-vs-code.md#prerequisites)。
 
@@ -42,10 +42,10 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-st
 
 ## <a name="open-the-application-in-vs-code"></a>在 VS Code 中開啟應用程式
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 以滑鼠右鍵按一下 [開始] 功能表中的 VS Code 圖示，然後選擇 [以系統管理員身分執行]。 若要將偵錯工具附加至您的服務，您需要以系統管理員身分執行 VS Code。
 
-### <a name="linux"></a>Linux
+### <a name="linux"></a> Linux
 使用終端機，從具有應用程式副本的本機目錄中瀏覽至 /service-fabric-dotnet-core-getting-started/Services/CounterService 路徑。
 
 以根使用者身分執行下列命令來開啟 VS Code，以便將偵錯工具附加到您的服務。
@@ -59,14 +59,14 @@ sudo code . --user-data-dir='.'
 
 ## <a name="build-the-application"></a>建置應用程式
 1. 按下 (Ctrl + Shift + p) 以在 VS Code 中開啟 [命令選擇區]。
-2. 搜尋並選取 **Service Fabric: Build Application** 命令。 建置輸出會傳送到整合式終端機。
+2. 搜尋並選取 **Service Fabric:Build Application** 命令。 建置輸出會傳送到整合式終端機。
 
    ![VS Code 中的建置應用程式命令](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-build-application.png)
 
 ## <a name="deploy-the-application-to-the-local-cluster"></a>將應用程式部署至本機叢集
 建置應用程式後，您可以將其部署到本機叢集。 
 
-1. 從 [命令選擇區] 中選取 **Service Fabric: Deploy Application (Localhost)** 命令。 安裝程序的輸出會傳送到整合式終端機。
+1. 從 [命令選擇區] 中選取 **Service Fabric:Deploy Application (Localhost)** 命令。 安裝程序的輸出會傳送到整合式終端機。
 
    ![VS Code 中的部署應用程式命令](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
@@ -107,7 +107,7 @@ sudo code . --user-data-dir='.'
    
    ![中斷與偵錯工具的連線](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-bar-disconnect.png)
        
-7. 當您完成偵錯時，可以使用 **Service Fabric: Remove Application** 命令，從本機叢集內移除 CounterService 應用程式。 
+7. 當您完成偵錯時，可以使用 **Service Fabric:Remove Application** 命令，從本機叢集內移除 CounterService 應用程式。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: 57058e9a86a338738315a08f218978e20fae95e2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9491550aae8f88621d947572741f492adcf9cdd0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127843"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463220"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -42,7 +42,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 若您想要在翻譯中避免粗話，則不論來源文字中是否有粗話，都可以針對支援它的方法使用粗話篩選選項。 此選項可讓您選擇要查看刪除的粗話或標記為適當的標籤，還是不採取任何動作。 接受的 `ProfanityAction` 值為 `NoAction` (預設)、Marked 和 `Deleted`。
 
 
-|ProfanityAction    |動作 |範例來源 (日文)  |範例翻譯 (英文)  |
+|ProfanityAction    | 動作 |範例來源 (日文)  |範例翻譯 (英文)  |
 |:--|:--|:--|:--|
 |NoAction   |預設值。 與未設定此選項時相同。 粗話會從來源傳遞到目標。        |彼はジャッカスです。     |He is a jackass.   |
 |Marked     |不雅字眼會以 XML 標籤 <profanity> 和 </profanity> 括住。     |彼はジャッカスです。 |He is a <profanity>jackass</profanity>.    |
@@ -84,7 +84,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 |to|(空白) |必要。 字串，代表目標翻譯文字的語言代碼。|query|字串|
 |contentType|(空白)    |選用。 要翻譯文字的格式。 支援的格式為 text/plain (預設) 和 text/html。 任何 HTML 都需要是格式正確的完整項目。|query|字串|
 |category|(空白)   |選用。 字串，包含翻譯的分類 (網域)。 預設為 "general"。|query|字串|
-|Authorization|(空白)  |若未指定 appid 欄位或 Ocp-Apim-Subscription-Key 標頭，則為必要項目。 授權權杖："Bearer" + " " + "access_token"。|頁首|字串|
+|Authorization|(空白)  |若未指定 appid 欄位或 Ocp-Apim-Subscription-Key 標頭，則為必要項目。 授權權杖：「Bearer」+「 」+「access_token」。|頁首|字串|
 |Ocp-Apim-Subscription-Key|(空白)  |若未指定 appid 欄位或 Authorization 標頭，則為必要項目。|頁首|字串|
 
 
@@ -130,10 +130,10 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 
 
 * `appid`：必要。 若使用 `Authorization` 或 `Ocp-Apim-Subscription-Key` 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。
-* `from`：選擇性。 字串，代表來源翻譯文字的語言代碼。 若保留空白，則回應將會包括語言自動偵測的結果。
-* `options`：選擇性。 `Options` 物件，包含下面列出的值。 它們都是選擇性項目，且預設為最常見設定。 指定的項目必須以字母順序列出。
+* `from`：選用。 字串，代表來源翻譯文字的語言代碼。 若保留空白，則回應將會包括語言自動偵測的結果。
+* `options`：選用。 `Options` 物件，包含下面列出的值。 它們都是選擇性項目，且預設為最常見設定。 指定的項目必須以字母順序列出。
     - `Category`：字串，包含翻譯的分類 (網域)。 預設為 `general`。
-    - `ContentType`：要翻譯文字的格式。 支援的格式為 `text/plain` (預設)、`text/xml` 和 `text/html`。 任何 HTML 都需要格式正確的完整項目。
+    - `ContentType`：要翻譯文字的格式。 支援的格式為 `text/plain` (預設)、`text/xml` 和 `text/html`。 任何 HTML 都需要是格式正確的完整項目。
     - `ProfanityAction`：指定如何處理粗語，如上所示。 接受的 `ProfanityAction` 值為 `NoAction` (預設)、`Marked` 和 `Deleted`。
     - `State`：使用者狀態，協助建立要求與回應的關聯。 將在回應中傳回相同的內容。
     - `Uri`：依此 URI 篩選結果。 預設：`all`。
@@ -183,7 +183,7 @@ TranslateArray 方法會接受 `Content-Type` 的 `application/xml` 或 `text/xm
 
 |參數|值|說明|參數類型|資料類型|
 |:--|:--|:--|:--|:--|
-|Authorization|(空白) |若未指定 appid 欄位或 Ocp-Apim-Subscription-Key 標頭，則為必要項目。 授權權杖："Bearer" + " " + "access_token"。|頁首|字串|
+|Authorization|(空白) |若未指定 appid 欄位或 Ocp-Apim-Subscription-Key 標頭，則為必要項目。 授權權杖：「Bearer」+「 」+「access_token」。|頁首|字串|
 |Ocp-Apim-Subscription-Key|(空白)|若未指定 appid 欄位或 Authorization 標頭，則為必要項目。|頁首|字串|
 
 ### <a name="response-messages"></a>回應訊息
@@ -311,7 +311,7 @@ TranslateArray 方法會接受 `Content-Type` 的 `application/xml` 或 `text/xm
 
 要求 URI 為 `https://api.microsofttranslator.com/V2/Http.svc/Speak`。
 
-**傳回值：** 以所需語言說出之傳入文字的 wave 或 mp3 串流。
+**傳回值：** 以所需語言說出的傳入文字 wave 或 mp3 串流。
 
 ### <a name="response-class-status-200"></a>回應類別 (狀態 200)
 
@@ -347,7 +347,7 @@ binary
 
 要求 URI 為 `https://api.microsofttranslator.com/V2/Http.svc/Detect`。
 
-**傳回值：** 字串，包含所指定文字的二字元語言代碼。 .
+**傳回值：** 字串，包含所指定文字的二字元語言代碼。 上也提供本文中使用的原始碼。
 
 ### <a name="response-class-status-200"></a>回應類別 (狀態 200)
 
@@ -392,7 +392,7 @@ binary
 
 文字大小不得超過 10000 個字元。
 
-**傳回值：** 字串陣列，包含輸入陣列每個資料列的二字元語言代碼。
+**傳回值：** 傳回字串陣列，包含輸入陣列每個資料列的二字元語言代碼。
 
 回應本文的格式如下。
 
@@ -432,7 +432,7 @@ DetectArray 成功。 傳回字串陣列，包含輸入陣列每個資料列的�
 ### <a name="implementation-notes"></a>實作附註
 
 > [!IMPORTANT]
-> **淘汱附註：** 在 2018 年 1 月 31 日之後，此方法將不會接受新的句子提交，而且您會收到錯誤訊息。 如需共同作業翻譯函式的變更，請參閱本宣告。
+> **淘汰附註：** 在 2018 年 1 月 31 日之後，此方法將不會接受新的句子提交，而且您會收到錯誤訊息。 如需共同作業翻譯函式的變更，請參閱本宣告。
 
 將翻譯新增至翻譯記憶體。
 
@@ -476,7 +476,7 @@ DetectArray 成功。 傳回字串陣列，包含輸入陣列每個資料列的�
 ### <a name="implementation-notes"></a>實作附註
 
 > [!IMPORTANT]
-> **淘汱附註：** 在 2018 年 1 月 31 日之後，此方法將不會接受新的句子提交，而且您會收到錯誤訊息。 如需共同作業翻譯函式的變更，請參閱本宣告。
+> **淘汰附註：** 在 2018 年 1 月 31 日之後，此方法將不會接受新的句子提交，而且您會收到錯誤訊息。 如需共同作業翻譯函式的變更，請參閱本宣告。
 
 新增翻譯陣列，以新增翻譯記憶體。 這是 `AddTranslation` 的陣列版本。
 
@@ -525,7 +525,7 @@ AddTranslationArray 方法成功。 在 2018 年 1 月 31 日之後，將不會�
 
 |參數|值|說明|參數類型|資料類型|
 |:--|:--|:--|:--|:--|
-|Authorization|(空白)|若未指定 appid 欄位或 Ocp-Apim-Subscription-Key 標頭，則為必要項目。 授權權杖："Bearer" + " " + "access_token"。|頁首|字串|
+|Authorization|(空白)|若未指定 appid 欄位或 Ocp-Apim-Subscription-Key 標頭，則為必要項目。 授權權杖：「Bearer」+「 」+「access_token」。|頁首|字串|
 |Ocp-Apim-Subscription-Key|(空白)|若未指定 appid 欄位或 Authorization 標頭，則為必要項目。|頁首|字串|
 
 ### <a name="response-messages"></a>回應訊息
@@ -561,7 +561,7 @@ integer
 |appid|(空白)  |必要。 若使用 Authorization 或 Ocp-Apim-Subscription-Key 標頭，請將 appid 欄位空白，或是包括內含 "Bearer" + " " + "access_token" 的字串。|query| 字串|
 |text|(空白)   |必要。 字串，代表要分割為句子的文字。 文字大小不得超過 10000 個字元。|query|字串|
 |語言   |(空白)    |必要。 字串，代表輸入文字的語言代碼。|query|字串|
-|Authorization|(空白)|若未指定 appid 欄位或 Ocp-Apim-Subscription-Key 標頭，則為必要項目。 授權權杖："Bearer" + " " + "access_token"。    |頁首|字串|
+|Authorization|(空白)|若未指定 appid 欄位或 Ocp-Apim-Subscription-Key 標頭，則為必要項目。 授權權杖：「Bearer」+「 」+「access_token」。    |頁首|字串|
 |Ocp-Apim-Subscription-Key|(空白)|若未指定 appid 欄位或 Authorization 標頭，則為必要項目。|頁首|字串|
 
 ### <a name="response-messages"></a>回應訊息
@@ -596,9 +596,9 @@ integer
 `TranslateOptions` 物件，包含下面列出的值。 它們都是選擇性項目，且預設為最常見設定。 指定的項目必須以字母順序列出。
 
 * `Category`：字串，包含翻譯的分類 (網域)。 預設為 "general"。
-* `ContentType`：唯一支援且為預設值的選項是 "text/plain"。
+* `ContentType`：唯一支援且為預設值的選項是 [text/plain]。
 * `IncludeMultipleMTAlternatives`：布林值旗標，判斷是否應該從 MT 引擎傳回數個替代項目。 有效值為 true 和 false (區分大小寫)。 預設為 false，而且只包含 1 個替代項目。 將此旗標設定為 true 允許在翻譯中產生人造替代項目，以與共同作業翻譯架構 (CTF) 完全整合。 此功能允許傳回 CTF 中沒有替代項目之句子的替代項目，方法是從 n 最佳解碼器清單新增人造替代項目。
-    - 評分：評分套用如下：1) 最佳自動翻譯的評分為 5。 2) 來自 CTF 的替代項目會反映檢閱者的授權單位，從 -10 到 +10。 3) 自動產生的 (n 最佳) 翻譯替代項目具有評分 0，而且相符程度 100。
+    - 評分套用如下：1) 最佳自動翻譯的評分為 5。 2) 來自 CTF 的替代項目會反映檢閱者的授權單位，從 -10 到 +10。 3) 自動產生的 (n 最佳) 翻譯替代項目具有評分 0，而且相符程度 100。
     - 替代項目數目：傳回的替代項目數目最多為 maxTranslations，但可能更少。
     - 語言組：此功能不適用於簡體中文與繁體中文之間的翻譯 (雙向)。 這適用於所有其他 Microsoft Translator 支援的語言組。
 * `State`：使用者狀態，協助建立要求與回應的關聯。 將在回應中傳回相同的內容。
@@ -628,7 +628,7 @@ integer
 
 這包括包含下列值的 `GetTranslationsResponse` 項目：
 
-* `Translations`：找到的相符項陣列，儲存在 TranslationMatch (請參閱下面) 物件。 翻譯可能包括原始文字的些微變化 (模糊比對)。 將會排序翻譯：前面是 100% 相符項目，後面是模糊相符項目。
+* `Translations`：找到的相符項陣列，儲存在 TranslationMatch (請參閱下面) 物件。 翻譯可能包括原始文字的些微變化 (模糊比對)。 會將翻譯排序為：前面是 100% 相符項目，後面是模糊相符項目。
 * `From`：若方法未指定 From 語言，則這會是自動語言偵測的結果。 否則，它會是指定 From 語言。
 * `State`：使用者狀態，協助建立要求與回應的關聯。 包含 TranslateOptions 參數中指定的相同值。
 
@@ -703,11 +703,11 @@ MatchedOriginalText：此結果相符的原始文字。 只有在相符的原始
 * `AppId`：必要。 若使用 Authorization 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。
 * `From`：必要。 字串，代表翻譯文字的語言代碼。
 * `MaxTranslations`：必要。 整數，代表要傳回的最大翻譯數目。
-* `Options`：選擇性。 Options 物件，包含下面列出的值。 它們都是選擇性項目，且預設為最常見設定。 指定的項目必須以字母順序列出。
-    - Category`：字串，包含翻譯的分類 (網域)。 預設為 general。
+* `Options`：選用。 Options 物件，包含下面列出的值。 它們都是選擇性項目，且預設為最常見設定。 指定的項目必須以字母順序列出。
+    - 類別：字串，包含翻譯的分類 (網域)。 預設為 general。
     - `ContentType`：唯一支援且為預設值的選項是 text/plain。
     - `IncludeMultipleMTAlternatives`：布林值旗標，判斷是否應該從 MT 引擎傳回數個替代項目。 有效值為 true 和 false (區分大小寫)。 預設為 false，而且只包含 1 個替代項目。 將此旗標設定為 true 允許在翻譯中產生人造替代項目，以與共同作業翻譯架構 (CTF) 完全整合。 此功能允許傳回 CTF 中沒有替代項目之句子的替代項目，方法是從 n 最佳解碼器清單新增人造替代項目。
-        - 評分：評分套用如下：1) 最佳自動翻譯的評分為 5。 2) 來自 CTF 的替代項目會反映檢閱者的授權單位，從 -10 到 +10。 3) 自動產生的 (n 最佳) 翻譯替代項目具有評分 0，而且相符程度 100。
+        - 評分套用如下：1) 最佳自動翻譯的評分為 5。 2) 來自 CTF 的替代項目會反映檢閱者的授權單位，從 -10 到 +10。 3) 自動產生的 (n 最佳) 翻譯替代項目具有評分 0，而且相符程度 100。
         - 替代項目數目：傳回的替代項目數目最多為 maxTranslations，但可能更少。
         - 語言組：此功能不適用於簡體中文與繁體中文之間的翻譯 (雙向)。 這適用於所有其他 Microsoft Translator 支援的語言組。
 * `State`：使用者狀態，協助建立要求與回應的關聯。 將在回應中傳回相同的內容。
@@ -749,7 +749,7 @@ MatchedOriginalText：此結果相符的原始文字。 只有在相符的原始
 
 每個 `GetTranslationsResponse` 項目都包含下列值：
 
-* `Translations`：找到的相符項陣列，儲存在 `TranslationMatch` (請參閱下面) 物件。 翻譯可能包括原始文字的些微變化 (模糊比對)。 將會排序翻譯：前面是 100% 相符項目，後面是模糊相符項目。
+* `Translations`：找到的相符項陣列，儲存在 `TranslationMatch` (請參閱下面) 物件。 翻譯可能包括原始文字的些微變化 (模糊比對)。 會將翻譯排序為：前面是 100% 相符項目，後面是模糊相符項目。
 * `From`：若方法未指定 `From` 語言，則這會是自動語言偵測的結果。 否則，它會是指定 From 語言。
 * `State`：使用者狀態，協助建立要求與回應的關聯。 包含 `TranslateOptions` 參數中指定的相同值。
 

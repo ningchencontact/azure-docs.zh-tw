@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: cf283803dfa45c362330ccf73fc5eea198d3a5e2
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0d9ee24e9ab104fb554033802507f78fcbf38fc3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278639"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170924"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 選取、管理和操作 Service Fabric 叢集。
@@ -249,7 +249,7 @@ ms.locfileid: "53278639"
 | --remove-when-expired | 指出是否要在報告到期時將報告自健康狀態資料存放區中移除的值。 <br><br> 如果設定為 true，就會在報告到期後，將報告自健康狀態資料存放區中移除。 如果設定為 false，則會在報告到期後，將報告視為錯誤。 此屬性的值預設為 false。 當用戶端會定期回報時，應該將 RemoveWhenExpired 設定為 false (預設值)。 如此一來，如果報告程式發生問題 (例如死結) 而無法回報，在健康情況報告到期時，系統就會將實體評估為錯誤。 這會將實體標幟為處於「錯誤」健康情況狀態。 |
 | --sequence-number | 此健康情況報告的序號 (以數值字串表示)。 <br><br> 健康狀態資料存放區會使用報告序號來偵測過時的報告。 如果未指定，就會在新增報告時，由健康情況用戶端自動產生序號。 |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
-| --ttl | 此健康情況報告的有效持續時間。 此欄位使用 ISO8601 格式來指定持續時間。 <br><br> 當用戶端會定期回報時，其傳送報告的頻率應該高於存留時間。 如果用戶端會針對轉換進行回報，則可以將存留時間設定為無限。 如果 RemoveWhenExpired 為 true，當存留時間到期時，系統會將包含健康情況資訊的健康情況事件自健康狀態資料存放區中移除，如果 RemoveWhenExpired 為 false，則會將該事件評估為錯誤。 如果未指定，存留時間會預設為 infinite 值。 |
+| --ttl | 此健康情況報告的有效持續時間。 此欄位使用 ISO8601 格式指定持續時間。 <br><br> 當用戶端會定期回報時，其傳送報告的頻率應該高於存留時間。 如果用戶端會針對轉換進行回報，則可以將存留時間設定為無限。 如果 RemoveWhenExpired 為 true，當存留時間到期時，系統會將包含健康情況資訊的健康情況事件自健康狀態資料存放區中移除，如果 RemoveWhenExpired 為 false，則會將該事件評估為錯誤。 如果未指定，存留時間會預設為 infinite 值。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -264,7 +264,7 @@ ms.locfileid: "53278639"
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
 連線到 Service Fabric 叢集端點。
 
-如果連線到安全的叢集，請指定憑證 (.crt) 和金鑰檔案 (.key) 的絕對路徑，或包含兩者之單一檔案 (.pem) 的絕對路徑。 請勿指定兩者。 您也可以在連線到安全的叢集時，視需要一併指定 CA 組合檔案的絕對路徑，或是受信任 CA 憑證目錄的絕對路徑。 如果使用 CA 憑證的目錄，OpenSSL 提供的 `c_rehash <directory>` 必須先執行以計算憑證雜湊，並建立適當的 symbolics 連結。
+如果連線到安全的叢集，請指定憑證 (.crt) 和金鑰檔案 (.key) 的絕對路徑，或包含兩者之單一檔案 (.pem) 的絕對路徑。 請勿指定兩者。 您也可以在連線到安全的叢集時，視需要一併指定 CA 組合檔案的絕對路徑，或是受信任 CA 憑證目錄的絕對路徑。 如果使用 CA 憑證的目錄，OpenSSL 提供的 `c_rehash <directory>` 必須先執行以計算憑證雜湊，並建立適當的 symbolic 連結。
 
 ### <a name="arguments"></a>引數
 

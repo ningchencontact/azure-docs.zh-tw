@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d55c9db9af2eea9a56afe34c7a8689947a689bac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306735"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462540"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL 資料倉儲常見問題集
 
@@ -82,21 +82,21 @@ A. 是。 大部分可以搭配 SQL Database 使用的 REST 功能也可搭配 S
 
 A. 如需 DW 的驅動程式支援，請參閱[連接字串]頁面
 
-問︰PolyBase 針對 SQL 資料倉儲支援何種檔案格式？
+問：PolyBase 針對 SQL 資料倉儲支援何種檔案格式？
 
-答︰Orc、RC、Parquet，以及一般分隔的文字
+答：Orc、RC、Parquet，以及一般分隔的文字
 
-問︰我可以從 SQL DW 使用 PolyBase 連線到哪裡？ 
+問：我可以從 SQL DW 使用 PolyBase 連線到哪裡？ 
 
-答︰[Azure Data Lake Store] 和 [Azure 儲存體 Blob]
+答：[Azure Data Lake Store] 和 [Azure 儲存體 Blob]
 
-問︰連線到 Azure 儲存體 Blob 或 ADLS 時，是否有可能進行計算下推？ 
+問：連線到 Azure 儲存體 Blob 或 ADLS 時，是否有可能進行計算下推？ 
 
-答︰否，SQL DW PolyBase 只能和儲存元件互動。 
+答：否，SQL DW PolyBase 只能和儲存元件互動。 
 
-問︰是否可以連線到 HDI？
+問：是否可以連線到 HDI？
 
-答︰HDI 可以使用 ADLS 或 WASB 作為 HDFS 層。 如果您使用其中之一作為您的 HDFS 層，則您可以將該資料載入到 SQL DW。 不過，您無法針對 HDI 執行個體產生下推計算。 
+答：HDI 可以使用 ADLS 或 WASB 作為 HDFS 層。 如果您使用其中之一作為您的 HDFS 層，則您可以將該資料載入到 SQL DW。 不過，您無法針對 HDI 執行個體產生下推計算。 
 
 ## <a name="next-steps"></a>後續步驟
 如需整體 SQL 資料倉儲的詳細資訊，請參閱我們的[概觀]頁面。
