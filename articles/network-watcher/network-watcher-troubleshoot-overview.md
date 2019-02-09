@@ -75,10 +75,10 @@ ms.locfileid: "55099768"
 | ConnectionIsMarkedDisconnected | 連線標記為「已中斷連線」 |否|
 | ConnectionNotConfiguredOnGateway | 基礎服務未設定連線。 | 是 |
 | ConnectionMarkedStandby | 基礎服務標記為「待命」。| 是|
-| 驗證 | 預先共用的金鑰不相符 | 是|
+| Authentication | 預先共用的金鑰不相符 | 是|
 | PeerReachability | 無法連線到對等閘道。 | 是|
 | IkePolicyMismatch | 對等閘道的 IKE 原則不受 Azure 支援。 | 是|
-| WfpParse 錯誤 | 剖析 WFP 記錄時發生錯誤。 |是|
+| WfpParse Error | 剖析 WFP 記錄時發生錯誤。 |是|
 
 ## <a name="supported-gateway-types"></a>支援的閘道類型
 
