@@ -42,7 +42,7 @@ items:
     items:
     - name: 使用 Azure CLI 的受控儲存體帳戶金鑰
       href: key-vault-ovw-storage-keys.md
-    - name: Azure 儲存體 Key Vault 整合 - 受控儲存體帳戶金鑰 - PowerShell
+    - name: 使用 PowerShell 的受控儲存體帳戶金鑰
       href: key-vault-overview-storage-keys-powershell.md
   - name: Azure 容器
     href: ../container-instances/container-instances-managed-identity.md
@@ -171,9 +171,9 @@ items:
     href: http://blogs.technet.com/b/kv/
 - name: 產品意見反應
   href: https://feedback.azure.com/forums/906355-azure-key-vault
-ms.openlocfilehash: 842530e7925388acec38ac04ee01bded101d5329
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 80596412906fd1fd661ee8ccafa2836b058b6866
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815450"
+ms.locfileid: "55873338"

@@ -1,5 +1,5 @@
 # [Data Lake Storage Gen1 文件](index.md)
-# [切換為第二代 Data Lake Storage (預覽) 文件](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
+# [切換至 Data Lake Storage Gen2 文件](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
 
 # 概觀
 ## [Data Lake Storage Gen1 概觀](data-lake-store-overview.md)
@@ -71,7 +71,7 @@
 ### [從 Azure VNET 內的 VM 存取](data-lake-store-connectivity-from-vnets.md)
 ### [使用 Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [搭配使用 Azure 事件中樞](data-lake-store-archive-eventhub-capture.md)
-### [搭配 Data Factory 使用](../data-factory/load-azure-data-lake-store.md)
+### [搭配使用 Data Factory](../data-factory/load-azure-data-lake-store.md)
 ### [搭配串流分析使用](data-lake-store-stream-analytics.md)
 ### [搭配 Power BI 使用](data-lake-store-power-bi.md)
 ### [搭配資料目錄使用](data-lake-store-with-data-catalog.md)
