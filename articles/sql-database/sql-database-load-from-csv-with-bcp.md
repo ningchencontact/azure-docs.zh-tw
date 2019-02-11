@@ -11,31 +11,36 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 50c5071ce672e3a2aba130817628ad0d26f656e5
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: f51b31903953f9a1d4959f78d570d3de92478f50
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653479"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455298"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>將資料從 CSV 載入 Azure SQL Database (一般檔案)
+
 您可以使用 bcp 命令列公用程式，將資料從 CSV 檔案匯入 Azure SQL Database。
 
 ## <a name="before-you-begin"></a>開始之前
+
 ### <a name="prerequisites"></a>必要條件
+
 若要完成本文中的步驟，您需要：
 
-* Azure SQL Database 邏輯伺服器和資料庫
+* Azure SQL Database 伺服器和資料庫
 * 已安裝的 bcp 命令列公用程式
 * 已安裝的 sqlcmd 命令列公用程式
 
 您可以從 [Microsoft 下載中心][Microsoft Download Center]下載 bcp 和 sqlcmd 公用程式。
 
 ### <a name="data-in-ascii-or-utf-16-format"></a>ASCII 或 UTF-16 格式的資料
+
 如果您使用您自己的資料嘗試本教學課程，您的資料必須使用 ASCII 或 UTF-16 編碼，因為 bcp 不支援 UFT-8。 
 
 ## <a name="1-create-a-destination-table"></a>1.建立目的資料表
+
 在 SQL Database 中定義做為目的地資料表的資料表。 資料表中的資料行必須對應到資料檔的每一個資料列中的資料。
 
 若要建立資料表，請開啟命令提示字元並使用 sqlcmd.exe 執行下列命令︰
@@ -54,6 +59,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 
 ## <a name="2-create-a-source-data-file"></a>2.建立來源資料檔
+
 開啟 [記事本]，將下列幾行資料複製到新的文字檔，然後將此檔案儲存到本機暫存目錄 C:\Temp\DimDate2.txt。 此資料是 ASCII 格式。
 
 ```
@@ -78,6 +84,7 @@ bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName
 ```
 
 ## <a name="3-load-the-data"></a>3.載入資料
+
 若要載入資料，請開啟命令提示字元並執行下列命令，使用您自己的資訊取代 ServerName、DatabaseName、Username 和 Password。
 
 ```bcp
@@ -108,6 +115,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 | 20151201 |4 |2 |
 
 ## <a name="next-steps"></a>後續步驟
+
 若要移轉 SQL Server 資料庫，請參閱 [SQL Server 資料庫移轉](sql-database-cloud-migrate.md)。
 
 <!--MSDN references-->

@@ -1,6 +1,6 @@
 ---
-標題：使用 Azure Machine Learning Studio Web 服務入口網站 titleSuffix: Azure Machine Learning Studio description:您可以使用 Microsoft Azure Machine Learning Web 服務入口網站，管理 Machine Learning 新式和傳統 Web 服務。 因為傳統 Web 服務和新式 Web 服務是根據不同的基礎技術，所以各有稍微不同的管理功能。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：使用 Azure Machine Learning Studio Web 服務入口網站 titleSuffix:Azure Machine Learning Studio description:您可以使用 Microsoft Azure Machine Learning Web 服務入口網站，管理 Machine Learning 新式和傳統 Web 服務。 因為傳統 Web 服務和新式 Web 服務是根據不同的基礎技術，所以各有稍微不同的管理功能。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date:02/28/2017
 ---

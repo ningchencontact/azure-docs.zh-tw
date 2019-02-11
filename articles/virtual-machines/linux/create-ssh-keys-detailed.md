@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep
-ms.openlocfilehash: 804b7c0ff31575e6d62497fd5166e1a38a273076
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7167e31261ce029a6a0a6fe070232d1086942162
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965569"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297696"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>詳細步驟：在 Azure 中建立和管理對 Linux VM 進行驗證所需的 SSH 金鑰 
 您可以利用安全殼層 (SSH) 金鑰組，在 Azure 上建立依預設使用 SSH 金鑰進行驗證的 Linux 虛擬機器，而免除登入密碼的需求。 使用 Azure 入口網站、Azure CLI、Resource Manager 範本或其他工具建立的 VM，可以將 SSH 公開金鑰納入部署中，以設定 SSH 連線的 SSH 金鑰驗證。 
@@ -38,7 +38,7 @@ SSH 私密金鑰應有非常安全的複雜密碼來保護金鑰。 此複雜密
 
 ## <a name="ssh-keys-use-and-benefits"></a>SSH 金鑰的使用和好處
 
-當您指定公開金鑰以建立 Azure VM 時，Azure 會將此公開金鑰 (以 `.pub` 的格式) 複製到 VM 上的 `~/.ssh/authorized_keys` 資料夾。 `~/.ssh/authorized_keys` 中的 SSH 金鑰用於挑戰用戶端，以符合 SSH 登入連線上的對應私密金鑰。 在使用 SSH 金鑰進行驗證的 Azure Linux VM 中，Azure 會將 SSHD 伺服器設定為不允許密碼登入，而僅允許以 SSH 金鑰登入。 因此，建立具 SSH 金鑰的 Azure Linux VM，即可協助保護 VM 部署的安全，並免除在 `sshd_config` 檔中停用密碼的標準部署後設定步驟。
+當您指定公開金鑰以建立 Azure VM 時，Azure 會將此公開金鑰 (以 `.pub` 的格式) 複製到 VM 上的 `~/.ssh/authorized_keys` 資料夾。 `~/.ssh/authorized_keys` 中的 SSH 金鑰用於挑戰用戶端，以符合 SSH 連線上的對應私密金鑰。 在使用 SSH 金鑰進行驗證的 Azure Linux VM 中，Azure 會將 SSHD 伺服器設定為不允許密碼登入，而僅允許以 SSH 金鑰登入。 因此，建立具 SSH 金鑰的 Azure Linux VM，即可協助保護 VM 部署的安全，並免除在 `sshd_config` 檔中停用密碼的標準部署後設定步驟。
 
 如果您不想使用 SSH 金鑰，您可以將 Linux VM 設定為使用密碼驗證。 如果您的 VM 並未公開至網際網路，則使用密碼可能就以足夠。 不過，您仍然需要管理每個 Linux VM 的密碼，以及維護狀況良好的密碼原則和作法，例如最小密碼長度和定期更新。 使用 SSH 金鑰可降低橫跨多個 VM 管理個別認證的複雜度。
 
@@ -148,7 +148,7 @@ cat ~/.ssh/id_rsa.pub
 ssh-rsa XXXXXXXXXXc2EAAAADAXABAAABAXC5Am7+fGZ+5zXBGgXS6GUvmsXCLGc7tX7/rViXk3+eShZzaXnt75gUmT1I2f75zFn2hlAIDGKWf4g12KWcZxy81TniUOTjUsVlwPymXUXxESL/UfJKfbdstBhTOdy5EG9rYWA0K43SJmwPhH28BpoLfXXXXXG+/ilsXXXXXKgRLiJ2W19MzXHp8z3Lxw7r9wx3HaVlP4XiFv9U4hGcp8RMI1MP1nNesFlOBpG4pV2bJRBTXNXeY4l6F8WZ3C4kuf8XxOo08mXaTpvZ3T1841altmNTZCcPkXuMrBjYSJbA8npoXAXNwiivyoe3X2KMXXXXXdXXXXXXXXXXCXXXXX/ azureuser@myserver
 ```
 
-如果您複製公開金鑰檔案的內容，並將其貼到 Azure 入口網站或 Resource Manager 範本中，請確定您並未複製任何額外的空白字元或導入額外的分行符號。 例如，如果您使用 macOS，您可以透過管道將公開金鑰檔案 (預設為 `~/.ssh/id_rsa.pub`) 傳送至 **pbcopy** 以複製內容 (另有其他 Linux 程式可執行相同作業，例如 **xclip**)。
+如果您複製公開金鑰檔案的內容，並將其貼到 Azure 入口網站或 Resource Manager 範本中，請確定您並未複製任何額外的空白字元或導入額外的分行符號。 例如，如果您使用 macOS，則可以透過管道將公開金鑰檔案 (預設為 `~/.ssh/id_rsa.pub`) 傳送至 **pbcopy** 以複製內容 (另有其他 Linux 程式可執行相同作業，例如 `xclip`)。
 
 如果您想要使用多行格式的公開金鑰，您可以從您先前建立的公開金鑰在 pem 容器中產生 RFC4716 格式化金鑰。
 
@@ -169,6 +169,8 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
 如果您在建立金鑰組時提供了複雜密碼，請在登入程序期間出現提示時輸入複雜密碼  (伺服器會新增至 `~/.ssh/known_hosts` 資料夾，而且系統不會要求您重新連線，除非 Azure VM 上的公開金鑰有變更或伺服器名稱已從 `~/.ssh/known_hosts` 中移除)。
+
+如果 VM 使用 Just-In-Time 存取原則，您必須先要求權限，才能連線到 VM。 如需 Just-In-Time 原則的詳細資訊，請參閱[使用 Just-In-Time 原則管理虛擬機器存取](../../security-center/security-center-just-in-time.md)。
 
 ## <a name="use-ssh-agent-to-store-your-private-key-passphrase"></a>使用 ssh-agent 儲存您的私密金鑰複雜密碼
 

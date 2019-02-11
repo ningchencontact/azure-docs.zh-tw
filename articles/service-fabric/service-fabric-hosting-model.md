@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 367f21c63eac3969fb19eada91eae9a8577921de
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 80d9d447a86b58c8d6db5a62d3b0df997e42f673
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348475"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172369"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric 主控模型
 本文提供 Azure Service Fabric 所提供之應用程式主控模型的概觀，並說明**共用處理序**與**專屬處理序**模型之間的差異。 本文說明已部署之應用程式在 Service Fabric 節點上看起來的樣子，以及服務的複本 (或執行個體) 與服務主機處理序之間的關聯性。
@@ -150,7 +150,7 @@ Service Fabric 會將[客體可執行檔][a2]和[容器][a3]應用程式視為�
 
 專屬處理序主控模型與每一 ServicePackage 有多個 ServiceType 的應用程式模型並不相同。 這是因為每一 ServicePackage 多個 ServiceType 的設計是用來提高複本間的資源共用，以及提高每一處理序的複本密度。 專屬處理序模型的設計目的是要實現不同結果。
 
-思考一下每一 ServicePackage 有多個 ServiceType 的案例，其中是由不同的 CodePackage 註冊每個 ServiceType。 假設我們有一個 ServicePackage 'MultiTypeServicePackge'，其中包含兩個 CodePackage：
+思考一下每一 ServicePackage 有多個 ServiceType 的案例，其中是由不同的 CodePackage 註冊每個 ServiceType。 假設我們有一個 ServicePackage 'MultiTypeServicePackage'，其中包含兩個 CodePackage：
 
 - 'MyCodePackageA'，它會註冊 ServiceType 'MyServiceTypeA'。
 - 'MyCodePackageB'，它會註冊 ServiceType 'MyServiceTypeB'。
@@ -160,15 +160,15 @@ Service Fabric 會將[客體可執行檔][a2]和[容器][a3]應用程式視為�
 - 'MyServiceTypeA' 類型的服務 **fabric:/SpecialApp/ServiceA**，此服務有 2 個分割區 (例如 **P1** 和 **P2**) 且每一分割區有 3 個複本。
 - 'MyServiceTypeB' 類型的服務 **fabric:/SpecialApp/ServiceB**，此服務有 2 個分割區 (**P3** 和 **P4**) 且每一分割區有 3 個複本。
 
-在指定的節點上，這兩個服務各有兩個複本。 由於我們已使用專屬處理序模型來建立這些服務，因此 Service Fabric 會為每個複本建立一份新的 'MyServicePackage'。 每個 'MultiTypeServicePackge' 啟用項都會啟動一份 'MyCodePackageA' 和 'MyCodePackageB'。 不過，'MyCodePackageA' 或 'MyCodePackageB' 只有其中之一會裝載作為 'MultiTypeServicePackge' 啟用對象的複本。 下圖顯示節點檢視：
+在指定的節點上，這兩個服務各有兩個複本。 由於我們已使用專屬處理序模型來建立這些服務，因此 Service Fabric 會為每個複本建立一份新的 'MyServicePackage'。 每個 'MultiTypeServicePackage' 啟用項都會啟動一份 'MyCodePackageA' 和 'MyCodePackageB'。 不過，'MyCodePackageA' 或 'MyCodePackageB' 只有其中之一會裝載作為 'MultiTypeServicePackage' 啟用對象的複本。 下圖顯示節點檢視：
 
 
 ![所部署應用程式的節點檢視圖表][node-view-five]
 
 
-在服務 **fabric:/SpecialApp/ServiceA** 分割區 **P1** 之複本的 'MultiTypeServicePackge' 啟用項中，是由 'MyCodePackageA' 裝載複本。 'MyCodePackageB' 則正在執行。 同樣地，在服務 **fabric:/SpecialApp/ServiceB** 分割區 **P3** 之複本的 'MultiTypeServicePackge' 啟用項中，是由 'MyCodePackageB' 裝載複本。 'MyCodePackageB' 則正在執行。 因此，每一 ServicePackage 的 CodePackage (註冊不同的 ServiceType) 數目越多，備援資源的使用量就越高。 
+在服務 **fabric:/SpecialApp/ServiceA** 分割區 **P1** 之複本的 'MultiTypeServicePackage' 啟用項中，是由 'MyCodePackageA' 裝載複本。 'MyCodePackageB' 則正在執行。 同樣地，在服務 **fabric:/SpecialApp/ServiceB** 分割區 **P3** 之複本的 'MultiTypeServicePackage' 啟用項中，是由 'MyCodePackageB' 裝載複本。 'MyCodePackageB' 則正在執行。 因此，每一 ServicePackage 的 CodePackage (註冊不同的 ServiceType) 數目越多，備援資源的使用量就越高。 
  
- 不過，如果我們使用「共用處理序」模型來建立服務 **fabric:/SpecialApp/ServiceA** 和 **fabric:/SpecialApp/ServiceB**，則 Service Fabric 將只會為「應用程式」**fabric:/SpecialApp** 啟用一份 'MultiTypeServicePackge'。 'MyCodePackageA' 裝載服務 **fabric:/SpecialApp/ServiceA** 的所有複本。 'MyCodePackageB' 裝載服務 **fabric:/SpecialApp/ServiceB** 的所有複本。 下圖顯示此設定中的節點檢視： 
+ 不過，如果我們使用「共用處理序」模型來建立服務 **fabric:/SpecialApp/ServiceA** 和 **fabric:/SpecialApp/ServiceB**，則 Service Fabric 將只會為「應用程式」**fabric:/SpecialApp** 啟用一份 'MultiTypeServicePackage'。 'MyCodePackageA' 裝載服務 **fabric:/SpecialApp/ServiceA** 的所有複本。 'MyCodePackageB' 裝載服務 **fabric:/SpecialApp/ServiceB** 的所有複本。 下圖顯示此設定中的節點檢視： 
 
 
 ![所部署應用程式的節點檢視圖表][node-view-six]

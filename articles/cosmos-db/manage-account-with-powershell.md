@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7f58e851ab7783e43cd6235b2169847cbf0ac5a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 80ed88bbc901d2cbcd6bc8104e55de73549744f8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036625"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477823"
 ---
-# <a name="create-and-manage-azure-cosmos-db-resources-by-using-powershell"></a>使用 PowerShell 建立並管理 Azure Cosmos DB 資源
+# <a name="manage-azure-cosmos-resources-using-powershell"></a>使用 PowerShell 管理 Azure Cosmos 資源
 
 下列指南說明使用 Azure Powershell 自動管理 Azure Cosmos DB 資料庫帳戶的命令。 它也包含在[多重區域資料庫帳戶][distribute-data-globally]中管理帳戶金鑰和容錯移轉優先順序的命令。 更新資料庫帳戶可讓您修改一致性原則和新增/移除區域。 如需跨平台管理 Azure Cosmos DB 資料庫帳戶，您可以使用 [Azure CLI](cli-samples.md)、[資源提供者 REST API][rp-rest-api] 或 [Azure 入口網站](create-sql-api-dotnet.md#create-account)。
 

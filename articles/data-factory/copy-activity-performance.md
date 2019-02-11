@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 3096fa77913ef1dd4eb491b3c0e5d7fa236f6c65
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 835ba407fb72a8cb512425e59cf56ba1a1cc8a4b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020877"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301266"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -241,7 +241,17 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 1. **建立基準**。 在開發階段，對具有代表性的資料範例使用複製活動來測試您的管線。 依照[複製活動監視](copy-activity-overview.md#monitoring)的指示收集執行詳細資料和效能特性。
 
-2. **效能診斷與最佳化**。 如果您觀察到的效能不符預期，您必須找出效能瓶頸。 然後將效能最佳化，以消除或減少瓶頸的影響。 效能診斷的完整說明不在本文的討論之列，但以下是一些常見的考量：
+2. **效能診斷與最佳化**。 如果您觀察到的效能不符預期，您必須找出效能瓶頸。 然後將效能最佳化，以消除或減少瓶頸的影響。 
+
+    在某些情況下，當您在 ADF 中執行複製活動，您會在[複製活動監控頁面](copy-activity-overview.md#monitor-visually)上方直接看到「效能調整秘訣」，如下列範例所示。 這不僅告訴您針對指定複製執行所識別的瓶頸，也會引導進行變更以大幅提升複製輸送量。 效能微調秘訣目前提供下列建議：將資料複製到 Azure SQL 資料倉儲時使用 PolyBase、當資料存放區端上的資源為瓶頸時增加 Azure Cosmos DB RU 或 Azure SQL DB DTU、移除不必要的分段複製等等。效能調整規則也會逐漸變豐富。
+
+    **範例：使用效能調整秘訣複製到 Azure SQL DB**
+
+    在此範例中，ADF 會在複製執行期間通知接收端有關 Azure SQL DB 達到高 DTU 使用量，這會使寫入作業變慢，因此建議在 Azure SQL DB 層中增加更多 DTU。 
+
+    ![複製監視和效能微調祕訣](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+    此外，以下是一些常見的考量。 效能診斷的完整說明不在本文的討論之列。
 
    * 效能功能︰
      * [平行複製](#parallel-copy)

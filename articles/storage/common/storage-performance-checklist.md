@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: d627fa1ca52356c43c9a771f612ae6d043299678
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231783"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460823"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure 儲存體效能與延展性檢查清單
 ## <a name="overview"></a>概觀
@@ -147,7 +147,7 @@ Azure 儲存體使用範圍型的資料分割配置，調整和負載平衡系�
 這些技術可協助您避免 Web 應用程式上的不必要負荷 (和瓶頸)。  
 
 #### <a name="useful-resources"></a>有用資源
-如需 SAS 的詳細資訊，請參閱 [共用存取簽章：第 1 部分：了解 SAS 模型](../storage-dotnet-shared-access-signature-part-1.md)。  
+如需關於 SAS 的詳細資訊，請參閱[共用存取簽章，第 1 部分：了解 SAS 模型](../storage-dotnet-shared-access-signature-part-1.md)。  
 
 如需 CORS 的詳細資訊，請參閱 [Azure 儲存體服務的跨原始資源共用 (CORS) 支援](https://msdn.microsoft.com/library/azure/dn535601.aspx)。  
 
@@ -178,7 +178,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 若是其他程式設計語言，請參閱該語言的文件以確定如何設定連線限制。  
 
-如需詳細資訊，請參閱 [Web 服務：並行連線](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx)(Web Services: Concurrent Connections) 部落格文章。  
+如需詳細資訊，請參閱部落格文章 [Web 服務：並行連線](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx)。  
 
 #### <a name="subheading10"></a>如果使用同步程式碼搭配 Async Task，則提高 ThreadPool 的執行緒數量下限
 此程式碼將提高執行緒集合的執行緒數量下限：  
@@ -286,7 +286,7 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。 在指定使用
 #### <a name="subheading25"></a>使用 JSON
 自儲存體服務版本 2013-08-15 開始，資料表服務支援使用 JSON (而非以 XML 為基礎的 AtomPub 格式) 來轉換資料表資料。 這可降低約 75% 的裝載大小，並可大幅提高您的應用程式效能。
 
-如需詳細資訊，請參閱 [Microsoft Azure 資料表：JSON 簡介](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx)和[表格服務作業的裝載格式](https://msdn.microsoft.com/library/azure/dn535600.aspx)。
+如需詳細資訊，請參閱 [Microsoft Azure 資料表：JSON 簡介](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx)和[資料表服務作業的裝載格式](https://msdn.microsoft.com/library/azure/dn535600.aspx)。
 
 #### <a name="subheading26"></a>關閉 Nagle
 在不同的 TCP/IP 網路中已廣泛採用 Nagle 的演算法，來作為提高網路效能的方法。 不過，它並非是所有情況下的最佳作法 (例如高互動式環境)。 在 Azure 儲存體中，Nagle 的演算法對於資料表和佇列服務要求的效能有負面的影響，可以的話您應將它停用。  
@@ -395,7 +395,7 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。 在指定使用
 ### <a name="subheading44"></a>UpdateMessage
 您可以使用 **UpdateMessage** 來增加隱藏逾時，或更新訊息的狀態資訊。 雖然這是個強大的功能，請記住，每個 **UpdateMessage** 作業都會算在延展性目標內。 不過，相較於在工作的每個階段完成時，將工作從一個佇列傳遞到下一個佇列的工作流程，這會更有效率。 使用 **UpdateMessage** 作業可讓應用程式將工作狀態儲存到訊息，然後繼續工作，而不是每次步驟完成時，便重新佇列訊息以進行下個工作步驟。  
 
-如需詳細資訊，請參閱文章 [如何：變更佇列訊息的內容](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message)。  
+如需詳細資訊，請參閱[如何：變更佇列訊息的內容](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message)。  
 
 ### <a name="subheading45"></a>應用程式架構
 您應使用佇列，讓應用程式變得具擴充性。 下列將列出您可以使用佇列，讓應用程式變得較具擴充性的幾個方式：  

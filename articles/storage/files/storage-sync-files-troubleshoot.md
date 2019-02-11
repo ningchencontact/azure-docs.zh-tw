@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/25/2019
 ms.author: jeffpatt
-ms.component: files
-ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.subservice: files
+ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157627"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471397"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -804,24 +804,19 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 下列各節將說明如何針對雲端階層問題進行疑難排解，以及如何判別雲端儲存體問題或伺服器問題。
 
 <a id="monitor-tiering-activity"></a>**如何監視伺服器上的分層活動**  
-若要監視伺服器上的分層活動，請在遙測事件記錄中使用事件識別碼 9002、9003、9016 和 9029 (位於事件檢視器中的 Applications and Services\Microsoft\FileSync\Agent 下)。
-
-- 事件識別碼 9002 會提供伺服器端點的建立映像統計資料。 例如 TotalGhostedFileCount、SpaceReclaimedMB 等。
+若要監視伺服器上的分層活動，請在遙測事件記錄中使用事件識別碼 9003、9016 和 9029 (位於事件檢視器中的 Applications and Services\Microsoft\FileSync\Agent 下)。
 
 - 事件識別碼 9003 會提供伺服器端點的錯誤分布。 例如錯誤總數、錯誤碼等。請注意，系統會為每個錯誤碼記錄一個事件。
-
 - 事件識別碼 9016 會提供磁碟區的建立映像結果。 例如可用空間百分比、在工作階段中建立映像的檔案數目、無法建立映像的檔案數目等。
-
-- 事件識別碼 9029 會提供建立映像工作階段資訊。 例如，在工作階段中嘗試的檔案數目、在工作階段中分層的檔案數目、已分層的檔案數目等。
+- 事件識別碼 9029 會提供伺服器端點的虛像化工作階段資訊。 例如，在工作階段中嘗試的檔案數目、在工作階段中分層的檔案數目、已分層的檔案數目等。
 
 <a id="monitor-recall-activity"></a>**如何監視伺服器上的回收活動**  
-若要監視伺服器上的回收活動，請在遙測事件記錄中使用事件識別碼 9005、9006、9007 (位於事件檢視器中的 Applications and Services\Microsoft\FileSync\Agent 下)。 請注意，這些事件會每小時記錄一次。
+若要監視伺服器上的回收活動，請在遙測事件記錄中使用事件識別碼 9005、9006、9009 和 9059 (位於事件檢視器中的 Applications and Services\Microsoft\FileSync\Agent 下)。
 
 - 事件識別碼 9005 會提供伺服器端點的回收可靠性。 例如，存取的唯一檔案總數、存取失敗的唯一檔案總數等。
-
 - 事件識別碼 9006 會提供伺服器端點的回收錯誤分布。 例如失敗的要求總數、錯誤碼等。請注意，系統會為每個錯誤碼記錄一個事件。
-
-- 事件識別碼 9007 會提供伺服器端點的回收效能。 例如 TotalRecallIOSize、TotalRecallTimeTaken 等。
+- 事件識別碼 9009 會提供伺服器端點的回收工作階段資訊。 例如，DurationSeconds、CountFilesRecallSucceeded、CountFilesRecallFailed 等。
+- 事件識別碼 9059 會提供伺服器端點的應用程式回收分布。 例如，ShareId、應用程式名稱和 TotalEgressNetworkBytes。
 
 <a id="files-fail-tiering"></a>**針對檔案無法分層的問題進行疑難排解**  
 如果無法在 Azure 檔案中將檔案分層：
@@ -858,6 +853,9 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 
 非預期的重新叫用也會在其他情況下發生，例如在 [檔案總管] 中瀏覽檔案時。 在伺服器的 [檔案總管]中開啟包含雲端層檔案的資料夾，可能會導致非預期的重新叫用。 特別是伺服器上已啟用防毒程式時，更容易發生。
 
+> [!NOTE]
+>使用遙測事件記錄中的事件識別碼 9059 來判斷哪些應用程式造成回收。 此事件會提供伺服器端點的應用程式回收分布，且一小時記錄一次。
+
 ## <a name="general-troubleshooting"></a>一般疑難排解
 如果在伺服器上使用 Azure 檔案同步時發生問題，請完成以下步驟開始疑難排解：
 1. 在 [事件檢視器] 中檢閱遙測、作業和診斷事件記錄。
@@ -884,6 +882,7 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 6. 含有記錄和追蹤檔案的 .zip 檔案將會儲存在指定的輸出目錄中。
 
 ## <a name="see-also"></a>另請參閱
+- [監視 Azure 檔案同步](storage-sync-files-monitoring.md)
 - [Azure 檔案服務常見問題集](storage-files-faq.md)
 - [針對 Windows 中的 Azure 檔案服務問題進行疑難排解](storage-troubleshoot-windows-file-connection-problems.md)
 - [針對 Linux 中的 Azure 檔案服務問題進行疑難排解](storage-troubleshoot-linux-file-connection-problems.md)

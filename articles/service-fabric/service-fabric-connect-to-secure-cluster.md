@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2018
+ms.date: 01/29/2019
 ms.author: ryanwi
-ms.openlocfilehash: f2a181fbae8ab1e08669021c42c5b4be08f66172
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4760995d6bcc75bcfb974e4be6d202581828a7e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364806"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694086"
 ---
 # <a name="connect-to-a-secure-cluster"></a>連線到安全的叢集
 
@@ -33,7 +33,13 @@ ms.locfileid: "34364806"
 
 您可以使用 `sfctl cluster select` 命令來連線到叢集。
 
-指定用戶端憑證時，可以使用兩種不同的方式，以憑證與金鑰組方式指定，或是以單一 pem 檔案方式指定。 針對受密碼保護的 `pem` 檔案，系統會自動提示您輸入密碼。
+指定用戶端憑證時，可以使用兩種不同的方式，以憑證與金鑰組方式指定，或是以單一 PFX 檔案方式指定。 針對受密碼保護的 PEM 檔案，系統會自動提示您輸入密碼。 如果您已取得用戶端憑證作為 PFX 檔案，先使用下列命令，將 PFX 檔案轉換為 PEM 檔案。 
+
+```bash
+openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
+```
+
+如果您的 .pfx 檔案未受密碼保護，請針對最後一個參數使用 -passin pass:。
 
 若要以 pem 檔案指定用戶端憑證，請在 `--pem` 引數中指定檔案路徑。 例如︰
 
@@ -168,7 +174,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>使用用戶端憑證連線到安全的叢集
 
-叢集中的節點必須具備有效的憑證，這些憑證在 SAN 中的通用名稱或 DNS 名稱會出現在於 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 上設定的 [RemoteCommonNames](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) 屬性中。 遵循此程序，就可讓用戶端與叢集節點之間進行相互驗證。
+叢集中的節點必須具備有效的憑證，這些憑證在 SAN 中的通用名稱或 DNS 名稱會出現在於 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 上設定的 [RemoteCommonNames](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) 屬性中。 遵循此程序，就可讓用戶端與叢集節點之間進行相互驗證。
 
 ```csharp
 using System.Fabric;
@@ -341,7 +347,7 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
 
 Azure 入口網站的叢集基本資訊窗格中也會提供完整 URL。
 
-如需使用瀏覽器連線到 Windows 或 OS X 上的安全叢集，您可以匯入用戶端憑證，然後瀏覽器將會提示您指定要用於連線到叢集所需的憑證。  在 Linux 機器上，則必須使用進階瀏覽器設定 (每種瀏覽器會有不同的機制) 來匯入憑證，並指向磁碟上的憑證位置。
+如需使用瀏覽器連線到 Windows 或 OS X 上的安全叢集，您可以匯入用戶端憑證，然後瀏覽器將會提示您指定要用於連線到叢集所需的憑證。  在 Linux 機器上，則必須使用進階瀏覽器設定 (每種瀏覽器會有不同的機制) 來匯入憑證，並指向磁碟上的憑證位置。 如需詳細資訊，請參閱[設定用戶端憑證](#connectsecureclustersetupclientcert)。
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>使用 Azure Active Directory 連線到安全的叢集
 
@@ -360,24 +366,28 @@ Azure 入口網站的叢集基本資訊窗格中也會提供完整 URL。
 系統會自動提示您選取用戶端憑證。
 
 <a id="connectsecureclustersetupclientcert"></a>
+
 ## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>設定遠端電腦上的用戶端憑證
+
 至少應使用兩個憑證保護叢集，一個是叢集和伺服器憑證，另一個用於用戶端存取。  建議您也使用額外的次要憑證和用戶端存取憑證。  若要使用憑證安全性來保護用戶端與叢集節點之間的通訊，您必須先取得並安裝用戶端憑證。 此憑證可以安裝到本機電腦或目前使用者的個人 (My) 存放區。  您也需要伺服器憑證的指紋，讓用戶端可以驗證叢集。
 
-請執行下列 PowerShell Cmdlet 以在您存取叢集的電腦上設定用戶端憑證。
+* 在 Windows 上：按兩下 PFX 檔案，並依照提示在您的個人存放區中安裝憑證：`Certificates - Current User\Personal\Certificates`。 或者，您可以使用 PowerShell 命令：
 
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-        -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
 
-如果是自我簽署憑證，您必須先把它匯入您電腦的「受信任的人」存放區，才能使用此憑證來連線到安全的叢集。
+    如果是自我簽署憑證，您必須先把它匯入您電腦的「受信任的人」存放區，才能使用此憑證來連線到安全的叢集。
 
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
--FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
--Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
+    -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+    -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
+
+* 在 Mac 上：按兩下 PFX 檔案，並依照提示在您的 Keychain 中安裝憑證。
 
 ## <a name="next-steps"></a>後續步驟
 

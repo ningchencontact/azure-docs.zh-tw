@@ -1,6 +1,6 @@
 ---
-標題：調整 Machine Learning Studio Web 服務 titleSuffix: Azure Machine Learning Studio description:了解如何藉由新增其他端點來提高 Azure Machine Learning Studio Web 服務的並行。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：調整 Machine Learning Studio Web 服務 titleSuffix:Azure Machine Learning Studio description:了解如何藉由新增其他端點來提高 Azure Machine Learning Studio Web 服務的並行。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date:2017/01/23
 ---

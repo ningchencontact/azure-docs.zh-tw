@@ -2,19 +2,19 @@
 title: 將 Docker 映像推送至私人 Azure 容器登錄
 description: 使用 Docker CLI 推送和提取 Docker 映像至 Azure 中的私人容器登錄
 services: container-registry
-author: stevelas
+author: dlepow
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/29/2017
-ms.author: stevelas
+ms.date: 01/23/2019
+ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 3cbc9f30f180913fefa79f24612e50db75f5c9cd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e4963ebae73bdd81246433fe43206139caa1661c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260577"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295775"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 將您的第一個映像推送至私人 Docker 容器登錄
 
@@ -25,7 +25,7 @@ Azure 容器登錄庫儲存和管理私人 [Docker](http://hub.docker.com) 容�
 ## <a name="prerequisites"></a>必要條件
 
 * **Azure 容器登錄庫** - 在 Azure 訂用帳戶中建立容器登錄庫。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
-* **Docker CLI** - 若要將您的本機電腦設定為 Docker 主機並存取 Docker CLI 命令，請安裝 [Docker](https://docs.docker.com/engine/installation/)。
+* **Docker CLI** - 您也必須在本機上安裝 Docker。 Docker 提供可輕鬆在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系統上設定 Docker 的套件。
 
 ## <a name="log-in-to-a-registry"></a>登入登錄庫
 
@@ -35,13 +35,13 @@ Azure 容器登錄庫儲存和管理私人 [Docker](http://hub.docker.com) 容�
 az acr login --name myregistry
 ```
 
-您也可以使用 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 來登入。 下列範例會傳遞 Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md) 的識別碼和密碼。 例如，您可能已基於自動化案例[指派服務主體](container-registry-authentication.md#service-principal)到您的登錄庫。
+您也可以使用 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 來登入。 例如，您可能已基於自動化案例[指派服務主體](container-registry-authentication.md#service-principal)到您的登錄庫。 當您執行下列命令時，若出現提示，請以互動方式提供服務主體 appID (使用者名稱) 和密碼。 如需管理登入認證的最佳作法，請參閱 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令參考：
 
-```Bash
-docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+```Docker
+docker login myregistry.azurecr.io
 ```
 
-完成後，這兩個命令會傳回 `Login Succeeded`。 如果您使用 `docker login`，也可能會看到安全性警告，建議您使用 `--password-stdin` 參數。 其使用超出本文的範圍時，建議您遵循此最佳做法。 如需詳細資訊，請參閱 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令參考。
+完成後，這兩個命令會傳回 `Login Succeeded`。
 
 > [!TIP]
 > 當您使用 `docker login` 時，以及當您標記要推送到您的登錄庫的映像時，請一定要指定完整登錄庫名稱 (全部小寫)。 在本文的範例中，完整名稱是 myregistry.azurecr.io。
@@ -50,7 +50,7 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 先將公用 Nginx 映像提取至您的本機電腦。
 
-```Bash
+```Docker
 docker pull nginx
 ```
 
@@ -58,7 +58,7 @@ docker pull nginx
 
 執行下列 [docker run](https://docs.docker.com/engine/reference/run/) 命令，在連接埠 8080 上以互動方式 (`-it`) 啟動 Nginx 容器的本機執行個體。 `--rm` 引數會指定當您停止容器時，便將其移除。
 
-```Bash
+```Docker
 docker run -it --rm -p 8080:80 nginx
 ```
 
@@ -74,7 +74,7 @@ docker run -it --rm -p 8080:80 nginx
 
 使用 [docker tag](https://docs.docker.com/engine/reference/commandline/tag/)，就能以登錄庫的完整路徑建立映像的別名。 這個範例會指定 `samples` 命名空間，以避免登錄庫根目錄雜亂。
 
-```Bash
+```Docker
 docker tag nginx myregistry.azurecr.io/samples/nginx
 ```
 
@@ -84,7 +84,7 @@ docker tag nginx myregistry.azurecr.io/samples/nginx
 
 您已使用私人登錄庫的完整路徑標記映像，接下來您可以使用 [docker push](https://docs.docker.com/engine/reference/commandline/push/) 將映像推送到登錄庫：
 
-```Bash
+```Docker
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
@@ -92,7 +92,7 @@ docker push myregistry.azurecr.io/samples/nginx
 
 使用 [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) 命令從登錄庫提取映像：
 
-```Bash
+```Docker
 docker pull myregistry.azurecr.io/samples/nginx
 ```
 
@@ -100,7 +100,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 
 使用 [docker run](https://docs.docker.com/engine/reference/run/) 命令從登錄庫執行您所提取的映像：
 
-```Bash
+```Docker
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
@@ -112,7 +112,7 @@ docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 
 如果您不再需要該 Nginx 映像，您可以使用 [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) 命令在本機上將其刪除。
 
-```Bash
+```Docker
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
@@ -124,7 +124,7 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ## <a name="next-steps"></a>後續步驟
 
-現在您已瞭解基本概念了，可以開始使用您的登錄庫！ 將登錄的容器映像部署至：
+現在您已瞭解基本概念了，可以開始使用您的登錄庫！ 例如，將登錄中的容器映像部署至：
 
 * [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure 容器執行個體](../container-instances/container-instances-tutorial-prepare-app.md)

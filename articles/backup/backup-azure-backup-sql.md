@@ -2,18 +2,18 @@
 title: 使用 DPM 進行 SQL Server 工作負載的 Azure 備份
 description: 使用 Azure 備份服務來備份 SQL Server 資料庫的簡介
 services: backup
-author: adigan
-manager: Nkolli
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: 232885398c996d0c744ac55b6c6967fd398eec0b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: d7d94c7b238f8d413d8837c3c34468c6cd653fe3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945649"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300688"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>將 SQL Server 備份至 Azure 做為 DPM 工作負載
 本文將引導您完成使用 Azure 備份來備份 SQL Server 資料庫的設定步驟。
@@ -68,7 +68,7 @@ ms.locfileid: "49945649"
 
     ![初始複寫方法](./media/backup-azure-backup-sql/pg-manual.png)
 
-    初始備份複本要求將整個資料來源 (SQL Server 資料庫) 從生產伺服器 (SQL Server 電腦) 傳輸到 DPM 伺服器。 這些資料可能會很大，因此透過網路傳輸資料可能會超出頻寬。 基於這個理由，系統管理員可以選擇傳送初始備份的方式︰**手動** (使用卸除式媒體，可避免頻寬壅塞) 或**自動透過網路** (在指定時間)。
+    初始備份複本要求將整個資料來源 (SQL Server 資料庫) 從生產伺服器 (SQL Server 電腦) 傳輸到 DPM 伺服器。 這些資料可能會很大，因此透過網路傳輸資料可能會超出頻寬。 基於這個理由，系統管理員可以選擇傳送初始備份的方式︰[手動] (使用卸除式媒體) 可避免頻寬壅塞，也可選擇 [自動透過網路] 在指定時間傳輸。
 
     一旦完成初始備份，其餘的備份會是初始備份複本的增量備份。 增量備份通常都非常小，因此有利於透過網路傳輸。
 10. 選擇是否想要執行一致性檢查，然後按一下 [下一步] 。
@@ -90,7 +90,7 @@ ms.locfileid: "49945649"
     >
     >
 
-    **最佳作法**︰請確定 Azure 備份已排在使用 DPM 完成本機磁碟備份之後。 這可讓您將最新的磁碟備份複製到 Azure。
+    **最佳做法**：請確定 Azure 備份已排在使用 DPM 完成本機磁碟備份之後。 這可讓您將最新的磁碟備份複製到 Azure。
 
 13. 選擇保留原則排程。 如需保留原則運作方式的詳細資訊，請參閱 [使用 Azure 備份來取代您的磁帶基礎結構](backup-azure-backup-cloud-as-tape.md)一文。
 

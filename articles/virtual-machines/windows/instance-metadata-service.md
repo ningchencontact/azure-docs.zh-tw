@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 17826bb250f1cc7c4d512f76400eeb43c2637c73
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: b88f1ff84cc26e1db88027a55b506fd37476aae5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994788"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197682"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -427,7 +427,7 @@ route print
 ```
 
 > [!NOTE] 
-> 為了簡單起見，已啟用容錯移轉叢集之 Windows Server VM 的以下範例輸出僅包含 IPv4 路由表。
+> 為了簡單起見，下列來自 Windows Server VM (已啟用容錯移轉叢集) 的輸出範例僅包含 IPv4 路由表。
 
 ```bat
 IPv4 Route Table

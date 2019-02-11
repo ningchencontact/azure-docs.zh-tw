@@ -2,20 +2,20 @@
 title: 使用 Azure Machine Learning 分析資料 | Microsoft Docs
 description: 使用 Azure Machine Learning，根據 Azure 資料倉儲中儲存的資料建置預測性機器學習模型。
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 4324b1ac343a0e2b77c21d7834beffae08403953
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 8a33d733f4737bf19e7baad6d80d8fa72999268f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247521"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477653"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>使用 Azure Machine Learning 分析資料
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ ms.locfileid: "43247521"
 
 1. 登入 [Azure Machine Learning Studio][Azure Machine Learning studio] 並按一下我的實驗。
 2. 按一下 [+ 新增] 並選取 [空白實驗]。
-3. 輸入您的實驗名稱：目標行銷。
+3. 輸入您的實驗名稱：精準行銷。
 4. 將 [讀取器]  模組從模組窗格拖曳到畫布上。
 5. 在 [屬性] 窗格中指定 SQL 資料倉儲資料庫的詳細資料。
 6. 指定資料庫 **查詢** 以利讀取感興趣的資料。
@@ -91,8 +91,8 @@ FROM [dbo].[vTargetMail]
    ![將資料分成訓練集和測試集][6]
 3. 將 [二元促進式決策樹]  模組拖曳至畫布。
 4. 將 [培訓模型]  模組拖曳至畫布並指定輸入。 然後，按一下 [屬性] 窗格中的 [啟動資料行選取器]  。
-   * 第一個輸入：ML 演算法。
-   * 第二個輸入：用來將演算法定型的資料。
+   * 第一項輸入：ML 演算法。
+   * 第二項輸入：用來將演算法定型的資料。
      ![連接培訓模型模組][7]
 5. 選取 **BikeBuyer** 資料行做為要預測的資料行。
    ![選取要預測的資料行][8]
@@ -101,7 +101,7 @@ FROM [dbo].[vTargetMail]
 現在，我們將測試模型如何在測試資料上執行。 我們將會比較我們選擇的演算法和不同的演算法，以查看何者的執行效果比較好。
 
 1. 將 [分數模型]  拖曳至畫布。
-    第一個輸入：定型模型，第二個輸入：測試資料 ![評分模型][9]
+    第一項輸入：定型模型 第二項輸入：測試資料 ![模型評分][9]
 2. 將 [二元貝氏點機器]  拖曳至實驗畫布。 我們將會比較這個演算法和二元促進式決策樹的執行效果。
 3. 複製定型模型和分數模型等模組並貼在畫布上。
 4. 將 [評估模型]  模組拖曳至畫布以比較兩個演算法。

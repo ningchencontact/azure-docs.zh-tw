@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.component: disks
-ms.openlocfilehash: 5e2a485630b7e3c9cc5977170d7e7e7eeb3e6ff5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: disks
+ms.openlocfilehash: 4aefc8c033383125a803eb0c8a38e2f3de119540
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474212"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467905"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>將 Azure VM 移轉至 Azure 中的受控磁碟
 
@@ -37,7 +37,7 @@ Azure 受控磁碟可免除個別管理儲存體帳戶的需求，進而簡化�
 | 移轉...                                            | 文件連結                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 將獨立 VM 和可用性設定組中的 VM 轉換成受控磁碟   | [將 VM 轉換成使用受控磁碟](convert-unmanaged-to-managed-disks.md) |
-| 將單一 VM 由受控磁碟上的傳統部署移轉到 Resource Manager 部署     | [移轉單一 VM](migrate-single-classic-to-resource-manager.md)  | 
+| 將單一 VM 由受控磁碟上的傳統部署移轉到 Resource Manager 部署     | [從傳統 VHD 建立 VM](create-vm-specialized-portal.md)  | 
 | 將 vNet 中的所有 VM 由受控磁碟上的傳統部署移轉到 Resource Manager 部署     | [將 IaaS 資源從傳統部署移轉至 Resource Manager 部署](migration-classic-resource-manager-ps.md)，然後[將 VM 從非受控磁碟轉換為受控磁碟](convert-unmanaged-to-managed-disks.md) | 
 
 

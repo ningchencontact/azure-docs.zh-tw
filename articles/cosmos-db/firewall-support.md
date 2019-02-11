@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 2bb3665f0d0ab15f212741a6ce032fcd7ac2620d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 7cc8e46c841b6e385d1a3b442fdb63d465486af8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358108"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477721"
 ---
-# <a name="ip-firewall-for-azure-cosmos-accounts"></a>Azure Cosmos 帳戶的 IP 防火牆
+# <a name="ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB 的 IP 防火牆
 
 為了保護您帳戶中所儲存的資料，Azure Cosmos DB 支援利用強式雜湊式訊息驗證碼 (HMAC) 的祕密型授權模型。 此外，Azure Cosmos DB 支援 IP 型存取控制，以提供輸入防火牆支援。 此模型與傳統資料庫系統的防火牆規則相類似，並可為您的帳戶提供額外的安全性層級。 有了防火牆，您可以設定只能從一組核准的電腦和 (或) 雲端服務存取 Azure Cosmos 帳戶。 經由這些核准的電腦和服務組合來存取 Azure Cosmos 資料庫中儲存的資料，仍然需要呼叫者出示有效的授權權杖。
 

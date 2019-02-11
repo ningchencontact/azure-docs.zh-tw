@@ -1,6 +1,6 @@
 ---
-標題：Azure AI 資源庫 titleSuffix: Azure Machine Learning Studio 說明：共用及探索 Azure AI 資源庫中的分析資源等內容。 了解其他人並且自己貢獻社群。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：Azure AI 資源庫 titleSuffix:Azure Machine Learning Studio 說明：共用及探索 Azure AI 資源庫中的分析資源等內容。 了解其他人並且自己貢獻社群。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:01/11/2019
 ---

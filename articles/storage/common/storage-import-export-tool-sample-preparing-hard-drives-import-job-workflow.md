@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: b21c378d58590e33c7b6aeffe627ce5602074fa2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: de2cfbf2b4119daf965c95d8973b8528799c9502
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524615"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454620"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>針對匯入作業準備硬碟的範例工作流程
 
@@ -70,9 +70,9 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 
 除此之外，您可以針對所有檔案設定下列中繼資料：
 
-* **UploadMethod：** Windows Azure Import/Export service
-* **DataSetName:** SampleData
-* **CreationDate:** 10/1/2013
+* **UploadMethod：** Windows Azure 匯入/匯出服務
+* **DataSetName：** SampleData
+* **CreationDate：** 10/1/2013
 
 若要針對匯入檔案設定中繼資料，請建立具有下列內容的文字檔 (`c:\WAImportExport\SampleMetadata.txt`)：
 
@@ -88,7 +88,7 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 您也可以設定 `FavoriteMovie.ISO` Blob 的部分屬性：
 
 * **Content-Type:** application/octet-stream
-* **Content-MD5:** Q2hlY2sgSW50ZWdyaXR5IQ==
+* **Content-MD5：** Q2hlY2sgSW50ZWdyaXR5IQ==
 * **Cache-Control:** no-cache
 
 若要設定這些屬性，請建立文字檔 (`c:\WAImportExport\SampleProperties.txt`)：

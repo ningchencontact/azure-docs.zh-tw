@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 990f300055f7c0c7132dd44271dea73044649fc5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 1d67f981991796b81ba3ab6540631e6d62be8077
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306993"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092111"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>安全框架︰稽核和記錄 | 緩和措施 
 | 產品/服務 | 文章 |
@@ -196,7 +196,7 @@ ms.locfileid: "43306993"
 
 ### <a name="example"></a>範例
 以下 WCF 組態檔的 `<behavior/>` 元素會指示 WCF 不要在 WCF 無法寫入稽核記錄檔時通知應用程式。
-````
+```
 <behaviors>
     <serviceBehaviors>
         <behavior name="NewBehavior">
@@ -207,7 +207,7 @@ ms.locfileid: "43306993"
         </behavior>
     </serviceBehaviors>
 </behaviors>
-````
+```
 將 WCF 設定成在無法寫入稽核記錄檔時通知程式。 程式應備妥替代的通知方案，以警示組織並未維護稽線索。 
 
 ## <a id="logging-web-api"></a>確保在 Web API 上強制執行稽核和記錄功能

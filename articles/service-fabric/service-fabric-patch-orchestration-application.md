@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 7b19aa42c669fec5872e210351ecec22360ef24e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427928"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155301"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Windows 作業系統
 
@@ -143,9 +143,6 @@ POA 是一種 Azure Service Fabric 應用程式，可在 Service Fabric 叢集�
 
 Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://aka.ms/POA/POA.sfpkg)下載。 這對於 [Azure Resource Manager 型應用程式部署](service-fabric-application-arm-resource.md)非常有用。
 
-> [!IMPORTANT]
-> 已知 v1.3.0 (最新版) 的修補程式協調流程應用程式在 Windows Server 2012 上執行時會發生問題。 如果您執行的是 Windows Server 2012，請[在此](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip)下載 v1.2.2 的應用程式。 SFPkg 連結[在此](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg)。
-
 ## <a name="configure-the-app"></a>設定應用程式
 
 您可以設定修補程式協調流程應用程式的行為以符合您的需求。 在應用程式建立或更新期間傳入應用程式參數，將預設值加以覆寫。 在 `Start-ServiceFabricApplicationUpgrade` 或 `New-ServiceFabricApplication` Cmdlet 中指定 `ApplicationParameter`，即可提供應用程式參數。
@@ -156,7 +153,7 @@ Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://aka.ms/POA/POA.sfpkg
 |TaskApprovalPolicy   |例舉 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy 會指出協調器服務在 Service Fabric 叢集節點中用來安裝 Windows 更新的原則。<br>                         允許的值包括： <br>                                                           <b>NodeWise</b>。 一次只會在一個節點上安裝 Windows Update。 <br>                                                           <b>UpgradeDomainWise</b>。 一次只會在一個升級網域上安裝 Windows Update。 (最多，屬於升級網域的所有節點都可以進行 Windows Update。)<br> 請參閱[常見問題集](#frequently-asked-questions)一節，以了解如何決定最適合您叢集的原則。
 |LogsDiskQuotaInMB   |long  <br> (預設值：1024)               |修補程式協調流程應用程式記錄的大小上限 (以 MB 為單位)，可在節點上本機保留。
 | WUQuery               | 字串<br>(預設值："IsInstalled=0")                | 用以取得 Windows 更新的查詢。 如需詳細資訊，請參閱 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)。
-| InstallWindowsOSOnlyUpdates | BOOLEAN <br> (預設值：True)                 | 使用此旗標可控制所應下載並安裝的更新。 允許下列值 <br>true - 只安裝 Windows 作業系統的更新。<br>false - 在電腦上安裝所有可用的更新。          |
+| InstallWindowsOSOnlyUpdates | BOOLEAN <br> (預設值：False)                 | 使用此旗標可控制所應下載並安裝的更新。 允許下列值 <br>true - 只安裝 Windows 作業系統的更新。<br>false - 在電腦上安裝所有可用的更新。          |
 | WUOperationTimeOutInMinutes | int <br>(預設值：90)                   | 指定任何 Windows Update 作業的逾時 (搜尋或下載或安裝)。 如果作業未在指定的逾時內完成，它就會中止。       |
 | WURescheduleCount     | int <br> (預設值：5)                  | 如果作業持續失敗，服務會將 Windows Update 重新排程的次數上限。          |
 | WURescheduleTimeInMinutes | int <br>(預設值：30) | 如果作業持續失敗，服務會將 Windows Update 重新排程的時間間隔。 |
@@ -295,7 +292,7 @@ A. 在安裝程序期間，修補程式協調流程應用程式會停用或重�
 
 Windows Update 安裝結束時，在重新啟動前會重新啟用節點。
 
-在下列範例中，因為兩個節點關閉，且違反 MaxPercentageUnhealthNodes 原則，叢集會暫時進入錯誤狀態。 錯誤是暫時性的，直到修補作業進行中為止。
+在下列範例中，因為兩個節點關閉，且違反 MaxPercentageUnhealthyNodes 原則，叢集會暫時進入錯誤狀態。 錯誤是暫時性的，直到修補作業進行中為止。
 
 ![健康情況不良之叢集的圖片](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 
@@ -411,3 +408,8 @@ A. 否，修補協調流程應用程式無法用來修補單一節點的叢集�
 - 現在，將 InstallWindowsOSOnlyUpdates 設定為 false 便會安裝所有可用的更新。
 - 已變更停用自動更新的邏輯。 這會修正 Server 2016 和以上版本未停用自動更新的錯誤。
 - 已針對進階使用案例將 POA 兩個微服務的放置條件約束參數化。
+
+### <a name="version-131"></a>1.3.1 版
+- 修正 POA 1.3.0 在 Windows Server 2012 R2 或較低版本上因為停用自動更新失敗而無法運作的迴歸。 
+- 修正 InstallWindowsOSOnlyUpdates 組態一律挑選為 True 的錯誤 (bug)。
+- 將 InstallWindowsOSOnlyUpdates 的預設值變更為 False。

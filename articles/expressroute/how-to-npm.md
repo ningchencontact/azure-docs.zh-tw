@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: e72c2ceaedd23f4e3ee2006930302321498eb736
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 93fd42739e0ec8ca9230688274b31fac5edf216d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104725"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098573"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>設定 ExpressRoute 的網路效能監控
 
@@ -38,7 +38,7 @@ ms.locfileid: "53104725"
 監視代理程式安裝在內部部署和 Azure 中的多部伺服器上。 這些代理程式會彼此互相通訊但不會傳送資料，而是會傳送 TCP 交握封包。 代理程式之間的通訊可讓 Azure 對應流量可採用的網路拓撲和路徑。
 
 1. 建立 NPM 工作區。 這與 Log Analytics 工作區相同。
-2. 安裝並設定軟體代理程式： 
+2. 安裝並設定軟體代理程式。 (如果您只想透過 Microsoft 對等互連監視，則不需要安裝及設定軟體代理程式)。 
     * 在內部部署伺服器和 Azure VM 上安裝監視代理程式 (適用於私人對等互連)。
     * 設定監視代理程式伺服器上的設定，以允許監視代理程式進行通訊。 (開啟防火牆連接埠等)。
 3. 設定網路安全性群組 (NSG) 規則，以允許安裝在 Azure VM 上的監視代理程式與內部部署監視代理程式進行通訊。

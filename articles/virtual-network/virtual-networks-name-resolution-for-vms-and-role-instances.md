@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 4a4a4c6a37e3c52054d7bc773ef04bf057709fdd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e63db9dd5dcd48e19c75608c39c4c0b62db24527
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025091"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221193"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 虛擬網路中的資源名稱解析
 
@@ -157,7 +157,7 @@ DNS 轉送也會實現虛擬網路之間的 DNS 解析，並使內部部署電�
 
 如有需要，您可以使用 PowerShell 或 API 來判斷內部 DNS 尾碼︰
 
-* 針對 Azure Resource Manager 部署模型中的虛擬網路，您可以透過[網路介面 REST API](/rest/api/virtualnetwork/networkinterfaces/get)、[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) PowerShell Cmdlet 以及 [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI 命令來取得尾碼。
+* 針對 Azure Resource Manager 部署模型中的虛擬網路，您可以透過[網路介面 REST API](/rest/api/virtualnetwork/networkinterfaces)、[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) PowerShell Cmdlet 以及 [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI 命令來取得尾碼。
 * 在傳統部署模型中，可以透過[取得部署 API](https://msdn.microsoft.com/library/azure/ee460804.aspx) 呼叫或 [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure/get-azurevm) Cmdlet 來取得尾碼。
 
 如果將查詢轉送到 Azure 不符合您的需求，您應提供專屬的 DNS 解決方案。 您的 DNS 解決方案需要：
@@ -195,6 +195,11 @@ DNS 轉送也會實現虛擬網路之間的 DNS 解析，並使內部部署電�
 > 
 
 當您使用 Azure Resource Manager 部署模型時，您可以針對虛擬網路和網路介面指定 DNS 伺服器。 如需詳細資訊，請參閱[管理虛擬網路](manage-virtual-network.md)和[管理網路介面](virtual-network-network-interface.md)。
+
+> [!NOTE]
+> 如果您選擇使用虛擬網路的自訂 DNS 伺服器，則必須指定至少一個 DNS 伺服器 IP 位址；否則，虛擬網路會忽略組態並改為使用 Azure 提供的 DNS。
+> 
+> 
 
 當您使用傳統部署模型時，可以在 Azure 入口網站或[網路組態檔](https://msdn.microsoft.com/library/azure/jj157100)中指定虛擬網路的 DNS 伺服器。 針對雲端服務，您可以透過[服務組態檔](https://msdn.microsoft.com/library/azure/ee758710)或使用 PowerShell ([New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm)) 指定 DNS 伺服器。
 

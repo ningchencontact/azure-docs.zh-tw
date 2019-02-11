@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning Studio
 description: 可列印的機器學習演算法小密技可協助您在 Azure Machine Learning Studio 中選擇適合您預測模型的演算法。
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 69b085faf10b9e22618fa248460d269bd2efdb73
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f445f13d3c2d63e8942864458064658d237aa763
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264303"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245936"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的機器學習演算法小祕技
 
@@ -48,7 +48,7 @@ ms.locfileid: "54264303"
 
   * 在**未監督的學習**中，資料點沒有與其相關聯的標籤。 然而，未經指導的學習演算法的目標在於以某種方式組織資料或描述其結構。 這可能表示將資料劃分為叢集 (如 K-Means 所為)，或尋找各種查看複雜資料的方式，使其變得更簡單。
 
-  * 在**增強式學習**中，演算法需要選擇一個動作來回應每個資料點。 這是在機器人領域中的常見方法，其中在某個時間點的感應器讀數集就是一個資料點，而演算法必須選擇機器人的下一個動作。 它也很適合用於物聯網 (Internet of Things) 應用程式。 此學習演算法也會在短時間內收到獎勵訊號，指出決策的好壞程度。 演算法會據此修改其策略，以達到最高的獎勵。 Azure ML 中目前沒有增強式學習演算法模組。
+  * 在**增強式學習**中，演算法需要選擇一個動作來回應每個資料點。 這是在機器人領域中的常見方法，其中在某個時間點的感應器讀數集就是一個資料點，而演算法必須選擇機器人的下一個動作。 它也很適合用於物聯網 (Internet of Things) 應用程式。 此學習演算法也會在短時間內收到獎勵訊號，指出決策的好壞程度。 演算法會據此修改其策略，以達到最高的獎勵。 Azure Machine Learning Studio 中目前沒有增強式學習演算法模組。
 
 * **貝氏法**可進行統計上獨立的資料點假設。 這表示在一個資料點中的非模型化變異不會與其他資料點相關，也就是，無法加以預測。 例如，如果要記錄的資料是下一班地鐵到達前的分鐘數，則相隔一天取得的兩個測量值屬於統計獨立。 不過，相隔一分鐘取得的兩個測量值則不屬於統計獨立 - 其中一個值可高度預測另一個值。
 

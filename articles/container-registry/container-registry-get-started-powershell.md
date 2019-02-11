@@ -23,7 +23,7 @@ Azure Container Registry 是受控的私用 Docker 容器登錄服務，用於�
 
 本快速入門需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來判斷您安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
 
-您也必須在本機上安裝 Docker。 Docker 提供 [macOS][docker-mac][Windows][docker-windows] 及 [Linux][docker-linux] 系統適用的封裝。
+您也必須在本機上安裝 Docker。 Docker 提供 [macOS][docker-mac], [Windows][docker-windows] 及 [Linux][docker-linux] 系統適用的封裝。
 
 由於 Azure Cloud Shell 未包含所有必要的 Docker 元件 (`dockerd` 精靈)，因此您無法使用本快速入門中的 Cloud Shell。
 

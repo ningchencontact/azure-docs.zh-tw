@@ -8,13 +8,13 @@ ms.topic: article
 ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.component: blobs
-ms.openlocfilehash: 6e33f700e9f453f419bf431d772d3db27e806ac0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: blobs
+ms.openlocfilehash: 9c5f32bb1b4f335fab11f0fd865421f2eec5eee9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240693"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244907"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>共用存取簽章，第 2 部分：透過 Blob 儲存體來建立與使用 SAS
 
@@ -28,11 +28,11 @@ ms.locfileid: "51240693"
 ## <a name="about-this-tutorial"></a>關於本教學課程
 在本教學課程中，我們會建立兩個主控台應用程式，以示範如何為容器和 Blob 建立及使用共用存取簽章：
 
-**應用程式 1**︰管理應用程式。 為容器和 Blob 產生共用存取簽章。 在原始程式碼中包含儲存體帳戶存取金鑰。
+**應用程式 1**：管理應用程式。 為容器和 Blob 產生共用存取簽章。 在原始程式碼中包含儲存體帳戶存取金鑰。
 
-**應用程式 2**︰用戶端應用程式。 使用第一個應用程式所建立的共用存取簽章，來存取容器及 Blob 資源。 僅使用共用存取簽章來存取容器及 Blob 資源--它「不會」包含儲存體帳戶存取金鑰。
+**應用程式 2**：用戶端應用程式。 使用第一個應用程式所建立的共用存取簽章，來存取容器及 Blob 資源。 僅使用共用存取簽章來存取容器及 Blob 資源--它「不會」包含儲存體帳戶存取金鑰。
 
-## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>第 1 部份：建立主控台應用程式以產生共用存取簽章
+## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>第 1 部分：建立主控台應用程式以產生共用存取簽章
 首先，請確定您已安裝 Azure Storage Client Library for .NET。 您可以安裝含有最新用戶端程式庫組件的 [NuGet 套件](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 套件")。 建議您這麼做，以確保您會擁有最新的修正程式。 您也可以在最新版 [Azure SDK for .NET](https://azure.microsoft.com/downloads/)中一起下載用戶端程式庫。
 
 在 Visual Studio 中，建立新的 Windows 主控台應用程式，並將它命名為 **GenerateSharedAccessSignatures**。 使用下列其中一種方法，新增對 [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 及 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 的參照：
@@ -337,7 +337,7 @@ Container SAS URI using stored access policy: https://storagesample.blob.core.wi
 Blob SAS URI using stored access policy: https://storagesample.blob.core.windows.net/sascontainer/sasblobpolicy.txt?sv=2016-05-31&sr=b&si=tutorialpolicy&sig=%2FkTWkT23SS45%2FoF4bK2mqXkN%2BPKs%2FyHuzkfQ4GFoZVU%3D
 ```
 
-## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>第 2 部份：建立主控台應用程式以測試共用存取簽章
+## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>第 2 部分：建立主控台應用程式以測試共用存取簽章
 為了測試前面範例中建立的共用存取簽章，我們會建立第二個主控台應用程式，使用簽章以在容器和 Blob 上執行操作。
 
 > [!NOTE]

@@ -1,6 +1,6 @@
 ---
-標題：建立 Web 服務端點 titleSuffix: Azure Machine Learning Studio description:在 Azure Machine Learning 中建立 Web 服務端點。 Web 服務的每個端點都是個別定址、節流以及管理。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：建立 Web 服務端點 titleSuffix:Azure Machine Learning Studio description:在 Azure Machine Learning 中建立 Web 服務端點。 Web 服務的每個端點都是個別定址、節流以及管理。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:2016/10/04
 ---

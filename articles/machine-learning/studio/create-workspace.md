@@ -1,6 +1,6 @@
 ---
-標題：建立工作區 titleSuffix: Azure Machine Learning Studio description:若要使用 Azure Machine Learning Studio，您必須具有 Machine Learning Studio 工作區。 此工作區包含您建立、管理及發行實驗所需的工具。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：建立工作區 titleSuffix:Azure Machine Learning Studio description:若要使用 Azure Machine Learning Studio，您必須具有 Machine Learning Studio 工作區。 此工作區包含您建立、管理及發行實驗所需的工具。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:2017/12/07
 ---

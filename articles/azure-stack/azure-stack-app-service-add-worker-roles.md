@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: f4a3cd7d09c18506a85317db7a360b8de3a9630b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.lastreviewed: 06/08/2018
+ms.openlocfilehash: 26981d50239ddd7da79919291f2accd8b8ed4fc0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077015"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241929"
 ---
-# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service on Azure Stack：新增更多基礎結構或背景工作角色
+# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure Stack 上的 App Service：新增更多基礎結構或背景工作角色
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*  
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*  
 
 此文件提供如何調整 App Service on Azure Stack 基礎結構和背景工作角色的相關指示。 其中包含建立額外的背景工作角色以支援任何規模之應用程式的步驟。
 

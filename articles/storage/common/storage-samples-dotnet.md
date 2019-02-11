@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 663df77a7fb574f05cfaa9378dff53ca5db21c49
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: c4dcb3f42d97624e66258228ce27e130a05cac70
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526104"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456131"
 ---
 # <a name="azure-storage-samples-using-net"></a>使用 .NET 的 Azure 儲存體範例
 
@@ -211,4 +211,4 @@ ms.locfileid: "39526104"
 如需其他語言的範例相關資訊︰
 
 * Java：[使用 Java 的 Azure 儲存體範例](storage-samples-java.md)
-* 所有其他語言︰[Azure 儲存體範例](../storage-samples.md)
+* 所有其他語言：[Azure 儲存體範例](../storage-samples.md)

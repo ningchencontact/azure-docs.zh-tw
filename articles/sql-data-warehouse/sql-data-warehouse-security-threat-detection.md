@@ -2,20 +2,20 @@
 title: 威脅偵測 - Azure SQL 資料倉儲 | Microsoft Docs
 description: 設定威脅偵測，並探索 Azure SQL 資料倉儲中的可疑事件。
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ff23235e9681301984e13e346b23f277662bb5c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2f07699b49b7791894d1f183b0686161375ea17a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300929"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295412"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的威脅偵測
 設定威脅偵測，並探索 Azure SQL 資料倉儲中的可疑事件。

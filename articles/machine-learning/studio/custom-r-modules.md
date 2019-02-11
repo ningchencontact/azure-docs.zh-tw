@@ -1,5 +1,5 @@
 ---
-標題：定義自訂 R 模組 titleSuffix: Azure Machine Learning Studio description:本主題描述如何在 Azure Machine Learning 中撰寫及部署自訂 R 模組。 它說明什麼是自訂 R 模組，以及使用哪些檔案定義這些模組； services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：定義自訂 R 模組 titleSuffix:Azure Machine Learning Studio description:本主題描述如何在 Azure Machine Learning 中撰寫及部署自訂 R 模組。 它說明什麼是自訂 R 模組，以及使用哪些檔案定義這些模組； services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:2017/11/29
 ---

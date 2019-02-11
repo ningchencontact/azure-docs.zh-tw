@@ -9,13 +9,13 @@ ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.component: disks
-ms.openlocfilehash: 5c7a136149bac2fb5b6368bf891e5d8021e12bdd
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.subservice: disks
+ms.openlocfilehash: 6b5605a8e3a80d597a4a4a78d015fa556c282357
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715347"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465719"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 移轉到進階儲存體
 
@@ -80,10 +80,10 @@ Site Recovery 支援數種類型的容錯移轉，且停機時間最短或甚至
 2. 選取 [建立群組] > [管理] > [備份] 和 [Site Recovery (OMS)]。 或者，您也可以選取 [瀏覽] > [復原服務保存庫] > [加入]。 
 3. 指定 VM 將複寫到的地區。 若要在相同區域中移轉，請選取來源 VM 和來源儲存體帳戶所在的區域。 
 
-### <a name="step-2-choose-your-protection-goals"></a>步驟 2︰選擇您的保護目標 
+### <a name="step-2-choose-your-protection-goals"></a>步驟 2：選擇您的保護目標 
 
 1. 在您要安裝組態伺服器的 VM 上，開啟 [Azure 入口網站](https://portal.azure.com)。
-2. 前往 [復原服務保存庫] > [設定] > [Site Recovery] > [步驟 1︰準備基礎結構] > [保護目標]。
+2. 移至 [復原服務保存庫] > [設定] > [Site Recovery] > [步驟 1：準備基礎結構] > [保護目標]。
 
    ![瀏覽至 [保護目標] 窗格][2]
 
@@ -124,7 +124,7 @@ Site Recovery 支援數種類型的容錯移轉，且停機時間最短或甚至
 
       ![[保存庫註冊] 索引標籤][9]
 
-### <a name="step-4-set-up-the-target-environment"></a>步驟 4︰設定目標環境
+### <a name="step-4-set-up-the-target-environment"></a>步驟 4：設定目標環境
 
 選取 [準備基礎結構] > [目標]，然後指定您要在容錯移轉後用於 VM 的部署模型。 視您的案例而定，您可以選擇 [傳統] 或 [Resource Manager]。
 
@@ -139,7 +139,7 @@ Site Recovery 會檢查您是否有一或多個相容的 Azure 儲存體帳戶�
 
 若要確認組態伺服器已順利與您所建立的複寫原則相關聯，請遵循[設定複寫設定](../../site-recovery/vmware-walkthrough-overview.md)。
 
-### <a name="step-6-plan-capacity"></a>步驟 6：規劃產能
+### <a name="step-6-plan-capacity"></a>步驟 6：規劃容量
 
 1. 使用 [Capacity Planner](../../site-recovery/site-recovery-capacity-planner.md) 準確地估計網路頻寬、儲存體和其他需求，以符合複寫的需求。 
 2. 當您完成時，在 [是否已完成容量規劃？] 中選取 [是，已完成]。
@@ -196,8 +196,8 @@ Site Recovery 會建立類型與可支援進階儲存體之 VM 相同或類似�
 ## <a name="post-migration-steps"></a>移轉後步驟
 
 1. **在情況允許時將複寫的 VM 設定至可用性設定組**。 Site Recovery 不支援移轉 VM 以及可用性設定組。 根據複寫 VM 的部署，執行下列其中一項︰
-   * 透過傳統部署模型建立的 VM︰在 Azure 入口網站中將 VM 新增至可用性設定組。 如需詳細步驟，請移至[將現有虛擬機器加入至可用性設定組](../linux/classic/configure-availability-classic.md)。
-   * 對於透過 Resource Manager 部署模型建立的 VM︰儲存 VM 的組態，然後在可用性設定組中刪除再重新建立 VM。 若要這樣做，請使用[設定 Azure Resource Manager VM 可用性設定組](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)中的指令碼。 執行此指令碼之前，請先檢查其限制並規劃您的停機時間。
+   * 對於透過傳統部署模型建立的 VM：在 Azure 入口網站中將 VM 新增至可用性設定組。 如需詳細步驟，請移至[將現有虛擬機器加入至可用性設定組](../linux/classic/configure-availability-classic.md)。
+   * 對於透過 Resource Manager 部署模型建立的 VM：儲存 VM 的組態，然後在可用性設定組中刪除再重新建立 VM。 若要這樣做，請使用[設定 Azure Resource Manager VM 可用性設定組](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)中的指令碼。 執行此指令碼之前，請先檢查其限制並規劃您的停機時間。
 
 2. **刪除舊 VM 和磁碟**。 請確定進階磁碟與來源磁碟一致，而且新的 VM 執行的是與來源 VM 相同的函式。 在 Azure 入口網站中，從來源儲存體帳戶刪除 VM 和磁碟。 如果有即使已刪除 VM，其中的磁碟卻未刪除的問題，請參閱[針對儲存體資源刪除錯誤進行疑難排解](storage-resource-deletion-errors.md)。
 

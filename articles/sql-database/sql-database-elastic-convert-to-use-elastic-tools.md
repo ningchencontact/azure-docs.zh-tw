@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 03e1974a91a8c3cceacab777e28e8e4a01ccb313
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/25/2019
+ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251588"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455587"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>將現有的資料庫移轉到相應放大的資料庫
 使用 Azure SQL Database 資料庫工具 (例如 [彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md))，輕鬆地管理現有相應放大的分區化資料庫。 請先轉換現有的資料庫，才能使用[分區對應管理員](sql-database-elastic-scale-shard-map-management.md)。 
@@ -69,11 +69,11 @@ ms.locfileid: "51251588"
 
 ![清單對應][1]
 
-多租用戶模型會將數個租用戶指派給單一資料庫 (而且您可以跨多個資料庫散發租用戶的群組)。 預期每個租用戶有小型資料需求時，請使用此模型。 在此模型中，使用**範圍對應**將某範圍的租用戶指派給資料庫。 
+多租用戶模型會將數個租用戶指派給個別資料庫 (而且您可以跨多個資料庫散發租用戶的群組)。 預期每個租用戶有小型資料需求時，請使用此模型。 在此模型中，使用**範圍對應**將某範圍的租用戶指派給資料庫。 
 
 ![範圍對應][2]
 
-或者，您可以使用「清單對應」  來實作多租用戶資料庫模型，以將多個租用戶指派給單一資料庫。 例如，DB1 是用來儲存租用戶 ID 1 和 5 的相關資訊，而 DB2 是用來儲存租用戶 7 和租用戶 10 的資料。 
+或者，您可以使用「清單對應」 實作多租用戶資料庫模型，以將多個租用戶指派給個別資料庫。 例如，DB1 是用來儲存租用戶 ID 1 和 5 的相關資訊，而 DB2 是用來儲存租用戶 7 和租用戶 10 的資料。 
 
 ![單一資料庫上的多個租用戶][3] 
 
@@ -98,10 +98,10 @@ ms.locfileid: "51251588"
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-a-single-database"></a>選項 3︰單一資料庫上的清單對應
+### <a name="option-3-list-mappings-on-an-individual-database"></a>選項 3：列出個別資料庫上的對應
 設定此模式也需要建立清單對應，如步驟 2，選項 1 所示。
 
-## <a name="step-3-prepare-individual-shards"></a>步驟 3︰準備個別分區
+## <a name="step-3-prepare-individual-shards"></a>步驟 3：準備個別分區
 將每個分區 (資料庫) 新增至分區對應管理員。 這會準備個別資料庫以儲存對應資訊。 在每個分區上執行此方法。
 
     Add-Shard 
@@ -111,7 +111,7 @@ ms.locfileid: "51251588"
     # The $ShardMap is the shard map created in step 2.
 
 
-## <a name="step-4-add-mappings"></a>步驟 4︰新增對應
+## <a name="step-4-add-mappings"></a>步驟 4：新增對應
 新增對應取決於您所建立的分區對應種類。 如果已建立清單對應，則會新增清單對應。 如果已建立範圍對應，則會新增範圍對應。
 
 ### <a name="option-1-map-the-data-for-a-list-mapping"></a>選項 1︰對應清單對應的資料
@@ -138,7 +138,7 @@ ms.locfileid: "51251588"
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>步驟 4 選項 3︰對應單一資料庫上多個租用戶的資料
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>步驟 4 選項 3︰對應個別資料庫上多個租用戶的資料
 對於每個租用戶，執行 Add-ListMapping (選項 1)。 
 
 ## <a name="checking-the-mappings"></a>檢查對應
@@ -154,7 +154,7 @@ ms.locfileid: "51251588"
 ## <a name="next-steps"></a>後續步驟
 從 [Azure SQL DB 彈性資料庫工具指令碼](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)取得 PowerShell 指令碼。
 
-這些工具也會在 GitHub 上︰ [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools)。
+這些工具也會在 GitHub 上︰[Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools)。
 
 使用分割合併工具，在多租用戶模型與單一租用戶模型之間來回移動資料。 請參閱 [分割合併工具](sql-database-elastic-scale-get-started.md)。
 

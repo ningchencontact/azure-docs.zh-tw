@@ -7,21 +7,21 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 235b72393801717bb5d7258d6492dc4c943fe232
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: d4105aab80add8556bcbe79c9c6e8dd7743b25b7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852298"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298733"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中開始使用自訂原則
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[自訂原則](active-directory-b2c-overview-custom.md)是定義 Azure Active Directory (Azure AD) B2C 租用戶行為的設定檔。 在此文章中，您會建立自訂原則，使用電子郵件地址與密碼來支援本機帳戶註冊或登入。 您也會準備環境以新增識別提供者，例如 Facebook 或 Azure Active Directory。
+[自訂原則](active-directory-b2c-overview-custom.md)是定義 Azure Active Directory (Azure AD) B2C 租用戶行為的設定檔。 在此文章中，您會建立自訂原則，使用電子郵件地址與密碼來支援本機帳戶註冊或登入。 您也會準備環境以新增識別提供者。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -31,9 +31,6 @@ ms.locfileid: "54852298"
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。 
-
-    ![切換為您的 Azure AD B2C 租用戶](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
-
 3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
 4. 在 [概觀] 頁面上，選取 [識別體驗架構 - 預覽]。
 
@@ -72,7 +69,7 @@ Azure AD B2C 會要求您註冊兩個用來註冊和登入使用者的應用程�
 
 ### <a name="register-the-identityexperienceframework-application"></a>註冊 IdentityExperienceFramework 應用程式
 
-1. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure Active Directory]，然後選取 [應用程式註冊]。
+1. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [應用程式註冊]。
 2. 選取 [新增應用程式註冊]。
 3. 針對 [名稱] 輸入 `IdentityExperienceFramework`。
 4. 針對 [應用程式類型] 選擇 [Web 應用程式/API]。
@@ -105,8 +102,8 @@ Azure AD B2C 會要求您註冊兩個用來註冊和登入使用者的應用程�
 每個入門套件均包含：
 
 - 基底檔案。 需要對基底做一些修改。
-* 擴充檔案。  大部分的設定變更都在這個檔案中完成。
-* 信賴憑證者檔案。 工作特有的檔案，由應用程式所呼叫。
+- 擴充檔案。  大部分的設定變更都在這個檔案中完成。
+- 信賴憑證者檔案。 工作特有的檔案，由應用程式所呼叫。
 
 >[!NOTE]
 >如果 XML 編輯器支援驗證，請根據入門套件根目錄中的 TrustFrameworkPolicy_0.3.0.0.xsd XML 結構描述來驗證檔案。 在上載之前，XML 結構描述驗證會識別錯誤。
@@ -117,17 +114,14 @@ Azure AD B2C 會要求您註冊兩個用來註冊和登入使用者的應用程�
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. 在 SocialAndLocalAccounts 資料夾中，透過使用您的租用戶名稱取代 `yourtenant.onmicrosoft.com` 以編輯所有檔案。 例如： `contosoTenant.onmicrosoft.com`。 如果您需要 XML 編輯器，請[試用 Visual Studio 程式碼](https://code.visualstudio.com/download)，這是一個輕巧的跨平台編輯器。
+2. 在 SocialAndLocalAccounts 資料夾中，透過使用您的租用戶名稱取代 `yourtenant` 以編輯所有檔案。 例如： `contosoTenant.onmicrosoft.com`。 如果您需要 XML 編輯器，請[試用 Visual Studio 程式碼](https://code.visualstudio.com/download)，這是一個輕巧的跨平台編輯器。
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>將應用程式識別碼新增至自訂原則
 
 將應用程式識別碼新增至擴充檔案 *TrustFrameworkExtensions.xml*。
 
 1. 開啟 *TrustFrameworkExtensions.xml* 檔案，並尋找 `<TechnicalProfile Id="login-NonInteractive">` 元素。
-2. 以您稍早建立之身分識別體驗架構應用程式的應用程式識別碼，取代 `IdentityExperienceFrameworkAppId` 的兩個執行個體。 以您稍早建立之 Proxy 識別體驗架構應用程式的應用程式識別碼，取代 `ProxyIdentityExperienceFrameworkAppId` 的兩個執行個體。 下列範例顯示變更之後的 **login-NonInteractive** 技術設定檔：
-
-    ![應用程式識別碼](./media/active-directory-b2c-get-started-custom/login-NonInteractive.png)
-
+2. 以您稍早建立之身分識別體驗架構應用程式的應用程式識別碼，取代 `IdentityExperienceFrameworkAppId` 的兩個執行個體。 以您稍早建立之 Proxy 識別體驗架構應用程式的應用程式識別碼，取代 `ProxyIdentityExperienceFrameworkAppId` 的兩個執行個體。
 3. 儲存擴充檔案。
 
 ## <a name="upload-the-policies"></a>上傳原則

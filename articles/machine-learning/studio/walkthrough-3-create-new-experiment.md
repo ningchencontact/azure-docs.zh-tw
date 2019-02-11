@@ -1,6 +1,6 @@
 ---
-標題：「步驟 3：建立新的 Machine Learning Studio 實驗」標題字尾： Azure Machine Learning Studio 說明：「開發預測性解決方案逐步解說的步驟 3：在 Azure Machine Learning Studio 中建立新的定型實驗。」
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：「步驟 3：建立新的 Machine Learning Studio 實驗」標題字尾：Azure Machine Learning Studio 說明：「開發預測性解決方案逐步解說的步驟 3：在 Azure Machine Learning Studio 中建立新的定型實驗。」
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:03/23/2017
 ---

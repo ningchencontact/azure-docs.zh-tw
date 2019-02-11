@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 36c94a035c7585d655f4482239de70cd2e1a5cc6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e7d08ec0d25e7666acb510c4bae5533975b21039
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014126"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296538"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
 
@@ -155,7 +155,10 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 ![監視活動回合](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-按一下 [動作] 下方的「詳細資料」連結，可查看複製活動的執行詳細資料及效能特性。 其中顯示的資訊包括從來源複製到接收端的資料量/資料列/檔案、輸送量、複製活動在對應期間內經歷的步驟，以及您的複製案例所使用的組態。
+按一下 [動作] 下方的「詳細資料」連結，可查看複製活動的執行詳細資料及效能特性。 其中顯示的資訊包括從來源複製到接收端的資料量/資料列/檔案、輸送量、複製活動在對應期間內經歷的步驟，以及您的複製案例所使用的組態。 
+
+>[!TIP]
+>在某些情況下，您也會在複製監視頁面上方看到「效能微調秘訣」 ，這會告訴您已識別的瓶頸並引導您進行變更，以大幅提升複製輸送量，請參閱[此處](#performance-and-tuning)的範例詳細資料。
 
 **範例：從 Amazon S3 複製到 Azure Data Lake Store**
 ![監視活動執行詳細資料](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -232,6 +235,14 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 ## <a name="performance-and-tuning"></a>效能和微調
 
 請參閱 [複製活動的效能及微調指南](copy-activity-performance.md)，其中說明在 Azure Data Factory 中會影響資料移動 (複製活動) 效能的重要因素。 它也列出在內部測試期間所觀察到的效能，並討論各種可將「複製活動」效能最佳化的方式。
+
+在某些情況下，當您在 ADF 中執行複製活動，您會在[複製活動監控頁面](#monitor-visually)上方直接看到「效能調整秘訣」，如下列範例所示。 這不僅告訴您針對指定複製執行所識別的瓶頸，也會引導進行變更以大幅提升複製輸送量。 效能微調秘訣目前提供下列建議：將資料複製到 Azure SQL 資料倉儲時使用 PolyBase、當資料存放區端上的資源為瓶頸時增加 Azure Cosmos DB RU 或 Azure SQL DB DTU、移除不必要的分段複製等等。效能調整規則也會逐漸變豐富。
+
+**範例：使用效能調整秘訣複製到 Azure SQL DB**
+
+在此範例中，ADF 會在複製執行期間通知接收端有關 Azure SQL DB 達到高 DTU 使用量，這會使寫入作業變慢，因此建議在 Azure SQL DB 層中增加更多 DTU。 
+
+![複製監視和效能微調祕訣](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>增量複製 
 Data Factory 支援以累加方式將差異資料從來源資料存放區複製到目的地資料存放區的案例。 請參閱[教學課程：以累加方式複製資料](tutorial-incremental-copy-overview.md)。 

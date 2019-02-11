@@ -1,6 +1,6 @@
 ---
-標題：使用 API 管理來管理 Machine Learning Studio Web 服務 titleSuffix: Azure Machine Learning Studio 說明：示範如何使用 API 管理來管理 AzureML Web 服務的指南 藉由定義使用者存取、使用節流設定和儀表板監視來管理 REST API 端點。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：使用 API 管理來管理 Machine Learning Studio Web 服務 titleSuffix:Azure Machine Learning Studio 說明：示範如何使用 API 管理來管理 AzureML Web 服務的指南 藉由定義使用者存取、使用節流設定和儀表板監視來管理 REST API 端點。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:11/03/2017
 ---

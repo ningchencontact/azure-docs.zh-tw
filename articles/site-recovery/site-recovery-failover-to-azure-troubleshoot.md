@@ -1,26 +1,22 @@
 ---
 title: 針對容錯移轉至 Azure 失敗進行疑難排解 | Microsoft Docs
 description: 本文說明如何針對容錯移轉至 Azure 的常見錯誤進行疑難排解
-services: site-recovery
-documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/11/2018
+ms.date: 1/29/2019
 ms.author: mayg
-ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255086"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207491"
 ---
-# <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>針對將虛擬機器容錯移轉至 Azure 時的錯誤進行疑難排解
+# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>針對將 VMware VM 或實體機器容錯移轉至 Azure 時的錯誤進行疑難排解
 
 將虛擬機器容錯移轉至 Azure 時，您可能會收到下列錯誤。 若要進行疑難排解，請使用針對每種錯誤狀況所述的步驟。
 
@@ -48,7 +44,9 @@ Site Recovery 無法在 Azure 中建立已容錯移轉的傳統虛擬機器。 �
 
 Site Recovery 無法在 Azure 中建立已容錯移轉的虛擬機器。 這可能是因為內部部署虛擬機器的序列化內部活動失敗所造成。
 
-若要在 Azure 中顯示任何機器，Azure 環境需要某些驅動程式處於開機啟動狀態，以及 DHCP 等服務處於自動啟動狀態。 因此，序列化活動會在容錯移轉時，將 **atapi、intelide、storflt、vmbus 和 storvsc 驅動程式**的啟動類型轉換為開機啟動。 它也會將 DHCP 等一些服務的啟動類型轉換為自動啟動。 此活動可能會因為環境特定問題而失敗。 若要手動變更驅動程式的啟動類型，請依照下列步驟進行：
+若要在 Azure 中顯示任何機器，Azure 環境需要某些驅動程式處於開機啟動狀態，以及 DHCP 等服務處於自動啟動狀態。 因此，序列化活動會在容錯移轉時，將 **atapi、intelide、storflt、vmbus 和 storvsc 驅動程式**的啟動類型轉換為開機啟動。 它也會將 DHCP 等一些服務的啟動類型轉換為自動啟動。 此活動可能會因為環境特定問題而失敗。 
+
+若要手動變更 [Windows 客體 OS] 驅動程式的啟動類型，請依照下列步驟進行：
 
 1. [下載](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) no-hydration 指令碼，並如下所示執行。 此指令碼會檢查 VM 是否需要序列化。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: 0f4bb3f32b264bd894341a8776d48eb9f8b061a2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d8b78e42dc5909e6c80f100c9337880b1ad2d9e6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258726"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168408"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>將現有可執行檔封裝和部署至 Service Fabric
 在封裝現有可執行檔作為[來賓可執行檔](service-fabric-guest-executables-introduction.md)時，您可以選擇使用 Visual Studio 專案範本，或是[手動建立應用程式套件](#manually)。 使用 Visual Studio 時，就可讓 [新增專案範本] 為您建立應用程式套件的結構和資訊清單檔案。
@@ -143,7 +143,7 @@ CodePackage 元素指定服務程式碼的位置 (和版本)。
 
 `Name` 元素用來在包含服務程式碼的應用程式套件中指定目錄的名稱。 `CodePackage` 也有 `version` 屬性。 這可用來指定程式碼的版本，而在 Service Fabric 中利用應用程式生命週期管理基礎結構，也可能用來升級服務的程式碼。
 
-#### <a name="optional-update-setupentrypoint"></a>選擇性︰更新 SetupEntrypoint
+#### <a name="optional-update-setupentrypoint"></a>選用：更新 SetupEntryPoint
 ```xml
 <SetupEntryPoint>
    <ExeHost>
@@ -302,4 +302,4 @@ Service Fabric 服務可以各種「組態」部署。 例如，它可部署為�
 * [封裝和部署來賓可執行檔的範例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)，包括封裝工具預先發行版本的連結
 * [兩個客體可執行檔 (C# 和 nodejs) 使用 REST 透過命名服務進行通訊的範例](https://github.com/Azure-Samples/service-fabric-containers)
 * [部署多個來賓可執行檔](service-fabric-deploy-multiple-apps.md)
-* [使用 Visual Studio 建立第一個 Service Fabric 應用程式](service-fabric-create-your-first-application-in-visual-studio.md)
+* [使用 Visual Studio 建立第一個 Service Fabric 應用程式](service-fabric-tutorial-create-dotnet-app.md)

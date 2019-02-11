@@ -11,21 +11,23 @@ author: dalechen
 ms.author: daleche
 ms.reviewer: jrasnik
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 5610679756e91637ac4713059a510bebb882ca7a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: d278fd6ed06b58db052154e632e565de36853e77
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600551"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464886"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>針對 Azure SQL Database 連線問題進行疑難排解
+
 連線到 Azure SQL Database 失敗時，您會收到 [錯誤訊息](sql-database-develop-error-messages.md)。 本文是集中式主題，可協助您針對 Azure SQL Database 連線問題進行疑難排解。 本文除了介紹連線問題的[常見原因](#cause)，還推薦可協助您識別問題的[疑難排解工具](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)，以及提供疑難排解步驟來解決[暫時性錯誤](#troubleshoot-transient-errors)和[持續性或非暫時性錯誤](#troubleshoot-persistent-errors)。 
 
 如果您遇到連線問題，請嘗試本文中所述的疑難排解步驟。
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="cause"></a>原因
+
 連線問題可能由下列任何一個原因所造成：
 
 * 在設計應用程式的過程中，無法套用最佳作法和設計指南。  請參閱 [SQL Database 開發概觀](sql-database-develop-overview.md) 以便開始使用。
@@ -41,6 +43,7 @@ ms.locfileid: "53600551"
 * [持續性或非暫時性錯誤 (定期重複發生的錯誤)](#troubleshoot-persistent-errors)
 
 ## <a name="try-the-troubleshooter-for-azure-sql-database-connectivity-issues"></a>嘗試使用 Azure SQL Database 連線問題疑難排解工具
+
 如果您遇到特定的連線錯誤，請嘗試使用 [此工具](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database)，此工具可協助您快速識別並解決您的問題。
 
 ## <a name="troubleshoot-transient-errors"></a>針對暫時性錯誤進行疑難排解
@@ -56,13 +59,13 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 > 
 > 
 
-當移動 (或重新設定) Azure 資料庫時會發生此錯誤，而且您的應用程式會失去與 SQL Database 的連接。 SQL Database 重新設定事件由於規劃的事件 (例如，軟體升級) 或未規劃的事件 (例如，處理序損毀或負載平衡) 而發生。 大部分的重新設定事件通常只是短期的，至多應在不到 60 秒的時間完成。 不過，這些事件可能偶爾會需要更長時間才能完成，例如當大型交易導致長時間執行的復原時。
+移動 (或重新設定) 資料庫時會發生此錯誤，而且您的應用程式會失去與資料庫的連線。 資料庫重新設定事件由於規劃的事件 (例如，軟體升級) 或未規劃的事件 (例如，處理序損毀或負載平衡) 而發生。 大部分的重新設定事件通常只是短期的，至多應在不到 60 秒的時間完成。 不過，這些事件可能偶爾會需要更長時間才能完成，例如當大型交易導致長時間執行的復原時。
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>解決暫時性連線問題的步驟
 
 1. 檢查 [Microsoft Azure 服務儀表板](https://azure.microsoft.com/status) ，以取得應用程式報告錯誤期間發生的任何已知中斷。
 2. 連接到雲端服務的應用程式 (例如 Azure SQL Database) 應該預期定期的重新設定事件，並實作應用程式重試邏輯來處理這些錯誤，而不是將這些錯誤當做應用程式錯誤呈現給使用者。 如需詳細資訊和一般重試策略，請檢閱[暫時性錯誤](sql-database-connectivity-issues.md)一節以及 [SQL Database 開發概觀](sql-database-develop-overview.md)的最佳作法和設計指南。 如需詳細資訊，請接著參閱 [適用於 SQL Database 和 SQL Server 的連線庫](sql-database-libraries.md) 的程式碼範例 。
-3. 由於資料庫接近其資源限制，因此似乎是暫時性連線問題。 請參閱[資源限制](sql-database-resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached)。
+3. 由於資料庫接近其資源限制，因此似乎是暫時性連線問題。 請參閱[資源限制](sql-database-resource-limits-database-server.md#what-happens-when-database-resource-limits-are-reached)。
 4. 如果連線問題繼續發生，或如果您的應用程式發生錯誤的持續時間超過 60 秒，或如果您在一天當中，看到錯誤多次發生，請在 [Azure 支援](https://azure.microsoft.com/support/options)網站上選取 [取得支援]，來提出 Azure 支援要求。
 
 ## <a name="troubleshoot-persistent-errors"></a>針對持續性錯誤進行疑難排解

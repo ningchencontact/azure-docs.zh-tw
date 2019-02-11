@@ -1,6 +1,6 @@
 ---
-標題：在 Machine Learning Studio 中管理實驗逐一查看 titleSuffix: Azure Machine Learning Studio 說明：如何在 Azure Machine Learning Studio 中管理實驗反覆項目。 您可以隨時檢閱先前的實驗執行，以挑戰、重新瀏覽及最終確認或調整先前的假設。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：在 Machine Learning Studio 中管理實驗逐一查看 titleSuffix:Azure Machine Learning Studio 說明：如何在 Azure Machine Learning Studio 中管理實驗反覆項目。 您可以隨時檢閱先前的實驗執行，以挑戰、重新瀏覽及最終確認或調整先前的假設。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:03/20/2017
 ---

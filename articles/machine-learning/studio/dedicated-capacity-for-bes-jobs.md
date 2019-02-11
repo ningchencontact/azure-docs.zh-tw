@@ -1,6 +1,6 @@
 ---
-標題：適用於 Machine Learning Studio 作業的 Azure Batch 服務 titleSuffix: Azure Machine Learning Studio description:適用於 Machine Learning 作業的 Azure Batch 服務概觀。 批次集區處理可讓您建立集區，以便提交批次作業。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：適用於 Machine Learning Studio 作業的 Azure Batch 服務 titleSuffix:Azure Machine Learning Studio description:適用於 Machine Learning 作業的 Azure Batch 服務概觀。 批次集區處理可讓您建立集區，以便提交批次作業。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-title='批次執行服務作業的專用容量 - Azure Machine Learning Studio | Microsoft Docs' ms.date:2017/04/19
 ---

@@ -6,16 +6,16 @@ author: sachinpMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: aa1d98f5ea2db0cc549b60e33769c8628181721b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 131a2102ec3ede930de3cad7516e486d793fec3d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686597"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250550"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL 資料倉儲容量限制
 Azure SQL 資料倉儲各種元件的最大允許值。
@@ -69,7 +69,7 @@ Azure SQL 資料倉儲各種元件的最大允許值。
 | SELECT |每個 JOIN 的資料行 |1024 個資料行<br/><br/>JOIN 中一律不超過 1024 個資料行。 不保證一定可以有 1024 個。 如果 JOIN 計畫需要比 JOIN 結果更多資料行的暫存資料表，暫存資料表會受限於 1024 的限制。 |
 | SELECT |每個 GROUP BY 資料行的位元組。 |8060<br/><br/>GROUP BY 子句中的資料行最多可以有 8060 個位元組。 |
 | SELECT |每個 ORDER BY 資料行的位元組 |8060 個位元組<br/><br/>ORDER BY 子句中的資料行最多可以有 8060 個位元組 |
-| 每個陳述式的識別項 |參考的識別項個數 |65,535<br/><br/>SQL 資料倉儲會限制查詢的單一運算式中可包含的識別項個數。 超過此數字會導致 SQL Server 錯誤 8632。 如需詳細資訊，請參閱 [內部錯誤：到達運算式服務的限制](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a)。 |
+| 每個陳述式的識別項 |參考的識別項個數 |65,535<br/><br/>SQL 資料倉儲會限制查詢的單一運算式中可包含的識別項個數。 超過此數字會導致 SQL Server 錯誤 8632。 如需詳細資訊，請參閱[內部錯誤：到達運算式服務的限制](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a)。 |
 | 字串常值 | 陳述式中的字串常值數目 | 20,000 <br/><br/>SQL 資料倉儲會限制查詢的單一運算式中字串常數個數。 超過此數字會導致 SQL Server 錯誤 8632。|
 
 ## <a name="metadata"></a>中繼資料

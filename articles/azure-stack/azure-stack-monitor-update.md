@@ -13,16 +13,17 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: 4641dce6fe8518016ee85cd480de6d11354fe170
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 09d3d996e4c939d6691162d66f303536a3f2038d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037206"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239259"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>使用具有特殊權限的端點來監視 Azure Stack 中的更新
 
-「適用於：Azure Stack 整合系統」
+*適用於：Azure Stack 整合式系統*
 
 您可以使用[具有特殊權限的端點](azure-stack-privileged-endpoint.md)來監視 Azure Stack 更新執行的進度，以及在 Azure Stack 入口網站應變成無法使用時，從上一個成功的步驟繼續進行失敗的更新執行。  建議使用 Azure Stack 入口網站在 Azure Stack 中管理更新。
 
@@ -35,7 +36,7 @@ ms.locfileid: "51037206"
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>確認 Cmdlet 可供使用
-因為 Cmdlet 是適用於 Azure Stack 之 1710 更新程式封裝中的新功能，所以 1710 更新程序需要先到達某個點，才能使用監視功能。 一般而言，如果系統管理員入口網站中的狀態表示 1710 更新位於**重新啟動儲存體主機**步驟中，則可使用 Cmdlet。 具體來說，Cmdlet 更新會在**步驟：正在執行步驟 2.6 - 更新 PrivilegedEndpoint 白名單**期間發生。
+因為 Cmdlet 是適用於 Azure Stack 之 1710 更新程式封裝中的新功能，所以 1710 更新程序需要先到達某個點，才能使用監視功能。 一般而言，如果系統管理員入口網站中的狀態表示 1710 更新位於**重新啟動儲存體主機**步驟中，則可使用 Cmdlet。 具體來說，Cmdlet 更新會在**步驟：正在執行步驟 2.6 - 更新 PrivilegedEndpoint 允許清單**期間發生。
 
 您也可以藉由從具有特殊權限的端點查詢命令清單，來判斷 Cmdlet 是否可以程式設計方式使用。 若要這樣做，請從硬體生命週期主機或特殊權限存取工作站執行下列命令。 此外，確定具有特殊權限的端點是信任的主機。 如需詳細資訊，請參閱[存取具有特殊權限的端點](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的步驟 1。 
 

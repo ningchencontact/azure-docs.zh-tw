@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ac5b3bec9915574dd33d40ae2dcbc5aa3c91280a
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: df3f4dc163f94ddab08ecdad7f8d4cc625b8917d
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332161"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300263"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
 ## <a name="overview"></a>概觀
@@ -545,7 +545,7 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 * 使用下列任一種方法來更新接聽程式：
   * 使 Always On 群組離線，並使用新的 ILB / ELB IP 位址來更新 Always On 接聽程式。
   * 或者，透過 PowerShell，將新雲端服務 ILB/ELB 的 IP 位址資源新增到 Windows 叢集。 接著，將 IP 位資源的 [可能的擁有者] 設為移轉的節點 SQL2，並在 [網路名稱] 中將此設為  OR 相依性。 請參閱 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
-* 檢查連到用戶端的 DNS 設定/傳播。
+* 檢查連到用戶端的 DNS 組態/傳播。
 * 移轉 SQL1 VM，然後執行步驟 2 - 4。
 * 如果使用步驟 5ii，則新增 SQL1 做為新增 IP 位址資源的 [可能的擁有者]
 * 測試容錯移轉。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 391fc493d642c260a10b74aa42b805ad055dd8b1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044572"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164549"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 生命週期概觀
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ ms.locfileid: "39044572"
 3. `StatefulServiceBase.OnCloseAsync()` 完成之後，就解構服務物件。
 
 ## <a name="stateful-service-primary-swaps"></a>具狀態服務主要複本互換
-當具狀態服務執行時，只有此具狀態服務的「主要」複本會開啟通訊接聽程式和呼叫 **RunAsync** 方法。 建構次要複本，但看不到進一步的呼叫。 當具狀態服務執行時，哪個複本目前是「主要」可能會改變。 就複本可見的生命週期事件來說，這代表什麼？ 具狀態複本所看到的行為，取決於它在互換期間是降級或升級的複本。
+當具狀態服務執行時，只有此具狀態服務的「主要」複本會開啟通訊接聽程式和呼叫 **RunAsync** 方法。 建構次要複本，但看不到進一步的呼叫。 當具狀態服務正在執行時，目前的主要複本可能因為錯誤或叢集平衡最佳化而變更。 就複本可見的生命週期事件來說，這代表什麼？ 具狀態複本所看到的行為，取決於它在互換期間是降級或升級的複本。
 
 ### <a name="for-the-primary-thats-demoted"></a>降級的主要複本
 針對降級的主要複本，Service Fabric 需要此複本停止處理訊息並結束它正在進行的任何背景工作。 因此，這個步驟類似於服務關閉時的情形。 差別在於服務仍為「次要」，並不會解構或關閉。 呼叫下列 API：

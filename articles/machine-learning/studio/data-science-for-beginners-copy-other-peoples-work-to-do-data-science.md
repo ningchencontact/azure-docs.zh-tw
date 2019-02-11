@@ -1,6 +1,6 @@
 ---
-標題：複製其他人的資料科學範例 titleSuffix： Azure Machine Learning Studio description:'資料科學的商業機密：讓其他人為您工作。 從 Azure AI 資源庫取得機器學習服務範例。'
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：複製其他人的資料科學範例 titleSuffix：Azure Machine Learning Studio description:'資料科學的商業機密：讓其他人為您工作。 從 Azure AI 資源庫取得機器學習服務範例。'
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date:2018/01/05
 ---

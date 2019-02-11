@@ -6,25 +6,26 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: fiseraci
+ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: d81478e6bdaf4a1844d01278b961350c81b2edd6
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 7dff82538448b27f14dd81e2862cd63d4dd56a9b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087724"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247097"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 資料中心整合 - Syslog 轉送
 
-本文說明如何使用 Syslog 將 Azure Stack 基礎結構與您資料中心內已經部署的外部安全性解決方案整合。 例如，「安全性資訊與事件管理」(SIEM) 系統。 Syslog 通道會公開來自 Azure Stack 基礎結構之所有元件的稽核、警示及安全性記錄。 請使用 Syslog 轉送來與安全性監視解決方案整合和/或擷取所有稽核、警示及安全性記錄，來儲存它們以供保留。 
+本文說明如何使用 Syslog 將 Azure Stack 基礎結構與您資料中心內已經部署的外部安全性解決方案整合。 例如，「安全性資訊與事件管理」(SIEM) 系統。 Syslog 通道會公開來自 Azure Stack 基礎結構之所有元件的稽核、警示及安全性記錄。 請使用 Syslog 轉送來與安全性監視解決方案整合和/或擷取所有稽核、警示及安全性記錄，來儲存它們以供保留。
 
 從 1809 更新開始，Azure Stack 便具有一個整合式 Syslog 用戶端，此用戶端在設定之後，就會發出 Syslog 訊息，訊息所含的承載會採用「常見事件格式」(CEF)。
 
 下圖說明 Azure Stack 與現有外部 SIEM 的整合。 需要考量的整合模式有兩個：第一個 (以藍色表示) 是包含基礎結構虛擬機器和 Hyper-V 節點的 Azure Stack 基礎結構。 來自這些元件的所有稽核、安全性記錄及警示都會透過含 CEF 承載的 syslog 集中收集及公開。 此整合模式在此文件頁面中說明。
-第二個整合模式是以橘色表示，涵蓋基礎板管理控制器 (BMC)、硬體生命週期主機 (HLH)、執行硬體夥伴監視的虛擬機器及/或虛擬設備和管理軟體，以及機架頂端 (TOR) 交換器。 因為這些元件為硬體夥伴專用，請聯繫您的硬體夥伴，以取得如何將其與外部 SIEM 整合的文件。
+第二個整合模式是以橘色表示，涵蓋基礎板管理控制器 (BMC)、硬體生命週期主機 (HLH)、執行硬體夥伴監視的虛擬機器及/或虛擬設備和管理軟體，以及機架頂端 (TOR) 交換器。 因為這些元件為硬體夥伴專用，請連絡您的硬體夥伴，以取得如何將其與外部 SIEM 整合的文件。
 
 ![Syslog 轉送圖](media/azure-stack-integrate-security/syslog-forwarding.png)
 
@@ -32,13 +33,13 @@ ms.locfileid: "50087724"
 
 Azure Stack 中的 Syslog 用戶端支援下列設定：
 
-1. **使用相互驗證 (用戶端與伺服器) 和 TLS 1.2 加密的 Syslog over TCP：** 在此設定中，Syslog 伺服器與 Syslog 用戶端都可透過憑證驗證彼此的身分識別。 傳送訊息時，會透過 TLS 1.2 加密通道進行傳送。
+1. **使用相互驗證 (用戶端和伺服器) 和 TLS 1.2 加密的 Syslog over TCP：** 在此設定中，Syslog 伺服器與 Syslog 用戶端都可透過憑證驗證彼此的身分識別。 傳送訊息時，會透過 TLS 1.2 加密通道進行傳送。
 
 2. **使用伺服器驗證和 TLS 1.2 加密的 Syslog over TCP：** 在此設定中，Syslog 用戶端可透過憑證驗證 Syslog 伺服器的身分識別。 傳送訊息時，會透過 TLS 1.2 加密通道進行傳送。
 
-3. **不使用任何加密的 Syslog over TCP：** 在此設定中，Syslog 用戶端與 Syslog 伺服器都不會驗證彼此的身分識別。 傳送訊息時，會以純文字形式透過 TCP 傳送。
+3. **不使用加密的 Syslog over TCP：** 在此設定中，不會驗證 Syslog 用戶端和 Syslog 伺服器身分識別。 傳送訊息時，會以純文字形式透過 TCP 傳送。
 
-4. **不使用任何加密的 Syslog over UDP：** 在此設定中，Syslog 用戶端與 Syslog 伺服器都不會驗證彼此的身分識別。 傳送訊息時，會以純文字形式透過 UDP 傳送。
+4. **不使用加密的 Syslog over UDP：** 在此設定中，不會驗證 Syslog 用戶端和 Syslog 伺服器身分識別。 傳送訊息時，會以純文字形式透過 UDP 傳送。
 
 > [!IMPORTANT]
 > 針對生產環境，Microsoft 強烈建議您採用使用驗證和加密的 TCP (第 1 種設定或至少第 2 種設定)，以抵禦攔截式攻擊和訊息竊聽。
@@ -129,7 +130,7 @@ Invoke-Command @params -ScriptBlock {
 
 ### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>設定使用 TCP、伺服器驗證及 TLS 1.2 加密的 Syslog 轉送
 
-在此設定中，Azure Stack 中的 Syslog 用戶端會透過使用 TLS 1.2 加密的 TCP 將訊息轉送給 Syslog 伺服器。 在初始信號交換期間，用戶端也會確認伺服器提供有效、受信任的憑證。 這可防止用戶端將訊息傳送到不受信任的目的地。
+在此設定中，Azure Stack 中的 Syslog 用戶端會透過使用 TLS 1.2 加密的 TCP 將訊息轉送給 Syslog 伺服器。 在初始信號交換期間，用戶端也會確認伺服器提供有效、受信任的憑證。 此設定可防止用戶端將訊息傳送到不受信任的目的地。
 使用驗證和加密的 TCP 是預設設定，並且代表 Microsoft 針對生產環境建議的最低安全性層級。 
 
 ```powershell
@@ -258,12 +259,12 @@ PEP 嚴重性表格：
 
 | 嚴重性 | Level | 數值 |
 |----------|-------| ----------------|
-|0|Undefined|值：0。 指出所有層級的記錄|
-|10|重要|值：1。 指出某個重要警示的記錄|
-|8|Error| 值：2。 指出某個錯誤的記錄|
-|5|警告|值：3。 指出某個警告的記錄|
-|2|資訊|值：4。 指出某個告知性訊息的記錄|
-|0|詳細資訊|值：5。 指出所有層級的記錄|
+|0|Undefined|值：0. 指出所有層級的記錄|
+|10|重要|值：1. 指出某個重要警示的記錄|
+|8|Error| 值：2. 指出某個錯誤的記錄|
+|5|警告|值：3. 指出某個警告的記錄|
+|2|資訊|值：4. 指出某個告知性訊息的記錄|
+|0|詳細資訊|值：5. 指出所有層級的記錄|
 
 ### <a name="cef-mapping-for-recovery-endpoint-events"></a>復原端點事件的 CEF 對應
 
@@ -288,12 +289,12 @@ Prefix fields
 REP 嚴重性表格：
 | 嚴重性 | Level | 數值 |
 |----------|-------| ----------------|
-|0|Undefined|值：0。 指出所有層級的記錄|
-|10|重要|值：1。 指出某個重要警示的記錄|
-|8|Error| 值：2。 指出某個錯誤的記錄|
-|5|警告|值：3。 指出某個警告的記錄|
-|2|資訊|值：4。 指出某個告知性訊息的記錄|
-|0|詳細資訊|值：5。 指出所有層級的記錄|
+|0|Undefined|值：0. 指出所有層級的記錄|
+|10|重要|值：1. 指出某個重要警示的記錄|
+|8|Error| 值：2. 指出某個錯誤的記錄|
+|5|警告|值：3. 指出某個警告的記錄|
+|2|資訊|值：4. 指出某個告知性訊息的記錄|
+|0|詳細資訊|值：5. 指出所有層級的記錄|
 
 ### <a name="cef-mapping-for-windows-events"></a>Windows 事件的 CEF 對應
 
@@ -307,12 +308,12 @@ REP 嚴重性表格：
 Windows 事件的嚴重性表格：
 | CEF 嚴重性值 | Windows 事件層級 | 數值 |
 |--------------------|---------------------| ----------------|
-|0|Undefined|值：0。 指出所有層級的記錄|
-|10|重要|值：1。 指出某個重要警示的記錄|
-|8|Error| 值：2。 指出某個錯誤的記錄|
-|5|警告|值：3。 指出某個警告的記錄|
-|2|資訊|值：4。 指出某個告知性訊息的記錄|
-|0|詳細資訊|值：5。 指出所有層級的記錄|
+|0|Undefined|值：0. 指出所有層級的記錄|
+|10|重要|值：1. 指出某個重要警示的記錄|
+|8|Error| 值：2. 指出某個錯誤的記錄|
+|5|警告|值：3. 指出某個警告的記錄|
+|2|資訊|值：4. 指出某個告知性訊息的記錄|
+|0|詳細資訊|值：5. 指出所有層級的記錄|
 
 Azure Stack 中 Windows 事件的自訂延伸模組表格：
 | 自訂延伸模組名稱 | Windows 事件範例 | 

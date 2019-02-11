@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9d606dd4faf324d68e4365eae0802de2384471ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230228"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295352"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>開始使用 Oracle Database 連接器
 
@@ -95,27 +95,27 @@ ms.locfileid: "50230228"
 
 ## <a name="common-errors"></a>常見錯誤
 
-#### <a name="error-cannot-reach-the-gateway"></a>**錯誤**：無法連線至閘道
+#### <a name="error-cannot-reach-the-gateway"></a>**錯誤**：無法連線到閘道
 
-**原因**：內部部署資料閘道無法連線至雲端。 
+**原因**︰內部部署資料閘道無法連線至雲端。 
 
-**風險降低**：確保您的閘道在安裝的內部部署機器中執行，且可連線至網際網路。  我們建議不要在可能關閉或休眠的電腦上安裝閘道。 您也可以重新啟動內部部署資料閘道服務 (PBIEgwService)。
+**降低風險**：確保您的閘道在安裝的內部部署機器中執行，且可連線至網際網路。  我們建議不要在可能關閉或休眠的電腦上安裝閘道。 您也可以重新啟動內部部署資料閘道服務 (PBIEgwService)。
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**錯誤**：使用的提供者已被取代：'System.Data.OracleClient requires Oracle 用戶端軟體版本 8.1.7 或更高版本。'。 請參閱 [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) 來安裝官方提供者。
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**錯誤**：正在使用的提供者已被取代：「System.Data.OracleClient 需有 Oracle 用戶端軟體 version 8.1.7 或以上版本。」 請參閱 [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) 來安裝官方提供者。
 
-**原因**：Oracle 用戶端 SDK 並未安裝在內部部署資料閘道執行的機器上。  
+**原因**︰Oracle 用戶端 SDK 並未安裝在內部部署資料閘道執行的機器上。  
 
-**解決方案**：在與內部部署資料閘道相同的電腦上下載並安裝 Oracle 用戶端 SDK。
+**解決方案**︰在與內部部署資料閘道相同的電腦上下載並安裝 Oracle 用戶端 SDK。
 
 #### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**錯誤**：資料表 '[Tablename]' 並未定義任何索引鍵資料行
 
-**原因**：資料表沒有任何主要索引鍵。  
+**原因**︰資料表沒有任何主要索引鍵。  
 
-**解決方案**：Oracle Database 連接器需要使用主要索引鍵資料行的資料表。
+**解決方案**︰Oracle Database 連接器需要使用主要索引鍵資料行的資料表。
 
 #### <a name="currently-not-supported"></a>目前不支援
 
-* 檢視和已存程序 
+* Views 
 * 包含複合索引鍵的任何資料表
 * 資料表中的巢狀物件類型
  

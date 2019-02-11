@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 801266ed13aa993ad04ed8a3b21d6a6b3e1d6603
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841399"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302354"
 ---
 務必針對您執行的應用程式，保護虛擬機器 (VM) 的安全。 保護 VM 可包含一或多項 Azure 服務和功能，其中涵蓋保護 VM 的存取權及保護資料的儲存體。 本文提供可讓您保護 VM 和應用程式的資訊。
 
@@ -20,6 +20,8 @@ ms.locfileid: "54841399"
 ## <a name="azure-security-center"></a>Azure 資訊安全中心
 
 [Azure 資訊安全中心](../articles/security-center/security-center-intro.md)可協助您保護 VM、偵測威脅並採取相應的措施。 資訊安全中心能提供您 Azure 訂用帳戶之間的整合式安全性監視和原則管理，協助偵測原先可能會忽略的威脅，且適用於廣泛的安全性解決方案生態系統。
+
+資訊安全中心的 Just-In-Time 存取可用於 VM 部署，以鎖定 Azure VM 的輸入流量、降低暴露於攻擊的風險，同時能夠視需要輕鬆存取連線至 VM。 已啟用 Just-In-Time 且使用者要求存取 VM 時，資訊安全中心會檢查使用者擁有此 VM 的哪些權限。 如果其擁有正確權限，則要求會通過核准，且資訊安全中心會將網路安全性群組 (NSG) 自動設定為在有限的時間內允許輸入流量進入選取的連接埠。 時間到期之後，資訊安全中心會將 NSG 還原為其先前的狀態。 
 
 ## <a name="encryption"></a>加密
 

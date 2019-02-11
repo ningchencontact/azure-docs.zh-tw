@@ -1,8 +1,21 @@
 ---
-標題：從範例建立 Machine Learning Studio 實驗 titleSuffix: Azure Machine Learning Studio 說明：了解如何透過 Azure AI 資源庫和 Azure Machine Learning Studio 使用範例機器學習服務實驗來建立新的實驗。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: conceptual
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:01/05/2018
+title: 從範例建立 Machine Learning Studio 實驗
+titleSuffix: Azure Machine Learning Studio
+description: 了解如何透過 Azure AI 資源庫和 Azure Machine Learning Studio 使用範例機器學習服務實驗來建立新的實驗。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: conceptual
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/05/2018
+ms.openlocfilehash: 653b9aa0d6083436a394cf886f8c7d8d1ed2e2ab
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465515"
 ---
 # <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>從 Azure AI 資源庫中的工作範例建立 Azure Machine Learning Studio 實驗
 

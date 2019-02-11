@@ -1,6 +1,6 @@
 ---
-標題：「步驟 1：建立工作區集合」titleSuffix: Azure Machine Learning Studio 說明：「開發預測性解決方案逐步解說的步驟 1：了解如何設定新的 Azure Machine Learning Studio 工作區。」
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：「步驟 1：建立工作區集合」titleSuffix:Azure Machine Learning Studio 說明：「開發預測性解決方案逐步解說的步驟 1：了解如何設定新的 Azure Machine Learning Studio 工作區。」
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date:03/23/2017
 ---

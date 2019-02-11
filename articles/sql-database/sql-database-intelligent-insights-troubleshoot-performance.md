@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: ad7d56b3a23d163cfbc6c9ca14c2788c5f96486b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600857"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455060"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解
 
@@ -45,12 +45,12 @@ Intelligent Insights 能根據查詢執行等候時間、錯誤或逾時，自�
 | [TempDB 爭用](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | 多個執行緒嘗試存取相同的 TempDB 資源，因而造成瓶頸。 這會影響 SQL Database 效能。 | 多個執行緒嘗試存取相同的 TempDB 資源，因而造成瓶頸。 這會影響資料庫效能。 |
 | [彈性集區 DTU 不足](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | 彈性集區中的可用 eDTU 不足，因而影響 SQL Database 效能。 | 不適用於受控執行個體，因為它使用 vCore 模型。 |
 | [計畫迴歸](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | 偵測到新的計畫或現有計畫中的工作負載變更。 這會影響 SQL Database 效能。 | 偵測到新的計畫或現有計畫中的工作負載變更。 這會影響資料庫效能。 |
-| [資料庫範圍設定值變更](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | 偵測到 SQL Database 上的設定變更，這會影響資料庫效能。 | 偵測到資料庫上的設定變更，這會影響資料庫效能。 |
+| [資料庫範圍組態值變更](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | 偵測到 SQL Database 上的設定變更，這會影響資料庫效能。 | 偵測到資料庫上的設定變更，這會影響資料庫效能。 |
 | [用戶端執行速度太慢](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | 緩慢的應用程式用戶端無法以夠快的速度取用來自資料庫的輸出。 這會影響 SQL Database 效能。 | 緩慢的應用程式用戶端無法以夠快的速度取用來自資料庫的輸出。 這會影響資料庫效能。 |
 | [定價層降級](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | 定價層降級動作減少了可用資源。 這會影響 SQL Database 效能。 | 定價層降級動作減少了可用資源。 這會影響資料庫效能。 |
 
 > [!TIP]
-> 如需 SQL Database 的持續效能最佳化，請啟用 [Azure SQL Database 自動調整](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning)。 這個獨特的 SQL Database 內建智慧功能，能夠持續監視您的 SQL 資料庫、自動調整索引，以及套用查詢執行計畫更正。
+> 如需 SQL Database 的持續效能最佳化，請啟用 [Azure SQL Database 自動調整](sql-database-automatic-tuning.md)。 這個獨特的 SQL Database 內建智慧功能，能夠持續監視您的 SQL 資料庫、自動調整索引，以及套用查詢執行計畫更正。
 >
 
 下一節詳細說明可偵測的效能模式。
@@ -61,7 +61,7 @@ Intelligent Insights 能根據查詢執行等候時間、錯誤或逾時，自�
 
 這個可偵測的效能模式結合了與達到可用資源限制、背景工作角色限制及工作階段限制有關的效能問題。 偵測到此效能問題之後，診斷記錄的描述欄位就會指出效能問題是否與資源、背景工作角色，或是工作階段限制相關。
 
-SQL Database 上的資源通常是指 [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) 或是 [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) 資源。 當偵測到導致查詢效能降低的原因是達到所測量的任何資源限制時，就會認定達到資源限制的模式。
+SQL Database 上的資源通常是指 [DTU](sql-database-what-is-a-dtu.md) 或是 [vCore](sql-database-service-tiers-vcore.md) 資源。 當偵測到導致查詢效能降低的原因是達到所測量的任何資源限制時，就會認定達到資源限制的模式。
 
 工作階段限制資源代表針對 SQL 資料庫的可用並行登入數。 當連線到 SQL 資料庫的應用程式已達到針對該資料庫的可用並行登入數時，就會認定此效能模式。 當應用程式嘗試使用的工作階段數超出資料庫上可用的工作階段數時，就會影響查詢效能。
 
@@ -73,7 +73,7 @@ SQL Database 上的資源通常是指 [DTU](https://docs.microsoft.com/azure/sql
 
 如果您已達到可用工作階段限制，則可以透過減少資料庫的登入次數來對應用程式進行最佳化。 如果您無法減少應用程式針對資料庫的登入數，請考慮提高資料庫的定價層。 或者，您可以將資料庫分割並移至多個資料庫，以取得更加平衡的工作負載分佈。
 
-如需更多有關解決工作階段限制的建議，請參閱[如何處理 SQL Database 登入次數上限的限制](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/) \(英文\)。 如需伺服器和訂用帳戶層級的限制資訊，請參閱[邏輯伺服器上的資源限制概觀](sql-database-resource-limits-logical-server.md)。
+如需更多有關解決工作階段限制的建議，請參閱[如何處理 SQL Database 登入次數上限的限制](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/) \(英文\)。 如需伺服器和訂用帳戶層級的限制資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)。
 
 ## <a name="workload-increase"></a>工作負載增加
 

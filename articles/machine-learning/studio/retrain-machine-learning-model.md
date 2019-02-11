@@ -1,6 +1,6 @@
 ---
-標題：重新定型 Machine Learning Studio 模型 titleSuffix: Azure Machine Learning Studio description:了解如何在 Azure Machine Learning 中重新定型模型，以及使用新定型的模型來更新 Web 服務。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：重新定型 Machine Learning Studio 模型 titleSuffix:Azure Machine Learning Studio description:了解如何在 Azure Machine Learning 中重新定型模型，以及使用新定型的模型來更新 Web 服務。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:2017/04/19
 ---

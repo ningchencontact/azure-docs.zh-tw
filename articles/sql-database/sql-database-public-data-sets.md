@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.date: 10/01/2018
+ms.openlocfilehash: 64c93b069766d8f7334c311507102a07f137b2ff
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586252"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565406"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>用於測試和建立原型的公用資料集
 
@@ -44,7 +44,7 @@ ms.locfileid: "47586252"
 | [Microsoft Research 資料集 -「研究用的資料科學」](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | 多個資料集，涵蓋人機互動、音訊/視訊、資料採礦/資訊擷取、地理空間/位置、自然語言處理和機器人/電腦視覺。 | 資料集採用各種格式 (經過壓縮以供下載)。 |
 | [公用基因體資料](http://www.completegenomics.com/public-data/) | 「整個人類基因體的多樣化資料集免費提供給大眾使用，以強化任何基因體研究...」提供者 Complete Genomics 是一家私人營利公司。 | 解壓縮後的資料集採用 UNIX 文字格式。 您也可取得分析工具。 |
 | [Open Science Data Cloud 資料](https://www.opensciencedatacloud.org/) | 「Open Science Data Cloud 為科學界提供用於儲存、共用及分析 TB 和 PB 規模科學資料集的資源」。| 資料集採用各種格式。 |
-| [全球氣候資料 - WorldcLIM](http://worldclim.org/) | 「WorldClim 是一組全球氣候圖層 (格狀氣候資料)，包含大約 1 平方公里的空間解析。 這些資料可用於對應和空間模擬。」 | 這些檔案包含地理空間資料。 如需詳細資訊，請參閱[資料格式](http://worldclim.org/formats1)。 |
+| [全球氣候資料 - WorldClim](http://worldclim.org/) | 「WorldClim 是一組全球氣候圖層 (格狀氣候資料)，包含大約 1 平方公里的空間解析。 這些資料可用於對應和空間模擬。」 | 這些檔案包含地理空間資料。 如需詳細資訊，請參閱[資料格式](http://worldclim.org/formats1)。 |
 | [人類社會相關資料 - GDELT 專案](http://www.gdeltproject.org/data.html) | 「GDELT 專案是人類社會曾建立過的最大、最詳盡且最高解析度的開放資料庫。」 | 未經處理的資料檔採用 CSV 格式。 |
 | [來自 Criteo 且可供機器學習的廣告點擊預測資料](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | 「曾公開發行的最大 ML 資料集。」 如需詳細資訊，請參閱 [Criteo 的 1 TB 點擊預測資料集](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/)。 | |
 | [來自 Lemur 專案的 ClueWeb09 文字採礦資料集](http://www.lemurproject.org/clueweb09.php/) | 「已建立 ClueWeb09 資料集，以支援資訊擷取和相關人類語言技術的研究。 其中包含在 2009 年 1 月和 2 月以 10 種語言收集的大約 10 億個網頁。」 | 請參閱[資料集資訊](http://www.lemurproject.org/clueweb09/datasetInformation.php)。|

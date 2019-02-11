@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 480d67917abf3a8aaca64aa9aae30be5acf55e11
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: ccfc91e85196cbc8295bce71e512d9cf856a23c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528551"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453377"
 ---
 # <a name="what-is-azure-importexport-service"></a>什麼是 Azure 匯入/匯出服務？
 
@@ -28,9 +28,9 @@ Azure 匯入/匯出服務可用來將硬碟運送到 Azure 資料中心，安全
 請考慮在透過網路上傳或下載資料速度太慢，或是取得額外的網路頻寬成本高昂時使用 Azure 匯入/匯出服務。 請在下列情節中使用此服務：
 
 * **將資料移轉至雲端**︰快速地將大量資料移至 Azure，並符合成本效益。
-* **內容發佈**︰快速將資料傳送至您的客戶網站。
-* **備份**︰備份內部部署資料以便儲存在 Azure 儲存體中。
-* **資料復原**︰復原儲存在儲存體中的大量資料，並將其傳遞到您的內部部署位置。
+* **內容發佈**：快速將資料傳送至您的客戶網站。
+* **備份**：備份內部部署資料以便儲存在 Azure 儲存體中。
+* **資料復原**：復原儲存在儲存體中的大量資料，並將其傳遞到您的內部部署位置。
 
 ## <a name="importexport-components"></a>匯入/匯出元件
 

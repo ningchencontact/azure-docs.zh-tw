@@ -2,18 +2,18 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: a2ee8705be3f34b6df113c68d88e375411f84bf2
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440028"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302337"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>從 Cloud Shell 部署範本
 
-您可以使用 [Cloud Shell](../articles/cloud-shell/overview.md) 來部署您的範本。 不過，您必須先將範本載入 Cloud Shell 的儲存體帳戶。 如果您尚未使用 Cloud Shell，請參閱 [Azure Cloud Shell 概觀](../articles/cloud-shell/overview.md)以取得如何設定的相關資訊。
+您可以使用 [Cloud Shell](../articles/cloud-shell/overview.md) 來部署您的範本。 若要部署外部範本，請提供範本的 URI，就如同您對任何外部部署所做的一樣。 若要部署本機範本，您必須先將範本載入 Cloud Shell 的儲存體帳戶。 本節說明如何將範本載入至您的 Cloud Shell 帳戶，並將其部署為本機檔案。 如果您尚未使用 Cloud Shell，請參閱 [Azure Cloud Shell 概觀](../articles/cloud-shell/overview.md)以取得如何設定的相關資訊。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 

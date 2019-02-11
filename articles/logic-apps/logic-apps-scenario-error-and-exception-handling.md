@@ -10,16 +10,16 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 0c6062fb9e9708b0fa6aef7a6d7390287cbf69d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124030"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098658"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>案例︰適用於邏輯應用程式的例外狀況處理與記錄錯誤
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>案例：適用於邏輯應用程式的例外狀況處理與記錄錯誤
 
-本案例說明如何擴充邏輯應用程式，以提升對於例外狀況處理的支援。 我們使用了現實生活的使用案例來回答下列案例：「Azure Logic Apps 是否支援例外狀況與錯誤處理？」
+本案例說明如何擴充邏輯應用程式，以提升對於例外狀況處理的支援。 我們已使用真實使用案例來回答問題：「Azure Logic Apps 是否支援例外狀況和錯誤處理？」
 
 > [!NOTE]
 > 目前的 Azure Logic Apps 結構描述會提供標準的動作回應範本。 這個範本包括內部驗證和 API 應用程式所傳回的錯誤回應。
@@ -57,7 +57,7 @@ ms.locfileid: "43124030"
 
 我們使用**要求**觸發程序，如下列範例所示：
 
-```` json
+``` json
 "triggers": {
         "request": {
           "type": "request",
@@ -90,7 +90,7 @@ ms.locfileid: "43124030"
         }
       },
 
-````
+```
 
 
 ## <a name="steps"></a>步驟
@@ -402,7 +402,7 @@ ms.locfileid: "43124030"
 若要檢視錯誤，您可以建立 MVC Web 應用程式，以顯示來自 Cosmos DB 的錯誤記錄。 目前的版本中包含**清單**、**詳細資料**、**編輯**和**刪除**作業。
 
 > [!NOTE]
-> 編輯作業︰Cosmos DB 會取代整份文件。 **清單**和**詳細資料**檢視中所顯示的記錄只是範例。 而非實際的病患預約記錄。
+> 編輯作業：Cosmos DB 會取代整份文件。 **清單**和**詳細資料**檢視中所顯示的記錄只是範例。 而非實際的病患預約記錄。
 
 以下是使用先前所述方法建立之 MVC 應用程式詳細資料的範例。
 

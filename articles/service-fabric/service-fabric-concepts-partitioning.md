@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 70305468ca20c48bdc26e7e000a0e5edb63508cd
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261565"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55198209"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>分割 Service Fabric 可靠服務
 這篇文章介紹分割 Azure Service Fabric 可靠服務的基本概念。 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)上也提供本文中使用的原始碼。
@@ -129,11 +129,7 @@ Service Fabric 有三個資料分割配置可選擇：
 1. 開啟 [Visual Studio] > [檔案] > [新增] > [專案]。
 2. 在 [新增專案]  對話方塊中，選擇 Service Fabric 應用程式
 3. 將專案命名為 "AlphabetPartitions"。
-4. 在 [建立服務] 對話方塊中，選擇 [具狀態] 服務，命名為 "Alphabet.Processing"，如下圖所示。
-       ![Visual Studio 中的新增服務對話方塊][1]
-
-  <!--  ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)-->
-
+4. 在 [建立服務] 對話方塊中，選擇 [具狀態] 服務並且命名為 "Alphabet.Processing"。
 5. 設定資料分割數目。 開啟位於 AlphabetPartitions 專案的 ApplicationPackageRoot 資料夾中的 ApplicationManifest.xml 檔案，將參數 Processing_PartitionCount 更新為 26，如下所示。
    
     ```xml
@@ -167,7 +163,7 @@ Service Fabric 有三個資料分割配置可選擇：
    
     相同電腦上可能裝載此服務的多個複本，因此複本的此位址必須是唯一的。 這就是為什麼我們在 URL 中有資料分割識別碼 + 複本識別碼。 只要 URL 首碼是唯一的，HttpListener 就可以在相同連接埠上的多個位址接聽。
    
-    在進階案例中，次要複本也會接聽唯讀要求，所以有額外 GUID。 在這種情況下，從主要轉換到次要時，您想要確保使用新的唯一位址以強制用戶端重新解析位址。 '+' 在此做為位址，因此複本會接聽所有可用的主機 (IP、FQDM、localhost 等等)。下列程式碼顯示範例。
+    在進階案例中，次要複本也會接聽唯讀要求，所以有額外 GUID。 在這種情況下，從主要轉換到次要時，您想要確保使用新的唯一位址以強制用戶端重新解析位址。 '+' 在此做為位址，因此複本會接聽所有可用的主機 (IP、FQDN、localhost 等等)。下列程式碼顯示範例。
    
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()

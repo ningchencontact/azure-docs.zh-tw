@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/08/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103160"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468388"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure 磁碟加密疑難排解指南
 
@@ -33,7 +33,23 @@ Linux 作業系統 (OS) 磁碟加密必須先將 OS 磁碟機取消掛接後，�
 - 資料磁碟機已遞迴掛接於 /mnt/ directory 下，或彼此掛接 (例如，/mnt/data1、/mnt/data2、/data3 + /data3/data4)。
 - 未符合其他 Linux 適用的 Azure 磁碟加密[必要條件](azure-security-disk-encryption-prerequisites.md)。
 
-## <a name="unable-to-encrypt"></a>無法加密
+## <a name="bkmk_Ubuntu14"></a> 更新 Ubuntu 14.04 LTS 的預設核心
+
+預設核心版本 4.4 隨附 Ubuntu 14.04 LTS 映像。 此核心版本有已知問題，其中的 Out of Memory Killer 在 OS 加密程序期間不當地終止 dd 命令。 最近的 Azure 微調 Linux 核心已修正這個錯誤 (bug)。 若要避免這個錯誤，在啟用映像加密之前，請使用下列命令，更新為 [Azure 微調核心 4.15](https://packages.ubuntu.com/trusty/linux-azure)或更新版本：
+
+```
+sudo apt-get update
+sudo apt-get install linux-azure
+sudo reboot
+```
+
+在 VM 重新啟動到新的核心之後，可以使用下列命令來確認新的核心版本：
+
+```
+uname -a
+```
+
+## <a name="unable-to-encrypt-linux-disks"></a>無法將 Linux 磁碟加密
 
 在某些情況下，Linux 磁碟加密似乎會卡在「已啟動的 OS 磁碟加密」且停用 SSH。 在庫存資源庫映像上，此加密程序可能需要 3-16 個小時才能完成。 如果新增多 TB 大小的資料磁碟，此程序可能需要數天的時間。
 
@@ -71,7 +87,7 @@ ProgressMessage            : OS disk successfully encrypted, please reboot the V
 任何套用的網路安全性群組設定仍然必須允許端點，從而符合磁碟加密的記載網路設定[必要條件](azure-security-disk-encryption-prerequisites.md#bkmk_GPO)。
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>防火牆後方的 Azure Key Vault
-VM 必須能夠存取金鑰保存庫。 請參閱由 [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) 小組所維護的指引，當中說明如何從防火牆後方存取金鑰保存庫。 
+在啟用 [Azure AD 認證](azure-security-disk-encryption-prerequisites-aad.md)的加密時，目標 VM 必須取得 Azure AD 驗證端點及 Key Vault 端點的存取權。  如需此程序的詳細資訊，請參閱由 [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) 小組所維護的指引，當中說明如何從防火牆後方存取金鑰保存庫。 
 
 ### <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務 
 VM 必須能夠存取 [Azure 執行個體中繼資料服務](../virtual-machines/windows/instance-metadata-service.md)端點；此端點會使用只能從 VM 內存取且無法路由的已知 IP 位址 (`169.254.169.254`)。

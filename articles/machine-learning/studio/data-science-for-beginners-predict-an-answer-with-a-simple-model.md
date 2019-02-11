@@ -1,6 +1,6 @@
 ---
-標題：使用迴歸模型預測答案 titleSuffix: Azure Machine Learning Studio 說明：如何在「適用於初學者的資料科學」影片 4 中，建立簡單迴歸模型來預測價格。 包含線性迴歸以及目標資料。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：使用迴歸模型預測答案 titleSuffix:Azure Machine Learning Studio 說明：如何在「適用於初學者的資料科學」影片 4 中，建立簡單迴歸模型來預測價格。 包含線性迴歸以及目標資料。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date:01/03/2018
 ---

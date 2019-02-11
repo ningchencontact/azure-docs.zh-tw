@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 600651b6c9140aba178bf073675c49957987d10d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: f4dbfae4bada77cf882f7249353a17defebf312e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844733"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209344"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解串流分析工作監視功能，以及如何監視查詢
 
@@ -46,6 +46,8 @@ Azure 入口網站會顯示關鍵效能計量，可供您用來監視查詢和�
 | 執行階段錯誤         | 與查詢處理相關的錯誤總數 (不包括在擷取事件或輸出結果時發現的錯誤) |
 | SU % 使用率       | 從工作的 [調整] 索引標籤指派給工作的串流處理單元使用率。 若此指標達到 80% 以上，則代表事件處理作業極有可能延遲或暫停。 |
 | 浮水印延遲秒數       | 作業中所有輸出分割區的延遲秒數上限。 |
+
+您可以使用這些計量來[監視串流分析作業的效能](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor)。 
 
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>在 Azure 入口網站中自訂監視
 您可以在 [編輯圖表] 設定中調整圖表類型、顯示的度量和時間範圍。 如需詳細資料，請參閱[如何自訂監視](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。

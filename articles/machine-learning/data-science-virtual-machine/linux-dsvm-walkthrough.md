@@ -10,19 +10,19 @@ editor: cgronlun
 ms.custom: seodec18
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: b06ca287f03c62b3947e6c37712cf491396392e0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157168"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245828"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>在 Azure 上搭配 Linux 資料科學虛擬機器來運用資料科學
 本逐步解說示範如何使用 Linux 資料科學 VM 執行數個常見的資料科學工作。 Linux 資料科學虛擬機器 (DSVM) 是 Azure 提供的虛擬機器映像，其中預先安裝了一組常用於執行資料分析和機器學習服務的工具。 重要的軟體元件可在 [佈建 Linux 資料科學虛擬機器](linux-dsvm-intro.md) 主題中找到明細。 VM 映像可讓使用者輕鬆地在幾分鐘內開始執行資料科學，而不需要個別安裝和設定每個工具。 您可以在需要時輕鬆地相應增加 VM，並在不使用時加以停止。 因此，這項資源既有彈性，又符合成本效益。
@@ -180,10 +180,10 @@ ms.locfileid: "54157168"
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-ml"></a>模型部署到 Azure ML
-[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) 是一項雲端服務，可讓您輕鬆地建置和部署預測性分析模型。 AzureML 的其中一項優秀功能是能夠將任何 R 函數發佈為 Web 服務。 AzureML R 封裝可直接從 DSVM 上的 R 工作階段讓部署作業的執行變得簡單無比。
+## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>將模型部署至 Azure Machine Learning Studio
+[Azure Machine Learning Studio](https://studio.azureml.net/) 是一項雲端服務，可讓您輕鬆地建置和部署預測性分析模型。 Azure Machine Learning Studio 的其中一項優秀功能是能夠將任何 R 函式發佈為 Web 服務。 Azure Machine Learning Studio R 套件可直接從 DSVM 上的 R 工作階段讓部署作業的執行變得簡單無比。
 
-若要部署上一節的決策樹程式碼，您需要登入 Azure Machine Learning Studio。 您需要工作區識別碼和驗證權杖才能登入。 若要找到這些值並以值初始化 AzureML 變數︰
+若要部署上一節的決策樹程式碼，您需要登入 Azure Machine Learning Studio。 您需要工作區識別碼和驗證權杖才能登入。 若要找到這些值並以值初始化 Azure Machine Learning 變數︰
 
 選取左側功能表上的 [設定]。 記下您的**工作區識別碼**。 ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
@@ -270,7 +270,7 @@ XGBoost 也可以從 Python 或命令列進行呼叫。
 讓我們讀入某些 spambase 資料集，並以 scikit-learn 中的支援向量機器分類電子郵件︰
 
     import pandas
-    from sklearn import svm    
+    from sklearn import svm
     data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
     X = data.ix[:, 0:57]
     y = data.ix[:, 57]

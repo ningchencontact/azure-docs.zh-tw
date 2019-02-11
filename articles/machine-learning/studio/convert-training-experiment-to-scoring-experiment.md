@@ -1,6 +1,6 @@
 ---
-標題：準備模型進行部署 titleSuffix: Azure Machine Learning Studio description:如何將 Machine Learning Studio 訓練實驗轉換為預測實驗，將其準備妥當進行部署，然後當做 Web 服務部署。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：準備模型進行部署 titleSuffix:Azure Machine Learning Studio description:如何將 Machine Learning Studio 訓練實驗轉換為預測實驗，將其準備妥當進行部署，然後當做 Web 服務部署。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.date:2017/03/28
 ---

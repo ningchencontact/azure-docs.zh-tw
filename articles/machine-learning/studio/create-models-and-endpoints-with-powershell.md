@@ -1,6 +1,6 @@
 ---
-標題：從一個 Studio 實驗建立多個模型 titleSuffix: Azure Machine Learning Studio description:使用 PowerShell 以相同演算法但不同的訓練資料集，建立多個機器學習服務模型和 Web 服務端點。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：從一個 Studio 實驗建立多個模型 titleSuffix:Azure Machine Learning Studio description:使用 PowerShell 以相同演算法但不同的訓練資料集，建立多個機器學習服務模型和 Web 服務端點。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:2017/04/04
 ---

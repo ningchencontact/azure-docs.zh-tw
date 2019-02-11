@@ -1,6 +1,6 @@
 ---
-標題：使用 PowerShell 重新訓練新的 Machine Learning Studio Web 服務 titleSuffix: Azure Machine Learning Studio 說明：了解如何使用 Machine Learning Management PowerShell Cmdlet 在 Azure Machine Learning 中以程式設計方式重新訓練模型，以及使用新訓練的模型來更新 Web 服務。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：使用 PowerShell 重新訓練新的 Machine Learning Studio Web 服務 titleSuffix:Azure Machine Learning Studio 說明：了解如何使用 Machine Learning Management PowerShell Cmdlet 在 Azure Machine Learning 中以程式設計方式重新訓練模型，以及使用新訓練的模型來更新 Web 服務。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:03/28/2017
 ---

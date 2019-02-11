@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d709acfe378583a21b72971f465e4b5d73818bcd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2d57097e4d3317bfba5055a6b75ae72dd60f046a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307723"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244686"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>在 SQL 資料倉儲中編製資料表的索引
 在 Azure SQL 資料倉儲中編製資料表索引的建議與範例。
@@ -204,7 +204,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 您的資料表載入一些資料之後，請依照下列步驟來識別並重建具有次佳叢集資料行存放區索引的資料表。
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>重建索引以提升區段品質
-### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>步驟 1︰識別或建立會使用適當資源類別的使用者
+### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>步驟 1：識別或建立會使用適當資源類別的使用者
 立即提升區段品質的快速方法就是重建索引。  上述檢視所傳回的 SQL 會傳回可用來重建索引的 ALTER INDEX REBUILD 陳述式。 重建索引時，請確定配置足夠的記憶體給重建索引的工作階段。  若要這樣做，請增加使用者的資源類別，該使用者有權將此資料表上的索引重建為建議的最小值。 您無法變更資料庫擁有者使用者的資源類別，所以如果尚未在系統上建立使用者，請先建立一個使用者。 如果您使用 DW300 或更少，建議使用的最小資源類別為 xlargerc；如果使用 DW400 至 DW600，則為 largerc；而如果使用 DW1000 和更高，則為 mediumrc。
 
 以下範例示範如何藉由增加資源類別，配置更多記憶體給使用者。 若要使用資源類別，請參閱[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)。
@@ -213,7 +213,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>步驟 2︰使用較高的資源類別使用者重建叢集資料行存放區索引
+### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>步驟 2：使用較高的資源類別使用者重建叢集資料行存放區索引
 以步驟 1 的使用者身分登入 (例如 LoadUser)，該使用者現在使用較高的資源類別，並執行 ALTER INDEX 陳述式。 請確定這個使用者對於重建索引的資料表擁有 ALTER 權限。 這些範例示範如何重建整個資料行存放區索引或如何重建單一資料分割。 在大型資料表上，比較適合一次重建單一資料分割的索引。
 
 或者，您可以[使用 CTAS](sql-data-warehouse-develop-ctas.md) 將資料表複製到新的資料表，而非重建索引。 哪一種方式最好？ 針對大量的資料，CTAS 的速度通常比 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql) 來得快。 針對較小量的資料，ALTER INDEX 較為容易使用，且您不需要交換出資料表。 如需有關如何使用 CTAS 重建索引的詳細資訊，請參閱 **使用 CTAS 和分割切換重建索引** 。
@@ -240,7 +240,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 
 在 SQL 資料倉儲中重建索引是一項離線作業。  如需重建索引的詳細資訊，請參閱[資料行存放區索引重組](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) 中的 ALTER INDEX REBUILD 小節和 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql)。
 
-### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>步驟 3︰確認已改善叢集資料行存放區區段品質
+### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>步驟 3：確認已改善叢集資料行存放區區段品質
 請重新執行已識別區段品質不佳之資料表的查詢，並驗證區段品質是否已改善。  如果區段品質並未改善，可能是您的資料表中的資料列過寬。  請考慮在重建索引時使用較高的資源類別或 DWU。
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>使用 CTAS 和分割切換重建索引

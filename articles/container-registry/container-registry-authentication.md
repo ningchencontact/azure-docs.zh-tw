@@ -2,27 +2,25 @@
 title: 向 Azure Container Registry 進行驗證 | Microsoft Docs
 description: Azure Container Registry 的驗證選項，包括使用 Azure Active Directory 身分識別來登入、使用服務主體，以及使用選擇性的管理員認證。
 services: container-registry
-author: stevelas
+author: dlepow
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/21/2018
-ms.author: stevelas
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 665ceabe062fce454db377a384b1d12ba6868c40
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: a6ae388107e527b399dc758abccbefcec955a60d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851720"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661627"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>向私用 Docker 容器登錄進行驗證
 
 向 Azure Container Registry 進行驗證的方式有數種，每一種方式都適用於一或多個登錄使用案例。
 
 您可以直接透過[個人登入](#individual-login-with-azure-ad)來登入登錄，或您的應用程式和容器協調器可以使用 Azure Active Directory (Azure AD) [服務主體](#service-principal)來執行自動 (或「遠端控制」) 驗證。
-
-Azure Container Registry 不支援未經驗證的 Docker 作業或匿名存取。 針對公用映像，您可以使用 [Docker Hub](https://docs.docker.com/docker-hub/) \(英文\)。
 
 ## <a name="individual-login-with-azure-ad"></a>使用 Azure AD 進行個人登入
 
@@ -32,9 +30,11 @@ Azure Container Registry 不支援未經驗證的 Docker 作業或匿名存取�
 az acr login --name <acrName>
 ```
 
-當您使用 `az acr login` 來進行登入時，CLI 會使用您執行 [az login](/cli/azure/reference-index#az-login) 時所建立的權杖，以順暢地向登錄驗證您的工作階段。 在您以此方式登入之後，系統會快取您的認證，而後續的 `docker` 命令就不會要求提供使用者名稱和密碼。 如果您的權杖過期，您可以再次使用 `az acr login` 命令進行重新驗證來重新整理該權杖。 使用 `az acr login` 搭配 Azure 身分識別可提供[角色型存取](../role-based-access-control/role-assignments-portal.md)功能。
+當您使用 `az acr login` 來進行登入時，CLI 會使用您執行 [az login](/cli/azure/reference-index#az-login) 時所建立的權杖，以順暢地向登錄驗證您的工作階段。 在您以此方式登入之後，系統會快取您的認證，而您工作階段中的後續 `docker` 命令不會要求提供使用者名稱或密碼。 
 
-在某些情況下，您可能會想在 Azure AD 中，使用自己的個別身分識別登入登錄庫。 針對跨服務案例，或針對您不想管理個別存取權的工作群組處理其需求時，也可以使用 [Azure 資源的受控識別](container-registry-authentication-managed-identity.md)登入。
+為了進行登錄存取，`az acr login` 所用的驗證權杖有效期為 1 小時，所以我們建議您在執行 `docker` 命令前，一律先登入登錄。 如果您的權杖過期，您可以再次使用 `az acr login` 命令進行重新驗證來重新整理該權杖。 
+
+使用 `az acr login` 搭配 Azure 身分識別可提供[角色型存取](../role-based-access-control/role-assignments-portal.md)功能。 在某些情況下，您可能會想在 Azure AD 中，使用自己的個別身分識別登入登錄庫。 針對跨服務案例，或針對您不想管理個別存取權的工作群組處理其需求時，也可以使用 [Azure 資源的受控識別](container-registry-authentication-managed-identity.md)登入。
 
 ## <a name="service-principal"></a>服務主體
 
@@ -58,35 +58,32 @@ az acr login --name <acrName>
 
   * *推送*：建置容器映像，並使用 Azure Pipelines 或 Jenkins 等持續整合和部署解決方案將其推送到登錄。
 
-您也可以使用服務主體來直接登入。 請將應用程式識別碼和服務主體的密碼提供給 `docker login` 命令：
+您也可以使用服務主體來直接登入。 當您執行下列命令時，若出現提示，請以互動方式提供服務主體 appID (使用者名稱) 和密碼。 如需管理登入認證的最佳作法，請參閱 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令參考：
 
-```
-docker login myregistry.azurecr.io -u <SP_APP_ID> -p <SP_PASSWD>
+```Docker
+docker login myregistry.azurecr.io
 ```
 
 登入後，Docker 會快取認證，因此您不需要記憶應用程式識別碼。
 
-視您已安裝的 Docker 版本而定，您可能會看到安全性警告，其中會建議您使用 `--password-stdin` 參數。 其使用超出本文的範圍時，建議您遵循此最佳做法。 如需詳細資訊，請參閱 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令參考。
-
 > [!TIP]
-> 您可以執行 [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) 命令來重新產生服務主體的密碼。
+> 您可以執行 [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest) 命令來重新產生服務主體的密碼。
 >
 
 ## <a name="admin-account"></a>管理帳戶
 
-每個容器登錄都包含一個管理使用者帳戶，且預設為停用。 您可以在 [Azure 入口網站](container-registry-get-started-portal.md#create-a-container-registry)中或藉由使用 Azure CLI 或其他 Azure 工具，啟用此管理使用者並管理其認證。
+每個容器登錄都包含一個管理使用者帳戶，且預設為停用。 您可以在 Azure 入口網站中或藉由使用 Azure CLI 或其他 Azure 工具，啟用此管理使用者並管理其認證。
 
 > [!IMPORTANT]
 > 管理帳戶是專為讓單一使用者存取登錄而設計，主要用於測試。 不建議將管理帳戶認證與其他使用者共用。 所有使用管理帳戶進行驗證的使用者會顯示為單一使用者，此使用者具備登錄的推送和提取存取權。 變更或停用此帳戶時，會將所有使用其認證之使用者的登錄存取權都停用。 針對遠端控制案例的使用者和服務主體，建議使用個人身分識別。
 >
 
-管理帳戶隨附兩個密碼，兩個密碼都可以重新產生。 兩個密碼可讓您在重新產生其中一個密碼時，使用另一個密碼來維持與登錄的連線。 如果已啟用管理帳戶，您便可以將使用者名稱和其中一個密碼傳遞給 `docker login` 命令，來向登錄進行基本驗證。 例如︰
+管理帳戶隨附兩個密碼，兩個密碼都可以重新產生。 兩個密碼可讓您在重新產生其中一個密碼時，使用另一個密碼來維持與登錄的連線。 如果已啟用管理帳戶，即可在系統提示時將使用者名稱和其中一個密碼傳遞給 `docker login` 命令，向登錄進行基本驗證。 例如︰
 
-```
-docker login myregistry.azurecr.io -u myAdminName -p myPassword1
+```Docker
+docker login myregistry.azurecr.io 
 ```
 
-同樣地，為了提升安全性，Docker 會建議您使用 `--password-stdin` 參數，而不要在命令列上提供密碼。 您也可以只指定您的使用者名稱 (不搭配 `-p`)，然後在出現提示時輸入您的密碼。
 
 若要為現有的登錄啟用管理使用者，您可以在 Azure CLI 中使用 [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) 命令的 `--admin-enabled` 參數：
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: ae792df428d897277e15df9db3ff6f99a5b8859e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: e183ed5ecda3053ed052952f4db5adfb016bfa68
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527282"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459040"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>針對匯入作業準備硬碟的範例工作流程
 本主題會引導您完成為匯入作業準備硬碟的完整程序。  
@@ -67,11 +67,11 @@ ms.locfileid: "39527282"
   
 除此之外，您可以針對所有檔案設定下列中繼資料：  
   
--   **UploadMethod：** Windows Azure Import/Export service  
+-   **UploadMethod：** Windows Azure 匯入/匯出服務  
   
--   **DataSetName:** SampleData  
+-   **DataSetName：** SampleData  
   
--   **CreationDate:** 10/1/2013  
+-   **CreationDate：** 10/1/2013  
   
 若要針對匯入檔案設定中繼資料，請建立具有下列內容的文字檔 (`c:\WAImportExport\SampleMetadata.txt`)：  
   
@@ -88,7 +88,7 @@ ms.locfileid: "39527282"
   
 -   **Content-Type:** application/octet-stream  
   
--   **Content-MD5:** Q2hlY2sgSW50ZWdyaXR5IQ==  
+-   **Content-MD5：** Q2hlY2sgSW50ZWdyaXR5IQ==  
   
 -   **Cache-Control:** no-cache  
   
@@ -169,4 +169,4 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 ## <a name="next-steps"></a>後續步驟
 
 * [針對匯入作業準備硬碟](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [常用命令快速參考](../storage-import-export-tool-quick-reference-v1.md) 
+* [常用命令快速參考](../storage-import-export-tool-quick-reference-v1.md) 

@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: ff9011dda4a94f323b430a3860eadc8d970a23f7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 01/18/2019
+ms.openlocfilehash: 0bb7c047f6bd03a45aa6c5c6d07b8022ee59bec9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838611"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217160"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用適用於 SQL 驗證的 Azure Active Directory Authentication
 
@@ -35,8 +35,9 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 - 它可以藉由啟用整合式 Windows 驗證和 Azure Active Directory 支援的其他形式驗證來避免儲存密碼。
 - Azure AD 驗證會使用自主資料庫使用者，在資料庫層級驗證身分。
 - Azure AD 針對連線到 SQL Database 的應用程式支援權杖型驗證。
-- Azure AD 驗證本機 Azure Active Directory 的 ADFS (網域同盟) 或原生使用者/密碼驗證，而不需進行網域同步處理。  
-- Azure AD 支援來自 SQL Server Management Studio 的連線，其中使用包含 Multi-Factor Authentication (MFA) 的 Active Directory 通用驗證。  MFA 包含增強式驗證功能，其中提供一系列簡易的驗證選項，例如電話、簡訊、含有 PIN 的智慧卡或行動應用程式通知。 如需詳細資訊，請參閱 [適用於與 SQL Database 和 SQL 資料倉儲搭配使用之 Azure AD MFA 的 SSMS 支援](sql-database-ssms-mfa-authentication.md)。  
+- Azure AD 驗證本機 Azure Active Directory 的 ADFS (網域同盟) 或原生使用者/密碼驗證，而不需進行網域同步處理。
+- Azure AD 支援來自 SQL Server Management Studio 的連線，其中使用包含 Multi-Factor Authentication (MFA) 的 Active Directory 通用驗證。  MFA 包含增強式驗證功能，其中提供一系列簡易的驗證選項，例如電話、簡訊、含有 PIN 的智慧卡或行動應用程式通知。 如需詳細資訊，請參閱 [適用於與 SQL Database 和 SQL 資料倉儲搭配使用之 Azure AD MFA 的 SSMS 支援](sql-database-ssms-mfa-authentication.md)。
+- Azure AD 支援從 SQL Server Data Tools (SSDT) 使用 Active Directory 互動式驗證的類似連線。 如需詳細資訊，請參閱 [SQL Server Data Tools (SSDT) 中的 Azure Active Directory 支援](/sql/ssdt/azure-active-directory)。
 
 > [!NOTE]  
 > 使用 Azure Active Directory 帳戶不支援連線到 Azure VM 上執行的 SQL Server。 請改用 Active Directory 網域帳戶。  
@@ -77,22 +78,40 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 
 ## <a name="azure-ad-features-and-limitations"></a>Azure AD 功能和限制
 
-下列 Azure AD 的成員可在 Azure SQL 伺服器或 SQL 資料倉儲中佈建：
+- 下列 Azure AD 的成員可在 Azure SQL 伺服器或 SQL 資料倉儲中佈建：
 
-- 原生成員：在受控網域或客戶網域的 Azure AD 中建立的成員。 如需詳細資訊，請參閱 [將您自己的網域名稱新增至 Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)。
-- 同盟網域成員：利用同盟網域在 Azure AD 中建立的成員。 如需詳細資訊，請參閱 [Microsoft Azure 現在支援 Windows Server Active Directory 的同盟](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。
-- 從其他 Azure AD 匯入，且為原生網域或同盟網域成員者。
-- 建立 Active Directory 群組作為安全性群組。
+  - 原生成員：在受控網域或客戶網域的 Azure AD 中建立的成員。 如需詳細資訊，請參閱 [將您自己的網域名稱新增至 Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)。
+  - 同盟網域成員：利用同盟網域在 Azure AD 中建立的成員。 如需詳細資訊，請參閱 [Microsoft Azure 現在支援 Windows Server Active Directory 的同盟](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。
+  - 從其他 Azure AD 匯入，且為原生網域或同盟網域成員者。
+  - 建立 Active Directory 群組作為安全性群組。
 
-支援 Azure AD 登入和使用者作為[受控執行個體](sql-database-managed-instance.md)的預覽功能
+- 在具有 `db_owner` 伺服器角色的群組中，Azure AD 使用者無法針對 Azure SQL Database 和 Azure SQL 資料倉儲使用 **[CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)** 語法。 您會看到下列錯誤︰
 
-下列系統函式在 Azure AD 主體下執行時會傳回 NULL：
+    `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
-- `SUSER_ID()`
-- `SUSER_NAME(<admin ID>)`
-- `SUSER_SNAME(<admin SID>)`
-- `SUSER_ID(<admin name>)`
-- `SUSER_SID(<admin name>)`
+    直接將 `db_owner` 角色授與給個別 Azure AD 使用者，以減輕 **CREATE DATABASE SCOPED CREDENTIAL** 問題。
+
+- 下列系統函式在 Azure AD 主體下執行時會傳回 NULL：
+
+  - `SUSER_ID()`
+  - `SUSER_NAME(<admin ID>)`
+  - `SUSER_SNAME(<admin SID>)`
+  - `SUSER_ID(<admin name>)`
+  - `SUSER_SID(<admin name>)`
+
+### <a name="manage-instances"></a>管理執行個體
+
+- 支援 Azure AD 登入和使用者作為[受控執行個體](sql-database-managed-instance.md)的預覽功能。
+- 設定對應至 Azure AD 群組的 Azure AD 登入，因為[受控執行個體](sql-database-managed-instance.md)不支援資料庫擁有者。
+    - 其擴充功能是當群組新增為 `dbcreator` 伺服器角色的一部分時，此群組中的使用者可以連線到受控執行個體並建立新的資料庫，但將無法存取資料庫。 這是因為新的資料庫擁有者是 SA，而不是 Azure AD 使用者。 如果將個別使用者新增至 `dbcreator` 伺服器角色，則不會顯示這個問題。
+- Azure AD 登入支援 SQL 代理程式管理和作業執行功能。
+- Azure AD 登入可以執行資料庫備份和還原作業。
+- 支援稽核與 Azure AD 登入和驗證事件相關的所有陳述式。
+- 屬於 sysadmin 伺服器角色成員的 Azure AD 登入支援專用管理員連線。
+    - 透過 SQLCMD 公用程式和 SQL Server Management Studio 支援。
+- 來自 Azure AD 登入的登入事件支援登入觸發程序。
+- Service Broker 和 DB 電子郵件可使用 Azure AD 登入來設定。
+
 
 ## <a name="connecting-using-azure-ad-identities"></a>使用 Azure AD 身分識別連接
 
@@ -102,15 +121,23 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 - 使用 Azure AD 主體名稱和密碼
 - 使用應用程式權杖驗證
 
+Azure AD 登入 (**公開預覽**) 支援下列驗證方法：
+
+- Azure Active Directory 密碼
+- Azure Active Directory 整合式
+- 包含 MFA 的 Active Directory 通用驗證
+- Azure Active Directory 互動式
+
+
 ### <a name="additional-considerations"></a>其他考量
 
 - 若要增強管理性，建議您以系統管理員身分佈建專用的 Azure AD 群組。   
-- 在任何時間，都只能為一個 Azure SQL Database 伺服器、「受控執行個體」或「Azure SQL 資料倉儲」設定一個 Azure AD 系統管理員 (使用者或群組)。
+- 一個 Azure SQL Database 伺服器或 Azure SQL 資料倉儲一律只能設定一個 Azure AD 系統管理員 (使用者或群組)。
+  - 新增受控執行個體的 Azure AD 登入 (**公開預覽**) 可能會建立可新增至 `sysadmin` 角色的多個 Azure AD 登入。
 - 只有 SQL Server 的 Azure AD 系統管理員可以一開始就使用 Azure Active Directory 帳戶來連線到 Azure SQL Database 伺服器、「受控執行個體」或「Azure SQL 資料倉儲」。 Active Directory 系統管理員可以設定後續的 Azure AD 資料庫使用者。   
 - 建議將連接逾時設定為 30 秒。   
 - SQL Server 2016 Management Studio 和 SQL Server Data Tools for Visual Studio 2015 (版本 14.0.60311.1 (2016 年 4 月) 或更新版本) 支援 Azure Active Directory 驗證。 (**.NET Framework Data Provider for SqlServer** 支援 Azure AD 驗證，最低版本 .NET Framework 4.6)。 因此，這些工具和資料層應用程式 (DAC 和 .BACPAC) 的最新版本可以使用 Azure AD 驗證。   
-- [ODBC 13.1 版](https://www.microsoft.com/download/details.aspx?id=53339)支援 Azure Active Directory 驗證，不過，`bcp.exe` 無法使用 Azure Active Directory 驗證進行連線，因為它們使用較舊的 ODBC 提供者。   
-- `sqlcmd` 從 13.1 版 (可從 [下載中心](https://go.microsoft.com/fwlink/?LinkID=825643)取得) 開始即支援 Azure Active Directory 驗證。
+- 從 15.0.1 版起，[sqlcmd 公用程式](/sql/tools/sqlcmd-utility)和 [bcp 公用程式](/sql/tools/bcp-utility)都支援搭配 MFA 的 Active Directory 互動式驗證。
 - SQL Server Data Tools for Visual Studio 2015 至少需要 2016 年 4 月版本的 Data Tools (版本 14.0.60311.1)。 Azure AD 使用者目前不會顯示在 SSDT 物件總管中。 解決方法是在 [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx) 中檢視使用者。   
 - [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) 支援 Azure AD 驗證。 此外，請參閱 [設定連接屬性](https://msdn.microsoft.com/library/ms378988.aspx)。   
 - PolyBase 無法使用 Azure AD 驗證進行驗證。   
@@ -120,10 +147,12 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 ## <a name="next-steps"></a>後續步驟
 
 - 若要了解如何建立和填入 Azure AD，然後搭配 Azure SQL Database 或「Azure SQL 資料倉儲」來設定 Azure AD，請參閱[搭配 SQL Database、受控執行個體或 SQL 資料倉儲來設定及管理 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md)。
+- 如需使用 Azure AD 登入搭配受控執行個體的教學課程，請參閱[使用 Azure AD 登入搭配受控執行個體](sql-database-managed-instance-aad-security-tutorial.md)
 - 如需 SQL Database 中存取權和控制權的概觀，請參閱 [SQL Database 的存取權和控制權](sql-database-control-access.md)。
 - 如需 SQL Database 中登入、使用者和資料庫角色的概觀，請參閱[登入、使用者和資料庫角色](sql-database-manage-logins.md)。
 - 如需資料庫主體的詳細資訊，請參閱[主體](https://msdn.microsoft.com/library/ms181127.aspx)。
 - 如需資料庫角色的詳細資訊，請參閱[資料庫角色](https://msdn.microsoft.com/library/ms189121.aspx)。
+- 如需針對受控執行個體建立 Azure AD 登入的語法，請參閱 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)。
 - 如需 SQL Database 中防火牆規則的詳細資訊，請參閱 [SQL Database 防火牆規則](sql-database-firewall-configure.md)。
 
 <!--Image references-->

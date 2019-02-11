@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 0a0a5a046bd1afefe3f4c72e713a0dafe0c856e4
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390374"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453922"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>對 Azure SQL Database 使用虛擬網路服務端點和規則
 
@@ -162,7 +162,7 @@ Azure SQL Database 的查詢編輯器會部署在 Azure 中的 VM 上。 這些 
 
 ### <a name="impact-on-data-sync"></a>資料同步的影響
 
-Azure SQL Database 擁有使用 Azure IP 連線到資料庫的資料同步功能。 使用服務端點時，您可能會關閉邏輯伺服器的 [允許 Azure 服務存取伺服器] 存取權。 這項動作將會中斷資料同步功能。
+Azure SQL Database 擁有使用 Azure IP 連線到資料庫的資料同步功能。 使用服務端點時，您可能會關閉 SQL Database 伺服器的 [允許 Azure 服務存取伺服器] 存取權。 這項動作將會中斷資料同步功能。
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>使用 VNet 服務端點搭配 Azure 儲存體的影響
 
@@ -173,17 +173,18 @@ Azure 儲存體已實作功能，可讓您限制連線至 Azure 儲存體帳戶�
 PolyBase 通常用於將資料從 Azure 儲存體帳戶載入 Azure SQL 資料倉儲。 如果您正在載入資料的來源 Azure 儲存體帳戶限制只能存取一組 VNet 子網路，從 PolyBase 到帳戶的連線會中斷。 如需透過連線至固定到 VNet 的 Azure 儲存體的 Azure SQL 資料倉儲來啟用 PolyBase 匯入和匯出案例，請按照下列所示的步驟進行：
 
 #### <a name="prerequisites"></a>必要條件
+
 1.  使用此[指南](https://docs.microsoft.com/powershell/azure/install-az-ps)安裝 Azure PowerShell。
 2.  如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此[指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)先升級至一般用途 v2。
 3.  您必須開啟 Azure 儲存體帳戶 [防火牆與虛擬網路] 設定功能表下方的 [允許信任的 Microsoft 服務存取此儲存體帳戶]。 如需詳細資訊請參閱此[指南](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
  
 #### <a name="steps"></a>步驟
-1.  在 PowerShell 中，透過 Azure Active Directory (AAD) **註冊本機 SQL Server**：
+1.  在 PowerShell 中，透過 Azure Active Directory (AAD) **註冊 SQL Database 伺服器**：
 
     ```powershell
     Add-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId your-subscriptionId
-    Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
+    Set-AzureRmSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
     ```
     
  1. 以此[指南](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)建立**一般用途的 v2 儲存體帳戶**。
@@ -192,7 +193,7 @@ PolyBase 通常用於將資料從 Azure 儲存體帳戶載入 Azure SQL 資料�
     > - 如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此 [指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)**升級至 v2**。
     > - 關於 Azure Data Lake Storage Gen2 的已知問題，請參閱此[指南](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues)。
     
-1.  請瀏覽至您儲存體帳戶之下的 [存取控制 \(IAM\)]，然後按一下 [新增角色指派]。 將 [儲存體 Blob 資料參與者 \(預覽)\] RBAC 角色指派給您的邏輯 SQL 伺服器。
+1.  請瀏覽至您儲存體帳戶之下的 [存取控制 \(IAM\)]，然後按一下 [新增角色指派]。 將 [儲存體 Blob 資料參與者 \(預覽)\] RBAC 角色指派給您的 SQL Database 伺服器。
 
     > [!NOTE] 
     > 僅有具備「擁有者」權限的成員才能執行此步驟。 關於 Azure 資源的各種內建角色，請參閱此[指南](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)。

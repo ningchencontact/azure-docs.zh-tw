@@ -1,6 +1,6 @@
 ---
-標題：'步驟 2：將資料上傳至 Machine Learning Studio 實驗' titleSuffix: Azure Machine Learning Studio description:'開發預測性解決方案逐步解說的步驟 2：將儲存的公用資料上傳至 Azure Machine Learning Studio。'
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：'步驟 2：將資料上傳至 Machine Learning Studio 實驗' titleSuffix:Azure Machine Learning Studio description:'開發預測性解決方案逐步解說的步驟 2：將儲存的公用資料上傳至 Azure Machine Learning Studio。'
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:2017/03/23
 ---

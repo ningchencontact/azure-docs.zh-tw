@@ -1,8 +1,21 @@
 ---
-標題：演算法範例 titleSuffix: Azure Machine Learning Studio 說明：機器學習服務基本概念的簡易概觀包含演算法範例。 可下載的資訊圖涵蓋大部分的機器學習服務問題。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: seodc18 ms.date:12/18/2017
+title: 演算法範例
+titleSuffix: Azure Machine Learning Studio
+description: 機器學習服務基本概念的簡易概觀包含演算法範例。 可下載的資訊圖涵蓋大部分的機器學習服務問題。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodc18
+ms.date: 12/18/2017
+ms.openlocfilehash: bffdbf58929a0cb7525726be53d83794adf315bf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295571"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>可下載的資訊圖：機器學習基本概念和演算法範例
 下載這個機器學習服務基本概念的簡易資訊圖概觀，以了解用來回答機器學習服務常見問題的常用演算法。 演算法範例可協助機器學習服務初學者了解適用的演算法及其用途。

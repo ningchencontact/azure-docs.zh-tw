@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 889f8f597b0b744ea5fe6ef2f5c82f2d09629607
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 61957b89bd5ec9a42d6fd03c7009187d71e448f4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605206"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474780"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>還原 Azure SQL Database 或容錯移轉到次要資料庫
 
@@ -37,7 +37,7 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 
 如果要使用容錯移轉群組或異地備援備份成功復原到另一個資料區域，您必須準備一台伺服器，以便在另一個資料中心中斷時成為新的主要伺服器，以及將定義好的步驟寫成文件並經過測試，以確保順利復原。 這些準備步驟包括︰
 
-- 識別在另一個區域中要成為新主要伺服器的邏輯伺服器。 就異地還原而言，這通常是在您資料庫所在區域之[配對區域](../best-practices-availability-paired-regions.md)中的伺服器。 這可避免在異地還原作業期間發生額外的流量成本。
+- 識別在另一個區域中要成為新主要伺服器的 SQL Database 伺服器。 就異地還原而言，這通常是在您資料庫所在區域之[配對區域](../best-practices-availability-paired-regions.md)中的伺服器。 這可避免在異地還原作業期間發生額外的流量成本。
 - 識別並選擇性地定義所需的伺服器層級防火牆規則，讓使用者可以存取新的主要資料庫。
 - 決定要如何重新導向使用者至新的主要伺服器，例如變更連接字串或變更 DNS 項目。
 - 識別並選擇性地建立登入，新主要伺服器的 master 資料庫中必須有這些登入，並確保這些登入在 master 資料庫中有適當的權限 (如果有的話)。 如需詳細資訊，請參閱 [災害復原後的 SQL Database 安全性](sql-database-geo-replication-security-config.md)

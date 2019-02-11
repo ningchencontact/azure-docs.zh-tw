@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: b2312534cdd63f5672f6b2294e3aef6b50be229a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: c4776d2c6f8ca2b23ba2df379b2682a6844f9a1b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600041"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461588"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>在 Azure SQL Database 中手動微調查詢效能
 
@@ -235,18 +235,18 @@ ORDER BY start_time DESC
 
 ### <a name="cross-database-sharding"></a>跨資料庫分區化
 
-因為 Azure SQL Database 會在商用硬體上執行，所以單一資料庫的容量限制會比傳統的內部部署 SQL Server 安裝更低。 有些客戶會在資料庫作業不符合 Azure SQL Database 中的單一資料庫限制時，使用分區化技術在多個資料庫散佈這些作業。 在 Azure SQL Database 上使用分區化技術的大部分客戶都會在跨多個資料庫的單一維度上分割其資料。 針對此方法，您必須了解 OLTP 應用程式通常會執行的交易只會套用到結構描述內的一個資料列或一小組資料列。
+因為 Azure SQL Database 會在商用硬體上執行，所以個別資料庫的容量限制會比傳統的內部部署 SQL Server 安裝更低。 有些客戶會在資料庫作業不符合 Azure SQL Database 中的個別資料庫限制時，使用分區化技術在多個資料庫散佈這些作業。 在 Azure SQL Database 上使用分區化技術的大部分客戶都會在跨多個資料庫的單一維度上分割其資料。 針對此方法，您必須了解 OLTP 應用程式通常會執行的交易只會套用到結構描述內的一個資料列或一小組資料列。
 
 > [!NOTE]
 > SQL Database 現在提供可協助分區化的程式庫。 如需詳細資訊，請參閱 [彈性資料庫用戶端程式庫概觀](sql-database-elastic-database-client-library.md)。
 
-例如，如果資料庫有客戶名稱、訂單及訂單詳細資料 (如 SQL Server 隨附的傳統範例 Northwind 資料庫)，則您可以透過以相關訂單和訂單詳細資料等資訊來分組客戶，將這項資料分割至多個資料庫。 您可以保證客戶的資料會保留在單一資料庫內。 應用程式會跨資料庫分割不同的客戶，跨多個資料庫有效分配負載。 透過分區化，客戶不但可以避免資料庫大小上限，Azure SQL Database 也能處理明顯大於不同計算大小限制的工作負載，前提是每個個別資料庫符合其 DTU。
+例如，如果資料庫有客戶名稱、訂單及訂單詳細資料 (如 SQL Server 隨附的傳統範例 Northwind 資料庫)，則您可以透過以相關訂單和訂單詳細資料等資訊來分組客戶，將這項資料分割至多個資料庫。 您可以保證客戶的資料會保留在個別資料庫內。 應用程式會跨資料庫分割不同的客戶，跨多個資料庫有效分配負載。 透過分區化，客戶不但可以避免資料庫大小上限，Azure SQL Database 也能處理明顯大於不同計算大小限制的工作負載，前提是每個個別資料庫符合其 DTU。
 
 雖然資料庫分區化不會減少方案的彙整資源容量，但可以非常有效地支援分配到多個資料庫的非常大型方案。 每個資料庫可以在不同的計算大小執行以支援具有高資源需求且非常大型的「有效」資料庫。
 
 ### <a name="functional-partitioning"></a>功能資料分割
 
-SQL Server 使用者通常會在單一資料庫內結合許多功能。 例如，如果應用程式有管理商店庫存的邏輯，該資料庫可能具有的邏輯會與庫存、追蹤訂單、預存程序和管理月底報告的索引或具體化檢視相關聯。 這項技術可以簡化備份等作業的資料庫管理，但也需要您調整硬體大小來跨應用程式的所有功能處理尖峰負載。
+SQL Server 使用者通常會在個別資料庫內結合許多功能。 例如，如果應用程式有管理商店庫存的邏輯，該資料庫可能具有的邏輯會與庫存、追蹤訂單、預存程序和管理月底報告的索引或具體化檢視相關聯。 這項技術可以簡化備份等作業的資料庫管理，但也需要您調整硬體大小來跨應用程式的所有功能處理尖峰負載。
 
 如果您在 Azure SQL Database 中使用相應放大架構，則最好將應用程式的不同功能分割至不同資料庫。 使用這項技術時，每個應用程式都可以獨立縮放。 隨著應用程式變得更忙碌 (而且資料庫上的負載增加)，系統管理員可為應用程式內的每個功能選擇獨立的計算大小。 此架構在達到限制時，應用程式會比單一商用電腦可處理的應用程式還大，因為負載會分配給多部電腦。
 

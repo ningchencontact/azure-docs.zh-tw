@@ -1,6 +1,6 @@
 ---
-標題：簡單實驗 titleSuffix: Azure Machine Learning Studio 說明：此機器學習服務教學課程會引導您輕鬆進行資料科學實驗。 我們將使用迴歸演算法預測汽車價格。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: tutorial
+標題：簡單實驗 titleSuffix:Azure Machine Learning Studio 說明：此機器學習服務教學課程會引導您輕鬆進行資料科學實驗。 我們將使用迴歸演算法預測汽車價格。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: tutorial
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date:03/20/2017
 ---

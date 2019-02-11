@@ -1,6 +1,6 @@
 ---
-標題：'疑難排解：建立及連線至 Machine Learning Studio 工作區' titleSuffix: Azure Machine Learning Studio description:本指南針對一些在設定 Azure Machine Learning Studio 工作區時常發生的問題，提供解決方案。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：'疑難排解：建立及連線至 Machine Learning Studio 工作區' titleSuffix:Azure Machine Learning Studio description:本指南針對一些在設定 Azure Machine Learning Studio 工作區時常發生的問題，提供解決方案。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:2017/03/20
 ---

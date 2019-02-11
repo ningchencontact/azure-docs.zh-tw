@@ -1,6 +1,6 @@
 ---
-標題：Web 服務的 Excel 增益集 titleSuffix: Azure Machine Learning Studio 說明：如何在 Excel 中直接使用 Azure Machine Learning Web 服務，而不需要撰寫任何程式碼。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：Web 服務的 Excel 增益集 titleSuffix:Azure Machine Learning Studio 說明：如何在 Excel 中直接使用 Azure Machine Learning Web 服務，而不需要撰寫任何程式碼。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:02/01/2018
 ---

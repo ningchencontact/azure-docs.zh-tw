@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 236809336975eec94d7decd9822fc9143ae19bfb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 692f6b1f02c6c1e86170971886e83722d0160838
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981009"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203584"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>在 Azure Linux 虛擬機器上設定 Oracle ASM  
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>建立 VM
 
-若要建立以 Oracle 資料庫映像為基礎的虛擬機器，並將其設定為使用 Oracle ASM，請使用 [az vm create](/cli/azure/vm#az_vm_create) 命令。 
+若要建立以 Oracle 資料庫映像為基礎的虛擬機器，並將其設定為使用 Oracle ASM，請使用 [az vm create](/cli/azure/vm) 命令。 
 
 下列範例會建立名為 myVM 的 VM，其大小為 Standard_DS2_v2，並附加四個容量各 50 GB 的資料磁碟。 如果預設的金鑰位置還沒有 SSH 金鑰的話，此範例也會建立這些金鑰。  若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。  
 
@@ -513,7 +513,7 @@ ssh <publicIpAddress>
 
    Oracle ASM Configuration Assistant 隨即開啟。
 
-2. 在 [設定 ASM: 磁碟群組] 對話方塊中，按一下 `Create` 按鈕，然後按一下 `Show Advanced Options`。
+2. 在 [設定 ASM:**磁碟群組]** 對話方塊中，按一下 `Create` 按鈕，然後按一下 `Show Advanced Options`。
 
 3. 在 [建立磁碟群組] 對話方塊中：
 
@@ -525,7 +525,7 @@ ssh <publicIpAddress>
 
    ![[建立磁碟群組] 對話方塊的螢幕擷取畫面](./media/oracle-asm/asm02.png)
 
-4. 在 [設定 ASM: 磁碟群組] 對話方塊中，按一下 `Create` 按鈕，然後按一下 `Show Advanced Options`。
+4. 在 [設定 ASM:**磁碟群組]** 對話方塊中，按一下 `Create` 按鈕，然後按一下 `Show Advanced Options`。
 
 5. 在 [建立磁碟群組] 對話方塊中：
 
@@ -540,7 +540,7 @@ ssh <publicIpAddress>
 
 6. 選取 [結束] 以關閉 ASM Configuration Assistant。
 
-   ![[設定 ASM: 磁碟群組] 對話方塊與 [結束] 按鈕的螢幕擷取畫面](./media/oracle-asm/asm05.png)
+   ![[設定 ASM: 磁碟群組] 對話方塊與[結束] 按鈕的螢幕擷取畫面](./media/oracle-asm/asm05.png)
 
 ## <a name="create-the-database"></a>建立資料庫
 

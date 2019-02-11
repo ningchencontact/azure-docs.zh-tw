@@ -1,14 +1,27 @@
 ---
-標題：使用 Web 應用程式範本取用 Studio Web 服務 titleSuffix: Azure Machine Learning Studio 說明：使用 Azure Marketplace 中的 Web 應用程式範本以使用 Azure Machine Learning 中的預測 Web 服務。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:03/20/2017
+title: 使用 Web 應用程式範本取用 Studio Web 服務
+titleSuffix: Azure Machine Learning Studio
+description: 使用 Azure Marketplace 中的 Web 應用程式範本以使用 Azure Machine Learning 中的預測 Web 服務。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: 164aae7c6a4df18b8a28e1ff152e9c61c60f06b9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299056"
 ---
 # <a name="consume-an-azure-machine-learning-studio-web-service-by-using-a-web-app-template"></a>使用 Web 應用程式範本取用 Azure Machine Learning Studio Web 服務
 
 您可以使用下列項目開發預測模型並將它部署為 Azure Web 服務：
 - Azure Machine Learning Studio。
-- R 或 Python 等工具。 
+- R 或 Python 等工具。
 
 之後，您可以使用 REST API 來存取可實際運作的模型。
 
@@ -23,10 +36,10 @@ Azure Marketplace 中可用的 Web 應用程式範本可以建立自訂的 Web �
 
 兩個範本可供使用：
 
-* [Azure ML 要求回應服務 Web 應用程式範本](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
-* [Azure ML 批次執行服務 Web 應用程式範本](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
+* [Azure Machine Learning Studio 要求-回應服務 Web 應用程式範本](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
+* [Azure Machine Learning Studio 批次執行服務 Web 應用程式範本](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
 
-每個範本都會使用 API URI 與您的 web 服務金鑰建立範例 ASP.NET 應用程式。 範本接著會將應用程式部署為 Azure 上的網站。 
+每個範本都會使用 API URI 與您的 web 服務金鑰建立範例 ASP.NET 應用程式。 範本接著會將應用程式部署為 Azure 上的網站。
 
 要求回應服務 (RRS) 範本會建立 Web 應用程式，可讓您將資料的單一資料列傳送至 Web 服務以取得單一結果。 批次執行服務 (BES) 範本會建立 Web 應用程式，可讓您傳送資料的許多資料列以取得多個結果。
 
@@ -51,33 +64,33 @@ Azure Marketplace 中可用的 Web 應用程式範本可以建立自訂的 Web �
 <!--    ![API Key][image3] -->
 
 <!-- This value will look like this:
-   
+
         https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
-   
+
     ![Request URI][image4] -->
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [新增]搜尋並選取 [Azure ML Request-Response Service Web App] \(Azure ML 要求回應服務 Web 應用程式\)，然後選取 [建立]。 
+2. 選取 [新增]搜尋並選取 [Azure ML Request-Response Service Web App] \(Azure ML 要求回應服務 Web 應用程式\)，然後選取 [建立]。
 3. 在 [建立] 窗格中：
-   
+
    * 為您的 Web 應用程式提供唯一名稱。 Web 應用程式名稱將會是此名稱加上 **.azurewebsites.net**。 例如 http://carprediction.azurewebsites.net。
    * 選擇 Azure 訂用帳戶及您的 Web 服務在其下執行的服務。
    * 選取 [建立] 。
-     
+
    ![建立 Web 應用程式][image5]
 
 4. 當 Azure 完成部署 Web 應用程式時，請選取 Azure 中 Web 應用程式設定頁面上的 [URL]，或在網頁瀏覽器中輸入 URL。 例如，輸入 **http://carprediction.azurewebsites.net**。
 5. 當 Web 應用程式第一次執行時，它會要求您提供 **API 張貼 URL** 和 **API 金鑰**。 輸入您先前儲存的值 (分別為要求 URI 和 API 金鑰)。 選取 [提交]。
-     
+
    ![輸入張貼 URI 和 API 金鑰][image6]
 
 6. Web 應用程式以目前 Web 服務設定顯示其 [Web 應用程式組態]  頁面。 您可以在這裡變更 Web 應用程式所使用的設定。
-   
+
    > [!NOTE]
    > 變更此處的設定只會變更此 Web 應用程式的設定。 不會變更您的 Web 服務的預設設定。 例如，如果您變更這裡的 [描述] 文字，並不會變更在 Machine Learning Studio 中 Web 服務儀表板上顯示的描述。
-   > 
-   > 
-   
+   >
+   >
+
     當您完成時，請選取 [儲存變更]，然後選取 [前往首頁]。
 
 7. 您可以從首頁輸入值，以傳送至您的 Web 服務。 當您完成時，請選取 [提交]，將傳回結果。
@@ -93,11 +106,11 @@ Azure Marketplace 中可用的 Web 應用程式範本可以建立自訂的 Web �
 
 ![使用 BES Web 範本的程序][image2]
 
-1. 依照與 RRS 範本相同的程序來建立 BES Web 應用程式。 但在此案例中，請移至 [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) \(Azure ML 批次執行服務 Web 應用程式範本\) 以開啟 Azure Marketplace 中的 BES 範本。 選取 [建立 Web 應用程式]。
+1. 依照與 RRS 範本相同的程序來建立 BES Web 應用程式。 但在此案例中，請移至 [Azure Machine Learning Studio Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) \(Azure Machine Learning Studio 批次執行服務 Web 應用程式範本\) 以開啟 Azure Marketplace 中的 BES 範本。 選取 [建立 Web 應用程式]。
 
 2. 若要指定您想要儲存結果的位置，請在 Web 應用程式的首頁上輸入目的地容器資訊。 同時指定 Web 應用程式可以在哪裡取得輸入值，在本機檔案或 Azure 儲存體容器。
    選取 [提交]。
-   
+
    ![儲存體資訊][image7]
 
 Web 應用程式將會顯示具有工作狀態的頁面。 當工作完成時，您可以在 Azure Blob 儲存體中取得結果位置。 您也可以選擇將結果下載到本機檔案。

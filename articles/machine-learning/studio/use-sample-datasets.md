@@ -1,6 +1,6 @@
 ---
-標題：使用範例資料集 titleSuffix: Azure Machine Learning Studio 說明：Machine Learning Studio 中包含的範例模型所使用之資料集的描述。 您可以為您的實驗使用這些範例資料集。
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+標題：使用範例資料集 titleSuffix:Azure Machine Learning Studio 說明：Machine Learning Studio 中包含的範例模型所使用之資料集的描述。 您可以為您的實驗使用這些範例資料集。
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date:01/19/2018
 ---
