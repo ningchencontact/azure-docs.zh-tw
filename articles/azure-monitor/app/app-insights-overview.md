@@ -38,7 +38,7 @@ Application Insights 是多個平台上的 Web 開發人員所適用的可延伸
 
 
 ### <a name="whats-the-overhead"></a>負荷為何？
-對您的應用程式效能的影響很小。 追蹤呼叫非封鎖性，而且會在個別的執行緒中分批傳送。
+對您的應用程式效能的影響很小。 追蹤呼叫不具阻擋性，而且會在個別的執行緒中分批傳送。
 
 ## <a name="what-does-application-insights-monitor"></a>Application Insights 可監視什麼？
 
