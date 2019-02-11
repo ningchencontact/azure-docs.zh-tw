@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 32b532cab7e970d01c3963729658c32ac4a020b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7d1f11abbe88bff5a7e16984aacd4953ad4f9e12
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465039"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751186"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>在 Azure SQL Database 中建立及管理 SQL Database 伺服器和單一資料庫
 
@@ -53,7 +53,7 @@ ms.locfileid: "55465039"
 > [!IMPORTANT]
 > 若要設定資料庫的效能屬性，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 > [!TIP]
-> 如需 Azure 入口網站快速入門，請參閱[在 Azure 入口網站中建立 Azure SQL 資料庫](sql-database-get-started-portal.md)。
+> 如需 Azure 入口網站快速入門，請參閱[在 Azure 入口網站中建立 Azure SQL 資料庫](sql-database-single-database-get-started.md)。
 
 ## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell：管理 SQL Database 伺服器和單一資料庫
 

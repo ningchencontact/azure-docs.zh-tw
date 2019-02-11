@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 2252dc9d1cb4a8b5666e3f8078528206ac0fddf7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9b8340221c61bedbe010b9ef280ada62cfee7a21
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228248"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754861"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>文字轉換語音常見問題集
 
@@ -29,7 +29,7 @@ ms.locfileid: "55228248"
 
 **問：如果我想要使用標準語音模型，該從何處著手？**
 
-**答**：透過 HTTP 要求可提供超過 45 種語言的 80 餘種標準語音模型。 首先，取得[訂用帳戶金鑰](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started)。 若要對預先部署的語音模型進行 REST 呼叫，請參閱 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech)。
+**答**：透過 HTTP 要求可提供超過 45 種語言的 80 餘種標準語音模型。 首先，取得[訂用帳戶金鑰](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started)。 若要對預先部署的語音模型進行 REST 呼叫，請參閱 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)。
 
 **問：如果我想要使用自訂語音模型，API 是否與標準語音所用的相同？**
 

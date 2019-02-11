@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 764b5defd2fb647fd52e1e93441b68ffe492d0c9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1a525bdf422c61526e092c84ac9916dad6b68dd1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181260"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656374"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>針對 Azure Active Directory B2B 共同作業問題進行疑難排解
 
@@ -79,7 +79,7 @@ ms.locfileid: "55181260"
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>具有 Just-In-Time (JIT) 或「病毒式」租用戶的來賓使用者無法重設其密碼
 
-如果身分識別租用戶是 Just-In-Time (JIT) 或病毒式租用戶 (表示它是獨立、非受控的 Azure 租用戶)，只有來賓使用者才能重設自己的密碼。 組織有時會[接管病毒式租用戶的管理](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover)，這些是員工使用其工作電子郵件地址來註冊服務時所建立的租用戶。 在組織接管病毒式租用戶之後，只有該組織的系統管理員可以重設使用者的密碼或啟用 SSPR。 如有必要，作為發出邀請的組織，您可以從目錄中移除來賓使用者帳戶，並重新傳送邀請。
+如果身分識別租用戶是 Just-In-Time (JIT) 或病毒式租用戶 (表示它是獨立、非受控的 Azure 租用戶)，只有來賓使用者才能重設自己的密碼。 組織有時會[接管病毒式租用戶的管理](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)，這些是員工使用其工作電子郵件地址來註冊服務時所建立的租用戶。 在組織接管病毒式租用戶之後，只有該組織的系統管理員可以重設使用者的密碼或啟用 SSPR。 如有必要，作為發出邀請的組織，您可以從目錄中移除來賓使用者帳戶，並重新傳送邀請。
 
 ## <a name="next-steps"></a>後續步驟
 

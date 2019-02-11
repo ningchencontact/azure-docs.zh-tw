@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 94b2ab0263ccb7b6835a7bbe76ed8776aadb1a65
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228197"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756660"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>對 Hyper-V 至 Azure 的複寫和容錯移轉進行疑難排解
 
@@ -115,7 +115,7 @@ ms.locfileid: "55228197"
         - 計數器：「每秒的寫入位元組數」</br>
         - 根據 VM 或其應用程式的忙碌程度，此資料變換率將會增加或維持在高水平。
         - 就 Site Recovery 的標準儲存體而言，平均來源磁碟資料變換量為每秒 2 MB。 [深入了解](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - 此外，您可以[確認儲存體的延展性目標](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account)。
+    - 此外，您可以[確認儲存體的延展性目標](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)。
 8. 執行[部署規劃工具](hyper-v-deployment-planner-run.md)。
 9. 檢閱[網路](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input)和[儲存體](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input)的相關建議。
 
