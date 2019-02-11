@@ -7,20 +7,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2010
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 916de2de6cdc19bfa1e3967661d40693d4be1e99
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 513b1d7468700076ae4d3fd46284ef88d5f28c51
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852383"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296154"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
@@ -128,6 +128,12 @@ ms.locfileid: "54852383"
 
 ---
 
+**問：為什麼使用者在變更其 UPN 之後，會在使用已加入 Azure AD 的裝置時發生問題？**
+
+**答：** 目前，已加入 Azure AD 的裝置並未完全支援 UPN 變更。 因此，他們在變更其 UPN 之後，會在向 Azure AD 驗證時失敗。 所以使用者會在其裝置上遇到 SSO 和條件式存取的問題。 目前，使用者必須透過 [其他使用者] 圖格以其新的 UPN 登入 Windows 來解決此問題。 我們目前正努力解決此問題。 不過，使用 Windows Hello 企業版來登入的使用者不會遇到這個問題。 
+
+---
+
 **問：我的使用者無法從已加入 Azure AD 的裝置搜尋印表機。如何從這些裝置啟用列印功能？**
 
 **答：** 若要為已加入 Azure AD 的裝置部署印表機，請參閱[使用預先驗證來部署 Windows Server 混合式雲端列印](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) \(英文\)。 您需要有內部部署的 Windows Server，才能部署混合式雲端列印。 目前尚無法使用雲端式列印服務。 
@@ -170,7 +176,7 @@ ms.locfileid: "54852383"
 
 **問：當我嘗試將電腦加入 Azure AD 時，為什麼會看到「糟糕，發生錯誤!」對話方塊？**
 
-**答：** 當您使用 Intune 來設定 Azure Active Directory 註冊時，就會發生此錯誤。 請確定嘗試加入 Azure AD 的使用者已獲指派正確的 Intune 授權。 如需詳細資訊，請參閱[設定 Windows 裝置的註冊](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment)。  
+**答：** 當您使用 Intune 來設定 Azure Active Directory 註冊時，就會發生此錯誤。 請確定嘗試加入 Azure AD 的使用者已獲指派正確的 Intune 授權。 如需詳細資訊，請參閱[設定 Windows 裝置的註冊](https://docs.microsoft.com/intune/windows-enroll#azure-active-directory-enrollment)。  
 
 ---
 
@@ -179,6 +185,19 @@ ms.locfileid: "54852383"
 **答：** 可能是因為您使用本機內建的系統管理員帳戶來登入裝置的緣故。 請在使用 Azure Active Directory Join 來完成設定之前，先建立一個不同的本機帳戶。 
 
 ---
+
+**問：我們 Windows 10 裝置上有哪些 MS-Organization-P2P-Access 憑證？**
+
+**答：** MS-Organization-P2P-Access 憑證是由 Azure AD 簽發給已加入 Azure AD 之裝置和已加入混合式 Azure AD 之裝置的憑證。 這些憑證可用來啟用相同租用戶中裝置間的信任，以進行遠端桌面存取。 一個憑證簽發給裝置，另一個憑證則簽發給使用者。 裝置憑證位於 `Local Computer\Personal\Certificates` 中，且有效期為一天。 如果裝置在 Azure AD 中仍處於作用中，系統就會更新此憑證 (透過簽發新憑證的方式)。 使用者憑證位於 `Current User\Personal\Certificates` 中，此憑證的有效期也是一天，但它是在使用者嘗試對另一個已加入 Azure AD 的裝置建立遠端桌面工作階段時視需要簽發的憑證。 系統並不會在其到期時予以更新。 這兩種憑證都是使用 `Local Computer\AAD Token Issuer\Certificates` 中的 MS-Organization-P2P-Access 憑證來簽發的。 而此憑證則是由 Azure AD 在裝置註冊期間所簽發的。 
+
+---
+
+**問：為什麼在我們的 Windows 10 裝置上看到多個由 MS-Organization-P2P-Access 簽發的過期憑證？如何刪除它們？**
+
+**答：** 在 Windows 10 1709 版和更舊的版本上已發現一個問題，就是因為密碼編譯問題，導致過期的 MS-Organization-P2P-Access 憑證繼續存在電腦存放區上。 如果您使用任何無法處理大量過期憑證的 VPN 用戶端 (例如 Cisco AnyConnect)，使用者就可能遇到網路連線問題。 此問題在 Windows 10 1803 版中已修正，可自動刪除任何這類過期的 MS-Organization-P2P-Access 憑證。 您可以將裝置更新至 Windows 10 1803 來解決此問題。 如果無法更新，您可以刪除這些憑證，而不會產生任何負面影響。  
+
+---
+
 
 ## <a name="hybrid-azure-ad-join-faq"></a>混合式 Azure AD Join 常見問題集
 
@@ -196,7 +215,15 @@ ms.locfileid: "54852383"
 
 混合式 Azure AD Join 的優先順序會高於 Azure AD 已註冊狀態。 所以就任何驗證和條件式存取評估而言，都會將您的裝置視為已加入混合式 Azure AD。 您可以從 Azure AD 入口網站中放心地刪除 Azure AD 已註冊裝置記錄。 了解如何[在 Windows 10 機器上避免或清除此雙重狀態](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know)。 
 
+
 ---
+
+**問：為什麼使用者在變更其 UPN 之後，會在使用已加入 Windows 10 混合式 Azure AD 的裝置時發生問題？**
+
+**答：** 目前，已加入混合式 Azure AD 的裝置並未完全支援 UPN 變更。 雖然使用者可以登入裝置，並存取其內部部署應用程式，但在變更 UPN 之後，向 Azure AD 進行驗證會失敗。 所以使用者會在其裝置上遇到 SSO 和條件式存取的問題。 目前，您必須先讓裝置取消加入 Azure AD (使用較高的權限執行 "dsregcmd /leave") 再重新加入 (會自動發生)，以解決此問題。 我們目前正努力解決此問題。 不過，使用 Windows Hello 企業版來登入的使用者不會遇到這個問題。 
+
+---
+
 
 ## <a name="azure-ad-register-faq"></a>Azure AD 註冊常見問題集
 
@@ -217,15 +244,3 @@ ms.locfileid: "54852383"
 
 - 在第一次嘗試存取時，系統會提示使用者使用公司入口網站來註冊裝置。
 
----
-
-
-**問：我們 Windows 10 裝置上有哪些 MS-Organization-P2P-Access 憑證？**
-
-**答：** MS-Organization-P2P-Access 憑證是由 Azure AD 簽發給已加入 Azure AD 之裝置和已加入混合式 Azure AD 之裝置的憑證。 這些憑證可用來啟用相同租用戶中裝置間的信任，以進行遠端桌面存取。 一個憑證簽發給裝置，另一個憑證則簽發給使用者。 裝置憑證位於 `Local Computer\Personal\Certificates` 中，且有效期為一天。 如果裝置在 Azure AD 中仍處於作用中，系統就會更新此憑證 (透過簽發新憑證的方式)。 使用者憑證位於 `Current User\Personal\Certificates` 中，此憑證的有效期也是一天，但它是在使用者嘗試對另一個已加入 Azure AD 的裝置建立遠端桌面工作階段時視需要簽發的憑證。 系統並不會在其到期時予以更新。 這兩種憑證都是使用 `Local Computer\AAD Token Issuer\Certificates` 中的 MS-Organization-P2P-Access 憑證來簽發的。 而此憑證則是由 Azure AD 在裝置註冊期間所簽發的。 
-
----
-
-**問：為什麼在我們的 Windows 10 裝置上看到多個由 MS-Organization-P2P-Access 簽發的過期憑證？如何刪除它們？**
-
-**答：** 在 Windows 10 1709 版和更舊的版本上已發現一個問題，就是因為密碼編譯問題，導致過期的 MS-Organization-P2P-Access 憑證繼續存在電腦存放區上。 如果您使用任何無法處理大量過期憑證的 VPN 用戶端 (例如 Cisco AnyConnect)，使用者就可能遇到網路連線問題。 此問題在 Windows 10 1803 版中已修正，可自動刪除任何這類過期的 MS-Organization-P2P-Access 憑證。 您可以將裝置更新至 Windows 10 1803 來解決此問題。 如果無法更新，您可以刪除這些憑證，而不會產生任何負面影響。  

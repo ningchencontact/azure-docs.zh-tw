@@ -4,17 +4,17 @@ description: 了解「Azure 原則」如何使用「來賓設定」來稽核 Azu
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0a571084819c5dfed3f8d6891b59032ef2eecdd6
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 77d99c90e65647a1f4a4efb07ff5520596fa54cf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856395"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295163"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure 原則的來賓設定
 
@@ -61,7 +61,17 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 |作業系統|驗證工具|注意|
 |-|-|-|
 | Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| 「來賓設定」延伸模組會安裝 Ruby 和 Python。 |
+| Linux|[Chef InSpec](https://www.chef.io/inspec/)| 「來賓設定」延伸模組會安裝 Ruby 和 Python。 |
+
+### <a name="validation-frequency"></a>驗證頻率
+
+「來賓設定」用戶端會每隔 5 分鐘檢查一次是否有新內容。
+一旦收到來賓指派，系統便會每隔 15 分鐘檢查一次設定。
+稽核完成後，系統會立即將結果傳送給來賓設定資源提供者。
+發生原則[評估觸發程序](../how-to/get-compliance-data.md#evaluation-triggers)時，系統會將機器的狀態寫入到來賓設定資源提供者。
+這會導致 Azure 原則評估 Azure Resource Manager 屬性。
+隨選原則評估會從來賓設定資源提供者擷取最新的值。
+不過，該評估不會對虛擬機器內的設定觸發新的稽核作業。
 
 ### <a name="supported-client-types"></a>支援的用戶端類型
 
@@ -90,7 +100,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 ## <a name="guest-configuration-definition-requirements"></a>來賓設定定義需求
 
-「來賓設定」所執行的每個稽核都需要兩個原則定義：**DeployIfNotExists** 和 **AuditIfNotExists**。 **DeployIfNotExists** 可用來為虛擬機器準備「來賓設定」代理程式及其他用以支援[驗證工具](#validation-tools)的元件。
+「來賓設定」所執行的每個稽核都需要兩個原則定義：**DeployIfNotExists** 和 **Audit**。 **DeployIfNotExists** 可用來為虛擬機器準備「來賓設定」代理程式及其他用以支援[驗證工具](#validation-tools)的元件。
 
 **DeployIfNotExists** 原則定義會驗證並修正下列項目：
 
@@ -99,14 +109,14 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
   - 安裝最新版的 **Microsoft.GuestConfiguration** 延伸模組
   - 安裝[驗證工具](#validation-tools)和相依性 (如有需要)
 
-在 **DeployIfNotExists** 符合規範之後，**AuditIfNotExists** 原則定義會使用本機驗證工具來判斷所指派的設定指派項目是否符合規範。 驗證工具會將結果提供給「來賓設定」用戶端。 用戶端會將結果轉送至「來賓延伸模組」，以便透過「來賓設定」資源提供者提供結果。
+在 **DeployIfNotExists** 符合規範之後，**Audit** 原則定義會使用本機驗證工具來判斷所指派的設定指派項目是否符合規範。 驗證工具會將結果提供給「來賓設定」用戶端。 用戶端會將結果轉送至「來賓延伸模組」，以便透過「來賓設定」資源提供者提供結果。
 
 「Azure 原則」會使用「來賓設定」資源提供者 **complianceStatus** 屬性在 [合規性] 節點中回報合規性。 如需詳細資訊，請參閱[取得合規性資料](../how-to/getting-compliance-data.md)。
 
 > [!NOTE]
-> 每個「來賓設定」定義都必須有 **DeployIfNotExists** 和 **AuditIfNotExists** 原則定義。
+> 每個「來賓設定」定義都必須有 **DeployIfNotExists** 和 **Audit** 原則定義。
 
-「來賓設定」的所有內建原則都包含在一個方案中，以聚集要在指派中使用的定義。 名為 *[預覽] 的內建計劃：Linux 及 Windows 虛擬機器內的「稽核密碼」安全性設定*包含 18 項原則。 針對 Windows 有 6 組 **DeployIfNotExists** 和 **AuditIfNotExists**，針對 Linux 則有 3 組。 在每個案例中，定義內的邏輯僅會驗證依據[原則規則](definition-structure.md#policy-rule)定義進行評估的目標作業系統。
+「來賓設定」的所有內建原則都包含在一個方案中，以聚集要在指派中使用的定義。 名為 *[預覽] 的內建計劃：Linux 及 Windows 虛擬機器內的「稽核密碼」安全性設定*包含 18 項原則。 針對 Windows 有 6 組 **DeployIfNotExists** 和 **Audit**，針對 Linux 則有 3 組。 在每個案例中，定義內的邏輯僅會驗證依據[原則規則](definition-structure.md#policy-rule)定義進行評估的目標作業系統。
 
 ## <a name="next-steps"></a>後續步驟
 

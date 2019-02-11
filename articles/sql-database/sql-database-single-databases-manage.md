@@ -1,9 +1,9 @@
 ---
-title: 建立及管理 Azure SQL Server 和單一資料庫 | Microsoft Docs
-description: 深入了解如何建立及管理邏輯伺服器和單一資料庫。
+title: 建立及管理 Azure SQL Database 伺服器和單一資料庫 | Microsoft Docs
+description: 了解如何建立及管理 SQL Database 伺服器和單一資料庫。
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,29 +11,29 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: f43c2cd5a3c155258cd698f6b55854bc0df9f861
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 32b532cab7e970d01c3963729658c32ac4a020b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388599"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465039"
 ---
-# <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>在 Azure SQL Database 中建立及管理邏輯伺服器和單一資料庫
+# <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>在 Azure SQL Database 中建立及管理 SQL Database 伺服器和單一資料庫
 
-您可以使用 Azure 入口網站、PowerShell、Azure CLI、REST API 和 Transact-SQL，來建立及管理 Azure SQL Database 邏輯伺服器與單一資料庫。
+您可以使用 Azure 入口網站、PowerShell、Azure CLI、REST API 和 Transact-SQL，來建立及管理 SQL Database 伺服器與單一資料庫。
 
-## <a name="azure-portal-manage-logical-servers-and-databases"></a>Azure 入口網站：受控邏輯伺服器和資料庫
+## <a name="azure-portal-manage-sql-database-servers-and-single-databases"></a>Azure 入口網站：管理 SQL Database 伺服器和單一資料庫
 
 您可以事先或在建立伺服器本身的同時，建立 Azure SQL Database 的資源群組。 有多種方法可以使用新的 SQL Server 表單，可以透過建立新的 SQL Server，或是在建立新資料庫時一起使用。
 
-### <a name="create-a-blank-sql-server-logical-server"></a>建立空白的 SQL Server (邏輯伺服器)
+### <a name="create-a-blank-sql-database-server"></a>建立空白的 SQL Database 伺服器
 
-若要使用 [Azure 入口網站](https://portal.azure.com)建立 Azure SQL Database 伺服器 (不含資料庫)，請瀏覽至空白的 SQL Server (邏輯伺服器) 表單。  
+若要使用 [Azure 入口網站](https://portal.azure.com)建立 SQL Database 伺服器，請瀏覽至空白的 SQL Server (邏輯伺服器) 表單。  
 
-### <a name="create-a-blank-or-sample-sql-database"></a>建立空白或範例 SQL 資料庫
+### <a name="create-a-blank-or-sample-sql-single-database"></a>建立空白或範例 SQL 單一資料庫
 
-若要使用 [Azure 入口網站](https://portal.azure.com)建立 Azure SQL Database，請瀏覽至空白的 SQL Database 表單，並提供要求的資訊。 您可以事先或在建立資料庫本身的同時，建立 Azure SQL Database 的資源群組和邏輯伺服器。 您可以建立空白資料庫，或建立根據 Adventure Works LT 的範例資料庫。
+若要使用 [Azure 入口網站](https://portal.azure.com)建立 Azure SQL 單一資料庫，請瀏覽至空白的 SQL Database 表單，並提供要求的資訊。 您可以事先或在建立單一資料庫本身的同時，建立 Azure SQL 資料庫的資源群組和 SQL Database 伺服器。 您可以建立空白資料庫，或建立根據 Adventure Works LT 的範例資料庫。
 
   ![建立資料庫-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -42,9 +42,9 @@ ms.locfileid: "54388599"
 
 若要建立「受控執行個體」，請參閱[建立受控執行個體](sql-database-managed-instance-get-started.md)
 
-## <a name="manage-an-existing-sql-server"></a>管理現有的 SQL Server
+## <a name="manage-an-existing-sql-database-server"></a>管理現有的 SQL Database 伺服器
 
-若要管理現有的伺服器，請使用多種方法 (例如從特定的 SQL 資料庫頁面、[SQL Server] 頁面，或 [所有資源] 頁面)，瀏覽至伺服器。
+若要管理現有的 SQL Database 伺服器，請使用多種方法 (例如從特定的 SQL 資料庫頁面、[SQL Server] 頁面，或 [所有資源] 頁面)，瀏覽至伺服器。
 
 若要管理現有的資料庫，請瀏覽至 [SQL 資料庫] 頁面，按一下您想要管理的資料庫。 下列螢幕擷取畫面顯示如何從資料庫的 [概觀] 頁面，開始設定資料庫的伺服器層級防火牆。
 
@@ -55,12 +55,12 @@ ms.locfileid: "54388599"
 > [!TIP]
 > 如需 Azure 入口網站快速入門，請參閱[在 Azure 入口網站中建立 Azure SQL 資料庫](sql-database-get-started-portal.md)。
 
-## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell：受控邏輯伺服器和資料庫
+## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell：管理 SQL Database 伺服器和單一資料庫
 
-若要使用 Azure PowerShell 建立及管理 Azure SQL 邏輯伺服器、單一和集區資料庫和邏輯伺服器防火牆，請使用下列 PowerShell 指令程式。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
+若要使用 Azure PowerShell 建立及管理 Azure SQL Database 伺服器、獨立和集區資料庫以及 SQL Database 伺服器防火牆，請使用下列 PowerShell Cmdlet。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
 > [!TIP]
-> 如需 PowerShell 範例指令碼，請參閱[使用 PowerShell 建立單一 Azure SQL Database 並設定邏輯伺服器防火牆規則](scripts/sql-database-create-and-configure-database-powershell.md)和[使用 PowerShell 監視和調整單一 SQL Database](scripts/sql-database-monitor-and-scale-database-powershell.md)。
+> 如需 PowerShell 範例指令碼，請參閱[使用 PowerShell 建立 Azure SQL 單一資料庫並設定 SQL Database 伺服器防火牆規則](scripts/sql-database-create-and-configure-database-powershell.md)和[使用 PowerShell 監視和調整 SQL 單一資料庫](scripts/sql-database-monitor-and-scale-database-powershell.md)。
 
 | Cmdlet | 說明 |
 | --- | --- |
@@ -79,12 +79,12 @@ ms.locfileid: "54388599"
 |[Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|刪除伺服器的防火牆規則|
 | New-AzureRmSqlServerVirtualNetworkRule | 根據同時是虛擬網路服務端點的子網路，建立[*虛擬網路規則*](sql-database-vnet-service-endpoint-rule-overview.md)。 |
 
-## <a name="azure-cli-manage-logical-servers-and-databases"></a>Azure CLI：受控邏輯伺服器和資料庫
+## <a name="azure-cli-manage-sql-database-servers-and-single-databases"></a>Azure CLI：管理 SQL Database 伺服器和單一資料庫
 
 若要使用 [Azure CLI](/cli/azure) 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 [Azure CLI SQL Database](/cli/azure/sql/db) 命令。 使用 [Cloud Shell](/azure/cloud-shell/overview) 在您的瀏覽器中執行 CLI，或在 macOS、Linux 或 Windows 中[安裝](/cli/azure/install-azure-cli)。 如需建立和管理彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
 
 > [!TIP]
-> 如需 Azure CLI 快速入門，請參閱[使用 Azure CLI 建立單一 Azure SQL 資料庫](sql-database-cli-samples.md)。 如需 Azure CLI 範例指令碼，請參閱[使用 CLI 建立單一 Azure SQL Database 並設定防火牆規則](scripts/sql-database-create-and-configure-database-cli.md)和[使用 CLI 監視和調整單一 SQL Database](scripts/sql-database-monitor-and-scale-database-cli.md)。
+> 如需 Azure CLI 快速入門，請參閱[使用 Azure CLI 建立 Azure SQL 單一資料庫](sql-database-cli-samples.md)。 如需 Azure CLI 範例指令碼，請參閱[使用 CLI 建立 Azure SQL 單一資料庫並設定 SQL Database 防火牆規則](scripts/sql-database-create-and-configure-database-cli.md)和[使用 CLI 監視和調整 Azure SQL 單一資料庫](scripts/sql-database-monitor-and-scale-database-cli.md)。
 >
 
 | Cmdlet | 說明 |
@@ -109,7 +109,7 @@ ms.locfileid: "54388599"
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|更新防火牆規則|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|刪除防火牆規則|
 
-## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL：受控邏輯伺服器和資料庫
+## <a name="transact-sql-manage-sql-database-servers-and-single-databases"></a>Transact-SQL：管理 SQL Database 伺服器和單一資料庫
 
 若要使用 Transact-SQL 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 T-SQL 命令。 您可以使用 Azure 入口網站、[SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio)、[Visual Studio Code](https://code.visualstudio.com/docs)，或任何可連線到 Azure SQL Database 伺服器並傳遞 Transact-SQL 命令的其他程式來發出這些命令。 如需管理彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
 
@@ -135,7 +135,7 @@ ms.locfileid: "54388599"
 |[sys.database_firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|傳回與您的 Microsoft Azure SQL Database 相關聯之資料庫層級防火牆設定的相關資訊。 |
 |[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|移除您的 Azure SQL Database 或 SQL 資料倉儲的資料庫層級防火牆設定。 |
 
-## <a name="rest-api-manage-logical-servers-and-databases"></a>REST API：受控邏輯伺服器和資料庫
+## <a name="rest-api-manage-sql-database-servers-and-single-databases"></a>REST API：管理 SQL Database 伺服器和單一資料庫
 
 若要建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用 REST API 要求。
 
@@ -145,7 +145,7 @@ ms.locfileid: "54388599"
 |[伺服器 - 刪除](https://docs.microsoft.com/rest/api/sql/servers/delete)|刪除 SQL 伺服器。|
 |[伺服器 - 取得](https://docs.microsoft.com/rest/api/sql/servers/get)|取得伺服器。|
 |[伺服器 - 清單](https://docs.microsoft.com/rest/api/sql/servers/list)|傳回訂用帳戶中的伺服器清單。|
-|[伺服器 - 依資源群組列示](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|傳回資源群組中的伺服器清單。|
+|[伺服器 - 依資源群組列出](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|傳回資源群組中的伺服器清單。|
 |[伺服器 - 更新](https://docs.microsoft.com/rest/api/sql/servers/update)|更新現有伺服器。|
 |[資料庫 - 建立或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|建立新的資料庫或更新現有資料庫。|
 |[資料庫 - 刪除](https://docs.microsoft.com/rest/api/sql/databases/delete)|刪除資料庫。|
@@ -156,7 +156,7 @@ ms.locfileid: "54388599"
 |[防火牆規則 - 建立或更新](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|建立或更新防火牆規則。|
 |[防火牆規則 - 刪除](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|刪除防火牆規則。|
 |[防火牆規則 - 取得](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|取得防火牆規則。|
-|[防火牆規則 - 依伺服器列示](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|傳回防火牆規則的清單。|
+|[防火牆規則 - 依伺服器列出](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|傳回防火牆規則的清單。|
 
 ## <a name="next-steps"></a>後續步驟
 

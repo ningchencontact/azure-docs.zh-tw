@@ -1,10 +1,22 @@
 ---
-標題：建立工作區 titleSuffix:Azure Machine Learning Studio description:若要使用 Azure Machine Learning Studio，您必須具有 Machine Learning Studio 工作區。 此工作區包含您建立、管理及發行實驗所需的工具。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:2017/12/07
+title: 建立工作區
+titleSuffix: Azure Machine Learning Studio
+description: 若要使用 Azure Machine Learning Studio，您必須具有 Machine Learning Studio 工作區。 此工作區包含您建立、管理及發行實驗所需的工具。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 12/07/2017
+ms.openlocfilehash: 16c67c217c8ef33a360fd479a45317d6c42af494
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486312"
 ---
-
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>建立和共用 Azure Machine Learning Studio 工作區
 
 若要使用 Azure Machine Learning Studio，您必須具有 Machine Learning Studio 工作區。 此工作區包含您建立、管理及發行實驗所需的工具。

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 22a2a5d0a275b4eeb9ddea88741abdef9745a539
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 904cd593022006bc16908664fb7d7d0e3f6f24b0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166722"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455213"
 documentType: LandingData
 title: Azure SQL Database - 進階安全性
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 11/11/2018
+  ms.date: 01/25/2019
   ms.author: jovanpop-msft
 sections:
 - items:
@@ -74,7 +74,7 @@ sections:
       - href: /azure/sql-database/sql-database-managed-instance-threat-detection#set-up-threat-detection-for-your-managed-instance-in-the-azure-portal
       - href: 
       - href: 
-    - title: 在單一資料庫上設定防火牆規則
+    - title: 在單一資料庫上設定資料庫伺服器防火牆規則
       values:
       - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-the-azure-portal
       - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-cli
@@ -93,7 +93,7 @@ sections:
     items:
     - html: <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">受控執行個體</a>和<a href="/azure/sql-database/sql-database-threat-detection">資料庫</a>中的威脅防護可偵測出異常活動，這些異常活動代表有不尋常且可能有害的資料庫存取或攻擊嘗試。
     - html: <a href="/azure/sql-database/sql-database-managed-instance-auditing">受控執行個體</a>和<a href="/azure/sql-database/sql-database-auditing">資料庫</a>的稽核可追蹤資料庫事件並將事件寫入 Azure 儲存體帳戶、OMS 工作區或事件中樞的稽核記錄。
-    - html: 單一資料庫中的<a href="/azure/sql-database/sql-database-firewall-configure">防火牆規則</a>可讓您控制哪些 IP 位址可以存取您的資料庫。
+    - html: 單一資料庫中的<a href="/azure/sql-database/sql-database-firewall-configure">資料庫伺服器防火牆規則</a>可讓您控制哪些 IP 位址可以存取您的資料庫。
     - html: 受控執行個體中的 <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">VNet 整合</a>可讓您將資料庫放在自己的私人位址空間。
     - html: 不論是當機密資料在伺服器上待用時、在用戶端與伺服器之間移動時，還是使用中時，<a href="/azure/sql-database/sql-database-always-encrypted">Always Encrypted</a> 都可協助保護資料，確保機密資料在資料庫系統內一律不會以純文字顯示。
     - html: <a href="/azure/sql-database/sql-database-dynamic-data-masking-get-started">動態資料遮罩</a>可讓客戶在應用程式層級受到最小影響的情況下指定要顯示多少機密資料，而協助防止未經授權者存取機密資料。

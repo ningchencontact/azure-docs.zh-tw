@@ -11,24 +11,22 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 587c0718e333f121d0ff8b32d8c2a7dad6b8f774
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/29/2019
+ms.openlocfilehash: 4c9700344ca5b973b8dad9fd1505d15f58c06126
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037135"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451711"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL Database 威脅偵測
 
 適用於 [Azure SQL Database](sql-database-technical-overview.md) 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的 Azure SQL 威脅偵測會偵測意圖存取或惡意探索資料庫，並可能會造成損害的異常活動。
 
-威脅偵測是 [SQL 進階威脅防護](sql-advanced-threat-protection.md) (ATP) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 威脅偵測可以透過中央 SQL ATP 入口網站存取及管理。
+威脅偵測是 [SQL 進階資料安全性](sql-advanced-threat-protection.md) (ADS) 供應項目的一部分，該供應項目是進階 SQL 安全性功能的整合套件。 威脅偵測可以透過中央 SQL ADS 入口網站存取及管理。
 
 > [!NOTE]
 > 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
-
-威脅偵測服務的費用是每個邏輯伺服器或受控執行個體每月 15$，可用於邏輯伺服器或受控執行個體的所有資料庫，前 30 天免費。
 
 ## <a name="what-is-threat-detection"></a>什麼是威脅偵測？
 
@@ -69,7 +67,7 @@ Azure SQL Database 的威脅偵測會偵測意圖存取或攻擊資料庫，而�
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>在 Azure 入口網站中探索資料庫的威脅偵測警示
 
-SQL Database 威脅偵測將自有的警示與 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)整合。 在 Azure 入口網站中，資料庫和 SQL ATP 刀鋒視窗內的 SQL 動態威脅偵測圖格會追蹤作用中威脅的狀態。
+SQL Database 威脅偵測將自有的警示與 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)整合。 在 Azure 入口網站中，資料庫和 SQL ADS 刀鋒視窗內的 SQL 動態威脅偵測圖格會追蹤作用中威脅的狀態。
 
 按一下 [威脅偵測警示] 會啟動 Azure 資訊安全中心的警示頁面，並獲得在資料庫或資料倉儲中偵測到的作用中 SQL 威脅概觀。
 
@@ -79,9 +77,9 @@ SQL Database 威脅偵測將自有的警示與 [Azure 資訊安全中心](https:
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[單一資料庫中的威脅偵測](sql-database-threat-detection.md)。
+- 深入了解[獨立和集區資料庫中的威脅偵測](sql-database-threat-detection.md)。
 - 深入了解[受控執行個體中的威脅偵測](sql-database-managed-instance-threat-detection.md)。
-- 深入了解 [SQL 進階威脅防護](sql-advanced-threat-protection.md)。
+- 深入了解 [SQL 進階資料安全性](sql-advanced-threat-protection.md)。
 - 深入了解 [Azure SQL Database 稽核](sql-database-auditing.md)
 - 深入了解 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - 如需有關價格的詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)  

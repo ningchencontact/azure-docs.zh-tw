@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: c87392a7-e7fe-4cdc-a8e6-afe1ed975172
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 61b469ba5f64a52b87843432dfe60fe1d83ffec2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6eca534f933742e4797ca164637e7d536d194ba3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428378"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>教學課程：Azure Active Directory 與 Zscaler Private Access Administrator 整合
 
@@ -108,9 +108,9 @@ ms.locfileid: "39428378"
 
     ![Zscaler Private Access Administrator 網域及 URL 單一登入資訊](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.private.zscaler.com/auth/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.private.zscaler.com/auth/metadata`
 
-    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.private.zscaler.com/auth/sso`
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.private.zscaler.com/auth/sso`
 
     c. 按一下 [顯示進階 URL 設定]
 
@@ -190,7 +190,7 @@ ms.locfileid: "39428378"
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
   
 ### <a name="create-a-zscaler-private-access-administrator-test-user"></a>建立 Zscaler Private Access Administrator 測試使用者
 
@@ -267,7 +267,7 @@ ms.locfileid: "39428378"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Zscaler Private Access Administrator] 圖格時，應該會自動登入您的 Zscaler Private Access Administrator 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

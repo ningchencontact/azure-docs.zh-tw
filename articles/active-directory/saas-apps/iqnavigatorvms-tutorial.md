@@ -7,19 +7,19 @@ author: jeevansd
 manager: femila
 ms.assetid: a8a09b25-dfa5-4c31-aea2-53bf1853b365
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: f568f33de348289334c4b4c346e9525e28cce51c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 062c83c7e1d621a80a5e81cdaf6b070eb446453c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445117"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180529"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>教學課程：Azure Active Directory 與 IQNavigator VMS 整合
 
@@ -92,7 +92,7 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 1. **[建立 IQNavigator VMS 測試使用者](#creating-a-iqnavigator-vms-test-user)** - 使 IQNavigator VMS 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[測試單一登入](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -125,7 +125,7 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「回覆 URL」和「轉送狀態」來更新這些值。 請連絡 [IQNavigator VMS 客戶支援小組](https://www.beeline.com/iqn-product-support/)以取得這些值。
 
-1. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+1. 在 ****[SAML 簽署憑證] 區段上，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL] **** ，並將它貼到記事本中。
     
     ![設定單一登入](./media/iqnavigatorvms-tutorial/tutorial_metadataurl.png)
 
@@ -172,7 +172,7 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
 
 ### <a name="creating-a-iqnavigator-vms-test-user"></a>建立 IQNavigator VM 測試使用者
 

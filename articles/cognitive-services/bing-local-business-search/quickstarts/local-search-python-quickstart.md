@@ -1,29 +1,29 @@
 ---
 title: 快速入門 - 傳送查詢至以 Python 撰寫的 Bing 當地商家搜尋 API | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: 使用此文章開始使用以 Python 撰寫的 Bing 當地商家搜尋 API。
+description: 使用本文開始使用以 Python 撰寫的 Bing 當地商家搜尋 API。
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: d48f24048225f4a0571915c2e27b931f858e8f6e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5966f7bf635a0de00fb841cdf22af9cea0698d0e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316954"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176245"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>快速入門 - 傳送查詢至以 Python 撰寫的 Bing 當地商家搜尋 API
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>快速入門：傳送查詢至以 Python 撰寫的 Bing 當地商家搜尋 API
 
 使用此快速入門開始向 Bing 當地商家搜尋 API 傳送要求，該 API 是 Azure 認知服務。 雖然此簡單應用程式是以 Python 撰寫，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。
 
 此範例應用程式會從 API 取得搜尋查詢 `hotel in Bellevue` 的當地回應資料。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [Python](https://www.python.org/) 2.x 或 3.x
  
@@ -41,7 +41,7 @@ ms.locfileid: "52316954"
 
 此示範的完整程式碼如下：
 
-````
+```
 import http.client, urllib.parse
 import json
 
@@ -65,7 +65,7 @@ def get_local():
 result = get_local()
 print (json.dumps(json.loads(result), indent=4))
 
-````
+```
 
 ## <a name="next-steps"></a>後續步驟
 - [當地商家搜尋 Java 快速入門](local-search-java-quickstart.md)

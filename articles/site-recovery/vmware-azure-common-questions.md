@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 12/31/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 703d255a962dbac7a430404835c6d45c358d99a7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.author: mayg
+ms.openlocfilehash: aa4b0fcdfecde181eea4481cc40b898ca74fce76
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478083"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212224"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -42,6 +42,9 @@ ms.locfileid: "54478083"
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>我的 Azure 帳戶是否需要建立 VM 的權限？
 如果您是訂用帳戶管理員，則會具有所需的複寫權限。 如果您不是，則需要必要權限才能在您設定 Site Reocvery 時指定的資源群組和虛擬網路中建立 Azure VM，且需要寫入至所選儲存體帳戶的權限。 [深入了解](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)。
+
+### <a name="can-i-use-guest-os-server-license-on-azure"></a>可以在 Azure 上使用客體 OS 伺服器授權嗎？
+是，微軟軟體保證客戶可以使用 Azure Hybrid Benefit，節省遷移至 Azure 之 **Windows Server 電腦**的授權成本，或使用 Azure 進行災害復原。
 
 ## <a name="azure-site-recovery-components-upgrade"></a>Azure Site Recovery 元件升級
 
@@ -250,7 +253,7 @@ Azure 是針對復原能力而設計的。 Site Recovery 設計成可根據 Azur
 您從 Azure 容錯回復時，Azure 中的資料會重新複製到內部部署 VM，因此需要私用存取。
 
 ### <a name="can-i-resize-the-azure-vm-after-failover"></a>容錯移轉後我是否可調整 Azure VM 的大小？
-否，在容錯移轉之後您無法變更目標 VM 的大小。
+否，在容錯移轉之後，您就無法變更目標 VM 的大小或類型。
 
 
 ## <a name="automation-and-scripting"></a>自動化和指令碼

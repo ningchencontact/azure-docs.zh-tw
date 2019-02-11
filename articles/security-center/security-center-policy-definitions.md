@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1bf0ae8b0e9e0665f9b51935763d9f724b4bca4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 925bf325d128f1757d24d29013f4e27eb788d7e2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261888"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180665"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Azure 資訊安全中心監控的 Azure 安全性原則
 本文提供可在資訊安全中心監控的 Azure 原則定義清單。 如需有關安全性原則的詳細資訊，請參閱[搭配使用安全性原則](tutorial-security-policy.md)。

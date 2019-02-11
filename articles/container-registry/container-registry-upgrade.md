@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: danlep
-ms.openlocfilehash: 73e207dae61dfc8912fd79a151adf982753701f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 077ca3c876a3078e7e627dbfefdff38e09ec57b9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969102"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228350"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>將傳統的容器登錄升級
 
@@ -52,7 +52,7 @@ ms.locfileid: "52969102"
 
 在轉換過程中，請勿刪除或修改支援傳統登錄之儲存體帳戶的內容。 如果您這麼做，可能會導致容器映像損毀。
 
-移轉完成之後，ACR 就不會再使用訂用帳戶中原本支援傳統登錄的儲存體帳戶。 在確認移轉成功之後，請考慮刪除該儲存體帳戶，以協助將成本降至最低。
+移轉完成之後，ACR 就不再使用訂用帳戶中原本支援傳統登錄的儲存體帳戶。 在確認移轉成功之後，請考慮刪除該儲存體帳戶，以協助將成本降至最低。
 
 >[!IMPORTANT]
 > 從傳統升級為其中一個受控 SKU 是**單向程序**。 傳統登錄一旦轉換為基本、標準或進階，就無法還原為傳統。 不過，您可以在容量足供登錄使用的受控 SKU 之間自由地移動。

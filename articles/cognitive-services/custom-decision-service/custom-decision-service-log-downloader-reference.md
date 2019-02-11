@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 8c5ab0e297690f1fbdb41a2627dd63c3ea522d1b
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 227caaa1b726210fd498596d716aa41365a63c7a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366789"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228112"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -25,7 +25,7 @@ ms.locfileid: "46366789"
 
 - Python 3：已安裝並在您的路徑上。 建議使用 64 位元版本以處理大型檔案。
 - *Microsoft/mwt-ds* 存放庫：[複製存放庫](https://github.com/Microsoft/mwt-ds)。
-- The *azure-storage-blob* 封裝：如需安裝詳細資料，請移至[適用於 Python 的 Microsoft Azure 儲存體程式庫](https://github.com/Azure/azure-storage-python#option-1-via-pypi)。
+- *azure-storage-blob* 套件：如需安裝詳細資料，請移至[適用於 Python 的 Microsoft Azure 儲存體程式庫](https://github.com/Azure/azure-storage-python#option-1-via-pypi)。
 - 在 *mwt-ds/DataScience/ds.config* 中輸入您的 Azure 儲存體連接字串：遵循 *my_app_id: my_connectionString* 範本。 您可以指定多個 `app_id`。 當您執行 `LogDownloader.py` 時，如果 `ds.config` 中找不到輸入的 `app_id`，`LogDownloader.py` 會使用 `$Default` 連接字串。
 
 ## <a name="usage"></a>使用量

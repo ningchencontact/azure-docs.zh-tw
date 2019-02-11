@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 01/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ed5f3db3f9f8f7231d8f865f69cd11c2430054b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b86aef7de048690d689a87d4fb844f77ea986445
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024309"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297458"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>使用 Azure Data Factory 將資料從 Office 365 複製到 Azure (預覽) 
 
@@ -42,9 +42,10 @@ Azure Data Factory 可讓您將 Office 365 租用戶中豐富的組織資料以�
 - 您的 Office 365 租用戶系統管理員必須完成上架動作，如[此處](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding)所述。
 - 在 Azure Active Directory 中建立和設定 Azure AD Web 應用程式。  如需指示，請參閱[建立 Azure AD 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)。
 - 請記下以下的值，您可以使用這些值來定義 Office 365 的連結服務：
-    - 租用戶識別碼。  如需相關指示，請參閱[取得租用戶識別碼](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)。
+    - 租用戶識別碼。 如需相關指示，請參閱[取得租用戶識別碼](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)。
     - 應用程式識別碼和驗證金鑰。  如需相關指示，請參閱[取得應用程式識別碼和驗證金鑰](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key)。
-- 新增使用者身分識別，該使用者會以 Azure AD Web 應用程式擁有者身分進行資料存取要求 (從 [Azure AD Web 應用程式] > [設定] > [擁有者] > [新增擁有者])。
+- 新增使用者身分識別，該使用者會以 Azure AD Web 應用程式擁有者身分進行資料存取要求 (從 [Azure AD Web 應用程式] > [設定] > [擁有者] > [新增擁有者])。 
+    - 使用者身分識別必須位於要從中取得資料的 Office 365 組織中，而且不可以是來賓使用者。
 
 ## <a name="approving-new-data-access-requests"></a>核准新的資料存取要求
 

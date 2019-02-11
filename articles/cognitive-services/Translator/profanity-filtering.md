@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 4154950cf8d8b6ec2e47a9f8100cb7983ac127bf
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 5ff6666eceeaee2296c6323eaa4e7201841a1526
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648032"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212455"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>使用翻譯工具文字 API 新增粗話篩選功能
 
@@ -26,7 +26,7 @@ Translator 服務通常會在翻譯中保留存在於來源中的粗話。 粗�
 Translate() 方法會接受 “options” 參數，其中包含了新的元素 “ProfanityAction”。 可接受的 ProfanityAction 值包括 “NoAction”、“Marked” 及 “Deleted”。
 
 ## <a name="accepted-values-of-profanityaction-and-examples"></a>可接受的 ProfanityAction 值和範例
-|ProfanityAction 值 | 動作 | 範例：來源 - 日文 | 範例：目標 - 英文|
+|ProfanityAction 值 |  動作 | 範例：來源 - 日文 | 範例：目標 - 英文|
 | :---|:---|:---|:---|
 | NoAction | 預設值。 與未設定此選項時相同。 粗話會從來源傳遞到目標。 | 彼は変態です。 | He is a jerk. |
 | Marked | 不雅的單字會括上 XML 標籤 \<profanity> ... \</profanity>。 | 彼は変態です。 | He is a \<profanity>jerk\</profanity>. |

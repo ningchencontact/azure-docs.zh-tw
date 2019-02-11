@@ -1,5 +1,5 @@
 ---
-title: App Service on Azure Stack：容錯網域更新 | Microsoft Docs
+title: Azure Stack 上的 App Service：容錯網域更新 | Microsoft Docs
 description: 如何跨容錯網域，在 Azure Stack 上轉散發 Azure App Service
 services: azure-stack
 documentationcenter: ''
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: anwestg
-ms.openlocfilehash: d361b4165c1fbbf79321e3f6d2ade711f9173c56
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.lastreviewed: 09/05/2018
+ms.openlocfilehash: 249e4b466e9be567111aaa22b40ca3e5dadb6cac
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267210"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246376"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>如何跨容錯網域，在 Azure Stack 上轉散發 Azure App Service
 
-「適用於：Azure Stack 整合系統」
+*適用於：Azure Stack 整合式系統*
 
 使用 1802 更新，Azure Stack 現在支援跨容錯網域散發工作負載，這是對於高可用性很重要的一項功能。
 

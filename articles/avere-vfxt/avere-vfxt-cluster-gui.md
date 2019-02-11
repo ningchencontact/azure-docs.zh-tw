@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 72d1676613de699abda2136a7743a974b2b17c01
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 30c03d52e31f70448eef07b4567083061605d8dd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162853"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300467"
 ---
 # <a name="access-the-vfxt-cluster"></a>存取 vFXT 叢集
 
@@ -25,7 +25,7 @@ vFXT 叢集位於私人虛擬網路內，因此您必須建立 SSH 通道，或�
 > [!NOTE] 
 > 本文假設您已經在叢集中控制器上，或在叢集虛擬網路內的另一個 VM 上，設定公用 IP 位址。 本文說明如何使用該 VM 作為主機來存取叢集。 如果您使用 VPN 或 ExpressRoute 存取 Vnet，請跳至[連線到 Avere 控制台](#connect-to-the-avere-control-panel-in-a-browser)。
 
-連線之前，請確定本機電腦上已安裝建立叢集控制器時所使用的 SSH 公開/私密金鑰組。 如果您需要協助，請閱讀 [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) 或 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) 適用的 SSH 金鑰文件。  
+連線之前，請確定本機電腦上已安裝建立叢集控制器時所使用的 SSH 公開/私密金鑰組。 如果您需要協助，請閱讀 [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) 或 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) 適用的 SSH 金鑰文件。 (如果您使用密碼而非公開金鑰，在連線時系統將會提示您輸入密碼。) 
 
 ## <a name="ssh-tunnel-with-a-linux-host"></a>使用 Linux 主機的 SSH 通道
 
@@ -41,7 +41,7 @@ ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*@*controller_publ
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 ```
 
-如果您使用 SSH 公開金鑰建立叢集，而且用戶端系統上已安裝相符的金鑰，便會自動驗證。
+如果您使用 SSH 公開金鑰建立叢集，而且用戶端系統上已安裝相符的金鑰，便會自動驗證。 如果您使用密碼，系統將會提示您輸入密碼。
 
 ## <a name="ssh-tunnel-with-a-windows-host"></a>使用 Windows 主機的 SSH 通道
 
@@ -63,7 +63,7 @@ ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 
 ![顯示按一下哪裡可新增通道的 Putty 應用程式螢幕擷取畫面](media/avere-vfxt-ptty-numbered.png)
 
-如果您使用 SSH 公開金鑰建立叢集，而且用戶端系統上已安裝相符的金鑰，便會自動驗證。
+如果您使用 SSH 公開金鑰建立叢集，而且用戶端系統上已安裝相符的金鑰，便會自動驗證。 如果您使用密碼，系統將會提示您輸入密碼。
 
 ## <a name="connect-to-the-avere-control-panel-in-a-browser"></a>在瀏覽器中，連線到 Avere 控制台
 
@@ -77,7 +77,7 @@ ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 
 根據您的瀏覽器，您可能需要按一下 [進階]，並確認否安全地前往到該頁面。
 
-輸入您在建立叢集時所提供的使用者名稱 `admin` 和密碼。
+輸入您在建立叢集時所提供的使用者名稱 `admin` 和系統管理密碼。
 
 ![填入使用者名稱 'admin' 和密碼的 Avere 登入頁面螢幕擷取畫面](media/avere-vfxt-gui-login.png)
 

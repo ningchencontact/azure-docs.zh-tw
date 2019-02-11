@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: 0b6ade7a6031b957f2405e525d61c9ca1d2dac3d
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2c5fac377dfab4b4c85991dcb8f4e15f4e3cb61a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809092"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225923"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>使用 Azure 入口網站將 OS 磁碟連結至復原 VM，以針對 Windows VM 進行疑難排解
 如果 Azure 中的 Windows 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是應用程式更新無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure 入口網站將虛擬硬碟連接至另一個 Windows VM，以修正任何錯誤，然後重新建立原始 VM。
@@ -37,12 +37,11 @@ ms.locfileid: "53809092"
 ## <a name="determine-boot-issues"></a>判斷開機問題
 若要判斷 VM 為何無法正常開機，檢查開機診斷 VM 螢幕擷取畫面。 常見的例子是應用程式更新無效，或因為刪除或移動基礎虛擬硬碟。
 
-在入口網站中選取您的 VM，然後向下捲動至 [支援 + 疑難排解] 區段。 按一下 [開機診斷] 檢視螢幕擷取畫面。 請注意任何特定的錯誤訊息或錯誤碼，以協助判斷 VM 為何發生問題。 下列範例會顯示正在等候停止服務的 VM:
+在入口網站中選取您的 VM，然後向下捲動至 [支援 + 疑難排解] 區段。 按一下 [開機診斷] 檢視螢幕擷取畫面。 請注意任何特定的錯誤訊息或錯誤碼，以協助判斷 VM 為何發生問題。 
 
 ![檢視 VM 開機診斷主控台記錄](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
-您也可以按一下 [螢幕擷取畫面] 下載 VM 螢幕擷取畫面的擷取。
-
+您也可以按一下 [下載螢幕擷取畫面] 來下載所擷取的 VM 螢幕擷取畫面。
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>檢視現有的虛擬硬碟詳細資料
 您需要先識別虛擬硬碟 (VHD) 的名稱，才能將虛擬硬碟連結至另一個 VM。 

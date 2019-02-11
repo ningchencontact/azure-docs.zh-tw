@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2018
 ms.author: dech
-ms.openlocfilehash: 08cd8b332a34075d8e2f939aa9015aa1b0a33a07
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 689b0bb08e300efc7c5e93dbf346040b82a7c52d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036149"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468473"
 ---
-# <a name="cross-origin-resource-sharing-cors-in-azure-cosmos-db"></a>Azure Cosmos DB 中的跨原始來源資源共用 (CORS) 
+# <a name="configure-cross-origin-resource-sharing-cors"></a>設定跨原始來源資源共用 (CORS) 
 
 跨原始來源資源共用 (CORS) 是一項 HTTP 功能，可讓在某個網域下執行的 Web 應用程式存取其他網域中的資源。 網頁瀏覽器會實作稱為相同原始原則的安全性限制，它可防止網頁呼叫不同網域中的 API。 不過，CORS 提供了安全的方式來允許來源網域呼叫其他網域中的 API。Azure Cosmos DB 中的核心 SQL API 現在可藉由使用 “allowedOrigins” 標頭來支援跨原始來源資源共用 (CORS)。 在為 Azure Cosmos 帳戶啟用 CORS 支援後，就只會對已通過驗證的要求進行評估，以根據您指定的規則來判斷是否允許這些要求。
 

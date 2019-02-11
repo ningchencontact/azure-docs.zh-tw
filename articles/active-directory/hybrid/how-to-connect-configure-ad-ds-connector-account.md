@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/14/2019
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: a23561e082736b7dfae6205e75fd1e9ccfab5f6c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 531ba32125479528b1a847b32d711049e699dda0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463383"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191648"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect： 設定 AD DS 連接器帳戶權限 
 
@@ -205,21 +205,21 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 若要在使用群組回寫時設定 AD DS 連接器帳戶的權限，請執行： 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 或 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
 ```
  
 此 Cmdlet 會設定下列權限： 
 
 |類型 |Name |Access |套用至|
 |-----|-----|-----|-----| 
-|允許 |AD DS 連接器帳戶 |一般讀取/寫入 |子系群組物件| 
-|允許 |AD DS 連接器帳戶 |建立/刪除子物件 |此物件和所有子系物件| 
-|允許 |AD DS 連接器帳戶 |建立/刪除物件及其所有子系 |此物件和所有子系物件|
+|允許 |AD DS 連接器帳戶 |一般讀取/寫入 |物件類型群組和子物件的所有屬性| 
+|允許 |AD DS 連接器帳戶 |建立/刪除子物件 |物件類型群組和子物件的所有屬性| 
+|允許 |AD DS 連接器帳戶 |刪除/刪除樹狀物件|物件類型群組和子物件的所有屬性|
 
 ### <a name="permissions-for-exchange-hybrid-deployment"></a>Exchange 混合部署的權限 
 若要在使用 Exchange 混合部署時設定 AD DS 連接器帳戶的權限，請執行： 

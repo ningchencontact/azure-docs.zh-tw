@@ -4,162 +4,164 @@ description: 在 Azure 中部署 Avere vFXT 叢集的步驟
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 8e265f2bed480f7b40476e09ab8f442aedcc9dd4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: da329b5c50fe7c39d9773743b40c2f990e298963
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999442"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296370"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>部署 vFXT 叢集
 
-在 Azure 中建立 vFXT 叢集的最簡單方式就是使用叢集控制器。 叢集控制器是包含建立和管理 vFXT 叢集所需指令碼、範本及軟體基礎結構的 VM。
+此程序會引導您使用 Azure Marketplace 中提供的部署精靈。 精靈會自動使用 Azure Resource Manager 範本來部署叢集。 在表單中輸入參數並按一下 [建立] 後，Azure 會自動完成下列步驟： 
 
-部署新的 vFXT 叢集包含下列步驟：
-
-1. [建立叢集控制器](#create-the-cluster-controller-vm)。
-1. 如果使用 Azure Blob 儲存體，請在您的虛擬網路中[建立儲存體端點](#create-a-storage-endpoint-if-using-azure-blob)。
-1. [連線到叢集控制器](#access-the-controller)。 這些步驟的其餘部分會從叢集控制器 VM 執行。 
-1. 為叢集節點[建立存取角色](#create-the-cluster-node-access-role)。 系統會提供原型。
-1. 為您想要建立的 vFXT 叢集類型[自訂叢集建立指令碼](#edit-the-deployment-script)。
-1. [執行叢集建立指令碼](#run-the-script)。
-
-如需有關叢集部署步驟和規劃的詳細資訊，請參閱[規劃您的 Avere vFXT 系統](avere-vfxt-deploy-plan.md)和[部署概觀](avere-vfxt-deploy-overview.md)。 
+* 建立叢集控制器，也就是包含部署和管理叢集所需軟體的基本 VM。
+* 設定資源群組和虛擬網路基礎結構，以及在需要時建立新的項目。
+* 建立叢集節點 VM，並將其設定為 Avere 叢集。
+* 依據需求建立新的 Azure Blob 容器，並將其設定為叢集核心檔案。
 
 依照本文件中的指示進行操作之後，您將會擁有一個虛擬網路、一個子網路、一個控制器，以及一個 vFXT 叢集，如下圖所示：
 
 ![顯示 VNet 和一個子網路的圖表，其中 VNet 包含選擇性的 Blob 儲存體，子網路則包含三個標示為 vFXT 節點/vFXT 叢集的已群組 VM 及一個標示為叢集控制器的 VM](media/avere-vfxt-deployment.png)
 
-開始之前，請確定您已滿足下列先決條件：  
+如果使用 Blob 儲存體，在建立叢集之後，您應該在虛擬網路中[建立儲存體端點](#create-a-storage-endpoint-if-using-azure-blob)。 
+
+使用建立範本之前，請確定您已滿足下列先決條件：  
 
 1. [新的訂用帳戶](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [訂用帳戶擁有者權限](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [vFXT 叢集配額](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
+1. [自訂存取角色](avere-vfxt-prereqs.md#create-access-roles) - 您必須建立要指派給叢集節點的角色型存取控制角色。 您也可以選擇為叢集控制器建立自訂存取角色，但大部分使用者會採用預設的「擁有者」角色，此角色會提供資源群組擁有者的對應權限給控制器。 如需詳細資訊，請參閱 [Azure 資源的內建角色](../role-based-access-control/built-in-roles.md#owner)。
 
-您也可以視需要在建立叢集控制器[之前](avere-vfxt-pre-role.md)先建立叢集節點角色，但在之後再建立此角色會比較簡單。
+如需有關叢集部署步驟和規劃的詳細資訊，請參閱[規劃您的 Avere vFXT 系統](avere-vfxt-deploy-plan.md)和[部署概觀](avere-vfxt-deploy-overview.md)。
 
-## <a name="create-the-cluster-controller-vm"></a>建立叢集控制器 VM
+## <a name="create-the-avere-vfxt-for-azure"></a>建立 Avere vFXT for Azure
 
-第一步是建立將建立並設定 vFXT 叢集節點的虛擬機器。 
+若要在 Azure 入口網站中存取建立範本，請搜尋 Avere 並選取「Avere vFXT for Azure 部署」。 <!-- xxx update if that name changes xxx --> 
 
-叢集控制器是一個已預先安裝 Avere vFXT 叢集建立軟體和指令碼的 Linux VM。 它不需要大量的處理能力或儲存體空間，因此您可以選擇較低成本的選項。 此 VM 會用於 vFXT 叢集的整個存留期。
+<!-- **[XXX need production image of template deploy in search and/or entry page of template deploy XXX]** -->
 
-建立叢集控制器 VM 的方法有兩個。 [下方](#create-controller---arm-template)提供一個可簡化程序的 [Azure Resource Manager 範本](#create-controller---arm-template)，但您也可以從 [Azure Marketplace 映像](#create-controller---azure-marketplace-image)建立控制器。 
+按一下 [建立] 來開始。 
 
-您可以在建立控制器的過程中建立新資源群組。
+![使用部署範本的 Azure Marketplace 第一頁顯示畫面](media/avere-vfxt-deploy-first.png)
+
+範本會分割成四個步驟 - 兩個資訊收集頁面，再加上驗證和確認步驟。 
+
+* 第一頁著重於叢集控制器 VM 的設定。 
+* 第二頁會收集建立叢集所需的參數，以及相關聯的資源 (例如子網路和儲存體)。 
+* 第三頁會總結設定並驗證組態。 
+* 第四頁會說明軟體的條款及條件，並讓您開始叢集建立程序。 
+
+## <a name="page-one-parameters---cluster-controller-information"></a>第一頁的參數 - 叢集控制器資訊
+
+部署範本的第一頁會收集叢集控制器的相關資訊。 
+
+![部署範本的第一頁](media/avere-vfxt-deploy-1.png)
+
+填寫下列資訊︰
+
+* **叢集控制器名稱** - 設定叢集控制器 VM 的名稱。
+
+* **控制器的使用者名稱** - 填入叢集控制器 VM 的根使用者名稱。 
+
+* **驗證類型** - 選擇使用 [密碼] 或 [SSH 公開金鑰] 驗證來連線到控制器。 建議使用 SSH 公開金鑰方法；如果需要協助，請參閱[如何建立和使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)。
+
+* **密碼**或 **SSH 公開金鑰** - 根據您選取的驗證類型，您必須在下方欄位中提供 RSA 公開金鑰或密碼。 此認證會與稍早提供的使用者名稱搭配使用。
+
+* **Avere 叢集建立角色識別碼**- 使用此欄位來指定叢集控制器的存取控制角色。 預設值是內建角色：[擁有者](../role-based-access-control/built-in-roles.md#owner)。 叢集控制器的擁有者權限範圍僅限於叢集的資源群組。 
+
+  您必須使用對應至角色的唯一識別碼。 針對預設值 (擁有者)，GUID 會是 8e3af657-a8ff-443c-a75c-2fe8c4bcb635。 若要尋找自訂角色的 GUID，請使用下列命令： 
+
+  ```azurecli
+  az role definition list --query '[*].{roleName:roleName, name:name}' -o table --name 'YOUR ROLE NAME'
+  ```
+
+* **訂用帳戶** - 選取 Avere vFXT 的訂用帳戶。 
+
+* **資源群組**- 選取 Avere vFXT 叢集的資源群組，或按一下 [新建] 並輸入新的資源群組名稱。 
+
+* **位置** - 選取您叢集和資源的 Azure 位置。
+
+完成後，按一下 [確定]。 
+
+> [!NOTE]
+> 如果您想要讓叢集控制器有公開的 IP 位址，請為叢集建立新的虛擬網路，而不是選取現有的網路。 這項設定位在第二頁。
+
+## <a name="page-two-parameters---vfxt-cluster-information"></a>第二頁的參數 - vFXT 叢集資訊
+
+部署範本的第二頁可讓您設定叢集大小、節點類型、快取大小和儲存體參數等其他設定。 
+
+![部署範本的第二頁](media/avere-vfxt-deploy-2.png)
+
+* **Avere vFXT 叢集節點計數** - 選擇要在叢集中使用的節點數目。 最小值是三個節點，而最大值是十二個。 
+
+* **叢集管理密碼** - 建立用於管理叢集的密碼。 搭配使用此密碼和使用者名稱 ```admin```，即可登入叢集控制台來監視叢集並進行設定。
+
+* **Avere 叢集操作角色** - 為叢集節點的存取控制角色指定名稱。 這是作為必要步驟建立的自訂角色。 
+
+  [建立叢集節點存取角色](avere-vfxt-prereqs.md#create-the-cluster-node-access-role)中所述的範例會將檔案儲存為 ```avere-operator.json```，而對應的角色名稱為 ```avere-operator```。
+
+* **Avere vFXT 叢集名稱** - 為叢集提供唯一名稱。 
+
+* **大小** - 指定建立叢集節點時要使用的 VM 類型。 
+
+* **每個節點的快取大小** - 叢集快取會散佈在叢集節點上，因此，Avere vFXT 叢集上的快取大小總計會是節點數目乘上每個節點的快取大小。 
+
+  如果使用 Standard_D16s_v3 叢集節點，建議設定為每個節點 1 TB，如果使用 Standard_E32s_v3 節點，則建議每個節點的 4 TB。
+
+* **虛擬網路** - 選取現有的 Vnet 來裝載叢集，或定義要建立的新 Vnet。 
+
+  > [!NOTE]
+  > 如果您建立新的 Vnet，叢集控制器將會有公用 IP 位址，以便您存取新的私人網路。 如果您選擇現有的 Vnet，則不會對叢集控制器設定公用 IP 位址。 
+  > 
+  > 叢集控制器上可見的公用 IP 位址可提供較簡便的 vFXT 存取方式，但會產生些微安全性風險。 
+  >  * 叢集控制器上的公用 IP 位址可讓您使用它作為跳躍點主機，以從私人子網路外連線到 Avere vFXT 叢集。
+  >  * 如果您沒有在控制器上設定公用 IP 位址，就必須使用另一個跳躍點主機、VPN 連線或 ExpressRoute 來存取叢集。 例如，在已設定 VPN 連線的虛擬網路內建立控制器。
+  >  * 如果您建立具有公用 IP 位址的控制器，您應該使用網路安全性群組來保護該控制器 VM。 根據預設，Avere vFXT for Azure 部署會建立網路安全性群組，並限制只能透過連接埠 22，對使用公用 IP 位址的控制器進行輸入存取。 若要進一步保護系統，您可以鎖定 IP 來源位址範圍的存取，也就是只允許從要用來存取叢集的機器進行連線。
+
+* **子網路** - 選擇現有虛擬網路中的子網路，或建立新的子網路。 
+
+* **使用 Blob 儲存體** - 選擇是否要建立新的 Azure Blob 容器，並將其設定為新 Avere vFXT 叢集的後端儲存體。 如果您選擇建立新的容器，您必須提供該容器的儲存體帳戶。 如果您選擇不建立新的 Blob 容器，則必須在建立叢集之後連結儲存體 (請參閱[設定儲存體](avere-vfxt-add-storage.md)來取得指示)。 如果您不想建立新的容器，請將此欄位設為 [false]。
+
+* **儲存體帳戶** - 如果建立新的 Azure Blob 容器，請輸入儲存體帳戶名稱。 儲存體帳戶必須是設有本地備援儲存體與經常性存取層的標準一般用途 V2 帳戶。 [設定儲存體](avere-vfxt-add-storage.md#azure-storage-cloud-core-filer)一文中有更多關於儲存體帳戶需求的詳細資料。
+
+## <a name="validation-and-purchase"></a>驗證及購買
+
+第三頁會提供設定總結並驗證參數。 驗證成功之後，請按一下 [確定] 按鈕繼續作業。 
+
+![部署範本的第三頁 - 驗證](media/avere-vfxt-deploy-3.png)
+
+在第四頁上，按一下 [建立] 按鈕以接受條款，並建立 Avere vFXT for Azure 叢集。 
+
+![部署範本的第四頁 - 條款和條件、建立按鈕](media/avere-vfxt-deploy-4.png)
+
+叢集部署大約需要 15 到 20 分鐘。
+
+## <a name="gather-template-output"></a>收集範本輸出
+
+Avere vFXT 範本在完成叢集的建立後，會輸出有關新叢集的一些重要資訊。 
 
 > [!TIP]
->
-> 請決定是否要在叢集控制器上使用公用 IP 位址。 公用 IP 位址提供較簡便的 vFXT 存取方式，但會產生些微安全性風險。
->
->  * 叢集控制器上的公用 IP 位址可讓您使用它作為跳躍點主機，以從私人子網路外連線到 Avere vFXT 叢集。
->  * 如果您沒有在控制器上設定公用 IP 位址，就必須使用另一個跳躍點主機、VPN 連線或 ExpressRoute 來存取叢集。 例如，在已設定 VPN 連線的虛擬網路內建立控制器。
->  * 如果您建立具有公用 IP 位址的控制器，您應該使用網路安全性群組來保護該控制器 VM。 請只允許透過連接埠 22 進行存取來提供網際網路存取權。
+> 請務必從範本中複製管理 IP 位址。 您需要此位址來管理叢集。
 
-### <a name="create-controller---resource-manager-template"></a>建立控制器 - Resource Manager 範本
+若要尋找這項資訊，請遵循此程序：
 
-若要從入口網站建立叢集控制器節點，請按一下下方的 [Deploy to Azure] \(部署至 Azure\) 按鈕。 這個部署範本會建立將建立並管理 Avere vFXT 叢集的 VM。
+1. 移至您叢集控制器的資源群組。
 
-[![用來建立控制器的按鈕](media/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAvere%2Fmaster%2Fsrc%2Fvfxt%2Fazuredeploy.json)
+1. 在左側按一下 [部署]，然後選取 [microsoft-avere.vfxt-template]。
 
-請提供下列資訊。
+   ![資源群組入口網站頁面，其中左側已選取 [部署]，而 [microsoft-avere.vfxt-template] 則顯示在 [部署名稱] 底下的表格中](media/avere-vfxt-outputs-deployments.png)
 
-在 [基本] 區段中：  
+1. 在左側按一下 [輸出]。 複製每個欄位中的值。 
 
-* 叢集的**訂用帳戶**
-* 叢集的**資源群組** 
-* **位置** 
+   ![輸出頁面的標籤右側欄位中顯示 SSHSTRING、RESOURCE_GROUP、LOCATION、NETWORK_RESOURCE_GROUP、NETWORK、SUBNET、SUBNET_ID、VSERVER_IPs 和 MGMT_IP 值](media/avere-vfxt-outputs-values.png)
 
-在 [設定] 區段中：
-
-* 是否要建立新的虛擬網路
-
-  * 如果您建立新的 VNet，系統將會指派公用 IP 位址給叢集控制器，以便您存取它。 此外，也會為此 VNet 建立一個將輸入流量僅限於連接埠 22 的網路安全性群組。
-  * 如果您想要使用 ExpressRoute 或 VPN 來連線到叢集控制器，請將此值設定為 `false`，然後在剩餘的欄位中指定現有的 VNet。 叢集控制器將會使用該 VNet 來進行網路通訊。 
-
-* 虛擬網路資源群組、名稱及子網路名稱 - 輸入現有資源的名稱 (如果要使用現有的 VNet)，或輸入新名稱 (如果要建立新的 VNet)
-* **控制器名稱** - 設定控制器 VM 的名稱
-* 控制器管理員使用者名稱 - 預設值為 `azureuser`
-* SSH 金鑰 - 貼上要與管理員使用者名稱建立關聯的公開金鑰。 如果需要協助，請參閱[如何建立和使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)。
-
-在 [條款及條件] 底下： 
-
-* 閱讀服務條款，然後勾選核取方塊以接受條款。 
-
-  > [!NOTE] 
-  > 如果您不是訂用帳戶擁有者，請依照[事先接受軟體條款](avere-vfxt-prereqs.md#accept-software-terms-in-advance)中的先決條件步驟，讓擁有者為您接受條款。 
-
-
-完成時，請按一下 [購買]。 在 5 或 6 分鐘之後，您的控制器節點就會啟動並執行。
-
-瀏覽輸出頁面以收集建立叢集所需的控制器資訊。 讀取[建立叢集所需的資訊](#information-needed-to-create-the-cluster)以深入了解相關資訊。
-
-### <a name="create-controller---azure-marketplace-image"></a>建立控制器 - Azure Marketplace 映像
-
-請在 Azure Marketplace 中搜尋 ``Avere`` 名稱來尋找控制器範本。 選取 [適用於 Azure 的 Avere vFXT 控制器] 範本。
-
-如果您尚未接受條款並為 Marketplace 映像啟用以程式設計方式存取的功能，請接受條款並按一下 [建立] 按鈕底下的 [想要以程式設計方式部署嗎?]。
-
-![以程式設計方式存取的連結 (位於 [建立] 按鈕下方) 螢幕擷取畫面](media/avere-vfxt-deploy-programmatically.png)
-
-按一下 [啟用] 按鈕並儲存設定。
-
-![顯示點選滑鼠來啟用以程式設計方式存取之功能的螢幕擷取畫面](media/avere-vfxt-enable-program.png)
-
-返回 [適用於 Azure 的 Avere vFXT 控制器] 範本，然後按一下 [建立]。 
-
-在第一個面板中，填入或確認下列基本選項：
-
-* **訂用帳戶**
-* **資源群組** (如果您想要建立新的群組，請輸入新名稱)。
-* **虛擬機器名稱** - 控制器的名稱
-* **區域**
-* **可用性選項** - 不需要備援
-* **映像** - Avere vFXT 控制器節點映像
-* **大小** - 保留預設值，或選擇另一個低成本的類型
-* **管理員帳戶** - 設定登入叢集控制器的方式： 
-  * 選取 [使用者名稱/密碼] 或 [SSH 公開金鑰] (建議使用)。
-  
-    > [!TIP] 
-    > SSH 金鑰較為安全。 如果需要協助，請參閱[如何建立和使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)。 
-  * 指定使用者名稱 
-  * 貼上 SSH 金鑰，或輸入並確認密碼
-* **輸入連接埠規則** - 如果使用公用 IP 位址，請開啟連接埠 22 (SSH)
-
-按 [下一步] 以設定磁碟選項：
-
-* **OS 磁碟類型** - 預設值 [HDD] 即已足夠
-* **使用非受控磁碟** - 不需要
-* **資料磁碟** - 請勿使用
-
-按 [下一步] 以選取網路功能選項：
-
-* **虛擬網路** - 選取控制器的 VNet，或輸入名稱以建立新的 VNet。 如果您不想要在控制器上使用公用 IP 位址，請考慮將它置於已經設定 ExpressRoute 或另一個存取方法的 VNet 內。
-* **子網路** - 選取 VNet 內的子網路 (選擇性)。 如果您建立新的 VNet，可以同時建立新的子網路。
-* **公用 IP** - 如果您想要使用公用 IP 位址，可以在這裡指定。 
-* **網路安全性群組** - 請保留預設值 ([基本]) 
-* **公用輸入連接埠** - 如果使用公用 IP 位址，請使用此控制項來允許來自 SSH 流量的存取。 
-* 此 VM 無法使用 [加速網路]。
-
-按 [下一步] 以設定管理選項：
-
-* **開機診斷** - 請變更為 [關閉]
-* **OS 客體診斷** - 請保持停用
-* **診斷儲存體帳戶** - 請視需要選取或指定一個新帳戶來保存診斷資訊。
-* **受控服務識別** - 請將此選項變更為 [開啟]，這會為叢集控制器建立一個 Azure AD 服務主體。
-* **自動關機** - 請保持關閉 
-
-此時，如果您不想要使用執行個體標記，可以按一下 [檢閱 + 建立]。 否則，請按 [下一步] 兩次，以略過 [客體設定] 頁面並前往標記頁面。 在該處完成時，按一下 [檢閱 + 建立]。 
-
-在驗證完您的選取項目之後，按一下 [建立] 按鈕。  
-
-需要花 5 或 6 分鐘的時間進行建立。
 
 ## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>建立儲存體端點 (如果使用 Azure Blob)
 
-如果您使用 Azure Blob 儲存體作為後端資料儲存體，您應該在虛擬網路中建立儲存體服務端點。 此[服務端點](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)會讓 Azure Blob 流量保留在本機，而不會透過網際網路進行路由傳送。
+如果您使用 Azure Blob 儲存體作為後端資料儲存體，您應該在虛擬網路中建立儲存體服務端點。 此[服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)會讓 Azure Blob 流量保留在本機，而不會透過網際網路進行路由傳送。
 
 1. 從入口網站中，按一下左側的 [虛擬網路]。
 1. 選取您控制器的 VNet。 
@@ -170,151 +172,6 @@ ms.locfileid: "52999442"
 
   ![含有建立服務端點之註解的 Azure 入口網站螢幕擷取畫面](media/avere-vfxt-service-endpoint.png)
 
-## <a name="information-needed-to-create-the-cluster"></a>建立叢集所需的資訊
-
-建立叢集控制器之後，請確定您具有後續步驟所需的資訊。 
-
-連線到控制器所需的資訊： 
-
-* 控制器使用者名稱和 SSH 金鑰 (或密碼)
-* 控制器 IP 位址或其他可連線到控制器 VM 的方法
-
-叢集所需的資訊： 
-
-* 資源群組名稱
-* Azure 位置 
-* 虛擬網路名稱
-* 子網路名稱
-* 叢集節點角色名稱 - 如[下方](#create-the-cluster-node-access-role)所述，當您建立角色時會設定此名稱。
-* 儲存體帳戶名稱 (如果要建立 Blob 容器)
-
-如果您已藉由使用 Resource Manager 範本來建立控制器節點，您可以從[範本輸出](#find-template-output)取得資訊。 
-
-如果您使用了 Azure Marketplace 映像來建立控制器，便已直接提供大部分的項目。 
-
-瀏覽至控制器 VM 資訊頁面，以尋找遺漏的項目。 例如，按一下 [所有資源] 並搜尋控制器名稱，然後按一下控制器名稱，即可查看其詳細資料。
-
-### <a name="find-template-output"></a>尋找範本輸出
-
-若要從 Resource Manager 範本輸出尋找此資訊，請依照此程序：
-
-1. 移至您叢集控制器的資源群組。
-
-1. 在左側按一下 [部署]，然後選取 [Microsoft.Template]。
-
-   ![資源群組入口網站頁面，其中左側已選取 [部署]，而 [Microsoft.Template] 則顯示在 [部署名稱] 底下的表格中](media/avere-vfxt-deployment-template.png)
-
-1. 在左側按一下 [輸出]。 複製每個欄位中的值。 
-
-   ![輸出頁面，其中 SSHSTRING、RESOURCE_GROUP、LOCATION、NETWORK、SUBNET 及 SUBNET_ID 顯示在標籤右邊的欄位中](media/avere-vfxt-template-outputs.png)
-
-## <a name="access-the-controller"></a>存取控制器
-
-若要執行剩餘的部署步驟，您必須連線到叢集控制器。
-
-1. 連線到叢集控制器的方法取決於您的設定。
-
-   * 如果控制器具有公用 IP 位址，請以您所設定的管理員使用者名稱身分透過 SSH 連線到控制器的 IP (例如``ssh azureuser@40.117.136.91``)。
-   * 如果控制器沒有公用 IP，請使用 VPN 或 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) 來連線到您的 VNet。
-
-1. 登入您的控制器之後，請執行 `az login`來進行驗證。 複製殼層中所提供的驗證碼，然後使用網頁瀏覽器來載入 [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)，並向 Microsoft 系統進行驗證。 返回殼層來進行確認。
-
-   ![顯示瀏覽器連結和驗證碼之 'AZ login' 命令的命令列輸出](media/avere-vfxt-azlogin.png)
-
-1. 使用您的訂用帳戶 ID，透過執行此命令來新增訂用帳戶：```az account set --subscription YOUR_SUBSCRIPTION_ID```
-
-## <a name="create-the-cluster-node-access-role"></a>建立叢集節點存取角色
-
-> [!NOTE] 
-> * 如果您不是訂用帳戶擁有者，且尚未建立角色，請讓訂用帳戶擁有者依照下列步驟，或使用[在沒有控制器的情況下建立 Avere vFXT 叢集執行階段存取角色](avere-vfxt-pre-role.md)中的程序來進行操作。
-> 
-> * Microsoft 內部使用者應使用名為「Avere 叢集執行階段操作員」的現有角色，而非嘗試建立一個角色。 
-
-[角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC) 會為 vFXT 叢集節點提供授權來執行必要的工作。  
-
-在執行標準 vFXT 叢集作業時，個別 vFXT 節點必須執行諸如讀取 Azure 資源屬性、管理儲存體及控制其他節點之網路介面設定等作業。 
-
-1. 在控制器上，於編輯器中開啟 ``/avere-cluster.json`` 檔案。
-
-   ![先顯示列出命令再顯示 "vi /avere-cluster.json" 的主控台](media/avere-vfxt-open-role.png)
-
-1. 編輯檔案以包括您的訂用帳戶 ID 並刪除其上的一行。 將檔案儲存為 ``avere-cluster.json``。
-
-   ![顯示訂用帳戶 ID 與所選要刪除之「移除此行」的主控台文字編輯器](media/avere-vfxt-edit-role.png)
-
-1. 使用此命令以建立角色：  
-
-   ```bash
-   az role definition create --role-definition /avere-cluster.json
-   ```
-
-您將會把角色的名稱傳遞給下一個步驟中的叢集建立指令碼。 
-
-## <a name="create-nodes-and-configure-the-cluster"></a>建立節點並設定叢集
-
-若要建立 Avere vFXT 叢集，請編輯控制器上所包含的其中一個範例指令碼，然後在該處執行該指令碼。 範例指令碼位於叢集控制器上的根目錄 (`/`)。
-
-* 如果您想要建立 Blob 容器以作為 Avere vFXT 的後端儲存體系統，請使用 ``create-cloudbacked-cluster`` 指令碼。
-
-* 如果您將在稍後新增儲存體，請使用 ``create-minimal-cluster`` 指令碼。
-
-> [!TIP]
-> 新增節點及終結 vFXT 叢集的原型指令碼也包含在叢集控制器 VM 的 `/` 目錄中。
-
-### <a name="edit-the-deployment-script"></a>編輯部署指令碼
-
-請在編輯器中開啟範例指令碼。 您可以使用不同的名稱來儲存自訂指令碼，以避免覆寫原始範例。
-
-請為這些指令碼變數輸入值。
-
-* 資源群組名稱
-
-  * 如果您使用不同資源群組中的網路或儲存體元件，請將變數取消註解，並一併提供這些名稱。 
-
-```python
-# Resource groups
-# At a minimum specify the resource group.  If the network resources live in a
-# different group, specify the network resource group.  Likewise for the storage
-# account resource group.
-RESOURCE_GROUP=
-#NETWORK_RESOURCE_GROUP=
-#STORAGE_RESOURCE_GROUP=
-```
-
-* 位置名稱
-* 虛擬網路名稱
-* 子網路名稱
-* Azure AD 執行階段角色名稱 - 如果您已依照[建立叢集節點存取角色](#create-the-cluster-node-access-role)中的範例進行操作，請使用 ``avere-cluster``。 
-* 儲存體帳戶名稱 (如果要建立新的 Blob 容器)
-* 叢集名稱 - 您不能在同一個資源群組中有兩個名稱相同的 vFXT 叢集。 最佳做法是為每個叢集提供唯一的名稱。
-* 管理密碼 - 選擇一個安全密碼來監視及管理叢集。 此密碼會指派給使用者 ``admin``。 
-* 節點執行個體類型 - 如需相關資訊，請參閱 [vFXT 節點大小](avere-vfxt-deploy-plan.md#vfxt-node-sizes)
-* 節點快取大小 - 如需相關資訊，請參閱 [vFXT 節點大小](avere-vfxt-deploy-plan.md#vfxt-node-sizes)
-
-儲存檔案並結束。
-
-### <a name="run-the-script"></a>執行指令碼
-
-請輸入您已建立的檔案名稱來執行指令碼。 (範例：`./create-cloudbacked-cluster-west1`)  
-
-> [!TIP]
-> 請考慮在[終端機多工器](http://linuxcommand.org/lc3_adv_termmux.php) (例如 `screen` 或 `tmux`) 內執行此命令，以防萬一發生連線中斷的情況。  
-
-輸出也會記錄到 `~/vfxt.log`中。
-
-當指令碼完成時，請複製管理 IP 位址，您將需要這項資訊來進行叢集管理。
-
-![在接近結尾處顯示管理 IP 位址的指令碼命令列輸出](media/avere-vfxt-mgmt-ip.png)
-
-> [!IMPORTANT] 
-> 如果您已建立新的 Blob 容器，此容器可能會使用不是儲存在叢集外的預設金鑰來加密。 將資料儲存到容器之前，您必須下載金鑰復原檔案或建立您自己的加密金鑰，並將其復原檔案儲存在持續存在的位置。 
-> 
-> 如果您使用預設金鑰，但沒有下載復原檔案，就可能在 vFXT 叢集損毀或遺失時，喪失 Blob 核心篩選中加密資料的存取權。
->
-> 如果您的指令碼顯示 `WARNING` 訊息 (類似下方螢幕擷取畫面中圈起來的部分)，請遵循[設定儲存體](avere-vfxt-add-storage.md)中的指示來下載金鑰檔，或為您的 Blob 容器建立新的金鑰。 使用叢集組態工具：Avere 控制台。
-
-![建立新加密金鑰時顯示警告訊息的指令碼命令列輸出](media/avere-vfxt-key-warning.png)
-
 ## <a name="next-step"></a>後續步驟
 
-線在，叢集已處於執行狀態且您知道其管理 IP 位址，您可以[連線到叢集設定工具](avere-vfxt-cluster-gui.md)來啟用支援、視需要新增儲存體，或是處理新Blob 儲存體上的預設加密金鑰。
+現在叢集已處於執行狀態且您已知道其管理 IP 位址，您可以[連線到叢集設定工具](avere-vfxt-cluster-gui.md)，以視需要啟用支援、新增儲存體及自訂其他叢集設定。

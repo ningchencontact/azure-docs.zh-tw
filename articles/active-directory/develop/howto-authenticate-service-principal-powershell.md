@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: e00dcd90db4d7d7d67273da4840db6a784a5d86c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 35a69f12dc73ef0cbf9bc1541fa75037f6ef06f5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959723"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228231"
 ---
-# <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>操作說明：使用 Azure PowerShell 建立具有憑證的服務主體
+# <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>作法：使用 Azure PowerShell 建立具有憑證的服務主體
 
 當您有 App 或指令碼需要存取資源時，可以設定 App 的身分識別，並使用 App 自己的認證進行驗證。 此身分識別就是所謂的服務主體。 這種方法可讓您︰
 
@@ -34,7 +34,9 @@ ms.locfileid: "49959723"
 
 本文會示範如何建立可透過憑證進行驗證的服務主體。 若要使用密碼設定服務主體，請參閱[使用 Azure PowerShell 建立 Azure 服務主體](/powershell/azure/create-azure-service-principal-azureps)。
 
-您必須擁有[最新版](/powershell/azure/get-started-azureps)的 PowerShell 以符合本文需求。
+您必須擁有[最新版](/powershell/azure/install-az-ps)的 PowerShell 以符合本文需求。
+
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="required-permissions"></a>所需的權限
 
@@ -44,7 +46,7 @@ ms.locfileid: "49959723"
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>使用自我簽署憑證建立服務主體
 
-下列範例涵蓋簡單的案例。 其使用 [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) 建立具有自我簽署憑證的服務主體，並使用 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) 將[參與者](../../role-based-access-control/built-in-roles.md#contributor)角色指派給服務主體。 角色指派的範圍僅限於您目前所選的 Azure 訂用帳戶。 若要選取不同的訂用帳戶，請使用 [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext)。
+下列範例涵蓋簡單的案例。 其使用 [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) 建立具有自我簽署憑證的服務主體，並使用 [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 將[參與者](../../role-based-access-control/built-in-roles.md#contributor)角色指派給服務主體。 角色指派的範圍僅限於您目前所選的 Azure 訂用帳戶。 若要選取不同的訂用帳戶，請使用 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)。
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -52,15 +54,15 @@ $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
   -KeySpec KeyExchange
 $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-$sp = New-AzureRMADServicePrincipal -DisplayName exampleapp `
+$sp = New-AzADServicePrincipal -DisplayName exampleapp `
   -CertValue $keyValue `
   -EndDate $cert.NotAfter `
   -StartDate $cert.NotBefore
 Sleep 20
-New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-範例會休眠 20 秒，留一些時間讓新的服務主體在整個 Azure AD 中傳播。 如果您的指令碼等得不夠久，您會看到錯誤指出：「主體 {ID} 不存在於目錄 {DIR-ID} 中」。 若要解決這個錯誤，請稍待片刻後，再次執行 **New-AzureRmRoleAssignment** 命令。
+範例會休眠 20 秒，留一些時間讓新的服務主體在整個 Azure AD 中傳播。 如果您的指令碼等得不夠久，您會看到錯誤，其指出：「目錄 {DIR-ID} 中不存在主體 {ID}。」 若要解決這個錯誤，請稍待片刻後，再次執行 **New-AzRoleAssignment** 命令。
 
 您可以使用 **ResourceGroupName** 參數將角色指派的範圍限定為特定的資源群組。 您也可以使用 **ResourceType** 與 **ResourceName** 將範圍限制為特定的資源。 
 
@@ -86,11 +88,11 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 每當您以服務主體的形式登入時，都需要提供 AD 應用程式目錄的租用戶識別碼。 租用戶是 Azure AD 的執行個體。
 
 ```powershell
-$TenantId = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
-$ApplicationId = (Get-AzureRmADApplication -DisplayNameStartWith exampleapp).ApplicationId
+$TenantId = (Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
+$ApplicationId = (Get-AzADApplication -DisplayNameStartWith exampleapp).ApplicationId
 
  $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match "CN=exampleappScriptCert" }).Thumbprint
- Connect-AzureRmAccount -ServicePrincipal `
+ Connect-AzAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
@@ -115,18 +117,18 @@ Param (
  [String] $CertPlainPassword
  )
 
- Connect-AzureRmAccount
- Import-Module AzureRM.Resources
- Set-AzureRmContext -Subscription $SubscriptionId
+ Connect-AzAccount
+ Import-Module Az.Resources
+ Set-AzContext -Subscription $SubscriptionId
  
  $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
 
  $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
  $KeyValue = [System.Convert]::ToBase64String($PFXCert.GetRawCertData())
 
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName
- New-AzureRmADSpCredential -ObjectId $ServicePrincipal.Id -CertValue $KeyValue -StartDate $PFXCert.NotBefore -EndDate $PFXCert.NotAfter
- Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
+ $ServicePrincipal = New-AzADServicePrincipal -DisplayName $ApplicationDisplayName
+ New-AzADSpCredential -ObjectId $ServicePrincipal.Id -CertValue $KeyValue -StartDate $PFXCert.NotBefore -EndDate $PFXCert.NotAfter
+ Get-AzADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
  $Retries = 0;
@@ -134,8 +136,8 @@ Param (
  {
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
-    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
+    New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
+    $NewRole = Get-AzRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
  
@@ -167,7 +169,7 @@ Param (
   -ArgumentList @($CertPath, $CertPassword)
  $Thumbprint = $PFXCert.Thumbprint
 
- Connect-AzureRmAccount -ServicePrincipal `
+ Connect-AzAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
@@ -176,29 +178,29 @@ Param (
 應用程式識別碼和租用戶識別碼不區分大小寫，因此您可以直接將它們內嵌在您的指令碼中。 如果您要擷取租用戶識別碼，請使用︰
 
 ```powershell
-(Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+(Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
 ```
 
 如果您要擷取應用程式識別碼，請使用︰
 
 ```powershell
-(Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
+(Get-AzADApplication -DisplayNameStartWith {display-name}).ApplicationId
 ```
 
 ## <a name="change-credentials"></a>管理認證
 
-若要變更 AD App 的認證，不管是因為安全性危害或認證過期，請使用 [Remove-AzureRmADAppCredential](/powershell/module/azurerm.resources/remove-azurermadappcredential) 和 [New-AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential) Cmdlet。
+若要變更 AD App 的認證，不管是因為安全性危害或認證過期，請使用 [Remove-AzADAppCredential](/powershell/module/az.resources/remove-azadappcredential) 和 [New-AzADAppCredential](/powershell/module/az.resources/new-azadappcredential) Cmdlet。
 
 若要移除應用程式的所有認證，使用︰
 
 ```powershell
-Get-AzureRmADApplication -DisplayName exampleapp | Remove-AzureRmADAppCredential
+Get-AzADApplication -DisplayName exampleapp | Remove-AzADAppCredential
 ```
 
 若要新增憑證值，請建立自我簽署的憑證，如本文中所述。 然後，使用︰
 
 ```powershell
-Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
+Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
   -CertValue $keyValue `
   -EndDate $cert.NotAfter `
   -StartDate $cert.NotBefore

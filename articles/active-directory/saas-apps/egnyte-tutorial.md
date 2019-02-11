@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8c2101d4-1779-4b36-8464-5c1ff780da18
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 33989d04cba06c789089dfc0db62d177d258292a
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: e33fc71e0e43864d7d70495fc5056a8acaf4ad56
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976097"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>教學課程：Azure Active Directory 與 Egnyte 整合
 
@@ -202,7 +202,7 @@ Egnyte 與 Azure AD 整合提供下列優點：
 
 2. 移至 [設定] \> [使用者和群組]。
 
-3. 按一下 [新增使用者] ，然後選取您想要加入的使用者類型。
+3. 按一下 [新增使用者]，然後選取您想要加入的使用者類型。
    
     ![使用者](./media/egnyte-tutorial/ic787824.png "使用者")
 

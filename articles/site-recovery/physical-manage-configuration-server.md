@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: ee5cc1f185640c9ea22ceb80b1fabb20df245fe2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 824c7c70cf3e79df3aa04bbe86674ed9486b79f2
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823075"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300433"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>管理實體伺服器災害復原的組態伺服器
 
@@ -34,7 +34,7 @@ ms.locfileid: "54823075"
 | VMware vSphere PowerCLI 版本 | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Windows Server 角色 | 請勿啟用這些角色： <br> - Active Directory Domain Services <br>- 網際網路資訊服務 <br> - Hyper-V |
 | 群組原則| 請勿啟用這些群組原則： <br> - 防止存取命令提示字元 <br> - 防止存取登錄編輯工具 <br> - 檔案附件的信任邏輯 <br> - 開啟指令碼執行 <br> [深入了解](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-| IIS | - 沒有預先存在的預設網站 <br> - 啟用[匿名驗證](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) \(英文\) <br> - 啟用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 設定  <br> - 沒有預先存在的網站/應用程式接聽連接埠 443<br>|
+| IIS | - 沒有預先存在的預設網站 <br> - 啟用[匿名驗證](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - 啟用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 設定  <br> - 沒有預先存在的網站/應用程式接聽連接埠 443<br>|
 | NIC 類型 | VMXNET3 (部署為 VMware VM 時) |
 | IP 位址類型 | 靜態 |
 | 網際網路存取 | 伺服器需要存取這些 URL： <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (相應放大處理序伺服器不需要) <br> - time.nist.gov <br> - time.windows.com |
@@ -128,7 +128,7 @@ Site Recovery 入口網站中提供最新版本的組態伺服器安裝檔案。
 ### <a name="create-file-input-for-mysqlcredsfilepath"></a>建立 MYSQLCredsFilePath 的檔案輸入
 
 MySQLCredsFilePath 參數使用檔案作為輸入。 使用下列格式建立檔案，並將它以輸入 MySQLCredsFilePath 參數傳遞。
-```
+```ini
 [MySQLCredentials]
 MySQLRootPassword = "Password>"
 MySQLUserPassword = "Password"
@@ -136,7 +136,7 @@ MySQLUserPassword = "Password"
 ### <a name="create-file-input-for-proxysettingsfilepath"></a>建立 ProxySettingsFilePath 的檔案輸入
 ProxySettingsFilePath 參數使用檔案做為輸入。 使用下列格式建立檔案，並將它以輸入 ProxySettingsFilePath 參數傳遞。
 
-```
+```ini
 [ProxySettings]
 ProxyAuthentication = "Yes/No"
 Proxy IP = "IP Address"
@@ -157,7 +157,7 @@ ProxyPassword="Password"
 5. 提供新的 Proxy 詳細資料，然後按一下 [註冊] 按鈕。
 6. 開啟系統管理 PowerShell 命令視窗。
 7. 執行以下命令：
-  ```
+  ```powershell
   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
   net stop obengine
@@ -177,7 +177,7 @@ ProxyPassword="Password"
   6. 開啟系統管理 PowerShell 命令視窗。
   7. 執行下列命令
 
-      ```
+      ```powershell
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
       net stop obengine
@@ -205,7 +205,7 @@ ProxyPassword="Password"
 6. 提供 Proxy 伺服器詳細資料，然後按一下 [註冊] 按鈕。  
 7. 開啟系統管理 PowerShell 命令視窗。
 8. 執行下列命令
-    ```
+    ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
     net stop obengine
@@ -273,7 +273,7 @@ ProxyPassword="Password"
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  現在設定保存庫內容
     
-    ```
+    ```powershell
     $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
     ```

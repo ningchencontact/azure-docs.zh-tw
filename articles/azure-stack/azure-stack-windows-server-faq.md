@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 11/12/2018
+ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613090"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249675"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack Marketplace 中的 Windows Server 常見問題集
 
@@ -37,7 +38,7 @@ ms.locfileid: "51613090"
 
 Microsoft 透過 Azure Stack Marketplace 提供兩種版本的 Windows Server 映像：
 
-- **預付型方案**：這些映像會執行完整價格的 Windows 計量。 
+- **隨用即付**：這些映像會執行完整價格的 Windows 計量。 
    適合對象：使用*使用量計費模型*的 Enterprise 合約 (EA) 客戶、不想使用 SPLA 授權的 CSP。
 - **自備授權 (BYOL)**：這些映像會執行基本計量。
    適合對象：具有 Windows Server 授權的 EA 客戶、使用 SPLA 授權的 CSP。
@@ -62,7 +63,7 @@ Azure Stack 不支援 Azure Hybrid Use Benefit (AHUB)。 透過「容量」模�
 
 ### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>我有 Enterprise 合約 (EA) 且將會使用我的 EA Windows Server 授權，我要如何確保映像會正確計費？
 
-您可以將 **licenseType: Windows_Server** 加入 Azure Resource Manager 範本。 此設定必須個別加入至每個虛擬機器資源區塊個別。
+您可以將 **licenseType:Windows_Server** 新增至 Azure Resource Manager 範本中。 此設定必須個別加入至每個虛擬機器資源區塊個別。
 
 ## <a name="activation"></a>啟用
 

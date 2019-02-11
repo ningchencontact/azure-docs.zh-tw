@@ -4,14 +4,14 @@ description: 說明在部署Avere vFXT for Azure 之前的規劃事項
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: f0e5523565dc561ed457dbc340835ad1889cb876
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e60c92c22382112558307062afdeb87e08075765
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669865"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298920"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>規劃您的 Avere vFXT 系統
 
@@ -29,11 +29,14 @@ ms.locfileid: "50669865"
 
 規劃 Avere vFXT 系統的網路基礎結構時，請遵循下列指導方針：
 
-* 所有元素都應該使用針對 Avere vFXT 部署建立的新訂用帳戶管理。 此策略可簡化成本追蹤及清除，也有助於資料分割資源配額。 Avere vFXT 要搭配大量的用戶端使用，因此，在單一訂用帳戶中隔離用戶端與叢集可防止其他重要的工作負載可能在用戶端佈建期間進行資源節流。
+* 所有元素都應該使用針對 Avere vFXT 部署建立的新訂用帳戶管理。 優點包括： 
+  * 追蹤成本更簡單 - 在一個訂用帳戶中檢視和稽核所有資源、基礎結構及計算循環的成本。
+  * 清除更容易 - 您可以在完成專案後移除整個訂用帳戶。
+  * 分割資源配額更便利 - 當有大量用戶端用於高效能計算流程時，藉由在單一訂用帳戶中隔離 Avere vFXT 用戶端和叢集，以避免可能的資源節流影響其他重要工作流程。
 
 * 找出接近 vFXT 叢集的用戶端計算系統。 後端儲存體可能更加遙遠。  
 
-* 為了簡單起見，請在相同的虛擬網路 (Vnet) 和相同的資源群組中，找出 vFXT 叢集與叢集控制器 VM。 它們也應該使用相同的儲存體帳戶。 
+* 為了簡單起見，請在相同的虛擬網路 (Vnet) 和相同的資源群組中，找出 vFXT 叢集與叢集控制器 VM。 它們也應該使用相同的儲存體帳戶。 (叢集控制器會建立叢集，還可用於管理命令列叢集。)  
 
 * 此叢集必須位於自己的子網路中，以避免 IP 位址與用戶端或計算資源發生衝突。 
 
@@ -80,16 +83,46 @@ Avere vFXT 叢集會使用下列 IP 位址：
 
 ## <a name="back-end-data-storage"></a>後端資料儲存體
 
-當它不在快取中時，工作集將儲存在新的 Blob 容器，還是儲存在現有的雲端或硬體儲存體系統？
+當資料不在快取中時，Avere vFXT 叢集應將資料儲存在哪？ 決定工作集將長期儲存在新的 Blob 容器中，還是儲存在現有雲端或硬體儲存體系統。 
 
-如果您想要將 Azure Blob 儲存體用於後端，您應該在建立 vFXT 叢集時建立新的容器。 使用 ``create-cloud-backed-container`` 部署指令碼，並為新的 Blob 容器提供儲存體帳戶。 此選項會建立並設定新的容器，使其可以在叢集就緒時使用。 如需詳細資訊，請閱讀[建立節點並設定叢集](avere-vfxt-deploy.md#create-nodes-and-configure-the-cluster)。
+如果您想要將 Azure Blob 儲存體用於後端，您應該在建立 vFXT 叢集時建立新的容器。 此選項會建立並設定新的容器，使其可以在叢集就緒時使用。 
+
+請參閱[建立 Avere vFXT for Azure](avere-vfxt-deploy.md#create-the-avere-vfxt-for-azure)，以了解詳細資料。
 
 > [!NOTE]
 > 只有空的 Blob 儲存體容器可以當作 Avere vFXT 系統的核心篩選使用。 vFXT 必須能夠管理其物件存放區，而不需要保留現有的資料。 
 >
 > 請閱讀[將資料移動到 vFXT 叢集](avere-vfxt-data-ingest.md)以了解如何使用用戶端電腦和 Avere vFXT 快取，將資料有效率地複製到叢集的新容器中。
 
-如果您想要使用現有的內部部署儲存體系統，您必須在建立該儲存體系統之後，將其新增至 vFXT 叢集。 ``create-minimal-cluster`` 部署指令碼會建立不含後端儲存體的 vFXT 叢集。 如需有關如何將現有的儲存體系統新增至 Avere vFXT 叢集的詳細指示，請閱讀[設定儲存體](avere-vfxt-add-storage.md)。 
+如果您想要使用現有的內部部署儲存體系統，您必須在建立該儲存體系統之後，將其新增至 vFXT 叢集。 如需有關如何將現有的儲存體系統新增至 Avere vFXT 叢集的詳細指示，請閱讀[設定儲存體](avere-vfxt-add-storage.md)。
+
+## <a name="cluster-access"></a>叢集存取 
+
+Avere vFXT for Azure 位於私人子網路，叢集並沒有公用 IP 位址。 您必須擁有存取私人子網路的方法，才能管理叢集和連線到用戶端。 
+
+存取選項包括：
+
+* 跳板主機 - 將公用 IP 位址指派給私人網路中不同的 VM，並使用此位址建立 SSL 通道來連線到叢集節點。 
+
+  > [!TIP]
+  > 如果您在叢集控制器上設定公用 IP 位址，則此控制器可作為跳板主機。 如需詳細資訊，請參閱[作為跳板主機的叢集控制器](#cluster-controller-as-jump-host)。
+
+* 虛擬私人網路 (VPN) - 針對您的私人網路設定點對站或站對站 VPN。
+
+* Azure ExpressRoute - 透過 ExpressRoute 合作夥伴設定私人連線。 
+
+如需有關這些選項的詳細資訊，請參閱[關於網際網路通訊的 Azure 虛擬網路文件](../virtual-network/virtual-networks-overview.md#communicate-with-the-internet)。
+
+### <a name="cluster-controller-as-jump-host"></a>作為跳板主機的叢集控制器
+
+如果您在叢集控制器上設定公用 IP 位址，您可以將其作為跳板主機，從私人子網路外連絡 Avere vFXT 叢集。 不過，由於控制器有修改叢集節點的存取權限，因此會產生輕微的安全性風險。  
+
+為了提升公用 IP 位址的安全性，請使用網路安全性群組來允許只透過連接埠 22 進行輸入存取。
+
+建立叢集時，您可以選擇是否要在叢集控制器上建立公用 IP 位址。 
+
+* 如果您建立新的 Vnet 或新的子網路，則系統將會指派公用 IP 位址給叢集控制器。
+* 如果您選取現有的 Vnet 和子網路，則叢集控制器就只會有私人 IP 位址。 
 
 ## <a name="next-step-understand-the-deployment-process"></a>下一步：了解部署程序
 

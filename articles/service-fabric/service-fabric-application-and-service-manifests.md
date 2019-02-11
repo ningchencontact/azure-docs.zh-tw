@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3e390763255878384e7a767158210d0515b09958
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 9e8ca50970ff4a845174d7061b60a88a8f5ce578
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653539"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465618"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 應用程式和服務資訊清單
 本文說明如何使用 ApplicationManifest.xml 和 ServiceManifest.xml 檔案來定義 Service Fabric 應用程式和服務及設定其版本。  如需更詳細的範例，請參閱[應用程式和服務資訊清單範例](service-fabric-manifest-examples.md)。  這些資訊清單檔的 XML 結構描述記載於 [ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)中。
@@ -53,7 +53,7 @@ ms.locfileid: "53653539"
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -96,7 +96,7 @@ ms.locfileid: "53653539"
 </Settings>
 ```
 
-可宣告/變更服務 (不需變更已編譯的程式碼) 所使用的 **Resources** (例如端點)。  透過應用程式資訊清單中的 **SecurityGroup**，即可控制存取服務資訊清單中的指定資源。  在服務資訊清單中定義 **Endpoint** 資源時，若沒有明確指定連接埠，Service Fabric 會從保留的應用程式連接埠範圍指派連接埠。  深入了解[指定或覆寫端點資源](service-fabric-service-manifest-resources.md)。
+Service Fabric 服務**端點**是 Service Fabric 資源的範例；不需變更已編譯的程式碼，即可宣告/變更 Service Fabric 資源。 透過應用程式資訊清單中的 **SecurityGroup**，即可控制存取服務資訊清單中指定的 Service Fabric 資源。 在服務資訊清單中定義端點資源時，若沒有明確指定連接埠，Service Fabric 會從保留的應用程式連接埠範圍指派連接埠。 深入了解[指定或覆寫端點資源](service-fabric-service-manifest-resources.md)。
 
 
 <!--

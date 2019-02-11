@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 93ad629a-f516-4cac-bfe2-a77257e3a797
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 1c604eebb2c1c85de717217063333190ffa865f4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6658cc2db28fb58821afbc320ed4f7227fb3ccc2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426511"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>教學課程：Azure Active Directory 與 SumTotalCentral 整合
 
@@ -161,11 +161,11 @@ ms.locfileid: "39426511"
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
  
 ### <a name="create-a-sumtotalcentral-test-user"></a>建立 SumTotalCentral 測試使用者
 
-在本節中，您會在 SumTotalCentral 中建立名為 Britta Simon 的使用者。 請與 [SumTotalCentral 支援小組](http://www.sumtotalsystems.com/support/)合作，以在 SumTotalCentral 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。  
+在本節中，您會在 SumTotalCentral 中建立名為 Britta Simon 的使用者。 請與 [SumTotalCentral 支援小組](http://www.sumtotalsystems.com/support/) 合作，在 SumTotalCentral 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。  
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -202,7 +202,7 @@ ms.locfileid: "39426511"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [SumTotalCentral] 圖格時，應該會自動登入您的 SumTotalCentral 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

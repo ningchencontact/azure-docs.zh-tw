@@ -11,13 +11,13 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: bb7908c5ed72bf58f1bd8920983d76cb674286a3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449396"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458086"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 建立及管理彈性資料庫作業
 
@@ -75,9 +75,9 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ```
 
 
-## <a name="exclude-a-single-database"></a>執行單一資料庫
+## <a name="exclude-an-individual-database"></a>排除個別資料庫
 
-下列範例說明如何對伺服器中的所有資料庫 (名為 *MappingDB* 的資料庫除外) 執行作業。  
+下列範例說明如何對 SQL Database 伺服器中的所有資料庫 (名為 *MappingDB* 的資料庫除外) 執行作業。  
 連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
 ```sql
@@ -103,7 +103,7 @@ EXEC [jobs].sp_add_target_group_member
 @server_name='server2.database.windows.net'
 GO
 
---Excude a database target member from the server target group
+--Exclude a database target member from the server target group
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @membership_type = N'Exclude',
@@ -1032,10 +1032,10 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 包含伺服器中的所有資料庫、彈性集區中的所有資料庫、分區對應中的所有資料庫或個別資料庫的目標資料庫或資料庫集合的類型。 target_type 是 nvarchar(128)，沒有預設值。 Target_type 的有效值為 'SqlServer'、'SqlElasticPool'、'Sql Database' 或 'SqlShardMap'。 
 
 [ **@refresh_credential_name =** ] 'refresh_credential_name'  
-邏輯伺服器的名稱。 refresh_credential_name 是 nvarchar(128)，沒有預設值。
+SQL Database 伺服器的名稱。 refresh_credential_name 是 nvarchar(128)，沒有預設值。
 
 [ **@server_name =** ] 'server_name'  
-應新增至指定目標群組的邏輯伺服器名稱。 當 target_type 為 ‘SqlServer’ 時，即應指定 server_name。 server_name 是 nvarchar(128)，沒有預設值。
+應新增至指定目標群組的 SQL Database 伺服器名稱。 當 target_type 為 ‘SqlServer’ 時，即應指定 server_name。 server_name 是 nvarchar(128)，沒有預設值。
 
 [ **@database_name =** ] 'database_name'  
 應新增至指定目標群組的資料庫名稱。 當 target_type 為 ‘SqlDatabase’ 時，即應指定 database_name。 database_name 是 nvarchar(128)，沒有預設值。
@@ -1051,7 +1051,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 傳回碼值 0 (成功) 或 1 (失敗)
 
 #### <a name="remarks"></a>備註
-當目標群組中包含邏輯伺服器或彈性集區時，在執行期間會對伺服器或彈性集區內的所有資料庫執行作業。
+當目標群組中包含 SQL Database 伺服器或彈性集區時，在執行期間會對 SQL Database 伺服器或彈性集區內的所有單一資料庫執行作業。
 
 #### <a name="permissions"></a>權限
 根據預設，系統管理員固定伺服器角色的成員可執行此預存程序。 他們會將使用者限定為只能監視作業，而您可以為使用者授與權限，使其在建立作業代理程式時所指定的作業代理程式資料庫中成為下列資料庫角色的一部分：
@@ -1229,7 +1229,7 @@ GO
 |**target_type**|   nvarchar(128)   |包含伺服器中的所有資料庫、彈性集區中的所有資料庫或個別資料庫的目標資料庫或資料庫集合的類型。 Target_type 的有效值為 'SqlServer'、'SqlElasticPool' 或 'SqlDatabase'。 NULL 表示這是父作業執行。
 |**target_id**  |uniqueidentifier|  目標群組成員的唯一識別碼。  NULL 表示這是父作業執行。
 |**target_group_name**  |nvarchar(128)  |目標群組的名稱。 NULL 表示這是父作業執行。
-|**target_server_name**|    nvarchar(256)|  目標群組中包含的邏輯伺服器名稱。 只有在 target_type 為 ‘SqlServer’ 時才須指定。 NULL 表示這是父作業執行。
+|**target_server_name**|    nvarchar(256)|  目標群組中包含的 SQL Database 伺服器名稱。 只有在 target_type 為 ‘SqlServer’ 時才須指定。 NULL 表示這是父作業執行。
 |**target_database_name**   |nvarchar(128)| 目標群組中包含的資料庫名稱。 只有在 target_type 為 ‘SqlDatabase’ 時才須指定。 NULL 表示這是父作業執行。
 
 
@@ -1253,7 +1253,7 @@ GO
 
 ### <a name="jobversions-view"></a>job_versions 檢視
 
-[jobs].[job_verions]
+[jobs].[job_versions]
 
 顯示所有作業版本。
 
@@ -1332,7 +1332,7 @@ GO
 |**refresh_credential_name**    |nvarchar(128)  |用來連線至目標群組成員的資料庫範圍認證的名稱。|
 |subscription_id    |uniqueidentifier|  訂用帳戶的唯一識別碼。|
 |**resource_group_name**    |nvarchar(128)| 目標群組成員所在的資源群組名稱。|
-|**server_name**    |nvarchar(128)  |目標群組中包含的邏輯伺服器名稱。 只有在 target_type 為 ‘SqlServer’ 時才須指定。 |
+|**server_name**    |nvarchar(128)  |目標群組中包含的 SQL Database 伺服器名稱。 只有在 target_type 為 ‘SqlServer’ 時才須指定。 |
 |**database_name**  |nvarchar(128)  |目標群組中包含的資料庫名稱。 只有在 target_type 為 ‘SqlDatabase’ 時才須指定。|
 |**elastic_pool_name**  |nvarchar(128)| 目標群組中包含的彈性集區名稱。 只有在 target_type 為 ‘SqlElasticPool’ 時才須指定。|
 |**shard_map_name** |nvarchar(128)| 目標群組中包含的分區對應名稱。 只有在 target_type 為 ‘SqlShardMap’ 時才須指定。|

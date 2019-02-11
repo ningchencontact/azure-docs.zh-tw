@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: f79b148558e7881f852ccd57916b0b0f31a98219
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4d03ccfddab9a4aab4a1eacde02d68652bf5103a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342325"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219068"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>快速入門：針對 Windows 以適用於 .NET 的 C&#35; 使用 Bing 語音辨識 API
 
@@ -80,7 +80,7 @@ Speech API 是「認知服務」(先前稱為 Project Oxford) 的組件。 您�
 
     * **ShortPhrase 模式**：語句最長為 15 秒。 將資料傳送給伺服器時，用戶端會收到多個部分結果，以及一個含有多個前 N 名最佳選項的最終結果。
     * **LongDictation 模式**：語句最長為 2 分鐘。 將資料傳送給伺服器時，用戶端會根據伺服器指出句子暫停的位置，收到多個部分結果和多個最終結果。
-    * **意圖偵測**伺服器會傳回與語音輸入相關的額外結構化資訊。 若要使用意圖偵測，您必須先使用 [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 將模型定型。
+    * **意圖偵測**：伺服器會傳回與語音輸入相關的額外結構化資訊。 若要使用意圖偵測，您必須先使用 [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 將模型定型。
 
 請將範例音訊檔案與此範例應用程式搭配使用。 在您隨此範例下載之存放庫中的 samples/SpeechRecognitionServiceExample 資料夾底下，即可找到這些檔案。 當您選取 [將 wav 檔案用於 Shortphrase 模式] 或 [將 wav 檔案用於 Longdictation 模式] 作為語音輸入時，如果沒有選擇任何其他檔案，這些範例音訊檔案就會自動執行。 目前僅支援 WAV 音訊格式。
 

@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ffd22f3612d55258737cb9c004b2b0f4e9326f07
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.lastreviewed: 09/28/2018
+ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452508"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246359"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>在 Azure Stack 中使用 API 版本設定檔搭配 Java
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 適用於 Azure Stack Resource Manager 的 Java SDK 會提供工具，以協助您建置及管理您的基礎結構。 SDK 中的資源提供者包括計算、網路、儲存體、應用程式服務和 [KeyVault](../../key-vault/key-vault-whatis.md)。 Java SDK 會藉由在 Pom.xml 檔案中包含相依性來合併 API 設定檔，以將正確模組載入 .java 檔案。 不過，您可以將多個設定檔新增為相依性，例如以 **2018-03-01-hybrid** 或**最新**作為 Azure 設定檔。 使用這些相依性可載入正確的模組，讓您可以在建立資源類型時，從這些設定檔中選取想要使用的 API 版本。 這可讓您在 Azure 中使用最新版本，同時憑藉 Azure Stack 最新的 API 版本進行開發。 使用 Java SDK 可使真正的混合式雲端開發人員體驗發揮功能。 Java SDK 中的 API 設定檔透過協助您在全域 Azure 資源和 Azure Stack 的資源來回切換，提供混合式雲端開發功能。
 
@@ -40,7 +41,7 @@ API 設定檔是資源提供者和 API 版本的組合。 您可以使用 API �
     
       - 這會在 Pom.xml 檔案中指定為相依性，並在您從下拉式清單中選擇正確類別時 (與使用 .NET 時一樣) 自動載入模組。
         
-          - 每個模組的頂端會出現類似下列的內容：         
+      - 每個模組的頂端會出現類似下列的內容：         
            `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
              
 
@@ -93,11 +94,11 @@ API 設定檔是資源提供者和 API 版本的組合。 您可以使用 API �
 
 | 值                     | 環境變數 | 說明                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 租用戶識別碼                 | TENANT_ID            | 您 Azure Stack [<span class="underline">租用戶識別碼</span>](../azure-stack-identity-overview.md)的值。                                                          |
-| 用戶端識別碼                 | CLIENT_ID             | 您在本文件上一節中建立服務主體時儲存的服務主體應用程式識別碼。                                                                                              |
-| 訂用帳戶識別碼           | SUBSCRIPTION_ID      | [<span class="underline">訂用帳戶識別碼</span>](../azure-stack-plan-offer-quota-overview.md#subscriptions)是您存取 Azure Stack 中供應項目的方式。                |
-| 用戶端密碼             | CLIENT_SECRET        | 服務主體建立時儲存的服務主體應用程式祕密。                                                                                                                                   |
-| Resource Manager 端點 | 端點              | 請參閱 [<span class="underline">Azure Stack Resource Manager 端點</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)。 |
+| 租用戶識別碼                 | AZURE_TENANT_ID            | 您 Azure Stack [<span class="underline">租用戶識別碼</span>](../azure-stack-identity-overview.md)的值。                                                          |
+| 用戶端識別碼                 | AZURE_CLIENT_ID             | 您在本文件上一節中建立服務主體時儲存的服務主體應用程式識別碼。                                                                                              |
+| 訂用帳戶識別碼           | AZURE_SUBSCRIPTION_ID      | [<span class="underline">訂用帳戶識別碼</span>](../azure-stack-plan-offer-quota-overview.md#subscriptions)是您存取 Azure Stack 中供應項目的方式。                |
+| 用戶端密碼             | AZURE_CLIENT_SECRET        | 服務主體建立時儲存的服務主體應用程式祕密。                                                                                                                                   |
+| Resource Manager 端點 | ARM_ENDPOINT              | 請參閱 [<span class="underline">Azure Stack Resource Manager 端點</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)。 |
 | 位置                  | RESOURCE_LOCATION    | Azure Stack 的位置                                                                                                                                                                                                |
 
 若要尋找 Azure Stack 的租用戶識別碼，請遵循[此處](../azure-stack-csp-ref-operations.md)所提供的指示。 若要設定環境變數，請執行下列作業：
@@ -107,7 +108,7 @@ API 設定檔是資源提供者和 API 版本的組合。 您可以使用 API �
 若要在 Windows 命令提示字元中設定環境變數，請使用下列格式：
 
 ```shell
-Set Azure_Tenant_ID=<Your_Tenant_ID>
+Set AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="macos-linux-and-unix-based-systems"></a>MacOS、Linux 和以 Unix 為基礎的系統
@@ -115,7 +116,7 @@ Set Azure_Tenant_ID=<Your_Tenant_ID>
 在以 Unix 為基礎的系統中，您可以使用下列命令：
 
 ```shell
-Export Azure_Tenant_ID=<Your_Tenant_ID>
+Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack Resource Manager 端點
@@ -149,7 +150,7 @@ Microsoft Azure Resource Manager 是可讓系統管理員進行部署、管理�
 
 ## <a name="existing-api-profiles"></a>現有的 API 設定檔
 
-1.  **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**：為 Azure Stack 建置的最新設定檔。 只要您是在 1808 以上的戳記上，使用此設定檔就能讓服務與 Azure Stack 有最高的相容性。
+1.  **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**：針對 Azure Stack 建置的最新設定檔。 只要您是在 1808 以上的戳記上，使用此設定檔就能讓服務與 Azure Stack 有最高的相容性。
 
 2.  **com.microsoft.azure**：包含所有服務最新版本的設定檔。 使用所有服務的最新版本。
 
@@ -162,7 +163,8 @@ Microsoft Azure Resource Manager 是可讓系統管理員進行部署、管理�
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
                     .withDefaultSubscriptionId(subscriptionId);
-            Azure azureStack = Azure.configure().withLogLevel(com.microsoft.rest.LogLevel.BASIC)
+Azure azureStack = Azure.configure()
+                    .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
                     .authenticate(credentials, credentials.defaultSubscriptionId());
 ```
 
@@ -182,7 +184,7 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("activeDirectoryResourceId", settings.get("audience"));
                     put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
-                    put("keyVaultDnsSuffix", ".adminvault" + armEndpoint.substring(armEndpoint.indexOf('.')));
+                    put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
             });
 ```
@@ -205,8 +207,7 @@ HttpGet getRequest = new
 HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
 armEndpoint));
 
-// Add additional header to getRequest which accepts application/xml
-data
+// Add additional header to getRequest which accepts application/xml data
 getRequest.addHeader("accept", "application/xml");
 
 // Execute request and catch response
@@ -217,37 +218,37 @@ HttpResponse response = httpClient.execute(getRequest);
 
 您可以使用下列 GitHub 範例，作為使用 .NET 和 Azure Stack API 設定檔來建立解決方案的參考：
 
-  - [管理資源群組](https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid)
+  - [管理資源群組](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
 
-  - [管理儲存體帳戶](https://github.com/viananth/storage-java-manage-storage-accounts/tree/stack/Hybrid)
+  - [管理儲存體帳戶](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-  - [管理虛擬機器](https://github.com/viananth/compute-java-manage-vm/tree/stack/Hybrid)
+  - [管理虛擬機器](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
 
 ### <a name="sample-unit-test-project"></a>單元測試專案範例 
 
 1.  使用下列命令來複製存放庫：
     
-    `git clone https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid`
+    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
 2.  建立 Azure 服務主體並指派用以存取訂用帳戶的角色。 如需建立服務主體的指示，請參閱[使用 Azure PowerShell 建立具有憑證的服務主體](../azure-stack-create-service-principals.md)。
 
 3.  擷取下列必要的環境變數值：
     
-   1.  TENANT_ID
-   2.  CLIENT_ID
-   3.  CLIENT_SECRET
-   4.  SUBSCRIPTION_ID
-   5.  ARM_ENDPOINT
-   6.  RESOURCE_LOCATION
+    -  AZURE_TENANT_ID
+    -  AZURE_CLIENT_ID
+    -  AZURE_CLIENT_SECRET
+    -  AZURE_SUBSCRIPTION_ID
+    -  ARM_ENDPOINT
+    -  RESOURCE_LOCATION
 
 4.  在使用命令提示字元所建立的服務主體中，以從中擷取的資訊設定下列環境變數：
     
-   1. export TENANT_ID={您的租用戶識別碼}
-   2. export CLIENT_ID={您的用戶端識別碼}
-   3. export CLIENT_SECRET={您的用戶端密碼}
-   4. export SUBSCRIPTION_ID={您的訂用帳戶識別碼}
-   5. export ARM_ENDPOINT={您的 Azure Stack Resource Manager URL}
-   6. export RESOURCE_LOCATION={Azure Stack 的位置}
+    - export AZURE_TENANT_ID={您的租用戶識別碼}
+    - export AZURE_CLIENT_ID={您的用戶端識別碼}
+    - export AZURE_CLIENT_SECRET={您的用戶端密碼}
+    - export AZURE_SUBSCRIPTION_ID = {您的訂用帳戶識別碼}
+    - export ARM_ENDPOINT={您的 Azure Stack Resource Manager URL}
+    - export RESOURCE_LOCATION={Azure Stack 的位置}
 
    在 Windows 上，請使用 **set** 而非 **export**。
 

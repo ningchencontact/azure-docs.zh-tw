@@ -6,17 +6,17 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/24/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 772153040ac76f4b7bbee55c48527a841fc69037
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 443ecdeab057c863763501e5da7d36e9fb6a4eea
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084776"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223131"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 知識庫的限制和界限
 QnA Maker 的完整限制清單。
@@ -27,7 +27,9 @@ QnA Maker 的完整限制清單。
 
 |**Azure 搜尋服務層** | **免費** | **基本** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|允許的已發佈知識庫數目上限 (索引數上限 -- 1 (保留以供測試)|2|14|49|199|199|2,999|
+|允許的已發佈知識庫數目上限|2|14|49|199|199|2,999|
+
+ 比方說，如果您的層次有 15 個允許的索引，您可以發佈 14 個知識庫 (每個已發佈的知識庫 1 個索引)。 第十五個索引 (`testkb`) 用於撰寫和測試所有知識庫。 
 
 ## <a name="extraction-limits"></a>擷取限制
 * 可擷取的檔案數目上限與檔案大小上限：請參閱 [QnAMaker 定價](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
@@ -64,3 +66,11 @@ QnA Maker 的完整限制清單。
 * 新增或刪除的替代問題數目上限：100
 * 新增或刪除的中繼資料欄位數目上限：10
 * 可重新整理的 URL 數目上限：5
+
+## <a name="next-steps"></a>後續步驟
+
+了解何時及如何變更服務層級：
+
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku)：如果需要超過您目前層次的更多問題和答案放入您的知識庫，請將 QnA Maker 服務定價層升級。
+* [Search](how-to/upgrade-qnamaker-service.md#upgrade-app-service) - 當您的知識庫需要為來自用戶端應用程式的更多要求提供服務時，請將 App Service 定價層升級。
+* [應用程式服務](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service)：如果您打算有許多知識庫，請將 Azure 搜尋服務定價層升級。

@@ -4,25 +4,25 @@ titleSuffix: Azure Machine Learning service
 description: 此操作指南說明 Azure Machine Learning 資源上的各種配額，以及如何檢視及要求更多配額。
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6a08a5a79a8a072bd4621a7e200e84c2c71c9cd4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b735df4e245d6e3ceebd847e91ed7dfdb255c267
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475062"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245985"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>管理及要求 Azure 資源的配額
 
 如同使用其他 Azure 服務，對於與 Azure Machine Learning 服務相關聯的特定資源有一些限制。 這些限制的範圍，包括您可建立的工作區數目上限，到用於定型或推斷您的模型之實際基礎計算上的限制。 此文章針對您訂用帳戶之各種 Azure 資源所預先設定的限制提供更詳細的資料，另外還包含針對各種資源類型要求配額增強功能的方便連結。 設置這些限制可防止因詐欺而導致的預算超支，並遵循 Azure 的容量條件約束。
 
-當您為生產工作負載設計及相應增加您的 Azure ML 資源時，請記住這些配額。 例如，如果您的叢集未達到您所指定的目標節點數目，表示您可能已達到訂用帳戶的 Azure Machine Learning Compute 核心限制。 如果您想要將限制或配額提升到預設限制以上，您可以免費提出線上客戶支援要求。 由於 Azure 容量有其條件約束，您無法將限制提升至高於下表所示的「上限」值。 如果沒有上限欄，資源即沒有可調整的限制。 
+當您為生產工作負載設計及相應增加您的 Azure Machine Learning 服務資源時，請記住這些配額。 例如，如果您的叢集未達到您所指定的目標節點數目，表示您可能已達到訂用帳戶的 Azure Machine Learning Compute 核心限制。 如果您想要將限制或配額提升到預設限制以上，您可以免費提出線上客戶支援要求。 由於 Azure 容量有其條件約束，您無法將限制提升至高於下表所示的「上限」值。 如果沒有上限欄，資源即沒有可調整的限制。
 
 ## <a name="special-considerations"></a>特殊考量
 
@@ -34,12 +34,12 @@ ms.locfileid: "54475062"
 
 ## <a name="default-resource-quotas"></a>預設資源配額
 
-以下是 Azure 訂用帳戶中各種資源類型的配額限制細目。 
+以下是 Azure 訂用帳戶中各種資源類型的配額限制細目。
 
 > [!Important]
 > 限制日後有可能會變更。 最新的限制隨時可在適用於全 Azure 的服務層級配額[文件](https://docs.microsoft.com/azure/azure-subscription-service-limits/)中找到。
 
-### <a name="virtual-machines"></a>虛擬機器 
+### <a name="virtual-machines"></a>虛擬機器
 可在 Azure 訂用帳戶上跨服務佈建，或以獨立方式佈建的虛擬機器數目有所限制。 此限制是區域層級限制，並同時針對總核心數量以及每個系列進行限制。
 
 請務必注意，虛擬機器核心具有個別強制執行的區域總數限制，以及區域每個大小系列 (Dv2、F 等等) 的限制。 例如，請考慮美國東部訂用帳戶的總計 VM 核心限制為 30、A 系列核心限制為 30，和 D 系列核心限制為 30。 此訂用帳戶會允許部署 30 個 A1 VM、30 個 D1 VM，或是兩個的組合，總計不超過 30 個核心 (例如 10 個 A1 VM 和 20 個 D1 VM)。
@@ -91,8 +91,8 @@ ms.locfileid: "54475062"
 
 1. 從訂用帳戶清單中，選取您要尋找其配額的訂用帳戶。
 
-   **有一點需要注意**，具體而言是檢視 Azure Machine Learning Compute 配額時。 如上所述，該配額與您訂用帳戶上的計算配額是分開的。 
-   
+   **有一點需要注意**，具體而言是檢視 Azure Machine Learning Compute 配額時。 如上所述，該配額與您訂用帳戶上的計算配額是分開的。
+
 1. 在左窗格中選取 [Machine Learning 服務] ****，然後從顯示的清單中選取任何工作區
 
 1. 在下一個刀鋒視窗的 [支援與疑難排解] 區段下方，選取 [使用量 + 配額]，以檢視目前配額限制與使用量。

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: df0b031e432c91897ff61e2cd9fcadc86bb54ee2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d50bf7d865cb286f2a1421156b477dc92dc978d1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036863"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453598"
 ---
-# <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>使用 Azure Cosmos DB 總管來管理資料 
+# <a name="work-with-data-using-azure-cosmos-explorer"></a>使用 Azure Cosmos 總管處理資料 
 
 Azure Cosmos DB 總管是一個獨立的 Web 介面，可讓您檢視和管理 Azure Cosmos DB 中儲存的資料。 Azure Cosmos DB 總管相當於現有的**資料總管**索引標籤，可在您於 Azure 入口網站中建立 Azure Cosmos DB 帳戶時使用。 Azure Cosmos DB 總管優於現有資料總管的主要優點如下：
 

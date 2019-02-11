@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: a9acb9539497c85f408ce7417fa5983072ea80b9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 48d8516a1923aaacc26db2eb9a9acfd0ddff737e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365657"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197512"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>教學課程：Azure Active Directory 與多個 Amazon Web Services (AWS) 帳戶整合
 
@@ -136,7 +136,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
 6. 在 [使用者屬性與宣告] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
     
-    | 名稱  | 來源屬性  | 命名空間 |
+    | Name  | 來源屬性  | 命名空間 |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | 角色            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
@@ -182,11 +182,11 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     a. 針對 [提供者類型]，選取 [SAML]。
 
-    b. 在 [提供者名稱] 文字方塊中，鍵入提供者名稱 (例如：WAAD)。
+    b. 在 [提供者名稱] 文字方塊中，輸入提供者名稱 (例如：*WAAD*)。
 
     c. 若要上傳從 Azure 入口網站下載的**中繼資料檔案**，請按一下 [選擇檔案]。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [下一步]。
 
 13. 在 [驗證提供者資訊] 對話方塊頁面上，按一下 [建立]。
 
@@ -202,13 +202,13 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
     a. 在 [Select type of trusted entity] \(選取信任的實體類型\) 底下，選取 [SAML 2.0 federation] \(SAML 2.0 同盟\)。
 
-    b. 在 [Choose a SAML 2.0 Provider] \(選擇 SAML 2.0 提供者\) 區段底下，選取您先前建立的 [SAML provider] \(SAML 提供者\) (例如：*WAAD*)
+    b. 在 [選擇 SAML 2.0 提供者] 區段下方，選取您先前建立的 [SAML 提供者] (例如：*WAAD*)
 
     c. 選取 [Allow programmatic and AWS Management Console access] \(允許透過程式設計方式和 AWS 管理主控台存取\)。
   
-    d. 按一下 [Next: Permissions] \(下一步：權限\)。
+    d. 按一下 [下一步:權限]。
 
-16. 在 [附加權限原則] 對話方塊中，您不需要附加任何原則。 按一下 [下一步：檢閱]。  
+16. 在 [附加權限原則] 對話方塊中，您不需要附加任何原則。 按一下 下一步:。  
 
     ![設定單一登入原則][33]
 
@@ -352,7 +352,7 @@ Amazon Web Services (AWS) 與 Azure AD 整合提供下列優點：
 
 ![設定單一登入的新增](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_saml.png)
 
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

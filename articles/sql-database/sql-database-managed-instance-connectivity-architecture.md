@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b709bbacce23a89b8c60b77a524018b50ca1ca5e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536044"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245662"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database 受控執行個體連線架構
 
@@ -68,7 +68,7 @@ Microsoft 管理與部署服務是在虛擬網路外部執行，因此受控執�
 
 ![連線架構圖 - 虛擬叢集](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-客戶使用具有 `<mi_name>.<dns_zone>.database.windows.net` 格式的主機名稱連線到受控執行個體。 雖然此主機名稱已在公開 DNS 區域中註冊而且可由公眾解析，但它會解析為私人 IP 位址。 `zone-id` 會在建立叢集時自動產生。 如果新建立的叢集裝載次要 managed 執行個體，會與主要叢集共用其區域識別碼。 如需詳細資訊，請參閱[自動容錯移轉群組](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)。
+客戶使用具有 `<mi_name>.<dns_zone>.database.windows.net` 格式的主機名稱連線到受控執行個體。 雖然此主機名稱已在公開 DNS 區域中註冊而且可由公眾解析，但它會解析為私人 IP 位址。 `zone-id` 會在建立叢集時自動產生。 如果新建立的叢集裝載次要受控執行個體，會與主要叢集共用其區域識別碼。 如需詳細資訊，請參閱[自動容錯移轉群組](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)。
 
 這個私人 IP 位址屬於受控執行個體內部負載平衡器 (ILB)，此負載平衡器會將流量導向到受控執行個體閘道 (GW)。 多個受控執行個體可能會刻意在相同的叢集中執行，GW 使用受控執行個體主機名稱來將流量導向到正確的 SQL Engine 服務。
 
@@ -108,9 +108,12 @@ Azure SQL Database 受控執行個體的虛擬叢集包含 Microsoft 用來管�
 
 | Name       |Port          |通訊協定|來源           |目的地| 動作|
 |------------|--------------|--------|-----------------|-----------|------|
-|管理  |80、443、12000|TCP     |任意              |任意        |允許 |
+|管理  |80、443、12000|TCP     |任意              |Internet   |允許 |
 |mi_subnet   |任意           |任意     |任意              |MI SUBNET  |允許 |
 
+  > [!Note]
+  > MI SUBNET 指的是子網路的 IP 位址範圍，其格式為 10.x.x.x/y。 您可以在 Azure 入口網站 (透過子網路屬性) 找到此資訊。
+  
   > [!Note]
   > 雖然必要的輸入的安全性規則允許連接埠 9000、9003、1438、1440、1452 的_任何_來源流量，但是這些連接埠受到內建防火牆的保護。 這篇[文章](sql-database-managed-instance-find-management-endpoint-ip-address.md)說明如何探索管理端點 IP 位址並確認防火牆規則。 
   

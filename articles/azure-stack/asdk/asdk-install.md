@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2bdda273a32167f70633096d463be59884eca033
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 363e0868542f56df8c37639b2af7ac295be97da2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718216"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249900"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>安裝 Azure Stack 開發套件 (ASDK)
 [準備 ASDK 主機電腦](asdk-prepare-host.md)後，可以使用本文中的下列步驟將 ASDK 部署到 CloudBuilder.vhdx 映像。
@@ -61,8 +62,8 @@ ms.locfileid: "44718216"
       > 若要尋找時間伺服器 IP 位址，請造訪 [pool.ntp.org](http://pool.ntp.org) 或 ping time.windows.com。 
 
     - **(選擇性)** 您可以設定下列值：
-        - **VLAN 識別碼**：設定 VLAN 識別碼。 只有當主機與 AzS-BGPNAT01 必須設定 VLAN 識別碼來存取實體網路 (以及網際網路) 時，才使用此選項。 
-        - **DNS 轉寄站**：DNS 伺服器會在 Azure Stack 部署期間建立。 若要允許解決方案內的電腦解析戳記以外的名稱，請提供您現有架構 DNS 伺服器。 戳記內的 DNS 伺服器會將未知的名稱解析要求轉送至這部伺服器。
+        - **VLAN ID**：設定 VLAN 識別碼。 只有當主機與 AzS-BGPNAT01 必須設定 VLAN 識別碼來存取實體網路 (以及網際網路) 時，才使用此選項。 
+        - **DNS 轉送子**：DNS 伺服器會在 Azure Stack 部署期間建立。 若要允許解決方案內的電腦解析戳記以外的名稱，請提供您現有架構 DNS 伺服器。 戳記內的 DNS 伺服器會將未知的名稱解析要求轉送至這部伺服器。
 
     ![](media/asdk-install/4.PNG)
 
@@ -81,7 +82,7 @@ ms.locfileid: "44718216"
 
     ![](media/asdk-install/7.PNG)
 
-11. 部署程序會花上幾小時的時間，在這段期間內，主機電腦會自動重新開機一次。 如果您想要監視部署進度，在開發套件主機重新啟動後，請以 azurestack\AzureStackAdmin 的身分登入。 當部署成功時，PowerShell 主控台會顯示：**COMPLETE: Action ‘Deployment’**。 
+11. 部署程序會花上幾小時的時間，在這段期間內，主機電腦會自動重新開機一次。 如果您想要監視部署進度，在開發套件主機重新啟動後，請以 azurestack\AzureStackAdmin 的身分登入。 當部署成功時，PowerShell 主控台會顯示：**COMPLETE:Action 'Deployment'**。 
     > [!IMPORTANT]
     > 如果您在電腦加入網域之後，以本機系統管理員的身分登入，將不會看到部署進度。 請勿重新執行部署，而是以 azurestack\AzureStackAdmin 的身分登入，以驗證執行狀態。
 

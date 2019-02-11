@@ -7,20 +7,20 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5437e81397182ede37ef98ad40b54c64f94e2092
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468330"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294718"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>設定 Language Understanding 的 Docker 容器 
 
-Language Understanding (LUIS) 容器執行階段環境可使用 `docker run` 命令引數來設定。 LUIS 有數個必要的設定，和一些選擇性的設定。 命令有相關[範例](#example-docker-run-commands)可供參考。 容器專屬設定包括輸入[裝載設定](#mount-settings)和計費設定。 
+**Language Understanding** (LUIS) 容器執行階段環境可使用 `docker run` 命令引數來設定。 LUIS 有數個必要的設定，和一些選擇性的設定。 命令有相關[範例](#example-docker-run-commands)可供參考。 容器專屬設定包括輸入[裝載設定](#mount-settings)和計費設定。 
 
 容器設定是[階層式](#hierarchical-settings)的，可使用[環境變數](#environment-variable-settings)或 Docker [命令列引數](#command-line-argument-settings)來設定。
 
@@ -35,7 +35,7 @@ Language Understanding (LUIS) 容器執行階段環境可使用 `docker run` 命
 |是|[計費](#billing-setting)|指定 Azure 上服務資源的端點 URI。|
 |是|[Eula](#eula-setting)| 表示您已接受容器的授權。|
 |否|[Fluentd](#fluentd-settings)|將記錄 (和選擇性的計量資料) 寫入至 Fluentd 伺服器。|
-|否|[HTTP Proxy](#http-proxy-credentials-settings)|設定 HTTP proxy 來進行輸出要求。|
+|否|[HTTP Proxy](#http-proxy-credentials-settings)|設定 HTTP Proxy 以進行輸出要求。|
 |否|[記錄](#logging-settings)|提供適用於容器的 ASP.NET Core 記錄支援。 |
 |是|[裝載](#mount-settings)|從主機電腦將資料讀取和寫入至容器，以及從容器將資料讀取和寫回主機電腦。|
 

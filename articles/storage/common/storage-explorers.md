@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
-ms.component: common
-ms.openlocfilehash: 55fa63e75768662a0f909cef0e3cc04b9c2dae41
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: c45c70055817eeeed19f9c8a832a76b10beceaa6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526193"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467028"
 ---
 # <a name="azure-storage-client-tools"></a>Azure 儲存體用戶端工具
 Azure 儲存體的使用者經常想要能夠使用 Azure 儲存體用戶端工具，檢視他們資料或與其互動。 我們在下表中列出幾個可讓您這麼做的工具。 如果該區塊可以列舉及/或存取資料抽象，我們便在該區塊中放一個 "X"。 下表也會顯示該工具是否免費提供。 「試用」表示有免費試用版，但完整產品並非免費。 「Y/N」表示有某個版本可供免費使用，而另一個版本則需購買使用。
@@ -36,9 +36,9 @@ Azure 儲存體的使用者經常想要能夠使用 Azure 儲存體用戶端工�
   </tr>
   <tr>
     <td>Web</td>
-    <td>Windows</td>
+    <td> Windows</td>
     <td>OSX</td>
-    <td>Linux</td>
+    <td> Linux</td>
   </tr>
   <tr>
     <td><a href="https://azure.microsoft.com/features/azure-portal/">Microsoft Azure 入口網站</a></td>
@@ -102,12 +102,12 @@ Azure 儲存體的使用者經常想要能夠使用 Azure 儲存體用戶端工�
   </tr>
   <tr>
     <td>Web</td>
-    <td>Windows</td>
+    <td> Windows</td>
     <td>OSX</td>
-    <td>Linux</td>
+    <td> Linux</td>
   </tr>
   <tr>
-    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata：Azure Management Studio (英文)</a></td>
+    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata:Azure Management Studio</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -121,7 +121,7 @@ Azure 儲存體的使用者經常想要能夠使用 Azure 儲存體用戶端工�
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate：Azure 總管</a></td>
+    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate:Azure Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -177,7 +177,7 @@ Azure 儲存體的使用者經常想要能夠使用 Azure 儲存體用戶端工�
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://clumsyleaf.com">ClumsyLeaf：AzureXplorer、CloudXplorer、TableXplorer (英文)</a></td>
+    <td><a href="http://clumsyleaf.com">ClumsyLeaf:AzureXplorer、CloudXplorer、TableXplorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>

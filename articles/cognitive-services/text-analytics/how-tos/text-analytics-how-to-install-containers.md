@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: e3b1655207f3baba6ea6e3cf2f00e3540a3602ad
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 07fbf51f584d691b08d94f68fefa8c3f9348227f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969364"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294823"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>安裝並執行文字分析容器
 
@@ -40,12 +40,7 @@ ms.locfileid: "53969364"
 
 ### <a name="the-host-computer"></a>主機電腦
 
-**主機**是執行 Docker 容器的電腦。 這可以您內部部署的電腦，或是在 Azure 中裝載服務的 Docker，這些服務包括：
-
-* [Azure Kubernetes Service](../../../aks/index.yml)
-* [Azure 容器執行個體](../../../container-instances/index.yml)
-* 部署至 [Azure Stack](../../../azure-stack/index.yml) 的 [Kubernetes](https://kubernetes.io/) 叢集。 如需詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](../../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md)。
-
+[!INCLUDE [Request access to private preview](../../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### <a name="container-requirements-and-recommendations"></a>容器的需求和建議
 
@@ -77,6 +72,8 @@ ms.locfileid: "53969364"
 * [語言偵測](https://go.microsoft.com/fwlink/?linkid=2018759)
 * [情感分析](https://go.microsoft.com/fwlink/?linkid=2018654)
 
+使用 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 命令下載容器映像。
+
 
 ### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>關鍵片語擷取容器的 docker pull
 
@@ -96,13 +93,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
-### <a name="listing-the-containers"></a>列出容器
-
-您可以使用 [docker images](https://docs.docker.com/engine/reference/commandline/images/) \(英文\) 命令來列出已下載的容器映像。 例如，下列命令會列出每個已下載之容器映像的識別碼、存放庫和標籤，並將它格式化為表格：
-
-```Docker
-docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
-```
+[!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 
 ## <a name="how-to-use-the-container"></a>如何使用容器
@@ -159,14 +150,7 @@ ApiKey={BILLING_KEY}
 
 ## <a name="containers-api-documentation"></a>容器的 API 文件
 
-容器提供了一組完整的端點文件集以及 `Try it now` 功能。 這項功能可讓您將自己的設定輸入以 Web 為基礎的 HTML 表單中，並直接進行查詢而無須撰寫任何程式碼。 在查詢傳回時，將會提供範例 CURL 命令，以示範所需的 HTTP 標頭和本文格式。 
-
-> [!TIP]
-> 請參閱 [OpenAPI 規格](https://swagger.io/docs/specification/about/)，其中說明 `/swagger` 相對 URI 中的容器所支援的 API 作業。 例如︰
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>計費
 

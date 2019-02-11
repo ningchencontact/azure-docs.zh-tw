@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 14d7ae7cc347b771dfdb1209bc8d55c484d00db0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322090"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193721"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>在 Azure Service Fabric 中了解定期備份設定
 
@@ -219,7 +219,7 @@ ms.locfileid: "54322090"
 * 如果在分割區套用擱置，則應該使用[繼續分割區備份](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API 繼續進行。
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>暫停和停用備份的差異
-停用備份應於特定應用程式、服務或分割區不再需要備份的時候使用。 實際叫用停用備份要求搭配為 True 的清除備份參數，其表示所有現有的備份也將刪除。 不過，暫停適用於想要暫時關閉備份 (例如本機磁碟空間已滿，或是上傳備份因為已知的網路問題而失敗等等) 的案例。 
+停用備份應於特定應用程式、服務或分割區不再需要備份的時候使用。 叫用停用備份要求搭配為 True 的清除備份參數，其表示所有現有的備份也將刪除。 不過，暫停適用於想要暫時關閉備份 (例如本機磁碟空間已滿，或是上傳備份因為已知的網路問題而失敗等等) 的案例。 
 
 雖然只能以稍早為備份明確度所啟用的層級叫用停用，但暫停則適用於目前直接啟用備份或透過繼承/階層啟用備份的任何層級。 例如，如果備份以應用程式層級啟用，則您只能以應用程式層級叫用停用，但是您可以應用程式、任何服務或該應用程式下的分割區層級來叫用暫停。 
 

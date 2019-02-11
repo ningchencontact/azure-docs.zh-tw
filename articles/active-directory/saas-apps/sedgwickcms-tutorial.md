@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 957931e0-e426-47e7-9904-3ed98d3f504c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 796ed1cb0fde6b29a931099336fd91e2e931fc29
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 611a877b44093efe7384400ffcc8dec76338c9f9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820489"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194860"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>教學課程：Azure Active Directory 與 Sedgwick CMS 整合
 
@@ -169,7 +169,7 @@ ms.locfileid: "51820489"
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
   
 ### <a name="create-a-sedgwick-cms-test-user"></a>建立 Sedgwick CMS 測試使用者
 

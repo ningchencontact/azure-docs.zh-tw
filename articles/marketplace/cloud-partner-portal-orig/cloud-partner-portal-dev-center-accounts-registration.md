@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254463"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168238"
 ---
 <a name="create-a-microsoft-developer-account"></a>建立 Microsoft 開發人員帳戶
 ====================================
@@ -72,7 +72,7 @@ ms.locfileid: "51254463"
 
 ## <a name="register-your-account-in-microsoft-developer-center"></a>在 Microsoft 開發人員中心註冊您的帳戶
 
-Microsoft 開發人員中心用於註冊一次公司資訊。 註冊者必須是公司的有效代表，而且必須提供個人資訊用來驗證其身分識別。 註冊的人員必須使用公司內共用的 Microsoft 帳戶，**而且在 Cloud Partner 入口網站中必須使用同一個帳戶。** 當您嘗試建立帳戶之前，應該先檢查公司是否確實未曾擁有 Microsoft 開發人員中心帳戶。 在這個程序期間，我們會收集公司地址資訊、銀行帳戶資訊和稅務資訊。 這些資訊通常可以從金融或商務連絡人處取得。
+Microsoft 開發人員中心用於註冊一次公司資訊。 註冊者必須是公司的有效代表，而且必須提供個人資訊用來驗證其身分識別。 註冊的人員必須使用公司內共用的 Microsoft 帳戶，**而且在 Cloud Partner 入口網站中必須使用同一個帳戶。**  當您嘗試建立帳戶之前，應該先檢查公司是否確實未曾擁有 Microsoft 開發人員中心帳戶。 在這個程序期間，我們會收集公司地址資訊、銀行帳戶資訊和稅務資訊。 這些資訊通常可以從金融或商務連絡人處取得。
 
 >[!IMPORTANT]
 >您必須完成下列開發人員設定檔元件，才能進行供應項目建立和部署程序的各個階段。
@@ -181,7 +181,8 @@ Microsoft 開發人員中心用於註冊一次公司資訊。 註冊者必須是
     - 選取 [下一步] 。
 4.  輸入稅務詳細資料，然後選取 [下一步]。
 
->[警告！] 如果沒有在 Microsoft 開發人員中心帳戶中提供銀行帳戶與稅務資訊，則您無法將商業供應項目推送到生產環境。
+>[!WARNING]
+>如果沒有在 Microsoft 開發人員中心帳戶中提供銀行帳戶與稅務資訊，則您無法將商業供應項目推送到生產環境。
 
 ### <a name="developer-center-registration-issues"></a>開發人員中心註冊問題
 

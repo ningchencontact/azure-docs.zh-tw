@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 25a05df42029fe444b8d5ceddb2972f779f1b232
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 199e1dda3e4629c0298d4aae1cb5d09e20e4b3b8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358723"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452035"
 ---
-# <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>從虛擬網路存取 Azure Cosmos DB 資源
+# <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>從虛擬網路 (VNet) 存取 Azure Cosmos DB
 
-您可以設定 Azure Cosmos 帳戶，以只允許從虛擬網路 (VNET) 的特定子網路存取。 藉由啟用[服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)，即可存取虛擬網路內子網路中的 Azure Cosmos DB，來自該子網路的流量會傳送至 Azure Cosmos DB，並具備子網路和虛擬網路的身分識別。 Azure Cosmos DB 服務端點啟用之後，可以將它新增至您的 Azure Cosmos 帳戶以限制對子網路的存取。
+您可以設定 Azure Cosmos 帳戶，以只允許從虛擬網路 (VNet) 的特定子網路存取。 藉由啟用[服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)，即可存取虛擬網路內子網路中的 Azure Cosmos DB，來自該子網路的流量會傳送至 Azure Cosmos DB，並具備子網路和虛擬網路的身分識別。 Azure Cosmos DB 服務端點啟用之後，可以將它新增至您的 Azure Cosmos 帳戶以限制對子網路的存取。
 
-根據預設，如果要求伴隨有效的授權權杖，就可以從任何來源存取 Azure Cosmos 帳戶。 當您在 VNET 內新增一或多個子網路時，只有來自那些子網路的要求會取得有效回應。 來自任何其他來源的要求將會收到 403 (禁止) 回應。 
+根據預設，如果要求伴隨有效的授權權杖，就可以從任何來源存取 Azure Cosmos 帳戶。 當您在 VNet 內新增一或多個子網路時，只有來自那些子網路的要求會取得有效回應。 來自任何其他來源的要求將會收到 403 (禁止) 回應。 
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
@@ -41,7 +41,7 @@ ms.locfileid: "54358723"
 在子網路上啟用 Azure Cosmos DB 的服務端點後，送到帳戶的流量來源就會從公用 IP 切換至虛擬網路和子網路。 如果您的 Azure Cosmos 帳戶只有 IP 型防火牆，來自已啟用服務之子網路的流量將不再符合 IP 防火牆規則，因此會遭到拒絕。 請執行步驟以順暢地從 IP 型防火牆移轉至虛擬網路型存取控制。
 
 ### <a name="do-the-peered-virtual-networks-also-have-access-to-azure-cosmos-account"></a>對等互連的虛擬網路也可以存取 Azure Cosmos 帳戶嗎？ 
-只有新增至 Azure Cosmos 帳戶的虛擬網路和其子網路可以存取。 只有將對等互連之虛擬網路內的子網路新增到帳戶之後，其對等互連的 VNET 才能存取帳戶。
+只有新增至 Azure Cosmos 帳戶的虛擬網路和其子網路可以存取。 只有將對等互連之虛擬網路內的子網路新增到帳戶之後，其對等互連的 VNet 才能存取帳戶。
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>允取存取單一 Cosmos 帳戶的子網路數目上限為何？ 
 目前，您最多可以允許 64 個子網路存取一個 Azure Cosmos 帳戶。
@@ -52,7 +52,7 @@ ms.locfileid: "54358723"
 ### <a name="do-i-need-to-update-the-network-security-groups-nsg-rules"></a>我需要更新網路安全性群組 (NSG) 規則嗎？ 
 NSG 規則可用來限制子網路和虛擬網路的往返連線。 當您將 Azure Cosmos DB 的服務端點新增至子網路時，不需要在 NSG 中針對您的 Azure Cosmos 帳戶開啟輸出連線。 
 
-### <a name="are-service-endpoints-available-for-all-vnets"></a>服務端點是否可供所有 VNET 使用？
+### <a name="are-service-endpoints-available-for-all-vnets"></a>服務端點是否可供所有 VNet 使用？
 否，只有 Azure Resource Manager 虛擬網路可以啟用服務端點。 傳統虛擬網路不支援服務端點。
 
 

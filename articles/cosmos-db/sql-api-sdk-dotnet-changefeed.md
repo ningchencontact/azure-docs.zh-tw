@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/24/2018
+ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 03862f88bb5debc66940ebae5308771525f51b0b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f6fff5047bc72fa1171e06bb2f160196ecef807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351641"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300603"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -40,6 +40,12 @@ ms.locfileid: "54351641"
 ## <a name="release-notes"></a>版本資訊
 
 ### <a name="v2-builds"></a>v2 組建
+
+### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
+* 改善觀察者例外狀況的處理。
+* 更豐富的觀察者錯誤資訊：
+ * 觀察者因為觀察者的 ProcessChangesAsync 所擲回的例外狀況而關閉時，CloseAsync 現在會收到設為 ChangeFeedObserverCloseReason.ObserverError 的原因參數。
+ * 新增的追蹤資訊，以識別觀察者中使用者程式碼內的錯誤。
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * 新增處理使用共用資料庫輸送量之分割集合的支援。
@@ -157,6 +163,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.2.6](#2.2.6) |2019 年 1 月 29 日 |--- |
 | [2.2.5](#2.2.5) |2018 年 12 月 13 日 |--- |
 | [2.2.4](#2.2.4) |2018 年 11 月 29 日 |--- |
 | [2.2.3](#2.2.3) |2018 年 11 月 19 日 |--- |

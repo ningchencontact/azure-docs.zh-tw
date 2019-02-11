@@ -7,37 +7,38 @@ author: heatherbshapiro
 ms.author: hshapiro
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 75a1a8763125e1e93691e2a28bc90a6d02ed7c40
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: f7b71b2bae540f4ef6b1e9c637c601d6f7b303ae
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246325"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250702"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型
 
-使用 Azure Machine Learning 服務，您可以在各種資源或環境中定型您的模型，統稱為[__計算目標__](concept-azure-machine-learning-architecture.md#compute-target)。 計算目標可以是本機電腦或雲端資源，例如 Azure Machine Learning Compute、Azure HDInsight 或遠端虛擬機器。  
+使用 Azure Machine Learning 服務，您可以在各種資源或環境中定型您的模型，統稱為[__計算目標__](concept-azure-machine-learning-architecture.md#compute-target)。 計算目標可以是本機電腦或雲端資源，例如 Azure Machine Learning Compute、Azure HDInsight 或遠端虛擬機器。  您也可以建立用於部署模型的計算目標，如[模型的部署位置和方法](how-to-deploy-and-where.md)中所述。
 
 您可以使用 Azure Machine Learning SDK、Azure 入口網站或 Azure CLI 建立和管理計算目標。 如果您有透過其他服務 (例如 HDInsight 叢集) 建立的計算目標，可以將它們附加至 Azure Machine Learning 服務工作區來使用這些計算目標。
  
-在本文中，您將了解如何使用各種計算目標。  所有計算目標的步驟皆遵循相同的工作流程：
+在本文中，您將了解如何使用各種計算目標來訓練模型。  所有計算目標的步驟皆遵循相同的工作流程：
 1. 如果您沒有計算目標，請__建立__一個。
 2. 將計算目標__連結__至您的工作區。
 3. __設定__計算目標，以便其包含您的指令碼所需的 Python 環境和封裝相依性。
 
+
 >[!NOTE]
 > 本文中的程式碼已使用 Azure Machine Learning SDK 1.0.6 版進行測試。
 
-## <a name="supported-compute-targets"></a>支援的計算目標
+## <a name="compute-targets-for-training"></a>訓練用的計算目標
 
 Azure Machine Learning 服務在不同計算目標上提供不同的支援。 一般模型開發生命週期會先開始開發/測試少量的資料。 在這個階段，我們建議使用本機環境。 例如，您的本機電腦或雲端式虛擬機器。 您對於較大的資料集相應增加您的定型或進行分散式定型時，建議使用 Azure Machine Learning Compute 建立單一或多重節點叢集，在每次提交執行時自動調整。 您也可以附加您自己的計算資源，不過支援的各種情節可能會有所不同，詳述如下：
 
 
-|計算目標| GPU 加速 | 自動化<br/> 超參數微調 | 自動化</br> 機器學習服務 | 易記管線|
+|訓練用的計算目標| GPU 加速 | 自動化<br/> 超參數微調 | 自動化</br> 機器學習服務 | 易記管線|
 |----|:----:|:----:|:----:|:----:|
 |[本機電腦](#local)| 可能 | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |

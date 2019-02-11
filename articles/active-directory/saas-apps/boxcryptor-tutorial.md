@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: c46aa523-b58c-4a95-a800-db2e5e01c542
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jeedes
-ms.openlocfilehash: ec9ebb5673a5bca9c5eda2b08baa1a825edcefe4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 43b761897d3db49da88bdb88f6ff01821bff8e58
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424865"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181090"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boxcryptor"></a>教學課程：Azure Active Directory 與 Boxcryptor 整合
 
@@ -160,11 +160,11 @@ Boxcryptor 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
  
 ### <a name="create-a-boxcryptor-test-user"></a>建立 Boxcryptor 測試使用者
 
-在本節中，您會在 Boxcryptor 中建立名為 Britta Simon 的使用者。 與 [Boxcryptor 支援小組](mailto:support@boxcryptor.com)合作，新增需要在 Boxcryptor 平台中設定為允許清單的使用者或網域。 如果由小組新增網域，使用者將會自動佈建到 Boxcryptor 平台中。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Boxcryptor 中建立名為 Britta Simon 的使用者。 與 [Boxcryptor 支援小組](mailto:support@boxcryptor.com) 合作，新增需要在 Boxcryptor 平台中設定為允許清單的使用者或網域。 如果由小組新增網域，使用者將會自動佈建到 Boxcryptor 平台中。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -201,7 +201,7 @@ Boxcryptor 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Boxcryptor 圖格時，應該會自動登入您的 Boxcryptor 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

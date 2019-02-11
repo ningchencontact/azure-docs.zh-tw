@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: e3967319cd41399209bd50886bce88efc8ba6ba6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6319ef908b5b040bf61285451448c08bb3960fe2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956511"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215005"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>關於適用於 VMware VM 和實體伺服器的行動服務
 
@@ -58,13 +58,13 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
      ![[複寫的項目] 視窗](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
-4. 按一下通知，然後在 [代理程式更新] 中，選取您想要升級行動服務的機器。 然後按一下 [確定] 。
+4. 按一下通知，然後在 [代理程式更新] 中，選取您想要升級行動服務的機器。 然後按一下 [確定]。
 
      ![複寫的項目 VM 清單](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 5. 「更新行動服務」作業會針對每個選取的機器啟動。
 
-## <a name="update-the-acount-used-for-push-installation-of-the-mobility-service"></a>更新用於行動服務推入安裝的帳戶
+## <a name="update-the-account-used-for-push-installation-of-the-mobility-service"></a>更新用於行動服務推送安裝的帳戶
 
 在部署 Site Recovery 時，為了啟用行動服務推入安裝，您已指定在已為機器啟用複寫的情況下，Site Recovery 處理伺服器用來存取機器並安裝服務的帳戶。 如果您想要更新此帳戶的認證，請依照[這些指示](vmware-azure-manage-configuration-server.md)進行操作。
 

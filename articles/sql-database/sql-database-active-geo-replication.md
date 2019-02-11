@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 157d7776cc9a8eff485bd18658527bc8d30f4df0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: ae57605b0fb2cba8cdb0c2f9ecfbab8eef7a5197
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602951"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468269"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>使用作用中異地複寫建立可讀取的次要資料庫
 
-作用中異地複寫是 Azure SQL Database 的功能，可讓您在相同或不同資料中心 (區域) 中的邏輯伺服器上建立個別資料庫的可讀取次要資料庫。
+作用中異地複寫是 Azure SQL Database 的功能，可讓您在相同或不同資料中心 (區域) 中的 SQL Database 伺服器上建立個別資料庫的可讀取次要資料庫。
 
 > [!NOTE]
-> 受控執行個體不支援作用中異地複寫。
+> 受控執行個體不支援作用中異地複寫。 針對受控執行個體的異地容錯移轉，請使用[自動容錯移轉群組](sql-database-auto-failover-group.md)。
 
 作用中異地複寫是設計為商務持續性解決方案，可在發生區域災害或大規模中斷時，讓應用程式執行個別資料庫的快速災害復原。 如果已啟用異地複寫，則應用程式可以在不同的 Azure 區域中起始容錯移轉至次要資料庫。 在相同或不同的區域中，最多可支援四個次要資料庫，次要資料庫也可以用於唯讀存取查詢。 容錯移轉必須由應用程式或使用者手動起始。 容錯移轉之後，新的主要資料庫會有不同的連接端點。 下圖說明使用作用中異地複寫之異地備援雲端應用程式的一般設定。
 
@@ -58,7 +58,7 @@ ms.locfileid: "53602951"
 - **資料庫移轉**：您可以使用作用中異地複寫，以最少的停機時間將資料庫從一部伺服器移轉到另一個線上伺服器。
 - **應用程式升級**：您可以在應用程式升級期間建立額外的次要資料庫做為容錯回復複本。
 
-若要達到真正的業務持續性，新增資料中心之間的資料庫備援只是解決方案的一部分。 在災難性失敗後要端對端復原應用程式 (服務) 需要復原構成服務的所有元件和任何相依的服務。 這些元件的範例包括用戶端軟體 (例如自訂 JavaScript 的瀏覽器)、web 前端、儲存體和 DNS。 所有元件都必須對相同的失敗具有恢復功能，並且在應用程式的復原時間目標 (RTO) 內可供使用。 因此，您需要識別所有相依服務並了解其提供的保證與功能。 然後，您必須採取適當步驟以確保服務功能在它所依賴的服務容錯移轉期間都正常。 如需有關設計災害復原解決方案的詳細資訊，請參閱[使用主動式異地複寫設計災害復原的雲端解決方案](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。
+若要達到真正的商務持續性，新增資料中心之間的資料庫備援只是解決方案的一部分。 在災難性失敗後要端對端復原應用程式 (服務) 需要復原構成服務的所有元件和任何相依的服務。 這些元件的範例包括用戶端軟體 (例如自訂 JavaScript 的瀏覽器)、web 前端、儲存體和 DNS。 所有元件都必須對相同的失敗具有恢復功能，並且在應用程式的復原時間目標 (RTO) 內可供使用。 因此，您需要識別所有相依服務並了解其提供的保證與功能。 然後，您必須採取適當步驟以確保服務功能在它所依賴的服務容錯移轉期間都正常。 如需有關設計災害復原解決方案的詳細資訊，請參閱[使用主動式異地複寫設計災害復原的雲端解決方案](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。
 
 ## <a name="active-geo-replication-terminology-and-capabilities"></a>作用中異地複寫的術語和功能
 
@@ -122,7 +122,7 @@ ms.locfileid: "53602951"
 
 如前所述，作用中異地複寫可使用 Azure PowerShell 和 REST API，以程式設計的方式管理。 下表描述可用的命令集。 主動式異地複寫包含一組可管理的 Azure Resource Manager API，包括 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) 和 [Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/overview)。 這些 API 需要使用資源群組，並支援以角色為基礎的安全性 (RBAC)。 如需如何實作存取角色的詳細資訊，請參閱 [Azure 角色型存取控制](../role-based-access-control/overview.md)。
 
-### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL：管理單一和集區資料庫的容錯移轉
+### <a name="t-sql-manage-failover-of-standalone-and-pooled-databases"></a>T-SQL：管理獨立和集區資料庫的容錯移轉
 
 > [!IMPORTANT]
 > 這些 Transact-SQL 命令僅適用於作用中異地複寫，不適用於容錯移轉群組。 因此它們也不適用於受控執行個體，因為受控執行個體僅支援容錯移轉群組。
@@ -132,13 +132,13 @@ ms.locfileid: "53602951"
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |使用 ADD SECONDARY ON SERVER 引數，針對現有資料庫建立次要資料庫並開始資料複寫 |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |使用 FAILOVER 或 FORCE_FAILOVER_ALLOW_DATA_LOSS，將次要資料庫切換為主要資料庫以便開始容錯移轉 |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |使用 REMOVE SECONDARY ON SERVER，來終止 SQL Database 和指定次要資料庫間的資料複寫。 |
-| [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |針對 Azure SQL Database 邏輯伺服器上的每個資料庫，傳回所有結束複寫連結的相關資訊。 |
+| [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |針對 Azure SQL Database 伺服器上的每個資料庫，傳回所有現有複寫連結的相關資訊。 |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |針對指定的 SQL Database，取得上次複寫時間、上次複寫延遲，以及複寫連結的其他相關資訊。 |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |顯示所有資料庫作業的狀態，包括複寫連結的狀態。 |
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |導致應用程式等候，直到作用中次要資料庫複寫並認可所有認可的交易為止。 |
 |  | |
 
-### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell：管理單一和集區資料庫的容錯移轉
+### <a name="powershell-manage-failover-of-standalone-and-pooled-databases"></a>PowerShell：管理獨立和集區資料庫的容錯移轉
 
 | Cmdlet | 說明 |
 | --- | --- |
@@ -152,7 +152,7 @@ ms.locfileid: "53602951"
 > [!IMPORTANT]
 > 如需範例指令碼，請參閱[使用作用中異地複寫設定單一資料庫並進行容錯移轉](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)和[使用作用中異地複寫設定集區資料庫並進行容錯移轉](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)。
 
-### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API：管理單一和集區資料庫的容錯移轉
+### <a name="rest-api-manage-failover-of-standalone-and-pooled-databases"></a>REST API：管理獨立和集區資料庫的容錯移轉
 
 | API | 說明 |
 | --- | --- |

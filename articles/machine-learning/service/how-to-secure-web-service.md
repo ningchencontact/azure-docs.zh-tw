@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: 了解如何保護使用 Azure Machine Learning services 部署的 Web 服務。 您可以限制對 Web 服務的存取，以及使用安全通訊端層 (SSL) 和金鑰型驗證來保護用戶端所提交的資料。
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 14350a04326ba22dcc5c8608b6ac6b9180666832
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2c82c39de9b403e2e35f40c0290c8642c702790f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101169"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248056"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>使用 SSL 來保護具有 Azure Machine Learning 服務的 Web 服務
 
@@ -37,7 +37,7 @@ SSL 會加密在用戶端與 Web 服務之間傳送的資料。 用戶端也會�
 
 4. 更新您的 DNS 以指向 Web 服務。
 
-跨[部署目標](how-to-deploy-and-where.md)保護 Web 服務時有些微差異。 
+跨[部署目標](how-to-deploy-and-where.md)保護 Web 服務時有些微差異。
 
 ## <a name="get-a-domain-name"></a>取得網域名稱
 
@@ -50,7 +50,7 @@ SSL 會加密在用戶端與 Web 服務之間傳送的資料。 用戶端也會�
 * __憑證__。 憑證必須包含完整的憑證鏈結，而且必須以 PEM 編碼。
 * __金鑰__。 此金鑰必須以 PEM 編碼。
 
-要求憑證時，您必須提供打算用於 Web 服務的位址完整網域名稱 (FQDN)。 例如，www.contoso.com。 驗證 Web 服務的身分識別時，會比較在憑證上加上戳記的位址和用戶端所使用的位址。 如果位址不相符，用戶端就會收到錯誤。 
+要求憑證時，您必須提供打算用於 Web 服務的位址完整網域名稱 (FQDN)。 例如，www.contoso.com。 驗證 Web 服務的身分識別時，會比較在憑證上加上戳記的位址和用戶端所使用的位址。 如果位址不相符，用戶端就會收到錯誤。
 
 > [!TIP]
 > 如果憑證授權單位無法以 PEM 編碼的檔案來提供憑證和金鑰，您可以使用 [OpenSSL](https://www.openssl.org/) 之類的公用程式來變更格式。
@@ -60,67 +60,47 @@ SSL 會加密在用戶端與 Web 服務之間傳送的資料。 用戶端也會�
 
 ## <a name="enable-ssl-and-deploy"></a>啟用 SSL 並部署
 
-若要在 SSL 啟用時部署 (重新部署) 服務，請在適當的情況下，將 `ssl_enabled` 參數設定為 `True`。 將 `ssl_certificate` 參數設定為__憑證__檔案的值，並將 `ssl_key` 設定為__金鑰__檔案的值。 
+若要在 SSL 啟用時部署 (重新部署) 服務，請在適當的情況下，將 `ssl_enabled` 參數設定為 `True`。 將 `ssl_certificate` 參數設定為__憑證__檔案的值，並將 `ssl_key` 設定為__金鑰__檔案的值。
 
 + **在 Azure Kubernetes Service (AKS) 上部署**
-  
+
   佈建 AKS 叢集時，提供 SSL 相關參數的值，如下列程式碼片段所示：
 
     ```python
     from azureml.core.compute import AksCompute
-    
+
     provisioning_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
 + **在 Azure 容器執行個體 (ACI) 上部署**
- 
+
   部署到 ACI 時，提供 SSL 相關參數的值，如下列程式碼片段所示：
 
     ```python
     from azureml.core.webservice import AciWebservice
-    
+
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
-    ```
-
-+ **在現場可程式化閘陣列 (FPGA) 上部署**
-
-  `create_service` 作業的回應包含服務的 IP 位址。 將 DNS 名稱對應至服務的 IP 位址時，將會使用此 IP 位址。 回應也包含取用服務所使用的__主要金鑰__和__次要金鑰__。 提供 SSL 相關參數的值，如下列程式碼片段所示：
-
-    ```python
-    from amlrealtimeai import DeploymentClient
-    
-    subscription_id = "<Your Azure Subscription ID>"
-    resource_group = "<Your Azure Resource Group Name>"
-    model_management_account = "<Your AzureML Model Management Account Name>"
-    location = "eastus2"
-    
-    model_name = "resnet50-model"
-    service_name = "quickstart-service"
-    
-    deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account, location)
-    
-    with open('cert.pem','r') as cert_file:
-        with open('key.pem','r') as key_file:
-            cert = cert_file.read()
-            key = key_file.read()
-            service = deployment_client.create_service(service_name, model_id, ssl_enabled=True, ssl_certificate=cert, ssl_key=key)
     ```
 
 ## <a name="update-your-dns"></a>更新您的 DNS
 
 接下來，您必須更新 DNS 以指向 Web 服務。
 
-+ **對於 ACI 和 FPGA**：  
++ **針對 ACI**：
 
-  使用網域名稱註冊機構所提供的工具來更新您網域名稱的 DNS 記錄。 這筆記錄必須指向此服務的 IP 位址。  
+  使用網域名稱註冊機構所提供的工具來更新您網域名稱的 DNS 記錄。 這筆記錄必須指向此服務的 IP 位址。
 
   根據註冊機構以及針對網域名稱所設定的存留時間 (TTL)，可能需要等待數分鐘到數小時的時間，用戶端才能解析網域名稱。
 
-+ **對於 AKS**： 
++ **對於 AKS**：
 
   在 AKS 叢集之 [公用 IP 位址] 的 [設定] 索引標籤底下更新 DNS，如下圖所示。 您可以找到公用 IP 位址，作為在包含 AKS 代理程式節點和其他網路資源之資源群組下方所建立的其中一個資源類型。
 
   ![Azure Machine Learning 服務：使用 SSL 保護 Web 服務](./media/how-to-secure-web-service/aks-public-ip-address.png)
+
++ **對於 FPGA**：
+
+目前不支援對部署到 FPGA 的服務使用 SSL。
 
 ## <a name="next-steps"></a>後續步驟
 

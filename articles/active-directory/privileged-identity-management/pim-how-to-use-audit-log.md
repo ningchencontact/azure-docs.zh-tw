@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ab5a072d845bfdbaafabe1e0e7bdce2dfce6184d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: a4dbce678d5d3eac106363e958636810ea9040bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188174"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180206"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>在 PIM 中檢視 Azure AD 目錄角色的稽核記錄
 您可以使用 Privileged Identity Management (PIM) 稽核記錄，來查看指定期間內所有特殊權限角色的所有使用者指派與啟用。 如果您想要查看租用戶活動 (包括系統管理員、使用者和同步處理活動) 的完整稽核歷程記錄，您可以使用 [Azure Active Directory 存取和使用情況報告](../reports-monitoring/overview-reports.md)
@@ -64,4 +64,4 @@ ms.locfileid: "43188174"
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>後續步驟
 
-- [在 PIM 中檢視 Azure 資源角色的稽核記錄](pim-resource-roles-use-the-audit-log.md)
+- [在 PIM 中檢視 Azure 資源角色的活動和稽核記錄](azure-pim-resource-rbac.md)

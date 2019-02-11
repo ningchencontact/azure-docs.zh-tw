@@ -6,20 +6,28 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 6fd3d33d40b0ed142127e46dd7c9173de39947c7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 40ad849525ab0afb36754012f735a52f6b5d520d
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121986"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297356"
 ---
 # <a name="face-api-release-notes"></a>臉部 API 版本資訊
 
 本文適用於臉部 API 服務 1.0 版。
+
+### <a name="release-changes-in-january-2019"></a>2019 年 1 月的發行變更
+
+* 已新增快照集功能，以支援訂用帳戶間的資料移轉：[快照集](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/face/snapshot)。
+
+### <a name="release-changes-in-october-2018"></a>2018 年 10 月的發行變更
+
+* [PersonGroup - 取得訓練狀態](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247)、[LargePersonGroup - 取得訓練狀態](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae32c6ac60f11b48b5aa5) 及 [LargeFaceList - 取得訓練狀態](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a1582f8d2de3616c086f2cf) 中 `status`、`createdDateTime`、`lastActionDateTime` 和 `lastSuccessfulTrainingDateTime` 的精簡描述。
 
 ### <a name="release-changes-in-may-2018"></a>2018 年 5 月的發行變更
 
@@ -29,7 +37,7 @@ ms.locfileid: "46121986"
 
 ### <a name="release-changes-in-march-2018"></a>2018 年 3 月的發行變更
 
-* 新增百萬規模容器：[LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) 和 [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)。 如需詳細資料，請參閱[如何使用大規模功能](Face-API-How-to-Topics/how-to-use-large-scale.md)。
+* 新增的百萬規模容器：[LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) 和 [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)。 如需詳細資料，請參閱[如何使用大規模功能](Face-API-How-to-Topics/how-to-use-large-scale.md)。
 
 * 將 [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) (臉部 - 識別) 的 `maxNumOfCandidatesReturned` 參數從 [1, 5] 提高到 [1, 100]，預設為 10。
 

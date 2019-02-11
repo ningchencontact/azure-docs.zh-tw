@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/16/2019
-ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/25/2019
+ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360083"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467658"
 ---
 # <a name="configure-replication-in-azure-sql-database-managed-instance"></a>在 Azure SQL Database 受控執行個體中設定複寫
 
-異動複寫可讓您將資料從 SQL Server 或 Azure SQL Database 受控執行個體的資料庫複寫到受控執行個體中，或將您的受控執行個體資料庫中所做的變更推送到其他 SQL Server、Azure 單一資料庫或其他受控執行個體中。 複寫 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)的公開預覽功能。 受控執行個體可以裝載發行者、散發者和訂閱者資料庫。 如需可用組態的相關資訊，請參閱[異動複寫組態](sql-database-managed-instance-transactional-replication.md#common-configurations)。
+異動複寫可讓您將資料從 SQL Server 或 Azure SQL Database 受控執行個體的資料庫複寫到受控執行個體中，或將您的受控執行個體資料庫中所做的變更推送到其他 SQL Server、SQL Database 單一資料庫或彈性集區，或是其他受控執行個體中。 複寫 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)的公開預覽功能。 受控執行個體可以裝載發行者、散發者和訂閱者資料庫。 如需可用組態的相關資訊，請參閱[異動複寫組態](sql-database-managed-instance-transactional-replication.md#common-configurations)。
 
 ## <a name="requirements"></a>需求
 
@@ -71,7 +71,7 @@ Azure SQL Database 上的發行者和散發者需要：
 
    在下列範例指令碼中，搭配此 SQL Server 帳戶資料庫使用者名稱和密碼使用 `<SQL_USER>` 和 `<PASSWORD>`。
 
-5. [連線到 SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms)。
+5. [連線到 SQL Database 受控執行個體](sql-database-connect-query-ssms.md)。
 
 6. 執行下列查詢，以新增散發者和散發資料庫。
 
@@ -172,4 +172,4 @@ Azure SQL Database 上的發行者和散發者需要：
 ## <a name="see-also"></a>另請參閱
 
 - [異動複寫](sql-database-managed-instance-transactional-replication.md)
-- [什麼是受控執行個體？](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [什麼是受控執行個體？](sql-database-managed-instance.md)

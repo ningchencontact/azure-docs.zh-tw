@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1ab3abb2542b3fec461f1d9ff569ea8ab74458d3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463026"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251974"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -57,6 +57,7 @@ ms.locfileid: "54463026"
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure 資料總管
+* 適用於 MariaDB 的 Azure 資料庫
 * 適用於 MySQL 的 Azure 資料庫
 * 適用於 PostgreSQL 的 Azure 資料庫
 * Azure DevOps - 購買非 Microsoft 延伸模組的 Azure DevOps 組織必須先[取消其購買](https://go.microsoft.com/fwlink/?linkid=871160)，才能在訂用帳戶之間移動帳戶。
@@ -99,7 +100,7 @@ ms.locfileid: "54463026"
 * 入口網站儀表板
 * Power BI - Power BI Embedded 和 Power BI 工作區集合
 * 公用 IP - 可以移動基本 SKU 公用 IP。 不能移動標準 SKU 公用 IP。
-* 復原服務保存庫 - 註冊[有限公開預覽](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault)的訂用帳戶。
+* 復原服務保存庫 - 註冊[個人預覽版](#recovery-services-limitations)。
 * Azure Cache for Redis - 如果 Azure Cache for Redis 執行個體已設定虛擬網路，該執行個體便無法移至不同的訂用帳戶。 請參閱[虛擬網路限制](#virtual-networks-limitations)。
 * 排程器
 * 搜尋 - 您無法在一個作業中移動不同區域中的數個搜尋資源， 而是要在不同作業中移動它們。
@@ -176,7 +177,7 @@ ms.locfileid: "54463026"
 * 尋找您虛擬機器的位置。
 * 尋找具有下列命名模式的資源群組：`AzureBackupRG_<location of your VM>_1`，例如 AzureBackupRG_westus2_1
 * 如果是在 Azure 入口網站中，則請選取 [顯示隱藏的類型]
-* 如果是在 PowerShell 中，請使用 `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` Cmdlet
+* 如果是在 PowerShell 中，請使用 `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` Cmdlet
 * 如果是在 CLI 中，請使用 `az resource list -g AzureBackupRG_<location of your VM>_1`
 * 尋找類型為 `Microsoft.Compute/restorePointCollections` 且命名模式為 `AzureBackup_<name of your VM that you're trying to move>_###########` 的資源
 * 刪除此資源。 此作業只會刪除立即復原點，而不會刪除保存庫中備份的資料。
@@ -307,7 +308,7 @@ ms.locfileid: "54463026"
 
 ### <a name="recovery-services-limitations"></a>復原服務限制
 
- 若要移動復原服務保存庫，請註冊[有限公開預覽](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault)的訂用帳戶。
+ 若要移動復原服務保存庫，您必須註冊個人預覽版。 若要試用，請來信至 AskAzureBackupTeam@microsoft.com。
 
 目前每個區域一次可移動一個復原服務保存庫。 您無法移動負責備份 IaaS 虛擬機器中的 Azure 檔案服務、Azure 檔案同步或 SQL 的保存庫。
 
@@ -336,13 +337,15 @@ ms.locfileid: "54463026"
 
 在移動資源之前，有幾個重要步驟需要進行。 藉由驗證這些條件，您可以避免錯誤。
 
+1. 來源和目的地訂用帳戶必須為作用中。 如果您在啟用已停用的帳戶時遇到問題，請[建立 Azure 支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]。
+
 1. 來源和目的地的訂用帳戶必須存在於相同的 [Azure Active Directory 租用戶](../active-directory/develop/quickstart-create-new-tenant.md)內。 若要檢查這兩個訂用帳戶都有相同的租用戶識別碼，請使用 Azure PowerShell 或 Azure CLI。
 
   如果是 Azure PowerShell，請使用：
 
   ```azurepowershell-interactive
-  (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
 
   對於 Azure CLI，請使用：
@@ -362,14 +365,14 @@ ms.locfileid: "54463026"
   針對 PowerShell，使用下列命令來取得註冊狀態：
 
   ```azurepowershell-interactive
-  Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
-  Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+  Set-AzContext -Subscription <destination-subscription-name-or-id>
+  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   若要註冊資源提供者，請使用：
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
   針對 Azure CLI，使用下列命令來取得註冊狀態：
@@ -473,12 +476,12 @@ Authorization: Bearer <access-token>
 
 ### <a name="by-using-azure-powershell"></a>使用 Azure PowerShell
 
-若要將現有的資源移動到另一個資源群組或訂用帳戶，請使用 [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) 命令。 下列範例示範了如何將多個資源移動到新的資源群組。
+若要將現有的資源移動到另一個資源群組或訂用帳戶，請使用 [Move-AzResource](/powershell/module/az.resources/move-azresource) 命令。 下列範例示範了如何將多個資源移動到新的資源群組。
 
 ```azurepowershell-interactive
-$webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-$plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
 若要移動到新的訂用帳戶，請包含 `DestinationSubscriptionId`參數的值。

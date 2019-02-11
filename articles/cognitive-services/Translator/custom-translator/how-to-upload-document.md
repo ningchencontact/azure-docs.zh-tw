@@ -5,16 +5,16 @@ description: 您可以使用文件上傳功能來上傳用於訓練的平行文�
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e08813c71a0b95b6b130ab71313bda6d044d730a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633243"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217215"
 ---
 # <a name="upload-a-document"></a>上傳文件
 
@@ -50,7 +50,7 @@ ms.locfileid: "52633243"
     d.  填寫平行資料或組合資料的相關區段。
 
     -  平行資料：
-        -  原始檔案：從本機電腦選取原始語言檔案。
+        -  來源檔案：從本機電腦選取來源語言檔案。
         -  目標檔案：從本機電腦選取目標語言檔案。
         -  文件名稱：只在您上傳平行檔案時才會用到。
 

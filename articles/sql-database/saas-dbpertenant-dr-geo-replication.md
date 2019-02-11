@@ -11,20 +11,20 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/09/2018
-ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056330"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471142"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>使用資料庫異地複寫進行多租用戶 SaaS 應用程式的災害復原
 
-在本教學課程中，您將針對使用每一租用戶一個資料庫的模型實作的多租用戶 SaaS 應用程式，探索其完整的災害復原案例。 若要防止應用程式中斷，您應使用[_異地複寫_](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)，在替代的復原區域中建立目錄和租用戶資料庫的複本。 如果發生中斷的情況，您將可快速地容錯移轉至這些複本，以繼續進行正常的商務作業。 在容錯移轉時，原始區域中的資料庫會成為復原區域中資料庫的次要複本。 這些複本在重新上線後，將會自動更新至復原區域中資料庫的狀態。 中斷的問題解決後，您即可容錯回復至原始生產區域中的資料庫。
+在本教學課程中，您將針對使用每一租用戶一個資料庫的模型實作的多租用戶 SaaS 應用程式，探索其完整的災害復原案例。 若要防止應用程式中斷，您應使用[_異地複寫_](sql-database-geo-replication-overview.md)，在替代的復原區域中建立目錄和租用戶資料庫的複本。 如果發生中斷的情況，您將可快速地容錯移轉至這些複本，以繼續進行正常的商務作業。 在容錯移轉時，原始區域中的資料庫會成為復原區域中資料庫的次要複本。 這些複本在重新上線後，將會自動更新至復原區域中資料庫的狀態。 中斷的問題解決後，您即可容錯回復至原始生產區域中的資料庫。
 
 本教學課程會探索容錯移轉和容錯回復的工作流程。 您將學習如何：
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* 將資料庫和彈性集區組態資訊同步至租用戶目錄中
 >* 在替代區域中設定由應用程式、伺服器和集區組成的復原環境
@@ -43,7 +43,7 @@ ms.locfileid: "47056330"
 
 ![復原架構](media/saas-dbpertenant-dr-geo-replication/recovery-architecture.png)
  
-災害復原 (DR) 對許多應用程式而言都是重要的考量，無論是基於合規性因素，還是業務持續性。 如果預期會有長時間的服務中斷，妥善的 DR 計畫將盡可能縮短運作中斷的時間。 使用異地複寫將可在復原區域中維護能夠在短時間內容錯移轉的資料庫複本，而提供最低的 RPO 和 RTO。
+災害復原 (DR) 對許多應用程式而言都是重要的考量，無論是基於合規性因素，還是商務持續性。 如果預期會有長時間的服務中斷，妥善的 DR 計畫將盡可能縮短運作中斷的時間。 使用異地複寫將可在復原區域中維護能夠在短時間內容錯移轉的資料庫複本，而提供最低的 RPO 和 RTO。
 
 以異地複寫為基礎的 DR 計畫包含三個不同的部分：
 * 設定 - 建立和維護復原環境
@@ -53,9 +53,9 @@ ms.locfileid: "47056330"
 這三方面都必須審慎考量，尤其是在大規模運作時。 整體來說，此計畫必須完成數個目標：
 
 * 設定
-    * 在復原區域中建立及維護鏡像映像環境。 在此復原環境中建立彈性集區並複寫任何單一資料庫，可保留復原區域中的容量。 維護此環境的工作，包括在新的租用戶資料庫佈建時加以複寫。  
+    * 在復原區域中建立及維護鏡像映像環境。 在此復原環境中建立彈性集區並複寫任何資料庫，可保留復原區域中的容量。 維護此環境的工作，包括在新的租用戶資料庫佈建時加以複寫。  
 * 復原
-    * 使用相應減少的復原環境來降低日常成本時，必須相應增加集區與單一資料庫，以達到復原區域中的完整運作容量
+    * 使用相應減少的復原環境來降低日常成本時，必須相應增加集區與資料庫，以達到復原區域中的完整運作容量
     * 讓新的租用戶盡快佈建於復原區域中  
     * 以最佳化方式依優先順序還原租用戶
     * 在可行的情況下平行執行步驟，以最佳化方式儘速將租用戶上線
@@ -67,10 +67,10 @@ ms.locfileid: "47056330"
 在本教學課程中，會使用 Azure SQL Database 和 Azure 平台的功能來因應下列挑戰：
 
 * [Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)，以盡快保留所有所需的容量。 Azure Resource Manager 範本可在復原區域中用來佈建生產伺服器和彈性集區的鏡像映像。
-* [異地複寫](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)，以透過非同步方式為所有資料庫建立複寫的唯讀次要複本。 在中斷期間，您可以容錯移轉至復原區域中的複本。  中斷的問題解決後，您即可容錯回復至原始區域中的資料庫，且不會遺失資料。
+* [異地複寫](sql-database-geo-replication-overview.md)，以透過非同步方式為所有資料庫建立複寫的唯讀次要複本。 在中斷期間，您可以容錯移轉至復原區域中的複本。  中斷的問題解決後，您即可容錯回復至原始區域中的資料庫，且不會遺失資料。
 * 依租用戶優先順序傳送的[非同步](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)容錯移轉作業，以盡可能縮短大量資料庫進行容錯移轉的時間。
-* [分區管理復原功能](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager)，以在復原和回復期間變更目錄中的資料庫項目。 這些功能可讓應用程式無需重新設定即可從任何位置連線至租用戶資料庫。
-* [SQL Server DNS 別名](https://docs.microsoft.com/azure/sql-database/dns-alias-overview)，讓新的租用戶可順暢地進行佈建，無論應用程式在哪個區域運作皆可。 DNS 別名也可用來讓目錄同步程序連線至使用中的目錄，無論目錄位於何處。
+* [分區管理復原功能](sql-database-elastic-database-recovery-manager.md)，以在復原和回復期間變更目錄中的資料庫項目。 這些功能可讓應用程式無需重新設定即可從任何位置連線至租用戶資料庫。
+* [SQL Server DNS 別名](dns-alias-overview.md)，讓新的租用戶可順暢地進行佈建，無論應用程式在哪個區域運作皆可。 DNS 別名也可用來讓目錄同步程序連線至使用中的目錄，無論目錄位於何處。
 
 ## <a name="get-the-disaster-recovery-scripts"></a>取得災害復原指令碼 
 
@@ -126,7 +126,7 @@ ms.locfileid: "47056330"
 在此工作中，您會開始進行部署重複的應用程式執行個體，並將目錄和所有租用戶資料庫複寫至復原區域的程序。
 
 > [!Note]
-> 本教學課程會將異地複寫保護新增至 Wingtip Tickets 範例應用程式。 在應用程式使用異地複寫的生產環境中，每個租用戶一開始都會以異地複寫的資料庫進行佈建。 請參閱[使用 Azure SQL Database 設計高可用性服務](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
+> 本教學課程會將異地複寫保護新增至 Wingtip Tickets 範例應用程式。 在應用程式使用異地複寫的生產環境中，每個租用戶一開始都會以異地複寫的資料庫進行佈建。 請參閱[使用 Azure SQL Database 設計高可用性服務](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 
 1. 在 *PowerShell ISE* 中，開啟 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 指令碼，並設定下列值：
     * **$DemoScenario = 2**，建立鏡像映像復原環境，並複寫目錄和租用戶資料庫
@@ -135,12 +135,14 @@ ms.locfileid: "47056330"
 ![同步程序](media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
 
 ## <a name="review-the-normal-application-state"></a>查看正常的應用程式狀態
+
 此時，應用程式會在原始區域中正常執行，並受到異地複寫的保護。  所有資料庫的復原區域中都會有唯讀次要複本存在。 
+
 1. 在 Azure 入口網站中查看您的資源群組，並留意復原區域中已建立具有 -recovery 尾碼的資源群組。 
 
-1. 瀏覽復原資源群組中的資源。  
+2. 瀏覽復原資源群組中的資源。  
 
-1. 按一下 _tenants1-dpt-&lt;user&gt;-recovery_ 伺服器上的 Contoso Concert Hall 資料庫。  按一下左側的 [異地複寫]。 
+3. 按一下 _tenants1-dpt-&lt;user&gt;-recovery_ 伺服器上的 Contoso Concert Hall 資料庫。  按一下左側的 [異地複寫]。 
 
     ![Contoso Concert 異地複寫連結](media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -193,6 +195,7 @@ ms.locfileid: "47056330"
 > 若要瀏覽復原作業的程式碼，請檢閱 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\RecoveryJobs 資料夾中的 PowerShell 指令碼。
 
 ### <a name="review-the-application-state-during-recovery"></a>查看復原期間的應用程式狀態
+
 當應用程式端點在流量管理員中停用時，應用程式無法使用。 當目錄容錯移轉至復原區域，且所有租用戶皆標示為離線後，應用程式即會重新上線。 雖然應用程式可供使用，但每個租用戶在事件中樞內都會顯示為離線，直到其資料庫容錯移轉為止。 請務必設計您的應用程式以處理離線的租用戶資料庫。
 
 1. 在復原目錄資料庫後，立即在網頁瀏覽器中重新整理 Wingtip Tickets 事件中樞。
@@ -301,7 +304,7 @@ ms.locfileid: "47056330"
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解如何：
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* 將資料庫和彈性集區組態資訊同步至租用戶目錄中
 >* 在替代區域中設定由應用程式、伺服器和集區組成的復原環境
@@ -313,4 +316,4 @@ ms.locfileid: "47056330"
 
 ## <a name="additional-resources"></a>其他資源
 
-* [其他以 Wingtip SaaS 應用程式為基礎的教學課程](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [其他以 Wingtip SaaS 應用程式為基礎的教學課程](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

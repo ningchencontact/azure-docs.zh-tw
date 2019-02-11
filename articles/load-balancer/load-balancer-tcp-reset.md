@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 0b3e8fc72eb22a67c0672be19f60d4956d3377b7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257281"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296914"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>具有閒置 TCP 重設的負載平衡器 (公開預覽)
 
-您可以使用 [Standard Load Balancer](load-balancer-standard-overview.md)，以在具有每個可設定閒置逾時的雙向 TCP 重設 (TCP RST 封包) 時，建立更容易預測的應用程式行為。  Load Balancer 的預設行為是在達到流程的閒置逾時時，以無訊息模式卸除流程。
+您可以使用 [Standard Load Balancer](load-balancer-standard-overview.md)，藉由對某個指定規則啟用「閒置時重設 TCP」，來為您的案例建立更容易預測的應用程式行為。 Load Balancer 的預設行為是在達到流程的閒置逾時時，以無訊息模式卸除流程。  啟用此功能會讓 Load Balancer 在閒置逾時的時候，傳送雙向的 TCP 重設 (TCP RST 封包)。  這會讓您的應用程式端點知道，連線已逾時且無法再供使用。  如有需要，端點可以立即建立新的連線。
 
 ![負載平衡器 TCP 重設](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
@@ -69,31 +69,10 @@ ms.locfileid: "53257281"
 
 ## <a name="regions"></a> 區域可用性
 
-此參數目前作用於下列區域。  在此處未列出的區域中，參數不會有任何作用。
-
-| 區域 |
-|---|
-| 東南亞 |
-| 巴西南部 |
-| 加拿大中部 |
-| 西歐 |
-| 印度中部 |
-| 印度西部 |
-| 日本西部 |
-| 南韓中部 |
-| 南韓南部 |
-| 英國北部 |
-| 英國南部 2 |
-| 美國東部 |
-| 美國東部 2 |
-| 英國北部 |
-| 美國西部 |
-
-將預覽展開至其他區域時，將會更新此資料表。  
+所有區域都有提供。
 
 ## <a name="limitations"></a>限制
 
-- 有限的[區域可用性](#regions)。
 - 入口網站無法用來設定或檢視 TCP 重設。  請改為使用範本、REST API、Az CLI 2.0 或 PowerShell。
 
 ## <a name="next-steps"></a>後續步驟

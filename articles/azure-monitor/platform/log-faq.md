@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 0edb3441083a6eb6f95b3ca3ade2bf0b1582858d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214737"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564947"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常見問題集
 此 Microsoft 常見問題集是 Microsoft Azure 中 Log Analytics 常見問題的清單。 若您有任何關於 Log Analytics 的其他問題，請前往[討論論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
@@ -49,13 +49,13 @@ Azure 入口網站中的新 [Logs] 體驗是以進階分析入口網站為基礎
 
 答：新的記錄中無法使用 [清單] 檢視。 結果表格中的每筆記錄左邊會有一個箭號。 按一下此箭號就能開啟特定記錄的詳細資料。 
 
-### <a name="q-after-running-a-query-a-list-of-suggested-filters-shows-up-but-it-doesnt-include-all-filters-how-can-i-see-the-rest"></a>問： 執行查詢之後，建議的篩選條件清單隨即出現，但不包含所有篩選條件。 如何查看其餘的篩選條件？ 
+### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>問： 執行查詢之後，會有建議的篩選條件清單可供使用。 如何查看篩選條件？ 
 
-答：您目前看到的內容是新的篩選條件實作預覽。 這現在是以您的完整結果集為基礎，而不是受限於 UI 的 10,000 筆記錄限制。 這目前是最熱門篩選條件的清單，以及每個篩選條件最常用的 10 個值。 
+答：按一下左側平移工具上的 [篩選]，可預覽新的篩選條件實作。 這現在是以您的完整結果集為基礎，而不是受限於 UI 的 10,000 筆記錄限制。 這目前是最熱門篩選條件的清單，以及每個篩選條件最常用的 10 個值。 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>問： 我為何收到錯誤：從 VM 深入鑽研之後，在記錄中收到：「為此訂用帳戶註冊資源提供者 'Microsoft.Insights' 以啟用此查詢」？ 
 
-答：根據預設，許多資源提供者會自動註冊。不過，您可能需要手動註冊某些資源提供者。 這會將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 如需詳細資訊，請參閱[資源提供者和類型](../../azure-resource-manager/resource-manager-supported-services.md#portal)。
+答：根據預設，許多資源提供者會自動註冊。不過，您可能需要手動註冊某些資源提供者。 這會將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 如需詳細資訊，請參閱[資源提供者和類型](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)。
 
 ### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>問： 從 VM 頁面存取 Logs 時，為何不會收到任何存取錯誤訊息？ 
 

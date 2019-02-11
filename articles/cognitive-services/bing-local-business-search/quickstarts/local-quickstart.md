@@ -6,18 +6,18 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 3513ada8a911c36a31c5796214cfe35d088320b7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 37cb122503dba31ba57dd6445317f3c54db08084
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316033"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181447"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>快速入門 - 傳送查詢至以 C# 撰寫的 Bing 當地商家搜尋 API
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>快速入門：傳送查詢至以 C# 撰寫的 Bing 當地商家搜尋 API
 
 使用此快速入門開始向 Bing 當地商家搜尋 API 傳送要求，該 API 是 Azure 認知服務。 雖然此簡單應用程式是以 C# 撰寫，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。
 
@@ -34,7 +34,7 @@ ms.locfileid: "52316033"
 
 下列程式碼會建立 `WebRequest`、設定存取金鑰標頭，並新增 "restaurant in Bellevue" 的查詢字串。  接著，它會傳送要求，並為字串指派包含 JSON 文字的回應。
 
-````
+```
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
@@ -50,7 +50,7 @@ ms.locfileid: "52316033"
 
     HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-````
+```
 
 ## <a name="run-the-complete-application"></a>執行完整應用程式
 
@@ -60,7 +60,7 @@ Bing 當地商家搜尋 API 會從 Bing 搜尋引擎傳回本地化的搜尋結�
 3. 以訂用帳戶有效的存取金鑰來取代 accessKey 值。
 4. 執行程式。
 
-````
+```
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -206,7 +206,7 @@ namespace localSearch
     }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>後續步驟
 - [當地商家搜尋 Java 快速入門](local-search-java-quickstart.md)

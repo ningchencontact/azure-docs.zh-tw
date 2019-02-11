@@ -1,21 +1,21 @@
 ---
-title: 快速入門：建立和查詢 Azure SQL 資料倉儲 - Azure 入口網站 | Microsoft Docs
+title: 快速入門：建立及查詢 Azure SQL 資料倉儲 - Azure 入口網站 | Microsoft Docs
 description: 在 Azure 入口網站中透過 Azure SQL 資料倉儲建立和查詢資料倉儲。
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 004ae5c8c171f731a244e926dd51d677300630f1
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 317756f8684088b9df52856ce4f10c5401485e86
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248071"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461860"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：如何在 Azure 入口網站中建立及查詢 Azure SQL 資料倉儲
 

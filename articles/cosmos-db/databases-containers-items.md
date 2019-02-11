@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107730"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468133"
 ---
-# <a name="working-with-azure-cosmos-databases-containers-and-items"></a>使用 Azure Cosmos 資料庫、容器和項目
+# <a name="work-with-databases-containers-and-items"></a>使用資料庫、容器和項目
 
 建立 [Azure Cosmos DB 帳戶](account-overview.md) 之後，您就可以在 Azure 訂用帳戶底下，透過建立資料庫、容器和項目來管理帳戶中的資料。 本文會逐一描述以下項目：資料庫、容器和項目。 下圖顯示 Azure Cosmos 帳戶中不同實體的階層：
 

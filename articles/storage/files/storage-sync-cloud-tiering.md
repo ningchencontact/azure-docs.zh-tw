@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
-ms.component: files
-ms.openlocfilehash: a0f427ef84a6540522f521cd365e2422a70eb0cd
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.subservice: files
+ms.openlocfilehash: e73a11d7849d6e304be0844a55ddad46e6966f6e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623646"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470445"
 ---
 # <a name="cloud-tiering-overview"></a>雲端階層處理概觀
 雲端階層處理是 Azure 檔案同步的一個選用功能，其中經常存取的檔案會快取到伺服器本機上，而其他的檔案會依原則設定分層處理至 Azure 檔案服務。 當檔案被分層之後，Azure 檔案同步檔案系統篩選器 (StorageSync.sys) 會將本機檔案取代為指標或重新分析點。 重新分析點代表的是針對 Azure 檔案服務中檔案的 URL。 階層式檔案在 NTFS 中具有「離線」屬性和 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 屬性集，因此協力廠商應用程式可以安全地識別階層式檔案。
@@ -21,7 +21,7 @@ ms.locfileid: "51623646"
 當使用者開啟階層式檔案時，Azure 檔案同步會順暢地從 Azure 檔案服務重新叫用檔案資料，使用者並不需要知道檔案實際上儲存在 Azure 中。 
  
  > [!Important]  
-    > 重要事項：Windows 系統磁碟區上的伺服器端點不支援雲端階層處理，且只有大小大於 64 KiB 的檔案可以分層處理到 Azure 檔案服務。
+    > 重要：Windows 系統磁碟區上的伺服器端點不支援雲端階層處理，且只有大小大於 64 KiB 的檔案可以分層處理到 Azure 檔案服務。
     
 Azure 檔案同步不支援階層處理小於 64 KiB 的檔案，因為階層處理和重新叫用這類小型檔案的效能負擔大過所節省的空間。
 

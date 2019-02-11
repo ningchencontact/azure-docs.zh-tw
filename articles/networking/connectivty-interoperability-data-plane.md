@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 8b9e5b2b073309f177fa0ce4bb2a2d08009a06ff
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5e648c1f1b051d7b65d9b007a69aece2d99d9df4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614408"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176177"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Azure 後端連線功能的互通性：資料平面分析
 
@@ -476,13 +476,13 @@ ms.locfileid: "51614408"
 
 ###  <a name="site-to-site-vpn-over-expressroute"></a>透過 ExpressRoute 設定站對站 VPN
 
-您可透過 ExpressRoute Microsoft 對等互連設定站對站 VPN，在您內部部署網路和 Azure VNet 之間私下交換資料。 使用此設定時，您可以交換具有機密性、真實性和完整性的資料。 資料交換也是抗重演的。 如需如何使用 ExpressRoute Microsoft 對等互連，來設定通道模式站對站 IPSec VPN 的詳細資訊，請參閱[透過 ExpressRoute Microsoft 對等互連設定站對站 VPN][S2S-Over-ExR]。 
+您可透過 ExpressRoute Microsoft 對等互連設定站對站 VPN，私下交換您內部部署網路和 Azure VNet 之間的資料。 使用此組態時，您可以交換具有機密性、真實性和完整性的資料。 資料交換也會禁止重新播放。 如需如何使用 ExpressRoute Microsoft 對等互連，來設定通道模式站對站 IPSec VPN 的詳細資訊，請參閱[透過 ExpressRoute Microsoft 對等互連設定站對站 VPN][S2S-Over-ExR]。 
 
 設定使用 Microsoft 對等互連的站對站 VPN 的主要限制是輸送量。 IPSec 通道的輸送量受限於 VPN 閘道容量。 VPN 閘道輸送量低於 ExpressRoute 輸送量。 在此情況下，針對高安全流量使用 IPSec 通道，並針對所有其他流量使用私人對等互連，可協助將 ExpressRoute 頻寬使用量最佳化。
 
 ### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>站對站 VPN 作為 ExpressRoute 的安全容錯移轉路徑
 
-ExpressRoute 作為備援線路組可確保高可用性。 您可以在不同的 Azure 區域中設定異地備援 ExpressRoute 連線。 此外，如同測試設定中所示範，您可以在 Azure 區域中使用站對站 VPN，為您的 ExpressRoute 連線建立容錯移轉路徑。 當 ExpressRoute 和站對站 VPN 都公告相同的首碼時，Azure 將優先選擇 ExpressRoute。 為了避免 ExpressRoute 和站對站 VPN 之間的路由不對稱，內部部署網路設定也應該在使用站對站 VPN 連線之前使用 ExpressRoute 連線進行回應。
+ExpressRoute 作為備援線路組可確保高可用性。 您可以在不同的 Azure 區域中設定異地備援 ExpressRoute 連線。 如果您想在 Azure 區域中為 ExpressRoute 連線建立容錯移轉路徑，可以透過與測試設定中示範的相同方法使用站對站 VPN。 當 ExpressRoute 和站對站 VPN 顯示相同的首碼時，Azure 將優先選擇 ExpressRoute。 為了避免 ExpressRoute 和站對站 VPN 擁有不對稱的路由，內部部署網路組態也應該在使用站對站 VPN 連線之前使用 ExpressRoute 連線進行回應。
 
 如需如何設定 ExpressRoute 和站對站 VPN 共存連線的詳細資訊，請參閱 [ExpressRoute 和站對站共存][ExR-S2S-CoEx]。
 
@@ -505,7 +505,7 @@ ExpressRoute 作為備援線路組可確保高可用性。 您可以在不同的
 
 請參閱 [ExpressRoute 常見問題集][ExR-FAQ]：
 -   了解可以連線到 ExpressRoute 閘道的 ExpressRoute 線路數量。
--   了解可以連線到 ExpressRoute 線路的 ExpressRoute 閘道數量。
+-   了解可以連接到 ExpressRoute 線路的 ExpressRoute 閘道數量。
 -   了解 ExpressRoute 的其他規模限制。
 
 

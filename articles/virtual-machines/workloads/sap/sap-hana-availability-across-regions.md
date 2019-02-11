@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae03e1498d948e7d044561c3e6bea8c343d7b165
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 95ada2cb146bdbc972afee883a1d174c95aa67d7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713964"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297577"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>跨 Azure 區域的 SAP HANA 可用性
 
@@ -39,7 +39,7 @@ Azure 虛擬網路會使用不同的 IP 位址範圍。 這些 IP 位址會部�
 
 ## <a name="simple-availability-between-two-azure-regions"></a>兩個 Azure 區域之間的簡單可用性
 
-您可以選擇不要將任何可用性設定放在單一區域內的位置，但您仍需要在發生災害時能夠處理工作負載。 這類系統的典型案例為非生產系統。 雖然您可以承受系統關閉半天或甚至一天，但是不允許系統無法使用 48 小時 (含) 以上。 若要降低設定成本，請在 VM 中執行另一個較不重要的系統。 這另一個系統會作為目的地。 您也可以將次要區域中的 VM 調整為較小的大小，並選擇不要預先載入資料。 由於容錯移轉是手動進行的，而且需要更多步驟才能容錯移轉完整應用程式堆疊，所以關閉 VM、調整其大小及再次重新啟動 VM 的額外時間是可接受的。
+您可以選擇不要將任何可用性設定放在單一區域內的位置，但您仍需要在發生災害時能夠處理工作負載。 這類情節的典型案例為非生產系統。 雖然您可以承受系統關閉半天或甚至一天，但是不允許系統無法使用 48 小時 (含) 以上。 若要降低設定成本，請在 VM 中執行另一個較不重要的系統。 這另一個系統會作為目的地。 您也可以將次要區域中的 VM 調整為較小的大小，並選擇不要預先載入資料。 由於容錯移轉是手動進行的，而且需要更多步驟才能容錯移轉完整應用程式堆疊，所以關閉 VM、調整其大小及再次重新啟動 VM 的額外時間是可接受的。
 
 如果您的使用案例是在 VM 中與品管系統共用 DR 目標，您需要考慮下列事項：
 
@@ -67,6 +67,16 @@ Azure 虛擬網路會使用不同的 IP 位址範圍。 這些 IP 位址會部�
 在這些情況下，您可以使用 HANA 系統複寫來設定哪個 SAP 會呼叫 [SAP HANA 多層式系統複寫設定](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html)。 架構如下所示：
 
 ![兩個區域有三部 VM 的圖表](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
+
+SAP 引進了[多目標系統複寫](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) (含 HANA 2.0 SPS3)。 多目標系統複寫為更新案例帶來一些優點。 例如，當次要 HA 網站關閉以便維護或更新時，DR 網站 (區域 2) 不受影響。 您可以在[這裡](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html)深入了解 HANA 多目標系統複寫。
+採用多目標複寫的可能架構如下所示：
+
+![兩個區域有三部 VM (多目標) 的圖表](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.PNG)
+
+如果組織在次要 (DR) Azure 區域中有高可用性整備的需求時，則架構如下所示：
+
+![兩個區域有三部 VM (多目標) 的圖表](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+
 
 此設定使用 logreplay 做為作業模式，會在主要區域內以低 RTO 提供 RPO=0。 如果程序涉及移動至第二個區域，此設定也會提供不錯的 RPO。 第二個區域中的 RTO 時間取決於資料是否會預先載入。 許多客戶會使用次要區域中的 VM 來執行測試系統。 在該使用案例中，系統無法預先載入資料。
 

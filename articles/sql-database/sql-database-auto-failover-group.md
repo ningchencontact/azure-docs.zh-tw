@@ -1,6 +1,6 @@
 ---
 title: 容錯移轉群組 - Azure SQL Database | Microsoft Docs
-description: 自動容錯移轉群組是 SQL Database 功能，允許您管理邏輯伺服器上的一組資料庫，或受控執行個體中的所有資料庫的複寫和自動/協調容錯移轉。
+description: 自動容錯移轉群組是 SQL Database 功能，允許您管理 SQL Database 伺服器上的一組資料庫，或受控執行個體中的所有資料庫的複寫和自動/協調容錯移轉。
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,24 +11,24 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: d24f7ce20a9dfb8ede184e8f013c2d988a8a96c2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033803"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468694"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
-自動容錯移轉群組是 SQL Database 功能，允許您管理邏輯伺服器上的一組資料庫，或受控執行個體中所有資料庫到另一個區域 (當前處於受控執行個體的公開預覽狀態) 的複寫和容錯移轉。 它會使用與[主動式異地複寫](sql-database-active-geo-replication.md)相同的基礎技術。 您可以手動起始容錯移轉，也可以根據使用者定義的原則將其委派給 SQL Database 服務。 後項可讓您在導致主要區域中完全或部分喪失 SQL Database 服務可用性的嚴重失敗或其他非計劃事件之後，自動復原次要地區中的多個相關資料庫。 此外，您可以使用可讀取次要資料庫來卸載唯讀查詢工作負載。 因為自動容錯移轉群組牽涉到多個資料庫，所以這些資料庫必須在主要伺服器上進行設定。 在容錯移轉群組中，資料庫的主要和次要伺服器都必須位於相同的訂用帳戶。 自動容錯移轉群組支援將群組中的所有資料庫都只複寫到不同區域的一部次要伺服器。
+自動容錯移轉群組是 SQL Database 功能，允許您管理 SQL Database 伺服器上的一組資料庫，或受控執行個體中所有資料庫到另一個區域 (當前處於受控執行個體的公開預覽狀態) 的複寫和容錯移轉。 它會使用與[主動式異地複寫](sql-database-active-geo-replication.md)相同的基礎技術。 您可以手動起始容錯移轉，也可以根據使用者定義的原則將其委派給 SQL Database 服務。 後項可讓您在導致主要區域中完全或部分喪失 SQL Database 服務可用性的嚴重失敗或其他非計劃事件之後，自動復原次要地區中的多個相關資料庫。 此外，您可以使用可讀取次要資料庫來卸載唯讀查詢工作負載。 因為自動容錯移轉群組牽涉到多個資料庫，所以這些資料庫必須在主要伺服器上進行設定。 在容錯移轉群組中，資料庫的主要和次要伺服器都必須位於相同的訂用帳戶。 自動容錯移轉群組支援將群組中的所有資料庫都只複寫到不同區域的一部次要伺服器。
 
 > [!NOTE]
-> 當在邏輯服務器上使用單一或集區資料庫，且您希望在相同或不同區域中有多個次要資料庫時，請使用[主動式異地複寫](sql-database-active-geo-replication.md)。
+> 在 SQL Database 伺服器上使用獨立或集區資料庫時，若您希望在相同或不同區域中有多個次要資料庫，請使用[主動式異地複寫](sql-database-active-geo-replication.md)。
 
 當您使用自動容錯移轉群組與自動容錯移轉原則時，影響群組中一或多個資料庫的任何中斷，都會導致自動容錯移轉。 此外，自動容錯移轉群組還提供在容錯移轉期間仍保持不變的讀寫和唯讀接聽程式端點。 無論您使用手動或自動啟動容錯移轉，容錯移轉都會將群組中所有次要資料庫切換到主要資料庫。 資料庫容錯移轉完成後，DNS 記錄會自動更新以將端點重新導向至新的區域。 針對特定的 RPO 和 RTO 資料，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
 
-當您使用自動容錯移轉群組與自動容錯移轉原則時，任何影響邏輯伺服器或受控執行個體中資料庫的中斷，都會導致自動容錯移轉。 您可以使用下列方法管理自動容錯移轉群組：
+當您使用自動容錯移轉群組與自動容錯移轉原則時，任何影響 SQL Database 伺服器或受控執行個體中資料庫的中斷，都會導致自動容錯移轉。 您可以使用下列方法管理自動容錯移轉群組：
 
 - [Azure 入口網站](sql-database-implement-geo-distributed-database.md)
 - [PowerShell：容錯移轉群組](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
@@ -36,17 +36,17 @@ ms.locfileid: "54033803"
 
 容錯移轉之後，請確認已在新的主要資料庫上設定伺服器和資料庫的驗證需求。 如需詳細資訊，請參閱 [災害復原後的 SQL Database 安全性](sql-database-geo-replication-security-config.md)。
 
-若要達到真正的業務持續性，新增資料中心之間的資料庫備援只是解決方案的一部分。 在災難性失敗後要端對端復原應用程式 (服務) 需要復原構成服務的所有元件和任何相依的服務。 這些元件的範例包括用戶端軟體 (例如自訂 JavaScript 的瀏覽器)、web 前端、儲存體和 DNS。 所有元件都必須對相同的失敗具有恢復功能，並且在應用程式的復原時間目標 (RTO) 內可供使用。 因此，您需要識別所有相依服務並了解其提供的保證與功能。 然後，您必須採取適當步驟以確保服務功能在它所依賴的服務容錯移轉期間都正常。 如需有關設計災害復原解決方案的詳細資訊，請參閱[使用主動式異地複寫設計災害復原的雲端解決方案](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。
+若要達到真正的商務持續性，新增資料中心之間的資料庫備援只是解決方案的一部分。 在災難性失敗後要端對端復原應用程式 (服務) 需要復原構成服務的所有元件和任何相依的服務。 這些元件的範例包括用戶端軟體 (例如自訂 JavaScript 的瀏覽器)、web 前端、儲存體和 DNS。 所有元件都必須對相同的失敗具有恢復功能，並且在應用程式的復原時間目標 (RTO) 內可供使用。 因此，您需要識別所有相依服務並了解其提供的保證與功能。 然後，您必須採取適當步驟以確保服務功能在它所依賴的服務容錯移轉期間都正常。 如需有關設計災害復原解決方案的詳細資訊，請參閱[使用主動式異地複寫設計災害復原的雲端解決方案](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>自動容錯移轉群組術語和功能
 
 - **容錯移轉群組**
 
-  容錯移轉群組是由單一邏輯伺服器，或單一受控執行個體所管理的一組資料庫，如果由於主要區域中斷而導致所有或某些主要資料庫無法使用，則可以將這些資料庫作為容錯移轉到另一個區域的一個單位。
+  容錯移轉群組是由單一 SQL Database 伺服器，或單一受控執行個體所管理的一組資料庫，如果由於主要區域中斷而導致所有或某些主要資料庫無法使用，則可以將這些資料庫作為容錯移轉到另一個區域的一個單位。
 
-  - **邏輯伺服器**
+  - **SQL Database 伺服器**
 
-     使用邏輯服務器，可以將單一伺服器上的部分或所有使用者資料庫放在容錯移轉群組中。 此外，邏輯伺服器在單一伺服器上會支援多個容錯移轉群組。
+     使用 SQL Database 伺服器，可以將單一伺服器上的部分或所有使用者資料庫放在容錯移轉群組中。 此外，SQL Database 伺服器在單一 SQL Database 伺服器上可支援多個容錯移轉群組。
 
   - **受控執行個體**
   
@@ -54,15 +54,15 @@ ms.locfileid: "54033803"
 
 - **主要**
 
-  容錯移轉群組中裝載主要資料庫的邏輯伺服器或受控執行個體。
+  容錯移轉群組中裝載主要資料庫的 SQL Database 伺服器或受控執行個體。
 
 - **次要**
 
-  容錯移轉群組中裝載次要資料庫的邏輯伺服器或受控執行個體。 次要資料庫和主要資料庫不能位於相同區域。
+  容錯移轉群組中裝載次要資料庫的 SQL Database 伺服器或受控執行個體。 次要資料庫和主要資料庫不能位於相同區域。
 
-- **將資料庫新增至邏輯伺服器上的容錯移轉群組**
+- **將資料庫新增至 SQL Database 伺服器上的容錯移轉群組**
 
-  您可以將相同邏輯服務器上的彈性集區中的單一資料庫或多個資料庫放入相同的容錯移轉群組中。 如果您在容錯移轉群組中新增單一資料庫，它會使用相同的版本和計算大小自動建立次要資料庫。 如果主要資料庫在彈性集區中，則會使用相同名稱在該彈性集區中建立次要資料庫。 如果您新增在次要伺服器中已經有次要資料庫的資料庫，群組就會繼承該異地複寫。 當您新增在伺服器中已經有次要資料庫但不屬於容錯移轉群組一部分的資料庫時，會在次要伺服器中建立新的次要資料庫。
+  您可以將相同 SQL Database 伺服器上的彈性集區中的單一資料庫或多個資料庫放入相同的容錯移轉群組中。 如果您在容錯移轉群組中新增單一資料庫，它會使用相同的版本和計算大小自動建立次要資料庫。 如果主要資料庫在彈性集區中，則會使用相同名稱在該彈性集區中建立次要資料庫。 如果您新增在次要伺服器中已經有次要資料庫的資料庫，群組就會繼承該異地複寫。 當您新增在伺服器中已經有次要資料庫但不屬於容錯移轉群組一部分的資料庫時，會在次要伺服器中建立新的次要資料庫。
   
 > [!IMPORTANT]
   > 在受控執行個體中，將會複寫所有使用者資料庫。 您無法在容錯移轉群組中選擇要複寫的使用者資料庫子集。
@@ -71,9 +71,9 @@ ms.locfileid: "54033803"
 
   形成的 DNS CNAME 記錄指向目前的主要 URL。 它可讓讀寫 SQL 應用程式在容錯移轉之後，當主要資料庫變更時毫無障礙地重新連線至主要資料庫。
 
-  - **讀寫接聽程式**的邏輯伺服器 DNS CNAME 記錄
+  - **讀寫接聽程式的 SQL Database 伺服器 DNS CNAME 記錄**
 
-     在邏輯伺服器上，指向目前的主要 URL 的容錯移轉群組的 DNS CNAME 記錄形成為 `failover-group-name.database.windows.net`。
+     在 SQL Database 伺服器上，指向目前的主要 URL 的容錯移轉群組的 DNS CNAME 記錄形成為 `failover-group-name.database.windows.net`。
 
   - **讀寫接聽程式的受控執行個體 DNS CNAME 記錄**
 
@@ -83,9 +83,9 @@ ms.locfileid: "54033803"
 
   形成的 DNS CNAME 記錄指向唯讀接聽程式 (指向次要 URL)。 它可讓唯讀 SQL 應用程式使用指定的負載平衡規則毫無障礙地連線到次要資料庫。
 
-  - **唯讀接聽程式的邏輯伺服器 DNS CNAME 記錄**
+  - **唯讀接聽程式的 SQL Database 伺服器 DNS CNAME 記錄**
 
-     在邏輯伺服器上，指向次要 URL 的唯讀接聽程式的 DNS CNAME 記錄形成為 `failover-group-name.secondary.database.windows.net`。
+     在 SQL Database 伺服器上，指向次要 URL 的唯讀接聽程式的 DNS CNAME 記錄形成為 `failover-group-name.secondary.database.windows.net`。
 
   - **唯讀接聽程式的受控執行個體 DNS CNAME 記錄**
 
@@ -128,7 +128,7 @@ ms.locfileid: "54033803"
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>將容錯移轉群組與單一資料庫和彈性集區一起使用的最佳做法
 
-自動容錯移轉群組必須在主要的邏輯伺服器上設定，並將其連接至不同 Azure 區域中的次要邏輯伺服器。  群組可以包含這些伺服器中的所有或部分資料庫。 下圖說明使用多個資料庫和自動容錯移轉群組之異地備援雲端應用程式的一般設定。
+自動容錯移轉群組必須在主要 SQL Database 伺服器上設定，並將其連接至不同 Azure 區域中的次要 SQL Database 伺服器。  群組可以包含這些伺服器中的所有或部分資料庫。 下圖說明使用多個資料庫和自動容錯移轉群組之異地備援雲端應用程式的一般設定。
 
 ![自動容錯移轉](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
@@ -169,7 +169,7 @@ ms.locfileid: "54033803"
 > [!IMPORTANT]
 > 受控執行個體的自動容錯移轉群組處於公開預覽狀態。
 
-如果您的應用程式使用受控執行個體做為資料層，請在設計業務持續性時遵循下列一般指導方針：
+如果您的應用程式使用受控執行個體做為資料層，請在設計商務持續性時遵循下列一般指導方針：
 
 - **在與主要執行個體相同的 DNS 區域中建立次要執行個體**
 
@@ -331,7 +331,7 @@ ms.locfileid: "54033803"
 | Switch-AzureRmSqlDatabaseInstanceFailoverGroup |觸發容錯移轉群組的容錯移轉到次要伺服器|
 | Remove-AzureRmSqlDatabaseInstanceFailoverGroup | 移除容錯移轉群組|
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API：使用單一和集區資料庫管理 SQL Database 容錯移轉群組
+### <a name="rest-api-manage-sql-database-failover-groups-with-standalone-and-pooled-databases"></a>REST API：使用獨立和集區資料庫管理 SQL Database 容錯移轉群組
 
 | API | 說明 |
 | --- | --- |

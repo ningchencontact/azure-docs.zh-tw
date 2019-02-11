@@ -2,7 +2,7 @@
 layout: HubPage
 hide_bc: false
 title: Azure 監視器 Application Insights 文件 - 教學課程和 API 參考 | Microsoft Docs
-description: TBD
+description: Azure Monitor Application Insights 提供深入的程式碼層級應用程式效能監視。
 services: application-insights
 author: mrbullwinkle
 manager: carmonmills
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 713368ab02e72ad0b8e51d0bb312a20bd2df690c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f2c6475d67958e8ccd3e46598a46cc8bfee9ef54
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830114"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300671"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -220,7 +220,7 @@ ms.locfileid: "54830114"
                                                         <h3>隱私權、安全性、使用方式 &amp; 成本</h3>
                                                         <p>
                                                             <a href="https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt">處理個人資料</a><br>
-                                                            <a href="./app/data-retention-privacy.md">資料收集、保留 &amp; 儲存</a><br>
+                                                            <a href="./app/data-retention-privacy.md">資料收集、保留、&amp;儲存</a><br>
                                                             <a href="./app/resources-roles-access-control.md">角色型存取</a><br>
                                                             <a href="./app/ip-addresses.md"> IP 位址 &amp; 防火牆例外狀況</a><br>
                                                             <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs">使用量和估計成本</a>

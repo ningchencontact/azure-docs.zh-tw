@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 9b462ba594122b86580b9d136a844db070eea92d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340353"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217640"
 ---
 # <a name="what-is-bing-speech"></a>什麼是 Bing 語音？
 
@@ -28,7 +28,7 @@ ms.locfileid: "49340353"
 
 ## <a name="speech-to-text-speech-recognition"></a>語音轉換文字 (語音辨識)
 
-Microsoft 語音辨識 API 會將音訊資料流「轉譯」成文字，可供應用程式向使用者顯示，或作為命令輸入來執行動作。 它為開發人員提供兩種可將語音新增到應用程式的方式：REST API **或** Websocket 型用戶端程式庫。
+Microsoft 語音辨識 API 會將音訊資料流「轉譯」成文字，可供應用程式向使用者顯示，或作為命令輸入來執行動作。 其為開發人員提供兩種可將語音新增到應用程式的方式：REST API **或** Websocket 型用戶端程式庫。
 
 - [REST API](GetStarted/GetStartedREST.md)：開發人員可從其應用程式對服務使用 HTTP 呼叫，來進行語音辨識。
 - [用戶端程式庫](GetStarted/GetStartedClientLibraries.md)：如需進階功能，開發人員可以下載 Microsoft Speech 用戶端程式庫，並連結至他們的應用程式。  用戶端程式庫可用於使用不同語言 (C#、Java、JavaScript、ObjectiveC) 的各種平台 (Windows、Android、iOS)。 與 REST API 不同，用戶端程式庫會使用 Websocket 型通訊協定。

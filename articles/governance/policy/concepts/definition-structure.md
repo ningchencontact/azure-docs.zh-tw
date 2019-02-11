@@ -4,17 +4,17 @@ description: 說明「Azure 原則」如何使用資源原則定義，藉由描�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0fe15cc87e0d30f58dc26ae925efa6d65b243f5b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d54fd12125902aa5019643df24d78ae81f7fc31f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851652"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296651"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -137,7 +137,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 ## <a name="display-name-and-description"></a>顯示名稱和描述
 
-您可以使用 **displayName** 和 **description** 來識別原則定義，以及提供其使用時機的內容。
+您可以使用 **displayName** 和 **description** 來識別原則定義，以及提供其使用時機的內容。 **displayName** 的長度上限為 _128_ 個字元，**description** 的長度上限則為 _512_ 個字元。
 
 ## <a name="policy-rule"></a>原則規則
 

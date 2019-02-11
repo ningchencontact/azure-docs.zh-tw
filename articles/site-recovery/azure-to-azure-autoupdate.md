@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f31fccd2bf6d0daae03b025b53a41a0fad4ce2ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957686"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210126"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>將 Azure 中的行動服務自動更新至 Azure 複寫
 
@@ -53,7 +53,7 @@ FREE UNITS INCLUDED (PER MONTH)**   PRICE Job run time    500 minutes ₹0.14/mi
 1. 在保存庫內，瀏覽至 [管理] ->  [Site Recovery 基礎結構]
 2. 在 [針對 Azure 虛擬機器] ->  [擴充功能更新設定] 底下，按一下切換以選擇您要允許「ASR 管理更新」或「手動管理」。 按一下 [檔案] 。
 
-![vault-toggle-autuo-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![vault-toggle-auto-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important] 
 > 當您選擇「允許 ASR 管理」時，會將設定套用到對應保存庫中的所有虛擬機器。

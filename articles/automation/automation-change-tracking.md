@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d29a2020d7e7a16e0bac0802a887a28e12630f03
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433011"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301436"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
@@ -62,7 +62,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 ## <a name="configuring-change-tracking-and-inventory"></a>設定變更追蹤和清查
 
-若要了解如何將電腦登入解決方案，請瀏覽：[登入自動化解決方案](automation-onboard-solutions-from-automation-account.md)。 一旦您有已安裝變更追蹤和清查解決方案的機器，即可設定要追蹤的項目。當您啟用新的檔案或登錄機碼加以追蹤時，其變更追蹤和清查都會啟用。
+若要了解如何將電腦登入解決方案，請瀏覽：[登入自動化解決方案](automation-onboard-solutions-from-automation-account.md)。 讓具有變更追蹤和清查解決方案的機器上線後，即可設定要追蹤的項目。當您啟用新的檔案或登錄機碼加以追蹤時，其變更追蹤和清查都會啟用。
 
 如需追蹤 Windows 和 Linux 上的檔案變更，則會使用檔案的 MD5 雜湊。 這些雜湊接著用來偵測自上次清查後是否已進行變更。
 
@@ -108,7 +108,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>萬用字元、遞迴和環境設定
 
-遞迴可讓您指定萬用字元，以簡化跨目錄的追蹤，而環境變數則可讓您以多個或動態的磁碟機名稱跨環境追蹤檔案。 以下列出您在設定遞迴時所應知悉的一般資訊：
+遞迴可讓您指定萬用字元，以簡化跨目錄的追蹤，而環境變數則可讓您以多個或動態的磁碟機名稱跨環境追蹤檔案。 以下清單顯示您在設定遞迴時所應知悉的一般資訊：
 
 * 追蹤多個檔案時需使用萬用字元
 * 使用萬用字元時，這些字元只能在路徑的最後一個部分使用。 (例如 C:\folder\\**file** 或 /etc/*.conf)
@@ -154,8 +154,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 「變更追蹤」解決方案目前有下列問題︰
 
-* Windows 10 Creators Update 和 Windows Server 2016 Core RS3 機器不會收集 Hotfix 更新。
-* 針對 Windows 檔案，「變更追蹤」目前不會偵測新檔案何時已新增至追蹤的資料夾路徑
+* Windows Server 2016 Core RS3 機器不會收集 Hotfix 更新。
 
 ## <a name="change-tracking-data-collection-details"></a>「變更追蹤」資料收集詳細資訊
 
@@ -188,7 +187,7 @@ Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移�
 
 ![Windows 服務滑桿](./media/automation-change-tracking/windowservices.png)
 
-代理程式只會追蹤變更，這樣可最佳化代理程式的效能。 設定過高的閾值時，若服務還原成原始狀態，則可能會遺漏變更。 若將頻率設為較小的值，則可以攔截可能遺漏的變更。
+代理程式只會追蹤變更，這樣可最佳化代理程式的效能。 設定較高的閾值時，若服務還原成原始狀態，則可能會遺漏變更。 若將頻率設為較小的值，則可以攔截可能遺漏的變更。
 
 > [!NOTE]
 > 雖然代理程式可以追蹤 10 秒間隔內的變更，但資料仍需要幾分鐘才會顯示在入口網站中。 在入口網站中顯示所需時間內仍會追蹤並記錄變更。
@@ -270,6 +269,41 @@ Windows 服務的預設收集頻率為 30 分鐘。 若要設定頻率，請移�
 |---------|---------|
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | 針對已設為 [自動]、但回報為 [正在停止] 的 Windows 服務顯示最新的清查記錄<br>結果會限定為該 SoftwareName 和電腦的最新記錄      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|顯示已移除之軟體的變更記錄|
+
+## <a name="alert-on-changes"></a>變更警示
+
+變更追蹤和清查的重要功能，就是能夠對組態狀態和混合式環境組態狀態的任何變更提出警示。  
+
+在下列範例中，螢幕擷取畫面顯示電腦上的檔案 `C:\windows\system32\drivers\etc\hosts` 已修改。 這個檔案很重要，因為 Windows 會使用 Hosts 檔案來解析 IP 位址的主機名稱，其優先順序甚至高於 DNS，這可能會導致連線問題或流量重新導向至惡意或者危險的網站。
+
+![顯示 hosts 檔案變更的圖表](./media/automation-change-tracking/changes.png)
+
+若要進一步分析這項變更，請按一下 **Log Analytics** 移至記錄搜尋。 在記錄搜尋中，透過查詢 `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` 搜尋 Hosts 檔案的內容變更。 此查詢會尋找變更，其中包括完整路徑包含 "hosts" 這個字的檔案的檔案內容變更。 您也可以將路徑部分變更為其完整形式 (例如 `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`)，以要求特定檔案。
+
+在查詢傳回所需的結果之後，按一下記錄搜尋體驗中的 [新增警示規則] 按鈕，以開啟警示建立頁面。 您也可以在 Azure 入口網站中透過 [Azure 監視器] 瀏覽至此體驗。 在警示建立體驗中，再次檢查我們的查詢並修改警示邏輯。 在此情況下，即使在環境中的所有電腦上偵測到一項變更，也要觸發警示。
+
+![顯示變更查詢以便追蹤 hosts 檔案變更的影像](./media/automation-change-tracking/change-query.png)
+
+設定條件邏輯之後，指派動作群組來執行動作以回應正在觸發的警示。 在此情況下，我已設定要傳送的電子郵件和要建立的 ITSM 票證。  此外，也可以採取許多其他有用的動作，例如觸發 Azure 函式、自動化 Runbook、Webhook 或邏輯應用程式。
+
+![設定警示變更的動作群組的影像](./media/automation-change-tracking/action-groups.png)
+
+設定所有的參數和邏輯之後，我們可以在環境中套用警示。
+
+### <a name="alert-suggestions"></a>警示建議
+
+雖然對變更追蹤或清查資料而言，Hosts 檔案的變更警示是一個很好的警示應用，但是有更多警示案例，包括已定義的情況及其在下一節的範例查詢。
+
+|查詢  |說明  |
+|---------|---------|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|適用於追蹤系統重要檔案的變更|
+|ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|適用於追蹤重要組態檔的修改|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "WindowsServices" and SvcName contains "w3svc" and SvcState == "Stopped"|適用於追蹤系統重要服務的變更|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|適用於追蹤系統重要服務的變更|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|適用於需要鎖定軟體組態的環境|
+|ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion != "8.0.11081.0"|適用於查看哪些電腦已過時或不符合所安裝軟體版本的規範。 它會報告上次所回報的組態狀態，毫無變更。|
+|ConfigurationChange <br>&#124; where RegistryKey == "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| 適用於追蹤重要防毒金鑰的變更|
+|ConfigurationChange <br>&#124; where RegistryKey contains "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| 適用於追蹤防火牆設定的變更|
 
 ## <a name="next-steps"></a>後續步驟
 

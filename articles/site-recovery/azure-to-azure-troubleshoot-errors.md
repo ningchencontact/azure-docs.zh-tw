@@ -8,16 +8,21 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 44801663165b85edc988dab8ae2b668ef0e613b7
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 7f821c86712b239435d01cfc377da15c498fe7bf
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381595"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219867"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
 
 本文說明從一個區域將 Azure 虛擬機器複寫和復原到另一個區域時，關於 Azure Site Recovery 的常見問題，並解說如何進行疑難排解。 如需受支援組態的詳細資訊，請參閱[複寫 Azure VM 的支援矩陣](site-recovery-support-matrix-azure-to-azure.md)。
+
+## <a name="list-of-errors"></a>錯誤清單
+- **[Azure 資源配額問題 (錯誤碼 150097)](#azure-resource-quota-issues-error-code-150097)** 
+- **[受信任的根憑證 (錯誤碼 151066)](#trusted-root-certificates-error-code-151066)** 
+- **[Site Recovery 的輸出連線能力 (錯誤碼 151195)](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)** 
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Azure 資源配額問題 (錯誤碼 150097)
 您的訂用帳戶應該啟用，才能在要做為災害復原區域的目標區域中建立 Azure VM。 此外，您的訂用帳戶應該已啟用足夠的配額，才能建立特定大小的 VM。 根據預設，Site Recovery 會取用相同大小的目標 VM 做為來源 VM。 如果沒有相符大小，系統會自動挑選最接近的大小。 如果沒有支援來源 VM 組態的相符大小，則會出現下列錯誤訊息：
@@ -322,7 +327,12 @@ blkid /dev/sda1
 
 1. Now replace the device name with its UUID in the format like "root=UUID=<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
 *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+1. Restart the protection again
 
+
+## Site recovery mobility service update completed with warnings ( error code 151083)
+Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
+**Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
 
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215225"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194282"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric 健康狀態監視簡介
 Azure Service Fabric 導入了健康狀態模型，提供豐富、彈性且可延伸的健康狀態評估與報告。 此模型允許幾乎即時地監視叢集狀態以及其中所執行的服務。 您可以輕鬆地取得健康狀態資訊，並在潛在問題引起連鎖反應和造成大規模中斷之前，予以更正。 在一般模型中，服務會根據其本機檢視傳送報告，且該資訊會進行彙總以提供整體叢集層級檢視。
@@ -46,7 +46,7 @@ Service Fabric 元件會使用此健康狀態模型來報告其目前狀態。 �
 健康狀態實體和階層可讓您有效率地報告、偵錯和監視叢集和應用程式。 健康狀態模型可針對叢集中許多移動的項目提供精確且「細微」  的健康狀態呈現方式。
 
 ![健康狀態實體][1]。
-階層中的健康狀態實體將依照父系-子系關聯性組合管理。
+ 階層中的健康狀態實體將依照父系-子系關聯性組合管理。
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
@@ -71,7 +71,7 @@ Service Fabric 元件會使用此健康狀態模型來報告其目前狀態。 �
 在設計大型雲端服務期間，投入時間規劃如何報告和回應健康情況。 此預先投入可讓您更輕鬆地偵錯、監視和操作該服務。
 
 ## <a name="health-states"></a>健康狀態
-Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否良好：「OK」、「Warning」和「Error」。 傳送至健康狀態資料存放區的任何報告都必須指定這其中一個狀態。 健康狀態評估結果即為這些狀態的其中之一。
+Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否良好：OK、Warning 和 Error。 傳送至健康狀態資料存放區的任何報告都必須指定這其中一個狀態。 健康狀態評估結果即為這些狀態的其中之一。
 
 可能的 [健康狀態](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) 為：
 

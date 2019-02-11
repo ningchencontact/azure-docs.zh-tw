@@ -5,16 +5,16 @@ description: 如何在自訂翻譯工具中建立專案？
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 4e5ac4386af55855c5240f89557feafd4a93adfb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9886ba39846d9489a66c57bcc614f90e2bf70d4e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627887"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218099"
 ---
 # <a name="create-a-project"></a>建立專案
 
@@ -32,7 +32,7 @@ ms.locfileid: "51627887"
 
     a.  專案名稱 (必要)：為您的專案提供唯一且有意義的名稱。 您不需要在標題中提到語言。
 
-    b.  描述：專案的簡短摘要。 此描述並不會影響自訂翻譯工具或所產生自訂系統的行為，但可協助您區分不同專案。
+    b.  Description:專案的簡短摘要。 此描述並不會影響自訂翻譯工具或所產生自訂系統的行為，但可協助您區分不同專案。
 
     c.  語言組 (必要)：選取要翻譯的原始語言和目標語言。
 
@@ -52,13 +52,13 @@ ms.locfileid: "51627887"
 
 選取專案之後，您會在專案頁面上看到下列項目：
 
-- CategoryID：CategoryID 是由 WorkspaceID、專案標籤和類別代碼組成。 您會使用 CategoryID 和文字翻譯工具 API 來取得自訂翻譯。
+- CategoryID：CategoryID 由 WorkspaceID、專案標籤和類別代碼所組成。 您會使用 CategoryID 和文字翻譯工具 API 來取得自訂翻譯。
 
-- [訓練] 按鈕：使用此按鈕來啟動[訓練模型](how-to-train-model.md)。
+- 訓練按鈕：使用此按鈕可啟動[訓練模型](how-to-train-model.md)。
 
-- [新增文件] 按鈕：使用此按鈕來[上傳文件](how-to-upload-document.md)。
+- 新增文件按鈕：使用此按鈕可[上傳文件](how-to-upload-document.md)。
 
-- [篩選文件] 按鈕：使用此按鈕來篩選及搜尋特定文件。
+- 篩選文件按鈕：使用此按鈕可篩選及搜尋特定文件。
 
     ![檢視專案詳細資料](media/how-to/how-to-view-project.png)
 

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e0f51306ab17e88db9d28da14faab9de0b445f74
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037901"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243176"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>適用於 Azure Stack 整合式系統的 Azure 連線部署規劃決策
 在您決定[如何將 Azure Stack 整合到您的混合式雲端環境](azure-stack-connection-models.md)之後，即可接著完成您的 Azure Stack 部署決策。
@@ -68,7 +69,7 @@ ms.locfileid: "51037901"
 
 ## <a name="learn-more"></a>深入了解
 - 如需使用案例、購買、合作夥伴和 OEM 硬體廠商的詳細資訊，請參閱 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 產品頁面。
-- 如需 Azure Stack 整合系統的藍圖和地理可用性的詳細資訊，請參閱白皮書：[Azure Stack：Azure 的延伸模組](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
+- 如需 Azure Stack 整合系統的藍圖和地理可用性的詳細資訊，請參閱白皮書：[Azure Stack：的延伸模組](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/) (英文)。 
 - 若要深入了解 Microsoft Azure Stack 套件和定價，請[下載此 .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。 
 
 ## <a name="next-steps"></a>後續步驟

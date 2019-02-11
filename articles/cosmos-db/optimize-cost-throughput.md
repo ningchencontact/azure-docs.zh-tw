@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 476e39d0ced465d75e44098b9508472b87b0e7b8
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 32c0ee4764c7c2b541428c63857286a45a09a634
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230164"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733112"
 ---
-# <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中獲得最佳的輸送量成本
+# <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化已佈建的輸送量成本
 
 Azure Cosmos DB 可藉由提供所佈建的輸送量模型，於任何規模提供可預測的效能。 事先保留或佈建輸送量，效能就能避免出現「擾鄰效果」。 請指定您所需的確切輸送量，如此一來，Azure Cosmos DB 便可根據 SLA 來保證您所設定的輸送量。
 
@@ -79,7 +79,7 @@ HTTP Status 429,
 
 如果您有多個用戶端不斷逐漸地以高於要求速率的方式運作，則目前設定為 9 個的預設重試計數可能會不敷使用。 在這類情況下，用戶端會對應用程式擲回 `DocumentClientException`，且狀態碼為 429。 在 ConnectionPolicy 執行個體上設定 `RetryOptions`，即可變更預設重試次數。 根據預設，如果要求繼續以高於要求速率的方式運作，則會在 30 秒的累計等候時間後傳回 DocumentClientException (狀態碼 429)。 即使目前的重試計數小於最大重試計數 (預設值 9 或使用者定義的值)，也會發生這種情況。 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryAtte)  會設定為 3，因此在此情況下，如果要求作業因為超過集合的保留輸送量而受到限速，要求作業會先重試三次，再對應用程式擲回例外狀況。 [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds)  會設定為 60，因此在此情況下，如果自第一次要求後所累積的重試等候時間 (以秒為單位) 超過 60 秒，系統就會擲回例外狀況。
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet)  會設定為 3，因此在此情況下，如果要求作業因為超過集合的保留輸送量而受到限速，要求作業會先重試三次，再對應用程式擲回例外狀況。 [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds)  會設定為 60，因此在此情況下，如果自第一次要求後所累積的重試等候時間 (以秒為單位) 超過 60 秒，系統就會擲回例外狀況。
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: e2cb1a76bfde5bea7707cf3cc6658e3fc82163c5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cb85d09a1d5dee6cb54254baac4698cdad093785
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043085"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457661"
 ---
-# <a name="optimize-the-cost-required-to-run-queries-in-azure-cosmos-db"></a>最佳化在 Azure Cosmos DB 中執行查詢所需的成本
+# <a name="optimize-query-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化查詢成本
 
 Azure Cosmos DB 會提供一組豐富的資料庫作業，包括對容器內的項目進行關聯式和階層式的查詢。 與上述各項作業相關聯的成本，會因為完成作業所需的 CPU、IO 和記憶體而不同。 您不需要考慮和管理硬體資源，您可以將要求單位 (RU) 想成是執行各種資料庫作業以服務要求時所需的資源數量。 這篇文章說明如何評估查詢的要求單位費用，並在效能和成本方面最佳化查詢。 
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339513"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296116"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>針對 Azure 上的 SQL Server 備份進行疑難排解
 
@@ -37,6 +37,15 @@ ms.locfileid: "53339513"
 ## <a name="troubleshooting-errors"></a>錯誤疑難排解
 
 請使用下列表格中的資訊，來針對在 Azure 上保護 SQL Server 時所遇到的問題和錯誤進行疑難排解。
+
+## <a name="alerts"></a>警示
+
+### <a name="backup-type-unsupported"></a>不支援的備份類型
+
+| 嚴重性 | 說明 | 可能的原因 | 建議的動作 |
+|---|---|---|---|
+| 警告 | 此資料庫目前的設定不支援相關聯的原則中出現的的特定種類備份類型。 | <li>**Master DB**：只能對 master 資料庫執行完整資料庫備份作業；不可能執行**差異**備份或交易**記錄**備份。 </li> <li>**簡單復原模式**中的任何資料庫不允許交易**記錄**進行備份。</li> | 修改資料庫設定，使其支援原則中的所有備份類型。 或者，變更目前的原則，僅納入支援的備份類型。 否則，在排定備份期間將略過不支援的備份類型，或臨機操作備份的備份作業將會失敗。
+
 
 ## <a name="backup-failures"></a>備份失敗
 

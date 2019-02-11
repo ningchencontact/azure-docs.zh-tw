@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: raynew
-ms.openlocfilehash: 7c01c8ec8c4957900688fed7ca09830f792a7886
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: b790cbf6c3c9ec04dfdbf0299e337d32e54e9708
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413408"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299755"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -71,11 +71,12 @@ Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11<b>\*\*</b>、6.1 �
 
 **支援的版本** | **Azure Site Recovery 行動服務版本** | **核心版本** |
 --- | --- | --- |
+14.04 LTS | [9.22][9.22 UR] | 3.13.0-24-generic 至 3.13.0-164-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.15.0-1023-azure 至 4.15.0-1036-azure |
 14.04 LTS | [9.21][9.21 UR] | 3.13.0-24-generic 至 3.13.0-163-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.15.0-1023-azure 至 4.15.0-1035-azure |
 14.04 LTS | [9.20][9.20 UR] | 3.13.0-24-generic 至 3.13.0-153-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-138-generic、<br/>4.15.0-1023-azure 至 4.15.0-1025-azure |
 14.04 LTS | [9.19][9.19 UR] | 3.13.0-24-generic 至 3.13.0-153-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-131-generic |
-14.04 LTS | [9.18][9.18 UR] | 3.13.0-24-generic 至 3.13.0-153-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-130-generic |
 |||
+16.04 LTS | [9.22][9.22 UR] | 4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-generic 至 4.15.0-43-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1036-azure|
 16.04 LTS | [9.21][9.21 UR] | 4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-generic 至 4.15.0-42-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1035-azure|
 16.04 LTS | [9.20][9.20 UR] | 4.4.0-21-generic 至 4.4.0-138-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-generic 至 4.15.0-38-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1025-azure|
 16.04 LTS | [9.19][9.19 UR] | 4.4.0-21-generic 至 4.4.0-131-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-generic 至 4.15.0-30-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1019-azure|
@@ -252,6 +253,7 @@ VM 名稱 | 從 1 到 63 個字元。<br/><br/> 只能使用字母、數字和�
 ## <a name="next-steps"></a>後續步驟
 [了解如何](tutorial-prepare-azure.md)準備 Azure 的 VMware VM 災害復原。
 
+[9.22 UR]: https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery
 [9.21 UR]: https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery
 [9.20 UR]: https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery
 [9.19 UR]: https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30

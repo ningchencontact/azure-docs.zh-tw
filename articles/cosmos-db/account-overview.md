@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 7c4c1a5991445448f015dc0912383baf53f4e38c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbc11e2fc54ecffbea22a66354f334f3562e3339
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034925"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459201"
 ---
-# <a name="working-with-azure-cosmos-account"></a>與 Azure Cosmos 帳戶搭配使用
+# <a name="work-with-azure-cosmos-account"></a>使用 Azure Cosmos 帳戶
 
 Azure Cosmos DB 是完全受控的平台即服務 (PaaS)。 若要開始使用 Azure Cosmos DB，首先您應在 Azure 訂用帳戶中建立 Azure Cosmos 帳戶。 您的 Azure Cosmos 帳戶包含唯一的 DNS 名稱，且您可以使用 Azure 入口網站、Azure CLI 或使用不同的語言特定 SDK 來管理帳戶。 如需詳細資訊，請參閱[如何管理 Azure Cosmos 帳戶](how-to-manage-database-account.md)。
 

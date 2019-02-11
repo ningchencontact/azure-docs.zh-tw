@@ -6,17 +6,17 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b06864e08f6edf52e4c96c33c88bba9f8ef4e859
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343202"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251549"
 ---
 # <a name="about-the-text-to-speech-api"></a>關於文字轉換語音 API
 
@@ -37,6 +37,9 @@ ms.locfileid: "53343202"
 ## <a name="voice-support"></a>語音支援
 
 Microsoft **文字轉換語音**服務在 45 個以上的語言和地區設定中提供 75 種以上的語音。 若要使用這些標準「語音字型」，您只需要在呼叫服務的 REST API 時，使用一些其他參數來指定語音名稱。 如需所支援語言、地區設定和語音的詳細資訊，請參閱[支援的語言](language-support.md#text-to-speech)。
+
+> [!IMPORTANT]
+> 標準、自訂和神經語音的成本各不相同。 如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
 
 ### <a name="neural-voices"></a>神經語音
 

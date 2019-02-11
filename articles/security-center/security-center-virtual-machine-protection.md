@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3a2ccd04cd7ec36cafdf56830b9ad8249f89eb7e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 2c8f91c6915b23193129ed9e82688ad5967eb6ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321581"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181464"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>保護 Azure 資訊安全中心內的機器和應用程式
 「Azure 資訊安全中心」會分析 Azure 資源的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議。 這些建議適用於下列 Azure 資源類型︰虛擬機器 (VM) 和電腦、應用程式、網路、SQL、身分識別與存取。

@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 0c681e7406f5c0c6e205f9dc54ee5eea63b40252
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 444c67e942fad732c959f834e2c50f0b2a35562c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853233"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246529"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 更新
 
@@ -186,8 +187,7 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 - [CVE-2018-8566](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8566)
 - [CVE-2018-8584](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8584)
 
-
-如需有關這些弱點的詳細資訊，請按一下上述連結，或參閱 Microsoft 知識庫文章 [4467684](https://support.microsoft.com/help/4467684)。
+如需關於這些弱點的詳細資訊，請按一下上述連結，或參閱 Microsoft 知識庫文章 [4478877](https://support.microsoft.com/help/4478877)。
 
 ## <a name="known-issues-with-the-update-process"></a>關於更新程序的已知問題
 
@@ -353,6 +353,8 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
     其他選項在 Azure Stack 中不支援用來作為來源標籤。 同樣地，如果您新增連出安全性規則並選取 [服務標籤] 作為目的地，會顯示與 [來源標籤] 相同的選項清單。 僅有的有效選項與 [來源標籤] 的有效選項相同，如以上清單所述。
 
 - **New-AzureRmIpSecPolicy** PowerShell Cmdlet 不支援為 `DHGroup` 參數設定 **DHGroup24**。
+
+- 網路安全性群組 (NSG) 無法以全域 Azure 中的相同方式在 Azure Stack 中運作。 在 Azure 中，您可以在一個 NSG 規則上設定多個連接埠 (使用入口網站、PowerShell 和 Resource Manager 範本)。 在 Azure Stack 中，您無法透過入口網站在一個 NSG 規則上設定多個連接埠。 若要解決此問題，請使用 Resource Manager 範本來設定這些額外的規則。
 
 ### <a name="infrastructure-backup"></a>基礎結構備份
 

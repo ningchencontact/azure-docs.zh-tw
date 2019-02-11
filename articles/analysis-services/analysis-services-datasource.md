@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e1a001a60151136be6bde9de38f971807cf0c288
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 92c2d59ffe8c144bea6e7f8676880c866e234885
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188397"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299039"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -23,17 +23,20 @@ ms.locfileid: "54188397"
 
 |資料來源  |記憶體內  |DirectQuery  |
 |---------|---------|---------|
-|連接字串     |   是      |    是      |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   是      |    是      |
 |Azure SQL 資料倉儲     |   是      |   是       |
-|Azure Blob 儲存體*     |   是       |    否      |
-|Azure 表格儲存體*    |   是       |    否      |
-|Azure Cosmos DB*     |  是        |  否        |
-|Azure Data Lake Store*     |   是       |    否      |
-|Azure HDInsight HDFS*     |     是     |   否       |
-|Azure HDInsight Spark*     |   是       |   否       |
+|Azure Blob 儲存體<sup>[1](#tab1400a)</sup>     |   是       |    否      |
+|Azure 資料表儲存體<sup>[1](#tab1400a)</sup>    |   是       |    否      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  是        |  否        |
+|Azure Data Lake Store<sup>[1](#tab1400a)</sup>     |   是       |    否      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     是     |   否       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>、<sup>[3](#databricks)</sup>     |   是       |   否       |
 ||||
 
-\* 僅限表格式 1400 模型。
+<a name="tab1400a">1</a> 僅限 Tabular 1400 和更高模型。   
+<a name="azsqlmanaged">2</a> 支援 Azure SQL Database 受控執行個體。 因為受控執行個體在具有私人 IP 位址的 Azure VNet 中執行，所以需要內部部署資料閘道。   
+<a name="databricks">3</a> 目前不支援使用 Spark 連接器的 Azure Databricks。
+
 
 **提供者**   
 連線至 Azure 資料來源的記憶體內部和 DirectQuery 模型會使用 .NET Framework Data Provider for SQL Server。
@@ -57,31 +60,31 @@ ms.locfileid: "54188397"
 |資料來源  |  
 |---------|---------|
 |Access 資料庫     |  
-|Active Directory*     |  
+|Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
 |分析平台系統     |  
-|Dynamics CRM*     |  
+|Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Excel 活頁簿     |  
-|Exchange*     |  
-|資料夾*     |
-|IBM Informix* (搶鮮版 (Beta)) |
-|JSON 文件*     |  
-|Lines from binary*     | 
+|Exchange<sup>[1](#tab1400b)</sup>     |  
+|資料夾<sup>[1](#tab1400b)</sup>     |
+|IBM Informix<sup>[1](#tab1400b)</sup> (搶鮮版 (Beta)) |
+|JSON 文件<sup>[1](#tab1400b)</sup>     |  
+|二進位檔中的程式行<sup>[1](#tab1400b)</sup>     | 
 |MySQL Database     | 
-|OData 摘要*     |  
+|OData 摘要<sup>[1](#tab1400b)</sup>     |  
 |ODBC 查詢     | 
 |OLE DB     |   
-|Postgre SQL 資料庫*    | 
-|Salesforce 物件* |  
-|Salesforce 報表* |
-|SAP HANA*    |  
-|SAP Business Warehouse*    |  
-|SharePoint*     |   
+|Postgre SQL Database<sup>[1](#tab1400b)</sup>    | 
+|Salesforce 物件<sup>[1](#tab1400b)</sup> |  
+|Salesforce 報告<sup>[1](#tab1400b)</sup> |
+|SAP HANA<sup>[1](#tab1400b)</sup>    |  
+|SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
+|SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Sybase 資料庫     |  
-|XML 表格*    |  
+|XML 表格<sup>[1](#tab1400b)</sup>    |  
 |||
  
-\* 僅限表格式 1400 模型。
+<a name="tab1400b">1</a> 僅限 Tabular 1400 和更高模型。
 
 ## <a name="specifying-a-different-provider"></a>指定不同提供者
 

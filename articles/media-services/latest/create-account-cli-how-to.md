@@ -10,20 +10,21 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 01/15/2019
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 9c026eb9a74cbba2ff188a3f08be625043ede474
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: b01958dc320ff6c81bb27c85ff4a5e508eabb01b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352048"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209939"
 ---
 # <a name="create-an-azure-media-services-account"></a>建立 Azure 媒體服務帳戶
 
 若要在 Azure 中開始加密、編碼、分析、管理和串流處理媒體內容，您需要建立 Media Services 帳戶。 當您建立媒體服務帳戶時，也會建立相關聯的儲存體帳戶 (或使用現有儲存體帳戶)。  
 
-媒體服務帳戶及其相關聯的儲存體帳戶必須屬於相同的資料中心和相同的資源群組。
+> [!NOTE]
+> 媒體服務帳戶和所有相關聯的儲存體帳戶必須位於相同的 Azure 訂用帳戶中。 建議使用與媒體服務帳戶位於相同位置的儲存體帳戶。
 
 本文說明使用 Azure CLI 來建立新「Azure 媒體服務」帳戶的步驟。  
 
@@ -31,10 +32,9 @@ ms.locfileid: "54352048"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 有效的 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
-- 在本機安裝和使用 CLI，本文需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 
+有效的 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
 
-    目前，並非所有[媒體服務 v3 CLI](https://aka.ms/ams-v3-cli-ref) 命令都可在 Azure Cloud Shell 中運作。 建議在本機使用 CLI。
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="set-the-azure-subscription"></a>設定 Azure 訂用帳戶
 

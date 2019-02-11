@@ -3,19 +3,19 @@ title: Azure AD 中的動態禁用密碼
 description: 使用 Azure AD 動態禁用密碼而在環境中禁用弱式密碼
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 7cb1acace3dd8605d7506013a6f1c0273dafa32f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 916ef921bf2ad183e3fb74c640ccfa7049559a72
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421431"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295860"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>避免在組織中使用不當密碼
 
@@ -28,7 +28,7 @@ ms.locfileid: "54421431"
 
 ## <a name="global-banned-password-list"></a>全域禁用密碼清單
 
-Microsoft 一直努力在網路罪犯發生前加以防範。 因此，Azure AD Identity Protection 小組會持續尋找常用和遭入侵的密碼。 然後，他們會在所謂的全域禁用密碼清單中封鎖這些會被視為太常見的密碼。 網路罪犯也會在其攻擊中使用類似的策略，因此 Microsoft 不會公開發佈此清單的內容。 這些易受攻擊的密碼會在對 Microsoft 的客戶形成實際的威脅之前就遭到封鎖。 如需現行安全性成果的詳細資訊，請參閱 [Microsoft 安全性情資報告](https://www.microsoft.com/security/intelligence-report)。
+Microsoft 一直努力在網路罪犯發生前加以防範。 因此，Azure AD Identity Protection 小組會持續尋找常用和遭入侵的密碼。 然後，他們會在所謂的全域禁用密碼清單中封鎖這些會被視為太常見的密碼。 網路罪犯也會在其攻擊中使用類似的策略，因此 Microsoft 不會公開發佈此清單的內容。 這些易受攻擊的密碼會在對 Microsoft 的客戶形成實際的威脅之前就遭到封鎖。 如需現行安全性成果的詳細資訊，請參閱 [Microsoft 安全性情資報告](https://www.microsoft.com/security/operations/security-intelligence-report)。
 
 ## <a name="preview-custom-banned-password-list"></a>預覽：自訂禁用密碼清單
 
@@ -42,15 +42,69 @@ Microsoft 一直努力在網路罪犯發生前加以防範。 因此，Azure AD 
 
 保護僅限雲端帳戶有其效用，但許多組織仍會維護包含內部部署 Windows Server Active Directory 的混合式案例。 您可以內部部署安裝 Windows Server Active Directory (預覽) 代理程式的 Azure AD 密碼保護，以將禁用密碼清單擴充至現有的基礎結構。 現在，在內部部署變更、設定或重設密碼的使用者和系統管理員，都必須遵循與僅限雲端使用者相同的密碼原則。
 
-## <a name="how-does-the-banned-password-list-work"></a>禁用密碼清單的運作方式
+## <a name="how-are-passwords-evaluated"></a>如何評估密碼
 
-禁用密碼清單會將字串轉換為小寫，並使用編輯距離在 1 以內的模糊比對將其與已知的禁用密碼比較，以比對清單中的密碼。
+每當使用者變更或重設其密碼時，系統會根據全域和自訂禁用密碼清單 (如果已設定後者) 驗證該密碼，以檢查新密碼的強度與複雜度。
 
-範例：組織使用 password 這個字時會遭到封鎖
-   - 使用者若嘗試將其密碼設定為 "P@ssword"，由於這個字會轉換為 "password"，並且是 password 的變異形式，因此會遭到封鎖。
-   - 系統管理員若嘗試將使用者密碼設定為 "Password123!"， 由於這個字會轉換為 "password123!"， 並且是 password 的變異形式，因此會遭到封鎖。
+即使使用者的密碼包含禁用密碼，如果整體密碼還不夠強，仍然可能接受此密碼。 新設定的密碼會經歷下列步驟來評估其整體強度，以判斷應該接受或拒絕該密碼。
 
-每當使用者重設或變更其 Azure AD 密碼時，密碼都須經過此程序的處理，以確認它不在禁用密碼清單上。 這項檢查會使用自助式密碼重設、密碼雜湊同步和傳遞驗證包含在混合式案例中。
+### <a name="step-1-normalization"></a>步驟 1：正規化
+
+新密碼會先經歷正規化程序。 這可讓一小組禁用密碼對應至更大一組潛在的弱式密碼。
+
+正規化有兩個部分。  第一個部分，所有大寫字母會變更為小寫。  第二個部，會執行一般字元替代，例如：  
+
+| 原始字母  | 替代的字母 |
+| --- | --- |
+| '0'  | 'o' |
+| '1'  | 'l' |
+| '$'  | 's' |
+| '@'  | 'a' |
+
+範例：假設密碼 "blank" 遭到禁止，而使用者嘗試將其密碼變更為 “Bl@nK”。 即使 “Bl@nk” 並未明確遭到禁用，正規化程序會將這個密碼轉換為 “blank”，這禁用密碼。
+
+### <a name="step-2-check-if-password-is-considered-banned"></a>步驟 2：檢查密碼是否被視為禁用
+
+#### <a name="fuzzy-matching-behavior"></a>模糊比對行為
+
+模糊比對在正規化密碼上用來識別是否包含在全域或自訂禁用密碼清單上找到的密碼。 比對程序是以一 (1) 次比較的編輯差距為基礎。  
+
+範例：假設密碼 "abcdef" 遭到禁止，而使用者嘗試將其密碼變更為下列其中一項：
+
+‘abcdeg’    *(最後一個字元從 ‘f’ 變更為 ‘g’)* ‘abcdefg’   *’(g’ 附加至結尾)* ‘abcde’     *(尾端 ‘f’ 已從結尾刪除)*
+
+以上每個密碼並未明確符合禁用密碼 "abcdef"。 不過，由於每個範例是在禁用語彙基元 'abcdef' 的編輯差距 1 內，所以全都會被視為與 "abcdef" 相符。
+
+#### <a name="substring-matching-on-specific-terms"></a>子字串比對 (在特定詞彙上)
+
+子字串比對在正規化密碼上用來檢查使用者的名字和姓氏以及租用戶名稱 (請注意，在 Active Directory 網域控制站上驗證密碼時不會進行租用戶名稱比對)。
+
+範例：假設有一位使用者 John Doe 想要將其密碼重設為 “J0hn123fb”。 正規化之後，此密碼會變成 “john123fb”。 子字串比對發現密碼包含使用者的名字 "John"。 即使 “J0hn123fb” 並未明確列在任一份禁用密碼清單上，但是子字串比對在密碼中找到 "John"。 因此，此密碼會遭到拒絕。
+
+#### <a name="score-calculation"></a>分數計算
+
+下一個步驟是在使用者的正規化新密碼中找出所有禁用密碼執行個體。 然後：
+
+1. 在使用者密碼中找到的每個禁用密碼都會得到一分。
+2. 每個剩餘的唯一字元會得到一分。
+3. 密碼必須至少 5 分，才能獲得接受。
+
+在後續兩個範例中，我們假設 Contoso 使用 Azure AD 密碼保護，且其自訂清單上有 "contoso"。 我們也假設 “blank” 位於全域清單上。
+
+範例：使用者將其密碼變更為 “C0ntos0Blank12”
+
+正規化之後，此密碼會變成 “contosoblank12”。 比對程序發現此密碼包含兩個禁用密碼：contoso 和 blank。 此密碼接著會被評分：
+
+[contoso] + [blank] = [1] + [2] = 4 分，因為此密碼低於 5 分，所以遭到拒絕。
+
+範例：使用者將其密碼變更為 “ContoS0Bl@nkf9!”。
+
+正規化之後，此密碼會變成 “contosoblankf9!”。 比對程序發現此密碼包含兩個禁用密碼：contoso 和 blank。 此密碼接著會被評分：
+
+[contoso] + [blank] + [f] + [9] + [!] = 5 分，因為此密碼至少 5 分，所以獲得接受。
+
+   > [!IMPORTANT]
+   > 請注意，根據進行中的安全性分析和研究，禁用密碼演算法及全域清單可能在 Azure 中隨時變更。 在內部部署 DC 代理程式服務中，只有在重新安裝 DC 代理程式軟體後，更新後的演算法才會生效。
 
 ## <a name="license-requirements"></a>授權需求
 

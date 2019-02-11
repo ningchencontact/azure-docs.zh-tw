@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: ad9e9e893dc831530b69a30cc3dd930e879e9d7b
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 05abc61da7af02c56dacd632175d6fbfa64cb9e1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185113"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098556"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>為 DevTest Labs 虛擬機器建立自訂構件
 
 觀看下列影片以概略了解本文所說明的步驟：
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/how-to-author-custom-artifacts/player]
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>概觀
 在佈建 VM 之後，您可以使用「構件」來部署和設定應用程式。 構件包含構件定義檔和其他儲存於 Git 存放庫之資料夾中的指令碼檔案。 構件定義檔是由 JSON 和可用來指定您想要在 VM 上安裝的運算式所組成。 例如，您可以定義構件名稱、要執行的命令，以及執行命令時可用的參數。 您可以依照名稱來參考構件定義檔中的其他指令碼檔案。
@@ -69,12 +69,12 @@ ms.locfileid: "39185113"
 若要定義參數，請使用下列結構：
 
     "parameters": {
-        "<parameterName>": {
-          "type": "<type-of-parameter-value>",
-          "displayName": "<display-name-of-parameter>",
-          "description": "<description-of-parameter>"
-        }
+      "<parameterName>": {
+        "type": "<type-of-parameter-value>",
+        "displayName": "<display-name-of-parameter>",
+        "description": "<description-of-parameter>"
       }
+    }
 
 | 元素名稱 | 必要？ | 說明 |
 | --- | --- | --- |
@@ -102,7 +102,7 @@ ms.locfileid: "39185113"
 下列範例示範如何使用運算式和函式來建構值：
 
     runCommand": {
-         "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
     , ' -RawPackagesList ', parameters('packages')
     , ' -Username ', parameters('installUsername')
     , ' -Password ', parameters('installPassword'))]"
@@ -113,7 +113,7 @@ ms.locfileid: "39185113"
 1. 安裝 JSON 編輯器。 您需要 JSON 編輯器才能使用構件定義檔。 建議您使用 [Visual Studio 程式碼](https://code.visualstudio.com/)，這適用於 Windows、Linux 和 OS X。
 2. 取得 artifactfile.json 定義檔範例。 請參閱 [GitHub 存放庫](https://github.com/Azure/azure-devtestlab)中由 DevTest Labs 小組所建立的構件。 我們已建立了豐富的構件庫，以協助您建立您自己的構件。 下載構件定義檔，並對它進行變更以建立您自己的構件。
 3. 利用 IntelliSense。 使用 IntelliSense 來查看可用於建構構件定義檔的有效元素。 您也可以看到適用於元素值的不同選項。 例如，當您編輯 **targetOsType** 元素時，IntelliSense 會顯示 Windows 或 Linux 這兩個選項。
-4. 將成品儲存在[適用於 DevTest Labs 的公開 Git 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)或[您自己的 Git 存放庫](devtest-lab-add-artifact-repo.md)中。 在公用存放庫中，您可以檢視其他人分享的成品，並且可以直接使用這些成品，或根據您的需求來自訂這些成品。 
+4. 將成品儲存在[適用於 DevTest Labs 的公開 Git 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)或[您自己的 Git 存放庫](devtest-lab-add-artifact-repo.md)中。 在公用存放庫中，您可以檢視其他人分享的成品，並且可以直接使用這些成品，或根據您的需求來自訂這些成品。
    
    1. 為每個構件建立個別的目錄。 目錄名稱應該和構件名稱相同。
    2. 將構件定義檔 (artifactfile.json) 儲存於您建立的目錄中。
@@ -122,8 +122,7 @@ ms.locfileid: "39185113"
       構件資料夾的可能外觀範例如下：
       
       ![構件資料夾範例](./media/devtest-lab-artifact-author/git-repo.png)
-5. 如果您使用自己的存放庫來儲存成品，請依照[新增成品和範本的 Git 存放庫](devtest-lab-add-artifact-repo.md)一文中的指示，將存放庫新增至實驗室。
-
+5. 如果您使用自己的存放庫來儲存成品，請依照以下文章中的指示，將存放庫新增至實驗室：[新增成品和範本的 Git 存放庫](devtest-lab-add-artifact-repo.md)。
 
 ## <a name="related-articles"></a>相關文章
 * [如何診斷 DevTest Labs 中的構件失敗](devtest-lab-troubleshoot-artifact-failure.md)
@@ -131,4 +130,3 @@ ms.locfileid: "39185113"
 
 ## <a name="next-steps"></a>後續步驟
 * 了解如何 [將 Git 構件儲存機制加入實驗室](devtest-lab-add-artifact-repo.md)。
-

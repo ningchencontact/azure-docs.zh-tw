@@ -2,18 +2,18 @@
 title: 在 Azure Stack VM 中備份檔案
 description: 使用 Azure 備份可備份 Azure Stack 檔案和應用程式，並復原到 Azure Stack 環境。
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: acbd1bb98fd9a3eb24b7b3262c3fe9fe47200385
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 67d79f2aa41bab8a14d693098538d22ffeb05a4e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579175"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301470"
 ---
 # <a name="back-up-files-on-azure-stack"></a>在 Azure Stack 上備份檔案
 您可以使用 Azure 備份在 Azure Stack 上保護 (或備份) 檔案和應用程式。 若要備份檔案和應用程式，請將 Microsoft Azure 備份伺服器安裝成為在 Azure Stack 上執行的虛擬機器。 您可以保護在相同虛擬網路中任何 Azure Stack 伺服器上的檔案。 在您安裝 Azure 備份伺服器後，請新增 Azure 磁碟，以增加可保存短期備份資料的本機存放區。 Azure 備份伺服器會使用 Azure 存放區進行長期保存。

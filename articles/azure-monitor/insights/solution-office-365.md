@@ -10,14 +10,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 3eb1228ed9d15fb976f94df114f8725a8c41599d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 370483b92dcd2c468cd676a32db0ded80e8814d0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230453"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216607"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
@@ -29,7 +29,7 @@ Office 365 管理解決方案可讓您監視 Log Analytics 中的 Office 365 環
 - 監視系統管理員活動以追蹤設定變更或高權限作業。
 - 偵測並調查的不必要的使用者行為，並可以針對貴組織的需求進行自訂。
 - 示範稽核與合規性。 例如，您可以監視機密檔案的檔案存取作業，以協助進行稽核與合規性流程。
-- 針對組織的 Office 365 活動資料使用[記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)，執行作業疑難排解。
+- 針對組織的 Office 365 活動資料使用[記錄搜尋](../log-query/log-query-overview.md)，執行作業疑難排解。
 
 ## <a name="prerequisites"></a>必要條件
 安裝和設定此解決方案之前必須先具備下列項目。
@@ -40,7 +40,7 @@ Office 365 管理解決方案可讓您監視 Log Analytics 中的 Office 365 環
  
 
 ## <a name="management-packs"></a>管理組件
-此解決方案不會在[已連線的管理群組](../../azure-monitor/platform/om-agents.md)中安裝任何管理組件。
+此解決方案不會在[已連線的管理群組](../platform/om-agents.md)中安裝任何管理組件。
   
 ## <a name="install-and-configure"></a>安裝及設定
 一開始先新增 [Office 365 解決方案到您的訂用帳戶](solutions.md#install-a-management-solution)。 新增之後，您必須執行本節中的設定步驟，讓解決方案存取您的 Office 365 訂用帳戶。
@@ -158,7 +158,7 @@ Office 365 管理解決方案可讓您監視 Log Analytics 中的 Office 365 環
     AdminConsent -ErrorAction Stop
     ```
 
-2. 使用下列命令來執行指令碼。
+2. 使用下列命令來執行指令碼。 系統會提示您提供認證兩次。 請先提供 Log Analytics 工作區的認證，然後提供 Office 365 租用戶的全域管理員認證。
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
@@ -351,7 +351,7 @@ Office 365 管理解決方案可讓您監視 Log Analytics 中的 Office 365 環
 
 ### <a name="troubleshooting"></a>疑難排解
 
-如果您嘗試建立已存在的訂用帳戶，可能會看到下列錯誤。
+如果您的應用程式已訂閱此工作區，或此租用戶訂閱了另一個工作區，您可能會看到下列錯誤。
 
 ```
 Invoke-WebRequest : {"Message":"An error has occurred."}
@@ -394,7 +394,7 @@ At line:12 char:18
     $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Get-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     
@@ -476,7 +476,7 @@ At line:12 char:18
 
 ## <a name="data-collection"></a>資料收集
 ### <a name="supported-agents"></a>支援的代理程式
-Office 365 解決方案不會從任何 [Log Analytics 代理程式](../../azure-monitor/platform/agent-data-sources.md)擷取資料。  它會直接從 Office 365 擷取資料。
+Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/agent-data-sources.md)擷取資料。  它會直接從 Office 365 擷取資料。
 
 ### <a name="collection-frequency"></a>收集頻率
 一開始收集資料可能會需要幾個小時。 一旦開始收集資料，每次建立一筆記錄時，Office 365 都會將 [Webhook 通知](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) \(英文\) 連同詳細資料傳送至 Log Analytics。 收到此記錄的幾分鐘內，即可將其用於 Log Analytics。
@@ -708,6 +708,6 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../../azure-
 
 
 ## <a name="next-steps"></a>後續步驟
-* 使用 [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 中的記錄搜尋，檢視詳細的更新資料。
-* [建立自己的儀表板](../../azure-monitor/platform/dashboards.md)來顯示您最愛的 Office 365 搜尋查詢。
-* [建立警示](../../azure-monitor/platform/alerts-overview.md)來讓系統主動通知您重要的 Office 365 活動。  
+* 使用 [Log Analytics](../log-query/log-query-overview.md) 中的記錄搜尋，檢視詳細的更新資料。
+* [建立自己的儀表板](../learn/tutorial-logs-dashboards.md)來顯示您最愛的 Office 365 搜尋查詢。
+* [建立警示](../platform/alerts-overview.md)來讓系統主動通知您重要的 Office 365 活動。  

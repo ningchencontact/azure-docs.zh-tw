@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database 受控執行個體概觀 | Microsoft Docs
-description: 本主題將說明 Azure SQL Database 受控執行個體和其運作方式，以及其與 Azure SQL Database 中單一資料庫之間的差異。
+description: 本主題將說明 Azure SQL Database 受控執行個體和其運作方式，以及其與 Azure SQL Database 中單一或集區資料庫之間的差異。
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/25/2019
+ms.openlocfilehash: ac9a7c081515b35348d10a2968b10647af29ef61
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994754"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465702"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>使用 SQL Database 受控執行個體搭配虛擬網路幾乎 100%相容
 
@@ -34,7 +34,7 @@ Azure SQL Database 受控執行個體專為以下客戶設計：想要盡可能�
 
 在受控執行個體正式運作之前，其目標是透過階段式發行計劃，為最新版內部部署 SQL Server 提供幾乎 100% 的介面區相容性。
 
-若要決定使用 Azure SQL Database 單一資料庫、Azure SQL Database 受控執行個體或虛擬機器中裝載的 SQL Server IaaS，請參閱[如何在 Azure 雲端選擇正確的 SQL Server 版本](sql-database-paas-vs-sql-server-iaas.md)。
+若要決定使用 Azure SQL Database 單一資料庫、集區資料庫、受控執行個體或虛擬機器中裝載的 SQL Server，請參閱[如何在 Azure 雲端選擇正確的 SQL Server 版本](sql-database-paas-vs-sql-server-iaas.md)。
 
 ## <a name="key-features-and-capabilities"></a>重要功能
 
@@ -185,7 +185,7 @@ Azure SQL Database 受控執行個體支援傳統的 SQL Server 資料庫引擎�
 - 如需從 URL 還原的資訊，請參閱[從 URL 原生還原](sql-database-managed-instance-migrate.md#native-restore-from-url)。
 
 > [!IMPORTANT]
-> 來自受控執行個體的備份只能還原至其他受控執行個體。 它們無法還原至內部部署 SQL Server，或是還原至 Azure SQL Database 邏輯伺服器單一或集區資料庫。
+> 來自受控執行個體的備份只能還原至其他受控執行個體。 它們無法還原至內部部署 SQL Server，或還原至單一資料庫/彈性集區。
 
 ### <a name="data-migration-service"></a>資料移轉服務
 
@@ -210,7 +210,7 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 - 受控執行個體不允許指定完整路徑，因此必須以不同方式支援所有對應的案例：RESTORE DB 不支援 WITH MOVE、CREATE DB 不允許實體路徑、BULK INSERT 僅適用於 Azure Blob 等等。
 - 受控執行個體支援以 [Azure AD 驗證](sql-database-aad-authentication.md) 作為 Windows 驗證的雲端替代方案。
 - 受控執行個體都會自動為包含記憶體內部 OLTP 物件的資料庫管理 XTP 檔案群組和檔案
-- 受控執行個體支援 SQL Server Integration Services (SSIS)，且可主控儲存 SSIS 封裝的 SSIS 目錄 (SSISDB)，但會在 Azure Data Factory (ADF) 中的受控 Azure-SSIS Integration Runtime (IR) 上執行，請參閱[在 ADF 中建立 Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime) \(英文\)。 若要比較 SQL Database 與受控執行個體中的 SSIS 功能，請參閱[比較 SQL Database 邏輯伺服器與受控執行個體](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance)。
+- 受控執行個體支援 SQL Server Integration Services (SSIS)，且可主控儲存 SSIS 封裝的 SSIS 目錄 (SSISDB)，但會在 Azure Data Factory (ADF) 中的受控 Azure-SSIS Integration Runtime (IR) 上執行，請參閱[在 ADF 中建立 Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime) \(英文\)。 若要比較 SQL Database 與受控執行個體中的 SSIS 功能，請參閱[比較 Azure SQL Database 單一資料庫/彈性集區與受控執行個體](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)。
 
 ### <a name="managed-instance-administration-features"></a>受控執行個體的管理功能
 

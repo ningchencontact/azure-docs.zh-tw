@@ -12,18 +12,18 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 318dce78059a169ede2f19f6aadaab9d61e07086
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 552293b402c697073587e887522d2daa3e33cdb6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474950"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754574"
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>將 Excel 連接到 Azure SQL Database 並建立報告
 
 將 Excel 連接到雲端的 SQL Database，以及匯入資料並根據資料庫中的值來建立資料表和圖表。 在本教學課程中，您將設定 Excel 與資料庫資料表之間的連接、儲存可存放 Excel 資料和連接資訊的檔案，然後根據資料庫值建立樞紐分析圖。
 
-開始之前，Azure 中需要有 SQL Database。 如果您沒有，請參閱 [建立您的第一個 SQL Database](sql-database-get-started-portal.md) 以取得包含範例資料的資料庫，並執行幾分鐘的時間。 在本文中，您會將該文章中的範例資料匯入 Excel 中，但是您可以依照類似的步驟並使用您自己的資料來執行。
+開始之前，Azure 中需要有 SQL Database。 如果您沒有，請參閱 [建立您的第一個 SQL Database](sql-database-single-database-get-started.md) 以取得包含範例資料的資料庫，並執行幾分鐘的時間。 在本文中，您會將該文章中的範例資料匯入 Excel 中，但是您可以依照類似的步驟並使用您自己的資料來執行。
 
 您也會需要 Excel。 本文使用 [Microsoft Excel 2016](https://products.office.com/)。
 

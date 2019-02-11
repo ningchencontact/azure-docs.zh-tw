@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 7c4a5029208854528afdfdbfcdc63434a2a94e24
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f8bc13aa2adad5c27b1754303ea30304c491f7ca
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338689"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211792"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>快速入門：在 iOS 上於 Objective-C 中使用 Bing 語音辨識 API
 

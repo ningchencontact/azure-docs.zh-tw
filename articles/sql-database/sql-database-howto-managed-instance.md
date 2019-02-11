@@ -1,5 +1,5 @@
 ---
-title: 如何設定 Azure SQL 資料庫受控執行個體 | Microsoft Docs
+title: 如何設定 Azure SQL Database 受控執行個體 | Microsoft Docs
 description: 了解如何設定與管理 Azure SQL Database 受控執行個體。
 services: sql-database
 ms.service: sql-database
@@ -11,34 +11,34 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: 10a33ac09b5cfa588bef88e6c1587d67036b1aef
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/25/2019
+ms.openlocfilehash: 91a9f6c4b9763c3261307eb9512f0db9d6aefa89
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439515"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477755"
 ---
-# <a name="how-to-use-managed-instance"></a>如何使用受控執行個體
+# <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>如何在 Azure SQL Database 中使用受控執行個體
 
-本節會提供各種指南、指令碼和講解說明，協助您管理和設定您的 Azure SQL Database - 受控執行個體。
+本文提供各種指南、指令碼和講解說明，協助您管理和設定您的受控執行個體。
 
 ## <a name="migration"></a>移轉
 
-- [移轉至受控執行個體](sql-database-managed-instance-migrate.md)：了解移轉至受控執行個體的建議移轉程序與工具。
+- [移轉至受控執行個體](sql-database-managed-instance-migrate.md) – 了解移轉至受控執行個體的建議移轉程序與工具。
 
-- [將 TDE 憑證移轉至受控執行個體](sql-database-managed-instance-migrate-tde-certificate.md)：如果您的 SQL Server 資料庫是由透明資料加密 (TDE) 加以保護，受控執行個體可使用憑證來解密您想要在 Azure 中還原的備份，您需要將此憑證移轉。
+- [將 TDE 憑證移轉至受控執行個體](sql-database-managed-instance-migrate-tde-certificate.md) – 如果您的 SQL Server 資料庫是由透明資料加密 (TDE) 加以保護，您將必須移轉受控執行個體可用來對您要在 Azure 中還原的備份進行解密的憑證。
 
 ## <a name="network-configuration"></a>網路組態
 
-- [決定受控執行個體子網路的大小](sql-database-managed-instance-determine-size-vnet-subnet.md)：受控執行個體放置在專用的子網路中，在子網路中新增資源後，便無法再調整子網路的大小。 因此需視您要在子網路中部署的執行個體數目與類型，來計算子網路所需的 IP 位址範圍。
-- [建立受控執行個體的新 VNet 和子網路](sql-database-managed-instance-create-vnet-subnet.md)：請務必根據根據[此處所述的網路需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)來設定 Azure VNet 與您想部署受控執行個體的子網路。 本指南會提供最簡單的方法，說明如何建立新 VNet 與子網路，並針對受控執行個體將 VNet 與子網路設定妥當。
-- [針對受控執行個體設定現有的 VNet 與子網路](sql-database-managed-instance-configure-vnet-subnet.md)：如果您想要設定現有的 VNet 與子網路，以便在內部部署受控執行個體，此處提供了可用來檢查[網路需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)的指令碼，並可根據需求設定您的子網路。
-- [設定自訂 DNS](sql-database-managed-instance-custom-dns.md)：如果您想要透過 db 郵件設定檔連結的伺服器，從受控執行個體存取自訂網域上的外部資源，則需要設定自訂 DNS。
-- [同步網路設定](sql-database-managed-instance-sync-network-configuration.md)：雖然您已[將應用程式與 Azure 虛擬網路整合在一起](../app-service/web-sites-integrate-with-vnet.md)，仍可能發生您無法與受控執行個體建立連線的狀況。 您可以嘗試重新整理服務方案的網路組態。
-- [尋找管理端點 IP 位址](sql-database-managed-instance-find-management-endpoint-ip-address.md)：受控執行個體只會將公用端點用於管理用途。 您可以使用此處所述的指令碼來決定管理端點的 IP 位址。
-- [確認內建防火牆保護](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)：藉由僅允許必要連接埠上的流量的內建防火牆來保護受控執行個體。 您可以使用本指南所述的指令碼來檢查與驗證內建的防火牆。
-- [連線應用程式](sql-database-managed-instance-connect-app.md)：受控執行個體置於私人 Azure VNet 且具有私人 IP 位址。 了解將應用程式連線到受控執行個體的不同模式。
+- [決定受控執行個體子網路的大小](sql-database-managed-instance-determine-size-vnet-subnet.md) – 受控執行個體放置在專用的子網路中，在子網路中新增資源後，便無法再調整子網路的大小。 因此需視您要在子網路中部署的執行個體數目與類型，來計算子網路所需的 IP 位址範圍。
+- [建立受控執行個體的新 VNet 和子網路](sql-database-managed-instance-create-vnet-subnet.md) – 請務必根據[此處說明的網路需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)來設定要部署受控執行個體的 Azure VNet 和子網路。 本指南會提供最簡單的方法，說明如何建立新 VNet 與子網路，並針對受控執行個體將 VNet 與子網路設定妥當。
+- [針對受控執行個體設定現有的 VNet 與子網路](sql-database-managed-instance-configure-vnet-subnet.md) – 如果您想要設定現有的 VNet 與子網路，以便在內部部署受控執行個體，此處提供了可用來檢查[網路需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)的指令碼，並可根據需求設定您的子網路。
+- [設定自訂 DNS](sql-database-managed-instance-custom-dns.md) – 如果您想要透過 db 郵件設定檔連結的伺服器，從受控執行個體存取自訂網域上的外部資源，則需要設定自訂 DNS。
+- [同步網路設定](sql-database-managed-instance-sync-network-configuration.md) – 雖然您已[將應用程式與 Azure 虛擬網路整合在一起](../app-service/web-sites-integrate-with-vnet.md)，仍可能發生您無法與受控執行個體建立連線的狀況。 您可以嘗試重新整理服務方案的網路組態。
+- [尋找管理端點 IP 位址](sql-database-managed-instance-find-management-endpoint-ip-address.md) – 受控執行個體只會將公用端點用於管理用途。 您可以使用此處所述的指令碼來決定管理端點的 IP 位址。
+- [確認內建防火牆保護](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) – 藉由僅允許必要連接埠上的流量的內建防火牆來保護受控執行個體。 您可以使用本指南所述的指令碼來檢查與驗證內建的防火牆。
+- [連線應用程式](sql-database-managed-instance-connect-app.md) – 受控執行個體置於私人 Azure VNet 且具有私人 IP 位址。 了解將應用程式連線到受控執行個體的不同模式。
 
 ## <a name="feature-configuration"></a>功能組態
 
@@ -46,4 +46,5 @@ ms.locfileid: "53439515"
 - [設定威脅偵測](sql-database-managed-instance-threat-detection.md)：[威脅偵測](sql-database-threat-detection-overview.md)是內建的 Azure SQL Database 功能，可偵測各種潛在的攻擊，例如 SQL 插入式攻擊或是從可疑位置進行的存取。 在本指南中，您可以了解如何啟用與設定受控執行個體的[威脅偵測](sql-database-threat-detection-overview.md)。
 
 ## <a name="next-steps"></a>後續步驟
-- 深入了解[單一資料庫中的使用說明指南](sql-database-howto-single-database.md) (英文)
+
+- 深入了解[單一資料庫的操作指南](sql-database-howto-single-database.md)

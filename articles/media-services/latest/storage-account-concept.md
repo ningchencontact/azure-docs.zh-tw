@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: f5fc1385bff92851db81cd4ed397d66cb8a832f2
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4668ff23710121e5495395d71902b9ffa4c01238
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54350926"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220343"
 ---
 # <a name="storage-accounts"></a>儲存體帳戶
 
-建立媒體服務帳戶時，您需要提供 Azure 儲存體帳戶資源的名稱。 指定的儲存體帳戶會附加到您的媒體服務帳戶。 媒體服務帳戶及其相關聯的儲存體帳戶必須屬於相同的資料中心和相同的資源群組。
+建立媒體服務帳戶時，您需要提供 Azure 儲存體帳戶資源的名稱。 指定的儲存體帳戶會附加到您的媒體服務帳戶。 
 
 您只能有一個**主要**儲存體帳戶，而與您的媒體服務帳戶相關聯的**次要**儲存體帳戶可以有任意數量。 媒體服務支援**一般用途 v2** (GPv2) 或**一般用途 v1** (GPv1) 帳戶。 
 
@@ -28,6 +28,8 @@ ms.locfileid: "54350926"
 > 僅有 Blob 的帳戶不允許作為**主要**帳戶。 
 
 我們建議您使用 GPv2，這樣便能在經常性存取層與非經常性存取層之間做選擇。 若要深入了解儲存體帳戶，請參閱 [Azure 儲存體帳戶概觀](../../storage/common/storage-account-overview.md)。 
+
+媒體服務帳戶和所有相關聯的儲存體帳戶必須位於相同的 Azure 訂用帳戶中。 建議使用與媒體服務帳戶位於相同位置的儲存體帳戶。
 
 ## <a name="assets-in-a-storage-account"></a>儲存體帳戶中的資產
 

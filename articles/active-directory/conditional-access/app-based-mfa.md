@@ -8,20 +8,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 05d447a7d36e0e8ca9da35407e825eb8f49fb4a3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6276231f8d63840dcf46f7456d584880315533bf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448270"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299906"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>快速入門：透過 Azure Active Directory 條件式存取來要求特定應用程式必須使用 MFA 
 
@@ -43,6 +43,9 @@ ms.locfileid: "54448270"
 - **Azure AD Premium 版的存取權** - Azure AD 條件式存取是 Azure AD Premium 中的功能。 
 
 - **稱為 Isabella Simonsen 的測試帳戶** - 如果您不知道如何建立測試帳戶，請參閱[新增雲端式使用者](../fundamentals/add-users-azure-active-directory.md#add-a-new-user)。
+
+
+要部署本快速入門中的案例，您的測試帳戶必須未啟用每一使用者 MFA。 如需詳細資訊，請參閱[如何要求使用者使用雙步驟驗證](../authentication/howto-mfa-userstates.md)。
 
 
 ## <a name="test-your-sign-in"></a>測試您的登入
@@ -148,7 +151,7 @@ ms.locfileid: "54448270"
 
     ![啟用原則](./media/app-based-mfa/18.png)
 
-13. 按一下頁面底部的 [新增] 。
+13. 按一下 [建立]。
 
 
 ## <a name="evaluate-a-simulated-sign-in"></a>評估模擬的登入狀況

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e21a3ae23ca6a856c9524e52e80f33362f53cae1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7f99b6d2f6fc1c6d1c270bd66965d978749ac63f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040841"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455927"
 ---
-# <a name="how-to-restore-azure-cosmos-db-data-from-a-backup"></a>如何從備份還原 Azure Cosmos DB 資料
+# <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中從備份還原資料 
 
 如果您不小心刪除資料庫或容器，可以[提出支援票證]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)或[連絡 Azure 支援]( https://azure.microsoft.com/support/options/)，從自動線上備份還原資料。 Azure 支援僅適用於特定方案，例如**標準**、**開發人員和高於這些版本的方案。 Azure 支援不適用於**基本**方案。 若要深入了解不同的支援方案，請參閱 [Azure 支援方案](https://azure.microsoft.com/support/plans/)頁面。 
 

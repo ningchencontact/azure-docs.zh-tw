@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 14cb821152e6a380de1be4fddef76aa2edec4a8f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 89cc7906c0503daa11f0a34520c17552a4e6b5af
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042252"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454210"
 ---
-# <a name="working-with-azure-cosmos-db-stored-procedures-triggers-and-user-defined-functions"></a>使用 Azure Cosmos DB 預存程序、觸發程序及使用者定義函數
+# <a name="stored-procedures-triggers-and-user-defined-functions"></a>預存程序、觸發程序和使用者定義函式
 
 Azure Cosmos DB 提供 JavaScript 的語言整合式、交易式執行。 在 Azure Cosmos DB 中使用 SQL API 時，您可以使用 JavaScript 語言撰寫**預存程序****觸發程序**和**使用者定義函數 (UDF)**。 您可以使用 JavaScript 寫入在資料庫引擎內執行的邏輯。 您可以透過使用 [Azure 入口網站](https://portal.azure.com/)、[Azure Cosmos DB 中的 JavaScript 語言整合式查詢 API](javascript-query-api.md)，或 [Cosmos DB SQL API 用戶端 SDK](how-to-use-stored-procedures-triggers-udfs.md)，來建立與執行觸發程序、預存程序及 UDF。
 

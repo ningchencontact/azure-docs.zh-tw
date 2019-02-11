@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: e5a7bfc51bcd1931def202d701127de701afb595
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 509bec49840537dbb5bb7f0ec69cc4dfb750244a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042855"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189420"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>教學課程：Azure Active Directory 與 Compliance ELF 整合
 
@@ -106,22 +106,22 @@ Compliance ELF 與 Azure AD 整合提供下列優點：
 
     ![單一登入對話方塊](./media/complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
 
-3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [Compliance ELF 網域及 URL] 區段上執行下列步驟：
+3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [Compliance ELF 網域及 URL] 區段上執行下列步驟：
 
     ![Compliance ELF 網域及 URL 單一登入資訊](./media/complianceelf-tutorial/tutorial_complianceelf_url.png)
 
     在 [識別碼] 文字方塊中輸入 URL：`https://sso.cordium.com`
 
-4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
+4. 如果您想要以  **SP**  起始模式設定應用程式，請勾選 [顯示進階 URL 設定] **** ，然後執行下列步驟：
 
     ![Compliance ELF 網域及 URL 單一登入](./media/complianceelf-tutorial/tutorial_complianceelf_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<subdomain>.complianceelf.com`
+    在 [登入 URL] ****  文字方塊中，以下列模式輸入 URL： `https://<subdomain>.complianceelf.com`
     
     > [!NOTE] 
     > 這不是真實的值。 使用實際的「登入 URL」來更新此值。 請連絡 [Compliance ELF 支援小組](mailto:support@complianceelf.com)以取得此值。
 
-5. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+5. 在 ****[SAML 簽署憑證] 區段上，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL] **** ，並將它貼到記事本中。
     
     ![設定單一登入](./media/complianceelf-tutorial/tutorial_metadataurl.png)
      
@@ -161,7 +161,7 @@ Compliance ELF 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
   
 ### <a name="create-a-compliance-elf-test-user"></a>建立 Compliance ELF 測試使用者
 
@@ -202,7 +202,7 @@ Compliance ELF 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Compliance ELF 磚時，應該會自動登入您的 Compliance ELF 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

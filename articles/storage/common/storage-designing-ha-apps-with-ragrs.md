@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231358"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454938"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 設計高可用性應用程式
 
@@ -24,7 +24,7 @@ ms.locfileid: "51231358"
 
 本文的重點在於 GRS 和 RA-GRS。 使用 GRS 時，會在您設定儲存體帳戶時選取的主要區域中保留三份您的資料。 另外會以非同步方式在 Azure 所指定的次要區域中保留三個額外複本。 RA-GRS 提供具有次要複本讀取存取權的異地備援儲存體。
 
-如需主要區域與次要區域配對的相關資訊，請參閱[商務持續性和災害復原 (BCDR)：Azure 配對的區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
+如需主要區域與次要區域配對的相關資訊，請參閱[商務持續性和災害復原 (BCDR)：Azure 配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
 
 本文提供一些程式碼片段，並在結尾處提供完整範例的連結，可供您下載並執行。
 

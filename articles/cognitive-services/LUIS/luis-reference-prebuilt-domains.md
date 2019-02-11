@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d17b6271468a9259314876e18ff7ead288c990bc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140960"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221006"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>您 LUIS 應用程式預先建置的網域參考
 此參考提供[預先建立的定義域](luis-how-to-use-prebuilt-domains.md)相關資訊，這是 LUIS 提供之預先建立的意圖和實體集合。
@@ -44,7 +44,7 @@ LUIS 提供 20 個預先建立的定義域。
 | 提醒 | 處理與建立、編輯及尋找提醒相關的要求。| en-US<br/> zh-CN |
 | RestaurantReservation | 處理管理餐廳預約的要求。| en-US<br/> zh-CN |
 | Taxi | 處理計程車的預約。| en-US<br/> zh-CN |
-| 翻譯 | 將文字翻譯成目標語言。| en-US<br/> zh-CN |
+| Translate | 將文字翻譯成目標語言。| en-US<br/> zh-CN |
 | TV | 控制電視。| en-US |
 | 公用事業  | 處理許多定義域通用的要求，例如「說明」、「重複」、「重新開始」。| en-US |
 | Weather | 取得天氣預報。| en-US<br/> zh-CN |
@@ -539,7 +539,7 @@ Taxi 定義域提供建立及管理計程車預約的意圖和實體。
 | TransportationCompany | 運輸服務提供者的名稱。|Amtrak<br/>Acela<br/>Greyhound|
 | TransportationType | 交通工具類型。|公車<br/>定型<br/>開車|
 
-## <a name="translate"></a>翻譯 
+## <a name="translate"></a>Translate 
 Translate 定義域提供與將文字翻譯成目標語言相關的意圖和實體。
 
 ### <a name="examples"></a>範例
@@ -554,7 +554,7 @@ Translate 定義域提供與將文字翻譯成目標語言相關的意圖和實�
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
 | ---------------- |-----------------------|----|
-| 翻譯| 將文字翻譯成其他語言。|翻譯成法文<br/>將 hello 翻譯成德文|
+| Translate| 將文字翻譯成其他語言。|翻譯成法文<br/>將 hello 翻譯成德文|
 
 
 ### <a name="entities"></a>實體

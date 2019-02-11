@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 05c237eb071b48f2373ecfd78eeab6f7bceb8c5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 01/25/2019
+ms.openlocfilehash: 4c8e93948532da02c64eb9eb1277abb425abc250
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584146"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455741"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>預付具有 Azure SQL Database 保留容量的 SQL Database 計算資源
 
@@ -34,9 +34,9 @@ ms.locfileid: "52584146"
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>先決定正確的 SQL 大小再購買
 
-需要多少保留容量大小，應根據特定區域內現有或即將部署的 SQL 單一資料庫和/或彈性集區所使用的總計算量，並使用相同效能層級和硬體世代來決定。 
+需要多少保留容量大小，應根據特定區域內現有或即將部署的單一資料庫和/或彈性集區所使用的總計算量，並使用相同效能層級和硬體世代來決定。 
 
-例如，假設您要執行一個一般用途 Gen5 – 16 個虛擬核心的彈性集區，以及兩個商務關鍵性 Gen5 – 4 個虛擬核心的單一資料庫。 此外，假設您打算在下個月再部署一個一般用途 Gen5 – 16 個虛擬核心的彈性集區，以及一個商務關鍵性 Gen5 – 32 個虛擬核心的彈性集區。 還有，假設您知道您需要使用這些資源至少 1 年的時間。 在此情況下，您應該購買 32 (2x16) 個虛擬核心、為期 1 年的 SQL Database 單一/彈性集區一般用途 - Compute Gen5 保留容量，以及 40 (2x4 + 32) 個虛擬核心、為期 1 年的 SQL Database 單一/彈性集區商務關鍵性 - Compute Gen5 保留容量。
+例如，假設您要執行一個一般用途 Gen5 – 16 個虛擬核心的彈性集區，以及兩個商務關鍵性 Gen5 – 4 個虛擬核心的單一資料庫。 此外，假設您打算在下個月再部署一個一般用途 Gen5 – 16 個虛擬核心的彈性集區，以及一個商務關鍵性 Gen5 – 32 個虛擬核心的彈性集區。 還有，假設您知道您需要使用這些資源至少 1 年的時間。 在此情況下，您應該購買 32 (2x16) 個虛擬核心、為期 1 年的 SQL Database 獨立/彈性集區一般用途 - Compute Gen5 保留容量，以及 40 (2x4 + 32) 個虛擬核心、為期 1 年的 SQL Database 獨立/彈性集區商務關鍵性 - Compute Gen5 保留容量。
 
 ## <a name="buy-sql-database-reserved-capacity"></a>購買 SQL Database 保留容量
 
@@ -49,7 +49,7 @@ ms.locfileid: "52584146"
 
     | 欄位      | 說明|
     |:------------|:--------------|
-    |名稱        |此保留項目的名稱。| 
+    |Name        |此保留項目的名稱。| 
     |訂用帳戶|用來支付 SQL Database 保留容量費用的訂用帳戶。 SQL Database 保留容量的預付費用會透過訂用帳戶的付款方式收取。 訂用帳戶類型必須是 Enterprise 合約 (供應項目號碼：MS-AZR-0017P) 或預付型方案 (供應項目號碼：MS-AZR-0003P)。 針對企業訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。 針對預付型方案訂用帳戶，費用是透過訂用帳戶的信用卡或發票付款方式收取。|    
     |影響範圍       |虛擬核心保留容量範圍可以涵蓋一個訂用帳戶或多個訂用帳戶 (共用範圍)。 如果您選取： <ul><li>單一訂用帳戶 - 虛擬核心保留容量折扣會套用至此訂用帳戶中的 SQL Database 執行個體。 </li><li>共用 - 虛擬核心保留容量折扣會套用至計費內容內任何訂用帳戶中執行的 SQL Database 執行個體。 針對企業客戶，共用範圍是註冊，並包含註冊中的所有訂用帳戶 (開發/測試訂用帳戶除外)。 針對預付型方案客戶，共用範圍是帳戶系統管理員所建立的所有預付型方案訂用帳戶。</li></ul>|
     |區域      |SQL Database 保留容量所涵蓋的 Azure 區域。|    

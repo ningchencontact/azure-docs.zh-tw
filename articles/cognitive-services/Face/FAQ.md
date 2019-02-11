@@ -6,16 +6,16 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: sbowles
-ms.openlocfilehash: 9b30fa0fbbd655c03800dadb19cc2568d404204d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b4b2c09ef608da7c52d415d5f1f2215ddc31c41a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129551"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223318"
 ---
 # <a name="face-api-frequently-asked-questions"></a>臉部 API 常見問題集
 
@@ -24,7 +24,7 @@ ms.locfileid: "46129551"
 -----
 **問題**：哪些因素可能降低臉部 API 在辨識、驗證或尋找相似方面的精確度？
 
-**解答**：通常與人類難以識別某人的情況相同，包括：
+**答**：通常與人類難以識別某人的情況相同，包括：
 * 阻擋一或兩個眼睛的障礙物
 * 刺眼的光線，例如嚴重背光
 * 改變髮型或臉毛
@@ -36,7 +36,7 @@ ms.locfileid: "46129551"
 -----
 **問題**：我正在傳入二進位影像資料，但收到「臉部影像無效」錯誤。
 
-**解答**：這表示演算法有剖析影像的問題。 原因包括：
+**答**：這表示演算法有剖析影像的問題。 原因包括：
 * 支援的輸入影像格式包括 JPEG、PNG、GIF (第一個畫面)、BMP。
 * 影像檔案大小不得大於 4MB
 * 可偵測的臉部大小範圍是 36x36 到 4096x4096 像素。 無法偵測此範圍之外的臉部

@@ -16,12 +16,13 @@ ms.custom: ''
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c6b2387360973cd4e65b5a1e4ba483abf5ea9070
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 2513f397457c4866229605487149aa1fe03a2c68
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716021"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247726"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>從命令列部署 ASDK
 ASDK 是種測試和部署環境，可供您部署以評估及示範 Azure Stack 的功能和服務。 要讓其正常執行，您將需要準備環境硬體並執行一些指令碼 (這將需要數小時的時間)。 在那之後，您就可以登入系統管理員和使用者入口網站，開始使用 Azure Stack。
@@ -105,7 +106,7 @@ ASDK 是種測試和部署環境，可供您部署以評估及示範 Azure Stack
 
 在 AD FS 部署中，預設戳記目錄服務會作為識別提供者。 用來登入的預設帳戶是 azurestackadmin@azurestack.local，而密碼將會設定為您在 PowerShell 設定命令中提供的密碼。
 
-部署程序可能需要幾小時的時間，在這段期間內，系統會自動重新開機一次。 當部署成功時，PowerShell 主控台會顯示：**COMPLETE: Action ‘Deployment’**。 如果部署失敗，您可以使用 -rerun 參數再次嘗試執行指令碼。 或者，您可以從頭開始[重新部署 ASDK](asdk-redeploy.md)。
+部署程序可能需要幾小時的時間，在這段期間內，系統會自動重新開機一次。 當部署成功時，PowerShell 主控台會顯示：**COMPLETE:Action ‘Deployment’**。 如果部署失敗，您可以使用 -rerun 參數再次嘗試執行指令碼。 或者，您可以從頭開始[重新部署 ASDK](asdk-redeploy.md)。
 
 > [!IMPORTANT]
 > 如果您想要監視部署進度，在 ASDK 主機重新開機之後，您必須以 AzureStack\AzureStackAdmin 身分登入。 如果您在主機電腦重新啟動 (並加入 azurestack.local 網域) 之後，以本機系統管理員的身分登入，將不會看到部署進度。 請勿重新執行部署，而是以 azurestack 的身分登入來驗證執行狀態。

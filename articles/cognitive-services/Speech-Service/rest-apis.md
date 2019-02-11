@@ -6,17 +6,17 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 765d93780ad45eaaca61d4deb5f6607ef70ee432
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413680"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247437"
 ---
 # <a name="speech-service-rest-apis"></a>語音服務 REST API
 
@@ -439,6 +439,9 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 * 如語音的完整清單，請參閱[ 語言支援](language-support.md#text-to-speech)。
 * 如需區域可用性的詳細資訊，請參閱[區域](regions.md#text-to-speech)。
+
+> [!IMPORTANT]
+> 標準、自訂和神經語音的成本各不相同。 如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
 
 ### <a name="request-headers"></a>要求標頭
 

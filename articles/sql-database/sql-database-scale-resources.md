@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 1c83ebd0153e7a28365317b02d3debbe43d976f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 49743130966589cceedb7756540c723a6f3276ff
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601571"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471662"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>在最短停機時間的情況下動態調整資料庫資源
 
@@ -54,9 +54,9 @@ Azure SQL Database 提供[以 DTU 為基礎的購買模型](sql-database-service
 
 Azure SQL Database 的三個特性全部都提供某種動態調整資料庫的能力：
 
-- 在 [Azure SQL 單一資料庫](sql-database-single-database-scale.md)中，您可以使用 [DTU](sql-database-dtu-resource-limits-single-databases.md) 或 [vCore](sql-database-vcore-resource-limits-single-databases.md) 模型定義將指派給每個資料庫的資源數量上限。
-- [Azure SQL 受控執行個體](sql-database-managed-instance.md)使用 [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) 模式，並可讓您定義配置給您執行個體的 CPU 核心上限和儲存體上限。 執行個體內的所有資料庫都會共用配置給執行個體的資源。
-- [Azure SQL 彈性集區](sql-database-elastic-pool-scale.md)可讓您定義集區中每個資料庫群組的資源上限。
+- 在[單一資料庫](sql-database-single-database-scale.md)中，您可以使用 [DTU](sql-database-dtu-resource-limits-single-databases.md) 或 [vCore](sql-database-vcore-resource-limits-single-databases.md) 模型定義將指派給每個資料庫的資源數量上限。
+- [受控執行個體](sql-database-managed-instance.md)使用 [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) 模式，並可讓您定義配置給您執行個體的 CPU 核心上限和儲存體上限。 執行個體內的所有資料庫都會共用配置給執行個體的資源。
+- [彈性集區](sql-database-elastic-pool-scale.md)可讓您定義集區中每個資料庫群組的資源上限。
 
 ## <a name="alternative-scale-methods"></a>替代調整方法
 

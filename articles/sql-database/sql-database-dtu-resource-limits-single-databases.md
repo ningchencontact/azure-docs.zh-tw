@@ -3,21 +3,21 @@ title: Azure SQL Database 以 DTU 為基礎的資源限制單一資料庫 | Micr
 description: 此頁面將針對 Azure SQL Database 中的單一資料庫，說明一些以 DTU 為基礎的常見資源限制。
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: sachinpMSFT
-ms.author: sachinp
-ms.reviewer: carlrab
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: ''
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 5ddcacbf805ae9d2ce093058b21d53189457ffb9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/25/2019
+ms.openlocfilehash: e73bb2f1908abd049ea6e2406c0d1db02381695f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233764"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455536"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>使用以 DTU 為基礎的購買模型的單一資料庫資源限制
 
@@ -28,9 +28,9 @@ ms.locfileid: "50233764"
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
-## <a name="single-database-storage-sizes-and-compute-sizes"></a>單一資料庫：儲存體大小與計算大小
+## <a name="single-database-storage-sizes-and-compute-sizes"></a>單一資料庫：儲存體大小和計算大小
 
-針對單一資料庫，下表顯示單一資料庫在每個服務層和計算大小的可用資源。 您可以使用 [Azure 入口網站](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases) 來為單一資料庫設定服務層、計算大小與儲存體數量。
+下表顯示單一資料庫在每個服務層和計算大小的可用資源。 您可以使用 [Azure 入口網站](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)、[Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases) 來為單一資料庫設定服務層、計算大小與儲存體數量。
 
 ### <a name="basic-service-tier"></a>基本服務層
 
@@ -81,17 +81,17 @@ ms.locfileid: "50233764"
 |||||||
 
 > [!IMPORTANT]
-> 所有區域中目前均可取得進階層中超過 1 TB 的儲存體，但下列區域除外：中國東部、中國北部、德國中部、德國東北部、英國北部、英國南部、US DoD 中部、US DoD 東部、US Gov 中部及美國中西部。  在這些區域中，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
+> 所有區域目前均可取得進階層中超過 1 TB 的儲存體，下列區域除外：中國東部、中國北部、德國中部、德國東北部、英國北部、英國南部、US DoD 中部、US DoD 東部、美國政府中部及美國中西部。  在這些區域中，進階層中的儲存空間上限為 1 TB。 請參閱 [P11-P15 目前限制](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
 
 ## <a name="single-database-change-storage-size"></a>單一資料庫：變更儲存體大小
 
-- 單一資料庫的 DTU 價格包含一定數量不額外收費的儲存體。 佈建超過內含量的額外儲存體會產生額外費用，以 250 GB 為單位最多增加到大小上限 1 TB，超過 1 TB 則以 256 GB 為單位增加。 如需了解內含儲存體數量與大小上限，請參閱[單一資料庫：儲存體大小與計算大小](#single-database-storage-sizes-and-compute-sizes)。
-- 可藉由使用 [Azure 入口網站](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/azure/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 增加其大小上限，以佈建單一資料庫的額外儲存體。
+- 單一資料庫的 DTU 價格包含一定數量不額外收費的儲存體。 佈建超過內含量的額外儲存體會產生額外費用，以 250 GB 為單位最多增加到大小上限 1 TB，超過 1 TB 則以 256 GB 為單位增加。 如需了解內含儲存體數量與大小上限，請參閱[單一資料庫：儲存體大小和計算大小](#single-database-storage-sizes-and-compute-sizes)。
+- 可藉由使用 [Azure 入口網站](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-storage-size)、[Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/azure/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 增加其大小上限，以佈建單一資料庫的額外儲存體。
 - 單一資料庫之額外儲存體的價格為額外儲存體數量乘以服務層的額外儲存體單價。 如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。
 
 ## <a name="single-database-change-dtus"></a>單一資料庫：變更 DTU
 
-一開始選取服務層、計算大小與儲存體數量之後，您可以根據實際經驗，使用 [Azure 入口網站](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/azure/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 來動態地相應增加或相應減少單一資料庫。
+一開始選取服務層、計算大小與儲存體數量之後，您可以根據實際經驗，使用 [Azure 入口網站](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus)、[Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/azure/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 來動態地相應增加或相應減少單一資料庫。
 
 下列影片示範如何動態變更服務層與計算大小，以提高單一資料庫的可用 DTU。
 
@@ -124,14 +124,14 @@ ms.locfileid: "50233764"
 - 建立或更新 P11 或 P15 資料庫時，您只能以 256 GB 為增加單位，在 1 TB 和 4 TB 的大小上限之間選擇。 在建立 P11/P15 時，系統會預先選取預設的 1 TB 儲存體選項。 若資料庫位於其中一個受支援區域，您可以將新的或現有單一資料庫的儲存體上限增加為 4 TB。 在其他所有區域中，無法將大小上限增加至 1 TB 以上。 當您選取 4 TB 的內含儲存體時，價格不會變更。
 - 如果資料庫的大小上限設為大於 1 TB，即使使用的實際儲存體未達 1 TB，也無法變更為 1 TB。 因此，您無法將大小上限大於 1 TB 的 P11 或 P15 降級至 1 TB P11 或 1 TB P15，也無法降至較低的計算大小，例如 P1-P6。 這項限制也適用於包括時間點、異地還原、長期備份保留期和資料庫備份等還原和複製案例。 一旦將資料庫的大小上限設定為 1 TB 以上，此資料庫的所有還原作業都必須以大於 1 TB 大小上限的 P11/P15 執行。
 - 若是作用中異地複寫案例：
-  - 設定異地複寫關聯性：如果主要資料庫是 P11 或 P15，則次要資料庫也必須是 P11 或 P15；系統會拒絕使用較低的計算大小做為次要資料庫，因為這些資料庫無法支援 1 TB 以上的大小。
+  - 設定異地複寫關聯性：如果 P11 或 P15 為主要資料庫，則次要資料庫也必須是 P11 或 P15；系統會拒絕使用較低的計算大小作為次要資料庫，因為這些資料庫無法支援 1 TB 以上的大小。
   - 在異地複寫關聯性中升級主要資料庫：將主要資料庫的大小上限變更為 1 TB 以上會在次要資料庫中觸發相同的變更。 這兩種升級方式都必須成功，在主要資料庫中的變更才會生效。 適用於大於 1-TB 選項的區域限制。 如果次要資料庫位於不支援大於 1 TB 的區域，就無法升級主要資料庫。
 - 不支援使用匯入/匯出服務載入具有 1 TB 以上之 P11/P15 資料庫的功能。 使用 SqlPackage.exe 來[匯入](sql-database-import.md)和[匯出](sql-database-export.md)資料。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 請參閱 [SQL Database 常見問題集](sql-database-faq.md)以取得常見問題的解答。
-- 如需伺服器和訂用帳戶層級的限制資訊，請參閱[邏輯伺服器上的資源限制概觀](sql-database-resource-limits-logical-server.md)。
+- 如需伺服器和訂用帳戶層級的限制資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)。
 - 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
 - 如需 DTU 與 eDTU 的相關資訊，請參閱 [DTU 與 eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model)。
 - 如需 tempdb 大小限制的相關資訊，請參閱 [SQL Database tempdb 限制](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database)。

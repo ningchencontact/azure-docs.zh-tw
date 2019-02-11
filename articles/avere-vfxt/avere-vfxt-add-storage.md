@@ -4,29 +4,23 @@ description: 如何將後端儲存體系統新增至「適用於 Azure 的 Avere
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: procedural
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8cd9bece53cd7fb961c5d81ae0c709dc89300ab9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190816"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299447"
 ---
 # <a name="configure-storage"></a>設定儲存體
 
 此步驟會為您的 vFXT 叢集設定後端儲存體系統。
 
 > [!TIP]
-> 如果您已使用 `create-cloudbacked-cluster` 原型指令碼來搭配 Avere vFXT 叢集建立新的 Blob 容器，則該容器已經設定好而可供使用，您並不需要新增儲存體。
->
-> 不過，如果新的 Blob 容器已使用預設的加密金鑰來加密，則必須從叢集下載金鑰修復檔案，或使用新的金鑰取代預設金鑰鍵，再儲存資料。 預設金鑰僅儲存在叢集中，而且如果叢集遺失或無法使用時則無法擷取金鑰。
->
-> 連線至 Avere 控制台之後，按一下 [設定] 索引標籤，然後選擇 [核心篩選] > [雲端加密設定]。 在 [本機金鑰存放區] 區段中，選擇以下其中一個選項： 
-> * 使用 [重新下載復原檔案] 按鈕，以取得用於現有金鑰的復原檔案。 復原檔案已使用叢集系統管理密碼進行加密。 請務必將檔案儲存在安全的地方。 
-> * 請依照頁面中＜**產生新主要金鑰**＞一節中的指示，建立您可控制的新加密金鑰。 此選項可讓您指定唯一的複雜密碼，而這需要您上傳並重新下載復原檔案，以驗證複雜密碼檔案組。
+> 如果您隨著 Avere vFXT 叢集建立了新的 Azure Blob 容器，則該容器已經設定好而可供使用，您不需要新增儲存體。
 
-如果您已針對您的叢集使用 `create-minimal-cluster` 原型指令碼，或是想要新增額外的硬體或雲端型儲存體系統，請依照下列指示進行操作。
+如果您未隨著 Avere vFXT 叢集建立新的 Blob 容器，或是想要新增額外的硬體或雲端型儲存體系統，請依照下列指示進行操作。
 
 主要工作有兩個：
 
@@ -43,12 +37,11 @@ ms.locfileid: "54190816"
 若要新增核心檔案管理工具，請選擇兩個主要類型的核心檔案管理工具其中之一：
 
   * [NAS 核心檔案管理工具](#nas-core-filer) - 說明如何新增 NAS 核心檔案管理工具 
-  * [Azure 儲存體帳戶雲端核心檔案管理工具](#azure-storage-account-cloud-core-filer) - 說明如何新增「Azure 儲存體」帳戶作為雲端核心檔案管理工具
+  * [Azure 儲存體雲端核心檔案管理工具](#azure-storage-cloud-core-filer) - 說明如何新增「Azure 儲存體」帳戶作為雲端核心檔案管理工具
 
 ### <a name="nas-core-filer"></a>NAS 核心檔案管理工具
 
-NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可以是雲端中的 NAS 端點。  
-儲存體系統必須具備與 Avere vFXT 叢集的可靠高速連線 - 例如 1 GBps ExpressRoute 連線 (不是 VPN) - 而且必須將所要使用之 NAS 匯出項的根存取權授與叢集。
+NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可以是雲端中的 NAS 端點。 儲存體系統必須具備與 Avere vFXT 叢集的可靠高速連線 - 例如 1 GBps ExpressRoute 連線 (不是 VPN) - 而且必須將所要使用之 NAS 匯出項的根存取權授與叢集。
 
 以下是新增 NAS 核心檔案管理工具的步驟：
 
@@ -56,7 +49,7 @@ NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可�
 
 1. 按一下左側的 [Core Filer] \(核心檔案管理工具\) > [Manage Core Filers] \(管理核心檔案管理工具\)。
 
-1. 按一下頁面底部的 [新增] 。
+1. 按一下 [建立]。
 
    ![新增核心檔案管理工具頁面的螢幕擷取畫面，其中游標置於 [建立] 按鈕上](media/avere-vfxt-add-core-filer-start.png)
 
@@ -79,7 +72,7 @@ NAS 核心檔案管理工具可以是內部部署的 NetApp 或 Isilon，也可�
 若要使用 Azure Blob 儲存體作為您 vFXT 叢集的後端儲存體，您需要一個空的容器來新增為核心檔案管理工具。
 
 > [!TIP] 
-> ``create-cloudbacked-cluster`` 範例指令碼會建立一個儲存體容器、將其定義為核心檔案管理工具，然後在建立 vFXT 叢集的過程中一併建立命名空間連接點。 ``create-minimal-cluster`` 範例指令碼不會建立 Azure 儲存體容器。 若要避免在建立叢集後必須建立及設定「Azure 儲存體」核心檔案管理工具，請使用 ``create-cloudbacked-cluster`` 指令碼來部署您的 vFXT 叢集。
+> 如果您選擇在建立 Avere vFXT 叢集的同時建立 Blob 容器，則部署範例或指令碼會建立一個儲存體容器、將其定義為核心檔案管理工具，然後在建立 vFXT 叢集的過程中一併建立命名空間連接點。 
 
 將 Blob 儲存體新增到您的叢集需要執行下列步驟：
 

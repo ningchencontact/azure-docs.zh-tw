@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 7b2c3ac5-17f1-49a0-8961-c541b258d4b1
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 6589bbe581ec5e4ca3a18363ede427bf08f8b7cc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d12180ef14c8a91893a4a158ff1b1c5cac06f0e1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428119"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176024"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>教學課程：Azure Active Directory 與 Flock 整合
 
@@ -175,7 +175,7 @@ Flock 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
 
 ### <a name="create-a-flock-test-user"></a>建立 Flock 測試使用者
 
@@ -232,7 +232,7 @@ Flock 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Flock] 圖格時，應該就會自動登入 Flock 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

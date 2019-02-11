@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.date: 06/12/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2c7d6f75b9f2d6932ae3c8de863ad277fea8ffe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 420f69e246b322eff28b56237613cea250be7530
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460534"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766549"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>在 Batch 中使用多重執行個體工作來執行訊息傳遞介面 (MPI) 應用程式
 
@@ -49,7 +49,7 @@ ms.locfileid: "55460534"
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>多重執行個體工作的需求
-多重執行個體工作需要有**已啟用節點間通訊**和**已停用並行工作執行**的集區。 若要停用並行工作執行，請將 [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) 屬性設定為 1。
+多重執行個體工作需要有**已啟用節點間通訊**和**已停用並行工作執行**的集區。 若要停用並行工作執行，請將 [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool) 屬性設定為 1。
 
 > [!NOTE]
 > 批次[限制](batch-quota-limit.md#other-limits)已啟用節點間通訊之集區的大小。

@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 9ad0579ff9c25753b1e4816b80948b4d8d1232f7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 06feece050835b2b9188eb702210770b44a6b49c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081876"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185801"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>適用於 Azure Functions 的 Application Insights 支援的功能
 
@@ -40,6 +40,7 @@ Azure Functions 提供與 Application Insights 的[內建整合](https://docs.mi
 | | | | 
 | **支援的功能**                |                   |                   |               
 | &bull; QuickPulse/LiveMetrics       | 是             | 是               | 
+| &nbsp;&nbsp;&nbsp;&mdash; 保護控制通道|                 | 是               | 
 | &bull; 取樣                     | 是             | 是               | 
 | &bull; 活動訊號                   |                 | 是               | 
 | | | | 
@@ -50,6 +51,10 @@ Azure Functions 提供與 Application Insights 的[內建整合](https://docs.mi
 | **可設定**                      |                   |                   |           
 | &bull;可完整設定。<br/>如需相關指示，請參閱 [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852)。<br/>請參閱 [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) 以了解所有選項。               |                   | 是                   | 
 
+
+## <a name="live-metrics--secure-control-channel"></a>即時計量和保護控制通道
+
+您指定的自訂篩選條件準則會傳回給 Application Insights SDK 中的即時計量元件。 篩選條件可能會包含機密資訊，例如 customerIDs。 您可以利用祕密 API 金鑰來保護通道安全。 如需指示，請參閱[保護控制通道](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel)。
 
 ## <a name="sampling"></a>取樣
 

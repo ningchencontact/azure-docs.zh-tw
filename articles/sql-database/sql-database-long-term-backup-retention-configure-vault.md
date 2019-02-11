@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma,carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: d8ff07d43d1efbadf1ddd397b6690c93c54c4f27
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 5100ef307bc125b21e1c42c87856492a4a496065
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603543"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455625"
 ---
 # <a name="configure-long-term-backup-retention-using-azure-recovery-services-vault"></a>使用 Azure 復原服務保存庫來設定長期備份保留
 
@@ -71,7 +71,7 @@ ms.locfileid: "53603543"
    ![建立保存庫](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
 
    > [!IMPORTANT]
-   > 保存庫必須位於與 Azure SQL 邏輯伺服器相同的區域，而且必須使用相同的資源群組做為邏輯伺服器。
+   > 保存庫必須位於與 SQL Database 伺服器相同的區域，且必須使用與 SQL Database 伺服器相同的資源群組。
 
 10. 建立新的保存庫之後，執行必要的步驟以返回 [復原服務保存庫] 頁面。
 
@@ -149,12 +149,12 @@ ms.locfileid: "53603543"
 
 下列幾節中會示範如何使用 PowerShell 來設定 Azure 復原服務保存庫、檢視保存庫中的備份，以及從保存庫中還原。
 
-### <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫。
+### <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
 使用 [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) 來建立復原服務保存庫。
 
 > [!IMPORTANT]
-> 保存庫必須位於與 Azure SQL 邏輯伺服器相同的區域，而且必須使用相同的資源群組做為邏輯伺服器。
+> 保存庫必須位於與 SQL Database 伺服器相同的區域，且必須使用與 SQL Database 伺服器相同的資源群組。
 
 ```PowerShell
 # Create a recovery services vault

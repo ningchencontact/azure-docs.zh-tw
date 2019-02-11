@@ -3,23 +3,23 @@ title: 使用範本在虛擬機器擴展集上設定 Azure 資源受控識別
 description: 使用 Azure Resource Manager 範本在虛擬機器擴展集上設定 Azure 資源受控識別的逐步指示。
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
-ms.author: daveba
-ms.openlocfilehash: 6498079950310e52fcb16172a34b9848e6a98e8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 6fff8890a32cd6c3f0aeb506425964edcc841c5e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429016"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193466"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>使用範本在 Azure 虛擬機器擴展集上設定 Azure 資源受控識別
 
@@ -173,7 +173,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 > [!Note]
 > 若要使用 Azure Resource Manager 範本建立使用者指派的受控識別，請參閱[建立使用者指派的受控識別](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity)。
 
-### <a name="assign-a-user-assigned-managed-identity-to-a-virutal-machine-scale-set"></a>將使用者指派的受控識別指派給虛擬機器擴展集
+### <a name="assign-a-user-assigned-managed-identity-to-a-virtual-machine-scale-set"></a>將使用者指派的受控識別指派給虛擬機器擴展集
 
 1. 在 `resources` 元素下新增下列項目，以將使用者指派的受控識別指派給您的虛擬機器擴展集。  請務必將 `<USERASSIGNEDIDENTITY>` 取代為您建立的使用者指派受控識別名稱。
    

@@ -6,17 +6,17 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: personality-chat
+ms.subservice: personality-chat
 ms.topic: faq
 ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
-ms.openlocfilehash: 274b232f321b3ad739d18a8580b4a178dbde633e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 95a6511ce818fda6db0cec507a1f9e3b034f17b0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219816"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219051"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -28,7 +28,7 @@ ms.locfileid: "47219816"
 
 從可用的預設角色中，選取最接近的角色。 您現在可以採用編輯程式庫，並編輯較符合您品牌的回應。 未來，您可以從選擇的特質上傳一組範例語調，並尋找它的最接近角色識別碼版本。 也有方法可以重新訓練和自訂模型。
 
-## <a name="is-this-service-powering-existing-intelligent-agents-such-as-zo"></a>此服務採用 Zo 這類現有智慧型代理程式嗎？
+## <a name="is-this-service-powering-existing-intelligent-agents-such-aszo"></a>此服務採用 Zo 這類現有智慧型代理程式嗎？
 
 採用 Zo、Cortana 和專案特質交談的服務會共用一些類似的技術，但為不同的堆疊。 它已納入來自 Zo 和 Cortana 體驗的學習。
 

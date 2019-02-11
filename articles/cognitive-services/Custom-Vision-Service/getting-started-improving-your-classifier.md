@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 2bee7f0af98bf03a13e376dea9dbf083b3f61815
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 72ba363201b27a8ca31c73af1d0cceb436de468d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340285"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209383"
 ---
 # <a name="how-to-improve-your-classifier"></a>如何改善分類器
 

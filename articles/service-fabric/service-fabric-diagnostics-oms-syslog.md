@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: ec2b623650818877930ac6b95a17ee264f07efdf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959525"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297662"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Syslog 中的 Service Fabric Linux 叢集事件
 
@@ -35,7 +35,7 @@ Service Fabric 會公開一組平台事件，以通知您叢集中的重要活�
 * 訊息
 * 嚴重性
 
-SyslogConsumer 會使用 `Local0` 設施 (Facility) 寫入所有平台事件。 您可以藉由變更組態設定來更新為任何有效的設施。使用的身分識別是 `ServicFabric`。 [訊息] 欄位會包含整個以 JSON 序列化的事件，以便各種工具查詢及使用。 
+SyslogConsumer 會使用 `Local0` 設施 (Facility) 寫入所有平台事件。 您可以藉由變更組態設定來更新為任何有效的設施。使用的身分識別是 `ServiceFabric`。 [訊息] 欄位會包含整個以 JSON 序列化的事件，以便各種工具查詢及使用。 
 
 ## <a name="enable-syslogconsumer"></a>啟用 SyslogConsumer
 

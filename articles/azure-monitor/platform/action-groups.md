@@ -5,19 +5,19 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 38cccf17980f5a6a2cf162cdecdc6aad40d4f38e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5717074d53e267018b7697aeed21ea00d246592e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432552"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252212"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
 ## <a name="overview"></a>概觀 ##
-動作群組是 Azure 訂用帳戶擁有者定義的通知喜好設定集合。 Azure 監視器和服務健康狀態警示使用動作群組來通知使用者警示已被觸發。 根據使用者的需求而定，不同的警示可能使用相同的動作群組或不同的動作群組。
+動作群組是 Azure 訂用帳戶擁有者定義的通知喜好設定集合。 Azure 監視器和服務健康狀態警示使用動作群組來通知使用者警示已被觸發。 根據使用者的需求而定，不同的警示可能使用相同的動作群組或不同的動作群組。 一個訂用帳戶中最多可設定 2,000 個動作群組。
 
 當動作是設定為透過電子郵件或 SMS 來通知人員時，該人員會收到確認，指出他/她已被新增到動作群組。
 
@@ -88,15 +88,18 @@ ms.locfileid: "54432552"
 **語音** - 一個「動作群組」中最多可以有 10 個「語音」動作</dd>
 請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)一文</dd>
 
-**Webhook** - 一個「動作群組」中最多可以有 10 個 Webhook 動作。 重試邏輯：回應的逾時期限為 10 秒。 傳回下列 HTTP 狀態碼時，最多會重試 2 次 Webhook 呼叫：408、429、503、504 或 HTTP 端點沒有回應。 第一次重試會在 10 秒後執行。 第二次和最後一次重試會在 100 秒後執行。
+**Webhook** - 一個「動作群組」中最多可以有 10 個 Webhook 動作。
+重試邏輯：回應的逾時期限為 10 秒。 傳回下列 HTTP 狀態碼時，最多會重試 2 次 Webhook 呼叫：408、429、503、504 或 HTTP 端點沒有回應。 第一次重試會在 10 秒後執行。 第二次重試會在 100 秒後執行。 兩次失敗後，在 30 分鐘內將不會從任何動作群組呼叫該端點。
 
 來源 IP 位址範圍
+    - 13.72.19.232
     - 13.106.57.181
     - 13.106.54.3
     - 13.106.54.19
     - 13.106.38.142
     - 13.106.38.148
     - 13.106.57.196
+    - 52.244.68.117
 
 若要接收與這些 IP 位址的變更有關的更新，建議您設定[服務健康狀態警示](./../../azure-monitor/platform/service-notifications.md)，這會監視動作群組服務的資訊通知。
 

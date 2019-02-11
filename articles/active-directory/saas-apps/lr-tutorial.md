@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 5715579e-598f-4d2e-970a-107b80b97be4
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 4c5ce02efb48b5b49f6e861dac90f4d59e4ded39
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 90fda216fc1e4bd4e96714c625aaa9c01d11a70c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437860"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160137"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>教學課程：Azure Active Directory 與 LoginRadius 整合
 
@@ -158,11 +158,11 @@ LoginRadius 與 Azure AD 整合可提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
  
 ### <a name="create-a-loginradius-test-user"></a>建立 LoginRadius 測試使用者
 
-在本節中，您會在 LoginRadius 中建立名為 Britta Simon 的使用者。 請與 [LoginRadius 支援小組](mailto:support@loginradius.com)合作，在 LoginRadius 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您會在 LoginRadius 中建立名為 Britta Simon 的使用者。 請與 [LoginRadius 支援小組](mailto:support@loginradius.com) 合作，在 LoginRadius 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -199,7 +199,7 @@ LoginRadius 與 Azure AD 整合可提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 LoginRadius 圖格時，您應該會自動登入 LoginRadius 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

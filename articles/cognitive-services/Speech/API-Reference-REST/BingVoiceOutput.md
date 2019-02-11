@@ -6,16 +6,16 @@ services: cognitive-services
 author: priyaravi20
 manager: yanbo
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: db69a9e3beb819600109603a8c0129547db57fa5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343022"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215855"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing 文字轉換語音 API
 
@@ -40,7 +40,7 @@ Content-Length: 0
 
 權杖存取所需的標頭資訊如下。
 
-名稱| 格式 | 說明
+Name| 格式 | 說明
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | 您的訂用帳戶金鑰
 
@@ -124,7 +124,7 @@ Content-Length: 0
 Error | 說明
 ----|----
 HTTP/400 不正確的要求 | 必要參數遺漏、空白或 Null，或傳遞至必要或選用參數的值無效。 取得「無效」回應的其中一個原因是傳遞超過允許長度的字串值。 其中包含有問題的參數的簡短描述。
-HTTP 401 未經授權 | 此要求未經授權。
+HTTP 401 未經授權 | 要求未經授權。
 HTTP/413 RequestEntityTooLarge  | SSML 輸入大於支援的限制。
 HTTP/502 BadGateway | 發生網路相關問題或伺服器端問題。
 
@@ -179,7 +179,7 @@ Microsoft 文字轉換語音 API 支援 SSML 1.0，如 W3C [語音合成標記�
   ```
 
 > [!NOTE]
-> 請注意，音訊資料必須為下列格式的 8k 或 16k wav 檔案：**CRC 代碼** (CRC-32)：4 個位元組 (DWORD)，有效範圍為 0x00000000 ~ 0xFFFFFFFF；**音訊格式旗標**：4 個位元組 (DWORD)，有效範圍為 0x00000000 ~ 0xFFFFFFFF；**樣本計數**：4 個位元組 (DWORD)，有效範圍為 0x00000000 ~ 0x7FFFFFFF；**二進位內容的大小**：4 個位元組 (DWORD)，有效範圍為 0x00000000 ~ 0x7FFFFFFF；**二進位內容**：n 個位元組。
+> 請注意，音訊資料必須是以下列格式歸檔的 8k 或 16k wav：**CRC 程式碼**(CRC-32)：4 個位元組 (DWORD)，有效範圍 0x00000000 ~ 0xFFFFFFFF；**音訊格式旗標**：4 個位元組 (DWORD)，有效範圍 0x00000000 ~ 0xFFFFFFFF；**樣本計數**：4 個位元組 (DWORD)，有效範圍 0x00000000 ~ 0x7FFFFFFF；**二進位內容大小**：4 個位元組 (DWORD)，有效範圍 0x00000000 ~ 0x7FFFFFFF；**二進位內容**：n 個位元組。
 
 ## <a name="SampleApp"></a>範例應用程式
 
@@ -214,9 +214,9 @@ en-IE | 男性 | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)"
 en-IN | 女性 | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 en-IN | 女性 | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 en-IN | 男性 | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
-zh-TW | 女性 | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
-zh-TW | 女性 | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
-zh-TW | 男性 | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
+en-US | 女性 | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
+en-US | 女性 | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
+en-US | 男性 | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
 es-ES | 女性 | "Microsoft Server Speech Text to Speech Voice (es-ES, Laura, Apollo)"
 es-ES | 女性 | "Microsoft Server Speech Text to Speech Voice (es-ES, HelenaRUS)"
 es-ES | 男性 | "Microsoft Server Speech Text to Speech Voice (es-ES, Pablo, Apollo)"

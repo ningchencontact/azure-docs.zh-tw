@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: aa3109b8-bdbe-45ae-933a-2eb4dc03855c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 3e54ade44828bf1e26c310a14ae401fe8ae33229
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e9b805786346abd6dfe830c9ce6ae4cc341c9e7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437656"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194265"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>教學課程：Azure Active Directory 與 Infogix Data3Sixty Govern 整合
 
@@ -145,7 +145,7 @@ Infogix Data3Sixty Govern 與 Azure AD 整合提供下列優點：
 
     d. 讓 [命名空間] 保持空白。
     
-    e. 按一下 [確定] 。
+    e. 按一下 [確定]。
 
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (原始)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -191,7 +191,7 @@ Infogix Data3Sixty Govern 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
  
 ### <a name="create-an-infogix-data3sixty-govern-test-user"></a>建立 Infogix Data3Sixty Govern 測試使用者
 
@@ -199,7 +199,7 @@ Infogix Data3Sixty Govern 與 Azure AD 整合提供下列優點：
 本節的目標是在 Infogix Data3Sixty Govern 中建立名為 Britta Simon 的使用者。 Infogix Data3Sixty Govern 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 Infogix Data3Sixty Govern 時，如果使用者還不存在，就會建立新使用者。
 
 >[!Note]
->如果您需要手動建立使用者，請連絡 [Infogix Data3Sixty Govern 支援小組](mailto:data3sixtysupport@infogix.com)。
+>如果您需要手動建立使用者，請連絡 [Infogix Data3Sixty Govern 支援小組](mailto:data3sixtysupport@infogix.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -236,7 +236,7 @@ Infogix Data3Sixty Govern 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Infogix Data3Sixty Govern] 圖格時，應該會自動登入您的 Infogix Data3Sixty Govern 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

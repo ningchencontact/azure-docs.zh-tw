@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 01/22/2019
-ms.openlocfilehash: 420d3c256f9bf2d0884e98312a5a66aea08b13bc
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6bb90480667a899d9d7bc7a5d8269b0cdf1da223
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450876"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219714"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控執行個體資源限制概觀
 
@@ -39,6 +39,7 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 | 硬體 | Intel E5 2673 v3 (Haswell) 2.4-GHz 處理器，附加 SSD 虛擬核心 = 1 PP (實體核心) | Intel E5 2673 v4 (Broadwell) 2.3-GHz 處理器，快速 eNVM SSD，虛擬核心 = 1 LP (超執行緒) |
 | 計算 | 8 個、16 個、24 個虛擬核心 | 8 個、16 個、24 個、32 個、40 個、64 個、80 個虛擬核心 |
 | 記憶體 | 每個虛擬核心 7GB | 每個虛擬核心 5.1 GB |
+| 記憶體內部 OLTP 記憶體 | 每個虛擬核心 3 GB | 每個虛擬核心 2.6 GB |
 | 最大儲存體 (一般用途) |  8 TB | 1 TB |
 | 儲存體上限 (商務關鍵) | 8 TB | 1 TB、2 TB 或 4 TB，視核心數目而定 |
 
@@ -156,7 +157,7 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 
 5. 按 [下一步] 。
 6. 在新支援要求的 [連絡資訊] 索引標籤上，輸入慣用的連絡方法 (電子郵件或電話) 和連絡人詳細資料。
-7. 按一下頁面底部的 [新增] 。
+7. 按一下 [建立]。
 
 ## <a name="next-steps"></a>後續步驟
 

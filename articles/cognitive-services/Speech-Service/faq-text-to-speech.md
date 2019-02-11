@@ -6,16 +6,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: f8d80ab189d8ed1f4b153e81963ef31cc5f685b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2252dc9d1cb4a8b5666e3f8078528206ac0fddf7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470042"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228248"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>文字轉換語音常見問題集
 
@@ -25,7 +25,7 @@ ms.locfileid: "49470042"
 
 **問：標準語音模型與自訂語音模型之間有何差異？**
 
-**答**：標準語音模型 (亦稱為*語音字型*) 已使用 Microsoft 所擁有的資料加以定型，並已部署在雲端中。 您可以使用自訂語音模型調整平均模型，並轉變說話者的聲音音色和表達方式，或根據使用者準備的定型資料，為全新的模型定型。 現在有越來越多的客戶希望他們的聊天機器人有獨一無二的品牌化聲音。 自訂語音建置平台是該選項最適合的選擇。
+**答**：標準語音模型 (亦稱為「語音字型」) 已使用 Microsoft 所擁有的資料加以定型，並已部署在雲端中。 您可以使用自訂語音模型調整平均模型，並轉變說話者的聲音音色和表達方式，或根據使用者準備的定型資料，為全新的模型定型。 現在有越來越多的客戶希望他們的聊天機器人有獨一無二的品牌化聲音。 自訂語音建置平台是該選項最適合的選擇。
 
 **問：如果我想要使用標準語音模型，該從何處著手？**
 
@@ -37,7 +37,7 @@ ms.locfileid: "49470042"
 
 **問：我需要準備定型資料來建立自己的自訂語音模型嗎？**
 
-**答**：是的，您必須自行準備自訂語音模型的定型資料。
+**答**：是，您必須自行準備自訂語音模型的定型資料。
 
 建立自訂語音模型需要有語音資料集合。 此集合包含一組語音錄製的音訊檔案，以及各音訊檔案文字記錄的文字檔。 數位語音的結果與定型資料的品質息息相關。 若要產生良好的文字轉換語音，請務必在備有高品質站立式麥克風的安靜房間內完成錄音。 一致的音量、讀出速率、讀出音調，甚至一致的語音表達方式是建立絕佳數位語音不可或缺的一部分。 強烈建議在錄音室錄製語音。
 

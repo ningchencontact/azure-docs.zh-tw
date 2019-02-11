@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 5c58a859-71c2-4542-ae92-e5f16a8e7f18
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/21/2018
 ms.author: jeedes
-ms.openlocfilehash: d93c5486d9c23558995742fc27e1222834cf4452
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b1ef02112261c612fec3297815ab8683f3236d3f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446308"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170754"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>教學課程：Azure Active Directory 與 Proxyclick 整合
 
@@ -108,7 +108,7 @@ ms.locfileid: "39446308"
 
     ![[Proxyclick 網域及 URL] 單一登入資訊](./media/proxyclick-tutorial/tutorial_proxyclick_url2.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://saml.proxyclick.com/init/<companyId>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://saml.proxyclick.com/init/<companyId>`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://saml.proxyclick.com/consume/<companyId>`
 
@@ -191,7 +191,7 @@ ms.locfileid: "39446308"
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
 
 ### <a name="create-a-proxyclick-test-user"></a>建立 Proxyclick 測試使用者
 
@@ -219,7 +219,7 @@ ms.locfileid: "39446308"
 
     c. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 Simon。
 
-    d. 按一下 [新增使用者] 。
+    d. 按一下 [新增使用者]。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -256,7 +256,7 @@ ms.locfileid: "39446308"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下 [存取面板] 中的 [Proxyclick] 圖格時，應該就會自動登入 Proxyclick 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

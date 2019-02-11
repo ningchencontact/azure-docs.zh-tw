@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: mayg
-ms.openlocfilehash: 210872a468f92f92edef9c8e29a26382c5646dae
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 55d6f1393f4f180776557ea9a2651064d61c3e06
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321546"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301493"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>針對 VMware 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery Deployment Planner 使用者指南。
@@ -169,7 +169,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 |-Currency|(選用) 在所產生的報告中用於顯示成本的貨幣。 預設值是美元 ($) 或上次使用的貨幣。<br>請參閱[支援的貨幣](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)清單。|
 
 根據預設，此工具設定為分析並產生最多 1000 個 VM 的報告。 您可以藉由變更 ASRDeploymentPlanner.exe.config 檔案中的 MaxVMsSupported 索引鍵值來變更限制。
-```
+```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
@@ -192,7 +192,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 
 #### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>範例 4︰使用 5% (而非預設值 30%) 的成長因子來產生報告
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualzation VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
 #### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>範例 5︰使用分析資料子集來產生報告
@@ -219,7 +219,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 此工具預設為在所有 VM 的分析期間收集之讀/寫 IOPS、寫入 IOPS 及資料變換的第 95 個百分位數值。 此計量可確保您的 VM 可以看到第 100 個百分位數尖峰，因為暫存事件不會用來判斷您的目標儲存體帳戶和來源頻寬需求。 例如，暫存事件可能是一天執行一次的備份作業、定期資料庫檢索或分析報告產生活動，或其他類似的短期時間點事件。
 
 使用第 95 個百分位數值可提供實際工作負載特性的真實情況，並且讓您在 Azure 上執行這些工作負載時獲得最佳效能。 我們不希望您會需要變更這個數字。 如果您變更此數字 (例如，變更為第 90 個百分位數)，您可以更新預設資料夾中的組態檔 ASRDeploymentPlanner.exe.config 並加以儲存，以產生現有剖析資料的新報告。
-```
+```xml
 <add key="WriteIOPSPercentile" value="95" />      
 <add key="ReadWriteIOPSPercentile" value="95" />      
 <add key="DataChurnPercentile" value="95" />

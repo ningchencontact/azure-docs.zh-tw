@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Domain Services：針對安全 LDAP 設定進行疑難排解 | Microsoft Docs
+title: Azure Active Directory Domain Services：針對安全 LDAP 組態進行疑難排解 | Microsoft Docs
 description: 針對 Azure AD Domain Services 的安全 LDAP 進行疑難排解
 services: active-directory-ds
 documentationcenter: ''
@@ -8,25 +8,25 @@ manager: ''
 editor: ''
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: e3a31749407f9ec0494e8452b602ed9966c5ab83
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: be07579d8273ab19101aa6c475ae5d23375517ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504204"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177180"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - 針對安全 LDAP 設定進行疑難排解
 
 本文會針對[設定 Azure AD Domain Services 的安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md) 時的常見問題提供解決方案。
 
-## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101：安全 LDAP 網路安全性群組設定
+## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101：安全 LDAP 網路安全性群組組態
 
 **警示訊息：**
 
@@ -54,7 +54,7 @@ ms.locfileid: "39504204"
 > 連接埠 636 不是 Azure AD Domain Services 順暢執行所需的唯一規則。 若要深入了解，請瀏覽[網路指導方針](active-directory-ds-networking.md)或[針對 NSG 設定進行疑難排解](active-directory-ds-troubleshoot-nsg.md)文章。
 >
 
-## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502：安全 LDAP 憑證過期
+## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502：安全 LDAP 憑證即將到期
 
 **警示訊息：**
 

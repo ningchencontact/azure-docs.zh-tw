@@ -8,20 +8,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/29/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 73b76561829e6d50918881427894ea310920fce6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1e08af577bec463263045a0f0355acffaad5e599
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465188"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244159"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection 是什麼？
 
@@ -48,7 +48,7 @@ Microsoft 保護雲端身分識別已經超過十多年。 在您的環境中使
 
 探索遭入侵的身分識別並不容易。 Azure Active Directory 使用調適性機器學習運算法和啟發學習法來偵測表示可能遭入侵身份識別的異常與可疑事件。 Identity Protection 會使用此資料來產生報告和警示，讓您評估偵測到的問題並採取適當的緩和或補救動作。
 
-Azure Active Directory Identity Protection 不只是監視和報告工具而已。 若要保護您組織的身分識別，您可以設定以風險為基礎的原則，當達到指定風險層級時自動回應偵測到的問題。 除了 Azure Active Directory 與 EMS 所提供的其他條件式存取控制以外，這些的原則可以自動封鎖或起始調適性補救動作，包括重設密碼以及強制 Multi-Factor Authentication。
+Azure Active Directory Identity Protection 不只是監視和報告工具而已。 若要保護您組織的身分識別，您可以設定以風險為基礎的原則，當達到指定風險層級時自動回應偵測到的問題。 除了 Azure Active Directory 與 [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS) 所提供的其他條件式存取控制以外，這些的原則可以自動封鎖或起始調適性補救動作，包括重設密碼以及強制 Multi-Factor Authentication。
 
 
 #### <a name="identity-protection-capabilities"></a>Identity Protection 功能

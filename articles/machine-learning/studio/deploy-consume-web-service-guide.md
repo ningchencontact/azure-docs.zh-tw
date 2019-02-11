@@ -1,7 +1,21 @@
 ---
-標題：部署和取用 titleSuffix:Azure Machine Learning Studio 說明：您可以使用 Azure Machine Learning 來部署機器學習服務的工作流程和模型做為 Web 服務。 然後便可以透過網際網路利用這些 Web 服務從應用程式呼叫機器學習服務模型，進行即時預測或批次模式的預測。 services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:04/19/2017
+title: 部署和取用
+titleSuffix: Azure Machine Learning Studio
+description: 您可以使用 Azure Machine Learning 來部署機器學習服務的工作流程和模型做為 Web 服務。 然後便可以透過網際網路利用這些 Web 服務從應用程式呼叫機器學習服務模型，進行即時預測或批次模式的預測。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+ms.openlocfilehash: 64276047410280f8e818cf695f1fbb0c80fdd693
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497667"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web 服務：部署和取用
 您可以使用 Azure Machine Learning 來部署機器學習服務的工作流程和模型做為 Web 服務。 然後便可以透過網際網路利用這些 Web 服務從應用程式呼叫機器學習服務模型，進行即時預測或批次模式的預測。 由於 Web 服務為 RESTful，您可以從各種程式設計語言與平台 (如 .NET 與 Java) 和應用程式 (如 Excel) 呼叫它們。

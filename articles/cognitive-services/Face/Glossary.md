@@ -6,16 +6,16 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 215b780bc403ab2df40567c3eb5a7ae86c9fe130
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 17167271df81914c76882fc4d06717043e1befc1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127358"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214291"
 ---
 # <a name="glossary"></a>詞彙
 
@@ -48,7 +48,7 @@ ms.locfileid: "46127358"
 
 信賴度是一個以數值揭露[臉部](#Face)或[人員](#Person)之間相似度的度量 – 可在[識別](#Identification)和[驗證](#Verification)中用來指出所搜尋、識別及驗證之結果的相似度。
 
-如需更多詳細資料，請參考下列指南：[臉部 - 尋找相似項目](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) \(英文\)、[臉部 - 識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) \(英文\)、[臉部 - 驗證](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) \(英文\)。
+如需詳細資訊，請參閱下列指南：[臉部 - 尋找相似項目](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)、[臉部 - 識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)、[臉部 - 驗證](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)。
 
 ## <a name="d"></a>D
 
@@ -72,7 +72,7 @@ ms.locfileid: "46127358"
 
 「臉部 API」是一個雲端式 API，提供最先進的臉部偵測和辨識演算法。 「臉部 API」的主要功能可以分成兩個類別：臉部[屬性](#Face-Attributes-Facial-Attributes)[偵測](#Detection-Face-Detection)，以及臉部[辨識](#Recognition)。
 
-如需更多詳細資料，請參考下列指南：[臉部 API 概觀](./Overview.md)、[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) \(英文\)、[臉部 - 尋找相似項目](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) \(英文\)、[臉部 - 分組](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) \(英文\)、[臉部 - 識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) \(英文\)、[臉部 - 驗證](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) \(英文\)。
+如需詳細資訊，請參閱下列指南：[臉部 API 概觀](./Overview.md)、[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) \(英文\)、[臉部 - 尋找相似項目](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) \(英文\)、[臉部 - 分組](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) \(英文\)、[臉部 - 識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) \(英文\)、[臉部 - 驗證](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) \(英文\)。
 
 #### <a name="face-attributesfacial-attributes"></a>臉部屬性
 
@@ -108,19 +108,19 @@ ms.locfileid: "46127358"
 
 FaceList 是 [PersistedFace](#PersistedFace) 的集合，也是[尋找相似項目](#Find-Similar)的單位。 FaceList 隨附 [FaceList 識別碼](#FaceList-ID)以及其他屬性，例如[名稱](#Name)和[使用者資料](#UserData-User-Data)。
 
-如需更多詳細資料，請參考下列指南：[FaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) \(英文\)、[FaceList - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) \(英文\)。
+如需詳細資訊，請參閱下列指南：[FaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) \(英文\)、[FaceList - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) \(英文\)。
 
 #### <a name="facelist-id"></a>FaceList 識別碼
 
 「FaceList 識別碼」是使用者提供的字串，用來作為 [FaceList](#FaceList) 的識別碼。 「FaceList 識別碼」在訂用帳戶內必須是唯一的。
 
-如需更多詳細資料，請參考下列指南：[FaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) \(英文\)、[FaceList - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) \(英文\)。
+如需詳細資訊，請參閱下列指南：[FaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) \(英文\)、[FaceList - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) \(英文\)。
 
 #### <a name="find-similar"></a>尋找類似項目
 
 此 API 可用來根據臉部集合，搜尋/查詢相似的臉部。 查詢臉部和臉部集合在要求中會以[臉部識別碼](#Face-ID)或 [FceList 識別碼](#FaceList-ID)/[LargeFaceList 識別碼](#LargeFaceList-ID)表示。 傳回的結果是所搜尋到的相似臉部，以[臉部識別碼](#Face-ID)或 [PersistedFace 識別碼](#PersistedFace-ID)代表。
 
-如需更多詳細資料，請參考下列指南：[臉部 - 尋找相似項目](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) \(英文\)、[LargeFaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) \(英文\)、[FaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) \(英文\)。
+如需詳細資訊，請參閱下列指南：[臉部 - 尋找相似項目](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) \(英文\)、[LargeFaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) \(英文\)、[FaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) \(英文\)。
 
 ## <a name="g"></a>G
 
@@ -166,7 +166,7 @@ FaceList 是 [PersistedFace](#PersistedFace) 的集合，也是[尋找相似項�
 > 進行識別之前，應該先將 LargePersonGroup/PersonGroup 成功定型。 如果未將 LargePersonGroup/PersonGroup 定型，或是定型[狀態](#Status-Train)未顯示為 'succeeded' (亦即顯示為 'running'、'failed' 或 'timeout')，要求回應就會是 400。
 > 
 
-如需更多詳細資料，請參考下列指南：[臉部 - 識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) \(英文\)、[LargePersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40) \(英文\)、[LargePersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) \(英文\)、[LargePersonGroup - 定型](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) \(英文\)、[PersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) \(英文\)、[PersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) \(英文\)、[PersonGroup - 定型](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) \(英文\)。
+如需詳細資訊，請參閱下列指南：[臉部 - 識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) \(英文\)、[LargePersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40) \(英文\)、[LargePersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) \(英文\)、[LargePersonGroup - 定型](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) \(英文\)、[PersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) \(英文\)、[PersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) \(英文\)、[PersonGroup - 定型](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) \(英文\)。
 
 #### <a name="isidentical"></a>IsIdentical
 
@@ -188,25 +188,25 @@ IsIdentical 是[驗證](#Verification)結果的布林值欄位，用來表示兩
 
 LargeFaceList 是 [PersistedFace](#PersistedFace) 的集合，也是[尋找相似項目](#Find-Similar)的單位。 LargeFaceList 隨附 [LargeFaceList 識別碼](#LargeFaceList-ID)以及其他屬性，例如[名稱](#Name)和[使用者資料](#UserData-User-Data)。
 
-如需更多詳細資料，請參考下列指南：[LargeFaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) \(英文\)、[LargeFaceList - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce) \(英文\)、[LargeFaceList - 列出臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6) \(英文\)。
+如需詳細資訊，請參閱下列指南：[LargeFaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) \(英文\)、[LargeFaceList - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce) \(英文\)、[LargeFaceList - 列出臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6) \(英文\)。
 
 #### <a name="largefacelist-id"></a>LargeFaceList 識別碼
 
 「LargeFaceList 識別碼」是使用者提供的字串，用來作為 [LargeFaceList](#LargeFaceList) 的識別碼。 「LargeFaceList 識別碼」在訂用帳戶內必須是唯一的。
 
-如需更多詳細資料，請參考下列指南：[LargeFaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) \(英文\)、[LargeFaceList - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce) \(英文\)。
+如需詳細資訊，請參閱下列指南：[LargeFaceList - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) \(英文\)、[LargeFaceList - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce) \(英文\)。
 
 #### <a name="largepersongroup"></a>LargePersonGroup
 
 LargePersonGroup 是[人員](#Person)的集合，也是[識別](#Identification)的單位。 LargePersonGroup 隨附 [LargePersonGroup 識別碼](#LargePersonGroup-ID)以及其他屬性，例如[名稱](#Name)和[使用者資料](#UserData-User-Data)。
 
-如需更多詳細資料，請參考下列指南：[LargePersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) \(英文\)、[LargePersonGroup - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e) \(英文\)、[LargePersonGroup 人員 - 列出](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1) \(英文\)。
+如需詳細資訊，請參閱下列指南：[LargePersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) \(英文\)、[LargePersonGroup - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e) \(英文\)、[LargePersonGroup 人員 - 列出](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1) \(英文\)。
 
 #### <a name="largepersongroup-id"></a>LargePersonGroup 識別碼
 
 「LargePersonGroup 識別碼」是使用者提供的字串，用來作為 [LargePersonGroup](#LargePersonGroup) 的識別碼。 「LargePersonGroup 識別碼」在訂用帳戶內必須是唯一的。
 
-如需更多詳細資料，請參考下列指南：[LargePersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) \(英文\)、[LargePersonGroup - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e) \(英文\)。
+如需詳細資訊，請參閱下列指南：[LargePersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) \(英文\)、[LargePersonGroup - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e) \(英文\)。
 
 ## <a name="m"></a>M
 
@@ -222,13 +222,13 @@ LargePersonGroup 是[人員](#Person)的集合，也是[識別](#Identification)
 
 名稱是[人員](#Person)的使用者易記描述性字串。 與[人員識別碼](#Person-ID)不同，人員的名稱在群組中可以重複。
 
-如需更多詳細資料，請參考下列指南：[LargePersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40) \(英文\)、[LargePersonGroup 人員 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0) \(英文\)、[PersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) \(英文\)、[PersonGroup 人員 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f) \(英文\)。
+如需詳細資訊，請參閱下列指南：[LargePersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40) \(英文\)、[LargePersonGroup 人員 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0) \(英文\)、[PersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) \(英文\)、[PersonGroup 人員 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f) \(英文\)。
 
 #### <a name="name-largepersongrouppersongroup"></a>名稱 (LargePersonGroup/PersonGroup)
 
 名稱也是 [LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup) 的使用者易記描述性字串。 與 [LargePersonGroup 識別碼](#LargePersonGroup-ID)/[PersonGroup 識別碼](#PersonGroup-ID) 不同，LargePersonGroups/PersonGroups 的名稱在訂用帳戶中可以重複。
 
-如需更多詳細資料，請參考下列指南：[LargePersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) \(英文\)、[LargePersonGroup - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e) \(英文\)、[PersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) \(英文\)、[PersonGroup - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246) \(英文\)。
+如需詳細資訊，請參閱下列指南：[LargePersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) \(英文\)、[LargePersonGroup - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e) \(英文\)、[PersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) \(英文\)、[PersonGroup - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246) \(英文\)。
 
 ## <a name="o"></a>O
 
@@ -238,37 +238,37 @@ LargePersonGroup 是[人員](#Person)的集合，也是[識別](#Identification)
 
 PersistedFace 是「臉部 API」中的資料結構。 PersistedFace 隨附 [PersistedFace 識別碼](#PersistedFace-ID)以及其他屬性，例如[名稱](#Name)和[使用者資料](#UserData-User-Data)。
 
-如需更多詳細資料，請參考下列指南：[LargeFaceList - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3) \(英文\)、[FaceList - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) \(英文\)、[LargePersonGroup 人員 - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) \(英文\)、[PersonGroup 人員 - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) \(英文\)。
+如需詳細資訊，請參閱下列指南：[LargeFaceList - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3) \(英文\)、[FaceList - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) \(英文\)、[LargePersonGroup 人員 - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) \(英文\)、[PersonGroup 人員 - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) \(英文\)。
 
 #### <a name="person-id"></a>人員識別碼
 
 「人員識別碼」會在成功建立 [PersistedFace](#PersistedFace) 時產生。 系統會建立一個要在[臉部 API](#Face-API) 中代表這張臉的字串。
 
-如需更多詳細資料，請參考下列指南：[LargeFaceList - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3) \(英文\)、[FaceList - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) \(英文\)、[LargePersonGroup 人員 - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) \(英文\)、[PersonGroup 人員 - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) \(英文\)。
+如需詳細資訊，請參閱下列指南：[LargeFaceList - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3) \(英文\)、[FaceList - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) \(英文\)、[LargePersonGroup 人員 - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) \(英文\)、[PersonGroup 人員 - 新增臉部](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) \(英文\)。
 
 #### <a name="person"></a>Person
 
 人員是「臉部 API」中所管理的一個資料結構。 人員隨附[人員識別碼](#Person-ID)以及其他屬性，例如[名稱](#Name)、[PersistedFace](#PersistedFace) 的集合和[使用者資料](#UserData-User-Data)。
 
-如需更多詳細資料，請參考下列指南：[LargePersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40) \(英文\)、[LargePersonGroup 人員 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0) \(英文\)、[PersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) \(英文\)、[PersonGroup 人員 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f) \(英文\)。
+如需詳細資訊，請參閱下列指南：[LargePersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40) \(英文\)、[LargePersonGroup 人員 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0) \(英文\)、[PersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) \(英文\)、[PersonGroup 人員 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f) \(英文\)。
 
 #### <a name="person-id"></a>人員識別碼
 
 「人員識別碼」會在成功建立[人員](#Person)時產生。 系統會建立一個要在[臉部 API](#Face-API) 中代表這個人員的字串。
 
-如需更多詳細資料，請參考下列指南：[LargePersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40) \(英文\)、[LargePersonGroup 人員 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0) \(英文\)、[PersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) \(英文\)、[PersonGroup 人員 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f) \(英文\)。
+如需詳細資訊，請參閱下列指南：[LargePersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40) \(英文\)、[LargePersonGroup 人員 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0) \(英文\)、[PersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) \(英文\)、[PersonGroup 人員 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f) \(英文\)。
 
 #### <a name="persongroup"></a>PersonGroup
 
 PersonGroup 是[人員](#Person)的集合，也是[識別](#Identification)的單位。 PersonGroup 隨附 [PersonGroup 識別碼](#PersonGroup-ID)以及其他屬性，例如[名稱](#Name)和[使用者資料](#UserData-User-Data)。
 
-如需更多詳細資料，請參考下列指南：[PersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) \(英文\)、[PersonGroup - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246) \(英文\)、[PersonGroup 人員 - 列出](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241) \(英文\)。
+如需詳細資訊，請參閱下列指南：[PersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) \(英文\)、[PersonGroup - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246) \(英文\)、[PersonGroup - 列出](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241) \(英文\)。
 
 #### <a name="persongroup-id"></a>PersonGroup 識別碼
 
 「PersonGroup 識別碼」是使用者提供的字串，用來作為 [PersonGroup](#PersonGroup) 的識別碼。 群組識別碼在訂用帳戶內必須是唯一的。
 
-如需更多詳細資料，請參考下列指南：[PersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) \(英文\)、[PersonGroup - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246) \(英文\)。
+如需詳細資訊，請參閱下列指南：[PersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) \(英文\)、[PersonGroup - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246) \(英文\)。
 
 #### <a name="pose-attribute"></a>姿勢 (屬性)
 
@@ -282,7 +282,7 @@ PersonGroup 是[人員](#Person)的集合，也是[識別](#Identification)的�
 
 辨識是一個熱門的臉部技術應用領域，例如[尋找相似項目](#Find-Similar)、[分組](#Grouping)、[識別](#Identification)、[驗證兩張臉是否相同](#Verification)。
 
-如需更多詳細資料，請參考下列指南：[臉部 - 尋找相似項目](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) \(英文\)、[臉部 - 分組](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) \(英文\)、[臉部 - 識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) \(英文\)、 [臉部 - 驗證](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) \(英文\)。
+如需詳細資訊，請參閱下列指南：[臉部 - 尋找相似項目](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) \(英文\)、[臉部 - 分組](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) \(英文\)、[臉部 - 識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) \(英文\)、[臉部 - 驗證](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) \(英文\)。
 
 #### <a name="rectangle-face"></a>矩形 (臉部)
 
@@ -316,7 +316,7 @@ PersonGroup 是[人員](#Person)的集合，也是[識別](#Identification)的�
 
 此 API 可用來對 [LargeFaceList](#LargeFaceList)/[LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup) 進行前處理，以確保[尋找相似項目](#Find-Similar)/[識別](#Identification)效能。 如果未進行定型或[定型狀態](#Status-Train)未顯示為成功，此 PersonGroup 的識別結果就會是失敗。
 
-如需更多詳細資料，請參考下列指南：[LargeFaceList - 定型](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1) \(英文\)、[LargePersonGroup - 定型](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) \(英文\)、[PersonGroup - 定型](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) \(英文\)、 [臉部 - 識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) \(英文\)。
+如需詳細資訊，請參閱下列指南：[LargeFaceList - 定型](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1) \(英文\)、[LargePersonGroup - 定型](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) \(英文\)、[PersonGroup - 定型](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) \(英文\)、 [臉部 - 識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) \(英文\)。
 
 ## <a name="u"></a>U
 
@@ -324,7 +324,7 @@ PersonGroup 是[人員](#Person)的集合，也是[識別](#Identification)的�
 
 使用者資料是與[人員](#Person)及 [PersonGroup](#PersonGroup)/[LargePersonGroup](#LargePersonGroup) 相關的額外資訊。 使用者資料是由使用者所設定，可讓資料更容易被使用、了解及記住。
 
-如需更多詳細資料，請參考下列指南：[LargePersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) \(英文\)、[LargePersonGroup - 更新](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acfc83a7b9412a4d53f3f) \(英文\)、[LargePersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40) \(英文\)、[LargePersonGroup 人員 - 更新](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ade043a7b9412a4d53f41) \(英文\)、[PersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) \(英文\)、[PersonGroup - 更新](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524a) \(英文\)、[PersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) \(英文\)、[PersonGroup 人員 - 更新](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395242) \(英文\)。
+如需詳細資訊，請參閱下列指南：[LargePersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) \(英文\)、[LargePersonGroup - 更新](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acfc83a7b9412a4d53f3f) \(英文\)、[LargePersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40) \(英文\)、[LargePersonGroup 人員 - 更新](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ade043a7b9412a4d53f41) \(英文\)、[PersonGroup - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) \(英文\)、[PersonGroup - 更新](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524a) \(英文\)、[PersonGroup 人員 - 建立](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) \(英文\)、[PersonGroup 人員 - 更新](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395242) \(英文\)。
 
 ## <a name="v"></a>V
 

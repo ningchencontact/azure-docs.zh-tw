@@ -1,8 +1,21 @@
 ---
-標題：內部部署 SQL Server 標題字尾：Azure Machine Learning Studio 說明：使用來自內部部署 SQL Server 資料庫的資料，利用 Azure Machine Learning Studio 執行進階分析。
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date:03/13/2017
+title: 內部部署 SQL Server
+titleSuffix: Azure Machine Learning Studio
+description: 使用來自內部部署 SQL Server 資料庫的資料，利用 Azure Machine Learning Studio 執行進階分析。
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/13/2017
+ms.openlocfilehash: 61feb1365a5007a55d18f0f4366bd5c69148e88d
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511151"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>使用內部部署 SQL Server 資料庫，利用 Azure Machine Learning Studio 執行分析
 

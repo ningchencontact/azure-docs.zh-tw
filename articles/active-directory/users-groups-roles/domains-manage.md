@@ -8,17 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/29/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: d5f926ac41bb90ba716e0c52b790a60fd74e0631
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 12c8b80b76c721962ca6180e531578b037997553
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854910"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294160"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自訂網域名稱
 
@@ -112,5 +112,4 @@ ms.locfileid: "48854910"
 
 * [新增自訂網域名稱](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [在 Azure AD 中的自訂網域名稱上移除 Exchange 管理中心的 Exchange 已啟用郵件安全性群組](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-* [在 Azure AD 中將您的應用程式參考更新到另一個網域](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad#updating-an-application)
 * [使用 Microsoft Graph API 以強制刪除自訂網域名稱](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete)

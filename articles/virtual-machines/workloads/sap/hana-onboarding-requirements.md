@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d287f79f4161c509f96b679d4b794c2906f2e020
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 9a445e5a7d230195472c2202d3f40458a23883e9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030224"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477842"
 ---
 # <a name="onboarding-requirements"></a>上線需求
 
@@ -33,7 +33,7 @@ ms.locfileid: "44030224"
 
 **網路連線**
 
-- 內部部署與 Azure 之間的 ExpressRoute：若要將您的內部部署資料中心連線到 Azure，請務必向您的 ISP 訂購一個至少 1 Gbps 的連線。 
+- 內部部署與 Azure 之間的 ExpressRoute：若要將您的內部部署資料中心連線到 Azure，請務必向您的 ISP 訂購一個至少 1 Gbps 的連線。 HANA 大型執行個體單位與 Azure 之間的連線也會使用 ExpressRoute 技術。 HANA 大型執行個體單位的價格中，包含了 HANA 大型執行個體單位與 Azure 之間的這個 ExpressRoute 連線。 因此，身為客戶的您不會遇到除了內部部署與 Azure 之間的 ExpressRoute 連結以外的額外成本。
 
 **作業系統**
 
@@ -69,13 +69,13 @@ ms.locfileid: "44030224"
 **應用程式**
 
 - 任何連線至 SAP HANA 及相關 SAP 支援合約之 SAP 應用程式的授權和軟體安裝元件。
-- 所使用與 SAP HANA on Azure (大型執行個體) 環境及相關支援合約有關的任何非 SAP 應用程式的授權和軟體安裝元件。
+- 與 SAP HANA on Azure (大型執行個體) 環境及相關支援合約搭配使用的任何非 SAP 應用程式所具有的授權和軟體安裝元件。
 
 **技能**
 
 - Azure IaaS 及其元件的相關經驗與知識。
 - 在 Azure 中部署 SAP 工作負載的相關經驗與知識。
-- 經認證的 SAP HANA 安裝人員。
+- 合格的 SAP HANA 安裝人員。
 - 可設計以 SAP HANA 為中心之高可用性和災害復原的 SAP 架構師技能。
 
 **SAP**

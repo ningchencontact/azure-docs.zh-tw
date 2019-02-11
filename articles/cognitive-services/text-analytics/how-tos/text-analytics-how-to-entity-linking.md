@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3f56bd4efafe506a95d46524713ebe49e3250f63
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230551"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220378"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>如何在文字分析 (預覽) 中使用具名實體辨識
 
@@ -54,14 +54,14 @@ ms.locfileid: "50230551"
 | 數量      | 貨幣      | "$10.99"     | 
 | 數量      | 維度     | "10 miles"、"40 cm"     | 
 | 數量      | 溫度   | "32 degrees"    |
-| Datetime      | N/A\*         | "6:30PM February 4, 2012"      | 
-| Datetime      | 日期          | "May 2nd, 2017"、"05/02/2017"   | 
+| DateTime      | N/A\*         | "6:30PM February 4, 2012"      | 
+| DateTime      | 日期          | "May 2nd, 2017"、"05/02/2017"   | 
 | 日期時間     | 時間          | "8am"、"8:00"  | 
-| Datetime      | 日期範圍     | "May 2nd to May 5th"    | 
-| Datetime      | 時間範圍     | "6pm to 7pm"     | 
-| Datetime      | Duration      | "1 minute and 45 seconds"   | 
-| Datetime      | 設定           | "every Tuesday"     | 
-| Datetime      | TimeZone      |    | 
+| DateTime      | 日期範圍     | "May 2nd to May 5th"    | 
+| DateTime      | 時間範圍     | "6pm to 7pm"     | 
+| DateTime      | Duration      | "1 minute and 45 seconds"   | 
+| DateTime      | 設定           | "every Tuesday"     | 
+| DateTime      | TimeZone      |    | 
 | URL           | N/A\*         | "http://www.bing.com"    |
 | 電子郵件         | N/A\*         | "support@contoso.com" |
 \* 依輸入和擷取的實體而定，某些實體可能會省略 `SubType`。
@@ -93,7 +93,7 @@ ms.locfileid: "50230551"
 
 關於要求定義的詳細資料可以在[如何呼叫文字分析 API](text-analytics-how-to-call-api.md) 中找到。 為了方便起見，我們將重申下列各點：
 
-+ 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[實體連結 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) \(英文\)
++ 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[實體連結 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
 + 設定適用於實體擷取的 HTTP 端點。 它必須包括 `/entities` 資源：`https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 

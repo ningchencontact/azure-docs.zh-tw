@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a0f4e4dd5cea9c3ea7b682e6372d2ffa8726e6ef
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ea409a4295cb07800e3f48ab408135071d0faea6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646468"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464807"
 ---
 # <a name="how-to-return-n-best-translations"></a>如何傳回前 N 名最佳翻譯
 
@@ -44,9 +44,9 @@ Microsoft Translator API 的 GetTranslations() 和 GetTranslationsArray() 方法
 | maxTranslations | **必要** 一個代表要傳回之翻譯數目上限的整數。 |
 | options | **選擇性** 一個包含下列值的 TranslateOptions 物件。 它們都是選擇性項目，且預設為最常見設定。
 
-* Category：唯一支援且為預設值的選項是 "general"。
-* ContentType：唯一支援且為預設值的選項是 "text/plain"。
-* State：協助將要求與回應相互關聯的使用者狀態。 將在回應中傳回相同的內容。
+* 類別：唯一支援且為預設值的選項是 "general"。
+* ContentType：唯一支援且為預設值的選項是 text/plain。
+* 狀態：使用者狀態，協助建立要求與回應的關聯。 將在回應中傳回相同的內容。
 * IncludeMultipleMTAlternatives：用以決定是否要從 MT 引擎傳回多個替代項目的旗標。 預設值為 false，因此只會包含 1 個替代項目。
 
 ## <a name="ratings"></a>評等

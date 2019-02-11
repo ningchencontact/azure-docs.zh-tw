@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 93b7fb0cd303f34d4afadf461f8886aaac52e4c3
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 38f0d9cc6f507aa7d521aba0ff737f7bbaf2b211
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388565"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468116"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>建立和管理 Azure SQL Database 中的彈性集區
 
@@ -39,7 +39,7 @@ ms.locfileid: "54388565"
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell：管理彈性集區和集區資料庫
 
-若要使用 Azure PowerShell 建立和管理 SQL Database 彈性集區和集區資料庫，請使用下列 PowerShell Cmdlet。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 若要建立及管理彈性集區的邏輯伺服器，請參閱[建立及管理邏輯伺服器](sql-database-logical-servers.md)。 若要建立及管理防火牆規則，請參閱[使用 PowerShell 建立及管理防火牆規則](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell)。
+若要使用 Azure PowerShell 建立和管理 SQL Database 彈性集區和集區資料庫，請使用下列 PowerShell Cmdlet。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 若要建立及管理彈性集區的 SQL Database 伺服器，請參閱[建立及管理 SQL Database 伺服器](sql-database-servers.md)。 若要建立及管理防火牆規則，請參閱[使用 PowerShell 建立及管理防火牆規則](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell)。
 
 > [!TIP]
 > 如需 PowerShell 範例指令碼，請參閱[使用 PowerShell 建立彈性集區並在集區之間移動資料庫以及將其移出集區](scripts/sql-database-move-database-between-pools-powershell.md)和[使用 PowerShell 在 Azure SQL Database 中監視和調整 SQL 彈性集區](scripts/sql-database-monitor-and-scale-pool-powershell.md)。
@@ -47,11 +47,11 @@ ms.locfileid: "54388565"
 
 | Cmdlet | 說明 |
 | --- | --- |
-|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|在邏輯 SQL Server 建立彈性資料庫集區。|
-|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|取得邏輯 SQL Server 上的彈性集區及其屬性值。|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|修改邏輯 SQL Server 上的彈性資料庫集區屬性。 例如，使用 **StorageMB** 屬性可修改彈性集區的最大儲存體。|
-|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|刪除邏輯 SQL Server 上的彈性資料庫集區。|
-|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|取得邏輯 SQL server 上的彈性集區作業狀態。|
+|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|建立彈性集區。|
+|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|取得彈性集區及其屬性值。|
+|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|修改彈性集區的屬性。例如，使用 **StorageMB** 屬性可修改彈性集區的最大儲存體。|
+|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|刪除彈性集區。|
+|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|取得彈性集區上的作業狀態|
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|在現有的集區建立新的資料庫，或建立新的資料庫做為單一資料庫。 |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|取得一或多個資料庫。|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|設定資料庫的屬性，或將現有資料庫移入彈性集區、移出彈性集區，或在彈性集區之間移動。|
@@ -90,7 +90,7 @@ ms.locfileid: "54388565"
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|在現有的集區建立新的資料庫，或建立新的資料庫做為單一資料庫。 您必須連線到 master 資料庫才能建立新的資料庫。|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |將資料庫移入彈性集區、將資料庫移出彈性集區，或在彈性集區之間移動資料庫。|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|刪除資料庫。|
-|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|傳回邏輯伺服器中的所有彈性資料庫集區的資源使用量統計資料。 每個彈性資料庫集區，每 15 秒報告時間範圍會傳回一列 (每分鐘四列)。 包括集區中所有資料庫的 CPU、IO、記錄、儲存體使用情況和並行的要求/工作階段使用量。|
+|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|傳回 SQL Database 伺服器中的所有彈性集區的資源使用量統計資料。 每個彈性集區，每 15 秒報告時間範圍會傳回一列 (每分鐘四列)。 包括集區中所有資料庫的 CPU、IO、記錄、儲存體使用情況和並行的要求/工作階段使用量。|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|傳回 Azure SQL 資料庫或 Azure SQL 資料倉儲的版本 (服務層)、服務目標 (定價層) 和彈性集區名稱 (如果有的話)。 若已登入 Azure SQL Database 伺服器中的 master 資料庫，則傳回所有資料庫的相關資訊。 對於 Azure SQL 資料倉儲，您必須連線到 master 資料庫。|
 
 ## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>REST API：管理彈性集區和集區資料庫

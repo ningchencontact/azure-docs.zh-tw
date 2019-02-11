@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: b03ee4ebf1113fd422d34ebf219461e75c4a5a45
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6ebf1abe6f3b115a254201184f47e6aad2febb2a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970758"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208171"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>從 VMware VM 和實體伺服器至次要網站之災害復原的支援矩陣
 
@@ -40,7 +40,7 @@ vCenter 伺服器 | vCenter 5.5、6.0 和 6.5<br/><br/> 如果您是執行 6.0 �
 **作業系統** | **詳細資料**
 --- | ---
 Windows Server | 64 位元的 Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 (至少含 SP1)。
-Linux | Red Hat Enterprise Linux 6.7、6.8、6.9、7.1、7.2 <br/><br/> Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/> Oracle Enterprise Linux 6.4、6.5 或 6.8，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3、11 SP4 
+ Linux | Red Hat Enterprise Linux 6.7、6.8、6.9、7.1、7.2 <br/><br/> Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/> Oracle Enterprise Linux 6.4、6.5 或 6.8，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3、11 SP4 
 
 
 ## <a name="linux-machine-storage"></a>Linux 機器儲存體
@@ -110,7 +110,7 @@ RDM | 是
 
 行動服務會協調內部部署 VMware 伺服器或實體伺服器和次要網站之間的複寫。 當您設定複寫時，必須確定您具有最新版本的行動服務，以及最新版本的其他元件。
 
-更新 | **詳細資料** 
+**更新** | **詳細資料** 
 --- | --- 
 Scout 更新 | [了解並下載](vmware-physical-secondary-disaster-recovery.md#updates)最新的 Scout 更新 | Scout 更新是累計的。
 元件更新 | Scout 更新包含所有元件的更新，包括 RX 伺服器、設定伺服器、處理序和主要目標伺服器、vContinuum 伺服器，以及您要保護的來源伺服器。<br/><br/> [深入了解](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)。

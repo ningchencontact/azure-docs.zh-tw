@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: f8073fd746bc02c23efab914c45c61830942a677
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 00d29ac1938a1abb63fca50afe3d66253a1e29bf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577951"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460721"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 9 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 9 月導入的新功能和變更。

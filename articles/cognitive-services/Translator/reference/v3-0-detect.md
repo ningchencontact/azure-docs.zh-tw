@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 6698960cca39fb49fe8ba6e79b957be469ea7c50
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 892a029c3a51aa3574d92b838a51359438a6bdb6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126117"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464988"
 ---
-# <a name="translator-text-api-30-detect"></a>翻譯工具文字 API 3.0：偵測
+# <a name="translator-text-api-30-detect"></a>翻譯工具文字 API 3.0：Detect
 
 識別一段文字的語言。
 
@@ -87,7 +87,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
   * `language`：代碼，代表偵測到的語言。
 
-  * `score`：浮點值，表示結果的信賴度。 分數介於 0 與 1 之間，低分數表示信賴度徧低。
+  * `score`：浮點值，表示結果的信賴度。 分數介於 0 與 1 之間，分數低表示信賴度偏低。
 
   * `isTranslationSupported`：布林值，若偵測到的語言是文字翻譯支援的語言之一，則為 true。
 

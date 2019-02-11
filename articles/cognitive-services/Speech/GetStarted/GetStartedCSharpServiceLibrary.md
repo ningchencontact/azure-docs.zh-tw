@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e9b3d3207f5aca6cba3555ba2578b5c66b3bd193
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 79ed6f1d2dc5495994d2522abf5af391cc79b705
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343686"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226038"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>快速入門：以適用於 .NET Windows 的 C&#35; 開始使用 Bing 語音辨識服務程式庫
 
@@ -97,7 +97,7 @@ Speech API 使用下列轉碼器來支援音訊/WAV：
 
 SpeechInput 物件是由兩個欄位所組成的：
 
-* **Audio**：您選擇的資料流實作，SDK 會從此資料流實作提取音訊。 它可以是任何支援讀取的[資料流](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx)。
+* **音訊**：您選擇的資料流實作，SDK 會從此資料流實作提取音訊。 它可以是任何支援讀取的[資料流](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx)。
    > [!NOTE]
    > SDK 會在資料流於讀取中傳回 **0** 時，偵測到資料流結尾。
 

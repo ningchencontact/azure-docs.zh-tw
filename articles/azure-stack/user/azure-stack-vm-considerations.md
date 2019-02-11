@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 8a9fc299f620c7df87544b467cf52535addfe313
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.lastreviewed: 12/19/2018
+ms.openlocfilehash: 421e3bf4465f5aa9aafc4ad666af2178faedb7c3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651498"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245952"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack 中使用虛擬機器的考量
 
@@ -104,8 +105,8 @@ Get-AzureRmResourceProvider | `
 
 Windows 產品的使用必須使用符合產品使用權及 Microsoft 授權條款。 Azure Stack 會使用[自動虛擬機器啟用](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) 來啟動 Windows Server 虛擬機器 (VM)。
 
-- Azure Stack 主機會使用 Windows Server 2016 的 AVMA 金鑰啟動 Windows。 所有執行 Windows Server 2012 或更新版本的 VM 均會自動啟動。
-- 執行 Windows Server 2008 R2 的 VM 不會自動啟用，且必須使用 [MAK 啟用](https://technet.microsoft.com/library/ff793438.aspx)加以啟動。 若要使用 MAK 啟用，您必須提供您自己的產品金鑰。
+- Azure Stack 主機會使用 Windows Server 2016 的 AVMA 金鑰啟動 Windows。 所有執行 Windows Server 2012 R2 或更新版本的 VM 均會自動啟動。
+- 執行 Windows Server 2012 或更新版本的 VM 不會自動啟用，且必須使用 [MAK 啟用](https://technet.microsoft.com/library/ff793438.aspx)加以啟動。 若要使用 MAK 啟用，您必須提供您自己的產品金鑰。
 
 Microsoft Azure 會使用 KMS 啟用來啟動 Windows VM。 將 VM 從 Azure Stack 移至 Azure 時，若遇到啟動方面的問題，請參閱[針對 Azure Windows 虛擬機器啟用問題進行疑難排解](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems)。 如需其他資訊，請參閱 Azure 支援小組的部落格文章：[針對 Azure VM 上的 Windows 啟用失敗進行疑難排解](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) (英文)。
 

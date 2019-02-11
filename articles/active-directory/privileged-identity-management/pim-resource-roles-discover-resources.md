@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
-ms.date: 08/30/2018
+ms.subservice: pim
+ms.date: 01/23/2019
 ms.author: rolyon
-ms.openlocfilehash: d9a6ab49d619e487eee6fb13abe128cfc167b560
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e6548c2635afd8e1ac784a1930c2277548647cfd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306684"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192744"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>在 PIM 中探索要管理的 Azure 資源
 
@@ -52,12 +52,16 @@ ms.locfileid: "43306684"
 
 1. 勾選您想要管理的任何未受控資源。
 
+1. 按一下 [管理資源] 開始管理選取的資源。
+
     > [!NOTE]
     > 管理群組或訂用帳戶設定為受控後，則無法變為非受控。 這可防止其他資源管理員移除 PIM 設定。
 
     ![探索 - 管理資源](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. 按一下 [管理資源] 開始管理選取的資源。
+1. 如果您看到一則訊息，以確認讓所選的資源上線以便管理時，請按一下 [是]。
+
+    ![探索 - 管理資源訊息](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d1db8974ce134b50340db500c9ea1b00126fe10a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bf714e5bd47e244a410d1062488af623253bbee6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086414"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217776"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>如何管理建立者及共同作業者 
 
@@ -67,7 +67,12 @@ LUIS 使用標準 Azure Active Directory (Azure AD) 同意流程。
 
 ![依應用程式網站分類的 Azure Active Directory 權限](./media/luis-how-to-collaborate/tenant-permissions.png)
 
-如果租用戶系統管理員只希望特定使用者使用 LUIS，請參閱這個[身分識別部落格](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/)。
+如果租用戶系統管理員只希望特定使用者使用 LUIS，則有一些可能的解決方式：
+* 提供「管理員同意」(同意 Azure AD 的所有使用者)，然後將 [企業應用程式屬性] 之下的 [需要使用者指派] 設定為 [是]，最後只將想要的使用者指派/新增至應用程式。 使用此方法，系統管理員仍提供應用程式的「管理員同意」，不過，能夠控制可以存取該應用程式的使用者。
+* 第二個解決方式是使用 [Azure AD Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview)，以同意每個特定的使用者。 
+
+深入了解 Azure Active Directory 使用者和同意： 
+* [將您的應用程式限制](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)為僅供一組使用者存取
 
 ### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>具有多個共同作業者電子郵件的使用者帳戶
 

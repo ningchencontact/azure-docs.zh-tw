@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 2ed7cee529b1142576c4a8e480923f1e993bde3a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412813"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493612"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect：啟用裝置回寫
 > [!NOTE]
@@ -89,7 +89,7 @@ ms.locfileid: "54412813"
 
 首先：
 
-* 確定至少有一個樹系具備 Windows Server 2012R2。 裝置物件類型必須存在。
+* 存有裝置的樹系必須將樹系結構描述升級到 Windows 2012 R2 層級，以便讓裝置物件和相關聯的屬性存在。
 * 如果安裝精靈已經在執行中，則將不會偵測到任何變更。 在此情況下，請先完成安裝精靈，然後再執行一次。
 * 確定您在初始化指令碼中提供的帳戶是 Active Directory 連接器實際使用的正確使用者。 若要確認，請依照下列步驟執行：
   * 從 [開始] 功能表開啟 [同步處理服務] 。

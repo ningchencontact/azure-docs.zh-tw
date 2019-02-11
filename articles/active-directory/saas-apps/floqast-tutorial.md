@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 013cb57d-567c-44d0-a119-e6ba6e607153
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 212e9b8c404cda330d2415b4f3274b668df8977b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f46714d2d4860abd1857e6ae16f98848678336aa
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432203"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>教學課程：Azure Active Directory 與 FloQast 整合
 
@@ -140,7 +140,7 @@ FloQast 與 Azure AD 整合提供下列優點：
 
     d. 讓 [命名空間] 保持空白。
     
-    e. 按一下 [確定] 。
+    e. 按一下 [確定]。
 
 1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存到電腦上，並執行下列步驟：
 
@@ -191,11 +191,11 @@ FloQast 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
  
 ### <a name="create-a-floqast-test-user"></a>建立 FloQast 測試使用者
 
-在本節中，您將在 FloQast 中建立名為 Britta Simon 的使用者。 請與 [FloQast 支援小組](mailto:support@floqast.com)合作，以在 FloQast 平台上新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您將在 FloQast 中建立名為 Britta Simon 的使用者。 請與 [FloQast 支援小組](mailto:support@floqast.com) 合作，在 FloQast 平台上新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -232,7 +232,7 @@ FloQast 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 您在存取面板中按一下 FloQast 磚時，應該會自動登入 FloQast 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

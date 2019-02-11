@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: 18e8b7699a388dabbf0e4f5cff7d4fb927e549c2
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: daf75987a49d2ce90a436fdfcff1a85d2fc0ca21
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853811"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300399"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso 移轉：評估要移轉至 Azure 的內部部署工作負載
 
@@ -121,7 +121,7 @@ Contoso 和其他使用者都必須符合下列先決條件才能進行評量：
 - 執行 6.5、6.0 或 5.5 版的內部部署 vCenter 伺服器執行個體。
 - vCenter Server 中的唯讀帳戶，或是可供建立帳戶的權限。
 - 可在 vCenter Server 執行個體上使用 .ova 範本建立 VM 的權限。
-- 至少一個執行 5.0 版或更新版本的 ESXi 主機。
+- 至少一個執行 5.5 版或更新版本的 ESXi 主機。
 - 至少兩個內部部署 VMware VM，且其中一個要執行 SQL Server 資料庫。
 - 可在每部 VM 上安裝 Azure Migrate 代理程式的權限。
 - VM 應該要能直接連線到網際網路。  
@@ -287,13 +287,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
     **範例**
 
     ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. 產生的雜湊應符合這些設定 (1.0.9.15 版)：
-
-    **演算法** | **雜湊值**
-    --- | ---
-    MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
-    SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
-    SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+3. 產生的雜湊應符合[這裡](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#continuous-discovery)所列的雜湊值。
 
 ### <a name="create-the-collector-appliance"></a>建立收集器設備
 

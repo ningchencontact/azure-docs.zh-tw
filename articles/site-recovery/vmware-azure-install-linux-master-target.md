@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7ff73051abc5168b4dc3852a9008adc22d7d56c6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811854"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217980"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>安裝 Linux 主要目標伺服器以便進行容錯回復
 您可以在將虛擬機器容錯移轉至 Azure 之後，將虛擬機器容錯回復至內部部署網站。 若要進行容錯回復，您需要在從 Azure 到內部部署網站的過程中重新保護虛擬機器。 針對此程序，您需要內部部署的主要目標伺服器以接收流量。 

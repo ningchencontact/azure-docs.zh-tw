@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 5df11eb4e1b759d66200c09cabc8752532d0873c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5c3da9a69204d7229ddcbbf39ec389684258e389
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042150"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470683"
 ---
-# <a name="understanding-your-azure-cosmos-db-bill"></a>了解您的 Azure Cosmos DB 帳單
+# <a name="understand-your-azure-cosmos-db-bill"></a>了解您的 Azure Cosmos DB 帳單
 
 Azure Cosmos DB 是一個完全受控的雲端原生資料庫服務，透過只針對已佈建輸送量與已取用儲存體收費以簡化計費流程。 相較於內部部署或 IaaS 主控的替代方案，它沒有任何額外的授權費用、硬體、公共事業成本或設備成本需求。 相較於現有的內部部署或 IaaS 解決方案，當您考慮 Azure Cosmos DB 的多區域功能時，資料庫服務也能大幅降低成本。
 

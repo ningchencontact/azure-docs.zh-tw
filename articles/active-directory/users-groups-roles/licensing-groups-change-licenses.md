@@ -1,27 +1,25 @@
 ---
-title: 如何使用群組在產品授權之間遷移使用者 - Azure Active Directory | Microsoft Docs
-description: 說明使用群組型授權在不同產品授權 (例如 Office 365 企業版 E1 和 E3) 之間遷移使用者時的建議程序
+title: 如何使用群組將使用者遷移至產品授權 - Azure Active Directory | Microsoft Docs
+description: 說明使用群組型授權將某個群組內的使用者遷移至不同產品授權 (Office 365 企業版 E1 和 E3) 時的建議程序
 services: active-directory
 keywords: Azure AD 授權
 documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.openlocfilehash: f675ff0dfaf183c2efd177c7888549e6976fbe6d
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: ea6159f487b35192e0e2137662a664a2796843c0
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389470"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294568"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>如何使用群組型授權安全地在產品授權之間移轉使用者
 

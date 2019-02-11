@@ -10,16 +10,16 @@ editor: piotrci
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b2e52b1e9aad05af173bf86e769e0c6ff7d28d9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215407"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195151"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>使用群組來管理 Azure Active Directory 授權的案例、限制及已知問題
 

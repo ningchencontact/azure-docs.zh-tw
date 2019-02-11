@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875394"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228282"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>整合 Azure ExpressRoute 與 Azure VM 的災害復原
 

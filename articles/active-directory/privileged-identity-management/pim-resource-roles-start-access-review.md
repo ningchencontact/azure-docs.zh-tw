@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9a35d32d89931a03b33f232ba4f79226fc3f57e5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 607104c5a8021107be9e343d71ade049712454f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189169"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160044"
 ---
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>在 PIM 中起始 Azure 資源角色的存取權檢閱
 當使用者擁有不再需要的特殊存取權時，角色指派就會變成「過時」。 若要降低與這些過時角色指派相關聯的風險，特殊權限角色管理員應該定期檢閱角色。 本文件涵蓋在適用於 Azure 資源的 Privileged Identity Management (PIM) 中開始進行存取權檢閱的步驟。
@@ -54,8 +54,8 @@ ms.locfileid: "43189169"
 
 1. 選擇其中一個選項：
    
-   * **選取的使用者**︰如果您不知道誰需要存取權，請使用此選項。 使用此選項，您可以指派資源擁有者或群組管理員完成檢閱。
-   * **指派 (自我)**：若要讓使用者檢閱自己的角色指派，請使用此選項。
+   * **選取的使用者**：如果您不知道誰需要存取權，請使用此選項。 使用此選項，您可以指派資源擁有者或群組管理員完成檢閱。
+   * **已指派 (自我)**：若要讓使用者檢閱自己的角色指派，請使用此選項。
    
 2. 移至 [選取檢閱者]。
    

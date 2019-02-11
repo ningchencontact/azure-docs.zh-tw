@@ -9,42 +9,59 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/15/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 542993d803282bbf62e2e401cab1968a656a8971
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d86a1591c81c6343ec376c080945b4bf1f97638a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352269"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471771"
 ---
-# <a name="create-resource-groups-and-resources-for-an-azure-subscription"></a>為 Azure 訂用帳戶建立資源群組與資源
+# <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>在訂用帳戶層級建立資源群組和資源
 
-您通常會將資源部署到 Azure 訂用帳戶中的資源群組。 不過您可以使用訂用帳戶層級的部署，建立套用到整個訂用帳戶的資源群組和資源。
+您通常會將 Azure 資源部署到 Azure 訂用帳戶中的資源群組。 不過，您也可以建立 Azure 資源群組，並在訂用帳戶層級建立 Azure 資源。 若要在訂用帳戶層級部署範本，您可以使用 Azure CLI 和 Azure PowerShell。 Azure 入口網站不支援在訂用帳戶層級進行部署。
 
-若要在 Azure Resource Manager 範本中建立資源群組，請搭配資源群組的名稱和位置定義 **Microsoft.Resources/resourceGroups** 資源。 您可以建立資源群組，並將資源部署至相同範本中的該資源群組。
+若要在 Azure Resource Manager 範本中建立資源群組，請搭配資源群組的名稱和位置定義 [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions.md) 資源。 您可以建立資源群組，並將資源部署至相同範本中的該資源群組。 您可以在訂用帳戶層級部署的資源包括：[原則](../azure-policy/azure-policy-introduction.md)和[角色型存取控制](../role-based-access-control/overview.md)。
 
-[原則](../azure-policy/azure-policy-introduction.md)[角色型存取控制](../role-based-access-control/overview.md)及 [Azure 資訊安全中心](../security-center/security-center-intro.md)都是您可以在訂用帳戶層級 (而非資源群組層級) 套用的服務。
+## <a name="deployment-considerations"></a>部署考量
 
-本文會說明建立資源群組的方式，以及如何建立套用到整個訂用帳戶上的資源。 本文會使用 Azure CLI 和 PowerShell 來部署範本。 您無法使用入口網站部署範本，因為入口網站介面也會部署至資源群組，而非 Azure 訂用帳戶。
+訂用帳戶層級的部署與資源群組部署的不同之處在於下列幾點：
 
-## <a name="schema-and-commands"></a>結構描述和命令
+### <a name="schema-and-commands"></a>結構描述和命令
 
 您用在訂用帳戶層級部署上的結構描述與命令，和用於資源群組部署的不同。 
 
 對於結構描述，請使用 `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` (英文)。
 
-對於 Azure CLI 部署命令，請使用 [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create)。
+對於 Azure CLI 部署命令，請使用 [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create)。 例如，下列 CLI 命令會部署範本來建立資源群組：
 
-對於 PowerShell 部署命令，請使用 [New-AzureRmDeployment](/powershell/module/azurerm.resources/new-azurermdeployment)。
+```azurecli
+az deployment create \
+  --name demoDeployment \
+  --location centralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
+  --parameters rgName=demoResourceGroup rgLocation=centralus
+```
 
-## <a name="name-and-location"></a>名稱和位置
+對於 PowerShell 部署命令，請使用 [New-AzDeployment](/powershell/module/az.resources/new-azdeployment)。 例如，下列 PowerShell 命令會部署範本來建立資源群組：
+
+```azurepowershell
+New-AzDeployment `
+  -Name demoDeployment `
+  -Location centralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demoResourceGroup `
+  -rgLocation centralus
+```
+
+### <a name="deployment-name-and-location"></a>部署名稱和位置
 
 部署到訂用帳戶時，您必須提供部署的位置。 您也可以提供部署的名稱。 如果您未指定部署的名稱，會使用範本名稱做為部署名稱。 例如，部署名為 **azuredeploy.json** 的範本會建立預設的部署名稱 **azuredeploy**。
 
 訂用帳戶層級部署的位置不可變。 您無法在某一位置建立部署，若相同名稱的現有部署已存在於其他位置。 如果您收到錯誤代碼 `InvalidDeploymentLocation`，請使用不同的名稱或與先前該名稱部署相同的位置。
 
-## <a name="using-template-functions"></a>使用範本函式
+### <a name="use-template-functions"></a>使用範本函式
 
 針對訂用帳戶層級部署，使用範本函式時有一些重要考量：
 
@@ -52,9 +69,9 @@ ms.locfileid: "54352269"
 * 支援 [resourceId()](resource-group-template-functions-resource.md#resourceid) 函式。 您可以使用它針對用於訂用帳戶層級部署的資源取得資源識別碼。 比方說，針對具有 `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))` 的原則定義取得資源識別碼
 * 支援 [reference()](resource-group-template-functions-resource.md#reference) 和 [list()](resource-group-template-functions-resource.md#list) 函式。
 
-## <a name="create-resource-group"></a>建立資源群組
+## <a name="create-resource-groups"></a>建立資源群組
 
-下列範例會建立空的資源群組。
+下列範本會建立空的資源群組。
 
 ```json
 {
@@ -82,28 +99,9 @@ ms.locfileid: "54352269"
 }
 ```
 
-若要使用 Azure CLI 部署此範本，請使用：
+您可於[此處](/azure/templates/microsoft.resources/allversions.md)找到範本結構描述。 您可於 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments) 找到類似範本。
 
-```azurecli-interactive
-az deployment create \
-  -n demoEmptyRG \
-  -l southcentralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
-  --parameters rgName=demoRG rgLocation=northcentralus
-```
-
-若要使用 PowerShell 部署此範本，請使用：
-
-```azurepowershell-interactive
-New-AzureRmDeployment `
-  -Name demoEmptyRG `
-  -Location southcentralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
-  -rgName demogroup `
-  -rgLocation northcentralus
-```
-
-## <a name="create-several-resource-groups"></a>建立數個資源群組
+## <a name="create-multiple-resource-groups"></a>建立多個資源群組
 
 搭配資源群組使用 [copy 元素](resource-group-create-multiple.md)來建立一個以上的資源群組。 
 
@@ -140,29 +138,9 @@ New-AzureRmDeployment `
 }
 ```
 
-若要透過 Azure CLI 部署此範本並建立三個資源群組，請使用：
+如需資源反覆項目的相關資訊，請參閱[在 Azure Resource Manager 範本中部署資源或屬性的多個執行個體](./resource-group-create-multiple.md)和[教學課程：使用 Resource Manager 範本建立多個資源執行個體](./resource-manager-tutorial-create-multiple-instances.md)。
 
-```azurecli-interactive
-az deployment create \
-  -n demoCopyRG \
-  -l southcentralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
-  --parameters rgNamePrefix=demoRG rgLocation=northcentralus instanceCount=3
-```
-
-若要使用 PowerShell 部署此範本，請使用：
-
-```azurepowershell-interactive
-New-AzureRmDeployment `
-  -Name demoCopyRG `
-  -Location southcentralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
-  -rgNamePrefix demogroup `
-  -rgLocation northcentralus `
-  -instanceCount 3
-```
-
-## <a name="create-resource-group-and-deploy-resource"></a>建立資源群組並部署資源
+## <a name="create-resource-group-and-deploy-resources"></a>建立資源群組並部署資源
 
 若要建立資源群組並對它部署資源，請使用巢狀範本。 巢狀範本能定義要部署至該資源群組的資源。 將巢狀範本設定為資源群組的相依項目，以確保該資源群組在部署資源之前確實存在。
 
@@ -231,29 +209,9 @@ New-AzureRmDeployment `
 }
 ```
 
-若要使用 Azure CLI 部署此範本，請使用：
+## <a name="create-policies"></a>建立原則
 
-```azurecli-interactive
-az deployment create \
-  -n demoRGStorage \
-  -l southcentralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json \
-  --parameters rgName=rgStorage rgLocation=northcentralus storagePrefix=storage
-```
-
-若要使用 PowerShell 部署此範本，請使用：
-
-```azurepowershell-interactive
-New-AzureRmDeployment `
-  -Name demoRGStorage `
-  -Location southcentralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
-  -rgName rgStorage `
-  -rgLocation northcentralus `
-  -storagePrefix storage
-```
-
-## <a name="assign-policy"></a>指派原則
+### <a name="assign-policy"></a>指派原則
 
 下列範例會將現有原則定義指派給訂用帳戶。 如果此原則採用參數，請以物件形式提供參數。 如果此原則不採用參數，請使用預設空白物件。
 
@@ -291,25 +249,25 @@ New-AzureRmDeployment `
 
 若要將內建原則套用到 Azure 訂用帳戶，請使用下列 Azure CLI 命令：
 
-```azurecli-interactive
+```azurecli
 # Built-in policy that does not accept parameters
 definition=$(az policy definition list --query "[?displayName=='Audit resource location matches resource group location'].id" --output tsv)
 
 az deployment create \
-  -n policyassign \
-  -l southcentralus \
+  --name demoDeployment \
+  --location centralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
   --parameters policyDefinitionID=$definition policyName=auditRGLocation
 ```
 
 若要使用 PowerShell 部署此範本，請使用：
 
-```azurepowershell-interactive
-$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }
+```azurepowershell
+$definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }
 
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name policyassign `
-  -Location southcentralus `
+  -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
   -policyDefinitionID $definition.PolicyDefinitionId `
   -policyName auditRGLocation
@@ -317,35 +275,35 @@ New-AzureRmDeployment `
 
 若要將內建原則套用到 Azure 訂用帳戶，請使用下列 Azure CLI 命令：
 
-```azurecli-interactive
+```azurecli
 # Built-in policy that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
 az deployment create \
-  -n policyassign \
-  -l southcentralus \
+  --name demoDeployment \
+  --location centralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
   --parameters policyDefinitionID=$definition policyName=setLocation policyParameters="{'listOfAllowedLocations': {'value': ['westus']} }"
 ```
 
 若要使用 PowerShell 部署此範本，請使用：
 
-```azurepowershell-interactive
-$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
+```azurepowershell
+$definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
 
 $locations = @("westus", "westus2")
 $policyParams =@{listOfAllowedLocations = @{ value = $locations}}
 
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name policyassign `
-  -Location southcentralus `
+  -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
   -policyDefinitionID $definition.PolicyDefinitionId `
   -policyName setLocation `
   -policyParameters $policyParams
 ```
 
-## <a name="define-and-assign-policy"></a>定義及指派原則
+### <a name="define-and-assign-policy"></a>定義及指派原則
 
 您可以在相同的範本[定義](../azure-policy/policy-definition.md)和指派原則。
 
@@ -392,23 +350,25 @@ New-AzureRmDeployment `
 
 若要在訂用帳戶中建立原則定義，並將它套用至訂用帳戶，請使用下列 CLI 命令：
 
-```azurecli-interactive
+```azurecli
 az deployment create \
-  -n definePolicy \
-  -l southcentralus \
+  --name demoDeployment \
+  --location centralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
 若要使用 PowerShell 部署此範本，請使用：
 
-```azurepowershell-interactive
-New-AzureRmDeployment `
+```azurepowershell
+New-AzDeployment `
   -Name definePolicy `
-  -Location southcentralus `
+  -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## <a name="assign-role-at-subscription"></a>指派訂用帳戶的角色
+## <a name="create-roles"></a>建立角色
+
+### <a name="assign-role-at-subscription"></a>指派訂用帳戶的角色
 
 下列範例將角色指派給訂用帳戶的使用者或群組。 在此範例中，您不會指定指派的範圍，因為範圍會自動設為訂用帳戶。
 
@@ -441,7 +401,7 @@ New-AzureRmDeployment `
 
 若要將 Active Directory 群組指派給您訂用帳戶的角色，請使用下列 Azure CLI 命令：
 
-```azurecli-interactive
+```azurecli
 # Get ID of the role you want to assign
 role=$(az role definition list --name Contributor --query [].name --output tsv)
 
@@ -449,28 +409,28 @@ role=$(az role definition list --name Contributor --query [].name --output tsv)
 principalid=$(az ad group show --group demogroup --query objectId --output tsv)
 
 az deployment create \
-  -n demoRole \
-  -l southcentralus \
+  --name demoDeployment \
+  --location centralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json \
   --parameters principalId=$principalid roleDefinitionId=$role
 ```
 
 若要使用 PowerShell 部署此範本，請使用：
 
-```azurepowershell-interactive
-$role = Get-AzureRmRoleDefinition -Name Contributor
+```azurepowershell
+$role = Get-AzRoleDefinition -Name Contributor
 
-$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+$adgroup = Get-AzADGroup -DisplayName demogroup
 
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name demoRole `
-  -Location southcentralus `
+  -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
   -roleDefinitionId $role.Id `
   -principalId $adgroup.Id
 ```
 
-## <a name="assign-role-at-scope"></a>指派範圍的角色
+### <a name="assign-role-at-scope"></a>指派範圍的角色
 
 下列訂用帳戶層級的範本會將角色指派給訂用帳戶中某個資源群組範圍內的使用者或群組。 此範圍必須等於或低於部署層級。 您可以部署至訂用帳戶，並指定該訂用帳戶中某個資源群組範圍內的角色指派。 不過，您無法部署至資源群組，並指定訂用帳戶範圍內的角色指派。
 
@@ -528,7 +488,7 @@ New-AzureRmDeployment `
 
 若要將 Active Directory 群組指派給您訂用帳戶的角色，請使用下列 Azure CLI 命令：
 
-```azurecli-interactive
+```azurecli
 # Get ID of the role you want to assign
 role=$(az role definition list --name Contributor --query [].name --output tsv)
 
@@ -536,22 +496,22 @@ role=$(az role definition list --name Contributor --query [].name --output tsv)
 principalid=$(az ad group show --group demogroup --query objectId --output tsv)
 
 az deployment create \
-  -n demoRole \
-  -l southcentralus \
+  --name demoDeployment \
+  --location centralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json \
   --parameters principalId=$principalid roleDefinitionId=$role rgName demoRg
 ```
 
 若要使用 PowerShell 部署此範本，請使用：
 
-```azurepowershell-interactive
-$role = Get-AzureRmRoleDefinition -Name Contributor
+```azurepowershell
+$role = Get-AzRoleDefinition -Name Contributor
 
-$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+$adgroup = Get-AzADGroup -DisplayName demogroup
 
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name demoRole `
-  -Location southcentralus `
+  -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json `
   -roleDefinitionId $role.Id `
   -principalId $adgroup.Id `
@@ -559,6 +519,7 @@ New-AzureRmDeployment `
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 * 如需針對 Azure 資訊安全中心部署工作區設定的範例，請參閱 [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)。
 * 若要了解如何建立 Azure 資源管理員範本，請參閱 [撰寫範本](resource-group-authoring-templates.md)。 
 * 如需在範本中可用函式的清單，請參閱 [範本函式](resource-group-template-functions.md)。

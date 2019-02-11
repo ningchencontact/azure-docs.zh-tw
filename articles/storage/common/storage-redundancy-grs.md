@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2018
 ms.author: jeking
-ms.component: common
-ms.openlocfilehash: 85d69db2f94e4bddf1258233c34c64dcf78a3eeb
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.subservice: common
+ms.openlocfilehash: 8ffd3c34628f96888145a3639ddfe4a190dffc7f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219217"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467062"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>異地備援儲存體 (GRS)：適用於 Azure 儲存體的跨區域複寫
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "51219217"
 Microsoft 慎重負責保存您的資料。 如果有機會在主要區域復原資料，Microsoft 就會延遲容錯移轉，並將焦點放在復原您的資料上。 
 
 ## <a name="paired-regions"></a>配對的區域 
-建立儲存體帳戶時，您可以為帳戶選取主要區域。 配對的次要區域會視主要區域而定，且無法變更。 如需有關 Azure 所支援區域的最新資訊，請參閱[商務持續性和災害復原 (BCDR)：Azure 配對的區域](../../best-practices-availability-paired-regions.md)。
+建立儲存體帳戶時，您可以為帳戶選取主要區域。 配對的次要區域會視主要區域而定，且無法變更。 如需有關 Azure 所支援區域的最新資訊，請參閱[商務持續性和災害復原 (BCDR)：Azure 配對區域](../../best-practices-availability-paired-regions.md)。
 
 ## <a name="see-also"></a>另請參閱
 - [Azure 儲存體複寫](storage-redundancy.md)

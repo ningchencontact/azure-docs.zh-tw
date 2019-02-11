@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 50c5838f576b6fd6775373f2dbe3c46d751545c1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3e58c22048c9b71b00cffb0657fc924277304662
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437583"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462423"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>在 HDInsight 中使用企業安全性套件
 
@@ -55,9 +55,41 @@ HDInsight 目前僅支援以 Azure AD DS 作為主要網域控制站，讓叢集
 
 如果您有內部部署的 Active Directory 執行個體或網域上有更複雜的 Active Directory 設定，則可以使用 Azure AD Connect 來將那些身分識別同步到 Azure AD。 之後，您可以在該 Active Directory 租用戶上啟用 Azure AD DS。 
 
-因為 Kerberos 依賴密碼雜湊，您必須[對 Azure AD DS 啟用密碼雜湊同步](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)。 如果您使用與 Active Directory 同盟服務 (AD FS) 同盟，則可以視需要設定密碼雜湊同步來作為 AD FS 基礎結構失敗時的備用方式。 如需詳細資訊，請參閱[透過 Azure AD Connect 同步啟用密碼雜湊同步](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)。 
+因為 Kerberos 依賴密碼雜湊，您必須[對 Azure AD DS 啟用密碼雜湊同步](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)。 
+
+如果您使用同盟搭配 Active Directory 同盟服務 (ADFS)，則必須啟用密碼雜湊同步 (建議的設定，請參閱[這裡](https://youtu.be/qQruArbu2Ew))，這也有助於在 ADFS 基礎結構失敗時災害復原和認證外洩保護。 如需詳細資訊，請參閱[透過 Azure AD Connect 同步啟用密碼雜湊同步](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)。 
 
 對於有 ESP 的 HDInsight 叢集，不支援單獨使用內部部署 Active Directory 或 IaaS VM 上的 Active Directory，必須同時使用 Azure AD 和 Azure AD DS 的設定。
+
+如果正在使用同盟且密碼雜湊已正確同步，但您卻收到驗證失敗，請檢查 Powershell 服務主體雲端密碼驗證是否已啟用，若未啟用，您必須為 AAD 租用戶設定[主領域探索 (HRD) 原則](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md)。 若要檢查並設定 HRD 原則：
+
+ 1. 安裝 Azure AD PowerShell 模組
+
+ ```
+  Install-Module AzureAD
+ ```
+
+ 2. 使用全域管理員 (租用戶系統管理員) 認證的 ```Connect-AzureAD```
+
+ 3. 檢查是否已建立 “Microsoft Azure Powershell” 服務主體
+
+```
+ $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+```
+
+ 4. 如果不存在 (亦即，如果 ($powershellSPN -q $null))，則建立服務主體
+
+```
+ $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+```
+
+ 5. 建立原則並將其附加至此服務主體： 
+
+```
+ $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+
+ Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+```
 
 ## <a name="next-steps"></a>後續步驟
 

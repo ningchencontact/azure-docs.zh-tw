@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7662d58c1686dfa4e545246eb897af134a67144c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 26954c8f839ff0bfb2da484e4fb535f33d4e07ed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473379"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239174"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>使用您的訂用帳戶金鑰搭配 LUIS 應用程式
 
@@ -43,7 +43,7 @@ ms.locfileid: "54473379"
 
     ![Azure API 選擇](./media/luis-azure-subscription/azure-api-choice.png) 
 
-1. 建立 Language Understanding 資源後，您就可以檢視在 [資源管理] -> [金鑰] 中產生的存取金鑰。 請勿變更金鑰。 下一節將說明如何將這個新資源連線至 LUIS 入口網站中的 LUIS 應用程式。 您需要步驟 3 中的 LUIS 資源名稱。
+1. 建立 Language Understanding 資源後，您就可以檢視在 [資源管理] -> [金鑰] 中產生的存取金鑰。 下一節將說明如何將這個新資源連線至 LUIS 入口網站中的 LUIS 應用程式。 您需要步驟 3 中的 LUIS 資源名稱。
 
     ![Azure 金鑰](./media/luis-azure-subscription/azure-keys.png)
 

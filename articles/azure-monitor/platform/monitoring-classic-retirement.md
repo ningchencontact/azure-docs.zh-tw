@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: a910b0537234d1653be93eb406fe3b2261305ee5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3c1896dc756675b838b97d978cec40b4650760fe
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461972"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298955"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Azure 監視器中的整合警示和監視取代了傳統警示和監視
 
@@ -36,9 +36,9 @@ Azure 監視器的較新計量平台現在可強化來自 Application Insights �
 - **Application Insights 自訂計量** - 可讓您定義和發出自己的監視和警示計量。 如需詳細資訊，請參閱這篇關於使用[新 Azure 監視器上的 Application Insights 自訂計量](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)的文章。
 - **Application Insights 失敗異常 (智慧偵測的一部分)** - 可在 Web 應用程式的失敗 HTTP 要求或相依性呼叫比率異常增加時，以幾乎即時的方式自動通知您。 屬於新 Azure 監視器一部分的 Application Insights 失敗異常 (智慧偵測的一部分) 即將推出，因為其推出時間是在未來幾個月，所以我們將會在下一版更新此文件和連結。
 
-## <a name="unified-metrics--alerts-for-other-azure-resources"></a>其他 Azure 資源的整合計量和警示
+## <a name="unified-metrics-and-alerts-for-other-azure-resources"></a>其他 Azure 資源的整合計量和警示
 
-自 2018 年 3 月起，新一代的 Azure 資源警示和多維度監視功能便已推出。 現在，較新的計量平台和警示由於有近乎即時的功能，所以執行速度更快。 更重要的是，較新的計量平台警示可提供更多的細微性，因為較新的平台包含維度選項，可讓您配量和篩選至特定的值組合、條件或作業。 和新 Azure 監視器中的所有警示一樣，較新的計量警示由於使用 ActionGroups (讓通知工具不再只有電子郵件或 Webhook，還可使用簡訊、語音、Azure 函式、自動化 Runbook 等等)，所以更具擴充性。
+自 2018 年 3 月起，新一代的 Azure 資源警示和多維度監視功能便已推出。 現在，較新的計量平台和警示由於有近乎即時的功能，所以執行速度更快。 更重要的是，較新的計量平台警示可提供更多的細微性，因為較新的平台包含維度選項，可讓您配量和篩選至特定的值組合、條件或作業。 和新 Azure 監視器中的所有警示一樣，較新的計量警示由於使用 ActionGroups (讓通知工具不再只有電子郵件或 Webhook，還可使用簡訊、語音、Azure 函式、自動化 Runbook 等等)，所以更具擴充性。 如需詳細資訊，請參閱[使用 Azure 監視器建立、檢視及管理計量警示](../../azure-monitor/platform/alerts-metric.md)。
 適用於 Azure 資源的較新計量可透過下列形式來取得：
 
 - **Azure 監視器標準平台計量** - 可提供來自各種 Azure 服務和產品的熱門預先填入計量。 如需詳細資訊，請參閱這篇關於 [Azure 監視器上所支援的計量](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)和 [Azure 監視器上所支援的計量警示](../../azure-monitor/platform/alerts-metric-overview.md#supported-resource-types-for-metric-alerts)的文章。
@@ -60,6 +60,10 @@ Azure 監視器的較新計量平台現在可強化來自 Application Insights �
 - 傳統的監視及警示服務將會停用，且無法再建立新的警示規則
 - 在 2019 年 6 月之後繼續存在於警示 (傳統) 中的任何警示規則都將會繼續執行並引發通知，但不可供修改之用。
 - 從 2019 年 6 月開始，傳統監視和警示中的警示規則將由 Microsoft 自動遷移至其在新 Azure 監視器平台的對等位置。 此程序無須停機即可順利進行，而且客戶不會遺失任何監視涵蓋範圍。
+- 移轉至新警示平台的警示規則將提供與之前一樣的監視涵蓋範圍，但會引發具有新承載的通知。 與傳統警示規則相關聯的任何電子郵件地址、Webhook 端點或邏輯應用程式連結在移轉時都將被轉移，但可能無法正確運作，因為新平台中的警示承載將有所不同
+
+> [!IMPORTANT]
+> Microsoft Azure 監視器近期將為客戶提供相關工具，使其能夠將傳統警示規則自動移轉至新平台。 且自 2019 年 7 月起，將強制對仍然存在的傳統警示規則執行該工具。 移轉至傳統警示規則之後，客戶必須確實調整使用傳統警示規則的自動化作業，以處理來自 [Application Insights 中的整合計量和警示](#unified-metrics-and-alerts-in-application-insights)或[其他 Azure 資源的整合計量和警示](#unified-metrics-and-alerts-for-other-azure-resources)的新承載。 
 
 我們很快就會提供工具，讓您可以自行從 Azure 入口網站的 [[警示 (傳統)] 區段](../../azure-monitor/platform/alerts-classic.overview.md)遷移至新的 Azure 警示。 [警示 (傳統)] 中所設定並遷移至新 Azure 監視器的規則全都會維持免費，不會收費。 所遷移的傳統警示規則也不會因為透過電子郵件、Webhook 或 LogicApp 推送通知而需要承擔任何費用。 不過，使用較新的通知或動作類型 (例如簡訊、語音電話、ITSM 整合等等) 則會收費，不論其新增到遷移的警示還是新的警示都是如此。 如需詳細資訊，請參閱 [Azure 監視器定價](https://azure.microsoft.com/pricing/details/monitor/)。
 
@@ -70,7 +74,7 @@ Azure 監視器的較新計量平台現在可強化來自 Application Insights �
 - Application Insights 所執行的任何多測試 Web 測試
 - 超出 Azure 監視器所含免費單位而儲存的任何自訂計量
 
-這篇文章會持續更新關於新 Azure 監視和警示功能的連結和詳細資料，以及可協助使用者採用新 Azure 監視器平台的工具可用性。
+本文將持續更新關於新 Azure 監視和警示功能的連結和詳細資料，以及工具的可用性，以協助使用者採用新的 Azure 監視器平台。
 
 
 ## <a name="next-steps"></a>後續步驟

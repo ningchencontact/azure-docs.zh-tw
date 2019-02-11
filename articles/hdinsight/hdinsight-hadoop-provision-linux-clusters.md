@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: 0878fc4b069f7c1ca34f8954320af6e69ceea717
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 33a882e8543f1a57afe9207f7a7263ec39530a0c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299856"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817917"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他工具在 HDInsight 中設定叢集
 
@@ -50,7 +50,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 
 * [資源群組名稱](#resource-group-name)
 * [叢集類型和設定](#cluster-types) 
-* [叢集登入和 SSH 使用者名稱](#cluster-login-and-ssh-username)
+* 叢集登入和 SSH 使用者名稱
 * [位置](#location)
 
 > [!IMPORTANT]  

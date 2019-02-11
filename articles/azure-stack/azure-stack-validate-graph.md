@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 43f30989fa09e711fc71941e7722dcd195212472
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.lastreviewed: 01/28/2019
+ms.openlocfilehash: 0755f9d60bee8a57f9259a51cf54e8cda566175e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416220"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247001"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>驗證 Azure Stack 的圖表整合
 
@@ -107,7 +108,7 @@ ms.locfileid: "50416220"
 使用︰
 
 * **-OutputPath**：執行命令列結尾的 *path* 參數能指定不同的報告位置。
-* **-CleanReport**：執行命令結尾的參數能清除先前報告資訊的 *AzsReadinessCheckerReport.json*。 如需詳細資訊，請參閱 [Azure Stack 驗證報告](azure-stack-validation-report.md)。
+* **-CleanReport**：執行命令結尾的參數，用來清除先前報告資訊的 *AzsReadinessCheckerReport.json*。 如需詳細資訊，請參閱 [Azure Stack 驗證報告](azure-stack-validation-report.md)。
 
 ## <a name="validation-failures"></a>驗證失敗
 

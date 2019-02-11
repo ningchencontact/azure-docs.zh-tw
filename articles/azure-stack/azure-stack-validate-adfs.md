@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 87e3f03ce5d4c65d5c4b1754300f5d57feca2a49
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.lastreviewed: 01/28/2019
+ms.openlocfilehash: 2200b9a48d7f83d6785c8dbb4a7b02be52fca75a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416506"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241061"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>驗證 Azure Stack 的 AD FS 整合
 
@@ -29,7 +30,7 @@ ms.locfileid: "50416506"
 整備檢查程式會驗證：
 
 * 「同盟中繼資料」包含有效的同盟 XML 元素。
-* 可擷取「AD FS SSL 憑證」，並且能夠建置信任鏈結。 戳記上 AD FS 必須信任 SSL 憑證鏈結。 憑證必須由與 Azure Stack 部署憑證相同的「憑證授權單位」簽署，或由受信任的根授權單位合作夥伴簽署。 如需完整的受信任根授權單位合作夥伴清單，請參閱 [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca) \(英文\)。
+* 可擷取「AD FS SSL 憑證」，並且能夠建置信任鏈結。 戳記上 AD FS 必須信任 SSL 憑證鏈結。 憑證必須由用於 Azure Stack 部署憑證的相同「憑證授權單位」簽署，或由受信任的根授權單位合作夥伴簽署。 如需完整的受信任根授權單位合作夥伴清單，請參閱 [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca) \(英文\)。
 * 「AD FS 簽署憑證」受信任且沒有快要到期。
 
 如需有關 Azure Stack 資料中心整合的詳細資訊，請參閱 [Azure Stack 資料中心整合 - 身分識別](azure-stack-integrate-identity.md)。
@@ -102,7 +103,7 @@ ms.locfileid: "50416506"
 使用︰
 
 * **-OutputPath**：執行命令列結尾的 *path* 參數能指定不同的報告位置。
-* **-CleanReport**：執行命令結尾的參數能清除先前報告資訊的 AzsReadinessCheckerReport.json。 如需詳細資訊，請參閱 [Azure Stack 驗證報告](azure-stack-validation-report.md)。
+* **-CleanReport**：執行命令結尾的參數，用來清除先前報告資訊的 AzsReadinessCheckerReport.json。 如需詳細資訊，請參閱 [Azure Stack 驗證報告](azure-stack-validation-report.md)。
 
 ## <a name="validation-failures"></a>驗證失敗
 
@@ -114,9 +115,9 @@ ms.locfileid: "50416506"
 
 `Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.`
 
-**原因**：PowerShell Autoload 無法正確載入「整備檢查程式」模組。
+**原因**︰PowerShell Autoload 無法正確載入「整備檢查程式」模組。
 
-**解決方法**：明確匯入「整備檢查程式」模組。 請複製下列程式碼並貼到 PowerShell 中，並以目前所安裝版本的號碼更新 \<version\>。
+**解決方案**︰明確匯入「整備檢查程式」模組。 請複製下列程式碼並貼到 PowerShell 中，並以目前所安裝版本的號碼更新 \<version\>。
 
 `Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
 

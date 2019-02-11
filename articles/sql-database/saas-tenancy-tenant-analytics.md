@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: bd766dfb712921a57dd23c4fdecc25dd623eb833
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 12/18/2018
+ms.openlocfilehash: f7c482a0308d3c2b2583d99cf4079040065b80c0
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393259"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561365"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>在單一租用戶應用程式中使用擷取的資料執行跨租用戶分析
  
@@ -70,7 +70,7 @@ ms.locfileid: "47393259"
 若要完成本教學課程，請確定符合下列必要條件：
 
 - 已部署 Wingtip Tickets SaaS Database Per Tenant 應用程式。 若要在五分鐘內完成部署，請參閱[部署及探索 Wingtip SaaS 應用程式](saas-dbpertenant-get-started-deploy.md)
-- Wingtip Tickets SaaS Database Per Tenant 指令碼和應用程式[原始程式碼](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)是從 GitHub 下載。 查看下載指示。 請務必在擷取檔案內容之前解除封鎖 zip 檔案。 關於下載和解除封鎖 Wingtip Tickets SaaS 指令碼的步驟，請參閱[一般指引](saas-tenancy-wingtip-app-guidance-tips.md)。
+- Wingtip Tickets SaaS Database Per Tenant 指令碼和應用程式[原始程式碼](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)是從 GitHub 下載。 請參閱下載指示。 請務必在擷取檔案內容之前解除封鎖 zip 檔案。 關於下載和解除封鎖 Wingtip Tickets SaaS 指令碼的步驟，請參閱[一般指引](saas-tenancy-wingtip-app-guidance-tips.md)。
 - Power BI Desktop 已安裝。 [下載 Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - 已佈建額外租用戶的批次，請參閱[**佈建租用戶教學課程**](saas-dbpertenant-provision-and-catalog.md)。
 - 已建立作業帳戶和作業帳戶資料庫。 請參閱[**結構描述管理教學課程**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent)中的適當步驟。

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 6f6dac37d1114e8a9faa16c07fd5c14a90a5b0fb
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 61bbc65c543801b0f783d01dfb803f47dbcf8a07
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976727"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215294"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 上 App Service 的 Java 開發人員指南
 
@@ -139,7 +139,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 如果您需要啟用多個登入提供者，請遵循[自訂 App Service 驗證](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)一文中的指示。
 
- Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易版](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable)，以利用熟悉的 Spring Security 註釋和 API 來保護應用程式。
+Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易版](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable)，以利用熟悉的 Spring Security 註釋和 API 來保護應用程式。 請務必要在 `application.properties` 檔案中增加標頭大小上限。 建議值為 `16384`。 
 
 ### <a name="configure-tlsssl"></a>設定 TLS/SSL
 

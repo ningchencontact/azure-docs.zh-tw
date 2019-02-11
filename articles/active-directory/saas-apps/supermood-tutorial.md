@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: afc04efa-2eba-4e47-8ce4-b71eb293cd09
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 98a39c52f206f19d3330695fd05f9a96c0bf4d36
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 54a1f4a8ef0ec4381374585df57dc62490337190
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443345"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55173083"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>教學課程：Azure Active Directory 與 Supermood 整合
 
@@ -196,14 +196,14 @@ ms.locfileid: "39443345"
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
  
 ### <a name="create-a-supermood-test-user"></a>建立 Supermood 測試使用者
 
 在本節中，您會在 Supermood 中建立名為 Britta Simon 的使用者。 Supermood 支援 Just-In-Time 佈建，系統預設會針對其電子郵件屬於在 Supermood 結束時的設定期間所新增之網域的使用者啟用此功能。 在這一節沒有您需要進行的動作項目。 嘗試存取 Supermood 時，如果 Supermood 還沒有使用者，系統就會建立新的使用者。
 
 >[!Note]
->如果您需要手動建立使用者，請連絡 [Supermood 支援小組](mailto:hello@supermood.fr)。
+>如果您需要手動建立使用者，請連絡 [Supermood 支援小組](mailto:hello@supermood.fr)。
 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
@@ -241,7 +241,7 @@ ms.locfileid: "39443345"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下 [存取面板] 中的 [Supermood] 圖格時，系統應該會自動將您登入 Supermood 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

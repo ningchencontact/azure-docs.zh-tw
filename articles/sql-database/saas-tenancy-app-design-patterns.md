@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.date: 01/25/2019
+ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227481"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471193"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>多租用戶 SaaS 資料庫租用模式
 
@@ -49,7 +49,7 @@ ms.locfileid: "47227481"
 
 - **租用戶隔離：**&nbsp;資料隔離和效能 (某個租用戶的工作負載是否會影響其他人)。
 
-- **每一租用戶的成本：** &nbsp;資料庫成本。
+- **每一租用戶的成本：**&nbsp;資料庫成本。
 
 - **部署複雜度：**
     - 結構描述的變更。
@@ -95,7 +95,7 @@ ms.locfileid: "47227481"
 
 #### <a name="elastic-pools"></a>彈性集區
 
-當資料庫部署於相同的資源群組時，可以將它們分組為彈性資料庫集區。  集區會提供符合成本效益的方式來共用橫跨多個資料庫的資源。  相較於要求每個資料庫大到足以容納它所遭遇的使用量尖峰，此集區選項的成本比較低。  即使集區中的資料庫會共用資源的存取權，它們仍可達到較高程度的效能隔離。
+當資料庫部署於相同的資源群組時，可以將它們分組為彈性集區。  集區會提供符合成本效益的方式來共用橫跨多個資料庫的資源。  相較於要求每個資料庫大到足以容納它所遭遇的使用量尖峰，此集區選項的成本比較低。  即使集區中的資料庫會共用資源的存取權，它們仍可達到較高程度的效能隔離。
 
 ![每一租用戶一個資料庫的多租用戶應用程式設計 (使用彈性集區)。][image-mt-app-db-per-tenant-pool-153p]
 

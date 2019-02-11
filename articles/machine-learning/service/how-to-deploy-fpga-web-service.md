@@ -4,23 +4,27 @@ titleSuffix: Azure Machine Learning service
 description: 了解如何使用 Azure Machine Learning 服務以 FPGA 上執行的模型來部署 Web 服務，以提供超低延遲的推斷。
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 12/06/2018
+ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3148d4d63ad1464dbd45c361237ac9cd4ffd485a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a9c26a2a0eaf9c2669a71cdca729a6e64fe5cd5c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268235"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301300"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務在 FPGA 上將模型部署為 Web 服務
 
-您可以將模型部署為[現場可程式化邏輯閘陣列 (FPGA)](concept-accelerate-with-fpgas.md) 上的 Web 服務。  使用 FPGA 時，即使是透過單一批次大小，也提供超低延遲推斷。   
+您可以將模型部署為[現場可程式化邏輯閘陣列 (FPGA)](concept-accelerate-with-fpgas.md) 上的 Web 服務。  使用 FPGA 時，即使是透過單一批次大小，也提供超低延遲推斷。  目前可使用以下模型：
+  - ResNet 50
+  - ResNet 152
+  - DenseNet-121
+  - VGG-16   
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -34,7 +38,17 @@ ms.locfileid: "53268235"
 
     ```shell
     pip install --upgrade azureml-sdk[contrib]
-    ```  
+    ```
+
+  - 目前僅支援 tensorflow 版本<=1.10 ，因此在所有其他安裝完成之後安裝它：
+
+    ```shell
+    pip install "tensorflow==1.10"
+    ```
+
+### <a name="get-the-notebook"></a>取得 Notebook
+
+為了方便起見，此教學課程以 Jupyter Notebook 形式提供。 請遵循以下程式碼或執行[快速入門筆記本](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb)。
 
 ## <a name="create-and-deploy-your-model"></a>建立及部署您的模型
 建立管道以預先處理輸入映像、在 FPGA 上使用 ResNet 50 將它功能化，然後透過在 ImageNet 資料集上定型的分類器執行功能。
@@ -69,7 +83,7 @@ print(image_tensors.shape)
 初始化模型並下載要做為功能化器之 ResNet50 量化版本的 TensorFlow 檢查點。
 
 ```python
-from azureml.contrib.brainwave.models import QuantizedResnet50, Resnet50
+from azureml.contrib.brainwave.models import QuantizedResnet50
 model_path = os.path.expanduser('~/models')
 model = QuantizedResnet50(model_path, is_frozen = True)
 feature_tensor = model.import_graph_def(image_tensors)
@@ -82,11 +96,11 @@ print(feature_tensor.shape)
 此分類器已在 ImageNet 資料集上定型。
 
 ```python
-classifier_input, classifier_output = Resnet50.get_default_classifier(feature_tensor, model_path)
+classifier_output = model.get_default_classifier(feature_tensor)
 ```
 
 ### <a name="create-service-definition"></a>建立服務定義
-您現在已定義映像預先處理、功能化器與在服務上執行的分類器，您可以建立服務定義。 服務定義是從部署到 FPGA 服務之模型產生的一組檔案。 服務定義由管道組成。 管道是依序執行的一系列階段。  支援 TensorFlow 階段、Keras 階段與 BrainWave 階段。  階段會在服務上依序執行，而且每個階段的輸出會做為後續階段的輸入。
+您現在已定義映像預先處理、功能化器與在服務上執行的分類器，您可以建立服務定義。 服務定義是從部署到 FPGA 服務之模型產生的一組檔案。 服務定義由管道組成。 管道是依序執行的一系列階段。  支援 TensorFlow 階段、Keras 階段與 BrainWave 階段。  階段會在服務上依序執行，而且每個階段的輸出都會成為後續階段的輸入。
 
 若要建立 TensorFlow 階段，請指定包含圖形 (在此案例中會使用預設圖形) 和此階段之輸入與輸出 tensors 的工作階段。  此資訊會用來將儲存圖形，以便它可以在服務上執行。
 
@@ -94,13 +108,13 @@ classifier_input, classifier_output = Resnet50.get_default_classifier(feature_te
 from azureml.contrib.brainwave.pipeline import ModelDefinition, TensorflowStage, BrainWaveStage
 
 save_path = os.path.expanduser('~/models/save')
-model_def_path = os.path.join(save_path, 'service_def.zip')
+model_def_path = os.path.join(save_path, 'model_def.zip')
 
 model_def = ModelDefinition()
 with tf.Session() as sess:
     model_def.pipeline.append(TensorflowStage(sess, in_images, image_tensors))
     model_def.pipeline.append(BrainWaveStage(sess, model))
-    model_def.pipeline.append(TensorflowStage(sess, classifier_input, classifier_output))
+    model_def.pipeline.append(TensorflowStage(sess, feature_tensor, classifier_output))
     model_def.save(model_def_path)
     print(model_def_path)
 ```
@@ -129,7 +143,7 @@ except WebserviceException:
     image_config = BrainwaveImage.image_configuration()
     deployment_config = BrainwaveWebservice.deploy_configuration()
     service = Webservice.deploy_from_model(ws, service_name, [registered_model], image_config, deployment_config)
-    service.wait_for_deployment(true)
+    service.wait_for_deployment(True)
 ```
 
 ### <a name="test-the-service"></a>測試服務
@@ -165,7 +179,7 @@ registered_model.delete()
 
 ## <a name="secure-fpga-web-services"></a>保護 FPGA Web 服務
 
-在 FPGA 上執行的 Azure Machine Learning 模型提供 SSL 支援和金鑰型驗證。 這可讓您限制對服務的存取，並保護用戶端所提交的資料。 [了解如何保護 Web 服務](how-to-secure-web-service.md)。
+目前不支援使用 SSL 保護 FPGA Web 服務。
 
 
 ## <a name="next-steps"></a>後續步驟

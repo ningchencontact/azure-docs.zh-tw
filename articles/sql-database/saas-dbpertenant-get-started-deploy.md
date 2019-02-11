@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: 6a5ee991ca21e60e6c2b14d5e3be560183eae4fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/25/2019
+ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232897"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453666"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>部署及探索搭配 SQL Database 使用每一租用戶一個資料庫模式的多租用戶 SaaS 應用程式
 
@@ -129,7 +129,7 @@ Wingtip 應用程式使用  [*Azure 流量管理員*](../traffic-manager/traffi
 
     | URL 部分        | 說明       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Wingtip 應用程式的事件部分。<br /><br /> -dpt 能將 Wingtip Tickets 的「每一租用戶一個資料庫」實作與其他實作進行區分。 例如，「獨立的」每一租用戶一個應用程式 (-sa)，或「多租用戶資料庫」 (-mt) 實作。 |
+    | http://events.wingtip-dpt | Wingtip 應用程式的事件部分。<br /><br /> -dpt 能將 Wingtip Tickets 的「每一租用戶一個資料庫」實作與其他實作進行區分。 例如，「單一」每一租用戶一個應用程式 (-sa)，或「多租用戶資料庫」 (-mt) 實作。 |
     | .&lt;user&gt; | 範例中的 af1。 |
     | .trafficmanager.net/ | 流量管理員，基底 URL。 |
     | fabrikamjazzclub | 識別名為 Fabrikam Jazz Club 的租用戶。 |
@@ -248,7 +248,7 @@ Demo-LoadGenerator.ps1 會模擬客戶交易的作用中工作負載。 下列�
 - 第一個圖表 (標示為**資源使用率**) 顯示集區的 eDTU 使用率。
 - 第二個圖表顯示集區中五個最常使用之資料庫的 eDTU 使用率。
 
-這兩個圖表說明彈性集區和 SQL Database 非常適合無法預期的 SaaS 應用程式工作負載。 圖表顯示這 4 個資料庫的使用率均爆增至 40 eDTU，不過所有資料庫都受到一個 50-eDTU 集區的支援，所以不需擔心。 50-eDTU 集區甚至能支援更繁重的工作負載。 如果這些資料庫是以單一資料庫形式佈建，則它們每個都必須是 S2 (50 DTU) 才能支援高載。 4 個獨立 S2 資料庫的成本幾乎是集區價格的 3 倍。 在現實情況下，SQL Database 客戶會在 200 eDTU 集區中執行多達 500 個資料庫。 如需詳細資訊，請參閱[效能監視教學課程](saas-dbpertenant-performance-monitoring.md)。
+這兩個圖表說明彈性集區和 SQL Database 非常適合無法預期的 SaaS 應用程式工作負載。 圖表顯示這 4 個資料庫的使用率均爆增至 40 eDTU，不過所有資料庫都受到一個 50-eDTU 集區的支援，所以不需擔心。 50-eDTU 集區甚至能支援更繁重的工作負載。 如果這些資料庫是以單一資料庫形式佈建，則它們每個都必須是 S2 (50 DTU) 才能支援高載。 4 個單一 S2 資料庫的成本幾乎是集區價格的 3 倍。 在現實情況下，SQL Database 客戶會在 200 eDTU 集區中執行多達 500 個資料庫。 如需詳細資訊，請參閱[效能監視教學課程](saas-dbpertenant-performance-monitoring.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

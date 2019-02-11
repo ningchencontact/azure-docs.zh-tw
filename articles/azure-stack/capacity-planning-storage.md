@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 9ea46860817d60c2ffbde68c0fc5ae6f6ca14877
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.lastreviewed: 09/18/2018
+ms.openlocfilehash: 5d9d01a482483d030569a4dcad03c9ecef7cffc0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369723"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245145"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Azure Stack 儲存體容量規劃
 下列各節提供 Azure Stack 儲存體容量的規劃資訊，協助規劃解決方案的儲存體需求。
@@ -51,7 +52,7 @@ Azure Stack 的超融合式組態可共用實體的儲存體裝置。 可用儲�
 
 
 
-|名稱|容量計算|說明|
+|Name|容量計算|說明|
 |-----|-----|-----|
 |本機/開機裝置|至少 340 GB<sup>1</sup>|作業系統映像和「本機」基礎結構 VM 的個別伺服器儲存體|
 |基礎結構|3.5 TB|所有 Azure Stack 基礎結構的使用方式|

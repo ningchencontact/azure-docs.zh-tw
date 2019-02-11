@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 9d7131c6ed1808725f59e53488bedb5ef81a77c3
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: cf32f3998e254e8f4a9c347980718dbc8d0b13c4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389404"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461639"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>使用唯讀複本對唯讀查詢工作負載進行負載平衡 (預覽)
 
@@ -76,7 +76,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ## <a name="enable-and-disable-read-scale-out"></a>啟用和停用讀取縮放
 
-「讀取縮放」在[受控執行個體](sql-database-managed-instance.md)商務關鍵性層中預設為啟用狀態。 您應該在[位於邏輯伺服器上的資料庫](sql-database-logical-servers.md)進階和商務關鍵性層中明確加以啟用。 這裡會說明啟用和停用讀取縮放的方法。
+「讀取縮放」在[受控執行個體](sql-database-managed-instance.md)商務關鍵性層中預設為啟用狀態。 您應該在[位於 SQL Database 伺服器上的資料庫](sql-database-servers.md)進階和商務關鍵性層中明確加以啟用。 這裡會說明啟用和停用讀取縮放的方法。
 
 ### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell：啟用和停用讀取縮放
 

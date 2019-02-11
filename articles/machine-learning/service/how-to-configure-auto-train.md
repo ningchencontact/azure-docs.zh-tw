@@ -7,16 +7,16 @@ ms.author: nilesha
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 865d00d4a6608e422fdfca1297962913ee205827
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 310963d5593dde0540c95920214a14a4195c346a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823431"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242326"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>設定自動化機器學習實驗
 
@@ -35,7 +35,7 @@ ms.locfileid: "54823431"
 * 註冊和部署模型
 
 ## <a name="select-your-experiment-type"></a>選取您的實驗類型
-在開始實驗之前，您應先決定所要解決的機器學習問題類型。 自動化機器學習支援分類、迴歸和預測等工作類型。 
+在開始實驗之前，您應先決定所要解決的機器學習問題類型。 自動化機器學習支援分類、迴歸和預測等工作類型。
 
 雖然自動化機器學習功能一般可供使用，但**預測仍處於公開預覽狀態。**
 
@@ -59,7 +59,7 @@ ms.locfileid: "54823431"
 ## <a name="data-source-and-format"></a>資料來源和格式
 自動化機器學習支援位於本機桌面或雲端中 (例如 Azure Blob 儲存體) 所包含的資料。 資料可讀取到支援 scikit-learn 的資料格式中。 您可以將資料讀取到：
 * Numpy 陣列 X (特徵) 和 y (目標變數，或者也稱為標籤)
-* Pandas 資料框架 
+* Pandas 資料框架
 
 範例：
 
@@ -67,7 +67,7 @@ ms.locfileid: "54823431"
 
     ```python
     digits = datasets.load_digits()
-    X_digits = digits.data 
+    X_digits = digits.data
     y_digits = digits.target
     ```
 
@@ -75,9 +75,9 @@ ms.locfileid: "54823431"
 
     ```python
     import pandas as pd
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"') 
-    # get integer labels 
-    df = df.drop(["Label"], axis=1) 
+    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
+    # get integer labels
+    df = df.drop(["Label"], axis=1)
     df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
     ```
 
@@ -88,18 +88,18 @@ ms.locfileid: "54823431"
 以下是 `get_data` 的範例：
 
 ```python
-%%writefile $project_folder/get_data.py 
-import pandas as pd 
-from sklearn.model_selection import train_test_split 
-from sklearn.preprocessing import LabelEncoder 
-def get_data(): # Burning man 2016 data 
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"') 
-    # get integer labels 
-    le = LabelEncoder() 
-    le.fit(df["Label"].values) 
-    y = le.transform(df["Label"].values) 
-    df = df.drop(["Label"], axis=1) 
-    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42) 
+%%writefile $project_folder/get_data.py
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+def get_data(): # Burning man 2016 data
+    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
+    # get integer labels
+    le = LabelEncoder()
+    le.fit(df["Label"].values)
+    y = le.transform(df["Label"].values)
+    df = df.drop(["Label"], axis=1)
+    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
     return { "X" : df, "y" : y }
 ```
 
@@ -117,7 +117,7 @@ X | Pandas 資料框架或 Numpy 陣列 | data_train、標籤、資料行 |  所
 y | Pandas 資料框架或 Numpy 陣列 |   標籤   | 要用於訓練的標籤資料。 就分類而言，應為整數的陣列。
 X_valid | Pandas 資料框架或 Numpy 陣列   | data_train、標籤 | _選擇性_ 所有要用於驗證的特徵。 如果未指定，則 X 會分割至訓練和驗證之間
 y_valid |   Pandas 資料框架或 Numpy 陣列 | data_train、標籤 | _選擇性_ 要用於驗證的標籤資料。 如果未指定，則 y 會分割至訓練和驗證之間
-sample_weight | Pandas 資料框架或 Numpy 陣列 |   data_train、標籤、資料行| _選擇性_ 每個範例的加權值。 如果您想要為資料點指派不同的加權，則應使用 
+sample_weight | Pandas 資料框架或 Numpy 陣列 |   data_train、標籤、資料行| _選擇性_ 每個範例的加權值。 如果您想要為資料點指派不同的加權，則應使用
 sample_weight_valid | Pandas 資料框架或 Numpy 陣列 | data_train、標籤、資料行 |    _選擇性_ 每個驗證範例的加權值。 如果未指定，則 sample_weight 會分割至訓練和驗證之間
 data_train |    Pandas 資料框架 |  X、y、X_valid、y_valid |    所有要用於訓練的資料 (特徵+標籤)
 標籤 | 字串  | X、y、X_valid、y_valid |  data_train 中的哪個資料行代表標籤
@@ -136,7 +136,8 @@ cv_splits_indices   | 一連串整數 ||  _選擇性_ 用來分割交叉驗證�
 >* 篩選
 >* 自訂 Python 轉換
 
-若要深入了解 data prep sdk，請參閱[如何準備資料以進行模型化文件](how-to-load-data.md)。 以下是使用 data prep sdk 載入資料的 sdk 範例。 
+若要深入了解 data prep sdk，請參閱[如何準備資料以進行模型化文件](how-to-load-data.md)。
+以下是使用 data prep sdk 載入資料的 sdk 範例。
 ```python
 # The data referenced here was pulled from `sklearn.datasets.load_digits()`.
 simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
@@ -189,22 +190,22 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
         primary_metric='AUC_weighted',
         max_time_sec=12000,
         iterations=50,
-        X=X, 
+        X=X,
         y=y,
         n_cross_validations=2)
     ```
 2.  以下範例說明設定在 100 次反覆運算之後結束的迴歸實驗，每次反覆運算的持續時間上限為 600 秒，並執行 5 疊的交叉驗證。
 
-    ````python
+    ```python
     automl_regressor = AutoMLConfig(
         task='regression',
         max_time_sec=600,
         iterations=100,
         primary_metric='r2_score',
-        X=X, 
+        X=X,
         y=y,
         n_cross_validations=5)
-    ````
+    ```
 
 下表列出您的實驗適用的參數設定及其預設值。
 
@@ -223,7 +224,7 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
 `enable_cache`  | True/False <br/>設定為 True 會預先處理完成一次，然後針對所有反覆項目重複使用相同的已處理資料。 | True |
 `blacklist_models`  | 自動化機器學習實驗中有許多它會嘗試的不同演算法。 設定自動化機器學習以從實驗中排除特定演算法。 如果您知道特定演算法不適用於您的資料集，則有所幫助。 排除演算法可為您節省計算資源和訓練時間。<br/>允許的分類值<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>允許的迴歸值<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>允許的預測值<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   None
 `whitelist_models`  | 自動化機器學習實驗中有許多它會嘗試的不同演算法。 設定要為實驗包含的特定演算法。 如果您知道演算法不適用於您的資料集，這有所幫助。 <br/>允許的分類值<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>允許的迴歸值<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>允許的預測值<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  None
-`verbosity` |控制記錄層級，INFO 最詳細，CRITICAL 最簡要。 詳細資訊層級會使用與在 Python 記錄套件中所定義相同的值。 允許的值包括：<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
+`verbosity` |控制記錄層級，INFO 最詳細，CRITICAL 最簡要。 詳細資訊層級會使用與在 Python 記錄套件中所定義相同的值。 允許的值包括：<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li>
 `X` | 所有要用於訓練的特徵 |  None
 `y` |   要用於訓練的標籤資料。 就分類而言，應為整數的陣列。|  None
 `X_valid`|_選擇性_ 所有要用於驗證的特徵。 如果未指定，則 X 會分割至訓練和驗證之間 |   None
@@ -233,7 +234,7 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
 `run_configuration` |   RunConfiguration 物件。  用於遠端回合。 |None
 `data_script`  |    包含 get_data 方法的檔案路徑。  遠端回合的必要項目。   |None
 `model_explainability` | _選擇性_ True/False <br/>  True 允許實驗為每個反覆項目執行特徵重要性。 您也可以在特定的反覆項目上使用 explain_model() 方法，在實驗完成後視需要為該反覆項目啟用特徵重要性。 | False
-`enable_ensembling`|加註旗標以在所有其他反覆項目完成後啟用集體反覆項目。| True 
+`enable_ensembling`|加註旗標以在所有其他反覆項目完成後啟用集體反覆項目。| True
 `ensemble_iterations`|在我們選擇要加入最後集體的適合管線期間的反覆項目數目。| 15
 `experiment_timeout_minutes`| 限制整個實驗執行所需的時間 (分鐘) | None
 
@@ -324,20 +325,20 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error (�
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
-    
+
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
         explain_model(fitted_model, X_train, X_test)
-    
+
     #Overall feature importance
     print(overall_imp)
-    print(overall_summary) 
-    
+    print(overall_summary)
+
     #Class-level feature importance
     print(per_class_imp)
-    print(per_class_summary) 
+    print(per_class_summary)
     ```
 
-*   若要檢視所有反覆項目的特徵重要性，請在 AutoMLConfig 中將 `model_explainability` 旗標設為`True`。  
+*   若要檢視所有反覆項目的特徵重要性，請在 AutoMLConfig 中將 `model_explainability` 旗標設為`True`。
 
     ```python
     automl_config = AutoMLConfig(task = 'classification',
@@ -346,7 +347,7 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error (�
                                  max_time_sec = 12000,
                                  iterations = 10,
                                  verbosity = logging.INFO,
-                                 X = X_train, 
+                                 X = X_train,
                                  y = y_train,
                                  X_valid = X_test,
                                  y_valid = y_test,
@@ -358,20 +359,20 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error (�
 
     ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
-    
+
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
         retrieve_model_explanation(best_run)
-    
+
     #Overall feature importance
     print(overall_imp)
-    print(overall_summary) 
-    
+    print(overall_summary)
+
     #Class-level feature importance
     print(per_class_imp)
-    print(per_class_summary) 
+    print(per_class_summary)
     ```
 
-在 Azure 入口網站中，您可以視覺化工作區中的特徵重要性圖表。 在筆記本中使用 Jupyter 小工具時，此會顯示此圖表。 若要深入了解圖表，請參閱[範例 Azure ML 筆記本文章](samples-notebooks.md)。
+在 Azure 入口網站中，您可以視覺化工作區中的特徵重要性圖表。 在筆記本中使用 Jupyter 小工具時，此會顯示此圖表。 若要深入了解圖表，請參閱[範例 Azure Machine Learning 服務筆記本文章](samples-notebooks.md)。
 
 ```python
 from azureml.widgets import RunDetails
@@ -383,4 +384,4 @@ RunDetails(local_run).show()
 
 深入了解[模型部署的方式和位置](how-to-deploy-and-where.md)。
 
-深入了解[如何使用自動化機器學習訓練分類模型](tutorial-auto-train-models.md)或[如何使用自動化機器學習對遠端資源進行訓練](how-to-auto-train-remote.md)。 
+深入了解[如何使用自動化機器學習訓練分類模型](tutorial-auto-train-models.md)或[如何使用自動化機器學習對遠端資源進行訓練](how-to-auto-train-remote.md)。

@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: eec2c82b779fa5421bc9ac58107ef56f8c71bd1e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 90a99d4910b0afb885b415760f6a7ef1ca2aec33
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366541"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219816"
 ---
 # <a name="experimentation"></a>測試
 
@@ -54,11 +54,11 @@ ms.locfileid: "46366541"
 
 ## <a name="prerequisites"></a>必要條件
 - Vowpal Wabbit：已安裝並在您的路徑上。
-  - Windows：[使用 `.msi` 安裝程式](https://github.com/eisber/vowpal_wabbit/releases)。
+  - Windows:[使用 `.msi` 安裝程式](https://github.com/eisber/vowpal_wabbit/releases)。
   - 其他平台：[取得原始程式碼](https://github.com/JohnLangford/vowpal_wabbit/releases)。
 - Python 3：已安裝並在您的路徑上。
 - NumPy：使用您選擇的套件管理員。
-- *Microsoft/mwt-ds* 存放庫：[複製存放庫](https://github.com/Microsoft/mwt-ds).
+- *Microsoft/mwt-ds*存放庫：[複製存放庫](https://github.com/Microsoft/mwt-ds)。
 - 決策服務 JSON 記錄檔：根據預設，基本命令包括 `--dsjson`，這會啟用輸入資料檔案的決策服務 JSON 剖析。 [取得此格式的範例](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json)。
 
 ## <a name="usage"></a>使用量

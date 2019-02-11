@@ -6,17 +6,17 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d51cbc7bd88fd9f4baf066210e7b7da8cd175cd6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 4adadf4951ffbb31a354284340a3716b194d864d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603118"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219272"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的最佳做法
 [知識庫開發生命週期](../Concepts/development-lifecycle-knowledge-base.md)可引導您了解如何從頭到尾管理知識庫。 使用下列最佳做法可改善您的知識庫，並為您的應用程式/聊天機器人使用者提供更好的結果。
@@ -95,6 +95,10 @@ QnA Maker 服務會持續改進從內容中擷取 QnA 的演算法，並擴充�
 
 ## <a name="collaborate"></a>共同作業
 QnA Maker 可讓使用者對知識庫進行[共同作業](../How-to/collaborate-knowledge-base.md)。 使用者需要有 Azure QnA Maker 資源群組的存取權，才能存取知識庫。 有些組織可能想要將知識庫的編輯和維護委外處理，但同時仍能夠保護其 Azure 資源的存取權。 若要完成此「編輯者-核准者」模型，可以在不同的訂用帳戶中設定兩個相同的 [QnA Maker 服務](../How-to/set-up-qnamaker-service-azure.md)，並選取其中一個用於編輯測試週期。 測試完成之後，就會使用[匯入-匯出](../Tutorials/migrate-knowledge-base.md)程序將知識庫內容轉移至核准者的 QnA Maker 服務，由他來執行最終的知識庫發佈和端點更新。
+
+## <a name="active-learning"></a>主動學習
+
+[主動式學習](../How-to/improve-knowledge-base.md)具有各種品質和數量的使用者查詢時，其在建議替代問題方面的表現最好。 務必讓用戶端應用程式的使用者查詢參與主動式回饋迴圈，而不需要審查。
 
 ## <a name="next-steps"></a>後續步驟
 

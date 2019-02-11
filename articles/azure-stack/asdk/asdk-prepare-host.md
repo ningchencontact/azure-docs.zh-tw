@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: b5314ce874c253151b88882b086257f96612c019
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: ec7b56a7324f3c8c3e3459639e4fd00e92d93e8f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615383"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249743"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>準備 ASDK 主機電腦
 必須先讓 ASDK 環境做好安裝準備，才可以在主機電腦上安裝 ASDK。 當開發套件主機電腦做好準備時，它會從 CloudBuilder.vhdx 虛擬機器硬碟開機，以開始進行 ASDK 部署。

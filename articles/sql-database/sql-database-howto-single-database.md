@@ -1,6 +1,6 @@
 ---
-title: 如何設定 Azure SQL Database - Singleton | Microsoft Docs
-description: 了解如何設定與管理 Azure SQL Database - 單一資料庫。
+title: 如何設定 Azure SQL Database - standalone | Microsoft Docs
+description: 了解如何設定與管理 Azure SQL Database - 獨立資料庫
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,21 +11,21 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: d34853220e423e73c6ca8cf7c76ba616b815b8bd
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/25/2019
+ms.openlocfilehash: bf126caa378eafe569b83f211d9d2bbfd37e18f9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439745"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477789"
 ---
-# <a name="how-to-use-single-database"></a>如何使用單一資料庫
+# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>如何在 Azure SQL Database 中使用單一資料庫
 
-在本節中，您可以找到各種指南、指令碼，以及可協助您管理和設定您 Azure SQL Database - 單一資料庫的說明。
+本節會提供各種指南、指令碼和講解說明，協助您管理和設定 Azure SQL Database 中的單一資料庫
 
 ## <a name="migrate"></a>移轉
 
-- [移轉至 SQL Database](sql-database-cloud-migrate.md)：了解移轉至受控執行個體的建議移轉程序與工具。
+- [移轉至 SQL Database](sql-database-cloud-migrate.md) – 了解移轉至受控執行個體的建議移轉程序與工具。
 - 了解如何在[移轉後管理 SQL 資料庫](sql-database-manage-after-migration.md)。
 
 ## <a name="configure-features"></a>設定功能
@@ -66,7 +66,7 @@ ms.locfileid: "53439745"
 - 執行[多分區查詢](sql-database-elastic-scale-multishard-querying.md)。
 - [移動分區化資料](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。
 - [設定資料庫分區中的安全性](sql-database-elastic-scale-split-merge-security-configuration.md)。
-- [新增分區](sql-database-elastic-scale-add-a-shard.md)至目前設定的 od 資料庫分區。
+- [新增分區](sql-database-elastic-scale-add-a-shard.md)至目前的 od 資料庫分區集。
 - [修正分區對應問題](sql-database-elastic-database-recovery-manager.md)。
 - [移轉分區化 DB](sql-database-elastic-convert-to-use-elastic-tools.md)。
 - [建立計數器](sql-database-elastic-database-perf-counters.md)。
@@ -74,4 +74,4 @@ ms.locfileid: "53439745"
 - [使用 Dapper 架構](sql-database-elastic-scale-working-with-dapper.md)查詢分區化資料。
 
 ## <a name="next-steps"></a>後續步驟
-- 深入了解[受控執行個體中的操作指南](sql-database-howto-managed-instance.md)
+- 深入了解[受控執行個體的操作指南](sql-database-howto-managed-instance.md)

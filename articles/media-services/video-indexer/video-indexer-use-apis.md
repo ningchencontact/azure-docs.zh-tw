@@ -1,5 +1,5 @@
 ---
-title: 使用影片索引器 API
+title: 使用影片索引器 API - Azure
 titlesuffix: Azure Media Services
 description: 本文將說明如何開始使用影片索引器 API。
 services: media-services
@@ -7,19 +7,19 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: d7af0d8961d5fa4d3f76b76a48ec613d954298ad
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: fcde97c76e11c6ecbdb22befcb1a8d1ce0437942
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291837"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299022"
 ---
-# <a name="use-the-video-indexer-api"></a>使用影片索引器 API
+# <a name="tutorial-use-the-video-indexer-api"></a>教學課程：使用影片索引器 API
 
 > [!Note]
-> 影片索引器 V1 API 已在 2018 年 8 月 1 日淘汰。 您現在應該使用影片索引器 v2 API。 <br/>若要使用影片索引器 v2 API 進行開發，請參閱[此處](https://api-portal.videoindexer.ai/)的指示。 
+> 影片索引器 V1 API 已在 2018 年 8 月 1 日淘汰。 您現在應該使用影片索引子 v2 API。 <br/>若要使用影片索引器 v2 API 進行開發，請參閱[此處](https://api-portal.videoindexer.ai/)的指示。 
 
 影片索引器會將 Microsoft 提供的各種音訊和視訊人工智慧 (AI) 技術合併成一個整合式服務，讓開發變得更簡單。 API 可讓開發人員將焦點放在使用媒體 AI 技術上，而不需擔心雲端平台的規模、全球觸達率、可用性和可靠性。 您可以使用 API 來上傳檔案、取得詳細的影片深入解析，然後取得深入解析與播放程式的介面控件 URL，以便將這些項目內嵌到您的應用程式及其他工作中。
 
@@ -82,7 +82,7 @@ ms.locfileid: "52291837"
 
 |**名稱**|**參數值**|**說明**|
 |---|---|---|
-|試用版|試用版|用於試用帳戶。|
+|試用版|試用|用於試用帳戶。|
 |美國西部|westus2|用於 Azure 美國西部 2 區域。|
 |北歐 |northeurope|用於 Azure 北歐區域。|
 |東亞|eastasia|用於 Azure 東亞區域。|

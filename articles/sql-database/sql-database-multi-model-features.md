@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 0c46ba3d2fcd59f43df2383c3e0471fa36217536
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550884"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300246"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database 的多模型功能
 
@@ -96,7 +96,7 @@ Azure SQL Database 也會提供特製化[空間索引](https://docs.microsoft.co
 SQL Server 提供強大的平台，可供開發豐富的應用程式來進行半結構化資料管理。 XML 支援已整合到 SQL Server 中的所有元件，包括下列各項：
 
 - Xml 資料類型。 XML 值可以原生方式儲存在 xml 資料類型資料行中，其可依照 XML 結構描述的集合設定類型或維持不具類型。 您可以編製 XML 資料行的索引。
-- 針對資料行中儲存的 XML 資料和 xml 類型的變數指定 XQuery 查詢的能力。 XQUery 功能可使用於任何 Transact-SQL 查詢，以存取您在資料庫中使用的任何資料模型。
+- 針對資料行中儲存的 XML 資料和 xml 類型的變數指定 XQuery 查詢的能力。 XQuery 功能可使用於任何 Transact-SQL 查詢，以存取您在資料庫中使用的任何資料模型。
 - 使用[主要 XML 索引](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index)，自動為 XML 文件中的所有元素編製索引，或使用[次要 XML 索引](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes)，指定應該編製索引的確切路徑。
 - OPENROWSET 允許大量載入 XML 資料。
 - 將關聯式資料轉換為 XML 格式。

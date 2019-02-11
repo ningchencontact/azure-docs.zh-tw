@@ -5,16 +5,16 @@ description: 如何在自訂翻譯工具中管理設定、建立工作區、共�
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 7b6dd0ec271d335d1055381a8cb7256600be283f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627890"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227075"
 ---
 # <a name="how-to-manage-settings"></a>如何管理設定
 
@@ -87,7 +87,7 @@ ms.locfileid: "51627890"
 
 1.  **讀取者：** 工作區中的讀取者將可檢視工作區中的所有資訊。 
 
-2.  **編輯者：** 工作區中的編輯者將可新增文件、定型模型，以及刪除文件和專案。 他們可以新增訂用帳戶金鑰，但無法修改工作區的共用對象、刪除工作區或變更工作區名稱。
+2.  **編輯者：** 工作區中的編輯者將可新增文件、訓練模型，以及刪除文件和專案。 他們可以新增訂用帳戶金鑰，但無法修改工作區的共用對象、刪除工作區或變更工作區名稱。
 
 3.  **擁有者：** 擁有者具有工作區的完整權限。
 

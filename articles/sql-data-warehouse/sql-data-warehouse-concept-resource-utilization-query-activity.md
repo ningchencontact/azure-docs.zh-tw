@@ -6,19 +6,19 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 11/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b53a3f99f601f540723a9a383e3bf7bd2908de23
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4613a16ee27168dd5c00435ee04fa5a7f95f4d97
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499576"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460415"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>監視 Azure SQL 資料倉儲中的資源使用率和查詢活動
-Azure SQL 資料倉儲在 Azure 入口網站中提供豐富的監視體驗，讓您可看到資料倉儲工作負載的深入解析。 Azure 入口網站是監視資料倉儲的建議工具，因為其提供可設定的保留期、警示、建議，以及可自訂的計量與記錄圖表及儀表板。 入口網站也可讓您整合其他 Azure 監視服務 (例如 Operations Management Suite (OMS) / Log Analytics 和 Azure 監視器) 以提供全面性監視體驗，不只監視資料倉儲，還有您整個 Azure 分析平台，穰您擁有整合的監視體驗。 此文件將說明哪些監視功能可用來最佳化及管理分析平台與 SQL 資料倉儲。 
+Azure SQL 資料倉儲在 Azure 入口網站中提供豐富的監視體驗，讓您可看到資料倉儲工作負載的深入解析。 Azure 入口網站是監視資料倉儲的建議工具，因為其提供可設定的保留期、警示、建議，以及可自訂的計量與記錄圖表及儀表板。 入口網站也可讓您整合其他 Azure 監視服務 (例如 Operations Management Suite (OMS) / Log Analytics 和 Azure 監視器) 以提供全面性監視體驗，不只監視資料倉儲，還有您整個 Azure 分析平台，穰您擁有整合的監視體驗。 本文件將說明哪些監視功能可用來最佳化及管理分析平台與 SQL 資料倉儲。 
 
 ## <a name="resource-utilization"></a>資源使用率 
 在 Azure 入口網站中，下列計量可供 SQL 資料倉儲使用。 我們透過 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics)提供這些計量。

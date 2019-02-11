@@ -7,19 +7,19 @@ author: jeevansd
 manager: femila
 ms.assetid: 7c9b6202-11dd-4bb6-a679-8fb0a7a0ef4e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: jeedes
-ms.openlocfilehash: eac41b0c3def42f2417e7c033c645d8785a5f08b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c33f7fc23865169d50de73d27a0c45bb8a9aba0a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431363"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176823"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>教學課程：Azure Active Directory 與 People 整合
 
@@ -92,7 +92,7 @@ People 與 Azure AD 整合提供下列優點：
 1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 1. **[建立 People 測試使用者](#creating-a-people-test-user)** - 使 People 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
+1. **[測試單一登入](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -176,11 +176,11 @@ People 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
  
 ### <a name="creating-a-people-test-user"></a>建立 People 測試使用者
 
-在本節中，您要在 People 中建立名為 Britta Simon 的使用者。 請與 [People 客戶支援小組](mailto:customerservices@peoplehr.com)合作，在 People 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 People 中建立名為 Britta Simon 的使用者。 請與 [People 客戶支援小組](mailto:customerservices@peoplehr.com) 合作，在 People 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

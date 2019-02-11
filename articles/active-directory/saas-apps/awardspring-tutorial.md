@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 2f115be6-4fbe-42aa-9319-7462e7a75736
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
-ms.openlocfilehash: f75c14989b46721e7043c06086cac02222f452a5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d633a9a4d162b921c360572ea8c6a942e4788d54
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431312"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168357"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-awardspring"></a>教學課程：Azure Active Directory 與 AwardSpring 整合
 
@@ -108,7 +108,7 @@ AwardSpring 與 Azure AD 整合提供下列優點：
 
     ![AwardSpring 網域及 URL 單一登入資訊](./media/awardspring-tutorial/tutorial_awardspring_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.awardspring.com/SignIn/SamlMetaData`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.awardspring.com/SignIn/SamlMetaData`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<subdomain>.awardspring.com/SignIn/SamlAcs`
 
@@ -192,14 +192,14 @@ AwardSpring 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
  
 ### <a name="create-an-awardspring-test-user"></a>建立 AwardSpring 測試使用者
 
 本節的目標是在 AwardSpring 中建立名為 Britta Simon 的使用者。 AwardSpring 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 AwardSpring 時，如果使用者還不存在，就會建立新使用者。
 
 >[!Note]
->如果您需要手動建立使用者，請連絡 [AwardSpring 支援小組](maito:support@awardspring.com)。
+>如果您需要手動建立使用者，請連絡 [AwardSpring 支援小組](maito:support@awardspring.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -236,7 +236,7 @@ AwardSpring 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [AwardSpring] 圖格時，應該會自動登入您的 AwardSpring 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

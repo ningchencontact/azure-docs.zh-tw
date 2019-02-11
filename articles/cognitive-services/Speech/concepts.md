@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6089f053472faaa7fa8c957904f73c7061cb2d3f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344920"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219765"
 ---
 # <a name="basic-concepts"></a>基本概念
 
@@ -75,7 +75,7 @@ ms.locfileid: "49344920"
 
 Microsoft 語音辨識服務為開發人員提供兩種可將語音新增到應用程式的方式。
 
-- [REST API](GetStarted/GetStartedREST.md)：開發人員可以從自己的應用程式中對服務使用 HTTP 呼叫，來取得語音辨識服務。
+- [REST API](GetStarted/GetStartedREST.md)：開發人員可從其應用程式對服務使用 HTTP 呼叫，來進行語音辨識。
 - [用戶端程式庫](GetStarted/GetStartedClientLibraries.md)：如需進階功能，開發人員可以下載 Microsoft Speech 用戶端程式庫，並連結至他們的應用程式。  用戶端程式庫可用於使用不同語言 (C#、Java、JavaScript、ObjectiveC) 的各種平台 (Windows、Android、iOS)。
 
 | 使用案例 | [REST APIs](GetStarted/GetStartedREST.md) | [用戶端程式庫](GetStarted/GetStartedClientLibraries.md) |

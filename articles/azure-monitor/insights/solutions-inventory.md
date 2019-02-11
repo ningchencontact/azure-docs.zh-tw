@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 14f373b5459aaa7a9e51ba284f6a30094c4e7617
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 48f1789d4909a1c3af9e9ca01d0b9d0a8e6e09f8
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194176"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299635"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure 中管理解決方案的資料收集詳細資料
 本文包含 Microsoft 所提供的[管理解決方案清單](solutions.md)，以及其詳細文件的連結。  此外，還提供資料收集到 Log Analytics 中的方法和頻率相關資訊。  您可以使用本文中的資訊來識別不同的可用解決方案，以及了解不同管理解決方案的資料流程和連線需求。 
@@ -44,11 +44,11 @@ ms.locfileid: "53194176"
 | [AD 評估](../../azure-monitor/insights/ad-assessment.md) | Windows |&#8226; |&#8226; | | |&#8226; |7 天 |
 | [AD 複寫狀態](../../azure-monitor/insights/ad-replication-status.md) | Windows |&#8226; |&#8226; | | |&#8226; |5 天 |
 | [代理程式健全狀況](solution-agenthealth.md) | Windows 和 Linux | &#8226; | &#8226; | | | &#8226; | 1 分鐘 |
-| [警示管理](../../azure-monitor/platform/alert-management-solution.md) (Nagios) |Linux |&#8226; | | | | |與抵達同時 |
-| [警示管理](../../azure-monitor/platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 分鐘 |
+| [警示管理](../../azure-monitor/platform/alert-management-solution.md) (Nagios) | Linux |&#8226; | | | | |與抵達同時 |
+| [警示管理](../../azure-monitor/platform/alert-management-solution.md) (Zabbix) | Linux |&#8226; | | | | |1 分鐘 |
 | [警示管理](../../azure-monitor/platform/alert-management-solution.md) (Operations Manager) | Windows | |&#8226; | |&#8226; |&#8226; |3 分鐘 |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/a |
-| [Application Insights Connector (預覽)](../../azure-monitor/platform/app-insights-connector.md) | Azure | | | |  |  | 與通知同時 |
+| [Application Insights Connector (已淘汰)](../../azure-monitor/platform/app-insights-connector.md) | Azure | | | |  |  | 與通知同時 |
 | [自動化混合式背景工作角色](../../automation/automation-hybrid-runbook-worker.md) |  Windows | &#8226; | &#8226; |  |  |  | n/a |
 | [Azure 應用程式閘道分析](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | 與通知同時 |
 | **管理解決方案** | **平台** | **Microsoft Monitoring Agent** | **Operations Manager 代理程式** | **Azure 儲存體** | **是否需要 Operations Manager？** | **透過管理群組傳送的 Operations Manager 代理程式資料** | **收集頻率** |
@@ -57,7 +57,7 @@ ms.locfileid: "53194176"
 | [備份](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | 與通知同時 |
 | [容量與效能 (預覽)](../../azure-monitor/insights/capacity-performance.md) | Windows |&#8226; |&#8226; | | |&#8226; |與抵達同時 |
 | [變更追蹤](../../automation/automation-change-tracking.md) | Windows |&#8226; |&#8226; | | |&#8226; |每小時 |
-| [變更追蹤](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |每小時 |
+| [變更追蹤](../../automation/automation-change-tracking.md) | Linux |&#8226; | | | | |每小時 |
 | [容器](../../azure-monitor/insights/containers.md) | Windows 和 Linux | &#8226; | &#8226; |  |  |  | 3 分鐘 |
 | [金鑰保存庫分析](../../azure-monitor/insights/azure-key-vault.md) | Windows | | | | | |與通知同時 |
 | [惡意程式碼評估](../../security-center/security-center-install-endpoint-protection.md) | Windows |&#8226; |&#8226; | | |&#8226; |每小時 |
@@ -71,7 +71,7 @@ ms.locfileid: "53194176"
 | [System Center Operations Manager 評定 (預覽)](../../azure-monitor/insights/scom-assessment.md) |  Windows | &#8226; | &#8226; |  |  | &#8226; | 7 天 |
 | [更新管理](../../automation/automation-update-management.md) |  Windows |&#8226; |&#8226; | | |&#8226; |安裝更新之後 15 分鐘，至少一天 2 次 |
 | [升級整備程度](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) |  Windows | &#8226; |  |  |  |  | 2 天 |
-| [VMware 監控 (已淘汰)](../../azure-monitor/insights/vmware.md) | Linux | &#8226; |  |  |  |  | 3 分鐘 |
+| [VMware 監控 (已淘汰)](../../azure-monitor/insights/vmware.md) |  Linux | &#8226; |  |  |  |  | 3 分鐘 |
 | [Wire Data 2.0 (預覽)](../../azure-monitor/insights/wire-data.md) |Windows (2012 R2/8.1 或更新版本) |&#8226; |&#8226; | | | | 1 分鐘 |
 
 

@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.openlocfilehash: b401139d417674cf58d2db264b442d7588cc34ba
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: d81374b110523e48e06725d3d3153e61135471cc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45987099"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251617"
 ---
 # <a name="add-public-ip-addresses"></a>新增公用 IP 位址
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*  
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*  
 
 了解如何將更多公用 IP 位址新增到 Azure Stack。  在本文中，我們將外部位址稱為公用 IP 位址，但是，在 Azure Stack 中，這是指將 IP 位址區塊新增到您的外部網路。  外部網路是否為公用網際網路可路由傳送或位於內部網路，而且是否使用私人位址，都不影響本文的目的。  步驟均相同。 
 
@@ -49,7 +50,7 @@ ms.locfileid: "45987099"
 5.  按一下 [公用 IP 集區使用量] 動態磚。
 6.  按一下 [新增 IP 集區] 按鈕。
 7.  提供 IP 集區的名稱。  您選擇的名稱可供您輕鬆識別 IP 集區，因此您可以設定您喜歡的任何名稱。  可以設定與位址範圍相同的名稱，不過並非必要這麼做。
-8.   輸入要以 CIDR 標記法新增的位址區塊。  例如：192.168.203.0/24
+8.   輸入要以 CIDR 標記法新增的位址區塊。  例如︰192.168.203.0/24
 9.  您在 [位址範圍 (CIDR 區塊) 欄位] 中提供有效的 CIDR 範圍時，[起始 IP 位址]、[結束 IP 位址] 和 [可用的 IP 位址] 欄位會自動填入。  這些是唯讀而且自動產生，因此，不需要修改 [位址範圍] 欄位中的值便無法變更這些值。
 10. 檢閱刀鋒視窗的資訊，並確認一切正確之後，按一下 [確定] 認可變更，並將位址範圍新增到 Azure Stack。
 

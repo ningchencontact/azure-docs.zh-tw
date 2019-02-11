@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: cynthn
-ms.openlocfilehash: f30305374b1fcaabfb36533195a098073d33b6c3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1bc250ac70e48a548d393c3bc6025868948dc022
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197597"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699154"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>使用 Docker VM 延伸模組在 Azure 中建立 Docker 環境
 
@@ -39,15 +39,15 @@ Azure Docker VM 擴充功能會在您的 Linux 虛擬機器 (VM) 中安裝並設
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>使用 Azure Docker VM 擴充功能部署範本
-使用現有的快速入門範本建立使用 Azure Docker VM 延伸模組的 Ubuntu VM，以安裝及設定 Docker 主機。 您可以在這裡檢視範本︰[使用 Docker 簡易部署 Ubuntu VM](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)。 您需要安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/reference-index#az_login) 來登入 Azure 帳戶。
+使用現有的快速入門範本建立使用 Azure Docker VM 延伸模組的 Ubuntu VM，以安裝及設定 Docker 主機。 您可以在這裡檢視範本︰[使用 Docker 簡易部署 Ubuntu VM](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)。 您需要安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/reference-index) 來登入 Azure 帳戶。
 
-首先，使用 [az group create](/cli/azure/group#az_group_create) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+首先，使用 [az group create](/cli/azure/group) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-接下來，使用 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) 來部署 VM，其中包含來自 [GitHub 上此 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)的 Azure Docker VM 擴充功能。 出現提示時，針對 newStorageAccountName、adminUsername、adminPassword 和 dnsNameForPublicIP 提供您自己唯一的值：
+接下來，使用 [az group deployment create](/cli/azure/group/deployment) 來部署 VM，其中包含來自 [GitHub 上此 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)的 Azure Docker VM 擴充功能。 出現提示時，針對 newStorageAccountName、adminUsername、adminPassword 和 dnsNameForPublicIP 提供您自己唯一的值：
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \

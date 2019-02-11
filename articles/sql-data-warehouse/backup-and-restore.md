@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3ce5c79d3565a0b9396b15f54d9ab854e8b8d0d8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465168"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462336"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的備份與還原
 了解「Azure SQL 資料倉儲」中備份與還原的運作方式。 使用資料倉儲快照集將您的資料倉儲還原或複製到主要區域中的先前還原點。 使用資料倉儲異地備援備份來還原至不同的地理區域。 
@@ -73,7 +73,7 @@ SQL 資料倉儲每天都會對[配對的資料中心](../best-practices-availab
 
 
 ## <a name="backup-and-restore-costs"></a>備份與還原成本
-您將發現 Azure 帳單含有儲存體的明細項目以及災害復原儲存體的明細項目。 儲存體費用是在主要區域中儲存資料，加上快照集擷取增量變更的總費用。 如需如何建立目前快照集的詳細說明，請參閱此[文件](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios)。 異地備援的費用則涵蓋儲存異地備份的成本。  
+您將發現 Azure 帳單含有儲存體的明細項目以及災害復原儲存體的明細項目。 儲存體費用是在主要區域中儲存資料，加上快照集擷取增量變更的總費用。 如需快照集計費方式的詳細說明，請參閱[了解快照集產生費用的方式](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios)。 異地備援的費用則涵蓋儲存異地備份的成本。  
 
 您主要資料倉儲和 7 天快照集變更的總成本會四捨五入到最接近的 TB。 例如，如果您的資料倉儲為 1.5 TB，且快照集取用 100 GB，就會以 Azure 進階儲存體費率向您收取 2 TB 資料費用。 
 

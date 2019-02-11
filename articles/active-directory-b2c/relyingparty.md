@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 8ec9e5a50f2350a17d5845f5c52954df10fa1d10
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 5d42568a738d946d7df65601044b9797a35f6b1f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856820"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176007"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -44,7 +44,7 @@ ms.locfileid: "54856820"
   <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <UserJourneyBehaviors>
-      <SingleSignOn Scope="TrustFramework" />
+      <SingleSignOn Scope="TrustFramework" KeepAliveInDays="7"/>
       <SessionExpiryType>Rolling</SessionExpiryType>
       <SessionExpiryInSeconds>300</SessionExpiryInSeconds>
       <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="your-application-insights-key" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
@@ -125,6 +125,7 @@ ms.locfileid: "54856820"
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
 | 影響範圍 | 是 | 單一登入行為的範圍。 可能的值：`Suppressed`、`Tenant`、`Application` 或 `Policy`。 `Suppressed` 值表示會抑制行為。 例如，在單一登入工作階段的情況下，不會為使用者保留任何工作階段，而且一律會提示使用者選取識別提供者。 `TrustFramework` 值表示會針對信任架構中的所有原則套用行為。 例如，如果使用者瀏覽信任架構的兩個原則旅程圖，系統不會提示該使用者選取識別提供者。 `Tenant` 值表示會將行為套用到租用戶中的所有原則。 例如，如果使用者瀏覽租用戶的兩個原則旅程圖，系統不會提示該使用者選取識別提供者。 `Application` 值表示會將行為套用到適用於提出要求之應用程式的所有原則。 例如，如果使用者瀏覽應用程式的兩個原則旅程圖，系統不會提示該使用者選取識別提供者。 `Policy` 值表示只會將行為套用到某個原則。 例如，如果使用者瀏覽信任架構的兩個原則旅程圖，系統會在該使用者於原則之間進行切換時提示其選取識別提供者。 |
+| KeepAliveInDays | 是 | 會控制使用者保持登入的時間長度。 將值設為 0 會關閉 KMSI 功能。 如需詳細資訊，請參閱[讓我保持登入](active-directory-b2c-reference-kmsi-custom.md)。 |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 

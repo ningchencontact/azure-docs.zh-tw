@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: e3b46620d15f8c08d0da69aef3d8c0920e5ad4ec
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: 6c4cd4e698630c06ab8e7ba144791800f091abfa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653046"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458936"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>使用以 DTU 為基礎的購買模型的彈性集區資源限制 
 
@@ -28,7 +28,7 @@ ms.locfileid: "53653046"
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
-## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>彈性集區：儲存體大小與計算大小
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>彈性集區：儲存體大小和計算大小
 
 針對 SQL Database 彈性集區，下表顯示每個服務層與計算大小的可用資源。 您可以使用 [Azure 入口網站](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)、[Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 或 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)，來設定服務層、計算大小與儲存體數量。
 
@@ -131,7 +131,7 @@ ms.locfileid: "53653046"
 ## <a name="next-steps"></a>後續步驟
 
 - 請參閱 [SQL Database 常見問題集](sql-database-faq.md)以取得常見問題的解答。
-- 如需伺服器和訂用帳戶層級的限制資訊，請參閱[邏輯伺服器上的資源限制概觀](sql-database-resource-limits-logical-server.md)。
+- 如需伺服器和訂用帳戶層級的限制資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)。
 - 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
 - 如需 DTU 與 eDTU 的相關資訊，請參閱 [DTU 與 eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model)。
 - 如需 tempdb 大小限制的相關資訊，請參閱 https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database。

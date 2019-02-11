@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f3e30309b230ec44ddf39648b943f3f76dc7805d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 34902016578d92847bd83a7dede8ef73bb640b3e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722646"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301572"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>在 Azure App Service 中進階使用驗證和授權
 
@@ -176,9 +176,9 @@ App Service 會使用特殊標頭，將使用者宣告傳遞至您的應用程�
 > [!NOTE]
 > 存取權杖是用於存取提供者資源，因此僅在您使用用戶端密碼設定您的提供者時，這些權杖才會出現。 若要了解如何取得重新整理權杖，請參閱[重新整理存取權杖](#refresh-access-tokens)。
 
-## <a name="refresh-access-tokens"></a>重新整理存取權杖
+## <a name="refresh-identity-provider-tokens"></a>重新整理識別提供者權杖
 
-當提供者的存取權杖到期時，您必須重新驗證使用者。 您可以向應用程式的 `/.auth/refresh` 端點發出 `GET` 呼叫，以避免權杖到期。 一經呼叫，App Service 就會自動重新整理已驗證使用者在權杖放區中的存取權杖。 您應用程式程式碼的後續權杖要求會取得重新整理過的權杖。 不過，若要進行權杖重新整理，權杖存放區必須包含您提供者的[重新整理權杖](https://auth0.com/learn/refresh-tokens/)。 每個提供者會記載其重新整理權杖的取得方法，而下列清單僅為簡短摘要：
+當提供者的存取權杖 (而非[工作階段權杖](#extend-session-token-expiration-grace-period)) 到期時，您必須於再次使用該權杖之前重新驗證使用者。 您可以向應用程式的 `/.auth/refresh` 端點發出 `GET` 呼叫，以避免權杖到期。 一經呼叫，App Service 就會自動重新整理已驗證使用者在權杖放區中的存取權杖。 您應用程式程式碼的後續權杖要求會取得重新整理過的權杖。 不過，若要進行權杖重新整理，權杖存放區必須包含您提供者的[重新整理權杖](https://auth0.com/learn/refresh-tokens/)。 每個提供者會記載其重新整理權杖的取得方法，而下列清單僅為簡短摘要：
 
 - **Google**：將 `access_type=offline` 查詢字串參數附加至您的 `/.auth/login/google` API 呼叫。 如果是使用 Mobile Apps SDK，您可以將參數新增至其中一個 `LogicAsync` 多載 (請參閱 [Google 重新整理權杖](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens))。
 - **Facebook**：不提供重新整理權杖。 長時間執行的權杖會在 60 天內到期 (請參閱 [Facebook 到期和存取權杖的擴充功能](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension))。
@@ -213,9 +213,9 @@ function refreshTokens() {
 
 如果使用者將授予您應用程式的權限撤銷，您對 `/.auth/me` 的呼叫可能會失敗，並出現 `403 Forbidden` 回應。 若要診斷錯誤，請檢查您的應用程式記錄以取得詳細資訊。
 
-## <a name="extend-session-expiration-grace-period"></a>延長工作階段到期寬限期
+## <a name="extend-session-token-expiration-grace-period"></a>延長工作階段權杖到期寬限期
 
-已驗證的工作階段到期之後，依預設會有 72 小時的寬限期。 在此寬限期內，您可以使用 App Service 重新整理工作階段 Cookie 或工作階段權杖，而無須重新驗證使用者。 當您的工作階段 Cookie 或工作階段權杖失效時，您只需要呼叫 `/.auth/refresh`，而不必自行追蹤權杖到期日。 一旦 72 小時寬限期結束後，使用者必須重新登入，才能取得有效的工作階段 Cookie 或工作階段權杖。
+經過驗證的工作階段會在 8 小時後過期。 已驗證的工作階段到期之後，依預設會有 72 小時的寬限期。 在此寬限期內，您可以使用 App Service 重新整理工作階段權杖，而無須重新驗證使用者。 當您的工作階段權杖失效時，您只需要呼叫 `/.auth/refresh`，而不必自行追蹤權杖到期日。 一旦 72 小時寬限期結束後，使用者必須重新登入，才能取得有效的工作階段權杖。
 
 如果 72 小時的時間不夠您使用，您可以延長此到期時間範圍。 將到期日延長超過一段很長的期間可能會造成重大的安全性影響 (例如，當驗證權杖外洩或遭竊時)。 因此，請將它保留為預設的 72 小時，或將延長期間設為最小值。
 

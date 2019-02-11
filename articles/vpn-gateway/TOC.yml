@@ -73,7 +73,7 @@ items:
           href: vpn-gateway-certificates-point-to-site.md
         - name: Makecert
           href: vpn-gateway-certificates-point-to-site-makecert.md
-        - name: Linux
+        - name: " Linux"
           href: vpn-gateway-certificates-point-to-site-linux.md
     - name: 安裝用戶端憑證
       href: point-to-site-how-to-vpn-client-install-azure-cert.md
@@ -181,6 +181,8 @@ items:
       href: vpn-gateway-3rdparty-device-config-overview.md
     - name: 範例：Cisco ASA 裝置 (IKEv2/無 BGP)
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
+  - name: 轉換為 P2S 的公用 CA 閘道憑證
+    href: vpn-gateway-point-to-site-gateway-public-ca.md
   - name: 疑難排解
     href: vpn-gateway-troubleshoot.md
     items:
@@ -252,9 +254,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway
-ms.openlocfilehash: 0917b0d30244cc6b00df71a3ed17ead22db35c99
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d3e9783ab898478d5f356a573458a7034c67ac0d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159519"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894867"

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d5b759fcde66a2a9be86cc15cba1ead1765ba248
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ceba377f72ced7d39f0a7e9b18e4fd563dbb39f1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413391"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239907"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 安全性與合規性藍圖 - 適用於 UK OFFICIAL 的三層式 IaaS Web 應用程式
 
@@ -204,7 +204,7 @@ ms.locfileid: "54413391"
 
 **分開考量**：此參考架構會將用於管理作業和商務作業的 VNet 分隔開來。 透過遵循 [Microsoft 雲端服務和網路安全性](https://docs.microsoft.com/azure/best-practices-network-security)最佳作法在網路區段之間使用 NSG，將 VNet 和子網路分隔開來將能允許流量管理 (包括流量輸入和輸出限制)。
 
-**資源管理**：Azure 資源 (例如 VM、VNet 及負載平衡器) 是透過將它們組成 [Azure 資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource) 來管理。 接著可將資源型存取控制角色指派給每個資源群組，以限制只有經授權的使用者可以存取。
+**資源管理**：Azure 資源 (例如 VM、VNet 及負載平衡器) 是透過將它們組成 [Azure 資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 來管理。 接著可將資源型存取控制角色指派給每個資源群組，以限制只有經授權的使用者可以存取。
 
 **存取控制限制**：使用[角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) 來透過[自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)管理應用程式中的資源。RBAC 可以用來限制 DevOps 可於每個層級上執行的作業。 授與權限時，請使用[最小權限的原則](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1)。 記錄所有的系統管理作業並定期執行稽核，以確保所有設定變更都是經過規劃的。
 

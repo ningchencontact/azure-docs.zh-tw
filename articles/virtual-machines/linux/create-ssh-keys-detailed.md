@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep
-ms.openlocfilehash: 7167e31261ce029a6a0a6fe070232d1086942162
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 3784dd701b3ac44971e134f1b160fcfe2de2d9b3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297696"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731796"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>詳細步驟：在 Azure 中建立和管理對 Linux VM 進行驗證所需的 SSH 金鑰 
 您可以利用安全殼層 (SSH) 金鑰組，在 Azure 上建立依預設使用 SSH 金鑰進行驗證的 Linux 虛擬機器，而免除登入密碼的需求。 使用 Azure 入口網站、Azure CLI、Resource Manager 範本或其他工具建立的 VM，可以將 SSH 公開金鑰納入部署中，以設定 SSH 連線的 SSH 金鑰驗證。 
@@ -130,11 +130,11 @@ ls -al ~/.ssh
 
 ## <a name="generate-keys-automatically-during-deployment"></a>在部署期間自動產生金鑰
 
-如果您使用 [Azure CLI](/cli/azure) 來建立您的 VM，便可以執行 [az vm create](/cli/azure/vm#az_vm_create) 命令加上 `--generate-ssh-keys` 選項，以選擇性地產生 SSH 公開金鑰與私密金鑰檔案。 金鑰儲存在 ~/.ssh 目錄中。 請注意，如果金鑰已經存在於該位置，則此命令選項不會覆寫金鑰。
+如果您使用 [Azure CLI](/cli/azure) 來建立您的 VM，便可以執行 [az vm create](/cli/azure/vm) 命令加上 `--generate-ssh-keys` 選項，以選擇性地產生 SSH 公開金鑰與私密金鑰檔案。 金鑰儲存在 ~/.ssh 目錄中。 請注意，如果金鑰已經存在於該位置，則此命令選項不會覆寫金鑰。
 
 ## <a name="provide-ssh-public-key-when-deploying-a-vm"></a>部署 VM 時，提供 SSH 公開金鑰
 
-若要建立使用 SSH 金鑰進行驗證的 Linux VM，請在使用 Azure 入口網站、CLI、Resource Manager 範本或其他方法建立 VM 時，提供您的 SSH 公開金鑰。 使用入口網站時，您必須輸入公用金鑰本身。 如果您使用 [Azure CLI](/cli/azure) 搭配現有公開金鑰來建立 VM，可執行 [az vm create](/cli/azure/vm#az_vm_create) 命令加上 `--ssh-key-value` 選項，以指定這個公開金鑰的值或位置。 
+若要建立使用 SSH 金鑰進行驗證的 Linux VM，請在使用 Azure 入口網站、CLI、Resource Manager 範本或其他方法建立 VM 時，提供您的 SSH 公開金鑰。 使用入口網站時，您必須輸入公用金鑰本身。 如果您使用 [Azure CLI](/cli/azure) 搭配現有公開金鑰來建立 VM，可執行 [az vm create](/cli/azure/vm) 命令加上 `--ssh-key-value` 選項，以指定這個公開金鑰的值或位置。 
 
 如果您不熟悉 SSH 公開金鑰的格式，則可以如下所示執行 `cat`，並以自己的公開金鑰檔案位置取代 `~/.ssh/id_rsa.pub`，即可看到公開金鑰：
 

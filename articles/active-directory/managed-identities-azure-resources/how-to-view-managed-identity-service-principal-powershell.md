@@ -3,23 +3,23 @@ title: 如何使用 PowerShell 檢視受控識別的服務主體
 description: 逐步指導您如何使用 PowerShell 檢視受控識別的服務主體。
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/29/2018
-ms.author: daveba
-ms.openlocfilehash: 0cf1915e4013451dbb09f2c4af3df2bad6166475
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 8c406dda1d6ce0fe7b73f400444d7bcd8a9e8400
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438944"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185953"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>使用 PowerShell 檢視受控識別的服務主體
 
@@ -27,28 +27,25 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 在本文中，您會了解如何使用 PowerShell 來檢視受控識別的服務主體。
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 - 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。
 - 如果您還沒有 Azure 帳戶，請[註冊免費帳戶](https://azure.microsoft.com/free/)。
 - 啟用[虛擬機器](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)或[應用程式](/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity)上的系統指派身分識別。
-- 如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，您必須使用 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 
-- 如果您在本機執行 PowerShell，您也需要： 
-    - 執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。
-    - 安裝[最新版的 PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget)。
-    - 執行 `Install-Module -Name PowerShellGet -AllowPrerelease` 以取得 `PowerShellGet` 模組的搶鮮版 (執行此命令以安裝 `AzureRM.ManagedServiceIdentity` 模組後，您可能需要以 `Exit` 退出目前的 PowerShell 工作階段)。
-    - 執行 `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` 安裝 `AzureRM.ManagedServiceIdentity` 模組的搶鮮版，以執行本文中由使用者指派的受控識別作業。
+- 安裝最新版的 [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="view-the-service-principal"></a>檢視服務主體
 
 下列命令示範如何檢視已啟用系統指派身分識別的 VM 或應用程式所具有的服務主體。 以您自己的值取代 `<VM or application name>`。
 
 ```PowerShell
-Get-AzureRmADServicePrincipal -DisplayName <VM or application name>
+Get-AzADServicePrincipal -DisplayName <VM or application name>
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-如需如何使用 PowerShell 檢視 Azure AD 服務主體的詳細資訊，請參閱 [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal)。
+如需如何使用 PowerShell 檢視 Azure AD 服務主體的詳細資訊，請參閱 [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)。
 
 

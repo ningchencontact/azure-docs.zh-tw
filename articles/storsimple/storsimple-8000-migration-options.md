@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/30/2018
+ms.date: 01/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 5166e154e1a67cea777933b6bf8757661a9c3ad5
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: bbf1eb623232332ed025fa0806e942e638c39974
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242954"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456046"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>從 StorSimple 5000-7000 系列移轉資料的選項 
 
@@ -45,6 +45,8 @@ StorSimple 5000-7000 系列即將在 2019 年 7 月[終止支援](https://suppor
 
     - **移轉至 Panzura Freedom NAS** - StorSimple 5000-7000 客戶可以選擇移轉至 Panzura Freedom NAS 以將其資料保存在 Azure。 Panzura Freedom 解決方案提供一個跨資料中心、辦公室、公用與私人雲端的 NAS 解決方案。 此解決方案可針對 NFS、SMB 和行動用戶端啟用本機、混合式及雲端內資料工作流程。 此移轉由 Panzura 支援，而客戶可以從向 [Panzura 網站](https://panzura.com/storsimple-migration/)要求移轉支援開始著手。
 
+    - **遷移至 Cohesity** - Cohesity 可讓您將資料從目前的 StorSimple 5000-7000 遷移至 Azure 上的 Cohesity 資料平台。 Cohesity 資料平台是一種以軟體定義的網路規模解決方案，可將檔案、備份、物件和 VM 合併到單一的雲端原生解決方案。 在移轉至資料平台後，您可以透過單一窗口，來管理和保護資料與應用程式，並將其從雲端佈建到核心位置。 在使用 Cohesity 時，請先從三個節點開始。 深入了解如何[移轉至 Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html)。
+
 ## <a name="migration---frequently-asked-questions"></a>移轉 - 常見問題集
 
 ### <a name="q-when-do-the-storsimple-5000-and-7000-series-devices-reach-end-of-service"></a>問： StorSimple 5000 和 7000 系列裝置的服務將於何時終止？ 
@@ -69,7 +71,7 @@ A. 雖然服務或許可繼續運作，但 Microsoft 將無法再提供軟硬體
 A. StorSimple 5000-7000 系列使用者可根據其所處的情境，選擇下列移轉選項。 
 
  - **升級至 8000 系列**：如果您想要繼續使用 StorSimple 平台，請使用此選項。 
- - **移轉至 Azure 檔案同步**：如果您想要切換至 Azure 原生格式，請使用此選項。 您可以使用 Azure 檔案同步來集中管理檔案共用。 
+ - **遷移至 Azure 檔案同步**：如果您想要切換至 Azure 原生格式，請使用此選項。 您可以使用 Azure 檔案同步來集中管理檔案共用。 
 
 您可以連絡 Microsoft 支援服務，討論此處未列出的移轉選項。
 

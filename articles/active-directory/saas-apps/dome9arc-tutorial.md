@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 0b6730d6c365484dc19273069785e6824218113e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: a313acecf0660e527508f28e1ea86485996cc4f9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387849"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191392"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>教學課程：Azure Active Directory 與 Dome9 Arc 整合
 
@@ -147,7 +147,7 @@ Dome9 Arc 與 Azure AD 整合提供下列優點：
 
     c. 在 [值] 清單中，選取該列所顯示的值。
 
-    d. 按一下 [確定] 。
+    d. 按一下 [確定]。
     
     > [!NOTE]
     > 請參閱此[連結](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management)，以了解如何設定及安裝應用程式的角色。
@@ -218,7 +218,7 @@ Dome9 Arc 與 Azure AD 整合提供下列優點：
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
 
 ### <a name="create-a-dome9-arc-test-user"></a>建立 Dome9 Arc 測試使用者
 
@@ -288,7 +288,7 @@ Dome9 Arc 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Dome9 Arc 圖示時，應該會自動登入 Dome9 Arc 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

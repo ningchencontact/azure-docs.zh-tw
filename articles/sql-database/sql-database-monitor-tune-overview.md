@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3c809638cef89d111a032e5876b1f2f1b2c1eb7b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 1f2dcb43878359d20d737cef6ceb492eb79b7f4c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602341"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468316"
 ---
 # <a name="monitoring-and-performance-tuning"></a>監視和效能微調
 
@@ -34,14 +34,14 @@ Azure SQL Database 是有彈性的自動管理資料服務，您可以輕鬆監�
 - 使用 [SQL Database Advisor](sql-database-advisor-portal.md) 來檢視建立和卸除索引、參數化查詢，以及修正結構描述問題的建議。
 - 使用 [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) 來自動監視您的資料庫效能。 在偵測到效能問題之後，系統就會產生包含問題詳細資料和「根本原因分析」(RCA) 的診斷記錄。 在可能的情況下會提供效能改進建議。
 - [啟用自動調整](sql-database-automatic-tuning-enable.md)並讓 Azure SQL Database 自動修正發現的效能問題。
-- 使用[動態管理檢視 (DMV)](sql-database-monitoring-with-dmvs.md)、[擴充的事件](https://docs.microsoft.com/azure/sql-database/sql-database-xevent-db-diff-from-svr)和[查詢存放區](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)，更深入了解如何進行效能問題的疑難排解。
+- 使用[動態管理檢視 (DMV)](sql-database-monitoring-with-dmvs.md)、[擴充的事件](sql-database-xevent-db-diff-from-svr.md)和[查詢存放區](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)，更深入了解如何進行效能問題的疑難排解。
 
 > [!TIP]
 > 使用上述一或多個方法識別出效能問題之後，請參閱[效能指引](sql-database-performance-guidance.md)以尋找可用來改善 Azure SQL Database 效能的技術。
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>使用 Azure 入口網站監視資料庫
 
-在 [Azure 入口網站](https://portal.azure.com/)中，您可以透過選取資料庫，然後按一下 [監視] 圖表，來監視單一資料庫的使用率。 如此會帶出您可變更的 [度量] 視窗，只要按一下 [編輯圖表] 按鈕即可。 新增下列度量：
+在 [Azure 入口網站](https://portal.azure.com/)中，您可以透過選取資料庫，然後按一下 [監視] 圖表，來監視個別資料庫的使用率。 如此會帶出您可變更的 [度量] 視窗，只要按一下 [編輯圖表] 按鈕即可。 新增下列度量：
 
 - CPU 百分比
 - DTU 百分比
@@ -204,7 +204,7 @@ where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
 
 最後，如果沒有可改善資料庫效能的可操作項目，您可以變更 Azure SQL Database 中可用的資源數量。 您可以隨時變更單一資料庫的 [DTU 服務層](sql-database-service-tiers-dtu.md)或增加彈性集區的 eDTU。 或者，如果您使用[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)，便可以變更服務層或增加配置給資料庫的資源。
 
-1. 若是單一資料庫，您可以視需要[變更服務層級](sql-database-service-tiers-dtu.md)或[計算資源](sql-database-service-tiers-vcore.md)以提升資料庫效能。
+1. 若是單一資料庫，您可以視需要[變更服務層級](sql-database-single-database-scale.md)或[計算資源](sql-database-single-database-scale.md)以提升資料庫效能。
 2. 若是多個資料庫，請考慮使用[彈性集區](sql-database-elastic-pool-guidance.md)來自動調整資源。
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>調整和重構應用程式或資料庫程式碼

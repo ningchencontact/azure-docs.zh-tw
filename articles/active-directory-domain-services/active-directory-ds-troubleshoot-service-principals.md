@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Domain Services：針對服務主體設定進行疑難排解 | Microsoft Docs
+title: Azure Active Directory Domain Services：針對服務主體組態進行疑難排解 | Microsoft Docs
 description: 針對 Azure AD Domain Services 的服務主體設定進行疑難排解
 services: active-directory-ds
 documentationcenter: ''
@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2c39e8f172283f512037e0d991b2c22eb816c8f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035030"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191324"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>針對受控網域的無效服務主體組態進行疑難排解
 
@@ -28,7 +28,7 @@ ms.locfileid: "51035030"
 
 ## <a name="alert-aadds102-service-principal-not-found"></a>警示 AADDS102：找不到服務主體
 
-**警示訊息：** *Azure AD 目錄中已刪除要讓 Azure AD Domain Services 正常運作所需的服務主體。此設定會影響 Microsoft 監視、管理、修補及同步處理受控網域的能力。*
+**警示訊息：***Azure AD 目錄中已刪除要讓 Azure AD Domain Services 正常運作所需的服務主體。此設定會影響 Microsoft 監視、管理、修補及同步處理受控網域的能力。*
 
 [服務主體](../active-directory/develop/app-objects-and-service-principals.md)是 Microsoft 用來管理、更新和維護受控網域的應用程式。 如果將它們刪除，就會使 Microsoft 無法為網域提供服務。
 

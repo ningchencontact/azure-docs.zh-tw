@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: fab422612bc3f83c8dc75d0dd99f42369dfa1d26
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438077"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098454"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>適用於 Linux 的虛擬機器序列主控台
 
@@ -89,7 +89,7 @@ Oracle Linux        | 預設啟用的序列主控台存取。
 檔案系統損毀/檢查 | 存取序列主控台，然後復原檔案系統。
 SSH/RDP 設定問題 | 存取序列主控台，然後變更設定。
 網路鎖定系統| 從 Azure 入口網站存取序列主控台以管理系統。
-與開機載入器互動 | 從序列主控台存取 GRUB。 如需詳細資訊，請參閱[使用序列主控台來存取 GRUB 與單一使用者模式](serial-console-grub-single-user-mode.md)。
+與開機載入器互動 | 從序列主控台刀鋒視窗內重新啟動您的 VM，以存取 Linux VM 上的 GRUB。 如需詳細資訊，請參閱[使用序列主控台來存取 GRUB 與單一使用者模式](serial-console-grub-single-user-mode.md)。
 
 ## <a name="disable-the-serial-console"></a>停用序列主控台
 根據預設，所有訂用帳戶都已啟用所有 VM 的序列主控台存取權。 您可以在訂用帳戶層級或 VM 層級停用序列主控台。

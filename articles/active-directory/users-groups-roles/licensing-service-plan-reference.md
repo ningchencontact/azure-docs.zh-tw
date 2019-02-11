@@ -7,21 +7,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.openlocfilehash: 9d229dfa11a317c1f3b3121cdc7c1cdfa7df9c5e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: 3d2c15d3658ed93348c5ec23198d2cc97a94e0aa
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321631"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297866"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>用於授權的產品名稱和服務方案識別碼
 
@@ -29,7 +27,7 @@ ms.locfileid: "54321631"
 
 - **產品名稱**：在管理入口網站中使用
 - **字串識別碼**：PowerShell v1.0 Cmdlet 會在執行授權作業時使用這些識別碼
-- **Guid 識別碼**：Azure AD Graph 和 Microsoft Graph 使用的 GUID
+- **GUID**：Azure AD Graph 和 Microsoft Graph 使用的 GUID
 - **包含的服務方案**：對應至字串識別碼和 GUID 之產品中的服務方案清單
 
 >[!NOTE]

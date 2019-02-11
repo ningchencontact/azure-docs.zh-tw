@@ -6,17 +6,17 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/28/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7f8f4848b7181ad3df7ad4fa009ff284de381b75
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c9c88a2d77aea203b4ef19d2e5188caa5c99b46c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820405"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219121"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 模型和金鑰的界限
 LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)，其控制 LUIS 中的意圖、實體和功能。 第二個領域是以金鑰類型為基礎的[配額限制](#key-limits)。 第三個界線領域是用來控制 LUIS 網站的[鍵盤組合](#keyboard-controls)。 第四個領域是 LUIS 撰寫網站和 LUIS [端點](luis-glossary.md#endpoint) API 之間的[世界區域對應](luis-reference-regions.md)。 
@@ -24,15 +24,14 @@ LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)�
 
 ## <a name="model-boundaries"></a>模型界線
 
-
 |領域|限制|
 |--|:--|--|
 | [應用程式名稱][luis-get-started-create-app] | *預設字元上限 |
 | [批次測試][batch-testing]| 10 個資料集，每個資料集 1000 個語句|
 | 明確清單 | 每個應用程式 50 個|
-| [意圖][intents]|每個應用程式 500 個<br>[發送型](https://aka.ms/dispatch-tool) \(英文\) 應用程式具有相對應的 500 個發送來源|
+| [意圖][intents]|每個應用程式 500 個：499 個自訂意圖，以及必要的 _None_ 意圖。<br>[發送型](https://aka.ms/dispatch-tool) \(英文\) 應用程式具有相對應的 500 個發送來源。|
 | [清單實體](./luis-concept-entity-types.md) | 父系：50，子系：20,000 個項目。 正式名稱為*預設字元上限。同義值沒有長度限制。 |
-| [機器學習實體](./luis-concept-entity-types.md)：<br> 複合、<br>  階層式<br> 簡單|100 <br>機器學習實體 (簡單、階層式和複合實體) 的總數不能超過 100。 複合和階層式實體不能擁有超過 10 個子系。  |
+| [機器學習實體](./luis-concept-entity-types.md)：<br> 複合、<br>  階層式<br> 簡單|限制為 100 個父代實體 (不含階層式子系) 或 330 個實體 (包含階層式子系)，無論使用者先達到哪像限制。<br><br>階層範例：各有 10 個子系的 30 階層。  子系總計會取用 300 個，而階層元素將取用剩餘的 30 個。 |
 | [模式](luis-concept-patterns.md)|每個應用程式 500 個模式。<br>模式的長度上限為 400 個字元。<br>每個模式 3 個 pattern.any 實體<br>模式中最多有 2 個巢狀選擇性文字|
 | [Pattern.any](./luis-concept-entity-types.md)|每個應用程式 100 個，每個模式 3 個 pattern.any 實體 |
 | [片語清單][phrase-list]|10 個片語清單，每個清單 5,000 個項目|

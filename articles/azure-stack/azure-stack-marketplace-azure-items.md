@@ -12,21 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: d006deb83ca16860eb669548ae8563304f7937fa
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/29/2019
+ms.openlocfilehash: c9f6ad48f6c2e3b2ed60833f0cba111cc96a8a54
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306602"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240755"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 可用的 Azure Marketplace 項目
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件。*
 
-## <a name="virtual-machine-extensions"></a>虛擬機器擴充功能
+## <a name="virtual-machine-extensions"></a>虛擬機器延伸模組
 
 只要您所使用的虛擬機器 (VM) 擴充功能有可用的更新，您即應加以下載。 產品隨附的擴充功能不會在正常修補程式和更新流程中進行更新；因此請經常檢查更新。 其他擴充功能只會透過 Marketplace Management 提供。
 
@@ -37,14 +38,14 @@ ms.locfileid: "54306602"
 |![PowerShell DSC 延伸模組](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 延伸模組](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **下載這個隨附版「PowerShell DSC 延伸模組」的更新。已更新成支援 TLS v1.2。** | Microsoft | Windows |
 | ![Microsoft Antimalware 延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Antimalware 延伸模組](https://docs.microsoft.com/azure/security/azure-security-antimalware)| 適用於 Azure 的 Microsoft Antimalware 是一個針對應用程式和租用戶環境所提供的單一代理程式解決方案，其設計可於無人為介入的情況下在背景中執行。 **下載這個隨附版 Antimalware 延伸模組的更新。** | Microsoft | Windows |
 | ![Microsoft Azure 診斷擴充功能](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Azure 診斷擴充功能](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| Microsoft Azure 診斷是 Azure 中可對部署的應用程式啟用診斷資料收集的功能。 **下載這個附隨版 Windows 診斷擴充功能的更新。** | Microsoft | Windows || ![Microsoft 監視擴充功能](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 監視代理程式擴充功能](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Microsoft 監視代理程式擴充功能搭配 OMS 使用，以提供虛擬機器的監視功能。 **下載這個附隨版 Windows 監視代理程式擴充功能的更新。** | Microsoft | Windows |
-|![自訂指令碼延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [自訂指令碼擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)|**下載這個隨附版「適用於 Linux 的自訂指令碼延伸模組」的更新。此延伸模組有多個版本，您應該同時下載 1.5.2.1 和 2.0.x。** | Microsoft | Linux |
-| ![適用於 Linux 的 VM 存取](media/azure-stack-marketplace-azure-items/cse.png) | [適用於 Linux 的 VM 存取](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **請將此更新下載到附隨版的 VMAccess for Linux 擴充功能中。如果您打算使用 Debian Linux VM，這個更新很重要。** | Microsoft | Linux |
-| ![適用於 Linux 的 Acronis Backup 延伸模組](media/azure-stack-marketplace-azure-items/acronis.png) | [適用於 Linux 的 Acronis Backup 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | 適用於 Microsoft Azure 的 Acronis Backup 擴充功能，是 Acronis Backup 資料保護產品系列的一部分。 | Acronis International GmbH. | Linux |
+|![自訂指令碼延伸模組](media/azure-stack-marketplace-azure-items/cse.png) | [自訂指令碼擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)|**下載這個隨附版「適用於 Linux 的自訂指令碼延伸模組」的更新。此延伸模組有多個版本，您應該同時下載 1.5.2.1 和 2.0.x。** | Microsoft |  Linux |
+| ![適用於 Linux 的 VM 存取](media/azure-stack-marketplace-azure-items/cse.png) | [適用於 Linux 的 VM 存取](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **請將此更新下載到附隨版的 VMAccess for Linux 擴充功能中。如果您打算使用 Debian Linux VM，這個更新很重要。** | Microsoft |  Linux |
+| ![適用於 Linux 的 Acronis Backup 延伸模組](media/azure-stack-marketplace-azure-items/acronis.png) | [適用於 Linux 的 Acronis Backup 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | 適用於 Microsoft Azure 的 Acronis Backup 擴充功能，是 Acronis Backup 資料保護產品系列的一部分。 | Acronis International GmbH. |  Linux |
 | ![適用於 Windows 的 Acronis Backup 延伸模組](media/azure-stack-marketplace-azure-items/acronis.png) | [適用於 Windows 的 Acronis Backup 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | 適用於 Microsoft Azure 的 Acronis Backup 擴充功能，是 Acronis Backup 資料保護產品系列的一部分。 | Acronis International GmbH. | Windows |
-| ![適用於 Linux 的 CloudLink SecureVM 延伸模組](media/azure-stack-marketplace-azure-items/cloudlink.png) | [適用於 Linux 的 CloudLink SecureVM 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 輕鬆而有自信地控制、監視及加密 VM。 | Dell EMC | Linux |
+| ![適用於 Linux 的 CloudLink SecureVM 延伸模組](media/azure-stack-marketplace-azure-items/cloudlink.png) | [適用於 Linux 的 CloudLink SecureVM 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 輕鬆而有自信地控制、監視及加密 VM。 | Dell EMC |  Linux |
 | ![適用於 Windows 的 CloudLink SecureVM 延伸模組](media/azure-stack-marketplace-azure-items/cloudlink.png) | [適用於 Windows 的 CloudLink SecureVM 延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 輕鬆而有自信地控制、監視及加密 VM。 | Dell EMC | Windows |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [適用於 Windows 的 Kaspersky Hybrid Cloud Security Agent](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | 使用 Kaspersky Hybrid Cloud Security 時，您可以透過 Azure 擴充功能直接在雲端工作負載中佈建網路安全性功能。 | Kaspersky 實驗室 | Windows |
-| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [適用於 Linux 的 Kaspersky Hybrid Cloud Security Agent](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.kesl-linux-arm?tab=Overview) | 使用 Kaspersky Hybrid Cloud Security 時，您可以透過 Azure 擴充功能直接在雲端工作負載中佈建網路安全性功能。 | Kaspersky 實驗室 | Linux |
+| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [適用於 Linux 的 Kaspersky Hybrid Cloud Security Agent](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.kesl-linux-arm?tab=Overview) | 使用 Kaspersky Hybrid Cloud Security 時，您可以透過 Azure 擴充功能直接在雲端工作負載中佈建網路安全性功能。 | Kaspersky 實驗室 |  Linux |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft 虛擬機器映像和解決方案範本
 
@@ -97,10 +98,11 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 12 SP3。 | SUSE |
 | ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 15。 | SUSE |
 
-## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>第三方自備授權、免費和試用版映像以及解決方案範本
+## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>第三方自備授權、試用版映像及解決方案範本
 
 |  | 項目名稱 | 說明 | 發行者 |
 | --- | --- | --- | --- |
+| ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | 適用於 Microsoft Azure 的 A10 Networks vThunder Application Delivery Controller 是針對高效能、有彈性且易於部署的應用程式傳遞和伺服器負載平衡目的而建置的，且已最佳化以在 Azure 雲端以原生方式執行。 | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS Router 是一種多功能、多雲端、多重 Hypervisor 的虛擬路由器，可讓企業和雲端提供者建立具有一致性和高度安全性的可調整混合式網路。 | Arista Networks |
 | ![Barracuda Application Security Control Center](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 應用程式安全性控制中心](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | 集中管理多個 Barracuda Web 應用程式防火牆 (WAF)。 | Barracuda Networks, Inc. |
 | ![Barracuda Email Security Gateway](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 電子郵件安全性閘道](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | 電子郵件安全性閘道可用來防止輸入電子郵件所夾帶的威脅。 | Barracuda Networks, Inc. |

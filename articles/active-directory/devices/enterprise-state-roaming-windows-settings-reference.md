@@ -7,21 +7,21 @@ documentationcenter: ''
 author: MarkusVi
 manager: daveba
 editor: curtand
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/30/2019
 ms.author: markvi
-ms.openlocfilehash: 351a982fa9ca3c0975c425137220ec9872f0de04
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ff607ed44f19e915b6ba94c1d217367d1012f062
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448120"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300229"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 漫遊設定參考
 以下是在 Windows 10 中進行漫遊或備份的所有設定的完整清單。 
@@ -50,15 +50,15 @@ ms.locfileid: "54448120"
 * 其他 Windows 設定：請參閱 Windows 設定詳細資料
 * Microsoft Edge 瀏覽器設定：Microsoft Edge 我的最愛、閱讀清單和其他設定
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
+![同步您的設定](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 使用者可以透過 Microsoft Edge 瀏覽器 [設定] 功能表選項，啟用或停用 Microsoft Edge 瀏覽器設定群組同步處理 (我的最愛，讀取清單)。
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
+![帳戶](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
 針對 Windows 10 版本 1803 或更新版本，使用者可以透過 Internet Explorer [設定] 功能表選項，啟用或停用 Internet Explorer 設定群組 (我的最愛、已輸入的 URL) 同步處理。 
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
+![設定](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Windows 設定詳細資料
 在下表中，[設定群組] 資料行中的 [其他] 項目是指您可以移至 [設定] > [帳戶] > [同步處理您的設定] > [其他 Windows 設定] 停用的設定。 

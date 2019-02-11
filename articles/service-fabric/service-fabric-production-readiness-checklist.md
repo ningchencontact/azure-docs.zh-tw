@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo-microsoft
-ms.openlocfilehash: 4e6d5cb3191be7188c1a7c4753200cf049800f04
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 02ad880f3c4a4f5812b60887090c29a0a39f6742
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436002"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206964"
 ---
 # <a name="production-readiness-checklist"></a>實際執行整備檢查清單
 
@@ -27,15 +27,15 @@ ms.locfileid: "53436002"
 
 
 ## <a name="pre-requisites-for-production"></a>適用於生產環境的必要條件
-1. [Azure Service Fabric 最佳做法](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)包括： 
+1. [Azure Service Fabric 安全性最佳做法](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)如下： 
 * 使用 X.509 憑證
 * 設定安全性原則
 * 設定 Azure Service Fabric 的 SSL
 * 使用網路隔離和安全性搭配 Azure Service Fabric
 * 設定 Azure Key Vault 以提供安全性
-* 將使用者指派給角色
+* Microsoft.Network/loadBalancers 將使用者新增至角色
 * 如果使用 Actors 程式設計模型，請實作 Reliable Actors 安全性設定
-2. 若叢集的核心超過 20 個或節點超過 10 個，請建立系統服務專用的主要節點類型。 新增[放置條件約束](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)，以保留系統服務的主要節點類型。 
+2. 若叢集的核心超過 20 個或節點超過 10 個，請建立系統服務專用的主要節點類型。 新增[放置條件約束](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)，以保留系統服務的主要節點類型。
 3. 針對主要節點類型使用 D2v2 或更高的 SKU。 建議挑選至少具有 50 GB 硬碟容量的 SKU。
 4. 生產環境叢集必須是[安全的](service-fabric-cluster-security.md)。 如需設定安全叢集的範例，請參閱此[叢集範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG) \(英文\)。 針對憑證使用通用名稱，並避免使用自我簽署的憑證。
 5. 新增[容器和服務的資源條件約束](service-fabric-resource-governance.md)，如此一來，它們就不會耗用超過 75% 的節點資源。 
@@ -61,8 +61,8 @@ ms.locfileid: "53436002"
 22. 在本機開發期間升級應用程式，以檢查您的服務程式碼是否會遵循 `RunAsync` 方法中的取消權杖，並關閉自訂通訊接聽程式。
 23. 使用可靠的集合時避免[常見陷阱](service-fabric-work-with-reliable-collections.md)。
 24. 在執行負載測試時監視 .NET CLR 記憶體效能計數器，並檢查是否有高比率的記憶體回收或失控的堆積成長。
-25. 維護 [Reliable Services 和 Reliable Actors](service-fabric-reliable-services-backup-restore.md) 的離線備份並測試還原程序。 
-
+25. 維護 [Reliable Services 和 Reliable Actors](service-fabric-reliable-services-backup-restore.md) 的離線備份並測試還原程序。
+26. 在理想情況下，主要節點類型虛擬機器執行個體計數應等於叢集可靠性層的最小值；適合超過最小可靠性層的狀況包括：在以垂直方式調整主要節點類型虛擬機器擴展集的 SKU 時暫時為之。
 
 ## <a name="optional-best-practices"></a>選用的最佳做法
 

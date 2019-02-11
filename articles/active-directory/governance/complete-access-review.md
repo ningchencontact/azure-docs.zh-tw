@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 72b560aa742fb509b55fe5e27cb87b9a224bce7e
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: ce791e2b230360a04a3051a8964e39c6d5a457ab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45606878"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191358"
 ---
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>在 Azure AD 中，為群組成員或可存取應用程式的使用者完成存取權檢閱
 
@@ -48,7 +48,7 @@ ms.locfileid: "45606878"
 
 若要擷取檢閱的結果，請選取 [核准]，然後選取 [下載]。 可在 Excel 中，或開啟 UTF-8 編碼 CSV 檔案的其他程式中檢視產生的 CSV 檔案。
 
-## <a name="optional-delete-a-review"></a>選擇性：刪除檢閱
+## <a name="optional-delete-a-review"></a>選用：刪除檢閱
 如果您對檢閱不再感興趣，可以將它刪除。 選取 [刪除] 以從 Azure AD 移除檢閱。
 
 > [!IMPORTANT]

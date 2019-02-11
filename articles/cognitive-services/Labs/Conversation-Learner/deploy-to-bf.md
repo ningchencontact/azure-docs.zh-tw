@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0bcb6262201b3399ca4d759bb306a570bea33b00
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 56dab93087249082330c0f685e5457bc2585664c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578764"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237926"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>如何部署對話學習模組聊天機器人
 
@@ -53,7 +53,7 @@ ms.locfileid: "45578764"
 
 5. 「模型識別碼」GUID 會顯示在頁面頂端附近。
 
-## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>選項 1：部署對話學習模組聊天機器人在本機執行
+## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>選項 1：部署 Conversation Learner Bot 以在本機執行
 
 這會將聊天機器人部署到本機電腦，並顯示如何使用 Bot Framework 模擬器存取聊天機器人。
 
@@ -118,6 +118,7 @@ ms.locfileid: "45578764"
         CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
         CONVERSATION_LEARNER_MODEL_ID      | 應用程式識別碼 GUID (從模型之 [設定] 下方的對話學習模組 UI 中取得)
         LUIS_AUTHORING_KEY               | 此模型的 LUIS 撰寫金鑰
+        LUIS_SUBSCRIPTION_KEY            | 不是必要，但建議用於已發佈的 Bot，以避免使用您的撰寫配額。
     
     4. 按一下靠近頁面頂端的 [儲存]
     5. 開啟左邊的 [編譯] 導覽項目

@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bb94c288-2ed4-4683-acde-62474292df29
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e2ca2d4f4a93f6c4bbfdacb6f25185cd59586964
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1763a022487f0a6b01a59156960e59a0bb8663f3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041123"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercell"></a>教學課程：Azure Active Directory 與 Mercell 整合
 
@@ -110,7 +110,7 @@ ms.locfileid: "39041123"
 
     在 [識別碼] 文字方塊中，輸入 URL：`https://my.mercell.com/`
 
-4. 在 [SAML 簽署憑證] 區段中，按一下「複製」按鈕複製「應用程式同盟中繼資料 URL」，並將它貼到 [記事本]。
+4. 在 ****[SAML 簽署憑證] 區段上，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL] **** ，並將它貼到記事本中。
     
     ![設定單一登入](./media/mercell-tutorial/tutorial_metadataurl.png)
      
@@ -150,13 +150,13 @@ ms.locfileid: "39041123"
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下 [建立]。
  
 ### <a name="create-a-mercell-test-user"></a>建立 Mercell 測試使用者
 
 本節的目標是要在 Mercell 中建立一個名為 Britta Simon 的使用者。 Mercell 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 Mercell 時，如果使用者尚未存在，就會建立新使用者。
 >[!Note]
->如果您需要手動建立使用者，請連絡 [Mercell 支援小組](mailto:webmaster@mercell.com)。
+>如果您需要手動建立使用者，請連絡 [Mercell 支援小組](mailto:webmaster@mercell.com)。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -193,7 +193,7 @@ ms.locfileid: "39041123"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Mercell] 圖格時，應該會自動登入您的 Mercell 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

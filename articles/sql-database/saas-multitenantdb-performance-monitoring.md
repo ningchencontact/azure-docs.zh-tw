@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 7681e3fabe9eb216da81d9f09dc584097bcbaf84
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 01/25/2019
+ms.openlocfilehash: 4257baf437ec6c77ccf9fe4a7f0e6195ddd933be
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830000"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458120"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中分區化多租用戶 Azure SQL Database 的效能
 
@@ -161,7 +161,7 @@ Wingtip Tickets SaaS 多租用戶資料庫是 SaaS 應用程式，而實際 SaaS
 
 指令碼會在另一個資料庫中佈建此租用戶、使用目錄註冊資料庫與租用戶，然後在瀏覽器中開啟 [租用戶的事件] 頁面。 重新整理 [事件中樞] 頁面，您就會看到 "Salix Salsa" 已新增為場地。
 
-## <a name="manage-performance-of-a-single-database"></a>管理單一資料庫的效能
+## <a name="manage-performance-of-an-individual-database"></a>管理個別資料庫的效能
 
 如果多租用戶資料庫內的單一租用戶遇到持續高負載，它可能會傾向於支配資料庫資源，並會影響相同資料庫中的其他租用戶。 如果活動可能會持續一陣子，則可以暫時將租用戶移出資料庫，並移入其自己的單一租用戶資料庫。 這可讓該租用戶擁有超出其所需的額外資源，並將它與其他租用戶完全隔離。
 

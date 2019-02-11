@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 01/23/2019
 ms.author: alkohli
-ms.openlocfilehash: af7bcf2a83259b9d883a824b05312316f9f1f4f8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7d52af9e3948f40936795efab5b6671c3f71007a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794000"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206742"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure 資料箱的系統需求
 
@@ -37,7 +37,7 @@ ms.locfileid: "53794000"
 | --- | --- | 
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 | 
 |  Windows |7, 8, 10 | 
-|Linux    |         |
+| Linux    |         |
 
 ### <a name="supported-file-systems-for-linux-clients"></a>Linux 用戶端的支援檔案系統
 
@@ -48,13 +48,18 @@ ms.locfileid: "53794000"
 
 ### <a name="supported-storage-accounts"></a>支援的儲存體帳戶
 
-以下是資料箱裝置所支援的儲存體類型清單。
+以下是資料箱裝置所支援的儲存體帳戶和儲存體類型清單。 如需所有不同儲存體帳戶類型和其全部功能的完整清單，請參閱[儲存體帳戶的類型](/azure/storage/common/storage-account-overview#types-of-storage-accounts)。
 
-| **儲存體帳戶** | **注意事項** |
-| --- | --- |
-| 傳統 | 標準 |
-| 一般用途  |標準；同時支援 V1 和 V2。 |
-| Blob |經常性存取和非經常性存取均受支援。 |
+| **儲存體帳戶/支援的儲存體類型** | **區塊 Blob** |**分頁 Blob*** |**Azure 檔案** |**注意事項**|
+| --- | --- | -- | -- | -- |
+| 傳統標準 | Y | Y | Y |
+| 一般用途 v1 標準  | Y | Y | Y | 經常性存取和非經常性存取均受支援。|
+| 一般用途 v1 進階  |  | Y| | |
+| 一般用途 v2 標準  | Y | Y | Y | 經常性存取和非經常性存取均受支援。|
+| 一般用途 v2 進階  |  |Y | | |
+| Blob 儲存體標準 |Y | | |經常性存取和非經常性存取均受支援。 |
+
+\* *- 上傳至分頁 Blob 的資料必須是 512 位元組規格，例如 vhd。*
 
 >[!NOTE]
 > 不支援 Azure Data Lake Storage Gen 2 帳戶。
@@ -85,7 +90,7 @@ ms.locfileid: "53794000"
 
 ## <a name="networking-requirements"></a>網路需求
 
-您的資料中心必須有高速網路。 我們強烈建議您具有至少一個 10 GbE 的連線。 如果無法使用 10 GbE 連線，也可以使用 1 GbE 資料連結來複製資料，但是複製速度會受到影響。
+您的資料中心必須有高速網路。 強烈建議您具有至少一個 10 GbE 的連線。 如果無法使用 10 GbE 連線，也可以使用 1 GbE 資料連結來複製資料，但是複製速度會受到影響。
 
 ## <a name="next-step"></a>後續步驟
 

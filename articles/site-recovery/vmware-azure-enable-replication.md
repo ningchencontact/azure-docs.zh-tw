@@ -1,17 +1,17 @@
 ---
 title: 使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 進行 VMware 災害復原 | Microsoft Docs
 description: 本文說明如何使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 進行災害復原。
-author: asgang
+author: mayurigupta13
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: f160fc5f15ad9ca8994995c34d9eba7ee375c015
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: mayg
+ms.openlocfilehash: 51086b894de7a02ec78302323512c7766dc9f4fb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424144"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226328"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>讓 VMware VM 能夠複寫至 Azure
 
@@ -43,7 +43,7 @@ ms.locfileid: "54424144"
 2. 在 [來源] 頁面 > [來源] 中，選取組態伺服器。
 3. 在 [機器類型] 中，選取 [虛擬機器] 或 [實體機器]。
 4. 在 [vCenter/vSphere Hypervisor] 中，選取管理 vSphere 主機的 vCenter 伺服器，或選取主機。 如果您是複寫實體機器，則這個設定不相關。
-5. 如果您尚未建立任何額外的處理序伺服器，則選取處理序伺服器，將是設定伺服器的名稱。 然後按一下 [確定] 。
+5. 如果您尚未建立任何額外的處理序伺服器，則選取處理序伺服器，將是設定伺服器的名稱。 然後按一下 [確定]。
 
     ![啟用複寫來源](./media/vmware-azure-enable-replication/enable-replication2.png)
 
@@ -59,11 +59,11 @@ ms.locfileid: "54424144"
 8. 選取 Azure VM 在容錯移轉後啟動時所要啟動的 Azure 網路和子網路。 此網路必須位於與復原服務保存庫相同的區域中。 選取 [立即設定選取的機器]，將網路設定套用至您選取要進行保護的所有機器。 選取 [稍後設定] 以選取每部機器的 Azure 網路。 如果您沒有網路，則必須[建立一個](#set-up-an-azure-network)。 若要使用 Resource Manager 建立網路，請按一下 [新建]。 選取子網路 (如果適用的話)，然後按一下 [確定]。
 
     ![啟用複寫目標設定](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. 在 [虛擬機器] > [選取虛擬機器] 中，選取您要複寫的每部機器。 您只能選取可以啟用複寫的機器。 然後按一下 [確定] 。 如果您無法檢視/選取任何特定虛擬機器，請按一下[這裡](https://aka.ms/doc-plugin-VM-not-showing)以解決問題。
+9. 在 [虛擬機器] > [選取虛擬機器] 中，選取您要複寫的每部機器。 您只能選取可以啟用複寫的機器。 然後按一下 [確定]。 如果您無法檢視/選取任何特定虛擬機器，請按一下[這裡](https://aka.ms/doc-plugin-VM-not-showing)以解決問題。
 
     ![啟用複寫選取虛擬機器](./media/vmware-azure-enable-replication/enable-replication5.png)
 10. 在 [屬性] > [設定屬性] 中，選取處理序伺服器要用來在電腦上自動安裝行動服務的帳戶。  
-11. 依預設會複寫所有磁碟。 若要將磁碟從複寫中排除，按一下 [所有磁碟]，然後清除任何您不想要複寫的磁碟。  然後按一下 [確定] 。 您可以稍後再設定其他屬性。 [深入了解](vmware-azure-exclude-disk.md)排除磁碟。
+11. 依預設會複寫所有磁碟。 若要將磁碟從複寫中排除，按一下 [所有磁碟]，然後清除任何您不想要複寫的磁碟。  然後按一下 [確定]。 您可以稍後再設定其他屬性。 [深入了解](vmware-azure-exclude-disk.md)排除磁碟。
 
     ![啟用複寫設定屬性](./media/vmware-azure-enable-replication/enable-replication6.png)
 
@@ -86,18 +86,20 @@ ms.locfileid: "54424144"
 
 1. 按一下 [設定] > [複寫的項目]，然後選取機器。 [程式集] 頁面會顯示機器設定與狀態的相關資訊。
 2. 在 [屬性] 中，您可以檢視 VM 的複寫和容錯移轉資訊。
-3. 在 [計算和網路] > [計算屬性] 中，您可以指定 Azure VM 名稱和目標大小。 視需要修改名稱以符合 Azure 需求。
+3. 在 [計算和網路] > [計算屬性] 中，您可以變更多個 VM 屬性：
+* Azure VM 名稱 - 視需要修改名稱以符合 Azure 需求
+* 目標 VM 大小或類型 - 預設 VM 大小是根據來源 VM 大小來選擇。 您可以在容錯移轉之前，隨時根據需求選取不同的 VM 大小。 請注意，VM 磁碟大小也是以來源磁碟大小為基礎，而且只能在容錯移轉後變更。 深入了解[標準](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets)和[進階](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)磁碟大小和 IOPS。
 
     ![計算和網路屬性](./media/vmware-azure-enable-replication/vmproperties.png)
 
-4.  您可以選取電腦將成為其後置容錯移轉一部分的[資源群組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)。 您可以在容錯移轉之前隨時變更這項設定。 容錯移轉後，如果將電腦移轉到不同的資源群組，則電腦的保護設定將會中斷。
-5. 如果您的電腦必須是其中一個後置容錯移轉，您可以選取[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)。 選取可用性設定組時，請記住︰
+*  資源群組 - 您可以選取電腦將成為其後置容錯移轉一部分的[資源群組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)。 您可以在容錯移轉之前隨時變更這項設定。 容錯移轉後，如果將電腦移轉到不同的資源群組，則電腦的保護設定將會中斷。
+* 可用性設定組 - 如果您的電腦必須是其中一個後置容錯移轉，您可以選取[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)。 選取可用性設定組時，請記住︰
 
     * 只將屬於指定之資源群組的可用性設定組列出。  
     * 虛擬網路不同的電腦不可在相同的可用性設定組中。
     * 只有相同大小的虛擬機器可在相同的可用性設定組中。
-5. 您也可以檢視和加入目標網路、子網路的相關資訊，以及將指派給 Azure VM 的 IP 位址。
-6. 在 [磁碟] 中，您可以看見 VM 上將要複寫的作業系統和資料磁碟。
+4. 您也可以檢視和加入目標網路、子網路的相關資訊，以及將指派給 Azure VM 的 IP 位址。
+5. 在 [磁碟] 中，您可以看見 VM 上將要複寫的作業系統和資料磁碟。
 
 ### <a name="configure-networks-and-ip-addresses"></a>設定網路和 IP 位址
 
@@ -120,7 +122,7 @@ ms.locfileid: "54424144"
 
 ## <a name="common-issues"></a>常見問題
 
-* 各磁碟大小必須都小於 1 TB。
+* 各磁碟大小必須都小於 4 TB。
 * OS 磁碟應該是基本磁碟而非動態磁碟。
 * 針對第 2 代/已啟用 UEFI 的虛擬機器，作業系統系列應為 Windows，而且開機磁碟應小於 300 GB。
 
@@ -128,4 +130,5 @@ ms.locfileid: "54424144"
 
 保護完成且機器達到受保護的狀態之後，您可以嘗試[容錯移轉](site-recovery-failover.md)，以檢查應用程式是否會出現在 Azure 中。
 
-如果您想要停用保護，請了解如何[清除註冊與保護設定](site-recovery-manage-registration-and-protection.md)。
+* 了解如何[清除註冊與保護設定](site-recovery-manage-registration-and-protection.md)，以停用複寫。
+* 了解如何[使用 PowerShell 自動進行虛擬機器的複寫](vmware-azure-disaster-recovery-powershell.md)

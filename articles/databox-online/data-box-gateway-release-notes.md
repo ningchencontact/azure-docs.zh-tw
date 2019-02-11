@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 738cc5b4e90d9572b65f122076973e2d9f1b264f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450485"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302116"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Azure 資料箱閘道預覽版本資訊
 
@@ -50,7 +50,9 @@ ms.locfileid: "54450485"
 | **5.** |檔案類型 | 不支援下列 Linux 檔案類型：字元檔案、區塊檔案、通訊端、管道、符號連結。  |複製這些檔案會導致在 NFS 共用上建立長度為 0 的檔案。 這些檔案處於錯誤狀態，也會在 error.xml 中回報。 |
 | **6.** |刪除 | 由於此版本有錯誤，如果已刪除 NFS 共用，則無法刪除此共用。 共用狀態會顯示「刪除中」。  |當共用使用不支援的檔案名稱時，才會發生這種情況。 |
 | **7.** |重新整理 | 權限和存取控制清單 (ACL) 不會保留在重新整理作業中。  | |
-| **8.** |線上說明 |Azure 入口網站中的說明連結不會連結至文件。|說明連結將會在公開上市版本中運作。 |
+| **8.** |複製 | 資料複製失敗，錯誤如下：無法完成要求的作業，因為檔案系統有限制。  |與檔案相關聯的替代資料流 (ADS) 超過 128 KB (ReFS 的最大限制) 時，就會發生此錯誤。  |
+| **9.** |符號連結 |不支援符號連結。  |目錄的符號連結導致目錄永遠不會標示為離線。 因此，您可能不會在目錄上看到灰色叉叉，此圖示表示目錄已離線，而且所有相關聯的內容皆已完整上傳至 Azure。 |
+| **10.** |線上說明 |Azure 入口網站中的說明連結不會連結至文件。|說明連結將會在公開上市版本中運作。 |
 
 
 

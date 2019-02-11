@@ -1,5 +1,5 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 Cornerstone OnDemand 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 Cornerstone OnDemand 來自動佈建使用者 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 以對 Cornerstone OnDemand 自動佈建及取消佈建使用者帳戶。
 services: active-directory
 documentationcenter: ''
@@ -8,21 +8,21 @@ writer: zhchia
 manager: beatrizd
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 6a6cfb2cb1fd6b70be0437c8b6fa62f50e76e53b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9f18fcb38e6e0855a00ffb454211273dfb2041a6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345408"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168493"
 ---
-# <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>教學課程︰設定 Cornerstone OnDemand 來自動佈建使用者
+# <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>教學課程：設定 Cornerstone OnDemand 來自動佈建使用者
 
 
 本教學課程旨在示範將 Azure AD 設定為可對 Cornerstone OnDemand 自動佈建及取消佈建使用者和/或群組時，Cornerstone OnDemand 與 Azure Active Directory (Azure AD) 中須執行的步驟。

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7c5a5cddca2aa8e459bde711465425bdd32c669e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 06e3139ffa958637721aae7e912b34070d307757
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964011"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207389"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>關於 Hyper-V 至 Azure 災害復原的 Azure Site Recovery 部署規劃工具
 
@@ -84,7 +84,7 @@ Azure Site Recovery 部署規劃工具是一項命令列工具，適用於 Hyper
 
 | 伺服器需求 | 說明 |
 |---|---|
-|取得 VM 清單、分析，以及測量輸送量 |<ul><li>作業系統：Microsoft Windows Server 2016 或 Microsoft Windows Server 2012 R2 </li><li>機器組態：8 個 vCPU、16 GB RAM、300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[適用於 Visual Studio 2012 的 Microsoft Visual C++ 可轉散發套件](https://aka.ms/vcplusplus-redistributable)</li><li>透過網際網路從這部伺服器存取 Azure</li><li>Azure 儲存體帳戶</li><li>伺服器的系統管理員存取權</li><li>100 GB 的可用磁碟空間下限 (假設剖析平均各有 3 個磁碟的 1000 部 VM 30 天)</li><li>用來執行 Azure Site Recovery 部署規劃工具的 VM 必須新增到所有 Hyper-V 伺服器的 TrustedHosts 清單。</li><li>要分析的所有 Hyper-V 伺服器 VM 必須新增到要用來執行此工具之用戶端 VM 的 TrustedHosts 清單。 [進一步了解如何將伺服器新增到 TrustedHosts 清單](#steps-to-add-servers-into-trustedhosts-list)。 </li><li> 請從用戶端上的 PowerShell 或命令列主控台，以系統管理權限執行此工具</ul></ul>|
+|取得 VM 清單、分析，以及測量輸送量 |<ul><li>作業系統：Microsoft Windows Server 2016 或 Microsoft Windows Server 2012 R2 </li><li>機器組態：8 個 vCPU、16 GB RAM、300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[適用於 Visual Studio 2012 的 Microsoft Visual C++ 可轉散發套件](https://aka.ms/vcplusplus-redistributable)</li><li>透過網際網路從這部伺服器存取 Azure</li><li>Azure 儲存體帳戶</li><li>伺服器的系統管理員存取權</li><li>100 GB 的可用磁碟空間下限 (假設剖析平均各有 3 個磁碟的 1000 部 VM 30 天)</li><li>用來執行 Azure Site Recovery 部署規劃工具的 VM 必須新增到所有 Hyper-V 伺服器的 TrustedHosts 清單。</li><li>要分析的所有 Hyper-V 伺服器必須新增到要用來執行此工具之用戶端 VM 的 TrustedHosts 清單。 [進一步了解如何將伺服器新增到 TrustedHosts 清單](#steps-to-add-servers-into-trustedhosts-list)。 </li><li> 請從用戶端上的 PowerShell 或命令列主控台，以系統管理權限執行此工具</ul></ul>|
 | 報告產生 | 具有 Microsoft Excel 2013 和更新版本的 Windows PC 或 Windows Server |
 | 使用者權限 | 系統管理員帳戶，可在取得 VM 清單和分析作業期間，用來存取 Hyper-V 叢集/Hyper-v 主機。<br>所有必須進行分析之主機所擁有的網域系統管理員帳戶，都應該具有相同認證 (也就是使用者名稱和密碼)
  |

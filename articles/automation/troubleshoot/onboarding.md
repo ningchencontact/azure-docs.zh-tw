@@ -4,22 +4,40 @@ description: 了解如何針對將更新管理、變更追蹤和清查解決方�
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 78e78bc019ab5f8be1cfd3448220b97b89cde6a5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879633"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228775"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>針對將解決方案上線時的錯誤進行疑難排解
 
 當您將更新管理或變更追蹤和清查等解決方案上線時，可能會發生錯誤。 本文描述可能發生的各種錯誤及解決方法。
 
 ## <a name="general-errors"></a>一般錯誤
+
+### <a name="missing-write-permissions"></a>案例：上線失敗並顯示以下訊息：無法啟用解決方案
+
+#### <a name="issue"></a>問題
+
+當您嘗試讓虛擬機器在解決方案上線時，您會收到下列訊息：
+
+```
+The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+#### <a name="cause"></a>原因
+
+此錯誤是由於虛擬機器或使用者的權限不正確或遺失所造成。
+
+#### <a name="resolution"></a>解決方案
+
+確定您有正確的權限可讓虛擬機器上線。 檢閱[讓機器上線所需的權限](../automation-role-based-access-control.md#onboarding)，嘗試讓解決方案再次上線。
 
 ### <a name="computer-group-query-format-error"></a>案例：ComputerGroupQueryFormatError
 

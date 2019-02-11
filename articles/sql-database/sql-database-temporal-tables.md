@@ -11,18 +11,20 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/21/2018
-ms.openlocfilehash: ce489bae3a59da47ad6f3677ef493618d01fd6b6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 09/25/2018
+ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196645"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567123"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>開始使用 Azure SQL Database 中的時態表
+
 時態表是 Azure SQL Database 的一個新的可程式性功能，可讓您追蹤和分析資料變更的完整歷程記錄，而不需要撰寫自訂程式碼。 時態表會保持資料與時間內容之間的密切關係，因此只有在特定期間內，才會將預存的事實解譯為有效。 時態表的這個屬性允許進行以有效時間為基礎的分析，並可從資料演進中取得獨到見解。
 
 ## <a name="temporal-scenario"></a>時態表案例
+
 本文說明在應用程式案例中使用時態表的步驟。 假設您想要從頭開始追蹤正在開發的新網站上的使用者活動，或您想要使用使用者活動分析擴充的現有網站上的使用者活動。 在這個簡化的範例中，我們假設在一段時間內瀏覽過的網頁數目是必須在裝載於 Azure SQL Database 的網站資料庫中擷取和監視的指標。 使用者活動歷史分析的目標是要獲得重新設計網站的意見，並為訪客提供更好的經驗。
 
 此案例的資料庫模型非常簡單：使用者活動度量是以單一整數欄位 **PageVisited** 表示，而且會與使用者設定檔上的基本資訊一起被擷取。 此外，對於以時間為基礎的分析，您要為每個使用者保留一連串的資料列，其中每個資料列都代表一段特定時間內特定使用者瀏覽過的頁數。
