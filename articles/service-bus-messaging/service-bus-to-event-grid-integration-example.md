@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: ca4a6bfcc0f1041e76c07b3b240d7c641ef8f587
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a1c0078cf2359de7fa018af749c61880caa8fcdd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699859"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821801"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Azure 服務匯流排與 Azure Event Grid 的整合範例
 
 在本文中，您可了解如何設定 Azure 函式和邏輯應用程式，以根據從 Azure Event Grid 接收的事件來接收訊息。 您將執行下列動作：
  
-* 建立簡單[測試 Azure 函式](#test-function-setup)，以便偵錯及檢視來自 Event Grid 的初始事件流程。 不論您是否執行其他步驟，都要執行此步驟。
-* 建立 [Azure 函式來接收和處理 Azure 服務匯流排訊息](#receive-messages-using-azure-function) (以 Event Grid 事件為基礎)。
-* 利用 [Azure App Service 的 Logic Apps 功能](#receive-messages-using-azure-logic-app)。
+* 建立簡單測試 Azure 函式，以便偵錯及檢視來自 Event Grid 的初始事件流程。 不論您是否執行其他步驟，都要執行此步驟。
+* 建立 Azure 函式來接收和處理 Azure 服務匯流排訊息 (以 Event Grid 事件為基礎)。
+* 利用 Azure App Service 的 Logic Apps 功能。
 
 您建立的範例假設服務匯流排主題有兩個訂用帳戶。 此範例還假設所建立的 Event Grid 訂用帳戶只會針對一個服務匯流排訂用帳戶傳送事件。 
 

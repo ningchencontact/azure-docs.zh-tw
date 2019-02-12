@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 1698b89cd32fd7fd90a178ece25ee6869c1aa3e7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7fa72df04b0507a915a75688b38e26ed0f21e5a5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229688"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486005"
 ---
 # <a name="what-is-traffic-manager"></a>什麼是流量管理員？
 Azure 流量管理員是 DNS 型流量負載平衡器，可讓您跨全球的 Azure 區域將流量最佳分散至服務，同時提供高可用性和回應性。
@@ -26,9 +26,9 @@ Azure 流量管理員是 DNS 型流量負載平衡器，可讓您跨全球的 Az
 流量管理員會使用 DNS，根據流量路由方法和端點的健康情況，將用戶端要求導向最適當的服務端點。 端點是裝載於 Azure 內部或外部的任何網際網路對向服務。 流量管理員提供[流量路由方法](traffic-manager-routing-methods.md)和[端點監視選項](traffic-manager-monitoring.md)的範圍，以符合不同的應用程式需求和自動容錯移轉模型。 流量管理員可針對失敗彈性應變，包括整個 Azure 區域失敗。
 
 >[!NOTE]
-> Azure 會為您的案例提供一套完整受控的負載平衡解決方案。 如果您要尋找傳輸層安全性 (TLS) 通訊協定終止 (「SSL 卸載」) 或每一 HTTP/HTTPS 要求的應用程式層處理，請檢閱[應用程式閘道](../application-gateway/application-gateway-introduction.md)。 如果您要尋求全域平衡，請檢閱[負載平衡器](../load-balancer/load-balancer-overview.md)。 視需要結合這些解決方案，可能有益於您的端對端案例。
+> Azure 會為您的案例提供一套完整受控的負載平衡解決方案。 如果您要尋找傳輸層安全性 (TLS) 通訊協定終止 (「SSL 卸載」) 或每一 HTTP/HTTPS 要求的應用程式層處理，請檢閱[應用程式閘道](../application-gateway/application-gateway-introduction.md)。 如果您要尋求區域性負載平衡，請檢閱[負載平衡器](../load-balancer/load-balancer-overview.md)。 視需要結合這些解決方案，可能有益於您的端對端案例。
 
-流量管理員包含下列功能︰
+流量管理員提供下列功能︰
 
 ## <a name="increase-application-availability"></a>提高應用程式可用性
 
@@ -40,7 +40,7 @@ Azure 可讓您在世界各地的資料中心內執行雲端服務或網站。 �
 
 ## <a name="perform-service-maintenance-without-downtime"></a>在不需要停機的情況下執行服務維護
 
-您可以在您的應用程式執行規劃的維護作業，而不需要停機。 當維護正在進行時，流量管理員會將流量導向替代的端點。
+您可以在您的應用程式執行規劃的維護作業，而不需要停機。 正在進行維護時，流量管理員可以將流量導向替代的端點。
 
 ## <a name="combine-hybrid-applications"></a>合併混合式應用程式
 
@@ -48,7 +48,7 @@ Azure 可讓您在世界各地的資料中心內執行雲端服務或網站。 �
 
 ## <a name="distribute-traffic-for-complex-deployments"></a>複雜部署的流量分配
 
-利用[巢狀的流量管理員設定檔](traffic-manager-nested-profiles.md)，可以組合流量路由方法，建立複雜且彈性的規則，以符合更大型且更複雜部署的需求。
+利用[巢狀流量管理員設定檔](traffic-manager-nested-profiles.md)，可以組合多種流量路由方法，建立複雜且彈性的規則，以符合更大型且更複雜部署的需求。
 
 ## <a name="pricing"></a>價格
 

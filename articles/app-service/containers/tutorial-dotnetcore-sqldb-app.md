@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9695c3d40ee85cf1a46e078776c88ad2f61ed839
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9d4aee884e91c52be48c8a44f185f188b0c93ab5
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465395"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511134"
 ---
 # <a name="build-a-net-core-and-sql-database-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database 應用程式
 
@@ -359,6 +359,35 @@ git push azure master
 ![Code First 移轉之後的 Azure 應用程式](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
 仍會顯示您現有的所有待辦事項項目。 當您重新發佈 .NET Core 應用程式時，您 SQL Database 中現有的資料不會遺失。 此外，Entity Framework Code 移轉只會變更資料結構描述，並讓現有的資料保持不變。
+
+## <a name="stream-diagnostic-logs"></a>資料流診斷記錄
+
+範例專案已遵循 [Azure 中的 ASP.NET Core 記錄](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure)指引，其中有兩項組態變更：
+
+- 在 *DotNetCoreSqlDb.csproj* 中包含 `Microsoft.Extensions.Logging.AzureAppServices` 的參考。
+- 在 Startup.cs 中呼叫 `loggerFactory.AddAzureWebAppDiagnostics()`。
+
+> [!NOTE]
+> 專案的記錄層級在 appsettings.json 中設定為 `Information`。
+> 
+
+在 Linux 上的 App Service 中，應用程式會在來自預設 Docker 映像的容器內執行。 您可以存取從容器內產生的主控台記錄。 若要取得記錄，請先在 Cloud Shell 中執行 [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) 命令以開啟容器記錄功能。
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
+```
+
+開啟容器記錄功能後，請在 Cloud Shell 中執行 [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) 命令以觀看記錄資料流。
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+開始記錄資料流之後，重新整理瀏覽器中的 Azure 應用程式，以取得部分 Web 流量。 您現在會看到使用管線傳送到終端機的主控台記錄。 如果您沒有立即看到主控台記錄，請在 30 秒後再查看。
+
+若要隨時停止記錄資料流，輸入 `Ctrl`+`C`。
+
+如需自訂 ASP.NET Core 記錄的詳細資訊，請參閱[登入 ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging)。
 
 ## <a name="manage-your-azure-app"></a>管理您的 Azure 應用程式
 

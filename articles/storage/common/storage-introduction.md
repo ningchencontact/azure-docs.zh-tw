@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a82ea1e7f584cd9cab794d147c3f19f04e23732b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 953615a9c6b716db1db0c7bfb993f3d47aefd7a9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474797"
+ms.locfileid: "55507768"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 儲存體簡介
 
@@ -130,13 +130,13 @@ SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Re
 
 如需用戶端加密的詳細資訊，請參閱 [Microsoft Azure 儲存體的用戶端 .NET 加密](storage-client-side-encryption.md)。
 
-## <a name="replication"></a>複寫
+## <a name="redundancy"></a>備援性
 
-為了確保資料的持久性，Azure 儲存體會為您複寫多個資料複本。 當您設定儲存體帳戶時，您可選取複寫類型。 在大部分情況下，建立儲存體帳戶後即可修改此設定。 
+為了確保資料的持久性，Azure 儲存體會為您複寫多個資料複本。 當您設定儲存體帳戶時，您可選取備援選項。 
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-如需災害復原資訊，請參閱[如果 Azure 儲存體發生中斷怎麼辦](storage-disaster-recovery-guidance.md)。
+如需災害復原的詳細資訊，請參閱 [Azure 儲存體的災害復原和儲存體帳戶容錯移轉 (預覽)](storage-disaster-recovery-guidance.md)。
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>從 Azure 儲存體來回傳輸資料
 

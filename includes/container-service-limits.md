@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/11/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 4251f379c517d5ccfd0430987e3d5280208590ff
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 23c25953d2f493d2dd799bfd11dbbb69db002d1b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400158"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736173"
 ---
 | 資源 | 預設限制 |
 | --- | :--- |
@@ -25,8 +25,8 @@ ms.locfileid: "49400158"
 <sup>1</sup> 當您使用 Azure CLI 或 Resource Manager 範本部署 AKS 叢集時，此值最高可設定為**每個節點 110 個 Pod**。 在您已部署 AKS 叢集之後，或如果您使用 Azure 入口網站部署叢集，就無法設定每個節點的 Pod 上限。<br />
 
 <!-- LINKS - Internal -->
-[basic-networking]: ../articles/aks/concepts-network.md#basic-networking
-[advanced-networking]: ../articles/aks/concepts-network.md#advanced-networking
+[basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking
+[advanced-networking]: ../articles/aks/concepts-network.md#azure-cni-advanced-networking
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

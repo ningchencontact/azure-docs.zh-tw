@@ -8,34 +8,31 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
-ms.openlocfilehash: b68fa345d4772134c30ce8b8b559f98113a0496f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 00b7ffcba876b6abea59cff170331c7413a61d39
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453087"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55823128"
 ---
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 選取左功能表上的 [所有服務]，然後選取 [行動] 區段中的 [通知中樞]。 選取服務名稱旁邊的星號 (`*`)，將它加到左功能表上的 [我的最愛] 區段。 在 [通知中樞] 加到 [我的最愛] 之後，在左功能表上予以選取。 
 
-2. 選取 [建立資源] > [行動] > [通知中樞]。
+      ![Azure 入口網站 - 選取通知中樞](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
+3. 在 [通知中樞] 頁面上，選取工具列上的 [新增]。 
 
-      ![Azure 入口網站 - 建立通知中樞](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
+      ![通知中樞 - 新增工具列按鈕](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
+4. 在 [通知中樞] 頁面上，執行下列步驟： 
+    1. 指定通知**中樞**的**名稱**。  
+    2. 指定**命名空間**的**名稱**。
+    3. 選取您要在其中建立通知中樞的**位置**。 
+    4. 選取現有的資源群組，或針對新的**資源群組**輸入名稱。
+    5. 選取 [建立] 。 
 
-3. 在 [通知中樞] 方塊中，輸入唯一的名稱。 選取您的 [區域]、[訂用帳戶] 和 [資源群組] \(如果您已經有的話)。
+        ![Azure 入口網站 - 設定通知中樞屬性](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
+4. 選取 [通知] (鈴鐺圖示)，然後選取 [移至資源]，或重新整理 [通知中樞] 頁面中的清單，然後選取您的通知中樞。 
 
-      如果您還沒有服務匯流排命名空間，您可以使用預設名稱，根據中樞名稱建立此預設名稱 (如果命名空間名稱可用)。
-
-      如果您已經有想要在其中建立中樞的服務匯流排命名空間，請遵循下列步驟
-
-    a. 在 [命名空間] 區域中，選取 [選取現有] 連結。
-
-    b. 選取 [建立] 。
-
-    ![Azure 入口網站 - 設定通知中樞屬性](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
-
-4. 選取 [通知] \(鈴鐺圖示)，然後選取 [前往資源]。
-
-      ![Azure 入口網站 - 通知 -> 前往資源](./media/notification-hubs-portal-create-new-hub/notification-go-to-resource.png)
+      ![Azure 入口網站 - 通知 -> 前往資源](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
 5. 從清單中選取 [存取原則]。 請記下您可使用的兩個連接字串。 您稍後需要用到這些連接字串來處理推播通知。
 
       >[!IMPORTANT]

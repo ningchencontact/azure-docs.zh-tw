@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: 102191b885d2a4a9234b7783b0a51b09903d3abd
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0e5db2c08749a59a03e384c6048e67f7570f6750
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807451"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211423"
 ---
 # <a name="r-developers-guide-to-azure"></a>Azure 的 R 開發人員指南
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -85,21 +85,21 @@ DSVM 特別適用於小型的 R 開發人員團隊。  您不必為每位開發�
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) 是共同作業式的拖放工具，可供您在雲端中建置、測試及部署預測性分析解決方案。  它可讓新興的資料科學家建立和部署機器學習模型，而不需要撰寫龐大的程式碼。
 
-ML Studio 同時支援 R 和 Python。  您可以透過兩種方式搭配使用 R 與 ML Studio。
+Azure Machine Learning studio 同時支援 R 與 Python。  將 R 搭配 Azure Machine Learning Studio 使用的方法有兩種。
 
 ### <a name="custom-r-scripts-in-your-experiments"></a>在實驗中自訂 R 指令碼
 首先，您可以藉由撰寫自訂 R 指令碼，擴充 ML Studio 的資料操作和機器學習功能。
 雖然 ML Studio 包含各種不同的資料準備和分析模組，但它所擁有的功能比不上已經成熟的語言 (例如 R)。因此，這項服務的設計，是要讓您能夠在所提供的模組不符合需求的情況下，引進您自己的自訂 R 指令碼。
 
-若要利用這項功能，請將「執行 R 指令碼」模組拖放到實驗中。  然後在 [屬性] 窗格中使用程式碼編輯器，來撰寫新的 R 指令碼或貼上現有指令碼。  在指令碼中，您可以參考外部 R 套件。  您可以使用指令碼來操作資料，也可以將不屬於標準 ML Studio 模型庫的複雜 ML 模型定型。
+若要利用這項功能，請將「執行 R 指令碼」模組拖放到實驗中。  然後在 [屬性] 窗格中使用程式碼編輯器，來撰寫新的 R 指令碼或貼上現有指令碼。  在指令碼中，您可以參考外部 R 套件。  您可以使用指令碼來操作資料，也可以將不屬於標準 Azure Machine Learning Studio 模型庫的複雜 ML 模型定型。
 
-如需在 ML Studio 實驗中使用 R 的完整介紹，請參閱 [Azure Machine Learning 的 R 程式設計語言快速入門教學課程。](https://docs.microsoft.com/azure/machine-learning/studio/r-quickstart)
+如需在 ML Studio 實驗中使用 R 的完整介紹，請參閱 [Azure Machine Learning Studio 的 R 程式設計語言快速入門教學課程](https://docs.microsoft.com/azure/machine-learning/studio/r-quickstart)。
 
 ### <a name="create-manage-and-deploy-experiments-from-your-local-r-environment"></a>從本機 R 環境建立、管理及部署實驗
-另一種搭配使用 R 與 ML Studio 的方式，是使用
-<code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> 套件來監視和控制在 R 程式設計環境上所進行的測試程序。  此套件會由 Microsoft 維護，其可讓您在 Azure ML 中上傳和下載資料集，以便詢問實驗、將 R 函式發佈為 Azure ML Web 服務，以及透過現有 Web 服務執行 R 資料並擷取輸出。
+另一種搭配使用 R 與 Azure Machine Learning Studio 的方式，是使用
+<code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> 套件來監視和控制在 R 程式設計環境上所進行的測試程序。  此套件會由 Microsoft 維護，可讓您在 Azure Machine Learning Studio 中上傳和下載資料集，以便詢問實驗、將 R 函式發佈為 Web 服務，以及透過現有 Web 服務執行 R 資料並擷取輸出。
 
-此套件可讓您更容易地將 Azure ML 作為 R 程式碼的可調整部署平台。  您不必在 UI 中按一下並拖曳，而是可以使用您已熟悉的工具自動進行整個部署程序。
+此套件可讓您更容易地將 Azure Machine Learning Studio 作為 R 程式碼的可調整部署平台。  您不必在 UI 中按一下並拖曳，而是可以使用您已熟悉的工具自動進行整個部署程序。
 
 ## <a name="azure-batch"></a>Azure Batch
 對於大規模的 R 作業，您可以使用 [Azure Batch](https://azure.microsoft.com/services/batch/)。  此服務可提供雲端級別的作業排程和計算管理，讓您可以跨數十個、數百個或數千個虛擬機器調整 R 工作負載。  因為它是一般化的運算平台，所以有幾個選項可供您在 Azure Batch 上執行 R 作業。
@@ -114,7 +114,7 @@ ML Studio 同時支援 R 和 Python。  您可以透過兩種方式搭配使用 
 
 對於偏好使用 Notebook 來將程式碼帶入 Azure 的 R 開發人員來說，[Azure Notebook](https://notebooks.azure.com) 是低成本、低摩擦的方法。  它是一項免費服務，可供任何人在瀏覽器中使用 [Jupyter](https://jupyter.org/) 來開發和執行程式碼，Jupyter 是開放原始碼專案，可將 Markdown Prose、可執行程式碼和圖形合併至單一畫布。
 
-Azure Notebooks 的免費服務層是適用於小規模專案的可行選項，因為它將每個 Notebook 的程序限制為 4 GB 記憶體和 1GB 資料集。 不過，如果您需要超過這些限制的計算和資料功能，您可以在資料科學虛擬機器執行個體中執行 Notebook。 如需詳細資訊，請參閱[管理和設定 Azure Notebooks 專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)。
+Azure Notebooks 的免費服務層是適用於小規模專案的可行選項，因為它將每個 Notebook 的程序限制為 4 GB 記憶體和 1GB 資料集。 不過，如果您需要超過這些限制的計算和資料功能，您可以在資料科學虛擬機器執行個體中執行 Notebook。 如需詳細資訊，請參閱[管理和設定 Azure Notebooks 專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
 
 ## <a name="azure-sql-database"></a>連接字串
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 是 Microsoft 的智慧型、完全受控關聯式雲端資料庫服務。  它可讓您使用 SQL Server 的完整功能，而不需要麻煩地設定基礎結構。  這包括[機器學習服務](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017)，這是 SQL 服務最近新增的項目。

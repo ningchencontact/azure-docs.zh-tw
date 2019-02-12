@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: d5633648ee94c4db20f095619871ac5cd9cec7da
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: def9d44c31ed50a859bf42aa148fb7e6a36764fd
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825166"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751084"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>教學課程：Azure Active Directory 與 Amazon Web Services (AWS) 整合
 
@@ -442,6 +442,12 @@ c. 您可以對應用程式指派個別的應用程式擁有者，讓該擁有�
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Amazon Web Services (AWS)] 圖格時，應該會自動登入您已設定 SSO 的 Amazon Web Services (AWS)。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+
+## <a name="known-issues"></a>已知問題
+
+ * 在 [佈建] 區段中，[對應] 子區段會顯示「正在載入...」訊息且永遠不會顯示屬性對應。 目前支援的唯一佈建工作流程是在使用者/群組指派期間，將角色從 AWS 匯入 Azure AD 以供選取。 此屬性對應是預先決定的，無法加以設定。
+ 
+ * [佈建] 區段只支援一次輸入一個 AWS 租用戶的一組認證。 所有匯入的角色都會針對 AWS 租用戶寫入 Azure AD [servicePrincipal 物件](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal)的 appRoles 屬性。 您可以將多個 AWS 租用戶 (以 servicePrincipal 表示) 從資源庫新增到 Azure AD 以供佈建，不過有一個已知的問題：無法將所有匯入的角色從用於佈建的多個 AWS servicePrincipal 自動寫入到用於單一登入的單一 servicePrincipal。 因應措施如下：[Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) 可用來擷取所有匯入每個 AWS servicePrincipal (已設定佈建) 的 appRoles。 這些角色字串隨後可以新增至已設定單一登入的 AWS servicePrincipal。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -4,18 +4,18 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8de46fee4f93fffa669dc96ec5bb84e36842a055
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ac708eb2ac79a74b8f4e09a7306a42665b3aca94
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165265"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736108"
 ---
 #### <a name="to-delete-a-cloud-appliance"></a>將雲端設備刪除
 
 1. 登入 Azure 入口網站。
 2. 您只能刪除不包含資料的已停用裝置。 請先刪除裝置上的資料，或者也可以將磁碟區容器中的資料[容錯移轉](../articles/storsimple/storsimple-8000-device-failover-cloud-appliance.md)到另一個裝置。 資料一旦刪除後，您就可以停用裝置。
-3. 在 StorSimple 裝置管理員服務頁面中，按一下 [裝置] 並選取裝置。 按一下滑鼠右鍵，然後選取 [停用]。
+3. 在 StorSimple 裝置管理員服務頁面中，按一下 [裝置]，然後選取裝置。 按一下滑鼠右鍵，然後選取 [停用]。
 4. 在停用裝置後，以滑鼠右鍵按一下裝置並選取 [刪除]。
 
     ![選取已停用的裝置，然後按一下 [刪除]](./media/storsimple-8000-delete-cloud-appliance/delete-cloud-appliance1.png)

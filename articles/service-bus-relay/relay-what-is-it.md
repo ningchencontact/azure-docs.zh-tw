@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 132fca9c8904c4f64fffe167e3a3f2c6bb0d2cfe
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2937d1f665dae03795892f9ff0e8a93a894e1992
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621016"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818034"
 ---
 # <a name="what-is-azure-relay"></a>什麼是 Azure 轉送？
 Azure 轉送服務可讓您在公用雲端中安全地公開公司網路中所執行的服務。 您不需要開啟防火牆上的連線，也不需要對公司網路基礎結構進行侵入式變更，就能做到這一點。 
@@ -44,7 +44,7 @@ Azure 轉送不同於網路層級的整合技術，例如 VPN。 Azure 轉送可
 Azure 轉送有兩項功能︰
 
 - [混合式連線](#hybrid-connections) - 使用開放式標準 Web 通訊端來啟用多平台案例。
-- [WCF 轉送](#wcf-relays) - 使用 Windows Communication Foundation (WCF) 來啟用遠端程序呼叫。 WCF 轉送是舊版的轉送供應項目，許多客戶已將該服務用於其 WCF 程式設計模型。
+- WCF 轉送 - 使用 Windows Communication Foundation (WCF) 來啟用遠端程序呼叫。 WCF 轉送是舊版的轉送供應項目，許多客戶已將該服務用於其 WCF 程式設計模型。
 
 ## <a name="hybrid-connections"></a>混合式連線
 

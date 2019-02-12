@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
 ms.author: rajraj
-ms.openlocfilehash: 5280936cdec25f7b5fc4b77c989b31c7a01f7bd6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2a1c78a4cec595b672604c90e103ae3b9e40273f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958630"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693678"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>使用大型的虛擬機器擴展集
 您現在可以建立容量多達 1,000 個 VM 的 Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)。 本文件將_大型虛擬機器擴展集_定義為能夠調整到 100 個 VM 以上的擴展集。 此容量是由擴展集屬性 (_singlePlacementGroup=False_) 所設定。 
@@ -61,7 +61,7 @@ _vmss create_ 命令會預設某些組態值 (如果您未指定它們)。 若�
 az vmss create --help
 ```
 
-如果您要藉由撰寫 Azure Resource Manager 範本來建立大型擴展集，請確定該範本會建立以 Azure 受控磁碟為基礎的擴展集。 您可以在 [Microsoft.Compute/virtualMAchineScaleSets] 資源的 [properties] 區段中，將 [singlePlacementGroup] 屬性設定為 [false]. 下列 JSON 片段顯示擴展集範本的開頭，該範本中包括了 1,000 個 VM 的容量和 _"singlePlacementGroup" : false_ 設定︰
+如果您要藉由撰寫 Azure Resource Manager 範本來建立大型擴展集，請確定該範本會建立以 Azure 受控磁碟為基礎的擴展集。 您可以在 Microsoft.Compute/virtualMachineScaleSets 資源的 [properties] 區段中，將 [singlePlacementGroup] 屬性設定為 [false]. 下列 JSON 片段顯示擴展集範本的開頭，該範本中包括了 1,000 個 VM 的容量和 _"singlePlacementGroup" : false_ 設定︰
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",

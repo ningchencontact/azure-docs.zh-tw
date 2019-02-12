@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 0281186be4fae71c56b65327e0c67da3f252a33c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 614f8a3e3738e1c99f5a089410814765d278d3fe
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239514"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743833"
 ---
 # <a name="validate-azure-registration"></a>驗證 Azure 註冊
  
@@ -67,6 +67,8 @@ ms.locfileid: "55239514"
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
    ```
+> [!NOTE]
+  > 身為 CSP 的您，在使用共用服務或 IUR 訂用帳戶時，必須從該各自 AAD 提供使用者認證。 通常，這會類似於 `subscriptionowner@iurcontoso.onmicrosoft.com`。 如上所述，該使用者必須具有適當的認證。
 
 3. 從 PowerShell 提示字元中，執行下列命令以將 `$subscriptionID` 設定為您將使用的 Azure 訂用帳戶。 以您自己的訂用帳戶 ID 取代 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`：
    ```powershell

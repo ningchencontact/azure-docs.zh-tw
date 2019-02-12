@@ -9,12 +9,12 @@ ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: ba48473b0370c2ee0acbb7b03834eb36922db556
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9d1d9caccac0fcdeb4e1d2dae40e677f36de40ea
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474977"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728040"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>快速入門：使用 Azure CLI 和事件方格將自訂事件路由至 Azure 佇列
 
@@ -24,9 +24,12 @@ Azure Event Grid 是一項雲端事件服務。 Azure 佇列儲存體是其中�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="install-preview-feature"></a>安裝預覽功能
+如果您在本機電腦上使用 Azure CLI 或 Azure PowerShell，而不是在 Azure 入口網站中使用 Cloud Shell，請確定您有下列版本的 Azure CLI 和 Azure PowerShell。 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+- Azure CLI 2.0.56 版或更新版本。 如需有關如何安裝最新版 Azure CLI 的指示，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 
+- Azure PowerShell 1.1.0 版或更新版本。 在 Windows 電腦上從 [Azure 下載 - 命令列工具](https://azure.microsoft.com/downloads/)下載最新版的 Azure PowerShell。 
+
+本文提供給您使用 Azure CLI 的命令。 
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -47,10 +50,6 @@ az group create --name gridResourceGroup --location westus2
 Event Grid 主題會提供使用者定義的端點，作為您發佈事件的目的地。 下列範例可在您的資源群組中建立自訂主題。 以自訂主題的唯一名稱取代 `<topic_name>`。 事件方格的主題名稱必須是唯一的，因為它由 DNS 項目表示。
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 

@@ -1,20 +1,20 @@
 ---
 title: 何謂 Azure 搜尋服務 - Azure 搜尋服務
-description: Azure 搜尋服務是完全受控的託管雲端搜尋服務。 檢閱功能描述、開發工作流程、比較 Azure 搜尋服務與其他搜尋產品優缺點，以及如何開始使用。
+description: Azure 搜尋服務是來自 Microsoft 的完全受控託管雲端搜尋服務。 檢閱功能描述、開發工作流程、比較 Azure 搜尋服務與其他 Microsoft 搜尋產品優缺點，以及如何開始使用。
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 11/09/2018
+ms.date: 02/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 884a726dbc7d7f2812f4de2228ca5adaf9b223ea
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 36d65e1ffab79c8f0866d60f4a133798d25e9dea
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630396"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562788"
 ---
 # <a name="what-is-azure-search"></a>何謂 Azure 搜尋服務？
 Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，透過 Web、行動和企業應用程式中的私用和異質內容來增添豐富的搜尋體驗。 查詢是透過使用者定義的索引而執行的。

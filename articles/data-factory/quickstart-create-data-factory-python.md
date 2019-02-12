@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7d456ed76ea425f8870b2045283df5cc307d05fd
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 49a2e16d198130d1c72d36377be1d914cbe3351b
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302471"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745243"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>使用 Python 建立資料處理站和管線
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Azure 儲存體帳戶**。 您需要使用 Blob 儲存體作為**來源**和**接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)一文，按照步驟來建立帳戶。
 * 請遵循[此指示](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**在 Azure Active Directory 中建立應用程式**。 記下這些值，您在稍後的步驟中會用到：**應用程式識別碼**、**驗證金鑰**和**租用戶識別碼**。 遵循相同文件中的指示，將應用程式指派給「**參與者**」角色。
@@ -59,7 +59,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
     pip install azure-mgmt-datafactory
     ```
 
-    [Data Factory 適用的 Python SDK](https://github.com/Azure/azure-sdk-for-python) 支援 Python 2.7、3.3、3.4、3.5 和 3.6。
+    [Data Factory 適用的 Python SDK](https://github.com/Azure/azure-sdk-for-python) 支援 Python 2.7、3.3、3.4、3.5、3.6 和 3.7。
 
 ## <a name="create-a-data-factory-client"></a>建立資料處理站用戶端
 

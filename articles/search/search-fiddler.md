@@ -1,5 +1,5 @@
 ---
-title: 在 Fiddler 或 Postman Web HTTP 測試工具中探索 REST API - Azure 搜尋服務
+title: 在 Postman 或 Fiddler Web HTTP 測試工具中探索 REST API - Azure 搜尋服務
 description: 如何使用 Fiddler 或 Postman 以對 Azure 搜尋服務發出 HTTP 要求和 REST API 呼叫。
 author: HeidiSteen
 manager: cgronlun
@@ -10,16 +10,16 @@ ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5946ff5e75e7c3fedf42c23200f61e821c0d9d61
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 06e2667b59b27039ad3c62379f654dd693999f99
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631391"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756070"
 ---
-# <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>使用 Fiddler 或 Postman 探索 Azure 搜尋服務 REST API
+# <a name="explore-azure-search-rest-apis-using-postman-or-fiddler"></a>使用 Postman 或 Fiddler 探索 Azure 搜尋服務 REST API
 
-其中一個探索 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice) 的最簡單方式，是使用 Fiddler 或 Postman 來制訂 HTTP 要求並且檢查回應。 透過適當的工具與下列指示，您可以在撰寫任何程式碼前，先傳送要求並檢視回應。
+探索 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice) 的最簡單方式之一，就是使用 Postman 或 Fiddler 來制訂 HTTP 要求及檢查回應。 透過適當的工具與下列指示，您可以在撰寫任何程式碼前，先傳送要求並檢視回應。
 
 > [!div class="checklist"]
 > * 下載 Web API 測試工具

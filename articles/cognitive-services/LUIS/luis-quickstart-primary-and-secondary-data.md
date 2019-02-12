@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 167dce168f9adfa59a96c09c62548c7c6e253b09
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 53e975719b911a27667afc8565bd86261f927068
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211401"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820975"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>教學課程：使用簡單實體和片語清單來擷取名稱
 
@@ -239,7 +239,7 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 
     [![使用片語清單值方塊中的字組來建立新的片語清單對話方塊快顯的螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "使用片語清單值方塊中的字組來建立新的片語清單對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-1. 重新[訓練](#train)並[發行](#publish)應用程式以使用片語清單。
+1. 重新訓練並發行應用程式以使用片語清單。
 
 1. 在端點使用相同語句重新查詢：`This is the lead welder paperwork.`
 

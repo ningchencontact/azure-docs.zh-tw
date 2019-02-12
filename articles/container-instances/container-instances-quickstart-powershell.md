@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 87cf0f09cbeeee90492e070b25b713546c6631e5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e8efcbe080cc33cb6153d97d4435bcb477587980
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438859"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565848"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>快速入門：使用 Azure PowerShell，在 Azure Container Instances 中執行容器應用程式
 
@@ -39,7 +39,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>建立容器
 
-有了資源群組之後，現在您可以在 Azure 中執行容器。 若要使用 Azure PowerShell 建立容器執行個體，請在 [New-AzureRmContainerGroup][New-AzureRmContainerGroup] Cmdlet 中提供資源群組名稱、容器執行個體名稱和 Docker 容器映像。 您可以指定一或多個要開啟的連接埠和 (或) DNS 名稱標籤，以將您的容器公開至網際網路。 在本快速入門中，您會部署附有 DMS 名稱標籤的一個容器，其中裝載在 Nano 伺服器中執行的網際網路資訊服務 (IIS)。
+有了資源群組之後，現在您可以在 Azure 中執行容器。 若要使用 Azure PowerShell 建立容器執行個體，請在 [New-AzureRmContainerGroup][New-AzureRmContainerGroup] Cmdlet 中提供資源群組名稱、容器執行個體名稱和 Docker 容器映像。 在此快速入門中，您可以使用公用 Docker Hub 登錄中的 `microsoft/iis:nanoserver` Windows 映像。 此映像會封裝 Internet Information Services (IIS) 以在 Nano Server 中執行。
+
+您可以指定一或多個要開啟的連接埠和 (或) DNS 名稱標籤，以將您的容器公開至網際網路。 在本快速入門中，您會部署附有 DNS 名稱標籤的一個容器，以便公開觸達 IIS。
 
 執行下列命令以啟動容器執行個體。 `-DnsNameLabel` 值在您建立執行個體所在的 Azure 區域中必須是唯一的。 如果出現「DNS 名稱標籤無法使用」錯誤訊息，請嘗試使用不同的 DNS 名稱標籤。
 

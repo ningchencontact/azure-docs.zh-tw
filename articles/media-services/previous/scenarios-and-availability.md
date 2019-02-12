@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6bfc12c17b38543f0c6979b5f5eeada562483bfa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352800"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819343"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>跨資料中心的媒體服務功能情節和可用性
 
@@ -26,7 +26,7 @@ Microsoft Azure 媒體服務 (AMS) 可讓您安全地上傳、儲存、編碼和
 
 AMS 在世界各地多個資料中心運作。 這些資料中心會依據地理區域分組，提供您彈性來選擇要建置應用程式的位置。 您可以檢閱 [地區及其位置的清單](https://azure.microsoft.com/regions/)。 
 
-本主題說明[即時](#live_scenarios)傳遞內容或[隨選](#vod_scenarios)傳遞內容的常見情節。 本主題也會詳述跨資料中心的媒體功能和服務可用性。
+本主題說明[即時](#live_scenarios)傳遞內容或隨選傳遞內容的常見情節。 本主題也會詳述跨資料中心的媒體功能和服務可用性。
 
 ## <a name="overview"></a>概觀
 
@@ -34,7 +34,7 @@ AMS 在世界各地多個資料中心運作。 這些資料中心會依據地理
 
 若要開始使用 Azure 媒體服務，您應該具備下列項目：
 
-* 一個 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com)。
+* 一個 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com)。
 * Azure 媒體服務帳戶。 如需詳細資訊，請參閱[建立帳戶](media-services-portal-create-account.md)。
 * 您想要串流內容的串流端點必須處於 [執行中] 狀態。
 
@@ -148,7 +148,7 @@ AMS 客戶可以使用其 AMS 帳戶來調整串流端點、媒體處理和儲�
 
     **進階**串流端點適合進階工作負載，提供專用並能靈活調整的頻寬容量。 擁有**進階**串流端點的客戶預設會取得一個串流單位 (SU)。 藉由新增 SU 可以調整串流端點。 每個 SU 都可為應用程式提供額外的頻寬容量。 如需調整**進階**串流端點的詳細資訊，請參閱[調整串流端點](media-services-portal-scale-streaming-endpoints.md)主題。
 
-* 媒體服務帳戶是與保留單元類型相關聯，後者決定媒體處理工作的速度。 您可以選擇下列的保留單元類型：**S1**、**S2** 或 **S3**。 例如，在執行相同編碼作業的前提下，使用 **S2** 保留單元類型的速度會比 **S1** 類型快。
+* 媒體服務帳戶是與保留單元類型相關聯，後者決定媒體處理工作的處理速度。 您可以選擇下列的保留單元類型：**S1**、**S2** 或 **S3**。 例如，在執行相同編碼作業的前提下，使用 **S2** 保留單元類型的速度會比 **S1** 類型快。
 
     除了指定保留單元類型之外，您還可以指定使用**保留單元** (RU) 來佈建帳戶。 佈建的 RU 數目可決定指定帳戶中可同時處理的媒體工作數目。
 
@@ -174,7 +174,7 @@ AMS 客戶可以使用其 AMS 帳戶來調整串流端點、媒體處理和儲�
 
 #### <a name="availability"></a>可用性
 
-|名稱|狀態|資料中心
+|Name|狀態|資料中心
 |---|---|---|
 |標準|GA|全部|
 |進階|GA|全部|
@@ -183,7 +183,7 @@ AMS 客戶可以使用其 AMS 帳戶來調整串流端點、媒體處理和儲�
 
 #### <a name="availability"></a>可用性
 
-所有資料中心內都提供，但不含：德國、巴西南部、印度西部、印度南部和印度中部。 
+所有資料中心內都提供，下列除外：德國、巴西南部、印度西部、印度南部和印度中部。 
 
 ### <a name="encoding-media-processors"></a>編碼媒體處理器
 

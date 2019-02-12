@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c84d876828ac96bfb44b84e99b13489d51ae3370
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474865"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694018"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>教學課程：從登入畫面重設 Azure AD 密碼
 
@@ -33,6 +33,7 @@ ms.locfileid: "55474865"
    * [已加入混合式 Azure AD](../device-management-hybrid-azuread-joined-devices-setup.md) (可透過網路連線至網域控制站)。
 * 您必須啟用 Azure AD 自助式密碼重設。
 * 如果您的 Windows 10 裝置位在 Proxy 伺服器或防火牆後面，您必須將 URL (`passwordreset.microsoftonline.com` 和 `ajax.aspnetcdn.com`) 新增至您 HTTPS 流量 (連接埠 443) 允許的 URL 清單。
+* 在您的環境中試用這項功能之前，請先檢閱以下限制。
 
 ## <a name="configure-reset-password-link-using-intune"></a>使用 Intune 來設定重設密碼連結
 
@@ -106,6 +107,8 @@ Azure AD 稽核記錄會包含 IP 位址相關資訊以及發生密碼重設的 
 
 ![Azure AD 稽核記錄中的範例登入畫面密碼重設](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
 
+當使用者從 Windows 10 裝置的登入畫面重設其密碼時，會建立稱為 “defaultuser1” 的低權限暫時帳戶。 此帳戶用來保護密碼重設程序。 此帳戶本身有隨機產生的密碼，該密碼不會針對裝置登入顯示，而在使用者重設其密碼後會自動移除。 可能存在多個 “defaultuser” 設定檔，但您可以放心忽略。
+
 ## <a name="limitations"></a>限制
 
 使用 Hyper-V 測試這項功能時，不會出現 [重設密碼] 連結。
@@ -116,7 +119,9 @@ Azure AD 稽核記錄會包含 IP 位址相關資訊以及發生密碼重設的 
 
 * 目前不支援從遠端桌面進行密碼重設。
 
-如果原則需要 Ctrl+Alt+Del，或鎖定螢幕通知已關閉，[重設密碼]將無法運作。
+如果 1809 前的 Windows 10 版本中的原則需要 Ctrl+Alt+Del，[重設密碼] 將無法運作。
+
+如果鎖定螢幕通知已關閉，[重設密碼] 將無法運作。
 
 已知下列原則設定會影響重設密碼的能力
 
@@ -128,7 +133,7 @@ Azure AD 稽核記錄會包含 IP 位址相關資訊以及發生密碼重設的 
 
 此功能不適用於已部署 802.1x 網路驗證及使用 [在使用者登入後立即執行] 選項的網路。 針對已部署 802.1x 網路驗證的網路，建議您使用機器驗證來啟用此功能。
 
-針對「已加入混合式網域」的案例，有一種案例是 SSPR 工作流程無需 Active Directory 網域控制站即可完成。 第一次使用新密碼時，必須要能夠與網域控制站連線。
+在「已加入混合式網域」的案例中，SSPR 工作流程不需 Active Directory 網域控制站即可順利完成。 如果使用者在無法與 Active Directory 網域控制站通訊時 (像是在遠端工作時) 完成密碼重設程序，則直到裝置可與網域控制站通訊並更新快取的認證，使用者才能登入裝置。 **第一次使用新密碼時，必須要能夠與網域控制站連線**。
 
 ## <a name="clean-up-resources"></a>清除資源
 

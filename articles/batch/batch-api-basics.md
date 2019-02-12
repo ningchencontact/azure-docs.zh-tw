@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: b4d0ee26cb9f7283cac871c70737cd701fb74c91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754062"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818578"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -62,7 +62,7 @@ ms.locfileid: "53754062"
   * [啟動工作](#start-task)
   * [作業管理員工作](#job-manager-task)
   * [作業準備和作業釋放工作](#job-preparation-and-release-tasks)
-  * [多重執行個體工作 (MPI)](#multi-instance-tasks)
+  * 多重執行個體工作 (MPI)
   * [作業相依性](#task-dependencies)
 * [應用程式封裝](#application-packages)
 
@@ -153,7 +153,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 
 #### <a name="container-support-in-virtual-machine-pools"></a>虛擬機器集區中的容器支援
 
-使用 Batch API 建立虛擬機器設定集區時，您可以設定集區執行設定集區執行 Docker 容器中的工作。 目前，您必須使用支援 Docker 容器的映像來建立集區。 使用 Windows Server 2016 Datacenter 與 Azure Marketplace 中的容器映像，或者提供自訂 VM 映像，其中包含 Docker Community Edition 或 Enterprise Edition 和任何所需的驅動程式。 集區設定必須包含[容器設定](/rest/api/batchservice/pool/add#definitions_containerconfiguration)，該設定會在集區建立時將容器映像複製到 VM。 然後，在集區上執行的工作就可以參考容器映像和容器執行選項。
+使用 Batch API 建立虛擬機器設定集區時，您可以設定集區執行設定集區執行 Docker 容器中的工作。 目前，您必須使用支援 Docker 容器的映像來建立集區。 使用 Windows Server 2016 Datacenter 與 Azure Marketplace 中的容器映像，或者提供自訂 VM 映像，其中包含 Docker Community Edition 或 Enterprise Edition 和任何所需的驅動程式。 集區設定必須包含[容器設定](/rest/api/batchservice/pool/add)，該設定會在集區建立時將容器映像複製到 VM。 然後，在集區上執行的工作就可以參考容器映像和容器執行選項。
 
 如需詳細資訊，請參閱[在 Azure Batch 上執行 Docker 容器應用程式](batch-docker-container-workloads.md)。
 
@@ -215,7 +215,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 
 ### <a name="network-configuration"></a>網路組態
 
-您可以指定 Azure [虛擬網路 (VNet)](../virtual-network/virtual-networks-overview.md) 的子網路，可在其中建立集區的計算節點。 如需詳細資訊，請參閱[集區網路組態](#pool-network-configuration)區段。
+您可以指定 Azure [虛擬網路 (VNet)](../virtual-network/virtual-networks-overview.md) 的子網路，可在其中建立集區的計算節點。 如需詳細資訊，請參閱「集區網路組態」一節。
 
 
 ## <a name="job"></a>工作 (Job)
@@ -271,7 +271,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 * [啟動工作](#start-task)
 * [作業管理員工作](#job-manager-task)
 * [作業準備和作業釋放工作](#job-preparation-and-release-tasks)
-* [多重執行個體工作 (MPI)](#multi-instance-tasks)
+* 多重執行個體工作 (MPI)
 * [作業相依性](#task-dependencies)
 
 ### <a name="start-task"></a>啟動工作

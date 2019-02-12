@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 070a6ee4bc712b2dbec598cdb9be5c324895c033
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f65463b534988e0a721a1a5f816183f8dd8ebcaf
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154976"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657649"
 ---
-# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>教學課程：自訂 Azure IoT 中心操作員的檢視
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>教學課程：自訂 Azure IoT Central 操作員的檢視
 
 本教學課程將為建置者說明如何自訂應用程式的操作員檢視。 當您以建置者的身分對應用程式進行變更時，您可以在 Microsoft Azure IoT Central 應用程式中預覽操作員的檢視。
 
@@ -30,6 +30,8 @@ ms.locfileid: "50154976"
 > * 以操作員的身分預覽裝置
 > * 設定預設首頁
 > * 以操作員的身分預覽預設首頁
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -64,7 +66,7 @@ ms.locfileid: "50154976"
 
     | 設定     | 值 |
     | ----------- | ----- |
-    | 名稱        | 最高溫度 |
+    | Name        | 最高溫度 |
     | 測量 | 溫度 |
     | 彙總 | 最大值 |
     | 時間範圍  | 過去 1 星期 |

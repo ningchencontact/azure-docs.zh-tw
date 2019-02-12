@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d51052f4e04a1497ccf2e91427e3465bdc5bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5117d426ac9595dfe25828013c1bd8c7fa81f92c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476820"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812356"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 資源
 
@@ -63,7 +63,7 @@ Azure CLI 是管理 Azure 資源的 Azure 命令列體驗。 它可以用於 mac
 如 [登入 Azure CLI](/cli/azure/authenticate-azure-cli) 中的詳細描述，有幾種不同方式可登入 Azure：
 
 1. [以互動方式登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)。 當您自行從命令列執行 Azure CLI 命令時以互動方式登入。
-2. [使用服務主體來登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal)。 當您從指令碼或應用程式執行 Azure CLI 命令時，使用服務主體來登入。
+2. [使用服務主體來登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)。 當您從指令碼或應用程式執行 Azure CLI 命令時，使用服務主體來登入。
 
 基於本文的目的，我們會示範如何以互動方式登入 Azure。 在命令列上輸入 [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login)：
 
@@ -76,7 +76,7 @@ az login
 
 ![登入 Azure](./media/batch-cli-get-started/az-login.png)
 
-[範例 Shell 指令碼](#sample-shell-scripts)一節中所列的範例也會顯示如何藉由以互動方式登入 Azure 來啟動 Azure CLI 工作階段。 登入之後，您可以呼叫命令來使用 Batch Management 資源，包括批次帳戶、金鑰、應用程式套件和配額。  
+「範例 Shell 指令碼」一節中所列的範例也會顯示如何藉由以互動方式登入 Azure 來啟動 Azure CLI 工作階段。 登入之後，您可以呼叫命令來使用 Batch Management 資源，包括批次帳戶、金鑰、應用程式套件和配額。  
 
 ### <a name="log-in-to-your-batch-account"></a>登入您的 Batch 帳戶
 
@@ -110,7 +110,7 @@ az login
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-[範例 shell 指令碼](#sample-shell-scripts)一節中所列的範例顯示如何使用 Azure AD 和共用金鑰透過 Azure CLI 登入您的 Batch 帳戶。
+「範例 shell 指令碼」一節中所列的範例顯示如何使用 Azure AD 和共用金鑰透過 Azure CLI 登入您的 Batch 帳戶。
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>使用 Azure Batch CLI 擴充功能命令
 
@@ -168,7 +168,7 @@ az batch task list --job-id job001
 
 * 使用 `-h` 取得任何 CLI 命令的 **說明文字**
 * 使用 `-v` 和 `-vv` 來顯示 **verbose** 命令輸出。 包含 `-vv` 旗標後，Azure CLI 會顯示實際的 REST 要求和回應。 這些參數方便用於顯示完整的錯誤輸出。
-* 您可以使用 `--json` 選項檢視 **JSON 格式的命令輸出**。 例如， `az batch pool show pool001 --json` 會以 JSON 格式顯示 pool001 的屬性。 您可以接著複製並修改此輸出，以便用於 `--json-file` (請參閱本文前面的 [JSON 檔案](#json-files) )。
+* 您可以使用 `--json` 選項檢視 **JSON 格式的命令輸出**。 例如， `az batch pool show pool001 --json` 會以 JSON 格式顯示 pool001 的屬性。 您可以接著複製並修改此輸出，以便用於 `--json-file` (請參閱本文前面的 JSON 檔案)。
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
 ## <a name="next-steps"></a>後續步驟

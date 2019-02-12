@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 93a41610035d91774256410cea6af1d06b085d30
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189603"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562057"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>快速入門：使用 Azure CLI，在 Azure Container Instances 中執行容器應用程式
 
@@ -39,7 +39,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>建立容器
 
-有了資源群組之後，現在您可以在 Azure 中執行容器。 若要使用 Azure CLI 建立容器執行個體，請在 [az container create][az-container-create] 命令中提供資源群組名稱、容器執行個體名稱和 Docker 容器映像。 您可以指定一或多個要開啟的連接埠和 (或) DNS 名稱標籤，以將您的容器公開至網際網路。 在本快速入門中，您會部署附有 DMS 名稱標籤的一個容器，其中裝載以 Node.js 撰寫的小型 Web 應用程式。
+有了資源群組之後，現在您可以在 Azure 中執行容器。 若要使用 Azure CLI 建立容器執行個體，請在 [az container create][az-container-create] 命令中提供資源群組名稱、容器執行個體名稱和 Docker 容器映像。 在此快速入門中，您可以使用公用 Docker Hub 登錄中的 `microsoft/aci-helloworld` 映像。 此映像會封裝以 Node.js 撰寫並提供靜態 HTML 網頁的小型 Web 應用程式。
+
+您可以指定一或多個要開啟的連接埠和 (或) DNS 名稱標籤，以將您的容器公開至網際網路。 在本快速入門中，您會部署附有 DNS 名稱標籤的一個容器，以便公開觸達 Web 應用程式。
 
 執行下列命令以啟動容器執行個體。 `--dns-name-label` 值在您建立執行個體所在的 Azure 區域中必須是唯一的。 如果出現「DNS 名稱標籤無法使用」錯誤訊息，請嘗試使用不同的 DNS 名稱標籤。
 
@@ -92,7 +94,7 @@ listening on port 80
 
 除了檢視記錄外，您還可以將您的本機標準輸出和標準錯誤資料流附加至容器的這些項目。
 
-首先，請執行 [az container attach][az-container-attach] 命令將本機主控台附加至容器的輸出資料流：
+首先，請執行 [az container attach][az-container-attach] 命令，將本機主控台附加至容器的輸出資料流：
 
 ```azurecli-interactive
 az container attach --resource-group myResourceGroup -n mycontainer
@@ -145,7 +147,7 @@ az group delete --name myResourceGroup
 > [!div class="nextstepaction"]
 > [Azure 容器執行個體教學課程](./container-instances-tutorial-prepare-app.md)
 
-若要試用在 Azure 上的協調流程系統中執行容器的選項，請參閱 [Service Fabric][service-fabric] 或 [Azure Kubernetes Service (ACS)][container-service] 快速入門。
+若要試用在 Azure 上的協調流程系統中執行容器的選項，請參閱 [Azure Kubernetes Service (AKS)][container-service] 快速入門。
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
@@ -166,4 +168,3 @@ az group delete --name myResourceGroup
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

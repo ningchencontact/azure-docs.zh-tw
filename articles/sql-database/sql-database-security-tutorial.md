@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461197"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752512"
 ---
 # <a name="tutorial-secure-a-standalone-or-pooled-database"></a>教學課程：保護獨立或集區資料庫
 
@@ -45,7 +45,7 @@ Azure SQL Database 可讓您以下列方式保護獨立或集區資料庫中的�
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Azure SQL 伺服器和資料庫
-  - 透過 [Azure 入口網站](sql-database-get-started-portal.md)、[CLI](sql-database-cli-samples.md) 或 [PowerShell](sql-database-powershell-samples.md) 加以建立
+  - 透過 [Azure 入口網站](sql-database-single-database-get-started.md)、[CLI](sql-database-cli-samples.md) 或 [PowerShell](sql-database-powershell-samples.md) 加以建立
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -64,7 +64,7 @@ Azure 中的 SQL 資料庫是由防火牆保護。 依預設，伺服器與資�
 
 ### <a name="set-up-sql-database-server-firewall-rules"></a>設定 SQL Database 伺服器防火牆規則
 
-伺服器層級的防火牆規則適用於相同 SQL Database 伺服器內的所有資料庫。
+伺服器層級的 IP 防火牆規則適用於相同 SQL Database 伺服器內的所有資料庫。
 
 若要設定伺服器層級的防火牆規則：
 
@@ -231,7 +231,7 @@ Azure Active Directory 驗證要求將資料庫使用者建立為自主資料庫
 
 ## <a name="enable-security-features"></a>啟用安全性功能
 
-Azure SQL Database 會提供可使用 Azure 入口網站存取的安全性功能。 除了僅適用於資料庫的資料遮罩以外，這些功能均可供資料庫和伺服器使用。 若要深入了解，請參閱[進階資料安全性](sql-advanced-threat-protection.md)、[稽核](sql-database-auditing.md)、[動態資料遮罩](sql-database-dynamic-data-masking-get-started.md)，以及[透明資料加密](transparent-data-encryption-azure-sql.md)。
+Azure SQL Database 會提供可使用 Azure 入口網站存取的安全性功能。 除了僅適用於資料庫的資料遮罩以外，這些功能均可供資料庫和伺服器使用。 若要深入了解，請參閱[進階資料安全性](sql-database-advanced-data-security.md)、[稽核](sql-database-auditing.md)、[動態資料遮罩](sql-database-dynamic-data-masking-get-started.md)，以及[透明資料加密](transparent-data-encryption-azure-sql.md)。
 
 ### <a name="advanced-data-security"></a>進階資料安全性
 

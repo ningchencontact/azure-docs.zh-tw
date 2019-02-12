@@ -10,18 +10,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 12/27/2018
-ms.openlocfilehash: a445f41732973dcd0053ada4aaef2458ec474830
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: a3f1720f6ce62f65c3efce420c6f297e09894b8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913507"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812560"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本在 Azure HDInsight 中開始使用 Apache Hadoop 和 Apache Hive
 
 在本文中，您會了解如何使用 Resource Manager 範本在 HDInsight 中建立 [Apache Hadoop](https://hadoop.apache.org/) \(英文\) 叢集，然後在 HDInsight 中執行 Hive 作業。 大部分 Hadoop 作業都是批次作業。 您會建立叢集、執行一些工作，然後刪除叢集。 在本文中，您會執行所有這三個工作。
 
-在本快速入門中，您會使用 Resource Manager 範本來建立 HDInsight Hadoop 叢集。 您也可以使用 [Azure 入口網站](apache-hadoop-linux-create-cluster-get-started-portal.md)建立叢集。  類似範本可在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=hdinsight)中看到。
+在本快速入門中，您會使用 Resource Manager 範本來建立 HDInsight Hadoop 叢集。 您也可以使用 [Azure 入口網站](apache-hadoop-linux-create-cluster-get-started-portal.md)建立叢集。  類似範本可在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)中看到。 您可以在[這裡](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions)找到範本參考。
 
 HDInsight 目前隨附 [7 個不同的叢集類型](./apache-hadoop-introduction.md#cluster-types-in-hdinsight)。 每種叢集類型都支援一組不同的元件。 所有叢集類型都支援 Hive。 如需 HDInsight 中支援的元件清單，請參閱 [HDInsight 在 Hadoop 叢集版本中提供的新功能](../hdinsight-component-versioning.md)  
 
@@ -256,6 +256,10 @@ HDInsight 目前隨附 [7 個不同的叢集類型](./apache-hadoop-introduction
 * 若要了解如何管理以 Linux 為基礎的 HDInsight 叢集，請參閱[使用 Apache Ambari 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari.md)。
 * 若要深入了解建立 HDInsight 叢集時可選取的選項，請參閱 [使用自訂選項在 Linux 上建立 HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)。
 
+若要了解如何使用 Azure Resource Manager 範本建立 HDInsight 叢集，請參閱：
+
+* [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)。
+* [Azure 範本參考](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions)。
 
 [1]: ../HDInsight/apache-hadoop-visual-studio-tools-get-started.md
 

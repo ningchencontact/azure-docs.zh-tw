@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2018
+ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 19b485add894dbe99a524d16f891d001991c1ec7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 2cfd984129097b598c08e53b3698dc32ed616cca
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558374"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810655"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>允許透過 Azure 事件中樞擷取事件串流
 
@@ -37,6 +37,9 @@ Azure [事件中樞擷取][capture-overview]可讓您將事件中樞內的串流
 預設時間範圍為 5 分鐘。 最小值是 1，最大值是 15。 **大小** 範圍為 10-500 MB。
 
 ![擷取的時間範圍][1]
+
+> [!NOTE]
+> 您可以啟用或停用在擷取期間未發生任何事件時發出空白檔案。 
 
 ## <a name="capture-data-to-an-azure-data-lake-store-account"></a>將資料擷取至 Azure Data Lake Store 帳戶
 

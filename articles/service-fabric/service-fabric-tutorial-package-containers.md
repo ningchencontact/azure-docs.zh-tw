@@ -13,15 +13,15 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 7d622b834cef31552cac60b359cdd8404592eda9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 135189c576c67212dac6afc1388a6ef9fb045346
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255552"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512351"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>教學課程：使用 Yeoman 封裝和部署容器作為 Service Fabric 應用程式
 
@@ -227,28 +227,53 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 
 ## <a name="create-a-service-fabric-cluster"></a>建立 Service Fabric 叢集
 
-若要將應用程式部署到 Azure 中的叢集，請建立您自己的叢集。
+若要將應用程式部署至 Azure，您需要用來執行該應用程式的 Service Fabric 叢集。 下列命令會在 Azure 中建立包含五個節點的叢集。  這些命令也會建立自我簽署憑證，然後將其新增至金鑰保存庫，並在本機將憑證下載為 PEM 檔案。 新的憑證用來在部署叢集時保護叢集，而且用來驗證用戶端。
 
-合作對象叢集是 Azure 上裝載的免費、限時 Service Fabric 叢集。 這類叢集是由任何人皆可部署應用程式並了解平台的 Service Fabric 小組所執行。 若要存取合作對象叢集，請[遵循指示](https://aka.ms/tryservicefabric)。
+```azurecli
+#!/bin/bash
 
-如需在安全的合作對象叢集上執行管理作業，您可以使用 Service Fabric Explorer、CLI 或 Powershell。 若要使用 Service Fabric Explorer，您必須從合作對象叢集網站下載 PFX 檔案，並將憑證匯入憑證存放區 (Windows 或 Mac) 或瀏覽器本身 (Ubuntu)。 合作對象叢集中的自我簽署憑證沒有任何密碼。
+# Variables
+ResourceGroupName="containertestcluster" 
+ClusterName="containertestcluster" 
+Location="eastus" 
+Password="q6D7nN%6ck@6" 
+Subject="containertestcluster.eastus.cloudapp.azure.com" 
+VaultName="containertestvault" 
+VmPassword="Mypa$$word!321"
+VmUserName="sfadminuser"
 
-若要使用 Powershell 或 CLI 執行管理作業，您需要 PFX (Powershell) 或 PEM (CLI)。 若要將 PFX 轉換成 PEM 檔案，請執行下列命令：
+# Login to Azure and set the subscription
+az login
 
-```bash
-openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+az account set --subscription <mySubscriptionID>
+
+# Create resource group
+az group create --name $ResourceGroupName --location $Location 
+
+# Create secure five node Linux cluster. Creates a key vault in a resource group
+# and creates a certficate in the key vault. The certificate's subject name must match 
+# the domain that you use to access the Service Fabric cluster.  
+# The certificate is downloaded locally as a PEM file.
+az sf cluster create --resource-group $ResourceGroupName --location $Location \ 
+--certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \ 
+--cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
+--vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
 
-如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的 Service Fabric 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
+> [!Note]
+> Web 前端服務設定為在連接埠 80 上接聽傳入流量。 根據預設，連接埠 80 在您的叢集 VM 和 Azure 負載平衡器上是開啟的。
+>
+
+如需建立您自己叢集的詳細資訊，請參閱[在 Azure 上建立您的 Service Fabric 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>建置應用程式並部署到叢集
 
 您可以使用 Service Fabric CLI，將應用程式部署到 Azure 叢集。 如果您的電腦上並未安裝 Service Fabric CLI，請依照[這裡](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli)的指示來安裝它。
 
-連線到 Azure 中的 Service Fabric 叢集。 以您自己的端點取代範例端點。 端點必須是類似以下的完整 URL。
+連線到 Azure 中的 Service Fabric 叢集。 以您自己的端點取代範例端點。 端點必須是類似以下的完整 URL。  PEM 檔案是先前建立的自我簽署憑證。
 
 ```bash
-sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
+sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
 ```
 
 使用 **TestContainer** 目錄中所提供的安裝指令碼，將應用程式封裝複製到叢集的映像存放區、註冊應用程式類型，以及建立應用程式的執行個體。
@@ -257,11 +282,11 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
 ./install.sh
 ```
 
-開啟瀏覽器，並瀏覽至 http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer 上的 Service Fabric Explorer。 展開 [應用程式] 節點，請注意，有一個適用於您應用程式類型的項目，另一個則適用於執行個體。
+開啟瀏覽器，並瀏覽至 http://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer 上的 Service Fabric Explorer。 展開 [應用程式] 節點，請注意，有一個適用於您應用程式類型的項目，另一個則適用於執行個體。
 
 ![Service Fabric Explorer][sfx]
 
-為了連接到執行中應用程式，請開啟網頁瀏覽器並移至叢集 URL，例如 http://lin0823ryf2he.cloudapp.azure.com:80 。 您應會在 Web UI 中看到投票應用程式。
+為了連接到執行中應用程式，請開啟網頁瀏覽器並移至叢集 URL，例如 http://containertestcluster.eastus.cloudapp.azure.com:80 。 您應會在 Web UI 中看到投票應用程式。
 
 ![votingapp][votingapp]
 

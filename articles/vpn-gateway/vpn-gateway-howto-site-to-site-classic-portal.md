@@ -1,5 +1,5 @@
 ---
-title: 將內部部署網路連接至 Azure 虛擬網路：站對站 VPN (傳統)：入口網站 | Microsoft Docs
+title: 將內部部署網路連線到 Azure 虛擬網路：站對站 VPN (傳統)：入口網站 | Microsoft Docs
 description: 建立透過公用網際網路從內部部署網路至傳統 Azure 虛擬網路的 IPsec 連線。
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4e9736adfce83fc449b68a7448441ecee481ad2a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b0fa60d709c2fa6c286e44797d53e8a4a8d47d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477891"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695599"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>使用 Azure 入口網站建立站對站連線 (傳統)
 
@@ -54,17 +54,17 @@ ms.locfileid: "38477891"
 
 本文的範例使用下列值。 您可以使用這些值來建立測試環境，或參考這些值，進一步了解本文中的範例。
 
-* **VNet 名稱︰** TestVNet1
+* **VNet 名稱：** TestVNet1
 * **位址空間：** 
   * 10.11.0.0/16
   * 10.12.0.0/16 (對此練習是選擇性的)
 * **子網路：**
   * FrontEnd：10.11.0.0/24
-  * BackEnd：10.12.0.0/24 (對此練習是選擇性的)
+  * BackEnd：10.12.0.0/24 (對此練習為選擇性)
 * **GatewaySubnet：** 10.11.255.0/27
-* **資源群組︰** TestRG1
+* **資源群組：** TestRG1
 * **位置：** 美國東部
-* **DNS 伺服器：** 10.11.0.3 (對此練習是選擇性的)
+* **DNS 伺服器：** 10.11.0.3 (對此練習為選擇性)
 * **本機網站名稱︰** Site2
 * **用戶端位址空間：** 位於內部部署網站上的位址空間。
 
@@ -127,9 +127,9 @@ DNS 設定不是 S2S 組態的必要部分，但如果您想要名稱解析，�
   ![按一下以設定閘道設定](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "按一下以設定閘道設定")
 3. 在 [新增 VPN 連線] 頁面上，選取 [站對站]。
 4. 按一下 [本機網路 - 進行必要設定] 以開啟 [本機網路] 頁面。 進行設定，然後按一下 [確定] 以儲存設定。
-  - **名稱︰** 建立可讓您輕鬆識別您的本機網站的名稱。
+  - **名稱：** 建立可讓您輕鬆識別您的本機網站的名稱。
   - **VPN 閘道 IP 位址：** 這是您內部部署網路之 VPN 裝置的公用 IP 位址。 VPN 裝置需要 IPv4 公用 IP 位址。 為您要連線的 VPN 裝置指定有效的公用 IP 位址。 它不能在 NAT 後方且必須可讓 Azure 連線。 如果您不知道 VPN 裝置的 IP 位址，您可以一律放入預留位置值 (只要其為有效的公用 IP 位址格式即可)，然後稍後加以變更。
-  - **用戶端位址空間︰** 列出您要透過此閘道路由傳送至本機內部部署網路的 IP 位址範圍。 您可以加入多個位址空間範圍。 確定您在此指定的範圍，不會與虛擬網路要連接的其他網路範圍重疊，或與虛擬網路本身的位址範圍重疊。
+  - **用戶端位址空間：** 列出您要透過此閘道路由傳送至本機內部部署網路的 IP 位址範圍。 您可以加入多個位址空間範圍。 確定您在此指定的範圍，不會與虛擬網路要連接的其他網路範圍重疊，或與虛擬網路本身的位址範圍重疊。
 
   ![本機站台](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "設定本機站台")
 
@@ -208,7 +208,7 @@ DNS 設定不是 S2S 組態的必要部分，但如果您想要名稱解析，�
   Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
   -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
   ```
-建立連線後，結果是︰**狀態︰成功**。
+建立連線後，結果是︰**狀態：** 成功。
 
 ## <a name="verify"></a>9.確認您的連接
 
@@ -226,5 +226,5 @@ DNS 設定不是 S2S 組態的必要部分，但如果您想要名稱解析，�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)。
+* 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器](https://docs.microsoft.com/azure/)。
 * 如需強制通道的相關資訊，請參閱[關於強制通道](vpn-gateway-about-forced-tunneling.md)。

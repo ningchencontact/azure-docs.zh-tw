@@ -3,7 +3,7 @@ title: 適用於 SQL Database 的 Azure CLI 指令碼範例 | Microsoft Docs
 description: Azure CLI 指令碼範例可以建立和管理 Azure SQL Database 伺服器、彈性集區、資料庫和防火牆。
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: overview-samples, mvc
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,15 +11,25 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 3eb077cf705f08e1ad953211c00c6b1eaa50ee3b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/03/2019
+ms.openlocfilehash: 3b98214da259e9e429c938f8ca7963c9f525e862
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477891"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560816"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure SQL Database 的 Azure CLI 範例
+
+您可以使用 <a href="/cli/azure">Azure CLI</a> 來設定 Azure SQL Database。
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
+
+## <a name="single-database--elastic-pools"></a>單一資料庫與彈性集區
 
 下表包含適用於 Azure SQL Database 之 Azure CLI 指令碼範例的連結。
 
@@ -31,5 +41,19 @@ ms.locfileid: "55477891"
 |**調整單一資料庫和彈性集區**||
 | [調整單一資料庫](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 此 CLI 指令碼範例會在查詢單一 Azure SQL Database 的大小資訊後，將其調整為不同的計算大小。 |
 | [調整彈性集區](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 此 CLI 指令碼範例會將 SQL 彈性集區調整為不同的計算大小。  |
-| [建立和管理受控執行個體](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) | 這些 CLI 指令碼顯示您必須使用 Azure CLI 建立和管理受控執行個體 |
 |||
+
+深入了解[單一資料庫 Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases)。
+
+## <a name="managed-instance"></a>受控執行個體
+
+下表包含適用於 Azure SQL Database 之 Azure CLI 指令碼範例的連結 - 受控執行個體。
+
+| |  |
+|---|---|
+| [建立受控執行個體](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/) | 此 CLI 指令碼示範如何建立受控執行個體。 |
+| [更新受控執行個體](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/) | 此 CLI 指令碼示範如何更新受控執行個體。 |
+| [將資料庫移到另一個受控執行個體](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | 此 CLI 指令碼示範如何將資料庫的備份從一個執行個體還原到另一個執行個體。 |
+|||
+
+深入了解[受控執行個體 Azure CLI API](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) 並尋找[其他範例](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)。

@@ -6,29 +6,16 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 559bdd479d02a8744f9b113c43c2c860d8218401
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbdc57489eb7ebd50e3ce7e2b4e0e4081aef8e27
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038189"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770379"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos DB 模擬器進行本機開發和測試
 
-<table>
-<tr>
-  <td><strong>二進位檔</strong></td>
-  <td>[下載 MSI](https://aka.ms/cosmosdb-emulator)</td>
-</tr>
-<tr>
-  <td><strong>Docker</strong></td>
-  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
-</tr>
-<tr>
-  <td><strong>Docker 來源</strong></td>
-  <td>[GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
-</tr>
-</table>
+|**二進位檔**|[下載 MSI](https://aka.ms/cosmosdb-emulator)| |**Docker**|[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)| |**Docker 來源** | [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)|
 
 Azure Cosmos DB 模擬器提供一個模擬 Azure Cosmos DB 服務的本機環境做為開發之用。 您可以使用 Azure Cosmos DB 模擬器在本機開發及測試應用程式，不需建立 Azure 訂用帳戶，也不會產生任何費用。 如果您滿意應用程式在 Azure Cosmos DB 模擬器中的運作方式，就可以切換成使用雲端的 Azure Cosmos DB 帳戶。
 
@@ -162,133 +149,28 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 
 若要檢視選項清單，請在命令提示字元輸入 `CosmosDB.Emulator.exe /?` 。
 
-<table>
-<tr>
-  <td><strong>選項</strong></td>
-  <td><strong>說明</strong></td>
-  <td><strong>命令</strong></td>
-  <td><strong>引數</strong></td>
-</tr>
-<tr>
-  <td>[無引數]</td>
-  <td>使用預設設定啟動 Azure Cosmos DB 模擬器。</td>
-  <td>CosmosDB.Emulator.exe</td>
-  <td></td>
-</tr>
-<tr>
-  <td>[說明]</td>
-  <td>顯示支援的命令列引數清單。</td>
-  <td>CosmosDB.Emulator.exe /?</td>
-  <td></td>
-</tr>
-<tr>
-  <td>GetStatus</td>
-  <td>取得 Azure Cosmos DB 模擬器的狀態。 狀態會以結束代碼表示：1 = 啟動，2 = 執行中，3 = 已停止。 負數的結束代碼表示發生錯誤。 不會產生其他輸出。</td>
-  <td>CosmosDB.Emulator.exe /GetStatus</td>
-  <td></td>
-<tr>
-  <td>Shutdown</td>
-  <td>關閉 Azure Cosmos DB 模擬器。</td>
-  <td>CosmosDB.Emulator.exe /Shutdown</td>
-  <td></td>
-</tr>
-<tr>
-  <td>資料路徑</td>
-  <td>指定用來儲存資料檔案的路徑。 預設值為 %LocalAppdata%\CosmosDBEmulator。</td>
-  <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
-  <td>&lt;資料路徑&gt;：可存取的路徑</td>
-</tr>
-<tr>
-  <td>Port</td>
-  <td>指定用於模擬器的連接埠號碼。 預設值為 8081。</td>
-  <td>CosmosDB.Emulator.exe /Port=&lt;port&gt;</td>
-  <td>&lt;連接埠&gt;：單一連接埠號碼</td>
-</tr>
-<tr>
-  <td>MongoPort</td>
-  <td>指定要用於 MongoDB 相容性 API 的連接埠號碼。 預設值為 10255。</td>
-  <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
-  <td>&lt;mongoport&gt;：單一連接埠號碼</td>
-</tr>
-<tr>
-  <td>DirectPorts</td>
-  <td>指定要用於直接連線的連接埠。 預設值為 10251、10252、10253、10254。</td>
-  <td>CosmosDB.Emulator.exe /DirectPorts:&lt;directports&gt;</td>
-  <td>&lt;directports&gt;：以逗號分隔的 4 個連接埠清單</td>
-</tr>
-<tr>
-  <td>Key</td>
-  <td>模擬器的授權金鑰。 金鑰必須是 64 位元組向量的 base-64 編碼方式。</td>
-  <td>CosmosDB.Emulator.exe /Key:&lt;key&gt;</td>
-  <td>&lt;金鑰&gt;：金鑰必須是 64 位元組向量的 base-64 編碼方式</td>
-</tr>
-<tr>
-  <td>EnableRateLimiting</td>
-  <td>指定要啟用要求率限制行為。</td>
-  <td>CosmosDB.Emulator.exe /EnableRateLimiting</td>
-  <td></td>
-</tr>
-<tr>
-  <td>DisableRateLimiting</td>
-  <td>指定要停用要求率限制行為。</td>
-  <td>CosmosDB.Emulator.exe /DisableRateLimiting</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoUI</td>
-  <td>不要顯示模擬器使用者介面。</td>
-  <td>CosmosDB.Emulator.exe /NoUI</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoExplorer</td>
-  <td>啟動時不要顯示資料總管。</td>
-  <td>CosmosDB.Emulator.exe /NoExplorer</td>
-  <td></td>
-</tr>
-<tr>
-  <td>PartitionCount</td>
-  <td>指定已分割集合的數目上限。 如需詳細資訊，請參閱[變更集合的數目](#set-partitioncount)。</td>
-  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
-  <td>&lt;partitioncount&gt;：允許的單一分割區集合數目上限。 預設值為 25。 允許的上限為 250。</td>
-</tr>
-<tr>
-  <td>DefaultPartitionCount</td>
-  <td>指定分割集合之分割數目的預設值。</td>
-  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
-  <td>&lt;defaultpartitioncount&gt; 預設值為 25。</td>
-</tr>
-<tr>
-  <td>AllowNetworkAccess</td>
-  <td>讓模擬器可以透過網路存取。 您也必須傳遞 /Key=&lt;key_string&gt; 或 /KeyFile=&lt;file_name&gt; 以啟用網路存取。</td>
-  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>或<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoFirewall</td>
-  <td>當 /AllowNetworkAccess 在使用中時請勿調整防火牆規則。</td>
-  <td>CosmosDB.Emulator.exe /NoFirewall</td>
-  <td></td>
-</tr>
-<tr>
-  <td>GenKeyFile</td>
-  <td>產生新的授權金鑰並儲存到指定的檔案。 產生的金鑰可以搭配 /Key 或 /KeyFile 選項使用。</td>
-  <td>CosmosDB.Emulator.exe /GenKeyFile=&lt;金鑰檔案路徑&gt;</td>
-  <td></td>
-</tr>
-<tr>
-  <td>一致性</td>
-  <td>設定帳戶的預設一致性層級。</td>
-  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
-  <td>&lt;一致性&gt;：值必須屬於下列其中一個[一致性層級](consistency-levels.md)：Session、Strong、Eventual 或 BoundedStaleness。 預設值為 Session。</td>
-</tr>
-<tr>
-  <td>?</td>
-  <td>顯示說明訊息。</td>
-  <td></td>
-  <td></td>
-</tr>
-</table>
+|**選項** | **說明** | **命令**| **引數**|
+|---|---|---|---|
+|[無引數] | 使用預設設定啟動 Azure Cosmos DB 模擬器。 |CosmosDB.Emulator.exe| |
+|[說明] |顯示支援的命令列引數清單。|CosmosDB.Emulator.exe /? | |
+| GetStatus |取得 Azure Cosmos DB 模擬器的狀態。 狀態會以結束代碼表示：1 = 啟動，2 = 執行中，3 = 已停止。 負數的結束代碼表示發生錯誤。 不會產生其他輸出。 | CosmosDB.Emulator.exe /GetStatus| |
+| Shutdown| 關閉 Azure Cosmos DB 模擬器。| CosmosDB.Emulator.exe /Shutdown | |
+|資料路徑 | 指定用來儲存資料檔案的路徑。 預設值為 %LocalAppdata%\CosmosDBEmulator。 | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<資料路徑\>：可存取的路徑 |
+|Port | 指定用於模擬器的連接埠號碼。 預設值為 8081。 |CosmosDB.Emulator.exe /Port=\<port\> | \<連接埠\>：單一連接埠號碼 |
+| MongoPort | 指定要用於 MongoDB 相容性 API 的連接埠號碼。 預設值為 10255。 |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>：單一連接埠號碼|
+| DirectPorts |指定要用於直接連線的連接埠。 預設值為 10251、10252、10253、10254。 | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>：以逗號分隔的 4 個連接埠清單 |
+| Key |模擬器的授權金鑰。 金鑰必須是 64 位元組向量的 base-64 編碼方式。 | CosmosDB.Emulator.exe /Key:\<key\> | \<金鑰\>：金鑰必須是 64 位元組向量的 base-64 編碼方式|
+| EnableRateLimiting | 指定要啟用要求率限制行為。 |CosmosDB.Emulator.exe /EnableRateLimiting | |
+| DisableRateLimiting |指定要停用要求率限制行為。 |CosmosDB.Emulator.exe /DisableRateLimiting | |
+| NoUI | 不要顯示模擬器使用者介面。 | CosmosDB.Emulator.exe /NoUI | |
+| NoExplorer | 啟動時不要顯示資料總管。 |CosmosDB.Emulator.exe /NoExplorer | | 
+| PartitionCount | 指定已分割集合的數目上限。 如需詳細資訊，請參閱[變更集合的數目](#set-partitioncount)。 | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>：允許的單一分割區集合數目上限。 預設值為 25。 允許的上限為 250。|
+| DefaultPartitionCount| 指定分割集合之分割數目的預設值。 | CosmosDB.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> 預設值為 25。|
+| AllowNetworkAccess | 讓模擬器可以透過網路存取。 您也必須傳遞 /Key=\<key_string\> 或 /KeyFile=\<file_name\> 以啟用網路存取。 | CosmosDB.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> 或 CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
+| NoFirewall | 當 /AllowNetworkAccess 在使用中時請勿調整防火牆規則。 |CosmosDB.Emulator.exe /NoFirewall | |
+| GenKeyFile | 產生新的授權金鑰並儲存到指定的檔案。 產生的金鑰可以搭配 /Key 或 /KeyFile 選項使用。 | CosmosDB.Emulator.exe /GenKeyFile=\<金鑰檔案路徑\> | |
+| 一致性 | 設定帳戶的預設一致性層級。 | CosmosDB.Emulator.exe /Consistency=\<consistency\> | \<一致性\>：值必須屬於下列其中一個[一致性層級](consistency-levels.md)：Session、Strong、Eventual 或 BoundedStaleness。 預設值為 Session。 |
+| ? | 顯示說明訊息。| | |
 
 ## <a id="set-partitioncount"></a>變更集合的數目
 

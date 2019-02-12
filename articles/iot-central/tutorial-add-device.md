@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: c3b8f4f8188a6a28cca8b77f169a00657b11dfc5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 695050a46df4b208205ce394cc79db891803cfa4
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154806"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731524"
 ---
-# <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>教學課程：將實際裝置新增至 Azure IoT 中心應用程式
+# <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>教學課程：將實際裝置新增至 Azure IoT Central 應用程式
 
 本教學課程將說明如何在 Microsoft Azure IoT Central 應用程式中新增和設定實際裝置。
 
@@ -109,9 +109,11 @@ ms.locfileid: "50154806"
 
    深入了解[命令列工具](https://www.npmjs.com/package/dps-keygen)。
 
-1. 從 [GitHub](https://github.com/Azure/dps-keygen/tree/master/bin) 下載並解壓縮 (Windows) dps_cstr 工具
+1. 從 [GitHub] 下載並解壓縮 (Windows) dps_cstr 工具 (https://github.com/Azure/dps-keygen/archive/master.zip
 
-    確定您的選擇與平台相符。 例如，在 Windows 上，資料夾中此時應該會有 dps_cstr.exe 和 dll 檔案可供使用。 
+)
+
+    Make sure you choose the one that matches your platform. For example, on Windows the dps_cstr.exe and the dll files should be now available in your folder. 
 
 1. 應用程式中的裝置執行個體所適用的連接字串會從 IoT Central 所提供的裝置資訊產生。
 

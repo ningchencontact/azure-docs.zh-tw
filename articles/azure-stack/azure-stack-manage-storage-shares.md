@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 96145906d40e465d2427a8100b3ad9333eec3f29
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249090"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819513"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>管理 Azure Stack 的儲存體容量 
 
@@ -51,7 +51,7 @@ ms.locfileid: "55249090"
 
 磁碟區上的共用可保存租用戶資料。 租用戶資料包括分頁 blob、區塊 blob、附加 blob、資料表、佇列、資料庫和相關中繼資料存放區。 因為儲存體物件 (blob 等) 都各自包含在單一共用中，所以每個物件的大小上限不能超過共用的大小。 新物件的大小上限取決於建立新物件時，在共用中仍未使用的空間容量。
 
-當共用上的可用空間不足且[回收](#reclaim-capacity)空間的動作不成功或無法使用時，Azure Stack 雲端操作員可以在共用之間[移轉](#migrate-a-container-between) blob 容器。
+當共用上的可用空間不足且[回收](#reclaim-capacity)空間的動作不成功或無法使用時，Azure Stack 雲端操作員可以在共用之間遷移Blob 容器。
 
 - 如需有關容器和 blob 的詳細資訊，請參閱 Azure Stack 中重要功能和概念中的 [Blob 儲存體](azure-stack-key-features.md#blob-storage)。
 - 如需租用戶使用者如何使用 Azure Stack 中 blob 儲存體的詳細資訊，請參閱 [Azure Stack 儲存體服務](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services)。

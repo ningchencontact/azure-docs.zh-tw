@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0118c17045b86c88d8d92048787a20bd7d309c0b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0ffad78afd6acdfbcea8df970358c639706f14b8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298342"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814243"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure 中的私人 Docker 容器登錄的簡介
 
@@ -32,7 +32,7 @@ Azure 容器登錄是可管理的 [Docker Registry](https://docs.docker.com/regi
 
 開發人員也可以將推送到容器登錄庫，當做容器開發工作流程的一部分。 例如，從 [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) \(英文\) 或 [Jenkins](https://jenkins.io/) \(英文\) 等持續整合與部署工具中，將容器登錄設定為目標。
 
-設定 [ACR 工作](#azure-container-registry-build)，以在其基礎映像更新時自動重建應用程式映像。 當您的小組將程式碼認可至 Git 存放庫時，使用 ACR 工作自動化映像建置。
+設定 ACR 工作，以在其基礎映像更新時自動重建應用程式映像。 當您的小組將程式碼認可至 Git 存放庫時，使用 ACR 工作自動化映像建置。
 
 ## <a name="key-concepts"></a>重要概念
 

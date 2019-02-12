@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0b4549323b64b0f6210a228ea6cb5ca301839ec8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d62e74c5d81cdf3331bde349a9ec5dfe3071e7f8
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721847"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510692"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>教學課程：在 Azure App Service 中建置 .NET Core 和 SQL Database 應用程式
 
@@ -259,7 +259,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ### <a name="browse-to-the-azure-app"></a>瀏覽至 Azure 應用程式
 
-使用 Web 瀏覽器，瀏覽至已部署的應用程式。
+使用網頁瀏覽器，瀏覽至已部署的應用程式。
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -367,9 +367,40 @@ git push azure master
 
 仍會顯示您現有的所有待辦事項項目。 當您重新發佈 .NET Core 應用程式時，您 SQL Database 中現有的資料不會遺失。 此外，Entity Framework Code 移轉只會變更資料結構描述，並讓現有的資料保持不變。
 
+## <a name="stream-diagnostic-logs"></a>資料流診斷記錄
+
+當 ASP.NET Core 應用程式在 Azure App Service 中執行時，您可以透過管道將主控台記錄傳送至 Cloud Shell。 這樣一來，您就能取得相同的診斷訊息，以協助您偵錯應用程式錯誤。
+
+範例專案已遵循 [Azure 中的 ASP.NET Core 記錄](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure)指引，其中有兩項組態變更：
+
+- 在 *DotNetCoreSqlDb.csproj* 中包含 `Microsoft.Extensions.Logging.AzureAppServices` 的參考。
+- 在 Startup.cs 中呼叫 `loggerFactory.AddAzureWebAppDiagnostics()`。
+
+若要將 App Service 中的 ASP.NET Core [記錄層級](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level)從預設層級 `Warning` 設定為 `Information`，請在 Cloud Shell 中使用 [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) 命令。
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
+```
+
+> [!NOTE]
+> 專案的記錄層級已經在 appsettings.json 中設定為 `Information`。
+> 
+
+若要開始記錄資料流，請在 Cloud Shell 中使用 [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) 命令。
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+開始記錄資料流之後，重新整理瀏覽器中的 Azure 應用程式，以取得部分 Web 流量。 您現在會看到使用管線傳送到終端機的主控台記錄。 如果您沒有立即看到主控台記錄，請在 30 秒後再查看。
+
+若要隨時停止記錄資料流，輸入 `Ctrl`+`C`。
+
+如需自訂 ASP.NET Core 記錄的詳細資訊，請參閱[登入 ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging)。
+
 ## <a name="manage-your-azure-app"></a>管理您的 Azure 應用程式
 
-請移至 [Azure 入口網站](https://portal.azure.com)，以查看您所建立的應用程式。
+移至 [Azure 入口網站](https://portal.azure.com)，以查看您所建立的應用程式。
 
 按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
 

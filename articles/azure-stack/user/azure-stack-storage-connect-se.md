@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2019
+ms.date: 02/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: d1bddc8331fc1a9ded37949a8065636947074852
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9debcd121cbbde626758abccfe838abda12ad840
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246724"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822828"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>將儲存體總管連線到 Azure Stack 訂用帳戶或儲存體帳戶
 
@@ -45,20 +45,15 @@ ms.locfileid: "55246724"
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>匯出 Azure Stack 憑證後再匯入
 
+匯出 ASDK 的 Azure Stack 憑證後再匯入。 在整合式系統中會公開簽署憑證。 因此，在設定儲存體總管與 Azure Stack 整合式系統的連線時，不需執行此步驟。
+
 1. 在 Azure Stack 主機電腦或可使用 VPN 連線到 Azure Stack 的本機電腦上開啟 `mmc.exe`。 
 
 2. 在 [檔案] 中，選取 [新增/移除嵌入式管理單元]，然後新增 [憑證] 以管理 [我的使用者帳戶]。
 
-3.  在 [主控台根目錄]\[憑證 (本機電腦)]\[受信任的根憑證授權單位]\[憑證] 底下。
+3.  在 [主控台根目錄]\[憑證 (本機電腦)]\[受信任的根憑證授權單位]\[憑證] 底下。 尋找 **AzureStackSelfSignedRootCert**。
 
-    - 針對 ASDK，尋找 **AzureStackSelfSignedRootCert**。
-
-        ![透過 mmc.exe 載入 Azure Stack 根憑證](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
-
-    - 針對整合式系統，尋找您外部憑證的根憑證。 
-    
-        ![透過 mmc.exe 載入 Azure Stack 根憑證](./media/azure-stack-storage-connect-se/azure-stack-storage-cert-location-is.png)
-        
+    ![透過 mmc.exe 載入 Azure Stack 根憑證](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
 4. 以滑鼠右鍵按一下憑證，選取 [所有工作] > [匯出]，然後依照指示，匯出 **Base-64 encoded X.509 (.CER)** 憑證。
 

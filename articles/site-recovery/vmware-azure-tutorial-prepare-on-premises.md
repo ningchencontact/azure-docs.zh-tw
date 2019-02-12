@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 505acdde07c23654ddd3875fa600046a67e04aea
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: bee9d2f823fe46d81550ea5090222f491562d636
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970809"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700106"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>準備內部部署 VMware 伺服器以進行 Azure 的災害復原
 
@@ -24,7 +24,7 @@ ms.locfileid: "53970809"
 
 
 > [!NOTE]
-> 這些教學課程接設計成顯示案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請參閱對應案例的**操作說明**區段。
+> 這些教學課程皆設計成顯示案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請參閱對應案例的**操作說明**區段。
 
 在本文中，我們會說明在您想要使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 時，如何備妥內部部署 VMware 基礎結構。 您會了解如何：
 

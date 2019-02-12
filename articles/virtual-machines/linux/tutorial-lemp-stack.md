@@ -3,7 +3,7 @@ title: 教學課程 - 在 Azure 的 Linux 虛擬機器上部署 LEMP | Microsoft
 description: 在本教學課程中，您會了解如何在 Azure 中的 Linux 虛擬機器上安裝 LEMP 堆疊
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.author: danlep
-ms.openlocfilehash: c4926760162baa5687242f4372377c64c7e24b19
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 01/30/2019
+ms.author: cynthn
+ms.openlocfilehash: 0a9d63f4064952adbfedfc3f9656370ef7c4a1cc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999353"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511272"
 ---
 # <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中的 Linux 虛擬機器上安裝 LEMP 網頁伺服器
 
@@ -46,17 +46,15 @@ ms.locfileid: "46999353"
 執行下列命令以更新 Ubuntu 套件來源，並安裝 NGINX、MySQL 和 PHP。 
 
 ```bash
-sudo apt update && sudo apt install nginx mysql-server php-mysql php php-fpm
+sudo apt update && sudo apt install nginx && sudo apt install mysql-server php-mysql php-fpm
 ```
 
-系統會提示您安裝套件和其他相依性。 出現提示時，請為 MySQL 設定根密碼，然後按 [Enter] 以繼續。 按照其餘的提示來進行。 此程序會安裝使用 PHP 搭配 MySQL 時所需的基本必要 PHP 擴充功能。 
-
-![MySQL 根密碼頁面][1]
+系統會提示您安裝套件和其他相依性。 此程序會安裝使用 PHP 搭配 MySQL 時所需的基本必要 PHP 擴充功能。  
 
 ## <a name="verify-installation-and-configuration"></a>驗證安裝和設定
 
 
-### <a name="nginx"></a>NGINX
+### <a name="verify-nginx"></a>驗證 NGINX
 
 使用下列命令檢查 NGINX 的版本：
 ```bash
@@ -68,7 +66,7 @@ nginx -v
 ![NGINX 預設網頁][3]
 
 
-### <a name="mysql"></a>MySQL
+### <a name="verify-and-secure-mysql"></a>驗證並保護 MySQL
 
 使用下列命令檢查 MySQL 的版本 (請注意 `V` 參數是大寫)：
 
@@ -76,24 +74,24 @@ nginx -v
 mysql -V
 ```
 
-若要協助保護 MySQL 的安裝，請執行 `mysql_secure_installation` 指令碼。 如果您只要設定臨時伺服器，則可略過此步驟。 
+若要協助保護 MySQL 的安裝 (包括設定根密碼)，請執行 `mysql_secure_installation` 指令碼。 
 
 ```bash
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
-輸入 MySQL 的根密碼，並為您的環境設定安全性設定。
+您可以選擇性地設定驗證密碼外掛程式 (建議選項)。 然後，設定 MySQL 根使用者的密碼，並針對您的環境設定其餘安全性設定。 我們建議您對所有問題回答 "Y" (是)。
 
 如果您想要試用 MySQL 功能 (建立 MySQL 資料庫、新增使用者或變更組態設定)，請登入 MySQL。 您不需要進行這個步驟也能完成本教學課程。 
 
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 完成後，輸入 `\q` 以結束 mysql 提示字元。
 
-### <a name="php"></a>PHP
+### <a name="verify-php"></a>驗證 PHP
 
 使用下列命令檢查 PHP 的版本：
 
@@ -109,7 +107,7 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_ba
 sudo sensible-editor /etc/nginx/sites-available/default
 ```
 
-在編輯器中，將 `/etc/nginx/sites-available/default` 的內容取代為下列項目。 如需設定的說明，請參閱註解。 以您 VM 的公用 IP 位址來替代 *yourPublicIPAddress*，其餘設定則予以保留。 然後儲存檔案。
+在編輯器中，將 `/etc/nginx/sites-available/default` 的內容取代為下列項目。 如需設定的說明，請參閱註解。 以您 VM 的公用 IP 位址替代 yourPublicIPAddress，在 `fastcgi_pass` 中確認 PHP 版本，其餘設定則予以保留。 然後儲存檔案。
 
 ```
 server {
@@ -129,7 +127,7 @@ server {
     # Include FastCGI configuration for NGINX
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        fastcgi_pass unix:/run/php/php7.2-fpm.sock;
     }
 }
 ```
@@ -177,6 +175,5 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 > [!div class="nextstepaction"]
 > [使用 SSL 保護網路伺服器](tutorial-secure-web-server.md)
 
-[1]: ./media/tutorial-lemp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png

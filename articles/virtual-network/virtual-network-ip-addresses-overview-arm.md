@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/30/2019
 ms.author: jdial
-ms.openlocfilehash: f4af899be489dab2fc73bb33943882d4dc81576f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5472878542078e2a2dbb900965b59844d6e3b4b3
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054753"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488083"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 位址類型及配置方法
 
@@ -61,22 +61,23 @@ ms.locfileid: "54054753"
 在 SKU 推出之前所建立的公用 IP 位址全都是基本 SKU 的公用 IP 位址。 SKU 推出後，您則可以選擇指定要讓公用 IP 位址成為哪種 SKU。 基本 SKU 的位址有下列特性：
 
 - 使用靜態或動態配置方法來指派。
+- 讓可調整的輸入起源流量閒置逾時 4 到 30 分鐘 (預設值為 4 分鐘)，固定的輸出起源流量閒置逾時 4 分鐘。
 - 預設為開放狀態。  建議 (但不強制) 使用網路安全性群組來限制輸入或輸出流量。
 - 會指派給任何可以指派公用 IP 位址的 Azure 資源，例如網路介面、VPN 閘道、應用程式閘道和網際網路對應負載平衡器。
-- 可指派到特定區域。
-- 無區域備援功能。 若要深入了解可用性區域，請參閱[可用性區域概觀](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+- 不支援可用性區域案例。  您必須將標準 SKU 公用 IP 使用於可用性區域案例。 若要了解可用性區域，請參閱[可用性區域概觀](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[標準負載平衡器和可用性區域](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 #### <a name="standard"></a>標準
 
 標準 SKU 的公用 IP 位址有下列特性：
 
-- 只會使用靜態配置方法來指派。
+- 一律使用靜態配置方法。
+- 讓可調整的輸入起源和輸出起源流量閒置逾時為 4 到 66 分鐘 (預設值為 4 分鐘)。
 - 預設為保護狀態，且禁止輸入流量。 您必須透過[網路安全性群組](security-overview.md#network-security-groups)，明確地將允許的輸入流量列入允許清單。
-- 會指派給網路介面、公用標準負載平衡器、應用程式閘道或 VPN 閘道。 如需 Azure 標準負載平衡器的詳細資訊，請參閱 [Azure 標準負載平衡器](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-- 預設具有區域備援功能。 可以建立為區域型，並保證在特定可用性區域中。 若要了解可用性區域，請參閱[可用性區域概觀](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[標準負載平衡器和可用性區域](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+- 會指派給網路介面、公用 Standard Load Balancer、應用程式閘道或 VPN 閘道。 如需 Standard Load Balancer 的詳細資訊，請參閱 [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+- 預設為區域備援，也可為區域型 (可以建立為區域型，並保證在特定可用性區域中)。 若要了解可用性區域，請參閱[可用性區域概觀](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[標準負載平衡器和可用性區域](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
  
 > [!NOTE]
-> 在建立和關聯[網路安全性群組](security-overview.md#network-security-groups)並明確地允許所要輸入流量前，與標準 SKU 資源進行的通訊都會失敗。
+> 在建立和關聯[網路安全性群組](security-overview.md#network-security-groups)並明確地允許所要輸入流量前，與標準 SKU 資源進行的輸入通訊會失敗。
 
 ### <a name="allocation-method"></a>配置方法
 
@@ -127,10 +128,10 @@ ms.locfileid: "54054753"
 
 | 最上層資源 | IP 位址關聯 | 動態 | 靜態 |
 | --- | --- | --- | --- |
-| 虛擬機器 |Linux |是 |是 |
-| 網際網路對應負載平衡器 |前端組態 |是 |是 |
-| VPN 閘道 |閘道 IP 組態 |是 |是 |
-| 應用程式閘道 |前端組態 |是 |是 |
+| 虛擬機器 |Linux |yes |yes |
+| 網際網路對應負載平衡器 |前端組態 |yes |yes |
+| VPN 閘道 |閘道 IP 組態 |yes |yes |
+| 應用程式閘道 |前端組態 |yes |yes |
 
 ## <a name="private-ip-addresses"></a>私人 IP 位址
 私人 IP 位址可讓 Azure 資源透過 VPN 閘道或 ExpressRoute 電路，與 [虛擬網路](virtual-networks-overview.md) 中或內部部署網路中的其他資源進行通訊，而不必使用可網際網路連線的 IP 位址。
@@ -175,9 +176,9 @@ ms.locfileid: "54054753"
 
 | 最上層資源 | IP 位址關聯 | 動態 | 靜態 |
 | --- | --- | --- | --- |
-| 虛擬機器 |Linux |是 |是 |
-| 負載平衡器 |前端組態 |是 |是 |
-| 應用程式閘道 |前端組態 |是 |是 |
+| 虛擬機器 |Linux |yes |yes |
+| 負載平衡器 |前端組態 |yes |yes |
+| 應用程式閘道 |前端組態 |yes |yes |
 
 ## <a name="limits"></a>限制
 加諸於 IP 位址上的限制，如在 Azure 中的完整[網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)所示。 這些限制是針對每一區域和每一訂用帳戶。 您可以 [連絡支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ，以根據您的業務需求將預設上限調升到最高上限。

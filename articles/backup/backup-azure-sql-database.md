@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fa154b79625fffb8174c510156b3a67df8bff785
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224236"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770423"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>將 SQL Server 資料庫備份到 Azure
 
@@ -202,6 +202,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
   * 後置/前置空格
   * 後置 ‘!’
+  * 右方括號 ‘]’
 
 我們確實會對 Azure 表格不支援的字元使用別名，但建議同樣避免使用這類字元。 如需詳細資訊，請參閱[本篇文章](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN)。
 
@@ -722,6 +723,8 @@ backup_size AS BackupSizeInBytes
 
 如果您選擇使用保留資料停止備份，則將根據備份原則清除復原點。 您將會產生 SQL 受保護執行個體定價費用，加上所使用的儲存體費用，直到清除所有恢復點。 如需 SQL 之 Azure 備份定價的詳細資訊，請參閱 [Azure 備份定價頁面](https://azure.microsoft.com/pricing/details/backup/)。
 
+每當您停止備份並保留資料時，復原點會依據保留原則到期，但 Azure Backup 一律會保留最後一個復原點，直到您明確地刪除備份資料為止。 同樣地，如果您刪除資料來源，但未執行停止備份，新的備份會開始失敗，而舊的復原點會依據保留原則到期，但一律會保留最後一個復原點，直到您執行停止備份並刪除資料為止。
+
 若要停止保護資料庫：
 
 1. 開啟向 SQL 虛擬機器註冊的復原服務保存庫。
@@ -754,7 +757,7 @@ backup_size AS BackupSizeInBytes
 
 7. 選取 [停止備份] 以停止保護資料庫。
 
-  請注意，[停止備份] 選項將不適用於[自動保護](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)。 停止保護此資料庫的唯一方式，是暫時在執行個體上停用 [自動保護][](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)，然後在該資料庫的 [備份項目] 下方，選擇 [停止備份] 選項。<br>
+  請注意，[停止備份] 選項將不適用於[自動保護](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)。 停止保護此資料庫的唯一方式，是暫時在執行個體上停用[自動保護](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)，然後在該資料庫的 [備份項目] 下方，選擇 [停止備份] 選項。<br>
   當您已停用自動保護之後，您可以在 [備份項目] 下方，針對資料庫**停止備份**。 現在可再次啟用執行個體以進行自動保護。
 
 
@@ -858,7 +861,7 @@ backup_size AS BackupSizeInBytes
 
 否，如果從已受自動保護的執行個體中卸除資料庫，仍會在該資料庫上嘗試進行備份。 這表示已刪除的資料庫會開始在 [備份項目] 下方顯示為狀況不良，且仍被視為受到保護。
 
-停止保護此資料庫的唯一方式，是暫時在執行個體上停用 [自動保護][](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)，然後在該資料庫的 [備份項目] 下方，選擇 [停止備份] 選項。 您現在可以針對此執行個體重新啟用自動保護。
+停止保護此資料庫的唯一方式，是暫時在執行個體上停用[自動保護](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)，然後在該資料庫的 [備份項目] 下方，選擇 [停止備份] 選項。 您現在可以針對此執行個體重新啟用自動保護。
 
 ###  <a name="why-cant-i-see-the-newly-added-database-to-an-auto-protected-instance-under-the-protected-items"></a>為什麼我在受保護的項目下方看不到新增至已受自動保護之執行個體的資料庫？
 

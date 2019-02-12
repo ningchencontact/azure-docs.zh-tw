@@ -15,19 +15,19 @@ ms.topic: get-started-article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b7f9bda37d63956ea672528c28b81eaaac9891a6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc4387dd56de96edd17fcd8e5672cfda96cf67b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243761"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816402"
 ---
 # <a name="connect-to-azure-stack"></a>連線至 Azure Stack
 
 若要管理資源，您必須連線到「Azure Stack 開發套件」。 此文將詳細說明連線到開發套件所需的步驟。 您可以使用下列其中一個連線選項：
 
-* [遠端桌面](#connect-with-remote-desktop)：可讓單一並行使用者從開發套件快速連線。
-* [虛擬私人網路 (VPN)](#connect-with-vpn)：可讓多個並行使用者從 Azure Stack 基礎結構外部的用戶端連線 (需要設定)。
+* 遠端桌面：可讓單一並行使用者從開發套件快速連線。
+* 虛擬私人網路 (VPN)：可讓多個並行使用者從 Azure Stack 基礎結構外部的用戶端連線 (需要設定)。
 
 ## <a name="connect-to-azure-stack-with-remote-desktop"></a>使用遠端桌面來連線到 Azure Stack
 使用「遠端桌面」連線時，單一並行使用者可以使用入口網站來管理資源。

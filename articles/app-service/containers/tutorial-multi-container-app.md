@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c9759b8900f0579ccd56d001d50d65aedce2b445
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1480032b7ff018081d9dc25038bf336740810079
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716033"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657555"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>教學課程：在適用於容器的 Web 應用程式中建立多容器 (預覽) 應用程式
 
@@ -37,6 +37,11 @@ ms.locfileid: "53716033"
 > * 針對錯誤進行疑難排解
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="preview-feature-limitations"></a>預覽功能限制
+多容器目前為預覽狀態，不支援下列 App Service 平台功能。 我們預計在公開上市 (GA) 之前，對多容器的 Web 應用程式啟用下列功能：
+* 驗證 / 授權
+* 受控識別
 
 ## <a name="prerequisites"></a>必要條件
 

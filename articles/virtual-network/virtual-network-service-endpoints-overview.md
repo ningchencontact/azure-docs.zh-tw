@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 45a0c179677a0a2c144ea33dbfb031c88257e1cb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 0f36439cba4a946fb05466f2d961e537196f0095
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382503"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818595"
 ---
 # <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
@@ -37,10 +37,7 @@ ms.locfileid: "54382503"
 - **[Azure 金鑰保存庫](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**：已在所有 Azure 公用雲端區域正式推出。
 - **[Azure 服務匯流排](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：已在所有 Azure 公用雲端區域正式推出。
 - **[Azure 事件中樞](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：已在所有 Azure 公用雲端區域正式推出。
-
-**預覽**
-
-- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在預覽版中提供。
+- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在可使用 ADLS Gen1 的所有 Azure 區域中正式推出。
 
 如需最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。
 
@@ -99,7 +96,7 @@ ms.locfileid: "54382503"
 ### <a name="scenarios"></a>案例
 
 - **對等互連、已連線或多個虛擬網路**：若要將 Azure 服務放到一個虛擬網路或多個虛擬網路內的多個子網路保護，您可以獨立啟用每個子網路上的服務端點，並將 Azure 服務資源放到所有子網路保護。
-- **篩選從虛擬網路到 Azure 服務的輸出流量**：如果您想檢查或篩選從虛擬網路送到 Azure 服務的流量，則可以在虛擬網路內部署網路虛擬設備。 接著，可以將服務端點套用到網路虛擬設備部署所在的子網路，只將 Azure 服務資源放到此子網路保護。 如果您想要使用網路虛擬設備篩選，讓來自虛擬網路的 Azure 服務存取只限於特定 Azure 資源，則此案例可能有幫助。 如需詳細資訊，請參閱[使用網路虛擬設備輸出](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+- **篩選從虛擬網路到 Azure 服務的輸出流量**：如果您想檢查或篩選從虛擬網路送到 Azure 服務的流量，則可以在虛擬網路內部署網路虛擬設備。 接著，可以將服務端點套用到網路虛擬設備部署所在的子網路，只將 Azure 服務資源放到此子網路保護。 如果您想要使用網路虛擬設備篩選，讓來自虛擬網路的 Azure 服務存取只限於特定 Azure 資源，則此案例可能有幫助。 如需詳細資訊，請參閱[使用網路虛擬設備輸出](/azure/architecture/reference-architectures/dmz/nva-ha)。
 - **將 Azure 資源放到直接部署至虛擬網路的服務保護**：可以將各種 Azure 資源直接部署至虛擬網路中的特定子網路。 在受控服務子網路上設定服務端點，即可將 Azure 服務資源放到[受控服務](virtual-network-for-azure-services.md)子網路保護。
 - **來自 Azure 虛擬機器的磁碟流量**：對受控/非受控磁碟而言，虛擬機器磁碟流量 (包括掛接和卸載、diskIO) 不會因為 Azure 儲存體的服務端點路徑變更而受到影響。 您可以透過服務端點和 [Azure 儲存體網路規則](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，將分頁 Blob 的 REST 存取限制為選取網路。 
 

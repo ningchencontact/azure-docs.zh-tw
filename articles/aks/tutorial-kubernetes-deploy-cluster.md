@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7e5c78e1b30b311c6ce918453fe728ae86060dda
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 54872a1c5a40cdb3f51c17362daed93c3892001e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720657"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754552"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>教學課程：部署 Azure Kubernetes Service (AKS) 叢集
 
@@ -67,10 +67,10 @@ az ad sp create-for-rbac --skip-assignment
 az acr show --resource-group myResourceGroup --name <acrName> --query "id" --output tsv
 ```
 
-若要授與 AKS 叢集使用 ACR 中所儲存映像的正確存取權，請使用 [az role assignment create][] 建立角色指派。 以在前兩個步驟中蒐集的值取代 `<appId` 和 `<acrId>`。
+若要授與 AKS 叢集提取 ACR 中所儲存映像的正確存取權，請使用 [az role assignment create][] 命令指派 `AcrPull` 角色。 以在前兩個步驟中蒐集的值取代 `<appId` 和 `<acrId>`。
 
 ```azurecli
-az role assignment create --assignee <appId> --scope <acrId> --role Reader
+az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 ```
 
 ## <a name="create-a-kubernetes-cluster"></a>建立 Kubernetes 叢集

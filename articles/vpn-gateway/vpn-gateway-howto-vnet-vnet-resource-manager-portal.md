@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 245710d1ae3e7af4db5286a5db985fe35549ad3a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0646488c3dde4b0702d58bbd8905f4ae6bee1485
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098765"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821660"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>使用 Azure 入口網站設定 VNet 對 VNet 的 VPN 閘道連線
 
@@ -99,7 +99,7 @@ ms.locfileid: "53098765"
 - **虛擬網路閘道設定** 
     - **名稱**：輸入 TestVNet1GW。
     - **閘道類型**：選取 [VPN]。
-    - **VPN 類型**：選取 [路由型]。
+    - **VPN 類型**：選取 [依路由]。
     - **SKU**：選取您想要使用的閘道 SKU。
     - **公用 IP 位址名稱**：輸入 TestVNet1GWIP。
     - **連接** 
@@ -125,7 +125,7 @@ ms.locfileid: "53098765"
 - **虛擬網路閘道設定** 
     - **名稱**：輸入 TestVNet4GW。
     - **閘道類型**：選取 [VPN]。
-    - **VPN 類型**：選取 [路由型]。
+    - **VPN 類型**：選取 [依路由]。
     - **SKU**：選取您想要使用的閘道 SKU。
     - **公用 IP 位址名稱**：輸入 TestVNet4GW。
     - **連接** 
@@ -133,7 +133,7 @@ ms.locfileid: "53098765"
        - **共用金鑰**：輸入 abc123。 您可以自行建立共用金鑰。 當您建立 VNet 之間的連線時，值必須相符。
 
 ## <a name="create-and-configure-testvnet1"></a>建立及設定 TestVNet1
-如果您已經有 VNet，請驗證設定是否與您的 VPN 閘道設計相容。 請特別注意任何可能與其他網路重疊的子網路。 如果有重疊的子網路，您的連線便無法正常運作。 您的 VNet 已設定為正確的設定後，即可開始執行 [指定 DNS 伺服器](#dns) 一節中的步驟。
+如果您已經有 VNet，請驗證設定是否與您的 VPN 閘道設計相容。 請特別注意任何可能與其他網路重疊的子網路。 如果有重疊的子網路，您的連線便無法正常運作。 您的 VNet 已設定為正確的設定後，即可開始執行「指定 DNS 伺服器」一節中的步驟。
 
 ### <a name="to-create-a-virtual-network"></a>建立虛擬網路
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]

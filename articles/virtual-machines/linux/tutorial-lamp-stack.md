@@ -3,7 +3,7 @@ title: 教學課程 - 在 Azure 的 Linux 虛擬機器上部署 LAMP | Microsoft
 description: 在本教學課程中，您會了解如何在 Azure 中的 Linux 虛擬機器上安裝 LAMP 堆疊。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.author: danlep
-ms.openlocfilehash: 5caed6fba607cb93a6168bded7531bc8bf63b9da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 01/30/2019
+ms.author: cynthn
+ms.openlocfilehash: c69c7055e420ffa64e547f5c3fe53d997cf90168
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970680"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753702"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中的 Linux 虛擬機器上安裝 LAMP 網頁伺服器
 
@@ -50,15 +50,12 @@ ms.locfileid: "46970680"
 sudo apt update && sudo apt install lamp-server^
 ```
 
-
-系統會提示您安裝套件和其他相依性。 出現提示時，請為 MySQL 設定根密碼，然後按 [Enter] 以繼續。 按照其餘的提示來進行。 此程序會安裝使用 PHP 搭配 MySQL 時所需的基本必要 PHP 擴充功能。 
-
-![MySQL 根密碼頁面][1]
+系統會提示您安裝套件和其他相依性。 此程序會安裝使用 PHP 搭配 MySQL 時所需的基本必要 PHP 擴充功能。  
 
 ## <a name="verify-installation-and-configuration"></a>驗證安裝和設定
 
 
-### <a name="apache"></a>Apache
+### <a name="verify-apache"></a>驗證 Apache
 
 使用下列命令檢查 Apache 的版本：
 ```bash
@@ -70,7 +67,7 @@ apache2 -v
 ![Apache 預設網頁][3]
 
 
-### <a name="mysql"></a>MySQL
+### <a name="verify-and-secure-mysql"></a>驗證並保護 MySQL
 
 使用下列命令檢查 MySQL 的版本 (請注意 `V` 參數是大寫)：
 
@@ -78,23 +75,23 @@ apache2 -v
 mysql -V
 ```
 
-若要協助保護 MySQL 的安裝，請執行 `mysql_secure_installation` 指令碼。 如果您只要設定臨時伺服器，則可略過此步驟。
+若要協助保護 MySQL 的安裝 (包括設定根密碼)，請執行 `mysql_secure_installation` 指令碼。 
 
 ```bash
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
-輸入 MySQL 的根密碼，並為您的環境設定安全性設定。
+您可以選擇性地設定驗證密碼外掛程式 (建議選項)。 然後，設定 MySQL 根使用者的密碼，並針對您的環境設定其餘安全性設定。 我們建議您對所有問題回答 "Y" (是)。
 
 如果您想要試用 MySQL 功能 (建立 MySQL 資料庫、新增使用者或變更組態設定)，請登入 MySQL。 您不需要進行這個步驟也能完成本教學課程。
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 完成後，輸入 `\q` 以結束 mysql 提示字元。
 
-### <a name="php"></a>PHP
+### <a name="verify-php"></a>驗證 PHP
 
 使用下列命令檢查 PHP 的版本：
 
@@ -114,7 +111,6 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
 
-
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已在 Azure 中部署 LAMP 伺服器。 您已了解如何︰
@@ -131,6 +127,5 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 > [!div class="nextstepaction"]
 > [使用 SSL 保護網路伺服器](tutorial-secure-web-server.md)
 
-[1]: ./media/tutorial-lamp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png

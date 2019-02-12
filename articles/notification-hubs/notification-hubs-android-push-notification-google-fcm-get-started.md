@@ -14,23 +14,20 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.author: jowargo
-ms.openlocfilehash: d758a46a19dcd109ee5786e25c886dd30b264f7e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9467197715d79527699eac0acf9c23f204b0e639
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447492"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814889"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>教學課程：使用 Azure 通知中樞和 Google Firebase 雲端通訊將通知推送至 Android 裝置
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-> [!IMPORTANT]
-> 本文示範使用 Google Firebase 雲端通訊 (FCM) 的推播通知。 如果您仍然使用 Google 雲端通訊 (GCM)，請參閱[使用 Azure 通知中樞和 GCM 將通知推送至 Android 裝置](notification-hubs-android-push-notification-google-gcm-get-started.md)。
-
-本教學課程說明如何使用 Azure 通知中樞和 Firebase 雲端通訊，將通知推送至 Android 應用程式。 在本教學課程中，您會建立空白的 Android 應用程式，其可使用 Firebase 雲端通訊 (FCM) 接收推播通知。
+本教學課程說明如何使用 Azure 通知中樞和 Firebase 雲端通訊 (FCM)，將通知推送至 Android 應用程式。 在本教學課程中，您會建立空白的 Android 應用程式，其可使用 Firebase 雲端通訊 (FCM) 接收推播通知。
 
 您可以從 [此處](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase)的 GitHub 下載本教學課程的完整程式碼。
 
@@ -55,13 +52,15 @@ ms.locfileid: "54447492"
 
 ## <a name="create-an-android-studio-project"></a>建立 Android Studio 專案
 
-1. 在 Android Studio 中，啟動新的 Android Studio 專案。
+1. 啟動 Android Studio。
+2. 選取功能表上的 [檔案]，指向 [新增]，然後選取 [新專案]。 
+2. 在 [選擇您的專案] 頁面上，選取 [空的活動]，然後選取 [下一步]。 
+3. 在 [設定您的專案] 頁面上，執行下列步驟： 
+    1. 輸入應用程式的**名稱**。
+    2. 指定要儲存專案檔案的位置。 
+    3. 選取 [完成]。 
 
-    ![Android Studio - 新增專案](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
-2. 選擇 [電話和平板電腦] 板型規格和您要支援的 [Minimum SDK]。 然後按 [下一步] 。
-
-    ![Android Studio - 專案建立工作流程](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
-3. 為主要活動選擇 [空白活動]，並按 [下一步]，然後按一下 [完成]。
+        ![設定您的專案](./media/notification-hubs-android-push-notification-google-fcm-get-started/configure-project.png)
 
 ## <a name="create-a-firebase-project-that-supports-fcm"></a>建立支援 FCM 的 Firebase 專案
 
@@ -73,11 +72,12 @@ ms.locfileid: "54447492"
 
 ### <a name="configure-firebase-cloud-messaging-settings-for-the-hub"></a>設定中樞的 Firebase 雲端通訊設定
 
-1. 在 [通知設定] 類別中選取 [Google] \(GCM\)。
-2. 輸入您先前從 [Firebase 主控台](https://firebase.google.com/console/)複製的 API 金鑰 (FCM 伺服器金鑰)。
-3. 在工具列上選取 [儲存]。
+1. 選取左側功能表上的 [設定] 下方的 [Google (GCM/FCM)]。 
+2. 針對您稍早儲存的 FCM 專案，貼上**伺服器金鑰**。 
+3. 在工具列上選取 [儲存]。 
 
-    ![Azure 通知中樞 - Google (GCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-gcm-api.png)
+    ![Azure 通知中樞 - Google (FCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
+4. 您會看到警示中的訊息表示已成功更新通知中樞。 [儲存] 按鈕已停用。 
 
 現在已將您的通知中樞設定成使用 Firebase 雲端通訊，而且您已擁有可用來註冊應用程式以接收和傳送推播通知的連接字串。
 
@@ -92,8 +92,8 @@ ms.locfileid: "54447492"
 1. 在 **app** 的 `Build.Gradle` 檔案中，於 **dependencies** 區段中新增下列數行。
 
     ```text
-    compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
-    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
+    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
 2. 加入下列儲存機制到 **dependencies** 一節之後。
@@ -108,13 +108,13 @@ ms.locfileid: "54447492"
 
 ### <a name="add-google-firebase-support"></a>新增 Google Firebase 支援
 
-1. 在 **app** 的 `Build.Gradle` 檔案中，於 **dependencies** 區段中新增下列數行。
+1. 在**應用程式**的 `Build.Gradle` 檔案中，於 **dependencies** 區段中新增下列幾行 (如果尚未存在的話)。 
 
     ```text
-    compile 'com.google.firebase:firebase-core:12.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.0'
     ```
 
-2. 在檔案結尾處新增下列外掛程式。
+2. 在檔案結尾處新增下列外掛程式 (如果尚未存在的話)。 
 
     ```text
     apply plugin: 'com.google.gms.google-services'
@@ -145,7 +145,7 @@ ms.locfileid: "54447492"
     </service>
     ```
 
-3. 您也必須定義要接收通知的接收者。 將下列接收者定義新增至 AndroidManifest.xml 檔案的 `<application>` 標籤內。 以 `AndroidManifest.xml` 檔案頂端顯示的實際套件名稱取代 `<your package>` 預留位置。
+3. 您也必須定義要接收通知的接收者。 將下列接收者定義新增至 AndroidManifest.xml 檔案的 `<application>` 標籤內。 
 
     ```xml
     <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
@@ -157,9 +157,10 @@ ms.locfileid: "54447492"
     </receiver>
     ```
 
-4. 在 `</application>` 標籤下面新增下列必要的 FCM 相關權限。
-
-    如需這些權限的詳細資訊，請參閱[設定適用於 Android 的 GCM 用戶端應用程式](https://developers.google.com/cloud-messaging/android/client#manifest)和[將適用於 Android 的 GCM 用戶端應用程式移轉至 Firebase 雲端通訊](https://developers.google.com/cloud-messaging/android/android-migrate-fcm#remove_the_permissions_required_by_gcm)。
+    > [!IMPORTANT]
+    > 以 `AndroidManifest.xml` 檔案頂端顯示的實際套件名稱取代 `<your package NAME>` 預留位置。
+4. 在工具列上選取 [立即同步]。
+5. 在 `</application>` 標籤**下面**新增下列必要的 FCM 相關權限。
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -169,27 +170,25 @@ ms.locfileid: "54447492"
 
 ### <a name="adding-code"></a>加入程式碼
 
-1. 在 [專案檢視] 中，展開 [app] > [src] > [main] > [java]。 以滑鼠右鍵按一下 **java** 底下您的套件資料夾，並按一下 [新增]，然後按一下 [Java 類別]。 新增名為 `NotificationSettings` 的新類別。
-
-    ![Android Studio - 新增 Java 類別](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hub-android-new-class.png)
+1. 在 [專案檢視] 中，展開 [app] > [src] > [main] > [java]。 以滑鼠右鍵按一下 **java** 底下您的套件資料夾，並按一下 [新增]，然後按一下 [Java 類別]。 輸入 `NotificationSettings` 作為名稱，然後選取 [確定]。
 
     請務必在 `NotificationSettings` 類別的下列程式碼中更新這三個預留位置：
 
-   * **SenderId**︰您稍早在 [Firebase 主控台](https://firebase.google.com/console/)專案設定的 [雲端通訊] 索引標籤中取得的寄件者識別碼。
    * **HubListenConnectionString**：中樞的 **DefaultListenAccessSignature** 連接字串。 在 [Azure 入口網站]上的中樞內按一下 [存取原則]，即可複製該連接字串。
    * **HubName**︰使用出現在 [Azure 入口網站]中樞頁面中的通知中樞名稱。
 
      `NotificationSettings` 程式碼︰
 
-    ```java
-    public class NotificationSettings {
-        public static String SenderId = "<Your project number>";
-        public static String HubName = "<Your HubName>";
-        public static String HubListenConnectionString = "<Enter your DefaultListenSharedAccessSignature connection string>";
-    }
-    ```
+        ```java
+        public class NotificationSettings {
+            public static String HubName = "<Your HubName>";
+            public static String HubListenConnectionString = "<Enter your DefaultListenSharedAccessSignature connection string>";
+        }
+        ```
 
-2. 使用上述步驟，加入另一個名為 `MyInstanceIDService` 的新類別。 此類別是您的執行個體識別碼接聽程式服務實作。
+    > [!IMPORTANT]
+    > 請輸入通知中樞的**名稱**和 **DefaultListenSharedAccessSignature**，再繼續進行。 
+2. 新增另一個名為 `MyInstanceIDService`的類別。 此類別是您的執行個體識別碼接聽程式服務實作。
 
     此類別的程式碼會呼叫 `IntentService` 以在背景[重新整理 FCM 權杖](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)。
 
@@ -205,7 +204,7 @@ ms.locfileid: "54447492"
         @Override
         public void onTokenRefresh() {
 
-            Log.d(TAG, "Refreshing GCM Registration Token");
+            Log.d(TAG, "Refreshing FCM Registration Token");
 
             Intent intent = new Intent(this, RegistrationIntentService.class);
             startService(intent);
@@ -317,7 +316,7 @@ ms.locfileid: "54447492"
     import android.widget.Toast;
     ```
 
-5. 在類別頂端新增下列 Private 成員。 您會使用這些欄位來[檢查 Google 所建議的 Google Play 服務可用性](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk)。
+5. 在類別的最上方新增下列成員。 您會使用這些欄位來[檢查 Google 所建議的 Google Play 服務可用性](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk)。
 
     ```java
     public static MainActivity mainActivity;
@@ -326,7 +325,7 @@ ms.locfileid: "54447492"
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     ```
 
-6. 在 `MainActivity` 類別中，將下列方法新增至 Google Play 服務的可用性。
+6. 在 `MainActivity` 類別中，新增下列方法以檢查 Google Play 服務的可用性。
 
     ```java
     /**
@@ -375,8 +374,8 @@ ms.locfileid: "54447492"
         setContentView(R.layout.activity_main);
 
         mainActivity = this;
-        NotificationsManager.handleNotifications(this, NotificationSettings.SenderId, MyHandler.class);
         registerWithNotificationHubs();
+        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
     }
     ```
 
@@ -419,7 +418,7 @@ ms.locfileid: "54447492"
     }
     ```
 
-10. `ToastNotify` 方法會使用 *"Hello World"* `TextView` 控制項持續在應用程式中報告狀態和通知。 在 activity_main.xml 配置中，為該控制項加入下列識別碼。
+10. `ToastNotify` 方法會使用 *"Hello World"* `TextView` 控制項持續在應用程式中報告狀態和通知。 在 **res** -> **layout** -> **activity_main.xml** 配置中，為該控制項新增下列識別碼。
 
     ```java
     android:id="@+id/text_hello"
@@ -430,15 +429,18 @@ ms.locfileid: "54447492"
 12. 在 `MyHandler.java` 頂端新增下列 import 陳述式：
 
     ```java
+    import android.app.NotificationChannel;
     import android.app.NotificationManager;
     import android.app.PendingIntent;
     import android.content.Context;
     import android.content.Intent;
     import android.media.RingtoneManager;
     import android.net.Uri;
+    import android.os.Build;
     import android.os.Bundle;
     import android.support.v4.app.NotificationCompat;
-    import com.microsoft.windowsazure.notifications.NotificationsHandler;
+    import com.microsoft.windowsazure.notifications.NotificationsHandler;    
+    import com.microsoft.windowsazure.notifications.NotificationsManager;
     ```
 
 13. 在 `MyHandler` 類別中新增下列程式碼，使其成為 `com.microsoft.windowsazure.notifications.NotificationsHandler` 的子類別。
@@ -447,11 +449,15 @@ ms.locfileid: "54447492"
 
     ```java
     public class MyHandler extends NotificationsHandler {
+        public static final String NOTIFICATION_CHANNEL_ID = "nh-demo-channel-id";
+        public static final String NOTIFICATION_CHANNEL_NAME = "Notification Hubs Demo Channel";
+        public static final String NOTIFICATION_CHANNEL_DESCRIPTION = "Notification Hubs Demo Channel";
+    
         public static final int NOTIFICATION_ID = 1;
         private NotificationManager mNotificationManager;
         NotificationCompat.Builder builder;
         Context ctx;
-
+    
         @Override
         public void onReceive(Context context, Bundle bundle) {
             ctx = context;
@@ -461,74 +467,83 @@ ms.locfileid: "54447492"
                 MainActivity.mainActivity.ToastNotify(nhMessage);
             }
         }
-
+    
         private void sendNotification(String msg) {
-
+    
             Intent intent = new Intent(ctx, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
+    
             mNotificationManager = (NotificationManager)
                     ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-
+    
             PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
                     intent, PendingIntent.FLAG_ONE_SHOT);
-
+    
             Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            NotificationCompat.Builder mBuilder =
-                    new NotificationCompat.Builder(ctx)
-                            .setSmallIcon(R.mipmap.ic_launcher)
-                            .setContentTitle("Notification Hub Demo")
-                            .setStyle(new NotificationCompat.BigTextStyle()
-                                    .bigText(msg))
-                            .setSound(defaultSoundUri)
-                            .setContentText(msg);
-
-            mBuilder.setContentIntent(contentIntent);
-            mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(
+                    ctx,
+                    NOTIFICATION_CHANNEL_ID)
+                    .setContentText(msg)
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setSmallIcon(android.R.drawable.ic_popup_reminder)
+                    .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL);
+    
+            notificationBuilder.setContentIntent(contentIntent);
+            mNotificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
+        }
+    
+        public static void createChannelAndHandleNotifications(Context context) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel channel = new NotificationChannel(
+                        NOTIFICATION_CHANNEL_ID,
+                        NOTIFICATION_CHANNEL_NAME,
+                        NotificationManager.IMPORTANCE_HIGH);
+                channel.setDescription(NOTIFICATION_CHANNEL_DESCRIPTION);
+                channel.setShowBadge(true);
+    
+                NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
+                notificationManager.createNotificationChannel(channel);
+                NotificationsManager.handleNotifications(context, "", MyHandler.class);
+            }
         }
     }
     ```
 
-14. 在 Android Studio 的功能表列上，按一下 [建置] > [重新建置專案]，確保您的程式碼中未沒有任何錯誤。
+14. 在 Android Studio 的功能表列上，按一下 [建置] > [重新建置專案]，確保您的程式碼中未沒有任何錯誤。 如果您收到有關 `ic_launcher` 圖示的錯誤，請移除 AndroidManifest.xml 檔案中的下列陳述式。 
 
+    ```
+        android:icon="@mipmap/ic_launcher"
+    ```
 15. 在您的裝置上執行應用程式，並確認該應用程式已向通知中心註冊成功。
 
     > [!NOTE]
     > 註冊可能會在初始啟動時失敗，直到呼叫執行個體識別碼服務的 `onTokenRefresh()` 方法為止。 重新整理作業應該會起始向通知中樞註冊的作業並且會成功。
 
-## <a name="test-the-app"></a>測試應用程式
+    ![裝置註冊成功](./media/notification-hubs-android-push-notification-google-fcm-get-started/device-registration.png)
 
-### <a name="test-send-notification-from-the-notification-hub"></a>進行從通知中樞傳送通知的測試
+## <a name="test-send-notification-from-the-notification-hub"></a>進行從通知中樞傳送通知的測試
 
 您可以執行下列動作，從 [Azure 入口網站]傳送推播通知：
 
-1. 在 [疑難排解] 區段中，選取 [測試傳送]。
-2. 針對 [平台]，選取 [Android]。
-3. 選取 [傳送]。  您在 Android 裝置上還看不到通知，因為您未在其上執行行動應用程式。 在您執行行動應用程式後，請再次選取 [傳送] 按鈕，以查看通知訊息。
-4. 在底部的清單中查看作業的 [結果]。
+1. 在 Azure 入口網站中，於您通知中樞的 [通知中樞] 頁面上，選取 [疑難排解] 區段中的 [測試傳送]。
+3. 針對 [平台]，選取 [Android]。
+4. 選取 [傳送]。  您在 Android 裝置上還看不到通知，因為您未在其上執行行動應用程式。 在您執行行動應用程式後，請再次選取 [傳送] 按鈕，以查看通知訊息。
+5. 在底部的清單中查看作業的 [結果]。
 
     ![Azure 通知中樞 - 測試傳送](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
+6. 您會在裝置上看到通知訊息。 
+
+    ![裝置上的通知訊息](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-on-device.png)
+    
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-### <a name="run-the-mobile-app"></a>執行行動應用程式
-
-如果您要在模擬器中測試推播通知，請確定您的模擬器映像支援您為應用程式選擇的 Google API 層級。 如果您的映像不支援原生 Google API，最後會發生 **SERVICE\_NOT\_AVAILABLE** 例外狀況。
+### <a name="run-the-mobile-app-on-emulator"></a>在模擬器上執行行動應用程式
+如果您要在模擬器中測試推播通知，請確定您的模擬器映像支援您為應用程式選擇的 Google API 層級。 如果您的映像不支援原生 Google API，您會遇到 **SERVICE\_NOT\_AVAILABLE** 例外狀況。
 
 除此之外，請確定已將 Google 帳戶新增至執行中模擬器的 [設定] > [帳戶] 之下。 否則，嘗試向 GCM 註冊可能會導致 **AUTHENTICATION\_FAILED** 例外狀況。
 
-1. 執行 app，並注意已回報註冊成功的註冊識別碼。
-
-    ![在 Android 上測試 - 通道註冊](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-registered.png)
-2. 輸入通知訊息，以傳送給已向中心註冊的所有 Android 裝置。
-
-    ![在 Android 上測試 - 傳送訊息](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-set-message.png)
-3. 按 [ **傳送通知**]。 任何執行應用程式的裝置都會顯示含推播通知訊息的 `AlertDialog` 執行個體。 未執行應用程式但先前已註冊推播通知的裝置，將會收到 Android 通知管理員的通知。 從左上角往下撥動，即可檢視通知。
-
-    ![在 Android 上測試 - 通知](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
-
 ## <a name="next-steps"></a>後續步驟
-
 在本教學課程中，您已使用 Firebase 雲端通訊將通知推送至 Android 裝置。 若想了解如何使用 Google 雲端通訊推送通知，請繼續進行下列教學課程：
 
 > [!div class="nextstepaction"]

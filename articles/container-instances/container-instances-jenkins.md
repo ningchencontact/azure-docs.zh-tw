@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354184"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478181"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>使用 Azure 容器執行個體作為 Jenkins 建置代理程式
 
@@ -29,7 +29,7 @@ Azure 容器執行個體 (ACI) 可提供隨選且高載的隔離環境，以便�
    - **名稱**：輸入 Jenkins 部署的名稱。
    - **使用者名稱**：輸入 Jenkins 虛擬機器管理員使用者的名稱。
    - **驗證類型**：我們建議使用 SSH 公開金鑰進行驗證。 如果您選取此選項，請貼上用來登入 Jenkins 虛擬機器的 SSH 公開金鑰。
-   - **訂用帳戶**：選取 Azure 訂用帳戶。
+   - 訂用帳戶：選取 Azure 訂用帳戶。
    - **資源群組**：建立資源群組，或選取現有的資源群組。
    - **位置**：選取 Jenkins 伺服器的位置。
 
@@ -43,7 +43,7 @@ Azure 容器執行個體 (ACI) 可提供隨選且高載的隔離環境，以便�
    - **子網路**：選取箭號、確認資訊，然後選取 [確定]。
    - **公用 IP 位址**：選取箭號來為公用 IP 位址提供自訂名稱、設定 SKU 和指派方法。
    - **網域名稱標籤**：指定一個值，為 Jenkins 虛擬機器建立完整 URL。
-   - **Jenkins 版本類型**：從選項中選取所需的版本類型：[LTS]、[每週建置] 或 [Azure 已驗證]。
+   - **Jenkins 版本類型**：從選項中選取所需的版本類型：**LTS**、**每週建置**或 **Azure 已驗證**。
 
    ![Jenkins 入口網站部署的額外設定](./media/container-instances-jenkins/jenkins-portal-02.png)
 
@@ -138,4 +138,4 @@ Jenkins 現在已設定並準備要建置和部署程式碼。 在此範例中�
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md
 [jenkins-azure]: ../jenkins/overview.md
-[managed-service-identity]: ../active-directory/managed-service-identity/overview.md
+[managed-identities-azure-resources]: ../active-directory/managed-identities-azure-resources/overview.md

@@ -1,5 +1,5 @@
 ---
-title: 使用點對站將電腦連線至 Azure 虛擬網路︰Azure 入口網站傳統 | Microsoft Docs
+title: 使用點對站和憑證驗證將電腦連線至虛擬網路︰Azure 入口網站 (傳統) | Microsoft Docs
 description: 使用 Azure 入口網站建立傳統的點對站 VPN 閘道連線。
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6aedfa3f0ef65fdb1b663db8637b648e685e31be
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: c133ba5a95e0476c6d992e53776b384fdc8c97ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321472"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809794"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>使用憑證驗證設定點對站連線 (傳統)
 
@@ -249,7 +249,7 @@ ms.locfileid: "53321472"
 
 ### <a name="to-add-a-trusted-root-certificate"></a>若要新增受信任的根憑證
 
-您最多可新增 20 個受信任的根憑證 .cer 檔案至 Azure。 如需指示，請參閱[上傳根憑證 .cer 檔案](#upload-the-root-certificate-.cer-file)。
+您最多可新增 20 個受信任的根憑證 .cer 檔案至 Azure。 如需指示，請參閱「上傳根憑證 .cer 檔案」。
 
 ### <a name="to-remove-a-trusted-root-certificate"></a>移除受信任的根憑證
 
@@ -290,7 +290,7 @@ ms.locfileid: "53321472"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 連線完成後，就可以將虛擬機器新增至您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)。 
+- 連線完成後，就可以將虛擬機器新增至您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器](https://docs.microsoft.com/azure/)。 
 
 - 若要深入了解網路與 Linux 虛擬機器，請參閱 [Azure 與 Linux VM 網路概觀](../virtual-machines/linux/network-overview.md)。
 

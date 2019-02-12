@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: 93894f9c45ac8b2cfcec23cf6a9ccd4d8e6f6824
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7efa2f19aedfbd00ccced8b755d3b02847b31444
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121714"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508601"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>教學課程：使用 Azure Logic Apps 自動處理電子郵件和附件
 
@@ -64,7 +64,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
    | **部署模型** | 資源管理員 | 管理資源部署的[部署模型](../azure-resource-manager/resource-manager-deployment-model.md) | 
    | **帳戶類型** | 一般用途 | [儲存體帳戶類型](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
    | **位置** | 美國西部 | 用來儲存您儲存體帳戶相關資訊的區域 | 
-   | **複寫** | 本機備援儲存體 (LRS) | 此設定會指定如何複製、儲存、管理及同步處理您的資料。 請參閱[複寫](../storage/common/storage-introduction.md#replication)。 | 
+   | **複寫** | 本機備援儲存體 (LRS) | 此設定會指定如何複製、儲存、管理及同步處理您的資料。 請參閱[本地備援儲存體 (LRS)：適用於 Azure 儲存體的低成本資料備援](../storage/common/storage-redundancy-lrs.md)。 | 
    | **效能** | 標準 | 此設定會指定支援的資料類型和用來儲存資料的媒體。 請參閱[儲存體帳戶類型](../storage/common/storage-introduction.md#types-of-storage-accounts)。 | 
    | **需要安全傳輸** | 已停用 | 此設定會指定連線要求所需的安全性。 請參閱[需要安全傳輸](../storage/common/storage-require-secure-transfer.md)。 | 
    | **訂用帳戶** | <your-Azure-subscription-name> | Azure 訂用帳戶的名稱 | 
@@ -274,8 +274,8 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
       | 設定 | 值 | 說明 | 
       | ------- | ----- | ----------- | 
-      | **具有附件** | 是 | 僅取得含附件的電子郵件。 <p>**附註：** 觸發程序並不會從您的帳戶移除任何電子郵件，而只會檢查新的訊息及處理符合主旨篩選條件的電子郵件。 | 
-      | **包含附件** | 是 | 取得附件並作為工作流程的輸入，而非只是檢查是否有附件。 | 
+      | **具有附件** | yes | 僅取得含附件的電子郵件。 <p>**附註：** 觸發程序並不會從您的帳戶移除任何電子郵件，而只會檢查新的訊息及處理符合主旨篩選條件的電子郵件。 | 
+      | **包含附件** | yes | 取得附件並作為工作流程的輸入，而非只是檢查是否有附件。 | 
       | **主旨篩選** | ```Business Analyst 2 #423501``` | 要在電子郵件主旨中尋找的文字 | 
       |  |  |  | 
 

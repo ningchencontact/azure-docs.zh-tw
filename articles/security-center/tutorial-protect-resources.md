@@ -3,7 +3,7 @@ title: Azure 資訊安全中心教學課程 - 使用 Azure 資訊安全中心保
 description: 本教學課程說明如何設定 Just-in-Time VM 存取原則和應用程式控制原則。
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
-ms.author: rkarlin
-ms.openlocfilehash: 1d3d775a13f83ada6ca702eb984262668507f7e9
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.date: 12/3/2018
+ms.author: monhaber
+ms.openlocfilehash: df9e804e8b8f3a9b40a18873f61ec96edee1503d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025441"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490243"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>教學課程：使用 Azure 資訊安全中心保護您的資源
-資訊安全中心使用存取和應用程式控制原則來阻擋惡意活動，以限制您暴露於威脅的風險。 Just-in-Time 虛擬機器 (VM) 存取透過讓您拒絕對 VM 的持續存取，進而減少您暴露於攻擊的風險。 不過，您可以只在需要的時候，提供對 VM 的受控制及稽核的存取。 自適性應用程式控制透過控制可在 VM 上執行的應用程式，進而協助強化 VM 以抵禦惡意軟體。 資訊安全中心會利用機器學習服務來分析在 VM 中執行的程序，並協助您利用此情報來套用列入允許清單規則。
+資訊安全中心使用存取和應用程式控制原則來阻擋惡意活動，以限制您暴露於威脅的風險。 Just-in-Time (JIT) 虛擬機器 (VM) 存取透過讓您拒絕對 VM 的持續存取，進而減少您暴露於攻擊的風險。 不過，您可以只在需要的時候，提供對 VM 的受控制及稽核的存取。 自適性應用程式控制透過控制可在 VM 上執行的應用程式，進而協助強化 VM 以抵禦惡意軟體。 資訊安全中心會利用機器學習服務來分析在 VM 中執行的程序，並協助您利用此情報來套用列入允許清單規則。
 
 在本教學課程中，您將了解如何：
 
@@ -34,14 +34,14 @@ ms.locfileid: "44025441"
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="prerequisites"></a>必要條件
-若要逐步執行本教學課程中涵蓋的功能，您必須是在資訊安全中心的標準定價層。 前 60 天可以免費試用資訊安全中心標準定價層。 [將 Azure 訂用帳戶上架到資訊安全中心標準定價層](security-center-get-started.md)快速入門為您逐步解說如何升級至「標準」定價層。
+若要逐步執行本教學課程中涵蓋的功能，您必須是在資訊安全中心的標準定價層。 您可以免費試用資訊安全中心標準層。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。 [將 Azure 訂用帳戶上架到資訊安全中心標準定價層](security-center-get-started.md)快速入門會為您逐步解說如何升級至「標準」定價層。
 
 ## <a name="manage-vm-access"></a>管理 VM 存取
-Just-In-Time VM 存取可用於鎖定 Azure VM 的連入流量，進而降低暴露於攻擊的風險，同時讓您視需要輕鬆地連線至 VM。
+JIT VM 存取可用於鎖定 Azure VM 的連入流量，進而降低暴露於攻擊的風險，同時讓您視需要輕鬆地連線至 VM。
 
 管理連接埠不需要隨時保持開啟。 只有在連線至 VM 時 (例如進行執行管理或維修工作)，才需要將管理連接埠開啟。 啟用 Just-In-Time 之後，資訊安全中心會使用「網路安全性群組」(NSG) 規則，以限制對管理連接埠的存取，讓攻擊者無法將這些連接埠作為攻擊目標。
 
-1. 在 [資訊安全中心] 主功能表中，選取 [進階雲端防禦] 下的 [Just-in-Time VM 存取]。
+1. 在資訊安全中心的主功能表中，選取 [進階雲端防禦] 下的 [Just-in-Time VM 存取]。
 
   ![Just-In-Time 虛擬機器存取][1]
 

@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 05f6b32fad4f0a449f0d801c1c7cc6a28be6f940
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685341"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745804"
 ---
-# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>教學課程：使用模擬裝置來測試與 IoT 中樞的連線能力
+# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>教學課程：使用模擬裝置來測試與您 IoT 中樞的連線能力
 
 在本教學課程中，您會使用 Azure IoT 中樞入口網站工具和 Azure CLI 命令來測試裝置連線能力。 本教學課程也會使用您在桌面機器上執行的簡易裝置模擬器。
 
@@ -75,7 +75,7 @@ node --version
 
 若要模擬將遙測資料傳送至 IoT 中樞的 **MyTestDevice**，請執行您先前下載的 Node.js 模擬裝置應用程式。
 
-在開發機器的終端機視窗中，瀏覽至您下載的範例 Node.js 專案的根資料夾。 然後，瀏覽至 **iot-hub\Tutorials\ConnectivityTests\simulated-device** 資料夾。
+在開發機器的終端機視窗中，瀏覽至您下載的範例 Node.js 專案的根資料夾。 然後，瀏覽至 **iot-hub\Tutorials\ConnectivityTests** 資料夾。
 
 在終端機視窗中，執行下列命令以安裝模擬裝置應用程式所需的程式庫，並執行模擬裝置應用程式。 使用您在入口網站中新增裝置時所記下的裝置連接字串。
 

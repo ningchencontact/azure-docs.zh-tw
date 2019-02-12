@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 3ceb7585a26290985cd5a2c523ad8094b1d1a40a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5f0358bf58e61632fdeef8363d24b39c2cf2ebf0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194231"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811421"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell Cmdlet 管理 Batch 資源
 
@@ -267,7 +267,7 @@ New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServi
 您可以在[使用 Batch 應用程式套件將應用程式部署至計算節點](batch-application-packages.md)中找到應用程式套件的詳細資訊。
 
 > [!IMPORTANT]
-> 您必須先 [連結 Azure 儲存體帳戶](#linked-storage-account-autostorage) 到您的 Batch 帳戶，才能使用應用程式套件。
+> 您必須先將 Azure 儲存體帳戶連結到您的 Batch 帳戶，才能使用應用程式套件。
 
 ### <a name="update-a-pools-application-packages"></a>更新集區的應用程式封裝
 

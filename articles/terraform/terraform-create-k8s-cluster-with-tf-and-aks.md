@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: 3ccba82e626882a99deaca2f12be3d2f96869b81
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 0ef206cf4407c6392ae5d9a70ba156f5635715e9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078944"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814787"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>以 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集
 [Azure Kubernetes Service (AKS)](/azure/aks/) 可以管理裝載 Kubernetes 的環境；因此，您不需具備容器協調流程專業知識，就能快速、輕鬆地部署及管理容器化應用程式。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。
@@ -352,7 +352,7 @@ Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式
 
     ![「terraform 方案」結果範例](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
 
-1. 執行 `terraform apply` 命令以套用方案，並建立 Kubernetes 叢集。 建立 Kubernetes 叢集的程序可能需要數分鐘，而這會導致 Cloud Shell 工作階段逾時。如果 Cloud Shell 工作階段逾時，請遵循「[從 Cloud Shell 逾時復原](#recover-from-a-dloud-shell-timeout)」一節中的步驟以完成教學課程。
+1. 執行 `terraform apply` 命令以套用方案，並建立 Kubernetes 叢集。 建立 Kubernetes 叢集的程序可能需要數分鐘，而這會導致 Cloud Shell 工作階段逾時。如果 Cloud Shell 工作階段逾時，請遵循「從 Cloud Shell 逾時復原」一節中的步驟以完成教學課程。
 
     ```bash
     terraform apply out.plan
@@ -362,7 +362,7 @@ Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式
 
     ![「terraform 套用」結果範例](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
 
-1. 在 Azure 入口網站中，選取左側功能表中的 [所有服務] 以查看針對新 Kubernetese 叢集建立的資源。
+1. 在 Azure 入口網站中，選取左側功能表中的 [所有服務] 以查看針對新 Kuberneteses 叢集建立的資源。
 
     ![Cloud Shell 提示](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 

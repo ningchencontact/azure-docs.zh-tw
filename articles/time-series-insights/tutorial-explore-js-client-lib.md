@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: f231fa7624a2babea2a3d91076ad0348b3c9e976
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540365"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812067"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>教學課程：探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫
 
@@ -147,7 +147,7 @@ TSI 用戶端程式庫 API 會大量使用彙總運算式。 彙總運算式可�
    | `splitByObject`   | 您想要作為分割依據的字串屬性 (選擇性 - 可為 null)。 | `{property: 'Station', type: 'String'}` |
    | `color`         | 所要轉譯物件的色彩。 | `'pink'` |
    | `alias`           | 彙總運算式的易記名稱。 | `'Factory3Temperature'` |
-   | `contextMenuActions` | 要繫結至視覺效果中時間序列物件的動作陣列 (選擇性)。 | 如需詳細資訊，請參閱[進階功能一節中的快顯功能表。](#popup-context-menus) |
+   | `contextMenuActions` | 要繫結至視覺效果中時間序列物件的動作陣列 (選擇性)。 | 如需詳細資訊，請參閱「進階功能」一節中的快顯功能表。 |
 
 3. 使用 `TsiClient.Server` API 呼叫 TSI 查詢以要求彙總資料：
 
@@ -260,7 +260,7 @@ TSI 用戶端程式庫也會公開一些選擇性的進階功能以供您利用�
 
 筆刷可用來界定時間範圍，以定義縮放和瀏覽等動作。
 
-用來說明筆刷的程式碼會顯示在先前的「有快顯功能表可供建立圓形圖/橫條圖的折線圖」範例中，以說明[快顯功能表](#popup-context-menus-section)。
+用來說明筆刷的程式碼會顯示在先前的「有快顯功能表可供建立圓形圖/橫條圖的折線圖」範例中，以說明快顯功能表。
 
 1. 筆刷動作與快顯功能表類似，兩者都會定義筆刷的一系列自訂動作。 每個動作都有一個包含一或多個元素的陣列。 每個元素分別定義單一快顯功能表項目：
    - `name`：用於功能表項目的文字：「將參數列印至主控台」。

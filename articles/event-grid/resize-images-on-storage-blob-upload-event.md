@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: e19d8b1b6eb06f78908238969a4f6e90e42bb564
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: b3ddaf7667baf98d9d5daa93a3106e457d0aeacb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301453"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756864"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>教學課程：使用 Event Grid 自動調整已上傳映像的大小
 
@@ -105,7 +105,7 @@ Azure Functions 需要一般的儲存體帳戶。 使用 [az storage account cre
 
 ## <a name="configure-the-function-app"></a>設定函式應用程式
 
-此函式需要連接字串以連接到 Blob 儲存體帳戶。 您在下一個步驟中部署至 Azure 的函式程式碼會在應用程式設定 myblobstorage_STORAGE 中尋找連接字串，以及在應用程式設定 myContainerName 中尋找縮圖影像容器名稱。 使用 [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) 命令取得連接字串。 使用 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) 命令設定應用程式設定。
+此函式需要連接字串以連接到 Blob 儲存體帳戶。 您在下一個步驟中部署至 Azure 的函式程式碼會在應用程式設定 myblobstorage_STORAGE 中尋找連接字串，以及在應用程式設定 myContainerName 中尋找縮圖影像容器名稱。 使用 [az storage account show-connection-string](/cli/azure/storage/account) 命令取得連接字串。 使用 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) 命令設定應用程式設定。
 
 在下列 CLI 命令中，`<blob_storage_account>` 是您在上一個教學課程中建立之 Blob 儲存體帳戶的名稱。
 
@@ -128,7 +128,7 @@ Azure Functions 需要一般的儲存體帳戶。 使用 [az storage account cre
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-範例 C# 指令碼 (.csx) 大小調整函式可從 [GitHub](https://github.com/Azure-Samples/function-image-upload-resize) 取得。 使用 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) 命令，將此函式程式碼專案部署至函式應用程式。 
+範例 C# 指令碼 (.csx) 大小調整函式可從 [GitHub](https://github.com/Azure-Samples/function-image-upload-resize) 取得。 使用 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) 命令，將此函式程式碼專案部署至函式應用程式。 
 
 在下列命令中，`<function_app>` 是您先前建立的函式應用程式名稱。
 
@@ -137,7 +137,7 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-範例 Node.js 大小調整函式可從 [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node) 取得。 使用 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) 命令，將此函式程式碼專案部署至函式應用程式。
+範例 Node.js 大小調整函式可從 [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node) 取得。 使用 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) 命令，將此函式程式碼專案部署至函式應用程式。
 
 在下列命令中，`<function_app>` 是您先前建立的函式應用程式名稱。
 
@@ -184,8 +184,12 @@ az functionapp deployment source config --name <function_app> \
     | **事件類型** | 已建立 Blob | 取消勾選 [已建立 Blob] 以外的所有類型。 只有 `Microsoft.Storage.BlobCreated` 的事件類型會傳遞至函式。| 
     | **訂閱者類型** |  自動產生 |  預先定義為 Web Hook。 |
     | **訂閱者端點** | 自動產生 | 使用為您產生的端點 URL。 | 
-4. *選擇性：* 如果您需要在相同的 Blob 儲存體中建立其他容器供日後使用，您可以使用 [篩選] 索引標籤中的 [主旨篩選] 功能更精確地設定 Blob 事件的目標，以確保只有在 Blob 明確新增至**映像**容器時，才會呼叫您的函式應用程式。 
-5. 按一下 [建立] 以新增事件訂閱。 當 Blob 新增至 images 容器時，這會建立可觸發 `Thumbnail` 函式的事件訂閱。 此函式會調整映像大小，並將其新增至 *thumbnails* 容器。
+4. 切換至 [篩選條件] 索引標籤，執行下列動作：     
+    1. 選取 [啟用主旨篩選] 選項。
+    2. 針對 [主旨開頭]，輸入下列值：**/blobServices/default/containers/images/blobs/**。
+
+        ![指定事件訂閱的篩選條件](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png) 
+2. 選取 [建立] 以新增事件訂閱。 當 Blob 新增至 `images` 容器時，這會建立可觸發 `Thumbnail` 函式的事件訂閱。 此函式會調整映像大小，並將其新增至 `thumbnails` 容器。
 
 既然已設定了後端服務，您可以在範例 Web 應用程式中測試映像調整大小功能。 
 

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 41514ca5911544da8608e0c7ebad18b33c33b494
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 640c01b2c73509ac897218fdea3841d016767a49
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856905"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818255"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure 服務匯流排與 Event Grid 的整合概觀
 
@@ -43,7 +43,7 @@ Azure 服務匯流排已開始與 Azure Event Grid 進行全新整合。 此功�
 服務匯流排目前會針對兩種案例傳送事件：
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
+* DeadletterMessagesAvailable
 
 此外服務匯流排會使用標準 Event Grid 安全性和[驗證機制](https://docs.microsoft.com/azure/event-grid/security-authentication)。
 
@@ -115,7 +115,7 @@ Azure 服務匯流排已開始與 Azure Event Grid 進行全新整合。 此功�
 
 為服務匯流排命名空間建立 Event Grid 訂用帳戶的方式有三種：
 
-* 在 [Azure 入口網站](#portal-instructions)中
+* 在 Azure 入口網站
 * 在 [Azure CLI](#azure-cli-instructions) 中
 * 在 [PowerShell](#powershell-instructions) 中
 
@@ -168,7 +168,7 @@ mespaceName "<YOUR NAMESPACE NAME>").Id
 New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```
 
-從這裡，您可以瀏覽其他安裝程式選項或[測試事件是否流動](#test-that-events-are-flowing)。
+從這裡，您可以瀏覽其他安裝程式選項或測試事件是否流動。
 
 ## <a name="next-steps"></a>後續步驟
 

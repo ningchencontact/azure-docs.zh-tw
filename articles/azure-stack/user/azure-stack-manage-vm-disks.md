@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 022dd937ae0557ca848a329039703f3b94ad0885
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b5254b45fcd71901876d9e77d1f29c0a0d40ce3f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245349"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813869"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>在 Azure Stack 中建立虛擬機器磁碟儲存體
 
@@ -50,7 +50,7 @@ ms.locfileid: "55245349"
 
 | 方法 | 選項
 |-|-|
-|[使用者入口網站](#use-the-portal-to-add-additional-disks-to-a-vm)|- 將新的資料磁碟新增至現有的 VM。 Azure Stack 會建立新的磁碟。 </br> </br>- 將現有磁碟 (.vhd) 檔案新增至先前建立的 VM。 若要這樣做，您必須先準備 .vhd 檔案並將它上傳至 Azure Stack。 |
+|使用者入口網站|- 將新的資料磁碟新增至現有的 VM。 Azure Stack 會建立新的磁碟。 </br> </br>- 將現有磁碟 (.vhd) 檔案新增至先前建立的 VM。 若要這樣做，您必須先準備 .vhd 檔案並將它上傳至 Azure Stack。 |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | - 建立具有 OS 磁碟的新 VM，並同時將一或多個資料磁碟新增到該 VM。 |
 
 ## <a name="use-the-portal-to-add-disks-to-a-vm"></a>使用入口網站將磁碟新增到 VM
@@ -115,7 +115,7 @@ ms.locfileid: "55245349"
 
     -  選取 [建立] 。 Azure Stack 會建立並驗證受控磁碟。
 
-5.  在 Azure Stack 建立磁碟並將它連結至虛擬機器之後，新的磁碟會列在虛擬機器之磁碟設定的 [資料磁碟] 底下。   
+5.  在 Azure Stack 建立磁碟並將它連結至虛擬機器之後，新的磁碟會列在虛擬機器之磁碟設定的 [資料磁碟] 下。   
 
     ![範例：檢視磁碟](media/azure-stack-manage-vm-disks/view-data-disk.png)
 

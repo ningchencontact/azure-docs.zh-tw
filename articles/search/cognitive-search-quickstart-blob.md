@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 191cff21cdaa6a4e94358ed0b9c63cd942f71a6e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015267"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564556"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>快速入門：使用技能和範例資料建立認知搜尋管線
 
@@ -147,15 +147,19 @@ Azure 服務僅限用於此案例中。 建立所需服務是準備工作的一�
 
 在本快速入門中，精靈會妥善地設定好合理的預設值： 
 
-+ 預設名稱是 *azureblob-index*。
++ 預設名稱是以資料來源類型為基礎的 azureblob-index。 
+
++ 預設欄位是以原始來源資料欄位 (`content`)，以及認知管線所建立的輸出欄位 (`people`、`organizations` 和 `locations`) 為基礎。 從中繼資料與資料取樣可推斷預設資料類型。
+
 + 預設索引鍵是 *metadata_storage_path* (此欄位包含唯一值)。
-+ 預設資料類型和屬性在全文檢索搜尋案例中是有效的。
 
-請考慮清除 `content` 欄位的 [可擷取]。 在 Blob 中，此欄位可能有數千行。 您可以想像在搜尋結果清單中，以 JSON 方式檢視含有大量內容的檔案 (例如 Word 文件或 PowerPoint 投影片組) 有多麼困難。 
-
-由於您定義了技能集，精靈會假設您想要原始的來源資料欄位，以及認知管線所建立的輸出欄位。 基於這個理由，入口網站會新增 `content`、`people`、`organizations` 和 `locations` 的索引欄位。 請注意，精靈會自動為這些欄位啟用「可擷取」和「可搜尋」。 「可搜尋」表示可搜尋到某個欄位。 「可擷取」表示它可以在結果中傳回。 
++ 這些欄位的預設屬性為 [可擷取] 和 [可搜尋]。 「可搜尋」表示可搜尋到某個欄位。 「可擷取」表示它可以在結果中傳回。 精靈假設您希望這些欄位為可擷取並可搜尋，因為您是透過技能集來建立欄位。
 
   ![索引欄位](media/cognitive-search-quickstart-blob/index-fields.png)
+
+請注意，依 `content` 欄位顯示的 [可擷取] 屬性上的刪除線和問號。 在大量文字的 Blob 文件中，`content` 欄位包含檔案主體，有可能遇到數千行。 如果您需要將檔案內容傳遞給用戶端程式碼，請確定 [可擷取] 保持已選取狀態。 否則，如果擷取的元素 (`people`、`organizations` 和 `locations`) 足以符合您的目的，請考慮清除 `content` 上的這個屬性。
+
+將欄位標示為 [可擷取] 不表示該欄位「必須」出現在搜尋結果中。 您可以使用 **$select** 查詢參數來指定要包含的欄位，精確地控制搜尋結果組合。 對於大量文字的欄位 (如`content`)，**$select** 參數可讓您將可管理的搜尋結果提供給您應用程式的人類使用者，同時確保用戶端程式碼可透過 [可擷取] 屬性存取其所需的所有資訊。
   
 繼續進行下一頁。
 
