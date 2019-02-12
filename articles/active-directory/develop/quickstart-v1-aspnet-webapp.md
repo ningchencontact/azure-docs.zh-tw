@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: aeb9f1ba460a009daacf3090c75573dd5d69b813
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095850"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816266"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式
 
@@ -64,7 +64,7 @@ ms.locfileid: "55095850"
 
 若要改為下載此範例的 Visual Studio 專案，請依照以下步驟進行：
 1. [在 GitHub 上下載專案](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip)。
-1. 跳至[設定步驟](#configure-your-webconfig-and-register-an-application)，以在執行之前先設定程式碼範例。
+1. 跳至設定步驟，以在執行之前先設定程式碼範例。
 
 ## <a name="step-2-create-your-aspnet-project"></a>步驟 2：建立 ASP.NET 專案
 
