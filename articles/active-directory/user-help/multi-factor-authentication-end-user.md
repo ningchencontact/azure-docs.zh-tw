@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 06/15/2017
 ms.author: lizross
 ms.reviewer: richagi
-ms.openlocfilehash: a6beba81bf76549010bbf586cfbd0f018ee0a0dd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 853ca60ac10272062a1eb61c5f8763e4d9e120f7
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166606"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55748211"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure Multi-Factor Authentication 對我有何意義？
 您從某個 IT 人員或老闆取得一封電子郵件，他們表示已對您的帳戶新增其他安全性驗證。  因此這代表什麼？
@@ -44,4 +44,4 @@ ms.locfileid: "55166606"
 | [登入體驗](multi-factor-authentication-end-user-signin.md) |顯示使用各種方法 (例如電話或應用程式) 登入時所能預期的情況。 |
 | [變更您的設定](multi-factor-authentication-end-user-manage-settings.md) |示範如何變更您的設定，例如電話號碼或慣用的註冊方法。 |
 | [協助使用應用程式密碼](multi-factor-authentication-end-user-app-passwords.md) |尋找有關建立和使用應用程式密碼的資訊。 |
-| [使用行動應用程式](microsoft-authenticator-app-how-to.md) |Microsoft Authenticator 應用程式適用於 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。 |
+| [使用行動應用程式](microsoft-authenticator-app-how-to.md) |Microsoft Authenticator 應用程式適用於 [Android](https://go.microsoft.com/fwlink/?linkid=866594) 和 [IOS](https://go.microsoft.com/fwlink/?linkid=866594)。|

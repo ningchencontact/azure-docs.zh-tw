@@ -4,17 +4,17 @@ description: 使用 Azure 原則來強制執行標準、符合法規合規性與
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ecebeef509f1f23e34ade6a79b8ffe39d4cbb0a5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cb6f033c784832efab23c747057b1c0ef1b317fa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845617"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730266"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
@@ -322,7 +322,7 @@ az policy definition list
 
 ## <a name="create-and-assign-an-initiative-definition"></a>建立並指派計畫定義
 
-使用計畫定義，您可以群組數個原則定義，以達成一個總體目標。 您建立計畫定義，以驗證定義範圍內的資源保持與組成計畫定義的原則定義是否相容。 如需關於計畫定義的詳細資訊，請參閱 [Azure 原則概觀](../overview.md)。
+使用計畫定義，您可以群組數個原則定義，以達成一個總體目標。 計畫會評估指派範圍內的資源，以符合所包含的原則。 如需關於計畫定義的詳細資訊，請參閱 [Azure 原則概觀](../overview.md)。
 
 ### <a name="create-an-initiative-definition"></a>建立計畫定義
 

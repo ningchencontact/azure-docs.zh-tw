@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: f23b297acdd8de0c26bf5fc02bc2d5415845b828
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 02/04/2019
+ms.openlocfilehash: ac3f24530d23278eb8f59ddc195ae1ac4f881a37
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718175"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700854"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>教學課程：使用 DMS 在線上將 SQL Server 遷移至 Azure SQL Database 受控執行個體
 您可以使用 Azure 資料庫移轉服務，以最短停機時間將內部部署 SQL Server 執行個體的資料庫遷移至 [Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance.md)。 如需其他可能需要手動操作的方法，請參閱[將 SQL Server 執行個體遷移至 Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance-migrate.md)一文。
@@ -135,6 +135,15 @@ ms.locfileid: "53718175"
    ![來源詳細資料](media/tutorial-sql-server-to-managed-instance-online/dms-source-details2.png)
 
 3. 選取 [ **儲存**]。
+
+4. 在 [選取來源資料庫] 畫面上，選取 [Adventureworks2012] 資料庫進行移轉。
+
+   ![選取來源資料庫](media/tutorial-sql-server-to-managed-instance-online/dms-source-database1.png)
+
+    > [!IMPORTANT]
+    > 如果您使用 SQL Server Integration Services (SSIS)，DMS 目前不支援將 SSIS 專案/套件 (SSISDB) 的目錄資料庫從 SQL Server 遷移至 Azure SQL Database 受控執行個體。 不過，您可以在 Azure Data Factory (ADF) 中佈建 SSIS，並將 SSIS 專案/套件重新部署到 Azure SQL Database 受控執行個體所裝載的目的地 SSISDB。 如需有關遷移 SSIS 套件的詳細資訊，請參閱[將 SQL Server Integration Services 套件遷移到 Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 一文。
+
+5. 選取 [ **儲存**]。
 
 ## <a name="specify-target-details"></a>指定目標詳細資料
 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 22b12349ac93f0c9dd595e01ecb4661e019c346b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ad5af3e43e1419246d1692c5028cb2453b04516c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458212"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696130"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來判斷句子長度
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-目前有一個端點可供翻譯工具文字使用，且該端點設定為 `base_url`。 `path` 會設定 `breaksentence` 路由，並指出我們要叫用第 3 版的 API。
+翻譯工具文字全域端點會設定為 `base_url`。 `path` 會設定 `breaksentence` 路由，並指出我們要叫用第 3 版的 API。
 
 此範例中的 `params` 會用來設定所提供文字的語言。 `breaksentence` 路由不需要 `params`。 如果排除於要求外，API 將會嘗試偵測所提供文字的語言，並在回應中連同信賴分數提供這項資訊。
 

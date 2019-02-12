@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 6302ae3bbb97f8f40733074b9d9dc708d10641ca
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: d2b34fa12836416f68d57f0147dd0364a1501c13
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36322588"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698008"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-cli"></a>教學課程：使用 Azure CLI 建立自訂角色
 
-如果內建的角色無法滿足您組織的特定需求，您可以建立自己的[自訂角色](built-in-roles.md)。 在此教學課程中，您會使用 Azure CLI 建立名為讀者支援票證的自訂角色。 自訂角色可讓使用者檢視訂用帳戶中的一切，也可開啟支援票證。
+如果[內建角色](built-in-roles.md)不符合組織的特定需求，您可以建立自己的自訂角色。 在此教學課程中，您會使用 Azure CLI 建立名為讀者支援票證的自訂角色。 自訂角色可讓使用者檢視訂用帳戶中的一切，也可開啟支援票證。
 
 在本教學課程中，您了解如何：
 
@@ -34,7 +34,7 @@ ms.locfileid: "36322588"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要：
 
@@ -65,24 +65,16 @@ ms.locfileid: "36322588"
 
     ```json
     {
-        "Name":  "",
-        "IsCustom":  true,
-        "Description":  "",
-        "Actions":  [
-    
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/{subscriptionId1}"
-                             ]
+      "Name": "",
+      "IsCustom": true,
+      "Description": "",
+      "Actions": [],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/{subscriptionId1}"
+      ]
     }
     ```
     
@@ -109,25 +101,19 @@ ms.locfileid: "36322588"
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
     
@@ -221,26 +207,20 @@ ms.locfileid: "36322588"
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*",
-                        "Microsoft.Resources/deployments/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
         

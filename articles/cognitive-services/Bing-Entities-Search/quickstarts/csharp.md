@@ -1,147 +1,105 @@
 ---
-title: 快速入門：Bing 實體搜尋 API (C#)
+title: 快速入門：使用 C# 將搜尋要求傳送至 Bing 實體搜尋 REST API
 titlesuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 實體搜尋 API。
+description: 使用此快速入門以運用 C# 來傳送要求給「Bing 實體搜尋 REST API」，並接收 JSON 回應。
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 62f260b11e4012b440fea51020b17590fece93fc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 63890d916f80fbfac7173abd0df9e559bcd0b76b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187023"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754926"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-c"></a>搭配使用 Bing 實體搜尋 API 與 C# 的快速入門 
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>快速入門：使用 C# 將搜尋要求傳送至 Bing 實體搜尋 REST API
 
-本文說明如何搭配使用 [Bing 實體搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)  API 與 C#。
+使用本快速入門以第一次呼叫 Bing 實體搜尋 API，並檢視 JSON 回應。 這個簡單的 C# 應用程式會將新聞搜尋查詢傳送給 API，並顯示回應。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs) 上找到此應用程式的原始程式碼。
+
+雖然此應用程式是以 C# 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
+
 
 ## <a name="prerequisites"></a>必要條件
 
-您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
+* 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+* [Json.NET](https://www.newtonsoft.com/json) 架構 (以 NuGet 套件形式提供)。
+* 如果您使用 Linux/MacOS，則可以使用 [Mono](http://www.mono-project.com/)來執行此應用程式。
 
-您必須有具備 **Bing 實體搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api)即足以供本快速入門使用。 您必須要有啟用免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
-## <a name="search-entities"></a>搜尋實體
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-若要執行此應用程式，請遵循下列步驟。
+## <a name="create-and-initialize-a-project"></a>建立專案並將其初始化
 
-1. 在您最愛的 IDE 中建立新的 C# 專案。
-2. 新增下方提供的程式碼。
-3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
-4. 執行程式。
+1. 在 Visual Studio 中建立新的 C# 主控台解決方案。 然後將下列命名空間新增至主要程式碼檔案。
+    
+    ```csharp
+    using System;
+    using System.Net.Http;
+    using System.Text;
+    ```
 
-```csharp
-using System;
-using System.Net.Http;
-using System.Text;
+2. 建立新的類別，然後新增 API 端點變數、您的訂用帳戶金鑰和您想要搜尋的查詢。
 
-namespace EntitySearchSample
-{
-    class Program
+    ```csharp
+    namespace EntitySearchSample
     {
-        static string host = "https://api.cognitive.microsoft.com";
-        static string path = "/bing/v7.0/entities";
-
-        static string market = "en-US";
-
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "ENTER KEY HERE";
-
-        static string query = "italian restaurant near me";
-
-        async static void Search()
+        class Program
         {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-
-            string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
-
-            HttpResponseMessage response = await client.GetAsync(uri);
-
-            string contentString = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(JsonPrettyPrint(contentString));
+            static string host = "https://api.cognitive.microsoft.com";
+            static string path = "/bing/v7.0/entities";
+    
+            static string market = "en-US";
+    
+            // NOTE: Replace this example key with a valid subscription key.
+            static string key = "ENTER YOUR KEY HERE";
+    
+            static string query = "italian restaurant near me";
+        //...
         }
-
-        static void Main(string[] args)
-        {
-            Search();
-            Console.ReadLine();
-        }
-
-
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
-
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            int offset = 0;
-            int indentLength = 3;
-
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\'':
-                        if (quote) ignore = !ignore;
-                        break;
-                }
-
-                if (quote)
-                    sb.Append(ch);
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-            }
-
-            return sb.ToString().Trim();
-        }
-
     }
-}
-```
+    ```
 
-**回應**
+## <a name="send-a-request-and-get-the-api-response"></a>傳送要求並取得 API 回應
+
+1. 在該類別內建立稱為 `Search()` 的函式。 建立新的 `HttpClient` 物件，並將您的訂用帳戶金鑰新增至 `Ocp-Apim-Subscription-Key` 標頭。
+
+    1. 藉由結合主機和路徑，來建構要求的 URI。 然後新增您的市場，並為查詢進行 URL 編碼。
+    2. 等待 `client.GetAsync()` 取得 HTTP 回應，然後藉由等待 `ReadAsStringAsync()` 來儲存 json 回應。
+    3. 將字串列印至主控台。
+
+    ```csharp
+    async static void Search()
+    {
+        //...
+        HttpClient client = new HttpClient();
+        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+
+        string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
+
+        HttpResponseMessage response = await client.GetAsync(uri);
+
+        string contentString = await response.Content.ReadAsStringAsync();
+        Console.WriteLine(JsonPrettyPrint(contentString));
+    }
+    ```
+
+2. 在應用程式的 Main 方法中，呼叫 `Search()` 函式。
+    
+    ```csharp
+    static void Main(string[] args)
+    {
+        Search();
+        Console.ReadLine();
+    }
+    ```
+
+
+## <a name="example-json-response"></a>範例 JSON 回應
 
 如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
@@ -206,11 +164,10 @@ namespace EntitySearchSample
 }
 ```
 
-[回到頁首](#HOLTop)
-
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Bing 實體搜尋教學課程](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing 實體搜尋概觀](../search-the-web.md )
-> [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [建置單頁 Web 應用程式](../tutorial-bing-entities-search-single-page-app.md)
+
+* [什麼是 Bing 實體搜尋 API？](../overview.md )
+* [Bing 實體搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

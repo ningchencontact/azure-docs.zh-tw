@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: f96b2853b887836a94091dcba0ceaf6f8dd43d12
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/04/2019
+ms.openlocfilehash: 32d1be97405624fe929a9e9e1ff486f6a31200aa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229131"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732765"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>教學課程：使用 Azure AD 登入的 Azure SQL Database 中受控執行個體的安全性
 
-Azure SQL Database 受控執行個體幾乎提供了最新的內部部署 SQL Server (Enterprise Edition) 資料庫引擎所具有的所有安全性功能：
+受控執行個體幾乎提供了最新的內部部署 SQL Server (Enterprise Edition) 資料庫引擎所具有的所有安全性功能：
 
 - 在隔離的環境中限制存取
 - 使用需要身分識別的驗證機制 (Azure AD、SQL 驗證)
@@ -38,7 +38,7 @@ Azure SQL Database 受控執行個體幾乎提供了最新的內部部署 SQL Se
 > - 了解安全性功能，例如威脅防護、稽核、資料遮罩和加密
 
 > [!NOTE]
-> SQL Database 受控執行個體的 Azure AD 登入處於**公開預覽**狀態。
+> 受控執行個體的 Azure AD 登入處於**公開預覽**狀態。
 
 若要深入了解，請參閱 [Azure SQL Database 受控執行個體概觀](sql-database-managed-instance-index.yml)和[功能](sql-database-managed-instance.md)文章。
 
@@ -48,15 +48,15 @@ Azure SQL Database 受控執行個體幾乎提供了最新的內部部署 SQL Se
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - Azure SQL Database 受控執行個體
-    - 遵循這篇文章：[快速入門：建立 Azure SQL Database 受控執行個體](sql-database-managed-instance-get-started.md)
-- 能夠存取 Azure SQL Database 受控執行個體並[已為受控執行個體佈建 Azure AD 系統管理員](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)。 若要深入了解，請參閱：
-    - [將您的應用程式連線到 Azure SQL Database 受控執行個體](sql-database-managed-instance-connect-app.md) 
-    - [Azure SQL Database 受控執行個體連線架構](sql-database-managed-instance-connectivity-architecture.md)
+  - 遵循這篇文章：[快速入門：建立 Azure SQL Database 受控執行個體](sql-database-managed-instance-get-started.md)
+- 能夠存取受控執行個體並[已為受控執行個體佈建 Azure AD 系統管理員](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)。 若要深入了解，請參閱：
+    - [將您的應用程式連線至受控執行個體](sql-database-managed-instance-connect-app.md) 
+    - [受控執行個體連線架構](sql-database-managed-instance-connectivity-architecture.md)
     - [使用 SQL 設定及管理 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md)
 
 ## <a name="limiting-access-to-your-managed-instance"></a>限制對於受控執行個體的存取
 
-受控執行個體只能透過私人 IP 位址存取。 沒有任何服務端點可供用來從受控執行個體網路外部連線至受控執行個體。 與隔離的 SQL Server 內部部署環境非常類似，應用程式或使用者需要先有受控執行個體網路 (VNet) 的存取權，才能建立連線。 如需詳細資訊，請參閱下列文章：[將您的應用程式連線到 Azure SQL Database 受控執行個體](sql-database-managed-instance-connect-app.md)。
+受控執行個體只能透過私人 IP 位址存取。 沒有任何服務端點可供用來從受控執行個體網路外部連線至受控執行個體。 與隔離的 SQL Server 內部部署環境非常類似，應用程式或使用者需要先有受控執行個體網路 (VNet) 的存取權，才能建立連線。 如需詳細資訊，請參閱下列文章：[將您的應用程式連線到受控執行個體](sql-database-managed-instance-connect-app.md)。
 
 > [!NOTE] 
 > 由於您只能從受控執行個體的 VNET 內部存取受控執行個體，因此 [SQL Database 防火牆規則](sql-database-firewall-configure.md)不適用。 受控執行個體有其自己的[內建防火牆](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)。
@@ -65,8 +65,8 @@ Azure SQL Database 受控執行個體幾乎提供了最新的內部部署 SQL Se
 
 第一個 Azure AD 登入必須由屬於 `sysadmin` 的標準 SQL Server 帳戶 (非 Azure AD) 來建立。 請參閱下列文章來取得連線到受控執行個體的範例：
 
-- [快速入門：設定 Azure VM 以連線到 Azure SQL Database 受控執行個體](sql-database-managed-instance-configure-vm.md)
-- [快速入門：設定從內部部署連線至 Azure SQL Database 受控執行個體的點對站連線](sql-database-managed-instance-configure-p2s.md)
+- [快速入門：設定 Azure VM 以連線到受控執行個體](sql-database-managed-instance-configure-vm.md)
+- [快速入門：設定從內部部署連線至受控執行個體的點對站連線](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
 > 用來設定受控執行個體的 Azure AD 系統管理員不能用來在受控執行個體內建立 Azure AD 登入。 您必須使用屬於 `sysadmin` 的 SQL Server 帳戶來建立第一個 Azure AD 登入。 此一限制是暫時性的，在 Azure AD 登入正式運作後便會移除。 如果您嘗試使用 Azure AD 系統管理員帳戶來建立登入，則會看到下列錯誤：`Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
@@ -146,7 +146,7 @@ Azure SQL Database 受控執行個體幾乎提供了最新的內部部署 SQL Se
 
 建立了 Azure AD 登入並為其提供 `sysadmin` 權限之後，該登入就可以使用 **FROM EXTERNAL PROVIDER** 子句與 **CREATE LOGIN** 來建立其他登入。
 
-1. 使用 SQL Server Management Studio 來以 Azure AD 登入連線至受控執行個體伺服器。 輸入受控執行個體的伺服器名稱。 若要在 SSMS 中驗證，使用 Azure AD 帳戶登入時會有三個選項可供選擇：
+1. 使用 SQL Server Management Studio 來以 Azure AD 登入連線至受控執行個體。 輸入受控執行個體的主機名稱。 若要在 SSMS 中驗證，使用 Azure AD 帳戶登入時會有三個選項可供選擇：
 
     - Active Directory - 通用，具 MFA 支援
     - Active Directory - 密碼
@@ -450,7 +450,7 @@ Azure SQL Database 受控執行個體幾乎提供了最新的內部部署 SQL Se
 
 ### <a name="managed-instance-capabilities"></a>受控執行個體功能
 
-如需 Azure SQL Database 受控執行個體功能的完整概觀，請參閱：
+如需受控執行個體功能的完整概觀，請參閱：
 
 > [!div class="nextstepaction"]
 > [受控執行個體功能](sql-database-managed-instance.md)

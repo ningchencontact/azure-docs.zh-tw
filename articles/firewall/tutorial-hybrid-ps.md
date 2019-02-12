@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 29af70988cf77b9fad47e5c2478e5c86529fe9cf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cf3c691553f2bc7ae8f10345daee92a8380aba25
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458209"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815739"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
 
@@ -54,7 +54,7 @@ ms.locfileid: "55458209"
 - Azure 防火牆子網路不需要任何 UDR，因為可從 BGP 得知路由。
 - 請務必在將 VNet-Hub 對等互連至 VNet-Spoke 時設定 **AllowGatewayTransit**，以及在將 VNet-Spoke 對等互連至 VNet-Hub 時設定 **UseRemoteGateways**。
 
-請參閱本教學課程中的[建立路由](#create-routes)一節，了解如何建立這些路由。
+請參閱本教學課程中的＜建立路由＞一節，了解如何建立這些路由。
 
 >[!NOTE]
 >「Azure 防火牆」必須能夠直接連線到網際網路。 如果您已啟用透過 ExpressRoute 或「應用程式閘道」以強制通道連線至內部部署環境的功能，就必須搭配將 **NextHopType** 值設定為 **Internet** 來設定 UDR 0.0.0.0/0，然後將其指派給 **AzureFirewallSubnet**。

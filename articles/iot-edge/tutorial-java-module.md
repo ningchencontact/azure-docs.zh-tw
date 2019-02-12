@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1b2692df51afb50822ec542fbda423f598bcb8e4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 9abdbd232b7f346aae9ee5fbe93d23afa4aaf32c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054736"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562363"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>教學課程：開發 Java IoT Edge 模組並部署至模擬裝置
 
@@ -99,7 +99,7 @@ Azure IoT Edge 裝置：
    | 選取模組範本 | 選擇 [Java 模組]。 |
    | 提供 groupId 值 | 輸入群組識別碼值，或接受預設值 **com.edgemodule**。 |
    | 提供模組名稱 | 將模組命名為 **JavaModule**。 |
-   | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會預先填入上一個步驟的容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 最終字串看起來會像 \<登錄名稱\>.azurecr.io/javamodule。 |
+   | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 您的容器映像會從您在上一個步驟中提供的名稱預先填入。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 <br><br>最終的映像存放庫看起來類似於：\<登錄名稱\>.azurecr.io/javamodule。 |
  
    ![提供 Docker 映像存放庫](./media/tutorial-java-module/repository.png)
    
@@ -248,18 +248,24 @@ Azure IoT Edge 裝置：
 
 在上一節中，您已建立 IoT Edge 解決方案，並將程式碼新增至 **JavaModule**，以篩選掉所回報機器溫度低於可接受限制的訊息。 現在，請將解決方案建置成容器映像，並將其推送到容器登錄。 
 
-1. 在 Visual Studio Code 終端機中輸入下列命令來登入 Docker。 接著，您可以將模組映像推送到您的 Azure 容器登錄。
+1. 在 Visual Studio Code 終端機中輸入下列命令來登入 Docker。 接著，您可以將模組映像推送到您的 Azure Container Registry。
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-   使用您在第一節中從 Azure 容器登錄複製而來的使用者名稱、密碼及登入伺服器。 您也可以在 Azure 入口網站中，從登錄的 [存取金鑰] 區段擷取這些資料。
+   使用您在第一節中從 Azure Container Registry 複製而來的使用者名稱、密碼及登入伺服器。 您也可以在 Azure 入口網站中，從登錄的 [存取金鑰] 區段擷取這些資料。
 
 2. 在 VS Code 總管中，以滑鼠右鍵按一下 deployment.template.json 檔案，然後選取 [建置並推送 IoT Edge 解決方案]。 
 
 當您指示 Visual Studio Code 建置解決方案時，它會先擷取部署範本中的資訊，再於名為 **config** 的新資料夾中，產生 deployment.json 檔案。然後，它會在整合式終端機中執行兩個命令：`docker build` 和 `docker push`。 這兩個命令會組建程式碼、將 Java 應用程式容器化，然後將程式碼推送至您在初始化解決方案時所指定的容器登錄。 
 
 您可以在 VS Code 整合式終端機中檢視完整容器映像位址。 系統會根據 module.json 檔案中的資訊建置映像位址，其格式如下：\<存放庫\>：\<版本\>-\<平台\>。 在本教學課程中，看起來應該像 registryname.azurecr.io/javamodule:0.0.1-amd64。
+
+>[!TIP]
+>如果您收到嘗試建置及推送模組時發生的錯誤，請進行下列檢查：
+>* 您已在 Visual Studio Code 中使用容器登錄中的認證登入 Docker？ 這些認證與您用來登入 Azure 入口網站的認證不同。
+>* 您的容器存放庫是否正確？ 開啟 [模組] > [cmodule] > [module.json] 並尋找 [存放庫] 欄位。 映像存放庫看起來應類似於：**\<registryname\>.azurecr.io/javamodule**。 
+>* 您正在建置開發電腦正在執行的同類型容器嗎？ Visual Studio Code 會預設為 Linux amd64 容器。 如果開發電腦正在執行 Windows 容器或 Linux arm32v7 容器，請在 VS Code 視窗底部的藍色狀態列上更新平台，以符合您的容器平台。
 
 ## <a name="deploy-and-run-the-solution"></a>部署並執行解決方案
 

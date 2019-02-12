@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5884295e93a14d74a125c27ea597f2311478042a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8b23533127b9798e5a677f646f94ae0a53fcde8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459021"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822403"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查詢範例
 
@@ -1365,29 +1365,29 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 
 | 使用量 | 說明 |
 |----------|--------|
-| [[ABS (num_expr)](#bk_abs) | 傳回指定之數值運算式的絕對 (正) 值。 |
-| [CEILING (num_expr)](#bk_ceiling) | 傳回大於或等於指定之數值運算式的最小整數值。 |
-| [FLOOR (num_expr)](#bk_floor) | 傳回小於或等於指定之數值運算式的最大整數。 |
-| [EXP (num_expr)](#bk_exp) | 傳回指定之數值運算式的指數。 |
+| [ABS (num_expr) | 傳回指定之數值運算式的絕對 (正) 值。 |
+| CEILING (num_expr) | 傳回大於或等於指定之數值運算式的最小整數值。 |
+| FLOOR (num_expr) | 傳回小於或等於指定之數值運算式的最大整數。 |
+| EXP (num_expr) | 傳回指定之數值運算式的指數。 |
 | [LOG (num_expr [,base])](#bk_log) | 傳回指定之數值運算式的自然對數，或使用指定之基底的對數 |
-| [LOG10 (num_expr)](#bk_log10) | 傳回指定之數值運算式的以 10 為基底的對數值。 |
-| [ROUND (num_expr)](#bk_round) | 傳回數值，四捨五入到最接近的整數值。 |
-| [TRUNC (num_expr)](#bk_trunc) | 傳回數值，截斷至最接近的整數值。 |
-| [SQRT (num_expr)](#bk_sqrt) | 傳回指定之數值運算式的平方根。 |
-| [SQUARE (num_expr)](#bk_square) | 傳回指定之數值運算式的平方。 |
+| LOG10 (num_expr) | 傳回指定之數值運算式的以 10 為基底的對數值。 |
+| ROUND (num_expr) | 傳回數值，四捨五入到最接近的整數值。 |
+| TRUNC (num_expr) | 傳回數值，截斷至最接近的整數值。 |
+| SQRT (num_expr) | 傳回指定之數值運算式的平方根。 |
+| SQUARE (num_expr) | 傳回指定之數值運算式的平方。 |
 | [POWER (num_expr, num_expr)](#bk_power) | 將指定數值運算式的乘冪傳回給指定的值。 |
-| [SIGN (num_expr)](#bk_sign) | 傳回指定之數值運算式的正負號值 (-1、0、1)。 |
-| [ACOS (num_expr)](#bk_acos) | 傳回角度，以弧度為單位，它的餘弦是指定的數值運算式；也稱為反餘弦值。 |
-| [ASIN (num_expr)](#bk_asin) | 傳回角度，以弧度為單位，其正弦函數是指定的數值運算式。 此函數也稱為反正弦值。 |
-| [ATAN (num_expr)](#bk_atan) | 傳回角度，以弧度為單位，其正切函數是指定的數值運算式。 這也稱為反正切值。 |
-| [ATN2 (num_expr)](#bk_atn2) | 傳回角度，以弧度為單位，正 x 軸和從原點 (y、x) 點的切線之間，其中 x 和 y 是兩個指定之浮點運算式的值。 |
-| [COS (num_expr)](#bk_cos) | 在指定運算式中傳回指定角度的三角餘弦函數，以弧度為單位。 |
-| [COT (num_expr)](#bk_cot) | 在指定的數值運算式中傳回指定角度的三角餘切函數，以弧度為單位。 |
-| [DEGREES (num_expr)](#bk_degrees) | 針對以弧度指定的角度，傳回對應的角度 (以度為單位)。 |
-| [PI ()](#bk_pi) | 傳回 PI 的常數值。 |
-| [RADIANS (num_expr)](#bk_radians) | 當您輸入數值運算式 (以度為單位) 時，傳回弧度。 |
-| [SIN (num_expr)](#bk_sin) | 在指定運算式中傳回指定角度的三角正弦函數 (以弧度為單位)。 |
-| [TAN (num_expr)](#bk_tan) | 在指定運算式中傳回輸入運算式的正切函數。 |
+| SIGN (num_expr) | 傳回指定之數值運算式的正負號值 (-1、0、1)。 |
+| ACOS (num_expr) | 傳回角度，以弧度為單位，它的餘弦是指定的數值運算式；也稱為反餘弦值。 |
+| ASIN (num_expr) | 傳回角度，以弧度為單位，其正弦函數是指定的數值運算式。 此函數也稱為反正弦值。 |
+| ATAN (num_expr) | 傳回角度，以弧度為單位，其正切函數是指定的數值運算式。 這也稱為反正切值。 |
+| ATN2 (num_expr) | 傳回角度，以弧度為單位，正 x 軸和從原點 (y、x) 點的切線之間，其中 x 和 y 是兩個指定之浮點運算式的值。 |
+| COS (num_expr) | 在指定運算式中傳回指定角度的三角餘弦函數，以弧度為單位。 |
+| COT (num_expr) | 在指定的數值運算式中傳回指定角度的三角餘切函數，以弧度為單位。 |
+| DEGREES (num_expr) | 針對以弧度指定的角度，傳回對應的角度 (以度為單位)。 |
+| PI () | 傳回 PI 的常數值。 |
+| RADIANS (num_expr) | 當您輸入數值運算式 (以度為單位) 時，傳回弧度。 |
+| SIN (num_expr) | 在指定運算式中傳回指定角度的三角正弦函數 (以弧度為單位)。 |
+| TAN (num_expr) | 在指定運算式中傳回輸入運算式的正切函數。 |
 
 例如，您現在可以執行如下列範例所示的查詢：
 

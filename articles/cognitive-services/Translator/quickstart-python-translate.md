@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/17/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: b5307db01cc7242ba73876409f18d511c2516091
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f995c727f46957d663cb6a6a32ac1d4313c71e8f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458154"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697134"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來翻譯字串
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-目前有一個端點可供翻譯工具文字使用，且該端點設定為 `base_url`。 `path` 會設定 `translate` 路由，並指出我們要叫用第 3 版的 API。
+翻譯工具文字全域端點會設定為 `base_url`。 `path` 會設定 `translate` 路由，並指出我們要叫用第 3 版的 API。
 
 `params` 會用來設定輸出語言。 在此範例中，我們會將英文翻譯成義大利文和德文：`it` 和 `de`。
 

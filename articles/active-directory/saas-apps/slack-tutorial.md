@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/31/2019
 ms.author: jeedes
-ms.openlocfilehash: 238999448f719ca8c95d8c170a9f2e6b6d7bc851
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 934acf44fe2c36e9f7c2f2d2fdb3b191806d0014
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54814111"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769429"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>教學課程：Azure Active Directory 與 Slack 整合
 
@@ -106,12 +106,12 @@ Slack 與 Azure AD 整合提供下列優點：
 
     ![Slack 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<companyname>.slack.com`。
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.slack.com`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，將值更新為「登入 URL」。 這是您的工作區網域。 例如： `https://contoso.slack.com` 。
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL：`https://slack.com`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Slack 用戶端支援小組](https://slack.com/help/contact)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > [登入 URL] 的值不是真正的值。 使用實際的登入 URL 來更新此值。 請連絡 [Slack 用戶端支援小組](https://slack.com/help/contact)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. Slack 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 

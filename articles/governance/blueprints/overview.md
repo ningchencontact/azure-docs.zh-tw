@@ -4,17 +4,17 @@ description: 「Azure 藍圖」是 Azure 中的服務，可讓您用來建立、
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bea01e8f017622f1407bbac993e50112140cc472
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246240"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563366"
 ---
 # <a name="what-is-azure-blueprints"></a>什麼是 Azure 藍圖？
 
@@ -56,17 +56,14 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 
 |資源  | 階層選項| 說明  |
 |---------|---------|---------|
-|資源群組     | 訂用帳戶 | 建立新的資源群組以供藍圖內的其他成品使用。  這些預留位置資源群組可讓您確切地以自己想要的方式組織資源，並針對包含的原則和角色指派成品以及 Azure Resource Manager 範本提供範圍限制器。         |
-|Azure Resource Manager 範本      | 訂用帳戶、資源群組 | 範本可用來撰寫複雜的環境。 範例環境：SharePoint 伺服器陣列、Azure Automation State Configuration 或 Log Analytics 工作區。 |
-|原則指派     | 訂用帳戶、資源群組 | 可讓原則或方案指派到藍圖所指派到的訂用帳戶。 原則或方案必須位在藍圖的範圍內 (在藍圖管理群組中或其下)。 如果原則或方案具有參數，您可以在藍圖建立或是藍圖指派期間指派這些參數。       |
-|角色指派   | 訂用帳戶、資源群組 | 新增現有使用者或群組到內建角色，以確保適當人員一律擁有資源的正確存取權。 角色指派可針對整個訂用帳戶進行定義，或是以巢狀方式針對包含在藍圖內的特定資源群組定義。 |
+|資源群組 | 訂用帳戶 | 建立新的資源群組以供藍圖內的其他成品使用。  這些預留位置資源群組可讓您確切地以自己想要的方式組織資源，並針對包含的原則和角色指派成品以及 Azure Resource Manager 範本提供範圍限制器。 |
+|Azure Resource Manager 範本 | 訂用帳戶、資源群組 | 範本可用來撰寫複雜的環境。 範例環境：SharePoint 伺服器陣列、Azure Automation State Configuration 或 Log Analytics 工作區。 |
+|原則指派 | 訂用帳戶、資源群組 | 可讓原則或方案指派到藍圖所指派到的訂用帳戶。 原則或方案必須在藍圖定義位置的範圍內。 如果原則或方案具有參數，您可以在藍圖建立或是藍圖指派期間指派這些參數。 |
+|角色指派 | 訂用帳戶、資源群組 | 新增現有使用者或群組到內建角色，以確保適當人員一律擁有資源的正確存取權。 角色指派可針對整個訂用帳戶進行定義，或是以巢狀方式針對包含在藍圖內的特定資源群組定義。 |
 
-### <a name="blueprints-and-management-groups"></a>藍圖和管理群組
+### <a name="blueprint-definition-locations"></a>藍圖定義位置
 
-建立藍圖定義時，您將定義藍圖的儲存位置。 目前，藍圖只能儲存到有**參與者**權限即可存取的[管理群組](../management-groups/overview.md)。 藍圖可指派給該管理群組的任何子訂用帳戶。
-
-> [!IMPORTANT]
-> 如果您不具有任何管理群組或任何已設定之管理群組的存取權，則載入藍圖定義清單時不會顯示任何可用的藍圖定義，且按一下 [範圍] 將會開啟有關擷取管理群組警告的視窗。 若要解決此問題，請確定您的訂用帳戶有適當的存取權限，且屬於[管理群組](../management-groups/overview.md)。
+建立藍圖定義時，您將定義藍圖的儲存位置。 藍圖可以儲存到您有其**參與者**權限的[管理群組](../management-groups/overview.md)或訂用帳戶。 如果該位置是管理群組，則可將藍圖指派給該管理群組的任何子訂用帳戶。
 
 ### <a name="blueprint-parameters"></a>藍圖參數
 
@@ -101,7 +98,7 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> 因為藍圖定義是以管理群組建立，所以藍圖定義權限必須在管理群組範圍上授與，或是在管理群組範圍上繼承。
+> 必須獲得或繼承了藍圖儲存所在管理群組或訂用帳戶範圍上的藍圖定義權限。
 
 若要指派或取消指派藍圖，您的帳戶需要下列權限：
 

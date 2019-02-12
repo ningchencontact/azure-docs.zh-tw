@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997113"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768652"
 ---
 # <a name="what-is-azure-cost-management"></a>什麼是 Azure 成本管理？
 
-成本管理是您有效規劃及控制商務相關成本的程序。 成本管理工作通常是由財務、管理和應用程式小組執行。 Azure 成本管理可協助組織與 Microsoft Enterprise 合約 (EA) 在規劃時考量成本。 它也有助於有效地分析成本，並採取動作來將雲端費用最佳化。 若要深入了解如何以組織身分進行成本管理，請查看 [Azure 成本管理最佳做法](cost-mgt-best-practices.md)一文。
+成本管理是您有效規劃及控制商務相關成本的程序。 成本管理工作通常是由財務、管理和應用程式小組執行。 Azure 成本管理可協助組織在規劃時考量成本。 它也有助於有效地分析成本，並採取動作來將雲端費用最佳化。 若要深入了解如何以組織身分進行成本管理，請查看 [Azure 成本管理最佳做法](cost-mgt-best-practices.md)一文。
 
 雖然計費與成本管理相關，則實則不同。 計費是涉及向客戶開立商品或服務發票以及管理商業關係的程序。  採購和財務小組通常會進行計費工作。
 

@@ -11,59 +11,42 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 11/07/2018
-ms.openlocfilehash: 382ac23ea4c8e0ec54314bb754c00a8e6e43e9f6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 01/31/2019
+ms.openlocfilehash: 84017e95d41f8934de248065a2b66792628b41d2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300960"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815536"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>快速入門：在 Azure SQL Database (預覽) 中使用機器學習服務 (搭配 R)
 
-本文說明如何在 Azure SQL Database 中使用公開預覽版的機器學習服務 (搭配 R)。 本文將引導您了解在 SQL 資料庫與 R 之間移動資料的基本概念。此外也會說明如何將格式正確的 R 程式碼包裝在預存程序 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 中，以在 SQL 資料庫中建置、定型和使用機器學習模型。
+本文說明如何在 Azure SQL Database 中使用公開預覽版的[機器學習服務 (搭配 R)](sql-database-machine-learning-services-overview.md)。 本文將引導您了解在 SQL 資料庫與 R 之間移動資料的基本概念。此外也會說明如何將格式正確的 R 程式碼包裝在預存程序 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 中，以在 SQL 資料庫中建置、定型和使用機器學習模型。
 
-SQL Database 中的機器學習服務可用來執行 R 程式碼和函式，且程式碼完全可供關聯式資料作為預存程序、作為包含 R 陳述式的 T-SQL 指令碼，或作為包含 T-SQL 的 R 程式碼。 使用企業 R 套件的強大功能可提供大規模的進階分析，並可讓您在資料所在之處導入計算和處理功能，而無須透過網路提取資料。
+使用 R 語言的強大功能可提供在資料庫內部進行的進階分析和機器學習。 此功能可讓您在資料所在之處導入計算和處理功能，而無須透過網路提取資料。 此外，運用企業 R 套件的強大功能可提供大規模的進階分析。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+機器學習服務包含 R 的基底散發套件，並與來自 Microsoft 的企業 R 套件覆疊。 Microsoft 的 R 函式和演算法同時適用於大規模和公用程式，以提供預測性分析、統計模型、資料視覺效果，以及頂尖的機器學習演算法。
 
-## <a name="sign-up-for-the-preview"></a>註冊預覽版
+如果您沒有 Azure 訂用帳戶，請先[建立帳戶](https://azure.microsoft.com/free/)再開始。
 
-依預設不會在 SQL Database 中啟用公開預覽版的機器學習服務 (搭配 R)。 請經由 [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) 將電子郵件傳送至 Microsoft，以註冊公開預覽版。
-
-當您在計畫中註冊後，Microsoft 即會將您加入公開預覽版，並移轉您現有的資料庫，或在已啟用 R 的服務上建立新的資料庫。
-
-SQL Database 中的機器學習服務 (搭配 R) 目前僅適用於單一和集區資料庫的**一般用途**和**商務關鍵**服務層中以虛擬核心為基礎的購買模型。 在此初始公開預覽版中，**超大規模**服務層和**受控執行個體**均不受支援。 在公開預覽期間，您不應將搭配 R 的機器學習服務用於生產工作負載。
-
-為您的 SQL 資料庫啟用機器學習服務 (搭配 R) 後，請返回此頁面，以即可了解如何在預存程序的內容中執行 R 指令碼。
-
-目前，R 是唯一支援的語言。 目前不支援 Python。
+> [!NOTE]
+> Azure SQL Database 中的機器學習服務 (搭配 R) 目前是公開預覽版。 [註冊預覽版](sql-database-machine-learning-services-overview.md#signup)。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要在這些練習中執行範例程式碼，您必須具有已啟用機器學習服務 (搭配 R) 的 SQL 資料庫。 在公開預覽期間，Microsoft 會將您加入，並為您現有的或新的資料庫啟用機器學習服務，如上所述。
+若要在這些練習中執行範例程式碼，您必須具有已啟用機器學習服務 (搭配 R) 的 SQL 資料庫。 在公開預覽期間，Microsoft 會將您加入，並為您現有的或新的資料庫啟用機器學習服務。 請遵循[註冊預覽版](sql-database-machine-learning-services-overview.md#signup)中的步驟。
 
 您可以連線至 SQL Database，並透過任何資料庫管理或查詢工具來執行 R 指令碼，只要該工具可連線至 SQL Database 並執行 T-SQL 查詢或預存程序即可。 本快速入門將使用 [SQL Server Management Studio](sql-database-connect-query-ssms.md)。
 
 在[新增套件](#add-package)練習中，您也必須本機電腦上安裝 [R](https://www.r-project.org/) 和 [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/)。
 
-本快速入門也需要您設定伺服器層級的防火牆規則。 如需示範如何執行這項操作的快速入門，請參閱[建立伺服器層級的防火牆規則](sql-database-get-started-portal-firewall.md)。
-
-## <a name="different-from-sql-server"></a>不同於 SQL Server
-
-Azure SQL Database 中的機器學習服務 (搭配 R) 功能類似於 [SQL Server Machine Learning 服務](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)。 但是，兩者有一些差異：
-
-- 僅限於 R。 目前不支援 Python。
-- 不需要透過 `sp_configure` 設定 `external scripts enabled`。
-- 不需要為使用者授與指令碼執行權限。
-- 必須透過 **sqlmlutils** 安裝套件。
-- 沒有個別的外部資源控管。 R 的資源是特定百分比的 SQL 資源，視服務層而定。
+本快速入門也需要您設定伺服器層級的防火牆規則。 如需示範如何執行這項操作的快速入門，請參閱[建立伺服器層級的防火牆規則](sql-database-server-level-firewall-rule.md)。
 
 ## <a name="verify-r-exists"></a>確認有 R 存在
 
 您可以確認已為 SQL 資料庫啟用機器學習服務 (搭配 R)。 請依照下列步驟進行操作。
 
-1. 開啟 SQL Server Management Studio，然後連線至 SQL 資料庫。
+1. 開啟 SQL Server Management Studio，然後連線至 SQL 資料庫。 如需如何連線的詳細資訊，請參閱[快速入門：使用 SQL Server Management Studio 連線和查詢 Azure SQL Database](sql-database-connect-query-ssms.md)。
 
 1. 執行下列程式碼。 
 
@@ -82,12 +65,22 @@ Azure SQL Database 中的機器學習服務 (搭配 R) 功能類似於 [SQL Serv
 
 1. 如果發生任何錯誤，有可能是因為您的 SQL 資料庫未啟用公開預覽版的機器學習服務 (搭配 R)。 請參閱前述有關於註冊公開預覽版的說明。
 
+## <a name="grant-permissions"></a>授與權限
+
+如果您是系統管理員，您可以自動執行外部程式碼。 其他人都必須獲得權限。
+
+執行命令之前，以有效的資料庫使用者登入取代 `<username>`。
+
+```sql
+GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
+```
+
 ## <a name="basic-r-interaction"></a>基本 R 互動
 
 有兩種方式可在 SQL Database 中執行 R 程式碼：
 
-+ 新增 R 指令碼作為系統預存程序 [sp_execute_external_script](https://docs.microsoft.com/sql//relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) 的引數。
-+ 從[遠端 R 用戶端](https://review.docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client)連線至 SQL 資料庫，並使用 SQL Database 作為計算內容來執行程式碼。
++ 新增 R 指令碼作為系統預存程序 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 的引數。
++ 從[遠端 R 用戶端](https://docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client)連線至 SQL 資料庫，並使用 SQL Database 作為計算內容來執行程式碼。
 
 下列練習著重於第一個互動模型：如何將 R 程式碼傳至預存程序。
 
@@ -119,7 +112,7 @@ Azure SQL Database 中的機器學習服務 (搭配 R) 功能類似於 [SQL Serv
 
 ## <a name="inputs-and-outputs"></a>輸入和輸出
 
-根據預設，[sp_execute_external_script](https://review.docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) 接受單一輸入資料集，這通常是您以有效 SQL 查詢的形式提供的資料集。 其他類型的輸入可傳入作為 SQL 變數。
+根據預設，[sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 接受單一輸入資料集，這通常是您以有效 SQL 查詢的形式提供的資料集。 其他類型的輸入可傳入作為 SQL 變數。
 
 預存程序會傳回單一 R 資料框架作為輸出，但您也可以輸出純量和模型作為變數。 例如，您可以輸出定型的模型作為二進位變數，並將其傳至 T-SQL INSERT 陳述式，以將該模型寫入資料表。 您也可以產生繪圖 (以二進位格式) 或純量 (個別的值，例如日期和時間、定型模型的經過時間等)。
 
@@ -254,7 +247,6 @@ Microsoft 會在提供多個隨機器學習服務預先安裝在 SQL 資料庫�
 
     ![R 中已安裝的套件](./media/sql-database-connect-query-r/r-installed-packages.png)
 
-
 ## <a name="create-a-predictive-model"></a>建立預測性模型
 
 您可以使用 R 來定型模型，並將模型儲存至 SQL 資料庫中的資料表。 在此練習中，您將定型一個簡單的迴歸模型，以根據速度預測汽車的煞停距離。 您將使用隨附於 R 的 `cars` 資料集，因為此資料集較小且易於了解。
@@ -284,7 +276,7 @@ Microsoft 會在提供多個隨機器學習服務預先安裝在 SQL 資料庫�
     - 提供定型模型時所使用的輸入資料。
 
     > [!TIP]
-    > 如果您需要複習一下線性模型，建議您使用下列教學課程，其中說明了使用 rxLinMod 來配適模型的程序：[配適線性模型](https://docs.microsoft.com/r-server/r/how-to-revoscaler-linear-model)
+    > 如果您需要複習一下線性模型，建議您使用下列教學課程，其中說明了使用 rxLinMod 來配適模型的程序：[配適線性模型](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
     若要建置模型，您必須在 R 程式碼內定義公式，並傳入資料作為輸入參數。
 
@@ -337,7 +329,7 @@ Microsoft 會在提供多個隨機器學習服務預先安裝在 SQL 資料庫�
     WHERE model_name = 'default model'
     ```
 
-4. 一般而言，預存程序 [sp_execute_external_script](https://review.docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) 的 R 輸出僅限於單一資料框架。
+4. 一般而言，預存程序 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 的 R 輸出僅限於單一資料框架。
 
     但除了資料框架以外，您也可以傳回其他類型的輸出，例如純量。
 
@@ -381,7 +373,7 @@ Microsoft 會在提供多個隨機器學習服務預先安裝在 SQL 資料庫�
     VALUES (40), (50), (60), (70), (80), (90), (100)
     ```
 
-    在此範例中，由於您的模型以 **RevoScaleR** 套件隨附的 **rxLinMod** 演算法為基礎，因此您應呼叫 [rxPredict](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxpredict) 函式，而非泛型 R `predict` 函式。
+    在此範例中，由於您的模型以 **RevoScaleR** 套件隨附的 **rxLinMod** 演算法為基礎，因此您應呼叫 [rxPredict](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxpredict) 函式，而非泛型 R `predict` 函式。
 
     ```sql
     DECLARE @speedmodel varbinary(max) = 
@@ -410,7 +402,7 @@ Microsoft 會在提供多個隨機器學習服務預先安裝在 SQL 資料庫�
     + 從資料表中擷取模型之後，請對模型呼叫 `unserialize` 函式。
 
         > [!TIP] 
-        > 同時請查看 RevoScaleR 提供的新[序列化函式](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxserializemodel)，這些函式支援即時評分。
+        > 同時請查看 RevoScaleR 提供的新[序列化函式](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel)，這些函式支援即時評分。
     + 將 `rxPredict` 函式搭配適當的引數套用至模型，並提供新的輸入資料。
 
     + 在此範例中，會在測試階段加入 `str` 函式，以檢查從 R 傳回的資料結構描述。您可於稍後移除陳述式。
@@ -439,7 +431,7 @@ Microsoft 會在提供多個隨機器學習服務預先安裝在 SQL 資料庫�
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
     ```
 
-    如果您收到類似於 **'R' 未辨識為內部或外部命令、可執行程式或批次檔**的錯誤，可能表示 R.exe 的路徑未包含在 Windows 上的 **PATH** 環境變數中。 您可以將目錄新增至環境變數，或在命令提示字元中瀏覽至該目錄 (例如 `cd C:\Program Files\R\R-3.5.1\bin`)。
+    如果您收到「'R' 未辨識為內部或外部命令、可執行程式或批次檔」的錯誤，可能表示 R.exe 的路徑未包含在 Windows 上的 **PATH** 環境變數中。 執行命令前，您可以將目錄新增至環境變數，或在命令提示字元中瀏覽至該目錄 (例如 `cd C:\Program Files\R\R-3.5.1\bin`)。
 
 1. 使用 **R CMD INSTALL** 命令安裝 **sqlmlutils**。 指定下載 Zip 檔案的目錄路徑，以及 Zip 檔案的名稱。 例如︰
 
@@ -521,9 +513,10 @@ Microsoft 會在提供多個隨機器學習服務預先安裝在 SQL 資料庫�
 
 ## <a name="next-steps"></a>後續步驟
 
-如需機器學習服務的詳細資訊，請參閱下列有關於 SQL Server 機器學習服務的文章。 雖然這些文章是針對 SQL Server 而撰寫的，但大部分的資訊都適用於 Azure SQL Database 中的機器學習服務 (搭配 R)。
+如需機器學習服務的詳細資訊，請參閱下列文章。 雖然某些文章是針對 SQL Server 而撰寫的，但大部分的資訊都適用於 Azure SQL Database 中的機器學習服務 (搭配 R)。
 
-- [SQL Server Machine Learning 服務](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [教學課程：了解在 SQL Server 中使用 R 的資料庫內分析](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [R 和 SQL Server 的端對端資料科學逐步解說](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [教學課程：搭配使用 RevoScaleR R 函式與 SQL Server 資料](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Azure SQL Database 機器學習服務 (搭配 R)](sql-database-machine-learning-services-overview.md)
+- [SQL Server Machine Learning 服務](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
+- [教學課程：了解在 SQL Server 中使用 R 的資料庫內分析](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
+- [R 和 SQL Server 的端對端資料科學逐步解說](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
+- [教學課程：搭配使用 RevoScaleR R 函式與 SQL Server 資料](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

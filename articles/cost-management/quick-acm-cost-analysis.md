@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/07/2019
+ms.date: 02/05/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: cb07ce71162a766add5ca251c97a11d353ee8084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077652"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769846"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>快速入門：使用成本分析探索及分析成本
 
@@ -32,7 +32,9 @@ ms.locfileid: "54077652"
 
 ## <a name="prerequisites"></a>必要條件
 
-成本分析適用於所有 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶。 您必須至少具備一或多個下列範圍的讀取存取，才能檢視成本資料。 如需成本管理資料的存取權指派詳細資訊，請參閱[指派資料的存取權](assign-access-acm-data.md)。
+成本分析支援各種不同的 Azure 帳戶類型。 若要檢視所支援帳戶類型的完整清單，請參閱[了解成本管理資料](understand-cost-mgt-data.md)。 若要檢視成本資料，您至少需要 Azure 帳戶的讀取存取。
+
+針對 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶，您必須至少具備一或多個下列範圍的讀取存取，才能檢視成本資料。
 
 - 計費帳戶
 - department
@@ -41,13 +43,15 @@ ms.locfileid: "54077652"
 - 訂用帳戶
 - 資源群組
 
+如需成本管理資料的存取權指派詳細資訊，請參閱[指派資料的存取權](assign-access-acm-data.md)。
+
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
 - 在 https://portal.azure.com 登入 Azure 入口網站。
 
 ## <a name="review-costs-in-cost-analysis"></a>在成本分析中檢閱成本
 
-若要使用成本分析來檢閱成本，請在 Azure 入口網站中瀏覽至 [成本管理 + 計費] &gt; [成本帳戶] &gt; [變更範圍]，選擇範圍，然後按一下 [選取]。
+若要使用成本分析來檢閱成本，請在 Azure 入口網站中瀏覽至 [成本管理 + 計費] &gt; [成本分析]。 選取 [範圍: ScopeName]，選擇某個範圍，然後按一下 [選取]。
 
 您選取的範圍使用於成本管理，可提供資料彙總，以及控制成本資訊的存取權。 當您使用範圍時，您不會多重選取。 您可以選取其他人所彙總至的較大範圍，然後篩選出您想要的範圍。 請務必了解這一點，因為有些人無法存取子範圍所彙總至的父代範圍。
 
@@ -94,7 +98,8 @@ ms.locfileid: "54077652"
 
 ![已分組的每日累積檢視，顯示上個月的 Azure 服務成本範例](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-主要圖表下的樞紐分析圖會顯示不同的群組，可讓您用更廣泛的視角來檢視所選期間和篩選條件下的整體成本。 選取屬性或標記來檢視以任何維度彙總的成本。 總檢視的完整資料集位於畫面底部，可藉由展開 [資料] 隱藏式選單，或在畫面頂端選取 [匯出] > [下載 CSV] 來加以檢視。 以下是資源群組的 [資料] 隱藏式選單範例。
+主要圖表下的樞紐分析圖會顯示不同的群組，可讓您用更廣泛的視角來檢視所選期間和篩選條件下的整體成本。 選取屬性或標記來檢視以任何維度彙總的成本。
+
 
 ![目前檢視的完整資料，顯示資源群組名稱](./media/quick-acm-cost-analysis/full-data-set.png)
 
@@ -103,6 +108,10 @@ ms.locfileid: "54077652"
 依照特定屬性進行成本分組時，會顯示排名前十個成本參與者 (最高至最低)。 如果有超過 10 個群組，則會顯示最高排名的前九個成本參與者。 此外也會顯示 [其他] 群組，其中涵蓋了所有其餘的群組。 依標記分組時，您可能也會看到 [未標記] 群組，表示未套用標記索引鍵的成本。 **未標記**一律放在最後，即使未標記的成本比已標記的成本多也是如此。 如果有十個或十個以上的標記值，未標記的成本會分類為 [其他]。
 
 「傳統」 (Azure 服務管理或 ASM) 虛擬機器、網路和儲存體資源不會共用詳細的計費資料。 這些資源會在成本分組時合併成 [傳統服務]。
+
+您可以檢視任何檢視的完整資料集。 您所套用的任何選取項目或篩選條件都會影響所顯示的資料。 若要查看完整的資料集，請按一下 [圖表類型] 清單，然後按一下 [資料表] 檢視。
+
+![在資料表檢視中目前檢視的資料](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
 
 ## <a name="download-cost-analysis-data"></a>下載成本分析資料

@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 3554151490215f128efc6725b7aaa0628d503366
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b0f909bb7f4b59e083f0ef1c8a19c11d5d9fb312
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260108"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821298"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>教學課程：使用 Jenkins 持續整合和部署從 GitHub 部署至 Azure App Service
 
@@ -45,7 +45,7 @@ ms.locfileid: "54260108"
 
   如果您沒有 Jenkins 伺服器，請立即在 Azure 入口網站中完成下列步驟：[在 Azure Linux VM 上建立 Jenkins 伺服器](/azure/jenkins/install-jenkins-solution-template)
 
-* 一個 [GitHub](https://github.com)帳戶，以便您取得範例 Java Web 應用程式的工作複本 ([分支](#fork))。 
+* 一個 [GitHub](https://github.com) 帳戶，以便您取得範例 Java Web 應用程式的工作複本 (分支)。 
 
 * [Azure CLI](/cli/azure/install-azure-cli) (可從您的本機命令列或 [Azure Cloud Shell](/azure/cloud-shell/overview) 執行)
 

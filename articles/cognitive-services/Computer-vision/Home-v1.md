@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 57388b4e2f74a1e9e8d9c322020077dfd67e89c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1ee28d04bfce00a6fe47d6914b75cfd7b18e634d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198141"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816538"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>什麼是電腦視覺 API 1.0 版？
 
@@ -26,17 +26,17 @@ ms.locfileid: "55198141"
 >- [電腦視覺 API 2.0 版](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
 
 雲端式電腦視覺 API 可供開發人員存取進階演算法，以處理影像及傳回資訊。 藉由上傳影像或指定影像 URL，Microsoft 電腦視覺演算法可根據輸入和使用者選擇，透過不同方式分析視覺內容。 透過電腦視覺 API，使用者將可分析影像以執行下列動作：
-* [根據內容為影像加上標記。](#Tagging)
-* [將影像分類。](#Categorizing)
-* [識別影像的類型和品質。](#Identifying)
+* 根據內容為影像加上標記。
+* 將影像分類。
+* 識別影像的類型和品質。
 * [偵測人臉並傳回其座標。](#Faces)
-* [辨識特定領域內容。](#Domain-Specific)
-* [產生內容的描述。](#Descriptions)
-* [使用光學字元辨識來識別影像中的列印文字。](#OCR)
-* [辨識手寫文字。](#RecognizeText)
-* [區分色彩配置。](#Color)
-* [標示成人內容。](#Adult)
-* [裁剪要作為縮圖的相片。](#Thumbnails)
+* 辨識特定領域內容。
+* 產生內容的描述。
+* 使用光學字元辨識來識別影像中的列印文字。
+* 辨識手寫文字。
+* 區分色彩配置。
+* 標示成人內容。
+* 裁剪要作為縮圖的相片。
 
 ## <a name="requirements"></a>需求
 * 支援的輸入法：應用程式/八位元資料流或影像 URL 形式的原始影像二進位檔。

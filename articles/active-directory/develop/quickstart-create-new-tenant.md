@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 02/05/2019
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 3e4cd8859f376fa4fbb9069b145d893483c3fc14
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0ffde84a39ef2955f14af66a05195e35109d41bb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101255"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692132"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>快速入門：設定開發環境
 
@@ -64,8 +64,11 @@ Microsoft 身分識別平台可讓開發人員建置以各種自訂 Microsoft 36
 如果您還沒有 Azure AD 租用戶，或是想要針對開發目的建立一個新的租用戶，請依照[目錄建立經驗](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory)中所述的步驟執行。 您必須提供下列資訊才能建立新的租用戶：
 
 - **組織名稱**
-- **初始網域** - 這會是 *.onmicrosoft.com 的一部分。 您可以稍後自訂更多網域設定。 
+- **初始網域** - 這會是 *.onmicrosoft.com 的一部分。 您可以稍後自訂更多網域設定。
 - **國家或區域**
+
+> [!NOTE]
+> 在為租用戶命名時，請使用英數字元。 不允許使用特殊字元。 名稱長度不得超過 256 個字元。
 
 ## <a name="social-and-local-accounts"></a>社交與本機帳戶
 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: 63cc71ff784a25984672090bc6dbba662d9a52c1
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 02/06/2019
+ms.openlocfilehash: ac7b4dc563fa663dd016971ba6a27104860c8cce
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728137"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767961"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-online-using-dms"></a>教學課程：使用 DMS 在線上將 SQL Server 移轉至 Azure SQL Database
 您可以使用 Azure 資料庫移轉服務，在最短的停止運作時間內將資料庫從內部部署 SQL Server 執行個體移轉至 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)。 在本教學課程中，您要使用 Azure 資料庫移轉服務，將已還原至內部部署 SQL Server 2016 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉到 Azure SQL Database。
@@ -32,7 +32,7 @@ ms.locfileid: "53728137"
 > * 下載移轉報告。
 
 > [!NOTE]
-> 使用 Azure 資料庫移轉服務來執行線上移轉，需要根據進階定價層來建立執行個體。
+> 若要使用「Azure 資料庫移轉服務」來執行線上移轉，必須根據「進階」定價層建立執行個體。 如需詳細資訊，請參閱 Azure 資料庫移轉服務的[定價](https://azure.microsoft.com/pricing/details/database-migration/)頁面。
 
 > [!IMPORTANT]
 > 為了獲得最佳的移轉體驗，Microsoft 建議在目標資料庫所在的同一個 Azure 區域中，建立 Azure 資料庫移轉服務的執行個體。 跨區域或地理位置移動資料可能使移轉程序變慢，並產生錯誤。
@@ -46,7 +46,11 @@ ms.locfileid: "53728137"
 
 - 下載並安裝 [SQL Server 2012 或更新版本](https://www.microsoft.com/sql-server/sql-server-downloads) (任何版本)。
 - 啟用 TCP/IP 通訊協定，在 SQL Server Express 安裝期間預設會停用，方法是遵循[啟用或停用伺服器網路通訊協定](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)一文中的指示。
-- 您可以依照[在 Azure 入口網站中建立 Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) 一文中的詳細資料來建立 Azure SQL Database 執行個體。
+- 您可以依照[在 Azure 入口網站中建立 Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) 一文中的詳細資料來建立 Azure SQL Database。
+
+    > [!NOTE]
+    > 如果您使用 SQL Server Integration Services (SSIS)，而且想要將 SSIS 專案/套件 (SSISDB) 的目錄資料庫從 SQL Server 遷移到 Azure SQL Database，當您在 Azure Data Factory (ADF) 中佈建 SSIS 時，系統會自動代替您建立及管理目的地 SSISDB。 如需有關遷移 SSIS 套件的詳細資訊，請參閱[將 SQL Server Integration Services 套件遷移到 Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 一文。 
+ 
 - 下載並安裝 [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) v3.3 或更新版本。
 - 使用 Azure Resource Manager 部署模型來建立 Azure 資料庫移轉服務的 VNET，其使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 提供站對站連線能力給您的內部部署來源伺服器。
 - 確定您的 Azure 虛擬網路 (VNET) 網路安全性群組規則不會封鎖下列通訊埠 443、53、9354、445、12000。 如需 Azure VNET NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
@@ -118,6 +122,9 @@ ms.locfileid: "53728137"
 4.  在 [Select sources] \(選取來源\) 畫面的 [Connect to a server] \(連線到伺服器\) 對話方塊中，提供您 SQL Server 的連線詳細資料，然後選取 [Connect] \(連線\)。
 5.  在 [新增資源] 對話方塊中，依序選取 [AdventureWorks2012]、[新增]，然後選取 [開始評估]。
 
+    > [!NOTE]
+    > 如果您使用 SSIS，DMA 目前不支援來源 SSISDB 的評估。 不過會評估/驗證 SSIS 專案/套件，因為它們會重新部署到 Azure SQL Database 所裝載的目的地 SSISDB。 如需有關遷移 SSIS 套件的詳細資訊，請參閱[將 SQL Server Integration Services 套件遷移到 Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 一文。
+
     評估完成時，結果會如下圖所示：
 
     ![評估資料移轉](media/tutorial-sql-server-to-azure-sql-online/dma-assessments.png)
@@ -134,6 +141,9 @@ ms.locfileid: "53728137"
 
 > [!NOTE]
 > 在 DMA 中建立移轉專案之前，請務必先確認您已依照必要條件中的說明佈建 Azure SQL Database。 基於本教學課程的目的，Azure SQL Database 的名稱會假設為 **AdventureWorksAzure**，但您可以命名為不同的名稱。
+
+> [!IMPORTANT]
+> 如果您使用 SSIS，DMA 目前不支援來源 SSISDB 的移轉，但您可以將 SSIS 專案/套件重新部署到 Azure SQL Database 所裝載的目的地 SSISDB。 如需有關遷移 SSIS 套件的詳細資訊，請參閱[將 SQL Server Integration Services 套件遷移到 Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 一文。
 
 若要將 **AdventureWorks2012** 結構描述移轉到 Azure SQL Database，請執行下列步驟：
 
@@ -249,6 +259,9 @@ ms.locfileid: "53728137"
     > 使用自我簽署憑證加密的 SSL 連線不會提供增強式安全性。 這種連線容易受到攔截式攻擊。 在生產環境中，或在連線到網際網路的伺服器上，您不應該仰賴使用自我簽署憑證的 SSL。
 
    ![來源詳細資料](media/tutorial-sql-server-to-azure-sql-online/dms-source-details3.png)
+
+    > [!IMPORTANT]
+    > 如果您使用 SSIS，DMS 目前不支援來源 SSISDB 的移轉，但您可以將 SSIS 專案/套件重新部署到 Azure SQL Database 所裝載的目的地 SSISDB。 如需有關遷移 SSIS 套件的詳細資訊，請參閱[將 SQL Server Integration Services 套件遷移到 Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 一文。
 
 ## <a name="specify-target-details"></a>指定目標詳細資料
 1. 選取 [儲存]，然後在 [移轉目標詳細資料] 畫面上指定目標 Azure SQL Database 伺服器的連線詳細資料，此伺服器是使用 DMA 將 **AdventureWorks2012** 結構描述部署到的預先佈建 Azure SQL Database。

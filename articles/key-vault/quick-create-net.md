@@ -1,6 +1,6 @@
 ---
 title: 快速入門：使用 Node Web 應用程式從 Azure Key Vault 設定及擷取祕密 - Azure Key Vault | Microsoft Docs
-description: 快速入門：使用 .NET Web 應用程式從 Azure Key Vault 設定及擷取祕密
+description: 在本快速入門中，您會使用 .NET Web 應用程式從 Azure Key Vault 設定及擷取祕密
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,31 +9,32 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 20d47ecaea8ce393f60cba93c3dbcf7ca4a076c8
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 300ee1b01f346f7e1c118b76d64d0eda6e4d7934
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002598"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565542"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>快速入門：使用 .NET Web 應用程式從 Azure Key Vault 設定及擷取祕密
 
-在此快速入門中，您將執行讓 Azure Web 應用程式使用 Azure 資源的受控識別從 Azure Key Vault 讀取資訊所需的步驟。 您會了解如何：
+在本快速入門中，您會遵循相關步驟，以便讓 Azure Web 應用程式使用 Azure 資源的受控識別從 Azure Key Vault 讀取資訊。 使用 Key Vault 可協助保護資訊的安全。 您會了解如何：
 
-> [!div class="checklist"]
-> * 建立金鑰保存庫。
-> * 將秘密儲存在金鑰保存庫中。
-> * 從金鑰保存庫擷取祕密。
-> * 建立 Azure Web 應用程式。
-> * 啟用 Web 應用程式的[受控服務識別](../active-directory/managed-identities-azure-resources/overview.md)。
-> * 授與 Web 應用程式從金鑰保存庫讀取資料所需的權限。
+* 建立金鑰保存庫。
+* 將秘密儲存在金鑰保存庫中。
+* 從金鑰保存庫擷取祕密。
+* 建立 Azure Web 應用程式。
+* 啟用 Web 應用程式的[受控服務識別](../active-directory/managed-identities-azure-resources/overview.md)。
+* 授與 Web 應用程式從金鑰保存庫讀取資料所需的權限。
 
-在我們繼續之前，請閱讀[基本概念](key-vault-whatis.md#basic-concepts)。
+在繼續之前，請先閱讀 [Key Vault 的基本概念](key-vault-whatis.md#basic-concepts)。
 
 >[!NOTE]
->Key Vault 是一個中央存放庫，可透過程式設計方式儲存秘密。 但若要這樣做，應用程式和使用者必須要先向 Key Vault 進行驗證，也就是出具祕密。 為了遵循安全性最佳做法，第一個秘密必須要定期輪替。 
+>Key Vault 是一個中央存放庫，可透過程式設計方式儲存秘密。 但若要這樣做，應用程式和使用者必須要先向 Key Vault 進行驗證，也就是出具祕密。 為符合安全性最佳做法，第一個秘密必須要定期輪替。 
 >
 >使用 [Azure 資源的受控服務識別](../active-directory/managed-identities-azure-resources/overview.md)時，在 Azure 中執行的應用程式將會獲得一個由 Azure 自動管理的身分識別。 這有助於解決*祕密導入問題*，如此，使用者和應用程式即可遵循最佳做法，且不需要擔心輪替第一個祕密的問題。
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -77,7 +78,7 @@ az group create --name "<YourResourceGroupName>" --location "East US"
 
 接下來，您會在上一個步驟中建立的資源群組中建立金鑰保存庫。 請提供下列資訊：
 
-* 金鑰保存庫名稱：名稱必須是 3-24 個字元的字串，且只能包含 0-9、a-z、A-Z 和 -。
+* 金鑰保存庫名稱：名稱必須是 3-24 個字元的字串，且只能包含 0-9、a-z、A-Z 和連字號 (-)。
 * 資源群組名稱。
 * 位置：**美國東部**。
 
@@ -143,8 +144,7 @@ git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 
 Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的程式碼必須向 Key Vault 進行驗證，才可取得這些項目。 [Azure 資源受控識別概觀](../active-directory/managed-identities-azure-resources/overview.md)可在 Azure Active Directory (Azure AD) 中將受控識別自動提供給 Azure 服務，而降低解決此問題的難度。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。
 
-1. 返回 Azure CLI。
-2. 執行 assign-identity 命令來建立此應用程式的識別：
+在 Azure CLI 中，執行 assign-identity 命令來建立此應用程式的身分識別：
 
    ```azurecli
    az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group "<YourResourceGroupName>"
@@ -171,10 +171,20 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-現在當您執行應用程式時，您應該會看到擷取的秘密值。 在上面的命令中，您會被賦予 App Service 的身分識別 (MSI) 權限以在您的 Key Vault 上執行**取得**與**列出**作業
+現在當您執行應用程式時，您應該會看到擷取的秘密值。 在上述命令中，您會獲得 App Service 權限的身分識別，而可在金鑰保存庫上執行**取得**與**列出**作業。
+
+## <a name="clean-up-resources"></a>清除資源
+請刪除不再需要的資源群組、虛擬機器和所有相關的資源。 若要這樣做，請選取 VM 的資源群組，然後選取 [刪除]。
+
+藉由使用 [az keyvault delete](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) 命令來刪除金鑰保存庫：
+
+```azurecli
+az keyvault delete --name
+                   [--resource-group]
+                   [--subscription]
+```
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入了解 Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
-* [適用於 .NET 的 Azure SDK](https://github.com/Azure/azure-sdk-for-net)
-* [Azure REST API 參考](https://docs.microsoft.com/rest/api/keyvault/)
+> [!div class="nextstepaction"]
+> [深入了解 Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)

@@ -4,7 +4,7 @@ description: 了解如何設定 Azure Active Directory 與 G Suite 之間的單�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4705bb8c93381a2487ba94f9dfe3a7e8820f2fd9
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: dd413f9a7eba60fd72e7cc29f44f49b72eaaf806
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902460"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769401"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>教學課程：Azure Active Directory 與 G Suite 整合
 
@@ -77,9 +77,9 @@ G Suite 與 Azure AD 整合提供下列優點：
 
     系統針對任何具備有效 Exchange 授權的使用者，自動填入電子郵件屬性。 如果使用者並未啟用電子郵件功能，則會收到此錯誤，因為應用程式需要取得此屬性才能授與存取權。
 
-    若要指派 Exchange 授權，請使用系統管理員帳戶前往 portal.office.com，然後按一下系統管理中心、帳單、訂用帳戶，選取您的 Office 365 訂用帳戶，然後按一下 [指派使用者]，選取您要檢查其訂用帳戶的使用者，然後在右窗格中按一下編輯授權。
+    您可以使用系統管理員帳戶前往 portal.office.com，然後按一下系統管理中心、帳單、訂用帳戶，選取您的 Office 365 訂用帳戶，然後按一下 [指派使用者]，選取您要檢查其訂用帳戶的使用者，然後在右窗格中按一下編輯授權。
 
-    指派 Exchange 授權後，可能需要幾分鐘的時間才會套用。 然後，系統會自動填入 user.mail 屬性，此問題應該就解決了。
+    指派 O365 授權後，可能需要幾分鐘的時間才會套用。 然後，系統會自動填入 user.mail 屬性，此問題應該就解決了。
 
 ## <a name="scenario-description"></a>案例描述
 
@@ -142,28 +142,45 @@ G Suite 與 Azure AD 整合提供下列優點：
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
+4. 在 [基本 SAML 設定] 區段上，如果要設定 **Gmail**，執行下列步驟：
 
     ![G Suite 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列格式輸入 URL︰`https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [G Suite 用戶端支援小組](https://www.google.com/contact/)以取得這些值。
 
-5. G Suite 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示上述的範例。 [唯一的使用者識別碼] 的預設值是 **user.userprincipalname**，但是 G Suite 會預期這是與使用者電子郵件地址對應的值。 對此您可以使用清單中的 **user.mail** 屬性，或者根據組織組態使用適當的屬性值。
+5. 在 [基本 SAML 設定] 區段上，如果要設定 **Google Cloud Platform**，執行下列步驟：
+
+    ![G Suite 網域與 URL 單一登入資訊](common/sp-identifier.png)
+
+    a. 在 [登入 URL] 文字方塊中，使用下列格式輸入 URL︰`https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+    | |
+    |--|
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
+    
+    > [!NOTE] 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [G Suite 用戶端支援小組](https://www.google.com/contact/)以取得這些值。
+
+6. G Suite 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示上述的範例。 [唯一的使用者識別碼] 的預設值是 **user.userprincipalname**，但是 G Suite 會預期這是與使用者電子郵件地址對應的值。 對此您可以使用清單中的 **user.mail** 屬性，或者根據組織組態使用適當的屬性值。
 
     ![映像](common/edit-attribute.png)
 
-6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+7. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
     | Name | 來源屬性 |
     | ---------------| --------------- |
@@ -187,11 +204,11 @@ G Suite 與 Azure AD 整合提供下列優點：
 
     g. 按一下 [檔案] 。
 
-7. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
+8. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
-8. 在 [設定 G Suite] 區段上，依據您的需求複製適當的 URL。
+9. 在 [設定 G Suite] 區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -203,7 +220,7 @@ G Suite 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-g-suite-single-sign-on"></a>設定 G Suite 單一登入
 
-1. 在瀏覽器中開啟新索引標籤，然後使用系統管理員帳戶登入 [G Suite 管理控制台](https://admin.google.com/)。
+1. 在瀏覽器中開啟新索引標籤，然後使用系統管理員帳戶登入 [G Suite 管理控制台](http://admin.google.com/)。
 
 2. 按一下 [安全性] 。 如果您沒有看到連結，它可能隱藏在畫面底部的 [其他控制項]  功能表之下。
 

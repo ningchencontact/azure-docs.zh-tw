@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 3df96451838fe90b7d45d1aedd272fc10d798e57
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b6e378263ac8bcd7cfee36209f70f26680988e6e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883970"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753793"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>教學課程：在 Front Door 自訂網域上設定 HTTPS
 
@@ -31,7 +31,7 @@ ms.locfileid: "48883970"
 
 - 容易啟用：從 [Azure 入口網站](https://portal.azure.com)按一下就能佈建。 您也可以使用 REST API 或其他開發工具來啟用此功能。
 
-- 可以使用完整憑證管理：為您處理所有憑證採購及管理。 憑證會在到期之前自動佈建並更新，進而消除因為憑證到期而中斷服務的風險。
+- 可使用完整憑證管理：為您處理所有憑證採購及管理。 憑證會在到期之前自動佈建並更新，進而消除因為憑證到期而中斷服務的風險。
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
@@ -43,7 +43,7 @@ ms.locfileid: "48883970"
 
 ## <a name="prerequisites"></a>必要條件
 
-您必須先建立 Front Door 和至少一個已上架的自訂網域，才能完成本教學課程中的步驟。 如需詳細資訊，請參閱[教學課程：將自訂網域新增至 Front Door](front-door-custom-domain.md)。
+您必須先建立 Front Door 和至少一個已上架的自訂網域，才能完成本教學課程中的步驟。 如需詳細資訊，請參閱[教學課程：將自訂網域新增到您的 Front Door](front-door-custom-domain.md)。
 
 ## <a name="ssl-certificates"></a>SSL 憑證
 
@@ -139,11 +139,11 @@ ms.locfileid: "48883970"
 
 您的 CNAME 記錄應該採用下列格式，其中「名稱」是您的自訂網域名稱，而「值」則是您的 Front Door 預設 .azurefd.net 主機名稱：
 
-| 名稱            | 類型  | 值                 |
+| Name            | 類型  | 值                 |
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azurefd.net |
 
-如需有關 CNAME 記錄的詳細資訊，請參閱[建立 CNAME DNS 記錄](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records)。
+如需有關 CNAME 記錄的詳細資訊，請參閱[建立 CNAME DNS 記錄](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain)。
 
 如果您的 CNAME 記錄格式正確，DigiCert 就會自動驗證您的自訂網域名稱，並且為您的網域名稱建立專用憑證。 DigitCert 不會傳送驗證電子郵件給您，因此您不需要核准您的要求。 憑證有效期限為一年，並且會在到期之前自動更新。 請繼續進行[等待傳播](#wait-for-propagation)。 
 

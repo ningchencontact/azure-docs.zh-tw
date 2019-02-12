@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 8b56203b700d42f3fdec1b066ed05caf92eb53f1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 343baedb77eb5c8a250e2ab967332dc0905f5112
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462030"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743679"
 ---
 # <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>快速入門：訂閱 Event Grid 通知，以便將 Azure Blob 擷取至 Azure 資料總管
 
@@ -48,7 +48,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     | | |
 
 1. 如果您想要追蹤特定容器中的檔案，選取 [其他功能] 索引標籤。 設定通知的篩選條件，如下所示：
-    * [主旨開頭為] 欄位是 Blob 容器的*常值*前置詞 (因為套用的的模式為 *startswith*，因此可以跨多個容器)。 不允許使用萬用字元。
+    * [主旨開頭為] 欄位是 Blob 容器的*常值*前置詞 (因為套用的模式為 *startswith*，因此可以跨多個容器)。 不允許使用萬用字元。
      它*必須*設定如下：*`/blobServices/default/containers/`*[容器前置詞]
     * [主旨結尾為] 欄位是 Blob 的*常值*後置詞。 不允許使用萬用字元。
 
@@ -111,7 +111,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
      **設定** | **建議的值** | **欄位描述**
     |---|---|---|
     | 資料表 | *TestTable* | 您在 **TestDatabase** 中建立的資料表。 |
-    | 資料格式 | *JSON* | 支援 JSON 和 CSV 格式。 |
+    | 資料格式 | *JSON* | 支援的格式為 Avro、CSV、JSON、MULTILINE JSON、PSV、SOH、SCSV、TSV 和 TXT。 |
     | 資料行對應 | *TestMapping* | 您在 **TestDatabase** 中建立的對應，會將傳入的 JSON 資料對應至 **TestTable** 的資料行名稱與資料類型。|
     | | |
 

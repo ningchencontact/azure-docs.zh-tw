@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051306"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812339"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>虛擬網路服務端點原則 (預覽)
 
@@ -154,7 +154,7 @@ __Azure 儲存體__：WestCentralUS、WestUS2。
 ### <a name="troubleshooting-scenarios"></a>疑難排解案例
 - 端點原則未列出允許存取的儲存體帳戶
   - 網路安全性群組可能會允許存取網際網路或位於其他區域的 Azure 儲存體帳戶。
-  - 如果要拒絕所有輸出網際網路流量，並只允許特定 Azure 儲存體區域的流量，則應該設定網路安全性群組。 如需詳細資料，請參閱[網路安全性群組](#network-security-groups)。
+  - 如果要拒絕所有輸出網際網路流量，並只允許特定 Azure 儲存體區域的流量，則應該設定網路安全性群組。 如需詳細資料，請參閱網路安全性群組。
 - 存取端點原則中所列的帳戶時遭到拒絕
   - 網路安全性群組或防火牆篩選條件可能會封鎖存取
   - 如果移除/重新套用原則會導致連線中斷：

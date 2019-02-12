@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 14dc1ca90ecd342330425db840776fa67caa80b0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e2bb5550cfe07064d595151305955d87f9c61050
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208137"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819530"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>開始使用知識探索服務
 
@@ -100,7 +100,7 @@ ms.locfileid: "55208137"
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
-若要在 Azure 外快速進行原型設計，[`kes.exe build_index`](CommandLine.md#build_index-command) 可以從包含高達 10,000 個物件的資料檔案，在本機建置小型索引。 針對較大的資料檔案，您可以從 [Azure 中的 Windows VM](../../../articles/virtual-machines/windows/quick-create-portal.md) 內執行命令，或在 Azure 中執行遠端建置。 如需詳細資訊，請參閱[相應增加](#scaling-up)。
+若要在 Azure 外快速進行原型設計，[`kes.exe build_index`](CommandLine.md#build_index-command) 可以從包含高達 10,000 個物件的資料檔案，在本機建置小型索引。 針對較大的資料檔案，您可以從 [Azure 中的 Windows VM](../../../articles/virtual-machines/windows/quick-create-portal.md) 內執行命令，或在 Azure 中執行遠端建置。 如需詳細資訊，請參閱相應增加。
 
 ## <a name="use-an-xml-grammar-specification"></a>使用 XML 文法規格
 
@@ -211,7 +211,7 @@ ms.locfileid: "55208137"
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
-這樣會起始 Web 服務的本機執行個體。 您可以從瀏覽器瀏覽 `http::localhost:<port>`，以便以互動方式測試服務。 如需詳細資訊，請參閱[測試服務](#testing-service)。
+這樣會起始 Web 服務的本機執行個體。 您可以從瀏覽器瀏覽 `http::localhost:<port>`，以便以互動方式測試服務。 如需詳細資訊，請參閱測試服務。
 
 您也可以直接呼叫多種 [Web API](WebAPI.md) 來測試自然語言解譯、查詢完成、結構化查詢評估，以及色階分佈圖計算。 若要停止服務，請在 `kes.exe host_service` 命令提示字元中輸入 "quit"，或按下 Ctrl+C。 這裡有一些範例：
 
@@ -220,7 +220,7 @@ ms.locfileid: "55208137"
 * [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais')&attributes=Title,Year,Author.Name,Author.Id&count=2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
 * [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'),Year>=2013)&attributes=Year,Keyword&count=4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
 
-在 Azure 之外，[`kes.exe host_service`](CommandLine.md#host_service-command) 限制為最多 10,000 個物件的索引。 其他限制則包括每秒 10 個要求的 API 速率，以及在處理序自動終止之前，總共 1000 個要求。 若要略過這些限制，請從 [Azure 中的 Windows VM](../../../articles/virtual-machines/windows/quick-create-portal.md) 內執行命令，或使用 [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) 命令部署至 Azure 雲端服務。 如需詳細資訊，請參閱[部署服務](#deploying-service)。
+在 Azure 之外，[`kes.exe host_service`](CommandLine.md#host_service-command) 限制為最多 10,000 個物件的索引。 其他限制則包括每秒 10 個要求的 API 速率，以及在處理序自動終止之前，總共 1000 個要求。 若要略過這些限制，請從 [Azure 中的 Windows VM](../../../articles/virtual-machines/windows/quick-create-portal.md) 內執行命令，或使用 [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) 命令部署至 Azure 雲端服務。 如需詳細資訊，請參閱部署服務。
 
 ## <a name="scale-up-to-host-larger-indices"></a>相應增加以裝載更大的索引
 
@@ -262,7 +262,7 @@ ms.locfileid: "55208137"
 
 ## <a name="test-the-service"></a>測試服務
 
-若要針對即時服務進行偵錯，請從網頁瀏覽器瀏覽至主機電腦。 針對透過 [host_service](#hosting-service) 部署的本機服務，請瀏覽 `http://localhost:<port>/`。  針對透過 [deploy_service](#deploying-service) 部署的 Azure 雲端機服務，請瀏覽 `http://<serviceName>.cloudapp.net/`。
+若要針對即時服務進行偵錯，請從網頁瀏覽器瀏覽至主機電腦。 針對透過 host_service 部署的本機服務，請瀏覽 `http://localhost:<port>/`。  針對透過 deploy_service 部署的 Azure 雲端機服務，請瀏覽 `http://<serviceName>.cloudapp.net/`。
 
 此頁面包含基本 API 呼叫統計資料，以及此服務所裝載文法和索引相關資訊的連結。 此頁面也包含可示範如何使用 Web API 的互動式搜尋介面。 若要查看 [interpret](interpretMethod.md)、[evaluate](evaluateMethod.md) 和 [calchistogram](calchistogramMethod.md) API 呼叫的結果，請在 [搜尋] 方塊中輸入查詢。 此頁面的底層 HTML 來源也可作為如何將 Web API 整合到應用程式以建立豐富互動式搜尋體驗的範例。
 

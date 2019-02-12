@@ -7,13 +7,13 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: c02020ba8d49b123cf8914214d52ac40896a3c20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
+ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248175"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692836"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>教學課程：使用 Azure 虛擬 WAN 來建立 ExpressRoute 關聯 (預覽)
 

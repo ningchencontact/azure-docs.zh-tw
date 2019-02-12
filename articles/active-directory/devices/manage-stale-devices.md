@@ -1,6 +1,6 @@
 ---
-title: 如何在 Azure AD 中管理裝置的生命週期 | Microsoft Docs
-description: 了解裝置管理如何協助您控制存取您環境中資源的裝置。
+title: 如何在 Azure AD 中管理過時的裝置 | Microsoft Docs
+description: 由於裝置遺失、遭竊、損毀或作業系統重新安裝，環境中一般都會有過時的裝置。 了解如何在 Azure Active Directory (Azure AD) 中，從已註冊裝置的資料庫移除過時的裝置。
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 20bfa4cf02c86922836a70f8885f910814eafb22
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d6d0ee1c9a77006df2239f4e0e0457c0c0aa2c28
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092118"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493303"
 ---
-# <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>作法：管理 Azure AD 中的過時裝置
+# <a name="how-to-manage-stale-devices-in-azure-ad"></a>作法：管理 Azure AD 中的過時裝置
 
 在理想情況下，若要完成生命週期，已註冊的裝置應在不需要時取消註冊。 不過，因為一些原因，例如裝置遺失、遭竊、損毀或作業系統重新安裝，造成您環境中常有過時的裝置。 身為 IT 系統管理員，您可能需要一個移除過時裝置的方法，讓您能專心管理裝置上實際需要管理的資源。
 

@@ -5,19 +5,19 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/02/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.lastreviewed: 11/02/2018
-ms.openlocfilehash: 844c81d71734ab17c93f60cb802686c209e04014
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/04/2019
+ms.openlocfilehash: 6c9893aac349b05580f49a445bd088ed5c76044b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239225"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697464"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>在 Azure Stack 上部署以太坊區塊鏈網路
 
@@ -25,7 +25,7 @@ ms.locfileid: "55239225"
 
 透過少數使用者輸入及 Azure Stack 租用戶入口網站中的一鍵部署，每個成員都可以佈建他們的網路應用。 每個成員的網路應用都會包含一組負載平衡的交易節點 (應用程式或使用者可透過與其互動來提交交易)、一組用來記錄交易的採礦節點和網路虛擬設備 (NVA)。 後續的連線步驟會與 NVA 連線，藉以建立已完整設定的多成員區塊鏈網路閘道。
 
-若要設定，您必須：
+若要設定：
 
 - 選擇部署架構
 - 部署獨立、聯盟領導者或聯盟成員網路
@@ -157,7 +157,7 @@ ms.locfileid: "55239225"
 
 ![成員部署摘要](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-如上圖所示，成員的節點狀態是**未執行**。 這是因為成員和領導者之間未建立連線。 成員和領導者之間的連線是雙向連線。 當您部署成員時，範本會自動建立從成員到領導者的連線。 若要建立從領導者到成員的連線，請移至下一個步驟。
+如上圖所示，成員的節點狀態是**未執行**。 會有此狀態是因為成員和領導者之間未建立連線。 成員和領導者之間的連線是雙向連線。 當您部署成員時，範本會自動建立從成員到領導者的連線。 若要建立從領導者到成員的連線，請移至下一個步驟。
 
 ### <a name="connect-member-and-leader"></a>讓成員和領導者連線
 

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
-ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.reviewer: trbye
+ms.date: 02/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1e2746ef55f5c50ce9452b7a9d1ab060c69830db
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a293389b8175406d9036cd95c14748e5a626fb91
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244262"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752529"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>教學課程：使用自動機器學習建置迴歸模型
 
@@ -34,7 +34,6 @@ ms.locfileid: "55244262"
 > * 自動將迴歸模型定型。
 > * 使用自訂參數在本機執行模型。
 > * 探索結果。
-> * 註冊最佳模型。
 
 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
 
@@ -43,36 +42,74 @@ ms.locfileid: "55244262"
 
 ## <a name="prerequisites"></a>必要條件
 
-> * [執行資料準備教學課程](tutorial-data-prep.md)。
-> * 一個已設定自動化機器學習的環境。 例如 [Azure Notebooks](https://notebooks.azure.com/)、本機 Python 環境或「資料科學虛擬機器」。 [設定自動化機器學習](samples-notebooks.md)。
+請跳至[設定您的開發環境](#start)閱讀完整的 Notebook 步驟，或依照下列指示取得 Notebook，並在 Azure Notebooks 或您自己的 Notebook 伺服器上加以執行。 若要執行 Notebook，您將需要：
 
-## <a name="get-the-notebook"></a>取得 Notebook
+* [執行資料準備教學課程](tutorial-data-prep.md)。
+* 已安裝下列項目的 Python 3.6 Notebook 伺服器：
+    * 適用於 Python 的 Azure Machine Learning SDK，含 `automl` 和 `notebooks` 額外項目
+    * `matplotlib`
+* 教學課程筆記本
+* 機器學習工作區
+* 與 Notebook 位於相同目錄中的工作區組態檔
 
-為了方便起見，此教學課程以 [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb) 形式提供。 在 [Azure Notebooks](https://notebooks.azure.com/) 或您自己的 Jupyter Notebook 伺服器中執行 `regression-part2-automated-ml.ipynb` Notebook。
+請從以下各節取得前述所有必要項目。
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* 使用 [Azure Notebooks](#azure)
+* 使用[您自己的 Notebook 伺服器](#server)
 
-## <a name="import-packages"></a>匯入套件
+### <a name="azure"></a>使用 Azure Notebooks：雲端中的免費 Jupyter Notebook
+
+您可以輕鬆地開始使用 Azure Notebooks！ 我們已為您在 [Azure Notebooks](https://notebooks.azure.com/) 上安裝並設定[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk)。 Azure 服務會自動管理安裝和未來的更新。
+
+完成下列步驟之後，請在您的**開始使用**專案中執行 **tutorials/regression-part2-automated-ml.ipynb** 筆記本。
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+### <a name="server"></a>使用您自己的 Jupyter Notebook 伺服器
+
+使用下列步驟在您的電腦上建立本機 Jupyter Notebook 伺服器。  完成所有步驟後，請執行 **tutorials/regression-part2-automated-ml.ipynb** 筆記本。
+
+1. 完成 [Azure Machine Learning Python 快速入門](quickstart-create-workspace-with-python.md)以建立 Miniconda 環境，並建立工作區。
+1. 使用 `pip install azureml-sdk[automl,notebooks]` 在環境中安裝 `automl` 和 `notebooks` 額外項目。
+1. 使用 `pip install maplotlib` 安裝 `maplotlib`。
+1. 複製 [GitHub 存放庫](https://aka.ms/aml-notebooks)。
+
+    ```
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+
+1. 從複製的目錄中啟動 Notebook 伺服器。
+
+    ```shell
+    jupyter notebook
+
+## <a name="start"></a>Set up your development environment
+
+All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+
+* Install the SDK
+* Import Python packages
+* Configure your workspace
+
+### Install and import packages
+
+If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+
+```shell
+pip install azureml-sdk[automl,notebooks] matplotlib
+```
+
 匯入本教學課程中所需的 Python 套件：
-
 
 ```python
 import azureml.core
 import pandas as pd
 from azureml.core.workspace import Workspace
-from azureml.train.automl.run import AutoMLRun
-import time
 import logging
 import os
 ```
 
-如果您要在自己的 Python 環境中進行本教學課程，請使用下列程序安裝必要套件。
-
-```shell
-pip install azureml-sdk[automl,notebooks] azureml-dataprep pandas scikit-learn matplotlib
-```
-
-## <a name="configure-workspace"></a>設定工作區
+### <a name="configure-workspace"></a>設定工作區
 
 從現有的工作區建立工作區物件。 `Workspace` 是會接受您 Azure 訂用帳戶和資源資訊的類別。 它也會建立雲端資源來監視及追蹤您的模型執行。
 
@@ -743,7 +780,6 @@ for run in children:
     metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
-import pandas as pd
 rundata = pd.DataFrame(metricslist).sort_index(1)
 rundata
 ```
@@ -1177,6 +1213,5 @@ print(1 - mean_abs_percent_error)
 > * 設定工作區和備妥用於實驗的資料。
 > * 搭配自訂參數在本機使用自動化迴歸模型來進行定型。
 > * 瀏覽及檢閱定型結果。
-> * 註冊最佳模型。
 
 使用 Azure Machine Learning [部署模型](tutorial-deploy-models-with-aml.md)。

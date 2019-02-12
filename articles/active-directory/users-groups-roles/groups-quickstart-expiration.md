@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 中的 Office 365 群組到期日原則快速入門 | Microsoft Docs
+title: Office 365 群組的到期日原則快速入門 - Azure Active Directory | Microsoft Docs
 description: Office 365 群組的到期日 - Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 08/07/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 6d2b5201c41ba9d5c849976f0227e9abadea7658
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 926d2dba7656781b7a6994341f0354db6835b26f
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165229"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507346"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>快速入門：設定 Office 365 群組 Azure Active Directory 中的到期日
 

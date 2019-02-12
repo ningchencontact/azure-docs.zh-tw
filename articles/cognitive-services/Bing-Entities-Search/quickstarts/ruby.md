@@ -1,73 +1,81 @@
 ---
-title: 快速入門：Bing 實體搜尋 API (Ruby)
+title: 快速入門：使用 Ruby 將搜尋要求傳送至 Bing 實體搜尋 REST API
 titlesuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 實體搜尋 API。
+description: 使用此快速入門以運用 Ruby 來傳送要求給「Bing 實體搜尋 REST API」，並接收 JSON 回應。
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 2dec6359da7afc9e0e6c8dabaec1afb35e77e85c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ed8b590d5f31daebb0cffb270f72ae156acab778
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191537"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753141"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>搭配使用 Bing 實體搜尋 API 與 Ruby 的快速入門
 
-本文說明如何搭配使用 [Bing 實體搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API 與 Ruby。
+使用本快速入門以第一次呼叫 Bing 實體搜尋 API，並檢視 JSON 回應。 這個簡單的 Ruby 應用程式會將新聞搜尋查詢傳送給 API，並顯示回應。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb) 上找到此應用程式的原始程式碼。
+
+雖然此應用程式是以 Ruby 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要 [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) 或更新版本以執行此程式碼。
+* [Ruby 2.4 或更新版本](https://www.ruby-lang.org/en/downloads/) (英文)。
 
-您必須有具備 **Bing 實體搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api)即足以供本快速入門使用。 您必須要有啟用免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。   另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-## <a name="search-entities"></a>搜尋實體
+## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
 
-若要執行此應用程式，請遵循下列步驟。
+1. 在您最愛的 IDE 或程式碼編輯器中，建立新聞 Ruby 檔案並匯入下列套件。
 
-1. 在您最愛的 IDE 中建立新的 Ruby 專案。
-2. 新增下方提供的程式碼。
-3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
-4. 執行程式。
+    ```ruby
+    require 'net/https'
+    require 'cgi'
+    require 'json'
+    ```
 
-```ruby
-require 'net/https'
-require 'cgi'
-require 'json'
+2. 建立適用於 API 端點、新聞搜尋 URL、訂用帳戶金鑰及搜尋查詢的變數。
+    
+    ```ruby
+    host = 'https://api.cognitive.microsoft.com'
+    path = '/bing/v7.0/entities'
+    
+    mkt = 'en-US'
+    query = 'italian restaurants near me'
+    ```
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+## <a name="format-and-make-an-api-request"></a>製作 API 要求格式並提出 API 要求
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
+1. 藉由將市場變數附加至 `?mkt=` 參數來為要求建立參數字串。 對查詢進行編碼，並將其附加至 `&q=` 參數。 結合 API 主機、路徑和要求參數，並將其轉換為 URI 物件。
 
-host = 'https://api.cognitive.microsoft.com'
-path = '/bing/v7.0/entities'
+    ```ruby
+    params = '?mkt=' + mkt + '&q=' + CGI.escape(query)
+    uri = URI (host + path + params)
+    ```
 
-mkt = 'en-US'
-query = 'italian restaurants near me'
+2. 使用上一個步驟中的變數來建立要求。 將訂用帳戶金鑰新增至 `Ocp-Apim-Subscription-Key` 標頭。
 
-params = '?mkt=' + mkt + '&q=' + CGI.escape(query)
-uri = URI (host + path + params)
+    ```ruby
+    request = Net::HTTP::Get.new(uri)
+    request['Ocp-Apim-Subscription-Key'] = subscriptionKey
+    ```
 
-request = Net::HTTP::Get.new(uri)
-request['Ocp-Apim-Subscription-Key'] = subscriptionKey
+3. 傳送要求並列印回應
 
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request (request)
-end
+    ```ruby
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request (request)
+    end
 
-puts JSON::pretty_generate (JSON (response.body))
-```
+    puts JSON::pretty_generate (JSON (response.body))
+    ```
 
-**回應**
+## <a name="example-json-response"></a>範例 JSON 回應
 
 如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
@@ -132,11 +140,10 @@ puts JSON::pretty_generate (JSON (response.body))
 }
 ```
 
-[回到頁首](#HOLTop)
-
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Bing 實體搜尋教學課程](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing 實體搜尋概觀](../search-the-web.md )
-> [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [建置單頁 Web 應用程式](../tutorial-bing-entities-search-single-page-app.md)
+
+* [什麼是 Bing 實體搜尋 API](../search-the-web.md)
+* [Bing 實體搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

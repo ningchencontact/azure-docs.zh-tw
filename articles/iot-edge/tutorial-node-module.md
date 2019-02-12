@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 62ea3e3ee13ee52462e1c93ac34e98ae179d251c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f5cf14ae1dcbbb00d723a86213c2707ad91794b7
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053920"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564913"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>教學課程：開發 Node.js IoT Edge 模組並部署到模擬裝置
 
@@ -103,7 +103,7 @@ Azure IoT Edge 裝置：
    | 提供解決方案名稱 | 輸入解決方案的描述性名稱或接受預設值 **EdgeSolution**。 |
    | 選取模組範本 | 選擇 [Node.js 模組]。 |
    | 提供模組名稱 | 將模組命名為 **NodeModule**。 |
-   | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會預先填入上一個步驟的容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 最終字串的樣貌如下：\<登錄名稱\>.azurecr.io/nodemodule。 |
+   | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 您的容器映像會從您在上一個步驟中提供的名稱預先填入。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 <br><br>最終的映像存放庫看起來類似於：\<登錄名稱\>.azurecr.io/nodemodule。 |
  
    ![提供 Docker 映像存放庫](./media/tutorial-node-module/repository.png)
 
@@ -225,6 +225,12 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 當您指示 Visual Studio Code 建置解決方案時，它會先擷取部署範本中的資訊，再於新的 **config** 資料夾中產生 `deployment.json` 檔案。 然後，它會在整合式終端機中執行兩個命令：`docker build` 和 `docker push`。 這兩個命令會建置程式碼、將 Node.js 程式碼容器化，再將程式碼推送至您在初始化解決方案時所指定的容器登錄中。 
 
 您可以在執行於 VS Code 整合式終端機的 `docker build` 命令中看到完整的容器映像位址。 系統會根據 `module.json` 檔案中的資訊建置映像位址，其格式如下：**\<存放庫\>:\<版本\>-\<平台\>**。 在此教學課程中，其樣貌如下：**registryname.azurecr.io/nodemodule:0.0.1-amd64**。
+
+>[!TIP]
+>如果您收到嘗試建置及推送模組時發生的錯誤，請進行下列檢查：
+>* 您已在 Visual Studio Code 中使用容器登錄中的認證登入 Docker？ 這些認證與您用來登入 Azure 入口網站的認證不同。
+>* 您的容器存放庫是否正確？ 開啟 [模組] > [cmodule] > [module.json] 並尋找 [存放庫] 欄位。 映像存放庫看起來應類似於：**\<registryname\>.azurecr.io/nodemodule**。 
+>* 您正在建置開發電腦正在執行的同類型容器嗎？ Visual Studio Code 會預設為 Linux amd64 容器。 如果開發電腦正在執行 Windows 容器或 Linux arm32v7 容器，請在 VS Code 視窗底部的藍色狀態列上更新平台，以符合您的容器平台。
 
 ## <a name="deploy-and-run-the-solution"></a>部署並執行解決方案
 

@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 1589ef94946a6396ee51b8fecfe2ed3e80db08e5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fce90c05fb2e79be23cfd7a58875f8cb6b3ddbf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212217"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819768"
 ---
 # <a name="tutorial-article-personalization-for-contextual-decision-making"></a>教學課程：內容相關決策制訂的文章個人化
 
@@ -44,7 +44,7 @@ ms.locfileid: "55212217"
 </channel></rss>
 ```
 
-文章的順序很重要。 該元素可指定預設順位，盡可能猜測文章最佳的排序方式。 接著，會在[儀表板](#performance-dashboard)上使用預設順位來比較效果。
+文章的順序很重要。 該元素可指定預設順位，盡可能猜測文章最佳的排序方式。 接著，會在儀表板上使用預設順位來比較效果。
 
 如需摘要格式的更多資訊，請參閱 [API 參考](custom-decision-service-api-reference.md#action-set-api-customer-provided)。
 

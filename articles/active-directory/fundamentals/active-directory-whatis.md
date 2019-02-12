@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 44533ea4430bb7cd3bc7e0b6451892cc68bacc19
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 251161fbb5213c765463835e4537f1b443699670
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450212"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491734"
 ---
 # <a name="what-is-azure-active-directory"></a>什麼是 Azure Active Directory？ 
 Azure Active Directory (Azure AD) 是 Microsoft 的雲端式身分識別和存取管理服務。 Azure AD 可協助員工登入和存取下列資源：
@@ -72,7 +72,7 @@ Office 365 或 Microsoft Azure 等 Microsoft Online 業務服務需要 Azure AD 
 |Azure AD 全域系統管理員|這個系統管理員角色會自動指派給 Azure AD 租用戶的建立者。 全域系統管理員可以針對 Azure AD 和任何與 Azure AD 同盟的服務 (例如，Exchange Online、SharePoint Online 和商務用 Skype Online)，執行所有系統管理功能。 您可以有多個全域系統管理員，但只有全域系統管理員可以對使用者指派系統管理員角色 (包括指派其他全域系統管理員)。<br><br>**注意**<br>在 Azure 入口網站中，這個系統管理員角色稱為全域系統管理員，但在 Microsoft Graph API、Azure AD Graph API 和 Azure AD PowerShell 中，則稱為**公司系統管理員**。<br><br>如需各種系統管理員角色的詳細資訊，請參閱 [Azure Active Directory 中的系統管理員角色權限](../users-groups-roles/directory-assign-admin-roles.md)。|
 |Microsoft 帳戶 (也稱為 MSA)|此為個人帳戶，可讓您存取消費者導向的 Microsoft 產品和雲端服務，例如 Outlook、OneDrive、Xbox LIVE 或 Office 365。 Microsoft 帳戶會建立並儲存在 Microsoft 所執行的 Microsoft 取用者身分識別帳戶系統中。|
 
-## <a name="what-features-work-in-azure-ad"></a>Azure AD 中有哪些可用功能？
+## <a name="which-features-work-in-azure-ad"></a>Azure AD 中有哪些可用功能？
 在選擇 Azure AD 授權後，您便可存取組織可用的下列功能 (部分或全部)：
 
 |類別|說明|

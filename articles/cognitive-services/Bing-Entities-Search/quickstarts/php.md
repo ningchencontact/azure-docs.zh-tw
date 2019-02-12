@@ -1,31 +1,33 @@
 ---
-title: 快速入門：Bing 實體搜尋 API (PHP)
+title: 快速入門：使用 PHP 將搜尋要求傳送至 Bing 實體搜尋 REST API
 titlesuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 實體搜尋 API。
+description: 使用此快速入門以運用 PHP 來傳送要求給「Bing 實體搜尋 REST API」，並接收 JSON 回應。
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 5915346deeea76da8b37ddfbb618fed8392fe725
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8d963c0de272b29ab592536802ad23387a9b8dad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195479"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753430"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-php"></a>搭配使用 Bing 實體搜尋 API 與 PHP 的快速入門
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>快速入門：使用 PHP 將搜尋要求傳送至 Bing 實體搜尋 REST API
 
-本文說明如何搭配使用 [Bing 實體搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API 與 PHP。
+使用本快速入門以第一次呼叫 Bing 實體搜尋 API，並檢視 JSON 回應。 這個簡單的 PHP 應用程式會將新聞搜尋查詢傳送給 API，並顯示回應。 
+
+雖然此應用程式是以 PHP 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要 [PHP 5.6.x](http://php.net/downloads.php) 以執行此程式碼。
+* [PHP 5.6.x](http://php.net/downloads.php) (英文) 或更新版本
 
-您必須有具備 **Bing 實體搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api)即足以供本快速入門使用。 您必須要有啟用免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。   另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="search-entities"></a>搜尋實體
 
@@ -145,11 +147,10 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 }
 ```
 
-[回到頁首](#HOLTop)
-
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Bing 實體搜尋教學課程](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing 實體搜尋概觀](../search-the-web.md )
-> [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [建置單頁 Web 應用程式](../tutorial-bing-entities-search-single-page-app.md)
+
+* [什麼是 Bing 實體搜尋 API？](../overview.md )
+* [Bing 實體搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

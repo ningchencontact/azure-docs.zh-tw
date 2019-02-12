@@ -4,17 +4,17 @@ description: Azure 藍圖可用來建立、定義和部署成品。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/15/2019
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b66a1c2c12a97ea8754377a138b51a4ca1739c21
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320679"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566943"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>使用 REST API 定義和指派 Azure 藍圖
 
@@ -76,7 +76,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
      ```
 
    - 要求本文
@@ -135,7 +135,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleContributor?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleContributor?api-version=2018-11-01-preview
      ```
 
    - 要求本文
@@ -155,7 +155,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyTags?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyTags?api-version=2018-11-01-preview
      ```
 
    - 要求本文
@@ -183,7 +183,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2018-11-01-preview
      ```
 
    - 要求本文
@@ -211,7 +211,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/templateStorage?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/templateStorage?api-version=2018-11-01-preview
      ```
 
    - 要求本文
@@ -297,7 +297,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2018-11-01-preview
      ```
 
    - 要求本文
@@ -320,14 +320,14 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2017-11-11-preview
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2018-11-01-preview
   ```
 
 `{BlueprintVersion}` 的值是字母、數字和連字號組成的字串 (無空格或其他特殊字元)，最大長度為 20 個字元。 使用如 **v20180622 135541** 這類唯一且包含資訊的字串。
 
 ## <a name="assign-a-blueprint"></a>指派藍圖
 
-使用 REST API 發佈藍圖後，即可將藍圖指派給訂用帳戶。 將您建立的藍圖指派給管理群組階層下的其中一個訂用帳戶。 **要求本文**指定要指派的藍圖，提供名稱和位置給藍圖定義中的任何資源群組，以及提供在藍圖中定義且用於一或多個連接成品的所有參數。
+使用 REST API 發佈藍圖後，即可將藍圖指派給訂用帳戶。 將您建立的藍圖指派給管理群組階層下的其中一個訂用帳戶。 如果將藍圖儲存到某訂用帳戶，則只能將其指派給該訂用帳戶。 **要求本文**指定要指派的藍圖，提供名稱和位置給藍圖定義中的任何資源群組，以及提供在藍圖中定義且用於一或多個連接成品的所有參數。
 
 1. 在目標訂用帳戶上提供 Azure 藍圖服務主題**擁有者**角色。 AppId 是靜態的 (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`)，但服務主體識別碼則依租用戶而各為不同。 使用下列 REST API 可要求租用戶的詳細資料。 它使用具有不同授權的 [Azure Active Directory 圖形 API](../../active-directory/develop/active-directory-graph-api.md)。
 
@@ -342,7 +342,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2017-11-11-preview
+     PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
      ```
 
    - 要求本文
@@ -395,7 +395,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 - REST API URI
 
   ```http
-  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2017-11-11-preview
+  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
 ## <a name="delete-a-blueprint"></a>刪除藍圖
@@ -405,7 +405,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 - REST API URI
 
   ```http
-  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2017-11-11-preview
+  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
   ```
 
 ## <a name="next-steps"></a>後續步驟

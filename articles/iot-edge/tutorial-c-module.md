@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 659d960881f143655e98c6f1d38696f44def3ae8
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 798cf405c222a443dbbd3a316d20c482daf4429f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055093"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563247"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>教學課程：開發 C IoT Edge 模組並部署至模擬裝置
 
@@ -36,8 +36,8 @@ ms.locfileid: "54055093"
 
 Azure IoT Edge 裝置：
 
-* 您可以遵循 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)快速入門中的步驟，使用您的開發電腦或虛擬機器作為邊緣裝置。
-* 適用於 Azure IoT Edge 的 C 模組不支援 Windows 容器。 如果您的 IoT Edge 裝置是 Windows 機器，將它設定為[使用 Linux 容器](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
+* 您可以遵循 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)快速入門中的步驟，使用您的開發電腦或虛擬機器作為邊緣裝置。 
+* 適用於 Azure IoT Edge 的 C 模組不支援 Windows 容器。 如果 IoT Edge 裝置是 Windows 機器，請確定其已設定為使用 Linux 容器。 如需 Windows 和 Linux 容器在安裝上有何差異的相關資訊，請參閱[在 Windows 上安裝 IoT Edge 執行階段](how-to-install-iot-edge-windows.md)。
 
 雲端資源：
 
@@ -49,9 +49,6 @@ Azure IoT Edge 裝置：
 * 適用於 Visual Studio Code 的 [C/C++ 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)。
 * 適用於 Visual Studio Code 的 [Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)。
 * [Docker CE](https://docs.docker.com/install/)。
-
->[!Note]
->適用於 Azure IoT Edge 的 C 模組不支援 Windows 容器。
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 
@@ -99,7 +96,7 @@ Azure IoT Edge 裝置：
    | 提供解決方案名稱 | 輸入解決方案的描述性名稱或接受預設值 **EdgeSolution**。 |
    | 選取模組範本 | 選擇 [C 模組]。 |
    | 提供模組名稱 | 將模組命名為 **CModule**。 |
-   | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會預先填入上一個步驟的容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 最終字串的樣貌如下：\<登錄名稱\>.azurecr.io/cmodule。 |
+   | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 您的容器映像會從您在上一個步驟中提供的名稱預先填入。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 <br><br> 最終的映像存放庫看起來類似於：\<登錄名稱\>.azurecr.io/cmodule。 |
  
    ![提供 Docker 映像存放庫](./media/tutorial-c-module/repository.png)
 
@@ -296,7 +293,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 
 12. 在 VS Code 總管中，於 IoT Edge 解決方案工作區中開啟 **deployment.template.json** 檔案。 此檔案會告訴 IoT Edge 代理程式要部署哪些模組 (在此情況下為 **tempSensor** 和 **CModule**)，並告知 IoT Edge 中樞如何在其間路由傳送訊息。 Visual Studio Code 擴充功能會在部署範本中自動填入您需要的大部分資訊，但不會為您的解決方案確認一切正確無誤： 
 
-   1. IoT Edge 的預設平台會設定為 VS Code 狀態列中的 **amd64**，這表示您的 **CModule** 會設定為映像的 Linux amd64 版。 將狀態列中的預設平台從 **amd64** 變更為 **arm32v7** 或 **windows-amd64** (如果這是您 IoT Edge 裝置的架構)。 
+   1. IoT Edge 的預設平台會設定為 VS Code 狀態列中的 **amd64**，這表示您的 **CModule** 會設定為映像的 Linux amd64 版。 將狀態列中的預設平台從 **amd64** 變更為 **arm32v7** (如果這是您 IoT Edge 裝置的架構)。 
 
       ![更新模組映像平台](./media/tutorial-c-module/image-platform.png)
 
@@ -340,6 +337,12 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 然後，Visual Studio Code 會在整合式終端機中執行兩個命令：`docker build` 和 `docker push`。 這兩個命令會建置程式碼、將 `CModule.dll` 容器化，再將程式碼推送至您在初始化解決方案時所指定的容器登錄。
 
 您可以在 VS Code 整合式終端機中檢視完整容器映像位址。 系統會根據 `module.json` 檔案中的資訊建置映像位址，其格式如下：**\<存放庫\>:\<版本\>-\<平台\>**。 在本教學課程中，它應會顯示為 **myregistry.azurecr.io/cmodule:0.0.1-amd64**。
+
+>[!TIP]
+>如果您收到嘗試建置及推送模組時發生的錯誤，請進行下列檢查：
+>* 您已在 Visual Studio Code 中使用容器登錄中的認證登入 Docker？ 這些認證與您用來登入 Azure 入口網站的認證不同。
+>* 您的容器存放庫是否正確？ 開啟 [模組] > [cmodule] > [module.json] 並尋找 [存放庫] 欄位。 映像存放庫看起來應類似於：**\<registryname\>.azurecr.io/cmodule**。 
+>* 您正在建置開發電腦正在執行的同類型容器嗎？ Visual Studio Code 會預設為 Linux amd64 容器。 如果開發電腦正在執行 Linux arm32v7 容器，請在 VS Code 視窗底部的藍色狀態列上更新平台，以符合您的容器平台。 您無法將 C 模組建置為 Windows 容器。 
 
 ## <a name="deploy-and-run-the-solution"></a>部署並執行解決方案
 

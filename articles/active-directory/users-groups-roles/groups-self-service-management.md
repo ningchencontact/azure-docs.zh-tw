@@ -1,5 +1,5 @@
 ---
-title: 在 Azure AD 中設定自助群組管理 | Microsoft Docs
+title: 設定自助群組管理 - Azure Active Directory | Microsoft Docs
 description: 在 Azure Active Directory 中建立及管理安全性群組或 Office 365 群組，並要求安全性群組或 Office 365 群組成員資格
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: get-started-article
-ms.date: 01/28/2019
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
-ms.openlocfilehash: 2880e4e32d5a5e3d96b40fa4b696b9853e7b5e89
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f7ea78d6082ddbeebf2cbfd70f1e1ed1a8bae664
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296153"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509604"
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>設定 Azure Active Directory 進行自助服務群組管理
 

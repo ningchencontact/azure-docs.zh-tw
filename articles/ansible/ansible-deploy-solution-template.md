@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.openlocfilehash: 705d23a93b25c513d413f2115c47d52ff6ef2bac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9fa711c86e3ef7f05e87504905ec642808d8f601
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229209"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770277"
 ---
 # <a name="deploy-the-ansible-solution-template-for-azure-to-centos"></a>將適用於 Azure 的 Ansible 解決方案範本部署至 CentOS
 依設計，適用於 Azure 的 Ansible 解決方案範本會在 CentOS 虛擬機器上設定 Ansible 執行個體，以及 Ansible 和一套設定為與 Azure 搭配運作的工具。 這些工具包括：
@@ -53,7 +53,7 @@ ms.locfileid: "55229209"
 1. 在 [其他設定] 索引標籤中，輸入必要資訊：
 
     - **大小** - Azure 入口網站預設會使用標準大小。 若要指定不同大小以適應您的特定案例，請選取箭號來顯示不同大小的清單。
-    - **VM 磁碟大小** - 選取 [SSD] (進階固態硬碟) 或 [HDD] (硬碟)。 為了進行示範，我們選取 [SSD] 以獲得其效能優勢。 如需這兩種磁碟儲存體各自的詳細資訊，請參閱下列文章：
+    - **VM 磁碟類型** - 選取 [SSD] (進階固態硬碟) 或 [HDD] (硬碟)。 為了進行示範，我們選取 [SSD] 以獲得其效能優勢。 如需這兩種磁碟儲存體各自的詳細資訊，請參閱下列文章：
         - [VM 高效能進階儲存體與受控磁碟](/azure/virtual-machines/windows/premium-storage)
         - [適用於 Azure 虛擬機器工作負載的標準 SSD 受控磁碟](/azure/virtual-machines/windows/disks-standard-ssd)
     - **公用 IP 位址** - 如果您想要從虛擬機器外部與虛擬機器通訊，請指定此設定。 預設值是名稱為 `ansible-pip` 的新公用 IP 位址。 若要指定不同的 IP 位址，請選取箭號以指定該 IP 位址的屬性 - 例如名稱、SKU 和指派。 

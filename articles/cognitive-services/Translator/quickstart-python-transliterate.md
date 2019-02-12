@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 0997b12ed7bc86134d0f2cc875a98ee554c667d2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dd875fe19bdf9d02fc7217b66c8fd442abef2d42
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461231"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700259"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來直譯文字
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-目前有一個端點可供翻譯工具文字使用，且該端點設定為 `base_url`。 `path` 會設定 `transliterate` 路由，並指出我們要叫用第 3 版的 API。
+翻譯工具文字全域端點會設定為 `base_url`。 `path` 會設定 `transliterate` 路由，並指出我們要叫用第 3 版的 API。
 
 `params` 用來設定輸入語言以及輸入和輸出字集。 在此範例中，我們會從日文翻譯為拉丁字母。
 

@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5b72bd45299f636a208ab39be5b7eaade2730183
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095683"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814006"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>快速入門：設定應用程式以公開 Web API (預覽)
 
@@ -116,7 +116,7 @@ ms.locfileid: "55095683"
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>確認已向其他應用程式公開 Web API
 
 1. 返回 Azure AD 租用戶，選取 [應用程式註冊]，然後尋找並選取您想要設定的用戶端應用程式。
-1. 重複進行[設定用戶端應用程式以存取 Web API](#configure-a-client-application-to-access-web-apis) 中所述的步驟。
+1. 重複進行設定用戶端應用程式以存取 Web API 中所述的步驟。
 1. 當您進行到 [選取 API] 步驟時，選取您的資源。 您應該會看到可供用戶端權限要求使用的新範圍。
 
 ## <a name="more-on-the-application-manifest"></a>應用程式資訊清單的詳細資料

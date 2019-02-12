@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 0cd0dcaf200b1248204efc2d2c0011a94d3c41d3
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b66d4c9fb3bce03248f5696d5a7b2b7b62b7ffd3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720963"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746365"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>教學課程：使用 Azure Functions 進行 Azure SignalR 服務驗證
 
@@ -302,7 +302,7 @@ Web 應用程式也需要 HTTP API 以傳送聊天訊息。 您將建立名為 *
 
 在傳送訊息時，應用程式可以決定是要將其傳送給所有已連線的用戶端，還是只傳送給已對指定的使用者驗證的用戶端。
 
-1. 在 VS Code 中，開啟 **SendMessage/function.json**。
+1. 在 VS Code 中，開啟 **SignalRInfo/function.json**。
 
 1. 將[繫結運算式](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#binding-expressions-and-patterns)插入 *SignalRConnectionInfo* 繫結的 *userId*屬性中：`{headers.x-ms-client-principal-name}`。 這會將值設為已驗證使用者的使用者名稱。 其屬性此時應該會顯示如下。
 

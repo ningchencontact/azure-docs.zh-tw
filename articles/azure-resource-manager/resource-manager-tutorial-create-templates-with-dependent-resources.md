@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9565401ba40f9a87db4f62e66f3d1ea6d0d2b954
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5cfda4ddbf51f51d76b4ede2e44f768bd3261780
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614645"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491751"
 ---
-# <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教學課程：使用相依資源建立 Azure Resource Manager 範本
+# <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教學課程：使用相依資源建立 Azure Resource Manager 範本中使用的 Cloud Shell 部署方法
 
 了解如何建立 Azure Resource Manager 範本以部署多項資源。  在建立範本之後，您可以從 Azure 入口網站使用 Cloud Shell 來部署範本。
 
@@ -34,6 +34,8 @@ ms.locfileid: "51614645"
 > * 部署範本
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -145,8 +147,8 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
@@ -157,7 +159,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
+    Get-AzVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
     ```
 
     在範本內，虛擬機器名稱會硬式編碼為 **SimpleWinVM**。

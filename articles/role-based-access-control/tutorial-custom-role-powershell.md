@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/12/2018
+ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: f49f6f03b6d9f1c51cada58ae782bbc364fc9d66
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7ea9ce47b82dd4ad31caf935fd10e04daa07faba
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427282"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699970"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立自訂角色
 
@@ -34,12 +34,14 @@ ms.locfileid: "54427282"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要：
 
 - 建立自訂角色的權限，例如[擁有者](built-in-roles.md#owner)或[使用者存取管理員](built-in-roles.md#user-access-administrator)
-- 已在本機安裝 [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
+- 已在本機安裝 [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="sign-in-to-azure-powershell"></a>登入 Azure PowerShell
 
@@ -49,10 +51,10 @@ ms.locfileid: "54427282"
 
 建立自訂角色的最簡單方法就是從內建角色著手，加以編輯，然後建立新的角色。
 
-1. 在 PowerShell 中，使用 [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) 命令，取得 Microsoft.Support 資源提供者的作業清單。 最好先了解可用來建立權限的作業。 您可以在 [Azure Resource Manager 資源提供者作業](resource-provider-operations.md#microsoftsupport)看見所有作業的清單。
+1. 在 PowerShell 中，使用 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 命令，取得 Microsoft.Support 資源提供者的作業清單。 最好先了解可用來建立權限的作業。 您可以在 [Azure Resource Manager 資源提供者作業](resource-provider-operations.md#microsoftsupport)看見所有作業的清單。
 
     ```azurepowershell
-    Get-AzureRMProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
+    Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
     ```
     
     ```Output
@@ -63,10 +65,10 @@ ms.locfileid: "54427282"
     Microsoft.Support/supportTickets/write Creates or Updates a Support Ticket. You can create a Support Tic...
     ```
 
-1. 使用 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 命令來輸出 JSON 格式的[讀者](built-in-roles.md#reader)角色。
+1. 使用 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 命令來輸出 JSON 格式的[讀者](built-in-roles.md#reader)角色。
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json
+    Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json
     ```
 
 1. 在編輯器中開啟 **ReaderSupportRole.json** 檔案。
@@ -75,39 +77,33 @@ ms.locfileid: "54427282"
 
     ```json
     {
-        "Name":  "Reader",
-        "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-        "IsCustom":  false,
-        "Description":  "Lets you view everything, but not make any changes.",
-        "Actions":  [
-                        "*/read"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/"
-                             ]
+      "Name": "Reader",
+      "Id": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+      "IsCustom": false,
+      "Description": "Lets you view everything, but not make any changes.",
+      "Actions": [
+        "*/read"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/"
+      ]
     }
     ```
     
 1. 編輯 JSON 檔案，以將 `"Microsoft.Support/*"` 作業新增至 `Actions` 屬性。 請務必在讀取作業之後包含逗號。 這個動作將允許使用者建立支援票證。
 
-1. 使用 [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) 命令取得訂用帳戶的識別碼。
+1. 使用 [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) 命令取得訂用帳戶的識別碼。
 
     ```azurepowershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
 1. 在 `AssignableScopes` 中，新增格式如下的訂用帳戶識別碼：`"/subscriptions/00000000-0000-0000-0000-000000000000"`
 
-    您必須新增明確的訂用帳戶識別碼，否則不允許您將角色匯入您的訂用帳戶。
+    您必須新增明確的訂用帳戶識別碼，否則無法將角色匯入您的訂用帳戶。
 
 1. 刪除 `Id` 屬性行並將 `IsCustom` 屬性變更為 `true`。
 
@@ -117,32 +113,26 @@ ms.locfileid: "54427282"
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
     
-1. 若要建立新的自訂角色，請使用 [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) 命令並指定 JSON 角色定義檔案。
+1. 若要建立新的自訂角色，請使用 [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) 命令並指定 JSON 角色定義檔案。
 
     ```azurepowershell
-    New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole.json"
+    New-AzRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole.json"
     ```
 
     ```Output
@@ -161,10 +151,10 @@ ms.locfileid: "54427282"
 
 ## <a name="list-custom-roles"></a>列出自訂角色
 
-- 若要列出所有的自訂角色，請使用 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 命令。
+- 若要列出所有的自訂角色，請使用 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 命令。
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+    Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
     ```
 
     ```Output
@@ -181,10 +171,10 @@ ms.locfileid: "54427282"
 
 若要更新自訂角色，您可以更新 JSON 檔案，或使用 `PSRoleDefinition` 物件。
 
-1. 若要更新 JSON 檔案，請使用 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 命令來輸出 JSON 格式的自訂角色。
+1. 若要更新 JSON 檔案，請使用 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 命令來輸出 JSON 格式的自訂角色。
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition -Name "Reader Support Tickets" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole2.json
+    Get-AzRoleDefinition -Name "Reader Support Tickets" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole2.json
     ```
 
 1. 在編輯器中開啟檔案。
@@ -195,34 +185,28 @@ ms.locfileid: "54427282"
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "Id":  "22222222-2222-2222-2222-222222222222",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*",
-                        "Microsoft.Resources/deployments/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "Id": "22222222-2222-2222-2222-222222222222",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
         
-1. 若要更新自訂檔案，請使用 [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) 命令並指定已更新的 JSON 檔案。
+1. 若要更新自訂檔案，請使用 [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) 命令並指定已更新的 JSON 檔案。
 
     ```azurepowershell
-    Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole2.json"
+    Set-AzRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole2.json"
     ```
 
     ```Output
@@ -237,10 +221,10 @@ ms.locfileid: "54427282"
     AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
     ```
 
-1. 若要使用 `PSRoleDefintion` 物件來更新自訂角色，首先使用 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 命令來取得角色。
+1. 若要使用 `PSRoleDefintion` 物件來更新自訂角色，首先使用 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 命令來取得角色。
 
     ```azurepowershell
-    $role = Get-AzureRmRoleDefinition "Reader Support Tickets"
+    $role = Get-AzRoleDefinition "Reader Support Tickets"
     ```
     
 1. 呼叫 `Add` 方法來新增用以讀取診斷設定的作業。
@@ -249,10 +233,10 @@ ms.locfileid: "54427282"
     $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*/read")
     ```
 
-1. 使用 [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) 來更新角色。
+1. 使用 [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) 來更新角色。
 
     ```azurepowershell
-    Set-AzureRmRoleDefinition -Role $role
+    Set-AzRoleDefinition -Role $role
     ```
     
     ```Output
@@ -270,16 +254,16 @@ ms.locfileid: "54427282"
     
 ## <a name="delete-a-custom-role"></a>刪除自訂角色
 
-1. 使用 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 命令來取得自訂角色的識別碼。
+1. 使用 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 命令來取得自訂角色的識別碼。
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition "Reader Support Tickets"
+    Get-AzRoleDefinition "Reader Support Tickets"
     ```
 
-1. 使用 [Remove-AzureRmRoleDefinition](/powershell/module/azurerm.resources/remove-azurermroledefinition) 命令，並指定要刪除自訂角色的角色識別碼。
+1. 使用 [Remove-AzRoleDefinition](/powershell/module/az.resources/remove-azroledefinition) 命令，並指定要刪除自訂角色的角色識別碼。
 
     ```azurepowershell
-    Remove-AzureRmRoleDefinition -Id "22222222-2222-2222-2222-222222222222"
+    Remove-AzRoleDefinition -Id "22222222-2222-2222-2222-222222222222"
     ```
 
     ```Output

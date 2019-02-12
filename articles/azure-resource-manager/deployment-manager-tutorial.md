@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e4489fd9119bce0e38e14f536f41940b74205e95
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 66e913f6d461d2671bd217745a9d128e24c1a60c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424998"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820924"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>教學課程：使用 Azure Deployment Manager 搭配 Resource Manager 範本 (個人預覽版)
 
@@ -129,7 +129,7 @@ ms.locfileid: "52424998"
 
 範本成品由服務拓撲範本使用，二進位成品則由首度發行範本使用。 拓撲範本和首度發行範本都會定義成品來源 Azure 資源，此資源會用來將 Resource Manager 指向部署中使用的範本和二進位成品。 為了簡化本教學課程，我們使用一個儲存體帳戶來儲存範本成品和二進位成品。 這兩個成品來源指向相同的儲存體帳戶。
 
-1. 建立 Azure 儲存體帳戶。 如需相關指示，請參閱[快速入門：使用 Azure 入口網站上傳、下載及列出 Blob](../storage/blobs/storage-quickstart-blobs-portal.md)。
+1. 建立 Azure 儲存體帳戶。 如需指示，請參閱[快速入門：使用 Azure 入口網站上傳、下載及列出 Blob](../storage/blobs/storage-quickstart-blobs-portal.md)。
 2. 在儲存體帳戶中建立 Blob 容器。
 3. 將兩個資料夾 (binaries 和 templates) 和兩個資料夾的內容複製到 Blob 容器。 [Microsoft Azure 儲存體總管](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409)支援拖放功能。
 4. 使用下列指示取得容器的 SAS 位置：
@@ -152,7 +152,7 @@ ms.locfileid: "52424998"
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 建立[使用者指派的受控識別](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)。
 3. 在入口網站中，從左側功能表中選取 [訂用帳戶]，然後選取您的訂用帳戶。
-4. 選取 [存取控制 (IAM)]，然後選取 [新增]
+4. 選取 [存取控制 (IAM)]，然後選取 [新增角色指派]。
 5. 輸入或選取下列值：
 
     ![Azure 部署管理員教學課程指派使用者的受控識別存取控制](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-access-control.png)
@@ -216,7 +216,7 @@ ms.locfileid: "52424998"
     - **azureResourceLocation**：如果您不確定 Azure 位置，在本教學課程中請使用 **centralus**。
     - **artifactSourceSASLocation**：輸入部署的服務單位範本和參數檔案儲存所在的根目錄 (Blob 容器) 的 SAS URI。  請參閱[準備成品](#prepare-the-artifacts)。
     - **templateArtifactRoot**：除非您變更了成品的資料夾結構，否則在本教學課程中請使用 **templates/1.0.0.0**。
-    - **tragetScriptionID**：輸入您的 Azure 訂用帳戶識別碼。
+    - **targetScriptionID**：輸入您的 Azure 訂用帳戶 ID。
 
 > [!IMPORTANT]
 > 拓撲範本和首度發行範本會共用一些通用的參數。 這些參數必須具有相同的值。 這些參數是：**namePrefix**、**azureResourceLocation** 和 **artifactSourceSASLocation** (在本教學課程中，兩個成品來源會共用相同的儲存體帳戶)。
@@ -234,7 +234,7 @@ ms.locfileid: "52424998"
 - **namePrefix**：此前置詞用來建立部署管理員資源的名稱。 例如，若使用 "jdoe" 前置詞，首度發行檔案名稱將是 **jdoe**Rollout。  名稱會定義在範本的變數區段中。
 - **azureResourcelocation**：為了簡化本教學課程，所有部署管理員資源都會共用此位置，除非另有指定。 目前，Azure 部署管理員資源只能在**美國中部**或**美國東部 2** 建立。
 - **artifactSourceSASLocation**：部署的服務單位範本和參數檔案儲存所在的根目錄 (Blob 容器) 的 SAS URI。  請參閱[準備成品](#prepare-the-artifacts)。
-- **binaryArtifactRoot**：預設值是為 **binaries/1.0.0.0**。 除非您要變更[準備成品](#prepare-the-artifacts)中說明的資料夾結構，否則請勿變更此值。 本教學課程會使用相對路徑。  完整路徑由 CreateWebApplicationParameters.json 中指定的 **artifactSourceSASLocation**、**binaryArtifactRoot** 和 **deployPackageUri** 串連建構而成。  請參閱[準備成品](#prepare-the-artifacts)。
+- **binaryArtifactRoot**：預設值為 **binaries/1.0.0.0**。 除非您要變更[準備成品](#prepare-the-artifacts)中說明的資料夾結構，否則請勿變更此值。 本教學課程會使用相對路徑。  完整路徑由 CreateWebApplicationParameters.json 中指定的 **artifactSourceSASLocation**、**binaryArtifactRoot** 和 **deployPackageUri** 串連建構而成。  請參閱[準備成品](#prepare-the-artifacts)。
 - **managedIdentityID**：執行部署動作的使用者指派受控識別。 請參閱[建立使用者指派的受控識別](#create-the-user-assigned-managed-identity)。
 
 ### <a name="the-variables"></a>變數
@@ -336,7 +336,7 @@ Azure PowerShell 可用來部署範本。
         -Name $rolloutName
     ```
 
-    必須安裝部署管理員 PowerShell Cmdlet，才能執行此 Cmdlet。 請參閱[必要條件](#prerequisite)。
+    必須安裝部署管理員 PowerShell Cmdlet，才能執行此 Cmdlet。 請參閱＜必要條件＞。
 
     下列範例顯示執行中狀態：
     

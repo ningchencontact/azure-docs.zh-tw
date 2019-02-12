@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 11c6f421e2eb1c3e508868d4a87f838781bda8e2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5d9819d60e21c80b882db1d12b0318599fa54095
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478445"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729730"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>快速入門：將資料從事件中樞內嵌至 Azure 資料總管
 
@@ -129,7 +129,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
      **設定** | **建議的值** | **欄位描述**
     |---|---|---|
     | 資料表 | *TestTable* | 您在 **TestDatabase** 中建立的資料表。 |
-    | 資料格式 | *JSON* | 支援 JSON 和 CSV 格式。 |
+    | 資料格式 | *JSON* | 支援的格式為 Avro、CSV、JSON、MULTILINE JSON、PSV、SOH、SCSV、TSV 和 TXT。 |
     | 資料行對應 | *TestMapping* | 您在 **TestDatabase** 中建立的對應，會將傳入的 JSON 資料對應至 **TestTable** 的資料行名稱與資料類型。|
     | | |
 

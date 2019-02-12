@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: d0fc8d68b3412c2c43a88e3a9484dab3a150b811
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 300b42c9452fc58c857d075a7fd8c42fd6a1c409
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886266"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731728"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>快速入門：使用 C Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH/RDP 輸送 (預覽)
 
@@ -56,7 +56,7 @@ ms.locfileid: "54886266"
 針對此快速入門，您將使用[適用於 C 的 Azure IoT 裝置 SDK](iot-hub-device-sdk-c-intro.md)。您將會準備用來從 GitHub 複製並建置 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的開發環境。 GitHub 上的 SDK 包括此快速入門中使用的範例程式碼。 
 
 
-1. 下載 [CMake 建置系統](https://cmake.org/download/)3.11.4 版。 請確認下載的二進位檔使用對應的密碼編譯雜湊值。 下列範例使用 Windows PowerShell 來驗證 x64 MSI 發行版本 3.11.4 的密碼編譯雜湊：
+1. 從 [GitHub](https://github.com/Kitware/CMake/releases/tag/v3.11.4) 下載 [CMake 建置系統](https://cmake.org/download/) 3.11.4 版。 請確認下載的二進位檔使用對應的密碼編譯雜湊值。 下列範例使用 Windows PowerShell 來驗證 x64 MSI 發行版本 3.11.4 的密碼編譯雜湊：
 
     ```PowerShell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
@@ -77,7 +77,7 @@ ms.locfileid: "54886266"
 2. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
     
     ```
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
     此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
 
@@ -86,7 +86,6 @@ ms.locfileid: "54886266"
 
     ```
     cd azure-iot-sdk-c
-    git checkout public-preview
     mkdir cmake
     cd cmake
     ```
@@ -102,14 +101,14 @@ ms.locfileid: "54886266"
 在 Windows 中，請在 Visual Studio 2015 或 2017 提示的開發人員命令提示字元中執行下列命令：
 
 ```
-    # In Windows
-    # For VS2015
-    $ cmake .. -G "Visual Studio 15 2015"
-    
-    # Or for VS2017
-    $ cmake .. -G "Visual Studio 15 2017
+    rem In Windows
+    rem For VS2015
+    cmake .. -G "Visual Studio 15 2015"
 
-    # Then build the project
+    rem Or for VS2017
+    cmake .. -G "Visual Studio 15 2017"
+
+    rem Then build the project
     cmake --build . -- /m /p:Configuration=Release
 ```
     
@@ -165,11 +164,12 @@ ms.locfileid: "54886266"
 ```
     # In Linux
     # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
-    $ make -j
+    make -j
+```
 
-
-    # In Windows
-    # Go to cmake at root of repository
+```
+    rem In Windows
+    rem Go to cmake at root of repository
     cmake --build . -- /m /p:Configuration=Release
 ```
 
@@ -177,10 +177,12 @@ ms.locfileid: "54886266"
 ```
     # In Linux
     # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
-    $ ./iothub_client_c2d_streaming_proxy_sample
+    ./iothub_client_c2d_streaming_proxy_sample
+```
 
-    # In Windows
-    # Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
+```
+    rem In Windows
+    rem Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
     iothub_client_c2d_streaming_proxy_sample.exe
 ```
 

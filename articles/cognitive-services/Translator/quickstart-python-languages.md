@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: c99dbdb95c4dd7a6e078fd6e9ee15a590c8c40c9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6f52df9166da371b38069138bc4389a9be6b0121
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458290"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692217"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來取得支援的語言清單
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-目前有一個端點可供翻譯工具文字使用，且該端點設定為 `base_url`。 `path` 會設定 `languages` 路由，並指出我們要叫用第 3 版的 API。
+翻譯工具文字全域端點會設定為 `base_url`。 `path` 會設定 `languages` 路由，並指出我們要叫用第 3 版的 API。
 
 >[!NOTE]
 > 如需關於端點、路由和要求參數的詳細資訊，請參閱[翻譯工具文字 API 3.0：語言](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages)。

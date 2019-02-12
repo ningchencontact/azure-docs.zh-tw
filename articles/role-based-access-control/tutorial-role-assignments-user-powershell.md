@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/11/2018
+ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: cac585b36c3b5969a18c941215b623443850cd4c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 27b48e1d6aabf9cde7152bfb0dbf3e58bc619107
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301723"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696773"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>教學課程 - 使用 RBAC 與 Azure PowerShell 為使用者授與存取權
+# <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>教學課程：使用 RBAC 與 Azure PowerShell 為使用者授與存取權
 
 [角色型存取控制 (RBAC)](overview.md) 是您對 Azure 中的資源存取進行管理的機制。 在本教學課程中，您會使用 Azure PowerShell 為使用者授與在訂用帳戶中檢視任何項目以及管理資源群組中所有項目的存取權。
 
@@ -32,6 +32,8 @@ ms.locfileid: "43301723"
 > * 移除存取
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -79,10 +81,10 @@ ms.locfileid: "43301723"
 
 您可以使用資源群組顯示如何指派資源群組範圍的角色。
 
-1. 使用 [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) 命令取得區域位置清單。
+1. 使用 [Get-AzLocation](/powershell/module/az.resources/get-azlocation) 命令取得區域位置清單。
 
    ```azurepowershell
-   Get-AzureRmLocation | select Location
+   Get-AzLocation | select Location
    ```
 
 1. 選取您附近的位置，並將其指派給變數。
@@ -91,10 +93,10 @@ ms.locfileid: "43301723"
    $location = "westus"
    ```
 
-1. 使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 命令建立新的資源群組。
+1. 使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 命令建立新的資源群組。
 
    ```azurepowershell
-   New-AzureRmResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
+   New-AzResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
    ```
 
    ```Example
@@ -107,12 +109,12 @@ ms.locfileid: "43301723"
 
 ## <a name="grant-access"></a>授與存取權
 
-若要為使用者授與存取權，您可以使用 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) 命令來指派角色。 您必須指定安全性主體、角色定義和範圍。
+若要為使用者授與存取權，您可以使用 [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 命令來指派角色。 您必須指定安全性主體、角色定義和範圍。
 
-1. 使用 [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) 命令取得訂用帳戶的識別碼。
+1. 使用 [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) 命令取得訂用帳戶的識別碼。
 
     ```azurepowershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     ```Example
@@ -131,7 +133,7 @@ ms.locfileid: "43301723"
 1. 在訂用帳戶範圍中，將[讀者](built-in-roles.md#reader)角色指派給使用者。
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    New-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -151,7 +153,7 @@ ms.locfileid: "43301723"
 1. 在資源群組範圍中，將[參與者](built-in-roles.md#contributor)角色指派給使用者。
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    New-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -170,10 +172,10 @@ ms.locfileid: "43301723"
 
 ## <a name="list-access"></a>列出存取權
 
-1. 若要確認訂用帳戶的存取權，請使用 [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) 命令列出角色指派。
+1. 若要確認訂用帳戶的存取權，請使用 [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 命令列出角色指派。
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -SignInName rbacuser@example.com -Scope $subScope
+    Get-AzRoleAssignment -SignInName rbacuser@example.com -Scope $subScope
     ```
 
     ```Example
@@ -190,10 +192,10 @@ ms.locfileid: "43301723"
 
     在輸出中，您可以看到「讀者」角色已在訂用帳戶範圍中指派給 RBAC 教學課程使用者。
 
-1. 若要確認資源群組的存取權，請使用 [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) 命令列出角色指派。
+1. 若要確認資源群組的存取權，請使用 [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 命令列出角色指派。
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -SignInName rbacuser@example.com -ResourceGroupName "rbac-tutorial-resource-group"
+    Get-AzRoleAssignment -SignInName rbacuser@example.com -ResourceGroupName "rbac-tutorial-resource-group"
     ```
 
     ```Example
@@ -232,12 +234,12 @@ ms.locfileid: "43301723"
 
 ## <a name="remove-access"></a>移除存取
 
-若要移除使用者、群組和應用程式的存取權，請使用 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 移除角色指派。
+若要移除使用者、群組和應用程式的存取權，請使用 [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) 移除角色指派。
 
 1. 使用下列命令，移除使用者在資源群組範圍的「參與者」角色指派。
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    Remove-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -245,7 +247,7 @@ ms.locfileid: "43301723"
 1. 使用下列命令，移除使用者在訂用帳戶範圍的「讀者」角色指派。
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName rbacuser@example.com `
+    Remove-AzRoleAssignment -SignInName rbacuser@example.com `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -254,10 +256,10 @@ ms.locfileid: "43301723"
 
 若要清除本教學課程所建立的資源，請刪除資源群組和使用者。
 
-1. 使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令刪除資源群組。
+1. 使用 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 命令刪除資源群組。
 
     ```azurepowershell
-    Remove-AzureRmResourceGroup -Name "rbac-tutorial-resource-group"
+    Remove-AzResourceGroup -Name "rbac-tutorial-resource-group"
     ```
 
     ```Example

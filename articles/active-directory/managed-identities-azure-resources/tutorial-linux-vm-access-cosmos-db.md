@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: priyamo
-ms.openlocfilehash: a79a776e088461b702a3fe5217eceb6c7234919c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d107e8283e68043a49c080fd1b021b29b917c6f7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186633"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812446"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>教學課程：使用 Linux VM 系統指派的受控識別來存取 Azure Cosmos DB 
 
@@ -87,7 +87,7 @@ az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE 
 
 Cosmos DB 原生並不支援 Azure AD 驗證。 不過，您可以使用受控識別，從 Resource Manager 中擷取 Cosmos DB 存取金鑰，然後使用該金鑰來存取 Cosmos DB。 在此步驟中，您會將存取 Cosmos DB 帳戶的權利，授予系統指派的受控識別。
 
-若要在 Azure Resource Manager 中使用 Azure CLI，將存取 Cosmos DB 帳戶的權利授予系統指派的受控識別，請更新您環境的 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>` 和 `<COSMOS DB ACCOUNT NAME>` 值。 將 `<MI PRINCIPALID>` 換成[擷取 Linux VM MI 的 principalID](#retrieve-the-principalID-of-the-linux-VM's-system-assigned-identity) 中，由 `az resource show` 命令所傳回的 `principalId` 屬性。  使用存取金鑰時，Cosmos DB 支援兩種層級的資料細微性：對帳戶的讀取/寫入存取，以及對帳戶的唯讀存取。  如果您想要取得帳戶的讀取/寫入金鑰，請指派 `DocumentDB Account Contributor` 角色；如果要取得帳戶的唯讀金鑰，請指派 `Cosmos DB Account Reader Role` 角色：
+若要在 Azure Resource Manager 中使用 Azure CLI，將存取 Cosmos DB 帳戶的權利授予系統指派的受控識別，請更新您環境的 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>` 和 `<COSMOS DB ACCOUNT NAME>` 值。 將 `<MI PRINCIPALID>` 更換為＜擷取 Linux VM MI 的 principalID＞中，由 `az resource show` 命令所傳回的 `principalId` 屬性。  使用存取金鑰時，Cosmos DB 支援兩種層級的資料細微性：對帳戶的讀取/寫入存取，以及對帳戶的唯讀存取。  如果您想要取得帳戶的讀取/寫入金鑰，請指派 `DocumentDB Account Contributor` 角色；如果要取得帳戶的唯讀金鑰，請指派 `Cosmos DB Account Reader Role` 角色：
 
 ```azurecli-interactive
 az role assignment create --assignee <MI PRINCIPALID> --role '<ROLE NAME>' --scope "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMODS DB ACCOUNT NAME>"

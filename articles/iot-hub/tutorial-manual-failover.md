@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f0e8bf922f142b795dd1a2ded4b3ec265c43481a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: bd9cb76557c65832de5d249cdccdc36101edf646
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249935"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821281"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>教學課程：執行手動容錯移轉 IoT 中樞 (公開預覽)
 
@@ -50,7 +50,7 @@ ms.locfileid: "39249935"
     **區域**：選取您鄰近且屬於預覽的區域。 本教學課程會使用 `westus2`。 只能在 Azure 異地配對區域之間進行容錯移轉。 與 westus2 異地配對的區域是 WestCentralUS。
     
    > [!NOTE]
-   > 手動容錯移轉目前處於公開預覽狀態，且在以下的 Azure 區域「不」提供：美國東部、美國西部、北歐、西歐、巴西南部和美國中南部。
+   > 手動容錯移轉目前為公開預覽狀態，且不適用於下列 Azure 區域：美國東部、美國西部、北歐、西歐、巴西南部和美國中南部。
 
    **IoT 中樞名稱**：指定 IoT 中樞的名稱。 中樞名稱必須是全域唯一的。 
 
@@ -112,7 +112,7 @@ ms.locfileid: "39249935"
 
    ![手動容錯回復要求的螢幕擷取畫面](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
-   橫幅的顯示方式會如同[執行容錯移轉](#perform-a-failover)一節中所述。 容錯回復完成之後，它會如同最初的設定，再次顯示 `westus2` 作為主要位置，以及顯示 `WestCentralUS` 作為次要位置。
+   橫幅的顯示方式會如同＜執行容錯移轉＞一節中所述。 容錯回復完成之後，它會如同最初的設定，再次顯示 `westus2` 作為主要位置，以及顯示 `WestCentralUS` 作為次要位置。
 
 ## <a name="clean-up-resources"></a>清除資源 
 

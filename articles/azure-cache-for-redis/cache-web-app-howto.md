@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: fd5a995bf03d530ccbcf9b839ccc840d202b47d6
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: d80a10bea58fdcd5b20e24f9f8ba633f2714d55c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556182"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822573"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>快速入門：建立 ASP.NET Web 應用程式 
 
@@ -98,9 +98,9 @@ ms.locfileid: "53556182"
 在本節中，您將更新應用程式，以支援會對 Azure Cache for Redis 顯示簡單測試的新檢視。
 
 * [使用快取的應用程式設定來更新 web.config 檔案](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
-* [設定應用程式以使用 StackExchange.Redis 用戶端](#configure-the-application-to-use-stackexchangeredis)
-* [更新 HomeController 和版面配置](#update-the-homecontroller-and-layout)
-* [新增 RedisCache 檢視](#add-a-new-rediscache-view)
+* 設定應用程式以使用 StackExchange.Redis 用戶端
+* 更新 HomeController 和版面配置
+* 新增 RedisCache 檢視
 
 ### <a name="update-the-webconfig-file-with-an-app-setting-for-the-cache"></a>使用快取的應用程式設定來更新 web.config 檔案
 

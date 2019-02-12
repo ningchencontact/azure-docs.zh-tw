@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 39261f18c4335f0f27b68a2df2246ec4180d11e7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0900f5e2cab24004c4e2a358a98cd750f0968b50
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193689"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752973"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>為混合式環境中的 Windows 電腦設定 Log Analytics 代理程式
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) 可直接從資料中心或其他雲端環境內的實體或虛擬 Windows 電腦，將資料收集到單一存放庫，來進行詳細的分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Windows 電腦的資料。  針對 Azure Windows VM，請參閱下列主題：[收集關於 Azure 虛擬機器的資料](../../azure-monitor/learn/quick-collect-azurevm.md)。  
@@ -83,7 +83,7 @@ Log Analytics 可以從 Windows 事件記錄檔收集事件，以及收集您針
 4. 您可以輸入記錄檔的名稱，來新增事件記錄檔。  輸入 **System**，然後按一下加號 **+**。  
 5. 在表格中，檢查 [錯誤] 和 [警告] 嚴重性。   
 6. 按一下頁面頂端的 [儲存] 來儲存設定。
-7. 選取 [Windows 效能資料] 以啟用收集 Windows 電腦上的效能計數器。 
+7. 選取 [Windows 效能計數器] 以啟用收集 Windows 電腦上的效能計數器。 
 8. 當您第一次為新的 Log Analytics 工作區設定 Windows 效能計數器時，系統會提供選項，讓您快速建立數個常用的計數器。 這些計數器旁邊皆會列出核取方塊。<br> ![選取的預設 Windows 效能計數器](media/quick-collect-windows-computer/windows-perfcounters-default.png)。<br> 按一下 [新增選定的效能計數器]。  隨即會新增且收集取樣間隔時間的預設值為 10 秒。  
 9. 按一下頁面頂端的 [儲存] 來儲存設定。
 

@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 437217bdd3cc2ae8724d6bf24134d8fe725daac7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093303"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819088"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>快速入門：在 Azure Active Directory 中更新應用程式
 
@@ -156,7 +156,7 @@ ms.locfileid: "55093303"
 請務必注意單一租用戶與多租用戶應用程式之間的差異：  
 
 - 單一租用戶應用程式適合在一個組織中使用。 它通常是由企業開發人員撰寫的企業營運 (LoB) 應用程式。 單一租用戶應用程式只能由所擁有之帳戶位於和應用程式註冊相同之租用戶中的使用者來存取。 因此，它只需要佈建到一個目錄中。
-- 多租用戶應用程式適合在許多組織中使用。 這種應用程式稱為軟體即服務 (SaaS) Web 應用程式，通常是由獨立軟體廠商 (ISV) 所撰寫出來的。 多租用戶應用程式必須佈建在使用者需要存取的每個租用戶中。 至於應用程式註冊所在之租用戶以外的租用戶，則需要使用者或系統管理員同意才能註冊這些租用戶。 請注意，原生用戶端應用程式預設有多個租用戶，因為其安裝於資源擁有者的裝置上。 如需同意架構的詳細資訊，請參閱前面的[同意架構的概觀](#overview-of-the-consent-framework)一節。
+- 多租用戶應用程式適合在許多組織中使用。 這種應用程式稱為軟體即服務 (SaaS) Web 應用程式，通常是由獨立軟體廠商 (ISV) 所撰寫出來的。 多租用戶應用程式必須佈建在使用者需要存取的每個租用戶中。 至於應用程式註冊所在之租用戶以外的租用戶，則需要使用者或系統管理員同意才能註冊這些租用戶。 請注意，原生用戶端應用程式預設有多個租用戶，因為其安裝於資源擁有者的裝置上。 如需同意架構的詳細資訊，請參閱前面的同意架構的概觀一節。
 
 讓應用程式具有多租用戶性質需要同時變更應用程式註冊以及 Web 應用程式本身。 下列幾節會說明這兩項。
 
@@ -184,7 +184,7 @@ ms.locfileid: "55093303"
 您的 Web 應用程式可能還會提供：
 
 - 讓系統管理員「註冊我的公司」的能力。 此體驗稱為「系統管理員同意」，可讓系統管理員有能力代替其組織中的*所有使用者*授與同意。 只有使用屬於全域管理員角色的帳戶進行驗證的使用者可以提供系統管理員同意；其他人會收到錯誤。
-- 使用者的註冊體驗。 它應該會對使用者提供 [註冊] 按鈕，以將瀏覽器重新導向至 Azure AD OAuth2.0 `/authorize` 端點或 OpenID Connect `/userinfo` 端點。 這些端點可讓應用程式藉由檢查 id_token 取得新使用者的相關資訊。 在註冊階段後，使用者將會看到類似[同意架構的概觀](#overview-of-the-consent-framework)一節所示的同意提示。
+- 使用者的註冊體驗。 它應該會對使用者提供 [註冊] 按鈕，以將瀏覽器重新導向至 Azure AD OAuth2.0 `/authorize` 端點或 OpenID Connect `/userinfo` 端點。 這些端點可讓應用程式藉由檢查 id_token 取得新使用者的相關資訊。 在註冊階段後，使用者將會看到類似同意架構的概觀一節所示的同意提示。
 
 如需有關要支援多租用戶存取和登入/註冊體驗所需進行之應用程式變更的詳細資訊，請參閱：
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: fmegen
-ms.openlocfilehash: 86a57704b20790628a89bce0f8cda4e0599fd103
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9185d8d236b2a3283cf5a542002adadd0ac74686
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220564"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820533"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>快速入門：使用適用於 Java 的語音 SDK 來辨識語音
 
@@ -35,12 +35,16 @@ ms.locfileid: "55220564"
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) \(英文\) 或 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) \(英文\)
 * 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 
-如果您執行 Ubuntu 16.04/18.04，請先確定已安裝這些相依性，再啟動 Eclipse。
+如果您執行 Ubuntu 16.04/18.04，請先確定已安裝下列相依性，再啟動 Eclipse。
 
 ```console
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
 ```
+
+如果您執行 Windows (64 位元)，請確定您已為平台安裝 Microsoft Visual C++ 可轉散發套件。
+* [下載適用於 Visual Studio 2017 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+
 
 ## <a name="create-and-configure-project"></a>建立及設定專案
 

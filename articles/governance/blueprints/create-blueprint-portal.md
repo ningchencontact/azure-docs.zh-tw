@@ -4,17 +4,17 @@ description: Azure 藍圖可用來建立、定義和部署成品。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0eebf1a2d1c173e2e37d24ff083e5d7ae011a900
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c6c498920d407dbbac2449d1da0d76237db0c63d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315293"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566307"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>在入口網站中定義和指派 Azure 藍圖
 
@@ -42,10 +42,7 @@ ms.locfileid: "53315293"
 
    ![建立藍圖](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. 填妥藍圖的 [藍圖名稱]，例如「MyBlueprint」(僅限使用字母和數字，最多 48 個字元，不可加入空格或特殊字元)，但目前請將 [藍圖描述] 留白。  在 [定義位置] 方塊中，按一下右邊的省略符號，選取您要從中儲存藍圖的[管理群組](../management-groups/overview.md)，並按一下 [選取]。
-
-   > [!NOTE]
-   > 藍圖定義只能儲存至管理群組。 若要建立第一個管理群組，請按照[下列步驟](../management-groups/create.md)進行。
+1. 填妥藍圖的 [藍圖名稱]，例如「MyBlueprint」(僅限使用字母和數字，最多 48 個字元，不可加入空格或特殊字元)，但目前請將 [藍圖描述] 留白。  在 [定義位置] 方塊中，按一下右邊的省略符號，選取您要從中儲存藍圖的[管理群組](../management-groups/overview.md)或訂用帳戶，並按一下 [選取]。
 
 1. 確認資訊正確無誤 (之後無法變更 [藍圖名稱] 和 [定義位置] 欄位)，然後按一下頁面底部的 [下一步: **成品]** 或頁面頂端的 [成品] 索引標籤。
 
@@ -154,9 +151,9 @@ ms.locfileid: "53315293"
 
 ## <a name="assign-a-blueprint"></a>指派藍圖
 
-發佈藍圖後，即可將藍圖指派給訂用帳戶。 將您建立的藍圖指派給管理群組階層的其中一個訂用帳戶。
+發佈藍圖後，即可將藍圖指派給訂用帳戶。 將您建立的藍圖指派給管理群組階層下的其中一個訂用帳戶。 如果將藍圖儲存到某訂用帳戶，則只能將其指派給該訂用帳戶。
 
-1. 在左邊的頁面選取 [藍圖定義]。
+1. 在頁面左邊選取 [藍圖定義]。
 
 1. 在藍圖清單中，以滑鼠右鍵按一下您先前建立的藍圖 (或以滑鼠左鍵按一下省略符號)，然後選取 [指派藍圖]。
 

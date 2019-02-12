@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
 manager: mmontwil
-ms.openlocfilehash: 9dc219078377d8b8da5d1700fb2a93133649d924
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d1840a451fc9354b32950283b335455d67ccbf43
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475768"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657241"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>在使用 Java 的 Azure Dev Spaces 上開始使用
 
@@ -226,4 +226,4 @@ Azure 開發人員空間會以累加方式重新編譯現有容器中的程式�
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [了解小組開發](team-development-java.md)
+> [了解多重服務開發](multi-service-java.md)

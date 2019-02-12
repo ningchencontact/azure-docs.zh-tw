@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b12df3e31b46fa29f5726946be1d7509018fcbf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 92bd80135d2ce0c72537240a12e6c0788443abe8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025839"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700174"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>教學課程：使用 REST API 建立 Azure Data Factory 管線來複製資料 
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ ms.locfileid: "54025839"
 
 如需 JSON 屬性的詳細資訊，請參閱 [Azure 儲存體連結服務](data-factory-azure-blob-connector.md#azure-storage-linked-service)。
 
-### <a name="azuersqllinkedservicejson"></a>azuersqllinkedservice.json
+### <a name="azuresqllinkedservicejson"></a>azuresqllinkedservice.json
 > [!IMPORTANT]
 > 將 **servername**、**databasename**、**username** 和 **password** 替換為您的 Azure SQL Server 名稱、SQL Database 名稱、使用者帳戶及帳戶的密碼。  
 > 
@@ -284,7 +284,7 @@ ms.locfileid: "54025839"
  
 將 **start** 屬性的值替換為目前日期，並將 **end**值替換為隔天的日期。 在日期時間中，您只指定日期部分，並略過時間部分。 例如，"2017-02-03"，這相當於 "2017-02-03T00:00:00Z"
  
-開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。 例如︰2016-10-14T16:32:41Z。 **end** 時間為選擇性項目，但在本教學課程中會用到。 
+開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。 例如︰2016-10-14T16:32:41Z. **end** 時間為選擇性項目，但在本教學課程中會用到。 
  
 如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
  

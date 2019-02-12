@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 4ad93dad2044526f5825823540325b73f2d0d7ae
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5f979f562ee871e7ae5f48de5bc53405cb3d1116
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053529"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766399"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>教學課程：建立和管理匯出的資料
 
@@ -30,8 +30,7 @@ ms.locfileid: "54053529"
 > * 驗證已收集資料
 
 ## <a name="prerequisites"></a>必要條件
-
-所有 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶皆可使用資料匯出。 使用者及群組資料匯出的每個訂用帳戶皆支援下列 Azure 權限：
+資料匯出適用於各種不同的 Azure 帳戶類型，包括 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶。 若要檢視所支援帳戶類型的完整清單，請參閱[了解成本管理資料](understand-cost-mgt-data.md)。 使用者及群組資料匯出的每個訂用帳戶皆支援下列 Azure 權限：
 
 - 擁有者 - 可以建立、修改或刪除已排程的訂用帳戶匯出。
 - 參與者 - 可以建立、修改或刪除他們自己的排程匯出。 可以修改其他人所建立的排程匯出名稱。

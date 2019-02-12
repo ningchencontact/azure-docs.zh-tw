@@ -1,94 +1,114 @@
 ---
-title: 快速入門：Bing 實體搜尋 API (Node.js)
+title: 快速入門：使用 Node.js 將搜尋要求傳送至 Bing 實體搜尋 REST API
 titlesuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 實體搜尋 API。
+description: 使用此快速入門以運用 C# 來傳送要求給「Bing 實體搜尋 REST API」，並接收 JSON 回應。
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 18476b8fa272ea235526693a9e2bab577298244d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 37e00c6cdc5340607a4aabc446d87e1a8575c552
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174460"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755130"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-nodejs"></a>搭配使用 Bing 實體搜尋 API 與 Node.js 的快速入門
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>快速入門：使用 Node.js 將搜尋要求傳送至 Bing 實體搜尋 REST API
 
-本文說明如何使用 [Bing 實體搜尋 API](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)  搭配 Node.JS。
+使用本快速入門以第一次呼叫 Bing 實體搜尋 API，並檢視 JSON 回應。 這個簡單的 JavaScript 應用程式會將新聞搜尋查詢傳送給 API，並顯示回應。 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js) 上有此範例的原始程式碼。
+
+雖然此應用程式是以 JavaScript 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
 ## <a name="prerequisites"></a>必要條件
 
-您將需要 [Node.js 6](https://nodejs.org/en/download/) 才能執行此程式碼。
+* 最新版的 [Node.js](https://nodejs.org/en/download/)。
 
-您必須有具備 **Bing 實體搜尋 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api)即足以供本快速入門使用。 您必須要有啟用免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
+* [JavaScript 要求程式庫](https://github.com/request/request)
 
-## <a name="search-entities"></a>搜尋實體
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-若要執行此應用程式，請遵循下列步驟。
+## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
 
-1. 在您最愛的 IDE 中建立新的 Node.JS 專案。
-2. 新增下方提供的程式碼。
-3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
-4. 執行程式。
+1. 在您最愛的 IDE 或編輯器中建立新的 JavaScript 檔案，並設定嚴謹度 和 https 需求。
 
-```nodejs
-'use strict';
+    ```javaScript
+    'use strict';
+    let https = require ('https');
+    ```
 
-let https = require ('https');
+2. 建立適用於 API 端點、您訂用帳戶金鑰及搜尋查詢的變數。
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    ```javascript
+    let subscriptionKey = 'ENTER YOUR KEY HERE';
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/entities';
+    
+    let mkt = 'en-US';
+    let q = 'italian restaurant near me';
+    ```
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
+3. 將您的市場和查詢參數附加至稱為 `query` 的字串。 請務必使用 `encodeURI()` 對您的查詢進行 url 編碼。
+    ```javascript 
+    let query = '?mkt=' + mkt + '&q=' + encodeURI(q);
+    ```
 
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/entities';
+## <a name="handle-and-parse-the-response"></a>處理及剖析回應
 
-let mkt = 'en-US';
-let q = 'italian restaurant near me';
+1. 定義一個名為 `response_handler` 的函式，此函式會接受 HTTP 呼叫 `response` 作為參數。 在此函式內，執行下列步驟：
 
-let params = '?mkt=' + mkt + '&q=' + encodeURI(q);
+    1. 定義一個變數來包含 JSON 回應本文。  
+        ```javascript
+        let response_handler = function (response) {
+            let body = '';
+        };
+        ```
 
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-        let body_ = JSON.parse (body);
-        let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
+    2. 當呼叫 **data** 旗標時，儲存回應本文
+        ```javascript
+        response.on('data', function (d) {
+            body += d;
+        });
+        ```
 
-let Search = function () {
-    let request_params = {
-        method : 'GET',
-        hostname : host,
-        path : path + params,
-        headers : {
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
+    3. 出現 **end** 旗標的信號時，剖析 JSON，然後將其列印出來。
 
-    let req = https.request (request_params, response_handler);
-    req.end ();
-}
+        ```javascript
+        response.on ('end', function () {
+        let json = JSON.stringify(JSON.parse(body), null, '  ');
+        console.log (json);
+        });
+        ```
 
-Search ();
-```
+## <a name="send-a-request"></a>傳送要求
 
-**回應**
+1. 建立名為 `Search` 的函式，以傳送搜尋要求。 在其中執行下列步驟。
+
+    1. 建立包含要求參數的 JSON 物件：使用 `Get` 方法，然後新增主機和路徑資訊。 將訂用帳戶金鑰新增至 `Ocp-Apim-Subscription-Key` 標頭。 
+    2. 使用 `https.request()` 以稍早建立的回應處理常式傳送要求與搜尋參數。
+    
+    ```javascript
+    let Search = function () {
+        let request_params = {
+            method : 'GET',
+            hostname : host,
+            path : path + query,
+            headers : {
+                'Ocp-Apim-Subscription-Key' : subscriptionKey,
+            }
+        };
+    
+        let req = https.request (request_params, response_handler);
+        req.end ();
+    }
+    ```
+
+2. 呼叫 `Search()` 函式。
+
+## <a name="example-json-response"></a>範例 JSON 回應
 
 如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
@@ -153,11 +173,10 @@ Search ();
 }
 ```
 
-[回到頁首](#HOLTop)
-
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Bing 實體搜尋教學課程](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing 實體搜尋概觀](../search-the-web.md )
-> [API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [建置單頁 Web 應用程式](../tutorial-bing-entities-search-single-page-app.md)
+
+* [什麼是 Bing 實體搜尋 API？](../overview.md )
+* [Bing 實體搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
