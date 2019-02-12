@@ -7,16 +7,16 @@ author: billmath
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/30/2019
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7e7c9ca30659fd1e99989bb77406b653a8ed9e7f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 5219241de9b18008032a3eb78c6aab25a2713370
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302933"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660403"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>教學課程：在 Azure AD Connect 中將 PHS 設定為 AD FS 的備份
 
@@ -43,7 +43,7 @@ ms.locfileid: "55302933"
 10. 就這麼簡單！  大功告成。  密碼雜湊同步處理即將執行，如果 AD FS 無法使用，就可以作為備份。
 
 ## <a name="switch-to-password-hash-synchronization"></a>切換至密碼雜湊同步處理
-現在，我們將說明如何在您需要時切換至密碼雜湊同步處理。  執行下列動作：
+現在，我們將說明如何切換至密碼雜湊同步處理。 在開始之前，請考慮應該在哪些情況下進行切換。 不要為了暫存的原因 (例如網絡中斷、輕微的 AD FS 問題，或影響使用者子網路的問題) 進行切換。 如果由於修正問題的時間太長而決定進行切換，請執行以下作業：
 
 1. 按兩下在桌面上建立的 Azure AD Connect 圖示
 2.  按一下 [設定] 。

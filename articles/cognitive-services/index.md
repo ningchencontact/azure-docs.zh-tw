@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 389dd4e8b6f2157c1c53528506435a97a07a493e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ceb5bb59f65e0f01d04d1aa9726b2494384b4a67
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872929"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998925"
 ---
 <h1>Azure 認知服務文件</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">了解如何在應用程式、網站和 Bot 中融入智慧型演算法，透過自然的溝通方式，來查看、聆聽、述說及了解您的使用者需求。 教學課程、快速入門和 API 參考和範例示範。</p>
@@ -316,7 +316,6 @@ ms.locfileid: "55872929"
                         <p><a href="/azure/cognitive-services/speech-service">語音服務 API</a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>說話者辨識&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speech/home"><span>Bing 語音 API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>自訂語音服務&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/translator-speech/"><span>翻譯工具語音&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
                      </div>
                 </div>
