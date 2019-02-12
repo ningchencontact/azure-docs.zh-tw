@@ -98,7 +98,7 @@ LUIS 會提供許多類型的實體。 您可以根據擷取資料的方式和�
 
 只有機器學習的實體需要針對範例語句中的每個意圖進行標記。 機器學習實體在透過[端點查詢](luis-concept-test.md#endpoint-testing)及[檢閱端點語句](luis-how-to-review-endoint-utt.md)來進行測試時，效果最佳。 
 
-Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本範例 (不是意圖使用者範例) 中進行標記。 
+Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本裡的範例 (而不是意圖裡使用者所提供的範例) 中進行標記。 
 
 混合實體會使用實體偵測方法的組合。
 
