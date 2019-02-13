@@ -46,7 +46,7 @@ items:
     href: search-indexer-tutorial.md
   - name: 在 .NET 中新增同義字
     href: search-synonyms-tutorial-sdk.md
-  - name: 在 .NET 新增自動完成
+  - name: 在 .NET 中新增自動完成
     href: search-autocomplete-tutorial.md
 - name: 範例
   items:
@@ -56,33 +56,19 @@ items:
   items:
   - name: 知識採礦集訓
     href: https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/
+  - name: 將搜尋新增至應用程式 (Pluralsight)
+    href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
+  - name: Microsoft Azure 開發人員課程 (Pluralsight)
+    href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
 - name: 概念
   items:
   - name: 全文檢索搜尋
     href: search-lucene-query-architecture.md
+  - name: 多組織用戶的樣式
+    href: search-modeling-multitenant-saas-applications.md
 - name: 使用說明指南
   items:
-  - name: 認知搜尋 (預覽)
-    items:
-    - name: 附加認知服務資源
-      href: cognitive-search-attach-cognitive-services.md
-    - name: 定義技能集
-      href: cognitive-search-defining-skillset.md
-    - name: 參考註釋
-      href: cognitive-search-concept-annotations-syntax.md
-    - name: 對應至索引欄位
-      href: cognitive-search-output-field-mapping.md
-    - name: 從映像處理及擷取資訊
-      href: cognitive-search-concept-image-scenarios.md
-    - name: 整合自訂技術
-      href: cognitive-search-custom-skill-interface.md
-    - name: 範例 - 自訂技術
-      href: cognitive-search-create-custom-skill-example.md
-    - name: 疑難排解秘訣
-      href: cognitive-search-concept-troubleshooting.md
-    - name: 文件連結
-      href: cognitive-search-resources-documentation.md
-  - name: 規劃
+  - name: 容量規劃
     items:
     - name: 選擇階層。
       href: search-sku-tier.md
@@ -90,8 +76,6 @@ items:
       href: search-limits-quotas-capacity.md
     - name: 配置分割區和複本
       href: search-capacity-planning.md
-    - name: 多組織用戶的樣式
-      href: search-modeling-multitenant-saas-applications.md
   - name: 安全性
     items:
     - name: 安全性概觀
@@ -126,49 +110,47 @@ items:
         href: search-dotnet-mgmt-sdk-migration.md
     - name: 升級 REST API
       href: search-api-migration.md
-  - name: 索引設計
+  - name: 設計索引
     items:
-    - name: 索引定義
+    - name: 建立基本索引
       href: search-what-is-an-index.md
     - name: 建立索引 (入口網站)
       href: search-create-index-portal.md
     - name: 分析器
       items:
-      - name: 文字分析器
+      - name: 新增文字分析器
         href: search-analyzers.md
-      - name: 語言分析器 API
-        href: https://docs.microsoft.com/rest/api/searchservice/language-support
-      - name: 自訂分析器 API
-        href: https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search
-    - name: 自動建議
-      href: https://docs.microsoft.com/rest/api/searchservice/suggesters
+      - name: 新增語言分析器
+        href: index-add-language-analyzers.md
+      - name: 新增自訂分析器
+        href: index-add-custom-analyzers.md
+    - name: 新增自訂建議
+      href: index-add-suggesters.md
+    - name: 新增多面向導覽
+      href: search-faceted-navigation.md
+    - name: 新增同義字
+      href: search-synonyms.md
     - name: 模型的複雜資料類型
       href: search-howto-complex-data-types.md
-    - name: 多面向導覽
-      href: search-faceted-navigation.md
-    - name: 相關性微調
-      href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
-    - name: 同義字
-      href: search-synonyms.md
     - name: 模型關聯式資料
       href: search-example-adventureworks-modeling.md
     - name: 多層級模型 Facet
       href: search-example-adventureworks-multilevel-faceting.md
-  - name: 載入和重新整理資料
+  - name: 索引資料
     items:
     - name: 資料匯入概觀
       href: search-what-is-data-import.md
-    - name: 重建索引
-      href: search-howto-reindex.md
     - name: 匯入資料 (入口網站)
       href: search-import-data-portal.md
+    - name: 重建索引
+      href: search-howto-reindex.md
     - name: 索引大型資料集
       href: search-howto-large-index.md
     - name: 處理並行更新
       href: search-howto-concurrency.md
-    - name: 索引子
+    - name: 索引子 (搜耙)
       items:
-      - name: 索引器概觀
+      - name: 索引子概觀
         href: search-indexer-overview.md
       - name: Blob 儲存體索引子
         href: search-howto-indexing-azure-blob-storage.md
@@ -188,9 +170,29 @@ items:
         href: search-indexer-field-mappings.md
       - name: 常見問題疑難排解
         href: search-indexer-troubleshooting.md
+  - name: 包含豐富 AI 的索引編製 (認知搜尋)
+    items:
+    - name: 附加認知服務資源
+      href: cognitive-search-attach-cognitive-services.md
+    - name: 定義技能集
+      href: cognitive-search-defining-skillset.md
+    - name: 參考註釋
+      href: cognitive-search-concept-annotations-syntax.md
+    - name: 對應至索引欄位
+      href: cognitive-search-output-field-mapping.md
+    - name: 從映像處理及擷取資訊
+      href: cognitive-search-concept-image-scenarios.md
+    - name: 整合自訂技術
+      href: cognitive-search-custom-skill-interface.md
+    - name: 範例 - 自訂技術
+      href: cognitive-search-create-custom-skill-example.md
+    - name: 疑難排解秘訣
+      href: cognitive-search-concept-troubleshooting.md
+    - name: 文件連結
+      href: cognitive-search-resources-documentation.md
   - name: 查詢資料
     items:
-    - name: 查詢類型和組合
+    - name: 建立基本查詢
       href: search-query-overview.md
     - name: 搜尋總管 (入口網站)
       href: search-explorer.md
@@ -198,32 +200,36 @@ items:
       href: search-query-simple-examples.md
     - name: Lucene 語法範例
       href: search-query-lucene-examples.md
-    - name: 查詢參考
+    - name: 查詢語法
       items:
       - name: 簡單查詢語法
-        href: https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search
+        href: query-simple-syntax.md
       - name: Lucene 查詢語法
-        href: https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search
+        href: query-lucene-syntax.md
     - name: 分頁結果
       href: search-pagination-page-layout.md
-    - name: 相關性微調
-      href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
-    - name: 篩選器
-      items:
-      - name: 篩選條件概觀
-        href: search-filters.md
-      - name: Facet 篩選條件
-        href: search-filters-facets.md
-      - name: 篩選運算式語法
-        href: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-  - name: 管理和分析
+  - name: 篩選和排序資料
     items:
-    - name: 管理 (入口網站)
+    - name: 篩選條件概觀
+      href: search-filters.md
+    - name: Facet 篩選條件
+      href: search-filters-facets.md
+    - name: 篩選條件與 OrderBy 運算式語法
+      href: query-odata-filter-orderby-syntax.md
+  - name: 相關性微調
+    items:
+    - name: 新增評分設定檔
+      href: index-add-scoring-profiles.md
+  - name: 系統管理
+    items:
+    - name: 入口網站系統管理員
       href: search-manage.md
-    - name: PowerShell (Azure 搜尋服務)
+    - name: PowerShell 系統管理員
       href: search-manage-powershell.md
     - name: 效能和最佳化
       href: search-performance-optimization.md
+  - name: 監視
+    items:
     - name: 監視活動和記錄
       href: search-monitor-usage.md
     - name: 搜尋流量分析
@@ -248,7 +254,7 @@ items:
     href: search-api-preview.md
   - name: Resource Manager 範本
     href: /azure/templates/microsoft.search/searchservices
-  - name: 預先定義的技能 (預覽)
+  - name: 認知技能參考
     href: cognitive-search-predefined-skills.md
     items:
     - name: 關鍵片語擷取
@@ -301,9 +307,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: 影片
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 07ade676f302f9a802be933bf55d686f056d386b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: eeac3c7bf976bf1a3ccc44c30127420e00c7a776
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753753"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099049"
