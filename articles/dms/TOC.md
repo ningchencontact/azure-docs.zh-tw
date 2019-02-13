@@ -11,6 +11,7 @@
 ## [將 SQL Server 遷移至連線 Azure SQL DB](tutorial-sql-server-azure-sql-online.md)
 ## [將 SQL Server 遷移至離線 Azure SQL DB 受控執行個體](tutorial-sql-server-to-managed-instance.md)
 ## [將 SQL Server 遷移至線上 Azure SQL DB 受控執行個體](tutorial-sql-server-managed-instance-online.md)
+## [將 RDS SQL Server 遷移至線上 Azure SQL D 或 Azure SQL DB 受控執行個體](tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md)
 ## [將 MySQL 遷移至適用於線上 MySQL 的 Azure DB](tutorial-mysql-azure-mysql-online.md)
 ## [將PostgreSQL 遷移至適用於線上 PostgreSQL 的 Azure DB](tutorial-postgresql-azure-postgresql-online.md)
 ## [將 MongoDB 離線遷移至 Azure Cosmos DB Mongo API ](tutorial-mongodb-cosmos-db.md)

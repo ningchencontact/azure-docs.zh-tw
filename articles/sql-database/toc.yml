@@ -1,5 +1,5 @@
 items:
-- name: SQL DB 文件
+- name: SQL Database 文件
   href: index.yml
 - name: SQL Database 服務
   items:
@@ -67,23 +67,23 @@ items:
   expanded: true
 - name: 教學課程
   items:
-  - name: 設計 Azure SQL Database
+  - name: 在 SQL Database 中設計資料庫
     items:
     - name: 使用 SSMS 設計資料庫
       href: sql-database-design-first-database.md
     - name: 使用 .NET 設計資料庫
       href: sql-database-design-first-database-csharp.md
-  - name: 遷移至 Azure SQL Database
+  - name: 移轉至 SQL Database
     items:
     - name: 使用 DMS 遷移至單一/集區資料庫
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: 使用 DMS 遷移至受控執行個體
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Azure SQL Database 中的安全性
+  - name: SQL Database 中的安全性
     items:
-    - name: 單一資料庫安全性
+    - name: 單一和集區的資料庫安全性
       href: sql-database-security-tutorial.md
-    - name: 使用 Azure AD 登入的受控執行個體安全性
+    - name: 受控執行個體安全性
       href: sql-database-managed-instance-aad-security-tutorial.md
   - name: 實作異地分散資料庫
     href: sql-database-implement-geo-distributed-database.md
@@ -104,10 +104,10 @@ items:
   - name: 購買模型
     items:
     - name: 概觀
-      href: sql-database-service-tiers.md
+      href: sql-database-purchase-models.md
     - name: 以虛擬核心為基礎的模型
       href: sql-database-service-tiers-vcore.md
-    - name: DTU 模型
+    - name: DTU 服務層
       href: sql-database-service-tiers-dtu.md
     - name: 預付保留容量
       href: sql-database-reserved-capacity.md
@@ -351,8 +351,8 @@ items:
     items:
     - name: 概觀
       href: sql-database-howto-single-database.md
-    - name: 移轉至 SQL Database
-      href: sql-database-cloud-migrate.md
+    - name: 遷移至單一/集區資料庫
+      href: sql-database-single-database-migrate.md
     - name: 移轉後管理 SQL 資料庫
       href: sql-database-manage-after-migration.md
     - name: 設定複寫
@@ -405,7 +405,7 @@ items:
         href: sql-database-elastic-scale-add-a-shard.md
       - name: 修正分區對應問題
         href: sql-database-elastic-database-recovery-manager.md
-      - name: 移轉分區化 DB
+      - name: 遷移分區化資料庫
         href: sql-database-elastic-convert-to-use-elastic-tools.md
       - name: 建立計數器
         href: sql-database-elastic-database-perf-counters.md
@@ -421,7 +421,7 @@ items:
         href: sql-database-elastic-query-horizontal-partitioning.md
       - name: 對不同的結構描述執行跨資料表查詢
         href: sql-database-elastic-query-vertical-partitioning.md
-    - name: 彈性資料庫作業
+    - name: 彈性工作
       items:
       - name: 建立和管理 (PowerShell)
         href: elastic-jobs-powershell.md
@@ -459,11 +459,11 @@ items:
       href: sql-database-managed-instance-connect-app.md
   - name: 載入和移動資料
     items:
-    - name: 在 Azure 中複製 DB
+    - name: 在 Azure 內複製資料庫
       href: sql-database-copy.md
-    - name: 從 BACPAC 匯入 DB
+    - name: 從 BACPAC 檔案匯入資料庫
       href: sql-database-import.md
-    - name: 從 BACPAC 匯出 DB
+    - name: 從 BACPAC 檔案匯出資料庫
       href: sql-database-export.md
     - name: 資料同步
       items:
@@ -605,9 +605,9 @@ items:
             href: saas-tenancy-cross-tenant-reporting.md
           - name: 租用戶分析
             items:
-            - name: 使用 SQL DB
+            - name: 使用 SQL Database
               href: saas-tenancy-tenant-analytics.md
-            - name: 使用 SQL DW
+            - name: 使用 SQL 資料倉儲
               href: saas-tenancy-tenant-analytics-adf.md
         - name: 使用異地還原進行災害復原
           href: saas-dbpertenant-dr-geo-restore.md
@@ -714,9 +714,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: 解除安裝彈性工作 (取代)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9b11a1bd8cc68aabc8881636d5fcdfe5cbaec034
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: bf8a32ede6ce782bc0ff5ac58cd12ba70283289e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960542"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100035"

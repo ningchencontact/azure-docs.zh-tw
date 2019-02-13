@@ -55,22 +55,55 @@
 ### [稽核記錄分頁](./cloud-partner-portal/portal-tour/cpp-history-page.md)
 ### [深入解析分頁](./cloud-partner-portal/portal-tour/cpp-insights-page.md)
 
+
 ## 連接埠管理
 ### [開發人員中心帳戶註冊](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
-### [私人 SKU](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
-### [SEO 指導](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [管理發行者設定檔](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
 ### [管理使用者](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+
+
+## 企業管理
+### [SEO 指導](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [GDPR 合規性](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
+### [私人 SKU](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
+<!--  Under development: 
+### Pricing considerations
+#### Simplified currency pricing
+#### Information on taxes and price
+#### Export-import pricing
+-->
+
+### 管理潛在客戶
+#### [設定潛在客戶](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
+#### [Azure 資料表](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
+#### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
+#### [HTTPS 端點](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
+#### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
+#### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
+
+### Seller Insights
+#### [開始使用](./cloud-partner-portal-orig/si-getting-started.md)
+#### [新功能](./cloud-partner-portal-orig/si-changes.md)
+#### [Web 分析](./cloud-partner-portal-orig/web-analytics.md)
+#### [定義](./cloud-partner-portal-orig/si-insights-definitions-v4.md)
+#### [深入解析常見問題集](./cloud-partner-portal-orig/si-faqs.md)
+
 
 ## [Marketplace 供應項目](./cloud-partner-portal/cpp-marketplace-offers.md)
-
 ### [管理供應項目](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [建立供應項目](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
 #### [發佈供應項目](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [檢視供應項目狀態](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [更新供應項目](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [刪除供應項目](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
+
+### 試用產品
+#### [什麼是試用產品？](./cloud-partner-portal-orig/what-is-test-drive.md)
+#### [Azure Resource Manager 試用產品](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
+#### [已裝載的試用產品](./cloud-partner-portal-orig/hosted-test-drive.md)
+#### [邏輯應用程式試用產品](./cloud-partner-portal-orig/logic-app-test-drive.md)
+#### [試用產品的轉換範例](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
+#### [行銷與最佳做法](./cloud-partner-portal-orig/marketing-and-best-practices.md)
 
 ### [Azure 應用程式供應項目](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 #### [先決條件](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
@@ -82,6 +115,7 @@
 ##### [支援索引標籤](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
 #### [建立 VM 技術資產](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 #### [發佈 Azure 應用程式供應項目](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+#### [處理審核意見反應](./cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md)
 #### [更新現有供應項目](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
 ### [諮詢服務](./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md)
@@ -195,29 +229,6 @@
 #### [發佈 VM 供應項目](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
 #### [更新現有供應項目](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
-
-## 試用產品
-### [什麼是試用產品？](./cloud-partner-portal-orig/what-is-test-drive.md)
-### [Azure Resource Manager 試用產品](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
-### [已裝載的試用產品](./cloud-partner-portal-orig/hosted-test-drive.md)
-### [邏輯應用程式試用產品](./cloud-partner-portal-orig/logic-app-test-drive.md)
-### [試用產品的轉換範例](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
-### [行銷與最佳做法](./cloud-partner-portal-orig/marketing-and-best-practices.md)
-
-## 管理潛在客戶
-### [設定潛在客戶](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
-### [Azure 資料表](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
-### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
-### [HTTPS 端點](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
-### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
-### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
-
-## Seller Insights
-### [開始使用](./cloud-partner-portal-orig/si-getting-started.md)
-### [新功能](./cloud-partner-portal-orig/si-changes.md)
-### [Web 分析](./cloud-partner-portal-orig/web-analytics.md)
-### [定義](./cloud-partner-portal-orig/si-insights-definitions-v4.md)
-### [深入解析常見問題集](./cloud-partner-portal-orig/si-faqs.md)
 
 ## API 參考
 ### [概觀](./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md)
