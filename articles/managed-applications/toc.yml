@@ -7,14 +7,16 @@ items:
     href: overview.md
 - name: 快速入門
   items:
-  - name: 建立受控應用程式
-    href: managed-apps-quickstart-cli.md
+  - name: 發佈應用程式定義
+    href: publish-managed-app-definition-quickstart.md
+  - name: 部署服務目錄應用程式
+    href: deploy-service-catalog-quickstart.md
   expanded: true
 - name: 教學課程
   items:
-  - name: 建立受控應用程式檔案
+  - name: 建立定義檔案
     href: publish-service-catalog-app.md
-  - name: 建立 Marketplace 應用程式
+  - name: 發佈市集應用程式
     href: publish-marketplace-app.md
 - name: 範例
   items:
@@ -26,22 +28,28 @@ items:
     href: sample-projects.md
 - name: 使用說明指南
   items:
-  - name: 建立入口網站介面
-    href: create-uidefinition-overview.md
-  - name: 測試入口網站介面
-    href: test-createuidefinition.md
-  - name: 更新受控資源
-    href: update-managed-resources.md
-  - name: 使用入口網站發佈
-    href: publish-portal.md
-  - name: 使用 Key Vault 中的祕密
-    href: key-vault-access.md
+  - name: 發行者
+    items:
+    - name: 建立入口網站介面
+      href: create-uidefinition-overview.md
+    - name: 測試入口網站介面
+      href: test-createuidefinition.md
+    - name: 更新受控資源
+      href: update-managed-resources.md
+    - name: 使用入口網站發佈應用程式定義
+      href: publish-portal.md
+    - name: 使用 Key Vault 中的祕密
+      href: key-vault-access.md
+  - name: 取用者
+    items:
+    - name: 監視受控應用程式
+      href: monitor-managed-application-portal.md
 - name: 參考
   items:
   - name: Azure CLI
     href: /cli/azure/managedapp
   - name: PowerShell
-    href: /powershell/module/azurerm.resources
+    href: /powershell/module/az.resources
   - name: REST
     href: /rest/api/resources/
   - name: 使用者介面功能
@@ -97,9 +105,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 堆疊溢位
     href: http://stackoverflow.com/questions/tagged/azure-managedapps
-ms.openlocfilehash: 03a385046c0f30932e6ba99fdce46fbdc9849eb6
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c378a969f181baa25729a8dfa1967769159d937e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365293"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110127"
