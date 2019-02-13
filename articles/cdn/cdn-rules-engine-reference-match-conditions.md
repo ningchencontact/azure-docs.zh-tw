@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 44182d686548fa5b6363a87be0ce7851829e20ab
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30173316"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820551"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN 規則引擎比對條件 
 本文會針對 Azure 內容傳遞網路 (CDN) [規則引擎](cdn-rules-engine.md)列出可用比對條件的詳細描述。
@@ -107,7 +107,7 @@ Name | 目的
 
 「一律」比對條件可將一組預設功能套用至所有要求。
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -130,7 +130,7 @@ AS 號碼網路是由其自發系統編號 (ASN) 所定義。
   - 忽略原始的 No-Cache
   - 內部最大過時
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -146,7 +146,7 @@ AS 號碼網路是由其自發系統編號 (ASN) 所定義。
  - 內容存取點可識別應該提供所要求內容的服務。
  - 請勿使用 AND IF 陳述式來結合特定比對條件。 例如，結合「CDN 原點」比對條件與「客戶原點」比對條件會建立可能永遠無法比對的比對模式。 因此，不可透過 AND IF 陳述式結合兩個「CDN 原點」比對條件。
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -171,7 +171,7 @@ AS 號碼網路是由其自發系統編號 (ASN) 所定義。
   - 忽略原始的 No-Cache
   - 內部最大過時
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -200,7 +200,7 @@ AS 號碼網路是由其自發系統編號 (ASN) 所定義。
   - 忽略原始的 No-Cache
   - 內部最大過時
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -229,7 +229,7 @@ AS 號碼網路是由其自發系統編號 (ASN) 所定義。
   - 忽略原始的 No-Cache
   - 內部最大過時
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -266,7 +266,7 @@ AS 號碼網路是由其自發系統編號 (ASN) 所定義。
 
 - 拒絕存取 (403) 功能：啟用[拒絕存取 (403) 功能](cdn-rules-engine-reference-features.md#deny-access-403)以複寫「國家/地區篩選條件」功能的允許或封鎖部分。
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -280,7 +280,7 @@ AS 號碼網路是由其自發系統編號 (ASN) 所定義。
   - 邊緣 CNAME 設定
 - 請勿使用 AND IF 陳述式來結合特定比對條件。 例如，結合「客戶原點」比對條件與「CDN 原點」比對條件會建立可能永遠無法比對的比對模式。 因此，不可透過 AND IF 陳述式結合兩個「客戶原點」比對條件。
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -343,7 +343,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 解析高度 | %{wurfl_cap_resolution_height} | 整數，表示裝置的高度，以像素為單位。 | 768
 解析寬度 | %{wurfl_cap_resolution_width} | 整數，表示裝置的寬度，以像素為單位。 | 1024
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -360,7 +360,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
   - 忽略原始的 No-Cache
   - 內部最大過時
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -384,7 +384,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
   - 忽略原始的 No-Cache
   - 內部最大過時
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -405,7 +405,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
   - 忽略原始的 No-Cache
   - 內部最大過時
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -432,7 +432,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
   - 忽略原始的 No-Cache
   - 內部最大過時 
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -460,7 +460,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
   - 忽略原始的 No-Cache
   - 內部最大過時
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -485,7 +485,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
   - 忽略原始的 No-Cache
   - 內部最大過時
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -503,7 +503,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
   - 忽略原始的 No-Cache
   - 內部最大過時
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -557,7 +557,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 
 - 使用 [忽略大小寫] 選項來控制是否要執行區分大小寫比較。
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -566,11 +566,11 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 依所要求資產的副檔名來識別要求。
 
 [符合]/[不符合] 選項決定符合「URL 路徑副檔名」比對條件所依據的條件。
-- **符合**：要求的 URL 必須包含精確符合指定之模式的副檔名。
+- **符合**：要求的 URL 必須包含精確符合指定模式的副檔名。
 
    例如，如果您指定 "htm"，就會比對 "htm" 資產，但不會比對 "html" 資產。  
 
-- **不符合**：要求的 URL 必須包含不符合指定之模式的副檔名。
+- **不符合**：要求的 URL 必須包含不符合指定模式的副檔名。
 
 重要資訊：
 - 指定要在 [值] 方塊中比對的副檔名。 請勿包含前置句號；例如，使用 htm 而不是 .htm。
@@ -596,7 +596,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 - .php
 - .html
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -605,8 +605,8 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 依所要求資產的檔案名稱來識別要求。 基於這個比對條件的目的，檔案名稱會包含所要求資產的名稱、句號和副檔名 (例如，index.html)。
 
 [符合]/[不符合] 選項決定符合「URL 路徑檔名」比對條件所依據的條件。
-- **符合**：要求必須在其 URL 路徑中包含符合指定之模式的檔案名稱。
-- **不符合**：要求必須在其 URL 路徑中包含不符合指定之模式的檔案名稱。
+- **符合**：要求必須在其 URL 路徑中包含符合指定模式的檔案名稱。
+- **不符合**：要求必須在其 URL 路徑中包含不符合指定模式的檔案名稱。
 
 重要資訊：
 - 使用 [忽略大小寫] 選項來控制是否要執行區分大小寫比較。
@@ -623,7 +623,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 
     例如，指定 "presentation.ppt" 會比對名為 "presentation.ppt" 的資產，但不會比對名為 "presentation.pptx" 的資產。
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -632,8 +632,8 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 比較要求的 URL 路徑 (包括檔案名稱) 與指定的值。
 
 [符合]/[不符合] 選項決定符合「URL 路徑常值」比對條件所依據的條件。
-- **符合**：要求必須包含符合指定之模式的 URL 路徑。
-- **不符合**：要求必須包含不符合指定之模式的 URL 路徑。
+- **符合**：要求必須包含符合指定模式的 URL 路徑。
+- **不符合**：要求必須包含不符合指定模式的 URL 路徑。
 
 重要資訊：
 - 使用 [相對於] 選項以指定 URL 比較點要在內容存取點之前還是之後開始。 
@@ -667,7 +667,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 
 - 若要將對特定目錄所做的所有要求進行比對，請使用 [URL 路徑目錄](#url-path-directory)或 [URL 路徑萬用字元](#url-path-wildcard)比對條件。
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -676,8 +676,8 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 比較要求的 URL 路徑與指定的[規則運算式](cdn-rules-engine-reference.md#regular-expressions)。
 
 [符合]/[不符合] 選項決定符合「URL 路徑 RegEx」比對條件所依據的條件。
-- **符合**：要求必須包含符合指定之規則運算式的 URL 路徑。
-- **不符合**：要求必須包含不符合指定之規則運算式的 URL 路徑。
+- **符合**：要求必須包含符合指定規則運算式的 URL 路徑。
+- **不符合**：要求必須包含不符合指定規則運算式的 URL 路徑。
 
 重要資訊：
 - 在 URL 比較之前，邊緣 CNAME URL 會重寫為 CDN URL。 
@@ -698,7 +698,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
     
 - URL 路徑中的空格應該以 "%20" 取代。
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -707,8 +707,8 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 比較要求的相對 URL 路徑與指定的萬用字元模式。
 
 [符合]/[不符合] 選項決定符合「URL 路徑萬用字元」比對條件所依據的條件。
-- **符合**：要求必須包含符合指定之萬用字元模式的 URL 路徑。
-- **不符合**：要求必須包含不符合指定之萬用字元模式的 URL 路徑。
+- **符合**：要求必須包含符合指定萬用字元模式的 URL 路徑。
+- **不符合**：要求必須包含不符合指定萬用字元模式的 URL 路徑。
 
 重要資訊：
 - [相對於] 選項：此選項決定 URL 比較點要在內容存取點之前還是之後開始。
@@ -727,7 +727,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 - 在 URL 比較之前，邊緣 CNAME URL 會重寫為 CDN URL。
 
     例如，以下這兩個 URL 都指向相同的資產，因此具有相同的 URL 路徑：
-     - CDN URL：http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+     - CDN URL： http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
      - 邊緣 CNAME URL：http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     其他資訊：
@@ -760,7 +760,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 *.jpg *.gif *.png       | 根或原點 | 此模式會依所有以 .jpg、.gif 或 .png 結尾的 CDN 或邊緣 CNAME URL 進行比對。 指定此模式的替代方式是使用 [URL 路徑副檔名比對條件](#url-path-extension)。
 /images/\* /media/\*      | 來源         | 此模式會依相對路徑開頭為「映像」或「媒體」資料夾的 CDN 或邊緣 CNAME URL 進行比對。 <br />- CDN URL：http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/images/sales/event1.png<br />- 範例邊緣 CNAME URL：http:\//cdn.mydomain.com/images/sales/event1.png
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -769,8 +769,8 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 比較要求的查詢字串與指定的值。
 
 [符合]/[不符合] 選項決定符合「URL 查詢常值」比對條件所依據的條件。
-- **符合**：要求必須包含符合指定之查詢字串的 URL 查詢字串。
-- **不符合**：要求必須包含不符合指定之查詢字串的 URL 查詢字串。
+- **符合**：要求必須包含符合指定查詢字串的 URL 查詢字串。
+- **不符合**：要求必須包含不符合指定查詢字串的 URL 查詢字串。
 
 重要資訊：
 
@@ -794,7 +794,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
    - 忽略原始的 No-Cache
    - 內部最大過時
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -870,11 +870,11 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 
 Name  | 值 |  結果
 ------|-------|--------
-User  | Joe   | 當所要求 URL 的查詢字串為 "?user=joe" 時，會比對此模式。
-User  | *     | 當所要求 URL 的查詢字串包含 User 參數時，會比對此模式。
+使用者  | Joe   | 當所要求 URL 的查詢字串為 "?user=joe" 時，會比對此模式。
+使用者  | *     | 當所要求 URL 的查詢字串包含 User 參數時，會比對此模式。
 電子郵件 | Joe\* | 當所要求 URL 的查詢字串包含以 "Joe" 為開頭的 Email 參數時，會比對此模式。
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -883,8 +883,8 @@ User  | *     | 當所要求 URL 的查詢字串包含 User 參數時，會比�
 識別包含指定之查詢字串參數的要求。 這個參數會設定為符合指定之[規則運算式](cdn-rules-engine-reference.md#regular-expressions)的值。
 
 [符合]/[不符合] 選項決定符合「URL 查詢 RegEx」比對條件所依據的條件。
-- **符合**：要求必須包含符合指定之規則運算式的 URL 查詢字串。
-- **不符合**：要求必須包含不符合指定之規則運算式的 URL 查詢字串。
+- **符合**：要求必須包含符合指定規則運算式的 URL 查詢字串。
+- **不符合**：要求必須包含不符合指定規則運算式的 URL 查詢字串。
 
 重要資訊：
 - 只有精確符合指定的規則運算式才符合此比對條件。
@@ -919,7 +919,7 @@ User  | *     | 當所要求 URL 的查詢字串包含 User 參數時，會比�
    - 內部最大過時
 
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 
@@ -928,8 +928,8 @@ User  | *     | 當所要求 URL 的查詢字串包含 User 參數時，會比�
 根據要求的查詢字串來比較指定的值。
 
 [符合]/[不符合] 選項決定符合「URL 查詢萬用字元」比對條件所依據的條件。
-- **符合**：要求必須包含符合指定之萬用字元值的 URL 查詢字串。
-- **不符合**：要求必須包含不符合指定之萬用字元值的 URL 查詢字串。
+- **符合**：要求必須包含符合指定萬用字元值的 URL 查詢字串。
+- **不符合**：要求必須包含不符合指定萬用字元值的 URL 查詢字串。
 
 重要資訊：
 - 基於此選項的目的，查詢字串是從查詢字串的問號 (?) 分隔符號之後的第一個字元為開頭。
@@ -944,7 +944,7 @@ User  | *     | 當所要求 URL 的查詢字串包含 User 參數時，會比�
 
 - 使用單一空格來分隔每個值，藉以指定多個值。
 
-   例如：Parameter1=ValueA ValueB Parameter1=ValueC&Parameter2=ValueD
+   例如︰*Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
 
 - 只有精確符合至少其中一個指定的查詢字串模式才符合此比對條件。
     
@@ -965,7 +965,7 @@ User  | *     | 當所要求 URL 的查詢字串包含 User 參數時，會比�
 user=joe              | 當所要求 URL 的查詢字串為 "?user=joe" 時，會比對此模式。
 \*user=\* \*optout=\* | 當 CDN URL 查詢包含 user 或 optout 參數時，會比對此模式。
 
-[回到頁首](#match-conditions-for-the-azure-cdn-rules-engine)
+[回到頁首](#main)
 
 </br>
 

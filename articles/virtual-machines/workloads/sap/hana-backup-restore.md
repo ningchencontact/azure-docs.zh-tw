@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a72fade57b070ac2ac1aea28cbec92700c3797f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: e71e4ea56bfe467e03be59d6a855272baafc4235
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452542"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822726"
 ---
 # <a name="backup-and-restore"></a>備份與還原
 
@@ -163,7 +163,7 @@ MACs hmac-sha1
 #   ProxyCommand ssh -q -W %h:%p gateway.example.com
 ```
 
-### <a name="step-3-create-a-public-key"></a>步驟 3︰建立公開金鑰
+### <a name="step-3-create-a-public-key"></a>步驟 3：建立公開金鑰
 
 若要能夠存取 HANA 大型執行個體租用戶的儲存體快照集介面，您必須透過公開金鑰建立登入程序。 在租用戶的第一部 SAP HANA on Azure (大型執行個體) 伺服器上，建立用來存取儲存體基礎結構的公開金鑰。 此公開金鑰可確保不需密碼即可登入儲存體快照集介面。 建立公開金鑰，也表示您不需要維護密碼認證。 在 SAP HANA (大型執行個體) 伺服器上的 Linux 中，請執行下列命令來產生公開金鑰：
 ```
@@ -179,7 +179,7 @@ MACs hmac-sha1
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>步驟 4：建立 SAP HANA 使用者帳戶
 
-若要開始建立 SAP HANA 快照集，您必須在 SAP HANA 中建立使用者帳戶，以供儲存體快照集指令碼使用。 為此目的，在 SAP HANA Studio 中建立 SAP HANA 使用者帳戶。 必須在 SYSTEMDB 之下 (而「非」在 MDC 的 SID 資料庫之下) 建立使用者。 在單一容器環境中，使用者會設定於租用戶資料庫之下。 此帳戶必須具備下列權限：「備份管理」和「目錄讀取」。 在此範例中，使用者名稱是 **SCADMIN**。 HANA Studio 中所建立的使用者帳戶名稱會區分大小寫。 請務必選取 [否]，要求使用者在下次登入時變更密碼。
+若要開始建立 SAP HANA 快照集，您必須在 SAP HANA 中建立使用者帳戶，以供儲存體快照集指令碼使用。 為此目的，在 SAP HANA Studio 中建立 SAP HANA 使用者帳戶。 必須在 SYSTEMDB 之下 (而「非」在 MDC 的 SID 資料庫之下) 建立使用者。 在單一容器環境中，使用者會設定於租用戶資料庫之下。 此帳戶必須具有下列權限：**備份系統管理員**和**目錄讀取**。 在此範例中，使用者名稱是 **SCADMIN**。 HANA Studio 中所建立的使用者帳戶名稱會區分大小寫。 請務必選取 [否]，要求使用者在下次登入時變更密碼。
 
 ![在 HANA Studio 中建立使用者](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
@@ -387,8 +387,8 @@ Snapshot created successfully.
 
 您可以建立的快照集備份有三種：
 - **HANA**：合併的快照集備份，其中包含 /hana/data 和 /hana/shared (也包含 /usr/sap) 的磁碟區會由協調式快照集所涵蓋。 您可以從這個快照集還原單一檔案。
-- **記錄**︰/hana/logbackups 磁碟區的快照集備份。 不會觸發 HANA 快照集來執行此儲存體快照集。 此存放磁碟區用來包含 SAP HANA 交易記錄備份。 這會提高執行頻率，以限制記錄成長並防止資料遺失。 您可以從這個快照集還原單一檔案。 請勿將執行頻率降低到 3 分鐘以下。
-- **開機**：包含 HANA 大型執行個體的開機邏輯單元編號 (LUN) 磁碟區快照集。 您只能透過 HANA 大型執行個體的 Type I SKU 來進行此快照集備份。 您無法從包含開機 LUN 之磁碟區的快照集還原單一檔案。
+- **記錄**：/hana/logbackups 磁碟區的快照集備份。 不會觸發 HANA 快照集來執行此儲存體快照集。 此存放磁碟區用來包含 SAP HANA 交易記錄備份。 這會提高執行頻率，以限制記錄成長並防止資料遺失。 您可以從這個快照集還原單一檔案。 請勿將執行頻率降低到 3 分鐘以下。
+- **開機**：包含 HANA 大型執行個體開機邏輯單元編號 (LUN) 的磁碟區快照集。 您只能透過 HANA 大型執行個體的 Type I SKU 來進行此快照集備份。 您無法從包含開機 LUN 之磁碟區的快照集還原單一檔案。
 
 
 >[!NOTE]
@@ -687,7 +687,7 @@ HANA Backup ID:
 >[!IMPORTANT]
 >繼續進行之前，請先確定您擁有一串完整且連續的交易記錄備份。 如果沒有這些備份，您就無法還原資料庫的目前狀態。
 
-1. 完成[復原到最近的 HANA 快照集](#recovering-to-the-most-recent-hana-snapshot)中的步驟 1-6。
+1. 完成「復原到最近的 HANA 快照集」中的步驟 1-6。
 
 1. 選取 [將資料庫復原到最近狀態]。
 
@@ -713,7 +713,7 @@ HANA Backup ID:
 若要復原到介於 HANA 快照集 (包含在儲存體快照集中) 與晚於 HANA 快照集時間點復原的快照集之間的時間點，請執行下列步驟：
 
 1. 確定您擁有包含從 HANA 快照到想要復原之時間在內的所有 HANA 交易記錄備份。
-1. 開始執行[復原到最近狀態](#recovering-to-the-most-recent-state)下的程序。
+1. 開始執行「復原到最近狀態」下的程序。
 1. 在程序的步驟 2 中，於 [指定復原類型] 視窗選取 [將資料庫復原到下列時間點]，然後指定時間點。 
 1. 完成步驟 3-6。
 

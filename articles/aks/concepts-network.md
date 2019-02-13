@@ -1,18 +1,18 @@
 ---
 title: 概念 - Azure Kubernetes Service (AKS) 中的網路功能
-description: 了解 Azure Kubernetes Service (AKS) 中的網路功能，包括基本和進階網路功能、輸入控制器、負載平衡器和靜態 IP 位址。
+description: 了解 Azure Kubernetes Service (AKS) 中的網路功能，包括 kubenet 和 Azure CNI 網路功能、輸入控制器、負載平衡器和靜態 IP 位址。
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 62ba98f221041d5bbf9bb095a02d052218eb0fd0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b2fc4b518ee0857014c59b84b89a0102b86f687a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380656"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820125"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的網路概念
 
@@ -23,7 +23,7 @@ ms.locfileid: "49380656"
 - [服務](#services)
 - [Azure 虛擬網路](#azure-virtual-networks)
 - [輸入控制器](#ingress-controllers)
-- [網路原則](#network-policies)
+- 網路原則
 
 ## <a name="kubernetes-basics"></a>Kubernetes 基本概念
 
@@ -61,37 +61,32 @@ Azure 平台也有助於簡化 AKS 叢集的虛擬網路。 當您建立 Kuberne
 
 在 AKS 中，您可以部署使用下列兩種網路模型之一的叢集：
 
-- 基本網路 - 在部署 AKS 叢集時會建立並設定網路資源。
-- 進階網路 - AKS 叢集會連線至現有的虛擬網路資源和組態。
+- *Kubenet* 網路 - 在部署 AKS 叢集時通常會建立並設定網路資源。
+- *Azure 容器網路介面 (CNI)* 網路 - AKS 叢集會連線至現有的虛擬網路資源和組態。
 
-### <a name="basic-networking"></a>基本網路
+### <a name="kubenet-basic-networking"></a>Kubenet (基本) 網路
 
-基本網路選項是建立 AKS 叢集時的預設組態。 Azure 平台會管理叢集和 Pod 的網路組態。 基本網路適用於不需要自訂虛擬網路設定的部署。 使用基本網路時，您無法定義指派給 AKS 叢集的子網路名稱或 IP 位址範圍之類的網路組態。
+*Kubenet* 網路選項是建立 AKS 叢集時的預設組態。 使用 *kubenet*，節點會從 Azure 虛擬網路子網路取得 IP 位址。 Pod 會從邏輯上不同的位址空間接收至節點的 Azure 虛擬網路子網路的 IP 位址。 然後設定網路位址轉譯 (NAT)，以便 Pod 可以連線到 Azure 虛擬網路上的資源。 流量的來源 IP 位址會被轉譯為節點的主要 IP 位址。
 
-設定為基本網路的 AKS 叢集節點會使用 [kubenet][kubenet] Kubernetes 外掛程式。
+節點會使用 [kubenet][kubenet] Kubernetes 外掛程式。 您可以讓 Azure 平台為您建立及設定虛擬網路，或選擇部署 AKS 叢集到現有的虛擬網路子網路。 同樣地，只有在節點接收可路由 IP 位址時，Pod 才能使用 NAT 與 AKS 叢集外的其他資源進行通訊。 這種方法可大幅減少您需要在網路空間中保留，以供 Pod 使用的 IP 位址數目。
 
-基本網路可提供下列功能：
+如需詳細資訊，請參閱[為 AKS 叢集設定 kubenet 網路][aks-configure-kubenet-networking]。
 
-- 透過 Azure Load Balancer 在外部或內部公開 Kubernetes 服務。
-- Pod 可以存取公用網際網路上的資源。
+### <a name="azure-cni-advanced-networking"></a>Azure CNI (進階) 網路
 
-### <a name="advanced-networking"></a>進階網路
+使用 Azure CNI，每個 Pod 都從子網路取得 IP 位址，並且可以直接存取。 這些 IP 位址在您的網路空間中必須是唯一的，且必須事先規劃。 每個節點都有一個組態參數，用於所支援的最大 Pod 數目。 然後，為該節點預先保留每個節點的相同 IP 位址數目。 此方法需要更多的規劃，並且通常會導致 IP 位址耗盡，或者隨著應用程式需求增加，需要在更大的子網路中重建叢集。
 
-進階網路會將 Pod 放在您所設定的 Azure 虛擬網路中。 此虛擬網路可提供自動連線至其他 Azure 資源和整合多樣化功能的能力。 進階網路適用於需要特定虛擬網路設定的部署，例如，使用現有的子網路和連線。 使用進階網路時，您將可定義這些子網路名稱和 IP 位址範圍。
-
-為進階網路設定的 AKS 叢集節點會使用 [Azure 容器網路介面 (CNI)][cni-networking] Kubernetes 外掛程式。
+節點會使用 [Azure 容器網路介面 (CNI)][cni-networking] Kubernetes 外掛程式。
 
 ![此圖表顯示兩個節點，且各有橋接器將其連線至單一 Azure VNet][advanced-networking-diagram]
 
-進階網路可提供下列優於基本網路的功能：
+Azure CNI 透過 kubenet 網路提供下列功能：
 
-- 將 AKS 叢集部署到現有的 Azure 虛擬網路，或為叢集建立新的虛擬網路和子網路。
 - 叢集中的每個 Pod 都會被指派虛擬網路中的 IP 位址。 Pod 可直接與叢集中的其他 Pod 以及虛擬網路中的其他節點通訊。
-- Pod 可以連線至對等互連虛擬網路中的其他服務，也可以透過 ExpressRoute 和站對站 (S2S) VPN 連線來連線至內部部署網路。 您也可以從內部部署環境連線到 Pod。
 - 在已啟用服務端點的子網路中，Pod 可以安全地連線至 Azure 服務，例如，Azure 儲存體和 SQL DB。
 - 您可以建立使用者定義的路由 (UDR)，將流量從 Pod 路由到網路虛擬設備。
 
-如需詳細資訊，請參閱[為 AKS 叢集設定進階網路][aks-configure-advanced-networking]。
+如需詳細資訊，請參閱[為 AKS 叢集設定 Azure CNI][aks-configure-advanced-networking]。
 
 ## <a name="ingress-controllers"></a>輸入控制器
 
@@ -113,7 +108,7 @@ SSH 之類的流量有預設的網路安全性群組規則。 這些預設規則
 
 ## <a name="next-steps"></a>後續步驟
 
-若要開始使用 AKS 網路功能，請參閱[為 AKS 叢集建立和設定進階網路][aks-configure-advanced-networking]。
+若要開始使用 AKS 網路功能，請使用 [kubenet][aks-configure-kubenet-networking] 或 [Azure CNI][aks-configure-advanced-networking] 以您自己的 IP 位址範圍建立及設定 AKS 叢集。
 
 如需關於 Kubernetes 及 AKS 核心概念的詳細資訊，請參閱下列文章：
 
@@ -137,7 +132,8 @@ SSH 之類的流量有預設的網路安全性群組規則。 這些預設規則
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
 [aks-ingress-tls]: ingress.md
-[aks-configure-advanced-networking]: configure-advanced-networking.md
+[aks-configure-kubenet-networking]: configure-kubenet.md
+[aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

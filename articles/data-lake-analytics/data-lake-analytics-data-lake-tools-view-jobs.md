@@ -9,15 +9,15 @@ ms.reviewer: jasonwhowell
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
-ms.openlocfilehash: 474478c8049dd97558b49b1df4b00655268fc0b3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 905100f8a1444f6f6ee18d3bf9e9eab2ede8c805
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044093"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815195"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>使用適用於 Azure Data Lake Analytics 的作業瀏覽器和作業檢視
-Azure Data Lake Analytics 服務會將提交的作業封存在[查詢存放區](#query-store)中。 在本文中，您會了解如何在適用於 Visual Studio 的 Azure Data Lake 工具中使用作業瀏覽器和作業檢視，來尋找作業歷程記錄資訊。 
+Azure Data Lake Analytics 服務會將提交的作業封存在查詢存放區中。 在本文中，您會了解如何在適用於 Visual Studio 的 Azure Data Lake 工具中使用作業瀏覽器和作業檢視，來尋找作業歷程記錄資訊。 
 
 依預設，Azure Data Lake Analytics 服務會封存作業 30 天。 您可以藉由設定自訂的到期原則，從 Azure 入口網站設定有效期限。 期限到期後，您將無法存取作業資訊。 
 
@@ -56,7 +56,7 @@ Azure Data Lake Analytics 服務會將提交的作業封存在[查詢存放區](
     
       ![Azure Data Lake Analytics 作業階段狀態](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
-    * 作業的結果︰成功或失敗。 作業在每個階段都可能會失敗。
+    * 作業結果︰成功或失敗。 作業在每個階段都可能會失敗。
     * 總持續時間︰提交時間和結束時間之間的時鐘時間 (持續時間)。
     * 總計算時間︰每個頂點執行時間的總和，您可以將其視為只有在一個頂點中執行作業的時間。 如需頂點的詳細資訊，請參閱頂點總計。
     * 提交/開始/結束時間︰Data Lake Analytics 服務接收作業提交/開始執行作業/成功與否結束作業的時間。
@@ -90,7 +90,7 @@ Azure Data Lake Analytics 服務會將提交的作業封存在[查詢存放區](
     * 12.90 秒/頂點︰這個階段頂點的平均執行時間。 此圖中的計算方式是加總 (每個頂點執行時間) / (頂點總計數)。 這表示如果您可以指派平行處理原則中執行的所有頂點，整個階段會在 12.90 秒內完成。 這也表示如果在這個階段中的所有工作都是循序完成，成本會是頂點數量乘以平均回應時間。
     * 已寫入 850,895 個資料列︰在這個階段中寫入的資料列總計數。
     * R/W︰在這個階段中讀取/寫入的資料量 (位元組)。
-    * 色彩︰階段會使用色彩以表示不同的頂點狀態。
+    * 色彩：階段會使用色彩以表示不同的頂點狀態。
       
       * 綠色表示頂點已成功。
       * 橙色表示頂點已重試。 重試的頂點失敗後，系統會自動重試一次並且如果成功，則整體階段便成功完成。 如果頂點重試但仍失敗，色彩會變成紅色，整個作業也跟著失敗。
@@ -126,7 +126,7 @@ Azure Data Lake Analytics 服務會將提交的作業封存在[查詢存放區](
     
       ![Azure Data Lake Analytics 作業圖形熱度圖範例](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
     
-    * 進度︰作業執行進度，請參閱[階段資訊](#stage-information)中的資訊。
+    * 進度︰作業執行進度，請參閱階段資訊中的資訊。
     * 讀取/寫入的資料︰每個階段中，讀取/寫入總資料的熱度圖。
     * 計算時間︰總和 (每個頂點執行時間) 的熱度圖，您可以將其視為階段中所有工作只有在一個頂點中執行的時間。
     * 每個節點的平均執行時間︰總和 (每個頂點執行時間) 的熱度圖 / (頂點數量)。 這表示如果您可以指派平行處理原則中執行的所有頂點，整個階段會在這個時間範圍內完成。
@@ -138,7 +138,7 @@ Azure Data Lake Analytics 服務會將提交的作業封存在[查詢存放區](
     ![Azure Data Lake Analytics 作業檢視中繼資料作業](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
 * 狀態記錄
   
-    狀態記錄為也會以視覺化方式呈現在作業摘要中，但您可以在此取得更多詳細資料。 您可以找到詳細的資訊，例如作業何時已進行準備、排入佇列、開始執行以及結束。 此外您也可以找到作業已編譯的次數 (CcsAttempts: 1)，作業實際分派到叢集中的時間 (詳細資料︰將作業分派到叢集) 等等。
+    狀態記錄為也會以視覺化方式呈現在作業摘要中，但您可以在此取得更多詳細資料。 您可以找到詳細的資訊，例如作業何時已進行準備、排入佇列、開始執行以及結束。 此外您也可以找到作業已編譯的次數 (CcsAttempts:1)，作業實際分派到叢集中的時間 (詳細資料︰將作業分派到叢集) 等等。
   
     ![Azure Data Lake Analytics 作業檢視狀態記錄](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-state-history.png)
 * 診斷

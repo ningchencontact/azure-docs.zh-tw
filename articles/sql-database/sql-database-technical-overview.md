@@ -4,7 +4,7 @@ description: 取得 SQL Database 簡介：Microsoft 的關聯式資料庫管理�
 keywords: sql 簡介,sql 簡介,什麼是 sql database
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,23 +12,26 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6b4bc5a75f49287ad0425a7fe94f099204b73e44
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: f4b72a95c64467ce287d2cb762222d17334aad57
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469544"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755420"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL Database 服務
 
-SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服務，可支援關聯式資料、JSON、空間和 XML 等結構。 SQL Database 會在兩個不同的購買模型內提供可動態擴充的效能：[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)和[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)。 SQL Database 還會提供各種選項，例如用於極限分析和報告的[資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)，以及用來處理極限交易的[記憶體內部 OLTP](sql-database-in-memory.md)。 Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。
+SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服務，可支援關聯式資料、JSON、空間和 XML 等結構。 SQL Database 會在兩個不同的購買模型內提供可動態擴充的效能：以虛擬核心為基礎的購買模型和以 DTU 為基礎的購買模型。 SQL Database 還會提供各種選項，例如用於極限分析和報告的[資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)，以及用來處理極限交易的[記憶體內部 OLTP](sql-database-in-memory.md)。 Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。
+
+> [!NOTE]
+> 如需 Azure SQL Database 的詞彙解釋，請參閱 [SQL 資料庫術語詞彙](sql-database-glossary-terms.md)
 
 Azure SQL Database 為 Azure SQL Database 提供下列部署選項：
 
-- 以單一資料庫形式，內含透過 SQL Database 伺服器管理的自有資源集
-- 以[彈性集區](sql-database-elastic-pool.md)中的集區資料庫形式，內 含透過 SQL Database 伺服器管理的共用資源集
-- 作為資料庫集合的一部分形式，也稱為[受控執行個體](sql-database-managed-instance.md)，其中包含系統與使用者資料庫並共用一組資源
+- 以[單一資料庫](sql-database-single-database.md)形式，內含透過 SQL Database 伺服器管理的自有資源集。 單一資料庫類似 SQL Server 中的[自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)。
+- [彈性集區](sql-database-elastic-pool.md)，這是透過 SQL Database 伺服器管理的共用資源集出現在其中的資料庫集合。 單一資料庫可以移入和移出彈性集區。
+- [受控執行個體](sql-database-managed-instance.md)，這是有一組共用資源的系統和使用者資料庫集合。 受控執行個體類似於 [Microsoft SQL Server 資料庫引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)的執行個體。
 
 下圖顯示這些部署選項：
 
@@ -45,30 +48,29 @@ SQL Database 與 [Microsoft SQL Server 資料庫引擎](https://docs.microsoft.c
   SQL Server 產品小組成員發表 SQL Database 消息和功能的地方。
 
 > [!IMPORTANT]
-> 若要了解 SQL Database 與 SQL Server 之間的功能差異，請參閱 [SQL 功能](sql-database-features.md)。
+> 若要了解 SQL Database 和 SQL Server 之間的功能差異，以及不同的 Azure SQL Database 部署選項之間的差異，請參閱 [SQL 功能](sql-database-features.md)。
 
 SQL Database 提供具有多個資源類型、服務層和計算大小的可預測效能，以提供無停機時間的動態延展性、內建智慧最佳化、全域延展性和可用性，以及進階安全性選項，且全都幾乎免管理。 這些功能可讓您專注於快速開發應用程式及加快上市時間，而不是將寶貴的時間和資源耗費在管理虛擬機器和基礎結構上。 SQL Database 服務目前在全球 38 個資料中心提供，還有更多資料中心會定期上線，可讓您在附近的資料中心執行您的資料庫。
 
 ## <a name="scalable-performance-and-pools"></a>可擴充的效能和集區
 
-使用 SQL Database 時，每個資料庫會彼此隔離並且可攜，且各自會在[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)或 [V 核心形式購買模型](sql-database-service-tiers-vcore.md)內有自有服務層和保證的計算大小。 SQL Database 會針對不同需求提供不同的計算大小，並可讓資料庫集區化，以充分利用資源並節省成本。
-
-- 使用 [SQL Database 受控執行個體](sql-database-managed-instance.md)，每個執行個體會利用保證的資源與其他執行個體隔離。 如需詳細資訊，請參閱 [SQL Database 受控執行個體](sql-database-managed-instance.md)。
-- 在 V 核心形式的購買模型中運用[超大規模服務層](sql-database-service-tier-hyperscale.md) (預覽)，您可以擴充至 100 TB 且具有快速備份和還原功能。
-
-### <a name="adjust-performance-and-scale-without-downtime"></a>無須停機即可調整效能和規模
-
-SQL Database 提供[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)或[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
-
-- DTU 型購買模型提供在下列三個服務層中混用的計算、記憶體和 IO 資源，以支援各種資料庫工作負載 (輕量型到重量型)：基本、標準和進階。 各層內的計算大小分別提供這些資源的不同混用方式，而且您可以為其新增額外的儲存體資源。
-- 以 vCore 為基礎的購買模式可讓您選擇 vCore 的數目、記憶體數量，以及儲存體的數量和速度。
+- 對於單一資料庫，每個資料庫都彼此隔離而且可攜，各自也都有保證數量的計算、記憶體和儲存體資源。 SQL Database 會提供不同的計算、記憶體和儲存體資源滿足不同的需求，而且能夠動態[增加和減少單一資料庫資源](sql-database-single-database-scale.md)。 單一資料庫的[超大規模服務層](sql-database-service-tier-hyperscale.md) (預覽) 可供您擴充至 100 TB，而且有快速備份和還原功能。
+- 使用彈性集區，您可以建立新的資料庫，也可以將單一資料庫移到資源集區來充分使用資源，並省下金錢，而且能夠動態[增加或減少彈性集區資源](sql-database-elastic-pool-scale.md)。
+- 使用受控執行個體，每個執行個體會利用保證的資源與其他執行個體隔離。 在受管理的執行個體中，執行個體資料庫會共用一組資源，而且能夠動態[增加或減少受控執行個體資源](sql-database-managed-instance-resource-limits.md)。
 
 您可以在一般用途服務層每個月依成本於一個小型單一資料庫中建置第一個應用程式，接著隨時在業務關鍵服務層以手動或程式設計方式變更其服務層，以符合您的解決方案需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
 
-> [!IMPORTANT]
-> [超大規模服務層](sql-database-service-tier-hyperscale.md)目前處於公開預覽狀態。 我們還不建議在超大規模資料庫中執行任何生產工作負載。 您無法將超大規模資料庫更新為其他服務層。 如需進行測試，建議您建立目前資料庫的複本，並將該複本更新至超大規模服務層。
-
 動態延展性與自動調整規模不同。 自動調整規模是指服務根據準則來自動調整規模，而動態延展性則允許在不停機的狀況下手動調整規模。 單一資料庫支援手動的動態延展性，但不支援自動調整規模。 如需「自動」體驗，請考慮使用彈性集區，以根據個別資料庫的需求讓資料庫共用集區中的資源。 不過，有一些指令碼可協助您對單一資料庫自動調整延展性。 如需範例，請參閱[使用 PowerShell 來監視和調整單一資料庫的規模](scripts/sql-database-monitor-and-scale-database-powershell.md)。
+
+### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>購買模型、服務層、計算大小和儲存體數量
+
+SQL Database 提供兩種購買模型：
+
+- [DTU 型購買模型](sql-database-service-tiers-dtu.md)提供在下列三個服務層中混用的計算、記憶體、IO 資源，以支援各種資料庫工作負載 (輕量型到重量型)。 各層內的計算大小分別提供這些資源的不同混用方式，而且您可以為其新增額外的儲存體資源。
+- [虛擬核心形式的購買模式](sql-database-service-tiers-vcore.md)可讓您選擇虛擬核心的數目、記憶體數量，以及儲存體的數量和速度。
+
+  > [!IMPORTANT]
+  > [超大規模服務層](sql-database-service-tier-hyperscale.md)目前處於公開預覽狀態。 我們還不建議在超大規模資料庫中執行任何生產工作負載。 您無法將超大規模資料庫更新為其他服務層。 如需進行測試，建議您建立目前資料庫的複本，並將該複本更新至超大規模服務層。
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>可將資源使用量最大化的彈性集區
 
@@ -81,17 +83,15 @@ SQL Database 提供[以 DTU 為基礎的購買模型](sql-database-service-tiers
 指令碼可協助您監視及調整彈性集區的規模。 如需範例，請參閱[使用 PowerShell 在 Azure SQL Database 中監視和調整 SQL 彈性集區的規模](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 
 > [!IMPORTANT]
-> Azure SQL Database 受控執行個體不支援彈性集區。
+> 受控執行個體不支援彈性集區。 相反地，受控執行個體是共用受控執行個體資源的執行個體資料庫集合。
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>混合使用單一資料庫與集區中的資料庫
 
-不論您要使用單一資料庫或彈性集區，都將不再受到限制。 您可以混合使用單一資料庫與彈性集區，並快速且輕易地變更單一資料庫和彈性集區的服務層來適應您的情況。 透過 Azure 功能強大而無遠弗屆的特性，您可以使用 SQL Database 混合和搭配其他 Azure 服務，滿足您獨特應用程式的設計需求、有效運用成本和資源，並且產生新的商機。
+您可以混合使用單一資料庫與彈性集區，並快速且輕易地變更單一資料庫和彈性集區的服務層來適應您的情況。 透過 Azure 功能強大而無遠弗屆的特性，您可以使用 SQL Database 混合和搭配其他 Azure 服務，滿足您獨特應用程式的設計需求、有效運用成本和資源，並且產生新的商機。
 
 ### <a name="extensive-monitoring-and-alerting-capabilities"></a>廣泛的監視和警示功能
 
-但是，您要如何比較單一資料庫和彈性集區的相對效能？ 當您調高和調低效能時，要如何知道該在何處停止？ 您可以使用[內建的效能監視](sql-database-performance.md)和[警示](sql-database-insights-alerts-portal.md)工具，並搭配使用效能分級。 使用這些工具，您可以根據目前或專案的效能需求快速評估相應增加或減少的影響。 如需詳細資訊，請參閱 [DTU 型購買模型](sql-database-service-tiers-dtu.md)或[虛擬核心型購買模型](sql-database-service-tiers-vcore.md)。
-
-此外，SQL Database 可以[發出計量和診斷記錄](sql-database-metrics-diag-logging.md)以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
+您可以使用[內建的效能監視](sql-database-performance.md)和[警示](sql-database-insights-alerts-portal.md)工具，並搭配使用效能分級。 使用這些工具，您可以根據目前或專案的效能需求快速評估相應增加或減少的影響。 此外，SQL Database 可以[發出計量和診斷記錄](sql-database-metrics-diag-logging.md)以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
 
 - **Azure 儲存體**：用於封存大量遙測，價格實惠
 - **Azure 事件中樞**：用於整合 SQL Database 遙測與自訂監視解決方案或經常性管線
@@ -101,23 +101,24 @@ SQL Database 提供[以 DTU 為基礎的購買模型](sql-database-service-tiers
 
 ## <a name="availability-capabilities"></a>可用性功能
 
-Azure 領先業界的 99.99% 可用性服務等級協定 [(SLA)](https://azure.microsoft.com/support/legal/sla/)(Microsoft 受控資料中心的全球網路提供支援)，可協助讓您的應用程式 24 小時全年無休地運作。 Azure 平台可完全管理每個 Azure SQL Database，並保證不會遺失任何資料，也不會影響高度的資料可用性。 Azure 會自動處理修補、備份、複寫、失敗偵測，基礎潛在硬體、軟體或網路失敗、部署錯誤修正、容錯移轉、資料庫升級和其他維護工作。 隔離計算和儲存圖層可達成標準可用性。 整合單一節點上的計算和儲存以獲取效能，然後另外實作類似 Always On 可用性群組的技術，則可達成進階可用性。 如需 Azure SQL Database 高可用性功能的完整討論，請參閱 [SQL Database 可用性](sql-database-high-availability.md)。 此外，SQL Database 還提供內建[業務持續性和全域延展性](sql-database-business-continuity.md)功能，包括：
+Azure 領先業界的 99.99% 可用性服務等級協定 [(SLA)](https://azure.microsoft.com/support/legal/sla/)(Microsoft 受控資料中心的全球網路提供支援)，可協助讓您的應用程式 24 小時全年無休地運作。 Azure 平台可完全管理每個資料庫，並保證任何資料都不會遺失及高度的資料可用性。 Azure 會自動處理修補、備份、複寫、失敗偵測，基礎潛在硬體、軟體或網路失敗、部署錯誤修正、容錯移轉、資料庫升級和其他維護工作。 隔離計算和儲存圖層可達成標準可用性。 整合單一節點上的計算和儲存以獲取效能，然後另外實作類似 Always On 可用性群組的技術，則可達成進階可用性。 如需 Azure SQL Database 高可用性功能的完整討論，請參閱 [SQL Database 可用性](sql-database-high-availability.md)。 此外，SQL Database 還提供內建[業務持續性和全域延展性](sql-database-business-continuity.md)功能，包括：
 
 - **[自動備份](sql-database-automated-backups.md)**：
 
-  SQL Database 會自動執行完整、差異及交易記錄備份。
+  SQL Database 會自動執行 Azure SQL Database 的完整、差異及交易記錄備份，以供您還原至任何時間點。 對於單一資料庫和集區式資料庫，您可以設定 SQL 資料庫將完整資料庫備份儲存至 Azure 儲存體，以供長期備份保留。 對於受控執行個體，您也可以對僅複製備份執行長期備份保留。
+
 - **[時間點還原](sql-database-recovery-using-backups.md)**：
 
-  SQL Database 支援復原到自動備份保留期間內的任何時間點。
+  所有 SQL Database 部署選項均支援復原到任何 Azure SQL Database 自動備份保留期間內的任何時間點。
 - **[主動式異地複寫](sql-database-active-geo-replication.md)**：
 
-  SQL Database 可讓您在相同或全域分散的 Azure 資料中心最多設定 4 個可讀取的次要資料庫。  例如，如果 SaaS 應用程式的目錄資料庫有大量的並行唯讀交易，請使用主動式異地複寫功能來啟用全域讀取範圍，並移除主要資料庫上因為讀取工作負載所造成的瓶頸。
+  單一資料庫和集區式資料庫可讓您在相同或全域分散的 Azure 資料中心最多設定四個可讀取的次要資料庫。  例如，如果 SaaS 應用程式的目錄資料庫有大量的並行唯讀交易，請使用主動式異地複寫功能來啟用全域讀取範圍，並移除主要資料庫上因為讀取工作負載所造成的瓶頸。 對於受控執行個體，請使用自動容錯移轉群組。
 - **[自動容錯移轉群組](sql-database-auto-failover-group.md)**：
 
-  SQL Database 可讓您全面啟用高可用性和負載平衡，包括大量資料庫與彈性集區的透明異地複寫和容錯移轉。 容錯移轉群組和主動式異地複寫能夠建立全域分散的 SaaS 應用程式，其管理負擔最小，可讓 SQL Database 處理所有複雜的監視、路由傳送及容錯移轉協調流程。
+  所有 SQL Database 部署選項均可讓您使用容錯移轉群組來全面啟用高可用性和負載平衡，包括大量資料庫、彈性集區和受控執行個體的透明異地複寫和容錯移轉。 容錯移轉群組能夠建立全域分散的 SaaS 應用程式，其管理負擔最小，可讓 SQL Database 處理所有複雜的監視、路由傳送及容錯移轉協調流程。
 - **[區域備援資料庫](sql-database-high-availability.md)**：
 
-  SQL Database 可讓您跨多個可用性區域佈建進階或業務關鍵資料庫或彈性集區。 由於這些資料庫和彈性集區有多個備援複本可提供高可用性，所以將這些複本放入多個可用性區域即可提供更高的復原能力，包括能夠從資料中心規模的失敗自動復原，而不會遺失任何資料。  
+  SQL Database 可讓您跨多個可用性區域佈建進階或業務關鍵資料庫或彈性集區。 由於這些資料庫和彈性集區有多個備援複本可提供高可用性，所以將這些複本放入多個可用性區域即可提供更高的復原能力，包括能夠從資料中心規模的失敗自動復原，而不會遺失任何資料。
 
 ## <a name="built-in-intelligence"></a>內建智慧
 
@@ -148,12 +149,12 @@ SQL Database 提供了各式各樣的[內建安全性與合規性功能](sql-dat
 
 ### <a name="advance-threat-protection"></a>進階威脅保護
 
-SQL 進階資料安全性是進階 SQL 安全性功能的整合套件。 其中包含探索及分類敏感性資料、管理資料庫弱點，以及偵測可能表示對資料庫有威脅之異常活動的功能。 此套件可讓您從單一的進入點位置啟用及管理前述功能。
+進階資料安全性是進階 SQL 安全性功能的整合套件。 其中包含探索及分類敏感性資料、管理資料庫弱點，以及偵測可能表示對資料庫有威脅之異常活動的功能。 此套件可讓您從單一的進入點位置啟用及管理前述功能。
 
 - [資料探索與分類](sql-database-data-discovery-and-classification.md)：
 
   這個功能 (目前處於預覽階段) 提供內建於 Azure SQL Database 的功能，可用來探索、分類、標記和保護資料庫中的敏感性資料。 它可用來讓您檢視資料庫分類狀態、追蹤對資料庫內敏感性資料的存取，並具有其他多方面的用途。
-- [弱點評估](sql-vulnerability-assessment.md)：
+- [弱點評量](sql-vulnerability-assessment.md)：
 
   這個服務可以探索、追蹤並協助您修復潛在的資料庫弱點。 它可讓您檢視安全性狀態，且包含解決安全性問題和增強資料庫防護性的可行步驟。
 - [威脅偵測](sql-database-threat-detection.md)：
@@ -162,7 +163,7 @@ SQL 進階資料安全性是進階 SQL 安全性功能的整合套件。 其中�
 
 ### <a name="auditing-for-compliance-and-security"></a>合規性和安全性稽核
 
-[SQL Database 稽核](sql-database-auditing.md)會追蹤資料庫事件並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核可協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
+[稽核](sql-database-auditing.md)會追蹤資料庫事件，並將它們寫入至您 Azure 儲存體帳戶中的稽核記錄。 稽核可協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
 
 ### <a name="data-encryption"></a>資料加密
 
@@ -208,7 +209,7 @@ SQL Database 支援在 MacOS、Linux 和 Windows 上使用 Python、Java、Node.
 - 如需單一資料庫及彈性資料庫的成本比較和計算機，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。
 - 請參閱下列快速入門，以便開始使用產品：
 
-  - [在 Azure 入口網站中建立 SQL Database](sql-database-get-started-portal.md)  
+  - [在 Azure 入口網站中建立 SQL Database](sql-database-single-database-get-started.md)  
   - [使用 Azure CLI 建立 SQL Database](sql-database-get-started-cli.md)
   - [使用 PowerShell 建立 SQL Database](sql-database-get-started-powershell.md)
 

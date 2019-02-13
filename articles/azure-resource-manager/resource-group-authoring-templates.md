@@ -10,16 +10,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7d6b942ea8b2bf61bee472811648e5089f280354
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 07f4d170ec6f9d71ea3ecdabd88f4438fb7c1c69
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102409"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745584"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
+
 本文說明 Azure Resource Manager 範本的結構。 它會呈現範本的不同區段，以及這些區段中可用的屬性。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。 如需建立範本的逐步教學課程，請參閱[建立第一個 Azure Resource Manager 範本](resource-manager-create-first-template.md)。
 
 ## <a name="template-format"></a>範本格式
@@ -40,12 +41,12 @@ ms.locfileid: "54102409"
 
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
-| $schema |是 |JSON 結構描述檔案的位置，說明範本語言的版本。<br><br> 針對資源群組部署，請使用 `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`。<br><br>針對訂用帳戶部署，則使用 `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
-| contentVersion |是 |範本版本 (例如 1.0.0.0)。 您可以為此元素提供任何值。 使用此值在範本中記載重大變更。 使用範本部署資源時，這個值可用來確定使用的是正確的範本。 |
+| $schema |yes |JSON 結構描述檔案的位置，說明範本語言的版本。<br><br> 針對資源群組部署，使用：`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>針對訂用帳戶部署，使用：`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| contentVersion |yes |範本版本 (例如 1.0.0.0)。 您可以為此元素提供任何值。 使用此值在範本中記載重大變更。 使用範本部署資源時，這個值可用來確定使用的是正確的範本。 |
 | parameters |否 |執行部署以自訂資源部署時所提供的值。 |
 | variables |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
 | functions |否 |範本中可用的使用者定義函式。 |
-| resources |是 |在資源群組中部署或更新的資源類型。 |
+| resources |yes |在資源群組中部署或更新的資源類型。 |
 | outputs |否 |部署後傳回的值。 |
 
 每個元素都有可以設定的屬性。 下列範例顯示範本的完整語法：
@@ -161,6 +162,7 @@ ms.locfileid: "54102409"
 本文將詳細說明範本的各個區段。
 
 ## <a name="syntax"></a>語法
+
 範本的基本語法是 JSON。 不過，運算式和函式可延伸範本中提供的 JSON 值。  運算式是在 JSON 字串常值內撰寫，其第一個字元和最後一個字元分別為下列兩種方括號：`[` 和 `]`。 部署範本時，會評估運算式的值。 雖然是以字串常值撰寫，評估運算式的結果，根據實際的運算式可能會是不同的 JSON 類型 (例如陣列或整數)。  針對開頭為方括號 `[` 的常值字串，若不要將它解譯為運算式，請加入額外的方括號，使字串開頭成為 `[[`。
 
 一般而言，您可以將運算式搭配函數使用，以執行可設定部署的作業。 和在 JavaScript 中相同，函式呼叫的格式為 `functionName(arg1,arg2,arg3)`。 您可以使用點與 [index] 運算子來參考屬性。
@@ -176,6 +178,7 @@ ms.locfileid: "54102409"
 如需範本函數的完整清單，請參閱 [Azure 資源管理員範本函數](resource-group-template-functions.md)。 
 
 ## <a name="parameters"></a>參數
+
 在範本的 parameters 區段中，您會指定可在部署資源時輸入的值。 提供針對特定環境 (例如開發、測試和生產環境) 量身訂做的參數值，可讓您自訂部署。 您不必在範本中提供參數，但若沒有參數，您的範本一律會部署具有相同名稱、位置和屬性的相同資源。
 
 下列範例顯示簡單的參數定義：
@@ -194,6 +197,7 @@ ms.locfileid: "54102409"
 如需定義參數的詳細資訊，請參閱 [Azure Resource Manager 範本的 Parameters 區段](resource-manager-templates-parameters.md)。
 
 ## <a name="variables"></a>變數
+
 在 variables 區段中，您會建構可用於整個範本中的值。 您不需要定義變數，但它們通常會經由減少複雜運算式來簡化您的範本。
 
 下列範例顯示簡單的變數定義：
@@ -294,6 +298,101 @@ ms.locfileid: "54102409"
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本的 Outputs 區段](resource-manager-templates-outputs.md)。
 
+## <a name="comments"></a>註解
+
+有幾個選項可將註解新增至您的範本。
+
+對於**參數**，新增 `description` 屬性的 `metadata` 物件。
+
+```json
+"parameters": {
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "User name for the Virtual Machine."
+      }
+    },
+```
+
+透過入口網站部署範本時，您在描述中提供的文字會自動做為該參數的提示。
+
+![顯示參數提示](./media/resource-group-authoring-templates/show-parameter-tip.png)
+
+對於**資源**，新增 `comments` 項目或中繼資料物件。 下列範例顯示註解項目和中繼資料物件。
+
+```json
+"resources": [
+  {
+    "comments": "Storage account used to store VM disks",
+    "apiVersion": "2018-07-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+    "location": "[parameters('location')]",
+    "metadata": {
+      "comments": "These tags are needed for policy compliance."
+    },
+    "tags": {
+      "Dept": "[parameters('deptName')]",
+      "Environment": "[parameters('environment')]"
+    },
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "properties": {}
+  }
+]
+```
+
+幾乎在範本的任何位置都可以新增 `metadata` 物件。 Resource Manager 會略過該物件，但您的 JSON 編輯器可能會警告您該屬性無效。 在物件中，定義您需要的屬性。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
+
+對於**輸出**，將中繼資料物件新增至輸出值。
+
+```json
+"outputs": {
+    "hostname": {
+      "type": "string",
+      "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]",
+      "metadata": {
+        "comments": "Return the fully qualified domain name"
+      }
+    },
+```
+
+您無法將中繼資料物件新增至使用者定義函式。
+
+對於內嵌註解，您可以使用 `//`，但這個語法不適用於所有工具。 您無法使用 Azure CLI 來部署有內嵌註解的範本。 您無法使用入口網站範本編輯器來處理有內嵌註解的範本。 如果您新增這種樣式的註解，請務必使用支援內嵌 JSON 註解的工具。
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[parameters('location')]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  "dependsOn": [ // storage account and network interface must be deployed first
+      "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+      "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
+在 VS Code 中，您可以設定語言模式為含註解的 JSON。 內嵌註解不再被標示為無效。 若要變更模式：
+
+1. 開啟語言模式選取項目 (Ctrl+K M)
+
+1. 選取 [含註解的 JSON]。
+
+   ![選取語言模式](./media/resource-group-authoring-templates/select-json-comments.png)
+
 ## <a name="template-limits"></a>範本限制
 
 將範本大小限制為 1 MB，並將每個參數檔案限制為 64 KB。 1 MB 的限制適用於已增加反覆資源定義和變數和參數值之範本的最終狀態。 
@@ -315,4 +414,4 @@ ms.locfileid: "54102409"
 * 如需您可以在範本內使用哪些函式的詳細資料，請參閱 [Azure Resource Manager 範本函式](resource-group-template-functions.md)。
 * 若要在部署期間合併數個範本，請參閱[透過 Azure Resource Manager 使用連結的範本](resource-group-linked-templates.md)。
 * 如需建立範本的建議，請參閱 [Azure Resource Manager 範本最佳做法](template-best-practices.md)。
-* 如需對於建立可跨全域 Azure、Azure 主權雲端與 Azure Stack 使用的 Resource Manager 範本相關建議，請參閱[開發針對雲端一致性的 Azure Resource Manager 範本](templates-cloud-consistency.md)。
+* 如需對於建立可跨越全部 Azure 環境和 Azure Stack 使用的 Resource Manager 範本相關建議，請參閱[開發針對雲端一致性的 Azure Resource Manager 範本](templates-cloud-consistency.md)。

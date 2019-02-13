@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 27c074b12d2b151015e6946c483302387726dfc5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a7a34c703b9c6589679cf2035785c005f13f06cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190805"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822811"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中的工作流程定義語言的觸發程序和動作類型參考
 
@@ -148,16 +148,16 @@ ms.locfileid: "54190805"
 | <*max-runs*> | 整數  | 根據預設，邏輯應用程式工作流程執行個體會同時執行，或依據[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)以平行方式執行。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)。 | 
 | <*max-runs-queue*> | 整數  | 當邏輯應用程式所執行的執行個體已達數目上限時 (您可以根據 `runtimeConfiguration.concurrency.runs` 屬性變更此限制)，任何新的執行都會放入此佇列中 (以[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)為限)。 若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 
 | <*splitOn-expression*> | 字串 | 針對會傳回陣列的觸發程序，此運算式會參考要使用的陣列，讓您可以為每個陣列項目建立和執行工作流程執行個體，而非使用 "for each" 迴圈。 <p>例如，此運算式表示在觸發程序的主體內容中傳回的陣列項目：`@triggerbody()?['value']` |
-| <*operation-option*> | 字串 | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
+| <*operation-option*> | 字串 | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 |
 ||||
 
 *輸出*
  
 | 元素 | 類型 | 說明 |
-|---------|------|-------------| 
-| headers | JSON 物件 | 回應中的標頭 | 
-| body | JSON 物件 | 回應中的本文 | 
-| 狀態碼 | 整數  | 回應的狀態碼 | 
+|---------|------|-------------|
+| headers | JSON 物件 | 回應中的標頭 |
+| body | JSON 物件 | 回應中的本文 |
+| 狀態碼 | 整數  | 回應的狀態碼 |
 |||| 
 
 *範例*
@@ -171,7 +171,7 @@ ms.locfileid: "54190805"
       "host": {
          "connection": {
             "name": "@parameters('$connections')['office365']['connectionId']"
-         }     
+         }
       },
       "method": "get",
       "path": "/Mail/OnNewEmail",
@@ -339,7 +339,7 @@ ms.locfileid: "54190805"
   
 | Response | 必要 | 說明 | 
 |----------|----------|-------------| 
-| 狀態碼 | 是 | 「200 正常」狀態碼會啟動執行。 其他任何的狀態碼則不會啟動執行。 | 
+| 狀態碼 | yes | 「200 正常」狀態碼會啟動執行。 其他任何的狀態碼則不會啟動執行。 | 
 | Retry-after 標頭 | 否 | 邏輯應用程式再次輪詢端點前所需經過的秒數 | 
 | 位置標頭 | 否 | 在下一個輪詢間隔時所要呼叫的 URL。 如果未指定，則會使用原本的 URL。 | 
 |||| 
@@ -788,7 +788,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 | 值 | 類型 | 說明 | 
 |-------|------|-------------|
-| <*retry-behavior*> | JSON 物件 | 自訂間歇性失敗 (狀態碼為 408、429 和 5XX) 和任何連線例外狀況的重試行為。 如需詳細資訊，請參閱[重試原則](#retry-policies)。 | 
+| <*retry-behavior*> | JSON 物件 | 自訂間歇性失敗 (狀態碼為 408、429 和 5XX) 和任何連線例外狀況的重試行為。 如需詳細資訊，請參閱重試原則。 | 
 | <*runtime-config-options*> | JSON 物件 | 對於某些動作，您可以在執行階段藉由設定 `runtimeConfiguration` 屬性來變更動作的行為。 如需詳細資訊，請參閱[執行階段組態設定](#runtime-config-options)。 | 
 | <*operation-option*> | 字串 | 對於某些動作，您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
 |||| 
@@ -2557,7 +2557,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 <a name="connector-authentication"></a>
 
-## <a name="authenticate-triggers-or-actions"></a>驗證觸發程序或動作
+## <a name="authenticate-http-triggers-and-actions"></a>驗證 HTTP 觸發程序和動作
 
 HTTP 端點支援各種驗證。 您可以針對這些 HTTP 觸發程序和動作設定驗證：
 
@@ -2571,22 +2571,25 @@ HTTP 端點支援各種驗證。 您可以針對這些 HTTP 觸發程序和動�
 * [用戶端憑證驗證](#client-certificate-authentication)
 * [Azure Active Directory (Azure AD) OAuth 驗證](#azure-active-directory-oauth-authentication)
 
+> [!IMPORTANT]
+> 請務必保護您邏輯應用程式工作流程定義所處理的任何機密資訊。 必要時，請使用保護參數，並將資料編碼。 如需使用及保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
+
 <a name="basic-authentication"></a>
 
 ### <a name="basic-authentication"></a>基本驗證
 
-針對此驗證類型，您的觸發程序或動作定義可以包含具有下列屬性的 `authentication` JSON 物件：
+針對使用 Azure Active Directory 的[基本驗證](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md)，您的觸發程序或動作定義可以包含具有下表指定屬性的 `authentication` JSON 物件。 若要在執行階段存取參數值，您可以使用 `@parameters('parameterName')` 運算式 (由[工作流程定義語言](https://aka.ms/logicappsdocs)提供)。 
 
-| 屬性 | 必要 | 值 | 說明 | 
+| 屬性 | 必要 | Value | 說明 | 
 |----------|----------|-------|-------------| 
-| **type** | 是 | "Basic" | 要使用的驗證類型，在這裡是 "Basic" | 
-| **username** | 是 | "@parameters('userNameParam')" | 一個參數，會傳遞使用者名稱來驗證對目標服務端點的存取 |
-| **password** | 是 | "@parameters('passwordParam')" | 一個參數，會傳遞密碼來驗證對目標服務端點的存取 |
+| **type** | yes | "Basic" | 要使用的驗證類型，在這裡是 "Basic" | 
+| **username** | yes | "@parameters('userNameParam')" | 用來驗證存取目標服務端點的使用者名稱 |
+| **password** | yes | "@parameters('passwordParam')" | 用來驗證存取目標服務端點的密碼 |
 ||||| 
 
-例如，以下是觸發程序或動作定義中 `authentication` 物件的格式。 如需如何保護參數的詳細資訊，請參閱[保護機密資訊](#secure-info)。 
+在此 HTTP 動作定義範例中，`authentication` 區段會指定 `Basic` 驗證。 如需使用及保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
 
-```javascript
+```json
 "HTTP": {
    "type": "Http",
    "inputs": {
@@ -2601,112 +2604,85 @@ HTTP 端點支援各種驗證。 您可以針對這些 HTTP 觸發程序和動�
   "runAfter": {}
 }
 ```
+
+> [!IMPORTANT]
+> 請務必保護您邏輯應用程式工作流程定義所處理的任何機密資訊。 必要時，請使用保護參數，並將資料編碼。 如需保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
 
 <a name="client-certificate-authentication"></a>
 
 ### <a name="client-certificate-authentication"></a>用戶端憑證驗證
 
-針對此驗證類型，您的觸發程序或動作定義可以包含具有下列屬性的 `authentication` JSON 物件：
+針對使用 Azure Active Directory 的[憑證式驗證](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)，您的觸發程序或動作定義可以包含具有下表指定屬性的 `authentication` JSON 物件。 若要在執行階段存取參數值，您可以使用 `@parameters('parameterName')` 運算式 (由[工作流程定義語言](https://aka.ms/logicappsdocs)提供)。 如需了解可使用的用戶端憑證數量限制，請參閱 [Azure Logic Apps 的限制和設定](../logic-apps/logic-apps-limits-and-config.md)。
 
-| 屬性 | 必要 | 值 | 說明 | 
-|----------|----------|-------|-------------| 
-| **type** | 是 | "ClientCertificate" | 用於安全通訊端層 (SSL) 用戶端憑證的驗證類型 | 
-| **pfx** | 是 | <*base64-encoded-pfx-file*> | Base64 編碼的個人資訊交換 (PFX) 檔案內容 |
-| **password** | 是 | "@parameters('passwordParam')" | 一個參數，具有用於存取 PFX 檔案的密碼 |
+| 屬性 | 必要 | Value | 說明 |
+|----------|----------|-------|-------------|
+| **type** | yes | "ClientCertificate" | 用於安全通訊端層 (SSL) 用戶端憑證的驗證類型。 雖支援自我簽署憑證，但不支援 SSL 自我簽署憑證。 |
+| **pfx** | yes | "@parameters('pfxParam') | Base64 編碼的個人資訊交換 (PFX) 檔案內容 |
+| **password** | yes | "@parameters('passwordParam')" | 用於存取 PFX 檔案的密碼 |
 ||||| 
 
-例如，以下是觸發程序或動作定義中 `authentication` 物件的格式。 如需如何保護參數的詳細資訊，請參閱[保護機密資訊](#secure-info)。 
+在此 HTTP 動作定義範例中，`authentication` 區段會指定 `ClientCertificate` 驗證。 如需使用及保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
 
-```javascript
-"authentication": {
-   "password": "@parameters('passwordParam')",
-   "pfx": "aGVsbG8g...d29ybGQ=",
-   "type": "ClientCertificate"
-}
-```
-
-<a name="azure-active-directory-oauth-authentication"></a>
-
-### <a name="azure-active-directory-ad-oauth-authentication"></a>Azure Active Directory (AD) OAuth 驗證
-
-針對此驗證類型，您的觸發程序或動作定義可以包含具有下列屬性的 `authentication` JSON 物件：
-
-| 屬性 | 必要 | 值 | 說明 | 
-|----------|----------|-------|-------------| 
-| **type** | 是 | `ActiveDirectoryOAuth` | 要使用的驗證類型，針對 Azure AD OAuth 是 "ActiveDirectoryOAuth" | 
-| **authority** | 否 | <*URL-for-authority-token-issuer*> | 提供驗證權杖的授權單位 URL |  
-| **tenant** | 是 | <*tenant-ID*> | Azure AD 租用戶的租用戶識別碼 | 
-| **audience** | 是 | <*resource-to-authorize*> | 您希望授權使用的資源，例如，`https://management.core.windows.net/` | 
-| **clientId** | 是 | <*client-ID*> | 要求授權的應用程式用戶端識別碼 | 
-| **credentialType** | 是 | "Secret" 或 "Certificate" | 用戶端用來要求授權的認證類型。 此屬性與值不會出現在您的基礎定義中，但是會決定認證類型的必要參數。 | 
-| **password** | 是，僅適用於 "Certificate" 認證類型 | "@parameters('passwordParam')" | 一個參數，具有用於存取 PFX 檔案的密碼 | 
-| **pfx** | 是，僅適用於 "Certificate" 認證類型 | <*base64-encoded-pfx-file*> | Base64 編碼的個人資訊交換 (PFX) 檔案內容 |
-| **secret** | 是，僅適用於 "Secret" 認證類型 | <*secret-for-authentication*> | Base64 編碼的祕密，供用戶端用於要求授權 |
-||||| 
-
-例如，當您的觸發程序或動作定義使用「祕密」認證類型時，`authentication` 物件的格式如下：如需如何保護參數的詳細資訊，請參閱[保護機密資訊](#secure-info)。 
-
-```javascript
-"authentication": {
-   "audience": "https://management.core.windows.net/",
-   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
-   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-   "type": "ActiveDirectoryOAuth"
-}
-```
-
-<a name="secure-info"></a>
-
-## <a name="secure-sensitive-information"></a>保護機密資訊
-
-若要在觸發程序和動作定義中，保護您用於驗證的機密資訊 (例如使用者名稱或密碼)，您可以使用參數和 `@parameters()` 運算式，讓這項資訊在您儲存邏輯應用程式之後無法顯示。 
-
-例如，假設您在觸發程序或動作定義中使用 "Basic" 驗證。 以下是範例 `authentication` 物件，會指定使用者名稱和密碼：
-
-```javascript
+```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "GET",
       "uri": "http://www.microsoft.com",
       "authentication": {
-         "type": "Basic",
-         "username": "@parameters('userNameParam')",
+         "type": "ClientCertificate",
+         "pfx": "@parameters('pfxParam')",
          "password": "@parameters('passwordParam')"
       }
-  },
-  "runAfter": {}
+   },
+   "runAfter": {}
 }
 ```
 
-在邏輯應用程式定義的 `parameters` 區段中，定義您在觸發程序或動作定義中使用的參數：
+> [!IMPORTANT]
+> 請務必保護您邏輯應用程式工作流程定義所處理的任何機密資訊。 必要時，請使用保護參數，並將資料編碼。 如需保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
 
-```javascript
-"definition": {
-   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-   "actions": {
-      "HTTP": {
-      }
+<a name="azure-active-directory-oauth-authentication"></a>
+
+### <a name="azure-active-directory-ad-oauth-authentication"></a>Azure Active Directory (AD) OAuth 驗證
+
+針對 [Azure AD OAuth 驗證](../active-directory/develop/authentication-scenarios.md)，您的觸發程序或動作定義可以包含具有下表指定屬性的 `authentication` JSON 物件。 若要在執行階段存取參數值，您可以使用 `@parameters('parameterName')` 運算式 (由[工作流程定義語言](https://aka.ms/logicappsdocs)提供)。
+
+| 屬性 | 必要 | Value | 說明 |
+|----------|----------|-------|-------------|
+| **type** | yes | `ActiveDirectoryOAuth` | 要使用的驗證類型，針對 Azure AD OAuth 是 "ActiveDirectoryOAuth" |
+| **authority** | 否 | <*URL-for-authority-token-issuer*> | 提供驗證權杖的授權單位 URL |
+| **tenant** | yes | <*tenant-ID*> | Azure AD 租用戶的租用戶識別碼 |
+| **audience** | yes | <*resource-to-authorize*> | 您希望用於授權的資源，例如，`https://management.core.windows.net/` |
+| **clientId** | yes | <*client-ID*> | 要求授權的應用程式用戶端識別碼 |
+| **credentialType** | yes | "Certificate" 或 "Secret" | 用戶端用來要求授權的認證類型。 此屬性與值不會出現在您的基礎定義中，但是會決定認證類型的必要參數。 |
+| **pfx** | 是，僅適用於 "Certificate" 認證類型 | "@parameters('pfxParam') | Base64 編碼的個人資訊交換 (PFX) 檔案內容 |
+| **password** | 是，僅適用於 "Certificate" 認證類型 | "@parameters('passwordParam')" | 用於存取 PFX 檔案的密碼 |
+| **secret** | 是，僅適用於 "Secret" 認證類型 | "@parameters('secretParam')" | 要求授權用的用戶端密碼 |
+|||||
+
+在此 HTTP 動作定義範例中，`authentication` 區段會指定 `ActiveDirectoryOAuth` 驗證和 "Secret" 認證類型。 如需使用及保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
+
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "ActiveDirectoryOAuth",
+         "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+         "audience": "https://management.core.windows.net/",
+         "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+         "secret": "@parameters('secretParam')"
+     }
    },
-   "parameters": {
-      "passwordParam": {
-         "type": "securestring"
-      },
-      "userNameParam": {
-         "type": "securestring"
-      }
-   },
-   "triggers": {
-      "HTTP": {
-      }
-   },
-   "contentVersion": "1.0.0.0",
-   "outputs": {}
-},
+   "runAfter": {}
+}
 ```
 
-如果您是建立或使用 Azure Resource Manager 部署範本，也必須包含範本定義的外部 `parameters` 區段。 如需保護參數的詳細資訊，請參閱[保護對邏輯應用程式的存取](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。 
+> [!IMPORTANT]
+> 請務必保護您邏輯應用程式工作流程定義所處理的任何機密資訊。 必要時，請使用保護參數，並將資料編碼。 如需保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
 
 ## <a name="next-steps"></a>後續步驟
 
