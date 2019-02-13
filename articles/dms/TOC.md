@@ -15,6 +15,7 @@
 ## [將 MySQL 遷移至適用於線上 MySQL 的 Azure DB](tutorial-mysql-azure-mysql-online.md)
 ## [將PostgreSQL 遷移至適用於線上 PostgreSQL 的 Azure DB](tutorial-postgresql-azure-postgresql-online.md)
 ## [將 MongoDB 離線遷移至 Azure Cosmos DB Mongo API ](tutorial-mongodb-cosmos-db.md)
+## [將 MongoDB 線上遷移至 Azure Cosmos DB Mongo API](tutorial-mongodb-cosmos-db-online.md)
 
 # 使用說明指南
 ## [使用 PowerShell 將 SQL Server 遷移至 Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)

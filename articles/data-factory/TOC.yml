@@ -117,6 +117,28 @@ items:
     href: concepts-pipeline-execution-triggers.md
   - name: 整合執行階段
     href: concepts-integration-runtime.md
+  - name: 對應資料流程
+    items:
+    - name: 對應資料流程概念
+      href: concepts-data-flow-overview.md
+    - name: 偵錯模式
+      href: concepts-data-flow-debug-mode.md
+    - name: 結構描述漂移
+      href: concepts-data-flow-schema-drift.md
+    - name: 檢查窗格
+      href: concepts-data-flow-inspect-pane.md
+    - name: 資料行模式
+      href: concepts-data-flow-column-pattern.md
+    - name: 資料流程監視
+      href: concepts-data-flow-monitoring.md
+    - name: 移動節點
+      href: concepts-data-flow-move-nodes.md
+    - name: 最佳化索引標籤
+      href: concepts-data-flow-optimize-tab.md
+    - name: 運算式產生器
+      href: concepts-data-flow-expression-builder.md
+    - name: 參考節點
+      href: concepts-data-flow-reference-node.md
   - name: 角色和權限
     href: concepts-roles-permissions.md
   - name: 了解定價
@@ -506,9 +528,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: 支援選項
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: c73a736dadee91f344da32fb5569d5809a382f1b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 535abc50cd27693da90aaaddcfdf8950d6abc59d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960236"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56174413"

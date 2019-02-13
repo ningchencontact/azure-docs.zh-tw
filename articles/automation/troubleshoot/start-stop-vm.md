@@ -1,0 +1,171 @@
+---
+title: 針對使用 Azure 自動化啟動及停止 VM 進行疑難排解
+description: 本文提供針對使用 Azure 自動化啟動及停止 VM 進行疑難排解的資訊
+services: automation
+ms.service: automation
+ms.subservice: process-automation
+author: georgewallace
+ms.author: gwallace
+ms.date: 01/30/2019
+ms.topic: conceptual
+manager: carmonm
+ms.openlocfilehash: ef2a782a19dd319de346f14d6189759d0a26686c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55665769"
+---
+# <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>疑難排解停機期間啟動/停止 VM 解決方案
+
+## <a name="all-vms-fail-to-startstop"></a>案例：所有 VM 無法啟動/停止
+
+### <a name="issue"></a>問題
+
+您已設定啟動/停止 VM 解決方案，但它不會啟動或停止所有已設定的 VM。
+
+### <a name="cause"></a>原因
+
+這個錯誤可能是下列其中一項原因所造成：
+
+1. 未正確設定排程
+2. 可能未正確設定執行身分帳戶
+3. Runbook 可能遇到錯誤
+4. 可能已排除 VM
+
+### <a name="resolution"></a>解決方案
+
+請檢閱下列清單，以取得您的問題或搜尋的地方的潛在解決方案：
+
+* 請檢查您是否已正確設定啟動/停止 VM 解決方案的排程。 若要了解如何設定排程，請參閱[排程](../automation-schedules.md)一文。
+
+* 檢查 Runbook 的作業資料流以尋找任何錯誤。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化] 下選取 [作業]。 從 [作業] 頁面，尋找下列其中一個 Runbook 中的作業：
+
+  * AutoStop_CreateAlert_Child
+  * AutoStop_CreateAlert_Parent
+  * AutoStop_Disable
+  * AutoStop_VM_Child
+  * ScheduledStartStop_Base_Classic
+  * ScheduledStartStop_Child_Classic
+  * ScheduledStartStop_Child
+  * ScheduledStartStop_Parent
+  * SequencedStartStop_Parent
+
+* 驗證您的[執行身分帳戶](../manage-runas-account.md)是否具有您嘗試啟動或停止的 VM 的適當權限。 若要了解如何檢查資源的權限，請參閱[快速入門：使用 Azure 入口網站來檢視指派給使用者的角色](../../role-based-access-control/check-access.md)。 您需要為執行身分帳戶使用的服務主體提供應用程式識別碼。 您可以透過移至 Azure 入口網站中的 [自動化帳戶]，在 [帳戶設定] 下選取 [執行身分帳戶]，然後按一下適當的執行身分帳戶來擷取此值。
+
+* 如果明確地排除 VM，則可能無法啟動或停止它們。 已排除部署解決方案之自動化帳戶中 **External_ExcludeVMNames** 變數中設定的 VM。 下列範例示範如何使用 PowerShell 查詢該值。
+
+  ```powershell-interactive
+  Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
+  ```
+
+## <a name="some-vms-fail-to-startstop"></a>案例：我的部分虛擬機器無法啟動或停止
+
+### <a name="issue"></a>問題
+
+您已設定啟動/停止 VM 解決方案，但它不會啟動或停止部分已設定的 VM。
+
+### <a name="cause"></a>原因
+
+這個錯誤可能是下列其中一項原因所造成：
+
+1. 如果使用序列案例，則標記可能遺失或不正確
+2. 可能會排除 VM
+3. 執行身分帳戶可能沒有足夠的 VM 權限
+4. VM 可以有一些項目阻止它啟動或停止
+
+### <a name="resolution"></a>解決方案
+
+請檢閱下列清單，以取得您的問題或搜尋的地方的潛在解決方案：
+
+* 在使用停機期間啟動/停止 VM 解決方案的[順序案例](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags)時，必須確保要啟動或停止的每個 VM 都具有正確的標記。 確保要啟動的 VM 具有 `sequencestart` 標記，並且要停止的 VM 具有 `sequencestop` 標記。 這兩個標記都需要正整數值。 您可以使用類似下列範例查詢來尋找包含標記和其值的所有 VM。
+
+  ```powershell-interactive
+  Get-AzureRmResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
+  ```
+
+* 如果明確地排除 VM，則可能無法啟動或停止它們。 已排除部署解決方案之自動化帳戶中 **External_ExcludeVMNames** 變數中設定的 VM。 下列範例示範如何使用 PowerShell 查詢該值。
+
+  ```powershell-interactive
+  Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
+  ```
+
+* 若要啟動和停止 VM，自動化帳戶的執行身分帳戶必須具有 VM 的適當權限。 若要了解如何檢查資源的權限，請參閱[快速入門：使用 Azure 入口網站來檢視指派給使用者的角色](../../role-based-access-control/check-access.md)。 您需要為執行身分帳戶使用的服務主體提供應用程式識別碼。 您可以透過移至 Azure 入口網站中的 [自動化帳戶]，在 [帳戶設定] 下選取 [執行身分帳戶]，然後按一下適當的執行身分帳戶來擷取此值。
+
+* 如果 VM 在啟動或解除配置時出現問題，這種行為可能是由 VM 本身的問題引起的。 部分範例或潛在的問題是，在嘗試關閉、服務停止回應等時會套用更新。 瀏覽至您的 VM 資源並檢查**活動記錄**，以查看記錄檔中是否有任何錯誤。 您還可以嘗試登入 VM，以查看事件記錄檔中是否有任何錯誤。
+
+## <a name="custom-runbook"></a>案例：我的自訂 Runbook 無法啟動或停止我的 VM
+
+### <a name="issue"></a>問題
+
+您已撰寫自訂 Runbook 或從 PowerShell 資源庫中下載了一個，但它無法正常運作。
+
+### <a name="cause"></a>原因
+
+失敗的原因可能是許多項目其中一個。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化] 下選取 [作業]。 從 [作業] 頁面上，查看 Runbook 中的作業以檢視任何作業失敗。
+
+### <a name="resolution"></a>解決方案
+
+建議使用[停機期間啟動/停止 VM 解決方案](../automation-solution-vm-management.md)來啟動和停止 Azure 自動化中的 VM。 此解決方案是由 Microsoft 所撰寫。 Microsoft 不支援自訂的 Runbook。 您可以透過造訪 [Runbook 疑難排解](runbooks.md)文章找到自訂 Runbook 的解決方案。 本文提供了所有類型 Runbook 的一般指引和疑難排解。
+
+## <a name="dont-start-stop-in-sequence"></a>案例：VM 無法以正確的順序啟動或停止
+
+### <a name="issue"></a>問題
+
+您在解決方案中設定的 VM 無法以正確的順序啟動或停止。
+
+### <a name="cause"></a>原因
+
+這是由 VM 上不正確的標記引起的。
+
+### <a name="resolution"></a>解決方案
+
+請執行下列步驟以確保已正確設定解決方案。
+
+1. 請確定要啟動或停止的所有 VM 都具有 `sequencestart` 或 `sequencestop` 標記，具體取決於您的情況。 這些標記的值必須是正整數。 VM 會根據此值，以遞增的順序處理。
+2. 請確定要啟動或停止的 VM 的資源群組位於 `External_Start_ResourceGroupNames` 或 `External_Stop_ResourceGroupNames` 變數中，具體取決於您的情況。
+3. 透過在 WHATIF 參數設為 True 的情況下執行 `SequencedStartStop_Parent` Runbook來測試變更，以預覽您所做的變更。
+
+如需如何使用解決方案按順序啟動和停止 VM 的詳細資訊和其他說明，請參閱[按順序啟動及停止 VM](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags)。
+
+## <a name="403"></a>案例：403 禁止狀態，啟動/停止 VM 作業失敗 
+
+### <a name="issue"></a>問題
+
+您可以在停機期間啟動/停止 VM 解決方案 Runbook 中找到因出現 `403 forbidden` 錯誤而失敗的作業。
+
+### <a name="cause"></a>原因
+
+此問題可能是由未正確設定或已過期的執行身分帳戶所引起。 這也可能是因為自動化帳戶的執行身分帳戶對 VM 資源的權限不足。
+
+### <a name="resolution"></a>解決方案
+
+若要檢查您的執行身分帳戶是否已正確設定，請移至 Azure 入口網站中的 [自動化帳戶]，然後在 [帳戶設定] 下選取 [執行身分帳戶]。 這裡您會看到執行身分帳戶的狀態，如果執行身分帳戶設定不正確或已過期，狀態將會顯示。
+
+如果您的執行身分帳戶[設定錯誤](../manage-runas-account.md#misconfiguration)，則應刪除並重新建立執行身分帳戶。
+
+如果執行身分帳戶的憑證已過期，請遵循[自我簽署憑證](../manage-runas-account.md#cert-renewal)中所列的步驟來更新憑證。
+
+該問題可能是由於缺少權限所引起。 若要了解如何檢查資源的權限，請參閱[快速入門：使用 Azure 入口網站來檢視指派給使用者的角色](../../role-based-access-control/check-access.md)。 您需要為執行身分帳戶使用的服務主體提供應用程式識別碼。 您可以透過移至 Azure 入口網站中的 [自動化帳戶]，在 [帳戶設定] 下選取 [執行身分帳戶]，然後按一下適當的執行身分帳戶來擷取此值。
+
+## <a name="other"></a>案例：並未列出我的問題
+
+### <a name="issue"></a>問題
+
+當使用停機期間啟動/停止 VM 解決方案時，您遇到此頁面未列出的問題或意外結果。
+
+### <a name="cause"></a>原因
+
+很多時候，使用舊的和過時的解決方案可能會導致錯誤。
+
+### <a name="resolution"></a>解決方案
+
+若要解決許多錯誤，建議移除並更新解決方案。 若要了解如何更新解決方案，請參閱[更新停機期間啟動/停止 VM 解決方案](../automation-solution-vm-management.md#update-the-solution)。
+
+## <a name="next-steps"></a>後續步驟
+
+如果您沒有看到您的問題，或無法解決您的問題，請瀏覽下列其中一個管道以取得更多支援：
+
+* 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
+* 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
+* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。

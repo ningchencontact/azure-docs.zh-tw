@@ -463,8 +463,12 @@ items:
     href: how-to-manage-database-account.md
   - name: 全球發佈
     items:
+    - name: 設定多重主機
+      href: how-to-multi-master.md
     - name: 管理一致性層級
       href: how-to-manage-consistency.md
+    - name: 實作自訂同步處理
+      href: how-to-custom-synchronization.md
     - name: 設定衝突解決原則
       href: how-to-manage-conflicts.md
   - name: 佈建的輸送量
@@ -595,10 +599,10 @@ items:
     items:
     - name: 關於大量執行程式程式庫
       href: bulk-executor-overview.md
-- name: 疑難排解指南
-  items:
-  - name: 針對 Java 非同步 SDK 進行疑難排解
-    href: troubleshoot-java-async-sdk.md
+  - name: 疑難排解
+    items:
+    - name: 針對 Java 非同步 SDK 進行疑難排解
+      href: troubleshoot-java-async-sdk.md
 - name: 資源
   items:
   - name: 透過 Microsoft Learn 增進您的技巧
@@ -627,9 +631,9 @@ items:
       href: use-cases.md
     - name: 社交媒體應用程式
       href: social-media-apps.md
-ms.openlocfilehash: da87cea310f5bda952cfa014d7b45e23e555efcf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 72a6dced29f09379453d0e33131f78e875b2c9f2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746178"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163491"
